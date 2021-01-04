@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 2/14/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 74211df6f925aaa09a4c87a518056e8ef3206b87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f7ddf94bbd077912cf0d7c2adef2eac548274ca
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078400"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532277"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Beispiele zu PowerShell in Azure Monitor
 In diesem Artikel werden PowerShell-Beispielbefehle beschrieben, mit denen Sie auf Azure Monitor-Features zugreifen können.
@@ -94,13 +94,13 @@ Get-AzLog -Caller 'myname@company.com'
 Der folgende Befehl ruft die letzten 1.000 Ereignisse aus dem Aktivitätsprotokoll ab:
 
 ```powershell
-Get-AzLog -MaxRecord 10
+Get-AzLog -MaxRecord 1000
 ```
 
 `Get-AzLog` unterstützt viele weitere Parameter. Weitere Informationen finden Sie in der `Get-AzLog` -Referenz.
 
 > [!NOTE]
-> `Get-AzLog` stellt nur den Verlauf für 15 Tage bereit. Mithilfe des Parameters **-MaxRecords** können Sie die letzten N Ereignisse für mehr als 15 Tage abfragen. Verwenden Sie für den Zugriff auf Ereignisse, die älter als 15 Tage sind, die REST-API oder das SDK (C#-Beispiel mit dem SDK). Wenn Sie **StartTime** nicht angeben, ist der Standardwert **EndTime** minus 1 Stunde. Wenn Sie **EndTime**nicht angeben, ist der Standardwert die aktuelle Zeit. Alle Zeitangaben sind in UTC.
+> `Get-AzLog` stellt nur den Verlauf für 15 Tage bereit. Mithilfe des Parameters **-MaxRecords** können Sie die letzten N Ereignisse für mehr als 15 Tage abfragen. Verwenden Sie für den Zugriff auf Ereignisse, die älter als 15 Tage sind, die REST-API oder das SDK (C#-Beispiel mit dem SDK). Wenn Sie **StartTime** nicht angeben, ist der Standardwert **EndTime** minus 1 Stunde. Wenn Sie **EndTime** nicht angeben, ist der Standardwert die aktuelle Zeit. Alle Zeitangaben sind in UTC.
 > 
 > 
 
@@ -155,7 +155,7 @@ In der folgenden Tabelle werden die Parameter und Werte beschrieben, die zum Ers
 | Standort für diese Warnungsregel |East US |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| „MetricName“ für die Warnung, die erstellt wird |\PhysicalDisk(_Total)\Disk Writes/sec. See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |
+| „MetricName“ für die Warnung, die erstellt wird |\PhysicalDisk(_Total)\Schreibvorgänge/s. Unter den Informationen zum Cmdlet `Get-MetricDefinitions` finden Sie Details dazu, wie Sie die genauen Metriknamen abrufen. |
 | Operator |GreaterThan |
 | Schwellenwert (Anzahl/s für diese Metrik) |1 |
 | WindowSize (Format: hh:mm:ss) |00:05:00 |

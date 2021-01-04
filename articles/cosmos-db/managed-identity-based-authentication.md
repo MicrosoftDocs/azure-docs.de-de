@@ -3,19 +3,21 @@ title: 'Gewusst wie: Verwenden der systemseitig zugewiesenen verwalteten Identit
 description: Hier erfahren Sie, wie Sie eine vom System zugewiesene verwaltete Azure Active Directory (Azure AD)-Identität (verwaltete Dienstidentität) für den Zugriff auf Schlüssel aus Azure Cosmos DB konfigurieren.
 author: j-patrick
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 07bfaabf051a016ca9617245ba8628ef6c7e80c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfef6ce0fb38f074f854d5ceb77677843e44b91b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566617"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345728"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Verwenden von systemseitig zugewiesenen verwalteten Identitäten für den Zugriff auf Azure Cosmos DB-Daten
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In diesem Artikel richten Sie eine *robuste, schlüsselrotationsunabhängige* Lösung für den Zugriff auf Azure Cosmos DB-Schlüssel durch Verwendung [verwalteter Identitäten](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) ein. Im Beispiel in diesem Artikel wird Azure Functions verwendet, aber Sie können jeden beliebigen Dienst verwenden, der verwaltete Identitäten unterstützt. 
 
@@ -35,7 +37,7 @@ In diesem Schritt weisen Sie Ihrer Funktions-App eine vom System zugewiesene ver
 
 1. Legen Sie auf der Registerkarte **Identität** den **Status** der Systemidentität auf **Ein** fest, und wählen Sie **Speichern** aus. Der Bereich **Identität** sollte so aussehen:  
 
-   :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="Screenshot von Plattformfeatures und Identitätsoptionen für die Funktions-App.":::
+   :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="Screenshot, auf dem der „Status“ der Systemidentität auf „Ein“ festgelegt ist.":::
 
 ## <a name="grant-access-to-your-azure-cosmos-account"></a>Gewähren des Zugriffs auf Ihr Azure Cosmos-Konto
 
@@ -58,19 +60,19 @@ In diesem Szenario liest die Funktions-App die Temperatur des Aquariums und schr
 
 1. Melden Sie sich beim Azure-Portal an, und wechseln Sie zu Ihrem Azure Cosmos DB-Konto. Öffnen Sie den Bereich **Zugriffssteuerung (IAM)** und dann die Registerkarte **Rollenzuweisungen**:
 
-   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Screenshot von Plattformfeatures und Identitätsoptionen für die Funktions-App.":::
+   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Screenshot des Bereichs „Zugriffssteuerung“ und der Registerkarte „Rollenzuweisungen“.":::
 
 1. Wählen Sie **+Hinzufügen** > **Rollenzuweisung hinzufügen** aus.
 
 1. Rechts wird der Bereich **Rollenzuweisung hinzufügen** geöffnet:
 
-   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Screenshot von Plattformfeatures und Identitätsoptionen für die Funktions-App.":::
+   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Screenshot des Bereichs „Rollenzuweisung hinzufügen“.":::
 
    * **Rolle**: Wählen Sie **DocumentDB-Kontomitwirkender** aus.
    * **Zugriff zuweisen zu**: Wählen Sie im Unterabschnitt **Systemseitig zugewiesene verwaltete Identität** die Option **Funktions-App** aus.
    * **Select**: Im Bereich werden alle Funktions-Apps in Ihrem Abonnement eingetragen, die über eine **verwaltete Systemidentität** verfügen. Wählen Sie in diesem Fall die Funktions-App **FishTankTemperatureService** aus: 
 
-      :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Screenshot von Plattformfeatures und Identitätsoptionen für die Funktions-App.":::
+      :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Screenshot des Bereichs „Rollenzuweisung hinzufügen“ mit Beispielen.":::
 
 1. Nachdem Sie Ihre Funktions-App ausgewählt haben, wählen Sie **Speichern** aus.
 
@@ -212,7 +214,7 @@ namespace Monitor
 }
 ```
 
-Jetzt können Sie [Ihre Funktions-App bereitstellen](../azure-functions/functions-create-first-function-vs-code.md).
+Jetzt können Sie [Ihre Funktions-App bereitstellen](../azure-functions/create-first-function-vs-code-csharp.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -3,18 +3,20 @@ title: Verwalten von Indizierungsrichtlinien in Azure Cosmos DB
 description: Hier erfahren Sie, wie Sie Indizierungsrichtlinien verwalten, eine Eigenschaft in die Indizierung aufnehmen oder davon ausschließen und die Indizierung mithilfe verschiedener Azure Cosmos DB SDKs definieren.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 11/02/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 67d542ffe0279abe72bc74ab207cd5fddd1a4362
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: cd51210a64223fab5d2d48a91bd3d0a6521a9627
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491035"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341313"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Verwalten von Indizierungsrichtlinien in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In Azure Cosmos DB werden Daten gemäß [Indizierungsrichtlinien](index-policy.md) indiziert, die für jeden Container definiert sind. Die standardmäßige Indizierungsrichtlinie für neu erstellte Container erzwingt Bereichsindizes für jede Zeichenfolge oder Zahl. Diese Richtlinie kann mit ihrer eigenen benutzerdefinierten Indizierungsrichtlinie überschrieben werden.
 
@@ -46,7 +48,7 @@ Hier sehen Sie einige Beispiele für Indizierungsrichtlinien im [JSON-Format](in
     }
 ```
 
-Diese Indizierungsrichtlinie entspricht der unten gezeigten Indizierungsrichtlinie, mit der ```kind```, ```dataType``` und ```precision``` manuell auf die jeweiligen Standardwerte festgelegt werden. Diese Eigenschaften müssen nicht mehr explizit festgelegt werden, und Sie können Sie vollständig in der Indizierungsrichtlinie auslassen (wie im Beispiel oben gezeigt).
+Diese Indizierungsrichtlinie entspricht der unten gezeigten Indizierungsrichtlinie, mit der ```kind```, ```dataType``` und ```precision``` manuell auf die jeweiligen Standardwerte festgelegt werden. Diese Eigenschaften müssen nicht mehr explizit festgelegt werden, und Sie sollten sie in der Indizierungsrichtlinie vollständig auslassen (wie im Beispiel oben gezeigt).
 
 ```json
     {
@@ -100,7 +102,7 @@ Diese Indizierungsrichtlinie entspricht der unten gezeigten Indizierungsrichtlin
     }
 ```
 
-Diese Indizierungsrichtlinie entspricht der unten gezeigten Indizierungsrichtlinie, mit der ```kind```, ```dataType``` und ```precision``` manuell auf die jeweiligen Standardwerte festgelegt werden. Diese Eigenschaften müssen nicht mehr explizit festgelegt werden, und Sie können Sie vollständig in der Indizierungsrichtlinie auslassen (wie im Beispiel oben gezeigt).
+Diese Indizierungsrichtlinie entspricht der unten gezeigten Indizierungsrichtlinie, mit der ```kind```, ```dataType``` und ```precision``` manuell auf die jeweiligen Standardwerte festgelegt werden. Diese Eigenschaften müssen nicht mehr explizit festgelegt werden, und Sie sollten sie in der Indizierungsrichtlinie vollständig auslassen (wie im Beispiel oben gezeigt).
 
 ```json
     {
@@ -142,7 +144,7 @@ Diese Indizierungsrichtlinie entspricht der unten gezeigten Indizierungsrichtlin
 ```
 
 > [!NOTE]
-> Allgemein wird die Verwendung einer Indizierungsrichtlinie zur **Deaktivierung** zu verwenden, damit Azure Cosmos DB neue Eigenschaften, die Ihrem Modell hinzugefügt werden, proaktiv indizieren kann.
+> Allgemein wird die Verwendung einer Indizierungsrichtlinie zur **Deaktivierung** empfohlen, damit Azure Cosmos DB neue Eigenschaften, die Ihrem Datenmodell hinzugefügt werden, proaktiv indizieren kann.
 
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Verwenden eines räumlichen Index nur für einen bestimmten Eigenschaftspfad
 
@@ -176,7 +178,7 @@ Diese Indizierungsrichtlinie entspricht der unten gezeigten Indizierungsrichtlin
 
 ## <a name="composite-indexing-policy-examples"></a>Zusammengesetzte Indizierung – Richtlinienbeispiele
 
-Über das Einschließen oder Ausschließen von Pfaden für einzelne Eigenschaften hinaus können Sie auch einen zusammengesetzten Index angeben. Wenn Sie eine Abfrage für ausführen möchten, die eine `ORDER BY`-Klausel für mehrere Eigenschaften aufweist, ist ein [zusammengesetzter Index](index-policy.md#composite-indexes) für diese Eigenschaften erforderlich. Außerdem bedeuten zusammengesetzte Indizes einen Leistungsvorteil für Abfragen, die über einen Filter und über eine ORDER BY-Klausel für verschiedene Eigenschaften verfügen.
+Über das Einschließen oder Ausschließen von Pfaden für einzelne Eigenschaften hinaus können Sie auch einen zusammengesetzten Index angeben. Wenn Sie eine Abfrage für ausführen möchten, die eine `ORDER BY`-Klausel für mehrere Eigenschaften aufweist, ist ein [zusammengesetzter Index](index-policy.md#composite-indexes) für diese Eigenschaften erforderlich. Außerdem bedeuten zusammengesetzte Indizes einen Leistungsvorteil für Abfragen, die über mehrere Filter oder sowohl über einen Filter als auch eine ORDER BY-Klausel verfügen.
 
 > [!NOTE]
 > Zusammengesetzte Pfade weisen die implizite Angabe `/?` auf, weil nur der Skalarwert unter diesem Pfad indiziert wird. Der Platzhalter `/*` wird in zusammengesetzten Pfaden nicht unterstützt. Sie sollten in einem zusammengesetzten Pfad weder `/?` noch `/*` angeben.
@@ -313,7 +315,7 @@ Die Angabe der Reihenfolge ist optional. Ohne Angabe ist die Reihenfolge aufstei
 
 ### <a name="excluding-all-property-paths-but-keeping-indexing-active"></a>Ausschließen aller Eigenschaftspfade aber Aktivhalten der Indizierung
 
-Diese Richtlinie kann in Situationen verwendet werden, in denen das [Feature „Gültigkeitsdauer“ (Time-to-Live, TTL)](time-to-live.md) aktiv ist, aber kein Sekundärindex erforderlich ist (um Azure Cosmos DB als reinen Schlüsselwertspeicher zu verwenden).
+Diese Richtlinie kann in Situationen verwendet werden, in denen das [Feature „Gültigkeitsdauer“ (Time-to-Live, TTL)](time-to-live.md) aktiv ist, aber keine zusätzlichen Indizes erforderlich sind (um Azure Cosmos DB als reinen Schlüsselwertspeicher zu verwenden).
 
 ```json
     {
@@ -359,11 +361,11 @@ Azure Cosmos-Container speichern ihre Indizierungsrichtlinie als ein JSON-Dokume
 
 1. Öffnen Sie den Bereich **Daten-Explorer** , und wählen Sie den gewünschten Container aus.
 
-1. Klicken Sie auf **Skalierung und Einstellungen** .
+1. Klicken Sie auf **Skalierung und Einstellungen**.
 
 1. Ändern Sie das JSON-Dokument der Indizierungsrichtlinie (siehe [folgende](#indexing-policy-examples) Beispiele).
 
-1. Wenn Sie fertig sind, klicken Sie auf **Speichern** .
+1. Wenn Sie fertig sind, klicken Sie auf **Speichern**.
 
 :::image type="content" source="./media/how-to-manage-indexing-policy/indexing-policy-portal.png" alt-text="Verwalten der Indizierung über das Azure-Portal":::
 

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: cavoeg
-ms.openlocfilehash: 609bd01e8dcb0e9202d1d9dbe1d1fc1a01cac550
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9a4c331d82695aecb53990fd604ade82f3361959
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368280"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452923"
 ---
 # <a name="features"></a>Features
 
@@ -100,9 +100,9 @@ Es werden alle Suchparametertypen unterstützt.
 |-------------------------|-----------|-----------|-----------|---------|
 | `_sort`                 | Partial        | Teilweise   | Teilweise        |   `_sort=_lastUpdated` wird unterstützt       |
 | `_count`                | Ja       | Ja       | Ja       | `_count` ist auf 100 Zeichen beschränkt. Wenn er auf einen höheren Wert als 100 festgelegt ist, werden nur 100 zurückgegeben, und im Paket wird eine Warnung zurückgegeben. |
-| `_include`              | Nein        | Ja       | Nein        |         |
-| `_revinclude`           | Nein        | Ja       | Nein        | Enthaltene Elemente sind auf 100 beschränkt. |
-| `_summary`              | Partial   | Teilweise   | Teilweise   | `_summary=count` wird unterstützt |
+| `_include`              | Ja       | Ja       | Ja       |Enthaltene Elemente sind auf 100 beschränkt. Einschließen in PaaS und OSS in Cosmos DB umfasst keine Unterstützung von :iterate.|
+| `_revinclude`           | Ja       | Ja       | Ja       | Enthaltene Elemente sind auf 100 beschränkt. Einschließen in PaaS und OSS in Cosmos DB umfasst keine Unterstützung von :iterate.|
+| `_summary`              | Partial   | Partial   | Partial   | `_summary=count` wird unterstützt |
 | `_total`                | Partial   | Partial   | Partial   | _total=non und _total=accurate      |
 | `_elements`             | Ja       | Ja       | Ja       |         |
 | `_contained`            | Nein        | Nein        | Nein        |         |
@@ -132,6 +132,27 @@ Cosmos DB ist eine global verteilte Datenbank, die mehrere Modelle (SQL-API, Mon
 Der FHIR-Server verwendet [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) für die Zugriffssteuerung. Insbesondere wird die rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC) erzwungen, wenn der Konfigurationsparameter `FhirServer:Security:Enabled` auf `true` festgelegt ist, und bei allen Anforderungen (außer `/metadata`) an den FHIR-Server muss der Anforderungsheader `Authorization` auf `Bearer <TOKEN>` festgelegt sein. Das Token muss eine oder mehrere Rollen gemäß der Definition im `roles`-Anspruch enthalten. Eine Anforderung ist zulässig, wenn der Token eine Rolle enthält, die die angegebene Aktion für die angegebene Ressource gestattet.
 
 Derzeit werden die zulässigen Aktionen für eine bestimmte Rolle *global* auf die API angewendet.
+
+## <a name="service-limits"></a>Diensteinschränkungen
+
+* [**Anforderungseinheiten (Request Units, RUs):** ](../cosmos-db/concepts-limits.md) Sie können bis zu 10.000 RUs im Portal für Azure API for FHIR konfigurieren. Sie benötigen mindestens 400 RUs oder 10 RUs/GB (je nachdem, welcher Wert größer ist). Wenn Sie mehr als 10.000 RUs benötigen, können Sie über ein Supportticket eine Erhöhung des Werts anfordern. Maximal sind 1.000.000 RUs verfügbar.
+
+* **Gleichzeitige Verbindungen** und **Instanzen**: Standardmäßig verfügen Sie über fünf gleichzeitige Verbindungen auf zwei Instanzen im Cluster (und somit insgesamt 10 gleichzeitige Anforderungen). Wenn Sie weitere gleichzeitige Anforderungen benötigen, öffnen Sie ein Supportticket mit Details zu Ihren Anforderungen.
+
+* **Paketgröße:** Jedes Paket ist auf 500 Elemente beschränkt.
+
+* **Datengröße:** Daten/Dokumente müssen jeweils etwas kleiner als 2 MB sein.
+
+## <a name="performance-expectations"></a>Erwartung an die Leistung
+
+Die Leistung des Systems hängt von der Anzahl der RUs, den gleichzeitigen Verbindungen und der Art der ausgeführten Vorgänge ab (PUT, POST usw.). Im Folgenden finden Sie einige allgemeine Bereiche, die auf der Grundlage der konfigurierten RUs zu erwarten sind. Im Allgemeinen wird die Leistung linear mit einer Erhöhung der RUs skaliert:
+
+| Anzahl der RUs | Ressourcen/s |
+|----------|---------------|
+| 400      | 5-10          |
+| 1\.000    | 100–150       |
+| 10.000   | 225–400       |
+| 100.000  | 2\.500–4.000   |
 
 ## <a name="next-steps"></a>Nächste Schritte
 

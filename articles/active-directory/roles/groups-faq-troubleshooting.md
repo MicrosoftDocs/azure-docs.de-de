@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 08/13/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 837750d7eeef9bc7a133a54b23a0c52c847364eb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8735a0d34b9fcf5b86b6592980ffc5c7c3e3073c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373757"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861934"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Problembehandlung bei Rollen, die Cloudgruppen zugewiesen sind
 
@@ -40,8 +40,8 @@ Nachfolgend sind einige häufig gestellte Fragen und Tipps zur Problembehandlung
 
 **A:** Der Benutzer kann ein Besitzer einer Gruppe sein, der Rollen zugewiesen werden können. Besitzer von Gruppen mit Rollenzuweisung sind geschützt, um Rechteerweiterungen zu vermeiden. Hier ein Beispiel: Die Gruppe „Contoso_Security_Admins“ ist der Rolle „Sicherheitsadministrator“ zugewiesen, wobei Bob der Gruppenbesitzer und Alice die Kennwortadministratorin in der Organisation ist. Wäre dieser Schutz nicht vorhanden, könnte Alice die Anmeldeinformationen von Bob zurücksetzen und seine Identität übernehmen. Anschließend könnte Alice sich selbst oder andere Benutzer der Gruppe „Contoso_Security_Admins“ hinzufügen, um ein Sicherheitsadministrator in der Organisation zu werden. Wenn Sie herausfinden möchten, ob ein Benutzer ein Gruppenbesitzer ist, können Sie die Liste der im Besitz dieses Benutzers befindlichen Objekte abrufen und überprüfen, ob für eine der Gruppen „isAssignableToRole“ auf „true“ festgelegt ist. Wenn das der Fall ist, ist dieser Benutzer geschützt, und das Verhalten ist beabsichtigt. Informationen zum Abrufen von in Besitz befindlichen Objekten finden Sie in den folgenden Dokumentationen:
 
-- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject?view=azureadps-2.0)  
-- [Auflisten von ownedObjects](/graph/api/user-list-ownedobjects?tabs=http&view=graph-rest-1.0)
+- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject)  
+- [Auflisten von ownedObjects](/graph/api/user-list-ownedobjects?tabs=http)
 
 **F:** Kann ich eine Zugriffsüberprüfung für Gruppen erstellen, die Azure AD-Rollen zugewiesen werden können (insbesondere Gruppen, bei denen die Eigenschaft „isAssignableToRole“ auf „true“ festgelegt ist)?  
 
@@ -69,7 +69,7 @@ Benutzer | Katalogbesitzer | Nur, wenn Gruppenbesitzer | Nur, wenn Gruppenbesitz
 
 **A:** Diese Antwort trifft nur auf Azure AD Premium P1-Organisationen zu.
 
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an, und öffnen Sie **Azure Active Directory** .
+1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an, und öffnen Sie **Azure Active Directory**.
 1. Wählen Sie Benutzer aus, und öffnen Sie ein Benutzerprofil.
 1. Wählen Sie **Zugewiesene Rollen** aus.
 1. Wählen Sie das Zahnradsymbol aus. Ein Bereich wird geöffnet, der die entsprechenden Informationen enthält. Neben direkten Zuweisungen wird eine Schaltfläche „Entfernen“ angezeigt. Zum Entfernen einer indirekten Rollenzuweisung entfernen Sie den Benutzer aus der Gruppe, der die Rolle zugewiesen wurde.
@@ -78,16 +78,16 @@ Benutzer | Katalogbesitzer | Nur, wenn Gruppenbesitzer | Nur, wenn Gruppenbesitz
 
 **A:** Folgen Sie diesen Schritten:
 
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an, und öffnen Sie **Azure Active Directory** .
+1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an, und öffnen Sie **Azure Active Directory**.
 1. Wählen Sie **Gruppen** > **Alle Gruppen** aus.
 1. Wählen Sie **Filter hinzufügen** aus.
-1. Filtern Sie nach **Rolle zuweisbar** .
+1. Filtern Sie nach **Rolle zuweisbar**.
 
 **F:** Wie kann ich feststellen, welche Rollen einem Prinzipal direkt und indirekt zugewiesen sind?
 
 **A:** Folgen Sie diesen Schritten:
 
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an, und öffnen Sie **Azure Active Directory** .
+1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an, und öffnen Sie **Azure Active Directory**.
 1. Wählen Sie Benutzer aus, und öffnen Sie ein Benutzerprofil.
 1. Wählen Sie **Zugewiesene Rollen** aus, und gehen Sie dann folgendermaßen vor:
 

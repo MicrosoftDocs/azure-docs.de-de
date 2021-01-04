@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2d0e171807985deaebe8faa625d6b767c2a3efd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f02fa49b62a2e3d617617a20518810209d3879b7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86218302"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025950"
 ---
 Die folgende Konfiguration wurde für die unten stehenden Schritte verwendet:
 
@@ -41,4 +41,4 @@ Verwenden Sie den folgenden Befehl, um die Azure-Befehlszeilenschnittstelle zu i
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 ```
 
-[Weitere Anweisungen zum Installieren der Azure-Befehlszeilenschnittstelle](https://docs.microsoft.com/cli/azure/install-azure-cli-apt?view=azure-cli-latest)
+[Weitere Anweisungen zum Installieren der Azure-Befehlszeilenschnittstelle](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)

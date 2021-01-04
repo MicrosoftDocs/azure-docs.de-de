@@ -8,16 +8,16 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 2ee906b406f5fd09fc870626f1905541a4270c66
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 6a587ecbe7ff67908b22d4f2429cfdd0c511e07d
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670528"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96748772"
 ---
 # <a name="microsoft-azure-attestation-preview"></a>Microsoft Azure Attestation (Vorschau)
 
-Microsoft Azure Attestation (Vorschau) ist eine Lösung zum Nachweisen von Trusted Execution Environments (TEEs) wie [Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html)-Enclaves (SGX) und [virtualisierungsbasierte Sicherheits](/windows-hardware/design/device-experiences/oem-vbs)-Enclaves (VB). Der Nachweis von Enclaves ist ein Prozess zum Überprüfen, ob eine Enclave sicher und vertrauenswürdig ist.
+Microsoft Azure Attestation (Vorschau) ist eine einheitliche Lösung zur Remoteüberprüfung der Vertrauenswürdigkeit einer Plattform und der Integrität der darin ausgeführten Binärdateien. Der Dienst unterstützt den Nachweis der TPM-basierten (Trusted Platform Module) Plattformen sowie den Nachweis des Zustands vertrauenswürdiger Ausführungsumgebungen (Trusted Execution Environments, TEEs), wozu beispielsweise SGX-Enclaves ([Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html)) und VBS-Enclaves ([virtualisierungsbasierte Sicherheit](/windows-hardware/design/device-experiences/oem-vbs)) zählen. 
 
 Der Nachweis ist ein Prozess, um zu veranschaulichen, dass Softwarebinärdateien auf einer vertrauenswürdigen Plattform ordnungsgemäß instanziiert wurden. Vertrauende Remoteseiten können dann sicher sein, dass nur die vorgesehene Software auf vertrauenswürdiger Hardware ausgeführt wird. Azure Attestation ist ein einheitlicher Service für die Kunden und ein Framework für den Nachweis.
 
@@ -34,12 +34,6 @@ Azure Attestation bietet umfassende Nachweisdienste für mehrere Umgebungen und 
 SGX bietet Isolation für Hardware, die auf bestimmten Intel CPUs-Modellen unterstützt wird. SGX ermöglicht das Ausführen von Code in bereinigten Depots, die als SGX-Enclaves bezeichnet werden. Zugriffs- und Speicherberechtigungen werden dann von der Hardware verwaltet, um eine minimale Angriffsfläche mit entsprechender Isolation zu gewährleisten.
 
 Clientanwendungen können so entworfen werden, dass sie die Vorteile von SGX-Enclaves nutzen, indem sicherheitsrelevante Aufgaben in diese Enclaves delegiert werden. Solche Anwendungen können Azure Attestation nutzen, um routinemäßig eine Vertrauensstellung in der Enclave herzustellen und auf sensible Daten zuzugreifen.
-
-### <a name="vbs-attestation"></a>VBS-Nachweis
-
-VSB ist eine softwarebasierte Architektur für einen Enclavespeicherschutz basierend auf Hyper-V. Dadurch wird verhindert, dass sowohl der Hostadministratorcode als auch lokale Administratoren und Clouddienstadministratoren auf die Daten in einer VSB-Enclave zugreifen oder deren Ausführung beeinträchtigen.
-
-Ähnlich wie bei der SGX-Technologie unterstützt Azure Attestation das Überprüfen von VBS-Enclaves anhand konfigurierter Richtlinien und das Ausstellen einer Zertifizierungsanweisung als Gültigkeitsnachweis.
 
 ### <a name="open-enclave"></a>Open Enclave
 [Open Enclave](https://openenclave.io/sdk/) (OE) ist eine Sammlung von Bibliotheken, die auf das Erstellen einer einzelnen vereinheitlichten Enclave-Abstraktion abzielen, damit Entwickler TEE-basierte Anwendungen erstellen können. Sie bietet ein universelles, sicheres App-Modell, das Plattformbesonderheiten minimiert. Für Microsoft ist sie eine Grundlage hin zur Demokratisierung hardwarebasierter Enclavetechnologien wie SGX und zur Steigerung der Akzeptanz in Azure.
@@ -65,19 +59,15 @@ Azure Attestation-Kunden haben angefordert, dass Microsoft keine vertraute Compu
 
 Azure Attestation ist die bevorzugte Wahl für den Nachweis von TEEs, da es die folgenden Vorteile bietet: 
 
-- Einheitliches Framework zum Nachweis mehrerer TEEs, wie z. B. SGX-Enclaves und VSB-Enclaves
+- Einheitliches Framework für den Nachweis mehrerer Umgebungen (beispielsweise TPMs, SGC-Enclaves und VBS-Enclaves) 
 - Mehrinstanzenfähiger Dienst, der die Konfiguration von benutzerdefinierten Nachweisanbietern und Richtlinien ermöglicht, um die Tokengenerierung einzuschränken
 - Bietet Standardanbieter, die ohne Konfiguration von Benutzern Nachweise durchführen können
 - Schützt die Daten während der Verwendung mit der Implementierung in einer SGX-Enclave
-- Hochverfügbarer Dienst, der eine Vereinbarung zum Servicelevel (SLA) bietet
+- Hochverfügbarer Dienst 
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr-support"></a>Unterstützung für Business Continuity & Disaster Recovery (BCDR)
 
 [Business Continuity & Disaster Recovery](../best-practices-availability-paired-regions.md) (BCDR) für Azure Attestation ermöglicht das Verringern von Dienstunterbrechungen, die durch erhebliche Verfügbarkeitsproblemen oder Notfallereignisse in einer Region entstehen.
-
-Im Folgenden sind die Regionen aufgeführt, die von BCDR unterstützt werden:
-- USA, Osten 2 = > in Kombination mit USA, Mitte
-- USA, Mitte = > in Kombination mit USA, Osten 2
 
 Cluster, die in zwei Regionen bereitgestellt werden, werden unter normalen Umständen unabhängig voneinander betrieben. Bei einem Fehler oder einem Ausfall einer Region geschieht Folgendes:
 

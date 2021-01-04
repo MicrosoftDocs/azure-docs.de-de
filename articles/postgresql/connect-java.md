@@ -1,6 +1,6 @@
 ---
-title: Verwenden von Java und JDBC mit Azure Database for PostgreSQL
-description: Hier erfahren Sie, wie Sie Java und JDBC mit Azure Database for PostgreSQL verwenden.
+title: 'Schnellstart: Verwenden von Java und JDBC mit Azure Database for PostgreSQL'
+description: In dieser Schnellstartanleitung erfahren Sie, wie Sie Java und JDBC mit Azure Database for PostgreSQL verwenden.
 author: jdubois
 ms.author: judubois
 ms.service: postgresql
@@ -8,14 +8,14 @@ ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
-ms.openlocfilehash: 402e69606196ecb1030023c49fa5afefd31b9e94
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 42547338c0f5f2f3105833b12e499d40b6209b05
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92734981"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184704"
 ---
-# <a name="use-java-and-jdbc-with-azure-database-for-postgresql"></a>Verwenden von Java und JDBC mit Azure Database for PostgreSQL
+# <a name="quickstart-use-java-and-jdbc-with-azure-database-for-postgresql"></a>Schnellstart: Verwenden von Java und JDBC mit Azure Database for PostgreSQL
 
 In diesem Thema wird die Erstellung einer Beispielanwendung veranschaulicht, die Java und [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) verwendet, um Informationen in [Azure Database for PostgreSQL](./index.yml) zu speichern bzw. daraus abzurufen.
 
@@ -150,7 +150,7 @@ Dabei handelt es sich um eine [Apache Maven](https://maven.apache.org/)-Datei, d
 
 ### <a name="prepare-a-configuration-file-to-connect-to-azure-database-for-postgresql"></a>Vorbereiten einer Konfigurationsdatei für das Herstellen einer Verbindung mit Azure Database for PostgreSQL
 
-Erstellen Sie eine Datei vom Typ *src/main/resources/application.properties* , und fügen Sie Folgendes hinzu:
+Erstellen Sie eine Datei vom Typ *src/main/resources/application.properties*, und fügen Sie Folgendes hinzu:
 
 ```properties
 url=jdbc:postgresql://$AZ_DATABASE_NAME.postgres.database.azure.com:5432/demo?ssl=true&sslmode=require
@@ -179,7 +179,7 @@ CREATE TABLE todo (id SERIAL PRIMARY KEY, description VARCHAR(255), details VARC
 
 Fügen Sie als Nächstes den Java-Code hinzu, der JDBC zum Speichern und Abrufen von Daten auf bzw. aus Ihrem PostgreSQL-Server verwendet.
 
-Erstellen Sie eine Datei vom Typ *src/main/java/DemoApplication.java* , die Folgendes enthält:
+Erstellen Sie eine Datei vom Typ *src/main/java/DemoApplication.java*, die Folgendes enthält:
 
 ```java
 package com.example.demo;
@@ -228,7 +228,7 @@ public class DemoApplication {
 }
 ```
 
-Dieser Java-Code verwendet die weiter oben erstellten Dateien *application.properties* und *schema.sql* , um eine Verbindung mit dem PostgreSQL-Server herzustellen und ein Schema zu erstellen, in dem Ihre Daten gespeichert werden.
+Dieser Java-Code verwendet die weiter oben erstellten Dateien *application.properties* und *schema.sql*, um eine Verbindung mit dem PostgreSQL-Server herzustellen und ein Schema zu erstellen, in dem Ihre Daten gespeichert werden.
 
 Sie sehen, dass in dieser Datei Methoden zum Einfügen, Lesen, Aktualisieren und Löschen von Daten kommentiert wurden: Diese Methoden werden im verbleibenden Artikel codiert, und Sie können nacheinander die Auskommentierung aufheben.
 
@@ -485,7 +485,7 @@ Das Ausführen der Hauptklasse sollte nun die folgende Ausgabe ergeben:
 [INFO   ] Closing database connection 
 ```
 
-## <a name="conclusion-and-resources-clean-up"></a>Zusammenfassung und Ressourcenbereinigung
+## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
 Glückwunsch! Sie haben eine Java-Anwendung erstellt, die JDBC zum Speichern und Abrufen von Daten in bzw. aus Azure Database for PostgreSQL verwendet.
 

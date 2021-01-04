@@ -3,23 +3,41 @@ title: Konfigurieren von Schreibvorgängen in mehreren Regionen in Azure Cosmos�
 description: Erfahren Sie, wie Sie mithilfe verschiedener SDKs in Azure Cosmos DB Schreibvorgänge in mehreren Regionen konfigurieren.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 95337f88133c9493250e9197654288dc0af59ed1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, "seo-nov-2020"
+ms.openlocfilehash: 6f71f4c0ec353f36614ea6dcabf4d698b31baacb
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486139"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336725"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Konfigurieren von Schreibvorgängen in mehreren Regionen in Ihren Anwendungen, die Azure Cosmos DB verwenden
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Nachdem ein Konto mit mehreren aktivierten Schreibregionen erstellt wurde, müssen Sie in Ihrer Anwendung in ConnectionPolicy für DocumentClient zwei Änderungen vornehmen, um die Funktionen für Schreibvorgänge in mehreren Regionen und Multihoming in Azure Cosmos DB zu aktivieren. Legen Sie in ConnectionPolicy das UseMultipleWriteLocations-Element auf TRUE fest, und übergeben Sie den Namen der Region, in der die Anwendung bereitgestellt wird, an SetCurrentLocation. Dadurch wird die PreferredLocations-Eigenschaft basierend auf der geografischen Nähe zum eingegebenen Standort aufgefüllt. Wenn dem Konto später eine neue Region hinzugefügt wird, muss die Anwendung nicht aktualisiert oder neu bereitgestellt werden. Sie erkennt automatisch die nähere Region und greift automatisch darauf zurück, wenn ein regionales Ereignis eintritt.
 
 > [!Note]
 > Cosmos-Konten, die ursprünglich mit einer einzelnen Schreibregion konfiguriert wurden, können ohne Ausfallzeiten für die Verwendung mehrerer Schreibregionen konfiguriert werden. Weitere Informationen finden unter [Konfigurieren mehrerer Schreibregionen](how-to-manage-database-account.md#configure-multiple-write-regions).
+
+## <a name="azure-portal"></a><a id="portal"></a> Azure-Portal
+
+Führen Sie die folgenden Schritte aus, um Schreibvorgänge in mehreren Regionen über das Azure-Portal zu aktivieren:
+
+1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/)an.
+
+1. Navigieren Sie zu Ihrem Azure Cosmos-Konto, und öffnen Sie über das Menü den Bereich **Daten global replizieren**.
+
+1. Wählen Sie unter **Schreibvorgänge in mehreren Regionen** die Option **Aktivieren** aus. Die vorhandenen Regionen werden automatisch den Lese- und Schreibregionen hinzugefügt.
+
+1. Sie können zusätzliche Regionen hinzufügen, indem Sie die Symbole auf der Karte auswählen oder auf die Schaltfläche **Region hinzufügen** klicken. Für alle Regionen, die Sie hinzufügen, werden Lese- und Schreibvorgänge aktiviert.
+
+1. Nachdem Sie die Liste der Regionen aktualisiert haben, wählen Sie **Speichern** aus, um die Änderungen zu übernehmen.
+
+   :::image type="content" source="./media/how-to-multi-master/enable-multi-region-writes.png" alt-text="Screenshot zum Aktivieren von Schreibvorgängen in mehreren Regionen über das Azure-Portal" lightbox="./media/how-to-multi-master/enable-multi-region-writes.png":::
 
 ## <a name="net-sdk-v2"></a><a id="netv2"></a>.NET SDK v2
 

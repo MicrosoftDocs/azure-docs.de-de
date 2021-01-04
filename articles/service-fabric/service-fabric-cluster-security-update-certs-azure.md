@@ -3,12 +3,12 @@ title: Verwalten von Zertifikaten in einem Azure Service Fabric-Cluster
 description: Es wird beschrieben, wie Sie neue Zertifikate hinzufügen, ein Rollover für Zertifikate durchführen und ein Zertifikat für einen Service Fabric-Cluster entfernen.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: b1ccf83e666f9106a31809ff41d55062826be78c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dd4440d76bed9d110c13baab9f4e67b3a5c64c0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88869744"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660898"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Hinzufügen oder Entfernen von Zertifikaten für einen Service Fabric-Cluster in Azure
 Es wird empfohlen, dass Sie sich damit vertraut machen, wie Service Fabric X.509-Zertifikate verwendet werden, und dass Sie sich mit den [Szenarien für die Clustersicherheit](service-fabric-cluster-security.md) auskennen. Sie müssen verstehen, was ein Clusterzertifikat ist, und wofür es verwendet wird, bevor Sie den Vorgang fortsetzen.
@@ -18,7 +18,7 @@ Das standardmäßige Zertifikatladeverhalten des Azure Service Fabric SDK besteh
 Service Fabric ermöglicht es Ihnen, zusätzlich zu den Clientzertifikaten zwei Clusterzertifikate anzugeben – ein primäres und ein sekundäres –, wenn Sie die Zertifikatsicherheit während der Erstellung des Clusters konfigurieren. Ausführliche Informationen zur Einrichtung während der Erstellung finden Sie unter [Erstellen eines Service Fabric-Clusters in Azure über das Azure-Portal](service-fabric-cluster-creation-via-portal.md) oder [Erstellen eines Service Fabric-Clusters in Azure mithilfe von Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Wenn Sie während der Erstellung nur ein Clusterzertifikat angeben, wird es als primäres Zertifikat verwendet. Nach der Erstellung des Clusters können Sie ein neues Zertifikat als sekundäres hinzufügen.
 
 > [!NOTE]
-> Für einen sicheren Cluster muss stets mindestens ein gültiges (nicht widerrufenes oder abgelaufenes) Clusterzertifikat (primär oder sekundär) bereitgestellt sein. Andernfalls funktioniert der Cluster nicht mehr. 90 Tage, bevor alle gültigen Zertifikate ablaufen, generiert das System eine Warnungsablaufverfolgung sowie ein Warnungsintegritätsereignis auf dem Knoten. Zurzeit sendet Service Fabric zu diesem Artikel weder E-Mails noch sonstige Benachrichtigungen. 
+> Für einen sicheren Cluster muss stets mindestens ein gültiges (nicht widerrufenes oder abgelaufenes) Clusterzertifikat (primär oder sekundär) bereitgestellt sein. Andernfalls funktioniert der Cluster nicht mehr. 90 Tage, bevor alle gültigen Zertifikate ablaufen, generiert das System eine Warnungsablaufverfolgung sowie ein Warnungsintegritätsereignis auf dem Knoten. Dabei handelt es sich zurzeit um die einzigen Benachrichtigungen, die Service Fabric zum Ablauf des Zertifikats sendet.
 > 
 > 
 
@@ -26,7 +26,7 @@ Service Fabric ermöglicht es Ihnen, zusätzlich zu den Clientzertifikaten zwei 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="add-a-secondary-cluster-certificate-using-the-portal"></a>Hinzufügen eines sekundären Clusterzertifikats mithilfe des Portals
-Das sekundäre Clusterzertifikat kann nicht über das Azure-Portal hinzugefügt werden, verwenden Sie stattdessen Azure-PowerShell. Der Prozess wird weiter unten in diesem Dokument beschrieben.
+Das sekundäre Clusterzertifikat kann nicht über das Azure-Portal hinzugefügt werden; verwenden Sie stattdessen Azure PowerShell. Der Prozess wird weiter unten in diesem Dokument beschrieben.
 
 ## <a name="remove-a-cluster-certificate-using-the-portal"></a>Entfernen eines Clusterzertifikats mit dem Portal
 Für einen sicheren Cluster benötigen Sie immer mindestens ein gültiges (nicht widerrufenes oder abgelaufenes) Zertifikat. Das bereitgestellte Zertifikat, das das am weitesten in der Zukunft liegende Ablaufdatum aufweist, wird verwendet, und wenn Sie es entfernen, funktioniert Ihr Cluster nicht mehr. Stellen Sie sicher, dass Sie nur das Zertifikat entfernen, das abgelaufen ist, oder ein nicht verwendetes Zertifikat, das am schnellsten abläuft.
@@ -197,7 +197,7 @@ Test-AzResourceGroupDeployment -ResourceGroupName <Resource Group that your clus
 
 ```
 
-Stellen Sie die Vorlage für Ihre Ressourcengruppe bereit. Verwenden Sie die gleiche Ressourcengruppe, für die Ihr Cluster derzeit bereitgestellt wird. Führen Sie den Befehl „New-AzResourceGroupDeployment“ aus. Sie müssen nicht den Modus angeben, da der Standardwert **incremental**ist.
+Stellen Sie die Vorlage für Ihre Ressourcengruppe bereit. Verwenden Sie die gleiche Ressourcengruppe, für die Ihr Cluster derzeit bereitgestellt wird. Führen Sie den Befehl „New-AzResourceGroupDeployment“ aus. Sie müssen nicht den Modus angeben, da der Standardwert **incremental** ist.
 
 > [!NOTE]
 > Wenn Sie für „Mode“ den Wert „Complete“ festlegen, können Sie versehentlich Ressourcen löschen, die nicht in Ihrer Vorlage enthalten sind. Darum tun Sie es in diesem Szenario nicht.

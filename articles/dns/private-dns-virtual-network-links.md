@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
-ms.openlocfilehash: 9181ef93dfedbc28b297bef48a0bc37ba6d69798
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e43ad35cdaad89d5b9f43007bad8782f358c1a6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75646760"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954340"
 ---
 # <a name="what-is-a-virtual-network-link"></a>Was ist eine virtuelle Netzwerkverknüpfung?
 
@@ -23,7 +23,7 @@ Sie können ein virtuelles Netzwerke als virtuelles Registrierungsnetzwerk oder 
 
 ## <a name="registration-virtual-network"></a>Virtuelles Registrierungsnetzwerk
 
-Wenn Sie [eine Verknüpfung](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network) zwischen einer privaten DNS-Zone und einem virtuellen Netzwerk erstellen, haben Sie die Möglichkeit, die [automatische Registrierung](./private-dns-autoregistration.md) von DNS-Einträgen für virtuelle Computer zu aktivieren. Wenn Sie diese Option auswählen, wird das virtuelle Netzwerk zu einem virtuellen Registrierungsnetzwerk für die private DNS-Zone. Ein DNS-Eintrag wird für die virtuellen Computer, die Sie im Netzwerk bereitstellen, automatisch erstellt. DNS-Einträge werden für die virtuellen Computer, die Sie bereits im Netzwerk bereitgestellt haben, erstellt. Aus der Perspektive des virtuellen Netzwerks wird die private DNS-Zone zur Registrierungszone für dieses virtuelle Netzwerk.
+Wenn Sie [eine Verknüpfung](./private-dns-getstarted-portal.md#link-the-virtual-network) zwischen einer privaten DNS-Zone und einem virtuellen Netzwerk erstellen, haben Sie die Möglichkeit, die [automatische Registrierung](./private-dns-autoregistration.md) von DNS-Einträgen für virtuelle Computer zu aktivieren. Wenn Sie diese Option auswählen, wird das virtuelle Netzwerk zu einem virtuellen Registrierungsnetzwerk für die private DNS-Zone. Ein DNS-Eintrag wird für die virtuellen Computer, die Sie im Netzwerk bereitstellen, automatisch erstellt. DNS-Einträge werden für die virtuellen Computer, die Sie bereits im Netzwerk bereitgestellt haben, erstellt. Aus der Perspektive des virtuellen Netzwerks wird die private DNS-Zone zur Registrierungszone für dieses virtuelle Netzwerk.
 Eine private DNS-Zone kann mehrere virtuelle Registrierungsnetzwerke aufweisen, aber jedem virtuellen Netzwerk kann nur genau eine Registrierungszone zugeordnet sein.
 
 ## <a name="resolution-virtual-network"></a>Virtuelles Auflösungsnetzwerk
@@ -33,7 +33,7 @@ Eine private DNS-Zone kann mehrere virtuelle Auflösungsnetzwerke aufweisen, und
 
 ## <a name="limits"></a>Einschränkungen
 
-Um zu verstehen, wie viele Registrierungs- und Auflösungsnetzwerke Sie mit privaten DNS-Zonen verknüpfen können, finden Sie unter [Azure DNS-Limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits).
+Um zu verstehen, wie viele Registrierungs- und Auflösungsnetzwerke Sie mit privaten DNS-Zonen verknüpfen können, finden Sie unter [Azure DNS-Limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits).
 
 ## <a name="other-considerations"></a>Weitere Überlegungen
 
@@ -49,7 +49,7 @@ Um zu verstehen, wie viele Registrierungs- und Auflösungsnetzwerke Sie mit priv
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Erfahren Sie, wie Sie ein virtuelles Netzwerk mithilfe des [Azure-Portals](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network) mit einer privaten DNS-Zone verknüpfen.
+* Erfahren Sie, wie Sie ein virtuelles Netzwerk mithilfe des [Azure-Portals](./private-dns-getstarted-portal.md#link-the-virtual-network) mit einer privaten DNS-Zone verknüpfen.
 
 * Erfahren Sie, wie Sie über [Azure PowerShell](./private-dns-getstarted-powershell.md) oder [Azure CLI](./private-dns-getstarted-cli.md) eine private Zone in Azure DNS erstellen.
 

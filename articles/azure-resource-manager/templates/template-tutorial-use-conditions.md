@@ -5,16 +5,16 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d902258c80467380518df3b55583cea1efa76609
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f4e8c0bc6a066e0d82d393474bfc804be5e3fb3
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119309"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931366"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Tutorial: Verwenden von Bedingungen in ARM-Vorlagen
 
-Es wird beschrieben, wie Sie Azure-Ressourcen basierend auf den Bedingungen in einer ARM-Vorlage (Azure Resource Manager) bereitstellen.
+Hier wird beschrieben, wie Sie Azure-Ressourcen basierend auf den Bedingungen in einer ARM-Vorlage (Azure Resource Manager-Vorlage) bereitstellen.
 
 Im Tutorial [Festlegen der Reihenfolge für die Ressourcenbereitstellung](./template-tutorial-create-templates-with-dependent-resources.md) erstellen Sie einen virtuellen Computer, ein virtuelles Netzwerk und einige andere abhängige Ressourcen, z.B. ein Speicherkonto. Anstatt jedes Mal ein neues Speicherkonto zu erstellen, können Benutzer zwischen dem Erstellen eines neuen Speicherkontos und dem Verwenden eines vorhandenen Speicherkontos wählen. Sie definieren einen zusätzlichen Parameter, um dieses Ziel zu erreichen. Wenn der Wert des Parameters „new“ lautet, wird ein neues Speicherkonto erstellt. Andernfalls wird ein vorhandenes Speicherkonto mit dem angegebenen Namen verwendet.
 
@@ -41,7 +41,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 
 Damit Sie die Anweisungen in diesem Artikel ausführen können, benötigen Sie Folgendes:
 
-* Visual Studio Code mit der Erweiterung „Azure Resource Manager-Tools“. Weitere Informationen finden Sie unter [Schnellstart: Erstellen von Azure Resource Manager-Vorlagen mit Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code mit der Erweiterung „Azure Resource Manager-Tools“. Weitere Informationen finden Sie unter [Schnellstart: Erstellen von ARM-Vorlagen mit Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * Verwenden Sie aus Sicherheitsgründen ein generiertes Kennwort für das Administratorkonto des virtuellen Computers. Hier sehen Sie ein Beispiel für die Kennwortgenerierung:
 
     ```console
@@ -88,7 +88,7 @@ Hier ist das Verfahren zum Vornehmen von Änderungen angegeben:
 1. Ersetzen Sie die drei **variables('storageAccountName')** in der gesamten Vorlage durch **parameters('storageAccountName')** .
 1. Entfernen Sie die folgende Variablendefinition:
 
-    ![Diagramm der Bedingungen zum Verwenden der Resource Manager-Vorlage](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
+    ![Der Screenshot hebt die Variablendefinitionen hervor, die Sie entfernen müssen.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
 
 1. Fügen Sie am Anfang des Parameterabschnitts die folgenden beiden Parameter hinzu:
 
@@ -121,7 +121,7 @@ Hier ist das Verfahren zum Vornehmen von Änderungen angegeben:
 
     Die aktualisierte Speicherkontodefinition sieht wie folgt aus:
 
-    ![Resource Manager-Nutzungsbedingung](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
+    ![Der Screenshot zeigt die aktualisierte Speicherkontodefinition.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
 1. Aktualisieren Sie die Eigenschaft **storageUri** der VM-Ressourcendefinition mit dem folgenden Wert:
 
     ```json

@@ -6,20 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 08/13/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63f0c55823899be8eb4146860787aede2cd2d6b5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 70387717c15dade349a323e663ac0fd31935a15f
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373326"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859877"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Azure Active Directory-Cmdlets zum Konfigurieren von Gruppeneinstellungen
 
@@ -28,7 +28,7 @@ Dieser Artikel enthält Anweisungen für die Verwendung von PowerShell-Cmdlets f
 > [!IMPORTANT]
 > Für einige Einstellungen ist eine Azure Active Directory Premium P1-Lizenz erforderlich. Weitere Informationen finden Sie in der Tabelle [Vorlageneinstellungen](#template-settings).
 
-Weitere Informationen, wie Sie Benutzer ohne Administratorrechte am Erstellen von Sicherheitsgruppen hindern, finden Sie, indem Sie `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False`, wie unter [Set-MSOLCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) beschrieben, festlegen.
+Weitere Informationen, wie Sie Benutzer ohne Administratorrechte am Erstellen von Sicherheitsgruppen hindern, finden Sie, indem Sie `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False`, wie unter [Set-MSOLCompanySettings](/powershell/module/msonline/set-msolcompanysettings) beschrieben, festlegen.
 
 Microsoft 365-Gruppeneinstellungen werden mithilfe eines „Settings“- und eines „SettingsTemplate“-Objekts konfiguriert. Zu Beginn werden keine Einstellungsobjekte in Ihrem Verzeichnis angezeigt, da Ihr Verzeichnis mit den Standardeinstellungen konfiguriert ist. Um die Standardeinstellungen zu ändern, erstellen Sie mithilfe einer Einstellungsvorlage ein neues Einstellungsobjekt. Einstellungsvorlagen werden von Microsoft definiert. Es werden verschiedene Einstellungsvorlagen unterstützt. Zum Konfigurieren von Microsoft 365-Gruppeneinstellungen für Ihr Verzeichnis verwenden Sie die Vorlage „Group.Unified“. Zum Konfigurieren von Microsoft 365-Gruppeneinstellungen für eine einzelne Gruppe verwenden Sie die Vorlage „Group.Unified.Guest“. Diese Vorlage dient zum Verwalten des Gastzugriffs auf eine Microsoft 365-Gruppe. 
 
@@ -319,7 +319,7 @@ Mit diesen Schritten werden auf Verzeichnisebene Einstellungen entfernt, die fü
    ```
 
 ## <a name="cmdlet-syntax-reference"></a>Referenz der Cmdletsyntax
-Weitere Informationen zu Azure Active Directory PowerShell finden Sie unter [Azure Active Directory-Cmdlets](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+Weitere Informationen zu Azure Active Directory PowerShell finden Sie unter [Azure Active Directory-Cmdlets](/powershell/azure/active-directory/install-adv2).
 
 ## <a name="additional-reading"></a>Zusätzliche Lektüre
 

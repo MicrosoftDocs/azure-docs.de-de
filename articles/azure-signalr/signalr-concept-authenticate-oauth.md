@@ -6,13 +6,13 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 731e4306575a8bd5f63dd47ca213a0e52a21487b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 8dd3c60c3d1b714ab75b496a94ba4bd5aec4e43d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151229"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558469"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR Service-Authentifizierung
 
@@ -45,11 +45,11 @@ In diesem Tutorial lernen Sie Folgendes:
 
 Für dieses Tutorial benötigen Sie Folgendes:
 
-* Ein auf [GitHub](https://github.com/) erstelltes Konto
-* [Git-Client](https://git-scm.com/)
-* [.NET Core SDK](https://www.microsoft.com/net/download/windows)
-* [Konfigurierte Azure Cloud Shell](../cloud-shell/quickstart.md)
-* Laden Sie das GitHub-Repository [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) herunter, oder klonen Sie es.
+- Ein auf [GitHub](https://github.com/) erstelltes Konto
+- [Git-Client](https://git-scm.com/)
+- [.NET Core SDK](https://www.microsoft.com/net/download/windows)
+- [Azure Cloud Shell](/azure/cloud-shell/quickstart), für die Bash-Umgebung konfiguriert.
+- Laden Sie das GitHub-Repository [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) herunter, oder klonen Sie es.
 
 ## <a name="create-an-oauth-app"></a>Erstellen einer OAuth-App
 
@@ -384,17 +384,13 @@ In diesem Abschnitt aktivieren Sie die echte Authentifizierung, indem Sie der Hu
 
     Nun, da die Chat-App die Authentifizierung mit GitHub durchführt und die Authentifizierungsinformationen als Cookies speichert, sollten Sie sie in Azure bereitstellen. So können sich auch andere Benutzer mit ihren Konten authentifizieren und von anderen Arbeitsstationen aus kommunizieren.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## <a name="deploy-the-app-to-azure"></a>Bereitstellen der Anwendung in Azure
 
-In diesem Abschnitt verwenden Sie die Azure-Befehlszeilenschnittstelle (CLI) aus Azure Cloud Shell, um eine neue Web-App in [Azure App Service](../app-service/index.yml) zum Hosten Ihrer ASP.NET-Anwendung in Azure zu erstellen. Die Web-App wird so konfiguriert, dass sie die lokale Git-Bereitstellung verwendet. Die Web-App wird auch mit Ihrer SignalR-Verbindungszeichenfolge, den geheimen GitHub-OAuth-App-Daten und einem Bereitstellungsbenutzer konfiguriert.
+Vorbereiten der Umgebung für die Azure CLI:
 
-Für die Schritte in diesem Abschnitt wird die Erweiterung *signalr* für die Azure CLI verwendet. Führen Sie den folgenden Befehl aus, um die Erweiterung *signalr* für die Azure CLI zu installieren:
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-```azurecli-interactive
-az extension add -n signalr
-```
+In diesem Abschnitt verwenden Sie die Azure-Befehlszeilenschnittstelle (CLI), um eine neue Web-App in [Azure App Service](../app-service/index.yml) zum Hosten Ihrer ASP.NET-Anwendung in Azure zu erstellen. Die Web-App wird so konfiguriert, dass sie die lokale Git-Bereitstellung verwendet. Die Web-App wird auch mit Ihrer SignalR-Verbindungszeichenfolge, den geheimen GitHub-OAuth-App-Daten und einem Bereitstellungsbenutzer konfiguriert.
 
 Achten Sie beim Erstellen der folgenden Ressourcen darauf, dass Sie die gleiche Ressourcengruppe verwenden, in der sich Ihre SignalR-Dienstressource befindet. Dieser Ansatz macht eine spätere Bereinigung viel einfacher, wenn Sie alle Ressourcen entfernen wollen. Die angegebenen Beispiele setzen voraus, dass Sie den in früheren Tutorials empfohlenen Gruppennamen *SignalRTestResources* verwendet haben.
 
@@ -541,7 +537,7 @@ Um Ihren Code bereitzustellen, führen Sie die folgenden Befehle in einer Git-Sh
 4. Stellen Sie Ihren Code in der Web-App in Azure bereit.
 
     ```bash
-    git push Azure master
+    git push Azure main
     ```
 
     Sie werden aufgefordert, sich zu authentifizieren, damit der Code bei Azure bereitgestellt wird. Geben Sie den Benutzernamen und das Kennwort des oben erstellten Bereitstellungsbenutzers ein.

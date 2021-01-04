@@ -12,23 +12,23 @@ metadata:
   ms.date: 10/19/2020
   author: curtand
   ms.author: curtand
-  ms.openlocfilehash: 16a64fd66ab391436f991b5f92f306f7ecf2eb58
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: 8dd6ac6fef0dbc84c77ccacfd048b2af21771f6a
+  ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92372763"
+  ms.lasthandoff: 12/02/2020
+  ms.locfileid: "96499202"
 landingContent:
 - title: Informationen zu Azure AD-Rollen
   linkLists:
   - linkListType: overview
     links:
-    - text: Übersicht über benutzerdefinierte Rollen
+    - text: Übersicht über die rollenbasierte Zugriffssteuerung von Azure AD
       url: custom-overview.md
   - linkListType: concept
     links:
-    - text: Delegieren der Verwaltung
-      url: concept-delegation.md
+    - text: Grundlegendes zu Azure AD-Rollen
+      url: concept-understand-roles.md
     - text: Grundlegendes zu Verwaltungseinheiten in Azure AD
       url: administrative-units.md
     - text: Verwenden von Cloudgruppen zum Verwalten von Rollenzuweisungen

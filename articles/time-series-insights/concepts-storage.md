@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: b186c2d2c4b5efc8e1e052a63505549e860b5619
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b512a80fcfc26efbe5c008884509aebfd86ed3e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460827"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020843"
 ---
 # <a name="data-storage"></a>Datenspeicherung
 
@@ -27,7 +27,7 @@ Beim Erstellen einer Azure Time Series Insights Gen2-Umgebung haben Sie folgende
 
 * Kalter Datenspeicher:
   * Erstellen Sie eine neue Azure Storage-Ressource in dem Abonnement und der Region, das/die Sie für Ihre Umgebung ausgewählt haben.
-  * Fügen Sie ein bereits vorhandenes Azure-Speicherkonto an. Diese Option ist nur verfügbar, wenn Sie über eine Azure Resource Manager-[Vorlagen](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions) bereitstellen, und sie wird nicht im Azure-Portal angezeigt.
+  * Fügen Sie ein bereits vorhandenes Azure-Speicherkonto an. Diese Option ist nur verfügbar, wenn Sie über eine Azure Resource Manager-[Vorlagen](/azure/templates/microsoft.timeseriesinsights/allversions) bereitstellen, und sie wird nicht im Azure-Portal angezeigt.
 * Warmer Datenspeicher:
   * Ein warmer Speicher ist optional und kann während oder nach der Bereitstellung aktiviert oder deaktiviert werden. Wenn Sie sich dazu entschließen, warmen Speicher zu einem späteren Zeitpunkt zu aktivieren, und Ihr kalter Speicher bereits Daten enthält, lesen Sie [diesen](concepts-storage.md#warm-store-behavior) Abschnitt weiter unten, um das erwartete Verhalten zu verstehen. Die Datenaufbewahrungsdauer für warmen Speicher kann auf 7 bis 31 Tage konfiguriert werden, was sich auch nach Bedarf anpassen lässt.
 
@@ -40,14 +40,14 @@ Wenn ein Ereignis erfasst wird, wird es sowohl im warmen Speicher (sofern aktivi
 
 ## <a name="data-availability"></a>Datenverfügbarkeit
 
-Azure Time Series Insights Gen2 partitioniert und indiziert Daten, um eine optimale Abfrageleistung zu erzielen. Die Daten können nach der Indizierung sowohl aus dem warmen (sofern aktiviert) als auch aus dem kalten Speicher abgefragt werden. Die Menge an erfassten Daten und die Durchsatzrate pro Partition können sich auf diese Verfügbarkeit auswirken. Machen Sie sich mit den [Durchsatzeinschränkungen](./concepts-streaming-ingress-throughput-limits.md) und [bewährten Methoden](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices) für die Ereignisquelle vertraut, um die bestmögliche Leistung zu erzielen. Sie können auch eine [Verzögerungswarnung](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) konfigurieren, damit Sie benachrichtigt werden, wenn in Ihrer Umgebung Probleme beim Verarbeiten von Daten auftreten.
+Azure Time Series Insights Gen2 partitioniert und indiziert Daten, um eine optimale Abfrageleistung zu erzielen. Die Daten können nach der Indizierung sowohl aus dem warmen (sofern aktiviert) als auch aus dem kalten Speicher abgefragt werden. Die Menge an erfassten Daten und die Durchsatzrate pro Partition können sich auf diese Verfügbarkeit auswirken. Machen Sie sich mit den [Durchsatzeinschränkungen](./concepts-streaming-ingress-throughput-limits.md) und [bewährten Methoden](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices) für die Ereignisquelle vertraut, um die bestmögliche Leistung zu erzielen. Sie können auch eine [Verzögerungswarnung](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) konfigurieren, damit Sie benachrichtigt werden, wenn in Ihrer Umgebung Probleme beim Verarbeiten von Daten auftreten.
 
 > [!IMPORTANT]
 > Es kann bis zu 60 Sekunden dauern, bis Daten verfügbar werden. Wenn Sie eine erhebliche Latenz von weit über 60 Sekunden feststellen, übermitteln Sie ein Supportticket über das Azure-Portal.
 
 ## <a name="warm-store"></a>Warmer Speicher
 
-Daten in Ihrem warmen Speicher stehen nur über die [Zeitreihenabfrage-APIs](./time-series-insights-update-tsq.md), den [Azure Time Series Insights TSI-Explorer](./time-series-insights-update-explorer.md) oder den [Power BI-Connector](./how-to-connect-power-bi.md) zur Verfügung. Abfragen des warmen Speichers sind kostenlos, und es gibt kein Kontingent dafür, aber es gibt ein [Limit von 30](https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits#query-apis---limits) gleichzeitigen Anforderungen.
+Daten in Ihrem warmen Speicher stehen nur über die [Zeitreihenabfrage-APIs](./concepts-query-overview.md), den [Azure Time Series Insights TSI-Explorer](./concepts-ux-panels.md) oder den [Power BI-Connector](./how-to-connect-power-bi.md) zur Verfügung. Abfragen des warmen Speichers sind kostenlos, und es gibt kein Kontingent dafür, aber es gibt ein [Limit von 30](/rest/api/time-series-insights/reference-api-limits#query-apis---limits) gleichzeitigen Anforderungen.
 
 ### <a name="warm-store-behavior"></a>Verhalten von warmem Speicher
 
@@ -77,9 +77,9 @@ Wenn Sie Abfrageleistung und Datenverfügbarkeit sicherstellen möchten, bearbei
 
 #### <a name="accessing-cold-store-data"></a>Zugreifen auf kalte Speicherdaten
 
-Zusätzlich zum Zugriff auf Ihre Daten über den [Azure Time Series Insights-Explorer](./time-series-insights-update-explorer.md) und [Zeitreihenabfrage-APIs](./time-series-insights-update-tsq.md) können Sie auch direkt über die im kalten Speicher gespeicherten Parquet-Dateien auf Ihre Daten zugreifen. Beispielsweise können Sie Daten in einem Jupyter-Notebook lesen, transformieren und bereinigen und dann verwenden, um Ihr Azure Machine Learning-Modell im gleichen Spark-Workflow zu trainieren.
+Zusätzlich zum Zugriff auf Ihre Daten über den [Azure Time Series Insights-Explorer](./concepts-ux-panels.md) und [Zeitreihenabfrage-APIs](./concepts-query-overview.md) können Sie auch direkt über die im kalten Speicher gespeicherten Parquet-Dateien auf Ihre Daten zugreifen. Beispielsweise können Sie Daten in einem Jupyter-Notebook lesen, transformieren und bereinigen und dann verwenden, um Ihr Azure Machine Learning-Modell im gleichen Spark-Workflow zu trainieren.
 
-Wenn Sie direkt über Ihr Azure Storage-Konto auf Daten zugreifen möchten, benötigen Sie Lesezugriff auf das Konto, das zum Speichern Ihrer Azure Time Series Insights Gen2-Daten verwendet wird. Sie können dann ausgewählte Daten basierend auf der Erstellungszeit der Parquet-Datei lesen, die sich im unten im Abschnitt [Parquet-Dateiformat](#parquet-file-format-and-folder-structure) beschriebenen Ordner `PT=Time` befindet.  Weitere Informationen zum Aktivieren des Lesezugriffs auf Ihr Speicherkonto finden Sie unter [Verwalten des Zugriffs auf Ihre Speicherkontoressourcen](../storage/blobs/storage-manage-access-to-resources.md).
+Wenn Sie direkt über Ihr Azure Storage-Konto auf Daten zugreifen möchten, benötigen Sie Lesezugriff auf das Konto, das zum Speichern Ihrer Azure Time Series Insights Gen2-Daten verwendet wird. Sie können dann ausgewählte Daten basierend auf der Erstellungszeit der Parquet-Datei lesen, die sich im unten im Abschnitt [Parquet-Dateiformat](#parquet-file-format-and-folder-structure) beschriebenen Ordner `PT=Time` befindet.  Weitere Informationen zum Aktivieren des Lesezugriffs auf Ihr Speicherkonto finden Sie unter [Verwalten des Zugriffs auf Ihre Speicherkontoressourcen](../storage/blobs/anonymous-read-access-configure.md).
 
 #### <a name="data-deletion"></a>Löschen von Daten
 
@@ -123,6 +123,6 @@ Azure Time Series Insights Gen2-Ereignisse werden dem Inhalt von Parquet-Dateien
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Weitere Informationen zur [Datenmodellierung](./time-series-insights-update-tsm.md).
+* Weitere Informationen zur [Datenmodellierung](./concepts-model-overview.md).
 
-* Planen Sie Ihre [Azure Time Series Insights Gen2-Umgebung](./time-series-insights-update-plan.md).
+* Planen Sie Ihre [Azure Time Series Insights Gen2-Umgebung](./how-to-plan-your-environment.md).

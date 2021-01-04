@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: fd9bc17db3eccc64f35d7295d57dc120364481dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59e28e4a3d630aac0954802e8777058c00261006
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332983"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791442"
 ---
 # <a name="best-practices-for-azure-sql-data-sync"></a>Bewährte Methoden für die Azure SQL-Datensynchronisierung 
 
@@ -172,11 +172,11 @@ Es kann vorkommen, dass eine Synchronisierungsgruppe oder eine Datenbank in eine
 
 #### <a name="avoid-out-of-date-databases"></a>Vermeiden veralteter Datenbanken
 
-Eine Datenbank erhält den Status **Veraltet**, wenn sie mindestens 45 Tage lang offline war. Stellen Sie sicher, dass keine Datenbank 45 Tage oder länger offline ist, um den Datenbankstatus **Veraltet** zu vermeiden.
+Eine Datenbank erhält den Status **Veraltet** , wenn sie mindestens 45 Tage lang offline war. Stellen Sie sicher, dass keine Datenbank 45 Tage oder länger offline ist, um den Datenbankstatus **Veraltet** zu vermeiden.
 
 #### <a name="avoid-out-of-date-sync-groups"></a>Vermeiden veralteter Synchronisierungsgruppen
 
-Eine Synchronisierungsgruppe erhält den Status **Veraltet**, wenn eine Änderung in der Synchronisierungsgruppe nicht innerhalb von 45 Tagen an die restlichen Datenbanken der Gruppe verteilt werden konnte. Prüfen Sie regelmäßig das Verlaufsprotokoll der Synchronisierungsgruppe, um den Status **Veraltet** zu vermeiden. Vergewissern Sie sich, dass alle Konflikte gelöst und Änderungen erfolgreich an die Datenbanken der Synchronisierungsgruppe verteilt wurden.
+Eine Synchronisierungsgruppe erhält den Status **Veraltet** , wenn eine Änderung in der Synchronisierungsgruppe nicht innerhalb von 45 Tagen an die restlichen Datenbanken der Gruppe verteilt werden konnte. Prüfen Sie regelmäßig das Verlaufsprotokoll der Synchronisierungsgruppe, um den Status **Veraltet** zu vermeiden. Vergewissern Sie sich, dass alle Konflikte gelöst und Änderungen erfolgreich an die Datenbanken der Synchronisierungsgruppe verteilt wurden.
 
 Es kann passieren, dass eine Synchronisierungsgruppe eine Änderung aus einem der folgenden Gründe nicht anwenden kann:
 
@@ -238,7 +238,7 @@ Weitere Informationen zur SQL-Datensynchronisierung finden Sie unter:
         -  [Verwenden von PowerShell zum Synchronisieren zwischen mehreren Datenbanken in Azure SQL-Datenbank](scripts/sql-data-sync-sync-data-between-sql-databases.md)
         -  [Verwenden von PowerShell zum Synchronisieren zwischen einer Datenbank in SQL-Datenbank und einer Datenbank in einer SQL Server-Instanz](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 -   Datensynchronisierungs-Agent: [Datensynchronisierungs-Agent für die Azure SQL-Datensynchronisierung](sql-data-sync-agent-overview.md)
--   Überwachung: [Überwachen der SQL-Datensynchronisierung mit Azure Monitor-Protokollen](sql-data-sync-monitor-sync.md)
+-   Überwachung: [Überwachen der SQL-Datensynchronisierung mit Azure Monitor-Protokollen](./monitor-tune-overview.md)
 -   Problembehandlung: [Behandeln von Problemen mit der Azure SQL-Datensynchronisierung](sql-data-sync-troubleshoot.md)
 -   Aktualisieren des Synchronisierungsschemas
     -   Mit Transact-SQL: [Automatisieren der Replikation von Schemaänderungen in der Azure SQL-Datensynchronisierung](sql-data-sync-update-sync-schema.md)
@@ -247,4 +247,4 @@ Weitere Informationen zur SQL-Datensynchronisierung finden Sie unter:
 Weitere Informationen zu SQL-Datenbank finden Sie hier:
 
 -   [Übersicht über die SQL-Datenbank](sql-database-paas-overview.md)
--   [Datenbank-Lebenszyklusverwaltung](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [Datenbank-Lebenszyklusverwaltung](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

@@ -6,16 +6,16 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5f96b48b8fec07ab207ea3962a201bbff68a5339
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8033235cde5b7ebe298bb1fa8d4222e208df998b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92200847"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183004"
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service-Plan – Übersicht
 
-In App Service (Web-Apps, API-Apps oder Mobile Apps) wird eine App immer in einem _App Service-Plan_ ausgeführt. Darüber hinaus gibt es in [Azure Functions](../azure-functions/functions-scale.md#app-service-plan) ebenfalls die Option für die Ausführung in einem _App Service-Plan_ . Mit einem App Service-Plan wird ein Satz mit Computeressourcen für eine auszuführende Web-App definiert. Diese Computeressourcen entsprechen der [_Serverfarm_](https://wikipedia.org/wiki/Server_farm) beim herkömmlichen Webhosting. Es können eine oder mehrere Apps für die Ausführung auf denselben Computeressourcen (oder in demselben App Service-Plan) konfiguriert werden.
+In App Service (Web-Apps, API-Apps oder Mobile Apps) wird eine App immer in einem _App Service-Plan_ ausgeführt. Darüber hinaus gibt es in [Azure Functions](../azure-functions/functions-scale.md#app-service-plan) ebenfalls die Option für die Ausführung in einem _App Service-Plan_. Mit einem App Service-Plan wird ein Satz mit Computeressourcen für eine auszuführende Web-App definiert. Diese Computeressourcen entsprechen der [_Serverfarm_](https://wikipedia.org/wiki/Server_farm) beim herkömmlichen Webhosting. Es können eine oder mehrere Apps für die Ausführung auf denselben Computeressourcen (oder in demselben App Service-Plan) konfiguriert werden.
 
 Wenn Sie einen App Service-Plan in einer bestimmten Region (z.B. „Europa, Westen“) erstellen, wird für den Plan in dieser Region ein Satz mit Computeressourcen erstellt. Alle Apps, die Sie in diesen App Service-Plan einfügen, werden auf diesen Computeressourcen ausgeführt, wie in Ihrem App Service-Plan definiert. Für jeden App Service-Plan wird Folgendes definiert:
 
@@ -26,9 +26,9 @@ Wenn Sie einen App Service-Plan in einer bestimmten Region (z.B. „Europa, West
 
 Mit dem _Tarif_ eines App Service-Plans wird ermittelt, welche App Service-Features Sie erhalten und welche Kosten für den Plan anfallen. Es gibt verschiedene Kategorien von Tarifen:
 
-- **Freigegebene Computeressourcen** : Bei **Free** und **Shared** (die beiden Basistarife) wird eine App auf derselben Azure-VM wie andere App Service-Apps ausgeführt, z.B. Apps anderer Kunden. Für diese Tarife werden CPU-Kontingente für jede App zugeteilt, die auf den freigegebenen Ressourcen ausgeführt wird, und für die Ressourcen ist das Aufskalieren nicht möglich.
-- **Dedizierte Computeressourcen** : In den Tarifen **Basic** , **Standard** , **Premium** , **PremiumV2** und **PremiumV3** werden Apps auf dedizierten Azure-VMs ausgeführt. Nur für Apps desselben App Service-Plans werden dieselben Computeressourcen gemeinsam genutzt. Je höher der Tarif, desto mehr VM-Instanzen stehen Ihnen für das horizontale Hochskalieren zur Verfügung.
-- **Isoliert** : In diesem Tarif werden dedizierte Azure-VMs in dedizierten virtuellen Azure-Netzwerken ausgeführt. Er stellt zusätzlich zur Computeisolation Netzwerkisolation für Ihre Apps bereit. Sie verfügen hiermit über die maximalen Funktionen für die horizontale Skalierung.
+- **Freigegebene Computeressourcen**: Bei **Free** und **Shared** (die beiden Basistarife) wird eine App auf derselben Azure-VM wie andere App Service-Apps ausgeführt, z.B. Apps anderer Kunden. Für diese Tarife werden CPU-Kontingente für jede App zugeteilt, die auf den freigegebenen Ressourcen ausgeführt wird, und für die Ressourcen ist das Aufskalieren nicht möglich.
+- **Dedizierte Computeressourcen**: In den Tarifen **Basic**, **Standard**, **Premium**, **PremiumV2** und **PremiumV3** werden Apps auf dedizierten Azure-VMs ausgeführt. Nur für Apps desselben App Service-Plans werden dieselben Computeressourcen gemeinsam genutzt. Je höher der Tarif, desto mehr VM-Instanzen stehen Ihnen für das horizontale Hochskalieren zur Verfügung.
+- **Isoliert**: In diesem Tarif werden dedizierte Azure-VMs in dedizierten virtuellen Azure-Netzwerken ausgeführt. Er stellt zusätzlich zur Computeisolation Netzwerkisolation für Ihre Apps bereit. Sie verfügen hiermit über die maximalen Funktionen für die horizontale Skalierung.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -37,7 +37,7 @@ Für jeden Tarif wird auch eine bestimmte Teilmenge mit App Service-Features ber
 <a name="new-pricing-tier-premiumv3"></a>
 
 > [!NOTE]
-> Der neue **PremiumV3** -Tarif garantiert Computern mit schnelleren Prozessoren (mindestens 195  [ACU](https://docs.microsoft.com/azure/virtual-machines/acu) pro virtuelle CPU), SSD-Speicher und einem vierfachen Arbeitsspeicher-zu-Kern-Verhältnis gegenüber dem **Standard** -Tarif. **PremiumV3** bietet dieselben erweiterten Funktionen wie der **Standard** -Tarif, unterstützt aber dank einer höheren Anzahl von Instanzen auch eine größere Skalierung. Alle im vorhandenen **PremiumV2** -Tarif verfügbaren Funktionen sind in **PremiumV3** enthalten.
+> Der neue **PremiumV3**-Tarif garantiert Computern mit schnelleren Prozessoren (mindestens 195 [ACU](../virtual-machines/acu.md) pro virtuelle CPU), SSD-Speicher und einem vierfachen Arbeitsspeicher-zu-Kern-Verhältnis gegenüber dem **Standard**-Tarif. **PremiumV3** bietet dieselben erweiterten Funktionen wie der **Standard**-Tarif, unterstützt aber dank einer höheren Anzahl von Instanzen auch eine größere Skalierung. Alle im vorhandenen **PremiumV2**-Tarif verfügbaren Funktionen sind in **PremiumV3** enthalten.
 >
 > Ähnlich wie bei anderen dedizierten Tarifen sind drei VM-Größen für diese Ebene verfügbar:
 >
@@ -45,9 +45,9 @@ Für jeden Tarif wird auch eine bestimmte Teilmenge mit App Service-Features ber
 > - Mittel (4 CPU-Kerne, 16 GiB Arbeitsspeicher) 
 > - Groß (8 CPU-Kerne, 32 GiB Arbeitsspeicher)  
 >
-> Weitere Informationen zum **PremiumV3** -Tarif finden Sie unter [App Service – Preise](https://azure.microsoft.com/pricing/details/app-service/).
+> Weitere Informationen zum **PremiumV3**-Tarif finden Sie unter [App Service – Preise](https://azure.microsoft.com/pricing/details/app-service/).
 >
-> Informationen zu den ersten Schritten mit dem neuen **PremiumV3** -Tarif finden Sie unter [Konfigurieren des PremiumV3-Tarifs für App Service](app-service-configure-premium-tier.md).
+> Informationen zu den ersten Schritten mit dem neuen **PremiumV3**-Tarif finden Sie unter [Konfigurieren des PremiumV3-Tarifs für App Service](app-service-configure-premium-tier.md).
 
 ## <a name="how-does-my-app-run-and-scale"></a>Wie wird meine App ausgeführt und skaliert?
 
@@ -68,14 +68,14 @@ In diesem Abschnitt wird die Abrechnung von App Service-Apps beschrieben. Ausfü
 Mit Ausnahme des Tarifs **Free** fällt für einen App Service-Plan eine Gebühr für die verbrauchten Computeressourcen an.
 
 - Beim Tarif **Shared** erhält jede App ein Kontingent von CPU-Minuten, sodass für _jede App_ eine Gebühr gemäß dem CPU-Kontingent anfällt.
-- Bei dedizierten Computetarifen ( **Basic** , **Standard** , **Premium** , **PremiumV2** , **PremiumV3** ) ist im App Service-Plan die Anzahl von VM-Instanzen definiert, auf die Apps skaliert werden. Für _jede VM-Instanz_ des App Service-Plans fällt also eine Gebühr an. Diese VM-Instanzen werden unabhängig davon, wie viele Apps darauf ausgeführt werden, jeweils gleich berechnet. Informieren Sie sich unter [Manage an App Service plan in Azure](app-service-plan-manage.md#delete) (Verwalten eines App Service-Plans in Azure), um unerwartete Gebühren zu vermeiden.
+- Bei dedizierten Computetarifen (**Basic**, **Standard**, **Premium**, **PremiumV2**, **PremiumV3**) ist im App Service-Plan die Anzahl von VM-Instanzen definiert, auf die Apps skaliert werden. Für _jede VM-Instanz_ des App Service-Plans fällt also eine Gebühr an. Diese VM-Instanzen werden unabhängig davon, wie viele Apps darauf ausgeführt werden, jeweils gleich berechnet. Informieren Sie sich unter [Manage an App Service plan in Azure](app-service-plan-manage.md#delete) (Verwalten eines App Service-Plans in Azure), um unerwartete Gebühren zu vermeiden.
 - Beim Tarif **Isolated** definiert die App Service-Umgebung die Anzahl von isolierten Workern, die zum Ausführen Ihrer Apps verwendet werden, und _jeder Worker_ wird berechnet. Darüber hinaus fällt eine Stempelgebührpauschale für die Ausführung der eigentlichen App Service-Umgebung an.
 
 Für die Nutzung der App Service-Features, die für Sie verfügbar sind (Konfiguration von benutzerdefinierten Domänen, TLS/SSL-Zertifikaten, Bereitstellungsslots, Sicherungen usw.), fallen keine Gebühren an. Es gelten folgende Ausnahmen:
 
 - App Service-Domänen: Sie zahlen, wenn Sie in Azure eine Domäne erwerben, sowie bei jeder jährlichen Erneuerung.
 - App Service-Zertifikate: Sie zahlen, wenn Sie in Azure ein Zertifikat erwerben, sowie bei jeder jährlichen Erneuerung.
-- IP-basierte TLS-Verbindungen: Es wird eine Gebühr auf Stundenbasis für jede IP-basierte TLS-Verbindung berechnet, aber bei einigen **Standard** -Tarifen (oder höheren Tarifen) erhalten Sie eine kostenlose IP-basierte TLS-Verbindung. SNI-basierte TLS-Verbindungen sind kostenlos.
+- IP-basierte TLS-Verbindungen: Es wird eine Gebühr auf Stundenbasis für jede IP-basierte TLS-Verbindung berechnet, aber bei einigen **Standard**-Tarifen (oder höheren Tarifen) erhalten Sie eine kostenlose IP-basierte TLS-Verbindung. SNI-basierte TLS-Verbindungen sind kostenlos.
 
 > [!NOTE]
 > Wenn Sie App Service in einen anderen Azure-Dienst integrieren, müssen Sie ggf. Gebühren für diese anderen Dienste berücksichtigen. Beispiel: Wenn Sie Azure Traffic Manager zum geografischen Skalieren Ihrer App verwenden, werden Ihnen für Azure Traffic Manager auch Gebühren je nach Nutzung berechnet. Informationen dazu, wie Sie für Ihre dienstübergreifenden Kosten in Azure einen Schätzwert erhalten, finden Sie unter [Preisrechner](https://azure.microsoft.com/pricing/calculator/). 

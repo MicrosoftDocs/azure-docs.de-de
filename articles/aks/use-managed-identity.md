@@ -3,14 +3,13 @@ title: Verwenden verwalteter Identitäten in Azure Kubernetes Service
 description: Erfahren Sie, wie Sie verwaltete Identitäten in Azure Kubernetes Service (AKS) verwenden.
 services: container-service
 ms.topic: article
-ms.date: 07/17/2020
-ms.author: thomasge
-ms.openlocfilehash: 20e255958cbd90aaddf060e42d7627c1e1ebec88
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 12/06/2020
+ms.openlocfilehash: e2a80ea869e17665e8a6d4fbd6960c3ccc8c1042
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371459"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751273"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Verwenden verwalteter Identitäten in Azure Kubernetes Service
 
@@ -22,15 +21,13 @@ Derzeit erfordert ein AKS-Cluster (Azure Kubernetes Service) und insbesondere de
 
 Die folgenden Ressourcen müssen installiert sein:
 
-- Azure CLI ab Version 2.8.0
+- Azure CLI, Version 2.15.1 oder höher
 
 ## <a name="limitations"></a>Einschränkungen
 
-* AKS-Cluster mit verwalteten Identitäten können nur während der Erstellung des Clusters aktiviert werden.
-* Vorhandene AKS-Cluster können nicht zu verwalteten Identitäten migriert werden.
 * Während eines **Upgradevorgangs** des Clusters ist die verwaltete Identität vorübergehend nicht verfügbar.
 * Das Verschieben/Migrieren von Clustern mit aktivierter verwalteter Identität wird für Mandanten nicht unterstützt.
-* Wenn für den Cluster `aad-pod-identity` aktiviert wurde, werden die IPTables der Knoten von NMI-Pods (Node Managed Identity) so geändert, dass Aufrufe für den Azure Instance Metadata-Endpunkt abgefangen werden. Diese Konfiguration bedeutet, dass jede Anforderung, die an den Metadatenendpunkt gerichtet ist, von NMI abgefangen wird, auch wenn `aad-pod-identity` vom Pod nicht verwendet wird. Die AzurePodIdentityException-CRD kann so konfiguriert werden, dass `aad-pod-identity` darüber informiert wird, dass an den Metadatenendpunkt gerichtete Anforderungen, die von einem Pod stammen, der in der CRD definierte Bezeichnungen abgleicht, ohne Verarbeitung in NMI über einen Proxy zu senden sind. Die Systempods mit der Bezeichnung `kubernetes.azure.com/managedby: aks` im Namespace _kube-system_ müssen in `aad-pod-identity` durch Konfiguration der AzurePodIdentityException-CRD ausgeschlossen werden. Weitere Informationen finden Sie unter [Disable aad-pod-identity for a specific pod or application (Deaktivieren von „aad-pod-identity“ für einen bestimmten Pod oder eine bestimmte Anwendung)](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
+* Wenn für den Cluster `aad-pod-identity` aktiviert wurde, werden die iptables der Knoten von NMI-Pods (Node Managed Identity) so geändert, dass Aufrufe des Azure Instance Metadata-Endpunkts abgefangen werden. Diese Konfiguration bedeutet, dass jede Anforderung, die an den Metadatenendpunkt gerichtet ist, von NMI abgefangen wird, auch wenn `aad-pod-identity` vom Pod nicht verwendet wird. Die AzurePodIdentityException-CRD kann so konfiguriert werden, dass `aad-pod-identity` darüber informiert wird, dass an den Metadatenendpunkt gerichtete Anforderungen, die von einem Pod stammen, der in der CRD definierte Bezeichnungen abgleicht, ohne Verarbeitung in NMI über einen Proxy zu senden sind. Die Systempods mit der Bezeichnung `kubernetes.azure.com/managedby: aks` im Namespace _kube-system_ müssen in `aad-pod-identity` durch Konfiguration der AzurePodIdentityException-CRD ausgeschlossen werden. Weitere Informationen finden Sie unter [Disable aad-pod-identity for a specific pod or application (Deaktivieren von „aad-pod-identity“ für einen bestimmten Pod oder eine bestimmte Anwendung)](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
   Installieren zur Konfiguration einer Ausnahme die [YAML-Datei „mic-exception“](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 
 ## <a name="summary-of-managed-identities"></a>Zusammenfassung der verwalteten Identitäten
@@ -39,12 +36,12 @@ AKS verwendet mehrere verwaltete Identitäten für integrierte Dienste und Add-O
 
 | Identity                       | Name    | Anwendungsfall | Standardberechtigungen | Verwendung eigener Identitäten
 |----------------------------|-----------|----------|
-| Steuerungsebene | Nicht sichtbar | Wird von AKS für verwaltete Netzwerkressourcen verwendet (einschließlich Eingangslastenausgleichsmodule und von AKS verwaltete öffentliche IP-Adressen) | Rolle „Mitwirkender“ für Knotenressourcengruppe | Vorschau
+| Steuerungsebene | Nicht sichtbar | Wird von Komponenten der AKS-Steuerungsebene verwendet, um Clusterressourcen einschließlich Lastenausgleichsmodulen für eingehenden Datenverkehr und von AKS verwalteten öffentlichen IP-Adressen sowie Autoskalierungsvorgänge im Cluster zu verwalten. | Rolle „Mitwirkender“ für Knotenressourcengruppe | Vorschau
 | Kubelet | Name des AKS-Clusters: agentpool | Authentifizierung bei Azure Container Registry (ACR) | N/V (für Kubernetes v1.15+) | Derzeit nicht unterstützt
 | Add-On | AzureNPM | Keine Identität erforderlich | Nicht verfügbar | Nein
 | Add-On | Azure CNI-Netzwerküberwachung | Keine Identität erforderlich | Nicht verfügbar | Nein
-| Add-On | azurepolicy (Gatekeeper) | Keine Identität erforderlich | Nicht verfügbar | Nein
-| Add-On | azurepolicy | Keine Identität erforderlich | Nicht verfügbar | Nein
+| Add-On | azure-policy (Gatekeeper) | Keine Identität erforderlich | Nicht verfügbar | Nein
+| Add-On | azure-policy | Keine Identität erforderlich | Nicht verfügbar | Nein
 | Add-On | Calico | Keine Identität erforderlich | Nicht verfügbar | Nein
 | Add-On | Dashboard | Keine Identität erforderlich | Nicht verfügbar | Nein
 | Add-On | HTTPApplicationRouting | Verwaltung erforderlicher Netzwerkressourcen | Rolle „Leser“ für Knotenressourcengruppe, Rolle „Mitwirkender“ für DNS-Zone | Nein
@@ -106,45 +103,44 @@ Rufen Sie schließlich Anmeldeinformationen für den Zugriff auf den Cluster ab:
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
+## <a name="update-an-aks-cluster-to-managed-identities-preview"></a>Aktualisieren eines AKS-Clusters auf verwaltete Identitäten (Vorschau)
 
-## <a name="bring-your-own-control-plane-mi-preview"></a>Verwenden einer eigenen verwalteten Identität für die Steuerungsebene (Vorschauversion)
-Eine benutzerdefinierte Steuerungsebenenidentität ermöglicht den Zugriff auf die vorhandene Identität vor der Clustererstellung. Dies ermöglicht beispielsweise die Verwendung eines benutzerdefinierten VNET oder des ausgehenden Typs (outboundType) „UDR“ mit einer verwalteten Identität.
+Sie können einen AKS-Cluster, der derzeit mit Dienstprinzipalen arbeitet, jetzt mithilfe der folgenden CLI-Befehle auf die Verwendung von verwalteten Identitäten aktualisieren.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+Registrieren Sie zuerst das Featureflag für die systemseitig zugewiesene Identität:
 
-Die folgenden Ressourcen müssen installiert sein:
-- Azure CLI ab Version 2.9.0
-- Erweiterung „aks-preview 0.4.57“
+```azurecli-interactive
+az feature register --namespace Microsoft.ContainerService -n MigrateToMSIClusterPreview
+```
 
-Einschränkungen für die Verwendung einer eigenen verwalteten Identität für die Steuerungsebene (Vorschauversion):
+Aktualisieren Sie die systemseitig zugewiesene Identität:
+
+```azurecli-interactive
+az aks update -g <RGName> -n <AKSName> --enable-managed-identity
+```
+
+Aktualisieren Sie die benutzerseitig zugewiesene Identität:
+
+```azurecli-interactive
+az feature register --namespace Microsoft.ContainerService -n UserAssignedIdentityPreview
+```
+
+Aktualisieren Sie die benutzerseitig zugewiesene Identität:
+
+```azurecli-interactive
+az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
+```
+> [!NOTE]
+> Sobald die system- oder benutzerseitig zugewiesenen Identitäten auf verwaltete Identitäten aktualisiert sind, führen Sie `az nodepool upgrade --node-image-only` auf Ihren Knoten aus, um das Update auf verwalteten Identitäten abzuschließen.
+
+## <a name="bring-your-own-control-plane-mi"></a>Verwenden einer eigenen verwalteten Identität für die Steuerungsebene
+Eine benutzerdefinierte Steuerungsebenenidentität ermöglicht den Zugriff auf die vorhandene Identität vor der Clustererstellung. Dieses Feature ermöglicht beispielsweise die Verwendung eines benutzerdefinierten VNET oder einer UDR vom Typ „outboundType“ mit einer vorab erstellten verwalteten Identität.
+
+Hierfür muss die Azure CLI-Version 2.15.1 oder höher installiert sein.
+
+### <a name="limitations"></a>Einschränkungen
 * Azure Government wird derzeit nicht unterstützt.
 * Azure China 21Vianet wird derzeit nicht unterstützt.
-
-```azurecli-interactive
-az extension add --name aks-preview
-az extension list
-```
-
-```azurecli-interactive
-az extension update --name aks-preview
-az extension list
-```
-
-```azurecli-interactive
-az feature register --name UserAssignedIdentityPreview --namespace Microsoft.ContainerService
-```
-
-Es kann einige Minuten dauern, bis der Status als **Registriert** angezeigt wird. Sie können den Registrierungsstatus mithilfe des Befehls [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) überprüfen:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UserAssignedIdentityPreview')].{Name:name,State:properties.state}"
-```
-
-Wenn der Status als registriert angezeigt wird, können Sie die Registrierung des `Microsoft.ContainerService`-Ressourcenanbieters mit dem Befehl [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true) aktualisieren:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 Sollten Sie über keine verwaltete Identität verfügen, können Sie beispielsweise mithilfe von [az identity create][az-identity-create] eine erstellen.
 

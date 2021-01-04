@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 08641814e2a4fdf6f174f94b1e38e4124cf531d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e583cedc04113615c50cc9906cbd11a99ff48683
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934921"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421718"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Arbeiten mit Suchergebnissen in der kognitiven Azure-Suche
 
 In diesem Artikel wird erläutert, wie Sie eine Abfrageantwort abrufen können, die eine Gesamtanzahl übereinstimmender Dokumente, paginierter Ergebnisse, sortierter Ergebnisse sowie von Begriffen mit markierten Treffern enthält.
 
-Die Struktur einer Antwort wird durch Parameter in der Abfrage bestimmt: [Suchdokument](/rest/api/searchservice/Search-Documents) in der REST-API oder [DocumentSearchResult-Klasse](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) im .NET SDK.
+Die Struktur einer Antwort wird durch Parameter in der Abfrage bestimmt: [Suchdokument](/rest/api/searchservice/Search-Documents) in der REST-API oder [SearchResults-Klasse](/dotnet/api/azure.search.documents.models.searchresults-1) im .NET SDK.
 
 ## <a name="result-composition"></a>Ergebniszusammensetzung
 
@@ -52,7 +52,7 @@ Wenn eine andere Anzahl an übereinstimmenden Dokumenten zurückgegeben werden s
 + Damit wird die zweite Gruppe zurückgegeben, wobei die ersten 15 übersprungen und die nächsten 15 abgerufen werden: `$top=15&$skip=15`. Damit geschieht dasselbe für die dritte Gruppe von 15 Dokumenten: `$top=15&$skip=30`
 
 Es ist nicht sicher, dass die Ergebnisse von paginierten Abfragen stabil sind, wenn sich der zugrunde liegende Index ändert. Beim Paging ändert sich der Wert von `$skip` für die einzelnen Seiten. Dabei sind die einzelnen Abfragen jedoch unabhängig und werden für die aktuelle Ansicht der Daten ausgeführt, die im Index zur Abfragezeit vorhanden sind. (Das bedeutet, es gibt kein Zwischenspeichern bzw. keine Momentaufnahmen der Ergebnisse wie etwa bei universellen Datenbanken.)
- 
+ 
 Mit dem folgenden Beispiel werden möglicherweise Duplikate zurückgegeben. Stellen Sie sich einen Index mit vier Dokumenten vor:
 
 ```text
@@ -61,21 +61,21 @@ Mit dem folgenden Beispiel werden möglicherweise Duplikate zurückgegeben. Stel
 { "id": "3", "rating": 2 }
 { "id": "4", "rating": 1 }
 ```
- 
+ 
 Stellen Sie sich nun vor, es sollen immer je zwei Ergebnisse nach Bewertung sortiert zurückgegeben werden. Sie würden die folgende Abfrage ausführen, um die erste Seite mit Ergebnissen abzurufen: `$top=2&$skip=0&$orderby=rating desc`. Damit werden die folgenden Ergebnisse erzeugt:
 
 ```text
 { "id": "1", "rating": 5 }
 { "id": "2", "rating": 3 }
 ```
- 
+ 
 Stellen Sie sich nun vor, dass bei dem Dienst zwischen den Abfragen `{ "id": "5", "rating": 4 }` als fünftes Dokument in den Index aufgenommen wird.  Kurze Zeit später führen Sie eine Abfrage aus, um die zweite Seite abzurufen: `$top=2&$skip=2&$orderby=rating desc`. Damit werden die folgenden Ergebnisse abgerufen:
 
 ```text
 { "id": "2", "rating": 3 }
 { "id": "3", "rating": 2 }
 ```
- 
+ 
 Wie Sie sehen, wurde Dokument 2 zweimal abgerufen. Der Grund dafür ist, dass das neue Dokument 5 einen größeren Wert für die Bewertung aufweist, sodass es in der Reihenfolge vor Dokument 2 kommt und daher auf der ersten Seite landet. Dieses Verhalten ist zwar möglicherweise unerwartet, jedoch typisch für das Verhalten eines Suchmoduls.
 
 ## <a name="ordering-results"></a>Sortieren von Ergebnissen

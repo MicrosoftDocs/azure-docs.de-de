@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 12/02/2020
 ms.author: jlian
-ms.openlocfilehash: 3deffe6f1dbffcaae5676b8ddf3c0fc2dc934401
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f79b03884109ffbd856ff4f60909565daeb0e792
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149083"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549111"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>IoT Hub-Unterstützung für virtuelle Netzwerke mit Private Link und verwalteter Identität
 
@@ -36,7 +36,7 @@ In diesem Artikel wird beschrieben, wie Sie diese Ziele erreichen, indem Sie [Az
 
 ## <a name="ingress-connectivity-to-iot-hub-using-azure-private-link"></a>Eingehende Konnektivität mit IoT Hub mithilfe von Azure Private Link
 
-Ein privater Endpunkt ist eine private IP-Adresse, die in einem kundeneigenen VNET zugeordnet ist, über das eine Azure-Ressource erreichbar ist. Mit Azure Private Link können Sie einen privaten Endpunkt für Ihren IoT-Hub einrichten und damit den Diensten in Ihrem VNET erlauben, IoT Hub zu erreichen, ohne dass Datenverkehr an den öffentlichen IoT Hub-Endpunkt gesendet werden muss. Ebenso können Ihre lokalen Geräte ein [virtuelles privates Netzwerk (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) oder [ExpressRoute](https://azure.microsoft.com/services/expressroute/)-Peering verwenden, um eine Verbindung mit Ihrem VNET und Ihrer IoT Hub-Instanz (über den privaten Endpunkt) herzustellen. So können Sie die Konnektivität mit den öffentlichen Endpunkten Ihres IoT-Hubs einschränken oder komplett blockieren, indem Sie [IoT Hub-IP-Filter](./iot-hub-ip-filtering.md) verwenden und [das Routing so konfigurieren, dass keine Daten an den integrierten Endpunkt gesendet werden](#built-in-event-hub-compatible-endpoint-doesnt-support-access-over-private-endpoint). Auf diese Weise erfolgen Verbindungen mit Ihrem Hub ausschließlich über den privaten Endpunkt für Geräte. Der Schwerpunkt dieses Setups liegt auf Geräten, die sich in einem lokalen Netzwerk befinden. Dieses Setup wird nicht für Geräte empfohlen, die in einem WAN bereitgestellt werden.
+Ein privater Endpunkt ist eine private IP-Adresse, die in einem kundeneigenen VNET zugeordnet ist, über das eine Azure-Ressource erreichbar ist. Mit Azure Private Link können Sie einen privaten Endpunkt für Ihren IoT-Hub einrichten und damit den Diensten in Ihrem VNET erlauben, IoT Hub zu erreichen, ohne dass Datenverkehr an den öffentlichen IoT Hub-Endpunkt gesendet werden muss. Ebenso können Ihre lokalen Geräte ein [virtuelles privates Netzwerk (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) oder [ExpressRoute](https://azure.microsoft.com/services/expressroute/)-Peering verwenden, um eine Verbindung mit Ihrem VNET und Ihrer IoT Hub-Instanz (über den privaten Endpunkt) herzustellen. So können Sie die Konnektivität mit den öffentlichen Endpunkten Ihres IoT-Hubs einschränken oder vollständig blockieren, indem Sie [IoT Hub-IP-Filter](./iot-hub-ip-filtering.md) oder [die Funktion zum Umschalten des Zugriffs über öffentliche Netzwerke](iot-hub-public-network-access.md) verwenden. Auf diese Weise erfolgen Verbindungen mit Ihrem Hub ausschließlich über den privaten Endpunkt für Geräte. Der Schwerpunkt dieses Setups liegt auf Geräten, die sich in einem lokalen Netzwerk befinden. Dieses Setup wird nicht für Geräte empfohlen, die in einem WAN bereitgestellt werden.
 
 ![IoT Hub des virtuellen Netzwerks – Eingang](./media/virtual-network-support/virtual-network-ingress.png)
 
@@ -64,17 +64,12 @@ Ein privater Endpunkt kann für IoT Hub-Geräte-APIs (z. B. D2C-Nachrichten) so
 
 1. Klicken Sie auf **Überprüfen und erstellen**, um die Private Link-Ressource zu erstellen.
 
-### <a name="built-in-event-hub-compatible-endpoint-doesnt-support-access-over-private-endpoint"></a>Integrierter Event Hub-kompatibler Endpunkt unterstützt Zugriff über privaten Endpunkt nicht
+### <a name="built-in-event-hub-compatible-endpoint"></a>Integrierter, mit Event Hub kompatibler Endpunkt 
 
-Der [integrierte Event Hub-kompatible Endpunkt](iot-hub-devguide-messages-read-builtin.md) unterstützt den Zugriff über den privaten Endpunkt nicht. Wenn ein privater Endpunkt für einen IoT-Hub konfiguriert ist, kann dieser nur für eingehende Verbindungen verwendet werden. Daten aus einem integrierten Event Hub-kompatiblen Endpunkt können nur über das öffentliche Internet genutzt werden. 
+Auf den [integrierten, mit Event Hub kompatiblen Endpunkt](iot-hub-devguide-messages-read-builtin.md) kann auch über den privaten Endpunkt zugegriffen werden. Bei konfigurierter privater Verbindung sollte für den integrierten Endpunkt eine zusätzliche Verbindung für private Endpunkte angezeigt werden. Dabei handelt es sich um das Element mit `servicebus.windows.net` im vollqualifizierten Domänennamen.
 
-Der [IP-Filter](iot-hub-ip-filtering.md) von IoT Hub steuert auch nicht den öffentlichen Zugriff auf den integrierten Endpunkt. Um den Zugriff aus öffentlichen Netzwerken auf Ihren IoT-Hub vollständig zu blockieren, müssen Sie folgendermaßen vorgehen: 
+:::image type="content" source="media/virtual-network-support/private-built-in-endpoint.png" alt-text="Abbildung: Zwei private Endpunkte mit jeweils angegebener privater IoT Hub-Verbindung":::
 
-1. Konfigurieren Sie den Zugriff durch private Endpunkte auf IoT Hub.
-1. [Deaktivieren Sie den Zugriff über öffentliche Netzwerke](iot-hub-public-network-access.md) oder verwenden Sie IP-Filter, um alle IP-Adressen zu blockieren.
-1. Beenden Sie die Verwendung des integrierten Event Hub-Endpunkts, indem Sie [das Routing so einrichten, dass keine Daten an ihn gesendet werden](iot-hub-devguide-messages-d2c.md).
-1. Deaktivieren Sie die [Fallbackroute](iot-hub-devguide-messages-d2c.md#fallback-route).
-1. Konfigurieren Sie den ausgehenden Datenverkehr an andere Azure-Ressourcen mit der Option [Vertrauenswürdige Microsoft-Dienste](#egress-connectivity-from-iot-hub-to-other-azure-resources).
 
 ### <a name="pricing-for-private-link"></a>Preise für Private Link
 
@@ -92,7 +87,7 @@ Damit andere Dienste Ihre IoT Hub-Instanz als vertrauenswürdigen Microsoft-Dien
 
 1. Klicken Sie unter **Status** auf **Ein** und dann auf **Speichern**.
 
-    :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Screenshot, der zeigt, wo ein privater Endpunkt für IoT Hub hinzugefügt wird":::
+    :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Screenshot, der zeigt, wie eine verwaltete Identität für IoT Hub aktiviert wird":::
 
 ### <a name="assign-managed-identity-to-your-iot-hub-at-creation-time-using-arm-template"></a>Zuweisen einer verwalteten Identität zu Ihrem IoT-Hub zum Zeitpunkt der Erstellung mithilfe einer ARM-Vorlage
 
@@ -170,7 +165,7 @@ Das Feature für die Ausnahme für vertrauenswürdige Microsoft-Erstanbieterdien
 
 ### <a name="egress-connectivity-to-storage-account-endpoints-for-routing"></a>Ausgehende Konnektivität zu Speicherkontoendpunkten für das Routing
 
-IoT Hub kann Nachrichten an ein Speicherkonto im Kundenbesitz weiterleiten. Damit die Routingfunktion trotz Firewalleinschränkungen auf ein Speicherkonto zugreifen kann, muss Ihre IoT Hub-Instanz über eine [verwaltete Identität](#turn-on-managed-identity-for-iot-hub) verfügen. Nachdem eine verwaltete Identität bereitgestellt wurde, führen Sie die folgenden Schritte aus, um der Ressourcenidentität Ihres Hubs die RBAC-Berechtigung für den Zugriff auf Ihr Speicherkonto zu erteilen.
+IoT Hub kann Nachrichten an ein Speicherkonto im Kundenbesitz weiterleiten. Damit die Routingfunktion trotz Firewalleinschränkungen auf ein Speicherkonto zugreifen kann, muss Ihre IoT Hub-Instanz über eine [verwaltete Identität](#turn-on-managed-identity-for-iot-hub) verfügen. Nachdem eine verwaltete Identität bereitgestellt wurde, führen Sie die folgenden Schritte aus, um der Ressourcenidentität Ihres Hubs die Azure RBAC-Berechtigung für den Zugriff auf Ihr Speicherkonto zu erteilen.
 
 1. Navigieren Sie im Azure-Portal zur Registerkarte **Zugriffssteuerung (IAM)** Ihres Speicherkontos, und klicken Sie im Abschnitt **Rollenzuweisung hinzufügen** auf **Hinzufügen**.
 
@@ -188,7 +183,7 @@ Nun ist Ihr benutzerdefinierter Speicherendpunkt für die Verwendung der vom Sys
 
 ### <a name="egress-connectivity-to-event-hubs-endpoints-for-routing"></a>Ausgehende Konnektivität zu Event Hub-Endpunkten für das Routing
 
-IoT Hub kann so konfiguriert werden, dass Nachrichten an einen Event Hub-Namespace im Besitz von Kunden weitergeleitet werden. Damit die Routingfunktion trotz Firewalleinschränkungen auf eine Event Hub-Ressource zugreifen kann, muss Ihre IoT Hub-Instanz über eine verwaltete Identität verfügen. Nachdem eine verwaltete Identität erstellt wurde, führen Sie die folgenden Schritte aus, um der Ressourcenidentität Ihres Hubs die RBAC-Berechtigung für den Zugriff auf Ihre Event Hub-Instanzen zu erteilen.
+IoT Hub kann so konfiguriert werden, dass Nachrichten an einen Event Hub-Namespace im Besitz von Kunden weitergeleitet werden. Damit die Routingfunktion trotz Firewalleinschränkungen auf eine Event Hub-Ressource zugreifen kann, muss Ihre IoT Hub-Instanz über eine verwaltete Identität verfügen. Nachdem eine verwaltete Identität erstellt wurde, führen Sie die folgenden Schritte aus, um der Ressourcenidentität Ihres Hubs die Azure RBAC-Berechtigung für den Zugriff auf Ihre Event Hub-Instanzen zu erteilen.
 
 1. Navigieren Sie im Azure-Portal zur Registerkarte **Zugriffssteuerung (IAM)** Ihres Event Hubs, und klicken Sie im Abschnitt **Rollenzuweisung hinzufügen** auf **Hinzufügen**.
 
@@ -200,13 +195,13 @@ IoT Hub kann so konfiguriert werden, dass Nachrichten an einen Event Hub-Namespa
 
 5. Navigieren Sie zum Abschnitt **Benutzerdefinierte Endpunkte**, und klicken Sie auf **Hinzufügen**. Wählen Sie **Event Hubs** als Endpunkttyp aus.
 
-6. Geben Sie auf der angezeigten Seite einen Namen für den Endpunkt ein, wählen Sie den Event Hub-Namespace und die Instanz aus, und klicken Sie auf die Schaltfläche **Erstellen**.
+6. Geben Sie auf der angezeigten Seite einen Namen für den Endpunkt ein, und wählen Sie den Event Hubs-Namespace und die Event Hubs-Instanz aus. Wählen Sie **Identitätsbasiert** als **Authentifizierungstyp** aus, und klicken Sie auf die Schaltfläche **Erstellen**.
 
 Nun ist Ihr benutzerdefinierter Event Hub-Endpunkt für die Verwendung der vom System zugewiesenen Identität des Hubs eingerichtet und verfügt trotz der Firewalleinschränkungen über die Berechtigung, auf Ihre Event Hubs zuzugreifen. Sie können diesen Endpunkt jetzt zum Einrichten einer Routingregel verwenden.
 
 ### <a name="egress-connectivity-to-service-bus-endpoints-for-routing"></a>Ausgehende Konnektivität zu Service Bus-Endpunkten für das Routing
 
-IoT Hub kann so konfiguriert werden, dass Nachrichten an einen Service Bus-Namespace im Besitz von Kunden weitergeleitet werden. Damit die Routingfunktion trotz Firewalleinschränkungen auf eine Service Bus-Ressource zugreifen kann, muss Ihre IoT Hub-Instanz über eine verwaltete Identität verfügen. Nachdem eine verwaltete Identität bereitgestellt wurde, führen Sie die folgenden Schritte aus, um der Ressourcenidentität Ihres Hubs die RBAC-Berechtigung für den Zugriff auf Ihre Service Bus-Instanz zu erteilen.
+IoT Hub kann so konfiguriert werden, dass Nachrichten an einen Service Bus-Namespace im Besitz von Kunden weitergeleitet werden. Damit die Routingfunktion trotz Firewalleinschränkungen auf eine Service Bus-Ressource zugreifen kann, muss Ihre IoT Hub-Instanz über eine verwaltete Identität verfügen. Nachdem eine verwaltete Identität bereitgestellt wurde, führen Sie die folgenden Schritte aus, um der Ressourcenidentität Ihres Hubs die Azure RBAC-Berechtigung für den Zugriff auf Ihre Service Bus-Instanz zu erteilen.
 
 1. Navigieren Sie im Azure-Portal zur Registerkarte **Zugriffssteuerung (IAM)** Ihres Service Bus, und klicken Sie im Abschnitt **Rollenzuweisung hinzufügen** auf **Hinzufügen**.
 
@@ -218,13 +213,13 @@ IoT Hub kann so konfiguriert werden, dass Nachrichten an einen Service Bus-Names
 
 5. Navigieren Sie zum Abschnitt **Benutzerdefinierte Endpunkte**, und klicken Sie auf **Hinzufügen**. Wählen Sie **Service Bus-Warteschlange** oder **Service Bus-Thema** (sofern zutreffend) als Endpunkttyp aus.
 
-6. Geben Sie auf der angezeigten Seite einen Namen für den Endpunkt ein, und wählen Sie den Namespace, die Warteschlange oder das Thema (sofern zutreffend) Ihres Service Bus aus. Klicken Sie auf die Schaltfläche **Erstellen** .
+6. Geben Sie auf der angezeigten Seite einen Namen für den Endpunkt ein, und wählen Sie den Namespace, die Warteschlange oder das Thema (sofern zutreffend) Ihres Service Bus aus. Wählen Sie **Identitätsbasiert** als **Authentifizierungstyp** aus, und klicken Sie auf die Schaltfläche **Erstellen**.
 
 Nun ist Ihr benutzerdefinierter Service Bus-Endpunkt für die Verwendung der vom System zugewiesenen Identität des Hubs eingerichtet und verfügt trotz der Firewalleinschränkungen über die Berechtigung, auf Ihre Service Bus-Ressource zuzugreifen. Sie können diesen Endpunkt jetzt zum Einrichten einer Routingregel verwenden.
 
 ### <a name="egress-connectivity-to-storage-accounts-for-file-upload"></a>Ausgehende Konnektivität zu Speicherkonten für den Dateiupload
 
-Das IoT Hub-Feature für den Dateiupload ermöglicht Geräten das Hochladen von Dateien in ein Speicherkonto, das im Besitz von Kunden ist. Sowohl Geräte als auch IoT Hub müssen eine Verbindung mit dem Speicherkonto herstellen, damit der Dateiuploadvorgang funktioniert. Wenn Firewalleinschränkungen für das Speicherkonto vorhanden sind, müssen Ihre Geräte einen der unterstützten Mechanismen des Speicherkontos verwenden (z. B. [private Endpunkte](../private-link/tutorial-private-endpoint-storage-portal.md), [Dienstendpunkte](../virtual-network/virtual-network-service-endpoints-overview.md) oder eine [direkte Firewallkonfiguration](../storage/common/storage-network-security.md)), um die Verbindung herzustellen. Wenn Firewalleinschränkungen im Speicherkonto vorhanden sind, muss IoT Hub entsprechend konfiguriert werden, um über die Ausnahme für vertrauenswürdige Microsoft-Dienste auf die Speicherressource zuzugreifen. Zu diesem Zweck muss Ihre IoT Hub-Instanz über eine verwaltete Identität verfügen. Nachdem eine verwaltete Identität bereitgestellt wurde, führen Sie die folgenden Schritte aus, um der Ressourcenidentität Ihres Hubs die RBAC-Berechtigung für den Zugriff auf Ihr Speicherkonto zu erteilen.
+Das IoT Hub-Feature für den Dateiupload ermöglicht Geräten das Hochladen von Dateien in ein Speicherkonto, das im Besitz von Kunden ist. Sowohl Geräte als auch IoT Hub müssen eine Verbindung mit dem Speicherkonto herstellen, damit der Dateiuploadvorgang funktioniert. Wenn Firewalleinschränkungen für das Speicherkonto vorhanden sind, müssen Ihre Geräte einen der unterstützten Mechanismen des Speicherkontos verwenden (z. B. [private Endpunkte](../private-link/tutorial-private-endpoint-storage-portal.md), [Dienstendpunkte](../virtual-network/virtual-network-service-endpoints-overview.md) oder eine [direkte Firewallkonfiguration](../storage/common/storage-network-security.md)), um die Verbindung herzustellen. Wenn Firewalleinschränkungen im Speicherkonto vorhanden sind, muss IoT Hub entsprechend konfiguriert werden, um über die Ausnahme für vertrauenswürdige Microsoft-Dienste auf die Speicherressource zuzugreifen. Zu diesem Zweck muss Ihre IoT Hub-Instanz über eine verwaltete Identität verfügen. Nachdem eine verwaltete Identität bereitgestellt wurde, führen Sie die folgenden Schritte aus, um der Ressourcenidentität Ihres Hubs die Azure RBAC-Berechtigung für den Zugriff auf Ihr Speicherkonto zu erteilen.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
@@ -244,7 +239,7 @@ Nun ist Ihr Speicherendpunkt für den Dateiupload für die Verwendung der vom Sy
 
 IoT Hub unterstützt die Funktion zum [Importieren und Exportieren](./iot-hub-bulk-identity-mgmt.md) von Geräteinformationen per Massenvorgang von/in vom Kunden bereitgestellte Azure Storage Blob-Instanzen. Sowohl Geräte als auch IoT Hub müssen eine Verbindung mit dem Speicherkonto herstellen, damit das Feature für den Massenimport/-export funktioniert.
 
-Diese Funktion erfordert Konnektivität von IoT Hub mit dem Speicherkonto. Damit der Zugriff auf eine Service Bus-Ressource trotz Firewalleinschränkungen funktioniert, muss Ihre IoT Hub-Instanz über eine verwaltete Identität verfügen. Nachdem eine verwaltete Identität bereitgestellt wurde, führen Sie die folgenden Schritte aus, um der Ressourcenidentität Ihres Hubs die RBAC-Berechtigung für den Zugriff auf Ihre Service Bus-Instanz zu erteilen.
+Diese Funktion erfordert Konnektivität von IoT Hub mit dem Speicherkonto. Damit der Zugriff auf eine Service Bus-Ressource trotz Firewalleinschränkungen funktioniert, muss Ihre IoT Hub-Instanz über eine verwaltete Identität verfügen. Nachdem eine verwaltete Identität bereitgestellt wurde, führen Sie die folgenden Schritte aus, um der Ressourcenidentität Ihres Hubs die Azure RBAC-Berechtigung für den Zugriff auf Ihre Service Bus-Instanz zu erteilen.
 
 1. Navigieren Sie im Azure-Portal zur Registerkarte **Zugriffssteuerung (IAM)** Ihres Speicherkontos, und klicken Sie im Abschnitt **Rollenzuweisung hinzufügen** auf **Hinzufügen**.
 

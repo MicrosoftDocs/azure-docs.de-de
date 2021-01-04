@@ -1,22 +1,22 @@
 ---
-title: Herstellen einer Verbindung mit Power BI Professional
-description: In diesem Tutorial werden die Schritte zum Herstellen einer Verbindung zwischen Power BI Desktop und SQL On-Demand (Vorschauversion) erläutert.
+title: Herstellen einer Verbindung mit Synapse SQL mithilfe von Power BI Professional
+description: In diesem Tutorial werden die Schritte zum Herstellen einer Verbindung zwischen Power BI Desktop und einem serverlosen SQL-Pool erläutert.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 48b6639ad8228347737669fffca06eb660a25874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b33edb99109b7516e1792497a936031cf954bc15
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288697"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451613"
 ---
-# <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Herstellen einer Verbindung mit Synapse SQL mithilfe von Power BI Professional
+# <a name="connect-to-serverless-sql-pool-with-power-bi-professional"></a>Herstellen einer Verbindung mit einem serverlosen SQL-Pool mithilfe von Power BI Professional
 
 > [!div class="op_single_selector"]
 >
@@ -26,7 +26,7 @@ ms.locfileid: "91288697"
 > - [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > - [SSMS](get-started-ssms.md)
 
-In diesem Tutorial werden die Schritte zum Herstellen einer Verbindung zwischen Power BI Desktop und SQL On-Demand (Vorschauversion) erläutert.
+In diesem Tutorial werden die Schritte zum Herstellen einer Verbindung zwischen Power BI Desktop und einem serverlosen SQL-Pool erläutert.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -43,17 +43,17 @@ Parameter:
 
 | Parameter                                 | BESCHREIBUNG                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Dienstendpunktadresse von SQL On-Demand    | Wird als Servername verwendet.                                   |
-| Dienstendpunktregion von SQL On-Demand     | Wird verwendet, um zu bestimmen, welcher Speicher in Beispielen genutzt wird. |
+| Adresse des Dienstendpunkts des serverlosen SQL-Pools    | Wird als Servername verwendet.                                   |
+| Region des Dienstendpunkts des serverlosen SQL-Pools     | Wird verwendet, um zu bestimmen, welcher Speicher in Beispielen genutzt wird. |
 | Benutzername und Kennwort für den Endpunktzugriff | Wird für den Zugriff auf den Endpunkt verwendet.                               |
-| Datenbank zum Erstellen von Ansichten     | Diese Datenbank wird als Ausgangspunkt in Beispielen verwendet.       |
+| Datenbank zum Erstellen von Ansichten       | Diese Datenbank wird als Ausgangspunkt in Beispielen verwendet.       |
 
 ## <a name="first-time-setup"></a>Erstmalige Einrichtung
 
 Vor der Verwendung von Beispielen müssen zwei Schritte ausgeführt werden:
 
 1. Erstellen einer Datenbank für Ihre Ansichten
-2. Erstellen von Anmeldeinformationen, die von SQL On-Demand für den Zugriff auf Dateien im Speicher verwendet werden
+2. Erstellen Sie Anmeldeinformationen, die vom serverlosen SQL-Pool für den Zugriff auf Dateien im Speicher verwendet werden können.
 
 ### <a name="create-database"></a>Erstellen einer Datenbank
 
@@ -70,10 +70,10 @@ DROP DATABASE IF EXISTS demo;
 
 ### <a name="create-credentials"></a>Erstellen von Anmeldeinformationen
 
-Sie müssen Anmeldeinformationen erstellen, damit Sie Abfragen ausführen können. Diese Anmeldeinformationen werden von SQL On-Demand für den Zugriff auf Dateien im Speicher verwendet.
+Sie müssen Anmeldeinformationen erstellen, damit Sie Abfragen ausführen können. Diese Anmeldeinformationen werden vom Dienst für den serverlosen SQL-Pool für den Zugriff auf Dateien im Speicher verwendet.
 
 > [!NOTE]
-> Sie müssen Anmeldeinformationen für den Speicherkontozugriff erstellen. SQL On-Demand kann zwar auf Speicher aus unterschiedlichen Regionen zugreifen, die Leistung ist jedoch besser, wenn sich der Speicher und der Azure Synapse-Arbeitsbereich in derselben Region befinden.
+> Sie müssen Anmeldeinformationen für den Speicherkontozugriff erstellen. Der serverlose SQL-Pool kann zwar auf Speicher aus unterschiedlichen Regionen zugreifen, die Leistung ist jedoch besser, wenn sich der Speicher und der Azure Synapse-Arbeitsbereich in derselben Region befinden.
 
 Führen Sie den folgenden **Codeausschnitt zum Erstellen von Anmeldeinformationen für Containern mit Volkszählungsdaten** aus:
 
@@ -108,5 +108,4 @@ Geben Sie die URL für die Datenbank und den Namen der Datenbank an, in der sich
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Fahren Sie mit dem Artikel zum [Abfragen von Speicherdateien](get-started-azure-data-studio.md) fort, um zu erfahren, wie Sie mithilfe von Azure Data Studio eine Verbindung mit SQL On-Demand herstellen.
- 
+Fahren Sie mit dem Artikel zum [Abfragen von Speicherdateien](get-started-azure-data-studio.md) fort, um zu erfahren, wie Sie mithilfe von Azure Data Studio eine Verbindung mit einem serverlosen SQL-Pool herstellen.

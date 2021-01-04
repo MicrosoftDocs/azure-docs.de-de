@@ -1,18 +1,17 @@
 ---
-title: Erhöhung des Grenzwerts für Netzwerke | Microsoft-Dokumentation
+title: Erhöhung des Grenzwerts für Netzwerke
 description: Erhöhung des Grenzwerts für Netzwerke
 author: anavinahar
 ms.author: anavin
 ms.date: 01/23/2020
 ms.topic: how-to
-ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: acb05da0255445de31e08f2724dcb484a3e05b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e945dec2ce8514c3e4f1edecdecd13c5c43f7c75
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764264"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745450"
 ---
 # <a name="networking-limit-increase"></a>Erhöhung des Grenzwerts für Netzwerke
 

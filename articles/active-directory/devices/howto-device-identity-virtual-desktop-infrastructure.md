@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9020e364a5c8d7a59dad5549e88036dc9edaad7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c30ad26f079e6353dc4763b9ae968c33882d8ab6
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089665"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029346"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Geräteidentität und Desktopvirtualisierung
 
@@ -60,8 +60,7 @@ Bevor Sie die Geräteidentitäten in Azure AD für Ihre VDI-Umgebung konfigurier
 |   |   |   | Nicht beständig | Nein |
 | Bei Azure AD registriert | Im Verbund/verwaltet | Aktuelle Windows-Geräte/kompatible Windows-Geräte | Beständig/nicht beständig | Nicht zutreffend |
 
-<sup>1</sup> **Aktuelle Windows-Geräte** bezieht sich auf Geräte mit Windows 10, Windows Server 2016 und Windows Server 2019.
-
+<sup>1</sup> **Aktuelle Windows-Geräte** bezieht sich auf Geräte unter Windows 10, Windows Server 2016 v1803 oder höher und Windows Server 2019.
 <sup>2</sup> **Kompatible Windows-Geräte** bezieht sich auf Geräte mit Windows 7, Windows 8.1, Windows Server 2008 R2, Windows Server 2012 und Windows Server 2012 R2. Supportinformationen zu Windows 7 finden Sie unter [Der Support für Windows 7 läuft aus](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support). Supportinformationen zu Windows Server 2008 R2 finden Sie unter [Der Support für Windows Server 2008 wird eingestellt](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
 <sup>3</sup> Eine Identitätsinfrastruktur-Umgebung des Typs **Im Verbund** ist eine Umgebung mit einem Identitätsanbieter wie AD FS oder einem Drittanbieter.

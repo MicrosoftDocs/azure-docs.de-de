@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2019
 ms.author: mlottner
-ms.openlocfilehash: a5382313c837482f116f498f3a05c36447062b0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b33c456d47426a3721e8582f24ffd603db0429c9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90931825"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340032"
 ---
 # <a name="security-module"></a>Sicherheitsmodul
 
@@ -30,7 +30,7 @@ Für in Azure erstellte IoT-Lösungen spielen Gerätezwillinge eine wichtige Rol
 
 Defender für IoT ermöglicht die vollständige Integration in Ihre vorhandene Plattform für die IoT-Geräteverwaltung. Auf diese Weise können Sie Ihren Gerätesicherheitsstatus verwalten und die vorhandenen Funktionen für die Gerätesteuerung nutzen. Die Integration wird erreicht, indem der Mechanismus für IoT Hub-Zwillinge verwendet wird.
 
-Erfahren Sie mehr über das Konzept der [Gerätezwillinge](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) in Azure IoT Hub.
+Erfahren Sie mehr über das Konzept der [Gerätezwillinge](../iot-hub/iot-hub-devguide-device-twins.md) in Azure IoT Hub.
 
 ## <a name="security-module-twins"></a>Sicherheitsmodulzwillinge
 
@@ -38,7 +38,7 @@ Defender für IoT verwaltet für jedes Gerät im Dienst einen Sicherheitsmodulzw
 Der Sicherheitsmodulzwilling enthält alle für die Gerätesicherheit relevanten Informationen für jedes einzelne Gerät in Ihrer Lösung.
 Die Gerätesicherheitseigenschaften werden in einem dedizierten Sicherheitsmodulzwilling verwaltet, um eine sicherere Kommunikation zu gewährleisten sowie Updates und Wartungen zu ermöglichen, die weniger Ressourcen erfordern.
 
-Unter [Erstellen eines Sicherheitsmodulzwillings](quickstart-create-security-twin.md) und [Konfigurieren von Sicherheits-Agents](how-to-agent-configuration.md) erfahren Sie, wie Sie den Zwilling erstellen, anpassen und konfigurieren. Weitere Informationen zum Konzept der Modulzwillinge in IoT Hub finden Sie unter [Grundlegendes zu Modulzwillingen](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins).
+Unter [Erstellen eines Sicherheitsmodulzwillings](quickstart-create-security-twin.md) und [Konfigurieren von Sicherheits-Agents](how-to-agent-configuration.md) erfahren Sie, wie Sie den Zwilling erstellen, anpassen und konfigurieren. Weitere Informationen zum Konzept der Modulzwillinge in IoT Hub finden Sie unter [Grundlegendes zu Modulzwillingen](../iot-hub/iot-hub-devguide-module-twins.md).
 
 ## <a name="see-also"></a>Weitere Informationen
 

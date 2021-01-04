@@ -1,20 +1,21 @@
 ---
 title: Schritte zur Optimierung nach der Migration mit der Azure Cosmos DB-API für MongoDB
 description: Dieses Dokument enthält Optimierungstechniken nach der Migration von MongoDB zur Azure Cosmos DB-API für MongoDB.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/20/2020
-ms.author: jasonh
-ms.openlocfilehash: 6733e0f6447d055da8d349940bc7c7665e003e33
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.author: chrande
+ms.openlocfilehash: 300177b9d5a20ce8082db57837be3ff461fd51a0
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475599"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361655"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Schritte zur Optimierung nach der Migration bei Verwendung der Azure Cosmos DB-API für MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Nach der Migration der in einer MongoDB-Datenbank gespeicherten Daten zur Azure Cosmos DB-API für MongoDB können Sie eine Verbindung mit Azure Cosmos DB herstellen und die Daten verwalten. Diese Anleitung enthält die Schritte, die Sie nach der Migration in Erwägung ziehen sollten. Informationen zu den Migrationsschritten finden Sie im [Tutorial zum Migrieren von MongoDB zur Azure Cosmos DB-API für MongoDB](../dms/tutorial-mongodb-cosmos-db.md).
 
@@ -33,7 +34,7 @@ In diesem Leitfaden lernen Sie Folgendes:
 
 1. Melden Sie sich in einem neuen Fenster beim [Azure-Portal](https://www.portal.azure.com/) an.
 2. Öffnen Sie im [Azure-Portal](https://www.portal.azure.com/) im linken Bereich das Menü **Alle Ressourcen** , und suchen Sie das Azure Cosmos DB-Konto, zu dem Sie Ihre Daten migriert haben.
-3. Öffnen Sie das Blatt **Verbindungszeichenfolge** . Der rechte Bereich enthält alle Informationen, die Sie zum erfolgreichen Verbinden des Kontos benötigen.
+3. Öffnen Sie das Blatt **Verbindungszeichenfolge**. Der rechte Bereich enthält alle Informationen, die Sie zum erfolgreichen Verbinden des Kontos benötigen.
 4. Verwenden Sie die Verbindungsinformationen in der Konfiguration Ihrer Anwendung (oder an anderen relevanten Stellen) für die Verbindung Ihrer App zur Azure Cosmos DB-API für MongoDB.
 :::image type="content" source="./media/mongodb-post-migration/connection-string.png" alt-text="Screenshot: Einstellungen für eine Verbindungszeichenfolge":::
 

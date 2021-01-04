@@ -1,17 +1,17 @@
 ---
 title: Erstellen von Datenbanken und Benutzern – Azure Database for MySQL
 description: In diesem Artikel wird beschrieben, wie neue Benutzerkonten für die Interaktion mit einem Azure Database for MySQL-Server erstellt werden.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/1/2020
-ms.openlocfilehash: 3e1f24b3ae6133241660751293f52fec63dfbe73
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 2e934ede193d6efb9cc795c6b63cb485b88f792e
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766866"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541418"
 ---
 # <a name="create-databases-and-users-in-azure-database-for-mysql"></a>Erstellen von Datenbanken und Benutzern in Azure Database for MySQL
 
@@ -114,7 +114,7 @@ Nachdem Sie einen Azure Database for MySQL-Server erstellt haben, können Sie ü
 
 ## <a name="azure_superuser"></a>azure_superuser
 
-Alle Azure Database for MySQL-Server werden mit dem Benutzer „azure_superuser“ erstellt. Dies ist ein von Microsoft erstelltes Systemkonto zum Verwalten des Servers, um Überwachungs-, Sicherungs- und andere regelmäßige Wartungsarbeiten durchzuführen. Bereitschaftstechniker können über dieses Konto auch während eines Vorfalls mit Zertifikatauthentifizierung auf den Server zugreifen und müssen den Zugriff mithilfe von Just-in-Time (JIT)-Prozessen anfordern.
+Alle Azure Database for MySQL-Server werden mit dem Benutzer „azure_superuser“ erstellt. Dies ist ein von Microsoft erstelltes Systemkonto zum Verwalten des Servers, um Überwachungs-, Sicherungs- und andere regelmäßige Wartungsarbeiten durchzuführen. Bereitschaftstechniker können über dieses Konto auch während eines Vorfalls mit Zertifikatauthentifizierung auf den Server zugreifen und müssen den Zugriff mithilfe von JIT-Prozessen (Just-In-Time) anfordern.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

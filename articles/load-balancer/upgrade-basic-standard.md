@@ -7,37 +7,54 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 66c56ae6730043022a0d8bf3c94f7c6ce14d9852
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f97facd8d184be05cbfd79af92dbcaab3a022ebd
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84809336"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746300"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Upgraden einer öffentlichen Azure Load Balancer-Instanz
-[Azure Load Balancer Standard](load-balancer-overview.md) bietet umfangreiche Funktionen sowie Hochverfügbarkeit durch Zonenredundanz. Weitere Informationen zu Load Balancer-SKUs finden Sie in der [Vergleichstabelle](https://docs.microsoft.com/azure/load-balancer/skus#skus).
+[Azure Load Balancer Standard](load-balancer-overview.md) bietet umfangreiche Funktionen sowie Hochverfügbarkeit durch Zonenredundanz. Weitere Informationen zu Load Balancer-SKUs finden Sie in der [Vergleichstabelle](./skus.md#skus).
 
-Ein Upgrade umfasst drei Phasen:
+Ein Upgrade umfasst zwei Phasen:
 
-1. Migrieren der Konfiguration
-2. Hinzufügen virtueller Computer zu Back-End-Pools von Load Balancer Standard
-
-Dieser Artikel behandelt die Migration einer Konfiguration. Die Vorgehensweise zu Hinzufügen virtueller Computer zu Back-End-Pools kann abhängig von Ihrer spezifischen Umgebung variieren. Einige generelle Empfehlungen dazu finden Sie jedoch [hier](#add-vms-to-backend-pools-of-standard-load-balancer).
+1. Ändern Sie die IP-Zuordnungsmethode von dynamisch in statisch.
+2. Führen Sie das PowerShell-Skript aus, um das Upgrade und die Migration von Datenverkehr abzuschließen.
 
 ## <a name="upgrade-overview"></a>Upgradeübersicht
 
 Es gibt ein Azure PowerShell-Skript, in dem folgende Vorgänge ausgeführt werden:
 
 * Erstellt eine Load Balancer-Instanz mit Standard-SKU in der angegebenen Ressourcengruppe und am angegebenen Standort.
+* Aktualisiert eine öffentliche IP-Adresse von der Basic-SKU auf die Standard-SKU.
 * Nahtloses Kopieren der Konfigurationen der Load Balancer-Instanz mit Basic-SKU in die neu erstellte Load Balancer Standard-Instanz.
 * Erstellt eine Standardausgangsregel, die ausgehende Konnektivität ermöglicht.
 
 ### <a name="caveatslimitations"></a>Vorbehalte/Einschränkungen
 
-* Das Skript unterstützt nur Upgrades für öffentliche Load Balancer-Instanzen. Anleitungen für ein Upgrade des internen Load Balancers im Tarif „Basic“ finden Sie auf [dieser Seite](https://docs.microsoft.com/azure/load-balancer/upgrade-basicinternal-standard).
-* Die Load Balancer Standard-Instanz hat eine neue öffentliche Adresse. Die mit der vorhandenen Load Balancer Basic-Instanz verknüpften IP-Adressen können aufgrund der abweichenden SKUs nicht nahtlos auf die Load Balancer Standard-Instanz übertragen werden.
-* Wenn die Load Balancer Standard-Instanz in einer anderen Region erstellt wird, können die virtuellen Computer aus der alten Region nicht der neu erstellten Load Balancer Standard-Instanz zugeordnet werden. Erstellen Sie zur Umgehung dieser Einschränkung einen neuen virtuellen Computer in der neuen Region.
+* Das Skript unterstützt nur Upgrades für öffentliche Load Balancer-Instanzen. Anleitungen für ein Upgrade des internen Load Balancers im Tarif „Basic“ finden Sie auf [dieser Seite](./upgrade-basicinternal-standard.md).
+* Die Zuordnungsmethode der öffentlichen IP-Adresse muss vor dem Ausführen des Skripts in „static“ geändert werden. 
 * Wenn Ihre Load Balancer-Instanz über keine Front-End-IP-Konfiguration oder über keinen Back-End-Pool verfügt, tritt beim Ausführen des Skripts wahrscheinlich ein Fehler auf. Stellen Sie sicher, dass die Angaben vorhanden sind.
+
+### <a name="change-allocation-method-of-the-public-ip-address-to-static"></a>Ändern der Zuordnungsmethode der öffentlichen IP-Adresse in „static“
+
+* **Die folgenden Schritte werden empfohlen:
+
+    1. Melden Sie sich zur Durchführung der Aufgaben dieser Schnellstartanleitung am [Azure-Portal](https://portal.azure.com) an.
+ 
+    1. Wählen Sie im Menü auf der linken Seite die Option **Alle Ressourcen** und dann in der Ressourcenliste die Option für die **Öffentliche IP-Basisadresse, die Load Balancer Basic zugeordnet ist**, aus.
+   
+    1. Wählen Sie unter **Einstellungen** die Option **Konfigurationen** aus.
+   
+    1. Wählen Sie unter **Zuweisung** die Option **Statisch** aus.
+    1. Wählen Sie **Speichern** aus.
+    >[!NOTE]
+    >Für virtuelle Computer mit öffentlichen IP-Adressen müssen zuerst Standard-IP-Adressen erstellt werden. Hierbei können allerdings keine identischen IP-Adressen garantiert werden. Heben Sie die Zuordnung der virtuellen Computer zu Basic-IP-Adressen auf, und ordnen Sie sie den neu erstellten Standard-IP-Adressen zu. Anschließend können Sie die Schritte zum Hinzufügen von virtuellen Computern zum Back-End-Pool der Load Balancer Standard-Instanz ausführen. 
+
+* **Erstellen neuer virtueller Computer, um sie den Back-End-Pools der neu erstellten öffentlichen Load Balancer Standard-Instanz hinzuzufügen:**
+    * Weitere Informationen zum Erstellen eines virtuellen Computers sowie zum Zuordnen des virtuellen Computers zu Load Balancer Standard finden Sie [hier](./quickstart-load-balancer-standard-public-portal.md#create-virtual-machines).
+
 
 ## <a name="download-the-script"></a>Herunterladen des Skripts
 
@@ -76,43 +93,18 @@ So führen Sie das Skript aus
    * **oldRgName: [Zeichenfolge]: Erforderlich:** Die Ressourcengruppe für die vorhandene Load Balancer Basic-Instanz, die Sie upgraden möchten. Wählen Sie zur Ermittlung dieses Zeichenfolgenwerts im Azure-Portal Ihre Load Balancer Basic-Quelle aus, und klicken Sie auf die **Übersicht** für den Lastenausgleich. Die Ressourcengruppe befindet sich auf dieser Seite.
    * **oldLBName: [Zeichenfolge]: Erforderlich:** Der Name der vorhandene Load Balancer Basic-Instanz, die Sie upgraden möchten. 
    * **newrgName: [Zeichenfolge]: Erforderlich:** Die Ressourcengruppe, in der die Load Balancer Standard-Instanz erstellt wird. Hierbei kann es sich um eine neue oder um eine bereits vorhandene Ressourcengruppe handeln. Beachten Sie bei Verwendung einer vorhandenen Ressourcengruppe, dass der Name der Load Balancer-Instanz innerhalb der Ressourcengruppe eindeutig sein muss. 
-   * **newlocation: [Zeichenfolge]: Erforderlich:** Der Standort, an dem die Load Balancer Standard-Instanz erstellt wird. Es empfiehlt sich, für die Load Balancer Standard-Instanz den Standort der gewählten Load Balancer Basic-Instanz zu übernehmen, um die Verknüpfung mit anderen vorhandenen Ressourcen zu erleichtern.
    * **newLBName: [Zeichenfolge]: Erforderlich:** Der Name der zu erstellenden Load Balancer Standard-Instanz.
 1. Führen Sie das Skript mit den entsprechenden Parametern aus. Es kann fünf bis sieben Minuten dauern, bis es fertig ist.
 
     **Beispiel**
 
    ```azurepowershell
-   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
+   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newLbName "LBForUpgrade"
    ```
-
-### <a name="add-vms-to-backend-pools-of-standard-load-balancer"></a>Hinzufügen virtueller Computer zu Back-End-Pools von Load Balancer Standard
-
-Überprüfen Sie zunächst, ob durch das Skript erfolgreich eine neue öffentliche Load Balancer Standard-Instanz mit exakt der migrierten Konfiguration Ihrer öffentlichen Load Balancer Basic-Instanz erstellt wurde. Sie können dies über das Azure-Portal prüfen.
-
-Senden Sie zum manuellen Testen etwas Datenverkehr über die Load Balancer Standard-Instanz.
-  
-In den folgenden Szenarien wird gezeigt, wie Sie virtuelle Computer zu Back-End-Pools der neu erstellten öffentlichen Load Balancer Standard-Instanz hinzufügen und sie konfigurieren (einschließlich Empfehlungen):
-
-* **Verschieben vorhandener virtueller Computer aus Back-End-Pools der alten öffentlichen Load Balancer Basic-Instanz in Back-End-Pools einer neu erstellten öffentlichen Load Balancer Standard-Instanz:**
-    1. Melden Sie sich zur Durchführung der Aufgaben dieser Schnellstartanleitung am [Azure-Portal](https://portal.azure.com) an.
- 
-    1. Wählen Sie im Menü auf der linken Seite die Option **Alle Ressourcen** und dann in der Ressourcenliste die **neu erstellte Load Balancer Standard-Instanz** aus.
-   
-    1. Wählen Sie unter **Einstellungen** die Option **Back-End-Pools**.
-   
-    1. Wählen Sie den Back-End-Pool aus, der dem Back-End-Pool der Load Balancer Basic-Instanz entspricht. Wählen Sie den folgenden Wert aus: 
-      - **Virtual Machine** (Virtueller Computer): Wählen Sie in der Dropdownliste die virtuellen Computer aus dem entsprechenden Back-End-Pool der Load Balancer Basic-Instanz aus.
-    1. Wählen Sie **Speichern** aus.
-    >[!NOTE]
-    >Für virtuelle Computer mit öffentlichen IP-Adressen müssen zuerst Standard-IP-Adressen erstellt werden. Hierbei können allerdings keine identischen IP-Adressen garantiert werden. Heben Sie die Zuordnung der virtuellen Computer zu Basic-IP-Adressen auf, und ordnen Sie sie den neu erstellten Standard-IP-Adressen zu. Anschließend können Sie die Schritte zum Hinzufügen von virtuellen Computern zum Back-End-Pool der Load Balancer Standard-Instanz ausführen. 
-
-* **Erstellen neuer virtueller Computer, um sie den Back-End-Pools der neu erstellten öffentlichen Load Balancer Standard-Instanz hinzuzufügen:**
-    * Weitere Informationen zum Erstellen eines virtuellen Computers sowie zum Zuordnen des virtuellen Computers zu Load Balancer Standard finden Sie [hier](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
 
 ### <a name="create-an-outbound-rule-for-outbound-connection"></a>Erstellen einer Ausgangsregel für ausgehende Verbindungen
 
-Befolgen Sie die [Anweisungen](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-portal#create-outbound-rule-configuration), um eine Ausgangsregel zu erstellen, die Ihnen Folgendes ermöglicht:
+Befolgen Sie die [Anweisungen](./quickstart-load-balancer-standard-public-powershell.md#create-outbound-rule-configuration), um eine Ausgangsregel zu erstellen, die Ihnen Folgendes ermöglicht:
 * Eine ausgehende NAT von Grund auf neu definieren
 * Das Verhalten einer vorhandenen NAT für ausgehenden Datenverkehr skalieren und optimieren
 
@@ -122,9 +114,13 @@ Befolgen Sie die [Anweisungen](https://docs.microsoft.com/azure/load-balancer/co
 
 Ja. Lesen Sie [Vorbehalte/Einschränkungen](#caveatslimitations).
 
+### <a name="how-long-does-the-upgrade-take"></a>Wie lange dauert das Upgrade?
+
+Es dauert in der Regel ungefähr 5 bis 10 Minuten, bis das Skript abgeschlossen ist. Abhängig von der Komplexität der Load Balancer-Konfiguration kann dies auch länger dauern. Berücksichtigen Sie daher die Ausfallzeiten, und planen Sie ggf. ein Failover ein.
+
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>Leitet das Azure PowerShell-Skript auch den Datenverkehr von meiner Load Balancer Basic-Instanz zur neu erstellten Load Balancer Standard-Instanz um?
 
-Nein. Das Azure PowerShell-Skript migriert nur die Konfiguration. Die Migration des Datenverkehrs liegt in Ihrer Verantwortung und muss von Ihnen gesteuert werden.
+Ja. Das Azure PowerShell-Skript aktualisiert nicht nur die öffentliche IP-Adresse und kopiert die Konfiguration aus Basic in Load Balancer Standard, sondern migriert auch die VM hinter den neu erstellten öffentlichen Load Balancer Standard. 
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Ich hatte beim Verwenden dieses Skripts einige Probleme. Wie erhalte ich Hilfe?
   

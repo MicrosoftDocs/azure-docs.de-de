@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/24/2020
-ms.openlocfilehash: 99253aa2e7e2e1f3f58f2ab7d5c40a695c2b9690
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27b0485fdd7b3c352a85fe7eb39fba33c53bf727
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654853"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519211"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Azure HDInsight Accelerated Writes für Apache HBase
 
@@ -36,9 +36,9 @@ Das Accelerated Writes-Feature löst das Problem der höheren Schreiblatenzen, d
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Gewusst wie: Aktivieren von Accelerated Writes für HBase in HDInsight
 
-Um einen neuen HBase-Cluster mit dem Accelerated Writes-Feature zu erstellen, führen Sie die Schritte in [Einrichten von Clustern in HDInsight mit Apache Hadoop, Apache Spark, Apache Kafka usw.](../hdinsight-hadoop-provision-linux-clusters.md) bis zu **Schritt 3, Speicher** aus. Aktivieren Sie unter **Metastore-Einstellungen** das Kontrollkästchen **Beschleunigte HBase-Schreibvorgänge aktivieren**. Fahren Sie dann mit den verbleibenden Schritten zur Erstellung des Clusters fort.
+Um einen neuen HBase-Cluster mit dem Accelerated Writes-Feature zu erstellen, führen Sie die Schritte in [Einrichten von Clustern in HDInsight mit Apache Hadoop, Apache Spark, Apache Kafka usw.](../hdinsight-hadoop-provision-linux-clusters.md) aus. Wählen Sie auf der Registerkarte **Grundlagen** als Clustertyp „HBase“ aus, geben Sie eine Komponentenversion an, und klicken Sie dann auf das Kontrollkästchen neben **Beschleunigte HBase-Schreibvorgänge aktivieren**. Fahren Sie dann mit den verbleibenden Schritten zur Erstellung des Clusters fort.
 
-![Aktivieren der Accelerated Writes-Option für HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/azure-portal-cluster-storage-hbase.png)
+![Aktivieren der Accelerated Writes-Option für HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/azure-portal-create-hbase-wals.png)
 
 ## <a name="other-considerations"></a>Weitere Überlegungen
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: 0a94c66eb51298db226ceec5da5c86666576052a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a65ff28a38e42e05844063a330c0325f16b2247
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87850490"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363288"
 ---
 # <a name="recipe-intelligent-art-exploration-with-the-cognitive-services-for-big-data"></a>Anleitung: Intelligente Erkundung von Kunstwerken mit Cognitive Services für Big Data
 
@@ -24,7 +24,7 @@ In diesem Beispiel wird Cognitive Services für Big Data verwendet, um die frei 
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* Sie benötigen einen Abonnementschlüssel für maschinelles Sehen und Cognitive Search. Gehen Sie wie unter [Schnellstart: Erstellen eines Cognitive Services-Kontos im Azure-Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) beschrieben vor, um maschinelles Sehen zu abonnieren und Ihren Schlüssel zu erhalten.
+* Sie benötigen einen Abonnementschlüssel für maschinelles Sehen und Cognitive Search. Gehen Sie wie unter [Schnellstart: Erstellen eines Cognitive Services-Kontos im Azure-Portal](../../cognitive-services-apis-create-account.md) beschrieben vor, um maschinelles Sehen zu abonnieren und Ihren Schlüssel zu erhalten.
   > [!NOTE]
   > Preisinformationen finden Sie unter [Leistung, Steuerung und Anpassungsmöglichkeiten nach Bedarf mit flexibler Preisgestaltung](https://azure.microsoft.com/services/search/#pricing).
 
@@ -118,4 +118,3 @@ requests.post(url, json={"search": "Glass"}, headers = {"api-key": AZURE_SEARCH_
 ## <a name="next-steps"></a>Nächste Schritte
 
 Informieren Sie sich darüber, wie Sie [Cognitive Services für Big Data zur Anomalieerkennung](anomaly-detection.md) verwenden.
-

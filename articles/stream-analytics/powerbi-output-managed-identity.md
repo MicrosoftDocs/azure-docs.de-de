@@ -6,14 +6,14 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: 85925369da8fec83a613226fe248b396fd88105a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd667202a329148e498d0e25ee15110de5d7448a
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89613417"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573407"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Verwenden von verwalteten Identitäten zum Authentifizieren von Azure Stream Analytics-Aufträgen in Power BI
+# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi-preview"></a>Verwenden von verwalteten Identitäten zum Authentifizieren von Azure Stream Analytics-Aufträgen in Power BI (Vorschauversion)
 
 Das [Authentifizieren über verwaltete Identitäten](../active-directory/managed-identities-azure-resources/overview.md) für die Ausgabe in Power BI ermöglicht Stream Analytics Aufträgen direkten Zugriff auf einen Arbeitsbereich in Ihrem Power BI-Konto. Mit diesem Feature können Bereitstellungen von Stream Analytics-Aufträgen vollständig automatisiert werden, da es nicht mehr erforderlich ist, dass sich ein Benutzer über das Azure-Portal interaktiv bei Power BI anmeldet. Darüber hinaus werden Aufträge mit langer Ausführungszeit, die in Power BI schreiben, jetzt besser unterstützt, da der Auftrag nicht mehr regelmäßig erneut autorisiert werden muss.
 
@@ -23,7 +23,7 @@ Dieser Artikel zeigt Ihnen, wie Sie verwaltete Identitäten für die Power BI-A
 
 Folgendes ist für die Verwendung dieses Features erforderlich:
 
-- Ein Power BI-Konto mit einer [Pro-Lizenz](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro)
+- Ein Power BI-Konto mit einer [Pro-Lizenz](/power-bi/service-admin-purchasing-power-bi-pro)
 
 - Ein aktualisierter Arbeitsbereich in Ihrem Power BI-Konto Weitere Informationen finden Sie in der [Power BI-Ankündigung](https://powerbi.microsoft.com/blog/announcing-new-workspace-experience-general-availability-ga/) dieses Features.
 
@@ -45,7 +45,7 @@ Folgendes ist für die Verwendung dieses Features erforderlich:
 
 ## <a name="azure-resource-manager-deployment"></a>Azure Resource Manager-Bereitstellung
 
-Mit Azure Resource Manager können Sie die Bereitstellung Ihres Stream Analytics-Auftrags vollständig automatisieren. Sie können Resource Manager-Vorlagen entweder mit Azure PowerShell oder der [Azure-Befehlszeilenschnittstelle](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) bereitstellen. In den folgenden Beispielen wird die Azure-Befehlszeilenschnittstelle verwendet.
+Mit Azure Resource Manager können Sie die Bereitstellung Ihres Stream Analytics-Auftrags vollständig automatisieren. Sie können Resource Manager-Vorlagen entweder mit Azure PowerShell oder der [Azure-Befehlszeilenschnittstelle](/cli/azure/) bereitstellen. In den folgenden Beispielen wird die Azure-Befehlszeilenschnittstelle verwendet.
 
 
 1. Sie können eine **Microsoft.StreamAnalytics/streamingjobs**-Ressource mit einer verwalteten Identität erstellen, indem Sie die folgende Eigenschaft in den Ressourcenabschnitt Ihrer Resource Manager-Vorlage einfügen:
@@ -160,9 +160,9 @@ Nachdem der Stream Analytics Auftrag nun erstellt wurde, kann ihm Zugriff auf ei
 ### <a name="use-the-power-bi-ui"></a>Verwenden der Power BI-Benutzeroberfläche
 
    > [!Note]
-   > Wenn Sie den Stream Analytics Auftrag Ihrem Power BI-Arbeitsbereich mithilfe der Benutzeroberfläche hinzufügen möchten, müssen Sie auch in den **Entwicklereinstellungen** im Power BI-Verwaltungsportal den Dienstprinzipalzugriff aktivieren. Weitere Informationen finden Sie unter [Erste Schritte mit einem Dienstprinzipal](https://docs.microsoft.com/power-bi/developer/embed-service-principal).
+   > Wenn Sie den Stream Analytics Auftrag Ihrem Power BI-Arbeitsbereich mithilfe der Benutzeroberfläche hinzufügen möchten, müssen Sie auch in den **Entwicklereinstellungen** im Power BI-Verwaltungsportal den Dienstprinzipalzugriff aktivieren. Weitere Informationen finden Sie unter [Erste Schritte mit einem Dienstprinzipal](/power-bi/developer/embed-service-principal).
 
-1. Navigieren Sie zu den Zugriffseinstellungen des Arbeitsbereichs. Weitere Informationen finden Sie in diesem Artikel: [Erteilen des Zugriffs auf Ihren Arbeitsbereich](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace).
+1. Navigieren Sie zu den Zugriffseinstellungen des Arbeitsbereichs. Weitere Informationen finden Sie in diesem Artikel: [Erteilen des Zugriffs auf Ihren Arbeitsbereich](/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace).
 
 2. Geben Sie den Namen Ihres Stream Analytics-Auftrags in das Textfeld ein, und wählen Sie als Zugriffsebene **Mitwirkende** aus.
 
@@ -195,7 +195,7 @@ Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -Pr
 
 ### <a name="use-the-power-bi-rest-api"></a>Verwenden der Power BI-REST-API
 
-Der Stream Analytics-Auftrag kann dem Arbeitsbereich auch als Mitwirkender hinzugefügt werden, indem die REST-API „Gruppenbenutzer hinzufügen“ direkt verwendet wird. Die vollständige Dokumentation für diese API finden Sie hier: [Gruppen – Gruppenbenutzer hinzufügen](https://docs.microsoft.com/rest/api/power-bi/groups/addgroupuser).
+Der Stream Analytics-Auftrag kann dem Arbeitsbereich auch als Mitwirkender hinzugefügt werden, indem die REST-API „Gruppenbenutzer hinzufügen“ direkt verwendet wird. Die vollständige Dokumentation für diese API finden Sie hier: [Gruppen – Gruppenbenutzer hinzufügen](/rest/api/power-bi/groups/addgroupuser).
 
 **Beispiel für eine Anforderung**
 ```http
@@ -209,6 +209,10 @@ Anforderungstext
     "principalType": "App"
 }
 ```
+
+## <a name="remove-managed-identity"></a>Entfernen der verwalteten Identität
+
+Die für einen Stream Analytics-Auftrag erstellte verwaltete Identität wird nur gelöscht, wenn der Auftrag gelöscht wird. Es gibt keine Möglichkeit, die verwaltete Identität zu löschen, ohne den Auftrag zu löschen. Wenn Sie die verwaltete Identität nicht mehr verwenden möchten, können Sie die Authentifizierungsmethode für die Ausgabe ändern. Die verwaltete Identität bleibt weiterhin bestehen, bis der Auftrag gelöscht wird, und wird verwendet, wenn Sie sich noch einmal mithilfe einer verwalteten Identität authentifizieren.
 
 ## <a name="limitations"></a>Einschränkungen
 Im Folgenden finden Sie Einschränkungen für dieses Feature:

@@ -1,7 +1,7 @@
 ---
 title: Verwenden von REST zum Verwalten von ML-Ressourcen
 titleSuffix: Azure Machine Learning
-description: 'Vorgehensweise: Verwenden von Rest-APIs zum Erstellen, Ausführen und Löschen von Azure ML-Ressourcen'
+description: Erfahren Sie, wie Sie REST-APIs zum Erstellen, Ausführen und Löschen von Azure Machine Learning-Ressourcen, z. B. einen Arbeitsbereich, oder zum Registrieren von Modellen verwenden.
 author: lobrien
 ms.author: laobri
 services: machine-learning
@@ -10,18 +10,18 @@ ms.subservice: core
 ms.date: 01/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b733fbc44deefe46e3496e288ebad525346ef005
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09a0580adbe6d51e4de811a57ee17203d65a2435
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322307"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316910"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Erstellen, Ausführen und Löschen von Azure ML-Ressourcen mithilfe von REST
 
 
 
-Es gibt verschiedene Möglichkeiten zur Verwaltung Ihrer Azure ML-Ressourcen. Sie können das [-Portal](https://portal.azure.com/), die [Befehlszeilenschnittstelle (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true) oder das [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) verwenden. Sie können auch die REST-API verwenden. Die REST-API verwendet HTTP-Verben in einer Standardmethode zum Erstellen, Abrufen, Aktualisieren und Löschen von Ressourcen. Die REST-API funktioniert mit jeder Sprache oder jedem Tool, die bzw. das HTTP-Anforderungen ausführen kann. Durch die unkomplizierte Struktur von REST sind diese APIs häufig eine gute Wahl in Skriptumgebungen sowie für MLOps-Automatisierung. 
+Es gibt verschiedene Möglichkeiten zur Verwaltung Ihrer Azure ML-Ressourcen. Sie können das [-Portal](https://portal.azure.com/), die [Befehlszeilenschnittstelle (CLI)](/cli/azure/?preserve-view=true&view=azure-cli-latest) oder das [Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) verwenden. Sie können auch die REST-API verwenden. Die REST-API verwendet HTTP-Verben in einer Standardmethode zum Erstellen, Abrufen, Aktualisieren und Löschen von Ressourcen. Die REST-API funktioniert mit jeder Sprache oder jedem Tool, die bzw. das HTTP-Anforderungen ausführen kann. Durch die unkomplizierte Struktur von REST sind diese APIs häufig eine gute Wahl in Skriptumgebungen sowie für MLOps-Automatisierung. 
 
 In diesem Artikel werden folgende Vorgehensweisen behandelt:
 
@@ -35,10 +35,10 @@ In diesem Artikel werden folgende Vorgehensweisen behandelt:
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-- Ein **Azure-Abonnement**, für das Sie über Administratorrechte verfügen. Wenn Sie nicht über ein solches Abonnement verfügen, testen Sie das [kostenlose oder kostenpflichtige persönliche Abonnement](https://aka.ms/AMLFree).
-- Ein [Azure Machine Learning-Arbeitsbereich](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace).
-- Administrative REST-Anforderungen verwenden Dienstprinzipalauthentifizierung. Führen Sie die Schritte in [Einrichten von Authentifizierung für Azure Machine Learning-Ressourcen und -Workflows](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication) zum Erstellen eines Dienstprinzipals in Ihrem Arbeitsbereich aus.
-- Das **curl**-Hilfsprogramm. Das **curl**-Programm ist im [Windows-Subsystem für Linux](https://aka.ms/wslinstall/) oder jeder beliebigen UNIX-Distribution verfügbar. In PowerShell ist **curl** ein Alias für **Invoke-WebRequest**, und `curl -d "key=val" -X POST uri` wird zu `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`. 
+- Ein **Azure-Abonnement** , für das Sie über Administratorrechte verfügen. Wenn Sie nicht über ein solches Abonnement verfügen, testen Sie das [kostenlose oder kostenpflichtige persönliche Abonnement](https://aka.ms/AMLFree).
+- Ein [Azure Machine Learning-Arbeitsbereich](./how-to-manage-workspace.md).
+- Administrative REST-Anforderungen verwenden Dienstprinzipalauthentifizierung. Führen Sie die Schritte in [Einrichten von Authentifizierung für Azure Machine Learning-Ressourcen und -Workflows](./how-to-setup-authentication.md#service-principal-authentication) zum Erstellen eines Dienstprinzipals in Ihrem Arbeitsbereich aus.
+- Das **curl** -Hilfsprogramm. Das **curl** -Programm ist im [Windows-Subsystem für Linux](/windows/wsl/install-win10) oder jeder beliebigen UNIX-Distribution verfügbar. In PowerShell ist **curl** ein Alias für **Invoke-WebRequest** , und `curl -d "key=val" -X POST uri` wird zu `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`. 
 
 ## <a name="retrieve-a-service-principal-authentication-token"></a>Abrufen eines Tokens für die Dienstprinzipalauthentifizierung
 
@@ -48,7 +48,7 @@ Administrative REST-Anforderungen werden mit einem impliziten OAuth2-Flow authen
 - Ihre Client-ID (die dem erstellten Token zugeordnet wird)
 - Ihr geheimer Clientschlüssel (den Sie schützen sollten)
 
-Sie sollten diese Werte von der Antwort auf die Erstellung Ihres Dienstprinzipals erhalten. Das Abrufen dieser Werte wird in [Einrichten der Authentifizierung für Azure Machine Learning-Ressourcen und -Workflows](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication) erläutert. Wenn Sie das Abonnement Ihres Unternehmens verwenden, verfügen Sie möglicherweise nicht über die Berechtigung zum Erstellen eines Dienstprinzipals. In diesem Fall sollten Sie ein [kostenloses oder kostenpflichtiges persönliches Abonnement](https://aka.ms/AMLFree) verwenden.
+Sie sollten diese Werte von der Antwort auf die Erstellung Ihres Dienstprinzipals erhalten. Das Abrufen dieser Werte wird in [Einrichten der Authentifizierung für Azure Machine Learning-Ressourcen und -Workflows](./how-to-setup-authentication.md#service-principal-authentication) erläutert. Wenn Sie das Abonnement Ihres Unternehmens verwenden, verfügen Sie möglicherweise nicht über die Berechtigung zum Erstellen eines Dienstprinzipals. In diesem Fall sollten Sie ein [kostenloses oder kostenpflichtiges persönliches Abonnement](https://aka.ms/AMLFree) verwenden.
 
 So rufen Sie ein Token ab:
 
@@ -167,7 +167,7 @@ Sie erhalten erneut eine JSON-Liste, die dieses Mal eine Liste enthält, in der 
 }
 ```
 
-Zum Arbeiten mit Ressourcen in einem Arbeitsbereich wechseln Sie vom allgemeinen **management.azure.com**-Server zu einem REST-API-Server, der für den Speicherort des Arbeitsbereichs spezifisch ist. Beachten Sie den Wert des `discoveryUrl`-Schlüssels in der JSON-Antwort oben. Wenn Sie diese URL mit GET abrufen, erhalten Sie eine Antwort ähnlich der folgenden:
+Zum Arbeiten mit Ressourcen in einem Arbeitsbereich wechseln Sie vom allgemeinen **management.azure.com** -Server zu einem REST-API-Server, der für den Speicherort des Arbeitsbereichs spezifisch ist. Beachten Sie den Wert des `discoveryUrl`-Schlüssels in der JSON-Antwort oben. Wenn Sie diese URL mit GET abrufen, erhalten Sie eine Antwort ähnlich der folgenden:
 
 ```json
 {
@@ -236,7 +236,7 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/com
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-Um eine benannte Computeressource zu erstellen oder zu überschreiben, verwenden Sie eine PUT-Anforderung. Ersetzen Sie im Folgenden neben den nun vertrauten Ersetzungen von `your-subscription-id`, `your-resource-group`, `your-workspace-name` und `your-access-token` auch `your-compute-name` sowie die Werte für `location`, `vmSize`, `vmPriority`, `scaleSettings`, `adminUserName` und `adminUserPassword`. Der folgende Befehl erstellt eine dedizierte Standard_D1 mit einem Knoten (eine grundlegende CPU-Computeressource), die nach 30 Minuten herunterskaliert wird, wie in der Referenz unter [Machine Learning Compute: Erstellen oder Aktualisieren des SDK-Verweises](https://docs.microsoft.com/rest/api/azureml/workspacesandcomputes/machinelearningcompute/createorupdate) angegeben:
+Um eine benannte Computeressource zu erstellen oder zu überschreiben, verwenden Sie eine PUT-Anforderung. Ersetzen Sie im Folgenden neben den nun vertrauten Ersetzungen von `your-subscription-id`, `your-resource-group`, `your-workspace-name` und `your-access-token` auch `your-compute-name` sowie die Werte für `location`, `vmSize`, `vmPriority`, `scaleSettings`, `adminUserName` und `adminUserPassword`. Der folgende Befehl erstellt eine dedizierte Standard_D1 mit einem Knoten (eine grundlegende CPU-Computeressource), die nach 30 Minuten herunterskaliert wird, wie in der Referenz unter [Machine Learning Compute: Erstellen oder Aktualisieren des SDK-Verweises](/rest/api/azureml/workspacesandcomputes/machinelearningcompute/createorupdate) angegeben:
 
 ```bash
 curl -X PUT \
@@ -349,7 +349,7 @@ curl 'https://{regional-api-server}/history/v1.0/subscriptions/{your-subscriptio
 
 ### <a name="delete-resources-you-no-longer-need"></a>Löschen von Ressourcen, die nicht mehr benötigt werden
 
-Einige, aber nicht alle Ressourcen unterstützen das DELETE-Verb. Überprüfen Sie die [API-Referenz](https://docs.microsoft.com/rest/api/azureml/), bevor Sie für Löschanwendungsfälle die REST-API verwenden. Zum Löschen eines Modells können Sie beispielsweise Folgendes verwenden:
+Einige, aber nicht alle Ressourcen unterstützen das DELETE-Verb. Überprüfen Sie die [API-Referenz](/rest/api/azureml/), bevor Sie für Löschanwendungsfälle die REST-API verwenden. Zum Löschen eines Modells können Sie beispielsweise Folgendes verwenden:
 
 ```bash
 curl
@@ -422,6 +422,6 @@ Der Azure Machine Learning-Arbeitsbereich verwendet für einige Operationen die 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Erkunden der vollständigen [AzureML REST-API-Referenz](https://docs.microsoft.com/rest/api/azureml/).
-- Lernen Sie, wie Sie den Designer zum [Prognostizieren von Automobilpreisen mit dem Designer](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score) verwenden.
-- Erkunden von [Azure Machine Learning mit Jupyter-Notebooks](https://docs.microsoft.com/azure//machine-learning/samples-notebooks).
+- Erkunden der vollständigen [AzureML REST-API-Referenz](/rest/api/azureml/).
+- Lernen Sie, wie Sie den Designer zum [Prognostizieren von Automobilpreisen mit dem Designer](./tutorial-designer-automobile-price-train-score.md) verwenden.
+- Erkunden von [Azure Machine Learning mit Jupyter-Notebooks](..//machine-learning/samples-notebooks.md).

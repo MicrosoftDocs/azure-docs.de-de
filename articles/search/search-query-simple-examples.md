@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: e2c6f627c69316b8f146d3ac82b8d29801ec3902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 834e4fe8c7b3923f40a07c02c0310200db222308
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740682"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697253"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Erstellen einer einfachen Abfrage in Azure Cognitive Search
 
@@ -27,7 +27,7 @@ Eine Alternative zu dieser Abfragesyntax ist die [vollständige Lucene-Abfragesy
 
 Der in den folgenden Beispielen verwendete Suchindex „NYC Jobs“ besteht aus Stellenangeboten basierend auf einem Dataset, das von der Initiative [City of New York OpenData](https://nycopendata.socrata.com/) bereitgestellt wird. Diese Daten sollten weder als aktuell noch als vollständig betrachtet werden. Der Index wird über einen Sandboxdienst von Microsoft bereitgestellt. Das bedeutet, dass Sie zum Testen dieser Abfragen weder ein Azure-Abonnement noch Azure Cognitive Search benötigen.
 
-Sie benötigen lediglich Postman oder ein gleichwertiges Tool zum Senden einer HTTP-Anforderung per GET. Weitere Informationen finden Sie unter [Quickstart: Erstellen eines Azure Cognitive Search-Index in Postman mit REST-APIs](search-get-started-postman.md).
+Sie benötigen lediglich Postman oder ein gleichwertiges Tool zum Senden einer HTTP-Anforderung per GET. Weitere Informationen finden Sie unter [Quickstart: Untersuchen der Azure Cognitive Search-REST-API](search-get-started-rest.md).
 
 ### <a name="set-the-request-header"></a>Festlegen des Anforderungsheaders
 
@@ -43,7 +43,7 @@ Nachdem Sie den Anforderungsheader angegeben haben, können Sie ihn für alle Ab
 
 Die Anforderung ist ein GET-Befehl, der mit einer URL gekoppelt ist, die den Azure Cognitive Search-Endpunkt und die Suchzeichenfolge enthält.
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Festlegen von Parametern für Postman-Anforderungsheader" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Postman-Anforderungsheader GET" border="false":::
 
 Die URL-Komposition umfasst die folgenden Elemente:
 
@@ -97,7 +97,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 Die Antwort auf diese Abfrage sollte etwa wie im folgenden Screenshot aussehen.
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Festlegen von Parametern für Postman-Anforderungsheader" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Postman-Beispielantwort" border="false":::
 
 Möglicherweise ist Ihnen die Suchbewertung in der Antwort aufgefallen. Zu einer einheitlichen Bewertung von „1“ kommt es, wenn kein Rang vorhanden ist, weil es entweder keine Volltextsuche war oder weil keine Kriterien angewandt wurden. Bei einer NULL-Suche ohne Kriterien werden Zeilen in willkürlicher Reihenfolge zurückgegeben. Wenn Sie tatsächliche Kriterien einfügen, werden aussagekräftige Werte für die Suchbewertungen angezeigt.
 
@@ -133,7 +133,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
 
 Wenn sie zusammen verwendet werden, wird der Filter zuerst auf den gesamten Index angewendet, und anschließend wird die Suche für die Ergebnisse des Filters ausgeführt. Filter können daher eine nützliche Methode zum Verbessern der Abfrageleistung darstellen, da sie die Menge der Dokumente reduzieren, die bei der Suchabfrage verarbeitet werden müssen.
 
-  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="Festlegen von Parametern für Postman-Anforderungsheader" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="Filtern von Abfrageantworten" border="false":::
 
 Wenn Sie dies mithilfe von GET in Postman testen möchten, können Sie die folgende Zeichenfolge einfügen:
 
@@ -167,7 +167,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
       "count": "true"
     }
 ```
-  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Festlegen von Parametern für Postman-Anforderungsheader" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Bereichsfilter für numerische Bereiche" border="false":::
 
 
 ```http
@@ -181,7 +181,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     }
 ```
 
-  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Festlegen von Parametern für Postman-Anforderungsheader" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Bereichsfilter für Textbereiche" border="false":::
 
 Dies können Sie mithilfe von GET auch in Postman testen:
 
@@ -251,14 +251,14 @@ Bei Verwendung der Standardeinstellung für „searchMode“ (any) werden 2.800 
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=any&search="fire department"  -"Metrotech Center"
 ```
 
-  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="Festlegen von Parametern für Postman-Anforderungsheader" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="Suchmodus „any“" border="false":::
 
 Wenn Sie searchMode in `all` ändern, kommt es für die Kriterien zu einem kumulativen Effekt, und es wird ein kleineres Resultset mit nur 21 Dokumenten zurückgegeben. Dies sind Dokumente, die den gesamten Begriff „fire department“ enthalten, abzüglich der Jobs unter der Metrotech Center-Adresse.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
 ```
-  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="Festlegen von Parametern für Postman-Anforderungsheader" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="Suchmodus „all“" border="false":::
 
 ## <a name="example-8-structuring-results"></a>Beispiel 8: Strukturieren von Ergebnissen
 

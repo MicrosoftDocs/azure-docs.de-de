@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/22/2019
+ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 90efdd560735a112c2a4c5eb5740f211b587a241
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 1c88b9f77513021609b99c81ea572c2b5b3d365b
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275755"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936793"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Anpassen von Ansprüchen im SAML-Token für Unternehmensanwendungen
 
@@ -28,7 +28,7 @@ Ein *Anspruch* (Claim) bezeichnet Informationen, die ein Identitätsanbieter üb
 
 Standardmäßig stellt Microsoft Identity Platform für die Anwendung ein SAML-Token aus, das einen `NameIdentifier`-Anspruch enthält, dessen Wert dem Benutzernamen (auch als Benutzerprinzipalname bezeichnet) in Azure AD entspricht, durch den der Benutzer eindeutig identifiziert werden kann. Das SAML-Token enthält auch zusätzliche Ansprüche, die E-Mail-Adresse des Benutzers, Vorname und Nachname enthält.
 
-Um die im SAML-Token für die Anwendung ausgestellten Ansprüche anzuzeigen oder zu bearbeiten, öffnen Sie die Anwendung im Azure-Portal. Öffnen Sie dann den Abschnitt **Benutzerattribute und Ansprüche** .
+Um die im SAML-Token für die Anwendung ausgestellten Ansprüche anzuzeigen oder zu bearbeiten, öffnen Sie die Anwendung im Azure-Portal. Öffnen Sie dann den Abschnitt **Benutzerattribute und Ansprüche**.
 
 ![Öffnen des Abschnitts „Benutzerattribute und Ansprüche“ im Azure-Portal](./media/active-directory-saml-claims-customization/sso-saml-user-attributes-claims.png)
 
@@ -41,7 +41,7 @@ Es gibt zwei Gründe dafür, dass Sie die im SAML-Token ausgegebenen Ansprüche 
 
 Gehen Sie wie folgt vor, um die NameID (den Wert für den Namensbezeichner) zu bearbeiten:
 
-1. Öffnen Sie die Seite **Wert für Namensbezeichner** .
+1. Öffnen Sie die Seite **Wert für Namensbezeichner**.
 1. Wählen Sie das gewünschte Attribut oder die auf das Attribut anzuwendende Transformation aus. Optional können Sie auch das Format für den NameID-Anspruch angeben.
 
    ![NameID-Wert (Wert für Namensbezeichner) bearbeiten](./media/active-directory-saml-claims-customization/saml-sso-manage-user-claims.png)
@@ -60,7 +60,6 @@ Im Dropdownmenü **Namensbezeichnerformat auswählen** können Sie eine der folg
 | **Persistent** | Microsoft Identity Platform verwendet „Persistent“ als NameID-Format. |
 | **EmailAddress** | Microsoft Identity Platform verwendet „EmailAddress“ als NameID-Format. |
 | **Nicht angegeben** | Microsoft Identity Platform verwendet „Unspecified“ als NameID-Format. |
-| **Qualifizierter Name der Windows-Domäne** | Microsoft Identity Platform verwendet „WindowsDomainQualifiedName“ als NameID-Format. |
 
 Eine vorübergehende NameID wird ebenfalls unterstützt, ist jedoch im Dropdownmenü nicht verfügbar und kann in Azure nicht konfiguriert werden. Weitere Informationen zum NameIDPolicy-Attribut finden Sie unter [SAML-Protokoll für einmaliges Anmelden](single-sign-on-saml-protocol.md).
 
@@ -82,11 +81,11 @@ Weitere Informationen finden Sie in [Table 3: Valid ID values per source (Tabell
 
 Sie können in Azure AD definierten Ansprüchen einen beliebigen konstanten (statischen) Wert zuweisen. Führen Sie folgende Schritte aus, um einen konstanten Wert zuzuweisen:
 
-1. Klicken Sie im [Azure-Portal](https://portal.azure.com/) im Abschnitt **Benutzerattribute und Ansprüche** auf das Symbol **Bearbeiten** ´, um die Ansprüche zu bearbeiten.
+1. Klicken Sie im [Azure-Portal](https://portal.azure.com/) im Abschnitt **Benutzerattribute und Ansprüche** auf das Symbol **Bearbeiten**´, um die Ansprüche zu bearbeiten.
 
 1. Klicken Sie auf den erforderlichen Anspruch, den Sie ändern möchten.
 
-1. Geben Sie als **Quellattribut** den konstanten Wert (ohne Anführungszeichen) entsprechend Ihrer Organisation ein, und klicken Sie auf **Speichern** .
+1. Geben Sie als **Quellattribut** den konstanten Wert (ohne Anführungszeichen) entsprechend Ihrer Organisation ein, und klicken Sie auf **Speichern**.
 
     ![Abschnitt „Organisationsattribute und Ansprüche“ im Azure-Portal](./media/active-directory-saml-claims-customization/organization-attribute.png)
 
@@ -119,7 +118,7 @@ So wenden Sie eine Transformation auf ein Benutzerattribut an
 
 1. Wählen Sie unter **Anspruch verwalten** die Option *Transformation* als Anspruchsquelle aus, um die Seite **Transformation verwalten** zu öffnen.
 2. Wählen Sie in der Dropdownliste der Transformationen die Funktion aus. Abhängig von der ausgewählten Funktion müssen Sie Parameter und einen konstanten Wert angeben, die in der Transformation ausgewertet werden sollen. Weitere Informationen zu den verfügbaren Funktionen finden Sie in der folgenden Tabelle.
-3. Wenn Sie mehrere Transformationen anwenden möchten, klicken Sie auf **Transformation hinzufügen** . Sie können maximal zwei Transformationen auf einen Anspruch anwenden. Beispielsweise könnten Sie zuerst das E-Mail-Präfix von `user.mail`extrahieren. Dann könnten Sie die Zeichenfolge in Großbuchstaben umwandeln.
+3. Wenn Sie mehrere Transformationen anwenden möchten, klicken Sie auf **Transformation hinzufügen**. Sie können maximal zwei Transformationen auf einen Anspruch anwenden. Beispielsweise könnten Sie zuerst das E-Mail-Präfix von `user.mail`extrahieren. Dann könnten Sie die Zeichenfolge in Großbuchstaben umwandeln.
 
    ![Transformieren mehrerer Ansprüche](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
 
@@ -131,9 +130,9 @@ Zum Transformieren von Ansprüchen können Sie die folgenden Funktionen verwende
 | **Join()** | Erstellt einen neuen Wert durch Verknüpfen von zwei Attributen. Optional können Sie ein Trennzeichen zwischen den beiden Attributen verwenden. Bei der NameID-Anspruchstransformation beschränkt sich die Verknüpfung auf eine verifizierte Domäne. Wenn der ausgewählte Wert für die Benutzer-ID über eine Domäne verfügt, wird der Benutzername extrahiert, an den ausgewählte überprüfte Domäne angefügt werden soll. Wenn Sie z.B. die E-Mail-Adresse (joe_smith@contoso.com) als Wert für die Benutzer-ID und „contoso.onmicrosoft.com“ als überprüfte Domäne verwenden, erhalten Sie joe_smith@contoso.onmicrosoft.com. |
 | **ToLowercase()** | Konvertiert die Zeichen des ausgewählten Attributs in Kleinbuchstaben. |
 | **ToUppercase()** | Konvertiert die Zeichen des ausgewählten Attributs in Großbuchstaben. |
-| **Contains()** | Gibt ein Attribut oder eine Konstante aus, wenn die Eingabe dem angegebenen Wert entspricht. Andernfalls können Sie eine andere Ausgabe angeben, wenn keine Übereinstimmung vorhanden ist.<br/>Beispiel: Sie möchten einen Anspruch ausgeben, dessen Wert die E-Mail-Adresse des Benutzers ist, wenn er die Domäne „@contoso.com“ enthält, andernfalls soll der Benutzerprinzipalname ausgegeben werden. Hierzu konfigurieren Sie die folgenden Werte:<br/>*Parameter 1 (Eingabe)* : user.email<br/>*Wert* : „@contoso.com“<br/>Parameter 2 (Ausgabe): user.email<br/>Parameter 3 (Ausgabe, wenn keine Übereinstimmung vorhanden ist): user.userprincipalname |
-| **EndWith()** | Gibt ein Attribut oder eine Konstante aus, wenn die Eingabe mit dem angegebenen Wert endet. Andernfalls können Sie eine andere Ausgabe angeben, wenn keine Übereinstimmung vorhanden ist.<br/>Beispiel: Sie möchten einen Anspruch ausgeben, dessen Wert der Mitarbeiter-ID des Benutzers entspricht, wenn die Mitarbeiter-ID mit „000“ endet. Andernfalls soll ein Erweiterungsattribut ausgegeben werden. Hierzu konfigurieren Sie die folgenden Werte:<br/>*Parameter 1 (Eingabe)* : user.employeeid<br/>*Value* : „000“<br/>Parameter 2 (Ausgabe): user.employeeid<br/>Parameter 3 (Ausgabe, wenn keine Übereinstimmung vorhanden ist): user.extensionattribute1 |
-| **StartWith()** | Gibt ein Attribut oder eine Konstante aus, wenn die Eingabe mit dem angegebenen Wert beginnt. Andernfalls können Sie eine andere Ausgabe angeben, wenn keine Übereinstimmung vorhanden ist.<br/>Beispiel: Sie möchten einen Anspruch ausgeben, bei dem der Wert der Mitarbeiter-ID des Benutzer entspricht, wenn das Land bzw. die Region mit „US“ beginnt. Andernfalls soll ein Erweiterungsattribut ausgegeben werden. Hierzu konfigurieren Sie die folgenden Werte:<br/>*Parameter 1 (Eingabe)* : user.country<br/>*Value* : „US“<br/>Parameter 2 (Ausgabe): user.employeeid<br/>Parameter 3 (Ausgabe, wenn keine Übereinstimmung vorhanden ist): user.extensionattribute1 |
+| **Contains()** | Gibt ein Attribut oder eine Konstante aus, wenn die Eingabe dem angegebenen Wert entspricht. Andernfalls können Sie eine andere Ausgabe angeben, wenn keine Übereinstimmung vorhanden ist.<br/>Beispiel: Sie möchten einen Anspruch ausgeben, dessen Wert die E-Mail-Adresse des Benutzers ist, wenn er die Domäne „@contoso.com“ enthält, andernfalls soll der Benutzerprinzipalname ausgegeben werden. Hierzu konfigurieren Sie die folgenden Werte:<br/>*Parameter 1 (Eingabe)* : user.email<br/>*Wert*: „@contoso.com“<br/>Parameter 2 (Ausgabe): user.email<br/>Parameter 3 (Ausgabe, wenn keine Übereinstimmung vorhanden ist): user.userprincipalname |
+| **EndWith()** | Gibt ein Attribut oder eine Konstante aus, wenn die Eingabe mit dem angegebenen Wert endet. Andernfalls können Sie eine andere Ausgabe angeben, wenn keine Übereinstimmung vorhanden ist.<br/>Beispiel: Sie möchten einen Anspruch ausgeben, dessen Wert der Mitarbeiter-ID des Benutzers entspricht, wenn die Mitarbeiter-ID mit „000“ endet. Andernfalls soll ein Erweiterungsattribut ausgegeben werden. Hierzu konfigurieren Sie die folgenden Werte:<br/>*Parameter 1 (Eingabe)* : user.employeeid<br/>*Value*: „000“<br/>Parameter 2 (Ausgabe): user.employeeid<br/>Parameter 3 (Ausgabe, wenn keine Übereinstimmung vorhanden ist): user.extensionattribute1 |
+| **StartWith()** | Gibt ein Attribut oder eine Konstante aus, wenn die Eingabe mit dem angegebenen Wert beginnt. Andernfalls können Sie eine andere Ausgabe angeben, wenn keine Übereinstimmung vorhanden ist.<br/>Beispiel: Sie möchten einen Anspruch ausgeben, bei dem der Wert der Mitarbeiter-ID des Benutzer entspricht, wenn das Land bzw. die Region mit „US“ beginnt. Andernfalls soll ein Erweiterungsattribut ausgegeben werden. Hierzu konfigurieren Sie die folgenden Werte:<br/>*Parameter 1 (Eingabe)* : user.country<br/>*Value*: „US“<br/>Parameter 2 (Ausgabe): user.employeeid<br/>Parameter 3 (Ausgabe, wenn keine Übereinstimmung vorhanden ist): user.extensionattribute1 |
 | **Extract() – nach dem Abgleich** | Gibt die Teilzeichenfolge bei Übereinstimmung mit dem angegebenen Wert zurück.<br/>Beispiel: Wenn der Eingabewert „Finance_BSimon“ und der übereinstimmende Wert „Finance_“ ist, dann lautet die Ausgabe des Anspruchs „BSimon“. |
 | **Extract() – vor dem Abgleich** | Gibt die Teilzeichenfolge zurück, bis sie mit dem angegebenen Wert übereinstimmt.<br/>Beispiel: Wenn der Eingabewert „BSimon_US“ und der übereinstimmende Wert „_US“ ist, dann lautet die Ausgabe des Anspruchs „BSimon“. |
 | **Extract() – zwischen Abgleichen** | Gibt die Teilzeichenfolge zurück, bis sie mit dem angegebenen Wert übereinstimmt.<br/>Beispiel: Wenn der Eingabewert „Finance_BSimon_US“ ist, der erste übereinstimmende Wert „Finance_“ und der zweite übereinstimmende Wert „_US“ lautet, dann ist die Ausgabe des Anspruchs „BSimon“. |
@@ -144,18 +143,18 @@ Zum Transformieren von Ansprüchen können Sie die folgenden Funktionen verwende
 | **IfEmpty()** | Gibt ein Attribut oder eine Konstante aus, wenn die Eingabe null oder leer ist.<br/>Beispiel: Sie möchten ein in einem Erweiterungsattribut (extensionattribute) gespeichertes Attribut ausgeben, wenn die Mitarbeiter-ID für einen bestimmten Benutzer leer ist. Hierzu konfigurieren Sie die folgenden Werte:<br/>Parameter 1 (Eingabe): user.employeeid<br/>Parameter 2 (Ausgabe): user.extensionattribute1<br/>Parameter 3 (Ausgabe, wenn keine Übereinstimmung vorhanden ist): user.employeeid |
 | **IfNotEmpty()** | Gibt ein Attribut oder eine Konstante aus, wenn die Eingabe nicht null oder leer ist.<br/>Beispiel: Sie möchten ein in einem Erweiterungsattribut (extensionattribute) gespeichertes Attribut ausgeben, wenn die Mitarbeiter-ID für einen bestimmten Benutzer nicht leer ist. Hierzu konfigurieren Sie die folgenden Werte:<br/>Parameter 1 (Eingabe): user.employeeid<br/>Parameter 2 (Ausgabe): user.extensionattribute1 |
 
-Wenn Sie zusätzliche Transformationen benötigen, senden Sie Ihre Vorschläge an das [Azure AD-Feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160599). Verwenden Sie dort die Kategorie *SaaS-Anwendung* .
+Wenn Sie zusätzliche Transformationen benötigen, senden Sie Ihre Vorschläge an das [Azure AD-Feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160599). Verwenden Sie dort die Kategorie *SaaS-Anwendung*.
 
 ## <a name="emitting-claims-based-on-conditions"></a>Ausgeben von Ansprüchen aufgrund von Bedingungen
 
 Sie können die Anspruchsquelle auf Basis des Benutzertyps und der Gruppe, zu der der Benutzer gehört, angeben. 
 
 Folgende Benutzertypen stehen zur Auswahl:
-- **Alle** : Alle Benutzer dürfen auf die Anwendung zugreifen.
-- **Mitglieder** : Native Mitglieder des Mandanten
-- **Alle Gäste** : Der Benutzer stammt aus einer externen Organisation mit oder ohne Azure AD.
-- **AAD-Gäste** : Der Gastbenutzer gehört zu einer anderen Organisation, die Azure AD verwendet.
-- **Externe Gäste** : Der Gastbenutzer gehört zu einer externen Organisation, die nicht über Azure AD verfügt.
+- **Alle**: Alle Benutzer dürfen auf die Anwendung zugreifen.
+- **Mitglieder**: Native Mitglieder des Mandanten
+- **Alle Gäste**: Der Benutzer stammt aus einer externen Organisation mit oder ohne Azure AD.
+- **AAD-Gäste**: Der Gastbenutzer gehört zu einer anderen Organisation, die Azure AD verwendet.
+- **Externe Gäste**: Der Gastbenutzer gehört zu einer externen Organisation, die nicht über Azure AD verfügt.
 
 
 Diese Option ist hilfreich bei einem Szenario, bei dem sich die Anspruchsquelle für einen Gast und einen Mitarbeiter, die auf eine Anwendung zugreifen, unterscheidet. Sie könnten beispielsweise angeben, dass die NameID von „user.email“ abgerufen wird, wenn der Benutzer ein Mitarbeiter ist, oder von „user.extensionattribute1“, wenn der Benutzer ein Gast ist.
@@ -178,5 +177,5 @@ Zuerst überprüft Microsoft Identity Platform, ob der Benutzertyp von Britta `A
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Anwendungsverwaltung in Azure AD](../manage-apps/what-is-application-management.md)
-* [Konfigurieren des einmaligen Anmeldens für Anwendungen, die nicht im Azure AD-Anwendungskatalog enthalten sind](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Problembehandlung bei SAML-basiertem einmaligem Anmelden](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+* [Konfigurieren des einmaligen Anmeldens für Anwendungen, die nicht im Azure AD-Anwendungskatalog enthalten sind](../manage-apps/configure-saml-single-sign-on.md)
+* [Problembehandlung bei SAML-basiertem einmaligem Anmelden](../manage-apps/debug-saml-sso-issues.md)

@@ -5,14 +5,14 @@ ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: msangapu
 keywords: Azure App Service, Web-App, Linux, Windows, Docker, Container
-ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
+ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 0cb1aa2d922db96eff21a128eaa60363b37db9d7
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 68fe49ff201ead89d846a0676e81dda9fc9b75b9
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152093"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558605"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migrieren benutzerdefinierter Software zu Azure App Service mithilfe eines benutzerdefinierten Containers
 
@@ -64,7 +64,7 @@ Da sie eine installierte Schriftart verwendet, kann die App nicht in der App Ser
 
 Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf das Projekt **CustomFontSample**, und wählen Sie **Hinzufügen** > **Unterstützung für Containerorchestrierung** aus.
 
-:::image type="content" source="media/tutorial-custom-container/enable-container-orchestration.png" alt-text="Screenshot: im Standardbrowser angezeigte App":::
+:::image type="content" source="media/tutorial-custom-container/enable-container-orchestration.png" alt-text="Screenshot: Fenster „Projektmappen-Explorer“ mit dem ausgewählten Projekt „CustomFontSample“ und den ausgewählten Menüelementen „Hinzufügen“ und „Unterstützung für Containerorchestrator“":::
 
 Wählen Sie **Docker Compose** > **OK** aus.
 
@@ -98,13 +98,13 @@ Sie finden das Skript _InstallFont.ps1_ im Projekt **CustomFontSample**. Es ist 
 
 Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf das Projekt **CustomFontSample**, und wählen Sie **Veröffentlichen** aus.
 
-:::image type="content" source="media/tutorial-custom-container/open-publish-wizard.png" alt-text="Screenshot: im Standardbrowser angezeigte App":::
+:::image type="content" source="media/tutorial-custom-container/open-publish-wizard.png" alt-text="Screenshot: Projektmappen-Explorer mit dem ausgewählten Projekt „CustomFontSample“ und der ausgewählten Option „Veröffentlichen“":::
 
 ### <a name="create-registry-and-publish"></a>Erstellen der Registrierung und Veröffentlichen
 
 Wählen Sie im Veröffentlichungs-Assistenten **Container Registry** > **Neue Azure Container Registry-Instanz erstellen** > **Veröffentlichen** aus.
 
-:::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="Screenshot: im Standardbrowser angezeigte App":::
+:::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="Screenshot: Veröffentlichungs-Assistent mit den ausgewählten Optionen „Containerregistrierung“ und „Neue Azure Container Registry-Instanz erstellen“ und der ausgewählten Schaltfläche „Veröffentlichen“":::
 
 ### <a name="sign-in-with-azure-account"></a>Anmelden mit Azure-Konto
 
@@ -228,31 +228,16 @@ Bei diesem Tutorial fällt in Ihrem Azure-Konto eine geringfügige Gebühr für 
 
 ## <a name="set-up-your-initial-environment"></a>Einrichten der anfänglichen Umgebung
 
-* Sie benötigen ein Azure-Konto mit einem aktiven Abonnement. Sie können [kostenlos ein Konto erstellen](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* Installieren Sie [Docker](https://docs.docker.com/get-started/#setup). Mit diesem Tool erstellen Sie Docker-Images. Zum Installieren von Docker ist möglicherweise ein Neustart des Computers erforderlich.
-* Installieren Sie die <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.0.80 oder höher, mit der Sie Befehle in einer beliebigen Shell ausführen, um Azure-Ressourcen bereitzustellen und zu konfigurieren.
+- Sie benötigen ein Azure-Konto mit einem aktiven Abonnement. Sie können [kostenlos ein Konto erstellen](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Installieren Sie [Docker](https://docs.docker.com/get-started/#setup). Mit diesem Tool erstellen Sie Docker-Images. Zum Installieren von Docker ist möglicherweise ein Neustart des Computers erforderlich.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+- Für dieses Tutorial ist mindestens Version 2.0.80 der Azure CLI erforderlich. Bei Verwendung von Azure Cloud Shell ist die aktuelle Version bereits installiert.
 
-Öffnen Sie nach der Installation von Docker und der Azure CLI ein Terminalfenster, und vergewissern Sie sich, dass Docker installiert ist:
+Öffnen Sie nach der Installation von Docker oder der Ausführung von Azure Cloud Shell ein Terminalfenster, und vergewissern Sie sich, dass Docker installiert ist:
 
 ```bash
 docker --version
 ```
-
-Vergewissern Sie sich außerdem, dass Sie mindestens Version 2.0.80 der Azure CLI verwenden:
-
-```azurecli
-az --version
-```
-
-Melden Sie sich anschließend über die CLI bei Azure an:
-
-```azurecli
-az login
-```
-
-Der Befehl `az login` öffnet einen Browser zum Erfassen Ihrer Anmeldeinformationen. Wenn der Befehl abgeschlossen ist, wird eine JSON-Ausgabe mit Informationen zu Ihren Abonnements angezeigt.
-
-Nachdem Sie sich angemeldet haben, können Sie Azure-Befehle mit der Azure CLI ausführen, um Ressourcen in Ihrem Abonnement zu verwenden.
 
 ## <a name="clone-or-download-the-sample-app"></a>Klonen oder Herunterladen der Beispiel-App
 
@@ -319,6 +304,10 @@ ENTRYPOINT ["init.sh"]
 
 ## <a name="build-and-test-the-image-locally"></a>Lokales Erstellen und Testen des Images
 
+> [!NOTE]
+> Docker Hub verfügt über [Kontingente für die Anzahl anonymer Pullvorgänge pro IP-Adresse und die Anzahl authentifizierter Pullvorgänge pro Free-Benutzer (siehe **Datenübertragungen**)](https://www.docker.com/pricing). Wenn Sie bemerken, dass die Pullvorgänge aus Docker Hub eingeschränkt sind, probieren Sie `docker login` aus, falls Sie nicht bereits angemeldet sind.
+> 
+
 1. Führen Sie den folgenden Befehl aus, um das Image zu erstellen:
 
     ```bash
@@ -339,8 +328,6 @@ ENTRYPOINT ["init.sh"]
 1. Rufen Sie `http://localhost:8000` auf, um zu überprüfen, ob Web-App und Container ordnungsgemäß funktionieren.
 
     ![Lokales Testen der Web-App](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
-
-[!INCLUDE [Try Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-resource-group"></a>Erstellen einer Ressourcengruppe
 

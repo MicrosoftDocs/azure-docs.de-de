@@ -11,16 +11,16 @@ ms.subservice: studio
 ms.topic: how-to
 ms.date: 03/28/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a963a9f10ee23c50f50e66191e92f0839c457d9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dc348318401c9362636893d70294496c7012408
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362843"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308475"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Bereitstellen von (klassischen) Azure Machine Learning Studio-Webdiensten, die Module zum Importieren und Exportieren von Daten verwenden
 
-**GILT FÜR:**  ![Gilt für ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic) ![Gilt nicht für ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**GILT FÜR:**  ![Gilt für ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic) ![Gilt nicht für ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Bei der Erstellung eines Vorhersageexperiments fügen Sie in der Regel eine Webdiensteingabe und -ausgabe hinzu. Wenn Sie das Experiment bereitstellen, können Nutzer Daten über die Webdiensteingabe bzw. -ausgabe senden und empfangen. Für einige Anwendungen sind die Daten eines Nutzers möglicherweise über einen Datenfeed verfügbar oder befinden sich bereits in einer externen Datenquelle, z.B. Azure Blob Storage. In diesen Fällen müssen sie nicht mithilfe von Webdiensteingabe und -ausgabe gelesen und geschrieben werden. Sie können stattdessen mit dem Stapelausführungsdienst (Batch Execution Service, BES) mit einem Import Data-Modul aus der Datenquelle gelesen werden, und die Bewertungsergebnisse können mit einem Export Data-Modul an einen anderen Datenspeicherort geschrieben werden.
@@ -41,7 +41,7 @@ So lesen Sie die Daten aus der Azure SQL-Tabelle:
 3. Fügen Sie aus der Ergebnisliste ein Modul *Import Data* im Experimentbereich hinzu.
 4. Verbinden Sie die Ausgabe des Moduls *Import Data* mit der Eingabe des Moduls *Clean Missing Data*.
 5. Wählen Sie im Bereich „Eigenschaften“ in der Dropdownliste **Datenquelle** die Option **Azure SQL-Datenbank** aus.
-6. Geben Sie in den Feldern **Database server name**, **Database name**, **User name** und **Password** die entsprechenden Informationen für Ihre Datenbank ein.
+6. Geben Sie in den Feldern **Database server name** , **Database name** , **User name** und **Password** die entsprechenden Informationen für Ihre Datenbank ein.
 7. Geben Sie im Abfragefeld „Database“ die folgende Abfrage ein.
 
     ```tsql
@@ -67,25 +67,25 @@ So lesen Sie die Daten aus der Azure SQL-Tabelle:
 ## <a name="create-the-predictive-experiment"></a>Erstellen des Vorhersageexperiments
 Als Nächstes richten Sie das Vorhersageexperiment ein, über das Sie Ihren Webdienst bereitstellen.
 
-1. Klicken Sie am unteren Rand des Experimentbereichs auf **Set Up Web Service**, und wählen Sie **Predictive Web Service [Recommended]** .
+1. Klicken Sie am unteren Rand des Experimentbereichs auf **Set Up Web Service** , und wählen Sie **Predictive Web Service [Recommended]** .
 2. Entfernen Sie die Module *Web Service Input* und *Web Service Output* aus dem Vorhersageexperiment.
 3. Geben Sie im Komponentensuchfeld „export“ ein.
 4. Fügen Sie aus der Ergebnisliste ein Modul *Export Data* im Experimentbereich hinzu.
 5. Verbinden Sie die Ausgabe des Moduls *Score Model* mit der Eingabe des Moduls *Export Data*.
 6. Wählen Sie im Bereich „Eigenschaften“ in der Dropdownliste „Datenziel“ die Option **Azure SQL-Datenbank** aus.
-7. Geben Sie in den Feldern **Database server name**, **Database name**, **Server user account name** und **Server user account password** die entsprechenden Informationen für Ihre Datenbank ein.
+7. Geben Sie in den Feldern **Database server name** , **Database name** , **Server user account name** und **Server user account password** die entsprechenden Informationen für Ihre Datenbank ein.
 8. Geben Sie in das Feld **Comma separated list of columns to be saved** „Scored Labels“ ein.
-9. Geben Sie in das Feld **Data table name**„dbo.ScoredLabels“ ein. Wenn die Tabelle nicht vorhanden ist, wird sie erstellt, wenn das Experiment ausgeführt oder der Webdienst aufgerufen wird.
+9. Geben Sie in das Feld **Data table name** „dbo.ScoredLabels“ ein. Wenn die Tabelle nicht vorhanden ist, wird sie erstellt, wenn das Experiment ausgeführt oder der Webdienst aufgerufen wird.
 10. Geben Sie in das Feld **Comma separated list of datatable columns** „Scored Labels“ ein.
 
-Wenn Sie eine Anwendung schreiben, die den endgültigen Webdienst aufruft, möchten Sie vielleicht zur Laufzeit eine andere Eingabeabfrage oder Zieltabelle angeben. Um diese Eingaben und Ausgaben zu konfigurieren, legen Sie mit dem Feature „Web Service Parameters“ das Modul *Import Data*, die Eigenschaft *Data source* und die Modusdatenziel-Eigenschaft *Export Data* fest.  Weitere Informationen zu „Web Service Parameters“ finden Sie unter dem Eintrag [Azure Machine Learning Studio Web Service Parameters](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) im „Cortana Intelligence and Machine Learning Blog“.
+Wenn Sie eine Anwendung schreiben, die den endgültigen Webdienst aufruft, möchten Sie vielleicht zur Laufzeit eine andere Eingabeabfrage oder Zieltabelle angeben. Um diese Eingaben und Ausgaben zu konfigurieren, legen Sie mit dem Feature „Web Service Parameters“ das Modul *Import Data* , die Eigenschaft *Data source* und die Modusdatenziel-Eigenschaft *Export Data* fest.  Weitere Informationen zu „Web Service Parameters“ finden Sie unter dem Eintrag [Azure Machine Learning Studio Web Service Parameters](/archive/blogs/machinelearning/azureml-web-service-parameters) im „Cortana Intelligence and Machine Learning Blog“.
 
 So konfigurieren Sie die Webdienstparameter für die Importabfrage und die Zieltabelle:
 
-1. Klicken Sie im Eigenschaftenbereich für das *Import Data*-Modul auf das Symbol des Felds **Database query** oben rechts, und wählen Sie **Set as web service parameter**.
-2. Klicken Sie im Eigenschaftenbereich für das *Export Data*-Modul auf das Symbol des Felds **Data table name** oben rechts, und wählen Sie **Set as web service parameter**.
+1. Klicken Sie im Eigenschaftenbereich für das *Import Data* -Modul auf das Symbol des Felds **Database query** oben rechts, und wählen Sie **Set as web service parameter**.
+2. Klicken Sie im Eigenschaftenbereich für das *Export Data* -Modul auf das Symbol des Felds **Data table name** oben rechts, und wählen Sie **Set as web service parameter**.
 3. Klicken Sie am unteren Rand des Eigenschaftenbereichs für das *Export Data* -Modul im Abschnitt **Web Service Parameters** auf „Database query“, und benennen Sie sie in „Query“ um.
-4. Klicken Sie auf **Data table name**, und benennen Sie die Tabelle in **Table** um.
+4. Klicken Sie auf **Data table name** , und benennen Sie die Tabelle in **Table** um.
 
 Wenn Sie fertig sind, sollte das Experiment der folgenden Abbildung ähneln:
 
@@ -102,7 +102,7 @@ So stellen Sie einen klassischen Webdienst bereit und erstellen eine Anwendung, 
 1. Klicken Sie am unteren Rand des Experimentbereichs auf „Run“.
 2. Wenn die Ausführung abgeschlossen ist, klicken Sie auf **Deploy Web Service** und wählen **Deploy Web Service [Classic]** .
 3. Suchen Sie Ihren API-Schlüssel auf dem Webdienst-Dashboard. Kopieren Sie ihn und speichern Sie ihn zur späteren Verwendung.
-4. Klicken Sie in der Tabelle **Default Endpoint** auf den Link **Batch Execution**, um die API-Hilfeseite zu öffnen.
+4. Klicken Sie in der Tabelle **Default Endpoint** auf den Link **Batch Execution** , um die API-Hilfeseite zu öffnen.
 5. Erstellen Sie in Visual Studio eine C#-Konsolenanwendung: **Neu** > **Projekt** > **Visual C#**  > **Klassischer Windows-Desktop** > **Konsolen-App (.NET Framework)** .
 6. Am unteren Rand der API-Hilfeseite finden Sie den Abschnitt **Sample Code** .
 7. Kopieren Sie den C#-Beispielcode, fügen Sie ihn in die Datei „Program.cs“ ein, und entfernen Sie alle Verweise auf den Blobspeicher.
@@ -137,7 +137,7 @@ So stellen Sie einen neuen Webdienst bereit und erstellen eine Anwendung, die ih
 6. Erstellen Sie in Visual Studio eine C#-Konsolenanwendung: **Neu** > **Projekt** > **Visual C#**  > **Klassischer Windows-Desktop** > **Konsolen-App (.NET Framework)** .
 7. Kopieren Sie den C#-Beispielcode, und fügen Sie ihn in die Datei „Program.cs“ ein.
 8. Aktualisieren Sie den Wert der Variablen *apiKey* mit dem **Primary Key** im Abschnitt **Basic consumption info**.
-9. Suchen Sie die Deklaration *scoreRequest*, und aktualisieren Sie die Werte der Webdienstparameter, die den Modulen *Import Data* und *Export Data* übergeben werden. In diesem Fall verwenden Sie die ursprüngliche Abfrage, definieren aber einen neuen Tabellennamen.
+9. Suchen Sie die Deklaration *scoreRequest* , und aktualisieren Sie die Werte der Webdienstparameter, die den Modulen *Import Data* und *Export Data* übergeben werden. In diesem Fall verwenden Sie die ursprüngliche Abfrage, definieren aber einen neuen Tabellennamen.
 
     ```csharp
     var scoreRequest = new
@@ -152,4 +152,3 @@ So stellen Sie einen neuen Webdienst bereit und erstellen eine Anwendung, die ih
     };
     ```
 10. Führen Sie die Anwendung aus.
-

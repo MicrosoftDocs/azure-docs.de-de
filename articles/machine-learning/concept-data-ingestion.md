@@ -1,7 +1,7 @@
 ---
 title: Datenerfassung und Automatisierung
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie mehr über die Optionen zur Datenerfassung für das Training Ihrer Machine Learning-Modelle.
+description: Erfahren Sie mehr über die Vor- und Nachteile der Optionen zur Datenerfassung für das Training Ihrer Machine Learning-Modelle.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: 18bbecbe811a9f0bc6a56194830c7e92d8770979
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-python, data4ml
+ms.openlocfilehash: 60cf97c4cb650120a4b6e2989b93d96ea120d040
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890181"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360121"
 ---
 # <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Optionen für die Datenerfassung für Azure Machine Learning-Workflows
 
@@ -33,7 +33,7 @@ Die Datenerfassung ist der Prozess, bei dem unstrukturierte Daten aus einer oder
 
 ## <a name="azure-data-factory"></a>Azure Data Factory
 
-[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) bietet native Unterstützung für die Überwachung von Datenquellen und für Trigger für Datenerfassungspipelines.  
+[Azure Data Factory](../data-factory/introduction.md) bietet native Unterstützung für die Überwachung von Datenquellen und für Trigger für Datenerfassungspipelines.  
 
 In der folgenden Tabelle sind die Vor- und Nachteile der Verwendung von Azure Data Factory für Ihre Datenerfassungsworkflows zusammengefasst.
 
@@ -41,11 +41,11 @@ In der folgenden Tabelle sind die Vor- und Nachteile der Verwendung von Azure Da
 ---|---
 Speziell zum Extrahieren, Laden und Transformieren von Daten konzipiert.|Bietet derzeit eine begrenzte Anzahl von Pipelineaufgaben für Azure Data Factory. 
 Gestattet Ihnen die Erstellung datengesteuerter Workflows zur Orchestrierung von Datenverschiebungen und Transformationen in großem Stil.|Erstellung und Wartung sind teuer. Weitere Informationen finden Sie auf der [Preisgestaltungsseite](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) von Azure Data Factory.
-Integriert mit verschiedenen Azure-Tools wie [Azure Databricks](https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook) und [Azure Functions](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity) | Führt keine nativen Skripts aus, sondern vertraut stattdessen auf ein separates Compute für Skriptausführungen 
+Integriert mit verschiedenen Azure-Tools wie [Azure Databricks](../data-factory/transform-data-using-databricks-notebook.md) und [Azure Functions](../data-factory/control-flow-azure-function-activity.md) | Führt keine nativen Skripts aus, sondern vertraut stattdessen auf ein separates Compute für Skriptausführungen 
 Unterstützt nativ die von der Datenquelle ausgelöste Datenerfassung| 
 Die Prozesse für die Datenvorbereitung und das Modelltraining sind voneinander getrennt.|
 Eingebettete Funktionen für die Datenherkunft für Azure Data Factory-Dataflows|
-Bietet eine [Benutzeroberfläche](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal) für geringe Codeerfahrungen für Ansätze ohne Skripterstellung |
+Bietet eine [Benutzeroberfläche](../data-factory/quickstart-create-data-factory-portal.md) für geringe Codeerfahrungen für Ansätze ohne Skripterstellung |
 
 Diese Schritte und das folgende Diagramm veranschaulichen den Workflow von Azure Data Factory bei der Datenerfassung.
 
@@ -60,7 +60,7 @@ Erfahren Sie, wie Sie eine Datenerfassungspipeline für Machine Learning mit [Az
 
 ## <a name="azure-machine-learning-python-sdk"></a>Python-SDK für Azure Machine Learning 
 
-Mit dem [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml) können Sie Datenerfassungsaufgaben in eine [Azure Machine Learning-Pipeline](how-to-create-your-first-pipeline.md) integrieren.
+Mit dem [Python SDK](/python/api/overview/azure/ml) können Sie Datenerfassungsaufgaben in eine [Azure Machine Learning-Pipeline](how-to-create-your-first-pipeline.md) integrieren.
 
 In der folgenden Tabelle sind die Vor- und Nachteile der Verwendung des SDK und eines ML-Pipelineschritts für Aufgaben der Datenerfassung zusammengefasst.
 

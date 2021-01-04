@@ -1,20 +1,20 @@
 ---
 title: 'Erstellen einer Vorlage: Visual Studio Code'
-description: Verwenden Sie Visual Studio Code und die Azure Resource Manager-Tools-Erweiterung für Resource Manager-Vorlagen.
+description: Verwenden Sie Visual Studio Code und die Azure Resource Manager-Tools-Erweiterung für Azure Resource Manager-Vorlagen (ARM-Vorlagen).
 author: neilpeterson
 ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: 5375fedcd05aefa5d23ee872325373ce631d43bb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d8fd44a1e4c1ddfd78b2afa3280bb05c8fde91e3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88034979"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350142"
 ---
-# <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Schnellstart: Erstellen von Azure Resource Manager-Vorlagen mit Visual Studio Code
+# <a name="quickstart-create-arm-templates-with-visual-studio-code"></a>Schnellstart: Erstellen von ARM-Vorlagen mit Visual Studio Code
 
-Die Azure Resource Manager-Tools für Visual Studio Code bieten Sprachunterstützung, Ressourcenausschnitte und eine automatische Vervollständigung für Ressourcen. Diese Tools unterstützen Sie beim Erstellen und Überprüfen von Azure Resource Manager-Vorlagen. In dieser Schnellstartanleitung wird mithilfe der Erweiterung eine ganz neue Azure Resource Manager-Vorlage erstellt. Dabei werden Erweiterungsfunktionen wie ARM-Vorlagenausschnitte, Überprüfung, Vervollständigungen und die Unterstützung einer Parameterdatei genutzt.
+Die Azure Resource Manager-Tools für Visual Studio Code bieten Sprachunterstützung, Ressourcenausschnitte und eine automatische Vervollständigung für Ressourcen. Diese Tools unterstützen Sie beim Erstellen und Überprüfen von Azure Resource Manager-Vorlagen (ARM-Vorlagen). In dieser Schnellstartanleitung wird mithilfe der Erweiterung eine ganz neue ARM-Vorlage erstellt. Dabei werden Erweiterungsfunktionen wie ARM-Vorlagenausschnitte, Überprüfung, Vervollständigungen und die Unterstützung einer Parameterdatei genutzt.
 
 Für diese Schnellstartanleitung benötigen Sie [Visual Studio Code](https://code.visualstudio.com/) mit installierter Erweiterung [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). Außerdem muss entweder die [Azure-Befehlszeilenschnittstelle](/cli/azure/?view=azure-cli-latest) oder das [Azure PowerShell-Modul](/powershell/azure/new-azureps-module-az?view=azps-3.7.0) installiert und authentifiziert sein.
 
@@ -54,7 +54,7 @@ Mithilfe der **TAB-TASTE** kann durch die konfigurierbaren Eigenschaften für da
 
 ## <a name="completion-and-validation"></a>Vervollständigung und Überprüfung
 
-Eine der praktischsten Funktionen der Erweiterung ist die Azure-Schemaintegration. Durch Azure-Schemas stehen der Erweiterung Überprüfungs- und ressourcenbasierte Vervollständigungsfunktionen zur Verfügung. Im nächsten Schritt wird das Speicherkonto geändert, um die Überprüfung und Vervollständigung in Aktion zu sehen. 
+Eine der praktischsten Funktionen der Erweiterung ist die Azure-Schemaintegration. Durch Azure-Schemas stehen der Erweiterung Überprüfungs- und ressourcenbasierte Vervollständigungsfunktionen zur Verfügung. Im nächsten Schritt wird das Speicherkonto geändert, um die Überprüfung und Vervollständigung in Aktion zu sehen.
 
 Legen Sie zunächst die Art des Speicherkontos auf einen ungültigen Wert fest (beispielsweise `megaStorage`). Beachten Sie, dass diese Aktion zu einer Warnung mit dem Hinweis führt, dass `megaStorage` kein gültiger Wert ist.
 
@@ -80,7 +80,7 @@ Azure-Speicherkontonamen müssen zwischen drei und 24 Zeichen lang sein. Fügen
 
 ![Abbildung: Hinzufügen von „minLength“ und „maxLength“ zu einem ARM-Vorlagenparameter](./media/quickstart-create-templates-use-visual-studio-code/11.png)
 
-Aktualisieren Sie nun in der Speicherressource die Namenseigenschaft, um den Parameter zu verwenden. Entfernen Sie dazu den aktuellen Namen. Geben Sie ein doppeltes Anführungszeichen und eine öffnende eckige Klammer (`[`) ein. Daraufhin wird eine Liste mit ARM-Vorlagenfunktionen angezeigt. Wählen Sie in der Liste die Option *parameters* aus. 
+Aktualisieren Sie nun in der Speicherressource die Namenseigenschaft, um den Parameter zu verwenden. Entfernen Sie dazu den aktuellen Namen. Geben Sie ein doppeltes Anführungszeichen und eine öffnende eckige Klammer (`[`) ein. Daraufhin wird eine Liste mit ARM-Vorlagenfunktionen angezeigt. Wählen Sie in der Liste die Option *parameters* aus.
 
 ![Abbildung: Automatische Vervollständigung bei Verwendung von „parameters“ in ARM-Vorlagenressourcen](./media/quickstart-create-templates-use-visual-studio-code/12.png)
 

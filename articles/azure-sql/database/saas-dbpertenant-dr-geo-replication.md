@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: dc2047832f8cfbf31c04c84eb7a70fee6631fa4b
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ffe5a1d0c9bbdbc416ecce7c36b3710339c4f059
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330120"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781021"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Notfallwiederherstellung für eine mehrinstanzenfähige SaaS-Anwendung über Datenbankgeoreplikation
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ In diesem Tutorial werden sowohl der Failover- als auch der Failbackworkflow erl
 
 Bevor Sie mit diesem Tutorial beginnen, sollten Sie sich vergewissern, dass die folgenden Voraussetzungen erfüllt sind:
 * Die Wingtip Tickets-SaaS-App mit einer Datenbank pro Mandant ist bereitgestellt. Unter [Bereitstellen und Kennenlernen der Wingtip Tickets SaaS-App mit einer Datenbank pro Mandant](saas-dbpertenant-get-started-deploy.md) finden Sie Informationen dazu, wie Sie die App in weniger als fünf Minuten bereitstellen.  
-* Azure PowerShell wurde installiert. Weitere Informationen hierzu finden Sie unter [Erste Schritte mit Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Azure PowerShell wurde installiert. Weitere Informationen hierzu finden Sie unter [Erste Schritte mit Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-the-geo-replication-recovery-pattern"></a>Einführung in die Vorgehensweise einer Wiederherstellung mit Georeplikation
 
@@ -66,11 +66,11 @@ Alle Teile müssen sorgfältig überlegt werden, insbesondere bei bedarfsorienti
 
 In diesem Tutorial werden diese Herausforderungen mit Funktionen von Azure SQL-Datenbank und der Azure-Plattform gemeistert:
 
-* [Azure Resource Manager-Vorlagen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), um jegliche erforderliche Kapazität so schnell wie möglich zu reservieren. Azure Resource Manager-Vorlagen werden verwendet, um ein Spiegelimage der Produkionsserver und der Pools für elastische Datenbanken in der Wiederherstellungsregion bereitzustellen.
+* [Azure Resource Manager-Vorlagen](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md), um jegliche erforderliche Kapazität so schnell wie möglich zu reservieren. Azure Resource Manager-Vorlagen werden verwendet, um ein Spiegelimage der Produkionsserver und der Pools für elastische Datenbanken in der Wiederherstellungsregion bereitzustellen.
 * [Georeplikation](active-geo-replication-overview.md), um für alle Datenbanken asynchron replizierte schreibgeschützte sekundäre Datenbanken zu erstellen. Bei einem Ausfall führen Sie ein Failover zu den Replikaten in der Wiederherstellungsregion aus.  Nach Behebung des Ausfalls führen Sie ein Failback zu den Datenbanken in der ursprünglichen Region aus, ohne dass Daten verloren gehen.
-* [Asynchrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) Failovervorgänge, die in der Prioritätsreihenfolge der Mandanten gesendet werden, um die Failoverzeit für eine große Anzahl von Datenbanken zu minimieren.
+* [Asynchrone](../../azure-resource-manager/management/async-operations.md) Failovervorgänge, die in der Prioritätsreihenfolge der Mandanten gesendet werden, um die Failoverzeit für eine große Anzahl von Datenbanken zu minimieren.
 * [Shardverwaltungs-Wiederherstellungsfunktionen](elastic-database-recovery-manager.md), um Datenbankeinträge im Katalog während einer Wiederherstellung und Rückführung zu ändern. Diese Funktionen ermöglichen es der Anwendung, Verbindungen mit den Mandantendatenbanken unabhängig vom Speicherort herzustellen, ohne die Anwendung neu konfigurieren zu müssen.
-* [DNS-Aliase für SQL-Server](../../sql-database/dns-alias-overview.md), um eine nahtlose Bereitstellung von neuen Mandanten zu ermöglichen, unabhängig davon, in welcher Region die Anwendung ausgeführt wird. DNS-Aliase werden auch verwendet, damit der Katalogsynchronisierungsprozess eine Verbindung mit dem aktiven Katalog herstellen kann, egal, wo sich dieser befindet.
+* [DNS-Aliase für SQL-Server](./dns-alias-overview.md), um eine nahtlose Bereitstellung von neuen Mandanten zu ermöglichen, unabhängig davon, in welcher Region die Anwendung ausgeführt wird. DNS-Aliase werden auch verwendet, damit der Katalogsynchronisierungsprozess eine Verbindung mit dem aktiven Katalog herstellen kann, egal, wo sich dieser befindet.
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Abrufen der Notfallwiederherstellungsskripts 
 
@@ -85,7 +85,7 @@ In diesem Tutorial verwenden Sie zunächst Georeplikation, um Replikate der Wing
 Später, in einem separaten Rückführungsschritt, führen Sie ein Failover des Katalogs und der Mandantendatenbanken in der Wiederherstellungsregion zu der ursprünglichen Region aus. Die Anwendung und die Datenbanken bleiben während der Rückführung durchgängig verfügbar. Nach Abschluss des Vorgangs ist die Anwendung in der ursprünglichen Region voll funktionsfähig.
 
 > [!Note]
-> Die Anwendung wird in dem _Regionspaar_ der Region wiederhergestellt, in dem die Anwendung bereitgestellt wird. Weitere Informationen finden Sie unter [Azure-Regionspaare](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+> Die Anwendung wird in dem _Regionspaar_ der Region wiederhergestellt, in dem die Anwendung bereitgestellt wird. Weitere Informationen finden Sie unter [Azure-Regionspaare](../../best-practices-availability-paired-regions.md).
 
 ## <a name="review-the-healthy-state-of-the-application"></a>Überprüfen des ordnungsgemäßen Zustands der Anwendung
 
@@ -106,7 +106,7 @@ Bevor Sie den Wiederherstellungsprozess starten, sollten Sie den normalen ordnun
 In dieser Aufgabe starten Sie einen Prozess, mit dem die Konfiguration der Server, der Pools für elastische Datenbanken und der Datenbanken in den Mandantenkatalog synchronisiert wird. Der Prozess hält diese Informationen im Katalog auf dem neuesten Stand.  Der Prozess arbeitet mit dem aktiven Katalog, unabhängig davon, ob dieser sich in der ursprünglichen Region oder in der Wiederherstellungsregion befindet. Die Konfigurationsinformationen werden im Wiederherstellungsprozess verwendet, um sicherzustellen, dass die Wiederherstellungsumgebung mit der ursprünglichen Umgebung konsistent ist, und werden dann später während der Rückführung verwendet, um sicherzustellen, dass jegliche Änderungen, die in der Wiederherstellungsumgebung vorgenommen wurden, in die ursprüngliche Region übernommen werden. Der Katalog wird auch verwendet, um den Wiederherstellungsstatus von Mandantenressourcen nachzuverfolgen.
 
 > [!IMPORTANT]
-> Der Einfachheit halber werden der Synchronisierungsprozess und andere zeitintensive Wiederherstellungs- und Rückführungsprozesse in diesen Tutorials als lokale PowerShell-Aufträge oder -Sitzungen implementiert, die unter Ihrer Clientbenutzeranmeldung ausgeführt werden. Die Authentifizierungstoken, die ausgegeben werden, wenn Sie sich anmelden, laufen nach einigen Stunden ab, und die Aufträge schlagen dann fehl. In einem Produktionsszenario sollten lange dauernde Prozesse als zuverlässige Azure-Dienste beliebiger Art implementiert werden, die unter einem Dienstprinzipal ausgeführt werden. Weitere Informationen finden Sie unter [Verwenden von Azure PowerShell zum Erstellen eines Dienstprinzipals mit einem Zertifikat](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> Der Einfachheit halber werden der Synchronisierungsprozess und andere zeitintensive Wiederherstellungs- und Rückführungsprozesse in diesen Tutorials als lokale PowerShell-Aufträge oder -Sitzungen implementiert, die unter Ihrer Clientbenutzeranmeldung ausgeführt werden. Die Authentifizierungstoken, die ausgegeben werden, wenn Sie sich anmelden, laufen nach einigen Stunden ab, und die Aufträge schlagen dann fehl. In einem Produktionsszenario sollten lange dauernde Prozesse als zuverlässige Azure-Dienste beliebiger Art implementiert werden, die unter einem Dienstprinzipal ausgeführt werden. Weitere Informationen finden Sie unter [Verwenden von Azure PowerShell zum Erstellen eines Dienstprinzipals mit einem Zertifikat](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 1. Öffnen Sie in _PowerShell ISE_ die Datei „...\Learning Modules\UserConfig.psm1“. Ersetzen Sie `<resourcegroup>` und `<user>` in den Zeilen 10 und 11 durch die jeweiligen Werte, die Sie beim Bereitstellen der App verwendet haben.  Speichern Sie die Datei.
 
@@ -186,7 +186,7 @@ Stellen Sie sich nun vor, dass es einen Ausfall in der Region gibt, in der die A
 
 2. Drücken Sie **F5** , um das Skript auszuführen.  
     * Das Skript wird in einem neuen PowerShell-Fenster geöffnet, und in dem Skript wird eine Reihe von PowerShell-Aufträgen gestartet, die parallel ausgeführt werden. In diesen Aufträgen wird ein Failover der Mandantendatenbanken zur Wiederherstellungsregion ausgeführt.
-    * Die Wiederherstellungsregion ist die _gekoppelte Region_ , die der Azure-Region zugeordnet ist, in der Sie die Anwendung bereitgestellt haben. Weitere Informationen finden Sie unter [Azure-Regionspaare](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
+    * Die Wiederherstellungsregion ist die _gekoppelte Region_ , die der Azure-Region zugeordnet ist, in der Sie die Anwendung bereitgestellt haben. Weitere Informationen finden Sie unter [Azure-Regionspaare](../../best-practices-availability-paired-regions.md). 
 
 3. Überwachen Sie den Status des Wiederherstellungsprozesses im PowerShell-Fenster.
     ![Failoverprozess](./media/saas-dbpertenant-dr-geo-replication/failover-process.png)

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 09/26/2020
-ms.openlocfilehash: cc52358af203bafc87c5f9ac3ae1f237c0c7ae6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/17/2020
+ms.openlocfilehash: 14809cb28870e88cfa584c4f02360d50beabf901
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597797"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981040"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Erstellen zustandsbehafteter oder zustandsloser Workflows in Visual Studio Code mit der Azure Logic Apps (Vorschau)-Erweiterung
 
@@ -74,7 +74,7 @@ Die Azure Logic Apps (Vorschau)-Erweiterung bietet viele aktuelle und zusätzlic
 
   Erstellen Sie zustandslose Logik-Apps, wenn Sie Daten aus vorherigen Ereignissen nicht zur späteren Überprüfung in externem Speicher speichern, überprüfen oder referenzieren müssen. Diese Logik-Apps behalten die Eingabe und Ausgabe für jede Aktion und deren Workflowzustände nur im Arbeitsspeicher bei, anstatt diese Informationen in den externen Speicher zu übertragen. Daher sind die Ausführungen zustandsloser Logik-Apps kürzer, in der Regel nicht länger als 5 Minuten, sie haben eine schnellere Leistung mit schnelleren Antwortzeiten, einen höheren Durchsatz und niedrigere Ausführungskosten, weil die Ausführungsdetails und der Ausführungsverlauf nicht im externen Speicher aufbewahrt werden. Wenn es aber zu Ausfällen kommen sollte, werden unterbrochene Ausführungen nicht automatisch wiederhergestellt, weshalb der Aufrufer unterbrochene Ausführungen manuell erneut übermitteln muss. Diese Logik-Apps können nur synchron ausgeführt werden. Um das Debuggen zu vereinfachen, können Sie den [Ausführungsverlauf aktivieren](#run-history), was Auswirkungen auf die Leistung hat.
 
-  Zustandslose Workflows unterstützen derzeit nur Aktionen für [verwaltete Connectors](../connectors/apis-list.md#managed-api-connectors), nicht für Trigger. Um Ihren Workflow zu starten, wählen Sie den [integrierten Anforderungs-, Event Hubs- oder Service Bus-Trigger](../connectors/apis-list.md#built-ins) aus. Weitere Informationen zu nicht unterstützten Triggern, Aktionen und Connectors finden Sie unter [Nicht unterstützte Funktionen](#unsupported).
+  Zustandslose Workflows unterstützen derzeit nur *Aktionen* für in Azure bereitgestellte [verwaltete Connectors](../connectors/apis-list.md#managed-api-connectors), keine Aktionen für Trigger. Wählen Sie den [integrierten Anforderungs-, Event Hubs- oder Service Bus-Trigger](../connectors/apis-list.md#built-ins) aus, der nativ in der Logic Apps-Runtime ausgeführt wird, um Ihren Workflow zu starten. Weitere Informationen zu nicht unterstützten Triggern, Aktionen und Connectors finden Sie unter [Nicht unterstützte oder nicht verfügbare Funktionen](#unsupported).
 
 Informationen zur Art und Weise, wie sich geschachtelte Logik-Apps zwischen zustandsbehafteten und zustandslosen Logik-Apps unterschiedlich verhalten, finden Sie unter [Unterschiede im geschachtelten Verhalten zwischen zustandsbehafteten und zustandslosen Logik-Apps](#nested-behavior).
 
@@ -104,13 +104,11 @@ Diese Funktionen sind für diese öffentliche Vorschau nicht verfügbar oder wer
 
 * Es werden noch nicht alle Azure-Regionen unterstützt. Überprüfen Sie für derzeit verfügbare Regionen die [Regionenliste](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions).
 
-* Um Ihren Workflow zu starten, verwenden Sie den [Anforderungs-, HTTP-, Event Hubs- oder Service Bus-Trigger](../connectors/apis-list.md). Derzeit werden [Unternehmensconnectors](../connectors/apis-list.md#enterprise-connectors), [lokale Datengatewaytrigger](../connectors/apis-list.md#on-premises-connectors), webhook-basierte Trigger, „Gleitendes Fenster“-Trigger, [benutzerdefinierte Connectors](../connectors/apis-list.md#custom-apis-and-connectors), Integrationskonten, ihre Artefakte und [ihre Connectors](../connectors/apis-list.md#integration-account-connectors) in dieser Vorschauversion nicht unterstützt. Da die Funktionalität „Aufrufen einer Azure-Funktion“ nicht verfügbar ist, verwenden Sie vorerst die HTTP-*Aktion*, um die Anforderungs-URL für die Azure-Funktion aufzurufen.
+* Verwenden Sie den [integrierten Anforderungs-, HTTP-, Event Hubs- oder Service Bus-Trigger](../connectors/apis-list.md), der nativ in der Logic Apps-Runtime ausgeführt wird, um Ihren Workflow zu starten. Derzeit werden [Unternehmensconnectors](../connectors/apis-list.md#enterprise-connectors), [lokale Datengatewaytrigger](../connectors/apis-list.md#on-premises-connectors), webhook-basierte Trigger, „Gleitendes Fenster“-Trigger, [benutzerdefinierte Connectors](../connectors/apis-list.md#custom-apis-and-connectors), Integrationskonten, ihre Artefakte und [ihre Connectors](../connectors/apis-list.md#integration-account-connectors) in dieser Vorschauversion nicht unterstützt. Da die Funktionalität „Aufrufen einer Azure-Funktion“ nicht verfügbar ist, verwenden Sie vorerst die HTTP-*Aktion*, um die Anforderungs-URL für die Azure-Funktion aufzurufen.
 
-  Zustandslose Logik-App-Workflows können nur Aktionen für [verwaltete Connectors](../connectors/apis-list.md#managed-api-connectors) verwenden, keine Trigger. Mit Ausnahme der zuvor angegebenen Trigger können zustandsbehaftete Workflows sowohl Trigger als auch Aktionen für verwaltete Connectors verwenden.
+  Mit Ausnahme der zuvor angegebenen Trigger können *zustandsbehaftete* Workflows im Gegensatz zu integrierten Triggern und Aktionen, die nativ mit der Logic Apps-Laufzeit ausgeführt werden, sowohl Trigger als auch Aktionen für [verwaltete Connectors](../connectors/apis-list.md#managed-api-connectors) verwenden, die in Azure bereitgestellt werden. *Zustandslose* Workflows unterstützen derzeit nur *Aktionen* für verwaltete Connectors, keine für Trigger. Obwohl Sie Connectors in Azure für zustandslose Workflows aktivieren können, zeigt der Designer keine verwalteten Connectortrigger an, die Sie auswählen können.
 
 * Sie können den neuen **Logik-App**-Ressourcentyp (Vorschau) nur für einen [Premium- oder App Service-Hostingplan in Azure](#publish-azure) oder einen [Docker-Container](#deploy-docker) bereitstellen, nicht für [Integrationsdienstumgebungen (Integration Service Environment, ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Hostingpläne für den **Verbrauch** werden weder unterstützt, noch stehen sie zur Bereitstellung dieses Ressourcentyps zur Verfügung.
-
-* Im Azure-Portal können Sie keine neuen Logik-Apps mit dem neuen Ressourcentyp **Logik-App (Vorschau)** erstellen. Sie können diese Logik-Apps nur in Visual Studio Code erstellen. Nachdem Sie Logik-Apps mit diesem Ressourcentyp aus Visual Studio Code in Azure bereitgestellt haben, können Sie [diesen Logik-Apps jedoch neue Workflows hinzufügen](#add-workflows).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -208,7 +206,7 @@ Diese Funktionen sind für diese öffentliche Vorschau nicht verfügbar oder wer
 
    1. Wechseln Sie auf der Registerkarte **Benutzer** zu **>** **Erweiterungen** **>** **Azure Logic Apps (Vorschau)** .
 
-   1. Vergewissern Sie sich unter **Azure Logic Apps V2: Panelmodus**, dass **Panelmodus aktivieren** ausgewählt ist. Legen Sie unter **Azure Logic Apps V2: Projektlaufzeit** die Version auf **~3** oder **~2**fest, basierend auf der [Version der Azure Functions Core Tools](#prerequisites), die Sie zuvor installiert haben.
+   1. Vergewissern Sie sich unter **Azure Logic Apps V2: Panelmodus**, dass **Panelmodus aktivieren** ausgewählt ist. Legen Sie unter **Azure Logic Apps V2: Projektlaufzeit** die Version auf **~3** oder **~2** fest, basierend auf der [Version der Azure Functions Core Tools](#prerequisites), die Sie zuvor installiert haben.
 
       > [!IMPORTANT]
       > Wenn Sie die [**Inlinecode**-Aktion](../logic-apps/logic-apps-add-run-inline-code.md) zum Ausführen von JavaScript-Code verwenden möchten, stellen Sie sicher, dass Sie Projektlaufzeitversion 3 verwenden, weil die Aktion die Version 2 nicht unterstützt. Außerdem wird diese Aktion derzeit nicht unter Linux-Betriebssystemen unterstützt.
@@ -227,7 +225,7 @@ Diese Funktionen sind für diese öffentliche Vorschau nicht verfügbar oder wer
 
    ![Screenshot, der den Azure-Bereich und den ausgewählten Link für die Azure-Anmeldung zeigt.](./media/create-stateful-stateless-workflows-visual-studio-code/sign-in-azure-subscription.png)
 
-   Nachdem Sie sich angemeldet haben, werden im Azure-Bereich die Abonnements in Ihrem Azure-Konto angezeigt. Wenn Sie die öffentlich freigegebene Logic Apps-Erweiterung besitzen, finden Sie alle ursprünglichen Logic Apps-Ressourcen, die Sie mit der ursprünglichen Erweiterung erstellt haben, im Abschnitt **Logic Apps** der freigegebenen Erweiterung und nicht im Abschnitt **Logic Apps (Vorschau)** der Erweiterungsvorschauversion.
+   Nachdem Sie sich angemeldet haben, werden im Azure-Bereich die Abonnements in Ihrem Azure-Konto angezeigt. Wenn Sie die öffentlich verfügbare Logic Apps-Erweiterung haben, finden Sie alle ursprünglichen Logic Apps-Ressourcen, die Sie mit der ursprünglichen Erweiterung erstellt haben, im Abschnitt **Logic Apps** der veröffentlichten Erweiterung und nicht im Abschnitt **Logik-Apps (Vorschau)** der Erweiterungsvorschauversion.
    
    Wenn die erwarteten Abonnements nicht angezeigt werden oder der Bereich nur bestimmte Abonnements anzeigen soll, führen Sie die folgenden Schritte aus:
 
@@ -294,7 +292,7 @@ Bevor Sie Ihre Logik-App erstellen können, erstellen Sie ein lokales Projekt, d
    }
    ```
 
-   Stellen Sie sicher, dass Sie diese **global.json**-Datei explizit dem Projekt am Stammverzeichnis innerhalb von Visual Studio Code hinzufügen. Andernfalls wird der Designer nicht geöffnet.
+   Stellen Sie sicher, dass Sie dem Projekt diese **global.json**-Datei explizit im Stammverzeichnis in Visual Studio Code hinzufügen. Andernfalls wird der Designer nicht geöffnet.
 
 1. Wenn Visual Studio Code unter Windows oder Linux ausgeführt wird, stellen Sie sicher, dass der Azure Storage-Emulator ausgeführt wird. Weitere Informationen finden Sie in den [Voraussetzungen](#prerequisites).
 
@@ -328,9 +326,12 @@ Bevor Sie Ihre Logik-App erstellen können, erstellen Sie ein lokales Projekt, d
 
       Dieser Fehler kann auftreten, wenn Sie zuvor versucht haben, den Designer zu öffnen, und dann Ihr Projekt eingestellt oder gelöscht haben. Um diesen Fehler zu beheben, löschen Sie den Ordner **ExtensionBundles** an diesem Speicherort **...\Benutzer\\{Ihr-Benutzername}\AppData\Local\Temp\Functions\ExtensionBundles**, und versuchen Sie erneut, die Datei **workflow.json** im Designer zu öffnen.
 
-1. Wählen Sie in der Liste **Connectors in Azure aktivieren** die Option **Connectors aus Azure verwenden** aus, wodurch, die für alle verwalteten Connectors gilt, die im Azure-Portal verfügbar sind, nicht nur für Connectors für Azure-Dienste.
+1. Wählen Sie in der Liste **Enable connectors in Azure** (Connectors in Azure aktivieren) die Option **Use connectors from Azure** (Connectors aus Azure verwenden) aus, die für alle verwalteten Connectors gilt, die im Azure-Portal verfügbar sind, nicht nur für Connectors für Azure-Dienste.
 
    ![Screenshot, der den Explorer-Bereich mit der geöffneten Liste „Connectors in Azure aktivieren“ und ausgewähltem „Connectors von Azure verwenden“ zeigt.](./media/create-stateful-stateless-workflows-visual-studio-code/use-connectors-from-azure.png)
+
+   > [!NOTE]
+   > Zustandslose Workflows unterstützen derzeit nur *Aktionen* für in Azure bereitgestellte [verwaltete Connectors](../connectors/apis-list.md#managed-api-connectors), keine Aktionen für Trigger. Obwohl Sie die Möglichkeit haben, Connectors in Azure für zustandslose Workflows zu aktivieren, zeigt der Designer keine verwalteten Connectortrigger an, die Sie auswählen können.
 
 1. Wählen Sie in der Liste der Ressourcengruppen **Neue Ressourcengruppe erstellen** aus.
 
@@ -467,7 +468,7 @@ Um Ihre Logik-App zu testen, führen Sie die folgenden Schritte aus, um eine Deb
 
 1. Öffnen Sie auf der Symbolleiste von Visual Studio Code das Menü **Ausführen**, und wählen Sie **Debuggen starten** (F5) aus.
 
-   Das **Terminal**fenster wird geöffnet, sodass Sie die Debugsitzung überprüfen können.
+   Das **Terminal** fenster wird geöffnet, sodass Sie die Debugsitzung überprüfen können.
 
 1. Suchen Sie nun die Rückruf-URL für den Endpunkt im Anforderungstrigger.
 
@@ -515,22 +516,65 @@ Um Ihre Logik-App zu testen, führen Sie die folgenden Schritte aus, um eine Deb
 
 1. Kehren Sie in Visual Studio Code zur Übersichtsseite Ihres Workflows zurück.
 
-   Wenn Sie einen zustandsbehafteten Workflow erstellt haben, werden auf der Übersichtsseite der Ausführungsstatus und -verlauf des Workflows angezeigt, nachdem die von Ihnen gesendete Anforderung den Workflow ausgelöst hat. Weitere Informationen zu Ausführungsstatuswerten finden Sie unter [Überprüfen des Ausführungsverlaufs](../logic-apps/monitor-logic-apps.md#review-runs-history).
-
-   ![Screenshot, der die Übersichtsseite Ihres Workflows mit Ausführungsstatus und -verlauf zeigt.](./media/create-stateful-stateless-workflows-visual-studio-code/post-trigger-call.png)
+   Wenn Sie einen zustandsbehafteten Workflow erstellt haben, werden auf der Übersichtsseite der Ausführungsstatus und -verlauf des Workflows angezeigt, nachdem die von Ihnen gesendete Anforderung den Workflow ausgelöst hat.
 
    > [!TIP]
-   > Wenn der Ausführungsstatus nicht angezeigt wird, aktualisieren Sie die Übersichtsseite, indem Sie **Aktualisieren** auswählen.
+   > Wenn der Ausführungsstatus nicht angezeigt wird, aktualisieren Sie die Übersichtsseite, indem Sie **Aktualisieren** auswählen. Für Trigger, die aufgrund von nicht erfüllten Kriterien oder nicht gefundenen Daten ausgelassen werden, erfolgt keine Ausführung.
+
+   ![Screenshot: Übersichtsseite Ihres Workflows mit Ausführungsstatus und -verlauf](./media/create-stateful-stateless-workflows-visual-studio-code/post-trigger-call.png)
+
+   | Ausführungsstatus | Beschreibung |
+   |------------|-------------|
+   | **Aborted** | Die Ausführung wurde aufgrund externer Probleme beendet oder nicht fertig gestellt, z. B. wegen eines Systemausfalls oder abgelaufenen Azure-Abonnements. |
+   | **Abgebrochen** | Die Ausführung wurde ausgelöst und gestartet, es wurde jedoch eine Abbruchanforderung empfangen. |
+   | **Fehler** | Mindestens eine Aktion in der Ausführung ist fehlgeschlagen. Es wurden keine nachfolgenden Aktionen im Workflow eingerichtet, um den Fehler zu verarbeiten. |
+   | **Wird ausgeführt** | Die Ausführung wurde ausgelöst und wird gerade ausgeführt. Dieser Status kann jedoch auch für eine Ausführung angezeigt werden, die aufgrund von [Aktionslimits](logic-apps-limits-and-config.md) oder des [aktuellen Tarifs](https://azure.microsoft.com/pricing/details/logic-apps/) gedrosselt wird. <p><p>**Tipp**: Wenn Sie die [Diagnoseprotokollierung](monitor-logic-apps-log-analytics.md) einrichten, erhalten Sie Informationen zu ggf. aufgetretenen Drosselungsereignissen. |
+   | **Erfolgreich** | Die Ausführung war erfolgreich. Wenn eine Aktion fehlgeschlagen ist, wurde dieser Fehler von einer nachfolgenden Aktion im Workflow verarbeitet. |
+   | **Timeout** | Bei der Ausführung ist ein Timeout aufgetreten, weil die aktuelle Dauer die maximale Dauer von Ausführungen überschritten hat, die von der [Einstellung **Aufbewahrung des Ausführungsverlaufs in Tagen**](logic-apps-limits-and-config.md#run-duration-retention-limits) gesteuert wird. Die Dauer der Ausführung wird anhand der Startzeit der Ausführung und der maximalen Dauer von Ausführungen zu dieser Startzeit berechnet. <p><p>**Hinweis**: Wenn die Ausführungsdauer auch das aktuelle *Aufbewahrungslimit im Ausführungsverlauf* überschreitet, das ebenfalls von der [Einstellung **Aufbewahrung des Ausführungsverlaufs in Tagen**](logic-apps-limits-and-config.md#run-duration-retention-limits) gesteuert wird, wird die Ausführung durch einen täglichen Cleanupauftrag aus dem Ausführungsverlauf gelöscht. Unabhängig davon, ob bei der Ausführung ein Timeout auftritt oder ob diese fertig gestellt wird, wird die Aufbewahrungsdauer immer anhand der Startzeit der Ausführung und der *aktuellen* Aufbewahrungsdauer berechnet. Wenn Sie also die maximale Dauer einer aktiven Ausführung herabsetzen, tritt ein Timeout für die Ausführung auf. Je nachdem, ob die Ausführungsdauer die Aufbewahrungsdauer überschreitet, bleibt die Ausführung entweder unverändert oder wird aus dem Ausführungsverlauf gelöscht. |
+   | **Wartet** | Die Ausführung wurde nicht gestartet oder wurde angehalten, z. B. aufgrund einer früheren Workflowinstanz, die noch ausgeführt wird. |
+   |||
 
 1. Wählen Sie zum Überprüfen der Statuswerte für jeden Schritt in einer bestimmten Ausführung sowie der Eingaben und Ausgaben des Schritts die Schaltfläche mit den Auslassungspunkten ( **...** ) für diese Ausführung aus, und wählen Sie **Ausführung anzeigen** aus.
 
    ![Screenshot, der die Zeile mit dem Ausführungsverlauf Ihres Workflows mit der Schaltfläche mit Auslassungspunkten und ausgewähltem „Ausführung anzeigen“ zeigt.](./media/create-stateful-stateless-workflows-visual-studio-code/show-run-history.png)
 
-   Visual Studio Code zeigt die Ausführungsstatuswerte für jede Aktion an.
+   Visual Studio Code öffnet die Überwachungsansicht und zeigt den Status der einzelnen Ausführungsschritte an.
 
-1. Um die Ein- und Ausgaben für die einzelnen Schritte anzuzeigen, erweitern Sie den Schritt, den Sie untersuchen möchten. Um die unformatierten Ein- und Ausgaben für diesen Schritt weiter zu überprüfen, wählen Sie **Unformatierte Eingaben anzeigen** oder **Unformatierte Ausgaben anzeigen** aus.
+   ![Screenshot: einzelne Ausführungsschritte in der Workflowausführung und ihr Status](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-action-status.png)
+
+   > [!NOTE]
+   > Wenn bei einer Ausführung ein Schritt in der Überwachungsansicht den Fehler `400 Bad Request` anzeigt, wird das Problem möglicherweise durch einen längeren Trigger- oder Aktionsnamen verursacht, der dazu führt, dass der zugrunde liegende URI (Uniform Resource Identifier) das Standardzeichenlimit überschreitet. Weitere Informationen finden Sie unter [„400 – Ungültige Anforderung“](#400-bad-request).
+
+   In der folgenden Tabelle sind die möglichen Statuswerte aufgeführt, die in den einzelnen Workflowschritte aufweisen können:
+
+   | Status einer Aktion | Symbol | BESCHREIBUNG |
+   |---------------|------|-------------|
+   | Aborted | ![Symbol für den Aktionsstatus „Abgebrochen“][aborted-icon] | Die Aktion wurde aufgrund externer Probleme beendet oder nicht fertig gestellt, z. B. wegen eines Systemausfalls oder abgelaufenen Azure-Abonnements. |
+   | Abgebrochen | ![Symbol für den Aktionsstatus „Storniert“][cancelled-icon] | Die Aktion wurde ausgeführt, hat aber eine Abbruchanforderung erhalten. |
+   | Fehler | ![Symbol für den Aktionsstatus „Fehlerhaft“][failed-icon] | Die Aktion ist fehlgeschlagen. |
+   | Wird ausgeführt | ![Symbol für den Aktionsstatus „Wird ausgeführt“][running-icon] | Die Aktion wird zurzeit ausgeführt. |
+   | Ausgelassen | ![Symbol für den Aktionsstatus „Übersprungen“][skipped-icon] | Die Aktion wurde übersprungen, weil die unmittelbar vorhergehende Aktion fehlgeschlagen ist. Eine Aktion weist eine `runAfter`-Bedingung auf, die erfordert, dass die vorherige Aktion erfolgreich abgeschlossen wurde, bevor die aktuelle Aktion ausgeführt werden kann. |
+   | Erfolgreich | ![Symbol für den Aktionsstatus „Erfolgreich“][succeeded-icon] | Die Aktion war erfolgreich. |
+   | Erfolgreich mit Wiederholungen | ![Symbol für den Aktionsstatus „Erfolgreich mit Wiederholungen“][succeeded-with-retries-icon] | Die Aktion war erfolgreich, jedoch erst nach mindestens einem Wiederholungsversuch. Wählen Sie diese Aktion zum Überprüfen des Wiederholungsverlaufs in der Detailansicht des Ausführungsverlaufs aus, damit Sie die Ein- und Ausgaben anzeigen können. |
+   | Timeout | ![Symbol für Aktionsstatus „Timeout“][timed-out-icon] | Die Aktion wurde aufgrund des Timeoutlimits beendet, das durch die Einstellungen dieser Aktion gesteuert wird. |
+   | Warten | ![Symbol für den Aktionsstatus „Wartend“][waiting-icon] | Gilt für eine Webhookaktion, die auf eine eingehende Anforderung eines Aufrufers wartet. |
+   ||||
+
+   [aborted-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/aborted.png
+   [cancelled-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/cancelled.png
+   [failed-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/failed.png
+   [running-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/running.png
+   [skipped-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/skipped.png
+   [succeeded-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/succeeded.png
+   [succeeded-with-retries-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/succeeded-with-retries.png
+   [timed-out-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/timed-out.png
+   [waiting-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/waiting.png
+
+1. Wählen Sie zum Überprüfen der Ein- und Ausgaben für die einzelnen Schritte den Schritt aus, den Sie untersuchen möchten.
 
    ![Screenshot, der den Status für jeden Schritt im Workflow sowie die Ein- und Ausgaben in der erweiterten Aktion „E-Mail senden“ zeigt.](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-details.png)
+
+1. Um die unformatierten Ein- und Ausgaben für diesen Schritt weiter zu überprüfen, wählen Sie **Unformatierte Eingaben anzeigen** oder **Unformatierte Ausgaben anzeigen** aus.
 
 1. Um die Debugsitzung zu beenden, wählen Sie im menü **Ausführen** den Eintrag **Debuggen beenden** (UMSCHALT+F5) aus.
 
@@ -623,7 +667,7 @@ Sie können Ihre Logik-App als neue Ressource veröffentlichen, wodurch automati
 
       ![Screenshot, der den Bereich „Azure: Logic Apps (Vorschau)“ und eine Aufforderung zur Eingabe eines Namens für die neue, zu erstellende Logik-App zeigt.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-logic-app-name.png)
 
-   1. Wählen Sie einen Hostingplan für Ihre neue Logik-App aus, entweder [**App Service-Plan**](../azure-functions/functions-scale.md#app-service-plan) oder [**Premium** ](../azure-functions/functions-scale.md#premium-plan). In diesem Beispiel wird **App Service-Plan** ausgewählt.
+   1. Wählen Sie einen Hostingplan für Ihre neue Logik-App aus, entweder [**App Service-Plan**](../azure-functions/functions-scale.md#app-service-plan) oder [**Premium**](../azure-functions/functions-scale.md#premium-plan). In diesem Beispiel wird **App Service-Plan** ausgewählt.
 
       ![Screenshot, der den Bereich „Azure: Logic Apps (Vorschau)“und eine Aufforderung zur Auswahl von „App Service-Plan“ oder „Premium“ zeigt.](./media/create-stateful-stateless-workflows-visual-studio-code/select-hosting-plan.png)
 
@@ -731,12 +775,7 @@ In Visual Studio Code können Sie alle bereitgestellten Logik-Apps in Ihrem Azur
 
 ## <a name="find-and-manage-deployed-logic-apps-in-the-portal"></a>Suchen und Verwalten bereitgestellter Logik-Apps im Portal
 
-Im Azure-Portal können Sie alle bereitgestellten Logik-Apps anzeigen, die in Ihrem Azure-Abonnement enthalten sind, unabhängig davon, ob es sich um den ursprünglichen **Logic Apps**-Ressourcentyp oder den **Logik-App (Vorschau)** -Ressourcentyp handelt. Zurzeit wird jeder Ressourcentyp in Azure als separate Kategorien organisiert und verwaltet.
-
-> [!NOTE]
-> Während der öffentlichen Vorschauphase können Sie nur bereitgestellte **Logik-App (Vorschau)** -Ressourcen im Azure-Portal anzeigen und keine neuen **Logik-App (Vorschau)** -Ressourcen erstellen. Sie können diese Logik-Apps nur in Visual Studio Code erstellen. Mit diesem Ressourcentyp können Sie jedoch bereitgestellten Logik-Apps [Workflows](#add-workflows) hinzufügen.
-
-Um Logik-Apps zu finden, die vom Ressourcentyp **Logik-App (Vorschau)** sind, gehen Sie wie folgt vor:
+Im Azure-Portal können Sie alle bereitgestellten Logik-Apps anzeigen, die in Ihrem Azure-Abonnement enthalten sind, unabhängig davon, ob es sich um den ursprünglichen **Logic Apps**-Ressourcentyp oder den **Logik-App (Vorschau)** -Ressourcentyp handelt. Zurzeit wird jeder Ressourcentyp in Azure als separate Kategorien organisiert und verwaltet. Um Logik-Apps zu finden, die vom Ressourcentyp **Logik-App (Vorschau)** sind, gehen Sie wie folgt vor:
 
 1. Geben Sie in das Suchfeld des Azure-Portals `logic app preview` ein. Wenn die Ergebnisliste angezeigt wird, wählen Sie unter **Dienste** die Option **Logik-App (Vorschau)** aus.
 
@@ -827,7 +866,7 @@ Wenn Sie Ihr Projekt bereits im Azure-Portal bereitgestellt haben, führen Sie d
 
 1. Wählen Sie auf der Registerkarte **Anwendungseinstellungen** die Option **Neue Anwendungseinstellung** aus.
 
-1. Geben Sie im Bereich**Anwendungseinstellung hinzufügen/bearbeiten** in das Feld **Name** den Namen dieser Vorgangsoption ein: 
+1. Geben Sie im Bereich **Anwendungseinstellung hinzufügen/bearbeiten** in das Feld **Name** den Namen dieser Vorgangsoption ein: 
 
    `Workflows.{yourWorkflowName}.OperationOptions`
 
@@ -978,6 +1017,47 @@ Obwohl viele [vorhandene Limits für Azure Logic Apps](../logic-apps/logic-apps-
   * Das Limit für Codezeichen erhöht sich von 1.024 Zeichen auf 100.000 Zeichen.
 
   * Die Zeitbeschränkung für das Ausführen des Codes erhöht sich von fünf Sekunden auf 15 Sekunden.
+
+<a name="troubleshooting"></a>
+
+## <a name="troubleshoot-errors-and-problems"></a>Beheben von Fehlern und Problemen
+
+<a name="400-bad-request"></a>
+
+### <a name="400-bad-request"></a>„400 – Ungültige Anforderung“
+
+Wenn Sie nach einem Fehler in einer Ausführung diese Ausführung in der Überwachungsansicht untersuchen, kann dieser Fehler bei einem Trigger oder einer Aktion mit einem längeren Namen angezeigt werden. Ein solcher Name kann dazu führen, dass der zugrunde liegende URI (Uniform Resource Identifier) das Standardzeichenlimit überschreitet.
+
+Um dieses Problem zu beheben und längere URIs zuzulassen, bearbeiten Sie die Registrierungsschlüssel `UrlSegmentMaxCount` und `UrlSegmentMaxLength` auf Ihrem Computer. Führen Sie dazu die folgenden Schritte aus. Die Standardwerte dieser Schlüssel werden in diesem Thema beschrieben: [Http.sys-Registrierungseinstellungen für Windows](/troubleshoot/iis/httpsys-registry-windows).
+
+> [!IMPORTANT]
+> Speichern Sie Ihre bisherige Arbeit, bevor Sie beginnen. Diese Lösung erfordert nach Abschluss der Änderungen einen Neustart Ihres Computers, damit die Änderungen wirksam werden.
+
+1. Öffnen Sie auf Ihrem Computer das Fenster **Ausführen**, und führen Sie den Befehl `regedit` aus. Dieser öffnet den Registrierungs-Editor.
+
+1. Klicken Sie im Feld **Benutzerkontensteuerung** auf **Ja**, um Änderungen am Computer zuzulassen.
+
+1. Erweitern Sie im linken Bereich unter **Computer** die Knoten im Pfad **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters**, und wählen Sie dann **Parameters** aus.
+
+1. Suchen Sie im rechten Bereich nach den Registrierungsschlüsseln `UrlSegmentMaxCount` und `UrlSegmentMaxLength`.
+
+1. Erhöhen Sie die Werte dieser Schlüssel so, dass die URIs die von Ihnen gewünschten Namen aufnehmen können. Wenn diese Schlüssel nicht vorhanden sind, fügen Sie sie mithilfe der folgenden Schritte zum Ordner **Parameters** hinzu:
+
+   1. Wählen Sie im Kontextmenü für **Parameters** die Option **Neu** > **DWORD-Wert (32-Bit)** aus.
+
+   1. Geben Sie im daraufhin angezeigten Bearbeitungsfeld `UrlSegmentMaxCount` als neuen Schlüsselnamen ein.
+
+   1. Öffnen Sie das Kontextmenü des neuen Schlüssels, und wählen Sie **Ändern** aus.
+
+   1. Geben Sie im angezeigten Feld **DWORD-Wert (32-Bit) bearbeiten** unter **Wertdaten** den gewünschten Schlüsselwert im Hexadezimal- oder Dezimalformat ein. Der Wert `400` im Hexadezimalformat entspricht beispielsweise dem Wert `1024` im Dezimalformat.
+
+   1. Zum Hinzufügen des Schlüsselwerts `UrlSegmentMaxLength` wiederholen Sie diese Schritte.
+
+   Nachdem Sie die Schlüsselwerte erhöht oder hinzugefügt haben, sieht der Registrierungs-Editor wie folgt aus:
+
+   ![Screenshot des Registrierungs-Editors](media/create-stateful-stateless-workflows-visual-studio-code/edit-registry-settings-uri-length.png)
+
+1. Wenn Sie fertig sind, starten Sie Ihren Computer neu, damit die Änderungen wirksam werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

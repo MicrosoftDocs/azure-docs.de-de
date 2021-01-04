@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 9b4d0fadf157ce1eef6821ccbc32f5725aea611f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31be497d017cb60de6f46d7657889c9c1fabef4a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616515"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788348"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Wiederherstellen einer Datenbank in einer verwalteten Azure SQL-Instanz auf den Zustand zu einem früheren Zeitpunkt
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -67,7 +67,7 @@ Eine vorhandene Datenbank kann über das Azure-Portal, mithilfe von PowerShell o
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Sollte Azure PowerShell noch nicht installiert sein, finden Sie unter [Installieren des Azure PowerShell-Moduls](https://docs.microsoft.com/powershell/azure/install-az-ps) weitere Informationen.
+Sollte Azure PowerShell noch nicht installiert sein, finden Sie unter [Installieren des Azure PowerShell-Moduls](/powershell/azure/install-az-ps) weitere Informationen.
 
 Wenn Sie die Datenbank unter Verwendung von PowerShell wiederherstellen möchten, legen Sie die Werte für die Parameter im folgenden Befehl fest. Führen Sie anschließend den folgenden Befehl aus:
 
@@ -106,7 +106,7 @@ Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
                               -TargetInstanceName $targetInstanceName 
 ```
 
-Ausführliche Informationen finden Sie unter [Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase).
+Ausführliche Informationen finden Sie unter [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase).
 
 # <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
@@ -128,7 +128,7 @@ az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
        --dest-mi mytargetinstancename
 ```
 
-Eine ausführliche Erläuterung der verfügbaren Parameter finden Sie in der [CLI-Dokumentation zum Wiederherstellen einer Datenbank in einer verwalteten SQL-Instanz](https://docs.microsoft.com/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore).
+Eine ausführliche Erläuterung der verfügbaren Parameter finden Sie in der [CLI-Dokumentation zum Wiederherstellen einer Datenbank in einer verwalteten SQL-Instanz](/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore).
 
 ---
 
@@ -205,9 +205,9 @@ DROP DATABASE WorldWideImporters;
 
 Verwenden Sie eine der folgenden Methoden, um eine Verbindung mit der Datenbank in der verwalteten SQL-Instanz herzustellen:
 
-- [SSMS/Azure Data Studio über einen virtuellen Azure-Computer](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
-- [Point-to-Site](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
-- [Öffentlicher Endpunkt](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
+- [SSMS/Azure Data Studio über einen virtuellen Azure-Computer](./connect-vm-instance-configure.md)
+- [Point-to-Site](./point-to-site-p2s-configure.md)
+- [Öffentlicher Endpunkt](./public-endpoint-configure.md)
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -247,9 +247,9 @@ ALTER DATABASE WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
 
 Verwenden Sie eine der folgenden Methoden, um eine Verbindung mit der Datenbank in der verwalteten SQL-Instanz herzustellen:
 
-- [Virtueller Azure-Computer](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
-- [Point-to-Site](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
-- [Öffentlicher Endpunkt](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
+- [Virtueller Azure-Computer](./connect-vm-instance-configure.md)
+- [Point-to-Site](./point-to-site-p2s-configure.md)
+- [Öffentlicher Endpunkt](./public-endpoint-configure.md)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: c9cfe05b6547cbdc61a1c8cc6223f08900cf09d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f77c0fb09dddd884335d31d630904ea6aeafeaf5
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91339119"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495201"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Bereitstellen eines (klassischen) Azure Machine Learning Studio-Webdiensts
 
-**GILT FÜR:** ![Ja](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic) ![Nein](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**GILT FÜR:**  ![Dies ist ein Häkchen, d. h., dieser Artikel bezieht sich auf Machine Learning Studio (Classic). ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic)   ![Dies ist ein X, d. h., dieser Artikel bezieht sich auf Azure Machine Learning. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Azure Machine Learning Studio (klassisch) ermöglicht Ihnen, Vorhersageanalyselösungen zu erstellen und zu testen. Dann können Sie die Lösung als Webdienst bereitstellen.
@@ -93,7 +93,7 @@ Wenn Sie dieses Trainingsexperiment in ein Vorhersageexperiment konvertieren, we
 
 * **Score**: In diesem Beispiel wird das Modul [Split Data][split] zum Unterteilen des Datenstroms in Testdaten und Trainingsdaten verwendet. Im Vorhersageexperiment trainieren wir nicht mehr, sodass [Split Data][split] entfernt werden kann. Ebenso werden das zweite [Score Model][score-model]-Modul und das [Evaluate Model][evaluate-model]-Modul verwendet, um Ergebnisse aus den Testdaten zu vergleichen, und daher im Vorhersageexperiment nicht benötigt. Das verbleibende Modul [Score Model][score-model] ist jedoch erforderlich, um über den Webdienst ein Bewertungsergebnis zurückzugeben.
 
-So sieht das Beispiel nach dem Klicken auf **Webdienst einrichten**aus:
+So sieht das Beispiel nach dem Klicken auf **Webdienst einrichten** aus:
 
 ![Konvertiertes Vorhersageexperiment](./media/convert-training-experiment-to-scoring-experiment/figure3.png)
 
@@ -149,7 +149,7 @@ Geben Sie auf der Seite „Deploy Experiment“ einen Namen für den Webdienst e
 Wählen Sie einen Preisplan aus. Wenn Sie bereits einen Preisplan gewählt haben, können Sie diesen auswählen. Andernfalls müssen Sie einen Preisplan für den Dienst wählen.
 
 1. Wählen Sie in der Dropdownliste **Price Plan** einen Preisplan aus, oder wählen Sie die Option **Select new plan** aus.
-2. Geben Sie in **Plan Name**einen Namen ein, der den Plan in Ihrer Rechnung bestimmt.
+2. Geben Sie in **Plan Name** einen Namen ein, der den Plan in Ihrer Rechnung bestimmt.
 3. Wählen Sie in **Monthly Plan Tiers** eine Option aus. Die Plantarife sind standardmäßig auf die Pläne für Ihre Standardregion festgelegt, und Ihr Webdienst wird in dieser Region bereitgestellt.
 
 Klicken Sie auf **Deploy**. Die Seite **Quickstart** für Ihren Webdienst wird geöffnet.
@@ -174,7 +174,7 @@ Um das Dataset herunterzuladen, öffnen Sie Machine Learning Studio (klassisch).
 
 ![Herunterladen Ihres Datasets aus dem (klassischen) Studio-Canvas](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
-Klicken Sie auf **Test**. Der Status Ihres Batchausführungsauftrags wird rechts unter **Test Batch Jobs**angezeigt.
+Klicken Sie auf **Test**. Der Status Ihres Batchausführungsauftrags wird rechts unter **Test Batch Jobs** angezeigt.
 
 ![Testen Ihres Batchausführungsauftrags mit dem Web Services-Portal](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
 
@@ -211,7 +211,7 @@ Die Preise sind regionsspezifisch. Daher müssen Sie einen Abrechnungsplan für 
 5. Wählen Sie in der Dropdownliste **Region** eine Region für den neuen Plan aus. Im Abschnitt **Plan Options** auf der Seite werden die Planoptionen für die ausgewählte Region angezeigt.
 6. Wählen Sie in der Dropdownliste **Resource Group** eine Ressourcengruppe für den Plan aus. Weitere Informationen zu Ressourcengruppen finden Sie unter [Übersicht über Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 7. Geben Sie in **Plan Name** den Namen des Plans ein.
-8. Klicken Sie unter **Plan Options**auf den Abrechnungstarif des neuen Plans.
+8. Klicken Sie unter **Plan Options** auf den Abrechnungstarif des neuen Plans.
 9. Klicken Sie auf **Erstellen**.
 
 #### <a name="deploy-the-web-service-to-another-region"></a>Bereitstellen des Webdiensts in einer anderen Region
@@ -219,8 +219,8 @@ Die Preise sind regionsspezifisch. Daher müssen Sie einen Abrechnungsplan für 
 1. Klicken Sie auf der Microsoft Azure Machine Learning Web Services-Seite auf die Menüoption **Web Services (Webdienste)** .
 2. Wählen Sie den Webdienst aus, den Sie in einer neuen Region bereitstellen.
 3. Klicken Sie auf **Kopieren**.
-4. Geben Sie in **Web Service Name**einen neuen Namen für den Webdienst ein.
-5. Geben Sie in **Web service description**eine Beschreibung des Webdiensts ein.
+4. Geben Sie in **Web Service Name** einen neuen Namen für den Webdienst ein.
+5. Geben Sie in **Web service description** eine Beschreibung des Webdiensts ein.
 6. Wählen Sie in der Dropdownliste **Abonnement** das Abonnement aus, in dem sich der neue Webdienst befinden soll.
 7. Wählen Sie in der Dropdownliste **Resource Group** eine Ressourcengruppe für den Webdienst aus. Weitere Informationen zu Ressourcengruppen finden Sie unter [Übersicht über Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 8. Wählen Sie in der Dropdownliste **Region** die Region aus, in der der Webdienst bereitgestellt werden soll.
@@ -282,7 +282,7 @@ Da Sie dieses Experiment zuvor bereitgestellt haben, werden Sie gefragt, ob Sie 
 > [!NOTE]
 > Wenn Sie Konfigurationsänderungen im ursprünglichen Webdienst vorgenommen haben, z. B. einen anderen Anzeigenamen oder eine andere Beschreibung eingegeben haben, dann müssen Sie diese Werte erneut eingeben.
 
-Eine Option zum Aktualisieren des Webdiensts ist das programmgesteuerte erneute Trainieren des Modells. Weitere Informationen finden Sie unter [Programmgesteuertes erneutes Trainieren von (klassischen) Machine Learning Studio-Modellen](/azure/machine-learning/studio/retrain-machine-learning-model).
+Eine Option zum Aktualisieren des Webdiensts ist das programmgesteuerte erneute Trainieren des Modells. Weitere Informationen finden Sie unter [Programmgesteuertes erneutes Trainieren von (klassischen) Machine Learning Studio-Modellen](./retrain-machine-learning-model.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
@@ -305,11 +305,11 @@ Eine Option zum Aktualisieren des Webdiensts ist das programmgesteuerte erneute 
 
 [webserviceparameters]: web-service-parameters.md
 [deploy]: deploy-a-machine-learning-web-service.md
-[clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[export-data]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
+[clean-missing-data]: /azure/machine-learning/studio-module-reference/clean-missing-data
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[import-data]: /azure/machine-learning/studio-module-reference/import-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[export-data]: /azure/machine-learning/studio-module-reference/export-data

@@ -5,12 +5,12 @@ author: emaher
 ms.topic: overview
 ms.date: 09/16/2020
 ms.author: enewman
-ms.openlocfilehash: ac390fb6624ffc762f77b676c778165e7382f73f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 71d59e8bcf7b4078255d6b119e9d62f366e46033
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91334037"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437319"
 ---
 # <a name="architecture-fundamentals-in-azure-lab-services"></a>Grundlegendes zur Architektur in Azure Lab Services
 
@@ -20,7 +20,7 @@ Azure Lab Services bietet einige Bereiche, in denen Sie Ihre eigenen Ressourcen 
 
 Weiter unten sehen Sie die grundlegende Architektur eines Classroom-Labs.  Das Labkonto wird in Ihrem Abonnement gehostet. Die virtuellen Computer der Kursteilnehmer sowie die zur Unterstützung der virtuellen Computer benötigten Ressourcen werden in einem Abonnement gehostet, das sich im Besitz von Lab Services befindet. Im Anschluss erfahren Sie mehr über den Inhalt von Lab Services-Abonnements.
 
-![Grundlegende Architektur von Classroom-Labs](./media/classroom-labs-fundamentals/labservices-basic-architecture.png)
+![Grundlegende Architektur von Labs](./media/classroom-labs-fundamentals/labservices-basic-architecture.png)
 
 ## <a name="hosted-resources"></a>Gehostete Ressourcen
 

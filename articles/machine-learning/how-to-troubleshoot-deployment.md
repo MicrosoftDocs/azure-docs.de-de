@@ -1,190 +1,83 @@
 ---
-title: Problembehandlung für Docker-Bereitstellungen
+title: Behandeln von Bereitstellungsproblemen bei Remotewebdiensten
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Sie die häufigsten Docker-Bereitstellungsfehler mit Azure Kubernetes Service und Azure Container Instances mit Azure Machine Learning umgehen, lösen und beheben können.
+description: Hier erfahren Sie, wie Sie allgemeine Docker-Bereitstellungsfehler mit Azure Kubernetes Service und Azure Container Instances umgehen, lösen und beheben.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: clauren42
-ms.author: clauren
+author: gvashishtha
+ms.author: gopalv
 ms.reviewer: jmartens
-ms.date: 08/06/2020
+ms.date: 11/25/2020
 ms.topic: troubleshooting
-ms.custom: contperfq4, devx-track-python, deploy
-ms.openlocfilehash: 259b5c789d2323dbc797116cf0d09045811a6873
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
+ms.openlocfilehash: 92cd70e864ae0490ce3f9e7435d9518241f93c8e
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073341"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031503"
 ---
-# <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Problembehandlung bei der Docker-Bereitstellung von Modellen mit Azure Kubernetes Service und Azure Container Instances 
+# <a name="troubleshoot-model-deployment"></a>Behandeln von Problemen bei der Modellimplementierung
 
-Erfahren Sie, wie Sie die häufigsten Docker-Bereitstellungsfehler mit Azure Container Instances (ACI) und Azure Kubernetes Service (AKS) mit Azure Machine Learning behandeln, beheben oder umgehen können.
+Erfahren Sie, wie Sie die häufigsten Fehler bei Docker-Remotebereitstellungen mit Azure Container Instances (ACI) und Azure Kubernetes Service (AKS) mit Azure Machine Learning behandeln, beheben oder umgehen können.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 * Ein **Azure-Abonnement**. Probieren Sie die [kostenlose oder kostenpflichtige Version von Azure Machine Learning](https://aka.ms/AMLFree) aus.
-* Das [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
-* Die [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
+* Das [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+* Die [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
 * Die [CLI-Erweiterung für Azure Machine Learning](reference-azure-machine-learning-cli.md).
-* Zum lokalen Debuggen benötigen Sie eine funktionierende Docker-Installation auf Ihrem lokalen System.
-
-    Verwenden Sie den Befehl `docker run hello-world` über ein Terminal oder eine Befehlszeile, um Ihre Docker-Installation zu überprüfen. Informationen zur Installation von Docker oder zur Problembehandlung bei Docker-Fehlern finden Sie in der [Docker-Dokumentation](https://docs.docker.com/).
 
 ## <a name="steps-for-docker-deployment-of-machine-learning-models"></a>Schritte für die Docker-Bereitstellung von Machine Learning-Modellen
 
-Wenn Sie ein Modell in Azure Machine Learning bereitstellen, verwenden Sie die [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)-API und ein [Environment](how-to-use-environments.md)-Objekt. Der Dienst erstellt während der Bereitstellungsphase ein Docker-Basisimage und bindet die erforderlichen Modelle in einem einzelnen Aufruf ein. Dies sind die grundlegenden Aufgaben bei der Bereitstellung:
+Wenn Sie ein Modell für nicht lokales Compute in Azure Machine Learning bereitstellen, passiert Folgendes:
 
-1. Registrieren des Modells in der Modellregistrierung des Arbeitsbereichs.
+1. Das Dockerfile, das Sie in Ihrer Rückschlusskonfiguration (InferenceConfig) in Ihrem Umgebungsobjekt (Environments) angegeben haben, wird zusammen mit dem Inhalt Ihres Quellverzeichnisses an die Cloud gesendet.
+1. Falls in Ihrer Containerregistrierung kein zuvor erstelltes Image verfügbar ist, wird in der Cloud ein neues Docker-Image erstellt und in der Standardcontainerregistrierung Ihres Arbeitsbereichs gespeichert.
+1. Das Docker-Image aus Ihrer Containerregistrierung wird in Ihr Computeziel heruntergeladen.
+1. Der Standardblobspeicher Ihres Arbeitsbereichs wird in Ihr Computeziel eingebunden, sodass Sie auf registrierte Modelle zugreifen können.
+1. Ihr Webserver wird initialisiert. Hierzu wird die Funktion `init()` Ihres Eingabeskripts ausgeführt.
+1. Wenn bei Ihrem bereitgestellten Modell eine Anforderung eingeht, wird diese durch die Funktion `run()` verarbeitet.
 
-2. Definieren der Rückschlusskonfiguration:
-    1. Erstellen Sie ein [Environment](how-to-use-environments.md)-Objekt. Dieses Objekt kann die Abhängigkeiten in einer YAML-Umgebungsdatei verwenden (eine unserer zusammengestellten Umgebungen).
-    2. Erstellen Sie eine Rückschlusskonfiguration (InferenceConfig-Objekt) auf der Grundlage der Umgebung und des Bewertungsskripts.
+Der Hauptunterschied bei der Verwendung einer lokalen Bereitstellung besteht darin, dass das Containerimage auf Ihrem lokalen Computer erstellt wird. Daher muss bei einer lokalen Bereitstellung Docker installiert sein.
 
-3. Stellen Sie das Modell im ACI-Dienst (Azure Container Instance) oder in AKS (Azure Kubernetes Service) bereit.
+Wenn Sie mit diesen grundlegenden Schritten vertraut sind, können Sie besser nachvollziehen, wo Fehler auftreten.
 
-Weitere Informationen über diesen Prozess finden Sie in der Einführung zur [Modellverwaltung](concept-model-management-and-deployment.md).
+## <a name="get-deployment-logs"></a>Abrufen von Bereitstellungsprotokollen
 
-## <a name="before-you-begin"></a>Voraussetzungen
+Das Abrufen Ihrer Bereitstellungsprotokolle ist der erste Schritt beim Debuggen von Fehlern. Führen Sie zunächst die [hier](how-to-deploy-and-where.md#connect-to-your-workspace) beschriebenen Schritte aus, um eine Verbindung mit Ihrem Arbeitsbereich herzustellen.
 
-Beim Auftreten eines Problems besteht der erste Schritt darin, die (zuvor beschriebene) Bereitstellungsaufgabe in einzelne Schritte aufzuschlüsseln, um das Problem zu isolieren.
+# <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azcli)
 
-Wenn Sie [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) mit einem [Environment](how-to-use-environments.md)-Objekt als Eingabeparameter verwenden, kann Ihr Code in drei Hauptschritte unterteilt werden:
+Gehen Sie wie folgt vor, um die Protokolle aus einem bereitgestellten Webdienst abzurufen:
 
-1. Registrieren des Modells. Hier finden Sie Beispielcode dazu:
+```bash
+az ml service get-logs --verbose --workspace-name <my workspace name> --name <service name>
+```
 
-    ```python
-    from azureml.core.model import Model
-
-
-    # register a model out of a run record
-    model = best_run.register_model(model_name='my_best_model', model_path='outputs/my_model.pkl')
-
-    # or, you can register a file or a folder of files as a model
-    model = Model.register(model_path='my_model.pkl', model_name='my_best_model', workspace=ws)
-    ```
-
-2. Definieren der Rückschlusskonfiguration für die Bereitstellung:
-
-    ```python
-    from azureml.core.model import InferenceConfig
-    from azureml.core.environment import Environment
+# <a name="python"></a>[Python](#tab/python)
 
 
-    # create inference configuration based on the requirements defined in the YAML
-    myenv = Environment.from_conda_specification(name="myenv", file_path="myenv.yml")
-    inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
-    ```
+Wenn Sie beispielsweise über ein Objekt vom Typ `azureml.core.Workspace` namens `ws` verfügen, können Sie die folgenden Schritte ausführen:
 
-3. Stellen Sie das Modell unter Verwendung der im vorhergehenden Schritt erstellten Rückschlusskonfiguration bereit:
+```python
+print(ws.webservices)
 
-    ```python
-    from azureml.core.webservice import AciWebservice
+# Choose the webservice you are interested in
 
+from azureml.core import Webservice
 
-    # deploy the model
-    aci_config = AciWebservice.deploy_configuration(cpu_cores=1, memory_gb=1)
-    aci_service = Model.deploy(workspace=ws,
-                           name='my-service',
-                           models=[model],
-                           inference_config=inference_config,
-                           deployment_config=aci_config)
-    aci_service.wait_for_deployment(show_output=True)
-    ```
+service = Webservice(ws, '<insert name of webservice>')
+print(service.get_logs())
+```
 
-Durch das Unterteilen des Bereitstellungsprozesses in einzelne Aufgaben können einige der gängigeren Fehler einfacher identifiziert werden.
+---
 
 ## <a name="debug-locally"></a>Lokales Debuggen
 
-Wenn bei der Bereitstellung eines Modells für ACI oder AKS Probleme auftreten, versuchen Sie, es als lokalen Webdienst bereitzustellen. Das Verwenden eines lokalen Webdiensts erleichtert die Problembehandlung.
+Wenn bei der Bereitstellung eines Modells für ACI oder AKS Probleme auftreten, versuchen Sie, es als lokalen Webdienst bereitzustellen. Das Verwenden eines lokalen Webdiensts erleichtert die Problembehandlung. Informationen zur lokalen Problembehandlung bei einer Bereitstellung finden Sie im Artikel zur [lokalen Problembehandlung](./how-to-troubleshoot-deployment-local.md).
 
-Im Repository [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) finden Sie ein beispielhaftes [lokales Bereitstellungsnotebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb), das Sie erkunden können.
-
-> [!WARNING]
-> Bereitstellungen lokaler Webdienste werden nicht für Produktionsszenarien unterstützt.
-
-Ändern Sie zum lokalen Bereitstellen Ihren Code so, dass `LocalWebservice.deploy_configuration()` zum Erstellen einer Bereitstellungskonfiguration verwendet wird. Verwenden Sie dann `Model.deploy()`, um den Dienst bereitzustellen. Im folgenden Beispiel wird ein (in der Modellvariablen enthaltenes) Modell als lokaler Webdienst bereitgestellt:
-
-```python
-from azureml.core.environment import Environment
-from azureml.core.model import InferenceConfig, Model
-from azureml.core.webservice import LocalWebservice
-
-
-# Create inference configuration based on the environment definition and the entry script
-myenv = Environment.from_conda_specification(name="env", file_path="myenv.yml")
-inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
-# Create a local deployment, using port 8890 for the web service endpoint
-deployment_config = LocalWebservice.deploy_configuration(port=8890)
-# Deploy the service
-service = Model.deploy(
-    ws, "mymodel", [model], inference_config, deployment_config)
-# Wait for the deployment to complete
-service.wait_for_deployment(True)
-# Display the port that the web service is available on
-print(service.port)
-```
-
-Wenn Sie Ihre eigene YAML-Datei für die Conda-Spezifikation definieren, listen Sie „azureml-defaults“ mit einer Version größer oder gleich 1.0.45 als Pip-Abhängigkeit auf. Dieses Paket ist erforderlich, um das Modell als Webdienst zu hosten.
-
-An diesem Punkt können Sie mit dem Dienst wie gewohnt arbeiten. Der folgende Code zeigt, wie Daten an den Dienst gesendet werden:
-
-```python
-import json
-
-test_sample = json.dumps({'data': [
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-]})
-
-test_sample = bytes(test_sample, encoding='utf8')
-
-prediction = service.run(input_data=test_sample)
-print(prediction)
-```
-
-Weitere Informationen zur Anpassung Ihrer Python-Umgebung finden Sie unter [Erstellen und Verwalten von Umgebungen für Training und Bereitstellung](how-to-use-environments.md). 
-
-### <a name="update-the-service"></a>Aktualisieren des Diensts
-
-Beim lokalen Testen müssen Sie möglicherweise die `score.py`-Datei aktualisieren, um die Protokollierung hinzuzufügen oder ggf. zu versuchen, alle Probleme zu behandeln, die Sie ermittelt haben. Zum erneuten Laden von Änderungen an der `score.py`-Datei verwenden Sie `reload()`. Der folgende Code lädt z.B. das Skript für den Dienst neu und sendet dann Daten an ihn. Die Daten werden mithilfe der aktualisierten `score.py`-Datei bewertet:
-
-> [!IMPORTANT]
-> Die Methode `reload` ist nur für lokale Bereitstellungen verfügbar. Informationen zum Aktualisieren einer Bereitstellung auf ein anderes Computeziel finden Sie unter [Aktualisieren von Webdiensten](how-to-deploy-update-web-service.md).
-
-```python
-service.reload()
-print(service.run(input_data=test_sample))
-```
-
-> [!NOTE]
-> Das Skript wird aus dem Speicherort erneut geladen, der durch das vom Dienst verwendete `InferenceConfig`-Objekt angegeben wird.
-
-Um das Modell, Conda-Abhängigkeiten oder eine Bereitstellungskonfiguration zu ändern, verwenden Sie [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueupdate--args-). Das folgende Beispiel aktualisiert das vom Dienst verwendete Modell:
-
-```python
-service.update([different_model], inference_config, deployment_config)
-```
-
-### <a name="delete-the-service"></a>Löschen des Diensts
-
-Verwenden Sie zum Löschen des Diensts [delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedelete--).
-
-### <a name="inspect-the-docker-log"></a><a id="dockerlog"></a> Untersuchen des Docker-Protokolls
-
-Das Dienstobjekt erlaubt die Ausgabe von detaillierten Protokollnachrichten der Docker-Engine. Sie können das Protokoll für ACI, AKS und lokale Bereitstellungen anzeigen. Die Ausgabe der Protokolle wird im folgenden Beispiel veranschaulicht.
-
-```python
-# if you already have the service object handy
-print(service.get_logs())
-
-# if you only know the name of the service (note there might be multiple services with the same name but different version number)
-print(ws.webservices['mysvc'].get_logs())
-```
-Wenn die Zeile `Booting worker with pid: <pid>` in den Protokollen mehrmals angezeigt wird, ist nicht ausreichend Arbeitsspeicher vorhanden, um den Worker zu starten.
-Sie können den Fehler beheben, indem Sie den Wert von `memory_gb` in `deployment_config` ändern.
- 
 ## <a name="container-cannot-be-scheduled"></a>Planen des Containers nicht möglich
 
 Beim Bereitstellen eines Diensts für ein Azure Kubernetes Service-Computeziel versucht Azure Machine Learning, den Dienst mit der angeforderten Menge von Ressourcen zu planen. Wenn nach 5 Minuten keine Knoten mit der entsprechenden Menge von verfügbaren Ressourcen im Cluster vorhanden sind, schlägt die Bereitstellung fehl. Die Fehlermeldung ist `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00`. Sie können diesen Fehler beheben, indem Sie entweder weitere Knoten hinzufügen, die SKU Ihrer Knoten oder die Ressourcenanforderungen für Ihren Dienst ändern. 
@@ -195,11 +88,11 @@ In der Fehlermeldung ist in der Regel angegeben, von welcher Ressource mehr ben�
 
 Nach der erfolgreichen Erstellung des Images versucht das System, mithilfe Ihrer Bereitstellungskonfiguration einen Container zu starten. Als Teil des Container-Startprozesses wird die `init()`-Funktion in Ihrem Bereitstellungsskript vom System aufgerufen. Wenn in der `init()`-Funktion nicht abgefangene Ausnahmen auftreten, ist in der Fehlermeldung möglicherweise ein **CrashLoopBackOff**-Fehler zu finden.
 
-Verwenden Sie die Informationen im Abschnitt [Untersuchen des Docker-Protokolls](#dockerlog), um die Protokolle überprüfen.
+Nutzen Sie die Informationen im Artikel [Untersuchen des Docker-Protokolls](how-to-troubleshoot-deployment-local.md#dockerlog).
 
 ## <a name="function-fails-get_model_path"></a>Fehler bei der Funktion: get_model_path()
 
-Oftmals wird in der `init()`-Funktion im Bewertungsskript die Funktion [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) aufgerufen, um eine Modelldatei oder einen Ordner mit Modelldateien im Container zu finden. Wenn die Datei oder der Ordner für das Modell nicht gefunden werden kann, tritt bei der Funktion ein Fehler auf. Die einfachste Möglichkeit zum Debuggen dieses Fehlers besteht darin, den unten dargestellten Python-Code in der Containershell auszuführen:
+Oftmals wird in der `init()`-Funktion im Bewertungsskript die Funktion [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) aufgerufen, um eine Modelldatei oder einen Ordner mit Modelldateien im Container zu finden. Wenn die Datei oder der Ordner für das Modell nicht gefunden werden kann, tritt bei der Funktion ein Fehler auf. Die einfachste Möglichkeit zum Debuggen dieses Fehlers besteht darin, den unten dargestellten Python-Code in der Containershell auszuführen:
 
 ```python
 from azureml.core.model import Model
@@ -277,7 +170,7 @@ Es gibt zwei Möglichkeiten, die beim Verhindern des Statuscodes 503 helfen kö
     > [!NOTE]
     > Wenn Anforderungsspitzen eingehen, die die neue Mindestanzahl von Replikaten überschreiten, erhalten Sie möglicherweise wieder den Statuscode 503. Wenn sich der Datenverkehr Ihres Diensts beispielsweise erhöht, müssen Sie die Mindestanzahl von Replikaten möglicherweise erhöhen.
 
-Weitere Informationen zum Festlegen von `autoscale_target_utilization`, `autoscale_max_replicas` und `autoscale_min_replicas` finden Sie in der Modulreferenz zu [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py&preserve-view=true).
+Weitere Informationen zum Festlegen von `autoscale_target_utilization`, `autoscale_max_replicas` und `autoscale_min_replicas` finden Sie in der Modulreferenz zu [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice?preserve-view=true&view=azure-ml-py).
 
 ## <a name="http-status-code-504"></a>HTTP-Statuscode 504
 
@@ -291,7 +184,7 @@ Sie müssen den in der Modellimplementierung enthaltenen Python-Code ggf. intera
 
 Weitere Informationen finden Sie im [Leitfaden „Interaktives Debuggen in VS Code“](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments).
 
-## <a name="model-deployment-user-forum"></a>[Benutzerforum zur Modellimplementierung](https://docs.microsoft.com/answers/topics/azure-machine-learning-inference.html)
+## <a name="model-deployment-user-forum"></a>[Benutzerforum zur Modellimplementierung](/answers/topics/azure-machine-learning-inference.html)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
@@ -299,3 +192,4 @@ Weitere Informationen zur Bereitstellung finden Sie hier:
 
 * [Bereitstellung: wie und wo?](how-to-deploy-and-where.md)
 * [Tutorial: Trainieren und Bereitstellen von Modellen](tutorial-train-models-with-aml.md)
+* [Lokales Ausführen und Debuggen von Experimenten](./how-to-debug-visual-studio-code.md)

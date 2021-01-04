@@ -16,16 +16,16 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7a1b63864f0fbd945b97d6c2e285bfccbf934f
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 558c6dc24f6d0d17c9a82bbc79f39649f63dc7f4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874542"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658484"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Unerwarteter Fehler beim Vorgang des Genehmigens einer Anwendung
 
-In diesem Artikel werden Fehler erläutert, die während des Vorgangs des Genehmigens einer Anwendung auftreten können. Wenn Sie Probleme mit unerwarteten Zustimmungsaufforderungen behandeln, die keine Fehlermeldungen enthalten, sehen Sie sich die [Authentifizierungsszenarien für Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios) an.
+In diesem Artikel werden Fehler erläutert, die während des Vorgangs des Genehmigens einer Anwendung auftreten können. Wenn Sie Probleme mit unerwarteten Zustimmungsaufforderungen behandeln, die keine Fehlermeldungen enthalten, sehen Sie sich die [Authentifizierungsszenarien für Azure AD](../develop/authentication-vs-authorization.md) an.
 
 Viele Anwendungen, die in Azure Active Directory integriert sind, erfordern Berechtigungen für den Zugriff auf andere Ressourcen, um zu funktionieren. Wenn diese Ressourcen auch in Azure Active Directory integriert sind, werden Berechtigungen für den Zugriff darauf häufig mithilfe des allgemeinen Genehmigungsframeworks angefordert. Eine Zustimmungsaufforderung wird in der Regel angezeigt, wenn eine Anwendung erstmals verwendet wird. Sie kann jedoch auch zu einem späteren Zeitpunkt erscheinen.
 
@@ -90,8 +90,6 @@ Der Endbenutzer kann für Apps, die als riskant erkannt wurden, keine Einwilligu
 
 ## <a name="next-steps"></a>Nächste Schritte 
 
-[Apps, Berechtigungen und Zustimmung in Azure Active Directory (Endpunkt, Version 1)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)<br>
+[Apps, Berechtigungen und Zustimmung in Azure Active Directory (Endpunkt, Version 1)](../develop/quickstart-register-app.md)<br>
 
-[Bereiche, Berechtigungen und Zustimmung im Azure Active Directory (Endpunkt, Version 2.0)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
-
-
+[Bereiche, Berechtigungen und Zustimmung im Azure Active Directory (Endpunkt, Version 2.0)](../develop/v2-permissions-and-consent.md)

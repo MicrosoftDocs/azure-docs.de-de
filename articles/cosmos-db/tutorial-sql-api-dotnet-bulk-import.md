@@ -4,18 +4,20 @@ description: Hier erfahren Sie, wie Sie Daten in Azure Cosmos DB importieren ode
 author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: tutorial
 ms.date: 09/21/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cfab8ba88c7da84efb3f6aed6f95bb100507f8da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6cf0e77657175449b126eeca02a12c164478e568
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981936"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548068"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Ausführen eines Massenimports von Daten in ein Azure Cosmos DB-SQL-API-Konto mithilfe des .NET SDK
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Dieses Tutorial enthält eine Beschreibung der Erstellung einer .NET-Konsolenanwendung, mit der der bereitgestellte Durchsatz (RU/s), der zum Importieren von Daten in Azure Cosmos DB benötigt wird, optimiert wird. In diesem Artikel lesen Sie Daten aus einer Beispieldatenquelle aus und importieren diese in einen Azure Cosmos-Container.
 In diesem Tutorial wird [mindestens Version 3.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) des Azure Cosmos DB .NET SDK verwendet, das auf .NET Framework oder .NET Core ausgerichtet werden kann.
@@ -173,7 +175,7 @@ Zum Ausführen des Beispiels können Sie einfach den Befehl `dotnet` verwenden:
 
 Falls Sie die Schritte in diesem Tutorial aus Zeitmangel nicht durchführen konnten oder nur die Codebeispiele herunterladen möchten, können Sie sie über [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer) beziehen.
 
-Stellen Sie nach dem Klonen des Projekts sicher, dass Sie in der Datei [Program.cs](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer/blob/master/src/Program.cs#L25) die gewünschten Anmeldeinformationen aktualisieren.
+Stellen Sie nach dem Klonen des Projekts sicher, dass Sie in der Datei [Program.cs](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer/blob/main/src/Program.cs#L25) die gewünschten Anmeldeinformationen aktualisieren.
 
 Sie können das Beispiel ausführen, indem Sie in das Repositoryverzeichnis wechseln und `dotnet` verwenden:
 

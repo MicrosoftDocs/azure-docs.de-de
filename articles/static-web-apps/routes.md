@@ -290,9 +290,9 @@ In den folgenden Beispielen ist beschrieben, was passiert, wenn eine Anforderung
 | Anforderungen: | Ergebnis: |
 |--|--|--|
 | _/profile_ | Für authentifizierte Benutzer wird die Datei _/profile/index.html_ bereitgestellt. Nicht authentifizierte Benutzer werden an _/login_ umgeleitet. |
-| _/admin/reports_ | Für authentifizierte Benutzer mit der Rolle _administrators_ wird die Datei _/admin/reports/index.html_ bereitgestellt. Für authentifizierte Benutzer, die nicht über die Rolle _administrators_ verfügen, wird ein 401-Fehler<sup>2</sup> angezeigt. Nicht authentifizierte Benutzer werden an _/login_ umgeleitet. |
+| _/admin/reports_ | Für authentifizierte Benutzer mit der Rolle _administrators_ wird die Datei _/admin/reports/index.html_ bereitgestellt. Für authentifizierte Benutzer, die nicht über die Rolle _administrators_ verfügen, wird ein 401-Fehler <sup>2</sup> angezeigt. Nicht authentifizierte Benutzer werden an _/login_ umgeleitet. |
 | _/api/admin_ | Anforderungen von authentifizierten Benutzern mit der Rolle _administrators_ werden an die API gesendet. Für authentifizierte Benutzer, die nicht über die Rolle _administrators_ verfügen, und nicht authentifizierte Benutzer wird ein 401-Fehler angezeigt. |
-| _/customers/contoso_ | Für authentifizierte Benutzer, die entweder über die Rolle _administrators_ oder _customers\_contoso_ verfügen, wird die Datei _/customers/contoso/index.html_ bereitgestellt<sup>2</sup>. Für authentifizierte Benutzer, die nicht über die Rolle _administrators_ oder _customers\_contoso_ verfügen, wird ein 401-Fehler angezeigt. Nicht authentifizierte Benutzer werden an _/login_ umgeleitet. |
+| _/customers/contoso_ | Für authentifizierte Benutzer, die entweder über die Rolle _administrators_ oder _customers\_contoso_ verfügen, wird die Datei _/customers/contoso/index.html_ bereitgestellt <sup>2</sup>. Für authentifizierte Benutzer, die nicht über die Rolle _administrators_ oder _customers\_contoso_ verfügen, wird ein 401-Fehler angezeigt. Nicht authentifizierte Benutzer werden an _/login_ umgeleitet. |
 | _/login_ | Nicht authentifizierte Benutzer werden aufgefordert, sich bei GitHub zu authentifizieren. |
 | _/.auth/login/twitter_ | Die Autorisierung mit Twitter ist deaktiviert. Der Server antwortet mit einem 404-Fehler. |
 | _/logout_ | Benutzer werden von allen Authentifizierungsanbietern abgemeldet. |

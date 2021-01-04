@@ -6,11 +6,11 @@ ms.topic: include
 ms.date: 03/21/2019
 ms.author: pafarley
 ms.openlocfilehash: f217bed72e172a7b328c8376fc2a842b4aef4fbe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85073380"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021311"
 ---
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 

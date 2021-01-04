@@ -4,13 +4,13 @@ description: Erfahren Sie, wie Sie die Diagnoseprotokollierung aktivieren und In
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
-ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 6dffe2c6145e1596d92335defdc764c3c7bc3fa0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
+ms.openlocfilehash: 99a3c9a9c26eebe8dfdf11baf718fd13f7539607
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264370"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025275"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Aktivieren der Diagnoseprotokollierung für Apps in Azure App Service
 ## <a name="overview"></a>Übersicht
@@ -102,7 +102,7 @@ Wenn Sie fertig sind, wählen Sie **Speichern** aus.
 
 Um die Fehlerseite oder die Ablaufverfolgung fehlerhafter Anforderungen für Windows-Apps im [Azure-Portal](https://portal.azure.com) zu aktivieren, navigieren Sie zu Ihrer App und wählen **App Service-Protokolle** aus.
 
-Wählen Sie **Ausführliche Fehlerprotokollierung** oder**Ablaufverfolgung fehlerhafter Anforderungen** aus, wählen Sie **Ein** aus, und wählen Sie dann **Speichern** aus.
+Wählen Sie **Ausführliche Fehlerprotokollierung** oder **Ablaufverfolgung fehlerhafter Anforderungen** aus, wählen Sie **Ein** aus, und wählen Sie dann **Speichern** aus.
 
 Beide Typen von Protokollen werden im App Service-Dateisystem gespeichert. Bis zu 50 Fehler (Dateien/Ordner) werden aufbewahrt. Wenn die Anzahl der HTML-Dateien 50 überschreitet, werden die 26 ältesten Fehler automatisch gelöscht.
 
@@ -187,14 +187,16 @@ In der folgenden Tabelle werden die unterstützten Protokolltypen und Beschreibu
 
 | Protokolltyp | Windows | Windows-Container | Linux | Linux-Container | BESCHREIBUNG |
 |-|-|-|-|-|-|
-| AppServiceConsoleLogs | Wird noch angekündigt | Wird noch angekündigt | Ja | Ja | Standardausgabe und Standardfehler |
-| AppServiceHTTPLogs | Ja | Wird noch angekündigt | Ja | Ja | Webserverprotokolle |
+| AppServiceConsoleLogs | Java SE & Tomcat | Ja | Ja | Ja | Standardausgabe und Standardfehler |
+| AppServiceHTTPLogs | Ja | Ja | Ja | Ja | Webserverprotokolle |
 | AppServiceEnvironmentPlatformLogs | Ja | – | Ja | Ja | App Service-Umgebung: Skalierung, Konfigurationsänderungen und Statusprotokolle|
-| AppServiceAuditLogs | Ja | Wird noch angekündigt | Ja | Ja | Anmeldeaktivität per FTP und Kudu |
-| AppServiceFileAuditLogs | Ja | Wird noch angekündigt | Wird noch angekündigt | Wird noch angekündigt | Dateiänderungen am Websiteinhalt; nur für Premium-Tarif und höher verfügbar. |
-| AppServiceAppLogs | ASP.NET | Wird noch angekündigt | Java SE & Tomcat | Java SE & Tomcat | Anwendungsprotokolle |
-| AppServiceIPSecAuditLogs  | Ja | Wird noch angekündigt | Ja | Ja | Anforderungen von IP-Regeln |
-| AppServicePlatformLogs  | Wird noch angekündigt | Wird noch angekündigt | Ja | Ja | Containervorgangsprotokolle |
+| AppServiceAuditLogs | Ja | Ja | Ja | Ja | Anmeldeaktivität per FTP und Kudu |
+| AppServiceFileAuditLogs | Ja | Ja | Wird noch angekündigt | Wird noch angekündigt | Dateiänderungen am Websiteinhalt; nur für Premium-Tarif und höher verfügbar. |
+| AppServiceAppLogs | ASP.NET | ASP.NET | Java SE und Tomcat Blessed Images <sup>1</sup> | Java SE und Tomcat Blessed Images <sup>1</sup> | Anwendungsprotokolle |
+| AppServiceIPSecAuditLogs  | Ja | Ja | Ja | Ja | Anforderungen von IP-Regeln |
+| AppServicePlatformLogs  | Wird noch angekündigt | Ja | Ja | Ja | Containervorgangsprotokolle |
+
+<sup>1</sup> Fügen Sie für Java SE-Apps den App-Einstellungen „$WEBSITE_AZMON_PREVIEW_ENABLED“ hinzu, und legen Sie sie auf „1“ oder „true“ fest.
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Nächste Schritte
 * [Abfrageprotokolle mit Azure Monitor](../azure-monitor/log-query/log-query-overview.md)

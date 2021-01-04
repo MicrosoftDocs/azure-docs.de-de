@@ -1,15 +1,18 @@
 ---
 title: Ermitteln von GCP-VM-Instanzen mit der Azure Migrate-Serverbewertung
 description: Hier erfahren Sie, wie Sie GCP-VM-Instanzen mit der Azure Migrate-Serverbewertung ermitteln.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: c445bc06983aeb72d13f2bea5e2f39e73374d93a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9053246ef747236d9efbc9239ced46b0c421f5bb
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91716388"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753092"
 ---
 # <a name="tutorial-discover-google-cloud-platform-gcp-instances-with-server-assessment"></a>Tutorial: Ermitteln von GCP-Instanzen (Google Cloud Platform) mit Serverbewertung
 

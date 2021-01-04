@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: 3aa4a1917711f8997c282ba577c33e7a7f94472b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa7c06c3bad59bad11fa288631042cca86109706
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932881"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701132"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Erstellen eines einfachen Suchindex in Azure Cognitive Search
 
@@ -59,7 +59,7 @@ Das Vervollständigen bis zu einem endgültigen Indexentwurf ist ein iterativer 
 
    ![Seite „Index hinzufügen“ mit Attributen nach Datentyp](media/search-what-is-an-index//field-definitions.png "Seite „Index hinzufügen“ mit Attributen nach Datentyp")
 
-1. Laden Sie das Indexschema mit [Get Index (REST-API)](/rest/api/searchservice/get-index) und einem Webtesttool wie [Postman](search-get-started-postman.md) herunter. Sie verfügen nun über eine JSON-Darstellung des Index, die Sie im Code anpassen können.
+1. Laden Sie das Indexschema mit [Get Index (REST-API)](/rest/api/searchservice/get-index) und einem Webtesttool wie [Postman](search-get-started-rest.md) herunter. Sie verfügen nun über eine JSON-Darstellung des Index, die Sie im Code anpassen können.
 
 1. [Laden Sie Ihren Index mit Daten](search-what-is-data-import.md). Die kognitive Azure-Suche akzeptiert JSON-Dokumente. Um Ihre Daten programmgesteuert zu laden, können Sie Postman mit JSON-Dokumenten in der Anforderungsnutzlast verwenden. Wenn Ihre Daten nicht einfach als JSON-Code ausgedrückt werden, erfordert dieser Schritt den meisten Arbeitsaufwand. 
 
@@ -70,7 +70,7 @@ Das Vervollständigen bis zu einem endgültigen Indexentwurf ist ein iterativer 
 Planen Sie während der Entwicklung häufige Neuerstellungen ein. Da physische Strukturen im Dienst erstellt werden, ist das [Löschen und Neuerstellen von Indizes](search-howto-reindex.md) bei den meisten Änderungen an einer vorhandenen Felddefinition erforderlich. Sie sollten erwägen, mit einer Teilmenge Ihrer Daten zu arbeiten, damit Neuerstellungen schneller gehen. 
 
 > [!Tip]
-> Anstelle des Portals empfiehlt es sich, im Code zu arbeiten, wenn Sie den Indexentwurf und den Datenimport gleichzeitig bearbeiten möchten. Als Alternative sind Tools wie [Postman und die REST-API](search-get-started-postman.md) hilfreich zum Proof of Concept-Testen, wenn Entwicklungsprojekte sich noch in frühen Phasen befinden. Sie können inkrementelle Änderungen an einer Indexdefinition im Anforderungstext vornehmen und dann die Anforderung an Ihren Dienst senden, um einen Index mit einem aktualisierten Schema neu zu erstellen.
+> Anstelle des Portals empfiehlt es sich, im Code zu arbeiten, wenn Sie den Indexentwurf und den Datenimport gleichzeitig bearbeiten möchten. Als Alternative sind Tools wie [Postman und Visual Studio Code](search-get-started-rest.md) hilfreich zum Testen eines Proof of Concept, wenn Entwicklungsprojekte sich noch in frühen Phasen befinden. Sie können inkrementelle Änderungen an einer Indexdefinition im Anforderungstext vornehmen und dann die Anforderung an Ihren Dienst senden, um einen Index mit einem aktualisierten Schema neu zu erstellen.
 
 ## <a name="index-schema"></a>Indexschema
 

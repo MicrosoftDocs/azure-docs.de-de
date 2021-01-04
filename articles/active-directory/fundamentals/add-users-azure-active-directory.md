@@ -14,11 +14,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: de529a8ffb0c72854904717c71dbc322c919f1a8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370813"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996694"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Hinzufügen oder Löschen von Benutzern in Azure Active Directory
 
@@ -32,7 +32,7 @@ Um einen neuen Benutzer hinzuzufügen, führen Sie diese Schritte aus:
 
 1. Melden Sie sich als Benutzeradministrator für die Organisation beim [Azure-Portal](https://portal.azure.com/) an.
 
-1. Suchen Sie auf einer beliebigen Seite nach *Azure Active Directory* , und wählen Sie es aus.
+1. Suchen Sie auf einer beliebigen Seite nach *Azure Active Directory*, und wählen Sie es aus.
 
 1. Wählen Sie **Benutzer** und dann **Neuer Benutzer** aus.
 
@@ -40,21 +40,21 @@ Um einen neuen Benutzer hinzuzufügen, führen Sie diese Schritte aus:
 
 1. Geben Sie auf der Seite **Benutzer** Informationen für diesen Benutzer ein:
 
-   - **Name** : Erforderlich. Der Vor- und Nachname des neuen Benutzers. Beispielsweise *Mary Parker* .
+   - **Name**: Erforderlich. Der Vor- und Nachname des neuen Benutzers. Beispielsweise *Mary Parker*.
 
-   - **Benutzername** . Erforderlich. Der Benutzername des neuen Benutzers. Beispiel: `mary@contoso.com`.
+   - **Benutzername**. Erforderlich. Der Benutzername des neuen Benutzers. Beispiel: `mary@contoso.com`.
 
-     Der Domänenteil des Benutzernamens muss entweder der anfängliche Standarddomänenname sein, *\<yourdomainname>.onmicrosoft.com* , oder ein benutzerdefinierter Domänennamen, z. B. *contoso.com* . Weitere Informationen zum Erstellen eines benutzerdefinierten Domänennamens finden Sie unter [Hinzufügen Ihres benutzerdefinierten Domänennamens über das Azure Active Directory-Portal](add-custom-domain.md).
+     Der Domänenteil des Benutzernamens muss entweder der anfängliche Standarddomänenname sein, *\<yourdomainname>.onmicrosoft.com*, oder ein benutzerdefinierter Domänennamen, z. B. *contoso.com*. Weitere Informationen zum Erstellen eines benutzerdefinierten Domänennamens finden Sie unter [Hinzufügen Ihres benutzerdefinierten Domänennamens über das Azure Active Directory-Portal](add-custom-domain.md).
 
-   - **Gruppen** . Optional können Sie den Benutzer einer oder mehreren vorhandenen Gruppen hinzufügen. Sie können den Benutzer auch später zu Gruppen hinzufügen. Weitere Informationen zum Hinzufügen von Benutzern zu Gruppen finden Sie unter [Erstellen einer einfachen Gruppe und Hinzufügen von Mitgliedern mithilfe von Azure Active Directory](active-directory-groups-create-azure-portal.md).
+   - **Gruppen**. Optional können Sie den Benutzer einer oder mehreren vorhandenen Gruppen hinzufügen. Sie können den Benutzer auch später zu Gruppen hinzufügen. Weitere Informationen zum Hinzufügen von Benutzern zu Gruppen finden Sie unter [Erstellen einer einfachen Gruppe und Hinzufügen von Mitgliedern mithilfe von Azure Active Directory](active-directory-groups-create-azure-portal.md).
 
-   - **Verzeichnisrolle** : Wenn Sie Azure AD-Administratorberechtigungen für den Benutzer benötigen, können Sie diese einer Azure AD-Rolle hinzufügen. Sie können dem Benutzer die Rolle „Globaler Administrator“ oder mindestens eine der eingeschränkten Administratorrollen in Azure AD zuweisen. Weitere Informationen zum Zuweisen von Rollen finden Sie unter [Zuweisen von Rollen zu Benutzern](active-directory-users-assign-role-azure-portal.md).
+   - **Verzeichnisrolle**: Wenn Sie Azure AD-Administratorberechtigungen für den Benutzer benötigen, können Sie diese einer Azure AD-Rolle hinzufügen. Sie können dem Benutzer die Rolle „Globaler Administrator“ oder mindestens eine der eingeschränkten Administratorrollen in Azure AD zuweisen. Weitere Informationen zum Zuweisen von Rollen finden Sie unter [Zuweisen von Rollen zu Benutzern](active-directory-users-assign-role-azure-portal.md).
 
-   - **Angaben zum Beruf** : Hier können Sie weitere Informationen zum Benutzer hinzufügen oder dies später erledigen. Weitere Informationen zum Hinzufügen von Benutzerinformationen finden Sie unter [Hinzufügen oder Ändern von Benutzerprofilinformationen](active-directory-users-profile-azure-portal.md).
+   - **Angaben zum Beruf**: Hier können Sie weitere Informationen zum Benutzer hinzufügen oder dies später erledigen. Weitere Informationen zum Hinzufügen von Benutzerinformationen finden Sie unter [Hinzufügen oder Ändern von Benutzerprofilinformationen](active-directory-users-profile-azure-portal.md).
 
-1. Kopieren Sie das automatisch generierte Kennwort aus dem Feld **Kennwort** . Sie müssen dieses Kennwort dem Benutzer für die erste Anmeldung bereitstellen.
+1. Kopieren Sie das automatisch generierte Kennwort aus dem Feld **Kennwort**. Sie müssen dieses Kennwort dem Benutzer für die erste Anmeldung bereitstellen.
 
-1. Klicken Sie auf **Erstellen** .
+1. Klicken Sie auf **Erstellen**.
 
 Der Benutzer wird erstellt und Ihrer Azure AD-Organisation hinzugefügt.
 
@@ -78,9 +78,9 @@ Um einen Benutzer zu löschen, befolgen Sie diese Schritte:
 
 1. Melden Sie sich mit dem Konto eines Benutzeradministrators für die Organisation beim [Azure-Portal](https://portal.azure.com/) an.
 
-1. Suchen Sie auf einer beliebigen Seite nach *Azure Active Directory* , und wählen Sie es aus.
+1. Suchen Sie auf einer beliebigen Seite nach *Azure Active Directory*, und wählen Sie es aus.
 
-1. Suchen Sie den Benutzer, den Sie aus Ihrem Azure AD-Mandanten löschen möchten, und wählen Sie ihn aus. Beispielsweise _Mary Parker_ .
+1. Suchen Sie den Benutzer, den Sie aus Ihrem Azure AD-Mandanten löschen möchten, und wählen Sie ihn aus. Beispielsweise _Mary Parker_.
 
 1. Wählen Sie **Benutzer löschen** aus.
 

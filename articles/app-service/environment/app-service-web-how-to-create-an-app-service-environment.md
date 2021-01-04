@@ -8,11 +8,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 543050bc899c257c4ad5e0d0c399a1de6f0f58f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86220574"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005203"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Erstellen einer App Service-Umgebung v1 
 
@@ -36,7 +36,7 @@ Es ist wichtig, die Aspekte zu berücksichtigen, die Sie ändern können. Die fo
 Stellen Sie bei der Auswahl eines VNET und Angabe eines Subnetzes sicher, dass es auf künftiges Wachstum ausgelegt ist. 
 
 ### <a name="creating-an-app-service-environment-v1"></a>Erstellen einer App Service-Umgebung v1
-Um eine App Service-Umgebung v1 zu erstellen, müssen Sie den Azure Marketplace nach ***App Service-Umgebung v1*** durchsuchen oder **Ressource erstellen** -> **Web + Mobil** -> **App Service-Umgebung** verwenden. So erstellen Sie eine ASEv1
+Um eine App Service-Umgebung v1 zu erstellen, können Sie den Azure Marketplace nach ***App Service-Umgebung v1** _ durchsuchen oder _ *Ressource erstellen** -> **Web + Mobil** -> **App Service-Umgebung** verwenden. So erstellen Sie eine ASEv1
 
 1. Geben Sie den Namen Ihrer ASE an. Der für die ASE angegebene Name wird für die in der ASE erstellten Apps verwendet. Wenn der Name der App Service-Umgebung „appsvcenvdemo“ lautet, erhält die Unterdomäne den Namen *appsvcenvdemo.p.azurewebsites.net*. Wenn Sie also eine App namens *mytestapp* erstellt haben, kann diese über *mytestapp.appsvcenvdemo.p.azurewebsites.net* aufgerufen werden. Sie dürfen im Namen Ihrer ASE keine Leerzeichen verwenden. Bei Verwendung von Großbuchstaben im Namen wird der Domänenname dennoch vollständig in Kleinbuchstaben geschrieben. Bei Verwendung eines ILB wird Ihr ASE-Name nicht in Ihrer Unterdomäne verwendet, sondern stattdessen explizit während der ASE-Erstellung angegeben.
    

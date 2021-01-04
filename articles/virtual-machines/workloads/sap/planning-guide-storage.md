@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/23/2020
+ms.date: 11/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 819ac1f01cc182c79571de35ec0753f694dc7722
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6982b782fdd6b5b269c1562c54be3478c58bbce9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653612"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500996"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Azure Storage-Typen für die SAP-Workload
 Azure umfasst zahlreiche Speichertypen, die sich in den Funktionen, dem Durchsatz, der Latenz und den Preisen stark unterscheiden. Einige der Speichertypen sind für SAP-Szenarien nicht oder nur eingeschränkt verwendbar. Dagegen sind verschiedene Azure-Speichertypen für spezifische SAP-Workloadszenarien gut geeignet und optimiert. Speziell für SAP HANA wurden einige Azure-Speichertypen für die Verwendung mit SAP HANA zertifiziert. In diesem Dokument werden die verschiedenen Speichertypen erläutert und ihre Funktionen und Verwendbarkeit mit SAP-Workloads und SAP-Komponenten beschrieben.
@@ -33,6 +34,8 @@ Anmerkung zu den in diesem Artikel verwendeten Einheiten: Die Anbieter von öffe
 Bei der Microsoft Azure-Speicherung von HDD Standard, SSD Standard, Azure Storage Premium und Disk Ultra werden die Basis-VHD (mit dem Betriebssystem) und die an VMs angefügten Datenträger oder Daten-VHDs in drei Kopien in drei verschiedenen Speicherknoten aufbewahrt. Das Failover zu einem anderen Replikat und das Seeding eines neuen Replikats bei einem Ausfall eines Speicherknotens erfolgt transparent. Aufgrund dieser Redundanz ist es **NICHT** erforderlich, eine Speicherredundanzschicht für mehrere Azure-Datenträger zu verwenden. Das wird als „lokaler redundanter Speicher „ (LRS) bezeichnet. LRS ist die Standardeinstellung für diese Azure-Speichertypen. [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) bietet ausreichend Redundanz, um die gleichen SLAs wie bei anderen nativen Azure-Speichern zu erreichen.
 
 Es gibt mehrere weitere Redundanzmethoden, die im Artikel [Azure Storage-Replikation](../../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) beschrieben werden und für einige der verschiedenen Speichertypen von Azure gelten. 
+
+Beachten Sie auch, dass sich unterschiedliche Azure-Speichertypen auf die SLAs zur Verfügbarkeit einzelner VMs auswirken (wie unter [SLA für Virtuelle Computer](https://azure.microsoft.com/support/legal/sla/virtual-machines) beschrieben).
 
 ### <a name="azure-managed-disks"></a>Verwaltete Azure-Datenträger
 
@@ -130,7 +133,6 @@ Dieser Speichertyp ist auf DBMS-Workloads, Speicherdatenverkehr, der eine niedri
 - Der E/A-Durchsatz für diesen Speicher ist nicht linear zur Größe der Datenträgerkategorie. Bei kleineren Datenträgern, z. B. der Kategorie mit einer Kapazität zwischen 65 GiB und 128 GiB, beträgt der Durchsatz ungefähr 780 KB/GiB. Bei den extrem großen Datenträgern, z. B. mit 32.767 GiB, liegt der Durchsatz hingegen bei etwa 28 KB/GiB.
 - Die IOPS- und Durchsatz-SLAs können nicht geändert werden, ohne die Kapazität des Datenträgers zu ändern.
 
-Azure umfasst eine SLA für Einzelinstanz-VMs von 99,9 %, die an die Verwendung von Azure Storage Premium oder Azure Disk Storage Ultra gebunden ist. Die SLA ist unter [SLA für virtuelle Computer](https://azure.microsoft.com/support/legal/sla/virtual-machines/) dokumentiert. Um dieser SLA für Einzelinstanz-VMs zu entsprechen, müssen sowohl der Basis-VHD-Datenträger als auch **alle** angefügten Datenträger Azure Storage Premium- oder Azure Disk Storage Ultra-Datenträger sein.
 
 Die Funktionsmatrix für die SAP-Workload sieht folgendermaßen aus:
 
@@ -162,7 +164,7 @@ Azure Storage Premium erfüllt nicht die Speicherlatenz-KPIs für SAP HANA mit d
 
 
 ### <a name="azure-burst-functionality-for-premium-storage"></a>Azure-Burstfunktionalität für Storage Premium
-Für Azure Premium-Datenträger mit einer Kapazität bis 512 GiB wird eine Burstfunktionalität angeboten. Die genaue Funktionsweise des Datenträgerbursting wird in dem Artikel [Datenträgerbursting](../../linux/disk-bursting.md) beschrieben. Wenn Sie den Artikel lesen, verstehen Sie das Konzept des Anfallens von IOPS und Durchsatz in den Zeiten, in denen Ihre E/A-Workload unter den nominalen IOPS und unter dem Durchsatz der Datenträger liegt (Einzelheiten zum nominalen Durchsatz finden Sie unter [Verwaltete Datenträger – Preise](https://azure.microsoft.com/pricing/details/managed-disks/)). Sie werden das Delta von IOPS und Durchsatz zwischen Ihrer aktuellen Nutzung und den Nennwerten des Datenträgers ansammeln. Die Bursts sind auf maximal 30 Minuten begrenzt.
+Für Azure Premium-Datenträger mit einer Kapazität bis 512 GiB wird eine Burstfunktionalität angeboten. Die genaue Funktionsweise des Datenträgerbursting wird in dem Artikel [Datenträgerbursting](../../disk-bursting.md) beschrieben. Wenn Sie den Artikel lesen, verstehen Sie das Konzept des Anfallens von IOPS und Durchsatz in den Zeiten, in denen Ihre E/A-Workload unter den nominalen IOPS und unter dem Durchsatz der Datenträger liegt (Einzelheiten zum nominalen Durchsatz finden Sie unter [Verwaltete Datenträger – Preise](https://azure.microsoft.com/pricing/details/managed-disks/)). Sie werden das Delta von IOPS und Durchsatz zwischen Ihrer aktuellen Nutzung und den Nennwerten des Datenträgers ansammeln. Die Bursts sind auf maximal 30 Minuten begrenzt.
 
 Die idealen Fälle, in denen diese Burstfunktionalität eingeplant werden kann, werden wahrscheinlich die Volumes oder Datenträger sein, die Datendateien für die verschiedenen DBMS enthalten. Die für diese Volumen zu erwartende E/A-Workload, insbesondere bei kleinen bis mittleren Systemen, wird voraussichtlich wie folgt aussehen:
 
@@ -352,11 +354,10 @@ Wenn Sie virtuelle Azure-Computer im Lebenszyklus eines SAP-Systems ausbauen, so
 
 
 ## <a name="striping-or-not-striping"></a>Striping oder kein Striping
-Das Erstellen eines Stripesets aus mehreren Azure-Datenträgern in einem größeren Volume ermöglicht es Ihnen, die IOPS und den Durchsatz der einzelnen Datenträger in einem Volume zu kumulieren. Striping wird nur für Azure Storage Standard und Azure Storage Premium verwendet. Bei Azure Disk Ultra können Sie Durchsatz und IOPS unabhängig von der Kapazität eines Datenträgers konfigurieren, sodass die Verwendung von Stripesets nicht erforderlich ist. Für freigegebene auf NFS oder SMB basierende Volumes können keine Stripesets erstellt werden. Da der Durchsatz und die IOPS bei Azure Storage Premium nicht linear sind, können Sie eine geringere Kapazität mit den gleichen IOPS und dem gleichen Durchsatz bereitstellen wie bei großen einzelnen Azure Storage Premium-Datenträgern. Mit dieser Methode können mit Azure Storage Premium ein höherer Durchsatz oder höhere IOPS zu geringeren Kosten erreicht werden. Beispiel:
+Das Erstellen eines Stripesets aus mehreren Azure-Datenträgern in einem größeren Volume ermöglicht es Ihnen, die IOPS und den Durchsatz der einzelnen Datenträger in einem Volume zu kumulieren. Striping wird nur für Azure Storage Standard und Azure Storage Premium verwendet. Bei Azure Disk Ultra können Sie Durchsatz und IOPS unabhängig von der Kapazität eines Datenträgers konfigurieren, sodass die Verwendung von Stripesets nicht erforderlich ist. Für freigegebene auf NFS oder SMB basierende Volumes können keine Stripesets erstellt werden. Da der Durchsatz und die IOPS bei Azure Storage Premium nicht linear sind, können Sie eine geringere Kapazität mit den gleichen IOPS und dem gleichen Durchsatz bereitstellen wie bei großen einzelnen Azure Storage Premium-Datenträgern. Mit dieser Methode können mit Azure Storage Premium ein höherer Durchsatz oder höhere IOPS zu geringeren Kosten erreicht werden. Durch Striping über zwei Storage P15 Premium-Datenträger erreichen Sie beispielsweise einen Durchsatz von: 
 
-- Durch Striping über zwei Storage P15 Premium-Datenträger erreichen Sie einen Durchsatz von 
 - 250 MiB/s. Ein solches Volume verfügt über eine Kapazität von 512 GiB. Für einen einzelnen Datenträger mit einem Durchsatz von 250 MiB/s müssen Sie einen P40-Datenträger mit einer Kapazität von 2 TiB verwenden. 
-- Sie können auch durch Striping von vier Storage P10 Premium-Datenträgern mit einer Gesamtkapazität von 512 GiB einen Durchsatz von 400 MiB/s erzielen. Für einen einzelnen Datenträger mit einem Durchsatz von mindestens 500 MiB pro Sekunde müssen Sie einen Storage P60 Premium-Datenträger mit einer Kapazität von 8 TiB verwenden. Da die Kosten für Storage Premium nahezu linear zur Kapazität sind, sind die Kosteneinsparungen bei Verwendung von Striping klar erkennbar.
+- 400 MiB/s durch Striping von vier Storage P10 Premium-Datenträgern mit einer Gesamtkapazität von 512 GiB. Für einen einzelnen Datenträger mit einem Durchsatz von mindestens 500 MiB pro Sekunde müssen Sie einen Storage P60 Premium-Datenträger mit einer Kapazität von 8 TiB verwenden. Da die Kosten für Storage Premium nahezu linear zur Kapazität sind, sind die Kosteneinsparungen bei Verwendung von Striping klar erkennbar.
 
 Beim Striping sind folgende Regeln zu beachten:
 
@@ -375,4 +376,3 @@ Lesen Sie die folgenden Artikel:
 
 - [Azure Virtual Machines – DBMS-Bereitstellung für SAP-Workload](./dbms_guide_general.md)
 - [SAP HANA: Speicherkonfigurationen für virtuelle Azure-Computer](./hana-vm-operations-storage.md)
- 

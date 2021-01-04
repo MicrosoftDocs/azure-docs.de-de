@@ -3,7 +3,7 @@ title: Indizieren von Mediendateien mit Azure Media Indexer
 description: Mit dem Azure Media Indexer können Sie die Inhalte Ihrer Mediendateien durchsuchbar machen und eine Volltext-Aufzeichnung für Untertitel und Schlüsselwörter generieren. In diesem Thema wird die Verwendung von Media Indexer erläutert.
 services: media-services
 documentationcenter: ''
-author: Asolanki
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 827a56b2-58a5-4044-8d5c-3e5356488271
@@ -12,23 +12,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/22/2019
-ms.author: juliako
+ms.date: 10/21/2020
+ms.author: inhenkel
 ms.reviewer: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 06bd9f159281a1353ca9474bf0876e99b6d1940a
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 12a4099a6a3f0d06dfbb40171970c7386c3e4d22
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018955"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518839"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indizieren von Mediendateien mit Azure Media Indexer
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-> [!NOTE]
-> Der **Azure Media Indexer**-Medienprozessor wird eingestellt. Die Daten zur Einstellung finden Sie unter dem Thema [Legacykomponenten](legacy-components.md). [Azure Media Services Video Indexer](../video-indexer/index.yml) ersetzt diesen Legacy-Medienprozessor. Weitere Informationen finden Sie unter [Migration von Azure Media Indexer v1 und Azure Media Indexer v2 zu Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
+> [!IMPORTANT]
+> Kunden wird empfohlen, von Indexer v1 und Indexer v2 auf die Verwendung des [Media Services v3 AudioAnalyzerPreset Basic-Modus](../latest/analyzing-video-audio-files-concept.md) umsteigen. Die Medienprozessoren [Azure Media Indexer](media-services-index-content.md) und [Azure Media Indexer 2 Preview](./legacy-components.md) Medienprozessoren werden außer Betrieb genommen. Die Daten zur Einstellung finden Sie unter dem Thema [Legacykomponenten](legacy-components.md).
 
 Mit dem Azure Media Indexer können Sie die Inhalte Ihrer Mediendateien durchsuchbar machen und eine Volltext-Aufzeichnung für Untertitel und Schlüsselwörter generieren. Sie können eine einzelne Mediendatei oder mehrere Mediendateien in einem Batch verarbeiten.  
 
@@ -249,7 +249,7 @@ Die Verarbeitung von Azure Media Indexer kann angepasst werden, indem zusätzlic
 | Name | Anforderung | BESCHREIBUNG |
 | --- | --- | --- |
 | **input** |false |Medienobjekte, die Sie indizieren möchten.</p><p>Azure Media Indexer unterstützt die folgenden Mediendateiformate: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>Sie können die Dateinamen im Attribut **name** oder **list** des Elements **input** angeben (wie nachfolgend gezeigt). Wenn Sie nicht angeben, welche Medienobjektdatei indiziert werden soll, wird die primäre Datei ausgewählt. Wenn keine primäre Medienobjektdatei festgelegt ist, wird die erste Datei im Eingabemedienobjekt indiziert.</p><p>So legen Sie den Namen der Medienobjektdatei explizit fest:<br/>`<input name="TestFile.wmv">`<br/><br/>Sie können auch in einem Arbeitsschritt mehrere Medienobjektdateien indizieren (bis zu 10 Dateien). Gehen Sie dazu folgendermaßen vor:<br/><br/><ol class="ordered"><li><p>Erstellen Sie eine Textdatei (Manifestdatei), und geben Sie ihr die Erweiterung .LST. </p></li><li><p>Fügen Sie dieser Manifestdatei eine Liste aller Medienobjektdateinamen im Eingabemedienobjekt hinzu. </p></li><li><p>Fügen Sie die Manifestdatei dem Medienobjekt hinzu (laden Sie sie hoch).  </p></li><li><p>Geben Sie den Namen der Manifestdatei im list-Attribut der Eingabe an.<br/>`<input list="input.lst">`</li></ol><br/><br/>Hinweis: Wenn Sie der Manifestdatei mehr als zehn Dateien hinzufügen, tritt bei der Indizierung ein Fehler auf (Fehlercode 2006). |
-| **metadata** |false |Metadaten für die festgelegten Medienobjektdateien zur Vokabularanpassung.  So kann der Indexer nicht standardmäßiges Vokabular wie z.B. Eigennamen erkennen.<br/>`<metadata key="..." value="..."/>` <br/><br/>Sie können Werte (**values**) für vordefinierte Schlüssel (**keys**) angeben. Derzeit werden die folgenden Schlüssel unterstützt:<br/><br/>„title“ und „description“: Diese dienen der Vokabularanpassung zum Optimieren des Sprachmodells für Ihren Auftrag und zum Verbessern der Spracherkennungsgenauigkeit.  Über Internetsuchen finden die Werte kontextrelevante Textdokumente und nutzen deren Inhalte zur Vergrößern des internen Wörterbuchs während der Indizierungsaufgabe.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
+| **metadata** |false |Metadaten für die festgelegten Medienobjektdateien zur Vokabularanpassung.  So kann der Indexer nicht standardmäßiges Vokabular wie z.B. Eigennamen erkennen.<br/>`<metadata key="..." value="..."/>` <br/><br/>Sie können Werte ( **values** ) für vordefinierte Schlüssel ( **keys** ) angeben. Derzeit werden die folgenden Schlüssel unterstützt:<br/><br/>„title“ und „description“: Diese dienen der Vokabularanpassung zum Optimieren des Sprachmodells für Ihren Auftrag und zum Verbessern der Spracherkennungsgenauigkeit.  Über Internetsuchen finden die Werte kontextrelevante Textdokumente und nutzen deren Inhalte zur Vergrößern des internen Wörterbuchs während der Indizierungsaufgabe.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
 | **features** <br/><br/> Wurde in Version 1.2 hinzugefügt. Das einzige unterstützte Feature ist derzeit die Spracherkennung („ASR“). |false |Die Spracherkennungsfunktion umfasst die folgenden Einstellungsschlüssel:<table><tr><th><p>Schlüssel</p></th>        <th><p>BESCHREIBUNG</p></th><th><p>Beispielwert</p></th></tr><tr><td><p>Sprache</p></td><td><p>Die natürliche Sprache, die in der Multimediadatei erkannt werden soll.</p></td><td><p>English, Spanish</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>Eine mit Semikolon getrennte Liste der gewünschten Ausgabeuntertitelformate (sofern vorhanden)</p></td><td><p>ttml;webvtt</p></td></tr><tr><td><p></p></td><td><p> </p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Ein boolesches Flag, das angibt, ob eine XML-Datei mit Schlüsselwörtern erforderlich ist oder nicht.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Ein boolesches Flag, das angibt, ob vollständige Untertitel erzwungen werden sollen (unabhängig vom Grad der Zuverlässigkeit).  </p><p>Der Standardwert lautet „false“. Bei dieser Einstellung werden Wörter und Sätze, deren Zuverlässigkeit unter 50 % liegt, in den final ausgegebenen Untertiteln durch Auslassungspunkte („...“) ersetzt.  Die Auslassungspunkte eignen sich für die Qualitätskontrolle der Untertitel und für die Überwachung.</p></td><td><p>True; False. </p></td></tr></table> |
 
 ### <a name="error-codes"></a><a id="error_codes"></a>Fehlercodes

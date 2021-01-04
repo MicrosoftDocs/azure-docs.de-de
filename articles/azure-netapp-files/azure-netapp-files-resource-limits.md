@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 12/01/2020
 ms.author: b-juche
-ms.openlocfilehash: 6963a1f39534573bca39431febe391e89d462875
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: aaffc63690894f43329763064ae89a105274953c
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072780"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511932"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Ressourcenlimits für Azure NetApp Files
 
@@ -31,7 +31,7 @@ In der folgenden Tabelle werden die Ressourcengrenzwerte für Azure NetApp Files
 
 |  Resource  |  Standardlimit  |  Über Supportanfrage anpassbar  |
 |----------------|---------------------|--------------------------------------|
-|  Anzahl der NetApp-Konten pro Azure-Region   |  10    |  Ja   |
+|  Anzahl von NetApp-Konten pro Azure-Region und Abonnement  |  10    |  Ja   |
 |  Anzahl der Kapazitätspools pro NetApp-Konto   |    25     |   Ja   |
 |  Anzahl von Volumes pro Abonnement   |    500     |   Ja   |
 |  Anzahl der Volumes pro Kapazitätspool     |    500   |    Ja     |
@@ -89,7 +89,7 @@ Sie können eine Supportanfrage an den Azure-Support stellen, um die anpassbaren
         |  Pool    |  *Abonnement-ID, NetApp-Konto-URI*  |  *Angeforderte neue maximale Anzahl an **Pools***   |  *Szenario oder Anwendungsfall, das zur Anforderung geführt hat*  |
         |  Volume  |  *Abonnement-ID, NetApp-Konto-URI, Kapazitätspool-URI*   |  *Angeforderte neue maximale Anzahl an **Volumes***     |  *Szenario oder Anwendungsfall, das zur Anforderung geführt hat*  |
         |  Maxfiles  |  *Abonnement-ID, NetApp-Konto-URI, Kapazitätspool-URI, Volume-URI*   |  *Angeforderter neuer maximaler **maxfiles**-Wert*     |  *Szenario oder Anwendungsfall, das zur Anforderung geführt hat*  |    
-        |  Datenschutzvolumes für die regionsübergreifende Replikation  |  *Abonnement-ID, NetApp-Zielkonto-URI, Zielkapazitätspool-URI, NetApp-Quellkonto-URI, Quellkapazitätspool-URI, Quellvolume-URI*   |  *Angeforderte neue maximale Anzahl der **regionsübergreifenden Datenschutzvolumes für die regionsübergreifende Replikation (Zielvolumes)***     |  *Szenario oder Anwendungsfall, das zur Anforderung geführt hat*  |    
+        |  Datenschutzvolumes für die regionsübergreifende Replikation  |  *Abonnement-ID, NetApp-Zielkonto-URI, Zielkapazitätspool-URI, NetApp-Quellkonto-URI, Quellkapazitätspool-URI, Quellvolume-URI*   |  *Angeforderte neue maximale Anzahl **regionsübergreifender Datenschutzvolumes für die regionsübergreifende Replikation (Zielvolumes)** _     |  _Welches Szenario oder welcher Anwendungsfall hat zur Anforderung geführt?*  |    
 
     2. Legen Sie die entsprechende Supportmethode fest, und geben Sie Ihre Kontaktinformationen an.
 

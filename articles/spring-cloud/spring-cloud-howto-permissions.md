@@ -7,19 +7,19 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 635f1e03596d55101b6158353ed8cdc278212ceb
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0c0b3bd81e0f73a7879382e28516378bd722bc17
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92155376"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498641"
 ---
 # <a name="how-to-use-permissions-in-azure-spring-cloud"></a>Verwenden von Berechtigungen in Azure Spring Cloud
-In diesem Artikel wird beschrieben, wie Sie benutzerdefinierte Rollen erstellen, die Berechtigungen an Azure Spring Cloud-Ressourcen vergeben. Benutzerdefinierte Rollen erweitern die [integrierten Azure-Rollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) um verschiedene Bestandsberechtigungen.
+In diesem Artikel wird beschrieben, wie Sie benutzerdefinierte Rollen erstellen, die Berechtigungen an Azure Spring Cloud-Ressourcen vergeben. Benutzerdefinierte Rollen erweitern [integrierte Azure-Rollen](../role-based-access-control/built-in-roles.md) um verschiedene Bestandsberechtigungen.
 
 Die folgenden benutzerdefinierten Rollen werden implementiert:
 
-* **Entwicklerrolle** : 
+* **Entwicklerrolle**: 
     * Bereitstellen
     * Testen
     * Apps neu starten
@@ -29,7 +29,7 @@ Die folgenden benutzerdefinierten Rollen werden implementiert:
     * Apps neu starten
     * Protokolldatenströme abrufen
     * Kann keine Änderungen an Apps oder Konfigurationen vornehmen
-* **Azure Pipelines/Jenkins/Github Actions-Rolle** :
+* **Azure Pipelines/Jenkins/Github Actions-Rolle**:
     * Kann Erstell-, Lese-, Aktualisierungs- und Löschvorgänge ausführen
     * Kann alles in der Azure Spring Cloud und in den Apps innerhalb der Dienstinstanz erstellen und konfigurieren: Azure Pipelines, Jenkins oder GitHub Actions mit TERRAFORM- oder ARM-Vorlagen
 
@@ -43,18 +43,18 @@ Führen Sie diese Schritte aus, um mit dem Definieren einer Rolle zu beginnen.
 
 1. Öffnen Sie im Azure-Portal das Abonnement und die Ressourcengruppe, in dem bzw. in der es möglich sein soll, die benutzerdefinierte Rolle zuzuweisen.
 2. Öffnen Sie **Zugriffssteuerung (IAM)** .
-3. Klicken Sie auf **+ Hinzufügen** .
-4. Klicken Sie auf **Benutzerdefinierte Rolle hinzufügen** .
-5. Klicken Sie auf **Weiter** .
+3. Klicken Sie auf **+ Hinzufügen**.
+4. Klicken Sie auf **Benutzerdefinierte Rolle hinzufügen**.
+5. Klicken Sie auf **Weiter**.
 
    ![Erstellen einer benutzerdefinierten Rolle](media/spring-cloud-permissions/create-custom-role.png)
 
-6. Klicken Sie a **Berechtigungen hinzufügen** .
+6. Klicken Sie a **Berechtigungen hinzufügen**.
 
    ![Berechtigungen hinzufügen – Starten](media/spring-cloud-permissions/add-permissions.png)
 
 ### <a name="search-for-azure-spring-cloud-permissions"></a>Suchen Sie nach Azure Spring Cloud-Berechtigungen:
-7. Suchen Sie im Suchfeld nach *Microsoft.app* .
+7. Suchen Sie im Suchfeld nach *Microsoft.app*.
 Wählen Sie *Microsoft Azure Spring Cloud* aus.
 
    ![Azure Spring Cloud auswählen](media/spring-cloud-permissions/spring-cloud-permissions.png)
@@ -95,11 +95,11 @@ Wählen Sie unter **Microsoft.AppPlatform/locations/operationStatus/operationId*
 
     [ ![Erstellen von Entwicklerberechtigungen](media/spring-cloud-permissions/developer-permissions-box.png) ](media/spring-cloud-permissions/developer-permissions-box.png#lightbox)
 
-9. Klicken Sie auf **Hinzufügen** .
+9. Klicken Sie auf **Hinzufügen**.
 
 10. Berechtigungen überprüfen.
 
-11. Klicken Sie auf **Überprüfen und erstellen** .
+11. Klicken Sie auf **Überprüfen und erstellen**.
 
 ## <a name="define-devops-engineer-role"></a>DevOps-Entwickler-Rolle definieren
 Diese Prozedur definiert eine Rolle mit Berechtigungen zum Bereitstellen, Testen und Neustarten von Azure Spring Cloud-Apps.
@@ -153,11 +153,11 @@ Wählen Sie unter **Microsoft.AppPlatform/skus** Folgendes aus:
 
    [ ![Dev/Op-Berechtigungen](media/spring-cloud-permissions/dev-ops-permissions.png) ](media/spring-cloud-permissions/dev-ops-permissions.png#lightbox)
 
-3. Klicken Sie auf **Hinzufügen** .
+3. Klicken Sie auf **Hinzufügen**.
 
 4. Berechtigungen überprüfen.
 
-5. Klicken Sie auf **Überprüfen und erstellen** .
+5. Klicken Sie auf **Überprüfen und erstellen**.
 
 ## <a name="define-ops---site-reliability-engineering-role"></a>Definieren der Rolle „Ops – Websitezuverlässigkeits-Techniker (SRE)“
 Diese Prozedur definiert eine Rolle mit Berechtigungen zum Bereitstellen, Testen und Neustarten von Azure Spring Cloud-Apps.
@@ -187,18 +187,18 @@ Wählen Sie unter **Microsoft.AppPlatform/locations/operationStatus/operationId*
 
    [ ![Ops/SRE-Berechtigungen](media/spring-cloud-permissions/ops-sre-permissions.png) ](media/spring-cloud-permissions/ops-sre-permissions.png#lightbox)
 
-3. Klicken Sie auf **Hinzufügen** .
+3. Klicken Sie auf **Hinzufügen**.
 
 4. Berechtigungen überprüfen.
 
-5. Klicken Sie auf **Überprüfen und erstellen** .
+5. Klicken Sie auf **Überprüfen und erstellen**.
 
 ## <a name="define-azure-pipelinesprovisioning-role"></a>Definieren der Rolle „Azure Pipelines/Bereitstellung“
 Diese Rolle für Jenkins/GitHub Actions kann alles in der Azure Spring Cloud und in den Apps innerhalb einer Dienstinstanz erstellen und konfigurieren. Diese Rolle dient zum Freigeben oder Bereitstellen von Code.
 
 1. Wiederholen Sie das Verfahren zum Navigieren in Abonnement, Ressourcengruppe und Zugriffssteuerung (IAM).
 
-2. Öffnen Sie die Optionen für **Berechtigungen** .
+2. Öffnen Sie die Optionen für **Berechtigungen**.
 
 3. Wählen Sie die Berechtigungen für die Rolle „Azure Pipelines/Bereitstellung“ aus:
   
@@ -249,17 +249,17 @@ Wählen Sie unter **Microsoft.AppPlatform/skus** Folgendes aus:
 
    [ ![Pipelines-Berechtigungen](media/spring-cloud-permissions/pipelines-permissions-box.png) ](media/spring-cloud-permissions/pipelines-permissions-box.png#lightbox)  
 
-4. Klicken Sie auf **Hinzufügen** .
+4. Klicken Sie auf **Hinzufügen**.
 
 5. Berechtigungen überprüfen.
 
-6. Klicken Sie auf **Überprüfen und erstellen** .
+6. Klicken Sie auf **Überprüfen und erstellen**.
 
 
 ## <a name="see-also"></a>Weitere Informationen
-* [Erstellen oder Aktualisieren benutzerdefinierter Azure-Rollen über das Azure-Portal](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal)
+* [Erstellen oder Aktualisieren benutzerdefinierter Azure-Rollen über das Azure-Portal](../role-based-access-control/custom-roles-portal.md)
 
 Weitere Informationen zu drei Methoden, mit denen benutzerdefinierte Berechtigungen definiert werden, finden Sie unter:
-* [Klonen einer Rolle](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#clone-a-role)
-* [Ganz von vorn beginnen](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#start-from-scratch)
-* [Verwenden einer JSON-Datei](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#start-from-json)
+* [Klonen einer Rolle](../role-based-access-control/custom-roles-portal.md#clone-a-role)
+* [Ganz von vorn beginnen](../role-based-access-control/custom-roles-portal.md#start-from-scratch)
+* [Verwenden einer JSON-Datei](../role-based-access-control/custom-roles-portal.md#start-from-json)

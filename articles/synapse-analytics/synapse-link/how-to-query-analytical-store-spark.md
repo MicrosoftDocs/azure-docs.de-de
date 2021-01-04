@@ -9,14 +9,14 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 07342cb31f1c44273f98a97b018620538f86c17f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 28af603c0969419cd2e7b8683373faf3838e2242
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91287728"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458940"
 ---
-# <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link-preview"></a>Interagieren mit Azure Cosmos DB mithilfe von Apache Spark in Azure Synapse Link (Vorschau)
+# <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link"></a>Interagieren mit Azure Cosmos DB mithilfe von Apache Spark in Azure Synapse Link
 
 In diesem Artikel erfahren Sie, wie Sie mit Azure Cosmos DB mithilfe von Synapse Apache Spark interagieren. Synapse Apache Spark bietet vollständige Unterstützung für Scala, Python, SparkSQL und C# und ist essentiell für Analyse-, Datentechnik-, Data-Science-, und Datenerkundungsszenarios in [Azure Synapse Link für Azure Cosmos DB](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
@@ -209,7 +209,7 @@ In diesem Beispiel erfahren Sie, wie Sie Verweise auf externe Bibliotheken in JA
     ]
 }
 ```
-Wenn Sie Definitionen für Remoteaufträge in Spark einem Synapse Spark-Pool hinzufügen möchten, erfahren Sie in [diesem Tutorial](../spark/apache-spark-job-definitions.md), wie Sie Verweise auf externe Bibliotheken hinzufügen.
+Wenn Sie Definitionen für Remoteaufträge in Spark einem serverlosen Apache Spark-Pool hinzufügen möchten, erfahren Sie in [diesem Tutorial](../spark/apache-spark-job-definitions.md), wie Sie Verweise auf externe Bibliotheken hinzufügen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

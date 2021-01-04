@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: df0620308fab2e813fe3802dc7effb9dc1ce226c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17bdae658c7095c44a7ae9f30fd85a6c45bf1546
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285382"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779973"
 ---
 # <a name="scale-out-your-azure-arc-enabled-postgresql-hyperscale-server-group-by-adding-more-worker-nodes"></a>Aufskalieren der Azure Arc-fähigen PostgreSQL Hyperscale-Servergruppe durch Hinzufügen weiterer Workerknoten
 In diesem Dokument wird erläutert, wie Sie eine Azure Arc-fähige PostgreSQL Hyperscale-Servergruppe aufskalieren. Dies geschieht anhand eines Szenarios. **Wenn Sie das Szenario nicht durchlaufen möchten und sich lediglich über das Konzept des Aufskalierens informieren möchten, fahren Sie mit dem Absatz [Aufskalieren](#scale-out)** fort.
@@ -252,5 +252,4 @@ Notieren Sie sich die Ausführungszeit.
  > \* Überspringen Sie die Abschnitte **Anmelden am Azure-Portal** und **Erstellen einer Azure Database for PostgreSQL-Instanz für Hyperscale (Citus)** in den oben aufgeführten Dokumenten. Implementieren Sie die restlichen Schritte in Ihrer Azure Arc-Bereitstellung. Diese Abschnitte sind speziell für den PaaS-Dienst „Azure Database for PostgreSQL Hyperscale (Citus)“ in der Azure-Cloud vorgesehen. Die anderen Abschnitte der Dokumente sind jedoch direkt auf Ihre Azure Arc-fähige PostgreSQL Hyperscale-Instanz übertragbar.
 
 - [Speicherkonfiguration und Kubernetes-Speicherkonzepte](storage-configuration.md)
-- [Erweitern von Ansprüchen persistenter Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Kubernetes-Ressourcenmodell](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

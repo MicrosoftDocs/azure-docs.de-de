@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 70bc667fcfa352be7283773e752a798875bf3d01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6cf106f6d7aef4324eeeaf232a28cdd91a8a774b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231264"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843127"
 ---
 # <a name="azure-security-baseline-for-customer-lockbox-for-microsoft-azure"></a>Azure-Sicherheitsbaseline für die Kunden-Lockbox für Microsoft Azure
 
 Die Azure-Sicherheitsbaseline für die Kunden-Lockbox für Microsoft Azure enthält Empfehlungen, mit deren Hilfe Sie den Sicherheitsstatus Ihrer Bereitstellung verbessern können.
 
-Die Baseline für diesen Dienst wird von [Azure Security Benchmark-Version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview) abgeleitet, die Empfehlungen dazu enthält, wie Sie Ihre Cloudlösungen in Azure mithilfe unserer bewährten Methoden schützen können.
+Die Baseline für diesen Dienst wird von [Azure Security Benchmark-Version 1.0](../benchmarks/overview.md) abgeleitet, die Empfehlungen dazu enthält, wie Sie Ihre Cloudlösungen in Azure mithilfe unserer bewährten Methoden schützen können.
 
-Weitere Informationen finden Sie in der [Übersicht über Azure-Sicherheitsbaselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Weitere Informationen finden Sie in der [Übersicht über Azure-Sicherheitsbaselines](../benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Netzwerksicherheit
 
-*Weitere Informationen finden Sie unter [Sicherheitskontrolle: Netzwerksicherheit](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Weitere Informationen finden Sie unter [Sicherheitskontrolle: Netzwerksicherheit](../benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: Schützen von Ressourcen mithilfe von Netzwerksicherheitsgruppen oder Azure Firewall in Virtual Network
 
@@ -116,7 +116,7 @@ Weitere Informationen finden Sie in der [Übersicht über Azure-Sicherheitsbasel
 
 ## <a name="logging-and-monitoring"></a>Protokollierung und Überwachung
 
-*Weitere Informationen finden Sie unter [Sicherheitskontrolle: Protokollierung und Überwachung](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Weitere Informationen finden Sie unter [Sicherheitskontrolle: Protokollierung und Überwachung](../benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: Verwenden von genehmigten Zeitsynchronisierungsquellen
 
@@ -132,9 +132,9 @@ Weitere Informationen finden Sie in der [Übersicht über Azure-Sicherheitsbasel
 
 Das Onboarding der Aktivitätsprotokolle wird von der Kunden-Lockbox in Azure Sentinel oder einem anderen SIEM-Dienst generiert, um die zentrale Protokollaggregation und -verwaltung zu ermöglichen.
 
-* [Überwachungsprotokolle für die Kunden-Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#auditing-logs)
+* [Überwachungsprotokolle für die Kunden-Lockbox](./customer-lockbox-overview.md#auditing-logs)
 
-* [Durchführen des Onboardings für Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Durchführen des Onboardings für Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -144,9 +144,9 @@ Das Onboarding der Aktivitätsprotokolle wird von der Kunden-Lockbox in Azure Se
 
 **Leitfaden**: Überwachungsprotokolle für die Kunden-Lockbox werden automatisch aktiviert und in Azure-Aktivitätsprotokollen verwaltet. Sie können diese Daten anzeigen, indem Sie sie aus dem Azure-Aktivitätsprotokoll in einen Log Analytics-Arbeitsbereich streamen, wo Sie die Daten untersuchen und analysieren können.
 
-* [Überwachungsprotokolle für die Kunden-Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#auditing-logs)
+* [Überwachungsprotokolle für die Kunden-Lockbox](./customer-lockbox-overview.md#auditing-logs)
 
-* [Durchführen des Onboardings für Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Durchführen des Onboardings für Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -164,7 +164,7 @@ Das Onboarding der Aktivitätsprotokolle wird von der Kunden-Lockbox in Azure Se
 
 **Leitfaden**: Legen Sie in Azure Monitor den Aufbewahrungszeitraum für Protokolle für Log Analytics-Arbeitsbereiche, die Ihrer Kunden-Lockbox zugeordnet sind, gemäß den Compliancevorschriften Ihrer Organisation fest.
 
-* [Ändern des Datenaufbewahrungszeitraums](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+* [Ändern des Datenaufbewahrungszeitraums](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -174,7 +174,7 @@ Das Onboarding der Aktivitätsprotokolle wird von der Kunden-Lockbox in Azure Se
 
 **Leitfaden**: Überwachungsprotokolle für die Kunden-Lockbox werden automatisch aktiviert und in Azure-Aktivitätsprotokollen verwaltet. Sie können diese Daten anzeigen, indem Sie sie aus dem Azure-Aktivitätsprotokoll in einen Log Analytics-Arbeitsbereich streamen, wo Sie die Daten untersuchen und analysieren können. Analysieren und überwachen Sie Protokolle Ihrer Kunden-Lockbox-Anforderungen auf anormales Verhalten. Verwenden Sie den Abschnitt „Protokolle“ Ihres Azure Sentinel-Arbeitsbereichs, um Abfragen durchzuführen oder Warnungen anhand Ihrer Kunden-Lockbox-Protokolle zu erstellen.
 
-* [Überwachungsprotokolle in der Kunden-Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#auditing-logs)
+* [Überwachungsprotokolle in der Kunden-Lockbox](./customer-lockbox-overview.md#auditing-logs)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -184,9 +184,9 @@ Das Onboarding der Aktivitätsprotokolle wird von der Kunden-Lockbox in Azure Se
 
 **Leitfaden**: Überwachungsprotokolle für die Kunden-Lockbox werden automatisch aktiviert und in Azure-Aktivitätsprotokollen verwaltet. Sie können diese Daten anzeigen, indem Sie sie aus dem Azure-Aktivitätsprotokoll in einen Log Analytics-Arbeitsbereich streamen, wo Sie die Daten untersuchen und analysieren können. Analysieren und überwachen Sie Protokolle Ihrer Kunden-Lockbox-Anforderungen auf anormales Verhalten. Verwenden Sie den Abschnitt „Protokolle“ Ihres Azure Sentinel-Arbeitsbereichs, um Abfragen durchzuführen oder Warnungen anhand Ihrer Kunden-Lockbox-Protokolle zu erstellen.
 
-* [Überwachungsprotokolle in der Kunden-Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#auditing-logs)
+* [Überwachungsprotokolle in der Kunden-Lockbox](./customer-lockbox-overview.md#auditing-logs)
 
-* [Warnungen bei Log Analytics-Protokolldaten](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+* [Warnungen bei Log Analytics-Protokolldaten](../../azure-monitor/learn/tutorial-response.md)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -218,7 +218,7 @@ Das Onboarding der Aktivitätsprotokolle wird von der Kunden-Lockbox in Azure Se
 
 ## <a name="identity-and-access-control"></a>Identität und Zugriffssteuerung
 
-*Weitere Informationen finden Sie unter [Sicherheitskontrolle: Identität und Zugriffssteuerung](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Weitere Informationen finden Sie unter [Sicherheitskontrolle: Identität und Zugriffssteuerung](../benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Verwalten eines Bestands von Administratorkonten
 
@@ -226,11 +226,11 @@ Das Onboarding der Aktivitätsprotokolle wird von der Kunden-Lockbox in Azure Se
 
 Auf der Seite der Kundenorganisation erhält der Benutzer mit der Rolle „Besitzer“ für das Azure Abonnement eine E-Mail von Microsoft, in der er über die ausstehende Anforderung benachrichtigt wird. Für Kunden-Lockbox-Anforderungen ist diese Person die festgelegte genehmigende Person.
 
-* [Grundlegendes zu benutzerdefinierten Rollen](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
+* [Grundlegendes zu benutzerdefinierten Rollen](../../role-based-access-control/custom-roles.md)
 
-* [Konfigurieren von Azure RBAC in Arbeitsmappen](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
+* [Konfigurieren von Azure RBAC in Arbeitsmappen](../../sentinel/quickstart-get-visibility.md)
 
-* [Grundlegendes zu Zugriffsberechtigungen für Anforderungen in der Kunden-Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+* [Grundlegendes zu Zugriffsberechtigungen für Anforderungen in der Kunden-Lockbox](./customer-lockbox-overview.md)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -253,9 +253,9 @@ Zusätzlich können Sie, um den Überblick über dedizierte Verwaltungskonten zu
 - Veraltete Konten mit Besitzerberechtigungen sollten aus Ihrem Abonnement entfernt werden.
 - Externe Konten mit Besitzerberechtigungen sollten aus Ihrem Abonnement entfernt werden.
 
-* [Überwachen der Identität und des Zugriffs](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Überwachen der Identität und des Zugriffs](../../security-center/security-center-identity-access.md)
 
-* [Tutorial: Erstellen und Verwalten von Richtlinien zur Konformitätserzwingung](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Tutorial: Erstellen und Verwalten von Richtlinien zur Konformitätserzwingung](../../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -273,9 +273,9 @@ Zusätzlich können Sie, um den Überblick über dedizierte Verwaltungskonten zu
 
 **Leitfaden**: Aktivieren Sie die mehrstufige Authentifizierung für Azure Active Directory, und befolgen Sie die Empfehlungen für die Identitäts- und Zugriffsverwaltung in Azure Security Center.
 
-* [Aktivieren von MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Aktivieren von MFA in Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
-* [Überwachen von Identität und Zugriff in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Überwachen von Identität und Zugriff in Azure Security Center](../../security-center/security-center-identity-access.md)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -283,11 +283,11 @@ Zusätzlich können Sie, um den Überblick über dedizierte Verwaltungskonten zu
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: Verwenden dedizierter Computer (Arbeitsstationen mit privilegiertem Zugriff) für alle administrativen Aufgaben
 
-**Leitfaden**: Verwenden Sie eine Arbeitsstation mit privilegiertem Zugriff mit Azure Multi-Factor Authentication (Azure MFA), um sich anzumelden und Ihre Kunden-Lockbox-Anforderungen zu konfigurieren.
+**Leitfaden**: Verwenden Sie eine Arbeitsstation mit privilegiertem Zugriff mit Azure AD Multi-Factor Authentication (Azure MFA), um sich anzumelden und Ihre Kunden-Lockbox-Anforderungen zu konfigurieren.
 
-* [Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [Planen einer cloudbasierten Azure Multi-Factor Authentication-Bereitstellung](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Planen einer cloudbasierten Azure AD Multi-Factor Authentication-Bereitstellung](../../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -299,9 +299,9 @@ Zusätzlich können Sie, um den Überblick über dedizierte Verwaltungskonten zu
 
 Verwenden Sie zusätzlich Azure Active Directory-Risikoerkennungen, um Warnungen und Berichte zu riskantem Benutzerverhalten anzuzeigen.
 
-* [Bereitstellen von Azure AD Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+* [Bereitstellen von Azure AD Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-* [Azure Active Directory-Risikoerkennungen](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+* [Azure Active Directory-Risikoerkennungen](../../active-directory/identity-protection/overview-identity-protection.md)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -311,7 +311,7 @@ Verwenden Sie zusätzlich Azure Active Directory-Risikoerkennungen, um Warnungen
 
 **Leitfaden**: Verwenden Sie benannte Standorte mit bedingtem Zugriff, um den Zugriff auf das Azure-Portal nur über bestimmte logische Gruppierungen von IP-Adressbereichen oder Ländern/Regionen zuzulassen.
 
-* [Konfigurieren benannter Standorte in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+* [Konfigurieren benannter Standorte in Azure](../../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -321,7 +321,7 @@ Verwenden Sie zusätzlich Azure Active Directory-Risikoerkennungen, um Warnungen
 
 **Leitfaden**: Verwenden Sie nach Möglichkeit Azure Active Directory als zentrales Authentifizierungs- und Autorisierungssystem. Azure Active Directory schützt Daten durch eine starke Verschlüsselung für ruhende und übertragene Daten. Außerdem werden in Azure Active Directory Salts und Hashs verwendet, und Anmeldeinformationen werden sicher gespeichert.
 
-* [Erstellen und Konfigurieren einer Azure Active Directory-Instanz](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* [Erstellen und Konfigurieren einer Azure Active Directory-Instanz](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -331,9 +331,9 @@ Verwenden Sie zusätzlich Azure Active Directory-Risikoerkennungen, um Warnungen
 
 **Leitfaden**: Azure Active Directory enthält Protokolle zum Ermitteln veralteter Konten. Verwenden Sie zusätzlich Zugriffsüberprüfungen für Azure Active Directory, um Gruppenmitgliedschaften, den Zugriff auf Unternehmensanwendungen sowie Rollenzuweisungen effizient zu verwalten. Der Benutzerzugriff kann regelmäßig überprüft werden, um sicherzustellen, dass nur die richtigen Benutzer weiterhin über Zugriff verfügen.
 
-* [Grundlegendes zur Azure Active Directory-Berichterstellung](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+* [Grundlegendes zur Azure Active Directory-Berichterstellung](../../active-directory/reports-monitoring/index.yml)
 
-* [Verwenden von Azure Active Directory-Zugriffsüberprüfungen](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [Verwenden von Azure Active Directory-Zugriffsüberprüfungen](../../active-directory/governance/access-reviews-overview.md)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -347,9 +347,9 @@ Sie verfügen über Zugriff auf Azure Active Directory-Anmeldeaktivitäten sowie
 
 Sie können diesen Prozess optimieren, indem Sie Diagnoseeinstellungen für Azure Active Directory-Benutzerkonten erstellen und die Überwachungs- und Anmeldeprotokolle an einen Log Analytics-Arbeitsbereich senden. Sie können gewünschte Warnungen in Log Analytics konfigurieren.
 
-* [Integrieren von Azure-Aktivitätsprotokollen in Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+* [Integrieren von Azure-Aktivitätsprotokollen in Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Schnellstart: Ausführen des Onboardings für Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Schnellstart: Ausführen des Onboardings für Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -359,11 +359,11 @@ Sie können diesen Prozess optimieren, indem Sie Diagnoseeinstellungen für Azur
 
 **Leitfaden**: Falls bei der Kontoanmeldung auf Steuerungsebene (z. B. über das Azure-Portal) ein abweichendes Anmeldeverhalten auftritt, sollten Sie Azure Active Directory Identity Protection und Risikoerkennungsfeatures verwenden, um automatisierte Reaktionen auf erkannte verdächtige Aktionen im Zusammenhang mit Benutzeridentitäten zu konfigurieren. Außerdem können Sie Daten zur weiteren Untersuchung in Azure Sentinel erfassen.
 
-* [Anzeigen riskanter Azure Active Directory-Anmeldungen](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+* [Anzeigen riskanter Azure Active Directory-Anmeldungen](../../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Konfigurieren und Aktivieren von Risikorichtlinien für den Identitätsschutz](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+* [Konfigurieren und Aktivieren von Risikorichtlinien für den Identitätsschutz](../../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-* [Durchführen des Onboardings für Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Durchführen des Onboardings für Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
 **Azure Security Center-Überwachung**: Zurzeit nicht verfügbar
 
@@ -379,7 +379,7 @@ Sie können diesen Prozess optimieren, indem Sie Diagnoseeinstellungen für Azur
 
 ## <a name="data-protection"></a>Schutz von Daten
 
-*Weitere Informationen finden Sie unter [Sicherheitskontrolle: Datenschutz](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Weitere Informationen finden Sie unter [Sicherheitskontrolle: Datenschutz](../benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Verwalten eines Bestands an vertraulichen Informationen
 
@@ -393,7 +393,7 @@ Sie können diesen Prozess optimieren, indem Sie Diagnoseeinstellungen für Azur
 
 **Leitfaden**: Nicht umsetzbar. Die Kunden-Lockbox wird im gleichen Abonnement wie die Ressourcen bereitgestellt, denen Sie den Zugriff gewähren. Es gibt keinen öffentlichen Endpunkt, der geschützt oder isoliert werden könnte. Der Anforderungszugriff für die Kunden-Lockbox wird dem Benutzer gewährt, der über die Besitzerrolle auf der Mandantenebene verfügt.
 
-* [Grundlegendes zum Workflow mit der Kunden-Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+* [Grundlegendes zum Workflow mit der Kunden-Lockbox](./customer-lockbox-overview.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -403,7 +403,7 @@ Sie können diesen Prozess optimieren, indem Sie Diagnoseeinstellungen für Azur
 
 **Leitfaden**: Microsoft verwaltet die zugrunde liegende Infrastruktur für die Kunden-Lockbox und hat strenge Kontrollen implementiert, um Verluste oder Offenlegungen von Kundendaten zu verhindern.
 
-* [Grundlegendes zum Schutz von Kundendaten in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Grundlegendes zum Schutz von Kundendaten in Azure](./protection-customer-data.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -413,7 +413,7 @@ Sie können diesen Prozess optimieren, indem Sie Diagnoseeinstellungen für Azur
 
 **Leitfaden**: Microsoft verwendet standardmäßig das Transport Layer Security-Protokoll (TLS) zum Schutz von Daten bei der Übertragung zwischen den Clouddiensten und Kunden. Die Microsoft-Rechenzentren verhandeln eine TLS-Verbindung mit Clientsystemen, die eine Verbindung mit Azure-Diensten herstellen. TLS bietet strenge Authentifizierung, Datenschutz von Nachrichten und Integrität (ermöglicht die Erkennung von Manipulation, Abfangen und Fälschung von Nachrichten), Interoperabilität, Algorithmusflexibilität sowie einfache Bereitstellung und Verwendung.
 
-* [Grundlegendes zur Verschlüsselung während der Übertragung mit Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+* [Grundlegendes zur Verschlüsselung während der Übertragung mit Azure](./encryption-overview.md#encryption-of-data-in-transit)
 
 **Azure Security Center-Überwachung**: Zurzeit nicht verfügbar
 
@@ -431,7 +431,7 @@ Sie können diesen Prozess optimieren, indem Sie Diagnoseeinstellungen für Azur
 
 **Leitfaden**: Die Genehmigung für Kunden-Lockbox-Anforderungen wird dem Benutzer gewährt, der über die Besitzerrolle auf der Mandantenebene verfügt.
 
-* [Grundlegendes zum Workflow mit der Kunden-Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+* [Grundlegendes zum Workflow mit der Kunden-Lockbox](./customer-lockbox-overview.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -441,7 +441,7 @@ Sie können diesen Prozess optimieren, indem Sie Diagnoseeinstellungen für Azur
 
 **Leitfaden**: Nicht zutreffend. Diese Empfehlung ist für Computeressourcen vorgesehen. Microsoft verwaltet die zugrunde liegende Infrastruktur für die Kunden-Lockbox und hat strenge Kontrollen implementiert, um Verluste oder Offenlegungen von Kundendaten zu verhindern.
 
-* [Schutz der Azure-Kundendaten](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Schutz der Azure-Kundendaten](./protection-customer-data.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -459,11 +459,11 @@ Sie können diesen Prozess optimieren, indem Sie Diagnoseeinstellungen für Azur
 
 **Leitfaden**: Überwachungsprotokolle für die Kunden-Lockbox werden automatisch aktiviert und in Azure-Aktivitätsprotokollen verwaltet. Verwenden Sie das Azure-Aktivitätsprotokoll, um Änderungen an Azure-Kunden-Lockbox-Ressourcen zu überwachen und zu erkennen. Erstellen Sie in Azure Monitor Warnungen, die bei Änderungen an wichtigen Ressourcen ausgelöst werden.
 
-* [Aktivieren der Überwachung in der Kunden-Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+* [Aktivieren der Überwachung in der Kunden-Lockbox](./customer-lockbox-overview.md)
 
-* [Anzeigen und Abrufen von Azure-Aktivitätsprotokollereignissen](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+* [Anzeigen und Abrufen von Azure-Aktivitätsprotokollereignissen](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-* [Erstellen von Warnungen in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Erstellen von Warnungen in Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -471,7 +471,7 @@ Sie können diesen Prozess optimieren, indem Sie Diagnoseeinstellungen für Azur
 
 ## <a name="vulnerability-management"></a>Verwaltung von Sicherheitsrisiken
 
-*Weitere Informationen finden Sie unter [Sicherheitskontrolle: Verwaltung von Sicherheitsrisiken](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Weitere Informationen finden Sie unter [Sicherheitskontrolle: Verwaltung von Sicherheitsrisiken](../benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: Ausführen automatisierter Scan-Tools für Sicherheitsrisiken
 
@@ -515,7 +515,7 @@ Sie können diesen Prozess optimieren, indem Sie Diagnoseeinstellungen für Azur
 
 ## <a name="inventory-and-asset-management"></a>Bestands- und Ressourcenverwaltung
 
-*Weitere Informationen finden Sie unter [Sicherheitskontrolle: Bestands- und Ressourcenverwaltung](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Weitere Informationen finden Sie unter [Sicherheitskontrolle: Bestands- und Ressourcenverwaltung](../benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1: Verwenden von Azure Asset Discovery
 
@@ -523,11 +523,11 @@ Sie können diesen Prozess optimieren, indem Sie Diagnoseeinstellungen für Azur
 
 Obwohl klassische Azure-Ressourcen über Azure Resource Graph ermittelt werden können, wird dringend empfohlen, Azure Resource Manager-Ressourcen zu erstellen und zu verwenden.
 
-* [Erstellen von Abfragen mit Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Erstellen von Abfragen mit Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
-* [Anzeigen Ihrer Azure-Abonnements](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Anzeigen Ihrer Azure-Abonnements](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-* [Grundlegendes zur rollenbasierten Zugriffssteuerung von Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Grundlegendes zur rollenbasierten Zugriffssteuerung von Azure (Azure RBAC)](../../role-based-access-control/overview.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -549,11 +549,11 @@ Verwenden Sie darüber hinaus Azure Policy, um Einschränkungen für die Ressour
 - Not allowed resource types (Unzulässige Ressourcentypen)
 - Zulässige Ressourcentypen
 
-* [Erstellen zusätzlicher Azure-Abonnements](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [Erstellen zusätzlicher Azure-Abonnements](../../cost-management-billing/manage/create-subscription.md)
 
-* [Erstellen von Verwaltungsgruppen](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Erstellen von Verwaltungsgruppen](../../governance/management-groups/create-management-group-portal.md)
 
-* [Erstellen und Verwenden von Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Erstellen und Verwenden von Tags](../../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -573,9 +573,9 @@ Verwenden Sie darüber hinaus Azure Policy, um Einschränkungen für die Ressour
 
 Verwenden Sie Azure Resource Graph, um Ressourcen in ihren Abonnements abzufragen und zu ermitteln. Stellen Sie sicher, dass alle in der Umgebung vorhandenen Azure-Ressourcen genehmigt sind.
 
-* [Konfigurieren und Verwalten von Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Konfigurieren und Verwalten von Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Erstellen von Abfragen mit Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Erstellen von Abfragen mit Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -611,9 +611,9 @@ Verwenden Sie Azure Resource Graph, um Ressourcen in ihren Abonnements abzufrage
 - Not allowed resource types (Unzulässige Ressourcentypen)
 - Zulässige Ressourcentypen
 
-* [Konfigurieren und Verwalten von Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Konfigurieren und Verwalten von Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Ablehnen eines bestimmten Ressourcentyps mit Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+* [Ablehnen eines bestimmten Ressourcentyps mit Azure Policy](../../governance/policy/samples/index.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -631,7 +631,7 @@ Verwenden Sie Azure Resource Graph, um Ressourcen in ihren Abonnements abzufrage
 
 **Leitfaden**: Konfigurieren Sie bedingten Azure-Zugriff, um die Möglichkeiten der Benutzer zur Interaktion mit Azure Resource Manager einzuschränken, indem Sie „Zugriff blockieren“ für die App zur „Verwaltung von Microsoft Azure“ konfigurieren.
 
-* [Verwalten des Zugriffs auf die Azure-Verwaltung mit bedingtem Zugriff](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+* [Verwalten des Zugriffs auf die Azure-Verwaltung mit bedingtem Zugriff](../../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -655,7 +655,7 @@ Verwenden Sie Azure Resource Graph, um Ressourcen in ihren Abonnements abzufrage
 
 ## <a name="secure-configuration"></a>Sichere Konfiguration
 
-*Weitere Informationen finden Sie unter [Sicherheitskontrolle: Sichere Konfiguration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Weitere Informationen finden Sie unter [Sicherheitskontrolle: Sichere Konfiguration](../benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Einrichten sicherer Konfigurationen für alle Azure-Ressourcen
 
@@ -749,7 +749,7 @@ Verwenden Sie Azure Resource Graph, um Ressourcen in ihren Abonnements abzufrage
 
 **Leitfaden**: Nicht umsetzbar. Die Kunden-Lockbox nutzt keine verwalteten Identitäten.
 
-* [Azure-Dienste mit Unterstützung verwalteter Identitäten](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)
+* [Azure-Dienste mit Unterstützung verwalteter Identitäten](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -767,7 +767,7 @@ Verwenden Sie Azure Resource Graph, um Ressourcen in ihren Abonnements abzufrage
 
 ## <a name="malware-defense"></a>Schutz vor Schadsoftware
 
-*Weitere Informationen finden Sie unter [Sicherheitskontrolle: Schutz vor Schadsoftware](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Weitere Informationen finden Sie unter [Sicherheitskontrolle: Schutz vor Schadsoftware](../benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Verwenden einer zentral verwalteten Antischadsoftware
 
@@ -797,7 +797,7 @@ Es liegt in Ihrer Verantwortung, alle Inhalte vorab zu überprüfen, die auf com
 
 ## <a name="data-recovery"></a>Datenwiederherstellung
 
-*Weitere Informationen finden Sie unter [Sicherheitskontrolle: Datenwiederherstellung](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Weitere Informationen finden Sie unter [Sicherheitskontrolle: Datenwiederherstellung](../benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Sicherstellen regelmäßiger automatisierter Sicherungen
 
@@ -833,13 +833,13 @@ Es liegt in Ihrer Verantwortung, alle Inhalte vorab zu überprüfen, die auf com
 
 ## <a name="incident-response"></a>Reaktion auf Vorfälle
 
-*Weitere Informationen finden Sie unter [Sicherheitskontrolle: Reaktion auf Vorfälle](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Weitere Informationen finden Sie unter [Sicherheitskontrolle: Reaktion auf Vorfälle](../benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Erstellen eines Leitfadens für die Reaktion auf Vorfälle
 
 **Anleitung:** Erarbeiten Sie einen Leitfaden für die Reaktion auf Vorfälle für Ihre Organisation. Stellen Sie sicher, dass es schriftliche Pläne für die Reaktion auf Vorfälle gibt, in denen alle Rollen der Mitarbeiter sowie die Phasen der Bearbeitung und Verwaltung von Vorfällen von der Ermittlung bis zur abschließenden Überprüfung definiert sind.
 
-* [Leitfaden zu Planung und Betrieb](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+* [Leitfaden zu Planung und Betrieb](../../security-center/security-center-planning-and-operations-guide.md)
 
 * [Anleitung zum Entwickeln eines Prozesses für die Reaktion auf Sicherheitsvorfälle](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -875,7 +875,7 @@ Kennzeichnen Sie außerdem die Abonnements (z. B. Produktion, Nicht-Produktion)
 
 **Leitfaden**: Microsoft kontaktiert Sie unter den für Sicherheitsvorfälle angegebenen Kontaktdaten, wenn das Microsoft Security Response Center (MSRC) feststellt, dass Personen unrechtmäßig oder unbefugt auf die Kundendaten zugegriffen haben. Überprüfen Sie die Vorfälle anschließend, um sicherzustellen, dass die Probleme behoben wurden.
 
-* [Festlegen der Kontaktinformationen in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+* [Festlegen der Kontaktinformationen in Azure Security Center](../../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -885,9 +885,9 @@ Kennzeichnen Sie außerdem die Abonnements (z. B. Produktion, Nicht-Produktion)
 
 **Leitfaden**: Exportieren Sie die Azure Security Center-Warnungen und -Empfehlungen über die Funktion „Fortlaufender Export“. Über „Fortlaufender Export“ können Sie Warnungen und Empfehlungen entweder manuell oder kontinuierlich exportieren. Sie können den Azure Security Center-Datenconnector verwenden, um die Warnungen an Sentinel zu streamen.
 
-* [Konfigurieren des fortlaufenden Exports](https://docs.microsoft.com/azure/security-center/continuous-export)
+* [Konfigurieren des fortlaufenden Exports](../../security-center/continuous-export.md)
 
-* [Streamen von Warnungen in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+* [Streamen von Warnungen in Azure Sentinel](../../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -897,7 +897,7 @@ Kennzeichnen Sie außerdem die Abonnements (z. B. Produktion, Nicht-Produktion)
 
 **Leitfaden**: Verwenden Sie die Funktion „Workflowautomatisierung“ in Azure Security Center, um über „Logic Apps“ automatisch Reaktionen auf Sicherheitswarnungen und -empfehlungen auszulösen.
 
-* [Konfigurieren von Workflowautomatisierung und Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+* [Konfigurieren von Workflowautomatisierung und Logic Apps](../../security-center/workflow-automation.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -905,7 +905,7 @@ Kennzeichnen Sie außerdem die Abonnements (z. B. Produktion, Nicht-Produktion)
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Penetrationstests und Red Team-Übungen
 
-*Weitere Informationen finden Sie unter [Sicherheitskontrolle: Penetrationstests und Red Team-Übungen](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Weitere Informationen finden Sie unter [Sicherheitskontrolle: Penetrationstests und Red Team-Übungen](../benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1: Durchführen regelmäßiger Penetrationstests ihrer Azure-Ressourcen und Sicherstellen der Behebung aller kritischen Sicherheitsergebnisse innerhalb von 60 Tagen
 
@@ -921,5 +921,5 @@ Kennzeichnen Sie außerdem die Abonnements (z. B. Produktion, Nicht-Produktion)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Lesen Sie den [Vergleichstest für die Azure-Sicherheit](https://docs.microsoft.com/azure/security/benchmarks/overview).
-- Erfahren Sie mehr über [Azure-Sicherheitsbaselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+- Lesen Sie den [Vergleichstest für die Azure-Sicherheit](../benchmarks/overview.md).
+- Erfahren Sie mehr über [Azure-Sicherheitsbaselines](../benchmarks/security-baselines-overview.md).

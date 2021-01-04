@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 11/20/2018
 ms.author: alkohli
-ms.openlocfilehash: cbf6d01925e1924bc5f3c7f1e99840d479fef296
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb1390a32abfe9ccf31002fc569936d39e4e5428
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67178757"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553200"
 ---
 Konfigurieren Sie die Partnersoftware für die Verbindungsherstellung mit dem Client. Für die Verbindungsherstellung mit der Partnersoftware benötigen Sie normalerweise die folgenden Informationen (Abweichungen möglich), die Sie im vorherigen Schritt auf der lokalen Webbenutzeroberfläche über die Seite **Verbindung herstellen und Daten kopieren** erfasst haben:
 
@@ -23,8 +23,8 @@ Falls Sie Storage-Explorer zum ersten Mal nutzen, müssen Sie die folgenden Schr
 
 1. Navigieren Sie in der oberen Befehlsleiste zu **Edit > Target Azure Stack** (Bearbeiten > Azure Stack-Ziel).
 
-    ![Data Box-Dashboard](media/data-box-configure-partner-software/data-box-connect-via-rest-6.png)
+    ![Screenshot: Im Menü „Bearbeiten“ ausgewählte Option „Target Azure Stack“ (Azure Stack-Ziel)](media/data-box-configure-partner-software/data-box-connect-via-rest-6.png)
 
 2. Starten Sie Storage-Explorer neu, damit die Änderungen wirksam werden.
 
-    ![Data Box-Dashboard](media/data-box-configure-partner-software/data-box-connect-via-rest-7.png)
+    ![Screenshot: Schaltfläche „Jetzt neu starten“](media/data-box-configure-partner-software/data-box-connect-via-rest-7.png)

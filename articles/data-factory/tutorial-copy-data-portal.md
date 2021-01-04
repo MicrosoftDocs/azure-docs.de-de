@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 05/28/2020
+ms.date: 11/11/2020
 ms.author: jingwang
-ms.openlocfilehash: 16b5eeb33f8be07d6257d8d7957ea2526ab9d3f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef9ac29735289d5c7a60ff0fca3b9e9f360f6e08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85253963"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005128"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Kopieren von Daten aus Azure Blob Storage in eine Datenbank in Azure SQL-Datenbank mithilfe von Azure Data Factory
 
@@ -81,10 +81,10 @@ Nun bereiten Sie Ihre Blob Storage-Instanz und SQL-Datenbank durch Ausführen de
 In diesem Schritt erstellen Sie eine Data Factory und starten die Data Factory-Benutzeroberfläche, um eine Pipeline in der Data Factory zu erstellen.
 
 1. Öffnen Sie **Microsoft Edge** oder **Google Chrome**. Die Data Factory-Benutzeroberfläche wird zurzeit nur in den Webbrowsern Microsoft Edge und Google Chrome unterstützt.
-2. Klicken Sie im Menü auf der linken Seite auf **Ressource erstellen** > **Analytics** > **Data Factory**.
+2. Wählen Sie im Menü auf der linken Seite **Ressource erstellen** > **Integration** > **Data Factory** aus.
 3. Geben Sie auf der Seite **Neue Data Factory** unter **Name** den Namen **ADFTutorialDataFactory** ein.
 
-   Der Name der Azure Data Factory muss *global eindeutig*sein. Wenn eine Fehlermeldung zum Namenswert angezeigt wird, geben Sie einen anderen Namen für die Data Factory ein. (Verwenden Sie beispielsweise „IhrNameADFTutorialDataFactory“.) Benennungsregeln für Data Factory-Artefakte finden Sie im Thema [Azure Data Factory – Benennungsregeln](naming-rules.md).
+   Der Name der Azure Data Factory muss *global eindeutig* sein. Wenn eine Fehlermeldung zum Namenswert angezeigt wird, geben Sie einen anderen Namen für die Data Factory ein. (Verwenden Sie beispielsweise „IhrNameADFTutorialDataFactory“.) Benennungsregeln für Data Factory-Artefakte finden Sie im Thema [Azure Data Factory – Benennungsregeln](naming-rules.md).
 
      ![Neue Data Factory](./media/doc-common-process/name-not-available-error.png)
 4. Wählen Sie das **Azure-Abonnement** aus, in dem die Data Factory erstellt werden soll.
@@ -124,8 +124,8 @@ In diesem Tutorial beginnen Sie mit dem Erstellen der Pipeline. Verknüpfte Dien
 ### <a name="configure-source"></a>Konfigurieren der Quelle
 
 >[!TIP]
->In diesem Tutorial verwenden Sie *Kontoschlüssel* als Authentifizierungstyp für Ihren Quelldatenspeicher, Sie können bei Bedarf aber auch andere unterstützte Authentifizierungsmethoden auswählen: *SAS-URI*, *Dienstprinzipal* und *Verwaltete Identität*. Ausführlichere Informationen finden Sie in den entsprechenden Abschnitten [dieses Artikels](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#linked-service-properties).
->Zum sicheren Speichern von Geheimnissen für Datenspeicher empfiehlt sich darüber hinaus die Verwendung einer Azure Key Vault-Instanz. Eine ausführliche Erläuterung finden Sie in [diesem Artikel](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
+>In diesem Tutorial verwenden Sie *Kontoschlüssel* als Authentifizierungstyp für Ihren Quelldatenspeicher, Sie können bei Bedarf aber auch andere unterstützte Authentifizierungsmethoden auswählen: *SAS-URI*, *Dienstprinzipal* und *Verwaltete Identität*. Ausführlichere Informationen finden Sie in den entsprechenden Abschnitten [dieses Artikels](./connector-azure-blob-storage.md#linked-service-properties).
+>Zum sicheren Speichern von Geheimnissen für Datenspeicher empfiehlt sich darüber hinaus die Verwendung einer Azure Key Vault-Instanz. Eine ausführliche Erläuterung finden Sie in [diesem Artikel](./store-credentials-in-key-vault.md).
 
 1. Wechseln Sie zur Registerkarte **Quelle**. Klicken Sie auf **+ Neu**, um ein Quelldataset zu erstellen.
 
@@ -147,8 +147,8 @@ In diesem Tutorial beginnen Sie mit dem Erstellen der Pipeline. Verknüpfte Dien
 
 ### <a name="configure-sink"></a>Konfigurieren der Senke
 >[!TIP]
->In diesem Tutorial verwenden Sie *SQL-Authentifizierung* als Authentifizierungstyp für Ihren Senkendatenspeicher, Sie können bei Bedarf aber auch andere unterstützte Authentifizierungsmethoden auswählen: *Dienstprinzipal* und *Verwaltete Identität*. Ausführlichere Informationen finden Sie in den entsprechenden Abschnitten [dieses Artikels](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#linked-service-properties).
->Zum sicheren Speichern von Geheimnissen für Datenspeicher empfiehlt sich darüber hinaus die Verwendung einer Azure Key Vault-Instanz. Eine ausführliche Erläuterung finden Sie in [diesem Artikel](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
+>In diesem Tutorial verwenden Sie *SQL-Authentifizierung* als Authentifizierungstyp für Ihren Senkendatenspeicher, Sie können bei Bedarf aber auch andere unterstützte Authentifizierungsmethoden auswählen: *Dienstprinzipal* und *Verwaltete Identität*. Ausführlichere Informationen finden Sie in den entsprechenden Abschnitten [dieses Artikels](./connector-azure-sql-database.md#linked-service-properties).
+>Zum sicheren Speichern von Geheimnissen für Datenspeicher empfiehlt sich darüber hinaus die Verwendung einer Azure Key Vault-Instanz. Eine ausführliche Erläuterung finden Sie in [diesem Artikel](./store-credentials-in-key-vault.md).
 
 1. Wechseln Sie zur Registerkarte **Senke**, und klicken Sie auf **+ Neu**, um ein Senkendataset zu erstellen.
 
@@ -224,19 +224,17 @@ In diesem Zeitplan erstellen Sie einen Zeitplantrigger für die Pipeline. Der Tr
 
     a. Geben Sie unter **Name** den Namen **RunEveryMinute** ein.
 
-    b. Wählen Sie unter **Ende** die Option **On Date** (Am) aus.
+    b. Aktualisieren Sie die Angabe unter **Startdatum** für Ihren Trigger. Liegt das Datum vor dem aktuellen datetime-Wert, ist der Trigger ab Veröffentlichung der Änderung wirksam. 
 
-    c. Klicken Sie unter **End On** (Ende am) auf die Dropdownliste.
+    c. Wählen Sie unter **Zeitzone** die Dropdownliste aus.
 
-    d. Wählen Sie die Option für das **aktuelle Datum**. Standardmäßig wird als Enddatum der nächste Tag festgelegt.
+    d. Legen Sie **Serie** auf **Every 1 Minute(s)** (Alle 1 Minute(n)) fest.
 
-    e. Legen Sie den Teil für **Endzeit** auf einen Wert fest, der einige Minuten in der Zukunft liegt. Der Trigger wird erst nach dem Veröffentlichen der Änderungen aktiviert. Wenn nur einige Minuten dazwischen liegen und Sie die Änderungen bis zur angegebenen Zeit nicht veröffentlicht haben, wird kein ausgeführter Trigger angezeigt.
+    e. Aktivieren Sie das Kontrollkästchen **Enddatum festlegen**, und aktualisieren Sie den Teil **End On** (Ende am), sodass die angegebene Zeit einige Minuten nach dem aktuellen datetime-Wert liegt. Der Trigger wird erst nach dem Veröffentlichen der Änderungen aktiviert. Wenn nur einige Minuten dazwischen liegen und Sie die Änderungen bis zur angegebenen Zeit nicht veröffentlicht haben, wird kein ausgeführter Trigger angezeigt.
 
-    f. Klicken Sie auf **OK**.
+    f. Wählen Sie **Ja** für die Option **Aktiviert** aus.
 
-    g. Wählen Sie **Ja** für die Option **Aktiviert** aus.
-
-    h. Klicken Sie auf **OK**.
+    g. Klicken Sie auf **OK**.
 
     > [!IMPORTANT]
     > Da für jede Pipelineausführung Gebühren anfallen, legen Sie ein geeignetes Enddatum fest.

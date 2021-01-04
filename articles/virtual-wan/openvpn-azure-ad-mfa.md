@@ -1,20 +1,20 @@
 ---
 title: Aktivieren von MFA für VPN-Benutzer über die Azure AD-Authentifizierung
-description: Erfahren Sie mehr über das Aktivieren von Azure Multi-Factor Authentication (MFA) für VPN-Benutzer über Azure AD-Authentifizierung.
+description: Erfahren Sie mehr über das Aktivieren von Azure AD Multi-Factor Authentication (MFA) für VPN-Benutzer über Azure AD-Authentifizierung.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: efe01c9e0907fef4d33d2a70b3e479b30c471a7c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e8d90653372b78aad78fad66e4cde21bd2ab81ee
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91267889"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "95995612"
 ---
-# <a name="enable-azure-multi-factor-authentication-mfa-for-vpn-users-by-using-azure-ad-authentication"></a>Aktivieren von Azure Multi-Factor Authentication (MFA) für VPN-Benutzer über die Azure AD-Authentifizierung
+# <a name="enable-azure-ad-multi-factor-authentication-mfa-for-vpn-users-by-using-azure-ad-authentication"></a>Aktivieren von Azure AD Multi-Factor Authentication (MFA) für VPN-Benutzer über die Azure AD-Authentifizierung
 
 [!INCLUDE [overview](../../includes/vpn-gateway-vwan-openvpn-enable-mfa-overview.md)]
 

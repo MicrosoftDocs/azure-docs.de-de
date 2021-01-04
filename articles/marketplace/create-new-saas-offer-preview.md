@@ -8,19 +8,19 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: ed0c7ef98e70774350c9a3ff12b0cc3f4186e1bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 041df9b77e85f09d2cf680773edc995c6288acaa
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380465"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746419"
 ---
 # <a name="how-to-add-a-preview-audience-for-your-saas-offer"></a>Hinzufügen einer Vorschauzielgruppe für Ihr SaaS-Angebot
 
 Wenn Sie Ihr SaaS-Angebot (Software-as-a-Service) in Partner Center erstellen, müssen Sie eine Vorschauzielgruppe definieren, die Ihre Angebotsauflistung überprüfen kann, bevor sie online gestellt wird. In diesem Artikel wird das Konfigurieren einer Vorschauzielgruppe erläutert.
 
 > [!NOTE]
-> Wenn Sie Transaktionen unabhängig verarbeiten möchten, wird diese Option nicht angezeigt. In diesem Fall können Sie mit [Vermarkten Ihres SaaS-Angebots](create-new-saas-offer-marketing.md) fortfahren.
+> Wenn Sie Transaktionen unabhängig verarbeiten möchten, wird diese Option nicht angezeigt. In diesem Fall können Sie mit [Verkaufen Ihres SaaS-Angebots](create-new-saas-offer-marketing.md) fortfahren.
 
 ## <a name="define-a-preview-audience"></a>Definieren einer Vorschauzielgruppe
 

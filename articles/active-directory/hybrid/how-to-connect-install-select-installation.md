@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7275d115210100bdd4a3a2eb683c867a6a4a4f4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85358700"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996609"
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Auswählen des Installationstyps für Azure AD Connect
 Azure AD Connect bietet zwei Installationstypen für die Neuinstallation: Express und benutzerdefiniert. Dieses Thema hilft Ihnen, zu entscheiden, welche Option Sie während der Installation verwenden.

@@ -6,14 +6,15 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: 5905471dad5cf4e2e8191894af52c503c23e9036
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 58e7d54750da86b8a700a4f2195bc4cfa012ae4b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277972"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092686"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Häufig gestellte Fragen zum im Autoskalierungsmodus bereitgestellten Durchsatz von Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Bei per Autoskalierung bereitgestelltem Durchsatz verwaltet und skaliert Azure Cosmos DB die RU/s Ihrer Datenbank oder Ihres Containers automatisch basierend auf der Nutzung. Dieser Artikel bietet Antworten auf häufig gestellte Fragen zur Autoskalierung.
 
@@ -108,9 +109,9 @@ Wenn Sie eine Anforderung senden, um die maximale Anzahl von RU/s (`Tmax`) zu er
 #### <a name="lowering-the-max-rus"></a>Verringern der maximalen Anzahl von RU/s
 Wenn Sie die maximale Anzahl von RU/s senken, ist der mögliche Mindestwert `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)`, gerundet auf die nächsten 1.000 RU/s. 
 
-Beispiel 1: Angenommen, Sie verfügen über einen Container mit Autoskalierung und einem Höchstwert von 20.000 RU/s (Skalierung zwischen 2.000 und 20.000 RU/s) sowie 50 GB Speicher. Der Mindestwert, auf den Sie die RU/s festlegen können, ist: MAX(4.000, 20.000 / 10, **50 × 100**) = 5.000 RU/s (Skalierung zwischen 500 und 5.000 RU/s).
+Beispiel 1: Angenommen, Sie verfügen über einen Container mit Autoskalierung und einem Höchstwert von 20.000 RU/s (Skalierung zwischen 2.000 und 20.000 RU/s) sowie 50 GB Speicher. Der Mindestwert, auf den Sie die RU/s festlegen können, ist: MAX(4.000, 20.000 / 10, **50 × 100** ) = 5.000 RU/s (Skalierung zwischen 500 und 5.000 RU/s).
 
-Beispiel 2: Angenommen, Sie verfügen über einen Container mit Autoskalierung und einem Höchstwert von 100.000 RU/s und 100 GB Speicher. Nun legen Sie den Höchstwert auf 150.000 RU/s fest (Skalierung zwischen 15.000 und 150.000 RU/s). Der niedrigste Wert, auf den Sie die maximalen RU/s festlegen können, lautet: MAX(4000, **150.000 / 10**, 100 × 100) = 15.000 RU/s (Skalierung zwischen 1.500 und 15.000 RU/s). 
+Beispiel 2: Angenommen, Sie verfügen über einen Container mit Autoskalierung und einem Höchstwert von 100.000 RU/s und 100 GB Speicher. Nun legen Sie den Höchstwert auf 150.000 RU/s fest (Skalierung zwischen 15.000 und 150.000 RU/s). Der niedrigste Wert, auf den Sie die maximalen RU/s festlegen können, lautet: MAX(4000, **150.000 / 10** , 100 × 100) = 15.000 RU/s (Skalierung zwischen 1.500 und 15.000 RU/s). 
 
 Wenn Sie bei einer Datenbank mit gemeinsam genutztem Durchsatz die maximale Anzahl von RU/s senken, ist der mögliche Mindestwert `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  4000 + (MAX(Container count - 25, 0) * 1000))`, gerundet auf die nächsten 1.000 RU/s.  
 

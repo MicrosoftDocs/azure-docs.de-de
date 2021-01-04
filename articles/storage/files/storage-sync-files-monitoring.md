@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1ef24522f688c5ae1176630a2f370cd7ee7c3cd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59c489fac8bf02263cc51833675af414d5de6a52
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448012"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686003"
 ---
 # <a name="monitor-azure-file-sync"></a>Überwachen der Azure-Dateisynchronisierung
 
@@ -28,7 +28,7 @@ Folgende Szenarios werden in diesem Leitfaden abgedeckt:
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-Verwenden Sie [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview), um Metriken anzuzeigen und Warnungen für Synchronisierung, Cloudtiering und Serverkonnektivität zu konfigurieren.  
+Verwenden Sie [Azure Monitor](../../azure-monitor/overview.md), um Metriken anzuzeigen und Warnungen für Synchronisierung, Cloudtiering und Serverkonnektivität zu konfigurieren.  
 
 ### <a name="metrics"></a>Metriken
 
@@ -56,7 +56,7 @@ In Azure Monitor sind die folgenden Metriken für die Azure-Dateisynchronisierun
 
 ### <a name="alerts"></a>Alerts
 
-Warnungen informieren Sie proaktiv, wenn wichtige Bedingungen in Ihren Überwachungsdaten gefunden werden. Weitere Informationen zum Konfigurieren von Warnungen in Azure Monitor finden Sie unter [Übersicht über Warnungen in Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+Warnungen informieren Sie proaktiv, wenn wichtige Bedingungen in Ihren Überwachungsdaten gefunden werden. Weitere Informationen zum Konfigurieren von Warnungen in Azure Monitor finden Sie unter [Übersicht über Warnungen in Microsoft Azure](../../azure-monitor/platform/alerts-overview.md).
 
 **Erstellen von Warnungen für die Azure-Dateisynchronisierung**
 
@@ -101,7 +101,7 @@ Um die **Integrität registrierter Server** im Portal anzuzeigen, navigieren Sie
 ![Screenshot: Integrität registrierter Server](media/storage-sync-files-troubleshoot/file-sync-registered-servers.png)
 
 - Wenn sich der **registrierte Server** im Zustand **Online** befindet, kommuniziert er erfolgreich mit dem Dienst.
-- Wenn für **Registrierte Server** der Status **Als offline angezeigt** angezeigt wird, wird der Überwachungsprozess für die Speichersynchronisierung (AzureStorageSyncMonitor.exe) nicht ausgeführt, oder der Server kann nicht auf den Azure-Dateisynchronisierungsdienst zugreifen. Weitere Informationen finden Sie in der [Dokumentation zur Problembehandlung](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#server-endpoint-noactivity).
+- Wenn für **Registrierte Server** der Status **Als offline angezeigt** angezeigt wird, wird der Überwachungsprozess für die Speichersynchronisierung (AzureStorageSyncMonitor.exe) nicht ausgeführt, oder der Server kann nicht auf den Azure-Dateisynchronisierungsdienst zugreifen. Weitere Informationen finden Sie in der [Dokumentation zur Problembehandlung](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#server-endpoint-noactivity).
 
 ### <a name="server-endpoint-health"></a>Integrität der Serverendpunkte
 
@@ -109,10 +109,10 @@ Navigieren Sie zum Anzeigen der Integrität eines **Serverendpunkts** im Portal 
 
 ![Screenshot: Integrität der Serverendpunkte](media/storage-sync-files-troubleshoot/file-sync-server-endpoint-health.png)
 
-- Die **Serverendpunktintegrität** und **Synchronisierungsaktivität** im Portal basiert auf den Synchronisierungsereignissen, die im Protokoll für Telemetrieereignisse auf dem Server protokolliert werden (ID 9102 und 9302). Wenn eine Synchronisierungssitzung aufgrund eines vorübergehenden Fehlers (z. B. Abbruchfehler) nicht erfolgreich ist, wird der Serverendpunkt im Portal weiterhin als **fehlerfrei** angezeigt, solange ein Fortschritt bei der Synchronisierungssitzung verzeichnet wird (Dateien werden angewendet). Ereignis-ID 9302 ist das Synchronisierungsfortschrittereignis, und die Ereignis-ID 9102 wird protokolliert, sobald eine Synchronisierungssitzung abgeschlossen ist.  Weitere Informationen finden Sie unter [Wie überwache ich die Integrität der Synchronisierung?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) und [Wie überwache ich den Fortschritt einer aktuellen Synchronisierungssitzung?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session). Wenn für die Integrität der Serverendpunkte ein **Fehler** oder **Keine Aktivität** angezeigt wird, finden Sie in der [Dokumentation zur Problembehandlung](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) weitere Informationen.
-- Die Anzahl **Dateien ohne Synchronisierung** im Portal basiert auf der Ereignis-ID 9121, die im Telemetrieereignisprotokoll auf dem Server protokolliert wird. Dieses Ereignis wird für jeden Fehler pro Element protokolliert, sobald die Synchronisierungssitzung abgeschlossen ist. Wie Sie Fehler auf Elementebene aufzulösen, erfahren Sie unter [Woran erkenne ich, dass bestimmte Dateien oder Ordner nicht synchronisiert wurden?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)
-- Um die **Cloudtieringeffizienz** im Portal anzuzeigen, navigieren Sie zu den **Eigenschaften des Serverendpunkts** und dann zum Abschnitt **Cloudtiering**. Die für die Cloudtieringeffizienz bereitgestellten Daten basieren auf der Ereignis-ID 9071, die im Telemetrieereignisprotokoll auf dem Server protokolliert wird. Weitere Informationen finden Sie im Artikel [Übersicht über Cloudtiering](https://docs.microsoft.com/azure/storage/files/storage-sync-cloud-tiering).
-- Um die **Dateien ohne Tiering** und **Rückruffehler** im Portal anzuzeigen, navigieren Sie zu den **Eigenschaften des Serverendpunkts** und dann zum Abschnitt **Cloudtiering**. **Dateien ohne Tiering** basiert auf der Ereignis-ID 9003, die im Telemetrieereignisprotokoll auf dem Server protokolliert ist, und **Rückruffehler** auf der Ereignis-ID 9006. Wie Sie Dateien untersuchen, bei denen kein Tiering möglich ist oder Rückruffehler auftreten, erfahren Sie unter [So beheben Sie Probleme bei Dateien, bei denen kein Tiering möglich ist](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-to-troubleshoot-files-that-fail-to-tier) und [Beheben von Rückruffehlern bei Dateien](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-to-troubleshoot-files-that-fail-to-be-recalled).
+- Die **Serverendpunktintegrität** und **Synchronisierungsaktivität** im Portal basiert auf den Synchronisierungsereignissen, die im Protokoll für Telemetrieereignisse auf dem Server protokolliert werden (ID 9102 und 9302). Wenn eine Synchronisierungssitzung aufgrund eines vorübergehenden Fehlers (z. B. Abbruchfehler) nicht erfolgreich ist, wird der Serverendpunkt im Portal weiterhin als **fehlerfrei** angezeigt, solange ein Fortschritt bei der Synchronisierungssitzung verzeichnet wird (Dateien werden angewendet). Ereignis-ID 9302 ist das Synchronisierungsfortschrittereignis, und die Ereignis-ID 9102 wird protokolliert, sobald eine Synchronisierungssitzung abgeschlossen ist.  Weitere Informationen finden Sie unter [Wie überwache ich die Integrität der Synchronisierung?](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#broken-sync) und [Wie überwache ich den Fortschritt einer aktuellen Synchronisierungssitzung?](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session). Wenn für die Integrität der Serverendpunkte ein **Fehler** oder **Keine Aktivität** angezeigt wird, finden Sie in der [Dokumentation zur Problembehandlung](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#common-sync-errors) weitere Informationen.
+- Die Anzahl **Dateien ohne Synchronisierung** im Portal basiert auf der Ereignis-ID 9121, die im Telemetrieereignisprotokoll auf dem Server protokolliert wird. Dieses Ereignis wird für jeden Fehler pro Element protokolliert, sobald die Synchronisierungssitzung abgeschlossen ist. Wie Sie Fehler auf Elementebene aufzulösen, erfahren Sie unter [Woran erkenne ich, dass bestimmte Dateien oder Ordner nicht synchronisiert wurden?](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)
+- Um die **Cloudtieringeffizienz** im Portal anzuzeigen, navigieren Sie zu den **Eigenschaften des Serverendpunkts** und dann zum Abschnitt **Cloudtiering**. Die für die Cloudtieringeffizienz bereitgestellten Daten basieren auf der Ereignis-ID 9071, die im Telemetrieereignisprotokoll auf dem Server protokolliert wird. Weitere Informationen finden Sie im Artikel [Übersicht über Cloudtiering](./storage-sync-cloud-tiering.md).
+- Um die **Dateien ohne Tiering** und **Rückruffehler** im Portal anzuzeigen, navigieren Sie zu den **Eigenschaften des Serverendpunkts** und dann zum Abschnitt **Cloudtiering**. **Dateien ohne Tiering** basiert auf der Ereignis-ID 9003, die im Telemetrieereignisprotokoll auf dem Server protokolliert ist, und **Rückruffehler** auf der Ereignis-ID 9006. Wie Sie Dateien untersuchen, bei denen kein Tiering möglich ist oder Rückruffehler auftreten, erfahren Sie unter [So beheben Sie Probleme bei Dateien, bei denen kein Tiering möglich ist](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-tier) und [Beheben von Rückruffehlern bei Dateien](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-be-recalled).
 
 ### <a name="metric-charts"></a>Metrikdiagramme
 
@@ -126,7 +126,7 @@ Navigieren Sie zum Anzeigen der Integrität eines **Serverendpunkts** im Portal 
   | Dateien synchronisiert | Anzahl der übertragenen Dateien (Upload und Download) | Synchronisierungsgruppe, Serverendpunkt |
   | Onlinestatus des Servers | Anzahl der Taktsignale, die vom Server empfangen wurden | Registrierte Server |
 
-- Weitere Informationen finden Sie im Abschnitt [Azure Monitor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#azure-monitor).
+- Weitere Informationen finden Sie im Abschnitt [Azure Monitor](#azure-monitor).
 
   > [!Note]  
   > Die Diagramme im Speichersynchronisierungsdienst-Portal haben einen Zeitbereich von 24 Stunden. Die verschiedenen Zeitbereiche oder -dimensionen können Sie mit Azure Monitor anzeigen.
@@ -141,18 +141,18 @@ Verwenden Sie das Telemetrieereignisprotokoll auf dem Server, um die Integrität
 
 Synchronisierungsintegrität
 
-- Nach Abschluss einer Synchronisierungssitzung wird ein Ereignis mit der ID 9102 protokolliert. Anhand dieses Ereignisses können Sie bestimmen, ob Synchronisierungssitzungen erfolgreich abgeschlossen wurden (**HResult = 0**) und ob Synchronisierungsfehler auf Elementebene (**PerItemErrorCount**) vorliegen. Weitere Informationen finden Sie in der Dokumentation zur [Synchronisierungsintegrität](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) und zu [Fehlern auf Elementebene](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
+- Nach Abschluss einer Synchronisierungssitzung wird ein Ereignis mit der ID 9102 protokolliert. Anhand dieses Ereignisses können Sie bestimmen, ob Synchronisierungssitzungen erfolgreich abgeschlossen wurden (**HResult = 0**) und ob Synchronisierungsfehler auf Elementebene (**PerItemErrorCount**) vorliegen. Weitere Informationen finden Sie in der Dokumentation zur [Synchronisierungsintegrität](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#broken-sync) und zu [Fehlern auf Elementebene](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
 
   > [!Note]  
   > Manchmal tritt bei Synchronisierungssitzungen allgemein ein Fehler auf oder PerItemErrorCount ist ungleich 0. Jedoch wird trotzdem ein Fortschritt angezeigt, und einige Dateien synchronisieren erfolgreich. Dies kann bei den Feldern beobachtet werden, die mit „Applied“ beginnen (AppliedFileCount, AppliedDirCount, AppliedTombstoneCount und AppliedSizeBytes). Die Werte dieser Felder geben an, bis zu welchem Anteil die Sitzung erfolgreich durchgeführt wurde. Wenn für mehrere aufeinanderfolgende Synchronisierungssitzungen Fehler angezeigt werden, die Sitzungen jedoch steigende „Applied“-Werte aufweisen, sollten Sie der Synchronisierung Zeit für einen erneuten Versuch geben, bevor Sie ein Supportticket öffnen.
 
-- Ereignis-ID 9121 wird für jeden Fehler pro Element protokolliert, sobald die Synchronisierungssitzung abgeschlossen ist. Bestimmen Sie anhand dieses Ereignisses die Anzahl der Dateien, bei denen die Synchronisierung mit diesem Fehler (**PersistentCount** und **TransientCount**) nicht erfolgreich ist. Wie Sie persistente Fehler auf Elementebene untersuchen sollten, erfahren Sie unter [Woran erkenne ich, dass bestimmte Dateien oder Ordner nicht synchronisiert wurden?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
+- Ereignis-ID 9121 wird für jeden Fehler pro Element protokolliert, sobald die Synchronisierungssitzung abgeschlossen ist. Bestimmen Sie anhand dieses Ereignisses die Anzahl der Dateien, bei denen die Synchronisierung mit diesem Fehler (**PersistentCount** und **TransientCount**) nicht erfolgreich ist. Wie Sie persistente Fehler auf Elementebene untersuchen sollten, erfahren Sie unter [Woran erkenne ich, dass bestimmte Dateien oder Ordner nicht synchronisiert wurden?](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
 
-- Die Ereignis-ID 9302 wird alle 5 bis 10 Minuten protokolliert, wenn eine aktive Synchronisierungssitzung vorliegt. Verwenden Sie dieses Ereignis, um die Anzahl der Elemente zu ermitteln, die synchronisiert werden sollen (**TotalItemCount**), sowie die Anzahl der bisher synchronisierten Elemente (**AppliedItemCount**) und die Anzahl der Elemente, die aufgrund eines elementspezifischen Fehlers nicht synchronisiert werden konnten (**PerItemErrorCount**). Wenn die Synchronisierung keinen Fortschritt zeigt (**AppliedItemCount=0**), tritt für die Synchronisierungssitzung irgendwann ein Fehler auf, und die Ereignis-ID 9102 wird mit dem Fehler protokolliert. Weitere Informationen finden Sie in der [Dokumentation zum Synchronisierungsfortschritt](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
+- Die Ereignis-ID 9302 wird alle 5 bis 10 Minuten protokolliert, wenn eine aktive Synchronisierungssitzung vorliegt. Verwenden Sie dieses Ereignis, um die Anzahl der Elemente zu ermitteln, die synchronisiert werden sollen (**TotalItemCount**), sowie die Anzahl der bisher synchronisierten Elemente (**AppliedItemCount**) und die Anzahl der Elemente, die aufgrund eines elementspezifischen Fehlers nicht synchronisiert werden konnten (**PerItemErrorCount**). Wenn die Synchronisierung keinen Fortschritt zeigt (**AppliedItemCount=0**), tritt für die Synchronisierungssitzung irgendwann ein Fehler auf, und die Ereignis-ID 9102 wird mit dem Fehler protokolliert. Weitere Informationen finden Sie in der [Dokumentation zum Synchronisierungsfortschritt](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
 Integrität registrierter Server
 
-- Die Ereignis-ID 9301 wird alle 30 Sekunden protokolliert, wenn ein Server Aufträge im Dienst abfragt. Wenn GetNextJob mit dem **Status = 0** abgeschlossen wird, ist eine Kommunikation zwischen dem Server und dem Dienst möglich. Wenn GetNextJob mit einem Fehler abgeschlossen wird, lesen Sie die [Dokumentation zur Problembehandlung](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#server-endpoint-noactivity), um weitere Informationen zu erhalten.
+- Die Ereignis-ID 9301 wird alle 30 Sekunden protokolliert, wenn ein Server Aufträge im Dienst abfragt. Wenn GetNextJob mit dem **Status = 0** abgeschlossen wird, ist eine Kommunikation zwischen dem Server und dem Dienst möglich. Wenn GetNextJob mit einem Fehler abgeschlossen wird, lesen Sie die [Dokumentation zur Problembehandlung](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#server-endpoint-noactivity), um weitere Informationen zu erhalten.
 
 Cloudtieringintegrität
 
@@ -229,7 +229,7 @@ In diesem Abschnitt finden Sie einige Beispiele für Warnungen für die Azure-Da
 7. Navigieren Sie zu **Warnungslogik**, und führen Sie die folgenden Schritte aus: 
      - Auf **Statisch** festgelegter Schwellenwert 
      - Operator: **Größer als** 
-     - Aggregationstyp: **Gesamt**  
+     - Aggregationstyp: **Mittelwert**  
      - Schwellenwert: **100** 
      - Auswertung basierend auf: Aggregationsgranularität = **5 Minuten** | Häufigkeit der Auswertung = **alle 5 Minuten** 
      - Klicken Sie auf **Fertig**. 

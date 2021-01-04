@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: 16c3a45e0d88a0546772b3fdc855c90f2e450d14
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f324ef44d002f50bf27c08072e904c1d92b5512f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250330"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026232"
 ---
 # <a name="functions-in-the-hyperscale-citus-sql-api"></a>Funktionen in der SQL-API für Hyperscale (Citus)
 
@@ -40,7 +40,7 @@ Diese Funktion ersetzt die Verwendung von master\_create\_distributed\_table(), 
 
 **colocate\_with:** (Optional) Schließt die aktuelle Tabelle in die Colocationsgruppe einer anderen Tabelle ein. Standardmäßig wird für Tabellen Colocation verwendet, wenn sie durch Spalten desselben Typs verteilt werden, die gleiche Shardanzahl und denselben Replikationsfaktor aufweisen. Mögliche Werte für `colocate_with` sind `default`, `none`, um eine neue Colocationsgruppe zu starten, oder der Name einer anderen Tabelle, für die Colocation mit dieser Tabelle verwendet werden soll.  (Weitere Informationen finden Sie unter [Tabellencolocation](concepts-hyperscale-colocation.md).)
 
-Beachten Sie, dass der Standardwert `colocate_with` eine implizite Colocation vornimmt. [Colocation](concepts-hyperscale-colocation.md) kann eine hervorragende Lösung sein, wenn Tabellen in Beziehung stehen oder verknüpft werden sollen.  Wenn jedoch zwei Tabellen nicht miteinander in Beziehung stehen, aber zufällig den gleichen Datentyp für ihre Verteilungsspalten verwenden, kann die Leistung bei [Shardausgleich](howto-hyperscale-scaling.md#rebalance-shards) durch eine versehentliche Colocation beeinträchtigt werden.  Die Tabellenshards werden unnötig in einer \"Kaskade\" miteinander verschoben.
+Beachten Sie, dass der Standardwert `colocate_with` eine implizite Colocation vornimmt. [Colocation](concepts-hyperscale-colocation.md) kann eine hervorragende Lösung sein, wenn Tabellen in Beziehung stehen oder verknüpft werden sollen.  Wenn jedoch zwei Tabellen nicht miteinander in Beziehung stehen, aber zufällig den gleichen Datentyp für ihre Verteilungsspalten verwenden, kann die Leistung bei [Shardausgleich](howto-hyperscale-scale-rebalance.md) durch eine versehentliche Colocation beeinträchtigt werden.  Die Tabellenshards werden unnötig in einer \"Kaskade\" miteinander verschoben.
 
 Wenn eine neue verteilte Tabelle nicht in Beziehung mit anderen Tabellen steht, ist es am besten, `colocate_with => 'none'`anzugeben.
 

@@ -1,7 +1,7 @@
 ---
 title: 'Add Rows: Modulreferenz'
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Sie das Modul „Add Rows“ (Hinzufügen von Zeilen) in Azure Machine Learning verwenden können, um zwei Datensätze zu verketten.
+description: Erfahren Sie, wie Sie das Add Rows-Modul im Azure Machine Learning-Designer verwenden, um zwei Datensätze zu verketten.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 353ecc89e242e1d17dd83436f83afe77cc8c84ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c2a74ee88e7161ab8dd1701ef4d105df67c0938
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898975"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421939"
 ---
 # <a name="add-rows-module"></a>Modul „Add Rows“ (Hinzufügen von Zeilen)
 

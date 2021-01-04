@@ -7,18 +7,20 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 0c504ebdec524390d9deb22088979199f80e4f13
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ad880b7c23c687530a79ca1123474e94c923e150
+ms.sourcegitcommit: b849ecdc8aa97337299b0f09970b7810c59cd044
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275964"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96310390"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Einführung in Azure Defender für Containerregistrierungen
 
 Azure Container Registry (ACR) ist ein verwalteter, privater Docker-Registrierungsdienst, der Ihre Containerimages für Azure-Bereitstellungen in einer zentralen Registrierung speichert und verwaltet. Er basiert auf der Open-Source-Docker-Registrierung 2.0.
 
 Aktivieren Sie **Azure Defender für Containerregistrierungen** auf Abonnementebene, um alle auf Azure Resource Manager basierenden Registrierungen in Ihrem Abonnement zu schützen. Mit Security Center werden dann Images gescannt, die in die Registrierung gepusht oder importiert werden oder innerhalb der letzten 30 Tage gepullt wurden. Dieses Feature wird pro Image abgerechnet.
+
+[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-container-registries"></a>Welche Vorteile hat die Nutzung von Azure Defender für Containerregistrierungen?
 
@@ -32,6 +34,12 @@ Security Center filtert und klassifiziert die Ergebnisse des Scanners. Wenn ein 
 
 Indem Sie nur benachrichtigt werden, wenn Probleme auftreten, reduziert Security Center das Potenzial von unerwünschten Informationswarnungen.
 
+
+> [!TIP]
+> Weitere Informationen zu den Containersicherheitsfeatures von Security Center finden Sie unter:
+>
+> - [Containersicherheit in Security Center](container-security.md)
+> - [Einführung in Azure Defender für Kubernetes](defender-for-kubernetes-introduction.md)
 
 ## <a name="when-are-images-scanned"></a>Wann werden Images überprüft?
 
@@ -72,13 +80,16 @@ Eine Liste der Typen von Containerregistrierungen, die von Azure Defender für C
 
 Wenn Sie nicht unterstützte Registrierungen mit Ihrem Azure-Abonnement verbinden, werden sie nicht überprüft und Ihnen nicht in Rechnung gestellt.
 
+### <a name="can-i-customize-the-findings-from-the-vulnerability-scanner"></a>Kann ich die Ergebnisse der Überprüfung auf Sicherheitsrisiken anpassen?
+Ja. Wenn in Ihrer Organisation eine Suche ignoriert werden muss, anstatt sie zu beheben, können Sie sie optional deaktivieren. Deaktivierte Ergebnisse haben keine Auswirkung auf Ihre Sicherheitsbewertung und erzeugen kein unerwünschtes Rauschen.
+
+[Weitere Informationen zum Erstellen von Regeln zum Deaktivieren der Ergebnisse aus dem integrierten Sicherheitsrisikobewertungstool](defender-for-container-registries-usage.md#disable-specific-findings-preview).
+
+### <a name="why-is-security-center-alerting-me-to-vulnerabilities-about-an-image-that-isnt-in-my-registry"></a>Warum macht mich Security Center auf Sicherheitsrisiken bei einem Image aufmerksam, das sich nicht in meiner Registrierung befindet?
+Security Center bietet Sicherheitsrisikobewertungen für jedes Image, das in einer Registrierung per Push oder Pull übertragen wird. Einige Images können Tags aus einem bereits überprüften Image wiederverwenden. Sie können z. B. jedes Mal, wenn Sie einem Digest ein Image hinzufügen, das Tag „Neueste Version“ wieder zuweisen. In solchen Fällen ist das „alte“ Image weiterhin in der Registrierung vorhanden und kann per Pull durch seinen Digest abgerufen werden. Wenn das Image Sicherheitsergebnisse aufweist und gepullt wird, entstehen Sicherheitsrisiken.
+
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zu den Containersicherheitsfeatures von Security Center finden Sie unter:
-
-- [Containersicherheit in Security Center](container-security.md)
-
-- [Einführung in Azure Defender für Kubernetes](defender-for-kubernetes-introduction.md)
-
-
+> [!div class="nextstepaction"]
+> [Überprüfen Ihrer Images auf Sicherheitsrisiken](defender-for-container-registries-usage.md)

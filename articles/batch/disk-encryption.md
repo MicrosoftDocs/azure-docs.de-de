@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 55a7e117ebd49f268d4b075d58791df4e9223fdf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a61e87c660bf2d2f0f4c8d02bd1699c58f8da667
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849261"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350669"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>Erstellen eines Pools mit aktivierter Datenträgerverschlüsselung
 
@@ -25,8 +25,8 @@ Wenn Sie über einen Batch-Pool verfügen, können Sie Daten auf den Betriebssys
 
 Batch wendet basierend auf der Poolkonfiguration und der regionalen Unterstützung eine dieser Datenträgerverschlüsselungstechnologien auf Computeknoten an.
 
-- [Verschlüsselung von verwalteten Datenträgern im Ruhezustand mit plattformseitig verwalteten Schlüsseln](../virtual-machines/windows/disk-encryption.md#platform-managed-keys)
-- [Verschlüsselung auf dem Host mithilfe eines plattformseitig verwalteten Schlüssels](../virtual-machines/windows/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
+- [Verschlüsselung von verwalteten Datenträgern im Ruhezustand mit plattformseitig verwalteten Schlüsseln](../virtual-machines/disk-encryption.md#platform-managed-keys)
+- [Verschlüsselung auf dem Host mithilfe eines plattformseitig verwalteten Schlüssels](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
 - [Azure-Datenträgerverschlüsselung](../security/fundamentals/azure-disk-encryption-vms-vmss.md)
 
 > [!IMPORTANT]
@@ -44,7 +44,7 @@ Wählen Sie beim Erstellen eines Batch-Pools im Azure-Portal unter **Disk Encryp
 
 Nachdem der Pool erstellt wurde, werden die Disk Encryption-Konfigurationsziele im Abschnitt **Eigenschaften** des Pools angezeigt.
 
-:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Screenshot der Disk Encryption-Konfigurationsoption im Azure-Portal.":::
+:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Screenshot mit den Disk Encryption-Konfigurationszielen im Azure-Portal.":::
 
 ## <a name="examples"></a>Beispiele
 
@@ -107,5 +107,5 @@ az batch pool create \
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Erfahren Sie mehr über die [serverseitige Verschlüsselung von Azure Disk Storage](../virtual-machines/windows/disk-encryption.md).
+- Erfahren Sie mehr über die [serverseitige Verschlüsselung von Azure Disk Storage](../virtual-machines/disk-encryption.md).
 - Eine ausführliche Übersicht über Batch finden Sie unter [Workflow und Ressourcen des Batch-Diensts](batch-service-workflow-features.md).

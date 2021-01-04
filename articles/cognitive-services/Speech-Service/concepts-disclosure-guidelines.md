@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: bae801ac64950b0b0e9fe45585a3411477ebf12b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 2276e66fa47b1c125a8c30f3c73a7c948f65a35d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150853"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021931"
 ---
 # <a name="disclosure-design-guidelines"></a>Entwurfsrichtlinien für die Offenlegung
 Erfahren Sie, wie Sie Vertrauen zu Ihren Kunden aufbauen und erhalten können, indem Sie sich in Bezug auf die synthetische Natur Ihres Spracherlebnisses transparent verhalten.
@@ -76,7 +76,7 @@ Verwenden Sie das folgende Diagramm, um zu ermitteln, ob die Erfahrung mit Ihrer
 
 ## <a name="reference-docs"></a>Referenz
 
-* [Offenlegung für Sprecher](https://aka.ms/disclosure-voice-talent)
+* [Offenlegung für Sprecher](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [Richtlinien für die verantwortungsvolle Bereitstellung von Technologien mit künstlicher Sprache](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Kontrollübersicht](concepts-gating-overview.md)
 

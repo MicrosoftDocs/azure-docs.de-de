@@ -7,19 +7,19 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: c37c0e9b914854ff41053526740d3454c5c23f90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 516576f4e005cc9fe2303945ecb1a13489908a5d
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628994"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696352"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> Problembehandlung für Fehler bei ausgehenden Verbindungen
 
 Dieser Artikel bietet Lösungen für häufige Probleme, die bei ausgehenden Verbindungen von Azure Load Balancer auftreten können. Die meisten Probleme mit der ausgehenden Konnektivität, die bei Kunden auftreten, sind auf die SNAT-Portauslastung und Verbindungstimeouts zurückzuführen, die zu verworfenen Paketen führen. Dieser Artikel enthält Schritte zur Behebung dieser Probleme.
 
 ## <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a> Verwalten der SNAT-Portauslastung (PAT)
-Wie unter [Eigenständiger virtueller Computer ohne öffentliche IP-Adresse](load-balancer-outbound-connections.md) und [Virtueller Computer mit Lastenausgleich ohne öffentliche IP-Adresse](load-balancer-outbound-connections.md) beschrieben wird, sind für [PAT](load-balancer-outbound-connections.md) verwendete [kurzlebige Ports](load-balancer-outbound-connections.md) eine begrenzte Ressource. Sie können Ihre Nutzung von kurzlebigen Ports überwachen und mit Ihrer aktuellen Zuordnung vergleichen, um das Risiko zu ermitteln oder die SNAT-Auslastung anhand [dieses Leitfadens](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) zu bestätigen.
+Wie unter [Eigenständiger virtueller Computer ohne öffentliche IP-Adresse](load-balancer-outbound-connections.md) und [Virtueller Computer mit Lastenausgleich ohne öffentliche IP-Adresse](load-balancer-outbound-connections.md) beschrieben wird, sind für [PAT](load-balancer-outbound-connections.md) verwendete [kurzlebige Ports](load-balancer-outbound-connections.md) eine begrenzte Ressource. Sie können Ihre Nutzung von kurzlebigen Ports überwachen und mit Ihrer aktuellen Zuordnung vergleichen, um das Risiko zu ermitteln oder die SNAT-Auslastung anhand [dieses Leitfadens](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation) zu bestätigen.
 
 Wenn Sie wissen, dass Sie viele ausgehende TCP- oder UDP-Verbindungen zu derselben IP-Zieladresse und demselben Port initiieren und Fehler bei ausgehenden Verbindungen feststellen oder vom Support darauf hingewiesen werden, dass Sie zu viele SNAT-Ports (vorab zugeordnete [kurzlebige Ports](load-balancer-outbound-connections.md#preallocatedports), die für [PAT](load-balancer-outbound-connections.md) verwendet werden) in Anspruch nehmen, stehen Ihnen mehrere Lösungsmöglichkeiten zur Verfügung. Überprüfen Sie diese Optionen, und entscheiden Sie, welche für Ihr Szenario verfügbar und am besten geeignet sind. Möglicherweise kann die ein oder andere die Verwaltung dieses Szenarios erleichtern.
 
@@ -63,7 +63,7 @@ Beispielsweise sind für zwei virtuelle Computer im Back-End-Pool 1.024 SNAT Por
 Wenn Sie auf die nächstgrößere Back-End-Poolgröße aufskalieren, erfolgt möglicherweise für einige Ihrer ausgehenden Verbindungen ein Timeout, wenn zugeordnete Ports neu zugeordnet werden müssen.  Wenn Sie nur einige Ihrer SNAT-Ports verwenden, hat das Hochskalieren über die nächstgrößere Back-End-Poolgröße hinaus keine Auswirkungen.  Die Hälfte der vorhandenen Ports wird bei jedem Wechsel zur nächsten Back-End-Poolebene neu zugeordnet.  Soll dies nicht stattfinden, müssen Sie Ihre Bereitstellung an die Ebenengröße anpassen.  Oder Sie stellen sicher, dass Ihre Anwendung geeignet erkennen und wiederholen kann.  TCP-Keepalives können bei der Erkennung unterstützen, wenn SNAT-Ports nicht mehr funktionieren, weil sie neu zugeordnet werden.
 
 ## <a name="use-keepalives-to-reset-the-outbound-idle-timeout"></a><a name="idletimeout"></a>Verwenden von Keepalives zum Zurücksetzen des Leerlauftimeouts für ausgehende Verbindungen
-Ausgehende Verbindungen haben einen 4-Minuten-Leerlauftimeout. Dieses Zeitlimit kann über [Ausgangsregeln](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout) angepasst werden. Sie können Keepalives auf der Transportschicht (z. B. TCP-Keepalives) oder der Anwendungsschicht verwenden, um einen im Leerlauf befindlichen Datenfluss zu aktualisieren und den Leerlauftimeout bei Bedarf zurückzusetzen.  
+Ausgehende Verbindungen haben einen 4-Minuten-Leerlauftimeout. Dieses Zeitlimit kann über [Ausgangsregeln](outbound-rules.md) angepasst werden. Sie können Keepalives auf der Transportschicht (z. B. TCP-Keepalives) oder der Anwendungsschicht verwenden, um einen im Leerlauf befindlichen Datenfluss zu aktualisieren und den Leerlauftimeout bei Bedarf zurückzusetzen.  
 
 Wenn TCP-Keepalives verwendet werden, genügt es, sie auf einer Seite der Verbindung zu aktivieren. Beispielsweise genügt es, sie nur auf der Serverseite zu aktivieren, um den Leerlauftimer des Datenflusses zurückzusetzen, und es ist nicht erforderlich, TCP-Keepalives auf beiden Seiten auszulösen.  Ähnliche Konzepte gibt es für die Anwendungsschicht, einschließlich Client/Server-Konfigurationen für Datenbanken.  Überprüfen Sie auf der Serverseite, welche Optionen es für anwendungsspezifische Keepalives gibt.
 

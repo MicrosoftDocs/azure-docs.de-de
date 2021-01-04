@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
-ms.openlocfilehash: 40f8c36b197b0c68b9f04a02dc7731877b27ddd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdce735bdacbe7ff0752650c6949fdb361342c73
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541661"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542555"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>Tutorial: Konfigurieren von Apache Ambari-E-Mail-Benachrichtigungen in Azure HDInsight
 
@@ -26,7 +26,7 @@ In diesem Tutorial lernen Sie Folgendes:
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* SendGrid-E-Mail-Konto. Entsprechende Anweisungen finden Sie unter [Senden von E-Mails in Azure mit SendGrid](https://docs.microsoft.com/azure/sendgrid-dotnet-how-to-send-email).
+* SendGrid-E-Mail-Konto. Entsprechende Anweisungen finden Sie unter [Senden von E-Mails in Azure mit SendGrid](../sendgrid-dotnet-how-to-send-email.md).
 
 * Einen HDInsight-Cluster Siehe [Erstellen von Apache Hadoop-Clustern im Azure-Portal](./hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -38,11 +38,11 @@ In diesem Tutorial lernen Sie Folgendes:
 
     ![SendGrid-Übersicht im Azure-Portal](./media/apache-ambari-email/azure-portal-sendgrid-manage.png)
 
-1. Navigieren Sie im Menü auf der linken Seite zu Ihrem Kontonamen und dann zu **Kontodetails**.
+1. Navigieren Sie im Menü auf der linken Seite zu Ihrem Kontonamen und dann zu **Kontodetails** .
 
     ![Navigation auf dem SendGrid-Dashboard](./media/apache-ambari-email/sendgrid-dashboard-navigation.png)
 
-1. Notieren Sie auf der Seite **Kontodetails** den Wert unter **Benutzername**.
+1. Notieren Sie auf der Seite **Kontodetails** den Wert unter **Benutzername** .
 
     ![SendGrid-Kontodetails](./media/apache-ambari-email/sendgrid-account-details.png)
 
@@ -64,7 +64,7 @@ In diesem Tutorial lernen Sie Folgendes:
     |Gruppen|Nehmen Sie die Konfiguration nach Bedarf vor.|
     |severity|Nehmen Sie die Konfiguration nach Bedarf vor.|
     |BESCHREIBUNG|Optional.|
-    |Methode|Übernehmen Sie die Option **E-MAIL**.|
+    |Methode|Übernehmen Sie die Option **E-MAIL** .|
     |Email To (E-Mail an)|Geben Sie E-Mail-Adressen getrennt durch Komma ein, an die Benachrichtigungen gesendet werden sollen.|
     |SMTP-Server|`smtp.sendgrid.net`|
     |SMTP-Port|25 oder 587 (für unverschlüsselte Verbindungen oder TLS-Verbindungen)|

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: be7e4a641e5b5ac2ef755037142cfd8063d66b5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a016781e5b05c8f43c043bf1f3368a58064e43ad
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448878"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501259"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Query Performance Insight für Azure SQL-Datenbank
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,7 +32,7 @@ Query Performance Insight bietet für Einzel- und Pooldatenbanken eine intellige
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Um Query Performance Insight nutzen zu können, muss der [Abfragespeicher](https://msdn.microsoft.com/library/dn817826.aspx) für Ihre Datenbank aktiv sein. Das Tool wird standardmäßig automatisch für alle Datenbanken in Azure SQL-Datenbank aktiviert. Wenn der Abfragespeicher nicht ausgeführt wird, werden Sie vom Azure-Portal aufgefordert, den Abfragespeicher zu aktivieren.
+Um Query Performance Insight nutzen zu können, muss der [Abfragespeicher](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) für Ihre Datenbank aktiv sein. Das Tool wird standardmäßig automatisch für alle Datenbanken in Azure SQL-Datenbank aktiviert. Wenn der Abfragespeicher nicht ausgeführt wird, werden Sie vom Azure-Portal aufgefordert, den Abfragespeicher zu aktivieren.
 
 > [!NOTE]
 > Wenn die Meldung „Der Abfragespeicher ist für diese Datenbank nicht ordnungsgemäß konfiguriert“ im Portal angezeigt wird, lesen Sie [Optimierung der Abfragespeicherkonfiguration für Query Performance Insight](#optimize-the-query-store-configuration).
@@ -61,7 +61,7 @@ Query Performance Insight ist einfach zu verwenden:
    ![Leistungsdashboard](./media/query-performance-insight-use/performance.png)
 
 > [!NOTE]
-> Damit Azure SQL-Datenbank die Informationen in Query Performance Insight rendern kann, muss der Abfragespeicher ein paar Stunden lang Daten erfassen. Wenn die Datenbank keine Aktivität aufweist oder der Abfragespeicher während eines bestimmten Zeitraums nicht aktiv war, sind die Diagramme beim Anzeigen dieses Zeitraums durch Query Performance Insight leer. Sie können den Abfragespeicher jederzeit aktivieren, wenn die Anwendung nicht ausgeführt wird. Weitere Informationen finden Sie unter [Bewährte Methoden für den Abfragespeicher](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store).
+> Damit Azure SQL-Datenbank die Informationen in Query Performance Insight rendern kann, muss der Abfragespeicher ein paar Stunden lang Daten erfassen. Wenn die Datenbank keine Aktivität aufweist oder der Abfragespeicher während eines bestimmten Zeitraums nicht aktiv war, sind die Diagramme beim Anzeigen dieses Zeitraums durch Query Performance Insight leer. Sie können den Abfragespeicher jederzeit aktivieren, wenn die Anwendung nicht ausgeführt wird. Weitere Informationen finden Sie unter [Bewährte Methoden für den Abfragespeicher](/sql/relational-databases/performance/best-practice-with-the-query-store).
 >
 
 Wählen Sie für Empfehlungen zur Datenbankleistung [Empfehlungen](database-advisor-implement-performance-recommendations.md) auf dem Navigationsblatt von Query Performance Insight aus.
@@ -232,7 +232,7 @@ Der erste Fall tritt ein, wenn sich der Abfragespeicher im schreibgeschützten M
 
    ![Details zum Abfragespeicher](./media/query-performance-insight-use/qds-off.png)
 
-Der zweite Fall tritt ein, wenn der Abfragespeicher deaktiviert ist oder die Parameter nicht optimal festgelegt sind. Sie können zum Ändern der Richtlinie für Aufbewahrung und Erfassung den Abfragespeicher auch aktivieren, indem Sie die folgenden Befehle aus [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) oder dem Azure-Portal ausführen.
+Der zweite Fall tritt ein, wenn der Abfragespeicher deaktiviert ist oder die Parameter nicht optimal festgelegt sind. Sie können zum Ändern der Richtlinie für Aufbewahrung und Erfassung den Abfragespeicher auch aktivieren, indem Sie die folgenden Befehle aus [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) oder dem Azure-Portal ausführen.
 
 ### <a name="recommended-retention-and-capture-policy"></a>Empfohlene Aufbewahrungs- und Erfassungsrichtlinie
 
@@ -247,7 +247,7 @@ Sie können für die Erfassungsrichtlinie Folgendes festlegen:
 * **Automatisch**: Der Abfragespeicher ignoriert seltene Abfragen und Abfragen mit unbedeutender Erstellungs- und Ausführungsdauer. Die Schwellenwerte für Ausführungszahl, Kompilierungs- und Ausführungsdauer werden intern bestimmt. Dies ist die Standardoption.
 * **Keine:** Der Abfragespeicher beendet die Erfassung neuer Abfragen, die Laufzeitstatistiken für bereits erfasste Abfragen werden jedoch weiter gesammelt.
 
-Sie sollten für alle Richtlinien **AUTOMATISCH** und für die Bereinigungsrichtlinie 30 Tage festlegen, indem Sie die folgenden Befehle aus [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) oder Azure-Portal ausführen. (Ersetzen Sie `YourDB` mit dem Datenbanknamen.)
+Sie sollten für alle Richtlinien **AUTOMATISCH** und für die Bereinigungsrichtlinie 30 Tage festlegen, indem Sie die folgenden Befehle aus [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) oder Azure-Portal ausführen. (Ersetzen Sie `YourDB` mit dem Datenbanknamen.)
 
 ```sql
     ALTER DATABASE [YourDB]
@@ -260,7 +260,7 @@ Sie sollten für alle Richtlinien **AUTOMATISCH** und für die Bereinigungsricht
     SET QUERY_STORE (QUERY_CAPTURE_MODE = AUTO);
 ```
 
-Setzen Sie die Größe des Abfragespeichers durch Herstellen einer Verbindung mit einer Datenbank über [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) oder das Azure-Portal und Ausführen der folgenden Abfrage herauf. (Ersetzen Sie `YourDB` mit dem Datenbanknamen.)
+Setzen Sie die Größe des Abfragespeichers durch Herstellen einer Verbindung mit einer Datenbank über [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) oder das Azure-Portal und Ausführen der folgenden Abfrage herauf. (Ersetzen Sie `YourDB` mit dem Datenbanknamen.)
 
 ```SQL
     ALTER DATABASE [YourDB]

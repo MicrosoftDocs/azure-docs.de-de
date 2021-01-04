@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 277acbc84ab435ce1076c30a1e49f6ffdd2a0586
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12a282b1f53dde570f5f6647a45df82808b20350
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543714"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080820"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce-sandbox"></a>Tutorial: Integration des einmaligen Anmeldens (Single Sign-On, SSO) von Azure Active Directory mit Salesforce Sandbox
 
@@ -26,7 +26,7 @@ In diesem Tutorial erfahren Sie, wie Sie Salesforce Sandbox in Azure Active Dir
 * Ermöglichen Sie es Ihren Benutzern, sich mit ihren Azure AD-Konten automatisch bei Salesforce Sandbox anzumelden.
 * Verwalten Sie Ihre Konten zentral im Azure-Portal.
 
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -42,7 +42,7 @@ In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure
 * Salesforce Sandbox unterstützt **SP- und IDP**-initiiertes einmaliges Anmelden.
 * Salesforce Sandbox unterstützt die **Just-in-Time**-Benutzerbereitstellung.
 * Salesforce Sandbox unterstützt die [**automatisierte** Benutzerbereitstellung](salesforce-sandbox-provisioning-tutorial.md).
-* Nach dem Konfigurieren von Salesforce Sandbox können Sie Sitzungssteuerungen erzwingen, die in Echtzeit vor der Exfiltration und Infiltration vertraulicher Unternehmensdaten schützt. Sitzungssteuerungen basieren auf bedingtem Zugriff. [Hier](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad) erfahren Sie, wie Sie die Sitzungssteuerung mit Microsoft Cloud App Security erzwingen.
+* Nach dem Konfigurieren von Salesforce Sandbox können Sie Sitzungssteuerungen erzwingen, die in Echtzeit vor der Exfiltration und Infiltration vertraulicher Unternehmensdaten schützt. Sitzungssteuerungen basieren auf bedingtem Zugriff. [Hier](/cloud-app-security/proxy-deployment-aad) erfahren Sie, wie Sie die Sitzungssteuerung mit Microsoft Cloud App Security erzwingen.
 
 ## <a name="adding-salesforce-sandbox-from-the-gallery"></a>Hinzufügen von Salesforce Sandbox aus dem Katalog
 
@@ -149,35 +149,35 @@ In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anm
 
 2. Klicken Sie in der oberen rechten Ecke der Seite unter dem **Einstellungssymbol** auf **Setup**.
 
-    ![Einmaliges Anmelden konfigurieren](./media/salesforce-sandbox-tutorial/configure1.png)
+    ![Screenshot: Auswahl des Einstellungssymbols in der oberen rechten Ecke und der Option „Setup“ im Dropdownmenü](./media/salesforce-sandbox-tutorial/configure1.png)
 
 3. Scrollen Sie im linken Navigationsbereich nach unten bis zu den **EINSTELLUNGEN**, und klicken Sie auf **Identität**, um den zugehörigen Bereich zu erweitern. Klicken Sie dann auf **Einstellungen für einmaliges Anmelden**.
 
-    ![Einmaliges Anmelden konfigurieren](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
+    ![Screenshot: Menü „Settings“ (Einstellungen) im linken Bereich, in dem im Menü „Identity“ (Identität) die Option „Single Sign-On Settings“ (Einstellungen für einmaliges Anmelden) ausgewählt ist](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
 
 4. Klicken Sie auf der Seite **Einstellungen für einmaliges Anmelden** auf die Schaltfläche **Bearbeiten**.
 
-    ![Einmaliges Anmelden konfigurieren](./media/salesforce-sandbox-tutorial/configure3.png)
+    ![Screenshot: Seite „Single Sign-On Settings“ (Einstellungen für einmaliges Anmelden) mit der ausgewählten Schaltfläche „Edit“ (Bearbeiten)](./media/salesforce-sandbox-tutorial/configure3.png)
 
 5. Wählen Sie **SAML aktiviert**, und klicken Sie dann auf **Speichern**.
 
-    ![Einmaliges Anmelden konfigurieren](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
+    ![Screenshot: Seite „Single Sign-On Settings“ (Einstellungen für einmaliges Anmelden), auf der das Kontrollkästchen „SAML Enabled“ (SAML aktiviert) und die Schaltfläche „Save“ (Speichern) ausgewählt sind](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
 6. Klicken Sie auf **Neu aus Metadatendatei**, um Ihre SAML-Einstellungen für einmaliges Anmelden zu konfigurieren.
 
-    ![Einmaliges Anmelden konfigurieren](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
+    ![Screenshot: Seite „Single Sign-On Settings“ (Einstellungen für einmaliges Anmelden), auf der die Schaltfläche „New from Metadata File“ (Neu aus Metadatendatei) ausgewählt ist](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
 7. Klicken Sie auf **Datei auswählen**, um die Metadaten-XML-Datei hochzuladen, die Sie aus dem Azure-Portal heruntergeladen haben, und klicken Sie dann auf **Erstellen**.
 
-    ![Einmaliges Anmelden konfigurieren](./media/salesforce-sandbox-tutorial/xmlchoose.png)
+    ![Screenshot: Seite „Single Sign-On Settings“ (Einstellungen für einmaliges Anmelden), auf der die Schaltflächen „Choose File“ (Datei auswählen) und „Create“ (Erstellen) ausgewählt sind](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
 8. Auf der Seite **SAML-Einstellungen für einmaliges Anmelden** werden die Felder automatisch aufgefüllt. Klicken Sie auf „Speichern“.
 
-    ![Einmaliges Anmelden konfigurieren](./media/salesforce-sandbox-tutorial/salesforcexml.png)
+    ![Screenshot: Seite „Single Sign-On Settings“ (Einstellungen für einmaliges Anmelden), auf der Felder ausgefüllt sind und die Schaltfläche „Save“ (Speichern) ausgewählt ist](./media/salesforce-sandbox-tutorial/salesforcexml.png)
 
 9. Klicken Sie auf der Seite **Einstellungen für einmaliges Anmelden** auf die Schaltfläche **Metadaten herunterladen**, um die Dienstanbieter-Metadatendatei herunterzuladen. Verwenden Sie diese Datei im Abschnitt **Grundlegende SAML-Konfiguration** im Azure-Portal, um die notwendigen URLs wie oben erläutert zu konfigurieren.
 
-    ![Einmaliges Anmelden konfigurieren](./media/salesforce-sandbox-tutorial/configure4.png)
+    ![Screenshot: Seite „Single Sign-On Settings“ (Einstellungen für einmaliges Anmelden), auf der Felder ausgefüllt sind und die Schaltfläche „Download Metadata“ (Metadaten herunterladen) ausgewählt ist](./media/salesforce-sandbox-tutorial/configure4.png)
 
 10. Wenn Sie die Anwendung im **SP**-initiierten Modus konfigurieren möchten, sind dies die Voraussetzungen:
 
@@ -202,31 +202,31 @@ In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anm
 
 13. Klicken Sie in der oberen rechten Ecke der Seite unter dem **Einstellungssymbol** auf **Setup**.
 
-    ![Einmaliges Anmelden konfigurieren](./media/salesforce-sandbox-tutorial/configure1.png)
+    ![Screenshot: Auswahl des Einstellungssymbols in der oberen rechten Ecke und der Option „Setup“ im Dropdownmenü](./media/salesforce-sandbox-tutorial/configure1.png)
 
 14. Scrollen Sie im linken Navigationsbereich nach unten bis zu den **EINSTELLUNGEN**, und klicken Sie auf **Identität**, um den zugehörigen Bereich zu erweitern. Klicken Sie dann auf **Einstellungen für einmaliges Anmelden**.
 
-    ![Einmaliges Anmelden konfigurieren](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
+    ![Screenshot: Menü „Settings“ (Einstellungen) im linken Navigationsbereich, in dem im Menü „Identity“ (Identität) die Option „Single Sign-On Settings“ (Einstellungen für einmaliges Anmelden) ausgewählt ist](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
 
 15. Klicken Sie auf der Seite **Einstellungen für einmaliges Anmelden** auf die Schaltfläche **Bearbeiten**.
 
-    ![Einmaliges Anmelden konfigurieren](./media/salesforce-sandbox-tutorial/configure3.png)
+    ![Screenshot: Seite „Single Sign-On Settings“ (Einstellungen für einmaliges Anmelden) mit der ausgewählten Schaltfläche „Edit“ (Bearbeiten)](./media/salesforce-sandbox-tutorial/configure3.png)
 
 16. Wählen Sie **SAML aktiviert**, und klicken Sie dann auf **Speichern**.
 
-    ![Einmaliges Anmelden konfigurieren](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
+    ![Screenshot: Seite „Single Sign-On Settings“ (Einstellungen für einmaliges Anmelden), auf der das Kontrollkästchen „SAML Enabled“ (SAML aktiviert) und die Schaltfläche „Save“ (Speichern) ausgewählt sind](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
 17. Klicken Sie auf **Neu aus Metadatendatei**, um Ihre SAML-Einstellungen für einmaliges Anmelden zu konfigurieren.
 
-    ![Einmaliges Anmelden konfigurieren](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
+    ![Screenshot: Seite „Single Sign-On Settings“ (Einstellungen für einmaliges Anmelden), auf der die Schaltfläche „New from Metadata File“ (Neu aus Metadatendatei) ausgewählt ist](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
 18. Klicken Sie auf **Datei auswählen**, um die Metadaten-XML-Datei hochzuladen, und klicken Sie auf **Erstellen**.
 
-    ![Einmaliges Anmelden konfigurieren](./media/salesforce-sandbox-tutorial/xmlchoose.png)
+    ![Screenshot: Seite „Single Sign-On Settings“ (Einstellungen für einmaliges Anmelden), auf der die Schaltfläche „Choose File“ (Datei auswählen) und die Schaltfläche „Create“ (Erstellen) ausgewählt sind](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
 19. Auf der Seite **SAML-Einstellungen für einmaliges Anmelden** werden Felder automatisch aufgefüllt. Geben Sie den Namen der Konfiguration (z.B. *SPSSOWAAD_Test*) in das Textfeld **Name** ein, und klicken Sie auf „Speichern“.
 
-    ![Einmaliges Anmelden konfigurieren](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
+    ![Screenshot: Seite „Single Sign-On Settings“ (Einstellungen für einmaliges Anmelden), auf der Felder ausgefüllt sind, das Textfeld „Name“ einen Beispielnamen enthält und die Schaltfläche „Save“ (Speichern) ausgewählt ist](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
 
 20. Führen Sie die folgenden Schritte aus, um Ihre Domäne in Salesforce Sandbox zu aktivieren.
 
@@ -235,11 +235,11 @@ In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anm
 
 21. Klicken Sie in Salesforce Sandbox im linken Navigationsbereich auf **Unternehmenseinstellungen**, um den zugehörigen Abschnitt zu erweitern, und klicken Sie dann auf **My Domain** (Meine Domäne).
 
-    ![Einmaliges Anmelden konfigurieren](./media/salesforce-sandbox-tutorial/sf-my-domain.png)
+    ![Screenshot, auf dem im linken Navigationsbereich „Company Settings“ (Unternehmenseinstellungen) und „My Domain“ (Meine Domäne) ausgewählt sind](./media/salesforce-sandbox-tutorial/sf-my-domain.png)
 
 22. Klicken Sie im Abschnitt **Authentifizierungskonfiguration** auf **Bearbeiten**.
 
-    ![Einmaliges Anmelden konfigurieren](./media/salesforce-sandbox-tutorial/sf-edit-auth-config.png)
+    ![Screenshot: Abschnitt „Authentication Configuration“ (Authentifizierungskonfiguration), in dem die Schaltfläche „Edit“ (Bearbeiten) ausgewählt ist](./media/salesforce-sandbox-tutorial/sf-edit-auth-config.png)
 
 23. Wählen Sie im Abschnitt **Authentifizierungskonfiguration** für den **Authentifizierungsdienst** den Namen der SAML-Einstellung für einmaliges Anmelden aus, den Sie während der SSO-Konfiguration in Salesforce Sandbox festgelegt haben, und klicken Sie auf **Speichern**.
 
@@ -253,20 +253,20 @@ In diesem Abschnitt wird ein Benutzer mit dem Namen Britta Simon in Salesforce S
 
 In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich.
 
-Wenn Sie im Zugriffsbereich auf die Kachel „Salesforce Sandbox“ klicken, sollten Sie automatisch bei der Salesforce Sandbox-Anwendung angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Wenn Sie im Zugriffsbereich auf die Kachel „Salesforce Sandbox“ klicken, sollten Sie automatisch bei der Salesforce Sandbox-Anwendung angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Liste mit den Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste mit den Tutorials zur Integration von SaaS-Apps in Azure Active Directory](./tutorial-list.md)
 
-- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Was ist der bedingte Zugriff in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Was ist der bedingte Zugriff in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Salesforce Sandbox mit Azure AD ausprobieren](https://aad.portal.azure.com/)
 
-- [Was ist Sitzungssteuerung in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/protect-salesforce)
+- [Was ist Sitzungssteuerung in Microsoft Cloud App Security?](/cloud-app-security/protect-salesforce)
 
 - [Konfigurieren der Benutzerbereitstellung](salesforce-sandbox-provisioning-tutorial.md)
 
-- [Schützen von Apps mit der App-Steuerung für bedingten Zugriff von Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Schützen von Apps mit der App-Steuerung für bedingten Zugriff von Microsoft Cloud App Security](/cloud-app-security/proxy-intro-aad)

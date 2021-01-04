@@ -4,15 +4,15 @@ description: Hier erfahren Sie, wie Sie Power Automate und einen HTTPS-Endpunkt 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: 3cdbe1f3428418f082d53febca950a6a443fe5ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4dabee6a725fd02b7be6dd12c8a032e3d816835
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86120366"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489368"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Verwenden eines HTTPS-Endpunkts zum Verwalten von Leads im kommerziellen Marketplace
 
@@ -132,7 +132,7 @@ In diesem Artikel wird erläutert, wie ein neuer Flow in Power Automate erstellt
 
 ### <a name="connect-to-a-crm-system"></a>Verbinden mit einem CRM-System
 
-1. Wählen Sie **+ Neuer Schritt**aus.
+1. Wählen Sie **+ Neuer Schritt** aus.
 1. Wählen Sie das gewünschte CRM-System aus, indem Sie unter **Connectors und Aktionen durchsuchen** nach ihm suchen. Wählen Sie es auf der Registerkarte **Aktionen** mit der Aktion zum Erstellen eines neuen Datensatzes aus. Auf dem folgenden Bildschirm wird beispielsweise **Neuen Datensatz erstellen (Dynamics 365)** dargestellt.
 
     ![Create a new record (Neuen Datensatz erstellen)](./media/commercial-marketplace-lead-management-instructions-https/create-new-record.png)
@@ -162,7 +162,7 @@ In diesem Artikel wird erläutert, wie ein neuer Flow in Power Automate erstellt
 
 1. Konfigurieren Sie im Fenster **E-Mail senden** die folgenden Pflichtfelder:
 
-   - **An**: Geben Sie mindestens eine gültige E-Mail-Adresse ein, an die die Leads gesendet werden.
+   - **An** : Geben Sie mindestens eine gültige E-Mail-Adresse ein, an die die Leads gesendet werden.
    - **Antragsteller:** Power Automate ermöglicht das Hinzufügen dynamischer Inhalte, etwa **LeadSource** auf dem folgenden Bildschirm. Geben Sie als Erstes einen Feldnamen ein. Wählen Sie dann im Popupfenster die Auswahlliste für dynamischen Inhalt aus. 
 
         >[!NOTE] 
@@ -170,7 +170,7 @@ In diesem Artikel wird erläutert, wie ein neuer Flow in Power Automate erstellt
 
         ![Hinzufügen einer E-Mail-Aktion mit dynamischem Inhalt](./media/commercial-marketplace-lead-management-instructions-https/add-email-using-dynamic-content.png)
 
-   - **Text**: Fügen Sie über die Auswahlliste für dynamischen Inhalt die gewünschten Informationen in den E-Mail-Text ein. Verwenden Sie beispielsweise „LastName“, „FirstName“, „Email“ und „Company“. Ein Beispiel für eine fertig eingerichtete E-Mail-Benachrichtigung sehen Sie auf dem folgenden Bildschirm.
+   - **Text** : Fügen Sie über die Auswahlliste für dynamischen Inhalt die gewünschten Informationen in den E-Mail-Text ein. Verwenden Sie beispielsweise „LastName“, „FirstName“, „Email“ und „Company“. Ein Beispiel für eine fertig eingerichtete E-Mail-Benachrichtigung sehen Sie auf dem folgenden Bildschirm.
 
 
        ![Beispiel für eine E-Mail-Benachrichtigung](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)
@@ -202,7 +202,7 @@ Sie können Ihre Konfiguration mit [Postman](https://app.getpostman.com/app/down
 1. Kehren Sie zu [Power Automate](https://flow.microsoft.com/) zurück. Suchen Sie den erstellten Flow zum Senden von Leads, indem Sie auf der Power Automate-Menüleiste **Meine Flows** auswählen. Wählen Sie die Auslassungspunkte neben dem Flownamen aus, um weitere Optionen anzuzeigen, und wählen Sie dann **Bearbeiten** aus.
 
 
-1. Wählen Sie in der rechten oberen Ecke **Testen**, anschließend **Ich führe die Triggeraktion durch** und dann **Testen** aus. Am oberen Bildschirmrand wird ein Hinweis darüber angezeigt, dass der Test gestartet wurde.
+1. Wählen Sie in der rechten oberen Ecke **Testen** , anschließend **Ich führe die Triggeraktion durch** und dann **Testen** aus. Am oberen Bildschirmrand wird ein Hinweis darüber angezeigt, dass der Test gestartet wurde.
 
    ![Option „Ich führe die Triggeraktion durch“](./media/commercial-marketplace-lead-management-instructions-https/test-flow-trigger-action.png)
 

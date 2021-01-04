@@ -4,21 +4,21 @@ description: Fügen Sie Gruppenmitglieder in einem Massenvorgang im Azure Active
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 04/27/2020
+manager: daveba
+ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d2a6e0a5459fbf53698b4204b8ae1f47a6a17bc
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 22d39a2ee66f2c63612ad2cb3cf9ae61f1660de3
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373283"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547745"
 ---
 # <a name="bulk-add-group-members-in-azure-active-directory"></a>Massenhinzufügen von Gruppenmitgliedern in Azure Active Directory
 
@@ -34,7 +34,7 @@ Laden Sie die CSV-Vorlage für den Massenupload herunter, und füllen Sie sie au
 
 Die Zeilen der heruntergeladenen CSV-Vorlage lauten wie folgt:
 
-- **Versionsnummer** : Die erste Zeile, die die Versionsnummer enthält, muss in der hochzuladenden CSV-Datei enthalten sein.
+- **Versionsnummer**: Die erste Zeile, die die Versionsnummer enthält, muss in der hochzuladenden CSV-Datei enthalten sein.
 - **Spaltenüberschriften:** Das Format der Spaltenüberschriften lautet &lt;*Elementname*&gt; [Eigenschaftenname] &lt;*Required (erforderlich) oder leer*&gt;. Beispiel: `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Einige ältere Versionen der Vorlage können geringfügige Abweichungen aufweisen. Für Änderungen der Gruppenmitgliedschaft können Sie den Bezeichner auswählen: Mitgliedsobjekt-ID oder Benutzerprinzipalname.
 - **Beispielzeile:** In der Vorlage ist eine Zeile mit Beispielen für zulässige Werte für alle Spalten enthalten. Sie müssen die Beispielzeile entfernen und durch Ihre eigenen Einträge ersetzen.
 
@@ -56,7 +56,7 @@ Die Zeilen der heruntergeladenen CSV-Vorlage lauten wie folgt:
 
     ![Der Befehl „Mitglieder importieren“ ist auf der Profilseite für die Gruppe zu finden.](./media/groups-bulk-import-members/import-panel.png)
 
-1. Öffnen Sie die CSV-Datei, und fügen Sie für jedes in die Gruppe zu importierende Gruppenmitglied eine Zeile hinzu (die erforderlichen Werte sind entweder **Mitgliedsobjekt-ID** oder **Benutzerprinzipalname** ). Speichern Sie dann die Datei.
+1. Öffnen Sie die CSV-Datei, und fügen Sie für jedes in die Gruppe zu importierende Gruppenmitglied eine Zeile hinzu (die erforderlichen Werte sind entweder **Mitgliedsobjekt-ID** oder **Benutzerprinzipalname**). Speichern Sie dann die Datei.
 
     :::image type="content" source="./media/groups-bulk-import-members/csv-file.png" alt-text="Die CSV-Datei enthält Namen und IDs der zu importierenden Mitglieder":::
 
@@ -71,7 +71,7 @@ Auf der Seite **Ergebnisse von Massenvorgängen** können Sie den Status aller I
 
 [![Überprüfen des Status auf der Seite „Ergebnisse von Massenvorgängen“](./media/groups-bulk-import-members/bulk-center.png)](./media/groups-bulk-import-members/bulk-center.png#lightbox)
 
-Wenn Sie ausführliche Informationen zu jedem Zeilenelement des Massenvorgangs erhalten möchten, wählen Sie die Werte unter der Spalte **# Erfolg** , **# Fehler** oder **Anforderungen insgesamt** aus. Wenn Fehler aufgetreten sind, werden die Fehlerursachen aufgeführt.
+Wenn Sie ausführliche Informationen zu jedem Zeilenelement des Massenvorgangs erhalten möchten, wählen Sie die Werte unter der Spalte **# Erfolg**, **# Fehler** oder **Anforderungen insgesamt** aus. Wenn Fehler aufgetreten sind, werden die Fehlerursachen aufgeführt.
 
 ## <a name="bulk-import-service-limits"></a>Diensteinschränkungen beim Massenimport
 

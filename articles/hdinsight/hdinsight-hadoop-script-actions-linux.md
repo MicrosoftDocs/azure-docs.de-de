@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: 08354e212b8ca3cae642b599f25ed318e79f581c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7959b639b75d912d44670c8b00a7327cb7857d6
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86082249"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629441"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Entwickeln von Skriptaktionen mit HDInsight
 
@@ -239,7 +239,7 @@ Folgende Hilfsprogramme stehen für das Verwenden in Ihrem Skript zur Verfügung
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Lädt eine Datei aus dem Quell-URI in den angegebenen Dateipfad herunter. Standardmäßig wird eine vorhandene Datei nicht überschrieben. |
 | `untar_file TARFILE DESTDIR` |Extrahiert eine TAR-Datei (mit `-xf`) in das Zielverzeichnis |
-| `test_is_headnode` |Bei Ausführung auf dem Hauptknoten eines Clusters wird „1“ zurückgegeben, andernfalls „0“. |
+| `test_is_headnode` |Bei Ausführung des Skripts auf dem Hauptknoten eines Clusters wird „1“ zurückgegeben, andernfalls „0“. |
 | `test_is_datanode` |Wenn der aktuelle Knoten ein Datenknoten (Workerknoten) ist, wird „1“ zurückgegeben, andernfalls „0“. |
 | `test_is_first_datanode` |Wenn der aktuelle Knoten der erste Datenknoten (Workerknoten) ist (mit dem Namen „workernode0“), wird „1“ zurückgegeben, andernfalls „0“. |
 | `get_headnodes` |Gibt den vollqualifizierten Domänennamen der Hauptknoten im Cluster zurück. Namen sind durch Kommas getrennt. Bei einem Fehler wird eine leere Zeichenfolge zurückgegeben. |
@@ -268,7 +268,7 @@ Eine Umgebungsvariable wird mit folgender Anweisung festgelegt:
 VARIABLENAME=value
 ```
 
-Dabei ist VARIABLENNAME der Name der Variable. Verwenden Sie `$VARIABLENAME`, um auf die Variable zuzugreifen. Verwenden Sie beispielsweise folgende Anweisung, um einen Wert, der von einem Positionsparameter bereitgestellt wird, als Umgebungsvariable mit dem Namen „PASSWORD“ zuzuweisen:
+Im vorherigen Beispiel ist `VARIABLENAME` der Name der Variable. Verwenden Sie `$VARIABLENAME`, um auf die Variable zuzugreifen. Verwenden Sie beispielsweise folgende Anweisung, um einen Wert, der von einem Positionsparameter bereitgestellt wird, als Umgebungsvariable mit dem Namen „PASSWORD“ zuzuweisen:
 
 ```bash
 PASSWORD=$1
@@ -286,13 +286,13 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
 Skripts zum Anpassen eines Clusters müssen an einem der folgenden Speicherorte gespeichert werden:
 
-* Ein __Azure-Speicherkonto__, das dem Cluster zugeordnet ist.
+* Ein __Azure-Speicherkonto__ , das dem Cluster zugeordnet ist.
 
-* __Zusätzliches Speicherkonto__, das dem Cluster zugeordnet ist
+* __Zusätzliches Speicherkonto__ , das dem Cluster zugeordnet ist
 
 * Ein __öffentlich lesbarer URI__ Beispielsweise eine Daten-URL, die in OneDrive, Dropbox oder in einem anderen Dateihostingdienst gespeichert ist
 
-* __Azure Data Lake Storage__-Konto, das dem HDInsight-Cluster zugeordnet ist. Weitere Informationen zur Verwendung von Azure Data Lake Storage mit HDInsight finden Sie unter [Schnellstart: Einrichten von Clustern in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* __Azure Data Lake Storage__ -Konto, das dem HDInsight-Cluster zugeordnet ist. Weitere Informationen zur Verwendung von Azure Data Lake Storage mit HDInsight finden Sie unter [Schnellstart: Einrichten von Clustern in HDInsight](./hdinsight-hadoop-provision-linux-clusters.md).
 
     > [!NOTE]  
     > Der Dienstprinzipal, der von HDInsight zum Zugreifen auf Data Lake Storage genutzt wird, muss über Lesezugriff auf das Skript verfügen.
@@ -332,7 +332,7 @@ Microsoft bietet Beispielskripts für die Installation von Komponenten in einem 
 
 Bei der Verwendung der von Ihnen entwickelten Skripts können die folgenden Fehler auftreten:
 
-**Fehler**: `$'\r': command not found`. Manchmal gefolgt von `syntax error: unexpected end of file`.
+**Fehler** : `$'\r': command not found`. Manchmal gefolgt von `syntax error: unexpected end of file`.
 
 *Ursache:* Dieser Fehler tritt auf, wenn die Zeilen in einem Skript mit CR-LF enden. In UNIX-Systemen wird als Zeilenende nur LF erwartet.
 
@@ -350,7 +350,7 @@ Dieses Problem tritt am häufigsten auf, wenn das Skript in einer Windows-Umgebu
 | `perl -pi -e 's/\r\n/\n/g' INFILE` | Modifiziert die Datei direkt |
 | ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` |OUTFILE enthält eine Version, die ausschließlich LF-Zeilenenden umfasst. |
 
-**Fehler**: `line 1: #!/usr/bin/env: No such file or directory`.
+**Fehler** : `line 1: #!/usr/bin/env: No such file or directory`.
 
 *Ursache:* Dieser Fehler tritt auf, wenn das Skript im Format UTF-8 mit einer Bytereihenfolge-Marke (BOM) gespeichert wurde.
 
@@ -365,5 +365,5 @@ Ersetzen Sie `INFILE` durch die Datei ohne BOM. Für `OUTFILE` sollte ein neuer 
 ## <a name="next-steps"></a><a name="seeAlso"></a>Nächste Schritte
 
 * Lernen Sie das [Anpassen Linux-basierter HDInsight-Cluster mithilfe von Skriptaktionen](hdinsight-hadoop-customize-cluster-linux.md)
-* Verwenden Sie die [HDInsight .NET SDK-Referenz](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) , um mehr über das Erstellen von .NET-Anwendungen zu erfahren, die HDInsight verwalten.
-* Verwenden Sie die [HDInsight-REST-API](https://msdn.microsoft.com/library/azure/mt622197.aspx) , um zu erfahren, wie Sie REST verwenden, um Verwaltungsaktionen auf HDInsight-Clustern auszuführen.
+* Verwenden Sie die [HDInsight .NET SDK-Referenz](/dotnet/api/overview/azure/hdinsight) , um mehr über das Erstellen von .NET-Anwendungen zu erfahren, die HDInsight verwalten.
+* Verwenden Sie die [HDInsight-REST-API](/rest/api/hdinsight/) , um zu erfahren, wie Sie REST verwenden, um Verwaltungsaktionen auf HDInsight-Clustern auszuführen.

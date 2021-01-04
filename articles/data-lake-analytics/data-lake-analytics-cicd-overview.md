@@ -8,11 +8,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 09/14/2018
 ms.openlocfilehash: 95b638b85e0746d2995488f2a28a5fb2512b1063
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219325"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015263"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Gewusst wie: Einrichten einer CI/CD-Pipeline für Azure Data Lake Analytics  
 
@@ -76,16 +76,16 @@ msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL
 
 Die Definition und die Werte der Argumente lauten wie folgt:
 
-- **USQLSDKPath=\<U-SQL Nuget package>\build\runtime** . Dieser Parameter verweist auf den Installationspfad des NuGet-Pakets für den U-SQL-Sprachdienst.
-- **USQLTargetType=Merge oder SyntaxCheck** :
+- **USQLSDKPath=\<U-SQL Nuget package>\build\runtime**. Dieser Parameter verweist auf den Installationspfad des NuGet-Pakets für den U-SQL-Sprachdienst.
+- **USQLTargetType=Merge oder SyntaxCheck**:
 
-  - **Merge** . Der Merge-Modus kompiliert CodeBehind-Dateien. Beispiele sind **CS** -, **PY** - und **R** -Dateien. Die resultierende benutzerdefinierte Codebibliothek wird inline im U-SQL-Skript erstellt. Beispiele sind DLL-Binärdateien, Python- oder R-Code.
+  - **Merge**. Der Merge-Modus kompiliert CodeBehind-Dateien. Beispiele sind **CS**-, **PY**- und **R**-Dateien. Die resultierende benutzerdefinierte Codebibliothek wird inline im U-SQL-Skript erstellt. Beispiele sind DLL-Binärdateien, Python- oder R-Code.
 
-  - **SyntaxCheck** . Der SyntaxCheck-Modus führt zunächst CodeBehind-Dateien im U-SQL-Skript zusammen. Anschließend wird zur Überprüfung Ihres Codes das U-SQL-Skript kompiliert.
+  - **SyntaxCheck**. Der SyntaxCheck-Modus führt zunächst CodeBehind-Dateien im U-SQL-Skript zusammen. Anschließend wird zur Überprüfung Ihres Codes das U-SQL-Skript kompiliert.
 
 - **DataRoot=\<DataRoot path>** . DataRoot wird nur für den SyntaxCheck-Modus benötigt. Beim Erstellen des Skripts mit dem SyntaxCheck-Modus überprüft MSBuild die Verweise im Skript auf Datenbankobjekte. Richten Sie vor dem Erstellen eine entsprechende lokale Umgebung, die die referenzierten Objekte aus der U-SQL-Datenbank enthält, im DataRoot-Ordner des Buildcomputers ein. Sie können diese Datenbankabhängigkeiten auch durch [Verweisen auf ein U-SQL-Datenbankprojekt](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project) verwalten. MSBuild überprüft nur Verweise auf Datenbankobjekte und keine Dateien.
 
-- **EnableDeployment=true** oder **false** . EnableDeployment gibt an, ob die Bereitstellung referenzierter U-SQL-Datenbanken während des Buildprozesses zulässig ist. Wenn Sie auf das U-SQL-Datenbankprojekt verweisen und die Datenbankobjekte in Ihrem U-SQL-Skript nutzen, legen Sie für diesen Parameter **true** fest.
+- **EnableDeployment=true** oder **false**. EnableDeployment gibt an, ob die Bereitstellung referenzierter U-SQL-Datenbanken während des Buildprozesses zulässig ist. Wenn Sie auf das U-SQL-Datenbankprojekt verweisen und die Datenbankobjekte in Ihrem U-SQL-Skript nutzen, legen Sie für diesen Parameter **true** fest.
 
 ### <a name="continuous-integration-through-azure-pipelines"></a>Continuous Integration über Azure Pipelines
 
@@ -126,7 +126,7 @@ Nach dem Überprüfen des Codes über den Build- und Testprozess können Sie U-S
 
 ### <a name="submit-u-sql-jobs-through-azure-pipelines"></a>Übermitteln von U-SQL-Aufträgen über Azure Pipelines
 
-Die Buildausgabe des U-SQL-Projekts ist eine ZIP-Datei mit dem Namen **USQLProjectName.usqlpack** . Die ZIP-Datei enthält alle U-SQL-Skripts im Projekt. Sie können den [Azure PowerShell-Task](/azure/devops/pipelines/tasks/deploy/azure-powershell) in Pipelines mit dem folgenden PowerShell-Beispielskript verwenden, um U-SQL-Aufträge direkt aus Azure Pipelines zu übermitteln.
+Die Buildausgabe des U-SQL-Projekts ist eine ZIP-Datei mit dem Namen **USQLProjectName.usqlpack**. Die ZIP-Datei enthält alle U-SQL-Skripts im Projekt. Sie können den [Azure PowerShell-Task](/azure/devops/pipelines/tasks/deploy/azure-powershell) in Pipelines mit dem folgenden PowerShell-Beispielskript verwenden, um U-SQL-Aufträge direkt aus Azure Pipelines zu übermitteln.
 
 ```powershell
 <#
@@ -346,7 +346,7 @@ Neben der Befehlszeile können Sie auch Visual Studio Build oder einen MSBuild-T
 
 ### <a name="u-sql-database-project-build-output"></a>Buildausgabe für das U-SQL-Datenbankprojekt
 
-Die Buildausgabe für ein U-SQL-Datenbankprojekt ist ein U-SQL-Datenbankbereitstellungspaket, das mit dem Suffix `.usqldbpack` benannt ist. Bei dem Paket `.usqldbpack` handelt es sich um eine ZIP-Datei, die alle DDL-Anweisungen in einem einzigen U-SQL-Skript in einem DDL-Ordner enthält. Es enthält alle **DLL** -Dateien und zusätzliche Dateien für die Assembly in einem temporären Ordner.
+Die Buildausgabe für ein U-SQL-Datenbankprojekt ist ein U-SQL-Datenbankbereitstellungspaket, das mit dem Suffix `.usqldbpack` benannt ist. Bei dem Paket `.usqldbpack` handelt es sich um eine ZIP-Datei, die alle DDL-Anweisungen in einem einzigen U-SQL-Skript in einem DDL-Ordner enthält. Es enthält alle **DLL**-Dateien und zusätzliche Dateien für die Assembly in einem temporären Ordner.
 
 ## <a name="test-table-valued-functions-and-stored-procedures"></a>Testen von Tabellenwertfunktionen und gespeicherten Prozeduren
 
@@ -360,7 +360,7 @@ Das direkte Hinzufügen von Testfällen für Tabellenwertfunktionen und gespeich
 
 ## <a name="deploy-u-sql-database-through-azure-pipelines"></a>Bereitstellen einer U-SQL-Datenbank über Azure Pipelines
 
-`PackageDeploymentTool.exe` enthält die Programmier- und Befehlszeilenschnittstellen, über die U-SQL-Datenbankbereitstellungspakete **.usqldbpack** bereitgestellt werden können. Das SDK ist im [U-SQL SDK-NuGet-Paket](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) enthalten und befindet sich unter **build/runtime/PackageDeploymentTool.exe** . Durch Verwenden von `PackageDeploymentTool.exe` können Sie U-SQL-Datenbanken in Azure Data Lake Analytics-Konten sowie in lokalen Konten bereitstellen.
+`PackageDeploymentTool.exe` enthält die Programmier- und Befehlszeilenschnittstellen, über die U-SQL-Datenbankbereitstellungspakete **.usqldbpack** bereitgestellt werden können. Das SDK ist im [U-SQL SDK-NuGet-Paket](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) enthalten und befindet sich unter **build/runtime/PackageDeploymentTool.exe**. Durch Verwenden von `PackageDeploymentTool.exe` können Sie U-SQL-Datenbanken in Azure Data Lake Analytics-Konten sowie in lokalen Konten bereitstellen.
 
 > [!NOTE]
 >
@@ -369,7 +369,7 @@ Das direkte Hinzufügen von Testfällen für Tabellenwertfunktionen und gespeich
 
 Führen Sie die folgenden Schritte aus, um einen Task für die Datenbankbereitstellung in Azure Pipelines einzurichten:
 
-1. Fügen Sie einen PowerShell-Skripttask im Build oder der Releasepipeline hinzu, und führen Sie das folgende PowerShell-Skript aus. Mit dieser Aufgabe können Azure SDK-Abhängigkeiten für `PackageDeploymentTool.exe` und `PackageDeploymentTool.exe` abgerufen werden. Sie können die Parameter **-AzureSDK** und **-DBDeploymentTool** festlegen, um die Abhängigkeiten und Bereitstellungstools in bestimmte Ordner zu laden. Übergeben Sie den **-AzureSDK** -Pfad in Schritt 2 als **-AzureSDKPath** -Parameter an `PackageDeploymentTool.exe`.
+1. Fügen Sie einen PowerShell-Skripttask im Build oder der Releasepipeline hinzu, und führen Sie das folgende PowerShell-Skript aus. Mit dieser Aufgabe können Azure SDK-Abhängigkeiten für `PackageDeploymentTool.exe` und `PackageDeploymentTool.exe` abgerufen werden. Sie können die Parameter **-AzureSDK** und **-DBDeploymentTool** festlegen, um die Abhängigkeiten und Bereitstellungstools in bestimmte Ordner zu laden. Übergeben Sie den **-AzureSDK**-Pfad in Schritt 2 als **-AzureSDKPath**-Parameter an `PackageDeploymentTool.exe`.
 
    ```powershell
    <#
@@ -430,7 +430,7 @@ Führen Sie die folgenden Schritte aus, um einen Task für die Datenbankbereitst
    copy USQLSDK\build\runtime\*.* $DBDeploymentTool
    ```
 
-2. Fügen Sie einen **Befehlszeilentask** in einem Build oder einer Releasepipeline hinzu, und füllen Sie das Skript aus, indem Sie `PackageDeploymentTool.exe` aufrufen. `PackageDeploymentTool.exe` befindet sich unter dem definierten **$DBDeploymentTool** -Ordner. Das Beispielskript sieht wie folgt aus: 
+2. Fügen Sie einen **Befehlszeilentask** in einem Build oder einer Releasepipeline hinzu, und füllen Sie das Skript aus, indem Sie `PackageDeploymentTool.exe` aufrufen. `PackageDeploymentTool.exe` befindet sich unter dem definierten **$DBDeploymentTool**-Ordner. Das Beispielskript sieht wie folgt aus: 
 
    - Lokales Bereitstellen einer U-SQL-Datenbank:
 
@@ -444,13 +444,13 @@ Führen Sie die folgenden Schritte aus, um einen Task für die Datenbankbereitst
       PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -AzureSDKPath <azure sdk path> -Interactive
       ```
 
-   - Verwenden der **secrete** -Authentifizierung zum Bereitstellen einer U-SQL-Datenbank in einem Azure Data Lake Analytics-Konto:
+   - Verwenden der **secrete**-Authentifizierung zum Bereitstellen einer U-SQL-Datenbank in einem Azure Data Lake Analytics-Konto:
 
       ```cmd
       PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secrete <secrete>
       ```
 
-   - Verwenden der **certFile** -Authentifizierung zum Bereitstellen einer U-SQL-Datenbank in einem Azure Data Lake Analytics-Konto:
+   - Verwenden der **certFile**-Authentifizierung zum Bereitstellen einer U-SQL-Datenbank in einem Azure Data Lake Analytics-Konto:
 
       ```cmd
       PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secrete <secrete> -CertFile <certFile>

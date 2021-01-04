@@ -3,17 +3,19 @@ title: Häufig gestellte Fragen zur Cassandra-API für Azure Cosmos DB
 description: Hier finden Sie Antworten auf häufig gestellte Fragen zur Cassandra-API für Azure Cosmos DB.
 author: TheovanKraay
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
-ms.openlocfilehash: e38096a0c5de266be6be6a58e09a251ce28a55df
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1368a3174af08f557b6d08f298fba015601d568c
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482603"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030831"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Häufig gestellte Fragen zur Cassandra-API in Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 In diesem Artikel werden die Funktionsunterschiede zwischen Apache Cassandra und der Cassandra-API in Azure Cosmos DB beschrieben. Außerdem finden Sie hier Antworten auf häufig gestellte Fragen zur Cassandra-API in Azure Cosmos DB.
 
@@ -26,7 +28,7 @@ In diesem Artikel werden die Funktionsunterschiede zwischen Apache Cassandra und
 - Das Festlegen eines Replikationsfaktors von „1“ ist mit Apache Cassandra möglich. Es führt jedoch zu geringer Verfügbarkeit, wenn der einzige Knoten mit den Daten ausfällt. Dies ist bei der Cassandra-API für Azure Cosmos DB kein Problem, weil immer ein Replikationsfaktor von „4“ (Quorum von „3“) verwendet wird.
 - Das Hinzufügen oder Entfernen von Knoten in Apache Cassandra erfordert manuelle Eingriffe sowie eine hohe CPU-Auslastung auf dem neuen Knoten, während vorhandene Knoten einige ihrer Tokenbereiche auf den neuen Knoten verschieben. Das ist auch bei der Außerbetriebnahme eines vorhandenen Knotens der Fall. Die Cassandra-API kann jedoch horizontal skaliert werden, ohne dass Probleme beim Dienst oder bei der Anwendung auftreten.
 - Sie müssen nicht wie in Apache Cassandra **num_tokens** auf jedem Knoten im Cluster festlegen. Knoten und Tokenbereiche werden von Azure Cosmos DB vollständig verwaltet.
-- Die Cassandra-API wird vollständig verwaltet. Sie benötigen nicht die **nodetool** -Befehle wie „Repair“ und „Decommission“, die in Apache Cassandra verwendet werden.
+- Die Cassandra-API wird vollständig verwaltet. Sie benötigen nicht die **nodetool**-Befehle wie „Repair“ und „Decommission“, die in Apache Cassandra verwendet werden.
 
 ## <a name="other-frequently-asked-questions"></a>Weitere häufig gestellte Fragen
 
@@ -174,7 +176,7 @@ Nein. Die Cassandra-API unterstützt [sekundäre Indizes](cassandra-secondary-in
 
 ### <a name="can-i-use-the-new-cassandra-api-sdk-locally-with-the-emulator"></a>Kann ich das neue SDK der Cassandra-API lokal mit dem Emulator verwenden?
 
-Ja, diese Möglichkeit wird unterstützt. Ausführliche Informationen zum Aktivieren dieser Option finden Sie im Artikel [Verwenden des Azure Cosmos-Emulators für lokale Entwicklungs- und Testvorgänge](local-emulator.md#cassandra-api).
+Ja, diese Möglichkeit wird unterstützt. Ausführliche Informationen zum Aktivieren dieser Option finden Sie im Artikel [Verwenden des Azure Cosmos DB-Emulators für lokale Entwicklungs- und Testvorgänge](local-emulator.md#cassandra-api).
 
 
 ### <a name="how-can-i-migrate-data-from-apache-cassandra-clusters-to-azure-cosmos-db"></a>Wie kann ich Daten aus Apache Cassandra-Clustern zu Azure Cosmos DB migrieren?

@@ -11,12 +11,12 @@ ms.date: 08/04/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: 981e23a2b021cc0eb8085aa943830f87352aee69
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 141812e83653b458a2562bf73b70117c39bf7be0
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87828522"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426567"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-in-the-azure-portal"></a>Schnellstart: Erstellen einer Azure Notification Hub-Instanz über das Azure-Portal
 
@@ -35,7 +35,7 @@ In diesem Abschnitt erstellen Sie einen Namespace und einem Hub in dem Namespace
 In diesem Abschnitt erstellen Sie einen Notification Hub in einem vorhandenen Namespace.
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
-2. Wählen Sie im linken Menü die Option **Alle Dienste** aus, suchen Sie nach **Notification Hub**, und wählen Sie neben **Notification Hub-Namespaces** den **Stern** (`*`) aus, um die Option dem Abschnitt **FAVORITEN** des linken Menüs hinzuzufügen. Wählen Sie **Notification Hub-Namespaces** aus.
+2. Wählen Sie im linken Menü die Option **Alle Dienste** aus, suchen Sie nach **Notification Hub** , und wählen Sie neben **Notification Hub-Namespaces** den **Stern** (`*`) aus, um die Option dem Abschnitt **FAVORITEN** des linken Menüs hinzuzufügen. Wählen Sie **Notification Hub-Namespaces** aus.
 
       ![Azure-Portal: Auswählen von „Notification Hub-Namespaces“](./media/create-notification-hub-portal/select-notification-hub-namespaces-all-services.png)
 3. Wählen Sie in der Liste auf der Seite **Notification Hub-Namespaces** Ihren Namespace aus.
@@ -50,12 +50,12 @@ In diesem Abschnitt erstellen Sie einen Notification Hub in einem vorhandenen Na
 6. Wählen Sie oben **Benachrichtigungen** (Glockensymbol) aus, um den Status der Bereitstellung des neuen Hubs anzuzeigen. Wählen Sie in der rechten oberen Ecke **X** aus, um das Benachrichtigungsfenster zu schließen.
 
       ![Bereitstellungsbenachrichtigung](./media/create-notification-hub-portal/deployment-notification.png)
-7. Aktualisieren Sie die Webseite **Notification Hub-Namespaces**, damit Ihr neuer Hub in der Liste angezeigt wird.
+7. Aktualisieren Sie die Webseite **Notification Hub-Namespaces** , damit Ihr neuer Hub in der Liste angezeigt wird.
 
-      ![Azure-Portal – Benachrichtigungen -> Zu Ressource wechseln](./media/create-notification-hub-portal/new-hub-in-list.png)
+      ![Screenshot: Webseite „Notification Hub-Namespaces“ mit dem neuen Hub in der Liste](./media/create-notification-hub-portal/new-hub-in-list.png)
 8. Wählen Sie Ihren **Notification Hub** aus, um dessen Startseite anzuzeigen.
 
-      ![Azure-Portal – Benachrichtigungen -> Zu Ressource wechseln](./media/create-notification-hub-portal/hub-home-page.png)
+      ![Screenshot: Startseite für den Notification Hub](./media/create-notification-hub-portal/hub-home-page.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

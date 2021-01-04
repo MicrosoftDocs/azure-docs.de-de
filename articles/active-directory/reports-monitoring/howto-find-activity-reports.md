@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b705cf6ac6fd25c7794db7651db5bc5c5c0e790c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42afa073da9197c12e4cbd316d311a7699d9a95f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230618"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013024"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Speicherorte von Aktivitätsberichten im Azure-Portal
 
@@ -149,7 +149,7 @@ Sie können im [Azure-Portal](https://portal.azure.com) auf dem Blatt **Azure Ac
 
 Ich habe die Aktivitätsprotokolle (Überwachung oder Anmeldungen) heruntergeladen, und für den ausgewählten Zeitraum werden nicht alle Datensätze angezeigt. Warum? 
 
- ![Berichterstellung](./media/troubleshoot-missing-data-download/01.png)
+ ![Screenshot der Schaltfläche „Herunterladen“ im Aktivitätsbericht](./media/troubleshoot-missing-data-download/01.png)
  
 #### <a name="cause"></a>Ursache
 
@@ -165,7 +165,7 @@ Mithilfe von [Azure AD-Berichterstellungs-APIs](concept-reporting-api.md) könne
 
 Ich habe einige Aktionen im Azure-Portal ausgeführt und erwartet, die Überwachungsprotokolle für diese Aktionen auf dem Blatt `Activity logs > Audit Logs` zu finden. Ich kann sie jedoch nicht finden.
 
- ![Berichterstellung](./media/troubleshoot-missing-audit-data/01.png)
+ ![Screenshot des Aktivitätsberichts](./media/troubleshoot-missing-audit-data/01.png)
  
 #### <a name="cause"></a>Ursache
 
@@ -186,7 +186,7 @@ Warten Sie 15 Minuten bis zwei Stunden, und überprüfen Sie dann, ob die Aktion
 
 Ich habe mich kürzlich beim Azure-Portal angemeldet und erwartet, die Anmeldeprotokolle für diese Aktionen auf dem Blatt `Activity logs > Sign-ins` zu finden. Ich kann sie jedoch nicht finden.
 
- ![Berichterstellung](./media/troubleshoot-missing-audit-data/02.png)
+ ![Screenshot der Anmeldungen für Azure Active Directory](./media/troubleshoot-missing-audit-data/02.png)
  
 #### <a name="cause"></a>Ursache
 
@@ -207,7 +207,7 @@ Warten Sie 15 Minuten bis zwei Stunden, und überprüfen Sie dann, ob die Aktion
 
 Ich kann nur die Anmelde- und Überwachungsdaten der letzten 30 Tage aus dem Azure-Portal anzeigen. Warum? 
 
- ![Berichterstellung](./media/troubleshoot-missing-audit-data/03.png)
+ ![Screenshot des Menüs „Datum“](./media/troubleshoot-missing-audit-data/03.png)
 
 #### <a name="cause"></a>Ursache
 

@@ -5,11 +5,11 @@ ms.date: 06/26/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: 71f81c23b63d6299e7f48ed9b7d9a6f70841f91f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68356987"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996122"
 ---
 > [!TIP]
 > Mithilfe des Befehls [docker images](https://docs.docker.com/engine/reference/commandline/images/) können Sie Ihre heruntergeladenen Containerimages auflisten. Mit dem folgenden Befehl werden beispielsweise die ID, das Repository und das Tag jedes heruntergeladenen Containerimages in Form einer Tabelle aufgelistet:

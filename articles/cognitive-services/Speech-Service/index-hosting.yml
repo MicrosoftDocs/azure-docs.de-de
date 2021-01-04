@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/23/2020
   ms.author: trbye
-  ms.openlocfilehash: 3f238f4b7ec76566939d6db712480e395c7a15ac
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: 028116979a700ebe04a6e008be38656204b2ce2f
+  ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92756906"
+  ms.lasthandoff: 11/21/2020
+  ms.locfileid: "95015432"
 landingContent:
 - title: Informationen zum Hosting
   linkLists:
@@ -33,7 +33,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Erstellen einer Azure Speech-Ressource
-      url: get-started.md#new-resource
+      url: ./overview.md#try-the-speech-service-for-free
     - text: Konfigurieren von Speech-Containern
       url: speech-container-configuration.md
 - title: Verweis

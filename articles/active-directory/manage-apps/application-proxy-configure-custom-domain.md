@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 6688875385d34fcbece964d43827c6d62ae7ced4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bef120e754c84798b2d1b48f4f00fbb8f5fb3c1d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88587768"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997612"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Konfigurieren von benutzerdefinierten Domänen per Azure AD-Anwendungsproxy
 
@@ -26,7 +26,7 @@ Wenn Sie eine Anwendung über den Azure Active Directory-Anwendungsproxy veröff
 
 Es empfiehlt sich, nach Möglichkeit immer benutzerdefinierte Domänen für Ihre Apps einzurichten. Gründe für die Verwendung von benutzerdefinierten Domänen sind:
 
-- Links zwischen Apps funktionieren auch außerhalb des Unternehmensnetzwerks. Wenn Ihre App über hartcodierte interne Links zu Zielen verfügt, die sich außerhalb des Anwendungsproxys befinden, und die Links extern nicht aufgelöst werden können, tritt ohne benutzerdefinierte Domäne ein Fehler auf. Dieses Problem wird vermieden, wenn Ihre internen und externen URLs identisch sind. Falls Sie keine benutzerdefinierten Domänen verwenden können, helfen Ihnen die Informationen zu anderen Problemlösungen unter [Umleiten von hartcodierten Links für Apps, die mit Azure AD-Anwendungsproxy veröffentlicht wurden](../application-proxy-link-translation.md) weiter. 
+- Links zwischen Apps funktionieren auch außerhalb des Unternehmensnetzwerks. Wenn Ihre App über hartcodierte interne Links zu Zielen verfügt, die sich außerhalb des Anwendungsproxys befinden, und die Links extern nicht aufgelöst werden können, tritt ohne benutzerdefinierte Domäne ein Fehler auf. Dieses Problem wird vermieden, wenn Ihre internen und externen URLs identisch sind. Falls Sie keine benutzerdefinierten Domänen verwenden können, helfen Ihnen die Informationen zu anderen Problemlösungen unter [Umleiten von hartcodierten Links für Apps, die mit Azure AD-Anwendungsproxy veröffentlicht wurden](./application-proxy-configure-hard-coded-link-translation.md) weiter. 
   
 - Ihre Benutzer haben es einfacher, weil sie innerhalb und außerhalb Ihres Netzwerks über die gleiche URL auf die App zugreifen können. Sie müssen sich nicht unterschiedliche interne und externe URLs merken und auch ihren aktuellen Standort nicht nachverfolgen. 
 

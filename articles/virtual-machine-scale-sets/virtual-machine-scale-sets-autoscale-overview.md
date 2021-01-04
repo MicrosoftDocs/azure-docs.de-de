@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: dd042b28035b5e9a4b18041d6c1a81f77cfd4ea7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 092b95845ed033ac0705e325fc6535739088848f
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86527403"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888792"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Übersicht über die automatische Skalierung mit Azure-VM-Skalierungsgruppen
 Mit einer Azure-VM-Skalierungsgruppe kann die Anzahl von VM-Instanzen, von denen Ihre Anwendung ausgeführt wird, automatisch erhöht oder verringert werden. Mit diesem automatisierten und elastischen Verhalten wird der Verwaltungsaufwand reduziert, der für das Überwachen und Optimieren der Leistung Ihrer Anwendung anfällt. Sie erstellen Regeln, mit denen die angemessene Leistung definiert wird, die für eine positive Kundenerfahrung erforderlich ist. Wenn diese definierten Schwellenwerte erfüllt sind, werden von der automatischen Skalierung die Aktionen zum Anpassen der Kapazität Ihrer Skalierungsgruppe durchgeführt. Außerdem können Sie Ereignisse planen, um die Kapazität Ihrer Skalierungsgruppe zu festen Zeiten automatisch zu erhöhen oder zu verringern. Dieser Artikel enthält eine Übersicht darüber, welche Leistungsmetriken verfügbar sind und welche Aktionen von der automatischen Skalierung durchgeführt werden können.
@@ -23,13 +23,16 @@ Mit einer Azure-VM-Skalierungsgruppe kann die Anzahl von VM-Instanzen, von denen
 ## <a name="benefits-of-autoscale"></a>Vorteile der automatischen Skalierung
 Wenn sich die Nachfrage für Ihre Anwendung erhöht, erhöht sich auch die Last für die VM-Instanzen in Ihrer Skalierungsgruppe. Falls es sich um eine dauerhafte Last und nicht nur um eine kurzzeitige höhere Nachfrage handelt, können Sie die Regeln für die automatische Skalierung konfigurieren, um die Anzahl von VM-Instanzen in der Skalierungsgruppe zu erhöhen.
 
+> [!NOTE]
+> Wenn Sie automatische Instanzreparaturen für Ihre Skalierungsgruppe verwenden, kann die maximale Anzahl von Instanzen in der Skalierungsgruppe 200 sein. Weitere Informationen zu [automatischem Instanzreparaturen](./virtual-machine-scale-sets-automatic-instance-repairs.md).
+
 Nachdem diese VM-Instanzen erstellt und Ihre Anwendungen bereitgestellt wurden, beginnt die Skalierungsgruppe damit, über das Lastenausgleichsmodul Datenverkehr darauf zu verteilen. Sie steuern, welche Metriken überwacht werden, z.B. CPU oder Arbeitsspeicher, wie lange die Anwendungslast einen bestimmten Schwellenwert einhalten muss und wie viele VM-Instanzen der Skalierungsgruppe hinzugefügt werden sollen.
 
 Es kann sein, dass die Nachfrage nach Ihrer Anwendung abends oder am Wochenende abnimmt. Wenn diese Verringerung der Last für einen bestimmten Zeitraum anhält, können Sie Regeln zur automatischen Skalierung konfigurieren, um die Anzahl von VM-Instanzen in der Skalierungsgruppe zu reduzieren. Mit dieser Aktion zum horizontalen Herunterskalieren werden die Kosten für die Ausführung Ihrer Skalierungsgruppe gesenkt, da Sie nur so viele Instanzen ausführen, wie für die Erfüllung der derzeitigen Nachfrage erforderlich sind.
 
 
 ## <a name="use-host-based-metrics"></a>Verwenden von hostbasierten Metriken
-Sie können Regeln für die automatische Skalierung erstellen, in die Hostmetriken Ihrer VM-Instanzen integriert sind. Anhand von Hostmetriken können Sie die Leistung der VM-Instanzen einer Skalierungsgruppe verfolgen, ohne dass Sie zusätzliche Agents und Datensammlungen installieren oder konfigurieren müssen. Regeln für die automatische Skalierung, für die diese Metriken verwendet werden, können als Reaktion auf Änderungen der CPU-Auslastung, des Arbeitsspeicherbedarfs oder der Datenträgerzugriffe das Aufskalieren durchführen oder die Anzahl von VM-Instanzen erhöhen.
+Sie können Regeln für die automatische Skalierung erstellen, in die Hostmetriken Ihrer VM-Instanzen integriert sind. Anhand von Hostmetriken können Sie die Leistung der VM-Instanzen einer Skalierungsgruppe verfolgen, ohne dass Sie zusätzliche Agents und Datensammlungen installieren oder konfigurieren müssen. Regeln für die automatische Skalierung, für die diese Metriken verwendet werden, können als Reaktion auf Änderungen der CPU-Auslastung, des Arbeitsspeicherbedarfs oder der Datenträgerzugriffe das horizontale Hochskalieren durchführen oder die Anzahl von VM-Instanzen erhöhen.
 
 Regeln zur automatischen Skalierung mit hostbasierten Metriken können mit einem der folgenden Tools erstellt werden:
 
@@ -76,7 +79,7 @@ Wenn Sie Regeln für die automatische Skalierung zum Überwachen einer bestimmte
 | Minimum          |
 | Maximum          |
 | Gesamt            |
-| Last (Letzter)             |
+| Letzter             |
 | Anzahl            |
 
 Die Regeln für die automatische Skalierung werden dann ausgelöst, wenn die Metriken mit einem der folgenden Operatoren mit Ihrem definierten Schwellenwert verglichen werden:
@@ -123,7 +126,7 @@ Sie können Regeln für die automatische Skalierung auch anhand von Zeitplänen 
 
 Die folgenden Beispiele enthalten Szenarien, für die die Nutzung von Regeln für die automatische Skalierung nach Zeitplan Vorteile haben kann:
 
-- Automatisches Aufskalieren der Anzahl von VM-Instanzen zu Beginn des Arbeitstags, wenn die Nachfrage der Kunden ansteigt. Am Ende des Arbeitstags wird die Anzahl von VM-Instanzen automatisch abskaliert, um die Ressourcenkosten für die Nacht zu reduzieren, wenn die Nachfrage nach der Anwendung nur gering ist.
+- Automatisches horizontales Hochskalieren der Anzahl von VM-Instanzen zu Beginn des Arbeitstags, wenn die Nachfrage der Kunden ansteigt. Am Ende des Arbeitstags wird die Anzahl von VM-Instanzen automatisch horizontal herunterskaliert, um die Ressourcenkosten für die Nacht zu reduzieren, wenn die Nachfrage nach der Anwendung nur gering ist.
 - Wenn eine Abteilung eine Anwendung an bestimmten Tagen des Monats oder des Geschäftszyklus stark nachfragt, wird die Anzahl von VM-Instanzen automatisch skaliert, um den zusätzlichen Bedarf zu decken.
 - Wenn ein Marketingereignis, eine Werbeaktion oder ein Sale ansteht, können Sie die Anzahl von VM-Instanzen vor der voraussichtlich starken Kundennachfrage automatisch skalieren. 
 

@@ -8,18 +8,19 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 601eebb1-fc2c-4f5b-9c05-0e6ffd0e5334
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
-ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 4919abd29ecf10c9116257750374ef53b4bd9d16
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f39380e253d3fa9e86bfea3a8c436862738ff8e3
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789912"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359930"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Always On-Verfügbarkeitsgruppe für SQL Server auf Azure-VMs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,9 +38,11 @@ Das folgende Diagramm veranschaulicht eine Verfügbarkeitsgruppe für SQL Server
 
 ## <a name="vm-redundancy"></a>VM-Redundanz 
 
-Um für noch mehr Redundanz und Verfügbarkeit zu sorgen, sollten sich die SQL Server-VMS entweder in derselben [Verfügbarkeitsgruppe](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview) oder in verschiedenen [Verfügbarkeitszonen](../../../availability-zones/az-overview.md) befinden.
+Zur Verbesserung der Redundanz und Verfügbarkeit sollten sich die virtuellen SQL Server-Computer entweder in der gleichen [Verfügbarkeitsgruppe](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview) oder in unterschiedlichen [Verfügbarkeitszonen](../../../availability-zones/az-overview.md) befinden.
 
-Bei einer Verfügbarkeitsgruppe handelt es sich um eine Gruppe von Ressourcen, die so konfiguriert sind, dass sich keine zwei Ressourcen in derselben Verfügbarkeitszone befinden. Dadurch wird verhindert, dass bei Bereitstellungsrollouts mehrere Ressourcen in der Gruppe betroffen sind. 
+Die Platzierung mehrerer virtueller Computer in der gleichen Verfügbarkeitsgruppe dient zum Schutz vor Ausfällen in einem Rechenzentrum infolge von Hardwarefehlern, da virtuelle Computer in einer Verfügbarkeitsgruppe nicht die gleichen Ressourcen verwenden, sowie vor Ausfällen infolge von Updates, da virtuelle Computer innerhalb einer Verfügbarkeitsgruppe nicht gleichzeitig aktualisiert werden. Verfügbarkeitszonen schützen vor dem Ausfall eines gesamten Rechenzentrums. Die einzelnen Zonen stellen jeweils eine Gruppe von Rechenzentren innerhalb einer Region dar.  Durch die Platzierung von Ressourcen in unterschiedlichen Verfügbarkeitszonen wird sichergestellt, dass durch einen Ausfall auf Rechenzentrumsebene nicht alle Ihre virtuellen Computer offline geschaltet werden.
+
+Bei der VM-Erstellung müssen Sie sich entscheiden, ob Sie Verfügbarkeitsgruppen oder Verfügbarkeitszonen konfigurieren möchten.  Ein virtueller Azure-Computer kann nicht mit beidem konfiguriert werden.
 
 
 ## <a name="connectivity"></a>Konnektivität 
@@ -72,13 +75,13 @@ Informationen zu den ersten Schritten finden Sie unter [Konfigurieren eines DNN-
 
 Es gibt mehrere Optionen für die Bereitstellung einer Verfügbarkeitsgruppe für SQL Server auf Azure-VMS. Dabei verfügen einige über einen höheren Automatisierungsgrad als andere. 
 
-Die folgende Tabelle bietet einen Vergleich der verfügbaren Optionen: 
+Die folgende Tabelle bietet einen Vergleich der verfügbaren Optionen:
 
-| |**[Azure-Portal](availability-group-azure-portal-configure.md)**|**[Azure CLI/PowerShell](./availability-group-az-commandline-configure.md)**|**[Schnellstartvorlagen](availability-group-quickstart-template-configure.md)**|**[Manuell](availability-group-manually-configure-prerequisites-tutorial.md)** | 
-|---------|---------|---------|--------- |---------|
+| | Azure-Portal | Azure CLI/PowerShell | Schnellstartvorlagen | Manuell |
+|---------|---------|---------|---------|---------|
 |**SQL Server-Version** |2016 + |2016 +|2016 +|2012 +|
 |**SQL Server-Edition** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
-|**Windows Server-Version**| 2016 + | 2016 + | 2016 + | All| 
+|**Windows Server-Version**| 2016 + | 2016 + | 2016 + | All|
 |**Der Cluster wird für Sie erstellt.**|Ja|Ja | Ja |Nein|
 |**Die Verfügbarkeitsgruppe wird für Sie erstellt.** |Ja |Nein|Nein|Nein|
 |**Der Listener und Lastenausgleich werden unabhängig voneinander erstellt.** |Nein|Nein|Nein|Ja|
@@ -90,9 +93,8 @@ Die folgende Tabelle bietet einen Vergleich der verfügbaren Optionen:
 |**DR mit mehreren Zonen in derselben Region**|Ja|Ja|Ja|Ja|
 |**Verteilte AG ohne AD**|Nein|Nein|Nein|Ja|
 |**Verteilte AG ohne Cluster** |Nein|Nein|Nein|Ja|
-||||||
 
-
+Weitere Informationen finden Sie unter [Azure-Portal](availability-group-azure-portal-configure.md), [Azure CLI/PowerShell](./availability-group-az-commandline-configure.md), [Schnellstartvorlagen](availability-group-quickstart-template-configure.md) und [Leitfaden](availability-group-manually-configure-prerequisites-tutorial.md).
 
 ## <a name="considerations"></a>Überlegungen 
 

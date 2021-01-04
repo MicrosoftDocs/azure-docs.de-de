@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: e0f15382d61558e72dd9c1e4ecf108bdf1655160
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: dde929044d3d7067d350e556e772a244ce754596
+  ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "90017352"
+  ms.lasthandoff: 11/25/2020
+  ms.locfileid: "96122648"
 landingContent:
 - title: Erstellen von Lösungen für die Energiebranche
   linkLists:
@@ -39,10 +39,8 @@ landingContent:
       url: ../core/overview-iot-central-developer.md
   - linkListType: tutorial
     links:
-    - text: Herstellen einer Verbindung mit einem Gerät (Node.js)
-      url: ../core/tutorial-connect-device-nodejs.md
-    - text: Herstellen einer Verbindung mit einem Gerät (Python)
-      url: ../core/tutorial-connect-device-python.md
+    - text: Erstellen eines Geräts und Herstellen einer Verbindung mit ihm
+      url: ../core/tutorial-connect-device.md
   - linkListType: concept
     links:
     - text: Gerätekonnektivität

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 38aea30c5f716df927b5924754eb07e7f94c7ebc
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: c476fe2af1fb4bddff4799609b164aab14f57b00
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92038417"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187396"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Ist Azure Virtual WAN allgemein verfügbar?
 
@@ -260,6 +260,8 @@ Ja. Diese Option ist zurzeit nur über PowerShell verfügbar. Das Virtual WAN-P
 
 IPv6 wird im Virtual WAN-Hub und seinen Gateways nicht unterstützt. Wenn Sie über ein VNET mit IPv4- und IPv6-Unterstützung verfügen und das VNET mit einer Virtual WAN-Instanz verbinden möchten, wird dieses Szenario derzeit nicht unterstützt. 
 
+Für das Point-to-Site-VPN-Szenario (Benutzer) mit Internetabzweigung über Azure Firewall müssen Sie wahrscheinlich IPv6-Konnektivität auf Ihrem Clientgerät deaktivieren, um die Weiterleitung des Datenverkehrs an den Virtual WAN-Hub zu erzwingen. Das liegt daran, dass moderne Geräte standardmäßig IPv6-Adressen verwenden.
+
 ### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionalities"></a>Welche API-Version wird für die Verwendung durch Skripts empfohlen, mit denen verschiedene Virtual WAN-Funktionen automatisiert werden?
 
 Hierfür ist mindestens die Version „05-01-2020“ (1. Mai 2020) erforderlich. 
@@ -271,3 +273,7 @@ Informationen finden Sie auf der Seite „Einschränkungen für Azure-Abonnement
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Welche Unterschiede bestehen zwischen den Virtual WAN-Typen („Basic“ und „Standard“)?
 
 Weitere Informationen finden Sie unter [Virtual WANs des Typs „Basic“ und „Standard“](../articles/virtual-wan/virtual-wan-about.md#basicstandard). Informationen zu den Preisen finden Sie auf der Seite [Virtual WAN – Preise](https://azure.microsoft.com/pricing/details/virtual-wan/).
+
+### <a name="does-virtual-wan-store-customer-data"></a>Speichert Virtual WAN Kundendaten? 
+
+Nein. Virtual WAN speichert keine Kundendaten.

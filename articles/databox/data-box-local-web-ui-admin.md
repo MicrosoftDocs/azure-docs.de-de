@@ -6,50 +6,68 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 09/23/2020
+ms.date: 12/07/2020
 ms.author: alkohli
-ms.openlocfilehash: 9f4f9f65b562b01466aec69cd541ea77f443f803
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 859eb6abd138f0660407618bba4550daf9158ab9
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127523"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855004"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Verwalten von Data Box und Data Box Heavy über die lokale Webbenutzeroberfläche
 
 In diesem Artikel werden einige der Konfigurations- und Verwaltungsaufgaben beschrieben, die auf Data Box- und Data Box Heavy-Geräten ausgeführt werden. Sie können Data Box- und Data Box Heavy-Geräte über die Azure-Portaloberfläche oder die lokale Webbenutzeroberfläche für das Gerät verwalten. Dieser Artikel konzentriert sich auf Aufgaben, die über die lokale Webbenutzeroberfläche ausgeführt werden.
 
-Die lokale Webbenutzeroberfläche für Data Box und Data Box Heavy dient zur Erstkonfiguration des Geräts. Sie können die lokale Webbenutzeroberfläche auch verwenden, um das Gerät herunterzufahren oder neu zu starten, Diagnosetests durchzuführen, Software zu aktualisieren, Kopierprotokolle anzuzeigen und ein Protokollpaket für den Microsoft-Support zu generieren. Bei einem Data Box Heavy-Gerät mit zwei unabhängigen Knoten können Sie für jeden Knoten des Geräts auf eine separate lokale Webbenutzeroberfläche zugreifen.
-
-Dieser Artikel enthält folgende Lernprogramme:
-
-- Erstellen eines Unterstützungspakets
-- Herunterfahren oder Neustarten des Geräts
-- Herunterladen der Stückliste (Bill of Material, BOM) oder Manifestdateien
-- Anzeigen der verfügbaren Kapazität des Geräts
-- Überspringen der Überprüfung der Prüfsumme
+Die lokale Webbenutzeroberfläche für Data Box und Data Box Heavy dient zur Erstkonfiguration des Geräts. Sie können die lokale Webbenutzeroberfläche auch verwenden, um das Gerät herunterzufahren oder neu zu starten, Diagnosetests durchzuführen, Software zu aktualisieren, Kopierprotokolle anzuzeigen, lokale Daten vom Gerät zu löschen und ein Unterstützungspaket für den Microsoft-Support zu generieren. Bei einem Data Box Heavy-Gerät mit zwei unabhängigen Knoten können Sie für jeden Knoten des Geräts auf eine separate lokale Webbenutzeroberfläche zugreifen.
 
 [!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="generate-support-package"></a>Erstellen eines Unterstützungspakets
 
-Wenn Sie Geräteprobleme haben, können Sie anhand der Systemprotokolle ein Unterstützungspaket erstellen. Der Microsoft-Support verwendet dieses Paket, um das Problem zu beheben. Führen Sie die folgenden Schritte aus, um ein Supportpaket zu generieren:
+Wenn Sie Geräteprobleme haben, können Sie anhand der Systemprotokolle ein Unterstützungspaket erstellen. Der Microsoft-Support verwendet dieses Paket, um das Problem zu beheben.
 
-1. Wechseln Sie in der lokalen Webbenutzeroberfläche zu **Support kontaktieren**, und wählen Sie **Unterstützungspaket erstellen** aus.
+Führen Sie die folgenden Schritte aus, um ein Supportpaket zu generieren:
+
+1. Navigieren Sie auf der lokalen Webbenutzeroberfläche zu **Support kontaktieren**. Wählen Sie optional **Speicherabbilder einschließen** aus. Wählen Sie dann **Unterstützungspaket erstellen** aus.
+
+    Bei einem Speicherabbild handelt es sich um den Speicherinhalt Ihres Geräts, der nach einem Systemfehler gespeichert wird.
+
+    Sie sollten die Option **Speicherabbilder einschließen** nur auswählen, wenn Sie vom Support darum gebeten werden. Es dauert sehr lange, ein Unterstützungspaket zusammenzustellen, das Speicherabbilder enthält, und zudem sind sensible Daten enthalten.
 
     ![Unterstützungspaket erstellen 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
-2. Ein Unterstützungspaket wird zusammengestellt. Dieser Vorgang dauert einige Minuten.
+    Ein Unterstützungspaket wird zusammengestellt. Wenn Sie nur Systemprotokolle einschließen, dauert dieser Vorgang einige Minuten. Wenn Sie Speicherabbilder einschließen, dauert er viel länger.
 
     ![Unterstützungspaket erstellen 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 
-3. Sobald die Erstellung des Unterstützungspakets abgeschlossen ist, wählen Sie **Unterstützungspaket herunterladen** aus.
+2. Sobald die Erstellung des Unterstützungspakets abgeschlossen ist, wählen Sie **Unterstützungspaket herunterladen** aus.
+
+    ![Unterstützungspaket erstellen 3](media/data-box-local-web-ui-admin/create-support-package-3.png)
+
+3. Navigieren Sie zum Speicherort des Downloads. Öffnen Sie den Ordner, um den Inhalt anzuzeigen.
 
     ![Unterstützungspaket erstellen 4](media/data-box-local-web-ui-admin/create-support-package-4.png)
 
-4. Navigieren Sie zum Speicherort des Downloads. Öffnen Sie den Ordner, um den Inhalt anzuzeigen.
+## <a name="erase-local-data-from-your-device"></a>Löschen lokaler Daten vom Gerät
 
-    ![Unterstützungspaket erstellen 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
+Über die lokale Webbenutzeroberfläche können Sie lokale Daten von Ihrem Gerät löschen, bevor Sie es an das Azure-Rechenzentrum zurücksenden.
+
+> [!IMPORTANT]
+> Eine Datenlöschung kann nicht rückgängig gemacht werden. Stellen Sie sicher, dass die Dateien gesichert werden, bevor Sie lokale Daten von Ihrem Gerät löschen.
+
+Führen Sie die folgenden Schritte aus, um lokale Daten von Ihrem Gerät zu löschen:
+
+1. Navigieren Sie auf der lokalen Webbenutzeroberfläche zu **Datenlöschung**.
+2. Geben Sie das Gerätekennwort ein, und wählen Sie **Daten löschen** aus.
+
+    ![Option zur Datenlöschung für ein Gerät](media/data-box-local-web-ui-admin/erase-local-data-1.png)
+
+3. Wählen Sie bei der Bestätigungsaufforderung **Ja** aus, um den Vorgang fortzusetzen. Das Löschen von Daten kann bis zu 50 Minuten dauern.
+
+   Vergewissern Sie sich, dass Sie die lokalen Daten sichern, bevor Sie sie vom Gerät löschen. Eine Datenlöschung kann nicht rückgängig gemacht werden.
+
+    ![Bestätigungsaufforderung für Datenlöschung](media/data-box-local-web-ui-admin/erase-local-data-2.png)
 
 ## <a name="shut-down-or-restart-your-device"></a>Herunterfahren oder Neustarten des Geräts
 
@@ -58,6 +76,7 @@ Sie können Ihr Gerät über die lokale Webbenutzeroberfläche herunterfahren od
 Führen Sie die folgenden Schritte aus, um Ihr Gerät herunterzufahren.
 
 1. Wechseln Sie auf der lokalen Webbenutzeroberfläche zu **Herunterfahren oder neu starten**.
+
 2. Wählen Sie **Herunterfahren** aus.
 
     ![Data Box herunterfahren 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
@@ -93,7 +112,7 @@ Führen Sie zunächst zum Herunterladen der BOM- oder Manifestdateien für Ihren
 
     <!-- ![Select Download list of files](media/data-box-portal-admin/download-list-of-files.png) -->
 
-3. Sie sehen im Datei-Explorer, dass separate Dateilisten generiert werden. Ausschlaggebend hierfür sind das Protokoll, das für die Verbindungsherstellung mit dem Gerät verwendet wird, und der verwendete Azure Storage-Typ.
+3. Im Datei-Explorer werden separate Dateilisten generiert. Ausschlaggebend hierfür sind das Protokoll, das für die Verbindungsherstellung mit dem Gerät verwendet wird, und der verwendete Azure Storage-Typ.
 
     <!-- ![Files for storage type and connection protocol](media/data-box-portal-admin/files-storage-connection-type.png) -->
     ![Dateien für Speichertyp und Verbindungsprotokoll](media/data-box-local-web-ui-admin/prepare-to-ship-5.png)
@@ -168,7 +187,7 @@ Sie können auf dem Dashboard des Geräts die verfügbare und belegte Kapazität
 
 Prüfsummen werden standardmäßig für Ihre Daten generiert, wenn Sie den Versand vorbereiten. In bestimmten seltenen Fällen kann die Leistung je nach Datentyp (kleine Dateigrößen) schlecht sein. In solchen Fällen können Sie die Prüfsumme überspringen.
 
-Die Prüfsummenberechnung während der Vorbereitung für den Versand wird nur für Importaufträge durchgeführt, nicht für Exportaufträge. 
+Die Prüfsummenberechnung während der Vorbereitung für den Versand wird nur für Importaufträge durchgeführt, nicht für Exportaufträge.
 
 Es wird dringend empfohlen, die Prüfsumme nicht zu deaktivieren, es sei denn, die Leistung wird erheblich beeinträchtigt.
 
@@ -212,7 +231,7 @@ So aktivieren Sie die Berechtigungen des Typs „Sicherungsoperator“ auf Ihrem
 
 1. Wählen Sie in der lokalen Webbenutzeroberfläche für Ihr Gerät in der oberen rechten Ecke **Einstellungen** aus.
 
-   ![Öffnen der Data Box-Einstellungen](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+   ![Öffnen der Data Box-Einstellungen 1](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Aktivieren** Sie die Berechtigungen des Typs „Sicherungsoperator“.
 
@@ -235,7 +254,7 @@ So aktivieren Sie die Übertragung von ACLs für Azure-Dateien:
 
 1. Wählen Sie in der lokalen Webbenutzeroberfläche für Ihr Gerät in der oberen rechten Ecke **Einstellungen** aus.
 
-    ![Öffnen der Data Box-Einstellungen](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Öffnen der Data Box-Einstellungen 2](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Aktivieren** Sie ACLs für Azure-Dateien.
 
@@ -247,15 +266,15 @@ So aktivieren Sie die Übertragung von ACLs für Azure-Dateien:
 
 ## <a name="enable-tls-11"></a>Aktivieren von TLS 1.1
 
-Azure Data Box nutzt standardmäßig Transport Layer Security (TLS) 1.2 für die Verschlüsselung, da diese eine höhere Sicherheit als TSL 1.1 bietet. Wenn Sie oder Ihre Kunden für den Datenzugriff jedoch einen Browser verwenden, der TLS 1.2 nicht unterstützt, können Sie TLS 1.1 aktivieren.
+Azure Data Box nutzt standardmäßig Transport Layer Security (TLS) 1.2 für die Verschlüsselung, da diese eine höhere Sicherheit als TSL 1.1 bietet. Wenn Sie oder Ihre Clients für den Datenzugriff jedoch einen Browser verwenden, der TLS 1.2 nicht unterstützt, können Sie TLS 1.1 aktivieren.
 
-Weitere Informationen zu TLS finden Sie unter [Azure Data Box Gateway – Sicherheit](../databox-online/data-box-gateway-security.md).
+Weitere Informationen zu TLS finden Sie unter [Azure Data Box Gateway – Sicherheit](../databox-gateway/data-box-gateway-security.md).
 
 Führen Sie zum Aktivieren von TLS 1.1 auf Ihrem Azure-Gerät die folgenden Schritte aus:
 
 1. Wählen Sie in der lokalen Webbenutzeroberfläche für Ihr Gerät in der oberen rechten Ecke **Einstellungen** aus.
 
-    ![Öffnen der Data Box-Einstellungen](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Öffnen der Data Box-Einstellungen 3](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Aktivieren** Sie TLS 1.1.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/15/2017
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e03601bc929354a69e7f9027db5ac9b7697c3c82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f9b69cef5741ab609b72f6c2c34e3aa50b45648
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90054074"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782075"
 ---
 # <a name="setting-up-the-azure-importexport-tool-v1"></a>Einrichten des Azure Import/Export-Tools Version 1
 Das Microsoft Azure Import/Export-Tool ist das Tool für die Laufwerkvorbereitung und Reparatur, das Sie für den Microsoft Azure Import/Export-Dienst verwenden können. Sie können das Tool für die folgenden Funktionen verwenden:  
@@ -249,8 +249,8 @@ Examples:
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Vorbereiten von Festplatten für einen Importauftrag](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [Anzeigen einer Vorschau der Laufwerknutzung für einen Exportauftrag](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
-* [Überprüfen des Auftragsstatus mit Protokollkopiedateien](../storage-import-export-tool-reviewing-job-status-v1.md)   
-* [Reparieren eines Importauftrags](../storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [Reparieren eines Exportauftrags](../storage-import-export-tool-repairing-an-export-job-v1.md)
+* [Vorbereiten von Festplatten für einen Importauftrag](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
+* [Anzeigen einer Vorschau der Laufwerknutzung für einen Exportauftrag](/previous-versions/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1)   
+* [Überprüfen des Auftragsstatus mit Protokollkopiedateien](./storage-import-export-tool-reviewing-job-status-v1.md)   
+* [Reparieren eines Importauftrags](./storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [Reparieren eines Exportauftrags](./storage-import-export-tool-repairing-an-export-job-v1.md)

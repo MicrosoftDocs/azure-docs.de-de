@@ -1,24 +1,29 @@
 ---
-title: Wetterberichte in Microsoft Azure Maps
-description: In diesem Artikel erhalten Sie Informationen zum Umfang der Wetterberichte in Microsoft Azure Maps.
+title: Microsoft Azure Maps-Wetterdienste (Vorschau)
+description: Lernen Sie die Microsoft Azure Maps-Wetterdienste (Vorschau) kennen.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/17/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 ms.custom: references_regions
 manager: philmea
-ms.openlocfilehash: 5383309143302e0f3fb2052b47e4c497d9a21bf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c4e9eb765a72b7a0b495f81a954b484ef6aa2b7
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976888"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905484"
 ---
-# <a name="azure-maps-weather-coverage"></a>Umfang der Azure Maps-Wetterberichte
+# <a name="azure-maps-weather-services-preview-coverage"></a>Azure Maps-Wetterdienste (Vorschau)
 
-In diesem Artikel finden Sie Informationen zum Umfang der [Wetterdienste](https://aka.ms/AzureMapsWeatherService) von Azure Maps. Azure Maps-Wetterdatendienste geben Details wie Radarkacheln, aktuelle Wetterbedingungen, Wettervorhersagen und das Wetter entlang einer Strecke zurück.
+> [!IMPORTANT]
+> Die Azure Maps-Wetterdienste befinden sich derzeit in der öffentlichen Vorschau.
+> Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar. Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+In diesem Artikel finden Sie Informationen zum Umfang der [Wetterdienste](/rest/api/maps/weather) von Azure Maps. Azure Maps-Wetterdatendienste geben Details wie Radarkacheln, aktuelle Wetterbedingungen, Wettervorhersagen und das Wetter entlang einer Strecke zurück.
 
 Azure Maps verfügt nicht für alle Länder und Regionen über das gleiche Maß an Informationen und Genauigkeit.
 
@@ -299,4 +304,4 @@ In der folgenden Tabelle finden Sie Informationen zu der Art von Wetterinformati
 | Türkei                 | ✓ |   | | ✓| 
 | Ukraine                | ✓ |   | | ✓| 
 | United Kingdom         | ✓ | ✓ | ✓| ✓| 
-| Vatikanstadt           | ✓ |   |✓ | ✓| 
+| Vatikanstadt           | ✓ |   |✓ | ✓|

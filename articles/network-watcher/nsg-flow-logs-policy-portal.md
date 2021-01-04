@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: damendo
-ms.openlocfilehash: a603f55bd5bff7b2ed68623e9c712faaf8ac766f
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 54b87da73d4427234e65e406d183525d55c6c00d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876800"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948543"
 ---
 # <a name="quickstart-deploy-and-manage-nsg-flow-logs-using-azure-policy"></a>Schnellstart: Bereitstellen und Verwalten von NSG-Datenflussprotokollen mit Azure Policy 
 
@@ -25,8 +25,8 @@ ms.locfileid: "91876800"
 Azure Policy hilft bei der Durchsetzung von Organisationsstandards und bei der Bewertung der Compliance nach Bedarf. Häufige Anwendungsfälle für Azure Policy sind die Implementierung von Governance für Ressourcenkonsistenz, Einhaltung gesetzlicher Bestimmungen, Sicherheit, Kosten und Verwaltung. In diesem Artikel werden zwei integrierte Richtlinien verwendet, die NSG-Datenflussprotokollen zur Verwaltung Ihrer Datenflussprotokoll-Einrichtung zur Verfügung stehen. Die erste Richtlinie kennzeichnet alle NSGs, für die keine Datenflussprotokolle aktiviert sind. Die zweite Richtlinie stellt automatisch Datenflussprotokolle für NSGs ohne aktivierte Datenflussprotokolle bereit. 
 
 Wenn Sie zum ersten Mal eine Azure-Richtlinie erstellen, können Sie Folgendes lesen: 
-- [Azure Policy – Übersicht](https://docs.microsoft.com/azure/governance/policy/overview) 
-- [Tutorial zum Erstellen einer Richtlinie](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal#create-a-policy-assignment).
+- [Azure Policy – Übersicht](../governance/policy/overview.md) 
+- [Tutorial zum Erstellen einer Richtlinie](../governance/policy/assign-policy-portal.md#create-a-policy-assignment).
 
 
 ## <a name="locate-the-policies"></a>Suchen der Richtlinien
@@ -134,5 +134,5 @@ Wenn Ihre Richtlinie ausgeführt wurde, sollte ein Screenshot angezeigt werden, 
 
 ## <a name="next-steps"></a>Nächste Schritte 
 
--   Erfahren Sie in diesem [Tutorial](https://docs.microsoft.com/azure/network-watcher/quickstart-configure-network-security-group-flow-logs-from-arm-template), wie Sie mithilfe von ARM-Vorlagen Datenflussprotokolle und Traffic Analytics bereitstellen.
--   Erfahren Sie mehr über [Network Watcher](https://docs.microsoft.com/azure/network-watcher/).
+-   Erfahren Sie in diesem [Tutorial](./quickstart-configure-network-security-group-flow-logs-from-arm-template.md), wie Sie mithilfe von ARM-Vorlagen Datenflussprotokolle und Traffic Analytics bereitstellen.
+-   Erfahren Sie mehr über [Network Watcher](./index.yml).

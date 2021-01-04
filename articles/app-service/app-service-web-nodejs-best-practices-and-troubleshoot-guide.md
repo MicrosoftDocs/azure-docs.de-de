@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3b4a9547a1bd62b7464b4a79fe68720572630f3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 370b84f451e22c20c798018951a7a801e0bba826
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961889"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763943"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Bewährte Methoden und Problembehandlungsschritte für Node-Anwendungen in Azure App Service unter Windows
 
@@ -121,13 +121,13 @@ Weitere Informationen zum Debuggen finden Sie unter [Debug node.js applications 
 
 Viele Anwendungen stellen im Rahmen ihres normalen Betriebs ausgehende Verbindungen her. Wenn beispielsweise eine Anforderung empfangen wird, nimmt Ihre Knoten-App in der Regel Kontakt mit einer REST-API an einem anderen Ort auf, um Informationen zur Verarbeitung der Anforderung zu erhalten. Es ist ratsam, für http- oder https-Aufrufe einen Keep-Alive-Agent zu verwenden. Sie können zum Durchführen dieser ausgehenden Aufrufe das agentkeepalive-Modul als Keep-Alive-Agent verwenden.
 
-Das agentkeepalive-Modul stellt sicher, dass Sockets auf Ihrer Azure-Web-App-VM wieder verwendet werden. Das Erstellen eines neuen Sockets für jede ausgehende Anforderung erzeugt zusätzlichen Mehraufwand für Ihre Anwendung. Durch die Wiederverwendung von Sockets für ausgehende Anforderungen wird sichergestellt, dass Ihre Anwendung die pro VM zugeordnete maximale Anzahl von Sockets (maxSockets) nicht überschreitet. Die Empfehlung für Azure App Service lautet, den maxSockets-Wert für agentKeepAlive auf insgesamt 160 Sockets pro VM (4 Instanzen von „node.exe“ \* 40 maxSockets/Instanz) festzulegen.
+Das agentkeepalive-Modul stellt sicher, dass Sockets auf Ihrer Azure-Web-App-VM wieder verwendet werden. Das Erstellen eines neuen Sockets für jede ausgehende Anforderung erzeugt zusätzlichen Mehraufwand für Ihre Anwendung. Durch die Wiederverwendung von Sockets für ausgehende Anforderungen wird sichergestellt, dass Ihre Anwendung die pro VM zugeordnete maximale Anzahl von Sockets (maxSockets) nicht überschreitet. Die Empfehlung für Azure App Service lautet, den maxSockets-Wert für agentKeepAlive auf insgesamt 128 Sockets pro VM (4 Instanzen von „node.exe“ \* 32 maxSockets/Instanz) festzulegen.
 
 Beispielkonfiguration für [agentKeepAlive](https://www.npmjs.com/package/agentkeepalive):
 
 ```nodejs
 let keepaliveAgent = new Agent({
-    maxSockets: 40,
+    maxSockets: 32,
     maxFreeSockets: 10,
     timeout: 60000,
     keepAliveTimeout: 300000
@@ -140,7 +140,7 @@ let keepaliveAgent = new Agent({
 
 #### <a name="my-node-application-is-consuming-too-much-cpu"></a>Der CPU-Verbrauch meiner Node-Anwendung ist zu hoch.
 
-Möglicherweise erhalten Sie von Azure App Service in Ihrem Portal eine Empfehlung zum hohen CPU-Verbrauch. Sie können auch Monitore einrichten, mit denen bestimmte [Metriken](web-sites-monitor.md) überwacht werden. Sehen Sie sich beim Überprüfen der CPU-Nutzung im [Azure-Portal-Dashboard](../azure-monitor/app/web-monitor-performance.md)die MAX-Werte für die CPU an, damit Ihnen die Spitzenwerte nicht entgehen.
+Möglicherweise erhalten Sie von Azure App Service in Ihrem Portal eine Empfehlung zum hohen CPU-Verbrauch. Sie können auch Monitore einrichten, mit denen bestimmte [Metriken](web-sites-monitor.md) überwacht werden. Sehen Sie sich beim Überprüfen der CPU-Nutzung im [Azure-Portal-Dashboard](../azure-monitor/platform/metrics-charts.md)die MAX-Werte für die CPU an, damit Ihnen die Spitzenwerte nicht entgehen.
 Falls Sie der Meinung sind, dass der CPU-Verbrauch Ihrer Anwendung zu hoch ist, und den Grund dafür nicht kennen, können Sie zur Überprüfung ein Profil für Ihre Node-Anwendung erstellen.
 
 #### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Profilerstellung für die Node-Anwendung in Azure App Service mit V8-Profiler
@@ -213,7 +213,7 @@ Sie sehen, dass 95% der Zeit von der WriteConsoleLog-Funktion verbraucht wurde. 
 
 ### <a name="my-node-application-is-consuming-too-much-memory"></a>Der Arbeitsspeicherverbrauch meiner Node-Anwendung ist zu hoch
 
-Wenn Ihre Anwendung zu viel Arbeitsspeicher verbraucht, wird für Azure App Service im Portal ein entsprechender Hinweis angezeigt. Sie können Monitore einrichten, mit denen bestimmte [Metriken](web-sites-monitor.md) überwacht werden. Sehen Sie sich beim Überprüfen der Arbeitsspeichernutzung im [Azure-Portal-Dashboard](../azure-monitor/app/web-monitor-performance.md) die MAX-Werte für den Arbeitsspeicher an, damit Ihnen die Spitzenwerte nicht entgehen.
+Wenn Ihre Anwendung zu viel Arbeitsspeicher verbraucht, wird für Azure App Service im Portal ein entsprechender Hinweis angezeigt. Sie können Monitore einrichten, mit denen bestimmte [Metriken](web-sites-monitor.md) überwacht werden. Sehen Sie sich beim Überprüfen der Arbeitsspeichernutzung im [Azure-Portal-Dashboard](../azure-monitor/platform/metrics-charts.md) die MAX-Werte für den Arbeitsspeicher an, damit Ihnen die Spitzenwerte nicht entgehen.
 
 #### <a name="leak-detection-and-heap-diff-for-nodejs"></a>Erkennung von Arbeitsspeicherverlusten und Heap-Diff für „node.js“
 

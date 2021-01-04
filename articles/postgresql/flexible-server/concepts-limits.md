@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 30c2da4ac750375c66b92cdca552e1a51a8dbc40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f270ac736bb5dbc429dc8659cc88e63d0b51a523
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90931734"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366637"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Beschränkungen in Azure Database for PostgreSQL – Flexible Server
 
@@ -73,10 +73,12 @@ Eine PostgreSQL-Verbindung kann selbst im Leerlauf ca. 10 MB Arbeitsspeicher be
 - Firewallregeln werden im VNET nicht unterstützt. Stattdessen können Netzwerksicherheitsgruppen verwendet werden.
 - Datenbankserver mit öffentlichem Zugriff können z. B. über `postgres_fdw` eine Verbindung mit dem öffentlichen Internet herstellen. Dieser Zugriff kann nicht eingeschränkt werden. Für VNET-basierte Server kann der ausgehende Zugriff mithilfe von Netzwerksicherheitsgruppen eingeschränkt werden.
 
-### <a name="high-availability"></a>Hochverfügbarkeit
+### <a name="high-availability-ha"></a>Hochverfügbarkeit
 
 - Zonenredundante Hochverfügbarkeit wird derzeit für Server im Tarif „Burstfähig“ nicht unterstützt.
 - Die IP-Adresse des Datenbankservers ändert sich, wenn für Ihren Server ein Failover auf den Standbyserver mit Hochverfügbarkeit erfolgt. Stellen Sie sicher, dass Sie den DNS-Eintrag anstelle der IP-Adresse des Servers verwenden.
+- Wenn die logische Replikation mit einem flexiblen Server mit Hochverfügbarkeit konfiguriert ist, werden die logischen Replikationsslots bei einem Failover auf den Standbyserver nicht auf den Standbyserver kopiert. 
+- Weitere Informationen zur zonenredundanten Hochverfügbarkeit und den damit verbundenen Einschränkungen finden Sie auf der Dokumentationsseite [Konzepte – Hochverfügbarkeit](concepts-high-availability.md).
 
 ### <a name="availability-zones"></a>Verfügbarkeitszonen
 

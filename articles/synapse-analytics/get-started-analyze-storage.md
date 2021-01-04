@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: c4c7b8da659fa7fe8879ae92c4947b7f0867274c
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5e3fbd1868cc1216cb7b9d02b2aa8e690af33952
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173501"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917680"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>Analysieren von Daten in einem Speicherkonto
 
@@ -36,16 +36,18 @@ Führen Sie den folgenden Code in einem Notebook aus. Hiermit werden eine CSV-Da
 %%pyspark
 df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
 df = df.repartition(1) # This ensure we'll get a single file during write()
-df.write.mode("overwrite").csv("/NYCTaxi/PassengerCountStats.csv")
-df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
+df.write.mode("overwrite").csv("/NYCTaxi/PassengerCountStats_csvformat")
+df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
 ```
 
 ### <a name="analyze-data-in-a-storage-account"></a>Analysieren von Daten in einem Speicherkonto
 
+Sie können die Daten in Ihrem ADLS Gen2-Standardkonto Ihres Arbeitsbereichs analysieren, oder Sie können über **Verwalten** > **Verknüpfte Dienste** > **Neu** ein ADLS Gen2- oder Blob-Speicherkonto mit Ihrem Arbeitsbereich verknüpfen (die folgenden Schritte beziehen sich auf das primäre ADLS Gen2-Konto).
+
 1. Navigieren Sie in Synapse Studio zum Hub **Daten**, und wählen Sie **Verknüpft** aus.
 1. Navigieren Sie zu **Speicherkonten** > **myworkspace (Primär – contosolake)** .
-1. Wählen Sie **Benutzer (Primär)** aus. Der Ordner **NYCTaxi** sollte angezeigt werden. Darin sollten die beiden Ordner **PassengerCountStats.csv** und **PassengerCountStats.parquet** angezeigt werden.
-1. Öffnen Sie den Ordner **PassengerCountStats.parquet**. Darin wird eine Parquet-Datei mit einem Namen wie `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet` angezeigt.
+1. Wählen Sie **Benutzer (Primär)** aus. Der Ordner **NYCTaxi** sollte angezeigt werden. Darin sollten die beiden Ordner **PassengerCountStats_csvformat** und **PassengerCountStats_parquetformat** angezeigt werden.
+1. Öffnen Sie den Ordner **PassengerCountStats_parquetformat**. Darin wird eine Parquet-Datei mit einem Namen wie `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet` angezeigt.
 1. Klicken Sie mit der rechten Maustaste auf **.parquet**, und wählen Sie dann die Option **Neues Notebook** aus. Es wird ein Notebook mit einer Zelle der folgenden Art erstellt:
 
     ```py
@@ -65,7 +67,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
     ) AS [r];
     ```
 
-    Im Skriptfenster ist das Feld **Verbinden mit** auf **SQL On-Demand** festgelegt.
+    Im Skriptfenster ist das Feld **Verbinden mit** auf **Serverlosen SQL-Pool** festgelegt.
 
 1. Führen Sie das Skript aus.
 

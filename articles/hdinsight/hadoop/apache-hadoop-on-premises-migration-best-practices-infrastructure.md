@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: b9f7e93af61dbcf306f7d6eb105cb113412a423a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e412b82be911f0b4ba2e5cda51495cdcd7826917
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86083099"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542300"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrieren lokaler Apache Hadoop-Cluster zu Azure HDInsight – Best Practices für Infrastruktur
 
@@ -27,7 +27,7 @@ Die wichtigsten Entscheidungen für die Kapazitätsplanung von HDInsight-Cluster
 Die Azure-Region bestimmt, wo der Cluster physisch bereitgestellt wird. Um die Latenz der Lese- und Schreibvorgänge zu minimieren, sollte sich der Cluster in der gleichen Region wie Ihre Daten befinden.
 
 **Speicherort und -größe**  
-Der Standardspeicher muss sich in derselben Region wie der Cluster befinden. Für einen Cluster mit 48 Knoten wird empfohlen, 4 bis 8 Speicherkonten zu verwenden. Es mag bereits ausreichend Gesamtspeicher verfügbar sein, doch jedes Speicherkonto bietet zusätzliche Netzwerkbandbreite für die Serverknoten. Wenn Sie mehrere Speicherkonten haben, verwenden Sie für jedes Speicherkonto einen zufälligen Namen ohne Präfix. Die zufällige Benennung soll die Wahrscheinlichkeit alle Konten übergreifender Speicherengpässe (Drosselung) oder üblicher Fehler reduzieren. Verwenden Sie nur einen Container pro Speicherkonto, um die Leistung zu verbessern.
+Der Standardspeicher muss sich in derselben Region wie der Cluster befinden.  Für einen Cluster mit 48 Knoten wird empfohlen, 4 bis 8 Speicherkonten zu verwenden. Es mag bereits ausreichend Gesamtspeicher verfügbar sein, doch jedes Speicherkonto bietet zusätzliche Netzwerkbandbreite für die Serverknoten. Wenn Sie mehrere Speicherkonten haben, verwenden Sie für jedes Speicherkonto einen zufälligen Namen ohne Präfix. Die zufällige Benennung soll die Wahrscheinlichkeit alle Konten übergreifender Speicherengpässe (Drosselung) oder üblicher Fehler reduzieren. Verwenden Sie nur einen Container pro Speicherkonto, um die Leistung zu verbessern.
 
 **VM-Größe und -Typ (unterstützt jetzt die G-Serie)**  
 Jeder Clustertyp hat einen Satz von Knotentypen, und jeder Knotentyp hat bestimmte Optionen für VM-Größe und -Typ. Größe und Typ des virtuellen Computers richten sich nach CPU-Verarbeitungsleistung, RAM-Größe und Netzwerklatenz. Mit einer simulierten Workload kann für jeden Knotentyp die optimale VM-Größe und der richtige Typ ermittelt werden.
@@ -52,35 +52,35 @@ Anwendungen oder Komponenten, die in lokalen Clustern verfügbar waren, aber nic
 |**Anwendung**|**Integration**
 |---|---|
 |Luftströmung|IaaS- oder HDInsight-Edgeknoten
-|Alluxio|IaaS  
-|Arcadia|IaaS 
+|Alluxio|IaaS  
+|Arcadia|IaaS 
 |Atlas|Keine (nur HDP)
 |Datameer|HDInsight-Edgeknoten
 |Datastax (Cassandra)|IaaS (COSMOS DB als eine Alternative in Azure)
-|DataTorrent|IaaS 
-|Drill|IaaS 
+|DataTorrent|IaaS 
+|Drill|IaaS 
 |Ignite|IaaS
-|Jethro|IaaS 
-|Mapador|IaaS 
+|Jethro|IaaS 
+|Mapador|IaaS 
 |Mongo|IaaS (COSMOS DB als eine Alternative in Azure)
-|NiFi|IaaS 
+|NiFi|IaaS 
 |Presto|IaaS- oder HDInsight-Edgeknoten
-|Python 2|PaaS 
-|Python 3|PaaS 
-|R|PaaS 
-|SAS|IaaS 
+|Python 2|PaaS 
+|Python 3|PaaS 
+|R|PaaS 
+|SAS|IaaS 
 |Vertica|IaaS (SQLDW als eine Alternative in Azure)
-|Tableau|IaaS 
+|Tableau|IaaS 
 |Waterline|HDInsight-Edgeknoten
-|StreamSets|HDInsight-Edge 
-|Palantir|IaaS 
-|Sailpoint|Iaas 
+|StreamSets|HDInsight-Edge 
+|Palantir|IaaS 
+|Sailpoint|Iaas 
 
 Weitere Informationen finden Sie im Artikel [Welche Hadoop-Komponenten und -Versionen sind in HDInsight verfügbar?](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions).
 
 ## <a name="customize-hdinsight-clusters-using-script-actions"></a>Anpassen von HDInsight-Clustern mit Skriptaktionen
 
-HDInsight bietet eine Methode für die Clusterkonfiguration namens **Skriptaktion**. Eine Skriptaktion ist ein Bash-Skript, das auf den Knoten in einem HDInsight-Cluster ausgeführt wird und dazu verwendet werden kann, zusätzliche Komponenten zu installieren und Konfigurationseinstellungen zu ändern.
+HDInsight bietet eine Methode für die Clusterkonfiguration namens **Skriptaktion** . Eine Skriptaktion ist ein Bash-Skript, das auf den Knoten in einem HDInsight-Cluster ausgeführt wird und dazu verwendet werden kann, zusätzliche Komponenten zu installieren und Konfigurationseinstellungen zu ändern.
 
 Skriptaktionen müssen als URI gespeichert werden, der über den HDInsight-Cluster verfügbar ist. Sie können während oder nach der Clustererstellung verwendet werden und können auch auf die Ausführung auf bestimmten Knotentypen beschränkt werden.
 
@@ -109,7 +109,7 @@ Weitere Informationen finden Sie in den folgenden Artikeln:
 
 ## <a name="customize-hdinsight-configs-using-bootstrap"></a>Anpassen von HDInsight-Konfigurationen mithilfe von Bootstrap
 
-Änderungen an Konfigurationen in den Konfigurationsdateien wie `core-site.xml`, `hive-site.xml` und `oozie-env.xml` können mit Bootstrap vorgenommen werden. Das folgende Skript ist ein Beispiel für die Verwendung des [AZ-Moduls](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) und des Cmdlets [New-AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) von PowerShell:
+Änderungen an Konfigurationen in den Konfigurationsdateien wie `core-site.xml`, `hive-site.xml` und `oozie-env.xml` können mit Bootstrap vorgenommen werden. Das folgende Skript ist ein Beispiel für die Verwendung des [AZ-Moduls](/powershell/azure/new-azureps-module-az) und des Cmdlets [New-AzHDInsightClusterConfig](/powershell/module/az.hdinsight/new-azhdinsightcluster) von PowerShell:
 
 ```powershell
 # hive-site.xml configuration

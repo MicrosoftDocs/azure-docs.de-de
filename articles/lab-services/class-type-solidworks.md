@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 5511ad5a517bbd320ce3d66de90a8aec084c7e15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc6fdadbdfdbdd1d32f640e356a67841187a83c9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87290732"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999262"
 ---
 # <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>Einrichten eines Labs für Engineeringkurse mithilfe von SOLIDWORKS
 
@@ -24,18 +24,18 @@ In diesem Artikel erfahren Sie, wie Sie einen Kurs einrichten, in dem SOLIDWORKS
 
 Die SOLIDWORKS-Netzwerklizenzierung erfordert, dass Sie den Lizenz-Manager von SolidNetWork auf dem Lizenzserver installiert und aktiviert haben.  Dieser Lizenzserver befindet sich in der Regel in Ihrem lokalen Netzwerk oder in einem privaten Netzwerk in Azure.  Weitere Informationen zum Einrichten des Lizenz-Managers von SolidNetWork auf Ihrem Server finden Sie unter [Installieren und Aktivieren eines Lizenz-Managers](https://help.solidworks.com/2019/English/Installation/install_guide/t_installing_snl_lic_mgr.htm) im SOLIDWORKS-Installationsleitfaden.  Notieren Sie sich beim Einrichten die verwendete **Portnummer** und [**Seriennummer**](https://help.solidworks.com/2019/english/installation/install_guide/r_hid_state_serial_number.htm), da beide Angaben in späteren Schritten benötigt werden.
 
-Nach dem Einrichten des Lizenzservers müssen Sie eine Peerverbindung zwischen dem [virtuellen Netzwerk (VNET)](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) und Ihrem [Lab-Konto](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account) herstellen.  Das Netzwerkpeering muss vor dem Erstellen des Labs erfolgen, damit die virtuellen Lab-Computer auf den Lizenzserver zugreifen können und umgekehrt.
+Nach dem Einrichten des Lizenzservers müssen Sie eine Peerverbindung zwischen dem [virtuellen Netzwerk (VNET)](./how-to-connect-peer-virtual-network.md) und Ihrem [Lab-Konto](./tutorial-setup-lab-account.md) herstellen.  Das Netzwerkpeering muss vor dem Erstellen des Labs erfolgen, damit die virtuellen Lab-Computer auf den Lizenzserver zugreifen können und umgekehrt.
 
 > [!NOTE]
-> Vergewissern Sie sich, dass die entsprechenden Ports Ihrer Firewalls geöffnet sind, um die Kommunikation zwischen den virtuellen Lab-Computern und dem Lizenzserver zu erlauben.  Informationen hierzu finden Sie beispielsweise in den Anleitungen unter [Ändern der Lizenz-Manager-Computerports für die Windows-Firewall](http://help.solidworks.com/2019/english/installation/install_guide/t_mod_ports_on_lic_mgr_for_firewall.htm), die zeigen, wie der Firewall des Lizenzservers Eingangs- und Ausgangsregeln hinzugefügt werden.  Möglicherweise müssen Sie auch Ports für die virtuellen Lab-Computer öffnen.  Führen Sie die Schritte im Artikel [Firewalleinstellungen für Labs](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-firewall-settings) aus, um weitere Informationen zu diesem Thema zu erhalten, einschließlich Informationen dazu, wie Sie die öffentliche IP-Adresse des Labs abrufen.
+> Vergewissern Sie sich, dass die entsprechenden Ports Ihrer Firewalls geöffnet sind, um die Kommunikation zwischen den virtuellen Lab-Computern und dem Lizenzserver zu erlauben.  Informationen hierzu finden Sie beispielsweise in den Anleitungen unter [Ändern der Lizenz-Manager-Computerports für die Windows-Firewall](http://help.solidworks.com/2019/english/installation/install_guide/t_mod_ports_on_lic_mgr_for_firewall.htm), die zeigen, wie der Firewall des Lizenzservers Eingangs- und Ausgangsregeln hinzugefügt werden.  Möglicherweise müssen Sie auch Ports für die virtuellen Lab-Computer öffnen.  Führen Sie die Schritte im Artikel [Firewalleinstellungen für Labs](./how-to-configure-firewall-settings.md) aus, um weitere Informationen zu diesem Thema zu erhalten, einschließlich Informationen dazu, wie Sie die öffentliche IP-Adresse des Labs abrufen.
 
 ## <a name="lab-configuration"></a>Labkonfiguration
 
-Zum Einrichten dieses Labs benötigen Sie zunächst ein Azure-Abonnement und ein Lab-Konto. Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen. Sobald Sie ein Azure-Abonnement erhalten, können Sie ein neues Lab-Konto in Azure Lab Services erstellen. Weitere Informationen zum Erstellen eines neuen Lab-Kontos finden Sie im Tutorial zum [Einrichten eines Lab-Kontos](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account). Sie können auch ein vorhandenes Lab-Konto verwenden.
+Zum Einrichten dieses Labs benötigen Sie zunächst ein Azure-Abonnement und ein Lab-Konto. Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen. Sobald Sie ein Azure-Abonnement erhalten, können Sie ein neues Lab-Konto in Azure Lab Services erstellen. Weitere Informationen zum Erstellen eines neuen Lab-Kontos finden Sie im Tutorial zum [Einrichten eines Lab-Kontos](./tutorial-setup-lab-account.md). Sie können auch ein vorhandenes Lab-Konto verwenden.
 
 ### <a name="lab-account-settings"></a>Lab-Kontoeinstellungen
 
-Aktivieren Sie die Einstellungen für das Lab-Konto, die in der nachfolgenden Tabelle beschrieben werden. Weitere Informationen zum Aktivieren von Marketplace-Images finden Sie im Artikel zum [Angeben von für Lab-Ersteller verfügbaren Marketplace-Images](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
+Aktivieren Sie die Einstellungen für das Lab-Konto, die in der nachfolgenden Tabelle beschrieben werden. Weitere Informationen zum Aktivieren von Marketplace-Images finden Sie im Artikel zum [Angeben von für Lab-Ersteller verfügbaren Marketplace-Images](./specify-marketplace-images.md).
 
 | Lab-Kontoeinstellungen | Instructions |
 | ------------------- | ------------ |

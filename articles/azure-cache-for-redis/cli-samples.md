@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/14/2017
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9bfdd2d03b3ab6edd04a641787475930435a9ffc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32530982bc2a9d1b5deb31b3bc71460462352258
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87499601"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536418"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-cli"></a>Verwalten von Azure Cache for Redis mit der Azure CLI
 
@@ -30,4 +30,4 @@ Die folgende Tabelle enthält Links zu Bash-Skripts, die mithilfe der Azure CLI 
 |**Löschen eines Caches**| **Beschreibung** |
 | [Löschen eines Caches](./scripts/delete-cache.md) | Löscht eine Azure Cache for Redis-Instanz.  |
 
-Weitere Informationen zur Azure CLI finden Sie unter [Installieren der Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) und [Erste Schritte mit der Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+Weitere Informationen zur Azure CLI finden Sie unter [Installieren der Azure CLI](/cli/azure/install-azure-cli) und [Erste Schritte mit der Azure CLI](/cli/azure/get-started-with-azure-cli).

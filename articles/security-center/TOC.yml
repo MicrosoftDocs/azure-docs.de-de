@@ -3,14 +3,14 @@
 - name: Übersicht
   expanded: true
   items:
-    - name: Informationen zu Security Center
+    - name: Was ist Azure Security Center?
+      href: security-center-introduction.md
+    - name: Verfügbarkeit
       items:
-        - name: Was ist Azure Security Center?
-          href: security-center-introduction.md
         - name: Unterstützte Plattformen
           displayName: coverage
           href: security-center-os-coverage.md
-        - name: Funktionsabdeckung für virtuelle Computer
+        - name: 'Abdeckung nach Betriebssystem, Computertyp und Cloud'
           href: security-center-services.md
         - name: Funktionsabdeckung für Azure PaaS-Ressourcen
           href: features-paas.md
@@ -55,6 +55,12 @@
         - name: Azure Defender für Key Vault
           displayName: 'KV, akv'
           href: defender-for-key-vault-introduction.md
+        - name: Azure Defender für Resource Manager
+          displayName: ARM
+          href: defender-for-resource-manager-introduction.md
+        - name: Azure Defender für DNS
+          displayName: domain
+          href: defender-for-dns-introduction.md
         - name: Azure Defender für Kubernetes
           displayName: 'clusters, k8s, aks'
           href: defender-for-kubernetes-introduction.md
@@ -87,7 +93,7 @@
       href: security-center-powershell-onboarding.md
     - name: Aktivieren von Security Center für eine Verwaltungsgruppe
       href: onboard-management-group.md
-    - name: Konfigurieren der Datensammlung
+    - name: Konfigurieren der automatischen Bereitstellung
       href: security-center-enable-data-collection.md
     - name: Einrichten von E-Mail-Benachrichtigungen
       href: security-center-provide-security-contact-details.md
@@ -151,9 +157,9 @@
           href: security-center-network-recommendations.md
         - name: Schützen von Identität und Zugriff
           href: security-center-identity-access.md
-    - name: Azure Defender-Warnungen
+    - name: Informationen zu Sicherheitswarnungen
       items:
-        - name: 'Azure Defender-Warnungen: Übersicht'
+        - name: Übersicht zu Sicherheitswarnungen
           href: security-center-alerts-overview.md
         - name: Referenzliste der Warnungen
           href: alerts-reference.md
@@ -223,7 +229,8 @@
         - name: Konfigurieren von Azure Defender für SQL auf Azure-VMs
           href: defender-for-sql-usage.md
           displayName: 'hybrid, arc'
-        - name: Anpassen der Information Protection-Richtlinie
+        - name: Anpassen der Information Protection-Richtlinie für SQL
+          displayName: 'sql, database, data discovery'
           href: security-center-info-protection-policy.md
     - name: Verwenden von Azure Defender für Containerregistrierungen
       items:
@@ -243,7 +250,7 @@
           href: continuous-export.md
         - name: Herunterladen eines CSV-Berichts aller Warnungen
           href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations
-    - name: Verarbeiten von Azure Defender-Warnungen
+    - name: Behandeln von Sicherheitswarnungen
       items:
         - name: Verwalten von Sicherheitswarnungen
           href: security-center-managing-and-responding-alerts.md
@@ -252,6 +259,11 @@
         - name: Reagieren auf Warnungen zu Azure Defender für Key Vault
           displayName: 'akv, kv'
           href: defender-for-key-vault-usage.md
+        - name: Reagieren auf Warnungen von Azure Defender für DNS
+          href: defender-for-dns-usage.md
+        - name: Reagieren auf Warnungen von Azure Defender für Resource Manager
+          displayName: arm
+          href: defender-for-resource-manager-usage.md
         - name: Verwalten von Sicherheitsvorfällen
           href: security-center-incident.md
         - name: Erstellen von Threat Intelligence-Berichten
@@ -277,8 +289,6 @@
       items:
         - name: Allgemeine Fragen
           href: faq-general.md
-        - name: Fragen zur Abrechnung
-          href: faq-billing.md
         - name: Fragen zu Berechtigungen
           href: faq-permissions.md
         - name: Fragen zu Datenerfassung und Agents

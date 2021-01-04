@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e9bd2db8bcc427118a76f87e49ade422a74a11c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7d7bff1bc85e0dec78a69422d126b86f61b7704
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87276923"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783979"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Notfallwiederherstellung und Speicherkontofailover
 
@@ -54,9 +54,9 @@ Es ist wichtig, Ihre Anwendung von Anfang an auf Hochverfügbarkeit auszurichten
 Beachten Sie außerdem diese Best Practices zur Aufrechterhaltung der Hochverfügbarkeit Ihrer Azure Storage-Daten:
 
 - **Datenträger:** Verwenden Sie den [Azure Backup](https://azure.microsoft.com/services/backup/), um die von Ihrem virtuellen Computer verwendeten VM-Datenträger zu sichern. Erwägen Sie auch, [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) zu verwenden, um Ihre VMs im Falle eines regionalen Ausfalls zu schützen.
-- **Blockblobs:** Aktivieren Sie [Vorläufiges Löschen](../blobs/storage-blob-soft-delete.md), um das versehentliche Löschen und Überschreiben von Objekten zu verhindern, oder kopieren Sie die Blockblobs in ein anderes Speicherkonto in einer andere Region mithilfe von [AzCopy](storage-use-azcopy.md), [Azure PowerShel](/powershell/module/az.storage/)l oder [Azure Data Movement Library](storage-use-data-movement-library.md).
-- **Dateien:** Verwenden Sie [AzCopy](storage-use-azcopy.md) oder [Azure PowerShell](/powershell/module/az.storage/), um die Dateien in ein anderes Speicherkonto in einer anderen Region zu kopieren.
-- **Tabellen:** Verwenden Sie [AzCopy](storage-use-azcopy.md), um die Tabellendaten in ein anderes Speicherkonto in einer anderen Region zu exportieren.
+- **Blockblobs:** Aktivieren Sie [Vorläufiges Löschen](../blobs/soft-delete-blob-overview.md), um das versehentliche Löschen und Überschreiben von Objekten zu verhindern, oder kopieren Sie die Blockblobs in ein anderes Speicherkonto in einer andere Region mithilfe von [AzCopy](./storage-use-azcopy-v10.md), [Azure PowerShel](/powershell/module/az.storage/)l oder [Azure Data Movement Library](storage-use-data-movement-library.md).
+- **Dateien:** Verwenden Sie [AzCopy](./storage-use-azcopy-v10.md) oder [Azure PowerShell](/powershell/module/az.storage/), um die Dateien in ein anderes Speicherkonto in einer anderen Region zu kopieren.
+- **Tabellen:** Verwenden Sie [AzCopy](./storage-use-azcopy-v10.md), um die Tabellendaten in ein anderes Speicherkonto in einer anderen Region zu exportieren.
 
 ## <a name="track-outages"></a>Nachverfolgen von Ausfällen
 
@@ -110,7 +110,7 @@ Nachdem Sie das Failover von der primären zur sekundären Region durchgeführt 
 
 Nachdem das Speicherkonto für die Georedundanz neu konfiguriert wurde, ist es möglich, ein weiteres Failover von der neuen primären Region zurück zur neuen sekundären Region zu initiieren. In diesem Fall wird die ursprüngliche primäre Region vor dem Failover wieder zur primären Region und ist so konfiguriert, dass sie lokal redundant ist. Alle Daten in der primären Region nach dem Failover (die ursprüngliche sekundäre Region) gehen dann verloren. Wenn die meisten Daten im Speicherkonto vor dem Failover nicht in die neue sekundäre Region kopiert wurden, kann es zu einem größeren Datenverlust kommen.
 
-Um einen größeren Datenverlust zu vermeiden, überprüfen Sie vorher den Wert der Eigenschaft **Letzte Synchronisierung**. Vergleichen Sie die letzte Synchronisierung mit dem Zeitpunkt, an dem die Daten in die neue primäre Region geschrieben wurden, um den erwarteten Datenverlust zu bewerten. 
+Um einen größeren Datenverlust zu vermeiden, überprüfen Sie vorher den Wert der Eigenschaft **Letzte Synchronisierung** . Vergleichen Sie die letzte Synchronisierung mit dem Zeitpunkt, an dem die Daten in die neue primäre Region geschrieben wurden, um den erwarteten Datenverlust zu bewerten. 
 
 ## <a name="initiate-an-account-failover"></a>Initiieren eines Kontofailovers
 
@@ -132,7 +132,7 @@ Da für den Azure Storage-Ressourcenanbieter kein Failover ausgeführt wird, gib
 
 ### <a name="azure-virtual-machines"></a>Virtuelle Azure-Computer
 
-Ein Failover wird für Azure-VMs im Rahmen eines Kontofailovers nicht durchgeführt. Wenn die primäre Region nicht verfügbar ist und Sie ein Failover zur primären Region durchführen, müssen Sie nach dem Failover alle VMs neu erstellen. Außerdem ist mit dem Kontofailover ein potenzieller Datenverlust verbunden. Microsoft empfiehlt Ihnen, die spezifischen Informationen zur [Hochverfügbarkeit](../../virtual-machines/windows/manage-availability.md) und [Notfallwiederherstellung](../../virtual-machines/windows/backup-recovery.md) für virtuelle Computer in Azure zu lesen.
+Ein Failover wird für Azure-VMs im Rahmen eines Kontofailovers nicht durchgeführt. Wenn die primäre Region nicht verfügbar ist und Sie ein Failover zur primären Region durchführen, müssen Sie nach dem Failover alle VMs neu erstellen. Außerdem ist mit dem Kontofailover ein potenzieller Datenverlust verbunden. Microsoft empfiehlt Ihnen, die spezifischen Informationen zur [Hochverfügbarkeit](../../virtual-machines/manage-availability.md) und [Notfallwiederherstellung](../../virtual-machines/backup-recovery.md) für virtuelle Computer in Azure zu lesen.
 
 ### <a name="azure-unmanaged-disks"></a>Nicht verwaltete Azure-Datenträger
 
@@ -162,7 +162,7 @@ Die folgenden Funktionen und Dienste werden für Kontofailover nicht unterstütz
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Kopieren von Daten als Alternative zum Failover
 
-Wenn Ihr Speicherkonto für Lesezugriff auf den sekundären Endpunkt konfiguriert ist, können Sie die Anwendung so entwerfen, dass Sie vom sekundären Endpunkt liest. Wenn Sie bei einem Ausfall in der primären Region kein Failover ausführen möchten, können Sie Werkzeuge wie [AzCopy](storage-use-azcopy.md), [Azure PowerShell](/powershell/module/az.storage/) oder die [Azure Data Movement Library](../common/storage-use-data-movement-library.md) verwenden, um Daten von Ihrem Speicherkonto in der sekundären Region in ein anderes Speicherkonto in einer nicht betroffenen Region zu kopieren. Sie können Ihre Anwendungen dann auf dieses Speicherkonto verweisen, sowohl für die Lese- als auch für die Schreibverfügbarkeit.
+Wenn Ihr Speicherkonto für Lesezugriff auf den sekundären Endpunkt konfiguriert ist, können Sie die Anwendung so entwerfen, dass Sie vom sekundären Endpunkt liest. Wenn Sie bei einem Ausfall in der primären Region kein Failover ausführen möchten, können Sie Werkzeuge wie [AzCopy](./storage-use-azcopy-v10.md), [Azure PowerShell](/powershell/module/az.storage/) oder die [Azure Data Movement Library](../common/storage-use-data-movement-library.md) verwenden, um Daten von Ihrem Speicherkonto in der sekundären Region in ein anderes Speicherkonto in einer nicht betroffenen Region zu kopieren. Sie können Ihre Anwendungen dann auf dieses Speicherkonto verweisen, sowohl für die Lese- als auch für die Schreibverfügbarkeit.
 
 > [!CAUTION]
 > Ein Kontofailover sollte im Rahmen Ihrer Migrationsstrategie für Daten nicht verwendet werden.

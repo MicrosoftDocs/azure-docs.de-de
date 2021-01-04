@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: a79a030c4f57c3dabdd14c01aa2062cab7026cd3
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 52071b964412071d820745b173e8835c6f9e7d0e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611519"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510990"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Kurzlebige Betriebssystemdatenträger für virtuelle Azure-Computer
 
@@ -42,7 +42,8 @@ Die Hauptunterschiede zwischen permanenten und kurzlebigen Betriebssystem-Datent
 | **Status „Zuordnung aufgehoben“**      | Die Zuordnung von VMs und Skalierungsgruppeninstanzen kann aufgehoben und sie können aus diesem Zustand neu gestartet werden. | Die Zuordnung für VMS und Skalierungsgruppeninstanzen kann nicht aufgehoben werden.                                  |
 | **Unterstützung der spezialisierte Betriebssystem-Datenträger** | Ja                                                                                          | Nein                                                                                 |
 | **Änderung der Betriebssystem-Datenträgergröße**              | Wird während der VM-Erstellung und nach dem Aufheben der VM-Zuordnung unterstützt.                                | Wird nur während der VM-Erstellung unterstützt.                                                  |
-| **Ändern der Größe in eine neue VM-Größe**   | Daten des Betriebssystem-Datenträgers werden beibehalten.                                                                    | Daten auf dem Betriebssystem-Datenträger werden gelöscht, Betriebssystem wird erneut bereitgestellt                                      |
+| **Ändern der Größe in eine neue VM-Größe**   | Daten des Betriebssystem-Datenträgers werden beibehalten.                                                                    | Daten auf dem Betriebssystem-Datenträger werden gelöscht, Betriebssystem wird erneut bereitgestellt       
+| **Platzierung der Auslagerungsdatei**   | Unter Windows ist die Auslagerungsdatei auf dem Ressourcendatenträger gespeichert                                              | Unter Windows ist die Auslagerungsdatei auf dem Betriebssystemdatenträger gespeichert   |
 
 ## <a name="size-requirements"></a>Größenanforderungen
 
@@ -85,7 +86,7 @@ az vm create \
 
 Für Skalierungsgruppen verwenden Sie denselben Parameter `--ephemeral-os-disk true` für [az-vmss-create](/cli/azure/vmss#az-vmss-create) und legen den Parameter `--os-disk-caching` auf `ReadOnly` fest.
 
-## <a name="portal"></a>Portal   
+## <a name="portal"></a>Portal
 
 Im Azure-Portal können Sie die Verwendung kurzlebiger Datenträger beim Bereitstellen einer VM auswählen. Dazu öffnen Sie auf der Registerkarte **Datenträger** den Abschnitt **Erweitert**. Wählen Sie für **Kurzlebigen Betriebssystemdatenträger verwenden** die Option **Ja** aus.
 
@@ -119,7 +120,7 @@ Der Prozess zum Erstellen einer Skalierungsgruppe, die einen kurzlebigen Betrieb
        "storageProfile": { 
         "osDisk": { 
           "diffDiskSettings": { 
-                "option": "Local" 
+            "option": "Local" 
           }, 
           "caching": "ReadOnly", 
           "createOption": "FromImage" 

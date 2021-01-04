@@ -47,8 +47,6 @@
           href: customize-person-model-overview.md
 - name: Anleitungen
   items:
-    - name: Herstellen einer Verbindung mit Azure
-      href: connect-to-azure.md
     - name: Verwalten eines mit Azure verbundenen Kontos
       href: manage-account-connected-to-azure.md
     - name: Hochladen und Indizieren von Videos
@@ -56,6 +54,7 @@
     - name: Überprüfen der Video Indexer-Ausgabe
       href: video-indexer-output-json-v2.md
     - name: Suchen bestimmter Momente in Videos
+      displayName: search
       href: video-indexer-search.md
     - name: 'Erkennen von Szenen, Aufnahmen, Keyframes'
       href: scenes-shots-keyframes.md
@@ -67,12 +66,14 @@
       href: use-editor-create-project.md
     - name: Einbetten von Widgets in Ihre Anwendung
       href: video-indexer-embed-widgets.md
+    - name: Überlegungen bei der Verwendung von Video Indexer im großen Stil
+      href: considerations-when-use-at-scale.md
     - name: Notfallwiederherstellung
       href: video-indexer-disaster-recovery.md
     - name: Anpassen von Inhaltsmodellen
       items:
         - name: Animierte Zeichen
-          href: animated-characters-recognition.md
+          href: animated-characters-recognition-how-to.md
         - name: Person
           items:
             - name: Verwenden der Video Indexer-Website

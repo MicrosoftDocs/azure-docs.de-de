@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 003f97c99de7dd4be79e820e822b6071f45ed146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89ad5c2b973a74bc9fa0f6ca2f59f92a26b666e7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714968"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891460"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Häufig gestellte Fragen zur automatischen Azure-Verwaltung für VMs
 
@@ -32,7 +32,6 @@ Die folgenden Voraussetzungen müssen für die Aktivierung der automatischen Azu
 - VMs müssen sich in einer unterstützten Region befinden
 - Benutzer muss über die richtigen Berechtigungen verfügen
 - Nur VMs, die keiner Skalierungsgruppe angehören
-- VMs dürfen nicht mit einem Log Analytics-Arbeitsbereich in einem anderen Abonnement verknüpft werden
 - Automatische Verwaltung unterstützt zurzeit keine Sandboxabonnements.
 
 **Welche Azure RBAC-Berechtigung ist erforderlich, um die automatische Azure-Verwaltung zu aktivieren?**
@@ -106,7 +105,7 @@ Nein, die automatische Verwaltung wird sie nicht erneut konfigurieren. Wir werde
 
 **Warum weist meine VM im Portal für die automatische Verwaltung den Status „Fehler“ auf?**
 
-Wenn der Status *Fehler* angezeigt wird, können Sie die Bereitstellung über die Ressourcengruppe beheben, in der sich Ihre VM befindet. Wechseln Sie zu **Ressourcengruppen**, wählen Sie Ihre Ressourcengruppe aus, klicken Sie auf **Bereitstellungen**, und beachten Sie dort den Status *Fehler* zusammen mit Fehlerdetails.
+Wenn der Status *Fehler* angezeigt wird, können Sie die Bereitstellung über die Ressourcengruppe beheben, in der sich Ihre VM befindet. Wechseln Sie zu **Ressourcengruppen** , wählen Sie Ihre Ressourcengruppe aus, klicken Sie auf **Bereitstellungen** , und beachten Sie dort den Status *Fehler* zusammen mit Fehlerdetails.
 
 **Wie erhalte ich Unterstützung bei der Problembehandlung für die automatische Verwaltung?**
 

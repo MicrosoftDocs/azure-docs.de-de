@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Konfigurieren von LDAPS für Azure Active Directory Domain Services | Microsoft-Dokumentation'
 description: In diesem Tutorial erfahren Sie, wie Sie das Secure Lightweight Directory Access Protocol (LDAPS) für eine verwaltete Azure Active Directory Domain Services-Domäne konfigurieren.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: f5ebe594f1f50c7b7490e5ead8cb3fe7636f0ce7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: d5dbb7b71e2d67ed5b3f624c93c3c143d6c98e5d
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967476"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618534"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Konfigurieren von Secure LDAP (LDAPS) für eine verwaltete Azure AD Domain Services-Domäne
 

@@ -9,14 +9,15 @@ ms.date: 05/20/2019
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: 7727dd2ae69fab75219c5d6d733db3f150061df3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 42d0b2c5d39ea7b5c44b7004f65f13e07067cdc7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477231"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079511"
 ---
 # <a name="azure-table-storage-overview"></a>Übersicht über Azure Table Storage
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 

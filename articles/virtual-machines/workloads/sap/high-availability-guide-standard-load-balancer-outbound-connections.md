@@ -9,25 +9,25 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/16/2020
+ms.date: 12/01/2020
 ms.author: radeltch
-ms.openlocfilehash: 9d3ecae17ae14effe48f5a7a0ee3f73d3054a220
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9c9979699b5bcb3636adc0f9b58331568ea9cad1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961475"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486301"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Konnektivität öffentlicher Endpunkte für VMs, die Azure Load Balancer Standard in SAP-Hochverfügbarkeitsszenarien verwenden
 
 In diesem Artikel werden Konfigurationen beschrieben, die ausgehende Verbindungen mit öffentlichen Endpunkten ermöglichen. Die Konfigurationen erfolgen hauptsächlich im Rahmen der Hochverfügbarkeit mit Pacemaker für SUSE/RHEL.  
 
-Wenn Sie Pacemaker mit dem Azure Fence-Agent in Ihrer Hochverfügbarkeitslösung verwenden, dann müssen die virtuellen Computer über eine ausgehende Verbindung mit der Azure-Verwaltungs-API verfügen.  
-In diesem Artikel werden verschiedene Optionen vorgestellt, damit Sie die für Ihr Szenario am besten geeignete Option auswählen können.  
+Wenn Sie Pacemaker mit dem Azure Fence-Agent in Ihrer Hochverfügbarkeitslösung verwenden, dann müssen die virtuellen Computer über eine ausgehende Verbindung mit der Azure-Verwaltungs-API verfügen. In diesem Artikel werden verschiedene Optionen vorgestellt, damit Sie die für Ihr Szenario am besten geeignete Option auswählen können.  
 
 ## <a name="overview"></a>Übersicht
 
@@ -41,12 +41,12 @@ Wenn virtuelle Computer ohne öffentliche IP-Adressen im Back-End-Pool einer int
 
 Wenn einem virtuellen Computer eine öffentliche IP-Adresse zugewiesen wird oder er sich im Back-End-Pool eines Load Balancers mit öffentlicher IP-Adresse befindet, verfügt er über ausgehende Verbindungen zu öffentlichen Endpunkten.  
 
-SAP-Systeme enthalten oft vertrauliche Geschäftsdaten. Es ist selten akzeptabel, dass virtuelle Computer, die SAP-Systeme hosten, über öffentliche IP-Adressen verfügen. Gleichzeitig gibt es Szenarien, die ausgehende Verbindungen vom virtuellen Computer mit öffentlichen Endpunkten erfordern würden.  
+SAP-Systeme enthalten oft vertrauliche Geschäftsdaten. Es ist selten akzeptabel, dass virtuelle Computer, die SAP-Systeme hosten, über öffentliche IP-Adressen zugänglich sind. Gleichzeitig gibt es Szenarien, die ausgehende Verbindungen vom virtuellen Computer mit öffentlichen Endpunkten erfordern würden.  
 
 Beispiele für Szenarien, die den Zugriff auf den öffentlichen Azure-Endpunkt erfordern:  
-- Verwenden von Azure Fence Agent als Fencing-Mechanismus in Pacemaker-Clustern
-- Azure Backup
-- Azure Site Recovery  
+- Der Azure Fence-Agent benötigt Zugriff auf **management.azure.com** und **login.microsoftonline.com**.  
+- [Azure Backup](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#set-up-network-connectivity)
+- [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-urls)  
 - Verwenden des öffentlichen Repositorys zum Patchen des Betriebssystems
 - Der Datenfluss der SAP-Anwendung kann ausgehende Verbindungen mit öffentlichen Endpunkten erfordern.
 
@@ -69,7 +69,7 @@ Lesen Sie zuerst die folgenden Dokumente:
 * [Virtuelle Netzwerke – Benutzerdefinierte Regeln](../../../virtual-network/virtual-networks-udr-overview.md#user-defined): Konzepte und Regeln für das Azure-Routing.  
 * [Diensttags für Sicherheitsgruppen](../../../virtual-network/network-security-groups-overview.md#service-tags): Informationen zum Vereinfachen Ihrer Konfiguration für Netzwerksicherheitsgruppen und Firewall mit Diensttags.
 
-## <a name="additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Zusätzlicher externer Azure Load Balancer Standard für ausgehende Verbindungen mit dem Internet.
+## <a name="option-1-additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Option 1: Zusätzlicher externer Azure Load Balancer Standard für ausgehende Verbindungen mit dem Internet.
 
 Eine Möglichkeit, ausgehende Verbindungen mit öffentlichen Endpunkten zu erreichen, ohne die eingehende Verbindung zur VM vom öffentlichen Endpunkt aus zu erlauben, besteht darin, einen zweiten Load Balancer mit öffentlicher IP-Adresse zu erstellen, die VMs zum Back-End-Pool des zweiten Load Balancers hinzuzufügen und nur [ausgehende Regeln](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules) zu definieren.  
 Verwenden Sie [Netzwerksicherheitsgruppen](../../../virtual-network/network-security-groups-overview.md), um die öffentlichen Endpunkte zu steuern, die für ausgehende Aufrufe von der VM zugänglich sind.  
@@ -119,7 +119,7 @@ Die Konfiguration würde wie folgt aussehen:
 
    Weitere Informationen zu Azure-Netzwerksicherheitsgruppen finden Sie unter [Sicherheitsgruppen](../../../virtual-network/network-security-groups-overview.md). 
 
-## <a name="azure-firewall-for-outbound-connections-to-internet"></a>Azure Firewall für ausgehende Verbindungen mit dem Internet
+## <a name="option-2-azure-firewall-for-outbound-connections-to-internet"></a>Option 2: Azure Firewall für ausgehende Verbindungen mit dem Internet
 
 Eine weitere Möglichkeit, ausgehende Verbindungen mit öffentlichen Endpunkten zu erreichen, ohne die eingehende Verbindung mit dem virtuellen Computer von öffentlichen Endpunkten aus zu ermöglichen, bietet Azure Firewall. Azure Firewall ist ein verwalteter Dienst mit integrierter Hochverfügbarkeit, der mehrere Verfügbarkeitszonen umfassen kann.  
 Sie müssen auch eine [Benutzerdefinierte Route](../../../virtual-network/virtual-networks-udr-overview.md#custom-routes) bereitstellen, die mit dem Subnetz verbunden ist, in dem virtuelle Computer und der Azure Load Balancer bereitgestellt werden, und auf Azure Firewall verweisen, um den Datenverkehr über Azure Firewall zu leiten.  
@@ -162,14 +162,14 @@ Die Architektur sieht folgendermaßen aus:
    1. Geben Sie den Namen „MyRouteTable“ ein, wählen Sie „Abonnement“, „Ressourcengruppe“ und „Standort“ (entsprechend dem Standort Ihres virtuellen Netzwerks und der Firewall) aus.  
    1. Speichern  
 
-   Die Firewallregel würde wie folgt aussehen: ![Ausgehende Verbindung mit Azure Firewall](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
+   Die Firewallregel würde wie folgt aussehen: ![Abbildung der potenziellen Firewall](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
 
 6. Erstellen Sie eine benutzerdefinierte Route aus dem Subnetz Ihrer VMs zur privaten IP-Adresse von **MyAzureFirewall**.
    1. Da Sie sich bei der Routingtabelle befinden, klicken Sie auf „Routen“. Klicken Sie auf „Hinzufügen“. 
    1. Routenname: ToMyAzureFirewall, Adresspräfix: **0.0.0.0/0**. Typ des nächsten Hops: Wählen Sie „Virtuelles Gerät“ aus. Adresse des nächsten Hops: Geben Sie die private IP-Adresse der von Ihnen konfigurierten Firewall ein. **11.97.1.4**.  
    1. Speichern
 
-## <a name="using-proxy-for-pacemaker-calls-to-azure-management-api"></a>Verwenden von Proxy für Pacemaker-Aufrufe an die Azure-Verwaltungs-API
+## <a name="option-3-using-proxy-for-pacemaker-calls-to-azure-management-api"></a>Option 3: Verwenden von Proxy für Pacemaker-Aufrufe an die Azure-Verwaltungs-API
 
 Sie können einen Proxy verwenden, um Pacemaker-Aufrufe für den öffentlichen Endpunkt der Azure-Verwaltungs-API zuzulassen.  
 
@@ -220,9 +220,9 @@ Damit Pacemaker mit der Azure-Verwaltungs-API kommunizieren kann, führen Sie di
      sudo pcs property set maintenance-mode=false
      ```
 
-## <a name="other-solutions"></a>Andere Lösungen
+## <a name="other-options"></a>Weitere Optionen
 
-Wenn ausgehender Datenverkehr über eine Drittanbieterfirewall geleitet wird, gilt Folgendes:
+Wenn ausgehender Datenverkehr über einen URL-basierten Firewallproxy eines Drittanbieters geleitet wird, gilt Folgendes:
 
 - Stellen Sie bei Verwendung des Azure-Fence-Agents sicher, dass die Firewallkonfiguration ausgehende Verbindungen mit der Azure-Verwaltungs-API zulässt: `https://management.azure.com` und `https://login.microsoftonline.com`.   
 - Wenn Sie zum Anwenden von Updates und Patches die Updateinfrastruktur für die öffentliche Azure-Cloud von SUSE verwenden, lesen Sie [Grundlegendes zur Updateinfrastruktur für die öffentliche Azure-Cloud](https://suse.com/c/azure-public-cloud-update-infrastructure-101/).

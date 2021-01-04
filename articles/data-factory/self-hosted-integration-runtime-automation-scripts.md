@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 05/09/2020
-ms.openlocfilehash: 068586a96ad3655cb70171266bd58f56ed320fc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36414c975e97dbaa7d8747da98c31eeb12fbc206
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83662858"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636968"
 ---
 # <a name="automating-self-hosted-integration-runtime-installation-using-local-powershell-scripts"></a>Automatisieren der Installation von selbstgehosteter Integration Runtime mithilfe von lokalen PowerShell-Skripts
 Sie können mithilfe von lokalen PowerShell-Skripts die Installation von selbstgehosteter Integration Runtime auf lokalen Computern automatisieren (mit Ausnahme von Azure VMs, bei denen Sie stattdessen die Resource Manager-Vorlage nutzen können). In diesem Artikel werden zwei Skripts vorgestellt, die Sie dafür verwenden können.
@@ -31,14 +31,14 @@ Sie können mithilfe von lokalen PowerShell-Skripts die Installation von selbstg
 ## <a name="scripts-introduction"></a>Einführung in Skripts 
 
 > [!NOTE]
-> Diese Skripts werden mithilfe des [dokumentierten Befehlszeilen-Hilfsprogramms](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#set-up-an-existing-self-hosted-ir-via-local-powershell) in der selbstgehosteten Integration Runtime erstellt. Bei Bedarf können die Skripts entsprechend angepasst werden, um deren Automatisierungsanforderungen zu erfüllen.
+> Diese Skripts werden mithilfe des [dokumentierten Befehlszeilen-Hilfsprogramms](./create-self-hosted-integration-runtime.md#set-up-an-existing-self-hosted-ir-via-local-powershell) in der selbstgehosteten Integration Runtime erstellt. Bei Bedarf können die Skripts entsprechend angepasst werden, um deren Automatisierungsanforderungen zu erfüllen.
 > Die Skripts müssen pro Knoten angewendet werden. Stellen Sie deshalb sicher, dass sie bei einem Setup mit Hochverfügbarkeit (2 oder mehr Knoten) auf allen Knoten ausgeführt werden.
 
 * Zur Automatisierung des Setups: Installieren und registrieren Sie einen neuen selbstgehosteten Integration Runtime-Knoten mithilfe von **[InstallGatewayOnLocalMachine.ps1](https://github.com/nabhishek/SelfHosted-IntegrationRuntime_AutomationScripts/blob/master/InstallGatewayOnLocalMachine.ps1)** – Das Skript kann zum Installieren des selbstgehosteten Integration Runtime-Knotens und zu dessen Registrierung mit einem Authentifizierungsschlüssel verwendet werden. Es akzeptiert zwei Argumente: das **erste** zur Angabe des Speicherorts für die [selbstgehostete Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717) auf einem lokalen Datenträger, das **zweite** zur Angabe des **Authentifizierungsschlüssels** (für die Registrierung eines selbstgehosteten IR-Knotens).
 
 * Zur Automatisierung manueller Updates: Aktualisieren Sie den selbstgehosteten IR-Knoten mit einer bestimmten Version oder auf die neueste Version **[script-update-gateway.ps1](https://github.com/nabhishek/SelfHosted-IntegrationRuntime_AutomationScripts/blob/master/script-update-gateway.ps1)** . Dies wird auch für den Fall unterstützt, dass Sie das automatische Update deaktiviert haben oder mehr Kontrolle über Updates haben möchten. Das Skript kann zum Aktualisieren des selbstgehosteten Integration Runtime-Knotens auf die neueste Version oder eine angegebene höhere Version verwendet werden (ein Downgrade funktioniert nicht). Es akzeptiert ein Argument zur Angabe der Versionsnummer (Beispiel: „-Version 3.13.6942.1“). Wenn keine Version angegeben wurde, wird die selbstgehostete IR immer auf die neueste Version aus den [Downloads](https://www.microsoft.com/download/details.aspx?id=39717) aktualisiert.
     > [!NOTE]
-    > Es können nur die letzten 3 Versionen angegeben werden. Im Idealfall wird damit ein vorhandener Knoten auf die neueste Version aktualisiert. **DABEI WIRD DAVON AUSGEGANGEN, DASS SIE EINE REGISTRIERTE SELBSTGEHOSTETE IR HABEN**. 
+    > Es können nur die letzten 3 Versionen angegeben werden. Im Idealfall wird damit ein vorhandener Knoten auf die neueste Version aktualisiert. **DABEI WIRD DAVON AUSGEGANGEN, DASS SIE EINE REGISTRIERTE SELBSTGEHOSTETE IR HABEN** . 
 
 ## <a name="usage-examples"></a>Anwendungsbeispiele
 

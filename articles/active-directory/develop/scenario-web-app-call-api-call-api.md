@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 815b1789c54d1ce505c16dc89e199d451ae9a588
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 016a2917c02deaecf35c526426cb2a6dbc89e338
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396126"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173188"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Web-App, die Web-APIs aufruft: Aufrufen einer Web-API
 
@@ -152,7 +152,7 @@ public async Task<IActionResult> Profile()
 > [!NOTE]
 > Sie können dasselbe Prinzip für den Aufruf jeder anderen Web-API verwenden.
 >
-> Die meisten Azure-Web-APIs bieten ein SDK zur Vereinfachung des API-Aufrufs, wie es auch bei Microsoft Graph der Fall ist. Ein Beispiel für eine Web-App, die Microsoft.Identity.Web und das Azure Storage SDK verwendet, finden Sie unter [Erstellen einer Webanwendung, die Zugriff auf Blob Storage über Azure AD gewährt](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=dotnet).
+> Die meisten Azure-Web-APIs bieten ein SDK zur Vereinfachung des API-Aufrufs, wie es auch bei Microsoft Graph der Fall ist. Ein Beispiel für eine Web-App, die Microsoft.Identity.Web und das Azure Storage SDK verwendet, finden Sie unter [Erstellen einer Webanwendung, die Zugriff auf Blob Storage über Azure AD gewährt](../../storage/common/storage-auth-aad-app.md?tabs=dotnet&toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -199,5 +199,4 @@ def graphcall():
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-> [!div class="nextstepaction"]
-> [Übergang in die Produktion](scenario-web-app-call-api-production.md)
+Fahren Sie mit dem nächsten Artikel in diesem Szenario fort: [Überführen in die Produktion](scenario-web-app-call-api-production.md).

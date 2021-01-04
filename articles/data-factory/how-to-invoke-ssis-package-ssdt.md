@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 09/06/2020
-ms.openlocfilehash: fb5b5cb0ac4a9ace7b5de5e92308da58fd2b1fec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b3c94023daf51559623f69e34b8e2b1f42fde92
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504943"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637240"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>Ausführen von SSIS-Paketen in Azure über SSDT
 
@@ -29,7 +29,7 @@ Sie können eine neu erstellte oder bereits vorhandene Azure-SSIS IR-Instanz an
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Laden Sie zur Verwendung dieses Features [hier](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects) die aktuelle SSDT-Version mit SSIS-Projekterweiterung für Visual Studio (VS) herunter, und installieren Sie sie. Alternativ können Sie [hier](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer) die aktuelle SSDT-Version als eigenständigen Installer herunterladen und installieren.
+Laden Sie zur Verwendung dieses Features [hier](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects) die aktuelle SSDT-Version mit SSIS-Projekterweiterung für Visual Studio (VS) herunter, und installieren Sie sie. Alternativ können Sie [hier](/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer) die aktuelle SSDT-Version als eigenständigen Installer herunterladen und installieren.
 
 ## <a name="azure-enable-ssis-projects"></a>Azure-fähige SSIS-Projekte
 
@@ -53,11 +53,11 @@ Für bestehende SSIS-Projekte können Sie Azure aktivieren, indem Sie die folgen
 
    ![Konfigurieren eines vorhandenen SSIS-Projekts für Azure](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-for-existing-project.png)
 
-2. Wählen Sie auf der Seite **Visual Studio-Konfiguration auswählen** Ihre vorhandene VS-Konfiguration aus, um Einstellungen für die Paketausführung in Azure anzuwenden. Bei Bedarf können Sie auch eine neue Konfiguration erstellen. Weitere Informationen finden Sie unter [Vorgehensweise: Erstellen und Bearbeiten von Konfigurationen](https://docs.microsoft.com/visualstudio/ide/how-to-create-and-edit-configurations?view=vs-2019). Sie sollten über mindestens zwei verschiedene VS-Konfigurationen für Paketausführungen in der lokalen Umgebung und in der Cloudumgebung verfügen, damit Sie Ihr Projekt unter Verwendung der Cloudkonfiguration für Azure konfigurieren können. Wenn Sie Ihr Projekt oder Ihre Pakete parametrisiert haben, können Sie Ihren Projekt- oder Paketparametern auf diese Weise zur Laufzeit je nach Ausführungsumgebung (lokaler Computer oder Azure) unterschiedliche Werte zuweisen. Sehen Sie sich hierzu zum Beispiel [Wechseln von Paketausführungsumgebungen](#switchenvironment) an.
+2. Wählen Sie auf der Seite **Visual Studio-Konfiguration auswählen** Ihre vorhandene VS-Konfiguration aus, um Einstellungen für die Paketausführung in Azure anzuwenden. Bei Bedarf können Sie auch eine neue Konfiguration erstellen. Weitere Informationen finden Sie unter [Vorgehensweise: Erstellen und Bearbeiten von Konfigurationen](/visualstudio/ide/how-to-create-and-edit-configurations?view=vs-2019). Sie sollten über mindestens zwei verschiedene VS-Konfigurationen für Paketausführungen in der lokalen Umgebung und in der Cloudumgebung verfügen, damit Sie Ihr Projekt unter Verwendung der Cloudkonfiguration für Azure konfigurieren können. Wenn Sie Ihr Projekt oder Ihre Pakete parametrisiert haben, können Sie Ihren Projekt- oder Paketparametern auf diese Weise zur Laufzeit je nach Ausführungsumgebung (lokaler Computer oder Azure) unterschiedliche Werte zuweisen. Sehen Sie sich hierzu zum Beispiel [Wechseln von Paketausführungsumgebungen](#switchenvironment) an.
 
    ![Auswählen der Visual Studio-Konfiguration](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-select-visual-studio-configurations.png)
 
-3. Um Ihre vorhandenen SSIS-Projekte für Azure zu konfigurieren, müssen Sie die Zielserverversion auf die neueste von Azure-SSIS IR unterstützte Version festlegen. Azure-SSIS IR basiert aktuell auf **SQL Server 2017**. Achten Sie darauf, dass Ihre Pakete keine Zusatzkomponenten enthalten, die für SQL Server 2017 nicht unterstützt werden. Achten Sie außerdem darauf, dass alle kompatiblen Zusatzkomponenten auch unter Verwendung benutzerdefinierter Setups in Ihrer Azure-SSIS IR-Instanz installiert wurden. Weitere Informationen finden Sie unter [Anpassen des Setups für eine Azure-SSIS Integration Runtime](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup). Wählen Sie die Schaltfläche **Weiter** aus, um den Vorgang fortzusetzen.
+3. Um Ihre vorhandenen SSIS-Projekte für Azure zu konfigurieren, müssen Sie die Zielserverversion auf die neueste von Azure-SSIS IR unterstützte Version festlegen. Azure-SSIS IR basiert aktuell auf **SQL Server 2017** . Achten Sie darauf, dass Ihre Pakete keine Zusatzkomponenten enthalten, die für SQL Server 2017 nicht unterstützt werden. Achten Sie außerdem darauf, dass alle kompatiblen Zusatzkomponenten auch unter Verwendung benutzerdefinierter Setups in Ihrer Azure-SSIS IR-Instanz installiert wurden. Weitere Informationen finden Sie unter [Anpassen des Setups für eine Azure-SSIS Integration Runtime](./how-to-configure-azure-ssis-ir-custom-setup.md). Wählen Sie die Schaltfläche **Weiter** aus, um den Vorgang fortzusetzen.
 
    ![Wechseln der Zielserverversion](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-switch-target-server-version-step.png)
 
@@ -67,14 +67,14 @@ Für bestehende SSIS-Projekte können Sie Azure aktivieren, indem Sie die folgen
 
 Durch die Verbindungsherstellung Ihrer Azure-fähigen Projekte mit SSIS in ADF können Sie Ihre Pakete in Azure Files hochladen und in Azure-SSIS IR ausführen. Gehen Sie hierzu wie folgt vor:
 
-1. Lesen Sie die Einführung auf der Seite **SSIS in ADF – Einführung**, und wählen Sie die Schaltfläche **Weiter** aus, um den Vorgang fortzusetzen.
+1. Lesen Sie die Einführung auf der Seite **SSIS in ADF – Einführung** , und wählen Sie die Schaltfläche **Weiter** aus, um den Vorgang fortzusetzen.
 
    ![SSIS in ADF – Einführung](media/how-to-invoke-ssis-package-ssdt/ssis-in-adf-connection-wizard.png)
 
 2. Wählen Sie auf der Seite **SSIS IR in ADF auswählen** Ihre vorhandene ADF- und Azure-SSIS IR-Instanz für die Paketausführung aus. Bei Bedarf können auch neue Instanzen erstellt werden.
    - Um Ihre vorhandene Azure-SSIS IR auszuwählen, wählen Sie zunächst das relevante Azure-Abonnement und die ADF-Instanz aus.
    - Wenn Sie eine vorhandene ADF-Instanz auswählen, die über keine Azure-SSIS IR-Instanz verfügt, wählen Sie die Schaltfläche **SSIS IR erstellen** aus, um im ADF-Portal eine neue IR-Instanz zu erstellen. Nach der Erstellung können Sie zu dieser Seite zurückkehren, um Ihre neue Azure-SSIS IR-Instanz auszuwählen.
-   - Wenn Sie ein vorhandenes Azure-Abonnement auswählen, das über keine ADF-Instanz verfügt, wählen Sie die Schaltfläche **SSIS IR erstellen** aus, um den **Assistenten zum Erstellen einer Integration Runtime** zu starten. Im Assistenten können Sie den gewünschten Standort und das gewünschte Präfix eingeben. Daraufhin werden automatisch eine neue Azure-Ressourcengruppe, Data Factory und SSIS IR-Instanz erstellt und nach dem folgenden Muster benannt: **IhrPräfix-RG/DF/IR-ZeitpunktDerErstellung**. Nach der Erstellung können Sie zu dieser Seite zurückkehren, um Ihre neue Azure- und Azure-SSIS IR-Instanz auszuwählen.
+   - Wenn Sie ein vorhandenes Azure-Abonnement auswählen, das über keine ADF-Instanz verfügt, wählen Sie die Schaltfläche **SSIS IR erstellen** aus, um den **Assistenten zum Erstellen einer Integration Runtime** zu starten. Im Assistenten können Sie den gewünschten Standort und das gewünschte Präfix eingeben. Daraufhin werden automatisch eine neue Azure-Ressourcengruppe, Data Factory und SSIS IR-Instanz erstellt und nach dem folgenden Muster benannt: **IhrPräfix-RG/DF/IR-ZeitpunktDerErstellung** . Nach der Erstellung können Sie zu dieser Seite zurückkehren, um Ihre neue Azure- und Azure-SSIS IR-Instanz auszuwählen.
 
    ![SSIS IR in ADF auswählen](media/how-to-invoke-ssis-package-ssdt/ssis-in-adf-connection-wizard2.png)
 
@@ -129,7 +129,7 @@ Vor der Ausführung Ihrer Pakete in Azure können Sie Ihre für Azure geeigneten
 
    ![Windows-Authentifizierung aktivieren](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-windows-authentication-open.png)
 
-3. Geben Sie Ihre Anmeldeinformationen für die Windows-Authentifizierung ein. Für den Zugriff auf Azure Files können Sie beispielsweise `Azure`, `YourStorageAccountName` und `YourStorageAccountKey` für **Domäne**, **Benutzername** und **Kennwort** eingeben.
+3. Geben Sie Ihre Anmeldeinformationen für die Windows-Authentifizierung ein. Für den Zugriff auf Azure Files können Sie beispielsweise `Azure`, `YourStorageAccountName` und `YourStorageAccountKey` für **Domäne** , **Benutzername** und **Kennwort** eingeben.
 
    ![Anmeldeinformationen für die Windows-Authentifizierung](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-windows-authentication-credential.png)
 
@@ -172,15 +172,15 @@ Sind Ihre Pakete bereits für die Verwendung der Schutzebenen **EncryptSensitive
 
 Wenn Sie Ihr Projekt/Ihre Pakete im Projektbereitstellungsmodell parametrisieren, können zum Wechseln von Paketausführungsumgebungen mehrere VS-Konfigurationen erstellt werden. Auf diese Weise können Ihren Projekt-/Paketparametern zur Laufzeit umgebungsspezifische Werte zugewiesen werden. Sie sollten über mindestens zwei verschiedene VS-Konfigurationen für Paketausführungen in der lokalen Umgebung und in der Cloudumgebung verfügen, damit Sie Ihre Projekte unter Verwendung der Cloudkonfiguration für Azure konfigurieren können. Im Anschluss wird anhand eines Beispiels Schritt für Schritt das Wechseln von Paketausführungsumgebungen zwischen Ihrem lokalen Computer und Azure gezeigt:
 
-1. Angenommen, Ihr Paket enthält einen Dateisystemtask zum Festlegen der Attribute einer Datei. Wenn Sie ihn auf Ihrem lokalen Computer ausführen, werden die Attribute einer in Ihrem lokalen Dateisystem gespeicherten Datei festgelegt. Wenn Sie ihn in Ihrer Azure-SSIS IR-Instanz ausführen, sollen die Attribute einer in Azure Files gespeicherten Datei festgelegt werden. Erstellen Sie zunächst einen Paketparameter vom Typ „Zeichenfolge“ für den Wert des Zieldateipfads, und nennen Sie ihn **FilePath**.
+1. Angenommen, Ihr Paket enthält einen Dateisystemtask zum Festlegen der Attribute einer Datei. Wenn Sie ihn auf Ihrem lokalen Computer ausführen, werden die Attribute einer in Ihrem lokalen Dateisystem gespeicherten Datei festgelegt. Wenn Sie ihn in Ihrer Azure-SSIS IR-Instanz ausführen, sollen die Attribute einer in Azure Files gespeicherten Datei festgelegt werden. Erstellen Sie zunächst einen Paketparameter vom Typ „Zeichenfolge“ für den Wert des Zieldateipfads, und nennen Sie ihn **FilePath** .
 
    ![Erstellen eines Paketparameters](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-example-define-parameters.png)
 
-2. Parametrisieren Sie als Nächstes auf der Seite **Allgemein** des Fensters **Editor für den Task "Dateisystem"** die Eigenschaft **SourceVariable** (im Abschnitt **Quellverbindung**) mit dem Paketparameter **FilePath**. 
+2. Parametrisieren Sie als Nächstes auf der Seite **Allgemein** des Fensters **Editor für den Task "Dateisystem"** die Eigenschaft **SourceVariable** (im Abschnitt **Quellverbindung** ) mit dem Paketparameter **FilePath** . 
 
    ![Parametrisieren der Quellverbindung](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-example-update-task-with-parameters.png)
 
-3. Standardmäßig verfügen Sie über eine vorhandene VS-Konfiguration für Paketausführungen in der lokalen Umgebung namens **Entwicklung**. Erstellen Sie bei Bedarf eine neue VS-Konfiguration für Paketausführungen in der Cloudumgebung namens **Azure**. Weitere Informationen finden Sie unter [Vorgehensweise: Erstellen und Bearbeiten von Konfigurationen](https://docs.microsoft.com/visualstudio/ide/how-to-create-and-edit-configurations?view=vs-2019).
+3. Standardmäßig verfügen Sie über eine vorhandene VS-Konfiguration für Paketausführungen in der lokalen Umgebung namens **Entwicklung** . Erstellen Sie bei Bedarf eine neue VS-Konfiguration für Paketausführungen in der Cloudumgebung namens **Azure** . Weitere Informationen finden Sie unter [Vorgehensweise: Erstellen und Bearbeiten von Konfigurationen](/visualstudio/ide/how-to-create-and-edit-configurations?view=vs-2019).
 
 4. Wählen Sie während der Betrachtung der Parameter Ihres Pakets die Schaltfläche **Parameter zu Konfigurationen hinzufügen** aus, um das Fenster **Parameterwerte verwalten** für Ihr Paket zu öffnen. Weisen Sie anschließend dem Paketparameter **FilePath** unter den Konfigurationen **Entwicklung** und **Azure** jeweils unterschiedliche Zieldateipfadwerte zu.
 
@@ -206,4 +206,4 @@ Nach dem Start der Paketausführung werden die zugehörigen Protokolle formatier
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Wenn Sie die Ausführung Ihrer Pakete in Azure über SSDT erfolgreich abgeschlossen haben, können Sie sie mithilfe einer Aktivität vom Typ „SSIS-Paket ausführen“ in ADF-Pipelines bereitstellen und ausführen. Weitere Informationen finden Sie unter [Ausführen eines SSIS-Pakets mit der Aktivität „SSIS-Paket ausführen“ in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
+Wenn Sie die Ausführung Ihrer Pakete in Azure über SSDT erfolgreich abgeschlossen haben, können Sie sie mithilfe einer Aktivität vom Typ „SSIS-Paket ausführen“ in ADF-Pipelines bereitstellen und ausführen. Weitere Informationen finden Sie unter [Ausführen eines SSIS-Pakets mit der Aktivität „SSIS-Paket ausführen“ in Azure Data Factory](./how-to-invoke-ssis-package-ssis-activity.md).

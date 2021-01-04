@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/11/2019
-ms.openlocfilehash: e0214cb9515a5974f1de9a27760dc037f7593f30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba63358347cf9722d2cafa35598b9b3b37f49dc3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892313"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129455"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Kopieren oder Sichern von Azure Stream Analytics-Aufträgen
 
-Sie können Ihre bereitgestellten Azure Stream Analytics-Aufträge mit Visual Studio Code oder Visual Studio kopieren oder sichern. Beim Kopieren eines Auftrags in eine andere Region wird der letzte Ausgabezeitpunkt nicht mitkopiert. Daher können Sie beim Starten des kopierten Auftrags die Option [**Zeitpunkt der letzten Beendigung**](https://docs.microsoft.com/azure/stream-analytics/start-job#start-options) nicht verwenden.
+Sie können Ihre bereitgestellten Azure Stream Analytics-Aufträge mit Visual Studio Code oder Visual Studio kopieren oder sichern. Beim Kopieren eines Auftrags in eine andere Region wird der letzte Ausgabezeitpunkt nicht mitkopiert. Daher können Sie beim Starten des kopierten Auftrags die Option [**Zeitpunkt der letzten Beendigung**](./start-job.md#start-options) nicht verwenden.
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 * Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen.
@@ -27,7 +27,7 @@ Sie können Ihre bereitgestellten Azure Stream Analytics-Aufträge mit Visual St
 
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
-1. Klicken Sie auf der Aktivitätsleiste von Visual Studio Code auf das **Azure**-Symbol, und erweitern Sie dann den Knoten **Stream Analytics**. Ihre Aufträge sollten unter Ihren Abonnements angezeigt werden.
+1. Klicken Sie auf der Aktivitätsleiste von Visual Studio Code auf das **Azure** -Symbol, und erweitern Sie dann den Knoten **Stream Analytics**. Ihre Aufträge sollten unter Ihren Abonnements angezeigt werden.
 
    ![Öffnen von Stream Analytics-Explorer](./media/vscode-explore-jobs/open-explorer.png)
 
@@ -45,7 +45,7 @@ Sie können Ihre bereitgestellten Azure Stream Analytics-Aufträge mit Visual St
 
 ## <a name="visual-studio"></a>Visual Studio
 
-1. Befolgen Sie die [Anweisungen zum Exportieren eines bereitgestellten Azure Stream Analytics-Auftrags zu einem Projekt](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-vs-tools#export-jobs-to-a-project).
+1. Befolgen Sie die [Anweisungen zum Exportieren eines bereitgestellten Azure Stream Analytics-Auftrags zu einem Projekt](./stream-analytics-vs-tools.md#export-jobs-to-a-project).
 
 2. Öffnen Sie im Abfrage-Editor die \*.asaql-Datei, wählen Sie **An Azure übermitteln** im Skript-Editor aus, und befolgen Sie die Anweisungen, um den Auftrag in einer anderen Region zu veröffentlichen oder unter einem neuen Namen zu sichern.
 

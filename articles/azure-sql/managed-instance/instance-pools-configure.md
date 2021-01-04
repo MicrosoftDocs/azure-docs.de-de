@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
-ms.openlocfilehash: 5798220ad92a99f32f757ffa20f9233b8c79151b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 732a9bab018103321a9a3a759b31495bd67a209e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617433"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793108"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Bereitstellen von Azure SQL Managed Instance in einem Instanzpool
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -41,7 +41,7 @@ In der folgenden Tabelle sind die verfügbaren Vorgänge im Zusammenhang mit Ins
 |Erstellen einer Datenbank in einer Instanz innerhalb des Pools|Ja|Ja|
 |Löschen einer Datenbank aus SQL Managed Instance|Ja|Ja|
 
-Verfügbare [PowerShell-Befehle](https://docs.microsoft.com/powershell/module/az.sql/):
+Verfügbare [PowerShell-Befehle](/powershell/module/az.sql/):
 
 |Cmdlet |BESCHREIBUNG |
 |:---|:---|
@@ -52,7 +52,7 @@ Verfügbare [PowerShell-Befehle](https://docs.microsoft.com/powershell/module/az
 |[Get-AzSqlInstancePoolUsage](/powershell/module/az.sql/get-azsqlinstancepoolusage/) | Gibt Nutzungsinformationen über einen SQL Managed Instance-Pool zurück. |
 
 
-Zur Verwendung von PowerShell [installieren Sie die neueste Version von PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell), und befolgen Sie die Anweisungen zum [Installieren des Azure PowerShell-Moduls](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Zur Verwendung von PowerShell [installieren Sie die neueste Version von PowerShell Core](/powershell/scripting/install/installing-powershell#powershell), und befolgen Sie die Anweisungen zum [Installieren des Azure PowerShell-Moduls](/powershell/azure/install-az-ps).
 
 Verwenden Sie für Vorgänge für Instanzen innerhalb von Pools sowie für Einzelinstanzen die [Standardbefehle für verwaltete Instanzen](api-references-create-manage-instance.md#powershell-create-and-configure-managed-instances). Wenn diese Befehle für eine Instanz in einem Pool verwendet werden, muss allerdings der *Name des Instanzenpools* angegeben werden.
 

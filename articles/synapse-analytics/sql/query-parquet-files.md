@@ -1,24 +1,24 @@
 ---
-title: Abfragen von Parquet-Dateien mit SQL On-Demand (Vorschauversion)
-description: In diesem Artikel erfahren Sie, wie Sie Parquet-Dateien mit SQL On-Demand abfragen können (Vorschauversion).
+title: Abfragen von Parquet-Dateien mithilfe eines serverlosen SQL-Pools
+description: In diesem Artikel erfahren Sie, wie Sie Parquet-Dateien mithilfe eines serverlosen SQL-Pools abfragen.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 35eef6951f844ab60caec70033e41e23a7920d3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20bfbaeea48711a680877e4d5d8f618e84eb12d7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288306"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462577"
 ---
-# <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Abfragen von Parquet-Dateien mit SQL On-Demand (Vorschauversion) in Azure Synapse Analytics
+# <a name="query-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Abfragen von Parquet-Dateien mithilfe eines serverlosen SQL-Pools in Azure Synapse Analytics
 
-In diesem Artikel erfahren Sie, wie Sie eine Abfrage mit SQL On-Demand (Vorschauversion) schreiben können, die Parquet-Dateien lesen kann.
+In diesem Artikel erfahren Sie, wie Sie mithilfe eines serverlosen SQL-Pools eine Abfrage schreiben, die Parquet-Dateien liest.
 
 ## <a name="quickstart-example"></a>Schnellstartbeispiel
 
@@ -36,6 +36,11 @@ from openrowset(
 ```
 
 Stellen Sie sicher, dass Sie auf diese Datei zugreifen können. Wenn Ihre Datei mit einem SAS-Schlüssel oder einer benutzerdefinierten Azure-Identität geschützt ist, müssen Sie [Anmeldeinformationen auf Serverebene für die SQL-Anmeldung](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential) einrichten.
+
+> [!IMPORTANT]
+> Stellen Sie sicher, dass Sie eine UTF-8-Datenbanksortierung (z. B. `Latin1_General_100_CI_AS_SC_UTF8`) verwenden, da Zeichenfolgenwerte in Parquet-Dateien mit UTF-8 codiert sind.
+> Ein Konflikt zwischen der Textcodierung in der Parquet-Datei und der Sortierung kann zu unerwarteten Konvertierungsfehlern führen.
+> Die Standardsortierung der aktuellen Datenbank kann mit der folgenden T-SQL-Anweisung problemlos geändert werden: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`.
 
 ### <a name="data-source-usage"></a>Datenquellennutzung
 
@@ -67,6 +72,12 @@ from openrowset(
         format = 'parquet'
     ) with ( date_rep date, cases int, geo_id varchar(6) ) as rows
 ```
+
+> [!IMPORTANT]
+> Stellen Sie sicher, dass Sie explizit eine UTF-8-Sortierung (z. B. `Latin1_General_100_CI_AS_SC_UTF8`) für alle Zeichenfolgenspalten in der `WITH`-Klausel angeben, oder legen Sie eine UTF-8-Sortierung auf Datenbankebene fest.
+> Ein Konflikt zwischen der Textcodierung in der Datei und der Sortierung der Zeichenfolgenspalte kann zu unerwarteten Konvertierungsfehlern führen.
+> Die Standardsortierung der aktuellen Datenbank kann mithilfe der folgenden T-SQL-Anweisung problemlos geändert werden: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`.
+> Sie können die Sortierung der Spaltentypen problemlos mit der folgenden Definition festlegen: `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8`.
 
 In den folgenden Abschnitten erfahren Sie, wie Sie verschiedene Typen von Parquet-Dateien abfragen.
 
@@ -111,7 +122,7 @@ Sie brauchen die OPENROWSET WITH-Klausel nicht zu verwenden, wenn Sie Parquet-Da
 Das folgende Beispiel zeigt die automatischen Schemarückschlussfunktionen für Parquet-Dateien. Hierzu wird die Anzahl von Zeilen im September 2017 ohne Angabe eines Schemas zurückgegeben.
 
 > [!NOTE]
-> Beim Lesen von Parquet-Dateien müssen Sie in der OPENROWSET WITH-Klausel keine Spalten angeben. In diesem Fall verwendet der SQL On-Demand-Abfragedienst die Metadaten in der Parquet-Datei und bindet die Spalten nach Namen.
+> Beim Lesen von Parquet-Dateien müssen Sie in der OPENROWSET WITH-Klausel keine Spalten angeben. In diesem Fall verwendet der Abfragedienst des serverlosen SQL-Pools Metadaten in der Parquet-Datei und bindet Spalten nach Namen.
 
 ```sql
 SELECT TOP 10 *
@@ -128,7 +139,7 @@ FROM
 Das in diesem Beispiel bereitgestellte Dataset ist in separate Unterordner aufgeteilt (partitioniert). Mithilfe der filepath-Funktion können Sie bestimmte Partitionen als Ziel verwenden. Dieses Beispiel zeigt die Fahrpreisbeträge nach Jahr, Monat und Zahlungsart für die ersten drei Monate des Jahres 2017.
 
 > [!NOTE]
-> Die SQL On-Demand-Abfrage ist mit dem Hive/Hadoop-Partitionierungsschema kompatibel.
+> Die Abfrage des serverlosen SQL-Pools ist kompatibel mit dem Hive/Hadoop-Partitionierungsschema.
 
 ```sql
 SELECT
@@ -155,43 +166,7 @@ ORDER BY
 
 ## <a name="type-mapping"></a>Typzuordnung
 
-Parquet-Dateien enthalten Typbeschreibungen für die einzelnen Spalten. In der folgenden Tabelle wird beschrieben, wie Parquet-Typen den nativen SQL-Typen zugeordnet werden.
-
-| Parquet-Typ | Logischer Parquet-Typ (Anmerkung) | SQL-Datentyp |
-| --- | --- | --- |
-| BOOLEAN | | bit |
-| BINARY/BYTE_ARRAY | | varbinary |
-| Double | | float |
-| GLEITKOMMAZAHL | | real |
-| INT32 | | INT |
-| INT64 | | BIGINT |
-| INT96 | |datetime2 |
-| FIXED_LEN_BYTE_ARRAY | |BINARY |
-| BINARY |UTF8 |varchar \*(UTF8-Sortierung) |
-| BINARY |STRING |varchar \*(UTF8-Sortierung) |
-| BINARY |ENUM|varchar \*(UTF8-Sortierung) |
-| BINARY |UUID |UNIQUEIDENTIFIER |
-| BINARY |DECIMAL |Decimal |
-| BINARY |JSON |varchar(max) \*(UTF8-Sortierung) |
-| BINARY |BSON |varbinary(max) |
-| FIXED_LEN_BYTE_ARRAY |DECIMAL |Decimal |
-| BYTE_ARRAY |INTERVAL |varchar(max), in ein standardisiertes Format serialisiert |
-| INT32 |INT(8, true) |SMALLINT |
-| INT32 |INT(16, true) |SMALLINT |
-| INT32 |INT(32, true) |INT |
-| INT32 |INT(8, false) |TINYINT |
-| INT32 |INT(16, false) |INT |
-| INT32 |INT(32, false) |BIGINT |
-| INT32 |DATE |date |
-| INT32 |DECIMAL |Decimal |
-| INT32 |TIME (MILLIS)|time |
-| INT64 |INT(64, true) |BIGINT |
-| INT64 |INT(64, false) |decimal(20,0) |
-| INT64 |DECIMAL |Decimal |
-| INT64 |TIME (MICROS/NANOS) |time |
-|INT64 |TIMESTAMP (MILLIS/MICROS/NANOS) |datetime2 |
-|[Komplexer Typ](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |AUFLISTEN |varchar(max), serialisiert in JSON |
-|[Komplexer Typ](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar(max), serialisiert in JSON |
+Informationen zur Parquet-Typzuordnung zum nativen SQL-Typ finden Sie unter [Typzuordnung für Parquet](develop-openrowset.md#type-mapping-for-parquet).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

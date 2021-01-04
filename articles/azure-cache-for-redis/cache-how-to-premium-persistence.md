@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: 9927d4780ea015502151188b61c50ddbd2656819
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 8ae76ca27c8c6f8fed5692b9a2376fff53a52bb6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339542"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536571"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Konfigurieren von Datenpersistenz für Azure Cache for Redis vom Typ „Premium“
 In diesem Artikel erfahren Sie, wie Sie über das Azure-Portal Persistenz in einer Azure Cache for Redis-Instanz konfigurieren. Für Azure Cache for Redis stehen verschiedene Cacheangebote bereit, die Flexibilität bei der Auswahl von Cachegröße und -features bieten. Dazu zählen auch Features des Premium-Tarifs wie die Unterstützung für Clustering, Persistenz und virtuelle Netzwerke. 
@@ -28,7 +28,7 @@ Durch die Persistenz werden Redis-Daten in ein Azure Storage-Konto geschrieben,
 
 > [!NOTE]
 > 
-> Dauerhaft gespeicherte Daten werden von Azure Storage automatisch verschlüsselt. Für die Verschlüsselung können Sie Ihre eigenen Schlüssel verwenden. Weitere Informationen finden Sie unter [Von Kunden verwaltete Schlüssel mit Azure Key Vault](/azure/storage/common/storage-service-encryption).
+> Dauerhaft gespeicherte Daten werden von Azure Storage automatisch verschlüsselt. Für die Verschlüsselung können Sie Ihre eigenen Schlüssel verwenden. Weitere Informationen finden Sie unter [Von Kunden verwaltete Schlüssel mit Azure Key Vault](../storage/common/storage-service-encryption.md).
 > 
 > 
 
@@ -60,7 +60,7 @@ Durch die Persistenz werden Redis-Daten in ein Azure Storage-Konto geschrieben,
 
 8. Zum Aktivieren der RDB-Persistenz klicken Sie auf **RDB** und konfigurieren die Einstellungen. 
    
-   | Einstellung      | Vorgeschlagener Wert  | BESCHREIBUNG |
+   | Einstellung      | Vorgeschlagener Wert  | Beschreibung |
    | ------------ |  ------- | -------------------------------------------------- |
    | **Sicherungshäufigkeit** | Öffnen Sie die Dropdownliste, und wählen Sie ein Sicherungsintervall aus. Zur Auswahl stehen **15 Minuten** , **30 Minuten** , **60 Minuten** , **6 Stunden** , **12 Stunden** und **24 Stunden** . | Dieses Intervall wird ab dem Moment rückwärts gezählt, an dem der vorherige Sicherungsvorgang erfolgreich abgeschlossen wird. Wenn das Intervall abgelaufen ist, wird eine neue Sicherung gestartet. | 
    | **Speicherkonto** | Öffnen Sie die Dropdownliste, und wählen Sie Ihr Speicherkonto aus. | Sie müssen ein Speicherkonto auswählen, das aus derselben Region und demselben Abonnement wie der Cache stammt, und wir empfehlen ein **Storage Premium** -Konto, da dieses einen höheren Durchsatz aufweist.  | 
@@ -70,7 +70,7 @@ Durch die Persistenz werden Redis-Daten in ein Azure Storage-Konto geschrieben,
 
 9. Zum Aktivieren der AOF-Persistenz klicken Sie auf **AOF** und konfigurieren die Einstellungen. 
    
-   | Einstellung      | Vorgeschlagener Wert  | BESCHREIBUNG |
+   | Einstellung      | Vorgeschlagener Wert  | Beschreibung |
    | ------------ |  ------- | -------------------------------------------------- |
    | **Erstes Speicherkonto** | Öffnen Sie die Dropdownliste, und wählen Sie Ihr Speicherkonto aus. | Dieses Speicherkonto muss aus derselben Region und demselben Abonnement wie der Cache stammen. Es wird empfohlen, ein **Storage Premium** -Konto zu verwenden, da dieses einen höheren Durchsatz aufweist. | 
    | **Erster Speicherschlüssel** | Öffnen Sie die Dropdownliste, und wählen Sie **Primärer Schlüssel** oder **Sekundärer Schlüssel** aus. | Wenn der Speicherschlüssel für Ihr Persistenzkonto neu generiert wird, müssen Sie den gewünschten Schlüssel über die Dropdownliste **Speicherschlüssel** neu konfigurieren. | 
@@ -83,7 +83,7 @@ Durch die Persistenz werden Redis-Daten in ein Azure Storage-Konto geschrieben,
 
 11. Geben Sie optional auf der Registerkarte **Tags** den Namen und den Wert ein, wenn Sie die Ressource kategorisieren möchten. 
 
-12. Klicken Sie auf **Überprüfen + erstellen** . Sie werden zur Registerkarte „Überprüfen und erstellen“ weitergeleitet, auf der Azure Ihre Konfiguration überprüft.
+12. Klicken Sie auf **Überprüfen und erstellen** . Sie werden zur Registerkarte „Überprüfen und erstellen“ weitergeleitet, auf der Azure Ihre Konfiguration überprüft.
 
 13. Wenn die grüne Meldung „Validierung erfolgreich“ angezeigt wird, wählen Sie **Erstellen** aus.
 

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: sample
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: caf492c2cd3940fd7f37e2a4462c8376a127f393
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 590ddef27315f37719da5b28c68b6c402371e986
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86189315"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363254"
 ---
 # <a name="python-samples-for-cognitive-services-for-big-data"></a>Python-Beispiele für Cognitive Services für Big Data
 
@@ -56,7 +56,7 @@ assert service_key != "ADD_YOUR_SUBSCRIPION_KEY"
 
 ## <a name="text-analytics-sample"></a>Beispiel für Textanalyse
 
-Der [Textanalyse](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)-Dienst bietet mehrere Algorithmen zum Extrahieren intelligenter Erkenntnisse aus Text. Beispielsweise können wir die Stimmung eines Eingabetexts ermitteln. Der Dienst gibt eine Bewertung zwischen 0,0 und 1,0 zurück, wobei niedrige Scores auf eine negative Stimmung und hohe Scores auf eine positive Stimmung hindeuten.  In diesem Beispiel werden drei einfache Sätze verwendet, und es wird jeweils die Stimmung zurückgegeben.
+Der [Textanalyse](../text-analytics/index.yml)-Dienst bietet mehrere Algorithmen zum Extrahieren intelligenter Erkenntnisse aus Text. Beispielsweise können wir die Stimmung eines Eingabetexts ermitteln. Der Dienst gibt eine Bewertung zwischen 0,0 und 1,0 zurück, wobei niedrige Scores auf eine negative Stimmung und hohe Scores auf eine positive Stimmung hindeuten.  In diesem Beispiel werden drei einfache Sätze verwendet, und es wird jeweils die Stimmung zurückgegeben.
 
 ```python
 from pyspark.sql.functions import col
@@ -78,20 +78,20 @@ sentiment = (TextSentiment()
     .setLanguageCol("language"))
 
 # Show the results of your text query in a table format
-display(sentiment.transform(df).select("text", col("sentiment")[0].getItem("score").alias("sentiment")))
+display(sentiment.transform(df).select("text", col("sentiment")[0].getItem("sentiment").alias("sentiment")))
 ```
 
 ### <a name="expected-result"></a>Erwartetes Ergebnis
 
 | text                                      | Stimmung                                             |
 |:------------------------------------------|:------------------------------------------------------|
-| Ich bin heute so glücklich, die Sonne scheint!           | 0,9789592027664185                                    |
-| Ich bin frustriert über diesen Berufsverkehr. | 0,023795604705810547                                  |
-| Cognitive Services in Spark sind gar nicht schlecht  | 0,8888956308364868                                    |
+| Ich bin heute so glücklich, die Sonne scheint!           | Positiv                                              |
+| Ich bin frustriert über diesen Berufsverkehr. | Negativ                                              |
+| Cognitive Services in Spark sind gar nicht schlecht  | Positiv                                              |
 
 ## <a name="computer-vision-sample"></a>Beispiel für maschinelles Sehen
 
-[Maschinelles Sehen](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) analysiert Bilder, um die Struktur zu identifizieren, wie z. B. Gesichter, Objekte und Beschreibungen in natürlicher Sprache. In diesem Beispiel markieren wir eine Liste mit Bildern. Tags sind Einwortbeschreibungen der Dinge im Bild, wie z. B. erkennbare Objekte, Personen, Szenen und Aktionen.
+[Maschinelles Sehen](../computer-vision/index.yml) analysiert Bilder, um die Struktur zu identifizieren, wie z. B. Gesichter, Objekte und Beschreibungen in natürlicher Sprache. In diesem Beispiel markieren wir eine Liste mit Bildern. Tags sind Einwortbeschreibungen der Dinge im Bild, wie z. B. erkennbare Objekte, Personen, Szenen und Aktionen.
 
 ```python
 
@@ -126,7 +126,7 @@ display(analysis.transform(df).select("image", "analysis_results.description.tag
 
 ## <a name="bing-image-search-sample"></a>Beispiel für Bing-Bildersuche
 
-Die [Bing-Bildersuche](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview) durchsucht das Web nach Bildern im Zusammenhang mit einer Abfrage in natürlicher Sprache eines Benutzers. In diesem Beispiel verwenden wir eine Textabfrage, die nach Bildern mit Zitaten sucht. Sie gibt eine Liste mit Bild-URLs zurück, die Fotos im Zusammenhang mit unserer Abfrage enthalten.
+Die [Bing-Bildersuche](../bing-image-search/overview.md) durchsucht das Web nach Bildern im Zusammenhang mit einer Abfrage in natürlicher Sprache eines Benutzers. In diesem Beispiel verwenden wir eine Textabfrage, die nach Bildern mit Zitaten sucht. Sie gibt eine Liste mit Bild-URLs zurück, die Fotos im Zusammenhang mit unserer Abfrage enthalten.
 
 ```python
 from pyspark.ml import PipelineModel
@@ -171,7 +171,7 @@ display(pipeline.transform(bingParameters))
 
 
 ## <a name="speech-to-text-sample"></a>Beispiel für Spracherkennung
-Der [Spracherkennungsdienst](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-speech-to-text) konvertiert Streams oder Dateien gesprochener Audiodaten in Text. In diesem Beispiel transkribieren wir zwei Audiodateien. Die erste Datei ist leicht verständlich, und die zweite ist schwieriger.
+Der [Spracherkennungsdienst](../speech-service/index-speech-to-text.yml) konvertiert Streams oder Dateien gesprochener Audiodaten in Text. In diesem Beispiel transkribieren wir zwei Audiodateien. Die erste Datei ist leicht verständlich, und die zweite ist schwieriger.
 
 ```python
 
@@ -205,7 +205,7 @@ display(speech_to_text.transform(df).select("url", "text.DisplayText"))
 
 ## <a name="anomaly-detector-sample"></a>Beispiel für Anomalieerkennung
 
-Die [Anomalieerkennung](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/) eignet sich hervorragend zum Erkennen von Unregelmäßigkeiten in ihren Zeitreihendaten In diesem Beispiel verwenden wir den Dienst, um Anomalien in der gesamten Zeitreihe zu suchen.
+Die [Anomalieerkennung](../anomaly-detector/index.yml) eignet sich hervorragend zum Erkennen von Unregelmäßigkeiten in ihren Zeitreihendaten In diesem Beispiel verwenden wir den Dienst, um Anomalien in der gesamten Zeitreihe zu suchen.
 
 ```python
 from pyspark.sql.functions import lit

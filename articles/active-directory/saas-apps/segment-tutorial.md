@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.author: jeedes
-ms.openlocfilehash: 1fa8f6f0382312951905476ad6fee06e180c6f35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe8acfd1bfd14f339a0109cab215b8a9ab65256f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543141"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021553"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-segment"></a>Tutorial: Integration des einmaligen Anmeldens (Single Sign-On, SSO) von Azure Active Directory mit Segment
 
@@ -26,7 +26,7 @@ In diesem Tutorial erfahren Sie, wie Sie Segment in Azure Active Directory (Azur
 * Ermöglichen Sie Ihren Benutzern, sich mit ihren Azure AD-Konten automatisch bei Segment anzumelden.
 * Verwalten Sie Ihre Konten zentral im Azure-Portal.
 
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -42,7 +42,7 @@ In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure
 * Segment unterstützt **SP- und IdP**-initiiertes einmaliges Anmelden
 * Segment unterstützt die **Just-in-Time**-Benutzerbereitstellung
 
-* Nach dem Konfigurieren von Segment können Sie eine Sitzungssteuerung erzwingen, die in Echtzeit vor der Exfiltration und Infiltration vertraulicher Unternehmensdaten schützt. Die Sitzungssteuerung basiert auf bedingtem Zugriff. [Hier](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app) erfahren Sie, wie Sie die Sitzungssteuerung mit Microsoft Cloud App Security erzwingen.
+* Nach dem Konfigurieren von Segment können Sie eine Sitzungssteuerung erzwingen, die in Echtzeit vor der Exfiltration und Infiltration vertraulicher Unternehmensdaten schützt. Die Sitzungssteuerung basiert auf bedingtem Zugriff. [Hier](/cloud-app-security/proxy-deployment-any-app) erfahren Sie, wie Sie die Sitzungssteuerung mit Microsoft Cloud App Security erzwingen.
 
 ## <a name="adding-segment-from-the-gallery"></a>Hinzufügen von Segment aus dem Katalog
 
@@ -136,19 +136,19 @@ In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anm
 
 1. Klicken Sie auf das Symbol **Einstellungen**, scrollen Sie nach unten zu **Authentifizierung**, und klicken Sie auf **Verbindungen**.
 
-    ![Segment-Konfiguration](./media/segment-tutorial/segment1.PNG)
+    ![Screenshot des ausgewählten Symbols „Einstellungen“ und der im Menü „Authentifizierung“ ausgewählten Option „Verbindungen“](./media/segment-tutorial/segment1.PNG)
 
 1. Klicken Sie auf **Neue Verbindung hinzufügen**.
 
-    ![Segment-Konfiguration](./media/segment-tutorial/segment2.PNG)
+    ![Screenshot des Abschnitts „Verbindungen“ mit ausgewählter Schaltfläche „Neue Verbindung hinzufügen“](./media/segment-tutorial/segment2.PNG)
 
 1. Wählen Sie **SAML 2.0** als zu konfigurierende Verbindung aus, und klicken Sie auf die Schaltfläche **Verbindung auswählen**.
 
-    ![Segment-Konfiguration](./media/segment-tutorial/segment3.PNG)
+    ![Screenshot des Abschnitts „Verbindung auswählen“ mit ausgewählter Option „SAML 2.0“ und ausgewählter Schaltfläche „Verbindung auswählen“](./media/segment-tutorial/segment3.PNG)
 
 1. Führen Sie auf der folgenden Seite die folgenden Schritte aus:
 
-    ![Segment-Konfiguration](./media/segment-tutorial/segment4.PNG)
+    ![Screenshot der Seite „Identitätsanbieter konfigurieren“ mit hervorgehobenen Textfeldern „URL für einmaliges Anmelden“ und „Zielgruppen-URL“ sowie ausgewählter Schaltfläche „Weiter“](./media/segment-tutorial/segment4.PNG)
 
     a. Kopieren Sie den Wert für **URL für einmaliges Anmelden**, und fügen Sie ihn im Azure-Portal im Dialogfeld **Grundlegende SAML-Konfiguration** im Feld **Antwort-URL** ein.
 
@@ -172,19 +172,18 @@ In diesem Abschnitt wird in Segment ein Benutzer namens B. Simon erstellt. Segm
 
 In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich.
 
-Wenn Sie im Zugriffsbereich auf die Kachel „Segment“ klicken, sollten Sie automatisch bei der Segment-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Wenn Sie im Zugriffsbereich auf die Kachel „Segment“ klicken, sollten Sie automatisch bei der Segment-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Liste mit den Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste mit den Tutorials zur Integration von SaaS-Apps in Azure Active Directory](./tutorial-list.md)
 
-- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Was ist der bedingte Zugriff in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Was ist der bedingte Zugriff in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Testen von Segment mit Azure AD](https://aad.portal.azure.com/)
 
-- [Was ist Sitzungssteuerung in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Was ist Sitzungssteuerung in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Schützen von Apps mit der App-Steuerung für bedingten Zugriff von Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
+- [Schützen von Apps mit der App-Steuerung für bedingten Zugriff von Microsoft Cloud App Security](/cloud-app-security/proxy-intro-aad)

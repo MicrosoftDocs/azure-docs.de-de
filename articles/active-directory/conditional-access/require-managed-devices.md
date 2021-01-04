@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c650c2b828e2742df5dd92657003460bcda66a0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c11b58954eefda67f981d618b04ab2bd69fa6b43
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145108"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077760"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Anleitung: Vorschreiben der Verwendung verwalteter Geräte für den Zugriff auf Cloud-Apps mithilfe des bedingten Zugriffs
 
@@ -50,7 +50,7 @@ Mit dem bedingten Zugriff in Azure AD können Sie diese Anforderung mit einer ei
 
 Einfach ausgedrückt: Verwaltete Geräte sind Geräte, die *in irgendeiner Weise* von der Organisation kontrolliert werden. In Azure AD ist die Registrierung bei Azure AD die Voraussetzung für ein verwaltetes Gerät. Bei der Registrierung eines Geräts wird eine Identität für das Gerät in Form eines Geräteobjekts erstellt. Dieses Objekt wird von Azure verwendet, um Statusinformationen zu einem Gerät zu verfolgen. Als Azure AD-Administrator können Sie dieses Objekt bereits zum Ein-/Ausschalten (Aktivieren/Deaktivieren) des Status eines Geräts verwenden.
   
-![Gerätebasierte Bedingungen](./media/require-managed-devices/32.png)
+:::image type="content" source="./media/require-managed-devices/32.png" alt-text="Screenshot: Bereich „Gerät“ in Azure AD. Die Elemente zum Aktivieren und Deaktivieren sind hervorgehoben." border="false":::
 
 Zum Registrieren eines Geräts bei Azure AD gibt drei Optionen: 
 
@@ -62,17 +62,17 @@ Diese drei Optionen werden im Artikel [Was ist eine Geräteidentität?](../devic
 
 Damit aus einem registrierten Gerät ein verwaltetes Gerät wird, muss das Gerät entweder ein **in Azure AD eingebundenes Hybridgerät** oder ein **als kompatibel markiertes Gerät** sein.  
 
-![Gerätebasierte Bedingungen](./media/require-managed-devices/47.png)
+:::image type="content" source="./media/require-managed-devices/47.png" alt-text="Screenshot: Bereich „Gewähren“ von Azure AD. Die Option „Zugriff gewähren“ sowie Kontrollkästchen, dass Geräte kompatibel sowie hybrid und in Azure eingebunden sein müssen, sind aktiviert." border="false":::
  
 ## <a name="require-hybrid-azure-ad-joined-devices"></a>In Azure AD eingebundene Hybridgeräte erforderlich
 
 In der Richtlinie für bedingten Zugriff können Sie mit der Option **In Azure AD eingebundene Hybridgeräte erforderlich** angeben, dass auf die ausgewählten Cloud-Apps nur über ein verwaltetes Gerät zugegriffen werden kann. 
 
-![Gerätebasierte Bedingungen](./media/require-managed-devices/10.png)
+:::image type="content" source="./media/require-managed-devices/10.png" alt-text="Screenshot: Bereich „Gewähren“ von Azure AD. „Zugriff gewähren“ ist ausgewählt. Ein Kontrollkästchen, das erfordert, dass Geräte hybrid und in Azure AD eingebunden sein müssen, ist ebenfalls aktiviert." border="false":::
 
 Diese Einstellung gilt nur für Geräte mit Windows 10 oder niedrigeren Versionen, wie z.B. Windows 7 oder Windows 8, die in ein lokales Active Directory eingebunden sind. Sie können diese Geräte nur mit der Azure AD-Einbindung für Hybridgeräte bei Azure AD registrieren – ein [automatischer Vorgang](../devices/hybrid-azuread-join-plan.md) zum Abrufen einer Windows 10-Geräteregistrierung. 
 
-![Gerätebasierte Bedingungen](./media/require-managed-devices/45.png)
+:::image type="content" source="./media/require-managed-devices/45.png" alt-text="Tabelle mit dem Namen, dem aktivierten Status, dem Betriebssystem, der Version, dem Einbindungstyp, dem Besitzer, MDM und dem Kompatibilitätsstatus. Als Kompatibilitätsstatus ist „Nein“ angegeben." border="false":::
 
 Wodurch wird ein in Azure AD eingebundenes Hybridgerät zum verwalteten Gerät?  Bei Geräten, die in ein lokales AD eingebunden sind, wird angenommen, dass die Kontrolle über diese Geräte durch Verwaltungslösungen wie **Configuration Manager** oder **Gruppenrichtlinien** erzwungen wird und die Geräte auf diese Weise verwaltet werden. Da Azure AD über keine Methode verfügt, anhand der festgestellt werden kann, ob eine dieser Methoden auf ein Gerät angewendet wurde, ist das Erforderlichmachen eines in Azure AD eingebundenen Hybridgeräts ein relativ schwacher Mechanismus zum Anfordern eines verwalteten Geräts. Es ist Ihre Aufgabe als Administrator zu ermitteln, ob die für Ihre lokalen domäneneingebundenen Geräte angewandten Methoden stark genug sind, um ein verwaltetes Gerät zu bilden, wenn ein solches Gerät auch ein in Azure AD eingebundenes Hybridgerät ist.
 
@@ -80,14 +80,14 @@ Wodurch wird ein in Azure AD eingebundenes Hybridgerät zum verwalteten Gerät? 
 
 Die Option *Markieren des Geräts als kompatibel erforderlich* ist die sicherste Form, ein verwaltetes Gerät anzufordern.
 
-![Gerätebasierte Bedingungen](./media/require-managed-devices/11.png)
+:::image type="content" source="./media/require-managed-devices/11.png" alt-text="Screenshot: Bereich „Gewähren“ von Azure AD. „Zugriff gewähren“ ist ausgewählt. Ein Kontrollkästchen, das erfordert, dass ein Gerät als kompatibel markiert wird, ist ebenfalls aktiviert." border="false":::
 
 Diese Option erfordert, dass ein Gerät bei Azure AD registriert und zusätzlich auch als kompatibel markiert wurde von:
          
 - Intune
 - Ein Drittanbietersystem für die mobile Geräteverwaltung (Mobile Device Management, MDM), das Windows 10-Geräte über Azure AD-Integration verwaltet. MDM-Systeme von Drittanbietern für andere Arten von Gerätebetriebssystemen als Windows 10 werden nicht unterstützt.
  
-![Gerätebasierte Bedingungen](./media/require-managed-devices/46.png)
+:::image type="content" source="./media/require-managed-devices/46.png" alt-text="Tabelle mit dem Namen, dem aktivierten Status, dem Betriebssystem, der Version, dem Einbindungstyp, dem Besitzer, MDM und dem Kompatibilitätsstatus. Der Kompatibilitätsstatus ist hervorgehoben." border="false":::
 
 Bei einem als kompatibel markierten Gerät können Sie Folgendes voraussetzen: 
 
@@ -103,8 +103,8 @@ In diesem Szenario hat Contoso entschieden, dass für den gesamten mobilen Zugri
 Organisationen müssen die folgenden Schritte ausführen, um die Verwendung eines registrierten mobilen Geräts anzufordern.
 
 1. Melden Sie sich beim **Azure-Portal** als globaler Administrator, Sicherheitsadministrator oder Administrator für bedingten Zugriff an.
-1. Navigieren Sie zu **Azure Active Directory** > **Sicherheit** > **Bedingter Zugriff** .
-1. Wählen Sie **Neue Richtlinie** .
+1. Navigieren Sie zu **Azure Active Directory** > **Sicherheit** > **Bedingter Zugriff**.
+1. Wählen Sie **Neue Richtlinie**.
 1. Benennen Sie Ihre Richtlinie. Es wird empfohlen, dass Unternehmen einen aussagekräftigen Standard für die Namen ihrer Richtlinien erstellen.
 1. Wählen Sie unter **Zuweisungen** die Option **Benutzer und Gruppen** aus.
    1. Wählen Sie unter **Einschließen** die Option **Alle Benutzer** oder bestimmte **Benutzer und Gruppen** aus, auf die Sie diese Richtlinie anwenden möchten. 

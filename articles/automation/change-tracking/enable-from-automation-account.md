@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: c3630105e70ac28e7e9041aa9d5400f724401a5b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 50188ad5fea0ee34a6896f0045e3bbcbfb553aaa
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209104"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677303"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-automation-account"></a>Aktivieren von Änderungsnachverfolgung und Bestand über ein Automation-Konto
 
@@ -49,7 +49,7 @@ Melden Sie sich unter https://portal.azure.com bei Azure an.
 
 ## <a name="enable-non-azure-vms"></a>Aktivieren Azure-fremder virtueller Computer
 
-Computer, die nicht in Azure enthalten sind, müssen manuell hinzugefügt werden.
+Computer, die nicht in Azure enthalten sind, müssen manuell hinzugefügt werden. Es wird empfohlen, den Log Analytics-Agent für Windows oder Linux zu installieren, indem Sie zuerst Ihren Computer mit [Azure Arc-fähigen Servern](../../azure-arc/servers/overview.md) verbinden und dann Azure Policy verwenden, um die integrierte Richtlinie „ [Log Analytics-Agent auf Azure Arc-Computern unter *Linux* oder *Windows* bereitstellen](../../governance/policy/samples/built-in-policies.md#monitoring)“ zuzuweisen. Wenn Sie auch die Überwachung der Computer mit Azure Monitor für VMs planen, verwenden Sie stattdessen die Initiative [Azure Monitor für VMs aktivieren](../../governance/policy/samples/built-in-initiatives.md#monitoring).
 
 1. Wählen Sie in Ihrem Automation-Konto unter **Konfigurationsverwaltung** die Option **Bestand** oder **Änderungsnachverfolgung** aus.
 
@@ -70,7 +70,7 @@ Manuell installierte Computer oder Computer, von denen bereits Berichte für Ihr
 4. Wenn Sie das Feature für alle verfügbaren und zukünftigen Computer aktivieren möchten, wählen Sie **Auf allen verfügbaren und zukünftigen Computern aktivieren** aus. Mit dieser Option werden die gespeicherte Suche und die Bereichskonfiguration aus dem Arbeitsbereich gelöscht, und das Feature wird für alle Azure-Computer und Azure-fremden Computer geöffnet, von denen Berichte an den Arbeitsbereich übermittelt werden. Bei Verwendung dieser Aktion wird die Option **Computer verwalten** dauerhaft deaktiviert, da keine Bereichskonfiguration mehr vorhanden ist.
 
     > [!NOTE]
-    > Da diese Option die gespeicherte Suche und Bereichskonfiguration in Log Analytics löscht, müssen Sie vor ihrer Aktivierung unbedingt alle Löschsperren im Log Analytics-Arbeitsbereich entfernen. Andernfalls können die Konfigurationen nicht durch die Option entfernt werden, und Sie müssen sie manuell entfernen.
+    > Da diese Option die gespeicherte Suche und Bereichskonfiguration in Log Analytics löscht, müssen Sie vor ihrer Aktivierung unbedingt alle Löschsperren im Log Analytics-Arbeitsbereich entfernen. Andernfalls können die Konfigurationen nicht durch die Option entfernt werden, und Sie müssen sie manuell entfernen.
 
 5. Die Bereichskonfiguration kann bei Bedarf durch erneutes Hinzufügen der anfänglich gespeicherten Suche wieder hinzugefügt werden. Weitere Informationen finden Sie unter [Einschränken des Bereitstellungsumfangs für „Änderungsnachverfolgung und Bestand“](manage-scope-configurations.md).
 

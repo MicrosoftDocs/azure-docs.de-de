@@ -7,14 +7,14 @@ manager: venkyv
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 11/09/2020
 ms.author: egeaney
-ms.openlocfilehash: e744423e00377ef763824f6e39865e6b3e8ee475
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19dc0f3a676d5373b28e4b7055050477c426f847
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89073538"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345779"
 ---
 # <a name="qna-maker-encryption-of-data-at-rest"></a>QnA Maker-Verschlüsselung für ruhende Daten
 
@@ -24,7 +24,15 @@ QnA Maker verschlüsselt automatisch Daten, wenn sie in der Cloud persistent ges
 
 Standardmäßig verwendet Ihr Abonnement von Microsoft verwaltete Verschlüsselungsschlüssel. Es gibt auch die Option zum Verwalten Ihres Abonnements mit Ihren eigenen Schlüsseln (kundenseitig verwaltete Schlüssel, CMK). Kundenseitig verwaltete Schlüssel (CMK) bieten größere Flexibilität beim Erstellen, Rotieren, Deaktivieren und Widerrufen von Zugriffssteuerungen. Außerdem können Sie die zum Schutz Ihrer Daten verwendeten Verschlüsselungsschlüssel überwachen. Wenn für Ihr Abonnement CMK konfiguriert ist, wird darüber hinaus die doppelte Verschlüsselung bereitgestellt, mit der eine zweite Schutzebene zur Verfügung steht, während Sie den Verschlüsselungsschlüssel über Ihren Azure Key Vault kontrollieren können.
 
-QnA Maker verwendet die CMK-Unterstützung von Azure Search. Sie müssen [mithilfe von Azure Key Vault einen CMK in Azure Search ](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys)erstellen. Diese Azure-Instanz muss dem QnA Maker-Dienst zugeordnet sein, damit sie CMK-fähig ist.
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker, allgemeine Verfügbarkeit (stabile Version)](#tab/v1)
+
+QnA Maker verwendet die CMK-Unterstützung von Azure Search. Konfigurieren Sie einen [CMK in Azure Search mithilfe von Azure Key Vault](../../search/search-security-manage-encryption-keys.md). Diese Azure-Instanz muss dem QnA Maker-Dienst zugeordnet sein, damit sie CMK-fähig ist.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker verwaltet (Vorschauversion)](#tab/v2)
+
+QnA Maker verwendet die [CMK-Unterstützung von Azure Search](../../search/search-security-manage-encryption-keys.md) und ordnet den bereitgestellten CMK automatisch zu, um die im Azure Search-Index gespeicherten Daten zu verschlüsseln.
+
+---
 
 > [!IMPORTANT]
 > Die Azure Search-Dienstressource muss nach Januar 2019 erstellt worden sein und darf sich nicht im Free-Tarif (freigegeben) befinden. Die Konfiguration von kundenseitig verwalteten Schlüsseln wird im Azure-Portal nicht unterstützt.
@@ -33,21 +41,40 @@ QnA Maker verwendet die CMK-Unterstützung von Azure Search. Sie müssen [mithil
 
 Der QnA Maker-Dienst verwendet CMKs aus dem Azure Search-Dienst. Führen Sie die folgenden Schritte zum Aktivieren von CMKs aus:
 
-1. Erstellen Sie eine neue Azure Search Instanz, und aktivieren Sie die Voraussetzungen, die in [Verschlüsselung ruhender Inhalte in Azure Cognitive Search mit von Kunden verwalteten Schlüsseln in Azure Key Vault unter „Voraussetzungen“](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys#prerequisites) aufgeführt sind.
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker, allgemeine Verfügbarkeit (stabile Version)](#tab/v1)
+
+1. Erstellen Sie eine neue Azure Search Instanz, und aktivieren Sie die Voraussetzungen, die in [Verschlüsselung ruhender Inhalte in Azure Cognitive Search mit von Kunden verwalteten Schlüsseln in Azure Key Vault unter „Voraussetzungen“](../../search/search-security-manage-encryption-keys.md#prerequisites) aufgeführt sind.
 
    ![Anzeigen der Verschlüsselungseinstellungen 1](../media/cognitive-services-encryption/qna-encryption-1.png)
 
-2. Wenn Sie eine QnA Maker-Ressource erstellen, wird sie automatisch einer Azure Search-Instanz zugeordnet. So ist die Nutzung von CMKs nicht möglich. Zur Verwendung von CMKs müssen Sie die neu erstellte Instanz von Azure Search aus Schritt 1 zuordnen. Insbesondere müssen Sie `AzureSearchAdminKey` und `AzureSearchName` in der QnA Maker-Ressource aktualisieren.
+2. Wenn Sie eine QnA Maker-Ressource erstellen, wird sie automatisch einer Azure Search-Instanz zugeordnet. Diese Instanz kann nicht mit dem CMK verwendet werden. Zur Verwendung von CMKs müssen Sie die neu erstellte Instanz von Azure Search aus Schritt 1 zuordnen. Insbesondere müssen Sie `AzureSearchAdminKey` und `AzureSearchName` in der QnA Maker-Ressource aktualisieren.
 
    ![Anzeigen der Verschlüsselungseinstellungen 2](../media/cognitive-services-encryption/qna-encryption-2.png)
 
 3. Als nächstes erstellen Sie eine neue Anwendungseinstellung:
-   * **Name**: Auf `CustomerManagedEncryptionKeyUrl`
-   * **Value**: Dies ist der Wert, den Sie in Schritt 1 beim Erstellen der Azure Search-Instanz erhalten haben.
+   * **Name**: Legen Sie den Wert `CustomerManagedEncryptionKeyUrl`
+   * **Value**: Verwenden Sie den Wert, den Sie in Schritt 1 beim Erstellen der Azure Search-Instanz erhalten haben.
 
    ![Anzeigen der Verschlüsselungseinstellungen 3](../media/cognitive-services-encryption/qna-encryption-3.png)
 
 4. Wenn Sie fertig sind, starten Sie die Runtime neu. Ihr QnA Maker-Dienst ist nun CMK-fähig.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker verwaltet (Vorschauversion)](#tab/v2)
+
+1.  Wechseln Sie zur Registerkarte **Verschlüsselung** Ihres von QnA Maker verwalteten Diensts (Vorschau).
+2.  Wählen Sie die Option **Kundenseitig verwaltete Schlüssel** aus. Geben Sie die Details Ihrer [kundenseitig verwalteten Schlüssel](../../storage/common/customer-managed-keys-configure-key-vault.md?tabs=portal) ein, und klicken Sie auf **Speichern**.
+
+     :::image type="content" source="../media/cognitive-services-encryption/qnamaker-v2-encryption-cmk.png" alt-text="Von QnA Maker verwaltete (Vorschau) CMK-Einstellung" lightbox="../media/cognitive-services-encryption/qnamaker-v2-encryption-cmk.png":::
+
+3.  Bei einer erfolgreichen Speicherung wird der CMK verwendet, um die im Azure Search-Index gespeicherten Daten zu verschlüsseln.
+
+> [!IMPORTANT]
+> Es wird empfohlen, Ihren CMK in einem neuen Azure Cognitive Search-Dienst festzulegen, bevor Wissensdatenbanken erstellt werden. Wenn Sie den CMK in einem QnA Maker-Dienst mit vorhandenen Wissensdatenbanken festlegen, verlieren Sie möglicherweise den Zugriff auf diese Wissensdatenbanken. Weitere Informationen finden Sie in Azure Cognitive Search unter [Arbeiten mit verschlüsselten Inhalten](../../search/search-security-manage-encryption-keys.md#work-with-encrypted-content).
+
+> [!NOTE]
+> Wenn Sie die Möglichkeit haben möchten, von Kunden verwaltete Schlüssel zu verwenden, füllen Sie das [Formular zum Anfordern von kundenseitig verwalteten Schlüsseln für Cognitive Services](https://aka.ms/cogsvc-cmk) aus, und reichen Sie es ein.
+
+---
 
 ## <a name="regional-availability"></a>Regionale Verfügbarkeit
 
@@ -60,6 +87,6 @@ Der QnA Maker-Portaldienst wird jedoch in der Region „USA, Westen“ gehostet
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Verschlüsselung in Azure Search mithilfe von CMKs in Azure Key Vault](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys)
-* [Datenverschlüsselung ruhender Daten](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
-* [Weitere Informationen zu Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Verschlüsselung in Azure Search mithilfe von CMKs in Azure Key Vault](../../search/search-security-manage-encryption-keys.md)
+* [Datenverschlüsselung ruhender Daten](../../security/fundamentals/encryption-atrest.md)
+* [Weitere Informationen zu Azure Key Vault](../../key-vault/general/overview.md)

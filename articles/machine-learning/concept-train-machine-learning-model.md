@@ -1,7 +1,7 @@
 ---
 title: Erstellen und Trainieren von Modellen
 titleSuffix: Azure Machine Learning
-description: Hier erfahren Sie, wie Sie Modelle mit Azure Machine Learning trainieren, und Sie erhalten Informationen zur Verwendung gängiger Frameworks wie Scikit-learn, TensorFlow und PyTorch. Machine Learning-Pipelines erleichtern die Planung unbeaufsichtigter Ausführungen, die Nutzung heterogener Computeumgebungen und die Wiederverwendung von Teilen Ihres Workflows. Außerdem bieten Laufzeitkonfigurationen eine differenzierte Kontrolle der Computeziele, auf denen der Trainingsprozess ausgeführt wird.
+description: Erfahren Sie, wie Sie Modelle mit Azure Machine Learning trainieren. Erkunden Sie die verschiedenen Trainingsmethoden, und wählen Sie die richtige für Ihr Projekt aus.
 services: machine-learning
 ms.service: machine-learning
 author: Blackmist
@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 4394cc4cb21b288215c75e484cb6446f0321158b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 2448f5f778f19674aec63291acb72536c65ca6c9
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079070"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555888"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Trainieren von Modellen mit Azure Machine Learning
 
@@ -41,19 +41,19 @@ Jede dieser Trainingsmethoden kann verschiedene Arten von Computeressourcen für
 
 Das Azure Machine Learning SDK für Python ermöglicht es Ihnen, Workflows für maschinelles Lernen mit Azure Machine Learning zu erstellen und auszuführen. Sie können mit dem Dienst über eine interaktive Python-Sitzung, Jupyter Notebooks, Visual Studio Code oder eine andere integrierte Entwicklungsumgebung (IDE) interagieren.
 
-* [Was ist das Azure Machine Learning SDK für Python?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
-* [Installieren/Aktualisieren des SDKs](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
+* [Was ist das Azure Machine Learning SDK für Python?](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
+* [Installieren/Aktualisieren des SDKs](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
 * [Konfigurieren einer Entwicklungsumgebung für Azure Machine Learning](how-to-configure-environment.md)
 
 ### <a name="run-configuration"></a>Laufzeitkonfiguration
 
-Ein generischer Trainingsauftrag mit Azure Machine Learning kann unter Verwendung von [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) definiert werden. Die Skriptlaufzeitkonfiguration wird dann zusammen mit Ihren Trainingsskripts verwendet, um ein Modell auf einem Computeziel zu trainieren.
+Ein generischer Trainingsauftrag mit Azure Machine Learning kann unter Verwendung von [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) definiert werden. Die Skriptlaufzeitkonfiguration wird dann zusammen mit Ihren Trainingsskripts verwendet, um ein Modell auf einem Computeziel zu trainieren.
 
 Sie können mit einer Laufzeitkonfiguration für Ihren lokalen Computer beginnen und dann bei Bedarf zu einer Laufzeitkonfiguration für ein cloudbasiertes Computeziel wechseln. Wenn Sie das Computeziel ändern, wird nur die von Ihnen verwendete Laufzeitkonfiguration geändert. Eine Ausführung protokolliert auch Informationen zum Trainingsauftrag wie Eingaben, Ausgaben und Protokolle.
 
 * [Was ist eine Laufzeitkonfiguration?](concept-azure-machine-learning-architecture.md#run-configurations)
 * [Tutorial: Trainieren Ihres ersten ML-Modells](tutorial-1st-experiment-sdk-train.md)
-* [Beispiele: Jupyter Notebook-Beispiele für Trainingsmodelle](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks)
+* [Beispiele: Jupyter Notebook- und Python-Beispiele für Trainingsmodelle](https://github.com/Azure/azureml-examples)
 * [Vorgehensweise: Konfigurieren einer Trainingsausführung](how-to-set-up-training-targets.md)
 
 ### <a name="automated-machine-learning"></a>Automatisiertes maschinelles Lernen
@@ -90,8 +90,8 @@ Der Azure-Trainingslebenszyklus besteht aus folgenden Schritten:
 1. Erstellen oder Herunterladen des Dockerfiles auf den Computeknoten 
     1. Das System berechnet einen Hashwert aus: 
         - Dem Basisimage 
-        - Benutzerdefinierten Docker-Schritten (siehe [Bereitstellen eines Modells mithilfe eines benutzerdefinierten Docker-Basisimages](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
-        - Der Conda-Definitions-YAML-Datei (siehe [Erstellen und Verwenden von Softwareumgebungen in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
+        - Benutzerdefinierten Docker-Schritten (siehe [Bereitstellen eines Modells mithilfe eines benutzerdefinierten Docker-Basisimages](./how-to-deploy-custom-docker-image.md))
+        - Der Conda-Definitions-YAML-Datei (siehe [Erstellen und Verwenden von Softwareumgebungen in Azure Machine Learning](./how-to-use-environments.md))
     1. Das System verwendet diesen Hash als Schlüssel in einer Suche nach der Azure Container Registry (ACR) für den Arbeitsbereich.
     1. Wenn er nicht gefunden wird, wird nach einer Übereinstimmung in der globalen ACR gesucht.
     1. Wenn keine gefunden wird, erstellt das System ein neues Image (das zwischengespeichert und bei der ACR des Arbeitsbereichs registriert wird).
@@ -101,7 +101,7 @@ Der Azure-Trainingslebenszyklus besteht aus folgenden Schritten:
 1. Speichern von Protokollen, Modelldateien und anderen Dateien, die in dem Speicherkonto, das dem Arbeitsbereich zugeordnet ist, in `./outputs` geschrieben werden
 1. Herunterskalieren der Computevorgänge, einschließlich Entfernen des temporären Speichers 
 
-Wenn Sie das Training auf Ihrem lokalen Computer ausführen möchten („für lokale Ausführung konfigurieren“), ist Docker nicht notwendig. Sie können Docker aber lokal verwenden, wenn Sie dies wünschen (ein Beispiel finden Sie im Abschnitt [Konfigurieren der ML-Pipeline](https://docs.microsoft.com/azure/machine-learning/how-to-debug-pipelines#configure-ml-pipeline )).
+Wenn Sie das Training auf Ihrem lokalen Computer ausführen möchten („für lokale Ausführung konfigurieren“), ist Docker nicht notwendig. Sie können Docker aber lokal verwenden, wenn Sie dies wünschen (ein Beispiel finden Sie im Abschnitt [Konfigurieren der ML-Pipeline](./how-to-debug-pipelines.md)).
 
 ## <a name="r-sdk-preview"></a>R SDK (Vorschau)
 

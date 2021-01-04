@@ -1,36 +1,85 @@
 ---
-title: 'Schnellstart: Einrichten von Azure IoT Hub Device Provisioning mithilfe einer Azure Resource Manager-Vorlage'
-description: 'Azure-Schnellstart: Einrichten von Azure IoT Hub Device Provisioning Service (DPS) mit einer Vorlage'
+title: 'Schnellstart: Einrichten von Azure IoT Hub Device Provisioning Service (DPS) mithilfe einer Azure Resource Manager-Vorlage (ARM-Vorlage)'
+description: In dieser Azure-Schnellstartanleitung erfahren Sie, wie Sie mithilfe einer Azure Resource Manager-Vorlage (ARM-Vorlage) eine Instanz von Azure IoT Hub Device Provisioning Service (DPS) erstellen.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/08/2019
+ms.date: 12/03/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 91e4e7de73d820c345b2973896d07d3479e49f9e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: mvc, subject-armqs, devx-track-azurecli
+ms.openlocfilehash: 73beed4e4262d911f68c2b4b33bc0c1ee24164f8
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748095"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746204"
 ---
-# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Schnellstart: Einrichten des IoT Hub Device Provisioning-Diensts mit einer Azure Resource Manager-Vorlage
+# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-dps-with-an-arm-template"></a>Schnellstart: Einrichten von IoT Hub Device Provisioning Service (DPS) mithilfe einer ARM-Vorlage
 
-Sie können [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) verwenden, um die Azure-Cloudressourcen programmgesteuert einzurichten, die zum Bereitstellen Ihrer Geräte erforderlich sind. In diesen Schritten wird gezeigt, wie Sie einen IoT-Hub und eine neue IoT Hub Device Provisioning Service-Instanz erstellen und diese beiden Komponenten mit einer Azure Resource Manager-Vorlage verknüpfen. In diesem Schnellstart wird die [Azure-Befehlszeilenschnittstelle](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) verwendet, um die erforderlichen programmgesteuerten Schritte zum Erstellen einer Ressourcengruppe und Bereitstellen der Vorlage auszuführen. Sie können aber auch problemlos das [Azure-Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, Ruby oder andere Programmiersprachen verwenden, um diese Schritte auszuführen und Ihre Vorlage bereitzustellen. 
+Sie können eine ARM-Vorlage ([Azure Resource Manager](../azure-resource-manager/management/overview.md)) verwenden, um die zum Bereitstellen Ihrer Geräte erforderlichen Azure-Cloudressourcen programmgesteuert einzurichten. Hier erfahren Sie, wie Sie mithilfe einer ARM-Vorlage einen IoT-Hub und eine neue Instanz von IoT Hub Device Provisioning Service erstellen. Außerdem wird der IoT-Hub unter Verwendung der Vorlage mit der DPS-Ressource verknüpft. Dank dieser Verknüpfung kann die DPS-Ressource dem Hub auf der Grundlage der von Ihnen konfigurierten Zuordnungsrichtlinien Geräte zuweisen.
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+In dieser Schnellstartanleitung werden das [Azure-Portal](../azure-resource-manager/templates/deploy-portal.md) und die [Azure CLI](../azure-resource-manager/templates/deploy-cli.md) verwendet, um die erforderlichen programmgesteuerten Schritte zum Erstellen einer Ressourcengruppe und Bereitstellen der Vorlage auszuführen. Sie können aber auch [PowerShell](../azure-resource-manager/templates/deploy-powershell.md), .NET, Ruby oder andere Programmiersprachen verwenden, um diese Schritte auszuführen und Ihre Vorlage bereitzustellen. 
+
+Wenn Ihre Umgebung die Voraussetzungen erfüllt und Sie bereits mit der Verwendung von ARM-Vorlagen vertraut sind, können Sie die Vorlage durch Auswählen der Schaltfläche **In Azure bereitstellen** für die Bereitstellung im Azure-Portal öffnen.
+
+[![Bereitstellen in Azure: Übersicht](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-iothub-device-provisioning%2fazuredeploy.json)
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 
-## <a name="prerequisites"></a>Voraussetzungen
+## <a name="review-the-template"></a>Überprüfen der Vorlage
 
-- Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
-- Für diese Schnellstartanleitung ist es erforderlich, dass Sie die Azure CLI lokal ausführen. Hierfür muss Azure CLI Version 2.0 oder höher installiert sein. Führen Sie `az --version` aus, um die Version zu ermitteln. Informationen zum Installieren und Aktualisieren der Befehlszeilenschnittstelle finden Sie bei Bedarf unter [Installieren der Azure-Befehlszeilenschnittstelle](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Die in dieser Schnellstartanleitung verwendete Vorlage stammt von der Seite mit den [Azure-Schnellstartvorlagen](https://azure.microsoft.com/resources/templates/101-iothub-device-provisioning/).
+
+:::code language="json" source="~/quickstart-templates/101-iothub-device-provisioning/azuredeploy.json":::
+
+In der obigen Vorlage sind zwei Azure-Ressourcen definiert:
+
+* [**Microsoft.Devices/iothubs**](/azure/templates/microsoft.devices/iothubs): Erstellt eine neue Azure IoT Hub-Instanz.
+* [**Microsoft.Devices/provisioningservices**](/azure/templates/microsoft.devices/provisioningservices): Erstellt eine neue Instanz von Azure IoT Hub Device Provisioning Service, die bereits mit dem neuen IoT-Hub verknüpft ist.
 
 
-## <a name="sign-in-to-azure-and-create-a-resource-group"></a>Anmelden an Azure und Erstellen einer Ressourcengruppe
+## <a name="deploy-the-template"></a>Bereitstellen der Vorlage
+
+#### <a name="deploy-with-the-portal"></a>Bereitstellen über das Portal
+
+1. Wählen Sie das folgende Abbildung aus, um sich bei Azure anzumelden und die Vorlage für die Bereitstellung zu öffnen. Durch die Vorlage werden ein neuer IoT-Hub und eine neue DPS-Ressource erstellt. Der Hub wird in der DPS-Ressource verknüpft.
+
+    [![Bereitstellen in Azure: Schritte im Portal](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-iothub-device-provisioning%2fazuredeploy.json)
+
+2. Wählen Sie die folgenden Werte aus, oder geben Sie sie ein, und klicken Sie anschließend auf **Überprüfen + erstellen**.
+
+    ![Bereitstellungsparameter der ARM-Vorlage im Portal](./media/quick-setup-auto-provision-rm/arm-template-deployment-parameters-portal.png)    
+
+    Sofern nichts anderes angegeben ist, verwenden Sie jeweils den Standardwert, um den IoT-Hub und die DPS-Ressource zu erstellen.
+
+    | Feld | BESCHREIBUNG |
+    | :---- | :---------- |
+    | **Abonnement** | Wählen Sie Ihr Azure-Abonnement. |
+    | **Ressourcengruppe** | Klicken Sie auf **Neu erstellen**, geben Sie einen eindeutigen Namen für die Ressourcengruppe ein, und klicken Sie anschließend auf **OK**. |
+    | **Region** | Wählen Sie eine Region für Ihre Ressourcen aus. Beispiel: **USA, Osten** |
+    | **IoT Hub-Name** | Geben Sie einen Namen für den IoT-Hub ein. Er muss innerhalb des Namespace *.azure-devices.net* global eindeutig sein. Sie benötigen den Hubnamen im nächsten Abschnitt beim Überprüfen der Bereitstellung. |
+    | **Provisioning Service Name** (Name des Bereitstellungsdiensts) | Geben Sie einen Namen für die neue DPS-Ressource (Device Provisioning Service) ein. Der Name muss innerhalb des Namespace *.azure-devices-provisioning.net* global eindeutig sein. Sie benötigen den DPS-Namen im nächsten Abschnitt beim Überprüfen der Bereitstellung. |
+    
+3. Lesen Sie sich auf dem nächsten Bildschirm die Bedingungen durch. Wenn Sie mit allen Bedingungen einverstanden sind, klicken Sie auf **Erstellen**. 
+
+    Die Bereitstellung dauert etwas. 
+
+    Neben dem Azure-Portal können Sie auch Azure PowerShell, die Azure-Befehlszeilenschnittstelle (Azure CLI) und die REST-API verwenden. Informationen zu anderen Bereitstellungsmethoden finden Sie unter [Bereitstellen von Vorlagen](../azure-resource-manager/templates/deploy-powershell.md).
+
+
+#### <a name="deploy-with-the-azure-cli"></a>Bereitstellen mit der Azure-Befehlszeilenschnittstelle (Azure CLI)
+
+Wenn Sie die Azure CLI verwenden möchten, benötigen Sie mindestens die Version 2.6. Falls Sie die Azure CLI lokal ausführen, können Sie Ihre Version mithilfe des folgenden Befehls überprüfen: `az --version`
 
 Melden Sie sich bei Ihrem Azure-Konto an, und wählen Sie Ihr Abonnement aus.
 
-1. Führen Sie an der Eingabeaufforderung den [Anmeldebefehl][lnk-login-command] aus:
+1. Falls Sie die Azure CLI nicht im Portal, sondern lokal ausführen, müssen Sie sich anmelden. Führen Sie an der Eingabeaufforderung den [Anmeldebefehl](/cli/azure/get-started-with-az-cli2) aus, um sich anzumelden:
     
     ```azurecli
     az login
@@ -38,326 +87,85 @@ Melden Sie sich bei Ihrem Azure-Konto an, und wählen Sie Ihr Abonnement aus.
 
     Befolgen Sie die Anweisungen zur Authentifizierung mit dem Code, und melden Sie sich in einem Webbrowser bei Ihrem Azure-Konto an.
 
-2. Wenn Sie über mehrere Azure-Abonnements verfügen, erhalten Sie durch die Anmeldung bei Azure Zugriff auf alle Azure-Konten, die mit Ihren Anmeldeinformationen verknüpft sind. Führen Sie den folgenden [Befehl aus, um eine Liste der Azure-Konten anzuzeigen][lnk-az-account-command], die Sie verwenden können:
+2. Wenn Sie über mehrere Azure-Abonnements verfügen, erhalten Sie durch die Anmeldung bei Azure Zugriff auf alle Azure-Konten, die mit Ihren Anmeldeinformationen verknüpft sind. Führen Sie den folgenden [Befehl aus, um eine Liste der Azure-Konten anzuzeigen](/cli/azure/account), die Sie verwenden können:
     
     ```azurecli
-    az account list 
+    az account list -o table
     ```
 
-    Führen Sie den folgenden Befehl aus, um das Abonnement auszuwählen, das Sie zum Ausführen der Befehle zum Erstellen Ihres IoT Hubs verwenden möchten. Sie können entweder den Abonnementnamen oder die ID aus der Ausgabe des vorherigen Befehls verwenden:
+    Verwenden Sie den folgenden Befehl, um das Abonnement auszuwählen, das Sie zum Ausführen der Befehle für die Erstellung Ihres IoT-Hubs und Ihrer DPS-Ressource verwenden möchten. Sie können entweder den Abonnementnamen oder die ID aus der Ausgabe des vorherigen Befehls verwenden:
 
     ```azurecli
     az account set --subscription {your subscription name or id}
     ```
 
-3. Wenn Sie Azure-Cloudressourcen wie IoT Hubs und Bereitstellungsdienste erstellen, führen Sie dies in einer Ressourcengruppe durch. Verwenden Sie entweder eine vorhandene Ressourcengruppe, oder führen Sie den folgenden [Befehl zum Erstellen einer Ressourcengruppe][lnk-az-resource-command] aus:
-    
-    ```azurecli
-     az group create --name {your resource group name} --location westus
-    ```
-
-    > [!TIP]
-    > Im vorherigen Beispiel wird die Ressourcengruppe am Standort „USA, Westen“ erstellt. Mit dem Befehl `az account list-locations -o table` können Sie eine Liste der verfügbaren Standorte anzeigen.
-    >
-    >
-
-## <a name="create-a-resource-manager-template"></a>Erstellen einer Resource Manager-Vorlage
-
-Verwenden Sie eine JSON-Vorlage, um in Ihrer Ressourcengruppe einen Bereitstellungsdienst und einen verknüpften IoT Hub zu erstellen. Sie können auch eine Azure Resource Manager-Vorlage verwenden, um Änderungen an einem vorhandenen Bereitstellungsdienst oder IoT Hub vorzunehmen.
-
-1. Nutzen Sie einen Text-Editor, um eine Azure Resource Manager-Vorlage mit dem Namen **template.json** und dem folgenden Inhaltsgerüst zu erstellen. 
-
-   ```json
-   {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {},
-       "variables": {},
-       "resources": []
-   }
-   ```
-
-2. Ersetzen Sie den Abschnitt **parameters** durch den folgenden Inhalt. Im Abschnitt „parameters“ werden Parameter definiert, deren Werte aus einer anderen Datei übergeben werden können. In diesem Abschnitt werden die Namen des zu erstellenden IoT-Hubs und des Bereitstellungsdiensts definiert. Außerdem wird der Standort für den IoT-Hub und den Bereitstellungsdienst definiert. Die Werte sind auf Azure-Regionen beschränkt, in denen IoT-Hubs und Bereitstellungsdienste unterstützt werden. Eine Liste mit unterstützten Standorten für den Device Provisioning-Dienst erhalten Sie, indem Sie den Befehl `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` ausführen oder auf der Seite [Azure-Status](https://azure.microsoft.com/status/) nach „Device Provisioning-Dienst“ suchen.
-
-   ```json
-    "parameters": {
-        "iotHubName": {
-            "type": "string"
-        },
-        "provisioningServiceName": {
-            "type": "string"
-        },
-        "hubLocation": {
-            "type": "string",
-            "allowedValues": [
-                "eastus",
-                "westus",
-                "westeurope",
-                "northeurope",
-                "southeastasia",
-                "eastasia"
-            ]
-        }
-    },
-
-   ```
-
-3. Ersetzen Sie den Abschnitt **variables** durch den folgenden Inhalt. In diesem Abschnitt werden die Werte definiert, die später verwendet werden, um die IoT Hub-Verbindungszeichenfolge zu erstellen. Sie wird zum Verknüpfen des Bereitstellungsdiensts und des IoT Hub benötigt. 
- 
-   ```json
-    "variables": {        
-        "iotHubResourceId": "[resourceId('Microsoft.Devices/Iothubs', parameters('iotHubName'))]",
-        "iotHubKeyName": "iothubowner",
-        "iotHubKeyResource": "[resourceId('Microsoft.Devices/Iothubs/Iothubkeys', parameters('iotHubName'), variables('iotHubKeyName'))]"
-    },
-
-   ```
-
-4. Fügen Sie der Sammlung **resources** die folgenden Zeilen hinzu, um einen IoT Hub zu erstellen. Im JSON-Code werden die Mindesteigenschaften angegeben, die für die Erstellung eines IoT-Hubs erforderlich sind. Die Werte für den **Namen** und den **Standort** werden als Parameter aus einer anderen Datei übergeben. Weitere Informationen zu den Eigenschaften, die Sie in einer Vorlage für einen IoT-Hub angeben können, finden Sie unter [Microsoft.Devices/IotHubs template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs) (Microsoft.Devices/IotHubs-Vorlagenreferenz).
-
-   ```json
-        {
-            "apiVersion": "2017-07-01",
-            "type": "Microsoft.Devices/IotHubs",
-            "name": "[parameters('iotHubName')]",
-            "location": "[parameters('hubLocation')]",
-            "sku": {
-                "name": "S1",
-                "capacity": 1
-            },
-            "tags": {
-            },
-            "properties": {
-            }            
-        },
-
-   ``` 
-
-5. Fügen Sie nach der IoT Hub-Angabe in der Sammlung **resources** die folgenden Zeilen hinzu, um den Bereitstellungsdienst zu erstellen. **Name** und **Standort** des Bereitstellungsdiensts werden als Parameter übergeben. In der Sammlung **iotHubs** sind die IoT-Hubs angegeben, die mit dem Bereitstellungsdienst verknüpft werden sollen. Sie müssen für jeden verknüpften IoT Hub mindestens die Eigenschaften **connectionString** und **location** angeben. Sie können für jeden IoT Hub auch Eigenschaften wie **allocationWeight** und **applyAllocationPolicy** sowie Eigenschaften wie **allocationPolicy** und **authorizationPolicies** für den Bereitstellungsdienst selbst festlegen. Weitere Informationen finden Sie unter [Microsoft.Devices/provisioningServices template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices) (Microsoft.Devices/provisioningServices-Vorlagenreferenz).
-
-   Mit der **dependsOn** -Eigenschaft wird sichergestellt, dass mit Resource Manager der IoT Hub vor dem Bereitstellungsdienst erstellt wird. Für die Vorlage ist es erforderlich, dass die Verbindungszeichenfolge des IoT Hub die Verknüpfung mit dem Bereitstellungsdienst angibt. Der Hub und die dazugehörigen Schlüssel müssen also zuerst erstellt werden. Für die Vorlage werden Funktionen wie **concat** und **listKeys** zum Erstellen der Verbindungszeichenfolge aus parametrisierten Variablen verwendet. Weitere Informationen finden Sie unter [Vorlagenfunktionen im Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions).
-
-   ```json
-        {
-            "type": "Microsoft.Devices/provisioningServices",
-            "sku": {
-                "name": "S1",
-                "capacity": 1
-            },
-            "name": "[parameters('provisioningServiceName')]",
-            "apiVersion": "2017-11-15",
-            "location": "[parameters('hubLocation')]",
-            "tags": {},
-            "properties": {
-                "iotHubs": [
-                    {
-                        "connectionString": "[concat('HostName=', reference(variables('iotHubResourceId')).hostName, ';SharedAccessKeyName=', variables('iotHubKeyName'), ';SharedAccessKey=', listkeys(variables('iotHubKeyResource'), '2017-07-01').primaryKey)]",
-                        "location": "[parameters('hubLocation')]",
-                        "name": "[concat(parameters('iotHubName'),'.azure-devices.net')]"
-                    }
-                ]
-            },
-            "dependsOn": ["[parameters('iotHubName')]"]
-        }
-
-   ```
-
-6. Speichern Sie die Vorlagendatei. Die fertige Vorlage sollte wie folgt aussehen:
-
-   ```json
-   {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {
-           "iotHubName": {
-               "type": "string"
-           },
-           "provisioningServiceName": {
-               "type": "string"
-           },
-           "hubLocation": {
-               "type": "string",
-               "allowedValues": [
-                   "eastus",
-                   "westus",
-                   "westeurope",
-                   "northeurope",
-                   "southeastasia",
-                   "eastasia"
-               ]
-           }
-       },
-       "variables": {        
-           "iotHubResourceId": "[resourceId('Microsoft.Devices/Iothubs', parameters('iotHubName'))]",
-           "iotHubKeyName": "iothubowner",
-           "iotHubKeyResource": "[resourceId('Microsoft.Devices/Iothubs/Iothubkeys', parameters('iotHubName'), variables('iotHubKeyName'))]"
-       },
-       "resources": [
-           {
-               "apiVersion": "2017-07-01",
-               "type": "Microsoft.Devices/IotHubs",
-               "name": "[parameters('iotHubName')]",
-               "location": "[parameters('hubLocation')]",
-               "sku": {
-                   "name": "S1",
-                   "capacity": 1
-               },
-               "tags": {
-               },
-               "properties": {
-               }            
-           },
-           {
-               "type": "Microsoft.Devices/provisioningServices",
-               "sku": {
-                   "name": "S1",
-                   "capacity": 1
-               },
-               "name": "[parameters('provisioningServiceName')]",
-               "apiVersion": "2017-11-15",
-               "location": "[parameters('hubLocation')]",
-               "tags": {},
-               "properties": {
-                   "iotHubs": [
-                       {
-                           "connectionString": "[concat('HostName=', reference(variables('iotHubResourceId')).hostName, ';SharedAccessKeyName=', variables('iotHubKeyName'), ';SharedAccessKey=', listkeys(variables('iotHubKeyResource'), '2017-07-01').primaryKey)]",
-                           "location": "[parameters('hubLocation')]",
-                           "name": "[concat(parameters('iotHubName'),'.azure-devices.net')]"
-                       }
-                   ]
-               },
-               "dependsOn": ["[parameters('iotHubName')]"]
-           }
-       ]
-   }
-   ```
-
-## <a name="create-a-resource-manager-parameter-file"></a>Erstellen einer Resource Manager-Parameterdatei
-
-Für die Vorlage, die Sie im letzten Schritt definiert haben, werden Parameter zum Angeben des Namens des IoT-Hubs, des Namens des Bereitstellungsdiensts und des Standorts (Azure-Region) für die Erstellung verwendet. Sie übergeben diese Parameter in einer separaten Datei an die Vorlage. Auf diese Weise können Sie dieselbe Vorlage für mehrere Bereitstellungen wiederverwenden. Führen Sie diese Schritte aus, um die Parameterdatei zu erstellen:
-
-1. Nutzen Sie einen Text-Editor, um eine Azure Resource Manager-Parameterdatei mit dem Namen **parameters.json** und dem folgenden Inhaltsgerüst zu erstellen: 
-
-   ```json
-   {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {}
-       }
-   }
-   ```
-
-2. Fügen Sie dem Abschnitt „parameter“ den Wert **iotHubName** hinzu.  Ein IoT-Hub-Name muss in Azure global eindeutig sein, daher können Sie dem Beispielnamen ein eindeutiges Präfix oder Suffix hinzufügen oder einen ganz neuen Namen auswählen. Achten Sie darauf, dass der Name den Benennungskonventionen für IoT-Hubs entspricht: Er muss 3 bis 50 Zeichen lang sein und darf nur alphanumerische Zeichen (Klein- und Großbuchstaben) oder Bindestriche („-“) enthalten. 
-
-   ```json
-    "parameters": {
-        "iotHubName": {
-            "value": "my-sample-iot-hub"
-        },
-    }
+3. Kopieren Sie die folgenden Befehle, und fügen Sie sie in Ihre CLI-Eingabeaufforderung ein. Drücken Sie anschließend die **EINGABETASTE**, um die Befehle auszuführen.
    
-   ```
-
-3. Fügen Sie dem Abschnitt „parameter“ den Wert **provisioningServiceName** hinzu. Außerdem müssen Sie einen global eindeutigen Namen für Ihren Bereitstellungsdienst auswählen. Achten Sie darauf, dass er den Namenskonventionen für IoT Hub Device Provisioning Service entspricht: Er muss 3 bis 64 Zeichen lang sein und darf nur alphanumerische Zeichen (Klein- und Großbuchstaben) oder Bindestriche („-“) enthalten.
-
-   ```json
-    "parameters": {
-        "iotHubName": {
-            "value": "my-sample-iot-hub"
-        },
-        "provisioningServiceName": {
-            "value": "my-sample-provisioning-service"
-        },
-    }
-
-   ```
-
-4. Fügen Sie dem Abschnitt „parameter“ den Wert **hubLocation** hinzu. Mit diesem Wert wird außerdem der Standort für den IoT Hub und den Bereitstellungsdienst angegeben. Der Wert muss einem der Standorte entsprechen, die in der Sammlung **allowedValues** in der Parameterdefinition der Vorlagendatei angegeben sind. Mit dieser Sammlung werden die Werte auf Azure-Standorte beschränkt, für die sowohl IoT Hubs als auch Bereitstellungsdienste unterstützt werden. Eine Liste mit unterstützten Standorten für Device Provisioning Service erhalten Sie, indem Sie den Befehl `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` ausführen oder auf der Seite [Azure-Status](https://azure.microsoft.com/status/) nach „Device Provisioning Service“ suchen.
-
-   ```json
-    "parameters": {
-        "iotHubName": {
-            "value": "my-sample-iot-hub"
-        },
-        "provisioningServiceName": {
-            "value": "my-sample-provisioning-service"
-        },
-        "hubLocation": {
-            "value": "westus"
-        }
-    }
-
-   ```
-
-5. Speichern Sie die Datei . 
-
-
-> [!IMPORTANT]
-> Da sowohl der IoT Hub als auch der Bereitstellungsdienst öffentlich als DNS-Endpunkte ermittelbar sind, sollten Sie sicherstellen, dass Sie beim Vergeben der Namen keine sensiblen Informationen verwenden.
->
-
-## <a name="deploy-the-template"></a>Bereitstellen der Vorlage
-
-Verwenden Sie die folgenden Azure CLI-Befehle, um Ihre Vorlagen bereitzustellen und die Bereitstellung zu überprüfen.
-
-1. Navigieren Sie zum Bereitstellen der Vorlage zu dem Ordner, der die Vorlage und die Parameterdateien enthält, und führen Sie den folgenden [Befehl aus, um eine Bereitstellung zu starten](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create&preserve-view=true):
+    > [!TIP]
+    > Von den Befehlen werden Sie zur Eingabe eines Ressourcengruppenstandorts aufgefordert. Sie können zuerst den folgenden Befehl ausführen, um eine Liste der verfügbaren Standorte anzuzeigen:
+    >
+    > `az account list-locations -o table`
+    >
+    >
     
-    ```azurecli
-     az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
+    ```azurecli-interactive
+    read -p "Enter a project name that is used for generating resource names:" projectName &&
+    read -p "Enter the location (i.e. centralus):" location &&
+    templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-iothub-device-provisioning/azuredeploy.json" &&
+    resourceGroupName="${projectName}rg" &&
+    az group create --name $resourceGroupName --location "$location" &&
+    az deployment group create --resource-group $resourceGroupName --template-uri  $templateUri &&
+    echo "Press [ENTER] to continue ..." &&
+    read
     ```
 
-   Dieser Vorgang kann einige Minuten in Anspruch nehmen. Suchen Sie anschließend in der Ausgabe nach dem Wert „Succeeded“ (Erfolgreich) für die **provisioningState** -Eigenschaft. 
+4. Von den Befehlen werden Sie zur Eingabe folgender Informationen aufgefordert. Geben Sie den jeweiligen Wert an, und drücken Sie die **EINGABETASTE**.
 
-   ![Bereitstellen der Ausgabe](./media/quick-setup-auto-provision-rm/output.png) 
+    | Parameter | BESCHREIBUNG |
+    | :-------- | :---------- |
+    | **Projektname** | Der Wert dieses Parameters wird verwendet, um eine Ressourcengruppe für alle Ressourcen zu erstellen. Am Ende des Werts für Ihren Ressourcengruppengruppennamen wird die Zeichenfolge `rg` hinzugefügt. |
+    | **location** | Hierbei handelt es sich um die Region, in der sich alle Ressourcen befinden. |
+    | **iotHubName** | Geben Sie einen Namen für den IoT-Hub ein. Er muss innerhalb des Namespace *.azure-devices.net* global eindeutig sein. Sie benötigen den Hubnamen im nächsten Abschnitt beim Überprüfen der Bereitstellung. |
+    | **provisioningServiceName** | Geben Sie einen Namen für die neue DPS-Ressource (Device Provisioning Service) ein. Der Name muss innerhalb des Namespace *.azure-devices-provisioning.net* global eindeutig sein. Sie benötigen den DPS-Namen im nächsten Abschnitt beim Überprüfen der Bereitstellung. |
+
+    Zum Bereitstellen der Vorlage wird die Azure CLI verwendet. Neben der Azure CLI können Sie auch Azure PowerShell, das Azure-Portal und die REST-API verwenden. Informationen zu anderen Bereitstellungsmethoden finden Sie unter [Bereitstellen von Vorlagen](../azure-resource-manager/templates/deploy-powershell.md).
 
 
-2. Führen Sie zum Überprüfen Ihrer Bereitstellung den folgenden [Befehl zum Auflisten von Ressourcen](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list&preserve-view=true) aus, und suchen Sie in der Ausgabe nach dem neuen Bereitstellungsdienst und dem IoT Hub:
+## <a name="review-deployed-resources"></a>Überprüfen der bereitgestellten Ressourcen
+
+1. Führen Sie zum Überprüfen der Bereitstellung den folgenden [Befehl zum Auflisten von Ressourcen](/cli/azure/resource?view=azure-cli-latest#az-resource-list&preserve-view=true) aus, und suchen Sie in der Ausgabe nach dem neuen Bereitstellungsdienst und dem IoT-Hub:
 
     ```azurecli
-     az resource list -g {your resource group name}
+     az resource list -g "${projectName}rg"
     ```
+
+2. Führen Sie den folgenden [Befehl zum Anzeigen der DPS-Erweiterung](/cli/azure/iot/dps?view=azure-cli-latest#az_iot_dps_show&preserve-view=true) aus, um sich zu vergewissern, dass der Hub bereits mit der DPS-Ressource verknüpft ist:
+
+    ```azurecli
+     az iot dps show --name <Your provisioningServiceName>
+    ```
+
+    Beachten Sie die Hubs, die mit dem Element `iotHubs` verknüpft sind.
 
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-Andere Schnellstarts in dieser Sammlung bauen auf diesem Schnellstart auf. Wenn Sie planen, mit den nachfolgenden Schnellstarts oder Tutorials fortzufahren, sollten Sie die in diesem Schnellstart erstellten Ressourcen nicht bereinigen. Falls Sie nicht fortfahren möchten, können Sie über die Azure-Befehlszeilenschnittstelle [eine einzelne Ressource löschen][lnk-az-resource-command], z. B. einen IoT-Hub oder einen Bereitstellungsdienst, oder eine Ressourcengruppe und alle zugehörigen Ressourcen löschen.
+Andere Schnellstarts in dieser Sammlung bauen auf diesem Schnellstart auf. Wenn Sie planen, mit den nachfolgenden Schnellstarts oder Tutorials fortzufahren, sollten Sie die in diesem Schnellstart erstellten Ressourcen nicht bereinigen. Wenn Sie nicht fortfahren möchten, können Sie das Azure-Portal oder die Azure CLI verwenden, um die Ressourcengruppe und alle zugehörigen Ressourcen zu löschen.
 
-Führen Sie den folgenden Befehl aus, um den Bereitstellungsdienst zu löschen:
+Wenn Sie eine Ressourcengruppe und alle zugehörigen Ressourcen über das Azure-Portal löschen möchten, öffnen Sie einfach die Ressourcengruppe, und klicken Sie im oberen Bereich auf **Ressourcengruppe löschen**.
 
-```azurecli
-az iot hub delete --name {your provisioning service name} --resource-group {your resource group name}
-```
-Führen Sie den folgenden Befehl aus, um einen IoT Hub zu löschen:
+Wenn Sie die Ressourcengruppe mithilfe der Azure CLI löschen möchten, verwenden Sie Folgendes:
 
 ```azurecli
-az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
-```
-
-Führen Sie den folgenden Befehl aus, um eine Ressourcengruppe und alle zugehörigen Ressourcen zu löschen:
-
-```azurecli
-az group delete --name {your resource group name}
+az group delete --name "${projectName}rg"
 ```
 
 Sie können auch Ressourcengruppen und einzelne Ressourcen löschen, indem Sie das Azure-Portal, PowerShell oder REST-APIs oder auch unterstützte Plattform-SDKs verwenden, die für Azure Resource Manager oder IoT Hub Device Provisioning Service veröffentlicht werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In diesem Schnellstart haben Sie einen IoT-Hub und einen Gerätebereitstellungsdienst bereitgestellt und die beiden Ressourcen verknüpft. Sie können mit dem Schnellstart zur Erstellung eines simulierten Geräts fortfahren, um zu erfahren, wie Sie diese Einrichtung zum Bereitstellen eines simulierten Geräts verwenden.
+In diesem Schnellstart haben Sie einen IoT-Hub und einen Gerätebereitstellungsdienst bereitgestellt und die beiden Ressourcen verknüpft. In der Schnellstartanleitung zur Geräteerstellung erfahren Sie, wie Sie diese Einrichtung zum Bereitstellen eines Geräts verwenden.
 
 > [!div class="nextstepaction"]
-> [Schnellstart zum Erstellen eines simulierten Geräts](./quick-create-simulated-device.md)
+> [Schnellstart: Bereitstellen eines Geräts mit symmetrischen Schlüsseln](./quick-create-simulated-device-symm-key.md)
 
-
-<!-- Links -->
-[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-CLI-install]: https://docs.microsoft.com/cli/azure/install-az-cli2
-[lnk-login-command]: https://docs.microsoft.com/cli/azure/get-started-with-az-cli2
-[lnk-az-account-command]: https://docs.microsoft.com/cli/azure/account
-[lnk-az-register-command]: https://docs.microsoft.com/cli/azure/provider
-[lnk-az-addcomponent-command]: https://docs.microsoft.com/cli/azure/component
-[lnk-az-resource-command]: https://docs.microsoft.com/cli/azure/resource
-[lnk-az-iot-command]: https://docs.microsoft.com/cli/azure/iot
-[lnk-iot-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-portal]: iot-hub-create-through-portal.md 

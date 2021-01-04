@@ -13,19 +13,17 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 949ddae903a53957f62b89a01ce477edb92917c1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a97e14bcb68629f5f175a4913146187949af08be
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365908"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561062"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Modus für gemeinsam genutzte Geräte für iOS-Geräte
 
-> [!NOTE]
-> Dieses Feature befindet sich in der Phase der öffentlichen Vorschau.
-> Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar.
-> Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>[!IMPORTANT]
+> Dieses Feature [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 Mitarbeiter in Service und Produktion, z. B. Mitarbeiter im Einzelhandel, Mitglieder der Flugzeugbesatzung und Außendienstmitarbeiter, verwenden für ihre Arbeit häufig ein gemeinsam genutztes mobiles Gerät. Diese gemeinsam genutzten Geräte können Sicherheitsrisiken darstellen, wenn Benutzer Kennwörter oder Pins absichtlich oder versehentlich teilen, um auf Kunden- und Geschäftsdaten auf dem gemeinsam genutzten Gerät zuzugreifen.
 
@@ -43,7 +41,7 @@ Bei der Erstellung einer App für den Modus für gemeinsam genutzte Geräte arbe
 
 1. **Geräteadministratoren** bereiten die Geräte mithilfe eines MDM-Anbieters (Mobile Device Management) wie Microsoft Intune für die gemeinsame Nutzung vor, um sie in ihrer Organisation zu verwalten. MDM überträgt die Microsoft Authenticator-App per Pushvorgang auf die Geräte und aktiviert auf jedem Gerät durch ein Profilupdate den „Modus für gemeinsam genutzte Geräte“. Durch die Einstellung „Modus für gemeinsam genutzte Geräte“ ändert sich das Verhalten der unterstützten Apps auf dem Gerät. Diese Konfiguration vom MDM-Anbieter legt für das Gerät den Modus für gemeinsam genutzte Geräte fest und aktiviert das [Microsoft Enterprise SSO-Plug-In für Apple-Geräte](apple-sso-plugin.md), das für den Modus für gemeinsam genutzte Geräte erforderlich ist.
 
-1. [ **Nur bei der öffentlichen Vorschauversion (Public Preview) erforderlich** ] Ein Benutzer mit der Rolle [Cloudgeräteadministrator](../roles/permissions-reference.md#cloud-device-administrator) muss dann die [Microsoft Authenticator-App](../user-help/user-help-auth-app-overview.md) starten und das Gerät mit der Organisation verknüpfen.
+1. [**Nur bei der öffentlichen Vorschauversion (Public Preview) erforderlich**] Ein Benutzer mit der Rolle [Cloudgeräteadministrator](../roles/permissions-reference.md#cloud-device-administrator) muss dann die [Microsoft Authenticator-App](../user-help/user-help-auth-app-overview.md) starten und das Gerät mit der Organisation verknüpfen.
 
     So konfigurieren Sie die Mitgliedschaft der organisatorischen Funktionen im Azure-Portal: **Azure Active Directory** > **Rollen und Administratoren** > **Cloudgeräteadministrator**
 
@@ -59,9 +57,9 @@ Ihr Gerät muss konfiguriert werden, um den Modus für gemeinsam genutzte Gerät
 1. Aktivieren Sie für das Gerät im Intune-Konfigurationsportal das [Microsoft Enterprise SSO-Plug-In für Apple-Geräte](apple-sso-plugin.md) mit der folgenden Konfiguration:
 
     - **Typ:** Redirect
-    - **Erweiterungs-ID** : com.microsoft.azureauthenticator.ssoextension
-    - **Team-ID** : (dieses Feld wird für iOS nicht benötigt)
-    - **URLs** :   
+    - **Erweiterungs-ID**: com.microsoft.azureauthenticator.ssoextension
+    - **Team-ID**: (dieses Feld wird für iOS nicht benötigt)
+    - **URLs**:   
         - `https://login.microsoftonline.com`
         - `https://login.microsoft.com`
         - `https://sts.windows.net`
@@ -71,7 +69,7 @@ Ihr Gerät muss konfiguriert werden, um den Modus für gemeinsam genutzte Gerät
         - `https://login.microsoftonline.us`
         - `https://login.usgovcloudapi.net`
         - `https://login-us.microsoftonline.com`
-    - **Zusätzlich zu konfigurierende Daten** :
+    - **Zusätzlich zu konfigurierende Daten**:
       - Schlüssel: sharedDeviceMode
       - Typ: Boolean
       - Wert: true

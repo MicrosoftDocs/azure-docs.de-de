@@ -3,12 +3,12 @@ title: Konfigurieren der Datensammlung des Azure Monitor für Container-Agent | 
 description: In diesem Artikel wird beschrieben, wie Sie den Azure Monitor für den Container-Agent so konfigurieren, dass dieser die Protokollsammlung von stdout-/stderr- sowie Umgebungsvariablen steuert.
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: 1644e541ee873a5bb058dd9bde2b82a907a400ff
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: f21b841bc129012b684d2a1c59eb72989fe9e0e0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320410"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890495"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Konfigurieren der Datensammlung des Azure Monitor für Container-Agent
 
@@ -57,7 +57,7 @@ ConfigMaps ist eine globale Liste, und es kann nur eine ConfigMap auf den Agent 
 
 Führen Sie die folgenden Schritte durch, um Ihre ConfigMap-Konfigurationsdatei zu konfigurieren und für Ihren Cluster bereitzustellen.
 
-1. Laden Sie die [YAML-Vorlagendatei für ConfigMap](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml) herunter, und speichern Sie sie unter container-azm-ms-agentconfig.yaml. 
+1. Laden Sie die [YAML-Vorlagendatei für ConfigMap](https://aka.ms/container-azm-ms-agentconfig) herunter, und speichern Sie sie unter container-azm-ms-agentconfig.yaml. 
 
    > [!NOTE]
    > Dieser Schritt ist bei der Arbeit mit Azure Red Hat OpenShift nicht erforderlich, da die ConfigMap-Vorlage bereits im Cluster vorhanden ist.

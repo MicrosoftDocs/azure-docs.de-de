@@ -5,24 +5,24 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 10/02/2020
-ms.openlocfilehash: 3f243a1a8d4f4b3ee4688ac3942debee5282a9a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/12/2020
+ms.openlocfilehash: 87d6ca8ee69ca49cf52b61e6beddb56721658afa
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761922"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593738"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Freigeben und Empfangen von Daten aus Azure SQL-Datenbank und Azure Synapse Analytics
 
 [!INCLUDE[appliesto-sql](includes/appliesto-sql.md)]
 
-Azure Data Share unterstützt die momentaufnahmenbasierte Freigabe von Daten aus Azure SQL-Datenbank und Azure Synapse Analytics (ehemals „Azure SQL DW“). In diesem Artikel wird erläutert, wie Sie Daten aus diesen Quellen freigeben und empfangen.
+Azure Data Share unterstützt die momentaufnahmenbasierte Freigabe von Daten aus Azure SQL-Datenbank und Azure Synapse Analytics. In diesem Artikel wird erläutert, wie Sie Daten aus diesen Quellen freigeben und empfangen.
 
-Azure Data Share unterstützt die Freigabe von Tabellen oder Sichten aus Azure SQL-Datenbank und Azure Synapse Analytics (ehemals „Azure SQL DW“). Datenconsumer können die Daten in Azure Data Lake Storage Gen2 und Azure Blob Storage als CSV- oder Parquet-Datei, in Azure SQL-Datenbank und Azure Synapse Analytics als Tabellen akzeptieren.
+Azure Data Share unterstützt die Freigabe sowohl von Tabellen als auch Sichten aus Azure SQL-Datenbank und Azure Synapse Analytics (ehemals Azure SQL DW) sowie die Freigabe von Tabellen aus einem dedizierten SQL-Pool von Azure Synapse Analytics (Arbeitsbereich). Die Freigabe aus einem serverlosen SQL-Pool von Azure Synapse Analytics (Arbeitsbereich) wird derzeit nicht unterstützt. Datenconsumer können die Daten in Azure Data Lake Storage Gen2 und Azure Blob Storage als CSV- oder Parquet-Datei, in Azure SQL-Datenbank und Azure Synapse Analytics als Tabellen akzeptieren.
 
 Wenn Sie Daten in Azure Data Lake Store Gen2 oder Azure Blob Storage akzeptieren, überschreiben vollständige Momentaufnahmen den Inhalt der Zieldatei (sofern bereits vorhanden).
-Wenn Daten in einer Tabelle empfangen werden und die Zieltabelle noch nicht vorhanden ist, erstellt Azure Data Share die SQL-Tabelle mit dem Quellschema. Wenn bereits eine Zieltabelle mit demselben Namen vorhanden ist, wird sie gelöscht und mit der letzten vollständigen Momentaufnahme überschrieben. Inkrementelle Momentaufnahmen werden derzeit nicht unterstützt.
+Wenn Daten in einer SQL-Tabelle empfangen werden und die Zieltabelle noch nicht vorhanden ist, erstellt Azure Data Share die SQL-Tabelle mit dem Quellschema. Wenn bereits eine Zieltabelle mit demselben Namen vorhanden ist, wird sie gelöscht und mit der letzten vollständigen Momentaufnahme überschrieben. Inkrementelle Momentaufnahmen werden derzeit nicht unterstützt.
 
 ## <a name="share-data"></a>Freigeben von Daten
 
@@ -33,13 +33,16 @@ Wenn Daten in einer Tabelle empfangen werden und die Zieltabelle noch nicht vorh
 * Befindet sich der Azure-Quelldatenspeicher nicht in dem Azure-Abonnement, in dem Sie die Data Share-Ressource erstellen, registrieren Sie [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in dem Abonnement, in dem sich der Azure-Datenspeicher befindet. 
 
 ### <a name="prerequisites-for-sql-source"></a>Voraussetzungen für SQL-Quellen
-Im Folgenden finden Sie eine Liste der Voraussetzungen für die Freigabe von Daten aus der SQL-Quelle. Sie können auch die [Schritt-für-Schritt-Demo](https://youtu.be/hIE-TjJD8Dc) befolgen, um die Voraussetzungen zu konfigurieren.
+Im Folgenden finden Sie eine Liste der Voraussetzungen für die Freigabe von Daten aus der SQL-Quelle. 
 
-* Eine Azure SQL-Datenbank- oder Azure Synapse Analytics-Instanz (ehemals SQL Data Warehouse) mit Tabellen und Ansichten, die Sie freigeben möchten
-* Berechtigung zum Schreiben in die Datenbanken in SQL Server (unter *Microsoft.Sql/servers/databases/write*). Diese Berechtigung ist in der Rolle „Mitwirkender“ vorhanden.
-* Berechtigung der Datenfreigabe für den Zugriff auf Data Warehouse. Die Berechtigung kann mit folgenden Schritten gewährt werden: 
-    1. Navigieren Sie im Azure-Portal zum SQL-Server und legen Sie sich selbst als Azure Active Directory-Administrator fest.
-    1. Stellen Sie mit dem [Abfrage-Editor](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal#connect-using-azure-active-directory) oder SQL Server Management Studio mit Azure Active Directory-Authentifizierung eine Verbindung mit Azure SQL-Datenbank/Data Warehouse her. 
+#### <a name="prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Voraussetzungen für die Freigabe von Daten aus Azure SQL-Datenbank oder Azure Synapse Analytics (ehemals Azure SQL DW)
+Beim Konfigurieren der Voraussetzungen können Sie sich an der [Schritt-für-Schritt-Demo](https://youtu.be/hIE-TjJD8Dc) orientieren.
+
+* Eine Instanz von Azure SQL-Datenbank oder Azure Synapse Analytics (ehemals Azure SQL DW) mit Tabellen und Sichten, die Sie freigeben möchten.
+* Berechtigung zum Schreiben in die Datenbanken in SQL Server (unter *Microsoft.Sql/servers/databases/write*). Diese Berechtigung ist in der Rolle **Mitwirkender** vorhanden.
+* Berechtigung zum Zugreifen auf die Datenbank für die verwaltete Identität der Data Share-Ressource. Die Berechtigung kann mit folgenden Schritten gewährt werden: 
+    1. Navigieren Sie im Azure-Portal zur SQL Server-Instanz, und legen Sie sich selbst als **Azure Active Directory-Administrator** fest.
+    1. Stellen Sie mit dem [Abfrage-Editor](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) oder SQL Server Management Studio mit Azure Active Directory-Authentifizierung eine Verbindung mit Azure SQL-Datenbank/Data Warehouse her. 
     1. Führen Sie das folgende Skript aus, um die verwaltete Identität der Data Share-Ressource als „db_datareader“ hinzuzufügen. Sie müssen mithilfe von Active Directory und nicht über die SQL Server-Authentifizierung eine Verbindung herstellen. 
     
         ```sql
@@ -48,11 +51,32 @@ Im Folgenden finden Sie eine Liste der Voraussetzungen für die Freigabe von Dat
         ```                   
        Beachten Sie, dass *<share_acc_name>* der Name Ihrer Data Share-Ressource ist. Falls Sie noch keine Data Share-Ressource erstellt haben, können Sie später zu dieser Voraussetzung zurückkehren.  
 
-* Ein Azure SQL-Datenbank-Benutzer mit Zugriff vom Typ „db_datareader“ zum Navigieren durch Tabellen und/oder Ansichten sowie zum Auswählen der Tabellen und/oder Ansichten, die Sie freigeben möchten. 
+* Ein Azure SQL-Datenbank-Benutzer mit Zugriff vom Typ **db_datareader** zum Navigieren durch Tabellen und/oder Sichten sowie zum Auswählen der Tabellen und/oder Sichten, die Sie freigeben möchten. 
 
 * SQL Server-Firewallzugriff. Die Berechtigung kann mit folgenden Schritten gewährt werden: 
-    1. Navigieren Sie in SQL Server im Azure-Portal zu *Firewalls und virtuelle Netzwerke*.
+    1. Navigieren Sie im Azure-Portal zu „SQL Server“. Wählen Sie im linken Navigationsbereich die Option *Firewalls und virtuelle Netzwerke* aus.
     1. Klicken Sie auf **Ja** für *Azure-Diensten und -Ressourcen den Zugriff auf diesen Server gestatten*.
+    1. Klicken Sie auf **+Client-IP hinzufügen**. Die IP-Adresse kann sich ggf. ändern. Dieser Prozess muss unter Umständen bei der nächsten Freigabe von SQL-Daten über das Azure-Portal wiederholt werden. Sie können auch einen IP-Adressbereich hinzufügen.
+    1. Klicken Sie auf **Speichern**. 
+
+#### <a name="prerequisites-for-sharing-from-azure-synapse-analytics-workspace-sql-pool"></a>Voraussetzungen für die Freigabe von Daten aus einem SQL-Pool von Azure Synapse Analytics (Arbeitsbereich)
+
+* Ein dedizierter SQL-Pool von Azure Synapse Analytics (Arbeitsbereich) mit Tabellen, die Sie freigeben möchten. Das Freigeben der Sicht wird derzeit nicht unterstützt. Das Freigeben von Daten aus einem serverlosen SQL-Pool wird derzeit nicht unterstützt.
+* Berechtigung zum Schreiben in den SQL-Pool im Synapse-Arbeitsbereich (unter *Microsoft.Synapse/workspaces/sqlPools/write*). Diese Berechtigung ist in der Rolle **Mitwirkender** vorhanden.
+* Berechtigung zum Zugreifen auf den SQL-Pool des Synapse-Arbeitsbereichs für die verwaltete Identität der Data Share-Ressource. Die Berechtigung kann mit folgenden Schritten gewährt werden: 
+    1. Navigieren Sie im Azure-Portal zum Synapse-Arbeitsbereich. Wählen Sie im linken Navigationsbereich die Option „Administrator für Active Directory in SQL“ aus, und legen Sie sich selbst als **Azure Active Directory-Administrator** fest.
+    1. Öffnen Sie Synapse Studio, und wählen Sie im linken Navigationsbereich die Option *Verwalten* aus. Wählen Sie unter „Sicherheit“ die Option *Zugriffssteuerung* aus. Weisen Sie sich selbst die Rolle **SQL-Administrator** oder **Arbeitsbereichsadministrator** zu.
+    1. Wählen Sie in Synapse Studio im linken Navigationsbereich die Option *Entwickeln* aus. Führen Sie im SQL-Pool das folgende Skript aus, um die verwaltete Identität der Data Share-Ressource als „db_datareader“ hinzuzufügen. 
+    
+        ```sql
+        create user "<share_acct_name>" from external provider;     
+        exec sp_addrolemember db_datareader, "<share_acct_name>"; 
+        ```                   
+       Beachten Sie, dass *<share_acc_name>* der Name Ihrer Data Share-Ressource ist. Falls Sie noch keine Data Share-Ressource erstellt haben, können Sie später zu dieser Voraussetzung zurückkehren.  
+
+* Firewallzugriff für den Synapse-Arbeitsbereich. Die Berechtigung kann mit folgenden Schritten gewährt werden: 
+    1. Navigieren Sie im Azure-Portal zum Synapse-Arbeitsbereich. Wählen Sie im linken Navigationsbereich die Option *Firewalls* aus.
+    1. Klicken Sie unter *Anderen Azure-Diensten und -Ressourcen den Zugriff auf diesen Arbeitsbereich gestatten* auf **EIN**.
     1. Klicken Sie auf **+Client-IP hinzufügen**. Die IP-Adresse kann sich ggf. ändern. Dieser Prozess muss unter Umständen bei der nächsten Freigabe von SQL-Daten über das Azure-Portal wiederholt werden. Sie können auch einen IP-Adressbereich hinzufügen.
     1. Klicken Sie auf **Speichern**. 
 
@@ -108,11 +132,11 @@ Erstellen Sie eine Azure Data Share-Ressource in einer Azure-Ressourcengruppe.
 
     ![AddDatasets](./media/add-datasets.png "Hinzufügen von Datasets")    
 
-1. Wählen Sie Ihre SQL Server-Instanz aus, geben Sie Ihre Anmeldeinformationen ein, und wählen Sie **Weiter** aus, um zu dem Objekt zu navigieren, das Sie freigeben möchten. Wählen Sie dann „Datasets hinzufügen“ aus. 
+1. Wählen Sie Ihre SQL Server-Instanz oder Ihren Synapse-Arbeitsbereich aus, geben Sie auf Aufforderung Ihre Anmeldeinformationen ein, und wählen Sie **Weiter** aus, um zu dem Objekt zu navigieren, das Sie freigeben möchten. Wählen Sie dann „Datasets hinzufügen“ aus. Sie können Tabellen und Sichten aus Azure SQL-Datenbank und Azure Synapse Analytics (ehemals Azure SQL DW) oder Tabellen aus dem dedizierten SQL-Pool von Azure Synapse Analytics (Arbeitsbereich) auswählen. 
 
     ![SelectDatasets](./media/select-datasets-sql.png "Auswählen der Datasets")    
 
-1. Geben Sie auf der Registerkarte „Empfänger“ die E-Mail-Adressen Ihrer Datenconsumer ein, indem Sie die Option „+ Empfänger hinzufügen“ wählen. 
+1. Geben Sie auf der Registerkarte „Empfänger“ die E-Mail-Adressen Ihrer Datenconsumer ein, indem Sie die Option „+ Empfänger hinzufügen“ wählen. Die E-Mail-Adresse muss die E-Mail-Adresse des Empfängers für die Anmeldung bei Azure sein.
 
     ![AddRecipients](./media/add-recipient.png "Hinzufügen von Empfängern") 
 
@@ -144,17 +168,21 @@ Stellen Sie sicher, dass alle Voraussetzungen erfüllt sind, bevor Sie die Einla
 ### <a name="prerequisites-for-target-storage-account"></a>Voraussetzungen für das Zielspeicherkonto
 Wenn Sie Daten in Azure Storage empfangen möchten, finden Sie nachfolgend eine Liste mit Voraussetzungen, die erfüllt sein müssen.
 
-* Ein Azure Storage-Konto: Falls Sie noch nicht über ein Konto verfügen, können Sie [hier ein Azure Storage-Konto erstellen](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
-* Berechtigung zum Schreiben in das Speicherkonto (unter *Microsoft.Storage/storageAccounts/write*). Diese Berechtigung ist in der Rolle „Mitwirkender“ vorhanden. 
-* Berechtigung zum Hinzufügen einer Rollenzuweisung zum Speicherkonto (unter *Microsoft.Authorization/role assignments/write*). Diese Berechtigung ist in der Rolle „Besitzer“ vorhanden.  
+* Ein Azure Storage-Konto: Falls Sie noch nicht über ein Konto verfügen, können Sie [hier ein Azure Storage-Konto erstellen](../storage/common/storage-account-create.md). 
+* Berechtigung zum Schreiben in das Speicherkonto (unter *Microsoft.Storage/storageAccounts/write*). Diese Berechtigung ist in der Rolle **Mitwirkender** vorhanden. 
+* Berechtigung zum Hinzufügen einer Rollenzuweisung der verwalteten Identität für die Data Share-Ressource zum Speicherkonto (unter *Microsoft.Authorization/role assignments/write*). Diese Berechtigung ist in der Rolle **Besitzer** vorhanden.  
 
 ### <a name="prerequisites-for-sql-target"></a>Voraussetzungen für SQL-Ziele
-Wenn Sie Daten in Azure SQL-Datenbank oder Azure Synapse Analytics empfangen möchten, finden Sie nachfolgend eine Liste mit Voraussetzungen, die erfüllt sein müssen. Sie können auch die [Schritt-für-Schritt-Demo](https://youtu.be/aeGISgK1xro) befolgen, um die Voraussetzungen zu konfigurieren.
+Wenn Sie Daten in Azure SQL-Datenbank oder Azure Synapse Analytics empfangen möchten, finden Sie nachfolgend eine Liste mit Voraussetzungen, die erfüllt sein müssen. 
 
-* Berechtigung zum Schreiben in Datenbanken auf dem SQL-Server (unter *Microsoft.Sql/servers/databases/write*). Diese Berechtigung ist in der Rolle „Mitwirkender“ vorhanden. 
-* Berechtigung zum Zugreifen auf die Azure SQL-Datenbank- oder Azure Synapse Analytics-Instanz für die verwaltete Identität der Datenfreigaberessource. Die Berechtigung kann mit folgenden Schritten gewährt werden: 
-    1. Navigieren Sie im Azure-Portal zum SQL-Server und legen Sie sich selbst als Azure Active Directory-Administrator fest.
-    1. Stellen Sie mit dem [Abfrage-Editor](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal#connect-using-azure-active-directory) oder SQL Server Management Studio mit Azure Active Directory-Authentifizierung eine Verbindung mit Azure SQL-Datenbank/Data Warehouse her. 
+#### <a name="prerequisites-for-receiving-data-into-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Voraussetzungen für den Empfang von Daten in Azure SQL-Datenbank oder Azure Synapse Analytics (ehemals Azure SQL DW)
+Beim Konfigurieren der Voraussetzungen können Sie sich an der [Schritt-für-Schritt-Demo](https://youtu.be/aeGISgK1xro) orientieren.
+
+* Eine Instanz von Azure SQL-Datenbank oder Azure Synapse Analytics (ehemals Azure SQL DW).
+* Berechtigung zum Schreiben in Datenbanken auf dem SQL-Server (unter *Microsoft.Sql/servers/databases/write*). Diese Berechtigung ist in der Rolle **Mitwirkender** vorhanden. 
+* Berechtigung zum Zugreifen auf die Azure SQL-Datenbank- oder Azure Synapse Analytics-Instanz für die verwaltete Identität der Data Share-Ressource. Die Berechtigung kann mit folgenden Schritten gewährt werden: 
+    1. Navigieren Sie im Azure-Portal zur SQL Server-Instanz, und legen Sie sich selbst als **Azure Active Directory-Administrator** fest.
+    1. Stellen Sie mit dem [Abfrage-Editor](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) oder SQL Server Management Studio mit Azure Active Directory-Authentifizierung eine Verbindung mit Azure SQL-Datenbank/Data Warehouse her. 
     1. Führen Sie das folgende Skript aus, um die verwaltete Data Share-Identität als „db_datareader, db_datawriter, db_ddladmin“ hinzuzufügen. Sie müssen mithilfe von Active Directory und nicht über die SQL Server-Authentifizierung eine Verbindung herstellen. 
 
         ```sql
@@ -168,6 +196,29 @@ Wenn Sie Daten in Azure SQL-Datenbank oder Azure Synapse Analytics empfangen mö
 * SQL Server-Firewallzugriff. Die Berechtigung kann mit folgenden Schritten gewährt werden: 
     1. Navigieren Sie in SQL Server im Azure-Portal zu *Firewalls und virtuelle Netzwerke*.
     1. Klicken Sie auf **Ja** für *Azure-Diensten und -Ressourcen den Zugriff auf diesen Server gestatten*.
+    1. Klicken Sie auf **+Client-IP hinzufügen**. Die IP-Adresse kann sich ggf. ändern. Dieser Prozess muss unter Umständen bei der nächsten Freigabe von SQL-Daten über das Azure-Portal wiederholt werden. Sie können auch einen IP-Adressbereich hinzufügen.
+    1. Klicken Sie auf **Speichern**. 
+ 
+#### <a name="prerequisites-for-receiving-data-into-azure-synapse-analytics-workspace-sql-pool"></a>Voraussetzungen für den Empfang von Daten in einem SQL-Pool von Azure Synapse Analytics (Arbeitsbereich)
+
+* Ein dedizierter SQL-Pool von Azure Synapse Analytics (Arbeitsbereich). Das Empfangen von Daten in einem serverlosen SQL-Pool wird derzeit nicht unterstützt.
+* Berechtigung zum Schreiben in den SQL-Pool im Synapse-Arbeitsbereich (unter *Microsoft.Synapse/workspaces/sqlPools/write*). Diese Berechtigung ist in der Rolle **Mitwirkender** vorhanden.
+* Berechtigung zum Zugreifen auf den SQL-Pool des Synapse-Arbeitsbereichs für die verwaltete Identität der Data Share-Ressource. Die Berechtigung kann mit folgenden Schritten gewährt werden: 
+    1. Navigieren Sie im Azure-Portal zum Synapse-Arbeitsbereich. Wählen Sie im linken Navigationsbereich die Option „Administrator für Active Directory in SQL“ aus, und legen Sie sich selbst als **Azure Active Directory-Administrator** fest.
+    1. Öffnen Sie Synapse Studio, und wählen Sie im linken Navigationsbereich die Option *Verwalten* aus. Wählen Sie unter „Sicherheit“ die Option *Zugriffssteuerung* aus. Weisen Sie sich selbst die Rolle **SQL-Administrator** oder **Arbeitsbereichsadministrator** zu.
+    1. Wählen Sie in Synapse Studio im linken Navigationsbereich die Option *Entwickeln* aus. Führen Sie im SQL-Pool das folgende Skript aus, um die verwaltete Identität der Data Share-Ressource als „db_datareader, db_datawriter, db_ddladmin“ hinzuzufügen. 
+    
+        ```sql
+        create user "<share_acc_name>" from external provider; 
+        exec sp_addrolemember db_datareader, "<share_acc_name>"; 
+        exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
+        exec sp_addrolemember db_ddladmin, "<share_acc_name>";
+        ```                   
+       Beachten Sie, dass *<share_acc_name>* der Name Ihrer Data Share-Ressource ist. Falls Sie noch keine Data Share-Ressource erstellt haben, können Sie später zu dieser Voraussetzung zurückkehren.  
+
+* Firewallzugriff für den Synapse-Arbeitsbereich. Die Berechtigung kann mit folgenden Schritten gewährt werden: 
+    1. Navigieren Sie im Azure-Portal zum Synapse-Arbeitsbereich. Wählen Sie im linken Navigationsbereich die Option *Firewalls* aus.
+    1. Klicken Sie unter *Anderen Azure-Diensten und -Ressourcen den Zugriff auf diesen Arbeitsbereich gestatten* auf **EIN**.
     1. Klicken Sie auf **+Client-IP hinzufügen**. Die IP-Adresse kann sich ggf. ändern. Dieser Prozess muss unter Umständen bei der nächsten Freigabe von SQL-Daten über das Azure-Portal wiederholt werden. Sie können auch einen IP-Adressbereich hinzufügen.
     1. Klicken Sie auf **Speichern**. 
 
@@ -275,9 +326,22 @@ Wenn Sie Daten aus einer SQL-Quelle freigeben, wird während des Momentaufnahmev
 
 >[!NOTE]
 > 1. Für Datentypen, die dem Zwischendatentyp „Decimal“ zugeordnet sind, unterstützt die Momentaufnahme derzeit eine Genauigkeit von bis zu 28. Wenn Ihre Daten eine höhere Genauigkeit als 28 erfordern, erwägen Sie, sie in eine Zeichenfolge zu konvertieren. 
-> 1.  Wenn Sie Daten aus einer Azure SQL-Datenbank-Instanz in Azure Synapse Analytics freigeben, werden nicht alle Datentypen unterstützt. Weitere Informationen finden Sie unter [Tabellendatentypen in einem Synapse SQL-Pool](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types). 
+> 1.  Wenn Sie Daten aus einer Azure SQL-Datenbank-Instanz in Azure Synapse Analytics freigeben, werden nicht alle Datentypen unterstützt. Weitere Informationen finden Sie unter [Tabellendatentypen in einem dedizierten SQL-Pool](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md). 
 
+## <a name="sql-always-encrypted-or-dynamic-data-masking"></a>SQL mit Always Encrypted oder dynamischer Datenmaskierung
+Derzeit bietet Azure Data Share keine Unterstützung für Azure SQL-Datenbanken, für die Always Encrypted konfiguriert ist. 
+
+Bei SQL-Quelltabellen mit dynamischer Datenmaskierung werden Daten auf Empfängerseite maskiert angezeigt.
+
+## <a name="sql-snapshot-performance"></a>Leistung von SQL-Momentaufnahmen
+Die Leistung von SQL-Momentaufnahmen wird durch eine Reihe von Faktoren beeinflusst. Es wird immer empfohlen, eigene Leistungstests durchzuführen. Nachfolgend sind einige Beispielfaktoren aufgerührt, die sich auf die Leistung auswirken.
+
+* Hardwarekonfiguration (z. B. virtuelle Kerne, Arbeitsspeicher, DWU) des SQL-Quell- und Zieldatenspeichers. 
+* Gleichzeitiger Zugriff auf Quell- und Zieldatenspeicher. Wenn Sie mehrere Tabellen und Sichten aus demselben SQL-Datenspeicher gemeinsam nutzen oder mehrere Tabellen und Sichten im gleichen SQL-Datenspeicher empfangen, wirkt sich dies auf die Leistung aus.   
+* Standort der Quell- und Zieldatenspeicher. 
+
+## <a name="troubleshoot-sql-snapshot-failure"></a>Problembehandlung für Fehler bei der SQL-Momentaufnahme
+Die häufigste Ursache für einen Fehler bei der Momentaufnahme ist, dass Data Share nicht über die Berechtigung für den Quell- oder Zieldatenspeicher verfügt. Um Data Share die Berechtigung für Quell- oder Zielinstanz von Azure SQL-Datenbank oder Azure Synapse Analytics (ehemals Azure SQL DW) zu erteilen, müssen Sie das bereitgestellte SQL-Skript ausführen, wenn Sie eine Verbindung mit der SQL-Datenbank mithilfe der Azure Active Directory-Authentifizierung herstellen. Informationen zur Problembehandlung für weitere Fehler bei der SQL-Momentaufnahme finden Sie unter [Problembehandlung für Fehler bei Momentaufnahme](data-share-troubleshoot.md#snapshot-failed).
 
 ## <a name="next-steps"></a>Nächste Schritte
-Sie haben erfahren, wie Sie Daten aus Speicherkonten mithilfe des Azure Data Share-Diensts freigeben und empfangen. Weitere Informationen zum Freigeben von Daten aus anderen Datenquellen finden Sie unter [Unterstützte Datenspeicher](supported-data-stores.md).
-
+Sie haben erfahren, wie Sie Daten aus SQL-Quellen mithilfe des Azure Data Share-Diensts freigeben und empfangen. Weitere Informationen zum Freigeben von Daten aus anderen Datenquellen finden Sie unter [Unterstützte Datenspeicher](supported-data-stores.md).

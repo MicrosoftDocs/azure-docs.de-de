@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: ba6ae9262fb0e55c53e1b1421c075e555fae8d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55e5ff2af62c903efeab5c4932eae0c9dc9b535c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327997"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842310"
 ---
 # <a name="enable-azure-monitor-for-single-virtual-machine-or-virtual-machine-scale-set-in-the-azure-portal"></a>Aktivieren von Azure Monitor für einen einzelnen virtuellen Computer oder eine einzelne VM-Skalierungsgruppe im Azure-Portal
 In diesem Artikel wird beschrieben, wie Sie Azure Monitor für VMs für einen virtuellen Computer oder eine VM-Skalierungsgruppe im Azure-Portal aktivieren. Dieses Verfahren kann für Folgendes verwendet werden:
@@ -27,7 +27,7 @@ In diesem Artikel wird beschrieben, wie Sie Azure Monitor für VMs für einen vi
 
 ## <a name="enable-azure-monitor-for-vms"></a>Aktivieren von Azure Monitor für VMs
 
-Wählen Sie im Azure-Portal die Option **Virtuelle Computer**, **VM-Skalierungsgruppen** oder **Computer – Azure Arc** aus. Dann wählen Sie eine Ressource aus der Liste aus. Wählen Sie im Bereich **Überwachung** des Menüs den Eintrag **Insights** und dann **Aktivieren** aus. Im folgenden Beispiel ist ein virtueller Azure-Computer abgebildet, das Menü für eine Azure-VM-Skalierungsgruppe oder für Azure Arc ist jedoch ähnlich.
+Wählen Sie im Azure-Portal die Option **Virtuelle Computer**, **VM-Skalierungsgruppen** oder **Server – Azure Arc** aus. Dann wählen Sie eine Ressource aus der Liste aus. Wählen Sie im Bereich **Überwachung** des Menüs den Eintrag **Insights** und dann **Aktivieren** aus. Im folgenden Beispiel ist ein virtueller Azure-Computer abgebildet, das Menü für eine Azure-VM-Skalierungsgruppe oder für Azure Arc ist jedoch ähnlich.
 
 ![Aktivieren von Azure Monitor für VMs für eine VM](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 

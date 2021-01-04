@@ -11,21 +11,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 12/01/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5e4ad7ba75edd1899cbe2d7cd7d3b1b6c124ce35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 887ac4197321b4015eff7cc839abd8f57ae67760
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89267648"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512017"
 ---
 # <a name="how-to-generate-thumbnails-using-encoder-standard-with-net"></a>Generieren von Vorschauminiaturen mithilfe des Media Encoder Standards mit .NET
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Sie können Media Encoder Standard verwenden, um eine oder mehrere Vorschauminiaturen aus den Eingabevideodaten in den Bilddateiformaten [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) oder [BMP](https://en.wikipedia.org/wiki/BMP_file_format) zu generieren.
+Sie können Media Encoder Standard verwenden, um aus den Eingangsvideodaten eine oder mehrere Miniaturansichten im Bilddateiformat [JPEG](https://en.wikipedia.org/wiki/JPEG) oder [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) zu generieren.
 
 ## <a name="recommended-reading-and-practice"></a>Empfohlene Literatur und Praxis
 

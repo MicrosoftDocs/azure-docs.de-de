@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: 8159d83624cdd474d91030d5376a3db447beffe1
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342347"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008428"
 ---
 # <a name="get-help-with-your-system"></a>Abrufen von Hilfe zu Ihrem System
 
 Wenn Sie Hilfe bei der Verwendung von Avere vFXT-Systems für Azure benötigen, folgen hier die verschiedenen Möglichkeiten zum Anfordern von Unterstützung:
 
 * **Avere vFXT-Problem** – Verwenden Sie das Azure-Portal, um ein Supportticket wie [unten](#open-a-support-ticket-for-your-avere-vfxt) beschrieben für Avere vFXT zu öffnen.
-* **Kontingent** – Wenn ein kontingentsbezogenes Problem vorliegt, f[ordern Sie eine Kontingenterhöhung an](#request-a-quota-increase).
+* **Kontingent** – Wenn ein kontingentsbezogenes Problem vorliegt, f [ordern Sie eine Kontingenterhöhung an](#request-a-quota-increase).
 * **Dokumentation und Beispiele** – Wenn Probleme mit dieser Dokumentation oder Beispielen vorliegen, scrollen Sie zum Ende der Seite mit dem Problem und verwenden Sie den Abschnitt **Feedback**, um nach vorhandenen Problemen zu suchen und bei Bedarf ein neues Problem zu melden.
 
 ## <a name="open-a-support-ticket-for-your-avere-vfxt"></a>Öffnen eines Supporttickets für Avere vFXT

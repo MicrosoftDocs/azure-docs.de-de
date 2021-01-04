@@ -8,15 +8,16 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/20/2020
+ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 5fdce791ba8848b93a8457f3738392b1f5f15508
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 07e3ff76886a935bf0b7b5c83052e0e7cd7a0429
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91801799"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027423"
 ---
 # <a name="how-provisioning-works"></a>Funktionsweise der Bereitstellung
 
@@ -42,9 +43,7 @@ Wenn Sie einen automatischen Azure AD-Bereitstellungsconnector für eine App anf
 
 ## <a name="authorization"></a>Authorization
 
-Damit Azure AD eine Verbindung mit der Benutzerverwaltungs-API der Anwendung herstellen kann, sind Anmeldeinformationen erforderlich. Wenn Sie die automatische Benutzerbereitstellung für eine Anwendung konfigurieren, müssen Sie gültige Anmeldeinformationen eingeben. Die Anmeldeinformationstypen und die Anforderungen für die Anwendung finden Sie im entsprechenden App-Tutorial. Im Azure-Portal können Sie die Anmeldeinformationen testen, indem Sie Azure AD versuchen lassen, mit den angegebenen Anmeldeinformationen eine Verbindung mit der Bereitstellungs-App der App herzustellen.
-
-Wenn für die Anwendung auch SAML-basiertes einmaliges Anmelden konfiguriert ist, beträgt das interne Azure AD-Speicherlimit pro Anwendung 1024 Bytes. Dieses Limit umfasst alle Zertifikate, geheimen Token, Anmeldeinformationen und die zugehörigen Konfigurationsdaten für eine einzelne Instanz einer Anwendung (in Azure AD auch als Dienstprinzipaldatensatz bezeichnet). Wenn das SAML-basierte einmalige Anmelden konfiguriert ist, beansprucht das zum Signieren der SAML-Token verwendete Zertifikat oft mehr als 50 Prozent des Speicherplatzes. Alle zusätzlichen Elemente (geheime Token, URIs, Benachrichtigungs-E-Mail-Adressen, Benutzernamen und Kennwörter), die Sie beim Einrichten der Benutzerbereitstellung eingeben, könnten zur Überschreitung des Speicherlimits führen. Weitere Informationen finden Sie unter [Problem beim Speichern von Administratoranmeldeinformationen während des Konfigurierens der Benutzerbereitstellung](./application-provisioning-config-problem-storage-limit.md).
+Damit Azure AD eine Verbindung mit der Benutzerverwaltungs-API der Anwendung herstellen kann, sind Anmeldeinformationen erforderlich. Wenn Sie die automatische Benutzerbereitstellung für eine Anwendung konfigurieren, müssen Sie gültige Anmeldeinformationen eingeben. Bei Kataloganwendungen finden Sie die Anmeldeinformationstypen und die Anforderungen für die Anwendung im entsprechenden App-Tutorial. Bei nicht im Katalog enthaltenen Anwendungen finden Sie Informationen zu den Anmeldeinformationstypen und Anforderungen in der Dokumentation zu [SCIM](./use-scim-to-provision-users-and-groups.md#authorization-for-provisioning-connectors-in-the-application-gallery). Im Azure-Portal können Sie die Anmeldeinformationen testen, indem Sie Azure AD versuchen lassen, mit den angegebenen Anmeldeinformationen eine Verbindung mit der Bereitstellungs-App der App herzustellen.
 
 ## <a name="mapping-attributes"></a>Zuordnen von Attributen
 
@@ -65,15 +64,15 @@ Bei der Ausgangsbereitstellung von Azure AD für eine SaaS-Anwendung stellt die 
 
 * **Gruppen.** Mit einem Azure AD Premium-Lizenzplan können Sie Gruppen zum Zuweisen des Zugriffs auf eine SaaS-Anwendung verwenden. Wenn der Bereitstellungsbereich auf **Nur zugewiesene Benutzer und Gruppen synchronisieren** festgelegt ist, werden dann Benutzer vom Azure AD-Benutzerbereitstellungsdienst basierend darauf bereitgestellt oder deren Bereitstellungen aufgehoben, ob sie Mitglieder einer der Anwendung zugewiesenen Gruppe sind. Das Gruppenobjekt selbst wird nur bereitgestellt, wenn die Anwendung Gruppenobjekte unterstützt. Stellen Sie sicher, dass die Eigenschaft „SecurityEnabled“ bei Gruppen, die Ihrer Anwendung zugewiesen sind, auf „True“ eingestellt ist.
 
-* **Dynamische Gruppen.** Der Azure AD-Benutzerbereitstellungsdienst kann Benutzer in [dynamischen Gruppen](../users-groups-roles/groups-create-rule.md) lesen und bereitstellen. Berücksichtigen Sie die folgenden Einschränkungen und Empfehlungen:
+* **Dynamische Gruppen.** Der Azure AD-Benutzerbereitstellungsdienst kann Benutzer in [dynamischen Gruppen](../enterprise-users/groups-create-rule.md) lesen und bereitstellen. Berücksichtigen Sie die folgenden Einschränkungen und Empfehlungen:
 
   * Dynamische Gruppen können die Leistung der End-to-End-Bereitstellung von Azure AD in SaaS-Anwendungen beeinträchtigen.
 
-  * Wie schnell ein Benutzer in einer dynamischen Gruppe bereitgestellt oder die Bereitstellung in einer SaaS-Anwendung aufgehoben wird, hängt davon ab, wie schnell die dynamische Gruppe Änderungen an der Mitgliedschaft auswerten kann. Informationen dazu, wie Sie den Verarbeitungsstatus einer dynamischen Gruppe überprüfen, finden Sie unter [Überprüfen des Verarbeitungsstatus für eine Mitgliedschaftsregel](../users-groups-roles/groups-create-rule.md).
+  * Wie schnell ein Benutzer in einer dynamischen Gruppe bereitgestellt oder die Bereitstellung in einer SaaS-Anwendung aufgehoben wird, hängt davon ab, wie schnell die dynamische Gruppe Änderungen an der Mitgliedschaft auswerten kann. Informationen dazu, wie Sie den Verarbeitungsstatus einer dynamischen Gruppe überprüfen, finden Sie unter [Überprüfen des Verarbeitungsstatus für eine Mitgliedschaftsregel](../enterprise-users/groups-create-rule.md).
 
   * Wenn ein Benutzer die Mitgliedschaft der dynamischen Gruppe verliert, wird dies als Bereitstellungsaufhebungsereignis betrachtet. Berücksichtigen Sie dieses Szenario beim Erstellen von Regeln für dynamische Gruppen.
 
-* **Verschachtelte Gruppen.** Der Azure AD-Benutzerbereitstellungsdienst kann Benutzer in verschachtelten Gruppen lesen oder bereitstellen. Der Dienst kann nur Benutzer lesen und bereitstellen, die direkte Mitglieder einer explizit zugewiesenen Gruppe sind. Diese Einschränkung von „gruppenbasierten Zuweisungen zu Anwendungen“ wirkt sich auch auf das einmalige Anmelden aus (siehe [Verwenden einer Gruppe zum Verwalten des Zugriffs auf SaaS-Anwendungen](../users-groups-roles/groups-saasapps.md)). Weisen Sie stattdessen die Gruppen mit den Benutzern, die bereitgestellt werden müssen, direkt zu, oder [definieren Sie den entsprechenden Bereich](define-conditional-rules-for-provisioning-user-accounts.md) auf andere Weise.
+* **Verschachtelte Gruppen.** Der Azure AD-Benutzerbereitstellungsdienst kann Benutzer in verschachtelten Gruppen lesen oder bereitstellen. Der Dienst kann nur Benutzer lesen und bereitstellen, die direkte Mitglieder einer explizit zugewiesenen Gruppe sind. Diese Einschränkung von „gruppenbasierten Zuweisungen zu Anwendungen“ wirkt sich auch auf das einmalige Anmelden aus (siehe [Verwenden einer Gruppe zum Verwalten des Zugriffs auf SaaS-Anwendungen](../enterprise-users/groups-saasapps.md)). Weisen Sie stattdessen die Gruppen mit den Benutzern, die bereitgestellt werden müssen, direkt zu, oder [definieren Sie den entsprechenden Bereich](define-conditional-rules-for-provisioning-user-accounts.md) auf andere Weise.
 
 ### <a name="attribute-based-scoping"></a>Attributbasierte Bereichsdefinition 
 
@@ -179,17 +178,21 @@ Vergewissern Sie sich, dass das Kontrollkästchen für Updates aktiviert ist.
 
 Stellen Sie sicher, dass Sie die Zuordnung für *active* für Ihre Anwendung haben. Wenn Sie eine Anwendung aus dem App-Katalog verwenden, kann die Zuordnung etwas unterschiedlich sein. Stellen Sie sicher, dass Sie die standardmäßige/vorgesehene Zuordnung für Kataloganwendungen verwenden.
 
+:::image type="content" source="./media/how-provisioning-works/disable-user.png" alt-text="Deaktivieren eines Benutzers" lightbox="./media/how-provisioning-works/disable-user.png":::
+
 
 **Konfigurieren Ihrer Anwendung, um einen Benutzer zu löschen**
 
 In den folgenden Szenarien wird ein Deaktivieren oder Löschen ausgelöst: 
 * Ein Benutzer wird in Azure AD vorläufig gelöscht (wird in den Papierkorb gesendet, und die AccountEnabled-Eigenschaft wird auf „false“ festgelegt).
-    30 Tage nach dem Löschen eines Benutzers in Azure AD wird der Benutzer dauerhaft aus dem Mandanten gelöscht. Dann sendet der Bereitstellungsdienst eine DELETE-Anforderung, um den Benutzer dauerhaft aus der Anwendung zu löschen. Während des Zeitfensters von 30 Tagen können Sie jederzeit  [einen Benutzer manuell dauerhaft löschen](../fundamentals/active-directory-users-restore.md), wodurch eine Löschanforderung an die Anwendung gesendet wird.
+    30 Tage nach dem Löschen eines Benutzers in Azure AD wird der Benutzer dauerhaft aus dem Mandanten gelöscht. Dann sendet der Bereitstellungsdienst eine DELETE-Anforderung, um den Benutzer dauerhaft aus der Anwendung zu löschen. Während des Zeitfensters von 30 Tagen können Sie jederzeit [einen Benutzer manuell dauerhaft löschen](../fundamentals/active-directory-users-restore.md), wodurch eine Löschanforderung an die Anwendung gesendet wird.
 * Ein Benutzer wird dauerhaft aus dem Papierkorb in Azure AD gelöscht/entfernt.
 * Die Zuweisung eines Benutzers zu einer App wird aufgehoben.
 * Ein Benutzer wechselt von „im Gültigkeitsbereich“ zu „außerhalb des Gültigkeitsbereichs“ (er durchläuft keinen Bereichsfilter mehr).
-    
-Standardmäßig werden Benutzer, die sich außerhalb des gültigen Bereichs befinden, vom Azure AD-Bereitstellungsdienst vorläufig gelöscht oder deaktiviert. Wenn Sie dieses Standardverhalten außer Kraft setzen möchten, können Sie das Flag „SkipOutOfScopeDeletions“ so festlegen, dass  [Löschvorgänge von Benutzerkonten außerhalb des gültigen Bereichs übersprungen werden](skip-out-of-scope-deletions.md).
+
+:::image type="content" source="./media/how-provisioning-works/delete-user.png" alt-text="Löschen eines Benutzers" lightbox="./media/how-provisioning-works/delete-user.png":::
+
+Standardmäßig werden Benutzer, die sich außerhalb des gültigen Bereichs befinden, vom Azure AD-Bereitstellungsdienst vorläufig gelöscht oder deaktiviert. Wenn Sie dieses Standardverhalten außer Kraft setzen möchten, können Sie ein Flag zum [Überspringen des Löschens von Benutzerkonten außerhalb des gültigen Bereichs](skip-out-of-scope-deletions.md) festlegen.
 
 Wenn eines der obigen vier Ereignisse auftritt und die Zielanwendung vorläufiges Löschen nicht unterstützt, sendet der Bereitstellungsdienst eine DELETE-Anforderung, um den Benutzer dauerhaft aus der App zu löschen.
 

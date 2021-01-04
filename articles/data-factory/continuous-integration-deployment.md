@@ -5,18 +5,18 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 1836e6fc1c29e74bceba62bbeb40ce9cc5831895
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 84e156074d6db837556ba4ed9febdb43bcdf3318
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147442"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902303"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Continuous Integration und Continuous Delivery in Azure Data Factory
 
@@ -26,9 +26,9 @@ ms.locfileid: "92147442"
 
 Bei Continuous Integration wird jede Änderung, die an Ihrer Codebasis vorgenommen wird, automatisch und so früh wie möglich getestet.  Der Continuous Delivery-Prozess folgt auf das Testen während des Continuous Integration-Prozesses. Änderungen werden dabei in ein Staging- oder Produktionssystem gepusht.
 
-In Azure Data Factory bedeuten Continuous Integration und Continuous Delivery (CI/CD), dass Data Factory-Pipelines von einer Umgebung (Entwicklung, Test, Produktion) in eine andere verschoben werden. Azure Data Factory nutzt [Azure Resource Manager-Vorlagen](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) zum Speichern der Konfiguration ihrer verschiedenen ADF-Entitäten (Pipelines, Datasets, Datenflüsse usw.). Es gibt zwei empfohlene Methoden zum Höherstufen einer Data Factory in eine andere Umgebung:
+In Azure Data Factory bedeuten Continuous Integration und Continuous Delivery (CI/CD), dass Data Factory-Pipelines von einer Umgebung (Entwicklung, Test, Produktion) in eine andere verschoben werden. Azure Data Factory nutzt [Azure Resource Manager-Vorlagen](../azure-resource-manager/templates/overview.md) zum Speichern der Konfiguration ihrer verschiedenen ADF-Entitäten (Pipelines, Datasets, Datenflüsse usw.). Es gibt zwei empfohlene Methoden zum Höherstufen einer Data Factory in eine andere Umgebung:
 
--    Automatisierte Bereitstellung über Integration von Data Factory in [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
+-    Automatisierte Bereitstellung über Integration von Data Factory in [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
 -    Manuelles Hochladen einer Resource Manager-Vorlage über Integration der Data Factory-Benutzeroberfläche in Azure Resource Manager.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -62,11 +62,11 @@ Im Folgenden finden Sie eine Anleitung zum Einrichten eines Azure Pipelines-Rele
 
 ### <a name="requirements"></a>Requirements (Anforderungen)
 
--   Ein Azure-Abonnement, das mit Visual Studio Team Foundation Server oder Azure Repos verknüpft ist und für das der [Azure Resource Manager-Dienstendpunkt](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager) verwendet wird
+-   Ein Azure-Abonnement, das mit Visual Studio Team Foundation Server oder Azure Repos verknüpft ist und für das der [Azure Resource Manager-Dienstendpunkt](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager) verwendet wird
 
 -   Eine Data Factory-Instanz mit konfigurierter Azure Repos Git-Integration
 
--   Ein [Azure-Schlüsseltresor](https://azure.microsoft.com/services/key-vault/) mit den Geheimnissen für jede Umgebung
+-   Ein [Azure-Schlüsseltresor](https://azure.microsoft.com/services/key-vault/) mit den Geheimnissen für jede Umgebung
 
 ### <a name="set-up-an-azure-pipelines-release"></a>Einrichten eines Azure-Pipelines-Release
 
@@ -94,7 +94,7 @@ Im Folgenden finden Sie eine Anleitung zum Einrichten eines Azure Pipelines-Rele
 
     ![Stufenansicht](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.  Erstellen Sie eine neue Aufgabe. Suchen Sie nach **AMR-Vorlagenbereitstellung** , und wählen Sie dann **Hinzufügen** aus.
+    b.  Erstellen Sie eine neue Aufgabe. Suchen Sie nach **AMR-Vorlagenbereitstellung**, und wählen Sie dann **Hinzufügen** aus.
 
     c.  Wählen Sie unter der Aufgabe „Bereitstellung“ das Abonnement, die Ressourcengruppe und den Speicherort für das Data Factory-Ziel aus. Geben Sie die Anmeldeinformationen an, falls dies erforderlich ist.
 
@@ -109,13 +109,13 @@ Im Folgenden finden Sie eine Anleitung zum Einrichten eines Azure Pipelines-Rele
     h. Wählen Sie unter **Bereitstellungsmodus** die Option **Inkrementell** aus.
 
     > [!WARNING]
-    > Im vollständigen Bereitstellungsmodus werden Ressourcen, die in der Ressourcengruppe vorhanden, aber in der neuen Resource Manager-Vorlage nicht angegeben sind, **gelöscht** . Weitere Informationen finden Sie unter [Azure Resource Manager-Bereitstellungsmodi](../azure-resource-manager/templates/deployment-modes.md).
+    > Im vollständigen Bereitstellungsmodus werden Ressourcen, die in der Ressourcengruppe vorhanden, aber in der neuen Resource Manager-Vorlage nicht angegeben sind, **gelöscht**. Weitere Informationen finden Sie unter [Azure Resource Manager-Bereitstellungsmodi](../azure-resource-manager/templates/deployment-modes.md).
 
     ![Data Factory-Bereitstellung in der Produktion](media/continuous-integration-deployment/continuous-integration-image9.png)
 
 1.  Speichern Sie die Releasepipeline.
 
-1. Wählen Sie zum Auslösen eines Release die Option **Release erstellen** aus. Informationen zum Automatisieren der Erstellung von Releases finden Sie unter [Azure DevOps-Releasetrigger](https://docs.microsoft.com/azure/devops/pipelines/release/triggers?view=azure-devops).
+1. Wählen Sie zum Auslösen eines Release die Option **Release erstellen** aus. Informationen zum Automatisieren der Erstellung von Releases finden Sie unter [Azure DevOps-Releasetrigger](/azure/devops/pipelines/release/triggers?view=azure-devops).
 
    ![Auswählen von „Release erstellen“](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -151,9 +151,9 @@ Es gibt zwei Möglichkeiten, um Geheimnisse zu verarbeiten:
 
     Die Parameterdatei muss sich auch im Branch für die Veröffentlichung befinden.
 
-1. Fügen Sie vor der im vorherigen Abschnitt beschriebenen Aufgabe für die Azure Resource Manager-Bereitstellung eine [Azure Key Vault-Aufgabe](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) hinzu:
+1. Fügen Sie vor der im vorherigen Abschnitt beschriebenen Aufgabe für die Azure Resource Manager-Bereitstellung eine [Azure Key Vault-Aufgabe](/azure/devops/pipelines/tasks/deploy/azure-key-vault) hinzu:
 
-    1.  Erstellen Sie auf der Registerkarte **Tasks** eine neue Aufgabe. Suchen Sie nach **Azure Key Vault** , und fügen Sie die Komponente hinzu.
+    1.  Erstellen Sie auf der Registerkarte **Tasks** eine neue Aufgabe. Suchen Sie nach **Azure Key Vault**, und fügen Sie die Komponente hinzu.
 
     1.  Wählen Sie in der Key Vault-Aufgabe das Abonnement aus, unter dem Sie den Schlüsseltresor erstellt haben. Geben Sie bei Bedarf Anmeldeinformationen an, und wählen Sie anschließend den Schlüsseltresor aus.
 
@@ -167,7 +167,7 @@ Unter Umständen tritt bei der Azure Key Vault-Aufgabe ein Fehler vom Typ „Zug
 
 Für die Bereitstellung kann ein Fehler auftreten, wenn Sie versuchen, aktive Trigger zu aktualisieren. Zum Aktualisieren von aktiven Triggern müssen Sie sie manuell beenden und nach der Bereitstellung wieder starten. Dies ist über eine Azure PowerShell-Aufgabe möglich:
 
-1.  Fügen Sie auf der Registerkarte **Tasks** des Release eine **Azure PowerShell** -Aufgabe hinzu. Wählen Sie die Aufgabenversion „4.*“ aus. 
+1.  Fügen Sie auf der Registerkarte **Tasks** des Release eine **Azure PowerShell**-Aufgabe hinzu. Wählen Sie die Aufgabenversion „4.*“ aus. 
 
 1.  Wählen Sie das Abonnement aus, in dem sich Ihre Factory befindet.
 
@@ -225,17 +225,17 @@ Beim Exportieren einer Resource Manager-Vorlage liest Data Factory diese Datei a
 
 ### <a name="custom-parameter-syntax"></a>Benutzerdefinierte Parametersyntax
 
-Nachstehend finden Sie einige Richtlinien, die beim Erstellen der benutzerdefinierten Parameterdatei, **arm-template-parameters-definition.json** , befolgt werden müssen. Die Datei enthält jeweils einen eigenen Abschnitt für die Entitätstypen „trigger“, „pipeline“, „linked service“, „dataset“, „integration runtime“ und „data flow“.
+Nachstehend finden Sie einige Richtlinien, die beim Erstellen der benutzerdefinierten Parameterdatei, **arm-template-parameters-definition.json**, befolgt werden müssen. Die Datei enthält jeweils einen eigenen Abschnitt für die Entitätstypen „trigger“, „pipeline“, „linked service“, „dataset“, „integration runtime“ und „data flow“.
 
 * Geben Sie den Eigenschaftenpfad unter dem relevanten Entitätstyp ein.
-* Durch das Festlegen eines Eigenschaftennamens auf `*` geben Sie an, dass alle untergeordneten Eigenschaften parametrisiert werden sollen (nicht rekursiv, sondern nur bis zur ersten Ebene). Sie können auch Ausnahmen für diese Konfiguration angeben.
-* Wenn Sie den Wert einer Eigenschaft als Zeichenfolge festlegen, geben Sie damit an, dass die Eigenschaft parametrisiert werden soll. Verwenden Sie das Format `<action>:<name>:<stype>`.
-   *  `<action>` kann für eines dieser Zeichen durchgeführt werden:
-      * `=` bedeutet, dass der aktuelle Wert als Standardwert für den Parameter beibehalten werden soll.
-      * `-` bedeutet, dass der Standardwert für den Parameter nicht beibehalten werden soll.
-      * `|` ist ein Sonderfall für Geheimnisse aus Azure Key Vault für Verbindungszeichenfolgen oder Schlüssel.
-   * `<name>` ist der Name des Parameters. Wenn dieser Wert leer ist, wird der Name der Eigenschaft verwendet. Beginnt der Wert mit dem Zeichen `-`, wird der Name gekürzt. `AzureStorage1_properties_typeProperties_connectionString` wird beispielsweise in `AzureStorage1_connectionString` gekürzt.
-   * `<stype>` ist der Typ des Parameters. Wenn `<stype>` leer ist, wird standardmäßig der Typ `string` verwendet. Unterstützte Werte: `string`, `bool`, `number`, `object` und `securestring`.
+* Durch das Festlegen eines Eigenschaftennamens auf `*` geben Sie an, dass alle untergeordneten Eigenschaften parametrisiert werden sollen (nicht rekursiv, sondern nur bis zur ersten Ebene). Sie können auch Ausnahmen für diese Konfiguration angeben.
+* Wenn Sie den Wert einer Eigenschaft als Zeichenfolge festlegen, geben Sie damit an, dass die Eigenschaft parametrisiert werden soll. Verwenden Sie das Format `<action>:<name>:<stype>`.
+   *  `<action>` kann für eines dieser Zeichen durchgeführt werden:
+      * `=` bedeutet, dass der aktuelle Wert als Standardwert für den Parameter beibehalten werden soll.
+      * `-` bedeutet, dass der Standardwert für den Parameter nicht beibehalten werden soll.
+      * `|` ist ein Sonderfall für Geheimnisse aus Azure Key Vault für Verbindungszeichenfolgen oder Schlüssel.
+   * `<name>` ist der Name des Parameters. Wenn dieser Wert leer ist, wird der Name der Eigenschaft verwendet. Beginnt der Wert mit dem Zeichen `-`, wird der Name gekürzt. `AzureStorage1_properties_typeProperties_connectionString` wird beispielsweise in `AzureStorage1_connectionString` gekürzt.
+   * `<stype>` ist der Typ des Parameters. Wenn `<stype>` leer ist, wird standardmäßig der Typ `string` verwendet. Unterstützte Werte: `string`, `securestring`, `int`, `bool`, `object`, `secureobject` und `array`.
 * Wenn Sie ein Array in der Definitionsdatei angeben, bedeutet dies, dass die entsprechende Eigenschaft in der Vorlage ein Array ist. Data Factory durchläuft alle Objekte im Array anhand der Definition, die im Integration Runtime-Objekt des Arrays angegeben ist. Das zweite Objekt (eine Zeichenfolge) wird zum Namen der Eigenschaft, der bei jeder Iteration als Name für den Parameter verwendet wird.
 * Eine Definition kann nicht spezifisch für eine Ressourceninstanz sein. Jede Definition gilt für alle Ressourcen dieses Typs.
 * Standardmäßig werden alle sicheren Zeichenfolgen parametrisiert, z. B. Key Vault-Geheimnisse, Verbindungszeichenfolgen, Schlüssel und Token.
@@ -250,7 +250,7 @@ Hier ist ein Beispiel dafür angegeben, wie eine Parametrisierungsvorlage ausseh
         "properties": {
             "activities": [{
                 "typeProperties": {
-                    "waitTimeInSeconds": "-::number",
+                    "waitTimeInSeconds": "-::int",
                     "headers": "=::object"
                 }
             }]
@@ -268,7 +268,7 @@ Hier ist ein Beispiel dafür angegeben, wie eine Parametrisierungsvorlage ausseh
             "typeProperties": {
                 "recurrence": {
                     "*": "=",
-                    "interval": "=:triggerSuffix:number",
+                    "interval": "=:triggerSuffix:int",
                     "frequency": "=:-freq"
                 },
                 "maxConcurrency": "="
@@ -317,7 +317,7 @@ Im Folgenden wird das Erstellen der obigen Vorlage mit einer Aufschlüsselung na
 #### <a name="triggers"></a>Trigger
 
 * Unter `typeProperties` werden zwei Eigenschaften parametrisiert. Die erste ist `maxConcurrency`. Diese Eigenschaft besitzt einen Standardwert und ist vom Typ `string`. Der Standardparametername lautet `<entityName>_properties_typeProperties_maxConcurrency`.
-* Die Eigenschaft `recurrence` wird ebenfalls parametrisiert. Darunter werden alle Eigenschaften auf dieser Ebene gemäß Angabe als Zeichenfolgen mit Standardwerten und Parameternamen parametrisiert. Eine Ausnahme ist die `interval`-Eigenschaft, für die beim Parametrisieren der Typ `number` verwendet wird. An den Parameternamen ist das Suffix `<entityName>_properties_typeProperties_recurrence_triggerSuffix` angehängt. Analog dazu ist die Eigenschaft `freq` eine Zeichenfolge und wird als Zeichenfolge parametrisiert. Die Eigenschaft `freq` wird jedoch ohne Standardwert parametrisiert. Der Name wird verkürzt und mit einem Suffix versehen. Beispiel: `<entityName>_freq`.
+* Die Eigenschaft `recurrence` wird ebenfalls parametrisiert. Darunter werden alle Eigenschaften auf dieser Ebene gemäß Angabe als Zeichenfolgen mit Standardwerten und Parameternamen parametrisiert. Eine Ausnahme ist die `interval`-Eigenschaft, für die beim Parametrisieren der Typ `int` verwendet wird. An den Parameternamen ist das Suffix `<entityName>_properties_typeProperties_recurrence_triggerSuffix` angehängt. Analog dazu ist die Eigenschaft `freq` eine Zeichenfolge und wird als Zeichenfolge parametrisiert. Die Eigenschaft `freq` wird jedoch ohne Standardwert parametrisiert. Der Name wird verkürzt und mit einem Suffix versehen. Beispiel: `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
@@ -603,7 +603,7 @@ Wenn Sie Git konfiguriert haben, werden die verknüpften Vorlagen zusammen mit d
 
 Verknüpfte Resource Manager-Vorlagen verfügen normalerweise über eine Mastervorlage und eine Reihe von untergeordneten Vorlagen, die mit der Mastervorlage verknüpft sind. Die übergeordnete Vorlage hat den Namen „ArmTemplate_master.json“, und für untergeordnete Vorlagen werden Namen nach dem Muster „ArmTemplate_0.json“, „ArmTemplate_1.json“ usw. verwendet. 
 
-Um anstelle der vollständigen Resource Manager-Vorlage verknüpfte Vorlagen zu verwenden, sollten Sie den CI/CD-Task so aktualisieren, dass dieser nicht auf „ArmTemplateForFactory.json“ (vollständige Resource Manager-Vorlage), sondern auf „ArmTemplate_master.json“ verweist. Für Resource Manager ist es auch erforderlich, dass Sie die verknüpften Vorlagen in ein Speicherkonto hochladen, damit von Azure während der Bereitstellung darauf zugegriffen werden kann. Weitere Informationen finden Sie unter [Bereitstellen von verknüpften Resource Manager-Vorlagen per VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
+Um anstelle der vollständigen Resource Manager-Vorlage verknüpfte Vorlagen zu verwenden, sollten Sie den CI/CD-Task so aktualisieren, dass dieser nicht auf „ArmTemplateForFactory.json“ (vollständige Resource Manager-Vorlage), sondern auf „ArmTemplate_master.json“ verweist. Für Resource Manager ist es auch erforderlich, dass Sie die verknüpften Vorlagen in ein Speicherkonto hochladen, damit von Azure während der Bereitstellung darauf zugegriffen werden kann. Weitere Informationen finden Sie unter [Bereitstellen von verknüpften Resource Manager-Vorlagen per VSTS](/archive/blogs/najib/deploying-linked-arm-templates-with-vsts).
 
 Denken Sie daran, die Data Factory-Skripts vor und nach dem Bereitstellungstask zu Ihrer CI/CD-Pipeline hinzuzufügen.
 
@@ -633,21 +633,33 @@ Wenn Sie eine Factory in der Produktionsumgebung bereitstellen und ein sofort zu
 
 10.   Fügen Sie dem Entwicklungsbranch die Änderungen aus dem Hotfix hinzu, damit spätere Releases nicht den gleichen Fehler enthalten.
 
+Das folgende Video ist ein ausführliches Videotutorial, in dem Sie erfahren, wie Sie ein Hotfix in Ihren Umgebungen anwenden. 
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4I7fi]
+
+## <a name="exposure-control-and-feature-flags"></a>Anzeigesteuerungs- und Featureflags
+
+Wenn Sie in einem Team arbeiten, gibt es Instanzen, für die Sie Änderungen zusammenführen können, aber nicht möchten, dass sie in Umgebungen mit erhöhten Rechten wie PROD und QA ausgeführt werden. Für dieses Szenario empfiehlt das ADF-Team [das DevOps-Konzept der Verwendung von Featureflags](/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops). In ADF können Sie [globale Parameter](author-global-parameters.md) und die [Aktivität „IfCondition“](control-flow-if-condition-activity.md) kombinieren, um Logiksätze auf der Grundlage dieser Umgebungsflags auszublenden.
+
+Informationen zum Einrichten eines Featureflags finden Sie im folgenden Videotutorial:
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4IxdW]
+
 ## <a name="best-practices-for-cicd"></a>Bewährte Methoden für CI/CD
 
 Wenn Sie die Git-Integration mit Ihrer Data Factory verwenden und über eine CI/CD-Pipeline verfügen, die Ihre Änderungen aus der Entwicklungs- in die Test- und dann in die Produktionsumgebung verschiebt, empfehlen wir Ihnen diese bewährten Methoden:
 
--   **Git-Integration** . Konfigurieren Sie nur Ihre Entwicklungs-Data Factory mit Git-Integration. Änderungen an den Test- und Produktionsumgebungen werden über CI/CD bereitgestellt, und eine Git-Integration wird hierfür nicht benötigt.
+-   **Git-Integration**. Konfigurieren Sie nur Ihre Entwicklungs-Data Factory mit Git-Integration. Änderungen an den Test- und Produktionsumgebungen werden über CI/CD bereitgestellt, und eine Git-Integration wird hierfür nicht benötigt.
 
--   **Skript für vor und nach der Bereitstellung** . Bevor Sie den Schritt für die Resource Manager-Bereitstellung für CI/CD ausführen, müssen Sie bestimmte Aufgaben erledigen, z. B. das Beenden und erneute Starten von Triggern und das Durchführen einer Bereinigung. Wir empfehlen Ihnen, vor und nach der Bereitstellungsaufgabe PowerShell-Skripts zu verwenden. Weitere Informationen finden Sie unter [Aktualisieren von aktiven Triggern](#updating-active-triggers). Das Data Factory Team hat am Ende dieser Seite [ein Skript](#script) hinzugefügt, das Sie nutzen können.
+-   **Skript für vor und nach der Bereitstellung**. Bevor Sie den Schritt für die Resource Manager-Bereitstellung für CI/CD ausführen, müssen Sie bestimmte Aufgaben erledigen, z. B. das Beenden und erneute Starten von Triggern und das Durchführen einer Bereinigung. Wir empfehlen Ihnen, vor und nach der Bereitstellungsaufgabe PowerShell-Skripts zu verwenden. Weitere Informationen finden Sie unter [Aktualisieren von aktiven Triggern](#updating-active-triggers). Das Data Factory Team hat am Ende dieser Seite [ein Skript](#script) hinzugefügt, das Sie nutzen können.
 
--   **Integration Runtimes und Freigaben** . Integration Runtimes werden nicht sehr häufig geändert und sind in allen Stufen von CI/CD ähnlich. Daher erwartet Data Factory, dass diese in allen Stufen von CI/CD den gleichen Integration Runtime-Namen bzw. -Typ aufweisen. Wenn Sie Integration Runtimes über alle Stufen hinweg freigeben möchten, können Sie eine ternäre Factory verwenden, die nur die freigegebenen Integration Runtimes enthält. Diese freigegebene Factory können Sie in allen Umgebungen als verknüpften Integration Runtime-Typ verwenden.
+-   **Integration Runtimes und Freigaben**. Integration Runtimes werden nicht sehr häufig geändert und sind in allen Stufen von CI/CD ähnlich. Daher erwartet Data Factory, dass diese in allen Stufen von CI/CD den gleichen Integration Runtime-Namen bzw. -Typ aufweisen. Wenn Sie Integration Runtimes über alle Stufen hinweg freigeben möchten, können Sie eine ternäre Factory verwenden, die nur die freigegebenen Integration Runtimes enthält. Diese freigegebene Factory können Sie in allen Umgebungen als verknüpften Integration Runtime-Typ verwenden.
 
--   **Bereitstellung eines verwalteten privaten Endpunkts** . Wenn bereits ein privater Endpunkt in einer Factory vorhanden ist und Sie versuchen, eine ARM-Vorlage bereitzustellen, die einen privaten Endpunkt mit demselben Namen, jedoch mit geänderten Eigenschaften enthält, tritt bei der Bereitstellung ein Fehler auf. Das bedeutet, dass Sie einen privaten Endpunkt erfolgreich bereitstellen können, sofern dieser dieselben Eigenschaften wie der Endpunkt aufweist, der bereits in der Factory vorhanden ist. Wenn eine Eigenschaft in den Umgebungen unterschiedlich ist, können Sie diese überschreiben, indem Sie die Eigenschaft parametrisieren und den entsprechenden Wert während der Bereitstellung angeben.
+-   **Bereitstellung eines verwalteten privaten Endpunkts**. Wenn bereits ein privater Endpunkt in einer Factory vorhanden ist und Sie versuchen, eine ARM-Vorlage bereitzustellen, die einen privaten Endpunkt mit demselben Namen, jedoch mit geänderten Eigenschaften enthält, tritt bei der Bereitstellung ein Fehler auf. Das bedeutet, dass Sie einen privaten Endpunkt erfolgreich bereitstellen können, sofern dieser dieselben Eigenschaften wie der Endpunkt aufweist, der bereits in der Factory vorhanden ist. Wenn eine Eigenschaft in den Umgebungen unterschiedlich ist, können Sie diese überschreiben, indem Sie die Eigenschaft parametrisieren und den entsprechenden Wert während der Bereitstellung angeben.
 
--   **Key Vault** . Wenn Sie verknüpfte Dienste verwenden, deren Verbindungsinformationen in Azure Key Vault gespeichert sind, wird empfohlen, separate Schlüsseltresore für verschiedene Umgebungen beizubehalten. Sie können auch separate Berechtigungsstufen für jeden Schlüsseltresor konfigurieren. Es kann beispielsweise sein, dass Teammitglieder nicht über Berechtigungen für Produktionsgeheimnisse verfügen sollen. Bei diesem Ansatz empfehlen wir Ihnen, in allen Stufen die gleichen Geheimnisnamen beizubehalten. Wenn Sie die gleichen Geheimnisnamen beibehalten, müssen Sie nicht jede einzelne Verbindungszeichenfolge für alle CI/CD-Umgebungen parametrisieren, weil sich lediglich der Name des Schlüsseltresors ändert, und der ist ein separater Parameter.
+-   **Key Vault**. Wenn Sie verknüpfte Dienste verwenden, deren Verbindungsinformationen in Azure Key Vault gespeichert sind, wird empfohlen, separate Schlüsseltresore für verschiedene Umgebungen beizubehalten. Sie können auch separate Berechtigungsstufen für jeden Schlüsseltresor konfigurieren. Es kann beispielsweise sein, dass Teammitglieder nicht über Berechtigungen für Produktionsgeheimnisse verfügen sollen. Bei diesem Ansatz empfehlen wir Ihnen, in allen Stufen die gleichen Geheimnisnamen beizubehalten. Wenn Sie die gleichen Geheimnisnamen beibehalten, müssen Sie nicht jede einzelne Verbindungszeichenfolge für alle CI/CD-Umgebungen parametrisieren, weil sich lediglich der Name des Schlüsseltresors ändert, und der ist ein separater Parameter.
 
--  **Benennen von Ressourcen** . Aufgrund von Einschränkungen bei Resource Manager-Vorlagen können bei der Bereitstellung Probleme auftreten, wenn die Namen Ihrer Ressourcen Leerzeichen enthalten. Daher empfiehlt das Azure Data Factory-Team bei Ressourcennamen die Verwendung der Zeichen „_“ bzw. „-“ anstelle von Leerzeichen. Verwenden Sie beispielsweise „Pipeline_1“ anstelle von „Pipeline 1“.
+-  **Benennen von Ressourcen**. Aufgrund von Einschränkungen bei Resource Manager-Vorlagen können bei der Bereitstellung Probleme auftreten, wenn die Namen Ihrer Ressourcen Leerzeichen enthalten. Daher empfiehlt das Azure Data Factory-Team bei Ressourcennamen die Verwendung der Zeichen „_“ bzw. „-“ anstelle von Leerzeichen. Verwenden Sie beispielsweise „Pipeline_1“ anstelle von „Pipeline 1“.
 
 ## <a name="unsupported-features"></a>Nicht unterstützte Funktionen
 

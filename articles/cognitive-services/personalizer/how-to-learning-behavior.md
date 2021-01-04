@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 05/01/2020
-ms.openlocfilehash: 10e98cd2f0ad4793aa43f9bb3316c522b44f1d2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57a03b107678f83200b11f408784f6455cbceffd
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91303536"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579290"
 ---
 # <a name="configure-the-personalizer-learning-behavior"></a>Konfigurieren des Lernverhaltens der Personalisierung
 
@@ -56,10 +56,6 @@ Der Ausbildungsmodus bietet die folgenden **Auswertungsmetriken**:
 * **Baseline – durchschnittliche Relevanz**:  Durchschnittliche Relevanzen für die Standardwerte der Anwendung (Baseline).
 * **Personalisierung – durchschnittliche Relevanz**: Durchschnitt der gesamten Relevanzen, die Personalisierungsprogramme potenziell erreicht hätten.
 * **Erlangte Relevanzen im Verhältnis zu den letzten 1000 Ereignissen**: Verhältnis von Baseline und Personalisierungsrelevanz – normalisiert über die letzten 1000 Ereignisse.
-
-## <a name="evaluate-apprentice-mode-features"></a>Auswerten der Features im Ausbildungsmodus
-
-Werten Sie die Features mit einer [Offlineauswertung](how-to-offline-evaluation.md) aus.
 
 ## <a name="switch-behavior-to-online-mode"></a>Wechseln des Verhaltens in den Onlinemodus
 

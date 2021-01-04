@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 10/22/2020
 tags: connectors
-ms.openlocfilehash: 5834a1927fda71faa924e14265fb7f82034887de
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b6276ff940d8b156a671cb5386ce53ede30dd879
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996344"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019707"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Austauschen von Nachrichten in der Cloud mit Azure Logic Apps und Azure Service Bus
 
@@ -60,7 +60,7 @@ Vergewissern Sie sich, dass Ihre Logik-App über Berechtigungen für den Zugriff
       ![Kopieren der Verbindungszeichenfolge für Service Bus-Namespaces](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > Um zu überprüfen, ob Ihre Verbindungszeichenfolge mit Ihrem Service Bus-Namespace oder einer Messagingentität (z.B. einer Warteschlange) verknüpft ist, suchen Sie die Verbindungszeichenfolge für den Parameter `EntityPath` . Wenn Sie diesen Parameter gefunden haben, gilt die Verbindungszeichenfolge für eine bestimmte Entität und stellt nicht die richtige Zeichenfolge für die Verwendung mit Ihrer Logik-App dar.
+   > Um zu überprüfen, ob Ihre Verbindungszeichenfolge mit Ihrem Service Bus-Namespace oder einer Messagingentität (z.B. einer Warteschlange) verknüpft ist, suchen Sie die Verbindungszeichenfolge für den Parameter `EntityPath`. Wenn Sie diesen Parameter gefunden haben, gilt die Verbindungszeichenfolge für eine bestimmte Entität und stellt nicht die richtige Zeichenfolge für die Verwendung mit Ihrer Logik-App dar.
 
 ## <a name="add-service-bus-trigger"></a>Service Bus-Trigger hinzufügen
 
@@ -68,18 +68,22 @@ Vergewissern Sie sich, dass Ihre Logik-App über Berechtigungen für den Zugriff
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an, und öffnen Sie Ihre leere Logik-App im Logik-App-Designer.
 
-1. Geben Sie im Suchfeld den Begriff „Azure Service Bus“ als Filter ein. Wählen Sie in der Triggerliste den gewünschten Trigger aus.
+1. Geben Sie in das Suchfeld im Portal `azure service bus` ein. Wählen Sie in der angezeigten Triggerliste den gewünschten Trigger aus.
 
    Um z. B. Ihre Logik-App auszulösen, wenn ein neues Element an eine Service Bus-Warteschlange gesendet wird, wählen Sie diesen Trigger aus: **Bei Empfang einer Nachricht in einer Warteschlange (automatisch abschließen)** .
 
    ![Service Bus-Trigger auswählen](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
-   Alle Service Bus Trigger sind *Long-Polling*-Trigger. Diese Beschreibung bedeutet, dass ein Trigger beim Auslösen alle Nachrichten verarbeitet und dann 30 Sekunden lang auf weitere Nachrichten wartet, die in der Warteschlange oder im Themenabonnement eingehen. Gehen innerhalb von 30 Sekunden keine Nachrichten ein, wird die Triggerausführung übersprungen. Andernfalls fährt der Trigger mit dem Lesen von Nachrichten fort, bis die Warteschlange oder das Themenabonnement leer ist. Der nächste Triggerabruf basiert auf dem in den Triggereigenschaften angegebenen Wiederholungsintervall.
+   Nachfolgend sehen Sie einige Überlegungen zur Verwendung eines Service Bus-Triggers:
 
-   Einige Trigger, z. B. der Trigger**Bei Empfang mindestens einer Nachricht in der Warteschlange (autom. abschließen)** , können eine oder mehrere Nachrichten zurückgeben. Wird ein solcher Trigger ausgelöst, gibt er mindestens eine und maximal so viele Nachrichten zurück, wie diese in seiner Eigenschaft **Maximale Nachrichtenanzahl** angegeben ist.
+   * Alle Service Bus Trigger sind *Long-Polling*-Trigger. Diese Beschreibung bedeutet, dass ein Trigger beim Auslösen alle Nachrichten verarbeitet und dann 30 Sekunden lang auf weitere Nachrichten wartet, die in der Warteschlange oder im Themenabonnement eingehen. Gehen innerhalb von 30 Sekunden keine Nachrichten ein, wird die Triggerausführung übersprungen. Andernfalls fährt der Trigger mit dem Lesen von Nachrichten fort, bis die Warteschlange oder das Themenabonnement leer ist. Der nächste Triggerabruf basiert auf dem in den Triggereigenschaften angegebenen Wiederholungsintervall.
 
-    > [!NOTE]
-    > Mit dem Trigger für automatisches Abschließen wird eine Nachricht automatisch abgeschlossen, doch der Abschluss erfolgt erst beim nächsten Aufruf des Service Bus. Dieses Verhalten kann sich auf den Entwurf Ihrer Logik-App auswirken. Vermeiden Sie z. B. das Ändern der Parallelität für den auto-complete-Trigger (automatisch vervollständigen), da diese Änderung doppelte Nachrichten verursachen kann, wenn Ihre Logik-App in einen gedrosselten Zustand wechselt. Durch Ändern der Parallelitätssteuerung werden folgende Zustände erzeugt: gedrosselte Trigger werden mit dem `WorkflowRunInProgress`-Code übersprungen, der Abschlussvorgang wird nicht ausgeführt, und die nächste Triggerausführung erfolgt nach dem Abrufintervall. Sie müssen die Sperrdauer des Service Bus auf einen längeren Wert als das Abrufintervall festlegen. Trotz dieser Einstellung wird die Nachricht möglicherweise jedoch immer noch nicht abgeschlossen, wenn Ihre Logik-App beim nächsten Abrufintervall weiterhin in einem gedrosselten Zustand verbleibt.
+   * Einige Trigger, z. B. der Trigger **Bei Empfang mindestens einer Nachricht in der Warteschlange (autom. abschließen)** , können eine oder mehrere Nachrichten zurückgeben. Wird ein solcher Trigger ausgelöst, gibt er mindestens eine und maximal so viele Nachrichten zurück, wie diese in seiner Eigenschaft **Maximale Nachrichtenanzahl** angegeben ist.
+
+     > [!NOTE]
+     > Mit dem Trigger für automatisches Abschließen wird eine Nachricht automatisch abgeschlossen, doch der Abschluss erfolgt erst beim nächsten Aufruf des Service Bus. Dieses Verhalten kann sich auf den Entwurf Ihrer Logik-App auswirken. Vermeiden Sie z. B. das Ändern der Parallelität für den auto-complete-Trigger (automatisch vervollständigen), da diese Änderung doppelte Nachrichten verursachen kann, wenn Ihre Logik-App in einen gedrosselten Zustand wechselt. Durch Ändern der Parallelitätssteuerung werden folgende Zustände erzeugt: gedrosselte Trigger werden mit dem `WorkflowRunInProgress`-Code übersprungen, der Abschlussvorgang wird nicht ausgeführt, und die nächste Triggerausführung erfolgt nach dem Abrufintervall. Sie müssen die Sperrdauer des Service Bus auf einen längeren Wert als das Abrufintervall festlegen. Trotz dieser Einstellung wird die Nachricht möglicherweise jedoch immer noch nicht abgeschlossen, wenn Ihre Logik-App beim nächsten Abrufintervall weiterhin in einem gedrosselten Zustand verbleibt.
+
+   * Wenn Sie für einen Service Bus-Trigger die [Einstellung für Parallelität aktivieren](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency), ist „10“ der Standardwert für die Eigenschaft `maximumWaitingRuns`. Basierend auf der Einstellung für die Sperrdauer der Service Bus-Entität und der Ausführungsdauer der Logik-App-Instanz ist dieser Standardwert möglicherweise zu groß und kann zu einer Sperrverlustausnahme führen. Um den optimalen Wert für Ihr Szenario zu ermitteln, beginnen Sie testweise mit dem Wert 1 oder 2 für die Eigenschaft `maximumWaitingRuns`. Weitere Informationen zum Ändern des Werts für die maximale Anzahl von wartenden Ausführungen finden Sie unter [Ändern des Limits für wartende Ausführungen](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs).
 
 1. Wenn Ihr Trigger zum ersten Mal eine Verbindung mit Ihrem Service Bus-Namespace herstellt, führen Sie diese Schritte aus, wenn Sie der Logik-App-Designer auffordert, Ihre Verbindungsinformationen anzugeben.
 
@@ -113,13 +117,13 @@ Vergewissern Sie sich, dass Ihre Logik-App über Berechtigungen für den Zugriff
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an, und öffnen Sie Ihre Logik-App im Logik-App-Designer.
+1. Öffnen Sie Ihre Logik-App über das [Azure-Portal](https://portal.azure.com) im Logik-App-Designer.
 
 1. Wählen Sie in dem Schritt zum Hinzufügen einer Aktion die Option **Neuer Schritt** aus.
 
    Oder, wenn Sie zwischen Schritten eine Aktion einfügen möchten, bewegen Sie den Mauszeiger über den Pfeil zwischen diesen Schritten. Wählen Sie das daraufhin angezeigte Pluszeichen ( **+** ) aus, und klicken Sie auf **Aktion hinzufügen**.
 
-1. Geben Sie unter **Aktion auswählen** im Suchfeld „azure service bus“ als Filter ein. Wählen Sie in der Liste mit den Aktionen die gewünschte Aktion aus. 
+1. Geben Sie unter **Aktion auswählen** den Text `azure service bus` in das Suchfeld ein. Wählen Sie in der angezeigten Liste mit den Aktionen die gewünschte Aktion aus. 
 
    Wählen Sie für dieses Beispiel die Aktion **Nachricht senden** aus.
 

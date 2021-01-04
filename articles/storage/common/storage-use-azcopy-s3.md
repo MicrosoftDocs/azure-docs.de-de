@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 022b6eb6595f25af4189d783a6a91031f95c7216
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 07a8d2b394e8ca690925c677af676643064a9ba8
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479356"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901829"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Kopieren von Daten aus Amazon S3 in Azure Storage mithilfe von AzCopy
 
@@ -38,13 +38,13 @@ Lesen Sie den Artikel [Erste Schritte mit AzCopy](storage-use-azcopy-v10.md), um
 
 ### <a name="authorize-with-aws-s3"></a>Autorisieren mit AWS S3
 
-Halten Sie Ihren AWS-Zugriffsschlüssel und geheimen Zugriffsschlüssel bereit, und legen Sie dann diese Umgebungsvariablen fest:
+Halten Sie Ihren AWS-Zugriffsschlüssel und geheimen Zugriffsschlüssel bereit, und legen Sie dann folgende Umgebungsvariablen fest:
 
 | Betriebssystem | Get-Help  |
 |--------|-----------|
 | **Windows** | `set AWS_ACCESS_KEY_ID=<access-key>`<br>`set AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
 | **Linux** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
-| **MacOS** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
+| **macOS** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
 
 ## <a name="copy-objects-directories-and-buckets"></a>Kopieren von Objekten, Verzeichnisse und Buckets
 
@@ -159,7 +159,7 @@ AzCopy führt die folgenden Schritte aus:
 
 3. Fügt am Anfang eines neuen gültigen Schlüssels die Zeichenfolge `rename_key_` hinzu.
    Dieser Schlüssel wird verwendet, um den ursprünglichen ungültigen **Schlüssel** aus den Metadaten zu speichern.
-   Sie können mit diesem Schlüssel versuchen, die Metadaten auf Azure-Seite wiederherzustellen, da der Metadatenschlüssel als Wert im Blobspeicherdienst gespeichert wird.
+   Sie können mit diesem Schlüssel versuchen, die Metadaten auf Azure-Seite wiederherzustellen, weil der Metadatenschlüssel als Wert im Blobspeicherdienst gespeichert wird.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
@@ -167,7 +167,7 @@ Weitere Beispiele finden Sie in den folgenden Artikeln:
 
 - [Erste Schritte mit AzCopy](storage-use-azcopy-v10.md)
 
-- [Übertragen von Daten mit AzCopy und Blob Storage](storage-use-azcopy-blobs.md)
+- [Übertragen von Daten](storage-use-azcopy-v10.md#transfer-data)
 
 - [Übertragen von Daten mit AzCopy und Dateispeicher](storage-use-azcopy-files.md)
 

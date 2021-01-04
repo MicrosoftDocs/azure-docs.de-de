@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: f2dd7cac8370c261f24f5587e801bd621fbdb0f0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151378"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016997"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Authentifizieren eines nachgeschalteten Geräts bei Azure IoT Hub
 
@@ -35,7 +35,7 @@ Führen Sie die Schritte in [Konfigurieren eines IoT Edge-Geräts als transparen
 
 Wenn Sie die X.509-Authentifizierung verwenden, generieren Sie Zertifikate für Ihr nachgeschaltetes Gerät. Halten Sie dasselbe Zertifikat der Stammzertifizierungsstelle und das Zertifikat zum Generieren des Skripts, das Sie für den Artikel zum transparenten Gateway verwendet haben, für erneute Verwendung zur Verfügung.
 
-Im Artikel wird an mehreren Stellen auf den *Gatewayhostnamen* verwiesen. Der Gatewayhostname wird im **hostname** -Parameter der Datei „config.yaml“ auf dem IoT Edge-Gatewaygerät deklariert. In der Verbindungszeichenfolge des nachgeschalteten Geräts wird darauf verwiesen. Der Gatewayhostname muss in eine IP-Adresse aufgelöst werden können – entweder mithilfe von DNS oder einem Eintrag in der Hostdatei auf dem nachgeschalteten Gerät.
+Im Artikel wird an mehreren Stellen auf den *Gatewayhostnamen* verwiesen. Der Gatewayhostname wird im **hostname**-Parameter der Datei „config.yaml“ auf dem IoT Edge-Gatewaygerät deklariert. In der Verbindungszeichenfolge des nachgeschalteten Geräts wird darauf verwiesen. Der Gatewayhostname muss in eine IP-Adresse aufgelöst werden können – entweder mithilfe von DNS oder einem Eintrag in der Hostdatei auf dem nachgeschalteten Gerät.
 
 ## <a name="register-device-with-iot-hub"></a>Registrieren des Geräts bei IoT Hub
 
@@ -142,13 +142,13 @@ Dieser Abschnitt baut auf den Anweisungen im IoT Hub-Artikel [Einrichten der X.5
 
    Wenn Sie über keine Zertifizierungsstelle zum Erstellen von X.509-Zertifikaten verfügen, können Sie die IoT Edge-Demozertifikatskripts zum [Erstellen von Zertifikaten für nachgeschaltete Geräte](how-to-create-test-certificates.md#create-downstream-device-certificates) verwenden. Führen Sie die Schritte zum Erstellen von Zertifikaten aus, die von einer Zertifizierungsstelle signiert wurden. Verwenden Sie dasselbe Zertifikat der Stammzertifizierungsstelle, das die Zertifikate für Ihr Gatewaygerät generiert hat.
 
-2. Befolgen Sie die Anweisungen im Abschnitt [Registrieren der X.509-Zertifizierungsstellenzertifikate bei IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) unter *Einrichten der X.509-Sicherheit in Ihrem Azure IoT Hub* . In diesem Abschnitt führen Sie die folgenden Schritte aus:
+2. Befolgen Sie die Anweisungen im Abschnitt [Registrieren der X.509-Zertifizierungsstellenzertifikate bei IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) unter *Einrichten der X.509-Sicherheit in Ihrem Azure IoT Hub*. In diesem Abschnitt führen Sie die folgenden Schritte aus:
 
-   1. Laden Sie ein Zertifikat der Stammzertifizierungsstelle hoch. Wenn Sie die Demozertifikate verwenden, lautet die Stammzertifizierungsstelle **\<path>/certs/azure-iot-test-only.root.ca.cert.pem** .
+   1. Laden Sie ein Zertifikat der Stammzertifizierungsstelle hoch. Wenn Sie die Demozertifikate verwenden, lautet die Stammzertifizierungsstelle **\<path>/certs/azure-iot-test-only.root.ca.cert.pem**.
 
    2. Stellen Sie sicher, dass Sie Besitzer des Zertifikats der Stammzertifizierungsstelle sind.
 
-3. Befolgen Sie die Anweisungen im Abschnitt [Erstellen eines X.509-Geräts für Ihren IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub) unter *Einrichten der X.509-Sicherheit in Ihrem Azure IoT Hub* . In diesem Abschnitt führen Sie die folgenden Schritte aus:
+3. Befolgen Sie die Anweisungen im Abschnitt [Erstellen eines X.509-Geräts für Ihren IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub) unter *Einrichten der X.509-Sicherheit in Ihrem Azure IoT Hub*. In diesem Abschnitt führen Sie die folgenden Schritte aus:
 
    1. Fügen Sie ein neues Gerät hinzu. Geben Sie in **Geräte-ID** einen Namen in Kleinbuchstaben an, und wählen Sie als Authentifizierungstyp **X.509, durch Zertifizierungsstelle signiert** aus.
 

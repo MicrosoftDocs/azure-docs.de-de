@@ -3,12 +3,12 @@ title: Senden von Ereignissen von Auth0 an Azure mithilfe von Azure Event Grid
 description: Erfahren Sie, wie Ereignisse mithilfe von Azure Event Grid von Auth0 an Azure gesendet werden.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 6cd440075c6400b58c23f879b53da26abe4f9e75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a66a60cb926b933a6b0628a67506d0d52ab7a905
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86103279"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077862"
 ---
 # <a name="integrate-azure-event-grid-with-auth0"></a>Integrieren von Azure Event Grid und Auth0
 
@@ -90,5 +90,5 @@ Auth0-Ereignisse werden über einen Streamingmechanismus an Azure übermittelt. 
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Auth0-Partnerthema](auth0-overview.md)
-- [Übersicht über Partnerthemen](partner-topics-overview.md)
+- [Übersicht über Partnerthemen](partner-events-overview.md)
 - [Registrieren als Event Grid-Partner](partner-onboarding-overview.md)

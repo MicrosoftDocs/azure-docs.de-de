@@ -48,6 +48,22 @@
           href: tutorial-dr-drill-azure.md
         - name: Failover in Azure
           href: vmware-azure-tutorial-failover-failback.md
+    - name: Notfallwiederherstellung von Azure VMware Solution in Azure
+      items:
+        - name: Vorbereiten von Azure
+          href: avs-tutorial-prepare-azure.md
+        - name: Vorbereiten von Azure VMware Solution
+          href: avs-tutorial-prepare-avs.md
+        - name: Einrichten der Replikation
+          href: avs-tutorial-replication.md
+        - name: Durchführen eines Notfallwiederherstellungsverfahrens
+          href: avs-tutorial-dr-drill-azure.md
+        - name: Failover in Azure
+          href: avs-tutorial-failover.md
+        - name: Erneutes Schützen virtueller Computer
+          href: avs-tutorial-reprotect.md
+        - name: Failback von Azure
+          href: avs-tutorial-failback.md
     - name: Notfallwiederherstellung von virtuellen Hyper-V-Computern in Azure
       items:
         - name: Vorbereiten von Azure

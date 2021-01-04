@@ -3,18 +3,20 @@ title: Zeichenfolgenfunktionen in der Abfragesprache für Azure Cosmos DB
 description: Erfahren Sie mehr über SQL-Systemfunktionen für Zeichenfolgen in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 6ec1d83b97fadf3954a936847e8e8faeb47d1458
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 5e84a679f0bc26b701dc1d51db3605c452675ea3
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276083"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545280"
 ---
 # <a name="string-functions-azure-cosmos-db"></a>Zeichenfolgenfunktionen (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Mit Zeichenfolgenfunktionen können Sie Vorgänge für Zeichenfolgen in Azure Cosmos DB ausführen.
 
@@ -52,4 +54,4 @@ Die folgenden Skalarfunktionen führen einen Vorgang für einen Zeichenfolgen-Ei
 - [Systemfunktionen in Azure Cosmos DB](sql-query-system-functions.md)
 - [Einführung in Azure Cosmos DB](introduction.md)
 - [Benutzerdefinierte Funktionen](sql-query-udfs.md)
-- [Aggregate](sql-query-aggregates.md)
+- [Aggregate](sql-query-aggregate-functions.md)

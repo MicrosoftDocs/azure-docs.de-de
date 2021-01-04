@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 21e1ed894e61d222ab579d15f5a4bb63903baea4
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: 788555f808ccc56672b0ea0be24e680c4844a6ae
+  ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92366631"
+  ms.lasthandoff: 11/20/2020
+  ms.locfileid: "94985483"
 landingContent:
 - title: Bereitstellen von Benutzern und Gruppen in einer Cloud-App
   linkLists:
@@ -30,11 +30,11 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: 'SAP Cloud Platform Identity Authentication: Bereitstellung'
-      url: ../saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+      url: ../saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - text: 'Oracle Fusion ERP: Bereitstellung'
-      url: ../saas-apps/oracle-fusion-erp-provisioning-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+      url: ../saas-apps/oracle-fusion-erp-provisioning-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - text: 'Atlassian Cloud: Bereitstellung'
-      url: ../saas-apps/atlassian-cloud-provisioning-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+      url: ../saas-apps/atlassian-cloud-provisioning-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
   - linkListType: how-to-guide
     links:
     - text: Fügen Sie eine Katalog-App hinzu? Konfigurieren der Bereitstellung für die App
@@ -62,9 +62,9 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: 'Workday: Bereitstellung'
-      url: ../saas-apps/workday-inbound-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+      url: ../saas-apps/workday-inbound-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - text: 'SAP SuccessFactors: Bereitstellung'
-      url: ../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+      url: ../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
 - title: Neu in der Dokumentation
   linkLists:
   - linkListType: whats-new

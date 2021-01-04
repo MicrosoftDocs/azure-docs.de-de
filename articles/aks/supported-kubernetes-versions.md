@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: a36eb588c7128f13fb21b368d308ed00171fbb4b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ecea9dcd28aede92ef255bf002b9195ded43c68b
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335533"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296113"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Unterstützte Kubernetes-Versionen in Azure Kubernetes Service (AKS)
 
@@ -95,7 +95,7 @@ New Supported Version List
 
 Sie können eine relativ zu Ihrer *kube-apiserver*-Version niedrigere oder höhere Nebenversion von `kubectl` verwenden, die mit der [Kubernetes-Unterstützungsrichtlinie für kubectl](https://kubernetes.io/docs/setup/release/version-skew-policy/#kubectl) konsistent ist.
 
-Wenn Ihr *kube-apiserver* beispielsweise die Version *1.17* hat, können Sie die Versionen *1.16* bis *1.18*von `kubectl` mit diesem *kube-apiserver* verwenden.
+Wenn Ihr *kube-apiserver* beispielsweise die Version *1.17* hat, können Sie die Versionen *1.16* bis *1.18* von `kubectl` mit diesem *kube-apiserver* verwenden.
 
 Um Ihre Version von `kubectl` zu installieren oder zu aktualisieren, führen Sie `az aks install-cli` aus.
 
@@ -106,6 +106,9 @@ Sie können neue Releases und veraltete Versionen im [Releasekalender für AKS K
 Bei neuen **Nebenversionen** von Kubernetes:
 1. AKS veröffentlicht mindestens 30 Tage vor dem Entfernen einer Version in den [AKS-Versionshinweisen](https://aka.ms/aks/releasenotes) eine Vorankündigung mit dem geplanten Datum der neuen Version und der Entfernung der entsprechenden alten Version.
 2. AKS veröffentlicht eine [Benachrichtigung zur Dienstintegrität](../service-health/service-health-overview.md), die für alle Benutzer mit Zugriff auf AKS und das Portal verfügbar ist. Außerdem sendet AKS eine E-Mail an die Abonnementadministratoren mit den geplanten Daten für die Entfernung von Versionen.
+````
+To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#assign-a-subscription-administrator).
+````
 3. Benutzer haben nach der Entfernung einer Version **30** Tage lang Zeit, ein Upgrade auf eine unterstützte Nebenversion durchzuführen, um sicherzustellen, dass sie weiterhin Support erhalten.
 
 Bei neuen **Patchversionen** von Kubernetes:
@@ -131,15 +134,18 @@ az aks get-versions --location eastus --output table
 
 ## <a name="aks-kubernetes-release-calendar"></a>Releasekalender für AKS Kubernetes
 
-Den Verlauf der letzten Versionen finden Sie [hier](https://en.wikipedia.org/wiki/Kubernetes#History).
+Den Verlauf der letzten Versionen finden Sie unter [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes#History).
 
 |  Kubernetes-Version | Upstreamrelease  | AKS – Vorschau  | AKS – allgemeine Verfügbarkeit (GA)  | Ende der Lebensdauer |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.16  | Sep-19-19  | Januar 2019   | März 2020  | 1.19: Allgemeine Verfügbarkeit | 
+| 1.16  | Sep-19-19  | Januar 2019   | März 2020  | Jan 2021* | 
 | 1.17  | 09. Dezember 2019  | Januar 2019   | Juli 2020  | 1.20 GA | 
 | 1.18  | 23. März 2020  | Mai 2020   | August 2020  | 1.21 GA | 
 | 1.19  | 04. August 2020  | Sep 2020   | November 2020  | 1.22 GA | 
-| 1.20  | Dec-08-20  | Jan 2021   | März 2021  | 1.23 GA | 
+| 1.20  | Dec-08-20  | Jan 2021   | März 2021  | 1.23 GA |
+
+\* Aufgrund der Weihnachtszeit verlängert AKS die Lebensdauer von Version 1.16 von November 2020 bis Januar 2021. [Weitere Informationen](https://github.com/Azure/AKS/releases/tag/2020-10-12).
+
 
 ## <a name="faq"></a>Häufig gestellte Fragen
 

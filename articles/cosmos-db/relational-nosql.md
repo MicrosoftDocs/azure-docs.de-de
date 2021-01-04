@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 613e0dbfc90586475fe0ba9820ede1359a99d3a6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d986106337eb1ede2f6d61303d8a4c487bbed276
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482212"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088470"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>Verstehen der Unterschiede zwischen NoSQL- und relationalen Datenbanken
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 In diesem Artikel werden einige der wichtigsten Vorteile von NoSQL-Datenbanken gegenüber relationalen Datenbanken aufgeführt. Außerdem werden einige der Herausforderungen beim Arbeiten mit NoSQL erörtert. Einen tieferen Einblick in die verschiedenen vorhandenen Datenspeicher finden Sie in unserem Artikel [Auswählen des richtigen Datenspeichers](/azure/architecture/guide/technology-choices/data-store-overview).
 
@@ -39,7 +40,7 @@ Heutzutage hat die Beliebtheit von Datenbanken im Dokumentstil jedoch deutlich z
 
 Das Aufkommen eines [objektorientierten Entwurfs](https://en.wikipedia.org/wiki/Object-oriented_design) und der [Impedance Mismatch](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch), der bei der Kombination mit relationalen Modellen entsteht, stellen auch ein Antimuster in relationalen Datenbanken für bestimmte Anwendungsfälle dar. Dadurch können versteckte, aber oft erhebliche Wartungskosten entstehen. Obwohl [ORM-Ansätze](https://en.wikipedia.org/wiki/Object-relational_mapping) entwickelt wurden, um dies teilweise zu mildern, können dokumentenorientierte Datenbanken dennoch viel besser mit objektorientierten Ansätzen kombiniert werden. Bei diesem Ansatz sind Entwickler nicht gezwungen, sich auf ORM-Treiber oder maßgeschneiderte sprachspezifische [OO-Datenbank-Engines](https://en.wikipedia.org/wiki/Object_database) festzulegen. Wenn Ihre Daten viele Beziehungen zwischen über- und untergeordneten Elementen und tiefgreifende Hierarchieebenen enthalten, sollten Sie die Verwendung einer NoSQL-Dokumentdatenbank wie die [Azure Cosmos DB SQL-API](./introduction.md) in Erwägung ziehen.
 
-:::image type="content" source="./media/relational-or-nosql/order-orderdetails.jpg" alt-text="Back-End":::
+:::image type="content" source="./media/relational-or-nosql/order-orderdetails.jpg" alt-text="OrderDetails":::
 
 ## <a name="complex-networks-and-relationships"></a>Komplexe Netzwerke und Beziehungen
 
@@ -49,7 +50,7 @@ Verschiedene Formen von „Netzwerkdatenbanken“ sind in der Zeit aufgekommen, 
 
 Wenn Sie ein komplexes Beziehungsnetzwerk in Ihrer Datenbank verwalten, sollten Sie eine Graphdatenbank wie die [Azure Cosmos DB Gremlin-API](./graph-introduction.md) zum Verwalten dieser Daten in Betracht ziehen.
 
-:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="Back-End":::
+:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="Datenbankdiagramm mit mehreren Mitarbeitern und Abteilungen, die miteinander verbunden sind":::
 
 Azure Cosmos DB ist ein Datenbankdienst mit mehreren Modellen, der eine API-Projektion für alle wichtigen NoSQL-Modelltypen (Spaltenfamilie, Dokument, Graph und Schlüssel-Wert) bietet. Die Schichten der APIs [Gremlin (Graph)](./gremlin-support.md) und SQL (Core) sind vollständig interoperabel. Dies bietet Vorteile beim Wechseln zwischen verschiedenen Modellen auf Programmierbarkeitsebene. Graphspeicher können in Bezug auf komplexe Netzwerktransaktionen und in Bezug auf im selben Speicher als Dokumentdatensätze modellierte Transaktionen abgefragt werden.
 
@@ -76,7 +77,7 @@ Obwohl die Implementierung von NoSQL-Datenbanken einige deutliche Vorteile biete
 
 Im Hinblick auf die erste Herausforderung ist die Faustregel in NoSQL-Datenbanken im Allgemeinen die Denormalisierung, die (wie bereits erwähnt) effizientere Lesevorgänge in einem verteilten System ermöglicht. Bei diesem Ansatz kommen jedoch einige Entwurfsherausforderungen zum Tragen. Nehmen wir ein Beispiel für ein Produkt, das mit einer Kategorie und mehreren Tags verknüpft ist:
 
-:::image type="content" source="./media/relational-or-nosql/many-joins.png" alt-text="Back-End":::
+:::image type="content" source="./media/relational-or-nosql/many-joins.png" alt-text="Joins":::
 
 Eine bewährte Methode in einer NoSQL-Dokumentdatenbank wäre die direkte Denormalisierung des Kategorienamens und der Tagnamen in einem „Produktdokument“. Um jedoch Kategorien, Tags und Produkte synchron zu halten, sind die Entwurfsoptionen, die dies erleichtern, komplexer in der Verwaltung, weil die Daten über mehrere Datensätze im Produkt dupliziert werden, anstatt eine einfache Aktualisierung in einer „Eins-zu-viele“-Beziehung und ein Join zum Abrufen der Daten zu sein. 
 

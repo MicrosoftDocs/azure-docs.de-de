@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 09/04/2019
-  ms.openlocfilehash: 5090ae0c5380a16a911ee433d85d288bd9d8fb25
-  ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+  ms.openlocfilehash: a7c956bc1716eb50775e44d57703ddc1e0f9ccc3
+  ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/19/2020
-  ms.locfileid: "92205301"
+  ms.lasthandoff: 12/08/2020
+  ms.locfileid: "96854766"
 highlightedContent:
   items:
   - title: Was ist Azure IoT?
@@ -57,6 +57,9 @@ conceptualContent:
     - url: ../iot-hub/quickstart-control-device-node.md
       itemType: quickstart
       text: Steuern eines Geräts über die Cloud
+    - url: /azure-stack/operator/iot-hub-rp-overview
+      itemType: overview
+      text: Erkunden von IoT Hub in Azure Stack Hub
     footerLink:
       url: ../iot-hub/index.yml
       text: Weitere Informationen
@@ -121,10 +124,10 @@ conceptualContent:
     - url: ../iot-pnp/overview-iot-plug-and-play.md
       itemType: overview
       text: Was ist IoT Plug & Play?
-    - url: ../iot-pnp/quickstart-connect-device-node.md
+    - url: ../iot-pnp/quickstart-connect-device.md
       itemType: quickstart
       text: Verbinden eines Beispielgeräts mit IoT Hub
-    - url: ../iot-pnp/concepts-developer-guide-device-csharp.md
+    - url: ../iot-pnp/concepts-developer-guide-device.md
       itemType: concept
       text: Entwicklerhandbuch
     footerLink:
@@ -163,9 +166,6 @@ conceptualContent:
     - url: ../iot-accelerators/about-iot-accelerators.md
       itemType: overview
       text: Was sind Azure IoT Solution Accelerators?
-    - url: ../iot-accelerators/quickstart-remote-monitoring-deploy.md
-      itemType: quickstart
-      text: Testen einer Remoteüberwachungslösung
     - url: ../iot-accelerators/quickstart-connected-factory-deploy.md
       itemType: quickstart
       text: Testen einer Lösung für verbundene Factorys

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 955e77bc947baed889de24ce34e7acec737164f6
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: f13dfa4221f8f09c24cce3a451f3180d15ee3b99
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097302"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435756"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Anleitung: Planen der Implementierung einer Azure Active Directory-Hybrideinbindung
 
@@ -56,7 +56,7 @@ Azure AD Hybrid Join unterstützt zahlreiche Windows-Geräte. Da die Konfigurati
 
 - Windows 10
 - Windows Server 2016
-  - **Hinweis** : Kunden der nationalen Azure-Cloud benötigen Version 1803.
+  - **Hinweis**: Kunden der nationalen Azure-Cloud benötigen Version 1803.
 - Windows Server 2019
 
 Für Geräte, auf denen das Windows-Desktopbetriebssystem ausgeführt wird, sind die unterstützten Versionen in diesem Artikel aufgeführt: [Windows 10 Releaseinformationen](/windows/release-information/). Als bewährte Methode empfiehlt Microsoft, ein Upgrade auf die aktuelle Version von Windows 10 durchzuführen.
@@ -106,6 +106,8 @@ Wenn Ihre in die Windows 10-Domäne eingebundenen Geräte für Ihren Mandanten 
 
 - Ab Windows 10 Release 1903 werden TPMs 1.2 nicht mehr für die Azure AD-Hybrideinbindung verwendet, und Geräte mit diesen TPMs werden so betrachtet, als würden sie nicht über ein TPM verfügen.
 
+- UPN-Änderungen werden erst ab dem Windows 10-Update 2004 unterstützt. Auf Geräten vor dem Windows 10-Update 2004 haben Benutzer Probleme mit SSO und dem bedingten Zugriff. Zum Beheben des Problems müssen Sie das Gerät von Azure AD trennen (indem Sie „dsregcmd /leave“ mit erhöhten Rechten ausführen) und sich wieder anmelden (was automatisch geschieht). Allerdings tritt das Problem bei Benutzern, die sich mit Windows Hello for Business anmelden, nicht auf.
+
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Überprüfung der kontrollierten Überprüfung der Azure AD-Hybrideinbindung
 
 Wenn alle Voraussetzungen erfüllt sind, werden Windows-Geräte automatisch als Geräte bei Ihrem Azure AD-Mandanten registriert. Der Zustand dieser Geräteidentitäten in Azure AD wird als Azure AD Hybrid Join bezeichnet. Weitere Informationen zu den in diesem Artikel beschriebenen Konzepten finden Sie im Artikel [Einführung in die Geräteidentitätsverwaltung in Azure Active Directory](overview.md).
@@ -138,7 +140,7 @@ Bei Verbundumgebungen sollte ein Identitätsanbieter verwendet werden, der die f
   `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> Die Endpunkte **adfs/services/trust/2005/windowstransport** und **adfs/services/trust/13/windowstransport** sollten nur als Endpunkte mit Intranetzugriff aktiviert werden und dürfen NICHT als Endpunkte mit Extranetzugriff über den Webanwendungsproxy verfügbar gemacht werden. Weitere Informationen zum Deaktivieren von WS-Trust-Windows-Endpunkten finden Sie unter [Deaktivieren von WS-Trust-Windows-Endpunkten auf dem Proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Welche Endpunkte aktiviert sind, sehen Sie in der AD FS-Verwaltungskonsole unter **Dienst** > **Endpunkte** .
+> Die Endpunkte **adfs/services/trust/2005/windowstransport** und **adfs/services/trust/13/windowstransport** sollten nur als Endpunkte mit Intranetzugriff aktiviert werden und dürfen NICHT als Endpunkte mit Extranetzugriff über den Webanwendungsproxy verfügbar gemacht werden. Weitere Informationen zum Deaktivieren von WS-Trust-Windows-Endpunkten finden Sie unter [Deaktivieren von WS-Trust-Windows-Endpunkten auf dem Proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Welche Endpunkte aktiviert sind, sehen Sie in der AD FS-Verwaltungskonsole unter **Dienst** > **Endpunkte**.
 
 > [!NOTE]
 > Azure AD unterstützt keine Smartcards oder Zertifikate in verwalteten Domänen.

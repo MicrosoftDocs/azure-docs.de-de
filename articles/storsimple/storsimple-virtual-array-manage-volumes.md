@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: 734dc55cbcd9c7b5eaf6455d63bcb773b7d85367
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79e3ce8c1605e5d68ff44901f53854d2f5f10abc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513994"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014379"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Verwenden des StorSimple-Geräte-Manager-Diensts zum Verwalten von Volumes auf dem StorSimple Virtual Array
 
@@ -73,7 +73,7 @@ Verwenden Sie die Anweisungen in diesem Tutorial, um die folgenden Aufgaben ausz
 
 1. Klicken Sie auf dem StorSimple-Dienstübersichtsblatt in der Befehlsleiste auf **+ Volume hinzufügen**. Daraufhin öffnet sich das Blatt **Volume hinzufügen**.
    
-    ![Volume hinzufügen](./media/storsimple-virtual-array-manage-volumes/add-volume.png)
+    ![Screenshot: Schaltfläche und Bereich „Volume hinzufügen“](./media/storsimple-virtual-array-manage-volumes/add-volume.png)
 2. Gehen Sie auf dem Blatt **Volume hinzufügen** wie folgt vor:
    
    * Geben Sie im Feld **Volumename** einen eindeutigen Namen für Ihr Volume ein. Der Name muss eine Zeichenfolge mit einer Länge von 3 bis 127 Zeichen sein.
@@ -82,7 +82,7 @@ Verwenden Sie die Anweisungen in diesem Tutorial, um die folgenden Aufgaben ausz
    * * Klicken Sie auf **Verbundene Hosts**, wählen Sie einen Access Control-Datensatz (ACR) aus, der dem iSCSI-Initiator entspricht, den Sie mit diesem Volume verbinden möchten, und klicken Sie anschließend auf **Auswählen**.
 3. Klicken Sie zum Hinzufügen eines neuen verbundenen Hosts auf **Neu hinzufügen**, geben Sie einen Namen für den Host und seinen IQN-Namen (qualifizierter iSCSI-Name) ein, und klicken Sie anschließend auf **Hinzufügen**.
    
-    ![Volume hinzufügen](./media/storsimple-virtual-array-manage-volumes/volume-add-acr.png)
+    ![Screenshot: Bereich „Verbundene Hosts“ mit der Option „Neu hinzufügen“](./media/storsimple-virtual-array-manage-volumes/volume-add-acr.png)
 4. Wenn Sie die Konfiguration Ihres Volume abgeschlossen haben, klicken Sie auf **Erstellen**. Ein Volume wird mit den angegebenen Einstellungen erstellt, und Sie erhalten eine Benachrichtigung über die erfolgreiche Erstellung. Standardmäßig wird für das Volume die Sicherungsfunktion aktiviert.
 5. Wechseln Sie zum Blatt **Volumes**, um sicherzustellen, dass das Volume erfolgreich erstellt wurde. Das Volume sollte hier aufgeführt werden.
    

@@ -5,21 +5,21 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 11/13/2020
 ms.author: duau
-ms.openlocfilehash: 44813a7662420ab4dedcd0bf99cc1eec7e9d9d2d
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 55eefe7a7490df050aa7ebc2bb41fbadcc8d8279
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91819079"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646337"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Integrieren einer Stamm- oder Apex-Domäne in Ihre Front Door-Instanz
 Azure Front Door verwendet CNAME-Einträge zum Überprüfen des Domänenbesitzes beim Integrieren von benutzerdefinierten Domänen. Front Door legt die dem Front Door-Profil zugeordnete Front-End-IP-Adresse nicht offen. Daher können Sie Ihre Apex-Domäne nicht einer IP-Adresse zuordnen, wenn Sie beabsichtigen, ein Onboarding in Azure Front Door durchzuführen.
 
 Das DNS-Protokoll verhindert die Zuweisung von CNAME-Einträgen am Zonen-Apex. Wenn die Domäne beispielsweise `contoso.com` heißt, können Sie CNAME-Einträge für `somelabel.contoso.com`, aber keinen CNAME-Eintrag für `contoso.com` selbst erstellen. Diese Einschränkung stellt Anwendungsbesitzer, die über Anwendungen mit Lastenausgleich über Azure Front Door verfügen, vor ein Problem. Da für die Verwendung eines Front Door-Profils die Erstellung eines CNAME-Eintrags erforderlich ist, kann vom Zonen-Apex aus nicht auf das Front Door-Profil verwiesen werden.
 
-Dieses Problem kann mithilfe von Aliaseinträgen in Azure DNS gelöst werden. Anders als CNAME-Einträge werden Aliaseinträge im Zonen-Apex erstellt. Anwendungsbesitzer können diese verwenden, um ihren Zonen-Apex-Eintrag auf ein Front Door-Profil verweisen, das über öffentliche Endpunkte verfügt. Anwendungsbesitzer verweisen auf das gleiche Front Door-Profil, das auch für andere Domänen innerhalb ihrer DNS-Zone verwendet wird. Beispielsweise können `contoso.com` und `www.contoso.com` beide auf dasselbe Front Door-Profil verweisen. 
+Dieses Problem kann mithilfe von Aliaseinträgen in Azure DNS gelöst werden. Anders als CNAME-Einträge werden Aliaseinträge im Zonen-Apex erstellt. Anwendungsbesitzer können diese verwenden, um ihren Zonen-Apex-Eintrag auf ein Front Door-Profil verweisen, das über öffentliche Endpunkte verfügt. Anwendungsbesitzer verweisen auf das gleiche Front Door-Profil, das auch für andere Domänen innerhalb ihrer DNS-Zone verwendet wird. Beispielsweise können `contoso.com` und `www.contoso.com` beide auf dasselbe Front Door-Profil verweisen. 
 
 Wenn Sie Ihre Apex- oder Stammdomäne dem Front Door-Profil zuordnen, ist CNAME-Vereinfachung oder DNS-Verfolgung erforderlich. Dies ist ein Mechanismus, bei dem der DNS-Anbieter den CNAME-Eintrag rekursiv auflöst, bis er auf eine IP-Adresse trifft. Diese Funktion wird von Azure DNS für Front Door-Endpunkte unterstützt. 
 
@@ -54,7 +54,7 @@ Sie können das Azure-Portal verwenden, um ein Onboarding für eine Apex-Domäne
 
 1. Klicken Sie auf **Speichern**, um die Änderungen zu übermitteln.
 
-   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="Erstellen eines Aliaseintrags für einen Zonen-Apex":::
+   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="Menü „Benutzerdefinierte Domänen“":::
 
 ## <a name="enable-https-on-your-custom-domain"></a>Aktivieren von HTTPS für eine benutzerdefinierte Domäne
 
@@ -62,7 +62,7 @@ Sie können das Azure-Portal verwenden, um ein Onboarding für eine Apex-Domäne
 
 1. Wählen Sie unter **Zertifikatverwaltungstyp** die Option *Eigenes Zertifikat verwenden* aus.
 
-   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-custom-domain.png" alt-text="Erstellen eines Aliaseintrags für einen Zonen-Apex":::    
+   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-custom-domain.png" alt-text="HTTPS-Einstellungen benutzerdefinierter Domänen":::    
 
    > [!WARNING]
    > Der Zertifikatverwaltungstyp „Front Door managed“ (Mit Front Door verwaltet) wird derzeit nicht für Apex- oder Stammdomänen unterstützt. Sie können nur Ihr eigenes benutzerdefiniertes TLS/SSL-Zertifikat verwenden, das in Azure Key Vault gehostet wird, um HTTPS auf einer Apex- oder Stammdomäne für Front Door zu aktivieren.

@@ -3,12 +3,12 @@ title: 'Produktionsbereitschaft und Best Practices: Azure'
 description: Dieser Artikel enthält eine Anleitung zum Konfigurieren und Bereitstellen des Moduls Live Video Analytics in IoT Edge in Produktionsumgebungen.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: c34e05e184cfa6f0933701a76177fae3eed70c0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 215427e3524861a842349b197668d92167960e5c
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87071943"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906334"
 ---
 # <a name="production-readiness-and-best-practices"></a>Produktionsbereitschaft und Best Practices
 
@@ -62,9 +62,9 @@ Als Nächstes können Sie im Bereitstellungsmanifest die Umgebungsvariablen LOCA
 
 Das Modul Live Video Analytics in IoT Edge erfordert die Möglichkeit, Dateien in das lokale Dateisystem zu schreiben, wenn Folgendes zutrifft:
 
-* Sie verwenden eine Modulzwillingseigenschaft [[applicationDataDirectory](module-twin-configuration-schema.md#module-twin-properties)]: Geben Sie ein Verzeichnis im lokalen Dateisystem zum Speichern von Konfigurationsdaten an.
+* Sie verwenden die Modulzwillingseigenschaft [`applicationDataDirectory`](module-twin-configuration-schema.md#module-twin-properties): Geben Sie ein Verzeichnis im lokalen Dateisystem zum Speichern von Konfigurationsdaten an.
 * Sie verwenden ein Mediendiagramm, um Videos in der Cloud aufzuzeichnen: Das Modul benötigt ein Verzeichnis auf dem Edgegerät als Cache. (Weitere Informationen finden Sie im Artikel zur [fortlaufenden Videoaufzeichnung](continuous-video-recording-concept.md).)
-* [Die Aufzeichnung erfolgt in eine lokale Datei:](event-based-video-recording-concept.md#video-recording-based-on-events-from-other-sources) Geben Sie einen Dateipfad für das aufgezeichnete Video an.
+* [Die Aufzeichnung erfolgt in eine lokale Datei](event-based-video-recording-concept.md#video-recording-based-on-events-from-other-sources): Geben Sie einen Dateipfad für das aufgezeichnete Video an.
 
 Wenn Sie beabsichtigen, eine der oben genannten Optionen anzuwenden, sollten Sie sicherstellen, dass das obige Benutzerkonto Zugriff auf das entsprechende Verzeichnis hat. Nehmen Sie als Beispiel applicationDataDirectory. Sie können ein Verzeichnis auf dem Edgegerät erstellen und den Gerätespeicher mit dem Modulspeicher verknüpfen. 
 
@@ -124,7 +124,7 @@ Bei der ereignisbasierten Videoaufzeichnung wird für die generierten Medienobje
 Wenn Sie mehrere Instanzen desselben Diagramms ausführen, können Sie den Namen der Diagrammtopologie und den Instanznamen verwenden, um sie zu unterscheiden. Beispielsweise können Sie assetNamePattern in der Medienobjektsenke wie folgt festlegen:
 
 ```
-"assetNamePattern": "sampleAssetFromEVR-${System.GraphTopologyName}-${System.GraphInstanceName} -${System.DateTime}"
+"assetNamePattern": "sampleAssetFromEVR-${System.GraphTopologyName}-${System.GraphInstanceName}-${System.DateTime}"
 ```
 
 Bei MP4-Videoclips, die mit der ereignisbasierten Videoaufzeichnung am Edge generiert werden, wird empfohlen, in das Benennungsmuster den DateTime-Wert einzufügen. Bei mehreren Instanzen desselben Diagramms wird darüber hinaus empfohlen, die Systemvariablen GraphTopologyName und GraphInstanceName zu verwenden. Sie können beispielsweise filePathPattern bei einer Dateisenke wie folgt festlegen: 

@@ -4,19 +4,19 @@ titleSuffix: Azure Kubernetes Service
 description: Hier erfahren Sie, wie Sie ein öffentliches Lastenausgleichsmodul mit einer Standard-SKU verwenden, um Ihre Dienste mit Azure Kubernetes Service (AKS) verfügbar zu machen.
 services: container-service
 ms.topic: article
-ms.date: 06/14/2020
+ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 414ae3b2adb60b9442a69e3ebcc8b13b29c67cb7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 5da7f2a11be7562313b709a8af72ccd709165cfa
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070502"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000860"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Verwenden einer öffentlichen Instanz von Load Balancer Standard in Azure Kubernetes Service (AKS)
 
-Azure Load Balancer ist eine L4-Komponente des OSI-Modells (Open Systems Interconnection), für die sowohl Eingangs- als auch Ausgangsszenarien unterstützt werden. Hierbei werden Datenflüsse, die beim Front-End des Lastenausgleichs eingehen, auf die Instanzen des Back-End-Pools verteilt.
+Azure Load Balancer befindet sich auf L4 des OSI-Modells (Open Systems Interconnection), wofür sowohl Eingangs- als auch Ausgangsszenarien unterstützt werden. Hierbei werden Datenflüsse, die beim Front-End des Lastenausgleichs eingehen, auf die Instanzen des Back-End-Pools verteilt.
 
 Ein **öffentlicher** Lastenausgleich, der in AKS integriert ist, hat zwei Zwecke:
 
@@ -87,19 +87,22 @@ Bei Verwendung der SKU „Standard“ für den öffentlichen Lastenausgleich kö
 * Anpassen der Anzahl von zugeordneten ausgehenden Ports an die einzelnen Knoten des Clusters
 * Konfigurieren der Timeouteinstellung für Verbindungen im Leerlauf
 
+> [!IMPORTANT]
+> Nur eine ausgehende IP-Option (verwaltete IPs, Bring Your Own IP oder IP-Präfix) kann zu einem bestimmten Zeitpunkt verwendet werden.
+
 ### <a name="scale-the-number-of-managed-outbound-public-ips"></a>Skalieren der Anzahl von verwalteten öffentlichen IP-Ausgangsadressen
 
 Azure Load Balancer unterstützt zusätzlich zu eingehenden Verbindungen auch ausgehende Verbindungen eines virtuellen Netzwerks. Mit Ausgangsregeln können Sie die Netzwerkadressenübersetzung (NAT) einer öffentlichen Load Balancer Standard-Instanz für ausgehenden Datenverkehr ganz einfach konfigurieren.
 
 Wie alle Load Balancer-Regeln folgen auch die Ausgangsregeln der gleichen vertrauten Syntax wie Lastenausgleichsregeln und NAT-Eingangsregeln:
 
-***Front-End-IP-Adressen + Parameter + Back-End-Pool***
+***Front-End-IP-Adressen + Parameter + Back-End-Pool** _
 
 Eine Ausgangsregel konfiguriert die NAT für ausgehenden Datenverkehr für alle VMs, die vom Back-End-Pool für die Front-End-Übersetzung identifiziert wurden. Darüber hinaus ermöglichen Parameter eine zusätzliche differenzierte Steuerung des NAT-Algorithmus für ausgehenden Datenverkehr.
 
 Ausgangsregeln können jeweils mit nur einer einzigen öffentlichen IP-Adresse verwendet werden und erleichtern die Konfiguration beim Skalieren der NAT für ausgehenden Datenverkehr. Sie können mehrere IP-Adressen verwenden, um umfangreiche Szenarien zu planen. Mithilfe von Ausgangsregeln lassen sich außerdem die für die SNAT-Überlastung anfälligen Muster reduzieren. Jede zusätzliche IP-Adresse, die von einem Front-End bereitgestellt wird, stellt 64.000 kurzlebige Ports zur Verfügung, die Load Balancer als SNAT-Ports verwenden kann. 
 
-Wenn Sie einen Lastenausgleich mit der SKU *Standard* mit verwalteten ausgehenden öffentlichen IP-Adressen verwenden, die standardmäßig erstellt werden, können Sie die Anzahl verwalteter ausgehender öffentlicher IP-Adressen mit dem Parameter **`load-balancer-managed-ip-count`** skalieren.
+Wenn Sie einen Lastenausgleich mit der SKU _Standard* mit verwalteten ausgehenden öffentlichen IP-Adressen verwenden, die standardmäßig erstellt werden, können Sie die Anzahl verwalteter ausgehender öffentlicher IP-Adressen mit dem Parameter **`load-balancer-managed-ip-count`** skalieren.
 
 Zum Aktualisieren eines vorhandenen Clusters führen Sie den unten angegebenen Befehl aus. Dieser Parameter kann auch zum Zeitpunkt der Clustererstellung festgelegt werden, um mehrere verwaltete ausgehende öffentliche IP-Adressen zu erhalten.
 
@@ -120,10 +123,11 @@ Bei Verwendung eines Lastenausgleichs mit der SKU *Standard* wird vom AKS-Cluste
 
 Eine öffentliche IP-Adresse, die von AKS erstellt wird, wird als verwaltete AKS-Ressource angesehen. Dies bedeutet, dass der Lebenszyklus dieser öffentlichen IP-Adresse von AKS verwaltet werden sollte und dass direkt auf der öffentlichen IP-Ressource kein Benutzereingriff erforderlich ist. Alternativ können Sie Ihre eigene benutzerdefinierte öffentliche IP-Adresse bzw. das zugehörige Präfix bei der Erstellung des Clusters zuweisen. Ihre benutzerdefinierten IP-Adressen können auch in den Lastenausgleichseigenschaften eines vorhandenen Clusters aktualisiert werden.
 
-> [!NOTE]
-> Benutzerdefinierte öffentliche IP-Adressen müssen vom Benutzer erstellt werden und sich in seinem Besitz befinden. Verwaltete öffentliche IP-Adressen, die von AKS erstellt werden, können nicht für die Bereitstellung einer eigenen benutzerdefinierten IP-Adresse wiederverwendet werden, weil dies zu Verwaltungskonflikten führen kann.
+Anforderungen für die Verwendung Ihrer eigenen öffentlichen IP-Adresse oder Ihres Präfixes:
 
-Stellen Sie vor dem Durchführen dieses Vorgangs sicher, dass Sie die vorgegebenen [Voraussetzungen und Einschränkungen](../virtual-network/public-ip-address-prefix.md#constraints) erfüllen, die für die Konfiguration von ausgehenden IP-Adressen und der zugehörigen Präfixe gelten.
+- Benutzerdefinierte öffentliche IP-Adressen müssen vom Benutzer erstellt werden und sich in seinem Besitz befinden. Verwaltete öffentliche IP-Adressen, die von AKS erstellt werden, können nicht für die Bereitstellung einer eigenen benutzerdefinierten IP-Adresse wiederverwendet werden, weil dies zu Verwaltungskonflikten führen kann.
+- Sie müssen sicherstellen, dass die AKS-Clusteridentität (Dienstprinzipal oder verwaltete Identität) über Berechtigungen für den Zugriff auf ausgehende IP-Adressen verfügt. Gemäß der [Liste der erforderlichen Berechtigungen für die öffentliche IP-Adresse](kubernetes-service-principal.md#networking).
+- Stellen Sie sicher, dass Sie die vorgegebenen [Voraussetzungen und Einschränkungen](../virtual-network/public-ip-address-prefix.md#constraints) erfüllen, die für die Konfiguration von ausgehenden IP-Adressen und der zugehörigen Präfixe gelten.
 
 #### <a name="update-the-cluster-with-your-own-outbound-public-ip"></a>Aktualisieren des Clusters mit Ihrer eigenen ausgehenden öffentlichen IP-Adresse
 
@@ -221,7 +225,7 @@ az aks update \
     --load-balancer-outbound-ports 4000
 ```
 
-In diesem Beispiel erhalten Sie 4.000 zugeordnete ausgehende Ports für jeden Knoten im Cluster, und bei Verwendung von sieben IP-Adressen ergibt sich Folgendes: *4.000 Ports pro Knoten · 100 Knoten = 400.000 Ports <= 448.000 Ports = 7 IP-Adressen · 64.000 Ports pro IP-Adresse*. Die Skalierung auf 100 Knoten ist also problemlos möglich, und Sie erhalten einen Standardvorgang für Upgrades. Es ist sehr wichtig, eine ausreichende Zahl von Ports für zusätzliche Knoten zuzuordnen, die für Upgrades und andere Vorgänge benötigt werden. Bei AKS wird standardmäßig ein Pufferknoten für Upgrades genutzt. In diesem Beispiel sind hierfür also jederzeit 4.000 freie Ports erforderlich. Bei Verwendung von [maxSurge-Werten](upgrade-cluster.md#customize-node-surge-upgrade-preview) müssen Sie die ausgehenden Ports pro Knoten mit Ihrem maxSurge-Wert multiplizieren.
+In diesem Beispiel erhalten Sie 4.000 zugeordnete ausgehende Ports für jeden Knoten im Cluster, und bei Verwendung von sieben IP-Adressen ergibt sich Folgendes: *4.000 Ports pro Knoten · 100 Knoten = 400.000 Ports <= 448.000 Ports = 7 IP-Adressen · 64.000 Ports pro IP-Adresse*. Die Skalierung auf 100 Knoten ist also problemlos möglich, und Sie erhalten einen Standardvorgang für Upgrades. Es ist sehr wichtig, eine ausreichende Zahl von Ports für zusätzliche Knoten zuzuordnen, die für Upgrades und andere Vorgänge benötigt werden. Bei AKS wird standardmäßig ein Pufferknoten für Upgrades genutzt. In diesem Beispiel sind hierfür also jederzeit 4.000 freie Ports erforderlich. Bei Verwendung von [maxSurge-Werten](upgrade-cluster.md#customize-node-surge-upgrade) müssen Sie die ausgehenden Ports pro Knoten mit Ihrem maxSurge-Wert multiplizieren.
 
 Sie müssen weitere IP-Adressen hinzufügen, um sicher zu sein, dass bei mehr als 100 Knoten keine Probleme auftreten.
 
@@ -317,7 +321,7 @@ spec:
 
 Hier ist eine Liste mit Anmerkungen angegeben, die für Kubernetes-Dienste vom Typ `LoadBalancer` unterstützt werden. Diese Anmerkungen gelten nur für eingehende Datenflüsse (**INBOUND**):
 
-| Anmerkung | Wert | BESCHREIBUNG
+| Anmerkung | Wert | Beschreibung
 | ----------------------------------------------------------------- | ------------------------------------- | ------------------------------------------------------------ 
 | `service.beta.kubernetes.io/azure-load-balancer-internal`         | `true` oder `false`                     | Geben Sie an, ob es ein interner Lastenausgleich sein soll. Wenn Sie nichts angeben, wird standardmäßig „Öffentlich“ verwendet.
 | `service.beta.kubernetes.io/azure-load-balancer-internal-subnet`  | Name des Subnetzes                    | Geben Sie an, an welches Subnetz der interne Lastenausgleich gebunden werden soll. Wenn Sie nichts angeben, wird standardmäßig das in der Cloudkonfigurationsdatei konfigurierte Subnetz verwendet.

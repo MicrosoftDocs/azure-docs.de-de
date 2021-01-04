@@ -8,13 +8,13 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 8980505ac34e32a29403060a7cf3cfaec077d8af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-python, devx-track-azurecli
+ms.openlocfilehash: ae62bf353f8a92c4408d4a38a91771ad60a13107
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336699"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285308"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-python"></a>Tutorial: Verwenden von Azure Key Vault mit einem virtuellen Windows in Python
 
@@ -58,7 +58,7 @@ az login
 
 ## <a name="create-a-virtual-machine"></a>Erstellen eines virtuellen Computers
 
-Erstellen Sie mit einer der folgenden Methoden einen virtuellen Computer namens **myVM**:
+Erstellen Sie mit einer der folgenden Methoden einen virtuellen Computer namens **myVM** :
 
 | Linux | Windows |
 |--|--|
@@ -66,7 +66,7 @@ Erstellen Sie mit einer der folgenden Methoden einen virtuellen Computer namens 
 | [PowerShell](../../virtual-machines/linux/quick-create-powershell.md) | [PowerShell](../../virtual-machines/windows/quick-create-powershell.md) |
 | [Azure portal](../../virtual-machines/linux/quick-create-portal.md) | [Azure-Portal](../../virtual-machines/windows/quick-create-portal.md) |
 
-Verwenden Sie zum Erstellen eines virtuellen Linux-Computers mithilfe der Azure CLI den Befehl [az vm create](/cli/azure/vm).  Im folgenden Beispiel wird ein Benutzerkonto mit dem Namen *azureuser* hinzugefügt. Der Parameter `--generate-ssh-keys` wird genutzt, um automatisch einen SSH-Schlüssel zu generieren und am Speicherort für den Standardschlüssel abzulegen ( *~/.ssh*). 
+Verwenden Sie zum Erstellen eines virtuellen Linux-Computers mithilfe der Azure CLI den Befehl [az vm create](/cli/azure/vm).  Im folgenden Beispiel wird ein Benutzerkonto mit dem Namen *azureuser* hinzugefügt. Der Parameter `--generate-ssh-keys` wird genutzt, um automatisch einen SSH-Schlüssel zu generieren und am Speicherort für den Standardschlüssel abzulegen ( *~/.ssh* ). 
 
 ```azurecli-interactive
 az vm create \
@@ -166,4 +166,4 @@ az group delete -g myResourceGroup
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Azure Key Vault-REST-API](https://docs.microsoft.com/rest/api/keyvault/)
+[Azure Key Vault-REST-API](/rest/api/keyvault/)

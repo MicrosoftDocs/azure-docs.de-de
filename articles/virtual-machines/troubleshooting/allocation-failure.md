@@ -10,14 +10,14 @@ tags: top-support-issue,azure-resource-manager,azure-service-management
 ms.assetid: 1ef41144-6dd6-4a56-b180-9d8b3d05eae7
 ms.service: virtual-machines
 ms.topic: troubleshooting
-ms.date: 04/13/2018
+ms.date: 11/06/2020
 ms.author: daberry
-ms.openlocfilehash: 3766c31add02799c62bca7e9063e723e0a5b498e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79bc043a991404a3ee9da954b9639bf1a41f2c51
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86509357"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365872"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Problembehandlung für Zuordnungsfehler beim Erstellen, Neustarten oder Ändern der Größen von virtuellen Computern in Azure
 
@@ -26,6 +26,11 @@ Wenn Sie einen virtuellen Computer (Virtual Machine, VM) erstellen, beendete VMs
 **Fehlercode**: „AllocationFailed“ oder „ZonalAllocationFailed“
 
 **Fehlermeldung**: „Fehler bei der Zuordnung. Wir verfügen in dieser Region nicht über genügend Kapazität für die angeforderte VM-Größe. Weitere Informationen zur Verbesserung der Erfolgschancen bei der Zuordnung finden Sie unter „https:\//aka.ms/allocation-guidance“.
+
+> [!NOTE]
+> Die Problembehandlung für eine VM-Skalierungsgruppe (VMSS) ist mit der für eine Standard-VM identisch. Befolgen Sie die Anweisungen in diesem Artikel, um das Problem zu beheben.
+> 
+>**Fehlermeldung**: „Fehler bei der Zuordnung. Wenn Sie versuchen, einer VM-Skalierungsgruppe mit einer einzelnen Platzierungsgruppe eine neue VM hinzuzufügen oder eine vorhandene VM zu aktualisieren bzw. ihre Größe zu ändern, sollten Sie beachten, dass diese Zuordnung nur auf einen einzelnen Cluster beschränkt ist und es möglich ist, dass der Cluster nicht über genügend Kapazität verfügt. Weitere Informationen zur Verbesserung der Erfolgschancen bei der Zuordnung finden Sie unter http:\//aka.ms/allocation-guidance.
 
 In diesem Artikel werden die Ursachen einiger häufig auftretender Zuordnungsfehler erläutert und mögliche Korrekturmaßnahmen vorgeschlagen.
 
@@ -51,7 +56,7 @@ Gehen Sie zum Beenden wie folgt vor: Klicken Sie auf „Ressourcengruppen“ > [
 Wählen Sie nach dem Beenden aller virtuellen Computer den ersten virtuellen Computer aus, und klicken Sie dann auf „Starten“.
 Durch diesen Schritt wird sichergestellt, dass ein neuer Zuordnungsversuch ausgeführt wird und ein neuer Cluster ausgewählt werden kann, der über genügend Kapazität verfügt.
 
-## <a name="restart-partially-stopped-deallocated-vms"></a>Neustart teilweise beendeter (zuordnungsaufgehobener) virtueller Computer
+## <a name="restart-partially-stopped-deallocated-vms"></a>Neustart teilweise beendeter (zuordnungsaufgehobener) virtueller Computer 
 
 ### <a name="cause"></a>Ursache
 

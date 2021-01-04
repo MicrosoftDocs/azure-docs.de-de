@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: negoe
-ms.reviewer: nacanuma
+ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0b54a8227594a81c17dcaaaaa6c599d70217c498
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f631ad650b20110084ff902043447f26c2d4ab3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705859"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453606"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Verwenden der MSAL in einer nationalen Cloudumgebung
 
@@ -49,13 +49,13 @@ Nach dieser Entscheidung müssen Sie sich überlegen, wo die App-Registrierung e
 
 ### <a name="get-an-azure-government-subscription"></a>Erhalten eines Azure Government-Abonnements
 
-Informationen zum Beziehen eines Azure Government-Abonnements finden Sie unter [Verwalten und Herstellen einer Verbindung mit Ihrem Abonnement in Azure Government](../../azure-government/documentation-government-manage-subscriptions.md).
+Informationen zum Beziehen eines Azure Government-Abonnements finden Sie unter [Verwalten und Herstellen einer Verbindung mit Ihrem Abonnement in Azure Government](../../azure-government/compare-azure-government-global-azure.md).
 
 Wenn Sie kein Azure Government-Abonnement besitzen, können Sie zu Beginn ein [kostenloses Konto](https://azure.microsoft.com/global-infrastructure/government/request/) erstellen.
 
 Weitere Informationen zur Verwendung einer nationalen Cloud mit einer bestimmten Programmiersprache erhalten Sie, indem Sie die Registerkarte entsprechend der gewünschten Sprache auswählen:
 
-## <a name="net"></a>[.NET](#tab/donet)
+## <a name="net"></a>[.NET](#tab/dotnet)
 
 Über MSAL.NET können Sie Benutzer anmelden, Token anfordern und die Microsoft Graph-API in nationalen Clouds aufrufen.
 
@@ -150,9 +150,9 @@ So aktivieren Sie Ihre MSAL-Python-Anwendung für Sovereign Clouds
     "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
     ```
 
-- Zum Aufrufen von Microsoft Graph ist eine bestimmte Graph-Endpunkt-URL erforderlich, die von der verwendeten Cloud abhängt. Informationen zum Ermitteln von Microsoft Graph-Endpunkten für alle nationalen Clouds finden Sie unter [Stammendpunkte für Microsoft Graph und Graph Explorer](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- Zum Aufrufen der Microsoft Graph-API ist eine Endpunkt-URL erforderlich, die für die von Ihnen verwendete Cloud spezifisch ist. Informationen zum Ermitteln von Microsoft Graph-Endpunkten für alle nationalen Clouds finden Sie unter [Stammendpunkte für Microsoft Graph und Graph Explorer](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
-    Hier ist ein Beispiel für einen Graph-Endpunkt mit einem Bereich:
+    Hier finden Sie ein Beispiel für einen Microsoft Graph-Endpunkt mit einem Bereich:
 
     ```json
     "endpoint" : "https://graph.microsoft.us/v1.0/me"
@@ -173,7 +173,7 @@ Hier ist ein Beispiel für eine Autorisierung:
 "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
 ```
 
-- Zum Aufrufen von Microsoft Graph ist eine bestimmte Graph-Endpunkt-URL erforderlich, die von der verwendeten Cloud abhängt. Informationen zum Ermitteln von Microsoft Graph-Endpunkten für alle nationalen Clouds finden Sie unter [Stammendpunkte für Microsoft Graph und Graph Explorer](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- Zum Aufrufen der Microsoft Graph-API ist eine Endpunkt-URL erforderlich, die für die von Ihnen verwendete Cloud spezifisch ist. Informationen zum Ermitteln von Microsoft Graph-Endpunkten für alle nationalen Clouds finden Sie unter [Stammendpunkte für Microsoft Graph und Graph Explorer](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
 Hier ist ein Beispiel für einen Graph-Endpunkt mit einem Bereich:
 
@@ -222,9 +222,10 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen:
+Unter [Authentifizierungsendpunkte der nationalen Cloud](authentication-national-cloud.md) finden Sie eine Liste der Azure-Portal-URLs und der Tokenendpunkte für jede Cloud.
 
-- [Authentifizierung in nationalen Clouds](authentication-national-cloud.md)
+Dokumentation zur nationalen Cloud:
+
 - [Azure Government](../../azure-government/index.yml)
 - [Azure China 21Vianet](/azure/china/)
 - [Azure Deutschland](../../germany/index.yml)

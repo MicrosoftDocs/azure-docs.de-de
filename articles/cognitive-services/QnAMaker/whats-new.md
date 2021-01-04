@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
-ms.openlocfilehash: 73044f35b90fd3e5996899fd7c3b0a925056f8ed
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2c159e25195c5f144187268b4355c1078695e809
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87836871"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345524"
 ---
 # <a name="whats-new-in-qna-maker"></a>Neuerungen in QnA Maker
 
@@ -23,6 +23,14 @@ Informieren Sie sich über die Neuerungen im Dienst. Dabei kann es sich um Versi
 
 Informieren Sie sich über Neuigkeiten zu QnA Maker.
 
+### <a name="november-2020"></a>November 2020
+
+* Es wurde eine neue Version von QnA Maker in der kostenlosen Public Preview gestartet. Weitere Informationen finden Sie [hier](https://techcommunity.microsoft.com/t5/azure-ai/introducing-qna-maker-managed-now-in-public-preview/ba-p/1845575).
+* Vereinfachte Ressourcenerstellung
+* End-to-End-Unterstützung für Regionen
+* Bewertungsmodell mit Deep Learning
+* Machine Reading Comprehension für präzise Antworten
+  
 ### <a name="july-2020"></a>Juli 2020
 
 * [Metadaten: `OR` logische Kombination mehrerer Metadatenpaare](how-to/metadata-generateanswer-usage.md#logical-or-using-strictfilterscompoundoperationtype-property)
@@ -48,17 +56,17 @@ Informieren Sie sich über Neuigkeiten zu QnA Maker.
 
 ### <a name="november-2019"></a>November 2019
 
-* [US Government-Cloudunterstützung](https://docs.microsoft.com/azure/azure-government/documentation-government-services-aiandcognitiveservices#qna-maker) für QnA Maker
-* [Mehrfachdurchlauf](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/multiturn-conversation) allgemein verfügbar
-* [Geplauderunterstützung](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/chit-chat-knowledge-base#language-support) in Sprachen der Ebene 1 verfügbar
+* [US Government-Cloudunterstützung](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers) für QnA Maker
+* [Mehrfachdurchlauf](./how-to/multiturn-conversation.md) allgemein verfügbar
+* [Geplauderunterstützung](./how-to/chit-chat-knowledge-base.md#language-support) in Sprachen der Ebene 1 verfügbar
 
 ### <a name="october-2019"></a>Oktober 2019
 
-* [Explizites Festlegen der Sprache](./how-to/language-knowledge-base.md#select-language-when-creating-first-knowledge-base) für alle Wissensdatenbanken im QnA Maker-Dienst
+* [Explizites Festlegen der Sprache](./index.yml) für alle Wissensdatenbanken im QnA Maker-Dienst
 
 ### <a name="september-2019"></a>September 2019
 
-* Importieren und Exportieren mit dem [XLS-Dateiformat](concepts/content-types.md)
+* Importieren und Exportieren mit dem [XLS-Dateiformat](./index.yml)
 
 ### <a name="june-2019"></a>Juni 2019
 

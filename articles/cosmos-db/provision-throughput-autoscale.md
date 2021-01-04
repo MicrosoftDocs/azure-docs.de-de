@@ -6,20 +6,20 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: b9d645a16a59e34d1915cf9febde6b1f8a789355
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.custom: seo-nov-2020
+ms.openlocfilehash: aaedca5acf7861db05f0ec724e05449316379829
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282101"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337541"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Erstellen von Azure Cosmos-Containern und -Datenbanken mit automatisch skaliertem Durchsatz
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Mit Azure Cosmos DB können Sie Standarddurchsatz (manuell) oder per Autoskalierung bereitgestellten Durchsatz für Ihre Datenbanken und Container festlegen. In diesem Artikel werden die Vorteile des per Autoskalierung bereitgestellten Durchsatzes und Anwendungsfälle beschrieben. 
+Mit Azure Cosmos DB können Sie Standarddurchsatz (manuell) oder per Autoskalierung bereitgestellten Durchsatz für Ihre Datenbanken und Container konfigurieren. Bei per Autoskalierung bereitgestelltem Durchsatz ermöglicht Azure Cosmos DB das **Skalieren des Durchsatzes (RU/s) Ihrer Datenbank oder Ihres Containers automatisch und sofort**. Der Durchsatz wird basierend auf der Nutzung skaliert, ohne dass dadurch Verfügbarkeit, Latenz, Durchsatz oder Leistung der Workload beeinträchtigt werden.
 
-Per Autoskalierung bereitgestellter Durchsatz eignet sich gut für unternehmenskritische Workloads, die über variable oder unvorhersehbare Datenverkehrsmuster verfügen und SLAs für hohe Leistung und Skalierung erfordern. 
-
-Mit Autoskalierung erfolgt eine **automatische und unmittelbare Skalierung des Durchsatzes (RU/s)** der Datenbank oder des Containers durch Azure Cosmos DB auf Grundlage der Nutzung. Dabei werden die Verfügbarkeit, Latenz, der Durchsatz und die Leistung der Arbeitsauslastung nicht beeinträchtigt. 
+Per Autoskalierung bereitgestellter Durchsatz eignet sich gut für unternehmenskritische Workloads, die über variable oder unvorhersehbare Datenverkehrsmuster verfügen und SLAs für hohe Leistung und Skalierung erfordern. In diesem Artikel werden die Vorteile des per Autoskalierung bereitgestellten Durchsatzes und Anwendungsfälle beschrieben.
 
 ## <a name="benefits-of-autoscale"></a>Vorteile der automatischen Skalierung
 

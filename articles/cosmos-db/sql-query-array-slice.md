@@ -3,18 +3,21 @@ title: ARRAY_SLICE in der Abfragesprache für Azure Cosmos DB
 description: Erfahren Sie, wie Sie mit der SQL-Systemfunktion Array Slice in Azure Cosmos DB einen Teil eines Arrayausdrucks zurückgeben.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: a98cb17d22f41776ff788d12ced6aa988ad0b10e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1808070f374614ae6cac9a27098ddf2f4d9d2d12
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78303323"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332524"
 ---
 # <a name="array_slice-azure-cosmos-db"></a>ARRAY_SLICE (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Gibt einen Teil eines Arrayausdrucks zurück.
   
 ## <a name="syntax"></a>Syntax

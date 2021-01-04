@@ -2,16 +2,16 @@
 title: Behandeln von Replikationsproblemen bei der Migration virtueller VMware-Computer ohne Agent
 description: Hilfe zu Fehlern in Replikationszyklen
 author: anvar-ms
-ms.manager: bsiva
 ms.author: anvar
+ms.manager: bsiva
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 2b653a0abbe89686c764a6a0885720cc746975c8
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: e19c5064dd69538dfc025b0d244baf4fa74706b2
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314728"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753534"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Behandeln von Replikationsproblemen bei der Migration virtueller VMware-Computer ohne Agent
 
@@ -29,11 +29,16 @@ Es kann vorkommen, dass Replikationszyklen für einen virtuellen Computer fehlsc
 Führen Sie die folgenden Schritte aus, um den Replikationsstatus Ihrer virtuellen Computer zu überwachen:
 
   1. Wechseln Sie im Azure-Portal in Azure Migrate zur Seite „Server“.
-  2. Navigieren Sie zur Seite „Aktuell replizierte Computer“, indem Sie in der Kachel „Servermigration“ auf „Server werden repliziert“ klicken.
-  3. Eine Liste der replizierten Server wird zusammen mit zusätzlichen Informationen angezeigt, z. B. zum Status, zur Integrität, zur Zeit der letzten Synchronisierung usw. In der Spalte „Integrität“ ist die aktuelle Replikationsintegrität des virtuellen Computers angegeben. Die Werte „Kritisch“ oder „Warnung“ in der Spalte „Integrität“ geben in der Regel an, dass beim vorherigen Replikationszyklus für die VM ein Fehler aufgetreten ist. Klicken Sie mit der rechten Maustaste auf den virtuellen Computer, und wählen Sie „Fehlerdetails“ aus, um weitere Informationen zu erhalten. Die Seite „Fehlerdetails“ enthält Informationen zum Fehler und weitere Einzelheiten zur Problembehandlung. Außerdem wird der Link „Aktuelle Ereignisse“ angezeigt, der verwendet werden kann, um zur Ereignisseite für den virtuellen Computer zu navigieren.
-  4. Klicken Sie auf „Aktuelle Ereignisse“, um die Fehler vorheriger Replikationszyklen für den virtuellen Computer anzuzeigen. Suchen Sie auf der Ereignisseite das letzte Ereignis vom Typ „Replication cycle failed“ (Fehler bei Replikationszyklus) oder „Replication cycle failed for disk“ (Fehler bei Replikationszyklus für Datenträger) für den virtuellen Computer.
-  5. Klicken Sie auf das Ereignis, um die möglichen Ursachen für den Fehler und die empfohlenen Schritte zu dessen Behebung zu ermitteln. Verwenden Sie die bereitgestellten Informationen, um das Problem bzw. den Fehler zu beheben.
-    
+  ![Abbildung 1](./media/troubleshoot-changed-block-tracking-replication/image0.png)
+  1. Navigieren Sie zur Seite „Aktuell replizierte Computer“, indem Sie in der Kachel „Servermigration“ auf „Server werden repliziert“ klicken.
+  ![Abbildung 2](./media/troubleshoot-changed-block-tracking-replication/image1.png)
+  1. Eine Liste der replizierten Server wird zusammen mit zusätzlichen Informationen angezeigt, z. B. zum Status, zur Integrität, zur Zeit der letzten Synchronisierung usw. In der Spalte „Integrität“ ist die aktuelle Replikationsintegrität des virtuellen Computers angegeben. Die Werte „Kritisch“ oder „Warnung“ in der Spalte „Integrität“ geben in der Regel an, dass beim vorherigen Replikationszyklus für die VM ein Fehler aufgetreten ist. Klicken Sie mit der rechten Maustaste auf den virtuellen Computer, und wählen Sie „Fehlerdetails“ aus, um weitere Informationen zu erhalten. Die Seite „Fehlerdetails“ enthält Informationen zum Fehler und weitere Einzelheiten zur Problembehandlung. Außerdem wird der Link „Aktuelle Ereignisse“ angezeigt, der verwendet werden kann, um zur Ereignisseite für den virtuellen Computer zu navigieren.
+  ![Abbildung 3](./media/troubleshoot-changed-block-tracking-replication/image2.png)
+  1. Klicken Sie auf „Aktuelle Ereignisse“, um die Fehler vorheriger Replikationszyklen für den virtuellen Computer anzuzeigen. Suchen Sie auf der Ereignisseite das letzte Ereignis vom Typ „Replication cycle failed“ (Fehler bei Replikationszyklus) oder „Replication cycle failed for disk“ (Fehler bei Replikationszyklus für Datenträger) für den virtuellen Computer.
+  ![Abbildung 4](./media/troubleshoot-changed-block-tracking-replication/image3.png)
+  1. Klicken Sie auf das Ereignis, um die möglichen Ursachen für den Fehler und die empfohlenen Schritte zu dessen Behebung zu ermitteln. Verwenden Sie die bereitgestellten Informationen, um das Problem bzw. den Fehler zu beheben.
+ ![Abbildung 5](./media/troubleshoot-changed-block-tracking-replication/image4.png)
+
 ## <a name="common-replication-errors"></a>Häufige Replikationsfehler
 
 In diesem Abschnitt werden einige häufige Fehler und Möglichkeiten beschrieben, diese zu beheben.

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: aefd03b9d0ce726e086dff96a648e5f3a6b28e6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e5b7ed75f22659a9a38ac761cc61c841102a067
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84809199"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345838"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Verwenden des Warteschlangenspeichers mit PHP
 
@@ -38,7 +38,7 @@ In diesem Leitfaden verwenden Sie Features von Azure Queue Storage, die lokal in
 ### <a name="install-via-composer"></a>Installation mithilfe von Composer
 
 1. Erstellen Sie im Stammverzeichnis Ihres Projekts eine Datei namens **composer.json** , und fügen Sie zu dieser den folgenden Code hinzu:
-   
+
     ```json
     {
       "require": {
@@ -46,9 +46,10 @@ In diesem Leitfaden verwenden Sie Features von Azure Queue Storage, die lokal in
       }
     }
     ```
+
 2. Laden Sie **[composer.phar][composer-phar]** in das Stammverzeichnis Ihres Projekts herunter.
 3. Öffnen Sie eine Eingabeaufforderung und führen Sie in Ihrem Projektverzeichnis folgenden Befehl aus
-   
+
     ```
     php composer.phar install
     ```
@@ -62,7 +63,7 @@ Um die APIs für den Azure-Warteschlangenspeicher verwenden zu können, müssen 
 1. mithilfe der [require_once]-Anweisung auf die Autoloaderdatei verweisen.
 2. auf alle Klassen verweisen, die Sie möglicherweise verwenden.
 
-Das folgende Beispiel zeigt, wie die Autoloaderdatei eingeschlossen und die **QueueRestProxy**-Klasse referenziert wird.
+Das folgende Beispiel zeigt, wie die Autoloaderdatei eingeschlossen und die **QueueRestProxy** -Klasse referenziert wird.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -87,10 +88,11 @@ Für den Zugriff auf den Emulatorspeicher:
 UseDevelopmentStorage=true
 ```
 
-Um einen Azure Queue-Dienstclient erstellen zu können, müssen Sie die **QueueRestProxy**-Klasse verwenden. Dazu können Sie eine der folgenden Methoden verwenden:
+Um einen Azure Queue-Dienstclient erstellen zu können, müssen Sie die **QueueRestProxy** -Klasse verwenden. Dazu können Sie eine der folgenden Methoden verwenden:
 
-* die Verbindungszeichenfolge direkt an die Klasse weitergeben.
-* Verwenden Sie Umgebungsvariablen in Ihrer Web-App, um die Verbindungszeichenfolge zu speichern. Weitere Informationen zum Konfigurieren von Verbindungszeichenfolgen finden Sie im Dokument [Azure web app configuration settings (Konfigurationseinstellungen für die Azure-Web-App)](../../app-service/configure-common.md).
+- die Verbindungszeichenfolge direkt an die Klasse weitergeben.
+- Verwenden Sie Umgebungsvariablen in Ihrer Web-App, um die Verbindungszeichenfolge zu speichern. Weitere Informationen zum Konfigurieren von Verbindungszeichenfolgen finden Sie im Dokument [Azure web app configuration settings (Konfigurationseinstellungen für die Azure-Web-App)](../../app-service/configure-common.md).
+
 Für die hier erläuterten Beispiele wird die Verbindungszeichenfolge direkt weitergegeben.
 
 ```php
@@ -104,7 +106,7 @@ $queueClient = QueueRestProxy::createQueueService($connectionString);
 
 ## <a name="create-a-queue"></a>Erstellen einer Warteschlange
 
-Über ein **QueueRestProxy**-Objekt können Sie eine Warteschlange mithilfe der **createQueue**-Methode erstellen. Bei der Erstellung von Warteschlangen können Sie verschiedene Optionen festlegen, was allerdings nicht erforderlich ist. (Das folgende Beispiel zeigt, wie Sie die Metadaten für eine Warteschlange festlegen.)
+Über ein **QueueRestProxy** -Objekt können Sie eine Warteschlange mithilfe der **createQueue** -Methode erstellen. Bei der Erstellung von Warteschlangen können Sie verschiedene Optionen festlegen, was allerdings nicht erforderlich ist. (Das folgende Beispiel zeigt, wie Sie die Metadaten für eine Warteschlange festlegen.)
 
 ```php
 require_once 'vendor/autoload.php';
@@ -139,12 +141,10 @@ catch(ServiceException $e){
 
 > [!NOTE]
 > Metadaten-Schlüssel unterscheiden nicht immer zwischen Groß- und Kleinschreibung. Alle Schlüssel werden vom Dienst in Kleinbuchstaben gelesen.
-> 
-> 
 
 ## <a name="add-a-message-to-a-queue"></a>Hinzufügen von Nachrichten zu einer Warteschlange
 
-Verwenden Sie **QueueRestProxy->createMessage**, um Nachrichten zu einer Warteschlange hinzuzufügen. Übergeben Sie der Methode den Warteschlangennamen, Nachrichtentext und (optionale) Nachrichtenoptionen.
+Verwenden Sie **QueueRestProxy->createMessage** , um Nachrichten zu einer Warteschlange hinzuzufügen. Übergeben Sie der Methode den Warteschlangennamen, Nachrichtentext und (optionale) Nachrichtenoptionen.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -425,8 +425,8 @@ catch(ServiceException $e){
 
 Nachdem Sie sich nun mit den Grundlagen des Azure-Warteschlangenspeichers vertraut gemacht haben, folgen Sie diesen Links, um zu erfahren, wie komplexere Speicheraufgaben ausgeführt werden:
 
-* Machen Sie sich mit der [API-Referenz für die Azure Storage PHP-Clientbibliothek](https://azure.github.io/azure-storage-php/) vertraut.
-* Sehen Sie sich das [Beispiel für erweiterte Warteschlangen](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php) an.
+- Machen Sie sich mit der [API-Referenz für die Azure Storage PHP-Clientbibliothek](https://azure.github.io/azure-storage-php/) vertraut.
+- Sehen Sie sich das [Beispiel für erweiterte Warteschlangen](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php) an.
 
 Weitere Informationen finden Sie außerdem im [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 

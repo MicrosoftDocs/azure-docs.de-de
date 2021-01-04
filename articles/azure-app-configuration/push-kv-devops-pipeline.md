@@ -2,17 +2,17 @@
 title: Pushen von Einstellungen an App Configuration mit Azure Pipelines
 description: Hier erfahren Sie, wie Sie Schlüsselwerte mithilfe von Azure Pipelines in einen App Configuration-Speicher pushen.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.author: lcozzens
-ms.openlocfilehash: b2b903f259fdd2564fbcaed5eb0a750edf9c06e2
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.author: alkemper
+ms.openlocfilehash: fd3f7dbfd824360dcba9f8a166c579e3b55527ba
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075874"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932114"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Pushen von Einstellungen an App Configuration mit Azure Pipelines
 
@@ -23,11 +23,11 @@ Mit der Aufgabe [Azure App Configuration Push](https://marketplace.visualstudio.
 - Azure-Abonnement – [Erstellen eines kostenlosen Kontos](https://azure.microsoft.com/free/)
 - App Configuration-Ressource ([kostenlos über das Azure-Portal erstellen](https://portal.azure.com))
 - Azure DevOps-Projekt ([kostenlos erstellen](https://go.microsoft.com/fwlink/?LinkId=2014881))
-- Aufgabe „Azure App Configuration Push“ ([kostenlos aus dem Visual Studio Marketplace herunterladen](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push#:~:text=Navigate%20to%20the%20Tasks%20tab,the%20Azure%20App%20Configuration%20instance.))
+- Aufgabe „Azure App Configuration Push“ ([kostenlos aus dem Visual Studio Marketplace herunterladen](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push))
 
 ## <a name="create-a-service-connection"></a>Erstellen einer Dienstverbindung
 
-Über eine Dienstverbindung können Sie von Ihrem Azure DevOps-Projekt aus auf Ressourcen in Ihrem Azure-Abonnement zugreifen.
+Über eine [Dienstverbindung](/azure/devops/pipelines/library/service-endpoints) können Sie von Ihrem Azure DevOps-Projekt aus auf Ressourcen in Ihrem Azure-Abonnement zugreifen.
 
 1. Navigieren Sie in Azure DevOps zu dem Projekt mit Ihrer Zielpipeline, und öffnen Sie links unten die **Projekteinstellungen**.
 1. Wählen Sie unter **Pipelines** die Option **Dienstverbindungen** und anschließend rechts oben die Option **Neue Dienstverbindung** aus.

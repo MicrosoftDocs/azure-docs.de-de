@@ -11,19 +11,22 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c083b319b11807a88461b2464153821fa2ad0b67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e163ea34948906060996ee952f45ec0cdb467557
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89276183"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504354"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Überlegungen zur Hybrididentität für die Azure Government-Cloud
 
 In diesem Artikel werden Überlegungen zum Integrieren einer Hybridumgebung in die Microsoft Azure Government-Cloud beschrieben. Diese Informationen dienen als Referenz für Administratoren und Architekten, die mit der Azure Government-Cloud arbeiten.
 
 > [!NOTE]
-> Um eine lokale Azure Active Directory-Umgebung (Azure AD) in die Azure Government-Cloud zu integrieren, müssen Sie ein Upgrade auf das neueste Release von [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) durchführen.
+> Um eine lokale Microsoft Active Directory-Umgebung (lokal oder in einer IaaS in derselben Cloudinstanz gehostet) mit der Azure Government-Cloud zu integrieren, müssen Sie ein Upgrade auf das neueste Release von [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) durchführen.
+
+> [!NOTE]
+> Dieser Artikel enthält Verweise auf den Begriff *Whitelist*, den Microsoft nicht länger verwendet. Sobald der Begriff aus der Software entfernt wurde, wird er auch aus diesem Artikel entfernt.
 
 Eine vollständige Liste der Endpunkte des US-Verteidigungsministeriums finden Sie in der [Dokumentation](/office365/enterprise/office-365-u-s-government-dod-endpoints).
 
@@ -36,7 +39,7 @@ Die folgenden Informationen beschreiben die Implementierung von Pass-Through-Aut
 Überprüfen Sie vor dem Bereitstellen des Pass-Through-Authentifizierungs-Agents, ob zwischen den Servern und Azure AD eine Firewall vorhanden ist. Wenn Ihre Firewall oder Ihr Proxy durch DNS (Domain Name System) blockierte oder sichere Programme zulässt, fügen Sie die folgenden Verbindungen hinzu.
 
 > [!NOTE]
-> Die folgende Anleitung gilt auch für die Installation des [Azure AD-Anwendungsproxyconnectors](https://aka.ms/whyappproxy) für Azure Government-Umgebungen.
+> Die folgende Anleitung gilt auch für die Installation des [Azure AD-Anwendungsproxyconnectors](../manage-apps/what-is-application-proxy.md) für Azure Government-Umgebungen.
 
 |URL |Wie diese verwendet wird|
 |-----|-----|

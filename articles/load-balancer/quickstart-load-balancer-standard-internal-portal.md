@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: efe4753e78c6dd16fa0b6ce3e98dd21ceae52577
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6ac76b3d3cc8fb27734730275836fba0dbfb08fe
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047810"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700306"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Schnellstart: Erstellen eines internen Lastenausgleichs für virtuelle Computer über das Azure-Portal
 
@@ -61,7 +61,7 @@ In diesem Abschnitt erstellen Sie ein virtuelles Netzwerk und ein Subnetz.
     |------------------|-----------------------------------------------------------------|
     | **Projektdetails**  |                                                                 |
     | Subscription     | Auswählen des Azure-Abonnements                                  |
-    | Ressourcengruppe   | Wählen Sie **myResourceGroupLB** aus. |
+    | Ressourcengruppe   | Wählen Sie **CreateIntLBQS-rg** aus. |
     | **Instanzendetails** |                                                                 |
     | Name             | Geben Sie **myVNet** ein.                                    |
     | Region           | Wählen Sie **Europa, Westen** aus. |
@@ -109,7 +109,7 @@ In diesem Abschnitt erstellen Sie ein virtuelles Netzwerk und ein Subnetz.
     | Einstellung                 | Wert                                              |
     | ---                     | ---                                                |
     | Subscription               | Wählen Sie Ihr Abonnement aus.    |    
-    | Resource group         | Wählen Sie die im vorherigen Schritt erstellte Ressourcengruppe **myResourceGroupLB** aus.|
+    | Resource group         | Wählen Sie die im vorherigen Schritt erstellte Netzwerksicherheitsgruppe **CreateIntLBQS-rg** aus.|
     | Name                   | Geben Sie **myLoadBalancer** ein.                                   |
     | Region         | Wählen Sie **Europa, Westen** aus.                                        |
     | type          | Wählen Sie **Intern** aus.                                        |
@@ -195,12 +195,14 @@ In diesem Abschnitt wird eine Lastenausgleichsregel mit folgenden Merkmalen erst
     | Back-End-Port | Geben Sie **80** ein. |
     | Back-End-Pool | Wählen Sie **myBackendPool** aus.|
     | Integritätstest | Wählen Sie **myHealthProbe** aus. |
-    | Erstellen impliziter Ausgangsregeln | Wählen Sie also **Nein**.
+    | Leerlaufzeitüberschreitung (Minuten) | Bewegen Sie den Schieberegler auf **15 Minuten**. |
+    | TCP-Zurücksetzung | Wählen Sie **Aktiviert**. |
+    | Übersetzung der Quellnetzwerkadresse (SNAT) für ausgehenden Datenverkehr | Wählen Sie **(Empfohlen) Verwenden Sie Ausgangsregeln, um Back-End-Poolmitgliedern Zugriff auf das Internet zu gewähren** aus. |
 
 4. Übernehmen Sie die übrigen Standardeinstellungen, und wählen Sie dann **OK** aus.
 
 >[!NOTE]
->Die virtuellen Computer im Back-End-Pool verfügen mit dieser Konfiguration nicht über ausgehende Internetkonnektivität. </br> Weitere Informationen zu ausgehender Konnektivität finden Sie unter: </br> **[Ausgehende Verbindungen in Azure](load-balancer-outbound-connections.md)**</br> Optionen zum Bereitstellen von Konnektivität: </br> **[Lastenausgleichskonfiguration (nur ausgehender Datenverkehr)](egress-only.md)** </br> **[Was ist Virtual Network NAT?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
+>Die virtuellen Computer im Back-End-Pool verfügen mit dieser Konfiguration nicht über ausgehende Internetkonnektivität. </br> Weitere Informationen zu ausgehender Konnektivität finden Sie unter: </br> **[Ausgehende Verbindungen in Azure](load-balancer-outbound-connections.md)**</br> Optionen zum Bereitstellen von Konnektivität: </br> **[Lastenausgleichskonfiguration (nur ausgehender Datenverkehr)](egress-only.md)** </br> **[Was ist Virtual Network NAT?](../virtual-network/nat-overview.md)**
 
 ## <a name="create-backend-servers"></a>Erstellen von Back-End-Servern
 
@@ -223,7 +225,7 @@ Diese virtuellen Computer werden dem Back-End-Pool des zuvor erstellten Lastenau
     |-----------------------|----------------------------------|
     | **Projektdetails** |  |
     | Subscription | Auswählen des Azure-Abonnements |
-    | Ressourcengruppe | Wählen Sie **myResourceGroupLB** aus. |
+    | Ressourcengruppe | Wählen Sie **CreateIntLBQS-rg** aus. |
     | **Instanzendetails** |  |
     | Name des virtuellen Computers | Geben Sie **myVM1** ein. |
     | Region | Wählen Sie **Europa, Westen** aus. |
@@ -294,7 +296,7 @@ In diesem Abschnitt erstellen Sie ein virtuelles Netzwerk und ein Subnetz.
     |------------------|-----------------------------------------------------------------|
     | **Projektdetails**  |                                                                 |
     | Subscription     | Auswählen des Azure-Abonnements                                  |
-    | Ressourcengruppe   | Wählen Sie **myResourceGroupLB** aus. |
+    | Ressourcengruppe   | Wählen Sie **CreateIntLBQS-rg** aus. |
     | **Instanzendetails** |                                                                 |
     | Name             | Geben Sie **myVNet** ein.                                    |
     | Region           | Wählen Sie **Europa, Westen** aus. |
@@ -342,7 +344,7 @@ In diesem Abschnitt erstellen Sie ein virtuelles Netzwerk und ein Subnetz.
     | Einstellung                 | Wert                                              |
     | ---                     | ---                                                |
     | Subscription               | Wählen Sie Ihr Abonnement aus.    |    
-    | Resource group         | Wählen Sie die im vorherigen Schritt erstellte Ressourcengruppe **myResourceGroupLB** aus.|
+    | Resource group         | Wählen Sie die im vorherigen Schritt erstellte Netzwerksicherheitsgruppe **CreateIntLBQS-rg** aus.|
     | Name                   | Geben Sie **myLoadBalancer** ein.                                   |
     | Region         | Wählen Sie **Europa, Westen** aus.                                        |
     | type          | Wählen Sie **Intern** aus.                                        |
@@ -355,7 +357,7 @@ In diesem Abschnitt erstellen Sie ein virtuelles Netzwerk und ein Subnetz.
 
 4. Wählen Sie auf der Registerkarte **Bewerten + erstellen** die Option **Erstellen** aus.   
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-basic-internal-load-balancer.png" alt-text="Erstellen eines internen Load Balancer Standard." border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-basic-internal-load-balancer.png" alt-text="Erstellen eines internen Load Balancer Basic." border="true":::
 
 ## <a name="create-load-balancer-resources"></a>Erstellen von Load Balancer-Ressourcen
 
@@ -435,6 +437,7 @@ In diesem Abschnitt wird eine Lastenausgleichsregel mit folgenden Merkmalen erst
     | Back-End-Port | Geben Sie **80** ein. |
     | Back-End-Pool | Wählen Sie **myBackendPool** aus.|
     | Integritätstest | Wählen Sie **myHealthProbe** aus. |
+    | Leerlaufzeitüberschreitung (Minuten) | Bewegen Sie den Schieberegler auf **15 Minuten**. |
  
 4. Übernehmen Sie die übrigen Standardeinstellungen, und wählen Sie dann **OK** aus.
 
@@ -462,7 +465,7 @@ Diese virtuellen Computer werden dem Back-End-Pool des zuvor erstellten Lastenau
     |-----------------------|----------------------------------|
     | **Projektdetails** |  |
     | Subscription | Auswählen des Azure-Abonnements |
-    | Ressourcengruppe | Wählen Sie **myResourceGroupLB** aus. |
+    | Ressourcengruppe | Wählen Sie **CreateIntLBQS-rg** aus. |
     | **Instanzendetails** |  |
     | Name des virtuellen Computers | Geben Sie **myVM1** ein. |
     | Region | Wählen Sie **Europa, Westen** aus. |
@@ -534,7 +537,7 @@ In diesem Abschnitt wird ein virtueller Computer namens **myTestVM** erstellt.  
     |-----------------------|----------------------------------|
     | **Projektdetails** |  |
     | Subscription | Auswählen des Azure-Abonnements |
-    | Ressourcengruppe | Wählen Sie **myResourceGroupLB** aus. |
+    | Ressourcengruppe | Wählen Sie **CreateIntLBQS-rg** aus. |
     | **Instanzendetails** |  |
     | Name des virtuellen Computers | Geben Sie **myTestVM** ein. |
     | Region | Wählen Sie **Europa, Westen** aus. |
@@ -566,7 +569,7 @@ In diesem Abschnitt wird ein virtueller Computer namens **myTestVM** erstellt.  
 
 ## <a name="install-iis"></a>Installieren von IIS
 
-1. Wählen Sie im linken Menü **Alle Dienste** > **Alle Ressourcen** und anschließend in der Ressourcenliste den Eintrag **myVM1** (in der Ressourcengruppe **myResourceGroupLB**) aus.
+1. Wählen Sie im linken Menü **Alle Dienste** > **Alle Ressourcen** und anschließend in der Ressourcenliste den Eintrag **myVM1** (in der Ressourcengruppe **CreateIntLBQS-rg**) aus.
 
 2. Wählen Sie auf der Seite **Übersicht** die Option **Verbinden** und dann **Bastion** aus.
 
@@ -604,7 +607,7 @@ In diesem Abschnitt wird ein virtueller Computer namens **myTestVM** erstellt.  
 
 2. Notieren Sie sich in der **Übersicht** von **myLoadBalancer** die Adresse neben **Private IP-Adresse**, oder kopieren Sie sie.
 
-3. Wählen Sie im linken Menü **Alle Dienste** > **Alle Ressourcen** und anschließend in der Ressourcenliste den Eintrag **myTestVM** (in der Ressourcengruppe **myResourceGroupLB**) aus.
+3. Wählen Sie im linken Menü **Alle Dienste** > **Alle Ressourcen** und anschließend in der Ressourcenliste den Eintrag **myTestVM** (in der Ressourcengruppe **CreateIntLBQS-rg**) aus.
 
 4. Wählen Sie auf der Seite **Übersicht** die Option **Verbinden** und dann **Bastion** aus.
 
@@ -614,13 +617,13 @@ In diesem Abschnitt wird ein virtueller Computer namens **myTestVM** erstellt.  
 
 8. Geben Sie die IP-Adresse aus dem vorherigen Schritt in die Adressleiste des Browsers ein. Die Standardseite des IIS-Webservers wird im Browser angezeigt.
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Erstellen eines internen Load Balancer Standard." border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Screenshot, der erwartungsgemäß ein Browserfenster mit der Standardseite zeigt." border="true":::
    
 Um zu sehen, wie Datenverkehr durch den Lastenausgleich auf beide virtuelle Computer verteilt wird, können Sie die Standardseite des IIS-Webservers der einzelnen virtuellen Computer anpassen und dann über den Clientcomputer eine Aktualisierung Ihres Webbrowsers erzwingen.
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-Löschen Sie die Ressourcengruppe, den Lastenausgleich und alle dazugehörigen Ressourcen, wenn Sie sie nicht mehr benötigen. Wählen Sie hierzu die Ressourcengruppe **myResourceGroupLB** aus, die die Ressourcen enthält, und wählen Sie anschließend **Löschen** aus.
+Löschen Sie die Ressourcengruppe, den Lastenausgleich und alle dazugehörigen Ressourcen, wenn Sie sie nicht mehr benötigen. Wählen Sie hierzu die Ressourcengruppe **CreateIntLBQS-rg** aus, die die Ressourcen enthält, und wählen Sie anschließend **Löschen** aus.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
@@ -632,4 +635,4 @@ In dieser Schnellstartanleitung führen Sie die folgenden Schritte aus:
 
 Fahren Sie mit dem folgenden Artikel fort, um sich weiter über Azure Load Balancer zu informieren:
 > [!div class="nextstepaction"]
-> [Was versteht man unter Azure Load Balancer?](load-balancer-overview.md) 
+> [Was versteht man unter Azure Load Balancer?](load-balancer-overview.md)

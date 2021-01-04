@@ -7,21 +7,21 @@ ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 3b849640bc7adb38fe51c3c7a9dda2d1d14f35fa
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 092368bb66784a00d5116da0b6be6513f8ebb261
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017249"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518061"
 ---
 # <a name="virtual-machine-and-disk-performance"></a>Leistung von virtuellen Computern und Datenträgern
 [!INCLUDE [VM and Disk Performance](../../../includes/virtual-machine-disk-performance.md)]
 
 ## <a name="virtual-machine-uncached-vs-cached-limits"></a>Nicht im Cache zwischengespeicherte und zwischengespeicherte Grenzwerte virtueller Computer
-Virtuelle Computer, für die sowohl Storage Premium als auch Storage Premium-Caches aktiviert sind, weisen zwei verschiedene Einschränkungen für die Speicherbandbreite auf. Betrachten Sie den virtuellen Computer „Standard_D8s_v3“ als Beispiel. Hier ist die Dokumentation zur [Dsv3-Serie](../dv3-dsv3-series.md), zu der der „Standard_D8s_v3“ gehört:
+Virtuelle Computer, für die sowohl Storage Premium als auch die Storage Premium-Zwischenspeicherung aktiviert sind, weisen bei der Speicherbandbreite zwei Einschränkungen auf. Nehmen wir nun den virtuellen Computer Standard_D8s_v3 als Beispiel. Hier ist die Dokumentation zur [Dsv3-Serie](../dv3-dsv3-series.md) und Standard_D8s_v3-VM:
 
 [!INCLUDE [VM and Disk Performance](../../../includes/virtual-machine-disk-performance-2.md)]
 
-Führen wir einen Benchmarktest auf dieser Kombination aus VM und Datenträger aus, die E/A-Aktivität generiert. Alles Nötige über Benchmarktests für Speicher-E/A auf Azure erfahren Sie [hier](disks-benchmarks.md). Aus dem Benchmarktool können Sie ersehen, dass die Kombination aus VM und Datenträger 22.800 IOPS erreichen kann:
+Lassen Sie uns einen Benchmarktest mit dieser Kombination aus virtuellem Computer und Datenträger durchführen, die E/A-Aktivität erzeugt. Weitere Informationen zu Benchmarktests der Speicher-E/A in Azure finden Sie unter [Benchmarktests für Ihre Anwendung in Azure Disk Storage](disks-benchmarks.md). Im Benchmarktool können Sie ersehen, dass die Kombination aus VM und Datenträger 22.800 IOPS erreichen kann:
 
 [!INCLUDE [VM and Disk Performance](../../../includes/virtual-machine-disk-performance-3.md)]

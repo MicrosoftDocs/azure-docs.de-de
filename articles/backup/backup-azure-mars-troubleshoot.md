@@ -3,12 +3,12 @@ title: Behandeln von Problemen mit dem Azure Backup-Agent
 description: In diesem Artikel erfahren Sie, wie Sie Probleme mit der Installation und Registrierung des Azure Backup-Agents behandeln.
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 2e2e807a8b849af435fe82d54bbfdd96b729fa38
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 4ae4142652d9d38d5bf384e5a10d6eeb7e3cc608
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091456"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993838"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Problembehandlung beim Microsoft Azure Recovery Services-Agent (MARS)
 
@@ -37,11 +37,11 @@ Wir empfehlen, die folgenden Prüfungen durchzuführen, bevor Sie mit der Proble
 
 ## <a name="invalid-vault-credentials-provided"></a>Es wurden ungültige Tresoranmeldeinformationen angegeben.
 
-**Fehlermeldung** : Es wurden ungültige Tresoranmeldeinformationen angegeben. Die Datei ist entweder beschädigt oder enthält nicht die aktuellen Anmeldeinformationen für den Wiederherstellungsdienst. (ID: 34513)
+**Fehlermeldung**: Es wurden ungültige Tresoranmeldeinformationen angegeben. Die Datei ist entweder beschädigt oder enthält nicht die aktuellen Anmeldeinformationen für den Wiederherstellungsdienst. (ID: 34513)
 
 | Ursache | Empfohlene Aktionen |
 | ---     | ---    |
-| **Die Tresor-Anmeldeinformationen sind ungültig** <br/> <br/> Die Dateien mit den Tresoranmeldeinformationen sind möglicherweise beschädigt oder abgelaufen. (Beispiel: Sie wurden möglicherweise mehr als 48 Stunden vor der Registrierung heruntergeladen.)| [Laden Sie neue Anmeldeinformationen aus dem Recovery Services-Tresor im Azure-Portal herunter](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file). Führen Sie dann nach Bedarf die folgenden Schritte aus: <ul><li> Wenn Sie MARS bereits installiert und registriert haben, öffnen Sie die MMC-Konsole des Microsoft Azure Backup-Agents. Klicken Sie dann im Bereich **Aktionen** auf **Server registrieren** , um die Registrierung mit den neuen Anmeldeinformationen abzuschließen. <br/> <li> Wenn bei der Neuinstallation ein Fehler auftritt, wiederholen Sie den Installationsvorgang mit neuen Anmeldeinformationen.</ul> **Hinweis** : Wenn mehrere Dateien mit Tresor-Anmeldeinformationen heruntergeladen wurden, ist nur die zuletzt heruntergeladene Datei für die nächsten 48 Stunden gültig. Wir empfehlen, eine neue Datei mit Tresor-Anmeldeinformationen herunterzuladen.
+| **Die Tresor-Anmeldeinformationen sind ungültig** <br/> <br/> Dateien mit Tresoranmeldeinformationen können beschädigt oder abgelaufen sein, oder weisen vielleicht eine andere Dateierweiterung als *.vaultCredentials* auf. (Beispiel: Sie wurden möglicherweise mehr als 48 Stunden vor der Registrierung heruntergeladen.)| [Laden Sie neue Anmeldeinformationen aus dem Recovery Services-Tresor im Azure-Portal herunter](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file). Führen Sie dann nach Bedarf die folgenden Schritte aus: <ul><li> Wenn Sie MARS bereits installiert und registriert haben, öffnen Sie die MMC-Konsole des Microsoft Azure Backup-Agents. Klicken Sie dann im Bereich **Aktionen** auf **Server registrieren**, um die Registrierung mit den neuen Anmeldeinformationen abzuschließen. <br/> <li> Wenn bei der Neuinstallation ein Fehler auftritt, wiederholen Sie den Installationsvorgang mit neuen Anmeldeinformationen.</ul> **Hinweis**: Wenn mehrere Dateien mit Tresor-Anmeldeinformationen heruntergeladen wurden, ist nur die zuletzt heruntergeladene Datei für die nächsten 48 Stunden gültig. Wir empfehlen, eine neue Datei mit Tresor-Anmeldeinformationen herunterzuladen.
 | **Proxyserver/Firewall blockiert die Registrierung** <br/>oder <br/>**Keine Internetverbindung** <br/><br/> Wenn Ihr Computer oder Proxyserver nur über eine eingeschränkte Internetverbindung verfügt und Sie nicht für den Zugriff der erforderlichen URLs sorgen, schlägt die Registrierung fehl.| Führen Sie die folgenden Schritte aus:<br/> <ul><li> Stellen Sie zusammen mit Ihrem IT-Team sicher, dass das System über eine Internetverbindung verfügt.<li> Wenn Sie keinen Proxyserver haben, stellen Sie beim Registrieren des Agents sicher, dass die Proxyoption nicht aktiviert ist. [Überprüfen Sie Ihre Proxyeinstellungen](#verifying-proxy-settings-for-windows).<li> Wenn Sie eine Firewall/einen Proxyserver haben, stellen Sie zusammen mit Ihrem Netzwerkteam sicher, dass die folgenden URLs und IP-Adressen Zugriff haben:<br/> <br> **URLs**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**IP-Adressen**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Wiederholen Sie nach Abschluss der vorherigen Problembehandlungsschritte den Registrierungsvorgang.<br></br> Wenn Ihre Verbindung über Azure ExpressRoute hergestellt wird, stellen Sie sicher, dass die Einstellungen wie unter [Azure ExpressRoute-Unterstützung](backup-support-matrix-mars-agent.md#azure-expressroute-support) beschrieben konfiguriert sind.
 | **Antivirensoftware blockiert die Registrierung** | Wenn Sie auf dem Server Antivirensoftware installiert haben, fügen Sie den Virenscans die erforderlichen Ausschlussregeln für die folgenden Dateien und Ordner hinzu: <br/><ul> <li> CBengine.exe <li> CSC.exe<li> Ablageordner. Der Standardspeicherort ist C:\Programme\Microsoft Azure Recovery Services Agent\Scratch. <li> Ordner „Bin“ im Pfad C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
@@ -57,29 +57,29 @@ Wir empfehlen, die folgenden Prüfungen durchzuführen, bevor Sie mit der Proble
 1. Führen Sie an einer Eingabeaufforderung mit erhöhten Rechten den Befehl `psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"` aus.
 
    Dieser Befehl öffnet Internet Explorer.
-1. Navigieren Sie zu **Extras** > **Internetoptionen** > **Verbindungen** > **LAN-Einstellungen** .
+1. Navigieren Sie zu **Extras** > **Internetoptionen** > **Verbindungen** > **LAN-Einstellungen**.
 1. Überprüfen Sie die Proxyeinstellungen für das Systemkonto.
 1. Wenn kein Proxy konfiguriert ist, jedoch Details für den Proxy angegeben sind, entfernen Sie die Details ein.
-1. Wenn ein Proxy konfiguriert ist und die Details für den Proxy falsch sind, sorgen Sie für eine korrekte Angabe von **Proxy-IP** und **Port** .
+1. Wenn ein Proxy konfiguriert ist und die Details für den Proxy falsch sind, sorgen Sie für eine korrekte Angabe von **Proxy-IP** und **Port**.
 1. Schließen Sie Internet Explorer.
 
 ## <a name="unable-to-download-vault-credential-file"></a>Herunterladen der Datei mit Tresoranmeldeinformationen nicht möglich
 
 | Fehler   | Empfohlene Aktionen |
 | ---     | ---    |
-|Fehler beim Herunterladen der Datei mit Tresoranmeldeinformationen. (ID: 403) | <ul><li> Versuchen Sie in einem anderen Browser, die Anmeldeinformationen für den Tresor herunterzuladen, oder führen Sie die folgenden Schritte aus: <ul><li> Starten Sie Internet Explorer. Wählen Sie F12 aus. </li><li> Navigieren Sie zur Registerkarte **Netzwerk** , und löschen Sie den Cache und die Cookies. </li> <li> Aktualisieren Sie die Seite.<br></li></ul> <li> Prüfen Sie, ob das Abonnement deaktiviert/abgelaufen ist.<br></li> <li> Prüfen Sie, ob eine Firewallregel das Herunterladen blockiert. <br></li> <li> Stellen Sie sicher, dass Sie den Grenzwert für den Tresor (50 Computer pro Tresor) nicht überschritten haben.<br></li>  <li> Stellen Sie sicher, dass der Benutzer über die Azure Backup-Berechtigungen verfügt, die erforderlich sind, um Tresoranmeldeinformationen herunterzuladen und einen Server beim Tresor zu registrieren. Informationen finden Sie unter [Verwenden der rollenbasierten Zugriffssteuerung in Azure zum Verwalten von Azure Backup-Wiederherstellungspunkten](backup-rbac-rs-vault.md).</li></ul> |
+|Fehler beim Herunterladen der Datei mit Tresoranmeldeinformationen. (ID: 403) | <ul><li> Versuchen Sie in einem anderen Browser, die Anmeldeinformationen für den Tresor herunterzuladen, oder führen Sie die folgenden Schritte aus: <ul><li> Starten Sie Internet Explorer. Wählen Sie F12 aus. </li><li> Navigieren Sie zur Registerkarte **Netzwerk**, und löschen Sie den Cache und die Cookies. </li> <li> Aktualisieren Sie die Seite.<br></li></ul> <li> Prüfen Sie, ob das Abonnement deaktiviert/abgelaufen ist.<br></li> <li> Prüfen Sie, ob eine Firewallregel das Herunterladen blockiert. <br></li> <li> Stellen Sie sicher, dass Sie den Grenzwert für den Tresor (50 Computer pro Tresor) nicht überschritten haben.<br></li>  <li> Stellen Sie sicher, dass der Benutzer über die Azure Backup-Berechtigungen verfügt, die erforderlich sind, um Tresoranmeldeinformationen herunterzuladen und einen Server beim Tresor zu registrieren. Informationen finden Sie unter [Verwenden der rollenbasierten Zugriffssteuerung in Azure zum Verwalten von Azure Backup-Wiederherstellungspunkten](backup-rbac-rs-vault.md).</li></ul> |
 
 ## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>Es konnte keine Verbindung zwischen dem Microsoft Azure Recovery Services-Agent und Microsoft Azure Backup hergestellt werden.
 
 | Fehler  | Mögliche Ursache | Empfohlene Aktionen |
 | ---     | ---     | ---    |
-| <br /><ul><li>Es konnte keine Verbindung zwischen dem Microsoft Azure Recovery Services-Agent und Microsoft Azure Backup hergestellt werden. (ID: 100050) Überprüfen Sie Ihre Netzwerkeinstellungen, und stellen Sie sicher, dass Sie eine Verbindung mit dem Internet herstellen können.<li>(407) Proxyauthentifizierung erforderlich. |Ein Proxy blockiert die Verbindung. |  <ul><li>Navigieren Sie in Internet Explorer zu **Extras** > **Internetoptionen** > **Sicherheit** > **Internet** . Wählen Sie **Stufe anpassen** aus, und scrollen Sie zum Abschnitt **Dateidownload** . Wählen Sie **Aktivieren** aus.<p>Sie müssen möglicherweise auch [URLs und IP-Adressen](install-mars-agent.md#verify-internet-access) zu Ihren vertrauenswürdigen Sites in Internet Explorer hinzufügen.<li>Ändern Sie die Einstellungen dahingehend, dass ein Proxyserver verwendet wird. Geben Sie dann die Proxyserverdetails an.<li> Wenn Ihr Computer über einen eingeschränkten Internetzugang verfügt, stellen Sie sicher, dass die Firewalleinstellungen auf dem Computer oder Proxyserver diese [URLs und IP-Adressen](install-mars-agent.md#verify-internet-access) zulassen. <li>Wenn Sie Antivirensoftware auf dem Server installiert haben, schließen Sie die folgenden Dateien vom Virenscan aus: <ul><li>CBEngine.exe (statt dpmra.exe)<li>CSC.exe: (Diese Datei ist mit dem .NET Framework verknüpft.) Für jede auf dem Server installierte .NET Framework-Version gibt es eine Datei namens „CSC.exe“. Schließen Sie Dateien mit dem Namen „CSC.exe“ für alle .NET Framework-Versionen auf dem betroffenen Server aus. <li>Speicherort des Ablageordners oder Caches. <br>Der Standardspeicherort für den Ablageordner oder der Cachepfad lautet „C:\Programme\Microsoft Azure Recovery Services Agent\Scratch“.<li>Ordner „Bin“ im Pfad C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
+| <br /><ul><li>Es konnte keine Verbindung zwischen dem Microsoft Azure Recovery Services-Agent und Microsoft Azure Backup hergestellt werden. (ID: 100050) Überprüfen Sie Ihre Netzwerkeinstellungen, und stellen Sie sicher, dass Sie eine Verbindung mit dem Internet herstellen können.<li>(407) Proxyauthentifizierung erforderlich. |Ein Proxy blockiert die Verbindung. |  <ul><li>Navigieren Sie in Internet Explorer zu **Extras** > **Internetoptionen** > **Sicherheit** > **Internet**. Wählen Sie **Stufe anpassen** aus, und scrollen Sie zum Abschnitt **Dateidownload**. Wählen Sie **Aktivieren** aus.<p>Sie müssen möglicherweise auch [URLs und IP-Adressen](install-mars-agent.md#verify-internet-access) zu Ihren vertrauenswürdigen Sites in Internet Explorer hinzufügen.<li>Ändern Sie die Einstellungen dahingehend, dass ein Proxyserver verwendet wird. Geben Sie dann die Proxyserverdetails an.<li> Wenn Ihr Computer über einen eingeschränkten Internetzugang verfügt, stellen Sie sicher, dass die Firewalleinstellungen auf dem Computer oder Proxyserver diese [URLs und IP-Adressen](install-mars-agent.md#verify-internet-access) zulassen. <li>Wenn Sie Antivirensoftware auf dem Server installiert haben, schließen Sie die folgenden Dateien vom Virenscan aus: <ul><li>CBEngine.exe (statt dpmra.exe)<li>CSC.exe: (Diese Datei ist mit dem .NET Framework verknüpft.) Für jede auf dem Server installierte .NET Framework-Version gibt es eine Datei namens „CSC.exe“. Schließen Sie Dateien mit dem Namen „CSC.exe“ für alle .NET Framework-Versionen auf dem betroffenen Server aus. <li>Speicherort des Ablageordners oder Caches. <br>Der Standardspeicherort für den Ablageordner oder der Cachepfad lautet „C:\Programme\Microsoft Azure Recovery Services Agent\Scratch“.<li>Ordner „Bin“ im Pfad C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
 ## <a name="the-specified-vault-credential-file-cannot-be-used-as-it-is-not-downloaded-from-the-vault-associated-with-this-server"></a>Die angegebene Datei mit Tresoranmeldeinformationen kann nicht verwendet werden, weil sie nicht aus dem Tresor heruntergeladen wird, der diesem Server zugeordnet ist.
 
 | Fehler  | Mögliche Ursache | Empfohlene Aktionen |
 | ---     | ---     | ---    |
-| Die angegebene Datei mit Tresoranmeldeinformationen kann nicht verwendet werden, weil sie nicht aus dem Tresor heruntergeladen wird, der diesem Server zugeordnet ist. (ID: 100110) Geben Sie die entsprechenden Tresoranmeldeinformationen an. | Die Datei mit den Tresoranmeldeinformationen stammt aus einem anderen Tresor als dem, bei dem dieser Server bereits registriert ist. | Stellen Sie sicher, dass der Zielcomputer und der Quellcomputer beim selben Recovery Services-Tresor registriert sind. Wenn der Zielserver bereits bei einem anderen Tresor registriert wurde, verwenden Sie die Option **Server registrieren** , um die Registrierung beim richtigen Tresor auszuführen.  
+| Die angegebene Datei mit Tresoranmeldeinformationen kann nicht verwendet werden, weil sie nicht aus dem Tresor heruntergeladen wird, der diesem Server zugeordnet ist. (ID: 100110) Geben Sie die entsprechenden Tresoranmeldeinformationen an. | Die Datei mit den Tresoranmeldeinformationen stammt aus einem anderen Tresor als dem, bei dem dieser Server bereits registriert ist. | Stellen Sie sicher, dass der Zielcomputer und der Quellcomputer beim selben Recovery Services-Tresor registriert sind. Wenn der Zielserver bereits bei einem anderen Tresor registriert wurde, verwenden Sie die Option **Server registrieren**, um die Registrierung beim richtigen Tresor auszuführen.  
 
 ## <a name="backup-jobs-completed-with-warning"></a>Mit Warnungen abgeschlossene Sicherungsaufträge
 
@@ -93,7 +93,7 @@ Wir empfehlen, die folgenden Prüfungen durchzuführen, bevor Sie mit der Proble
   - Ein anderer störender Prozess (Beispiel: Antivirensoftware, die Handles für Dateien hält, kann den Zugriff auf Dateien durch den MARS-Agent verhindern.)
   - Von einer Anwendung gesperrte Dateien  
 
-- Der Sicherungsdienst kennzeichnet diese Dateien in der Protokolldatei mit der folgenden Namenskonvention als fehlgeschlagen: *LastBackupFailedFilesxxxx.txt* unter dem Ordner *C:\Programme\Microsoft Azure Recovery Service Agent\temp* .
+- Der Sicherungsdienst kennzeichnet diese Dateien in der Protokolldatei mit der folgenden Namenskonvention als fehlgeschlagen: *LastBackupFailedFilesxxxx.txt* unter dem Ordner *C:\Programme\Microsoft Azure Recovery Service Agent\temp*.
 - Sehen Sie sich zur Behebung dieses Problems die Protokolldatei an, um die Art des Problems zu verstehen:
 
   | Fehlercode             | Ursachen                                             | Empfehlungen                                              |
@@ -133,11 +133,11 @@ Wenn geplante Sicherungen nicht automatisch ausgelöst werden, manuelle Sicherun
 
 - Stellen Sie sicher, dass der Status der Onlinesicherung auf **Aktiviert** eingestellt ist. Zum Überprüfen des Status führen Sie die folgenden Schritte aus:
 
-  1. Erweitern Sie im Taskplaner die Option **Microsoft** , und wählen Sie **Onlinesicherung** aus.
-  1. Doppelklicken Sie auf **Microsoft-OnlineBackup** , und wechseln Sie zur Registerkarte **Trigger** .
-  1. Überprüfen Sie, ob der Status auf **Aktiviert** festgelegt ist. Wenn dies nicht der Fall ist, wählen Sie **Bearbeiten** , **Aktiviert** und dann **OK** aus.
+  1. Erweitern Sie im Taskplaner die Option **Microsoft**, und wählen Sie **Onlinesicherung** aus.
+  1. Doppelklicken Sie auf **Microsoft-OnlineBackup**, und wechseln Sie zur Registerkarte **Trigger**.
+  1. Überprüfen Sie, ob der Status auf **Aktiviert** festgelegt ist. Wenn dies nicht der Fall ist, wählen Sie **Bearbeiten**, **Aktiviert** und dann **OK** aus.
 
-- Stellen Sie sicher, dass das für die Ausführung der Aufgabe ausgewählte Benutzerkonto **SYSTEM** oder der Gruppe **Lokale Administratoren** auf dem Server entspricht. Zum Überprüfen des Benutzerkontos wechseln Sie zur Registerkarte **Allgemein** , und überprüfen Sie die **Sicherheitsoptionen** .
+- Stellen Sie sicher, dass das für die Ausführung der Aufgabe ausgewählte Benutzerkonto **SYSTEM** oder der Gruppe **Lokale Administratoren** auf dem Server entspricht. Zum Überprüfen des Benutzerkontos wechseln Sie zur Registerkarte **Allgemein**, und überprüfen Sie die **Sicherheitsoptionen**.
 
 - Stellen Sie sicher, dass PowerShell 3.0 oder höher auf dem Server installiert ist. Zum Überprüfen der PowerShell-Version führen Sie den folgenden Befehl aus, und prüfen Sie, ob die Hauptversionsnummer (`Major`) 3 oder höher ist:
 
@@ -180,13 +180,13 @@ Wenn Sie in der **MARS-Konsole** unter **Auftragsverlauf** eine Warnmeldung ange
 So lösen Sie das Problem:
 
 1. Starten Sie das Snap-in „Taskplaner“, indem Sie *taskschd. msc* im Fenster „Ausführen“ eingeben.
-1. Navigieren Sie im linken Bereich zu **Taskplanerbibliothek** -> **Microsoft** -> **Onlinebackup** .
+1. Navigieren Sie im linken Bereich zu **Taskplanerbibliothek** -> **Microsoft** -> **Onlinebackup**.
 1. Doppelklicken Sie für jede Aufgabe in dieser Bibliothek auf die Aufgabe, um die Eigenschaften zu öffnen, und führen Sie die folgenden Schritte aus:
-    1. Wechseln Sie zur Registerkarte **Einstellungen** .
+    1. Wechseln Sie zur Registerkarte **Einstellungen**.
 
          ![Registerkarte "Einstellungen"](./media/backup-azure-mars-troubleshoot/settings-tab.png)
 
-    1. Ändern Sie die Option für **Folgende Regel anwenden, falls die Aufgabe bereits ausgeführt wird** in **Keine neue Instanz starten** .
+    1. Ändern Sie die Option für **Folgende Regel anwenden, falls die Aufgabe bereits ausgeführt wird** in **Keine neue Instanz starten**.
 
          ![Ändern Sie die Regel so, dass keine neue Instanz gestartet wird.](./media/backup-azure-mars-troubleshoot/change-rule.png)
 
@@ -198,17 +198,17 @@ Azure Backup kann das Wiederherstellungsvolume möglicherweise auch nach einigen
 
 2. Prüfen Sie, ob Sie über die neueste Version des Backup-Agents verfügen. Wählen Sie zum Ermitteln der Version im Bereich **Aktionen** der MARS-Konsole die Option **Informationen zum Microsoft Azure Recovery Services-Agent** aus. Bestätigen Sie, dass die **Versionsnummer** gleich oder höher als die in [diesem Artikel](https://go.microsoft.com/fwlink/?linkid=229525) erwähnte Version ist. Wählen Sie diesen Link zum [Herunterladen der aktuellen Version](https://go.microsoft.com/fwLink/?LinkID=288905) aus.
 
-3. Wechseln Sie zu **Geräte-Manager** > **Speichercontroller** , und suchen Sie nach **Microsoft iSCSI-Initiator** . Wenn Sie diese Option finden, fahren Sie direkt mit Schritt 7 fort.
+3. Wechseln Sie zu **Geräte-Manager** > **Speichercontroller**, und suchen Sie nach **Microsoft iSCSI-Initiator**. Wenn Sie diese Option finden, fahren Sie direkt mit Schritt 7 fort.
 
-4. Wenn der Microsoft iSCSI-Initiator-Dienst nicht vorhanden ist, suchen Sie unter **Geräte-Manager** > **Speichercontroller** nach dem Eintrag **Unbekanntes Gerät** mit der Hardware-ID **ROOT\ISCSIPRT** .
+4. Wenn der Microsoft iSCSI-Initiator-Dienst nicht vorhanden ist, suchen Sie unter **Geräte-Manager** > **Speichercontroller** nach dem Eintrag **Unbekanntes Gerät** mit der Hardware-ID **ROOT\ISCSIPRT**.
 
-5. Klicken Sie mit der rechten Maustaste auf **Unbekanntes Gerät** , und wählen Sie **Treibersoftware aktualisieren** aus.
+5. Klicken Sie mit der rechten Maustaste auf **Unbekanntes Gerät**, und wählen Sie **Treibersoftware aktualisieren** aus.
 
-6. Aktualisieren Sie den Treiber durch Auswählen der Option **Automatisch nach aktueller Treibersoftware suchen** . Nach Abschluss des Updates sollte **Unbekanntes Gerät** durch **Microsoft iSCSI-Initiator** ersetzt werden:
+6. Aktualisieren Sie den Treiber durch Auswählen der Option **Automatisch nach aktueller Treibersoftware suchen**. Nach Abschluss des Updates sollte **Unbekanntes Gerät** durch **Microsoft iSCSI-Initiator** ersetzt werden:
 
     ![Screenshot des Geräte-Managers von Azure Backup mit hervorgehobener Option „Speichercontroller“](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
 
-7. Wechseln Sie zu **Task-Manager** > **Dienste (lokal)**  > **Microsoft iSCSI-Initiator-Dienst** :
+7. Wechseln Sie zu **Task-Manager** > **Dienste (lokal)**  > **Microsoft iSCSI-Initiator-Dienst**:
 
     ![Screenshot des Task-Managers von Azure Backup mit hervorgehobener Option „Dienste (lokal)“](./media/backup-azure-restore-windows-server/MicrosoftInitiatorServiceRunning.png)
 

@@ -3,12 +3,12 @@ title: Übersicht über die Architektur
 description: Übersicht über die Architektur, die Komponenten und die Prozesse des Azure Backup-Diensts.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: f5d4c881244ddae41ba4c706812bd7b8274a374e
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 288b073c20b93bf1802f34f5dcd17b12430bb279
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173271"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427733"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup-Architektur und -Komponenten
 
@@ -35,7 +35,7 @@ Erfahren Sie mehr über die [sicherbaren Elemente](backup-overview.md) und über
 
 ## <a name="where-is-data-backed-up"></a>Wo werden die Daten gesichert?
 
-Azure Backup speichert gesicherte Daten in Tresoren: Recovery Services-Tresoren und Sicherungstresoren. Ein Tresor ist eine Onlinespeicherentität in Azure, die zum Speichern von Daten wie Sicherungskopien, Wiederherstellungspunkten und Sicherungsrichtlinien verwendet wird.
+Azure Backup speichert gesicherte Daten in Tresoren: in Recovery Services-Tresoren und Azure Backup-Tresoren. Ein Tresor ist eine Onlinespeicherentität in Azure, die zum Speichern von Daten wie Sicherungskopien, Wiederherstellungspunkten und Sicherungsrichtlinien verwendet wird.
 
 Tresore bieten die folgenden Features:
 
@@ -87,7 +87,7 @@ Speicherverbrauch, RTO (Recovery Time Objective) und Netzwerkauslastung variiere
 
 - Die Datenquelle A besteht aus 10 Speicherblöcken (A1–A10), die monatlich gesichert werden.
 - Die Blöcke A2, A3, A4 und A9 ändern sich im ersten Monat, der Block A5 ändert sich im nächsten Monat.
-- Bei einer differenziellen Sicherung werden im zweiten Monat die geänderten Blöcke A2, A3, A4 und A9 gesichert. Im dritten Monat werden die gleichen Blöcke erneut gesichert – zusammen mit dem geänderten Block A5. Die geänderten Blöcke werden bis zur nächsten vollständigen Sicherung immer wieder gesichert.
+- Bei differenziellen Sicherungen werden im zweiten Monat die geänderten Blöcke A2, A3, A4 und A9 gesichert. Im dritten Monat werden die gleichen Blöcke erneut gesichert – zusammen mit dem geänderten Block A5. Die geänderten Blöcke werden bis zur nächsten vollständigen Sicherung immer wieder gesichert.
 - Bei inkrementellen Sicherungen werden die Blöcke A2, A3, A4 und A9 im zweiten Monat als geändert gekennzeichnet und übertragen. Im dritten Monat wird nur der geänderte Block A5 gekennzeichnet und übertragen.
 
 ![Vergleichsdarstellung von Sicherungsmethoden](./media/backup-architecture/backup-method-comparison.png)
@@ -123,6 +123,12 @@ Sicherung deduplizierter Datenträger | | | ![Teilweise][yellow]<br/><br/> Nur f
 - Die Aufbewahrung für die Sicherungspunkte „monatlich“ und „jährlich“ wird als „Langzeitaufbewahrung“ (Long Term Retention, LTR) bezeichnet.
 - Wenn ein Tresor erstellt wurde, wird auch eine Standardrichtlinie mit dem Namen „DefaultPolicy“ erstellt. Diese kann zum Sichern von Ressourcen verwendet werden.
 - Jede Änderung der Aufbewahrungsdauer für eine Sicherungsrichtlinie wird nicht nur auf neue Wiederherstellungspunkte, sondern auch rückwirkend auf alle älteren Wiederherstellungspunkte angewendet.
+
+### <a name="impact-of-policy-change-on-recovery-points"></a>Auswirkung von Richtlinienänderungen auf Wiederherstellungspunkte
+
+- **Erhöhte/gesenkte Aufbewahrungsdauer:** Wenn die Aufbewahrungsdauer geändert wird, wird die neue Aufbewahrungsdauer auch auf die vorhandenen Wiederherstellungspunkte angewendet. Das resultiert darin, dass einige Wiederherstellungspunkte bereinigt werden. Wenn der Aufbewahrungszeitraum erhöht wird, wird auch die Aufbewahrung der vorhandenen Wiederherstellungspunkte verlängert.
+- **Änderung von täglich in wöchentlich:** Wenn die geplanten Sicherungen von täglich in wöchentlich geändert werden, werden die vorhandenen täglichen Wiederherstellungspunkte bereinigt.
+- **Änderung von wöchentlich in täglich:** Die vorhandenen wöchentlichen Sicherungen werden entsprechend der aktuellen Aufbewahrungsrichtlinie basierend auf der Anzahl der verbleibenden Tage beibehalten.
 
 ### <a name="additional-reference"></a>Zusätzliche Referenz
 

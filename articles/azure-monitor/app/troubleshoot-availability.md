@@ -4,48 +4,44 @@ description: Behandeln von Problemen mit Webtests in Azure Application Insights 
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 04/28/2020
+ms.date: 11/19/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 0ac8dd189bee1c1d4f5a7a4d0f7de68b085fbc56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 368c45433247c441631bdf79bfc9caa28a41f1b4
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318146"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546748"
 ---
 # <a name="troubleshooting"></a>Problembehandlung
 
 Dieser Artikel soll Ihnen beim Behandeln von häufig bei der Verfügbarkeitsüberwachung auftretenden Problemen helfen.
 
-## <a name="ssltls-errors"></a>SSL-/TLS-Fehler
+## <a name="troubleshooting-report-steps-for-ping-tests"></a>Schritte im Problembehandlungsbericht für Pingtests
 
-|Symptom/Fehlermeldung| Mögliche Ursachen|
-|--------|------|
-|Es konnte kein sicherer SSL-/TLS-Kanal erstellt werden.  | SSL-Version. Es werden nur die TLS-Versionen 1.0, 1.1 und 1.2 unterstützt **SSLv3 wird nicht unterstützt.**
-|TLSv1.2-Datensatzebene: Warnung (Stufe: Schwerwiegend, Beschreibung: Ungültiger MAC-Datensatz)| [Weitere Informationen](https://security.stackexchange.com/questions/39844/getting-ssl-alert-write-fatal-bad-record-mac-during-openssl-handshake) finden Sie im StackExchange-Thread.
-|Fehlgeschlagene URL verweist auf ein CDN (Content Delivery Network) | Dieses Fehler kann durch einen Konfigurationsfehler auf Ihrem CDN hervorgerufen werden. |  
+Der Problembehandlungsbericht ermöglicht Ihnen eine einfache Diagnose häufig auftretender Probleme, die zu Fehlern bei **Pingtests** führen.
 
-### <a name="possible-workaround"></a>Mögliche Problemumgehung
+![Animation der Navigation von der Registerkarte „Verfügbarkeit“ über die Auswahl eines Fehlers zu den End-to-End-Transaktionsdetails zum Anzeigen des Problembehandlungsberichts](./media/troubleshoot-availability/availability-to-troubleshooter.gif)
 
-* Wenn die URLs, für die die Probleme bestehen, immer auf Ressourcen verweisen, wird empfohlen, die Option **Abhängige Anforderungen analysieren** für Webtests zu deaktivieren.
-
-## <a name="test-fails-only-from-certain-locations"></a>Der Test schlägt nur fehl, wenn er an bestimmten Orten ausgeführt wird
-
-|Symptom/Fehlermeldung| Mögliche Ursachen|
-|----|---------|
-|Ein Verbindungsversuch ist fehlgeschlagen, weil die Partei, mit der eine Verbindung hergestellt werden sollte, in einem bestimmten Zeitraum nicht reagiert hat.  | Test-Agents werden an bestimmten Orten von einer Firewall blockiert.|
-|    |Die Umleitung von bestimmten IP-Adressen erfolgt über (Lastenausgleichsmodule, Geo-Traffic-Manager, Azure ExpressRoute) 
-|    |Bei der Verwendung von Azure ExpressRoute können Pakete im Fall von [asymmetrischem Routing](../../expressroute/expressroute-asymmetric-routing.md) gelöscht werden.|
-
-## <a name="test-failure-with-a-protocol-violation-error"></a>Testfehler aufgrund einer Protokollverletzung
-
-|Symptom/Fehlermeldung| Mögliche Ursachen| Mögliche Lösungen |
-|----|---------|-----|
-|Beim Server ist eine Protokollverletzung aufgetreten. Auf Section=ResponseHeader Detail=CR muss LF folgen. | Dieses Problem entsteht, wenn falsch formatierte Header gefunden werden. Genauer gesagt geben einige Header unter Umständen das Zeilenende nicht mit CRLF an, was gegen die HTTP-Spezifikation verstößt. Application Insights erzwingt diese HTTP-Spezifikation, und Antworten mit falsch formatierten Headern schlagen fehl.| a. Wenden Sie sich an den Website-Hostanbieter/CDN-Anbieter, um die fehlerhaften Server zu korrigieren. <br> b. Falls es sich bei den fehlgeschlagenen Anforderungen um Ressourcen (z.B. Formatdateien, Bilder, Skripts) handelt, empfiehlt es sich, das Analysieren abhängiger Anforderungen zu deaktivieren. Denken Sie daran, dass Sie in diesem Fall die Verfügbarkeit dieser Dateien nicht mehr überwachen können.
+1. Wählen Sie auf der Registerkarte „Verfügbarkeit“ der Application Insights-Ressource die gesamten oder einen bestimmten Verfügbarkeitstest aus.
+2. Wählen Sie entweder **Fehlerhaft** und dann einen Test unter „Drilldown“ auf der linken Seite aus, oder wählen Sie einen der Punkte im Punktdiagramm aus.
+3. Wählen Sie auf der Seite mit den End-to-End-Transaktionsdetails ein Ereignis aus, und wählen Sie dann unter der Übersicht über Problembehandlungsberichte die Option **[Gehe zu Schritt]** aus, um den Problembehandlungsbericht anzuzeigen.
 
 > [!NOTE]
-> Bei der URL tritt in Browsern mit einer nicht so strengen Validierung von HTTP-Headern unter Umständen kein Fehler auf. Eine ausführliche Erläuterung des Problems finden Sie in diesem Blogbeitrag: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/.  
+>  Wenn der Schritt zur Wiederverwendung von Verbindungen vorhanden ist, sind die Schritte für DNS-Auflösung, Verbindungsherstellung und TLS-Transport nicht vorhanden.
 
+|Schritt | Fehlermeldung | Mögliche Ursache |
+|-----|---------------|----------------|
+| Wiederverwendung von Verbindungen | – | Hängt in der Regel von einer zuvor hergestellten Verbindung ab. Das bedeutet, dass der Webtestschritt davon abhängig ist. Es ist also kein DNS-, Verbindungs- oder SSL-Schritt erforderlich. |
+| DNS-Auflösung | Der Remotename konnte nicht aufgelöst werden: „Ihre URL“ | Der DNS-Auflösungsprozess ist wahrscheinlich aufgrund von falsch konfigurierten DNS-Einträgen oder vorübergehenden DNS-Serverfehlern fehlgeschlagen. |
+| Verbindungsherstellung | Ein Verbindungsversuch ist fehlgeschlagen, weil die Partei, mit der eine Verbindung hergestellt werden sollte, in einem bestimmten Zeitraum nicht reagiert hat. | Im Allgemeinen bedeutet dies, dass Ihr Server nicht auf die HTTP-Anforderung reagiert. Eine häufige Ursache ist, dass unsere Test-Agents durch eine Firewall auf Ihrem Server blockiert werden. Wenn Sie Tests innerhalb eines virtuellen Azure-Netzwerks ausführen möchten, sollten Sie Ihrer Umgebung das Diensttag für Verfügbarkeit hinzufügen.|
+| TLS-Transport  | Client und Server können nicht kommunizieren, da sie keinen gemeinsamen Algorithmus besitzen.| Es werden nur die TLS-Versionen 1.0, 1.1 und 1.2 unterstützt SSL wird nicht unterstützt. In diesem Schritt werden SSL-Zertifikate nicht überprüft, und es wird nur eine sichere Verbindung hergestellt. Dieser Schritt wird nur angezeigt, wenn ein Fehler auftritt. |
+| Empfang des Antwortheaders | Es können keine Daten aus der Transportverbindung gelesen werden. Die Verbindung wurde geschlossen. | Beim Server ist ein Protokollfehler im Antwortheader aufgetreten. Beispielsweise wird die Verbindung vom Server geschlossen, wenn die Antwort nicht vollständig ist. |
+| Empfang des Antworttextes | Es können keine Daten aus der Transportverbindung gelesen werden: Die Verbindung wurde geschlossen. | Beim Server ist ein Protokollfehler im Antworttext aufgetreten. Beispielsweise wird die Verbindung vom Server geschlossen, wenn die Antwort nicht vollständig gelesen wird oder die Segmentgröße im segmentierten Antworttext falsch ist. |
+| Prüfung der Weiterleitungsbeschränkung | Diese Webseite weist zu viele Weiterleitungen auf. Diese Schleife wird hier beendet, da die Anforderung das Limit für automatische Weiterleitungen überschritten hat. | Pro Test können maximal 10 Weiterleitungen verwendet werden. |
+| Überprüfung des Statuscodes | `200 - OK` stimmt nicht mit dem erwarteten Status `400 - BadRequest` überein. | Der zurückgegebene Statuscode, der als Erfolg gezählt wird. 200 ist der Code, der angibt, dass eine normale Webseite zurückgegeben wurde. |
+| Validierung von Inhalten | Der erforderliche Text „hello“ war nicht in der Antwort enthalten. | Die Zeichenfolge stimmt unter Berücksichtigung der Groß- und Kleinschreibung in der Antwort nicht exakt überein, z. B. die Zeichenfolge „Welcome!“. Hierbei muss es sich um eine einfache Zeichenfolge ohne Platzhalterzeichen (z. B. ein Sternchen) handeln. Wenn sich der Seiteninhalt ändert, müssen Sie die Zeichenfolge möglicherweise aktualisieren. Inhaltsübereinstimmungen werden nur für englische Zeichen unterstützt. |
+  
 ## <a name="common-troubleshooting-questions"></a>Allgemeine Fragen zur Problembehandlung
 
 ### <a name="site-looks-okay-but-i-see-test-failures-why-is-application-insights-alerting-me"></a>Die Website sieht korrekt aus, aber ich sehe Testfehler. Warum warnt mich Application Insights?
@@ -54,7 +50,7 @@ Dieser Artikel soll Ihnen beim Behandeln von häufig bei der Verfügbarkeitsübe
 
    * Stellen Sie sicher, dass die Konfigurationsoption „Enable retries for test failures“ (Weitere Versuche bei Testfehlern zulassen) aktiviert ist, um Störungen infolge vorübergehender Netzwerkprobleme zu verringern. Sie können den Test auch an mehreren Standorten durchführen und den Schwellenwert der Warnungsregel entsprechen verwalten, um zu verhindern, dass standortspezifische Probleme übermäßige Warnungen auslösen.
 
-   * Klicken Sie auf einen der roten Punkte in der Verfügbarkeitserfahrung oder auf einen Verfügbarkeitsfehler im Such-Explorer, um die Details anzuzeigen, warum wir den Fehler gemeldet haben. Das Testergebnis sollte, zusammen mit der korrelierten serverseitigen Telemetrie (sofern aktiviert), Aufschluss darüber geben, warum der Test nicht erfolgreich war. Häufige Ursachen für vorübergehende Probleme sind Netzwerk- oder Verbindungsprobleme.
+   * Klicken Sie auf einen der roten Punkte im Punktdiagramm zur Verfügbarkeit oder auf einen Verfügbarkeitsfehler im Such-Explorer, um die Details anzuzeigen, warum wir den Fehler gemeldet haben. Das Testergebnis sollte, zusammen mit der korrelierten serverseitigen Telemetrie (sofern aktiviert), Aufschluss darüber geben, warum der Test nicht erfolgreich war. Häufige Ursachen für vorübergehende Probleme sind Netzwerk- oder Verbindungsprobleme.
 
    * Kam es beim Test zum Timeout? Wir brechen Tests nach 2 Minuten ab. Wenn Ihr Ping- oder mehrstufiger Test länger als zwei Minuten dauert, melden wir ihn als Fehler. Erwägen Sie, den Test in mehrere aufzuteilen, die sich schneller abschließen lassen.
 
@@ -134,4 +130,3 @@ Verwenden Sie die neue Benutzeroberfläche für Warnungen/Warnungen nahezu in Ec
 
 * [Multi-step web testing (Mehrstufiger Webtest)](availability-multistep.md)
 * [URL ping tests (URL-Pingtests)](monitor-web-app-availability.md)
-

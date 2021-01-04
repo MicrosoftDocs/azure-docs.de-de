@@ -39,6 +39,8 @@
       href: restart-resize-error-troubleshooting.md
     - name: 'Neustarten, Herunterfahren oder Beenden von Diensten'
       href: boot-error-troubleshoot-windows.md
+    - name: Probleme mit einem vollen Betriebssystemdatenträger auf einer Linux-VM
+      href: os-disk-full-linux.md
 - name: Unerwarteter Neustart
   items:
     - name: Unerwartete Neustarts von virtuellen Computern mit angefügten VHDs
@@ -109,14 +111,20 @@
           href: unresponsive-vm-apply-group-policy.md
         - name: 'Der virtuelle Computer reagiert nicht, wenn eine Sicherheitsrichtlinie angewendet wird.'
           href: unresponsive-vm-apply-security-policy.md
+        - name: 'Der virtuelle Computer reagiert nicht, während auf den lokalen Sitzungs-Manager gewartet wird.'
+          href: vm-unresponsive-wait-local-session-manager.md
         - name: 'Windows-Start-Manager-Fehler: ungültiger Imagehash (Status)'
           href: windows-boot-error-invalid-image-hash.md
         - name: 'Windows-kritischer Fehler: Fehlerhafte Systemkonfigurationsinformationen'
           href: windows-stop-error-bad-system-config-info.md
+        - name: 'Windows-kritischer Fehler: Hardwarefehler'
+          href: windows-stop-error-hardware-malfunction.md
         - name: 'Windows-kritischer Fehler: Status „Nicht genügend Arbeitsspeicher“'
           href: troubleshoot-windows-stop-error.md
         - name: 'Windows-kritischer Fehler: Systemprozess beendet'
           href: windows-stop-error-system-process-terminated.md
+        - name: 'Windows-kritischer Fehler: Systemthreadausnahme nicht behandelt'
+          href: windows-stop-error-system-thread-exception-not-handled.md
 - name: Es kann keine Verbindung mit meinem virtuellen Computer hergestellt werden
   items:
     - name: RDP
@@ -254,6 +262,8 @@
       href: install-vm-agent-offline.md
     - name: Problembehandlung für den Windows-VM-Agent
       href: windows-azure-guest-agent.md
+    - name: Problembehandlung für den Linux-VM-Agent
+      href: linux-azure-guest-agent.md
 - name: Sichern und Wiederherstellen
   items:
     - name: Behandeln von Sicherungsfehlern auf einem virtuellen Azure-Computer
@@ -334,7 +344,7 @@
 - name: Probleme beim Migrieren und Verschieben
   items:
     - name: "Häufig gestellte Fragen zur Azure\_Resource\_Manager-Migration (ASM zu ARM)"
-      href: ../windows/migration-classic-resource-manager-overview.md
+      href: ../migration-classic-resource-manager-overview.md
 - name: Geplante Wartung
   items:
     - name: Übersicht

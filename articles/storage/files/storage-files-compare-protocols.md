@@ -4,20 +4,20 @@ description: Erfahren Sie mehr über die verfügbaren Protokolle, bevor Sie eine
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 5149024f8621754451520e0ae249ed61f0b07f99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 288d1740c1c4c67dd8756de5fc0652966ae89488
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568470"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620973"
 ---
 # <a name="azure-file-share-protocols"></a>Azure-Dateifreigabeprotokolle
 
-Azure Files bietet zwei Protokolle zum Verbinden und Einbinden Ihrer Azure-Dateifreigaben. Das [Server Message Block(SMB)-Protokoll](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) und das [Network File System(NFS)-Protokoll](https://en.wikipedia.org/wiki/Network_File_System) (Vorschau). Azure Files unterstützt derzeit nicht den Zugriff auf mehrere Protokolle, daher kann eine Freigabe entweder eine NFS-Freigabe oder eine SMB-Freigabe sein. Aus diesem Grund wird empfohlen, vor dem Erstellen von Azure-Dateifreigaben zu bestimmen, welches Protokoll Ihren Anforderungen am besten entspricht.
+Azure Files bietet zwei Protokolle zum Verbinden und Einbinden Ihrer Azure-Dateifreigaben. Das [Server Message Block(SMB)-Protokoll](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) und das [Network File System(NFS)-Protokoll](https://en.wikipedia.org/wiki/Network_File_System) (Vorschau). Azure Files unterstützt derzeit nicht den Zugriff auf mehrere Protokolle, daher kann eine Freigabe entweder eine NFS-Freigabe oder eine SMB-Freigabe sein. Aus diesem Grund wird empfohlen, vor dem Erstellen von Azure-Dateifreigaben zu bestimmen, welches Protokoll Ihren Anforderungen am besten entspricht.
 
 ## <a name="differences-at-a-glance"></a>Im Vergleich
 
@@ -26,7 +26,7 @@ Azure Files bietet zwei Protokolle zum Verbinden und Einbinden Ihrer Azure-Datei
 |Zugriffsprotokolle     |NFS 4.1         |SMB 2.1, SMB 3.0         |
 |Unterstütztes Betriebssystem     |Linux-Kernelversion 4.3 und höher         |Windows 2008 R2 und höher, Linux-Kernel Version 4.11 und höher         |
 |[Verfügbare Tarife](storage-files-planning.md#storage-tiers)     |Storage Premium         |Storage Premium, transaktionsoptimiert, heiß, kalt         |
-|[Redundanz](storage-files-planning.md#redundancy)     |LRS         |LRS, ZRS, GRS         |
+|[Redundanz](storage-files-planning.md#redundancy)     |LRS, ZRS         |LRS, ZRS, GRS         |
 |Authentifizierung     |Nur Host-basierte Authentifizierung        |Identitätsbasierte Authentifizierung, benutzerbasierte Authentifizierung         |
 |Berechtigungen     |Berechtigungen im UNIX-Format         |Berechtigungen im NTFS-Format         |
 |Dateisystemsemantik     |POSIX-kompatibel         |Nicht POSIX-kompatibel         |
@@ -64,7 +64,7 @@ Alle Azure Files-Daten werden im Ruhezustand verschlüsselt. Für die Verschlüs
 - [Anforderungen von einem privaten Endpunkt](storage-files-networking-overview.md#private-endpoints)
 - [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
     - [Anforderungen von einem Point-to-Site-VPN](../../vpn-gateway/point-to-site-about.md)
-    - [Standort-zu-Standort](https://docs.microsoft.com/azure/vpn-gateway/design#s2smulti)
+    - [Standort-zu-Standort](../../vpn-gateway/design.md#s2smulti)
 - [ExpressRoute](../../expressroute/expressroute-introduction.md)
 - [Anforderungen von einem eingeschränkten öffentlichen Endpunkt](storage-files-networking-overview.md#storage-account-firewall-settings)
 

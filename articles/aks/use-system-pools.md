@@ -5,13 +5,13 @@ services: container-service
 ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 2cb6ed265d3e94c2c162381dfb80ba0c5427a71f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: fasttrack-edit, devx-track-azurecli
+ms.openlocfilehash: 9c9479fca538c36f4f5eb430c4befb76e39370e6
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888954"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900025"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Verwalten von Systemknotenpools in Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ Im Azure Kubernetes Service (AKS) werden Knoten derselben Konfiguration zu *Knot
 Die folgenden Einschränkungen gelten für die Erstellung und Verwaltung von AKS-Clustern, die Systemknotenpools unterstützen.
 
 * Siehe [Kontingente, Größeneinschränkungen für virtuelle Computer und regionale Verfügbarkeit in Azure Kubernetes Service (AKS)][quotas-skus-regions].
-* Der AKS-Cluster muss mit VM-Skalierungsgruppen als VM-Typ sowie dem Load Balancer der *Standard*-SKU erstellt werden.
+* Der AKS-Cluster muss mit VM-Skalierungsgruppen als VM-Typ sowie dem Load Balancer der *Standard* -SKU erstellt werden.
 * Der Name eines Knotenpools darf nur Kleinbuchstaben und Ziffern enthalten und muss mit einem Kleinbuchstaben beginnen. Bei Linux-Knotenpools muss die Länge zwischen 1 und 12 Zeichen betragen. Bei Windows-Knotenpools muss die Länge zwischen 1 und 6 Zeichen betragen.
 * Zum Festlegen des Modus für einen Knotenpool muss eine API der Version 2020-03-01 oder höher verwendet werden. Cluster, die in älteren API-Versionen als 2020-03-01 erstellt werden, enthalten nur Benutzerknotenpools, können aber durch Ausführen der Schritte zum [Aktualisieren des Poolmodus](#update-existing-cluster-system-and-user-node-pools) migriert werden, sodass sie Systemknotenpools enthalten.
 * Der Modus eines Knotenpools ist eine erforderliche Eigenschaft und muss explizit festgelegt werden, wenn ARM-Vorlagen oder direkte API-Aufrufe verwendet werden.
@@ -101,7 +101,7 @@ Mit dem folgenden Befehl können Sie die Details zu Ihrem Knotenpool anzeigen.
 az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n systempool
 ```
 
-Für Systemknotenpools wurde ein Modus vom Typ **system** definiert, für Benutzerknotenpools ein Modus vom Typ **user**. Vergewissern Sie sich bei einem Systempool, dass der Taint auf `CriticalAddonsOnly=true:NoSchedule` festgelegt ist, wodurch verhindert wird, dass Anwendungspods in diesem Knotenpool geplant werden können.
+Für Systemknotenpools wurde ein Modus vom Typ **system** definiert, für Benutzerknotenpools ein Modus vom Typ **user** . Vergewissern Sie sich bei einem Systempool, dass der Taint auf `CriticalAddonsOnly=true:NoSchedule` festgelegt ist, wodurch verhindert wird, dass Anwendungspods in diesem Knotenpool geplant werden können.
 
 ```output
 {
@@ -193,7 +193,7 @@ In diesem Artikel haben Sie erfahren, wie Sie Systemknotenpools in einem AKS-Clu
 [kubernetes-label-syntax]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set
 
 <!-- INTERNAL LINKS -->
-[aks-taints]: use-multiple-node-pools.md#schedule-pods-using-taints-and-tolerations
+[aks-taints]: use-multiple-node-pools.md#setting-nodepool-taints
 [aks-windows]: windows-container-cli.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-aks-create]: /cli/azure/aks#az-aks-create

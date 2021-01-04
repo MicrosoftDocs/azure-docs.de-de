@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: 596303223554589ef26938486ccfd2281ccd46f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f83a1820eb931fa075681da7a9661b304059cd2a
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999104"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635704"
 ---
 # <a name="troubleshoot-os-start-up--windows-update-installation-capacity"></a>Beheben von Problemen beim Betriebssystemstart: Windows Update-Installationskapazität
 
@@ -62,8 +62,6 @@ So beheben Sie das Problem:
 
 1. Überprüfen Sie, ob der Datenträger voll ist. Wenn die Größe des Datenträgers unter 1 TB liegt, [erweitern Sie ihn mit PowerShell](../windows/expand-os-disk.md) auf eine maximale Größe von 1 TB.
 1. Wenn der Datenträger bereits 1 TB groß ist, müssen Sie eine Datenträgerbereinigung durchführen.
-   1. Trennen Sie den Datenträger [von der defekten VM](../windows/detach-disk.md).
-   1. Fügen Sie den Datenträger [an eine funktionsfähige VM an](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
    1. Geben Sie mit dem [Datenträgerbereinigungstool](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) Speicherplatz frei.
 1. Wenn Änderung der Größe und Bereinigung abgeschlossen sind, defragmentieren Sie das Laufwerk mit dem folgenden Befehl:
 

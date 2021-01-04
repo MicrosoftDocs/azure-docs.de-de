@@ -7,12 +7,12 @@ ms.topic: guide
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/15/2020
-ms.openlocfilehash: 131cd9b1de82213d89ee07f30aed25544f6fcb18
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 88ec58ca9bcfa5c64036d3b65e77f3248e26357d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283221"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124950"
 ---
 # <a name="common-questions-about-vm-in-azure-marketplace"></a>Häufige Fragen zu VMs im Azure Marketplace
 
@@ -22,7 +22,7 @@ Diese häufig gestellten Fragen (FAQ) beziehen sich auf allgemeine Probleme, die
 
 Bei Verwendung des Azure Resource Manager-Bereitstellungsmodells haben Sie drei Optionen:
 
-- [Erstellen eines routenbasierten VPN-Gateways mit dem Azure-Portal](../vpn-gateway/create-routebased-vpn-gateway-portal.md)
+- [Erstellen eines routenbasierten VPN-Gateways mit dem Azure-Portal](../vpn-gateway/tutorial-create-gateway-portal.md)
 - [Erstellen eines routenbasierten VPN-Gateways mit Azure PowerShell](../vpn-gateway/create-routebased-vpn-gateway-powershell.md)
 - [Erstellen eines routenbasierten VPN-Gateways mithilfe von CLI](../vpn-gateway/create-routebased-vpn-gateway-cli.md)
 
@@ -32,7 +32,7 @@ Ausführliche Informationen finden Sie unter [Microsoft-Server-Software-Support 
 
 ## <a name="in-a-vm-how-do-i-manage-the-custom-script-extension-in-the-startup-task"></a>Wie kann ich auf einem virtuellen Computer die benutzerdefinierte Skripterweiterung in der Startaufgabe verwalten?
 
-Informationen dazu, wie Sie die benutzerdefinierte Skripterweiterung mit dem Azure PowerShell-Modul verwenden, zu Azure Resource Manager-Vorlagen und zu Problembehandlungsschritten für Windows-Systeme finden Sie unter [CustomScript-Erweiterung für Windows](/azure/virtual-machines/extensions/custom-script-windows).
+Informationen dazu, wie Sie die benutzerdefinierte Skripterweiterung mit dem Azure PowerShell-Modul verwenden, zu Azure Resource Manager-Vorlagen und zu Problembehandlungsschritten für Windows-Systeme finden Sie unter [CustomScript-Erweiterung für Windows](../virtual-machines/extensions/custom-script-windows.md).
 
 ## <a name="are-32-bit-applications-or-services-supported-in-azure-marketplace"></a>Werden 32-Bit-Anwendungen oder -Dienste für Azure Marketplace unterstützt?
 
@@ -40,7 +40,7 @@ Nein. Bei allen unterstützten Betriebssystemen und Standarddiensten für Azure-
 
 Weitere Informationen und Beispiele finden Sie in diesen Artikeln:
 
-- [Running 32-bit applications](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications) (Ausführen von 32-Bit-Anwendungen)
+- [Running 32-bit applications](/windows/desktop/WinProg64/running-32-bit-applications) (Ausführen von 32-Bit-Anwendungen)
 - [Unterstützung für 32-Bit-Betriebssysteme auf virtuellen Azure-Computern](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)
 - [Microsoft-Server-Software-Support für virtuelle Maschinen von Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
 

@@ -3,16 +3,25 @@ title: Beenden der Überwachung Ihres Azure Red Hat OpenShift 3-Clusters | Micr
 description: In diesem Artikel wird beschrieben, wie Sie die Überwachung Ihres Azure Red Hat OpenShift-Clusters mit Azure Monitor für Container beenden können.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 6ed92cd4cda1f3b5d43cc605d7224236528b94bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c21b17fd9faed7b133cd8ecad767ae7bd4aa868
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88815435"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216529"
 ---
-# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Beenden der Überwachung Ihres Azure Red Hat OpenShift 3-Clusters 
+# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Beenden der Überwachung Ihres Azure Red Hat OpenShift 3-Clusters
 
-Die Überwachung Ihres Azure Red Hat OpenShift 3-Clusters kann nach der Aktivierung wieder beendet werden, wenn Sie den Cluster nicht mehr mit Azure Monitor für Container überwachen möchten. In diesem Artikel erfahren Sie, wie Sie dies mithilfe der bereitgestellten Azure Resource Manager-Vorlage umsetzen. 
+>[!IMPORTANT]
+> Azure Red Hat OpenShift 3.11 wird zum Juni 2022 eingestellt.
+>
+> Ab Oktober 2020 können Sie keine neuen 3.11-Cluster mehr erstellen.
+> Vorhandene 3.11-Cluster werden bis zum Juni 2022 weiter betrieben, jedoch nach diesem Datum nicht mehr unterstützt.
+>
+> Führen Sie die Schritte in diesem Leitfaden aus, um [einen Azure Red Hat OpenShift 4-Cluster zu erstellen](../../openshift/tutorial-create-cluster.md).
+> Wenn Sie spezielle Fragen haben, [kontaktieren Sie uns](mailto:aro-feedback@microsoft.com).
+
+Die Überwachung Ihres Azure Red Hat OpenShift 3-Clusters kann nach der Aktivierung wieder beendet werden, wenn Sie den Cluster nicht mehr mit Azure Monitor für Container überwachen möchten. In diesem Artikel erfahren Sie, wie Sie dies mithilfe der bereitgestellten Azure Resource Manager-Vorlage umsetzen.  
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager-Vorlage
 

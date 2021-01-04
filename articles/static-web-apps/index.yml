@@ -8,13 +8,13 @@ metadata:
   ms.service: static-web-apps
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 04/09/2020
-  ms.openlocfilehash: a72c9ab1dfcaf6fd95ac706bc0f0a7b8adb17c0f
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.date: 12/08/2020
+  ms.openlocfilehash: 880d675915a17e24269361c0ceed320a257d0ba9
+  ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "90905357"
+  ms.lasthandoff: 12/09/2020
+  ms.locfileid: "96906130"
 landingContent:
 - title: Informationen zu Azure Static Web Apps
   linkLists:
@@ -36,8 +36,10 @@ landingContent:
       url: ./getting-started.md?tabs=vanilla-javascript
   - linkListType: learn
     links:
-    - text: Veröffentlichen einer Angular-, React-, Svelte- oder Vue JavaScript-App und -API
+    - text: Veröffentlichen einer Angular-, React-, Svelte- oder Vue-JavaScript-App
       url: /learn/modules/publish-app-service-static-web-app-api
+    - text: Veröffentlichen einer API
+      url: /learn/modules/publish-static-web-app-api-preview-url
   - linkListType: video
     links:
     - text: Erstellen und Bereitstellen einer statischen Web-App
@@ -64,6 +66,8 @@ landingContent:
     links:
     - text: Veröffentlichen einer statischen Web-App mit Gatsby
       url: /learn/modules/create-deploy-static-webapp-gatsby-app-service
+    - text: Veröffentlichen einer statischen Web-App mit Blazor
+      url: /learn/modules/publish-app-service-static-web-app-api-dotnet
 - title: Wichtige Begriffe
   linkLists:
   - linkListType: concept

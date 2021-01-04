@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 0361ba7bc67948c25b842a3fb7406d2999fdd725
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87d7d4676c604ca7219b7580eb3ce585282a7f11
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530611"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327239"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions-Bereitstellungsslots
 
@@ -57,7 +57,38 @@ Berücksichtigen Sie dabei Folgendes:
 
 ## <a name="manage-settings"></a>Verwalten von Einstellungen
 
-[!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
+Einige Konfigurationseinstellungen sind slotspezifisch. In den nachstehenden Listen finden Sie die Einstellungen, die sich beim Austauschen von Slots ändern und die unverändert bleiben.
+
+**Slotspezifische Einstellungen:**
+
+* Veröffentlichungsendpunkte
+* Benutzerdefinierte Domänennamen
+* Nicht öffentliche Zertifikate und TLS/SSL-Einstellungen
+* Skalierungseinstellungen
+* WebJobs-Planer
+* IP-Einschränkungen
+* Always On
+* Diagnoseeinstellungen
+* Ressourcenfreigabe zwischen verschiedenen Ursprüngen (Cross-Origin Resource Sharing, CORS)
+
+**Nicht slotspezifische Einstellungen:**
+
+* Allgemeine Einstellungen (z. B. Framework-Version, 32/64-Bit-Angabe, WebSockets)
+* App-Einstellungen (können so konfiguriert werden, dass sie beim Slot verbleiben)
+* Verbindungszeichenfolgen (können so konfiguriert werden, dass sie beim Slot verbleiben)
+* Handlerzuordnungen
+* Öffentliche Zertifikate
+* WebJobs-Inhalte
+* Hybridverbindungen *
+* Virtual Network-Integration*
+* Dienstendpunkte*
+* Azure Content Delivery Network*
+
+Für mit einem Sternchen (*) gekennzeichnete Features ist eine Rückgängigmachung des Austauschs geplant. 
+
+> [!NOTE]
+> Bestimmte App-Einstellungen, die für nicht ausgetauschte Einstellungen gelten, werden ebenfalls nicht ausgetauscht. Da die Diagnoseprotokolleinstellungen beispielsweise nicht ausgetauscht werden, werden verwandte App-Einstellungen wie `WEBSITE_HTTPLOGGING_RETENTION_DAYS` und `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` ebenfalls nicht ausgetauscht, auch wenn Sie nicht als Sloteinstellungen angezeigt werden.
+>
 
 ### <a name="create-a-deployment-setting"></a>Erstellen einer Bereitstellungseinstellung
 
@@ -73,15 +104,15 @@ Führen Sie die folgenden Schritte aus, um eine Bereitstellungseinstellung zu er
 
 1. Wählen Sie **Konfiguration** aus, und wählen Sie den Namen der Einstellung aus, die für den aktuellen Slot persistent sein soll.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-configure-deployment-slot.png" alt-text="Suchen Sie im Azure-Portal nach Slots." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-configure-deployment-slot.png" alt-text="Konfigurieren der Anwendungseinstellung für einen Slot im Azure-Portal." border="true":::
 
 1. Wählen Sie **Bereitstellungssloteinstellung** aus, und wählen Sie dann **OK** aus.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-setting.png" alt-text="Suchen Sie im Azure-Portal nach Slots." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-setting.png" alt-text="Konfigurieren der Bereitstellungssloteinstellung." border="true":::
 
 1. Sobald der Abschnitt mit den Einstellungen nicht mehr angezeigt wird, wählen Sie **Speichern** aus, um die Änderungen beizubehalten.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-save-deployment-slot-setting.png" alt-text="Suchen Sie im Azure-Portal nach Slots." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-save-deployment-slot-setting.png" alt-text="Speichern der Bereitstellungssloteinstellung." border="true":::
 
 ## <a name="deployment"></a>Bereitstellung
 
@@ -102,11 +133,11 @@ Sie können einen Slot über die [CLI](/cli/azure/functionapp/deployment/slot?vi
 
 1. Wählen Sie **Bereitstellungsslots** aus, und wählen Sie dann **+ Slot hinzufügen** aus.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add.png" alt-text="Suchen Sie im Azure-Portal nach Slots." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add.png" alt-text="Hinzufügen eines Azure Functions-Bereitstellungsslots." border="true":::
 
 1. Geben Sie den Namen des Slots ein, und wählen Sie dann **Hinzufügen** aus.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add-name.png" alt-text="Suchen Sie im Azure-Portal nach Slots." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add-name.png" alt-text="Benennen des Azure Functions-Bereitstellungsslots." border="true":::
 
 ## <a name="swap-slots"></a>Austauschen von Slots
 
@@ -115,11 +146,11 @@ Sie können Slot über die [CLI](/cli/azure/functionapp/deployment/slot?view=azu
 1. Navigieren Sie zur Funktionen-App.
 1. Wählen Sie **Bereitstellungssloteinstellung** aus, und wählen Sie dann **Austauschen** aus.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Suchen Sie im Azure-Portal nach Slots." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Screenshot der Seite „Bereitstellungsslot“, auf der die Aktion „Slot hinzufügen“ ausgewählt ist" border="true":::
 
 1. Überprüfen Sie die Konfigurationseinstellungen für den Austausch, und wählen Sie dann **Austauschen** aus.
     
-    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png" alt-text="Suchen Sie im Azure-Portal nach Slots." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png" alt-text="Austauschen des Bereitstellungsslots." border="true":::
 
 Der Vorgang kann einen Augenblick dauern, während der Austauschvorgang ausgeführt wird.
 
@@ -137,15 +168,15 @@ Sie können einen Slot über die [CLI](/cli/azure/functionapp/deployment/slot?vi
 
 1. Klicken Sie auf **Löschen**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="Suchen Sie im Azure-Portal nach Slots." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="Screenshot der Seite „Übersicht“, auf dem die Aktion „Löschen“ ausgewählt ist" border="true":::
 
 1. Geben Sie den Namen des Bereitstellungsslots ein, den Sie löschen möchten, und wählen Sie dann **Löschen** aus.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot-details.png" alt-text="Suchen Sie im Azure-Portal nach Slots." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot-details.png" alt-text="Löschen des Bereitstellungsslots im Azure-Portal." border="true":::
 
 1. Schließen Sie den Bestätigungsbereich für den Löschvorgang.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-deleted.png" alt-text="Suchen Sie im Azure-Portal nach Slots." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-deleted.png" alt-text="Bestätigung zum Löschen des Bereitstellungsslots." border="true":::
 
 ## <a name="automate-slot-management"></a>Automatisieren der Slotverwaltung
 
@@ -174,7 +205,7 @@ Führen Sie die folgenden Schritte aus, um den App Service-Plan eines Slots zu �
 
 1. Wählen Sie den Plan aus, auf den Sie ein Upgrade durchführen möchten, oder erstellen Sie einen neuen Plan.
 
-    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-apply.png" alt-text="Suchen Sie im Azure-Portal nach Slots." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-apply.png" alt-text="Ändern des App Service-Plans im Azure-Portal." border="true":::
 
 1. Klicken Sie auf **OK**.
 

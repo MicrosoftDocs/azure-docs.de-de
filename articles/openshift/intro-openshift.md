@@ -5,14 +5,14 @@ author: jimzim
 ms.author: jzim
 ms.service: container-service
 ms.topic: overview
-ms.date: 04/24/2020
+ms.date: 11/13/2020
 ms.custom: mvc
-ms.openlocfilehash: a3bdc3673474b778aa7c1003e48e215bac6d05bf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1bf3141876ee56ee1361f19a67689ca3b2f4f89a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82628519"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685289"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
@@ -28,11 +28,15 @@ Arbeiten Sie zum Einstieg das Tutorial [Erstellen eines Azure Red Hat OpenShift-
 
 ## <a name="access-security-and-monitoring"></a>Zugriff, Sicherheit und Überwachung
 
-Für verbesserte Sicherheit und Verwaltung ermöglicht Azure Red Hat OpenShift Ihnen die Integration in Azure Active Directory (Azure AD) und die Verwendung rollenbasierter (RBAC) Kubernetes-Zugriffssteuerungen. Sie können auch die Integrität Ihrer Cluster und Ressourcen überwachen.
+Für verbesserte Sicherheit und Verwaltung ermöglicht Azure Red Hat OpenShift Ihnen die Integration in Azure Active Directory (Azure AD) und die Verwendung rollenbasierter Kubernetes-Zugriffssteuerung (Kubernetes RBAC). Sie können auch die Integrität Ihrer Cluster und Ressourcen überwachen.
 
 ## <a name="cluster-and-node"></a>Cluster- und Knoten
 
 Azure Red Hat OpenShift-Knoten werden auf virtuellen Azure-Computern ausgeführt. Sie können eine Verbindung des Speichers mit Knoten und Pods herstellen und Clusterkomponenten aktualisieren.
+
+## <a name="service-level-agreement"></a>Vereinbarung zum Servicelevel
+
+Azure Red Hat OpenShift bietet eine Vereinbarung zum Servicelevel, um eine Verfügbarkeit des Diensts für 99,95 Prozent der Zeit zu gewährleisten. Weitere Informationen zur SLA finden Sie unter [SLA für Azure Red Hat OpenShift](https://azure.microsoft.com/en-au/support/legal/sla/openshift/v1_0/).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

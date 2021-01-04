@@ -24,7 +24,7 @@ Anhand der Informationen in diesem Artikel und mithilfe von Fehlermeldungen und 
 
 ## <a name="select-all-consequences"></a>Auswählen von Konsequenzen vom Typ „Alle“
 
-Das Framework für bedingten Zugriff bietet Ihnen mehr Flexibilität bei der Konfiguration. Mehr Flexibilität bedeutet jedoch auch, dass Sie jede Konfigurationsrichtlinie vor dem Veröffentlichen sorgfältig prüfen sollten, um unerwünschte Ergebnisse zu vermeiden. Achten Sie in diesem Fall besonders auf Zuweisungen, die sich auf komplette Sätze auswirken, z.B. **alle Benutzer/Gruppen/Cloud-Apps** .
+Das Framework für bedingten Zugriff bietet Ihnen mehr Flexibilität bei der Konfiguration. Mehr Flexibilität bedeutet jedoch auch, dass Sie jede Konfigurationsrichtlinie vor dem Veröffentlichen sorgfältig prüfen sollten, um unerwünschte Ergebnisse zu vermeiden. Achten Sie in diesem Fall besonders auf Zuweisungen, die sich auf komplette Sätze auswirken, z.B. **alle Benutzer/Gruppen/Cloud-Apps**.
 
 Organisationen sollten die folgenden Konfigurationen vermeiden:
 
@@ -32,7 +32,7 @@ Organisationen sollten die folgenden Konfigurationen vermeiden:
 
 - **Zugriff blockieren:** Diese Konfiguration blockiert Ihre gesamte Organisation.
 - **Markieren des Geräts als kompatibel erforderlich:** Für Benutzer, die ihre Geräte noch nicht registriert haben, blockiert diese Richtlinie den gesamten Zugriff, einschließlich des Zugriffs auf das Intune-Portal. Wenn Sie ein Administrator ohne registriertes Gerät sind, verhindert diese Richtlinie auch, dass Sie in das Azure-Portal zurückkehren und die Richtlinie ändern können.
-- **Require Hybrid Azure AD domain joined device** (In Azure AD Hybrid-Domäne eingebundenes Gerät voraussetzen): Diese Richtlinie blockiert potenziell den Zugriff für alle Benutzer in Ihrer Organisation, wenn sie nicht über in Azure AD Hybrid eingebundene Geräte verfügen.
+- **Require Hybrid Azure AD domain joined device** (In Azure AD Hybrid-Domäne eingebundenes Gerät erforderlich): Diese Richtlinie blockiert potenziell den Zugriff für alle Benutzer in Ihrer Organisation, wenn sie nicht über in Azure AD Hybrid eingebundene Geräte verfügen.
 - **App-Schutzrichtlinie erforderlich** : Diese Richtlinie zum Blockieren des Zugriffs kann potenziell auch den Zugriff für alle Benutzer in Ihrer Organisation blockieren, wenn Sie nicht über eine Intune-Richtlinie verfügen. Wenn Sie als Administrator nicht über eine Clientanwendung mit einer Intune-App-Schutzrichtlinie verfügen, verhindert diese Richtlinie, dass Sie wieder in Portale wie Intune und Azure gelangen.
 
 **Für alle Benutzer, alle Cloud-Apps, alle Geräteplattformen:**
@@ -58,7 +58,7 @@ Weitere Informationen zu diesem Problem erhalten Sie, wenn Sie auf der ersten Fe
 Gehen Sie wie folgt vor, um herauszufinden, welche Richtlinie(n) für den bedingten Zugriff angewendet wurde(n) und aus welchem Grund.
 
 1. Melden Sie sich als globaler Administrator, Sicherheitsadministrator oder globaler Leser im **Azure-Portal** an.
-1. Navigieren Sie zu **Azure Active Directory** > **Anmeldungen** .
+1. Navigieren Sie zu **Azure Active Directory** > **Anmeldungen**.
 1. Suchen Sie nach dem Ereignis für die zu überprüfende Anmeldung. Filtern Sie unnötige Informationen heraus, indem Sie Filter und Spalten hinzufügen oder entfernen.
    1. Fügen Sie Filter hinzu, um den Bereich einzugrenzen:
       1. **Korrelations-ID** zum Untersuchen eines bestimmten Ereignisses.

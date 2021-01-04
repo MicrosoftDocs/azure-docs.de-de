@@ -6,24 +6,23 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 845336385fe7490d4c62df41af873c237ae34871
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d2446e866c0e12d50a0759373682f4f62bc4bba0
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996329"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512221"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Dedizierte Azure Monitor-Protokollcluster
 
-Dedizierte Azure Monitor-Protokollcluster sind eine Bereitstellungsoption, die für Kunden mit hohem Volumen zur Verfügung steht. Kunden, die mehr als 4 TB an Daten pro Tag erfassen, verwenden dedizierte Cluster. Kunden mit dedizierten Clustern können die Arbeitsbereiche auswählen, die auf diesen Clustern gehostet werden sollen.
+Dedizierte Azure Monitor-Protokollcluster sind eine Bereitstellungsoption, die erweiterte Funktionen für Kunden von Azure Monitor-Protokollen bietet. Kunden mit dedizierten Clustern können die Arbeitsbereiche auswählen, die auf diesen Clustern gehostet werden sollen.
 
-Neben der Unterstützung für ein hohes Volumen bietet die Verwendung dedizierter Cluster noch weitere Vorteile:
+Folgende Funktionen erfordern dedizierte Cluster:
 
-- **Ratenbegrenzung** : Höhere [Erfassungsratenbegrenzungen](../service-limits.md#data-ingestion-volume-rate) sind für Kunden nur auf dedizierten Clustern möglich.
-- **Funktionen** : Bestimmte Unternehmensfunktionen sind nur in dedizierten Clustern verfügbar – insbesondere die Unterstützung von kundenseitig verwalteten Schlüsseln (Customer-managed keys, CMK) und von LockBox. 
-- **Konsistenz** : Kunden verfügen über eigene dedizierte Ressourcen, sodass es keinen Einfluss von anderen Kunden gibt, die in derselben gemeinsam genutzten Infrastruktur ausgeführt werden.
-- **Kosteneffizienz** : Möglicherweise ist die Verwendung eines dedizierten Clusters kostengünstiger, da die zugewiesenen Tarife für die Kapazitätsreservierung die gesamte Clustererfassung berücksichtigen und auf alle Arbeitsbereiche angewendet werden, auch wenn einige davon klein sind und nicht für den Kapazitätsreservierungsrabatt berechtigt sind.
-- **Arbeitsbereichsübergreifende** Abfragen werden schneller ausgeführt, wenn sich alle Arbeitsbereiche im selben Cluster befinden.
+- **[Kundenseitig verwaltete Schlüssel](../platform/customer-managed-keys.md)** : Die Clusterdaten werden mithilfe von Schlüsseln verschlüsselt, die vom Kunden bereitgestellt und gesteuert werden.
+- **[Lockbox](../platform/customer-managed-keys.md#customer-lockbox-preview)** : Kunden können Zugriffsanforderungen von Mitarbeitern des Microsoft-Supports für Daten steuern.
+- **[Doppelte Verschlüsselung](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** schützt vor dem Szenario, dass einer der Verschlüsselungsalgorithmen oder Schlüssel kompromittiert wurde. In diesem Fall werden die Daten weiterhin durch die zusätzliche Verschlüsselungsebene geschützt.
+- **[Mehrere Arbeitsbereiche](../log-query/cross-workspace-query.md)** : Wenn ein Kunde mehr als einen Arbeitsbereich für die Produktion verwendet, ist es möglicherweise sinnvoll, einen dedizierten Cluster zu verwenden. Arbeitsbereichsübergreifende Abfragen werden schneller ausgeführt, wenn sich alle Arbeitsbereiche im selben Cluster befinden. Möglicherweise ist die Verwendung eines dedizierten Clusters auch kostengünstiger, da die zugewiesenen Tarife für die Kapazitätsreservierung die gesamte Clustererfassung berücksichtigen und auf alle Arbeitsbereiche angewendet werden, auch wenn einige davon klein sind und nicht für den Kapazitätsreservierungsrabatt berechtigt sind.
 
 Dedizierte Cluster erfordern es, dass sich Kunden zur Verwendung einer Datenerfassung von mindestens 1 TB pro Tag verpflichten. Die Migration zu einem dedizierten Cluster ist einfach. Es gibt keinen Datenverlust und keine Dienstunterbrechung. 
 
@@ -35,6 +34,8 @@ Dedizierte Cluster erfordern es, dass sich Kunden zur Verwendung einer Datenerfa
 Dedizierte Cluster werden über eine Azure-Ressource verwaltet, die Azure Monitor-Protokollcluster darstellt. Alle Vorgänge werden für diese Ressource mithilfe von PowerShell oder der REST-API ausgeführt.
 
 Nachdem der Cluster erstellt wurde, ist es möglich, ihn zu konfigurieren und Arbeitsbereiche mit ihm zu verknüpfen. Wenn ein Arbeitsbereich mit einem Cluster verknüpft ist, befinden sich neue Daten, die an den Arbeitsbereich gesendet werden, im Cluster. Mit einem Cluster können nur Arbeitsbereiche verknüpft werden, die sich in der gleichen Region wie der Cluster befinden. Das Aufheben der Verknüpfung von Arbeitsbereichen mit einem Cluster ist mit Einschränkungen möglich. Weitere Einzelheiten zu diesen Einschränkungen finden Sie in diesem Artikel. 
+
+In dedizierten Clustern erfasste Daten werden zweimal verschlüsselt: einmal auf der Dienstebene mit von Microsoft verwalteten Schlüsseln oder [kundenseitig verwaltetem Schlüssel](../platform/customer-managed-keys.md) und einmal auf der Infrastrukturebene mit zwei verschiedenen Verschlüsselungsalgorithmen und zwei verschiedenen Schlüsseln. Die [doppelte Verschlüsselung](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) schützt vor dem Szenario, dass einer der Verschlüsselungsalgorithmen oder Schlüssel kompromittiert wurde. In diesem Fall werden die Daten weiterhin durch die zusätzliche Verschlüsselungsebene geschützt. Ein dedizierter Cluster ermöglicht Ihnen außerdem das Schützen Ihrer Daten mit [Lockbox](../platform/customer-managed-keys.md#customer-lockbox-preview).
 
 Für alle Vorgänge auf Clusterebene ist die Aktionsberechtigung `Microsoft.OperationalInsights/clusters/write` für den Cluster erforderlich. Diese Berechtigung kann über den Besitzer oder einen Mitwirkenden erteilt werden, der die Aktion `*/write` enthält, oder über die Rolle „Analytics-Mitwirkender“, die die Aktion `Microsoft.OperationalInsights/*` enthält. Weitere Informationen zu den Log Analytics-Berechtigungen finden Sie unter [Verwalten des Zugriffs auf Protokolldaten und Arbeitsbereiche in Azure Monitor](../platform/manage-access.md). 
 
@@ -49,9 +50,9 @@ Für die Abrechnung des Verbrauchs in einem Cluster stehen zwei Modi zur Verfüg
 
 1. **Cluster** (Standardeinstellung): In diesem Fall werden erfasste Daten auf der Clusterebene abgerechnet. Die erfassten Datenmengen aus den einzelnen Arbeitsbereichen, die einem Cluster zugeordnet sind, werden aggregiert, um die tägliche Abrechnung für den Cluster zu berechnen. 
 
-2. **Arbeitsbereiche** : Die Kapazitätsreservierungskosten für Ihren Cluster werden proportional den Arbeitsbereichen im Cluster zugeordnet (nach Berücksichtigung der knotenspezifischen Zuordnungen von [Azure Security Center](../../security-center/index.yml) für den jeweiligen Arbeitsbereich).
+2. **Arbeitsbereiche**: Die Kapazitätsreservierungskosten für Ihren Cluster werden proportional den Arbeitsbereichen im Cluster zugeordnet (nach Berücksichtigung der knotenspezifischen Zuordnungen von [Azure Security Center](../../security-center/index.yml) für den jeweiligen Arbeitsbereich).
 
-Beachten Sie Folgendes: Wenn Ihr Arbeitsbereich den Legacy-Tarif pro Knoten verwendet, wird er, wenn er mit einem Cluster verknüpft ist, basierend auf den in Bezug auf die Kapazitätsreservierung des Clusters erfassten Daten und nicht mehr pro Knoten abgerechnet. Datenzuweisungen pro Knoten von Azure Security Center werden weiterhin angewendet.
+Wenn Ihr Arbeitsbereich den Legacytarif pro Knoten verwendet, wird er, wenn er mit einem Cluster verknüpft ist, basierend auf den in Bezug auf die Kapazitätsreservierung des Clusters erfassten Daten und nicht mehr pro Knoten abgerechnet. Datenzuweisungen pro Knoten von Azure Security Center werden weiterhin angewendet.
 
 Weitere Informationen zur Abrechnung für dedizierte Log Analytics-Cluster finden Sie [hier]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters).
 
@@ -62,12 +63,12 @@ Erstellen Sie zunächst Clusterressourcen, um mit dem Erstellen eines dedizierte
 
 Die folgenden Eigenschaften müssen angegeben werden:
 
-- **ClusterName** : Wird zu Verwaltungszwecken verwendet. Benutzer werden für diesen Namen nicht offengelegt.
-- **ResourceGroupName** : Wie bei jeder Azure-Ressource gehören Cluster zu einer Ressourcengruppe. Es wird empfohlen, dass Sie eine zentrale IT-Ressourcengruppe verwenden, da Cluster in der Regel von vielen Teams in der Organisation gemeinsam genutzt werden. Weitere Entwurfsaspekte finden Sie unter [Entwerfen Ihrer Azure Monitor-Protokollbereitstellung](../platform/design-logs-deployment.md).
-- **Standort** : Ein Cluster befindet sich in einer bestimmten Azure-Region. Nur Arbeitsbereiche, die sich in dieser Region befinden, können mit diesem Cluster verknüpft werden.
-- **SkuCapacity** : Beim Erstellen einer *Clusterressource* müssen Sie die *Kapazitätsreservierungsebene* (sku) angeben. Die *Kapazitätsreservierungsebene* kann im Bereich von 1.000 bis 3.000 GB pro Tag liegen. Sie können sie bei Bedarf später in 100er Schritten aktualisieren. Wenn Sie eine Kapazitätsreservierungsebene von mehr als 3.000 GB pro Tag benötigen, kontaktieren Sie uns unter LAIngestionRate@microsoft.com. Weitere Informationen zu den Clusterkosten finden Sie unter [Verwalten von Kosten für Log Analytics-Cluster](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
+- **ClusterName**: Wird zu Verwaltungszwecken verwendet. Benutzer werden für diesen Namen nicht offengelegt.
+- **ResourceGroupName**: Wie bei jeder Azure-Ressource gehören Cluster zu einer Ressourcengruppe. Es wird empfohlen, dass Sie eine zentrale IT-Ressourcengruppe verwenden, da Cluster in der Regel von vielen Teams in der Organisation gemeinsam genutzt werden. Weitere Entwurfsaspekte finden Sie unter [Entwerfen Ihrer Azure Monitor-Protokollbereitstellung](../platform/design-logs-deployment.md).
+- **Standort**: Ein Cluster befindet sich in einer bestimmten Azure-Region. Nur Arbeitsbereiche, die sich in dieser Region befinden, können mit diesem Cluster verknüpft werden.
+- **SkuCapacity**: Beim Erstellen einer *Clusterressource* müssen Sie die *Kapazitätsreservierungsebene* (sku) angeben. Die *Kapazitätsreservierungsebene* kann im Bereich von 1.000 bis 3.000 GB pro Tag liegen. Sie können sie bei Bedarf später in 100er Schritten aktualisieren. Wenn Sie eine Kapazitätsreservierungsebene von mehr als 3.000 GB pro Tag benötigen, kontaktieren Sie uns unter LAIngestionRate@microsoft.com. Weitere Informationen zu den Clusterkosten finden Sie unter [Verwalten von Kosten für Log Analytics-Cluster](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
 
-Nachdem Sie die *Clusterressource* erstellt haben, können Sie sie mit *sku* , *keyVaultProperties oder *billingType* aktualisieren. Weitere Einzelheiten finden Sie unten.
+Nachdem Sie die *Clusterressource* erstellt haben, können Sie sie mit *sku*, *keyVaultProperties oder *billingType* aktualisieren. Weitere Einzelheiten finden Sie unten.
 
 > [!WARNING]
 > Die Clustererstellung löst die Ressourcenzuordnung und -bereitstellung aus. Es kann bis zu einer Stunde dauern, bis dieser Vorgang abgeschlossen ist. Es wird empfohlen, ihn asynchron auszuführen.
@@ -116,14 +117,14 @@ Content-type: application/json
 
 Es dauert eine Weile, bis die Bereitstellung des Log Analytics-Clusters abgeschlossen ist. Sie können den Bereitstellungsstatus auf verschiedene Weise überprüfen:
 
-- Führen Sie den PowerShell-Befehl „Get-AzOperationalInsightsCluster“ mit dem Ressourcengruppennamen aus, und überprüfen Sie die Eigenschaft „ProvisioningState“. Während der Bereitstellung lautet dieser Wert *ProvisioningAccount* , und nach Abschluss des Vorgangs lautet er *Succeeded* .
+- Führen Sie den PowerShell-Befehl „Get-AzOperationalInsightsCluster“ mit dem Ressourcengruppennamen aus, und überprüfen Sie die Eigenschaft „ProvisioningState“. Während der Bereitstellung lautet dieser Wert *ProvisioningAccount*, und nach Abschluss des Vorgangs lautet er *Succeeded*.
   ```powershell
   New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} 
   ```
 
 - Kopieren Sie den URL-Wert von „Azure-AsyncOperation“ aus der Antwort, und befolgen Sie die Überprüfung des Status asynchroner Vorgänge.
 
-- Senden Sie eine GET-Anforderung für die *Clusterressource* , und überprüfen Sie den Wert für *provisioningState* . Während der Bereitstellung lautet dieser Wert *ProvisioningAccount* , und nach Abschluss des Vorgangs lautet er *Succeeded* .
+- Senden Sie eine GET-Anforderung für die *Clusterressource*, und überprüfen Sie den Wert für *provisioningState*. Während der Bereitstellung lautet dieser Wert *ProvisioningAccount*, und nach Abschluss des Vorgangs lautet er *Succeeded*.
 
    ```rst
    GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -162,10 +163,10 @@ Die GUID *principalId* wird vom verwalteten Identitätsdienst für die *Clusterr
 
 Nachdem Sie Ihre *Clusterressource* erstellt und vollständig bereitgestellt haben, können Sie zusätzliche Eigenschaften auf Clusterebene mithilfe von PowerShell oder der REST-API bearbeiten. Abgesehen von den Eigenschaften, die während der Clustererstellung verfügbar sind, können zusätzliche Eigenschaften erst festgelegt werden, nachdem der Cluster bereitgestellt wurde:
 
-- **keyVaultProperties** : Dient zum Konfigurieren von Azure Key Vault, der zum Bereitstellen eines [kundenseitig verwalteten Azure Monitor-Schlüssels](../platform/customer-managed-keys.md#cmk-provisioning-procedure) verwendet wird. Sie enthält die folgenden Parameter:  *KeyVaultUri* , *KeyName* , *KeyVersion* . 
-- **billingType** : Die Eigenschaft *billingType* bestimmt die Abrechnungszuordnung für die *Clusterressource* und deren Daten:
+- **keyVaultProperties**: Dient zum Konfigurieren von Azure Key Vault, der zum Bereitstellen eines [kundenseitig verwalteten Azure Monitor-Schlüssels](../platform/customer-managed-keys.md#customer-managed-key-provisioning-procedure) verwendet wird. Sie enthält die folgenden Parameter:  *KeyVaultUri*, *KeyName*, *KeyVersion*. 
+- **billingType**: Die Eigenschaft *billingType* bestimmt die Abrechnungszuordnung für die *Clusterressource* und deren Daten:
   - **Cluster** (Standard): Die Kapazitätsreservierungskosten für Ihren Cluster werden der *Clusterressource* zugeordnet.
-  - **Arbeitsbereiche** : Die Kapazitätsreservierungskosten für Ihren Cluster werden proportional den Arbeitsbereichen im Cluster zugeordnet. Wenn die Gesamtmenge der erfassten Daten unter der Kapazitätsreservierung liegt, wird ein Teil des Verbrauchs über die *Clusterressource* abgerechnet. Weitere Informationen zum Clusterpreismodell finden Sie unter [Dedizierte Log Analytics-Cluster](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters). 
+  - **Arbeitsbereiche**: Die Kapazitätsreservierungskosten für Ihren Cluster werden proportional den Arbeitsbereichen im Cluster zugeordnet. Wenn die Gesamtmenge der erfassten Daten unter der Kapazitätsreservierung liegt, wird ein Teil des Verbrauchs über die *Clusterressource* abgerechnet. Weitere Informationen zum Clusterpreismodell finden Sie unter [Dedizierte Log Analytics-Cluster](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters). 
 
 > [!NOTE]
 > Die Eigenschaft *billingType* wird in PowerShell nicht unterstützt.
@@ -180,7 +181,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -Cl
 **REST**
 
 > [!NOTE]
-> Sie können *Clusterressource* , *sku* , *keyVaultProperties* oder *billingType* mithilfe von PATCH aktualisieren.
+> Sie können *Clusterressource*, *sku*, *keyVaultProperties* oder *billingType* mithilfe von PATCH aktualisieren.
 
 Beispiel: 
 
@@ -222,7 +223,7 @@ Die Weitergabe des Schlüsselbezeichners dauert einige Minuten. Sie können den 
 
    OR
 
-- Senden Sie eine GET-Anforderung für die *Clusterressource* , und überprüfen Sie die Eigenschaften *KeyVaultProperties* . Die zuletzt aktualisierten Schlüsselbezeichnerdetails sollten in der Antwort zurückgegeben werden.
+- Senden Sie eine GET-Anforderung für die *Clusterressource*, und überprüfen Sie die Eigenschaften *KeyVaultProperties*. Die zuletzt aktualisierten Schlüsselbezeichnerdetails sollten in der Antwort zurückgegeben werden.
 
    Nachdem die Aktualisierung des Schlüsselbezeichners abgeschlossen ist, sollte die Antwort auf die GET-Anforderung für die *Clusterressource* wie folgt aussehen:
 
@@ -261,10 +262,10 @@ Wenn ein Arbeitsbereich mit einem dedizierten Cluster verknüpft ist, werden neu
 
 Ein Cluster kann mit bis zu 100 Arbeitsbereichen verknüpft werden. Verknüpfte Arbeitsbereiche befinden sich in derselben Region wie der Cluster. Um das System-Back-End zu schützen und die Fragmentierung von Daten zu vermeiden, kann ein Arbeitsbereich nicht mehr als zweimal pro Monat mit einem Cluster verknüpft werden.
 
-Um den Verknüpfungsvorgang auszuführen, benötigen Sie Schreibberechtigungen für den Arbeitsbereich und die *Clusterressource* :
+Um den Verknüpfungsvorgang auszuführen, benötigen Sie Schreibberechtigungen für den Arbeitsbereich und die *Clusterressource*:
 
 - Im Arbeitsbereich: *Microsoft.OperationalInsights/workspaces/write*
-- In der *Clusterressource* : *Microsoft.OperationalInsights/clusters/write*
+- In der *Clusterressource*: *Microsoft.OperationalInsights/clusters/write*
 
 Zusätzlich zu den Abrechnungsaspekten behält der verknüpfte Arbeitsbereich seine eigenen Einstellungen wie etwa die Länge der Datenaufbewahrung bei.
 Der Arbeitsbereich und der Cluster können sich in verschiedenen Abonnements befinden. Es ist möglich, dass sich der Arbeitsbereich und der Cluster in unterschiedlichen Mandanten befinden, wenn Azure Lighthouse verwendet wird, um beide einem einzelnen Mandanten zuzuordnen.
@@ -373,11 +374,11 @@ Sie können die Verknüpfung eines Arbeitsbereichs mit einem Cluster aufheben. N
 
 ## <a name="delete-a-dedicated-cluster"></a>Löschen eines dedizierten Clusters
 
-Eine dedizierte Clusterressource kann gelöscht werden. Sie müssen die Verknüpfung aller Arbeitsbereiche mit dem Cluster aufheben, bevor Sie ihn löschen. Sie brauchen Schreibberechtigungen für die *Clusterressource* , um diesen Vorgang auszuführen. 
+Eine dedizierte Clusterressource kann gelöscht werden. Sie müssen die Verknüpfung aller Arbeitsbereiche mit dem Cluster aufheben, bevor Sie ihn löschen. Sie brauchen Schreibberechtigungen für die *Clusterressource*, um diesen Vorgang auszuführen. 
 
 Nachdem die Clusterressource gelöscht wurde, wechselt der physische Cluster in einen Bereinigungs- und Löschvorgang. Beim Löschen eines Clusters werden alle Daten gelöscht, die auf dem Cluster gespeichert waren. Die Daten stammen unter Umständen aus Arbeitsbereichen, die in der Vergangenheit mit dem Cluster verknüpft wurden.
 
-Eine *Clusterressource* , die in den letzten 14 Tagen gelöscht wurde, befindet sich im vorläufig gelöschten Zustand und kann zusammen mit den Daten wiederhergestellt werden. Da bei der Löschung der *Clusterressource* die Zuordnung aller Arbeitsbereiche zur *Clusterressource* aufgehoben wurde, müssen Sie die Arbeitsbereiche nach der Wiederherstellung neu zuordnen. Der Wiederherstellungsvorgang kann vom Benutzer nicht durchgeführt werden. Wenden Sie sich daher bei Wiederherstellungsanfragen an Ihren Microsoft-Kanal oder den Support.
+Eine *Clusterressource*, die in den letzten 14 Tagen gelöscht wurde, befindet sich im vorläufig gelöschten Zustand und kann zusammen mit den Daten wiederhergestellt werden. Da bei der Löschung der *Clusterressource* die Zuordnung aller Arbeitsbereiche zur *Clusterressource* aufgehoben wurde, müssen Sie die Arbeitsbereiche nach der Wiederherstellung neu zuordnen. Der Wiederherstellungsvorgang kann vom Benutzer nicht durchgeführt werden. Wenden Sie sich daher bei Wiederherstellungsanfragen an Ihren Microsoft-Kanal oder den Support.
 
 Innerhalb von 14 Tagen nach dem Löschvorgang ist der Name der Clusterressource reserviert und kann nicht von anderen Ressourcen verwendet werden.
 

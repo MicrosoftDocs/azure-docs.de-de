@@ -7,18 +7,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 3df7d3d01dcd5e5b097eba53ef0dae29e86fd0a5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cddc7f4f453f22b0cb36b1d3a1e9c2fba2dcabaf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973256"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455102"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Erstellen einer Windows-VM von einem speziellen Datenträger mithilfe von PowerShell
 
 Erstellen Sie eine neue VM, indem Sie einen speziellen verwalteten Datenträger als Betriebssystemdatenträger anfügen. Ein spezieller Datenträger ist eine Kopie einer virtuellen Festplatte (VHD) einer bereits vorhandenen VM, die die Benutzerkonten, Anwendungen und andere Statusdaten Ihrer ursprünglichen VM enthält. 
-
-Wenn Sie zur Erstellung einer neuen VM eine spezielle VHD verwenden, behält die neue VM den Computernamen der ursprünglichen VM bei. Andere computerspezifische Informationen werden ebenfalls beibehalten. In einigen Fällen können diese doppelten Informationen Probleme verursachen. Achten Sie beim Kopieren einer VM darauf, auf welche Arten von computerspezifischen Informationen Ihre Anwendungen angewiesen sind.
 
 Sie haben mehrere Möglichkeiten:
 * [Verwenden eines vorhandenen verwalteten Datenträgers](#option-1-use-an-existing-disk). Diese Option ist nützlich, wenn eine VM nicht ordnungsgemäß funktioniert. Sie können die VM löschen und den verwalteten Datenträger dann zum Erstellen einer neuen VM wiederverwenden. 
@@ -28,6 +26,11 @@ Sie haben mehrere Möglichkeiten:
 Sie können außerdem das Azure-Portal verwenden, um [eine neue VM aus einer speziellen VHD zu erstellen](create-vm-specialized-portal.md).
 
 In diesem Artikel wird die Verwendung verwalteter Datenträger gezeigt. Wenn Sie über eine Legacybereitstellung verfügen, die ein Speicherkonto erfordert, finden Sie weitere Informationen unter [Erstellen eines virtuellen Computers auf der Grundlage einer spezialisierten VHD in einem Speicherkonto](/previous-versions/azure/virtual-machines/windows/sa-create-vm-specialized).
+
+> [!IMPORTANT]
+> 
+> Wenn Sie zur Erstellung einer neuen VM einen speziellen Datenträger verwenden, behält die neue VM den Computernamen der ursprünglichen VM bei. Andere computerspezifische Informationen (z. B. die CMID) werden ebenfalls beibehalten. In einigen Fällen können diese doppelten Informationen Probleme verursachen. Achten Sie beim Kopieren einer VM darauf, auf welche Arten von computerspezifischen Informationen Ihre Anwendungen angewiesen sind.  
+> Verwenden Sie daher keinen speziellen Datenträger, wenn Sie mehrere VMs erstellen möchten. Für größere Bereitstellungen sollten Sie stattdessen [ein Image erstellen](capture-image-resource.md) und dann [dieses Image zum Erstellen mehrerer VMs verwenden](create-vm-generalized-managed.md).
 
 Es wird empfohlen, die Anzahl gleichzeitiger Bereitstellungen auf Grundlage einer einzelnen VHD oder Momentaufnahme auf 20 VMs zu beschränken. 
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 05/19/2020
-ms.openlocfilehash: 47c040b0fad0211af413141a5b16b587d41d3b08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dc3d44ac4396897fd43831d51ee628bb06048cb
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907144"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392060"
 ---
 # <a name="machine-learning-and-ai-with-onnx-in-sql-edge"></a>Machine Learning und KI mit ONNX in SQL Edge
 
@@ -28,7 +28,7 @@ Zum Ableiten von Machine Learning-Modellen in Azure SQL Edge benötigen Sie zun
 
 So rufen Sie ein Modell im ONNX-Format ab:
 
-- **Modellerstellungsdienste**: Dienste wie das[automatisierte Machine Learning-Feature in Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) und der [Custom Vision-Dienst von Azure ](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) unterstützen den direkten Export des trainierten Modells in das ONNX-Format.
+- **Modellerstellungsdienste** : Dienste wie das [automatisierte Machine Learning-Feature in Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) und der [Custom Vision-Dienst von Azure](../cognitive-services/custom-vision-service/getting-started-build-a-classifier.md) unterstützen den direkten Export des trainierten Modells in das ONNX-Format.
 
 - [**Konvertieren und/oder Exportieren vorhandener Modelle**](https://github.com/onnx/tutorials#converting-to-onnx-format): Mehrere Trainingsframeworks, z. B. [PyTorch](https://pytorch.org/docs/stable/onnx.html), Chainer und Caffe2, unterstützen native Funktionen für den Export in das ONNX-Format, sodass Sie Ihr trainiertes Modell in einer bestimmten Version des ONNX-Formats speichern können. Für Frameworks, die keinen nativen Export unterstützen, gibt es eigenständige installierbare ONNX-Konverterpakete, mit denen Sie Modelle, die anhand verschiedener Machine Learning-Frameworks trainiert wurden, in das ONNX-Format konvertieren können.
 
@@ -45,10 +45,10 @@ So rufen Sie ein Modell im ONNX-Format ab:
 
 Derzeit werden nicht alle ONNX-Modelle von Azure SQL Edge unterstützt. Die Unterstützung ist auf Modelle mit **numerischen Datentypen** beschränkt:
 
-- [int und bigint](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)
-- [real und float](https://docs.microsoft.com/sql/t-sql/data-types/float-and-real-transact-sql).
+- [int und bigint](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)
+- [real und float](/sql/t-sql/data-types/float-and-real-transact-sql).
   
-Andere numerische Typen können mithilfe von [CAST und CONVERT](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql) in unterstützte Typen konvertiert werden.
+Andere numerische Typen können mithilfe von [CAST und CONVERT](/sql/t-sql/functions/cast-and-convert-transact-sql) in unterstützte Typen konvertiert werden.
 
 Die Modelleingaben sollten so strukturiert werden, dass jede Eingabe in das Modell einer einzelnen Spalte in einer Tabelle entspricht. Wenn Sie z. B. einen Pandas-Datenrahmen zum Trainieren eines Modells verwenden, sollte jede Eingabe eine separate Spalte für das Modell sein.
 

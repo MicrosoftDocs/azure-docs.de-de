@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b6dbcaf317efb8589a92275527f992029b7eb8a6
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 0a18e6cef568afa8a0092fc06d8f6bb526739b2a
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494752"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145802"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Automatisches Verwalten von Geräten in Azure Digital Twins mithilfe des Device Provisioning Service (DPS)
 
@@ -52,7 +52,7 @@ Ausführliche Erläuterungen zu den einzelnen Schritten in der Architektur finde
 
 In diesem Abschnitt fügen Sie den Device Provisioning Service an Azure Digital Twins an, um Geräte automatisch über den unten beschriebenen Pfad bereitzustellen. Dies ist ein Auszug aus der [oben dargestellten](#solution-architecture) vollständigen Architektur.
 
-:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Darstellung eines Geräts und mehrerer Azure-Dienste in einem End-to-End-Szenario. Daten werden zwischen einem Thermostat und DPS übermittelt. Außerdem werden Daten über eine Azure-Funktion mit der Bezeichnung „Zuweisung“ aus DPS zu IoT Hub und zu Azure Digital Twins übertragen. Daten aus einer manuellen Aktion zum Löschen des Geräts durchlaufen IoT Hub > Event Hubs > Azure Functions > Azure-Digital Twins.":::
+:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Bereitstellungsfluss: Auszug aus dem Diagramm der Lösungsarchitektur mit nummerierten Abschnitten. Daten werden zwischen einem Thermostat und DPS übermittelt (1 für Gerät > DPS und 5 für DPS > Gerät). Außerdem werden Daten über eine Azure-Funktion mit der Bezeichnung „Zuweisung“ (2) aus DPS zu IoT Hub (4) und zu Azure Digital Twins (3) übertragen.":::
 
 Beschreibung des Prozesses:
 1. Das Gerät kontaktiert den DPS-Endpunkt und übergibt Informationen, um seine Identität zu bestätigen.
@@ -189,7 +189,7 @@ namespace Samples.AdtIothub
             string dtId;
             string query = $"SELECT * FROM DigitalTwins T WHERE $dtId = '{regId}' AND IS_OF_MODEL('{dtmi}')";
             AsyncPageable<string> twins = client.QueryAsync(query);
-            
+
             await foreach (string twinJson in twins)
             {
                 // Get DT ID from the Twin
@@ -214,7 +214,8 @@ namespace Samples.AdtIothub
                 { "$metadata", meta }
             };
             twinProps.Add("Temperature", 0.0);
-            await client.CreateDigitalTwinAsync(dtId, System.Text.Json.JsonSerializer.Serialize<Dictionary<string, object>>(twinProps));
+
+            await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(dtId, twinProps);
             log.LogInformation($"Twin '{dtId}' created in DT");
 
             return dtId;
@@ -243,13 +244,6 @@ az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure
 
 Stellen Sie sicher, dass die Berechtigungen und die Rollenzuweisung für verwaltete Identitäten für die Funktions-App ordnungsgemäß konfiguriert wurden. Dies wird im End-to-End-Tutorial im Abschnitt [*Zuweisen von Berechtigungen zur Funktions-App*](tutorial-end-to-end.md#assign-permissions-to-the-function-app) beschrieben.
 
-<!-- 
-* Azure AD app registration **_Application (client) ID_** ([find in portal](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
-
-```azurecli-interactive
-az functionapp config appsettings set --settings "AdtAppId=<Application (client)" ID> -g <resource group> -n <your App Service (function app) name> 
-``` -->
-
 ### <a name="create-device-provisioning-enrollment"></a>Erstellen der Registrierung für den Device Provisioning Service
 
 Als Nächstes müssen Sie eine Registrierung im Device Provisioning Service mithilfe einer **benutzerdefinierten Zuweisungsfunktion** erstellen. Befolgen Sie hierzu die Anweisungen in den Abschnitten [*Erstellen der Registrierung*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) und [*Ableiten eindeutiger Geräteschlüssel*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) im Artikel zu benutzerdefinierten Zuweisungsrichtlinien im Device Provisioning Service.
@@ -260,7 +254,7 @@ Beim Durchlaufen dieses Flows verknüpfen Sie die Registrierung mit der Funktion
 
 In diesem Beispiel wird ein Gerätesimulator verwendet, der die Bereitstellung mithilfe des Device Provisioning Service umfasst. Der Gerätesimulator befindet sich hier: [Beispiel für die Integration von Azure Digital Twins und IoT Hub](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Wenn Sie dies noch nicht getan haben, laden Sie das Beispielprojekt auf Ihren Computer herunter, indem Sie zum Beispiellink navigieren und die Schaltfläche *ZIP-Datei herunterladen* unter dem Titel auswählen. Extrahieren Sie den heruntergeladenen Ordner.
 
-Öffnen Sie ein Befehlsfenster, und navigieren Sie zum heruntergeladenen Ordner und dann zum Verzeichnis *device-simulator* . Installieren Sie die Abhängigkeiten für das Projekt, indem Sie den folgenden Befehl ausführen:
+Öffnen Sie ein Befehlsfenster, und navigieren Sie zum heruntergeladenen Ordner und dann zum Verzeichnis *device-simulator*. Installieren Sie die Abhängigkeiten für das Projekt, indem Sie den folgenden Befehl ausführen:
 
 ```cmd
 npm install
@@ -287,7 +281,7 @@ node .\adt_custom_register.js
 ```
 
 Sie sollten sehen, dass das Gerät registriert und mit IoT Hub verbunden ist und Nachrichten sendet.
-:::image type="content" source="media/how-to-provision-using-dps/output.png" alt-text="Darstellung eines Geräts und mehrerer Azure-Dienste in einem End-to-End-Szenario. Daten werden zwischen einem Thermostat und DPS übermittelt. Außerdem werden Daten über eine Azure-Funktion mit der Bezeichnung „Zuweisung“ aus DPS zu IoT Hub und zu Azure Digital Twins übertragen. Daten aus einer manuellen Aktion zum Löschen des Geräts durchlaufen IoT Hub > Event Hubs > Azure Functions > Azure-Digital Twins.":::
+:::image type="content" source="media/how-to-provision-using-dps/output.png" alt-text="Befehlsfenster mit Geräteregistrierung und gesendeten Nachrichten":::
 
 ### <a name="validate"></a>Überprüfen
 
@@ -298,13 +292,13 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 ```
 
 Sie sollten den Zwilling des Geräts in der Azure Digital Twins-Instanz sehen.
-:::image type="content" source="media/how-to-provision-using-dps/show-provisioned-twin.png" alt-text="Darstellung eines Geräts und mehrerer Azure-Dienste in einem End-to-End-Szenario. Daten werden zwischen einem Thermostat und DPS übermittelt. Außerdem werden Daten über eine Azure-Funktion mit der Bezeichnung „Zuweisung“ aus DPS zu IoT Hub und zu Azure Digital Twins übertragen. Daten aus einer manuellen Aktion zum Löschen des Geräts durchlaufen IoT Hub > Event Hubs > Azure Functions > Azure-Digital Twins.":::
+:::image type="content" source="media/how-to-provision-using-dps/show-provisioned-twin.png" alt-text="Befehlsfenster mit neu erstelltem Zwilling":::
 
 ## <a name="auto-retire-device-using-iot-hub-lifecycle-events"></a>Automatisches Außerbetriebnehmen von Geräten mithilfe von IoT Hub-Lebenszyklusereignissen
 
 In diesem Abschnitt fügen Sie IoT Hub-Lebenszyklusereignisse an Azure Digital Twins an, um Geräte automatisch über den folgenden Ablauf außer Betrieb zu nehmen. Dies ist ein Auszug aus der [oben dargestellten](#solution-architecture) vollständigen Architektur.
 
-:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Darstellung eines Geräts und mehrerer Azure-Dienste in einem End-to-End-Szenario. Daten werden zwischen einem Thermostat und DPS übermittelt. Außerdem werden Daten über eine Azure-Funktion mit der Bezeichnung „Zuweisung“ aus DPS zu IoT Hub und zu Azure Digital Twins übertragen. Daten aus einer manuellen Aktion zum Löschen des Geräts durchlaufen IoT Hub > Event Hubs > Azure Functions > Azure-Digital Twins.":::
+:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Ablauf für die Außerbetriebnahme: Auszug aus dem Diagramm der Lösungsarchitektur mit nummerierten Abschnitten. Das Thermostat wird ohne Verbindungen mit Azure-Diensten im Diagramm angezeigt. Daten aus einer manuellen Aktion zum Löschen des Geräts durchlaufen IoT Hub (1) > Event Hubs (2) > Azure Functions > Azure-Digital Twins (3).":::
 
 Beschreibung des Prozesses:
 1. Ein externer oder manueller Prozess löst das Löschen eines Geräts in IoT Hub aus.
@@ -470,7 +464,7 @@ Anweisungen zum Erstellen einer IoT Hub-Route finden Sie in folgendem Artikel: [
 Für dieses Setup sind folgende Schritte erforderlich:
 1. Erstellen Sie einen benutzerdefinierten Endpunkt für den IoT Hub-Event Hub. Dieser Endpunkt sollte den Event Hub als Ziel verwenden, den Sie im Abschnitt [*Erstellen eines Ereignis-Hubs*](#create-an-event-hub) erstellt haben.
 2. Fügen Sie eine Route für *Ereignisse des Gerätelebenszyklus* hinzu. Wählen Sie den im vorherigen Schritt erstellten Endpunkt aus. Sie können mit der Routing-Abfrage `opType='deleteDeviceIdentity'` die Ereignisse des Gerätelebenszyklus einschränken, sodass nur die Löschereignisse gesendet werden.
-    :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="Darstellung eines Geräts und mehrerer Azure-Dienste in einem End-to-End-Szenario. Daten werden zwischen einem Thermostat und DPS übermittelt. Außerdem werden Daten über eine Azure-Funktion mit der Bezeichnung „Zuweisung“ aus DPS zu IoT Hub und zu Azure Digital Twins übertragen. Daten aus einer manuellen Aktion zum Löschen des Geräts durchlaufen IoT Hub > Event Hubs > Azure Functions > Azure-Digital Twins.":::
+    :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="Hinzufügen einer Route":::
 
 Wenn Sie diese Schritte durchlaufen haben, ist alles für die End-to-End-Außerbetriebnahme der Geräte vorbereitet.
 
@@ -491,7 +485,7 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 ```
 
 Sie sollten sehen, dass der Zwilling des Geräts in der Azure Digital Twins-Instanz nicht mehr gefunden werden kann.
-:::image type="content" source="media/how-to-provision-using-dps/show-retired-twin.png" alt-text="Darstellung eines Geräts und mehrerer Azure-Dienste in einem End-to-End-Szenario. Daten werden zwischen einem Thermostat und DPS übermittelt. Außerdem werden Daten über eine Azure-Funktion mit der Bezeichnung „Zuweisung“ aus DPS zu IoT Hub und zu Azure Digital Twins übertragen. Daten aus einer manuellen Aktion zum Löschen des Geräts durchlaufen IoT Hub > Event Hubs > Azure Functions > Azure-Digital Twins.":::
+:::image type="content" source="media/how-to-provision-using-dps/show-retired-twin.png" alt-text="Befehlsfenster mit Hinweis, dass der Zwilling nicht gefunden werden kann":::
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 

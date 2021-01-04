@@ -1,17 +1,17 @@
 ---
 title: Sicherung und Wiederherstellung in Azure Database for MySQL Flexible Server
 description: Erfahren Sie mehr über die Konzepte der Sicherung und Wiederherstellung mit Azure Database for MySQL Flexible Server
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: a72552d8654a45d1ff4c1890c8086d43d7bd801d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d69427f9f11a47cedeccb4b1da38b770952f029
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91756533"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240765"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server-preview"></a>Sicherung und Wiederherstellung in Azure Database for MySQL Flexible Server (Vorschau)
 
@@ -24,7 +24,7 @@ Azure Database for MySQL Flexible Server erstellt automatisch Serversicherungen 
 
 Flexible Server erstellt Momentaufnahmensicherungen der Datendateien und speichert sie in einem lokalen redundanten Speicher. Der Server führt auch eine Sicherung der Transaktionsprotokolle durch und speichert diese ebenfalls in einem lokalen redundanten Speicher. Dank dieser Sicherungen können Sie für einen Server den Stand zu einem beliebigen Zeitpunkt wiederherstellen, der innerhalb Ihres konfigurierten Aufbewahrungszeitraums für Sicherungen liegt. Die Standardaufbewahrungsdauer für Sicherungen beträgt sieben Tage. Sie können die Sicherung der Datenbank optional von 1 bis 35 Tagen konfigurieren. Alle Sicherungen werden mithilfe der AES 256-Bit-Verschlüsselung für die ruhenden Daten verschlüsselt.
 
-Diese Sicherungsdateien können nicht exportiert werden. Die Sicherungen können nur für Wiederherstellungsvorgänge in Flexible Server verwendet werden. Sie können auch  [mysqldump](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore) von einem MySQL-Client verwenden, um eine Datenbank zu kopieren.
+Diese Sicherungsdateien können nicht exportiert werden. Die Sicherungen können nur für Wiederherstellungsvorgänge in Flexible Server verwendet werden. Sie können auch [mysqldump](../concepts-migrate-dump-restore.md#dump-and-restore-using-mysqldump-utility) von einem MySQL-Client aus verwenden, um eine Datenbank zu kopieren.
 
 ## <a name="backup-frequency"></a>Sicherungshäufigkeit
 
@@ -40,9 +40,9 @@ Der Aufbewahrungszeitraum für Sicherungen legt fest, wie weit zurück in der Ze
 
 ## <a name="backup-storage-cost"></a>Kosten für Sicherungsspeicher
 
-Für die Flexible Server-Instanz werden bis zu 100 % Ihres bereitgestellten Serverspeichers ohne zusätzliche Kosten als Sicherungsspeicher zur Verfügung gestellt. Wenn zusätzlicher Sicherungsspeicher verwendet wird, wird dies in GB pro Monat berechnet. Beispiel: Wenn Sie einen Server mit 250 GB bereitgestellt haben, verfügen Sie über 250 GB an Speicher, der ohne zusätzliche Kosten für Serversicherungen zur Verfügung steht. Wenn die tägliche Sicherheitsauslastung 25 GB beträgt, können Sie für bis zu 10 Tage über kostenlosen Sicherungsspeicher verfügen. Der für Sicherungen verwendete Speicher über 250 GB wird gemäß dem [Preismodell](https://azure.microsoft.com/pricing/details/mysql/) abgerechnet.
+Für die Flexible Server-Instanz werden bis zu 100 % Ihres bereitgestellten Serverspeichers ohne zusätzliche Kosten als Sicherungsspeicher zur Verfügung gestellt. Wenn zusätzlicher Sicherungsspeicher verwendet wird, wird dies in GB pro Monat berechnet. Beispiel: Wenn Sie einen Server mit 250 GB bereitgestellt haben, verfügen Sie über 250 GB an Speicher, der ohne zusätzliche Kosten für Serversicherungen zur Verfügung steht. Wenn die tägliche Sicherheitsauslastung 25 GB beträgt, können Sie für bis zu 10 Tage über kostenlosen Sicherungsspeicher verfügen. Der für Sicherungen verwendete Speicher über 250 GB wird gemäß dem [Preismodell](https://azure.microsoft.com/pricing/details/mysql/) abgerechnet.
 
-Sie können die im Azure-Portal in Azure Monitor verfügbare Metrik für den [verwendeten Sicherungsspeicher](https://docs.microsoft.com/azure/mysql/concepts-monitoring) zum Überwachen des von einem Server genutzten Sicherungsspeichers verwenden. Die Metrik für den belegten **Sicherungsspeicher** stellt den gesamten Speicherplatz dar, der von allen Datenbank- und Protokollsicherungen beansprucht wurde, die auf Grundlage des für den Server festgelegten Aufbewahrungszeitraums für Sicherungen aufbewahrt wurden. Eine hohe Transaktionsaktivität auf dem Server kann dazu führen, dass die Sicherungsspeicherauslastung unabhängig von der Gesamtgröße der Datenbank zunimmt.
+Sie können die im Azure-Portal in Azure Monitor verfügbare Metrik für den [verwendeten Sicherungsspeicher](../concepts-monitoring.md) zum Überwachen des von einem Server genutzten Sicherungsspeichers verwenden. Die Metrik für den belegten **Sicherungsspeicher** stellt den gesamten Speicherplatz dar, der von allen Datenbank- und Protokollsicherungen beansprucht wurde, die auf Grundlage des für den Server festgelegten Aufbewahrungszeitraums für Sicherungen aufbewahrt wurden. Eine hohe Transaktionsaktivität auf dem Server kann dazu führen, dass die Sicherungsspeicherauslastung unabhängig von der Gesamtgröße der Datenbank zunimmt.
 
 Das primäre Mittel zur Kostenkontrolle bei der Speicherung von Sicherungen ist die Festlegung eines angemessenen Aufbewahrungszeitraums für Sicherungen. Sie können einen Aufbewahrungszeitraum zwischen 1 und 35 Tagen auswählen.
 
@@ -68,8 +68,8 @@ Die Point-in-Time-Wiederherstellung ist für viele Szenarien hilfreich. Einige d
 
 Sie können über das [Azure-Portal](how-to-restore-server-portal.md) zwischen einem letzten Wiederherstellungspunkt und einem benutzerdefinierten Wiederherstellungspunkt auswählen.
 
--   **Neuester Wiederherstellungspunkt**: Der neueste Wiederherstellungspunkt hilft Ihnen, den Server auf die letzte auf dem Quellserver durchgeführte Sicherung zurückzusetzen. Der Zeitstempel für die Wiederherstellung wird ebenfalls im Portal angezeigt. Diese Option ist hilfreich, um den Server schnell auf den aktuellsten Stand zu bringen.
--   **Benutzerdefinierter Wiederherstellungspunkt**: Dadurch können Sie einen beliebigen Zeitpunkt innerhalb des für diesen flexiblen Server definierten Aufbewahrungszeitraums wählen. Diese Option ist nützlich, um den Server genau zu dem Zeitpunkt wiederherzustellen, zu dem ein Benutzerfehler aufgetreten ist.
+-   **Neuester Wiederherstellungspunkt** : Der neueste Wiederherstellungspunkt hilft Ihnen, den Server auf die letzte auf dem Quellserver durchgeführte Sicherung zurückzusetzen. Der Zeitstempel für die Wiederherstellung wird ebenfalls im Portal angezeigt. Diese Option ist hilfreich, um den Server schnell auf den aktuellsten Stand zu bringen.
+-   **Benutzerdefinierter Wiederherstellungspunkt** : Dadurch können Sie einen beliebigen Zeitpunkt innerhalb des für diesen flexiblen Server definierten Aufbewahrungszeitraums wählen. Diese Option ist nützlich, um den Server genau zu dem Zeitpunkt wiederherzustellen, zu dem ein Benutzerfehler aufgetreten ist.
 
 Die geschätzte Wiederherstellungszeit hängt von mehreren Faktoren ab, einschließlich der Datenbankgrößen, der Größe der Sicherung des Transaktionsprotokolls, der Computegröße der SKU und auch der Zeit der Wiederherstellung. Die Wiederherstellung des Transaktionsprotokolls ist der zeitaufwendigste Teil des Wiederherstellungsprozesses. Wenn die Wiederherstellungszeit näher am Zeitplan der vollständigen oder differenziellen Momentaufnahmensicherung gewählt wird, erfolgen die Wiederherstellungen schneller, da die Anwendung des Transaktionsprotokolls minimal ist. Um die genaue Wiederherstellungszeit für Ihren Server zu schätzen, wird dringend empfohlen, ihn in Ihrer Umgebung zu testen, da er zu viele umgebungsspezifische Variablen aufweist.
 
@@ -77,11 +77,11 @@ Die geschätzte Wiederherstellungszeit hängt von mehreren Faktoren ab, einschli
 > Wenn Sie einen flexiblen Server wiederherstellen, der mit zonenredundanter Hochverfügbarkeit konfiguriert ist, wird der wiederhergestellte Server in derselben Region und Zone wie Ihr primärer Server konfiguriert und als einzelner flexibler Server in einem Modus ohne Hochverfügbarkeit bereitgestellt. Weitere Informationen finden Sie unter [Zonenredundante Hochverfügbarkeit](concepts-high-availability.md) für flexible Server.
 
 > [!IMPORTANT]
-> Gelöschte Server **können nicht** wiederhergestellt werden. Wenn Sie den Server löschen, werden auch alle Datenbanken gelöscht, die zum Server gehören, und können nicht wiederhergestellt werden. Um Serverressourcen nach der Bereitstellung vor versehentlichem Löschen oder unerwarteten Änderungen zu schützen, können Administratoren  [Verwaltungssperren](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) nutzen.
+> Gelöschte Server **können nicht** wiederhergestellt werden. Wenn Sie den Server löschen, werden auch alle Datenbanken gelöscht, die zum Server gehören, und können nicht wiederhergestellt werden. Um Serverressourcen nach der Bereitstellung vor versehentlichem Löschen oder unerwarteten Änderungen zu schützen, können Administratoren [Verwaltungssperren](../../azure-resource-manager/management/lock-resources.md) nutzen.
 
 ## <a name="perform-post-restore-tasks"></a>Durchführen der Aufgaben nach der Wiederherstellung
 
-Nach beiden Wiederherstellungsverfahren (**neuester Wiederherstellungspunkt** oder **Benutzerdefinierter Wiederherstellungspunkt**) sollten Sie die folgenden Aufgaben durchführen, um Ihre Benutzer und Anwendungen wieder in den betriebsbereiten Zustand zu versetzen:
+Nach beiden Wiederherstellungsverfahren ( **neuester Wiederherstellungspunkt** oder **Benutzerdefinierter Wiederherstellungspunkt** ) sollten Sie die folgenden Aufgaben durchführen, um Ihre Benutzer und Anwendungen wieder in den betriebsbereiten Zustand zu versetzen:
 
 -   Umleiten von Clients und Clientanwendungen an den neuen Server, wenn der neue Server den ursprünglichen Server ersetzen soll.
 -   Sicherstellen, dass geeignete Firewallregeln auf Serverebene und Regeln von virtuellen Netzwerken vorhanden sind, damit Benutzer eine Verbindung herstellen können.
@@ -91,5 +91,5 @@ Nach beiden Wiederherstellungsverfahren (**neuester Wiederherstellungspunkt** od
 ## <a name="next-steps"></a>Nächste Schritte
 
 -   Weitere Informationen zur [Geschäftskontinuität](./concepts-business-continuity.md)
--   Weitere Informationen zur  [zonenredundanten Hochverfügbarkeit](./concepts-high-availability.md)
+-   Weitere Informationen zur [zonenredundanten Hochverfügbarkeit](./concepts-high-availability.md)
 -   Weitere Informationen zu [Sicherung und Wiederherstellung](./concepts-backup-restore.md)

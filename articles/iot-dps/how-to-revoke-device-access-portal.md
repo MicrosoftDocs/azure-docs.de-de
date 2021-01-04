@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: f5bedde9e5e095b1b8637a09263bf18b06bcddea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 120446472038076e34f62b47ba79348e5de8b972
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532340"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010927"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Aufheben der Registrierung eines Geräts bei IoT Hub Device Provisioning Service
 
@@ -56,7 +56,7 @@ Nachdem Sie den Vorgang abgeschlossen haben, sollten Sie sehen, dass Ihr Eintrag
 
 ## <a name="disallow-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Verweigern eines X.509-Zertifikats der Zwischen- oder Stammzertifizierungsstelle mithilfe einer Registrierungsgruppe
 
-X.509-Zertifikate werden in der Regel in einer Zertifikatkette angeordnet. Wenn ein Zertifikat an irgendeiner Stelle in einer Kette gefährdet ist, besteht keine Vertrauensstellung. Das Zertifikat muss verweigert werden, um zu verhindern, dass nachgeschaltete Geräte in der jeweiligen Kette mit dem Zertifikate vom Device Provisioning Service bereitgestellt werden. Weitere Informationen zu X.509-Zertifikaten und ihrer Verwendung mit dem Bereitstellungsdienst finden Sie unter [X.509-Zertifikate](./concepts-security.md#x509-certificates). 
+X.509-Zertifikate werden in der Regel in einer Zertifikatkette angeordnet. Wenn ein Zertifikat an irgendeiner Stelle in einer Kette gefährdet ist, besteht keine Vertrauensstellung. Das Zertifikat muss verweigert werden, um zu verhindern, dass nachgeschaltete Geräte in der jeweiligen Kette mit dem Zertifikate vom Device Provisioning Service bereitgestellt werden. Weitere Informationen zu X.509-Zertifikaten und ihrer Verwendung mit dem Bereitstellungsdienst finden Sie unter [X.509-Zertifikate](./concepts-x509-attestation.md#x509-certificates). 
 
 Eine Registrierungsgruppe ist ein Eintrag für Geräte mit einem gemeinsamen Nachweismechanismus von X.509-Zertifikaten, signiert von der gleichen Zwischen- oder Stammzertifizierungsstelle. Der Registrierungsgruppeneintrag ist mit dem X.509-Zertifikat konfiguriert, das einer Zwischen- oder Stammzertifizierungsstelle zugeordnet ist. Der Eintrag ist außerdem mit Konfigurationswerten konfiguriert (z.B. Verbindungen zwischen Gerätezwillingen und IoT Hubs, die von Geräten mit diesem Zertifikat in der Zertifikatkette gemeinsam genutzt werden). Um das Zertifikat nicht zuzulassen, können Sie eine Registrierungsgruppe deaktivieren oder löschen.
 
@@ -110,4 +110,4 @@ Nach erfolgreicher Erstellung Ihrer Registrierung sollte Ihre deaktivierte Gerä
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Die Aufhebung der Registrierung ist auch Teil der Bereitstellungsaufhebung. Zur Aufhebung der Bereitstellung eines Geräts muss sowohl die Registrierung beim Bereitstellungsdienst als auch die Registrierung bei IoT Hub aufgehoben werden. Informationen zum gesamten Prozess finden Sie unter [Aufheben der Bereitstellung von Geräten, die zuvor automatisch bereitgestellt wurden](how-to-unprovision-devices.md). 
+Die Aufhebung der Registrierung ist auch Teil der Bereitstellungsaufhebung. Zur Aufhebung der Bereitstellung eines Geräts muss sowohl die Registrierung beim Bereitstellungsdienst als auch die Registrierung bei IoT Hub aufgehoben werden. Informationen zum gesamten Prozess finden Sie unter [Aufheben der Bereitstellung von Geräten, die zuvor automatisch bereitgestellt wurden](how-to-unprovision-devices.md).

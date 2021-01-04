@@ -7,18 +7,18 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
-ms.openlocfilehash: 21d8f513ea0f749f0318b9bc5926a746f840505b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0b8b499613f8234f449e6d72f6ed6ec1f2f21287
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147829"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545411"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Automatische Verwaltung von IoT-Geräten und -Modulen über die Azure CLI
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
-Die automatische Geräteverwaltung in Azure IoT Hub automatisiert viele der repetitiven und komplexen Aufgaben im Zusammenhang mit der Verwaltung eines umfangreichen Gerätebestands. Mit der automatischen Geräteverwaltung können Sie eine Gruppe von Geräten auf der Grundlage ihrer Eigenschaften als Ziel festlegen, eine gewünschte Konfiguration definieren und dann IoT Hub die Geräte aktualisieren lassen, wenn sie in den entsprechenden Bereich fallen. Dieses Update erfolgt mithilfe einer _automatischen Gerätekonfiguration_ oder einer _automatischen Modulkonfiguration_, mit der Sie die Fertigstellung und Compliance zusammenfassen, Zusammenführung und Konflikte verarbeiten und Konfigurationen gestaffelt einführen können.
+Die automatische Geräteverwaltung in Azure IoT Hub automatisiert viele der repetitiven und komplexen Aufgaben im Zusammenhang mit der Verwaltung eines umfangreichen Gerätebestands. Mit der automatischen Geräteverwaltung können Sie eine Gruppe von Geräten auf der Grundlage ihrer Eigenschaften als Ziel festlegen, eine gewünschte Konfiguration definieren und dann IoT Hub die Geräte aktualisieren lassen, wenn sie in den entsprechenden Bereich fallen. Dieses Update erfolgt mithilfe einer _automatischen Gerätekonfiguration_ oder einer _automatischen Modulkonfiguration_ , mit der Sie die Fertigstellung und Compliance zusammenfassen, Zusammenführung und Konflikte verarbeiten und Konfigurationen gestaffelt einführen können.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -28,7 +28,7 @@ Bei der automatischen Geräteverwaltung werden mehrere Geräte- oder Modulzwilli
 
 * Der **Zielinhalt** definiert die gewünschten Eigenschaften, die in den Zielgeräte- oder Zielmodulzwillingen hinzugefügt oder aktualisiert werden sollen. Der Inhalt umfasst einen Pfad zu dem Abschnitt der gewünschten Eigenschaften, die geändert werden sollen.
 
-* Die **Metriken** definieren die zusammenfassenden Angaben zu verschiedenen Konfigurationszuständen wie z.B. **Erfolgreich**, **In Bearbeitung** und **Fehler**. Benutzerdefinierte Metriken werden als Abfragen für gemeldete Zwillingseigenschaften angegeben.  Systemmetriken sind die Standardmetriken, die den Zwillingsaktualisierungsstatus messen, z. B. die Anzahl von Zielzwillingen und die Anzahl der Zwillinge, die erfolgreich aktualisiert wurden.
+* Die **Metriken** definieren die zusammenfassenden Angaben zu verschiedenen Konfigurationszuständen wie z.B. **Erfolgreich** , **In Bearbeitung** und **Fehler**. Benutzerdefinierte Metriken werden als Abfragen für gemeldete Zwillingseigenschaften angegeben.  Systemmetriken sind die Standardmetriken, die den Zwillingsaktualisierungsstatus messen, z. B. die Anzahl von Zielzwillingen und die Anzahl der Zwillinge, die erfolgreich aktualisiert wurden.
 
 Automatische Konfigurationen werden zum ersten Mal kurz nach Erstellung der Konfiguration ausgeführt und anschließend in Intervallen von fünf Minuten. Metrikabfragen werden jedes Mal ausgeführt, wenn die automatische Konfiguration ausgeführt wird.
 
@@ -128,19 +128,19 @@ Verwenden Sie den folgenden Befehl, um eine Konfiguration zu erstellen:
      --metrics [metric queries]
 ```
 
-* --**config-id**: Der Name der Konfiguration, die im IoT Hub erstellt werden soll. Geben Sie Ihrer Konfiguration einen eindeutigen Namen, der bis zu 128 Kleinbuchstaben umfasst. Verwenden Sie dabei weder Leerzeichen noch die folgenden ungültigen Zeichen: `& ^ [ ] { } \ | " < > /`.
+* --**config-id** : Der Name der Konfiguration, die im IoT Hub erstellt werden soll. Geben Sie Ihrer Konfiguration einen eindeutigen Namen, der bis zu 128 Kleinbuchstaben umfasst. Verwenden Sie dabei weder Leerzeichen noch die folgenden ungültigen Zeichen: `& ^ [ ] { } \ | " < > /`.
 
-* --**labels**: Fügen Sie Bezeichnungen hinzu, um Ihre Konfigurationen im Blick zu behalten. Bezeichnungen sind Name-Wert-Paare, die Ihre Bereitstellung beschreiben. Beispiel: `HostPlatform, Linux` oder `Version, 3.0.1`
+* --**labels** : Fügen Sie Bezeichnungen hinzu, um Ihre Konfigurationen im Blick zu behalten. Bezeichnungen sind Name-Wert-Paare, die Ihre Bereitstellung beschreiben. Beispiel: `HostPlatform, Linux` oder `Version, 3.0.1`
 
-* --**content**: Inline-JSON-Code oder Dateipfad zum Zielinhalt, der als gewünschte Eigenschaften des Gerätezwillings festgelegt werden soll. 
+* --**content** : Inline-JSON-Code oder Dateipfad zum Zielinhalt, der als gewünschte Eigenschaften des Gerätezwillings festgelegt werden soll. 
 
-* --**hub-name**: Der Name des IoT Hubs, in dem die Konfiguration erstellt werden soll. Der Hub muss aus dem aktuellen Abonnement stammen. Wechseln Sie mit dem Befehl `az account set -s [subscription name]` zum gewünschten Abonnement.
+* --**hub-name** : Der Name des IoT Hubs, in dem die Konfiguration erstellt werden soll. Der Hub muss aus dem aktuellen Abonnement stammen. Wechseln Sie mit dem Befehl `az account set -s [subscription name]` zum gewünschten Abonnement.
 
-* --**target-condition**: Geben Sie eine Zielbedingung ein, um festzulegen, auf welche Geräte oder Module diese Konfiguration angewendet werden soll.  Für die automatische Gerätekonfiguration basiert die Bedingung auf den Gerätezwillingstags oder auf den gewünschten Eigenschaften des Gerätezwillings und muss dem Ausdrucksformat entsprechen.  Zum Beispiel: `tags.environment='test'` oder `properties.desired.devicemodel='4000x'`.  Bei der automatischen Modulkonfiguration basiert die Bedingung auf Modulzwillingstags oder auf den gewünschten Eigenschaften des Modulzwillings. Zum Beispiel: `from devices.modules where tags.environment='test'` oder `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
+* --**target-condition** : Geben Sie eine Zielbedingung ein, um festzulegen, auf welche Geräte oder Module diese Konfiguration angewendet werden soll.  Für die automatische Gerätekonfiguration basiert die Bedingung auf den Gerätezwillingstags oder auf den gewünschten Eigenschaften des Gerätezwillings und muss dem Ausdrucksformat entsprechen.  Zum Beispiel: `tags.environment='test'` oder `properties.desired.devicemodel='4000x'`.  Bei der automatischen Modulkonfiguration basiert die Bedingung auf Modulzwillingstags oder auf den gewünschten Eigenschaften des Modulzwillings. Zum Beispiel: `from devices.modules where tags.environment='test'` oder `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
 
-* --**priority**: Eine positive ganze Zahl. Wenn mindestens zwei Konfigurationen auf dasselbe Gerät oder Modul ausgerichtet sind, wird die Konfiguration mit dem höchsten numerischen Wert für die Priorität angewendet.
+* --**priority** : Eine positive ganze Zahl. Wenn mindestens zwei Konfigurationen auf dasselbe Gerät oder Modul ausgerichtet sind, wird die Konfiguration mit dem höchsten numerischen Wert für die Priorität angewendet.
 
-* --**metrics**: Der Dateipfad zu den Metrikabfragen. Metriken bieten zusammenfassende Angaben zu den verschiedenen Zuständen, die ein Gerät oder Modul nach dem Anwenden von Konfigurationsinhalten möglicherweise zurückmeldet. Beispielsweise können Sie eine Metrik für ausstehende Einstellungsänderungen, eine Metrik für Fehler und eine Metrik für erfolgreiche Einstellungsänderungen erstellen. 
+* --**metrics** : Der Dateipfad zu den Metrikabfragen. Metriken bieten zusammenfassende Angaben zu den verschiedenen Zuständen, die ein Gerät oder Modul nach dem Anwenden von Konfigurationsinhalten möglicherweise zurückmeldet. Beispielsweise können Sie eine Metrik für ausstehende Einstellungsänderungen, eine Metrik für Fehler und eine Metrik für erfolgreiche Einstellungsänderungen erstellen. 
 
 ## <a name="monitor-a-configuration"></a>Überwachen einer Konfiguration
 
@@ -151,15 +151,15 @@ az iot hub configuration show --config-id [configuration id] \
   --hub-name [hub name]
 ```
 
-* --**config-id**: Der Name der Konfiguration, die im IoT Hub vorhanden ist.
+* --**config-id** : Der Name der Konfiguration, die im IoT Hub vorhanden ist.
 
-* --**hub-name**: Der Name des IoT Hubs, in dem die Konfiguration vorhanden ist. Der Hub muss aus dem aktuellen Abonnement stammen. Wechseln Sie mit dem Befehl `az account set -s [subscription name]` zum gewünschten Abonnement.
+* --**hub-name** : Der Name des IoT Hubs, in dem die Konfiguration vorhanden ist. Der Hub muss aus dem aktuellen Abonnement stammen. Wechseln Sie mit dem Befehl `az account set -s [subscription name]` zum gewünschten Abonnement.
 
 Überprüfen Sie die Konfiguration im Befehlsfenster.  Die Eigenschaft **metrics** enthält eine Anzahl für jede Metrik, die von den einzelnen Hubs ausgewertet wird:
 
-* **targetedCount**: Eine Systemmetrik, die die Anzahl der Geräte- oder Modulzwillinge in IoT Hub angibt, die die Zielbedingung erfüllen
+* **targetedCount** : Eine Systemmetrik, die die Anzahl der Geräte- oder Modulzwillinge in IoT Hub angibt, die die Zielbedingung erfüllen
 
-* **appliedCount**: Eine Systemmetrik, die die Anzahl der Geräte oder Module angibt, auf die der Zielinhalt angewendet wurde
+* **appliedCount** : Eine Systemmetrik, die die Anzahl der Geräte oder Module angibt, auf die der Zielinhalt angewendet wurde
 
 * **Ihre benutzerdefinierte Metrik** – Alle Metriken, die Sie definiert haben, sind Benutzermetriken.
 
@@ -170,13 +170,13 @@ az iot hub configuration show-metric --config-id [configuration id] \
    --metric-id [metric id] --hub-name [hub name] --metric-type [type] 
 ```
 
-* --**config-id**: Der Name der Bereitstellung, die im IoT Hub vorhanden ist.
+* --**config-id** : Der Name der Bereitstellung, die im IoT Hub vorhanden ist.
 
-* --**metric-id**: Der Name der Metrik, für die Sie eine Liste der Geräte- oder Modul-IDs anzeigen möchten, z. B. `appliedCount`
+* --**metric-id** : Der Name der Metrik, für die Sie eine Liste der Geräte- oder Modul-IDs anzeigen möchten, z. B. `appliedCount`
 
-* --**hub-name**: Der Name des IoT Hubs, in dem die Bereitstellung vorhanden ist. Der Hub muss aus dem aktuellen Abonnement stammen. Wechseln Sie mit dem Befehl `az account set -s [subscription name]` zum gewünschten Abonnement.
+* --**hub-name** : Der Name des IoT Hubs, in dem die Bereitstellung vorhanden ist. Der Hub muss aus dem aktuellen Abonnement stammen. Wechseln Sie mit dem Befehl `az account set -s [subscription name]` zum gewünschten Abonnement.
 
-* --**metric-type**: Der Metriktyp kann `system` oder `user` sein.  Systemmetriken sind `targetedCount` und `appliedCount`. Alle weiteren Metriken sind Benutzermetriken.
+* --**metric-type** : Der Metriktyp kann `system` oder `user` sein.  Systemmetriken sind `targetedCount` und `appliedCount`. Alle weiteren Metriken sind Benutzermetriken.
 
 ## <a name="modify-a-configuration"></a>Ändern einer Konfiguration
 
@@ -197,11 +197,11 @@ az iot hub configuration update --config-id [configuration id] \
    --hub-name [hub name] --set [property1.property2='value']
 ```
 
-* --**config-id**: Der Name der Konfiguration, die im IoT Hub vorhanden ist.
+* --**config-id** : Der Name der Konfiguration, die im IoT Hub vorhanden ist.
 
-* --**hub-name**: Der Name des IoT Hubs, in dem die Konfiguration vorhanden ist. Der Hub muss aus dem aktuellen Abonnement stammen. Wechseln Sie mit dem Befehl `az account set -s [subscription name]` zum gewünschten Abonnement.
+* --**hub-name** : Der Name des IoT Hubs, in dem die Konfiguration vorhanden ist. Der Hub muss aus dem aktuellen Abonnement stammen. Wechseln Sie mit dem Befehl `az account set -s [subscription name]` zum gewünschten Abonnement.
 
-* --**set**: Aktualisieren einer Eigenschaft in der Konfiguration. Sie können die folgenden Eigenschaften aktualisieren:
+* --**set** : Aktualisieren einer Eigenschaft in der Konfiguration. Sie können die folgenden Eigenschaften aktualisieren:
 
     * targetCondition – z.B. `targetCondition=tags.location.state='Oregon'`
 
@@ -220,17 +220,16 @@ az iot hub configuration delete --config-id [configuration id] \
    --hub-name [hub name] 
 ```
 
-* --**config-id**: Der Name der Konfiguration, die im IoT Hub vorhanden ist.
+* --**config-id** : Der Name der Konfiguration, die im IoT Hub vorhanden ist.
 
-* --**hub-name**: Der Name des IoT Hubs, in dem die Konfiguration vorhanden ist. Der Hub muss aus dem aktuellen Abonnement stammen. Wechseln Sie mit dem Befehl `az account set -s [subscription name]` zum gewünschten Abonnement.
+* --**hub-name** : Der Name des IoT Hubs, in dem die Konfiguration vorhanden ist. Der Hub muss aus dem aktuellen Abonnement stammen. Wechseln Sie mit dem Befehl `az account set -s [subscription name]` zum gewünschten Abonnement.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 In diesem Artikel haben Sie erfahren, wie IoT-Geräte bedarfsgerecht konfiguriert und überwacht werden. Folgen Sie diesen Links, um mehr über das Verwalten von Azure IoT Hub zu erfahren:
 
 * [Massenverwaltung von IoT Hub-Geräteidentitäten](iot-hub-bulk-identity-mgmt.md)
-* [IoT Hub-Metriken](iot-hub-metrics.md)
-* [Vorgangsüberwachung](iot-hub-operations-monitoring.md)
+* [Überwachen von IoT-Hubs](monitor-iot-hub.md)
 
 Weitere Informationen zu den Funktionen von IoT Hub finden Sie unter:
 

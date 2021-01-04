@@ -4,13 +4,12 @@ description: Knotentypen, Dauerhaftigkeit, Zuverlässigkeit und andere Faktoren 
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
-ms.custom: sfrev
-ms.openlocfilehash: d2b303c22eea9fb46a68bb3c8e36991d47d61554
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 731dcfdf25efc4b2f44669dacd8a400037ed47f4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91817738"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576331"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Überlegungen zur Kapazitätsplanung für Service Fabric-Cluster
 
@@ -40,21 +39,21 @@ Der primäre Knotentyp wird mit dem Attribut `isPrimary` unter der Knotentypdefi
 
 Die Anzahl der ursprünglichen Knoten hängt vom Zweck des Clusters und den darauf ausgeführten Anwendungen und Diensten ab. Stellen Sie sich die folgenden Fragen:
 
-* ***Weist Ihre Anwendung mehrere Dienste auf, und müssen einige dieser Dienste öffentlich sein oder über Internetzugriff verfügen?***
+* ***Weist Ihre Anwendung mehrere Dienste auf, und müssen einige dieser Dienste öffentlich sein oder über Internetzugriff verfügen?**
 
     Typische Anwendungen umfassen einen Front-End-Gatewaydienst, der Eingaben von einem Client empfängt, und einen oder mehrere Back-End-Dienste, die mit den Front-End-Diensten kommunizieren. Dabei gibt es ein separates Netzwerk für Front-End- und Back-End-Dienste. In solchen Fällen sind normalerweise drei Knotentypen erforderlich: ein primärer Knotentyp und zwei nicht primäre Knotentypen (einen für jeden Front-End- und Back-End-Dienst).
 
-* ***Haben die Dienste, aus denen sich Ihre Anwendung zusammensetzt, unterschiedliche Infrastrukturanforderungen, z. B. höhere RAM-Anforderungen oder längere CPU-Zyklen?***
+_ ***Haben die Dienste, aus denen sich Ihre Anwendung zusammensetzt, unterschiedliche Infrastrukturanforderungen, z. B. höhere RAM-Anforderungen oder längere CPU-Zyklen?** _
 
-    Der Front-End-Dienst kann häufig auf kleineren virtuellen Computern (VM-Größen wie D2) ausgeführt werden, die über für das Internet geöffnete Ports verfügen.  Rechenintensive Back-End-Dienste hingegen müssen auf größeren virtuellen Computern (mit VM-Größen wie D4, D6, D15) ausgeführt werden, die nicht mit dem Internet verbunden sind. Wenn Sie unterschiedliche Knotentypen für diese Dienste definieren, können Sie die zugrunde liegenden Service Fabric-VMs effizienter und sicherer nutzen und diese unabhängig voneinander skalieren. Weitere Informationen zur Einschätzung der benötigten Ressourcenmenge finden Sie unter [Kapazitätsplanung für Service Fabric-Anwendungen](service-fabric-capacity-planning.md).
+    Often, front-end service can run on smaller VMs (VM sizes like D2) that have ports open to the internet.  Computationally intensive back-end services might need to run on larger VMs (with VM sizes like D4, D6, D15) that are not internet-facing. Defining different node types for these services allow you to make more efficient and secure use of underlying Service Fabric VMs, and enables them to scale them independently. For more on estimating the amount of resources you'll need, see [Capacity planning for Service Fabric applications](service-fabric-capacity-planning.md)
 
-* ***Muss einer der Anwendungsdienste auf über 100 Knoten aufskaliert werden?***
+_ ***Muss einer der Anwendungsdienste auf über 100 Knoten aufskaliert werden?** _
 
-    Ein einzelner Knotentyp kann für Service Fabric-Anwendungen nicht zuverlässig über 100 Knoten pro VM-Skalierungsgruppe skaliert werden. Wenn Sie mehr als 100 Knoten ausführen, benötigen Sie eine weitere VM-Skalierungsgruppe (und somit zusätzliche Knotentypen).
+    A single node type can't reliably scale beyond 100 nodes per virtual machine scale set for Service Fabric applications. Running more than 100 nodes requires additional virtual machine scale sets (and therefore additional node types).
 
-* ***Erstreckt sich Ihr Cluster über Verfügbarkeitszonen?***
+_ ***Erstreckt sich Ihr Cluster über Verfügbarkeitszonen?** _
 
-    Service Fabric unterstützt Cluster, die sich über [Verfügbarkeitszonen](../availability-zones/az-overview.md) erstrecken, indem Knotentypen bereitgestellt werden, die an bestimmte Zonen angeheftet sind. So wird die Hochverfügbarkeit Ihrer Anwendungen sichergestellt. Für Verfügbarkeitszonen müssen Sie die Knotentypen anders planen, und es gelten höhere Mindestanforderungen. Weitere Informationen finden Sie unter [Empfohlene Topologie für den primären Knotentyp von Azure Service Fabric-Clustern, die sich über Verfügbarkeitszonen erstrecken](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones). 
+    Service Fabric supports clusters that span across [Availability Zones](../availability-zones/az-overview.md) by deploying node types that are pinned to specific zones, ensuring high-availability of your applications. Availability Zones require additional node type planning and minimum requirements. For details, see [Recommended topology for primary node type of Service Fabric clusters spanning across Availability Zones](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones). 
 
 Wenn Sie die Anzahl und die Eigenschaften von Knotentypen für die Erstellung Ihres Clusters bestimmen, müssen Sie bedenken, dass Sie auch nach der Bereitstellung Ihres Clusters jederzeit nicht primäre Knotentypen hinzufügen, bearbeiten oder entfernen können. [Primäre Knotentypen](service-fabric-scale-up-primary-node-type.md) können zudem in ausgeführten Clustern bearbeitet werden. Einige Vorgänge in Produktionsumgebungen müssen jedoch sorgfältig geplant und durchgeführt werden.
 
@@ -62,7 +61,7 @@ Ein weiterer zu berücksichtigender Aspekt für Ihre Knotentypeigenschaften ist 
 
 ## <a name="durability-characteristics-of-the-cluster"></a>Dauerhaftigkeitsmerkmale des Clusters
 
-Der *Dauerhaftigkeitsgrad* entscheidet über die Berechtigungen Ihrer Service Fabric-VMs in der zugrunde liegenden Azure-Infrastruktur. Mit dieser Berechtigung kann Service Fabric Infrastrukturanforderungen auf VM-Ebene anhalten (z. B. einen Neustart, ein Reimaging oder eine Migration), die sich auf die Quorumanforderungen für Service Fabric-Systemdienste und Ihre zustandsbehafteten Dienste auswirken.
+Der _Dauerhaftigkeitsgrad* entscheidet über die Berechtigungen Ihrer Service Fabric-VMs in der zugrunde liegenden Azure-Infrastruktur. Mit dieser Berechtigung kann Service Fabric Infrastrukturanforderungen auf VM-Ebene anhalten (z. B. einen Neustart, ein Reimaging oder eine Migration), die sich auf die Quorumanforderungen für Service Fabric-Systemdienste und Ihre zustandsbehafteten Dienste auswirken.
 
 > [!IMPORTANT]
 > Der Dauerhaftigkeitsgrad wird pro Knotentyp festgelegt. Wenn kein Wert angegeben ist, wird *Bronze* verwendet, es werden jedoch keine automatischen Betriebssystemupgrades durchgeführt. Die Dauerhaftigkeit *Silber* oder *Gold* wird für Produktionsworkloads empfohlen.

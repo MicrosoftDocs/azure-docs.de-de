@@ -1,6 +1,6 @@
 ---
-title: 'Schnellstart: Azure Key Vault-Clientbibliothek für .NET (v4)'
-description: Erfahren Sie, wie Sie mithilfe der .NET-Clientbibliothek (v4) Geheimnisse in einer Azure Key Vault-Instanz erstellen, daraus abrufen und löschen.
+title: 'Schnellstart: Azure Key Vault-Geheimnisclientbibliothek für .NET (Version 4)'
+description: Hier Erfahren Sie, wie Sie mithilfe der .NET-Clientbibliothek (Version 4) Geheimnisse in einem Azure-Schlüsseltresor erstellen, daraus abrufen und löschen.
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 09/23/2020
@@ -8,30 +8,37 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 20974367b9d4b75bb9746cd065bc7490011f37ad
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: dcf7c8db955b2e85ad7d1c047c714eb2c5968455
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786155"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780806"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-net-sdk-v4"></a>Schnellstart: Azure Key Vault-Geheimnisclientbibliothek für .NET (SDK v4)
 
-Hier finden Sie Informationen zu den ersten Schritten mit der Azure Key Vault-Geheimnisclientbibliothek für .NET. Führen Sie die weiter unten beschriebenen Schritte aus, um das Paket zu installieren und den Beispielcode für grundlegende Aufgaben auszuprobieren.
+Hier finden Sie Informationen zu den ersten Schritten mit der Azure Key Vault-Geheimnisclientbibliothek für .NET. [Azure Key Vault](../general/overview.md) ist ein Clouddienst, der als sicherer Geheimnisspeicher fungiert. Dadurch können Schlüssel, Kennwörter, Zertifikate und andere Geheimnisse sicher gespeichert werden. Azure Key Vault-Instanzen können über das Azure-Portal erstellt und verwaltet werden. In dieser Schnellstartanleitung erfahren Sie, wie Sie mithilfe der .NET-Clientbibliothek Geheimnisse in einem Azure-Schlüsseltresor erstellen, daraus abrufen und löschen.
+
+Ressourcen der Key Vault-Clientbibliothek:
 
 [API-Referenzdokumentation](/dotnet/api/azure.security.keyvault.secrets?view=azure-dotnet&preserve-view=true) | [Quellcode der Bibliothek](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Paket (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
+
+Weitere Informationen zu Key Vault und Geheimnissen finden Sie unter folgenden Links:
+- [Übersicht über Key Vault](../general/overview.md)
+- [Informationen zu Azure Key Vault-Geheimnissen](about-secrets.md)
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 * Azure-Abonnement: [Kostenloses Azure-Konto](https://azure.microsoft.com/free/dotnet)
 * [.NET Core 3.1 SDK oder höher](https://dotnet.microsoft.com/download/dotnet-core)
 * [Azure-Befehlszeilenschnittstelle](/cli/azure/install-azure-cli)
+* Eine Key Vault-Instanz. Diese kann über das [Azure-Portal](../general/quick-create-portal.md), mithilfe der [Azure CLI](../general/quick-create-cli.md) oder per [Azure PowerShell](../general/quick-create-powershell.md) erstellt werden.
 
 In dieser Schnellstartanleitung werden `dotnet` und die Azure CLI verwendet.
 
 ## <a name="setup"></a>Einrichten
 
-In dieser Schnellstartanleitung wird die Azure Identity-Bibliothek mit der Azure CLI verwendet, um den Benutzer bei Azure-Diensten zu authentifizieren. Entwickler können auch Visual Studio oder Visual Studio Code verwenden, um ihre Aufrufe zu authentifizieren. Weitere Informationen finden Sie unter [Authentifizieren des Clients mit der Azure Identity-Clientbibliothek](/dotnet/api/overview/azure/identity-readme#authenticate-the-client&preserve-view=true).
+In dieser Schnellstartanleitung wird die Azure Identity-Bibliothek mit der Azure CLI verwendet, um den Benutzer bei Azure-Diensten zu authentifizieren. Entwickler können auch Visual Studio oder Visual Studio Code verwenden, um ihre Aufrufe zu authentifizieren. Weitere Informationen finden Sie unter [Authentifizieren des Clients mit der Azure Identity-Clientbibliothek](/dotnet/api/overview/azure/identity-readme?#authenticate-the-client&preserve-view=true).
 
 ### <a name="sign-in-to-azure"></a>Anmelden bei Azure
 
@@ -47,6 +54,13 @@ In dieser Schnellstartanleitung wird die Azure Identity-Bibliothek mit der Azure
 
 2. Melden Sie sich im Browser mit Ihren Anmeldeinformationen an.
 
+### <a name="grant-access-to-your-key-vault"></a>Gewähren des Zugriffs auf Ihren Schlüsseltresor
+
+Erstellen Sie eine Zugriffsrichtlinie für Ihren Schlüsseltresor, die Ihrem Benutzerkonto Geheimnisberechtigungen erteilt:
+
+```console
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set purge
+```
 
 ### <a name="create-new-net-console-app"></a>Erstellen einer neuen .NET-Konsolen-App
 
@@ -56,7 +70,7 @@ In dieser Schnellstartanleitung wird die Azure Identity-Bibliothek mit der Azure
     dotnet new console --name key-vault-console-app
     ```
 
-1. Wechseln Sie zum neu erstellten Verzeichnis *key-vault-console-app* , und führen Sie den folgenden Befehl aus, um das Projekt zu erstellen:
+1. Wechseln Sie zum neu erstellten Verzeichnis *key-vault-console-app*, und führen Sie den folgenden Befehl aus, um das Projekt zu erstellen:
 
     ```dotnetcli
     dotnet build
@@ -83,19 +97,6 @@ Für diese Schnellstartanleitung müssen Sie auch die Azure SDK-Clientbibliothek
 ```dotnetcli
 dotnet add package Azure.Identity
 ```
-
-### <a name="create-a-resource-group-and-key-vault"></a>Erstellen einer Ressourcengruppe und eines Schlüsseltresors
-
-[!INCLUDE[Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
-
-#### <a name="grant-access-to-your-key-vault"></a>Gewähren des Zugriffs auf Ihren Schlüsseltresor
-
-Erstellen Sie für Ihren Schlüsseltresor eine Zugriffsrichtlinie, die Ihrem Benutzerkonto Geheimnisberechtigung erteilt.
-
-```console
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
-```
-
 #### <a name="set-environment-variables"></a>Festlegen von Umgebungsvariablen
 
 Diese Anwendung verwendet den Namen des Schlüsseltresors als Umgebungsvariable namens `KEY_VAULT_NAME`.
@@ -130,7 +131,7 @@ Fügen Sie am Anfang von *Program.cs* die folgenden Anweisungen hinzu:
 
 In dieser Schnellstartanleitung wird der angemeldete Benutzer zum Authentifizieren beim Schlüsseltresor verwendet. Dies ist die bevorzugte Methode für die lokale Entwicklung. Bei Anwendungen, die in Azure bereitgestellt werden, sollte die verwaltete Identität App Service oder einem virtuellen Computer zugewiesen werden. Weitere Informationen finden Sie in der [Übersicht zu verwalteten Identitäten](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-Im folgenden Beispiel wird der Name Ihres Schlüsseltresors in den Schlüsseltresor-URI mit dem Format „https://\<your-key-vault-name\>.vault.azure.net“ erweitert. In diesem Beispiel wird die Klasse [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential) verwendet, mit der derselbe Code in verschiedenen Umgebungen mit verschiedenen Optionen zum Bereitstellen von Identitäten verwendet werden kann. Weitere Informationen finden Sie unter der [DefaultAzureCredential-Authentifizierung](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme?#defaultazurecredential). 
+Im folgenden Beispiel wird der Name Ihres Schlüsseltresors in den Schlüsseltresor-URI mit dem Format „https://\<your-key-vault-name\>.vault.azure.net“ erweitert. In diesem Beispiel wird die Klasse [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential) aus der [Azure Identity-Bibliothek](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme) verwendet, wodurch der gleiche Code in verschiedenen Umgebungen mit verschiedenen Optionen für die Identitätsbereitstellung verwendet werden kann. Weitere Informationen zur Authentifizierung beim Schlüsseltresor finden Sie im [Entwicklerhandbuch](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 [!code-csharp[](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=authenticate)]
 
@@ -140,17 +141,11 @@ Nachdem die Konsolen-App authentifiziert wurde, fügen Sie dem Schlüsseltresor 
 
 ```csharp
 await client.SetSecretAsync(secretName, secretValue);
-``````
-
-Mithilfe des Befehls [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show&preserve-view=true) können Sie sich vergewissern, dass das Geheimnis festgelegt wurde:
-
-```azurecli
-az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ```
 
-```azurepowershell
-(Get-AzKeyVaultSecret -VaultName <your-unique-keyvault-name> -Name mySecret).SecretValue | ConvertFrom-SecureString -AsPlainText
-```
+> [!NOTE]
+> Ist der Geheimnisname vorhanden, erstellt der obige Code eine neue Version dieses Geheimnisses.
+
 
 ### <a name="retrieve-a-secret"></a>Abrufen eines Geheimnisses
 
@@ -158,60 +153,20 @@ Nun können Sie den zuvor festgelegten Wert mithilfe der [GetSecretAsync](/dotne
 
 ```csharp
 var secret = await client.GetSecretAsync(secretName);
-``````
+```
 
 Ihr Geheimnis ist jetzt als `secret.Value` gespeichert.
 
 ### <a name="delete-a-secret"></a>Löschen eines Geheimnisses
 
-Zum Schluss löschen Sie das Geheimnis mit der [StartDeleteSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.startdeletesecretasync)-Methode aus dem Schlüsseltresor.
+Verwenden Sie abschließend die Methoden [StartDeleteSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.startdeletesecretasync) und [PurgeDeletedSecretAsync](/dotnet/api/azure.security.keyvault.keys.keyclient.purgedeletedsecretasync), um das Geheimnis aus Ihrem Schlüsseltresor zu löschen.
 
 ```csharp
-await client.StartDeleteSecretAsync(secretName);
-``````
+var operation = await client.StartDeleteSecretAsync("mySecret");
+// You only need to wait for completion if you want to purge or recover the key.
+await operation.WaitForCompletionAsync();
 
-Sie können sich mithilfe des Befehls [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show&preserve-view=true) vergewissern, dass das Geheimnis entfernt wurde:
-
-```azurecli
-az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
-```
-
-```azurepowershell
-(Get-AzKeyVaultSecret -VaultName <your-unique-keyvault-name> -Name mySecret).SecretValue | ConvertFrom-SecureString -AsPlainText
-```
-
-## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
-
-Wenn Sie die Ressourcen nicht mehr benötigen, können Sie die Azure CLI oder Azure PowerShell verwenden, um Ihren Schlüsseltresor und die zugehörige Ressourcengruppe zu entfernen.
-
-### <a name="delete-a-key-vault"></a>Löschen eines Schlüsseltresors
-
-```azurecli
-az keyvault delete --name <your-unique-keyvault-name>
-```
-
-```azurepowershell
-Remove-AzKeyVault -VaultName <your-unique-keyvault-name>
-```
-
-### <a name="purge-a-key-vault"></a>Bereinigen eines Schlüsseltresors
-
-```azurecli
-az keyvault purge --location eastus --name <your-unique-keyvault-name>
-```
-
-```azurepowershell
-Remove-AzKeyVault -VaultName <your-unique-keyvault-name> -InRemovedState -Location eastus
-```
-
-### <a name="delete-a-resource-group"></a>Löschen einer Ressourcengruppe
-
-```azurecli
-az group delete -g "myResourceGroup"
-```
-
-```azurepowershell
-Remove-AzResourceGroup -Name "myResourceGroup"
+await client.PurgeDeletedKeyAsync("mySecret");
 ```
 
 ## <a name="sample-code"></a>Beispielcode
@@ -222,6 +177,7 @@ Führen Sie die folgenden Schritte aus, um die .NET Core-Konsolen-App so zu änd
 
     ```csharp
     using System;
+    using System.Threading.Tasks;
     using Azure.Identity;
     using Azure.Security.KeyVault.Secrets;
     
@@ -256,13 +212,16 @@ Führen Sie die folgenden Schritte aus, um die .NET Core-Konsolen-App so zu änd
                 DeleteSecretOperation operation = await client.StartDeleteSecretAsync(secretName);
                 // You only need to wait for completion if you want to purge or recover the secret.
                 await operation.WaitForCompletionAsync();
-
-                await client.PurgeDeletedSecret(secretName);
+                Console.WriteLine(" done.");
+                
+                Console.Write($"Purging your secret from {keyVaultName} ...");
+                await client.PurgeDeletedSecretAsync(secretName);
                 Console.WriteLine(" done.");
             }
         }
     }
     ```
+### <a name="test-and-verify"></a>Testen und Überprüfen
 
 1. Führen Sie die App mit dem folgenden Befehl aus.
 
@@ -272,21 +231,20 @@ Führen Sie die folgenden Schritte aus, um die .NET Core-Konsolen-App so zu änd
 
 1. Geben Sie bei entsprechender Aufforderung einen Geheimniswert ein, z. B. „mySecretPassword“.
 
-    Eine Variation der folgenden Ausgabe wird angezeigt:
+Eine Variation der folgenden Ausgabe wird angezeigt:
 
-    ```console
-    Input the value of your secret > mySecretPassword
-    Creating a secret in <your-unique-keyvault-name> called 'mySecret' with the value 'mySecretPassword' ... done.
-    Forgetting your secret.
-    Your secret is ''.
-    Retrieving your secret from <your-unique-keyvault-name>.
-    Your secret is 'mySecretPassword'.
-    Deleting your secret from <your-unique-keyvault-name> ... done.    
-    ```
+```console
+Input the value of your secret > mySecretPassword
+Creating a secret in <your-unique-keyvault-name> called 'mySecret' with the value 'mySecretPassword' ... done.
+Forgetting your secret.
+Your secret is ''.
+Retrieving your secret from <your-unique-keyvault-name>.
+Your secret is 'mySecretPassword'.
+Deleting your secret from <your-unique-keyvault-name> ... done.    
+Purging your secret from <your-unique-keyvault-name> ... done.
+```
 
 ## <a name="next-steps"></a>Nächste Schritte
-
-In dieser Schnellstartanleitung haben Sie einen Schlüsseltresor erstellt, ein Geheimnis gespeichert und dieses Geheimnis abgerufen. Die gesamte Konsolen-App steht in [GitHub](https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app) zur Verfügung.
 
 Weitere Informationen zu Key Vault und zur Integration in Ihre Apps finden Sie in den folgenden Artikeln:
 

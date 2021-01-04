@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: dd755e1bc220d61aa540a0e7da9e3f174bde9d76
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: ba971919037230cb6c09e627fde448647063b5b9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91652923"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498420"
 ---
 # <a name="lsv2-series"></a>Lsv2-Reihe
 
@@ -51,7 +51,7 @@ Bursting: Unterstützt<br>
 
 <sup>4</sup> VMs der Lsv2-Reihe stellen keinen Hostcache für Datenträger bereit, da dieser den Lsv2-Workloads nicht zugute kommt.
 
-<sup>5</sup> VMs der Lsv2-Serie können ihre Datenträgerleistung für jeweils bis zu 30 Minuten mit [Burst](linux/disk-bursting.md) verbessern. 
+<sup>5</sup> VMs der Lsv2-Serie können ihre Datenträgerleistung für jeweils bis zu 30 Minuten mit [Burst](./disk-bursting.md) verbessern. 
 
 <sup>6</sup> Für VMs mit mehr als 64 vCPUs ist eines dieser unterstützten Gastbetriebssysteme erforderlich:
 

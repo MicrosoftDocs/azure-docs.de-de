@@ -1,6 +1,6 @@
 ---
-title: Verbessern der Columnstore-Indexleistung
-description: Reduzieren Sie Arbeitsspeicheranforderungen, oder erhöhen Sie den verfügbaren Arbeitsspeicher, um die Anzahl der Zeilen in jeder Zeilengruppe zu maximieren.
+title: Verbessern der Columnstore-Indexleistung für dedizierte SQL-Pools
+description: Reduzieren Sie Arbeitsspeicheranforderungen, oder erhöhen Sie den verfügbaren Arbeitsspeicher, um die Anzahl der Zeilen in jeder Zeilengruppe in einem dedizierten SQL-Pool zu maximieren.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 5308599f43788b35dbe278ddbbea2253c2f94cb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6984ad41c07f7790a746dbd197c18dce2aa83e2f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797767"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453720"
 ---
-# <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximieren der Zeilengruppenqualität für Columnstore
+# <a name="maximizing-rowgroup-quality-for-columnstore-indexes-in-dedicated-sql-pool"></a>Maximieren der Zeilengruppenqualität für Columnstore-Indizes in einem dedizierten SQL-Pool 
 
 Die Zeilengruppenqualität hängt von der Anzahl von Zeilen in einer Zeilengruppe ab. Mit einer Erhöhung des verfügbaren Arbeitsspeicher können Sie die Anzahl von Zeilen maximieren, die ein Columnstore-Index in jede Zeilengruppe komprimieren kann.  Verwenden Sie diese Methoden, um die Komprimierungsrate und Abfrageleistung für Columnstore-Indizes zu verbessern.
 
@@ -99,7 +99,7 @@ Der maximale erforderliche Arbeitsspeicher zum Komprimieren einer Zeilengruppe b
 
 Lange Zeichenfolgen werden mit einer Komprimierungsmethode komprimiert, die für das Komprimieren von Texten entwickelt wurde. Diese Komprimierungsmethode verwendet ein *Wörterbuch* zum Speichern von Textmustern. Die maximale Größe eines Wörterbuchs beträgt 16 MB. Es gibt nur ein Wörterbuch für jede lange Zeichenfolgenspalte in der Zeilengruppe.
 
-Eine ausführliche Diskussion der Columnstore-Arbeitsspeicheranforderungen finden Sie im Video [Synapse SQL pool scaling: configuration and guidance](https://channel9.msdn.com/Events/Ignite/2016/BRK3291) (Skalieren von Synapse SQL-Pools: Konfiguration und Anleitungen).
+Eine ausführliche Diskussion der Columnstore-Arbeitsspeicheranforderungen finden Sie im Video [Dedicated SQL Pool Scaling: Configuration and Guidance](https://channel9.msdn.com/Events/Ignite/2016/BRK3291) (Skalieren von dedizierten SQL-Pools: Konfiguration und Anleitungen).
 
 ## <a name="ways-to-reduce-memory-requirements"></a>Verfahren zum Verringern der Arbeitsspeicheranforderungen
 
@@ -122,7 +122,7 @@ Zusätzliche Arbeitsspeicheranforderungen für die Komprimierung von Zeichenfolg
 
 ### <a name="avoid-over-partitioning"></a>Vermeiden von übermäßige Partitionierung
 
-Columnstore-Indizes erstellen eine oder mehrere Zeilengruppen pro Partition. Beim SQL-Pool in Azure Synapse Analytics steigt die Anzahl von Partitionen schnell, da die Daten verteilt werden und jede Verteilung partitioniert ist.
+Columnstore-Indizes erstellen eine oder mehrere Zeilengruppen pro Partition. Beim dedizierten SQL-Pool in Azure Synapse Analytics steigt die Anzahl von Partitionen schnell, weil die Daten verteilt werden und jede Verteilung partitioniert ist.
 
 Wenn die Tabelle zu viele Partitionen besitzt, gibt es möglicherweise nicht genügend Zeilen, um die Zeilengruppen zu füllen. Der Mangel an Zeilen erzeugt während der Komprimierung keine erhöhte Arbeitsspeicherauslastung. Er führt jedoch zu Zeilengruppen, die keine optimale Columnstore-Abfrageleistung erzielen.
 
@@ -165,4 +165,4 @@ Um die Arbeitsspeicherzuweisung für eine Ladeanfrage zu erhöhen, können Sie e
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Möglichkeiten zum Verbessern der Leistung für SQL-Pools finden Sie unter der [Übersicht über die Leistung](cheat-sheet.md).
+Weitere Möglichkeiten zum Verbessern der Leistung für dedizierte SQL-Pools finden Sie unter der [Übersicht über die Leistung](cheat-sheet.md).

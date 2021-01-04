@@ -4,19 +4,19 @@ description: Erfahren Sie, wie Sie SSH-Schlüssel auf einem Windows-Computer gen
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.date: 07/09/2020
+ms.date: 10/31/2020
 ms.topic: how-to
 ms.author: cynthn
-ms.openlocfilehash: 7e99c9191e93562211f6294cf671f431a5db455d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 183b601a4521c3ff3e4578784f7adadd01045b0e
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87825564"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147146"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Verwenden von SSH-Schlüsseln mit Windows in Azure
 
-Dieser Artikel richtet sich an Windows-Benutzer, die SSH-Schlüssel (*Secure Shell*) [erstellen](#create-an-ssh-key-pair) und verwenden möchten, um eine [Verbindung](#connect-to-your-vm) mit virtuellen Linux-Computern (VMs) in Azure herzustellen. Sie können auch [SSH-Schlüssel im Azure-Portal generieren und speichern](../ssh-keys-portal.md), die dann beim Erstellen von VMs im Portal verwendet werden.
+Dieser Artikel richtet sich an Windows-Benutzer, die SSH-Schlüssel ( *Secure Shell* ) [erstellen](#create-an-ssh-key-pair) und verwenden möchten, um eine [Verbindung](#connect-to-your-vm) mit virtuellen Linux-Computern (VMs) in Azure herzustellen. Sie können auch [SSH-Schlüssel im Azure-Portal generieren und speichern](../ssh-keys-portal.md), die dann beim Erstellen von VMs im Portal verwendet werden.
 
 
 Informationen zum Verwenden von SSH-Schlüsseln von einem Linux- oder macOS-Client finden Sie in der [Kurzanleitung](mac-create-ssh-keys.md). Eine umfassendere Übersicht über SSH finden Sie unter [Ausführliche Schritte: Erstellen und Verwalten von SSH-Schlüsseln für die Authentifizierung bei einer Linux-VM in Azure](create-ssh-keys-detailed.md).

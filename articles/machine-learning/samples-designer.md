@@ -1,7 +1,7 @@
 ---
 title: Beispiele für Pipelines und Datasets für den Designer
 titleSuffix: Azure Machine Learning
-description: Beschleunigen Sie den Start Ihrer Machine Learning-Pipelines mithilfe von Beispielen im Azure Machine Learning-Designer.
+description: Hier erfahren Sie, wie Sie mithilfe von Beispielen im Azure Machine Learning-Designer schnell mit Ihren Machine Learning-Pipelines loslegen können.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/14/2020
 ms.custom: designer
-ms.openlocfilehash: ecdb011310d8aa5bd63e9b9e9679bb525cb4f7b3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: a27e18d9b6f6307f1cc8ed48ca897dd4d1f0f1f3
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074599"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555497"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Beispiele für Pipelines und Datasets für Azure Machine Learning Designer
 

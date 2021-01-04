@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea5d24fd36e668fc52a8b5c9a20472c42ef3c420
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: d12679e64d690614aaf788837a02af007448f83d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825959"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393675"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Anleitung: Verwalten von veralteten Geräte in Azure AD
 
@@ -55,11 +55,11 @@ Sie haben zwei Möglichkeiten, um den Wert des Aktivitätszeitstempels abzurufen
 
 - Spalte **Aktivität** auf der [Seite „Geräte“](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) im Azure-Portal
 
-    ![Aktivitätszeitstempel](./media/manage-stale-devices/01.png)
+    :::image type="content" source="./media/manage-stale-devices/01.png" alt-text="Screenshot: Seite im Azure-Portal mit Name, Besitzer und anderen Informationen zu Geräten. Eine Spalte enthält den Aktivitätszeitstempel." border="false":::
 
 - Cmdlet [Get-AzureADDevice](/powershell/module/azuread/Get-AzureADDevice)
 
-    ![Aktivitätszeitstempel](./media/manage-stale-devices/02.png)
+    :::image type="content" source="./media/manage-stale-devices/02.png" alt-text="Screenshot: Befehlszeilenausgabe. Eine Zeile ist hervorgehoben und enthält einen Zeitstempel für den Wert „ApproximateLastLogonTimeStamp“." border="false":::
 
 ## <a name="plan-the-cleanup-of-your-stale-devices"></a>Planen der Bereinigung Ihrer veralteten Geräte
 
@@ -97,7 +97,7 @@ Ihre in Hybrid-Azure AD eingebundenen Geräte sollten an Ihren Richtlinien für 
 
 Bereinigen Sie Azure AD wie folgt:
 
-- **Windows 10-Geräte**: Deaktivieren oder löschen Sie Windows 10-Geräte auf Ihrer lokalen AD-Instanz, und lassen Sie den geänderten Gerätestatus von Azure AD Connect mit Azure AD synchronisieren.
+- **Windows 10-Geräte** : Deaktivieren oder löschen Sie Windows 10-Geräte auf Ihrer lokalen AD-Instanz, und lassen Sie den geänderten Gerätestatus von Azure AD Connect mit Azure AD synchronisieren.
 - **Windows 7/8:** Deaktivieren oder löschen Sie Windows 7/8-Geräte zunächst in Ihrem lokalen AD. Sie können Azure AD Connect nicht verwenden, um Windows 7/8-Geräte in Azure AD zu deaktivieren oder zu löschen. Stattdessen müssen Sie, wenn Sie lokal Änderungen vornehmen, das Deaktivieren/Löschen in Azure AD durchführen.
 
 > [!NOTE]
@@ -147,7 +147,7 @@ Falls Ihr Verzeichnis eine größere Zahl von Geräten enthält, können Sie den
 
 ```PowerShell
 $dt = [datetime]’2017/01/01’
-Get-AzureADDevice | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
+Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
 ```
 
 ## <a name="what-you-should-know"></a>Wichtige Informationen
@@ -175,9 +175,9 @@ Weitere Informationen zu den unterschiedlichen Typen finden Sie in der [Übersic
 
 Alle Authentifizierungen, bei denen ein Gerät für die Authentifizierung gegenüber Azure AD genutzt wird, werden abgelehnt. Typische Beispiele:
 
-- **Hybrid in Azure AD eingebundenes Gerät**: Benutzer können das Gerät ggf. zur Anmeldung in ihrer lokalen Domäne verwenden. Sie können aber nicht auf Azure AD-Ressourcen, z. B. Microsoft 365, zugreifen.
-- **In Azure AD eingebundenes Gerät**: Benutzer können das Gerät nicht verwenden, um sich anzumelden. 
-- **Mobile Geräte**: Der Benutzer kann nicht auf Azure AD-Ressourcen, z. B. Microsoft 365, zugreifen. 
+- **Hybrid in Azure AD eingebundenes Gerät** : Benutzer können das Gerät ggf. zur Anmeldung in ihrer lokalen Domäne verwenden. Sie können aber nicht auf Azure AD-Ressourcen, z. B. Microsoft 365, zugreifen.
+- **In Azure AD eingebundenes Gerät** : Benutzer können das Gerät nicht verwenden, um sich anzumelden. 
+- **Mobile Geräte** : Der Benutzer kann nicht auf Azure AD-Ressourcen, z. B. Microsoft 365, zugreifen. 
 
 ## <a name="next-steps"></a>Nächste Schritte
 

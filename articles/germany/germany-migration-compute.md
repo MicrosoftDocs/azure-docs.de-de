@@ -7,12 +7,12 @@ author: gitralf
 ms.author: ralfwi
 ms.service: germany
 ms.custom: bfmigrate
-ms.openlocfilehash: 440e159d9b28f6046f1405185a2513483bff49ef
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 3662039dad5d85c87c2598fb59b7719ab9251090
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126748"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018586"
 ---
 # <a name="migrate-compute-resources-to-global-azure"></a>Migrieren von Computeressourcen zu Azure weltweit
 
@@ -73,7 +73,7 @@ Es wird eine ZIP-Datei heruntergeladen, die mehrere Dateien enthält. Die PowerS
 
 Weitere Informationen finden Sie unter:
 
-- Frischen Sie Ihre Kenntnisse auf, indem Sie die [Tutorials zu Site Recovery](/azure/site-recovery/) durcharbeiten.
+- Frischen Sie Ihre Kenntnisse auf, indem Sie die [Tutorials zu Site Recovery](../site-recovery/index.yml) durcharbeiten.
 - Lesen Sie Informationen, wie Sie [eine Resource Manager-Vorlage exportieren](../azure-resource-manager/templates/export-template-portal.md), oder die Übersicht zu [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Erfahren Sie mehr über [Physisch-zu-Azure-Notfallwiederherstellung über Site Recovery](../site-recovery/physical-azure-disaster-recovery.md).
 - Lesen Sie die [Übersicht über Azure-Standorte](https://azure.microsoft.com/global-infrastructure/locations/).
@@ -130,7 +130,7 @@ So stellen Sie Clouddienste über die REST-API erneut bereit:
     https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deploymentslots/production
     ```
 
-1. Wenn Datenverkehr auf den neuen Clouddienst verweist, [löschen Sie den alten Clouddienst](https://docs.microsoft.com/rest/api/compute/cloudservices/rest-delete-cloud-service) in Azure Deutschland.
+1. Wenn Datenverkehr auf den neuen Clouddienst verweist, [löschen Sie den alten Clouddienst](/rest/api/compute/cloudservices/rest-delete-cloud-service) in Azure Deutschland.
 
     ```http
     https://management.core.cloudapi.de/<subscription-id>/services/hostedservices/<old-cloudservice-name>
@@ -148,7 +148,7 @@ Sie können Informationen zu Ihrer aktuellen Service Fabric-Umgebung abrufen, in
 
 Weitere Informationen finden Sie unter:
 
-- Frischen Sie Ihre Kenntnisse auf, indem Sie die [Tutorials zu Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-create-dotnet-app) durcharbeiten.
+- Frischen Sie Ihre Kenntnisse auf, indem Sie die [Tutorials zu Service Fabric](../service-fabric/service-fabric-tutorial-create-dotnet-app.md) durcharbeiten.
 - Erfahren Sie, wie Sie [einen neuen Cluster erstellen](../service-fabric/service-fabric-cluster-creation-via-portal.md).
 - Lesen Sie die [Übersicht über Service Fabric](../service-fabric/service-fabric-overview.md).
 
@@ -166,7 +166,7 @@ Stellen Sie Ihre Bereitstellungsskripts, Ihre Vorlagen oder Ihren Code in der ne
 
 Weitere Informationen finden Sie unter:
 
-- Frischen Sie Ihre Kenntnisse auf, indem Sie die [Tutorials zu Batch](https://docs.microsoft.com/azure/batch/tutorial-parallel-dotnet) durcharbeiten.
+- Frischen Sie Ihre Kenntnisse auf, indem Sie die [Tutorials zu Batch](../batch/tutorial-parallel-dotnet.md) durcharbeiten.
 - Lesen Sie die [Übersicht über Azure Batch](../batch/batch-technical-overview.md).
 
 ## <a name="functions"></a>Functions
@@ -178,7 +178,7 @@ Ein Migrieren von Azure Functions-Ressourcen von Azure Deutschland zu Azure welt
 
 Weitere Informationen finden Sie unter:
 
-- Frischen Sie Ihre Kenntnisse auf, indem Sie die [Functions-Tutorials](https://docs.microsoft.com/azure/azure-functions) durcharbeiten.
+- Frischen Sie Ihre Kenntnisse auf, indem Sie die [Functions-Tutorials](../azure-functions/index.yml) durcharbeiten.
 - Erfahren Sie, wie Sie [eine Resource Manager-Vorlage exportieren](../azure-resource-manager/templates/export-template-portal.md), oder lesen Sie die Übersicht zu [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Lesen Sie die [Übersicht zu Azure Functions](../azure-functions/functions-overview.md).
 - Verschaffen Sie sich einen [Überblick über Azure-Standorte](https://azure.microsoft.com/global-infrastructure/locations/).
@@ -193,7 +193,7 @@ Um VM-Skalierungsgruppen zu Azure weltweit zu migrieren, exportieren Sie die Res
 
 Weitere Informationen finden Sie unter:
 
-- Frischen Sie Ihre Kenntnisse auf, indem Sie die [Tutorials zu VM-Skalierungsgruppeen](https://docs.microsoft.com/azure/virtual-machine-scale-sets/tutorial-create-and-manage-cli) durcharbeiten.
+- Frischen Sie Ihre Kenntnisse auf, indem Sie die [Tutorials zu VM-Skalierungsgruppeen](../virtual-machine-scale-sets/tutorial-create-and-manage-cli.md) durcharbeiten.
 - Erfahren Sie, wie Sie eine [Azure Resource Manager-Vorlage exportieren](../azure-resource-manager/templates/export-template-portal.md).
 - Lesen Sie die [Übersicht über Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Lesen Sie eine Übersicht zu [VM-Skalierungsgruppen](../virtual-machine-scale-sets/overview.md).
@@ -209,7 +209,7 @@ Derzeit können Apps, die Sie mit dem Web Apps-Feature von Azure App Service ers
 
 Weitere Informationen finden Sie unter:
 
-- Frischen Sie Ihre Kenntnisse auf, indem Sie die [Tutorials zu App Service](https://docs.microsoft.com/azure/app-service/tutorial-dotnetcore-sqldb-app) durcharbeiten.
+- Frischen Sie Ihre Kenntnisse auf, indem Sie die [Tutorials zu App Service](../app-service/tutorial-dotnetcore-sqldb-app.md) durcharbeiten.
 - Erfahren Sie, wie Sie [eine Resource Manager-Vorlage exportieren](../azure-resource-manager/templates/export-template-portal.md), oder lesen Sie die Übersicht zu [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Lesen Sie die [Übersicht über Azure App Service](../app-service/overview.md).
 - Lesen Sie die [Übersicht über Azure-Standorte](https://azure.microsoft.com/global-infrastructure/locations/).

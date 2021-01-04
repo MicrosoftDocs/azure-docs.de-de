@@ -1,6 +1,6 @@
 ---
 title: Entwerfen von Tabellen
-description: Einführung in das Entwerfen von Tabellen in einem Synapse SQL-Pool
+description: Einführung in das Entwerfen von Tabellen mithilfe eines dedizierten SQL-Pools in Azure Synapse Analytics
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,23 +10,23 @@ ms.subservice: sql-dw
 ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 0138b4dcc547b961f941522abd03cd351d4d3737
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: ec62724b7aedbad4111a4882dd89f86d116b2a96
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460546"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448053"
 ---
-# <a name="design-tables-in-synapse-sql-pool"></a>Entwerfen von Tabellen in einem Synapse SQL-Pool
+# <a name="design-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Entwerfen von Tabellen mithilfe eines dedizierten SQL-Pools in Azure Synapse Analytics
 
-Dieser Artikel enthält wichtige grundlegende Konzepte für das Entwerfen von Tabellen in einem SQL-Pool.
+Dieser Artikel enthält wichtige grundlegende Konzepte für das Entwerfen von Tabellen in einem dedizierten SQL-Pool.
 
 ## <a name="determine-table-category"></a>Bestimmen der Tabellenkategorie
 
 In einem [Sternschema](https://en.wikipedia.org/wiki/Star_schema) werden Daten in Fakten-und Dimensionstabellen organisiert. Einige Tabellen werden für die Integration oder das Staging von Daten verwendet, bevor sie in eine Fakten- oder Dimensionstabelle verschoben werden. Wenn Sie eine Tabelle entwerfen, entscheiden Sie, ob die Tabellendaten in einer Faktentabelle, eine Dimensionstabelle oder eine Integrationstabelle gehören. Diese Entscheidung bestimmt die Tabellenstruktur und die Verteilung.
 
-- **Faktentabellen** enthalten quantitative Daten, die häufig in einem transaktionalen System generiert und dann in den SQL-Pool geladen werden. Beispielsweise generiert ein Einzelhandelsunternehmen täglich Verkaufstransaktionen und lädt dann die Daten zur Analyse in eine Faktentabelle in einem SQL-Pool.
+- **Faktentabellen** enthalten quantitative Daten, die häufig in einem transaktionalen System generiert und dann in den dedizierten SQL-Pool geladen werden. Beispielsweise generiert ein Einzelhandelsunternehmen täglich Verkaufstransaktionen und lädt dann die Daten zur Analyse in eine Faktentabelle in einem dedizierten SQL-Pool.
 
 - **Dimensionstabellen** enthalten Attributdaten, die sich ändern können, es in der Regel jedoch nur selten tun. Beispielsweise werden der Name und die Adresse eines Kunden in einer Dimensionstabelle gespeichert und nur aktualisiert, wenn sich das Profil des Kunden ändert. Damit eine Faktentabelle nicht zu groß wird, kann darauf verzichtet werden, den Namen und die Adresse des Kunden in jede Zeile der Faktentabelle aufzunehmen. Stattdessen kann eine Kunden-ID von der Faktentabelle und der Dimensionstabelle gemeinsam genutzt werden. Die beiden Tabellen können mithilfe einer Abfrage verknüpft werden, um das Profil eines Kunden den Transaktionen zuzuordnen.
 
@@ -34,28 +34,28 @@ In einem [Sternschema](https://en.wikipedia.org/wiki/Star_schema) werden Daten i
 
 ## <a name="schema-and-table-names"></a>Schema und Tabellennamen
 
-Schemas eignen sich gut für das Gruppieren von Tabellen, die auf ähnliche Weise verwendet werden.  Wenn Sie mehrere Datenbanken aus einer lokalen Lösung zu einem SQL-Pool migrieren, migrieren Sie am besten alle Fakten-, Dimensions- und Integrationstabellen in ein Schema im SQL-Pool.
+Schemas eignen sich gut für das Gruppieren von Tabellen, die auf ähnliche Weise verwendet werden.  Wenn Sie mehrere Datenbanken aus einer lokalen Lösung zu einem dedizierten SQL-Pool migrieren, migrieren Sie am besten alle Fakten-, Dimensions- und Integrationstabellen in ein Schema in einem dedizierten SQL-Pool.
 
-Sie können z. B. alle Tabellen im SQL-Poolbeispiel [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) in einem Schema namens „wwi“ speichern. Mit dem folgenden Code wird ein [benutzerdefiniertes Schema](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) mit dem Namen „wwi“ erstellt.
+Sie können z. B. alle Tabellen im dedizierten SQL-Poolbeispiel [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) in einem Schema namens „wwi“ speichern. Mit dem folgenden Code wird ein [benutzerdefiniertes Schema](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) mit dem Namen „wwi“ erstellt.
 
 ```sql
 CREATE SCHEMA wwi;
 ```
 
-Um die Organisation der Tabellen im SQL-Pool anzuzeigen, können Sie „fact“, „dim“ und „int“ als Präfixe für die Tabellennamen verwenden. Die folgende Tabelle zeigt einige der Schema- und Tabellennamen für „WideWorldImportersDW“.  
+Um die Organisation der Tabellen im dedizierten SQL-Pool anzuzeigen, können Sie „fact“, „dim“ und „int“ als Präfixe für die Tabellennamen verwenden. Die folgende Tabelle zeigt einige der Schema- und Tabellennamen für „WideWorldImportersDW“.  
 
-| WideWorldImportersDW table  | Tabellentyp | SQL-Pool |
+| WideWorldImportersDW table  | Tabellentyp | Dedizierter SQL-Pool |
 |:-----|:-----|:------|:-----|
 | City | Dimension | wwi.DimCity |
 | Order | Fakt | wwi.FactOrder |
 
 ## <a name="table-persistence"></a>Tabellenpersistenz
 
-Tabellen speichern Daten dauerhaft in Azure Storage oder vorübergehend in Azure Storage oder in einem Datenspeicher außerhalb des SQL-Pools.
+Tabellen speichern Daten dauerhaft in Azure Storage oder vorübergehend in Azure Storage oder in einem Datenspeicher außerhalb des dedizierten SQL-Pools.
 
 ### <a name="regular-table"></a>Normale Tabelle
 
-In einer normalen Tabelle werden Daten in Azure Storage als Teil des SQL-Pools gespeichert. Die Tabelle und die Daten werden unabhängig davon beibehalten, ob eine Sitzung geöffnet ist.  Im folgenden Beispiel wird eine normale Tabelle mit zwei Spalten erstellt.
+In einer normalen Tabelle werden Daten in Azure Storage als Teil des dedizierten SQL-Pools gespeichert. Die Tabelle und die Daten werden unabhängig davon beibehalten, ob eine Sitzung geöffnet ist.  Im folgenden Beispiel wird eine normale Tabelle mit zwei Spalten erstellt.
 
 ```sql
 CREATE TABLE MyTable (col1 int, col2 int );  
@@ -69,17 +69,17 @@ Temporäre Tabellen nutzen lokalen Speicher, um eine höhere Leistung bereitzust
 
 ### <a name="external-table"></a>Externe Tabelle
 
-Eine externe Tabelle verweist auf Daten in Azure Storage Blob oder Azure Data Lake Store. Bei Verwendung in Verbindung mit der CREATE TABLE AS SELECT-Anweisung werden aus einer externen Tabelle ausgewählte Daten in den SQL-Pool importiert.
+Eine externe Tabelle verweist auf Daten in Azure Storage Blob oder Azure Data Lake Store. Bei Verwendung in Verbindung mit der CREATE TABLE AS SELECT-Anweisung werden aus einer externen Tabelle ausgewählte Daten in den dedizierten SQL-Pool importiert.
 
 Externe Tabellen eignen sich daher zum Laden von Daten. Ein Tutorial zum Ladevorgang finden Sie unter [Verwenden von PolyBase zum Laden von Daten aus Azure Blob Storage](load-data-from-azure-blob-storage-using-polybase.md).
 
 ## <a name="data-types"></a>Datentypen
 
-Ein SQL-Pool unterstützt die am häufigsten verwendeten Datentypen. Eine Liste der unterstützten Datentypen finden Sie in der CREATE TABLE-Anweisung im [CREATE TABLE-Verweis im Abschnitt „Datentypen“](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes). Eine Anleitung zur Verwendung der Datentypen finden Sie unter [Datentypen](sql-data-warehouse-tables-data-types.md).
+Dedizierte SQL-Pools unterstützen die am häufigsten verwendeten Datentypen. Eine Liste der unterstützten Datentypen finden Sie in der CREATE TABLE-Anweisung im [CREATE TABLE-Verweis im Abschnitt „Datentypen“](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes). Eine Anleitung zur Verwendung der Datentypen finden Sie unter [Datentypen](sql-data-warehouse-tables-data-types.md).
 
 ## <a name="distributed-tables"></a>Verteilte Tabellen
 
-Ein grundlegendes Feature von SQL-Pools ist die Art und Weise, wie Tabellen über [Verteilungen](massively-parallel-processing-mpp-architecture.md#distributions) hinweg gespeichert und ausgeführt werden können.  SQL-Pools unterstützen drei Verfahren für die Verteilung der Daten: Roundrobin (Standard), Hash und repliziert.
+Ein grundlegendes Feature von dedizierten SQL-Pools ist die Art und Weise, wie Tabellen über [Verteilungen](massively-parallel-processing-mpp-architecture.md#distributions) hinweg gespeichert und ausgeführt werden können.  Dedizierte SQL-Pools unterstützen drei Verfahren für die Verteilung der Daten: Roundrobin (Standard), Hash und repliziert.
 
 ### <a name="hash-distributed-tables"></a>Tabellen mit Hashverteilung
 
@@ -111,7 +111,7 @@ Die Tabellenkategorie bestimmt oftmals, welche Option für das Verteilen der Tab
 
 ## <a name="table-partitions"></a>Tabellenpartitionen
 
-In einer partitionierten Tabelle werden die Tabellenzeilen nach Datenbereichen gespeichert und Vorgänge entsprechend ausgeführt. Beispielsweise könnte eine Tabelle nach Tag, Monat oder Jahr partitioniert werden. Sie können die Abfrageleistung durch eine Partitionsbeseitigung verbessern, wobei ein Abfragescan auf Daten in einer Partition begrenzt wird. Auch können Sie die Daten durch Partitionswechsel verwalten. Da die Daten in Azure Synapse Analytics bereits verteilt wurden, können zu viele Partitionen zu einer Beeinträchtigung der Abfrageleistung führen. Weitere Informationen finden Sie unter [Partitionieren von Tabellen in SQL Data Warehouse](sql-data-warehouse-tables-partition.md).  Beim Wechseln der Partitionen zu Tabellenpartitionen, die nicht leer sind, sollten Sie die Option TRUNCATE_TARGET in Ihrer [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)-Anweisung in Erwägung ziehen, wenn die vorhandenen Daten abgeschnitten werden sollen. Der folgende Code fügt die transformierten Tagesdaten in SalesFact ein und überschreibt alle vorhandenen Daten.
+In einer partitionierten Tabelle werden die Tabellenzeilen nach Datenbereichen gespeichert und Vorgänge entsprechend ausgeführt. Beispielsweise könnte eine Tabelle nach Tag, Monat oder Jahr partitioniert werden. Sie können die Abfrageleistung durch eine Partitionsbeseitigung verbessern, wobei ein Abfragescan auf Daten in einer Partition begrenzt wird. Auch können Sie die Daten durch Partitionswechsel verwalten. Da die Daten im SQL-Pool bereits verteilt sind, können zu viele Partitionen die Abfrageleistung beeinträchtigen. Weitere Informationen finden Sie unter [Partitionieren von Tabellen in SQL Data Warehouse](sql-data-warehouse-tables-partition.md).  Beim Wechseln der Partitionen zu Tabellenpartitionen, die nicht leer sind, sollten Sie die Option TRUNCATE_TARGET in Ihrer [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)-Anweisung in Erwägung ziehen, wenn die vorhandenen Daten abgeschnitten werden sollen. Der folgende Code fügt die transformierten Tagesdaten in SalesFact ein und überschreibt alle vorhandenen Daten.
 
 ```sql
 ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION 256 WITH (TRUNCATE_TARGET = ON);  
@@ -119,7 +119,7 @@ ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION
 
 ## <a name="columnstore-indexes"></a>Columnstore-Indizes
 
-Standardmäßig speichert der SQL-Pool eine Tabelle als gruppierten Columnstore-Index. Mit dieser Form der Datenspeicherung wird eine hohe Datenkomprimierung und Abfrageleistung für große Tabellen erreicht.  
+Standardmäßig speichert der dedizierte SQL-Pool eine Tabelle als gruppierten Columnstore-Index. Mit dieser Form der Datenspeicherung wird eine hohe Datenkomprimierung und Abfrageleistung für große Tabellen erreicht.  
 
 Der gruppierte Columnstore-Index ist in der Regel die beste Wahl, aber in einigen Fällen ist ein gruppierter Index oder ein Heap die geeignete Speicherstruktur.  
 
@@ -138,7 +138,7 @@ Die Aktualisierung der Statistiken erfolgt nicht automatisch. Führen Sie die St
 
 ## <a name="primary-key-and-unique-key"></a>Primärschlüssel und eindeutiger Schlüssel
 
-PRIMARY KEY wird nur unterstützt, wenn sowohl NONCLUSTERED als auch NOT ENFORCED verwendet werden.  Der UNIQUE-Constraint wird nur unterstützt, wenn NOT ENFORCED verwendet wird.  Informieren Sie sich über [Tabelleneinschränkungen bei SQL-Pools](sql-data-warehouse-table-constraints.md).
+PRIMARY KEY wird nur unterstützt, wenn sowohl NONCLUSTERED als auch NOT ENFORCED verwendet werden.  Der UNIQUE-Constraint wird nur unterstützt, wenn NOT ENFORCED verwendet wird.  Weitere Informationen finden Sie unter [Tabelleneinschränkungen bei dedizierten SQL-Pools](sql-data-warehouse-table-constraints.md).
 
 ## <a name="commands-for-creating-tables"></a>Befehle zum Erstellen von Tabellen
 
@@ -147,19 +147,19 @@ Sie können eine Tabelle als neue leere Tabelle erstellen. Alternativ können Si
 | T-SQL-Anweisung | BESCHREIBUNG |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Erstellt eine leere Tabelle durch die Definition der Tabellenspalten und Optionen. |
-| [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Erstellt eine externe Tabelle. Die Definition der Tabelle wird in einem SQL-Pool gespeichert. Die Tabellendaten werden in Azure Blob Storage oder Azure Data Lake Store abgelegt. |
+| [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Erstellt eine externe Tabelle. Die Definition der Tabelle wird in einem dedizierten SQL-Pool gespeichert. Die Tabellendaten werden in Azure Blob Storage oder Azure Data Lake Store abgelegt. |
 | [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Füllt eine neue Tabelle mit den Ergebnissen einer SELECT-Anweisung. Die Spalten und Datentypen der Tabelle basieren auf den Ergebnissen der SELECT-Anweisung. Mit dieser Anweisung können Daten zum Importieren aus einer externen Tabelle ausgewählt werden. |
 | [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Erstellt eine neue externe Tabelle durch den Export der Ergebnisse einer SELECT-Anweisung an einen externen Speicherort.  Dieser Speicherort ist entweder Azure Blob Storage oder Azure Data Lake Store. |
 
-## <a name="aligning-source-data-with-the-sql-pool"></a>Ausrichten von Quelldaten am SQL-Pool
+## <a name="aligning-source-data-with-dedicated-sql-pool"></a>Ausrichten von Quelldaten mit dedizierten SQL-Pools
 
-SQL-Pooltabellen werden durch das Laden von Daten aus einer anderen Datenquelle gefüllt. Um einen Ladevorgang erfolgreich ausführen zu können, müssen die Anzahl und die Datentypen der Spalten in den Quelldaten an der Tabellendefinition im SQL-Pool ausgerichtet werden. Diese Ausrichtung der Daten zu bewältigen, ist möglicherweise der schwierigste Aspekt beim Entwerfen von Tabellen.
+Tabellen in dedizierten SQL-Pools werden durch das Laden von Daten aus einer anderen Datenquelle gefüllt. Um einen Ladevorgang erfolgreich ausführen zu können, müssen die Anzahl und die Datentypen der Spalten in den Quelldaten an der Tabellendefinition im dedizierten SQL-Pool ausgerichtet werden. Diese Ausrichtung der Daten zu bewältigen, ist möglicherweise der schwierigste Aspekt beim Entwerfen von Tabellen.
 
-Wenn Daten aus mehreren Datenspeichern stammen, können Sie die Daten in den SQL-Pool laden und in einer Integrationstabelle speichern. Sobald sich die Daten in der Integrationstabelle befinden, können Sie die Leistungsfähigkeit des SQL-Pools nutzen, um Transformationsvorgänge auszuführen. Sobald die Daten vorbereitet sind, können Sie sie in Produktionstabellen einfügen.
+Wenn Daten aus mehreren Datenspeichern stammen, können Sie die Daten in den dedizierten SQL-Pool laden und in einer Integrationstabelle speichern. Sobald sich die Daten in der Integrationstabelle befinden, können Sie die Leistungsfähigkeit des dedizierten SQL-Pools nutzen, um Transformationsvorgänge auszuführen. Sobald die Daten vorbereitet sind, können Sie sie in Produktionstabellen einfügen.
 
 ## <a name="unsupported-table-features"></a>Nicht unterstützte Tabellenfunktionen
 
-SQL-Pools unterstützen viele, aber nicht alle Tabellenfunktionen, die in anderen Datenbanken zu finden sind.  Die folgende Liste enthält einige der Tabellenfunktionen, die in SQL-Pools nicht unterstützt werden:
+Dedizierte SQL-Pools unterstützen viele, aber nicht alle Tabellenfunktionen, die in anderen Datenbanken zu finden sind.  Die folgende Liste enthält einige der Tabellenfunktionen, die in dedizierten SQL-Pools nicht unterstützt werden:
 
 - Fremdschlüssel, überprüfen Sie die [Tabellenconstraints](/sql/t-sql/statements/alter-table-table-constraint-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [Berechnete Spalten](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -375,4 +375,4 @@ ORDER BY    distribution_id
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Nach dem Erstellen der Tabellen für den SQL-Pool werden im nächsten Schritt Daten in die Tabelle geladen.  Ein Tutorial zum Laden von Daten finden Sie unter [Laden von Daten in den SQL-Pool](load-data-wideworldimportersdw.md).
+Nach dem Erstellen der Tabellen für den dedizierten SQL-Pool werden im nächsten Schritt Daten in die Tabelle geladen.  Ein Tutorial zum Laden von Daten finden Sie unter [Laden von Daten in einen dedizierten SQL-Pool](load-data-wideworldimportersdw.md).

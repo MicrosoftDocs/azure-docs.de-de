@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: girobins
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0d47bd90f7704cd3c55f9e5d64fe6b58946d4568
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 66aefea441d78303ccd611d9df10eea985d61e7c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475089"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097395"
 ---
 # <a name="get-sql-query-execution-metrics-and-analyze-query-performance-using-net-sdk"></a>Abrufen von SQL-Abfrageausführungsmetriken und Analysieren der Abfrageleistung mit dem .NET SDK
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In diesem Artikel wird veranschaulicht, wie Sie ein SQL-Abfrageleistungsprofil für Azure Cosmos DB erstellen. Die Profilerstellung kann mit dem aus dem .NET SDK abgerufenen Objekt `QueryMetrics` erfolgen. Dies wird hier näher erläutert. [QueryMetrics](/dotnet/api/microsoft.azure.documents.querymetrics) ist ein stark typisiertes Objekt mit Informationen über die Back-End-Abfrageausführung. Diese Metriken werden im Artikel [Optimieren der Abfrageleistung](./sql-api-query-metrics.md) ausführlicher dokumentiert.
 

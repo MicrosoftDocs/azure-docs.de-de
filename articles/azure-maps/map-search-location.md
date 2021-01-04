@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: be6d508da15b7c403259bd66c86c3b3e72ff2f12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 647a8fc25f27ef7f441ed7459ecd543d4f35581e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089272"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895272"
 ---
 # <a name="show-search-results-on-the-map"></a>Anzeigen von Suchergebnissen auf der Karte
 
 In diesem Artikel erfahren Sie, wie nach einem bestimmten Ort gesucht wird und die Suchergebnisse auf der Karte angezeigt werden.
 
-Es gibt zwei Möglichkeiten, um nach einem bestimmten Ort zu suchen. Eine Möglichkeit besteht darin, über ein Dienstmodul eine Suchanforderung zu stellen. Die andere Möglichkeit ist, eine Suchanforderung über die [Fetch-API](https://fetch.spec.whatwg.org/) an die [Azure Maps-API für die Fuzzysuche](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) zu stellen. Beide Möglichkeiten werden im Folgenden erläutert.
+Es gibt zwei Möglichkeiten, um nach einem bestimmten Ort zu suchen. Eine Möglichkeit besteht darin, über ein Dienstmodul eine Suchanforderung zu stellen. Die andere Möglichkeit ist, eine Suchanforderung über die [Fetch-API](https://fetch.spec.whatwg.org/) an die [Azure Maps-API für die Fuzzysuche](/rest/api/maps/search/getsearchfuzzy) zu stellen. Beide Möglichkeiten werden im Folgenden erläutert.
 
 ## <a name="make-a-search-request-via-service-module"></a>Durchführen einer Suchanforderung über das Dienstmodul
 
@@ -29,15 +29,15 @@ Es gibt zwei Möglichkeiten, um nach einem bestimmten Ort zu suchen. Eine Mögli
 
 Im obigen Code erstellt der erste Block ein Kartenobjekt und legt als Authentifizierungsmechanismus die Verwendung des Zugriffstokens fest. Eine Anleitung finden Sie unter [Erstellen einer Karte](./map-create.md).
 
-Der zweite Codeblock erstellt ein `TokenCredential`-Element, um HTTP-Anforderungen an Azure Maps mit dem Zugriffstoken zu authentifizieren. Anschließend wird das `TokenCredential`-Element an `atlas.service.MapsURL.newPipeline()` übergeben, und es wird eine [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline)-Instanz erstellt. `searchURL` stellt eine URL zu [Suchvorgängen](https://docs.microsoft.com/rest/api/maps/search) von Azure Maps dar.
+Der zweite Codeblock erstellt ein `TokenCredential`-Element, um HTTP-Anforderungen an Azure Maps mit dem Zugriffstoken zu authentifizieren. Anschließend wird das `TokenCredential`-Element an `atlas.service.MapsURL.newPipeline()` übergeben, und es wird eine [Pipeline](/javascript/api/azure-maps-rest/atlas.service.pipeline)-Instanz erstellt. `searchURL` stellt eine URL zu [Suchvorgängen](/rest/api/maps/search) von Azure Maps dar.
 
-Der dritte Codeblock erstellt mit der [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource)-Klasse ein Datenquellenobjekt und fügt diesem Suchergebnisse hinzu. Eine [Symbolebene](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer) verwendet Text oder Symbole zum Rendern punktbasierter Daten, die in [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource) als Symbole auf der Karte umschlossen sind.  Anschließend wird eine Symbolebene erstellt. Die Datenquelle wird der Symbolebene hinzugefügt, die dann der Karte hinzugefügt wird.
+Der dritte Codeblock erstellt mit der [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource)-Klasse ein Datenquellenobjekt und fügt diesem Suchergebnisse hinzu. Eine [Symbolebene](/javascript/api/azure-maps-control/atlas.layer.symbollayer) verwendet Text oder Symbole zum Rendern punktbasierter Daten, die in [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource) als Symbole auf der Karte umschlossen sind.  Anschließend wird eine Symbolebene erstellt. Die Datenquelle wird der Symbolebene hinzugefügt, die dann der Karte hinzugefügt wird.
 
-Der vierte Codeblock verwendet die [SearchFuzzy](/javascript/api/azure-maps-rest/atlas.service.models.searchgetsearchfuzzyoptionalparams)-Methode im [Dienstmodul](how-to-use-services-module.md). Sie ermöglicht über die [REST-API „Get Search“ für die Fuzzysuche](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) die Freitextsuche nach Points of Interest. Abrufanforderungen an die API „Search Fuzzy“ (Fuzzysuche) können jede Kombination von Fuzzyeingaben verarbeiten. Eine GeoJSON-Funktionssammlung aus der Antwort wird dann mit der `geojson.getFeatures()`-Methode extrahiert und der Datenquelle hinzugefügt, und die Daten werden über die Symbolebene automatisch auf der Karte gerendert.
+Der vierte Codeblock verwendet die [SearchFuzzy](/javascript/api/azure-maps-rest/atlas.service.models.searchgetsearchfuzzyoptionalparams)-Methode im [Dienstmodul](how-to-use-services-module.md). Sie ermöglicht über die [REST-API „Get Search“ für die Fuzzysuche](/rest/api/maps/search/getsearchfuzzy) die Freitextsuche nach Points of Interest. Abrufanforderungen an die API „Search Fuzzy“ (Fuzzysuche) können jede Kombination von Fuzzyeingaben verarbeiten. Eine GeoJSON-Funktionssammlung aus der Antwort wird dann mit der `geojson.getFeatures()`-Methode extrahiert und der Datenquelle hinzugefügt, und die Daten werden über die Symbolebene automatisch auf der Karte gerendert.
 
-Im letzten Codeblock werden mithilfe der Maps-Eigenschaft [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) die Kameragrenzen für die Karte angepasst.
+Im letzten Codeblock werden mithilfe der Maps-Eigenschaft [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) die Kameragrenzen für die Karte angepasst.
 
-Die Suchanforderung, die Datenquelle, die Symbolebene und die Kameragrenzen befinden sich innerhalb des [Ereignislisteners](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) der Karte. Wir möchten sicherstellen, dass die Ergebnisse nach dem vollständigen Laden der Karte angezeigt werden.
+Die Suchanforderung, die Datenquelle, die Symbolebene und die Kameragrenzen befinden sich innerhalb des [Ereignislisteners](/javascript/api/azure-maps-control/atlas.map#events) der Karte. Wir möchten sicherstellen, dass die Ergebnisse nach dem vollständigen Laden der Karte angezeigt werden.
 
 
 ## <a name="make-a-search-request-via-fetch-api"></a>Durchführen einer Suchanforderung über die Fetch-API
@@ -49,28 +49,28 @@ Mit dem ersten Block des oben gezeigten Codes wird ein Kartenobjekt erstellt. Es
 
 Der zweite Codeblock erstellt eine URL, an die eine Suchanforderung gerichtet werden kann. Außerdem werden zwei Arrays erstellt, um Grenzen und Markierungen für Suchergebnisse zu speichern.
 
-Der dritte Codeblock verwendet die [Fetch-API](https://fetch.spec.whatwg.org/). Mit der [Fetch-API](https://fetch.spec.whatwg.org/) wird eine Anforderung an die [Azure Maps-API für die Fuzzysuche](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) gestellt, um nach den Points of Interest zu suchen. Die API für die Fuzzysuche kann eine beliebige Kombination von Fuzzyeingaben verarbeiten. Anschließend verarbeitet und analysiert sie die Suchantwort und fügt die Ergebnismarkierungen dem searchPins-Array hinzu.
+Der dritte Codeblock verwendet die [Fetch-API](https://fetch.spec.whatwg.org/). Mit der [Fetch-API](https://fetch.spec.whatwg.org/) wird eine Anforderung an die [Azure Maps-API für die Fuzzysuche](/rest/api/maps/search/getsearchfuzzy) gestellt, um nach den Points of Interest zu suchen. Die API für die Fuzzysuche kann eine beliebige Kombination von Fuzzyeingaben verarbeiten. Anschließend verarbeitet und analysiert sie die Suchantwort und fügt die Ergebnismarkierungen dem searchPins-Array hinzu.
 
-Im vierten Codeblock wird mit der [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource)-Klasse ein Datenquellenobjekt erstellt. Im Code fügen wir Suchergebnisse zum Quellobjekt hinzu. Eine [Symbolebene](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer) verwendet Text oder Symbole zum Rendern punktbasierter Daten, die in [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource) als Symbole auf der Karte umschlossen sind. Anschließend wird eine Symbolebene erstellt. Die Datenquelle wird der Symbolebene hinzugefügt, die dann der Karte hinzugefügt wird.
+Im vierten Codeblock wird mit der [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource)-Klasse ein Datenquellenobjekt erstellt. Im Code fügen wir Suchergebnisse zum Quellobjekt hinzu. Eine [Symbolebene](/javascript/api/azure-maps-control/atlas.layer.symbollayer) verwendet Text oder Symbole zum Rendern punktbasierter Daten, die in [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource) als Symbole auf der Karte umschlossen sind. Anschließend wird eine Symbolebene erstellt. Die Datenquelle wird der Symbolebene hinzugefügt, die dann der Karte hinzugefügt wird.
 
-Der letzte Codeblock erstellt ein [BoundingBox](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.boundingbox)-Objekt. Es verwendet das Array der Ergebnisse und passt dann die Kameragrenzen für die Karte mithilfe der [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-)-Eigenschaft der Karte an. Anschließend werden die Ergebnismarkierungen gerendert.
+Der letzte Codeblock erstellt ein [BoundingBox](/javascript/api/azure-maps-control/atlas.data.boundingbox)-Objekt. Es verwendet das Array der Ergebnisse und passt dann die Kameragrenzen für die Karte mithilfe der [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-)-Eigenschaft der Karte an. Anschließend werden die Ergebnismarkierungen gerendert.
 
-Die Suchanforderung, die Datenquelle, die Symbolebene und die Kameragrenzen werden im [Ereignislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) der Karte festgelegt, um sicherzustellen, dass die Ergebnisse nach dem vollständigen Laden der Karte angezeigt werden.
+Die Suchanforderung, die Datenquelle, die Symbolebene und die Kameragrenzen werden im [Ereignislistener](/javascript/api/azure-maps-control/atlas.map#events) der Karte festgelegt, um sicherzustellen, dass die Ergebnisse nach dem vollständigen Laden der Karte angezeigt werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 > [!div class="nextstepaction"]
 > [Bewährte Methoden für die Verwendung des Suchdiensts](how-to-use-best-practices-for-search.md)
 
-Weitere Informationen zur **Fuzzysucheuche**:
+Weitere Informationen zur **Fuzzysucheuche** :
 
 > [!div class="nextstepaction"]
-> [Azure Maps-API für die Fuzzysuche](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
+> [Azure Maps-API für die Fuzzysuche](/rest/api/maps/search/getsearchfuzzy)
 
 Erfahren Sie mehr zu den in diesem Artikel verwendeten Klassen und Methoden:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Map](/javascript/api/azure-maps-control/atlas.map)
 
 Die folgenden Artikel enthalten vollständige Codebeispiele:
 

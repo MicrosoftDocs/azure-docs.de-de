@@ -4,15 +4,15 @@ description: Erfahren Sie, wie Sie Azure Blob zum Konfigurieren von Leads für M
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 05/01/2020
-ms.openlocfilehash: e6ad75178bdc8ce7db18555508e2b819f08352f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd2f3d40b1aea1c0133f95e069ebfd527d30bd59
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86121910"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491102"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Verwenden von Azure Blob Storage zum Verwalten von Leads im kommerziellen Marketplace
 
@@ -33,7 +33,7 @@ ms.locfileid: "86121910"
 3. Gehen Sie folgendermaßen vor, um im Azure-Portal ein Speicherkonto zu erstellen.  
     1. Wählen Sie im Menü auf der linken Seite **+ Ressource erstellen** aus.  Auf der rechten Seite wird der Bereich (das Blatt) **Neu** angezeigt.
     2. Wählen Sie im Bereich **Neu** die Option **Speicher** aus.  Auf der rechten Seite wird eine Liste **Empfohlen** angezeigt.
-    3. Wählen Sie das **Speicherkonto** aus, um mit der Kontoerstellung zu beginnen.  Befolgen Sie die Anweisungen im Artikel [Erstellen eines Speicherkontos](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
+    3. Wählen Sie das **Speicherkonto** aus, um mit der Kontoerstellung zu beginnen.  Befolgen Sie die Anweisungen im Artikel [Erstellen eines Speicherkontos](../../storage/common/storage-account-create.md?tabs=azure-portal).
 
     ![Schritte zum Erstellen eines Azure Storage-Kontos](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-create.png)
 
@@ -51,15 +51,15 @@ ms.locfileid: "86121910"
      DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
      ```
 
-    ![Azure-Speicherschlüssel](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
+    ![Screenshot: Seite „Zugriffsschlüssel“ mit hervorgehobenem Textfeld „Verbindungszeichenfolge“](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
 
 6. Klicken Sie auf Ihrer Speicherkontoseite auf **BLOBs**.
 
-   ![Azure-Speicherschlüssel](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
+   ![Screenshot: Azure-Speicherkontoseite mit ausgewählter Option „Blobs“](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
 
 7. Klicken Sie auf der BLOBs-Seite auf die Schaltfläche **+ Container**.
 
-8. Geben Sie einen **Namen** für den neuen Container ein. Der Containername muss klein geschrieben werden, mit einem Buchstaben oder einer Zahl beginnen und darf nur Buchstaben, Zahlen und Bindestriche (-) enthalten. Weitere Informationen zu Container- und Blobnamen finden Sie unter [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Benennen von Containern, Blobs und Metadaten und Verweisen auf diese).
+8. Geben Sie einen **Namen** für den neuen Container ein. Der Containername muss klein geschrieben werden, mit einem Buchstaben oder einer Zahl beginnen und darf nur Buchstaben, Zahlen und Bindestriche (-) enthalten. Weitere Informationen zu Container- und Blobnamen finden Sie unter [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Benennen von Containern, Blobs und Metadaten und Verweisen auf diese).
 
     Speichern Sie diesen Wert, da dies der *Containername* ist, den Sie im Veröffentlichungsportal angeben müssen, um Leads für Ihr Marketplace-Angebot zu erhalten.
 
@@ -91,5 +91,3 @@ Führen Sie die folgenden Schritte aus, um die Leadverwaltungsinformationen für
 
     > [!NOTE]
     > Sie müssen die Konfiguration der übrigen Einstellungen des Angebots abschließen und veröffentlichen, damit Sie Leads für das Angebot erhalten.
-
-

@@ -3,12 +3,12 @@ title: Verschlüsselung von Sicherungsdaten mit von Kunden verwalteten Schlüsse
 description: Hier erfahren Sie, wie Sie mit Azure Backup Sicherungsdaten mithilfe von kundenseitig verwalteten Schlüsseln (Customer-Managed Keys, CMK) verschlüsseln können.
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 5c0bddc6cdb8ec150a031541ced1abf1ebfb6f0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e3eea4b5f44203b68c1263c0fb3ae843cabbe72
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378286"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895986"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Verschlüsselung von Sicherungsdaten mit von Kunden verwalteten Schlüsseln
 
@@ -25,11 +25,11 @@ In diesem Artikel werden die folgenden Themen behandelt:
 
 ## <a name="before-you-start"></a>Vorbereitung
 
-- Diese Funktion ermöglicht Ihnen eine Verschlüsselung **nur bei neuen Recovery Services-Tresoren**. Eine Registrierung und der Versuch einer Registrierung von Tresoren, die vorhandene Elemente enthalten, werden nicht unterstützt.
+- Diese Funktion ermöglicht Ihnen eine Verschlüsselung **nur bei neuen Recovery Services-Tresoren** . Eine Registrierung und der Versuch einer Registrierung von Tresoren, die vorhandene Elemente enthalten, werden nicht unterstützt.
 
 - Nach der Aktivierung für einen Recovery Services-Tresor kann die Verschlüsselung mit kundenseitig verwalteten Schlüsseln nicht wieder auf die Verwendung plattformseitig verwalteter Schlüssel (Standardeinstellung) zurückgesetzt werden. Sie können die Verschlüsselungsschlüssel gemäß Ihren Anforderungen ändern.
 
-- Diese Funktion **unterstützt derzeit keine Sicherung mit dem MARS-Agent**, und mit dem CMK verschlüsselte Tresore können dafür möglicherweise nicht verwendet werden. Der MARS-Agent verwendet eine Verschlüsselung, die auf einer Passphrase des Benutzers basiert. Diese Funktion unterstützt außerdem keine Sicherung von klassischen VMs.
+- Diese Funktion **unterstützt derzeit keine Sicherung mit dem MARS-Agent** , und mit dem CMK verschlüsselte Tresore können dafür möglicherweise nicht verwendet werden. Der MARS-Agent verwendet eine Verschlüsselung, die auf einer Passphrase des Benutzers basiert. Diese Funktion unterstützt außerdem keine Sicherung von klassischen VMs.
 
 - Dieses Feature hängt nicht mit [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) zusammen, das die gastbasierte Verschlüsselung der Datenträger eines virtuellen Computers mithilfe von BitLocker (für Windows) und DM-Crypt (für Linux) verwendet.
 
@@ -62,11 +62,11 @@ Azure Backup verwendet die vom System zugewiesene verwaltete Identität, um den 
 >[!NOTE]
 >Nach der Aktivierung darf die verwaltete Identität **nicht** deaktiviert werden (auch nicht vorübergehend). Die Deaktivierung der verwalteten Identität kann zu inkonsistentem Verhalten führen.
 
-1. Navigieren Sie zu Ihrem Recovery Services-Tresor und dann zu **Identität**.
+1. Navigieren Sie zu Ihrem Recovery Services-Tresor und dann zu **Identität** .
 
     ![Identitätseinstellungen](./media/encryption-at-rest-with-cmk/managed-identity.png)
 
-1. Ändern Sie den **Status** in **Ein**, und klicken Sie auf **Speichern**.
+1. Ändern Sie den **Status** in **Ein** , und klicken Sie auf **Speichern** .
 
 1. Es wird eine Objekt-ID generiert, welche die vom System zugewiesene verwaltete Identität des Tresors darstellt.
 
@@ -74,15 +74,15 @@ Azure Backup verwendet die vom System zugewiesene verwaltete Identität, um den 
 
 Sie müssen jetzt dem Recovery Services-Tresor gestatten, auf den Azure Key Vault zuzugreifen, der den Verschlüsselungsschlüssel enthält. Dazu erlauben Sie der verwalteten Identität des Recovery Services-Tresors, auf den Key Vault zuzugreifen.
 
-1. Navigieren Sie zu Ihrem Azure Key Vault und dann zu **Zugriffsrichtlinien**. Klicken Sie anschließend auf **+ Zugriffsrichtlinie hinzufügen**.
+1. Navigieren Sie zu Ihrem Azure Key Vault und dann zu **Zugriffsrichtlinien** . Klicken Sie anschließend auf **+ Zugriffsrichtlinie hinzufügen** .
 
     ![Zugriffsrichtlinie hinzufügen](./media/encryption-at-rest-with-cmk/access-policies.png)
 
-1. Wählen Sie unter **Schlüsselberechtigungen** die Vorgänge **Abrufen**, **Auflisten**, **Schlüssel entpacken** und **Schlüssel packen** aus. Hiermit werden die zulässigen Aktionen für den Schlüssel angegeben.
+1. Wählen Sie unter **Schlüsselberechtigungen** die Vorgänge **Abrufen** , **Auflisten** , **Schlüssel entpacken** und **Schlüssel packen** aus. Hiermit werden die zulässigen Aktionen für den Schlüssel angegeben.
 
     ![Schlüsselberechtigungen zuweisen](./media/encryption-at-rest-with-cmk/key-permissions.png)
 
-1. Wechseln Sie zu **Prinzipal auswählen**, und suchen Sie über das Suchfeld nach dem Namen oder der verwalteten Identität für den Tresor. Sobald der Tresor angezeigt wird, wählen Sie ihn und dann unten im Bereich **Auswählen** aus.
+1. Wechseln Sie zu **Prinzipal auswählen** , und suchen Sie über das Suchfeld nach dem Namen oder der verwalteten Identität für den Tresor. Sobald der Tresor angezeigt wird, wählen Sie ihn und dann unten im Bereich **Auswählen** aus.
 
     ![Prinzipal auswählen](./media/encryption-at-rest-with-cmk/select-principal.png)
 
@@ -92,7 +92,7 @@ Sie müssen jetzt dem Recovery Services-Tresor gestatten, auf den Azure Key Vaul
 
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Aktivieren des vorläufigen Löschens und des Löschschutzes im Azure Key Vault
 
-Sie müssen für den Azure Key Vault, in dem Ihr Verschlüsselungsschlüssel gespeichert ist, **vorläufiges Löschen und Löschschutz aktivieren**. Dies können Sie über die Azure Key Vault-Benutzeroberfläche ausführen, wie unten gezeigt. (Alternativ können diese Eigenschaften beim Erstellen des Key Vault festgelegt werden.) Weitere Informationen zu diesen Key Vault-Eigenschaften finden Sie [hier](../key-vault/general/soft-delete-overview.md).
+Sie müssen für den Azure Key Vault, in dem Ihr Verschlüsselungsschlüssel gespeichert ist, **vorläufiges Löschen und Löschschutz aktivieren** . Dies können Sie über die Azure Key Vault-Benutzeroberfläche ausführen, wie unten gezeigt. (Alternativ können diese Eigenschaften beim Erstellen des Key Vault festgelegt werden.) Weitere Informationen zu diesen Key Vault-Eigenschaften finden Sie [hier](../key-vault/general/soft-delete-overview.md).
 
 ![Vorläufiges Löschen und Löschschutz aktivieren](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
 
@@ -144,7 +144,7 @@ Sobald Sie sich versichert haben, dass die genannten Bedingungen erfüllt sind, 
 
 So weisen Sie den Schlüssel zu
 
-1. Navigieren Sie zu Ihrem Recovery Services-Tresor und dann zu **Eigenschaften**.
+1. Navigieren Sie zu Ihrem Recovery Services-Tresor und dann zu **Eigenschaften** .
 
     ![Verschlüsselungseinstellungen](./media/encryption-at-rest-with-cmk/encryption-settings.png)
 
@@ -184,7 +184,6 @@ Bevor Sie mit der Konfiguration des Schutzes fortfahren, sollten Sie unbedingt d
 >[!IMPORTANT]
 > Bevor Sie mit dem Konfigurieren des Schutzes fortfahren, müssen Sie die folgenden Schritte **erfolgreich** ausgeführt haben:
 >
->1. Die Verwendung von kundenseitig verwalteten Schlüsseln bei Ihrem Sicherungstresor wurde für Ihr Abonnement aktiviert.
 >1. Ihr Sicherungstresor wurde erstellt.
 >1. Die vom System zugewiesene verwaltete Identität des Sicherungstresors wurde aktiviert.
 >1. Dem Sicherungstresor wurden Berechtigungen für den Zugriff auf Verschlüsselungsschlüssel in Ihrem Key Vault zugewiesen.
@@ -193,7 +192,7 @@ Bevor Sie mit der Konfiguration des Schutzes fortfahren, sollten Sie unbedingt d
 >
 >Wenn alle oben genannten Schritte bestätigt wurden, fahren Sie mit dem Konfigurieren der Sicherung fort.
 
-Der Prozess zum Konfigurieren und Ausführen von Sicherungen für einen Recovery Services-Tresor, der mit kundenseitig verwalteten Schlüsseln verschlüsselt ist, ist identisch mit dem Prozess für einen Tresor, der plattformseitig verwaltete Schlüssel verwendet, und **die Funktionalität für den Benutzer ist die gleiche**. Dies gilt auch für die [Sicherung von virtuellen Azure-Computern](./quick-backup-vm-portal.md) sowie für die Sicherung von Workloads, die auf einem virtuellen Computer ausgeführt werden (z. B. [SAP HANA](./tutorial-backup-sap-hana-db.md)- oder [SQL Server](./tutorial-sql-backup.md)-Datenbanken).
+Der Prozess zum Konfigurieren und Ausführen von Sicherungen für einen Recovery Services-Tresor, der mit kundenseitig verwalteten Schlüsseln verschlüsselt ist, ist identisch mit dem Prozess für einen Tresor, der plattformseitig verwaltete Schlüssel verwendet, und **die Funktionalität für den Benutzer ist die gleiche** . Dies gilt auch für die [Sicherung von virtuellen Azure-Computern](./quick-backup-vm-portal.md) sowie für die Sicherung von Workloads, die auf einem virtuellen Computer ausgeführt werden (z. B. [SAP HANA](./tutorial-backup-sap-hana-db.md)- oder [SQL Server](./tutorial-sql-backup.md)-Datenbanken).
 
 ## <a name="restoring-data-from-backup"></a>Wiederherstellen von Daten aus einer Sicherung
 

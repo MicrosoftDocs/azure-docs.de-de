@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 04745a618832285c44fe96affb0caa8d371a1a17
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 3b648168cd80920b8042f1edeacca893c21b98e2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340443"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498947"
 ---
 # <a name="azure-security-baseline-for-security-center"></a>Azure-Sicherheitsbaseline für Security Center
 
@@ -106,7 +106,7 @@ Konfigurieren Sie die Security Center-Datensammlung so, dass Sicherheitsdaten un
 
 Alternativ können Sie die von Security Center generierten Daten an Azure Sentinel oder eine SIEM-Drittanbieterlösung senden.
 
-- [Exportieren von Sicherheitswarnungen und -empfehlungen](continuous-export.md)
+- [Fortlaufendes Exportieren von Security Center-Daten](continuous-export.md)
 
 - [Datensammlung in Azure Security Center](security-center-enable-data-collection.md)
 
@@ -156,7 +156,7 @@ Alternativ können Sie auch Daten in Azure Sentinel oder einer SIEM-Drittanbiete
 
 - [Durchführen des Onboardings für Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Erste Schritte mit Log Analytics-Abfragen](../azure-monitor/log-query/get-started-portal.md) 
+- [Erste Schritte mit Log Analytics-Abfragen](../azure-monitor/log-query/log-analytics-tutorial.md) 
 
 - [Ausführen benutzerdefinierter Abfragen in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -348,7 +348,7 @@ Sie können diesen Prozess optimieren, indem Sie Diagnoseeinstellungen für Azur
 
 Azure Security Center-Daten werden standardmäßig im Security Center-Back-End-Dienst gespeichert. Wenn in Ihrer Organisation zusätzliche Anforderungen erfüllt und diese Daten auf eigenen Ressourcen gespeichert werden müssen, können Sie einen Log Analytics-Arbeitsbereich zum Speichern von Security Center-Daten, -Warnungen und -Empfehlungen konfigurieren. Bei Verwendung eines eigenen Arbeitsbereichs können Sie eine zusätzliche Trennung vornehmen, indem Sie basierend auf den Umgebungen, aus denen die Daten stammen, unterschiedliche Arbeitsbereiche konfigurieren.
 
-- [Exportieren von Sicherheitswarnungen und -empfehlungen](continuous-export.md)
+- [Fortlaufendes Exportieren von Security Center-Daten](continuous-export.md)
 
 - [Datensammlung in Azure Security Center](security-center-enable-data-collection.md)
 
@@ -666,7 +666,7 @@ Verwenden Sie Azure Resource Graph, um Ressourcen in ihren Abonnements abzufrage
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Sicherstellen des Schutzes von Sicherungen und von kundenseitig verwalteten Schlüsseln
 
-**Leitfaden**: Verwenden Sie Azure DevOps, um Ihren Code sicher zu speichern und zu verwalten. Dazu zählen z. B. benutzerdefinierte Azure Policy-Definitionen und Azure Resource Manager-Vorlagen. Um die Ressourcen, die Sie in Azure DevOps verwalten, zu schützen, können Sie bestimmten Benutzern, integrierten Sicherheitsgruppen oder in Azure Active Directory (Azure AD) definierten Gruppen (bei Integration in Azure DevOps) oder in Active Directory definierten Gruppen (bei Integration in TFS) Berechtigungen erteilen oder verweigern. Verwenden Sie die rollenbasierte Zugriffssteuerung, um kundenseitig verwaltete Schlüssel zu schützen.
+**Leitfaden**: Verwenden Sie Azure DevOps, um Ihren Code sicher zu speichern und zu verwalten. Dazu zählen z. B. benutzerdefinierte Azure Policy-Definitionen und Azure Resource Manager-Vorlagen. Um die Ressourcen, die Sie in Azure DevOps verwalten, zu schützen, können Sie bestimmten Benutzern, integrierten Sicherheitsgruppen oder in Azure Active Directory (Azure AD) definierten Gruppen (bei Integration in Azure DevOps) oder in Active Directory definierten Gruppen (bei Integration in TFS) Berechtigungen erteilen oder verweigern. Verwenden Sie die rollenbasierte Zugriffssteuerung in Azure, um kundenseitig verwaltete Schlüssel zu schützen.
 
 Aktivieren Sie zudem das vorläufige Löschen und den Löschschutz in Key Vault, um Schlüssel vor versehentlichem oder böswilligem Löschen zu schützen.  Wenn Azure Storage zum Speichern von Azure Resource Manager-Vorlagensicherungen verwendet wird, aktivieren Sie vorläufiges Löschen, um Ihre Daten zu speichern und wiederherzustellen, wenn Blobs oder Blobmomentaufnahmen gelöscht werden. 
 

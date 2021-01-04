@@ -9,16 +9,16 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: yelevin
-ms.openlocfilehash: 8f21b415ef36442d6ac1aac518cd1327f70b8927
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c554f3582e67622a5a1739c9e410328c902d491b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88263856"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655900"
 ---
 # <a name="connect-data-from-azure-web-application-firewall-waf"></a>Verbinden von Daten aus Azure Web Application Firewall (WAF)
 
-Webanwendungen sind zunehmend Ziele böswilliger Angriffe, die allgemein bekannte Sicherheitslücken ausnutzen. Azure Web Application Firewall (WAF) schützt Ihre Webanwendungen zentralisiert vor gängigen Exploits und Bedrohungen wie der Einschleusung von Code und Cross-Site Scripting. Azure WAF kann im [Azure Application Gateway](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview)-Dienst, dem [Azure Front Door](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview)-Dienst und über eine [Azure Content Delivery Network (CDN)-](https://docs.microsoft.com/azure/web-application-firewall/cdn/cdn-overview)-WAF-Richtlinie bereitgestellt werden (letztere ist zurzeit als öffentliche Vorschau verfügbar).
+Webanwendungen sind zunehmend Ziele böswilliger Angriffe, die allgemein bekannte Sicherheitslücken ausnutzen. Azure Web Application Firewall (WAF) schützt Ihre Webanwendungen zentralisiert vor gängigen Exploits und Bedrohungen wie der Einschleusung von Code und Cross-Site Scripting. Azure WAF kann im [Azure Application Gateway](../web-application-firewall/ag/ag-overview.md)-Dienst, dem [Azure Front Door](../web-application-firewall/afds/afds-overview.md)-Dienst und über eine [Azure Content Delivery Network (CDN)-](../web-application-firewall/cdn/cdn-overview.md)-WAF-Richtlinie bereitgestellt werden (letztere ist zurzeit als öffentliche Vorschau verfügbar).
 Sie können Azure WAF-Protokolle mit Azure Sentinel verbinden, was es Ihnen ermöglicht, Protokolldaten in Arbeitsmappen anzuzeigen, sie zum Erstellen benutzerdefinierter Warnungen zu verwenden und sie zur Verbesserung Ihrer Untersuchung zu integrieren.
 
 ## <a name="prerequisites"></a>Voraussetzungen

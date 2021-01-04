@@ -7,12 +7,12 @@ ms.topic: article
 author: emuench
 ms.author: navits
 ms.date: 07/17/2020
-ms.openlocfilehash: 10137e59e0ea06fa785fccc215c867b6d8c0cb76
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: b9685081c0beacd745a83067b9d9876384933377
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91651155"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131240"
 ---
 # <a name="appsource-dynamics-365-finance-and-operations-functional-validation"></a>Funktionale Überprüfung eines AppSource-Dynamics 365 Finance and Operations-Angebots
 
@@ -22,7 +22,7 @@ Für eine erste Veröffentlichung in [Partner Center](https://partner.microsoft.
 - Bereitstellen von Screenshots zur Veranschaulichung der [LCS-Umgebung](https://lcs.dynamics.com/) (Lifecycle Services) der Lösung
 
 > [!NOTE]
-> Spätere Veröffentlichungen von Neuzertifizierungen erfordern keine Veranschaulichung. Weitere Informationen finden Sie im [AppSource-Richtliniendokument](https://docs.microsoft.com/legal/marketplace/certification-policies#1440-dynamics-365-finance-ops).
+> Spätere Veröffentlichungen von Neuzertifizierungen erfordern keine Veranschaulichung. Weitere Informationen finden Sie im [AppSource-Richtliniendokument](/legal/marketplace/certification-policies#1440-dynamics-365-finance-ops).
 
 ## <a name="how-to-validate"></a>Überprüfen
 
@@ -65,7 +65,7 @@ Wenden Sie sich für einen Termin für das finale Überprüfungsgespräch an [ap
     | <ul><li>Power BI-Berichtsmodell</li><li>BPM-Artefakt</li></ul><br>Im Abschnitt **Power BI** sind keine Artefakte erforderlich. | [![Paketinhalt (Bildschirm 3)](media/dynamics-365-finance-operations/package-contents-3-45.png)](media/dynamics-365-finance-operations/package-contents-3.png#lightbox) |
     | <ul><li>Prozessdatenpaket</li><li>Solution license agreement and privacy policy (Lösungslizenzvereinbarung und Datenschutzrichtlinie)</li></ul><br>Die Abschnitte **GER-Konfiguration** und **Power BI-Berichtsmodell** sind bei Finance and Operations-Angeboten optional. | [![Paketinhalt (Bildschirm 4)](media/dynamics-365-finance-operations/package-contents-4-45.png)](media/dynamics-365-finance-operations/package-contents-4.png#lightbox) |
 
-    Weitere Informationen zu den einzelnen Abschnitten des LCS-Portals finden Sie im [LCS-Benutzerhandbuch](https://docs.microsoft.com/dynamics365/fin-ops-core/dev-itpro/lifecycle-services/lcs-user-guide).
+    Weitere Informationen zu den einzelnen Abschnitten des LCS-Portals finden Sie im [LCS-Benutzerhandbuch](/dynamics365/fin-ops-core/dev-itpro/lifecycle-services/lcs-user-guide).
 
 3. Laden Sie das Dokument in Partner Center hoch.
 
@@ -76,4 +76,4 @@ Wenden Sie sich für einen Termin für das finale Überprüfungsgespräch an [ap
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zum Erstellen eines Angebots finden Sie unter [Erstellen eines Angebots für Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
+Weitere Informationen zum Erstellen eines Angebots finden Sie unter [Erstellen eines Angebots für Dynamics 365 for Operations](./partner-center-portal/create-new-operations-offer.md).

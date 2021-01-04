@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: 374cc79b42d2dcaed0312c0ec205073906ce1fc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12163419ad779acfa116f1dee66284623e2d45fb
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530673"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616109"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Interaktives Debuggen mit Visual Studio Code
 
@@ -38,7 +38,7 @@ Verwenden Sie die Azure Machine Learning-Erweiterung zum Überprüfen, Ausführe
 > Stellen Sie unter Windows sicher, dass Sie [in Docker konfigurieren, dass Linux-Container verwendet werden](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
 
 > [!TIP]
-> Für Windows wird die Verwendung von [Docker mit dem Windows-Subsystem für Linux (WSL) 2](https://docs.microsoft.com/windows/wsl/tutorials/wsl-containers#install-docker-desktop) dringend empfohlen, auch wenn dies nicht erforderlich ist.
+> Für Windows wird die Verwendung von [Docker mit dem Windows-Subsystem für Linux (WSL) 2](/windows/wsl/tutorials/wsl-containers#install-docker-desktop) dringend empfohlen, auch wenn dies nicht erforderlich ist.
 
 > [!IMPORTANT]
 > Bevor Sie Ihr Experiment lokal ausführen, stellen Sie sicher, dass Docker ausgeführt wird.
@@ -339,7 +339,7 @@ Speichern Sie den Wert von `ip_address`. Sie werden im nächsten Abschnitt verwe
 In einigen Fällen müssen Sie den in der Modellbereitstellung enthaltenen Python-Code ggf. interaktiv debuggen. Dies ist beispielsweise der Fall, wenn das Einstiegsskript fehlschlägt und der Grund nicht durch zusätzliche Protokollierung ermittelt werden kann. Mit VS Code und debugpy können Sie Elemente an den Code anfügen, der im Docker-Container ausgeführt wird.
 
 > [!IMPORTANT]
-> Diese Methode des Debuggens funktioniert nicht, wenn `Model.deploy()` und `LocalWebservice.deploy_configuration` verwendet werden, um ein Modell lokal bereitzustellen. Stattdessen müssen Sie ein Image mithilfe der [Model.package()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-)-Methode erstellen.
+> Diese Methode des Debuggens funktioniert nicht, wenn `Model.deploy()` und `LocalWebservice.deploy_configuration` verwendet werden, um ein Modell lokal bereitzustellen. Stattdessen müssen Sie ein Image mithilfe der [Model.package()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-)-Methode erstellen.
 
 Bereitstellungen lokaler Webdienste erfordern eine funktionierende Installation von Docker auf Ihrem lokalen System. Weitere Informationen zum Verwenden von Docker finden Sie in der [Docker-Dokumentation](https://docs.docker.com/). Beachten Sie bei Verwendung von Compute-Instanzen, dass Docker bereits installiert ist.
 

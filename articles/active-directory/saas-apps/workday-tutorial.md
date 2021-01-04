@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 4867a1735f091085f64bbe7010969bd086f820a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af001ddd8dc468d06706e63eaf092d1179fe3fdc
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88527172"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181372"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>Tutorial: Integration des einmaligen Anmeldens (Single Sign-On, SSO) von Azure Active Directory mit Workday
 
@@ -25,8 +25,6 @@ In diesem Tutorial erfahren Sie, wie Sie Workday in Azure Active Directory (Azur
 * Steuern Sie in Azure AD, wer Zugriff auf Workday hat.
 * Ermöglichen Sie es Ihren Benutzern, sich mit ihren Azure AD-Konten automatisch bei Workday anzumelden.
 * Verwalten Sie Ihre Konten zentral im Azure-Portal.
-
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -41,37 +39,40 @@ In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure
 
 * Workday unterstützt **SP-initiiertes** einmaliges Anmelden.
 
-* Nach dem Konfigurieren von Workday können Sie die Sitzungssteuerung erzwingen, die in Echtzeit vor der Exfiltration und Infiltration vertraulicher Unternehmensdaten schützt. Die Sitzungssteuerung basiert auf bedingtem Zugriff. [Hier](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad) erfahren Sie, wie Sie die Sitzungssteuerung mit Microsoft Cloud App Security erzwingen.
+* Workday Mobile Application kann nun mit Azure AD konfiguriert werden, um SSO zu ermöglichen. Weitere Informationen zum Konfigurieren finden Sie unter [diesem Link](workday-mobile-tutorial.md).
+
+> [!NOTE]
+> Der Bezeichner dieser Anwendung ist ein fester Zeichenfolgenwert, daher kann in einem Mandanten nur eine Instanz konfiguriert werden.
 
 ## <a name="adding-workday-from-the-gallery"></a>Hinzufügen von Workday aus dem Katalog
 
 Zum Konfigurieren der Integration von Workday in Azure AD müssen Sie Workday aus dem Katalog zur Liste mit den verwalteten SaaS-Apps hinzufügen.
 
-1. Melden Sie sich mit einem Geschäfts-, Schul- oder Unikonto oder mit einem persönlichen Microsoft-Konto beim [Azure-Portal](https://portal.azure.com) an.
+1. Melden Sie sich mit einem Geschäfts-, Schul- oder Unikonto oder mit einem persönlichen Microsoft-Konto beim Azure-Portal an.
 1. Wählen Sie im linken Navigationsbereich den Dienst **Azure Active Directory** aus.
 1. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie dann **Alle Anwendungen** aus.
 1. Wählen Sie zum Hinzufügen einer neuen Anwendung **Neue Anwendung** aus.
 1. Geben Sie im Abschnitt **Aus Katalog hinzufügen** den Suchbegriff **Workday** in das Suchfeld ein.
 1. Wählen Sie **Workday** im Ergebnisbereich aus, und fügen Sie dann die App hinzu. Warten Sie einige Sekunden, während die App Ihrem Mandanten hinzugefügt wird.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-workday"></a>Konfigurieren und Testen des einmaligen Anmeldens von Azure AD für Workday
+## <a name="configure-and-test-azure-ad-sso-for-workday"></a>Konfigurieren und Testen des einmaligen Anmeldens von Azure AD für Workday
 
 Konfigurieren und testen Sie das einmalige Anmelden von Azure AD mit Workday mithilfe eines Testbenutzers mit dem Namen **B. Simon**. Damit einmaliges Anmelden funktioniert, muss eine Linkbeziehung zwischen einem Azure AD-Benutzer und dem entsprechenden Benutzer in Workday eingerichtet werden.
 
-Zum Konfigurieren und Testen des einmaligen Anmeldens von Azure AD mit Workday müssen Sie die folgenden Schritte ausführen:
+Führen Sie zum Konfigurieren und Testen des einmaligen Anmeldens von Azure AD mit Workday die folgenden Schritte aus:
 
 1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-sso)** , um Ihren Benutzern die Verwendung dieses Features zu ermöglichen
     1. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)** , um das einmalige Anmelden von Azure AD mit dem Testbenutzer B. Simon zu testen.
     1. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)** , um B. Simon die Verwendung des einmaligen Anmeldens von Azure AD zu ermöglichen.
-2. **[Konfigurieren von Workday](#configure-workday)** , um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren
-    1. **[Erstellen eines Workday-Testbenutzers](#create-workday-test-user)** , um ein Pendant von B. Simon in Workday zu erhalten, das mit ihrer Darstellung in Azure AD verknüpft ist
+2. **[Konfigurieren von Workday](#configure-workday)**, um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren
+    1. **[Erstellen eines Workday-Testbenutzers](#create-workday-test-user)**, um ein Pendant von B. Simon in Workday zu erhalten, das mit ihrer Darstellung in Azure AD verknüpft ist
 3. **[Testen des einmaligen Anmeldens](#test-sso)** , um zu überprüfen, ob die Konfiguration funktioniert
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurieren des einmaligen Anmeldens (Single Sign-On, SSO) von Azure AD
 
 Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal zu aktivieren.
 
-1. Navigieren Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **Workday** zum Abschnitt **Verwalten**, und wählen Sie **Einmaliges Anmelden** aus.
+1. Navigieren Sie im Azure-Portal auf der Anwendungsintegrationsseite für **Workday** zum Abschnitt **Verwalten**, und wählen Sie **Einmaliges Anmelden** aus.
 1. Wählen Sie auf der Seite **SSO-Methode auswählen** die Methode **SAML** aus.
 1. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Bearbeitungs- bzw. Stiftsymbol für **Grundlegende SAML-Konfiguration**, um die Einstellungen zu bearbeiten.
 
@@ -81,17 +82,17 @@ Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal 
 
     a. Geben Sie im Textfeld **Anmelde-URL** eine URL im folgenden Format ein: `https://impl.workday.com/<tenant>/login-saml2.flex`
 
-    b. Geben Sie im Textfeld **Bezeichner** eine URL im folgenden Format ein: `http://www.workday.com`
+    b. Geben Sie im Textfeld **Antwort-URL** eine URL im folgenden Format ein: `https://impl.workday.com/<tenant>/login-saml.htmld`
 
-    c. Geben Sie im Textfeld **Antwort-URL** eine URL im folgenden Format ein: `https://impl.workday.com/<tenant>/login-saml.htmld`
+    c. Geben Sie im Textfeld **Abmelde-URL** eine URL im folgenden Format ein: `https://impl.workday.com/<tenant>/login-saml.htmld`.
 
     > [!NOTE]
-    > Hierbei handelt es sich um Beispielwerte. Ersetzen Sie diese Werte durch die tatsächliche Anmelde-URL und Antwort-URL. Ihre Antwort-URL muss eine Unterdomäne aufweisen (z.B. www, wd2, wd3, wd3-impl, wd5, wd5-impl).
+    > Hierbei handelt es sich um Beispielwerte. Ersetzen Sie diese Werte durch die tatsächlichen Werte für die Anmelde-URL, die Antwort-URL und die Abmelde-URL. Ihre Antwort-URL muss eine Unterdomäne aufweisen (z.B. www, wd2, wd3, wd3-impl, wd5, wd5-impl).
     > Eine URL wie `http://www.myworkday.com` funktioniert, `http://myworkday.com` hingegen nicht. Wenden Sie sich an das [Supportteam für den Workday-Client](https://www.workday.com/en-us/partners-services/services/support.html), um diese Werte zu erhalten. Sie können sich auch die Muster im Abschnitt **Grundlegende SAML-Konfiguration** im Azure-Portal ansehen.
 
-6. Die Workday-Anwendung erwartet die SAML-Assertionen in einem bestimmten Format. Daher müssen Sie Ihrer Konfiguration der SAML-Tokenattribute benutzerdefinierte Attributzuordnungen hinzufügen. Der folgende Screenshot zeigt die Liste der Standardattribute. **nameidentifier** ist hier **user.userprincipalname** zugeordnet. Die Workday-Anwendung erwartet, dass **nameidentifier** die Werte für **user.mail**, **UPN** usw. zugeordnet sind. Sie müssen die Attributzuordnung daher bearbeiten, indem Sie auf das Symbol **Bearbeiten** klicken und die Attributzuordnung ändern.
+1. Die Workday-Anwendung erwartet die SAML-Assertionen in einem bestimmten Format. Daher müssen Sie Ihrer Konfiguration der SAML-Tokenattribute benutzerdefinierte Attributzuordnungen hinzufügen. Der folgende Screenshot zeigt die Liste der Standardattribute. **nameidentifier** ist hier **user.userprincipalname** zugeordnet. Die Workday-Anwendung erwartet, dass **nameidentifier** die Werte für **user.mail**, **UPN** usw. zugeordnet sind. Sie müssen die Attributzuordnung daher bearbeiten, indem Sie auf das Symbol **Bearbeiten** klicken und die Attributzuordnung ändern.
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot: Benutzerattribute mit ausgewähltem Bearbeitungssymbol](common/edit-attribute.png)
 
     > [!NOTE]
     > Hier ist die Namens-ID mit Benutzerprinzipalname (user.userprincipalname) als Standard zugeordnet. Sie müssen die Namens-ID der tatsächlichen Benutzer-ID in Ihrem Workday-Konto (E-Mail-Adresse, UPN usw.) zuordnen, damit einmaliges Anmelden funktioniert.
@@ -102,9 +103,9 @@ Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal 
 
 1. Klicken Sie zum Ändern der Optionen unter **Signieren** gemäß Ihren Anforderungen auf die Schaltfläche **Bearbeiten**, um das Dialogfeld **SAML-Signaturzertifikat** zu öffnen.
 
-    ![image](common/edit-certificate.png) 
+    ![Zertifikat](common/edit-certificate.png) 
 
-    ![image](./media/workday-tutorial/signing-option.png)
+    ![SAML-Signaturzertifikat](./media/workday-tutorial/signing-option.png)
 
     a. Wählen Sie **SAML-Antwort und -Assertion signieren** für **Signaturoption** aus.
 
@@ -133,132 +134,111 @@ In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anm
 1. Wählen Sie im Azure-Portal **Unternehmensanwendungen** > **Alle Anwendungen** aus.
 1. Wählen Sie in der Anwendungsliste **Workday** aus.
 1. Navigieren Sie auf der Übersichtsseite der App zum Abschnitt **Verwalten**, und wählen Sie **Benutzer und Gruppen** aus.
-
-   ![Link „Benutzer und Gruppen“](common/users-groups-blade.png)
-
 1. Wählen Sie **Benutzer hinzufügen** und anschließend im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
-
-    ![Link „Benutzer hinzufügen“](common/add-assign-user.png)
-
 1. Wählen Sie im Dialogfeld **Benutzer und Gruppen** in der Liste „Benutzer“ den Eintrag **B. Simon** aus, und klicken Sie dann unten auf dem Bildschirm auf die Schaltfläche **Auswählen**.
-1. Wenn Sie einen beliebigen Rollenwert in der SAML-Assertion erwarten, wählen Sie im Dialogfeld **Rolle auswählen** die entsprechende Rolle für den Benutzer in der Liste aus, und klicken Sie dann im unteren Bildschirmbereich auf die Schaltfläche **Auswählen**.
+1. Wenn den Benutzern eine Rolle zugewiesen werden soll, können Sie sie im Dropdownmenü **Rolle auswählen** auswählen. Wurde für diese App keine Rolle eingerichtet, ist die Rolle „Standardzugriff“ ausgewählt.
 1. Klicken Sie im Dialogfeld **Zuweisung hinzufügen** auf die Schaltfläche **Zuweisen**.
 
 ## <a name="configure-workday"></a>Konfigurieren von Workday
 
 1. Melden Sie sich in einem anderen Webbrowserfenster auf der Workday-Unternehmenswebsite als Administrator an.
 
-2. Geben Sie oben links auf der Startseite im **Suchfeld** den Namen **Mandanten-Setup bearbeiten – Sicherheit** ein.
+1. Geben Sie oben links auf der Startseite im **Suchfeld** den Namen **Mandanten-Setup bearbeiten – Sicherheit** ein.
 
-    ![Bearbeiten der Mandantensicherheit](./media/workday-tutorial/IC782925.png "Mandanten-Sicherheit bearbeiten")
+    ![Mandanten-Sicherheit bearbeiten](./media/workday-tutorial/IC782925.png "Mandanten-Sicherheit bearbeiten")
 
-3. Führen Sie im Abschnitt **Umleitungs-URLs** die folgenden Schritte aus:
 
-    ![Umleitungs-URLs](./media/workday-tutorial/IC7829581.png "Umleitungs-URLs")
-
-    a. Klicken Sie auf **Zeile hinzufügen**.
-
-    b. Fügen Sie in die Textfelder **Login Redirect URL** (Umleitungs-URL für Anmeldung), **Timeout Redirect URL** (Umleitungs-URL für Timeout) and **Mobile Redirect URL** (Mobile Umleitungs-URL) die **Anmelde-URL** ein, die Sie im Azure-Portal im Abschnitt **Workday einrichten** kopiert haben.
-
-    c. Fügen Sie ins Textfeld **Logout Redirect URL** (Umleitungs-URL für Abmeldung) die **Abmelde-URL** ein, die Sie im Azure-Portal im Abschnitt **Workday einrichten** kopiert haben.
-
-    d. Wählen Sie im Textfeld **Used for Environments** (Für Umgebungen verwendet) den Umgebungsnamen aus.  
-
-   > [!NOTE]
-   > Der Wert des Umgebungsattributs wird an den Wert der Mandanten-URL gebunden:  
-   > \- Wenn der Domänenname der Workday-Mandanten-URL mit „impl“ beginnt (z. B. *https://www.myworkday.com/"tenant"/login-saml2.htmld*), muss das Attribut **Environment** (Umgebung) auf „Implementation“ (Implementierung) festgelegt werden.  
-   > \- Wenn der Domänenname anders beginnt, müssen Sie sich mit dem [Supportteam für den Workday-Client](https://www.workday.com/en-us/partners-services/services/support.html) in Verbindung setzen, um den passenden Wert für die **Umgebung** zu erhalten.
-
-4. Führen Sie im Abschnitt **SAML-Setup** die folgenden Schritte aus:
+1. Führen Sie im Abschnitt **SAML Setup** die folgenden Schritte aus:
 
     ![SAML-Setup](./media/workday-tutorial/IC782926.png "SAML-Setup")
 
-    a.  Wählen Sie die Option **SAML-Authentifizierung aktivieren**.
+    a.  Wählen Sie **SAML-Authentifizierung aktivieen** aus.
 
     b.  Klicken Sie auf **Zeile hinzufügen**.
 
-5. Führen Sie im Abschnitt **SAML-Identitätsanbieter** die folgenden Schritte aus:
+1. Führen Sie im Abschnitt **SAML Identity Providers** (SAML-Identitätsanbieter) die folgenden Aktionen für die neu erstellte Zeile aus:
 
-    ![SAML-Identitätsanbieter](./media/workday-tutorial/IC7829271.png "SAML-Identitätsanbieter")
+    a. Führen Sie für die nachfolgend dargestellten Felder die unten beschriebenen Aktionen aus:
 
-    a. Geben Sie im Textfeld **Name des Identitätsanbieters** einen Anbieternamen ein (z.B: *SPInitiatedSSO*).
+    ![SAML Identity Providers 1](./media/workday-tutorial/IC7829271.png "SAML-Identitätsanbieter") (SAML-Identitätsanbieter 1)
 
-    b. Kopieren Sie im Azure-Portal im Abschnitt **Workday einrichten** den **Azure AD-Bezeichner**, und fügen Sie sie in das Textfeld **Issuer** (Aussteller) ein.
+    * Geben Sie im Textfeld **Name des Identitätsanbieters** einen Anbieternamen ein (z.B: *SPInitiatedSSO*).
 
-    ![SAML-Identitätsanbieter](./media/workday-tutorial/IC7829272.png "SAML-Identitätsanbieter")
+    * Kopieren Sie im Azure-Portal im Abschnitt **Workday einrichten** den **Azure AD-Bezeichner**, und fügen Sie sie in das Textfeld **Issuer** (Aussteller) ein.
 
-    c. Kopieren Sie im Azure-Portal im Abschnitt **Workday einrichten** die **Abmelde-URL**, und fügen Sie sie in das Textfeld **Logout Response URL** (Antwort-URL für Abmeldung) ein.
+    * Öffnen Sie das aus dem Azure-Portal heruntergeladene **Zertifikat** im Editor, und fügen Sie den Inhalt im Textfeld **x.509 Certificate** (x.509-Zertifikat) ein.
 
-    d. Kopieren Sie im Azure-Portal im Abschnitt **Workday einrichten** die **Anmelde-URL**, und fügen Sie sie in das Textfeld **IdP SSO Service URL** (Dienst-URL des Identitätsanbieters für einmaliges Anmelden) ein.
+    b. Führen Sie für die nachfolgend dargestellten Felder die unten beschriebenen Aktionen aus:
 
-    e. Wählen Sie im Textfeld **Used for Environments** (Für Umgebungen verwendet) den Umgebungsnamen aus.
+    ![SAML Identity Providers 2](./media/workday-tutorial/saml-identity-provider-2.png "SAML-Identitätsanbieter") (SAML-Identitätsanbieter 2)
 
-    f. Klicken Sie auf **Identity Provider Public Key Certificate** (Öffentliches Schlüsselzertifikat des Identitätsanbieters), und klicken Sie dann auf **Erstellen**.
+    * Aktivieren Sie das Kontrollkästchen **Enable IdP Initiated Logout** (IdP-initiierte Abmeldung ermöglichen).
 
-    ![Erstellen](./media/workday-tutorial/IC782928.png "Erstellen")
+    * Geben Sie in das Textfeld **Logout Response URL** (Anforderungs-URL für Abmeldung) die URL **http://www.workday.com** ein.
 
-    g. Klicken Sie auf **Öffentlichen x509-Schlüssel erstellen**.
+    * Fügen Sie in das Textfeld **Logout Request URL** (Anforderungs-URL für Abmeldung) die **Abmelde-URL** ein, die Sie aus dem Azure-Portal kopiert haben.
 
-    ![Erstellen](./media/workday-tutorial/IC782929.png "Erstellen")
+    * Aktivieren Sie das Kontrollkästchen **SP Initiated** (SP-initiiert).
 
-6. Führen Sie im Abschnitt **Öffentlichen x509-Schlüssel anzeigen** die folgenden Schritte aus:
+    * Geben Sie in das Textfeld **Dienstanbieter-ID** Folgendes ein: **http://www.workday.com**.
 
-    ![Öffentlichen x509-Schlüssel anzeigen](./media/workday-tutorial/IC782930.png "Öffentlichen x509-Schlüssel anzeigen")
 
-    a. Geben Sie im Textfeld **Name** einen Namen für Ihr Zertifikat ein (z.B.: *PPE\_SP*).
+    * Wählen Sie **Für SP-initiierte Authentifizierungsanforderung keinen Deflate ausführen** aus.
 
-    b. Geben Sie im Textfeld **Gültig ab** den „Gültig-ab“-Attributwert des Zertifikats ein.
+    c. Führen Sie für die nachfolgend dargestellten Felder die unten beschriebenen Aktionen aus:
 
-    c.  Geben Sie im Textfeld **Gültig bis** den „Gültig-bis“-Attributwert des Zertifikats ein.
+    ![SAML Identity Providers 3](./media/workday-tutorial/saml-identity-provider-3.png "SAML-Identitätsanbieter") (SAML-Identitätsanbieter 3)
 
-    > [!NOTE]
-    > Sie können die „Gültig ab“- und „Gültig bis“-Daten per Doppelklick aus dem heruntergeladenen Zertifikat abrufen.  Die Datumsangaben sind in der Registerkarte **Details** aufgeführt.
-    >
-    >
+    * Kopieren Sie im Azure-Portal im Abschnitt **Workday einrichten** die **Anmelde-URL**, und fügen Sie sie in das Textfeld **IdP SSO Service URL** (Dienst-URL des Identitätsanbieters für einmaliges Anmelden) ein.
 
-    d.  Öffnen Sie das Base64-codierte Zertifikat in Editor, und kopieren Sie seinen Inhalt.
+    * Wählen Sie im Textfeld **Used for Environments** (Für Umgebungen verwendet) den entsprechenden Umgebungsnamen im Dropdownmenü aus.
 
-    e.  Fügen Sie in der Textbox **Zertifikat** den Inhalt der Zwischenablage ein.
+1. Führen Sie die in der folgenden Abbildung gezeigten Schritte aus:
 
-    f.  Klicken Sie auf **OK**.
+    ![Workday](./media/workday-tutorial/service-provider.png "SAML-Identitätsanbieter")
 
-7. Führen Sie die folgenden Schritte aus:
+    a. Geben Sie in das Textfeld **Service Provider ID (Will be Deprecated)** (Dienstanbieter-ID (wird eingestellt)) Folgendes ein: **http://www.workday.com** .
 
-    ![SSO-Konfiguration](./media/workday-tutorial/WorkdaySSOConfiguratio.png "SSO-Konfiguration")
+    b. Geben Sie in das Textfeld **IDP SSO Service URL (Will be Deprecated)** (Dienst-URL des Identitätsanbieters für einmaliges Anmelden (wird eingestellt)) den Wert der **Anmelde-URL** ein.
 
-    a.  Geben Sie in das Textfeld **Dienstanbieter-ID** Folgendes ein: **http://www.workday.com** .
+    c. Wählen Sie **Do Not Deflate SP-initiated Authentication Request (Will be Deprecated)** (Für SP-initiierte Authentifizierungsanforderung keinen Deflate ausführen (wird eingestellt)) aus.
 
-    b. Wählen Sie **SP-initiierte Authentifizierungsanfrage nicht verkleinern**.
+    d. Wählen Sie als **Authentication Request Signature Method** (Signaturmethode für Authentifizierungsanfragen) die Option **SHA256** aus.
 
-    c. Wählen Sie als **Authentication Request Signature Method** (Signaturmethode für Authentifizierungsanfragen) die Option **SHA256** aus.
-
-    ![Signaturmethode für Authentifizierungsanfragen](./media/workday-tutorial/WorkdaySSOConfiguration.png "Signaturmethode für Authentifizierungsanfragen")
-
-    d. Klicken Sie auf **OK**.
-
-    ![OK](./media/workday-tutorial/IC782933.png "OK")
+    e. Klicken Sie auf **OK**.
 
     > [!NOTE]
     > Stellen Sie sicher, dass Sie das einmalige Anmelden ordnungsgemäß eingerichtet haben. Falls Sie das einmalige Anmelden mit der falschen Einrichtung aktivieren, können Sie die Anwendung möglicherweise nicht mit Ihren Anmeldeinformationen öffnen und werden gesperrt. In diesem Fall bietet Workday eine Sicherungs-URL für die Anmeldung, mit der Benutzer ihren normalen Benutzernamen mit Kennwort im folgenden Format verwenden können: [Ihre Workday-URL]/login.flex?redirect=n
 
 ### <a name="create-workday-test-user"></a>Erstellen eines Workday-Testbenutzers
 
-In diesem Abschnitt erstellen Sie in Workday einen Benutzer namens B. Simon. Arbeiten Sie mit dem [Supportteam für den Workday-Client](https://www.workday.com/en-us/partners-services/services/support.html) zusammen, um die Benutzer zur Workday-Plattform hinzuzufügen. Benutzer müssen erstellt und aktiviert werden, damit Sie einmaliges Anmelden verwenden können.
+1. Melden Sie sich bei der Workday-Unternehmenswebsite als Administrator an.
+
+1. Klicken Sie in der Ecke oben rechts auf **Profile** (Profil), wählen Sie **Home** aus, und klicken Sie auf der Registerkarte **Applications** (Anwendungen) auf **Directory** (Verzeichnis). 
+
+1. Wählen Sie auf der Seite **Directory** (Verzeichnis) auf der Registerkarte „View“ (Ansicht) die Option **Find Workers** (Mitarbeiter suchen) aus.
+
+    ![Find workers (Mitarbeiter suchen)](./media/workday-tutorial/user-directory.png)
+
+1.  Wählen Sie auf der Seite **Find Workers** (Mitarbeiter suchen) den Benutzer in den Ergebnissen aus.
+
+1. Wählen Sie auf der folgenden Seite **Job > Worker Security** (Position > Mitarbeitersicherheit) aus. Die Angabe für **Workday account** (Workday-Konto) muss mit dem Wert der **Namens-ID** für Azure Active Directory übereinstimmen.
+
+    ![Worker Security (Mitarbeitersicherheit)](./media/workday-tutorial/worker-security.png)
+
+> [!NOTE]
+> Weitere Informationen zum Erstellen eines Workday-Testbenutzers erhalten Sie vom [Supportteam für den Workday-Client](https://www.workday.com/en-us/partners-services/services/support.html).
 
 ## <a name="test-sso"></a>Testen des einmaligen Anmeldens
 
-Wenn Sie im Zugriffsbereich die Kachel „Workday“ auswählen, sollten Sie automatisch bei der Workday-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden mit den folgenden Optionen: 
 
-## <a name="additional-resources"></a>Zusätzliche Ressourcen
+1. Klicken Sie im Azure-Portal auf **Diese Anwendung testen**. Dadurch werden Sie zur Anmelde-URL für Workday weitergeleitet, wo Sie den Anmeldeflow initiieren können. 
 
-- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+2. Rufen Sie direkt die Workday-Anmelde-URL auf, und initiieren Sie den Anmeldeflow.
 
-- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+3. Sie können den Microsoft-Zugriffsbereich verwenden. Wenn Sie im Zugriffsbereich auf die Kachel „Workday“ klicken, sollten Sie automatisch bei der Workday-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](../user-help/my-apps-portal-end-user-access.md).
 
-- [Was ist bedingter Zugriff?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+## <a name="next-steps"></a>Nächste Schritte
 
-- [Workday mit Azure AD ausprobieren](https://aad.portal.azure.com)
-
-- [Was ist Sitzungssteuerung in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [Schützen von Apps mit der App-Steuerung für bedingten Zugriff von Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/protect-workday)
+Nach dem Konfigurieren von Workday können Sie die Sitzungssteuerung erzwingen, die in Echtzeit vor der Exfiltration und Infiltration vertraulicher Unternehmensdaten schützt. Die Sitzungssteuerung basiert auf bedingtem Zugriff. [Hier](/cloud-app-security/proxy-deployment-aad) erfahren Sie, wie Sie die Sitzungssteuerung mit Microsoft Cloud App Security erzwingen.

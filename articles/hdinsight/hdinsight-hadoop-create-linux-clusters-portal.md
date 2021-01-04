@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/06/2020
-ms.openlocfilehash: 1ba2f5e4b88ae6ae0ed15dbfbbc4fa5c55c45a77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebfd5c456d3658c6339e5174c9c4ab33f6c52d4d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87874026"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541705"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Erstellen von Linux-basierten Clustern in HDInsight mit dem Azure-Portal
 
@@ -33,7 +33,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Klicken Sie im oberen Menü auf **+ Ressource erstellen**.
+1. Klicken Sie im oberen Menü auf **+ Ressource erstellen** .
 
     ![Erstellen eines neuen Clusters im Azure-Portal](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-create-resource.png "Erstellen eines neuen Clusters im Azure-Portal")
 
@@ -51,26 +51,26 @@ Geben Sie auf der Registerkarte **Grundlagen** die folgenden Informationen an:
 |Resource group|Wählen Sie in der Dropdownliste Ihre vorhandene Ressourcengruppe oder die Option **Neu erstellen** aus.|
 |Clustername|Geben Sie einen global eindeutigen Namen ein.|
 |Region|Wählen Sie in der Dropdownliste eine Region für die Erstellung des Clusters aus.|
-|Clustertyp|Klicken Sie auf **Clustertyp auswählen**, um eine Liste zu öffnen. Wählen Sie in der Liste den gewünschten Clustertyp aus. Es gibt unterschiedliche Typen von HDInsight-Clustern. Diese entsprechen der Workload oder Technologie, für die der Cluster optimiert wurde. Es gibt keine unterstützte Methode zum Erstellen eines Clusters, in dem mehrere Typen kombiniert sind.|
+|Clustertyp|Klicken Sie auf **Clustertyp auswählen** , um eine Liste zu öffnen. Wählen Sie in der Liste den gewünschten Clustertyp aus. Es gibt unterschiedliche Typen von HDInsight-Clustern. Diese entsprechen der Workload oder Technologie, für die der Cluster optimiert wurde. Es gibt keine unterstützte Methode zum Erstellen eines Clusters, in dem mehrere Typen kombiniert sind.|
 |Version|Wählen Sie in der Dropdownliste eine **Version** aus. Verwenden Sie die Standardversion, wenn Sie nicht wissen, was Sie auswählen sollen. Weitere Informationen finden Sie unter [HDInsight-Clusterversionen](hdinsight-component-versioning.md).|
-|Benutzername für Clusteranmeldung|Geben Sie den Benutzernamen an, der Standardwert ist **admin**.|
+|Benutzername für Clusteranmeldung|Geben Sie den Benutzernamen an, der Standardwert ist **admin** .|
 |Kennwort für Clusteranmeldung|Geben Sie das Kennwort an.|
 |Bestätigen Sie das Clusteranmeldekennwort.|Geben Sie das Kennwort erneut ein.|
-|SSH-Benutzername (Secure Shell)|Geben Sie den Benutzernamen an, der Standardwert ist **sshuser**.|
-|Verwenden Sie ein Clusteranmeldekennwort für SSH|Aktivieren Sie das Kontrollkästchen **Clusteranmeldekennwort für SSH verwenden**, wenn Sie möchten, dass das SSH-Kennwort mit dem zuvor angegebenen Administratorkennwort identisch ist. Falls nicht, müssen Sie entweder ein **KENNWORT** oder einen **ÖFFENTLICHEN SCHLÜSSEL** zum Authentifizieren des SSH-Benutzers eingeben. Ein öffentlicher Schlüssel ist der von uns empfohlene Ansatz. Wählen Sie unten die Option **Auswählen**, um die Konfiguration der Anmeldeinformationen zu speichern.  Weitere Informationen finden Sie unter [Herstellen einer Verbindung mit HDInsight (Hadoop) per SSH](hdinsight-hadoop-linux-use-ssh-unix.md).|
+|SSH-Benutzername (Secure Shell)|Geben Sie den Benutzernamen an, der Standardwert ist **sshuser** .|
+|Verwenden Sie ein Clusteranmeldekennwort für SSH|Aktivieren Sie das Kontrollkästchen **Clusteranmeldekennwort für SSH verwenden** , wenn Sie möchten, dass das SSH-Kennwort mit dem zuvor angegebenen Administratorkennwort identisch ist. Falls nicht, müssen Sie entweder ein **KENNWORT** oder einen **ÖFFENTLICHEN SCHLÜSSEL** zum Authentifizieren des SSH-Benutzers eingeben. Ein öffentlicher Schlüssel ist der von uns empfohlene Ansatz. Wählen Sie unten die Option **Auswählen** , um die Konfiguration der Anmeldeinformationen zu speichern.  Weitere Informationen finden Sie unter [Herstellen einer Verbindung mit HDInsight (Hadoop) per SSH](hdinsight-hadoop-linux-use-ssh-unix.md).|
 
 Klicken Sie auf **Weiter: Speicher >>** , um zur nächsten Registerkarte zu gelangen.
 
 ## <a name="storage"></a>Storage
 
 > [!WARNING] 
-> Ab dem 15. Juni 2020 können Kunden keinen neuen Dienstprinzipal mit HDInsight mehr erstellen. Informationen zur Verwendung von Azure Active Directory finden Sie unter [Erstellen von Dienstprinzipalen und Zertifikaten](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+> Ab dem 15. Juni 2020 können Kunden keinen neuen Dienstprinzipal mit HDInsight mehr erstellen. Informationen zur Verwendung von Azure Active Directory finden Sie unter [Erstellen von Dienstprinzipalen und Zertifikaten](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ![HDInsight: Erstellen von Clusterspeicher](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png "Erstellen eines neuen Clusters im Azure-Portal – Speicher")
 
 ### <a name="primary-storage"></a>Primärer Speicher
 
-Wählen Sie in der Dropdownliste für **Primärer Speichertyp** Ihren Standardspeichertyp aus. Die später auszufüllenden Felder fallen je nach Ihrer Auswahl unterschiedlich aus. Für **Azure Storage**:
+Wählen Sie in der Dropdownliste für **Primärer Speichertyp** Ihren Standardspeichertyp aus. Die später auszufüllenden Felder fallen je nach Ihrer Auswahl unterschiedlich aus. Für **Azure Storage** :
 
 1. Wählen Sie für **Auswahlmethode** entweder **Aus Liste auswählen** oder **Zugriffsschlüssel verwenden** aus.
     * Wählen Sie **Aus Liste auswählen** und dann Ihr **Primäres Speicherkonto** in der Dropdownliste aus, oder wählen Sie **Neu erstellen** aus.
@@ -128,13 +128,13 @@ Wählen Sie **Bewerten + erstellen >>** aus, um die Clusterkonfiguration zu übe
 
 ![HDInsight: Zusammenfassung der Clustererstellung](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-review-create-hadoop.png "Angeben der Anzahl der Clusterknoten")
 
-Überprüfen Sie die Einstellungen. Wählen Sie **Erstellen**, um den Cluster zu erstellen.
+Überprüfen Sie die Einstellungen. Wählen Sie **Erstellen** , um den Cluster zu erstellen.
 
 Die Erstellung des Clusters dauert in der Regel ca. 20 Minuten. Unter **Benachrichtigungen** können Sie den Bereitstellungsprozess überprüfen.
 
 ## <a name="post-creation"></a>Nach der Erstellung
 
-Wählen Sie nach Abschluss des Erstellungsprozesses in der Benachrichtigung **Bereitstellung erfolgreich** die Option **Zu Ressource wechseln**. Im Clusterfenster werden die folgenden Informationen angezeigt.
+Wählen Sie nach Abschluss des Erstellungsprozesses in der Benachrichtigung **Bereitstellung erfolgreich** die Option **Zu Ressource wechseln** . Im Clusterfenster werden die folgenden Informationen angezeigt.
 
 ![HDI Azure-Portal: Clusterübersicht](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-completed.png "Clustereigenschaften")
 

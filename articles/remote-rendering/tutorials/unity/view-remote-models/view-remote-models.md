@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bcee951dc85d9c317bad481ebdb91ff6c761371c
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 834df29597abaaadad98b232ce75b32a6431cfc2
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653671"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574733"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Tutorial: Anzeigen eines per Remotezugriff gerenderten Modells
 
@@ -76,7 +76,7 @@ Sie müssen die Datei `Packages/manifest.json` ändern, die sich in Ihrem Unity-
 
 Nachdem Sie das Manifest geändert und gespeichert haben, wird Unity automatisch aktualisiert. Vergewissern Sie sich, dass die Pakete in das Fenster *Project* (Projekt) geladen wurden:
 
-:::image type="content" source="./media/confirm-packages.png" alt-text="Neues Unity-Projekt":::
+:::image type="content" source="./media/confirm-packages.png" alt-text="Bestätigen des Imports von Paketen":::
 
 Wenn Ihre Pakete nicht geladen werden, überprüfen Sie die Unity-Konsole auf Fehler. Wenn keine Fehler vorliegen und die Pakete im Ordner **Packages** (Pakete) nach wie vor nicht angezeigt werden, überprüfen Sie die Umschaltfläche zur Paketsichtbarkeit.
 ![Screenshot: Pfeil, der auf die Umschaltfläche für die Paketsichtbarkeit zeigt](./media/unity-package-visibility.png)
@@ -169,7 +169,7 @@ Es gibt vier grundlegende Phasen zum Anzeigen von per Remotezugriff gerenderten 
 
 ![ARR-Stapel 0](./media/remote-render-stack-0.png)
 
-1. Erstellen Sie im Bereich *Project* (Projekt) unter **Assets** (Objekte) einen neuen Ordner mit dem Namen *RemoteRenderingCore*. Erstellen Sie anschließend in *RemoteRenderingCore*einen weiteren Ordner mit dem Namen *Scripts* (Skripts).
+1. Erstellen Sie im Bereich *Project* (Projekt) unter **Assets** (Objekte) einen neuen Ordner mit dem Namen *RemoteRenderingCore*. Erstellen Sie anschließend in *RemoteRenderingCore* einen weiteren Ordner mit dem Namen *Scripts* (Skripts).
 
 1. Erstellen Sie ein [neues C#-Skript](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) mit dem Namen **RemoteRenderingCoordinator**.
 Ihr Projekt sollte wie folgt aussehen:
@@ -220,7 +220,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     public static RemoteRenderingCoordinator instance;
 
     // AccountDomain must be '<region>.mixedreality.azure.com' - if no '<region>' is specified, connections will fail
-    // For most people '<region>' is either 'westus2' or 'westeurope'
+    // The list of regions is available at https://docs.microsoft.com/azure/remote-rendering/reference/regions
     [SerializeField]
     private string accountDomain = "westus2.mixedreality.azure.com";
     public string AccountDomain
@@ -589,7 +589,7 @@ public async void InitializeSessionService()
 }
 ```
 
-Um von **NotAuthorized** zu **NoSession**zu gelangen, stellen wir den Benutzern normalerweise ein modales Dialogfeld zur Verfügung, in denen sie eine Auswahl treffen können (das behandeln wir in einem anderen Kapitel). Derzeit umgehen wir die Autorisierungsüberprüfung durch Aufrufen von **ByPassAuthentication**, sobald das Ereignis **RequestingAuthorization** ausgelöst wird.
+Um von **NotAuthorized** zu **NoSession** zu gelangen, stellen wir den Benutzern normalerweise ein modales Dialogfeld zur Verfügung, in denen sie eine Auswahl treffen können (das behandeln wir in einem anderen Kapitel). Derzeit umgehen wir die Autorisierungsüberprüfung durch Aufrufen von **ByPassAuthentication**, sobald das Ereignis **RequestingAuthorization** ausgelöst wird.
 
 1. Wählen Sie das GameObject-Element **RemoteRenderingCoordinator** aus, und suchen Sie nach dem Unity-Ereignis **OnRequestingAuthorization**, das im Inspektor der Komponente **RemoteRenderingCoordinator** verfügbar gemacht wird.
 

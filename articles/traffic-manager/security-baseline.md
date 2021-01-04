@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9ed6a57dadb70daed9cdf02421b91d310b4b0f07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4523319c04703c04a293471124329512e31a265
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631459"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964676"
 ---
 # <a name="azure-security-baseline-for-azure-traffic-manager"></a>Azure-Sicherheitsbaseline für Azure Traffic Manager
 
@@ -270,7 +270,7 @@ Sie können diesen Prozess optimieren, indem Sie Diagnoseeinstellungen für Azur
 
 In Resource Manager können Endpunkte aus jedem Abonnement zu Traffic Manager hinzugefügt werden, solange die Person, die das Traffic Manager-Profil konfiguriert, über Lesezugriff für den Endpunkt verfügt.
 
-Azure Traffic Manager verfügt über eine vordefinierte Azure RBAC-Rolle mit dem Namen „Azure Traffic Manager-Mitwirkender“, die Benutzern zugewiesen werden kann.
+Azure Traffic Manager verfügt über eine vordefinierte Azure-Rolle mit dem Namen „Traffic Manager-Mitwirkender“, die Benutzern zugewiesen werden kann.
 
 - [Hinzufügen oder Entfernen von Azure-Rollenzuweisungen über das Azure-Portal](../role-based-access-control/role-assignments-portal.md)
 

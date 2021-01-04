@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.openlocfilehash: 19e3f1a157ee2c042dfebfc96c9b51c3c4698ebc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f86b2166ea9bd2a547a29a777d6b709877036161
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163729"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542538"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>Überwachen der Clusterverfügbarkeit mit Azure Monitor-Protokollen in HDInsight
 
@@ -22,7 +22,7 @@ HDInsight-Cluster bieten eine Integration mit Azure Monitor-Protokollen, die abf
 
 Mit Azure Monitor-Protokollen können Daten, die von mehreren Ressourcen wie z. B. HDInsight-Clustern generiert wurden, zentral gesammelt und zusammengefasst werden, um eine einheitliche Überwachungsumgebung zu schaffen.
 
-Als Voraussetzung benötigen Sie einen Log Analytics-Arbeitsbereich, um die gesammelten Daten zu speichern. Wenn Sie noch keinen eingerichtet haben, befolgen Sie die nachstehenden Anweisungen: [Erstellen eines Log Analytics-Arbeitsbereichs](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+Als Voraussetzung benötigen Sie einen Log Analytics-Arbeitsbereich, um die gesammelten Daten zu speichern. Wenn Sie noch keinen eingerichtet haben, befolgen Sie die nachstehenden Anweisungen: [Erstellen eines Log Analytics-Arbeitsbereichs](../azure-monitor/learn/quick-create-workspace.md).
 
 ## <a name="enable-hdinsight-azure-monitor-logs-integration"></a>Aktivieren der Integration von Azure Monitor-Protokollen in HDInsight
 
@@ -55,7 +55,7 @@ Sie können die Beispielabfrage **Availability rate** (Verfügbarkeitsrate) ausf
 > [!NOTE]  
 > Die Verfügbarkeitsrate wird über einen Zeitraum von 24 Stunden gemessen, sodass Ihr Cluster mindestens 24 Stunden ausgeführt werden muss, bevor Sie genaue Verfügbarkeitsraten sehen.
 
-Sie können diese Tabelle an ein freigegebenes Dashboard anheften, indem Sie rechts oben auf **Anheften** klicken. Wenn Sie über kein beschreibbares freigegebenes Dashboard verfügen, erfahren Sie hier, wie Sie ein Dashboard erstellen: [Erstellen und Freigeben von Dashboards im Azure-Portal](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard).
+Sie können diese Tabelle an ein freigegebenes Dashboard anheften, indem Sie rechts oben auf **Anheften** klicken. Wenn Sie über kein beschreibbares freigegebenes Dashboard verfügen, erfahren Sie hier, wie Sie ein Dashboard erstellen: [Erstellen und Freigeben von Dashboards im Azure-Portal](../azure-portal/azure-portal-dashboards.md#publish-and-share-a-dashboard).
 
 ## <a name="azure-monitor-alerts"></a>Azure Monitor-Warnungen
 
@@ -65,12 +65,12 @@ Führen Sie unter **Logs** (Protokolle) die Beispielabfrage **Unavailable comput
 
 ![Protokolle im Log Analytics-Arbeitsbereich mit Beispiel zu nicht verfügbaren Computern](media/cluster-availability-monitor-logs/portal-unavailable-computers.png)
 
-Wenn alle Knoten verfügbar sind, sollte diese Abfrage vorerst 0 (null) Ergebnisse zurückgeben. Klicken Sie auf **Neue Warnungsregel**, um mit der Konfiguration Ihrer Warnung für diese Abfrage zu beginnen.
+Wenn alle Knoten verfügbar sind, sollte diese Abfrage vorerst 0 (null) Ergebnisse zurückgeben. Klicken Sie auf **Neue Warnungsregel** , um mit der Konfiguration Ihrer Warnung für diese Abfrage zu beginnen.
 
 ![Log Analytics-Arbeitsbereich mit neuer Warnungsregel](media/cluster-availability-monitor-logs/portal-logs-new-alert-rule.png)
 
-Eine Warnung besteht aus drei Komponenten: der *Ressource*, für die die Regel erstellt werden soll (in diesem Fall der Log Analytics-Arbeitsbereich), der *Bedingung* zum Auslösen der Warnung und den *Aktionsgruppen*, die bestimmen, was passieren soll, wenn die Warnung ausgelöst wird.
-Klicken Sie auf den **Titel der Bedingung**, wie unten gezeigt, um die Konfiguration der Signallogik abzuschließen.
+Eine Warnung besteht aus drei Komponenten: der *Ressource* , für die die Regel erstellt werden soll (in diesem Fall der Log Analytics-Arbeitsbereich), der *Bedingung* zum Auslösen der Warnung und den *Aktionsgruppen* , die bestimmen, was passieren soll, wenn die Warnung ausgelöst wird.
+Klicken Sie auf den **Titel der Bedingung** , wie unten gezeigt, um die Konfiguration der Signallogik abzuschließen.
 
 ![Portalwarnung – Erstellen einer Regelbedingung](media/cluster-availability-monitor-logs/portal-condition-title.png)
 
@@ -84,26 +84,26 @@ Da diese Abfrage nur nicht verfügbare Knoten als Ergebnis zurückgibt, sollte d
 
 Legen Sie im Abschnitt **Auswertung basierend auf** den **Zeitraum** und die **Häufigkeit** basierend darauf fest, wie oft Sie die Prüfung auf nicht verfügbare Knoten erfolgen soll.
 
-Bei dieser Warnung möchten Sie sicherstellen, dass sich **Zeitraum und Häufigkeit** entsprechen. Weitere Informationen zu Zeitraum, Häufigkeit und anderen Warnungsparametern finden Sie [hier](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log#log-search-alert-rule---definition-and-types).
+Bei dieser Warnung möchten Sie sicherstellen, dass sich **Zeitraum und Häufigkeit** entsprechen. Weitere Informationen zu Zeitraum, Häufigkeit und anderen Warnungsparametern finden Sie [hier](../azure-monitor/platform/alerts-unified-log.md#alert-logic-definition).
 
 Wählen Sie **Fertig** aus, wenn die Konfiguration der Signallogik abgeschlossen ist.
 
 ![Warnungsregel zur Konfiguration von Signallogik](media/cluster-availability-monitor-logs/portal-configure-signal-logic.png)
 
-Wenn Sie noch nicht über eine Aktionsgruppe verfügen, klicken Sie im Abschnitt **Aktionsgruppen** auf **Neu erstellen**.
+Wenn Sie noch nicht über eine Aktionsgruppe verfügen, klicken Sie im Abschnitt **Aktionsgruppen** auf **Neu erstellen** .
 
 ![Warnungsregel zur Erstellung einer neuen Aktionsgruppe](media/cluster-availability-monitor-logs/portal-create-new-action-group.png)
 
-Dadurch wird **Aktionsgruppe hinzufügen** geöffnet. Wählen Sie einen **Aktionsgruppennamen**, **Kurznamen**, ein **Abonnement** und eine **Ressourcengruppe**. Wählen Sie im Abschnitt **Aktionen** einen **Aktionsnamen** und **E-Mail/SMS/Push/Sprachanruf** als **Aktionstyp** aus.
+Dadurch wird **Aktionsgruppe hinzufügen** geöffnet. Wählen Sie einen **Aktionsgruppennamen** , **Kurznamen** , ein **Abonnement** und eine **Ressourcengruppe** . Wählen Sie im Abschnitt **Aktionen** einen **Aktionsnamen** und **E-Mail/SMS/Push/Sprachanruf** als **Aktionstyp** aus.
 
 > [!NOTE]
-> Es gibt mehrere andere Aktionen, die neben „E-Mail/SMS/Push/Sprachanruf“ eine Warnung auslösen können, wie beispielsweise eine Azure-Funktion, LogicApp, Webhook, ITSM und Automation Runbook. [Weitere Informationen](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#action-specific-information).
+> Es gibt mehrere andere Aktionen, die neben „E-Mail/SMS/Push/Sprachanruf“ eine Warnung auslösen können, wie beispielsweise eine Azure-Funktion, LogicApp, Webhook, ITSM und Automation Runbook. [Weitere Informationen](../azure-monitor/platform/action-groups.md#action-specific-information).
 
-Dadurch wird **E-Mail/SMS/Push/Sprachanruf** geöffnet. Wählen Sie einen **Namen** für den Empfänger, **aktivieren** Sie das Feld **E-Mail**, und geben Sie eine E-Mail-Adresse ein, an die die Warnung gesendet werden soll. Wählen Sie unter **E-Mail/SMS/Push/Sprachanruf** und unter **Aktionsgruppe hinzufügen** die Option **OK** aus, um die Konfiguration der Aktionsgruppe abzuschließen.
+Dadurch wird **E-Mail/SMS/Push/Sprachanruf** geöffnet. Wählen Sie einen **Namen** für den Empfänger, **aktivieren** Sie das Feld **E-Mail** , und geben Sie eine E-Mail-Adresse ein, an die die Warnung gesendet werden soll. Wählen Sie unter **E-Mail/SMS/Push/Sprachanruf** und unter **Aktionsgruppe hinzufügen** die Option **OK** aus, um die Konfiguration der Aktionsgruppe abzuschließen.
 
 ![Erstellen einer Warnungsregel – Hinzufügen einer Aktionsgruppe](media/cluster-availability-monitor-logs/portal-add-action-group.png)
 
-Nachdem diese Blätter geschlossen wurden, sollte Ihre Aktionsgruppe unter dem Abschnitt **Aktionsgruppen** aufgeführt sein. Geben Sie abschließend im Abschnitt **Warnungsdetails** den **Namen der Warnungsregel** und eine **Beschreibung** ein, und wählen Sie einen **Schweregrad**. Klicken Sie im letzten Schritt auf **Warnungsregel erstellen**.
+Nachdem diese Blätter geschlossen wurden, sollte Ihre Aktionsgruppe unter dem Abschnitt **Aktionsgruppen** aufgeführt sein. Geben Sie abschließend im Abschnitt **Warnungsdetails** den **Namen der Warnungsregel** und eine **Beschreibung** ein, und wählen Sie einen **Schweregrad** . Klicken Sie im letzten Schritt auf **Warnungsregel erstellen** .
 
 ![Portal – Fertigstellen der Warnungsregel](media/cluster-availability-monitor-logs/portal-create-alert-rule-finish.png)
 
@@ -118,7 +118,7 @@ Sie können auch alle ausgelösten Warnungen gruppiert nach Schweregrad anzeigen
 
 ![Warnungen im Log Analytics-Arbeitsbereich](media/cluster-availability-monitor-logs/hdi-portal-oms-alerts.png)
 
-Wenn Sie eine Gruppierung nach Schweregrad auswählen (z. B. **Sev 1**, wie oben hervorgehoben), werden Einträge für alle Warnungen dieses Schweregrads angezeigt, die ausgelöst wurden (siehe unten):
+Wenn Sie eine Gruppierung nach Schweregrad auswählen (z. B. **Sev 1** , wie oben hervorgehoben), werden Einträge für alle Warnungen dieses Schweregrads angezeigt, die ausgelöst wurden (siehe unten):
 
 ![Log Analytics-Arbeitsbereich mit Warnungen des Schweregrads 1](media/cluster-availability-monitor-logs/portal-oms-alerts-sev1.png)
 

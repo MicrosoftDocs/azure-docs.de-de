@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: ac934f88d00521b13fd2b134c80f19656c63117b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 168dcf994d00ba1cb2070665ada5a55cf86cfa4a
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88718814"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359811"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Sichern und Wiederherstellen Ihrer Modelle für die Formularerkennung
 
@@ -41,7 +41,7 @@ Der Vorgang zum Kopieren eines benutzerdefinierten Modells umfasst die folgenden
 1. Sie verwenden die Anmeldeinformationen für Ihre Quellressource zum Abfragen der URL zum Fortschritt, bis der Vorgang erfolgreich abgeschlossen wurde. Sie können auch die ID des neuen Modells in der Zielressource abfragen, um den Status des neuen Modells abzurufen.
 
 > [!CAUTION]
-> Die Kopier-API unterstützt derzeit keine Modell-IDs für [zusammengesetzte benutzerdefinierte Modelle](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/Compose). Das Zusammensetzen von Modellen ist eine Previewfunktion in der Vorschauversion v2.1-preview.1. 
+> Die Kopier-API unterstützt derzeit keine Modell-IDs für [zusammengesetzte benutzerdefinierte Modelle](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/Compose). Das Zusammensetzen von Modellen ist eine Previewfunktion in der Vorschauversion v2.1-preview.2. 
 
 ## <a name="generate-copy-authorization-request"></a>Generieren einer Autorisierungsanforderung für den Kopiervorgang
 
@@ -69,7 +69,7 @@ POST https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/cust
 Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_API_KEY}
 ```
 
-Der Textkörper Ihrer Anforderung muss das folgende Format aufweisen. Sie müssen die Ressourcen-ID und den Regionsnamen für Ihre Zielressource eingeben. Außerdem benötigen Sie die Modell-ID, das Zugriffstoken und Ablaufwert aus dem vorherigen Schritt.
+Der Textkörper Ihrer Anforderung muss das folgende Format aufweisen. Sie müssen die Ressourcen-ID und den Regionsnamen für Ihre Zielressource eingeben. Sie finden Ihre Ressourcen-ID auf der Registerkarte **Eigenschaften** Ihrer Ressource im Azure-Portal. Den Namen der Region finden Sie auf der Registerkarte **Keys and endpoint** (Schlüssel und Endpunkt). Außerdem benötigen Sie die Modell-ID, das Zugriffstoken und Ablaufwert aus dem vorherigen Schritt.
 
 ```json
 {

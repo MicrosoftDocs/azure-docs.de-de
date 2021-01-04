@@ -1,16 +1,16 @@
 ---
 title: Zurücksetzen von Kennwörtern für virtuelle Computer in Classroom-Labs in Azure Lab Services | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie Kennwörter für virtuelle Computer (VMs) in Classroom-Labs in Azure Lab Services zurücksetzen.
+description: Erfahren Sie, wie Sie Kennwörter für virtuelle Computer (VMs) in Labs in Azure Lab Services zurücksetzen.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: d63d14da8859c12fa797a04fa9a3c3230219adab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b0b13862ca4620da15606138c0a80adeac8056a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445337"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436809"
 ---
-# <a name="set-or-reset-password-for-virtual-machines-in-classroom-labs-students"></a>Festlegen oder Zurücksetzen von Kennwörtern für virtuelle Computer in Classroom-Labs (Kursteilnehmer)
+# <a name="set-or-reset-password-for-virtual-machines-in-labs-students"></a>Festlegen oder Zurücksetzen von Kennwörtern für virtuelle Computer in Labs (Kursteilnehmer)
 In diesem Artikel erfahren Sie, wie Kursteilnehmer das Kennwort für ihre virtuellen Computer festlegen oder zurücksetzen können. 
 
 ## <a name="enable-resetting-of-passwords"></a>Aktivieren der Zurücksetzung von Kennwörtern

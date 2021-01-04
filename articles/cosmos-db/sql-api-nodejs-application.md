@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: fb8d1cd2e3b481969059883919b9dc888955307e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 49cf54bda985f7d97b2db6a3ada7859aee829cff
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478115"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359539"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutorial: Erstellen einer Node.js-Web-App mit dem JavaScript SDK zum Verwalten eines SQL API-Kontos in Azure Cosmos DB 
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -70,7 +71,7 @@ Nun erfahren Sie, wie Sie ein einfaches „Hallo Welt“-Node.js-Projekt mithilf
    express todo
    ```
 
-1. Öffnen Sie das Verzeichnis **todo** , und installieren Sie die Abhängigkeiten.
+1. Öffnen Sie das Verzeichnis **todo**, und installieren Sie die Abhängigkeiten.
 
    ```bash
    cd todo
@@ -103,11 +104,11 @@ Die Datei **package.json** ist eine der im Stammverzeichnis des Projekts erstell
 Sie haben die Ersteinrichtung und -konfiguration abgeschlossen und schreiben als Nächstes Code, der von der To-Do-Anwendung für die Kommunikation mit Azure Cosmos DB benötigt wird.
 
 ### <a name="create-the-model"></a>Erstellen des Modells
-1. Erstellen Sie im Stamm des Projektverzeichnisses ein neues Verzeichnis namens **models** .  
+1. Erstellen Sie im Stamm des Projektverzeichnisses ein neues Verzeichnis namens **models**.  
 
-2. Erstellen Sie im Verzeichnis **models** eine neue Datei namens **taskDao.js** . Diese Datei enthält den erforderlichen Code zum Erstellen der Datenbank und des Containers. Sie definiert auch Methoden zum Lesen, Aktualisieren, Erstellen und Finden von Aufgaben in Azure Cosmos DB. 
+2. Erstellen Sie im Verzeichnis **models** eine neue Datei namens **taskDao.js**. Diese Datei enthält den erforderlichen Code zum Erstellen der Datenbank und des Containers. Sie definiert auch Methoden zum Lesen, Aktualisieren, Erstellen und Finden von Aufgaben in Azure Cosmos DB. 
 
-3. Kopieren Sie den folgenden Code in die Datei **taskDao.js** :
+3. Kopieren Sie den folgenden Code in die Datei **taskDao.js**:
 
    ```javascript
     // @ts-check
@@ -188,9 +189,9 @@ Sie haben die Ersteinrichtung und -konfiguration abgeschlossen und schreiben als
 
 ### <a name="create-the-controller"></a>Erstellen des Controllers
 
-1. Erstellen Sie im Verzeichnis **routes** des Projekts eine neue Datei namens **tasklist.js** .  
+1. Erstellen Sie im Verzeichnis **routes** des Projekts eine neue Datei namens **tasklist.js**.  
 
-2. Fügen Sie **tasklist.js** den folgenden Code hinzu. Dieser Code lädt die Module „CosmosClient“ und „async“, die von **tasklist.js** verwendet werden. Des Weiteren definiert er die Klasse **TaskList** , die als Instanz des zuvor definierten Objekts **TaskDao** übergeben wird:
+2. Fügen Sie **tasklist.js** den folgenden Code hinzu. Dieser Code lädt die Module „CosmosClient“ und „async“, die von **tasklist.js** verwendet werden. Des Weiteren definiert er die Klasse **TaskList**, die als Instanz des zuvor definierten Objekts **TaskDao** übergeben wird:
    
    ```javascript
     const TaskDao = require("../models/TaskDao");
@@ -249,7 +250,7 @@ Sie haben die Ersteinrichtung und -konfiguration abgeschlossen und schreiben als
 
 ### <a name="add-configjs"></a>Fügen Sie config.js hinzu.
 
-1. Erstellen Sie im Stamm des Projektverzeichnisses eine neue Datei namens **config.js** . 
+1. Erstellen Sie im Stamm des Projektverzeichnisses eine neue Datei namens **config.js**. 
 
 2. Fügen Sie der Datei **config.cs** den folgenden Code hinzu. Mit diesem Code werden die für Ihre Anwendung erforderlichen Konfigurationseinstellungen und Werte definiert.
    
@@ -355,15 +356,15 @@ Sie haben die Ersteinrichtung und -konfiguration abgeschlossen und schreiben als
     module.exports = app
    ```
 
-3. Speichern und schließen Sie abschließend die Datei **app.js** .
+3. Speichern und schließen Sie abschließend die Datei **app.js**.
 
 ## <a name="build-a-user-interface"></a><a name="_Toc395783181"></a>Erstellen einer Benutzeroberfläche
 
 Als Nächstes erstellen wir die Benutzeroberfläche, damit Benutzer mit der Anwendung interagieren können. Die im vorherigen Abschnitt erstellte Express-Anwendung verwendet **Jade** als Anzeige-Engine.
 
-1. Die Datei **layout.jade** im Verzeichnis **views** dient als globale Vorlage für andere **.jade** -Dateien. Sie wird in diesem Schritt bearbeitet, um Twitter Bootstrap zu verwenden – ein Toolkit für die Websitegestaltung.  
+1. Die Datei **layout.jade** im Verzeichnis **views** dient als globale Vorlage für andere **.jade**-Dateien. Sie wird in diesem Schritt bearbeitet, um Twitter Bootstrap zu verwenden – ein Toolkit für die Websitegestaltung.  
 
-2. Öffnen Sie die Datei **layout.jade** (im Ordner **views** ), und ersetzen Sie die Inhalte durch folgenden Code:
+2. Öffnen Sie die Datei **layout.jade** (im Ordner **views**), und ersetzen Sie die Inhalte durch folgenden Code:
 
    ```html
    doctype html
@@ -381,7 +382,7 @@ Als Nächstes erstellen wir die Benutzeroberfläche, damit Benutzer mit der Anwe
        script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
    ```
 
-    Dieser Code weist die **Jade-Engine** an, einige HTML-Elemente für unsere Anwendung darzustellen, und erstellt einen **Block** mit der Bezeichnung **content** , in dem wir das Layout für unsere Inhaltsseiten angeben können. Speichern und schließen Sie die Datei **layout.jade** .
+    Dieser Code weist die **Jade-Engine** an, einige HTML-Elemente für unsere Anwendung darzustellen, und erstellt einen **Block** mit der Bezeichnung **content**, in dem wir das Layout für unsere Inhaltsseiten angeben können. Speichern und schließen Sie die Datei **layout.jade**.
 
 3. Öffnen Sie nun die Datei **index.jade** (die Ansicht, die von der Anwendung verwendet wird), und ersetzen Sie den Inhalt der Datei durch den folgenden Code:
 
@@ -439,7 +440,7 @@ Nachdem Sie die Anwendung erstellt haben, können Sie sie lokal ausführen, inde
 
 1. Nun können Sie die Anwendung auf Ihrem lokalen Computer testen. Führen Sie dazu im Terminal `npm start` aus, um Ihre Anwendung zu starten, und aktualisieren Sie anschließend die Browserseite `http://localhost:3000`. Die Seite sollte wie im folgenden Screenshot aussehen:
    
-    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png" alt-text="Kennenlernen von Node.js – Screenshot der „Hello World“-Anwendung in einem Browserfenster":::
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png" alt-text="Screenshot der Anwendung „Meine Aufgabenliste“ in einem Browserfenster":::
 
     > [!TIP]
     > Sollte eine Fehlermeldung mit einem Hinweis auf den Einzug in der Datei „layout.jade“ oder „index.jade“ ausgegeben werden, vergewissern Sie sich, dass die ersten beiden Zeilen der beiden Dateien ohne Leerzeichen linksbündig ausgerichtet sind. Sollten sich vor den ersten beiden Zeilen Leerzeichen befinden, entfernen Sie sie, speichern Sie beide Dateien, und aktualisieren Sie anschließend Ihr Browserfenster. 
@@ -448,7 +449,7 @@ Nachdem Sie die Anwendung erstellt haben, können Sie sie lokal ausführen, inde
 
 3. Die Seite sollte nun das neu erstellte Element in der Aufgabenliste anzeigen.
    
-    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png" alt-text="Kennenlernen von Node.js – Screenshot der „Hello World“-Anwendung in einem Browserfenster":::
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png" alt-text="Screenshot der Anwendung mit einem neuen Element in der Aufgabenliste":::
 
 4. Um eine Aufgabe abzuschließen, aktivieren Sie das Kontrollkästchen in der Spalte „Abschließen“, und wählen Sie anschließend **Aufgaben aktualisieren** aus. Dadurch wird das bereits erstellte Dokument aktualisiert und aus der Ansicht entfernt.
 
@@ -469,7 +470,7 @@ Nachdem Ihre Anwendung lokal erfolgreich ausgeführt wurde, können Sie sie mit 
 3. Pushen Sie die Anwendung an die Remoteinstanz, um sie bereitzustellen.
    
    ```bash
-   git push azure master
+   git push azure main
    ```
 
 4. Wenige Sekunden später wird Ihre Webanwendung veröffentlicht und in einem Browser gestartet.

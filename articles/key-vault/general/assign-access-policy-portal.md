@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d16d14ff51cb9a7e71193d93c6755a8e4cb93ed0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9277d100eb6744adfc20fbba9f96b822654e64a3
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89481408"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287699"
 ---
 # <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>Zuweisen einer Key Vault-Zugriffsrichtlinie über das Azure-Portal
 
@@ -23,7 +23,7 @@ Eine Key Vault-Zugriffsrichtlinie legt fest, ob ein bestimmter Dienstprinzipal (
 
 [!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 
-Weitere Informationen zum Erstellen von Gruppen in Azure Active Directory über das Azure-Portal finden Sie unter [Erstellen einer einfachen Gruppe und Hinzufügen von Mitgliedern](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
+Weitere Informationen zum Erstellen von Gruppen in Azure Active Directory über das Azure-Portal finden Sie unter [Erstellen einer einfachen Gruppe und Hinzufügen von Mitgliedern](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="assign-an-access-policy"></a>Zuweisen einer Zugriffsrichtlinie
 
@@ -33,7 +33,7 @@ Weitere Informationen zum Erstellen von Gruppen in Azure Active Directory über 
 
     ![Auswählen von „Zugriffsrichtlinien“, Auswählen von „Rollenzuweisung hinzufügen“](../media/authentication/assign-policy-portal-01.png)
 
-1.  Wählen Sie die gewünschten Berechtigungen unter **Zertifikatberechtigungen**, **Schlüsselberechtigungen** und **Geheimnisberechtigungen** aus. Sie können auch eine Vorlage auswählen, die gebräuchliche Kombinationen aus Berechtigungen enthält:
+1.  Wählen Sie die gewünschten Berechtigungen unter **Zertifikatberechtigungen** , **Schlüsselberechtigungen** und **Geheimnisberechtigungen** aus. Sie können auch eine Vorlage auswählen, die gebräuchliche Kombinationen aus Berechtigungen enthält:
 
     ![Angeben von Zugriffsrichtlinienberechtigungen](../media/authentication/assign-policy-portal-02.png)
 
@@ -47,7 +47,7 @@ Weitere Informationen zum Erstellen von Gruppen in Azure Active Directory über 
 
     ![Hinzufügen der Zugriffsrichtlinie mit zugewiesenem Dienstprinzipal](../media/authentication/assign-policy-portal-04.png)
 
-1. Vergewissern Sie sich auf der Seite **Zugriffsrichtlinien**, dass Ihre Zugriffsrichtlinie unter **Aktuelle Zugriffsrichtlinien** aufgeführt ist, und wählen Sie dann **Speichern** aus. Zugriffsrichtlinien werden erst angewandt, wenn Sie sie speichern.
+1. Vergewissern Sie sich auf der Seite **Zugriffsrichtlinien** , dass Ihre Zugriffsrichtlinie unter **Aktuelle Zugriffsrichtlinien** aufgeführt ist, und wählen Sie dann **Speichern** aus. Zugriffsrichtlinien werden erst angewandt, wenn Sie sie speichern.
 
     ![Speichern der Änderungen an den Zugriffsrichtlinien](../media/authentication/assign-policy-portal-05.png)
 

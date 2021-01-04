@@ -3,17 +3,17 @@ title: Anzeigen von Verkehrsdaten auf einer Android-Karte | Microsoft Azure Maps
 description: In diesem Artikel erfahren Sie, wie Sie mithilfe des Android SDK für Microsoft Azure Maps auf einer Karte Verkehrsdaten anzeigen.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 02/27/2020
+ms.date: 11/25/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 93cabb566db02de7ef991fe9cdd293f8c399c3a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f7e67d159c2b7dea3ebac7fd4d0856f508cb298
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272955"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532753"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Anzeigen von Verkehrsdaten auf der Karte mithilfe des Android SDK für Azure Maps
 
@@ -21,7 +21,9 @@ Flussdaten und Störungsdaten sind die zwei Arten von Verkehrsdaten, die auf der
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Bevor Sie Verkehrsdaten auf der Karte anzeigen können, müssen Sie [ein Azure-Konto erstellen](quick-demo-map-app.md#create-an-azure-maps-account) und [einen Abonnementschlüssel abrufen](quick-demo-map-app.md#get-the-primary-key-for-your-account). Anschließend müssen Sie das [Android SDK für Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) installieren und eine Karte laden.
+1. [Erstellen eines Azure Maps-Kontos](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Abrufen eines Primärschlüssels](quick-demo-map-app.md#get-the-primary-key-for-your-account) (auch primärer Schlüssel oder Abonnementschlüssel genannt)
+3. Laden Sie das [Android SDK für Azure Maps](./how-to-use-android-map-control-library.md) herunter, und installieren Sie es.
 
 ## <a name="incidents-traffic-data"></a>Verkehrsstörungsdaten
 
@@ -73,7 +75,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 Zum Abrufen der Störungen für eine bestimmte Funktion können Sie den folgenden Code verwenden. Wenn Sie auf eine Funktion klicken, überprüft die Codelogik auf Störungen und erstellt eine Meldung zu der Störung. Eine Meldung wird am oberen Rand des Bildschirms mit den Details angezeigt.
 
-1. Zunächst müssen Sie **res > layout > activity_main.xml** so bearbeiten, dass die Datei wie die folgende aussieht. Sie können `mapcontrol_centerLat`, `mapcontrol_centerLng` und `mapcontrol_zoom` durch Ihre gewünschten Werte ersetzen. Denken Sie daran, dass der Zoomfaktor ein Wert zwischen 0 und 22 ist. Bei Zoomfaktor 0 würde die ganze Welt auf eine einzige Kachel passen.
+1. Zunächst müssen Sie `res > layout > activity_main.xml` so bearbeiten, dass die Datei wie die folgende aussieht. Sie können `mapcontrol_centerLat`, `mapcontrol_centerLng` und `mapcontrol_zoom` durch Ihre gewünschten Werte ersetzen. Denken Sie daran, dass der Zoomfaktor ein Wert zwischen 0 und 22 ist. Bei Zoomfaktor 0 würde die ganze Welt auf eine einzige Kachel passen.
 
    ```XML
    <?xml version="1.0" encoding="utf-8"?>
@@ -223,11 +225,9 @@ Zum Abrufen der Störungen für eine bestimmte Funktion können Sie den folgende
 
 3. Nachdem Sie den obigen Code in Ihre Anwendung integriert haben, können Sie auf eine Funktion klicken und die Details der Verkehrsstörungen anzeigen. Abhängig von Breitengrad, Längengrad und den Zoomfaktorwerten, die Sie in ihrer Datei **activity_main.xml** verwendet haben, werden ähnliche Ergebnisse wie in der folgenden Abbildung angezeigt:
 
-   <center>
 
-   ![Incident-traffic-on-the-map](./media/how-to-show-traffic-android/android-traffic.png)
+    ![Incident-traffic-on-the-map](./media/how-to-show-traffic-android/android-traffic.png)
 
-   </center>
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 301bc64bee291fa25506e7f435e923be7e244cd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d083607782f96744ecbd7d23976f77ee53fec49d
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267515"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515568"
 ---
 # <a name="scenario-azure-firewall---custom"></a>Szenario: Azure Firewall: Benutzerdefiniert
 
@@ -28,10 +28,10 @@ Sie können eine Verbindungsmatrix erstellen, in der jede Zelle angibt, ob eine 
 
 | Von           | Nach:      | *VNETs*      | *Branches*    | *Internet*   |
 |---             |---       |---           |---            |---           |
-| **VNETs**      |   &#8594;|     X        |     AzFW      |     AzFW     |
-| **Branches**   |   &#8594;|    AzFW      |       X       |       X      |
+| **VNETs**      |   &#8594;|    Direkt    |     AzFW      |     AzFW     |
+| **Branches**   |   &#8594;|    AzFW      |    Direkt     |    Direkt    |
 
-In der obigen Tabelle stellt ein „X“ die direkte Konnektivität zwischen zwei Verbindungen dar, ohne dass der Datenverkehr Azure Firewall in Virtual WAN durchläuft, und „AzFW“ zeigt an, dass der Flow Azure Firewall durchläuft. Da in der Matrix zwei verschiedene Konnektivitätsmuster vorhanden sind, benötigen Sie zwei Routingtabellen, die wie folgt konfiguriert werden:
+In der obigen Tabelle stellt ein „Direkt“ die direkte Konnektivität zwischen zwei Verbindungen dar, ohne dass der Datenverkehr Azure Firewall in Virtual WAN durchläuft, und „AzFW“ zeigt an, dass der Flow Azure Firewall durchläuft. Da in der Matrix zwei verschiedene Konnektivitätsmuster vorhanden sind, benötigen Sie zwei Routingtabellen, die wie folgt konfiguriert werden:
 
 * Virtuelle Netzwerke:
   * Zugeordnete Routingtabelle: **RT_VNet**

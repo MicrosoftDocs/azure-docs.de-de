@@ -1,20 +1,14 @@
 ---
-title: Erfassen einer Browserablaufverfolgung zur Problembehandlung | Microsoft-Dokumentation
+title: Erfassen einer Browserablaufverfolgung zur Problembehandlung
 description: Erfassen Sie Netzwerkinformationen aus einer Browserablaufverfolgung, um Probleme mit dem Azure-Portal zu beheben.
-services: azure-portal
-keywords: ''
-author: mgblythe
-ms.author: mblythe
 ms.date: 05/11/2020
 ms.topic: troubleshooting
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: dba321d055e64d62ca91f95461c3299bee5f90d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 504a32fb63022f97e8049c7c1ccc7721bbac31ab
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83714218"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745994"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Erfassen einer Browserablaufverfolgung zur Problembehandlung
 
@@ -30,17 +24,17 @@ Google Chrome und Microsoft Edge (Chromium) basieren auf dem [Open-Source-Projek
 
 1. Navigieren Sie im Portal zu dem Schritt, der unmittelbar vor dem Auftreten des Problems liegt.
 
-1. Drücken Sie F12, oder wählen Sie ![Screenshot des Symbols „Browsereinstellungen“](media/capture-browser-trace/chromium-icon-settings.png) > **Weitere Tools** > **Entwicklertools** aus.
+1. Drücken Sie F12, oder wählen Sie ![Screenshot mit dem Symbol für die Browsereinstellungen](media/capture-browser-trace/chromium-icon-settings.png) aus. > **Weitere Tools** > **Entwicklertools**.
 
 1. Standardmäßig speichert der Browser Ablaufverfolgungsinformationen nur für die Seite, die derzeit geladen ist. Legen Sie die folgenden Optionen fest, damit der Browser alle Ablaufverfolgungsionformationen beibehält, auch wenn Sie für Ihre Reproduktion zu mehreren Seiten navigieren müssen:
 
     1. Wählen Sie die Registerkarte **Netzwerk** aus, und wählen Sie dann **Protokoll beibehalten** aus.
 
-          ![Screenshot: „Protokoll beibehalten“](media/capture-browser-trace/chromium-network-preserve-log.png)
+          ![Screenshot der hervorgehobenen Option „Protokoll beibehalten“ auf der Registerkarte „Netzwerk“](media/capture-browser-trace/chromium-network-preserve-log.png)
 
     1. Wählen Sie die Registerkarte **Konsole** aus, wählen Sie **Konsoleneinstellungen** aus, und wählen Sie dann **Protokoll beibehalten** aus. Wählen Sie **Konsoleneinstellungen** erneut aus, um den Bereich „Einstellungen“ zu schließen.
 
-          ![Screenshot: „Protokoll beibehalten“](media/capture-browser-trace/chromium-console-preserve-log.png)
+          ![Screenshot der hervorgehobenen Option „Protokoll beibehalten“ auf der Registerkarte „Konsole“](media/capture-browser-trace/chromium-console-preserve-log.png)
 
 1. Wählen Sie die Registerkarte **Netzwerk** aus, und wählen Sie dann **Aufzeichnung des Netzwerkprotokolls beenden** und **Löschen** aus.
 
@@ -48,21 +42,21 @@ Google Chrome und Microsoft Edge (Chromium) basieren auf dem [Open-Source-Projek
 
 1. Wählen Sie **Netzwerkprotokoll aufzeichnen** aus, und reproduzieren Sie das Problem im Portal.
 
-    ![Screenshot: „Profilerstellungssitzung starten“](media/capture-browser-trace/chromium-start-session.png)
+    ![Screenshot der Aufzeichnung des Netzwerkprotokolls](media/capture-browser-trace/chromium-start-session.png)
 
     Eine Sitzungsausgabe ähnlich der folgenden Abbildung wird angezeigt.
 
-    ![Screenshot der Ergebnisse der Browserablaufverfolgung](media/capture-browser-trace/chromium-browser-trace-results.png)
+    ![Screenshot der Sitzungsausgabe](media/capture-browser-trace/chromium-browser-trace-results.png)
 
 1. Nachdem Sie das unerwartete Portalverhalten reproduziert haben, wählen Sie **Aufzeichnung des Netzwerkprotokolls beenden** aus, wählen Sie **HAR exportieren** aus, und speichern Sie die Datei.
 
-    ![Screenshot: „HAR exportieren“](media/capture-browser-trace/chromium-network-export-har.png)
+    ![Screenshot des Exportierens als HAR-Datei auf der Registerkarte „Netzwerk“](media/capture-browser-trace/chromium-network-export-har.png)
 
 1. Beenden Sie die Schrittaufzeichnung, und speichern Sie die Aufzeichnung.
 
 1. Wählen Sie im Bereich mit dem Entwicklertools des Browsers die Registerkarte **Konsole** aus. Klicken Sie mit der rechten Maustaste auf eine der Nachrichten, wählen Sie **Speichern unter** aus, und speichern Sie die Konsolenausgabe in einer Textdatei.
 
-    ![Screenshot der Konsolenausgabe](media/capture-browser-trace/chromium-console-select.png)
+    ![Screenshot mit hervorgehobener Registerkarte „Konsole“ mit dem Menü „Speichern unter“](media/capture-browser-trace/chromium-console-select.png)
 
 1. Packen Sie die HAR-Datei, die Konsolenausgabe und die Bildschirmaufzeichnung in einem komprimierten Format wie ZIP, und teilen Sie sie dann mit dem Microsoft-Support.
 
@@ -76,7 +70,7 @@ In den folgenden Schritten wird gezeigt, wie die Entwicklertools in Microsoft Ed
 
 1. Navigieren Sie im Portal zu dem Schritt, der unmittelbar vor dem Auftreten des Problems liegt.
 
-1. Drücken Sie F12, oder wählen Sie ![Screenshot des Symbols „Browsereinstellungen“](media/capture-browser-trace/edge-icon-settings.png) > **Weitere Tools** > **Entwicklertools** aus.
+1. Drücken Sie F12, oder wählen Sie ![Screenshot mit dem Symbol für die Browsereinstellungen](media/capture-browser-trace/edge-icon-settings.png) aus. > **Weitere Tools** > **Entwicklertools**.
 
 1. Standardmäßig speichert der Browser Ablaufverfolgungsinformationen nur für die Seite, die derzeit geladen ist. Legen Sie die folgenden Optionen fest, damit der Browser alle Ablaufverfolgungsionformationen beibehält, auch wenn Sie für Ihre Reproduktion zu mehreren Seiten navigieren müssen:
 
@@ -98,7 +92,7 @@ In den folgenden Schritten wird gezeigt, wie die Entwicklertools in Microsoft Ed
 
     Eine Sitzungsausgabe ähnlich der folgenden Abbildung wird angezeigt.
 
-    ![Screenshot der Ergebnisse der Browserablaufverfolgung](media/capture-browser-trace/edge-browser-trace-results.png)
+    ![Screenshot der Ausgabe für die Profilerstellungssitzung](media/capture-browser-trace/edge-browser-trace-results.png)
 
 1. Nachdem Sie das unerwartete Portalverhalten reproduziert haben, wählen Sie **Profilerstellungssitzung beenden** aus, wählen Sie **Als HAR exportieren** aus, und speichern Sie die Datei.
 
@@ -108,7 +102,7 @@ In den folgenden Schritten wird gezeigt, wie die Entwicklertools in Microsoft Ed
 
 1. Wählen Sie im Bereich mit dem Entwicklertools des Browsers die Registerkarte **Konsole** aus, und erweitern Sie das Fenster. Platzieren Sie den Cursor am Anfang der Konsolenausgabe, und markieren und wählen Sie dann den gesamten Inhalt der Ausgabe aus. Klicken Sie mit der rechten Maustaste, und wählen Sie dann **Kopieren** aus. Speichern Sie die Konsolenausgabe in einer Textdatei.
 
-    ![Screenshot der Konsolenausgabe](media/capture-browser-trace/edge-console-select.png)
+    ![Screenshot der hervorgehobenen Menüoption „Kopieren“](media/capture-browser-trace/edge-console-select.png)
 
 1. Packen Sie die HAR-Datei, die Konsolenausgabe und die Bildschirmaufzeichnung in einem komprimierten Format wie ZIP, und teilen Sie sie dann mit dem Microsoft-Support.
 
@@ -140,11 +134,11 @@ In den folgenden Schritten wird gezeigt, wie die Entwicklertools in Apple Safari
 
     1. Wählen Sie die Registerkarte **Netzwerk** aus, und wählen Sie dann **Protokoll beibehalten** aus.
 
-          ![Screenshot: „Protokoll beibehalten“](media/capture-browser-trace/safari-network-preserve-log.png)
+          ![Screenshot der Option „Protokoll beibehalten“](media/capture-browser-trace/safari-network-preserve-log.png)
 
     1. Wählen Sie die Registerkarte **Konsole** aus, und wählen Sie dann **Protokoll beibehalten** aus.
 
-          ![Screenshot: „Protokoll beibehalten“](media/capture-browser-trace/safari-console-preserve-log.png)
+          ![Screenshot der Option „Protokoll beibehalten“ auf der Registerkarte „Konsole“](media/capture-browser-trace/safari-console-preserve-log.png)
 
 1. Wählen Sie die Registerkarte **Netzwerk** aus, und wählen Sie dann **Netzwerkelemente löschen** aus.
 
@@ -152,7 +146,7 @@ In den folgenden Schritten wird gezeigt, wie die Entwicklertools in Apple Safari
 
 1. Reproduzieren Sie das Problem im Portal. Eine Sitzungsausgabe ähnlich der folgenden Abbildung wird angezeigt.
 
-    ![Screenshot der Ergebnisse der Browserablaufverfolgung](media/capture-browser-trace/safari-browser-trace-results.png)
+    ![Screenshot der Ausgabe nach dem Reproduzieren des Problems](media/capture-browser-trace/safari-browser-trace-results.png)
 
 1. Nachdem Sie das unerwartete Portalverhalten reproduziert haben, wählen Sie **Exportieren** aus, und speichern Sie die Datei.
 
@@ -162,7 +156,7 @@ In den folgenden Schritten wird gezeigt, wie die Entwicklertools in Apple Safari
 
 1. Wählen Sie im Bereich mit dem Entwicklertools des Browsers die Registerkarte **Konsole** aus, und erweitern Sie das Fenster. Platzieren Sie den Cursor am Anfang der Konsolenausgabe, und markieren und wählen Sie dann den gesamten Inhalt der Ausgabe aus. Verwenden Sie Befehlstaste-C, um die Ausgabe zu kopieren, und speichern Sie sie in einer Textdatei.
 
-    ![Screenshot der Konsolenausgabe](media/capture-browser-trace/safari-console-select.png)
+    ![Screenshot mit hervorgehobenen Optionen zum Anzeigen und Kopieren der Ausgabe](media/capture-browser-trace/safari-console-select.png)
 
 1. Packen Sie die HAR-Datei, die Konsolenausgabe und die Bildschirmaufzeichnung in einem komprimierten Format wie ZIP, und teilen Sie sie dann mit dem Microsoft-Support.
 
@@ -182,7 +176,7 @@ In den folgenden Schritten wird das Verwenden der Entwicklertools in Firefox gez
 
     1. Wählen Sie die Registerkarte **Netzwerk** und dann **Persist Logs** (Protokolle beibehalten) aus.
 
-          ![Screenshot von „Persist Logs“ (Protokolle beibehalten)](media/capture-browser-trace/firefox-network-persist-logs.png)
+          ![Screenshot der hervorgehobenen Option „Protokolle beibehalten“](media/capture-browser-trace/firefox-network-persist-logs.png)
 
     1. Wählen Sie die Registerkarte **Konsole**, anschließend **Konsoleneinstellungen** und dann **Persist Logs** (Protokolle beibehalten) aus.
 

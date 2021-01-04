@@ -3,13 +3,13 @@ title: Abfolge beim Betriebssystem- und Runtimepatching
 description: Erfahren Sie, wie Azure App Service das Betriebssystem und Runtimes aktualisiert, welche Runtimes und Patchebenen Ihre App hat und wie Sie Updateankündigungen erhalten.
 ms.topic: article
 ms.date: 02/02/2018
-ms.custom: seodec18
-ms.openlocfilehash: 831ba5f055b70e2f46cb8c6a941c0401df347dd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 8b52223aea0f0bdfecf58906ac192e893da3b47d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961515"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558486"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Patchen von Betriebssystem und Runtime in Azure App Service
 
@@ -51,7 +51,7 @@ Runtimeupdates und Veraltungen werden hier angekündigt:
 
 ### <a name="new-patch-updates"></a>Neue Patchupdates
 
-Patchupdates für .NET-, PHP-, Java SDK- oder Tomcat/Jetty-Version werden automatisch durch Überschreiben der vorhandenen Installation mit der neuen Version angewendet. Node.js-Patchupdates werden parallel zu den vorhandenen Versionen installiert (ähnlich wie Haupt- und Nebenversionen im nächsten Abschnitt). Neue Python-Patchversionen können manuell über [Websiteerweiterungen](https://azure.microsoft.com/blog/azure-web-sites-extensions/) parallel zu integrierten Python-Installationen installiert werden.
+Patchupdates für .NET-, PHP-, Java SDK- oder Tomcat-Version werden automatisch durch Überschreiben der vorhandenen Installation mit der aktuellen Version angewendet. Node.js-Patchupdates werden parallel zu den vorhandenen Versionen installiert (ähnlich wie Haupt- und Nebenversionen im nächsten Abschnitt). Neue Python-Patchversionen können manuell über [Websiteerweiterungen](https://azure.microsoft.com/blog/azure-web-sites-extensions/) parallel zu integrierten Python-Installationen installiert werden.
 
 ### <a name="new-major-and-minor-versions"></a>Neue Haupt- und Nebenversionen
 

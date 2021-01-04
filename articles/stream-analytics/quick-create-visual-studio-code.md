@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 5ba47522f483b6c9b2a03e99f3608c58e916e010
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f53ff85dd118774b86a0ec25c89f912798a6418d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944932"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125851"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>Schnellstart: Erstellen eines Azure Stream Analytics-Auftrags in Visual Studio Code (Vorschauversion)
 
@@ -33,7 +33,7 @@ In dieser Schnellstartanleitung wird gezeigt, wie Sie mithilfe einer Azure Strea
 
 1. Öffnen Sie Visual Studio Code.
 
-2. Suchen Sie in **Erweiterungen** im linken Bereich nach **Stream Analytics**, und wählen Sie in der **Azure Stream Analytics-Tools**-Erweiterung **Installieren** aus.
+2. Suchen Sie in **Erweiterungen** im linken Bereich nach **Stream Analytics** , und wählen Sie in der **Azure Stream Analytics-Tools** -Erweiterung **Installieren** aus.
 
 3. Sobald die Erweiterung installiert ist, überprüfen Sie, ob **Azure Stream Analytics-Tools** unter **Aktivierte Erweiterungen** sichtbar ist.
 
@@ -41,7 +41,7 @@ In dieser Schnellstartanleitung wird gezeigt, wie Sie mithilfe einer Azure Strea
 
 ## <a name="activate-the-azure-stream-analytics-tools-extension"></a>Aktivieren der Azure Stream Analytics-Tools-Erweiterung
 
-1. Wählen Sie auf der Aktivitätsleiste von Visual Studio Code das **Azure**-Symbol aus. Wählen Sie auf der Seitenleiste unter **Stream Analytics** **Bei Azure anmelden** aus.
+1. Wählen Sie auf der Aktivitätsleiste von Visual Studio Code das **Azure** -Symbol aus. Wählen Sie auf der Seitenleiste unter **Stream Analytics** **Bei Azure anmelden** aus.
 
    ![Anmelden bei Azure in Visual Studio Code](./media/quick-create-visual-studio-code/azure-sign-in.png)
 
@@ -108,7 +108,7 @@ Vor dem Definieren des Stream Analytics-Auftrags sollten Sie die Daten vorbereit
 
    ![Speicherkontoübersicht](./media/quick-create-visual-studio-code/blob-storage.png)
 
-4. Wählen Sie auf der Seite **Blob-Dienst** die Option **Container** aus, und geben Sie einen Namen für Ihren Container (etwa **container1**) ein. Übernehmen Sie für **Öffentliche Zugriffsebene** die Option **Privat (kein anonymer Zugriff)** , und wählen Sie **OK** aus.
+4. Wählen Sie auf der Seite **Blob-Dienst** die Option **Container** aus, und geben Sie einen Namen für Ihren Container (etwa **container1** ) ein. Übernehmen Sie für **Öffentliche Zugriffsebene** die Option **Privat (kein anonymer Zugriff)** , und wählen Sie **OK** aus.
 
    ![Erstellen eines Blobcontainers](./media/quick-create-visual-studio-code/create-blob-container.png)
 
@@ -118,18 +118,18 @@ Vor dem Definieren des Stream Analytics-Auftrags sollten Sie die Daten vorbereit
 
    ![Erstellen eines neuen Projekts](./media/quick-create-visual-studio-code/create-new-project.png)
 
-2. Geben Sie Ihren Projektnamen ein, z. B. **myASAproj**, und wählen Sie einen Ordner für Ihr Projekt aus.
+2. Geben Sie Ihren Projektnamen ein, z. B. **myASAproj** , und wählen Sie einen Ordner für Ihr Projekt aus.
 
     ![Erstellen eines Projektnamens](./media/quick-create-visual-studio-code/create-project-name.png)
 
-3. Das neue Projekt wird Ihrem Arbeitsbereich hinzugefügt. Ein Stream Analytics-Projekt besteht aus drei Ordnern: **Inputs**, **Outputs** und **Functions**. Es verfügt außerdem über das Abfrageskript **(*.asaql)** , eine **JobConfig.json**-Datei, und eine **asaproj.json**-Konfigurationsdatei.
+3. Das neue Projekt wird Ihrem Arbeitsbereich hinzugefügt. Ein Stream Analytics-Projekt besteht aus drei Ordnern: **Inputs** , **Outputs** und **Functions**. Es verfügt außerdem über das Abfrageskript **(*.asaql)** , eine **JobConfig.json** -Datei, und eine **asaproj.json** -Konfigurationsdatei.
 
-    Die **asaproj.json**-Konfigurationsdatei enthält die Eingaben, Ausgaben und Auftragskonfigurationsdatei-Informationen, die für die Übermittlung des Stream Analytics-Auftrags an Azure erforderlich sind.
+    Die **asaproj.json** -Konfigurationsdatei enthält die Eingaben, Ausgaben und Auftragskonfigurationsdatei-Informationen, die für die Übermittlung des Stream Analytics-Auftrags an Azure erforderlich sind.
 
     ![Stream Analytics-Projektdateien in Visual Studio Code](./media/quick-create-visual-studio-code/asa-project-files.png)
 
 > [!Note]
-> Beim Hinzufügen von Eingaben und Ausgaben aus der Befehlspalette werden die entsprechenden Pfade automatisch **asaproj.json** hinzugefügt. Wenn Sie Eingaben oder Ausgaben direkt auf einem Datenträger hinzufügen oder entfernen, müssen Sie sie manuell zu **asaproj.json** hinzufügen bzw. aus ihr entfernen. Sie können sich auch entscheiden, die Eingaben und Ausgaben an einem Ort zu versammeln und dann in verschiedenen Aufträgen auf sie verweisen, indem Sie in jeder **asaproj.json**-Datei die Pfade angeben.
+> Beim Hinzufügen von Eingaben und Ausgaben aus der Befehlspalette werden die entsprechenden Pfade automatisch **asaproj.json** hinzugefügt. Wenn Sie Eingaben oder Ausgaben direkt auf einem Datenträger hinzufügen oder entfernen, müssen Sie sie manuell zu **asaproj.json** hinzufügen bzw. aus ihr entfernen. Sie können sich auch entscheiden, die Eingaben und Ausgaben an einem Ort zu versammeln und dann in verschiedenen Aufträgen auf sie verweisen, indem Sie in jeder **asaproj.json** -Datei die Pfade angeben.
 
 ## <a name="define-the-transformation-query"></a>Definieren der Transformationsabfrage
 
@@ -166,7 +166,7 @@ Vor dem Definieren des Stream Analytics-Auftrags sollten Sie die Daten vorbereit
 
     ![Auswählen aus Abonnements](./media/quick-create-visual-studio-code/add-input-select-subscription.png)
 
-5. Bearbeiten Sie die neu generierte **IoTHub1.json**-Datei mit den folgenden Werten. Behalten Sie die Standardwerte für Felder bei, die hier nicht aufgeführt sind.
+5. Bearbeiten Sie die neu generierte **IoTHub1.json** -Datei mit den folgenden Werten. Behalten Sie die Standardwerte für Felder bei, die hier nicht aufgeführt sind.
 
    |Einstellung|Vorgeschlagener Wert|Beschreibung|
    |-------|---------------|-----------|
@@ -281,4 +281,4 @@ Informationen zu den Azure Stream Analytics-Tools für Visual Studio Code finden
 
 * [Erkunden von Azure Stream Analytics mit Visual Studio Code (Vorschauversion)](visual-studio-code-explore-jobs.md)
 
-* [Verwenden des CI/CD-npm-Pakets von Stream Analytics](setup-cicd-vs-code.md)
+* [Verwenden des CI/CD-npm-Pakets von Stream Analytics](./cicd-overview.md)

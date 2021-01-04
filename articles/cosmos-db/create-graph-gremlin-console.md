@@ -1,20 +1,21 @@
 ---
 title: 'Abfragen mit der Azure Cosmos DB Gremlin-API mithilfe der TinkerPop Gremlin-Konsole: Lernprogramm'
 description: Schnellstart von Azure Cosmos DB zum Erstellen von Scheitelpunkten, Kanten und Abfragen mit der Gremlin-API von Azure Cosmos DB
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/10/2020
-ms.author: jasonh
-ms.openlocfilehash: ca1ca258296f5ac8f1fb7120d2965ccacf74b5d5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: chrande
+ms.openlocfilehash: 20cb4cea52317022aea8a5b9e4b8280f8b88ff85
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409390"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361510"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Schnellstart: Erstellen, Abfragen und Durchlaufen einer Azure Cosmos DB-Graphdatenbank mithilfe der Gremlin-Konsole
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Gremlin-Konsole](create-graph-gremlin-console.md)
@@ -52,24 +53,24 @@ Außerdem müssen Sie die [Gremlin-Konsole](https://tinkerpop.apache.org/downloa
 ## <a name="connect-to-your-app-servicegraph"></a><a id="ConnectAppService"></a>Herstellen einer Verbindung mit Ihrem App-Dienst/Graph
 
 1. Erstellen bzw. ändern Sie die Konfigurationsdatei „remote-secure.yaml“ im Verzeichnis `apache-tinkerpop-gremlin-console-3.2.5/conf`, bevor Sie die Gremlin-Konsole starten.
-2. Füllen Sie die Konfigurationen *Host*, *Port*, *Benutzername*, *Kennwort*, *connectionPool* und *Serialisierungsmodul* aus, wie in der folgenden Tabelle definiert:
+2. Füllen Sie die Konfigurationen *Host* , *Port* , *Benutzername* , *Kennwort* , *connectionPool* und *Serialisierungsmodul* aus, wie in der folgenden Tabelle definiert:
 
     Einstellung|Vorgeschlagener Wert|BESCHREIBUNG
     ---|---|---
-    hosts|[*account-name*.**gremlin**.cosmos.azure.com]|Der folgende Screenshot zeigt dies. Dies ist der Wert für den **Gremlin-URI** auf der Seite „Übersicht“ des Azure-Portals (in eckigen Klammern und ohne den Zusatz „:443/“). Hinweis: Achten Sie darauf, den Gremlin-Wert und **nicht** den URI zu verwenden, der auf [*account-name*.documents.azure.com] endet. Andernfalls wird beim späteren Ausführen von Gremlin-Abfragen wahrscheinlich eine Ausnahme „Host did not respond in a timely fashion“ (Host hat nicht rechtszeitig reagiert) ausgelöst. 
+    hosts|[ *account-name*. **gremlin**.cosmos.azure.com]|Der folgende Screenshot zeigt dies. Dies ist der Wert für den **Gremlin-URI** auf der Seite „Übersicht“ des Azure-Portals (in eckigen Klammern und ohne den Zusatz „:443/“). Hinweis: Achten Sie darauf, den Gremlin-Wert und **nicht** den URI zu verwenden, der auf [ *account-name*.documents.azure.com] endet. Andernfalls wird beim späteren Ausführen von Gremlin-Abfragen wahrscheinlich eine Ausnahme „Host did not respond in a timely fashion“ (Host hat nicht rechtszeitig reagiert) ausgelöst. 
     port|443|Legen Sie den Wert 443 fest.
     username|*Ihr Benutzername*|Die Ressource im Format `/dbs/<db>/colls/<coll>`, wobei `<db>` der Datenbankname und `<coll>` der Sammlungsname ist.
     password|*Ihr Primärschlüssel*| Siehe zweiten Screenshot unten. Dies ist Ihr Primärschlüssel, den Sie von der Seite „Schlüssel“ des Azure-Portals im Feld „Primärschlüssel“ abrufen können. Verwenden Sie die Schaltfläche „Kopieren“ links vom Feld, um den Wert zu kopieren.
     connectionPool|{enableSsl: true}|Ihre Verbindungspooleinstellung für TLS.
     serializer|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV2d0,<br> config: { serializeResultToString: true }}|Legen Sie diesen Wert fest, und löschen Sie alle `\n`-Zeilenumbrüche, wenn Sie den Wert einfügen.
 
-   Kopieren Sie zur Angabe des Werts „Hosts“ den **Gremlin-URI** auf der Seite **Übersicht**:
+   Kopieren Sie zur Angabe des Werts „Hosts“ den **Gremlin-URI** auf der Seite **Übersicht** :
 
-   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Azure Cosmos DB in der Gremlin-Konsole von Apache":::
+   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Anzeigen und Kopieren des den Gremlin-URI-Werts auf der Seite „Übersicht“ im Azure-Portal":::
 
-   Kopieren Sie für den Kennwortwert den **Primärschlüssel** aus der Seite **Schlüssel**:
+   Kopieren Sie für den Kennwortwert den **Primärschlüssel** aus der Seite **Schlüssel** :
 
-   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Azure Cosmos DB in der Gremlin-Konsole von Apache":::
+   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Anzeigen und Kopieren Ihres Primärschlüssels im Azure-Portal, Seite „Schlüssel“":::
 
    Die Datei „remote-secure.yaml“ sollte wie folgt aussehen:
 
@@ -108,7 +109,7 @@ g.V().count()
 
 ## <a name="create-vertices-and-edges"></a>Erstellen von Scheitelpunkten und Kanten
 
-Fügen Sie zunächst fünf Scheitelpunkte für Personen hinzu: *Thomas*, *Mary Kay*, *Robin*, *Ben* und *Jack*.
+Fügen Sie zunächst fünf Scheitelpunkte für Personen hinzu: *Thomas* , *Mary Kay* , *Robin* , *Ben* und *Jack*.
 
 Eingabe (Thomas):
 

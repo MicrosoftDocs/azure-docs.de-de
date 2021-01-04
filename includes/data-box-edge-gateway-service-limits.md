@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 02/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 3010cdcf794fcadd1fbcbdc73ba33033a3ea07fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eb9a6b157b0ab5d723a90a464151895506c4980
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67178545"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026485"
 ---
 - Das Speicherkonto sollte sich physisch in der Nähe der Region befinden, in der das Gerät bereitgestellt wird (kann sich von der Region unterscheiden, in der der Dienst bereitgestellt wird).
-- Das Verschieben einer Data Box Gateway-Ressource in ein anderes Abonnement oder eine andere Ressourcengruppe wird nicht unterstützt. Weitere Informationen finden Sie unter [Verschieben von Ressourcen in eine neue Ressourcengruppe oder ein neues Abonnement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+- Das Verschieben einer Data Box Gateway-Ressource in ein anderes Abonnement oder eine andere Ressourcengruppe wird nicht unterstützt. Weitere Informationen finden Sie unter [Verschieben von Ressourcen in eine neue Ressourcengruppe oder ein neues Abonnement](../articles/azure-resource-manager/management/move-resource-group-and-subscription.md).

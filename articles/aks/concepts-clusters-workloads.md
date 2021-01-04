@@ -4,18 +4,18 @@ description: Lernen Sie die grundlegenden Cluster- und Workloadkomponenten von K
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 2fe687ddd63ee85faec2d1aa4c02fa2636a3058f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17203123ceb0c196bd8f9011e2962f5022e54698
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86251857"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92901294"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Grundlegende Kubernetes-Konzepte für Azure Kubernetes Service (AKS)
 
 Da die Anwendungsentwicklung zunehmend auf eine containerbasierte Vorgehensweise setzt, ist es wichtig, die Ressourcen zu orchestrieren und zu verwalten. Kubernetes ist die führende Plattform, die Funktionen bietet, um eine zuverlässige Planung fehlertoleranter Anwendungsworkloads bereitzustellen. Azure Kubernetes Service (AKS) ist ein Managed Kubernetes-Angebot, das die containerbasierte Anwendungsbereitstellung und -verwaltung weiter vereinfacht.
 
-In diesem Artikel werden die grundlegenden Kubernetes-Infrastrukturkomponenten wie *Steuerungsebene*, *Knoten* und *Knotenpools* vorgestellt. Darüber hinaus werden Workloadressourcen wie *Pods*, *Bereitstellungen* und *Sets* erläutert, und es wird beschrieben, wie Sie Ressourcen in *Namespaces* gruppieren.
+In diesem Artikel werden die grundlegenden Kubernetes-Infrastrukturkomponenten wie *Steuerungsebene* , *Knoten* und *Knotenpools* vorgestellt. Darüber hinaus werden Workloadressourcen wie *Pods* , *Bereitstellungen* und *Sets* erläutert, und es wird beschrieben, wie Sie Ressourcen in *Namespaces* gruppieren.
 
 ## <a name="what-is-kubernetes"></a>Was ist Kubernetes?
 
@@ -42,14 +42,14 @@ Wenn Sie einen AKS-Cluster erstellen, wird automatisch eine Steuerungsebene erst
 
 Die Steuerungsebene umfasst die folgenden Kubernetes-Kernkomponenten:
 
-- *kube-apiserver*: Die zugrunde liegenden Kubernetes-APIs werden auf dem API-Server verfügbar gemacht. Diese Komponente ermöglicht die Interaktion für Verwaltungstools, z.B. `kubectl` oder das Kubernetes-Dashboard.
-- *etcd*: Für die Verwaltung des Zustands Ihres Kubernetes-Clusters und Ihrer Kubernetes-Konfiguration ist *etcd* ein hoch verfügbarer Schlüssel-Wert-Speicher in Kubernetes.
-- *kube-scheduler*: Wenn Sie Anwendungen erstellen oder skalieren, ermittelt der Scheduler, welche Knoten die Workload ausführen können, und startet diese.
-- *kube-controller-manager*: Der Controller Manager überwacht eine Reihe kleinerer Controller, die Aktionen wie beispielsweise das Replizieren von Pods und das Verarbeiten von Knotenvorgängen ausführen.
+- *kube-apiserver* : Die zugrunde liegenden Kubernetes-APIs werden auf dem API-Server verfügbar gemacht. Diese Komponente ermöglicht die Interaktion für Verwaltungstools, z.B. `kubectl` oder das Kubernetes-Dashboard.
+- *etcd* : Für die Verwaltung des Zustands Ihres Kubernetes-Clusters und Ihrer Kubernetes-Konfiguration ist *etcd* ein hoch verfügbarer Schlüssel-Wert-Speicher in Kubernetes.
+- *kube-scheduler* : Wenn Sie Anwendungen erstellen oder skalieren, ermittelt der Scheduler, welche Knoten die Workload ausführen können, und startet diese.
+- *kube-controller-manager* : Der Controller Manager überwacht eine Reihe kleinerer Controller, die Aktionen wie beispielsweise das Replizieren von Pods und das Verarbeiten von Knotenvorgängen ausführen.
 
 AKS stellt eine Steuerungsebene mit Einzelmandant, einem dedizierten API-Server, einem Scheduler usw. bereit. Sie definieren die Anzahl und Größe der Knoten, und die Azure-Plattform konfiguriert die sichere Kommunikation zwischen Steuerungsebene und Knoten. Die Interaktion mit der Steuerungsebene erfolgt über Kubernetes-APIs, z.B. `kubectl`, oder das Kubernetes-Dashboard.
 
-Diese verwaltete Steuerungsebene bedeutet, dass Sie Komponenten wie einen hoch verfügbaren *etcd*-Speicher nicht konfigurieren müssen. Sie bedeutet aber auch, dass Sie nicht direkt auf die Steuerungsebene zugreifen können. Upgrades für Kubernetes werden über die Azure CLI oder das Azure-Portal orchestriert. Ein Upgrade erfolgt erst auf der Steuerungsebene, dann auf den Knoten. Zum Beheben möglicher Probleme können Sie über Azure Monitor-Protokolle die Steuerungsebenenprotokolle überprüfen.
+Diese verwaltete Steuerungsebene bedeutet, dass Sie Komponenten wie einen hoch verfügbaren *etcd* -Speicher nicht konfigurieren müssen. Sie bedeutet aber auch, dass Sie nicht direkt auf die Steuerungsebene zugreifen können. Upgrades für Kubernetes werden über die Azure CLI oder das Azure-Portal orchestriert. Ein Upgrade erfolgt erst auf der Steuerungsebene, dann auf den Knoten. Zum Beheben möglicher Probleme können Sie über Azure Monitor-Protokolle die Steuerungsebenenprotokolle überprüfen.
 
 Wenn Sie die Steuerungsebene auf eine bestimmte Weise konfigurieren müssen oder direkten Zugriff benötigen, können Sie mit [aks-engine][aks-engine] selbst einen Kubernetes-Cluster bereitstellen.
 
@@ -57,7 +57,7 @@ Entsprechende bewährte Methoden finden Sie unter [Best Practices für Clustersi
 
 ## <a name="nodes-and-node-pools"></a>Knoten und Knotenpools
 
-Zum Ausführen Ihrer Anwendungen und der unterstützenden Dienste benötigen Sie einen Kubernetes-*Knoten*. Ein AKS-Cluster besteht aus mindestens einem Knoten, bei dem es sich um einen virtuellen Azure-Computer handelt, der die Kubernetes-Knotenkomponenten und die Containerruntime ausführt:
+Zum Ausführen Ihrer Anwendungen und der unterstützenden Dienste benötigen Sie einen Kubernetes- *Knoten* . Ein AKS-Cluster besteht aus mindestens einem Knoten, bei dem es sich um einen virtuellen Azure-Computer handelt, der die Kubernetes-Knotenkomponenten und die Containerruntime ausführt:
 
 - Das `kubelet` ist der Kubernetes-Agent, der die Orchestrierungsanforderungen der Steuerungsebene und die Planung der Ausführung der angeforderten Container verarbeitet.
 - Die virtuellen Netzwerkfunktionen werden vom *kube-proxy* auf jedem Knoten verarbeitet. Der Proxy leitet den Netzwerkdatenverkehr weiter und verwaltet die IP-Adressen für Dienste und Pods.
@@ -94,7 +94,7 @@ Um die Leistung und Funktionalität des Knotens zu gewährleisten, werden auf je
 
 - **Arbeitsspeicher:** Der von AKS genutzte Arbeitsspeicher ergibt sich aus zwei Werten.
 
-1. Der Kubelet-Daemon wird auf allen Kubernetes-Agent-Knoten installiert, um die Erstellung und Beendigung von Containern zu verwalten. In AKS gilt für diesen Daemon standardmäßig die folgende Entfernungsregel: *memory.available<750Mi*. Dies bedeutet, dass der zuweisbare Arbeitsspeicher auf einem Knoten immer mindestens 750 Mi betragen muss.  Wenn ein Host den Schwellenwert des verfügbaren Arbeitsspeichers unterschreitet, beendet das Kubelet einen der ausgeführten Pods, um Speicher auf dem Hostcomputer freizugeben und zu schützen. Diese Aktion wird ausgelöst, sobald der verfügbare Arbeitsspeicher den Schwellenwert von 750 Mi unterschreitet.
+1. Der Kubelet-Daemon wird auf allen Kubernetes-Agent-Knoten installiert, um die Erstellung und Beendigung von Containern zu verwalten. In AKS gilt für diesen Daemon standardmäßig die folgende Entfernungsregel: *memory.available<750Mi* . Dies bedeutet, dass der zuweisbare Arbeitsspeicher auf einem Knoten immer mindestens 750 Mi betragen muss.  Wenn ein Host den Schwellenwert des verfügbaren Arbeitsspeichers unterschreitet, beendet das Kubelet einen der ausgeführten Pods, um Speicher auf dem Hostcomputer freizugeben und zu schützen. Diese Aktion wird ausgelöst, sobald der verfügbare Arbeitsspeicher den Schwellenwert von 750 Mi unterschreitet.
 
 2. Der zweite Wert ist die regressive Rate des Arbeitsspeichers, der für den Kubelet-Daemon reserviert ist, damit er ordnungsgemäß ausgeführt wird („kube-reserved“).
     - 25 % der ersten 4 GB Arbeitsspeicher
@@ -128,7 +128,7 @@ Weitere Informationen zur Verwendung mehrerer Knotenpools in AKS finden Sie unte
 
 In einem AKS-Cluster mit mehreren Knotenpools müssen Sie dem Kubernetes-Scheduler möglicherweise mitteilen, welcher Knotenpool für eine bestimmte Ressource verwendet werden soll. Beispielsweise sollten Eingangscontroller nicht auf Windows Server-Knoten ausgeführt werden. Mit Knotenselektoren können Sie verschiedene Parameter festlegen, wie z.B. das Betriebssystem des Knotens, um zu steuern, wo ein Pod geplant werden soll.
 
-Das folgende einfache Beispiel plant eine NGINX-Instanz auf einem Linux-Knoten unter Verwendung des Knotenselektors *"beta.kubernetes.io/os": linux*:
+Das folgende einfache Beispiel plant eine NGINX-Instanz auf einem Linux-Knoten unter Verwendung des Knotenselektors *"beta.kubernetes.io/os": linux* :
 
 ```yaml
 kind: Pod
@@ -138,7 +138,7 @@ metadata:
 spec:
   containers:
     - name: myfrontend
-      image: nginx:1.15.12
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.12-alpine
   nodeSelector:
     "beta.kubernetes.io/os": linux
 ```
@@ -147,13 +147,13 @@ Weitere Informationen zum Steuern, wo Pods geplant werden, finden Sie unter [Bes
 
 ## <a name="pods"></a>Pods
 
-Kubernetes verwendet *Pods*, um eine Instanz Ihrer Anwendung auszuführen. Ein Pod repräsentiert eine einzelne Instanz der Anwendung. Pods weisen in der Regel eine 1:1-Zuordnung mit einem Container auf. Es gibt jedoch auch erweiterte Szenarien, in denen ein Pod mehrere Container enthalten kann. Diese Pods mit mehreren Containern werden zusammen auf dem gleichen Knoten geplant und ermöglichen es Containern, zugehörige Ressourcen gemeinsam zu nutzen.
+Kubernetes verwendet *Pods* , um eine Instanz Ihrer Anwendung auszuführen. Ein Pod repräsentiert eine einzelne Instanz der Anwendung. Pods weisen in der Regel eine 1:1-Zuordnung mit einem Container auf. Es gibt jedoch auch erweiterte Szenarien, in denen ein Pod mehrere Container enthalten kann. Diese Pods mit mehreren Containern werden zusammen auf dem gleichen Knoten geplant und ermöglichen es Containern, zugehörige Ressourcen gemeinsam zu nutzen.
 
 Wenn Sie einen Pod erstellen, können Sie *Ressourcenanforderungen* definieren, um eine bestimmte Menge an CPU- oder Arbeitsspeicherressourcen anzufordern. Der Kubernetes Scheduler versucht, die Ausführung der Pods auf einem Knoten mit den verfügbaren Ressourcen zu planen, um die Anforderung zu erfüllen. Sie können auch maximale Ressourcenlimits angeben, um zu verhindern, dass ein bestimmter Pod zu viele Computeressourcen des zugrunde liegenden Knotens verbraucht. Eine bewährte Methode ist es, Ressourcenlimits für alle Pods einzurichten, um den Kubernetes Scheduler darüber zu informieren, welche Ressourcen benötigt werden und zulässig sind.
 
 Weitere Informationen finden Sie unter [Kubernetes Pods][kubernetes-pods] (Kubernetes-Pods) und [Kubernetes Pod Lifecycle][kubernetes-pod-lifecycle] (Lebenszyklus von Kubernetes-Pods).
 
-Ein Pod ist eine logische Ressource, aber die Container sind die Ressourcen, in denen die Anwendungsworkloads ausgeführt werden. Pods sind in der Regel kurzlebige Ressourcen, die gelöscht werden können. Einzeln geplante Pods bieten nicht alle Hochverfügbarkeits- und Redundanzfeatures von Kubernetes. Stattdessen werden Pods von Kubernetes-*Controllern* bereitgestellt und verwaltet, beispielsweise dem Bereitstellungscontroller.
+Ein Pod ist eine logische Ressource, aber die Container sind die Ressourcen, in denen die Anwendungsworkloads ausgeführt werden. Pods sind in der Regel kurzlebige Ressourcen, die gelöscht werden können. Einzeln geplante Pods bieten nicht alle Hochverfügbarkeits- und Redundanzfeatures von Kubernetes. Stattdessen werden Pods von Kubernetes- *Controllern* bereitgestellt und verwaltet, beispielsweise dem Bereitstellungscontroller.
 
 ## <a name="deployments-and-yaml-manifests"></a>Bereitstellungen und YAML-Manifeste
 
@@ -184,7 +184,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.15.2
+        image: mcr.microsoft.com/oss/nginx/nginx:1.15.2-alpine
         ports:
         - containerPort: 80
         resources:
@@ -202,7 +202,7 @@ Weitere Informationen finden Sie unter [Kubernetes-Bereitstellungen][kubernetes-
 
 ### <a name="package-management-with-helm"></a>Paketverwaltung mit Helm
 
-Ein häufiger Ansatz für die Verwaltung von Anwendungen in Kubernetes ist die Verwendung von [Helm][helm]. Sie können vorhandene Helm-*Charts* erstellen und verwenden, die eine gepackte Version des Anwendungscodes und der Kubernetes-YAML-Manifeste zum Bereitstellen von Ressourcen enthalten. Diese Helm-Charts können lokal oder in einem Remoterepository gespeichert werden, z.B. einem [Helm-Chart-Repository in Azure Container Registry][acr-helm].
+Ein häufiger Ansatz für die Verwaltung von Anwendungen in Kubernetes ist die Verwendung von [Helm][helm]. Sie können vorhandene Helm- *Charts* erstellen und verwenden, die eine gepackte Version des Anwendungscodes und der Kubernetes-YAML-Manifeste zum Bereitstellen von Ressourcen enthalten. Diese Helm-Charts können lokal oder in einem Remoterepository gespeichert werden, z.B. einem [Helm-Chart-Repository in Azure Container Registry][acr-helm].
 
 Um Helm zu verwenden, installieren Sie den Helm-Client auf Ihrem Computer, oder verwenden Sie den Helm-Client in [Azure Cloud Shell][azure-cloud-shell]. Sie können im Client nach Helms-Charts suchen oder Helm-Charts erstellen und diese dann in Ihrem Kubernetes-Cluster installieren. Weitere Informationen finden Sie unter [Installieren vorhandener Anwendungen mit Helm in AKS][aks-helm].
 
@@ -212,8 +212,8 @@ Der Bereitstellungscontroller verwendet den Kubernetes Scheduler, um eine bestim
 
 Es gibt zwei Kubernetes-Ressourcen, mit denen Sie diese Arten von Anwendungen verwalten können:
 
-- *StatefulSets*: Verwalten den Zustand von Anwendungen über den Lebenszyklus eines einzelnen Pods hinweg, z.B. Speicher.
-- *DaemonSets*: Stellen zu einem frühen Zeitpunkt im Kubernetes-Bootstrapprozess eine ausgeführte Ressource auf jedem Knoten sicher.
+- *StatefulSets* : Verwalten den Zustand von Anwendungen über den Lebenszyklus eines einzelnen Pods hinweg, z.B. Speicher.
+- *DaemonSets* : Stellen zu einem frühen Zeitpunkt im Kubernetes-Bootstrapprozess eine ausgeführte Ressource auf jedem Knoten sicher.
 
 ### <a name="statefulsets"></a>StatefulSets
 
@@ -246,9 +246,9 @@ Kubernetes-Ressourcen wie Pods und Bereitstellungen werden logisch in einen *Nam
 
 Wenn Sie einen AKS-Cluster erstellen, stehen Ihnen folgende Namespaces zur Verfügung:
 
-- *default*: In diesem Namespace werden Pods und Bereitstellungen standardmäßig erstellt, wenn kein anderer Namespace angegeben wird. In kleineren Umgebungen können Sie Anwendungen direkt im Standardnamespace bereitstellen, ohne weitere logische Unterteilungen zu erstellen. Wenn Sie mit der Kubernetes-API interagieren, z.B. mit `kubectl get pods`, wird der Standardnamespace verwendet, wenn kein anderer Namespace angegeben wurde.
-- *kube-system*: In diesem Namespace befinden sich grundlegende Ressourcen, beispielsweise Netzwerkfeatures wie DNS und Proxy oder das Kubernetes-Dashboard. In diesem Namespace stellen Sie in der Regel keine eigenen Anwendungen bereit.
-- *kube-public*: Dieser Namespace wird in der Regel nicht genutzt. Er kann jedoch für Ressourcen verwendet werden, die über den gesamten Cluster hinweg sichtbar sein sollen, und er kann von allen Benutzern angezeigt werden.
+- *default* : In diesem Namespace werden Pods und Bereitstellungen standardmäßig erstellt, wenn kein anderer Namespace angegeben wird. In kleineren Umgebungen können Sie Anwendungen direkt im Standardnamespace bereitstellen, ohne weitere logische Unterteilungen zu erstellen. Wenn Sie mit der Kubernetes-API interagieren, z.B. mit `kubectl get pods`, wird der Standardnamespace verwendet, wenn kein anderer Namespace angegeben wurde.
+- *kube-system* : In diesem Namespace befinden sich grundlegende Ressourcen, beispielsweise Netzwerkfeatures wie DNS und Proxy oder das Kubernetes-Dashboard. In diesem Namespace stellen Sie in der Regel keine eigenen Anwendungen bereit.
+- *kube-public* : Dieser Namespace wird in der Regel nicht genutzt. Er kann jedoch für Ressourcen verwendet werden, die über den gesamten Cluster hinweg sichtbar sein sollen, und er kann von allen Benutzern angezeigt werden.
 
 Weitere Informationen finden Sie unter [Kubernetes-Namespaces][kubernetes-namespaces].
 

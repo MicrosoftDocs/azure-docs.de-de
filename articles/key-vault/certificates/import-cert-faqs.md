@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 3b87d68fb9b5fa5f5f8dec43c39ea8b7dbf08b93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7d34b61e584b63c517b6c0f8af4cb4adcc7fefe
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651854"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289515"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Importieren von Azure Key Vault-Zertifikaten: Häufig gestellte Fragen
 
@@ -25,7 +25,7 @@ Dieser Artikel enthält Antworten auf häufig gestellte Fragen zum Import von Az
 
 ### <a name="how-can-i-import-a-certificate-in-azure-key-vault"></a>Wie kann ich ein Zertifikat in Azure Key Vault importieren?
 
-Für den Vorgang zum Importieren von Zertifikaten akzeptiert Azure Key Vault zwei Zertifikatformate: PEM und PFX. Es gibt zwar auch PEM-Dateien, die nur den öffentlichen Teil enthalten, aber Key Vault benötigt und akzeptiert nur eine PEM- oder PFX-Datei mit einem privaten Schlüssel. Weitere Informationen finden Sie unter [Importieren eines Zertifikats in Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-import-certificate#import-a-certificate-to-key-vault).
+Für den Vorgang zum Importieren von Zertifikaten akzeptiert Azure Key Vault zwei Zertifikatformate: PEM und PFX. Es gibt zwar auch PEM-Dateien, die nur den öffentlichen Teil enthalten, aber Key Vault benötigt und akzeptiert nur eine PEM- oder PFX-Datei mit einem privaten Schlüssel. Weitere Informationen finden Sie unter [Importieren eines Zertifikats in Key Vault](./tutorial-import-certificate.md#import-a-certificate-to-key-vault).
 
 ### <a name="after-i-import-a-password-protected-certificate-to-key-vault-and-then-download-it-why-cant-i-see-the-password-thats-associated-with-it"></a>Warum kann ich nach dem Importieren eines kennwortgeschützten Zertifikats in Key Vault und dem anschließenden Download das zugehörige Kennwort nicht sehen?
     
@@ -35,7 +35,7 @@ Nachdem ein Zertifikat in Key Vault importiert und geschützt wurde, wird das zu
 
 Wenn Sie ein Zertifikat importieren, müssen Sie sicherstellen, dass der Schlüssel in der Datei enthalten ist. Falls Sie einen privaten Schlüssel in einem anderen Format gespeichert haben, müssen Sie den Schlüssel mit dem Zertifikat kombinieren. Einige Zertifizierungsstellen (ZS) stellen Zertifikate in anderen Formaten bereit. Stellen Sie vor dem Importieren des Zertifikats daher sicher, dass es im Dateiformat PEM oder PFX vorliegt und dass für den Schlüssel entweder die RSA- (Rivest-Shamir-Adleman) oder die ECC-Verschlüsselung (Elliptic Curve Cryptography) verwendet wird. 
 
-Weitere Informationen finden Sie unter [Zertifikatanforderungen](https://docs.microsoft.com/azure/key-vault/certificates/certificate-scenarios#formats-of-import-we-support) und [Kryptografischer Schutz](https://docs.microsoft.com/azure/key-vault/keys/about-keys#cryptographic-protection).
+Weitere Informationen finden Sie unter [Zertifikatanforderungen](./certificate-scenarios.md#formats-of-import-we-support) und [Kryptografischer Schutz](../keys/about-keys.md).
 
 ###  <a name="can-i-import-a-certificate-by-using-an-arm-template"></a>Kann ich ein Zertifikat mit einer ARM-Vorlage importieren?
 
@@ -43,20 +43,20 @@ Nein. Es ist nicht möglich, Zertifikatvorgänge mit einer ARM-Vorlage (Azure Re
 
 ### <a name="when-i-import-a-certificate-via-the-azure-portal-i-get-a-something-went-wrong-error-how-can-i-investigate-further"></a>Wenn ich ein Zertifikat über das Azure-Portal importiere, tritt ein Fehler der Art „Es ist ein Problem aufgetreten“ auf. Wie kann ich weitere Untersuchungen durchführen?
     
-Importieren Sie die Zertifikatsdatei mit der [Azure CLI](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import) oder mit [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0), wenn Sie einen Fehler mit aussagekräftigeren Informationen anzeigen möchten.
+Importieren Sie die Zertifikatsdatei mit der [Azure CLI](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import) oder mit [PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0), wenn Sie einen Fehler mit aussagekräftigeren Informationen anzeigen möchten.
 
 ### <a name="how-can-i-resolve-error-type-access-denied-or-user-is-unauthorized-to-import-certificate"></a>Wie kann ich den folgenden Fehlertyp beheben: „Access denied or user is unauthorized to import certificate“ (Zugriff verweigert, oder der Benutzer ist nicht autorisiert, das Zertifikat zu importieren)?
     
 Für den Importvorgang müssen Sie die Benutzerberechtigungen zum Importieren des Zertifikats über die Zugriffsrichtlinien gewähren. Navigieren Sie hierfür zu Ihrem Schlüsseltresor, wählen Sie **Zugriffsrichtlinien** > **Zugriffsrichtlinie hinzufügen** > **Zertifikatberechtigungen auswählen** > **Prinzipal** aus, suchen Sie nach dem Benutzer, und fügen Sie anschließend die E-Mail-Adresse des Benutzers hinzu. 
 
-Weitere Informationen zu zertifikatbezogenen Zugriffsrichtlinien finden Sie unter [Informationen zu Azure Key Vault-Zertifikaten](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#certificate-access-control).
+Weitere Informationen zu zertifikatbezogenen Zugriffsrichtlinien finden Sie unter [Informationen zu Azure Key Vault-Zertifikaten](./about-certificates.md#certificate-access-control).
 
 
 ### <a name="how-can-i-resolve-error-type-conflict-when-creating-a-certificate"></a>Wie kann ich den folgenden Fehlertyp beheben: „Conflict when creating a certificate“ (Konflikt beim Erstellen eines Zertifikats)?
     
-Jeder Zertifikatname muss eindeutig sein. Ein Zertifikat mit demselben Namen kann sich unter Umständen im vorläufig gelöschten Zustand befinden. Außerdem gilt basierend auf der [Zusammensetzung eines Zertifikats](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate) Folgendes: Wenn ein neues Zertifikat erstellt wird, wird ein adressierbares Geheimnis mit demselben Namen erstellt. Wenn also im Schlüsseltresor ein weiterer Schlüssel oder ein Geheimnis mit demselben Namen enthalten ist, den oder das Sie für Ihr Zertifikat festlegen möchten, schlägt die Zertifikaterstellung fehl, und Sie müssen den Schlüssel oder das Geheimnis entweder entfernen oder einen anderen Namen für Ihr Zertifikat verwenden. 
+Jeder Zertifikatname muss eindeutig sein. Ein Zertifikat mit demselben Namen kann sich unter Umständen im vorläufig gelöschten Zustand befinden. Außerdem gilt basierend auf der [Zusammensetzung eines Zertifikats](./about-certificates.md#composition-of-a-certificate) Folgendes: Wenn ein neues Zertifikat erstellt wird, wird ein adressierbares Geheimnis mit demselben Namen erstellt. Wenn also im Schlüsseltresor ein weiterer Schlüssel oder ein Geheimnis mit demselben Namen enthalten ist, den oder das Sie für Ihr Zertifikat festlegen möchten, schlägt die Zertifikaterstellung fehl, und Sie müssen den Schlüssel oder das Geheimnis entweder entfernen oder einen anderen Namen für Ihr Zertifikat verwenden. 
 
-Weitere Informationen finden Sie unter [Vorgang „GetDeletedCertificate“](https://docs.microsoft.com/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate).
+Weitere Informationen finden Sie unter [Vorgang „GetDeletedCertificate“](/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate).
 
 ### <a name="why-am-i-getting-error-type-char-length-is-too-long"></a>Warum erhalte ich den Fehlertyp „char length is too long“ (Zeichenlänge ist zu lang)?
 Dieser Fehler kann aus zwei Gründen auftreten:    
@@ -83,4 +83,4 @@ Wenn der Import des Zertifikats erfolgreich war, sollten Sie dies im Bereich **G
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Azure Key Vault-Zertifikate](/azure/key-vault/certificates/about-certificates)
+- [Azure Key Vault-Zertifikate](./about-certificates.md)

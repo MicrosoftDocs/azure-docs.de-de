@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2020
 ms.author: yelevin
-ms.openlocfilehash: 5518da7d22d14de105c07e88b14e94d4b184269b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf7e389fc4a8a8dfa88691dc034611cae3471731
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883810"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655339"
 ---
 # <a name="connect-windows-defender-firewall-with-advanced-security-to-azure-sentinel"></a>Verknüpfen von Windows Defender Firewall über erweiterte Sicherheit mit Azure Sentinel
 
-Der Connector [Windows Defender Firewall mit erweiterter Sicherheit](https://docs.microsoft.com/windows/security/threat-protection/windows-firewall/windows-firewall-with-advanced-security) erlaubt es Azure Sentinel, Windows Defender Firewall mit erweiterten Sicherheitsprotokollen von allen Windows-Computern in Ihrem Arbeitsbereich einfach zu erfassen. Durch diese Verbindung können Sie Windows-Firewallereignisse in Ihren Arbeitsmappen anzeigen und analysieren, sie bei der Erstellung benutzerdefinierter Warnmeldungen verwenden und in Ihre Sicherheitsuntersuchungen einbeziehen. Hierdurch können Sie zusätzliche Erkenntnisse über das Netzwerk Ihrer Organisation erlangen und Ihre Möglichkeiten für Sicherheitsvorgänge ausbauen. 
+Der Connector [Windows Defender Firewall mit erweiterter Sicherheit](/windows/security/threat-protection/windows-firewall/windows-firewall-with-advanced-security) erlaubt es Azure Sentinel, Windows Defender Firewall mit erweiterten Sicherheitsprotokollen von allen Windows-Computern in Ihrem Arbeitsbereich einfach zu erfassen. Durch diese Verbindung können Sie Windows-Firewallereignisse in Ihren Arbeitsmappen anzeigen und analysieren, sie bei der Erstellung benutzerdefinierter Warnmeldungen verwenden und in Ihre Sicherheitsuntersuchungen einbeziehen. Hierdurch können Sie zusätzliche Erkenntnisse über das Netzwerk Ihrer Organisation erlangen und Ihre Möglichkeiten für Sicherheitsvorgänge ausbauen. 
 
 Die Lösung sammelt Windows-Firewallereignisse von den Windows-Computern, auf denen ein Log Analytics-Agent installiert ist. 
 
@@ -81,10 +81,9 @@ Die Lösung sammelt Windows-Firewallereignisse von den Windows-Computern, auf de
 
 ## <a name="validate-connectivity"></a>Überprüfen der Konnektivität
  
-Da die Protokolle der Windows-Firewall erst dann an Azure Sentinel gesendet werden, wenn die lokale Protokolldatei ihre Kapazität erreicht hat, führt das Beibehalten der Standardgröße des Protokolls von 4096 KB höchstwahrscheinlich zu einer hohen Sammlungslatenz. Sie können die Latenz verringern, indem Sie die Größe der Protokolldatei verringern. Weitere Informationen finden Sie in den Anweisungen zum [Konfigurieren des Windows-Firewallprotokolls](https://docs.microsoft.com/windows/security/threat-protection/windows-firewall/configure-the-windows-firewall-log). Beachten Sie, dass das Definieren der kleinstmöglichen Protokollgröße (1 KB) die Sammlungslatenz praktisch eliminiert, sich aber auch negativ auf die Leistung des lokalen Computers auswirken kann. 
+Da die Protokolle der Windows-Firewall erst dann an Azure Sentinel gesendet werden, wenn die lokale Protokolldatei ihre Kapazität erreicht hat, führt das Beibehalten der Standardgröße des Protokolls von 4096 KB höchstwahrscheinlich zu einer hohen Sammlungslatenz. Sie können die Latenz verringern, indem Sie die Größe der Protokolldatei verringern. Weitere Informationen finden Sie in den Anweisungen zum [Konfigurieren des Windows-Firewallprotokolls](/windows/security/threat-protection/windows-firewall/configure-the-windows-firewall-log). Beachten Sie, dass das Definieren der kleinstmöglichen Protokollgröße (1 KB) die Sammlungslatenz praktisch eliminiert, sich aber auch negativ auf die Leistung des lokalen Computers auswirken kann. 
 
 ## <a name="next-steps"></a>Nächste Schritte
 In diesem Dokument haben Sie erfahren, wie Sie die Windows-Firewall mit Azure Sentinel verbinden. Weitere Informationen zu Azure Sentinel finden Sie in den folgenden Artikeln:
 - Erfahren Sie, wie Sie [Einblick in Ihre Daten und potenzielle Bedrohungen erhalten](quickstart-get-visibility.md).
 - Beginnen Sie mit der [Erkennung von Bedrohungen mithilfe von Azure Sentinel](tutorial-detect-threats-built-in.md).
-

@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: ec8d277de177942386d9f3becdf329cdff1ca812
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a5b20efbf804c2ea1097f905da1cfd62727ff15
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797801"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410690"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referenz: IoT Hub-Kontingente und -Drosselung
 
@@ -59,7 +59,7 @@ Die folgende Tabelle zeigt die erzwungenen Drosselungen. Die Werte beziehen sich
 | Maximale Anzahl der gleichzeitig verbundenen Gerätestreams<sup>1</sup> | 50 | 50 | 50 |
 | Maximale Gerätestream-Datenübertragung<sup>1</sup> (aggregiertes Volumen pro Tag) | 300MB | 300MB | 300MB |
 
-<sup>1</sup>Dieses Feature ist im Tarif „Basic“ von IoT Hub nicht verfügbar. Weitere Informationen finden Sie unter [Wählen des richtigen IoT Hub-Tarifs für Ihre Lösung](iot-hub-scaling.md). <br/><sup>2</sup> Die Größe der Verbrauchseinheit für die Drosselung beträgt 4 KB.
+<sup>1</sup>Dieses Feature ist im Tarif „Basic“ von IoT Hub nicht verfügbar. Weitere Informationen finden Sie unter [Wählen des richtigen IoT Hub-Tarifs für Ihre Lösung](iot-hub-scaling.md). <br/><sup>2</sup> Die Größe der Verbrauchseinheit für die Drosselung beträgt 4 KB. Die Drosselung basiert ausschließlich auf der Größe der Anforderungsnutzdaten.
 
 ### <a name="throttling-details"></a>Details zur Drosselung
 
@@ -69,7 +69,7 @@ Die folgende Tabelle zeigt die erzwungenen Drosselungen. Die Werte beziehen sich
 
    Bei einer Nutzlastgröße zwischen 156 KB und 160 KB wird das Limit von 160 KB/Sek./Einheit in Ihrem Hub nach bereits einem einzelnen Aufruf pro Sekunde und Einheit erreicht.
 
-*  Bei *Aufträgegerätevorgängen (Gerätezwilling aktualisieren, direkte Methode aufrufen)* für den Tarif S2 gilt der Grenzwert von 50/Sek./Einheit nur, wenn Sie Methoden unter Verwendung von Aufträgen aufrufen. Wenn Sie direkte Methoden direkt aufrufen, gilt das ursprüngliche Drosselungslimit von 24 MB/Sek./Einheit (für S2).
+*  Bei *Auftragsgerätevorgängen (Gerätezwilling aktualisieren, direkte Methode aufrufen)* für den Tarif S3 gilt der Grenzwert von 50/Sek./Einheit nur, wenn Sie Methoden unter Verwendung von Aufträgen aufrufen. Wenn Sie direkte Methoden direkt aufrufen, gilt das ursprüngliche Drosselungslimit von 24 MB/Sek./Einheit (für S3).
 
 *  **Kontingent** ist die aggregierte Anzahl von Nachrichten, die Sie in Ihrem Hub *pro Tag* senden können. Das Kontingentlimit Ihres Hubs finden Sie auf der Seite [IoT Hub – Preise](https://azure.microsoft.com/pricing/details/iot-hub/) in der Spalte **GESAMTANZAHL VON NACHRICHTEN/TAG**.
 
@@ -81,7 +81,7 @@ Die folgende Tabelle zeigt die erzwungenen Drosselungen. Die Werte beziehen sich
 
 Damit Burstdatenverkehr verarbeitet werden kann, akzeptiert IoT Hub eine begrenzte Zeit lang Anforderungen oberhalb des Drosselungslimits. Die ersten paar dieser Anforderungen werden sofort verarbeitet. Wenn die Anzahl der Anforderungen jedoch weiterhin das Drosselungslimit überschreitet, beginnt IoT Hub damit, die Anforderungen in eine Warteschlange zu verschieben und mit der begrenzten Rate zu verarbeiten. Dieser Effekt wird als *Traffic-Shaping* bezeichnet. Außerdem ist die Größe der Warteschlange begrenzt. Wenn das Drosselungslimit weiterhin überschritten wird, ist die Warteschlange irgendwann voll, und IoT Hub beginnt damit, Anforderungen mit `429 ThrottlingException` abzulehnen.
 
-Ein Beispiel: Sie verwenden ein simuliertes Gerät, um 200 Gerät-zu-Cloud-Nachrichten pro Sekunde an Ihren IoT Hub-Dienst mit dem Tarif S1 senden zu lassen (dessen Limit ist 100 Gerät-zu-Cloud-Sendevorgänge/Sekunde). Während der ersten ein oder zwei Minuten werden die Nachrichten sofort verarbeitet. Da das Gerät aber weiterhin mehr Nachrichten versendet, als das Drosselungslimit erlaubt, beginnt der IoT Hub-Dienst damit, nur noch 100 Nachrichten pro Sekunde zu verarbeiten und verschiebt den Rest in eine Warteschlange. Ab da werden Sie eine erhöhte Wartezeit feststellen können. Irgendwann wird dann die Klasse `429 ThrottlingException` zurückgegeben, während die Warteschlange immer voller wird, und die Anzahl der Drosselungsfehler im Bereich „number of throttle errors“ in den [IoT Hub-Metriken](iot-hub-metrics.md) steigt.
+Ein Beispiel: Sie verwenden ein simuliertes Gerät, um 200 Gerät-zu-Cloud-Nachrichten pro Sekunde an Ihren IoT Hub-Dienst mit dem Tarif S1 senden zu lassen (dessen Limit ist 100 Gerät-zu-Cloud-Sendevorgänge/Sekunde). Während der ersten ein oder zwei Minuten werden die Nachrichten sofort verarbeitet. Da das Gerät aber weiterhin mehr Nachrichten versendet, als das Drosselungslimit erlaubt, beginnt der IoT Hub-Dienst damit, nur noch 100 Nachrichten pro Sekunde zu verarbeiten und verschiebt den Rest in eine Warteschlange. Ab da werden Sie eine erhöhte Wartezeit feststellen können. Wenn die Warteschlange sich füllt, wird `429 ThrottlingException` zurückgegeben, und die [IoT Hub-Metrik „Anzahl der Drosselungsfehler“](monitor-iot-hub-reference.md#device-telemetry-metrics) beginnt zu steigen. Informationen zum Erstellen von Warnungen und Diagrammen basierend auf Metriken finden Sie unter [Überwachen von IoT Hub](monitor-iot-hub.md).
 
 ### <a name="identity-registry-operations-throttle"></a>Drosselung von Identitätsregistrierungsvorgängen
 
@@ -139,3 +139,4 @@ Eine ausführliche Erläuterung der IoT Hub-Drosselung finden Sie in dem Blogbei
 Weitere Referenzthemen in diesem IoT Hub-Entwicklungsleitfaden:
 
 * [IoT Hub-Endpunkte](iot-hub-devguide-endpoints.md)
+* [Überwachen von IoT Hub](monitor-iot-hub.md)

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 11/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a59939fc7988e1a94bdfb9fac2d77011422e4983
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8915ae349e33390ce5bb687d7c07a21665a0258
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87274679"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029403"
 ---
 # <a name="conditional-access-grant"></a>Bedingter Zugriff: Erteilen
 
@@ -34,7 +34,7 @@ Das Blockieren des Zugriffs ist ein leistungsstarkes Steuerelement, das nur mit 
 
 Administratoren können auswählen, ob beim Gewähren des Zugriffs ein oder mehrere Steuerelemente erzwungen werden sollen. Diese Steuerelemente umfassen die folgenden Optionen: 
 
-- [Mehrstufige Authentifizierung erforderlich (Azure Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
+- [Mehrstufige Authentifizierung erforderlich (Azure AD Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
 - [Markieren des Geräts als kompatibel erforderlich (Microsoft Intune)](/intune/protect/device-compliance-get-started)
 - [Gerät mit Hybrid-Azure AD-Einbindung erforderlich](../devices/concept-azure-ad-join-hybrid.md)
 - [Genehmigte Client-App erforderlich](app-based-conditional-access.md)
@@ -50,7 +50,7 @@ Für den bedingten Zugriff sind standardmäßig alle ausgewählten Steuerelement
 
 ### <a name="require-multi-factor-authentication"></a>Mehrstufige Authentifizierung erforderlich
 
-Wenn Sie dieses Kontrollkästchen aktivieren, müssen Benutzer Azure Multi-Factor Authentication ausführen. Weitere Informationen zum Bereitstellen von Azure Multi-Factor Authentication finden Sie im Artikel [Planen einer cloudbasierten Azure Multi-Factor Authentication-Bereitstellung](../authentication/howto-mfa-getstarted.md).
+Wenn Sie dieses Kontrollkästchen aktivieren, müssen Benutzer Azure AD Multi-Factor Authentication ausführen. Weitere Informationen zum Bereitstellen von Azure AD Multi-Factor Authentication finden Sie im Artikel [Planen einer cloudbasierten Bereitstellung von Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md).
 
 ### <a name="require-device-to-be-marked-as-compliant"></a>Markieren des Geräts als kompatibel erforderlich
 
@@ -70,7 +70,7 @@ Bei Verwendung des [OAuth-Gerätecodeflows](../develop/v2-oauth2-device-code.md)
 
 Organisationen können festlegen, dass ein versuchter Zugriff auf die ausgewählten Cloud-Apps über eine genehmigte Client-App erfolgen muss. Diese genehmigten Client-Apps unterstützen [Intune-App-Schutzrichtlinien](/intune/app-protection-policy) unabhängig von jeglicher MDM-Lösung (Mobile-Device Management, Verwaltung mobiler Geräte).
 
-Um dieses Gewährungssteuerelement zu nutzen, muss für den bedingten Zugriff das Gerät in Azure Active Directory registriert sein. Dafür ist eine Broker-App erforderlich. Die Broker-App kann entweder Microsoft Authenticator für iOS oder das Microsoft-Unternehmensportal für Android-Geräte sein. Wenn der Benutzer versucht, sich zu authentifizieren, und auf dem Gerät keine Broker-App installiert ist, wird er zum App Store umgeleitet, um die Broker-App zu installieren.
+Um dieses Gewährungssteuerelement zu nutzen, muss für den bedingten Zugriff das Gerät in Azure Active Directory registriert sein. Dafür ist eine Broker-App erforderlich. Die Broker-App kann entweder Microsoft Authenticator für iOS, Microsoft Authenticator oder das Microsoft-Unternehmensportal für Android-Geräte sein. Wenn der Benutzer versucht, sich zu authentifizieren, und auf dem Gerät keine Broker-App installiert ist, wird er zum entsprechenden App Store umgeleitet, um die erforderliche Broker-App zu installieren.
 
 Diese Einstellung gilt für die folgenden iOS- und Android-Apps:
 
@@ -108,7 +108,7 @@ Diese Einstellung gilt für die folgenden iOS- und Android-Apps:
 - Die genehmigten Client-Apps unterstützen das Intune-Feature für die mobile Anwendungsverwaltung.
 - Anforderung **Genehmigte Client-App erforderlich**:
    - Unterstützt als Geräteplattformbedingung nur iOS und Android.
-   - Zum Registrieren des Geräts ist eine Broker-App erforderlich. Bei iOS ist Microsoft Authenticator die Broker-App, und bei Android ist es die Intune-Unternehmensportal-App.
+   - Zum Registrieren des Geräts ist eine Broker-App erforderlich. Die Broker-App kann entweder Microsoft Authenticator für iOS, Microsoft Authenticator oder das Microsoft-Unternehmensportal für Android-Geräte sein.
 - Der bedingte Zugriff kann Microsoft Edge im InPrivate-Modus einer genehmigten Client-App nicht berücksichtigen.
 
 Konfigurationsbeispiele finden Sie im Artikel [Gewusst wie: Vorschreiben der Verwendung von genehmigten Client-Apps für den Zugriff auf Cloud-Apps mithilfe des bedingten Zugriffs](app-based-conditional-access.md).

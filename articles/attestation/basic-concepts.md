@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a4ab8372e23e3621f7d73f8dbc38957c809acc9c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8ae5bcf103bbb2d2b952fa647ba591e49002f2ff
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89236921"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921615"
 ---
 # <a name="basic-concepts"></a>Grundlegende Konzepte
 
@@ -30,7 +30,7 @@ Im Folgenden finden Sie einige grundlegende Konzepte zu Microsoft Azure Attestat
 
 Der Nachweisanbieter gehört zum Azure-Ressourcenanbieter mit dem Namen „Microsoft.Attestation“. Der Ressourcenanbieter ist ein Dienstendpunkt, der den Azure Attestation-REST-Vertrag bereitstellt und mithilfe von [Azure Resource Manager](../azure-resource-manager/management/overview.md) bereitgestellt wird. Jeder Nachweisanbieter berücksichtigt eine bestimmte erkennbare Richtlinie. 
 
-Nachweisanbieter werden mit einer Standardrichtlinie für jeden TEE-Typ erstellt (beachten Sie, dass die VBS-Enclave keine Standardrichtlinie aufweist). Weitere Informationen zur Standardrichtlinie für SGX finden Sie unter [Beispiele einer Nachweisrichtlinie](policy-examples.md).
+Nachweisanbieter werden mit einer Standardrichtlinie für jeden Nachweistyp erstellt. (Beachten Sie, dass die VBS-Enclave über keine Standardrichtlinie verfügt.) Weitere Informationen zur Standardrichtlinie für SGX finden Sie unter [Beispiele einer Nachweisrichtlinie](policy-examples.md).
 
 ### <a name="regional-default-provider"></a>Regionaler Standardanbieter
 
@@ -38,11 +38,11 @@ Azure Attestation stellt in jeder Region einen Standardanbieter bereit. Kunden k
 
 | Region | Nachweis-URI | 
 |--|--|
-| UK, Süden | https://shareduks.uks.attest.azure.net | 
-| USA (Ost 2) | https://sharedeus2.eus2.attest.azure.net | 
-| USA (Mitte) | https://sharedcus.cus.attest.azure.net | 
-| East US| https://sharedeus.eus.attest.azure.net | 
-| Kanada, Mitte | https://sharedcac.cac.attest.azure.net | 
+| UK, Süden | `https://shareduks.uks.attest.azure.net` | 
+| USA (Ost 2) | `https://sharedeus2.eus2.attest.azure.net` | 
+| USA (Mitte) | `https://sharedcus.cus.attest.azure.net` | 
+| East US| `https://sharedeus.eus.attest.azure.net` | 
+| Kanada, Mitte | `https://sharedcac.cac.attest.azure.net` | 
 
 ## <a name="attestation-request"></a>Nachweisanforderung
 
@@ -50,13 +50,13 @@ Bei der Nachweisanforderung handelt es sich um ein serialisiertes JSON-Objekt, d
 - „Quote“ – der Wert der Eigenschaft „Quote“ ist eine Zeichenfolge, die eine Base64URL-codierte Darstellung des Nachweisangebots enthält.
 - „EnclaveHeldData“ – der Wert der Eigenschaft „EnclaveHeldData“ ist eine Zeichenfolge, die eine Base64URL-codierte Darstellung der Enclave Held Data enthält.
 
-Azure Attestation überprüft die angegebene Eigenschaft „Quote“ von TEE und stellt anschließend sicher, dass der SHA256-Hash der angegebenen „EnclaveHeldData“ in den ersten 32 Bytes des reportData-Felds im Angebot ausgedrückt ist. 
+Azure Attestation überprüft die angegebene Eigenschaft „Quote“ und stellt anschließend sicher, dass der SHA256-Hash der angegebenen Enclave Held Data in den ersten 32 Bytes des Felds „reportData“ im Angebot ausgedrückt ist. 
 
 ## <a name="attestation-policy"></a>Nachweisrichtlinie
 
 Eine Nachweisrichtlinie wird zum Verarbeiten der Nachweisbeweise verwendet und kann von den Kunden konfiguriert werden. Der Kern von Azure Attestation ist ein Richtlinienmodul, das Ansprüche verarbeitet, die den Beweis darstellen. Mithilfe von Richtlinien können Sie feststellen, ob Azure Attestation ein Nachweistoken auf Grundlage von Beweisen ausstellen soll (oder nicht) und somit den Attester unterstützt (oder nicht). Entsprechend führt ein Fehler beim Übergeben aller Richtlinien dazu, dass kein JWT-Token ausgegeben wird.
 
-Wenn die standardmäßige TEE-Richtlinie im Nachweisanbieter die Anforderungen nicht erfüllt, können Kunden benutzerdefinierte Richtlinien in allen Regionen erstellen, die von Azure Attestation unterstützt werden. Die Richtlinienverwaltung ist ein wichtiges Feature, das Azure Attestation den Kunden bereitstellt. Richtlinien sind TEE-spezifisch und können zum Identifizieren von Enclaves oder zum Hinzufügen von Ansprüchen zum Ausgabetoken bzw. zum Ändern von Ansprüchen in einem Ausgabetoken verwendet werden. 
+Falls die Standardrichtlinie im Nachweisanbieter die Anforderungen nicht erfüllt, können Kunden benutzerdefinierte Richtlinien in allen Regionen erstellen, die von Azure Attestation unterstützt werden. Die Richtlinienverwaltung ist ein wichtiges Feature, das Azure Attestation den Kunden bereitstellt. Richtlinien sind nachweistypspezifisch und können zum Identifizieren von Enclaves oder zum Hinzufügen von Ansprüchen zum Ausgabetoken bzw. zum Ändern von Ansprüchen in einem Ausgabetoken verwendet werden. 
 
 Weitere Informationen zum Inhalt von Standardrichtlinien und Beispiele finden Sie unter [Beispiele einer Nachweisrichtlinie](policy-examples.md).
 
@@ -99,6 +99,15 @@ Beispiel für ein JWT, das für eine SGX-Enclave generiert wurde:
 }.[Signature]
 ```
 Ansprüche wie „exp“, „iat“, „iss“ oder „nbf“ werden von der [JWT-RFC](https://tools.ietf.org/html/rfc7517) definiert, und die verbleibenden werden von Azure Attestation generiert. Weitere Informationen finden Sie unter [von Azure Attestation ausgegebene Ansprüche](claim-sets.md).
+
+## <a name="encryption-of-data-at-rest"></a>Verschlüsselung für ruhende Daten
+
+Zum Schutz von Kundendaten werden die Daten von Azure Attestation in Azure Storage gespeichert. Azure Storage verschlüsselt ruhende Daten, wenn diese in Rechenzentren geschrieben werden, und entschlüsselt sie für Kunden, damit diese darauf zugreifen können. Diese Verschlüsselung erfolgt mithilfe eines von Microsoft verwalteten Verschlüsselungsschlüssels. 
+
+Zusätzlich zum Schutz von Daten in Azure Storage wird von Azure Attestation auch Azure Disk Encryption (ADE) genutzt, um virtuelle Dienstcomputer zu verschlüsseln. Wenn Azure Attestation in einer Enclave in Azure Confidential Computing-Umgebungen ausgeführt wird, wird die ADE-Erweiterung derzeit nicht unterstützt. In solchen Szenarien ist die Auslagerungsdatei deaktiviert, um zu verhindern, dass Daten im Arbeitsspeicher gespeichert werden. 
+
+Auf den lokalen Festplattenlaufwerken der Azure Attestation-Instanz werden keine Kundendaten dauerhaft gespeichert.
+
 
 ## <a name="next-steps"></a>Nächste Schritte
 

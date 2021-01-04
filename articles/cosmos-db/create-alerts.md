@@ -4,26 +4,26 @@ description: Erfahren Sie mehr über das Einrichten von Warnungen für Azure Cos
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 07/16/2020
-ms.openlocfilehash: 84c2ad3a24d944db6a55f3f21e8a2a0c4084d033
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e29db7e31438bc7f6ac609384d0d9b92c275e813
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87095091"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339545"
 ---
 # <a name="create-alerts-for-azure-cosmos-db-using-azure-monitor"></a>Erstellen von Warnungen für Azure Cosmos DB mithilfe von Azure Monitor
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Mithilfe von Warnungen werden wiederkehrende Tests zum Überwachen der Verfügbarkeit und Reaktionsfähigkeit Ihrer Azure Cosmos DB-Ressourcen eingerichtet. Durch Warnungen kann Ihnen eine Benachrichtigung in Form einer E-Mail gesendet oder eine Azure-Funktion ausgeführt werden, sobald eine Ihrer Metriken den Schwellenwert erreicht oder ein bestimmtes Ereignis im Aktivitätsprotokoll erfasst wird.
 
 Sie können eine Warnung auf Grundlage der Metriken oder der Aktivitätsprotokollereignisse in Ihrem Azure Cosmos-Konto empfangen:
 
-* **Metriken**: Die Warnung wird ausgelöst, wenn der Wert für eine bestimmte Metrik einen von Ihnen definierten Schwellenwert überschreitet. Wenn z. B. die Gesamtanzahl der verbrauchten Anforderungseinheiten 1000 RU/s übersteigt. Diese Warnung wird sowohl ausgelöst, wenn die Bedingung erstmals erfüllt wird, als auch danach, wenn diese Bedingung nicht mehr erfüllt wird. Informationen zu den verschiedenen Metriken, die in Azure Cosmos DB verfügbar sind, finden Sie im Artikel [Überwachen von Daten – Referenz](monitor-cosmos-db-reference.md#metrics).
+* **Metriken** : Die Warnung wird ausgelöst, wenn der Wert für eine bestimmte Metrik einen von Ihnen definierten Schwellenwert überschreitet. Wenn z. B. die Gesamtanzahl der verbrauchten Anforderungseinheiten 1000 RU/s übersteigt. Diese Warnung wird sowohl ausgelöst, wenn die Bedingung erstmals erfüllt wird, als auch danach, wenn diese Bedingung nicht mehr erfüllt wird. Informationen zu den verschiedenen Metriken, die in Azure Cosmos DB verfügbar sind, finden Sie im Artikel [Überwachen von Daten – Referenz](monitor-cosmos-db-reference.md#metrics).
 
-* **Aktivitätsprotokollereignisse**: Diese Warnung wird ausgelöst, wenn ein bestimmtes Ereignis eintritt. Wenn beispielsweise auf die Schlüssel Ihres Azure Cosmos-Kontos zugegriffen wird oder diese aktualisiert werden.
+* **Aktivitätsprotokollereignisse** : Diese Warnung wird ausgelöst, wenn ein bestimmtes Ereignis eintritt. Wenn beispielsweise auf die Schlüssel Ihres Azure Cosmos-Kontos zugegriffen wird oder diese aktualisiert werden.
 
 Sie können Warnungen über den Azure Cosmos DB-Bereich oder den Azure Monitor-Dienst im Azure-Portal einrichten. Beide Schnittstellen bieten die gleichen Optionen. In diesem Artikel erfahren Sie, wie Sie Warnungen für Azure Cosmos DB mithilfe von Azure Monitor einrichten können.
 
@@ -39,7 +39,7 @@ In diesem Abschnitt wird gezeigt, wie Sie eine Warnung erstellen, wenn Sie den H
 
 1. Füllen Sie den Abschnitt **Bereich** aus:
 
-   * Öffnen Sie den Bereich **Ressource auswählen**, und konfigurieren Sie Folgendes:
+   * Öffnen Sie den Bereich **Ressource auswählen** , und konfigurieren Sie Folgendes:
 
    * Wählen Sie den Namen Ihres **Abonnements** aus.
 
@@ -51,7 +51,7 @@ In diesem Abschnitt wird gezeigt, wie Sie eine Warnung erstellen, wenn Sie den H
 
 1. Füllen Sie den Abschnitt **Bedingung** aus:
 
-   * Öffnen Sie den Bereich **Bedingung auswählen**, um die Seite **Signallogik konfigurieren** zu öffnen, und konfigurieren Sie Folgendes:
+   * Öffnen Sie den Bereich **Bedingung auswählen** , um die Seite **Signallogik konfigurieren** zu öffnen, und konfigurieren Sie Folgendes:
 
    * Wählen Sie ein Signal aus. Der **Signaltyp** kann eine **Metrik** oder ein **Aktivitätsprotokoll** sein. Wählen Sie für dieses Szenario die Option **Metriken** aus, da Sie eine Warnung erhalten möchten, wenn Probleme mit der Ratenbegrenzung für die Metrik „Anforderungseinheiten gesamt“ auftreten.
 
@@ -65,7 +65,7 @@ In diesem Abschnitt wird gezeigt, wie Sie eine Warnung erstellen, wenn Sie den H
 
    * Legen Sie unter **Warnungslogik** den **Schwellenwert** auf **Statisch** fest. Der statische Schwellenwert verwendet einen benutzerdefinierten Schwellenwert zum Auswerten der Regel, während die dynamischen Schwellenwerte integrierte Machine Learning-Algorithmen verwenden, um fortlaufend Muster im Metrikverhalten zu erlernen und die Schwellenwerte automatisch zu berechnen.
 
-   * Legen Sie den **Operator** auf **Größer als**, den **Aggregationstyp** auf **Gesamt** und den **Schwellenwert** auf **100** fest. Mit dieser Logik wird die Warnung dann ausgelöst, wenn der Client mehr als 100 Anforderungen mit dem Statuscode 429 erkennt. Sie können auch den Aggregationstyp, die Aggregationsgranularität und die Häufigkeit der Auswertung entsprechend Ihren Anforderungen konfigurieren.
+   * Legen Sie den **Operator** auf **Größer als** , den **Aggregationstyp** auf **Gesamt** und den **Schwellenwert** auf **100** fest. Mit dieser Logik wird die Warnung dann ausgelöst, wenn der Client mehr als 100 Anforderungen mit dem Statuscode 429 erkennt. Sie können auch den Aggregationstyp, die Aggregationsgranularität und die Häufigkeit der Auswertung entsprechend Ihren Anforderungen konfigurieren.
 
    * Nachdem Sie das Formular ausgefüllt haben, wählen Sie **Fertig** aus. Der folgende Screenshot zeigt die Details der Warnungslogik:
 
@@ -73,17 +73,17 @@ In diesem Abschnitt wird gezeigt, wie Sie eine Warnung erstellen, wenn Sie den H
 
 1. Füllen Sie den Abschnitt **Aktionsgruppe** aus:
 
-   * Wählen Sie im Bereich **Regel erstellen** eine vorhandene Aktionsgruppe aus, oder erstellen Sie eine neue Aktionsgruppe. Mithilfe einer Aktionsgruppe können Sie die Aktion definieren, die erfolgen soll, wenn eine Warnungsbedingung eintritt. Erstellen Sie für dieses Beispiel eine neue Aktionsgruppe, um bei Auslösen der Warnung eine E-Mail-Benachrichtigung zu erhalten. Öffnen Sie den Bereich **Aktionsgruppe hinzufügen**, und füllen Sie die folgenden Details aus:
+   * Wählen Sie im Bereich **Regel erstellen** eine vorhandene Aktionsgruppe aus, oder erstellen Sie eine neue Aktionsgruppe. Mithilfe einer Aktionsgruppe können Sie die Aktion definieren, die erfolgen soll, wenn eine Warnungsbedingung eintritt. Erstellen Sie für dieses Beispiel eine neue Aktionsgruppe, um bei Auslösen der Warnung eine E-Mail-Benachrichtigung zu erhalten. Öffnen Sie den Bereich **Aktionsgruppe hinzufügen** , und füllen Sie die folgenden Details aus:
 
-   * **Aktionsgruppenname**: Der Name der Aktionsgruppe muss innerhalb einer Ressourcengruppe eindeutig sein.
+   * **Aktionsgruppenname** : Der Name der Aktionsgruppe muss innerhalb einer Ressourcengruppe eindeutig sein.
 
-   * **Kurzname**: Der Kurzname der Aktionsgruppe. Dieser Wert ist in E-Mail- und SMS-Benachrichtigungen enthalten, um anzugeben, aus welcher Aktionsgruppe die Benachrichtigung stammt.
+   * **Kurzname** : Der Kurzname der Aktionsgruppe. Dieser Wert ist in E-Mail- und SMS-Benachrichtigungen enthalten, um anzugeben, aus welcher Aktionsgruppe die Benachrichtigung stammt.
 
    * Wählen Sie das Abonnement und die Ressourcengruppe aus, in der diese Aktionsgruppe erstellt werden soll.  
 
    * Geben Sie einen Namen für die Aktion an, und wählen Sie als **Aktionstyp** die Option **E-Mail/SMS/Push/Sprachanruf** aus. Der folgende Screenshot zeigt die Details des Aktionstyps:
 
-     :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Konfigurieren der Logik zum Empfangen von Warnungen für Anforderungen mit Ratenbeschränkung/Statuscode 429":::
+     :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Konfigurieren des Aktionstyps (z. B. E-Mail-Benachrichtigung) zum Empfangen der Warnung":::
 
 1. Füllen Sie den Abschnitt **Details zur Warnungsregel** aus:
 

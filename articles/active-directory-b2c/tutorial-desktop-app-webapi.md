@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 8ebfbeeb4533f21bc0fa10a5fee7b88ef069c262
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eca6297a704e1ef478c09baf227cf622d6890bb
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84298845"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953150"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutorial: Gewähren des Zugriffs auf eine Node.js-Web-API über eine Desktop-App unter Verwendung von Azure Active Directory B2C
 
@@ -51,7 +51,7 @@ Um eine geschützte Web-API über eine native Clientanwendung aufzurufen, müsse
 
 Im vorbereitenden Tutorial haben Sie eine native Clientanwendung mit dem Namen *nativeapp1* registriert. In den folgenden Schritten wird die Registrierung der nativen Anwendung mit den API-Bereichen konfiguriert, die Sie im vorherigen Abschnitt für *webapi1* verfügbar gemacht haben. Dadurch kann die Desktopanwendung ein Zugriffstoken von Azure AD B2C abrufen, mit dem die Web-API bereichsbezogenen Zugriff auf ihre Ressourcen überprüfen und gewähren kann. Die Codebeispiele für die Desktopanwendung und die Web-API werden später im Tutorial konfiguriert und ausgeführt.
 
-Zum Registrieren einer Anwendung in Ihrem Azure AD B2C-Mandanten können Sie unsere neue einheitliche Benutzeroberfläche **App-Registrierungen** oder unsere alte Benutzeroberfläche **Anwendungen (Legacy)** verwenden. [Weitere Informationen zur neuen Oberfläche](https://aka.ms/b2cappregtraining)
+Zum Registrieren einer Anwendung in Ihrem Azure AD B2C-Mandanten können Sie unsere neue einheitliche Benutzeroberfläche **App-Registrierungen** oder unsere alte Benutzeroberfläche **Anwendungen (Legacy)** verwenden. [Weitere Informationen zur neuen Oberfläche](./app-registrations-training-guide.md)
 
 #### <a name="app-registrations"></a>[App-Registrierungen](#tab/app-reg-ga/)
 
@@ -85,7 +85,7 @@ Die Web-API ist registriert, und Sie haben Bereiche und Berechtigungen konfiguri
 
 ### <a name="update-the-desktop-application"></a>Aktualisieren der Desktopanwendung
 
-Als Voraussetzung für diesen Artikel haben Sie eine [WPF-Desktopanwendung](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) geändert, um die Anmeldung mit einem Benutzerflow bei Ihrem Azure AD B2C-Mandanten zu ermöglichen. In diesem Abschnitt aktualisieren Sie dieselbe Anwendung, um auf die zuvor registrierte Web-API *webapi1*zu verweisen.
+Als Voraussetzung für diesen Artikel haben Sie eine [WPF-Desktopanwendung](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) geändert, um die Anmeldung mit einem Benutzerflow bei Ihrem Azure AD B2C-Mandanten zu ermöglichen. In diesem Abschnitt aktualisieren Sie dieselbe Anwendung, um auf die zuvor registrierte Web-API *webapi1* zu verweisen.
 
 1. Öffnen Sie die Projektmappe **active-directory-b2c-wpf** (`active-directory-b2c-wpf.sln`) in Visual Studio.
 1. Öffnen Sie im Projekt **active-directory-b2c-wpf** die Datei *App.xaml.cs*, und suchen Sie die folgenden Variablendefinitionen.

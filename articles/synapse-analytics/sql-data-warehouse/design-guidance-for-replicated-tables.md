@@ -11,12 +11,12 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 036cb15cf16b5f90dc17ccdce378a073a398d403
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cf40990d59aff984226244f520e6f8f937713fd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86181334"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456485"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Anleitung für das Verwenden replizierter Tabellen im Synapse SQL-Pool
 
@@ -26,13 +26,13 @@ Dieser Artikel enthält Empfehlungen für das Entwerfen replizierter Tabellen in
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-In diesem Artikel wird davon ausgegangen, dass Sie mit den Konzepten der Datenverteilung und -verschiebung im SQL-Pool vertraut sind.  Weitere Informationen finden Sie im Artikel zur [Architektur](massively-parallel-processing-mpp-architecture.md).
+In diesem Artikel wird davon ausgegangen, dass Sie mit den Konzepten der Datenverteilung und -verschiebung im SQL-Pool vertraut sind.    Weitere Informationen finden Sie im Artikel zur [Architektur](massively-parallel-processing-mpp-architecture.md).
 
-Für den Tabellenentwurf sollten Sie möglichst umfassende Kenntnisse zu Ihren Daten und über das Abfragen der Daten besitzen.  Stellen Sie sich beispielsweise die folgenden Fragen:
+Für den Tabellenentwurf sollten Sie möglichst umfassende Kenntnisse zu Ihren Daten und über das Abfragen der Daten besitzen.    Stellen Sie sich beispielsweise die folgenden Fragen:
 
 - Wie groß ist die Tabelle?
 - Wie oft wird die Tabelle aktualisiert?
-- Verfüge ich in einer SQL-Pooldatenbank über Fakten- und Dimensionstabellen?
+- Gibt es in einem SQL-Pool Fakten- und Dimensionstabellen?
 
 ## <a name="what-is-a-replicated-table"></a>Was ist eine replizierte Tabelle?
 
@@ -51,8 +51,8 @@ Die Verwendung einer replizierten Tabelle kann sinnvoll sein, wenn folgende Bedi
 
 Replizierte Tabellen liefern möglicherweise nicht die optimale Abfrageleistung, wenn folgende Bedingungen zutreffen:
 
-- In der Tabelle erfolgen häufig Einfüge-, Aktualisierungs- und Löschvorgänge. Vorgänge der Datenbearbeitungssprache (Data Manipulation Language, DML) erfordern das erneute Erstellen der replizierten Tabelle. Ein häufiges Neuerstellen kann zu Leistungseinbußen führen.
-- Die SQL-Pooldatenbank wird häufig skaliert. Durch das Skalieren einer SQL-Pooldatenbank wird die Anzahl der Serverknoten geändert, sodass eine Neuerstellung der replizierten Tabelle erfolgt.
+- In der Tabelle erfolgen häufig Einfüge-, Aktualisierungs- und Löschvorgänge.  Vorgänge der Datenbearbeitungssprache (Data Manipulation Language, DML) erfordern das erneute Erstellen der replizierten Tabelle.  Ein häufiges Neuerstellen kann zu Leistungseinbußen führen.
+- Der SQL-Pool wird häufig skaliert. Durch das Skalieren eines SQL-Pools wird die Anzahl der Serverknoten geändert. Dies führt zu einer Neuerstellung der replizierten Tabelle.
 - Die Tabelle enthält eine große Anzahl von Spalten, die Datenvorgänge greifen jedoch in der Regel nur auf eine kleine Anzahl von Spalten zu. In diesem Szenario ist es möglicherweise effektiver, eine Verteilung der Tabelle und dann einen Index für die Spalten mit häufigem Zugriff zu erstellen, statt die gesamte Tabelle zu replizieren. Wenn eine Abfrage eine Datenverschiebung erfordert, verschiebt der SQL-Pool nur Daten für die angeforderten Spalten.
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Verwenden Sie replizierte Tabellen mit einfachen Abfrageprädikaten
@@ -174,8 +174,8 @@ In dieser Abfrage wird die dynamische Verwaltungssicht [sys.pdw_replicated_table
 
 ```sql
 SELECT [ReplicatedTable] = t.[name]
-  FROM sys.tables t  
-  JOIN sys.pdw_replicated_table_cache_state c  
+  FROM sys.tables t  
+  JOIN sys.pdw_replicated_table_cache_state c  
     ON c.object_id = t.object_id
   JOIN sys.pdw_table_distribution_properties p
     ON p.object_id = t.object_id

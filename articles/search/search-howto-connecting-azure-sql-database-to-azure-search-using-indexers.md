@@ -9,16 +9,16 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: b1ad4ead83c9e07966f921a5b192f2791838e6ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04e4801c26b0ac8ef91af0b028d9dc2bb9a3cd1c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530560"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358625"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Verbinden und Indizieren von Azure SQL-Inhalten mithilfe eines Azure Cognitive Search-Indexers
 
-Bevor Sie einen [Index der kognitiven Azure-Suche](search-what-is-an-index.md) abfragen können, müssen Sie ihn mit Daten auffüllen. Wenn sich die Daten in Azure SQL-Datenbank oder SQL Managed Instance befinden, können Sie mit einem **Azure Cognitive Search-Indexer für Azure SQL-Datenbank** (oder kurz **Azure SQL-Indexer**) den Indizierungsprozess automatisieren. Dadurch müssen Sie weniger Code schreiben und sich um weniger Infrastruktur kümmern.
+Bevor Sie einen [Index der kognitiven Azure-Suche](search-what-is-an-index.md) abfragen können, müssen Sie ihn mit Daten auffüllen. Wenn sich die Daten in Azure SQL-Datenbank oder SQL Managed Instance befinden, können Sie mit einem **Azure Cognitive Search-Indexer für Azure SQL-Datenbank** (oder kurz **Azure SQL-Indexer** ) den Indizierungsprozess automatisieren. Dadurch müssen Sie weniger Code schreiben und sich um weniger Infrastruktur kümmern.
 
 In diesem Artikel erfahren Sie mehr über die Funktionsweise von [Indexern](search-indexer-overview.md) sowie über Funktionen, die nur für Azure SQL-Datenbank oder SQL Managed Instance verfügbar sind (wie etwa die integrierte Änderungsnachverfolgung). 
 
@@ -39,7 +39,7 @@ Ein einzelner Indexer kann nur eine Tabelle oder Sicht verwenden, aber Sie könn
 Sie können einen Azure SQL-Indexer wie folgt einrichten und konfigurieren:
 
 * Mit dem Datenimport-Assistenten im [Azure-Portal](https://portal.azure.com)
-* [.NET SDK](/dotnet/api/microsoft.azure.search.models.indexer) für die kognitive Azure-Suche
+* [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer) für die kognitive Azure-Suche
 * [REST-API](/rest/api/searchservice/indexer-operations) für die kognitive Azure-Suche
 
 In diesem Artikel wird die REST-API verwendet, um **Indexer** und **Datenquellen** zu erstellen.
@@ -151,7 +151,7 @@ Der Ausführungsverlauf enthält bis zu 50 der zuletzt abgeschlossenen Ausführu
 Weitere Informationen zur Antwort finden Sie unter [Abrufen des Indexerstatus](/rest/api/searchservice/get-indexer-status).
 
 ## <a name="run-indexers-on-a-schedule"></a>Ausführen von Indexern nach einem Zeitplan
-Sie können den Indexer auch so konfigurieren, dass er regelmäßig nach einem Zeitplan ausgeführt wird. Dazu fügen Sie die **schedule**-Eigenschaft beim Erstellen oder Aktualisieren des Indexers hinzu. Das folgende Beispiel zeigt eine PUT-Anforderung den Indexer, um den zu aktualisieren:
+Sie können den Indexer auch so konfigurieren, dass er regelmäßig nach einem Zeitplan ausgeführt wird. Dazu fügen Sie die **schedule** -Eigenschaft beim Erstellen oder Aktualisieren des Indexers hinzu. Das folgende Beispiel zeigt eine PUT-Anforderung den Indexer, um den zu aktualisieren:
 
 ```
     PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2020-06-30
@@ -176,7 +176,7 @@ Weitere Informationen zum Definieren von Indexerzeitplänen finden Sie unter [Fe
 In der kognitiven Azure-Suche wird eine **inkrementelle Indizierung** verwendet, um zu vermeiden, dass die gesamte Tabelle oder Ansicht jedes Mal neu indiziert wird, wenn ein Indexer ausgeführt wird. Die kognitive Azure-Suche umfasst zwei Richtlinien zur Erkennung von Änderungen, um die inkrementelle Indizierung zu unterstützen. 
 
 ### <a name="sql-integrated-change-tracking-policy"></a>Richtlinie für die integrierte SQL-Änderungsnachverfolgung
-Wenn die SQL-Datenbank die [Änderungsnachverfolgung](/sql/relational-databases/track-changes/about-change-tracking-sql-server)unterstützt, wird empfohlen, die **Richtlinie für die integrierte SQL-Änderungsnachverfolgung**zu verwenden. Dies ist die effizienteste Richtlinie. Außerdem sorgt sie dafür, dass in der kognitiven Azure-Suche gelöschte Zeilen identifiziert werden, ohne dass Sie eine explizite „Vorläufig löschen“-Spalte in der Tabelle angeben müssen.
+Wenn die SQL-Datenbank die [Änderungsnachverfolgung](/sql/relational-databases/track-changes/about-change-tracking-sql-server)unterstützt, wird empfohlen, die **Richtlinie für die integrierte SQL-Änderungsnachverfolgung** zu verwenden. Dies ist die effizienteste Richtlinie. Außerdem sorgt sie dafür, dass in der kognitiven Azure-Suche gelöschte Zeilen identifiziert werden, ohne dass Sie eine explizite „Vorläufig löschen“-Spalte in der Tabelle angeben müssen.
 
 #### <a name="requirements"></a>Requirements (Anforderungen) 
 

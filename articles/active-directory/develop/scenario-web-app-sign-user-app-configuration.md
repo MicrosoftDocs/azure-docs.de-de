@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: ea0312cd8129fce342f94cfab5701d1773aca309
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dad7b0563fd1ca0dbf60403bc6172e7616e278b2
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728334"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443652"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Web-App für Benutzeranmeldungen: Codekonfiguration
 
@@ -344,22 +344,18 @@ Im nächsten Artikel erfahren Sie, wie An- und Abmeldung ausgelöst werden.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-> [!div class="nextstepaction"]
-> [An- und Abmelden](./scenario-web-app-sign-user-sign-in.md?tabs=aspnetcore)
+Fahren Sie mit dem nächsten Artikel in diesem Szenario fort: [Anmelden und Abmelden](./scenario-web-app-sign-user-sign-in.md?tabs=aspnetcore).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-> [!div class="nextstepaction"]
-> [An- und Abmelden](./scenario-web-app-sign-user-sign-in.md?tabs=aspnet)
+Fahren Sie mit dem nächsten Artikel in diesem Szenario fort: [Anmelden und Abmelden](./scenario-web-app-sign-user-sign-in.md?tabs=aspnet).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [An- und Abmelden](./scenario-web-app-sign-user-sign-in.md?tabs=java)
+Fahren Sie mit dem nächsten Artikel in diesem Szenario fort: [Anmelden und Abmelden](./scenario-web-app-sign-user-sign-in.md?tabs=java).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [An- und Abmelden](./scenario-web-app-sign-user-sign-in.md?tabs=python)
+Fahren Sie mit dem nächsten Artikel in diesem Szenario fort: [Anmelden und Abmelden](./scenario-web-app-sign-user-sign-in.md?tabs=python).
 
 ---

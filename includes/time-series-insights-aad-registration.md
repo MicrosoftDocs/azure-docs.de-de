@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 10/02/2020
-ms.openlocfilehash: 7de4dc21391f7dbd817c56ce51606a808cf9e3c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50f203357d29d450f5b34593952f611f025b14ff
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665809"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95556045"
 ---
 1. Wählen Sie im [Azure-Portal](https://ms.portal.azure.com/) nacheinander **Azure Active Directory** > **App-Registrierungen** > **Neue Registrierung** aus.
 
@@ -22,7 +22,7 @@ ms.locfileid: "91665809"
 
     Ihre App wird hier aufgelistet, nachdem Sie sie registriert haben.
 
-1. Geben Sie der Anwendung einen Namen, und wählen Sie **Nur Konten in diesem Organisationsverzeichnis** aus, um **Unterstützten Kontotypen** anzugeben, die auf die API zugreifen dürfen. Wenn Sie eine [öffentliche Client-App](https://docs.microsoft.com/azure/active-directory/develop/msal-client-application-configuration#redirect-uri) erstellen, fügen Sie einen Umleitungs-URI hinzu, und klicken Sie dann auf **Registrieren**.
+1. Geben Sie der Anwendung einen Namen, und wählen Sie **Nur Konten in diesem Organisationsverzeichnis** aus, um **Unterstützten Kontotypen** anzugeben, die auf die API zugreifen dürfen. Wenn Sie eine [öffentliche Client-App](../articles/active-directory/develop/msal-client-application-configuration.md#redirect-uri) erstellen, fügen Sie einen Umleitungs-URI hinzu, und klicken Sie dann auf **Registrieren**.
 
    [![Erstellen der Anwendung in Azure Active Directory](media/time-series-insights-aad-registration/active-directory-registration.png)](media/time-series-insights-aad-registration/active-directory-registration.png#lightbox)
 

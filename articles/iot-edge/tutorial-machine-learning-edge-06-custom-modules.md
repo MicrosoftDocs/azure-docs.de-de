@@ -9,17 +9,14 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3a2087c83ec48b0b732ce1cb954f78fad9b46fef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25db7104e565a987f3be9e2d6f3b239cf1884ae4
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857434"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932335"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Tutorial: Erstellen und Bereitstellen von benutzerdefinierten IoT Edge-Modulen
-
-> [!NOTE]
-> Dieser Artikel ist Teil einer Tutorialreihe zur Verwendung von Azure Machine Learning für IoT Edge. Falls Sie direkt zu diesem Artikel navigiert sind, ist es ratsam, mit dem [ersten Artikel](tutorial-machine-learning-edge-01-intro.md) der Reihe zu beginnen.
 
 In diesem Artikel werden drei IoT Edge-Module erstellt, die Nachrichten von IoT-Blattgeräten empfangen, die Daten in Ihrem Machine Learning-Modell verarbeiten lassen und dann Erkenntnisse an IoT Hub weiterleiten.
 
@@ -54,6 +51,19 @@ Das folgende Diagramm zeigt die Module, Eingaben, Ausgaben und die IoT Edge Hu
 ![IoT Edge-Architekturdiagramm mit drei Modulen](media/tutorial-machine-learning-edge-06-custom-modules/modules-diagram.png)
 
 Die Schritte in diesem Artikel werden normalerweise von einem Cloudentwickler ausgeführt.
+
+In diesem Abschnitt des Tutorials lernen Sie Folgendes:
+
+> [!div class="checklist"]
+>
+> * Erstellen eines IoT Edge-Modulangebots auf der Grundlage von benutzerdefiniertem Code
+> * Generieren eines Docker-Images über das benutzerdefinierte Modul
+> * Neukonfigurieren des IoT Hub-Routings zur Unterstützung der benutzerdefinierten Module
+> * Erstellen, Veröffentlichen und Bereitstellen der benutzerdefinierten Module
+
+## <a name="prerequisites"></a>Voraussetzungen
+
+Dieser Artikel ist Teil einer Tutorialreihe zur Verwendung von Azure Machine Learning für IoT Edge. Jeder Artikel in der Reihe baut auf der Arbeit im vorherigen Artikel auf. Wenn Sie diesen Artikel direkt aufgerufen haben, wechseln Sie zum [ersten Artikel](tutorial-machine-learning-edge-01-intro.md) in der Reihe.
 
 ## <a name="create-a-new-iot-edge-solution"></a>Erstellen einer neuen IoT Edge-Projektmappe
 
@@ -803,6 +813,10 @@ Durch die Anmeldung bei dem IoT Edge-Gerät (in unserem Fall: der virtuelle Lin
    ```bash
    sudo docker exec -it avroFileWriter bash
    ```
+
+## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+
+Dieses Tutorial ist Teil einer Reihe, in der jeder Artikel auf den Schritten aufbaut, die jeweils im vorherigen Artikel ausgeführt wurden. Warten Sie mit dem Bereinigen von Ressourcen, bis Sie das letzte Tutorial abgeschlossen haben.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

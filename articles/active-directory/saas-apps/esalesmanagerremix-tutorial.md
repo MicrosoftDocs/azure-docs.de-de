@@ -8,15 +8,15 @@ ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: df993aae4e6c572c8f99688fd0053bdd07aefd56
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: c06595b683092abf52300481068daab26394c4cb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92453927"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995640"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integrieren von Azure Active Directory mit E Sales Manager Remix
 
@@ -60,7 +60,7 @@ Zum Konfigurieren der Integration von Azure AD mit E Sales Manager Remix müssen
 
     ![Schaltfläche „Azure Active Directory“][1]
 
-1. Wählen Sie **Unternehmensanwendungen** > **Alle Anwendungen** .
+1. Wählen Sie **Unternehmensanwendungen** > **Alle Anwendungen**.
 
     ![Fenster „Unternehmensanwendungen“][2]
     
@@ -96,7 +96,7 @@ Aktivieren Sie das einmalige Anmelden von Azure AD im Azure-Portal, und konfigur
 
     ![SSO-Informationen zur Domäne und zu den URLs für E Sales Manager Remix](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
 
-    a. Geben Sie im Feld **Anmelde-URL** eine URL im folgenden Format ein: *https://\<Server-Based-URL>/\<sub-domain>/esales-pc* .
+    a. Geben Sie im Feld **Anmelde-URL** eine URL im folgenden Format ein: *https://\<Server-Based-URL>/\<sub-domain>/esales-pc*.
 
     b. Geben Sie im Feld **Bezeichner** eine URL im folgenden Format ein: *https://\<Server-Based-URL>/\<sub-domain>/* .
 
@@ -109,13 +109,13 @@ Aktivieren Sie das einmalige Anmelden von Azure AD im Azure-Portal, und konfigur
 
     ![Link zum Herunterladen des Zertifikats (Base64)](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_certificate.png) 
 
-1. Aktivieren Sie das Kontrollkästchen **Alle weiteren Benutzerattribute anzeigen und bearbeiten** , und wählen Sie dann das Attribut **emailaddress** aus.
+1. Aktivieren Sie das Kontrollkästchen **Alle weiteren Benutzerattribute anzeigen und bearbeiten**, und wählen Sie dann das Attribut **emailaddress** aus.
     
     ![Fenster „Benutzerattribute“](./media/esalesmanagerremix-tutorial/configure1.png)
 
     Das Fenster **Attribut bearbeiten** wird geöffnet.
 
-1. Kopieren Sie die Werte in **Namespace** und **Name** . Generieren Sie den Wert nach dem Muster *\<Namespace>/\<Name>* , und speichern Sie ihn zur späteren Verwendung in diesem Tutorial.
+1. Kopieren Sie die Werte in **Namespace** und **Name**. Generieren Sie den Wert nach dem Muster *\<Namespace>/\<Name>* , und speichern Sie ihn zur späteren Verwendung in diesem Tutorial.
 
     ![Fenster „Attribut bearbeiten“](./media/esalesmanagerremix-tutorial/configure2.png)
 
@@ -149,7 +149,7 @@ Aktivieren Sie das einmalige Anmelden von Azure AD im Azure-Portal, und konfigur
 
     ![Abschnitt „SAML authentication setting“ (SAML-Authentifizierungseinstellungen)](./media/esalesmanagerremix-tutorial/configure3.png)
     
-    a. Aktivieren Sie das Kontrollkästchen **PC version** .
+    a. Aktivieren Sie das Kontrollkästchen **PC version**.
     
     b. Wählen Sie in der Dropdownliste im Abschnitt **Collaboration item** (Zusammenarbeitselement) die Option **email** aus.
 
@@ -166,7 +166,7 @@ Aktivieren Sie das einmalige Anmelden von Azure AD im Azure-Portal, und konfigur
     h. Wählen Sie **Setting complete** (Einstellung abgeschlossen) aus.
 
 > [!TIP]
-> Zum Einrichten der App können Sie eine Kurzversion der vorstehenden Anweisungen im [Azure-Portal](https://portal.azure.com) lesen. Nachdem Sie diese App über den Abschnitt **Active Directory** > **Unternehmensanwendungen** hinzugefügt haben, navigieren Sie zur Registerkarte **Einmaliges Anmelden** , und rufen Sie unten im Abschnitt **Konfiguration** die eingebettete Dokumentation auf. Weitere Informationen zur eingebetteten Dokumentation finden Sie unter [Eingebettete Azure AD-Dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985).
+> Zum Einrichten der App können Sie eine Kurzversion der vorstehenden Anweisungen im [Azure-Portal](https://portal.azure.com) lesen. Nachdem Sie diese App über den Abschnitt **Active Directory** > **Unternehmensanwendungen** hinzugefügt haben, navigieren Sie zur Registerkarte **Einmaliges Anmelden**, und rufen Sie unten im Abschnitt **Konfiguration** die eingebettete Dokumentation auf. Weitere Informationen zur eingebetteten Dokumentation finden Sie unter [Eingebettete Azure AD-Dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Erstellen eines Azure AD-Testbenutzers
@@ -175,7 +175,7 @@ In diesem Abschnitt erstellen Sie im Azure-Portal wie folgt einen Testbenutzer m
 
 ![Erstellen eines Azure AD-Testbenutzers][100]
 
-1. Klicken Sie im linken Bereich des Azure-Portals auf **Azure Active Directory** .
+1. Klicken Sie im linken Bereich des Azure-Portals auf **Azure Active Directory**.
 
     ![Link „Azure Active Directory“](./media/paloaltoadmin-tutorial/create_aaduser_01.png)
 
@@ -197,9 +197,9 @@ In diesem Abschnitt erstellen Sie im Azure-Portal wie folgt einen Testbenutzer m
 
     b. Geben Sie im Feld **Benutzername** die E-Mail-Adresse des Benutzers Britta Simon ein.
 
-    c. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen** , und notieren Sie den Wert im Feld **Kennwort** .
+    c. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie den Wert im Feld **Kennwort**.
 
-    d. Klicken Sie auf **Erstellen** .
+    d. Klicken Sie auf **Erstellen**.
  
 ### <a name="create-an-e-sales-manager-remix-test-user"></a>Erstellen eines E Sales Manager Remix-Testbenutzers
 
@@ -217,7 +217,7 @@ In diesem Abschnitt erstellen Sie im Azure-Portal wie folgt einen Testbenutzer m
     
     ![Abschnitt „New employee registration“ (Registrierung neuer Mitarbeiter)](./media/esalesmanagerremix-tutorial/user2.png)
 
-    a. Geben Sie im Feld **Employee Name** (Mitarbeitername) den Namen des Benutzers ein (z.B. **Britta** ).
+    a. Geben Sie im Feld **Employee Name** (Mitarbeitername) den Namen des Benutzers ein (z.B. **Britta**).
 
     b. Füllen Sie die weiteren erforderlichen Felder aus.
     
@@ -235,7 +235,7 @@ In diesem Abschnitt ermöglichen Sie der Benutzerin Britta Simon das einmalige A
 
 ![Zuweisen der Benutzerrolle][200] 
 
-1. Öffnen Sie im Azure-Portal die **Anwendungsansicht** , navigieren Sie zur **Verzeichnisansicht** , und wählen Sie dann **Unternehmensanwendungen** > **Alle Anwendungen** aus.
+1. Öffnen Sie im Azure-Portal die **Anwendungsansicht**, navigieren Sie zur **Verzeichnisansicht**, und wählen Sie dann **Unternehmensanwendungen** > **Alle Anwendungen** aus.
 
     ![Links „Unternehmensanwendungen“ und „Alle Anwendungen“][201] 
 
@@ -243,11 +243,11 @@ In diesem Abschnitt ermöglichen Sie der Benutzerin Britta Simon das einmalige A
 
     ![Link „E Sales Manager Remix“](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_app.png)  
 
-1. Wählen Sie auf der linken Seite **Benutzer und Gruppen** .
+1. Wählen Sie auf der linken Seite **Benutzer und Gruppen**.
 
     ![Link „Benutzer und Gruppen“][202]
 
-1. Wählen Sie **Hinzufügen** und dann im Bereich **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** .
+1. Wählen Sie **Hinzufügen** und dann im Bereich **Zuweisung hinzufügen** die Option **Benutzer und Gruppen**.
 
     ![Bereich „Zuweisung hinzufügen“][203]
 

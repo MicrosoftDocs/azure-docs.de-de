@@ -3,17 +3,19 @@ title: Elastisches Skalieren mit der Cassandra-API in Azure Cosmos DB
 description: Erfahren Sie mehr über die zum Skalieren eines Cassandra-API-Kontos für Azure Cosmos DB verfügbaren Optionen und ihre Vor- und Nachteile.
 author: TheovanKraay
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: thvankra
-ms.openlocfilehash: cbd5dbd81cf8cda117447a15d4a73ae8a546f181
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: aad2e80598146be7b45a8a7b8a02cfe050163102
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482518"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340956"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Elastisches Skalieren eines Cassandra-API-Kontos für Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Es gibt verschiedene Möglichkeiten, die elastische Natur der Azure Cosmos DB-API für Cassandra zu erkunden. Um herauszufinden, wie eine effektive Skalierung in Azure Cosmos DB funktioniert, müssen Sie wissen, wie Sie die richtige Menge an Anforderungseinheiten (Request Units, RUs) bereitstellen, um die Leistungsanforderungen in Ihrem System zu erfüllen. Weitere Informationen zu Anforderungseinheiten finden Sie im Artikel [Anforderungseinheiten](request-units.md). 
 

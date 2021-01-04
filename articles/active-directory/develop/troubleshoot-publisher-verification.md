@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 4a66db34adb4eb751abc741964b740b3b6f48c69
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 857659cdd97666dba585c1ec22c750e29bf28879
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073732"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169170"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Problembehandlung bei der Herausgeberüberprüfung
 Wenn Sie den Vorgang nicht ausführen können oder bei der [Herausgeberüberprüfung](publisher-verification-overview.md) unerwartetes Verhalten auftritt, sollten Sie zunächst die folgenden Schritte ausführen, wenn Sie Fehlermeldungen erhalten oder unerwartetes Verhalten feststellen: 
@@ -51,8 +51,8 @@ Im Folgenden finden Sie einige häufige Probleme, die während des Vorgangs auft
     1. Navigieren Sie zu Ihrem [Partnerprofil](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile), und stellen Sie Folgendes sicher: 
         - Dass die MPN-ID korrekt ist. 
         - Dass keine Fehler oder „ausstehenden Aktionen“ angezeigt werden und der Überprüfungsstatus unter „Rechtliches Geschäftsprofil“ und „Partnerinformationen“ jeweils „autorisiert“ oder „erfolgreich“ lauten.
-    1. Navigieren Sie zur [Seite für die MPN-Mandantenverwaltung](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement), und vergewissern Sie sich, dass der Mandant, in dem die App registriert ist und von dem Sie sich mit einem Benutzerkonto anmelden, in der Liste der zugeordneten Mandanten aufgeführt ist. Wenn Sie einen weiteren Mandanten hinzufügen müssen, befolgen Sie die [hier](https://docs.microsoft.com/partner-center/multi-tenant-account) beschriebenen Anweisungen. Beachten Sie, dass alle globalen Administratoren jedes Mandanten, den Sie hinzufügen, globale Administratorrechte für Ihr Partner Center-Konto erhalten.
-    1. Navigieren Sie zur [Seite für die MPN-Benutzerverwaltung](https://partner.microsoft.com/pcv/users), und vergewissern Sie sich, dass der Benutzer, unter dem Sie sich anmelden, entweder „Globaler Administrator“, „MPN-Administrator“ oder „Kontoadministrator“ ist. Wenn Sie einer Rolle im Partner Center einen Benutzer hinzufügen müssen, befolgen Sie die [hier](https://docs.microsoft.com/partner-center/create-user-accounts-and-set-permissions) beschriebenen Anweisungen.
+    1. Navigieren Sie zur [Seite für die MPN-Mandantenverwaltung](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement), und vergewissern Sie sich, dass der Mandant, in dem die App registriert ist und von dem Sie sich mit einem Benutzerkonto anmelden, in der Liste der zugeordneten Mandanten aufgeführt ist. Wenn Sie einen weiteren Mandanten hinzufügen müssen, befolgen Sie die [hier](/partner-center/multi-tenant-account) beschriebenen Anweisungen. Beachten Sie, dass alle globalen Administratoren jedes Mandanten, den Sie hinzufügen, globale Administratorrechte für Ihr Partner Center-Konto erhalten.
+    1. Navigieren Sie zur [Seite für die MPN-Benutzerverwaltung](https://partner.microsoft.com/pcv/users), und vergewissern Sie sich, dass der Benutzer, unter dem Sie sich anmelden, entweder „Globaler Administrator“, „MPN-Administrator“ oder „Kontoadministrator“ ist. Wenn Sie einer Rolle im Partner Center einen Benutzer hinzufügen müssen, befolgen Sie die [hier](/partner-center/create-user-accounts-and-set-permissions) beschriebenen Anweisungen.
 
 - **Wenn ich mich beim Azure AD-Portal anmelde, werden mir keine registrierten Apps angezeigt. Warum?** 
     Möglicherweise wurden Ihre App-Registrierungen mit einem anderen Benutzerkonto in diesem Mandanten, oder in einem anderen Mandanten oder mit einem persönlichen/Endbenutzerkonto erstellt. Stellen Sie sicher, dass Sie mit dem richtigen Konto in dem Mandanten angemeldet sind, in dem Ihre App-Registrierungen erstellt wurden.

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
-ms.openlocfilehash: 93698fadcecf190dd8bbc24a9d03978899d3c5e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5be3f02a80524d9c4b633e1e34d581fc26bfd32d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75887154"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547893"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Troubleshooting bei Apache HBase-Leistungsproblemen in Azure HDInsight
 
@@ -73,9 +73,9 @@ Im Anschluss finden Sie einige der anderen spezifischen Parameter, mit deren Opt
 
 - Erhöhen Sie die Größe von `memstore` auf 256 MB (Standardwert: 128 MB). Diese Einstellung wird in der Regel für schreiblastige Szenarien empfohlen.
 
-- Erhöhen Sie die Anzahl dedizierter Threads für die Komprimierung auf **4** (Standardeinstellung: **1**). Diese Einstellung ist relevant, wenn häufig geringfügige Komprimierungsvorgänge ausgeführt werden.
+- Erhöhen Sie die Anzahl dedizierter Threads für die Komprimierung auf **4** (Standardeinstellung: **1** ). Diese Einstellung ist relevant, wenn häufig geringfügige Komprimierungsvorgänge ausgeführt werden.
 
-- Die `memstore`-Leerung sollte nicht aufgrund von Speicherlimits blockiert werden. Erhöhen Sie zur Bereitstellung dieses Puffers die Einstellung `Hbase.hstore.blockingStoreFiles` auf **100**.
+- Die `memstore`-Leerung sollte nicht aufgrund von Speicherlimits blockiert werden. Erhöhen Sie zur Bereitstellung dieses Puffers die Einstellung `Hbase.hstore.blockingStoreFiles` auf **100** .
 
 - Verwenden Sie zum Steuern von Leerungen die folgenden Einstellungen:
 
@@ -124,4 +124,4 @@ Sollte Ihr Problem weiterhin bestehen, besuchen Sie einen der folgenden Kanäle,
 
 - Wenden Sie sich an [@AzureSupport](https://twitter.com/azuresupport) – das offizielle Microsoft Azure-Konto zur Verbesserung der Benutzerfreundlichkeit. Hierüber hat die Azure-Community Zugriff auf die richtigen Ressourcen: Antworten, Support und Experten.
 
-- Sollten Sie weitere Unterstützung benötigen, senden Sie eine Supportanfrage über das [Azure-Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Wählen Sie dazu auf der Menüleiste die Option **Support** aus, oder öffnen Sie den Hub **Hilfe und Support**. Ausführlichere Informationen hierzu finden Sie unter [Erstellen einer Azure-Supportanfrage](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Ihr Microsoft Azure-Konto beinhaltet den Zugang zu Abonnementverwaltung und Abrechnungssupport. Technischer Support wird über einen [Azure-Supportplan](https://azure.microsoft.com/support/plans/) bereitgestellt.
+- Sollten Sie weitere Unterstützung benötigen, senden Sie eine Supportanfrage über das [Azure-Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Wählen Sie dazu auf der Menüleiste die Option **Support** aus, oder öffnen Sie den Hub **Hilfe und Support** . Ausführlichere Informationen hierzu finden Sie unter [Erstellen einer Azure-Supportanfrage](../../azure-portal/supportability/how-to-create-azure-support-request.md). Ihr Microsoft Azure-Konto beinhaltet den Zugang zu Abonnementverwaltung und Abrechnungssupport. Technischer Support wird über einen [Azure-Supportplan](https://azure.microsoft.com/support/plans/) bereitgestellt.

@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1f62e0b3a40382c911cd07c777c521adb3649c4d
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d6f3d2051790ba02f5e4ea1687830ccbdf6dcf21
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282313"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285140"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Erstellen eines Azure-Schlüsseltresors und von Tresorzugriffsrichtlinien mithilfe einer Resource Manager-Vorlage
 
@@ -84,7 +84,7 @@ Mit der folgenden einfachen Vorlage wird ein Schlüsseltresor erstellt. Einige W
 
 ```
 
-Weitere Informationen zu Key Vault-Vorlageneinstellungen finden Sie unter [Key Vault ARM-Vorlagenreferenz](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults).
+Weitere Informationen zu Key Vault-Vorlageneinstellungen finden Sie unter [Key Vault ARM-Vorlagenreferenz](/azure/templates/microsoft.keyvault/vaults).
 
 > [!IMPORTANT]
 > Wenn eine Vorlage erneut bereitgestellt wird, werden alle vorhandenen Zugriffsrichtlinien im Schlüsseltresor überschrieben. Es wird empfohlen, die `accessPolicies`-Eigenschaft mit vorhandenen Zugriffsrichtlinien aufzufüllen, um zu verhindern, dass Sie den Zugriff auf den Schlüsseltresor verlieren. 
@@ -160,7 +160,7 @@ Sie können Zugriffsrichtlinien für einen vorhandenen Schlüsseltresor ohne ern
 }
 
 ```
-Weitere Informationen zu Key Vault-Vorlageneinstellungen finden Sie unter [Key Vault ARM-Vorlagenreferenz](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/accesspolicies).
+Weitere Informationen zu Key Vault-Vorlageneinstellungen finden Sie unter [Key Vault ARM-Vorlagenreferenz](/azure/templates/microsoft.keyvault/vaults/accesspolicies).
 
 ## <a name="more-key-vault-resource-manager-templates"></a>Weitere Key Vault Resource Manager-Vorlagen
 
@@ -168,13 +168,13 @@ Für Key Vault-Objekte stehen weitere Resource Manager-Vorlagen zur Verfügung:
 
 | Geheimnisse | Schlüssel | Zertifikate |
 |--|--|--|
-|<ul><li>[Schnellstart](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template)<li>[Verweis](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|–|–|
+|<ul><li>[Schnellstart](../secrets/quick-create-template.md)<li>[Verweis](/azure/templates/microsoft.keyvault/vaults/secrets)|–|–|
 
-Weitere Key Vault-Vorlagen finden Sie hier: [Key Vault Resource Manager-Referenz](https://docs.microsoft.com/azure/templates/microsoft.keyvault/allversions)
+Weitere Key Vault-Vorlagen finden Sie hier: [Key Vault Resource Manager-Referenz](/azure/templates/microsoft.keyvault/allversions)
 
 ## <a name="deploy-the-templates"></a>Bereitstellen der Vorlagen
 
-Sie können das Azure-Portal verwenden, um die oben genannten Vorlagen mithilfe der Option **Eigene Vorlage im Editor erstellen** bereitzustellen, die hier beschrieben ist: [Bereitstellen von Ressourcen mithilfe einer benutzerdefinierten Vorlage](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template)
+Sie können das Azure-Portal verwenden, um die oben genannten Vorlagen mithilfe der Option **Eigene Vorlage im Editor erstellen** bereitzustellen, die hier beschrieben ist: [Bereitstellen von Ressourcen mithilfe einer benutzerdefinierten Vorlage](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)
 
 Sie können die oben aufgeführten Vorlagen auch in Dateien speichern und die folgenden Befehle verwenden:  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) und [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create):
 

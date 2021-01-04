@@ -1,18 +1,18 @@
 ---
-title: Ausführen von Python-Skripts per Data Factory
-description: 'Tutorial: Es wird beschrieben, wie Sie Python-Skripts als Teil einer Pipeline per Azure Data Factory mit Azure Batch ausführen.'
-author: mammask
+title: 'Tutorial: Ausführen von Python-Skripts per Data Factory'
+description: Es wird beschrieben, wie Sie Python-Skripts als Teil einer Pipeline per Azure Data Factory mit Azure Batch ausführen.
+author: pkshultz
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 08/12/2020
-ms.author: komammas
+ms.author: peshultz
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: f4c71cffe00faa6dd8cc440c59f94b8c2d60f712
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7752bc3f768aec7a3e98fb1813c4194f81fb9dfb
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88185110"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917629"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Tutorial: Ausführen von Python-Skripts per Azure Data Factory mit Azure Batch
 
@@ -33,7 +33,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 ## <a name="prerequisites"></a>Voraussetzungen
 
 * Eine installierte [Python](https://www.python.org/downloads/)-Distribution für lokale Tests.
-* Das [Azure](https://pypi.org/project/azure/) `pip`-Paket.
+* Das [-Paket ](https://pypi.org/project/azure-storage-blob/)azure-storage-blob`pip`
 * Das [iris.csv-DataSet](https://www.kaggle.com/uciml/iris/version/2#Iris.csv)
 * Ein Azure Batch-Konto und ein verknüpftes Azure Storage-Konto. Weitere Informationen zum Erstellen und Verknüpfen von Batch-Konten mit Speicherkonten finden Sie unter [Erstellen eines Batch-Kontos](quick-create-portal.md#create-a-batch-account).
 * Ein Azure Data Factory-Konto. Weitere Informationen zum Erstellen einer Data Factory-Instanz über das Azure-Portal finden Sie unter [Erstellen einer Data Factory](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory).
@@ -57,7 +57,7 @@ In diesem Abschnitt verwenden Sie Batch Explorer zum Erstellen des Batch-Pools, 
     1. Legen Sie den Skalierungstyp auf **Feste Größe** und die Anzahl von dedizierten Knoten auf „2“ fest.
     1. Wählen Sie unter **Data Science** die Option **DSVM Windows** als Betriebssystem aus.
     1. Wählen Sie `Standard_f2s_v2` als Größe des virtuellen Computers aus.
-    1. Aktivieren Sie den Starttask, und fügen Sie den Befehl `cmd /c "pip install pandas"` hinzu. Die Benutzeridentität kann als Standard-**Poolbenutzer** beibehalten werden.
+    1. Aktivieren Sie den Starttask, und fügen Sie den Befehl `cmd /c "pip install azure-storage-blob pandas"` hinzu. Die Benutzeridentität kann als Standard-**Poolbenutzer** beibehalten werden.
     1. Klicken Sie auf **OK**.
 
 ## <a name="create-blob-containers"></a>Erstellen von Blobcontainern
@@ -75,17 +75,17 @@ Mit dem folgenden Python-Skript wird das Dataset `iris.csv` aus Ihrem Container 
 
 ``` python
 # Load libraries
-from azure.storage.blob import BlockBlobService
+from azure.storage.blob import BlobServiceClient
 import pandas as pd
 
 # Define parameters
-storageAccountName = "<storage-account-name>"
+storageAccountURL = "<storage-account-url>"
 storageKey         = "<storage-account-key>"
 containerName      = "output"
 
 # Establish connection with the blob storage account
-blobService = BlockBlobService(account_name=storageAccountName,
-                               account_key=storageKey
+blob_service_client = BlockBlobService(account_url=storageAccountURL,
+                               credential=storageKey
                                )
 
 # Load iris dataset from the task node
@@ -98,10 +98,12 @@ df = df[df['Species'] == "setosa"]
 df.to_csv("iris_setosa.csv", index = False)
 
 # Upload iris dataset
-blobService.create_blob_from_path(containerName, "iris_setosa.csv", "iris_setosa.csv")
+container_client = blob_service_client.get_container_client(containerName)
+with open("iris_setosa.csv", "rb") as data:
+    blob_client = container_client.upload_blob(name="iris_setosa.csv", data=data)
 ```
 
-Speichern Sie das Skript als `main.py`, und laden Sie es in den **Azure Storage**-Container hoch. Achten Sie darauf, dass Sie die Funktionalität lokal überprüfen und testen, bevor Sie das Skript in Ihren Blobcontainer hochladen:
+Speichern Sie das Skript als `main.py`, und laden Sie es in den **Azure Storage** `input`-Container hoch. Achten Sie darauf, dass Sie die Funktionalität lokal überprüfen und testen, bevor Sie das Skript in Ihren Blobcontainer hochladen:
 
 ``` bash
 python main.py
@@ -153,6 +155,5 @@ In diesem Tutorial haben Sie anhand eines Beispiels gelernt, wie Sie Python-Skri
 Weitere Informationen zu Azure Data Factory:
 
 > [!div class="nextstepaction"]
-> [Azure Data Factory](../data-factory/introduction.md)
-> [Pipelines und Aktivitäten](../data-factory/concepts-pipelines-activities.md)
-> [Benutzerdefinierte Aktivitäten](../data-factory/transform-data-using-dotnet-custom-activity.md)
+> [Übersicht über Azure Data Factory](../data-factory/introduction.md)
+

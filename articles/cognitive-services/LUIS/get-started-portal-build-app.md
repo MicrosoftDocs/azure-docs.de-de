@@ -4,13 +4,13 @@ description: In dieser Schnellstartanleitung erstellen Sie die grundlegenden Kom
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/19/2020
-ms.openlocfilehash: 38fffd7793e1f5bd59ac6dde4499b2eb25009b52
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 11/30/2020
+ms.openlocfilehash: a5443dce9fc8bc028232f66f45b537a46858f35a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91303847"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436673"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Schnellstart: Erstellen einer neuen App im LUIS-Portal
 
@@ -20,21 +20,22 @@ In diesem Schnellstart erstellen Sie eine neue App im LUIS-Portal. Erstellen Sie
 
 ## <a name="create-an-app"></a>Erstellen einer App
 
-1. Wählen Sie auf der Kontextsymbolleiste die Option **+ New app for conversation** (+ Neue App für die Konversation) und anschließend erneut **+ New app for conversation** (+ Neue App für die Konversation) aus.
+Wählen Sie zum Erstellen einer Anwendung die Option **+ Neue App**. 
 
-    > [!div class="mx-imgBorder"]
-    > [![Screenshot: Erstellen einer neuen App im LUIS-Portal](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
+Geben Sie im angezeigten Fenster die folgenden Informationen ein:
 
-1. Konfigurieren Sie die App im Popupfenster mit den folgenden Einstellungen, und wählen Sie dann **Fertig** aus.
+|Name  |Beschreibung  |
+|---------|---------|
+|Name     | Ein Name für Ihre App. Beispiel: „Home Automation“. Erforderlich.        |
+|culture     | Die Sprache, die Ihre App versteht und spricht. Erforderlich.   |
+|Beschreibung | Eine Beschreibung für Ihre App. Optional.
+|Vorhersageressource | Die Vorhersageressource, die Abfragen empfängt. Optional. |
 
-   |Einstellungsname| Wert | Zweck|
-   |--|--|--|
-   |Name|`myEnglishApp`|Eindeutiger Name der LUIS-App<br>required|
-   |Kultur|**Englisch**|Sprache der Äußerungen von Benutzern, **en-us**<br>required|
-   |Beschreibung (optional)|`App made with LUIS Portal`|Beschreibung der App<br>optional|
-   |Vorhersageressource (optional) |-  |Nicht auswählen. Sie erhalten von LUIS einen Startschlüssel für die kostenlose Erstellung sowie für 1.000 Vorhersageendpunktanforderungen. |
+Wählen Sie **Fertig** aus.
 
-   ![Screenshot: Eingabe neuer App-Einstellungen](./media/get-started-portal-build-app/create-new-app-settings.png)
+>[!NOTE]
+>Die Kultur kann nach dem Erstellen der Anwendung nicht mehr geändert werden.
+
 
 ## <a name="create-intents"></a>Erstellen von Absichten
 
@@ -52,7 +53,7 @@ Die zwei verschiedenen _Absichten_ der App richten sich an den folgenden Absicht
 
 Führen Sie die folgenden Schritte aus, um Absichten zu erstellen:
 
-1. Nachdem die App erstellt wurde, wird die Seite **Intents** (Absichten) des Abschnitts **Erstellen** angezeigt. Klicken Sie auf **Erstellen**.
+1. Stellen Sie sicher, dass Sie sich nach der Erstellung der App auf der Seite **Intents** (Absichten) des Abschnitts **Erstellen** befinden. Klicken Sie auf **Erstellen**.
 
    [![Screenshot: Auswählen von „Erstellen“ zum Erstellen einer neuen Absicht](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
@@ -60,14 +61,9 @@ Führen Sie die folgenden Schritte aus, um Absichten zu erstellen:
 
 ## <a name="add-an-example-utterance"></a>Hinzufügen einer Beispieläußerung
 
-Nach dem Erstellen von Absichten fügen Sie Beispieläußerungen hinzu. Beispieläußerungen sind Text, den ein Benutzer in einen Chatbot oder eine andere Clientanwendung eingibt. Sie bilden die Absicht des Texts des Benutzers auf eine LUIS-Absicht ab.
+Nach dem Erstellen von Absichten fügen Sie Beispieläußerungen hinzu. Beispieläußerungen sind Text, den ein Benutzer in einen Chatbot oder eine andere Clientanwendung eingibt. Sie bilden die Absicht des Texts des Benutzers auf eine LUIS-Absicht ab. Für die `FindForm`-Absicht dieser Beispielanwendung gehört zu den Beispieläußerungen die Formularnummer. Die Clientanwendung benötigt die Formularnummer, um die Anforderung des Benutzers zu erfüllen, daher ist es wichtig, sie in die Äußerung einzuschließen.
 
-Für die `FindForm`-Absicht dieser Beispielanwendung gehört zu den Beispieläußerungen die Formularnummer. Die Clientanwendung benötigt die Formularnummer, um die Anforderung des Benutzers zu erfüllen, daher ist es wichtig, sie in die Äußerung einzuschließen.
-
-> [!div class="mx-imgBorder"]
-> [![Screenshot: Eingeben von Beispieläußerungen für die Absicht „FindForm“](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
-
-Fügen Sie der `FindForm`-Absicht die folgenden 15 Beispieläußerungen hinzu.
+Fügen Sie auf der Seite **Absichten** für `FindForm` unter **Beispieläußerung** die folgenden Beispieläußerungen hinzu. 
 
 |#|Beispiele für Äußerungen|
 |--|--|

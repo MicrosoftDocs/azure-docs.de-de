@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/03/2020
-ms.openlocfilehash: 1c0247c5adfe60dc2436c832cf3d561882ae3a5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ce0aea6bb257f0a52a843ce53cc904ed0a775dd
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760160"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536199"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Überwachen von Abfragen in Azure Monitor-Protokollen (Vorschau)
 Überwachungsprotokolle für Protokollabfragen bieten Telemetrie zu den in Azure Monitor ausgeführten Protokollabfragen. Dazu gehören Informationen dazu, wann z. B. eine Abfrage ausgeführt wurde, wer sie ausgeführt hat, welches Tool verwendet wurde, der Abfragetext und die Leistungsstatistiken, die die Ausführung der Abfrage beschreiben.
@@ -66,7 +66,7 @@ Bei jeder Ausführung einer Abfrage wird ein Überwachungsdatensatz erstellt. We
 
 - Abfragen werden nur protokolliert, wenn sie in einem Benutzerkontext ausgeführt werden. Dienst-zu-Dienst-Abfragen werden in Azure nicht protokolliert. Die beiden wichtigsten Abfragengruppen, die von diesem Ausschluss betroffen sind, sind Abrechnungsberechnungen und automatisierte Warnungsausführungen. Im Fall von Warnungen wird nur die geplante Warnungsabfrage selbst protokolliert. Die erste Ausführung der Warnung auf dem Bildschirm für die Warnungserstellung wird in einem Benutzerkontext ausgeführt und ist für Überwachungszwecke verfügbar. 
 - Es stehen keine Leistungsstatistiken für Abfragen zur Verfügung, die vom Azure Data Explorer-Proxy stammen. Alle anderen Daten für diese Abfragen werden immer dennoch aufgefüllt.
-- Der *h*-Hinweis bei Zeichenfolgen, der [Zeichenfolgenliterale](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) verfälscht, hat keine Auswirkungen auf die Überwachungsprotokolle der Abfrage. Die Abfragen werden genau so aufgezeichnet, wie sie gesendet werden, ohne dass die Zeichenfolge verdeckt wird. Stellen Sie sicher, dass nur Benutzer, die über Kompatibilitätsrechte zum Anzeigen dieser Daten verfügen, dies mithilfe der verschiedenen in Log Analytics Arbeitsbereichen verfügbaren RBAC-Modi erreichen können.
+- Der *h*-Hinweis bei Zeichenfolgen, der [Zeichenfolgenliterale](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) verfälscht, hat keine Auswirkungen auf die Überwachungsprotokolle der Abfrage. Die Abfragen werden genau so aufgezeichnet, wie sie gesendet werden, ohne dass die Zeichenfolge verdeckt wird. Stellen Sie sicher, dass nur Benutzer, die über Kompatibilitätsrechte zum Anzeigen dieser Daten verfügen, dies mithilfe der verschiedenen in Log Analytics-Arbeitsbereichen verfügbaren Kubernetes RBAC- oder Azure RBAC-Modi erreichen können.
 - Bei Abfragen, die Daten aus mehreren Arbeitsbereichen enthalten, wird die Abfrage nur in den Arbeitsbereichen erfasst, auf die der Benutzer Zugriff hat.
 
 ## <a name="costs"></a>Kosten  

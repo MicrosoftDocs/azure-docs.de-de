@@ -8,12 +8,13 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: bd5b20d8e713e07b52eb1d6cbc57f01b9e5c1a95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.subservice: workloads
+ms.openlocfilehash: ad3dbd8cdc6fff7eca8c24bb6e5258022d52cb9b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987472"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018493"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Install TmaxSoft OpenFrame on Azure (Installieren von TmaxSoft OpenFrame in Azure)
 
@@ -164,7 +165,7 @@ Wenn neue Personen Zugriff auf den virtuellen Computer erhalten:
 
 3.  Klicken Sie auf **Generate (Generieren)** .
 
-    ![Dialogfeld „PuTTY Key Generator“ (PuTTY-Schlüsselgenerator)](media/puttygen-02.png)
+    ![Screenshot des Dialogfelds „PuTTY Key Generator“, in dem die Schaltfläche „Generate“ hervorgehoben ist.](media/puttygen-02.png)
 
 4.  Speichern Sie nach der Generierung sowohl den öffentlichen als auch den privaten Schlüssel. Fügen Sie den Inhalt des öffentlichen Schlüssels in den Abschnitt **Öffentlicher SSH-Schlüssel** des Bereichs **Virtuellen Computer erstellen \> Grundlagen** ein (im vorherigen Abschnitt in den Schritten 6 und 7 gezeigt).
 
@@ -191,7 +192,7 @@ Wenn neue Personen Zugriff auf den virtuellen Computer erhalten:
 
 7. Geben Sie für **Host Name** (Hostname) Ihren Benutzernamen und die öffentliche IP-Adresse ein, die Sie kopiert haben. Beispiel: **Benutzername\@publicip**.
 
-    ![Dialogfeld „PuTTY Configuration“ (PuTTY-Konfiguration)](media/putty-01.png)
+    ![Screenshot des Dialogfelds „PuTTY Configuration“, in dem das Feld „Host Name (or IP address)“ hervorgehoben ist.](media/putty-01.png)
 
 8. Klicken Sie im Feld **Category** (Kategorie) auf **Connection (Verbindung) \> SSH \> Auth**. Geben Sie den Pfad zu Ihrer **Private key file** (privaten Schlüsseldatei) an.
 

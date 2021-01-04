@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 90717f329cc366dbb951b24da0ffc1b65881a865
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 27725b1a3dd6059010ce67977c39891a012c037e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487516"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995783"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Optimieren der Kosten mit reservierter Kapazität in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Die reservierte Kapazität von Azure Cosmos DB hilft Ihnen, Geld zu sparen, indem Sie Ressourcen von Azure Cosmos DB entweder für ein Jahr oder für drei Jahre verbindlich reservieren. Mit der reservierten Kapazität von Azure Cosmos DB können Sie einen Rabatt auf den Durchsatz erhalten, der für Cosmos DB-Ressourcen bereitgestellt wird. Beispiele für Ressourcen sind Datenbanken und Container (Tabellen, Sammlungen und Graphen).
 
@@ -36,7 +37,7 @@ Wir berechnen Kaufempfehlungen anhand des stündlichen Nutzungsmusters. Wir anal
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.  
 
-2. Klicken Sie auf **Alle Dienste** > **Reservierungen** > **Hinzufügen** .
+2. Klicken Sie auf **Alle Dienste** > **Reservierungen** > **Hinzufügen**.
 
 3. Wählen Sie im Bereich **Reservierungen erwerben** die Option **Azure Cosmos DB** aus.
 
@@ -60,13 +61,13 @@ Diese Empfehlung zum Erwerb einer Reservierung von 30.000 RU/s weist darauf hin
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.  
 
-2. Klicken Sie auf **Alle Dienste** > **Reservierungen** > **Hinzufügen** .  
+2. Klicken Sie auf **Alle Dienste** > **Reservierungen** > **Hinzufügen**.  
 
-3. Wählen Sie im Bereich **Reservierungen erwerben** die Option **Azure Cosmos DB** , um eine neue Reservierung zu erwerben.  
+3. Wählen Sie im Bereich **Reservierungen erwerben** die Option **Azure Cosmos DB**, um eine neue Reservierung zu erwerben.  
 
 4. Füllen Sie die Pflichtfelder aus, wie in der folgenden Tabelle beschrieben:
 
-   :::image type="content" source="./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png" alt-text="Empfehlungen für reservierte Kapazität":::
+   :::image type="content" source="./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png" alt-text="Formular für die reservierte Kapazität ausfüllen":::
 
    |Feld  |BESCHREIBUNG  |
    |---------|---------|
@@ -78,13 +79,13 @@ Diese Empfehlung zum Erwerb einer Reservierung von 30.000 RU/s weist darauf hin
    | Reservierte Kapazitätseinheiten| Die Menge an Durchsatz, die Sie reservieren möchten. Sie können diesen Wert berechnen, indem Sie den Durchsatz für alle Ihre Cosmos DB-Ressourcen (z.B. Datenbanken oder Container) pro Region ermitteln. Sie multiplizieren diesen Wert dann mit der Anzahl der Regionen, die Sie mit Ihrer Cosmos-Datenbank verknüpfen. Beispiel: Wenn Sie fünf Regionen mit 1 Million RU/Sek. in jeder Region verwenden, wählen Sie 5 Millionen RU/Sek. für den Kauf von reservierten Kapazitäten aus. |
 
 
-5. Nach dem Ausfüllen des Formulars wird der Preis berechnet, der für den Erwerb der reservierten Kapazität gilt. In der Ausgabe wird auch der Rabattprozentsatz angezeigt, den Sie für die gewählten Optionen erhalten. Klicken Sie als Nächstes auf **Auswählen** .
+5. Nach dem Ausfüllen des Formulars wird der Preis berechnet, der für den Erwerb der reservierten Kapazität gilt. In der Ausgabe wird auch der Rabattprozentsatz angezeigt, den Sie für die gewählten Optionen erhalten. Klicken Sie als Nächstes auf **Auswählen**.
 
 6. Prüfen Sie im Bereich **Reservierungen erwerben** den Rabatt und den Preis der Reservierung. Dieser Reservierungspreis gilt für Azure Cosmos DB-Ressourcen mit Durchsatz, die in allen Regionen bereitgestellt werden.  
 
-   :::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png" alt-text="Empfehlungen für reservierte Kapazität":::
+   :::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png" alt-text="Zusammenfassung der reservierten Kapazität":::
 
-7. Wählen Sie **Review + buy** (Überprüfen und kaufen) und dann **Jetzt kaufen** . Nach einem erfolgreichen Kauf wird die folgende Seite angezeigt:
+7. Wählen Sie **Review + buy** (Überprüfen und kaufen) und dann **Jetzt kaufen**. Nach einem erfolgreichen Kauf wird die folgende Seite angezeigt:
 
 Nachdem Sie eine Reservierung gekauft haben, wird sie sofort auf alle vorhandenen Ressourcen von Azure Cosmos DB angewendet, die den Bedingungen der Reservierung entsprechen. Wenn Sie keine vorhandenen Azure Cosmos DB-Ressourcen haben, wird die Reservierung angewendet, wenn Sie eine neue Cosmos DB-Instanz bereitstellen, die den Bedingungen der Reservierung entspricht. In beiden Fällen beginnt der Zeitraum der Reservierung unmittelbar nach dem erfolgreichen Kauf.
 

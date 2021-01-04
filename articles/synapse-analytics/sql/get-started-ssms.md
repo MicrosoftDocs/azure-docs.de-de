@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 166d598528d8fe38e2bc22b76c659326c5e0ba45
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: da698a1a8d91273321d4633abd683a06cb4cf403
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91288782"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451619"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Herstellen einer Verbindung mit Synapse SQL mithilfe von SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -26,9 +26,9 @@ ms.locfileid: "91288782"
 > 
 > 
 
-Sie können mithilfe von [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) entweder über SQL On-Demand (Vorschauversion) oder SQL-Poolressourcen eine Verbindung mit Synapse SQL in Azure Synapse Analytics herstellen und Abfragen durchführen. 
+Sie können mithilfe von [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) entweder über einen serverlosen SQL-Pool oder über einen dedizierten SQL-Pool eine Verbindung mit Synapse SQL in Azure Synapse Analytics herstellen und Abfragen durchführen. 
 
-### <a name="supported-tools-for-sql-on-demand-preview"></a>Unterstützte Tools für SQL On-Demand (Vorschauversion)
+### <a name="supported-tools-for-serverless-sql-pool"></a>Unterstützte Tools für den serverlosen SQL-Pool
 
 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) wird ab Version 1.18.0 vollständig unterstützt. SSMS wird ab Version 18.5 teilweise unterstützt, kann aber nur zum Herstellen einer Verbindung und für Abfragen verwendet werden.
 
@@ -40,14 +40,14 @@ Sie können mithilfe von [SQL Server Management Studio (SSMS)](/sql/ssms/downloa
 Bevor Sie beginnen, stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt sind:  
 
 * [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
-* Für den SQL-Pool benötigen Sie ein vorhandenes Data Warehouse. Informationen zur Erstellung finden Sie unter [Erstellen eines SQL-Pools](../quickstart-create-sql-pool-portal.md). Bei SQL On-Demand wird bereits bei der Erstellung ein Data Warehouse in Ihrem Arbeitsbereich bereitgestellt. 
+* Für den dedizierten SQL-Pool benötigen Sie ein vorhandenes Data Warehouse. Informationen zur Erstellung finden Sie unter [Erstellen eines dedizierten SQL-Pools](../quickstart-create-sql-pool-portal.md). Für den serverlosen SQL-Pool wird bereits bei der Erstellung im Arbeitsbereich ein Data Warehouse namens „Integriert“ bereitgestellt. 
 * Den vollqualifizierten SQL Server-Namen. Informationen, wie dieser Name ermittelt wird, finden Sie unter [Herstellen einer Verbindung mit Synapse SQL](connect-overview.md).
 
 ## <a name="connect"></a>Verbinden
 
-### <a name="sql-pool"></a>SQL-Pool
+### <a name="dedicated-sql-pool"></a>Dedizierter SQL-Pool
 
-Führen Sie die folgenden Schritte aus, um mithilfe des SQL-Pools eine Verbindung mit Synapse SQL herzustellen: 
+Führen Sie die folgenden Schritte aus, um mithilfe des dedizierten SQL-Pools eine Verbindung mit Synapse SQL herzustellen: 
 
 1. Öffnen Sie SQL Server Management Studio (SSMS). 
 1. Füllen Sie im Dialogfeld **Mit Server verbinden** die Felder aus, und wählen Sie dann **Verbinden** aus: 
@@ -63,9 +63,9 @@ Führen Sie die folgenden Schritte aus, um mithilfe des SQL-Pools eine Verbindun
     ![AdventureWorksDW erkunden 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
 
 
-### <a name="sql-on-demand-preview"></a>SQL On-Demand (Vorschauversion)
+### <a name="serverless-sql-pool"></a>Serverloser SQL-Pool
 
-Führen Sie die folgenden Schritte aus, um mithilfe von SQL On-Demand eine Verbindung mit Synapse SQL herzustellen: 
+Führen Sie die folgenden Schritte aus, um mithilfe des serverlosen SQL-Pools eine Verbindung mit Synapse SQL herzustellen: 
 
 1. Öffnen Sie SQL Server Management Studio (SSMS).
 1. Füllen Sie im Dialogfeld **Mit Server verbinden** die Felder aus, und wählen Sie dann **Verbinden** aus: 
@@ -84,7 +84,7 @@ Führen Sie die folgenden Schritte aus, um mithilfe von SQL On-Demand eine Verbi
 
 ## <a name="run-a-sample-query"></a>Ausführen einer Beispielabfrage
 
-### <a name="sql-pool"></a>SQL-Pool
+### <a name="dedicated-sql-pool"></a>Dedizierter SQL-Pool
 
 Nachdem eine Datenbankverbindung hergestellt wurde, können Sie die Daten nun abfragen.
 
@@ -104,7 +104,7 @@ Nachdem eine Datenbankverbindung hergestellt wurde, können Sie die Daten nun ab
    
     ![Abfrageergebnisse 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png)
 
-### <a name="sql-on-demand"></a>SQL On-Demand
+### <a name="serverless-sql-pool"></a>Serverloser SQL-Pool
 
 Nachdem eine Datenbankverbindung hergestellt wurde, können Sie die Daten nun abfragen.
 

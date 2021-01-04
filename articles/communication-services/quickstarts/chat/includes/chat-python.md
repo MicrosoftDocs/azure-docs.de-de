@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 3c05596e16edc5243b8a97002a5cc5990c69ec43
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2b7d00335253772683b867acf0765b77fc493e79
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944476"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523972"
 ---
 ## <a name="prerequisites"></a>Voraussetzungen
 Führen Sie die folgenden Schritte aus, bevor Sie beginnen:
@@ -85,7 +85,7 @@ chat_client = ChatClient(endpoint, CommunicationUserCredential(<Access Token>))
 Verwenden Sie die `create_chat_thread`-Methode, um einen Chatthread zu erstellen.
 
 - Verwenden Sie `topic`, um ein Threadthema anzugeben. Nach der Erstellung des Chatthreads kann das Thema mit der Funktion `update_thread` aktualisiert werden.
-- Verwenden Sie `members`, um das `ChatThreadMember`-Element aufzulisten, das dem Chatthread hinzugefügt werden soll. Für `ChatThreadMember` wird für `CommunicationUser` der Typ `user` verwendet. Dies war das Ergebnis, das Sie unter [Erstellen eines Benutzers](../../access-tokens.md#create-a-user) erhalten haben.
+- Verwenden Sie `members`, um das `ChatThreadMember`-Element aufzulisten, das dem Chatthread hinzugefügt werden soll. Für `ChatThreadMember` wird für `CommunicationUser` der Typ `user` verwendet. Dies war das Ergebnis, das Sie unter [Erstellen eines Benutzers](../../access-tokens.md#create-an-identity) erhalten haben.
 
 Die Antwort `chat_thread_client` wird verwendet, um Vorgänge für den neu erstellten Chatthread durchzuführen, z. B. das Hinzufügen von Mitgliedern zum Chatthread, Senden einer Nachricht, Löschen einer Nachricht usw. Sie enthält die `thread_id`-Eigenschaft, bei der es sich um die eindeutige ID des Chatthreads handelt.
 
@@ -158,7 +158,7 @@ Nach der Erstellung eines Chatthreads können Sie dafür Benutzer hinzufügen un
 Verwenden Sie die `add_members`-Methode, um dem Thread, der mit der „threadId“ identifiziert wird, Threadmitglieder hinzuzufügen.
 
 - Verwenden Sie `members`, um die Mitglieder aufzulisten, die dem Chatthread hinzugefügt werden sollen.
-- `user` (erforderlich) ist der `CommunicationUser`, den Sie mit `CommunicationIdentityClient` unter [Erstellen eines Benutzers](../../access-tokens.md#create-a-user) erstellt haben.
+- `user` (erforderlich) ist der `CommunicationUser`, den Sie mit `CommunicationIdentityClient` unter [Erstellen eines Benutzers](../../access-tokens.md#create-an-identity) erstellt haben.
 - `display_name` (optional) ist der Anzeigename für das Threadmitglied.
 - `share_history_time` (optional) ist der Zeitpunkt, ab dem der Chatverlauf für das Mitglied freigegeben wird. Sie können den Verlauf seit dem Beginn des Chatthreads freigeben, indem Sie diese Eigenschaft auf das Datum der Threaderstellung (oder früher) festlegen. Geben Sie das aktuelle Datum an, um den Verlauf vor dem Hinzufügezeitpunkt des Mitglieds nicht freizugeben. Falls Sie einen Teil des Verlaufs freigeben möchten, können Sie ein Datum angeben, das zwischen diesen Zeitpunkten liegt.
 

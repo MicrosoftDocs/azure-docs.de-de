@@ -12,12 +12,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/04/2020
 tags: azure-synpase
-ms.openlocfilehash: 0689cea221142ec9c9bdbb18ab82fab00a3e2fe5
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: f8d352dac98f953f7f6d8033d0d9e1376c4da313
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398611"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532243"
 ---
 # <a name="dynamic-data-masking"></a>Dynamische Datenmaskierung 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -30,11 +30,11 @@ Ein Servicemitarbeiter in einem Callcenter kann Anrufer beispielsweise anhand me
 
 ## <a name="dynamic-data-masking-basics"></a>Grundlegendes zur dynamischen Datenmaskierung
 
-Sie richten eine Richtlinie für die dynamische Datenmaskierung im Azure-Portal durch Auswählen des Blatts **Dynamische Datenmaskierung** unter **Sicherheit** im Konfigurationsbereich Ihrer SQL-Datenbank-Instanz ein. Dieses Feature kann nicht über das Portal für Azure Synapse oder SQL Managed Instance festgelegt werden (verwenden Sie stattdessen PowerShell oder die REST-API). Weitere Informationen finden Sie unter [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
+Sie richten eine Richtlinie für die dynamische Datenmaskierung im Azure-Portal durch Auswählen des Blatts **Dynamische Datenmaskierung** unter **Sicherheit** im Konfigurationsbereich Ihrer SQL-Datenbank-Instanz ein. Dieses Feature kann nicht über das Portal für SQL Managed Instance festgelegt werden. (Verwenden Sie stattdessen PowerShell oder die REST-API.) Weitere Informationen finden Sie unter [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
 
 ### <a name="dynamic-data-masking-permissions"></a>Berechtigungen für die dynamische Datenmaskierung
 
-Die dynamische Datenmaskierung kann von den Rollen „Azure SQL-Datenbank-Administrator“, „Serveradministrator“ oder [SQL-Sicherheits-Manager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) konfiguriert werden.
+Die dynamische Datenmaskierung kann von den Rollen „Azure SQL-Datenbank-Administrator“, „Serveradministrator“ oder [SQL-Sicherheits-Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) konfiguriert werden.
 
 ### <a name="dynamic-data-masking-policy"></a>Richtlinie für die dynamische Datenmaskierung
 
@@ -60,15 +60,15 @@ Von der DDM-Empfehlungs-Engine werden bestimmte Felder Ihrer Datenbank als poten
 
 ### <a name="data-masking-policies"></a>Datenmaskierungsrichtlinien
 
-- [Get-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingPolicy)
-- [Set-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingPolicy)
+- [Get-AzSqlDatabaseDataMaskingPolicy](/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingPolicy)
+- [Set-AzSqlDatabaseDataMaskingPolicy](/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingPolicy)
 
 ### <a name="data-masking-rules"></a>Datenmaskierungsregeln
 
-- [Get-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingRule)
-- [New-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/New-AzSqlDatabaseDataMaskingRule)
-- [Remove-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Remove-AzSqlDatabaseDataMaskingRule)
-- [Set-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingRule)
+- [Get-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingRule)
+- [New-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/New-AzSqlDatabaseDataMaskingRule)
+- [Remove-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Remove-AzSqlDatabaseDataMaskingRule)
+- [Set-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingRule)
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-rest-api"></a>Einrichten der dynamischen Datenmaskierung für Ihre Datenbank mithilfe der REST-API
 
@@ -76,10 +76,10 @@ Sie können die REST-API verwenden, um Datenmaskierungsrichtlinien und -regeln p
 
 ### <a name="data-masking-policies"></a>Datenmaskierungsrichtlinien
 
-- [Erstellen oder aktualisieren:](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/createorupdate) Erstellt oder aktualisiert eine Datenbank-Datenmaskierungsrichtlinie.
-- [Get](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/get) (Abrufen): Ruft eine Datenbank-Datenmaskierungsrichtlinie ab. 
+- [Erstellen oder aktualisieren:](/rest/api/sql/datamaskingpolicies/createorupdate) Erstellt oder aktualisiert eine Datenbank-Datenmaskierungsrichtlinie.
+- [Get](/rest/api/sql/datamaskingpolicies/get) (Abrufen): Ruft eine Datenbank-Datenmaskierungsrichtlinie ab. 
 
 ### <a name="data-masking-rules"></a>Datenmaskierungsregeln
 
-- [Erstellen oder aktualisieren:](https://docs.microsoft.com/rest/api/sql/datamaskingrules/createorupdate) Erstellt oder aktualisiert eine Datenbank-Datenmaskierungsregel.
-- [Nach Datenbank auflisten](https://docs.microsoft.com/rest/api/sql/datamaskingrules/listbydatabase): Ruft eine Liste von Datenbank-Datenmaskierungsregeln ab.
+- [Erstellen oder aktualisieren:](/rest/api/sql/datamaskingrules/createorupdate) Erstellt oder aktualisiert eine Datenbank-Datenmaskierungsregel.
+- [Nach Datenbank auflisten](/rest/api/sql/datamaskingrules/listbydatabase): Ruft eine Liste von Datenbank-Datenmaskierungsregeln ab.

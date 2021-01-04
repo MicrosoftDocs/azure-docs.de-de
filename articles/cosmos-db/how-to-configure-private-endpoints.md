@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c9821e53abcdf95c6cf235cb9d39cd310fcfb66f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 4ba4e5f462a3cc88de5b23b32a5e749f9363e93f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279720"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081891"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Konfigurieren von Azure Private Link für ein Azure Cosmos-Konto
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Durch Verwendung von Azure Private Link können Sie eine Verbindung mit einem Azure Cosmos-Konto über einen privaten Endpunkt herstellen. Bei einem privaten Endpunkt handelt es sich um eine Gruppe privater IP-Adressen in einem Subnetz innerhalb Ihres virtuellen Netzwerks. Sie können dann den Zugriff auf ein Azure Cosmos-Konto über private IP-Adressen einschränken. Durch die Kombination von Private Link und eingeschränkten NSG-Richtlinien kann das Risiko der Datenexfiltration verringert werden. Weitere Informationen zu privaten Endpunkten finden Sie im Artikel zu [Azure Private Link](../private-link/private-link-overview.md).
 
@@ -98,7 +99,7 @@ Nach der Bereitstellung des privaten Endpunkts können Sie die IP-Adressen abfra
 1. Suchen Sie nach dem privaten Endpunkt, den Sie zuvor erstellt haben. In diesem Fall ist das **cdbPrivateEndpoint3**.
 1. Wählen Sie die Registerkarte **Übersicht** aus, um die DNS-Einstellungen und IP-Adressen anzuzeigen.
 
-:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Auswahl zum Erstellen eines privaten Endpunkts über das Azure-Portal":::
+:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Private IP-Adressen im Azure-Portal":::
 
 Für jeden privaten Endpunkt werden mehrere IP-Adressen erstellt:
 
@@ -411,7 +412,7 @@ Für diese Konten müssen Sie einen privaten Endpunkt für jeden API-Typ erstell
 
 Nach der erfolgreichen Bereitstellung der Vorlage wird eine Ausgabe ähnlich der folgenden Abbildung angezeigt. Der Wert für `provisioningState` lautet `Succeeded`, wenn die privaten Endpunkte ordnungsgemäß eingerichtet sind.
 
-:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Auswahl zum Erstellen eines privaten Endpunkts über das Azure-Portal":::
+:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Bereitstellungsausgabe für die Resource Manager-Vorlage":::
 
 Nach der Bereitstellung der Vorlage werden die privaten IP-Adressen innerhalb des Subnetzes reserviert. Die Firewallregel für das Azure Cosmos-Konto ist so konfiguriert, dass nur Verbindungen über den privaten Endpunkt angenommen werden.
 

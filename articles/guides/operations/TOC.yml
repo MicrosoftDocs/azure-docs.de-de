@@ -39,17 +39,17 @@
             - name: Erstellen/Verwalten virtueller Linux-Computer
               href: ../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Jenkins-CI/CD-Pipeline
-              href: /azure/developer/jenkins/pipeline-with-github-and-docker?toc=%252fazure%252fguides%252foperations%252ftoc.json
+              href: /azure/developer/jenkins/pipeline-with-github-and-docker?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Lastenausgleich für virtuelle Computer
               href: ../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Erstellen von Azure Resource Manager-Vorlagen
-              href: ../../azure-resource-manager/templates/template-syntax.md?toc=%252fazure%252fguides%252foperations%252ftoc.json
+              href: ../../azure-resource-manager/templates/template-syntax.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Bedarfsorientiertes Sichern von virtuellen Computern
               href: ../../backup/tutorial-backup-vm-at-scale.md
     - name: Anleitungen
       items:
         - name: Herunterladen von Azure-Rechnungen und täglichen Nutzungsdaten
-          href: ../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md?toc=%252fazure%252fguides%252foperations%252ftoc.json
+          href: ../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
     - name: Ressourcen
       items:
         - name: Azure-Produktkatalog
@@ -60,4 +60,4 @@
           href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: Übersicht über das Microsoft Azure-Portal
           href: 'https://azure.microsoft.com/documentation/articles/azure-portal-overview/'
-    - name: Referenzen
+    - name: References

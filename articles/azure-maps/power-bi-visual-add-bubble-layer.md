@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 4443b0f479079a4722a5d62fea40afcb4a58632d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff0d2c8e90995222af79d5be63ca3e9da24b3c45
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86261473"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896224"
 ---
 # <a name="add-a-bubble-layer"></a>Hinzufügen einer Blasenebene
 
@@ -90,7 +90,7 @@ Fügen Sie der Karte mehr Kontext hinzu:
 Passen Sie das Visual an:
 
 > [!div class="nextstepaction"]
-> [Tipps und Tricks zur Farbformatierung in Power BI](https://docs.microsoft.com/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
+> [Tipps und Tricks zur Farbformatierung in Power BI](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
 
 > [!div class="nextstepaction"]
-> [Anpassen von Visualisierungstiteln, -hintergründen und -legenden](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
+> [Anpassen von Visualisierungstiteln, -hintergründen und -legenden](/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)

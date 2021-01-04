@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: f13e402344111dea28514ed7b0d381b46ff73064
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d0103857b6f759560129dbe8e693ec6c0d7291e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743606"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961208"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Verwenden von Azure Automation, um einen Auftrag auszulösen
 
@@ -26,7 +26,7 @@ In diesem Artikel wird ausführlicher erläutert, wie ein Azure Automation-Runbo
 
 Bevor Sie beginnen stellen Sie sicher, dass Sie über Folgendes verfügen:
 
-*   Auf dem Clientcomputer ist Azure PowerShell installiert. [Azure PowerShell herunterladen](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
+*   Auf dem Clientcomputer ist Azure PowerShell installiert. [Azure PowerShell herunterladen](/powershell/azure/azurerm/install-azurerm-ps).
 *   Eine ordnungsgemäß konfigurierte Auftragsdefinition in einem StorSimple Data Manager-Dienst innerhalb einer Ressourcengruppe.
 *   Laden Sie die Datei [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) aus dem GitHub-Repository herunter. 
 *   Laden Sie das Skript [`Trigger-DataTransformation-Job.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) aus dem GitHub-Repository herunter.
@@ -48,7 +48,7 @@ Bevor Sie beginnen stellen Sie sicher, dass Sie über Folgendes verfügen:
    1. Geben Sie den **Namen** für Ihr Automation-Konto an.
    2. Wählen Sie das **Abonnement** aus, das mit Ihrem StorSimple Data Manager-Dienst verknüpft ist.
    3. Erstellen Sie eine neue Ressourcengruppe, oder wählen Sie eine vorhandene Ressourcengruppe aus.
-   4. Wählen Sie einen **Speicherort**aus.
+   4. Wählen Sie einen **Speicherort** aus.
    5. Lassen Sie die Standardoption **Ausführendes Konto erstellen** aktiviert.
    6. Um einen Link für den schnellen Zugriff auf das Dashboard abzurufen, aktivieren Sie **An Dashboard anheften**. Klicken Sie auf **Erstellen**.
 
@@ -58,7 +58,7 @@ Bevor Sie beginnen stellen Sie sicher, dass Sie über Folgendes verfügen:
     
       ![Benachrichtigung für die Bereitstellung eines Automation-Kontos](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
 
-      Weitere Informationen hierzu finden Sie unter [Erstellen eines ausführenden Kontos](../automation/automation-create-runas-account.md).
+      Weitere Informationen hierzu finden Sie unter [Erstellen eines ausführenden Kontos](../automation/manage-runas-account.md).
 
 3. Wechseln Sie im neu erstellten Konto zu **Freigegebene Ressourcen > Module**, und klicken Sie auf **+ Modul hinzufügen**.
 
@@ -98,7 +98,7 @@ Führen Sie die folgenden Schritte aus, um das Runbook zu importieren, zu veröf
 
     ![Hinzufügen eines Runbooks 4](./media/storsimple-data-manager-job-using-automation/add-runbook-4.png)
 
-6. Geben Sie die Parameter an, etwa den Namen Ihres StorSimple Data Manager-Diensts, die zugeordnete Ressourcengruppe und den Namen der Auftragsdefinition. **Starten** Sie den Test. Der Bericht wird nach Abschluss der Ausführung generiert. Weitere Informationen finden Sie unter [Testen eines Runbooks](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook).
+6. Geben Sie die Parameter an, etwa den Namen Ihres StorSimple Data Manager-Diensts, die zugeordnete Ressourcengruppe und den Namen der Auftragsdefinition. **Starten** Sie den Test. Der Bericht wird nach Abschluss der Ausführung generiert. Weitere Informationen finden Sie unter [Testen eines Runbooks](../automation/learn/automation-tutorial-runbook-textual-powershell.md#step-3---test-the-runbook).
 
     ![Hinzufügen eines Runbooks 8](./media/storsimple-data-manager-job-using-automation/add-runbook-8.png)    
 

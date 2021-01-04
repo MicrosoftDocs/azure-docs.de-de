@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 60f781ddfa5717bbe5bcbb05ec8c236c8594c587
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b4b1234b88eafedbd03b78241baaa40231a6cbd6
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793091"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356802"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Was ist SQL Server auf Azure Virtual Machines (Windows)?
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -116,7 +116,7 @@ Wählen Sie zum Zugreifen auf die Seite **Azure SQL-Ressourcen** im Menü des Az
 > [!NOTE]
 > Azure SQL bietet eine einfache und schnelle Möglichkeit, auf all Ihre Azure SQL-Datenbank-Instanzen, Pools für elastische Datenbanken, logische Server, verwaltete Instanzen und VMs zuzugreifen. Azure SQL ist weder ein Dienst noch eine Ressource. 
 
-Um vorhandene Ressourcen zu verwalten, wählen Sie das gewünschte Element aus der Liste aus. Um neue Azure SQL-Ressourcen zu erstellen, klicken Sie auf **+ Hinzufügen** . 
+Um vorhandene Ressourcen zu verwalten, wählen Sie das gewünschte Element aus der Liste aus. Um neue Azure SQL-Ressourcen zu erstellen, klicken Sie auf **+ Hinzufügen**. 
 
 ![Erstellen einer Azure SQL-Ressource](./media/sql-server-on-azure-vm-iaas-what-is-overview/create-azure-sql-resource.png)
 
@@ -147,7 +147,7 @@ Das Programm zur Verbesserung der Benutzerfreundlichkeit (Customer Experience Im
 ### <a name="networking"></a>Netzwerk
 * [Virtuelle Netzwerke im Überblick](../../../virtual-network/virtual-networks-overview.md)
 * [IP-Adressen in Azure](../../../virtual-network/public-ip-addresses.md)
-* [Erstellen eines vollständig qualifizierten Domänennamens im Azure-Portal](../../../virtual-machines/linux/portal-create-fqdn.md)
+* [Erstellen eines vollständig qualifizierten Domänennamens im Azure-Portal](../../../virtual-machines/create-fqdn.md)
 
 ### <a name="sql"></a>SQL
 * [SQL Server-Dokumentation](/sql/index)

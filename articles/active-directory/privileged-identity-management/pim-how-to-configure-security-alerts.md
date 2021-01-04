@@ -14,12 +14,12 @@ ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f82314b0a4e16829b4c192a14fae7f24875365d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a632c0e31de1c2d7e5417656d537e5f9f82ecfbe
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359610"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180488"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Konfigurieren von Sicherheitswarnungen für Azure AD-Rollen in Privileged Identity Management
 
@@ -30,7 +30,7 @@ Privileged Identity Management (PIM) generiert bei verdächtigen oder nicht sich
 Ab November 2019 werden die Azure AD Rollen von Privileged Identity Management auf eine neue Version aktualisiert, die dem Verhalten von Azure-Ressourcenrollen entspricht. Dadurch werden zusätzliche Features verfügbar, und es kommt zu [Änderungen an der vorhandenen API](azure-ad-roles-features.md#api-changes). Welche Verfahren Sie in diesem Artikel während der Einführung der neuen Version befolgen, hängt von Ihrer aktuellen Version von Privileged Identity Management ab. Führen Sie die Schritte in diesem Abschnitt aus, um Ihre Version von Privileged Identity Management zu ermitteln. Nachdem Sie Ihre Version von Privileged Identity Management kennen, können Sie die Verfahren in diesem Artikel auswählen, die dieser Version entsprechen.
 
 1. Melden Sie sich am [Azure-Portal](https://portal.azure.com/) als Benutzer mit der Rolle [Administrator für privilegierte Rollen](../roles/permissions-reference.md#privileged-role-administrator) an.
-1. Öffnen Sie **Azure AD Privileged Identity Management** . Wenn sich oben auf der Übersichtsseite ein Banner befindet, befolgen Sie die Anweisungen auf der Registerkarte **Neue Version** dieses Artikels. Andernfalls befolgen Sie die Anweisungen auf der Registerkarte **Vorherige Version** .
+1. Öffnen Sie **Azure AD Privileged Identity Management**. Wenn sich oben auf der Übersichtsseite ein Banner befindet, befolgen Sie die Anweisungen auf der Registerkarte **Neue Version** dieses Artikels. Andernfalls befolgen Sie die Anweisungen auf der Registerkarte **Vorherige Version**.
 
   [![Wählen Sie „Azure AD“ > „Privileged Identity Management“ aus.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
@@ -44,9 +44,9 @@ Führen Sie die in diesem Artikel beschriebenen Schritte aus, um Sicherheitswarn
 
 Dieser Abschnitt enthält alle Sicherheitswarnungen für Azure AD-Rollen sowie Informationen zur Behebung und Vermeidung. Der Schweregrad hat folgende Bedeutung:
 
-- **Hoch** : Aufgrund einer Richtlinienverletzung ist eine sofortige Aktion erforderlich.
+- **Hoch**: Aufgrund einer Richtlinienverletzung ist eine sofortige Aktion erforderlich.
 - **Mittel:** Es ist keine sofortige Aktion erforderlich, aber es wird eine potenzielle Richtlinienverletzung angezeigt.
-- **Niedrig** : Es ist keine sofortige Aktion erforderlich, aber es wird eine Richtlinienänderung vorgeschlagen.
+- **Niedrig**: Es ist keine sofortige Aktion erforderlich, aber es wird eine Richtlinienänderung vorgeschlagen.
 
 ### <a name="administrators-arent-using-their-privileged-roles"></a>Administratoren verwenden ihre privilegierten Rollen nicht.
 
@@ -127,7 +127,7 @@ Dieser Abschnitt enthält alle Sicherheitswarnungen für Azure AD-Rollen sowie I
 
 ## <a name="customize-security-alert-settings"></a>Anpassen der Einstellungen für Sicherheitswarnungen
 
-Klicken Sie auf der Seite **Warnungen** auf **Einstellungen** .
+Klicken Sie auf der Seite **Warnungen** auf **Einstellungen**.
 
 ![Seite „Warnungen“ mit hervorgehobenen „Einstellungen“](media/pim-how-to-configure-security-alerts/alert-settings.png)
 
@@ -143,9 +143,9 @@ Passen Sie die Einstellungen für die verschiedenen Warnungen so an, dass sie f�
 
 Dieser Abschnitt enthält alle Sicherheitswarnungen für Azure AD-Rollen sowie Informationen zur Behebung und Vermeidung. Der Schweregrad hat folgende Bedeutung:
 
-- **Hoch** : Aufgrund einer Richtlinienverletzung ist eine sofortige Aktion erforderlich.
+- **Hoch**: Aufgrund einer Richtlinienverletzung ist eine sofortige Aktion erforderlich.
 - **Mittel:** Es ist keine sofortige Aktion erforderlich, aber es wird eine potenzielle Richtlinienverletzung angezeigt.
-- **Niedrig** : Es ist keine sofortige Aktion erforderlich, aber es wird eine Richtlinienänderung vorgeschlagen.
+- **Niedrig**: Es ist keine sofortige Aktion erforderlich, aber es wird eine Richtlinienänderung vorgeschlagen.
 
 ### <a name="administrators-arent-using-their-privileged-roles"></a>Administratoren verwenden ihre privilegierten Rollen nicht.
 
@@ -186,7 +186,7 @@ Dieser Abschnitt enthält alle Sicherheitswarnungen für Azure AD-Rollen sowie I
 | **Wie behebe ich das Problem?** | Überprüfen Sie die Konten in der Liste. Wenn kein Zugriff darauf mehr erforderlich ist, entfernen sie aus ihren privilegierten Rollen. |
 | **Prävention** | Stellen Sie sicher, dass die starken Kennwörter für freigegebenen Konten rotiert werden, wenn sich die Benutzer ändern, die das Kennwort kennen. </br>Überprüfen Sie Konten mit privilegierten Rollen regelmäßig mithilfe von [Zugriffsüberprüfungen](pim-how-to-start-security-review.md), und entfernen Sie nicht mehr benötigte Rollenzuweisungen. |
 | **Aktionen zur Risikominderung im Portal** | Entfernt das Konto aus der privilegierte Rolle. |
-| **bewährten Methoden** | Für freigegebene Konten sowie Dienst- und Notfallzugriffskonten, die ein Kennwort zur Authentifizierung verwenden und administrativen Rollen mit hohen Berechtigungen (z. B. der Rolle „Globaler Administrator“ oder „Sicherheitsadministrator“) zugewiesen sind, ist für die folgenden Fälle eine Kennwortrotation erforderlich:<ul><li>Nach einem Sicherheitsvorfall, bei dem administrative Zugriffsrechte missbraucht oder kompromittiert wurden</li><li>Nachdem die Berechtigungen eines Benutzers geändert wurden, sodass er kein Administrator mehr ist (beispielsweise nachdem ein Mitarbeiter, der ein Administrator war, die IT-Abteilung oder Organisation verlassen hat)</li><li>In regelmäßigen Abständen (z. B. vierteljährlich oder jährlich), auch wenn keine Sicherheitsverletzung bekannt ist oder kein Wechsel im IT-Personal stattgefunden hat</li></ul>Da mehrere Personen Zugriff auf die Anmeldeinformationen dieser Konten haben, sollte durch eine Rotation der Anmeldeinformationen sichergestellt werden, dass Personen, die ihre Rollen nicht mehr innehaben, keinen Zugriff auf die Konten mehr haben. [Weitere Informationen](../users-groups-roles/directory-admin-roles-secure.md) |
+| **bewährten Methoden** | Für freigegebene Konten sowie Dienst- und Notfallzugriffskonten, die ein Kennwort zur Authentifizierung verwenden und administrativen Rollen mit hohen Berechtigungen (z. B. der Rolle „Globaler Administrator“ oder „Sicherheitsadministrator“) zugewiesen sind, ist für die folgenden Fälle eine Kennwortrotation erforderlich:<ul><li>Nach einem Sicherheitsvorfall, bei dem administrative Zugriffsrechte missbraucht oder kompromittiert wurden</li><li>Nachdem die Berechtigungen eines Benutzers geändert wurden, sodass er kein Administrator mehr ist (beispielsweise nachdem ein Mitarbeiter, der ein Administrator war, die IT-Abteilung oder Organisation verlassen hat)</li><li>In regelmäßigen Abständen (z. B. vierteljährlich oder jährlich), auch wenn keine Sicherheitsverletzung bekannt ist oder kein Wechsel im IT-Personal stattgefunden hat</li></ul>Da mehrere Personen Zugriff auf die Anmeldeinformationen dieser Konten haben, sollte durch eine Rotation der Anmeldeinformationen sichergestellt werden, dass Personen, die ihre Rollen nicht mehr innehaben, keinen Zugriff auf die Konten mehr haben. [Weitere Informationen](../roles/security-planning.md) |
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>Rollen werden außerhalb von Privileged Identity Management zugewiesen
 
@@ -228,7 +228,7 @@ Dieser Abschnitt enthält alle Sicherheitswarnungen für Azure AD-Rollen sowie I
 
 Sie können einige der Sicherheitswarnungen in Privileged Identity Management gemäß den Anforderungen und Sicherheitszielen Ihrer Organisation anpassen. Gehen Sie wie folgt vor, um Einstellungen für Sicherheitswarnungen zu öffnen:
 
-1. Öffnen Sie in Azure AD den Dienst **Privileged Identity Management** .
+1. Öffnen Sie in Azure AD den Dienst **Privileged Identity Management**.
 
 1. Wählen Sie **Azure AD-Rollen** aus.
 

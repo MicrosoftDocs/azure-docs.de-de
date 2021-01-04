@@ -3,12 +3,12 @@ title: Exportieren einer Vorlage im Azure-Portal
 description: Verwenden Sie das Azure-Portal, um eine Azure Resource Manager-Vorlage aus Ressourcen in Ihrem Abonnement zu exportieren.
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 6d0c9adb121372047336d2753df047f54f1e0fa2
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: ee97953a337bbb7cc9a8d1f042a3beae7bccdcae
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951756"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185690"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Exportieren von einzelnen oder mehreren Ressourcen in eine Vorlage im Azure-Portal
 
@@ -51,7 +51,7 @@ Beim Exportieren aus einer Ressourcengruppe oder Ressource wird die exportierte 
 
 Die Funktion „Vorlage exportieren“ unterstützt nicht das Exportieren von Azure Data Factory-Ressourcen. Informationen zum Exportieren von Data Factory-Ressourcen finden Sie unter [Kopieren oder Klonen einer Data Factory in Azure Data Factory](../../data-factory/copy-clone-data-factory.md).
 
-Um über das klassische Bereitstellungsmodell erstellte Ressourcen zu exportieren, müssen Sie [sie zum Resource Manager-Bereitstellungsmodell migrieren](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+Um über das klassische Bereitstellungsmodell erstellte Ressourcen zu exportieren, müssen Sie [sie zum Resource Manager-Bereitstellungsmodell migrieren](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
 Wenn beim Exportieren einer Vorlage eine Warnung angezeigt wird, die angibt, dass ein Ressourcentyp nicht exportiert wurde, können Sie die Eigenschaften für diese Ressource immer noch ermitteln. Weitere Informationen zu den verschiedenen Optionen zum Anzeigen von Ressourceneigenschaften finden Sie unter [Ermitteln von Ressourceneigenschaften](view-resources.md). Sie können den Ressourcentyp auch in der [Azure-REST-API](/rest/api/azure/) nachschlagen.
 

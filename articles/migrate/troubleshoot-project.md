@@ -1,17 +1,17 @@
 ---
 title: Behandeln von Problemen bei Azure Migrate-Projekten
 description: Hilft Ihnen bei der Problembehandlung bei der Erstellung und Verwaltung von Azure Migrate-Projekten.
-ms.topic: troubleshooting
-author: musa-57
+author: ms-psharma
+ms.author: panshar
 ms.manager: abhemraj
-ms.author: hamusa
+ms.topic: troubleshooting
 ms.date: 01/01/2020
-ms.openlocfilehash: f2245e13f348706f662055408196ea7a26484811
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: f68a57d3780f388488d48835f322ff04ab7c7187
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314643"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753381"
 ---
 # <a name="troubleshoot-azure-migrate-projects"></a>Behandeln von Problemen bei Azure Migrate-Projekten
 
@@ -19,7 +19,7 @@ Dieser Artikel hilft Ihnen bei der Problembehandlung beim Erstellen und Verwalte
 
 ## <a name="how-to-add-new-project"></a>Wie wird ein neues Projekt hinzugefügt?
 
-Ein Abonnement kann mehrere Azure Migrate-Projekte aufweisen. [Erfahren Sie](how-to-add-tool-first-time.md), wie Sie ein Projekt zum ersten Mal erstellen oder [weitere Projekte hinzufügen](create-manage-projects.md#create-additional-projects) können.
+Ein Abonnement kann mehrere Azure Migrate-Projekte aufweisen. [Erfahren Sie](./create-manage-projects.md), wie Sie ein Projekt zum ersten Mal erstellen oder [weitere Projekte hinzufügen](create-manage-projects.md#create-additional-projects) können.
 
 ## <a name="what-azure-permissions-are-needed"></a>Welche Azure-Berechtigungen sind erforderlich?
 
@@ -40,7 +40,7 @@ Sie können bis zu 35.000 VMware-VMs oder bis zu 35.000 Hyper-V-VMs in einem ein
 
 ## <a name="can-i-upgrade-old-project"></a>Kann ich ein Upgrade für ein altes Projekt durchführen?
 
-Projekte aus der vorherigen Version von Azure Migrate können nicht aktualisiert werden. Sie müssen [ein neues Projekt](how-to-add-tool-first-time.md) erstellen und ihm Tools hinzufügen.
+Projekte aus der vorherigen Version von Azure Migrate können nicht aktualisiert werden. Sie müssen [ein neues Projekt](./create-manage-projects.md) erstellen und ihm Tools hinzufügen.
 
 ## <a name="cant-create-a-project"></a>Projekt kann nicht erstellt werden
 

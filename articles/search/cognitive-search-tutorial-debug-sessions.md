@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: 33c26af86bfcf2f748a0fa68ee4f3d0da1f132e1
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 8ec39c4616f5a34f8326b56d4f0ba6e15cdad91c
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057551"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699116"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Tutorial: Diagnostizieren, Reparieren und Committen von Änderungen an Ihrem Skillset
 
@@ -59,7 +59,7 @@ Für REST-Aufrufe sind die Dienst-URL und ein Zugriffsschlüssel für jede Anfor
 
 1. Rufen Sie unter **Einstellungen** > **Schlüssel** einen Administratorschlüssel ab, um Vollzugriff auf den Dienst zu erhalten. Es gibt zwei austauschbare Administratorschlüssel – diese wurden zum Zweck der Geschäftskontinuität bereitgestellt, falls Sie einen Rollover für einen Schlüssel durchführen müssen. Für Anforderungen zum Hinzufügen, Ändern und Löschen von Objekten können Sie den primären oder den sekundären Schlüssel verwenden.
 
-:::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Abrufen eines HTTP-Endpunkts und eines Zugriffsschlüssels" border="false":::
+:::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Abrufen eines HTTP-Endpunkts und eines Zugriffsschlüssels" border="false":::
 
 Für alle an Ihren Dienst gesendeten Anforderungen ist ein API-Schlüssel erforderlich. Ein gültiger Schlüssel stellt anforderungsbasiert eine Vertrauensstellung her zwischen der Anwendung, die die Anforderung versendet, und dem Dienst, der sie verarbeitet.
 
@@ -78,13 +78,13 @@ In diesem Abschnitt werden Postman und eine bereitgestellte Sammlung verwendet, 
 1. Geben Sie Speicher-Verbindungszeichenfolge (storageConnectionString) von der Schlüsselseite Ihres Azure Storage Kontos ein.
 1. Geben Sie den Containernamen (containerName) für den Container ein, den Sie im Speicherkonto erstellt haben.
 
-> :::image type="content" source="media/cognitive-search-debug/postman-enter-variables.png" alt-text="Abrufen eines HTTP-Endpunkts und eines Zugriffsschlüssels":::
+> :::image type="content" source="media/cognitive-search-debug/postman-enter-variables.png" alt-text="Bearbeiten von Variablen in Postman":::
 
 Die Sammlung enthält vier verschiedene REST-Aufrufe, die zum Fertigstellen dieses Abschnitts verwendet werden.
 
 Der erste Befehl erstellt die Datenquelle: `clinical-trials-ds`. Der zweite Befehl erstellt das Skillset: `clinical-trials-ss`. Der dritte Befehl erstellt den Index: `clinical-trials`. Der vierte und letzte Befehl erstellt den indexer: `clinical-trials-idxr`. Nachdem alle Aufrufe in der Sammlung abgeschlossen wurden, schließen Sie Postman, und kehren Sie zum Azure-Portal zurück.
 
-> :::image type="content" source="media/cognitive-search-debug/postman-create-data-source.png" alt-text="Abrufen eines HTTP-Endpunkts und eines Zugriffsschlüssels":::
+> :::image type="content" source="media/cognitive-search-debug/postman-create-data-source.png" alt-text="Verwenden von Postman zum Erstellen einer Datenquelle":::
 
 ## <a name="check-the-results"></a>Prüfen der Ergebnisse
 
@@ -107,7 +107,7 @@ Kehren Sie zum Bildschirm „Übersicht“ Ihres Suchdiensts zurück.
 
 ## <a name="start-your-debug-session"></a>Starten Sie Ihre Debugsitzung.
 
-> :::image type="content" source="media/cognitive-search-debug/new-debug-session-screen-required.png" alt-text="Abrufen eines HTTP-Endpunkts und eines Zugriffsschlüssels":::.
+> :::image type="content" source="media/cognitive-search-debug/new-debug-session-screen-required.png" alt-text="Starten Sie eine neue Debugsitzung":::.
 
 1. Klicken Sie auf die Registerkarte „Debugsitzungen“ (Vorschau).
 1. „+NewDebugSession“ auswählen
@@ -120,7 +120,7 @@ Kehren Sie zum Bildschirm „Übersicht“ Ihres Suchdiensts zurück.
 > [!Important]
 > Eine Debugsitzung funktioniert nur mit einem einzelnen Dokument. Ein bestimmtes Dokument im Dataset kann > ausgewählt werden, oder die Sitzung wird standardmäßig auf das erste Dokument gesetzt.
 
-> :::image type="content" source="media/cognitive-search-debug/debug-execution-complete1.png" alt-text="Abrufen eines HTTP-Endpunkts und eines Zugriffsschlüssels":::.
+> :::image type="content" source="media/cognitive-search-debug/debug-execution-complete1.png" alt-text="Eine neue Debugsitzung wurde gestartet":::.
 
 Wenn die Ausführung der Debugsitzung beendet ist, wird die Sitzung standardmäßig auf die Registerkarte „KI-Anreicherungen“ gesetzt, wobei der Skillgraph hervorgehoben wird.
 
@@ -140,7 +140,7 @@ Auf der Registerkarte „Fehler/Warnungen“ gibt es einen Fehler für eine Oper
 1. Wählen Sie das Symbol **</>** am Anfang der Zeile aus, und öffnen Sie die Ausdrucksauswertung.
 1. Klicken Sie auf die Schaltfläche **Auswerten**, um zu überprüfen, ob dieser Ausdruck einen Fehler erzeugt. Es zeigt sich, dass die Eigenschaft „languageCode“ keine gültige Eingabe ist.
 
-> :::image type="content" source="media/cognitive-search-debug/expression-evaluator-language.png" alt-text="Abrufen eines HTTP-Endpunkts und eines Zugriffsschlüssels":::
+> :::image type="content" source="media/cognitive-search-debug/expression-evaluator-language.png" alt-text="Ausdrucksauswertung":::
 
 Es gibt zwei Möglichkeiten, diesen Fehler in der Sitzung zu recherchieren. Die erste besteht darin, zu untersuchen, woher die Eingabe stammt. Welche Qualifikation in der Hierarchie sollte dieses Ergebnis erzeugen? Auf der Registerkarte „Ausführungen“ sollte die Quelle der Eingabe im Detailbereich der Qualifikation angezeigt werden. Wenn keine Quelle vorhanden ist, deutet dies auf einen Feldzuordnungsfehler hin.
 
@@ -148,7 +148,7 @@ Es gibt zwei Möglichkeiten, diesen Fehler in der Sitzung zu recherchieren. Die 
 1. Schauen Sie sich die INPUTS an, und suchen Sie „languageCode“. Für diese Eingabe ist keine Quelle aufgeführt. 
 1. Wechseln Sie in den linken Fensterbereich, um die angereicherte Datenstruktur anzuzeigen. Es gibt keinen zugeordneten Pfad, der „languageCode“ entspricht.
 
-> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-language.png" alt-text="Abrufen eines HTTP-Endpunkts und eines Zugriffsschlüssels":::
+> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-language.png" alt-text="Angereicherte Datenstruktur":::
 
 Es gibt einen zugeordneten Pfad für „Sprache“. Es liegt also einen Tippfehler in den Skilleinstellungen vor. Um dies zu beheben, muss der Ausdruck in der Qualifikation „#1“ mit dem Ausdruck „/document/language“ aktualisiert werden.
 
@@ -164,11 +164,11 @@ Sobald die Ausführung der Debugsitzung abgeschlossen ist, klicken Sie auf die R
 
 ## <a name="fix-missing-skill-output-values"></a>Korrigieren fehlender Qualifikationsausgabewerte
 
-> :::image type="content" source="media/cognitive-search-debug/warnings-missing-value-locations-organizations.png" alt-text="Abrufen eines HTTP-Endpunkts und eines Zugriffsschlüssels":::
+> :::image type="content" source="media/cognitive-search-debug/warnings-missing-value-locations-organizations.png" alt-text="Fehler und Warnungen":::
 
 Es fehlen Ausgabewerte von einer Qualifikation. Um die Qualifikation mit dem Fehler zu identifizieren, wechseln Sie zur angereicherten Datenstruktur, suchen Sie den Wertnamen, und schauen Sie sich die Ursprungsquelle an. Im Falle der fehlenden Werte für Organisationen und Standorte handelt es sich um Ausgaben der Qualifikation „#1“. Wenn Sie die Ausdrucksauswertung </> für jeden Pfad öffnen, werden die Ausdrücke als „/document/content/organisations“ bzw. „/document/content/locations“ angezeigt.
 
-> :::image type="content" source="media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png" alt-text="Abrufen eines HTTP-Endpunkts und eines Zugriffsschlüssels":::
+> :::image type="content" source="media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png" alt-text="Ausdrucksauswertung, Entität „Organisationen“":::
 
 Die Ausgabe für diese Entitäten ist leer, darf aber nicht leer sein. Welches sind die Eingaben, die zu diesem Ergebnis führen?
 
@@ -176,14 +176,14 @@ Die Ausgabe für diese Entitäten ist leer, darf aber nicht leer sein. Welches s
 1. Wählen Sie die Registerkarte **Ausführungen** im rechten Qualifikationsdetailbereich aus.
 1. Öffnen Sie die Ausdrucksauswertung **</>** für die Eingabe (INPUT) „Text“.
 
-> :::image type="content" source="media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png" alt-text="Abrufen eines HTTP-Endpunkts und eines Zugriffsschlüssels":::
+> :::image type="content" source="media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png" alt-text="Eingabe für die Qualifikation „Text“":::
 
 Das angezeigte Ergebnis für diese Eingabe sieht nicht wie eine Texteingabe aus. Es sieht aus wie ein Bild, das von neuen Linien umgeben ist. Das Fehlen von Text bedeutet, dass keine Entitäten identifiziert werden können. Wenn Sie die Hierarchie des Skillsets betrachten, wird der Inhalt zunächst von der Qualifikation „#6“ (OCR) verarbeitet und dann an die Qualifikation „#5“ (Zusammenführung) weitergegeben. 
 
 1. Wählen Sie die Qualifikation „#5“ (Zusammenführung) im **Skillgraph** aus.
 1. Wählen Sie die Registerkarte **Ausführungen** im rechten Qualifikationsdetailbereich aus, und öffnen Sie die Ausdrucksauswertung **</>** für die Ausgaben (OUTPUTS) „mergedText“.
 
-> :::image type="content" source="media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png" alt-text="Abrufen eines HTTP-Endpunkts und eines Zugriffsschlüssels":::
+> :::image type="content" source="media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png" alt-text="Ausgabe für Qualifikation „Zusammenführung“":::
 
 Hier wird der Text mit dem Bild gekoppelt. Wenn Sie den Ausdruck „/document/merged_content“ betrachten, ist der Fehler in den Pfaden „Unternehmen“ und „Standorte“ für die Qualifikation „#1“ sichtbar. Anstatt „/document/content“ sollte „/document/merged_content“ für die „Text“-Eingaben verwendet werden.
 
@@ -203,7 +203,7 @@ Nachdem die Ausführung des Indexers abgeschlossen ist, sind die Fehler weiterhi
 1. Navigieren Sie zu den **Skilleinstellungen**, um nach „Ausgaben“ zu suchen.
 1. Öffnen Sie die Ausdrucksauswertung **</>** für die „Organisationen“-Entität.
 
-> :::image type="content" source="media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png" alt-text="Abrufen eines HTTP-Endpunkts und eines Zugriffsschlüssels":::
+> :::image type="content" source="media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png" alt-text="Ausgabe für „Organisationen“-Entität":::
 
 Die Auswertung des Ergebnisses des Ausdrucks ergibt das richtige Ergebnis. Die Qualifikation dient dazu, den richtigen Wert für die Entität „Organisationen“ zu ermitteln. Die Ausgabezuordnung im Pfad der Entität löst jedoch immer noch einen Fehler aus. Beim Vergleich des Ausgabepfads in der Qualifikation mit dem Ausgabepfad im Fehler, ist die Qualifikation den Ausgaben, Organisationen und Standorten unter dem Knoten „/document/content“ übergeordnet. Die Ausgabefeldzuordnung erwartet hingegen, dass die Ergebnisse dem Knoten „/document/merged_content“ untergeordnet werden. Im vorherigen Schritt wurde die Eingabe von „/document/content“ in „/document/merged_content“ geändert. Der Kontext in den Skilleinstellungen muss geändert werden, um sicherzustellen, dass die Ausgabe mit dem richtigen Kontext erzeugt wird.
 
@@ -214,7 +214,7 @@ Die Auswertung des Ergebnisses des Ausdrucks ergibt das richtige Ergebnis. Die Q
 1. Klicken Sie auf **Speichern** im rechten Qualifikationsdetailbereich.
 1. Klicken Sie im Sitzungsfenster im Menü auf **Ausführen**. Dadurch wird eine weitere Ausführung des Skillsets unter Verwendung des Dokuments gestartet.
 
-> :::image type="content" source="media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png" alt-text="Abrufen eines HTTP-Endpunkts und eines Zugriffsschlüssels":::
+> :::image type="content" source="media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png" alt-text="Kontextkorrektur in Skilleinstellung":::
 
 Alle Fehler wurden behoben.
 

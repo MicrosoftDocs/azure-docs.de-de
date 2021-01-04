@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: trbye
-ms.openlocfilehash: c4195ff1b81097a3620f68939f32147a26e16d60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f547b353091cc81816f0974fced8d4dc836d22b2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85391603"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023819"
 ---
 # <a name="quickstart-getting-a-luis-endpoint-key"></a>Schnellstart: Abrufen eines LUIS-Endpunktschlüssels
 
@@ -37,7 +37,7 @@ LUIS verwendet drei Arten von Schlüsseln:
 |Starter|Hiermit können Sie Ihre LUIS-Anwendung nur mit Text testen.|
 |Endpunkt |Autorisiert den Zugriff auf eine bestimmte LUIS-App.|
 
-Für dieses Tutorial benötigen Sie den Endpunktschlüsseltyp. Dieses Tutorial verwendet die LUIS-Beispiel-App für die Gebäudeautomatisierung, die Sie erstellen können, indem Sie die Anleitung im Schnellstart [Verwenden der vordefinierten Home Automation-App](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) befolgen. Wenn Sie selbst eine LUIS-App erstellt haben, können Sie diese stattdessen verwenden.
+Für dieses Tutorial benötigen Sie den Endpunktschlüsseltyp. Dieses Tutorial verwendet die LUIS-Beispiel-App für die Gebäudeautomatisierung, die Sie erstellen können, indem Sie die Anleitung im Schnellstart [Verwenden der vordefinierten Home Automation-App](../../luis/luis-get-started-create-app.md) befolgen. Wenn Sie selbst eine LUIS-App erstellt haben, können Sie diese stattdessen verwenden.
 
 Wenn Sie eine LUIS-App erstellen, wird automatisch ein Startschlüssel generiert, mit dem Sie die App mithilfe von Textabfragen testen können. Mit diesem Schlüssel ist keine Integration des Speech-Diensts möglich, und er ist für dieses Tutorial nicht geeignet. Erstellen Sie eine LUIS-Ressource im Azure-Dashboard, und weisen Sie sie der LUIS-App zu. Sie können den Tarif für ein kostenloses Abonnement für dieses Tutorial verwenden.
 

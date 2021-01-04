@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9780a2adb60c690abda6880157252aaa0c562f18
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: fb7672a0d7bdd14415a51f2296c281e92cf5542a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171775"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450656"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Schnellstart: Erstellen eines Synapse-Arbeitsbereichs
 In dieser Schnellstartanleitung werden die Schritte zum Erstellen eines Azure Synapse-Arbeitsbereichs über das Azure-Portal erläutert.
@@ -22,14 +22,9 @@ In dieser Schnellstartanleitung werden die Schritte zum Erstellen eines Azure S
 ## <a name="create-a-synapse-workspace"></a>Erstellen eines Synapse-Arbeitsbereichs
 
 1. Öffnen Sie das [Azure-Portal](https://portal.azure.com), und suchen Sie oben nach **Synapse**.
-1. Wählen Sie in den Suchergebnissen unter **Dienste** den Eintrag **Azure Synapse Analytics (Arbeitsbereichsvorschau)** aus.
-1. Wählen Sie **Hinzufügen** aus, um einen Arbeitsbereich mit diesen Einstellungen zu erstellen:
-
-    |Registerkarte|Einstellung | Vorgeschlagener Wert | BESCHREIBUNG |
-    |---|---|---|---|
-    |Grundlagen|**Arbeitsbereichsname**|Sie können einen beliebigen Namen eingeben.| In diesem Dokument wird **myworkspace** verwendet.|
-    |Grundlagen|**Region**|Wählen Sie dieselbe Region wie für das Speicherkonto aus.|
-
+1. Wählen Sie in den Suchergebnissen unter **Dienste** den Eintrag **Azure Synapse Analytics** aus.
+1. Wählen Sie **Hinzufügen** aus, um einen Arbeitsbereich zu erstellen.
+1. Geben Sie auf der Registerkarte **Grundlagen** einen eindeutigen Namen für den Arbeitsbereich ein. In diesem Dokument wird **myworkspace** verwendet.
 1. Zum Erstellen eines Arbeitsbereichs benötigen Sie ein ADLSGEN2-Konto. Am einfachsten ist es, ein solches Konto neu zu erstellen. Wenn Sie ein vorhandenes Konto verwenden möchten, müssen Sie einige zusätzliche Konfigurationsschritte ausführen. 
 1. OPTION 1: Erstellen eines neuen ADLSGEN2-Kontos 
     1. Klicken Sie unter **Data Lake Storage Gen 2 auswählen** auf **Neu erstellen**, und geben Sie **contosolake** als Namen ein.
@@ -38,6 +33,9 @@ In dieser Schnellstartanleitung werden die Schritte zum Erstellen eines Azure S
 1. Ihr Azure Synapse-Arbeitsbereich verwendet dieses Speicherkonto als „primäres“ Speicherkonto und den Container zum Speichern von Arbeitsbereichsdaten. Im Arbeitsbereich werden Daten in Apache Spark-Tabellen gespeichert. Die Spark-Anwendungsprotokolle werden im Ordner **/synapse/workspacename** gespeichert.
 1. Wählen Sie **Bewerten + erstellen** > **Erstellen** aus. Ihr Arbeitsbereich steht nach wenigen Minuten zur Verfügung.
 
+> [!NOTE]
+> Nach der Erstellung Ihres Azure Synapse-Arbeitsbereichs können Sie ihn nicht in einen anderen Azure Active Directory-Mandanten verschieben. Wenn Sie dies über die Abonnementmigration oder andere Aktionen durchführen, verlieren Sie unter Umständen den Zugriff auf die Artefakte im Arbeitsbereich.  
+
 ## <a name="open-synapse-studio"></a>Öffnen von Synapse Studio
 
 Nachdem Ihr Azure Synapse-Arbeitsbereich erstellt wurde, haben Sie zwei Möglichkeiten zum Öffnen von Synapse Studio:
@@ -45,7 +43,7 @@ Nachdem Ihr Azure Synapse-Arbeitsbereich erstellt wurde, haben Sie zwei Möglich
 * Öffnen Sie Ihren Synapse-Arbeitsbereich im [Azure-Portal](https://portal.azure.com). Wählen Sie oben im Abschnitt **Übersicht** die Option **Synapse Studio starten** aus.
 * Navigieren Sie zu `https://web.azuresynapse.net`, und melden Sie sich bei Ihrem Arbeitsbereich an.
 
-## <a name="prepare-an-existing-storage-account-for-use-with-synapse-analytics"></a>Vorbereiten eines vorhandenen Speicherkontos für die Verwendung mit Synapse Analytics
+## <a name="prepare-an-existing-storage-account-for-use-with-azure-synapse-analytics"></a>Vorbereiten eines vorhandenen Speicherkontos für die Verwendung mit Azure Synapse Analytics
 
 1. Öffnen Sie das [Azure-Portal](https://portal.azure.com).
 1. Navigieren Sie zu einem vorhandenen ADLSGEN2-Speicherkonto.
@@ -70,6 +68,6 @@ Verwaltete Identitäten für Ihren Azure Synapse-Arbeitsbereich verfügen unter 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Erstellen eines SQL-Pools](quickstart-create-sql-pool-studio.md) 
-* [Erstellen eines Apache Spark-Pools](quickstart-create-apache-spark-pool-portal.md)
-* [Verwenden von SQL On-Demand](quickstart-sql-on-demand.md)
+* [Erstellen eines dedizierten SQL-Pools](quickstart-create-sql-pool-studio.md) 
+* [Erstellen eines serverlosen Apache Spark-Pools](quickstart-create-apache-spark-pool-portal.md)
+* [Verwenden eines serverlosen SQL-Pools](quickstart-sql-on-demand.md)

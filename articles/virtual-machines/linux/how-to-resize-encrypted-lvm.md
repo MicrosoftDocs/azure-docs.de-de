@@ -1,17 +1,18 @@
 ---
-title: Vorgehensweise zum Ändern der Größe von verschlüsselten LVM-Datenträgern mit Azure Disk Encryption
+title: Ändern der Größe von mit Azure Disk Encryption verschlüsselten Datenträgern
 description: Dieser Artikel enthält Anweisungen zum Ändern der Größe von Datenträgern, die mit ADE verschlüsselt sind, mit LVM.
 author: jofrance
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: jofrance
 ms.date: 09/21/2020
-ms.openlocfilehash: 8e32e4960776084669c8f2f7743b66b9d0f9a6ae
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 732a2ef3c6c33d0b17deaf3b9bdc5d1ac5e5934c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978474"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498913"
 ---
 # <a name="how-to-resize-logical-volume-management-devices-that-use-azure-disk-encryption"></a>Vorgehensweise zum Ändern der Größe von LVM-Geräten, die Azure Disk Encryption verwenden
 
@@ -31,7 +32,7 @@ Sie können diesen Prozess zum Anpassen der Größe in den folgenden Umgebungen 
 
 In diesem Artikel wird davon ausgegangen, dass Sie Folgendes abgeschlossen haben:
 
-- Eine vorhandene LVM-Konfiguration. Weitere Informationen finden Sie in den Anweisungen zum [Konfigurieren von LVM auf einer Linux-VM](configure-lvm.md).
+- Eine vorhandene LVM-Konfiguration. Weitere Informationen finden Sie in den Anweisungen zum [Konfigurieren von LVM auf einer Linux-VM](/previous-versions/azure/virtual-machines/linux/configure-lvm).
 
 - Datenträger, die bereits mit Azure Disk Encryption verschlüsselt wurden. Weitere Informationen finden Sie in den Anweisungen zum [Konfigurieren von LVM und RAID auf verschlüsselten Geräten](how-to-configure-lvm-raid-on-crypt.md).
 

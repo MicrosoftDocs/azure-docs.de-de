@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: e0e2244d8c70ca2e6d379e741d543d9cd260b7f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87ec59d19fb442293fb7f14d110cf513015ec9f7
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044582"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130798"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Erstellen einer IoT-Lösung mithilfe von Stream Analytics
 
@@ -128,11 +128,11 @@ Es sind verschiedene Ressourcen vorhanden, die mit wenigen Klicks zusammen in ei
 
 6. Geben Sie ein **Intervall** in Sekunden an. Dieser Wert wird in der Beispiel-Web-App verwendet, um anzugeben, wie oft Daten an den Event Hub gesendet werden sollen.
 
-7. **Aktivieren Sie das Kontrollkästchen**, um den Geschäftsbedingungen zuzustimmen.
+7. **Aktivieren Sie das Kontrollkästchen** , um den Geschäftsbedingungen zuzustimmen.
 
-8. Wählen Sie **An Dashboard anheften**, damit Sie die Ressourcen später leicht finden können.
+8. Wählen Sie **An Dashboard anheften** , damit Sie die Ressourcen später leicht finden können.
 
-9. Wählen Sie **Kaufen**, um die Beispielvorlage bereitzustellen.
+9. Wählen Sie **Kaufen** , um die Beispielvorlage bereitzustellen.
 
 10. Nach kurzer Zeit wird eine Benachrichtigung mit dem Hinweis **Bereitstellung erfolgreich** angezeigt.
 
@@ -152,7 +152,7 @@ Es sind verschiedene Ressourcen vorhanden, die mit wenigen Klicks zusammen in ei
 ## <a name="examine-the-sample-tollapp-job"></a>Erkunden des Beispiels für einen TollApp-Auftrag
 1. Wählen Sie für die Ressourcengruppe aus dem vorherigen Abschnitt den Stream Analytics-Streamingauftrag aus, der mit dem Namen **tollapp** beginnt (aus Gründen der Eindeutigkeit enthält der Name zufällige Zeichen).
 
-2. Beachten Sie auf der Seite **Übersicht** des Auftrags das Feld **Abfrage**, um die Abfragesyntax anzuzeigen.
+2. Beachten Sie auf der Seite **Übersicht** des Auftrags das Feld **Abfrage** , um die Abfragesyntax anzuzeigen.
 
    ```sql
    SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count
@@ -163,15 +163,15 @@ Es sind verschiedene Ressourcen vorhanden, die mit wenigen Klicks zusammen in ei
 
    Das Ziel der Abfrage lässt sich auch anhand des folgenden Beispiels darstellen: Angenommen, Sie müssen die Fahrzeuge zählen, die ein Mauthäuschen passieren. Da das Mauthäuschen an einer Straße über einen kontinuierlichen Strom von ankommenden Fahrzeugen verfügt, sind diese Ereignisse mit einem analogen Datenstrom vergleichbar, der niemals endet. Zum Quantifizieren des Datenstroms müssen Sie einen „Zeitraum“ für die Messung definieren. Wir verfeinern die Frage also weiter: „Wie viele Fahrzeuge passieren ein Mauthäuschen jeweils innerhalb von drei Minuten?“ Dies wird für gewöhnlich als „Rollierende Anzahl“ bezeichnet.
 
-   Es ist erkennbar, dass in Azure Stream Analytics eine Abfragesprache verwendet wird, die wie SQL aufgebaut ist und über einige Erweiterungen verfügt, damit die zeitbezogenen Aspekte der Abfrage angegeben werden können.  Weitere Informationen finden Sie in den Artikeln zu [Zeitmanagement](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics)- und [Windowing](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics)-Konstrukten, die in der Abfrage verwendet werden.
+   Es ist erkennbar, dass in Azure Stream Analytics eine Abfragesprache verwendet wird, die wie SQL aufgebaut ist und über einige Erweiterungen verfügt, damit die zeitbezogenen Aspekte der Abfrage angegeben werden können.  Weitere Informationen finden Sie in den Artikeln zu [Zeitmanagement](/stream-analytics-query/time-management-azure-stream-analytics)- und [Windowing](/stream-analytics-query/windowing-azure-stream-analytics)-Konstrukten, die in der Abfrage verwendet werden.
 
 3. Untersuchen Sie die Eingaben des TollApp-Beispielauftrags. Nur die EntryStream-Eingabe wird in der aktuellen Abfrage verwendet.
-   - Die **EntryStream**-Eingabe ist eine Event Hub-Verbindung, bei der Daten, die jeweils für das Ankommen eines Fahrzeugs am Mauthäuschen einer Straße stehen, in eine Warteschlange eingereiht werden. Eine Web-App, die Teil des Beispiels ist, erstellt die Ereignisse, und diese Daten werden im Event Hub in die Warteschlange eingereiht. Beachten Sie, dass diese Eingabe über die FROM-Klausel der Streamingabfrage abgefragt wird.
-   - Die **ExitStream**-Eingabe ist eine Event Hub-Verbindung, bei der Daten, die jeweils für das Ausfahren eines Fahrzeugs aus dem Mauthäuschen einer Straße stehen, in eine Warteschlange eingereiht werden. Diese Streamingeingabe wird in späteren Varianten der Abfragesyntax verwendet.
+   - Die **EntryStream** -Eingabe ist eine Event Hub-Verbindung, bei der Daten, die jeweils für das Ankommen eines Fahrzeugs am Mauthäuschen einer Straße stehen, in eine Warteschlange eingereiht werden. Eine Web-App, die Teil des Beispiels ist, erstellt die Ereignisse, und diese Daten werden im Event Hub in die Warteschlange eingereiht. Beachten Sie, dass diese Eingabe über die FROM-Klausel der Streamingabfrage abgefragt wird.
+   - Die **ExitStream** -Eingabe ist eine Event Hub-Verbindung, bei der Daten, die jeweils für das Ausfahren eines Fahrzeugs aus dem Mauthäuschen einer Straße stehen, in eine Warteschlange eingereiht werden. Diese Streamingeingabe wird in späteren Varianten der Abfragesyntax verwendet.
    - Die Eingabe **Registration** (Registrierung) ist eine Azure-Blobspeicherverbindung und verweist auf die statische Datei „registration.json“, die je nach Bedarf für Suchvorgänge verwendet wird. Diese Referenzdateneingabe wird in späteren Varianten der Abfragesyntax verwendet.
 
 4. Untersuchen Sie die Ausgaben des TollApp-Beispielauftrags.
-   - Die **Cosmos DB**-Ausgabe ist ein Cosmos-Datenbankcontainer, der die Ausgabesenkenereignisse empfängt. Beachten Sie, dass diese Ausgabe in der INTO-Klausel der Streamingabfrage verwendet wird.
+   - Die **Cosmos DB** -Ausgabe ist ein Cosmos-Datenbankcontainer, der die Ausgabesenkenereignisse empfängt. Beachten Sie, dass diese Ausgabe in der INTO-Klausel der Streamingabfrage verwendet wird.
 
 ## <a name="start-the-tollapp-streaming-job"></a>Starten des TollApp-Streamingauftrags
 Führen Sie diese Schritte aus, um den Streamingauftrag zu starten:
@@ -187,7 +187,7 @@ Führen Sie diese Schritte aus, um den Streamingauftrag zu starten:
 
 2. Wählen Sie das Azure Cosmos DB-Konto mit dem Namensmuster **tollapp\<random\>-cosmos** aus.
 
-3. Wählen Sie die Überschrift **Daten-Explorer**, um die Seite mit dem Daten-Explorer zu öffnen.
+3. Wählen Sie die Überschrift **Daten-Explorer** , um die Seite mit dem Daten-Explorer zu öffnen.
 
 4. Erweitern Sie **tollAppDatabase** > **tollAppCollection** > **Dokumente**.
 
@@ -201,7 +201,7 @@ Führen Sie diese Schritte aus, um den Streamingauftrag zu starten:
 ## <a name="report-total-time-for-each-car"></a>Gesamtberichtszeit pro Fahrzeug
 Die durchschnittliche Zeit, die ein Fahrzeug zum Passieren des Mauthäuschens benötigt, trägt zur Bewertung der Effizienz des Prozesses und der Benutzerfreundlichkeit für Kunden bei.
 
-Verknüpfen Sie zum Ermitteln der Gesamtzeit den EntryTime-Datenstrom mit dem ExitTime-Datenstrom. Verknüpfen Sie die beiden Eingabedatenströme für die übereinstimmenden Spalten TollId und LicencePlate. Beim Operator **JOIN** müssen Sie einen zeitlichen Spielraum angeben, um die akzeptable Zeitdifferenz zwischen den verknüpften Ereignissen zu beschreiben. Verwenden Sie die Funktion **DATEDIFF**, um anzugeben, dass Ereignisse nicht mehr als 15 Minuten auseinander liegen sollen. Wenden Sie die Funktion **DATEDIFF** außerdem auf Ausfahrts- und Einfahrtszeiten an, um die genaue Zeit zu berechnen, die ein Fahrzeug in der Mautstation verbringt. Beachten Sie den Unterschied bei der Verwendung der Funktion **DATEDIFF** in einer **SELECT**-Anweisung im Vergleich zu einer **JOIN**-Bedingung.
+Verknüpfen Sie zum Ermitteln der Gesamtzeit den EntryTime-Datenstrom mit dem ExitTime-Datenstrom. Verknüpfen Sie die beiden Eingabedatenströme für die übereinstimmenden Spalten TollId und LicencePlate. Beim Operator **JOIN** müssen Sie einen zeitlichen Spielraum angeben, um die akzeptable Zeitdifferenz zwischen den verknüpften Ereignissen zu beschreiben. Verwenden Sie die Funktion **DATEDIFF** , um anzugeben, dass Ereignisse nicht mehr als 15 Minuten auseinander liegen sollen. Wenden Sie die Funktion **DATEDIFF** außerdem auf Ausfahrts- und Einfahrtszeiten an, um die genaue Zeit zu berechnen, die ein Fahrzeug in der Mautstation verbringt. Beachten Sie den Unterschied bei der Verwendung der Funktion **DATEDIFF** in einer **SELECT** -Anweisung im Vergleich zu einer **JOIN** -Bedingung.
 
 ```sql
 SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute, EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
@@ -222,7 +222,7 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 4. Fügen Sie die angepasste SQL-Streamingabfrage ein.
 
-5. Wählen Sie **Speichern**, um die Abfrage zu speichern. Bestätigen Sie den Vorgang mit **Ja**, um die Änderungen zu speichern.
+5. Wählen Sie **Speichern** , um die Abfrage zu speichern. Bestätigen Sie den Vorgang mit **Ja** , um die Änderungen zu speichern.
 
 6. Wählen Sie auf der Seite **Übersicht** des Auftrags die Option **Starten**.
 
@@ -283,7 +283,7 @@ Beispielausgabe:
 ```
 
 ## <a name="scale-out-the-job"></a>Aufskalieren des Auftrags
-Azure Stream Analytics ist für die elastische Skalierung ausgelegt, damit große Datenmengen verarbeitet werden können. Die Azure Stream Analytics-Abfrage kann eine **PARTITION BY**-Klausel verwenden, um das System darauf hinzuweisen, dass für diesen Schritt horizontal hochskaliert wird. **PartitionId** ist eine spezielle Spalte, die vom System hinzugefügt wurde und mit der Partitions-ID der Eingabe (Event Hub) übereinstimmt.
+Azure Stream Analytics ist für die elastische Skalierung ausgelegt, damit große Datenmengen verarbeitet werden können. Die Azure Stream Analytics-Abfrage kann eine **PARTITION BY** -Klausel verwenden, um das System darauf hinzuweisen, dass für diesen Schritt horizontal hochskaliert wird. **PartitionId** ist eine spezielle Spalte, die vom System hinzugefügt wurde und mit der Partitions-ID der Eingabe (Event Hub) übereinstimmt.
 
 Ändern Sie die Abfragesyntax in den folgenden Code, um die Abfrage für Partitionen aufzuskalieren:
 ```sql
@@ -299,7 +299,7 @@ Skalieren Sie den Streamingauftrag wie folgt auf mehr Streamingeinheiten hoch:
 
 1. **Beenden** Sie den aktuellen Auftrag.
 
-2. Aktualisieren Sie die Abfragesyntax auf der Seite **< > Abfrage**, und speichern Sie die Änderungen.
+2. Aktualisieren Sie die Abfragesyntax auf der Seite **< > Abfrage** , und speichern Sie die Änderungen.
 
 3. Wählen Sie unter der Überschrift „KONFIGURIEREN“ des Streamingauftrags die Option **Skalieren**.
 

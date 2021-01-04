@@ -4,12 +4,12 @@ description: Effektives Überwachen Ihrer Web- und Workerrollen mit Application 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: cae2e4e1d5b5e199e772c5263a46d82289f5d6ac
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: ccd863db55ef0ff9f4051947321321c8b01430c4
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992849"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920689"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights für Azure Cloud Services
 [Application Insights][start] kann [Azure Cloud Services-Apps](https://azure.microsoft.com/services/cloud-services/) auf Verfügbarkeit, Leistung, Fehler und Verwendung überwachen. Dabei werden Daten aus den Application Insights-SDKs mit Daten der [Azure-Diagnose](../platform/diagnostics-extension-overview.md) aus Cloud Services kombiniert. Mit dem Feedback zur Leistung und Effektivität der App in der Praxis können Sie in jedem Entwicklungslebenszyklus eine fundierte Entscheidung für die Richtung des Entwurfs treffen.
@@ -110,15 +110,14 @@ Konfigurieren Sie in Visual Studio das Application Insights SDK für jedes Cloud
 
     b. Fügen Sie [Application Insights für Windows-Dienste](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) hinzu.
 
-    ![Suchen Sie nach "Application Insights".](./media/cloudservices/04-ai-nuget.png)
-
 1. So konfigurieren Sie das SDK zum Senden von Daten an die Application Insights-Ressource:
 
     a. Legen Sie in einer geeigneten Startfunktion den Instrumentierungsschlüssel aus der Konfigurationseinstellung in der *CSCFG*-Datei fest:
  
     ```csharp
-   
-     TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
+        TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+        configuration.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
+        var telemetryClient = new TelemetryClient(configuration);
     ```
    
     b. Wiederholen Sie „Schritt a“ für jede Rolle in Ihrer App. Beispiele:
@@ -191,7 +190,7 @@ Zum Anzeigen von Leistungsindikatoren und Angaben zur Anzahl von Ereignissen öf
 
 ![Azure-Diagnosedaten](./media/cloudservices/23-wad.png)
 
-Verwenden Sie zum Durchsuchen der verschiedenen Ablaufverfolgungsprotokolle, die von der Azure-Diagnose gesendet werden, die [Suche](./diagnostic-search.md) oder eine [Analytics-Abfrage](../log-query/get-started-portal.md). Angenommen, es liegt eine nicht behandelte Ausnahme vor, die das Abstürzen und erneute Aktivieren einer Rolle verursacht hat. Diese Informationen werden im Kanal „Anwendung“ des Windows-Ereignisprotokolls angezeigt. Sie können das Windows-Ereignisprotokoll mithilfe der Suchfunktion anzeigen und die vollständige Stapelüberwachung für die Ausnahme abrufen. So können Sie die Ursache des Problems ermitteln.
+Verwenden Sie zum Durchsuchen der verschiedenen Ablaufverfolgungsprotokolle, die von der Azure-Diagnose gesendet werden, die [Suche](./diagnostic-search.md) oder eine [Analytics-Abfrage](../log-query/log-analytics-tutorial.md). Angenommen, es liegt eine nicht behandelte Ausnahme vor, die das Abstürzen und erneute Aktivieren einer Rolle verursacht hat. Diese Informationen werden im Kanal „Anwendung“ des Windows-Ereignisprotokolls angezeigt. Sie können das Windows-Ereignisprotokoll mithilfe der Suchfunktion anzeigen und die vollständige Stapelüberwachung für die Ausnahme abrufen. So können Sie die Ursache des Problems ermitteln.
 
 ![Durchsuchen der Azure-Diagnosedaten](./media/cloudservices/25-wad.png)
 

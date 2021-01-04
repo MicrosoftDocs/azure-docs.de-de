@@ -4,23 +4,22 @@ titleSuffix: Azure App Configuration
 description: In diesem Tutorial wird beschrieben, wie Sie die Konfigurationsdaten für ASP.NET Core-Apps dynamisch aktualisieren.
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/24/2019
-ms.author: lcozzens
+ms.date: 09/1/2020
+ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: f98ec384876da1d30952d1c4edc1d00049e44682
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1fd495083f5f9be367dd0f125883b181e3bed27b
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076996"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930550"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Verwenden der dynamischen Konfiguration in einer ASP.NET Core-App
 
@@ -57,7 +56,7 @@ Ein *Sentinel-Schlüssel* ist ein spezieller Schlüssel, mit dem signalisiert wi
 1. Wählen Sie **Übernehmen**.
 
 > [!NOTE]
-> Wenn Sie keinen Sentinel-Schlüssel verwenden, müssen Sie manuell jeden zu überwachenden Schlüssel registrieren.
+> Wenn Sie keinen Sentinel-Schlüssel verwenden, müssen Sie manuell jeden zu überwachenden Schlüssel registrieren.
 
 ## <a name="reload-data-from-app-configuration"></a>Erneutes Laden von Daten aus App Configuration
 
@@ -161,7 +160,7 @@ Ein *Sentinel-Schlüssel* ist ein spezieller Schlüssel, mit dem signalisiert wi
     ```
     ---
     > [!Tip]
-    > Weitere Informationen zu den Optionsmustern beim Lesen von Konfigurationswerten finden Sie unter  [Optionsmuster in ASP.NET Core](/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
+    > Weitere Informationen zu den Optionsmustern beim Lesen von Konfigurationswerten finden Sie unter [Optionsmuster in ASP.NET Core](/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
 4. Aktualisieren Sie die `Configure`-Methode so, dass `UseAzureAppConfiguration`-Middleware hinzugefügt wird, mit der die für die Aktualisierung registrierten Konfigurationseinstellungen aktualisiert werden können, während die ASP.NET Core-Web-App weiterhin Anforderungen empfängt.
 
@@ -221,6 +220,9 @@ Ein *Sentinel-Schlüssel* ist ein spezieller Schlüssel, mit dem signalisiert wi
     ---
     
     Die Middleware nutzt die in der `AddAzureAppConfiguration`-Methode in `Program.cs` angegebene Aktualisierungskonfiguration, um eine Aktualisierung für jede Anforderung auszulösen, die von der ASP.NET Core-Web-App empfangen wird. Für jede Anforderung wird ein Aktualisierungsvorgang ausgelöst, und die Clientbibliothek überprüft, ob der zwischengespeicherte Wert für die registrierte Konfigurationseinstellung abgelaufen ist. Falls er abgelaufen ist, wird er aktualisiert.
+
+    > [!NOTE]
+    > Um die Aktualisierung der Konfiguration sicherzustellen, fügen Sie die Middleware möglichst früh zur Anforderungspipeline hinzu, damit kein Kurzschluss durch eine andere Middleware in Ihrer Anwendung verursacht wird.
 
 ## <a name="use-the-latest-configuration-data"></a>Verwenden der aktuellsten Konfigurationsdaten
 

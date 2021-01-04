@@ -39,10 +39,10 @@ Führen Sie die folgenden Schritte aus, um eine Zahlungsmethode für eine Micros
 1. Wählen Sie in der Menüliste auf der linken Seite unter **Abrechnung** die Option **Abrechnungsprofile** aus.  
     :::image type="content" source="./media/delete-azure-payment-method/billing-profiles.png" alt-text="Beispielscreenshot: Abrechnungsprofile im Azure-Portal" lightbox="./media/delete-azure-payment-method/billing-profiles.png" :::
 1. Wählen Sie in der Liste mit den Abrechnungsprofilen das Profil aus, für das die Zahlungsmethode verwendet wird.  
-    :::image type="content" source="./media/delete-azure-payment-method/select-billing-profile.png" alt-text="Beispielscreenshot: Abrechnungsprofile im Azure-Portal" :::
+    :::image type="content" source="./media/delete-azure-payment-method/select-billing-profile.png" alt-text="Beispielabbildung: Liste mit Abrechnungsprofilen" :::
 1. Wählen Sie in der Menüliste auf der linken Seite unter **Einstellungen** die Option **Zahlungsmethoden** aus.
 1. Auf der Seite „Zahlungsmethoden“ für Ihr Abrechnungsprofil wird im Abschnitt **Ihre Kreditkarten** eine Tabelle mit Zahlungsmethoden angezeigt. Suchen Sie nach der Kreditkarte, die Sie löschen möchten, und wählen Sie dann die Auslassungszeichen ( **…** ) und die Option **Löschen** aus.  
-    :::image type="content" source="./media/delete-azure-payment-method/delete-credit-card.png" alt-text="Beispielscreenshot: Abrechnungsprofile im Azure-Portal" :::
+    :::image type="content" source="./media/delete-azure-payment-method/delete-credit-card.png" alt-text="Beispiel: Option zum Löschen einer Kreditkarte" :::
 1. Die Seite zum Löschen einer Zahlungsmethode wird angezeigt. Azure prüft, ob die Zahlungsmethode gerade verwendet wird.
     - Wenn die Zahlungsmethode nicht verwendet wird, ist die Option **Löschen** aktiviert. Wählen Sie diese Option aus, um die Kreditkarteninformationen zu löschen.
     - Falls die Zahlungsmethode verwendet wird, muss sie ersetzt oder getrennt werden. Lesen Sie sich die folgenden Abschnitte durch. Darin wird beschrieben, wie Sie die Zahlungsmethode **trennen**, die von Ihrem Abonnement verwendet wird.
@@ -51,7 +51,7 @@ Führen Sie die folgenden Schritte aus, um eine Zahlungsmethode für eine Micros
 
 Wenn Ihre Zahlungsmethode von einem MCA-Abrechnungsprofil verwendet wird, wird eine Meldung wie im folgenden Beispiel angezeigt.
 
-:::image type="content" source="./media/delete-azure-payment-method/payment-method-in-use-microsoft-customer-agreement.png" alt-text="Beispielscreenshot: Abrechnungsprofile im Azure-Portal" :::
+:::image type="content" source="./media/delete-azure-payment-method/payment-method-in-use-microsoft-customer-agreement.png" alt-text="Beispielabbildung: Zahlungsmethode wird von einer Microsoft-Kundenvereinbarung verwendet" :::
 
 Die in einer Liste aufgeführten Bedingungen müssen erfüllt sein, um eine Zahlungsmethode trennen zu können. Falls einige Bedingungen nicht erfüllt sind, wird eine Anleitung dazu angezeigt, welche Schritte Sie für die Erfüllung ausführen müssen. Darüber hinaus wird ein Link angezeigt, der zu dem Ort führt, an dem Sie die Bedingung erfüllen können.
 
@@ -65,7 +65,7 @@ Nachdem alle Bedingungen erfüllt wurden, können Sie die Zahlungsmethode vom Ab
 1. Wählen Sie im Bereich „Delete a payment method“ (Zahlungsmethode löschen) den Link **Detach the current payment method** (Aktuelle Zahlungsmethode trennen) aus.
 1. Wählen Sie **Trennen** aus, wenn alle Bedingungen erfüllt sind. Fahren Sie andernfalls mit dem nächsten Schritt fort.
 1. Wenn die Option „Trennen“ nicht verfügbar ist, wird eine Liste mit Bedingungen angezeigt. Führen Sie die aufgeführten Aktionen durch. Wählen Sie den Link aus, der im Bereich „Detach the default payment method“ (Standardzahlungsmethode trennen) angezeigt wird. Hier ist ein Beispiel für eine Korrekturmaßnahme angegeben, in dem die durchzuführenden Aktionen beschrieben werden.  
-    :::image type="content" source="./media/delete-azure-payment-method/azure-subscriptions.png" alt-text="Beispielscreenshot: Abrechnungsprofile im Azure-Portal" :::
+    :::image type="content" source="./media/delete-azure-payment-method/azure-subscriptions.png" alt-text="Beispiel: Erforderliche Korrekturmaßnahme zum Trennen einer Zahlungsmethode für Microsoft-Kundenvereinbarung" :::
 1. Wenn Sie den Link für die Korrekturmaßnahme auswählen, werden Sie auf die Azure-Seite umgeleitet, auf der Sie die Aktion durchführen können. Führen Sie die erforderliche Korrekturmaßnahme durch.
 1. Führen Sie auch alle anderen erforderlichen Korrekturmaßnahmen durch.
 1. Navigieren Sie zurück zu **Kostenverwaltung + Abrechnung** > **Abrechnungsprofile** > **Zahlungsmethoden**. Wählen Sie die Option **Trennen** aus. Wählen Sie unten auf der Seite „Detach the default payment method“ (Standardzahlungsmethode trennen) die Option **Trennen** aus.
@@ -86,10 +86,10 @@ Führen Sie die unten angegebenen Schritte aus, falls Ihre Zahlungsmethode von e
 1. Wählen Sie in der Menüliste auf der linken Seite unter **Abrechnung** die Option **Zahlungsmethoden** aus.
 1. Wählen Sie im Bereich „Zahlungsmethoden“ die _Zeile_ aus, in der sich Ihre Zahlungsmethode befindet. Wählen Sie nicht den Link für die Zahlungsmethoden aus. Unter Umständen ist keine sichtbare Markierung vorhanden, dass Sie die Zahlungsmethode ausgewählt haben.
 1. Klicken Sie auf **Löschen**.  
-    :::image type="content" source="./media/delete-azure-payment-method/delete-mosp-payment-method.png" alt-text="Beispielscreenshot: Abrechnungsprofile im Azure-Portal" :::
+    :::image type="content" source="./media/delete-azure-payment-method/delete-mosp-payment-method.png" alt-text="Beispiel: Erforderliche Korrekturmaßnahme zum Trennen einer Zahlungsmethode für Microsoft-Onlineabonnementprogramm" :::
 1. Wählen Sie im Bereich „Delete a payment method“ (Zahlungsmethode löschen) die Option **Löschen** aus, wenn alle Bedingungen erfüllt sind. Fahren Sie mit dem nächsten Schritt fort, falls die Option „Löschen“ nicht verfügbar ist.
 1. Eine Liste mit Bedingungen wird angezeigt. Führen Sie die aufgeführten Aktionen durch. Wählen Sie den Link aus, der im Bereich „Delete a payment method“ (Zahlungsmethode löschen) angezeigt wird.  
-    :::image type="content" source="./media/delete-azure-payment-method/payment-method-in-use-mosp.png" alt-text="Beispielscreenshot: Abrechnungsprofile im Azure-Portal" :::
+    :::image type="content" source="./media/delete-azure-payment-method/payment-method-in-use-mosp.png" alt-text="Beispielabbildung: Zahlungsmethode wird von einem MOSP-Abonnement verwendet" :::
 1. Wenn Sie den Link für die Korrekturmaßnahme auswählen, werden Sie auf die Azure-Seite umgeleitet, auf der Sie die Aktion durchführen können. Führen Sie die erforderliche Korrekturmaßnahme durch.
 1. Führen Sie auch alle anderen erforderlichen Korrekturmaßnahmen durch.
 1. Navigieren Sie zurück zu **Kostenverwaltung + Abrechnung** > **Abrechnungsprofile** > **Zahlungsmethoden**, und löschen Sie die Zahlungsmethode.

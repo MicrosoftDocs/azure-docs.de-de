@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: denisgun
-ms.openlocfilehash: 32d5c280e80b2f21b30bb34a182070da51e21026
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa7b80b021e00d25dea4f96432ae922c15474058
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88008490"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023053"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop-classic"></a>Konfigurieren der Beschleunigung durch eine Graphics Processing Unit (GPU) für Windows Virtual Desktop (Classic)
 
@@ -23,24 +23,24 @@ Anhand der Anweisungen in diesem Artikel können Sie eine GPU-optimierte Azure-V
 
 ## <a name="select-a-gpu-optimized-azure-virtual-machine-size"></a>Auswählen einer GPU-optimierten VM-Größe
 
-Azure bietet mehrere [GPU-optimierte VM-Größen](/azure/virtual-machines/windows/sizes-gpu). Welche VM-Größe sich am besten für Ihren Hostpool eignet, hängt von mehreren Faktoren ab, z. B. von den Workloads Ihrer App, der gewünschten Benutzerfreundlichkeit und den Kosten. Grundsätzlich bieten größere und leistungsfähigere GPUs eine bessere Benutzerfreundlichkeit bei einer bestimmten Benutzerdichte.
+Azure bietet mehrere [GPU-optimierte VM-Größen](../../virtual-machines/sizes-gpu.md). Welche VM-Größe sich am besten für Ihren Hostpool eignet, hängt von mehreren Faktoren ab, z. B. von den Workloads Ihrer App, der gewünschten Benutzerfreundlichkeit und den Kosten. Grundsätzlich bieten größere und leistungsfähigere GPUs eine bessere Benutzerfreundlichkeit bei einer bestimmten Benutzerdichte.
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Erstellen eines Hostpools, Bereitstellen der VM und Konfigurieren einer App-Gruppe
 
-Erstellen Sie einen neuen Hostpool mit der gewählten VM-Größe. Anweisungen dazu finden Sie unter: [Tutorial: Erstellen eines Hostpools mit Azure Marketplace](/azure/virtual-desktop/create-host-pools-azure-marketplace).
+Erstellen Sie einen neuen Hostpool mit der gewählten VM-Größe. Anweisungen dazu finden Sie unter: [Tutorial: Erstellen eines Hostpools mit Azure Marketplace](../create-host-pools-azure-marketplace.md).
 
 Windows Virtual Desktop unterstützt das durch GPU beschleunigte Rendern und Codieren für die folgenden Betriebssysteme:
 
 * Windows 10, Version 1511 und höher
 * Windows Server 2016 oder höher
 
-Außerdem müssen Sie eine App-Gruppe konfigurieren oder die Standarddesktop-App-Gruppe „Desktop Application Group“ verwenden, die automatisch erstellt wird, wenn Sie einen neuen Hostpool erstellen. Anweisungen dazu finden Sie unter: [Tutorial: Verwalten von App-Gruppen für Windows Virtual Desktop](/azure/virtual-desktop/manage-app-groups).
+Außerdem müssen Sie eine App-Gruppe konfigurieren oder die Standarddesktop-App-Gruppe „Desktop Application Group“ verwenden, die automatisch erstellt wird, wenn Sie einen neuen Hostpool erstellen. Anweisungen dazu finden Sie unter: [Tutorial: Verwalten von App-Gruppen für Windows Virtual Desktop](../manage-app-groups.md).
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>Installieren unterstützter Grafiktreiber auf Ihrer VM
 
-Nach der Bereitstellung müssen Sie die entsprechenden Grafiktreiber installieren, um die GPU-Funktionen von Azure-VMs der N-Serie in Windows Virtual Desktop nutzen zu können. Befolgen Sie die Anweisungen unter [Unterstützte Betriebssysteme und Treiber](/azure/virtual-machines/windows/sizes-gpu#supported-operating-systems-and-drivers), um Treiber vom entsprechenden Grafikanbieter entweder manuell oder mithilfe einer Azure-VM-Erweiterung zu installieren.
+Nach der Bereitstellung müssen Sie die entsprechenden Grafiktreiber installieren, um die GPU-Funktionen von Azure-VMs der N-Serie in Windows Virtual Desktop nutzen zu können. Befolgen Sie die Anweisungen unter [Unterstützte Betriebssysteme und Treiber](../../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers), um Treiber vom entsprechenden Grafikanbieter entweder manuell oder mithilfe einer Azure-VM-Erweiterung zu installieren.
 
-Nur von Azure angebotene Treiber werden für Windows Virtual Desktop unterstützt. Außerdem werden für Azure-VMs mit NVIDIA-GPUs nur [NVIDIA GRID-Treiber](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) für Windows Virtual Desktop unterstützt.
+Nur von Azure angebotene Treiber werden für Windows Virtual Desktop unterstützt. Außerdem werden für Azure-VMs mit NVIDIA-GPUs nur [NVIDIA GRID-Treiber](../../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers) für Windows Virtual Desktop unterstützt.
 
 Wenn die Treiber installiert wurden, muss die VM neu gestartet werden. Überprüfen Sie anhand der oben aufgelisteten Schritte, dass die Grafiktreiber erfolgreich installiert wurden.
 
@@ -75,7 +75,7 @@ Der Remotedesktop codiert alle Grafiken, die von Apps und Desktops gerendert wer
 
 Führen Sie einen der folgenden Schritte durch, um zu überprüfen, dass Ihre Apps die GPUs für das Rendering verwenden:
 
-* Verwenden Sie für Azure-VMs mit NVIDIA-GPUs das Hilfsprogramm `nvidia-smi`, um die GPU-Nutzung beim Ausführen Ihrer Apps zu überprüfen. Dies unter [Überprüfen der Treiberinstallation](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) beschrieben.
+* Verwenden Sie für Azure-VMs mit NVIDIA-GPUs das Hilfsprogramm `nvidia-smi`, um die GPU-Nutzung beim Ausführen Ihrer Apps zu überprüfen. Dies unter [Überprüfen der Treiberinstallation](../../virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation) beschrieben.
 * In unterstützten Betriebssystemversionen können Sie die GPU-Nutzung über den Task-Manager prüfen. Wählen Sie auf der Registerkarte „Leistung“ die GPU aus, um zu prüfen, ob diese von Apps genutzt wird.
 
 ## <a name="verify-gpu-accelerated-frame-encoding"></a>Überprüfen der durch GPU beschleunigten Framecodierung
@@ -91,5 +91,5 @@ So können Sie überprüfen, ob der Remotedesktop die durch GPU beschleunigte Co
 
 Anhand der beschriebenen Anweisungen sollten Sie nun die GPU-Beschleunigung auf einem Sitzungshost (einer VM) verwenden können. Für das Verwenden der GPU-Beschleunigung für einen größeren Hostpool können Sie folgende Aspekte in Erwägung ziehen:
 
-* Ziehen Sie die Verwendung einer [VM-Erweiterung](/azure/virtual-machines/extensions/overview) in Betracht, um die Treiberinstallation und Updates für mehrere VMs zu vereinfachen. Verwenden Sie die [NVIDIA-GPU-Treibererweiterung](/azure/virtual-machines/extensions/hpccompute-gpu-windows) für VMs mit NVIDIA-GPUs, und verwenden Sie die AMD-GPU-Treibererweiterung für VMs mit AMD-GPUs.
-* Die Verwendung einer Active Directory Domain Services-Gruppenrichtlinie, um die Konfiguration von Gruppenrichtlinien für mehrere VMs zu vereinfachen. Weitere Informationen zur Bereitstellung von Gruppenrichtlinien in der AD DS-Domäne finden Sie unter [Working with Group Policy Objects (Verwenden von Gruppenrichtlinienobjekten)](https://go.microsoft.com/fwlink/p/?LinkId=620889).
+* Ziehen Sie die Verwendung einer [VM-Erweiterung](../../virtual-machines/extensions/overview.md) in Betracht, um die Treiberinstallation und Updates für mehrere VMs zu vereinfachen. Verwenden Sie die [NVIDIA-GPU-Treibererweiterung](../../virtual-machines/extensions/hpccompute-gpu-windows.md) für VMs mit NVIDIA-GPUs, und verwenden Sie die AMD-GPU-Treibererweiterung für VMs mit AMD-GPUs.
+* Die Verwendung einer Active Directory Domain Services-Gruppenrichtlinie, um die Konfiguration von Gruppenrichtlinien für mehrere VMs zu vereinfachen. Weitere Informationen zur Bereitstellung von Gruppenrichtlinien in der AD DS-Domäne finden Sie unter [Working with Group Policy Objects (Verwenden von Gruppenrichtlinienobjekten)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731212(v=ws.11)).

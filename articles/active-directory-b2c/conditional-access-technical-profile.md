@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f88548b57cee9b5f637247fda1536488382ae2f6
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: bc811ab3cab4b79b81b16dd94a2c72225046e35a
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042624"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488277"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definieren eines technischen Profils für den bedingten Zugriff in einer benutzerdefinierten Richtlinie in Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ ms.locfileid: "92042624"
 
 ## <a name="protocol"></a>Protocol
 
-Das **Name**-Attribut des **Protocol**-Elements muss auf `Proprietary` festgelegt werden. Das **handler**-Attribut muss den vollqualifizierten Namen der Protokollhandlerassembly, die von Azure AD B2C verwendet wird, enthalten:
+Das **Name** -Attribut des **Protocol** -Elements muss auf `Proprietary` festgelegt werden. Das **handler** -Attribut muss den vollqualifizierten Namen der Protokollhandlerassembly, die von Azure AD B2C verwendet wird, enthalten:
 
 ```
 Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -67,7 +67,7 @@ Das Element **InputClaims** enthält eine Liste von Ansprüchen, die an den bedi
 | IsMfaRegistered | Ja |boolean | Gibt an, ob der Benutzer bereits eine Telefonnummer für die mehrstufige Authentifizierung registriert hat. |
 
 
-Das Element **InputClaimsTransformations** enthält ggf. eine Sammlung von Elementen vom Typ **InputClaimsTransformation**, die vor dem Senden an den Dienst für den bedingten Zugriff zum Ändern der Eingabeansprüche oder zum Generieren neuer Eingabeansprüche verwendet werden.
+Das Element **InputClaimsTransformations** enthält ggf. eine Sammlung von Elementen vom Typ **InputClaimsTransformation** , die vor dem Senden an den Dienst für den bedingten Zugriff zum Ändern der Eingabeansprüche oder zum Generieren neuer Eingabeansprüche verwendet werden.
 
 ### <a name="output-claims"></a>Ausgabeansprüche
 
@@ -78,7 +78,7 @@ Das Element **OutputClaims** enthält eine Liste der Ansprüche, die von Conditi
 | Herausforderungen | Ja |stringCollection | Liste der Aktionen zum Korrigieren der ermittelten Bedrohung. Möglicher Wert: `block` |
 | MultiConditionalAccessStatus | Ja | stringCollection |  |
 
-Das **OutputClaimsTransformations**-Element darf eine Sammlung von **OutputClaimsTransformation**-Elementen, die zum Ändern der Ausgabeansprüche oder zum Generieren neuer verwendet werden, enthalten.
+Das **OutputClaimsTransformations** -Element darf eine Sammlung von **OutputClaimsTransformation** -Elementen, die zum Ändern der Ausgabeansprüche oder zum Generieren neuer verwendet werden, enthalten.
 
 ### <a name="example-evaluation"></a>Beispiel: Auswertung
 
@@ -126,13 +126,13 @@ Das Element **InputClaims** enthält eine Liste von Ansprüchen, die an den bedi
 | ChallengesSatisfied | Ja | stringCollection| Die im Modus „Evaluation“ im Rahmen des Anforderungsanspruchs zurückgegebene Liste der erfüllten Anforderungen zum Korrigieren der identifizierten Bedrohung.|
 
 
-Das Element **InputClaimsTransformations** enthält ggf. eine Sammlung von Elementen vom Typ **InputClaimsTransformation**, die vor dem Aufrufen des Diensts für den bedingten Zugriff zum Ändern der Eingabeansprüche oder zum Generieren neuer Eingabeansprüche verwendet werden.
+Das Element **InputClaimsTransformations** enthält ggf. eine Sammlung von Elementen vom Typ **InputClaimsTransformation** , die vor dem Aufrufen des Diensts für den bedingten Zugriff zum Ändern der Eingabeansprüche oder zum Generieren neuer Eingabeansprüche verwendet werden.
 
 ### <a name="output-claims"></a>Ausgabeansprüche
 
 Da vom Protokollanbieter für den bedingten Zugriff keine Elemente vom Typ **OutputClaims** zurückgegeben werden, müssen auch keine Ausgabeansprüche angegeben werden. Sie können jedoch Ansprüche einfügen, die nicht vom Protokollanbieter für den bedingten Zugriff zurückgegeben werden (vorausgesetzt, Sie legen das Attribut `DefaultValue` fest).
 
-Das **OutputClaimsTransformations**-Element darf eine Sammlung von **OutputClaimsTransformation**-Elementen, die zum Ändern der Ausgabeansprüche oder zum Generieren neuer verwendet werden, enthalten.
+Das **OutputClaimsTransformations** -Element darf eine Sammlung von **OutputClaimsTransformation** -Elementen, die zum Ändern der Ausgabeansprüche oder zum Generieren neuer verwendet werden, enthalten.
 
 
 ### <a name="example-remediation"></a>Beispiel: Wiederherstellung
@@ -428,7 +428,7 @@ Fügen Sie wie im folgenden Beispiel gezeigt eine User Journey hinzu, die die ne
             </Precondition>
             <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
               <Value>CAChallengeIsMfa</Value>
-              <Value>false</Value>
+              <Value>False</Value>
               <Action>SkipThisOrchestrationStep</Action>
             </Precondition>
           </Preconditions>
@@ -458,7 +458,7 @@ Fügen Sie wie im folgenden Beispiel gezeigt eine User Journey hinzu, die die ne
             </Precondition>
             <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
               <Value>CAChallengeIsBlock</Value>
-              <Value>true</Value>
+              <Value>True</Value>
               <Action>SkipThisOrchestrationStep</Action>
             </Precondition>
           </Preconditions>

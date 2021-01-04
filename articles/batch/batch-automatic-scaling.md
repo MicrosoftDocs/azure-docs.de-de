@@ -2,14 +2,14 @@
 title: Automatisches Skalieren von Computeknoten in einem Azure Batch-Pool
 description: Aktivieren Sie das automatische Skalieren in einem Cloudpool, um die Anzahl von Computeknoten im Pool dynamisch anzupassen.
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 11/23/2020
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 5774acbfc035ab61267dddb31b01b0e82689f690
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 033272f22b98b27c67e9a551bce952368d35a043
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849791"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95737291"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Erstellen einer Formel für die automatische Skalierung von Computeknoten in einem Batch-Pool
 
@@ -134,6 +134,9 @@ Sie können den Wert dieser vom Dienst definierten Variablen abrufen, um Anpassu
 
 > [!TIP]
 > Die vom Dienst definierten schreibgeschützten Variablen sind *Objekte*, die verschiedene Methoden für den Zugriff auf die zum jeweiligen Objekt gehörigen Daten bereitstellen. Weitere Informationen finden Sie weiter unten in diesem Artikel unter [Abrufen von Beispieldaten](#obtain-sample-data).
+
+> [!NOTE]
+> Verwenden Sie `$RunningTasks`, wenn die Skalierung auf der Anzahl der zu einem Zeitpunkt aktiven Tasks basiert, und `$ActiveTasks`, wenn die Skalierung auf der Anzahl der Tasks basiert, die in die Warteschlange gestellt werden.
 
 ## <a name="types"></a>Typen
 
@@ -381,7 +384,7 @@ $NodeDeallocationOption = taskcompletion;
 ```
 
 > [!NOTE]
-> Wenn Sie sich für entscheiden, können Sie in Formelzeichenfolgen sowohl Kommentare als auch Zeilenumbrüche einschließen.
+> Wenn Sie sich für entscheiden, können Sie in Formelzeichenfolgen sowohl Kommentare als auch Zeilenumbrüche einschließen. Beachten Sie auch, dass fehlende Semikolons zu Auswertungsfehlern führen können.
 
 ## <a name="automatic-scaling-interval"></a>Intervall für die automatische Skalierung
 

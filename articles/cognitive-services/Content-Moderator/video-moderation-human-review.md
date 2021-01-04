@@ -1,5 +1,5 @@
 ---
-title: Videomoderation mit Überprüfung durch Personen – Content Moderator
+title: Videomoderation mit dem Überprüfungstool – Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Verwenden Sie die computergestützte Videomoderation und Überprüfungstools, um unangemessene Inhalte zu moderieren.
 services: cognitive-services
@@ -8,101 +8,98 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 07/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 0c031a890efc7fad7e5d9caefce3b0e66c515d90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05ece4d8ea24fb9da106ec3daa2cc1a63706dab9
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81404250"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853497"
 ---
-# <a name="video-moderation-with-human-review"></a>Videomoderation mit Überprüfung durch Personen
+# <a name="video-moderation-with-the-review-tool"></a>Videomoderation mit dem Überprüfungstool
 
 Nutzen Sie die computergestützte [Videomoderation](video-moderation-api.md) von Content Moderator und [Überprüfungstools](Review-Tool-User-Guide/human-in-the-loop.md) zum Moderieren von Videos und Transkripts auf anstößige und zweideutige Inhalte, um optimale Ergebnisse für Ihr Unternehmen zu erhalten.
 
-## <a name="video-trained-classifier-preview"></a>Durch Videos trainierte Klassifizierung (Preview)
+## <a name="view-videos-under-review"></a>Anzeigen von zu prüfenden Videos
 
-Die computergestützte Videoklassifizierung erfolgt entweder mit durch Bilder oder Videos trainierte Modelle. Im Gegensatz zu durch Bilder trainierte Klassifizierungen wird die Klassifizierung für Inhalte für Erwachsene und freizügige Inhalte von Microsoft mit Videos trainiert. Dies führt zu besseren Übereinstimmungen.
+Wählen Sie im Dashboard eine der Überprüfungswarteschlangen innerhalb des Videoinhaltstyps aus. Dadurch wird eine Überprüfung gestartet und die Seite für die Moderation von Videoinhalten geöffnet.
 
-## <a name="shot-detection"></a>Szenenwechselerkennung
+> [!div class="mx-imgBorder"]
+> ![Auf Content Moderator (Vorschau): Schieberegler hervorgehoben und auf 4 Überprüfungen festgelegt. Zudem: Schieberegler „Blur All“ (Alles weichzeichnen) und „Black and white“ (Schwarzweiß) sind hervorgehoben und festgelegt.](./Review-Tool-User-Guide/images/video-moderation-detailed.png)
 
-Bei der Ausgabe der Klassifizierungsdetails ermöglicht zusätzliche Videointelligenz die flexiblere Analyse von Videos. Anstatt nur die Frames auszugeben, bietet der Video Moderation Service von Microsoft auch Informationen auf Szenenebene. Sie haben nun die Möglichkeit, Ihre Videos auf der Ebene der Szenen und der Frames zu analysieren.
+### <a name="review-count"></a>Review count
 
-## <a name="key-frame-detection"></a>Keyframeerkennung
+Verwenden Sie den Schieberegler oben rechts, um die Anzahl der Überprüfungen einzustellen, die Sie auf der Seite anzeigen möchten.
 
-Anstatt in regelmäßigen Abständen Frames auszugeben, identifiziert der Video Moderation Service nur potenziell vollständige (gute) Frames und gibt nur diese aus. Diese Funktion ermöglicht eine effiziente Frame-Generierung für Analyse von Inhalten für Erwachsene und von freizügigen Inhalten auf Frameebene.
+### <a name="view-type"></a>Ansichtstyp
 
-Der folgende Auszug zeigt eine Teilantwort mit potentiellen Aufnahmen, Keyframes, sowie Bewertungen von Inhalten für Erwachsene und von freizügigen Inhalten:
+Sie können die verschiedenen Inhaltseinträge als Kacheln oder in einer Detailansicht betrachten. Die **Detailansicht** ermöglicht es Ihnen, Keyframes und andere Informationen zum ausgewählten Video anzuzeigen. 
 
-```json
-"fragments":[  
-  {  
-    "start":0,
-    "duration":18000
-  },
-  {  
-    "start":18000,
-    "duration":3600,
-    "interval":3600,
-    "events":[  
-      [  
-        {  
-          "reviewRecommended":false,
-          "adultScore":0.00001,
-          "racyScore":0.03077,
-          "index":5,
-          "timestamp":18000,
-          "shotIndex":0
-        }
-      ]
-    ]
-  },
-  {  
-    "start":18386372,
-    "duration":119149,
-    "interval":119149,
-    "events":[  
-      [  
-        {  
-          "reviewRecommended":true,
-          "adultScore":0.00000,
-          "racyScore":0.91902,
-          "index":5085,
-          "timestamp":18386372,
-          "shotIndex":62
-        }
-      ]
-    ]
-```
+> [!NOTE]
+> Anstatt in regelmäßigen Abständen Frames auszugeben, identifiziert der Video Moderation Service nur potenziell vollständige (gute) Frames und gibt nur diese aus. Dieses Feature ermöglicht eine effiziente Frame-Generierung für Analyse von Inhalten für Erwachsene und von freizügigen Inhalten auf Frameebene.
 
-## <a name="visualization-for-human-reviews"></a>Visualisierung für Überprüfungen durch Personen
+In der **Kachelansicht** wird jedes Video als eine einzelne Kachel angezeigt. Wählen Sie die Schaltfläche zum Erweitern über einem Videoframe aus, um dieses Video zu vergrößern und die anderen auszublenden.
 
-Für differenzierte Fälle benötigen Unternehmen eine Lösung für Überprüfungen durch Personne für das Rendern des Videos, seiner Frames und der von Computern zugewiesenen Tags. Die menschlichen Moderatoren, die Videos und Frames überprüfen, erhalten einen vollständigen Überblick über die Einsichten, ändern Tags und reichen ihre Entscheidungen ein.
+### <a name="content-obscuring-effects"></a>Inhaltsverzerrende Effekte
 
-![Videoprüfungstool – Standardansicht](images/video-review-default-view.png)
+Verwenden Sie die Schalter für **Blur all** (Alles weichzeichnen) und **Black and white** (Schwarzweiß), um diese inhaltsverzerrenden Effekte festzulegen. Sie sind standardmäßig aktiviert. In der **Kachelansicht** können Sie die Effekte für jedes Video einzeln umschalten.
 
-## <a name="player-view-for-video-level-review"></a>Playeransicht zur Überprüfung auf Videoebene
+## <a name="check-video-details"></a>Überprüfen von Videodetails
 
-Binäre Entscheidungen auf Videoebene werden durch eine Videoplayeransicht ermöglicht, die potenzielle Frames für Erwachsene und freizügige Frames zeigt. Der menschliche Prüfer kann mit verschiedenen Geschwindigkeitsoptionen im Video navigieren und die Szenen untersuchen. Um ihre Entscheidungen zu bestätigen, schalten Sie die Tags um.
+In der **Detailansicht** werden im rechten Bereich mehrere Registerkarten angezeigt, die Einzelheiten zum Video enthalten.
 
-![Videoprüfungstool – Playeransicht](images/video-review-player-view.PNG)
+* Wählen Sie die Registerkarte **Notes** (Hinweise) aus, um benutzerdefinierte Hinweise zu Videos hinzuzufügen.
+* Wählen Sie die Registerkarte **Transcript** (Transkript) aus, um das Videotranskript anzuzeigen. Der Dienst extrahiert automatisch ein Transkript einer beliebigen Spracheingabe im Video. Wenn Sie einen Textabschnitt auswählen, springt der Videoplayer zu diesem Teil des Videos.
+* Wählen Sie die Registerkarte **Meta-data** (Metadaten) aus, um die Metadaten der Videodatei anzuzeigen.
+* Wählen Sie die Registerkarte **History** (Verlauf) aus, um den Verlauf der Überprüfung anzuzeigen, z. B. wann sie erstellt und wie sie geändert wurde.
 
-## <a name="frames-view-for-detailed-reviews"></a>Framesansicht für detaillierte Überprüfungen
+> [!div class="mx-imgBorder"]
+> ![Hervorgehobener rechter Bereich mit ausgewählter Registerkarte „Notes“ (Notizen); Zudem Testbereich „Add a note“ (Notiz hinzufügen)](./Review-Tool-User-Guide/images/video-moderation-video-details.png)
 
-Die framebasierte Ansicht ermöglicht eine detaillierte Videoüberprüfung für die Frame-für-Frame-Analyse. Die menschlichen Prüfer überprüfen und wählen einen oder mehrere Frames und schalten die Tags um, um ihre Entscheidungen zu bestätigen. Ein optionaler nächsten Schritt ist die Bearbeitung der anstößigen Frames oder Inhalte.
+## <a name="apply-moderation-tags"></a>Anwenden von Moderationstags
 
-![Videoprüfungstool – Framesansicht](images/video-review-frames-view-apply-tags.PNG)
+Die Hauptaufgabe einer Videoüberprüfung besteht darin, Moderationstags auf Videos oder Teile von Videos anzuwenden oder diese zu entfernen.
 
-## <a name="transcript-moderation"></a>Transkriptmoderation
+### <a name="bulk-tagging"></a>Massenkennzeichnung
 
-Videos haben in der Regel einen Begleitkommentar, der ebenfalls hinsichtlich anstößiger Sprache moderiert werden muss. Sie verwenden den Azure Media Indexer-Dienst, um Sprache in Text umzuwandeln, und übermitteln das Transkript zur Textmoderation innerhalb des Prüfungstools an die Überprüfungs-API von Content Moderator.
+Mit der Symbolleiste für **Massentags** können Sie Tags zu mehreren ausgewählten Videos gleichzeitig hinzufügen. Wählen Sie ein oder mehrere Videos und dann die Tags aus, die Sie anwenden möchten, und klicken Sie auf **Submit** (Übermitteln). 
 
-![Videoprüfungstool – Transkriptansicht](images/video-review-transcript-view.png)
+> [!div class="mx-imgBorder"]
+> ![Hervorgehobene Schaltfläche „+“ im Bereich zu Massentags](./Review-Tool-User-Guide/images/video-moderation-bulk-tags.png)
+
+
+### <a name="key-frame-tagging"></a>Kennzeichnung von Keyframes
+
+Sie können auch Moderationstags zu bestimmten Keyframes hinzufügen. Wählen Sie die Frames aus dem Kachelbereich für Keyframes und dann **Keyframe tags +** (Keyframetags +) aus, um die gewünschten Tags anzuwenden.
+
+> [!NOTE]
+> Wenn der Dienst keine Keyframes extrahieren konnte, zeigt der Kachelbereich für Keyframes **No frames available** (Keine Frames verfügbar) an und die Option zur Auswahl von Keyframes ist abgeblendet. In diesem Fall können Sie Tags nur auf das Video als Ganzes anwenden (mithilfe der Schaltfläche **Video tags +** (Videotags +)).
+
+> [!div class="mx-imgBorder"]
+> ![Kachelbereiche, Videoplayer und Bereiche „Keyframetags“ und „Videotags“ werden angezeigt. Die Schaltflächen „Keyframetags“ und „Videotags“ sind hervorgehoben.](./Review-Tool-User-Guide/images/video-moderation-tagging-options.png)
+
+## <a name="put-a-review-on-hold"></a>Anhalten einer Überprüfung
+
+Mit der Schaltfläche **Hold** (Anhalten) am unteren Rand des Videobereichs können Sie eine Überprüfung anhalten, sodass Sie sie abrufen und später vervollständigen können. Sie können dies für eine Überprüfung durchführen, die eine Beratung durch ein anderes Teammitglied oder einen Vorgesetzten erfordert, das/der derzeit nicht verfügbar ist. 
+
+Sie können die angehaltenen Videos anzeigen, indem Sie auf die Schaltfläche **Hold** (Anhalten) oben auf dem Bildschirm klicken. Auf der rechten Seite wird der Bereich „Hold“ (Anhalten) angezeigt. Von hier aus können Sie mehrere zurückgestellte Überprüfungen auswählen und sie entweder wieder in die Warteschlange freigeben oder ihre Ablaufzeit festlegen. Nach der vorkonfigurierten Zeitspanne werden zurückgestellte Überprüfungen wieder in die Warteschlange freigegeben. Wählen Sie **Save** (Speichern) aus, um mit dem Herunterzählen der aktuell gewählten Ablaufzeit zu beginnen.
+
+> [!div class="mx-imgBorder"]
+> ![Im Videobereich wird die Schaltfläche „Hold“ (Anhalten) hervorgehoben. Am unteren Rand des Bereichs wird das Kombinationsfeld „Hold Time“ (Zeit anhalten) zusammen mit den Schaltflächen „Release“ (Freigeben) und „Save“ (Speichern) hervorgehoben.](./Review-Tool-User-Guide/images/video-moderation-hold.png)
+
+## <a name="submit-a-review"></a>Übermitteln einer Überprüfung
+
+Nachdem Sie Ihre Tags angewendet haben, wählen Sie die Schaltfläche **Submit** (Übermitteln) unten im Videobereich aus. Wenn Sie mehrere Videos mit Tags versehen haben, können Sie sie im Rahmen einer einzigen Überprüfung oder als separate Überprüfungen übermitteln.
+
+## <a name="limbo-state"></a>Limbo-Status
+
+Nachdem Sie eine Überprüfung übermittelt haben, wird das Video in den Zustand **Limbo** versetzt, den Sie durch Auswahl der Schaltfläche **Limbo** oben auf dem Bildschirm anzeigen können. Videos verbleiben für eine vorkonfigurierte Zeitspanne im Limbo-Zustand (die Sie im Menü unten ändern können), oder bis sie erneut überprüft oder manuell übermittelt werden.
+
+Sobald die Videos im Limbo-Zustand ablaufen, werden ihre Überprüfungen als abgeschlossen gekennzeichnet.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Beginnen Sie mit dem [Schnellstart für die Videomoderation](video-moderation-api.md).
 - Erfahren Sie mehr über das Generieren von [Videoüberprüfungen](video-reviews-quickstart-dotnet.md) für Ihre menschlichen Prüfer aus Ihrer moderierten Ausgabe.
 - Fügen Sie [Überprüfungen von Videotranskripten](video-transcript-reviews-quickstart-dotnet.md) zu Ihren Videoüberprüfungen hinzu.
-- Sehen Sie sich das ausführliche Tutorial zur Entwicklung einer [vollständigen Lösung für die Videomoderation](video-transcript-moderation-review-tutorial-dotnet.md) an.

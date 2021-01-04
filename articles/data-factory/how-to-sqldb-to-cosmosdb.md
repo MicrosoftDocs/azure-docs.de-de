@@ -8,12 +8,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: makromer
-ms.openlocfilehash: 3d2ef6fb0cd7af444b9bff755eee4eee70d03d15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d93cb49c77a4c8164a8b4e9bca349a805f39678
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82691898"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041635"
 ---
 # <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>Migrieren eines normalisierten Datenbankschemas von Azure SQL-Datenbank zu einem denormalisierten Azure Cosmos DB-Container
 
@@ -96,11 +96,11 @@ Der resultierende Cosmos DB-Container bettet die innere Abfrage in ein einzelne
 
 19. Legen Sie in den Einstellungen für die Senke den Partitionsschlüssel auf ```\SalesOrderID``` und die Sammlungsaktion auf „recreate“ fest. Stellen Sie sicher, dass die Registerkarte der Zuordnung wie folgt aussieht:
 
-![Senkeneinstellungen](media/data-flow/cosmosb7.png)
+![Screenshot der Registerkarte „Zuordnung“](media/data-flow/cosmosb7.png)
 
 20. Klicken Sie auf „Datenvorschau“, um sicherzustellen, dass diese 32 Zeilen, die als neue Dokumente in Ihren neuen Container eingefügt werden sollen, angezeigt werden:
 
-![Senkeneinstellungen](media/data-flow/cosmosb8.png)
+![Screenshot der Registerkarte „Datenvorschau“](media/data-flow/cosmosb8.png)
 
 Wenn alles gut aussieht, können Sie jetzt eine neue Pipeline erstellen, ihr diese Datenflussaktivität hinzufügen und sie ausführen. Die Ausführung kann aus dem Debuggen oder einer ausgelösten Ausführung erfolgen. Nach einigen Minuten sollten Sie in Ihrer Cosmos DB-Datenbank über einen neuen denormalisierten Container für Bestellungen mit dem Namen „orders“ verfügen.
 

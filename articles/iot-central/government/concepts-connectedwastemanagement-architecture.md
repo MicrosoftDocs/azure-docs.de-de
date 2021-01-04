@@ -3,20 +3,18 @@ title: Referenzarchitektur für die mit Azure IoT Central erstellte Lösung für
 description: Lernen Sie Konzepte der mit Azure IoT Central erstellten Lösung für vernetzte Abfallwirtschaft kennen.
 author: miriambrus
 ms.author: miriamb
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 9b061a6d3d7d2a6598d8ed7c48428d756db6e97d
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 94098a1a2a9ac1b4889ad165a65c8b9d50d734dd
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126274"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586804"
 ---
 # <a name="connected-waste-monitoring-reference-architecture"></a>Überwachung für vernetzte Abfallwirtschaft: Referenzarchitektur 
-
-
 
 Eine Lösung für vernetzte Abfallwirtschaft kann mit der **App-Vorlage „Azure IoT Central“** als Ausgangspunkt für IoT-Anwendungen entwickelt werden. Dieser Artikel enthält einen Leitfaden mit einer allgemeinen Referenzarchitektur für die Entwicklung einer Komplettlösung. 
 
@@ -27,8 +25,8 @@ Konzepte:
 
 1. Geräte und Konnektivität  
 1. IoT Central 
-2. Erweiterbarkeit und Integrationen
-3. Geschäftsanwendungen
+1. Erweiterbarkeit und Integrationen
+1. Geschäftsanwendungen
 
 Wir werfen nun einen Blick auf Schlüsselkomponenten, die bei einer Lösung zur Überwachung des Wasserverbrauchs in der Regel eine Rolle spielen.
 
@@ -39,10 +37,10 @@ Geräte im öffentlichen Raum (z. B. Mülltonnen) können per LPWAN (Low-Power 
 Azure IoT Central ist eine IoT-App-Plattform, mit der Sie Ihre IoT-Lösung schnell in Betrieb nehmen können. Sie können Ihre Lösung mit Branding versehen, anpassen und in Dienste von Drittanbietern integrieren.
 Nachdem Sie Ihre intelligenten Wasserwirtschaftsgeräte mit IoT Central verbunden haben, stehen Ihnen hierfür Befehls-, Steuerungs-, Überwachungs- und Alarmfunktionen, eine Benutzeroberfläche mit integrierter rollenbasierter Zugriffssteuerung (RBAC), konfigurierbare Dashboards zum Gewinnen von Erkenntnissen und Erweiterungsoptionen zur Verfügung. 
 
-## <a name="extensibility-and-integrations"></a>Erweiterbarkeit und Integrationen 
+## <a name="extensibility-and-integrations"></a>Erweiterbarkeit und Integrationen
 Sie können Ihre IoT-Anwendung in IoT Central erweitern und haben folgende Optionen:
-* Ihre IoT-Daten für erweiterte Analysen transformieren und integrieren, z. B. für das Training von Machine Learning-Modellen durch kontinuierlichen Datenexport aus der IoT Central-Anwendung. 
-* Automatisieren von Workflows in anderen Systemen, indem in der IoT Central-Anwendung Aktionen über Microsoft Flow oder Webhooks ausgelöst werden
+* Ihre IoT-Daten für erweiterte Analysen transformieren und integrieren, z. B. für das Training von Machine Learning-Modellen durch kontinuierlichen Datenexport aus der IoT Central-Anwendung.
+* Automatisieren von Workflows in anderen Systemen, indem in der IoT Central-Anwendung Aktionen über Power Automate oder Webhooks ausgelöst werden
 * über IoT Central-APIs programmgesteuert auf Ihre IoT-Anwendung in IoT Central zugreifen
 
 ## <a name="business-applications"></a>Geschäftsanwendungen 

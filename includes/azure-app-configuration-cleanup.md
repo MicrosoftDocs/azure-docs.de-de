@@ -2,18 +2,18 @@
 title: include file
 description: include file
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: include
 ms.date: 1/31/2020
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: include file
-ms.openlocfilehash: 751613e7b3b2252b62dff2c3e1adad83bdc8c393
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d7f765a6a6dd9ef487b0bade7fa064af00f3149
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88639020"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929214"
 ---
 Wenn Sie die in diesem Artikel erstellten Ressourcen nicht mehr verwenden möchten, löschen Sie die erstellte Ressourcengruppe, um Kosten zu vermeiden.
 

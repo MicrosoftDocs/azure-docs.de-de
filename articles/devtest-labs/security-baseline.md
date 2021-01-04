@@ -3,12 +3,12 @@ title: Azure-Sicherheitsbaseline für Azure DevTest Labs
 description: Azure-Sicherheitsbaseline für Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 98f6ce7eee799b1baf29782d7eca11d62cf62353
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 4ae3886e1c47b1d6835dc348b474e3d9e82a8f41
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207290"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348822"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Azure-Sicherheitsbaseline für Azure DevTest Labs
 
@@ -62,7 +62,7 @@ Weitere Informationen finden Sie in den folgenden Artikeln:
 **Verantwortlichkeit:** Kunde
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: Konfigurieren der Sicherheitsprotokoll-Aufbewahrungsdauer im Speicher
-***Leitfaden:** Legen Sie in Azure Monitor die Protokollaufbewahrungsdauer für Log Analytics-Arbeitsbereiche, die Ihrer Azure DevTest Labs-Instanz zugeordnet sind, gemäß den Compliancevorschriften Ihres Unternehmens fest.
+**_Leitfaden:_* Legen Sie in Azure Monitor die Protokollaufbewahrungsdauer für Log Analytics-Arbeitsbereiche, die Ihrer Azure DevTest Labs-Instanz zugeordnet sind, gemäß den Compliancevorschriften Ihres Unternehmens fest.
 
 Weitere Informationen finden Sie im folgenden Artikel: [Ändern des Datenaufbewahrungszeitraums](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -175,9 +175,9 @@ Zusätzlich können Sie, um den Überblick über dedizierte Verwaltungskonten zu
 - [Aktivieren von MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)  
 - [Überwachen von Identität und Zugriff in Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Azure Security Center-Überwachung**:* Ja
+**Azure Security Center-Überwachung:** _ Ja
 
-**Verantwortlichkeit:** Kunde
+_ *Verantwortlichkeit:* * Kunde
 
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: Verwenden dedizierter Computer (Arbeitsstationen mit privilegiertem Zugriff) für alle administrativen Aufgaben
@@ -379,7 +379,7 @@ Microsoft führt die Verwaltung der Sicherheitsrisiken für die zugrunde liegend
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2: Bereitstellen der automatisierten Lösung für die Patchverwaltung von Betriebssystemen
 **Leitfaden**: Verwenden Sie die Azure-Updateverwaltung, um sicherzustellen, dass auf Ihren Windows- und Linux-VMs, die in DevTest Labs gehostet werden, die aktuellen Sicherheitsupdates installiert sind. Stellen Sie bei virtuellen Windows-Computern sicher, dass Windows Update aktiviert wurde und auf „Automatisch Aktualisieren“ festgelegt ist. Diese Einstellung kann derzeit nicht über DevTest Labs konfiguriert werden, der Lab-/Abonnementadministrator kann diese Einstellung jedoch auf den zugrunde liegenden Compute-VMs in seinem Abonnement konfigurieren. 
 
-- [Konfigurieren der Updateverwaltung für VMs in Azure](../automation/update-management/update-mgmt-overview.md)
+- [Konfigurieren der Updateverwaltung für VMs in Azure](../automation/update-management/overview.md)
 - [Grundlegendes zu von Security Center überwachten Azure-Sicherheitsrichtlinien](../security-center/policy-reference.md)
 
 **Azure Security Center-Überwachung:** Nicht verfügbar
@@ -387,16 +387,16 @@ Microsoft führt die Verwaltung der Sicherheitsrisiken für die zugrunde liegend
 **Verantwortlichkeit:** Kunde
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3: Bereitstellen der automatisierten Lösung für die Patchverwaltung von Drittanbietersoftware
-***Leitfaden:*** Als Lab-Administrator können Sie [DevTest Labs-Artefakte](add-artifact-vm.md) verwenden, um Updates für benutzerdefinierte Lab-Images (einschließlich Sicherheitspatches und anderer Updates) zu automatisieren. 
+**_Leitfaden:_* _ Als Lab-Administrator können Sie [DevTest Labs-Artefakte](add-artifact-vm.md) verwenden, um Updates für benutzerdefinierte Lab-Images (einschließlich Sicherheitspatches und anderer Updates) zu automatisieren. 
 
 Erfahren Sie mehr über [DevTest Labs Image Factory](image-factory-create.md), eine Konfiguration-als-Code-Lösung, die Images automatisch in regelmäßigen Abständen mit allen gewünschten Konfigurationen erstellt und verteilt. 
 
 Als Abonnementadministrator können Sie die Azure-Updateverwaltung verwenden, um Updates und Patches für DevTest Labs-VMs zu verwalten. In der Updateverwaltung wird das lokal konfigurierte Updaterepository verwendet, um unterstützte Windows-Systeme zu patchen. Mit Tools wie System Center Updates Publisher (Updates Publisher) können Sie benutzerdefinierte Updates in Windows Server Update Services (WSUS) veröffentlichen. Dadurch kann die Updateverwaltung Computer, auf denen Configuration Manager als Updaterepository verwendet wird, mit Software von Drittanbietern patchen.
 
-- [Updateverwaltung in Azure](../automation/update-management/update-mgmt-overview.md)
-- [Verwalten von Updates und Patches für Ihre VMs](../automation/update-management/update-mgmt-overview.md)
+- [Updateverwaltung in Azure](../automation/update-management/overview.md)
+- [Verwalten von Updates und Patches für Ihre VMs](../automation/update-management/overview.md)
 
-**Azure Security Center-Überwachung:** Nicht verfügbar
+_ *Azure Security Center Überwachung:* * Nicht zutreffend
 
 **Verantwortlichkeit:** Kunde
 
@@ -692,7 +692,7 @@ Von Microsoft im Azure Marketplace veröffentlichte VM-Images werden außerdem v
 
 - [Konfigurieren der verwalteten Identität zum Bereitstellen von Azure Resource Manager-Umgebungen in DevTest Labs](use-managed-identities-environments.md)
 - [Konfigurieren der verwalteten Identität zum Bereitstellen von virtuellen Computern in DevTest Labs](enable-managed-identities-lab-vms.md)
-- [Erstellen eines Schlüsseltresors](../key-vault/secrets/quick-create-portal.md)
+- [Erstellen eines Schlüsseltresors](../key-vault/general/quick-create-portal.md)
 - [Authentifizieren bei Key Vault](../key-vault/general/authentication.md)
 - [Zuweisen einer Key Vault-Zugriffsrichtlinie](../key-vault/general/assign-access-policy-portal.md)
 

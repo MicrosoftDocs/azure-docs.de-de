@@ -4,16 +4,16 @@ description: Hier erfahren Sie, wie Sie den neuen Datenexport verwenden, um Ihre
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 09/15/2020
+ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.custom: contperfq1
-ms.openlocfilehash: 2cbdeca41746099643fb06ff5861a39b2e032b33
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: b84f1efd77ca757fd2ceaa8bb5605e3fc78297d0
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126702"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032370"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exportieren von IoT-Daten zu Cloudzielen mithilfe des Datenexports
 
@@ -135,6 +135,7 @@ Sie haben ein Ziel für den Export Ihrer Daten eingerichtet und richten jetzt de
     |  Telemetrie | Exportiert Telemetrienachrichten von Geräten nahezu in Echtzeit. Jede exportierte Nachricht enthält den vollständigen Inhalt der ursprünglichen Gerätenachricht (normalisiert).   |  [Format der Telemetrienachricht](#telemetry-format)   |
     | Eigenschaftsänderungen | Exportiert Änderungen zu den Geräte- und Cloudeigenschaften nahezu in Echtzeit. Bei schreibgeschützten Geräteeigenschaften werden Änderungen an den gemeldeten Werten exportiert. Bei Lese-/Schreibeigenschaften werden sowohl gemeldete als auch gewünschte Werte exportiert. | [Format der Eigenschaftsänderungsnachricht](#property-changes-format) |
 
+<a name="DataExportFilters"></a>
 1. Fügen Sie optional Filter hinzu, um die Menge der exportierten Daten zu verringern. Für jeden Datenexporttyp gibt es verschiedene Arten von Filtern:
 
     Zum Filtern von Telemetriedaten können Sie Folgendes ausführen:
@@ -145,6 +146,7 @@ Sie haben ein Ziel für den Export Ihrer Daten eingerichtet und richten jetzt de
 
     Verwenden Sie zum Filtern von Eigenschaftsänderungen einen **Funktionsfilter**. Wählen Sie ein Eigenschaftselement in der Dropdownliste aus. Der exportierte Datenstrom enthält nur Änderungen an der ausgewählten Eigenschaft, die die Filterbedingung erfüllt.
 
+<a name="DataExportEnrichmnents"></a>
 1. Reichern Sie optional exportierte Nachrichten mit zusätzlichen Metadaten für Schlüssel-Wert-Paare an. Die folgenden Anreicherungen stehen für die Datenexporttypen „Telemetrie“ und „Eigenschaftsänderungen“ zur Verfügung:
 
     - **Benutzerdefinierte Zeichenfolge:** Fügt jeder Nachricht eine benutzerdefinierte statische Zeichenfolge hinzu. Geben Sie einen beliebigen Schlüssel und einen beliebigen Zeichenfolgenwert ein.
@@ -156,7 +158,9 @@ Sie haben ein Ziel für den Export Ihrer Daten eingerichtet und richten jetzt de
     - **Zieltyp:** Wählen Sie den Typ des Ziels aus. Wenn Sie Ihr Ziel noch nicht eingerichtet haben, finden Sie weitere Informationen unter [Einrichten des Exportziels](#set-up-export-destination).
     - Fügen Sie bei Azure Event Hubs, Azure Service Bus-Warteschlange oder -Thema die Verbindungszeichenfolge für Ihre Ressource ein, und geben Sie bei Bedarf den Namen des Event Hubs, der Warteschlange oder des Themas ein (Groß-/Kleinschreibung beachten).
     - Fügen Sie bei Azure Blob Storage die Verbindungszeichenfolge für Ihre Ressource ein, und geben Sie bei Bedarf den Containernamen ein (Groß-/Kleinschreibung beachten).
-    - Bei Webhook fügen Sie die Callback-URL für Ihren Webhookendpunkt ein.
+    - Bei Webhook fügen Sie die Callback-URL für Ihren Webhookendpunkt ein. Optional können Sie die Webhookautorisierung (OAuth 2.0 und Autorisierungstoken) konfigurieren und benutzerdefinierte Header hinzufügen. 
+        - Bei OAuth 2.0 wird nur der Flow für Anmeldeinformationen von Clients unterstützt. Wenn das Ziel gespeichert ist, kommuniziert IoT Central mit Ihrem OAuth-Anbieter, um ein Autorisierungstoken abzurufen. Dieses Token wird bei jeder an dieses Ziel gesendeten Nachricht an den Autorisierungsheader angefügt.
+        - Für das Autorisierungstoken können Sie einen Tokenwert angeben, der bei jeder an dieses Ziel gesendeten Nachricht direkt an den Autorisierungsheader angefügt wird.
     - Klicken Sie auf **Erstellen**.
 
 1. Wählen Sie **+ Ziel** und dann ein Ziel aus der Dropdownliste aus. Sie können bis zu fünf Ziele zu einem einzelnen Export hinzufügen.

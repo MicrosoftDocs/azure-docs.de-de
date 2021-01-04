@@ -11,12 +11,12 @@ metadata:
   manager: eliotgra
   ms.date: 03/23/2020
   ms.custom: amqp
-  ms.openlocfilehash: 5459129d5d49324839bfe36e2031d5be8d1e0521
-  ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+  ms.openlocfilehash: 665692e1d902dfed8cdab535d0639f356f4e709c
+  ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/26/2020
-  ms.locfileid: "92545377"
+  ms.lasthandoff: 11/19/2020
+  ms.locfileid: "94885919"
 landingContent:
 - title: Erste Schritte
   linkLists:
@@ -40,12 +40,6 @@ landingContent:
     links:
     - text: Arbeiten mit Gerätezwillingen mithilfe von Node.js
       url: iot-hub-node-node-twin-getstarted.md
-    - text: Überwachen von IoT Hub
-      url: monitor-iot-hub.md
-    - text: Referenz zu IoT Hub-Überwachungsdaten
-      url: monitor-iot-hub-reference.md
-    - text: Überwachen, Diagnostizieren und Behandeln von Problemen bei der Trennung von Geräteverbindungen mit IoT
-      url: iot-hub-troubleshoot-connectivity.md
 - title: Skalieren Ihrer Lösung
   linkLists:
   - linkListType: concept
@@ -84,6 +78,20 @@ landingContent:
       url: tutorial-routing-config-message-routing-rm-template.md
     - text: Ausführen und Anzeigen von Routingergebnissen
       url: tutorial-routing-view-message-routing-results.md
+- title: IoT Hub in Azure Stack Hub (Vorschau)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Übersicht für Operatoren
+      url: /azure-stack/operator/iot-hub-rp-overview
+    - text: Übersicht für Benutzer
+      url: /azure-stack/user/iot-hub-overview
+  - linkListType: how-to-guide
+    links:
+    - text: Voraussetzungen für die Installation
+      url: /azure-stack/operator/iot-hub-rp-prerequisites
+    - text: Installation von IoT Hub in Azure Stack Hub
+      url: /azure-stack/operator/iot-hub-rp-install
 - title: Verwenden von IoT Hub-Tools
   linkLists:
   - linkListType: how-to-guide
@@ -92,6 +100,18 @@ landingContent:
       url: iot-hub-create-use-iot-toolkit.md
     - text: IoT-Explorer
       url: ../iot-pnp/howto-use-iot-explorer.md
+- title: 'IoT Hub: Überwachen und Behandeln von Problemen'
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Überwachen von IoT Hub
+      url: monitor-iot-hub.md
+    - text: Referenz zu IoT Hub-Überwachungsdaten
+      url: monitor-iot-hub-reference.md
+    - text: Überwachen, Diagnostizieren und Behandeln von Problemen bei der Trennung von Verbindungen mit IoT Hub
+      url: iot-hub-troubleshoot-connectivity.md
+    - text: Sortieren von Geräteverbindungsereignissen von Azure IoT Hub mithilfe von Azure Cosmos DB
+      url: iot-hub-how-to-order-connection-state-events.md
 - title: Verwenden von IoT-Sicherheitszertifikaten
   linkLists:
   - linkListType: concept

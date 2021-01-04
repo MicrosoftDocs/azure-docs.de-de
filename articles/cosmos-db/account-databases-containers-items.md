@@ -4,18 +4,18 @@ description: In diesem Artikel wird das Azure Cosmos DB-Ressourcenmodell beschri
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 1178a5e2850279820925c9bd02554ec7d5adf9e6
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 37f1c9f59b6ffb45e1b874d2a6969bf263d2d5eb
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283154"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341364"
 ---
 # <a name="azure-cosmos-db-resource-model"></a>Azure Cosmos DB-Ressourcenmodell
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB ist ein vollständig verwalteter PaaS-Dienst (Platform-as-a-Service, PaaS). Damit Sie Azure Cosmos DB verwenden können, müssen Sie in Ihrem Azure-Abonnement zunächst ein Azure Cosmos-Konto erstellen und darin dann Datenbanken, Container und Elemente. In diesem Artikel werden das Azure Cosmos DB-Ressourcenmodell und verschiedene Entitäten in der Ressourcenmodellhierarchie beschrieben.
 
@@ -33,7 +33,7 @@ Nach der Erstellung eines Kontos in Ihrem Azure-Abonnement können Sie die Daten
 
 In der folgenden Abbildung ist die Hierarchie der verschiedenen Entitäten in einem Azure Cosmos DB-Konto dargestellt:
 
-:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Hierarchie eines Azure Cosmos-Kontos" border="false":::
+:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Entitäten in einem Azure Cosmos-Konto" border="false":::
 
 ## <a name="azure-cosmos-databases"></a>Azure Cosmos-Datenbanken
 

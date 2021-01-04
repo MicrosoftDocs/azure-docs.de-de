@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: f8885229c8ab6784c6c0bf45487812fcc43f9b22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 766d3f8d4d4c03fb4fe173dbb12eb85bb09cd71a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903826"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124168"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio-code"></a>Lokales Debuggen von Azure Stream Analytics-Abfragen mithilfe eines Auftragsdiagramms in Visual Studio Code
 
@@ -31,7 +31,7 @@ Verwenden Sie diesen [Schnellstart](quick-create-visual-studio-code.md), um zu e
 
 Wenn Sie die Abfrage mit lokalen Eingabedaten testen möchten, befolgen Sie diese [Anweisungen](visual-studio-code-local-run.md). Wenn Sie mit Liveeingaben testen möchten, [konfigurieren Sie Ihre Eingabe](stream-analytics-add-inputs.md), und fahren Sie mit dem nächsten Schritt fort. 
 
-Öffnen Sie die Skriptdatei *\.asaql*, und wählen Sie **Lokal ausführen** aus. Wählen Sie dann **Lokale Eingabe verwenden** oder **Liveeingabe verwenden** aus. Das Auftragsdiagramm wird auf der rechten Seite des Fensters angezeigt.
+Öffnen Sie die Skriptdatei *\.asaql* , und wählen Sie **Lokal ausführen** aus. Wählen Sie dann **Lokale Eingabe verwenden** oder **Liveeingabe verwenden** aus. Das Auftragsdiagramm wird auf der rechten Seite des Fensters angezeigt.
 
 ### <a name="view-the-output-and-intermediate-result-set"></a>Anzeigen der Ausgabe und des Zwischenresultsets  
 
@@ -104,7 +104,7 @@ Wählen Sie in der oberen rechten Ecke des Auftragsdiagramms **Auftragszusammenf
 
 * Benutzerdefinierter C#-Code und Azure Machine Learning-Funktionen werden nicht unterstützt. 
 
-* [Zeitrichtlinien](stream-analytics-out-of-order-and-late-events.md) werden nur für Cloudeingabeoptionen unterstützt, nicht für lokale Eingabeoptionen.
+* [Zeitrichtlinien](./stream-analytics-time-handling.md) werden nur für Cloudeingabeoptionen unterstützt, nicht für lokale Eingabeoptionen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

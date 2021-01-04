@@ -3,16 +3,17 @@ title: Referenzarchitekturen für Oracle-Datenbanken in Azure | Microsoft-Dokume
 description: Informationen zu Referenzarchitekturen für die Ausführung von Datenbanken vom Typ „Oracle Database Enterprise Edition“ auf Microsoft Azure Virtual Machines.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: f9765f4ce47e6e698daf1680aecf059241c58382
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 83da8cbf3a87570cfb967e0a6c8da3f0f2ed1766
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993581"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486741"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Referenzarchitekturen für Oracle Database Enterprise Edition in Azure
 
@@ -72,7 +73,7 @@ Mit Oracle Database Version 12.2 und höher können Sie außerdem mit nur einer
 
 Das folgende Diagramm zeigt eine empfohlene Architektur für die Verwendung von Oracle Data Guard in Azure mit Verfügbarkeitszonen. Mit dieser Architektur können Sie für die VM eine Betriebszeit-SLA von 99,99 % erzielen.
 
-![Verwendung von Verfügbarkeitszonen mit Data Guard Broker (FSFO) für Oracle Database](./media/oracle-reference-architecture/oracledb_dg_fsfo_az.png)
+![Diagramm einer empfohlenen Architektur für die Verwendung von Oracle Data Guard in Azure mit Verfügbarkeitszonen](./media/oracle-reference-architecture/oracledb_dg_fsfo_az.png)
 
 Im obigen Diagramm greift das Clientsystem auf eine benutzerdefinierte Anwendung per Oracle-Back-End über das Web zu. Das Web-Front-End ist in einem Lastenausgleichsmodul konfiguriert. Zur Verarbeitung sendet das Web-Front-End einen Aufruf an den entsprechenden Anwendungsserver. Der Anwendungsserver fragt die primäre Oracle-Datenbank ab. Die Oracle-Datenbank wurde mit einer [arbeitsspeicheroptimierten Hyperthread-VM](../../sizes-memory.md) mit [vCPUs mit eingeschränkten Kerngrößen](../../../virtual-machines/constrained-vcpu.md) konfiguriert, um Lizenzierungskosten zu sparen und die Leistung zu steigern. Es werden mehrere Premium/Ultra Disks (Managed Disks) verwendet, um die Leistung zu steigern und Hochverfügbarkeit zu erzielen.
 
@@ -206,12 +207,12 @@ Während der ersten Anforderung stellt der Anwendungsserver eine Verbindung mit 
 
 Beim Bereitstellen Ihrer Oracle-Workloads in Azure übernimmt Microsoft das gesamte Patchen auf der Ebene des Hostbetriebssystems. Kunden werden im Voraus über alle geplanten Wartungsarbeiten auf Betriebssystemebene informiert, damit sich der Kunde darauf einstellen kann. Zwei Server, die in zwei unterschiedlichen Verfügbarkeitszonen angeordnet sind, werden niemals gleichzeitig gepatcht. Weitere Informationen zur Wartung und zum Patchen von virtuellen Computern finden Sie unter [Verwalten der Verfügbarkeit virtueller Computer](../../manage-availability.md). 
 
-Das Patchen des Betriebssystems Ihres virtuellen Computers kann mit der [Updateverwaltung von Azure Automation](../../../automation/update-management/update-mgmt-overview.md) automatisiert werden. Das Patchen und Warten Ihrer Oracle-Datenbank kann mit [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) oder der [Updateverwaltung von Azure Automation](../../../automation/update-management/update-mgmt-overview.md) automatisiert und geplant werden, um das Auftreten von Ausfallzeiten zu minimieren. Im Artikel zum Thema [Continuous Delivery und Blau/Grün-Bereitstellung](/azure/devops/learn/what-is-continuous-delivery) können Sie sich damit vertraut machen, wie Sie dies für Ihre Oracle-Datenbanken nutzen können.
+Das Patchen des Betriebssystems Ihres virtuellen Computers kann mit der [Updateverwaltung von Azure Automation](../../../automation/update-management/overview.md) automatisiert werden. Das Patchen und Warten Ihrer Oracle-Datenbank kann mit [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) oder der [Updateverwaltung von Azure Automation](../../../automation/update-management/overview.md) automatisiert und geplant werden, um das Auftreten von Ausfallzeiten zu minimieren. Im Artikel zum Thema [Continuous Delivery und Blau/Grün-Bereitstellung](/azure/devops/learn/what-is-continuous-delivery) können Sie sich damit vertraut machen, wie Sie dies für Ihre Oracle-Datenbanken nutzen können.
 
 ## <a name="architecture-and-design-considerations"></a>Architektur- und Entwurfsaspekte
 
 - Erwägen Sie den Einsatz einer [arbeitsspeicheroptimierten Hyperthread-VM](../../sizes-memory.md) mit [vCPUs mit eingeschränkten Kerngrößen](../../../virtual-machines/constrained-vcpu.md) für Ihre Oracle Database-VM, um Lizenzierungskosten zu sparen und die Leistung zu steigern. Verwenden Sie mehrere Premium-Datenträger bzw. Ultra Disks (Managed Disks), um eine gute Leistung und Verfügbarkeit zu erzielen.
-- Bei Verwendung von verwalteten Datenträgern kann es vorkommen, dass sich der Name eines Datenträgers bzw. Geräts ändert. Wir empfehlen Ihnen, anstelle des Namens die Geräte-UUID zu verwenden, um sicherzustellen, dass Ihre Bereitstellungen über Neustartvorgänge hinweg beibehalten werden. Weitere Informationen finden Sie [hier](../../../virtual-machines/linux/configure-raid.md#add-the-new-file-system-to-etcfstab).
+- Bei Verwendung von verwalteten Datenträgern kann es vorkommen, dass sich der Name eines Datenträgers bzw. Geräts ändert. Wir empfehlen Ihnen, anstelle des Namens die Geräte-UUID zu verwenden, um sicherzustellen, dass Ihre Bereitstellungen über Neustartvorgänge hinweg beibehalten werden. Weitere Informationen finden Sie [hier](/previous-versions/azure/virtual-machines/linux/configure-raid#add-the-new-file-system-to-etcfstab).
 - Verwenden Sie Verfügbarkeitszonen, um für eine Region Hochverfügbarkeit zu erzielen.
 - Verwenden Sie ggf. Ultra Disks (falls verfügbar) oder Premium-Datenträger für Ihre Oracle-Datenbank.
 - Erwägen Sie, mit Oracle Data Guard eine Oracle-Standbydatenbank in einer anderen Azure-Region einzurichten.

@@ -11,19 +11,19 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.custom: contperfq2
-ms.openlocfilehash: edcfa19ed93733c4d6b060ebcb5ff179708195aa
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 3587beaeb788665c68c1fcb6376af40566b6c35e
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486921"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032778"
 ---
 # <a name="manage-app-consent-policies"></a>Verwalten von Richtlinien zur Einwilligung für die App
 
 Mit Azure AD PowerShell können Sie Richtlinien zur Einwilligung für die App anzeigen und verwalten.
 
-Eine Richtlinie zur Einwilligung für die App besteht aus einem oder mehreren „includes“-Bedingungssätzen und null oder mehreren „excludes“-Bedingungssätzen. Damit ein Ereignis in einer Richtlinie zur Einwilligung für die App berücksichtigt wird, muss es *mindestens* einem „includes“-Bedingungssatz entsprechen, und es darf nicht viele *beliebige* „excludes“-Bedingungssätze geben.
+Eine Richtlinie zur Einwilligung für die App besteht aus einem oder mehreren „includes“-Bedingungssätzen und null oder mehreren „excludes“-Bedingungssätzen. Damit ein Ereignis in einer Richtlinie zur Einwilligung für die App berücksichtigt wird, muss es *mindestens* einem „includes“-Bedingungssatz entsprechen und nicht *beliebigen* „excludes“-Bedingungssätze.
 
 Jeder Bedingungssatz besteht aus mehreren Bedingungen. Damit ein Ereignis einem Bedingungssatz entspricht, müssen *alle* Bedingungen im Satz erfüllt werden.
 
@@ -31,7 +31,7 @@ Richtlinien zur Einwilligung für die App, bei denen die ID mit „microsoft-“
 
 ## <a name="pre-requisites"></a>Voraussetzungen
 
-1. Stellen Sie sicher, dass Sie das Modul [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) verwenden. Dieser Schritt ist wichtig, wenn auf Ihrem Computer sowohl das Modul [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) als auch das Modul [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) installiert ist.
+1. Stellen Sie sicher, dass Sie das Modul [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) verwenden. Dieser Schritt ist wichtig, wenn auf Ihrem Computer sowohl das Modul [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) als auch das Modul [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) installiert ist.
 
     ```powershell
     Remove-Module AzureAD -ErrorAction SilentlyContinue
@@ -133,10 +133,10 @@ Die folgende Tabelle enthält die Liste der unterstützten Bedingungen für Rich
 | Bedingung | Beschreibung|
 |:---------------|:----------|
 | PermissionClassification | Die [Berechtigungsklassifizierung](configure-permission-classifications.md) für die erteilte Berechtigung oder „all“, das mit jeder beliebigen Berechtigungsklassifizierung (einschließlich nicht klassifizierter Berechtigungen) abgeglichen werden soll. Der Standardwert ist „all“. |
-| PermissionType | Der Berechtigungstyp der erteilten Berechtigung. Verwenden Sie „Anwendung“ für Anwendungsberechtigungen (z. B. App-Rollen) oder „delegiert“ für delegierte Berechtigungen. <br><br>**Hinweis** : Der Wert „delegatedUserConsentable“ gibt delegierte Berechtigungen an, die vom API-Herausgeber nicht zum Anfordern der Administratoreinwilligung konfiguriert wurden. Dieser Wert kann in integrierten Richtlinien für Berechtigungserteilung verwendet werden, aber nicht in benutzerdefinierten Richtlinien für Berechtigungserteilung. Erforderlich. |
+| PermissionType | Der Berechtigungstyp der erteilten Berechtigung. Verwenden Sie „Anwendung“ für Anwendungsberechtigungen (z. B. App-Rollen) oder „delegiert“ für delegierte Berechtigungen. <br><br>**Hinweis**: Der Wert „delegatedUserConsentable“ gibt delegierte Berechtigungen an, die vom API-Herausgeber nicht zum Anfordern der Administratoreinwilligung konfiguriert wurden. Dieser Wert kann in integrierten Richtlinien für Berechtigungserteilung verwendet werden, aber nicht in benutzerdefinierten Richtlinien für Berechtigungserteilung. Erforderlich. |
 | ResourceApplication | Die **AppId** der Ressourcenanwendung (z. B. die API), für die eine Berechtigung erteilt wird, oder „any“, die mit einer beliebigen Ressourcenanwendung oder API abgeglichen werden soll. Der Standardwert ist „any“. |
 | Berechtigungen | Die Liste der Berechtigungs-IDs für die spezifischen Berechtigungen, mit denen abgeglichen werden soll, oder eine Liste mit dem einzelnen Wert „all“ für den Abgleich mit jeder beliebigen Berechtigung. Standard ist der einzelne Wert „all“. <ul><li>Delegierte Berechtigungs-IDs finden Sie in der Eigenschaft **OAuth2Permissions** des ServicePrincipal-Objekts der API.</li><li>Anwendungsberechtigungs-IDs finden Sie in der Eigenschaft **AppRoles** des ServicePrincipal-Objekts der API.</li></ol> |
-| ClientApplicationIds | Eine Liste von **AppId** -Werten für die Clientanwendungen, mit denen abgeglichen werden soll, oder eine Liste mit dem einzelnen Wert „all“ zum Abgleichen einer beliebigen Clientanwendung. Standard ist der einzelne Wert „all“. |
+| ClientApplicationIds | Eine Liste von **AppId**-Werten für die Clientanwendungen, mit denen abgeglichen werden soll, oder eine Liste mit dem einzelnen Wert „all“ zum Abgleichen einer beliebigen Clientanwendung. Standard ist der einzelne Wert „all“. |
 | ClientApplicationTenantIds | Eine Liste der Azure Active Directory-Mandanten-IDs, in denen die Clientanwendung registriert ist, oder eine Liste mit dem einzelnen Wert „all“, die mit den in einem beliebigen Mandanten registrierten Client-Apps abgeglichen werden soll. Standard ist der einzelne Wert „all“. |
 | ClientApplicationPublisherIds | Eine Liste von Microsoft Partner Network (MPN)-IDs für [verifizierte Herausgeber](../develop/publisher-verification-overview.md) der Clientanwendung, oder eine Liste mit dem einzelnen Wert „all“, die mit Client-Apps von jedem beliebigen Herausgeber abgeglichen werden soll. Standard ist der einzelne Wert „all“. |
 | ClientApplicationsFromVerifiedPublisherOnly | Legen Sie diesen Wert auf `$true` fest, damit nur Clientanwendungen mit einem [verifizierten Verleger](../develop/publisher-verification-overview.md) abgeglichen werden. Legen Sie diesen Wert auf `$false` fest, damit jede beliebige Client-App sogar dann abgeglichen wird, wenn es dafür keinen verifizierten Herausgeber gibt. Der Standardwert ist `$false`. |
@@ -149,7 +149,7 @@ Weitere Informationen:
 * [Konfigurieren des Workflows für die Administratoreinwilligung (Vorschau)](configure-admin-consent-workflow.md)
 * Weitere Informationen zum [Verwalten der Einwilligung zu Anwendungen und Auswerten von Einwilligungsanforderungen](manage-consent-requests.md)
 * [Erteilen einer mandantenweiten Administratoreinwilligung für eine Anwendung](grant-admin-consent.md)
-* [Berechtigungen und Zustimmung im Microsoft Identity Platform-Endpunkt](../develop/active-directory-v2-scopes.md)
+* [Berechtigungen und Zustimmung im Microsoft Identity Platform-Endpunkt](../develop/v2-permissions-and-consent.md)
 
 So erhalten Sie Hilfe oder finden Antworten auf Ihre Fragen:
 * [Azure AD bei StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

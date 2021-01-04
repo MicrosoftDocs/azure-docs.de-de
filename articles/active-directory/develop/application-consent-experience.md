@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
-ms.openlocfilehash: 6e768c1e938006afd62fc097a80f8ebc3ea0f3e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4a4af81c6a216119ae2e1b0221c06ddc349452f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88115474"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478132"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Grundlegendes zu Einwilligungserfahrungen für Azure AD-Anwendungen
 
@@ -65,13 +65,13 @@ Hier finden Sie die Einwilligungserfahrungen, denen ein Benutzer in den gängigs
     
     2. Benutzern wird die herkömmliche Einwilligungsaufforderung angezeigt.
 
-        ![Einwilligungsaufforderung für Szenario 1b](./media/application-consent-experience/consent_prompt_1b.png)
+        ![Screenshot der herkömmlichen Einwilligungsaufforderung.](./media/application-consent-experience/consent_prompt_1b.png)
 
 2. Einzelne Personen, die auf eine App zugreifen, die mindestens eine Berechtigung erfordert, die außerhalb ihres Gültigkeitsbereichs der Autorität liegt.
     1. Administratoren wird dieselbe Aufforderung wie 1.i, wie oben abgebildet, angezeigt.
     2. Benutzer werden am Erteilen der Einwilligung für die Anwendung gehindert und darauf hingewiesen, ihren Administrator um Zugriff auf die App zu bitten. 
                 
-        ![Einwilligungsaufforderung für Szenario 1b](./media/application-consent-experience/consent_prompt_2b.png)
+        ![Screenshot der Einwilligungsaufforderung, die den Benutzer auffordert, einen Administrator um Zugriff auf die App zu bitten.](./media/application-consent-experience/consent_prompt_2b.png)
 
 3. Einzelne Personen, die zum Administratoreinwilligungsflow navigieren oder dorthin weitergeleitet werden.
     1. Administratorbenutzern wird die Administratoreinwilligungsaufforderung angezeigt. Der Titel und die Beschreibung der Berechtigungen hat sich in dieser Eingabeaufforderung geändert, und die Änderungen unterstreichen die Tatsache, dass das Annehmen dieser Aufforderung der App Zugriff auf die angeforderten Daten im Auftrag des gesamten Mandanten erteilt.

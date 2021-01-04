@@ -2,22 +2,22 @@
 title: 'Schnellstart: Java-Web-App-Analyse mit Azure Application Insights'
 description: 'Überwachung der Anwendungsleistung für Java-Web-Apps mithilfe von Application Insights. '
 ms.topic: conceptual
-author: lgayhardt
+ms.date: 11/22/2020
+author: MS-jgol
 ms.custom: devx-track-java
-ms.author: lagayhar
-ms.date: 05/24/2019
-ms.openlocfilehash: 12497d3ac86888ed861e8d5f655f45c8cbe4b6e3
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.author: jgol
+ms.openlocfilehash: 6bdad71f0b36995abdeb3b1edb87cbef32df8b67
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996165"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96919429"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Schnellstart: Erste Schritte mit Application Insights in einem Java-Webprojekt
 
 
-> [!IMPORTANT]
-> Der empfohlene Ansatz zur Überwachung von Java-Anwendungen ist die automatische Instrumentierung ohne Änderung des Codes. Befolgen Sie die Leitlinien für den [Application Insights Java 3.0-Agent](./java-in-process-agent.md).
+> [!CAUTION]
+> Ab November 2020 sollten Sie für die Überwachung von Java-Anwendungen die automatische Instrumentierung mithilfe des Azure Monitor Application Insights Java 3.0-Agents verwenden. Weitere Informationen zu ersten Schritten finden Sie unter [Java-Anwendungsüberwachung ohne Code mit Azure Monitor Application Insights](./java-in-process-agent.md).
 
 In dieser Schnellstartanleitung verwenden Sie das Application Insights SDK, um Anforderungen zu instrumentieren, Abhängigkeiten zu verfolgen und Leistungsindikatoren zu sammeln, Leistungsprobleme und Ausnahmen zu diagnostizieren und Code zu schreiben, um die Aktivitäten der Benutzer Ihrer App zu verfolgen.
 
@@ -30,6 +30,8 @@ Application Insights ist ein erweiterbarer Analysedienst für Webentwickler, der
 
 ## <a name="get-an-application-insights-instrumentation-key"></a>Abrufen eines Application Insights-Instrumentationsschlüssels
 
+> [!IMPORTANT]
+> Neue Azure-Regionen **erfordern** die Verwendung von Verbindungszeichenfolgen anstelle von Instrumentierungsschlüsseln. Die [Verbindungszeichenfolge](./sdk-connection-string.md?tabs=java) identifiziert die Ressource, der Sie Ihre Telemetriedaten zuordnen möchten. Hier können Sie die Endpunkte ändern, die Ihre Ressource als Ziel für die Telemetrie verwendet. Sie müssen die Verbindungszeichenfolge kopieren und dem Code Ihrer Anwendung oder einer Umgebungsvariable hinzufügen.
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.
 2. Erstellen Sie im Azure-Portal eine Application Insights-Ressource. Legen Sie den Anwendungstyp auf "Java-Webanwendung" fest.
 

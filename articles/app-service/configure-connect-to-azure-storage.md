@@ -6,24 +6,30 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: d435a33ba45daf2c8a6a42e51c3e0d58f3abc23b
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: e75eef86a4a0c679a44a61267f94d337538daaa8
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057755"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007618"
 ---
-# <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Zugreifen auf Azure Storage als Netzwerkfreigabe von einem Container in App Service
+# <a name="access-azure-storage-preview-as-a-network-share-from-a-container-in-app-service"></a>Zugreifen auf Azure Storage (Vorschau) als Netzwerkfreigabe von einem Container in App Service
 
 ::: zone pivot="container-windows"
 
 In diesem Leitfaden erfahren Sie, wie Sie Azure Storage-Dateien als Netzwerkfreigabe an einen Windows-Container in App Service anfügen. Nur [Azure Files-Dateifreigaben](../storage/files/storage-how-to-use-files-cli.md) und [Premium-Dateifreigaben](../storage/files/storage-how-to-create-premium-fileshare.md) werden unterstützt. Zu den Vorteilen gehören sicherer Inhalt, die Portabilität des Inhalts, Zugriff auf mehrere Apps und mehrere Übertragungsmethoden.
+
+> [!NOTE]
+>Azure Storage in App Service befindet sich **in der Vorschau** und wird für **Produktionsszenarien** noch **nicht unterstützt**.
 
 ::: zone-end
 
 ::: zone pivot="container-linux"
 
 Der vorliegende Leitfaden zeigt, wie Sie Azure Storage an einen Linux-Container in App Service anfügen. Zu den Vorteilen gehören sicherer Inhalt, die Portabilität des Inhalts, persistente Speicherung, Zugriff auf mehrere Apps und mehrere Übertragungsmethoden.
+
+> [!NOTE]
+>Azure Storage in App Service befindet sich für App Service unter Linux und Web-App für Container **in der Vorschau**. Diese Funktion wird für **Produktionsszenarien** **nicht unterstützt**.
 
 ::: zone-end
 
@@ -53,7 +59,6 @@ Der vorliegende Leitfaden zeigt, wie Sie Azure Storage an einen Linux-Container 
 
 ::: zone pivot="container-windows"
 
-- Azure Storage in App Service befindet sich **in der Vorschau** und wird für **Produktionsszenarien** noch **nicht unterstützt**.
 - Azure Storage in App Service wird zurzeit für Szenarien mit Verwendung von eigenem Code (nicht containerisierte Windows-Apps) **nicht unterstützt**.
 - Aufgrund von Infrastruktureinschränkungen bietet Azure Storage in App Service **keine Unterstützung** für die Verwendung der **Storage-Firewall**-Konfiguration.
 - Mit Azure Storage mit App Service können Sie **bis zu fünf** Bereitstellungspunkte pro App angeben.
@@ -63,7 +68,6 @@ Der vorliegende Leitfaden zeigt, wie Sie Azure Storage an einen Linux-Container 
 
 ::: zone pivot="container-linux"
 
-- Azure Storage in App Service befindet sich für App Service unter Linux und Web-App für Container **in der Vorschau**. Diese Funktion wird für **Produktionsszenarien** **nicht unterstützt**.
 - Azure Storage in App Service unterstützt das Bereitstellen von **Azure Files-Containern** (Lese-/Schreibzugriff) und **Azure-Blobcontainern** (schreibgeschützt).
 - Mit Azure Storage in App Service können Sie **bis zu fünf** Bereitstellungspunkte pro App angeben.
 - Auf Azure-Speicher, der für eine App bereitgestellt wurde, kann nicht über App Service-FTP/FTPs-Endpunkte zugegriffen werden. Verwenden Sie den [Azure Storage-Explorer](https://azure.microsoft.com/features/storage-explorer/).
@@ -76,7 +80,7 @@ Der vorliegende Leitfaden zeigt, wie Sie Azure Storage an einen Linux-Container 
 
 Nachdem Sie Ihr [Azure Storage-Konto sowie die zugehörige Dateifreigabe und das Verzeichnis](#prerequisites) erstellt haben, können Sie Ihre App jetzt mit Azure Storage konfigurieren.
 
-Um eine Azure Files-Dateifreigabe in einem Verzeichnis in Ihrer App Service-App bereitzustellen, verwenden Sie den Befehl [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add). Der Speichertyp muss „AzureFiles“ sein.
+Um eine Azure Files-Dateifreigabe in einem Verzeichnis in Ihrer App Service-App bereitzustellen, verwenden Sie den Befehl [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add). Der Speichertyp muss „AzureFiles“ sein.
 
 ```azurecli
 az webapp config storage-account add --resource-group <group-name> --name <app-name> --custom-id <custom-id> --storage-type AzureFiles --share-name <share-name> --account-name <storage-account-name> --access-key "<access-key>" --mount-path <mount-path-directory of form c:<directory name> >
@@ -90,7 +94,7 @@ Gehen Sie ebenso für alle anderen Verzeichnisse vor, die mit einer Azure Files-
 
 Nachdem Sie Ihr [Azure Storage-Konto sowie die zugehörige Dateifreigabe und das Verzeichnis](#prerequisites) erstellt haben, können Sie Ihre App jetzt mit Azure Storage konfigurieren.
 
-Um ein Speicherkonto in einem Verzeichnis in Ihre App Service-App bereitzustellen, verwenden Sie den Befehl [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add). Als Speichertyp kann „AzureBlob“ oder „AzureFiles“ verwendet werden. In diesem Beispiel wird AzureFiles verwendet. Die Einstellung für den Einbindungspfad entspricht dem Ordner innerhalb des Containers, den Sie in Azure Storage einbinden möchten. Wenn Sie diese Einstellung auf „/“ festlegen, wird der gesamte Container in Azure Storage eingebunden.
+Um ein Speicherkonto in einem Verzeichnis in Ihre App Service-App bereitzustellen, verwenden Sie den Befehl [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add). Als Speichertyp kann „AzureBlob“ oder „AzureFiles“ verwendet werden. In diesem Beispiel wird AzureFiles verwendet. Die Einstellung für den Einbindungspfad entspricht dem Ordner innerhalb des Containers, den Sie in Azure Storage einbinden möchten. Wenn Sie diese Einstellung auf „/“ festlegen, wird der gesamte Container in Azure Storage eingebunden.
 
 
 > [!CAUTION]

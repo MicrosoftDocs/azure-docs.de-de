@@ -7,11 +7,11 @@ ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 4a847b273472ecc9d2aaa3993ec9d88aa46f2e7f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973868"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017167"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Erstellen und Verwalten eines Unterstützungspakets für ein Gerät der StorSimple 8000-Serie
 
@@ -40,10 +40,10 @@ Sie können das manuell generierte Unterstützungspaket per E-Mail für den Micr
    1. Geben Sie an der Eingabeaufforderung Folgendes ein:
      
        `$MS = New-PSSession -ComputerName <IP address for DATA 0> -Credential SSAdmin -ConfigurationName "SSAdminConsole"`
-   2. Geben Sie im angezeigten Dialogfeld Ihr Geräteadministratorkennwort ein. Das Standardkennwort lautet _Password1_ .
+   2. Geben Sie im angezeigten Dialogfeld Ihr Geräteadministratorkennwort ein. Das Standardkennwort lautet _Password1_.
      
       ![PowerShell-Anmeldeinformationen-Dialogfeld](./media/storsimple-8000-create-manage-support-package/IC740962.png)
-   3. Klicken Sie auf **OK** .
+   3. Klicken Sie auf **OK**.
    4. Geben Sie an der Eingabeaufforderung Folgendes ein:
      
       `Enter-PSSession $MS`

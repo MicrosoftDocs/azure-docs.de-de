@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 871a764c549de75d5a9e1449ba2e0737d38a4094
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d66f3099ba225fbdd2bfc3d54db56ffd8ed2c43f
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83799940"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684031"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Verwenden von intelligentem Routing und Canary-Releases mit Istio in Azure Kubernetes Service (AKS)
 
@@ -33,7 +33,7 @@ In diesem Artikel werden folgende Vorgehensweisen behandelt:
 > [!NOTE]
 > Dieses Szenario wurde mit der Istio-Version `1.3.2` getestet.
 
-Bei den in diesem Artikel beschriebenen Schritten wird vorausgesetzt, dass Sie einen AKS-Cluster (Kubernetes `1.13` und höher mit aktivierter rollenbasierter Zugriffssteuerung [RBAC]) erstellt und eine `kubectl`-Verbindung mit dem Cluster hergestellt haben. Ferner muss Istio in Ihrem Cluster installiert sein.
+Bei den in diesem Artikel beschriebenen Schritten wird vorausgesetzt, dass Sie einen AKS-Cluster (ab Kubernetes `1.13`, Kubernetes RBAC aktiviert) erstellt und eine `kubectl`-Verbindung mit dem Cluster hergestellt haben. Ferner muss Istio in Ihrem Cluster installiert sein.
 
 Wenn Sie Hilfe bei einem dieser Elemente benötigen, lesen Sie den [AKS-Schnellstart][aks-quickstart] und die Anleitung [Installieren und Verwenden von Istio in Azure Kubernetes Service (AKS)][istio-install].
 
@@ -53,7 +53,7 @@ Sobald Sie sicher sind, dass Version `2.0` bei Ihrer Teilmenge der Benutzer wie 
 
 Wir beginnen mit der Bereitstellung der Anwendung in Ihrem AKS-Cluster (Azure Kubernetes Service). Das folgende Diagramm zeigt, was am Ende dieses Abschnitts ausgeführt wird: Version `1.0` aller Komponenten, wobei eingehende Anforderungen über das Istio-Eingangsgateway verarbeitet werden:
 
-![Die Komponenten der AKS-Abstimmungs-App und das Routing.](media/servicemesh/istio/scenario-routing-components-01.png)
+![Diagramm von Version 1.0 aller Komponenten mit eingehenden Anforderungen, die über das Istio-Eingangsgateway verarbeitet werden](media/servicemesh/istio/scenario-routing-components-01.png)
 
 Die Artefakte, die Sie für diesen Artikel benötigen, finden Sie im GitHub-Repository [Azure-Samples/aks-voting-app][github-azure-sample]. Sie können entweder die Artefakte herunterladen oder das Repository wie folgt klonen:
 
@@ -180,7 +180,7 @@ Nun wird eine neue Version der Analysekomponente bereitgestellt. Diese neue Vers
 
 Das folgende Diagramm zeigt, was am Ende dieses Abschnitts ausgeführt wird. Nur an Version `1.1` unserer Komponente `voting-analytics` wird Datenverkehr von Komponente `voting-app` geleitet. Zwar wird Version `1.0` unserer Komponente `voting-analytics` weiterhin ausgeführt und vom Dienst `voting-analytics` referenziert, doch die Istio-Proxys erlauben keinen Datenverkehr von und zu dieser Komponente.
 
-![Die Komponenten der AKS-Abstimmungs-App und das Routing.](media/servicemesh/istio/scenario-routing-components-02.png)
+![Diagramm, das veranschaulicht, dass nur Version 1.1 der Komponente „voting-analytics“ über Datenverkehr verfügt, der von der Komponente „voting-app“ weitergeleitet wird](media/servicemesh/istio/scenario-routing-components-02.png)
 
 Wir stellen Version `1.1` der Komponente `voting-analytics` bereit. Erstellen Sie diese Komponente im Namespace `voting`:
 
@@ -361,7 +361,7 @@ Das folgende Diagramm zeigt, was am Ende dieses Abschnitts ausgeführt wird.
 * Version `2.0` der `voting-app`-Komponente, Version `2.0` der `voting-analytics`-Komponente und Version `2.0` der `voting-storage`-Komponente können miteinander kommunizieren.
 * Auf Version `2.0` der `voting-app`-Komponente können nur Benutzer zugreifen, für die ein bestimmtes Featureflag festgelegt ist. Diese Änderung wird mit einem Featureflag über ein Cookie verwaltet.
 
-![Die Komponenten der AKS-Abstimmungs-App und das Routing.](media/servicemesh/istio/scenario-routing-components-03.png)
+![Diagramm, das veranschaulicht, was nach diesem Abschnitt ausgeführt werden sollte](media/servicemesh/istio/scenario-routing-components-03.png)
 
 Aktualisieren Sie zunächst die Istio-Zielregeln und die virtuellen Dienste, sodass diese neuen Komponenten berücksichtigt werden. Diese Aktualisierungen stellen sicher, dass Sie keinen Datenverkehr falsch an die neuen Komponenten weiterleiten und die Benutzer keinen unerwarteten Zugriff erhalten:
 
@@ -415,7 +415,7 @@ Die Abstimmungszähler unterscheiden sich in den verschiedenen Versionen der Anw
 
 Nachdem Sie das Canary-Release erfolgreich getestet haben, aktualisieren Sie den virtuellen Dienst von `voting-app`, um den gesamten Datenverkehr an Version `2.0` der Komponente `voting-app` zu leiten. Alle Benutzer sehen dann Version `2.0` der Anwendung, und zwar unabhängig davon, ob das Featureflag festgelegt ist oder nicht:
 
-![Die Komponenten der AKS-Abstimmungs-App und das Routing.](media/servicemesh/istio/scenario-routing-components-04.png)
+![Diagramm, das veranschaulicht, dass Version 2.0 der Anwendung unabhängig davon für Benutzer angezeigt wird, ob das Featureflag festgelegt wurde oder nicht](media/servicemesh/istio/scenario-routing-components-04.png)
 
 Aktualisieren Sie alle Zielregeln, um diejenigen Versionen der Komponenten zu entfernen, die nicht mehr aktiv sein sollen. Aktualisieren Sie anschließend alle virtuellen Dienste, damit nicht mehr auf diese Versionen verwiesen wird.
 

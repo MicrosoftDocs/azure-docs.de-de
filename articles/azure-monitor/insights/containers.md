@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 07/06/2020
-ms.openlocfilehash: b681e3fa4963a8fe899ccbad8dbf1bbdfbe452ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a02ea022bedd92e9deaa0730cc1be051a9d20c88
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326901"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145683"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Containerüberwachungslösung in Azure Monitor
 
@@ -116,7 +116,7 @@ Weitere Informationen zum Installieren und Konfigurieren von Docker-Engines auf 
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Installieren und Konfigurieren von Linux-Containerhosts
 
-Verwenden Sie nach dem Installieren von Docker die folgenden Einstellungen für den Containerhost, um den Agent für die Verwendung mit Docker zu konfigurieren. Zunächst benötigen Sie Ihre ID und den Schlüssel für den Log Analytics-Arbeitsbereich. Diese Daten finden Sie im Azure-Portal. Klicken Sie in Ihrem Arbeitsbereich auf **Schnellstart** > **Computer**, um Ihre **Arbeitsbereichs-ID** und Ihren **Primärschlüssel** anzuzeigen.  Kopieren Sie beide Angaben, und fügen Sie sie in den von Ihnen bevorzugten Editor ein.
+Verwenden Sie nach dem Installieren von Docker die folgenden Einstellungen für den Containerhost, um den Agent für die Verwendung mit Docker zu konfigurieren. Zunächst benötigen Sie Ihre ID und den Schlüssel für den Log Analytics-Arbeitsbereich. Diese Daten finden Sie im Azure-Portal. Klicken Sie in Ihrem Arbeitsbereich auf **Schnellstart** > **Computer** , um Ihre **Arbeitsbereichs-ID** und Ihren **Primärschlüssel** anzuzeigen.  Kopieren Sie beide Angaben, und fügen Sie sie in den von Ihnen bevorzugten Editor ein.
 
 **Für alle Linux-Containerhosts mit Ausnahme von CoreOS:**
 
@@ -476,12 +476,12 @@ Führen Sie die folgenden Schritte aus, um Helm zum Bereitstellen des Log Analyt
  
     RESOURCES:
     ==> v1/Secret
-    NAME            TYPE    DATA  AGE
-    omsagent-msoms  Opaque  3     17m
+    NAME            TYPE    DATA  AGE
+    omsagent-msoms  Opaque  3     17m
  
     ==> v1beta1/DaemonSet
-    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
-    omsagent-msoms  3        3        3      3           3          <none>         17m
+    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
+    omsagent-msoms  3        3        3      3           3          <none>         17m
     ```
    
     Weitere Informationen finden Sie unter [Containerlösung Helm-Diagramm](https://aka.ms/omscontainerhelm).
@@ -517,7 +517,7 @@ Sie können überprüfen, ob die Containerüberwachungslösung für Windows korr
 
 ## <a name="solution-components"></a>Lösungskomponenten
 
-Navigieren Sie im Azure-Portal zum *Lösungskatalog*, und fügen Sie die **Containerüberwachungslösung** hinzu. Wenn Sie Windows-Agents verwenden, wird auf jedem Computer mit einem Agent beim Hinzufügen dieser Lösung das folgende Management Pack installiert. Für das Management Pack ist keine Konfiguration oder Wartung erforderlich.
+Navigieren Sie im Azure-Portal zum *Lösungskatalog* , und fügen Sie die **Containerüberwachungslösung** hinzu. Wenn Sie Windows-Agents verwenden, wird auf jedem Computer mit einem Agent beim Hinzufügen dieser Lösung das folgende Management Pack installiert. Für das Management Pack ist keine Konfiguration oder Wartung erforderlich.
 
 - *ContainerManagement.xxx* wird unter „C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs“ installiert.
 
@@ -547,7 +547,7 @@ Die folgende Tabelle enthält Beispiele für von der Containerüberwachungslösu
 | Containerprozess | `ContainerProcess_CL` | TimeGenerated, Computer, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
 | Kubernetes-Ereignisse | `KubeEvents_CL` | TimeGenerated, Computer, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, Message |
 
-Bezeichnungen, die an *PodLabel*-Datentypen angefügt werden, sind Ihre eigenen benutzerdefinierten Bezeichnungen. Die angefügten PodLabel-Bezeichnungen in der Tabelle stellen Beispiele dar. Deshalb unterscheiden sich `PodLabel_deployment_s`, `PodLabel_deploymentconfig_s`, `PodLabel_docker_registry_s` im Dataset Ihrer Umgebung und ähneln allgemein `PodLabel_yourlabel_s`.
+Bezeichnungen, die an *PodLabel* -Datentypen angefügt werden, sind Ihre eigenen benutzerdefinierten Bezeichnungen. Die angefügten PodLabel-Bezeichnungen in der Tabelle stellen Beispiele dar. Deshalb unterscheiden sich `PodLabel_deployment_s`, `PodLabel_deploymentconfig_s`, `PodLabel_docker_registry_s` im Dataset Ihrer Umgebung und ähneln allgemein `PodLabel_yourlabel_s`.
 
 ## <a name="monitor-containers"></a>Überwachen von Containern
 Nachdem Sie die Lösung im Azure-Portal aktiviert haben, werden auf der Kachel **Container** zusammenfassende Informationen zu den Containerhosts und den auf den Hosts ausgeführten Containern angezeigt.
@@ -574,7 +574,7 @@ Klicken Sie auf die Kachel **Container**. Dort sind die Ansichten wie folgt ange
 
 Jeder Bereich des Dashboards ist eine visuelle Darstellung einer Suche, die über die gesammelten Daten ausgeführt wird.
 
-![Containerdashboard](./media/containers/containers-dash01.png)
+![Screenshot eines Dashboards zum Anzeigen der gesammelten Daten ](./media/containers/containers-dash01.png)
 
 ![Containerdashboard](./media/containers/containers-dash02.png)
 
@@ -590,7 +590,7 @@ Hier können Sie die Suchabfrage bearbeiten, um die für Sie interessanten spezi
 
 ## <a name="troubleshoot-by-finding-a-failed-container"></a>Beheben von Problemen durch das Suchen fehlerhafter Container
 
-Log Analytics kennzeichnet einen Container als **Fehlerhaft**, wenn dieser mit einem anderen Exitcode als null beendet wurde. Im Bereich **Container mit Fehlern** wird eine Übersicht über die Fehler und Ausfälle in der Umgebung angezeigt.
+Log Analytics kennzeichnet einen Container als **Fehlerhaft** , wenn dieser mit einem anderen Exitcode als null beendet wurde. Im Bereich **Container mit Fehlern** wird eine Übersicht über die Fehler und Ausfälle in der Umgebung angezeigt.
 
 ### <a name="to-find-failed-containers"></a>So suchen Sie nach Containern mit Fehlern
 
@@ -599,9 +599,9 @@ Log Analytics kennzeichnet einen Container als **Fehlerhaft**, wenn dieser mit e
 2. Log Analytics wird geöffnet und zeigt den Zustand Ihrer Container an:  
    ![Containerzustand](./media/containers/containers-log-search.png)
 3. Erweitern Sie die Zeile „Fehler“, und klicken Sie auf „+“, um die Kriterien der Abfrage hinzufügen. Kommentieren Sie anschließend die Zeile „Summarize“ in der Abfrage aus.
-   ![Container mit Fehlern](./media/containers/containers-state-failed-select.png)  
+   ![Screenshot der Zeile, die auskommentiert werden sollte](./media/containers/containers-state-failed-select.png)  
 1. Führen Sie die Abfrage aus, und erweitern Sie anschließend eine Zeile in den Ergebnissen, um die Image-ID anzuzeigen.  
-   ![Container mit Fehlern](./media/containers/containers-state-failed.png)  
+   ![Screenshot der Anzeige der Image-ID](./media/containers/containers-state-failed.png)  
 1. Geben Sie Folgendes in die Protokollabfrage ein: `ContainerImageInventory | where ImageID == <ImageID>`, um Details zum Image wie Imagegröße sowie Anzahl der beendeten und fehlerhaften Images anzuzeigen.  
    ![Container mit Fehlern](./media/containers/containers-failed04.png)
 

@@ -11,12 +11,12 @@ metadata:
   author: HeidiSteen
   ms.author: heidist
   ms.date: 02/25/2020
-  ms.openlocfilehash: faf8b4813699d177eb18997778c1d2e3bf9f5858
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: af7bb5fe7709d0a15254e8660600e284103fa668
+  ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "88924383"
+  ms.lasthandoff: 12/13/2020
+  ms.locfileid: "97368782"
 landingContent:
 - title: Testen der kognitiven Suche
   linkLists:
@@ -107,7 +107,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Erstellen einer einfachen Abfrage
-      url: search-query-simple-examples.md
+      url: search-query-create.md
     - text: Verwenden der vollständigen Syntax
       url: search-query-lucene-examples.md
   - linkListType: reference

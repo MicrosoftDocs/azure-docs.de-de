@@ -7,20 +7,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 04/29/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e1b61ca00b83d4c6b43fb5ade68dfb1228f0e0d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1c1a6957d347681f1c7dd9979429fffb153ccb39
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373241"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546606"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Zuweisen von Lizenzen zu Benutzer nach Gruppenmitgliedschaft in Azure Active Directory
 
@@ -45,13 +45,13 @@ In diesem Beispiel enthält die Azure AD-Organisation eine Sicherheitsgruppe nam
   
 1. Wählen Sie auf der Seite **Lizenz zuweisen** die Option **Benutzer und Gruppen** aus, um eine Liste der Benutzer und Gruppen zu öffnen.
 
-1. Wählen Sie einen Benutzer oder eine Gruppe aus, und bestätigen Sie Ihre Auswahl dann oben auf der Seite über die Schaltfläche **Auswählen** .
+1. Wählen Sie einen Benutzer oder eine Gruppe aus, und bestätigen Sie Ihre Auswahl dann oben auf der Seite über die Schaltfläche **Auswählen**.
 
-1. Klicken Sie auf der Seite **Lizenz zuweisen** auf **Zuweisungsoptionen** . Daraufhin werden alle Dienstpläne angezeigt, die in den beiden zuvor ausgewählten Produkten enthalten sind. Wechseln Sie zu **Yammer Enterprise** , und legen Sie das Produkt auf **Aus** fest, um den Dienst in der Produktlizenz zu deaktivieren. Bestätigen Sie den Vorgang, indem Sie unten in **Lizenzoptionen** auf **OK** klicken.
+1. Klicken Sie auf der Seite **Lizenz zuweisen** auf **Zuweisungsoptionen**. Daraufhin werden alle Dienstpläne angezeigt, die in den beiden zuvor ausgewählten Produkten enthalten sind. Wechseln Sie zu **Yammer Enterprise**, und legen Sie das Produkt auf **Aus** fest, um den Dienst in der Produktlizenz zu deaktivieren. Bestätigen Sie den Vorgang, indem Sie unten in **Lizenzoptionen** auf **OK** klicken.
 
    ![Auswählen von Dienstplänen für Lizenzen](./media/licensing-groups-assign/assignment-options.png)
   
-1. Klicken Sie schließlich unten auf der Seite **Lizenz zuweisen** auf **Zuweisen** , um die Zuweisung abzuschließen.
+1. Klicken Sie schließlich unten auf der Seite **Lizenz zuweisen** auf **Zuweisen**, um die Zuweisung abzuschließen.
 
 1. Rechts oben wird eine Benachrichtigung mit dem Status und Ergebnis des Vorgangs angezeigt. Falls die Gruppenzuweisung nicht abgeschlossen werden konnte (beispielsweise aufgrund bereits vorhandener Lizenzen für die Gruppe), klicken Sie auf die Benachrichtigung, um Details zum Fehler anzuzeigen.
 
@@ -59,7 +59,7 @@ Beim Zuweisen von Lizenzen zu einer Gruppe werden in Azure AD alle vorhandenen 
 
 ## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Schritt 2: Überprüfen, ob die anfängliche Zuweisung erfolgt ist
 
-1. Wechseln Sie zu **Azure Active Directory** > **Gruppen** . Wählen Sie die Gruppe aus, der Lizenzen zugewiesen wurden.
+1. Wechseln Sie zu **Azure Active Directory** > **Gruppen**. Wählen Sie die Gruppe aus, der Lizenzen zugewiesen wurden.
 
 1. Wählen Sie auf der Seite der Gruppe die Option **Lizenzen** aus. Dadurch können Sie schnell überprüfen, ob die Lizenzen den Benutzern vollständig zugewiesen wurden und ob Fehler vorliegen, die untersucht werden müssen. Folgende Informationen stehen zur Verfügung:
 
@@ -71,7 +71,7 @@ Beim Zuweisen von Lizenzen zu einer Gruppe werden in Azure AD alle vorhandenen 
 
    ![Lizenzierungsfehler und Lizenzstatus](./media/licensing-groups-assign/assignment-errors.png)
 
-1. Ausführlichere Informationen zur Lizenzverarbeitung finden Sie unter **Azure Active Directory** > **Benutzer und Gruppen** > *Gruppenname* > **Überwachungsprotokolle** . Überprüfen Sie folgende Aktivitäten:
+1. Ausführlichere Informationen zur Lizenzverarbeitung finden Sie unter **Azure Active Directory** > **Benutzer und Gruppen** > *Gruppenname* > **Überwachungsprotokolle**. Überprüfen Sie folgende Aktivitäten:
 
    - Aktivität: `Start applying group based license to users`. Wird protokolliert, wenn das System die Änderung der Lizenzzuweisung für die Gruppe verarbeitet und beginnt, diese für alle Benutzermitglieder zu übernehmen. Das Protokoll enthält Informationen über die erfolgte Änderung.
 
@@ -81,9 +81,9 @@ Beim Zuweisen von Lizenzen zu einer Gruppe werden in Azure AD alle vorhandenen 
 
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Schritt 3: Suchen nach Lizenzproblemen und Beheben der Probleme
 
-1. Wechseln Sie zu **Azure Active Directory** > **Gruppen** , und suchen Sie die Gruppe, der Lizenzen zugewiesen wurden.
+1. Wechseln Sie zu **Azure Active Directory** > **Gruppen**, und suchen Sie die Gruppe, der Lizenzen zugewiesen wurden.
 1. Wählen Sie auf der Seite der Gruppe die Option **Lizenzen** aus. Die Benachrichtigung oben auf der Seite zeigt, dass zehn Benutzern keine Lizenzen zugewiesen werden konnten. Öffnen Sie die Benachrichtigung, um für diese Gruppe eine Liste aller Benutzer mit dem Lizenzierungsstatus „Fehler“ anzuzeigen.
-1. In der Spalte **Fehlerhafte Zuweisungen** ist zu sehen, dass den Benutzern beide Produktlizenzen nicht zugewiesen werden konnten. Die Spalte **Top reason for failure** (Häufigste Fehlerursache) enthält die Ursache des Fehlers. In diesem Fall: **Widersprüchliche Servicepläne** .
+1. In der Spalte **Fehlerhafte Zuweisungen** ist zu sehen, dass den Benutzern beide Produktlizenzen nicht zugewiesen werden konnten. Die Spalte **Top reason for failure**(Häufigste Fehlerursache) enthält die Ursache des Fehlers. In diesem Fall: **Widersprüchliche Servicepläne**.
 
    ![Lizenzen, die nicht zugewiesen werden konnten](./media/licensing-groups-assign/failed-assignments.png)
 

@@ -5,12 +5,12 @@ description: Erfahren Sie, wie Sie einen einfachen NGINX-Eingangscontroller in e
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: b7a741a8193271fe8a297f7b2d13f6317b35f87c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 9b51ee2767a9595f5732f558cfa25f5064944e49
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461480"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131189"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Erstellen eines Eingangscontrollers in Azure Kubernetes Service (AKS)
 
@@ -93,7 +93,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld-one
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -131,7 +131,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld-two
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -223,11 +223,11 @@ ingress.extensions/hello-world-ingress-static created
 
 ## <a name="test-the-ingress-controller"></a>Testen des Eingangscontrollers
 
-Navigieren Sie zu den beiden Anwendungen, um die Routen für den Eingangscontroller zu testen. Öffnen Sie in einem Webbrowser die IP-Adresse Ihres NGINX-Eingangscontrollers, z. B. *EXTERNAL_IP* . Die erste Demoanwendung wird im Webbrowser angezeigt, wie im folgenden Beispiel gezeigt:
+Navigieren Sie zu den beiden Anwendungen, um die Routen für den Eingangscontroller zu testen. Öffnen Sie in einem Webbrowser die IP-Adresse Ihres NGINX-Eingangscontrollers, z. B. *EXTERNAL_IP*. Die erste Demoanwendung wird im Webbrowser angezeigt, wie im folgenden Beispiel gezeigt:
 
 ![Erste App, die hinter dem Eingangscontroller ausgeführt wird](media/ingress-basic/app-one.png)
 
-Fügen Sie nun den Pfad */hello-world-two* der IP-Adresse hinzu, z. B. *EXTERNAL_IP/hello-world-two* . Die zweite Demoanwendung mit dem benutzerdefinierten Titel wird angezeigt:
+Fügen Sie nun den Pfad */hello-world-two* der IP-Adresse hinzu, z. B. *EXTERNAL_IP/hello-world-two*. Die zweite Demoanwendung mit dem benutzerdefinierten Titel wird angezeigt:
 
 ![Zweite App, die hinter dem Eingangscontroller ausgeführt wird](media/ingress-basic/app-two.png)
 

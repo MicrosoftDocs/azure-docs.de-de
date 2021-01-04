@@ -90,6 +90,8 @@
               href: data-box-local-web-ui-admin.md
             - name: Verwenden des selbst verwalteten Versands
               href: data-box-portal-customer-managed-shipping.md
+            - name: Bereitstellen eigener Zertifikate
+              href: data-box-bring-your-own-certificates.md
             - name: Kundenseitig verwaltete Schlüssel aktivieren
               href: data-box-customer-managed-encryption-key-portal.md
             - name: Verwenden von Kunden-Lockbox
@@ -103,7 +105,7 @@
             - name: Migrieren
               items:
                 - name: Zu SharePoint Online
-                  href: /sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?context=%252fazure%252fdatabox%252fcontext%252fcontext
+                  href: /sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?context=%2fazure%2fdatabox%2fcontext%2fcontext
                 - name: Zu Azure-Dateisynchronisierung
                   href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
                 - name: Aus HDFS-Speicher
@@ -127,6 +129,7 @@
           items:
             - name: Einrichten – Azure-Portal
               href: data-box-disk-quickstart-portal.md
+              displayName: 'Azure CLI, az databox job create, create Data Box job'
         - name: Tutorials
           items:
             - name: 1 – Bestellen
@@ -177,6 +180,7 @@
           items:
             - name: Einrichten – Azure-Portal
               href: data-box-heavy-quickstart-portal.md
+              displayName: 'Azure CLI, az databox job create, create Data Box job'
         - name: Tutorials
           items:
             - name: 1 – Bestellen

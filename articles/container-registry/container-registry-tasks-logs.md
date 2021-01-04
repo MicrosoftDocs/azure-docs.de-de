@@ -3,12 +3,12 @@ title: 'Anzeigen von Ausführungsprotokollen für Aufgaben: Tasks'
 description: Es wird beschrieben, wie Sie von ACR Tasks generierte Ausführungsprotokolle anzeigen und verwalten.
 ms.topic: article
 ms.date: 03/09/2020
-ms.openlocfilehash: f7098f470a3f8a0cdac019f4bf8eb8fe14330337
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2a10d4a3a2746acf38445673af994c6317c77de
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871931"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027175"
 ---
 # <a name="view-and-manage-task-run-logs"></a>Anzeigen und Verwalten von Ausführungsprotokollen für Aufgaben
 
@@ -83,7 +83,7 @@ az acr task logs --registry mycontainerregistry1220 \
 
 Sie können Ausführungsprotokolle für Aufgaben auf einem lokalen Dateisystem speichern oder eine andere Archivierungslösung verwenden, z. B. Azure Storage.
 
-Erstellen Sie beispielsweise das lokale Verzeichnis *tasklogs*, und leiten Sie die Ausgabe von [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) in eine lokale Datei um:
+Erstellen Sie beispielsweise das lokale Verzeichnis *tasklogs* , und leiten Sie die Ausgabe von [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) in eine lokale Datei um:
 
 ```azurecli
 mkdir ~/tasklogs
@@ -94,18 +94,10 @@ az acr task logs --registry mycontainerregistry1220 \
 
 Sie können auch lokale Protokolldateien in Azure Storage speichern. Verwenden Sie beispielsweise die [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md), das [Azure-Portal](../storage/blobs/storage-quickstart-blobs-portal.md) oder andere Verfahren, um Dateien in ein Speicherkonto hochzuladen.
 
-
 ## <a name="next-steps"></a>Nächste Schritte
 
 * Erfahren Sie mehr zu [Azure Container Registry Tasks](container-registry-tasks-overview.md).
 
-<!-- LINKS - External -->
-[base-alpine]: https://hub.docker.com/_/alpine/
-[base-dotnet]: https://hub.docker.com/r/microsoft/dotnet/
-[base-node]: https://hub.docker.com/_/node/
-[base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
-[sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli

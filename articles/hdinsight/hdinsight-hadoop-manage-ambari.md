@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
-ms.openlocfilehash: ce078a3dad645f592bb33ed55ce508f68ce8f30a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f21b72cd519c1615d8273bf316a8d0ccad039672
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281384"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546159"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Verwalten von HDInsight-Clustern mithilfe der Apache Ambari-Webbenutzeroberfläche
 
@@ -88,11 +88,11 @@ Sie können die Gruppen verwalten, indem Sie das Menü **Aktionen** und dann die
 
 Über den Eintrag __Warnungseinstellungen verwalten__ im Menü __Aktionen__ können Sie schließlich festlegen, wie oft eine Warnung ausgegeben werden muss, bevor eine Benachrichtigung gesendet wird. Dies Einstellung kann verwendet werden, um Benachrichtigungen für vorübergehende Fehler zu verhindern.
 
-Ein Tutorial für eine Warnmeldung mit einem kostenlosen [SendGrid-Konto](https://docs.microsoft.com/azure/sendgrid-dotnet-how-to-send-email) finden Sie unter [Konfigurieren von Apache Ambari-E-Mail-Benachrichtigungen in Azure HDInsight](./apache-ambari-email.md).
+Ein Tutorial für eine Warnmeldung mit einem kostenlosen [SendGrid-Konto](../sendgrid-dotnet-how-to-send-email.md) finden Sie unter [Konfigurieren von Apache Ambari-E-Mail-Benachrichtigungen in Azure HDInsight](./apache-ambari-email.md).
 
 ### <a name="cluster"></a>Cluster
 
-Die Registerkarte **Metrics** im Dashboard enthält eine Reihe von Widgets, die das Überwachen des Clusterstatus auf einen Blick erleichtern. Verschiedene Widgets wie **CPU Usage**bieten zusätzliche Informationen, wenn Sie darauf klicken.
+Die Registerkarte **Metrics** im Dashboard enthält eine Reihe von Widgets, die das Überwachen des Clusterstatus auf einen Blick erleichtern. Verschiedene Widgets wie **CPU Usage** bieten zusätzliche Informationen, wenn Sie darauf klicken.
 
 ![Apache Ambari-Dashboard mit Metriken](./media/hdinsight-hadoop-manage-ambari/hdi-metrics-dashboard.png)
 
@@ -100,7 +100,7 @@ Die Registerkarte **Heatmaps** zeigt Metriken als farbige Wärmebilder an, die v
 
 ![Apache Ambari-Dashboard mit Heatmaps](./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png)
 
-Weitere Informationen zu den Knoten im Cluster finden Sie unter **Hosts**. Wählen Sie anschließend den bestimmten Knoten, für den Sie sich interessieren.
+Weitere Informationen zu den Knoten im Cluster finden Sie unter **Hosts** . Wählen Sie anschließend den bestimmten Knoten, für den Sie sich interessieren.
 
 ![Apache Ambari – Details der Hostzusammenfassung](./media/hdinsight-hadoop-manage-ambari/ambari-host-details1.png)
 
@@ -123,7 +123,7 @@ Wenn Sie einen Dienst auswählen, werden weitere ausführliche Informationen zum
 Einige Dienste zeigen oben auf der Seite den Link **Quicklinks** an. Über diesen Link können Sie auf dienstspezifische Webbenutzeroberflächen zugreifen. Beispiel:
 
 * **Job History** : MapReduce-Auftragsverlauf.
-* **Resource Manager**: YARN Resource Manager-Benutzeroberfläche.
+* **Resource Manager** : YARN Resource Manager-Benutzeroberfläche.
 * **NameNode** : NameNode-Benutzeroberfläche im Hadoop Distributed File System (HDFS).
 * **Oozie Web UI** : Oozie-Benutzeroberfläche.
 
@@ -152,7 +152,7 @@ Die Seite **Hosts** listet alle Hosts im Cluster auf. Gehen Sie folgendermaßen 
 
 1. Wählen Sie den Host aus, den Sie verwalten möchten.
 
-2. Verwenden Sie das Menü **Actions**, um die Aktion auswählen, die Sie durchführen möchten:
+2. Verwenden Sie das Menü **Actions** , um die Aktion auswählen, die Sie durchführen möchten:
 
     |Element |BESCHREIBUNG |
     |---|---|
@@ -169,7 +169,7 @@ Die Seite **Hosts** listet alle Hosts im Cluster auf. Gehen Sie folgendermaßen 
 
 ### <a name="services"></a><a id="service"></a>Dienste
 
-Verwenden Sie auf der Seite **Dashboard** oder **Dienste** am Ende der Dienstliste die Schaltfläche **Aktionen**, um alle Dienste zu beenden und zu starten.
+Verwenden Sie auf der Seite **Dashboard** oder **Dienste** am Ende der Dienstliste die Schaltfläche **Aktionen** , um alle Dienste zu beenden und zu starten.
 
 :::image type="content" source="./media/hdinsight-hadoop-manage-ambari/ambari-service-actions.png" alt-text="Apache Ambari – Liste der Dienstaktionen." border="true":::
 
@@ -180,7 +180,7 @@ Während die Schaltfläche **Actions** alle Dienste neu starten kann, ist es mö
 
 1. Wählen Sie auf der Seite **Dashboard** oder **Dienste** einen Dienst aus.
 
-2. Verwenden Sie am oberen Rand der Registerkarte **Zusammenfassung** die Schaltfläche **Dienstaktionen**, und wählen Sie dann die auszuführende Aktion aus. Mit dieser Aktion wird der Dienst auf allen Knoten neu gestartet.
+2. Verwenden Sie am oberen Rand der Registerkarte **Zusammenfassung** die Schaltfläche **Dienstaktionen** , und wählen Sie dann die auszuführende Aktion aus. Mit dieser Aktion wird der Dienst auf allen Knoten neu gestartet.
 
     ![Apache Ambari – Einzelne Dienstaktionen](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
 
@@ -200,7 +200,7 @@ Gehen Sie wie folgt vor, um einen Dienst zu konfigurieren:
 
     ![Apache Ambari – Dienstkonfiguration](./media/hdinsight-hadoop-manage-ambari/ambari-service-configs.png)
 
-3. Verwenden Sie die angezeigten Felder, um die Konfiguration zu ändern, und klicken Sie dann auf **Save**. Sie können auch eine vorherige Konfiguration und dann **Make current** auswählen, um die vorherigen Einstellungen zu reaktivieren.
+3. Verwenden Sie die angezeigten Felder, um die Konfiguration zu ändern, und klicken Sie dann auf **Save** . Sie können auch eine vorherige Konfiguration und dann **Make current** auswählen, um die vorherigen Einstellungen zu reaktivieren.
 
 ## <a name="ambari-views"></a>Ambari-Ansichten
 
@@ -214,7 +214,7 @@ Ambari-Ansichten ermöglichen Entwicklern das Hinzufügen von Benutzeroberfläch
 
 Die folgenden Ambari-Vorgänge werden nicht in HDInsight unterstützt:
 
-* __Verschieben des Metrikensammlungsdiensts__. Beim Anzeigen von Informationen im Metrikensammlungsdienst ist im Menü „Dienstaktionen“ u.a. die Aktion __Metrikensammler verschieben__ vorhanden. Diese Aktion wird mit HDInsight nicht unterstützt.
+* __Verschieben des Metrikensammlungsdiensts__ . Beim Anzeigen von Informationen im Metrikensammlungsdienst ist im Menü „Dienstaktionen“ u.a. die Aktion __Metrikensammler verschieben__ vorhanden. Diese Aktion wird mit HDInsight nicht unterstützt.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

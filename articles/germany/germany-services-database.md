@@ -7,12 +7,12 @@ author: gitralf
 ms.author: ralfwi
 ms.service: germany
 ms.custom: bfdocs
-ms.openlocfilehash: a1883c1e9ab9fe9e16f4694aad50693d67f06a1d
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 6316c381a601d1a28c3f6ecf529b3d31526bfd45
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124560"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018562"
 ---
 # <a name="azure-germany-database-services"></a>Datenbankdienste von Azure Deutschland
 
@@ -47,4 +47,4 @@ Bei Azure Deutschland werden für den Zugriff auf und die Verwaltung von Azure C
 
 
 ## <a name="next-steps"></a>Nächste Schritte
-Abonnieren Sie den [Azure Deutschland-Blog](https://blogs.msdn.microsoft.com/azuregermany/), um weitere Informationen und Updates zu erhalten.
+Abonnieren Sie den [Azure Deutschland-Blog](/archive/blogs/azuregermany/), um weitere Informationen und Updates zu erhalten.

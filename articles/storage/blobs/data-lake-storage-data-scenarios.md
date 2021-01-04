@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 6e183a1e8cac8eec2806a35603c40a44aadac502
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eea7fb073cdf99ee1f4257f6824375a6502a4fad
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84193503"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913622"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Verwenden von Azure Data Lake Storage Gen2 für Big Data-Anforderungen
 
@@ -27,7 +27,7 @@ Es gibt vier wichtige Phasen in der Big Data-Verarbeitung:
 
 In diesem Artikel werden die Optionen und Tools für die einzelnen Verarbeitungsphasen behandelt.
 
-Eine umfassende Liste der Azure-Dienste, die Sie mit Azure Data Lake Storage Gen2 verwenden können, finden Sie unter [Integrieren von Azure Data Lake Storage mit Azure-Diensten](data-lake-storage-integrate-with-azure-services.md).
+Eine umfassende Liste der Azure-Dienste, die Sie mit Azure Data Lake Storage Gen2 verwenden können, finden Sie unter [Integrieren von Azure Data Lake Storage mit Azure-Diensten](./data-lake-storage-supported-azure-services.md).
 
 ## <a name="ingest-the-data-into-data-lake-storage-gen2"></a>Erfassen der Daten in Data Lake Storage Gen2
 
@@ -54,8 +54,8 @@ Hier ist eine Liste der Tools, die Sie zum Erfassen von gestreamten Daten verwen
 
 |Tool | Anleitungen |
 |---|--|
-|Azure Stream Analytics|[Schnellstart: Erstellen eines Stream Analytics-Auftrags mithilfe des Azure-Portals](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal) <br> [Blobspeicher und Azure Data Lake Gen2](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs#blob-storage-and-azure-data-lake-gen2)|
-|Azure HDInsight Storm | [Schreiben in Apache Hadoop HDFS aus Apache Storm auf HDInsight](https://docs.microsoft.com/azure/hdinsight/storm/apache-storm-write-data-lake-store) |
+|Azure Stream Analytics|[Schnellstart: Erstellen eines Stream Analytics-Auftrags mithilfe des Azure-Portals](../../stream-analytics/stream-analytics-quick-create-portal.md) <br> [Blobspeicher und Azure Data Lake Gen2](../../stream-analytics/stream-analytics-define-outputs.md)|
+|Azure HDInsight Storm | [Schreiben in Apache Hadoop HDFS aus Apache Storm auf HDInsight](../../hdinsight/storm/apache-storm-write-data-lake-store.md) |
 
 ### <a name="relational-data"></a>Relationale Daten
 
@@ -65,7 +65,7 @@ Hier ist eine Liste der Tools, die Sie zum Erfassen von relationalen Daten verwe
 
 |Tool | Anleitungen |
 |---|--|
-|Azure Data Factory | [Kopieraktivität in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
+|Azure Data Factory | [Kopieraktivität in Azure Data Factory](../../data-factory/copy-activity-overview.md) |
 
 ### <a name="web-server-log-data-upload-using-custom-applications"></a>Webserverprotokolldaten (mit benutzerdefinierten Anwendungen hochladen)
 
@@ -75,7 +75,7 @@ Hier ist eine Liste der Tools, die Sie zum Erfassen von Webserverprotokolldaten 
 
 |Tool | Anleitungen |
 |---|--|
-|Azure Data Factory | [Kopieraktivität in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)  |
+|Azure Data Factory | [Kopieraktivität in Azure Data Factory](../../data-factory/copy-activity-overview.md)  |
 |Azure CLI|[Azure-Befehlszeilenschnittstelle](data-lake-storage-directory-file-acl-cli.md)|
 |Azure PowerShell|[Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md)|
 
@@ -89,9 +89,9 @@ Hier ist eine Liste von Tools, die Sie zum Erfassen von Daten im Zusammenhang mi
 
 |Tool | Anleitungen |
 |---|--|
-|Apache DistCp | [Kopieren von Daten zwischen Azure Storage-Blobs und Azure Data Lake Storage Gen2 mit DistCp](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
-|Das Tool AzCopy | [Übertragen von Daten mit AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) |
-|Azure Data Factory | [Laden von Daten in Azure Data Lake Storage Gen2 mit Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2) |
+|Apache DistCp | [Kopieren von Daten zwischen Azure Storage-Blobs und Azure Data Lake Storage Gen2 mit DistCp](./data-lake-storage-use-distcp.md) |
+|Das Tool AzCopy | [Übertragen von Daten mit AzCopy](../common/storage-use-azcopy-v10.md) |
+|Azure Data Factory | [Laden von Daten in Azure Data Lake Storage Gen2 mit Azure Data Factory](../../data-factory/load-azure-data-lake-storage-gen2.md) |
 
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>In lokalen oder IaaS Hadoop-Clustern gespeicherte Daten
 
@@ -118,12 +118,12 @@ Hier ist eine Liste von Tools, mit denen Sie Datenanalyseaufträge für Daten au
 
 |Tool | Anleitungen |
 |---|--|
-|Azure HDInsight | [Verwenden von Azure Data Lake Storage Gen2 mit Azure HDInsight-Clustern](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
-|Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)<br><br>[Schnellstart: Analysieren von Daten in Azure Data Lake Storage Gen2 mit Azure Databricks](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Tutorial: Extrahieren, Transformieren und Laden von Daten mithilfe von Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure HDInsight | [Verwenden von Azure Data Lake Storage Gen2 mit Azure HDInsight-Clustern](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) |
+|Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)<br><br>[Schnellstart: Analysieren von Daten in Azure Data Lake Storage Gen2 mit Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Tutorial: Extrahieren, Transformieren und Laden von Daten mithilfe von Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
 ## <a name="visualize-the-data"></a>Visualisieren der Daten
 
-Verwenden Sie den Power BI-Connector, um visuelle Darstellungen von in Data Lake Storage Gen2 gespeicherten Daten zu erstellen. Informationen finden Sie unter [Analysieren von Daten in Azure Data Lake Storage Gen2 mit Power BI](https://docs.microsoft.com/power-query/connectors/datalakestorage).
+Verwenden Sie den Power BI-Connector, um visuelle Darstellungen von in Data Lake Storage Gen2 gespeicherten Daten zu erstellen. Informationen finden Sie unter [Analysieren von Daten in Azure Data Lake Storage Gen2 mit Power BI](/power-query/connectors/datalakestorage).
 
 ## <a name="download-the-data"></a>Herunterladen der Daten
 
@@ -139,7 +139,7 @@ Hier ist eine Liste von Tools, mit denen Sie Daten von Data Lake Storage Gen2 he
 
 |Tool | Anleitungen |
 |---|--|
-|Azure Data Factory | [Kopieraktivität in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
-|Apache DistCp | [Kopieren von Daten zwischen Azure Storage-Blobs und Azure Data Lake Storage Gen2 mit DistCp](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
+|Azure Data Factory | [Kopieraktivität in Azure Data Factory](../../data-factory/copy-activity-overview.md) |
+|Apache DistCp | [Kopieren von Daten zwischen Azure Storage-Blobs und Azure Data Lake Storage Gen2 mit DistCp](./data-lake-storage-use-distcp.md) |
 |Azure Storage-Explorer|[Verwenden von Azure Storage-Explorer zum Verwalten von Verzeichnissen, Dateien und Zugriffssteuerungslisten in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md)|
 |Das Tool AzCopy|[Übertragen von Daten mit AzCopy und Blobspeicher](../common/storage-use-azcopy-blobs.md)|

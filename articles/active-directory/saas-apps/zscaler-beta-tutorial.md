@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: f342371ec065c4fb60c492c4354c6f8c717c9bb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fec471e4047707f2b7cbaa55fdc7f2256bebe93
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545997"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519865"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Tutorial: Azure Active Directory-Integration in Zscaler Beta
 
@@ -27,7 +27,7 @@ Bei der Integration von Zscaler Beta in Azure AD haben Sie folgende Möglichkei
 * Sie können es Ihren Benutzern ermöglichen, sich mit ihren Azure AD-Konten automatisch bei Zscaler Beta anzumelden (einmaliges Anmelden; Single Sign-On, SSO). Diese Zugriffssteuerung wird als einmaliges Anmelden (Single Sign-On, SSO) bezeichnet.
 * Verwalten Sie Ihre Konten zentral im Azure-Portal.
 
-Weitere Informationen zur Integration von SaaS-Apps (Software-as-a-Service) in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Weitere Informationen zur Integration von SaaS-Apps (Software-as-a-Service) in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
@@ -50,11 +50,11 @@ Fügen Sie zum Konfigurieren der Integration von Zscaler Beta in Azure AD Zscal
 
 Führen Sie zum Hinzufügen von Zscaler Beta aus dem Azure Marketplace die folgenden Schritte aus:
 
-1. Wählen Sie im [Azure-Portal](https://portal.azure.com) im linken Navigationsbereich die Option **Azure Active Directory**.
+1. Wählen Sie im [Azure-Portal](https://portal.azure.com) im linken Navigationsbereich die Option **Azure Active Directory** .
 
     ![Azure Active Directory-Schaltfläche](common/select-azuread.png)
 
-2. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie die Option **Alle Anwendungen**.
+2. Navigieren Sie zu **Unternehmensanwendungen** , und wählen Sie die Option **Alle Anwendungen** .
 
     ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
 
@@ -86,7 +86,7 @@ In diesem Abschnitt aktivieren Sie das einmalige Anmelden von Azure AD im Azure-
 
 Führen Sie die folgenden Schritte aus, um das einmalige Anmelden von Azure AD mit Zscaler Beta zu konfigurieren:
 
-1. Klicken Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **Zscaler Beta** auf **Einmaliges Anmelden**.
+1. Klicken Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **Zscaler Beta** auf **Einmaliges Anmelden** .
 
     ![Konfigurieren des Links für einmaliges Anmelden](common/select-sso.png)
 
@@ -107,7 +107,7 @@ Führen Sie die folgenden Schritte aus, um das einmalige Anmelden von Azure AD m
     > [!NOTE]
     > Dieser Wert entspricht nicht dem tatsächlichen Wert. Aktualisieren Sie den Wert mit der tatsächlichen Anmelde-URL. Den Wert erhalten Sie vom [Supportteam für den Zscaler Beta-Client](https://www.zscaler.com/company/contact).
 
-5. Die Zscaler Beta-Anwendung erwartet die SAML-Assertionen in einem bestimmten Format. Sie müssen Ihrer Konfiguration der SAML-Tokenattribute benutzerdefinierte Attributzuordnungen hinzufügen. Der folgende Screenshot zeigt die Liste der Standardattribute. Klicken Sie auf **Bearbeiten**, um das Dialogfeld **Benutzerattribute** zu öffnen.
+5. Die Zscaler Beta-Anwendung erwartet die SAML-Assertionen in einem bestimmten Format. Sie müssen Ihrer Konfiguration der SAML-Tokenattribute benutzerdefinierte Attributzuordnungen hinzufügen. Der folgende Screenshot zeigt die Liste der Standardattribute. Klicken Sie auf **Bearbeiten** , um das Dialogfeld **Benutzerattribute** zu öffnen.
 
     ![Dialogfeld „Benutzerattribute“](common/edit-attribute.png)
 
@@ -131,12 +131,12 @@ Führen Sie die folgenden Schritte aus, um das einmalige Anmelden von Azure AD m
 
     e. Geben Sie in der Liste **Quellattribut** den für diese Zeile angezeigten Attributwert ein.
 
-    f. Klicken Sie auf **OK**.
+    f. Klicken Sie auf **OK** .
 
     g. Wählen Sie **Speichern** aus.
 
     > [!NOTE]
-    > Informationen zum Konfigurieren von Rollen in Azure AD finden Sie unter [Gewusst wie: Konfigurieren von im SAML-Token ausgestellten Rollenansprüchen für Unternehmensanwendungen](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management).
+    > Informationen zum Konfigurieren von Rollen in Azure AD finden Sie unter [Gewusst wie: Konfigurieren von im SAML-Token ausgestellten Rollenansprüchen für Unternehmensanwendungen](../develop/active-directory-enterprise-app-role-management.md).
 
 7. Wählen Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** die Option **Herunterladen** aus, um das **Zertifikat (Base64)** herunterzuladen. Speichern Sie das Zertifikat auf Ihrem Computer.
 
@@ -152,7 +152,7 @@ Führen Sie die folgenden Schritte aus, um das einmalige Anmelden von Azure AD m
 
 ### <a name="configure-zscaler-beta-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens für Zscaler Beta
 
-1. Wenn Sie die Konfiguration in Zscaler Beta automatisieren möchten, installieren Sie die **Browsererweiterung „Meine Apps“ für die sichere Anmeldung**, indem Sie **Erweiterung installieren** auswählen.
+1. Wenn Sie die Konfiguration in Zscaler Beta automatisieren möchten, installieren Sie die **Browsererweiterung „Meine Apps“ für die sichere Anmeldung** , indem Sie **Erweiterung installieren** auswählen.
 
     ![Erweiterung „Meine Apps“](common/install-myappssecure-extension.png)
 
@@ -196,12 +196,12 @@ Führen Sie die folgenden Schritte aus, um das einmalige Anmelden von Azure AD m
 
     a. Bewegen Sie den Mauszeiger unten links auf das Menü **Activation** (Aktivierung).
 
-    b. Wählen Sie **Aktivieren**aus.
+    b. Wählen Sie **Aktivieren** aus.
 
 ## <a name="configure-proxy-settings"></a>Konfigurieren von Proxyeinstellungen
 Führen Sie zum Konfigurieren der Proxyeinstellungen in Internet Explorer die folgenden Schritte aus:
 
-1. Starten Sie **Internet Explorer**.
+1. Starten Sie **Internet Explorer** .
 
 2. Wählen Sie im Menü **Extras** die Option **Internetoptionen** aus, um das Dialogfeld **Internetoptionen** zu öffnen. 
     
@@ -217,13 +217,13 @@ Führen Sie zum Konfigurieren der Proxyeinstellungen in Internet Explorer die fo
    
     ![Abschnitt „Proxyserver“](./media/zscaler-beta-tutorial/ic769494.png "Proxyserver")
 
-    a. Aktivieren Sie das Kontrollkästchen **Proxyserver für LAN verwenden**.
+    a. Aktivieren Sie das Kontrollkästchen **Proxyserver für LAN verwenden** .
 
     b. Geben Sie in das Feld **Adresse** die Adresse **gateway.Zscaler Beta.net** ein.
 
     c. Geben Sie im Feld **Port** den Port **80** ein.
 
-    d. Aktivieren Sie das Kontrollkästchen **Proxyserver für lokale Adressen umgehen**.
+    d. Aktivieren Sie das Kontrollkästchen **Proxyserver für lokale Adressen umgehen** .
 
     e. Wählen Sie zum Schließen des Dialogfelds **Einstellungen für lokales Netzwerk** die Option **OK** aus.
 
@@ -249,9 +249,9 @@ Erstellen Sie im Azure-Portal einen Testbenutzer mit dem Namen Britta Simon.
   
     b. Geben Sie im Feld **Benutzername** Folgendes ein: `brittasimon@yourcompanydomain.extension`. z. B. BrittaSimon@contoso.com.
 
-    c. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**. Notieren Sie sich den Wert, der im Feld **Kennwort** angezeigt wird.
+    c. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen** . Notieren Sie sich den Wert, der im Feld **Kennwort** angezeigt wird.
 
-    d. Klicken Sie auf **Erstellen**.
+    d. Klicken Sie auf **Erstellen** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Zuweisen des Azure AD-Testbenutzers
 
@@ -269,11 +269,11 @@ Ermöglichen Sie Britta Simon die Verwendung des einmaligen Anmeldens von Azure,
 
     ![Link „Benutzer und Gruppen“](common/users-groups-blade.png)
 
-4. Klicken Sie auf **Benutzer hinzufügen**. Wählen Sie im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
+4. Klicken Sie auf **Benutzer hinzufügen** . Wählen Sie im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
 
     ![Schaltfläche „Benutzer hinzufügen“](common/add-assign-user.png)
 
-5. Wählen Sie im Dialogfeld **Benutzer und Gruppen** in der Liste den Benutzer (etwa **Britta Simon**) aus. Wählen Sie anschließend am unteren Bildschirmrand **Auswählen** aus.
+5. Wählen Sie im Dialogfeld **Benutzer und Gruppen** in der Liste den Benutzer (etwa **Britta Simon** ) aus. Wählen Sie anschließend am unteren Bildschirmrand **Auswählen** aus.
 
     ![Dialogfeld „Benutzer und Gruppen“](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_users.png)
 
@@ -287,7 +287,7 @@ Ermöglichen Sie Britta Simon die Verwendung des einmaligen Anmeldens von Azure,
 
 ### <a name="create-a-zscaler-beta-test-user"></a>Erstellen eines Zscaler Beta-Testbenutzers
 
-In diesem Abschnitt wird in Zscaler Beta der Benutzer Britta Simon erstellt. Zscaler Beta unterstützt die **Just-in-Time-Benutzerbereitstellung**, die standardmäßig aktiviert ist. In diesem Abschnitt müssen Sie keine Schritte ausführen. Ist ein Benutzer noch nicht in Zscaler Beta vorhanden, wird nach der Authentifizierung ein neuer Benutzer erstellt.
+In diesem Abschnitt wird in Zscaler Beta der Benutzer Britta Simon erstellt. Zscaler Beta unterstützt die **Just-in-Time-Benutzerbereitstellung** , die standardmäßig aktiviert ist. In diesem Abschnitt müssen Sie keine Schritte ausführen. Ist ein Benutzer noch nicht in Zscaler Beta vorhanden, wird nach der Authentifizierung ein neuer Benutzer erstellt.
 
 >[!Note]
 >Wenn Sie einen Benutzer manuell erstellen müssen, wenden Sie sich an das [Supportteam von Zscaler Beta](https://www.zscaler.com/company/contact).
@@ -296,11 +296,10 @@ In diesem Abschnitt wird in Zscaler Beta der Benutzer Britta Simon erstellt. Zs
 
 Testen Sie Ihre Azure AD-Konfiguration für das einmalige Anmelden über den Zugriffsbereich.
 
-Wenn Sie im Zugriffsbereich auf die Kachel „Zscaler Beta“ klicken, sollten Sie automatisch bei der Zscaler Beta-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Wenn Sie im Zugriffsbereich auf die Kachel „Zscaler Beta“ klicken, sollten Sie automatisch bei der Zscaler Beta-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Was ist bedingter Zugriff?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](./tutorial-list.md)
+- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Was ist bedingter Zugriff?](../conditional-access/overview.md)

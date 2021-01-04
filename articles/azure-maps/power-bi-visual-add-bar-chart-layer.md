@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 6a686f6915e332893f619e66944591999063a07c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 136676b46df6e32f98dca99fccba19d4aa369dbe
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87288168"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896275"
 ---
 # <a name="add-a-bar-chart-layer"></a>Hinzufügen einer Balkendiagrammebene
 
@@ -25,19 +25,19 @@ Mit der **Balkendiagrammebene** können Sie Ihren Daten eine weitere Dimension h
 
 Benutzer können die Karte neigen und drehen, um Ihre Daten aus unterschiedlichen Perspektiven anzuzeigen. Das Kippen oder Neigen der Karte ist mithilfe einer der folgenden Methoden möglich.
 
--   Aktivieren Sie die Option **Navigationssteuerelemente** in den **Karteneinstellungen** des Bereichs **Format**. Dadurch wird eine Schaltfläche zum Neigen der Karte hinzugefügt.
+-   Aktivieren Sie die Option **Navigationssteuerelemente** in den **Karteneinstellungen** des Bereichs **Format** . Dadurch wird eine Schaltfläche zum Neigen der Karte hinzugefügt.
 -   Halten Sie die rechte Maustaste gedrückt, und ziehen Sie die Maus nach oben oder unten.
 -   Berühren Sie auf einem Touchscreen die Karte mit zwei Fingern, und ziehen Sie diese zusammen nach oben oder unten.
--   Setzen Sie den Fokus auf die Karte, halten Sie die **UMSCHALTTASTE** gedrückt, und drücken Sie dann die **NACH-OBEN-** oder **NACH-UNTEN-TASTE**.
+-   Setzen Sie den Fokus auf die Karte, halten Sie die **UMSCHALTTASTE** gedrückt, und drücken Sie dann die **NACH-OBEN-** oder **NACH-UNTEN-TASTE** .
 
 Das Drehen der Karte ist mithilfe einer der folgenden Methoden möglich.
 
--   Aktivieren Sie die Option **Navigationssteuerelemente** in den **Karteneinstellungen** des Bereichs **Format**. Dadurch wird eine Schaltfläche zum Drehen der Karte hinzugefügt.
+-   Aktivieren Sie die Option **Navigationssteuerelemente** in den **Karteneinstellungen** des Bereichs **Format** . Dadurch wird eine Schaltfläche zum Drehen der Karte hinzugefügt.
 -   Halten Sie die rechte Maustaste gedrückt, und ziehen Sie die Maus nach rechts oder links.
 -   Berühren Sie auf einem Touchscreen die Karte mit zwei Fingern, um sie zu drehen.
--   Setzen Sie den Fokus auf die Karte, halten Sie die **UMSCHALTTASTE** gedrückt, und drücken Sie dann die **NACH-LINKS-** oder **NACH-RECHTS-TASTE**.
+-   Setzen Sie den Fokus auf die Karte, halten Sie die **UMSCHALTTASTE** gedrückt, und drücken Sie dann die **NACH-LINKS-** oder **NACH-RECHTS-TASTE** .
 
-Im Folgenden finden Sie alle Einstellungen im Bereich **Format**, die im Abschnitt **Balkendiagrammebene** verfügbar sind.
+Im Folgenden finden Sie alle Einstellungen im Bereich **Format** , die im Abschnitt **Balkendiagrammebene** verfügbar sind.
 
 | Einstellung              | BESCHREIBUNG      |
 |----------------------|------------------|
@@ -71,7 +71,7 @@ Fügen Sie der Karte mehr Kontext hinzu:
 Passen Sie das Visual an:
 
 > [!div class="nextstepaction"]
-> [Tipps und Tricks zur Farbformatierung in Power BI](https://docs.microsoft.com/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
+> [Tipps und Tricks zur Farbformatierung in Power BI](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
 
 > [!div class="nextstepaction"]
-> [Anpassen der Titel, Hintergründe und Legenden von Visualisierungen](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
+> [Anpassen der Titel, Hintergründe und Legenden von Visualisierungen](/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)

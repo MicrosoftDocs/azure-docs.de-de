@@ -6,16 +6,16 @@ ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 11/21/2019
-ms.openlocfilehash: ff29e93149c618bb7d6df6b4477cc79fcf4b53d2
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: d2b45f5b51f4656294632aa46f679a7a09c06ed3
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058555"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593925"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Tutorial: Konfigurieren der Transaktionsreplikation zwischen verwalteten Azure SQL-Instanzen und SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -38,7 +38,7 @@ Dieses Tutorial ist für erfahrene Benutzer bestimmt. Es wird vorausgesetzt, das
 
 
 > [!NOTE]
-> In diesem Artikel wird die Verwendung der [Transaktionsreplikation](/sql/relational-databases/replication/transactional/transactional-replication) in einer verwalteten SQL-Datenbank-Instanz beschrieben. Sie steht nicht im Zusammenhang mit [Failovergruppen](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group). Dieses verwaltete Azure SQL Managed Instance-Feature ermöglicht das Erstellen vollständiger Lesereplikate einzelner Instanzen. Beim Konfigurieren der [Transaktionsreplikation mit Failovergruppen](replication-transactional-overview.md#with-failover-groups) sind weitere Aspekte zu berücksichtigen.
+> In diesem Artikel wird die Verwendung der [Transaktionsreplikation](/sql/relational-databases/replication/transactional/transactional-replication) in einer verwalteten SQL-Datenbank-Instanz beschrieben. Sie steht nicht im Zusammenhang mit [Failovergruppen](../database/auto-failover-group-overview.md). Dieses verwaltete Azure SQL Managed Instance-Feature ermöglicht das Erstellen vollständiger Lesereplikate einzelner Instanzen. Beim Konfigurieren der [Transaktionsreplikation mit Failovergruppen](replication-transactional-overview.md#with-failover-groups) sind weitere Aspekte zu berücksichtigen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -182,7 +182,7 @@ Eine private DNS-Zone ermöglicht das DNS-Routing zwischen den verwalteten Insta
 
 ## <a name="create-an-azure-storage-account"></a>Erstellen eines Azure-Speicherkontos
 
-[Erstellen Sie ein Azure-Speicherkonto](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) für das Arbeitsverzeichnis und anschließend im Speicherkonto eine [Dateifreigabe](../../storage/files/storage-how-to-create-file-share.md).
+[Erstellen Sie ein Azure-Speicherkonto](../../storage/common/storage-account-create.md#create-a-storage-account) für das Arbeitsverzeichnis und anschließend im Speicherkonto eine [Dateifreigabe](../../storage/files/storage-how-to-create-file-share.md).
 
 Kopieren Sie den Dateifreigabepfad im Format: `\\storage-account-name.file.core.windows.net\file-share-name`
 
@@ -210,7 +210,7 @@ GO
 -- Drop database if it exists
 IF EXISTS (SELECT * FROM sys.sysdatabases WHERE name = 'ReplTutorial')
 BEGIN
-    DROP DATABASE ReplTutorial
+    DROP DATABASE ReplTutorial
 END
 GO
 
@@ -414,7 +414,7 @@ Unter [Was ist die verwaltete SQL-Instanz?](sql-managed-instance-paas-overview.m
 - [Bedrohungserkennung](threat-detection-configure.md)
 - [Dynamische Datenmaskierung](/sql/relational-databases/security/dynamic-data-masking)
 - [Sicherheit auf Zeilenebene](/sql/relational-databases/security/row-level-security)
-- [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
+- [Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### <a name="sql-managed-instance-capabilities"></a>Funktionen verwalteter SQL-Instanzen
 

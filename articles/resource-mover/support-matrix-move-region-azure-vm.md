@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: d71181c5f45ab63febae7288f07189dc52ea12fd
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 4da707ab698599c8ea5dd8e1ea8647f543eb2a68
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945912"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95524248"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Unterstützung für das Verschieben von virtuellen Azure-Computern zwischen Azure-Regionen
 
@@ -101,13 +101,13 @@ SUSE Linux Enterprise Server 15 und 15 SP1 |  Alle SUSE 15- und 15-Stock-Kernel
 **Einstellung** | **Unterstützung** | **Details**
 --- | --- | ---
 Size | Jede Größe von virtuellen Azure-Computern mit mindestens zwei CPU-Kernen und 1 GB RAM | Überprüfen Sie die [Größen der virtuellen Azure-Computer](../virtual-machines/sizes-general.md).
-Verfügbarkeitsgruppen | Derzeit nicht unterstützt | Wenn Sie einen virtuellen Azure-Computer mit einer Verfügbarkeitsgruppe zur Sammlung für die Verschiebung mit den Standardoptionen hinzufügen, tritt beim Vorbereitungsprozess ein Fehler auf. Sie können den virtuellen Computer in eine Verfügbarkeitszone oder als Einzelinstanz-VM verschieben. Sie können diese Einstellungen auf der Seite mit den Eigenschaften des Bearbeitungsziels ändern.
+Verfügbarkeitsgruppen | Unterstützt | Unterstützt.
 Verfügbarkeitszonen | Unterstützt | Wird je nach Unterstützung der Zielregion unterstützt.
 Azure-Katalogimages (von Microsoft veröffentlicht) | Unterstützt | Wird unterstützt, wenn auf der VM ein unterstütztes Betriebssystem ausgeführt wird.
 Azure-Katalogimages (von Drittanbietern veröffentlicht)  | Unterstützt | Wird unterstützt, wenn auf der VM ein unterstütztes Betriebssystem ausgeführt wird.
 Benutzerdefinierte Images (von Drittanbietern veröffentlicht)| Unterstützt | Wird unterstützt, wenn auf der VM ein unterstütztes Betriebssystem ausgeführt wird.
 Virtuelle Computer, auf denen Site Recovery verwendet wird | Nicht unterstützt | Verschieben Sie im Back-End mithilfe von Site Recovery Ressourcen in Regionen für virtuelle Computer. Wenn Sie Site Recovery bereits verwenden, deaktivieren Sie die Replikation, und starten Sie anschließend den Vorbereitungsprozess.
-RBAC-Richtlinien | Nicht unterstützt | Richtlinien für die rollenbasierte Zugriffssteuerung (Role Based Access Control, RBAC) auf virtuellen Computern werden nicht in den virtuellen Computer in der Zielregion kopiert.
+Azure RBAC-Richtlinien | Nicht unterstützt | Richtlinien für die rollenbasierte Zugriffssteuerung in Azure (Role Based Access Control, RBAC) auf virtuellen Computern werden nicht auf den virtuellen Computer in der Zielregion kopiert.
 Erweiterungen | Nicht unterstützt | Erweiterungen werden nicht in den virtuellen Computer in der Zielregion kopiert. Daher müssen Sie sie nach dem Verschieben manuell installieren.
 
 
@@ -121,11 +121,11 @@ In dieser Tabelle ist die Unterstützung für den Betriebssystemdatenträger, Da
 
 **Komponente** | **Unterstützung** | **Details**
 --- | --- | ---
-Maximale Größe des Betriebssystemdatenträgers | 2\.048 GB | [Erfahren Sie mehr](../virtual-machines/windows/managed-disks-overview.md) zu VM-Datenträgern.
-Temporärer Datenträger | Nicht unterstützt | Der temporäre Datenträger ist immer vom Vorbereitungsprozess ausgeschlossen.<br/><br/> Speichern Sie auf dem temporären Datenträger keine persistenten Daten. [Weitere Informationen](../virtual-machines/windows/managed-disks-overview.md#temporary-disk)
+Maximale Größe des Betriebssystemdatenträgers | 2\.048 GB | [Erfahren Sie mehr](../virtual-machines/managed-disks-overview.md) zu VM-Datenträgern.
+Temporärer Datenträger | Nicht unterstützt | Der temporäre Datenträger ist immer vom Vorbereitungsprozess ausgeschlossen.<br/><br/> Speichern Sie auf dem temporären Datenträger keine persistenten Daten. [Weitere Informationen](../virtual-machines/managed-disks-overview.md#temporary-disk)
 Maximale Größe des Datenträgers | 8\.192 GB für verwaltete Datenträger
 Minimale Größe des Datenträgers |  2 GB für verwaltete Datenträger |
-Maximale Anzahl von Datenträgern | Bis zu 64, gemäß der Unterstützung für eine bestimmte Azure-VM-Größe | [Erfahren Sie mehr](../virtual-machines/windows/sizes.md) zu VM-Größen.
+Maximale Anzahl von Datenträgern | Bis zu 64, gemäß der Unterstützung für eine bestimmte Azure-VM-Größe | [Erfahren Sie mehr](../virtual-machines/sizes.md) zu VM-Größen.
 Änderungsrate für Datenträger | Maximal 10 MBit/s pro Datenträger für Storage Premium. Maximal 2 MBit/s pro Datenträger für Standardspeicher. | Wenn die durchschnittliche Datenänderungsrate auf dem Datenträger dauerhaft über dem Maximalwert liegt, kann dies durch die Vorbereitung nicht aufgeholt werden.<br/><br/>  Falls der Maximalwert aber nur sporadisch überschritten wird, kann die Vorbereitung aufholen, aber es kommt ggf. zu einer leichten Verzögerung bei den Wiederherstellungspunkten.
 Datenträger (Standard-Speicherkonto) | Wird nicht unterstützt. | Geben Sie als Speichertyp „Verwalteter Datenträger“ an, und versuchen Sie dann, den virtuellen Computer zu verschieben.
 Datenträger (Premium-Speicherkonto) | Nicht unterstützt | Geben Sie als Speichertyp „Verwalteter Datenträger“ an, und versuchen Sie dann, den virtuellen Computer zu verschieben.

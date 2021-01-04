@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: d0ee9680a6b1b7c3e145137c73dda84d1a755b06
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: fac26c616c977eedc466f004a9455297ec995fb8
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147924"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352540"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Schützen und Isolieren von Azure HDInsight-Clustern mit Private Link (Vorschauversion)
 
@@ -29,9 +29,9 @@ Standardmäßig nutzt der HDInsight-Ressourcenanbieter eine *eingehende* Verbind
 
 Bei den grundlegenden Lastenausgleichsmodulen der Standardarchitektur für virtuelle Netzwerke wird automatisch eine öffentliche Netzwerkadressenübersetzung (NAT) für den Zugriff auf die erforderlichen ausgehenden Abhängigkeiten, z. B. den HDInsight-Ressourcenanbieter, bereitgestellt. Wenn Sie die ausgehende Konnektivität für das öffentliche Internet einschränken möchten, können Sie eine [Firewall konfigurieren](./hdinsight-restrict-outbound-traffic.md), aber dies ist nicht zwingend erforderlich.
 
-Die Festlegung von `resourceProviderConnection` auf „Outbound“ (Ausgehend) ermöglicht Ihnen auch den Zugriff auf clusterspezifische Ressourcen, z. B. Azure Data Lake Storage Gen2 oder externe Metastores, über private Endpunkte. Sie müssen die privaten Endpunkte und DNS-Einträge konfigurieren, bevor Sie den HDInsight-Cluster erstellen. Wir empfehlen Ihnen, während der Clustererstellung alle benötigten externen SQL-Datenbanken zu erstellen und bereitzustellen, z. B. Apache Ranger, Ambari, Oozie und Hive-Metastores.
+Die Festlegung von `resourceProviderConnection` auf „Outbound“ (Ausgehend) ermöglicht Ihnen auch den Zugriff auf clusterspezifische Ressourcen, z. B. Azure Data Lake Storage Gen2 oder externe Metastores, über private Endpunkte. Die Verwendung privater Endpunkte ist für diese Ressourcen nicht vorgeschrieben. Wenn Sie jedoch beabsichtigen, private Endpunkte für diese Ressourcen zu verwenden, müssen Sie die privaten Endpunkte und DNS-Einträge konfigurieren, `before` Sie den HDInsight-Cluster erstellen. Es wird empfohlen, während der Clustererstellung alle benötigten externen SQL-Datenbanken zu erstellen und bereitzustellen, z. B. Apache Ranger, Ambari, Oozie und Hive-Metastores. Es wird vorausgesetzt, dass auf alle diese Ressourcen von innerhalb des Clustersubnetzes zugegriffen werden kann – entweder über einen eigenen privaten Endpunkt oder auf andere Weise.
 
-Private Endpunkte für Azure Key Vault werden nicht unterstützt. Bei Verwendung von Azure Key Vault für die Verschlüsselung ruhender Daten mit kundenseitig verwalteten Schlüsseln (CMK) muss der Azure Key Vault-Endpunkt aus dem HDInsight-Subnetz ohne privaten Endpunkt zugänglich sein.
+Das Verwenden privater Endpunkte für Azure Key Vault wird nicht unterstützt. Bei Verwendung von Azure Key Vault für die Verschlüsselung ruhender Daten mit kundenseitig verwalteten Schlüsseln (CMK) muss der Azure Key Vault-Endpunkt aus dem HDInsight-Subnetz ohne privaten Endpunkt zugänglich sein.
 
 Im folgenden Diagramm ist dargestellt, wie eine potenzielle HDInsight-Architektur für virtuelle Netzwerke aussehen kann, wenn `resourceProviderConnection` auf „Outbound“ (Ausgehend) festgelegt ist:
 
@@ -52,21 +52,23 @@ Für den Zugriff auf den Cluster mit Cluster-FQDNs können Sie entweder die priv
 
 ## <a name="enable-private-link"></a>Aktivieren von Private Link
 
-Für Private Link (standardmäßig deaktiviert) benötigen Sie umfassende Netzwerkkenntnisse, um vor dem Erstellen eines Clusters benutzerdefinierte Routen (User Defined Routes, UDR) und Firewallregeln einrichten zu können. Private Link-Zugriff auf den Cluster ist nur verfügbar, wenn die Netzwerkeigenschaft `resourceProviderConnection` auf *Outbound* (Ausgehend) festgelegt ist (wie im vorherigen Abschnitt beschrieben).
+Für Private Link (standardmäßig deaktiviert) benötigen Sie umfassende Netzwerkkenntnisse, um vor dem Erstellen eines Clusters benutzerdefinierte Routen (User Defined Routes, UDR) und Firewallregeln einrichten zu können. Die Verwendung dieser Einstellung ist optional, aber sie ist nur verfügbar, wenn die Netzwerkeigenschaft `resourceProviderConnection` wie im vorherigen Abschnitt beschrieben auf *outbound* (ausgehend) festgelegt ist.
 
 Wenn `privateLink` auf *Enabled* (Aktiviert) festgelegt ist, werden interne [Standard-Lastenausgleichsmodule](../load-balancer/load-balancer-overview.md) erstellt, und für jedes dieser Module wird ein Azure Private Link-Dienst bereitgestellt. Der Private Link-Dienst ermöglicht Ihnen den Zugriff auf den HDInsight-Cluster von privaten Endpunkten.
 
-Von Standard-Lastenausgleichsmodulen wird die [öffentliche Netzwerkadressenübersetzung in ausgehender Richtung](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) nicht wie bei Basic-Lastenausgleichsmodulen automatisch bereitgestellt. Sie müssen Ihre eigene NAT-Lösung, z. B. [Virtual Network NAT](../virtual-network/nat-overview.md) oder eine [Firewall](./hdinsight-restrict-outbound-traffic.md), für ausgehende Abhängigkeiten bereitstellen. Ihr HDInsight-Cluster benötigt weiterhin Zugriff auf seine ausgehenden Abhängigkeiten. Falls diese ausgehenden Abhängigkeiten nicht zulässig sind, tritt bei der Clustererstellung unter Umständen ein Fehler auf.
+Von Standard-Lastenausgleichsmodulen wird die [öffentliche Netzwerkadressenübersetzung in ausgehender Richtung](../load-balancer/load-balancer-outbound-connections.md) nicht wie bei Basic-Lastenausgleichsmodulen automatisch bereitgestellt. Sie müssen Ihre eigene NAT-Lösung, z. B. [Virtual Network NAT](../virtual-network/nat-overview.md) oder eine [Firewall](./hdinsight-restrict-outbound-traffic.md), für ausgehende Abhängigkeiten bereitstellen. Ihr HDInsight-Cluster benötigt weiterhin Zugriff auf seine ausgehenden Abhängigkeiten. Falls diese ausgehenden Abhängigkeiten nicht zulässig sind, tritt bei der Clustererstellung unter Umständen ein Fehler auf.
 
 ### <a name="prepare-your-environment"></a>Vorbereiten der Umgebung
 
+Für die erfolgreiche Erstellung von Private Link-Diensten müssen Sie explizit die [Richtlinien für Private Link-Dienste deaktivieren](../private-link/disable-private-link-service-network-policy.md).
+
 Das folgende Diagramm enthält ein Beispiel für die Netzwerkkonfiguration, die vor dem Erstellen eines Clusters erforderlich ist. In diesem Beispiel wird für den gesamten ausgehenden Datenverkehr per UDR der Weg über Azure Firewall [erzwungen](../firewall/forced-tunneling.md), und die erforderlichen ausgehenden Abhängigkeiten sollten in der Firewall „zugelassen“ werden, bevor ein Cluster erstellt wird. Bei Clustern mit Enterprise-Sicherheitspaket kann die Netzwerkkonnektivität mit Azure Active Directory Domain Services per VNET-Peering bereitgestellt werden.
 
-:::image type="content" source="media/hdinsight-private-link/before-cluster-creation.png" alt-text="Diagramm: HDInsight-Architektur mit einer ausgehenden Ressourcenanbieterverbindung":::
+:::image type="content" source="media/hdinsight-private-link/before-cluster-creation.png" alt-text="Diagramm: Private Link-Umgebung vor der Clustererstellung":::
 
 Nachdem Sie das Netzwerk eingerichtet haben, können Sie einen Cluster mit einer ausgehenden Ressourcenanbieterverbindung und Private Link-Aktivierung erstellen. Dies ist in der folgenden Abbildung dargestellt. Bei dieser Konfiguration sind keine öffentlichen IP-Adressen vorhanden, und der Private Link-Dienst wird für jedes Standard-Lastenausgleichsmodul bereitgestellt.
 
-:::image type="content" source="media/hdinsight-private-link/after-cluster-creation.png" alt-text="Diagramm: HDInsight-Architektur mit einer ausgehenden Ressourcenanbieterverbindung":::
+:::image type="content" source="media/hdinsight-private-link/after-cluster-creation.png" alt-text="Diagramm: Private Link-Umgebung nach der Clustererstellung":::
 
 ### <a name="access-a-private-cluster"></a>Zugreifen auf einen privaten Cluster
 
@@ -82,9 +84,10 @@ In der von Azure verwalteten öffentlichen DNS-Zone `azurehdinsight.net` werden 
 
 Die folgende Abbildung enthält ein Beispiel für die privaten DNS-Einträge, die für den Zugriff auf den Cluster aus einem virtuellen Netzwerk benötigt werden, das nicht über ein Peering oder eine direkte Sichtverbindung mit den Lastenausgleichsmodulen des Clusters verfügt. Sie können eine private Azure-Zone verwenden, um FQDNs vom Typ `*.privatelink.azurehdinsight.net` außer Kraft zu setzen und in Ihre eigenen IP-Adressen für private Endpunkte aufzulösen.
 
-:::image type="content" source="media/hdinsight-private-link/access-private-clusters.png" alt-text="Diagramm: HDInsight-Architektur mit einer ausgehenden Ressourcenanbieterverbindung":::
+:::image type="content" source="media/hdinsight-private-link/access-private-clusters.png" alt-text="Diagramm: Private Link-Architektur":::
 
-## <a name="arm-template-properties"></a>Eigenschaften von ARM-Vorlagen
+## <a name="how-to-create-clusters"></a>Wie werden Cluster erstellt?
+### <a name="use-arm-template-properties"></a>Verwenden der Eigenschaften von ARM-Vorlagen
 
 Der folgende JSON-Codeausschnitt enthält die beiden Netzwerkeigenschaften, die Sie in Ihrer ARM-Vorlage konfigurieren müssen, um einen privaten HDInsight-Cluster zu erstellen.
 
@@ -96,6 +99,13 @@ networkProperties: {
 ```
 
 Eine vollständige Vorlage mit vielen dieser HDInsight-Sicherheitsfunktionen für Unternehmen, z. B. Private Link, finden Sie im Artikel zur [Enterprise-Sicherheitsvorlage für HDInsight](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/ESP-HIB-PL-Template).
+
+### <a name="use-azure-powershell"></a>Verwenden von Azure PowerShell
+
+Informationen zur Verwendung von PowerShell finden Sie [hier](/powershell/module/az.hdinsight/new-azhdinsightcluster?view=azps-5.1.0#example-4--create-an-azure-hdinsight-cluster-with-relay-outbound-and-private-link-feature) in dem Beispiel.
+
+### <a name="use-azure-cli"></a>Mithilfe der Azure-Befehlszeilenschnittstelle
+Informationen zur Verwendung der Azure CLI finden Sie [hier](/cli/azure/hdinsight?view=azure-cli-latest#az_hdinsight_create-examples) in dem Beispiel.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -1,25 +1,25 @@
 ---
-title: Verbindungszeichenfolgen für Synapse SQL (Vorschauversion)
-description: Verbindungszeichenfolgen für Synapse SQL (Vorschauversion)
+title: Verbindungszeichenfolgen für Synapse SQL
+description: Verbindungszeichenfolgen für Synapse SQL
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: aa940b00e9c23ab08244ea55c0cd22a8d5f1897f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6859d0582997ee861713090ccb4c22ed58ec4ca7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289377"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462340"
 ---
-# <a name="connection-strings-for-synapse-sql-preview"></a>Verbindungszeichenfolgen für Synapse SQL (Vorschauversion)
+# <a name="connection-strings-for-synapse-sql"></a>Verbindungszeichenfolgen für Synapse SQL
 
-Sie können über verschiedene Anwendungsprotokolle eine Verbindung mit Synapse SQL (Vorschauversion) herstellen, z. B. über [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396) und [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). Im Folgenden sind einige Beispiele für Verbindungszeichenfolgen für die einzelnen Protokolle aufgeführt. 
+Sie können über verschiedene Anwendungsprotokolle eine Verbindung mit Synapse SQL herstellen, etwa über [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396) und [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). Im Folgenden sind einige Beispiele für Verbindungszeichenfolgen für die einzelnen Protokolle aufgeführt. 
 
 Sie können auch das Azure-Portal zum Einrichten Ihrer Verbindungszeichenfolge verwenden.  Um die Verbindungszeichenfolge über das Azure-Portal zu erstellen, navigieren Sie zum Blatt Ihrer Datenbank, und wählen Sie unter *Zusammenfassung* die Option *Datenbank-Verbindungszeichenfolgen anzeigen* aus.
 
@@ -52,7 +52,7 @@ jdbc:sqlserver://yourserver.sql.azuresynapse.net:1433;database=yourdatabase;user
 
 ## <a name="recommendations"></a>Empfehlungen
 
-Für die Ausführung von **SQL On-Demand**-Abfragen werden [Azure Data Studio](get-started-azure-data-studio.md) und Azure Synapse Studio empfohlen.
+Für die Ausführung von Abfragen eines **serverlosen SQL-Pools** werden [Azure Data Studio](get-started-azure-data-studio.md) und Azure Synapse Studio empfohlen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

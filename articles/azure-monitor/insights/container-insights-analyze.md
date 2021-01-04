@@ -3,12 +3,12 @@ title: Kubernetes-Überwachung mit Azure Monitor für Container | Microsoft-Doku
 description: In diesem Artikel wird beschrieben, wie Sie mit Azure Monitor für Container die Leistung eines Kubernetes-Clusters anzeigen und analysieren.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 5d267715ed9748c69c33bbd7bc5af0db7b118502
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: a1f661089b3a6357abb3eed584401e6a8ae2e2fb
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994762"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905705"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Überwachen der Leistung von Kubernetes-Clustern mit Azure Monitor für Container
 
@@ -228,7 +228,7 @@ Die Zeilenhierarchie beginnt mit einem Controller. Wenn Sie einen Controller erw
 
 Wählen Sie den Wert in der Spalte **Knoten** für den spezifischen Controller aus.
 
-![Exemplarischer Drilldownvorgang vom Knoten zum Controller in der Leistungsansicht](./media/container-insights-analyze/drill-down-controller-node.png)
+![Exemplarischer Drilldownvorgang vom Controller zum Knoten in der Leistungsansicht](./media/container-insights-analyze/drill-down-controller-node.png)
 
 In der folgenden Tabelle sind die Informationen beschrieben, die bei der Anzeige von Controllern erscheinen.
 
@@ -291,33 +291,14 @@ Die Symbole im Statusfeld zeigen die Onlinestatus der Pods an, die in der folgen
 | ![Statussymbol für „Beendet“](./media/container-insights-analyze/containers-terminated-icon.png) | Erfolgreich beendet oder Fehler beim Beenden|
 | ![Symbol für den Status „Fehler“](./media/container-insights-analyze/containers-failed-icon.png) | Status „Fehler“ |
 
+## <a name="monitor-and-visualize-network-configurations"></a>Überwachen und Visualisieren von Netzwerkkonfigurationen
+Der Azure-Netzwerkrichtlinien-Manager enthält informative Prometheus-Metriken, mit denen Sie Ihre Netzwerkkonfigurationen überwachen und besser verstehen können. Er bietet integrierte Visualisierungen im Azure-Portal oder in Grafana Labs. Ausführliche Informationen finden Sie unter [Überwachen und Visualisieren von Netzwerkkonfigurationen mit dem Azure-NPM](../../virtual-network/kubernetes-network-policies.md#monitor-and-visualize-network-configurations-with-azure-npm).
+
+
 ## <a name="workbooks"></a>Arbeitsmappen
 
-Arbeitsmappen kombinieren Text,  [Protokollabfragen](/azure/data-explorer/kusto/query/), [Metriken](../platform/data-platform-metrics.md) und Parameter zu umfassenden interaktiven Berichten. Arbeitsmappen können von anderen Teammitgliedern bearbeitet werden, die Zugriff auf dieselben Azure-Ressourcen haben.
+Arbeitsmappen kombinieren Text, Protokollabfragen, Metriken und Parameter zu umfassenden interaktiven Berichten, mit denen Sie die Clusterleistung analysieren können. Eine Beschreibung der für Azure Monitor für Container verfügbaren Arbeitsmappen finden Sie unter [Arbeitsmappen in Azure Monitor für Container](container-insights-reports.md).
 
-Azure Monitor für Container enthält vier Arbeitsmappen für den Einstieg:
-
-- **Datenträgerkapazität**: Diese Arbeitsmappe zeigt interaktive Diagramme zur Datenträgerauslastung für jeden Datenträger, der dem Knoten in einem Container bereitgestellt wird, anhand der folgenden Gesichtspunkte:
-
-    - Prozentuale Datenträgerauslastung für alle Datenträger.
-    - Freier Speicherplatz für alle Datenträger.
-    - Ein Raster, in dem der Datenträger jedes Knotens, der prozentual genutzte Speicherplatz mit dem zugehörigen Trend sowie der freie Speicherplatz auf dem Datenträger (GiB) mit dem Trend (GiB) angezeigt werden. Wenn in der Tabelle eine Zeile ausgewählt wird, wird der Prozentsatz des belegten und freien Speicherplatzes auf dem Datenträger unterhalb der Zeile angezeigt (in GiB).
-
-- **Datenträger-E/A**: Diese Arbeitsmappe zeigt interaktive Diagramme zur Datenträgerauslastung für jeden Datenträger, der dem Knoten in einem Container bereitgestellt wird, anhand der folgenden Gesichtspunkte:
-
-    - Zusammenfassung der Datenträger-E/A auf allen Datenträgern nach gelesenen Bytes/Sek., geschriebenen Bytes/Sek. und Trends der gelesenen und geschriebenen Bytes/Sek.
-    - In acht Leistungsdiagrammen werden wichtige Leistungsindikatoren angezeigt, um Datenträger-E/A-Engpässe zu messen und zu identifizieren.
-
-- **Kubelet**: Enthält zwei Raster, die die Hauptknoten-Betriebsstatistiken anzeigen:
-
-    - „Übersicht nach Knotenraster“ fasst alle Vorgänge, alle Fehler und die erfolgreichen Vorgänge für jeden Knoten in Prozent und Trend zusammen.
-    - „Übersicht nach Vorgangstyp“ fasst die Vorgänge für jeden Typ, alle Fehler und die erfolgreichen Vorgänge in Prozent und Trend zusammen.
-
-- **Netzwerk:** Stellt interaktive Netzwerkauslastungs-Diagramme für die Netzwerkadapter der einzelnen Knoten und ein Raster dar, in dem die wichtigsten Leistungsindikatoren zum Messen der Leistung der Netzwerkadapter angezeigt werden.
-
-Sie greifen auf diese Arbeitsmappen zu, indem Sie sie jeweils in der Dropdownliste **Arbeitsmappen anzeigen** auswählen.
-
-![Dropdownliste „Arbeitsmappen anzeigen“](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

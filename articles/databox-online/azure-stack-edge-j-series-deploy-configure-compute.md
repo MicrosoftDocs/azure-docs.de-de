@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 6bea4ee4452675a50ef9144da300c3e15652a81f
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 75428b28095b0e425a1670caffcf960aa6ae58f6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952164"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185503"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Tutorial: Transformieren von Daten mit Azure Stack Edge Pro
 
@@ -152,19 +152,19 @@ Führen Sie die folgenden Schritte aus, um zu überprüfen, ob das Modul ausgef�
 
     ![Anzeigen des bereitgestellten Moduls](./media/azure-stack-edge-j-series-deploy-configure-compute/add-module-3.png)
  
-1.   Stellen Sie im Datei-Explorer eine Verbindung mit den lokalen und anderen Edgefreigaben her, die Sie zuvor erstellt haben.
+1. Stellen Sie im Datei-Explorer eine Verbindung mit den lokalen und anderen Edgefreigaben her, die Sie zuvor erstellt haben.
 
     ![Überprüfen der Datentransformation](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-2.png) 
  
-1.   Fügen Sie der lokalen Freigabe Daten hinzu.
+1. Fügen Sie der lokalen Freigabe Daten hinzu.
 
     ![Überprüfen der Datentransformation](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-3.png) 
  
-    Die Daten werden auf die Cloudfreigabe verschoben.
+   Die Daten werden auf die Cloudfreigabe verschoben.
 
     ![Überprüfen der Datentransformation](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-4.png)  
 
-    Anschließend werden die Daten per Pushvorgang von der Cloudfreigabe in das Speicherkonto übertragen. Im Storage-Explorer können Sie die Daten anzeigen.
+   Anschließend werden die Daten per Pushvorgang von der Cloudfreigabe in das Speicherkonto übertragen. Im Storage-Explorer können Sie die Daten anzeigen.
 
     <!--![Verify data transform](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-5.png)-->
  

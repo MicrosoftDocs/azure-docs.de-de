@@ -92,6 +92,8 @@
           href: multiclass-neural-network.md
         - name: One-vs- All-Multiklasse
           href: one-vs-all-multiclass.md
+        - name: One-vs- One-Multiklasse
+          href: one-vs-one-multiclass.md
         - name: Gemitteltes Perzeptron mit zwei Klassen
           href: two-class-averaged-perceptron.md
         - name: Two-Class Boosted Decision Tree

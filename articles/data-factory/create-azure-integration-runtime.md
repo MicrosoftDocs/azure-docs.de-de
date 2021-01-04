@@ -10,12 +10,12 @@ ms.date: 06/09/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: c7880fd7fb687483409ce591059e0f5b2d2e2991
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97f3a8f79e503b8870baf67ee982b0091d926b1e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84659698"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895340"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Erstellen und Konfigurieren von Azure Integration Runtime
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -29,7 +29,7 @@ Dieses Dokument ist eine Einführung zum Erstellen und Konfigurieren von Azure I
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="default-azure-ir"></a>Standardmäßige Azure IR
-Standardmäßig verfügt jede Data Factory im Back-End über eine Azure-IR, die Vorgänge in Clouddatenspeichern und Computediensten im öffentlichen Netzwerk unterstützt. Der Speicherort dieser Azure IR wird automatisch aufgelöst. Wenn die **connectVia**-Eigenschaft in der Definition des verknüpften Diensts nicht angegeben ist, wird die standardmäßige Azure IR verwendet. Sie müssen nur dann explizit eine Azure IR erstellen, wenn Sie den Speicherort der IR explizit definieren möchten, oder wenn Sie die Aktivitätsausführungen aus Verwaltungsgründen auf verschiedenen IRs virtuell gruppieren möchten. 
+Standardmäßig verfügt jede Data Factory im Back-End über eine Azure-IR, die Vorgänge in Clouddatenspeichern und Computediensten im öffentlichen Netzwerk unterstützt. Der Speicherort dieser Azure IR wird automatisch aufgelöst. Wenn die **connectVia** -Eigenschaft in der Definition des verknüpften Diensts nicht angegeben ist, wird die standardmäßige Azure IR verwendet. Sie müssen nur dann explizit eine Azure IR erstellen, wenn Sie den Speicherort der IR explizit definieren möchten, oder wenn Sie die Aktivitätsausführungen aus Verwaltungsgründen auf verschiedenen IRs virtuell gruppieren möchten. 
 
 ## <a name="create-azure-ir"></a>Erstellen der Azure IR
 
@@ -48,13 +48,13 @@ Sie können eine vorhandenen Azure IR mithilfe des Set-AzDataFactoryV2Integratio
 ### <a name="create-an-azure-ir-via-azure-data-factory-ui"></a>Erstellen einer Azure IR über die Azure Data Factory-Benutzeroberfläche
 Führen Sie die unten angegebenen Schritte aus, um eine Azure IR über die Azure Data Factory-Benutzeroberfläche zu erstellen.
 
-1. Wählen Sie in der Azure Data Factory-Benutzeroberfläche auf der Seite **Erste Schritte** im Bereich ganz links die Registerkarte [Verwalten](https://docs.microsoft.com/azure/data-factory/author-management-hub) aus.
+1. Wählen Sie in der Azure Data Factory-Benutzeroberfläche auf der Seite **Erste Schritte** im Bereich ganz links die Registerkarte [Verwalten](./author-management-hub.md) aus.
 
    ![Schaltfläche „Verwalten“ auf der Startseite](media/doc-common-process/get-started-page-manage-button.png)
 
 1. Wählen Sie im linken Bereich **Integration Runtime** und dann **+Neu** aus.
 
-   ![Erstellen einer Integration Runtime](media/doc-common-process/manage-new-integration-runtime.png)
+   ![Screenshot: Hervorgehobene Integration Runtimes im linken Bereich und die Schaltfläche „+ Neu“](media/doc-common-process/manage-new-integration-runtime.png)
 
 1. Wählen Sie auf der Seite **Integration Runtime-Setup** die Option **Azure, Selbstgehostet** und dann **Weiter** aus. 
 
@@ -64,7 +64,7 @@ Führen Sie die unten angegebenen Schritte aus, um eine Azure IR über die Azure
 1. Geben Sie einen Namen für Ihre Azure IR ein, und wählen Sie **Erstellen** aus.
    ![Erstellen einer Azure IR](media/create-azure-integration-runtime/create-azure-integration-runtime.png)
 
-1. Wenn die Erstellung abgeschlossen ist, wird eine Popupbenachrichtigung angezeigt. Vergewissern Sie sich auf der Seite **Integration Runtimes**, dass die neu erstellte IR in der Liste angezeigt wird.
+1. Wenn die Erstellung abgeschlossen ist, wird eine Popupbenachrichtigung angezeigt. Vergewissern Sie sich auf der Seite **Integration Runtimes** , dass die neu erstellte IR in der Liste angezeigt wird.
 
 ## <a name="use-azure-ir"></a>Verwenden der Azure IR
 
@@ -92,4 +92,3 @@ Informationen zum Erstellen anderer Integration Runtime-Typen finden Sie in den 
 
 - [Create self-hosted integration runtime](create-self-hosted-integration-runtime.md) (Erstellen einer selbstgehosteten Integrationslaufzeit)
 - [Erstellen einer Azure SSIS Integration Runtime](create-azure-ssis-integration-runtime.md)
- 

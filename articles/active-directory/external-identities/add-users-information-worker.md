@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bc3175017e5b26251d1a12d0d1e2c51c4e5f9c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 352d5218f91fa55134a7515b6aeee49857847468
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87907573"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173208"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Beschreibt, wie Benutzer in Ihrer Organisation Gastbenutzer zu einer App einladen können.
 
@@ -28,7 +28,7 @@ Nachdem ein Gastbenutzer dem Verzeichnis in Azure AD hinzugefügt wurde, kann ei
  - Konfigurieren der App für Self-Service und Zuweisen der Gruppe zur App
 
 > [!NOTE]
-> In diesem Artikel wird beschrieben, wie Sie die Self-Service-Verwaltung für katalog- und SAML-basierte Apps einrichten, die Sie Ihrem Azure AD-Mandanten hinzugefügt haben. Sie können auch [die Self-Service-Verwaltung für Microsoft 365-Gruppen einrichten](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management), damit Ihre Benutzer den Zugriff auf ihre eigenen Microsoft 365-Gruppen verwalten können. Weitere Möglichkeiten, über die Benutzer Office-Dateien und -Apps für Gastbenutzer freigeben können, finden Sie unter [Gastzugriff in Microsoft 365-Gruppen](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) und [Freigeben von SharePoint-Dateien oder -Ordnern](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
+> In diesem Artikel wird beschrieben, wie Sie die Self-Service-Verwaltung für katalog- und SAML-basierte Apps einrichten, die Sie Ihrem Azure AD-Mandanten hinzugefügt haben. Sie können auch [die Self-Service-Verwaltung für Microsoft 365-Gruppen einrichten](../enterprise-users/groups-self-service-management.md), damit Ihre Benutzer den Zugriff auf ihre eigenen Microsoft 365-Gruppen verwalten können. Weitere Möglichkeiten, über die Benutzer Office-Dateien und -Apps für Gastbenutzer freigeben können, finden Sie unter [Gastzugriff in Microsoft 365-Gruppen](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) und [Freigeben von SharePoint-Dateien oder -Ordnern](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
 
 ## <a name="invite-a-guest-user-to-an-app-from-the-access-panel"></a>Einladen eines Gastbenutzers zur App über den Zugriffsbereich
 
@@ -75,7 +75,7 @@ Nach dem Konfigurieren einer App für Self-Service können Anwendungsbesitzer Ga
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Für die Self-Service-App-Verwaltung ist ein anfängliches Setup durch einen globalen Administrator und einen Azure AD-Administrator erforderlich. Im Rahmen dieses Setups konfigurieren Sie die App für Self-Service und weisen der App eine Gruppe zu, die der Besitzer der Anwendung verwalten kann. Sie können die Gruppe auch so konfigurieren, dass jede beliebige Person die Mitgliedschaft anfordern kann, aber die Zustimmung eines Gruppenbesitzers erforderlich ist. (Weitere Informationen zur [Self-Service-Gruppenverwaltung](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management).) 
+Für die Self-Service-App-Verwaltung ist ein anfängliches Setup durch einen globalen Administrator und einen Azure AD-Administrator erforderlich. Im Rahmen dieses Setups konfigurieren Sie die App für Self-Service und weisen der App eine Gruppe zu, die der Besitzer der Anwendung verwalten kann. Sie können die Gruppe auch so konfigurieren, dass jede beliebige Person die Mitgliedschaft anfordern kann, aber die Zustimmung eines Gruppenbesitzers erforderlich ist. (Weitere Informationen zur [Self-Service-Gruppenverwaltung](../enterprise-users/groups-self-service-management.md).) 
 
 > [!NOTE]
 > Sie können Gastbenutzer nicht einer dynamischen Gruppe oder einer Gruppe hinzufügen, die mit einer lokalen Active Directory-Instanz synchronisiert wird.
@@ -105,8 +105,8 @@ Für die Self-Service-App-Verwaltung ist ein anfängliches Setup durch einen glo
 2. Klicken Sie im Navigationsbereich auf **Azure Active Directory**.
 3. Klicken Sie unter **Verwalten** auf **Unternehmensanwendungen** > **Alle Anwendungen**.
 4. Suchen Sie in der Anwendungsliste nach der App, und öffnen Sie diese.
-5. Wählen Sie unter **Verwalten** die Option **Einmaliges Anmelden** aus, und konfigurieren Sie die Anwendung für einmaliges Anmelden. (Details finden Sie unter [Verwalten des einmaligen Anmeldens für Unternehmens-Apps](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications).)
-6. Wählen Sie unter **Verwalten** die Option **Self-Service** aus, und richten Sie den Self-Service-App-Zugriff ein. (Details finden Sie unter [Verwenden des Self-Service-App-Zugriffs](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to).) 
+5. Wählen Sie unter **Verwalten** die Option **Einmaliges Anmelden** aus, und konfigurieren Sie die Anwendung für einmaliges Anmelden. (Details finden Sie unter [Verwalten des einmaligen Anmeldens für Unternehmens-Apps](../manage-apps/add-application-portal-setup-sso.md).)
+6. Wählen Sie unter **Verwalten** die Option **Self-Service** aus, und richten Sie den Self-Service-App-Zugriff ein. (Details finden Sie unter [Verwenden des Self-Service-App-Zugriffs](../manage-apps/access-panel-manage-self-service-access.md).) 
 
     > [!NOTE]
     > Wählen Sie für die Einstellung **Welcher Gruppe sollen zugewiesene Benutzer hinzugefügt werden?** die Gruppe aus, die Sie im vorherigen Abschnitt erstellt haben.
@@ -120,4 +120,4 @@ Weitere Artikel zur Azure AD B2B-Zusammenarbeit:
 - [Was ist die Azure AD B2B-Zusammenarbeit?](what-is-b2b.md)
 - [Wie fügen Azure Active Directory-Administratoren B2B-Zusammenarbeitsbenutzer hinzu?](add-users-administrator.md)
 - [B2B-Zusammenarbeit: Einlösen von Einladungen](redemption-experience.md)
-- [Lizenzierung der Azure AD B2B-Zusammenarbeit](licensing-guidance.md)
+- [Preise für externe Identitäten](external-identities-pricing.md)

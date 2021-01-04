@@ -15,12 +15,12 @@ ms.date: 07/16/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc691148723e610f0885f7c20fd8684f11a81dc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 913b7975de4598bba7240647c1d9e8c81cd1cec9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182325"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659096"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Erste Schritte zur Integration von Anwendungen in Azure Active Directory
 
@@ -66,9 +66,9 @@ Wie oben erwähnt sind möglicherweise Anwendungen im Einsatz, die bis jetzt von
 ## <a name="integrating-applications-with-azure-ad"></a>Integrieren von Anwendungen in Azure Active Directory
 In den folgenden Artikeln werden die verschiedenen Methoden zur Integration von Anwendungen in Azure AD erläutert und Anleitungen bereitgestellt.
 
-* [Bestimmen des zu verwendenden Active Directory-Verzeichnisses](../fundamentals/active-directory-administer.md)
+* [Bestimmen des zu verwendenden Active Directory-Verzeichnisses](../fundamentals/active-directory-whatis.md)
 * [Verwenden von Anwendungen im Azure-Anwendungskatalog](what-is-single-sign-on.md)
-* [Liste der Tutorials zur Integration von SaaS-Anwendungen](../active-directory-saas-tutorial-list.md)
+* [Liste der Tutorials zur Integration von SaaS-Anwendungen](../saas-apps/tutorial-list.md)
 
 ### <a name="authentication-types"></a>Authentifizierungstypen
 Für jede Ihrer Anwendungen gelten möglicherweise unterschiedliche Authentifizierungsanforderungen. Bei Azure AD können Signaturzertifikate mit Anwendungen verwendet werden, die die Protokolle SAML 2.0, WS-Verbund oder OpenID Connect sowie das einmalige Anmelden per Kennwort verwenden. Weitere Informationen zu Anwendungsauthentifizierungstypen, die mit Azure AD verwendet werden können, finden Sie unter [Verwalten von Zertifikaten für die einmalige Verbundanmeldung in Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) und unter [Kennwortbasierte einmalige Anmeldung](what-is-single-sign-on.md).
@@ -77,7 +77,7 @@ Für jede Ihrer Anwendungen gelten möglicherweise unterschiedliche Authentifizi
 Mit dem Microsoft Azure AD-Anwendungsproxy können Sie sicheren Zugriff von jedem Ort und mit jedem Gerät auf Anwendungen bereitstellen, die sich in Ihrem privaten Netzwerk befinden. Nachdem Sie einen Anwendungsproxy-Connector in Ihrer Umgebung installiert haben, können Sie ihn mit Azure AD leicht konfigurieren.
 
 ### <a name="integrating-custom-applications"></a>Integrieren benutzerdefinierter Anwendungen
-Wenn Sie eine neue Anwendung schreiben und Entwickler beim Nutzen der Leistungsfähigkeit von Azure AD unterstützen möchten, finden Sie unter [Leitfaden für Entwickler](../active-directory-applications-guiding-developers-for-lob-applications.md) weitere Informationen.
+Wenn Sie eine neue Anwendung schreiben und Entwickler beim Nutzen der Leistungsfähigkeit von Azure AD unterstützen möchten, finden Sie unter [Leitfaden für Entwickler](./developer-guidance-for-integrating-applications.md) weitere Informationen.
 
 Wenn Sie Ihre benutzerdefinierte Anwendung dem Azure-Anwendungskatalog hinzufügen möchten, finden Sie weitere Informationen unter [“Bring your own app” with Azure AD Self-Service SAML configuration](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)(„Bring your own app“ mit Azure AD-Konfiguration für Self-Service SAML).
 
@@ -86,12 +86,12 @@ In den folgenden Artikeln werden Möglichkeiten zur Verwaltung des Zugriffs auf 
 
 * [Verwalten des Zugriffs auf Apps mit Azure AD](what-is-access-management.md)
 * [Automatisieren mit Azure AD-Connectors](../app-provisioning/user-provisioning.md)
-* [Zuweisen von Benutzern zu einer Anwendung](../active-directory-applications-guiding-developers-assigning-users.md)
-* [Zuweisen von Gruppen zu einer Anwendung](../active-directory-applications-guiding-developers-assigning-groups.md)
-* [Gemeinsames Verwenden von Konten](../active-directory-sharing-accounts.md)
+* [Zuweisen von Benutzern zu einer Anwendung](./assign-user-or-group-access-portal.md)
+* [Zuweisen von Gruppen zu einer Anwendung](./assign-user-or-group-access-portal.md)
+* [Gemeinsames Verwenden von Konten](../enterprise-users/users-sharing-accounts.md)
 
 ## <a name="next-steps"></a>Nächste Schritte
-Für ausführliche Informationen können Sie Azure Active Directory-Bereitstellungspläne von [GitHub](https://aka.ms/deploymentplans) herunterladen. Für Kataloganwendungen können Sie Bereitstellungspläne für einmaliges Anmelden, den bedingten Zugriff und die Benutzerbereitstellung über das [Azure-Portal](https://portal.azure.com) herunterladen. 
+Für ausführliche Informationen können Sie Azure Active Directory-Bereitstellungspläne von [GitHub](../fundamentals/active-directory-deployment-plans.md) herunterladen. Für Kataloganwendungen können Sie Bereitstellungspläne für einmaliges Anmelden, den bedingten Zugriff und die Benutzerbereitstellung über das [Azure-Portal](https://portal.azure.com) herunterladen. 
 
 So laden Sie einen Bereitstellungsplan im Azure-Portal herunter
 

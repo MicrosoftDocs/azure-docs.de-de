@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 5edea4b3d3834d8f99159546c0279394ec3986f8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 11ddb2f40ee56b51c5ecbae11465093abb8e4feb
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324347"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027481"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Schemaabweichung im Zuordnungsdatenfluss
 
@@ -43,7 +43,7 @@ Bei einer Quelltransformation ist die Schemaabweichung definiert als das Lesen v
 
 ![Schemaabweichung (Quelle)](media/data-flow/schemadrift001.png "Schemaabweichung (Quelle)")
 
-Bei aktivierter Schemaabweichung werden während der Ausführung alle eingehenden Felder aus Ihrer Quelle gelesen und durch den gesamten Datenfluss zur Senke geleitet. Alle neu erkannten Spalten (*abweichende Spalten* genannt) werden standardmäßig mit dem Datentyp „String“ empfangen. Wenn Sie möchten, dass der Datenfluss automatisch Datentypen abweichender Spalten ableiten kann, aktivieren Sie in Ihren Quelleinstellungen die Option **Infer drifted column types** (Abweichende Spaltentypen ableiten).
+Bei aktivierter Schemaabweichung werden während der Ausführung alle eingehenden Felder aus Ihrer Quelle gelesen und durch den gesamten Datenfluss zur Senke geleitet. Alle neu erkannten Spalten ( *abweichende Spalten* genannt) werden standardmäßig mit dem Datentyp „String“ empfangen. Wenn Sie möchten, dass der Datenfluss automatisch Datentypen abweichender Spalten ableiten kann, aktivieren Sie in Ihren Quelleinstellungen die Option **Infer drifted column types** (Abweichende Spaltentypen ableiten).
 
 ## <a name="schema-drift-in-sink"></a>Schemaabweichung in Senke
 
@@ -67,13 +67,13 @@ Weitere Informationen zum Implementieren von Spaltenmustern finden Sie unter [Sp
 
 ### <a name="map-drifted-columns-quick-action"></a>Schnellaktion zum Zuordnen abweichender Spalten
 
-Um explizit auf abweichende Spalten zu verweisen, können Sie in kürzester Zeit Zuordnungen für diese Spalten über eine Schnellaktion zur Datenvorschau erzeugen. Nach Aktivierung des [Debugmodus](concepts-data-flow-debug-mode.md) wechseln Sie zur Registerkarte „Datenvorschau“ und klicken auf **Aktualisieren**, um eine Datenvorschau abzurufen. Wenn Data Factory feststellt, dass abweichende Spalten vorhanden sind, können Sie auf **Map Drifted** (Abweichende zuordnen) klicken und eine abgeleitete Spalte erzeugen, mit der Sie in nachgelagerten Schemaansichten auf alle abweichenden Spalten verweisen können.
+Um explizit auf abweichende Spalten zu verweisen, können Sie in kürzester Zeit Zuordnungen für diese Spalten über eine Schnellaktion zur Datenvorschau erzeugen. Nach Aktivierung des [Debugmodus](concepts-data-flow-debug-mode.md) wechseln Sie zur Registerkarte „Datenvorschau“ und klicken auf **Aktualisieren** , um eine Datenvorschau abzurufen. Wenn Data Factory feststellt, dass abweichende Spalten vorhanden sind, können Sie auf **Map Drifted** (Abweichende zuordnen) klicken und eine abgeleitete Spalte erzeugen, mit der Sie in nachgelagerten Schemaansichten auf alle abweichenden Spalten verweisen können.
 
-![Map drifted](media/data-flow/mapdrifted1.png "Map drifted (Abweichende zuordnen)") (Abweichende zuordnen)
+![Screenshot: Registerkarte „Datenvorschau“ mit hervorgehobener Option „Map Drifted“ (Abweichende zuordnen)](media/data-flow/mapdrifted1.png "Map drifted (Abweichende zuordnen)")
 
 In der generierten Transformation des Typs „Abgeleitete Spalten“ werden alle abweichenden Spalten dem erkannten Namen und Datentyp zugeordnet. In der obigen Datenvorschau wird die Spalte „movieId“ als ganze Zahl erkannt. Nach Klicken auf **Map Drifted** (Abweichende zuordnen) wird movieId in der abgeleiteten Spalte als `toInteger(byName('movieId'))` definiert und bei nachgelagerten Transformationen in Schemaansichten berücksichtigt.
 
-![Map drifted](media/data-flow/mapdrifted2.png "Map drifted (Abweichende zuordnen)") (Abweichende zuordnen)
+![Screenshot: Registerkarte mit den Einstellungen der abgeleiteten Spalte](media/data-flow/mapdrifted2.png "Map drifted (Abweichende zuordnen)")
 
 ## <a name="next-steps"></a>Nächste Schritte
 In der [Datenfluss-Ausdruckssprache](data-flow-expression-functions.md) finden Sie zusätzliche Funktionen für Spaltenmuster und Schemaabweichung einschließlich byName und byPosition.

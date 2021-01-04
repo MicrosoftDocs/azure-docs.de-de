@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: eed1b0e1b01d5d13330b927429eca9a28ff80658
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c6d26de62364b6aca671d1e4283a01c1b78c397
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009255"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014831"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Mandanten- und Hostpoolerstellung in Windows Virtual Desktop (klassisch)
 
@@ -49,7 +49,7 @@ Contact your IT Admin to review the configuration of your service subscriptions.
 
 **Ursache:** Windows Virtual Desktop in der Azure Active Directory-Instanz wurde keine Erlaubnis erteilt.
 
-**Behebung:** [Befolgen Sie diese Anleitung](https://docs.microsoft.com/azure/virtual-desktop/virtual-desktop-fall-2019/tenant-setup-azure-active-directory#grant-permissions-to-windows-virtual-desktop), um die Erlaubnis zu erteilen.
+**Behebung:** [Befolgen Sie diese Anleitung](./tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop), um die Erlaubnis zu erteilen.
 
 ### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Error: User is not authorized to query the management service (Der Benutzer ist nicht berechtigt, den Verwaltungsdienst abzufragen)
 
@@ -140,9 +140,9 @@ Wenn die Vorgangsvorlage das Kontingentlimit überschreitet, können Sie eine de
 
 Führen Sie die folgenden Schritte aus, um eine Problembehandlung bei nicht erfolgreichen Bereitstellungen von Azure Resource Manager-Vorlagen und PowerShell DSC durchzuführen.
 
-1. Suchen Sie mithilfe der Informationen im Artikel [Anzeigen von Bereitstellungsvorgängen mit Azure Resource Manager](../../azure-resource-manager/resource-manager-deployment-operations.md) nach möglichen Fehlern in der Bereitstellung.
-2. Wenn keine Fehler in der Bereitstellung vorliegen, sehen Sie sich das Aktivitätsprotokoll an. Nutzen Sie dazu die Informationen unter [Anzeigen von Aktivitätsprotokollen, um Aktionen an Ressourcen zu überwachen](../../azure-resource-manager/resource-group-audit.md).
-3. Sobald der Fehler identifiziert ist, nutzen Sie die Informationen zur Fehlermeldung und zu den Ressourcen im Artikel [Beheben gängiger Azure-Bereitstellungsfehler mit Azure Resource Manager](../../azure-resource-manager/resource-manager-common-deployment-errors.md), um den Fehler zu beheben.
+1. Suchen Sie mithilfe der Informationen im Artikel [Anzeigen von Bereitstellungsvorgängen mit Azure Resource Manager](../../azure-resource-manager/templates/deployment-history.md) nach möglichen Fehlern in der Bereitstellung.
+2. Wenn keine Fehler in der Bereitstellung vorliegen, sehen Sie sich das Aktivitätsprotokoll an. Nutzen Sie dazu die Informationen unter [Anzeigen von Aktivitätsprotokollen, um Aktionen an Ressourcen zu überwachen](../../azure-resource-manager/management/view-activity-logs.md).
+3. Sobald der Fehler identifiziert ist, nutzen Sie die Informationen zur Fehlermeldung und zu den Ressourcen im Artikel [Beheben gängiger Azure-Bereitstellungsfehler mit Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md), um den Fehler zu beheben.
 4. Löschen Sie alle Ressourcen, die während der vorherigen Bereitstellung erstellt wurden, und versuchen Sie erneut, die Vorlage bereitzustellen.
 
 ### <a name="error-your-deployment-failedhostnamejoindomain"></a>Error: Fehler bei der Bereitstellung … \<hostname>/joindomain
@@ -173,7 +173,7 @@ Beispiel für unformatierten Fehler:
 Führen Sie folgende Schritte aus, um dieses Problem zu beheben:
 
 1. Öffnen Sie das Azure-Portal, und wechseln Sie zur Registerkarte **Virtuelle Netzwerke**.
-2. Suchen Sie Ihr VNET, und wählen Sie dann **DNS-Server**aus.
+2. Suchen Sie Ihr VNET, und wählen Sie dann **DNS-Server** aus.
 3. Das Menü für DNS-Server sollte auf der rechten Seite des Bildschirms angezeigt werden. Wählen Sie in diesem Menü **Benutzerdefiniert** aus.
 4. Stellen Sie sicher, dass die unter „Benutzerdefiniert“ aufgelisteten DNS-Server mit Ihrem Domänencontroller oder Ihrer Active Directory-Domäne übereinstimmen. Wenn Ihr DNS-Server nicht angezeigt wird, können Sie ihn hinzufügen, indem Sie den entsprechenden Wert in das Feld **DNS-Server hinzufügen** eingeben.
 
@@ -375,7 +375,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName "RDS Contributor" -SignInName <UPN>
 ```
 
-### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Error: Benutzer erfordert Azure Multi-Factor Authentication (MFA)
+### <a name="error-user-requires-azure-ad-multi-factor-authentication-mfa"></a>Error: Benutzer erfordert Azure AD Multi-Factor Authentication (MFA)
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot: Bereitstellungsfehler aufgrund fehlender Multi-Factor Authentication (MFA)](../media/MFARequiredError.png)
@@ -386,7 +386,7 @@ Beispiel für unformatierten Fehler:
 "message": "{\r\n  \"status\": \"Failed\",\r\n  \"error\": {\r\n    \"code\": \"ResourceDeploymentFailure\",\r\n    \"message\": \"The resource operation completed with terminal provisioning state 'Failed'.\",\r\n    \"details\": [\r\n      {\r\n        \"code\": \"VMExtensionProvisioningError\",\r\n        \"message\": \"VM has reported a failure when processing extension 'dscextension'. Error message: \\\"DSC Configuration 'FirstSessionHost' completed with error(s). Following are the first few: PowerShell DSC resource MSFT_ScriptResource  failed to execute Set-TargetResource functionality with error message: One or more errors occurred.  The SendConfigurationApply function did not succeed.\\\".\"\r\n      }\r\n    ]\r\n  }\r\n}"
 ```
 
-**Ursache:** Der angegebene Administrator für den Windows Virtual Desktop-Mandanten erfordert Azure Multi-Factor Authentication (MFA) zum Anmelden.
+**Ursache:** Der angegebene Administrator für den Windows Virtual Desktop-Mandanten erfordert Azure AD Multi-Factor Authentication (MFA) zum Anmelden.
 
 **Behebung:** Erstellen Sie einen Dienstprinzipal, und weisen Sie diesem eine Rolle für Ihren Windows Virtual Desktop-Mandanten zu. Führen Sie dazu die Schritte in folgendem Artikel aus: [Tutorial: Erstellen von Dienstprinzipalen und Rollenzuweisungen mit PowerShell](create-service-principal-role-powershell.md). Nachdem Sie überprüft haben, ob Sie sich mit dem Dienstprinzipal bei Windows Virtual Desktop anmelden können, führen Sie das Azure Marketplace-Angebot oder die GitHub-Azure Resource Manager-Vorlage erneut aus, je nachdem, welche Methode Sie verwenden. Führen Sie die folgenden Schritte aus, um die richtigen Parameter für Ihre Methode einzugeben.
 

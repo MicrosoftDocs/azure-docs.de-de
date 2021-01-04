@@ -1,22 +1,22 @@
 ---
 title: Verwenden von Studio zum Bereitstellen von Modellen, die im Designer trainiert wurden
 titleSuffix: Azure Machine Learning
-description: Verwenden Sie Azure Machine Learning Studio, um Modelle bereitzustellen, die im Designer trainiert wurden.
+description: Verwenden Sie Azure Machine Learning Studio, um Machine Learning-Modelle bereitzustellen, ohne eine einzige Codezeile schreiben zu müssen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.reviewer: peterlu
-ms.date: 10/12/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy, studio
-ms.openlocfilehash: e2f3e0b596847000af62aa6e23da5b137ee9de33
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 23c6417741d0753fcdaaf30c89c8f51348cc5dc5
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999011"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554681"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Verwenden von Studio zum Bereitstellen von Modellen, die im Designer trainiert wurden
 
@@ -299,6 +299,7 @@ score_params = dict(
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Trainieren eines Modells im Designer](tutorial-designer-automobile-price-train-score.md)
+* [Bereitstellen von Modellen mit dem Azure Machine Learning SDK](how-to-deploy-and-where.md)
 * [Problembehandlung bei einer fehlerhaften Bereitstellung](how-to-troubleshoot-deployment.md)
 * [Bereitstellen für Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Erstellen von Clientanwendungen zum Nutzen von Webdiensten](how-to-consume-web-service.md)

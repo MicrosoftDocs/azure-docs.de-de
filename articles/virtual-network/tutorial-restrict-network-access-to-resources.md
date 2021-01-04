@@ -16,12 +16,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 08/23/2018
 ms.author: kumud
-ms.openlocfilehash: 85fc5687b82947ed16bde0c30ca2b947514ba958
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6716d2ad4252169cfbbf611b0dadc5b077cd362
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74186366"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042558"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Tutorial: Einschränken des Netzwerkzugriffs auf PaaS-Ressourcen mit VNET-Dienstendpunkten mithilfe des Azure-Portals
 
@@ -195,13 +195,13 @@ Standardmäßig akzeptieren Speicherkonten Netzwerkverbindungen von Clients in a
     |Virtuelle Netzwerke|Wählen Sie unter **Virtuelle Netzwerke** **myVirtualNetwork** aus.|
     |Subnetze| Wählen Sie unter **Subnetze** **Private** aus.|
 
-    ![Firewalls und virtuelle Netzwerke](./media/tutorial-restrict-network-access-to-resources/storage-firewalls-and-virtual-networks.png)
+    ![Screenshot: Bereich „Netzwerke hinzufügen“, in dem Sie die angegebenen Werte eingeben können](./media/tutorial-restrict-network-access-to-resources/storage-firewalls-and-virtual-networks.png)
 
 5. Wählen Sie **Speichern** aus.
 6. Schließen Sie das Feld **Firewalls und virtuelle Netzwerke**.
 7. Wählen Sie unter **EINSTELLUNGEN** für das Speicherkonto **Zugriffsschlüssel** aus, wie in der folgenden Abbildung dargestellt:
 
-      ![Firewalls und virtuelle Netzwerke](./media/tutorial-restrict-network-access-to-resources/storage-access-key.png)
+      ![Screenshot, auf dem unter „Einstellungen“ die Option „Zugriffsschlüssel“ ausgewählt ist, unter der Sie einen Schlüssel abrufen können](./media/tutorial-restrict-network-access-to-resources/storage-access-key.png)
 
 8. Notieren Sie den Wert des **Schlüssels**, da Sie ihn beim Zuordnen der Dateifreigabe zu einem Laufwerksbuchstaben in einer VM in einem späteren Schritt manuell eingeben müssen.
 

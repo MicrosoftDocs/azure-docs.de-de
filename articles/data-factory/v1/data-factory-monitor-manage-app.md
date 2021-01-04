@@ -3,8 +3,8 @@ title: Überwachen und Verwalten von Datenpipelines – Azure
 description: Informationen zum Verwenden der App „Überwachung und Verwaltung“ für Azure Data Factorys und Pipelines.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: e378c1e25fb434e689eadd91e9e8562ffe7e61fd
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: afab2b03d31045b9f49f357b49d15368cde898da
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570085"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495700"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Überwachen und Verwalten von Azure Data Factory-Pipelines mit der App „Überwachung und Verwaltung“
 > [!div class="op_single_selector"]
@@ -52,7 +52,7 @@ Die App „Überwachung und Verwaltung“ sollte in einem separaten Fenster geö
 
 In der Aktivitätsfensterliste im mittleren Bereich sehen Sie ein Aktivitätsfenster pro Aktivitätsausführung. Wenn die Aktivität z.B. so geplant ist, dass sie fünf Stunden lang stündlich ausgeführt wird, sehen Sie fünf Aktivitätsfenster, denen fünf Datenslices zugeordnet sind. Wenn die Aktivitätsfenster nicht in der Liste im unteren Bereich angezeigt werden, führen Sie die folgenden Schritte aus:
  
-- Aktualisieren Sie im oberen Bereich die Filter für die**Startzeit** und die **Endzeit**, damit sie den Start- und Endzeiten in Ihrer Pipeline entsprechen, und klicken Sie dann auf die Schaltfläche **Übernehmen**.  
+- Aktualisieren Sie im oberen Bereich die Filter für die **Startzeit** und die **Endzeit**, damit sie den Start- und Endzeiten in Ihrer Pipeline entsprechen, und klicken Sie dann auf die Schaltfläche **Übernehmen**.  
 - Die Liste der Aktivitätsfenster wird nicht automatisch aktualisiert. Klicken Sie auf die Schaltfläche **Aktualisieren** auf der Symbolleiste in der Liste der **Aktivitätsfenster**.  
 
 Wenn Sie keine Data Factory-Anwendung haben, mit der Sie diese Schritte testen können, folgen Sie dem Tutorial: [Kopieren von Daten aus Blob Storage in SQL-Datenbank mithilfe von Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

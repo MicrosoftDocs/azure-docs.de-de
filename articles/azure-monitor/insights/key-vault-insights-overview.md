@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/10/2020
-ms.openlocfilehash: 4b91a9a73035b3add309e72ce544375520cf279e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d28138b251cf159b7cbc5cc6942bb287e57a95d7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278616"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088096"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Überwachen Ihres Schlüsseltresordiensts mit Azure Monitor für Key Vault
 Azure Monitor für Key Vault ermöglicht eine umfassende Überwachung Ihrer Schlüsseltresore. Zu diesem Zweck wird eine einheitliche Darstellung der Anforderungen, Leistung, Fehler und Wartezeit im Zusammenhang mit Key Vault bereitgestellt.
@@ -90,7 +90,7 @@ In der Arbeitsmappe „Fehler“ werden die Ergebnisse aller Schlüsseltresoranf
 
 Die Arbeitsmappe „Vorgänge“ ermöglicht es Benutzern, sich mit sämtlichen Details aller Transaktionen zu befassen. Diese können über die Kacheln im oberen Bereich nach Ergebnisstatus gefiltert werden.
 
-![Screenshot: Vorgangsansicht](./media/key-vaults-insights-overview/info.png)
+![Screenshot: Arbeitsmappe „Vorgänge“ mit vollständigen Details aller Transaktionen](./media/key-vaults-insights-overview/info.png)
 
 Benutzer können in der oberen Tabelle auch Sichten auf der Grundlage spezifischer Transaktionstypen festlegen, wodurch die untere Tabelle dynamisch aktualisiert wird. Dort können Benutzer dann umfassende Vorgangsdetails in einem eingeblendeten Kontextbereich anzeigen.
 
@@ -129,7 +129,7 @@ Sie können den Bereich der Übersichts- oder Fehlerarbeitsmappe für mehrere Ab
 2. Wählen Sie in der Arbeitsmappe **Übersicht** in der Befehlsleiste den Befehl **Bearbeiten** aus.
 3. Wählen Sie in der Dropdownliste **Abonnements** mindestens ein Abonnement aus, das Sie als Standard verwenden möchten. Beachten Sie, dass die Arbeitsmappe die Auswahl von bis zu 10 Abonnements unterstützt.
 4. Wählen Sie in der Dropdownliste **Schlüsseltresore** mindestens ein Konto aus, das Sie als Standard verwenden möchten. Beachten Sie, dass die Arbeitsmappe die Auswahl von bis zu insgesamt 200 Speicherkonten unterstützt.
-5. Wählen Sie in der Befehlsleiste den Befehl **Speichern unter** aus, um eine Kopie der Arbeitsmappe mit Ihren Anpassungen zu speichern. Klicken Sie dann auf **Bearbeitung abgeschlossen**, um zum Lesemodus zurückzukehren.
+5. Wählen Sie in der Befehlsleiste den Befehl **Speichern unter** aus, um eine Kopie der Arbeitsmappe mit Ihren Anpassungen zu speichern. Klicken Sie dann auf **Bearbeitung abgeschlossen** , um zum Lesemodus zurückzukehren.
 
 ## <a name="troubleshooting"></a>Problembehandlung
 

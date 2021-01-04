@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a602405065a41cb26b2ae5303d12c45ed21616f
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 99da9b787bfe06bece8b8dafdafc257336dddf63
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91741192"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96176187"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Behandlung von Problemen bei der Azure Active Directory-Passthrough-Authentifizierung
 
@@ -72,7 +72,7 @@ Dieser Fall kann eintreten, wenn sich der lokale Benutzerprinzipalname (User Pri
  ``` 
 4. Wenn Sie zur Eingabe von Anmeldeinformationen aufgefordert werden, geben Sie den für die Anmeldung verwendeten Benutzernamen und das entsprechende Kennwort ein (https://login.microsoftonline.com).
 
-Sollte der gleiche Benutzernamen-/Kennwortfehler auftreten, funktioniert der Agent für die Passthrough-Authentifizierung ordnungsgemäß, und das Problem ist möglicherweise auf einen nicht routingfähigen lokalen UPN zurückzuführen. Weitere Informationen finden Sie unter [Konfigurieren einer alternativen Anmelde-ID]( /windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
+Sollte der gleiche Benutzernamen-/Kennwortfehler auftreten, funktioniert der Agent für die Passthrough-Authentifizierung ordnungsgemäß, und das Problem ist möglicherweise auf einen nicht routingfähigen lokalen UPN zurückzuführen. Weitere Informationen finden Sie unter [Konfigurieren einer alternativen Anmelde-ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 
 > [!IMPORTANT]
 > Wenn der Azure AD Connect-Server nicht in die Domäne eingebunden ist, eine Anforderung, die unter [Azure AD Connect: Voraussetzungen für die Installation](./how-to-connect-install-prerequisites.md#installation-prerequisites) erwähnt wird, tritt das Problem mit dem ungültigen Benutzernamen/Kennwort auf.
@@ -156,6 +156,8 @@ Prüfen Sie bei Fehlern im Zusammenhang mit der Installation die Azure AD Connec
 Öffnen Sie bei Fehlern in Zusammenhang mit dem Authentifizierungs-Agent die Ereignisanzeige auf dem Server unter **Anwendungs- und Dienstprotokolle\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**, und prüfen Sie sie.
 
 Aktivieren Sie zur detaillierten Analyse das Sitzungsprotokoll. (Klicken Sie mit der rechten Maustaste in die Anwendung „Ereignisanzeige“, um diese Option zu finden.). Führen Sie den Authentifizierungs-Agent im Normalbetrieb nicht mit diesem Protokoll aus. Verwenden Sie es ausschließlich zur Problembehandlung. Die Protokollinhalte werden nur angezeigt, nachdem das Protokoll wieder deaktiviert wird.
+
+Das Ereignismanifest des PTA-Agents finden Sie [hier](https://msazure.visualstudio.com/One/_git/AD-AppProxy?path=%2Fsrc%2FProduct%2FMUC%2FPTADiagnosticsResource%2FPTADiagnosticsResource%2FPTAConnectorDiagnosticsResource%2FPTAConnectorEventManifest.man&_a=contents&version=GBmaster).
 
 ### <a name="detailed-trace-logs"></a>Ausführliche Ablaufverfolgungsprotokolle
 

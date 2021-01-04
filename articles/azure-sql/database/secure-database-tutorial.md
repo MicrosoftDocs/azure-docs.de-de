@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: bec60875561a9d821642d850c27e47d4f906aba3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77ed71d74e75abfdf7f84aee9b116f1d9d2ccc9d
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885409"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985857"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Tutorial: Schützen einer Datenbank in Azure SQL-Datenbank
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,10 +39,10 @@ Azure SQL-Datenbank bietet folgende Möglichkeiten, um Daten zu schützen:
 > [!NOTE]
 > Eine verwaltete Azure SQL-Instanz wird mithilfe von Netzwerksicherheitsregeln und privaten Endpunkten geschützt, wie unter [Verwaltete Azure SQL-Instanz](../managed-instance/sql-managed-instance-paas-overview.md) und unter [Verbindungsarchitektur](../managed-instance/connectivity-architecture-overview.md) beschrieben.
 
-Weitere Informationen finden Sie in den Artikeln [Azure SQL-Datenbank – Erweiterte Sicherheit](/azure/sql-database/sql-database-security-index) und [Eine Übersicht über die Sicherheitsfunktionen von Azure SQL-Datenbank](security-overview.md).
+Weitere Informationen finden Sie in den Artikeln [Azure SQL-Datenbank – Erweiterte Sicherheit](./security-overview.md) und [Eine Übersicht über die Sicherheitsfunktionen von Azure SQL-Datenbank](security-overview.md).
 
 > [!TIP]
-> In den folgenden Microsoft Learn-Modulen können Sie sich kostenlos über das [Schützen Ihrer Datenbank in Azure SQL-Datenbank](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/) informieren.
+> In den folgenden Microsoft Learn-Modulen können Sie sich kostenlos über das [Schützen Ihrer Datenbank in Azure SQL-Datenbank](/learn/modules/secure-your-azure-sql-database/) informieren.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -62,7 +62,7 @@ Für alle Schritte in diesem Tutorial ist eine Anmeldung beim [Azure-Portal](htt
 
 Datenbanken in Azure SQL-Datenbank werden in Azure durch Firewalls geschützt. Standardmäßig werden alle Verbindungen mit dem Server und der Datenbank abgelehnt. Weitere Informationen finden Sie unter [Firewallregeln auf Server- und Datenbankebene](firewall-configure.md).
 
-Die sicherste Konfiguration erhalten Sie, indem Sie **Zugriff auf Azure-Dienste erlauben** auf **AUS** festlegen. Erstellen Sie anschließend für die Ressource, die eine Verbindung herstellen muss (beispielsweise ein virtueller Computer oder ein Clouddienst), eine [reservierte IP-Adresse (klassische Bereitstellung)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip), und lassen Sie den Zugriff durch die Firewall nur für diese IP-Adresse zu. Bei Verwendung des [Resource Manager-Bereitstellungsmodells](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) wird für jede Ressource eine dedizierte öffentliche IP-Adresse benötigt.
+Die sicherste Konfiguration erhalten Sie, indem Sie **Zugriff auf Azure-Dienste erlauben** auf **AUS** festlegen. Erstellen Sie anschließend für die Ressource, die eine Verbindung herstellen muss (beispielsweise ein virtueller Computer oder ein Clouddienst), eine [reservierte IP-Adresse (klassische Bereitstellung)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip), und lassen Sie den Zugriff durch die Firewall nur für diese IP-Adresse zu. Bei Verwendung des [Resource Manager-Bereitstellungsmodells](../../virtual-network/public-ip-addresses.md) wird für jede Ressource eine dedizierte öffentliche IP-Adresse benötigt.
 
 > [!NOTE]
 > SQL-Datenbank kommuniziert über Port 1433. Wenn Sie versuchen, eine Verbindung aus einem Unternehmensnetzwerk heraus herzustellen, wird der ausgehende Datenverkehr über Port 1433 von der Firewall Ihres Netzwerks unter Umständen nicht zugelassen. In diesem Fall können Sie nur dann eine Verbindung mit Ihrem Server herstellen, wenn Ihr Administrator den Port 1433 öffnet.
@@ -131,7 +131,7 @@ So legen Sie den Azure AD-Administrator fest:
     ![Auswählen des Administrators](./media/secure-database-tutorial/admin-select.png)
 
     > [!IMPORTANT]
-    > Die rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC) gilt nur für das Portal und wird nicht an SQL Server weitergegeben.
+    > Rollenbasierte Zugriffssteuerung in Azure (Azure Role-Based Access Control, Azure RBAC) gilt nur für das Portal und wird nicht an SQL Server weitergegeben.
 
 1. Wählen Sie oben auf der Seite **Active Directory-Administrator** die Option **Speichern** aus.
 

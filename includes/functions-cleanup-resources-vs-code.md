@@ -2,25 +2,21 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/28/2020
+ms.date: 10/20/2020
 ms.author: glenga
-ms.openlocfilehash: 0d83f3a92efe7bddcefdeebb5b6d580caf749206
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: af009a3f04f17d9d7e518d2dd02343a8ed54e342
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91408550"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93424690"
 ---
-1. Drücken Sie in Visual Studio Code <kbd>F1</kbd>, um die Befehlspalette zu öffnen. Suchen Sie in der Befehlspalette den Befehl `Azure Functions: Open in portal`, und wählen Sie ihn aus.
+## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-1. Wählen Sie Ihre Funktions-App aus, und drücken Sie die <kbd>EINGABETASTE</kbd>. Die Seite der Funktions-App wird im Azure-Portal geöffnet.
+Wenn Sie mit dem [nächsten Schritt](#next-steps) fortfahren und Ihrer Funktion eine Azure Storage-Warteschlangenbindung hinzufügen möchten, müssen alle Ihre Ressourcen erhalten bleiben, um darauf aufbauen zu können.
 
-1. Wählen Sie auf der Registerkarte **Übersicht** den benannten Link neben **Ressourcengruppe** aus.
+Andernfalls können Sie die Funktions-App und die zugehörigen Ressourcen wie im Anschluss beschrieben löschen, um weitere Kosten zu vermeiden.
 
-   :::image type="content" source="./media/functions-cleanup-resources-vs-code/functions-app-delete-resource-group.png" alt-text="Wählen Sie auf der Seite „Funktions-App“ die zu löschende Ressourcengruppe aus.":::
+[!INCLUDE [functions-cleanup-resources-vs-code-inner.md](functions-cleanup-resources-vs-code-inner.md)]
 
-1. Prüfen Sie auf der Seite **Ressourcengruppe** die Liste mit den enthaltenen Ressourcen, und vergewissern Sie sich, dass es sich dabei um die Ressourcen handelt, die Sie löschen möchten.
- 
-1. Klicken Sie auf **Ressourcengruppe löschen**, und folgen Sie den Anweisungen.
-
-   Der Löschvorgang kann einige Minuten dauern. Nach Abschluss des Vorgangs wird kurz eine Benachrichtigung angezeigt. Sie können auch am oberen Seitenrand auf das Glockensymbol klicken, um die Benachrichtigung anzuzeigen.
+Weitere Informationen zu den Kosten von Functions finden Sie unter [Abschätzen der Kosten des Verbrauchstarifs](../articles/azure-functions/functions-consumption-costs.md).

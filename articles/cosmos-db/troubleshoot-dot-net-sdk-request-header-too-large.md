@@ -3,19 +3,22 @@ title: Behandeln von Problemen im Zusammenhang mit zu großem Anforderungsheader
 description: Erfahren Sie, wie Sie Ausnahmen diagnostizieren und beheben, die auf einen zu großen Anforderungsheader zurückzuführen sind.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: d5d66ca05390af5f6fef91ca959f1db3d547d3fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a14503bc56777563b6360143efaa86a136b22278
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89014046"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340514"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-header-too-large-message"></a>Diagnostizieren und Behandeln von Problemen im Zusammenhang mit der Azure Cosmos DB-Meldung, dass der Anforderungsheader zu groß ist
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 Die Meldung, dass der Anforderungsheader zu groß ist, wird mit dem HTTP-Fehlercode 400 ausgelöst. Dieser Fehler tritt auf, wenn der Anforderungsheader zu groß geworden ist und die maximal zulässige Größe übersteigt. Es wird empfohlen, die neueste Version des SDK zu verwenden. Verwenden Sie mindestens die Version 3.x oder 2.x, da der Ausnahmemeldung in diesen Versionen eine Verfolgung der Headergröße hinzugefügt wird.
 
 ## <a name="troubleshooting-steps"></a>Schritte zur Problembehandlung

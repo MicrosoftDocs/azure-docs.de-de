@@ -7,23 +7,23 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
-author: MightyPen
-ms.author: genemi
-ms.reviewer: jrasnik
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 57449b0bbd39b6ea04ecae5a3ad766ae5687ca0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a646588616b874e40b1ed2a5a0b5e691b075075d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619830"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487302"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Code des Ringpufferziels für erweiterte Ereignisse in Azure SQL-Datenbank
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../../includes/sql-database-xevents-selectors-1-include.md)]
 
-Sie suchen ein vollständiges Codebeispiel für die einfachste schnelle Möglichkeit zum Erfassen und Melden von Informationen für erweiterte Ereignisse während eines Tests. Das einfachste Ziel für erweiterte Ereignisdaten ist das [Ringpufferziel](https://msdn.microsoft.com/library/ff878182.aspx).
+Sie suchen ein vollständiges Codebeispiel für die einfachste schnelle Möglichkeit zum Erfassen und Melden von Informationen für erweiterte Ereignisse während eines Tests. Das einfachste Ziel für erweiterte Ereignisdaten ist das [Ringpufferziel](/previous-versions/sql/sql-server-2016/bb630339(v=sql.130)).
 
 In diesem Thema finden Sie ein Transact-SQL-Codebeispiel, mit dem folgende Aufgaben ausgeführt werden:
 
@@ -50,7 +50,7 @@ In diesem Thema finden Sie ein Transact-SQL-Codebeispiel, mit dem folgende Aufga
 * SQL Server Management Studio („ssms.exe“), im Idealfall die aktuelle monatliche Updateversion.
   Sie können "ssms.exe" in der neuesten Version wie folgt herunterladen:
   
-  * Im Thema [Herunterladen von SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+  * Im Thema [Herunterladen von SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
   * [Über diesen direkten Link zum Herunterladen.](https://go.microsoft.com/fwlink/?linkid=616025)
 
 ## <a name="code-sample"></a>Codebeispiel
@@ -349,6 +349,6 @@ Weitere Themen mit Codebeispielen für erweiterte Ereignisse finden Sie unter de
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](/sql/relational-databases/extended-events/determine-which-queries-are-holding-locks)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](/sql/relational-databases/extended-events/find-the-objects-that-have-the-most-locks-taken-on-them)
 -->

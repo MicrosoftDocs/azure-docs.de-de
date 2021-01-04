@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 06/03/2019
-ms.openlocfilehash: 8f0c15c2b401992ebe90bbd982bd80ee1ad9ec36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a373a28a180b2a6c72f6a291b9d1437a2e88d9ff
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444204"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500953"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>E-Mail-Benachrichtigungen zur automatischen Optimierung
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -24,19 +24,19 @@ ms.locfileid: "91444204"
 
 Die Optimierungsempfehlungen für Azure SQL-Datenbank werden mit dem Feature [Automatische Optimierung](automatic-tuning-overview.md) von Azure SQL-Datenbank generiert. Diese Lösung führt eine kontinuierliche Überwachung und Analyse der Workloads von Datenbanken durch und stellt Optimierungsempfehlungen für jede einzelne Datenbank im Hinblick auf Indexerstellung, Indexlöschung und Optimierung von Abfrageausführungsplänen bereit.
 
-Sie können die Empfehlungen zur automatischen Optimierung von Azure SQL-Datenbank im [Azure-Portal](database-advisor-find-recommendations-portal.md) anzeigen oder mit [REST-API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor)-Aufrufen oder [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/)- und [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction)-Befehlen abrufen. In diesem Artikel wird ein PowerShell-Skript zum Abrufen der Empfehlungen zur automatischen Optimierung verwendet.
+Sie können die Empfehlungen zur automatischen Optimierung von Azure SQL-Datenbank im [Azure-Portal](database-advisor-find-recommendations-portal.md) anzeigen oder mit [REST-API](/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor)-Aufrufen oder [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/)- und [PowerShell](/powershell/module/az.sql/get-azsqldatabaserecommendedaction)-Befehlen abrufen. In diesem Artikel wird ein PowerShell-Skript zum Abrufen der Empfehlungen zur automatischen Optimierung verwendet.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Das PowerShell Azure Resource Manager-Modul wird von Azure SQL-Datenbank weiterhin unterstützt, aber alle zukünftigen Entwicklungen erfolgen für das Az.Sql-Modul. Informationen zu diesen Cmdlets finden Sie unter [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Die Argumente für die Befehle im Az-Modul und den AzureRm-Modulen sind im Wesentlichen identisch.
+> Das PowerShell Azure Resource Manager-Modul wird von Azure SQL-Datenbank weiterhin unterstützt, aber alle zukünftigen Entwicklungen erfolgen für das Az.Sql-Modul. Informationen zu diesen Cmdlets finden Sie unter [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Die Argumente für die Befehle im Az-Modul und den AzureRm-Modulen sind im Wesentlichen identisch.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>Automatisieren von E-Mail-Benachrichtigungen für Empfehlungen zur automatischen Optimierung
 
-Mit der folgenden Lösung wird das Senden von E-Mail-Benachrichtigungen automatisiert, die Empfehlungen zur automatischen Optimierung enthalten. Die beschriebene Lösung umfasst die automatische Ausführung eines PowerShell-Skripts zum Abrufen von Optimierungsempfehlungen mithilfe von [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) und die Automatisierung der Planung der E-Mail-Übermittlung unter Verwendung von [Microsoft Flow ](https://flow.microsoft.com).
+Mit der folgenden Lösung wird das Senden von E-Mail-Benachrichtigungen automatisiert, die Empfehlungen zur automatischen Optimierung enthalten. Die beschriebene Lösung umfasst die automatische Ausführung eines PowerShell-Skripts zum Abrufen von Optimierungsempfehlungen mithilfe von [Azure Automation](../../automation/automation-intro.md) und die Automatisierung der Planung der E-Mail-Übermittlung unter Verwendung von [Microsoft Flow ](https://flow.microsoft.com).
 
 ## <a name="create-azure-automation-account"></a>Erstellen eines Azure Automation-Kontos
 
-Um Azure Automation verwenden zu können, müssen Sie zunächst ein Automation-Konto erstellen und dieses mit Azure-Ressourcen konfigurieren, um damit das PowerShell-Skript auszuführen. Weitere Informationen zu Azure Automation und den enthaltenen Funktionen finden Sie unter [Erste Schritte mit Azure Automation](https://docs.microsoft.com/azure/automation/automation-offering-get-started).
+Um Azure Automation verwenden zu können, müssen Sie zunächst ein Automation-Konto erstellen und dieses mit Azure-Ressourcen konfigurieren, um damit das PowerShell-Skript auszuführen. Weitere Informationen zu Azure Automation und den enthaltenen Funktionen finden Sie unter [Erste Schritte mit Azure Automation](../../automation/index.yml).
 
 Führen Sie diese Schritte aus, um ein Azure Automation-Konto zu erstellen, indem Sie im Azure Marketplace eine Automation-App auswählen und konfigurieren:
 
@@ -49,7 +49,7 @@ Führen Sie diese Schritte aus, um ein Azure Automation-Konto zu erstellen, inde
 
 1. Klicken Sie innerhalb des Bereichs „Automation-Konto erstellen“ auf **Erstellen**.
 1. Geben Sie die erforderlichen Informationen an: Geben Sie einen Namen für dieses Automation-Konto ein, und wählen Sie Ihre Azure-Abonnement-ID und die Azure-Ressourcen aus, die für die Ausführung des PowerShell-Skripts verwendet werden sollen.
-1. Wählen Sie für **Ausführendes Azure-Konto erstellen** die Option **Ja** aus, um den Typ des Kontos, unter dem das PowerShell-Skript mithilfe von Azure Automation ausgeführt wird, zu konfigurieren. Weitere Informationen zu den Kontotypen finden Sie unter [Ausführendes Konto](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+1. Wählen Sie für **Ausführendes Azure-Konto erstellen** die Option **Ja** aus, um den Typ des Kontos, unter dem das PowerShell-Skript mithilfe von Azure Automation ausgeführt wird, zu konfigurieren. Weitere Informationen zu den Kontotypen finden Sie unter [Ausführendes Konto](../../automation/manage-runas-account.md).
 1. Klicken Sie auf **Erstellen**, um die Erstellung des Automation-Kontos abzuschließen.
 
 > [!TIP]
@@ -59,7 +59,7 @@ Wenn Sie über mehrere Azure-Abonnements verfügen, für die Sie die gleiche Aut
 
 ## <a name="update-azure-automation-modules"></a>Aktualisieren von Azure Automation-Modulen
 
-Das PowerShell-Skript zum Abrufen der Empfehlungen zur automatischen Optimierung verwendet die Befehle [Get-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) und [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction), für die mindestens Version 4 des Azure-Moduls erforderlich ist.
+Das PowerShell-Skript zum Abrufen der Empfehlungen zur automatischen Optimierung verwendet die Befehle [Get-AzResource](/powershell/module/az.Resources/Get-azResource) und [Get-AzSqlDatabaseRecommendedAction](/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction), für die mindestens Version 4 des Azure-Moduls erforderlich ist.
 
 - Falls Sie Ihre Azure-Module aktualisieren müssen, helfen Ihnen die Informationen unter [Unterstützung für Az-Module in Azure Automation](../../automation/shared-resources/modules.md) weiter.
 
@@ -82,7 +82,7 @@ Führen Sie diese Schritte aus, um ein PowerShell-Skript in das erstellte Runboo
 1. Klicken Sie im Bereich **PowerShell-Runbook bearbeiten** in der Menüstruktur auf **RUNBOOKS**, und erweitern Sie die Ansicht, bis der Name Ihres Runbooks angezeigt wird (in diesem Beispiel  **AutomaticTuningEmailAutomation**). Wählen Sie dieses Runbook aus.
 1. Fügen Sie den folgenden PowerShell-Skriptcode durch Kopieren und Einfügen in der ersten Zeile von „PowerShell-Runbook bearbeiten“ (beginnt mit der Zahl 1) ein. Dieses PowerShell-Skript wird unverändert bereitgestellt, um Ihnen den Einstieg zu erleichtern. Passen Sie das Skript an Ihre Anforderungen an.
 
-Sie müssen im Header des bereitgestellten PowerShell-Skripts `<SUBSCRIPTION_ID_WITH_DATABASES>` durch Ihre Azure-Abonnement-ID ersetzen. Informationen zum Abrufen der Azure-Abonnement-ID finden Sie unter [Abrufen Ihrer Azure-Abonnement-GUID](https://blogs.msdn.microsoft.com/mschray/20../../getting-your-azure-subscription-guid-new-portal/).
+Sie müssen im Header des bereitgestellten PowerShell-Skripts `<SUBSCRIPTION_ID_WITH_DATABASES>` durch Ihre Azure-Abonnement-ID ersetzen. Informationen zum Abrufen der Azure-Abonnement-ID finden Sie unter [Abrufen Ihrer Azure-Abonnement-GUID](/archive/blogs/mschray/getting-your-azure-subscription-guid-new-portal).
 
 Bei mehreren Abonnements können Sie diese durch Kommas getrennt in der „$subscriptions“-Eigenschaft im Header des Skripts hinzufügen.
 
@@ -189,7 +189,7 @@ Zum Abschließen der Lösung erstellen Sie im letzten Schritt einen Automation-F
 - **Azure Automation – Auftragsausgabe abrufen:** zum Abrufen der Ausgabe des ausgeführten PowerShell-Skripts.
 - **Office 365 Outlook – E-Mail senden:** zum Senden einer E-Mail E-Mails werden mit dem Geschäfts-, Schul- oder Unikonto der Person gesendet, die den Flow erstellt hat.
 
-Weitere Informationen zu den Funktionen von Microsoft Flow finden Sie unter [Erste Schritte mit Microsoft Flow](https://docs.microsoft.com/flow/getting-started).
+Weitere Informationen zu den Funktionen von Microsoft Flow finden Sie unter [Erste Schritte mit Microsoft Flow](/flow/getting-started).
 
 Voraussetzung für diesen Schritt ist die Registrierung und Anmeldung bei einem [Microsoft Flow](https://flow.microsoft.com)-Konto. Führen Sie in der Lösung die folgenden Schritte aus, um einen **neuen Flow** einzurichten:
 
@@ -205,13 +205,13 @@ Im nächsten Schritt werden dem neu erstellten Flow drei Aufträge (Erstellen, A
 
    - Klicken Sie auf **+ Neuer Schritt** und dann im Bereich „Wiederholung“ des Flows auf die Option **Aktion hinzufügen**.
    - Geben Sie in das Suchfeld **Automation** ein, und wählen Sie in den Suchergebnissen **Azure Automation – Auftrag erstellen** aus.
-   - Konfigurieren Sie im Bereich „Auftrag erstellen“ die Auftragseigenschaften. Bei dieser Konfiguration benötigen Sie Details Ihrer Azure-Abonnement-ID, der Ressourcengruppe und des Automation-Kontos, die Sie im Bereich **Automation-Konto** zuvor **notiert haben**. Weitere Informationen zu den in diesem Abschnitt verfügbaren Optionen finden Sie unter [Azure Automation – Auftrag erstellen](https://docs.microsoft.com/connectors/azureautomation/#create-job).
+   - Konfigurieren Sie im Bereich „Auftrag erstellen“ die Auftragseigenschaften. Bei dieser Konfiguration benötigen Sie Details Ihrer Azure-Abonnement-ID, der Ressourcengruppe und des Automation-Kontos, die Sie im Bereich **Automation-Konto** zuvor **notiert haben**. Weitere Informationen zu den in diesem Abschnitt verfügbaren Optionen finden Sie unter [Azure Automation – Auftrag erstellen](/connectors/azureautomation/#create-job).
    - Schließen Sie das Erstellen der Aktion ab, indem Sie auf **Flow speichern** klicken.
 
 2. Erstellen Sie eine Aktion, um die Ausgabe des ausgeführten PowerShell-Skripts abzurufen.
 
    - Klicken Sie auf **+ Neuer Schritt** und dann im Bereich „Wiederholung“ des Flows auf die Option **Aktion hinzufügen**.
-   - Geben Sie in das Suchfeld **Automation** ein, und wählen Sie in den Suchergebnissen **Azure Automation – Auftragsausgabe abrufen** aus. Weitere Informationen zu den in diesem Abschnitt verfügbaren Optionen finden Sie unter [Azure Automation – Auftragsausgabe abrufen](https://docs.microsoft.com/connectors/azureautomation/#get-job-output).
+   - Geben Sie in das Suchfeld **Automation** ein, und wählen Sie in den Suchergebnissen **Azure Automation – Auftragsausgabe abrufen** aus. Weitere Informationen zu den in diesem Abschnitt verfügbaren Optionen finden Sie unter [Azure Automation – Auftragsausgabe abrufen](/connectors/azureautomation/#get-job-output).
    - Geben Sie in die erforderlichen Felder (ähnlich wie bei der vorherigen Auftragserstellung) Ihre Azure-Abonnement-ID, die Ressourcengruppe und ein Automation-Konto (wie im Bereich „Automation-Konto“ eingegeben) ein.
    - Klicken Sie in das Feld **Auftrags-ID**, um das Menü **Dynamischer Inhalt** anzuzeigen. Klicken Sie in diesem Menü auf die Option **Auftrags-ID**.
    - Schließen Sie das Erstellen der Aktion ab, indem Sie auf **Flow speichern** klicken.

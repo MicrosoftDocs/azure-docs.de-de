@@ -9,20 +9,20 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: d84a0190e13d7bb7664e8792e0047338fe4bf5e2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6a7301fd878eb65e4c1dd540275611bcf9348afc
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85961233"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241742"
 ---
 # <a name="what-is-custom-translator"></a>Worum handelt es sich bei Custom Translator?
 
-[Custom Translator](https://portal.customtranslator.azure.ai) ist ein Feature des Microsoft Translator-Diensts, der Übersetzungsunternehmen, App-Entwicklern und Sprachdienstanbietern das Erstellen von angepassten Systemen für neuronale maschinelle Übersetzung (NMT) ermöglicht. Das angepasste Übersetzungssystem wird nahtlos in vorhandene Anwendungen, Workflows und Websites integriert. [Custom Translator](https://portal.customtranslator.azure.ai/) bietet ähnliche Funktionen wie [Microsoft Translator Hub](https://hub.microsofttranslator.com/) für die statistische maschinelle Übersetzung (Statistical Machine Translation, SMT), aber ausschließlich für Systeme für neuronale maschinelle Übersetzung (Neural Machine Translation, NMT).
+[Custom Translator](https://portal.customtranslator.azure.ai) ist ein Feature des Microsoft Translator-Diensts, der Übersetzungsunternehmen, App-Entwicklern und Sprachdienstanbietern das Erstellen von angepassten Systemen für neuronale maschinelle Übersetzung (NMT) ermöglicht. Das angepasste Übersetzungssystem wird nahtlos in vorhandene Anwendungen, Workflows und Websites integriert.
 
-Mit [Custom Translator](https://portal.customtranslator.azure.ai) erstellte Übersetzungssysteme sind über dieselbe cloudbasierte, [sichere](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality), leistungsstarke, hochgradig skalierbare [Textübersetzungs-API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) von Microsoft verfügbar, die jeden Tag Milliarden von Übersetzungen ermöglicht.
+Mit [Custom Translator](https://portal.customtranslator.azure.ai) erstellte Übersetzungssysteme sind über dieselbe cloudbasierte, [sichere](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality), leistungsstarke, hochgradig skalierbare [Textübersetzungs-API V3](../reference/v3-0-translate.md?tabs=curl) von Microsoft verfügbar, die jeden Tag Milliarden von Übersetzungen ermöglicht.
 
-Custom Translator unterstützt mehr als drei Dutzend Sprachen und nimmt eine direkte Zuordnung an die für NMT verfügbaren Sprachen vor. Eine vollständige Liste finden Sie unter [Sprach- und Regionsunterstützung für die Textübersetzungs-API](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
+Custom Translator unterstützt mehr als drei Dutzend Sprachen und nimmt eine direkte Zuordnung an die für NMT verfügbaren Sprachen vor. Eine vollständige Liste finden Sie unter [Sprach- und Regionsunterstützung für die Textübersetzungs-API](../language-support.md#customization).
 
 ## <a name="features"></a>Features
 
@@ -34,7 +34,7 @@ Custom Translator bietet verschiedene Funktionen zum Erstellen eines benutzerdef
 |[Erstellen von Systemen, die Ihre Geschäftsterminologie kennen](what-are-parallel-documents.md)     |  Mithilfe von parallelen Dokumenten können Sie Übersetzungssysteme erstellen, die die Terminologie verstehen, die in Ihrem Unternehmen und der Branche verwendet wird.       |
 |[Verwenden eines Wörterbuchs zum Erstellen Ihrer Modelle](what-is-dictionary.md)     |   Wenn Sie kein Trainingsdataset haben, können Sie ein Modell nur mit Wörterbuchdaten trainieren.       |
 |[Zusammenarbeit mit anderen Benutzern](how-to-manage-settings.md#share-your-workspace)     |   Teilen Sie Ihre Arbeit mit verschiedenen Personen, um mit Ihrem Team zusammenarbeiten.     |
-|[Zugriff auf Ihr benutzerdefiniertes Übersetzungsmodell](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)     |  Der Zugriff auf Ihr benutzerdefiniertes Übersetzungsmodell in Ihren vorhandenen Anwendungen/Programmen ist jederzeit über die Microsoft-Textübersetzungs-API V3 möglich.       |
+|[Zugriff auf Ihr benutzerdefiniertes Übersetzungsmodell](../reference/v3-0-translate.md?tabs=curl)     |  Der Zugriff auf Ihr benutzerdefiniertes Übersetzungsmodell in Ihren vorhandenen Anwendungen/Programmen ist jederzeit über die Microsoft-Textübersetzungs-API V3 möglich.       |
 
 ## <a name="get-better-translations"></a>Bessere Übersetzungen
 

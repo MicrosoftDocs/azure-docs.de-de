@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f6f3b10219775adb02d47a91da2573ea99f30ac0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60090dec56a177fac6ddad946d97142b484355af
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212249"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425743"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Einrichten von vCenter-Identitätsquellen für die Verwendung von Active Directory
 
 ## <a name="about-vmware-vcenter-identity-sources"></a>Informationen zu VMware vCenter-Identitätsquellen
 
-VMware vCenter unterstützt verschiedene Identitätsquellen für die Authentifizierung von Benutzern, die auf vCenter zugreifen.  Ihr vCenter für die private CloudSimple-Cloud kann für die Authentifizierung mit Azure Active Directory (Azure AD) eingerichtet werden, damit Ihre VMware-Administratoren auf vCenter zugreifen können. Wenn das Setup abgeschlossen ist, kann der **cloudowner**-Benutzer vCenter Benutzer aus der Identitätsquelle hinzufügen.  
+VMware vCenter unterstützt verschiedene Identitätsquellen für die Authentifizierung von Benutzern, die auf vCenter zugreifen.  Ihr vCenter für die private CloudSimple-Cloud kann für die Authentifizierung mit Azure Active Directory (Azure AD) eingerichtet werden, damit Ihre VMware-Administratoren auf vCenter zugreifen können. Wenn das Setup abgeschlossen ist, kann der **cloudowner** -Benutzer vCenter Benutzer aus der Identitätsquelle hinzufügen.  
 
 Sie können Ihre Active Directory-Domäne und Domänencontroller auf eine der folgenden Arten einrichten:
 
@@ -33,7 +33,7 @@ In diesem Leitfaden werden die Aufgaben zum Einrichten von Active Directory-Dom�
 Eskalieren Sie vor dem [Hinzufügen einer Identitätsquelle](#add-an-identity-source-on-vcenter) vorübergehend Ihre [vCenter-Berechtigungen](escalate-private-cloud-privileges.md).
 
 > [!CAUTION]
-> Neue Benutzer müssen lediglich *Cloud-Owner-Group*, *Cloud-Global-Cluster-Admin-Group*, *Cloud-Global-Storage-Admin-Group*, *Cloud-Global-Network-Admin-Group* oder *Cloud-Global-VM-Admin-Group* hinzugefügt werden.  Benutzer, die der Gruppe *Administratoren* hinzugefügt wurden, werden automatisch entfernt.  Nur Dienstkonten dürfen der Gruppe *Administratoren* hinzugefügt werden, und Dienstkonten dürfen nicht für die Anmeldung bei der vSphere-Webbenutzeroberfläche verwendet werden.   
+> Neue Benutzer müssen lediglich *Cloud-Owner-Group* , *Cloud-Global-Cluster-Admin-Group* , *Cloud-Global-Storage-Admin-Group* , *Cloud-Global-Network-Admin-Group* oder *Cloud-Global-VM-Admin-Group* hinzugefügt werden.  Benutzer, die der Gruppe *Administratoren* hinzugefügt wurden, werden automatisch entfernt.  Nur Dienstkonten dürfen der Gruppe *Administratoren* hinzugefügt werden, und Dienstkonten dürfen nicht für die Anmeldung bei der vSphere-Webbenutzeroberfläche verwendet werden.   
 
 
 ## <a name="identity-source-options"></a>Optionen für Identitätsquellen
@@ -61,9 +61,9 @@ Verwenden Sie die Informationen in der folgenden Tabelle, wenn Sie Ihre Active D
 | **Domänenname** | Der FQDN der Domäne, z. B. „example.com“. Geben Sie in diesem Textfeld keine IP-Adresse an. |
 | **Domänenalias** | Der NetBIOS-Name der Domäne. Fügen Sie den NetBIOS-Namen der Active Directory-Domäne als Alias der Identitätsquelle hinzu, wenn Sie SSPI-Authentifizierung verwenden. |
 | **Basis-DN für Gruppen** | Der Distinguished Basis-Name für Gruppen. |
-| **URL des primären Servers** | LDAP-Server des primären Domänencontrollers für die Domäne.<br><br>Verwenden Sie das Format  `ldap://hostname:port`  oder  `ldaps://hostname:port`. Der Port ist in der Regel 389 für LDAP-Verbindungen und 636 für LDAPS-Verbindungen. Für Active Directory-Bereitstellungen mit mehreren Domänencontrollern ist der Port in der Regel 3268 für LDAP und 3269 für LDAPS.<br><br>Ein Zertifikat, das eine Vertrauensstellung für den LDAPS-Endpunkt des Active Directory-Servers einrichtet, ist erforderlich, wenn Sie  `ldaps://`  in der primären oder sekundären LDAP-URL verwenden. |
+| **URL des primären Servers** | LDAP-Server des primären Domänencontrollers für die Domäne.<br><br>Verwenden Sie das Format `ldap://hostname:port` oder `ldaps://hostname:port`. Der Port ist in der Regel 389 für LDAP-Verbindungen und 636 für LDAPS-Verbindungen. Für Active Directory-Bereitstellungen mit mehreren Domänencontrollern ist der Port in der Regel 3268 für LDAP und 3269 für LDAPS.<br><br>Ein Zertifikat, das eine Vertrauensstellung für den LDAPS-Endpunkt des Active Directory-Servers einrichtet, ist erforderlich, wenn Sie `ldaps://` in der primären oder sekundären LDAP-URL verwenden |
 | **URL des sekundären Servers** | Die Adresse eines LDAP-Servers für einen sekundären Domänencontroller, der für Failover verwendet wird. |
-| **Zertifikat auswählen** | Wenn Sie LDAPS mit dem Active Directory LDAP-Server oder der OpenLDAP-Server-Identitätsquelle verwenden möchten, wird eine Schaltfläche „Zertifikat auswählen“ nach dem Eingeben von  `ldaps://`  in das URL-Textfeld angezeigt. Eine sekundäre URL ist nicht erforderlich. |
+| **Zertifikat auswählen** | Wenn Sie LDAPS mit dem Active Directory LDAP-Server oder der OpenLDAP-Server-Identitätsquelle verwenden möchten, wird eine Schaltfläche „Zertifikat auswählen“ nach dem Eingeben von `ldaps://` in das URL-Textfeld angezeigt. Eine sekundäre URL ist nicht erforderlich. |
 | **Benutzername** | Die ID eines Benutzers in der Domäne, der mindestens über Lesezugriff auf den Basis-DN für Benutzer und Gruppen verfügt. |
 | **Kennwort** | Das Kennwort des Benutzers, der durch „Benutzername“ angegeben wird. |
 
@@ -121,13 +121,13 @@ Nachdem die Netzwerkverbindung hergestellt wurde, führen Sie die Schritte unter
 
     ![Einmaliges Anmelden](media/OnPremAD02.png)
 
-5. Öffnen Sie die Registerkarte **Identitätsquellen**, und klicken Sie auf **+**, um eine neue Identitätsquelle hinzuzufügen.
+5. Öffnen Sie die Registerkarte **Identitätsquellen** , und klicken Sie auf **+** , um eine neue Identitätsquelle hinzuzufügen.
 
     ![Identitätsquellen](media/OnPremAD03.png)
 
 6. Wählen Sie **Active Directory als LDAP-Server** aus, und klicken Sie auf **Weiter**.
 
-    ![Active Directory](media/OnPremAD04.png)
+    ![Screenshot, auf dem die Option „Active Directory als LDAP-Server“ hervorgehoben ist](media/OnPremAD04.png)
 
 7. Geben Sie die Identitätsquellenparameter für Ihre Umgebung aus, und klicken Sie auf **Weiter**.
 

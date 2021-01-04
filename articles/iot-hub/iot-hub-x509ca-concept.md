@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: c707f6108c73a268bcac18c45afb70ae17185bb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 877200cbafbe68fa6161025572abfddad651e172
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308111"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490719"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Konzeptgrundlagen der X.509-Zertifizierungsstellenzertifikate in der IoT-Branche
 
@@ -40,6 +40,8 @@ Ein Unterscheidungsmerkmal der Authentifizierung per X.509-Zertifizierungsstelle
 Ein weiteres wichtiges Attribut der Authentifizierung per X.509-Zertifizierungsstelle ist die Vereinfachung der Lieferkettenlogistik. Für die sichere Authentifizierung von Geräten ist es erforderlich, dass jedes Gerät über ein eindeutiges Geheimnis, z.B. einen Schlüssel, als Grundlage für die Vertrauensstellung verfügt. Bei der zertifikatbasierten Authentifizierung ist dieses Geheimnis ein privater Schlüssel. Ein typischer Ablauf zur Fertigung eines Geräts umfasst mehrere Schritte und Verwalter. Das sichere Verwalten von privaten Schlüsseln für Geräte über mehrere Verwalter hinweg und das Aufrechterhalten der Vertrauensstellung ist schwierig und kostenintensiv. Die Nutzung von Zertifizierungsstellen löst dieses Problem, indem jeder Verwalter für eine kryptografische Vertrauenskette signiert wird, anstatt private Geräteschlüssel zu verwenden. Jeder Verwalter signiert wiederum Geräte für den jeweiligen Prozessschritt des Fertigungsablaufs. Das Gesamtergebnis ist eine optimale Lieferkette mit integrierter Zurechenbarkeit dank des Einsatzes einer kryptografischen Vertrauenskette. Hierbei ist der Hinweis wichtig, dass bei diesem Prozess die höchste Sicherheit erzielt wird, wenn Geräte ihre eigenen privaten Schlüssel schützen. Zu diesem Zweck empfehlen wir die Verwendung von Hardwaresicherheitsmodulen (HSM), mit denen intern private Schlüssel generiert werden können, die immer im Hintergrund bleiben.
 
 Dieser Artikel enthält einen umfassenden Überblick über die Verwendung der Authentifizierung per X.509-Zertifizierungsstelle von der Einrichtung der Lieferkette bis zur Verbindungsherstellung für das Gerät. Zur Erleichterung des Verständnisses ist ein Beispiel aus der Praxis angegeben.
+
+Sie können auch Registrierungsgruppen mit dem Azure IoT Hub Device Provisioning-Dienst (DPS) verwenden, um die Bereitstellung von Geräten für Hubs durchzuführen. Weitere Informationen zum Bereitstellen von X.509-Zertifikatgeräten mithilfe von DPS finden Sie unter [Tutorial: Bereitstellen mehrerer X.509-Geräte mit Registrierungsgruppen](../iot-dps/tutorial-custom-hsm-enrollment-group-x509.md).
 
 ## <a name="introduction"></a>Einführung
 
@@ -75,7 +77,7 @@ Der Prozess zur Erstellung eines selbstsignierten X.509-Zertifizierungsstellenze
 
 ## <a name="register-the-x509-certificate-to-iot-hub"></a>Registrieren des X.509-Zertifikats für IoT Hub
 
-Company-X muss die X.509-Zertifizierungsstelle für IoT Hub registrieren, damit sie dort bei der Verbindungsherstellung zum Authentifizieren von Smart-X-Widgets dienen kann. Dies ein einmaliger Prozess, mit dem eine beliebige Anzahl von Smart-X-Widget-Geräten authentifiziert und verwaltet werden kann. Es ist ein einmaliger Prozess, weil es sich um eine 1:n-Beziehung zwischen dem Zertifizierungsstellenzertifikat und Geräten handelt. Dies ist einer der Hauptvorteile bei Verwendung der Authentifizierung per X.509-Zertifizierungsstelle. Die Alternative ist das Hochladen von einzelnen Zertifikatfingerabdrücken für jedes einzelne Smart-X-Widget-Gerät, was aber zu einer Erhöhung der Betriebskosten führt.
+Company-X muss die X.509-Zertifizierungsstelle für IoT Hub registrieren, damit sie dort bei der Verbindungsherstellung zum Authentifizieren von Smart-X-Widgets dienen kann. Dies ein einmaliger Prozess, mit dem eine beliebige Anzahl von Smart-X-Widget-Geräten authentifiziert und verwaltet werden kann. Dies ist aufgrund einer 1:n-Beziehung zwischen ZS-Zertifikat und Gerätezertifikaten, die durch das ZS-Zertifikat oder ein Zwischenzertifikat signiert sind, ein einmaliger Prozess. Diese Beziehung ist einer der Hauptvorteile der Verwendung der Authentifizierungsmethode mit X.509-Zertifizierungsstellen. Die Alternative ist das Hochladen von einzelnen Zertifikatfingerabdrücken für jedes einzelne Smart-X-Widget-Gerät, was aber zu einer Erhöhung der Betriebskosten führt.
 
 Das Registrieren des X.509-Zertifizierungsstellenzertifikats ist ein Prozess aus zwei Schritten: Upload des Zertifikats und Eigentumsnachweis für das Zertifikat.
 

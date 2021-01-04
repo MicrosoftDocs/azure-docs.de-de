@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: a24d1716448363a199151a50a260bbdbd1e8e634
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14f7462aec65d2a13eb36b291331c347b995d281
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91249483"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130679"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integrieren von Azure Stream Analytics mit Azure Machine Learning (Vorschau)
 
@@ -23,13 +23,13 @@ Sie können Machine Learning-Modelle als benutzerdefinierte Funktionen (User-Def
 
 Führen Sie die folgenden Schritte aus, bevor Sie ein Machine Learning-Modell als Funktion zu Ihrem Stream Analytics-Auftrag hinzufügen:
 
-1. Verwenden Sie Azure Machine Learning, um [Ihr Modell als Webdienst bereitzustellen](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
+1. Verwenden Sie Azure Machine Learning, um [Ihr Modell als Webdienst bereitzustellen](../machine-learning/how-to-deploy-and-where.md).
 
 2. Ihr Bewertungsskript sollte über [Beispieleingaben und -ausgaben](../machine-learning/how-to-deploy-and-where.md) verfügen, mit denen Azure Machine Learning eine Schemaspezifikation generiert. Stream Analytics verwendet das Schema, um die Funktionssignatur Ihres Webdiensts zu verstehen. Sie können diese [Swagger-Beispieldefinition](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) als Referenz verwenden, um sicherzustellen, dass Sie es ordnungsgemäß eingerichtet haben.
 
 3. Stellen Sie sicher, dass Ihr Webdienst serialisierte JSON-Daten akzeptiert und zurückgibt.
 
-4. Stellen Sie Ihr Modell für umfangreiche Produktionsbereitstellungen in [Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) bereit. Wenn der Webdienst die Menge der von Ihrem Auftrag ausgehenden Anforderungen nicht verarbeiten kann, beeinträchtigt dies die Leistung Ihres Stream Analytics-Auftrags, was sich wiederum auf die Latenz auswirkt. In Azure Container Instances bereitgestellte Modelle werden nur bei Verwendung des Azure-Portals unterstützt. Modelle, die mit [Azure Machine Learning-Designer](https://docs.microsoft.com/azure/machine-learning/concept-designer) erstellt wurden, werden in Stream Analytics noch nicht unterstützt.
+4. Stellen Sie Ihr Modell für umfangreiche Produktionsbereitstellungen in [Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) bereit. Wenn der Webdienst die Menge der von Ihrem Auftrag ausgehenden Anforderungen nicht verarbeiten kann, beeinträchtigt dies die Leistung Ihres Stream Analytics-Auftrags, was sich wiederum auf die Latenz auswirkt. In Azure Container Instances bereitgestellte Modelle werden nur bei Verwendung des Azure-Portals unterstützt. Modelle, die mit [Azure Machine Learning-Designer](../machine-learning/concept-designer.md) erstellt wurden, werden in Stream Analytics noch nicht unterstützt.
 
 ## <a name="add-a-machine-learning-model-to-your-job"></a>Hinzufügen eines Machine Learning-Modells zu Ihrem Auftrag
 
@@ -51,13 +51,13 @@ Sie können Azure Machine Learning-Funktionen direkt im Azure-Portal oder in Vis
 
    :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function.png" alt-text="Hinzufügen einer UDF in Visual Studio Code":::
 
-   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function-2.png" alt-text="Hinzufügen einer UDF in Visual Studio Code":::
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function-2.png" alt-text="Hinzufügen einer Azure Machine Learning-UDF in Visual Studio Code":::
 
 2. Geben Sie den Namen der Funktion ein, und geben Sie die Einstellungen in der Konfigurationsdatei an, indem Sie **Aus ihren Abonnements auswählen** in CodeLens verwenden.
 
-   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-function-name.png" alt-text="Hinzufügen einer UDF in Visual Studio Code":::
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-function-name.png" alt-text="Auswählen einer Azure Machine Learning-UDF in Visual Studio Code":::
 
-   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-configure-settings.png" alt-text="Hinzufügen einer UDF in Visual Studio Code":::
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-configure-settings.png" alt-text="Konfigurieren einer Azure Machine Learning-UDF in Visual Studio Code":::
 
 In der folgenden Tabelle werden alle Eigenschaften von Azure Machine Learning Service-Funktionen in Stream Analytics beschrieben.
 

@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d81a8b3a1596e8a447f7a2434e52df8c89b416b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 550e22ac861b92994f2695594d09fc2935d273d1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87085264"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967753"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Steuerung von HANA in Azure (große Instanzen) über das Azure-Portal
 Dieses Dokument beschreibt, wie [HANA (große Instanzen)](./hana-overview-architecture.md) im [Azure-Portal](https://portal.azure.com) dargestellt wird und welche Aktivitäten Sie über das Azure-Portal mit den für Sie bereitgestellten Einheiten von HANA (große Instanzen) ausführen können. Die Sichtbarkeit von HANA (große Instanzen) im Azure-Portal wird über einen Azure-Ressourcenanbieter für HANA (große Instanzen) bereitgestellt. Diese Funktion befindet sich derzeit in der öffentlichen Vorschau.
@@ -54,7 +55,7 @@ Bei der ersten Bereitstellung von HANA (große Instanzen) wird eine neue [Azure-
 
 Um die neue Azure-Ressourcengruppe zu finden, listen Sie die Ressourcengruppe in Ihrem Abonnement auf, indem Sie im linken Navigationsbereich des Azure-Portals navigieren.
 
-![Navigationsbereich im Azure-Portal](./media/hana-li-portal/portal-resource-group.png)
+![Screenshot, auf dem die Option „Ressourcengruppe“ hervorgehoben ist](./media/hana-li-portal/portal-resource-group.png)
 
 In der von Ihnen angezeigten Liste der Ressourcengruppen können Sie nach dem Abonnement filtern, das Sie zur Bereitstellung von HANA (große Instanzen) verwendet haben.
 

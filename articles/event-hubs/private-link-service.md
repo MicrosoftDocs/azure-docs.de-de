@@ -3,12 +3,12 @@ title: Integrieren von Azure Event Hubs in den Azure Private Link-Dienst
 description: Erfahren Sie, wie Sie Azure Event Hubs in den Azure Private Link-Dienst integrieren.
 ms.date: 08/22/2020
 ms.topic: article
-ms.openlocfilehash: 59167635cfc0d8c1123a47410c87d6b9151f6f62
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 996779e103dae2d2d950f447d2ac72667fc9e754
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334241"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427750"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Gewähren des Zugriffs auf Azure Event Hubs-Namespaces über private Endpunkte 
 Mit dem Azure Private Link-Dienst können Sie über einen **privaten Endpunkt** in Ihrem virtuellen Netzwerk auf Azure-Dienste wie Azure Event Hubs, Azure Storage und Azure Cosmos DB sowie auf in Azure gehostete Kunden-/Partnerdienste zugreifen.
@@ -17,19 +17,11 @@ Ein privater Endpunkt ist eine Netzwerkschnittstelle, die Sie privat und sicher 
 
 Weitere Informationen finden Sie unter [Was ist Azure Private Link?](../private-link/private-link-overview.md).
 
-> [!IMPORTANT]
-> Diese Funktion wird sowohl für den Tarif **Standard** als auch für den Tarif **Dedicated** unterstützt. Im **Basic**-Tarif werden sie nicht unterstützt.
->
-> Durch das Aktivieren von privaten Endpunkten kann verhindert werden, dass andere Azure-Dienste mit Event Hubs interagieren.  Unter anderem werden Anforderungen von anderen Azure-Diensten, aus dem Azure-Portal und von Protokollierungs-/Metrikdiensten blockiert. 
-> 
-> Nachstehend finden Sie einige der Dienste, die nicht auf Event Hubs-Ressourcen zugreifen können, wenn private Endpunkte aktiviert sind. Beachten Sie, dass diese Liste **NICHT** alle Komponenten enthält.
->
-> - Azure IoT Hub-Routen
-> - Azure IoT Device Explorer
-> - Azure Event Grid
-> - Azure Monitor (Diagnoseeinstellungen)
->
-> Als Ausnahme können Sie bestimmten vertrauenswürdigen Diensten den Zugriff auf Event Hubs-Ressourcen erlauben, auch wenn private Endpunkte aktiviert sind. Eine Liste der vertrauenswürdigen Dienste finden Sie unter [Vertrauenswürdige Dienste](#trusted-microsoft-services).
+> [!WARNING]
+> Durch das Aktivieren von privaten Endpunkten kann verhindert werden, dass andere Azure-Dienste mit Event Hubs interagieren.  Unter anderem werden Anforderungen von anderen Azure-Diensten, aus dem Azure-Portal und von Protokollierungs-/Metrikdiensten blockiert. Als Ausnahme können Sie bestimmten vertrauenswürdigen Diensten den Zugriff auf Event Hubs-Ressourcen erlauben, auch wenn private Endpunkte aktiviert sind. Eine Liste der vertrauenswürdigen Dienste finden Sie unter [Vertrauenswürdige Dienste](#trusted-microsoft-services).
+
+>[!NOTE]
+> Diese Funktion wird sowohl für den Tarif **Standard** als auch für den Tarif **Dedicated** unterstützt. Im **Basic** -Tarif werden sie nicht unterstützt.
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Hinzufügen eines privaten Endpunkts über das Azure-Portal
 
@@ -64,7 +56,7 @@ Wenn Sie bereits über einen Event Hubs-Namespace verfügen, können Sie wie fol
 1. Wählen Sie im oberen Seitenbereich die Registerkarte **Private Endpunktverbindungen** aus. 
 1. Wählen Sie im oberen Seitenbereich die Schaltfläche **+ Privater Endpunkt** aus.
 
-    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="Registerkarte „Netzwerk“ mit ausgewählter Option „Netzwerk“":::
+    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="Seite „Netzwerk“ – Registerkarte „Verbindungen mit privatem Endpunkt“ – Link „Privaten Endpunkt hinzufügen“":::
 7. Führen Sie auf der Seite **Grundlagen** die folgenden Schritte aus: 
     1. Wählen Sie das **Azure-Abonnement** aus, in dem Sie den privaten Endpunkt erstellen möchten. 
     2. Wählen Sie die **Ressourcengruppe** für die private Endpunktressource aus.
@@ -105,7 +97,7 @@ Wenn Sie bereits über einen Event Hubs-Namespace verfügen, können Sie wie fol
 
 [!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
 
-Um vertrauenswürdigen Diensten den Zugriff auf Ihren Namespace zu gestatten, wechseln Sie zur Registerkarte **Firewalls und virtuelle Netzwerke** auf der Seite **Netzwerk**, und wählen Sie **Ja** für **Vertrauenswürdigen Microsoft-Diensten die Umgehung dieser Firewall erlauben?** aus. 
+Um vertrauenswürdigen Diensten den Zugriff auf Ihren Namespace zu gestatten, wechseln Sie zur Registerkarte **Firewalls und virtuelle Netzwerke** auf der Seite **Netzwerk** , und wählen Sie **Ja** für **Vertrauenswürdigen Microsoft-Diensten die Umgehung dieser Firewall erlauben?** aus. 
 
 ## <a name="add-a-private-endpoint-using-powershell"></a>Hinzufügen eines privaten Endpunkts mit PowerShell
 Im folgenden Beispiel wird gezeigt, wie Azure PowerShell verwendet wird, um eine private Endpunktverbindung zu erstellen. Es wird kein dedizierter Cluster für Sie erstellt. Führen Sie die Schritte in [diesem Artikel](event-hubs-dedicated-cluster-create-portal.md) aus, um einen dedizierten Event Hubs-Cluster zu erstellen. 

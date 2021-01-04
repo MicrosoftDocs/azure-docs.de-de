@@ -4,6 +4,10 @@
   items:
     - name: Informationen zu Lab Services
       href: lab-services-overview.md
+- name: Schnellstarts
+  items:
+    - name: Erste Schritte
+      href: get-started-manage-labs.md
 - name: Tutorials
   items:
     - name: Einrichten eines Lab-Kontos
@@ -16,11 +20,11 @@
       href: tutorial-track-usage.md
 - name: Konzepte
   items:
-    - name: Übersicht über Classroom-Labs
+    - name: Übersicht über Labs
       href: classroom-labs-overview.md
-    - name: Konzepte von Classroom-Labs
+    - name: Labs-Konzepte
       href: classroom-labs-concepts.md
-    - name: Grundlagen der Architektur von Classroom-Labs
+    - name: Grundlagen der Architektur von Labs
       href: classroom-labs-fundamentals.md
     - name: Kapazitätsgrenzen
       href: capacity-limits.md
@@ -32,7 +36,7 @@
           href: classroom-labs-scenarios.md
         - name: Verwenden von Lab Services für einen Hackathon
           href: hackathon-labs.md
-        - name: 'Classroom-Labs: Klassentypen'
+        - name: "Labs\_– Klassentypen"
           items:
             - name: Übersicht über Klassentypen
               href: class-types.md
@@ -54,6 +58,8 @@
               href: class-type-matlab.md
             - name: 'SolidWorks: CAD (Computer-Aided Design)'
               href: class-type-solidworks.md
+            - name: Project Lead the Way
+              href: class-type-pltw.md
         - name: "Verwenden von Azure Lab\_Services in Teams"
           items:
             - name: Übersicht
@@ -106,9 +112,9 @@
           href: lab-account-owner-support-information.md
         - name: Hochladen eines benutzerdefiniertes Image in Shared Image Gallery
           href: upload-custom-image-shared-image-gallery.md
-    - name: Erstellen und Konfigurieren von Classroom-Labs (Lehrkraft)
+    - name: Erstellen und Konfigurieren von Labs (Lehrkraft)
       items:
-        - name: Erstellen und Verwalten von Classroom-Labs
+        - name: Erstellen und Verwalten von Labs
           href: how-to-manage-classroom-labs.md
         - name: Verwenden des Dashboards
           href: use-dashboard.md
@@ -144,9 +150,9 @@
           href: lab-creator-support-information.md
         - name: Zugreifen auf virtuelle Computer von Kursteilnehmern über die Lehrkraftansicht
           href: instructor-access-virtual-machines.md
-    - name: Herstellen einer Verbindung mit virtuellen Computern in Classroom-Labs (Kursteilnehmer)
+    - name: Herstellen einer Verbindung mit virtuellen Computern in Labs (Kursteilnehmer)
       items:
-        - name: Zugreifen auf Classroom-Labs
+        - name: Zugriff auf Labs
           href: how-to-use-classroom-lab.md
         - name: Herstellen einer Verbindung mit virtuellen Linux-Computern
           href: how-to-use-remote-desktop-linux-student.md
@@ -161,7 +167,7 @@
 - name: Verweis
   items:
     - name: REST-API
-      href: 'https://docs.microsoft.com/rest/api/labservices/'
+      href: /rest/api/labservices/
     - name: PowerShell-Modul „Az.LabServices“ (Vorschauversion)
       href: reference-powershell-module.md
 - name: Ressourcen

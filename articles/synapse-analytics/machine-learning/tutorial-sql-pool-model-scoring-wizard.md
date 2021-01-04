@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Assistent für die Bewertung von Machine Learning-Modellen für SQL-Pools'
-description: Tutorial zur Vorgehensweise bei der Verwendung des Assistenten für die Bewertung von Machine Learning-Modellen zur Anreicherung von Daten in Synapse SQL-Pools
+title: 'Tutorial: Assistent für die Bewertung von Machine Learning-Modellen für dedizierte SQL-Pools'
+description: Tutorial zur Vorgehensweise bei der Verwendung des Assistenten für die Bewertung von Machine Learning-Modellen zur Anreicherung von Daten in dedizierten SQL-Pools
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
@@ -9,30 +9,30 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 8e92ff75bb6a9757c06de3561a385cbcbb7f75ba
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 605a5f2f74ca6fb46d851c41f60001c48a95be95
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019969"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450887"
 ---
-# <a name="tutorial-machine-learning-model-scoring-wizard-for-synapse-sql-pools"></a>Tutorial: Assistent für die Bewertung von Machine Learning-Modellen für Synapse SQL-Pools
+# <a name="tutorial-machine-learning-model-scoring-wizard-preview-for-dedicated-sql-pools"></a>Tutorial: Assistent für die Bewertung von Machine Learning-Modellen (Vorschauversion) für dedizierte SQL-Pools
 
-Erfahren Sie, wie Sie Ihre Daten in SQL-Pools mit Predictive Machine Learning-Modellen problemlos erweitern können.  Die Modelle, die Ihre Datenanalysten erstellen, stehen Ihren Datenexperten jetzt bequem für Predictive Analytics zur Verfügung. Ein Datenexperte in Synapse kann einfach ein Modell aus der Azure Machine Learning-Modellregistrierung für die Bereitstellung in Synapse SQL-Pools auswählen und Vorhersagen starten, um die Daten anzureichern.
+Hier erfahren Sie, wie Sie Ihre Daten in dedizierten SQL-Pools mit Predictive Machine Learning-Modellen problemlos erweitern können.  Die Modelle, die Ihre Datenanalysten erstellen, stehen Ihren Datenexperten jetzt bequem für Predictive Analytics zur Verfügung. Ein Datenexperte in Synapse kann einfach ein Modell aus der Azure Machine Learning-Modellregistrierung für die Bereitstellung in Synapse SQL-Pools auswählen und Vorhersagen starten, um die Daten anzureichern.
 
 In diesem Tutorial lernen Sie Folgendes:
 
 > [!div class="checklist"]
 > - Training eines Predictive Machine Learning-Modells und Registrieren des Modells in der Azure Machine Learning-Modellregistrierung
-> - Verwenden des Assistenten für die SQL-Bewertung zum Starten von Vorhersagen im Synapse SQL-Pool
+> - Verwenden des Assistenten für die SQL-Bewertung zum Starten von Vorhersagen im dedizierten SQL-Pool
 
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 - Als Standardspeicher konfigurierter [Synapse Analytics-Arbeitsbereich](../get-started-create-workspace.md) mit einem ADLS Gen2-Speicherkonto. Sie müssen **Mitwirkender an Storage-Blobdaten** des ADLS Gen2-Dateisystems sein, mit dem Sie arbeiten.
-- Synapse SQL-Pool in Ihrem Synapse Analytics-Arbeitsbereich. Ausführliche Informationen finden Sie unter [Erstellen eines Synapse SQL-Pools](../quickstart-create-sql-pool-studio.md).
-- Verknüpfter Azure Machine Learning-Dienst in Ihrem Synapse Analytics-Arbeitsbereich. Ausführliche Informationen finden Sie unter [Erstellen eines verknüpften Azure Machine Learning-Diensts in Synapse](quickstart-integrate-azure-machine-learning.md).
+- Dedizierter SQL-Pool in Ihrem Azure Synapse Analytics-Arbeitsbereich. Ausführliche Informationen finden Sie unter [Erstellen eines dedizierten SQL-Pools](../quickstart-create-sql-pool-studio.md).
+- Verknüpfter Azure Machine Learning-Dienst in Ihrem Azure Synapse Analytics-Arbeitsbereich. Ausführliche Informationen finden Sie unter [Erstellen eines verknüpften Azure Machine Learning-Diensts in Synapse](quickstart-integrate-azure-machine-learning.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Melden Sie sich auf dem Azure-Portal an.
 
@@ -62,7 +62,7 @@ Vergewissern Sie sich zunächst, dass Ihre Version von **sklearn** 0.20.3 ist.
 1. Es erfolgt ein Training des ONNX-Modells durch das Notebook, und dieses registriert es bei MLFlow. Wechseln Sie zu **Modelle**, um zu überprüfen, ob das neue Modell ordnungsgemäß registriert wurde.
    ![Modell in Registrierung](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00c.png)
 
-1. Wenn Sie das Notebook ausführen, werden die Testdaten auch in eine CSV-Datei exportiert. Laden Sie die CSV-Datei auf Ihr lokales System herunter. Später importieren Sie die CSV-Datei in den SQL-Pool und verwenden die Daten zum Testen des Modells.
+1. Wenn Sie das Notebook ausführen, werden die Testdaten auch in eine CSV-Datei exportiert. Laden Sie die CSV-Datei auf Ihr lokales System herunter. Später importieren Sie die CSV-Datei in den dedizierten SQL-Pool und verwenden die Daten zum Testen des Modells.
 
    Die CSV-Datei wird im selben Ordner wie Ihre Notebook-Datei erstellt. Klicken Sie im Datei-Explorer auf „Aktualisieren“, wenn sie nicht sofort angezeigt wird.
 
@@ -76,7 +76,7 @@ Vergewissern Sie sich zunächst, dass Ihre Version von **sklearn** 0.20.3 ist.
 
    ![Hochladen von Daten](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00a.png)
 
-1. Wechseln Sie zu **Entwickeln** -> **SQL-Skripts**. Erstellen Sie ein neues SQL-Skript, um `test_data.csv` in Ihren SQL-Pool zu laden.
+1. Wechseln Sie zu **Entwickeln** -> **SQL-Skripts**. Erstellen Sie ein neues SQL-Skript, um `test_data.csv` in Ihren dedizierten SQL-Pool zu laden.
 
    > [!NOTE]
    > Aktualisieren Sie die Datei-URL in diesem Skript, bevor Sie es ausführen.
@@ -117,9 +117,9 @@ Vergewissern Sie sich zunächst, dass Ihre Version von **sklearn** 0.20.3 ist.
    GO
    ```
 
-   ![Laden von Daten in einen SQL-Pool](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00b.png)
+   ![Laden von Daten in einen dedizierten SQL-Pool](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00b.png)
 
-1. Wechseln Sie zu **Daten** -> **Arbeitsbereich**. Öffnen Sie den Assistenten für SQL-Bewertungen, indem Sie mit der rechten Maustaste auf die SQL-Pooltabelle klicken. Wählen Sie **Machine Learning** -> **Enrich with existing model** (Mit vorhandenem Modell anreichern) aus.
+1. Wechseln Sie zu **Daten** -> **Arbeitsbereich**. Öffnen Sie den Assistenten für die SQL-Bewertung, indem Sie mit der rechten Maustaste auf die Tabelle der dedizierten SQL-Pools klicken. Wählen Sie **Machine Learning** -> **Enrich with existing model** (Mit vorhandenem Modell anreichern) aus.
 
    > [!NOTE]
    > Die Machine Learning-Option wird nur angezeigt, wenn Sie einen verknüpften Dienst für Azure Machine Learning erstellt haben (siehe **Voraussetzungen** zu Beginn dieses Tutorials).
@@ -138,7 +138,7 @@ Vergewissern Sie sich zunächst, dass Ihre Version von **sklearn** 0.20.3 ist.
 
    ![Zuordnung von Tabelle zu Modell](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00e.png)
 
-1. Der generierte T-SQL-Code wird mit einer gespeicherten Prozedur umschlossen. Aus diesem Grund müssen Sie den Namen einer gespeicherten Prozedur angeben. Die Modellbinärdatei, einschließlich der Metadaten (Version, Beschreibung usw.), wird physisch aus Azure Machine Learning in eine SQL-Pooltabelle kopiert. Daher müssen Sie angeben, in welcher Tabelle das Modell gespeichert werden soll. Sie können auswählen zwischen „Vorhandene Tabelle verwenden“ und „Neue Tabelle erstellen“. Klicken Sie nach Abschluss des Vorgangs auf **Modell bereitstellen und Editor öffnen**, um das Modell bereitzustellen und ein T-SQL-Vorhersageskript zu generieren.
+1. Der generierte T-SQL-Code wird mit einer gespeicherten Prozedur umschlossen. Aus diesem Grund müssen Sie den Namen einer gespeicherten Prozedur angeben. Die Modellbinärdatei, einschließlich der Metadaten (Version, Beschreibung usw.), wird physisch aus Azure Machine Learning in eine Tabelle mit dedizierten SQL-Pools kopiert. Daher müssen Sie angeben, in welcher Tabelle das Modell gespeichert werden soll. Sie können auswählen zwischen „Vorhandene Tabelle verwenden“ und „Neue Tabelle erstellen“. Klicken Sie nach Abschluss des Vorgangs auf **Modell bereitstellen und Editor öffnen**, um das Modell bereitzustellen und ein T-SQL-Vorhersageskript zu generieren.
 
    ![Erstellen der Prozedur](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00f.png)
 
@@ -149,4 +149,4 @@ Vergewissern Sie sich zunächst, dass Ihre Version von **sklearn** 0.20.3 ist.
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Schnellstart: Erstellen eines neuen verknüpften Azure Machine Learning-Diensts in Synapse](quickstart-integrate-azure-machine-learning.md)
-- [Machine Learning-Funktionen in Azure Synapse Analytics (Vorschau für Arbeitsbereiche)](what-is-machine-learning.md)
+- [Machine Learning-Funktionen in Azure Synapse Analytics](what-is-machine-learning.md)

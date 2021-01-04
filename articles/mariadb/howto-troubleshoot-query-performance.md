@@ -1,17 +1,17 @@
 ---
 title: Beheben von Leistungsproblemen – Azure Database for MariaDB
 description: Erfahren Sie, wie Sie Probleme mit der Abfrageleistung in Azure Database for MariaDB mithilfe von EXPLAIN beheben.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: ae3637eb5e9f6f70d0f53d7b1cb97bd348c114bc
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 2b7491723ffcff73e4b243fe54ef18608167d636
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424425"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537236"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Verwenden von EXPLAIN zum Analysieren der Abfrageleistung in Azure Database for MariaDB
 **EXPLAIN** ist ein praktisches Tool zum Optimieren von Abfragen. Mit einer EXPLAIN-Anweisung können Sie Informationen zur Ausführung von SQL-Anweisungen abrufen. Die folgende Ausgabe zeigt ein Beispiel für die Ausführung einer EXPLAIN-Anweisung.
@@ -56,7 +56,7 @@ possible_keys: id
 Aus der neuen EXPLAIN-Anweisung geht hervor, dass MariaDB jetzt einen Index verwendet, um die Anzahl von Zeilen auf 1 zu begrenzen, wodurch sich wiederum die Suchzeit erheblich verkürzt.
  
 ## <a name="covering-index"></a>Abdeckender Index
-Ein abdeckender Index besteht aus allen Spalten einer Abfrage im Index, sodass das Abrufen von Werten aus Datentabellen reduziert wird. Hier sehen Sie eine Abbildung in der folgenden **GROUP BY** -Anweisung.
+Ein abdeckender Index besteht aus allen Spalten einer Abfrage im Index, sodass das Abrufen von Werten aus Datentabellen reduziert wird. Hier sehen Sie eine Abbildung in der folgenden **GROUP BY**-Anweisung.
  
 ```sql
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
@@ -75,7 +75,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-Wie aus der Ausgabe hervorgeht, verwendet MariaDB keine Indizes, weil keine richtigen Indizes verfügbar sind. Außerdem wird *Using temporary; Using filesort* angezeigt, was bedeutet, dass MariaDB eine temporäre Tabelle erstellt, um die **GROUP BY** -Klausel zu erfüllen.
+Wie aus der Ausgabe hervorgeht, verwendet MariaDB keine Indizes, weil keine richtigen Indizes verfügbar sind. Außerdem wird *Using temporary; Using filesort* angezeigt, was bedeutet, dass MariaDB eine temporäre Tabelle erstellt, um die **GROUP BY**-Klausel zu erfüllen.
  
 Das Erstellen eines Index für Spalte **c2** allein bewirkt keinen Unterschied, und MariaDB muss trotzdem eine temporäre Tabelle erstellen:
 
@@ -120,7 +120,7 @@ possible_keys: covered
 Wie aus der obigen EXPLAIN-Anweisung hervorgeht, verwendet MariaDB jetzt den Index mit vollständiger Abdeckung, und das Erstellen einer temporären Tabelle wird vermieden. 
 
 ## <a name="combined-index"></a>Kombinierter Index
-Ein kombinierter Index besteht aus Werten aus mehreren Spalten und kann als Array von Zeilen betrachtet werden, die durch Verketten der Werte der indizierten Spalten sortiert werden.  Diese Methode kann in einer **GROUP BY** -Anweisung nützlich sein.
+Ein kombinierter Index besteht aus Werten aus mehreren Spalten und kann als Array von Zeilen betrachtet werden, die durch Verketten der Werte der indizierten Spalten sortiert werden.  Diese Methode kann in einer **GROUP BY**-Anweisung nützlich sein.
 
 ```sql
 mysql> EXPLAIN SELECT c1, c2 from tb1 WHERE c2 LIKE '%100' ORDER BY c1 DESC LIMIT 10\G

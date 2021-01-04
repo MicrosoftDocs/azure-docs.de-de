@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d9cf7b3cf996e41f90e3a40a6ee08d0fd51c8457
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78c7953ef6432d37542a7a8b06f226a07f2b701f
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85510348"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630480"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>StorSimple 1200: Migration zur Azure-Dateisynchronisierung
 
@@ -32,7 +32,7 @@ Die Azure-Dateisynchronisierung ist ein Microsoft-Clouddienst, der auf zwei Haup
 
 In diesem Artikel werden hauptsächlich die Migrationsschritte behandelt. Wenn Sie vor der Migration mehr über die Azure-Dateisynchronisierung erfahren möchten, empfehlen wir die folgenden Artikel:
 
-* [Azure-Dateisynchronisierung – Übersicht](https://aka.ms/AFS "Übersicht")
+* [Azure-Dateisynchronisierung – Übersicht](./storage-sync-files-planning.md "Übersicht")
 * [Azure-Dateisynchronisierung – Bereitstellungsleitfaden](storage-sync-files-deployment-guide.md)
 
 ## <a name="migration-goals"></a>Migrationsziele
@@ -210,13 +210,13 @@ Sie haben die Migration einer Freigabe/Gruppe von Freigaben zu einem gemeinsamen
 Sie können einige dieser Kopiervorgänge parallel ausführen. Es wird empfohlen, jeweils eine Azure-Dateifreigabe auf einmal zu verarbeiten.
 
 > [!WARNING]
-> Nachdem Sie alle Daten von StorSimple auf den Windows-Server verschoben haben und die Migration abgeschlossen ist, gehen Sie wie folgt vor: Kehren Sie zu ***allen*** Synchronisierungsgruppen im Azure-Portal zurück, und passen Sie den Wert für den freien Speicherplatz auf dem Cloudtieringvolume auf einen Wert an, der für die Cachenutzung besser geeignet ist, z. B. 20 %. 
+> Nachdem Sie alle Daten von StorSimple auf den Windows-Server verschoben haben und die Migration abgeschlossen ist, gehen Sie wie folgt vor: Kehren Sie zu ***allen** _ Synchronisierungsgruppen im Azure-Portal zurück, und passen Sie den Wert für den freien Speicherplatz auf dem Cloudtieringvolume auf einen Wert an, der für die Cachenutzung besser geeignet ist, z. B. 20 %. 
 
 Die Richtlinie für den freien Speicherplatz für das Cloudtiering wirkt sich auf eine Volumeebene aus, von der aus potenziell mehrere Serverendpunkte synchronisiert werden. Wenn Sie vergessen, den freien Speicherplatz auf einem Serverendpunkt anzupassen, wird für die Synchronisierung weiterhin die restriktivste Regel angewandt, und es wird versucht, 99 % freien Speicherplatz beizubehalten. Der lokale Cache funktioniert in diesem Fall nicht wie erwartet. Dies ist nur dann erstrebenswert, wenn Sie lediglich den Namespace für ein Volume erhalten möchten, das ausschließlich selten genutzte Archivdaten enthält.
 
 ## <a name="troubleshoot"></a>Problembehandlung
 
-Das häufigste Problem, auf das Sie stoßen können, besteht darin, dass der RoboCopy-Befehl mit dem Fehler *Volume voll* auf Windows Server-Seite beendet wird. Wenn dies der Fall ist, ist die Downloadgeschwindigkeit wahrscheinlich höher als die Uploadgeschwindigkeit. Das Cloudtiering wird einmal stündlich eingesetzt, um Inhalte vom lokalen Windows Server-Datenträger abzurufen, die bereits synchronisiert wurden.
+Das häufigste Problem, auf das Sie stoßen können, besteht darin, dass der RoboCopy-Befehl mit dem Fehler _„Volume voll“* auf Windows Server-Seite beendet wird. Wenn dies der Fall ist, ist die Downloadgeschwindigkeit wahrscheinlich höher als die Uploadgeschwindigkeit. Das Cloudtiering wird einmal stündlich eingesetzt, um Inhalte vom lokalen Windows Server-Datenträger abzurufen, die bereits synchronisiert wurden.
 
 Warten Sie, bis durch den Synchronisierungsvorgang und das Cloudtiering Speicherplatz freigegeben wurde. Sie können dies im Datei-Explorer auf Ihrem Windows-Server beobachten.
 
@@ -233,6 +233,6 @@ Inhalte für die Migration:
 
 Inhalte für die Azure-Dateisynchronisierung:
 
-* [AFS-Übersicht](https://aka.ms/AFS)
+* [AFS-Übersicht](./storage-sync-files-planning.md)
 * [AFS-Bereitstellungshandbuch](storage-files-deployment-guide.md)
 * [AFS-Problembehandlung](storage-sync-files-troubleshoot.md)

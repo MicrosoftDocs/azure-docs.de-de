@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: dbf5c06adcddb5b3dfa3cdf2e0127f8a36c59885
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a85bf6510163c47fa39bdb28debff806e1812f58
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620102"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499270"
 ---
 # <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Erstellen von Warnungen für eine verwaltete Azure SQL-Datenbank-Instanz im Azure-Portal
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -145,5 +145,5 @@ Anzeigen, Anhalten, Aktivieren, Ändern und Löschen vorhandener Warnungen:
 * Weitere Informationen zum Azure Monitor-Warnungssystem finden Sie unter [Übersicht über Warnungen in Microsoft Azure](../../azure-monitor/platform/alerts-overview.md).
 * Weitere Informationen zu Metrikwarnungen finden Sie unter [Informationen zur Funktionsweise von Metrikwarnungen in Azure Monitor](../../azure-monitor/platform/alerts-metric-overview.md).
 * Weitere Informationen zum Konfigurieren eines Webhooks in Warnungen finden Sie unter [Aufrufen eines Webhooks mit einer klassischen Metrikwarnung](../../azure-monitor/platform/alerts-webhooks.md).
-* Weitere Informationen zum Konfigurieren und Verwalten von Warnungen mithilfe von PowerShell finden Sie unter [Aktionsregeln](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2).
-* Weitere Informationen zum Konfigurieren und Verwalten von Warnungen mithilfe der API finden Sie unter [Azure Monitor-REST-API-Referenz](https://docs.microsoft.com/rest/api/monitor/). 
+* Weitere Informationen zum Konfigurieren und Verwalten von Warnungen mithilfe von PowerShell finden Sie unter [Aktionsregeln](/powershell/module/az.monitor/add-azmetricalertrulev2).
+* Weitere Informationen zum Konfigurieren und Verwalten von Warnungen mithilfe der API finden Sie unter [Azure Monitor-REST-API-Referenz](/rest/api/monitor/).

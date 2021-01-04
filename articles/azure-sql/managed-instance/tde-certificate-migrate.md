@@ -4,24 +4,24 @@ description: Migrieren des Zertifikats zum Schutz des Datenbankverschlüsselungs
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein, jovanpop
 ms.date: 07/21/2020
-ms.openlocfilehash: 08adfd7b69d580f6a231f13f9fb2793d828e16a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80ff16156348db9c3a209757b48b7d54615d9104
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618158"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790694"
 ---
 # <a name="migrate-a-certificate-of-a-tde-protected-database-to-azure-sql-managed-instance"></a>Migrieren des Zertifikats einer durch TDE geschützten Datenbank zu einer Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Beim Migrieren einer durch [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) geschützten Datenbank zu einer Azure SQL Managed Instance mithilfe der nativen Wiederherstellungsoption muss vor der Wiederherstellung der Datenbank das entsprechende Zertifikat aus der SQL-Server-Instanz migriert werden. Dieser Artikel stellt Ihnen schrittweise den Vorgang der manuellen Migration des Zertifikats zu einer verwalteten Azure SQL-Instanz vor:
+Beim Migrieren einer durch [Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) geschützten Datenbank zu einer Azure SQL Managed Instance mithilfe der nativen Wiederherstellungsoption muss vor der Wiederherstellung der Datenbank das entsprechende Zertifikat aus der SQL-Server-Instanz migriert werden. Dieser Artikel stellt Ihnen schrittweise den Vorgang der manuellen Migration des Zertifikats zu einer verwalteten Azure SQL-Instanz vor:
 
 > [!div class="checklist"]
 >
@@ -38,20 +38,20 @@ Eine alternative Option, einen vollständig verwalteten Dienst für die nahtlose
 
 Damit Sie die in diesem Artikel aufgeführten Schritte ausführen können, benötigen Sie Folgendes:
 
-* Das [Pvk2pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx)-Befehlszeilentool, das auf dem lokalen Server oder einem anderen Computer mit Zugriff auf das Zertifikat installiert ist, das als Datei exportiert wurde. Das Pvk2pfx-Tool ist Bestandteil des [Enterprise Windows Driver Kit](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), einer eigenständigen Befehlszeilenumgebung.
+* Das [Pvk2pfx](/windows-hardware/drivers/devtest/pvk2pfx)-Befehlszeilentool, das auf dem lokalen Server oder einem anderen Computer mit Zugriff auf das Zertifikat installiert ist, das als Datei exportiert wurde. Das Pvk2pfx-Tool ist Bestandteil des [Enterprise Windows Driver Kit](/windows-hardware/drivers/download-the-wdk), einer eigenständigen Befehlszeilenumgebung.
 * [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell), Version 5.0 oder höher.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Stellen Sie sicher, dass Sie über Folgendes verfügen:
 
-* Das Azure PowerShell-Modul ist [installiert und aktualisiert](https://docs.microsoft.com/powershell/azure/install-az-ps).
+* Das Azure PowerShell-Modul ist [installiert und aktualisiert](/powershell/azure/install-az-ps).
 * [Az.Sql-Modul](https://www.powershellgallery.com/packages/Az.Sql).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Das Azure Resource Manager-Modul von PowerShell wird von der verwalteten Azure SQL-Instanz weiterhin unterstützt, alle zukünftigen Entwicklungen erfolgen jedoch für das Az.Sql-Modul. Informationen zu diesen Cmdlets finden Sie unter [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Die Argumente für die Befehle im Az-Modul und den AzureRM-Modulen sind im Wesentlichen identisch.
+> Das Azure Resource Manager-Modul von PowerShell wird von der verwalteten Azure SQL-Instanz weiterhin unterstützt, alle zukünftigen Entwicklungen erfolgen jedoch für das Az.Sql-Modul. Informationen zu diesen Cmdlets finden Sie unter [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Die Argumente für die Befehle im Az-Modul und den AzureRM-Modulen sind im Wesentlichen identisch.
 
 Führen Sie die folgenden Befehle in PowerShell zum Installieren/Aktualisieren des Moduls aus:
 
@@ -125,7 +125,7 @@ Wenn das Zertifikat im Zertifikatspeicher des lokalen Computers mit SQL Server g
 
 2. Erweitern Sie im Zertifikate-MMC-Snap-In den Pfad „Personal > Certificates“, um eine Liste der Zertifikate anzuzeigen.
 
-3. Klicken Sie mit der rechten Maustaste auf das Zertifikat, und klicken Sie dann auf **Exportieren**.
+3. Klicken Sie mit der rechten Maustaste auf das Zertifikat, und klicken Sie dann auf **Exportieren** .
 
 4. Folgen Sie den Anweisungen des Assistenten, um das Zertifikat und den privaten Schlüssel in ein PFX-Format zu exportieren.
 
@@ -160,7 +160,7 @@ Wenn das Zertifikat im Zertifikatspeicher des lokalen Computers mit SQL Server g
 
 # <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
-Sie müssen zunächst mit ihrer *PFX*-Datei [einen Azure-Schlüsseltresor](/azure/key-vault/key-vault-manage-with-cli2) einrichten.
+Sie müssen zunächst mit ihrer *PFX* -Datei [einen Azure-Schlüsseltresor](../../key-vault/general/manage-with-cli2.md) einrichten.
 
 1. Beginnen Sie mit den Vorbereitungsschritten in PowerShell:
 

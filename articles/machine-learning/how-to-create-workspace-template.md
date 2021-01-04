@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 1978cfe6ea117a0d30df938c9e4ba1aeb48314fc
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: bd9199bc73e56ec36343b30d9b24f0b48799835e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057840"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445176"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Verwenden einer Azure Resource Manager-Vorlage zum Erstellen eines Arbeitsbereichs für Azure Machine Learning
 
@@ -30,14 +30,18 @@ Weitere Informationen finden Sie unter [Bereitstellen einer Anwendung mit einer 
 
 * Ein **Azure-Abonnement**. Wenn Sie keins besitzen, probieren Sie die [kostenlose oder kostenpflichtige Version von Azure Machine Learning](https://aka.ms/AMLFree) aus.
 
-* Um eine Vorlage über eine Befehlszeilenschnittstelle zu verwenden, benötigen Sie entweder [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) oder die [Azure-Befehlszeilenschnittstelle (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* Um eine Vorlage über eine Befehlszeilenschnittstelle zu verwenden, benötigen Sie entweder [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) oder die [Azure-Befehlszeilenschnittstelle (CLI)](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 * Für einige Szenarien müssen Sie ein Supportticket öffnen. Es handelt sich um folgende Szenarien:
 
-    * __Arbeitsbereich mit aktiviertem Private Link mit einem kundenseitig verwalteten Schlüssel (CMK)__
+    * __Arbeitsbereich mit aktiviertem Private Link mit einem kundenseitig verwalteten Schlüssel__
     * __Azure Container Registry für den Arbeitsbereich hinter Ihrem virtuellen Netzwerk__
 
     Weitere Informationen finden Sie unter [Verwalten und Erhöhen von Kontingenten](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
+
+## <a name="limitations"></a>Einschränkungen
+
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
 ## <a name="workspace-resource-manager-template"></a>Verwenden von Arbeitsbereich-Resource Manager-Vorlagen
 
@@ -69,7 +73,7 @@ Die Beispielvorlage verfügt über zwei **erforderliche** Parameter:
 > [!TIP]
 > Während die Vorlage, die mit diesem Dokument verknüpft ist, eine neue Azure-Containerregistrierung erstellt, können Sie auch einen neuen Arbeitsbereich erstellen, ohne eine Containerregistrierung zu erstellen. Eine Containerregistrierung wird erstellt, wenn Sie einen Vorgang ausführen, der eine Containerregistrierung erfordert. Beispielsweise Trainieren oder Bereitstellen eines Modells.
 >
-> Sie können auch auf eine vorhandene Containerregistrierung oder ein Speicherkonto in der Azure Resource Manager-Vorlage verweisen, anstatt eine neue Registrierung zu erstellen. Für die Containerregistrierung, die Sie verwenden, muss jedoch das __Administratorkonto__ aktiviert sein. Informationen zum Aktivieren des Administratorkontos finden Sie unter [Administratorkonto](/azure/container-registry/container-registry-authentication#admin-account).
+> Sie können auch auf eine vorhandene Containerregistrierung oder ein Speicherkonto in der Azure Resource Manager-Vorlage verweisen, anstatt eine neue Registrierung zu erstellen. Für die Containerregistrierung, die Sie verwenden, muss jedoch das __Administratorkonto__ aktiviert sein. Informationen zum Aktivieren des Administratorkontos finden Sie unter [Administratorkonto](../container-registry/container-registry-authentication.md#admin-account).
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
@@ -77,7 +81,7 @@ Weitere Informationen zu Vorlagen finden Sie in den folgenden Artikeln:
 
 * [Erstellen von Azure Resource-Manager-Vorlagen](../azure-resource-manager/templates/template-syntax.md)
 * [Bereitstellen einer Anwendung mit Azure Resource Manager-Vorlagen](../azure-resource-manager/templates/deploy-powershell.md)
-* [Microsoft.MachineLearningServices-Ressourcentypen](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
+* [Microsoft.MachineLearningServices-Ressourcentypen](/azure/templates/microsoft.machinelearningservices/allversions)
 
 ## <a name="deploy-template"></a>Bereitstellen der Vorlage
 
@@ -161,14 +165,16 @@ New-AzResourceGroupDeployment `
 
 Die folgende Beispielvorlage zeigt, wie Sie einen Arbeitsbereich mit drei Einstellungen erstellen:
 
-* Aktivierung einer hohen Vertraulichkeit für den Arbeitsbereich
-* Aktivierung der Verschlüsselung für den Arbeitsbereich
-* Verwendung einer vorhandenen Azure Key Vault-Instanz zum Abrufen von kundenseitig verwalteten Schlüsseln
+* Es werden Einstellungen für hohe Vertraulichkeit für den Arbeitsbereich aktiviert. Dadurch wird eine neue Cosmos DB-Instanz erstellt.
+* Die Verschlüsselung wird für den Arbeitsbereich aktiviert.
+* Es wird eine vorhandene Azure Key Vault-Instanz verwendet, um kundenseitig verwaltete Schlüssel abzurufen. Kundenseitig verwaltete Schlüssel werden zum Erstellen einer neuen Cosmos DB-Instanz für den Arbeitsbereich verwendet.
+
+    [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 > [!IMPORTANT]
 > Nachdem ein Arbeitsbereich erstellt wurde, können Sie die Einstellungen für vertrauliche Daten, Verschlüsselung, Key Vault-ID oder Schlüsselbezeichner nicht mehr ändern. Um diese Werte zu ändern, müssen Sie einen neuen Arbeitsbereich erstellen und dabei neue Werte verwenden.
 
-Weitere Informationen finden Sie unter [Verschlüsselung ruhender Daten](concept-enterprise-security.md#encryption-at-rest).
+Weitere Informationen finden Sie unter [Verschlüsselung ruhender Daten](concept-data-encryption.md#encryption-at-rest).
 
 > [!IMPORTANT]
 > Es gibt einige bestimmte Anforderungen, die Ihr Abonnement erfüllen muss, bevor Sie diese Vorlage verwenden können:
@@ -250,7 +256,7 @@ New-AzResourceGroupDeployment `
 ```
 ---
 
-Wenn ein vom Kunden verwalteter Schlüssel verwendet wird, erstellt Azure Machine Learning eine sekundäre Ressourcengruppe, die die Cosmos DB-Instanz enthält. Weitere Informationen finden Sie unter [Verschlüsselung ruhender Daten](concept-enterprise-security.md#encryption-at-rest).
+Wenn ein vom Kunden verwalteter Schlüssel verwendet wird, erstellt Azure Machine Learning eine sekundäre Ressourcengruppe, die die Cosmos DB-Instanz enthält. Weitere Informationen finden Sie unter [Verschlüsselung ruhender Daten](concept-data-encryption.md#encryption-at-rest).
 
 Als zusätzliche Konfiguration für Ihre Daten können Sie den **confidential_data**-Parameter auf **true** festlegen. Daraus resultiert Folgendes:
 
@@ -262,7 +268,7 @@ Als zusätzliche Konfiguration für Ihre Daten können Sie den **confidential_da
     > [!IMPORTANT]
     > Nachdem ein Arbeitsbereich erstellt wurde, können Sie die Einstellungen für vertrauliche Daten, Verschlüsselung, Key Vault-ID oder Schlüsselbezeichner nicht mehr ändern. Um diese Werte zu ändern, müssen Sie einen neuen Arbeitsbereich erstellen und dabei neue Werte verwenden.
 
-  Weitere Informationen finden Sie unter [Verschlüsselung ruhender Daten](concept-enterprise-security.md#encryption-at-rest).
+  Weitere Informationen finden Sie unter [Verschlüsselung ruhender Daten](concept-data-encryption.md#encryption-at-rest).
 
 ## <a name="deploy-workspace-behind-a-virtual-network"></a>Bereitstellen des Arbeitsbereichs hinter einem virtuellen Netzwerk
 
@@ -539,7 +545,7 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-the-azure-portal"></a>Verwenden des Azure-Portals
 
-1. Befolgen Sie die Schritte in [Bereitstellen von Ressourcen mithilfe einer benutzerdefinierten Vorlage](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Wählen Sie auf dem Bildschirm __Vorlage auswählen__ in der Dropdownliste die Vorlage **201-machine-learning-advanced** aus.
+1. Befolgen Sie die Schritte in [Bereitstellen von Ressourcen mithilfe einer benutzerdefinierten Vorlage](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template). Wählen Sie auf dem Bildschirm __Vorlage auswählen__ in der Dropdownliste die Vorlage **201-machine-learning-advanced** aus.
 1. Wählen Sie __Vorlage auswählen__, um die Vorlage zu verwenden. Geben Sie abhängig von Ihrem Bereitstellungsszenario die folgenden erforderlichen Informationen und sonstige Parameter an.
 
    * Abonnement: Wählen Sie aus, welches Azure-Abonnement für diese Ressourcen verwendet werden soll.
@@ -574,7 +580,7 @@ Folgende Ansätze werden empfohlen, um dieses Problem zu umgehen:
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query properties.accessPolicies
     ```
 
-    Weitere Informationen zur Verwendung des `accessPolicies`-Abschnitts der Vorlage finden Sie im [AccessPolicyEntry-Objektverweis](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
+    Weitere Informationen zur Verwendung des `accessPolicies`-Abschnitts der Vorlage finden Sie im [AccessPolicyEntry-Objektverweis](/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
 
 * Überprüfen Sie, ob die Key Vault-Ressource bereits vorhanden ist. Wenn dies der Fall ist, erstellen Sie sie nicht mithilfe der Vorlage neu. Wenn Sie z. B. den vorhandenen Key Vault verwenden möchten, anstatt einen neuen zu erstellen, nehmen Sie die folgenden Änderungen an der Vorlage vor:
 

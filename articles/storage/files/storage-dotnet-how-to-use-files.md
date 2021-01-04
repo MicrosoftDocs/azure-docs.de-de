@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 21b407002adce01155b37321c068fb10d2c003f6
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: e112060db4a44884d3094a939b03ff106ba72e65
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319799"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492198"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Entwickeln für Azure Files mit .NET
 
@@ -41,7 +41,7 @@ Azure Files bietet zwei allgemeine Ansätze für Clientansätze: Server Message 
 
 API | Verwendung | Notizen
 ----|-------------|------
-[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Ihre Anwendung: <ul><li>Muss Dateien mithilfe von SMB lesen/schreiben</li><li>Wird auf einem Gerät ausgeführt, das über Port 445 Zugriff auf Ihr Azure Files-Konto hat</li><li>Muss keine Verwaltungseinstellungen der Dateifreigabe verwalten</li></ul> | Datei-E/A-Vorgänge, die mit Azure Files über SMB implementiert wurden, entsprechen normalerweise E/A-Vorgängen bei einer beliebigen Netzwerkdateifreigabe oder einem beliebigen lokalen Speichergerät. Eine Einführung in mehrere Features in .NET, einschließlich Datei-E/A-Vorgängen, finden Sie im Tutorial zur [Konsolenanwendung](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter).
+[System.IO](/dotnet/api/system.io) | Ihre Anwendung: <ul><li>Muss Dateien mithilfe von SMB lesen/schreiben</li><li>Wird auf einem Gerät ausgeführt, das über Port 445 Zugriff auf Ihr Azure Files-Konto hat</li><li>Muss keine Verwaltungseinstellungen der Dateifreigabe verwalten</li></ul> | Datei-E/A-Vorgänge, die mit Azure Files über SMB implementiert wurden, entsprechen normalerweise E/A-Vorgängen bei einer beliebigen Netzwerkdateifreigabe oder einem beliebigen lokalen Speichergerät. Eine Einführung in mehrere Features in .NET, einschließlich Datei-E/A-Vorgängen, finden Sie im Tutorial zur [Konsolenanwendung](/dotnet/csharp/tutorials/console-teleprompter).
 [Azure.Storage.Files.Shares](/dotnet/api/azure.storage.files.shares) | Ihre Anwendung: <ul><li>Kann aufgrund von Firewall- oder ISP-Einschränkungen nicht mithilfe von SMB an Port 445 auf Azure Files zugreifen</li><li>Benötigt Verwaltungsfunktionen, etwa die Möglichkeit, das Kontingent einer Dateifreigabe festzulegen oder eine SAS (Shared Access Signature) zu erstellen</li></ul> | Dieser Artikel veranschaulicht die Verwendung von `Azure.Storage.Files.Shares` für Datei-E/A-Vorgänge mithilfe von REST statt SMB sowie die Verwaltung der Dateifreigabe.
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Erstellen der Konsolenanwendung und Erhalten der Assembly
@@ -70,7 +70,7 @@ Verweisen Sie in Ihrem Projekt auf die folgenden Pakete:
 Sie können die Pakete über NuGet abrufen. Folgen Sie diesen Schritten:
 
 1. Klicken Sie im **Projektmappen-Explorer** mit der rechten Maustaste auf Ihr Projekt, und wählen Sie **NuGet-Pakete verwalten** aus.
-1. Wählen Sie in **NuGet Package Manager** die Option **Durchsuchen** aus. Suchen Sie nach **Azure.Core** , und wählen Sie das Paket aus. Klicken Sie dann auf **Installieren** .
+1. Wählen Sie in **NuGet Package Manager** die Option **Durchsuchen** aus. Suchen Sie nach **Azure.Core**, und wählen Sie das Paket aus. Klicken Sie dann auf **Installieren**.
 
    Mit diesem Schritt werden das Paket und seine Abhängigkeiten installiert.
 
@@ -90,7 +90,7 @@ Sie können die Pakete über NuGet abrufen. Folgen Sie diesen Schritten:
 Sie können die Pakete über NuGet abrufen. Folgen Sie diesen Schritten:
 
 1. Klicken Sie im **Projektmappen-Explorer** mit der rechten Maustaste auf Ihr Projekt, und wählen Sie **NuGet-Pakete verwalten** aus.
-1. Wählen Sie in **NuGet Package Manager** die Option **Durchsuchen** aus. Suchen Sie dann nach **Microsoft.Azure.Storage.Blob** , und wählen Sie es aus. Wählen Sie dann **Installieren** aus.
+1. Wählen Sie in **NuGet Package Manager** die Option **Durchsuchen** aus. Suchen Sie dann nach **Microsoft.Azure.Storage.Blob**, und wählen Sie es aus. Wählen Sie dann **Installieren** aus.
 
    Mit diesem Schritt werden das Paket und seine Abhängigkeiten installiert.
 1. Suchen und installieren Sie diese Pakete:
@@ -135,7 +135,7 @@ Ersetzen Sie `myaccount` durch den Namen Ihres Speicherkontos und `StorageAccoun
 
 ## <a name="add-using-directives"></a>Hinzufügen von using-Direktiven
 
-Öffnen Sie im **Projektmappen-Explorer** die Datei *Program.cs* , und fügen Sie am Anfang der Datei mithilfe von using-Anweisungen Folgendes hinzu.
+Öffnen Sie im **Projektmappen-Explorer** die Datei *Program.cs*, und fügen Sie am Anfang der Datei mithilfe von using-Anweisungen Folgendes hinzu.
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -316,7 +316,7 @@ Weitere Informationen zum Erstellen und Verwenden von Shared Access Signatures f
 
 Ab Version 5.x der Azure Files-Clientbibliothek können Sie eine Datei in eine andere Datei, eine Datei in ein Blob oder ein Blob in eine Datei kopieren.
 
-Sie können auch AzCopy verwenden, um eine Datei in eine andere oder ein Blob in eine Datei (oder umgekehrt) zu kopieren. Informationen finden Sie unter [Übertragen von Daten mit AzCopy v10](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+Sie können auch AzCopy verwenden, um eine Datei in eine andere oder ein Blob in eine Datei (oder umgekehrt) zu kopieren. Informationen finden Sie unter [Übertragen von Daten mit AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 > [!NOTE]
 > Wenn Sie ein BLOB in eine Datei oder eine Datei in ein BLOB kopieren, müssen Sie eine SAS verwenden, um den Zugriff auf das Quellobjekt zu autorisieren. Dies gilt selbst dann, wenn Sie innerhalb desselben Speicherkontos kopieren.
@@ -624,8 +624,8 @@ Weitere Informationen zu Azure Files finden Sie in den folgenden Ressourcen:
 
 ### <a name="tooling-support-for-file-storage"></a>Toolunterstützung für Dateispeicher
 
-- [Erste Schritte mit AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-- [Behandeln von Azure Files-Problemen unter Windows](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
+- [Erste Schritte mit AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+- [Behandeln von Azure Files-Problemen unter Windows](./storage-troubleshoot-windows-file-connection-problems.md)
 
 ### <a name="reference"></a>Verweis
 

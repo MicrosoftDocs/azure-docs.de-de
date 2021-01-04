@@ -6,11 +6,11 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.openlocfilehash: c1915d108bf9465d3e5b8d6a55053b583ee4f580
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88184617"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009703"
 ---
 # <a name="troubleshoot-azure-vm-extension-issues"></a>Behandeln von Problemen mit der Azure-VM-Erweiterung
 
@@ -105,7 +105,7 @@ Deinstallieren Sie die Erweiterung, und wiederholen Sie den Vorgang.
 So deinstallieren Sie die Erweiterung:
 
 1. Wechseln Sie im [Azure-Portal](https://portal.azure.com/) zu dem virtuellen Computer, auf dem der Sicherungsfehler auftritt.
-1. Wählen Sie **Settings**aus.
+1. Wählen Sie **Settings** aus.
 1. Wählen Sie **Erweiterungen**.
 1. Wählen Sie **Site Recovery-Erweiterung**.
 1. Wählen Sie **Deinstallieren** aus.

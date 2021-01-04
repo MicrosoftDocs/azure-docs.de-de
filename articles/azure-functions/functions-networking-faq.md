@@ -4,12 +4,12 @@ description: Hier finden Sie Antworten auf einige der häufigsten Fragen und Sze
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.reviewer: glenga
-ms.openlocfilehash: d07484943f8ba85cc8e46737f3ef85b6e25d5187
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 3e8a992aac95b6c2688cb45aa980bf0b01883a53
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91538057"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578228"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Häufig gestellte Fragen zu Netzwerken in Azure Functions
 
@@ -31,11 +31,9 @@ Beachten Sie hierbei, dass für den Editor im Azure-Portal direkter Zugriff auf 
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>Wie beschränke ich meine Funktions-App auf ein virtuelles Netzwerk?
 
-Sie können **eingehenden** Datenverkehr für eine Funktions-App mithilfe von [Dienstendpunkten](./functions-networking-options.md#private-site-access) auf ein virtuelles Netzwerk einschränken. Diese Konfiguration ermöglicht der Funktions-App immer noch, ausgehende Aufrufe an das Internet zu senden.
+Sie können **eingehenden** Datenverkehr für eine Funktions-App mithilfe von [Dienstendpunkten](./functions-networking-options.md#use-service-endpoints) auf ein virtuelles Netzwerk einschränken. Diese Konfiguration ermöglicht der Funktions-App immer noch, ausgehende Aufrufe an das Internet zu senden.
 
-Die einzige Möglichkeit, eine Funktion so einzuschränken, dass der gesamte Datenverkehr durch ein virtuelles Netzwerk fließt, ist die Verwendung einer App Service-Umgebung mit internem Lastenausgleich. In diesem Fall wird die Website in einer dedizierten Infrastruktur in einem virtuellen Netzwerk bereitgestellt, und alle Trigger sowie der gesamte Datenverkehr werden über das virtuelle Netzwerk gesendet. 
-
-Details zur Verwendung einer App Service-Umgebung finden Sie im Artikel [Erstellen und Verwenden eines internen Lastenausgleichs mit einer App Service-Umgebung](../app-service/environment/create-ilb-ase.md).
+Wenn Sie eine Funktion so einschränken möchten, dass der gesamte Datenverkehr ein virtuelles Netzwerk durchläuft, können Sie einen [privaten Endpunkt](./functions-networking-options.md#private-endpoint-connections) mit VNET-Integration (ausgehend) oder eine App Service-Umgebung verwenden.
 
 ## <a name="how-can-i-access-resources-in-a-virtual-network-from-a-function-app"></a>Wie kann ich über eine Funktions-App auf Ressourcen in einem virtuellen Netzwerk zugreifen?
 
@@ -47,7 +45,7 @@ Durch Verwendung der Integration des virtuellen Netzwerks können Sie über eine
 
 ## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-virtual-network"></a>Wie kann ich eine Funktion über eine Ressource in einem virtuellen Netzwerk auslösen?
 
-Sie können mithilfe von [Dienstendpunkten](./functions-networking-options.md#private-site-access) zulassen, dass HTTP-Trigger aus einem virtuellen Netzwerk aufgerufen werden. 
+Sie können mithilfe von [Dienstendpunkten](./functions-networking-options.md#use-service-endpoints) oder [privaten Endpunktverbindungen](./functions-networking-options.md#private-endpoint-connections) zulassen, dass HTTP-Trigger aus einem virtuellen Netzwerk aufgerufen werden. 
 
 Sie können eine Funktion auch über alle anderen Ressourcen in einem virtuellen Netzwerk auslösen, indem Sie Ihre Funktions-App mit einem Premium-Plan, einem App Service-Plan oder in einer App Service-Umgebung bereitstellen. Weitere Informationen finden Sie im Artikel [Trigger für virtuelle Netzwerke (nicht HTTP)](./functions-networking-options.md#virtual-network-triggers-non-http).
 

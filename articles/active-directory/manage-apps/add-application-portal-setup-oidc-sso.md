@@ -10,16 +10,18 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 0a25d910b694968802e853a81c16e34dd0539f7a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: c0253dc3c9dc029cd964fb32b148be1405e7fbad
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203499"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780177"
 ---
 # <a name="quickstart-set-up-oidc-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Schnellstart: Einrichten des OIDC-basierten einmaligen Anmeldens (Single Sign-On, SSO) für eine Anwendung auf Ihrem Azure Active Directory-Mandanten (Azure AD-Mandanten)
 
 Beginnen Sie mit vereinfachten Benutzeranmeldungen, indem Sie einmaliges Anmelden (Single Sign-On, SSO) für eine Anwendung einrichten, die Sie Ihrem Azure Active Directory-Mandanten (Azure AD-Mandanten) hinzugefügt haben. Nachdem Sie SSO eingerichtet haben, können sich Ihre Benutzer mit ihren Azure AD-Anmeldeinformationen bei einer Anwendung anmelden. SSO ist in der kostenlosen Edition von Azure AD enthalten.
+
+Weitere Informationen zu OIDC-basiertem SSO finden Sie unter [Grundlegendes zum OIDC-basierten einmaligen Anmelden](configure-oidc-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -52,16 +54,21 @@ Richten Sie einmaliges Anmelden wie folgt für eine Anwendung ein:
    > [!IMPORTANT]
     > Falls Sie bereits über ein Abonnement für die Anwendung verfügen, wird eine Überprüfung der Benutzerdetails und Mandanten- bzw. Verzeichnisinformationen durchgeführt. Falls der Benutzer von der Anwendung nicht verifiziert werden kann, werden Sie auf die Registrierungsseite für den Anwendungsdienst oder die Fehlerseite umgeleitet.
 
-3. Nach erfolgreichem Abschluss der Authentifizierung wird in einem Dialogfeld nach der Administratoreinwilligung gefragt. Wählen Sie die Option **Zustimmung im Namen Ihrer Organisation** und dann **Annehmen** aus. 
+3. Nach erfolgreichem Abschluss der Authentifizierung wird in einem Dialogfeld nach der Administratoreinwilligung gefragt. Wählen Sie die Option **Zustimmung im Namen Ihrer Organisation** und dann **Annehmen** aus. Weitere Informationen zur Benutzer- und Administratoreinwilligung finden Sie unter [Grundlegendes zur Benutzer- und Administratoreinwilligung](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent).
 
-    :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="Screenshot: Option für einmaliges Anmelden und Schaltfläche für die Registrierung" lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
+    :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="Screenshot: Einwilligungsbildschirm für eine App" lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
 
 4. Die Anwendung wird Ihrem Mandanten hinzugefügt, und die Startseite der Anwendung wird angezeigt.
 
 
 > [!TIP]
-> Sie können die App-Verwaltung mithilfe der Graph-API automatisieren. Informationen hierzu finden Sie unter [Automatisieren einer SAML-basierten SSO-App-Konfiguration mit Microsoft Graph-API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> Sie können die App-Verwaltung mithilfe der Graph-API automatisieren. Informationen hierzu finden Sie unter [Automatisieren einer SAML-basierten SSO-App-Konfiguration mit Microsoft Graph-API](/graph/application-saml-sso-configure-api).
 
+Im folgenden Video werden Schritt für Schritt weitere Details im Zusammenhang mit dem Hinzufügen einer OIDC-basierten App zu Azure AD erläutert.
+
+Hinzufügen einer OIDC-basierten App in Azure Active Directory
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 

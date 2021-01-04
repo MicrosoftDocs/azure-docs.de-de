@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 30a6a73768db7b073258487435ddbe6c0daccf16
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 30487218fc95be75d22b5a9ea5a6dbc224ffd025
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317824"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074796"
 ---
 # <a name="overview-of-the-developer-portal"></a>Übersicht über das Entwicklerportal
 
@@ -62,7 +62,7 @@ Beim ersten Starten der Vorschauversion des Entwicklerportals haben Sie die Vors
 
 Wenn Sie Ihr Portal basierend auf der Vorschauversion des Inhalts umfangreich angepasst haben, können Sie es unverändert weiter verwenden und neue Widgets manuell auf den Seiten des Portals platzieren. Andernfalls wird empfohlen, den Inhalt Ihres Portals durch den neuen Standardinhalt zu ersetzen.
 
-Wenn Sie den Inhalt in einem verwalteten Portal zurücksetzen möchten, wählen Sie im Menüabschnitt **Vorgänge** die Option **Inhalt zurücksetzen** aus. Dadurch wird der gesamte Inhalt des Portals entfernt, und die neuen Standardinhalte werden bereitgestellt. Alle Anpassungen und Änderungen des Entwicklerportals gehen dabei verloren. **Dieser Vorgang kann nicht rückgängig gemacht werden** .
+Wenn Sie den Inhalt in einem verwalteten Portal zurücksetzen möchten, wählen Sie im Menüabschnitt **Vorgänge** die Option **Inhalt zurücksetzen** aus. Dadurch wird der gesamte Inhalt des Portals entfernt, und die neuen Standardinhalte werden bereitgestellt. Alle Anpassungen und Änderungen des Entwicklerportals gehen dabei verloren. **Dieser Vorgang kann nicht rückgängig gemacht werden**.
 
 ![Zurücksetzen des Portalinhalts](media/api-management-howto-developer-portal/reset-content.png)
 
@@ -72,7 +72,7 @@ Wenn Sie zum ersten Mal nach der Ankündigung der allgemeinen Verfügbarkeit im 
 
 ### <a name="functionality-i-need-isnt-supported-in-the-portal"></a>Eine von mir benötigte Funktion wird im Portal nicht unterstützt
 
-Sie können im [GitHub-Repository][1] eine Funktionsanforderung öffnen oder die [fehlende Funktionalität selbst implementieren][3]. Weitere Informationen finden Sie im Abschnitt **Erweiterbarkeit** .
+Sie können im [GitHub-Repository][1] eine Funktionsanforderung öffnen oder die [fehlende Funktionalität selbst implementieren][3]. Weitere Informationen finden Sie im Abschnitt **Erweiterbarkeit**.
 
 ### <a name="how-can-i-automate-portal-deployments"></a><a id="automate"></a> Wie kann ich Portalbereitstellungen automatisieren?
 
@@ -126,14 +126,14 @@ Die interaktive Konsole sendet eine clientseitige API-Anforderung über den Brow
 
 Sie können den Status der CORS-Richtlinie im Abschnitt **Portalübersicht** Ihres API Management-Diensts im Azure-Portal überprüfen. Ein Warnfeld zeigt eine fehlende oder falsch konfigurierte Richtlinie an.
 
-![Entwicklerportal für API Management](media/api-management-howto-developer-portal/cors-azure-portal.png)
+![Screenshot, der zeigt, wo Sie den Status Ihrer CORS-Richtlinie überprüfen können.](media/api-management-howto-developer-portal/cors-azure-portal.png)
 
 Wenden Sie die COLRS-Richtlinie automatisch an, indem Sie auf die Schaltfläche **CORS aktivieren** klicken.
 
 Sie können CORS auch manuell aktivieren.
 
 1. Wählen Sie den Link **Manuelle Anwendung auf globaler Ebene** aus, um den generierten Richtliniencode anzuzeigen.
-2. Navigieren Sie im Azure-Portal im Abschnitt **APIs** Ihres API Management-Diensts zu **Alle APIs** .
+2. Navigieren Sie im Azure-Portal im Abschnitt **APIs** Ihres API Management-Diensts zu **Alle APIs**.
 3. Wählen Sie im Abschnitt **Eingehende Verarbeitung** das Symbol **</>** aus.
 4. Fügen Sie die Richtlinie in den Abschnitt **<inbound>** der XML-Datei ein. Stellen Sie sicher, dass der **<origin>** -Wert mit der Domäne Ihres Entwicklerportals übereinstimmt.
 

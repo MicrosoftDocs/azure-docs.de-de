@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 04/10/2020
+ms.date: 11/18/2020
 ms.author: victorh
-ms.openlocfilehash: 84110e749dac9267e994385aa5f6d05e3ba224a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01f7aa61d3bfb3c712320bbf138160a7ff8197c7
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87087542"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95502195"
 ---
 # <a name="configure-azure-firewall-rules"></a>Konfigurieren von Azure Firewall-Regeln
 Sie können NAT-Regeln, Netzwerkregeln und Anwendungsregeln in Azure Firewall konfigurieren. Regelsammlungen werden entsprechend dem Regeltyp in Prioritätsreihenfolge verarbeitet – niedrigere Zahlen bis höhere Zahlen von 100 bis 65.000. Der Name einer Regelsammlung darf nur Buchstaben, Ziffern, Unterstriche, Punkte oder Bindestriche enthalten. Er muss mit einem Buchstaben oder einer Zahl beginnen und mit einem Buchstaben, einer Zahl oder einem Unterstrich enden. Die maximale Namenslänge ist 80 Zeichen.
@@ -27,6 +27,12 @@ Es empfiehlt sich, die Prioritätsnummern der Regelsammlung zunächst in Inkreme
 ### <a name="network-rules-and-applications-rules"></a>Netzwerkregeln und Anwendungsregeln
 
 Wenn Sie Netzwerkregeln und Anwendungsregeln konfigurieren, werden die Netzwerkregeln in der Prioritätsreihenfolge vor den Anwendungsregeln angewendet. Die Regeln können zur Beendigung von Vorgängen führen. Wenn also eine Netzwerkregel gefunden wird, werden keine anderen Regeln mehr verarbeitet.  Wenn sich keine Übereinstimmung für eine Netzwerkregel ergibt und als Protokoll HTTP, HTTPS oder MSSQL verwendet wird, wird das Paket von den Anwendungsregeln in der Reihenfolge ihrer Priorität ausgewertet. Falls sich immer noch keine Übereinstimmung ergibt, wird das Paket von der [Regelsammlung der Infrastruktur](infrastructure-fqdns.md) ausgewertet. Wenn sich auch hierbei keine Übereinstimmung ergibt, wird das Paket standardmäßig abgelehnt.
+
+#### <a name="network-rule-protocol"></a>Netzwerkregelprotokoll
+
+Netzwerkregeln können für **TCP**, **UDP**, **ICMP** oder ein beliebiges IP-Protokoll (**Any**) konfiguriert werden. Dies bezieht sich auf alle im Dokument [Internet Assigned Numbers Authority (IANA) Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) (Internet Assigned Numbers Authority-Protokollnummern (IANA)) definierten IP-Protokolle. Wenn ein Zielport explizit konfiguriert ist, wird die Regel in eine TCP- und UDP-Regel übersetzt.
+
+Vor dem 9. November 2020 bezog sich ein beliebiges IP-Protokoll (**Any**) auf **TCP**, **UDP** oder **ICMP**. Daher haben Sie möglicherweise vor diesem Datum eine Regel mit „Protocol = Any“ und „destination ports = '*'“ konfiguriert. Wenn kein beliebiges IP-Protokoll wie aktuell definiert zugelassen werden soll, ändern Sie die Regel so, dass die gewünschten Protokolle (TCP, UDP oder ICMP) explizit konfiguriert werden.
 
 ## <a name="inbound-connectivity"></a>Eingehende Konnektivität
 

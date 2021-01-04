@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: victorh
-ms.openlocfilehash: 3d714b579bebb096745a47410da3f8f458e27161
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c39401289ffc6f27c292168adaa15c5163a3967b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723298"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001285"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Übersicht über TLS-Beendigung und End-to-End-TLS mit Application Gateway
 
@@ -51,10 +51,10 @@ Das Anwendungsgateway unterstützt die folgenden Arten von Zertifikaten:
 - Platzhalterzertifikat: Dieses Zertifikat unterstützt eine beliebige Anzahl von untergeordneten Domänen basierend auf *.site.com. * wird durch Ihre untergeordnete Domäne ersetzt. Es unterstützt jedoch nicht site.com. Falls Ihre die auf Benutzer Ihre Website zugreifen, ohne die führende Zeichenfolge „www“ einzugeben, wird das Platzhalterzertifikat diese Eingabe nicht berücksichtigen.
 - Selbstsignierte Zertifikate: Clientbrowser vertrauen diesen Zertifikaten nicht und warnen den Benutzer, dass das virtuelle Zertifikat des Diensts keiner Vertrauenskette angehört. Selbstsignierte Zertifikate eignen sich gut für Tests oder Umgebungen, in denen Administratoren die Clients kontrollieren und Sicherheitswarnungen des Browsers sicher umgehen können. Produktionsworkloads sollten niemals selbstsignierte Zertifikate verwenden.
 
-Weitere Informationen finden Sie im Artikel zum [Konfigurieren der TLS-Terminierung mit Application Gateway](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
+Weitere Informationen finden Sie im Artikel zum [Konfigurieren der TLS-Terminierung mit Application Gateway](./create-ssl-portal.md).
 
 ### <a name="size-of-the-certificate"></a>Größe des Zertifikats
-Lesen Sie den Abschnitt [Application Gateway-Grenzwerte](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits) durch, um die maximal unterstützte Größe von TLS/SSL-Zertifikaten zu erfahren.
+Lesen Sie den Abschnitt [Application Gateway-Grenzwerte](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits) durch, um die maximal unterstützte Größe von TLS/SSL-Zertifikaten zu erfahren.
 
 ## <a name="end-to-end-tls-encryption"></a>End-to-End-TLS-Verschlüsselung
 
@@ -62,7 +62,7 @@ Möglicherweise möchten Sie keine unverschlüsselte Kommunikation mit den Back-
 
 End-to-End-TLS ermöglicht Ihnen die Verschlüsselung und sichere Übertragung vertraulicher Daten an das Back-End bei Verwendung der Lastenausgleichsfunktionen von Schicht 7 von Application Gateway. Zu diesen Funktionen zählen unter anderem cookiebasierte Sitzungsaffinität, URL-basiertes Routing, Unterstützung von standortbasiertem Routing und die Möglichkeit zum Umschreiben oder Einfügen von Headern vom Typ „X-Forwarded-*“.
 
-Bei der Konfiguration mit dem End-to-End-TLS-Kommunikationsmodus beendet Application Gateway die TLS-Sitzungen am Gateway und entschlüsselt den Benutzerdatenverkehr. Anschließend werden die konfigurierten Regeln angewendet, um eine geeignete Instanz des Back-End-Pools auszuwählen, an die der Datenverkehr geroutet werden soll. Application Gateway initiiert anschließend eine neue TLS-Verbindung mit dem Back-End-Server und verschlüsselt die Daten mit dem öffentlichen Schlüssel des Back-End-Serverzertifikats erneut, bevor die Anforderung an das Back-End übertragen wird. Antworten vom Webserver durchlaufen denselben Prozess zurück an den Endbenutzer. End-to-End-TLS wird aktiviert, indem Sie die Protokolleinstellung in der [Back-End-HTTP-Einstellung](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) auf „HTTPS“ festlegen. Diese Einstellung wird anschließend auf einen Back-End-Pool angewandt.
+Bei der Konfiguration mit dem End-to-End-TLS-Kommunikationsmodus beendet Application Gateway die TLS-Sitzungen am Gateway und entschlüsselt den Benutzerdatenverkehr. Anschließend werden die konfigurierten Regeln angewendet, um eine geeignete Instanz des Back-End-Pools auszuwählen, an die der Datenverkehr geroutet werden soll. Application Gateway initiiert anschließend eine neue TLS-Verbindung mit dem Back-End-Server und verschlüsselt die Daten mit dem öffentlichen Schlüssel des Back-End-Serverzertifikats erneut, bevor die Anforderung an das Back-End übertragen wird. Antworten vom Webserver durchlaufen denselben Prozess zurück an den Endbenutzer. End-to-End-TLS wird aktiviert, indem Sie die Protokolleinstellung in der [Back-End-HTTP-Einstellung](./configuration-overview.md#http-settings) auf „HTTPS“ festlegen. Diese Einstellung wird anschließend auf einen Back-End-Pool angewandt.
 
 Bei der Application Gateway- und WAF v1-SKU gilt die TLS-Richtlinie für den Front-End- sowie den Back-End-Datenverkehr. Auf dem Front-End fungiert Application Gateway als Server und erzwingt die Richtlinie. Auf dem Back-End fungiert Application Gateway als Client und sendet die Protokoll- bzw. Verschlüsselungsinformationen als bevorzugte Einstellung während TLS-Handshakes.
 

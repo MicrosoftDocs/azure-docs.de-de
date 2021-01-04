@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2dbb47371197d07b45f9144e2be66e992df4c97
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 242e0e4614994c30d0a14b8fe3d7a5c2b217bb5a
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996525"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033339"
 ---
 # <a name="what-is-identity-protection"></a>Was ist Identity Protection?
 
@@ -59,7 +59,7 @@ Identity Protection identifiziert Risiken in folgenden Klassifizierungen:
 
 Weitere Informationen zu diesen Risiken sowie zu deren Berechnung finden Sie im Artikel [Was bedeutet Risiko?](concept-identity-protection-risks.md).
 
-Die Risikosignale können Korrekturmaßnahmen zur Folge haben, die unter Umständen dazu führen, dass Benutzer die Azure Multi-Factor Authentication verwenden oder ihr Kennwort per Self-Service-Kennwortzurücksetzung zurücksetzen müssen oder blockiert werden, bis ein Administrator aktiv wird.
+Die Risikosignale können Korrekturmaßnahmen zur Folge haben, die unter Umständen dazu führen, dass Benutzer die Azure AD Multi-Factor Authentication verwenden oder ihr Kennwort per Self-Service-Kennwortzurücksetzung zurücksetzen müssen oder blockiert werden, bis ein Administrator aktiv wird.
 
 ## <a name="risk-investigation"></a>Risikountersuchung
 
@@ -107,9 +107,9 @@ Administratoren für bedingten Zugriff können auch Richtlinien erstellen, bei d
 | Risikorichtlinien | Benutzerrisiko-Richtlinie (über Identity Protection)  | Nein | Nein |Ja | 
 | Risikorichtlinien | Anmelderisiko-Richtlinie (über Identity Protection oder bedingten Zugriff)  | Nein |  Nein |Ja |
 | Sicherheitsberichte | Übersicht |  Nein | Nein |Ja |
-| Sicherheitsberichte | Riskante Benutzer  | Eingeschränkte Informationen | Eingeschränkte Informationen | Vollzugriff|
-| Sicherheitsberichte | Riskante Anmeldungen  | Eingeschränkte Informationen | Eingeschränkte Informationen | Vollzugriff|
-| Sicherheitsberichte | Risikoerkennungen   | Nein | Eingeschränkte Informationen| Vollzugriff|
+| Sicherheitsberichte | Riskante Benutzer  | Eingeschränkte Informationen. Nur Benutzer mit mittlerem und hohem Risiko werden angezeigt. Kein Drawer „Details“ oder Risikoverlauf. | Eingeschränkte Informationen. Nur Benutzer mit mittlerem und hohem Risiko werden angezeigt. Kein Drawer „Details“ oder Risikoverlauf. | Vollzugriff|
+| Sicherheitsberichte | Riskante Anmeldungen  | Eingeschränkte Informationen. Es werden keine Risikodetails oder Risikostufen angezeigt. | Eingeschränkte Informationen. Es werden keine Risikodetails oder Risikostufen angezeigt. | Vollzugriff|
+| Sicherheitsberichte | Risikoerkennungen   | Nein | Eingeschränkte Informationen. Kein Drawer „Details“.| Vollzugriff|
 | Benachrichtigungen | Warnungen zu erkannten gefährdeten Benutzern  | Nein | Nein |Ja |
 | Benachrichtigungen | Wöchentliche Übersicht| Nein | Nein | Ja | 
 | | Richtlinie für MFA-Registrierung | Nein | Nein | Ja |

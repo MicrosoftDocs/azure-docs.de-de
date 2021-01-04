@@ -8,11 +8,9 @@
   expanded: true
   items:
     - name: Erstellen und Verwalten eines VPN-Gateways
-      items:
-        - name: Azure-Portal
-          href: tutorial-create-gateway-portal.md
-        - name: Azure PowerShell
-          href: vpn-gateway-tutorial-create-gateway-powershell.md
+      href: tutorial-create-gateway-portal.md
+    - name: Konfigurieren einer Site-to-Site-Verbindung
+      href: tutorial-site-to-site-portal.md
 - name: Beispiele
   items:
     - name: Azure PowerShell
@@ -88,7 +86,7 @@
         - name: Konfigurieren von Site-to-Site-Verbindungen
           items:
             - name: Azure-Portal
-              href: vpn-gateway-howto-site-to-site-resource-manager-portal.md
+              href: tutorial-site-to-site-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-create-site-to-site-rm-powershell.md
             - name: Azure CLI
@@ -175,8 +173,6 @@
               href: ikev2-openvpn-from-sstp.md
         - name: P2S-Sitzungsverwaltung
           href: p2s-session-management.md
-        - name: Übergang von einem Gatewayzertifikat einer öffentlichen Zertifizierungsstelle für P2S
-          href: vpn-gateway-point-to-site-gateway-public-ca.md
         - name: Konfigurieren eines Always On-VPN-Gerätetunnels
           href: vpn-gateway-howto-always-on-device-tunnel.md
         - name: Konfigurieren eines Always On-VPN-Benutzertunnels
@@ -281,7 +277,7 @@
         - name: Konfigurieren mehrerer S2S-Verbindungen
           href: vpn-gateway-multi-site.md
         - name: Konfigurieren eines VPN-Gateways
-          href: vpn-gateway-configure-vpn-gateway-mp.md
+          href: ./vpn-gateway-howto-site-to-site-classic-portal.md
         - name: Migrieren vom klassischen Modell zum Resource Manager-Modell
           href: vpn-gateway-classic-resource-manager-migration.md
 - name: Verweis
@@ -293,7 +289,7 @@
     - name: REST
       href: /rest/api/network/virtualnetworkgateways
     - name: REST (klassisch)
-      href: 'https://msdn.microsoft.com/library/jj154113'
+      href: /previous-versions/azure/reference/jj154113(v=azure.100)
     - name: Azure CLI
       href: /cli/azure/network/vnet-gateway
 - name: Ressourcen
@@ -305,7 +301,7 @@
     - name: Blog
       href: 'https://azure.microsoft.com/blog/topics/networking'
     - name: "Frageseite von Microsoft\_Q&A (Fragen und Antworten)"
-      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
+      href: /answers/topics/azure-virtual-network.html
     - name: Einschränkungen bei Abonnements und Diensten
       href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
     - name: Preise

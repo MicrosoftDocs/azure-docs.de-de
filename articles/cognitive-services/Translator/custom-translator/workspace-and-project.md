@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 41586b2ec96d30fd583cbc9a746493ed9206548b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28bc07cadf9ffea56059755e243cb3e828077588
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510741"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368966"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>Definition: Custom Translator-Arbeitsbereich
 
@@ -25,7 +25,7 @@ Der Arbeitsbereich ist privat für Sie und die Personen, die Sie in Ihren Arbeit
 
 ## <a name="what-is-a-custom-translator-project"></a>Definition: Custom Translator-Projekt
 
-Ein Projekt ist ein Wrapper für Modelle, Dokumente und Tests. Jedes Projekt enthält automatisch alle Dokumente, die in den Arbeitsbereich hochgeladen werden und über das korrekte Sprachenpaar verfügen. Wenn Sie beispielsweise sowohl ein Projekt für die Sprachrichtung Englisch–Spanisch als auch ein Projekt für die Sprachrichtung Spanisch–Englisch haben, sind die gleichen Dokumente in beiden Projekten enthalten. Jedem Projekt ist eine Kategorie-ID (CategoryID) zugeordnet, die beim Abfragen der [V3-API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) für Übersetzungen verwendet wird. CategoryID ist ein Parameter, mit dem Übersetzungen aus einem benutzerdefinierten System abgerufen werden, das mit Custom Translator erstellt wurde.
+Ein Projekt ist ein Wrapper für Modelle, Dokumente und Tests. Jedes Projekt enthält automatisch alle Dokumente, die in den Arbeitsbereich hochgeladen werden und über das korrekte Sprachenpaar verfügen. Wenn Sie beispielsweise sowohl ein Projekt für die Sprachrichtung Englisch–Spanisch als auch ein Projekt für die Sprachrichtung Spanisch–Englisch haben, sind die gleichen Dokumente in beiden Projekten enthalten. Jedem Projekt ist eine Kategorie-ID (CategoryID) zugeordnet, die beim Abfragen der [V3-API](../reference/v3-0-translate.md?tabs=curl) für Übersetzungen verwendet wird. CategoryID ist ein Parameter, mit dem Übersetzungen aus einem benutzerdefinierten System abgerufen werden, das mit Custom Translator erstellt wurde.
 
 ## <a name="project-categories"></a>Projektkategorien
 

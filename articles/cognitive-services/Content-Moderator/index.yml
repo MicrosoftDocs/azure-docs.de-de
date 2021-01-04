@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/24/2019
-  ms.openlocfilehash: 37c729258885bd979cf0b3b2ba2f7d3a11b79d57
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: cc985f910120c814cd4eedb8275100d6831335f5
+  ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92372105"
+  ms.lasthandoff: 12/09/2020
+  ms.locfileid: "96905229"
 landingContent:
 - title: Informationen zu Content Moderator
   linkLists:
@@ -42,6 +42,8 @@ landingContent:
       url: client-libraries.md?pivots=programming-language-python
     - text: Verwenden des Java SDK
       url: client-libraries.md?pivots=programming-language-java
+    - text: Verwenden der REST-API
+      url: client-libraries.md?pivots=programming-language-rest-api
   - linkListType: how-to-guide
     links:
     - text: Verwenden der API-Konsole
@@ -57,7 +59,7 @@ landingContent:
     - text: Verwenden des .NET SDK
       url: image-lists-quickstart-dotnet.md
     - text: Verwenden des Python SDK
-      url: python-sdk-quickstart.md
+      url: ./client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python
   - linkListType: how-to-guide
     links:
     - text: Verwenden der API-Konsole
@@ -71,9 +73,11 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Verwenden des .NET SDK
-      url: dotnet-sdk-quickstart.md
+      url: ./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp
     - text: Verwenden des Python SDK
-      url: python-sdk-quickstart.md
+      url: ./client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python
+    - text: Verwenden der REST-API
+      url: ./client-libraries.md?pivots=programming-language-rest-api
   - linkListType: how-to-guide
     links:
     - text: Verwenden der API-Konsole
@@ -85,21 +89,21 @@ landingContent:
     - text: Verwenden des .NET SDK
       url: term-lists-quickstart-dotnet.md
     - text: Verwenden des Python SDK
-      url: python-sdk-quickstart.md
+      url: ./client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python
   - linkListType: how-to-guide
     links:
     - text: Verwenden der API-Konsole
       url: try-terms-list-api.md
 - title: Analysieren von Videoinhalten
   linkLists:
+  - linkListType: concept
+    links:
+    - text: Video- und Transkriptmoderation
+      url: video-moderation-human-review.md
   - linkListType: how-to-guide
     links:
     - text: Verwenden des .NET SDK
       url: video-moderation-api.md
-  - linkListType: tutorial
-    links:
-    - text: Video- und Transkriptmoderation
-      url: video-transcript-moderation-review-tutorial-dotnet.md
   - linkListType: video
     links:
     - text: Videomoderation mit Content Moderator
@@ -115,7 +119,7 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Erstellen von Überprüfungen mit dem Python SDK
-      url: python-sdk-quickstart.md
+      url: ./client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python
   - linkListType: how-to-guide
     links:
     - text: Definieren und Verwenden von Überprüfungen (Überprüfungstool)
@@ -129,21 +133,21 @@ landingContent:
   - linkListType: reference
     links:
     - text: Content Moderator-API
-      url: https://docs.microsoft.com/azure/cognitive-services/content-moderator/api-reference
+      url: ./api-reference.md
     - text: .NET SDK
-      url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet
+      url: /dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet
     - text: Python SDK
-      url: https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/?view=azure-python
+      url: /python/api/azure-cognitiveservices-vision-contentmoderator/?view=azure-python
     - text: Java-SDK
-      url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable
+      url: /java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable
     - text: Node.js SDK
-      url: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-contentmoderator
+      url: /javascript/api/@azure/cognitiveservices-contentmoderator
     - text: Go SDK
       url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+      url: /powershell/module/az.cognitiveservices/#cognitive_services
     - text: Azure-Befehlszeilenschnittstelle (CLI)
-      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+      url: /cli/azure/cognitiveservices?view=azure-cli-latest
 - title: Hilfe und Feedback
   linkLists:
   - linkListType: reference

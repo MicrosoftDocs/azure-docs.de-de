@@ -1,6 +1,6 @@
 ---
 title: 'Synapse SQL: Architektur'
-description: In diesem Artikel erfahren Sie, wie in Azure Synapse SQL durch Kombination von Massively Parallel Processing (MPP) und Azure Storage hohe Leistung und Skalierbarkeit erzielt werden.
+description: In diesem Artikel erfahren Sie, wie Azure Synapse SQL die Verarbeitungsfunktionen für verteilte Abfragen mit Azure Storage kombiniert, um hohe Leistung und Skalierbarkeit zu erzielen.
 services: synapse-analytics
 author: mlee3gsd
 manager: rothja
@@ -10,40 +10,38 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 9f2f3eee12bb8741f6d079f6f081a08f4e2db9b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da6c9f6df0e9e74de297cf6c8f655b62e3446bad
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87046860"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462718"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Azure Synapse SQL-Architektur 
 
 In diesem Artikel werden die Architekturkomponenten von Synapse SQL beschrieben.
 
-[!INCLUDE [preview](../includes/note-preview.md)]
-
 ## <a name="synapse-sql-architecture-components"></a>Architekturkomponenten von Synapse SQL
 
 Synapse SQL nutzt eine aufskalierte Architektur zur Verteilung der Berechnungsverarbeitung von Daten auf mehrere Knoten. Compute- und Speicherressourcen sind getrennt, sodass Sie Compute unabhängig von den Daten in Ihrem System skalieren können. 
 
-Für den SQL-Pool ist Skalierungseinheit eine Abstraktion der Computeleistung, die als [Data Warehouse-Einheit](resource-consumption-models.md) bezeichnet wird. 
+Beim dedizierten SQL-Pool ist die Skalierungseinheit eine Abstraktion der Computeleistung, die als [Data Warehouse-Einheit](resource-consumption-models.md) bezeichnet wird. 
 
-Beim serverlosen SQL On-Demand erfolgt die Skalierung automatisch, um den Anforderungen an die Abfrageressourcen zu entsprechen. Wenn sich die Topologie im Laufe der Zeit durch Hinzufügen, Entfernen von Knoten oder Failover ändert, passt sie sich den Änderungen an und stellt sicher, dass Ihre Abfrage über genügend Ressourcen verfügt und erfolgreich abgeschlossen wird. Die Abbildung unten zeigt zum Beispiel SQL On-Demand unter Verwendung von vier Computeknoten zum Ausführen einer Abfrage.
+Beim serverlosen SQL-Pool erfolgt die Skalierung automatisch, um den Anforderungen an die Abfrageressourcen zu entsprechen. Wenn sich die Topologie im Laufe der Zeit durch Hinzufügen, Entfernen von Knoten oder Failover ändert, passt sie sich den Änderungen an und stellt sicher, dass Ihre Abfrage über genügend Ressourcen verfügt und erfolgreich abgeschlossen wird. Die Abbildung unten beispielsweise zeigt einen serverlosen SQL-Pool unter Verwendung von 4 Serverknoten zum Ausführen einer Abfrage.
 
 ![Synapse SQL: Architektur](./media//overview-architecture/sql-architecture.png)
 
 Synapse SQL verwendet eine knotenbasierte Architektur. Anwendungen stellen eine Verbindung her und geben T-SQL-Befehle an einen Steuerknoten aus, der der einzige Einstiegspunkt für Synapse SQL ist. 
 
-Der Steuerknoten des SQL-Pools nutzt die MPP-Engine, um die Abfragen für die Parallelverarbeitung zu optimieren und dann Vorgänge an Computeknoten zu übergeben, sodass die Vorgänge parallel ausgeführt werden. 
+Der Azure Synapse SQL-Steuerknoten nutzt eine Engine für verteilte Abfragen, um die Abfragen für die Parallelverarbeitung zu optimieren und dann Vorgänge an Computeknoten zu übergeben, sodass die Vorgänge parallel ausgeführt werden. 
 
-Der SQL On-Demand-Steuerknoten verwendet eine DQP-Engine (Distributed Query Processing), um die verteilte Ausführung von Benutzerabfragen zu optimieren und zu orchestrieren, indem er sie in kleinere Abfragen aufteilt, die auf den Computeknoten ausgeführt werden. Jede kleine Abfrage wird als Aufgabe bezeichnet und stellt eine verteilte Ausführungseinheit dar. Sie liest Dateien aus dem Speicher, verknüpft Ergebnisse aus anderen Aufgaben, gruppiert oder ordnet Daten an, die aus anderen Aufgaben abgerufen wurden. 
+Der Steuerknoten des serverlosen SQL-Pools verwendet eine DQP-Engine (Distributed Query Processing) zur Optimierung und Orchestrierung der verteilten Ausführung von Benutzerabfragen, indem er sie in kleinere Abfragen aufteilt, die auf Serverknoten ausgeführt werden. Jede kleine Abfrage wird als Aufgabe bezeichnet und stellt eine verteilte Ausführungseinheit dar. Sie liest Dateien aus dem Speicher, verknüpft Ergebnisse aus anderen Aufgaben, gruppiert oder ordnet Daten an, die aus anderen Aufgaben abgerufen wurden. 
 
 Auf den Serverknoten werden alle Benutzerdaten in Azure Storage gespeichert und die parallelen Abfragen ausgeführt. Der Datenverschiebungsdienst (Data Movement Service, DMS) ist ein interner Dienst auf Systemebene, der Daten nach Bedarf zwischen den Knoten verschiebt, sodass Abfragen parallel ausgeführt und genaue Ergebnisse zurückgegeben werden. 
 
-Durch die Entkopplung von Speicherung und Compute profitieren Sie beim Einsatz von Synapse SQL von einer unabhängigen Skalierung der Computeleistung, die unabhängig von Ihrem Speicherbedarf ist. Bei SQL On-Demand erfolgt die Skalierung automatisch, während beim SQL-Pool Folgendes möglich ist:
+Durch die Entkopplung von Speicherung und Compute profitieren Sie beim Einsatz von Synapse SQL von einer unabhängigen Skalierung der Computeleistung, die unabhängig von Ihrem Speicherbedarf ist. Bei einem serverlosen SQL-Pool erfolgt die Skalierung automatisch, während bei einem dedizierten SQL-Pool Folgendes möglich ist:
 
-* Vergrößern oder Verkleinern der Computeleistung innerhalb eines SQL-Pools (Data Warehouse), ohne Daten verschieben zu müssen.
+* Vergrößern oder Verkleinern der Computeleistung innerhalb eines dedizierten SQL-Pools, ohne Daten verschieben zu müssen.
 * Anhalten der Computekapazität ohne Beeinträchtigung der Daten (und nur Bezahlung für den Speicher)
 * Fortsetzen der Computekapazität während der Betriebszeiten
 
@@ -51,7 +49,7 @@ Durch die Entkopplung von Speicherung und Compute profitieren Sie beim Einsatz v
 
 Synapse SQL nutzt Azure Storage, um Benutzerdaten zu schützen. Da Ihre Daten von Azure Storage gespeichert und verwaltet werden, werden die Kosten für Ihre Speichernutzung getrennt berechnet. 
 
-Mit SQL On-Demand können Sie Dateien in Ihrem Data Lake schreibgeschützt abfragen, während Sie mit dem SQL-Pool auch Daten erfassen können. Wenn Daten in den SQL-Pool aufgenommen werden, werden sie zur Optimierung der Systemleistung in **Verteilungen** aufgeteilt. Beim Definieren der Tabelle können Sie das Shardingmuster zum Verteilen der Daten auswählen. Folgende Shardingmuster werden unterstützt:
+Beim serverlosen SQL-Pool können Sie Dateien in Ihrem Data Lake schreibgeschützt abfragen, während Sie beim SQL-Pool auch Daten erfassen können. Wenn Daten im dedizierten SQL-Pool erfasst werden, werden sie zur Optimierung der Systemleistung in **Verteilungen** horizontal partitioniert. Beim Definieren der Tabelle können Sie das Shardingmuster zum Verteilen der Daten auswählen. Folgende Shardingmuster werden unterstützt:
 
 * Hash
 * Roundrobin
@@ -61,34 +59,34 @@ Mit SQL On-Demand können Sie Dateien in Ihrem Data Lake schreibgeschützt abfra
 
 Der Steuerknoten ist der zentrale Knoten der Architektur. Dies ist das Front-End, das mit allen Anwendungen und Verbindungen interagiert. 
 
-Im SQL-Pool wird die MPP-Engine auf dem Steuerknoten ausgeführt, um parallele Abfragen zu optimieren und zu koordinieren. Wenn Sie eine T-SQL-Abfrage an den SQL-Pool übermitteln, wird sie vom Steuerknoten in Abfragen transformiert, die für die einzelnen Verteilungen parallel ausgeführt werden.
+Die Engine für verteilte Abfragen wird in Synapse SQL auf dem Steuerknoten ausgeführt, um parallele Abfragen zu optimieren und zu koordinieren. Wenn Sie eine T-SQL-Abfrage an den dedizierten SQL-Pool übermitteln, wird sie vom Steuerknoten in Abfragen transformiert, die für die einzelnen Verteilungen parallel ausgeführt werden.
 
-In SQL On-Demand wird die DQP-Engine auf dem Steuerknoten ausgeführt, um die verteilte Ausführung der Benutzerabfrage zu optimieren und zu koordinieren, indem sie in kleinere Abfragen aufgeteilt wird, die auf den Computeknoten ausgeführt werden. Sie weist auch Sätze von Dateien zu, die von den einzelnen Knoten verarbeitet werden sollen.
+Im serverlosen SQL-Pool wird die DQP-Engine zur Optimierung und Koordinierung der verteilten Ausführung einer Benutzerabfrage auf dem Steuerknoten ausgeführt, indem sie in kleinere Abfragen aufgeteilt wird, die auf Serverknoten ausgeführt werden. Sie weist auch Sätze von Dateien zu, die von den einzelnen Knoten verarbeitet werden sollen.
 
 ## <a name="compute-nodes"></a>Serverknoten
 
 Die Serverknoten liefern die Rechnerleistung. 
 
-Bei SQL-Pool werden Verteilungen zur Verarbeitung zu Serverknoten zugeordnet. Wenn Sie für weitere Computeressourcen bezahlen, ordnet der Pool die Verteilungen den verfügbaren Serverknoten neu zu. Die Anzahl der Serverknoten liegt zwischen 1 und 60 und wird durch die Dienstebene für den SQL-Pool bestimmt. Jedem Serverknoten ist eine Knoten-ID zugewiesen, die in Systemsichten sichtbar ist. Sie können die Serverknoten-ID anzeigen, indem Sie in den Systemsichten, deren Namen mit „sys.pdw_nodes“ beginnen, nach der Spalte „node_id“ suchen. Eine Liste dieser Systemsichten finden Sie unter [MPP-Systemsichten](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
+Im dedizierten SQL-Pool werden Verteilungen Serverknoten zur Verarbeitung zugeordnet. Wenn Sie für weitere Computeressourcen bezahlen, ordnet der Pool die Verteilungen den verfügbaren Serverknoten neu zu. Die Anzahl der Serverknoten liegt zwischen 1 und 60 und wird durch die Dienstebene für den dedizierten SQL-Pool vorgegeben. Jedem Serverknoten ist eine Knoten-ID zugewiesen, die in Systemsichten sichtbar ist. Sie können die Serverknoten-ID anzeigen, indem Sie in den Systemsichten, deren Namen mit „sys.pdw_nodes“ beginnen, nach der Spalte „node_id“ suchen. Eine Liste dieser Systemsichten finden Sie unter [Synapse SQL-Systemsichten](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
 
-Bei SQL On-Demand wird jedem Computeknoten eine Aufgabe und ein Satz von Dateien zugewiesen, für die die Aufgabe ausgeführt werden soll. „Aufgabe“ ist eine verteilte Abfrageausführungseinheit, die eigentlich Teil der vom Benutzer eingereichten Abfrage ist. Es erfolgt eine automatische Skalierung, um sicherzustellen, dass genügend Computeknoten zur Ausführung der Benutzerabfrage verwendet werden.
+Im serverlosen SQL-Pool wird jedem Serverknoten eine Aufgabe und ein Satz von Dateien zugewiesen, für die die Aufgabe ausgeführt werden soll. „Aufgabe“ ist eine verteilte Abfrageausführungseinheit, die eigentlich Teil der vom Benutzer eingereichten Abfrage ist. Es erfolgt eine automatische Skalierung, um sicherzustellen, dass genügend Computeknoten zur Ausführung der Benutzerabfrage verwendet werden.
 
 ## <a name="data-movement-service"></a>Datenverschiebungsdienst
 
-Der Datenverschiebungsdienst (Data Movement Service, DMS) ist die Datentransporttechnologie im SQL-Pool, mit der die Datenverschiebung zwischen den Serverknoten koordiniert wird. Einige Abfragen erfordern eine Datenverschiebung, damit sichergestellt ist, dass die parallelen Abfragen genaue Ergebnisse zurückgeben. Wenn eine Datenverschiebung erforderlich ist, wird durch den Datenverschiebungsdienst sichergestellt, dass die richtigen Daten an die richtige Position verschoben werden.
+Der Datenverschiebungsdienst (Data Movement Service, DMS) ist die Datentransporttechnologie im dedizierten SQL-Pool, mit der die Datenverschiebung zwischen den Serverknoten koordiniert wird. Einige Abfragen erfordern eine Datenverschiebung, damit sichergestellt ist, dass die parallelen Abfragen genaue Ergebnisse zurückgeben. Wenn eine Datenverschiebung erforderlich ist, wird durch den Datenverschiebungsdienst sichergestellt, dass die richtigen Daten an die richtige Position verschoben werden.
 
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
 ## <a name="distributions"></a>Verteilungen
 
-Eine Verteilung ist die Basiseinheit zur Speicherung und Verarbeitung von parallelen Abfragen, die für verteilte Daten im SQL-Pool ausgeführt werden. Wenn der SQL-Pool eine Abfrage ausführt, wird der Vorgang in 60 kleinere Abfragen unterteilt, die parallel ausgeführt werden. 
+Eine Verteilung ist die Basiseinheit zur Speicherung und Verarbeitung von parallelen Abfragen, die für verteilte Daten im dedizierten SQL-Pool ausgeführt werden. Wenn der dedizierte SQL-Pool eine Abfrage ausführt, wird der Vorgang in 60 kleinere Abfragen unterteilt, die parallel ausgeführt werden. 
 
-Die einzelnen 60 kleineren Abfragen werden jeweils auf einer der Datenverteilungen ausgeführt. Auf jedem Serverknoten werden eine oder mehrere der 60 Verteilungen verwaltet. Bei einem SQL-Pool mit maximalen Computeressourcen befindet sich eine Verteilung auf jeweils einem Serverknoten. Bei einem SQL-Pool mit minimalen Computeressourcen befinden sich alle Verteilungen auf einem einzigen Serverknoten. 
+Die einzelnen 60 kleineren Abfragen werden jeweils auf einer der Datenverteilungen ausgeführt. Auf jedem Serverknoten werden eine oder mehrere der 60 Verteilungen verwaltet. Bei einem dedizierten SQL-Pool mit maximalen Computeressourcen befindet sich eine Verteilung auf jeweils einem Serverknoten. Bei einem dedizierten SQL-Pool mit minimalen Computeressourcen befinden sich alle Verteilungen auf einem einzigen Serverknoten. 
 
 ## <a name="hash-distributed-tables"></a>Tabellen mit Hashverteilung
 Eine Tabelle mit Hashverteilung kann die höchste Abfrageleistung für Verknüpfungen und Aggregationen in großen Tabellen bieten. 
 
-Zum horizontalen Partitionieren von Daten in eine Tabelle mit Hashverteilung verwendet der SQL-Pool eine Hashfunktion, um jede Zeile einer einzigen Verteilung deterministisch zuzuweisen. In der Tabellendefinition wird eine der Spalten als Verteilungsspalte festgelegt. Die Hashfunktion verwendet die Werte in der Verteilungsspalte, um jede Zeile einer Verteilung zuzuweisen.
+Zum horizontalen Partitionieren von Daten in eine Tabelle mit Hashverteilung verwendet der dedizierte SQL-Pool eine Hashfunktion, um jede Zeile einer einzigen Verteilung deterministisch zuzuweisen. In der Tabellendefinition wird eine der Spalten als Verteilungsspalte festgelegt. Die Hashfunktion verwendet die Werte in der Verteilungsspalte, um jede Zeile einer Verteilung zuzuweisen.
 
 Im folgenden Diagramm ist dargestellt, wie eine vollständige (nicht verteilte) Tabelle als Tabelle mit Hashverteilung gespeichert wird. 
 
@@ -117,4 +115,4 @@ Das nachstehende Diagramm zeigt eine replizierte Tabelle, die bei der ersten Ver
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Nachdem Sie jetzt ein wenig über Synapse SQL wissen, erfahren Sie, wie Sie schnell [einen SQL-Pool erstellen](../quickstart-create-sql-pool-portal.md) und [Beispieldaten laden](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) können (./sql-data-warehouse-load-sample-databases.md). Oder Sie starten [mithilfe von SQL On-Demand](../quickstart-sql-on-demand.md). Falls Sie mit Azure noch nicht vertraut sind und auf neue Terminologie stoßen, ist das [Azure-Glossar](../../azure-glossary-cloud-terminology.md) sehr nützlich. 
+Nachdem Sie jetzt etwas über Synapse SQL erfahren haben, informieren Sie sich, wie Sie schnell [einen dedizierten SQL-Pool erstellen](../quickstart-create-sql-pool-portal.md) und [Beispieldaten laden](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) können (./sql-data-warehouse-load-sample-databases.md). Oder Sie beginnen mit der [Verwendung eines serverlosen SQL-Pools](../quickstart-sql-on-demand.md). Falls Sie mit Azure noch nicht vertraut sind und auf neue Terminologie stoßen, ist das [Azure-Glossar](../../azure-glossary-cloud-terminology.md) sehr nützlich. 

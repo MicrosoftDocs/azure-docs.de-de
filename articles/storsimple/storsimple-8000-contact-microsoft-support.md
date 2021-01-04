@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: daf54b64e33b83b909fe91455cee2f5c1ec27d3d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c288f59b1cb9a85ed4bc978d1c3fba18ba30b572
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960319"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017201"
 ---
 # <a name="contact-microsoft-support"></a>Microsoft-Support kontaktieren
 
@@ -21,7 +21,7 @@ Der StorSimple-Geräte-Manager verfügt über eine Funktion, mit deren Hilfe Sie
 * Verwalten des Lebenszyklus einer Supportanfrage innerhalb des Portals
 * Starten einer Supportsitzung in der Windows PowerShell-Schnittstelle Ihres StorSimple-Geräts
 
-Lesen Sie die [Support-SLAs und Informationen für die StorSimple 8000-Serie](https://msdn.microsoft.com/library/mt433077.aspx) , bevor Sie eine Supportanfrage erstellen.
+Lesen Sie die [Support-SLAs und Informationen für die StorSimple 8000-Serie](./storsimple-8000-support-options.md) , bevor Sie eine Supportanfrage erstellen.
 
 ## <a name="create-a-support-request"></a>Erstellen einer Supportanfrage
 

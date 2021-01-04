@@ -3,12 +3,12 @@ title: Informationen zur Sicherung von Azure-VMs
 description: In diesem Artikel erfahren Sie, wie der Azure Backup-Dienst virtuelle Azure-Computer sichert und wie bewährte Methoden befolgt werden können.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 30d27f3f9c559fd149bd45f303127e0eec40b878
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 7fa47b83eb8fa06c028079cf47ea0cb46df31860
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173855"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325229"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Ein Überblick über die Sicherung von Azure-VMs
 
@@ -51,7 +51,7 @@ Wenn Sie Azure-VMs mit Azure Backup sichern, werden ruhende VMs mit der Speicher
 
 **Verschlüsselung** | **Details** | **Unterstützung**
 --- | --- | ---
-**SSE** | Mit SSE bietet Azure Storage eine Verschlüsselung im Ruhezustand, indem Daten vor der Speicherung automatisch verschlüsselt werden. Azure Storage entschlüsselt auch Daten vor dem Abrufen. Azure Backup unterstützt Sicherungen von VMs mit zwei Arten von Speicherdienstverschlüsselung:<li> **SSE mit von der Plattform verwalteten Schlüsseln**: Diese Verschlüsselung gilt standardmäßig für alle Datenträger in Ihren VMs. Weitere Informationen finden Sie [hier](../virtual-machines/windows/disk-encryption.md#platform-managed-keys).<li> **SSE mit von Kunden verwalteten Schlüsseln** (CMK). Mit CMK verwalten Sie die Schlüssel, die zum Verschlüsseln der Datenträger verwendet werden. Weitere Informationen finden Sie [hier](../virtual-machines/windows/disk-encryption.md#customer-managed-keys). | Azure Backup verwendet SSE zur Verschlüsselung ruhender Azure-VMs.
+**SSE** | Mit SSE bietet Azure Storage eine Verschlüsselung im Ruhezustand, indem Daten vor der Speicherung automatisch verschlüsselt werden. Azure Storage entschlüsselt auch Daten vor dem Abrufen. Azure Backup unterstützt Sicherungen von VMs mit zwei Arten von Speicherdienstverschlüsselung:<li> **SSE mit von der Plattform verwalteten Schlüsseln**: Diese Verschlüsselung gilt standardmäßig für alle Datenträger in Ihren VMs. Weitere Informationen finden Sie [hier](../virtual-machines/disk-encryption.md#platform-managed-keys).<li> **SSE mit von Kunden verwalteten Schlüsseln** (CMK). Mit CMK verwalten Sie die Schlüssel, die zum Verschlüsseln der Datenträger verwendet werden. Weitere Informationen finden Sie [hier](../virtual-machines/disk-encryption.md#customer-managed-keys). | Azure Backup verwendet SSE zur Verschlüsselung ruhender Azure-VMs.
 **Azure-Datenträgerverschlüsselung** | Azure Disk Encryption verschlüsselt sowohl Betriebssystemdatenträger als auch sonstige Datenträger für Azure-VMs.<br/><br/> Azure Disk Encryption kann in BitLocker-Verschlüsselungsschlüssel (BEK) integriert werden, die in einem Schlüsseltresor als Geheimnisse geschützt werden. Azure Disk Encryption kann auch in Azure Key Vault-Schlüssel für die Schlüsselverschlüsselung (Key Encryption Keys, KEK) integriert werden. | Azure Backup unterstützt die Sicherung verwalteter und nicht verwalteter Azure-VMs, die nur mit BEKs oder sowohl mit BEKs als auch mit KEKs verschlüsselt sind.<br/><br/> Sowohl BEKs als auch KEKs werden gesichert und verschlüsselt.<br/><br/> Da KEKs und BEKs gesichert werden, können Benutzer mit den erforderlichen Berechtigungen bei Bedarf Schlüssel und Geheimnisse im Schlüsseltresor wiederherstellen. Diese Benutzer können auch die verschlüsselte VM wiederherstellen.<br/><br/> Verschlüsselte Schlüssel und Geheimnisse können von nicht dafür autorisierten Benutzern oder von Azure nicht gelesen werden.
 
 Backup unterstützt die Sicherung verwalteter und nicht verwalteter Azure-VMs, die nur mit BEKs oder sowohl mit BEKs als auch mit KEKs verschlüsselt sind.

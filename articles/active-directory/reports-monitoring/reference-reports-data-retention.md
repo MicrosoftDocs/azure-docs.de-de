@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/24/2020
+ms.date: 11/05/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5deb84cdc2dee61474c9f2bd1f93311d89f8918
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: bc5f902d75084d649f211d589e53041f1eb37f0e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308881"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012713"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Wie lange speichert Azure AD die Berichtsdaten?
 
@@ -51,12 +51,6 @@ Wenn Ihnen bereits mit einer kostenlosen Lizenz Daten zu Aktivitäten angezeigt 
 
 ---
 
-### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>Werden nach Erwerb einer Azure AD Premium-Lizenz die Daten des letzten Monats angezeigt?
-
-Wenn Sie vor Kurzem zu einer Premium-Version (einschließlich einer Testversion) gewechselt sind, werden Ihnen anfänglich Daten von bis zu 7 Tagen angezeigt. Wenn sich Daten ansammeln, können Sie die Daten der letzten 30 Tage sehen.
-
----
-
 ### <a name="when-does-azure-ad-start-collecting-security-signal-data"></a>Wann beginnt Azure AD mit der Sammlung von Sicherheitssignaldaten?  
 
 Die Erfassung von Sicherheitssignalen beginnt, wenn Sie sich für die Verwendung von **Identity Protection Center** entscheiden. 
@@ -71,7 +65,7 @@ Die Erfassung von Sicherheitssignalen beginnt, wenn Sie sich für die Verwendung
 | :--                    | :--           | :--                 | :--                 |
 | Überwachungsprotokolle             | 7 Tage        | 30 Tage             | 30 Tage             |
 | Anmeldungen               | 7 Tage        | 30 Tage             | 30 Tage             |
-| Azure MFA-Nutzung        | 30 Tage       | 30 Tage             | 30 Tage             |
+| Verwendung von Azure AD MFA        | 30 Tage       | 30 Tage             | 30 Tage             |
 
 Sie können die Aktivitätsdaten zu Überwachung und Anmeldung länger als den oben beschriebenen Standardaufbewahrungszeitraum speichern, indem Sie sie mit Azure Monitor an ein Azure Storage-Konto weiterleiten. Weitere Informationen finden Sie unter [Archivieren von Azure AD-Protokollen in einem Azure Storage-Konto](quickstart-azure-monitor-route-logs-to-storage-account.md).
 
@@ -81,5 +75,11 @@ Sie können die Aktivitätsdaten zu Überwachung und Anmeldung länger als den o
 | :--            | :--           | :--                 | :--                 |
 | Gefährdete Benutzer  | 7 Tage        | 30 Tage             | 90 Tage             |
 | Riskante Anmeldungen | 7 Tage        | 30 Tage             | 90 Tage             |
+
+---
+
+### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>Werden nach Erwerb einer Azure AD Premium-Lizenz die Daten des letzten Monats angezeigt?
+
+**Nein**, das ist nicht möglich. Aktivitätsdaten werden in einer kostenlosen Version von Azure bis zu sieben Tage gespeichert. Das heißt, beim Wechsel von einer kostenlosen zu einer Premium-Version können nur Daten von maximal 7 Tagen angezeigt werden.
 
 ---

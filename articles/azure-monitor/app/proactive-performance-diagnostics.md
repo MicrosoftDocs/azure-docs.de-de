@@ -4,12 +4,12 @@ description: Application Insights führt eine intelligente Analyse Ihrer App-Tel
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: c817e2c7f609bbbec52eff1b898a8d7c53209a28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ead71a5ac6e2cfa0df6654c7ba9aa7b5b9238d04
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87321308"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763773"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Intelligente Erkennung – Leistungsabweichungen
 
@@ -99,7 +99,7 @@ Wo liegt das Problem? Reagiert der Server langsam, ist die Seite sehr lang oder 
 
 Öffnen Sie das Blatt mit den Browsermetriken. Die segmentierte Anzeige der Seitenladezeit im Browser gibt an, wo Zeit verbraucht wird. 
 
-* Wenn die **Zeit für das Senden von Anforderungen** hoch ist, reagiert entweder der Server langsam, oder die Anforderung umfasst eine größere Datenmenge. Sehen Sie sich die [Leistungsmetriken](./web-monitor-performance.md#metrics) an, um die Reaktionszeiten zu prüfen.
+* Wenn die **Zeit für das Senden von Anforderungen** hoch ist, reagiert entweder der Server langsam, oder die Anforderung umfasst eine größere Datenmenge. Sehen Sie sich die [Leistungsmetriken](./performance-counters.md) an, um die Reaktionszeiten zu prüfen.
 * Richten Sie die [Abhängigkeitsüberwachung](./asp-net-dependencies.md) ein, um ermitteln zu können, ob die Langsamkeit mit externen Diensten oder Ihrer Datenbank zusammenhängt.
 * Wenn **Empfängt Antwortzeit** vorherrscht, sind Ihre Seite und die abhängigen Teile lang, z.B. JavaScript, CSS, Bilder usw. (jedoch nicht asynchron geladene Daten). Richten Sie einen [Verfügbarkeitstest](./monitor-web-app-availability.md) ein, und legen Sie die Option zum Laden abhängiger Teile fest. Wenn Sie einige Ergebnisse erhalten, öffnen Sie die Details eines Ergebnisses und erweitern diese, um die Ladezeiten für unterschiedliche Dateien anzuzeigen.
 * Eine hohe **Clientverarbeitungszeit** deutet darauf hin, dass die Ausführung von Skripts lange dauert. Falls die Ursache nicht offensichtlich ist, können Sie erwägen, Zeitsteuerungscode hinzuzufügen und die Zeiten über trackMetric-Aufrufe zu senden.
@@ -175,11 +175,10 @@ Mit den folgenden Diagnosetools können Sie die Telemetrie Ihrer App untersuchen
 
 * [Profiler](profiler.md) 
 * [Momentaufnahmedebugger](./snapshot-debugger.md)
-* [Analyse](../log-query/get-started-portal.md)
+* [Analyse](../log-query/log-analytics-tutorial.md)
 * [Intelligente Analysediagnose](../log-query/log-query-overview.md)
 
 Intelligente Erkennungen sind vollkommen automatisch. Vielleicht möchten Sie aber weitere Warnungen einrichten?
 
 * [Einrichten von Warnungen in Application Insights](../platform/alerts-log.md)
 * [Verfügbarkeitswebtests](./monitor-web-app-availability.md)
-

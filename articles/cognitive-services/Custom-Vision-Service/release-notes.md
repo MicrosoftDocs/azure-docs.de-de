@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: pafarley
-ms.openlocfilehash: f7259fe486a473f994d7795de5926b86717bb1b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ccf742e5ff612816cae1056ef7bf0e64fc9dbb5b
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85391705"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616466"
 ---
 # <a name="custom-vision-service-release-notes"></a>Custom Vision Service: Anmerkungen zu dieser Version
 
@@ -41,7 +41,7 @@ ms.locfileid: "85391705"
 
 - Custom Vision Service hat die allgemeine Verfügbarkeit auf Azure erreicht!
 - Die erweiterte Trainingsfunktion mit einem neuen Back-End für Machine Learning wurde hinzugefügt, um für eine verbesserte Leistung zu sorgen, insbesondere bei anspruchsvollen Datasets und differenzierter Klassifizierung. Mit dem erweiterten Training können Sie ein Budget für die Computezeit für das Training angeben, und Custom Vision führt eine experimentelle Ermittlung durch, um die optimalen Einstellungen für Training und Erweiterung zu identifizieren. Für schnelle Iterationen können Sie das bestehende schnelle Training weiterhin verwenden.
-- Einführung von APIs der Version 3.0. Ankündigung der bevorstehenden Einstellung von APIs vor Version 3.0 am 1. Oktober 2019. In den Schnellstarts für [.NET](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/csharp-tutorial), [Python](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/python-tutorial), [Node](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/node-tutorial), [Java](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/java-tutorial) oder [Go](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/go-tutorial) finden Sie Beispiele für die ersten Schritte.
+- Einführung von APIs der Version 3.0. Ankündigung der bevorstehenden Einstellung von APIs vor Version 3.0 am 1. Oktober 2019. In den Schnellstarts für [.NET](./quickstarts/image-classification.md), [Python](./quickstarts/image-classification.md), [Node](./quickstarts/image-classification.md), [Java](./quickstarts/image-classification.md) oder [Go](./quickstarts/image-classification.md) finden Sie Beispiele für die ersten Schritte.
 - In den APIs der Version 3.0 wurden „Standarditerationen“ durch Veröffentlichen/Aufheben der Veröffentlichung ersetzt.
 - Es wurden neue Exportziele für Modelle hinzugefügt. Für den Dockerfile-Export wurde ein Upgrade durchgeführt, um ARM für Raspberry Pi 3 zu unterstützen. Die Exportunterstützung wurde zum [Developer Kit für KI für maschinelles Sehen](https://visionaidevkit.com/) hinzugefügt.
 - Die Anzahl der Tags pro Projekt wurde für den S0-Tarif auf 500 erhöht. Die Anzahl der Bilder pro Projekt wurde für den S0-Tarif auf 100.000 erhöht.

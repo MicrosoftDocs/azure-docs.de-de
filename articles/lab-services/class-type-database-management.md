@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 49f1528f1bb8b422374050512a9ae642ad129fac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32079d6dc31cf3fcad66976737630472129b4271
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85444011"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462414"
 ---
 # <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>Einrichten eines Labs zum Vermitteln von Kenntnissen zur Verwaltung von relationalen Datenbanken
 
@@ -24,7 +24,7 @@ Zum Einrichten dieses Labs benötigen Sie zunächst ein Azure-Abonnement und ein
 
 ### <a name="lab-account-settings"></a>Lab-Kontoeinstellungen
 
-Aktivieren Sie die Einstellungen für das Lab-Konto, die in der nachfolgenden Tabelle beschrieben werden. Weitere Informationen zum Aktivieren von Marketplace-Images finden Sie unter [Angeben von für Lab-Ersteller verfügbaren Marketplace-Images](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
+Aktivieren Sie die Einstellungen für das Lab-Konto, die in der nachfolgenden Tabelle beschrieben werden. Weitere Informationen zum Aktivieren von Marketplace-Images finden Sie unter [Angeben von für Lab-Ersteller verfügbaren Marketplace-Images](./specify-marketplace-images.md).
 
 | Lab-Kontoeinstellungen | Instructions |
 | ------------------- | ------------ |
@@ -41,7 +41,7 @@ Verwenden Sie beim Einrichten eines Classroom-Labs die Einstellungen in der unte
 
 ## <a name="template-machine-configuration"></a>Konfiguration des Vorlagencomputers
 
-Zum Installieren von MySQL unter Windows Server 2019 können Sie die in [Install and Run MySQL Community Server on a Virtual Machine](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine) (Installieren und Ausführen von MySQL Community Server auf einem virtuellen Computer) beschriebenen Schritte ausführen.
+Zum Installieren von MySQL unter Windows Server 2019 können Sie die in [Install and Run MySQL Community Server on a Virtual Machine](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine) (Installieren und Ausführen von MySQL Community Server auf einem virtuellen Computer) beschriebenen Schritte ausführen.
 
 SQL Server 2019 ist im beim Erstellen des neuen Labs ausgewählten VM-Image vorinstalliert.
 

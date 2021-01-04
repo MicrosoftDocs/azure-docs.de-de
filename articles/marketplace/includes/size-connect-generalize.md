@@ -7,12 +7,12 @@ ms.topic: include
 author: mingshen-ms
 ms.author: krsh
 ms.date: 10/20/2020
-ms.openlocfilehash: 24adbfe38a3d43a83307fb8726849f7c73def3f3
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6c7536e38a0d2cf7d4e906947aff645c74e459c0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283199"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028438"
 ---
 ## <a name="generalize-the-image"></a>Generalisieren des Images
 
@@ -20,7 +20,7 @@ Alle Images im Azure Marketplace müssen allgemein wiederverwendbar sein. Um die
 
 ### <a name="for-windows"></a>Für Windows
 
-Windows-Betriebssystemdatenträger werden mit dem [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)-Tool generalisiert. Wenn Sie das Betriebssystem später aktualisieren oder neu konfigurieren, müssen Sie Sysprep erneut ausführen.
+Windows-Betriebssystemdatenträger werden mit dem [Sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)-Tool generalisiert. Wenn Sie das Betriebssystem später aktualisieren oder neu konfigurieren, müssen Sie Sysprep erneut ausführen.
 
 > [!WARNING]
 > Fahren Sie die VM nach der Ausführung von Sysprep bis zur Bereitstellung herunter, da u. U. automatische Updates ausgeführt werden. Dadurch verhindern Sie, dass durch nachfolgende Updates instanzspezifische Änderungen am Betriebssystem oder den installierten Diensten vorgenommen werden. Weitere Informationen zum Ausführen von Sysprep finden Sie unter [Schritte zum Generalisieren einer VHD](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep).
@@ -41,12 +41,12 @@ Mit dem folgenden Prozess wird eine Linux-VM generalisiert und als separate VM e
 ### <a name="take-a-snapshot-of-the-vm-disk"></a>Erstellen einer Momentaufnahme des VM-Datenträgers
 
 1. Melden Sie sich beim [Azure-Portal](https://ms.portal.azure.com/) an.
-2. Wählen Sie zunächst oben links **Ressource erstellen** aus, suchen Sie **Momentaufnahme** , und wählen Sie die Option aus.
+2. Wählen Sie zunächst oben links **Ressource erstellen** aus, suchen Sie **Momentaufnahme**, und wählen Sie die Option aus.
 3. Wählen Sie im Blatt „Momentaufnahme“ **Erstellen** aus.
 4. Geben Sie einen **Namen** für die Momentaufnahme ein.
 5. Wählen Sie eine vorhandene Ressourcengruppe aus, oder geben Sie den Namen einer neuen Ressourcengruppe ein.
 6. Wählen Sie für **Quelldatenträger** den verwalteten Datenträger aus, für den eine Momentaufnahme erstellt werden soll.
-7. Wählen Sie den **Kontotyp** aus, der zum Speichern der Momentaufnahme verwendet werden soll. Wir empfehlen **Standard-Festplattenlaufwerke** , es sei denn, Sie benötigen eine leistungsstarke SSD.
+7. Wählen Sie den **Kontotyp** aus, der zum Speichern der Momentaufnahme verwendet werden soll. Wir empfehlen **Standard-Festplattenlaufwerke**, es sei denn, Sie benötigen eine leistungsstarke SSD.
 8. Wählen Sie **Erstellen** aus.
 
 #### <a name="extract-the-vhd"></a>Extrahieren der VHD
@@ -81,7 +81,7 @@ destinationVHDFileName=myvhdfilename.vhd
 
 az account set --subscription $subscriptionId
 
-sas=$(az snapshot grant-access --resource-group $resourceGroupName --name $ snapshotName --duration-in-seconds $sasExpiryDuration --query [accessSas] -o tsv)
+sas=$(az snapshot grant-access --resource-group $resourceGroupName --name $snapshotName --duration-in-seconds $sasExpiryDuration --query [accessSas] -o tsv)
 
 az storage blob copy start --destination-blob $destinationVHDFileName --destination-container $storageContainerName --account-name $storageAccountName --account-key $storageAccountKey --source-uri $sas
 ```

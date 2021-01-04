@@ -12,12 +12,12 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: sstein, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: 46d8aab74f658b039fe07acab82f324ec6ad731f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8c94e36a1a6d1f675e9d6a7dde456dbf6eb8897
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777070"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791357"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Behandeln vorübergehender Verbindungsfehler in SQL-Datenbank und SQL Managed Instance
 
@@ -31,7 +31,7 @@ In diesem Artikel wird beschrieben, wie Sie Verbindungsfehler und vorübergehend
 
 Bei einem vorübergehenden Fehler liegt ein Problem zugrunde, das sich nach kurzer Zeit von selbst löst. Wenn das Azure-System Hardwareressourcen für einen besseren Lastenausgleich bei verschiedenen Workloads rasch verschiebt, treten gelegentlich vorübergehende Fehler auf. Die meisten dieser Neukonfigurationsereignisse dauern weniger als 60 Sekunden. Während der Neukonfiguration kann es beim Herstellen von Verbindungen mit der Datenbank in SQL-Datenbank zu Problemen kommen. Anwendungen, die eine Verbindung mit der Datenbank herstellen, sollten dafür ausgelegt sein, vorübergehende Fehler zu tolerieren. Behandeln Sie diese Fehler, indem Sie Wiederholungslogik im Code implementieren und vermeiden, dass sie Benutzern als Anwendungsfehler gemeldet werden.
 
-Wenn Ihr Clientprogramm ADO.NET verwendet, wird eine **SqlException**-Ausnahme ausgelöst, um das Programm über den vorübergehenden Fehler zu informieren.
+Wenn Ihr Clientprogramm ADO.NET verwendet, wird eine **SqlException** -Ausnahme ausgelöst, um das Programm über den vorübergehenden Fehler zu informieren.
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -70,7 +70,7 @@ Clientprogramme, bei denen gelegentlich ein vorübergehender Fehler auftritt, si
 
 Es wird empfohlen, vor dem ersten Wiederholungsversuch fünf Sekunden zu warten. Wiederholungsversuche nach weniger als fünf Sekunden können den Clouddienst überfordern. Für jeden nachfolgenden Wiederholungsversuch sollte die Verzögerung exponentiell steigen, bis zu einem Maximum von 60 Sekunden.
 
-Die Sperrfrist für Clients, die ADO.NET verwenden, wird unter [Verbindungspooling (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx) erörtert.
+Die Sperrfrist für Clients, die ADO.NET verwenden, wird unter [Verbindungspooling (ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling) erörtert.
 
 Darüber hinaus kann es sinnvoll sein, eine maximale Anzahl von Wiederholungsversuchen festzulegen, bevor das Programm beendet wird.
 
@@ -132,11 +132,11 @@ Wenn Ihr Clientprogramm mithilfe der .NET Framework-Klasse **System.Data.SqlClie
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
 
-Beim Erstellen der [Verbindungszeichenfolge](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) für Ihr **SqlConnection**-Objekt sollten Sie die Werte der folgenden Parameter abstimmen:
+Beim Erstellen der [Verbindungszeichenfolge](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring) für Ihr **SqlConnection** -Objekt sollten Sie die Werte der folgenden Parameter abstimmen:
 
-- **ConnectRetryCount**:&nbsp;&nbsp;Standardwert 1 im Bereich von 0 bis 255
-- **ConnectRetryInterval**:&nbsp;&nbsp;Standardwert 10 Sekunden im Bereich von 1 bis 60
-- **Verbindungstimeout**:&nbsp;&nbsp;Standardwert 15 Sekunden im Bereich von 0 bis 2147483647
+- **ConnectRetryCount** :&nbsp;&nbsp;Standardwert 1 im Bereich von 0 bis 255
+- **ConnectRetryInterval** :&nbsp;&nbsp;Standardwert 10 Sekunden im Bereich von 1 bis 60
+- **Verbindungstimeout** :&nbsp;&nbsp;Standardwert 15 Sekunden im Bereich von 0 bis 2147483647
 
 Insbesondere sollte für Ihre ausgewählten Werte die folgende Gleichung gelten: Verbindungstimeout = ConnectRetryCount * ConnectionRetryInterval
 
@@ -146,12 +146,12 @@ Beispiel: Wenn die Anzahl 3 ist und das Intervall 10 Sekunden beträgt, hätte d
 
 ## <a name="connection-vs-command"></a>Vorübergehende Fehler beim Herstellen einer Verbindung und bei Befehlen
 
-Mit den Parametern **ConnectRetryCount** und **ConnectRetryInterval** kann Ihr **SqlConnection**-Objekt den Verbindungsversuch wiederholen, ohne Ihr Programm zu unterbrechen, sodass das Programm die Steuerung behält. Die Wiederholungen können in folgenden Situationen auftreten:
+Mit den Parametern **ConnectRetryCount** und **ConnectRetryInterval** kann Ihr **SqlConnection** -Objekt den Verbindungsversuch wiederholen, ohne Ihr Programm zu unterbrechen, sodass das Programm die Steuerung behält. Die Wiederholungen können in folgenden Situationen auftreten:
 
 - SqlConnection.Open-Methodenaufruf
 - SqlConnection.Execute-Methodenaufruf
 
-Es gibt eine Besonderheit. Wenn ein vorübergehender Fehler auftritt, während Ihre *Abfrage* ausgeführt wird, wiederholt das **SqlConnection**-Objekt weder den Verbindungsversuch noch Ihre Abfrage. Allerdings überprüft **SqlConnection** sehr schnell die Verbindung, bevor die Abfrage für die Ausführung gesendet wird. Wenn bei der schnellen Überprüfung ein Verbindungsproblem festgestellt wird, wiederholt **SqlConnection** den Verbindungsvorgang. Ist die Wiederholung erfolgreich, wird die Abfrage zur Ausführung gesendet.
+Es gibt eine Besonderheit. Wenn ein vorübergehender Fehler auftritt, während Ihre *Abfrage* ausgeführt wird, wiederholt das **SqlConnection** -Objekt weder den Verbindungsversuch noch Ihre Abfrage. Allerdings überprüft **SqlConnection** sehr schnell die Verbindung, bevor die Abfrage für die Ausführung gesendet wird. Wenn bei der schnellen Überprüfung ein Verbindungsproblem festgestellt wird, wiederholt **SqlConnection** den Verbindungsvorgang. Ist die Wiederholung erfolgreich, wird die Abfrage zur Ausführung gesendet.
 
 ### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>Sollte „ConnectRetryCount“ mit der Wiederholungslogik der Anwendung kombiniert werden?
 
@@ -207,7 +207,7 @@ Wenn Ihr Programm ADO.NET-Klassen wie **System.Data.SqlClient.SqlConnection** f�
 
 #### <a name="starting-with-adonet-461"></a>Ab ADO.NET 4.6.1
 
-- Die Zuverlässigkeit von SQL-Datenbank lässt sich verbessern, wenn Sie eine Verbindung mit der **SqlConnection.Open**-Methode öffnen. Die **Open**-Methode umfasst jetzt bestmögliche Wiederholungsmechanismen, die bei bestimmten vorübergehenden Fehlern innerhalb des Verbindungstimeouts ausgeführt werden.
+- Die Zuverlässigkeit von SQL-Datenbank lässt sich verbessern, wenn Sie eine Verbindung mit der **SqlConnection.Open** -Methode öffnen. Die **Open** -Methode umfasst jetzt bestmögliche Wiederholungsmechanismen, die bei bestimmten vorübergehenden Fehlern innerhalb des Verbindungstimeouts ausgeführt werden.
 - Das Verbindungspooling wird unterstützt und umfasst einen effizienten Mechanismus, der überprüft, ob das für Ihr Programm bereitgestellte Verbindungsobjekt funktionsfähig ist.
 
 Bei Verwendung eines Verbindungsobjekts aus einem Verbindungspool sollte Ihr Programm die Verbindung vorübergehend schließen, wenn diese nicht umgehend verwendet wird. Eine Verbindung erneut zu öffnen, ist nicht aufwendig, eine neue Verbindung zu erstellen, schon.
@@ -227,7 +227,7 @@ Wenn Ihr Programm keine Verbindung mit der Datenbank in SQL-Datenbank herstellen
 Auf einem Windows-Computer können Sie die folgenden Hilfsprogramme nutzen:
 
 - SQL Server Management Studio (ssms.exe), das ADO.NET für die Verbindung nutzt, oder
-- `sqlcmd.exe`, das [ODBC](https://msdn.microsoft.com/library/jj730308.aspx) für die Verbindung nutzt
+- `sqlcmd.exe`, das [ODBC](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server) für die Verbindung nutzt
 
 Sobald Ihr Programm verbunden ist, testen Sie, ob eine kurze SQL-SELECT-Abfrage erfolgreich ausgeführt wird.
 
@@ -268,7 +268,7 @@ Periodisch auftretende Probleme lassen sich mitunter am besten diagnostizieren, 
 
 Dabei kann es hilfreich sein, sämtliche Fehler auf dem Client zu protokollieren. Möglicherweise lassen sich die Protokolleinträge mit den Fehlerdaten in Zusammenhang bringen, die SQL-Datenbank intern protokolliert.
 
-Enterprise Library 6 (EntLib60) bietet verwaltete .NET-Klassen zur Unterstützung der Protokollierung. Weitere Informationen finden Sie unter [5 – Protokollierung leicht gemacht: mit dem Protokollierungsanwendungsblock](https://msdn.microsoft.com/library/dn440731.aspx).
+Enterprise Library 6 (EntLib60) bietet verwaltete .NET-Klassen zur Unterstützung der Protokollierung. Weitere Informationen finden Sie unter [5 – Protokollierung leicht gemacht: mit dem Protokollierungsanwendungsblock](/previous-versions/msp-n-p/dn440731(v=pandp.60)).
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
@@ -278,8 +278,8 @@ Nachfolgend finden Sie einige Transact-SQL-SELECT-Anweisungen, mit denen Fehlerp
 
 | Protokollabfrage | BESCHREIBUNG |
 |:--- |:--- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |Die [sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx)-Ansicht bietet Informationen zu einzelnen Ereignissen, einschließlich solcher, die vorübergehende Fehler oder Verbindungsfehler verursachen können.<br/><br/>Idealerweise können Sie die Werte **start_time** oder **end_time** den Zeiten zuordnen, zu denen in Ihrem Clientprogramm Probleme aufgetreten sind.<br/><br/>Sie müssen eine Verbindung mit der *Masterdatenbank* herstellen, um diese Abfrage auszuführen. |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |Die [sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx)-Ansicht bietet aggregierte Werte der Ereignistypen für die weitere Diagnose.<br/><br/>Sie müssen eine Verbindung mit der *Masterdatenbank* herstellen, um diese Abfrage auszuführen. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |Die [sys.event_log](/sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database)-Ansicht bietet Informationen zu einzelnen Ereignissen, einschließlich solcher, die vorübergehende Fehler oder Verbindungsfehler verursachen können.<br/><br/>Idealerweise können Sie die Werte **start_time** oder **end_time** den Zeiten zuordnen, zu denen in Ihrem Clientprogramm Probleme aufgetreten sind.<br/><br/>Sie müssen eine Verbindung mit der *Masterdatenbank* herstellen, um diese Abfrage auszuführen. |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |Die [sys.database_connection_stats](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)-Ansicht bietet aggregierte Werte der Ereignistypen für die weitere Diagnose.<br/><br/>Sie müssen eine Verbindung mit der *Masterdatenbank* herstellen, um diese Abfrage auszuführen. |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
@@ -326,9 +326,9 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 
 ## <a name="enterprise-library-6"></a>Enterprise Library 6
 
-Bei Enterprise Library 6 (EntLib60) handelt es sich um ein Framework aus .NET-Klassen, mit denen Sie stabile Clouddienstclients implementieren können, wobei einer der Dienste SQL-Datenbank ist. Unter [Enterprise Library 6 – April 2013](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx) finden Sie Themen zu den verschiedenen Bereichen, in denen EntLib60 hilfreich sein kann.
+Bei Enterprise Library 6 (EntLib60) handelt es sich um ein Framework aus .NET-Klassen, mit denen Sie stabile Clouddienstclients implementieren können, wobei einer der Dienste SQL-Datenbank ist. Unter [Enterprise Library 6 – April 2013](/previous-versions/msp-n-p/dn169621(v=pandp.10)) finden Sie Themen zu den verschiedenen Bereichen, in denen EntLib60 hilfreich sein kann.
 
-EntLib60 kann beispielsweise für Wiederholungslogik zur Behandlung von vorübergehenden Fehlern hilfreich sein. Weitere Informationen finden Sie unter [4 – Hartnäckigkeit, das Geheimnis aller Erfolge: Anwendungsblock zum Behandeln vorübergehender Fehler](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
+EntLib60 kann beispielsweise für Wiederholungslogik zur Behandlung von vorübergehenden Fehlern hilfreich sein. Weitere Informationen finden Sie unter [4 – Hartnäckigkeit, das Geheimnis aller Erfolge: Anwendungsblock zum Behandeln vorübergehender Fehler](/previous-versions/msp-n-p/dn440719(v=pandp.60)).
 
 > [!NOTE]
 > Der Quellcode für EntLib60 steht im [Download Center](https://go.microsoft.com/fwlink/p/?LinkID=290898) zum öffentlichen Download bereit. Microsoft plant keine weiteren Funktions- oder Wartungsupdates für EntLib.
@@ -339,7 +339,7 @@ EntLib60 kann beispielsweise für Wiederholungslogik zur Behandlung von vorüber
 
 Die folgenden EntLib60-Klassen sind besonders nützlich für Wiederholungslogik. All diese Klassen befinden sich im Namespace **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** oder einem untergeordneten Namespace.
 
-Im Namespace **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:
+Im Namespace **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** :
 
 - **RetryPolicy**
   - **ExecuteAction**
@@ -348,7 +348,7 @@ Im Namespace **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:
 - **ReliableSqlConnection**
   - **ExecuteCommand**
 
-Im Namespace **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport**:
+Im Namespace **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport** :
 
 - **AlwaysTransientErrorDetectionStrategy**
 - **NeverTransientErrorDetectionStrategy**
@@ -369,7 +369,7 @@ Unter folgenden Links finden Sie weitere Informationen zu EntLib60:
   - Erfassen von Kontextinformationen für Debugging und Ablaufverfolgung sowie für Überwachung und allgemeine Protokollierungsanforderungen.
 - Der Protokollierungsblock abstrahiert die Protokollierungsfunktionalität vom Protokollziel, sodass der Anwendungscode unabhängig von Speicherort und Typ des Zielprotokollspeichers einheitlich ist.
 
-Weitere Informationen finden Sie unter [5 – Protokollierung leicht gemacht: mit dem Protokollierungsanwendungsblock](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx).
+Weitere Informationen finden Sie unter [5 – Protokollierung leicht gemacht: mit dem Protokollierungsanwendungsblock](/previous-versions/msp-n-p/dn440731(v=pandp.60)).
 
 <a id="entlib60-istransient-method-source-code" name="entlib60-istransient-method-source-code"></a>
 
@@ -446,11 +446,11 @@ public bool IsTransient(Exception ex)
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Verbindungsbibliotheken für SQL-Datenbank und SQL Server](connect-query-content-reference-guide.md#libraries)
-- [Verbindungspooling (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
+- [Verbindungspooling (ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling)
 - [*Retrying* ist eine Apache 2.0-lizenzierte Allzweckbibliothek für Wiederholungen, die in Python](https://pypi.python.org/pypi/retrying) geschrieben wurde und die Implementierung von Wiederholungsverhalten in praktisch jedem Anwendungsfall vereinfacht.
 
 <!-- Link references. -->
 
-[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: /sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
 
-[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
+[step-4-connect-resiliently-to-sql-with-php-p42h]: /sql/connect/php/step-4-connect-resiliently-to-sql-with-php

@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 8bcbe395f78d3e4e9a6f7f615edc61eaa04347cf
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 549e1808a3b449f7d29b968cde76ef29391880b3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311674"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100614"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Bekannte Probleme in Azure Digital Twins
 
@@ -32,9 +32,9 @@ Sie können dieses Problem beheben, indem Sie den Befehl `az login` in Cloud She
 
 Alternativ dazu können Sie den Cloud Shell-Bereich im Azure-Portal öffnen und Ihre Arbeit in Cloud Shell dort fortsetzen:
 
-:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Ansicht des Azure-Portals mit hervorgehobenem Symbol „Cloud Shell“ und Anzeige von Cloud Shell im unteren Bereich des Portalfensters":::
+:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Ansicht des Azure-Portals mit hervorgehobenem Symbol „Cloud Shell“ und Anzeige von Cloud Shell im unteren Bereich des Portalfensters" lightbox="media/includes/portal-cloud-shell.png":::
 
-Eine weitere Lösung besteht darin, [die Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) auf Ihrem Computer zu installieren, sodass Sie Azure CLI-Befehle lokal ausführen können. Bei der lokalen CLI tritt dieses Problem nicht auf.
+Eine weitere Lösung besteht darin, [die Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) auf Ihrem Computer zu installieren, sodass Sie Azure CLI-Befehle lokal ausführen können. Bei der lokalen CLI tritt dieses Problem nicht auf.
 
 ### <a name="possible-causes"></a>Mögliche Ursachen
 
@@ -46,7 +46,9 @@ Dies betrifft nicht die Azure Digital Twins-Befehle aus den Befehlsgruppen `az d
 
 ## <a name="missing-role-assignment-after-scripted-setup"></a>Fehlende Rollenzuweisung nach Setup per Skript
 
-Bei einigen Benutzern treten möglicherweise Probleme bei der Rollenzuweisung gemäß folgender Anleitung auf: [ *Einrichten einer Instanz und der Authentifizierung (per Skript)*](how-to-set-up-instance-scripted.md). Das Skript gibt keinen Fehler an, die Rolle *Azure Digital Twins-Besitzer (Vorschau)* wird dem Benutzer jedoch nicht erfolgreich zugewiesen. Dieses Problem beeinträchtigt die Fähigkeit zum Erstellen weiterer Ressourcen.
+Bei einigen Benutzern treten möglicherweise Probleme bei der Rollenzuweisung gemäß folgender Anleitung auf: [ *Einrichten einer Instanz und der Authentifizierung (per Skript)*](how-to-set-up-instance-scripted.md). Das Skript gibt keinen Fehler an, die Rolle *Azure Digital Twins Data Owner* (Azure Digital Twins-Datenbesitzer) wird dem Benutzer jedoch nicht erfolgreich zugewiesen. Dieses Problem beeinträchtigt die Fähigkeit zum Erstellen weiterer Ressourcen.
+
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 Um zu ermitteln, ob die Rollenzuweisung nach dem Ausführen des Skripts erfolgreich eingerichtet wurde, befolgen Sie die Anweisungen im Abschnitt [*Überprüfen der Benutzerrollenzuweisung*](how-to-set-up-instance-scripted.md#verify-user-role-assignment) des Artikels zum Setup. Wenn der Benutzer nicht mit dieser Rolle angezeigt wird, wirkt sich dieses Problem auf Sie aus.
 
@@ -64,9 +66,9 @@ Für Benutzer, die sich mit einem persönlichen [Microsoft-Konto (MSA)](https://
 
 ## <a name="issue-with-interactive-browser-authentication"></a>Problem bei interaktiver Browserauthentifizierung
 
-Beim Schreiben von Authentifizierungscode in Azure Digital Twins-Anwendungen mit Version  **1.2.0** der **Bibliothek [Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet)** treten möglicherweise Probleme mit der [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet)-Methode auf.
+Beim Schreiben von Authentifizierungscode in Azure Digital Twins-Anwendungen mit Version  **1.2.0** der **Bibliothek [Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)** treten möglicherweise Probleme mit der [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true)-Methode auf.
 
-Dies ist nicht die neueste Version der Bibliothek. Die neueste Version ist **1.2.2** .
+Dies ist nicht die neueste Version der Bibliothek. Die neueste Version ist **1.2.2**.
 
 Die betroffene Methode wird in den folgenden Artikeln verwendet: 
 * [*Tutorial: Codieren einer Client-App*](tutorial-code.md)
@@ -77,7 +79,7 @@ Das Problem umfasst die Fehlermeldung „Azure.Identity.AuthenticationFailedExce
 
 ### <a name="troubleshooting-steps"></a>Schritte zur Problembehandlung
 
-Um das Problem zu beheben, aktualisieren Sie Ihre Anwendungen für die Verwendung von `Azure.Identity`, Version **1.2.2** . Mit dieser Version der Bibliothek sollte der Browser wie erwartet geladen werden und die Authentifizierung durchführen.
+Um das Problem zu beheben, aktualisieren Sie Ihre Anwendungen für die Verwendung von `Azure.Identity`, Version **1.2.2**. Mit dieser Version der Bibliothek sollte der Browser wie erwartet geladen werden und die Authentifizierung durchführen.
 
 ### <a name="possible-causes"></a>Mögliche Ursachen
 

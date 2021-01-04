@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: fab4943cad1a87bda70a4c4332ab6135ed99bf1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c7143b6d3479cf3083cfc730301c68dcf4eb705
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022274"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900827"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Best Practices für Podsicherheit in Azure Kubernetes Service (AKS)
 
@@ -27,15 +27,15 @@ Weitere Informationen finden Sie in den bewährten Methoden für [Clustersicherh
 
 ## <a name="secure-pod-access-to-resources"></a>Absichern des Podzugriffs auf Ressourcen
 
-**Best Practices-Anleitung**: Für die Ausführung als ein anderer Benutzer oder eine andere Gruppe und um den Zugriff auf die zugrunde liegenden Knotenprozesse und -dienste zu beschränken, definieren Sie Einstellungen für den Podsicherheitskontext. Weisen Sie die geringste Anzahl von erforderlichen Berechtigungen zu.
+**Best Practices-Anleitung** : Für die Ausführung als ein anderer Benutzer oder eine andere Gruppe und um den Zugriff auf die zugrunde liegenden Knotenprozesse und -dienste zu beschränken, definieren Sie Einstellungen für den Podsicherheitskontext. Weisen Sie die geringste Anzahl von erforderlichen Berechtigungen zu.
 
-Damit Ihre Anwendungen korrekt ausgeführt werden, sollten Pods als definierter Benutzer oder definierte Gruppe und nicht als *root* ausgeführt werden. Mit dem `securityContext` für einen Pod oder Container können Sie Einstellungen wie *runAsUser* oder *fsGroup* definieren, um die entsprechenden Berechtigungen zu übernehmen. Vergeben Sie nur die erforderlichen Benutzer- oder Gruppenberechtigungen und verwenden Sie den Sicherheitskontext nicht als Mittel, um zusätzliche Berechtigungen zu erhalten. *RunAsUser*, die Berechtigungsausweitung und andere Linux-Funktionseinstellungen sind nur auf Linux-Knoten und -Pods verfügbar.
+Damit Ihre Anwendungen korrekt ausgeführt werden, sollten Pods als definierter Benutzer oder definierte Gruppe und nicht als *root* ausgeführt werden. Mit dem `securityContext` für einen Pod oder Container können Sie Einstellungen wie *runAsUser* oder *fsGroup* definieren, um die entsprechenden Berechtigungen zu übernehmen. Vergeben Sie nur die erforderlichen Benutzer- oder Gruppenberechtigungen und verwenden Sie den Sicherheitskontext nicht als Mittel, um zusätzliche Berechtigungen zu erhalten. *RunAsUser* , die Berechtigungsausweitung und andere Linux-Funktionseinstellungen sind nur auf Linux-Knoten und -Pods verfügbar.
 
 Wenn Sie als Nicht-Root-Benutzer ausgeführt werden, können sich Container nicht an die privilegierten Ports unter 1024 binden. In diesem Szenario können Kubernetes-Dienste verwendet werden, um die Tatsache zu verschleiern, dass eine App auf einem bestimmten Port läuft.
 
 Ein Podsicherheitskontext kann auch zusätzliche Funktionen oder Berechtigungen für den Zugriff auf Prozesse und Dienste definieren. Die folgenden allgemeinen Sicherheitsskontextdefinitionen können festgelegt werden:
 
-* **allowPrivilegeEscalation** definiert, ob der Pod *root*-Berechtigungen übernehmen kann. Gestalten Sie Ihre Anwendungen so, dass diese Einstellung immer auf *false* festgelegt ist.
+* **allowPrivilegeEscalation** definiert, ob der Pod *root* -Berechtigungen übernehmen kann. Gestalten Sie Ihre Anwendungen so, dass diese Einstellung immer auf *false* festgelegt ist.
 * Mithilfe von **Linux-Funktionen** kann der Pod auf zugrunde liegende Knotenprozesse zugreifen. Gehen Sie mit der Zuweisung dieser Funktionen umsichtig um. Weisen Sie die geringste Anzahl von benötigten Berechtigungen zu. Weitere Informationen finden Sie unter [Linux-Funktionen][linux-capabilities].
 * Mit dem Linux-Kernelsicherheitsmodul **SELinux-Bezeichnungen** können Sie Zugriffsrichtlinien für Dienste, Prozesse und den Dateisystemzugriff definieren. Auch hier gilt: Weisen Sie die geringste Anzahl von benötigten Berechtigungen zu. Weitere Informationen finden Sie unter [SELinux-Optionen in Kubernetes][selinux-labels].
 
@@ -55,7 +55,7 @@ spec:
     fsGroup: 2000
   containers:
     - name: security-context-demo
-      image: nginx:1.15.5
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       securityContext:
         runAsUser: 1000
         allowPrivilegeEscalation: false
@@ -67,7 +67,7 @@ Arbeiten Sie mit Ihrem Clusteroperator zusammen, um zu ermitteln, welche Sicherh
 
 ## <a name="limit-credential-exposure"></a>Beschränken der Offenlegung von Anmeldeinformationen
 
-**Best Practices-Anleitung**: Definieren Sie keine Anmeldeinformationen in Ihrem Anwendungscode. Verwenden Sie verwaltete Identitäten für Azure-Ressourcen, damit Ihr Pod Zugriff auf andere Ressourcen anfordern kann. Außerdem sollte ein digitaler Tresor, wie z.B. Azure Key Vault, zum Speichern und Abrufen digitaler Schlüssel und Anmeldeinformationen verwendet werden. Pod-verwaltete Identitäten sind nur für die Verwendung mit Linux-Pods und -Containerimages vorgesehen.
+**Best Practices-Anleitung** : Definieren Sie keine Anmeldeinformationen in Ihrem Anwendungscode. Verwenden Sie verwaltete Identitäten für Azure-Ressourcen, damit Ihr Pod Zugriff auf andere Ressourcen anfordern kann. Außerdem sollte ein digitaler Tresor, wie z.B. Azure Key Vault, zum Speichern und Abrufen digitaler Schlüssel und Anmeldeinformationen verwendet werden. Pod-verwaltete Identitäten sind nur für die Verwendung mit Linux-Pods und -Containerimages vorgesehen.
 
 Um das Risiko zu begrenzen, dass Anmeldeinformationen in Ihrem Anwendungscode offengelegt werden, vermeiden Sie die Verwendung von festen oder gemeinsamen Anmeldeinformationen. Anmeldeinformationen oder Schlüssel sollten nicht direkt in Ihrem Code enthalten sein. Wenn diese Anmeldeinformationen offengelegt werden, muss die Anwendung aktualisiert und neu bereitgestellt werden. Ein besserer Ansatz ist es, den Pods eine eigene Identität und eine Möglichkeit zu geben, sich selbst zu authentifizieren oder automatisch Anmeldeinformationen aus einem digitalen Tresor abzurufen.
 

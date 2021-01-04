@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 70ac106995324c758bde942d12191a01e3457e6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0c05eb88df27ba9e71c0f61bad75457d893a7ce
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67177825"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95563536"
 ---
 > [!NOTE]
 > Diese Beispiele gelten nicht für die gemeinsame Verwendung von S2S und ExpressRoute.
@@ -25,7 +25,7 @@ Wenn Sie ein Gateway zu einem virtuellen Netzwerk mit dem klassischen Ressourcen
 
 ### <a name="download-the-network-configuration-file"></a>Herunterladen der Netzwerkkonfigurationsdatei
 
-1. Laden Sie die Netzwerkkonfigurationsdatei herunter, wie im Artikel [Netzwerkkonfigurationsdatei](../articles/virtual-network/virtual-networks-using-network-configuration-file.md) beschrieben steht. Öffnen Sie die Datei in einem Text-Editor.
+1. Laden Sie die Netzwerkkonfigurationsdatei herunter, wie im Artikel [Netzwerkkonfigurationsdatei](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file) beschrieben steht. Öffnen Sie die Datei in einem Text-Editor.
 2. Fügen Sie einen lokalen Netzwerkstandort zur Datei hinzu. Sie können ein beliebiges gültiges Adresspräfix verwenden. Für das VPN-Gateway können Sie jede gültige IP-Adresse angeben. Die Adresswerte in diesem Abschnitt werden zwar nicht für ExpressRoute-Vorgänge verwendet, sind aber für die Dateivalidierung erforderlich. Im Beispiel steht „branch1“ für den Namen des Standorts. Sie können auch einen anderen Namen verwenden, sollten aber darauf achten, denselben Wert im Abschnitt „Gateway“ in der Datei zu benutzen.
 
    ```

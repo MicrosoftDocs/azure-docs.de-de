@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/08/2020
+ms.date: 10/29/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.custom: contperfq1
-ms.openlocfilehash: b454ced085ec3d73f3ca0f761abb6c5de44244ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 08399c1b2d930abfdd5832cb102a789844931d61
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89594338"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027695"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Was sind Azure AD-Zugriffsüberprüfungen?
 
@@ -74,14 +74,22 @@ Je nachdem, was Sie überprüfen möchten, erstellen Sie Ihre Zugriffsüberprüf
 
 Sie benötigen für Ihr Verzeichnis mindestens so viele Azure AD Premium P2-Lizenzen wie Mitarbeiter, die mit den folgenden Aufgaben betraut sind:
 
-- Mitglieder und Gastbenutzer, die als Reviewer zugewiesen sind
-- Mitglieder und Gastbenutzer, die eine Selbstüberprüfung ausführen
-- Gruppenbesitzer, die eine Zugriffsüberprüfung durchführen
-- Anwendungsbesitzer, die eine Zugriffsüberprüfung durchführen
+-   Mitgliedsbenutzer, die als Prüfer zugewiesen sind
+-   Mitgliedsbenutzer, die eine Selbstüberprüfung durchführen
+-   Als Gruppenbesitzer fungierende Mitgliedsbenutzer, die eine Zugriffsüberprüfung durchführen
+-   Als Anwendungsbesitzer fungierende Mitgliedsbenutzer, die eine Zugriffsüberprüfung durchführen
+
+Bei Gastbenutzern hängen die Lizenzierungsanforderungen vom verwendeten Lizenzierungsmodell ab. Die folgenden Gastbenutzeraktivitäten werden jedoch als Azure AD Premium P2-Nutzung betrachtet:
+
+-   Gastbenutzer, die als Prüfer zugewiesen sind
+-   Gastbenutzer, die eine Selbstüberprüfung durchführen
+-   Als Gruppenbesitzer fungierende Gastbenutzer, die eine Zugriffsüberprüfung durchführen
+-   Als Anwendungsbesitzer fungierende Gastbenutzer, die eine Zugriffsüberprüfung durchführen
+
 
 Azure AD Premium P2-Lizenzen sind **nicht** für Benutzer mit den Rollen „Globaler Administrator“ oder „Benutzeradministrator“ erforderlich, von denen Zugriffsüberprüfungen eingerichtet, Einstellungen konfiguriert oder die Entscheidungen aus den Überprüfungen umgesetzt werden.
 
-Für jede kostenpflichtige Azure AD Premium P2-Lizenz, die Sie einem Benutzer Ihrer eigenen Organisation zuweisen, können Sie mit Azure AD B2B (Business-to-Business) unter dem Kontingent für externe Benutzer bis zu fünf Gastbenutzer einladen. Diese Gastbenutzer können auch Azure AD Premium P2-Features nutzen. Weitere Informationen finden Sie unter [Leitfaden zur Lizenzierung von Azure Active Directory B2B-Kollaboration](../external-identities/licensing-guidance.md).
+Der Zugriff von Azure AD-Gastbenutzern basiert auf einem Abrechnungsmodell für monatlich aktive Benutzer (Monthly Active Users, MAU). Dieses ersetzt das Abrechnungsmodell für das 1:5-Verhältnis. Weitere Informationen finden Sie unter [Abrechnungsmodell für externe Identitäten in Azure AD](../external-identities/external-identities-pricing.md).
 
 Weitere Informationen zu Lizenzen finden Sie unter [Zuweisen oder Entfernen von Lizenzen im Azure Active Directory-Portal](../fundamentals/license-users-groups.md).
 

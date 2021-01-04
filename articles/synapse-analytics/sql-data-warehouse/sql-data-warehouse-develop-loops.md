@@ -1,34 +1,34 @@
 ---
 title: Verwenden von T-SQL-Schleifen
-description: Tipps für die Lösungsentwicklung mithilfe von T-SQL-Schleifen und das Ersetzen von Cursorn im Synapse SQL-Pool.
+description: Tipps für die Lösungsentwicklung mithilfe von T-SQL-Schleifen und das Ersetzen von Cursors für dedizierte SQL-Pools in Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 25dad01a54b6ffe08656379340f58e0fe70ec666
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 3477b3095414248afa9fbc7417ab707c94f35546
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213413"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462736"
 ---
-# <a name="using-t-sql-loops-in-synapse-sql-pool"></a>Verwenden von T-SQL-Schleifen im Synapse SQL-Pool
+# <a name="using-t-sql-loops-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Verwenden von T-SQL-Schleifen für dedizierte SQL-Pools in Azure Synapse Analytics
 
-Dieser Artikel enthält Tipps zur Entwicklung von SQL-Poollösungen mithilfe von T-SQL-Schleifen und durch Ersetzen von Cursorn.
+Dieser Artikel enthält Tipps zur Entwicklung von Lösungen für dedizierte SQL-Pools mithilfe von T-SQL-Schleifen und durch Ersetzen von Cursors.
 
 ## <a name="purpose-of-while-loops"></a>Zweck der WHILE-Schleifen
 
-Der Synapse SQL-Pool unterstützt die [WHILE](/sql/t-sql/language-elements/while-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)-Schleife für die wiederholte Ausführung von Anweisungsblöcken. Die WHILE-Schleife wird so lange ausgeführt, wie die angegebenen Bedingungen wahr sind oder bis die Schleife im Code mit dem Schlüsselwort BREAK gezielt beendet wird.
+Dedizierte SQL-Pools in Azure Synapse unterstützen die [WHILE](/sql/t-sql/language-elements/while-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)-Schleife für die wiederholte Ausführung von Anweisungsblöcken. Die WHILE-Schleife wird so lange ausgeführt, wie die angegebenen Bedingungen wahr sind oder bis die Schleife im Code mit dem Schlüsselwort BREAK gezielt beendet wird.
 
 Schleifen sind nützlich, um im SQL-Code definierte Cursor zu ersetzen. Glücklicherweise sind fast alle Cursor, die per SQL-Code geschrieben werden, schreibgeschützte Cursor für den schnellen Vorlauf. Daher sind WHILE-Schleifen eine gute Alternative zum Ersetzen von Cursorn.
 
-## <a name="replacing-cursors-in-synapse-sql-pool"></a>Ersetzen von Cursorn im Synapse SQL-Pool
+## <a name="replacing-cursors-in-dedicated-sql-pool"></a>Ersetzen von Cursors im dedizierten SQL-Pool
 
 Bevor Sie lange überlegen, sollte Sie sich zuerst folgende Frage stellen: „Könnte dieser Cursor so umgeschrieben werden, dass er setbasierte Vorgänge verwendet?“
 

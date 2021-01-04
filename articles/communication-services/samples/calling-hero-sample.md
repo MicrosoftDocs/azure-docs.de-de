@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: cfb6a7ba10c388cadb19268ee1431fe523a0cfa4
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: c872c2a2799eee3ae9e39653b0046b70ca5d7e8b
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126325"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887534"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Erste Schritte mit dem Hero-Beispiel für Gruppenanrufe
 
@@ -25,12 +25,12 @@ ms.locfileid: "92126325"
 > Add links to our Hero Sample repo when the sample is publicly available.
 ---->
 
+> [!IMPORTANT]
+> [Dieses Beispiel ist auf GitHub verfügbar.](https://github.com/Azure-Samples/communication-services-web-calling-hero)
+
 Das **Hero-Beispiel für Gruppenanrufe** von Azure Communication Services veranschaulicht, wie die Communication Services-Webclientbibliothek für Anrufe verwendet werden kann, um eine Benutzeroberfläche für Gruppenanrufe zu erstellen.
 
 In dieser Beispiel-Schnellstartanleitung wird beschrieben, wie das Beispiel funktioniert, bevor wir es auf Ihrem lokalen Computer ausführen. Anschließend stellen wir das Beispiel in Azure bereit, indem wir Ihre eigenen Azure Communication Services-Ressourcen verwenden.
-
-> [!IMPORTANT]
-> [Laden Sie das Beispiel von GitHub herunter](https://github.com/Azure-Samples/communication-services-web-calling-hero).
 
 ## <a name="overview"></a>Übersicht
 
@@ -42,11 +42,11 @@ Das Beispiel sieht wie folgt aus:
 
 Wenn Sie auf die Schaltfläche „Start a call“ (Anruf starten) klicken, ruft die Webanwendung ein Benutzerzugriffstoken aus der serverseitigen Anwendung ab. Dieses Token wird dann verwendet, um die Client-App mit Azure Communication Services zu verbinden. Nach dem Abrufen des Tokens werden Sie aufgefordert, die gewünschte Kamera und das Mikrofon anzugeben. Sie können Ihre Geräte mit den entsprechenden Umschaltern deaktivieren und aktivieren:
 
-:::image type="content" source="./media/calling/pre-call.png" alt-text="Screenshot: Landing Page der Beispielanwendung":::
+:::image type="content" source="./media/calling/pre-call.png" alt-text="Screenshot: Bildschirm zur Vorbereitung von Anrufen in der Beispielanwendung":::
 
 Nachdem Sie Ihren Anzeigenamen und Ihre Geräte konfiguriert haben, können Sie der Anrufsitzung beitreten. Der Hauptbereich für Anrufe, der die zentrale Anrufbenutzeroberfläche enthält, wird angezeigt.
 
-:::image type="content" source="./media/calling/main-app.png" alt-text="Screenshot: Landing Page der Beispielanwendung":::
+:::image type="content" source="./media/calling/main-app.png" alt-text="Screenshot: Hauptbildschirm der Beispielanwendung":::
 
 Komponenten des Hauptbildschirms für Anrufe:
 
@@ -75,7 +75,7 @@ Sie können das Beispiel lokal testen, indem Sie mehrere Browsersitzungen mit de
 ## <a name="before-running-the-sample-for-the-first-time"></a>Vor dem erstmaligen Ausführen des Beispiels
 
 1. Öffnen Sie eine Instanz von PowerShell, des Windows-Terminals, einer Eingabeaufforderung oder eines gleichwertigen Tools, und navigieren Sie zu dem Verzeichnis, in dem Sie das Beispiel klonen möchten.
-2. `git clone https://github.com/Azure/Communication.git`
+2. `git clone https://github.com/Azure-Samples/communication-services-web-calling-hero.git`
 3. Rufen Sie im Azure-Portal die `Connection String` (Verbindungszeichenfolge) ab. Weitere Informationen zu Verbindungszeichenfolgen finden Sie unter [Erstellen einer Azure Communication Services-Ressource](../quickstarts/create-communication-resource.md).
 4. Nachdem Sie die `Connection String` abgerufen haben, fügen Sie sie der Datei **Calling/appsetting.json** im Ordner für die .NET-Dienst-App (Service .NET) hinzu. Geben Sie Ihre Verbindungszeichenfolge in die Variable ein: `ResourceConnectionString`.
 
@@ -108,7 +108,6 @@ Wenn Sie ein Communication Services-Abonnement bereinigen und entfernen möchten
 Weitere Informationen finden Sie in den folgenden Artikeln:
 
 - Machen Sie sich mit der [Verwendung der Clientbibliothek für Anrufe](../quickstarts/voice-video-calling/calling-client-samples.md) vertraut.
-- Informieren Sie sich über die [Funktionen der Clientbibliothek für Anrufe](../quickstarts/voice-video-calling/calling-client-samples.md).
 - Informieren Sie sich über die [Funktionsweise von Anrufen](../concepts/voice-video-calling/about-call-types.md).
 
 ## <a name="additional-reading"></a>Zusätzliche Lektüre
@@ -117,4 +116,4 @@ Weitere Informationen finden Sie in den folgenden Artikeln:
 - [Redux](https://redux.js.org/): Clientseitige Zustandsverwaltung
 - [Fluent-UI](https://aka.ms/fluent-ui): UI-Bibliothek von Microsoft
 - [React](https://reactjs.org/): Bibliothek zum Erstellen von Benutzeroberflächen
-- [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true): Framework für die Erstellung von Webanwendungen
+- [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?preserve-view=true&view=aspnetcore-3.1): Framework für die Erstellung von Webanwendungen

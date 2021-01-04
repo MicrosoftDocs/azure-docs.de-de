@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.author: inhenkel
-ms.openlocfilehash: a9e34c4aaeb6fc2c151233b05ed5584e0e624148
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cb4bcf5eb205d27cbca764d5ec16890a23be5c6
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297976"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426780"
 ---
 # <a name="transforms-and-jobs-in-media-services"></a>Transformationen und Aufträge in Media Services
 
@@ -50,19 +50,19 @@ Angenommen, Sie möchten jeweils den ersten Frame aller Ihrer Videos als Miniatu
 Eine **Transformation** hilft Ihnen, die Konfiguration zu erstellen (Schritt 1) und dann Aufträge mithilfe dieser Konfiguration zu übermitteln (Schritt 2).
 
 > [!NOTE]
-> Eigenschaften von **Transform** und **Job**, die den Datetime-Typ haben, sind immer im UTC-Format angegeben.
+> Eigenschaften von **Transform** und **Job** , die den Datetime-Typ haben, sind immer im UTC-Format angegeben.
 
 ## <a name="transforms"></a>Transformationen
 
-Verwenden Sie **Transformationen**, um allgemeine Aufgaben zur Codierung oder Analyse von Videos zu konfigurieren. Jede **Transformation** beschreibt eine Vorgehensweise oder einen Workflow von Aufgaben zur Verarbeitung Ihrer Video- oder Audiodateien. Eine einzelne Transformation kann mehrere Regeln anwenden. Eine Transformation kann z.B. angeben, dass jedes Video in eine MP4-Datei mit einer festgelegten Bitrate codiert und eine Miniaturansicht aus dem ersten Bild im Video generiert werden soll. Sie würden für jede Regel, die Sie in die Transformation einfügen möchten, einen TransformOutput-Eintrag hinzufügen. Sie verwenden Voreinstellungen, um der Transformation mitzuteilen, wie die Eingabemediendateien verarbeitet werden sollen.
+Verwenden Sie **Transformationen** , um allgemeine Aufgaben zur Codierung oder Analyse von Videos zu konfigurieren. Jede **Transformation** beschreibt eine Vorgehensweise oder einen Workflow von Aufgaben zur Verarbeitung Ihrer Video- oder Audiodateien. Eine einzelne Transformation kann mehrere Regeln anwenden. Eine Transformation kann z.B. angeben, dass jedes Video in eine MP4-Datei mit einer festgelegten Bitrate codiert und eine Miniaturansicht aus dem ersten Bild im Video generiert werden soll. Sie würden für jede Regel, die Sie in die Transformation einfügen möchten, einen TransformOutput-Eintrag hinzufügen. Sie verwenden Voreinstellungen, um der Transformation mitzuteilen, wie die Eingabemediendateien verarbeitet werden sollen.
 
 ### <a name="viewing-schema"></a>Anzeigen des Schemas
 
-In Media Services v3 sind Voreinstellungen stark typisierte Entitäten in der API selbst. Die „Schema“-Definition für diese Objekte finden Sie in [Offene API-Spezifikation (oder Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Sie finden die voreingestellten Definitionen (wie **StandardEncoderPreset**) auch in der Referenzdokumentation der [REST-API](/rest/api/media/transforms/createorupdate#standardencoderpreset), des [.NET SDKs](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) oder eines anderen Media Services v3 SDKs.
+In Media Services v3 sind Voreinstellungen stark typisierte Entitäten in der API selbst. Die „Schema“-Definition für diese Objekte finden Sie in [Offene API-Spezifikation (oder Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Sie finden die voreingestellten Definitionen (wie **StandardEncoderPreset** ) auch in der Referenzdokumentation der [REST-API](/rest/api/media/transforms/createorupdate#standardencoderpreset), des [.NET SDKs](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) oder eines anderen Media Services v3 SDKs.
 
 ### <a name="creating-transforms"></a>Erstellen von Transformationen
 
-Sie können Transformationen mit REST, CLI oder einem der veröffentlichten SDKs erstellen. Die Media Services-v3-API wird von Azure Resource Manager gesteuert. Deshalb können Sie auch Resource Manager-Vorlagen verwenden, um Transformationen in Ihrem Media Services-Konto zu erstellen und bereitzustellen. Mithilfe der rollenbasierten Zugriffssteuerung können Sie den Zugriff auf Transformationen sperren.
+Sie können Transformationen mit REST, CLI oder einem der veröffentlichten SDKs erstellen. Die Media Services-v3-API wird von Azure Resource Manager gesteuert. Deshalb können Sie auch Resource Manager-Vorlagen verwenden, um Transformationen in Ihrem Media Services-Konto zu erstellen und bereitzustellen. Mithilfe der rollenbasierten Zugriffssteuerung von Azure können Sie den Zugriff auf Transformationen sperren.
 
 ### <a name="updating-transforms"></a>Aktualisieren von Transformationen
 
@@ -94,7 +94,7 @@ Fortschritt und Status von Aufträgen können abgerufen werden, indem die Ereign
 
 ### <a name="updating-jobs"></a>Aktualisieren von Aufträgen
 
-Der Updatevorgang für den Auftrag ([Job](/rest/api/media/jobs)-Entität) kann verwendet werden, um die Eigenschaften *description* und *priority* nach dem Übermitteln des Auftrags zu ändern. Eine Änderung an der *priority*-Eigenschaft wird nur wirksam, wenn sich der Auftrag noch in der Warteschlange befindet. Wenn die Verarbeitung des Auftrags gestartet oder bereits beendet wurde, hat das Ändern der Priorität keine Auswirkungen.
+Der Updatevorgang für den Auftrag ( [Job](/rest/api/media/jobs)-Entität) kann verwendet werden, um die Eigenschaften *description* und *priority* nach dem Übermitteln des Auftrags zu ändern. Eine Änderung an der *priority* -Eigenschaft wird nur wirksam, wenn sich der Auftrag noch in der Warteschlange befindet. Wenn die Verarbeitung des Auftrags gestartet oder bereits beendet wurde, hat das Ändern der Priorität keine Auswirkungen.
 
 ### <a name="job-object-diagram"></a>Diagramm des Objekts „Job“
 

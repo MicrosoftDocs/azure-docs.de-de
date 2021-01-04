@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 34265552122c1f8d1bcbbcfe95948683a5750a71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea1cc022cbea7dbf3d1fa12cb83cfe3084b28560
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531002"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788080"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Verwenden von Python und KI zum Generieren von durchsuchbarem Inhalt über Azure-Blobs
 
@@ -43,7 +43,7 @@ Sollten Sie über kein Azure-Abonnement verfügen, können Sie ein [kostenloses 
 
 ## <a name="download-files"></a>Herunterladen von Dateien
 
-1. Öffnen Sie [diesen OneDrive-Ordner](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4), und klicken Sie links oben auf **Herunterladen**, um die Dateien auf Ihren Computer zu kopieren. 
+1. Öffnen Sie [diesen OneDrive-Ordner](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4), und klicken Sie links oben auf **Herunterladen** , um die Dateien auf Ihren Computer zu kopieren. 
 
 1. Klicken Sie mit der rechten Maustaste auf die ZIP-Datei, und wählen Sie **Alle extrahieren** aus. Es stehen 14 Dateien verschiedener Art zur Verfügung. In dieser Übung werden sieben davon verwendet.
 
@@ -55,31 +55,31 @@ Erstellen Sie diese beiden Dienste nach Möglichkeit in derselben Region und Res
 
 ### <a name="start-with-azure-storage"></a>Azure Storage
 
-1. [Melden Sie sich beim Azure-Portal](https://portal.azure.com/) an, und klicken Sie auf **+ Ressource erstellen**.
+1. [Melden Sie sich beim Azure-Portal](https://portal.azure.com/) an, und klicken Sie auf **+ Ressource erstellen** .
 
-1. Suchen Sie nach *Speicherkonto*, und wählen Sie das Speicherkonto-Angebot von Microsoft aus.
+1. Suchen Sie nach *Speicherkonto* , und wählen Sie das Speicherkonto-Angebot von Microsoft aus.
 
    :::image type="content" source="media/cognitive-search-tutorial-blob/storage-account.png" alt-text="Erstellen eines Speicherkontos" border="false":::
 
 1. Auf der Registerkarte „Grundlagen“ sind folgende Angaben erforderlich. Übernehmen Sie bei allen anderen Optionen die Standardeinstellungen.
 
-   + **Ressourcengruppe**. Sie können entweder eine vorhandene Ressourcengruppe auswählen oder eine neue Ressourcengruppe erstellen. Verwenden Sie jedoch für alle Dienste die gleiche Gruppe, um die Dienste gemeinsam verwalten zu können.
+   + **Ressourcengruppe** . Sie können entweder eine vorhandene Ressourcengruppe auswählen oder eine neue Ressourcengruppe erstellen. Verwenden Sie jedoch für alle Dienste die gleiche Gruppe, um die Dienste gemeinsam verwalten zu können.
 
-   + **Speicherkontoname**: Falls Sie über mehrere Ressourcen des gleichen Typs verfügen, geben Sie zur Unterscheidung den Typ und die Region an (Beispiel: *blobstoragewestus*). 
+   + **Speicherkontoname** : Falls Sie über mehrere Ressourcen des gleichen Typs verfügen, geben Sie zur Unterscheidung den Typ und die Region an (Beispiel: *blobstoragewestus* ). 
 
-   + **Standort**. Wählen Sie nach Möglichkeit den gleichen Standort aus, der auch für Azure Cognitive Search und Cognitive Services verwendet wird. Bei Verwendung eines einzelnen Standorts fallen keine Bandbreitengebühren an.
+   + **Standort** . Wählen Sie nach Möglichkeit den gleichen Standort aus, der auch für Azure Cognitive Search und Cognitive Services verwendet wird. Bei Verwendung eines einzelnen Standorts fallen keine Bandbreitengebühren an.
 
-   + **Kontoart**: Verwenden Sie die Standardeinstellung *StorageV2 (allgemein, Version 2)* .
+   + **Kontoart** : Verwenden Sie die Standardeinstellung *StorageV2 (allgemein, Version 2)* .
 
-1. Klicken Sie zum Erstellen des Diensts auf **Überprüfen + erstellen**.
+1. Klicken Sie zum Erstellen des Diensts auf **Überprüfen + erstellen** .
 
 1. Klicken Sie nach der Erstellung auf **Go to the resource** (Zur Ressource), um die Übersichtsseite zu öffnen.
 
-1. Klicken Sie auf den Dienst **Blobs**.
+1. Klicken Sie auf den Dienst **Blobs** .
 
-1. Klicken Sie auf **+ Container**, um einen Container zu erstellen, und nennen Sie ihn *cog-search-demo*.
+1. Klicken Sie auf **+ Container** , um einen Container zu erstellen, und nennen Sie ihn *cog-search-demo* .
 
-1. Wählen Sie *cog-search-demo* aus, und klicken Sie auf **Hochladen**, um den Ordner zu öffnen, in dem Sie die Downloaddateien gespeichert haben. Wählen Sie alle Dateien aus, bei denen es sich nicht um Bilddateien handelt. Es müssen sieben Dateien sein. Klicken Sie auf **OK**, um die Dateien hochzuladen.
+1. Wählen Sie *cog-search-demo* aus, und klicken Sie auf **Hochladen** , um den Ordner zu öffnen, in dem Sie die Downloaddateien gespeichert haben. Wählen Sie alle Dateien aus, bei denen es sich nicht um Bilddateien handelt. Es müssen sieben Dateien sein. Klicken Sie auf **OK** , um die Dateien hochzuladen.
 
    :::image type="content" source="media/cognitive-search-tutorial-blob/sample-files.png" alt-text="Erstellen eines Speicherkontos" border="false":::
 
@@ -117,7 +117,7 @@ Erfassen Sie genau wie bei Azure Blob Storage den Zugriffsschlüssel. Wenn Sie s
 
    Rufen Sie auch den Abfrageschlüssel ab. Es empfiehlt sich, Abfrageanforderungen mit schreibgeschütztem Zugriff auszugeben.
 
-   :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Erstellen eines Speicherkontos" border="false":::
+   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Erstellen eines Speicherkontos" border="false":::
 
 Für alle an Ihren Dienst gesendeten Anforderungen ist ein API-Schlüssel im Header erforderlich. Ein gültiger Schlüssel stellt anforderungsbasiert eine Vertrauensstellung her zwischen der Anwendung, die die Anforderung sendet, und dem Dienst, der sie verarbeitet.
 
@@ -188,7 +188,7 @@ print(r.status_code)
 
 Die Anforderung sollte die erfolgreiche Ausführung durch Rückgabe von Statuscode 201 bestätigen.
 
-Überprüfen Sie im Azure-Portal auf der Dashboardseite des Suchdiensts, ob „cogsrch-py-datasource“ in der Liste **Datenquellen** aufgeführt ist. Klicken Sie auf **Aktualisieren**, um die Seite zu aktualisieren.
+Überprüfen Sie im Azure-Portal auf der Dashboardseite des Suchdiensts, ob „cogsrch-py-datasource“ in der Liste **Datenquellen** aufgeführt ist. Klicken Sie auf **Aktualisieren** , um die Seite zu aktualisieren.
 
 :::image type="content" source="media/cognitive-search-tutorial-blob-python/py-data-source-tile.png" alt-text="Erstellen eines Speicherkontos" border="false":::
 
@@ -315,7 +315,7 @@ In diesem Abschnitt definieren Sie das Indexschema, indem Sie die Felder angeben
 
 In dieser Übung werden die folgenden Felder und Feldtypen verwendet:
 
-| Feldnamen: | id         | Inhalt   | languageCode | keyPhrases         | organizations     |
+| Feldnamen: | ID         | Inhalt   | languageCode | keyPhrases         | organizations     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 

@@ -4,19 +4,19 @@ description: Azure Functions unterstützt mehrere Versionen der Runtime. Lernen 
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 12/09/2019
-ms.openlocfilehash: 6641461e63d7c9452351f3b0b99a274d2714a92e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3997c5e79192f4386ee5280350620a748dd1489b
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88208107"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309704"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Übersicht über die Runtimeversionen von Azure Functions
 
 Azure Functions unterstützt derzeit drei Versionen des Laufzeithosts: 1.x, 2.x und 3.x. Alle drei Versionen werden für Produktionsszenarios unterstützt.  
 
 > [!IMPORTANT]
-> Version 1.x befindet sich im Wartungsmodus und unterstützt nur die Entwicklung im Azure-Portal oder lokal auf Windows-Computern. Erweiterungen werden nur in höheren Versionen bereitgestellt. 
+> Version 1.x befindet sich im Wartungsmodus und unterstützt nur die Entwicklung im Azure-Portal, um Azure Stack Hub-Portal oder lokal auf Windows-Computern. Erweiterungen werden nur in höheren Versionen bereitgestellt. 
 
 In diesem Artikel werden einige Unterschiede zwischen den verschiedenen Versionen, das Erstellen der einzelnen Versionen und das Ändern von Versionen erläutert.
 
@@ -27,8 +27,6 @@ Ab Version 2.x verwendet die Runtime ein Modell für die Erweiterbarkeit von Spr
 Die folgende Tabelle zeigt, welche Programmiersprachen derzeit in den einzelnen Runtimeversionen unterstützt werden.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
-
-Weitere Informationen finden Sie unter [Unterstützte Sprachen](supported-languages.md).
 
 ## <a name="run-on-a-specific-version"></a><a name="creating-1x-apps"></a>Ausführen auf einer spezifischen Version
 

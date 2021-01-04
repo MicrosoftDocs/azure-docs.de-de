@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 77ea96b1bd1b1d661bb835e7bb48d58ce4c3e118
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9eab908d2767bcdc9305daa625c70be9b63b9756
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309154"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485545"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Azure-Sicherheitsbaseline für Service Fabric
 
@@ -76,7 +76,7 @@ Stellen Sie die Azure Web Application Firewall (WAF) vor kritischen Webanwendung
 
 **Leitfaden**: Aktivieren Sie als Schutz vor DDoS-Angriffen den Azure-DDoS-Standardschutz für das virtuelle Netzwerk, in dem Ihr Azure Service Fabric-Cluster bereitgestellt wurde. Verwenden Sie die in Azure Security Center integrierte Threat Intelligence, um die Kommunikation mit bekannten schädlichen oder nicht genutzten IP-Adressen zu verweigern.
 
-* [Konfigurieren von DDoS-Schutz](../virtual-network/manage-ddos-protection.md)
+* [Konfigurieren von DDoS-Schutz](../ddos-protection/manage-ddos-protection.md)
 
 * [Grundlegendes zur integrierten Threat Intelligence in Azure Security Center](../security-center/azure-defender.md)
 
@@ -144,7 +144,7 @@ Stellen Sie die Firewalllösung Ihrer Wahl an allen Netzwerkgrenzen Ihrer Organi
 
 **Leitfaden**: Definieren und implementieren Sie Standardsicherheitskonfigurationen für die Netzwerkressourcen Ihres Azure Service Fabric-Clusters. Verwenden Sie Azure Policy-Aliasse in den Namespaces „Microsoft.ServiceFabric“ und „Microsoft.Network“, um benutzerdefinierte Richtlinien zum Überwachen oder Erzwingen der Netzwerkkonfiguration Ihres Azure Service Fabric-Clusters zu erstellen.
 
-Sie können auch Azure Blueprints verwenden, um umfangreiche Azure-Bereitstellungen zu vereinfachen, indem wichtige Umgebungsartefakte wie Azure Resource Manager-Vorlagen, RBAC-Steuerelemente und Richtlinien in einer einzigen Blaupausendefinition verpackt werden. Sie können die Blaupause leicht auf neue Abonnements und Umgebungen anwenden und die Steuerung und Verwaltung durch die Versionsverwaltung optimieren.
+Sie können umfangreiche Azure-Bereitstellungen auch mithilfe von Azure Blueprints vereinfachen, indem Sie wichtige Umgebungsartefakte wie Azure Resource Manager-Vorlagen, Azure RBAC-Kontrollen und Richtlinien in einer einzigen Blaupausendefinition packen. Sie können die Blaupause leicht auf neue Abonnements und Umgebungen anwenden und die Steuerung und Verwaltung durch die Versionsverwaltung optimieren.
 
 * [Anzeigen verfügbarer Azure Policy-Aliase](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
@@ -626,7 +626,7 @@ Verwenden Sie alternativ den manuellen Trigger für Betriebssystemimageupgrades 
 
 * [Aktualisieren von virtuellen Computern auf das aktuelle Skalierungsgruppenmodell](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)
 
-* [Übersicht über die Updateverwaltung](../automation/update-management/update-mgmt-overview.md)
+* [Übersicht über die Updateverwaltung](../automation/update-management/overview.md)
 
 **Azure Security Center-Überwachung:** Zurzeit nicht verfügbar
 

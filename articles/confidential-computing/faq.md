@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: cf90ff5b94eb03f76dffc8b64dd4d92a44ac20ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9df3d9771029e6d72e9d0092a129cddc27be6cd7
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848907"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564105"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Häufig gestellte Fragen zum Azure Confidential Computing
 
@@ -32,7 +32,7 @@ Im Folgenden finden Sie einige Möglichkeiten zum Bereitstellen einer DCsv2-VM:
 
 **Funktionieren alle Betriebssystemimages mit Azure Confidential Computing?**
 
-Nein. Es können nur virtuelle Computer der Generation 2 mit Ubuntu Server 18.04, Ubuntu Server 16.04, Windows Server 2019 Datacenter und Windows Server 2016 Datacenter bereitgestellt werden. Weitere Informationen zu virtuellen Computern der Generation 2 finden Sie unter [Linux-](../virtual-machines/linux/generation-2.md) und [Windows](../virtual-machines/windows/generation-2.md).
+Nein. Es können nur virtuelle Computer der Generation 2 mit Ubuntu Server 18.04, Ubuntu Server 16.04, Windows Server 2019 Datacenter und Windows Server 2016 Datacenter bereitgestellt werden. Weitere Informationen zu virtuellen Computern der Generation 2 finden Sie unter [Linux-](../virtual-machines/generation-2.md) und [Windows](../virtual-machines/generation-2.md).
 
 **DCsv2-VMs sind im Portal abgeblendet, und ich kann keine auswählen**
 

@@ -8,16 +8,16 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 6b39c1d6fe2e84055e7c94dde076514d04a24f36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5ecd8f13a3255a565168f62f358a6a38e3cbab4
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992253"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445216"
 ---
 # <a name="managed-hsm-local-rbac-built-in-roles"></a>Integrierte Rollen der lokalen RBAC für verwaltete HSMs
 
-Die lokale RBAC für verwaltete HSMs verfügt über mehrere integrierte Rollen, die Sie Benutzern, Dienstprinzipalen, Gruppen und verwalteten Identitäten zuweisen können. Damit ein Prinzipal einen Vorgang ausführen kann, müssen Sie ihm eine Rolle zuweisen, die ihn zur Ausführung der entsprechenden Vorgänge berechtigt. Mit allen diesen Rollen und Vorgängen können nur Berechtigungen für Vorgänge auf der Datenebene verwaltet werden. Wenn Sie Berechtigungen auf der Steuerungsebene für die verwaltete HSM-Ressource verwalten möchten (etwa zum Erstellen eines neuen verwalteten HSM oder zum Aktualisieren, Verschieben oder Löschen eines bereits vorhandenen HSM) müssen Sie die [Rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC) in Azure](../../role-based-access-control/overview.md) verwenden.
+Die lokale RBAC für verwaltete HSMs verfügt über mehrere integrierte Rollen, die Sie Benutzern, Dienstprinzipalen, Gruppen und verwalteten Identitäten zuweisen können. Damit ein Prinzipal einen Vorgang ausführen kann, müssen Sie ihm eine Rolle zuweisen, die ihn zur Ausführung der entsprechenden Vorgänge berechtigt. Mit allen diesen Rollen und Vorgängen können nur Berechtigungen für Vorgänge auf der Datenebene verwaltet werden. Wenn Sie Berechtigungen auf der Steuerungsebene für die verwaltete HSM-Ressource verwalten möchten (etwa zum Erstellen eines neuen verwalteten HSM oder zum Aktualisieren, Verschieben oder Löschen eines bereits vorhandenen HSM) müssen Sie die [rollenbasierte Zugriffssteuerung von Azure (Azure Role-Based Access Control, Azure RBAC)](../../role-based-access-control/overview.md) verwenden.
 
 ## <a name="built-in-roles"></a>Integrierte Rollen
 
@@ -77,5 +77,5 @@ Die lokale RBAC für verwaltete HSMs verfügt über mehrere integrierte Rollen, 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Sehen Sie sich eine Übersicht über die [rollenbasierte Zugriffssteuerung in Azure (Role-Based Access Control, RBAC)](../../role-based-access-control/overview.md) an.
+- Sehen Sie sich eine Übersicht über die [rollenbasierte Zugriffssteuerung in Azure (Azure Role-Based Access Control, Azure RBAC)](../../role-based-access-control/overview.md) an.
 - Sehen Sie sich ein Tutorial zur [Rollenverwaltung für verwaltetes HSM](role-management.md) an.

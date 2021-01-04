@@ -5,24 +5,24 @@ ms.author: mikben
 ms.date: 10/10/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: dd75e5e97e5dca898ba10e91528782861fb949ec
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 820659c513674dc04e914c8f1094afab4f5a89e2
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114592"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356459"
 ---
 ## <a name="prerequisites"></a>Voraussetzungen
 
 - Eine funktionierende [Communication Services-Telefonie-App](../getting-started-with-calling.md)
-- Eine [Teams-Bereitstellung](https://docs.microsoft.com/deployoffice/teams-install)
+- Eine [Teams-Bereitstellung](/deployoffice/teams-install)
 
 ## <a name="enable-teams-interoperability"></a>Aktivieren der Teams-Interoperabilität
 
 Das Teams-Interoperabilitätsfeature befindet sich derzeit in der privaten Vorschau. Wenn Sie dieses Feature für Ihre Communication Services-Ressource aktivieren möchten, senden Sie eine E-Mail an [acsfeedback@microsoft.com](mailto:acsfeedback@microsoft.com), und geben Sie darin Folgendes an:
 
 1. Die Abonnement-ID des Azure-Abonnements, das Ihre Communication Services-Ressource enthält.
-2. Ihre Teams-Mandanten-ID. Diese erhalten Sie am einfachsten, indem Sie [einen Link zum Team abrufen und weitergeben](https://support.microsoft.com/office/create-a-link-or-a-code-for-joining-a-team-11b0de3b-9288-4cb4-bc49-795e7028296f#:~:text=Create%20a%20link%20If%20you%E2%80%99re%20a%20team%20owner%2C,link%20into%20any%20browser%20to%20join%20the%20team).
+2. Ihre Teams-Mandanten-ID. Diese erhalten Sie am einfachsten, indem Sie [einen Link zum Team abrufen und weitergeben](https://support.microsoft.com/office/create-a-link-or-a-code-for-joining-a-team-11b0de3b-9288-4cb4-bc49-795e7028296f).
 
 Sie müssen Mitglied der besitzenden Organisation beider Entitäten sein, um dieses Feature verwenden zu können.
 
@@ -75,6 +75,9 @@ Nun kann die Schaltfläche **Join Teams Meeting** (Teams-Besprechung beitreten) 
 ```javascript
 meetingButton.addEventListener("click", () => {
     
+    // set display name in the meeting
+    callAgent.updateDisplayName('YOUR_NAME');
+    
     // join with meeting link
     call = callAgent.join({meetingLink: 'MEETING_LINK'}, {});
 
@@ -95,9 +98,9 @@ meetingButton.addEventListener("click", () => {
 
 ## <a name="get-the-meeting-context"></a>Abrufen des Besprechungskontexts
 
-Der Teams-Kontext kann mithilfe der Graph-APIs abgerufen werden. Dies wird in der [Graph-Dokumentation](https://docs.microsoft.com/graph/api/onlinemeeting-createorget?view=graph-rest-beta&tabs=http) erläutert.
+Der Teams-Kontext kann mithilfe der Graph-APIs abgerufen werden. Dies wird in der [Graph-Dokumentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta) erläutert.
 
-Die erforderlichen Besprechungsinformationen können auch der URL für den Besprechungsbeitritt aus der Besprechungseinladung entnommen werden. 
+Die erforderlichen Besprechungsinformationen können auch der URL für den Besprechungsbeitritt aus der Besprechungseinladung entnommen werden.
 
 ## <a name="run-the-code"></a>Ausführen des Codes
 
@@ -112,4 +115,3 @@ Navigieren Sie in Ihrem Browser zu http://localhost:8080/. Daraufhin sollte Folg
 :::image type="content" source="../media/javascript/calling-javascript-app.png" alt-text="Screenshot der fertigen JavaScript-Anwendung":::
 
 Fügen Sie den Teams-Kontext in das Textfeld ein, und klicken Sie auf *Join Teams Meeting* (Teams-Besprechung beitreten), um der Teams-Besprechung über Ihre Communication Services-Anwendung beizutreten.
-

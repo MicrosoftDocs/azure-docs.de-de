@@ -3,17 +3,19 @@ title: FROM-Klausel in Azure Cosmos DB
 description: Erfahren Sie mehr über die SQL-Syntax, und untersuchen Sie ein Beispiel für die FROM-Klausel für Azure Cosmos DB. In diesem Artikel werden auch Beispiele für die Bereichsergebnisse und das Abrufen von untergeordneten Elementen mithilfe der FROM-Klausel gezeigt.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
-ms.openlocfilehash: e4bbb27a2f49027ed5a456ad824f54b9c92a899c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3844a628a8e3773821736324bfdaab3f64ff9da5
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83005873"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336249"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>FROM-Klausel in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Die FROM-Klausel (`FROM <from_specification>`) ist optional, es sei denn, die Quelle wird später in der Abfrage gefiltert oder projiziert. Eine Abfrage wie `SELECT * FROM Families` erstellt eine Auflistung für den gesamten `Families`-Container. Sie können auch den Sonderbezeichner „ROOT“ für den Container anstelle des Containernamens verwenden.
 

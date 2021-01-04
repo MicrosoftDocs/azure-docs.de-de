@@ -1,17 +1,17 @@
 ---
 title: SSL/TLS-Konnektivität in Azure Database for MariaDB
 description: Informationen zum Konfigurieren von Azure Database for MariaDB und zugehörigen Anwendungen für die richtige Verwendung von SSL-Verbindungen
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 4eb4ad48554b8ca2ce6af9f89652fad685998a2a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: d2d916f3cba27f6b38a781b81e403ee9b6f0fab3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126053"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011471"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mariadb"></a>SSL/TLS-Konnektivität in Azure Database for MariaDB
 Azure Database for MariaDB unterstützt die Verbindung Ihres Datenbankservers mit Clientanwendungen, die Secure Sockets Layer (SSL) verwenden. Das Erzwingen von SSL-Verbindungen zwischen dem Datenbankserver und Clientanwendungen trägt zum Schutz vor Man-in-the-Middle-Angriffen bei, indem der Datenstrom zwischen dem Server und der Anwendung verschlüsselt wird.
@@ -41,7 +41,7 @@ Azure Database for MariaDB unterstützt die Verschlüsselung für Clients, die e
 
 ### <a name="tls-settings"></a>TLS-Einstellungen
 
-Azure Database for MariaDB bietet die Möglichkeit, die TLS-Version für die Clientverbindungen vorzuschreiben. Zum Erzwingen der TLS-Version verwenden Sie die Optionseinstellung **TLS-Mindestversion** . Für diese Optionseinstellung sind die folgenden Werte zulässig:
+Azure Database for MariaDB bietet die Möglichkeit, die TLS-Version für die Clientverbindungen vorzuschreiben. Zum Erzwingen der TLS-Version verwenden Sie die Optionseinstellung **TLS-Mindestversion**. Für diese Optionseinstellung sind die folgenden Werte zulässig:
 
 |  TLS-Mindesteinstellung             | Unterstützte Client-TLS-Version                |
 |:---------------------------------|-------------------------------------:|

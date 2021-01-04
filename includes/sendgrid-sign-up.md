@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: gwallace
 ms.openlocfilehash: 3590b8fdb67b25e0d4389e814aefcc4d18b1193c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92116727"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015423"
 ---
 Kunden von Azure können monatlich 25.000 kostenlose E-Mails freischalten. Mit diesen 25.000 kostenlosen E-Mails pro Monat erhalten Sie Zugriff auf erweiterte Berichterstellung und Analysen sowie auf [sämtliche APIs][all APIs] (Web, SMTP, Ereignis, Analyse usw.). Informationen zu den zusätzlichen Diensten von SendGrid finden Sie auf der [Seite mit den SendGrid-Lösungen][SendGrid Solutions].
 
@@ -18,16 +18,16 @@ Kunden von Azure können monatlich 25.000 kostenlose E-Mails freischalten. Mit d
 2. Wählen Sie im Menü des Azure-Portals oder auf der Startseite die Option **Ressource erstellen** aus.
 
     ![Screenshot des Menüs des Azure-Portals mit ausgewählter Option „Ressource erstellen“.][command-bar-new]
-3. Suchen Sie nach **SendGrid** , und wählen Sie diese Option aus.
+3. Suchen Sie nach **SendGrid**, und wählen Sie diese Option aus.
 
     ![Screenshot des Marketplace-Bildschirms im Azure-Portal, der „SendGr“ im Suchfeld anzeigt. „SendGrid“ist in den Suchergebnissen ausgewählt.][sendgrid-store]
-4. Füllen Sie das Registrierungsformular aus, und wählen Sie **Erstellen** .
+4. Füllen Sie das Registrierungsformular aus, und wählen Sie **Erstellen**.
 
     ![Screenshot des Dialogfelds „Neues SendGrid-Konto erstellen“, in dem die Felder „Name“, „Kennwort“, „Abonnement“ und „Ressourcengruppe“ ausgefüllt sind.][sendgrid-create]
 5. Geben Sie unter **Name** einen Namen ein, um Ihren SendGrid-Dienst in Ihren Azure-Einstellungen zu identifizieren. Namen müssen zwischen 1 und 100 Zeichen lang sein und dürfen nur alphanumerische Zeichen, Gedankenstriche, Punkte und Unterstriche enthalten. Der Name muss in der Liste der abonnierten Azure Store-Artikel eindeutig sein.
 6. Geben Sie Ihr **Kennwort** ein, und bestätigen Sie es.
 7. Wählen Sie Ihr **Abonnement** aus.
-8. Erstellen Sie eine neue **Ressourcengruppe** , oder verwenden Sie eine bereits vorhandene.
+8. Erstellen Sie eine neue **Ressourcengruppe**, oder verwenden Sie eine bereits vorhandene.
 9. Wählen Sie im Abschnitt **Tarif** den SendGrid-Tarif aus, für den Sie sich registrieren möchten.
 
     ![Screenshot des Dialogfelds „Neues SendGrid-Konto erstellen“ mit geöffnetem Abschnitt „Tarif auswählen“ und ausgewähltem Tarif „Free“.][sendgrid-pricing]
@@ -51,14 +51,14 @@ Kunden von Azure können monatlich 25.000 kostenlose E-Mails freischalten. Mit d
     Wenn Sie eine E-Mail mit SendGrid senden möchten, müssen Sie Ihren API-Schlüssel angeben.
 
 ### <a name="to-find-your-sendgrid-api-key"></a>So finden Sie Ihren API-Schlüssel für SendGrid
-1. Klicken Sie auf **Manage** .
+1. Klicken Sie auf **Manage**.
 
     ![Screenshot der Kontoseite „ContosoSendGrid“ mit hervorgehobener Schaltfläche „Verwalten“.][manage]
 2. Wählen Sie auf Ihrem SendGrid-Dashboard die Option **Settings** (Einstellungen) und anschließend im Menü auf der linken Seite die Option **API Keys** (API-Schlüssel) aus.
 
     ![Screenshot des SendGrid-Dashboards mit geöffnetem Dropdownmenü „Einstellungen“ und ausgewählten API-Schlüsseln.][api-keys]
 
-3. Klicken Sie auf **API-Schlüssel erstellen** .
+3. Klicken Sie auf **API-Schlüssel erstellen**.
 
     ![Screenshot des Bildschirms „API-Schlüssel“ mit ausgewählter Schaltfläche „API-Schlüssel erstellen“.][general-api-key]
 4. Geben Sie mindestens einen Wert für **Name of this key** (Name dieses Schlüssels) an, gewähren Sie Vollzugriff für **Mail Send** (Senden von E-Mails), und wählen Sie **Save** (Speichern).

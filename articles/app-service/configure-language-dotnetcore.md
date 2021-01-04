@@ -2,16 +2,16 @@
 title: Konfigurieren von ASP.NET Core-Apps
 description: Erfahren Sie, wie Sie in Azure App Service eine ASP.NET Core-App in den nativen Windows-Instanzen oder in einem vordefinierten Linux-Container konfigurieren. In diesem Artikel werden die gängigsten Konfigurationsaufgaben vorgestellt.
 ms.devlang: dotnet
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 3456adc2b143f1f51115183fe4873938d067d267
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f7047638aa2e2b4a9ac6ffade82fdc117b56cfb
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961668"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744179"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Konfigurieren einer ASP.NET Core-App für Azure App Service
 
@@ -125,7 +125,7 @@ namespace SomeNamespace
 }
 ```
 
-Wenn Sie beispielsweise eine App-Einstellung mit demselben Namen in App Service und in *appsettings.json* konfigurieren, hat der App Service-Wert Vorrang vor dem Wert für *appsettings.json*. Mit dem lokalen Wert für *appsettings.json* können Sie die App lokal debuggen, aber mit dem Wert für App Service können Sie die App im Produkt mit Produktionseinstellungen ausführen. Verbindungszeichenfolgen funktionieren auf dieselbe Weise. Auf diese Weise können Sie Ihre Anwendungsgeheimnisse außerhalb Ihres Coderepositorys aufbewahren und auf die entsprechenden Werte zugreifen, ohne Ihren Code zu ändern.
+Wenn Sie beispielsweise eine App-Einstellung mit demselben Namen in App Service und in *appsettings.json* konfigurieren, hat der App Service-Wert Vorrang vor dem Wert für *appsettings.json* . Mit dem lokalen Wert für *appsettings.json* können Sie die App lokal debuggen, aber mit dem Wert für App Service können Sie die App im Produkt mit Produktionseinstellungen ausführen. Verbindungszeichenfolgen funktionieren auf dieselbe Weise. Auf diese Weise können Sie Ihre Anwendungsgeheimnisse außerhalb Ihres Coderepositorys aufbewahren und auf die entsprechenden Werte zugreifen, ohne Ihren Code zu ändern.
 
 > [!NOTE]
 > Beachten Sie, dass auf die [hierarchischen Konfigurationsdaten](/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) in der Datei *appsettings.json* mit dem `:`-Trennzeichen zugegriffen wird, das standardmäßig in .NET Core Verwendung findet. Wenn Sie eine bestimmte hierarchische Konfigurationseinstellung in App Service außer Kraft setzen möchten, legen Sie den Namen der App-Einstellung mit dem gleichen Trennzeichenformat im Schlüssel fest. Sie können das folgende Beispiel in der [Cloud Shell](https://shell.azure.com) ausführen:
@@ -167,7 +167,7 @@ Weitere Informationen zur Problembehandlung von ASP.NET Core-Apps in App Service
 
 ## <a name="get-detailed-exceptions-page"></a>Abrufen einer detaillierten Ausnahmenseite
 
-Wenn Ihre ASP. NET Core-App eine Ausnahme im Visual Studio-Debugger erzeugt, zeigt der Browser eine detaillierte Ausnahmeseite an, aber in App Service wird diese Seite durch einen allgemeinen **HTTP 500**-Fehler oder durch die Meldung **Fehler beim Bearbeiten Ihrer Anforderung aufgetreten** ersetzt. Meldung. Um die detaillierte Ausnahmenseite in App Service anzuzeigen, fügen Sie die App-Einstellung `ASPNETCORE_ENVIRONMENT` zu Ihrer App hinzu, indem Sie den folgenden Befehl in der <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a> ausführen.
+Wenn Ihre ASP. NET Core-App eine Ausnahme im Visual Studio-Debugger erzeugt, zeigt der Browser eine detaillierte Ausnahmeseite an, aber in App Service wird diese Seite durch einen allgemeinen **HTTP 500** -Fehler oder durch die Meldung **Fehler beim Bearbeiten Ihrer Anforderung aufgetreten** ersetzt. Meldung. Um die detaillierte Ausnahmenseite in App Service anzuzeigen, fügen Sie die App-Einstellung `ASPNETCORE_ENVIRONMENT` zu Ihrer App hinzu, indem Sie den folgenden Befehl in der <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a> ausführen.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"
@@ -175,7 +175,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## <a name="detect-https-session"></a>Erkennen einer HTTPS-Sitzung
 
-In App Service erfolgt die [SSL-Terminierung](https://wikipedia.org/wiki/TLS_termination_proxy) in den Modulen für den Netzwerklastenausgleich, sodass alle HTTPS-Anforderungen Ihre App als unverschlüsselte HTTP-Anforderungen erreichen. Wenn Ihre App-Logik wissen muss, ob die Benutzeranforderungen verschlüsselt sind, konfigurieren Sie die Forwarded Headers Middleware in *Startup.cs*:
+In App Service erfolgt die [SSL-Terminierung](https://wikipedia.org/wiki/TLS_termination_proxy) in den Modulen für den Netzwerklastenausgleich, sodass alle HTTPS-Anforderungen Ihre App als unverschlüsselte HTTP-Anforderungen erreichen. Wenn Ihre App-Logik wissen muss, ob die Benutzeranforderungen verschlüsselt sind, konfigurieren Sie die Forwarded Headers Middleware in *Startup.cs* :
 
 - Konfigurieren Sie die Middleware mit [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions), um die Header `X-Forwarded-For` und `X-Forwarded-Proto` in `Startup.ConfigureServices` weiterzuleiten.
 - Fügen Sie den bekannten Netzwerken private IP-Adressbereiche hinzu, damit die Middleware dem App Service-Lastenausgleich vertrauen kann.

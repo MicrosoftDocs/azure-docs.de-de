@@ -3,18 +3,21 @@ title: Troubleshooting der Ausnahme „Azure Cosmos DB nicht verfügbar“
 description: Erfahren Sie mehr über das Diagnostizieren und Beheben von Ausnahmen, wenn der Azure Cosmos DB-Dienst nicht verfügbar ist.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 08/06/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: b40787e1b7c40e5c238b2e400f6b449ad8963dd1
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d19d30c03412ba7212211b30646acb50c3f55ece
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277134"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340021"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-service-unavailable-exceptions"></a>Diagnose und Troubleshooting der Ausnahme „Azure Cosmos DB nicht verfügbar“
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 Das SDK war nicht in der Lage, eine Verbindung mit Azure Cosmos DB herzustellen.
 
 ## <a name="troubleshooting-steps"></a>Schritte zur Problembehandlung

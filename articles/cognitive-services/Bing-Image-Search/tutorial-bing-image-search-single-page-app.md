@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: fe4c40e2c5e2b8992598125c376dc0da516e9736
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcb82ffcf4c4ad861c6523f507c816c666a71772
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316697"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351383"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Tutorial: Erstellen einer einseitigen Web-App mit der Bing-Bildersuche-API
+
+> [!WARNING]
+> Die APIs der Bing-Suche werden von Cognitive Services auf Bing-Suchdienste umgestellt. Ab dem **30. Oktober 2020** müssen alle neuen Instanzen der Bing-Suche mit dem [hier](/bing/search-apis/bing-web-search/create-bing-search-service-resource) dokumentierten Prozess bereitgestellt werden.
+> APIs der Bing-Suche, die mit Cognitive Services bereitgestellt wurden, werden noch drei Jahre lang bzw. bis zum Ablauf Ihres Enterprise Agreement unterstützt (je nachdem, was zuerst eintritt).
+> Eine Anleitung zur Migration finden Sie unter [Erstellen einer Ressource für die Bing-Suche über Azure Marketplace](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Mit der Bing-Bildersuche-API können Sie im Web nach relevanten Bildern in hoher Qualität suchen. Erstellen Sie mithilfe dieses Tutorials eine einseitige Webanwendung, die Suchabfragen an die API senden und die Ergebnisse auf der Webseite anzeigen kann. Dieses Tutorial ähnelt dem [entsprechenden Tutorial für die Bing-Websuche](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md).
 
@@ -117,7 +122,7 @@ Der `onsubmit`-Handler gibt standardmäßig `false` zurück, wodurch verhindert 
 
 ![[Bing-Bildersuche-Formular]](media/cognitive-services-bing-images-api/image-search-spa-form.png)
 
-Die Bing-Bildersuche-API bietet mehrere [Filterabfrageparameter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#filter-query-parameters), um Suchergebnisse einzuschränken und zu filtern. Das HTML-Formular in dieser Anwendung verwendet die folgenden Parameteroptionen und zeigt sie an:
+Die Bing-Bildersuche-API bietet mehrere [Filterabfrageparameter](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#filter-query-parameters), um Suchergebnisse einzuschränken und zu filtern. Das HTML-Formular in dieser Anwendung verwendet die folgenden Parameteroptionen und zeigt sie an:
 
 | Option | BESCHREIBUNG |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

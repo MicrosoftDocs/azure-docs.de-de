@@ -12,12 +12,12 @@ ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e4fa4b64c6519df90d5883e8c5760b3ed2ce0337
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a079cfe155119a6afe8575767dd3e7c09a564f9a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90004458"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445630"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Einrichten der Anmeldung für eine bestimmte Azure Active Directory-Organisation in Azure Active Directory B2C
 
@@ -51,6 +51,6 @@ Wenn Sie Azure Active Directory (Azure AD) als [Identitätsanbieter](authorizati
     * **Anzeigename**: *name*
     * **Vorname**: *given_name*
     * **Nachname**: *family_name*
-    * **E-Mail**: *unique_name*
+    * **E-Mail**: *preferred_username*
 
 1. Wählen Sie **Speichern** aus.

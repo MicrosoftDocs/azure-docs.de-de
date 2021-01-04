@@ -7,9 +7,9 @@
 - name: Schnellstarts
   items:
     - name: Hinzufügen von Benutzern zu Azure AD
-      href: ../fundamentals/add-users-azure-active-directory.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+      href: ../fundamentals/add-users-azure-active-directory.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Zuweisen von Lizenzen zu Benutzern
-      href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/enterprise-users/context/ugr-context
+      href: ../fundamentals/license-users-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Festlegen des Gruppenablaufs
       href: groups-quickstart-expiration.md
     - name: Festlegen einer Benennungsrichtlinie für Gruppen
@@ -22,34 +22,34 @@
   expanded: true
   items:
     - name: Vergleichen von Standardbenutzerberechtigungen
-      href: ../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+      href: ../fundamentals/users-default-permissions.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Grundlagen der gruppenbasierten Lizenzierung
-      href: ../fundamentals/active-directory-licensing-whatis-azure-portal.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+      href: ../fundamentals/active-directory-licensing-whatis-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Verwalten des Zugriffs mit Gruppen
-      href: ../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+      href: ../fundamentals/active-directory-manage-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
 - name: Anleitungen
   expanded: true
   items:
     - name: Verwalten von Benutzern
       items:
         - name: Erstellen von Benutzern
-          href: ../fundamentals/add-users-azure-active-directory.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/add-users-azure-active-directory.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Massenerstellung von Benutzern
           href: users-bulk-add.md
         - name: Verwalten von Benutzerprofilen
-          href: ../fundamentals/active-directory-users-profile-azure-portal.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-users-profile-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Herunterladen von Benutzerinformationen
           href: users-bulk-download.md
         - name: Freigeben von Benutzerkonten
           href: users-sharing-accounts.md
         - name: Zuweisen von Benutzern zu Administratorrollen
-          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Erweiterungen bei der Benutzerverwaltung
           href: users-search-enhanced.md
         - name: Massenlöschung von Benutzern
           href: users-bulk-delete.md
         - name: Wiederherstellen eines gelöschten Benutzers
-          href: ../fundamentals/active-directory-users-restore.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-users-restore.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Massenwiederherstellung von Benutzern
           href: users-bulk-restore.md
         - name: Widerrufen des Zugriffs eines Benutzers
@@ -57,19 +57,21 @@
         - name: Schließen eines Kontos in einem nicht verwalteten Verzeichnis
           href: users-close-account.md
         - name: Hinzufügen von Gastbenutzern
-          href: /azure/active-directory/b2b/what-is-b2b?context=azure/active-directory/enterprise-users/context/ugr-context
+          href: ../external-identities/what-is-b2b.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Zuweisen einer Rolle zu einem Gastbenutzer
-          href: /azure/active-directory/b2b/add-guest-to-role?context=azure/active-directory/enterprise-users/context/ugr-context
+          href: ../external-identities/add-guest-to-role.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Einschränken des Zugriffs durch Gastbenutzer
           href: users-restrict-guest-permissions.md
         - name: Dynamische Gruppen und Gäste
-          href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/enterprise-users/context/ugr-context
+          href: ../external-identities/use-dynamic-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Verwalten Ihrer Organisation
       items:
         - name: Azure AD-Organisationen
-          href: ../fundamentals/active-directory-whatis.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-whatis.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Verwalten von Domänennamen
           href: domains-manage.md
+        - name: 'Überprüfen, ob die Unterdomänen verwaltet sind'
+          href: domains-verify-custom-subdomain.md
         - name: Löschen eines Verzeichnisses
           href: directory-delete-howto.md
         - name: Mehrere Verzeichnisse
@@ -79,13 +81,13 @@
         - name: Übernehmen eines Verzeichnisses
           href: domains-admin-takeover.md
         - name: Azure AD Connect
-          href: ../hybrid/whatis-hybrid-identity.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../hybrid/whatis-hybrid-identity.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Verwalten von Gruppen
       items:
         - name: Verwalten des Zugriffs mit Gruppen
-          href: ../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-manage-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Erstellen einer Gruppe (Azure-Portal)
-          href: ../fundamentals/active-directory-groups-create-azure-portal.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-groups-create-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: 'Verwalten von Gruppen: PowerShell für Graph (v2)'
           href: groups-settings-v2-cmdlets.md
         - name: Verwalten von Gruppen mit PowerShell MSOnline
@@ -93,7 +95,7 @@
         - name: Durchsuchen von Gruppen-und Mitgliederlisten
           href: groups-members-owners-search.md
         - name: Hinzufügen oder Entfernen von Gruppenmitgliedern
-          href: ../fundamentals/active-directory-groups-members-azure-portal.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-groups-members-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Dynamische Gruppen
           items:
             - name: Erstellen einer dynamischen Gruppe
@@ -115,11 +117,11 @@
         - name: Wiederherstellen gelöschter Gruppen
           href: groups-restore-deleted.md
         - name: Verwalten von Gruppeneinstellungen
-          href: ../fundamentals/active-directory-groups-settings-azure-portal.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-groups-settings-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Verwalten von Gruppenbesitzern
-          href: ../fundamentals/active-directory-accessmanagement-managing-group-owners.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-accessmanagement-managing-group-owners.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Verwalten von Gruppen in Gruppen
-          href: ../fundamentals/active-directory-groups-membership-azure-portal.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-groups-membership-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Hinzufügen des Gruppenzugriffs auf SaaS-Apps
           href: groups-saasapps.md
         - name: Festlegen der Benennungsrichtlinie für Gruppen
@@ -133,7 +135,7 @@
     - name: Zuweisen von Lizenzen
       items:
         - name: Zuweisen von Lizenzen zu Benutzern
-          href: ../fundamentals/license-users-groups.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/license-users-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Zuweisen von Lizenzen zu einer Gruppe
           href: licensing-groups-assign.md
         - name: Beheben von Lizenzproblemen für eine Gruppe
@@ -151,7 +153,7 @@
     - name: Verwalten der Anmeldung
       items:
         - name: Anpassen des Unternehmensbrandings
-          href: ../fundamentals/customize-branding.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/customize-branding.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Anmeldeoptionen
           href: signin-account-support.md
         - name: 'Startbereichsermittlung (Home Realm Discovery, HDR)'
@@ -165,7 +167,7 @@
     - name: Problembehandlung
       items:
         - name: Erhalten von Support für Azure AD
-          href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Problembehandlung für Gruppen
           href: groups-troubleshooting.md
         - name: Problembehandlung für die Gruppenlizenzierung

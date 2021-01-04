@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 98e4a5097f1ebd26c54d1e0de9bda7ca2055c320
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: d15d73b0f2b87b8e6f66c7bd4e7fb34f6b06e1a0
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950736"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341922"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Untersuchen und Verwalten Ihrer Ressourcen mit dem Ressourcenbestand und Verwaltungstools
 
@@ -33,7 +33,7 @@ Verwenden Sie diese Ansicht und ihre Filter zur Beantwortung folgender Fragen:
 Die Ressourcenverwaltungsfunktionen dieses Tools sind umfassend und wachsen weiter. 
 
 > [!TIP]
-> Die Sicherheitsempfehlungen auf der Ressourcenbestandsseite sind identisch mit denen auf der Seite **Empfehlungen**, aber hier werden sie nach betroffener Ressource gefiltert. Weitere Informationen zur Anwendung von Empfehlungen finden Sie unter [Sicherheitsempfehlungen in Azure Security Center](security-center-recommendations.md).
+> Die Sicherheitsempfehlungen auf der Ressourcenbestandsseite sind identisch mit denen auf der Seite **Empfehlungen** , aber hier werden sie nach betroffener Ressource gefiltert. Weitere Informationen zur Anwendung von Empfehlungen finden Sie unter [Sicherheitsempfehlungen in Azure Security Center](security-center-recommendations.md).
 
 
 ## <a name="availability"></a>Verfügbarkeit
@@ -53,9 +53,9 @@ Auf der Bestandsseite werden die folgenden Tools angezeigt:
 
 - **Zusammenfassungen** – Bevor Sie Filter definieren, wird oben in der Bestandsansicht ein auffälliger Streifen mit Werten angezeigt:
 
-    - **Ressourcen gesamt**: Die Gesamtanzahl der mit Azure Security Center verbundenen Ressourcen.
+    - **Ressourcen gesamt** : Die Gesamtanzahl der mit Azure Security Center verbundenen Ressourcen.
     - **Fehlerhafte Ressourcen:** Ressourcen mit aktiven Sicherheitsempfehlungen. [Weitere Informationen zu Sicherheitsempfehlungen](security-center-recommendations.md).
-    - **Nicht überwachte Ressourcen**: Ressourcen mit Agent-Überwachungsproblemen – Der Log Analytics-Agent wurde bereitgestellt, aber der Agent sendet keine Daten oder hat andere Integritätsprobleme.
+    - **Nicht überwachte Ressourcen** : Ressourcen mit Agent-Überwachungsproblemen – Der Log Analytics-Agent wurde bereitgestellt, aber der Agent sendet keine Daten oder hat andere Integritätsprobleme.
 
 - **Filter** – Die zahlreichen Filter am oberen Rand der Seite bieten eine Möglichkeit, die Liste der Ressourcen schnell entsprechend der Frage zu verfeinern, die Sie zu beantworten versuchen. Wenn Sie beispielsweise die Frage *Auf welchen meiner Computer mit dem Tag „Produktion“ fehlt der Log Analytics-Agent?* beantworten möchten, könnten Sie den Filter **Agent-Überwachung** mit dem Filter **Tags** kombinieren, wie im folgenden Clip gezeigt:
 
@@ -68,29 +68,29 @@ Auf der Bestandsseite werden die folgenden Tools angezeigt:
     ![Exportoptionen für Ressourcenbestand](./media/asset-inventory/inventory-export-options.png)
 
     > [!TIP]
-    > Die KQL-Dokumentation bietet eine Datenbank mit einigen Beispieldaten zusammen mit einigen einfachen Abfragen, um ein „Gefühl“ für die Sprache zu bekommen. [Weitere Informationen finden Sie in diesem KQL-Tutorial](https://docs.microsoft.com/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
+    > Die KQL-Dokumentation bietet eine Datenbank mit einigen Beispieldaten zusammen mit einigen einfachen Abfragen, um ein „Gefühl“ für die Sprache zu bekommen. [Weitere Informationen finden Sie in diesem KQL-Tutorial](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 
-- **Ressourcenverwaltungsoptionen**Mit dem Ressourcenbestand können Sie komplexe Suchabfragen durchführen. Wenn Sie die Ressourcen gefunden haben, die Ihren Abfragen entsprechen, bietet der Ressourcenbestand Verknüpfungen für Vorgänge wie z. B.:
+- **Ressourcenverwaltungsoptionen** Mit dem Ressourcenbestand können Sie komplexe Suchabfragen durchführen. Wenn Sie die Ressourcen gefunden haben, die Ihren Abfragen entsprechen, bietet der Ressourcenbestand Verknüpfungen für Vorgänge wie z. B.:
 
     - Zuweisen von Tags zu den gefilterten Ressourcen: Aktivieren Sie die Kontrollkästchen neben den Ressourcen, die Sie mit einem Tag versehen möchten.
-    - Onboarding neuer Server in Security Center: Verwenden Sie die Symbolleistenschaltfläche **Nicht-Azure-Server hinzufügen**.
-    - Automatisieren von Workloads mit Azure Logic Apps: Verwenden Sie die Schaltfläche **Logik-App auslösen**, um eine Logik-App für eine oder mehrere Ressourcen auszuführen. Ihre Logik-Apps müssen zuvor vorbereitet werden und den entsprechenden Triggertyp (HTTP-Anforderung) akzeptieren. [Erfahren Sie mehr über Logik-Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+    - Onboarding neuer Server in Security Center: Verwenden Sie die Symbolleistenschaltfläche **Nicht-Azure-Server hinzufügen** .
+    - Automatisieren von Workloads mit Azure Logic Apps: Verwenden Sie die Schaltfläche **Logik-App auslösen** , um eine Logik-App für eine oder mehrere Ressourcen auszuführen. Ihre Logik-Apps müssen zuvor vorbereitet werden und den entsprechenden Triggertyp (HTTP-Anforderung) akzeptieren. [Erfahren Sie mehr über Logik-Apps](../logic-apps/logic-apps-overview.md).
 
 
 ## <a name="how-does-asset-inventory-work"></a>Wie funktioniert der Ressourcenbestand?
 
-Der Ressourcenbestand verwendet [Azure Resource Graph (ARG)](https://docs.microsoft.com/azure/governance/resource-graph/), einen Azure-Dienst, der die Möglichkeit bietet, die Daten zum Sicherheitsstatus von Security Center über mehrere Abonnements hinweg abzufragen.
+Der Ressourcenbestand verwendet [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml), einen Azure-Dienst, der die Möglichkeit bietet, die Daten zum Sicherheitsstatus von Security Center über mehrere Abonnements hinweg abzufragen.
 
 ARG ist so konzipiert, dass es eine effiziente Ressourcenerkundung mit der Fähigkeit zur bedarfsorientierten Abfrage ermöglicht.
 
-Mit Hilfe der [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) kann der Ressourcenbestand Ihnen durch Querverweise zwischen ASC-Daten und anderen Ressourceneigenschaften schnell tiefe Einblicke verschaffen.
+Mit Hilfe der [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) kann der Ressourcenbestand Ihnen durch Querverweise zwischen ASC-Daten und anderen Ressourceneigenschaften schnell tiefe Einblicke verschaffen.
 
 
 ## <a name="how-to-use-asset-inventory"></a>Verwenden des Ressourcenbestands
 
 1. Wählen Sie auf der Security Center-Randleiste **Ressourcenbestands** aus.
 
-1. Verwenden Sie das Feld **Nach Name filtern**, um eine bestimmte Ressource anzuzeigen, oder verwenden Sie die Filter gemäß der nachstehenden Beschreibung.
+1. Verwenden Sie das Feld **Nach Name filtern** , um eine bestimmte Ressource anzuzeigen, oder verwenden Sie die Filter gemäß der nachstehenden Beschreibung.
 
 1. Wählen Sie die entsprechenden Optionen in den Filtern aus, um die spezifische Abfrage zu erstellen, die Sie ausführen möchten.
 
@@ -108,7 +108,7 @@ Mit Hilfe der [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data
     ![Filter „Sicherheitsergebnisse enthalten“](./media/asset-inventory/security-findings-contain-elements.png)
 
     > [!TIP]
-    > Die Filter **Sicherheitsergebnisse enthalten** und **Tags** akzeptieren nur einen einzigen Wert. Um nach mehreren Werten zu filtern, verwenden Sie **Filter hinzufügen**.
+    > Die Filter **Sicherheitsergebnisse enthalten** und **Tags** akzeptieren nur einen einzigen Wert. Um nach mehreren Werten zu filtern, verwenden Sie **Filter hinzufügen** .
 
 1. Wählen Sie mindestens eine Option („Aus“, „Ein“ oder „Partiell“) aus, um den Filter **Azure Defender** zu verwenden:
 
@@ -117,7 +117,7 @@ Mit Hilfe der [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data
         :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Filtern nach Produktionsressourcen, die nicht überwacht werden" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
 
     - **Ein:** Ressourcen, die durch einen Azure Defender-Plan geschützt sind
-    - **Partiell:** Dies gilt für **Abonnements**, bei denen einige, aber nicht alle Azure Defender-Pläne deaktiviert sind. Für das folgende Abonnement sind z. B. fünf Azure Defender-Pläne deaktiviert. 
+    - **Partiell:** Dies gilt für **Abonnements** , bei denen einige, aber nicht alle Azure Defender-Pläne deaktiviert sind. Für das folgende Abonnement sind z. B. fünf Azure Defender-Pläne deaktiviert. 
 
         :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Filtern nach Produktionsressourcen, die nicht überwacht werden":::
 
@@ -156,5 +156,5 @@ In diesem Artikel wurde die Seite „Ressourcenbestand“ von Azure Security Cen
 
 Weitere Informationen zu verwandten Tools finden Sie auf den folgenden Seiten:
 
-- [Azure Resource Graph (ARG)](https://docs.microsoft.com/azure/governance/resource-graph/)
-- [Kusto-Abfragesprache (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
+- [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml)
+- [Kusto-Abfragesprache (KQL)](/azure/data-explorer/kusto/query/)

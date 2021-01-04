@@ -3,22 +3,22 @@ title: Erste Schritte mit dem Azure Maps-Visual in Power BI | Microsoft Azure Ma
 description: In diesem Artikel erfahren Sie, wie das Microsoft Azure Maps-Visual für Power BI verwendet wird.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 06/26/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: aecda5ed9b87ba2345a52923a574919d6a08594f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a563a7776e84289e38743057778e8fe10fd17503
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362670"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904702"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Erste Schritte mit dem Azure Maps-Visual in Power BI
 
-<Token>**GILT FÜR:** ![Grünes Häkchen.](media/power-bi-visual/yes.png) Power BI-Dienst für ***Consumer*** ![Grünes Häkchen.](media/power-bi-visual/yes.png) Power BI-Dienst für Designer und Entwickler ![Grünes Häkchen.](media/power-bi-visual/yes.png) Power BI Desktop ![X, das Nein anzeigt.](media/power-bi-visual/no.png) Erfordert eine Pro- oder Premium-Lizenz </Token>
+<Token>**GILT FÜR:** ![Grünes Häkchen.](media/power-bi-visual/yes.png) Power BI-Dienst für **_Consumer_* _ ![Grünes Häkchen.](media/power-bi-visual/yes.png) Power BI-Dienst für Designer und Entwickler ![Grünes Häkchen.](media/power-bi-visual/yes.png) Power BI Desktop ![X, das Nein anzeigt.](media/power-bi-visual/no.png) Erfordert eine Pro- oder Premium-Lizenz</Token>
 
 Dieser Artikel zeigt die Verwendung des Microsoft Azure Maps-Visuals für Power BI.
 
@@ -45,17 +45,17 @@ Möglicherweise müssen Sie bzw. Ihr Administrator Ihre Firewall aktualisieren, 
 
 Weitere Informationen zu Datenschutz und Nutzungsbedingungen im Zusammenhang mit dem Azure Maps-Visual finden Sie unter [Rechtliche Hinweise zu Microsoft Azure](https://azure.microsoft.com/support/legal/).
 
-## <a name="preview-behavior-and-requirements"></a>Verhalten und Anforderungen der Vorschau
+## <a name="azure-maps-visual-preview-behavior-and-requirements"></a>Verhalten und Anforderungen des Azure Maps-Visuals (Vorschau)
 
-Für diese Vorschauversion von **Azure Maps** sind einige Aspekte und Anforderungen zu beachten:
+Für das _ *Azure Maps**-Visual sind einige Aspekte und Anforderungen zu beachten. :
 
--   Das **Azure Maps**-Visual ist als Vorschauversion verfügbar und muss in Power BI Desktop aktiviert werden. Zum Aktivieren von **Azure Maps** wählen Sie **Datei** &gt; **Optionen und Einstellungen** &gt; **Optionen** &gt; **Vorschaufeatures** aus und aktivieren dann das Kontrollkästchen **Azure Maps-Visual**. Wenn das Azure Maps-Visual anschließend nicht verfügbar ist, muss wahrscheinlich eine Option des Mandantenadministrators im Verwaltungsportal aktiviert werden.
+-   Das **Azure Maps**-Visual (Vorschau) muss in Power BI Desktop aktiviert werden. Zum Aktivieren des **Azure Maps**-Visuals wählen Sie **Datei** &gt; **Optionen und Einstellungen** &gt; **Optionen** &gt; **Previewfunktionen** aus und aktivieren dann das Kontrollkästchen **Azure Maps-Visual**. Wenn das Azure Maps-Visual anschließend nicht verfügbar ist, muss wahrscheinlich eine Option des Mandantenadministrators im Verwaltungsportal aktiviert werden.
 -   Das Dataset muss Felder mit Informationen zu **Breitengrad** und **Längengrad** enthalten. Die Geocodierung von Standortfeldern wird in einem zukünftigen Update hinzugefügt.
 -   Das integrierte Legendensteuerelement für Power BI wird in dieser Vorschau derzeit nicht angezeigt. Es wird in einem späteren Update hinzugefügt.
 
-## <a name="use-the-azure-maps-visual"></a>Verwenden des Azure Maps-Visuals
+## <a name="use-the-azure-maps-visual-preview"></a>Verwenden des Azure Maps-Visuals (Vorschau)
 
-Nach dem Aktivieren des Visuals **Azure Maps** wählen Sie im Bereich **Visualisierungen** das Symbol **Azure Maps** aus.
+Wählen Sie nach dem Aktivieren des **Azure Maps**-Visuals im Bereich **Visualisierungen** das Symbol **Azure Maps** aus.
 
 ![Schaltfläche des Azure Maps-Visuals im Bereich „Visualisierungen“](media/power-bi-visual/azure-maps-in-visualizations-pane.png)
 
@@ -173,7 +173,7 @@ Weitere Informationen zum Azure Maps-Visual in Power BI:
 Passen Sie das Visual an:
 
 > [!div class="nextstepaction"]
-> [Tipps und Tricks zur Farbformatierung in Power BI](https://docs.microsoft.com/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
+> [Tipps und Tricks zur Farbformatierung in Power BI](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
 
 > [!div class="nextstepaction"]
-> [Anpassen von Visualisierungstiteln, -hintergründen und -legenden](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
+> [Anpassen von Visualisierungstiteln, -hintergründen und -legenden](/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)

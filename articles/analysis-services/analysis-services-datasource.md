@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 174ad4692d043390e6773a98e31f0985d75c8e2e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 61efc7719b071ff4e8e5c0e07534b72a2883aff1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018813"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458875"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>In Azure Analysis Services unterstützte Datenquellen
 
@@ -120,7 +120,7 @@ Für Clouddatenquellen:
 
 ## <a name="oauth-credentials"></a>OAuth-Anmeldeinformationen
 
-Für tabellarische Modelle mit einem Kompatibilitätsgrad von 1400 und höher, die den In-Memory-Modus verwenden, bieten Azure SQL-Datenbank, Azure Synapse (früher SQL Data Warehouse), Dynamics 365 und SharePoint-Liste Unterstützung für OAuth-Anmeldeinformationen. Azure Analysis Services verwaltet die Tokenaktualisierung für OAuth-Datenquellen, um Timeouts für Aktualisierungsvorgänge mit langer Laufzeit zu vermeiden. Legen Sie Anmeldeinformationen mithilfe von Power Query fest, um gültige Token zu generieren.
+Für tabellarische Modelle mit dem Kompatibilitätsgrad 1400 und höher, die den In-Memory-Modus verwenden, bieten Azure SQL-Datenbank, Azure Synapse, Dynamics 365 und SharePoint-Listen Unterstützung für OAuth-Anmeldeinformationen. Azure Analysis Services verwaltet die Tokenaktualisierung für OAuth-Datenquellen, um Timeouts für Aktualisierungsvorgänge mit langer Laufzeit zu vermeiden. Legen Sie Anmeldeinformationen mithilfe von Power Query fest, um gültige Token zu generieren.
 
 Der Direktabfragemodus wird mit OAuth-Anmeldeinformationen nicht unterstützt.
 
@@ -128,9 +128,9 @@ Der Direktabfragemodus wird mit OAuth-Anmeldeinformationen nicht unterstützt.
 
 In einigen Fällen können DAX-Abfragen an eine Oracle-Datenquelle unerwartete Ergebnisse zurückgeben. Dies kann an dem für die Datenquellenverbindung verwendeten Anbieter liegen.
 
-Wie im Abschnitt [Grundlegendes zu Anbietern](#understanding-providers) beschrieben, stellen tabellarische Modelle eine Verbindung mit Datenquellen entweder als *strukturierte* Datenquelle oder als *Anbieter*datenquelle her. Stellen Sie bei Modellen mit einer Oracle-Datenquelle, die als Anbieterdatenquelle angegeben ist, sicher, dass der angegebene Anbieter Oracle-Datenanbieter für .NET (Oracle.DataAccess.Client) ist. 
+Wie im Abschnitt [Grundlegendes zu Anbietern](#understanding-providers) beschrieben, stellen tabellarische Modelle eine Verbindung mit Datenquellen entweder als *strukturierte* Datenquelle oder als *Anbieter* datenquelle her. Stellen Sie bei Modellen mit einer Oracle-Datenquelle, die als Anbieterdatenquelle angegeben ist, sicher, dass der angegebene Anbieter Oracle-Datenanbieter für .NET (Oracle.DataAccess.Client) ist. 
 
-Wenn die Oracle-Datenquelle als strukturierte Datenquelle angegeben ist, aktivieren Sie die Servereigenschaft**MDataEngine\UseManagedOracleProvider**. Durch Festlegen dieser Eigenschaft wird sichergestellt, dass Ihr Modell mithilfe des empfohlenen vom Oracle-Datenanbieter für .NET verwalteten Anbieter eine Verbindung mit der Oracle-Datenquelle herstellt.
+Wenn die Oracle-Datenquelle als strukturierte Datenquelle angegeben ist, aktivieren Sie die Servereigenschaft **MDataEngine\UseManagedOracleProvider**. Durch Festlegen dieser Eigenschaft wird sichergestellt, dass Ihr Modell mithilfe des empfohlenen vom Oracle-Datenanbieter für .NET verwalteten Anbieter eine Verbindung mit der Oracle-Datenquelle herstellt.
  
 So aktivieren Sie den von Oracle verwalteten Anbieter
 

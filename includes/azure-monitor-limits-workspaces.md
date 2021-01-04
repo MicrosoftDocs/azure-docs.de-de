@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: e206c12a85cfbaed3297f2a44bf0a5d694c2d170
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 86c5c6fff06f43bf66427ba1935852fcf97a71c6
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92324063"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356209"
 ---
 **Umfang und Aufbewahrung der Datensammlung** 
 
@@ -66,11 +66,11 @@ ms.locfileid: "92324063"
 
 **<a name="data-ingestion-volume-rate">Rate für Datenerfassungsvolumen</a>**
 
-Azure Monitor ist ein Hochleistungs-Datendienst, der Tausende Kunden bedient, die mit zunehmender Tendenz jeden Monat Terabytes von Daten senden. Mit der Volumenratenbegrenzung sollen Azure Monitor-Kunden vor plötzlichen Erfassungsspitzen in einer mehrinstanzenfähigen Umgebung isoliert werden. Ein Standardschwellenwert für die Erfassungsvolumenrate von 500 MB (komprimiert) ist in Arbeitsbereichen definiert. Dies entspricht ungefähr **6 GB/Minute** für nicht komprimierte Daten. Die tatsächliche Größe kann je nach Protokolllänge und Komprimierungsverhältnis zwischen Datentypen variieren. Die Volumenratenbegrenzung gilt für alle erfassten Daten, unabhängig davon, ob sie von Azure-Ressourcen mithilfe von [Diagnoseeinstellungen](../articles/azure-monitor/platform/diagnostic-settings.md), von der [Datensammler-API](../articles/azure-monitor/platform/data-collector-api.md) oder von Agents gesendet werden.
+Azure Monitor ist ein Hochleistungs-Datendienst, der Tausende Kunden bedient, die mit zunehmender Tendenz jeden Monat Terabytes von Daten senden. Mit der Volumenratenbegrenzung sollen Azure Monitor-Kunden vor plötzlichen Erfassungsspitzen in einer mehrinstanzenfähigen Umgebung isoliert werden. Ein Standardschwellenwert für die Erfassungsvolumenrate von 500 MB (komprimiert) ist in Arbeitsbereichen definiert. Dies entspricht ungefähr **6 GB/Minute** für nicht komprimierte Daten. Die tatsächliche Größe kann je nach Protokolllänge und Komprimierungsverhältnis zwischen Datentypen variieren. Das Ratenlimit für Volumen gilt für Daten, die über [Diagnoseeinstellungen](../articles/azure-monitor/platform/diagnostic-settings.md) aus Azure-Ressourcen erfasst werden. Wenn das Ratenlimit für Volumen erreicht ist, versucht ein Wiederholungsmechanismus, die Daten viermal in einem Zeitraum von 30 Minuten zu erfassen und wird beendet, wenn der Vorgang fehlschlägt. Dies gilt nicht für Daten, die von [Agents](../articles/azure-monitor/platform/agents-overview.md) oder der [Datensammler-API](../articles/azure-monitor/platform/data-collector-api.md) erfasst wurden.
 
-Wenn Sie Daten an einen Arbeitsbereich mit einer Volumenrate senden, die mehr als 80 Prozent des im Arbeitsbereich konfigurierten Schwellenwerts beträgt, wird alle sechs Stunden ein Ereignis an die Tabelle *Vorgang* im Arbeitsbereich gesendet, während der Schwellenwert weiterhin überschritten wird. Wenn die erfasste Volumenrate höher ist als der Schwellenwert, werden einige Daten gelöscht, und es wird alle sechs Stunden ein Ereignis an die Tabelle *Vorgang* im Arbeitsbereich gesendet, während der Schwellenwert weiterhin überschritten wird. Wenn die Erfassungsvolumenrate weiterhin den Schwellenwert überschreitet oder Sie ihn wahrscheinlich in Kürze erreichen werden, können Sie eine Erhöhung anfordern, indem Sie eine Supportanfrage öffnen. 
+Wenn Daten an einen Arbeitsbereich mit einer Volumenrate gesendet werden, die mehr als 80 Prozent des im Arbeitsbereich konfigurierten Schwellenwerts beträgt, wird alle sechs Stunden ein Ereignis an die Tabelle *Vorgang* im Arbeitsbereich gesendet, während der Schwellenwert weiterhin überschritten wird. Wenn die erfasste Volumenrate höher ist als der Schwellenwert, werden einige Daten gelöscht, und es wird alle sechs Stunden ein Ereignis an die Tabelle *Vorgang* im Arbeitsbereich gesendet, während der Schwellenwert weiterhin überschritten wird. Wenn die Erfassungsvolumenrate weiterhin den Schwellenwert überschreitet oder Sie ihn wahrscheinlich in Kürze erreichen werden, können Sie eine Erhöhung anfordern, indem Sie eine Supportanfrage öffnen. 
 
 Unter [Überwachen der Integrität von Log Analytics-Arbeitsbereichen in Azure Monitor](../articles/azure-monitor/platform/monitor-workspace.md) erfahren Sie mehr über das Erstellen von Regeln, um proaktiv benachrichtigt zu werden, wenn Sie Erfassungsgrenzwerte erreichen.
 
 >[!NOTE]
->Abhängig von Ihrer Log Analytics-Nutzungsdauer haben Sie ggf. Zugang zu Legacytarifen. Weitere Informationen zu Legacytarifen von Log Analytics finden Sie [hier](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers). 
+>Abhängig von Ihrer Log Analytics-Nutzungsdauer haben Sie ggf. Zugang zu Legacytarifen. Weitere Informationen zu Legacytarifen von Log Analytics finden Sie [hier](../articles/azure-monitor/platform/manage-cost-storage.md#legacy-pricing-tiers).

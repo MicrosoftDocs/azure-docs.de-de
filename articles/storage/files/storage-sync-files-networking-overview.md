@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b291bd45b4003dd2241f40c810ed9d78af9f8bc9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 76d97e3312c1df51193d8a881f3ee07fcd155d75
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91267787"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629358"
 ---
 # <a name="azure-file-sync-networking-considerations"></a>Azure-Dateisynchronisierung – Überlegungen zum Netzwerkbetrieb
 Sie können auf zwei Arten eine Verbindung mit einer Azure-Dateifreigabe herstellen:
@@ -55,7 +55,7 @@ Die Azure-Dateisynchronisierung benötigt die IP-Adressbereiche für die folgend
 | Azure Resource Manager | Der Azure Resource Manager ist die Verwaltungsschnittstelle für Azure. Alle Verwaltungsaufrufe einschließlich Azure-Dateisynchronisierung-Serverregistrierung und laufender Synchronisierungsservertasks werden über den Azure Resource Manager durchgeführt. | `AzureResourceManager` |
 | Azure Active Directory | Azure Active Directory (Azure AD) enthält die Benutzerprinzipale, die zum Autorisieren der Serverregistrierung bei einem Speichersynchronisierungsdienst erforderlich sind, und die Dienstprinzipale, die die Azure-Dateisynchronisierung für die Autorisierung zum Zugriff auf Ihre Cloudressourcen benötigt. | `AzureActiveDirectory` |
 
-Wenn Sie die Azure-Dateisynchronisierung in Azure verwenden, auch in einer anderen Region, können Sie den Namen des Diensttags direkt in der Netzwerksicherheitsgruppe verwenden, um Datenverkehr zu diesem Dienst zuzulassen. Weitere Informationen zur Vorgehensweise finden Sie unter [Netzwerksicherheitsgruppen](../../virtual-network/security-overview.md). 
+Wenn Sie die Azure-Dateisynchronisierung in Azure verwenden, auch in einer anderen Region, können Sie den Namen des Diensttags direkt in der Netzwerksicherheitsgruppe verwenden, um Datenverkehr zu diesem Dienst zuzulassen. Weitere Informationen zur Vorgehensweise finden Sie unter [Netzwerksicherheitsgruppen](../../virtual-network/network-security-groups-overview.md). 
 
 Wenn Sie die Azure-Dateisynchronisierung lokal verwenden, können Sie die Diensttag-API verwenden, um bestimmte IP-Adressbereiche für die Zulassungsliste Ihrer Firewall abzurufen. Es gibt zwei Methoden zum Abrufen dieser Informationen:
 
@@ -65,9 +65,9 @@ Wenn Sie die Azure-Dateisynchronisierung lokal verwenden, können Sie die Dienst
     - [Azure China](https://www.microsoft.com/download/details.aspx?id=57062)
     - [Azure Deutschland](https://www.microsoft.com/download/details.aspx?id=57064)
 - Die Diensttagermittlungs-API (Vorschauversion) ermöglicht das programmgesteuerte Abrufen der aktuellen Liste von Diensttags. In der Vorschauversion gibt die Diensttagermittlungs-API eventuell weniger aktuelle Informationen zurück, als in den im Microsoft Download Center veröffentlichten JSON-Dokumenten enthalten sind. Sie können je nach Ihren Automatisierungsvorlieben auch die API-Benutzeroberfläche verwenden:
-    - [REST-API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
-    - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
-    - [Azure-Befehlszeilenschnittstelle](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
+    - [REST-API](/rest/api/virtualnetwork/servicetags/list)
+    - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
+    - [Azure-Befehlszeilenschnittstelle](/cli/azure/network#az-network-list-service-tags)
 
 Weitere Informationen zur Verwendung der Diensttag-API zum Abrufen der Adressen Ihrer Dienste finden Sie unter [Zulassungsliste für Azure-Dateisynchronisierungs-IP-Adressen](storage-sync-files-firewall-and-proxy.md#allow-list-for-azure-file-sync-ip-addresses).
 

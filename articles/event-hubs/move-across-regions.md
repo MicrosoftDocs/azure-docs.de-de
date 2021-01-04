@@ -4,11 +4,11 @@ description: In diesem Artikel erfahren Sie, wie Sie einen Azure Event Hubs-Name
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: b177c3916919e3d97325f9d8c6b6027c00cb476f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89375192"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019921"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Verschieben eines Azure Event Hubs-Namespace in eine andere Region
 In diesem Artikel erfahren Sie, wie Sie eine Azure Resource Manager-Vorlage für einen vorhandenen Event Hubs-Namespace exportieren und anschließend mithilfe der Vorlage einen Namespace mit denselben Konfigurationseinstellungen in einer anderen Region erstellen können. Bei diesem Vorgang werden jedoch keine Ereignisse verschoben, die noch nicht verarbeitet wurden. Sie müssen die Ereignisse im ursprünglichen Namespace verarbeiten, bevor Sie ihn löschen.

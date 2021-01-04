@@ -8,17 +8,19 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 11/12/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8ea1df2937c6ae771407e4adf839c9ff0fa9f7f5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: a0b7330485d3152a588d43added7d9feaa5c2a14
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218954"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "95994490"
 ---
 # <a name="upload-and-index-your-videos"></a>Hochladen und Indizieren Ihrer Videos  
+
+Nachdem Ihr Video hochgeladen wurde, kann es von Video Indexer optional codiert werden (wie im Artikel beschrieben). Beim Erstellen eines Video Indexer-Kontos können Sie ein kostenloses Testkonto (mit einer bestimmten Anzahl von kostenlosen Indizierungsminuten) oder eine kostenpflichtige Option wählen (ohne Einschränkung durch eine Kontingentvorgabe). Bei der kostenlosen Testversion stellt Video Indexer bis zu 600 Minuten an kostenloser Indizierungszeit für Websitebenutzer und bis zu 2.400 Minuten an kostenloser Indizierungszeit für API-Benutzer bereit. Bei der kostenpflichtigen Option erstellen Sie ein Video Indexer-Konto, [das mit Ihrem Azure-Abonnement und einem Azure Media Services-Konto verbunden ist](connect-to-azure.md). Sie bezahlen pro Minute Indizierungszeit. Weitere Informationen finden Sie unter [Media Services – Preise](https://azure.microsoft.com/pricing/details/media-services/).
 
 Beim Hochladen von Videos mit der Video Indexer-API haben Sie die folgenden Optionen: 
 
@@ -26,34 +28,10 @@ Beim Hochladen von Videos mit der Video Indexer-API haben Sie die folgenden Opti
 * Senden der Videodatei als Bytearray im Hauptteil der Anforderung
 * Verwenden Sie ein vorhandenes Azure Media Services-Medienobjekt, indem Sie die [Medienobjekt-ID](../latest/assets-concept.md) angeben (wird nur in kostenpflichtigen Konten unterstützt).
 
-Nachdem Ihr Video hochgeladen wurde, kann es von Video Indexer optional codiert werden (wie im Artikel beschrieben). Beim Erstellen eines Video Indexer-Kontos können Sie ein kostenloses Testkonto (mit einer bestimmten Anzahl von kostenlosen Indizierungsminuten) oder eine kostenpflichtige Option wählen (ohne Einschränkung durch eine Kontingentvorgabe). Bei der kostenlosen Testversion stellt Video Indexer bis zu 600 Minuten an kostenloser Indizierungszeit für Websitebenutzer und bis zu 2.400 Minuten an kostenloser Indizierungszeit für API-Benutzer bereit. Bei der kostenpflichtigen Option erstellen Sie ein Video Indexer-Konto, [das mit Ihrem Azure-Abonnement und einem Azure Media Services-Konto verbunden ist](connect-to-azure.md). Sie bezahlen für die Minuten der Indizierungszeit und die Gebühren für das Media Services-Konto. 
-
 In diesem Artikel wird gezeigt, wie Sie Ihre Videos mit den folgenden Optionen hochladen und indizieren:
 
-* [Die Video Indexer-Website](#website) 
-* [Die Video Indexer-APIs](#apis)
-
-## <a name="uploading-considerations-and-limitations"></a>Überlegungen und Einschränkungen zum Hochladen
- 
-- Der Name des Videos darf nicht mehr als 80 Zeichen umfassen.
-- Wenn Sie das Video über eine URL hochladen (bevorzugt), muss der Endpunkt mit TLS 1.2 (oder höher) gesichert werden.
-- Die Uploadgröße ist mit der URL-Option auf 30 GB begrenzt.
-- Die Länge der Anforderungs-URL ist auf 6.144 Zeichen beschränkt, wobei die Länge der Abfragezeichenfolge-URL auf 4.096 Zeichen beschränkt ist.
-- Die Uploadgröße mit der Bytearray-Option ist auf 2 GB begrenzt.
-- Bei der Bytearray-Option tritt ein Timeout nach 30 Minuten auf.
-- Die im Parameter `videoURL` angegebene URL muss codiert sein.
-- Bei der Indizierung von Media Services-Medienobjekten gilt die gleiche Begrenzung wie bei der Indizierung aus einer URL.
-- Video Indexer weist eine maximale Dauer von 4 Stunden für eine einzelne Datei auf.
-- Die URL muss zugänglich sein (z. B. eine öffentliche URL). 
-
-    Wenn es sich um eine private URL handelt, muss das Zugriffstoken in der Anforderung bereitgestellt werden.
-- Die URL muss auf eine gültige Mediendatei und nicht auf eine Webseite verweisen, z. B. als Link auf die Seite `www.youtube.com`.
-- In einem kostenpflichtigen Konto können Sie bis zu 50 Filme pro Minute und in einem Testkonto bis zu 5 Filme pro Minute hochladen.
-
-> [!Tip]
-> Es wird empfohlen, .NET Framework-Version 4.6.2 oder höher zu verwenden, da für frühere .NET Frameworks nicht standardmäßig TLS 1.2 genutzt wird.
->
-> Falls Sie frühere .NET Frameworks verwenden müssen, sollten Sie Ihrem Code eine Zeile hinzufügen, bevor Sie den REST-API-Aufruf durchführen:  <br/> System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+* [Die Video Indexer-Website](#upload-and-index-a-video-using-the-video-indexer-website) 
+* [Die Video Indexer-APIs](#upload-and-index-with-api)
 
 ## <a name="supported-file-formats-for-video-indexer"></a>Unterstützte Dateiformate für Video Indexer
 
@@ -66,29 +44,29 @@ Im Artikel [Eingabecontainer/Dateiformate](../latest/media-encoder-standard-form
 - Sie können Ihre Video- und Audiodateien sowie Metadaten und Erkenntnisse, die von Video Indexer daraus extrahiert wurden, jederzeit löschen. Nach dem Löschen einer Datei aus Video Indexer sind die Datei sowie die zugehörigen Metadaten und Erkenntnisse endgültig aus Video Indexer entfernt. Wenn Sie jedoch eine eigene Sicherungslösung im Azure-Speicher implementiert haben, verbleibt die Datei in Ihrem Azure-Speicher.
 - Die Persistenz eines Videos ist identisch, unabhängig davon, ob der Upload auf der Video Indexer-Website oder über die Upload-API erfolgt.
    
-## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a><a name="website"></a>Hochladen und Indizieren eines Videos über die Video Indexer-Website
+## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a>Hochladen und Indizieren eines Videos über die Video Indexer-Website
 
 > [!NOTE]
 > Der Name des Videos darf nicht mehr als 80 Zeichen umfassen.
 
 1. Melden Sie sich bei der [Video Indexer](https://www.videoindexer.ai/)-Website an.
-1. Klicken Sie auf die Schaltfläche bzw. den Link **Hochladen** , um ein Video hochzuladen.
+1. Klicken Sie auf die Schaltfläche bzw. den Link **Hochladen**, um ein Video hochzuladen.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="Upload":::
 1. Nachdem Ihr Video hochgeladen wurde, beginnt Video Indexer mit dem Indizieren und Analysieren des Videos.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Upload":::
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Uploadstatus":::
 1. Wenn Video Indexer die Analyse abgeschlossen hat, erhalten Sie eine E-Mail mit einem Link zu Ihrem Video und einer kurzen Beschreibung dazu, was in Ihrem Video gefunden wurde. Beispiel: Personen, Themen, OCR-Daten.
 
-## <a name="upload-and-index-with-api"></a><a name="apis"></a>Hochladen und Indizieren mithilfe der API
+## <a name="upload-and-index-with-api"></a>Hochladen und Indizieren mithilfe der API
 
 Verwenden Sie die API zum [Hochladen eines Videos](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?), um Ihre Videos über eine URL hochzuladen und zu indizieren. Das nachstehende Codebeispiel enthält auch auskommentierten Code, der das Hochladen des Bytearrays zeigt. 
 
 ### <a name="configurations-and-params"></a>Konfigurationen und Parameter
 
-In diesem Abschnitt werden einige optionale Parameter und ihre Anwendung beschrieben.
+In diesem Abschnitt werden einige optionale Parameter und ihre Anwendung beschrieben. Die aktuellsten Parameterinformationen finden Sie unter der API zum [Hochladen von Videos](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?).
 
 #### <a name="externalid"></a>externalID 
 
@@ -96,29 +74,9 @@ Dieser Parameter ermöglicht Ihnen das Angeben einer ID, die dem Video zugeordne
 
 #### <a name="callbackurl"></a>callbackUrl
 
-Eine URL, die zum Benachrichtigen des Kunden über die folgenden Ereignisse (mithilfe einer POST-Anforderung) verwendet wird:
+[!INCLUDE [callback url](./includes/callback-url.md)]
 
-- Änderung des Indizierungszustands: 
-    - Eigenschaften:    
-    
-        |Name|BESCHREIBUNG|
-        |---|---|
-        |id|Video-ID|
-        |state|Videozustand|  
-    - Beispiel: https:\//test.com/notifyme?projectName=MeinProjekt&id=1234abcd&state=Processed
-- Im Video identifizierte Person:
-  - Eigenschaften
-    
-      |Name|BESCHREIBUNG|
-      |---|---|
-      |id| Video-ID|
-      |faceId|Die Gesichts-ID, die im Videoindex angezeigt wird|
-      |knownPersonId|Die Personen-ID, die innerhalb eines Gesichtsmodells eindeutig ist|
-      |personName|Der Name der Person|
-        
-    - Beispiel: https:\//test.com/notifyme?projectName=MeinProjekt&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
-
-##### <a name="notes"></a>Notizen
+##### <a name="other-considerations"></a>Weitere Überlegungen
 
 - Video Indexer gibt vorhandene Parameter aus der ursprünglichen URL zurück.
 - Die angegebene URL muss codiert werden.
@@ -140,7 +98,7 @@ Der Preis richtet sich nach der gewählten Indizierungsoption.
 
 #### <a name="priority"></a>priority
 
-Videos werden von Video Indexer gemäß ihrer Priorität indiziert. Geben Sie mithilfe des Parameters **priority** die Indexpriorität an. Die folgenden Werte sind gültig: **Niedrig** , **Normal** (Standard) und **Hoch** .
+Videos werden von Video Indexer gemäß ihrer Priorität indiziert. Geben Sie mithilfe des Parameters **priority** die Indexpriorität an. Die folgenden Werte sind gültig: **Niedrig**, **Normal** (Standard) und **Hoch**.
 
 Der Parameter **priority** wird nur in kostenpflichtigen Konten unterstützt.
 
@@ -177,8 +135,8 @@ Nachdem Sie diesen Code auf Ihre Entwicklungsplattform kopiert haben, müssen Si
 
     * Navigieren Sie zu https://api-portal.videoindexer.ai/.
     * Anmeldename
-    * Navigieren Sie zu **Produkte** -> **Autorisierung** -> **Autorisierungsabonnement** .
-    * Kopieren Sie den **Primärschlüssel** .
+    * Navigieren Sie zu **Produkte** -> **Autorisierung** -> **Autorisierungsabonnement**.
+    * Kopieren Sie den **Primärschlüssel**.
 * Video-URL: Eine URL der zu indizierenden Video-/Audiodatei. Die URL muss auf eine Mediendatei zeigen (HTML-Seiten werden nicht unterstützt). Die Datei kann durch ein Zugriffstoken als Teil des URI geschützt werden, und der Endpunkt für die Datei muss mit TLS 1.2 oder höher gesichert werden. Die URL muss codiert sein.
 
 Das Ergebnis der erfolgreichen Ausführung des Codebeispiels umfasst eine Insight-Widget-URL und eine Player-Widget-URL, mit der Sie die Einblicke bzw. das hochgeladene Video untersuchen können. 
@@ -364,6 +322,28 @@ Die in der folgenden Tabelle aufgeführten Statuscodes können über den Uploadv
 |409|VIDEO_INDEXING_IN_PROGRESS|Dasselbe Video wird unter dem angegebenen Konto bereits verarbeitet.|
 |400|VIDEO_ALREADY_FAILED|Dasselbe Video konnte unter dem angegebenen Konto vor weniger als zwei Stunden nicht verarbeitet werden. API-Clients sollten mindestens zwei Stunden warten, bevor ein Video erneut hochgeladen wird.|
 |429||Für Testkonten sind 5 Uploads pro Minute zulässig. Für kostenpflichtige Konten sind 50 Uploads pro Minute zulässig.|
+
+## <a name="uploading-considerations-and-limitations"></a>Überlegungen und Einschränkungen zum Hochladen
+ 
+- Der Name des Videos darf nicht mehr als 80 Zeichen umfassen.
+- Wenn Sie das Video über eine URL hochladen (bevorzugt), muss der Endpunkt mit TLS 1.2 (oder höher) gesichert werden.
+- Die Uploadgröße ist mit der URL-Option auf 30 GB begrenzt.
+- Die Länge der Anforderungs-URL ist auf 6.144 Zeichen beschränkt, wobei die Länge der Abfragezeichenfolge-URL auf 4.096 Zeichen beschränkt ist.
+- Die Uploadgröße mit der Bytearray-Option ist auf 2 GB begrenzt.
+- Bei der Bytearray-Option tritt ein Timeout nach 30 Minuten auf.
+- Die im Parameter `videoURL` angegebene URL muss codiert sein.
+- Bei der Indizierung von Media Services-Medienobjekten gilt die gleiche Begrenzung wie bei der Indizierung aus einer URL.
+- Video Indexer weist eine maximale Dauer von 4 Stunden für eine einzelne Datei auf.
+- Die URL muss zugänglich sein (z. B. eine öffentliche URL). 
+
+    Wenn es sich um eine private URL handelt, muss das Zugriffstoken in der Anforderung bereitgestellt werden.
+- Die URL muss auf eine gültige Mediendatei und nicht auf eine Webseite verweisen, z. B. als Link auf die Seite `www.youtube.com`.
+- In einem kostenpflichtigen Konto können Sie bis zu 50 Filme pro Minute und in einem Testkonto bis zu 5 Filme pro Minute hochladen.
+
+> [!Tip]
+> Es wird empfohlen, .NET Framework-Version 4.6.2 oder höher zu verwenden, da für frühere .NET Frameworks nicht standardmäßig TLS 1.2 genutzt wird.
+>
+> Falls Sie frühere .NET Frameworks verwenden müssen, sollten Sie Ihrem Code eine Zeile hinzufügen, bevor Sie den REST-API-Aufruf durchführen:  <br/> System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
 ## <a name="next-steps"></a>Nächste Schritte
 

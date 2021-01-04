@@ -6,14 +6,15 @@ ms.topic: how-to
 author: kanshiG
 ms.author: govindk
 ms.date: 06/25/2020
-ms.openlocfilehash: 183b161039b86ce824fd0bfde82cf291d54024fc
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: dc47f2f7a0f1586b197d14015fe2167293c806c6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91801476"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099333"
 ---
 # <a name="how-to-monitor-normalized-rus-for-an-azure-cosmos-container-or-an-account"></a>Überwachen von normalisierten RU/s für einen Azure Cosmos-Container oder ein -Konto
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Monitor für Azure Cosmos DB verfügt über eine Metrikansicht zum Überwachen Ihres Kontos und zum Erstellen von Dashboards. Weil die Azure Cosmos DB-Metriken standardmäßig erfasst werden, müssen Sie bei diesem Feature nichts explizit aktivieren oder konfigurieren.
 
@@ -29,7 +30,7 @@ Um die Anforderungen zu ermitteln, bei denen die Rate begrenzt ist, empfiehlt es
 
 Wenn ein kontinuierlicher Spitzenwert von 100 % normalisiertem RU/s-Verbrauch vorliegt oder der Wert über mehrere Partitionsschlüsselbereiche fast 100 % beträgt, wird empfohlen, den Durchsatz zu erhöhen. Anhand der Azure Monitor-Metriken und der Azure Monitor-Diagnoseprotokolle können Sie herausfinden, welche Vorgänge einen hohen Verbrauch haben und wie hoch deren Spitzenauslastung ist.
 
-Kurz gesagt, kann mithilfe der Metrik **Normalisierter RU-Verbrauch** erkannt werden, welcher Partitionsschlüsselbereich höher ausgelastet ist. Auf diese Weise erhalten Sie die Verzerrung des Durchsatzes auf einen Partitionsschlüsselbereich. Später können Sie die Auslastung im **PartitionKeyRUConsumption**-Protokoll in den Monitor-Protokollen nachverfolgen, um Informationen darüber zu erhalten, welche logischen Partitionsschlüssel eine hohe Auslastung aufweisen. Dadurch wird entweder die Auswahl des Partitionsschlüssels oder die Anwendungslogik geändert. Zum Auflösen der Ratenbegrenzung verteilen Sie die Datenlast beispielsweise auf mehrere Partitionen, oder erhöhen Sie einfach den Durchsatz, wenn dies wirklich erforderlich ist. 
+Kurz gesagt, kann mithilfe der Metrik **Normalisierter RU-Verbrauch** erkannt werden, welcher Partitionsschlüsselbereich höher ausgelastet ist. Auf diese Weise erhalten Sie die Verzerrung des Durchsatzes auf einen Partitionsschlüsselbereich. Später können Sie die Auslastung im **PartitionKeyRUConsumption** -Protokoll in den Monitor-Protokollen nachverfolgen, um Informationen darüber zu erhalten, welche logischen Partitionsschlüssel eine hohe Auslastung aufweisen. Dadurch wird entweder die Auswahl des Partitionsschlüssels oder die Anwendungslogik geändert. Zum Auflösen der Ratenbegrenzung verteilen Sie die Datenlast beispielsweise auf mehrere Partitionen, oder erhöhen Sie einfach den Durchsatz, wenn dies wirklich erforderlich ist. 
 
 
 
@@ -43,23 +44,23 @@ Kurz gesagt, kann mithilfe der Metrik **Normalisierter RU-Verbrauch** erkannt we
 
 3. Klicken Sie im Bereich **Metriken** auf **Ressource auswählen**. Wählen Sie dann das erforderliche **Abonnement** und die **Ressourcengruppe** aus. Wählen Sie unter **Ressourcentyp** die Option **Azure Cosmos DB-Konten** aus. Wählen Sie dann eins der vorhandenen Azure Cosmos-Konten und anschließend **Anwenden** aus.
 
-   :::image type="content" source="./media/monitor-normalized-request-units/select-cosmos-db-account.png" alt-text="Bereich „Metriken“ in Azure Monitor":::
+   :::image type="content" source="./media/monitor-normalized-request-units/select-cosmos-db-account.png" alt-text="Auswählen eines Azure Cosmos-Kontos zum Anzeigen von Metriken":::
 
 4. Als Nächstes können Sie eine Metrik aus der Liste der verfügbaren Metriken auswählen. Sie können spezifische Metriken für Anforderungseinheiten, Speicher, Wartezeit, Verfügbarkeit, Cassandra usw. auswählen. Ausführliche Informationen zu allen verfügbaren Metriken in dieser Liste finden Sie im Artikel [Metriken nach Kategorie](monitor-cosmos-db-reference.md). In diesem Beispiel wählen wir die Metrik **Normalisierter RU-Verbrauch** und **Max** als Aggregationswert aus.
 
    Zusätzlich zu diesen Angaben können Sie auch **Zeitbereich** und **Zeitgranularität** für die Metriken auswählen. Sie können Metriken maximal für die letzten 30 Tage anzeigen.  Nach Anwendung des Filters wird ein darauf basierendes Diagramm angezeigt.
 
-   :::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-metric.png" alt-text="Bereich „Metriken“ in Azure Monitor":::
+   :::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-metric.png" alt-text="Auswählen einer Metrik über das Azure-Portal":::
 
 ### <a name="filters-for-normalized-request-unit-consumption"></a>Filter für normalisierten Anforderungseinheitenverbrauch
 
-Sie können Metriken und das angezeigte Diagramm auch nach bestimmten Werten für **CollectionName**, **DatabaseName**, **PartitionKeyRangeID** und **Region** filtern. Wählen Sie zum Filtern der Metriken **Filter hinzufügen** aus, und wählen Sie die erforderliche Eigenschaft (z. B. **CollectionName**) und den entsprechenden Wert aus, der Sie interessiert. Im Diagramm werden die normalisierten RU-Verbrauchseinheiten angezeigt, die für den Container im ausgewählten Zeitraum verbraucht wurden.  
+Sie können Metriken und das angezeigte Diagramm auch nach bestimmten Werten für **CollectionName** , **DatabaseName** , **PartitionKeyRangeID** und **Region** filtern. Wählen Sie zum Filtern der Metriken **Filter hinzufügen** aus, und wählen Sie die erforderliche Eigenschaft (z. B. **CollectionName** ) und den entsprechenden Wert aus, der Sie interessiert. Im Diagramm werden die normalisierten RU-Verbrauchseinheiten angezeigt, die für den Container im ausgewählten Zeitraum verbraucht wurden.  
 
 Sie können Metriken mit der Option **Apply splitting** (Aufteilung anwenden) gruppieren.  
 
 Die Metrik für den Verbrauch von normalisierten Anforderungseinheiten für jeden Container wird wie in der folgenden Abbildung dargestellt angezeigt:
 
-:::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-filters.png" alt-text="Bereich „Metriken“ in Azure Monitor":::
+:::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-filters.png" alt-text="Anwenden von Filtern auf die Metrik für normalisierten Anforderungseinheitenverbrauch":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 

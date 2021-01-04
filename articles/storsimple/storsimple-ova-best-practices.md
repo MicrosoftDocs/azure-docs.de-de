@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: bdf69a9ff7b3260b47042f296a47826e3c52387b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71b018da6b54ebf2b45a261378ea521a397159e5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81460646"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964982"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>StorSimple Virtual Array – Bewährte Methoden
 
@@ -119,7 +119,7 @@ Wenn Ihr virtuelles Array in die Domäne eingebunden ist, können GPOs darauf an
 Daher empfehlen wir Folgendes:
 
 * Stellen Sie sicher, dass sich das virtuelle Array in einer eigenen Organisationseinheit für Active Directory befindet.
-* Stellen Sie sicher, dass keine Gruppenrichtlinienobjekte (GPOs) auf das virtuelle Array angewendet werden. Sie können die Vererbung blockieren, um sicherzustellen, dass das virtuelle Array (untergeordneter Knoten) nicht automatisch GPOs vom übergeordneten Element erbt. Weitere Informationen finden Sie unter [Blockieren der Vererbung](https://technet.microsoft.com/library/cc731076.aspx).
+* Stellen Sie sicher, dass keine Gruppenrichtlinienobjekte (GPOs) auf das virtuelle Array angewendet werden. Sie können die Vererbung blockieren, um sicherzustellen, dass das virtuelle Array (untergeordneter Knoten) nicht automatisch GPOs vom übergeordneten Element erbt. Weitere Informationen finden Sie unter [Blockieren der Vererbung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731076(v=ws.11)).
 
 ### <a name="networking"></a>Netzwerk
 Die Netzwerkkonfiguration für Ihr virtuelles Array wird über die lokale Webbenutzeroberfläche durchgeführt. Eine virtuelle Netzwerkschnittstelle wird über den Hypervisor aktiviert, in dem das virtuelle Array bereitgestellt wird. Verwenden Sie die Seite [Netzwerkeinstellungen](storsimple-virtual-array-deploy3-fs-setup.md) , um die IP-Adresse, das Subnetz und das Gateway für die virtuelle Netzwerkschnittstelle zu konfigurieren.  Sie können auch den primären und sekundären DNS-Server, die Zeiteinstellungen und optional die Proxyeinstellungen für Ihr Gerät konfigurieren. Der größte Teil der Netzwerkkonfiguration ist eine einmalige Einrichtung. Lesen Sie [StorSimple-Netzwerkanforderungen](storsimple-ova-system-requirements.md#networking-requirements) , bevor Sie das virtuelle Array bereitstellen.
@@ -235,7 +235,7 @@ Beachten Sie Folgendes, wenn Sie ein Failover für Ihr virtuelles Array durchfü
 * Bei einem geplanten Failover wird als bewährte Methode empfohlen, vor dem Initiieren des Failovers alle Volumes bzw. Freigaben offline zu schalten. Führen Sie die betriebssystemspezifischen Anleitungsschritte aus, um zuerst die Volumes/Freigaben auf dem Host offline zu schalten, und schalten Sie anschließend die Volumes/Freigaben auf Ihrem virtuellen Gerät offline.
 * Für die Notfallwiederherstellung eines Dateiservers empfehlen wir Ihnen, für das Zielgerät den Beitritt zu derselben Domäne wie der Domäne der Quelle durchzuführen, damit die Freigabeberechtigungen automatisch aufgelöst werden. In dieser Version wird nur das Failover auf ein Zielgerät in derselben Domäne unterstützt.
 * Nachdem die Notfallwiederherstellung erfolgreich abgeschlossen wurde, wird das Quellgerät automatisch gelöscht. Auch wenn das Gerät nicht mehr verfügbar ist, werden von der virtuellen Maschine, die Sie auf dem Hostsystem bereitgestellt haben, noch Ressourcen verbraucht. Es wird empfohlen, diesen virtuellen Computer aus Ihrem Hostsystem zu löschen, um zu verhindern, dass Kosten anfallen.
-* Beachten Sie, dass **die Daten in der Cloud immer sicher sind**und dass dies auch gilt, wenn das Failover nicht erfolgreich durchgeführt werden kann. Sehen Sie sich die folgenden drei Szenarien an, in denen das Failover nicht erfolgreich abgeschlossen wurde:
+* Beachten Sie, dass **die Daten in der Cloud immer sicher sind** und dass dies auch gilt, wenn das Failover nicht erfolgreich durchgeführt werden kann. Sehen Sie sich die folgenden drei Szenarien an, in denen das Failover nicht erfolgreich abgeschlossen wurde:
   
   * Bei den ersten Schritten des Failovers ist ein Fehler aufgetreten, z.B. beim Durchführen der Vorabprüfungen für die Notfallwiederherstellung. In diesem Fall ist das Zielgerät weiterhin verwendbar. Sie können versuchen, das Failover auf demselben Zielgerät durchzuführen.
   * Während des eigentlichen Failoverprozesses ist ein Fehler aufgetreten. In diesem Fall wird das Gerät als nicht verwendbar gekennzeichnet. Sie müssen ein anderes virtuelles Zielarray bereitstellen und konfigurieren und für das Failover verwenden.
@@ -289,4 +289,3 @@ Ggf. müssen mehrere virtuelle Arrays bereitgestellt werden, um einen wachsenden
 
 ## <a name="see-also"></a>Weitere Informationen
 Informieren Sie sich über das [Verwalten des StorSimple Virtual Array mithilfe des StorSimple Manager-Diensts](storsimple-virtual-array-manager-service-administration.md) .
-

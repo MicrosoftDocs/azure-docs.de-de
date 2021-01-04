@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fbfec218c1bf1d018157fc6d78c700991f332a13
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5a4586c9c1be51b0ebbdebcf0c23289fc39f9eda
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172807"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485500"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Platzierungsrichtlinien für Service Fabric-Dienste
 Platzierungsrichtlinien sind zusätzliche Regeln, mit denen in einigen besonderen, nicht alltäglichen Szenarien die Dienstplatzierung gesteuert werden kann. Einige Beispiele für diese Szenarien:
@@ -150,7 +150,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 >
 
 > [!NOTE]
-> Derzeit wird die Richtlinie nur für zustandslose Dienste mit dem [Dienstpaket-Aktivierungsmodus](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicepackageactivationmode?view=azure-dotnet) „ExclusiveProcess“ unterstützt.
+> Derzeit wird die Richtlinie nur für zustandslose Dienste mit dem [Dienstpaket-Aktivierungsmodus](/dotnet/api/system.fabric.description.servicepackageactivationmode?view=azure-dotnet) „ExclusiveProcess“ unterstützt.
 >
 
 > [!WARNING]
@@ -158,7 +158,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 >
 
 > [!NOTE]
-> Wenn Sie einen hohen Wert für [MinInstanceCount](https://docs.microsoft.com/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount?view=azure-dotnet) mit dieser Platzierungsrichtlinie verwenden, kann dies zum Hängen von Anwendungsupgrades führen. Wenn Sie z. B. über einen Cluster mit fünf Knoten verfügen und InstanceCount=10 festlegen, verfügen Sie über zwei Instanzen auf jedem Knoten. Wenn Sie MinInstanceCount=9 festlegen, kann ein versuchtes App-Upgrade hängen. Mit inInstanceCount=8 kann dies vermieden werden.
+> Wenn Sie einen hohen Wert für [MinInstanceCount](/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount?view=azure-dotnet) mit dieser Platzierungsrichtlinie verwenden, kann dies zum Hängen von Anwendungsupgrades führen. Wenn Sie z. B. über einen Cluster mit fünf Knoten verfügen und InstanceCount=10 festlegen, verfügen Sie über zwei Instanzen auf jedem Knoten. Wenn Sie MinInstanceCount=9 festlegen, kann ein versuchtes App-Upgrade hängen. Mit inInstanceCount=8 kann dies vermieden werden.
 >
 
 ## <a name="next-steps"></a>Nächste Schritte

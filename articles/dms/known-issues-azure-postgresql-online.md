@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 14722f46f06351504583da7231179d206f7a3c26
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: db2f6e95153610e0a1b79cf5d30cea3c917333d3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893729"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962568"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>Bekannte Probleme/Migrationseinschränkungen bei Onlinemigrationen von PostgreSQL zu Azure DB for PostgreSQL
 
@@ -96,13 +96,13 @@ Beim Versuch der Onlinemigration von AWS RDS PostgreSQL zu Azure Database for Po
 - **Fehler:** Der Standardwert der Spalte „{column}“ in der Tabelle „{table}“ der Datenbank „{database}“ unterscheidet sich für den Quell- und Zielserver. Auf der Quelle lautet er „{value on source}“, und auf dem Ziel „{value on target}“.
 
   **Einschränkung**: Dieser Fehler tritt auf, wenn der Standardwert für ein Spaltenschema in Quell- und Zieldatenbank unterschiedlich ist.
-  **Problemumgehung**: Stellen Sie sicher, dass das Schema des Ziels mit dem Schema der Quelle übereinstimmt. Details zum Migrieren des Schemas finden Sie in der [Dokumentation zur Azure PostgreSQL-Onlinemigration](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Problemumgehung**: Stellen Sie sicher, dass das Schema des Ziels mit dem Schema der Quelle übereinstimmt. Details zum Migrieren des Schemas finden Sie in der [Dokumentation zur Azure PostgreSQL-Onlinemigration](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema).
 
 - **Fehler:** Die Zieldatenbank „{database}“ enthält „{number of tables}“ Tabellen, während die Quelldatenbank „{database}“ „{number of tables}“ Tabellen enthält. Die Anzahl von Tabellen in der Quell- und Zieldatenbank sollte jeweils übereinstimmen.
 
   **Einschränkung**: Dieser Fehler tritt auf, wenn sich die Anzahl der Tabellen in Quell- und Zieldatenbank unterscheidet.
 
-  **Problemumgehung**: Stellen Sie sicher, dass das Schema des Ziels mit dem Schema der Quelle übereinstimmt. Details zum Migrieren des Schemas finden Sie in der [Dokumentation zur Azure PostgreSQL-Onlinemigration](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Problemumgehung**: Stellen Sie sicher, dass das Schema des Ziels mit dem Schema der Quelle übereinstimmt. Details zum Migrieren des Schemas finden Sie in der [Dokumentation zur Azure PostgreSQL-Onlinemigration](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema).
 
 - **Fehler:** Die Quelldatenbank {database} ist leer.
 
@@ -113,7 +113,7 @@ Beim Versuch der Onlinemigration von AWS RDS PostgreSQL zu Azure Database for Po
 - **Fehler:** Die Zieldatenbank „{database}“ ist leer. Migrieren Sie das Schema.
 
   **Einschränkung**: Dieser Fehler tritt auf, wenn für die Zieldatenbank kein Schema vorhanden ist. Stellen Sie sicher, dass das Schema des Ziels mit dem Schema der Quelle übereinstimmt.
-  **Problemumgehung**: Stellen Sie sicher, dass das Schema des Ziels mit dem Schema der Quelle übereinstimmt. Details zum Migrieren des Schemas finden Sie in der [Dokumentation zur Azure PostgreSQL-Onlinemigration](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Problemumgehung**: Stellen Sie sicher, dass das Schema des Ziels mit dem Schema der Quelle übereinstimmt. Details zum Migrieren des Schemas finden Sie in der [Dokumentation zur Azure PostgreSQL-Onlinemigration](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema).
 
 ## <a name="other-limitations"></a>Weitere Einschränkungen
 

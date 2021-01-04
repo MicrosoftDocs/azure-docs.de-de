@@ -4,15 +4,15 @@ description: Erfahren Sie, wie Trigger mit Timer in Azure Functions verwendet we
 author: craigshoemaker
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
-ms.date: 09/08/2018
+ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 69ba8d1735d16791d62b6b04e49c0d2fb7484959
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0d9852659801040d64fe4143f024fd52ffec16ee
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325792"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874082"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Trigger mit Timer für Azure Functions
 
@@ -276,18 +276,18 @@ Bei Aufruf einer Trigger-mit-Timer-Funktion wird ein Timerobjekt an die Funktion
 
 ```json
 {
-    "Schedule":{
+    "schedule":{
     },
-    "ScheduleStatus": {
-        "Last":"2016-10-04T10:15:00+00:00",
-        "LastUpdated":"2016-10-04T10:16:00+00:00",
-        "Next":"2016-10-04T10:20:00+00:00"
+    "scheduleStatus": {
+        "last":"2016-10-04T10:15:00+00:00",
+        "lastUpdated":"2016-10-04T10:16:00+00:00",
+        "next":"2016-10-04T10:20:00+00:00"
     },
-    "IsPastDue":false
+    "isPastDue":false
 }
 ```
 
-Die Eigenschaft `IsPastDue` lautet `true`, wenn der aktuelle Funktionsaufruf später als geplant erfolgt. Beispielsweise kann ein Neustart der Funktionen-App dazu führen, dass ein Aufruf nicht erkannt wird.
+Die Eigenschaft `isPastDue` lautet `true`, wenn der aktuelle Funktionsaufruf später als geplant erfolgt. Beispielsweise kann ein Neustart der Funktionen-App dazu führen, dass ein Aufruf nicht erkannt wird.
 
 ## <a name="ncrontab-expressions"></a>NCRONTAB-Ausdrücke
 
@@ -299,11 +299,11 @@ Jedes Feld kann einen der folgenden Werttypen aufweisen:
 
 |type  |Beispiel  |Auslösung  |
 |---------|---------|---------|
-|Ein bestimmter Wert |<nobr>"0 5 * * * *"</nobr>|um hh:05:00, wobei „hh“ für jede Stunde steht (einmal pro Stunde)|
-|Alle Werte (`*`)|<nobr>"0 * 5 * * *"</nobr>|täglich um 5:mm:00, wobei „mm“ für jede Minute in der Stunde steht (sechzigmal pro Tag)|
-|Ein Bereich (`-`-Operator)|<nobr>"5-7 * * * * *"</nobr>|um hh:mm:05, hh:mm:06 und hh:mm:07, wobei „hh:mm“ für jede Minute in jeder Stunde steht (dreimal pro Minute)|
-|Eine Gruppe von Werten (`,`-Operator)|<nobr>"5,8,10 * * * * *"</nobr>|um hh:mm:05, hh:mm:08 und hh:mm:10, wobei „hh:mm“ für jede Minute in jeder Stunde steht (dreimal pro Minute)|
-|Ein Intervallwert (`/`-Operator)|<nobr>"0 */5 * * * *"</nobr>|um hh:00:00, hh:05:00, hh:10:00 usw. bis hh:55:00, wobei „hh“ für jede Stunde steht (zwölfmal pro Stunde)|
+|Ein bestimmter Wert |<nobr>`0 5 * * * *`</nobr>| Ein Mal pro Stunde am Tag bei Minute 5 jeder Stunde |
+|Alle Werte (`*`)|<nobr>`0 * 5 * * *`</nobr>| Jede Minute der Stunde, beginnend bei Stunde 5 |
+|Ein Bereich (`-`-Operator)|<nobr>`5-7 * * * * *`</nobr>| Drei Mal pro Minute, bei den Sekunden 5 bis 7 pro Minute pro Stunde jeden Tag |
+|Eine Gruppe von Werten (`,`-Operator)|<nobr>`5,8,10 * * * * *`</nobr>| Drei Mal pro Minute, bei den Sekunden 5, 8 und 10 pro Minute pro Stunde jeden Tag |
+|Ein Intervallwert (`/`-Operator)|<nobr>`0 */5 * * * *`</nobr>| 12 Mal pro Stunde, bei Sekunde 0 jeder 5. Minute jeder Stunde jedes Tages |
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -311,18 +311,18 @@ Jedes Feld kann einen der folgenden Werttypen aufweisen:
 
 Die folgenden Beispiele zeigen NCRONTAB-Ausdrücke, die Sie für den Trigger mit Timer in Azure Functions verwenden können:
 
-|Beispiel|Auslösung  |
-|---------|---------|
-|`"0 */5 * * * *"`|einmal alle fünf Minuten|
-|`"0 0 * * * *"`|einmal zu jeder vollen Stunde|
-|`"0 0 */2 * * *"`|einmal alle zwei Stunden|
-|`"0 0 9-17 * * *"`|zwischen 9:00 und 17:00 Uhr jeweils einmal pro Stunde|
-|`"0 30 9 * * *"`|täglich um 9:30 Uhr|
-|`"0 30 9 * * 1-5"`|werktags um 9:30 Uhr|
-|`"0 30 9 * Jan Mon"`|jeden Montag im Januar um 9:30|
+| Beispiel            | Auslösung                     |
+|--------------------|------------------------------------|
+| `0 */5 * * * *`    | einmal alle fünf Minuten            |
+| `0 0 * * * *`      | einmal zu jeder vollen Stunde      |
+| `0 0 */2 * * *`    | einmal alle zwei Stunden               |
+| `0 0 9-17 * * *`   | zwischen 9:00 und 17:00 Uhr jeweils einmal pro Stunde  |
+| `0 30 9 * * *`     | täglich um 9:30 Uhr               |
+| `0 30 9 * * 1-5`   | werktags um 9:30 Uhr           |
+| `0 30 9 * Jan Mon` | jeden Montag im Januar um 9:30 |
 
 > [!NOTE]
-> Der NCRONTAB-Ausdruck erfordert das Format **six field** (Sechs Felder). Cron-Ausdrücke mit fünf Feldern werden in Azure nicht unterstützt.
+> Der NCRONTAB-Ausdruck erfordert das Format **six field** (sechs Felder). Die sechste Feldposition ist ein Wert für Sekunden, der am Anfang des Ausdrucks platziert wird. Cron-Ausdrücke mit fünf Feldern werden in Azure nicht unterstützt.
 
 ### <a name="ncrontab-time-zones"></a>NCRONTAB-Zeitzonen
 

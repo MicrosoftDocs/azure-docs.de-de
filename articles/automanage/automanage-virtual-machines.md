@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 338fe463cec4c44b1ddf019d9ecb435736e46826
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: ffbf3fa3e2d404b7bc5888ef01707cbd816600b3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91816821"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182851"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Automatische Azure-Verwaltung für virtuelle Computer
 
@@ -28,7 +28,7 @@ Dieser Artikel enthält Informationen zur automatischen Azure-Verwaltung für vi
 
 ## <a name="overview"></a>Übersicht
 
-Die automatische Azure-Verwaltung für virtuelle Computer ist ein Dienst, der die Anforderung beseitigt, bestimmte Dienste in Azure zu entdecken, zu integrieren und zu konfigurieren, die Ihrem virtuellen Computer zugute kommen würden. Diese Dienste tragen zur Verbesserung der Zuverlässigkeit, Sicherheit und Verwaltung virtueller Computer bei und gelten als bewährte Azure-Dienste, z. B. [Azure-Updateverwaltung](../automation/update-management/update-mgmt-overview.md) und [Azure Backup](../backup/backup-overview.md), um nur einige zu nennen.
+Die automatische Azure-Verwaltung für virtuelle Computer ist ein Dienst, der die Anforderung beseitigt, bestimmte Dienste in Azure zu entdecken, zu integrieren und zu konfigurieren, die Ihrem virtuellen Computer zugute kommen würden. Diese Dienste tragen zur Verbesserung der Zuverlässigkeit, Sicherheit und Verwaltung virtueller Computer bei und gelten als bewährte Azure-Dienste, z. B. [Azure-Updateverwaltung](../automation/update-management/overview.md) und [Azure Backup](../backup/backup-overview.md), um nur einige zu nennen.
 
 Nachdem Sie das Onboarding Ihrer virtuellen Computer für die automatische Azure-Verwaltung durchgeführt haben, konfiguriert diese automatisch jeden bewährten Dienst mit den empfohlenen Einstellungen. Die bewährten Methoden sind für jeden Dienst unterschiedlich. Ein Beispiel hierfür könnte Azure Backup sein, bei dem die bewährte Methode darin bestehen könnte, den virtuellen Computer einmal täglich zu sichern und einen Aufbewahrungszeitraum von sechs Monaten einzuhalten.
 
@@ -44,11 +44,13 @@ Es gibt mehrere Voraussetzungen zu beachten, bevor Sie versuchen, die automatisc
 - Nur Windows Server-VMs
 - VMs müssen aktiv sein
 - VMs müssen sich in einer unterstützten Region befinden
-- Benutzer muss über die richtigen Berechtigungen verfügen
-- VMs dürfen nicht mit einem Log Analytics-Arbeitsbereich in einem anderen Abonnement verknüpft werden
+- Benutzer muss über die richtigen (im folgenden Absatz beschriebenen) Berechtigungen verfügen.
 - Automatische Verwaltung unterstützt zurzeit keine Sandboxabonnements.
 
-Sie müssen die Rolle **Mitwirkender** haben, um automatische Verwaltung mit einem vorhandenen Konto für die automatische Verwaltung zu aktivieren. Wenn Sie automatische Verwaltung mit einem neuen Konto für die automatische Verwaltung aktivieren, benötigen Sie die folgenden Berechtigungen: Rolle **Besitzer** oder **Mitwirkender** sowie Rollen vom Typ **Benutzerzugriffsadministrator**
+Sie müssen über die Rolle **Mitwirkender** für die Ressourcengruppe verfügen, die Ihre VMs enthält, um Automanage auf virtuellen Computern mit einem vorhandenen Automanage-Konto zu aktivieren. Wenn Sie Automanage mit einem neuen Automanage-Konto aktivieren, benötigen Sie die folgenden Berechtigungen in Ihrem Abonnement: Rolle **Besitzer** oder **Mitwirkender** sowie Rollen vom Typ **Benutzerzugriffsadministrator** 
+
+> [!NOTE]
+> Wenn Sie Automanage auf einem virtuellen Computer verwenden möchten, der mit einem Arbeitsbereich in einem anderen Abonnement verbunden ist, müssen Sie in jedem Abonnement über die oben beschriebenen Berechtigungen verfügen.
 
 Es ist auch wichtig zu beachten, dass die automatische Verwaltung nur Windows-VMs unterstützt, die sich in den folgenden Regionen befinden: Europa (Westen), USA (Osten), USA (Westen 2), Kanada (Mitte), USA (Westen-Mitte).
 
@@ -58,7 +60,7 @@ Es ist auch wichtig zu beachten, dass die automatische Verwaltung nur Windows-VM
 
 Die vollständige Liste der teilnehmenden Azure-Dienste sowie die unterstützten Konfigurationsprofile finden Sie unter [Bewährte Methoden für die Automatische Azure-Verwaltung von virtuellen Computern](virtual-machines-best-practices.md).
 
- Wir werden mit Ihnen automatisch das Onboarding für diese teilnehmenden Dienste durchführen. Sie sind für unser Whitepaper über bewährte Methoden unerlässlich, das Sie in unserem [Cloud Adoption Framework](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/azure-server-management) finden.
+ Wir werden mit Ihnen automatisch das Onboarding für diese teilnehmenden Dienste durchführen. Sie sind für unser Whitepaper über bewährte Methoden unerlässlich, das Sie in unserem [Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/azure-server-management) finden.
 
 Bei all diesen Diensten werden wir das Onboarding automatisch durchführen, sie automatisch konfigurieren, auf Datendrift überwachen und schlichten, wenn ein Datendrift festgestellt wird.
 
@@ -105,14 +107,14 @@ Das Konto für die automatische Verwaltung ist der Sicherheitskontext oder die I
 Wenn Sie in der Azure-Portalerfahrung die automatische Verwaltung auf Ihren VMs aktivieren, gibt es eine Dropdownliste „Erweitert“ auf dem Blatt **Bewährte Methode zum Aktivieren einer Azure-VM**, mit der Sie das Konto für die automatische Verwaltung zuweisen oder manuell erstellen können.
 
 > [!NOTE]
-> Sie müssen die Rolle **Mitwirkender** haben, um automatische Verwaltung mit einem vorhandenen Konto für die automatische Verwaltung zu aktivieren. Wenn Sie automatische Verwaltung mit einem neuen Konto für die automatische Verwaltung aktivieren, benötigen Sie die folgenden Berechtigungen: Rolle **Besitzer** oder **Mitwirkender** sowie Rollen vom Typ **Benutzerzugriffsadministrator**
+> Sie müssen über die Rolle **Mitwirkender** für die Ressourcengruppe verfügen, die Ihre VMs enthält, um Automanage auf virtuellen Computern mit einem vorhandenen Automanage-Konto zu aktivieren. Wenn Sie Automanage mit einem neuen Automanage-Konto aktivieren, benötigen Sie die folgenden Berechtigungen in Ihrem Abonnement: Rolle **Besitzer** oder **Mitwirkender** sowie Rollen vom Typ **Benutzerzugriffsadministrator**
 
 
 ## <a name="status-of-vms"></a>Status von VMs
 
 Navigieren Sie im Azure-Portal zur Seite **Automatische Verwaltung – Bewährte Methoden für Azure-VMs**, auf der alle automatisch verwalteten virtuellen Computer aufgeführt sind. Hier wird der Gesamtstatus der einzelnen virtuellen Computer angezeigt.
 
-:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Intelligentes Durchführen des Onboardings von Diensten.":::
+:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Liste der konfigurierten virtuellen Computer":::
 
 Für jede aufgelistete VM werden die folgenden Details angezeigt: Name, Konfigurationsprofil, Konfigurationsvoreinstellung, Status, Konto, Abonnement und Ressourcengruppe.
 
@@ -130,7 +132,7 @@ Möglicherweise entscheiden Sie sich eines Tages dafür, die automatische Verwal
 
 Navigieren Sie dazu im Azure-Portal zur Seite **Automatische Verwaltung – Bewährte Methoden für Azure-VMs**, auf der alle automatisch verwalteten virtuellen Computer aufgeführt sind. Aktivieren Sie das Kontrollkästchen neben dem virtuellen Computer, den Sie über die automatische Verwaltung deaktivieren möchten, und klicken Sie dann auf die Schaltfläche zum **Deaktivieren der automatischen Verwaltung**.
 
-:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Intelligentes Durchführen des Onboardings von Diensten.":::
+:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Deaktivieren der automatischen Verwaltung auf einem virtuellen Computer":::
 
 Lesen Sie die Meldung im angezeigten Popupelement sorgfältig durch, bevor Sie dem **Deaktivieren** zustimmen.
 

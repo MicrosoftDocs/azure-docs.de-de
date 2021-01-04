@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 986db4edbf7b8856a12067fb66a370627642e970
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: b29f4034b12ce43e6c051e454601f196365469f3
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078356"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636979"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Verwenden von Container Storage Interface-Treibern (CSI) von Azure Files in Azure Kubernetes Service (AKS) (Vorschauversion)
 
@@ -229,7 +229,7 @@ az provider register --namespace Microsoft.Storage
 [Erstellen Sie ein Azure Storage-Konto vom Typ `Premium_LRS`](../storage/files/storage-how-to-create-premium-fileshare.md) mit den folgenden Konfigurationen, um NFS-Freigaben zu unterstützen:
 - Kontotyp: FileStorage
 - Sichere Übertragung erforderlich (nur HTTPS-Datenverkehr aktivieren): FALSE
-- Auswählen des virtuellen Netzwerks Ihrer Agent-Knoten in Firewalls und virtuellen Netzwerken
+- Wählen Sie das virtuelle Netzwerk der Agent-Knoten in Firewalls und virtuellen Netzwerken aus. Daher sollten Sie das Speicherkonto in der MC_-Ressourcengruppe erstellen.
 
 ### <a name="create-nfs-file-share-storage-class"></a>Erstellen einer Speicherklasse für die NFS-Dateifreigabe
 
@@ -239,7 +239,7 @@ Speichern Sie eine Datei `nfs-sc.yaml` mit dem unten gezeigten Manifest, und bea
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: azurefile-csi
+  name: azurefile-csi-nfs
 provisioner: file.csi.azure.com
 parameters:
   resourceGroup: EXISTING_RESOURCE_GROUP_NAME  # optional, required only when storage account is not in the same resource group as your agent nodes
@@ -259,7 +259,7 @@ storageclass.storage.k8s.io/azurefile-csi created
 Sie können einen [zustandsbehafteten Beispielsatz](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) bereitstellen, mit dem Zeitstempel in einer Datei `data.txt` gespeichert werden, indem Sie den folgenden Befehl mit dem Befehl [kubectl apply][kubectl-apply] bereitstellen:
 
  ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/windows/statefulset.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/statefulset.yaml
 
 statefulset.apps/statefulset-azurefile created
 ```
@@ -275,6 +275,10 @@ Filesystem      Size  Used Avail Use% Mounted on
 accountname.file.core.windows.net:/accountname/pvc-fa72ec43-ae64-42e4-a8a2-556606f5da38  100G     0  100G   0% /mnt/azurefile
 ...
 ```
+
+>[!NOTE]
+> Beachten Sie Folgendes: Da die NFS-Dateifreigabe ein Premium-Konto ist, beträgt die Mindestgröße für die Dateifreigabe 100 GB. Wenn Sie einen PVC mit einer kleinen Speichergröße erstellen, tritt möglicherweise ein Fehler auf: „Fehler beim Erstellen der Dateifreigabe... Größe (5)...“.
+
 
 ## <a name="windows-containers"></a>Windows-Container
 

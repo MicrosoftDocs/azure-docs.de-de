@@ -1,22 +1,22 @@
 ---
-title: 'Schnellstart: Abrufen der Absicht mit REST-APIs – LUIS'
-description: In dieser REST-API-Schnellstartanleitung bestimmen Sie mithilfe einer verfügbaren öffentlichen LUIS-App aus Konversationstext die Absicht eines Benutzers.
+title: Ermitteln einer Absicht mithilfe der REST-API
+description: In diesem Artikel bestimmen Sie mithilfe einer verfügbaren öffentlichen LUIS-App aus Konversationstext die Absicht eines Benutzers.
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: quickstart
-ms.date: 05/18/2020
+ms.topic: conceptual
+ms.date: 11/30/2020
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: d03ebc1ec5730f1905ce1ee5b9c484312f5aeee1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b49d90ffe2a262895727fdd4ef5f8a7950104102
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91316321"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437013"
 ---
-# <a name="quickstart-get-intent-with-rest-apis"></a>Schnellstart: Abrufen der Absicht mit REST-APIs
+# <a name="how-to-get-an-intent-using-the-rest-apis"></a>Ermitteln einer Absicht mithilfe der REST-APIs
 
-In dieser Schnellstartanleitung verwenden Sie eine LUIS-App, um die Absicht eines Benutzers aus Unterhaltungstext zu bestimmen. Sie senden die Absicht des Benutzers als Text an den HTTP-Vorhersageendpunkt der Pizza-App. Auf dem Endpunkt wendet LUIS das Modell der Pizza-App an, um den Text in natürlicher Sprache im Hinblick auf seine Bedeutung zu analysieren. Dabei werden die allgemeine Absicht bestimmt und relevante Daten für die Antragstellerdomäne der App extrahiert.
+In diesem Artikel verwenden Sie eine LUIS-App, um die Absicht eines Benutzers aus Unterhaltungstext zu bestimmen. Sie senden die Absicht des Benutzers als Text an den HTTP-Vorhersageendpunkt der Pizza-App. Auf dem Endpunkt wendet LUIS das Modell der Pizza-App an, um den Text in natürlicher Sprache im Hinblick auf seine Bedeutung zu analysieren. Dabei werden die allgemeine Absicht bestimmt und relevante Daten für die Antragstellerdomäne der App extrahiert.
 
 Für diesen Artikel benötigen Sie ein kostenloses [LUIS](https://www.luis.ai)-Konto.
 

@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019, devx-track-js
-ms.openlocfilehash: 77c35ae4b9e845cd3c0f638407c0d71c36fcf9f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5a9fb1a179164d24c84213762ee7e2332a1aa25
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289683"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345940"
 ---
 # <a name="how-to-use-azure-queue-storage-from-nodejs"></a>Verwenden von Azure Queue Storage mit Node.js
 
@@ -44,13 +44,13 @@ Die [Azure Storage-Clientbibliothek für JavaScript][Azure Storage client librar
 
 1. Geben Sie im Befehlsfenster **npm install \@azure/storage-queue** ein.
 
-1. Überprüfen Sie, ob ein **node\_modules**-Ordner erstellt wurde. In diesem Ordner finden Sie das Paket **\@azure/storage-queue** mit der Clientbibliothek, die Sie für den Zugriff auf den Speicher benötigen.
+1. Überprüfen Sie, ob ein **node\_modules** -Ordner erstellt wurde. In diesem Ordner finden Sie das Paket **\@azure/storage-queue** mit der Clientbibliothek, die Sie für den Zugriff auf den Speicher benötigen.
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
 1. Geben Sie **npm install azure-storage** in das Befehlsfenster ein.
 
-1. Überprüfen Sie, ob ein **node\_modules**-Ordner erstellt wurde. In diesem Ordner finden Sie das Paket **azure-storage** mit den Bibliotheken, die Sie für den Zugriff auf den Speicher benötigen.
+1. Überprüfen Sie, ob ein **node\_modules** -Ordner erstellt wurde. In diesem Ordner finden Sie das Paket **azure-storage** mit den Bibliotheken, die Sie für den Zugriff auf den Speicher benötigen.
 
 ---
 
@@ -160,13 +160,13 @@ Im folgenden Beispiel wird der Text einer Nachricht aktualisiert.
 
 # <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-Ändern Sie die Inhalte einer Nachricht direkt in der Warteschlange durch Aufrufen von [updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-). 
+Ändern Sie die Inhalte einer Nachricht direkt in der Warteschlange durch Aufrufen von [updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-).
 
 :::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_UpdateMessage":::
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
-Ändern Sie die Inhalte einer Nachricht direkt in der Warteschlange durch Aufrufen von **updateMessage**. 
+Ändern Sie die Inhalte einer Nachricht direkt in der Warteschlange durch Aufrufen von **updateMessage**.
 
 ```javascript
 queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
@@ -222,7 +222,7 @@ queueSvc.getMessages('myqueue', function(error, results, response){
 });
 ```
 
-Eine Nachricht wird standardmäßig nur 30 Sekunden lang ausgeblendet. Nach 30 Sekunden wird sie für andere Clients sichtbar. Sie können einen anderen Wert angeben, indem Sie `options.visibilityTimeout` mit **getMessages**verwenden.
+Eine Nachricht wird standardmäßig nur 30 Sekunden lang ausgeblendet. Nach 30 Sekunden wird sie für andere Clients sichtbar. Sie können einen anderen Wert angeben, indem Sie `options.visibilityTimeout` mit **getMessages** verwenden.
 
 Wenn die Warteschlange bei Verwendung von **getMessages** keine Nachrichten enthält, wird kein Fehler zurückgegeben. Es werden aber auch keine Nachrichten zurückgegeben.
 
@@ -234,8 +234,8 @@ Wenn die Warteschlange bei Verwendung von **getMessages** keine Nachrichten enth
 
 Es gibt zwei Möglichkeiten, wie Sie das Abrufen von Nachrichten aus der Warteschlange anpassen können:
 
-* [options.numberOfMessages](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#numberofmessages) – Abrufen eines Stapels an Nachrichten (bis zu 32).
-* [options.visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) – Festlegen eines längeren oder kürzeren Unsichtbarkeits-Zeitlimits.
+- [options.numberOfMessages](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#numberofmessages) – Abrufen eines Stapels an Nachrichten (bis zu 32).
+- [options.visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) – Festlegen eines längeren oder kürzeren Unsichtbarkeits-Zeitlimits.
 
 Im folgenden Beispiel wird die Methode **receiveMessages** verwendet, um mit einem einzigen Aufruf fünf Nachrichten abzurufen. Anschließend wird jede Nachricht mithilfe einer `for`-Schleife verarbeitet. Zudem wird das Unsichtbarkeits-Zeitlimit auf fünf Minuten für alle Nachrichten festgelegt, die durch diese Methode zurückgegeben werden.
 
@@ -245,8 +245,8 @@ Im folgenden Beispiel wird die Methode **receiveMessages** verwendet, um mit ein
 
 Es gibt zwei Möglichkeiten, wie Sie das Abrufen von Nachrichten aus der Warteschlange anpassen können:
 
-* `options.numOfMessages` : Abrufen eines Stapels an Nachrichten (bis zu 32).
-* `options.visibilityTimeout` : Festlegen eines längeren oder kürzeren Unsichtbarkeits-Zeitlimits.
+- `options.numOfMessages` : Abrufen eines Stapels an Nachrichten (bis zu 32).
+- `options.visibilityTimeout` : Festlegen eines längeren oder kürzeren Unsichtbarkeits-Zeitlimits.
 
 Im folgenden Beispiel wird die Methode **getMessages** verwendet, um mit einem Aufruf 15 Nachrichten abzurufen. Anschließend wird jede Nachricht mithilfe einer `for`-Schleife verarbeitet. Zudem wird das Unsichtbarkeits-Zeitlimit auf fünf Minuten für alle Nachrichten festgelegt, die durch diese Methode zurückgegeben werden.
 
@@ -301,7 +301,7 @@ Wenn Sie eine Liste von Warteschlangen abrufen möchten, rufen Sie [QueueService
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
-Verwenden Sie zum Aufrufen einer Liste an Warteschlangen **listQueuesSegmented**. Verwenden Sie **listQueuesSegmentedWithPrefix**, um eine Liste abzurufen, die nach einem bestimmten Präfix gefiltert ist.
+Verwenden Sie zum Aufrufen einer Liste an Warteschlangen **listQueuesSegmented**. Verwenden Sie **listQueuesSegmentedWithPrefix** , um eine Liste abzurufen, die nach einem bestimmten Präfix gefiltert ist.
 
 ```javascript
 queueSvc.listQueuesSegmented(null, function(error, results, response){
@@ -311,7 +311,7 @@ queueSvc.listQueuesSegmented(null, function(error, results, response){
 });
 ```
 
-Wenn nicht alle Warteschlangen zurückgegeben werden können, übergeben Sie `result.continuationToken` als ersten Parameter von **listQueuesSegmented** oder als zweiten Parameter von **listQueuesSegmentedWithPrefix**, um weitere Ergebnisse abzurufen.
+Wenn nicht alle Warteschlangen zurückgegeben werden können, übergeben Sie `result.continuationToken` als ersten Parameter von **listQueuesSegmented** oder als zweiten Parameter von **listQueuesSegmentedWithPrefix** , um weitere Ergebnisse abzurufen.
 
 ---
 
@@ -347,8 +347,8 @@ Wenn Sie alle Nachrichten in einer Warteschlange löschen möchten, ohne diese s
 
 Nachdem Sie sich nun mit den Grundlagen des Warteschlangenspeichers vertraut gemacht haben, folgen Sie diesen Links, um zu erfahren, wie komplexere Speicheraufgaben ausgeführt werden.
 
-* Besuchen Sie den [Azure Storage-Teamblog][Azure Storage Team Blog], um sich über Neuigkeiten zu informieren.
-* Besuchen Sie das Repository [Azure Storage-Clientbibliothek für JavaScript][Azure Storage client library for JavaScript] auf GitHub.
+- Besuchen Sie den [Azure Storage-Teamblog][Azure Storage Team Blog], um sich über Neuigkeiten zu informieren.
+- Besuchen Sie das Repository [Azure Storage-Clientbibliothek für JavaScript][Azure Storage client library for JavaScript] auf GitHub.
 
 [Azure Storage client library for JavaScript]: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage#azure-storage-client-library-for-javascript
 [Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog

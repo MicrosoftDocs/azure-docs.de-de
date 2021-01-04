@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.subservice: tables
-ms.openlocfilehash: a15415ab7f5e01619a4a022d7254ef3995a825b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43ae21d97bc9d8292270ae62006e649f4bcf540b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88236334"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316146"
 ---
 # <a name="design-for-querying"></a>Entwurf für Abfragen
 Anwendungen für einen Tabellenspeicherdienst können intensiv lesen, intensiv schreiben oder beides. Dieser Artikel konzentriert sich auf die Dinge, die Sie beim Entwurf Ihres Tabellenspeicherdienstes beachten sollten, um Lesevorgänge effizient zu unterstützen. In der Regel ist ein Entwurf, der Lesevorgänge effizient unterstützt, auch für Schreibvorgänge effizient. Es gibt jedoch weitere Überlegungen, die beim Entwerfen der Unterstützung von Schreibvorgängen zu beachten sind und im Artikel [Entwurf für die Datenänderung](table-storage-design-for-modification.md) erläutert werden.
@@ -44,15 +44,15 @@ In den folgenden Beispielen wird angenommen, dass der Tabellenspeicherdienst Ent
 | **Alter** |Integer |
 | **EmailAddress** |String |
 
-Im Artikel [Einführung zu Tabellenspeicher in Azure](table-storage-overview.md) werden einige der wichtigsten Funktionen des Azure-Tabellenspeicherdiensts beschrieben, die direkten Einfluss auf den Entwurf für Abfragen haben. Dadurch ergeben sich die folgenden allgemeinen Richtlinien für den Entwurf von Abfragen für den Tabellenspeicherdienst. Beachten Sie, dass die in den Beispielen unten verwendete Filtersyntax aus dem REST-API-Tabellenspeicherdienst stammt. Weitere Informationen finden Sie unter [Query Entities](https://docs.microsoft.com/rest/api/storageservices/Query-Entities) (Abfragen von Entitäten).  
+Im Artikel [Einführung zu Tabellenspeicher in Azure](table-storage-overview.md) werden einige der wichtigsten Funktionen des Azure-Tabellenspeicherdiensts beschrieben, die direkten Einfluss auf den Entwurf für Abfragen haben. Dadurch ergeben sich die folgenden allgemeinen Richtlinien für den Entwurf von Abfragen für den Tabellenspeicherdienst. Beachten Sie, dass die in den Beispielen unten verwendete Filtersyntax aus dem REST-API-Tabellenspeicherdienst stammt. Weitere Informationen finden Sie unter [Query Entities](/rest/api/storageservices/Query-Entities) (Abfragen von Entitäten).  
 
-* Eine ***Punktabfrage*** ist die effizienteste Suche und wird bei sehr umfangreichen Suchvorgängen oder für Suchvorgänge empfohlen, die eine sehr niedrige Latenz erfordern. Eine solche Abfrage kann Indizes verwenden, um durch die Angabe der **PartitionKey**- und **RowKey**-Werte eine einzelne Entität sehr effizient zu suchen. Beispiel: $filter=(PartitionKey eq 'Sales') und (RowKey eq '2')  
-* Die zweitbeste Lösung ist eine ***Bereichsabfrage***, die den **PartitionKey** verwendet und einen Bereich von **RowKey**-Werten filtert, um mehrere Entitäten zurückzugeben. Der **PartitionKey**-Wert identifiziert eine bestimmte Partition, die **RowKey**-Werte identifizieren eine Teilmenge der Entitäten in dieser Partition. Beispiel: $filter=PartitionKey eq 'Sales' und RowKey ge 'S' und RowKey lt 'T'  
-* Die drittbeste Lösung ist ein ***Partitionsscan***, der den **PartitionKey** sowie Filter für eine andere schlüsselfremde Eigenschaft verwendet und möglicherweise mehrere Entitäten zurückgibt. Der **PartitionKey** -Wert identifiziert eine bestimmte Partition und die Eigenschaftswerte wählen eine Teilmenge der Entitäten in dieser Partition aus. Beispiel: $filter=PartitionKey eq 'Sales' und LastName eq 'Smith'  
-* Ein ***Tabellenscan*** umfasst keinen **PartitionKey** und ist sehr ineffizient, da er alle Partitionen, aus denen Ihre Tabelle besteht, auf übereinstimmende Entitäten untersucht. Er führt einen Tabellenscan durch, unabhängig davon, ob der Filter **RowKey**verwendet. Beispiel: $filter=LastName eq 'Jones'  
+* Eine * **Punktabfrage** _ ist die effizienteste Suche und wird bei sehr umfangreichen Suchvorgängen oder für Suchvorgänge empfohlen, die eine sehr niedrige Latenz erfordern. Eine solche Abfrage kann Indizes verwenden, um durch die Angabe der _ *PartitionKey* *- und **RowKey** -Werte eine einzelne Entität sehr effizient zu suchen. Beispiel: $filter=(PartitionKey eq 'Sales') und (RowKey eq '2')  
+* Die zweitbeste Lösung ist eine * **Bereichsabfrage** _, die den _ *PartitionKey* * verwendet und einen Bereich von **RowKey** -Werten filtert, um mehrere Entitäten zurückzugeben. Der **PartitionKey** -Wert identifiziert eine bestimmte Partition, die **RowKey** -Werte identifizieren eine Teilmenge der Entitäten in dieser Partition. Beispiel: $filter=PartitionKey eq 'Sales' und RowKey ge 'S' und RowKey lt 'T'  
+* Die drittbeste Lösung ist ein * **Partitionsscan** _, der den _ *PartitionKey* * sowie Filter für eine andere schlüsselfremde Eigenschaft verwendet und möglicherweise mehrere Entitäten zurückgibt. Der **PartitionKey** -Wert identifiziert eine bestimmte Partition und die Eigenschaftswerte wählen eine Teilmenge der Entitäten in dieser Partition aus. Beispiel: $filter=PartitionKey eq 'Sales' und LastName eq 'Smith'  
+* Ein * **Tabellenscan** _ umfasst keinen _ *PartitionKey* * und ist sehr ineffizient, da er alle Partitionen, aus denen Ihre Tabelle besteht, auf übereinstimmende Entitäten untersucht. Er führt einen Tabellenscan durch, unabhängig davon, ob der Filter **RowKey** verwendet. Beispiel: $filter=LastName eq 'Jones'  
 * Abfragen, die mehrere Entitäten zurückgeben, geben diese nach **PartitionKey** und **RowKey** sortiert zurück. Um eine Neusortierung der Entitäten im Client zu vermeiden, müssen Sie einen **RowKey** mit der am häufigsten verwendeten Sortierreihenfolge auswählen.  
 
-Beachten Sie, dass die Verwendung von **or** für die Festlegung eines Filters, der auf **RowKey**-Werten basiert, zu einem Partitionsscan führt und nicht als Bereichsabfrage behandelt wird. Aus diesem Grund sollten Sie Abfragen vermeiden, die z. B. folgende Filter verwenden: $filter=PartitionKey eq 'Sales' und (RowKey eq '121' or RowKey eq '322')  
+Beachten Sie, dass die Verwendung von **or** für die Festlegung eines Filters, der auf **RowKey** -Werten basiert, zu einem Partitionsscan führt und nicht als Bereichsabfrage behandelt wird. Aus diesem Grund sollten Sie Abfragen vermeiden, die z. B. folgende Filter verwenden: $filter=PartitionKey eq 'Sales' und (RowKey eq '121' or RowKey eq '322')  
 
 Beispiele für clientseitigen Code, der die Storage Client Library zur Ausführung effizienter Abfragen verwendet, finden Sie unter:  
 
@@ -76,15 +76,15 @@ Ein idealer **PartitionKey** ermöglicht die Verwendung von effizienten Abfragen
 > 
 > 
 
-Bei der Wahl des **PartitionKey**-Werts sind weitere Aspekte zu bedenken, die sich darauf beziehen, wie Sie Entitäten einfügen, aktualisieren und löschen. Weitere Informationen finden Sie unter [Entwurf für Datenänderung](table-storage-design-for-modification.md).  
+Bei der Wahl des **PartitionKey** -Werts sind weitere Aspekte zu bedenken, die sich darauf beziehen, wie Sie Entitäten einfügen, aktualisieren und löschen. Weitere Informationen finden Sie unter [Entwurf für Datenänderung](table-storage-design-for-modification.md).  
 
 ## <a name="optimizing-queries-for-the-table-service"></a>Optimieren von Abfragen für den Tabellenspeicherdienst
-Der Tabellenspeicherdienst indiziert die Entitäten automatisch unter Verwendung von **PartitionKey**- und **RowKey**-Werten in einem einzelnen gruppierten Index. Aus diesem Grund stellen Punktabfragen die effizienteste Lösung dar. Allerdings gibt es mit Ausnahme des gruppierten Index für **PartitionKey** und **RowKey** keine weiteren Indizes.
+Der Tabellenspeicherdienst indiziert die Entitäten automatisch unter Verwendung von **PartitionKey** - und **RowKey** -Werten in einem einzelnen gruppierten Index. Aus diesem Grund stellen Punktabfragen die effizienteste Lösung dar. Allerdings gibt es mit Ausnahme des gruppierten Index für **PartitionKey** und **RowKey** keine weiteren Indizes.
 
 Viele Entwürfe müssen Anforderungen erfüllen, um die Suche nach Entitäten auf Grundlage mehrerer Kriterien zu ermöglichen. Suchen Sie z. B. Mitarbeiterentitäten auf Grundlage der E-Mail-Adresse, Mitarbeiter-ID oder Nachname. Die in [Entwurfsmuster für die Tabelle](table-storage-design-patterns.md) beschriebenen Muster befassen sich mit diesen Arten von Anforderungen und beschreiben Möglichkeiten zum Umgehen der Tatsache, dass der Tabellenspeicherdienst keine sekundären Indizes zur Verfügung stellt:  
 
-* [Sekundäres Indexmuster für Intra-Partition](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) – Speichern mehrerer Kopien jeder Entität mit unterschiedlichen **RowKey**-Werten (in der gleichen Partition) zur Ermöglichung schneller und effizienter Suchvorgänge und alternativer Sortierreihenfolgen mit unterschiedlichen **RowKey**-Werten.  
-* [Sekundäres Indexmuster für Inter-Partition](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) – Speichern mehrerer Kopien der einzelnen Entitäten mithilfe verschiedener **RowKey**-Werte in separaten Partitionen oder in separaten Tabellen zur Aktivierung schneller und effizienter Suchvorgänge und alternativer Sortierreihenfolgen mit unterschiedlichen **RowKey**-Werten.  
+* [Sekundäres Indexmuster für Intra-Partition](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) – Speichern mehrerer Kopien jeder Entität mit unterschiedlichen **RowKey** -Werten (in der gleichen Partition) zur Ermöglichung schneller und effizienter Suchvorgänge und alternativer Sortierreihenfolgen mit unterschiedlichen **RowKey** -Werten.  
+* [Sekundäres Indexmuster für Inter-Partition](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) – Speichern mehrerer Kopien der einzelnen Entitäten mithilfe verschiedener **RowKey** -Werte in separaten Partitionen oder in separaten Tabellen zur Aktivierung schneller und effizienter Suchvorgänge und alternativer Sortierreihenfolgen mit unterschiedlichen **RowKey** -Werten.  
 * [Indexmuster für Entitäten](table-storage-design-patterns.md#index-entities-pattern) – Verwalten von Indexentitäten, um effiziente Suchvorgänge zu ermöglichen, die Listen mit Entitäten zurückgeben.  
 
 ## <a name="sorting-data-in-the-table-service"></a>Sortieren von Daten im Tabellenspeicherdienst

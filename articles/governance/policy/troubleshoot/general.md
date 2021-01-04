@@ -1,18 +1,18 @@
 ---
 title: Problembehandlung für häufige Fehler
 description: Erfahren Sie, wie Sie Probleme beim Erstellen von Richtliniendefinitionen, mit dem jeweiligen SDK und dem Add-On für Kubernetes beheben.
-ms.date: 10/05/2020
+ms.date: 12/01/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 98b5f1658a7d3fc7c4a7db7145b92bb6065befc5
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: f3667988d527100507d308887338278e1200d454
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999895"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510997"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Problembehandlung mit Azure Policy
 
-Beim Erstellen von Richtliniendefinitionen, dem Arbeiten mit dem SDK oder beim Einrichten des Add-Ons [Azure Policy für Kubernetes](../concepts/policy-for-kubernetes.md) können Fehler auftreten. In diesem Artikel wird beschrieben, welche Fehler auftreten und wie diese behoben werden können.
+Beim Erstellen von Richtliniendefinitionen, dem Arbeiten mit dem SDK oder beim Einrichten des Add-Ons [Azure Policy für Kubernetes](../concepts/policy-for-kubernetes.md) können Fehler auftreten. In diesem Artikel wird beschrieben, welche allgemeinen Fehler auftreten und wie diese behoben werden können.
 
 ## <a name="finding-error-details"></a>Ermitteln von Fehlerdetails
 
@@ -56,7 +56,7 @@ Warten Sie zuerst den entsprechenden Zeitraum ab, bis eine Auswertung abgeschlos
 
 #### <a name="issue"></a>Problem
 
-Eine Ressource weist nicht den Auswertungszustand ( _Konform_ oder _Nicht konform_ ) auf, der für diese Ressource erwartet wird.
+Eine Ressource weist nicht den Auswertungszustand (_Konform_ oder _Nicht konform_) auf, der für diese Ressource erwartet wird.
 
 #### <a name="cause"></a>Ursache
 
@@ -78,7 +78,7 @@ Befolgen Sie diese Schritte zur Problembehandlung bei der Definition Ihrer Richt
    - Wenn der **aktuelle Wert** falsch ist, überprüfen Sie die Ressourcennutzlast mit `resources.azure.com`.
 1. Überprüfen Sie [Problembehandlung: Erzwingung nicht wie erwartet](#scenario-enforcement-not-as-expected) auf andere häufige Probleme und Lösungen.
 
-Wenn Sie immer noch ein Problem mit Ihrer duplizierten und angepassten integrierten Richtliniendefinition oder benutzerdefinierten Definition haben, erstellen Sie ein Supportticket unter **Erstellen einer Richtlinie** , um das Problem ordnungsgemäß weiterzuleiten.
+Wenn Sie immer noch ein Problem mit Ihrer duplizierten und angepassten integrierten Richtliniendefinition oder benutzerdefinierten Definition haben, erstellen Sie ein Supportticket unter **Erstellen einer Richtlinie**, um das Problem ordnungsgemäß weiterzuleiten.
 
 ### <a name="scenario-enforcement-not-as-expected"></a>Szenario: Erzwingung nicht wie erwartet
 
@@ -95,7 +95,7 @@ Für die Richtlinienzuweisung ist [enforcementMode](../concepts/assignment-struc
 Befolgen Sie diese Schritte zur Problembehandlung bei der Erzwingung Ihrer Richtlinienzuweisung:
 
 1. Warten Sie zuerst den entsprechenden Zeitraum ab, bis eine Auswertung abgeschlossen ist und die Konformitätsergebnisse im Azure-Portal oder SDK zur Verfügung stehen. Informationen zum Starten einer neuen Konformitätsprüfung mit Azure PowerShell oder der REST-API finden Sie unter [Bedarfsgesteuerter Auswertungsscan](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
-1. Prüfen Sie, ob die Zuweisungsparameter und der Zuweisungsbereich ordnungsgemäß festgelegt und **enforcementMode** auf _Enabled_ eingestellt ist. 
+1. Prüfen Sie, ob die Zuweisungsparameter und der Zuweisungsbereich ordnungsgemäß festgelegt und **enforcementMode** auf _Enabled_ eingestellt ist.
 1. Überprüfen Sie den [Modus der Richtliniendefinition](../concepts/definition-structure.md#mode):
    - Modus „all“ für alle Ressourcentypen
    - Modus „indexed“, wenn bei der Richtliniendefinition eine Überprüfung auf Tags oder den Ort durchgeführt wird
@@ -103,7 +103,7 @@ Befolgen Sie diese Schritte zur Problembehandlung bei der Erzwingung Ihrer Richt
 1. Stellen Sie sicher, dass die Ressourcennutzlast mit der Richtlinienlogik übereinstimmt. Dies ist möglich, indem Sie eine [HAR-Ablaufverfolgung](../../../azure-portal/capture-browser-trace.md) erfassen oder die Eigenschaften der ARM-Vorlage überprüfen.
 1. Überprüfen Sie [Problembehandlung: Compliance nicht wie erwartet](#scenario-compliance-not-as-expected) auf andere häufige Probleme und Lösungen.
 
-Wenn Sie immer noch ein Problem mit Ihrer duplizierten und angepassten integrierten Richtliniendefinition oder benutzerdefinierten Definition haben, erstellen Sie ein Supportticket unter **Erstellen einer Richtlinie** , um das Problem ordnungsgemäß weiterzuleiten.
+Wenn Sie immer noch ein Problem mit Ihrer duplizierten und angepassten integrierten Richtliniendefinition oder benutzerdefinierten Definition haben, erstellen Sie ein Supportticket unter **Erstellen einer Richtlinie**, um das Problem ordnungsgemäß weiterzuleiten.
 
 ### <a name="scenario-denied-by-azure-policy"></a>Szenario: Von Azure Policy abgelehnt
 
@@ -135,7 +135,7 @@ Die Verwendung unterstützter Funktionen wie `parameter()` oder `resourceGroup()
 
 Um eine Funktion so zu übergeben, dass sie Teil einer Richtliniendefinition ist, versehen Sie die gesamte Zeichenfolge mit dem Escapezeichen `[`, sodass die Eigenschaft folgendermaßen aussieht: `[[resourceGroup().tags.myTag]`. Das Escapezeichen bewirkt, dass Resource Manager den Wert beim Verarbeiten der Vorlage als Zeichenfolge behandelt. Azure Policy fügt die Funktion dann in die Richtliniendefinition ein, sodass sie wie erwartet dynamisch ist. Weitere Informationen finden Sie unter [Syntax und Ausdrücke in Azure Resource Manager-Vorlagen](../../../azure-resource-manager/templates/template-expressions.md).
 
-## <a name="add-on-installation-errors"></a>Add-On-Installationsfehler
+## <a name="add-on-for-kubernetes-installation-errors"></a>Add-On für Kubernetes-Installationsfehler
 
 ### <a name="scenario-install-using-helm-chart-fails-on-password"></a>Szenario: Fehler beim Installieren per Helm-Chart beim Kennwort
 
@@ -187,6 +187,118 @@ Die Definitionen, die zuvor dieses Problem verursacht haben, werden als \[Veralt
 Eine ausführliche Beschreibung finden Sie im folgenden Blogbeitrag:
 
 [Wichtige Änderung für Überwachungsrichtlinien für Gastkonfigurationen](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
+
+## <a name="add-on-for-kubernetes-general-errors"></a>Add-On für allgemeine Kubernetes-Fehler
+
+### <a name="scenario-add-on-is-unable-to-reach-the-azure-policy-service-endpoint-due-to-egress-restrictions"></a>Szenario: Das Add-On kann den Dienstendpunkt von Azure Policy aufgrund von Einschränkungen beim Ausgang nicht erreichen
+
+#### <a name="issue"></a>Problem
+
+Das Add-On kann den Dienstendpunkt von Azure Policy nicht erreichen und gibt einen der folgenden Fehler zurück:
+
+- `failed to fetch token, service not reachable`
+- `Error getting file "Get https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/template.yaml: dial tcp 151.101.228.133.443: connect: connection refused`
+
+#### <a name="cause"></a>Ursache
+
+Diese Probleme treten auf, wenn ein Clusterausgang gesperrt ist.
+
+#### <a name="resolution"></a>Lösung
+
+Stellen Sie sicher, dass die Domänen und Ports in den folgenden Artikeln geöffnet sind:
+
+- [Erforderliche Netzwerkregeln für ausgehenden Datenverkehr und FQDNs für AKS-Cluster](../../../aks/limit-egress-traffic.md#required-outbound-network-rules-and-fqdns-for-aks-clusters)
+- [Installieren des Add-Ons Azure Policy für Kubernetes mit Azure Arc-Aktivierung (Vorschau)](../concepts/policy-for-kubernetes.md#install-azure-policy-add-on-for-azure-arc-enabled-kubernetes)
+
+### <a name="scenario-add-on-is-unable-to-reach-the-azure-policy-service-endpoint-due-to-aad-pod-identity-configuration"></a>Szenario: Das Add-On kann den Dienstendpunkt von Azure Policy aufgrund der Konfiguration von aad-pod-identity nicht erreichen
+
+#### <a name="issue"></a>Problem
+
+Das Add-On kann den Dienstendpunkt von Azure Policy nicht erreichen und gibt einen der folgenden Fehler zurück:
+
+- `azure.BearerAuthorizer#WithAuthorization: Failed to refresh the Token for request to https://gov-prod-policy-data.trafficmanager.net/checkDataPolicyCompliance?api-version=2019-01-01-preview: StatusCode=404`
+- `adal: Refresh request failed. Status Code = '404'. Response body: getting assigned identities for pod kube-system/azure-policy-8c785548f-r882p in CREATED state failed after 16 attempts, retry duration [5]s, error: <nil>`
+
+#### <a name="cause"></a>Ursache
+
+Dieser Fehler tritt auf, wenn _ad-pod-identity_ im Cluster installiert ist und Pods des Typs _kube-system_ in _aad-pod-identity_ nicht ausgeschlossen sind.
+
+Die Komponente _aad-pod-identity_ von NMI-Pods (Node Managed Identity) ändert die IPTables der Knoten so, dass Aufrufe für den Azure Instance Metadata-Endpunkt abgefangen werden. Diese Einrichtung bedeutet, dass jede Anforderung, die an den Metadatenendpunkt gerichtet ist, von NMI abgefangen wird, auch wenn der Pod von _aad-pod-identity_ nicht verwendet wird.
+Die CRD **AzurePodIdentityException** kann so konfiguriert werden, dass _aad-pod-identity_ darüber informiert wird, dass an den Metadatenendpunkt gerichtete Anforderungen, die von einem Pod stammen, der in der CRD definierte Bezeichnungen abgleicht, ohne Verarbeitung in NMI über einen Proxy zu senden sind.
+
+#### <a name="resolution"></a>Lösung
+
+Schließen Sie die Systempods mit der Bezeichnung `kubernetes.azure.com/managedby: aks` im Namespace _kube-system_ in _aad-pod-identity_ durch Konfigurieren der CRD **AzurePodIdentityException** aus.
+
+Weitere Informationen finden Sie unter [Disable AAD Pod Identity for a specific Pod/Application (Deaktivieren von „aad-pod-identity“ für einen bestimmten Pod oder eine bestimmte Anwendung)](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
+
+Informationen zum Konfigurieren einer Ausnahme finden Sie in diesem Beispiel:
+
+```yaml
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzurePodIdentityException
+metadata:
+  name: mic-exception
+  namespace: default
+spec:
+  podLabels:
+    app: mic
+    component: mic
+---
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzurePodIdentityException
+metadata:
+  name: aks-addon-exception
+  namespace: kube-system
+spec:
+  podLabels:
+    kubernetes.azure.com/managedby: aks
+```
+
+### <a name="scenario-the-resource-provider-isnt-registered"></a>Szenario: Der Ressourcenanbieter ist nicht registriert
+
+#### <a name="issue"></a>Problem
+
+Das Add-On kann den Dienstendpunkt von Azure Policy erreichen, gibt aber einen der folgenden Fehler in Add-On-Protokollen zurück:
+
+```
+The resource provider 'Microsoft.PolicyInsights' is not registered in subscription '{subId}'. See
+https://aka.ms/policy-register-subscription for how to register subscriptions.
+```
+
+oder
+
+```
+policyinsightsdataplane.BaseClient#CheckDataPolicyCompliance: Failure responding to request:
+StatusCode=500 -- Original Error: autorest/azure: Service returned an error. Status=500
+Code="InternalServerError" Message="Encountered an internal server error."
+```
+
+#### <a name="cause"></a>Ursache
+
+Der Ressourcenanbieter `Microsoft.PolicyInsights` ist nicht registriert und muss für das Add-On registriert werden, um Richtliniendefinitionen zu erhalten und Daten zur Konformität zurückzugeben.
+
+#### <a name="resolution"></a>Lösung
+
+Registrieren Sie den Ressourcenanbieter `Microsoft.PolicyInsights` in Ihrem Clusterabonnement. Eine Anleitung finden Sie unter [Registrieren eines Ressourcenanbieters](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+
+### <a name="scenario-the-subscription-is-disabled"></a>Szenario: Das Abonnement ist deaktiviert
+
+#### <a name="issue"></a>Problem
+
+Das Add-On kann den Dienstendpunkt von Azure Policy erreichen, gibt aber den folgenden Fehler zurück:
+
+```
+The subscription '{subId}' has been disabled for azure data-plane policy. Please contact support.
+```
+
+#### <a name="cause"></a>Ursache
+
+Dieser Fehler bedeutet, dass das Abonnement als problematisch eingestuft wurde und das Featureflag `Microsoft.PolicyInsights/DataPlaneBlocked` hinzugefügt wurde, um das Abonnement zu sperren.
+
+#### <a name="resolution"></a>Lösung
+
+Wenden Sie sich an das für das Feature zuständige Team `azuredg@microsoft.com`, um dieses Problem zu untersuchen und zu beheben.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 10/07/2020
+ms.date: 11/09/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71c786aaecd3ab2f18f242cea2f5c45838f9ecf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9536cf41add73f494bfff451c201d36e951864e3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839346"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997663"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory Identity Protection Benachrichtigungen
 
@@ -35,7 +35,9 @@ Durch Konfiguration dieser Warnung können Sie angeben, bei welcher Benutzerrisi
 
 Diese zusätzliche E-Mail-Benachrichtigung wird jedoch nur gesendet, wenn der Zeitpunkt der Risikoermittlung (aufgrund derer die Risikostufe des Benutzers geändert wurde) nach dem Zeitpunkt liegt, an dem die letzte E-Mail gesendet wurde. Beispiel: Ein Benutzer meldet sich am 1. Januar um 5:00 Uhr an, und es liegt kein Echtzeitrisiko vor (aufgrund dieser Anmeldung würde also keine E-Mail generiert). Zehn Minuten später, um 5:10 Uhr, meldet sich der Benutzer erneut an, dieses Mal jedoch mit einem hohen Echtzeitrisiko. Aufgrund dieser Anmeldung würde die Risikostufe des Benutzers in „Hoch“ geändert, und es würde eine E-Mail gesendet. Um 5:15 Uhr wird die Offlinerisikobewertung für die ursprüngliche Anmeldung um 5:00 Uhr durch die Offlinerisikoverarbeitung in ein hohes Risiko geändert. Da der Zeitpunkt der ersten Anmeldung vor dem Zeitpunkt der zweiten Anmeldung liegt, für die bereits eine E-Mail-Benachrichtigung gesendet wurde, wird keine zusätzliche E-Mail gesendet.
 
-Um eine übermäßig große Anzahl von E-Mails zu vermeiden, erhalten Sie innerhalb eines Zeitraums von fünf Sekunden nur eine E-Mail für erkannte gefährdete Benutzer. Wenn innerhalb dieses Zeitraums von fünf Sekunden für mehrere Benutzer die angegebene Risikostufe erreicht wird, wird diese Änderung der Risikostufe für alle Benutzer in einer E-Mail zusammengefasst.
+Zur Vermeidung einer übermäßig großen Anzahl von E-Mails erhalten Sie innerhalb von fünf Sekunden nur eine E-Mail. Dies bedeutet, dass wenn innerhalb der fünf Sekunden für mehrere Benutzer die angegebene Risikostufe erreicht wird, diese Änderung der Risikostufe für alle Benutzer in einer einzelnen E-Mail zusammengefasst wird.
+
+Wenn Ihre Organisation wie im Artikel [Benutzeroberflächen in Azure AD Identity Protection](concept-identity-protection-user-experience.md) beschrieben die Eigenwartung aktiviert hat, können Benutzer ihr Risiko selbst beheben, bevor Sie die Möglichkeit zur Untersuchung haben. Sie können Risikobenutzer und Risikoanmeldungen, die korrigiert wurden, anzeigen, indem Sie im Bericht **Riskante Benutzer** oder **Riskante Anmeldungen** zum Filter **Risikozustand** „Bereinigt“ hinzufügen.
 
 ![E-Mail für erkannte gefährdete Benutzer](./media/howto-identity-protection-configure-notifications/01.png)
 
@@ -55,7 +57,7 @@ Die wöchentliche Übersichts-E-Mail enthält eine Zusammenfassung der neuen Ris
 Sie hat folgenden Inhalt:
 
 - Neue Benutzer mit Risiko erkannt
-- Neue Risikoanmeldungen erkannt (in Echtzeit)
+- New risky sign-ins detected (in real time) (Neue Risikoanmeldungen erkannt (in Echtzeit))
 - Links zu verwandten Berichten in Identity Protection
 
 ![Wöchentliche E-Mail mit Übersicht](./media/howto-identity-protection-configure-notifications/weekly-digest-email.png)

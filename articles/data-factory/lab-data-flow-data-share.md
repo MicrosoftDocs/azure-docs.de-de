@@ -1,18 +1,18 @@
 ---
 title: Datenintegration mit Azure Data Factory und Azure Data Share
 description: Kopieren, Transformieren und Freigeben von Daten mit Azure Data Factory und Azure Data Share
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 01/08/2020
-ms.openlocfilehash: db5384f843173bdc795fba64f277ff8bf85dc4f5
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.date: 12/09/2020
+ms.openlocfilehash: fa424f7e1f5e1f885dd433b8abc8aae1dc1bc206
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827145"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97006156"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Datenintegration mit Azure Data Factory und Azure Data Share
 
@@ -22,7 +22,7 @@ Kunden benötigen für ihre modernen Data Warehouse- und Analyseprojekte nicht n
 
 Von der Aktivierung von ETL/ELT-Vorgängen ohne Code bis zur Ermöglichung eines umfassenden Überblicks über Ihre Daten: Dank der Verbesserungen in Azure Data Factory können Ihre Datentechniker problemlos größere Datenmengen verarbeiten und so den Nutzen für Ihr Unternehmen erhöhen. Mit Azure Data Share haben Sie die volle Kontrolle über die B2B-Freigabe.
 
-In diesem Workshop nutzen Sie Azure Data Factory (ADF) zum Erfassen von Daten aus Azure SQL-Datenbank in Azure Data Lake Storage Gen2 (ADLS Gen2). Nachdem die Daten im „Lake“ angeordnet wurden, transformieren Sie sie mit Zuordnungsdatenflüssen (nativer Data Factory-Transformationsdienst) und binden sie in Azure Synapse Analytics (vormals SQL DW) ein. Anschließend geben Sie die Tabelle mit transformierten Daten sowie einigen zusätzlichen Daten per Azure Data Share frei. 
+In diesem Workshop nutzen Sie Azure Data Factory (ADF) zum Erfassen von Daten aus Azure SQL-Datenbank in Azure Data Lake Storage Gen2 (ADLS Gen2). Nachdem die Daten im Lake angeordnet wurden, transformieren Sie sie mit Zuordnungsdatenflüssen (nativer Data Factory-Transformationsdienst) und binden sie in Azure Synapse Analytics ein. Anschließend geben Sie die Tabelle mit transformierten Daten sowie einigen zusätzlichen Daten per Azure Data Share frei. 
 
 Bei den in diesem Lab verwendeten Daten handelt es sich um New York City-Taxidaten. Laden Sie die [BACPAC-Datei „taxi-data“](https://github.com/djpmsft/ADF_Labs/blob/master/sample-data/taxi-data.bacpac) herunter, um diese Daten in Ihre Datenbank in Azure SQL-Datenbank zu importieren.
 
@@ -30,15 +30,15 @@ Bei den in diesem Lab verwendeten Daten handelt es sich um New York City-Taxidat
 
 * **Azure-Abonnement**: Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 
-* **Azure SQL-Datenbank**: Falls Sie nicht über eine SQL-Datenbank verfügen, können Sie sich über das [Erstellen eines SQL DB-Kontos](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal) informieren.
+* **Azure SQL-Datenbank**: Falls Sie nicht über eine SQL-Datenbank verfügen, können Sie sich über das [Erstellen eines SQL DB-Kontos](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal) informieren.
 
-* **Azure Data Lake Storage Gen2-Speicherkonto**: Falls Sie nicht über ein ADLS Gen2-Speicherkonto verfügen, können Sie sich über das [Erstellen eines ADLS Gen2-Speicherkontos](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account) informieren.
+* **Azure Data Lake Storage Gen2-Speicherkonto**: Falls Sie nicht über ein ADLS Gen2-Speicherkonto verfügen, können Sie sich über das [Erstellen eines ADLS Gen2-Speicherkontos](../storage/common/storage-account-create.md) informieren.
 
-* **Azure Synapse Analytics (vormals SQL DW)** : Wenn Sie nicht über eine Azure Synapse Analytics-Instanz (vormals SQL DW) verfügen, können Sie sich über das [Erstellen einer Azure Synapse Analytics-Instanz](https://docs.microsoft.com/azure/sql-data-warehouse/create-data-warehouse-portal) informieren.
+* **Azure Synapse Analytics**: Wenn Sie nicht über eine Azure Synapse Analytics-Instanz verfügen, können Sie sich über das [Erstellen einer Azure Synapse Analytics-Instanz](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) informieren.
 
-* **Azure Data Factory**: Informieren Sie sich über das [Erstellen einer Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal), falls Sie noch keine Data Factory erstellt haben.
+* **Azure Data Factory**: Informieren Sie sich über das [Erstellen einer Data Factory](./quickstart-create-data-factory-portal.md), falls Sie noch keine Data Factory erstellt haben.
 
-* **Azure Data Share**: Informieren Sie sich über das [Erstellen einer Data Share-Ressource](https://docs.microsoft.com/azure/data-share/share-your-data#create-a-data-share-account), falls Sie noch keine Data Share-Ressource erstellt haben.
+* **Azure Data Share**: Informieren Sie sich über das [Erstellen einer Data Share-Ressource](../data-share/share-your-data.md#create-a-data-share-account), falls Sie noch keine Data Share-Ressource erstellt haben.
 
 ## <a name="set-up-your-azure-data-factory-environment"></a>Einrichten Ihrer Azure Data Factory-Umgebung
 
@@ -72,19 +72,19 @@ Unter den verknüpften Azure Data Factory-Diensten definieren Sie die Informatio
     ![Portal: Konfigurieren 3](media/lab-data-flow-data-share/configure3.png)
 1. Der erste verknüpfte Dienst, den Sie konfigurieren, ist eine Azure SQL-Datenbank. Sie können die Suchleiste verwenden, um die Datenspeicherliste zu filtern. Klicken Sie auf die Kachel **Azure SQL-Datenbank** und dann auf „Weiter“.
 
-    ![Portal: Konfigurieren 4](media/lab-data-flow-data-share/configure4.png)
+    ![Portal: Konfigurieren 4](media/lab-data-flow-data-share/configure-4.png)
 1. Geben Sie im Bereich für die SQL DB-Konfiguration „SQLDB“ als Namen für Ihren verknüpften Dienst ein. Geben Sie Ihre Anmeldeinformationen ein, damit Data Factory eine Verbindung mit Ihrer Datenbank herstellen kann. Geben Sie bei Verwendung der SQL-Authentifizierung den Servernamen, die Datenbank, Ihren Benutzernamen und das Kennwort ein. Sie können die Korrektheit Ihrer Verbindungsinformationen überprüfen, indem Sie auf **Verbindung testen** klicken. Klicken Sie auf **Erstellen**, nachdem der Vorgang abgeschlossen wurde.
 
     ![Portal: Konfigurieren 5](media/lab-data-flow-data-share/configure5.png)
 
 ### <a name="create-an-azure-synapse-analytics-linked-service"></a>Erstellen eines verknüpften Azure Synapse Analytics-Diensts
 
-1. Wiederholen Sie den Vorgang, um einen verknüpften Azure Synapse Analytics-Dienst hinzuzufügen. Klicken Sie auf der Registerkarte „Verbindungen“ auf **Neu**. Wählen Sie die Kachel **Azure Synapse Analytics (vormals SQL DW)** aus, und klicken Sie auf „Weiter“.
+1. Wiederholen Sie den Vorgang, um einen verknüpften Azure Synapse Analytics-Dienst hinzuzufügen. Klicken Sie auf der Registerkarte „Verbindungen“ auf **Neu**. Wählen Sie die Kachel **Azure Synapse Analytics** aus, und klicken Sie auf „Weiter“.
 
-    ![Portal: Konfigurieren 6](media/lab-data-flow-data-share/configure6.png)
+    ![Portal: Konfigurieren 6](media/lab-data-flow-data-share/configure-6.png)
 1. Geben Sie im Konfigurationsbereich für verknüpfte Dienste „SQLDW“ als Namen für den verknüpften Dienst ein. Geben Sie Ihre Anmeldeinformationen ein, damit Data Factory eine Verbindung mit Ihrer Datenbank herstellen kann. Geben Sie bei Verwendung der SQL-Authentifizierung den Servernamen, die Datenbank, Ihren Benutzernamen und das Kennwort ein. Sie können die Korrektheit Ihrer Verbindungsinformationen überprüfen, indem Sie auf **Verbindung testen** klicken. Klicken Sie auf **Erstellen**, nachdem der Vorgang abgeschlossen wurde.
 
-    ![Portal: Konfigurieren 7](media/lab-data-flow-data-share/configure7.png)
+    ![Portal: Konfigurieren 7](media/lab-data-flow-data-share/configure-7.png)
 
 ### <a name="create-an-azure-data-lake-storage-gen2-linked-service"></a>Erstellen eines verknüpften Azure Data Lake Storage Gen2-Diensts
 
@@ -128,7 +128,7 @@ In Azure Data Factory ist eine Pipeline eine logische Gruppierung von Aktivität
     ![Portal: Kopieren 4](media/lab-data-flow-data-share/copy4.png)
 1. Suchen Sie nach **Azure SQL-Datenbank**, und klicken Sie auf „Weiter“.
 
-    ![Portal: Kopieren 5](media/lab-data-flow-data-share/copy5.png)
+    ![Portal: Kopieren 5](media/lab-data-flow-data-share/copy-5.png)
 1. Geben Sie Ihrem Dataset den Namen „TripData“. Wählen Sie „SQLDB“ als verknüpften Dienst aus. Wählen Sie in der Dropdownliste mit den Tabellennamen den Eintrag „dbo.TripData“ aus. Importieren Sie das Schema **Aus Verbindung/Speicher**. Klicken Sie auf „OK“, wenn der Vorgang abgeschlossen ist.
 
     ![Portal: Kopieren 6](media/lab-data-flow-data-share/copy6.png)
@@ -155,13 +155,13 @@ Sie haben Ihr Quelldataset erfolgreich erstellt. Stellen Sie in den Quelleinstel
 1. Klicken Sie zum Überprüfen, ob Ihre Kopieraktivität richtig funktioniert, oben in der Pipelinecanvas auf **Debuggen**, um eine Debugausführung durchzuführen. Mit einer Debugausführung können Sie Ihre Pipeline entweder von Anfang bis Ende oder bis zu einem Breakpoint testen, bevor Sie sie im Data Factory-Dienst veröffentlichen.
 
     ![Portal: Kopieren 11](media/lab-data-flow-data-share/copy11.png)
-1. Navigieren Sie in der Pipelinecanvas zur Registerkarte **Ausgabe**, um Ihre Debugausführung zu überwachen. Der Überwachungsbildschirm wird alle 20 Sekunden automatisch aktualisiert (oder wenn Sie auf die Schaltfläche „Aktualisieren“ klicken). Die Kopieraktivität verfügt über eine spezielle Überwachungsansicht, auf die Sie zugreifen können, indem Sie in der Spalte **Aktionen** auf das Brillensymbol klicken.
+1. Navigieren Sie in der Pipelinecanvas zur Registerkarte **Ausgabe**, um Ihre Debugausführung zu überwachen. Der Überwachungsbildschirm wird alle 20 Sekunden automatisch aktualisiert (oder wenn Sie auf die Schaltfläche „Aktualisieren“ klicken). Die Copy-Aktivität verfügt über eine spezielle Überwachungsansicht, auf die Sie zugreifen können, indem Sie in der Spalte **Aktionen** auf das Brillensymbol klicken.
 
     ![Portal: Kopieren 12](media/lab-data-flow-data-share/copy12.png)
 1. Die Überwachungsansicht für den Kopiervorgang enthält die Ausführungsdetails und Leistungsmerkmale zur Aktivität. Sie können Informationen zu „gelesene/geschriebene Daten“, „gelesene/geschriebene Zeilen“, „gelesene/geschriebene Dateien“ und „Durchsatz“ anzeigen. Wenn Sie alles richtig konfiguriert haben, sollten Sie verfolgen können, dass 49.999 Zeilen in eine Datei in Ihrer ADLS-Senke geschrieben werden.
 
     ![Portal: Kopieren 13](media/lab-data-flow-data-share/copy13.png)
-1. Bevor Sie mit dem nächsten Abschnitt fortfahren, wird das Veröffentlichen Ihrer Änderungen über den Data Factory-Dienst vorgeschlagen. Hierzu klicken Sie in der oberen Factory-Leiste auf **Alle veröffentlichen**. In diesem Lab ist keine Beschreibung enthalten, aber für Azure Data Factory wird die vollständige Git-Integration unterstützt. Die Git-Integration ermöglicht Versionskontrolle, iteratives Speichern in einem Repository und Zusammenarbeit über eine Data Factory. Weitere Informationen finden Sie unter [Quellcodeverwaltung in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/source-control#troubleshooting-git-integration).
+1. Bevor Sie mit dem nächsten Abschnitt fortfahren, wird das Veröffentlichen Ihrer Änderungen über den Data Factory-Dienst vorgeschlagen. Hierzu klicken Sie in der oberen Factory-Leiste auf **Alle veröffentlichen**. In diesem Lab ist keine Beschreibung enthalten, aber für Azure Data Factory wird die vollständige Git-Integration unterstützt. Die Git-Integration ermöglicht Versionskontrolle, iteratives Speichern in einem Repository und Zusammenarbeit über eine Data Factory. Weitere Informationen finden Sie unter [Quellcodeverwaltung in Azure Data Factory](./source-control.md#troubleshooting-git-integration).
 
     ![Portal: Veröffentlichen 1](media/lab-data-flow-data-share/publish1.png)
 
@@ -211,7 +211,7 @@ Mit dem in diesem Schritt erstellten Datenfluss wird für das Dataset „TripDat
     ![Portal: Datenfluss 9](media/lab-data-flow-data-share/dataflow9.png)
 1. Wählen Sie die Kachel **Azure SQL-Datenbank** aus, und klicken Sie anschließend auf „Weiter“. *Hinweis: Unter Umständen stellen Sie fest, dass viele Connectors in Data Factory für Zuordnungsdatenflüsse nicht unterstützt werden. Erfassen Sie Daten per Kopieraktivität in einer unterstützten Quelle, um diese aus einer dieser Quellen zu transformieren*.
 
-    ![Portal: Datenfluss 10](media/lab-data-flow-data-share/dataflow10.png)
+    ![Portal: Datenfluss 10](media/lab-data-flow-data-share/dataflow-10.png)
 1. Geben Sie Ihrem Dataset den Namen „TripFares“. Wählen Sie „SQLDB“ als verknüpften Dienst aus. Wählen Sie in der Dropdownliste mit den Tabellennamen den Eintrag „dbo.TripFares“ aus. Importieren Sie das Schema **Aus Verbindung/Speicher**. Klicken Sie auf „OK“, wenn der Vorgang abgeschlossen ist.
 
     ![Portal: Datenfluss 11](media/lab-data-flow-data-share/dataflow11.png)
@@ -224,9 +224,9 @@ Mit dem in diesem Schritt erstellten Datenfluss wird für das Dataset „TripDat
 1. Klicken Sie zum Hinzufügen einer neuen Transformation in „TripDataCSV“ unten rechts auf das Plussymbol. Wählen Sie unter **Multiple inputs/outputs** (Mehrere Eingaben/Ausgaben) die Option **Join** aus.
 
     ![Portal: Join 1](media/lab-data-flow-data-share/join1.png)
-1. Geben Sie Ihrer Join-Transformation den Namen „InnerJoinWithTripFares“. Wählen Sie in der Dropdownliste des rechten Streams „TripFaresSQL“ aus. Wählen Sie **Innerer** als Join-Typ aus. Weitere Informationen zu den unterschiedlichen Join-Typen im Zuordnungsdatenfluss finden Sie unter [Join-Typen](https://docs.microsoft.com/azure/data-factory/data-flow-join#join-types).
+1. Geben Sie Ihrer Join-Transformation den Namen „InnerJoinWithTripFares“. Wählen Sie in der Dropdownliste des rechten Streams „TripFaresSQL“ aus. Wählen Sie **Innerer** als Join-Typ aus. Weitere Informationen zu den unterschiedlichen Join-Typen im Zuordnungsdatenfluss finden Sie unter [Join-Typen](./data-flow-join.md#join-types).
 
-    Wählen Sie über die Dropdownliste mit den **Verknüpfungsbedingungen** aus, welche Spalten für jeden Stream abgeglichen werden sollen. Klicken Sie zum Hinzufügen einer weiteren Verknüpfungsbedingung neben einer vorhandenen Bedingung auf das Pluszeichen. Standardmäßig werden alle Verknüpfungsbedingungen mit einem AND-Operator kombiniert. Dies bedeutet, dass alle Bedingungen erfüllt sein müssen, damit sich eine Übereinstimmung ergibt. In diesem Lab möchten wir die Spalten `medallion`, `hack_license`, `vendor_id` und `pickup_datetime` verwenden.
+    Wählen Sie über die Dropdownliste mit den **Verknüpfungsbedingungen** aus, welche Spalten für jeden Stream abgeglichen werden sollen. Klicken Sie zum Hinzufügen einer weiteren Verknüpfungsbedingung neben einer vorhandenen Bedingung auf das Pluszeichen. Standardmäßig werden alle Verknüpfungsbedingungen mit einem AND-Operator kombiniert. Das bedeutet, dass alle Bedingungen erfüllt sein müssen, damit sich eine Übereinstimmung ergibt. In diesem Lab möchten wir die Spalten `medallion`, `hack_license`, `vendor_id` und `pickup_datetime` verwenden.
 
     ![Portal: Join 2](media/lab-data-flow-data-share/join2.png)
 1. Vergewissern Sie sich anhand einer Datenvorschau, dass Sie 25 Spalten erfolgreich verknüpft haben.
@@ -248,7 +248,7 @@ Mit dem in diesem Schritt erstellten Datenfluss wird für das Dataset „TripDat
     Als Erstes erstellen Sie den Ausdruck für den durchschnittlichen Fahrpreis. Geben Sie im Textfeld **Add or select a column** (Spalte hinzufügen oder auswählen) den Namen „average_fare“ ein.
 
     ![Portal: Aggregieren 3](media/lab-data-flow-data-share/agg3.png)
-1. Klicken Sie zum Eingeben eines Aggregationsausdrucks auf das blaue Feld **Ausdruck eingeben**. Der Ausdrucks-Generator für Datenflüsse wird geöffnet. Hierbei handelt es sich um ein Tool, das zum visuellen Erstellen von Datenflussausdrücken mit Eingabeschema, integrierten Funktionen und Vorgängen sowie benutzerdefinierten Parametern verwendet wird. Weitere Informationen zu den Funktionen des Ausdrucks-Generators finden Sie in der [Dokumentation des Ausdrucks-Generators](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder).
+1. Klicken Sie zum Eingeben eines Aggregationsausdrucks auf das blaue Feld **Ausdruck eingeben**. Der Ausdrucks-Generator für Datenflüsse wird geöffnet. Hierbei handelt es sich um ein Tool, das zum visuellen Erstellen von Datenflussausdrücken mit Eingabeschema, integrierten Funktionen und Vorgängen sowie benutzerdefinierten Parametern verwendet wird. Weitere Informationen zu den Funktionen des Ausdrucks-Generators finden Sie in der [Dokumentation des Ausdrucks-Generators](./concepts-data-flow-expression-builder.md).
 
     Verwenden Sie zum Abrufen des durchschnittlichen Fahrpreises die Aggregationsfunktion `avg()`, um die Spalte `total_amount` zu aggregieren, die per `toInteger()` in eine Integer umgewandelt wurde. In der Ausdruckssprache für Datenflüsse ist dies als `avg(toInteger(total_amount))` definiert. Klicken Sie auf **Speichern und beenden**, wenn Sie fertig sind.
 
@@ -274,9 +274,9 @@ Mit dem in diesem Schritt erstellten Datenfluss wird für das Dataset „TripDat
 
     ![Portal: Senke 2](media/lab-data-flow-data-share/sink2.png)
 
-1. Wählen Sie die Kachel **Azure Synapse Analytics (vormals SQL DW)** aus, und klicken Sie auf „Weiter“.
+1. Wählen Sie die Kachel **Azure Synapse Analytics** aus, und klicken Sie auf „Weiter“.
 
-    ![Portal: Senke 3](media/lab-data-flow-data-share/sink3.png)
+    ![Portal: Senke 3](media/lab-data-flow-data-share/sink-3.png)
 1. Geben Sie Ihrem Dataset den Namen „AggregatedTaxiData“. Wählen Sie „SQLDW“ als verknüpften Dienst aus. Wählen Sie **Neue Tabelle erstellen** aus, und geben Sie der neuen Tabelle den Namen „dbo.AggregateTaxiData“. Klicken Sie anschließend auf „OK“.
 
     ![Portal: Senke 4](media/lab-data-flow-data-share/sink4.png)
@@ -308,7 +308,7 @@ Sie haben den Data Factory-Teil dieses Labs jetzt abgeschlossen. Veröffentliche
 
 ## <a name="share-data-using-azure-data-share"></a>Freigeben von Daten mithilfe von Azure Data Share
 
-In diesem Abschnitt wird beschrieben, wie Sie mit dem Azure-Portal eine neue Datenfreigabe einrichten. Dies umfasst das Erstellen einer neuen Datenfreigabe, die Datasets aus Azure Data Lake Store Gen2 und Azure Synapse Analytics (vormals SQL Data Warehouse) enthält. Anschließend konfigurieren Sie eine Momentaufnahme, damit die Datenconsumer über eine Option zum automatischen Aktualisieren der freigegebenen Daten verfügen. Anschließend laden Sie Empfänger für Ihre Datenfreigabe ein. 
+In diesem Abschnitt wird beschrieben, wie Sie mit dem Azure-Portal eine neue Datenfreigabe einrichten. Dies umfasst das Erstellen einer neuen Datenfreigabe, die Datasets aus Azure Data Lake Store Gen2 und Azure Synapse Analytics enthält. Anschließend konfigurieren Sie eine Momentaufnahme, damit die Datenconsumer über eine Option zum automatischen Aktualisieren der freigegebenen Daten verfügen. Anschließend laden Sie Empfänger für Ihre Datenfreigabe ein. 
 
 Nachdem Sie eine Datenfreigabe erstellt haben, wechseln Sie dann die Seite und werden zum *Datenconsumer*. Als Datenconsumer führen Sie die folgenden Schritte aus: Akzeptieren einer Einladung für die Datenfreigabe, Konfigurieren des Orts für den Datenempfang und Zuordnen von Datasets zu unterschiedlichen Speicherorten. Anschließend lösen Sie eine Momentaufnahme aus. Bei diesem Vorgang werden die für Sie freigegebenen Daten an das Ziel kopiert, das Sie angegeben haben. 
 
@@ -342,12 +342,10 @@ Nachdem Sie eine Datenfreigabe erstellt haben, wechseln Sie dann die Seite und w
 
     ![Datasets hinzufügen 1](media/lab-data-flow-data-share/add-dataset.png)
 
-1. Wählen Sie **Azure Synapse Analytics** (vormals SQL Data Warehouse) aus, um in Azure Synapse Analytics eine Tabelle auszuwählen, in der Ihre ADF-Transformationen enthalten sind.
+1. Wählen Sie **Azure Synapse Analytics** aus, um in Azure Synapse Analytics eine Tabelle auszuwählen, in der Ihre ADF-Transformationen enthalten sind.
 
     ![Datasets hinzufügen: SQL](media/lab-data-flow-data-share/add-dataset-sql.png)
 
-> [!NOTE]
-> SQL Data Warehouse wird jetzt als Azure Synapse Analytics bezeichnet.
 
 1. Sie erhalten ein Skript, das Sie vor dem Fortfahren ausführen können. Mit dem bereitgestellten Skript wird in der SQL-Datenbank ein Benutzer erstellt, damit die verwaltete Dienstidentität von Azure Data Share im Namen des Benutzers die Authentifizierung durchführen kann. 
 
@@ -519,5 +517,3 @@ Unter Umständen werden Sie aufgefordert, ein Abonnement auszuwählen. Achten Si
 1. Navigieren Sie zurück zur Datenfreigabe des Datenconsumers. Wenn der Status des Triggers „Erfolg“ lautet, können Sie zur SQL-Zieldatenbank und zur Data Lake-Instanz navigieren, um sich zu vergewissern, dass die Daten in die entsprechenden Speicher übertragen wurden. 
 
 Glückwunsch! Sie haben das Lab nun abgeschlossen.
-
-

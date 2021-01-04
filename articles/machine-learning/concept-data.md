@@ -1,7 +1,7 @@
 ---
 title: Sicherer Datenzugriff in der Cloud
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Sie eine sichere Verbindung mit Ihren Daten von Azure Machine Learning herstellen und wie Sie Datasets und Datenspeicher für ML-Aufgaben verwenden. Datenspeicher können für die Speicherung von Daten aus einem Azure-Blob, Azure Data Lake Gen 1 und 2, SQL-DB und Azure Databricks verwendet werden.
+description: Hier erfahren Sie, wie Sie mit Azure Machine Learning-Datenspeichern und -Datasets eine sichere Verbindung mit Ihrem Datenspeicher in Azure herstellen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: a36c7076de0c4db64b67f4eba38de4daf4213bca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-python, data4ml
+ms.openlocfilehash: 6d8c04e48a3d0009a152830a4ee332cd706c4b2c
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446690"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360172"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Sicherer Datenzugriff in Azure Machine Learning
 
@@ -29,7 +29,7 @@ Azure Machine Learning macht es einfach, eine Verbindung mit Ihren Daten in der 
     
 ## <a name="data-workflow"></a>Datenworkflow
 
-Wenn Sie bereit sind, die Daten in ihrer cloudbasierten Speicherlösung zu verwenden, wird der folgende Datenübermittlungsworkflow empfohlen. Dieser Workflow setzt voraus, dass Sie über ein [Azure-Speicherkonto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) und Daten in einem cloudbasierten Speicherdienst in Azure verfügen. 
+Wenn Sie bereit sind, die Daten in ihrer cloudbasierten Speicherlösung zu verwenden, wird der folgende Datenübermittlungsworkflow empfohlen. Dieser Workflow setzt voraus, dass Sie über ein [Azure-Speicherkonto](../storage/common/storage-account-create.md?tabs=azure-portal) und Daten in einem cloudbasierten Speicherdienst in Azure verfügen. 
 
 1. Erstellen Sie einen [Azure Machine Learning-Datenspeicher](#datastores), um Verbindungsinformationen in Ihrem Azure-Speicher zu speichern.
 
@@ -81,9 +81,9 @@ Datasets können aus lokalen Dateien, öffentlichen URLs, [Azure Open Datasets](
 
 Die folgenden beiden Datasettypen stehen zur Verfügung: 
 
-+ Ein [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py&preserve-view=true) verweist auf eine einzelne Datei oder auf mehrere Dateien in Ihren Datenspeichern oder öffentlichen URLs. Wenn Ihre Daten bereits bereinigt und für Trainingsexperimente bereit sind, können Sie Dateien, auf die von FileDatasets verwiesen wird, auf Ihr Computeziel [herunterladen oder sie einbinden](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets).
++ Ein [FileDataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset?preserve-view=true&view=azure-ml-py) verweist auf eine einzelne Datei oder auf mehrere Dateien in Ihren Datenspeichern oder öffentlichen URLs. Wenn Ihre Daten bereits bereinigt und für Trainingsexperimente bereit sind, können Sie Dateien, auf die von FileDatasets verwiesen wird, auf Ihr Computeziel [herunterladen oder sie einbinden](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets).
 
-+ Ein [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) stellt Daten in einem tabellarischen Format dar, indem die bereitgestellte Datei oder Liste von Dateien analysiert wird. Sie können ein TabularDataset zur weiteren Verarbeitung oder zur Bereinigung in einen Pandas- oder Spark-Datenrahmen laden. Eine vollständige Liste der Datenformate, aus denen Sie TabularDatasets erstellen können, finden Sie im Artikel über die [TabularDatasetFactory-Klasse](https://aka.ms/tabulardataset-api-reference).
++ Ein [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) stellt Daten in einem tabellarischen Format dar, indem die bereitgestellte Datei oder Liste von Dateien analysiert wird. Sie können ein TabularDataset zur weiteren Verarbeitung oder zur Bereinigung in einen Pandas- oder Spark-Datenrahmen laden. Eine vollständige Liste der Datenformate, aus denen Sie TabularDatasets erstellen können, finden Sie im Artikel über die [TabularDatasetFactory-Klasse](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
 
 Weitere Funktionalität für Datasets finden Sie in der folgenden Dokumentation:
 
@@ -100,7 +100,7 @@ Mit Datasets können Sie eine Reihe von Machine Learning-Aufgaben über nahtlose
      + dem [Designer](tutorial-designer-automobile-price-train-score.md#import-data)
      + [Notebooks](how-to-train-with-datasets.md)
      + [Azure Machine Learning-Pipelines](how-to-create-your-first-pipeline.md)
-+ Zugreifen auf Datasets zur Bewertung mit [Batchrückschluss](how-to-use-parallel-run-step.md) in [Machine Learning-Pipelines](how-to-create-your-first-pipeline.md).
++ Zugreifen auf Datasets zur Bewertung mit [Batchrückschluss](./tutorial-pipeline-batch-scoring-classification.md) in [Machine Learning-Pipelines](how-to-create-your-first-pipeline.md).
 + Einrichten einer Datasetüberwachung zur Erkennung von [Datendrift](#drift)
 
 <a name="label"></a>

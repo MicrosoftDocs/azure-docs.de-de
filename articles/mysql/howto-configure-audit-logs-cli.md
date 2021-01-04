@@ -1,18 +1,18 @@
 ---
 title: Zugreifen auf Überwachungsprotokolle – Azure CLI – Azure Database for MySQL
 description: In diesem Artikel wird beschrieben, wie Sie die Überwachungsprotokolle in Azure Database for MySQL über die Azure CLI konfigurieren und darauf zugreifen.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/24/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 568f49565c6e6d8062f8869566cf3879b7c97eaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db7ffabae785a589bacf349356079f6046039f9c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503326"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541996"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-cli"></a>Konfigurieren von und Zugreifen auf Überwachungsprotokolle über die Azure CLI
 
@@ -20,14 +20,13 @@ Sie können die [Überwachungsprotokolle in Azure Database for MySQL](concepts-a
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Zum Ausführen der Schritte in dieser Anleitung benötigen Sie Folgendes:
+Gehen Sie im Rahmen dieser Schrittanleitung wie folgt vor:
 
-- [Azure Database for MySQL-Server](quickstart-create-mysql-server-database-using-azure-portal.md)
+- Sie benötigen einen [Azure Database for MySQL-Server](quickstart-create-mysql-server-database-using-azure-portal.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!IMPORTANT]
-> Diese Anleitung setzt die Verwendung von Azure CLI-Version 2.0 oder höher voraus. Geben Sie zum Bestätigen der Version an der Eingabeaufforderung von Azure CLI `az --version` ein. Informationen zum Ausführen einer Installation oder eines Upgrades finden Sie unter [Installieren der Azure CLI]( /cli/azure/install-azure-cli).
+- Für diesen Artikel ist mindestens Version 2.0 der Azure CLI erforderlich. Bei Verwendung von Azure Cloud Shell ist die aktuelle Version bereits installiert.
 
 ## <a name="configure-audit-logging"></a>Konfigurieren der Überwachungsprotokollierung
 

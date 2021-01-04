@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 44077c2685ce78b7ba1ea140a34dd75dcf5c7c46
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe241a3fd74e1421f1bd3d39087fe776ee7b61d9
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543464"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891515"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Tutorial: Azure Active Directory-Integration mit SAML SSO for Jira by resolution GmbH
 
@@ -27,7 +27,7 @@ Die Integration von SAML SSO for Jira by resolution GmbH in Azure AD bietet Ihne
 * Sie können es Ihren Benutzern ermöglichen, sich mit ihrem Azure AD-Konto automatisch unter Verwendung von SAML SSO for Jira by resolution GmbH anzumelden (einmaliges Anmelden; Single Sign-On, SSO).
 * Sie können Ihre Konten über das Azure-Portal an einem zentralen Ort verwalten.
 
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
@@ -41,7 +41,7 @@ Um die Azure AD-Integration und SAML SSO for Jira by resolution GmbH konfiguri
 
 In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure AD in einer Testumgebung.
 
-* SAML SSO for Jira by resolution GmbH unterstützt **SP**- und **IDP**-initiiertes einmaliges Anmelden.
+* SAML SSO for Jira by resolution GmbH unterstützt **SP** - und **IDP** -initiiertes einmaliges Anmelden.
 
 ## <a name="adding-an-enterprise-application-for-single-sign-on"></a>Hinzufügen einer Unternehmensanwendung für einmaliges Anmelden
 
@@ -53,7 +53,7 @@ Um das einmalige Anmelden in Azure AD einrichten zu können, müssen Sie eine n
 
     ![Schaltfläche „Azure Active Directory“](common/select-azuread.png)
 
-2. Navigieren Sie zu **Unternehmensanwendungen**, und klicken Sie auf **Alle Anwendungen**.
+2. Navigieren Sie zu **Unternehmensanwendungen** , und klicken Sie auf **Alle Anwendungen**.
 
     ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
 
@@ -61,7 +61,7 @@ Um das einmalige Anmelden in Azure AD einrichten zu können, müssen Sie eine n
 
     ![Schaltfläche „Neue Anwendung“](common/add-new-app.png)
 
-4. Geben Sie im Suchfeld **SAML SSO for Jira by resolution GmbH** ein, wählen Sie im Ergebnisbereich **SAML SSO for Jira by resolution GmbH** aus, und klicken Sie anschließend auf die Schaltfläche **Hinzufügen**, um die Anwendung hinzuzufügen. Der Name der Unternehmens-App kann auf Wunsch geändert werden.
+4. Geben Sie im Suchfeld **SAML SSO for Jira by resolution GmbH** ein, wählen Sie im Ergebnisbereich **SAML SSO for Jira by resolution GmbH** aus, und klicken Sie anschließend auf die Schaltfläche **Hinzufügen** , um die Anwendung hinzuzufügen. Der Name der Unternehmens-App kann auf Wunsch geändert werden.
 
      ![SAML SSO for Jira by resolution GmbH in der Ergebnisliste](common/search-new-app.png)
 
@@ -93,19 +93,19 @@ Führen Sie die folgenden Schritte aus, um das einmalige Anmelden mit SAML SSO 
 
     ![Auswahlmodus für einmaliges Anmelden](common/select-saml-option.png)
 
-3. Klicken Sie anschließend auf das Symbol **Bearbeiten**, um das Dialogfeld **Grundlegende SAML-Konfiguration** zu öffnen.
+3. Klicken Sie anschließend auf das Symbol **Bearbeiten** , um das Dialogfeld **Grundlegende SAML-Konfiguration** zu öffnen.
 
     ![Bearbeiten der SAML-Basiskonfiguration](common/edit-urls.png)
 
 4. Führen Sie im Abschnitt **Grundlegende SAML-Konfiguration** die folgenden Schritte aus, wenn Sie die Anwendung im **IDP-initiierten** Modus konfigurieren möchten:
 
-    ![SSO-Informationen zur Domäne und zu den URLs für SAML SSO for Jira by resolution GmbH](common/idp-intiated.png)
+    ![Screenshot: Abschnitt „Grundlegende SAML-Konfiguration“ mit den hervorgehobenen Textfeldern „Bezeichner“ und „Antwort-URL“ und der ausgewählten Schaltfläche „Speichern“](common/idp-intiated.png)
 
     a. Geben Sie im Textfeld **Bezeichner** eine URL im folgenden Format ein: `https://<server-base-url>/plugins/servlet/samlsso`
 
     b. Geben Sie im Textfeld **Antwort-URL** eine URL im folgenden Format ein: `https://<server-base-url>/plugins/servlet/samlsso`
 
-    c. Klicken Sie auf **Zusätzliche URLs festlegen**, und führen Sie den folgenden Schritt aus, wenn Sie die Anwendung im **SP-initiierten** Modus konfigurieren möchten:
+    c. Klicken Sie auf **Zusätzliche URLs festlegen** , und führen Sie den folgenden Schritt aus, wenn Sie die Anwendung im **SP-initiierten** Modus konfigurieren möchten:
 
     ![SSO-Informationen zur Domäne und zu den URLs für SAML SSO for Jira by resolution GmbH](common/metadata-upload-additional-signon.png)
 
@@ -124,37 +124,37 @@ Führen Sie die folgenden Schritte aus, um das einmalige Anmelden mit SAML SSO 
 
 2. Zeigen Sie auf der rechten Seite auf das Zahnrad, und klicken Sie auf **Manage apps** (Apps verwalten).
     
-    ![Einmaliges Anmelden konfigurieren](./media/samlssojira-tutorial/addon1.png)
+    ![Screenshot: Pfeil, der auf das Zahnradsymbol zeigt, und ausgewählte Option „Manage apps“ (Apps verwalten) in der Dropdownliste](./media/samlssojira-tutorial/addon1.png)
 
-3. Sollten Sie auf die Seite für den Administratorzugriff umgeleitet werden, geben Sie dort Ihr **Kennwort** ein, und klicken Sie auf die**Bestätigungsschaltfläche**.
+3. Sollten Sie auf die Seite für den Administratorzugriff umgeleitet werden, geben Sie dort Ihr **Kennwort** ein, und klicken Sie auf die **Bestätigungsschaltfläche**.
 
-    ![Einmaliges Anmelden konfigurieren](./media/samlssojira-tutorial/addon2.png)
+    ![Screenshot: Seite für den Administratorzugriff](./media/samlssojira-tutorial/addon2.png)
 
-4. Jira leitet Sie normalerweise zum Atlassian-Marketplace um. Sollte das nicht der Fall sein, klicken Sie im linken Bereich auf **Find new apps** (Nach neuen Apps suchen). Suchen Sie nach **SAML Single Sign On (SSO) for JIRA**, und klicken Sie auf die Schaltfläche **Install** (Installieren), um das SAML-Plug-In zu installieren.
+4. Jira leitet Sie normalerweise zum Atlassian-Marketplace um. Sollte das nicht der Fall sein, klicken Sie im linken Bereich auf **Find new apps** (Nach neuen Apps suchen). Suchen Sie nach **SAML Single Sign On (SSO) for JIRA** , und klicken Sie auf die Schaltfläche **Install** (Installieren), um das SAML-Plug-In zu installieren.
 
-    ![Einmaliges Anmelden konfigurieren](./media/samlssojira-tutorial/store.png)
+    ![Screenshot: Seite „Atlassian Marketplace for JIRA“ (Atlassian-Marketplace für JIRA) mit einem Pfeil, der auf die Schaltfläche „Install“ (Installieren) für die App „SAML Single Sign On (SSO) Jira, SAML/SSO“ zeigt](./media/samlssojira-tutorial/store.png)
 
 5. Die Installation des Plug-Ins wird gestartet. Klicken Sie nach Abschluss des Vorgangs auf die Schaltfläche **Close** (Schließen).
 
-    ![Einmaliges Anmelden konfigurieren](./media/samlssojira-tutorial/store-2.png)
+    ![Screenshot: Dialogfeld „Installing“ (Wird installiert...)](./media/samlssojira-tutorial/store-2.png)
 
-    ![Einmaliges Anmelden konfigurieren](./media/samlssojira-tutorial/store-3.png)
+    ![Screenshot: Dialogfeld „Installed and ready to go!“ (Installiert und einsatzbereit!) mit ausgewählter Schaltfläche „Close“ (Schließen)](./media/samlssojira-tutorial/store-3.png)
 
 6. Klicken Sie anschließend auf **Manage** (Verwalten).
 
-    ![Einmaliges Anmelden konfigurieren](./media/samlssojira-tutorial/store-4.png)
+    ![Screenshot: App „SAML Single Sign On (SSO) Jira, SAML/SSO“ mit ausgewählter Schaltfläche „Manage“ (Verwalten)](./media/samlssojira-tutorial/store-4.png)
     
 8. Klicken Sie auf **Configure** (Konfigurieren), um das soeben installierte Plug-In zu konfigurieren.
 
-    ![Einmaliges Anmelden konfigurieren](./media/samlssojira-tutorial/store-5.png)
+    ![Screenshot: Seite „Manage apps“ (Apps verwalten) mit ausgewählter Schaltfläche „Configure“ (Konfigurieren) für die App „SAML SingleSignOn for Jira“](./media/samlssojira-tutorial/store-5.png)
 
 9. Klicken Sie im **Konfigurations-Assistenten für das SAML SSO-Plug-In** auf **Add new IdP** (Neuen IdP hinzufügen), um Azure AD als neuen Identitätsanbieter zu konfigurieren.
 
-    ![Einmaliges Anmelden konfigurieren](./media/samlssojira-tutorial/addon4.png) 
+    ![Screenshot: Willkommensseite mit ausgewählter Schaltfläche „Add new IdP“ (Neuen IdP hinzufügen)](./media/samlssojira-tutorial/addon4.png) 
 
 10. Führen Sie auf der Seite **Choose your SAML Identity Provider** (SAML-Identitätsanbieter auswählen) die folgenden Schritte aus:
 
-    ![Einmaliges Anmelden konfigurieren](./media/samlssojira-tutorial/addon5a.png)
+    ![Screenshot: Seite „Choose your SAML Identity Provider“ (SAML-Identitätsanbieter auswählen) mit hervorgehobenen Textfeldern „IdP Type“ (IdP-Typ) und „Name“ sowie mit ausgewählter Schaltfläche „Next“ (Weiter)](./media/samlssojira-tutorial/addon5a.png)
  
     a. Legen Sie als IdP-Typ die Option **Azure AD** fest.
     
@@ -166,11 +166,11 @@ Führen Sie die folgenden Schritte aus, um das einmalige Anmelden mit SAML SSO 
     
 11. Klicken Sie auf der Seite **Identity provider configuration** (Identitätsanbieterkonfiguration) auf die Schaltfläche **Next** (Weiter).
  
-    ![Einmaliges Anmelden konfigurieren](./media/samlssojira-tutorial/addon5b.png)
+    ![Screenshot: Seite für die Identitätsanbieterkonfiguration](./media/samlssojira-tutorial/addon5b.png)
 
 12. Führen Sie auf der Seite **Import SAML IdP Metadata** (SAML-IdP-Metadaten importieren) die folgenden Schritte aus:
 
-    ![Einmaliges Anmelden konfigurieren](./media/samlssojira-tutorial/addon5c.png)
+    ![Screenshot: Seite „Import SAML IdP Metadata“ (SAML-IdP-Metadaten importieren) mit ausgewählter Aktion „Select Metadata XML File“ (Metadaten-XML-Datei auswählen)](./media/samlssojira-tutorial/addon5c.png)
 
     a. Klicken Sie auf die Schaltfläche **Select Metadata XML File** (Metadaten-XML-Datei auswählen), und wählen Sie die **Verbundmetadaten-XML-Datei** aus, die Sie zuvor heruntergeladen haben.
 
@@ -182,25 +182,25 @@ Führen Sie die folgenden Schritte aus, um das einmalige Anmelden mit SAML SSO 
     
 13. Klicken Sie auf der Seite **User ID attribute and transformation** (Benutzer-ID-Attribut und Transformation) auf die Schaltfläche **Next** (Weiter).
 
-    ![Einmaliges Anmelden konfigurieren](./media/samlssojira-tutorial/addon5d.png)
+    ![Screenshot: Seite „User ID attribute and transformation“ (Benutzer-ID-Attribut und Transformation) mit ausgewählter Schaltfläche „Next“ (Weiter)](./media/samlssojira-tutorial/addon5d.png)
     
 14. Klicken Sie auf der Seite **User creation and update** (Benutzererstellung und -aktualisierung) auf **Save & Next** (Speichern und weiter), um die Einstellungen zu speichern.
     
-    ![Einmaliges Anmelden konfigurieren](./media/samlssojira-tutorial/addon6a.png)
+    ![Screenshot: Seite „User creation and update“ (Benutzererstellung und -aktualisierung) mit ausgewählter Option „Save & Next“ (Speichern und weiter)](./media/samlssojira-tutorial/addon6a.png)
     
 15. Klicken Sie auf der Seite **Test your settings** (Einstellungen testen) auf **Skip test & configure manually** (Test überspringen und manuell konfigurieren), um den Benutzertest vorerst zu überspringen. Dieser wird im nächsten Abschnitt durchgeführt und erfordert einige Einstellungen im Azure-Portal.
     
-    ![Einmaliges Anmelden konfigurieren](./media/samlssojira-tutorial/addon6b.png)
+    ![Screenshot: Seite „Test your settings“ (Einstellungen testen) mit ausgewählter Schaltfläche „Skip test & configure manually“ (Test überspringen und manuell konfigurieren)](./media/samlssojira-tutorial/addon6b.png)
     
-16. Klicken Sie auf **OK**, um die Warnung zu überspringen.
+16. Klicken Sie auf **OK** , um die Warnung zu überspringen.
     
-    ![Einmaliges Anmelden konfigurieren](./media/samlssojira-tutorial/addon6c.png)
+    ![Screenshot: Warnungsdialogfeld mit ausgewählter Schaltfläche „OK“](./media/samlssojira-tutorial/addon6c.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Erstellen eines Azure AD-Testbenutzers
 
 Das Ziel dieses Abschnitts ist das Erstellen eines Testbenutzers namens Britta Simon im Azure-Portal. Mit diesem Benutzer wird das einmalige Anmelden getestet.
 
-1. Wählen Sie im Azure-Portal im linken Bereich die Option **Azure Active Directory**, **Benutzer** und dann **Alle Benutzer** aus.
+1. Wählen Sie im Azure-Portal im linken Bereich die Option **Azure Active Directory** , **Benutzer** und dann **Alle Benutzer** aus.
 
     ![Links „Benutzer und Gruppen“ und „Alle Benutzer“](common/users.png)
 
@@ -216,7 +216,7 @@ Das Ziel dieses Abschnitts ist das Erstellen eines Testbenutzers namens Britta S
   
     b. Geben Sie im Feld **Benutzername** die Zeichenfolge <b>BrittaSimon@contoso.com</b> ein.
 
-    c. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den Wert aus dem Kennwortfeld.
+    c. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen** , und notieren Sie sich den Wert aus dem Kennwortfeld.
 
     d. Klicken Sie auf **Erstellen**.
 
@@ -224,7 +224,7 @@ Das Ziel dieses Abschnitts ist das Erstellen eines Testbenutzers namens Britta S
 
 In diesem Abschnitt wird Britta Simon der Unternehmensanwendung hinzugefügt, um das einmalige Anmelden nutzen zu können.
 
-1. Wählen Sie im Azure-Portal **Unternehmensanwendungen** > **Alle Anwendungen** aus. 
+1. Wählen Sie im Azure-Portal **Unternehmensanwendungen**  > **Alle Anwendungen** aus. 
 
     ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
 
@@ -256,15 +256,15 @@ Um Azure AD-Benutzern die Anmeldung bei SAML SSO for Jira by resolution GmbH z
 
 2. Zeigen Sie auf das Zahnrad, und wählen Sie **User management** (Benutzerverwaltung) aus.
 
-   ![Mitarbeiter hinzufügen](./media/samlssojira-tutorial/user1.png)
+   ![Screenshot: Pfeil, der auf das Zahnradsymbol zeigt, und ausgewählte Option „User management“ (Benutzerverwaltung) in der Dropdownliste](./media/samlssojira-tutorial/user1.png)
 
 3. Sollten Sie auf die Seite für den Administratorzugriff umgeleitet werden, geben Sie dort Ihr **Kennwort** ein, und klicken Sie anschließend auf die **Bestätigungsschaltfläche**.
 
-    ![Mitarbeiter hinzufügen](./media/samlssojira-tutorial/user2.png) 
+    ![Screenshot: Seite für den Administratorzugriff mit hervorgehobenem Textfeld „Password“ (Kennwort)](./media/samlssojira-tutorial/user2.png) 
 
 4. Klicken Sie im Registerkartenabschnitt **User management** (Benutzerverwaltung) auf **create user** (Benutzer erstellen).
 
-    ![Mitarbeiter hinzufügen](./media/samlssojira-tutorial/user3-new.png) 
+    ![Screenshot: Registerkarte „User management“ (Benutzerverwaltung) mit ausgewählter Schaltfläche „Create user“ (Benutzer erstellen)](./media/samlssojira-tutorial/user3-new.png) 
 
 5. Führen Sie auf der Dialogfeldseite **Create new user** (Neuen Benutzer erstellen) die folgenden Schritte aus. Der erstellte Benutzer muss exakt dem Benutzer in Azure AD entsprechen:
 
@@ -284,7 +284,7 @@ Um Azure AD-Benutzern die Anmeldung bei SAML SSO for Jira by resolution GmbH z
 
 In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich.
 
-Wenn Sie im Zugriffsbereich auf die Kachel „SAML SSO for Jira by resolution GmbH“ klicken, sollten Sie automatisch bei Ihrer SAML SSO for Jira by resolution GmbH-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Wenn Sie im Zugriffsbereich auf die Kachel „SAML SSO for Jira by resolution GmbH“ klicken, sollten Sie automatisch bei Ihrer SAML SSO for Jira by resolution GmbH-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](../user-help/my-apps-portal-end-user-access.md).
 
 Sie können einmaliges Anmelden auch testen, wenn Sie zu `https://<server-base-url>/plugins/servlet/samlsso` navigieren. Ersetzen Sie **\<server-base-url>** durch die Basis-URL Ihrer Jira-Instanz.
 
@@ -313,9 +313,8 @@ Nach Aktivierung der Option ist die Eingabeaufforderung für Benutzername und Ke
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](./tutorial-list.md)
 
-- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Was ist bedingter Zugriff?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Was ist bedingter Zugriff?](../conditional-access/overview.md)

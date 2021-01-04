@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: b739bb94911e24002b359aabfa23583ecfc9de85
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: df27d7b25010fa68fc86ffe093318b2b0b7f4e96
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336002"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393828"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Erweitern des Betriebssystemlaufwerks eines virtuellen Computers
 
@@ -32,8 +32,9 @@ Beim Erstellen eines neuen virtuellen Computers in einer Ressourcengruppe durch 
 > [!IMPORTANT]
 > Ein Ändern der Größe des Datenträgers mit dem Betriebssystem oder den Daten eines virtuellen Azure-Computers erfordert, dass die Zuordnung des virtuellen Computers aufgehoben wird.
 >
-> Wenn Sie die Datenträger erweitern, müssen Sie [das Volume innerhalb des Betriebssystems erweitern](#expand-the-volume-within-the-os), um den größere Datenträger nutzen zu können.
+> Das Verkleinern eines vorhandenen Datenträgers wird nicht unterstützt und kann möglicherweise zu Datenverlusten führen.
 > 
+> Wenn Sie die Datenträger erweitern, müssen Sie [das Volume innerhalb des Betriebssystems erweitern](#expand-the-volume-within-the-os), um den größere Datenträger nutzen zu können.
 
 ## <a name="resize-a-managed-disk-in-the-azure-portal"></a>Ändern der Größe eines verwalteten Datenträgers im Azure-Portal
 
@@ -45,11 +46,11 @@ Beim Erstellen eines neuen virtuellen Computers in einer Ressourcengruppe durch 
  
 3. Wählen Sie unter **Name des Datenträgers** den Datenträger aus, dessen Größe Sie ändern möchten.
 
-    :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Screenshot: Im Abschnitt „Einstellungen“ des Menüs ist die Option „Datenträger“ ausgewählt.":::
+    :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Screenshot des Bereichs „Datenträger“, in dem der Name eines Datenträgers ausgewählt ist":::
 
 4. Wählen Sie im linken Menü unter **Einstellungen** die Option **Konfiguration** aus.
 
-    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Screenshot: Im Abschnitt „Einstellungen“ des Menüs ist die Option „Datenträger“ ausgewählt.":::
+    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Screenshot: Im Abschnitt „Einstellungen“ des Menüs ist die Option „Konfiguration“ ausgewählt.":::
 
 5. Wählen Sie in **Größe (GiB)** die gewünschte Datenträgergröße aus.
    
@@ -57,11 +58,11 @@ Beim Erstellen eines neuen virtuellen Computers in einer Ressourcengruppe durch 
    > Die neue Größe sollte die Größe des vorhandenen Datenträgers überschreiten. Der zulässige Höchstwert für Betriebssystemdatenträger beträgt 2.048 GB. (Sie können auch einen größeren VHD-Blob einsetzen, doch das Betriebssystem arbeitet nur mit den ersten 2.048 GB.)
    > 
 
-    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Screenshot: Im Abschnitt „Einstellungen“ des Menüs ist die Option „Datenträger“ ausgewählt.":::
+    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Screenshot des Bereichs „Konfiguration“ mit der ausgewählten Datenträgergröße":::
 
 6. Wählen Sie **Speichern** aus.
 
-    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Screenshot: Im Abschnitt „Einstellungen“ des Menüs ist die Option „Datenträger“ ausgewählt.":::
+    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Screenshot des Bereichs „Konfiguration“ mit ausgewählter Schaltfläche „Speichern“":::
 
 
 ## <a name="resize-a-managed-disk-by-using-powershell"></a>Ändern der Größe eines verwalteten Datenträgers mithilfe von PowerShell
@@ -213,7 +214,7 @@ $disk.DiskSizeGB = 1023
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 ```
 
-Entsprechend können Sie auf andere Datenträger verweisen, die an die VM angefügt sind, indem Sie entweder (wie oben gezeigt) einen Index oder die **Name**-Eigenschaft des Datenträgers verwenden:
+Entsprechend können Sie auf andere Datenträger verweisen, die an die VM angefügt sind, indem Sie entweder (wie oben gezeigt) einen Index oder die **Name** -Eigenschaft des Datenträgers verwenden:
 
 
 **Verwalteter Datenträger**
@@ -225,7 +226,7 @@ Entsprechend können Sie auf andere Datenträger verweisen, die an die VM angef�
 **Nicht verwalteter Datenträger**
 
 ```powershell
-($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'}).DiskSizeGB = 1023
+($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).DiskSizeGB = 1023
 ```
 
 ## <a name="expand-the-volume-within-the-os"></a>Erweitern des Volumes innerhalb des Betriebssystems

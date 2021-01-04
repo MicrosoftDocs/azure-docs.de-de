@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/02/2019
-ms.openlocfilehash: e8bce1ca10e9175b699bd548d9241b78bce3b5cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17c3f07fe553e363d1eb2a997287feb77296a621
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504858"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540311"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Verwenden des .NET SDK für Apache HBase
 
@@ -38,13 +38,13 @@ var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdins
 client = new HBaseClient(credentials);
 ```
 
-Ersetzen Sie CLUSTERNAME durch Ihren HDInsight HBase-Clusternamen, und USERNAME und PASSWORD durch die bei der Erstellung des Clusters angegebenen Apache Hadoop-Anmeldeinformationen. Der Standardbenutzername für Hadoop ist **admin**.
+Ersetzen Sie CLUSTERNAME durch Ihren HDInsight HBase-Clusternamen, und USERNAME und PASSWORD durch die bei der Erstellung des Clusters angegebenen Apache Hadoop-Anmeldeinformationen. Der Standardbenutzername für Hadoop ist **admin** .
 
 ## <a name="create-a-new-table"></a>Erstellen einer neuen Tabelle
 
-HBase speichert Daten in Tabellen. Eine Tabelle besteht aus einem *Rowkey*, dem primären Schlüssel, und einer oder mehreren Gruppen von Spalten, die als *Spaltenfamilien* bezeichnet werden. Die Daten werden in jeder Tabelle durch einen Rowkey-Bereich horizontal in *Regionen* verteilt. Jede Region hat einen Start- und Endschlüssel. Eine Tabelle kann eine oder mehrere Regionen enthalten. Mit der Zunahme der Daten in der Tabelle teilt HBase große Bereiche in kleinere Regionen auf. Regionen werden in *Regionsservern* gespeichert, wobei ein Regionsserver mehrere Regionen speichern kann.
+HBase speichert Daten in Tabellen. Eine Tabelle besteht aus einem *Rowkey* , dem primären Schlüssel, und einer oder mehreren Gruppen von Spalten, die als *Spaltenfamilien* bezeichnet werden. Die Daten werden in jeder Tabelle durch einen Rowkey-Bereich horizontal in *Regionen* verteilt. Jede Region hat einen Start- und Endschlüssel. Eine Tabelle kann eine oder mehrere Regionen enthalten. Mit der Zunahme der Daten in der Tabelle teilt HBase große Bereiche in kleinere Regionen auf. Regionen werden in *Regionsservern* gespeichert, wobei ein Regionsserver mehrere Regionen speichern kann.
 
-Physisch werden die Daten in *HFiles* gespeichert. Eine einzelne HFile enthält Daten für eine Tabelle, eine Region und eine Spaltenfamilie. Zeilen in HFiles werden sortiert nach Rowkey gespeichert. Jede HFile verfügt über einen *B+ Tree*-Index für schnelles Abrufen der Zeilen.
+Physisch werden die Daten in *HFiles* gespeichert. Eine einzelne HFile enthält Daten für eine Tabelle, eine Region und eine Spaltenfamilie. Zeilen in HFiles werden sortiert nach Rowkey gespeichert. Jede HFile verfügt über einen *B+ Tree* -Index für schnelles Abrufen der Zeilen.
 
 Um eine neue Tabelle zu erstellen, geben Sie ein `TableSchema` und Spalten an. Der folgende Code überprüft, ob die Tabelle „RestSDKTable“ bereits vorhanden ist – falls nicht, wird die Tabelle erstellt.
 
@@ -190,4 +190,4 @@ finally
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Erste Schritte mit einem Apache HBase-Beispiel in HDInsight](apache-hbase-tutorial-get-started-linux.md)
-* Erstellen einer End-to-End-Anwendung mit [Analyse der Twitter-Stimmung in Echtzeit mit Apache HBase](../hdinsight-hbase-analyze-twitter-sentiment.md)
+* Erstellen einer End-to-End-Anwendung mit [Analyse der Twitter-Stimmung in Echtzeit mit Apache HBase](./apache-hbase-tutorial-get-started-linux.md)

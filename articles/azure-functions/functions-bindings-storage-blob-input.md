@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: f5a01724bfefd50297182f998b46f99eacca5843
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1a46c272ee2f7aa2d6621e3dc2db81605ba0363f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325775"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833111"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Azure Blob Storage-Eingabebindung für Azure Functions
 
@@ -175,6 +175,15 @@ In der Datei *function.json* wird die Metadateneigenschaft `queueTrigger` verwen
 
 Weitere Informationen zu diesen Eigenschaften finden Sie im Abschnitt [Konfiguration](#configuration).
 
+Die `dataType`-Eigenschaft legt fest, welche Bindung verwendet wird. Die folgenden Werte stehen zur Unterstützung unterschiedlicher Bindungsstrategien zur Verfügung:
+
+| Bindungswert | Standard | Beschreibung | Beispiel |
+| --- | --- | --- | --- |
+| `undefined` | J | Verwendet eine umfangreiche Bindung | `def main(input: func.InputStream)` |
+| `string` | N | Verwendet eine generische Bindung und wandelt den Eingabetyp in `string` um | `def main(input: str)` |
+| `binary` | N | Verwendet eine generische Bindung und wandelt den Eingabetyp in ein `bytes`-Python-Objekt um | `def main(input: bytes)` |
+
+
 Dies ist der Python-Code:
 
 ```python
@@ -309,6 +318,7 @@ Die folgende Tabelle gibt Aufschluss über die Bindungskonfigurationseigenschaft
 |**name** | – | Der Name der Variablen, die das Blob im Funktionscode darstellt.|
 |**path** |**BlobPath** | Der Pfad des Blobs. |
 |**connection** |**Connection**| Der Name einer App-Einstellung, die die [Speicherverbindungszeichenfolge](../storage/common/storage-configure-connection-string.md) für diese Bindung enthält. Falls der Name der App-Einstellung mit „AzureWebJobs“ beginnt, können Sie hier nur den Rest des Namens angeben. Wenn Sie `connection` also beispielsweise auf „MyStorage“ festlegen, sucht die Functions-Laufzeit nach einer App-Einstellung namens „AzureWebJobsMyStorage“. Ohne Angabe für `connection` verwendet die Functions-Laufzeit die standardmäßige Storage-Verbindungszeichenfolge aus der App-Einstellung `AzureWebJobsStorage`.<br><br>Bei der Verbindungszeichenfolge muss es sich um eine Verbindungszeichenfolge für ein allgemeines Speicherkonto (nicht für ein [reines Blob Storage-Konto](../storage/common/storage-account-overview.md#types-of-storage-accounts)) handeln.|
+|**dataType**| – | Gibt für dynamisch typisierte Sprachen den zugrunde liegenden Datentyp an. Mögliche Werte sind `string`, `binary` oder `stream`. Weitere Details finden Sie in den [Konzepten für Trigger und Bindungen](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions). |
 |– | **zugreifen** | Gibt an, ob Sie einen Lesevorgang oder einen Schreibvorgang ausführen möchten. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

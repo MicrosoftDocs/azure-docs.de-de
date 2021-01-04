@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: alkohli
-ms.openlocfilehash: 3087c209b844d691173edbbd8a993c1d0aae319b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be7d477d08b025fd450bfa859e8eb677ba680143
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903637"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446370"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-pro-ordering-issues"></a>Behandeln von Azure Stack Edge Pro-Bestellproblemen
 
@@ -33,7 +33,7 @@ In diesem Tutorial lernen Sie Folgendes:
 
 ![Das Abonnement oder die Region wird nicht unterstützt](media/azure-stack-edge-troubleshoot-ordering/azure-stack-edge-troubleshoot-ordering-01.png)
 
-**Vorgeschlagene Lösung**:  Stellen Sie sicher, dass Sie ein unterstütztes Abonnement verwendet haben, z. B. [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp) oder [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Abonnements mit nutzungsbasierter Bezahlung werden nicht unterstützt. Weitere Informationen finden Sie unter [Ressourcenvoraussetzungen für Azure Stack Edge](azure-stack-edge-deploy-prep.md#prerequisites).
+**Vorgeschlagene Lösung**:  Stellen Sie sicher, dass Sie ein unterstütztes Abonnement verwendet haben, z. B. [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](/partner-center/azure-plan-lp) oder [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Abonnements mit nutzungsbasierter Bezahlung werden nicht unterstützt. Weitere Informationen finden Sie unter [Ressourcenvoraussetzungen für Azure Stack Edge](azure-stack-edge-deploy-prep.md#prerequisites).
 
 Microsoft ermöglicht auf Einzelfallbasis gegebenenfalls ein Upgrade des Abonnementtyps. Wenden Sie sich an den [Microsoft-Support](https://azure.microsoft.com/support/options/), um Ihre Anforderungen zu besprechen und diese Grenzwerte entsprechend anzupassen.
 

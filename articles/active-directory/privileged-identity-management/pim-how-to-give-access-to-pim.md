@@ -14,19 +14,19 @@ ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95f8991d5ba9efb8e3223dd44a8d037acf2de849
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fba46ee5632f7411c433e4bba29201c59c552f21
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009561"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835202"
 ---
 # <a name="delegate-access-to-privileged-identity-management"></a>Delegieren des Zugriffs auf Privileged Identity Management
 
 Um Zugriff auf Privileged Identity Management (PIM) zu gewähren, kann ein globaler Administrator anderen Benutzern die Rolle „Administrator für privilegierte Rollen“ zuweisen. Sicherheitsadministratoren und Sicherheitsleseberechtigte erhalten standardmäßig schreibgeschützten Zugriff auf Privileged Identity Management. Um Zugriff auf Privileged Identity Management zu gewähren, kann der erste Benutzer anderen die Rolle **Administrator für privilegierte Rollen** zuweisen. Die Rolle „Administrator für privilegierte Rolle“ ist nur für die Verwaltung von Azure AD-Rollen erforderlich. Berechtigungen vom Typ „Administrator für privilegierte Rolle“ sind zum Verwalten der Einstellungen für Azure-Ressourcen nicht erforderlich.
 
 > [!NOTE]
-> Für das Verwalten von Privileged Identity Management ist Multi-Factor Authentication erforderlich. Da Microsoft-Konten nicht für Azure Multi-Factor Authentication registriert werden können, kann ein Benutzer, der sich mit einem Microsoft-Konto anmeldet, nicht auf Privileged Identity Management zugreifen.
+> Für das Verwalten von Privileged Identity Management ist Azure AD Multi-Factor Authentication erforderlich. Da Microsoft-Konten nicht für Azure AD Multi-Factor Authentication registriert werden können, kann ein Benutzer, der sich mit einem Microsoft-Konto anmeldet, nicht auf Privileged Identity Management zugreifen.
 
 Stellen Sie sicher, dass immer mindestens zwei Benutzer mit der Rolle „Administrator für privilegierte Rollen“ vorhanden sind, falls ein Benutzer gesperrt oder sein Konto gelöscht wird.
 

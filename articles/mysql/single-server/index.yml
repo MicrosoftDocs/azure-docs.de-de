@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/20/2020
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 20bde668fb333b76de44406072a835b8043eb376
-  ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+  ms.openlocfilehash: a2ae6e91481da51c77f3c73f4fd9b5d31169952d
+  ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/26/2020
-  ms.locfileid: "92543728"
+  ms.lasthandoff: 12/07/2020
+  ms.locfileid: "96749129"
 landingContent:
 - title: Informationen zu Single Server
   linkLists:
@@ -117,7 +117,7 @@ landingContent:
       url: ../howto-data-in-replication.md
     - text: Wiederherstellen eines Servers über das Azure-Portal
       url: ../howto-restore-server-portal.md
-    - text: Wiederherstellen eines Servers über das Azure-Portal
+    - text: Wiederherstellen eines Servers über die Azure-Befehlszeilenschnittstelle
       url: ../howto-restore-server-cli.md
 - title: Verweis
   linkLists:

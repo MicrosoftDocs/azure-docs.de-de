@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: 03b569422b6ce9e74f77637a514c1c0b28011bed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02b8d72ab88f9eca2e1fac4858c14826dae57dbe
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761140"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629171"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Teil 3: Konfigurieren von Berechtigungen auf Verzeichnis- und Dateiebene über SMB 
 
@@ -44,7 +44,7 @@ In der folgenden Tabelle sind die Azure RBAC-Berechtigungen zu dieser Konfigurat
 
 ## <a name="supported-permissions"></a>Unterstützte Berechtigungen
 
-Azure Files unterstützt alle grundlegenden und erweiterten Windows-ACLs. Sie können Windows-ACLs für Verzeichnisse und Dateien in einer Azure-Dateifreigabe anzeigen und konfigurieren, indem Sie die Freigabe einbinden, den Windows-Datei-Explorer verwenden und den Windows-Befehl [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) oder den Befehl [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl) ausführen. 
+Azure Files unterstützt alle grundlegenden und erweiterten Windows-ACLs. Sie können Windows-ACLs für Verzeichnisse und Dateien in einer Azure-Dateifreigabe anzeigen und konfigurieren, indem Sie die Freigabe einbinden, den Windows-Datei-Explorer verwenden und den Windows-Befehl [icacls](/windows-server/administration/windows-commands/icacls) oder den Befehl [Set-ACL](/powershell/module/microsoft.powershell.security/set-acl) ausführen. 
 
 Sie müssen die Freigabe mit Ihrem Speicherkontenschlüssel von Ihrem domänengebundenen virtuellen Computer einbinden, um ACLs mit Superuserberechtigungen zu konfigurieren. Befolgen Sie die Anweisungen im nächsten Abschnitt, um eine Azure-Dateifreigabe über die Eingabeaufforderung einzubinden und die Windows-ACLs entsprechend zu konfigurieren.
 
@@ -85,7 +85,7 @@ else
 
 ```
 
-Wenn beim Herstellen einer Verbindung mit Azure Files Probleme auftreten, können Sie das [Problembehandlungstool verwenden, das für Azure Files-Einbindungsfehler unter Windows veröffentlicht wurde](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Außerdem stehen [Anleitungen](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) zur Umgehung von Szenarien bereit, wenn Port 445 blockiert ist. 
+Wenn beim Herstellen einer Verbindung mit Azure Files Probleme auftreten, können Sie das [Problembehandlungstool verwenden, das für Azure Files-Einbindungsfehler unter Windows veröffentlicht wurde](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Außerdem stehen [Anleitungen](./storage-files-faq.md#on-premises-access) zur Umgehung von Szenarien bereit, wenn Port 445 blockiert ist. 
 
 ## <a name="configure-windows-acls"></a>Konfigurieren von Windows-ACLs
 
@@ -114,7 +114,7 @@ Verwenden Sie den folgenden Windows-Befehl, um allen Verzeichnissen und Dateien 
 icacls <mounted-drive-letter>: /grant <user-email>:(f)
 ```
 
-Weitere Informationen zur Verwendung von „icacls“ zum Festlegen von Windows-ACLs und zu den verschiedenen Arten von unterstützten Berechtigungen finden Sie in der [Befehlszeilenreferenz für „icacls“](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
+Weitere Informationen zur Verwendung von „icacls“ zum Festlegen von Windows-ACLs und zu den verschiedenen Arten von unterstützten Berechtigungen finden Sie in der [Befehlszeilenreferenz für „icacls“](/windows-server/administration/windows-commands/icacls).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

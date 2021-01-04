@@ -6,12 +6,12 @@ ms.author: jegeib
 ms.service: security
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: fc343f292fa32ed2db67dd74aba7a66dbc00d6ab
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3e6fcd52ad9cb6c127c14bac2f33223fb921519e
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317836"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516372"
 ---
 # <a name="threat-modeling-tool-update-release-73007291---07292020"></a>Threat Modeling Tool, Updaterelease 7.3.00729.1 – 29.07.2020
 
@@ -48,7 +48,7 @@ Dieser Fehler tritt weiterhin auf, wenn das Threat Modeling Tool durch Doppelkli
 
 ## <a name="documentation-and-feedback"></a>Dokumentation und Feedback
 
-- Dokumentation für das Threat Modeling Tool befindet sich auf [docs.microsoft.com](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) und umfasst Informationen [zur Verwendung des Tools](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool-getting-started).
+- Dokumentation für das Threat Modeling Tool befindet sich auf [docs.microsoft.com](./threat-modeling-tool.md) und umfasst Informationen [zur Verwendung des Tools](./threat-modeling-tool-getting-started.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

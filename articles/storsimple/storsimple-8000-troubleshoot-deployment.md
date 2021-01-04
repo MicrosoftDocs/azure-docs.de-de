@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 5806266955eafab8c3c8c99695ff82736de92e9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 600934e2d46c1a84a83fa1290db13b3d0d1508f4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187063"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995402"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Beheben von Problemen mit der Bereitstellung von StorSimple-Geräten
 ## <a name="overview"></a>Übersicht
@@ -46,12 +46,12 @@ In den folgenden Abschnitten erhalten Sie Hilfestellung bei Problemen, die bei d
 ## <a name="first-time-setup-wizard-process"></a>Schritte bei der erstmaligen Ausführung des Setup-Assistenten
 In den folgenden Schritten werden die Schritte des Setup-Assistenten zusammengefasst. Ausführliche Informationen zum Setup finden Sie unter [Bereitstellen lokaler StorSimple-Geräte](storsimple-8000-deployment-walkthrough-u2.md).
 
-1. Führen Sie das Cmdlet [Invoke-HcsSetupWizard](https://technet.microsoft.com/library/dn688135.aspx) aus, um den Setup-Assistenten zu starten, der Sie durch die verbleibenden Schritte führt. 
+1. Führen Sie das Cmdlet [Invoke-HcsSetupWizard](/previous-versions/windows/powershell-scripting/dn688135(v=wps.630)) aus, um den Setup-Assistenten zu starten, der Sie durch die verbleibenden Schritte führt. 
 2. Konfigurieren des Netzwerks: im Setup-Assistenten können Sie die Netzwerkeinstellungen für die DATA 0-Netzwerkschnittstelle auf dem StorSimple-Gerät konfigurieren. Dazu gehören folgende Einstellungen:
-   * Virtuelle IP-Adresse (VIP), Subnetzmaske und Gateway – Das Cmdlet [Set HcsNetInterface](https://technet.microsoft.com/library/dn688161.aspx) wird im Hintergrund ausgeführt. Dieses Cmdlet konfiguriert IP-Adresse, Subnetzmaske und Gateway für die DATA 0-Netzwerkschnittstelle auf dem StorSimple-Gerät.
-   * Primärer DNS-Server – das Cmdlet [Set HcsDnsClientServerAddress](https://technet.microsoft.com/library/dn688172.aspx) wird im Hintergrund ausgeführt. Konfiguriert die DNS-Einstellungen für Ihre StorSimple-Lösung.
-   * NTP-Server – Das Cmdlet [Set HcsNtpClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) wird im Hintergrund ausgeführt. Konfiguriert die NTP-Servereinstellungen für Ihre StorSimple-Lösung.
-   * Optionaler Webproxy – Das Cmdlet [Set HcsWebProxy](https://technet.microsoft.com/library/dn688154.aspx) wird im Hintergrund ausgeführt. Bestimmt und aktiviert die Webproxy-Konfiguration für Ihre StorSimple-Lösung.
+   * Virtuelle IP-Adresse (VIP), Subnetzmaske und Gateway – Das Cmdlet [Set HcsNetInterface](/previous-versions/windows/powershell-scripting/dn688161(v=wps.630)) wird im Hintergrund ausgeführt. Dieses Cmdlet konfiguriert IP-Adresse, Subnetzmaske und Gateway für die DATA 0-Netzwerkschnittstelle auf dem StorSimple-Gerät.
+   * Primärer DNS-Server – das Cmdlet [Set HcsDnsClientServerAddress](/previous-versions/windows/powershell-scripting/dn688172(v=wps.630)) wird im Hintergrund ausgeführt. Konfiguriert die DNS-Einstellungen für Ihre StorSimple-Lösung.
+   * NTP-Server – Das Cmdlet [Set HcsNtpClientServerAddress](/previous-versions/windows/powershell-scripting/dn688138(v=wps.630)) wird im Hintergrund ausgeführt. Konfiguriert die NTP-Servereinstellungen für Ihre StorSimple-Lösung.
+   * Optionaler Webproxy – Das Cmdlet [Set HcsWebProxy](/previous-versions/windows/powershell-scripting/dn688154(v=wps.630)) wird im Hintergrund ausgeführt. Bestimmt und aktiviert die Webproxy-Konfiguration für Ihre StorSimple-Lösung.
 3. Einrichten des Kennworts: Der nächste Schritt ist das Einrichten des Geräteadministratorkennworts.
    Das Geräteadministratorkennwort wird zur Anmeldung am Gerät verwendet. Das Standardkennwort für das Gerät lautet **Password1**.
         
@@ -157,7 +157,7 @@ Ein Supportpaket enthält alle relevanten Protokolle, die das Microsoft Support-
    2. Klicken Sie im Bereich **Aktionen** auf **Gespeichertes Protokoll öffnen**, und zeigen Sie auf die Protokolldateien im ETVX/ETW-Format (das Supportpaket). Die Datei kann jetzt angezeigt werden. Nach dem Öffnen der Datei können Sie die Datei als Text speichern, indem Sie mit der rechten Maustaste auf die Datei klicken.
       
       > [!IMPORTANT]
-      > Sie können auch das Cmdlet **Get-WinEvent** verwenden, um diese Dateien in Windows PowerShell zu öffnen. Weitere Informationen finden Sie in der Windows PowerShell-Cmdlet-Referenzdokumentation unter [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx) .
+      > Sie können auch das Cmdlet **Get-WinEvent** verwenden, um diese Dateien in Windows PowerShell zu öffnen. Weitere Informationen finden Sie in der Windows PowerShell-Cmdlet-Referenzdokumentation unter [Get-WinEvent](/powershell/module/microsoft.powershell.diagnostics/get-winevent) .
      
 5. Wenn die Protokolle in der Ereignisanzeige geöffnet sind, suchen Sie nach den folgenden Protokollen, die Probleme im Zusammenhang mit der Gerätekonfiguration enthalten:
    
@@ -189,7 +189,7 @@ Beim Konfigurieren von Netzwerkschnittstellen für eine erste Gerätebereitstell
    * Wenn die Schnittstelle fehlerfrei funktioniert, jedoch nicht aktiviert ist, wird der Status **ifIndex** als **NotPresent** angezeigt.
    * Wenn die Schnittstelle nicht vorhanden ist, wird sie nicht in dieser Liste angezeigt. Der Benutzeroberfläche des StorSimple-Geräte-Manager-Diensts zeigt diese Schnittstelle in einem fehlerhaften Zustand an.
 
-Weitere Informationen zur Verwendung dieses Cmdlets finden Sie unter [Get-NetAdapter](https://docs.microsoft.com/powershell/module/netadapter/get-netadapter?view=win10-ps) in der Windows PowerShell-Cmdlet-Referenz.
+Weitere Informationen zur Verwendung dieses Cmdlets finden Sie unter [Get-NetAdapter](/powershell/module/netadapter/get-netadapter?view=win10-ps) in der Windows PowerShell-Cmdlet-Referenz.
 
 In den folgenden Abschnitten sind Beispiele für die Ausgabe des Cmdlets `Get-NetAdapter` aufgeführt.
 
@@ -284,7 +284,7 @@ Verwenden Sie das Cmdlet `Test-HcsmConnection` für ein Gerät, das bereits verb
    * ErrorCode.CiSDeviceDecommissioned – gibt an, dass das Gerät deaktiviert wurde.
    * ErrorCode.DeviceNotReady – gibt an, dass sich das Gerät im Wartungsmodus befindet.
    * ErrorCode.DeviceNotReady – gibt an, dass das Gerät nicht online ist.
-3. Stellen Sie sicher, dass der StorSimple-Geräte-Manager-Dienst ausgeführt wird (mit dem Cmdlet [Get-ClusterResource](https://technet.microsoft.com/library/ee461004.aspx)). Wenn der Dienst nicht ausgeführt wird, werden möglicherweise die folgenden Fehler angezeigt:
+3. Stellen Sie sicher, dass der StorSimple-Geräte-Manager-Dienst ausgeführt wird (mit dem Cmdlet [Get-ClusterResource](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee461004(v=technet.10))). Wenn der Dienst nicht ausgeführt wird, werden möglicherweise die folgenden Fehler angezeigt:
    
    * ErrorCode.CiSApplianceAgentNotOnline
    * ErrorCode.CisPowershellScriptHcsError – gibt an, dass bei der Ausführung von "Get-ClusterResource" eine Ausnahme aufgetreten ist.
@@ -308,7 +308,7 @@ Verwenden Sie das Cmdlet `Test-HcsmConnection` für ein Gerät, das bereits verb
 
 Die Protokolldateien "CiSCommandletLog0Curr.errlog" und "CiSAgentsvc0Curr.errlog" enthalten weitere Informationen, wie z. B. Details der Ausnahme.
 
-Weitere Informationen zur Verwendung des Cmdlets finden Sie unter [Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx) in der Windows PowerShell-Referenzdokumentation.
+Weitere Informationen zur Verwendung des Cmdlets finden Sie unter [Test-HcsmConnection](/previous-versions/windows/powershell-scripting/dn715782(v=wps.630)) in der Windows PowerShell-Referenzdokumentation.
 
 > [!IMPORTANT]
 > Sie können dieses Cmdlet für den aktiven und den passiven Controller ausführen.
@@ -553,5 +553,5 @@ Erfahren Sie, wie Sie [das StorSimple-Diagnosetool zum Beheben von Problemen mit
 
 <!--Link references-->
 
-[1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
-[2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx 
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd379547(v=ws.10)
+[2]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd392266(v=ws.10)

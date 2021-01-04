@@ -8,16 +8,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: how-to
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 08/14/2019
-ms.openlocfilehash: ab057e1328efbff294faa1d68f2a27c5a1f03ade
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09bb7cb2344e3e708a64842916e6e483136da3bb
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577508"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594282"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Konfigurieren einer Failovergruppe für Azure SQL-Datenbank
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -371,7 +371,7 @@ Wenn Sie [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-res
 Erstellen Sie das Gateway für das primäre virtuelle Netzwerk mithilfe des Azure-Portals.
 
 1. Navigieren Sie im [Azure-Portal](https://portal.azure.com) zu Ihrer Ressourcengruppe, und wählen Sie die Ressource **Virtuelles Netzwerk** für Ihre primäre verwaltete Instanz aus.
-1. Wählen Sie unter **Einstellungen**die Option **Subnetze** aus, und wählen Sie dann ein neues**Gatewaysubnetz** aus. Lassen Sie die Standardwerte unverändert.
+1. Wählen Sie unter **Einstellungen **die Option **Subnetze** aus, und wählen Sie dann ein neues** Gatewaysubnetz** aus. Lassen Sie die Standardwerte unverändert.
 
    ![Hinzufügen eines Gateways für die primäre verwaltete Instanz](./media/auto-failover-group-configure/add-subnet-gateway-primary-vnet.png)
 
@@ -665,7 +665,7 @@ Mithilfe einer privaten Verbindung können Sie einen logischen Server einer best
 
 Gehen Sie folgendermaßen vor, um eine private Verbindung mit Ihrer Failovergruppe zu verwenden:
 
-1. Stellen Sie sicher, dass sich der primäre und der sekundäre Server in einem [Regionspaar](/azure/best-practices-availability-paired-regions) befinden. 
+1. Stellen Sie sicher, dass sich der primäre und der sekundäre Server in einem [Regionspaar](../../best-practices-availability-paired-regions.md) befinden. 
 1. Erstellen Sie das virtuelle Netzwerk und das Subnetz in beiden Regionen, um private Endpunkte für den primären und den sekundären Server zu hosten, sodass sich die IP-Adressräume nicht überlappen. Der Adressbereich des primären virtuellen Netzwerks (10.0.0.0/16) und der des sekundären virtuellen Netzwerks (10.0.0.1/16) überschneiden sich beispielsweise. Weitere Informationen zu den Adressbereichen von virtuellen Netzwerken finden Sie im Blogartikel zum [Entwerfen von virtuellen Azure-Netzwerken](https://devblogs.microsoft.com/premier-developer/understanding-cidr-notation-when-designing-azure-virtual-networks-and-subnets/).
 1. Erstellen Sie einen [privaten Endpunkt und eine private Azure-DNS-Zone für den primären Server](../../private-link/create-private-endpoint-portal.md#create-a-private-endpoint). 
 1. Erstellen Sie auch einen privaten Endpunkt für den sekundären Server. Verwenden Sie dafür jedoch die gleiche private DNS-Zone, die für den primären Server erstellt wurde. 

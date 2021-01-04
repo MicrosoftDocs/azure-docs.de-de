@@ -3,13 +3,13 @@ title: Eingehende/ausgehende IP-Adressen
 description: Hier wird beschrieben, wie ein- und ausgehende IP-Adressen in Azure App Service verwendet werden, wann sie sich ändern und wie Sie diese Adressen für Ihre App ermitteln.
 ms.topic: article
 ms.date: 08/25/2020
-ms.custom: seodec18
-ms.openlocfilehash: 8fa9fec9219cfd85a8a0b25f50835425766d9043
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: e5b271cc5cd8cb52267b6ee44bc3965d0e4b0aab
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050691"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746146"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Ein- und ausgehende IP-Adressen in Azure App Service
 
@@ -51,13 +51,13 @@ Der Satz der ausgehenden IP-Adressen für Ihre Anwendung ändert sich, wenn Sie 
 
 - Sie löschen eine App und erstellen sie in einer anderen Ressourcengruppe neu (die Bereitstellungseinheit kann sich ändern).
 - Sie löschen die letzte App in einer Kombination aus Ressourcengruppe _und_ Region und erstellen sie neu (die Bereitstellungseinheit kann sich ändern).
-- Skalieren Sie die App zwischen den niedrigeren Tarifen (**Basic**, **Standard** und **Premium**) und dem Tarif **Premium V2** (IP-Adressen können dem Satz hinzugefügt oder aus ihm entfernt werden).
+- Skalieren Sie die App zwischen den niedrigeren Tarifen ( **Basic** , **Standard** und **Premium** ) und dem Tarif **Premium V2** (IP-Adressen können dem Satz hinzugefügt oder aus ihm entfernt werden).
 
 Sie finden die Sammlung aller möglichen IP-Ausgangsadressen, die von Ihrer App verwendet werden können, indem Sie nach der Eigenschaft `possibleOutboundIpAddresses` suchen, oder im Feld **Zusätzliche ausgehende IP-Adressen** auf dem Blatt **Eigenschaften** im Azure-Portal. Siehe [Ermitteln der ausgehenden IP-Adressen](#find-outbound-ips).
 
 ## <a name="find-outbound-ips"></a>Ermitteln der ausgehenden IP-Adressen
 
-Um die momentan von Ihrer App verwendeten ausgehenden IP-Adressen zu ermitteln, klicken Sie im Azure-Portal im linken Navigationsbereich Ihrer App auf **Eigenschaften**. Sie sind im Feld **Ausgehende IP-Adressen** aufgelistet.
+Um die momentan von Ihrer App verwendeten ausgehenden IP-Adressen zu ermitteln, klicken Sie im Azure-Portal im linken Navigationsbereich Ihrer App auf **Eigenschaften** . Sie sind im Feld **Ausgehende IP-Adressen** aufgelistet.
 
 Die gleichen Informationen erhalten Sie, indem Sie den folgenden Befehl in der [Cloud Shell](../cloud-shell/quickstart.md) ausführen.
 
@@ -69,7 +69,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query outboundI
 (Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).OutboundIpAddresses
 ```
 
-Um unabhängig vom Tarif _alle_ möglichen IP-Ausgangsadressen für Ihre App zu finden, klicken Sie im linken Navigationsbereich Ihrer App auf **Eigenschaften**. Sie sind im Feld **Zusätzliche ausgehende IP-Adressen** aufgelistet.
+Um unabhängig vom Tarif _alle_ möglichen IP-Ausgangsadressen für Ihre App zu finden, klicken Sie im linken Navigationsbereich Ihrer App auf **Eigenschaften** . Sie sind im Feld **Zusätzliche ausgehende IP-Adressen** aufgelistet.
 
 Die gleichen Informationen erhalten Sie, indem Sie den folgenden Befehl in der [Cloud Shell](../cloud-shell/quickstart.md) ausführen.
 

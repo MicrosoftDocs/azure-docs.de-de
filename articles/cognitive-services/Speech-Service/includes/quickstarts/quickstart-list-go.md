@@ -1,11 +1,11 @@
 ---
-ms.openlocfilehash: f1a331db9109304425fa046a23b0966eca7f22b2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c49fc5748e2234aa870dad79fd0d5842d120e117
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82980140"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188312"
 ---
-- [Schnellstart: Erkennen von Spracheingaben per Mikrofon](~/articles/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone.md)
-- [Schnellstart: Erkennen von Sprache aus einer Datei](~/articles/cognitive-services/speech-service/quickstarts/speech-to-text-from-file.md)
+- [Schnellstart: Erkennen von Spracheingaben per Mikrofon](../../get-started-speech-to-text.md)
+- [Schnellstart: Erkennen von Sprache aus einer Datei](../../get-started-speech-to-text.md)
 - [Schnellstart: Erstellen eines benutzerdefinierten Sprachassistenten](~/articles/cognitive-services/speech-service/quickstarts/voice-assistants.md)

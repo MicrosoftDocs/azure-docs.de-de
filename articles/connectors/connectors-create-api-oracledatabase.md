@@ -7,12 +7,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: 988d1efd348fe8e85dd33fbe35cc8dc9362c081b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91873a2d6a498712773bfe721653e64c3364666f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87290606"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674820"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Erste Schritte mit dem Oracle-Datenbankconnector
 
@@ -23,7 +23,7 @@ Mit dem Oracle-Datenbankconnector erstellen Sie Unternehmensworkflows, die auf D
 
 Dieser Connector unterstützt die folgenden Elemente nicht:
 
-* Sichten 
+* Sichten 
 * Tabellen mit zusammengesetzten Schlüsseln
 * Geschachtelte Objekttypen in Tabellen
 * Datenbankfunktionen mit nicht skalaren Werten
@@ -39,9 +39,9 @@ In diesem Artikel erfahren Sie, wie Sie den Oracle-Datenbankconnector in einer L
 * Installieren Sie den lokalen Datengateway. Unter [Herstellen einer Verbindung mit lokalen Daten für Logik-Apps](../logic-apps/logic-apps-gateway-connection.md) werden die Schritte aufgeführt. Das Gateway ist erforderlich, um eine Verbindung zu einer lokalen Oracle-Datenbank oder einer Azure-VM mit installierter Oracle-Datenbank herzustellen. 
 
     > [!NOTE]
-    > Das lokale Datengateway fungiert als Brücke und ermöglicht eine sichere Datenübertragung zwischen lokalen (nicht in der Cloud enthaltenen) Datenquellen und Ihren Logik-Apps. Dasselbe Gateway kann mit mehreren Diensten und mehreren Datenquellen verwendet werden. Daher müssen Sie das Gateway möglicherweise nur einmal installieren.
+    > Das lokale Datengateway fungiert als Brücke und ermöglicht eine sichere Datenübertragung zwischen lokalen (nicht in der Cloud enthaltenen) Datenquellen und Ihren Logik-Apps. Dasselbe Gateway kann mit mehreren Diensten und mehreren Datenquellen verwendet werden.  Daher müssen Sie das Gateway möglicherweise nur einmal installieren.
 
-* Installieren Sie den Oracle-Client auf dem Computer, auf dem das lokale Datengateway installiert ist. Achten Sie darauf, dass Sie den 64-Bit-Oracle-Datenanbieter für .NET von Oracle installieren:  
+* Installieren Sie den Oracle-Client auf dem Computer, auf dem das lokale Datengateway installiert ist.  Achten Sie darauf, dass Sie den 64-Bit-Oracle-Datenanbieter für .NET von Oracle installieren:  
 
   [64-Bit-ODAC 12c Release 4 (12.1.0.2.4) für Windows x64](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
@@ -52,7 +52,7 @@ In diesem Artikel erfahren Sie, wie Sie den Oracle-Datenbankconnector in einer L
 ## <a name="add-the-connector"></a>Hinzufügen des Connectors
 
 > [!IMPORTANT]
-> Dieser Connector verfügt über keine Trigger. Es weist lediglich Aktionen auf. Fügen Sie daher bei der Erstellung Ihrer Logik-App einen anderen Trigger hinzu, um Ihre Logik-App zu starten, z.B. **Zeitplan - Wiederholung** oder **Anforderung/Antwort - Antwort**. 
+> Dieser Connector verfügt über keine Trigger. Es weist lediglich Aktionen auf. Fügen Sie daher bei der Erstellung Ihrer Logik-App einen anderen Trigger hinzu, um Ihre Logik-App zu starten, z.B. **Zeitplan - Wiederholung** oder **Anforderung/Antwort - Antwort** . 
 
 1. Erstellen Sie im [Azure-Portal](https://portal.azure.com) eine leere Logik-App.
 
@@ -62,14 +62,14 @@ In diesem Artikel erfahren Sie, wie Sie den Oracle-Datenbankconnector in einer L
 
 3. Wählen Sie **Speichern** aus. Beim Speichern wird automatisch eine Anforderungs-URL generiert. 
 
-4. Wählen Sie **Neuer Schritt** aus und anschließend **Aktion hinzufügen**. Geben Sie `oracle` ein, um die verfügbaren Aktionen anzuzeigen: 
+4. Wählen Sie **Neuer Schritt** aus und anschließend **Aktion hinzufügen** . Geben Sie `oracle` ein, um die verfügbaren Aktionen anzuzeigen: 
 
     ![Ein Suchfeld, das den Begriff „oracle“ enthält. Die Suche ergibt einen Treffer mit der Bezeichnung „Oracle Database“. Es ist eine Registerkartenseite mit einer Registerkarte „TRIGGER (0)“ und einer weiteren Registerkarte „AKTIONEN (6)“dargestellt. Es sind sechs Aktionen aufgeführt. Die erste dieser Aktionen lautet „Zeile abrufen Vorschau“.](./media/connectors-create-api-oracledatabase/oracledb-actions.png)
 
     > [!TIP]
     > Dies ist auch die schnellste Methode, um die Trigger und Aktionen anzuzeigen, die für Connectors verfügbar sind. Geben Sie einen Teil des Connectornamens ein, z.B. `oracle`. Der Designer führt alle Trigger und Aktionen auf. 
 
-5. Wählen Sie eine der Aktionen aus, z.B. **Oracle-Datenbank - Zeile abrufen**. Wählen Sie **Verbinden über lokales Datengateway**. Geben Sie den Oracle-Servernamen, die Authentifizierungsmethode, den Benutzernamen und das Kennwort ein, und wählen Sie das Gateway aus:
+5. Wählen Sie eine der Aktionen aus, z.B. **Oracle-Datenbank - Zeile abrufen** . Wählen Sie **Verbinden über lokales Datengateway** . Geben Sie den Oracle-Servernamen, die Authentifizierungsmethode, den Benutzernamen und das Kennwort ein, und wählen Sie das Gateway aus:
 
     ![Das Dialogfeld hat den Titel „Oracle Database – Zeile abrufen“. Darin ist ein aktiviertes Kontrollkästchen mit der Bezeichnung „Verbindung über lokales Datengateway herstellen“ enthalten. Darunter sind fünf Textfelder vorhanden.](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
 
@@ -100,19 +100,19 @@ In diesem Artikel erfahren Sie, wie Sie den Oracle-Datenbankconnector in einer L
 
 #### <a name="error-cannot-reach-the-gateway"></a>**Fehler:** Das Gateway ist nicht erreichbar.
 
-**Ursache:** Das lokale Datengateway kann keine Verbindung zur Cloud herstellen. 
+**Ursache:** Das lokale Datengateway kann keine Verbindung zur Cloud herstellen. 
 
-**Lösung**: Stellen Sie sicher, dass Ihr Gateway auf dem lokalen Computer ausgeführt wird, auf dem dieser installiert ist, und dass eine Internetverbindung hergestellt werden kann.  Es wird empfohlen, das Gateway nicht auf einem Computer zu installieren, der möglicherweise ausgeschaltet wird oder in den Standbymodus wechselt. Sie können auch den lokalen Datengatewaydienst (PBIEgwService) neu starten.
+**Lösung** : Stellen Sie sicher, dass Ihr Gateway auf dem lokalen Computer ausgeführt wird, auf dem dieser installiert ist, und dass eine Internetverbindung hergestellt werden kann.    Es wird empfohlen, das Gateway nicht auf einem Computer zu installieren, der möglicherweise ausgeschaltet wird oder in den Standbymodus wechselt.  Sie können auch den lokalen Datengatewaydienst (PBIEgwService) neu starten.
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Fehler:** Der verwendete Anbieter ist veraltet: System.Data.OracleClient erfordert Version 8.1.7 oder höher der Oracle-Clientsoftware. Informationen zum Installieren des offiziellen Anbieters finden Sie unter [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376).
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Fehler:** Der verwendete Anbieter ist veraltet: System.Data.OracleClient erfordert Version 8.1.7 oder höher der Oracle-Clientsoftware. Informationen zum Installieren des offiziellen Anbieters finden Sie unter [https://go.microsoft.com/fwlink/p/?LinkID=272376](/power-bi/connect-data/desktop-connect-oracle-database).
 
-**Ursache:** Das Oracle-Client-SDK ist nicht auf dem Computer installiert, auf dem das lokale Datengateway ausgeführt wird.  
+**Ursache:** Das Oracle-Client-SDK ist nicht auf dem Computer installiert, auf dem das lokale Datengateway ausgeführt wird.  
 
 **Lösung:** Laden Sie das Oracle-Client-SDK auf demselben Computer herunter, auf dem sich das lokale Datengateway befindet, und installieren Sie es.
 
 #### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Fehler:** Für die Tabelle „[Tablename]“ sind keine Schlüsselspalten definiert.
 
-**Ursache:** Die Tabelle weist keinen Primärschlüssel auf.  
+**Ursache:** Die Tabelle weist keinen Primärschlüssel auf.  
 
 **Lösung:** Der Oracle-Datenbankconnector erfordert, dass eine Tabelle mit einer Primärschlüsselspalte verwendet wird.
  
@@ -129,4 +129,3 @@ Sie können zur Verbesserung von Logik-Apps und Connectors beitragen, indem Sie 
 
 ## <a name="next-steps"></a>Nächste Schritte
 [Erstellen Sie eine Logik-App](../logic-apps/quickstart-create-first-logic-app-workflow.md), und informieren Sie sich anhand unserer [API-Liste](apis-list.md) über die in Logic Apps verfügbaren Connectors.
-

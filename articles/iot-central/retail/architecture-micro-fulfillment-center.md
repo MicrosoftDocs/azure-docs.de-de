@@ -9,12 +9,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: b0d030240ebe22886826b7a25bd5ca7b8f54e358
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9a0d91677770e89f3e249fc699057332cccaa323
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81001109"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347471"
 ---
 # <a name="micro-fulfillment-center-architecture"></a>Micro-Fulfillment-Center-Architektur
 
@@ -22,11 +22,11 @@ Micro-Fulfillment-Center-Lösungen ermöglichen die digitale Verbindung, Überwa
 
 ![Azure IoT Central Store Analytics](./media/architecture/micro-fulfillment-center-architecture-frame.png)
 
-- Ein Satz von IoT-Sensoren zum Senden von Telemetriedaten an ein Gatewaygerät
-- Gatewaygeräte senden Telemetrie und aggregierte Erkenntnisse an IoT Central
-- Kontinuierlicher Datenexport an den gewünschten Azure-Dienst zur Bearbeitung
-- Daten können im gewünschten Format strukturiert und an einen Speicherdienst gesendet werden
-- Geschäftsanwendungen können Daten abfragen und Erkenntnisse generieren, die Einzelhandelsvorgänge stützen
+1. Ein Satz von IoT-Sensoren zum Senden von Telemetriedaten an ein Gatewaygerät
+2. Gatewaygeräte senden Telemetrie und aggregierte Erkenntnisse an IoT Central
+3. Kontinuierlicher Datenexport an den gewünschten Azure-Dienst zur Bearbeitung
+4. Daten können im gewünschten Format strukturiert und an einen Speicherdienst gesendet werden
+5. Geschäftsanwendungen können Daten abfragen und Erkenntnisse generieren, die Einzelhandelsvorgänge stützen
  
 Als Nächstes beschäftigen wir uns mit allgemeinen Schlüsselkomponenten einer Micro-Fulfillment-Center-Lösung.
 

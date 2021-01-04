@@ -5,14 +5,14 @@ keywords: App Service, Azure App Service, AuthN, AuthZ, sicher, Sicherheit, mehr
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/29/2020
-ms.custom: devx-track-csharp, seodec18
+ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: abda26e359becb137d4c0c9f2965ebfbb5ee047c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c3fca6cf7782c3aaac91388a8f8395e288f5ea5
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90982901"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558741"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Umfassendes Authentifizieren und Autorisieren von Benutzern in Azure App Service
 
@@ -55,8 +55,9 @@ Die Schritte in diesem Tutorial können unter macOS, Linux und Windows ausgefüh
 
 Für dieses Tutorial benötigen Sie Folgendes:
 
-* <a href="https://git-scm.com/" target="_blank">Installation von Git</a>
-* <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Installation des aktuellen .NET Core 3.1 SDK</a>
+- <a href="https://git-scm.com/" target="_blank">Installation von Git</a>
+- <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Installation des aktuellen .NET Core 3.1 SDK</a>
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-local-net-core-app"></a>Erstellen einer lokalen .NET Core-App
 
@@ -77,8 +78,6 @@ Navigieren Sie zu `http://localhost:5000`, und versuchen Sie, Todo-Elemente hinz
 ![Lokal ausgeführte ASP.NET Core-API](./media/tutorial-auth-aad/local-run.png)
 
 Sie können ASP.NET Core jederzeit beenden, indem Sie im Terminal `Ctrl+C` drücken.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="deploy-apps-to-azure"></a>Bereitstellen von Apps für Azure
 
@@ -225,7 +224,7 @@ Navigieren Sie zu `http://<front-end-app-name>.azurewebsites.net`, und fügen Si
 
 Navigieren Sie zu `http://<back-end-app-name>.azurewebsites.net`, um die aus der Front-End-App hinzugefügten Elemente anzuzeigen. Fügen Sie außerdem einige Elemente hinzu, z.B. `from back end 1` und `from back end 2`. Aktualisieren Sie anschließend die Front-End-App, um zu prüfen, ob die Änderungen widergespiegelt werden.
 
-:::image type="content" source="./media/tutorial-auth-aad/remote-api-call-run.png" alt-text="Screenshot: Azure App Service-REST-API-Beispiel in einem Browserfenster mit einer Aufgabenlisten-App":::
+:::image type="content" source="./media/tutorial-auth-aad/remote-api-call-run.png" alt-text="Screenshot: Azure App Service-REST-API-Beispiel in einem Browserfenster mit einer Aufgabenlisten-App und Elementen, die aus der Front-End-App hinzugefügt werden":::
 
 ## <a name="configure-auth"></a>Konfigurieren der Authentifizierung
 
@@ -239,7 +238,7 @@ Wählen Sie im Menü [Azure-Portal](https://portal.azure.com) den Eintrag **Ress
 
 Navigieren Sie in **Ressourcengruppen** zu Ihrer Ressourcengruppe, und wählen Sie sie aus. Wählen Sie in **Übersicht** die Verwaltungsseite Ihrer Back-End-App aus.
 
-:::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="Screenshot: Azure App Service-REST-API-Beispiel in einem Browserfenster mit einer Aufgabenlisten-App":::
+:::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="Screenshot: Fenster „Ressourcengruppen“ mit der Übersicht für eine Beispielressourcengruppe und der für Ihre Back-End-App ausgewählten Verwaltungsseite":::
 
 Klicken Sie in Ihrer Back-End-App im Menü auf der linken Seite auf **Authentifizierung/Autorisierung**, und aktivieren Sie anschließend „App Service-Authentifizierung“, indem Sie **Ein** auswählen.
 
@@ -247,7 +246,7 @@ Wählen Sie unter **Die auszuführende Aktion, wenn die Anforderung nicht authen
 
 Wählen Sie unter **Authentifizierungsanbieter** die Option **Azure Active Directory** aus.
 
-:::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Screenshot: Azure App Service-REST-API-Beispiel in einem Browserfenster mit einer Aufgabenlisten-App":::
+:::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Screenshot: linkes Menü der Back-End-App mit der ausgewählten Option „Authentifizierung/Autorisierung“ und im rechten Menü ausgewählten Einstellungen":::
 
 Wählen Sie **Express** aus, und übernehmen Sie die Standardeinstellungen, um eine neue AD-App zu erstellen. Klicken Sie anschließend auf **OK**.
 
@@ -259,7 +258,7 @@ Klicken Sie erneut auf **Azure Active Directory** und dann auf **Azure AD-App**.
 
 Kopieren Sie die **Client-ID** der Azure AD-Anwendung in Editor. Sie benötigen diesen Wert später noch.
 
-:::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Screenshot: Azure App Service-REST-API-Beispiel in einem Browserfenster mit einer Aufgabenlisten-App":::
+:::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Screenshot: Fenster der Azure Active Directory-Einstellungen mit der Azure AD-App und dem Fenster der Azure AD-Anwendungen mit der zu kopierenden Client-ID":::
 
 Wenn Sie den Vorgang hier abbrechen, verfügen Sie über eine eigenständige App, die bereits durch die App Service-Authentifizierung und -Autorisierung geschützt ist. In den übrigen Abschnitten erfahren Sie, wie Sie eine Multi-App-Lösung durch einen authentifizierten Benutzerflow vom Front-End zum Back-End schützen. 
 
@@ -284,13 +283,13 @@ Wählen Sie im Menü [Azure-Portal](https://portal.azure.com) die Option **Azure
 
 Wählen Sie **App-Registrierungen** > **Anwendungen mit Besitzer** > **Alle Anwendungen im Verzeichnis anzeigen** aus. Wählen Sie den Namen Ihrer Front-End-App aus und dann **API-Berechtigungen** aus.
 
-:::image type="content" source="./media/tutorial-auth-aad/add-api-access-front-end.png" alt-text="Screenshot: Azure App Service-REST-API-Beispiel in einem Browserfenster mit einer Aufgabenlisten-App":::
+:::image type="content" source="./media/tutorial-auth-aad/add-api-access-front-end.png" alt-text="Screenshot: Fenster „Microsoft – App-Registrierungen“ mit den ausgewählten Optionen „Anwendungen mit Besitzer“ und „API-Berechtigungen“ sowie dem ausgewählten Namen der Front-End-App":::
 
 Wählen Sie **Berechtigung hinzufügen** und anschließend **Von meiner Organisation verwendete APIs** >  **\<back-end-app-name>** aus.
 
 Wählen Sie auf der Seite **API-Berechtigungen anfordern** für die Back-End-App **Delegierte Berechtigungen** und **user_impersonation** und anschließend **Berechtigungen hinzufügen** aus.
 
-:::image type="content" source="./media/tutorial-auth-aad/select-permission-front-end.png" alt-text="Screenshot: Azure App Service-REST-API-Beispiel in einem Browserfenster mit einer Aufgabenlisten-App":::
+:::image type="content" source="./media/tutorial-auth-aad/select-permission-front-end.png" alt-text="Screenshot: Seite „API-Berechtigungen anfordern“ mit den ausgewählten Optionen „Delegierte Berechtigungen“ und „user_impersonation“ und der ausgewählten Schaltfläche „Berechtigungen hinzufügen“":::
 
 ### <a name="configure-app-service-to-return-a-usable-access-token"></a>Konfigurieren von App Service für die Rückgabe eines verwendbaren Zugriffstokens
 
@@ -300,7 +299,7 @@ Navigieren Sie zu [Azure-Ressourcen-Explorer](https://resources.azure.com), und 
 
 Der [Azure-Ressourcen-Explorer](https://resources.azure.com) wird nun mit der in der Ressourcenstruktur ausgewählten Front-End-App geöffnet. Klicken Sie am oberen Rand der Seite auf **Lesen/Schreiben**, um die Bearbeitung Ihrer Azure-Ressourcen zu ermöglichen.
 
-:::image type="content" source="./media/tutorial-auth-aad/resources-enable-write.png" alt-text="Screenshot: Azure App Service-REST-API-Beispiel in einem Browserfenster mit einer Aufgabenlisten-App":::
+:::image type="content" source="./media/tutorial-auth-aad/resources-enable-write.png" alt-text="Screenshot: Schaltflächen „Schreibgeschützt“ und „Lesen/Schreiben“ oben auf der Seite des Azure-Ressourcen-Explorers mit der ausgewählten Schaltfläche „Lesen/Schreiben“":::
 
 Führen Sie im Browser links einen Drilldown für **config** > **authsettings** aus.
 
@@ -310,7 +309,7 @@ Klicken Sie in der Ansicht **authsettings** auf **Bearbeiten**. Legen Sie `addit
 "additionalLoginParams": ["response_type=code id_token","resource=<back-end-client-id>"],
 ```
 
-:::image type="content" source="./media/tutorial-auth-aad/additional-login-params-front-end.png" alt-text="Screenshot: Azure App Service-REST-API-Beispiel in einem Browserfenster mit einer Aufgabenlisten-App":::
+:::image type="content" source="./media/tutorial-auth-aad/additional-login-params-front-end.png" alt-text="Screenshot: Codebeispiel in der Ansicht „authsettings“ mit der Zeichenfolge „additionalLoginParams“ und einem Beispiel einer Client-ID":::
 
 Speichern Sie Ihre Einstellungen, indem Sie auf **PUT** klicken.
 

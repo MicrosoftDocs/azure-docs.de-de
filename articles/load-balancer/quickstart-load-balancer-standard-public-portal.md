@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/17/2020
+ms.date: 10/22/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: c8ead035b9ac47325b2237ebd4d248f09d2d22f5
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5f19b55a955b8e3e1500cf14fa221b46808ac857
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047742"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698290"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Schnellstart: Erstellen eines öffentlichen Lastenausgleichs für den Lastenausgleich virtueller Computer über das Azure-Portal
 
@@ -52,7 +52,7 @@ Wenn Sie einen öffentlichen Lastenausgleich erstellen, muss für den Lastenausg
     | Einstellung                 | Wert                                              |
     | ---                     | ---                                                |
     | Subscription               | Wählen Sie Ihr Abonnement aus.    |    
-    | Resource group         | Wählen Sie **Neu erstellen** aus, und geben Sie **myResourceGroupLB** in das Textfeld ein.|
+    | Resource group         | Wählen Sie die Option **Neu erstellen** aus, und geben Sie im Textfeld **CreatePubLBQS-rg** ein.|
     | Name                   | Geben Sie **myLoadBalancer** ein.                                   |
     | Region         | Wählen Sie **Europa, Westen** aus.                                        |
     | type          | Wählen Sie **Öffentlich** aus.                                        |
@@ -60,7 +60,7 @@ Wenn Sie einen öffentlichen Lastenausgleich erstellen, muss für den Lastenausg
     | Öffentliche IP-Adresse | Wählen Sie **Neu erstellen**. Wenn Sie über eine vorhandene öffentliche IP-Adresse verfügen, die Sie verwenden möchten, wählen Sie **Vorhandene verwenden** aus. |
     | Name der öffentlichen IP-Adresse | Geben Sie **myPublicIP** in das Textfeld ein.|
     | Verfügbarkeitszone | Wählen Sie **Zonenredundant** aus, um einen resilienten Lastenausgleich zu erstellen. Wählen Sie zum Erstellen eines zonalen Lastenausgleichs eine bestimmte Zone aus 1, 2 oder 3 aus. |
-    | Öffentliche IPv6-Adresse hinzufügen | Wählen Sie **Nein** aus. </br> Weitere Informationen zu IPv6-Adressen und zum Lastenausgleich finden Sie unter [Was ist IPv6 für Azure Virtual Network?](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).  |
+    | Öffentliche IPv6-Adresse hinzufügen | Wählen Sie **Nein** aus. </br> Weitere Informationen zu IPv6-Adressen und zum Lastenausgleich finden Sie unter [Was ist IPv6 für Azure Virtual Network?](../virtual-network/ipv6-overview.md).  |
 
 3. Übernehmen Sie bei den anderen Einstellungen die Standardwerte, und wählen Sie **Überprüfen + erstellen** aus.
 
@@ -138,7 +138,9 @@ In diesem Abschnitt wird eine Lastenausgleichsregel mit folgenden Merkmalen erst
     | Back-End-Port | Geben Sie **80** ein. |
     | Back-End-Pool | Wählen Sie **myBackendPool** aus.|
     | Integritätstest | Wählen Sie **myHealthProbe** aus. |
-    | Erstellen impliziter Ausgangsregeln | Wählen Sie also **Nein**.
+    | Leerlaufzeitüberschreitung (Minuten) | Bewegen Sie den Schieberegler auf **15 Minuten**. |
+    | TCP-Zurücksetzung | Wählen Sie **Aktiviert**. |
+    | Übersetzung der Quellnetzwerkadresse (SNAT) für ausgehenden Datenverkehr | Wählen Sie **(Empfohlen) Verwenden Sie Ausgangsregeln, um Back-End-Poolmitgliedern Zugriff auf das Internet zu gewähren** aus. |
 
 4. Übernehmen Sie die übrigen Standardeinstellungen, und wählen Sie dann **OK** aus.
 
@@ -162,7 +164,7 @@ In diesem Abschnitt erstellen Sie ein virtuelles Netzwerk und ein Subnetz.
     |------------------|-----------------------------------------------------------------|
     | **Projektdetails**  |                                                                 |
     | Subscription     | Auswählen des Azure-Abonnements                                  |
-    | Ressourcengruppe   | Wählen Sie **myResourceGroupLB** aus. |
+    | Ressourcengruppe   | Wählen Sie **CreatePubLBQS-rg** aus. |
     | **Instanzendetails** |                                                                 |
     | Name             | Geben Sie **myVNet** ein.                                    |
     | Region           | Wählen Sie **Europa, Westen** aus. |
@@ -215,7 +217,7 @@ Diese virtuellen Computer werden dem Back-End-Pool des zuvor erstellten Lastenau
     |-----------------------|----------------------------------|
     | **Projektdetails** |  |
     | Subscription | Auswählen des Azure-Abonnements |
-    | Ressourcengruppe | Wählen Sie **myResourceGroupLB** aus. |
+    | Ressourcengruppe | Wählen Sie **CreatePubLBQS-rg** aus. |
     | **Instanzendetails** |  |
     | Name des virtuellen Computers | Geben Sie **myVM1** ein. |
     | Region | Wählen Sie **Europa, Westen** aus. |
@@ -331,7 +333,7 @@ Wenn Sie einen öffentlichen Lastenausgleich erstellen, muss für den Lastenausg
     | Einstellung                 | Wert                                              |
     | ---                     | ---                                                |
     | Subscription               | Wählen Sie Ihr Abonnement aus.    |    
-    | Resource group         | Wählen Sie **Neu erstellen** aus, und geben Sie **myResourceGroupLB** in das Textfeld ein.|
+    | Resource group         | Wählen Sie die Option **Neu erstellen** aus, und geben Sie im Textfeld **CreatePubLBQS-rg** ein.|
     | Name                   | Geben Sie **myLoadBalancer** ein.                                   |
     | Region         | Wählen Sie **Europa, Westen** aus.                                        |
     | type          | Wählen Sie **Öffentlich** aus.                                        |
@@ -339,13 +341,13 @@ Wenn Sie einen öffentlichen Lastenausgleich erstellen, muss für den Lastenausg
     | Öffentliche IP-Adresse | Wählen Sie **Neu erstellen**. Wenn Sie über eine vorhandene öffentliche IP-Adresse verfügen, die Sie verwenden möchten, wählen Sie **Vorhandene verwenden** aus. |
     | Name der öffentlichen IP-Adresse | Geben Sie **myPublicIP** in das Textfeld ein.|
     | Zuweisung | Wählen Sie **Dynamisch** aus. |
-    | Öffentliche IPv6-Adresse hinzufügen | Wählen Sie **Nein** aus. </br> Weitere Informationen zu IPv6-Adressen und zum Lastenausgleich finden Sie unter [Was ist IPv6 für Azure Virtual Network?](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).  |
+    | Öffentliche IPv6-Adresse hinzufügen | Wählen Sie **Nein** aus. </br> Weitere Informationen zu IPv6-Adressen und zum Lastenausgleich finden Sie unter [Was ist IPv6 für Azure Virtual Network?](../virtual-network/ipv6-overview.md).  |
 
 3. Übernehmen Sie bei den anderen Einstellungen die Standardwerte, und wählen Sie **Überprüfen + erstellen** aus.
 
 4. Wählen Sie auf der Registerkarte **Bewerten + erstellen** die Option **Erstellen** aus.   
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-basic-load-balancer.png" alt-text="Erstellen einer Load Balancer Standard-Instanz" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-basic-load-balancer.png" alt-text="Erstellen eines Lastenausgleichs im Basic-Tarif" border="true":::
 
 ## <a name="create-load-balancer-resources"></a>Erstellen von Load Balancer-Ressourcen
 
@@ -368,7 +370,7 @@ In diesem Abschnitt erstellen Sie ein virtuelles Netzwerk und ein Subnetz.
     |------------------|-----------------------------------------------------------------|
     | **Projektdetails**  |                                                                 |
     | Subscription     | Auswählen des Azure-Abonnements                                  |
-    | Ressourcengruppe   | Wählen Sie **myResourceGroupLB** aus. |
+    | Ressourcengruppe   | Wählen Sie **CreatePubLBQS-rg** aus. |
     | **Instanzendetails** |                                                                 |
     | Name             | Geben Sie **myVNet** ein.                                    |
     | Region           | Wählen Sie **Europa, Westen** aus. |
@@ -474,6 +476,7 @@ In diesem Abschnitt wird eine Lastenausgleichsregel mit folgenden Merkmalen erst
     | Back-End-Port | Geben Sie **80** ein. |
     | Back-End-Pool | Wählen Sie **myBackendPool** aus.|
     | Integritätstest | Wählen Sie **myHealthProbe** aus. |
+    | Leerlaufzeitüberschreitung (Minuten) | Bewegen Sie den Schieberegler auf **15 Minuten**. |
  
 4. Übernehmen Sie die übrigen Standardeinstellungen, und wählen Sie dann **OK** aus.
 
@@ -501,7 +504,7 @@ Diese virtuellen Computer werden dem Back-End-Pool des zuvor erstellten Lastenau
     |-----------------------|----------------------------------|
     | **Projektdetails** |  |
     | Subscription | Auswählen des Azure-Abonnements |
-    | Ressourcengruppe | Wählen Sie **myResourceGroupLB** aus. |
+    | Ressourcengruppe | Wählen Sie **CreatePubLBQS-rg** aus. |
     | **Instanzendetails** |  |
     | Name des virtuellen Computers | Geben Sie **myVM1** ein. |
     | Region | Wählen Sie **Europa, Westen** aus. |
@@ -573,7 +576,7 @@ Die in den vorherigen Schritten erstellten virtuellen Computer müssen dem Back-
 
 ## <a name="install-iis"></a>Installieren von IIS
 
-1. Wählen Sie im linken Menü **Alle Dienste** > **Alle Ressourcen** und anschließend in der Ressourcenliste den Eintrag **myVM1** (in der Ressourcengruppe **myResourceGroupLB**) aus.
+1. Wählen Sie im linken Menü **Alle Dienste** > **Alle Ressourcen** und anschließend in der Ressourcenliste den Eintrag **myVM1** (in der Ressourcengruppe **CreateStdLBQS-rg**) aus.
 
 2. Wählen Sie auf der Seite **Übersicht** die Option **Verbinden** und dann **Bastion** aus.
 
@@ -616,7 +619,7 @@ Um zu sehen, wie Datenverkehr durch den Lastenausgleich auf alle drei virtuellen
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-Löschen Sie die Ressourcengruppe, den Lastenausgleich und alle zugehörigen Ressourcen, wenn Sie sie nicht mehr benötigen. Wählen Sie hierzu die Ressourcengruppe **myResourceGroupLB** aus, die die Ressourcen enthält, und wählen Sie anschließend **Löschen** aus.
+Löschen Sie die Ressourcengruppe, den Lastenausgleich und alle zugehörigen Ressourcen, wenn Sie sie nicht mehr benötigen. Wählen Sie hierzu die Ressourcengruppe **CreatePubLBQS-rg** aus, die die Ressourcen enthält, und wählen Sie anschließend **Löschen** aus.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

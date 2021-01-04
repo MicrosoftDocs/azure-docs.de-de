@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 02247adb9852a72b386feb2ef0924b0f1b3d6277
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1a26e3323e4d1db2e9b2bda9afaa2756307749b
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75895239"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288955"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Behandeln von Problemen mit Apache Hive unter Verwendung von Azure HDInsight
 
@@ -120,17 +120,17 @@ Für den Code in den Schritten zur Behebung wird davon ausgegangen, dass die Dat
    Ein Beispielprogramm muss als erstes Argument angegeben werden.
 
    Gültige Programmnamen:
-    - **ContainerReuseAnalyzer**: Ausgeben von Details zum Wiederverwenden von Containern in einem gerichteten azyklischen Graph
-    - **CriticalPath**: Suchen des kritischen Pfads eines gerichteten azyklischen Graphs
-    - **LocalityAnalyzer**: Ausgeben von Ortsdetails in einem gerichteten azyklischen Graph
-    - **ShuffleTimeAnalyzer**: Analysieren von Durchmischungszeitdetails in einem gerichteten azyklischen Graph
-    - **SkewAnalyzer**: Analysieren der Neigungsdetails in einem gerichteten azyklischen Graph
-    - **SlowNodeAnalyzer**: Ausgeben von Knotendetails in einem gerichteten azyklischen Graph
-    - **SlowTaskIdentifier**: Ausgeben von Details zu langsamen Aufgaben in einem gerichteten azyklischen Graph
-    - **SlowestVertexAnalyzer**: Ausgeben von Details zu den langsamsten Scheitelpunkten in einem gerichteten azyklischen Graph
-    - **SpillAnalyzer**: Ausgeben von Details zum Überlauf in einem gerichteten azyklischen Graph
-    - **TaskConcurrencyAnalyzer**: Ausgeben von Details zur Parallelität von Aufgaben in einem gerichteten azyklischen Graph
-    - **VertexLevelCriticalPathAnalyzer**: Suchen des kritischen Pfads auf Scheitelpunktebene in einem gerichteten azyklischen Graph
+    - **ContainerReuseAnalyzer** : Ausgeben von Details zum Wiederverwenden von Containern in einem gerichteten azyklischen Graph
+    - **CriticalPath** : Suchen des kritischen Pfads eines gerichteten azyklischen Graphs
+    - **LocalityAnalyzer** : Ausgeben von Ortsdetails in einem gerichteten azyklischen Graph
+    - **ShuffleTimeAnalyzer** : Analysieren von Durchmischungszeitdetails in einem gerichteten azyklischen Graph
+    - **SkewAnalyzer** : Analysieren der Neigungsdetails in einem gerichteten azyklischen Graph
+    - **SlowNodeAnalyzer** : Ausgeben von Knotendetails in einem gerichteten azyklischen Graph
+    - **SlowTaskIdentifier** : Ausgeben von Details zu langsamen Aufgaben in einem gerichteten azyklischen Graph
+    - **SlowestVertexAnalyzer** : Ausgeben von Details zu den langsamsten Scheitelpunkten in einem gerichteten azyklischen Graph
+    - **SpillAnalyzer** : Ausgeben von Details zum Überlauf in einem gerichteten azyklischen Graph
+    - **TaskConcurrencyAnalyzer** : Ausgeben von Details zur Parallelität von Aufgaben in einem gerichteten azyklischen Graph
+    - **VertexLevelCriticalPathAnalyzer** : Suchen des kritischen Pfads auf Scheitelpunktebene in einem gerichteten azyklischen Graph
 
 ### <a name="additional-reading"></a>Zusätzliche Lektüre
 
@@ -163,10 +163,4 @@ Es gibt zwei Möglichkeiten zum Erfassen der Tez DAG-Daten:
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Wenn Ihr Problem nicht aufgeführt ist oder Sie es nicht lösen können, besuchen Sie einen der folgenden Kanäle, um weitere Unterstützung zu erhalten:
-
-- Nutzen Sie den [Azure-Communitysupport](https://azure.microsoft.com/support/community/), um Antworten von Azure-Experten zu erhalten.
-
-- Herstellen einer Verbindung mit [@AzureSupport](https://twitter.com/azuresupport), dem offiziellen Microsoft Azure-Konto zum Verbessern der Kundenfreundlichkeit. Verbinden der Azure-Community mit den richtigen Ressourcen: Antworten, Support und Experten.
-
-- Sollten Sie weitere Unterstützung benötigen, senden Sie eine Supportanfrage über das [Azure-Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Wählen Sie dazu auf der Menüleiste die Option **Support** aus, oder öffnen Sie den Hub **Hilfe und Support**. Ausführlichere Informationen hierzu finden Sie unter [Erstellen einer Azure-Supportanfrage](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Zugang zu Abonnementverwaltung und Abrechnungssupport ist in Ihrem Microsoft Azure-Abonnement enthalten. Technischer Support wird über einen [Azure-Supportplan](https://azure.microsoft.com/support/plans/) bereitgestellt.
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

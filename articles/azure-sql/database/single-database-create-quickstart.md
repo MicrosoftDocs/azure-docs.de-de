@@ -4,19 +4,19 @@ description: Erstellen Sie eine Einzeldatenbank in Azure SQL-Datenbank über da
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: contperfq1, devx-track-azurecli
+ms.custom: contperf-fy21q1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/03/2020
-ms.openlocfilehash: ab920a05f255e38905f9ff79f08f2bfa0c6540b6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 21ccbc83c80e1b659dd240973a609d624f270835
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791510"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028511"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Schnellstart: Erstellen einer Azure SQL-Einzeldatenbank
 
@@ -45,12 +45,12 @@ Zum Erstellen einer Einzeldatenbank im Azure-Portal beginnt diese Schnellstartan
 1. Wählen Sie bei **Ressourcengruppe** die Option **Neu erstellen** aus, geben Sie *myResourceGroup* ein, und wählen Sie **OK** aus.
 1. Geben Sie für *Datenbankname* den Namen **mySampleDatabase** ein.
 1. Wählen Sie unter **Server** die Option **Neu erstellen** aus, und füllen Sie das Formular **Neuer Server** mit den folgenden Werten aus:
-   - **Servername** : Geben Sie *mysqlserver* ein, und fügen Sie einige weitere Zeichen hinzu, um einen eindeutigen Wert zu erhalten. Wir können keinen exakten Servernamen zur Verwendung angeben, weil Servernamen für alle Server in Azure global eindeutig sein müssen (und nicht nur innerhalb eines Abonnements eindeutig sind). Geben Sie also beispielsweise „mysqlserver12345“ ein. Dann werden Sie vom Portal informiert, ob dieser Server verfügbar ist oder nicht.
-   - **Serveradministratoranmeldung** : Geben Sie *azureuser* ein.
-   - **Kennwort** : Geben Sie ein geeignetes Kennwort ein, und wiederholen Sie die Eingabe im Feld **Kennwort bestätigen** .
-   - **Standort** : Wählen Sie in der Dropdownliste einen Standort aus.
+   - **Servername**: Geben Sie *mysqlserver* ein, und fügen Sie einige weitere Zeichen hinzu, um einen eindeutigen Wert zu erhalten. Wir können keinen exakten Servernamen zur Verwendung angeben, weil Servernamen für alle Server in Azure global eindeutig sein müssen (und nicht nur innerhalb eines Abonnements eindeutig sind). Geben Sie also beispielsweise „mysqlserver12345“ ein. Dann werden Sie vom Portal informiert, ob dieser Server verfügbar ist oder nicht.
+   - **Serveradministratoranmeldung**: Geben Sie *azureuser* ein.
+   - **Kennwort**: Geben Sie ein geeignetes Kennwort ein, und wiederholen Sie die Eingabe im Feld **Kennwort bestätigen**.
+   - **Standort**: Wählen Sie in der Dropdownliste einen Standort aus.
 
-   Klicken Sie auf **OK** .
+   Klicken Sie auf **OK**.
 
 1. Behalten Sie für **Möchten Sie einen Pool für elastische SQL-Datenbanken verwenden?** den Wert **Nein** bei.
 1. Wählen Sie unter **Compute + Speicher** die Option **Datenbank konfigurieren** aus.
@@ -82,7 +82,7 @@ Zum Erstellen einer Einzeldatenbank im Azure-Portal beginnt diese Schnellstartan
 
 Azure Cloud Shell ist eine kostenlose interaktive Shell, mit der Sie die Schritte in diesem Artikel ausführen können. Sie verfügt über allgemeine vorinstallierte Tools und ist für die Verwendung mit Ihrem Konto konfiguriert. 
 
-Wählen Sie zum Öffnen von Cloud Shell oben rechts in einem Codeblock einfach die Option **Ausprobieren** . Sie können Cloud Shell auch auf einer separaten Browserregisterkarte starten, indem Sie zu [https://shell.azure.com](https://shell.azure.com) navigieren. Wählen Sie **Kopieren** aus, um die Blöcke mit dem Code zu kopieren. Fügen Sie ihn anschließend in Cloud Shell ein, und drücken Sie die **EINGABETASTE** , um ihn auszuführen.
+Wählen Sie zum Öffnen von Cloud Shell oben rechts in einem Codeblock einfach die Option **Ausprobieren**. Sie können Cloud Shell auch auf einer separaten Browserregisterkarte starten, indem Sie zu [https://shell.azure.com](https://shell.azure.com) navigieren. Wählen Sie **Kopieren** aus, um die Blöcke mit dem Code zu kopieren. Fügen Sie ihn anschließend in Cloud Shell ein, und drücken Sie die **EINGABETASTE**, um ihn auszuführen.
 
 ## <a name="set-parameter-values"></a>Festlegen von Parameterwerten
 
@@ -167,7 +167,7 @@ Sie können eine Ressourcengruppe, einen Server und eine Einzeldatenbank mithilf
 
 Azure Cloud Shell ist eine kostenlose interaktive Shell, mit der Sie die Schritte in diesem Artikel ausführen können. Sie verfügt über allgemeine vorinstallierte Tools und ist für die Verwendung mit Ihrem Konto konfiguriert. 
 
-Wählen Sie zum Öffnen von Cloud Shell oben rechts in einem Codeblock einfach die Option **Ausprobieren** . Sie können Cloud Shell auch auf einer separaten Browserregisterkarte starten, indem Sie zu [https://shell.azure.com](https://shell.azure.com) navigieren. Wählen Sie **Kopieren** aus, um die Blöcke mit dem Code zu kopieren. Fügen Sie ihn anschließend in Cloud Shell ein, und drücken Sie die **EINGABETASTE** , um ihn auszuführen.
+Wählen Sie zum Öffnen von Cloud Shell oben rechts in einem Codeblock einfach die Option **Ausprobieren**. Sie können Cloud Shell auch auf einer separaten Browserregisterkarte starten, indem Sie zu [https://shell.azure.com](https://shell.azure.com) navigieren. Wählen Sie **Kopieren** aus, um die Blöcke mit dem Code zu kopieren. Fügen Sie ihn anschließend in Cloud Shell ein, und drücken Sie die **EINGABETASTE**, um ihn auszuführen.
 
 ## <a name="set-parameter-values"></a>Festlegen von Parameterwerten
 
@@ -256,7 +256,7 @@ Erstellen Sie eine Einzeldatenbank mit dem Cmdlet [New-AzSqlDatabase](/powershel
 
 Nach der Erstellung der Datenbank können Sie mithilfe des **Abfrage-Editors (Vorschau)** im Azure-Portal eine Verbindung mit der Datenbank herstellen und die Daten abfragen.
 
-1. Suchen Sie im Portal nach **SQL-Datenbanken** , und wählen Sie den Eintrag aus. Wählen Sie anschließend in der Liste Ihre Datenbank aus.
+1. Suchen Sie im Portal nach **SQL-Datenbanken**, und wählen Sie den Eintrag aus. Wählen Sie anschließend in der Liste Ihre Datenbank aus.
 1. Wählen Sie auf der Seite für Ihre Datenbank im Menü auf der linken Seite die Option **Abfrage-Editor (Vorschau)** aus.
 1. Geben Sie Ihre Serveradministrator-Anmeldeinformationen ein, und wählen Sie **OK** aus.
 
@@ -271,11 +271,11 @@ Nach der Erstellung der Datenbank können Sie mithilfe des **Abfrage-Editors (Vo
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-1. Klicken Sie auf **Ausführen** , und sehen Sie sich dann die Abfrageergebnisse im Bereich **Ergebnisse** an.
+1. Klicken Sie auf **Ausführen**, und sehen Sie sich dann die Abfrageergebnisse im Bereich **Ergebnisse** an.
 
    ![Ergebnisse im Abfrage-Editor](./media/single-database-create-quickstart/query-editor-results.png)
 
-1. Schließen Sie die Seite **Abfrage-Editor** , und klicken Sie auf **OK** , um Ihre nicht gespeicherten Änderungen zu verwerfen, wenn Sie dazu aufgefordert werden.
+1. Schließen Sie die Seite **Abfrage-Editor**, und klicken Sie auf **OK**, um Ihre nicht gespeicherten Änderungen zu verwerfen, wenn Sie dazu aufgefordert werden.
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
@@ -287,7 +287,7 @@ Wenn Sie die Verwendung dieser Ressourcen beendet haben, können Sie die erstell
 
 Löschen Sie **myResourceGroup** und alle zugehörigen Ressourcen wie folgt über das Azure-Portal:
 
-1. Suchen Sie im Portal nach **Ressourcengruppen** , und wählen Sie die Option aus. Wählen Sie anschließend in der Liste die Option **myResourceGroup** aus.
+1. Suchen Sie im Portal nach **Ressourcengruppen**, und wählen Sie die Option aus. Wählen Sie anschließend in der Liste die Option **myResourceGroup** aus.
 1. Wählen Sie auf der Ressourcengruppenseite die Option **Ressourcengruppe löschen** aus.
 1. Geben Sie unter **Geben Sie den Ressourcengruppennamen ein** den Namen *myResourceGroup* ein, und wählen Sie anschließend **Löschen** aus.
 

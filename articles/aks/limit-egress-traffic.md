@@ -4,15 +4,14 @@ description: Erfahren Sie, welche Ports und Adressen zur Steuerung des ausgehend
 services: container-service
 ms.topic: article
 ms.author: jpalma
-ms.date: 06/29/2020
-ms.custom: fasttrack-edit
+ms.date: 11/09/2020
 author: palma21
-ms.openlocfilehash: 33355251a06ba076be3677b84e383793f9f25193
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1d045e66771026d2b4cf7ad44fd6943d2d407f4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570379"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701601"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Steuern des ausgehenden Datenverkehrs für Clusterknoten in Azure Kubernetes Service (AKS)
 
@@ -29,13 +28,13 @@ Die AKS-Abhängigkeiten für ausgehenden Datenverkehr werden fast ausschließlic
 Standardmäßig haben AKS-Cluster uneingeschränkten ausgehenden Internetzugriff. Diese Ebene des Netzwerkzugriffs ermöglicht, dass ausgeführte Knoten und Dienste nach Bedarf auf externe Ressourcen zugreifen können. Wenn Sie den ausgehenden Datenverkehr einschränken möchten, muss eine begrenzte Anzahl von Ports und Adressen zugänglich sein, um fehlerfreie Clusterwartungsaufgaben verwalten zu können. Die einfachste Lösung zum Schutz ausgehender Adressen besteht in der Verwendung eines Firewallgeräts, das den ausgehenden Datenverkehr auf der Grundlage von Domänennamen kontrolliert. Von Azure Firewall kann beispielsweise ausgehender HTTP- und HTTPS-Datenverkehr auf der Grundlage des FQDN des Ziels eingeschränkt werden. Darüber hinaus können Sie Ihre bevorzugten Firewall- und Sicherheitsregeln konfigurieren, um diese erforderlichen Ports und Adressen zuzulassen.
 
 > [!IMPORTANT]
-> In diesem Dokument wird lediglich erläutert, wie der ausgehende Datenverkehr aus dem AKS-Subnetz gesperrt wird. Für AKS gelten standardmäßig keine Anforderungen für eingehenden Datenverkehr.  Das Blockieren von **internem Datenverkehr im Subnetz** mithilfe von Netzwerksicherheitsgruppen (NSGs) und Firewalls wird nicht unterstützt. Zum Steuern und Blockieren des Datenverkehrs innerhalb des Clusters müssen [***Netzwerkrichtlinien***][network-policy] verwendet werden.
+> In diesem Dokument wird lediglich erläutert, wie der ausgehende Datenverkehr aus dem AKS-Subnetz gesperrt wird. Für AKS gelten standardmäßig keine Anforderungen für eingehenden Datenverkehr.  Das Blockieren von **internem Datenverkehr im Subnetz** mithilfe von Netzwerksicherheitsgruppen (NSGs) und Firewalls wird nicht unterstützt. Zum Steuern und Blockieren des Datenverkehrs innerhalb des Clusters müssen [**_Netzwerkrichtlinien_* _][network-policy] verwendet werden.
 
 ## <a name="required-outbound-network-rules-and-fqdns-for-aks-clusters"></a>Erforderliche Netzwerkregeln für ausgehenden Datenverkehr und FQDNs für AKS-Cluster
 
 Die folgenden Netzwerk- und FQDN-/Anwendungsregeln sind für einen AKS-Cluster erforderlich und können verwendet werden, um eine Azure Firewall-fremde Lösung zu konfigurieren.
 
-* IP-Adressabhängigkeiten gelten für Nicht-HTTP/S-Datenverkehr (TCP- und UDP-Datenverkehr).
+_ IP-Adressabhängigkeiten gelten für Nicht-HTTP/S-Datenverkehr (TCP- und UDP-Datenverkehr).
 * FQDN-HTTP/HTTPS-Endpunkte können in Ihrem Firewallgerät bereitgestellt werden.
 * HTTP/HTTPS-Platzhalterendpunkte sind Abhängigkeiten, die sich je nach AKS-Cluster unterscheiden können (basierend auf einer Reihe von Qualifizierern).
 * Von AKS wird ein Zugangscontroller verwendet, um den FQDN als Umgebungsvariable in alle Bereitstellungen unter „kube-system“ und „gatekeeper-system“ einzufügen. Dadurch wird sichergestellt, dass bei der gesamten Systemkommunikation zwischen Knoten und API-Server nicht die IP-Adresse, sondern der FQDN des API-Servers verwendet wird. 
@@ -49,11 +48,11 @@ Folgende Netzwerkregeln und IP-Adressabhängigkeiten werden benötigt:
 
 | Zielendpunkt                                                             | Protokoll | Port    | Zweck  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *Oder* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:1194`** <br/> *Oder* <br/> [Regionale CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:1194`** <br/> *Oder* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1\.194      | Getunnelte sichere Kommunikation zwischen den Knoten und der Steuerungsebene Dies ist für [private Cluster](private-clusters.md) nicht erforderlich.|
-| **`*:9000`** <br/> *Oder* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:9000`** <br/> *Oder* <br/> [Regionale CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:9000`** <br/> *Oder* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Getunnelte sichere Kommunikation zwischen den Knoten und der Steuerungsebene Dies ist für [private Cluster](private-clusters.md) nicht erforderlich. |
+| **`*:1194`** <br/> *Oder* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:1194`** <br/> *Oder* <br/> [Regionale CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:1194`** <br/> *Oder* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1\.194      | Getunnelte sichere Kommunikation zwischen den Knoten und der Steuerungsebene Dies ist für [private Cluster](private-clusters.md) nicht erforderlich.|
+| **`*:9000`** <br/> *Oder* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:9000`** <br/> *Oder* <br/> [Regionale CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:9000`** <br/> *Oder* <br/> **`APIServerPublicIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Getunnelte sichere Kommunikation zwischen den Knoten und der Steuerungsebene Dies ist für [private Cluster](private-clusters.md) nicht erforderlich. |
 | **`*:123`** oder **`ntp.ubuntu.com:123`** (bei Verwendung von Azure Firewall-Netzwerkregeln)  | UDP      | 123     | Erforderlich für die NTP-Zeitsynchronisierung (Network Time Protocol) auf Linux-Knoten                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | Bei Verwendung benutzerdefinierter DNS-Server müssen die Clusterknoten auf diese Server zugreifen können. |
-| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Erforderlich bei Verwendung von Pods/Bereitstellungen, die auf den API-Server zugreifen. Von diesen Pods/Bereitstellungen wird die API-IP-Adresse verwendet. Dies ist für [private Cluster](private-clusters.md) nicht erforderlich.  |
+| **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Erforderlich bei Verwendung von Pods/Bereitstellungen, die auf den API-Server zugreifen. Von diesen Pods/Bereitstellungen wird die API-IP-Adresse verwendet. Dies ist für [private Cluster](private-clusters.md) nicht erforderlich.  |
 
 ### <a name="azure-global-required-fqdn--application-rules"></a>Für Azure Global benötigte FQDNs/Anwendungsregeln 
 
@@ -63,7 +62,6 @@ Die folgenden vollqualifizierten Domänennamen und Anwendungsregeln sind erforde
 |----------------------------------|-----------------|----------|
 | **`*.hcp.<location>.azmk8s.io`** | **`HTTPS:443`** | Erforderlich für die Kommunikation zwischen Knoten und API-Server. Ersetzen Sie *\<location\>* durch die Region, in der Ihr AKS-Cluster bereitgestellt wird. |
 | **`mcr.microsoft.com`**          | **`HTTPS:443`** | Erforderlich für den Zugriff auf Images in Microsoft Container Registry (MCR). Diese Registrierung enthält Images/Diagramme von Erstanbietern (beispielsweise coreDNS usw.). Diese Images sind für die korrekte Erstellung und Funktionsweise des Clusters erforderlich (unter anderem für Skalierungs- und Upgradevorgänge).  |
-| **`*.cdn.mscr.io`**              | **`HTTPS:443`** | Erforderlich für den auf Azure Content Delivery Network (CDN) basierenden MCR-Speicher. |
 | **`*.data.mcr.microsoft.com`**   | **`HTTPS:443`** | Erforderlich für den auf Azure Content Delivery Network (CDN) basierenden MCR-Speicher. |
 | **`management.azure.com`**       | **`HTTPS:443`** | Erforderlich für Kubernetes-Vorgänge für die Azure-API. |
 | **`login.microsoftonline.com`**  | **`HTTPS:443`** | Erforderlich für die Azure Active Directory-Authentifizierung. |
@@ -76,12 +74,12 @@ Folgende Netzwerkregeln und IP-Adressabhängigkeiten werden benötigt:
 
 | Zielendpunkt                                                             | Protokoll | Port    | Zweck  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *Oder* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.Region:1194`** <br/> *Oder* <br/> [Regionale CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:1194`** <br/> *Oder* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1.194      | Getunnelte sichere Kommunikation zwischen den Knoten und der Steuerungsebene |
-| **`*:9000`** <br/> *Oder* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:9000`** <br/> *Oder* <br/> [Regionale CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:9000`** <br/> *Oder* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Getunnelte sichere Kommunikation zwischen den Knoten und der Steuerungsebene |
-| **`*:22`** <br/> *Oder* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:22`** <br/> *Oder* <br/> [Regionale CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:22`** <br/> *Oder* <br/> **`APIServerIP:22`** `(only known after cluster creation)`  | TCP           | 22      | Getunnelte sichere Kommunikation zwischen den Knoten und der Steuerungsebene |
+| **`*:1194`** <br/> *Oder* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.Region:1194`** <br/> *Oder* <br/> [Regionale CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:1194`** <br/> *Oder* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1.194      | Getunnelte sichere Kommunikation zwischen den Knoten und der Steuerungsebene |
+| **`*:9000`** <br/> *Oder* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:9000`** <br/> *Oder* <br/> [Regionale CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:9000`** <br/> *Oder* <br/> **`APIServerPublicIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Getunnelte sichere Kommunikation zwischen den Knoten und der Steuerungsebene |
+| **`*:22`** <br/> *Oder* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:22`** <br/> *Oder* <br/> [Regionale CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:22`** <br/> *Oder* <br/> **`APIServerPublicIP:22`** `(only known after cluster creation)`  | TCP           | 22      | Getunnelte sichere Kommunikation zwischen den Knoten und der Steuerungsebene |
 | **`*:123`** oder **`ntp.ubuntu.com:123`** (bei Verwendung von Azure Firewall-Netzwerkregeln)  | UDP      | 123     | Erforderlich für die NTP-Zeitsynchronisierung (Network Time Protocol) auf Linux-Knoten                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | Bei Verwendung benutzerdefinierter DNS-Server müssen die Clusterknoten auf diese Server zugreifen können. |
-| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Erforderlich bei Verwendung von Pods/Bereitstellungen, die auf den API-Server zugreifen. Von diesen Pods/Bereitstellungen wird die API-IP-Adresse verwendet.  |
+| **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Erforderlich bei Verwendung von Pods/Bereitstellungen, die auf den API-Server zugreifen. Von diesen Pods/Bereitstellungen wird die API-IP-Adresse verwendet.  |
 
 ### <a name="azure-china-21vianet-required-fqdn--application-rules"></a>Für Azure China 21Vianet benötigte FQDNs/Anwendungsregeln
 
@@ -92,7 +90,6 @@ Die folgenden vollqualifizierten Domänennamen und Anwendungsregeln sind erforde
 | **`*.hcp.<location>.cx.prod.service.azk8s.cn`**| **`HTTPS:443`** | Erforderlich für die Kommunikation zwischen Knoten und API-Server. Ersetzen Sie *\<location\>* durch die Region, in der Ihr AKS-Cluster bereitgestellt wird. |
 | **`*.tun.<location>.cx.prod.service.azk8s.cn`**| **`HTTPS:443`** | Erforderlich für die Kommunikation zwischen Knoten und API-Server. Ersetzen Sie *\<location\>* durch die Region, in der Ihr AKS-Cluster bereitgestellt wird. |
 | **`mcr.microsoft.com`**                        | **`HTTPS:443`** | Erforderlich für den Zugriff auf Images in Microsoft Container Registry (MCR). Diese Registrierung enthält Images/Diagramme von Erstanbietern (beispielsweise coreDNS usw.). Diese Images sind für die korrekte Erstellung und Funktionsweise des Clusters erforderlich (unter anderem für Skalierungs- und Upgradevorgänge). |
-| **`*.cdn.mscr.io`**                            | **`HTTPS:443`** | Erforderlich für den auf Azure Content Delivery Network (CDN) basierenden MCR-Speicher. |
 | **`.data.mcr.microsoft.com`**                  | **`HTTPS:443`** | Erforderlich für den auf Azure Content Delivery Network (CDN) basierenden MCR-Speicher. |
 | **`management.chinacloudapi.cn`**              | **`HTTPS:443`** | Erforderlich für Kubernetes-Vorgänge für die Azure-API. |
 | **`login.chinacloudapi.cn`**                   | **`HTTPS:443`** | Erforderlich für die Azure Active Directory-Authentifizierung. |
@@ -105,11 +102,11 @@ Folgende Netzwerkregeln und IP-Adressabhängigkeiten werden benötigt:
 
 | Zielendpunkt                                                             | Protokoll | Port    | Zweck  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *Oder* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:1194`** <br/> *Oder* <br/> [Regionale CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:1194`** <br/> *Oder* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1.194      | Getunnelte sichere Kommunikation zwischen den Knoten und der Steuerungsebene |
-| **`*:9000`** <br/> *Oder* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:9000`** <br/> *Oder* <br/> [Regionale CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:9000`** <br/> *Oder* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Getunnelte sichere Kommunikation zwischen den Knoten und der Steuerungsebene |
+| **`*:1194`** <br/> *Oder* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:1194`** <br/> *Oder* <br/> [Regionale CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:1194`** <br/> *Oder* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1.194      | Getunnelte sichere Kommunikation zwischen den Knoten und der Steuerungsebene |
+| **`*:9000`** <br/> *Oder* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:9000`** <br/> *Oder* <br/> [Regionale CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:9000`** <br/> *Oder* <br/> **`APIServerPublicIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Getunnelte sichere Kommunikation zwischen den Knoten und der Steuerungsebene |
 | **`*:123`** oder **`ntp.ubuntu.com:123`** (bei Verwendung von Azure Firewall-Netzwerkregeln)  | UDP      | 123     | Erforderlich für die NTP-Zeitsynchronisierung (Network Time Protocol) auf Linux-Knoten                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | Bei Verwendung benutzerdefinierter DNS-Server müssen die Clusterknoten auf diese Server zugreifen können. |
-| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Erforderlich bei Verwendung von Pods/Bereitstellungen, die auf den API-Server zugreifen. Von diesen Pods/Bereitstellungen wird die API-IP-Adresse verwendet.  |
+| **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Erforderlich bei Verwendung von Pods/Bereitstellungen, die auf den API-Server zugreifen. Von diesen Pods/Bereitstellungen wird die API-IP-Adresse verwendet.  |
 
 ### <a name="azure-us-government-required-fqdn--application-rules"></a>Für Azure US Government benötigte FQDNs/Anwendungsregeln 
 
@@ -119,7 +116,6 @@ Die folgenden vollqualifizierten Domänennamen und Anwendungsregeln sind erforde
 |---------------------------------------------------------|-----------------|----------|
 | **`*.hcp.<location>.cx.aks.containerservice.azure.us`** | **`HTTPS:443`** | Erforderlich für die Kommunikation zwischen Knoten und API-Server. Ersetzen Sie *\<location\>* durch die Region, in der Ihr AKS-Cluster bereitgestellt wird.|
 | **`mcr.microsoft.com`**                                 | **`HTTPS:443`** | Erforderlich für den Zugriff auf Images in Microsoft Container Registry (MCR). Diese Registrierung enthält Images/Diagramme von Erstanbietern (beispielsweise coreDNS usw.). Diese Images sind für die korrekte Erstellung und Funktionsweise des Clusters erforderlich (unter anderem für Skalierungs- und Upgradevorgänge). |
-| **`*.cdn.mscr.io`**                                     | **`HTTPS:443`** | Erforderlich für den auf Azure Content Delivery Network (CDN) basierenden MCR-Speicher. |
 | **`*.data.mcr.microsoft.com`**                          | **`HTTPS:443`** | Erforderlich für den auf Azure Content Delivery Network (CDN) basierenden MCR-Speicher. |
 | **`management.usgovcloudapi.net`**                      | **`HTTPS:443`** | Erforderlich für Kubernetes-Vorgänge für die Azure-API. |
 | **`login.microsoftonline.us`**                          | **`HTTPS:443`** | Erforderlich für die Azure Active Directory-Authentifizierung. |
@@ -213,8 +209,10 @@ Die folgenden vollqualifizierten Domänennamen und Anwendungsregeln sind für AK
 
 | FQDN                                          | Port      | Zweck      |
 |-----------------------------------------------|-----------|----------|
-| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Diese Adresse wird für den ordnungsgemäßen Betrieb von Azure Policy verwendet. (Derzeit als Vorschauversion in AKS) |
-| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Diese Adresse wird verwendet, um die integrierten Richtlinien aus GitHub abzurufen und so den ordnungsgemäßen Betrieb von Azure Policy sicherzustellen. (Derzeit als Vorschauversion in AKS) |
+| **`data.policy.core.windows.net`** | **`HTTPS:443`** | Diese Adresse wird verwendet, um die Kubernetes-Richtlinien abzurufen und den Konformitätsstatus des Clusters an den Richtliniendienst zu melden. |
+| **`store.policy.core.windows.net`** | **`HTTPS:443`** | Diese Adresse wird zum Abrufen der Gatekeeper-Artefakte integrierter Richtlinien verwendet. |
+| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Diese Adresse wird für den ordnungsgemäßen Betrieb von Azure Policy verwendet.  |
+| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Diese Adresse wird verwendet, um die integrierten Richtlinien aus GitHub abzurufen und so den ordnungsgemäßen Betrieb von Azure Policy sicherzustellen. |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Das Azure Policy-Add-On, das Telemetriedaten an den Application Insights-Endpunkt sendet. |
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Einschränken von ausgehendem Datenverkehr mithilfe von Azure Firewall

@@ -1,103 +1,86 @@
 ---
-title: 'Cognitive Services-Dokumentation: Neuerungen im September 2020 (1. bis 30. September 2020)'
-description: Hier werden die Neuerungen im September 2020 (1. bis 30. September 2020) in der Cognitive Services-Dokumentation erläutert.
+title: 'Cognitive Services: Neues in der Dokumentation'
+description: 'Neues in den Cognitive Services-Dokumenten für die Zeit vom 1. November 2020 bis zum 30. November 2020. '
 author: erhopf
 manager: nitinme
 ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
-ms.date: 10/02/2020
-ms.openlocfilehash: a49a51886f921c9d37a33229b6db78479d7198bc
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.date: 12/07/2020
+ms.openlocfilehash: d07f01a17c2d784eed61ad7e7ef47c8f7eb5ac30
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938320"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862189"
 ---
-# <a name="cognitive-services-docs-whats-new-for-september-1-2020---september-30-2020"></a>Cognitive Services-Dokumentation: Neuerungen im September 2020 (1. bis 30. September 2020)
+# <a name="cognitive-services-docs-whats-new-for-november-1-2020---november-30-2020"></a>Cognitive Services-Dokumentation: Neuerungen vom 1. November 2020 bis zum 30. November 2020
 
-Hier erfahren Sie mehr über die Neuerungen im September 2020 (1. bis 31. September 2020) in der Cognitive Services-Dokumentation. Nachfolgend sind alle größeren Änderungen aufgelistet, die in diesem Zeitraum an der Dokumentation vorgenommen wurden.
+Hier erfahren Sie mehr über die Neuerungen im November 2020 (1. bis 30. November 2020) in der Cognitive Services-Dokumentation. Nachfolgend sind alle größeren Änderungen aufgelistet, die in diesem Zeitraum an der Dokumentation vorgenommen wurden.
 
 ## <a name="cognitive-services"></a>Cognitive Services
 
 ### <a name="updated-articles"></a>Aktualisierte Artikel
 
 - [Schnellstart: Erstellen einer Cognitive Services-Ressource mithilfe der Azure-Befehlszeilenschnittstelle (CLI)](cognitive-services-apis-create-account-cli.md)
-- [Schnellstart: Erstellen einer Azure Cognitive Services-Ressource mit der Clientbibliothek für die Azure-Verwaltung](cognitive-services-apis-create-account-client-library.md)
-- [Schnellstart: Erstellen einer Cognitive Services-Ressource mithilfe des Azure-Portals](cognitive-services-apis-create-account.md)
-- [Schnellstart: Erstellen einer Cognitive Services-Ressource mithilfe einer ARM-Vorlage](create-account-resource-manager-template.md)
-
-## <a name="computer-vision"></a>Maschinelles Sehen
-
-### <a name="new-articles"></a>Neue Artikel
-
-- [Einführung in die räumliche Analyse für maschinelles Sehen](https://docs.microsoft.com/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?context=/azure/cognitive-services/Computer-vision/context/context)
-- [Verantwortungsbewusste Verwendung in der KI-Entwicklung für die räumliche Analyse für maschinelles Sehen](https://docs.microsoft.com/legal/cognitive-services/computer-vision/responsible-use-deployment?context=/azure/cognitive-services/Computer-vision/context/context)
-- [Erforschen von Erkenntnissen für die räumliche Analyse für maschinelles Sehen](https://docs.microsoft.com/legal/cognitive-services/computer-vision/research-insights?context=/azure/cognitive-services/Computer-vision/context/context)
-- [Entwurfsrichtlinien für die Offenlegung im Zusammenhang mit der räumlichen Analyse für maschinelles Sehen](https://docs.microsoft.com/legal/cognitive-services/computer-vision/disclosure-design?context=/azure/cognitive-services/Computer-vision/context/context)
-- [Compliance, Privatsphäre und Sicherheit im Zusammenhang mit der räumlichen Analyse für maschinelles Sehen](https://docs.microsoft.com/legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=/azure/cognitive-services/Computer-vision/context/context)
-- [Merkmale und Einschränkungen der räumlichen Analyse für maschinelles Sehen](https://docs.microsoft.com/legal/cognitive-services/computer-vision/accuracy-and-limitations?context=/azure/cognitive-services/Computer-vision/context/context)
+- [Entwicklungsoptionen für Cognitive Services](cognitive-services-development-options.md)
+- [Support- und Hilfeoptionen für Azure Cognitive Services](cognitive-services-support-options.md)
+- [Aktivieren der Diagnoseprotokollierung für Azure Cognitive Services](diagnostic-logging.md)
+- [Unterstützung für natürliche Sprachen in Azure Cognitive Services](language-support.md)
+- [Azure-Sicherheitsbaseline für Cognitive Services](security-baseline.md)
 
 ## <a name="containers"></a>Container
 
-### <a name="new-articles"></a>Neue Artikel
-
-- [Installieren und Ausführen des Containers für räumliche Analyse (Vorschau)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container?tabs=azure-stack-edge)
-
 ### <a name="updated-articles"></a>Aktualisierte Artikel
 
-- [Azure Cognitive Services-Containerimagetags](https://docs.microsoft.com/azure/cognitive-services/containers/container-image-tags)
+- [Azure Cognitive Services-Containerimagetags und -Versionshinweise](/azure/cognitive-services/containers/container-image-tags.md)
 
 ## <a name="form-recognizer"></a>Formularerkennung
 
-### <a name="updated-articles"></a>Aktualisierte Artikel
+### <a name="new-articles"></a>Neue Artikel
 
-- [Sprachunterstützung für die Formularerkennung](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/language-support)
-- [Erstellen eines Trainingsdatasets für ein benutzerdefiniertes Modell](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/build-training-data-set)
-- [Konzepte zu Belegen](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/concept-receipts)
-- [Verschlüsselung für ruhende Daten der Formularerkennung](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest)
-- [Neuerungen in der Formularerkennung](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/whats-new)
-- [Konzepte zu Visitenkarten](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/concept-business-cards)
-- [Was ist die Formularerkennung?](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/overview)
-- [Schnellstart: Verwenden der Clientbibliothek für die Formularerkennung](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/client-library)
-
-## <a name="immersive-reader"></a>Plastischer Reader
+- [Vordefiniertes Rechnungsmodell für die Formularerkennung](/azure/cognitive-services/form-recognizer/concept-invoices.md)
+- [Layoutdienst für die Formularerkennung](/azure/cognitive-services/form-recognizer/concept-layout.md)
+- [Schnellstart: Extrahieren von Rechnungsdaten mithilfe der Formularerkennungs-REST-API mit Python](/azure/cognitive-services/form-recognizer/quickstarts/python-invoices.md)
 
 ### <a name="updated-articles"></a>Aktualisierte Artikel
 
-- [Sprachunterstützung für den plastischen Reader](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/language-support)
-- [Referenz zum JavaScript-SDK für den Plastischen Reader (v1.1)](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference)
-- [Schnellstart: Erste Schritte mit dem plastischen Reader](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/quickstarts/client-libraries)
-- [Tutorial: Starten des plastischen Readers unter Verwendung des Python-Beispielprojekts](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/tutorial-python)
-- [Erstellen einer Plastischer Reader-Ressource und Konfigurieren der Azure Active Directory-Authentifizierung](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/how-to-create-immersive-reader)
+- [Konzepte zu Belegen](/azure/cognitive-services/form-recognizer/concept-receipts.md)
+- [Was ist die Formularerkennung?](/azure/cognitive-services/form-recognizer/overview.md)
+- [Trainieren eines Formularerkennungsmodells mit Beschriftungen mithilfe des Tools für die Beschriftung von Beispielen](/azure/cognitive-services/form-recognizer/quickstarts/label-tool.md)
+- [Schnellstart: Extrahieren von Visitenkartendaten mithilfe der Formularerkennungs-REST-API mit Python](/azure/cognitive-services/form-recognizer/quickstarts/python-business-cards.md)
+- [Neuerungen in der Formularerkennung](/azure/cognitive-services/form-recognizer/whats-new.md)
 
 ## <a name="metrics-advisor"></a>Metrics Advisor
 
 ### <a name="new-articles"></a>Neue Artikel
 
-- [Gewusst wie: Konfigurieren von Metriken und Optimieren der Konfigurationserkennung](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/how-tos/configure-metrics)
-- [Hinzufügen von Datenfeeds aus unterschiedlichen Datenquellen zu Metrics Advisor](/azure/cognitive-services/metrics-advisor/data-feeds-from-different-sources)
-- [Schnellstart: Anpassen Ihrer Lösung mithilfe der REST-APIs](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/quickstarts/rest-api)
-- [Gewusst wie: Konfigurieren von Warnungen und Erhalten von Benachrichtigungen per Hook](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/how-tos/alerts)
+- [Metrics Advisor: Neuigkeiten in den Dokumenten](/azure/cognitive-services/metrics-advisor/whats-new.md)
+
+### <a name="updated-articles"></a>Aktualisierte Artikel
+
+- [Bereitstellen von Anomaliefeedback](/azure/cognitive-services/metrics-advisor/how-tos/anomaly-feedback.md)
+- [Metrics Advisor: Häufig gestellte Fragen](/azure/cognitive-services/metrics-advisor/faq.md)
+- [Schnellstart: Verwenden der Clientbibliotheken oder REST-APIs zum Anpassen Ihrer Lösung](/azure/cognitive-services/metrics-advisor/quickstarts/rest-api-and-client-library.md)
+
+## <a name="qna-maker"></a>QnA Maker 
+
+### <a name="new-articles"></a>Neue Artikel 
+
+* [QnA Maker verwaltet: Ankündigung der öffentlichen Vorschau](https://techcommunity.microsoft.com/t5/azure-ai/introducing-qna-maker-managed-now-in-public-preview/ba-p/1845575)
+* [Erstellen eines neuen QnA Maker verwaltet-Diensts](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure?tabs=v2)
+* [Migrieren Ihrer vorhandenen Wissensdatenbank zu QnA Maker verwaltet](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/migrate-knowledge-base)
 
 ## <a name="text-analytics"></a>Textanalyse
 
 ### <a name="updated-articles"></a>Aktualisierte Artikel
 
-- [Verwenden der Erkennung benannter Entitäten in der Textanalyse](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)
-- [Versionsverwaltung der Modelle in der Textanalyse-API](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/model-versioning)
-- [Schnellstart: Verwenden der Textanalyse-Clientbibliothek](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk)
-
-## <a name="community-contributors"></a>Mitwirkende an der Community
-
-Die folgenden Personen haben während dieses Zeitraums zur Cognitive Services-Dokumentation beigetragen. Vielen Dank! Erfahren Sie, wie Sie mitwirken können, indem Sie den Links unter „Beteiligen“ auf der [Landing Page „Neuerungen“](index.yml) folgen.
-
-- [AzureMentor](https://github.com/AzureMentor) (1)
-- [BeigeBadger](https://github.com/BeigeBadger) – Matt Stannett (1)
-- [gurry](https://github.com/gurry) – Gurinder Singh (1)
-- [hyoshioka0128](https://github.com/hyoshioka0128) – Hiroshi Yoshioka (1)
-- [iAmBipinPaul](https://github.com/iAmBipinPaul) – Bipin Paul (1)
-- [rexwan](https://github.com/rexwan) – Rex Wang (1)
-- [rglidden](https://github.com/rglidden) – Richard Glidden (1)
+- [Datengrenzwerte und Ratenbegrenzungen für die Textanalyse-API](/azure/cognitive-services/text-analytics/concepts/data-limits.md)
+- [Gewusst wie: Verwenden von Text Analytics for Health (Vorschauversion)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health.md)
+- [Aufrufen der Textanalyse-REST-API](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api.md)
+- [Verwenden der Erkennung benannter Entitäten in der Textanalyse](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
+- [Vorgehensweise: Stimmungsanalyse und Opinion Mining](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md)
+- [Neuigkeiten bei der Textanalyse-API](/azure/cognitive-services/text-analytics/whats-new.md)
+- [Beispiel: Sprachenerkennung mithilfe der Textanalyse](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection.md)
 
 [!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

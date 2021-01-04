@@ -16,12 +16,12 @@ ms.custom:
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 0d886fc6797011ff3a0adeb69f50358ece9c5f57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1eead9bb93fe8b753ace518cde18b240ab1a3cd4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252169"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572676"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: Verwenden eines simulierten Geräts zum Testen der Konnektivität mit Ihrem IoT Hub
 
@@ -36,15 +36,7 @@ In diesem Tutorial lernen Sie Folgendes:
 > * Überprüfen der Cloud-zu-Gerät-Konnektivität
 > * Überprüfen der Synchronisierung von Gerätezwillingen
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="prerequisites"></a>Voraussetzungen
-
-Für die CLI-Skripts, die Sie in diesem Tutorial ausführen, wird die [Microsoft Azure IoT-Erweiterung für die Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) verwendet. Führen Sie den folgenden CLI-Befehl aus, um diese Erweiterung zu installieren:
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -273,4 +265,4 @@ Falls Sie die IoT Hub-Instanz nicht mehr benötigen, löschen Sie die Ressourcen
 In diesem Tutorial wurde beschrieben, wie Sie Folgendes überprüfen: Ihre Geräteschlüssel, die Gerät-zu-Cloud-Konnektivität, die Cloud-zu-Gerät-Konnektivität und die Synchronisierung der Gerätezwillinge. Weitere Informationen zur Überwachung Ihres IoT Hub finden Sie im Artikel mit der Anleitung für die IoT Hub-Überwachung.
 
 > [!div class="nextstepaction"]
-> [Überwachen per Diagnose](iot-hub-monitor-resource-health.md)
+> [Überwachen von IoT Hub](monitor-iot-hub.md)

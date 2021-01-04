@@ -7,13 +7,13 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: yashar
 ms.topic: troubleshooting
-ms.date: 10/14/2020
-ms.openlocfilehash: fd7a2bde47f34a61390082a223409070275b64ce
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.date: 12/15/2020
+ms.openlocfilehash: ad85bd278b5dff1532f218acc0b8e88515d96070
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92115200"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561204"
 ---
 # <a name="troubleshoot-no-eligible-subscriptions"></a>Problembehandlung bei der Meldung „Keine berechtigten Abonnements“
 
@@ -21,15 +21,15 @@ In diesem Artikel erfahren Sie, wie Sie die Fehlermeldung *Keine berechtigten Ab
 
 ## <a name="symptoms"></a>Symptome
 
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an, und navigieren Sie zu **Reservierungen** .
+1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an, und navigieren Sie zu **Reservierungen**.
 1. Wählen Sie **Hinzufügen** aus, und wählen Sie dann einen Dienst aus.
 1. Folgende Fehlermeldung wird angezeigt:
    ```
     No eligible subscriptions
     
-    You do not have any eligible subscriptions to purchase reservations. To purchase a reservation, you should be an owner on at least one subscription of the following type: Pay-as-you-go, CSP, Microsoft Enterprise or Microsoft Customer Agreement.
+    You do not have any eligible subscriptions to purchase reservations. To purchase a reservation, you should have owner or reservation purchaser permission on at least one subscription of the following type: Pay-as-you-go, CSP, Microsoft Enterprise or Microsoft Customer Agreement.
     ```
-1. Erweitern Sie im Bereich **Select the product you want to purchase** (Zu erwerbendes Produkt auswählen) die Liste **Abrechnungsabonnement** , um den Grund zu erfahren, warum ein bestimmtes Abonnement nicht für den Kauf einer reservierten Instanz berechtigt ist. Die folgende Abbildung enthält Beispiele dafür, warum eine Reservierung nicht erworben werden kann.  
+1. Erweitern Sie im Bereich **Select the product you want to purchase** (Zu erwerbendes Produkt auswählen) die Liste **Abrechnungsabonnement**, um den Grund zu erfahren, warum ein bestimmtes Abonnement nicht für den Kauf einer reservierten Instanz berechtigt ist. Die folgende Abbildung enthält Beispiele dafür, warum eine Reservierung nicht erworben werden kann.  
     :::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/select-product-to-purchase.png" alt-text="Beispiel für den Grund, dass eine Reservierung nicht erworben werden kann" lightbox="./media/troubleshoot-no-eligible-subscriptions/select-product-to-purchase.png" :::
 
 ## <a name="cause"></a>Ursache
@@ -37,7 +37,7 @@ In diesem Artikel erfahren Sie, wie Sie die Fehlermeldung *Keine berechtigten Ab
 Um eine reservierte Azure-Instanz zu erwerben, müssen Sie über mindestens ein Abonnement verfügen, das die folgenden Anforderungen erfüllt:
 
 - Das Abonnement muss einem unterstützten Angebotstyp entsprechen. Folgende Angebotstypen werden unterstützt: Nutzungsbasierte Bezahlung, Cloud Solution Provider (CSP), Microsoft Azure Enterprise oder Microsoft-Kundenvereinbarung
-- Sie müssen der Besitzer des Abonnements sein.
+- Sie müssen ein Besitzer oder Reservierungskäufer für das Abonnement sein.
 
 Wenn Sie kein Abonnement besitzen, das die Anforderungen erfüllt, erhalten Sie den Fehler `No eligible subscriptions`.
 
@@ -51,19 +51,17 @@ Subscription not eligible for purchase
 This subscription is not eligible for reservation benefit an cannot be used to purchase a reservation.
 ```
 
-:::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/subscription-not-eligible.png" alt-text="Beispiel für den Grund, dass eine Reservierung nicht erworben werden kann" :::
+:::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/subscription-not-eligible.png" alt-text="Beispiel für ein Abonnement, für das die Fehlermeldung „Abonnement nicht für Erwerb berechtigt“ angezeigt wird" :::
 
 ### <a name="cause-2"></a>Ursache 2
 
-Sie müssen der Besitzer des Abonnements sein. Sie sind nicht der Besitzer des Abonnements. Wenn Sie ein Abonnement auswählen, das sich nicht in Ihrem Besitz befindet, wird der folgende Fehler angezeigt.
+Sie müssen ein Besitzer oder Reservierungskäufer für das Abonnement sein. Wenn Sie nicht über ausreichende Berechtigungen verfügen, wird der folgende Fehler angezeigt.
 
 ```
-You do not have owner access on the subscription
+You do not have owner or reservation purchaser access on the subscription
 
-You can only purchase reservations using subscriptions on which you have owner access.
+You can only purchase reservations using subscriptions on which you have owner or reservation purchaser access.
 ```
-
-:::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/no-owner-access.png" alt-text="Beispiel für den Grund, dass eine Reservierung nicht erworben werden kann" :::
 
 ## <a name="solution"></a>Lösung
 
@@ -96,8 +94,8 @@ Der aktuelle Besitzer des Reservierungsauftrags oder der Reservierung kann den Z
 1. Geben Sie die E-Mail-Adresse des Benutzers ein, den Sie als Besitzer hinzufügen möchten.
 1. Wählen Sie den Benutzer und dann **Speichern** aus.
 
-Weitere Informationen finden Sie unter [Hinzufügen oder Ändern von Benutzern, die eine Reservierung verwalten können](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+Weitere Informationen finden Sie unter [Hinzufügen oder Ändern von Benutzern, die eine Reservierung verwalten können](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Wenn Ihnen der Zugriff von einem Reservierungsbesitzer gewährt werden muss, informieren Sie sich unter [Hinzufügen oder Ändern von Benutzern, die eine Reservierung verwalten können](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+- Wenn Ihnen der Zugriff von einem Reservierungsbesitzer gewährt werden muss, informieren Sie sich unter [Hinzufügen oder Ändern von Benutzern, die eine Reservierung verwalten können](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).

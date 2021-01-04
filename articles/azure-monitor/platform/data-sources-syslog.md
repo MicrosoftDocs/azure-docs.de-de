@@ -1,20 +1,23 @@
 ---
-title: Erfassen und Analysieren von Syslog-Nachrichten in Azure Monitor | Microsoft-Dokumentation
+title: Sammeln von Syslog-Datenquellen mit dem Log Analytics-Agent in Azure Monitor
 description: Syslog ist ein gängiges Protokoll zur Ereignisprotokollierung für Linux. In diesem Artikel wird erläutert, wie Sie das Sammeln von Syslog-Nachrichten in Log Analytics konfigurieren. Darüber hinaus enthält der Artikel Details zu den erstellten Datensätzen.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/22/2019
-ms.openlocfilehash: d9efdb11ffd30c68a0ac8ea8e8156fe707f188de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 2d86983c8ed6c738e4b4e96d8d291dee4dc4d87d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322311"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440619"
 ---
-# <a name="syslog-data-sources-in-azure-monitor"></a>Syslog-Datenquellen in Azure Monitor
+# <a name="collect-syslog-data-sources-with-log-analytics-agent"></a>Sammeln von Syslog-Datenquellen mit dem Log Analytics-Agent
 Syslog ist ein gängiges Protokoll zur Ereignisprotokollierung für Linux. Anwendungen senden Nachrichten, die auf dem lokalen Computer gespeichert oder an einen Syslog-Sammler übermittelt werden können. Wenn der Log Analytics-Agent für Linux installiert ist, konfiguriert er den lokalen Syslog-Daemon zum Weiterleiten von Nachrichten an den Agent. Der Agent sendet die Nachricht dann an Azure Monitor, wo ein entsprechender Datensatz erstellt wird.  
+
+> [!IMPORTANT]
+> In diesem Artikel wird das Sammeln von Syslog-Ereignissen mit dem [Log Analytics-Agent](log-analytics-agent.md) beschrieben, einem der von Azure Monitor verwendeten Agents. Andere Agents sammeln andere Daten und werden anders konfiguriert. Eine Liste der verfügbaren Agents und der von ihnen gesammelten Daten finden Sie unter [Übersicht über Azure Monitor-Agents](agents-overview.md).
 
 > [!NOTE]
 > Azure Monitor unterstützt die Sammlung der von „rsyslog“ oder „syslog-ng“ gesendeten Nachrichten, wobei „rsyslog“ der Standarddaemon ist. Der Standard-syslog-Daemon in Version 5 von Red Hat Enterprise Linux, CentOS und Oracle Linux-Version (sysklog) wird für die syslog-Ereigniserfassung nicht unterstützt. Der [Rsyslog-Daemon](http://rsyslog.com) sollte installiert und so konfiguriert werden, dass er Sysklog ersetzt, um Syslog-Daten von dieser Version dieser Verteilungen zu sammeln.
@@ -45,7 +48,7 @@ Für jede andere Einrichtung [konfigurieren Sie eine Datenquelle für benutzerde
 Der Log Analytics-Agent für Linux sammelt nur Ereignisse mit den Einrichtungen und Schweregraden, die in ihrer Konfiguration angegeben werden. Sie können Syslog über das Azure-Portal oder durch die Verwaltung von Konfigurationsdateien für die Linux-Agents konfigurieren.
 
 ### <a name="configure-syslog-in-the-azure-portal"></a>Konfigurieren von Syslog im Azure-Portal
-Konfigurieren Sie Syslog über das [Menü „Daten“ in den erweiterten Einstellungen](agent-data-sources.md#configuring-data-sources). Diese Konfiguration wird in der Konfigurationsdatei für jeden Linux-Agent bereitgestellt.
+Sie konfigurieren Syslog über das [Menü „Daten“ in „Erweiterte Einstellungen“](agent-data-sources.md#configuring-data-sources) für den Log Analytics-Arbeitsbereich. Diese Konfiguration wird in der Konfigurationsdatei für jeden Linux-Agent bereitgestellt.
 
 Sie können eine neue Einrichtung hinzufügen, indem Sie zuerst die Option **Nachstehende Konfiguration auf meine Computer anwenden** auswählen, dann ihren Namen eingeben und anschließend auf **+** klicken. Für jede Einrichtung werden nur Ereignisse mit den ausgewählten Schweregraden gesammelt.  Markieren Sie die Schweregrade für die jeweilige Einrichtung, aus der Sie Daten sammeln möchten. Sie können keine zusätzlichen Kriterien angeben, um Nachrichten zu filtern.
 
@@ -188,7 +191,7 @@ Sie können die Portnummer ändern, indem Sie zwei Konfigurationsdateien erstell
     auth.warning              @127.0.0.1:%SYSLOG_PORT%
     ```
 
-* Ändern Sie die syslog-ng-Konfiguration durch Kopieren der unten gezeigten Beispielkonfiguration und Hinzufügen der benutzerdefinierten geänderten Einstellungen am Ende der Konfigurationsdatei „syslog-ng.conf“ im Verzeichnis `/etc/syslog-ng/`. Verwenden Sie **nicht** die Standardbezeichnung **%WORKSPACE_ID%_oms** oder **%WORKSPACE_ID_OMS**, definieren Sie eine benutzerdefinierte Bezeichnung, um die Änderungen kenntlich zu machen.  
+* Ändern Sie die syslog-ng-Konfiguration durch Kopieren der unten gezeigten Beispielkonfiguration und Hinzufügen der benutzerdefinierten geänderten Einstellungen am Ende der Konfigurationsdatei „syslog-ng.conf“ im Verzeichnis `/etc/syslog-ng/`. Verwenden Sie **nicht** die Standardbezeichnung **%WORKSPACE_ID%_oms** oder **%WORKSPACE_ID_OMS** , definieren Sie eine benutzerdefinierte Bezeichnung, um die Änderungen kenntlich zu machen.  
 
     > [!NOTE]
     > Wenn Sie die Standardwerte in der Konfigurationsdatei ändern, werden sie überschrieben, wenn der Agent eine Standardkonfiguration anwendet.

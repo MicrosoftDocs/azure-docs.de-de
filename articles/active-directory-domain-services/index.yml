@@ -9,16 +9,16 @@ metadata:
   ms.subservice: domain-services
   ms.topic: landing-page
   ms.collection: collection
-  author: MicrosoftGuyJFlo
-  ms.author: joflore
+  author: justinha
+  ms.author: justinha
   manager: daveba
   ms.date: 08/01/2019
-  ms.openlocfilehash: 906dbe9b177a162250d51e33fcbf34ad3ffe20af
-  ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+  ms.openlocfilehash: be9c98f680d01999d1b27983eb17124d5d522804
+  ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/13/2020
-  ms.locfileid: "91962359"
+  ms.lasthandoff: 12/05/2020
+  ms.locfileid: "96619694"
 landingContent:
 - title: Informationen zu Azure AD Domain Services
   linkLists:

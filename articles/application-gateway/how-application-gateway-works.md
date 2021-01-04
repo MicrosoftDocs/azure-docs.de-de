@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: d33ec829e490ae45d38d33f5784126a71ae2d0aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9166125fac28f43a93cbee2875b91bee986b1400
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86506552"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397466"
 ---
 # <a name="how-an-application-gateway-works"></a>Funktionsweise von Anwendungsgateways
 
@@ -32,7 +32,7 @@ In diesem Artikel wird erläutert, wie Anwendungsgateways die eingehenden Anford
 
 Azure Application Gateway kann als interner Lastenausgleich für Anwendungen oder als ein vom Internet zugänglicher Lastenausgleich für Anwendungen verwendet werden. Ein internetseitiges Anwendungsgateway nutzt eine öffentliche IP-Adresse. Der DNS-Name eines internetseitigen Anwendungsgateways kann öffentlich in seine öffentliche IP-Adresse aufgelöst werden. Daher können internetseitige Anwendungsgateways Clientanforderungen über das Internet routen.
 
-Interne Anwendungsgateways nutzen nur private IP-Adressen. Wenn Sie eine benutzerdefiniertes oder [Private DNS-Zone](https://docs.microsoft.com/azure/dns/private-dns-overview) verwenden, sollte sich der Domänenname intern in die private IP-Adresse des Application Gateway auflösen lassen. Daher können interne Lastenausgleichsmodule nur Anforderungen von Clients mit Zugriff auf ein virtuelles Netzwerk für das Anwendungsgateway routen.
+Interne Anwendungsgateways nutzen nur private IP-Adressen. Wenn Sie eine benutzerdefiniertes oder [Private DNS-Zone](../dns/private-dns-overview.md) verwenden, sollte sich der Domänenname intern in die private IP-Adresse des Application Gateway auflösen lassen. Daher können interne Lastenausgleichsmodule nur Anforderungen von Clients mit Zugriff auf ein virtuelles Netzwerk für das Anwendungsgateway routen.
 
 ## <a name="how-an-application-gateway-routes-a-request"></a>Routen einer Anforderung durch ein Anwendungsgateway
 
@@ -52,9 +52,9 @@ Wenn ein Anwendungsgateway die ursprüngliche Anforderung an den Back-End-Server
 
  >[!NOTE]
 >Für den Back-End-Pool gilt Folgendes:
-> - Wenn er **ein öffentlicher Endpunkt ist**, verwendet das Anwendungsgateway die öffentliche Front-End-IP-Adresse, um den Server zu erreichen. Wenn keine öffentliche Front-End-IP-Adresse vorliegt, wird für die ausgehende externe Konnektivität eine zugewiesen.
-> - Wenn er **einen intern auflösbaren FQDN oder eine private IP-Adresse enthält**, routet das Anwendungsgateway die Anforderung über die privaten Instanz-IP-Adressen des Back-End-Servers an diesen.
-> - Wenn er **einen externen Endpunkt oder einen extern auflösbaren FQDN enthält**, routet das Anwendungsgateway die Anforderung über die öffentliche Front-End-IP-Adresse des Back-End-Servers an diesen. Die DNS-Auflösung basiert auf einer privaten DNS-Zone oder einem benutzerdefinierten DNS-Server (sofern konfiguriert), oder es wird das von Azure bereitgestellte Standard-DNS verwendet. Wenn keine öffentliche Front-End-IP-Adresse vorliegt, wird für die ausgehende externe Konnektivität eine zugewiesen.
+> - Wenn er **ein öffentlicher Endpunkt ist** , verwendet das Anwendungsgateway die öffentliche Front-End-IP-Adresse, um den Server zu erreichen. Wenn keine öffentliche Front-End-IP-Adresse vorliegt, wird für die ausgehende externe Konnektivität eine zugewiesen.
+> - Wenn er **einen intern auflösbaren FQDN oder eine private IP-Adresse enthält** , routet das Anwendungsgateway die Anforderung über die privaten Instanz-IP-Adressen des Back-End-Servers an diesen.
+> - Wenn er **einen externen Endpunkt oder einen extern auflösbaren FQDN enthält** , routet das Anwendungsgateway die Anforderung über die öffentliche Front-End-IP-Adresse des Back-End-Servers an diesen. Die DNS-Auflösung basiert auf einer privaten DNS-Zone oder einem benutzerdefinierten DNS-Server (sofern konfiguriert), oder es wird das von Azure bereitgestellte Standard-DNS verwendet. Wenn keine öffentliche Front-End-IP-Adresse vorliegt, wird für die ausgehende externe Konnektivität eine zugewiesen.
 
 ### <a name="modifications-to-the-request"></a>Änderungen an der Anforderung
 

@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
-ms.openlocfilehash: f95f35fe0d17afdeec864674d3360fc3b172cad1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac84ce17f53145ffd85ffa31b6633d8b4b184962
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83683371"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042657"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Join-Transformation in einem Zuordnungsdatenfluss
 
@@ -75,7 +75,7 @@ Im Gegensatz zu „Merge Join“ in Tools wie SSIS ist die Join-Transformation k
 
 ![Optimieren der Join-Transformation](media/data-flow/joinoptimize.png "Join-Optimierung")
 
-Wenn bei Joins, Suchvorgängen und Exists-Transformationen der Arbeitsspeicher des Workerknotens groß genug für einen oder beide Datenströme ist, können Sie die Leistung optimieren, indem Sie die **Übertragung** aktivieren. Standardmäßig entscheidet die Spark-Engine automatisch, ob eine Seite übertragen werden soll oder nicht. Klicken Sie auf **Fest**, um die zu übertragende Seite manuell auszuwählen.
+Wenn bei Joins, Suchvorgängen und Exists-Transformationen der Arbeitsspeicher des Workerknotens groß genug für einen oder beide Datenströme ist, können Sie die Leistung optimieren, indem Sie die **Übertragung** aktivieren. Standardmäßig entscheidet die Spark-Engine automatisch, ob eine Seite übertragen werden soll oder nicht. Klicken Sie auf **Fest** , um die zu übertragende Seite manuell auszuwählen.
 
 Es wird nicht empfohlen, die Übertragung über die Option **Off** (Aus) zu deaktivieren, es sei denn, für Ihre Joins treten Timeoutfehler auf.
 
@@ -108,7 +108,7 @@ Das folgende Beispiel ist eine Join-Transformation namens `JoinMatchedData` mit 
 
 Auf der Data Factory-Benutzeroberfläche sieht diese Transformation wie folgt aus:
 
-![Join-Beispiel](media/data-flow/join-script1.png "Join-Beispiel")
+![Screenshot der Transformation mit ausgewählter Registerkarte für Joineinstellungen und dem Jointyp „Innerer“](media/data-flow/join-script1.png "Join-Beispiel")
 
 Das Datenflussskript für diese Transformation befindet sich im folgenden Codeausschnitt:
 
@@ -130,7 +130,7 @@ Das folgende Beispiel ist eine Join-Transformation namens `JoiningColumns` mit d
 
 Auf der Data Factory-Benutzeroberfläche sieht diese Transformation wie folgt aus:
 
-![Join-Beispiel](media/data-flow/join-script2.png "Join-Beispiel")
+![Screenshot der Transformation mit ausgewählter Registerkarte für Joineinstellungen und dem Jointyp „Benutzerdefiniert“ (Kreuzprodukt)](media/data-flow/join-script2.png "Join-Beispiel")
 
 Das Datenflussskript für diese Transformation befindet sich im folgenden Codeausschnitt:
 

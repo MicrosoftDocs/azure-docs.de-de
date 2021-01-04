@@ -3,23 +3,22 @@ title: 'Tutorial: Verwenden der Key Vault-Verweise von Azure App Configuration i
 description: In diesem Tutorial erfahren Sie, wie Sie die Key Vault-Verweise von Azure App Configuration in einer Java Spring Boot-App verwenden.
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/16/2019
-ms.author: lcozzens
-ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 3cdb7796f3f8c877f130f47b971dc66c113c4d36
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 08/11/2020
+ms.author: alkemper
+ms.custom: mvc, devx-track-java, devx-track-azurecli
+ms.openlocfilehash: ede8203078a3d496975e208622ef61018997cf8d
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070111"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929213"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Tutorial: Verwenden von Key Vault-Verweisen in einer Java Spring-App
 
@@ -51,7 +50,7 @@ In diesem Tutorial lernen Sie Folgendes:
 
 1. Wählen Sie oben links im Azure-Portal die Option **Ressource erstellen** aus:
 
-    ![Ausgabe nach Erstellung der Key Vault-Instanz abgeschlossen](./media/quickstarts/search-services.png)
+    ![Screenshot: Option „Ressource erstellen“ im Azure-Portal](./media/quickstarts/search-services.png)
 1. Geben Sie **Key Vault** in das Suchfeld ein.
 1. Wählen Sie in der Ergebnisliste links **Key Vault** aus.
 1. Wählen Sie unter **Schlüsseltresore** die Option **Hinzufügen** aus.
@@ -65,7 +64,7 @@ In diesem Tutorial lernen Sie Folgendes:
 
 An diesem Punkt ist nur Ihr Azure-Konto für den Zugriff auf diesen neuen Tresor autorisiert.
 
-![Ausgabe nach Erstellung der Key Vault-Instanz abgeschlossen](./media/quickstarts/vault-properties.png)
+![Screenshot: Schlüsseltresor](./media/quickstarts/vault-properties.png)
 
 ## <a name="add-a-secret-to-key-vault"></a>Hinzufügen eines Geheimnisses zu Key Vault
 

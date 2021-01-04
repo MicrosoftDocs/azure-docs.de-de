@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: mbullwin
-ms.openlocfilehash: a37f3cfd250d152129245395680dbd847359e869
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: c4d1d23da5fd9678cc5b9477ddeed0daf4f5ac36
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046909"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348618"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Hinzufügen von Datenfeeds aus unterschiedlichen Datenquellen zu Metrics Advisor
 
@@ -26,7 +26,7 @@ Verwenden Sie diesen Artikel, um die Einstellungen und Anforderungen zum Herstel
 | Authentifizierungstypen | BESCHREIBUNG |
 | ---------------------|-------------|
 |**Grundlegend** | Sie müssen in der Lage sein, grundlegende Parameter für den Zugriff auf Datenquellen bereitzustellen. Beispiel: eine Verbindungszeichenfolge oder einen Schlüssel. Datenfeedadministratoren können diese Anmeldeinformationen anzeigen. |
-| **AzureManagedIdentity** | [Verwaltete Identitäten](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) für Azure-Ressourcen ist eine Funktion von Azure Active Directory. Sie stellt für Azure-Dienste eine automatisch verwaltete Identität in Azure AD bereit. Sie können die Identität für die Authentifizierung bei jedem Dienst verwenden, der die Azure AD-Authentifizierung unterstützt.|
+| **AzureManagedIdentity** | [Verwaltete Identitäten](../../active-directory/managed-identities-azure-resources/overview.md) für Azure-Ressourcen ist eine Funktion von Azure Active Directory. Sie stellt für Azure-Dienste eine automatisch verwaltete Identität in Azure AD bereit. Sie können die Identität für die Authentifizierung bei jedem Dienst verwenden, der die Azure AD-Authentifizierung unterstützt.|
 | **AzureSQLConnectionString**| Speichern Sie die AzureSQL-Verbindungszeichenfolge als **credential entity** (Anmeldeinformationsentität) in Metrics Advisor, und verwenden Sie sie beim Onboarding von Metrikdaten direkt. Nur Administratoren der Anmeldeinformationsentität können diese Anmeldeinformationen anzeigen, aber sie ermöglicht autorisierten anzeigenden Benutzern das Erstellen von Datenfeeds, ohne dass sie die Details der Anmeldeinformationen kennen müssen. |
 | **DataLakeGen2SharedKey**| Speichern Sie den Data Lake-Kontoschlüssel als **credential entity** (Anmeldeinformationsentität) in Metrics Advisor, und verwenden Sie sie direkt bei jedem Onboarding von Metrikdaten. Nur Administratoren der Anmeldeinformationsentität können diese Anmeldeinformationen anzeigen, aber sie ermöglicht autorisierten anzeigenden Benutzern das Erstellen von Datenfeeds, ohne dass sie die Details der Anmeldeinformationen kennen müssen.|
 | **Dienstprinzipal**| Speichern Sie den Dienstprinzipal als **credential entity** (Anmeldeinformationsentität) in Metrics Advisor, und verwenden Sie sie beim Onboarding von Metrikdaten direkt. Nur Administratoren der Anmeldeinformationsentität können die Anmeldeinformationen anzeigen, aber sie ermöglicht autorisierten anzeigenden Benutzern das Erstellen von Datenfeeds, ohne dass sie die Details der Anmeldeinformationen kennen müssen.|
@@ -38,15 +38,15 @@ Verwenden Sie diesen Artikel, um die Einstellungen und Anforderungen zum Herstel
 | Datenquellen | Authentifizierungstypen |
 |-------------| ---------------------|
 |[**Azure Application Insights**](#appinsights)|  Basic |
-|[**Azure Blob Storage (JSON)** ](#blob) | Basic<br>ManagedIdentity|
-|[**Azure Cosmos DB (SQL)** ](#cosmosdb) | Basic |
+|[**Azure Blob Storage (JSON)**](#blob) | Basic<br>ManagedIdentity|
+|[**Azure Cosmos DB (SQL)**](#cosmosdb) | Basic |
 |[**Azure Data Explorer (Kusto)**](#kusto) | Basic<br>ManagedIdentity|
 |[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>DataLakeGen2SharedKey<br>Dienstprinzipal<br>Dienstprinzipal vom Schlüsseltresor<br> |
 |[**Azure SQL-Datenbank/SQL Server**](#sql) | Basic<br>ManagedIdentity<br>Dienstprinzipal<br>Dienstprinzipal vom Schlüsseltresor<br>AzureSQLConnectionString
 |[**Azure Table Storage**](#table) | Basic | 
 |[**ElasticSearch**](#es) | Basic |
 |[**HTTP-Anforderung**](#http) | Basic | 
-|[**InfluxDB (InfluxQL)** ](#influxdb) | Basic |
+|[**InfluxDB (InfluxQL)**](#influxdb) | Basic |
 |[**MongoDB**](#mongodb) | Basic |
 |[**MySQL**](#mysql) | Basic |
 |[**PostgreSQL**](#pgsql)| Basic|
@@ -61,7 +61,7 @@ Erstellen Sie eine **Credential Entity** (Anmeldeinformationsentität), und verw
 
     2. Kopieren Sie die generierte Anwendungs-ID in das Feld **Anwendungs-ID** in Metrics Advisor. 
     
-    Weitere Informationen finden Sie in der [Dokumentation zu Azure Bot Service](https://docs.microsoft.com/azure/bot-service/bot-service-resources-app-insights-keys#application-id).
+    Weitere Informationen finden Sie in der [Dokumentation zu Azure Bot Service](/azure/bot-service/bot-service-resources-app-insights-keys#application-id).
 
 * **API-Schlüssel**: API-Schlüssel werden von Anwendungen außerhalb des Browsers für den Zugriff auf diese Ressource verwendet. Gehen Sie wie folgt vor, um den API-Schlüssel abzurufen:
 
@@ -73,12 +73,12 @@ Erstellen Sie eine **Credential Entity** (Anmeldeinformationsentität), und verw
 
     4. Kopieren Sie den API-Schlüssel in das Feld **API-Schlüssel** in Metrics Advisor.
 
-* **Query** (Abfrage): Azure Application Insights-Protokolle basieren auf Azure Data Explorer, und Azure Monitor-Protokollabfragen verwenden eine Version der gleichen Kusto-Abfragesprache. Die [Dokumentation zur Kusto-Abfragesprache](https://docs.microsoft.com/azure/data-explorer/kusto/query/) enthält alle Informationen zur Sprache und ist die wichtigste Ressource zum Schreiben einer Abfrage für Application Insights. 
+* **Query** (Abfrage): Azure Application Insights-Protokolle basieren auf Azure Data Explorer, und Azure Monitor-Protokollabfragen verwenden eine Version der gleichen Kusto-Abfragesprache. Die [Dokumentation zur Kusto-Abfragesprache](/azure/data-explorer/kusto/query/) enthält alle Informationen zur Sprache und ist die wichtigste Ressource zum Schreiben einer Abfrage für Application Insights. 
 
 
 ## <a name="span-idblobazure-blob-storage-jsonspan"></a><span id="blob">Azure Blob Storage (JSON)</span>
 
-* **Verbindungszeichenfolge**: Informationen zum Abrufen dieser Zeichenfolge finden Sie im Artikel zur Azure Blob Storage-[Verbindungszeichenfolge](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string#view-and-copy-a-connection-string).
+* **Verbindungszeichenfolge**: Informationen zum Abrufen dieser Zeichenfolge finden Sie im Artikel zur Azure Blob Storage-[Verbindungszeichenfolge](../../storage/common/storage-configure-connection-string.md#configure-a-connection-string-for-an-azure-storage-account).
 
 * **Container**: Metrics Advisor erwartet Zeitreihendaten, die als Blobdateien (ein Blob pro Zeitstempel) unter einem einzelnen Container gespeichert sind. Dies ist das Feld für den Containernamen.
 
@@ -133,9 +133,9 @@ Pro JSON-Datei ist nur ein Zeitstempel zulässig.
 
 ## <a name="span-idkustoazure-data-explorer-kustospan"></a><span id="kusto">Azure Data Explorer (Kusto)</span>
 
-* **Verbindungszeichenfolge**: Metrics Advisor unterstützt den Zugriff auf Azure Data Explorer (Kusto) über die Azure AD-Anwendungsauthentifizierung. Sie müssen eine Azure AD-Anwendung erstellen und registrieren und diese anschließend für den Zugriff auf eine Azure Data Explorer-Datenbank autorisieren. Informationen zum Abrufen der Verbindungszeichenfolge finden Sie in der Dokumentation zu [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app).
+* **Verbindungszeichenfolge**: Metrics Advisor unterstützt den Zugriff auf Azure Data Explorer (Kusto) über die Azure AD-Anwendungsauthentifizierung. Sie müssen eine Azure AD-Anwendung erstellen und registrieren und diese anschließend für den Zugriff auf eine Azure Data Explorer-Datenbank autorisieren. Informationen zum Abrufen der Verbindungszeichenfolge finden Sie in der Dokumentation zu [Azure Data Explorer](/azure/data-explorer/provision-azure-ad-app).
 
-* **Query** (Abfrage): Unter [Kusto-Abfragesprache](https://docs.microsoft.com/azure/data-explorer/kusto/query) finden Sie Informationen zum Abrufen und Formulieren von Daten in mehrdimensionalen Zeitreihendaten. Verwenden Sie die Variablen `@StartTime` und `@EndTime` in der Abfrage. Sie müssen wie folgt formatiert werden: `yyyy-MM-dd HH:mm:ss`.
+* **Query** (Abfrage): Unter [Kusto-Abfragesprache](/azure/data-explorer/kusto/query) finden Sie Informationen zum Abrufen und Formulieren von Daten in mehrdimensionalen Zeitreihendaten. Verwenden Sie die Variablen `@StartTime` und `@EndTime` in der Abfrage. Sie müssen wie folgt formatiert werden: `yyyy-MM-dd HH:mm:ss`.
 
 ## <a name="span-idadlazure-data-lake-storage-gen2span"></a><span id="adl">Azure Data Lake Storage Gen2</span>
 
@@ -172,7 +172,7 @@ Derzeit unterstützt Metrics Advisor das Datenschema in den JSON-Dateien wie fol
 
 * **Connection String**: This can be found in 'Shared access policies' in your Event Hubs instance. Also for the 'EntityPath', it could be found by clicking into your Event Hubs instance and clicking at 'Event Hubs' in 'Entities' blade. Items that listed can be input as EntityPath. 
 
-* **Consumer Group**: A [consumer group](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#consumer-groups) is a view (state, position, or offset) of an entire event hub.
+* **Consumer Group**: A [consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) is a view (state, position, or offset) of an entire event hub.
 Event Hubs use the latest offset of a consumer group to consume (subscribe from) the data from data source. Therefore a dedicated consumer group should be created for one data feed in your Metrics Advisor instance.
 
 * **Timestamp**: Metrics Advisor uses the Event Hubs timestamp as the event timestamp if the user data source does not contain a timestamp field.
@@ -186,7 +186,7 @@ The timestamp field must match one of these two formats:
 -->
 ## <a name="span-idsqlazure-sql-database--sql-serverspan"></a><span id="sql">Azure SQL-Datenbank | SQL Server</span>
 
-* **Verbindungszeichenfolge**: Metrics Advisor akzeptiert eine [Verbindungszeichenfolge im ADO.NET-Stil](https://docs.microsoft.com/dotnet/framework/data/adonet/connection-string-syntax) für eine SQL Server-Datenquelle.
+* **Verbindungszeichenfolge**: Metrics Advisor akzeptiert eine [Verbindungszeichenfolge im ADO.NET-Stil](/dotnet/framework/data/adonet/connection-string-syntax) für eine SQL Server-Datenquelle.
 
     Beispiel-Verbindungszeichenfolge:
 
@@ -212,7 +212,7 @@ The timestamp field must match one of these two formats:
 
 ## <a name="span-idtableazure-table-storagespan"></a><span id="table">Azure Table Storage</span>
 
-* **Verbindungszeichenfolge**: Informationen zum Abrufen der Verbindungszeichenfolge aus Azure Table Storage finden Sie unter [Anzeigen und Kopieren einer Verbindungszeichenfolge](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=azure-portal#view-account-access-keys).
+* **Verbindungszeichenfolge**: Informationen zum Abrufen der Verbindungszeichenfolge aus Azure Table Storage finden Sie unter [Anzeigen und Kopieren einer Verbindungszeichenfolge](../../storage/common/storage-account-keys-manage.md?tabs=azure-portal&toc=%2fazure%2fstorage%2ftables%2ftoc.json#view-account-access-keys).
 
 * **Tabellenname**: Geben Sie eine Tabelle an, die abgefragt werden soll. Dies finden Sie in Ihrer Azure Storage-Kontoinstanz. Klicken Sie im Abschnitt **Tabellendienst** auf **Tabellen**.
 

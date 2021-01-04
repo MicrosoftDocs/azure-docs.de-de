@@ -10,14 +10,15 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: a796ae32033dbc09b1f5b888ded9ea5e1f4c457e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3af713d6e120e66a0cde5116f4556bb8caedf55
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86523484"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097847"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Erstellen einer Angular-App mit der Azure Cosmos DB-API für MongoDB: Erstellen einer Node.js Express-App
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Dieses mehrteilige Tutorial zeigt, wie Sie eine in Node.js geschriebene neue App mit Express und Angular erstellen und mit Ihrem [Cosmos-Konto verbinden, das mit der API für MongoDB von Cosmos DB](mongodb-introduction.md) konfiguriert wurde.
 
@@ -81,9 +82,9 @@ Weitere Voraussetzungen für dieses Tutorial:
 
 ## <a name="build-the-app-using-the-express-framework"></a>Erstellen der App mithilfe des Express-Frameworks
 
-1. Klicken Sie in Visual Studio Code im Bereich **Explorer** mit der rechten Maustaste auf den Ordner **src**, klicken Sie auf **Neuer Ordner**, und nennen Sie den neuen Ordner *server*.
+1. Klicken Sie in Visual Studio Code im Bereich **Explorer** mit der rechten Maustaste auf den Ordner **src** , klicken Sie auf **Neuer Ordner** , und nennen Sie den neuen Ordner *server*.
 
-2. Klicken Sie im Bereich **Explorer** mit der rechten Maustaste auf den Ordner **server**, klicken Sie auf **Neue Datei**, und nennen Sie die neue Datei *index.js*.
+2. Klicken Sie im Bereich **Explorer** mit der rechten Maustaste auf den Ordner **server** , klicken Sie auf **Neue Datei** , und nennen Sie die neue Datei *index.js*.
 
 3. Kehren Sie zur Eingabeaufforderung zurück, und verwenden Sie den unten angegebenen Befehl, um die Komponente „body-parser“ zu installieren. Mit dieser Komponente kann die App die über die APIs übergebenen JSON-Daten analysieren.
 
@@ -125,7 +126,7 @@ Weitere Voraussetzungen für dieses Tutorial:
    app.listen(port, () => console.log(`API running on localhost:${port}`));
    ```
 
-5. Klicken Sie in Visual Studio Code im Bereich **Explorer** mit der rechten Maustaste auf den Ordner **server**, und klicken Sie anschließend auf **Neue Datei**. Nennen Sie die neue Datei *routes.cs*. 
+5. Klicken Sie in Visual Studio Code im Bereich **Explorer** mit der rechten Maustaste auf den Ordner **server** , und klicken Sie anschließend auf **Neue Datei**. Nennen Sie die neue Datei *routes.cs*. 
 
 6. Kopieren Sie den unten angegebenen Code in **routes.js**. Für diesen Code gilt Folgendes:
    * Er verweist auf den Express-Router.
@@ -159,7 +160,7 @@ Weitere Voraussetzungen für dieses Tutorial:
 
 1. Öffnen Sie Postman, und geben Sie `http://localhost:3000/api/heroes` in das Feld „GET“ ein. 
 
-2. Klicken Sie auf die Schaltfläche **Senden**, und rufen Sie die JSON-Antwort aus der App ab. 
+2. Klicken Sie auf die Schaltfläche **Senden** , und rufen Sie die JSON-Antwort aus der App ab. 
 
     Diese Antwort zeigt, dass die App aktiv ist und lokal ausgeführt wird. 
 

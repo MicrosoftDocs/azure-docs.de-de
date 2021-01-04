@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: b13d82780a01771c6bb8e87091a7808ea22ca111
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b90fe6b7e0937a9ac3b300e904085122610d5645
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371184"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957077"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Textanalyse-API v3: Sprachunterstützung 
 
@@ -35,12 +35,13 @@ ms.locfileid: "92371184"
 | Französisch                |     `fr`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Deutsch                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Griechisch                 |     `el`      |     ✓      |            |                            |                    |
-| Hindi                 |     `hi`      |           |      ✓      |          2020-04-01                  |                    |
+| Hindi                 |     `hi`      |            |      ✓     |          2020-04-01        |                    |
 | Italienisch               |     `it`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Japanisch              |     `ja`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Koreanisch                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
-| Norwegisch (Bokmål)   |     `no`      |     ✓      |     ✓       |        2020-07-01         |                    |
+| Norwegisch (Bokmål)   |     `no`      |     ✓      |     ✓      |         2020-07-01         |                    |
 | Polnisch                |     `pl`      |     ✓      |            |                            |                    |
+| Portugiesisch (Brasilien)   |    `pt-BR`    |            |     ✓      |         2020-04-01         |                    |
 | Portugiesisch (Portugal) |    `pt-PT`    |     ✓      |     ✓      |         2019-10-01         | `pt` wird ebenfalls akzeptiert. |
 | Russisch               |     `ru`      |     ✓      |            |                            |                    |
 | Spanisch               |     `es`      |     ✓      |     ✓      |         2019-10-01         |                    |
@@ -204,7 +205,7 @@ Bei Inhalten in einer seltener verwendeten Sprache können Sie die Sprachenerken
 |Schwedisch|`sv`|✓|    |
 |Tagalog|`tl`|✓|    |
 |Tahitisch|`ty`|✓|2020-09-01|
-|Tamil|`ta`|✓|    |
+|Tamilisch|`ta`|✓|    |
 |Telugu|`te`|✓|    |
 |Thailändisch|`th`|✓|    |
 |Tongaisch|`to`|✓|2020-09-01|

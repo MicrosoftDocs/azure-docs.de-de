@@ -8,11 +8,11 @@ ms.date: 04/02/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: a80ad943a6b11be86587d2e247a44a1b7d1e064d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84660180"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002515"
 ---
 # <a name="creating-an-incremental-snapshot-for-managed-disks"></a>Erstellen einer inkrementellen Momentaufnahme für verwaltete Datenträger
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-portal](../../../includes/virtual-machines-disks-incremental-snapshots-portal.md)]

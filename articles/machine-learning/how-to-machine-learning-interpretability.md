@@ -1,7 +1,7 @@
 ---
 title: Modellinterpretierbarkeit in Azure Machine Learning (Vorschauversion)
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Sie mithilfe des Azure Machine Learning SDK erklären können, warum Ihr Modell Vorhersagen trifft. Es kann während des Trainings und der Herleitung von Rückschlüssen verwendet werden, um zu verstehen, wie Ihr Modell Vorhersagen trifft.
+description: Erfahren Sie, wie Sie mithilfe des Python-SDK für Azure Machine Learning verstehen und erläutern können, wie Ihr Machine Learning-Modell während des Trainings Vorhersagen macht und Rückschlüsse zieht.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.custom: how-to
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
-ms.date: 07/09/2020
-ms.openlocfilehash: d063af3ba3b9261100af5e48a2c507a80ac76d98
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 11/16/2020
+ms.openlocfilehash: dff0aeaf84ce87ed728d333cb68aee3a349bc111
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322358"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699388"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Modellinterpretierbarkeit in Azure Machine Learning (Vorschauversion)
 
@@ -39,7 +39,7 @@ Die Möglichkeit, ein Machine Learning-Modell erklären zu können, ist in zwei 
 
 ## <a name="interpretability-with-azure-machine-learning"></a>Interpretierbarkeit mit Azure Machine Learning
 
-Die Interpretierbarkeitsklassen werden über das folgende SDK-Paket zur Verfügung gestellt: (Erfahren Sie, wie Sie [SDK-Pakete für Azure Machine Learning installieren](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).)
+Die Interpretierbarkeitsklassen werden über das folgende SDK-Paket zur Verfügung gestellt: (Erfahren Sie, wie Sie [SDK-Pakete für Azure Machine Learning installieren](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).)
 
 * `azureml.interpret`, enthält von Microsoft unterstützte Funktionen.
 

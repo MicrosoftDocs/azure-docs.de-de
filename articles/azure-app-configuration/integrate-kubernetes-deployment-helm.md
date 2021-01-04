@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
-ms.openlocfilehash: ee5f70f40103a92ff26cfcabc6adf9e2b825b59b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c388bd22ba20dd681997064496a90a81dabb292f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074837"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426707"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Integrieren in eine Kubernetes-Bereitstellung mit Helm
 
@@ -57,10 +57,10 @@ In diesem Tutorial werden Grundkenntnisse im Zusammenhang mit der Verwaltung von
 3. Wählen Sie **Konfigurations-Explorer** aus.
 
 4. Wählen Sie **+ Erstellen** > **Schlüsseltresorverweis** aus, und geben Sie dann die folgenden Werte an:
-    - **Schlüssel**: Wählen Sie **secrets.password** aus.
+    - **Schlüssel** : Wählen Sie **secrets.password** aus.
     - **Bezeichnung:** Lassen Sie diesen Wert leer.
-    - **Abonnement**, **Ressourcengruppe** und **Schlüsseltresor**: Geben Sie die Werte ein, die den Werten des im vorherigen Schritt erstellten Schlüsseltresors entsprechen.
-    - **Geheimnis**: Wählen Sie das Geheimnis mit dem Namen **Password** aus, das Sie im vorherigen Abschnitt erstellt haben.
+    - **Abonnement** , **Ressourcengruppe** und **Schlüsseltresor** : Geben Sie die Werte ein, die den Werten des im vorherigen Schritt erstellten Schlüsseltresors entsprechen.
+    - **Geheimnis** : Wählen Sie das Geheimnis mit dem Namen **Password** aus, das Sie im vorherigen Abschnitt erstellt haben.
 
 ## <a name="create-helm-chart"></a>Erstellen des Helm-Charts ##
 Erstellen Sie zunächst mithilfe des folgenden Befehls ein exemplarisches Helm-Chart:
@@ -229,9 +229,9 @@ Vergewissern Sie sich, dass die Konfigurationen und Geheimnisse erfolgreich fest
 
 ![Schnellstartanleitung: Lokales Starten der App](./media/kubernetes-dashboard-env-variables.png)
 
-Ein als Key Vault-Verweis in App Configuration gespeichertes Geheimnis (**password**) wurde auch zu Kubernetes-Geheimnissen hinzugefügt. 
+Ein als Key Vault-Verweis in App Configuration gespeichertes Geheimnis ( **password** ) wurde auch zu Kubernetes-Geheimnissen hinzugefügt. 
 
-![Schnellstartanleitung: Lokales Starten der App](./media/kubernetes-dashboard-secrets.png)
+![Screenshot, auf dem das Kennwort im Abschnitt „Daten“ hervorgehoben ist](./media/kubernetes-dashboard-secrets.png)
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 

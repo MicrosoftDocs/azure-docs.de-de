@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: v-jawe
 ms.custom: references_regions
-ms.openlocfilehash: 5be99ba09032020abf777c80307e347658a6e037
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 2b5a34e8f3e7132a16ad3683b846d57e9ece2cb6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471035"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015468"
 ---
 In diesem Schnellstart erlernen Sie grundlegende Entwurfsmuster für die Sprechererkennung mit dem Sprach-SDK, einschließlich:
 
@@ -51,7 +51,7 @@ using Microsoft.CognitiveServices.Speech.Audio;
 
 ## <a name="create-a-speech-configuration"></a>Erstellen einer Sprachkonfiguration
 
-Um den Speech-Dienst über das Speech SDK aufrufen zu können, muss eine Sprachkonfiguration ([`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true)) erstellt werden. In diesem Beispiel erstellen Sie das Objekt [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true) mit einem Abonnementschlüssel und einer Region. Sie können für den restlichen Teil dieses Artikels auch einfache Codebausteine erstellen, an denen Sie dann jeweils die entsprechenden Anpassungen vornehmen.
+Um den Speech-Dienst über das Speech SDK aufrufen zu können, muss eine Sprachkonfiguration ([`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-dotnet)) erstellt werden. In diesem Beispiel erstellen Sie das Objekt [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-dotnet) mit einem Abonnementschlüssel und einer Region. Sie können für den restlichen Teil dieses Artikels auch einfache Codebausteine erstellen, an denen Sie dann jeweils die entsprechenden Anpassungen vornehmen.
 
 Beachten Sie, dass als Region `westus` festgelegt ist, da sie die einzige unterstützte Region für den Dienst ist.
 
@@ -70,7 +70,7 @@ public class Program
 
 ## <a name="text-dependent-verification"></a>Textabhängige Überprüfung
 
-Mit der Sprecherüberprüfung wird bestätigt, dass ein Sprecher mit einer bekannten oder **registrierten** Stimme übereinstimmt. Der erste Schritt ist das **Registrieren** eines Stimmenprofils, damit der Dienst über etwas verfügt, mit dem zukünftige Stimmbeispiele verglichen werden können. In diesem Beispiel registrieren Sie das Profil mit einer **textabhängigen** Strategie, die eine bestimmte Passphrase für Registrierung und Überprüfung erfordert. Eine Liste der unterstützten Passphrasen finden Sie in den [Referenzdokumenten](https://docs.microsoft.com/rest/api/speakerrecognition/).
+Mit der Sprecherüberprüfung wird bestätigt, dass ein Sprecher mit einer bekannten oder **registrierten** Stimme übereinstimmt. Der erste Schritt ist das **Registrieren** eines Stimmenprofils, damit der Dienst über etwas verfügt, mit dem zukünftige Stimmbeispiele verglichen werden können. In diesem Beispiel registrieren Sie das Profil mit einer **textabhängigen** Strategie, die eine bestimmte Passphrase für Registrierung und Überprüfung erfordert. Eine Liste der unterstützten Passphrasen finden Sie in den [Referenzdokumenten](/rest/api/speakerrecognition/).
 
 Erstellen Sie zunächst die folgende Funktion in der `Program`-Klasse, um ein Stimmenprofil zu registrieren.
 
@@ -127,7 +127,7 @@ public static async Task SpeakerVerify(SpeechConfig config, VoiceProfile profile
 
 In dieser Funktion übergeben Sie das soeben erstellte `VoiceProfile`-Objekt, um ein Modell zu initialisieren, anhand dessen überprüft werden soll. Im nächsten Schritt werden Sie von `await speakerRecognizer.RecognizeOnceAsync(model)` aufgefordert, die Passphrase erneut zu sprechen, aber dieses Mal wird sie anhand Ihres Stimmenprofils überprüft und ein Ähnlichkeitsergebnis von 0,0-1,0 zurückgegeben. Das `result`-Objekt gibt auch `Accept` oder `Reject` zurück, je nachdem, ob die Passphrase übereinstimmt.
 
-Ändern Sie als nächstes die `Main()`-Funktion, um die neuen Funktionen aufzurufen, die Sie erstellt haben. Beachten Sie außerdem, dass Sie ein `Dictionary<string, string>` erstellen, das als Verweis über die Funktionsaufrufe übergeben werden soll. Der Grund hierfür ist, dass der Dienst das Speichern eines lesbaren Namens mit einem erstellten `VoiceProfile` nicht zulässt und nur eine ID-Nummer zu Datenschutzzwecken speichert. In der `VerificationEnroll`-Funktion fügen Sie diesem Wörterbuch einen Eintrag mit der neu erstellten ID zusammen mit einem Textnamen hinzu. In Anwendungsentwicklungsszenarien, in denen Sie einen lesbaren Namen anzeigen müssen, **müssen Sie diese Zuordnung irgendwo speichern, da der Dienst sie nicht speichern kann** .
+Ändern Sie als nächstes die `Main()`-Funktion, um die neuen Funktionen aufzurufen, die Sie erstellt haben. Beachten Sie außerdem, dass Sie ein `Dictionary<string, string>` erstellen, das als Verweis über die Funktionsaufrufe übergeben werden soll. Der Grund hierfür ist, dass der Dienst das Speichern eines lesbaren Namens mit einem erstellten `VoiceProfile` nicht zulässt und nur eine ID-Nummer zu Datenschutzzwecken speichert. In der `VerificationEnroll`-Funktion fügen Sie diesem Wörterbuch einen Eintrag mit der neu erstellten ID zusammen mit einem Textnamen hinzu. In Anwendungsentwicklungsszenarien, in denen Sie einen lesbaren Namen anzeigen müssen, **müssen Sie diese Zuordnung irgendwo speichern, da der Dienst sie nicht speichern kann**.
 
 ```csharp
 static async Task Main(string[] args)

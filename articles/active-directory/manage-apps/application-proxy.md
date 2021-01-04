@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 65e1b1b5e84c3344a082b73b7768935d788a3394
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d620342d53bdae0b3a520000f6d240eb0e28d15
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707406"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180591"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Remotezugriff auf lokale Anwendungen über den Azure AD-Anwendungsproxy
 
@@ -36,7 +36,7 @@ Der Anwendungsproxy ist ein Feature von Azure AD, mit dem Benutzer von einem Rem
 Der Anwendungsproxy funktioniert mit:
 
 * Webanwendungen, für die zur Authentifizierung die [integrierte Windows-Authentifizierung](application-proxy-configure-single-sign-on-with-kcd.md) verwendet wird
-* Webanwendungen mit formularbasiertem oder [headerbasiertem](application-proxy-configure-single-sign-on-with-ping-access.md) Zugriff
+* Webanwendungen mit formularbasiertem oder [headerbasiertem](./application-proxy-configure-single-sign-on-with-headers.md) Zugriff
 * Web-APIs, die Sie für umfassende Anwendungen auf unterschiedlichen Geräten verfügbar machen möchten
 * Hinter einem [Remotedesktopgateway](application-proxy-integrate-with-remote-desktop-services.md) gehostete Anwendungen
 * Rich Client-Apps, die in die Microsoft Authentication Library (MSAL) integriert sind
@@ -74,4 +74,3 @@ Das folgende Diagramm zeigt, wie Azure AD und der Anwendungsproxy gemeinsam das 
 
 ## <a name="next-steps"></a>Nächste Schritte
 Erste Schritte mit dem Anwendungsproxy finden Sie in [Tutorial: Hinzufügen einer lokalen Anwendung für den Remotezugriff über den Anwendungsproxy](application-proxy-add-on-premises-application.md).
-

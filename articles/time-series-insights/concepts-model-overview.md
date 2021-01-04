@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: a61dd6c17ad4d11c6dd7294c9a4f96270748c16a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c201ce984a216a5cc62e221c0433f83a7eeabae
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630660"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021761"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Zeitreihenmodell in Azure Time Series Insights Gen2
 
@@ -24,7 +24,7 @@ Dieser Artikel beschreibt das Zeitreihenmodell sowie die zugehörigen Funktionen
 > [!TIP]
 >
 > * Wechseln Sie zur Demoumgebung  [Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples), um ein Livebeispiel für ein Zeitreihenmodell zu sehen.
-> * Informieren Sie sich über das [Arbeiten mit dem Zeitreihenmodell](/azure/time-series-insights/how-to-edit-your-model) mithilfe des Azure Time Series Insights-Explorers.
+> * Informieren Sie sich über das [Arbeiten mit dem Zeitreihenmodell](./how-to-edit-your-model.md) mithilfe des Azure Time Series Insights-Explorers.
 
 ## <a name="summary"></a>Zusammenfassung
 
@@ -75,7 +75,7 @@ Diese Komponenten werden kombiniert, um ein Zeitreihenmodell anzugeben und Ihre 
 
 [![Übersicht über Zeitreihenmodelldiagramm](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-Ein Zeitreihenmodell kann über die Schnittstelle [Azure Time Series Insights-Explorer](/azure/time-series-insights/concepts-model-overview) erstellt und verwaltet werden. Die Einstellungen eines Zeitreihenmodells können über die [Modelleinstellungs-API](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis) verwaltet werden.
+Ein Zeitreihenmodell kann über die Schnittstelle [Azure Time Series Insights-Explorer]() erstellt und verwaltet werden. Die Einstellungen eines Zeitreihenmodells können über die [Modelleinstellungs-API](/rest/api/time-series-insights/reference-model-apis) verwaltet werden.
 
 ## <a name="time-series-model-instances"></a>Zeitreihenmodellinstanzen
 
@@ -101,7 +101,7 @@ Instanzen werden durch **timeSeriesId**, **typeId**, **name**, **description**, 
 | --- | ---|
 | timeSeriesId | Die eindeutige ID der Zeitreihe, der die Instanz zugeordnet ist. In den meisten Fällen werden die Instanzen durch eine Eigenschaft wie deviceId oder assetId eindeutig identifiziert. In einigen Fällen kann eine spezifischere zusammengesetzte ID verwendet werden, die bis zu drei Eigenschaften kombiniert. |
 | typeId | Die eindeutige Zeichenfolgen-ID des Zeitreihenmodelltyps mit Beachtung von Groß-/Kleinschreibung, dem die Instanz zugeordnet ist. Standardmäßig werden alle entdeckten neuen Instanzen einem Standardtyp zugeordnet.
-| name | Die **name**-Eigenschaft ist optional, und die Groß-/Kleinschreibung wird berücksichtigt. Wenn für **name** kein Wert verfügbar ist, wird die Eigenschaft standardmäßig auf **timeSeriesId** festgelegt. Auch wenn ein Name angegeben wurde, ist **timeSeriesId** weiterhin im [Well](time-series-insights-update-explorer.md#4-time-series-well) verfügbar. |
+| name | Die **name**-Eigenschaft ist optional, und die Groß-/Kleinschreibung wird berücksichtigt. Wenn für **name** kein Wert verfügbar ist, wird die Eigenschaft standardmäßig auf **timeSeriesId** festgelegt. Auch wenn ein Name angegeben wurde, ist **timeSeriesId** weiterhin im [Well](./concepts-ux-panels.md#4-time-series-well) verfügbar. |
 | description | Eine Textbeschreibung der Instanz. |
 | hierarchyIds | Definiert, zu welchen Hierarchien die Instanz gehört. |
 | instanceFields | Die Eigenschaften einer Instanz sowie aller statischen Daten, die eine Instanz definieren. Sie definieren Werte von Hierarchie- oder Nicht-Hierarchie-Eigenschaften, während sie gleichzeitig die Indizierung unterstützen, um Suchvorgänge auszuführen. |
@@ -129,7 +129,7 @@ Instanzen weisen die folgende JSON-Darstellung auf:
 ```
 
 > [!TIP]
-> Informationen zur Unterstützung von CRUD-Vorgängen (Create, Read, Update, Delete) bei der Instanz-API finden Sie im Artikel [Datenabfragen](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) und in der [REST-Dokumentation für die Instanz-API](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#instances-api).
+> Informationen zur Unterstützung von CRUD-Vorgängen (Create, Read, Update, Delete) bei der Instanz-API finden Sie im Artikel [Datenabfragen](./concepts-query-overview.md#time-series-model-query-tsm-q-apis) und in der [REST-Dokumentation für die Instanz-API](/rest/api/time-series-insights/reference-model-apis#instances-api).
 
 ## <a name="time-series-model-hierarchies"></a>Zeitreihenmodellhierarchien
 
@@ -186,7 +186,7 @@ Im oben stehenden JSON-Beispiel gilt:
 * `ManufactureDate` definiert eine Hierarchie mit übergeordneten `year`-Elementen und untergeordneten `month`-Elementen. Jedes `ManufactureDate`-Element kann mehrere `years`-Elemente enthalten, die wiederum mehrere `months`-Elemente umfassen können.
 
 > [!TIP]
-> Informationen zur Unterstützung von CRUD-Vorgängen (Create, Read, Update, Delete) bei der Hierarchie-API finden Sie im Artikel [Datenabfragen](concepts-query-overview.md#time-series-model-query-tsm-q-apis) und in der [REST-Dokumentation für die Hierarchie-API](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#hierarchies-api).
+> Informationen zur Unterstützung von CRUD-Vorgängen (Create, Read, Update, Delete) bei der Hierarchie-API finden Sie im Artikel [Datenabfragen](concepts-query-overview.md#time-series-model-query-tsm-q-apis) und in der [REST-Dokumentation für die Hierarchie-API](/rest/api/time-series-insights/reference-model-apis#hierarchies-api).
 
 ### <a name="hierarchy-example"></a>Beispiel für eine Hierarchie
 
@@ -216,13 +216,13 @@ Mit den in der vorherigen Definition verwendeten Instanzfeldern und verschiedene
 | ID4 | "building" = "1000", "floor" = "10"  |
 | ID5 | Weder „building“ noch „floor“ noch „room“ wurden festgelegt. |
 
-Die Zeitreihen **ID1** und **ID4** werden im [Azure Time Series Insights-Explorer](time-series-insights-update-explorer.md) als Teil der Hierarchie **H1** angezeigt, weil sie vollständig definierte und richtig angeordnete Parameter *building*, *floor* und *room* aufweisen.
+Die Zeitreihen **ID1** und **ID4** werden im [Azure Time Series Insights-Explorer](./concepts-ux-panels.md) als Teil der Hierarchie **H1** angezeigt, weil sie vollständig definierte und richtig angeordnete Parameter *building*, *floor* und *room* aufweisen.
 
 Die anderen Zeitreihen sind unter *Unparented Instances* klassifiziert, weil sie der angegebenen Datenhierarchie nicht entsprechen.
 
 ## <a name="time-series-model-types"></a>Zeitreihenmodelltypen
 
-Zeitreihenmodell*typen* helfen Ihnen beim Definieren von Variablen oder Formeln zur Durchführung von Berechnungen. Typen werden einer bestimmten-Instanz zugeordnet.
+Zeitreihenmodell *typen* helfen Ihnen beim Definieren von Variablen oder Formeln zur Durchführung von Berechnungen. Typen werden einer bestimmten-Instanz zugeordnet.
 
 Ein Typ kann eine oder mehrere Variablen enthalten. Beispielsweise könnte eine Zeitreihenmodellinstanz den Typ *Temperatursensor* aufweisen, der aus den Variablen *durchschnittliche Temperatur*, *Mindesttemperatur* und *Höchsttemperatur* besteht.
 
@@ -231,7 +231,7 @@ Die Demoumgebung [Contoso Wind Farm](https://insights.timeseries.azure.com/previ
 [![Beispiel für Zeitreihenmodelltyp](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
-> Informationen zur Unterstützung von CRUD-Vorgängen (Create, Read, Update, Delete) bei der Typen-API finden Sie im Artikel [Datenabfragen](concepts-query-overview.md#time-series-model-query-tsm-q-apis) und in der [REST-Dokumentation für die Typen-API](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#types-api).
+> Informationen zur Unterstützung von CRUD-Vorgängen (Create, Read, Update, Delete) bei der Typen-API finden Sie im Artikel [Datenabfragen](concepts-query-overview.md#time-series-model-query-tsm-q-apis) und in der [REST-Dokumentation für die Typen-API](/rest/api/time-series-insights/reference-model-apis#types-api).
 
 ### <a name="type-properties"></a>Typeigenschaften
 
@@ -288,7 +288,7 @@ Zeitreihenmodelltypen können viele Variablen haben, die Formel- und Berechnungs
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Weitere Informationen zum Bearbeiten des Modells über APIs finden Sie in der Referenzdokumentation zum [Zeitreihenmodell](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
+* Weitere Informationen zum Bearbeiten des Modells über APIs finden Sie in der Referenzdokumentation zum [Zeitreihenmodell](/rest/api/time-series-insights/reference-model-apis).
 
 * Untersuchen Sie die Formeln und Berechnungen, die Sie mit [Zeitreihenmodellvariablen](./concepts-variables.md) erstellen können.
 

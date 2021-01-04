@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: cff4704b388594511809d92957cbbce97e948f2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca369f8a3e680a4d2aae49df83dda0cdd3dc4075
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362417"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310151"
 ---
 # <a name="evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Auswerten der Modellleistung in Azure Machine Learning Studio (Classic)
 
-**GILT FÜR:**  ![Gilt für ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic) ![Gilt nicht für ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**GILT FÜR:**  ![Gilt für ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic) ![Gilt nicht für ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Hier erhalten Sie weitere Informationen zu den Metriken, die Sie verwenden können, um die Modellleistung in Azure Machine Learning Studio (Classic) zu überwachen.  Die Auswertung der Leistung eines Modells ist eine der wesentlichen Phasen im Datenanalyseprozess. Sie gibt an, wie erfolgreich die Bewertung (die Vorhersagen) eines Datasets eines trainierten Modells war. In Azure Machine Learning Studio (klassisch) wird die Auswertung von Modellen durch zwei der wichtigsten Machine Learning-Module unterstützt: 
@@ -47,7 +47,7 @@ Alternativ können Sie mithilfe der Kreuzvalidierung automatisch mehrere Trainin
 In den folgenden Abschnitten werden einfache Regressions- und Klassifizierungsmodelle erstellt, und deren Leistung wird evaluiert. Dazu werden die beiden Module [Evaluate Model][evaluate-model] und [Cross-Validate Model][cross-validate-model] verwendet.
 
 ## <a name="evaluating-a-regression-model"></a>Auswerten eines Regressionsmodells
-Angenommen, wir möchten den Preis eines Fahrzeugs anhand von Eigenschaften wie Abmessungen, PS, Motorisierung usw. vorhersagen. Dies ist ein typischer Regressionsfall, bei dem die Zielvariable (*price*) ein beständiger Zahlenwert ist. Dazu kann ein lineares Regressionsmodell angepasst werden, das mit den Eigenschaftenwerten eines bestimmten Fahrzeugs den Preis des Fahrzeugs vorhersagen kann. Mit diesem Regressionsmodell kann das gleiche Dataset bewertet werden, das für das Training verwendet wurde. Wenn die vorhergesagten Fahrzeugpreise vorliegen, kann die Modellleistung ausgewertet werden, indem wir uns ansehen, inwieweit die Vorhersagen im Durchschnitt von den tatsächlichen Preisen abweichen. Zur Veranschaulichung verwenden wir das im Abschnitt **Saved Datasets** (gespeicherte Datasets) in Azure Machine Learning Studio (klassisch) bereitgestellte Dataset *Automobile price data (Raw)* (Fahrzeugpreisdaten (Rohdaten)).
+Angenommen, wir möchten den Preis eines Fahrzeugs anhand von Eigenschaften wie Abmessungen, PS, Motorisierung usw. vorhersagen. Dies ist ein typischer Regressionsfall, bei dem die Zielvariable ( *price* ) ein beständiger Zahlenwert ist. Dazu kann ein lineares Regressionsmodell angepasst werden, das mit den Eigenschaftenwerten eines bestimmten Fahrzeugs den Preis des Fahrzeugs vorhersagen kann. Mit diesem Regressionsmodell kann das gleiche Dataset bewertet werden, das für das Training verwendet wurde. Wenn die vorhergesagten Fahrzeugpreise vorliegen, kann die Modellleistung ausgewertet werden, indem wir uns ansehen, inwieweit die Vorhersagen im Durchschnitt von den tatsächlichen Preisen abweichen. Zur Veranschaulichung verwenden wir das im Abschnitt **Saved Datasets** (gespeicherte Datasets) in Azure Machine Learning Studio (klassisch) bereitgestellte Dataset *Automobile price data (Raw)* (Fahrzeugpreisdaten (Rohdaten)).
 
 ### <a name="creating-the-experiment"></a>Erstellen des Experiments
 Fügen Sie Ihrem Arbeitsbereich in Azure Machine Learning Studio (klassisch) die folgenden Module hinzu:
@@ -65,7 +65,7 @@ Verbinden Sie die Ports wie in Abbildung 1 dargestellt, und legen Sie für die S
 Abbildung 1. Auswerten eines Regressionsmodells.
 
 ### <a name="inspecting-the-evaluation-results"></a>Überprüfen der Auswertungsergebnisse
-Nach dem Ausführen des Experiments können Sie auf den Ausgabeport des Moduls [Evaluate Model][evaluate-model] klicken und *Visualize* auswählen, um die Auswertungsergebnisse anzuzeigen. Für Regressionsmodelle stehen folgende Auswertungskennzahlen zur Verfügung: *Mean Absolute Error*, *Root Mean Absolute Error*, *Relative Absolute Error*, *Relative Squared Error* und *Coefficient of Determination*.
+Nach dem Ausführen des Experiments können Sie auf den Ausgabeport des Moduls [Evaluate Model][evaluate-model] klicken und *Visualize* auswählen, um die Auswertungsergebnisse anzuzeigen. Für Regressionsmodelle stehen folgende Auswertungskennzahlen zur Verfügung: *Mean Absolute Error* , *Root Mean Absolute Error* , *Relative Absolute Error* , *Relative Squared Error* und *Coefficient of Determination*.
 
 Der Begriff "Fehler" gibt hier die Differenz zwischen dem vorhergesagten und dem tatsächlichen Wert an. Normalerweise wird der absolute Wert oder das Quadrat dieser Differenz berechnet, um die gesamte Fehlerabweichung in allen Fällen zu erfassen, da die Differenz zwischen dem vorhergesagten und dem tatsächlichen Wert in einigen Fällen auch negativ sein kann. Die Fehlerkennzahlen messen die Vorhersageleistung eines Regressionsmodells im Hinblick auf die mittlere Abweichung seiner Vorhersagen von den tatsächlichen Werten. Kleinere Fehlerwerte bedeuten, dass das Modell bei Vorhersagen genauer ist. Die Fehlerkennzahl null bedeutet, dass das Modell perfekt mit den Daten übereinstimmt.
 
@@ -107,7 +107,7 @@ Verbinden Sie die Ports wie in Abbildung 5 dargestellt, und legen Sie für die S
 Abbildung 5. Auswerten eines binären Klassifizierungsmodells.
 
 ### <a name="inspecting-the-evaluation-results"></a>Überprüfen der Auswertungsergebnisse
-Nach dem Ausführen des Experiments können Sie auf den Ausgabeport des Moduls [Evaluate Model][evaluate-model] klicken und *Visualize* auswählen, um die Auswertungsergebnisse anzuzeigen (Abbildung 7). Für binäre Klassifikationsmodelle stehen folgende Auswertungskennzahlen zur Verfügung: *Accuracy*, *Precision*, *Recall*, *F1 Score* und *AUC*. Darüber hinaus gibt das Modul eine Wahrheitsmatrix mit der Anzahl der Fälle „richtig positiv“, „falsch negativ“, „falsch positiv“ und „richtig negativ“ sowie den Kurven *ROC*, *Precision/Recall* und *Lift* aus.
+Nach dem Ausführen des Experiments können Sie auf den Ausgabeport des Moduls [Evaluate Model][evaluate-model] klicken und *Visualize* auswählen, um die Auswertungsergebnisse anzuzeigen (Abbildung 7). Für binäre Klassifikationsmodelle stehen folgende Auswertungskennzahlen zur Verfügung: *Accuracy* , *Precision* , *Recall* , *F1 Score* und *AUC*. Darüber hinaus gibt das Modul eine Wahrheitsmatrix mit der Anzahl der Fälle „richtig positiv“, „falsch negativ“, „falsch positiv“ und „richtig negativ“ sowie den Kurven *ROC* , *Precision/Recall* und *Lift* aus.
 
 Genauigkeit (Accuracy) ist dabei der Anteil der richtig klassifizierten Fälle. Sie ist normalerweise die erste Kennzahl, die Sie sich bei der Auswertung eines Klassifikators ansehen. Wenn die Testdaten jedoch unausgeglichen sind (also die meisten Fälle einer einzelnen Klasse angehören) oder Sie sich überwiegend für eine einzelne Klasse interessieren, wird mit der Genauigkeit die Effektivität eines Klassifikators nicht wirklich erfasst. Angenommen, beim Klassifizierungsszenario für das Einkommensniveau testen Sie Daten, bei denen 99 % der Fälle Mitarbeiter angeben, deren Einkommen pro Jahr kleiner oder gleich 50K ist. Bei der Vorhersage der Klasse „<=50.000“ für alle Fälle kann eine Genauigkeit von 0,99 erreicht werden. Der Klassifikator scheint in diesem Fall eine durchweg solide Leistung zu liefern, in Wirklichkeit werden aber alle Personen mit höherem Einkommen (die 1 %) nicht richtig klassifiziert.
 
@@ -117,15 +117,15 @@ Aus diesem Grund ist es nützlich, weitere Kennzahlen zu berechnen, die die spez
 
 Abbildung 6. Wahrheitsmatrix der binären Klassifizierung.
 
-Im Hinblick auf die Klassifizierung des Einkommens in unserem Beispiel sollen mehrere Auswertungsfragen gestellt werden, mit denen die Leistung des verwendeten Klassifikators bewertet werden kann. Eine nahe liegende Frage ist: „Wie viele der Personen, für die im Modell vorhergesagt wurde, dass ihr Einkommen mehr als 50.000 beträgt (RP+FP), wurden richtig klassifiziert (RP)?“ Diese Frage kann durch Prüfen der Genauigkeit (**Precision**) des Modells beantwortet werden, die den Anteil der positiven Fälle angibt, die richtig klassifiziert wurden: RP/(RP+FP). Eine weitere Frage lautet: „Wie viele aller besserverdienenden Mitarbeiter mit einem Einkommen von mehr als 50.000 (RP+FN) wurden mit dem Klassifikator richtig klassifiziert (RP)?“ Dies ist die Sensitivität (**Recall**) oder die Richtig-Positiv-Rate des Klassifikators: RP/(RP+FN). Sie können feststellen, dass ein offensichtlicher Zusammenhang zwischen Präzision und Sensitivität besteht. Ein relativ ausgeglichenes Dataset vorausgesetzt, weist ein Klassifikator, der überwiegend positive Fälle vorhersagt, eine hohe Sensitivität, jedoch eine eher geringe Präzision auf, da viele der negativen Fälle falsch klassifiziert werden, was zu einer hohen Anzahl falsch-negativer Fälle führt. Um grafisch darzustellen, wie diese beiden Metriken variieren, können Sie in der Ausgabeseite der Auswertungsergebnisse auf die Kurve **PRECISION/RECALL** klicken (links oben in Abbildung 7).
+Im Hinblick auf die Klassifizierung des Einkommens in unserem Beispiel sollen mehrere Auswertungsfragen gestellt werden, mit denen die Leistung des verwendeten Klassifikators bewertet werden kann. Eine nahe liegende Frage ist: „Wie viele der Personen, für die im Modell vorhergesagt wurde, dass ihr Einkommen mehr als 50.000 beträgt (RP+FP), wurden richtig klassifiziert (RP)?“ Diese Frage kann durch Prüfen der Genauigkeit ( **Precision** ) des Modells beantwortet werden, die den Anteil der positiven Fälle angibt, die richtig klassifiziert wurden: RP/(RP+FP). Eine weitere Frage lautet: „Wie viele aller besserverdienenden Mitarbeiter mit einem Einkommen von mehr als 50.000 (RP+FN) wurden mit dem Klassifikator richtig klassifiziert (RP)?“ Dies ist die Sensitivität ( **Recall** ) oder die Richtig-Positiv-Rate des Klassifikators: RP/(RP+FN). Sie können feststellen, dass ein offensichtlicher Zusammenhang zwischen Präzision und Sensitivität besteht. Ein relativ ausgeglichenes Dataset vorausgesetzt, weist ein Klassifikator, der überwiegend positive Fälle vorhersagt, eine hohe Sensitivität, jedoch eine eher geringe Präzision auf, da viele der negativen Fälle falsch klassifiziert werden, was zu einer hohen Anzahl falsch-negativer Fälle führt. Um grafisch darzustellen, wie diese beiden Metriken variieren, können Sie in der Ausgabeseite der Auswertungsergebnisse auf die Kurve **PRECISION/RECALL** klicken (links oben in Abbildung 7).
 
 ![Auswertungsergebnisse der binären Klassifizierung.](./media/evaluate-model-performance/7.png)
 
 Abbildung 7. Auswertungsergebnisse der binären Klassifizierung.
 
-Eine weitere zugehörige, häufig verwendete Kennzahl ist das sogenannte F-Maß (**F1 Score**), das sowohl Genauigkeit als auch Sensitivität berücksichtigt. Es handelt sich um das harmonische Mittel dieser beiden Metriken, das wie folgt berechnet wird: F1 = 2 (Genauigkeit x Sensitivität) / (Genauigkeit + Sensitivität). Der F1-Score ist eine gute Methode, um die Auswertung in einer einzelnen Zahl zusammenzufassen. Es empfiehlt sich jedoch auch immer, die Präzision und Sensitivität zusammen zu betrachten, um das Verhalten eines Klassifikators besser einschätzen zu können.
+Eine weitere zugehörige, häufig verwendete Kennzahl ist das sogenannte F-Maß ( **F1 Score** ), das sowohl Genauigkeit als auch Sensitivität berücksichtigt. Es handelt sich um das harmonische Mittel dieser beiden Metriken, das wie folgt berechnet wird: F1 = 2 (Genauigkeit x Sensitivität) / (Genauigkeit + Sensitivität). Der F1-Score ist eine gute Methode, um die Auswertung in einer einzelnen Zahl zusammenzufassen. Es empfiehlt sich jedoch auch immer, die Präzision und Sensitivität zusammen zu betrachten, um das Verhalten eines Klassifikators besser einschätzen zu können.
 
-Darüber hinaus können Sie mit der Grenzwertoptimierungskurve (**Receiver Operating Characteristic, ROC**) und dem entsprechenden Wert für die Fläche unter der Kurve (**Area Under the Curve, AUC**) die Richtig-Positiv-Rate im Vergleich zur Falsch-Positiv-Rate überprüfen. Je stärker sich diese Kurve der linken oberen Ecke annähert, desto besser ist die Leistung des Klassifikators (d. h., die Richtig-Positiv-Rate wird maximiert, während die Falsch-Positiv-Rate minimiert wird). Kurven, die sich der Diagonale in der Darstellung nähern, sind auf Klassifikatoren zurückzuführen, deren Vorhersagen auf bloßes Raten hinauslaufen.
+Darüber hinaus können Sie mit der Grenzwertoptimierungskurve ( **Receiver Operating Characteristic, ROC** ) und dem entsprechenden Wert für die Fläche unter der Kurve ( **Area Under the Curve, AUC** ) die Richtig-Positiv-Rate im Vergleich zur Falsch-Positiv-Rate überprüfen. Je stärker sich diese Kurve der linken oberen Ecke annähert, desto besser ist die Leistung des Klassifikators (d. h., die Richtig-Positiv-Rate wird maximiert, während die Falsch-Positiv-Rate minimiert wird). Kurven, die sich der Diagonale in der Darstellung nähern, sind auf Klassifikatoren zurückzuführen, deren Vorhersagen auf bloßes Raten hinauslaufen.
 
 ### <a name="using-cross-validation"></a>Verwenden der Kreuzvalidierung
 Wie im Regressionsbeispiel kann die Kreuzvalidierung durchgeführt werden, um verschiedene Teilmengen der Daten automatisch mehrmals zu trainieren, zu bewerten und auszuwerten. In ähnlicher Weise können das Modul [Cross-Validate Model][cross-validate-model], ein untrainiertes logistisches Regressionsmodell und ein Dataset verwendet werden. Für die Beschriftungsspalte muss in den Eigenschaften des Moduls [Cross-Validate Model][cross-validate-model] der Wert *income* festgelegt werden. Nach Ausführen des Experiments und Klicken auf den rechten Ausgabeport des Moduls [Cross-Validate Model][cross-validate-model] werden die Metrikwerte der binären Klassifizierung sowie der Mittelwert und die Standardabweichung für jede Aufteilung angezeigt. 
@@ -182,12 +182,12 @@ Abbildung 12: Kreuzvalidierung eines Modells für die Multiklassenklassifizieru
 Abbildung 13: Ergebnisse der Kreuzvalidierung eines Modells für die Multiklassenklassifizierung.
 
 <!-- Module References -->
-[cross-validate-model]: https://msdn.microsoft.com/library/azure/75fb875d-6b86-4d46-8bcc-74261ade5826/
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
-[multiclass-decision-forest]: https://msdn.microsoft.com/library/azure/5e70108d-2e44-45d9-86e8-94f37c68fe86/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[two-class-logistic-regression]: https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/
+[cross-validate-model]: /azure/machine-learning/studio-module-reference/cross-validate-model
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[linear-regression]: /azure/machine-learning/studio-module-reference/linear-regression
+[multiclass-decision-forest]: /azure/machine-learning/studio-module-reference/multiclass-decision-forest
+[import-data]: /azure/machine-learning/studio-module-reference/import-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[two-class-logistic-regression]: /azure/machine-learning/studio-module-reference/two-class-logistic-regression

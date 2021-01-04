@@ -1,7 +1,7 @@
 ---
 title: 'Add Columns: Modulreferenz'
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Sie das Modul „Add Columns“ (Hinzufügen von Spalten) in Azure Machine Learning verwenden können, um zwei Datensätze zu verketten.
+description: Erfahren Sie, wie Sie das Add Columns-Modul im Azure Machine Learning-Designer mit Drag & Drop-Funktion verwenden, um zwei Datensätze zu verketten.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 17882581c4548996c9a8b2a8670b5f720e64da1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36de827dff239dbeebc66e330a76b7a65fefb909
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898989"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421956"
 ---
 # <a name="add-columns-module"></a>Modul „Add Columns“ (Hinzufügen von Spalten)
 

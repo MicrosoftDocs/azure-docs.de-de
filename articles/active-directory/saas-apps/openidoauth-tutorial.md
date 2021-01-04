@@ -12,20 +12,20 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.custom: has-adal-ref
-ms.openlocfilehash: ce4cccba678a934780dc987f1441ea658a70f8eb
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 17d78b4d6db9e65868995d8ea7835a0d911e8589
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996612"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348692"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Konfigurieren einer OpenID/OAuth-Anwendung aus dem Azure AD-App-Katalog
 
 ## <a name="process-of-adding-an-openid-application-from-the-gallery"></a>Hinzufügen einer OpenID-Anwendung aus dem Katalog
 
-1. Wählen Sie im linken Bereich des [Azure-Portals](https://portal.azure.com) die Option **Azure Active Directory** aus.
+1. Wählen Sie im [Azure-Portal](https://portal.azure.com) die Option **Azure Active Directory** aus.
 
-    ![Schaltfläche „Azure Active Directory“](common/select-azuread.png))
+    ![Schaltfläche „Azure Active Directory“](common/select-azuread.png)
 
 2. Navigieren Sie zu **Unternehmensanwendungen** > **Alle Anwendungen**.
 
@@ -39,17 +39,23 @@ ms.locfileid: "91996612"
 
     ![OpenID in der Ergebnisliste](common/search-new-app.png)
 
-    > [!NOTE]
-    > Für OpenID Connect- und OAuth-Apps ist die Schaltfläche **Hinzufügen** standardmäßig deaktiviert. Hier muss der Mandantenadministrator die Schaltfläche zum Registrieren auswählen und die Anwendung zulassen. Die Anwendung wird dann dem Kundenmandanten hinzugefügt. Dort können Sie die Konfigurationen vornehmen. Die Anwendung muss nicht explizit hinzugefügt werden.
+
+1. Klicken Sie auf der Seite „Anwendungsname“ auf die Schaltfläche **Registrieren**.
 
     ![Schaltfläche „Hinzufügen“](./media/openidoauth-tutorial/addbutton.png)
 
-5. Wenn Sie den Link zur Registrierung auswählen, werden Sie auf die Seite von Azure Active Directory (Azure AD) zum Eingeben der Anmeldeinformationen weitergeleitet.
+    > [!NOTE]
+    > Hier muss der Mandantenadministrator die Schaltfläche zum Registrieren auswählen und die Anwendung zulassen. Die Anwendung wird dann dem Kundenmandanten hinzugefügt. Dort können Sie die Konfigurationen vornehmen. Die Anwendung muss nicht explizit hinzugefügt werden.
+
+5. Sie werden zum Eingeben der Anmeldeinformationen auf die Seite für die Anwendungsanmeldung oder die Seite von Azure Active Directory (Azure AD) weitergeleitet.
 
 6. Geben Sie nach der erfolgreichen Authentifizierung auf der Zustimmungsseite Ihre Einwilligung. Daraufhin wird die Startseite der Anwendung angezeigt.
 
     > [!NOTE]
     > Sie können nur eine Instanz der Anwendung hinzufügen. Wenn Sie bereits eine Instanz hinzugefügt haben und danach noch einmal versuchen, Ihre Einwilligung zu erteilen, wird die Anwendung dem Mandanten nicht erneut hinzugefügt. Das heißt, Sie können im Mandanten nur eine App-Instanz verwenden.
+
+1. Führen Sie die Schritte im folgenden Video aus, um eine OpenID-Anwendung aus dem Katalog hinzuzufügen.
+    >[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
 ## <a name="authentication-flow-using-openid-connect"></a>Authentifizierungsfluss bei OpenID Connect
 
@@ -151,3 +157,7 @@ Ein Mandantenadministrator kann die Funktion deaktivieren, dass reguläre Benutz
 Der Parameter *prompt=admin_consent* kann auch von Anwendungen verwendet werden, die Berechtigungen anfordern, die keine Administratoreinwilligung erfordern. Ein Beispiel ist eine Anwendung, die erfordert, dass sich der Administrator des Mandanten einmal „registriert“ und danach keine anderen Benutzer zur Einwilligung aufgefordert werden.
 
 Angenommen, eine Anwendung erfordert die Einwilligung des Administrators und ein Administrator meldet sich an, ohne dass der Parameter *prompt=admin_conent* gesendet wird. Wenn der Administrator der Anwendung erfolgreich seine Einwilligung erteilt, gilt das nur für sein Benutzerkonto. Normale Benutzer können sich weiterhin nicht anmelden und nicht ihre Einwilligung für die Anwendung geben. Diese Funktion ist sinnvoll, wenn Sie dem Mandantenadministrator die Möglichkeit geben möchten, Ihre Anwendung zu untersuchen, bevor Sie anderen Benutzern Zugriff gewähren.
+
+## <a name="next-steps"></a>Nächste Schritte
+
+[Einrichten des OIDC-basierten einmaligen Anmeldens (Single Sign-On, SSO) für eine Anwendung in Ihrem Azure Active Directory-Mandanten (Azure AD-Mandanten)](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)

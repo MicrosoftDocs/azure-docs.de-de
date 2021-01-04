@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/13/2020
+ms.date: 11/06/2020
 ms.author: b-juche
-ms.openlocfilehash: 54e6f4abd5ca6d15a4cc5a7bc9015abb005296a0
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: c6194469837997108964feda82d406c9108641b9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013643"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369238"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>Problembehandlung bei Kapazitätspools
 
@@ -34,11 +34,14 @@ In diesem Artikel werden Lösungen für möglicherweise beim Verwalten von Kapaz
 | Fehler `Requested throughput not available` bei Volumeerstellung oder -änderung | Der verfügbare Durchsatz für ein Volume wird durch die Größe des Kapazitätspools und den Servicelevel festgelegt. Wenn Sie nicht über genügend Durchsatz verfügen, sollten Sie die Poolgröße heraufsetzen oder den vorhandenen Volumedurchsatz anpassen. | 
 
 ## <a name="issues-moving-a-capacity-pool"></a>Probleme beim Verschieben eines Kapazitätspools 
+
+> [!IMPORTANT] 
+> Die Registrierung für die unter [Dynamisches Ändern der Dienstebene eines Volumes](dynamic-change-volume-service-level.md) beschriebene öffentliche Vorschau wurde bis auf Weiteres ausgesetzt.
+
 |     Fehlerzustand    |     Lösung    |
 |-|-|
 | Das Ändern des Kapazitätspools für ein Volume ist nicht zulässig. | Sie sind möglicherweise noch nicht autorisiert, dieses Feature zu verwenden. <br> Die Funktion zum Verschieben eines Volumes in einen anderen Kapazitätspool befindet sich derzeit in der Vorschauphase. Wenn Sie dieses Feature zum ersten Mal verwenden, müssen Sie es zuerst registrieren und `-FeatureName ANFTierChange` festlegen. Die Registrierungsschritte finden Sie unter [Dynamisches Ändern der Dienstebene eines Volumes](dynamic-change-volume-service-level.md). |
 | Die Kapazitätspoolgröße ist für die Gesamtvolumegröße zu gering. |  Der Fehler ist darauf zurückzuführen, dass der Zielkapazitätspool nicht über die verfügbare Kapazität für das Volume verfügt, das verschoben wird.  <br> Setzen Sie die Größe des Zielpools herauf, oder wählen Sie einen anderen Pool aus, der größer ist.  Weitere Informationen finden Sie unter [Ändern der Größe eines Kapazitätspools oder Volumes](azure-netapp-files-resize-capacity-pools-or-volumes.md).   |
-| Ein Volume kann nicht verschoben werden, wenn der Zielkapazitätspool über einen anderen Verschlüsselungstyp als der ursprüngliche Kapazitätspool verfügt.  Beispielsweise wechseln Sie von der doppelten Verschlüsselung zur einzelnen Verschlüsselung oder umgekehrt.  | Wählen Sie einen Zielkapazitätspool aus, der denselben Verschlüsselungstyp wie der Quellkapazitätspool hat.   |
 |  Die Pooländerung kann nicht abgeschlossen werden, da ein Volume mit dem Namen `'{source pool name}'` bereits im Zielpool `'{target pool name}'` vorhanden ist. | Dieser Fehler tritt auf, weil das Volume mit demselben Namen bereits im Zielkapazitätspool vorhanden ist.  Wählen Sie einen anderen Kapazitätspool aus, der nicht über ein Volume mit demselben Namen verfügt.   | 
 
 ## <a name="next-steps"></a>Nächste Schritte  

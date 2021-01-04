@@ -4,15 +4,15 @@ description: Beheben von zeitweiligen Verbindungsfehlern und zugehörigen Leistu
 author: v-miegge
 manager: barbkess
 ms.topic: troubleshooting
-ms.date: 07/24/2020
+ms.date: 11/19/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: ee1b4da6f02623346d078b9812c99e5093dc2691
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 989f47c0ff60865a8e8be15e089cdcf96ab2550c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408214"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968297"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Beheben zeitweiliger Fehler bei ausgehenden Verbindungen in Azure App Service
 
@@ -29,18 +29,29 @@ Im Azure-App-Dienst gehostete Anwendungen und Funktionen weisen möglicherweise 
 
 ## <a name="cause"></a>Ursache
 
-Eine Hauptursache für diese Symptome ist, dass die Anwendungsinstanz keine neue Verbindung mit dem externen Endpunkt öffnen kann, da sie eins der folgenden Limits erreicht hat:
+Die Hauptursache für zeitweilig auftretende Verbindungsprobleme ist das Erreichen einer Grenze, während neue ausgehende Verbindungen hergestellt werden. Folgende Grenzwerte können erreicht werden:
 
-* TCP-Verbindungen: Die Anzahl herstellbarer ausgehender Verbindungen ist begrenzt. Dies ist an die Größe des verwendeten Workers gebunden.
-* SNAT-Ports: Wie in [Ausgehende Verbindungen in Azure](../load-balancer/load-balancer-outbound-connections.md) erläutert, verwendet Azure SNAT (Source Network Address Translation, Quellnetzwerkadressen-Übersetzung) und einen Load Balancer (dem Kunden nicht verfügbar gemacht), um mit Endpunkten außerhalb von Azure im öffentlichen IP-Adressraum zu kommunizieren, sowie interne Endpunkte in Azure, die Dienstendpunkte nicht nutzen. Jeder Instanz im Azure-App-Dienst wird zunächst eine vorab zugeordnete Anzahl von **128** SNAT-Ports zugewiesen. Dieses Limit wirkt sich auf das Öffnen von Verbindungen mit derselben Host- und Portkombination aus. Wenn Ihre App Verbindungen mit einer Mischung aus Adress- und Portkombinationen herstellt, werden Sie Ihre SNAT-Ports nicht aufbrauchen. Die SNAT-Ports werden aufgebraucht, wenn Sie wiederholten Aufrufe an dieselbe Kombination aus Adresse und Port vornehmen. Nach der Freigabe eines Ports kann er bei Bedarf erneut verwendet werden. Der Azure-Netzwerklastenausgleich gibt SNAT-Ports von geschlossenen Verbindungen erst nach einer Wartezeit von 4 Minuten zurück.
+* TCP-Verbindungen: Die Anzahl herstellbarer ausgehender Verbindungen ist begrenzt. Der Grenzwert für ausgehende Verbindungen ist der Größe des verwendeten Workers zugeordnet.
+* SNAT-Ports: [Verwenden von SNAT für ausgehende Verbindungen](../load-balancer/load-balancer-outbound-connections.md) beschreibt SNAT-Port-Einschränkungen und deren Auswirkung auf ausgehende Verbindungen. Azure verwendet die Quell-Netzwerkadressenübersetzung (Source Network Address Translation, SNAT) und Load Balancer (nicht für Kunden verfügbar gemacht), um mit öffentlichen IP-Adressen zu kommunizieren. Jeder Instanz im Azure-App-Dienst wird zunächst eine vorab zugeordnete Anzahl von **128** SNAT-Ports zugewiesen. Dieses SNAT-Port-Limit wirkt sich auf das Öffnen von Verbindungen mit derselben Adress- und Portkombination aus. Wenn Ihre App Verbindungen mit einer Mischung aus Adress- und Portkombinationen herstellt, werden Sie Ihre SNAT-Ports nicht aufbrauchen. Die SNAT-Ports werden aufgebraucht, wenn Sie wiederholten Aufrufe an dieselbe Kombination aus Adresse und Port vornehmen. Nach der Freigabe eines Ports kann er bei Bedarf erneut verwendet werden. Der Azure-Netzwerklastenausgleich gibt SNAT-Ports von geschlossenen Verbindungen erst nach einer Wartezeit von 4 Minuten zurück.
 
-Wenn Anwendungen oder Funktionen schnell eine neue Verbindung öffnen, können Sie ihr vorab zugewiesenes Kontingent von 128 Ports schnell erschöpfen. Sie werden dann blockiert, bis ein neuer SNAT-Port verfügbar wird, entweder durch dynamisches Zuweisen zusätzlicher SNAT-Ports oder durch Wiederverwendung eines freigegebenen SNAT-Ports. Bei Anwendungen oder Funktionen, die blockiert werden, weil keine neuen Verbindungen erstellt werden können, tritt mindestens eines der Probleme auf, die im Abschnitt **Symptome** dieses Artikels beschrieben werden.
+Wenn Anwendungen oder Funktionen schnell eine neue Verbindung öffnen, können Sie ihr vorab zugewiesenes Kontingent von 128 Ports schnell erschöpfen. Sie werden dann blockiert, bis ein neuer SNAT-Port verfügbar wird, entweder durch dynamisches Zuweisen zusätzlicher SNAT-Ports oder durch Wiederverwendung eines freigegebenen SNAT-Ports. Wenn Ihre App nicht mehr über SNAT-Ports verfügt, werden zeitweilig Probleme bei ausgehenden Verbindungen auftreten. 
 
 ## <a name="avoiding-the-problem"></a>Vermeiden des Problems
 
+Es gibt einige Lösungen, mit denen Sie SNAT-Port-Einschränkungen vermeiden können. Dazu gehören:
+
+* Verbindungspools: Wenn Sie Ihre Verbindungen bündeln, vermeiden Sie das Öffnen neuer Netzwerkverbindungen für Aufrufe derselben Adresse und desselben Ports.
+* Dienstendpunkte: Sie unterliegen keiner SNAT-Port-Einschränkung für die Dienste, die durch Dienstendpunkte gesichert sind.
+* Private Endpunkte: Sie unterliegen keiner SNAT-Port-Einschränkung für die Dienste, die durch private Endpunkte gesichert sind.
+* NAT Gateway: Mit einem NAT Gateway verfügen Sie über 64 KB ausgehende SNAT-Ports, die von den Ressourcen genutzt werden können, die Datenverkehr darüber senden.
+
+Das Vermeiden des SNAT-Portproblems bedeutet, das wiederholte Erstellen neuer Verbindungen mit demselben Host und Port zu vermeiden. Verbindungspools zählen zu den offensichtlicheren Möglichkeiten, dieses Problem zu lösen.
+
 Wenn Ihr Ziel ein Azure-Dienst ist, der Dienstendpunkte unterstützt, können Sie Probleme durch eine Überlastung von SNAT-Ports vermeiden, indem Sie die [regionale VNET-Integration](./web-sites-integrate-with-vnet.md) und Dienstendpunkte oder private Endpunkte verwenden. Wenn Sie die regionale VNET-Integration verwenden und Endpunkte im Integrationssubnetz platzieren, gelten für den ausgehenden Datenverkehr Ihrer App an diese Dienste keine Einschränkungen für ausgehende SNAT-Ports. Ebenso treten keine Probleme bei ausgehenden SNAT-Ports an dieses Ziel auf, wenn Sie die regionale VNET-Integration und private Endpunkte verwenden. 
 
-Das Vermeiden des SNAT-Portproblems bedeutet, das wiederholte Erstellen neuer Verbindungen mit demselben Host und Port zu vermeiden.
+Wenn Ihr Ziel ein externer Endpunkt außerhalb von Azure ist, erhalten Sie mithilfe eines NAT Gateways 64 KB ausgehende SNAT-Ports. Außerdem erhalten Sie eine dedizierte ausgehende Adresse, die Sie mit niemandem teilen. 
+
+Wenn möglich, verbessern Sie Ihren Code für die Verwendung von Verbindungspools, und vermeiden Sie die gesamte Situation. Es ist nicht immer möglich, Code schnell genug zu ändern, um diese Situation zu entschärfen. Wenn Sie den Code nicht rechtzeitig ändern können, nutzen Sie die anderen Lösungen. Die beste Lösung des Problems ist die bestmögliche Kombination aller Lösungen. Versuchen Sie, Dienstendpunkte und private Endpunkte für Azure-Dienste zu verwenden und das NAT Gateway für den Rest. 
 
 Allgemeine Strategien zum Verringern der SNAT-Portauslastung finden Sie im Abschnitt zur [Problembehebung](../load-balancer/load-balancer-outbound-connections.md) der Dokumentation **Ausgehende Verbindungen von Azure**. Von diesen Strategien sind die folgenden anwendbar auf Apps und Funktionen, die im Azure-App-Dienst gehostet werden.
 
@@ -110,7 +121,7 @@ Von PHP wird das Verbindungspooling zwar nicht unterstützt, aber Sie können ve
 * Ein [Auslastungstest](/azure/devops/test/load-test/app-service-web-app-performance-test) sollte reale Daten mit einer konstanten Zuführungsgeschwindigkeit simulieren. Mit dem Testen von Apps und Funktionen unter realen Belastungsbedingungen können Probleme mit der SNAT-Portauslastung vorzeitig erkannt und behoben werden.
 * Stellen Sie sicher, dass die Back-End-Dienste Antworten schnell zurückgeben können. Informationen zum Behandeln von Problemen mit der Azure SQL-Datenbank finden Sie unter [Behandeln von Problemen mit der Leistung von Azure SQL-Datenbank mithilfe von Intelligent Insights](../azure-sql/database/intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow).
 * Erweitern Sie den App Service-Plan auf weitere Instanzen. Weitere Informationen zur Skalierung finden Sie unter [Skalieren einer App in Azure App Service](./manage-scale-up.md). Jeder Workerinstanz in einem App Service-Plan wird eine Anzahl von SNAT-Ports zugeordnet. Wenn Sie Ihre Nutzung auf mehrere Instanzen verteilen, können Sie eventuell eine SNAT-Portnutzung pro Instanz unterhalb des empfohlenen Limits von 100 ausgehenden Verbindungen pro eindeutigem Remoteendpunkt erreichen.
-* Erwägen Sie die Umstellung auf [App Service-Umgebung (ASE)](./environment/using-an-ase.md), wobei Ihnen eine einzelne ausgehende IP-Adresse zugewiesen wird und die Grenzwerte für Verbindungen und SNAT-Ports weitaus höher sind. In einer ASE basiert die Anzahl von SNAT-Ports pro Instanz auf der [Azure Load Balancer-Vorabzuordnungentabelle](../load-balancer/load-balancer-outbound-connections.md#snatporttable). So verfügt z. B. eine ASE mit 1-50 Workerinstanzen über 1.024 vorab zugeordnete Ports pro Instanz, während eine ASE mit 51-100 Workerinstanzen über 512 vorab zugeordnete Ports pro Instanz verfügt.
+* Erwägen Sie die Umstellung auf [App Service-Umgebung (ASE)](./environment/using-an-ase.md), wobei Ihnen eine einzelne ausgehende IP-Adresse zugewiesen wird und die Grenzwerte für Verbindungen und SNAT-Ports weitaus höher sind. In einer ASE basiert die Anzahl von SNAT-Ports pro Instanz auf der [Azure Load Balancer-Vorabzuordnungentabelle](../load-balancer/load-balancer-outbound-connections.md#snatporttable). So verfügt z. B. eine ASE mit 1-50 Workerinstanzen über 1024 vorab zugeordnete Ports pro Instanz, während eine ASE mit 51-100 Workerinstanzen über 512 vorab zugeordnete Ports pro Instanz verfügt.
 
 Die Vermeidung der ausgehenden TCP-Limits lässt sich leichter erreichen, weil die Limits durch die Größe Ihres Workers festgelegt werden. Sie finden die Limits in [Numerische Limits für sandboxübergreifende VM: TCP-Verbindungen](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits).
 
@@ -135,7 +146,7 @@ Sie können die [App Service-Diagnose](./overview-diagnostics.md) verwenden, um 
 3. Wählen Sie in der Liste der verfügbaren Kacheln unter der Kategorie die Kachel „SNAT-Portauslastung“ aus. Die Vorgehensweise besteht darin, den Wert unter 128 zu halten.
 Wenn Sie dies benötigen, können Sie immer noch ein Supportticket öffnen, und der Supporttechniker ruft die Metrik vom Back-End für Sie ab.
 
-Beachten Sie, dass, da SNAT-Portauslastung nicht als Metrik verfügbar ist, es nicht möglich ist, entweder automatisch auf Grundlage der SNAT-Portauslastung zu skalieren oder die automatische Skalierung auf Grundlage der SNAT-Portzuordnungsmetrik zu konfigurieren.
+Da die SNAT-Portauslastung nicht als Metrik verfügbar ist, ist es nicht möglich, entweder automatisch auf Grundlage der SNAT-Portauslastung zu skalieren oder die automatische Skalierung auf Grundlage der SNAT-Portzuordnungsmetrik zu konfigurieren.
 
 ### <a name="tcp-connections-and-snat-ports"></a>TCP-Verbindungen und SNAT-Ports
 

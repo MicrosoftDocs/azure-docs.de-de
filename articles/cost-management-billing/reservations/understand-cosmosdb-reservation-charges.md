@@ -8,11 +8,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.openlocfilehash: ca4c1810912771f56661ca5b682b6991735f526e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150824"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023141"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Grundlegendes zur Anwendung des Rabatts für Reservierungen auf Azure Cosmos DB
 

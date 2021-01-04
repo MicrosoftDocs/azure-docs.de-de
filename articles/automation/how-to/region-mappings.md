@@ -1,16 +1,16 @@
 ---
 title: Unterstützte Regionen für einen verknüpften Log Analytics-Arbeitsbereich
 description: In diesem Artikel werden die unterstützten Regionszuordnungen zwischen einem Automation-Konto und einem Log Analytics-Arbeitsbereich im Zusammenhang mit bestimmten Features von Azure Automation beschrieben.
-ms.date: 10/19/2020
+ms.date: 12/01/2020
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: bffd1cc0ce2a6a827c0bc708321a6bd2839aae2d
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 25ddf562f92ca96a505432a58f137657a2bbc4bd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207324"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446961"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Unterstützte Regionen für einen verknüpften Log Analytics-Arbeitsbereich
 
@@ -31,6 +31,7 @@ Die folgende Tabelle zeigt die unterstützten Zuordnungen:
 |---|---|
 |**USA**||
 |EastUS<sup>1</sup>|EastUS2|
+|EastUS2<sup>2</sup>|EastUS|
 |WestUS2|WestUS2|
 |USA, Süden-Mitte|USA, Süden-Mitte|
 |WestCentralUS|WestCentralUS|
@@ -40,7 +41,7 @@ Die folgende Tabelle zeigt die unterstützten Zuordnungen:
 |AustraliaSoutheast|AustraliaSoutheast|
 |SoutheastAsia|SoutheastAsia|
 |CentralIndia|CentralIndia|
-|ChinaEast2<sup>2</sup>|ChinaEast2|
+|ChinaEast2<sup>3</sup>|ChinaEast2|
 |JapanEast|JapanEast|
 |**Europa**||
 |UKSouth|UKSouth|
@@ -48,11 +49,13 @@ Die folgende Tabelle zeigt die unterstützten Zuordnungen:
 |SwitzerlandNorth|SwitzerlandNorth|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
-|USGovArizona<sup>2</sup>|USGovArizona|
+|USGovArizona<sup>3</sup>|USGovArizona|
 
 <sup>1</sup> Die EastUS-Zuordnung für die Zuordnung von Log Analytics-Arbeitsbereichen zu Automation-Konten ist zwar keine exakte Zuordnung zwischen Regionen, sie ist aber korrekt.
 
-<sup>2</sup> In dieser Region wird nur die Updateverwaltung unterstützt. Andere Features wie Änderungsnachverfolgung und Bestand sind derzeit nicht verfügbar.
+<sup>2</sup> Die EastUS2-Zuordnung für die Zuordnung von Log Analytics-Arbeitsbereichen zu Automation-Konten ist zwar keine exakte Zuordnung zwischen Regionen, sie ist aber korrekt.
+
+<sup>3</sup> In dieser Region wird nur die Updateverwaltung unterstützt. Andere Features wie Änderungsnachverfolgung und Bestand sind derzeit nicht verfügbar.
 
 ## <a name="unlink-a-workspace"></a>Aufheben der Verknüpfung eines Arbeitsbereichs
 
@@ -82,11 +85,11 @@ Nachdem Sie die Features entfernt haben, können Sie die folgenden Schritte ausf
 
 Alternativ können Sie Ihren Arbeitsbereich von Ihrem Automation-Konto im Arbeitsbereich trennen.
 
-1. Wählen Sie im Arbeitsbereich unter **Verwandte Ressourcen** die Option **Automation-Konto** .
-2. Klicken Sie auf der Seite „Automation-Konto“ auf **Verknüpfung zu diesem Konto aufheben** .
+1. Wählen Sie im Arbeitsbereich unter **Verwandte Ressourcen** die Option **Automation-Konto**.
+2. Klicken Sie auf der Seite „Automation-Konto“ auf **Verknüpfung zu diesem Konto aufheben**.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Informationen zu „Updateverwaltung“ finden Sie in der [Übersicht über die Updateverwaltung](../update-management/update-mgmt-overview.md).
+* Informationen zu „Updateverwaltung“ finden Sie in der [Übersicht über die Updateverwaltung](../update-management/overview.md).
 * Informationen zu „Änderungsnachverfolgung und Bestand“ finden Sie in der [Übersicht über Änderungsnachverfolgung und Bestand](../change-tracking/overview.md).
 * Informationen zu „VMs außerhalb der Geschäftszeiten starten/beenden“ finden Sie unter [VMs außerhalb der Geschäftszeiten starten/beenden – Übersicht](../automation-solution-vm-management.md).

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
-ms.openlocfilehash: 78ff8adcc2b50f89daa37112b14d219233559dab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1da86e36cf20dc15152aea74be6c43a4cb43d3b4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86075569"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014243"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Überwachen der Clusterleistung in Azure HDInsight
 
@@ -74,7 +74,7 @@ Wählen Sie auf der Benutzeroberfläche des Ressourcen-Managers im Menü auf der
 
 Zu einem Leistungsengpass kann es für einen Cluster auf der Speicherebene kommen. Der Grund für diese Art von Engpass ist meistens eine *Blockierung* der E/A-Vorgänge. Dies geschieht, wenn Ihre ausgeführten Aufgaben mehr E/A-Daten senden, als vom Speicherdienst bewältigt werden können. Diese Blockierung führt zu einer Warteschlange mit E/A-Anforderungen, die auf ihre Verarbeitung nach der Verarbeitung der aktuellen E/A-Daten warten. Zu den Blockierungen kommt es aufgrund von *Speicherdrosselung*. Es handelt sich hierbei nicht um ein physisches Limit, sondern um eine Beschränkung durch den Speicherdienst per Vereinbarung zum Servicelevel (SLA). Mit dieser Beschränkung wird sichergestellt, dass kein einzelner Client oder Mandant über ein Monopol in Bezug auf den Dienst verfügt. Durch die Vereinbarung zum Servicelevel ist die Anzahl von E/A-Vorgängen pro Sekunde (IOs per second, IOPS) für Azure Storage beschränkt. Ausführliche Informationen finden Sie unter [Skalierbarkeits- und Leistungsziele für Standardspeicherkonten](../storage/common/scalability-targets-standard-account.md).
 
-Wenn Sie Azure Storage nutzen, finden Sie Informationen zur Überwachung von speicherbezogenen Problemen unter [Microsoft Azure Storage: Überwachung, Diagnose und Problembehandlung](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
+Wenn Sie Azure Storage nutzen, finden Sie Informationen zur Überwachung von speicherbezogenen Problemen unter [Microsoft Azure Storage: Überwachung, Diagnose und Problembehandlung](../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
 
 Wenn Sie Azure Data Lake Storage (ADLS) als Sicherungsspeicher für Ihren Cluster verwenden, erfolgt die Drosselung bei Ihnen wahrscheinlich aufgrund von Einschränkungen der Bandbreite. Die Drosselung lässt sich in diesem Fall durch Beobachten der Drosselungsfehler in den Taskprotokollen ermitteln. Informationen zu ADLS finden Sie in den folgenden Artikeln jeweils im Abschnitt zur Drosselung für den entsprechenden Dienst:
 
@@ -126,6 +126,6 @@ Weitere Informationen zu Speicherplatzproblemen finden Sie unter [Nicht genügen
 
 Weitere Informationen zur Problembehandlung und Überwachung für Ihre Cluster finden Sie unter den folgenden Links:
 
-* [Analysieren von HDInsight-Protokollen](hdinsight-debug-jobs.md)
+* [Analysieren von HDInsight-Protokollen](./hdinsight-troubleshoot-guide.md)
 * [Debuggen von Apps mit Apache Hadoop YARN-Protokollen](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Aktivieren von Heapdumps für Apache Hadoop-Dienste in Linux-basiertem HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 4c3b5674fe039a89eb97b915d13b5d472a6a0568
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96b9754908f437ccf81e002e9e9dd17af0bab4e3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316391"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019074"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Grundlegendes zu geeigneten Äußerungen für Ihre LUIS-App
 
@@ -29,7 +29,7 @@ Sammeln Sie Äußerungen, die Benutzer möglicherweise eingeben. Schließen Sie 
 
 ## <a name="how-to-choose-varied-utterances"></a>Auswählen verschiedener Äußerungen
 
-Wenn Sie mit Ihrem LUIS-Modell einsteigen, indem Sie [Beispieläußerungen hinzufügen](luis-how-to-add-example-utterances.md), finden Sie im Folgenden einige wichtige Prinzipien.
+Wenn Sie mit Ihrem LUIS-Modell einsteigen, indem Sie [Beispieläußerungen hinzufügen](./luis-how-to-add-entities.md), finden Sie im Folgenden einige wichtige Prinzipien.
 
 ### <a name="utterances-arent-always-well-formed"></a>Äußerungen sind nicht immer ordnungsgemäß formatiert
 
@@ -147,5 +147,4 @@ Wenn Sie mit einer Veranstaltungsentität alle Veranstaltungsdaten suchen möcht
 
 
 ## <a name="next-steps"></a>Nächste Schritte
-Informationen zum Trainieren einer LUIS-App, damit sie Benutzeräußerungen versteht, finden Sie unter [Hinzufügen von Beispieläußerungen und -beschriftungen bei Entitäten](luis-how-to-add-example-utterances.md).
-
+Informationen zum Trainieren einer LUIS-App, damit sie Benutzeräußerungen versteht, finden Sie unter [Hinzufügen von Beispieläußerungen und -beschriftungen bei Entitäten](./luis-how-to-add-entities.md).

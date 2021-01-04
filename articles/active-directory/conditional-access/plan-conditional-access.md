@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e44cb38435ca86ad7cd4709d5e99f5cf41fcf91
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 20b51cc747d3a24b1437eda988397a2e999f6ab3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366325"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837480"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planen einer Bereitstellung für bedingten Zugriff
 
@@ -73,7 +73,7 @@ Die folgenden Ressourcen können nützlich sein, wenn Sie sich über bedingten Z
 * [Wie wird bedingter Zugriff bereitgestellt?](https://youtu.be/c_izIRNJNuk)
 * [Wie wird das Rollout von Richtlinien für bedingten Zugriff für Endbenutzer ausgeführt?](https://youtu.be/0_Fze7Zpyvc)
 * [Bedingter Zugriff mit Gerätesteuerungen](https://youtu.be/NcONUf-jeS4)
-* [Bedingter Zugriff mit Azure MFA](https://youtu.be/Tbc-SU97G-w)
+* [Bedingter Zugriff mit Azure AD MFA](https://youtu.be/Tbc-SU97G-w)
 * [Bedingter Zugriff in Enterprise Mobility + Security](https://youtu.be/A7IrxAH87wc)
 
 
@@ -264,7 +264,7 @@ Der Benennungsstandard erleichtert die Suche nach Richtlinien und gibt Aufschlus
 
 ![Screenshot: Benennungsstandards für Richtlinien](media/plan-conditional-access/11.png)
 
-**Beispiel** : Eine Richtlinie, die erfordert, dass MFA für Marketingbenutzer, die auf die Dynamics CRP-App von externen Netzwerken aus zugreifen, verwendet wird:
+**Beispiel**: Eine Richtlinie, die erfordert, dass MFA für Marketingbenutzer, die auf die Dynamics CRP-App von externen Netzwerken aus zugreifen, verwendet wird:
 
 ![Benennungsstandard](media/plan-conditional-access/naming-example.png)
 
@@ -287,7 +287,7 @@ EM01 – ENABLE IN EMERGENCY: MFA Disruption [1/4] – Exchange SharePoint: Requ
 
 ### <a name="exclude-countries-from-which-you-never-expect-a-sign-in"></a>Ausschließen von Ländern, aus denen nie eine Anmeldung erwartet wird.
 
-Mit Azure Active Directory können Sie [benannte Standorte](location-condition.md) erstellen. Erstellen Sie einen benannten Standort, der alle Länder enthält, von denen Sie niemals eine Anmeldung erwarten. Erstellen Sie dann eine Richtlinie für alle Apps, die die Anmeldung von diesem benannten Standort blockieren. **Stellen Sie sicher, dass Ihre Administratoren von dieser Richtlinie ausgenommen sind** .
+Mit Azure Active Directory können Sie [benannte Standorte](location-condition.md) erstellen. Erstellen Sie einen benannten Standort, der alle Länder enthält, von denen Sie niemals eine Anmeldung erwarten. Erstellen Sie dann eine Richtlinie für alle Apps, die die Anmeldung von diesem benannten Standort blockieren. **Stellen Sie sicher, dass Ihre Administratoren von dieser Richtlinie ausgenommen sind**.
 
 ### <a name="plan-your-policy-deployment"></a>Planen der Richtlinienbereitstellung
 
@@ -421,7 +421,7 @@ Eine weitere Möglichkeit zum Überprüfen Ihrer Richtlinie für den bedingten Z
 
 Führen Sie jeden Test im Testplan mit Testbenutzern aus.
 
-**Testen Sie unbedingt die Ausschlusskriterien einer Richtlinie** . Sie können beispielsweise einen Benutzer oder eine Gruppe aus einer Richtlinie ausschließen, die eine mehrstufige Authentifizierung (MFA) erfordert. Testen Sie, ob ausgeschlossene Benutzer zur Verwendung der MFA aufgefordert werden, weil die Kombination anderer Richtlinien möglicherweise die Verwendung der MFA für diese Benutzer vorschreibt.
+**Testen Sie unbedingt die Ausschlusskriterien einer Richtlinie**. Sie können beispielsweise einen Benutzer oder eine Gruppe aus einer Richtlinie ausschließen, die eine mehrstufige Authentifizierung (MFA) erfordert. Testen Sie, ob ausgeschlossene Benutzer zur Verwendung der MFA aufgefordert werden, weil die Kombination anderer Richtlinien möglicherweise die Verwendung der MFA für diese Benutzer vorschreibt.
 
 ### <a name="roll-back-policies"></a>Rollback von Richtlinien
 

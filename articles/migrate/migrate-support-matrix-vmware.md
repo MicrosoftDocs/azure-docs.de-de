@@ -1,14 +1,17 @@
 ---
 title: Unterstützung der VMware-Bewertung in Azure Migrate
 description: Informationen zur Unterstützung der Bewertung von VMware-VMs mit der Azure Migrate-Serverbewertung
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 06/08/2020
-ms.openlocfilehash: 0fd884a7d95edaf6586e7eecd644400c05c15e5a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 11/10/2020
+ms.openlocfilehash: e6582443ddc56b315c1c666c81a596fa71b1d54f
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315794"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753976"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Unterstützungsmatrix für die VMware-Bewertung 
 
@@ -66,15 +69,14 @@ Mit der Serverbewertung können nicht nur Computer, sondern auch die auf Compute
 
 **Unterstützung** | **Details**
 --- | ---
-**Unterstützte Computer** | Die App-Ermittlung wird derzeit nur für VMware-VMs unterstützt.
-**Ermittlung** | Die App-Ermittlung erfolgt ohne Agent. Dabei werden Gastanmeldeinformationen der Computer verwendet, wobei mithilfe von WMI- und SSH-Aufrufen remote auf die Computer zugegriffen wird.
-**VM-Support** | Die App-Ermittlung wird für virtuelle Computer mit beliebigen Windows- und Linux-Versionen unterstützt.
+**Unterstützte Computer** | Zurzeit nur unterstützt für VMware-VMs. Sie können installierte Apps auf bis zu 10000 VMware-VMs von jeder Azure Migrate-Appliance ermitteln.
+**Betriebssysteme** | Es werden virtuelle Computer mit beliebigen Windows- und Linux-Versionen unterstützt.
+**VM-Anforderungen** | Auf virtuellen Computern, auf denen Sie Apps ermitteln möchten, müssen VMware-Tools installiert sein und ausgeführt werden. <br/><br/> Die Version von VMware Tools muss höher als 10.2.0 sein.<br/><br/> Auf den VMs muss PowerShell, Version 2.0 oder höher, installiert sein.
+**Ermittlung** | Informationen zu Apps, die auf einem virtuellen Computer installiert sind, werden mithilfe von VMware-Tools, die auf dem virtuellen Computer installiert sind, aus vCenter Server erfasst. Die Appliance sammelt die App-Informationen aus vCenter Server mithilfe von vSphere-APIs. Die App-Ermittlung erfolgt ohne Agent. Es wird nichts auf virtuellen Computern installiert, und die Appliance stellt keine direkte Verbindung mit virtuellen Computern her. WMI/SSH muss auf virtuellen Computern aktiviert und verfügbar sein.
 **vCenter** | Das für die Bewertung verwendete schreibgeschützte vCenter Server-Konto benötigt für **Virtuelle Computer** > **Gastvorgänge** aktivierte Berechtigungen, um mit der VM für die Anwendungsermittlung interagieren zu können.
 **VM-Zugriff** | Die App-Ermittlung erfordert ein lokales Benutzerkonto auf dem virtuellen Computer für die Anwendungsermittlung.<br/><br/> Azure Migrate unterstützt derzeit die Verwendung von Anmeldeinformationen für alle Windows-Server sowie einen Satz Anmeldeinformationen für alle Linux-Server.<br/><br/> Sie erstellen ein Gastbenutzerkonto für Windows-VMs und ein normales Benutzerkonto (ohne sudo-Zugriff) für alle Linux-VMs.
-**VMware Tools** | Auf virtuellen Computern, die Sie ermitteln möchten, müssen VMware-Tools installiert sein und ausgeführt werden. <br/><br/> Die Version von VMware Tools muss höher als 10.2.0 sein.
-**PowerShell** | Auf den VMs muss PowerShell, Version 2.0 oder höher, installiert sein.
-**Portzugriff** | Auf ESXi-Hosts, auf denen virtuelle Computer ausgeführt werden, die Sie ermitteln möchten, muss die Azure Migrate Appliance eine Verbindung mit dem TCP-Port 443 herstellen können.
-**Einschränkungen** | Bei der App-Ermittlung können Sie auf jeder Azure Migrate-Appliance bis zu 10.000 virtuelle Computer ermitteln.
+**Portzugriff** | Auf ESXi-Hosts, auf denen virtuelle Computer ausgeführt werden, auf denen Sie Apps ermitteln möchten, muss die Azure Migrate-Appliance eine Verbindung mit dem TCP-Port 443 herstellen können. vCenter Server gibt eine ESXI-Hostverbindung zurück, um die Datei mit den App-Informationen herunterzuladen.
+
 
 
 ## <a name="dependency-analysis-requirements-agentless"></a>Anforderungen der Abhängigkeitsanalyse (ohne Agent)
@@ -83,17 +85,15 @@ Mit der [Abhängigkeitsanalyse](concepts-dependency-visualization.md) können Si
 
 **Anforderung** | **Details**
 --- | --- 
-**Vor der Bereitstellung** | Sie sollten über ein Azure Migrate-Projekt verfügen, dem das Serverbewertungstool hinzugefügt wurde.<br/><br/>  Sie stellen die Abhängigkeitsvisualisierung nach dem Einrichten einer Azure Migrate-Appliance zum Ermitteln Ihrer lokalen VMware-Computer bereit.<br/><br/> [Erfahren Sie](create-manage-projects.md), wie Sie erstmalig ein Projekt erstellen.<br/> [Erfahren Sie](how-to-assess.md), wie Sie einem vorhandenen Projekt ein Bewertungstool hinzufügen.<br/> [Erfahren Sie](how-to-set-up-appliance-vmware.md), wie Sie die Azure Migrate-Appliance für die Bewertung von VMware-VMs einrichten.
 **Unterstützte Computer** | Zurzeit nur unterstützt für VMware-VMs.
-**Virtuelle Windows-Computer** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64-Bit)<br/>Microsoft Windows Server 2008 R2 (32-Bit). Vergewissern Sie sich, dass PowerShell installiert ist.
-**vCenter Server-Anmeldeinformationen** | Für die Abhängigkeitsvisualisierung sind ein vCenter Server-Konto mit schreibgeschütztem Zugriff und aktivierte Berechtigungen für „Virtuelle Computer“ > „Gastvorgänge“ erforderlich.
-**Windows-VM-Berechtigungen** |  Die Azure Migrate-Appliance erfordert für die Abhängigkeitsanalyse ein Domänenadministratorkonto oder ein lokales Administratorkonto für den Zugriff auf Windows-VMs.
+**Virtuelle Windows-Computer** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64-Bit)<br/>Microsoft Windows Server 2008 R2 (32-Bit). 
 **Virtuelle Linux-Computer** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.<br/> SUSE Linux Enterprise Server 11 und höher
-**Linux-Konto** | Auf Linux-Computern erfordert die Azure Migrate-Appliance für die Abhängigkeitsanalyse ein Root-Benutzerkonto.<br/><br/> Alternativ benötigt das Benutzerkonto diese Berechtigungen für „/bin/netstat“- und „/bin/ls“-Dateien: CAP_DAC_READ_SEARCH und CAP_SYS_PTRACE. Legen Sie diese Funktionen mithilfe der folgenden Befehle fest: <br/> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls <br/> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat
-**Erforderliche Agents** | Auf Computern, die Sie analysieren möchten, ist kein Agent erforderlich.
-**VMware Tools** | Auf jeder VM, die Sie analysieren möchten, muss VMware Tools (höhere Version als 10.2) installiert sein und ausgeführt werden.
-**PowerShell** | Auf den Windows-VMs muss PowerShell, Version 2.0 oder höher, installiert sein.
-**Portzugriff** | Auf ESXi-Hosts, auf denen virtuelle Computer ausgeführt werden, die Sie analysieren möchten, muss die Azure Migrate Appliance eine Verbindung mit dem TCP-Port 443 herstellen können.
+**VM-Anforderungen** | Auf VMs, die Sie analysieren möchten, muss VMware Tools (höhere Version als 10.2.0) installiert sein und ausgeführt werden.<br/><br/> Auf den VMs muss PowerShell, Version 2.0 oder höher, installiert sein.
+**Ermittlungsmethode** |  Informationen zu Abhängigkeiten zwischen VMs werden mithilfe von VMware-Tools, die auf dem virtuellen Computer installiert sind, aus vCenter Server erfasst. Die Appliance sammelt die Informationen aus vCenter Server mithilfe von vSphere-APIs. Die Ermittlung erfolgt ohne Agent. Es wird nichts auf dem virtuellen Computer installiert, und die Appliance stellt keine direkte Verbindung mit virtuellen Computern her. WMI/SSH muss auf virtuellen Computern aktiviert und verfügbar sein.
+**vCenter-Konto** | Für das Konto mit reinem Lesezugriff, das von Azure Migrate für die Bewertung verwendet wird, müssen Berechtigungen für **Virtuelle Computer > Gastvorgänge** aktiviert werden.
+**Windows-VM-Berechtigungen** |  Ein Konto (lokaler Administrator oder Domäne) mit lokalen Administratorberechtigungen für VMs.
+**Linux-Konto** | Das Root-Benutzerkonto oder ein Konto mit den folgenden Berechtigungen in den Dateien „/bin/netstat“ und „/bin/ls“: CAP_DAC_READ_SEARCH und CAP_SYS_PTRACE.<br/><br/> Legen Sie diese Funktionen mithilfe der folgenden Befehle fest: <br/><br/> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br/><br/> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat
+**Portzugriff** | Auf ESXi-Hosts, auf denen die virtuellen Computer ausgeführt werden, deren Abhängigkeiten Sie ermitteln möchten, muss die Azure Migrate-Appliance eine Verbindung mit dem TCP-Port 443 herstellen können. vCenter Server gibt eine ESXI-Hostverbindung zurück, um die Datei mit den Abhängigkeitsinformationen herunterzuladen.
 
 
 ## <a name="dependency-analysis-requirements-agent-based"></a>Anforderungen der Abhängigkeitsanalyse (Agent-basiert)

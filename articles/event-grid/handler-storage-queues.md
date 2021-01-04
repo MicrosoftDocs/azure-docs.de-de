@@ -3,11 +3,11 @@ title: Speicherwarteschlange als Ereignishandler für Azure Event Grid-Ereigniss
 description: Hier wird beschrieben, wie Sie Azure-Speicherwarteschlangen als Ereignishandler für Azure Event Grid-Ereignisse verwenden können.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: fdbc292f066a3eb06f17fd144d26d484d2a25f21
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 502b44f276253be69362424c9de0fd516d20ad9a
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 12/15/2020
 ms.locfileid: "91270184"
 ---
 # <a name="storage-queue-as-an-event-handler-for-azure-event-grid-events"></a>Speicherwarteschlange als Ereignishandler für Azure Event Grid-Ereignisse
@@ -136,9 +136,6 @@ Im folgenden Tutorial finden Sie ein Beispiel für die Verwendung von Queue Stor
     }
 }
 ```
-
-> [!NOTE]
-> Das Bereitstellen von Ereignissen in einer Azure Storage-Warteschlange in einem **anderen Mandanten** wird nicht unterstützt. 
 
 ## <a name="next-steps"></a>Nächste Schritte
 Eine Liste der unterstützten Ereignishandler finden Sie im Artikel zu [Ereignishandlern](event-handlers.md). 

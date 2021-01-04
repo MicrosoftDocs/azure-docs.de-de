@@ -9,18 +9,18 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e06a7a759c712b47f3a725a3c49a660226da6a09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23a36bfc048a6214ccb79b793a23c21d5f8e305e
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90064082"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288267"
 ---
 # <a name="migrate-from-vault-access-policy-to-an-azure-role-based-access-control-preview-permission-model"></a>Migrieren von Key Vault-Zugriffsrichtlinien zu einem Berechtigungsmodell für die rollenbasierte Zugriffssteuerung in Azure (Vorschau)
 
 Das Modell der Key Vault-Zugriffsrichtlinien ist ein auf Key Vault basierendes Autorisierungssystem zur Bereitstellung von Zugriff auf Schlüssel, Geheimnisse und Zertifikate. Der Zugriff kann durch Zuweisen von einzelnen Berechtigungen an Sicherheitsprinzipale (Benutzer, Gruppen, Dienstprinzipale, verwaltete Identitäten) auf der Key Vault-Ebene gesteuert werden. 
 
-Die rollenbasierte Zugriffssteuerung (Azure Role-Based Access Control, Azure RBAC) ist ein Autorisierungssystem, das auf [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) basiert und eine präzise Verwaltung des Zugriffs auf Azure-Ressourcen ermöglicht. Azure RBAC für die Zugriffsverwaltung von Key Vault-Schlüsseln, -Geheimnissen und -Zertifikaten befindet sich derzeit in der öffentlichen Vorschau. Mit Azure RBAC steuern Sie den Zugriff auf Ressourcen, indem Sie Rollenzuweisungen erstellen. Diese bestehen aus den folgenden drei Elementen: Sicherheitsprinzipal, Rollendefinition (mehrere vordefinierte Berechtigungen) und Bereich (Ressourcengruppe oder einzelne Ressource). Weitere Informationen finden Sie unter [Rollenbasierte Zugriffssteuerung in Azure (Azure Role-Based Access Control, Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview).
+Die rollenbasierte Zugriffssteuerung (Azure Role-Based Access Control, Azure RBAC) ist ein Autorisierungssystem, das auf [Azure Resource Manager](../../azure-resource-manager/management/overview.md) basiert und eine präzise Verwaltung des Zugriffs auf Azure-Ressourcen ermöglicht. Azure RBAC für die Zugriffsverwaltung von Key Vault-Schlüsseln, -Geheimnissen und -Zertifikaten befindet sich derzeit in der öffentlichen Vorschau. Mit Azure RBAC steuern Sie den Zugriff auf Ressourcen, indem Sie Rollenzuweisungen erstellen. Diese bestehen aus den folgenden drei Elementen: Sicherheitsprinzipal, Rollendefinition (mehrere vordefinierte Berechtigungen) und Bereich (Ressourcengruppe oder einzelne Ressource). Weitere Informationen finden Sie unter [Rollenbasierte Zugriffssteuerung in Azure (Azure Role-Based Access Control, Azure RBAC)](../../role-based-access-control/overview.md).
 
 Bevor Sie mit der Migration zu Azure RBAC beginnen, sollten Sie sich mit dessen Vorteilen und Einschränkungen vertraut machen.
 
@@ -28,7 +28,7 @@ Azure RBAC bietet gegenüber Key Vault-Zugriffsrichtlinien die folgenden Hauptvo
 - Vereinheitlichtes Zugriffssteuerungsmodell für Azure-Ressourcen: dieselbe API für alle Azure-Dienste
 - Zentralisierte Zugriffsverwaltung für Administratoren: Verwalten aller Azure-Ressourcen in einer Ansicht
 - Integriert mit [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) für eine zeitbasierte Zugriffssteuerung
-- Ablehnungszuweisungen: Möglichkeit zum Ausschluss von Sicherheitsprinzipalen in einem bestimmten Bereich. Weitere Informationen finden Sie unter [Verstehen von Ablehnungszuweisungen](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments).
+- Ablehnungszuweisungen: Möglichkeit zum Ausschluss von Sicherheitsprinzipalen in einem bestimmten Bereich. Weitere Informationen finden Sie unter [Verstehen von Ablehnungszuweisungen](../../role-based-access-control/deny-assignments.md).
 
 Azure RBAC besitzt die folgenden Nachteile:
 - Latenz bei Rollenzuweisungen: Es kann mehrere Minuten dauern, bis eine Rollenzuweisung angewendet wird. Key Vault-Zugriffsrichtlinien werden sofort zugewiesen.
@@ -36,7 +36,7 @@ Azure RBAC besitzt die folgenden Nachteile:
 
 ## <a name="access-policies-to-azure-roles-mapping"></a>Zugriffsrichtlinien für die Zuordnung von Azure-Rollen
 
-Azure RBAC verfügt über mehrere integrierte Azure-Rollen, die Sie Benutzern, Gruppen, Dienstprinzipalen und verwalteten Identitäten zuweisen können. Wenn die integrierten Rollen den Ansprüchen Ihrer Organisation nicht entsprechen, können Sie Ihre eigenen [benutzerdefinierten Azure-Rollen](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) erstellen.
+Azure RBAC verfügt über mehrere integrierte Azure-Rollen, die Sie Benutzern, Gruppen, Dienstprinzipalen und verwalteten Identitäten zuweisen können. Wenn die integrierten Rollen den Ansprüchen Ihrer Organisation nicht entsprechen, können Sie Ihre eigenen [benutzerdefinierten Azure-Rollen](../../role-based-access-control/custom-roles.md) erstellen.
 
 Key Vault verfügt über die folgenden integrierten Rollen für die Zugriffsverwaltung von Schlüsseln, Zertifikaten und Geheimnissen:
 - Key Vault-Administrator (Vorschau)
@@ -47,7 +47,7 @@ Key Vault verfügt über die folgenden integrierten Rollen für die Zugriffsverw
 - Key Vault Secrets Officer (Vorschau)
 - Key Vault Secrets-Benutzer (Vorschau)
 
-Weitere Informationen zu verfügbaren integrierten Rollen finden Sie unter [Integrierte Azure-Rollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+Weitere Informationen zu verfügbaren integrierten Rollen finden Sie unter [Integrierte Azure-Rollen](../../role-based-access-control/built-in-roles.md).
 
 Key Vault-Zugriffsrichtlinien können mit einzeln ausgewählten Berechtigungen oder über vordefinierte Berechtigungsvorlagen zugewiesen werden.
 
@@ -102,10 +102,10 @@ Es hat sich bewährt, ein Key Vault-Objekt pro Anwendung zu erstellen und den Zu
 ## <a name="vault-access-policy-to-azure-rbac-migration-steps"></a>Schritte zur Migration von Key Vault-Zugriffsrichtlinien zu Azure RBAC
 Zwischen den Berechtigungsmodellen von Azure RBAC und den Key Vault-Zugriffsrichtlinien bestehen viele Unterschiede. Führen Sie die folgenden Schritte aus, um Ausfälle während der Migration zu verhindern:
  
-1. **Identifizieren und Zuweisen von Rollen**: Identifizieren Sie mithilfe der Zuordnungstabelle oben integrierte Rollen, und erstellen Sie bei Bedarf benutzerdefinierte Rollen. Weisen Sie Rollen Bereichen zu, und verwenden Sie dabei den Leitfaden für die Zuordnung von Bereichen. Weitere Informationen zum Zuweisen von Rollen zu Key Vault-Objekten finden Sie unter [Gewähren des Zugriffs auf Key Vault-Schlüssel, -Zertifikate und -Geheimnisse mit der rollenbasierten Zugriffssteuerung in Azure (Vorschau)](rbac-guide.md).
-1. **Überprüfen von Rollenzuweisungen**: Die Verteilung von Rollenzuweisungen in Azure RBAC kann mehrere Minuten dauern. Eine Anleitung zur Überprüfung von Rollenzuweisungen finden Sie unter [Auflisten von Rollenzuweisungen in einem Bereich](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-portal#list-role-assignments-for-a-user-at-a-scope).
-1. **Konfigurieren von Überwachung und Warnungen für Key Vault**: Sie sollten unbedingt die Protokollierung aktivieren und Warnungen für Ausnahmen vom Typ „Zugriff verweigert“ einrichten. Weitere Informationen finden Sie unter [Überwachung und Warnungen für Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/alert).
-1. **Festlegen des Berechtigungsmodells für die rollenbasierte Zugriffssteuerung in Azure auf Key Vault**: Wenn Sie das Azure RBAC-Berechtigungsmodell aktivieren, werden alle vorhandenen Zugriffsrichtlinien ungültig. Bei einem Fehler können Sie wieder von dem Berechtigungsmodell zu den vorhandenen Zugriffsrichtlinien wechseln, die unverändert bleiben.
+1. **Identifizieren und Zuweisen von Rollen** : Identifizieren Sie mithilfe der Zuordnungstabelle oben integrierte Rollen, und erstellen Sie bei Bedarf benutzerdefinierte Rollen. Weisen Sie Rollen Bereichen zu, und verwenden Sie dabei den Leitfaden für die Zuordnung von Bereichen. Weitere Informationen zum Zuweisen von Rollen zu Key Vault-Objekten finden Sie unter [Gewähren des Zugriffs auf Key Vault-Schlüssel, -Zertifikate und -Geheimnisse mit der rollenbasierten Zugriffssteuerung in Azure (Vorschau)](rbac-guide.md).
+1. **Überprüfen von Rollenzuweisungen** : Die Verteilung von Rollenzuweisungen in Azure RBAC kann mehrere Minuten dauern. Eine Anleitung zur Überprüfung von Rollenzuweisungen finden Sie unter [Auflisten von Rollenzuweisungen in einem Bereich](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope).
+1. **Konfigurieren von Überwachung und Warnungen für Key Vault** : Sie sollten unbedingt die Protokollierung aktivieren und Warnungen für Ausnahmen vom Typ „Zugriff verweigert“ einrichten. Weitere Informationen finden Sie unter [Überwachung und Warnungen für Azure Key Vault](./alert.md).
+1. **Festlegen des Berechtigungsmodells für die rollenbasierte Zugriffssteuerung in Azure auf Key Vault** : Wenn Sie das Azure RBAC-Berechtigungsmodell aktivieren, werden alle vorhandenen Zugriffsrichtlinien ungültig. Bei einem Fehler können Sie wieder von dem Berechtigungsmodell zu den vorhandenen Zugriffsrichtlinien wechseln, die unverändert bleiben.
 
 > [!NOTE]
 > Ist das Azure RBAC-Berechtigungsmodell aktiviert, tritt für alle Skripts, die ein Update der Zugriffsrichtlinien durchführen möchten, ein Fehler auf. Diese Skripts müssen aktualisiert werden, damit Sie Azure RBAC verwenden können.
@@ -116,6 +116,6 @@ Zwischen den Berechtigungsmodellen von Azure RBAC und den Key Vault-Zugriffsrich
 
 ## <a name="learn-more"></a>Weitere Informationen
 
-- [RBAC in Azure – Übersicht](https://docs.microsoft.com/azure/role-based-access-control/overview)
-- [Tutorial zu benutzerdefinierten Rollen](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-cli)
+- [RBAC in Azure – Übersicht](../../role-based-access-control/overview.md)
+- [Tutorial zu benutzerdefinierten Rollen](../../role-based-access-control/tutorial-custom-role-cli.md)
 - [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)

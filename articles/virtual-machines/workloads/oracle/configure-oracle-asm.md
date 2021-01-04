@@ -3,16 +3,17 @@ title: Einrichten von Oracle ASM auf einem virtuellen Azure Linux-Computer | Mic
 description: Richten Sie in Ihrer Azure-Umgebung schnell Oracle ASM ein.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 2d112db720d8ad5a1cba1ec2f35fbb59670e1e92
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 6f0b58374ae3eb972993b544117d8cbb98371ce5
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996744"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602613"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Einrichten von Oracle ASM auf einem virtuellen Azure Linux-Computer  
 
@@ -344,7 +345,7 @@ In diesem Tutorial wird als Standardbenutzer *grid* und als Standardgruppe *asma
 
 Führen Sie zum Herunterladen der Oracle Grid Infrastructure-Software die folgenden Schritte aus:
 
-1. Laden Sie Oracle Grid Infrastructure von der [Oracle ASM-Downloadseite](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html) herunter. 
+1. Laden Sie Oracle Grid Infrastructure von der [Oracle ASM-Downloadseite](https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html) herunter. 
 
    Laden Sie mit dem Download **Oracle Database 12c Release 1 Grid Infrastructure (12.1.0.2.0) for Linux x86-64** zwei ZIP-Dateien herunter.
 
@@ -527,7 +528,7 @@ Führen Sie zum Einrichten der Oracle ASM-Installation die folgenden Schritte au
    - Klicken Sie auf `ok`, um die Datenträgergruppe zu erstellen.
    - Klicken Sie auf `ok`, um das Bestätigungsfenster zu schließen.
 
-   ![Screenshot des Dialogfelds „Datenträgergruppe erstellen“](./media/oracle-asm/asm04.png)
+   ![Screenshot des Dialogfelds zum Erstellen der Datenträgergruppe und der Option „External (none)“ (Extern (keine))](./media/oracle-asm/asm04.png)
 
 6. Wählen Sie **Exit** (Beenden), um ASM Configuration Assistant zu schließen.
 

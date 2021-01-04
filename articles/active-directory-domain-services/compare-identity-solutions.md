@@ -2,20 +2,20 @@
 title: Vergleichen von Active Directory-basierten Diensten in Azure | Microsoft-Dokumentation
 description: In dieser Übersicht vergleichen Sie die verschiedenen Identitätsangebote für Active Directory Domain Services, Azure Active Directory und Azure Active Directory Domain Services.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
-ms.author: joflore
-ms.openlocfilehash: 0576fdaa9bdcc90636c3cd2bc90ba2818f1e69e7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 479cc036ed3231d970d46eef9d89daa39a0b0876
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962665"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620187"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Vergleichen von selbstverwalteten Active Directory Domain Services, Azure Active Directory und verwalteten Azure Active Directory Domain Services
 
@@ -114,6 +114,9 @@ Mit in Azure AD DS eingebundenen Geräten können Anwendungen die Kerberos- und
 | Verwaltung                      | Software zur mobilen Geräteverwaltung (Mobile Device Management, MDM) wie z.B. Intune | Gruppenrichtlinie                                                              |
 | Netzwerk                      | Im Internet einsetzbar                             | Muss über eine Verbindung oder eine Peeringverknüpfung mit dem virtuellen Netzwerk verfügen, in dem die virtuelle Domäne bereitgestellt wird |
 | Ideal für...                    | Mobile oder Desktop-Endbenutzergeräte                  | In Azure bereitgestellte Server-VMs                                              |
+
+
+Wenn lokale Instanzen von AD DS und Azure AD per ADFS für die Verbundauthentifizierung konfiguriert wurden, ist in Azure DS kein (aktueller/gültiger) Kennworthash vorhanden. Azure AD-Benutzerkonten, die vor der Implementierung der Verbundauthentifizierung erstellt wurden, verfügen unter Umständen über einen alten Kennworthash. Dieser entspricht jedoch wahrscheinlich keinem Hash ihres lokalen Kennworts. Die Anmeldeinformationen des Benutzers können daher nicht von Azure AD DS validiert werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

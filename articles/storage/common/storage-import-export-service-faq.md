@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 08c105bd8ae9b5e0667ef5279e6c9484c631bd48
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 17a29621d3d70d56745d2e51e0ce80974876a9ef
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91399039"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782160"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure Import/Export-Dienst: Häufig gestellte Fragen
 
@@ -55,7 +55,7 @@ Nein. Alle zum Importieren von Daten verwendeten Festplatten müssen mit dem Azu
 
 ### <a name="do-i-need-to-perform-any-disk-preparation-when-creating-an-export-job"></a>Muss ich den Datenträger beim Erstellen eines Exportauftrags vorbereiten?
 
-Nein. Einige Vorabüberprüfungen sollten Sie durchführen. Überprüfen Sie die Anzahl der erforderlichen Datenträger mithilfe des PreviewExport-Befehls aus dem WAImportExport-Tool. Weitere Informationen finden Sie unter [Vorschau der Laufwerknutzung für einen Exportauftrag](https://msdn.microsoft.com/library/azure/dn722414.aspx). Sie können mit dem Befehl basierend auf der Größe der Laufwerke, die Sie verwenden möchten, eine Vorschau der Festplattenverwendung für ausgewählte Blobs anzeigen. Überprüfen Sie außerdem, ob Sie Lese-/Schreibzugriff auf die Festplatte haben, die für den Exportauftrag versendet werden soll.
+Nein. Einige Vorabüberprüfungen sollten Sie durchführen. Überprüfen Sie die Anzahl der erforderlichen Datenträger mithilfe des PreviewExport-Befehls aus dem WAImportExport-Tool. Weitere Informationen finden Sie unter [Vorschau der Laufwerknutzung für einen Exportauftrag](/previous-versions/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1). Sie können mit dem Befehl basierend auf der Größe der Laufwerke, die Sie verwenden möchten, eine Vorschau der Festplattenverwendung für ausgewählte Blobs anzeigen. Überprüfen Sie außerdem, ob Sie Lese-/Schreibzugriff auf die Festplatte haben, die für den Exportauftrag versendet werden soll.
 
 ## <a name="importexport-jobs"></a>Import-/Exportaufträge
 
@@ -132,7 +132,7 @@ Nein. Alle Festplatten werden mit BitLocker verschlüsselt.
 
 ### <a name="how-can-i-access-data-that-is-imported-by-this-service"></a>Wie kann ich auf Daten zugreifen, die von diesem Dienst importiert werden?
 
-Greifen Sie über das Azure-Portal oder [Storage-Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) auf die Daten unter Ihrem Azure-Speicherkonto zu.  
+Greifen Sie über das Azure-Portal oder [Storage-Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) auf die Daten unter Ihrem Azure-Speicherkonto zu.  
 
 ### <a name="after-the-import-is-complete-what-does-my-data-look-like-in-the-storage-account-is-my-directory-hierarchy-preserved"></a>Wie sehen meine Daten nach Abschluss des Imports im Speicherkonto aus? Wird meine Verzeichnishierarchie beibehalten?
 
@@ -144,7 +144,7 @@ Das ist unterschiedlich. Beim Vorbereiten der Festplatte können Sie angeben, ob
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>Ist das WAImportExport-Tool mit dem 32-Bit-Windows-Betriebssystem kompatibel?
 
-Nein. Das WAImportExport-Tool ist nur mit dem 64-Bit-Windows-Betriebssystem kompatibel. Eine vollständige Liste der unterstützten Betriebssysteme finden Sie unter [Unterstützte Betriebssysteme](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements).
+Nein. Das WAImportExport-Tool ist nur mit dem 64-Bit-Windows-Betriebssystem kompatibel. Eine vollständige Liste der unterstützten Betriebssysteme finden Sie unter [Unterstützte Betriebssysteme](./storage-import-export-requirements.md).
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Welche maximale Blockblob- und Seitenblobgröße wird von Azure Import/Export unterstützt?
 

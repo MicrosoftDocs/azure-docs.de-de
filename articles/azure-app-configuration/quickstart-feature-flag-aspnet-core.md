@@ -1,18 +1,18 @@
 ---
 title: Schnellstartanleitung zum Hinzufügen von Featureflags zu ASP.NET Core
 description: Hier wird erläutert, wie Sie ASP.NET Core-Apps Featureflags hinzufügen und diese in Azure App Configuration verwalten.
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
-ms.author: lcozzens
-ms.openlocfilehash: 866f1c404df2de87c2b3ce58b791ceb5257fca1b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.author: alkemper
+ms.openlocfilehash: d465f3c44ede8b4df56ef0da08c5bbbcd477d93f
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074446"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932138"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Schnellstart: Hinzufügen von Featureflags zu einer ASP.NET Core-App
 
@@ -181,36 +181,9 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     Der vorangehende Code ermöglicht die Verwendung des `<feature>`-Taghilfsprogramms in den *.cshtml*-Dateien des Projekts.
 
-1. Ersetzen Sie in *Views/Shared/_Layout.cshtml* den `<nav>`-Barcode unter `<body>` > `<header>` durch folgendes Markup:
+1. Öffnen Sie *_Layout.cshtml* im Verzeichnis *Ansichten*\\*Freigegeben*. Suchen Sie unter `<body>` > `<header>` nach dem Barcode `<nav>`. Fügen Sie ein neues `<feature>`-Tag zwischen den Navigationsleistenelementen *Start* und *Datenschutz* ein, wie nachfolgend in den hervorgehobenen Zeilen gezeigt:
 
-    ```cshtml
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TestFeatureFlags</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <feature name="Beta">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Beta" asp-action="Index">Beta</a>
-                    </li>
-                    </feature>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    ```
-
-    Beachten Sie im vorangehenden Markup das `<feature>`-Taghilfsprogramm, das das *Beta*-Listenelement umgibt.
+    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="13-17":::
 
 1. Erstellen Sie ein Verzeichnis *Views/Beta* und eine Datei *Index.cshtml*, die das folgende Markup enthält:
 
@@ -246,13 +219,15 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an. Klicken Sie auf **Alle Ressourcen**, und wählen Sie dann die Instanz des App Configuration-Speichers aus, die Sie in der Schnellstartanleitung erstellt haben.
 
-1. Wählen Sie **Feature-Manager** aus, und ändern Sie den Zustand des *Beta*-Schlüssels in **Ein**.
+1. Wählen Sie **Feature-Manager** aus. 
+
+1. Aktivieren Sie das *Beta*-Flag, indem Sie das Kontrollkästchen unter **Aktiviert** aktivieren.
 
 1. Kehren Sie zur Befehlsshell zurück. Brechen Sie den ausgeführten `dotnet`-Prozess ab, indem Sie <kbd>STRG+C</kbd> drücken. Starten Sie Ihre App mithilfe von `dotnet run` neu.
 
 1. Aktualisieren Sie die Browserseite, um die neuen Konfigurationseinstellungen anzuzeigen.
 
-    :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-after.png" alt-text="Lokale Schnellstart-App vor der Änderung" border="true":::
+    :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-after.png" alt-text="Lokale Schnellstart-App nach der Änderung" border="true":::
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 

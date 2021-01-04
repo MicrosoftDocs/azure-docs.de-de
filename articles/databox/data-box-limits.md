@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 10/01/2020
+ms.date: 11/16/2020
 ms.author: alkohli
-ms.openlocfilehash: b193247fee843796da0cb2fcfc1a874b1a1b72fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00ba711661d69bbaf53ff51fb2cb833d9b1c1ae2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91660920"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660422"
 ---
 # <a name="azure-data-box-limits"></a>Für Azure Data Box geltende Einschränkungen
 
@@ -28,7 +28,7 @@ Berücksichtigen Sie die folgenden Einschränkungen beim Bereitstellen und Betre
 - In Data Box können sowohl für den Import als auch für den Export maximal 500 Millionen Dateien gespeichert werden.
 - Data Box unterstützt maximal 512 Container oder Freigaben in der Cloud. Die Verzeichnisse der obersten Ebene innerhalb der Benutzerfreigabe werden zu Containern oder Azure-Dateifreigaben in der Cloud. 
 - Die Data Box-Nutzungskapazität kann aufgrund des Speicherverbrauchs für ReFS-Metadaten weniger als 80 TB betragen.
-- Data Box unterstützt maximal fünf Clientverbindungen zeitgleich auf einer NFS-Freigabe. 
+- Data Box unterstützt maximal zehn Clientverbindungen zeitgleich auf einer NFS-Freigabe.
 
 ## <a name="azure-storage-limits"></a>Speichergrenzwerte für Azure
 

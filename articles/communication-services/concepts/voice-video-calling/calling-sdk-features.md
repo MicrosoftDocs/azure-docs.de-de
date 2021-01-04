@@ -9,18 +9,18 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 44365dec247b9f3135a090cee397cad32598fd29
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f621d11553101c2c0bcfce804b26c218ae58670c
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977866"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576467"
 ---
 # <a name="calling-client-library-overview"></a>Übersicht über die Clientbibliothek für Telefonie
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Es gibt zwei separate Familien von Clientbibliotheken für Telefonie: eine für *Clients* und eine für *Dienste* . Die aktuell verfügbaren Clientbibliotheken sind für Endbenutzerumgebungen (Websites und native Apps) vorgesehen.
+Es gibt zwei separate Familien von Clientbibliotheken für Telefonie: eine für *Clients* und eine für *Dienste*. Die aktuell verfügbaren Clientbibliotheken sind für Endbenutzerumgebungen (Websites und native Apps) vorgesehen.
 
 Die Clientbibliotheken für Dienste sind noch nicht verfügbar und ermöglichen den Zugriff auf unformatierte Sprach- und Videodaten für die Integration in Bots und andere Diensten.
 
@@ -64,12 +64,32 @@ Die folgende Tabelle enthält die unterstützten Browser und Versionen, die derz
 
 |                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    |
 | -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ |
-| **Clientbibliothek für Telefonie** | Chrome*, Microsoft Edge (neu) | Chrome *, Safari** | Chrome*  | Chrome* | Chrome* | Safari** |
+| **Clientbibliothek für Telefonie** | Chrome*, Edge (neu) | Chrome *, Safari** | Chrome*  | Chrome* | Chrome* | Safari** |
 
 
 \* Hinweis: Neben den beiden vorherigen Releases wird auch die neueste Version von Chrome unterstützt.<br/>
 
 ** Hinweis: Safari wird ab Version 13.1 unterstützt. Ausgehende Videodaten werden für Safari macOS noch nicht unterstützt, für iOS dagegen schon. Die ausgehende Bildschirmfreigabe wird in der Desktopversion von iOS unterstützt.
+
+## <a name="calling-client---browser-security-model"></a>Anrufclient: Browsersicherheitsmodell
+
+### <a name="user-webrtc-over-https"></a>Verwenden von WebRTC über HTTPS
+
+WebRTC-APIs wie `getUserMedia` setzen voraus, dass die App, von der diese APIs aufgerufen werden, über HTTPS bedient wird.
+
+Für die lokale Entwicklung können Sie `http://localhost` verwenden.
+
+### <a name="embed-the-communication-services-calling-sdk-in-an-iframe"></a>Einbetten des Anruf-SDK für Communication Services in ein iframe-Element
+
+Von verschiedenen Browsern wird eine neue [Berechtigungsrichtlinie (auch Featurerichtlinie genannt)](https://www.w3.org/TR/permissions-policy-1/#iframe-allow-attribute) eingeführt. Durch diese Richtlinie wird über ein ursprungsübergreifendes iframe-Element gesteuert, wie Anwendungen auf die Kamera und das Mikrofon eines Geräts zugreifen können, was Auswirkungen auf Anrufszenarien hat.
+
+Wenn Sie ein iframe-Element verwenden möchten, um einen Teil der App über eine andere Domäne zu hosten, müssen Sie Ihrem iframe-Element das Attribut `allow` mit dem korrekten Wert hinzufügen.
+
+Durch das folgende iframe-Element wird beispielsweise sowohl Kamera- als auch Mikrofonzugriff gewährt:
+
+```html
+<iframe allow="camera *; microphone *">
+```
 
 ## <a name="next-steps"></a>Nächste Schritte
 

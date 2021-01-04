@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/02/2020
 ms.author: sideeksh
-ms.openlocfilehash: 53c5dc4920b6c50ee3c900db9626f4d283f7b846
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42d3c74229ab7eeec0ac716073a9e631775fd002
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426417"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187339"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatische Updates von Mobility Service bei der Replikation zwischen Azure-Regionen
 
@@ -63,13 +63,13 @@ Wenn Sie die Replikation für einen virtuellen Computer aktivieren, indem Sie en
 
 1. Wählen Sie **Speichern** aus.
 
-:::image type="content" source="./media/azure-to-azure-autoupdate/vault-toggle.png" alt-text="Erweiterungseinstellungen":::
+:::image type="content" source="./media/azure-to-azure-autoupdate/vault-toggle.png" alt-text="Erweiterungsupdateeinstellungen":::
 
 > [!IMPORTANT]
 > Wenn Sie **Verwaltung durch Site Recovery zulassen** auswählen, wird die Einstellung auf alle virtuellen Computer im Tresor angewendet.
 
 > [!NOTE]
-> Bei beiden Optionen werden Sie über das Automatisierungskonto informiert, das zum Verwalten der Updates verwendet wird. Wenn Sie dieses Feature zum ersten Mal in einem Tresor verwenden, wird standardmäßig ein neues Automatisierungskonto erstellt. Alternativ können Sie die Einstellung anpassen und ein vorhandenes Automatisierungskonto auswählen. Für alle nachfolgenden Aufgaben zum Aktivieren der Replikation in demselben Tresor wird das zuvor erstellte Automatisierungskonto verwendet. Im Dropdownmenü werden derzeit nur Automatisierungskonten aufgeführt, die sich in derselben Ressourcengruppe wie der Tresor befinden.
+> Bei beiden Optionen werden Sie über das Automatisierungskonto informiert, das zum Verwalten der Updates verwendet wird. Wenn Sie dieses Feature zum ersten Mal in einem Tresor verwenden, wird standardmäßig ein neues Automatisierungskonto erstellt. Alternativ können Sie die Einstellung anpassen und ein vorhandenes Automatisierungskonto auswählen. Nach dem Definieren wird für alle Aufgaben zum Aktivieren der Replikation im selben Tresor das ausgewählte Automatisierungskonto verwendet. Im Dropdownmenü werden derzeit nur Automatisierungskonten aufgeführt, die sich in derselben Ressourcengruppe wie der Tresor befinden.
 
 > [!IMPORTANT]
 > Das folgende Skript muss im Kontext eines Automatisierungskontos ausgeführt werden.
@@ -460,12 +460,12 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 
 1. Wenn es neue Updates für die Mobility Service-Instanz auf Ihrer VM gibt, wird die folgende Benachrichtigung angezeigt: **Ein neues Site Recovery-Replikations-Agent-Update ist verfügbar. Klicken Sie, um es zu installieren.**
 
-   :::image type="content" source="./media/vmware-azure-install-mobility-service/replicated-item-notif.png" alt-text="Erweiterungseinstellungen":::
+   :::image type="content" source="./media/vmware-azure-install-mobility-service/replicated-item-notif.png" alt-text="Fenster „Replizierte Elemente“":::
 
 1. Klicken Sie auf die Benachrichtigung, um die Auswahlseite für VMs zu öffnen.
 1. Wählen Sie die VM, die Sie aktualisieren möchten, und klicken Sie dann auf **OK**. Das Update für Mobility Service wird für jede ausgewählte VM durchgeführt.
 
-   :::image type="content" source="./media/vmware-azure-install-mobility-service/update-okpng.png" alt-text="Erweiterungseinstellungen":::
+   :::image type="content" source="./media/vmware-azure-install-mobility-service/update-okpng.png" alt-text="VM-Liste mit replizierten Elementen":::
 
 ## <a name="common-issues-and-troubleshooting"></a>Häufige Probleme und Problembehandlungen
 
@@ -479,7 +479,7 @@ Wenn Sie keine automatischen Updates aktivieren konnten, finden Sie in den häuf
 
   Die meisten Probleme nach dem Aktivieren von automatischen Updates können Sie mit **Reparieren** beheben. Für den Fall, dass die Schaltfläche „Reparieren“ nicht verfügbar ist, beachten Sie die Fehlermeldung, die im Bereich „Erweiterungsupdateeinstellungen“ angezeigt wird.
 
-  :::image type="content" source="./media/azure-to-azure-autoupdate/repair.png" alt-text="Erweiterungseinstellungen":::
+  :::image type="content" source="./media/azure-to-azure-autoupdate/repair.png" alt-text="Schaltfläche „Reparieren“ im Site Recovery-Dienst in den Erweiterungsupdateeinstellungen":::
 
 - **Fehler:** Das ausführende Konto verfügt nicht über die Berechtigung zum Zugriff auf die Recovery Services-Ressource.
 
@@ -495,7 +495,7 @@ Wenn Sie keine automatischen Updates aktivieren konnten, finden Sie in den häuf
 
   **Empfohlene Maßnahme:** Wählen Sie **Reparieren** und dann **Zertifikat erneuern** aus, um dieses Problem zu beheben.
 
-  :::image type="content" source="./media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG" alt-text="Erweiterungseinstellungen":::
+  :::image type="content" source="./media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG" alt-text="Zertifikat erneuern":::
 
   > [!NOTE]
   > Nachdem Sie das Zertifikat erneuert haben, aktualisieren Sie die Seite, um den aktuellen Status anzuzeigen.

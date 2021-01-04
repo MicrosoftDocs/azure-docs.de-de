@@ -1,7 +1,7 @@
 ---
 title: Sammeln von Daten zu Ihren Produktionsmodellen
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Daten aus einem bereitgestellten Azure Machine Learning-Modell gesammelt werden.
+description: Erfahren Sie, wie Sie Daten aus einem Azure Machine Learning Modell sammeln, das in einem Azure Kubernetes Service-Cluster (AKS) bereitgestellt wird.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,15 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: 5a04e5a7136ac1a33766bf543a27ff7794498c26
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.custom: how-to, data4ml
+ms.openlocfilehash: c6b9dc95e1d50481ac5353460910032ca1711ab1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996367"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000452"
 ---
 # <a name="collect-data-from-models-in-production"></a>Sammeln von Daten von Modellen in der Produktion
-
-
 
 In diesem Artikel wird beschrieben, wie Sie Daten aus einem Azure Machine Learning Modell sammeln, das in einem Azure Kubernetes Service-Cluster (AKS) bereitgestellt wird. Die gesammelten Daten werden anschließend in Azure Blob Storage gespeichert.
 
@@ -67,11 +65,11 @@ Der Pfad zu den Ausgabedaten im Blob folgt dieser Syntax:
 
 - Sie benötigen einen AKS-Cluster. Informationen zum Erstellen und Bereitstellen finden Sie unter [Bereitstellen von Modellen mit Azure Machine Learning](how-to-deploy-and-where.md).
 
-- [Einrichten Ihrer Umgebung](how-to-configure-environment.md) und Installieren des [Azure Machine Learning Monitoring SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
+- [Einrichten Ihrer Umgebung](how-to-configure-environment.md) und Installieren des [Azure Machine Learning Monitoring SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
 
 ## <a name="enable-data-collection"></a>Aktivieren der Datensammlung
 
-Sie können die [Datensammlung](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?view=azure-ml-py&preserve-view=true) ungeachtet des über Azure Machine Learning oder andere Tools bereitgestellten Modells aktivieren.
+Sie können die [Datensammlung](/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?preserve-view=true&view=azure-ml-py) ungeachtet des über Azure Machine Learning oder andere Tools bereitgestellten Modells aktivieren.
 
 Führen Sie zum Aktivieren der Datensammlung folgende Schritte aus:
 
@@ -153,7 +151,7 @@ Sie können ein beliebiges Tool Ihrer Wahl verwenden, um die im Blobspeicher erf
 
 1. Laden Sie [Power BI Desktop](https://www.powerbi.com) herunter, und öffnen Sie diese Anwendung.
 
-1. Wählen Sie **Daten abrufen** und anschließend [**Azure Blob Storage**](https://docs.microsoft.com/power-bi/desktop-data-sources) aus.
+1. Wählen Sie **Daten abrufen** und anschließend [**Azure Blob Storage**](/power-bi/desktop-data-sources) aus.
 
     [![Power BI-Blob-Setup](./media/how-to-enable-data-collection/PBIBlob.png)](././media/how-to-enable-data-collection/PBIBlob.png#lightbox)
 
@@ -187,7 +185,7 @@ Sie können ein beliebiges Tool Ihrer Wahl verwenden, um die im Blobspeicher erf
 
 ### <a name="analyze-model-data-using-azure-databricks"></a><a id="databricks"></a> Analysieren von Modelldaten mit Azure Databricks
 
-1. Erstellen Sie einen [Azure Databricks-Arbeitsbereich](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
+1. Erstellen Sie einen [Azure Databricks-Arbeitsbereich](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
 
 1. Greifen Sie auf Ihren Databricks-Arbeitsbereich zu.
 

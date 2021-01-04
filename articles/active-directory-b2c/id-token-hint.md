@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 708ec35524f25314ca568944b738ba2cdf60d55c
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 79a99d9f0ca117d8f47d56d76399210a72b91bb7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132073"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951654"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definieren eines technischen ID-Tokenhinweisprofils in einer benutzerdefinierten Azure Active Directory B2C-Richtlinie
 
@@ -59,7 +59,7 @@ Bei „id_token_hint“ verfasst der Tokenaussteller (eine App der vertrauenden 
 
 ## <a name="protocol"></a>Protocol
 
-Das **Name** -Attribut des **Protocol** -Elements muss auf `None` festgelegt werden. Das Protokoll für das technische Profil **IdTokenHint_ExtractClaims** ist beispielsweise `None`:
+Das **Name**-Attribut des **Protocol**-Elements muss auf `None` festgelegt werden. Das Protokoll für das technische Profil **IdTokenHint_ExtractClaims** ist beispielsweise `None`:
 
 ```xml
 <TechnicalProfile Id="IdTokenHint_ExtractClaims">
@@ -129,15 +129,15 @@ Der Schlüssel, der vom Tokenaussteller verwendet wird, muss in Ihren Azure AD B
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 1. Wählen Sie auf der Symbolleiste des Portals das Symbol **Verzeichnis und Abonnement** aus, und wählen Sie dann das Verzeichnis aus, das Ihren Azure AD B2C-Mandanten enthält.
-1. Suchen Sie im Azure-Portal nach **Azure AD B2C** , und wählen Sie diese Option dann aus.
+1. Suchen Sie im Azure-Portal nach **Azure AD B2C**, und wählen Sie diese Option dann aus.
 1. Wählen Sie auf der Übersichtsseite unter **Richtlinien** die Option **Identity Experience Framework** aus.
-1. Klicken Sie auf **Richtlinienschlüssel** . 
+1. Klicken Sie auf **Richtlinienschlüssel**. 
 1. Wählen Sie **Manuell** aus.
 1. Verwenden Sie für **Name** den Wert `IdTokenHintKey`.  
    Das Präfix `B2C_1A_` wird möglicherweise automatisch hinzugefügt.
 1. Geben Sie im Feld **Geheimnis** den zuvor generierten Anmeldeschlüssel ein.
-1. Verwenden Sie für **Schlüsselverwendung** die Option **Verschlüsselung** .
-1. Klicken Sie auf **Erstellen** .
+1. Verwenden Sie für **Schlüsselverwendung** die Option **Verschlüsselung**.
+1. Klicken Sie auf **Erstellen**.
 1. Vergewissern Sie sich, dass Sie den Schlüssel `B2C_1A_IdTokenHintKey` erstellt haben.
 
 
@@ -189,7 +189,7 @@ Sehen Sie sich das .NET-MVC-Controllerbeispiel [TokenMetadataController.cs](http
 
 #### <a name="step-1-prepare-a-self-signed-certificate"></a>Schritt 1: Vorbereiten eines selbstsignierten Zertifikats
 
-Wenn Sie noch nicht über ein Zertifikat verfügen, können Sie für diese Schrittanleitung ein selbstsigniertes Zertifikat verwenden. Unter Windows können Sie das PowerShell-Cmdlet [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) verwenden, um ein Zertifikat zu generieren.
+Wenn Sie noch nicht über ein Zertifikat verfügen, können Sie für diese Schrittanleitung ein selbstsigniertes Zertifikat verwenden. Unter Windows können Sie das PowerShell-Cmdlet [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) verwenden, um ein Zertifikat zu generieren.
 
 Führen Sie diesen PowerShell-Befehl aus, um ein selbstsigniertes Zertifikat zu generieren. Ändern Sie das Argument `-Subject` entsprechend Ihrer Anwendung und des Azure AD B2C-Mandantennamens. Sie können auch das `-NotAfter`-Datum anpassen, um einen anderen Ablaufzeitpunkt für das Zertifikat anzugeben.
 

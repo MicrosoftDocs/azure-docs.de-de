@@ -10,19 +10,19 @@ ms.subservice: team-data-science-process
 ms.topic: sample
 ms.date: 06/03/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: 406092466b7ab5ca729a08f7c703bcb30812901d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperf-fy20q4
+ms.openlocfilehash: 1ef6c678110037a4aed24ef40631b73a04ca6a9d
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86027510"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028086"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Durchsuchen von Daten und Modellierung mit Spark
 
 Hier erfahren Sie, wie Sie HDInsight Spark zum Trainieren von Machine Learning-Modellen für die Vorhersage von Taxifahrtkosten unter Verwendung von Spark MLlib verwenden.
 
-Dieses Beispiel veranschaulicht die verschiedenen Schritte im [Team Data Science-Prozess](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). Zum Laden, Untersuchen und Vorbereiten von Daten wird eine Teilmenge des Datasets der NYC-Taxifahrten und Fahrpreise von 2013 verwendet. Anschließend werden mithilfe von Spark MLlib binäre Klassifizierungs- und Regressionsmodelle trainiert, um vorherzusagen, ob ein Trinkgeld für die Fahrt bezahlt wird, und um den Trinkgeldbetrag zu schätzen.
+Dieses Beispiel veranschaulicht die verschiedenen Schritte im [Team Data Science-Prozess](./index.yml). Zum Laden, Untersuchen und Vorbereiten von Daten wird eine Teilmenge des Datasets der NYC-Taxifahrten und Fahrpreise von 2013 verwendet. Anschließend werden mithilfe von Spark MLlib binäre Klassifizierungs- und Regressionsmodelle trainiert, um vorherzusagen, ob ein Trinkgeld für die Fahrt bezahlt wird, und um den Trinkgeldbetrag zu schätzen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 

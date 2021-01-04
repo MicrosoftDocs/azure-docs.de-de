@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 08/14/2020
+ms.date: 11/19/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 068c2dc698e9f0b6d6f2f6486dff863c1343b178
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c60adb09da05ba945bcf6ccb55e71c395f064211
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88258270"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965101"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Datengrenzwerte und Ratenbegrenzungen für die Textanalyse-API
 <a name="data-limits"></a>
@@ -31,24 +31,28 @@ In diesem Artikel finden Sie die Grenzwerte für die Datengröße und -rate, die
 
 | Begrenzung | Wert |
 |------------------------|---------------|
-| Maximale Größe eines einzelnen Dokuments | 5\.120 Zeichen (gemessen von [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements)). Gilt ebenfalls für die Textanalyse für Integritätscontainer. |
-| Maximale Größe der gesamte Anforderung | 1 MB. Gilt ebenfalls für die Textanalyse für Integritätscontainer. |
+| Maximale Größe eines einzelnen Dokuments | 5\.120 Zeichen (gemessen von [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements)). Gilt auch für die Textanalyse für Gesundheit. |
+| Maximale Größe eines einzelnen Dokuments (Endpunkt: `/analyze`)  | 125.000 Zeichen (gemessen durch [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements)). Gilt nicht für die Textanalyse für Gesundheit. |
+| Maximale Größe der gesamte Anforderung | 1 MB. Gilt auch für die Textanalyse für Gesundheit. |
 
-Die maximale Anzahl von Dokumenten, die Sie in einer einzelnen Anforderung senden können, hängt von der API-Version und -Funktion ab, die Sie verwenden.
+Die maximale Anzahl von Dokumenten, die Sie in einer einzelnen Anforderung senden können, hängt von der API-Version und -Funktion ab, die Sie verwenden. Sollte ein Dokument die maximal zulässige Größe von 125.000 Zeichen überschreiten, wird die gesamte Anforderungen vom Endpunkt `/analyze` abgelehnt.
 
 #### <a name="version-3"></a>[Version 3](#tab/version-3)
 
-Die folgenden Grenzwerte haben sich in Version 3 der API geändert. Wenn Sie die folgenden Grenzwerte überschreiten, wird der HTTP-Fehlercode 400 generiert.
+Die folgenden Grenzwerte gelten für die aktuelle Version 3 der API. Wenn Sie die folgenden Grenzwerte überschreiten, wird der HTTP-Fehlercode 400 generiert.
 
 
 | Funktion | Max. Anzahl von Dokumenten pro Anforderung | 
 |----------|-----------|
 | Spracherkennung | 1000 |
 | Standpunktanalyse | 10 |
+| Opinion Mining | 10 |
 | Schlüsselwortextraktion | 10 |
 | Erkennung benannter Entitäten | 5 |
 | Entitätsverknüpfung | 5 |
-| Textanalyse für Integritätscontainer | 1000 |
+| Textanalyse für Gesundheit  | Zehn für die webbasierte API, 1.000 für den Container |
+| Analyseendpunkt | 25 für alle Vorgänge |
+
 #### <a name="version-2"></a>[Version 2](#tab/version-2)
 
 | Funktion | Max. Anzahl von Dokumenten pro Anforderung | 
@@ -74,7 +78,7 @@ Die Ratenbegrenzung variiert je nach [Tarif](https://azure.microsoft.com/pricing
 | S3            | 500                 | 500                 |
 | S4            | 1000                | 1000                |
 
-Die Anforderungen werden für jede Textanalysefunktion separat gemessen. So können Sie beispielsweise die maximale Anzahl von Anforderungen für Ihren Tarif gleichzeitig an alle Funktionen senden.  
+Anforderungsraten werden für jedes Textanalysefeature separat gemessen. So können Sie die maximale Anzahl von Anforderungen für Ihren Tarif gleichzeitig an jedes Feature senden. Wenn Sie also beispielsweise den Tarif `S` verwenden und gleichzeitig 1.000 Anforderungen senden, können Sie 59 Sekunden lang keine weitere Anforderung senden.
 
 
 ## <a name="see-also"></a>Weitere Informationen

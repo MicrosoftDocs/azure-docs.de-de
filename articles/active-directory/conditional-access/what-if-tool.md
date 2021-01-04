@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bebd32d2773ca86638de221d305079bb262e3e5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3ac799203cade3a907acbe28dee3a8023891db2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631425"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077641"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Beheben von Problemen mit dem What If-Tool beim bedingten Zugriff
 
@@ -28,7 +28,7 @@ In diesem Artikel wird erläutert, wie Sie dieses Tool zum Testen Ihrer Richtlin
 
 Mit dem **Was-wäre-wenn-Tool für den bedingten Zugriff** erhalten Sie Einblicke in die Auswirkungen Ihrer Richtlinien für den bedingten Zugriff auf Ihre Umgebung. Anstelle von Tests Ihrer Richtlinien mithilfe mehrerer manueller Anmeldevorgänge ermöglicht dieses Tool die Auswertung simulierter Benutzeranmeldungen. Die Simulation schätzt die Auswirkungen dieser Anmeldungen auf Ihre Richtlinien ab und generiert einen Simulationsbericht. Der Bericht listet nicht nur die angewendeten Richtlinien für den bedingten Zugriff auf, sondern auch [klassische Richtlinien](policy-migration.md#classic-policies) (sofern vorhanden).    
 
-Das **Was-wäre-wenn**-Tool stellt auch eine Möglichkeit dar, die Richtlinien zu ermitteln, die für einen bestimmten Benutzer gelten. Sie können diese Informationen z.B. nutzen, um ein Problem zu beheben.    
+Das **Was-wäre-wenn** -Tool stellt auch eine Möglichkeit dar, die Richtlinien zu ermitteln, die für einen bestimmten Benutzer gelten. Sie können diese Informationen z.B. nutzen, um ein Problem zu beheben.    
 
 ## <a name="how-it-works"></a>Funktionsweise
 
@@ -48,7 +48,7 @@ Sie finden das **Was-wäre-wenn-Tool** im Azure-Portal auf der Seite **[Bedingte
 
 Zum Starten des Tools klicken Sie auf der Symbolleiste über der Liste der Richtlinien auf **Was-wäre-wenn**.
 
-![What If](./media/what-if-tool/01.png)
+:::image type="content" source="./media/what-if-tool/01.png" alt-text="Screenshot: Seite „Bedingter Zugriff – Richtlinien“ im Azure-Portal. Auf der Symbolleiste ist das Element „What If“ hervorgehoben." border="false":::
 
 Bevor Sie eine Auswertung durchführen können, müssen Sie die Einstellungen konfigurieren.
 
@@ -56,7 +56,7 @@ Bevor Sie eine Auswertung durchführen können, müssen Sie die Einstellungen ko
 
 Dieser Abschnitt enthält Informationen zu den Einstellungen für die Simulation.
 
-![What If](./media/what-if-tool/02.png)
+:::image type="content" source="./media/what-if-tool/02.png" alt-text="Screenshot: Seite „What If“ im Azure-Portal mit Feldern für Benutzer, Cloud-Apps, IP-Adresse, Geräteplattform, Client-App und Anmelderisiko" border="false":::
 
 ### <a name="user"></a>Benutzer
 
@@ -79,8 +79,8 @@ Diese Einstellung imitiert die [Geräteplattformbedingung](concept-conditional-a
 Diese Einstellung imitiert die [Client-Apps-Bedingung](concept-conditional-access-conditions.md#client-apps).
 Standardmäßig bewirkt diese Einstellung eine Auswertung aller Richtlinien, bei denen **Browser** und/oder **Mobile Apps und Desktopclients** aktiviert ist. Damit werden außerdem Richtlinien erkannt, die **Exchange ActiveSync (EAS)** erzwingen. Sie können diese Einstellung eingrenzen, indem Sie Folgendes auswählen:
 
-- **Browser**, um alle Richtlinien auszuwerten, für die mindestens **Browser** ausgewählt wurde. 
-- **Mobile Apps und Desktopclients**, um alle Richtlinien auszuwerten, für die mindestens **Mobile Apps und Desktopclients** ausgewählt wurde. 
+- **Browser** , um alle Richtlinien auszuwerten, für die mindestens **Browser** ausgewählt wurde. 
+- **Mobile Apps und Desktopclients** , um alle Richtlinien auszuwerten, für die mindestens **Mobile Apps und Desktopclients** ausgewählt wurde. 
 
 ### <a name="sign-in-risk"></a>Anmelderisiko
 
@@ -90,7 +90,7 @@ Diese Einstellung imitiert die [Anmelderisikobedingung](concept-conditional-acce
 
 Sie starten eine Auswertung, indem Sie auf **Was-wäre-wenn** klicken. Das Auswertungsergebnis wird Ihnen in Form eines Berichts präsentiert, der Folgendes enthält: 
 
-![What If](./media/what-if-tool/03.png)
+:::image type="content" source="./media/what-if-tool/03.png" alt-text="Screenshot: Auswertungsbericht. Im Text ist angegeben, dass mindestens eine klassische Richtlinie konfiguriert ist. Zum Anzeigen von Richtlinien stehen Registerkarten zur Verfügung." border="false":::
 
 - Einen Indikator, ob klassische Richtlinien in Ihrer Umgebung vorhanden sind
 - Richtlinien, die für den Benutzer gelten

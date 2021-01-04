@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Erstellen einer neuen HoloLens-Unity-App'
 description: In diesem Tutorial wird beschrieben, wie Sie mit Azure Spatial Anchors eine neue HoloLens Unity-App erstellen.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 08/17/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e94ced70ad17286612328884d03d4d1253b7818b
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: ee0bf9b4ce009f37dd1931d4ed030defa24e7d38
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096537"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95996258"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Tutorial: Schritt-für-Schritt-Anleitung zum Erstellen einer neuen HoloLens Unity-App mit Azure Spatial Anchors
 
@@ -31,7 +31,7 @@ Damit Sie dieses Tutorial ausführen können, benötigen Sie folgende Komponente
 
 Wir werden zuerst unser Projekt und die Unity-Szene einrichten:
 1. Starten Sie Unity.
-2. Wählen Sie **Neu**aus.
+2. Wählen Sie **Neu** aus.
 4. Vergewissern Sie sich, dass **3D** ausgewählt ist.
 5. Benennen Sie Ihr Projekt, und geben Sie einen **Speicherort** ein.
 6. Wählen Sie **Projekt erstellen** aus.
@@ -48,7 +48,7 @@ Zunächst legen wir Qualitätseinstellungen für unsere Anwendung fest.
 
 Wir müssen unsere Unity-App mit einer plastischen Ansicht anstelle einer 2D-Ansicht konfigurieren. Wir können eine plastische Ansicht durch Aktivieren der Unterstützung für virtuelle Realität in Unity mit dem Windows 10-SDK als Ziel erstellen.
 1. Wechseln Sie zu **Bearbeiten** > **Projekteinstellungen** > **Player**.
-2. Wählen Sie im **Inspector-Bereich** für **Playereinstellungen**das **Windows**-Symbol aus.
+2. Wählen Sie im **Inspector-Bereich** für **Playereinstellungen** das **Windows**-Symbol aus.
 3. Erweitern Sie die Gruppe **XR-Einstellungen**.
 4. Aktivieren Sie im Abschnitt **Rendering** das Kontrollkästchen **Virtuelle Realität unterstützt**, um eine neue Liste mit **Virtual Reality-SDKs** hinzuzufügen.
 5. Überprüfen Sie, ob in der Liste **Windows Mixed Reality** angezeigt wird. Wenn nicht, wählen Sie die Schaltfläche **+** am Ende der Liste aus, und wählen Sie **Windows Mixed Reality** aus.
@@ -58,12 +58,12 @@ Wir müssen unsere Unity-App mit einer plastischen Ansicht anstelle einer 2D-Ans
 
 **Überprüfen der Konfiguration des Skript-Back-Ends**
 1. Wechseln Sie zu **Bearbeiten** > **Projekteinstellungen** > **Player** (eventuell haben Sie **Player** noch aus dem vorherigen Schritt geöffnet).
-2. Wählen Sie im **Inspector-Bereich** für **Playereinstellungen**das **Windows Store**-Symbol aus.
+2. Wählen Sie im **Inspector-Bereich** für **Playereinstellungen** das **Windows Store**-Symbol aus.
 3. Stellen Sie im Konfigurationsabschnitt **Weitere Einstellungen** sicher, dass **Skript-Back-End-** auf **IL2CPP** festgelegt ist.
 
 **Festlegen von Funktionen**
 1. Wechseln Sie zu **Bearbeiten** > **Projekteinstellungen** > **Player** (eventuell haben Sie **Player** noch aus dem vorherigen Schritt geöffnet).
-2. Wählen Sie im **Inspector-Bereich** für **Playereinstellungen**das **Windows Store**-Symbol aus.
+2. Wählen Sie im **Inspector-Bereich** für **Playereinstellungen** das **Windows Store**-Symbol aus.
 3. Aktivieren Sie Konfigurationsabschnitt **Veröffentlichungseinstellungen** die Kontrollkästchen **InternetClientServer** und **SpatialPerception**.
 
 **Einrichten der virtuellen Hauptkamera**

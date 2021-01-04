@@ -5,14 +5,14 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 04/22/2020
+ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: 4d126d1e6bb92d2079ac3c0d95f754cb9aab3c21
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4b9dec0fe684e002fadbac2db375c354db2b6d01
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978610"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981169"
 ---
 # <a name="managing-platform-updates-with-maintenance-control"></a>Verwalten von Plattformupdates mit der Wartungssteuerung 
 
@@ -23,12 +23,13 @@ Mit der Wartungssteuerung können Sie entscheiden, wann Sie Updates auf Ihre iso
 Mit der Wartungssteuerung können Sie folgende Aktionen ausführen:
 - Batchupdates in ein Updatepaket
 - Warten von bis zu 35 Tagen bis zur Anwendung der Updates 
-- Automatisieren von Plattformupdates für Ihr Wartungsfenster mit [Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler)
+- Automatisieren Sie Plattformupdates durch Konfigurieren eines Wartungszeitplans oder mithilfe von [Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
 - Wartungskonfigurationen funktionieren abonnement- und ressourcengruppenübergreifend. 
 
 ## <a name="limitations"></a>Einschränkungen
 
 - Virtuelle Computer müssen sich auf einem [dedizierten Host](./dedicated-hosts.md) befinden oder mithilfe einer [isolierten VM-Größe](isolation.md) erstellt werden.
+- Wenn ein Wartungszeitplan festgelegt wird, muss er mindestens zwei Stunden betragen.
 - Nach 35 Tagen wird automatisch ein Update angewendet.
 - Der Benutzer muss über einen **Ressourcenmitwirkender**-Zugriff verfügen.
 

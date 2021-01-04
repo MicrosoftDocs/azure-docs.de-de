@@ -6,20 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c78b61798e72d87ec245082a5822bcfc58a1b61
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: df36cd334dbb455cf1717bf18fc6c8337d0ee6d2
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373327"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547881"
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>Verwenden einer Gruppe zum Verwalten des Zugriffs auf SaaS-Anwendungen
 
@@ -32,12 +32,12 @@ Wenn Sie Azure Active Directory (Azure AD) mit einem Azure AD Premium-Lizenzplan
 
 ## <a name="to-assign-access-for-a-user-or-group-to-a-saas-application"></a>So weisen Sie einem Benutzer oder einer Gruppe den Zugriff auf eine SaaS-Anwendung zu
 
-1. Wählen Sie im [Azure AD Admin Center](https://aad.portal.azure.com) die Option **Unternehmensanwendungen** .
+1. Wählen Sie im [Azure AD Admin Center](https://aad.portal.azure.com) die Option **Unternehmensanwendungen**.
 2. Wählen Sie eine der aus dem Anwendungskatalog hinzugefügten Anwendungen aus, um diese zu öffnen.
-3. Wählen Sie **Benutzer und Gruppen** und dann **Alle Benutzer** .
-4. Wählen Sie unter **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** , um die Auswahlliste **Benutzer und Gruppen** zu öffnen.
-6. Wählen Sie beliebig viele Gruppen oder Benutzer aus, und klicken oder tippen Sie dann auf **Auswählen** , um diese der Liste **Zuweisung hinzufügen** hinzuzufügen. An dieser Stelle können Sie auch einem Benutzer eine Rolle zuweisen.
-7. Wählen Sie **Zuweisen** , um die Benutzer oder Gruppen der ausgewählten Unternehmensanwendung zuzuweisen.
+3. Wählen Sie **Benutzer und Gruppen** und dann **Alle Benutzer**.
+4. Wählen Sie unter **Zuweisung hinzufügen** die Option **Benutzer und Gruppen**, um die Auswahlliste **Benutzer und Gruppen** zu öffnen.
+6. Wählen Sie beliebig viele Gruppen oder Benutzer aus, und klicken oder tippen Sie dann auf **Auswählen**, um diese der Liste **Zuweisung hinzufügen** hinzuzufügen. An dieser Stelle können Sie auch einem Benutzer eine Rolle zuweisen.
+7. Wählen Sie **Zuweisen**, um die Benutzer oder Gruppen der ausgewählten Unternehmensanwendung zuzuweisen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 Diese Artikel enthalten zusätzliche Informationen zu Azure Active Directory.

@@ -10,12 +10,12 @@ author: linda33wj
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.openlocfilehash: 6f0a1509a97d2d860b43146ffaf69bb241105910
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc10017da8561cda09658ec9380cc82095f3ef94
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84194628"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632231"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-sql-server-to-azure"></a>Verwenden von PowerShell zum Erstellen einer Data Factory-Pipeline zum Kopieren von SQL Server-Daten in Azure
 
@@ -27,12 +27,12 @@ Dieses PowerShell-Beispielskript erstellt eine Pipeline in Azure Data Factory, d
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-- **SQL Server**. In diesem Beispiel verwenden Sie eine SQL Server-Datenbank als **Quelldatenspeicher**.
-- **Azure Storage-Konto**. In diesem Beispiel verwenden Sie Azure Blob Storage als **Ziel-/Senkendatenspeicher**. Wenn Sie kein Azure Storage-Konto haben, finden Sie im Artikel [Erstellen eines Speicherkontos](../../storage/common/storage-account-create.md) Schritte zum Erstellen eines Azure Storage-Kontos.
-- **Selbstgehostete Integration Runtime**. Laden Sie die MSI-Datei aus dem [Download Center](https://www.microsoft.com/download/details.aspx?id=39717) herunter, und führen Sie sie aus, um eine selbstgehostete Integration Runtime auf Ihrem Computer zu installieren.  
+- **SQL Server** . In diesem Beispiel verwenden Sie eine SQL Server-Datenbank als **Quelldatenspeicher** .
+- **Azure Storage-Konto** . In diesem Beispiel verwenden Sie Azure Blob Storage als **Ziel-/Senkendatenspeicher** . Wenn Sie kein Azure Storage-Konto haben, finden Sie im Artikel [Erstellen eines Speicherkontos](../../storage/common/storage-account-create.md) Schritte zum Erstellen eines Azure Storage-Kontos.
+- **Selbstgehostete Integration Runtime** . Laden Sie die MSI-Datei aus dem [Download Center](https://www.microsoft.com/download/details.aspx?id=39717) herunter, und führen Sie sie aus, um eine selbstgehostete Integration Runtime auf Ihrem Computer zu installieren.  
 
 ### <a name="create-sample-database-in-sql-server"></a>Erstellen einer Beispieldatenbank in SQL Server
-1. Erstellen Sie in der SQL Server-Datenbank eine Tabelle namens **emp**. Verwenden Sie dazu das folgende SQL-Skript:
+1. Erstellen Sie in der SQL Server-Datenbank eine Tabelle namens **emp** . Verwenden Sie dazu das folgende SQL-Skript:
 
    ```sql   
      CREATE TABLE dbo.emp
@@ -92,6 +92,6 @@ Das Skript verwendet die folgenden Befehle:
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zu Azure PowerShell finden Sie in der [Azure PowerShell-Dokumentation](https://docs.microsoft.com/powershell/).
+Weitere Informationen zu Azure PowerShell finden Sie in der [Azure PowerShell-Dokumentation](/powershell/).
 
 Zusätzliche PowerShell-Skriptbeispiele für Azure Data Factory finden Sie unter [Azure PowerShell-Beispiele für Azure Data Factory](../samples-powershell.md).

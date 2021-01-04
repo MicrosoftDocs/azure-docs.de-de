@@ -11,14 +11,14 @@ ms.date: 09/22/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b7aa0bf8c82990a00b4e41041145a67ee2f02b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e272c402cac803d10d9998298ce6d3370d0e000
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91636942"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348802"
 ---
-# <a name="azure-ad-connect-cloud-provisioning-attibute-mapping"></a>Attributzuordnung für die Azure AD Connect-Cloudbereitstellung
+# <a name="azure-ad-connect-cloud-provisioning-attribute-mapping"></a>Attributzuordnung für die Azure AD Connect-Cloudbereitstellung
 
 Die Azure AD Connect-Cloudbereitstellung umfasst eine neue Funktion, die Ihnen das einfache Zuordnen von Attributen zwischen lokalen Benutzer-/Gruppenobjekten und den Objekten in Azure AD erlaubt.  Diese Funktion wurde der Cloudbereitstellungskonfiguration hinzugefügt.
 

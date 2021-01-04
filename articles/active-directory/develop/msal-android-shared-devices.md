@@ -13,19 +13,17 @@ ms.date: 03/31/2020
 ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
-ms.openlocfilehash: c1bf6b33176bf7942fbd76fa86ecd61b4f24e154
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fc32b4f583aea2fa9a34ab8b235f3f99fe4def9d
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366002"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562167"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Modus für gemeinsam genutzte Geräte für Android-Geräte
 
-> [!NOTE]
-> Dieses Feature befindet sich in der Phase der öffentlichen Vorschau.
-> Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar.
-> Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>[!IMPORTANT]
+> Dieses Feature [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 Mitarbeiter in Service und Produktion, z. B. Mitarbeiter im Einzelhandel, Mitglieder der Flugzeugbesatzung und Außendienstmitarbeiter, verwenden für ihre Arbeit häufig ein gemeinsam genutztes mobiles Gerät. Dies wird problematisch, wenn sie Kennwörter oder PIN-Nummern gemeinsam verwenden, um auf dem gemeinsam genutzten Gerät auf Kunden- und Geschäftsdaten zuzugreifen.
 
@@ -44,7 +42,7 @@ Bei der Erstellung einer App für den Modus für gemeinsam genutzte Geräte arbe
 
 In Anwendungen, die mit dem Microsoft Authentication Library SDK (MSAL) geschrieben wurden, können ein einzelnes Konto oder mehrere Konten verwaltet werden. Weitere Informationen finden Sie unter [Modus für einzelne und mehrere Konten](single-multi-account.md). Die in Ihrer App verfügbaren Microsoft Identity Platform-Funktionen hängen davon ab, ob die Anwendung im Modus für einzelne Konten oder im Modus für mehrere Konten ausgeführt wird.
 
-**Apps mit dem Modus für gemeinsam genutzte Geräte können nur im Modus für einzelne Konten verwendet werden** .
+**Apps mit dem Modus für gemeinsam genutzte Geräte können nur im Modus für einzelne Konten verwendet werden**.
 
 > [!IMPORTANT]
 > Anwendungen, die nur den Modus für mehrere Konten unterstützen, können auf einem gemeinsam genutzten Gerät nicht ausgeführt werden. Wenn ein Mitarbeiter eine App lädt, die den Modus für einzelne Konten nicht unterstützt, wird die App auf dem gemeinsam genutzten Gerät nicht ausgeführt.

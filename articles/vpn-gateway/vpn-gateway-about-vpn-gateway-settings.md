@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: cherylmc
-ms.openlocfilehash: 94ad0a05dafe2c405b1b9cb62242675aa54c4432
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1aba87b2139fb8a7d395fb3180d2074e47310fa9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424318"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010817"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Informationen zu VPN Gateway-Einstellungen
 
@@ -37,7 +37,7 @@ Die verfügbaren Werte für -GatewayType lauten:
 * VPN
 * ExpressRoute
 
-Ein VPN-Gateway erfordert den `-GatewayType` *Vpn* .
+Ein VPN-Gateway erfordert den `-GatewayType` *Vpn*.
 
 Beispiel:
 
@@ -176,7 +176,7 @@ Zusätzliche technische Ressourcen und spezielle Syntaxanforderungen bei der Ver
 | **Klassisch** | **Ressourcen-Manager** |
 | --- | --- |
 | [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
-| [REST-API](https://msdn.microsoft.com/library/jj154113) |[REST-API](/rest/api/network/virtualnetworkgateways) |
+| [REST-API](/previous-versions/azure/reference/jj154113(v=azure.100)) |[REST-API](/rest/api/network/virtualnetworkgateways) |
 | Nicht unterstützt | [Azure-Befehlszeilenschnittstelle](/cli/azure/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>Nächste Schritte

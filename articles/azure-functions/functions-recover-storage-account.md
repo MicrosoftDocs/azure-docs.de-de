@@ -3,12 +3,12 @@ title: 'Problembehandlung: Azure Functions-Runtime ist nicht erreichbar'
 description: Erfahren Sie, wie Sie Problembehandlung für ein ungültiges Speicherkonto durchführen.
 ms.topic: article
 ms.date: 09/05/2018
-ms.openlocfilehash: 094f4f45be0ae4173af434be178f2eae2b21b6be
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0b6778a08bf04367f2a0ef10f7cd4fe29a52dd61
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054728"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579010"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Problembehandlung: „Azure Functions-Runtime ist nicht erreichbar“
 
@@ -76,7 +76,7 @@ Es kann einen der folgenden Gründe haben, warum Ihre Functions-Runtime ggf. nic
 
 * Ihre Funktions-App wird in einer [App Service-Umgebung mit internem Lastenausgleich](../app-service/environment/create-ilb-ase.md) gehostet und ist für das Blockieren von eingehendem Datenverkehr aus dem Internet konfiguriert.
 
-* Ihre Funktions-App verfügt über [IP-Einschränkungen für eingehenden Datenverkehr](functions-networking-options.md#inbound-ip-restrictions), für die der Internetzugriff blockiert ist. 
+* Ihre Funktions-App verfügt über [IP-Einschränkungen für eingehenden Datenverkehr](functions-networking-options.md#inbound-access-restrictions), für die der Internetzugriff blockiert ist. 
 
 Das Azure-Portal sendet Aufrufe direkt an die ausgeführte App, um die Liste mit den Funktionen abzurufen, und führt HTTP-Aufrufe des Kudu-Endpunkts durch. Die Einstellungen auf Plattformebene auf der Registerkarte **Plattformfeatures** sind weiterhin verfügbar.
 

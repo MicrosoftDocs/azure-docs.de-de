@@ -4,13 +4,13 @@ description: QnA Maker weist Metagrenzwerte für Teile der Wissensdatenbank und 
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 02/14/2020
-ms.openlocfilehash: 773c9caa2fb25b3abe4fb451bc59598c485a6110
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 1a384eed542d0c09a973e0e68288f9fc1660cc96
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776254"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380899"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Grenzwerte und Grenzen für QnA Maker-Wissensdatenbanken
 
@@ -50,6 +50,9 @@ Dateinamen dürfen keines der folgenden Zeichen enthalten:
 ### <a name="maximum-number-of-files"></a>Maximale Anzahl von Dateien
 
 Die maximale Anzahl von Dateien, die extrahiert werden können, und die maximale Dateigröße basieren auf den **[Grenzwerten für Ihren QnA Maker-Tarif](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)** .
+
+> [!NOTE]
+> QnA Maker verwaltet (Vorschau) ist ein kostenloser Dienst ohne Begrenzung der Anzahl der Quellen, die hinzugefügt werden können. Der Durchsatz ist derzeit auf 10 Transaktionen pro Sekunde sowohl für Verwaltungs-APIs als auch für Vorhersage-APIs begrenzt.
 
 ### <a name="maximum-number-of-deep-links-from-url"></a>Maximale Anzahl von Deep-Links für die URL
 
@@ -93,14 +96,14 @@ Allgemeine Grenzwerte für die Inhalte in der Knowledge Base:
 
 ## <a name="create-knowledge-base-call-limits"></a>Grenzwerte für Aufrufe zum Erstellen einer Knowledge Base
 Dabei handelt es sich um die Grenzwerte für die einzelnen Aktionen zum Erstellen einer Knowledge Base, d.h. Klicken auf *Create KB* (Knowledge Base erstellen) oder Aufrufen der CreateKnowledgeBase-API.
-* Maximale Anzahl von alternativen Fragen pro Antwort: 300
+* Empfohlene maximale Anzahl von alternativen Fragen pro Antwort: 300
 * Maximale Anzahl von URLs: 10
 * Maximale Anzahl von Dateien: 10
 
 ## <a name="update-knowledge-base-call-limits"></a>Grenzwerte für Aufrufe zum Aktualisieren einer Knowledge Base
 Dabei handelt es sich um die Grenzwerte für die einzelnen Aktualisierungsaktionen, d.h. Klicken auf *Save and train* (Speichern und trainieren) oder Aufrufen der UpdateKnowledgeBase-API.
 * Länge jedes Quellnamens: 300
-* Maximale Anzahl hinzugefügter oder gelöschter alternativer Fragen: 300
+* Empfohlene maximale Anzahl hinzugefügter oder gelöschter alternativer Fragen: 300
 * Maximale Anzahl hinzugefügter oder gelöschter Metadatenfelder: 10
 * Maximale Anzahl der URLs, die aktualisiert werden können: 5
 

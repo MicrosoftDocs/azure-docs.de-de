@@ -11,12 +11,12 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
-ms.openlocfilehash: bbecfac4bfd3d5ce1510cb671b93df5f4982cbc4
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 9c9f5972cdd2690b86610ea585bdd82d736ed163
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803856"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792139"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Verwenden von Transact-SQL (T-SQL) zum Erstellen und Verwalten von Aufträgen für die elastische Datenbank (Vorschau)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -73,7 +73,7 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 
 ## <a name="exclude-an-individual-database"></a>Ausschließen einer einzelnen Datenbank
 
-Im folgenden Beispiel wird veranschaulicht, wie ein Auftrag für alle Datenbanken auf einem Server ausgeführt wird, mit Ausnahme der Datenbank mit dem Namen *MappingDB*.  
+Im folgenden Beispiel wird veranschaulicht, wie ein Auftrag für alle Datenbanken auf einem Server ausgeführt wird, mit Ausnahme der Datenbank mit dem Namen *MappingDB* .  
 Stellen Sie eine Verbindung mit der [*Auftragsdatenbank*](job-automation-overview.md#job-database) her, und führen Sie den folgenden Befehl aus:
 
 ```sql
@@ -179,7 +179,7 @@ Um beispielsweise alle Ergebnisse aus derselben Auftragsausführung zusammen zu 
 
 Im folgenden Beispiel wird ein neuer Auftrag zum Sammeln von Leistungsdaten von mehreren Datenbanken erstellt.
 
-Der Auftrags-Agent erstellt die Ausgabetabelle standardmäßig zum Speichern der zurückgegebenen Ergebnisse. Aus diesem Grund muss der Datenbankprinzipal, der mit den Anmeldeinformationen für die Ausgabe verknüpft ist, mindestens über die folgenden Berechtigungen verfügen: `CREATE TABLE` für die Datenbank, `ALTER`, `SELECT`, `INSERT` und `DELETE` für die Ausgabetabelle oder ihr Schema und `SELECT` für die [sys.indexes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql)-Katalogsicht.
+Der Auftrags-Agent erstellt die Ausgabetabelle standardmäßig zum Speichern der zurückgegebenen Ergebnisse. Aus diesem Grund muss der Datenbankprinzipal, der mit den Anmeldeinformationen für die Ausgabe verknüpft ist, mindestens über die folgenden Berechtigungen verfügen: `CREATE TABLE` für die Datenbank, `ALTER`, `SELECT`, `INSERT` und `DELETE` für die Ausgabetabelle oder ihr Schema und `SELECT` für die [sys.indexes](/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql)-Katalogsicht.
 
 Wenn Sie die Tabelle vorher manuell erstellen möchten, muss sie die folgenden Eigenschaften aufweisen:
 
@@ -1344,9 +1344,9 @@ Zeigt alle Mitglieder sämtlicher Zielgruppen an.
 
 ## <a name="resources"></a>Ressourcen
 
-- ![Symbol für Themenlink](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Symbol für Themenlink") [Transact-SQL-Syntaxkonventionen](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
+- ![Symbol für Themenlink](/sql/database-engine/configure-windows/media/topic-link.gif "Symbol für Themenlink") [Transact-SQL-Syntaxkonventionen](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Erstellen und Verwalten von elastischen Aufträgen mithilfe von PowerShell](elastic-jobs-powershell-create.md)
-- [Autorisierung und Berechtigungen](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)
+- [Autorisierung und Berechtigungen](/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)

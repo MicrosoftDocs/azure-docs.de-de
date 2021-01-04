@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Problembehandlung bei häufigen Problemen mit Arc-fähigen Kubernetes-Clustern
 keywords: Kubernetes, Arc, Azure, Container
-ms.openlocfilehash: 4a8f4c652f1ab73e0b9979f77d7de5014c8d31a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e05701b92d2d96074a07e0e61ce65145a1d9dfd
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540607"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302379"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting-preview"></a>Problembehandlung bei Azure Arc-fähigem Kubernetes (Vorschauversion)
 
@@ -69,7 +69,7 @@ pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
 pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
 
-Für alle Pods sollte `STATUS` den Wert `Running` und `READY` entweder den Wert `3/3` oder `2/2` haben. Rufen Sie die Protokolle ab, und überprüfen Sie, ob für Pods der Wert `Error` oder `CrashLoopBackOff` angegeben ist. Wenn einer dieser Pods mit dem Status `Pending` hängen bleibt, liegt dies möglicherweise daran, dass die Ressourcen auf den Clusterknoten nicht ausreichen. Wenn Sie [Ihren Cluster hochskalieren](https://kubernetes.io/docs/tasks/administer-cluster/cluster-management/#resizing-a-cluster), gehen diese Pods in den Status `Running` über.
+Für alle Pods sollte `STATUS` den Wert `Running` und `READY` entweder den Wert `3/3` oder `2/2` haben. Rufen Sie die Protokolle ab, und überprüfen Sie, ob für Pods der Wert `Error` oder `CrashLoopBackOff` angegeben ist. Wenn einer dieser Pods mit dem Status `Pending` hängen bleibt, liegt dies möglicherweise daran, dass die Ressourcen auf den Clusterknoten nicht ausreichen. Wenn Sie [Ihren Cluster hochskalieren](https://kubernetes.io/docs/tasks/administer-cluster/), gehen diese Pods in den Status `Running` über.
 
 ## <a name="connecting-kubernetes-clusters-to-azure-arc"></a>Verbinden von Kubernetes-Clustern mit Azure Arc
 

@@ -1,6 +1,6 @@
 ---
-title: Einrichten von Key Vault
-description: Einrichten eines Schlüsseltresors, der für einen virtuellen Computer verwendet werden soll.
+title: Einrichten von Key Vault mithilfe von PowerShell
+description: Hier finden Sie Informationen zum Einrichten von Key Vault zur Verwendung mit einem virtuellen Computer mithilfe von PowerShell.
 author: mimckitt
 manager: vashan
 ms.service: virtual-machines
@@ -9,14 +9,14 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/24/2017
 ms.author: mimckitt
-ms.openlocfilehash: d5e4bb1d3f62685c90e95eebf5f8f07720a23b82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd4a6ed5f57c536a9e40b2fd81b96d055702b425
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086992"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678318"
 ---
-# <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Einrichten des Schlüsseltresors für virtuelle Computer in Azure Resource Manager
+# <a name="set-up-key-vault-for-virtual-machines-using-azure-powershell"></a>Einrichten von Key Vault für virtuelle Computer mithilfe von Azure PowerShell
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
 

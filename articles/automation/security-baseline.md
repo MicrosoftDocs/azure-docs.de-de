@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2d3f04777983d24d5219c55c5309b7d12c214594
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: e07e9035dc55f77a2e76b4f4ee306deab829980a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070689"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182749"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Azure-Sicherheitsbaseline für Automation
 
@@ -80,7 +80,7 @@ Wenn Sie Hybrid Runbook Worker-Instanzen verwenden, die von virtuellen Azure-Com
 
 Sie können mit dem Just-in-Time-Netzwerkzugriff in Azure Security Center die Verfügbarkeit von Windows-VMs auf genehmigte IP-Adressen und einen begrenzten Zeitraum einschränken. Verwenden Sie außerdem die Empfehlungen der adaptiven Netzwerkhärtung in Azure Security Center für NSG-Konfigurationen, um Ports und Quell-IPs basierend auf tatsächlichem Datenverkehr und Threat Intelligence einzuschränken.
 
-* [Konfigurieren von DDoS-Schutz](../virtual-network/manage-ddos-protection.md)
+* [Konfigurieren von DDoS-Schutz](../ddos-protection/manage-ddos-protection.md)
 
 * [Bereitstellen von Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -220,7 +220,7 @@ Alternativ dazu können Sie auch Daten in Azure Sentinel oder einer Drittanbiete
 
 * [Unterstützte Regionen für einen verknüpften Log Analytics-Arbeitsbereich](./how-to/region-mappings.md)
 
-* [Abfragen von Protokollen der Updateverwaltung](./update-management/update-mgmt-query-logs.md)
+* [Abfragen von Protokollen der Updateverwaltung](./update-management/query-logs.md)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -270,7 +270,7 @@ Alternativ dazu können Sie auch Daten in Azure Sentinel oder einer Drittanbiete
 
 * [Durchführen des Onboardings für Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Grundlegendes zu Protokollabfragen in Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
+* [Grundlegendes zu Protokollabfragen in Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Ausführen benutzerdefinierter Abfragen in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -600,7 +600,7 @@ Wenn Sie Hybrid Runbook Worker-Instanzen verwenden, die von virtuellen Azure-Com
 
 Bei der Verwendung von Hybrid Runbook Worker-Instanzen werden die virtuellen Datenträger auf den virtuellen Computern mithilfe der serverseitigen Verschlüsselung oder der Azure Disk Encryption (ADE) im Ruhezustand verschlüsselt. Azure Disk Encryption nutzt das BitLocker-Feature von Windows zum Verschlüsseln verwalteter Datenträger mit vom Kunden verwalteten Schlüsseln innerhalb der Gast-VM. Die serverseitige Verschlüsselung mit vom Kunden verwalteten Schlüsseln bewirkt eine ADE-Verbesserung, indem Sie beliebige Betriebssystemtypen und Images für Ihre VMs verwenden können, indem Daten im Speicherdienst verschlüsselt werden.
 
-* [Serverseitige Verschlüsselung von verwalteten Azure-Datenträgern](../virtual-machines/windows/disk-encryption.md)
+* [Serverseitige Verschlüsselung von verwalteten Azure-Datenträgern](../virtual-machines/disk-encryption.md)
 
 * [Azure Disk Encryption für Windows-VMs](../virtual-machines/windows/disk-encryption-overview.md)
 
@@ -646,9 +646,9 @@ Bei der Verwendung von Hybrid Runbook Worker-Instanzen werden die virtuellen Dat
 
 Wenn Sie Hybrid Runbook Worker-Instanzen verwenden, die von Azure-VMs unterstützt werden, verwalten Sie mit der Azure-Updateverwaltung Updates und Patches für Ihre virtuellen Computer. In der Updateverwaltung wird das lokal konfigurierte Updaterepository verwendet, um unterstützte Windows-Systeme zu patchen. Mit Tools wie System Center Updates Publisher (Updates Publisher) können Sie benutzerdefinierte Updates in Windows Server Update Services (WSUS) veröffentlichen. Dadurch kann die Updateverwaltung Computer, auf denen Configuration Manager als Updaterepository verwendet wird, mit Software von Drittanbietern patchen.
 
-* [Updateverwaltung in Azure](./update-management/update-mgmt-overview.md)
+* [Updateverwaltung in Azure](./update-management/overview.md)
 
-* [Verwalten von Updates und Patches für Ihre VMs](./update-management/update-mgmt-manage-updates-for-vm.md)
+* [Verwalten von Updates und Patches für Ihre VMs](./update-management/manage-updates-for-vm.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -660,9 +660,9 @@ Wenn Sie Hybrid Runbook Worker-Instanzen verwenden, die von Azure-VMs unterstüt
 
 Wenn Sie Hybrid Runbook Worker-Instanzen verwenden, die von Azure-VMs unterstützt werden, können Sie mit der Azure-Updateverwaltung Updates und Patches für Ihre virtuellen Computer verwalten. In der Updateverwaltung wird das lokal konfigurierte Updaterepository verwendet, um unterstützte Windows-Systeme zu patchen. Mit Tools wie System Center Updates Publisher (Updates Publisher) können Sie benutzerdefinierte Updates in Windows Server Update Services (WSUS) veröffentlichen. Dadurch kann die Updateverwaltung Computer, auf denen Configuration Manager als Updaterepository verwendet wird, mit Software von Drittanbietern patchen.
 
-* [Updateverwaltung in Azure](./update-management/update-mgmt-overview.md)
+* [Updateverwaltung in Azure](./update-management/overview.md)
 
-* [Verwalten von Updates und Patches für Ihre Azure-VMs](./update-management/update-mgmt-manage-updates-for-vm.md)
+* [Verwalten von Updates und Patches für Ihre Azure-VMs](./update-management/manage-updates-for-vm.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -1040,7 +1040,7 @@ Wenn Sie die Hybrid Runbook Worker-Funktion verwenden, verwenden Sie Azure Autom
 
 * [Verwenden der Runbookauthentifizierung mit verwalteten Identitäten](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities)
 
-* [Erstellen einer Key Vault-Instanz](../key-vault/secrets/quick-create-portal.md)
+* [Erstellen einer Key Vault-Instanz](../key-vault/general/quick-create-portal.md)
 
 * [Authentifizieren bei Key Vault](../key-vault/general/authentication.md)
 

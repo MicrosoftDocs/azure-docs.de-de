@@ -1,7 +1,7 @@
 ---
 title: Trainieren eines Modells mithilfe eines benutzerdefinierten Docker-Images
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Sie Modelle mit benutzerdefinierten Docker-Images in Azure Machine Learning trainieren.
+description: Hier erfahren Sie, wie Sie eigene oder von Microsoft kuratierte Docker-Images verwenden, um Modelle in Azure Machine Learning zu trainieren.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: saachigopal
 ms.date: 10/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 6ce0885cce1861b27d6230c3807350831603684b
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: a441d1d22f938e1d1e05aea547929fa3b315d406
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329116"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012897"
 ---
 # <a name="train-a-model-by-using-a-custom-docker-image"></a>Trainieren eines Modells mithilfe eines benutzerdefinierten Docker-Images
 
@@ -29,11 +29,11 @@ Führen Sie den Code in einer der folgenden Umgebungen aus:
 
 * Azure Machine Learning-Compute-Instanz (weder Download noch Installation erforderlich):
   * Führen Sie die Schritte im Tutorial zum [Einrichten der Umgebung und des Arbeitsbereichs](tutorial-1st-experiment-sdk-setup.md) aus, um einen dedizierten Notebookserver zu erstellen, der bereits über das SDK und das Beispielrepository verfügt.
-  * Navigieren Sie im [Azure Machine Learning-Beispielrepository](https://github.com/Azure/azureml-examples) zum Verzeichnis **notebooks** > **fastai** > **train-pets-resnet34.ipynb** , um dort nach einem fertigen Notebook zu suchen. 
+  * Navigieren Sie im [Azure Machine Learning-Beispielrepository](https://github.com/Azure/azureml-examples) zum Verzeichnis **notebooks** > **fastai** > **train-pets-resnet34.ipynb**, um dort nach einem fertigen Notebook zu suchen. 
 * Auf Ihrem eigenen Jupyter Notebook-Server:
   * Erstellen Sie eine [Konfigurationsdatei für den Arbeitsbereich](how-to-configure-environment.md#workspace).
-  * Installieren Sie das [Azure Machine Learning SDK.](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) 
-  * Erstellen Sie eine [Azure Container Registry](/azure/container-registry)-Instanz oder eine andere Docker-Registrierung, auf die über das Internet zugegriffen werden kann.
+  * Installieren Sie das [Azure Machine Learning SDK.](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) 
+  * Erstellen Sie eine [Azure Container Registry](../container-registry/index.yml)-Instanz oder eine andere Docker-Registrierung, auf die über das Internet zugegriffen werden kann.
 
 ## <a name="set-up-a-training-experiment"></a>Einrichten eines Trainingsexperiments
 
@@ -41,7 +41,7 @@ In diesem Abschnitt richten Sie Ihr Trainingsexperiment ein, indem Sie einen Arb
 
 ### <a name="initialize-a-workspace"></a>Initialisieren eines Arbeitsbereichs
 
-Der [Azure Machine Learning-Arbeitsbereich](concept-workspace.md) ist die Ressource der obersten Ebene für den Dienst. Er stellt einen zentralen Ort für die Arbeit mit allen von Ihnen erstellten Artefakten dar. Im Python SDK können Sie auf die Arbeitsbereichsartefakte zugreifen, indem Sie ein [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true)-Objekt erstellen.
+Der [Azure Machine Learning-Arbeitsbereich](concept-workspace.md) ist die Ressource der obersten Ebene für den Dienst. Er stellt einen zentralen Ort für die Arbeit mit allen von Ihnen erstellten Artefakten dar. Im Python SDK können Sie auf die Arbeitsbereichsartefakte zugreifen, indem Sie ein [`Workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py)-Objekt erstellen.
 
 Erstellen Sie aus der Datei „config.json“, die Sie im Abschnitt [Voraussetzungen](#prerequisites) erstellt haben, ein `Workspace`-Objekt.
 
@@ -138,7 +138,7 @@ print(compute_target.get_status().serialize())
 
 ## <a name="configure-your-training-job"></a>Konfigurieren Ihres Trainingsauftrags
 
-Verwenden Sie für dieses Tutorial das auf [GitHub](https://github.com/Azure/azureml-examples/blob/main/code/models/fastai/pets-resnet34/train.py) verfügbare Trainingsskript *train.py* . In der Praxis können Sie jedes benutzerdefinierte Trainingsskript verwenden und so, wie es ist, mit Azure Machine Learning ausführen.
+Verwenden Sie für dieses Tutorial das auf [GitHub](https://github.com/Azure/azureml-examples/blob/main/workflows/train/fastai/pets/src/train.py) verfügbare Trainingsskript *train.py*. In der Praxis können Sie jedes benutzerdefinierte Trainingsskript verwenden und so, wie es ist, mit Azure Machine Learning ausführen.
 
 Erstellen Sie eine `ScriptRunConfig`-Ressource, um den Auftrag für die Ausführung auf dem gewünschten [Computeziel](how-to-set-up-training-targets.md) zu konfigurieren.
 
@@ -163,7 +163,7 @@ run.wait_for_completion(show_output=True)
 ```
 
 > [!WARNING]
-> Zum Ausführen von Trainingsskripts wird von Azure Machine Learning das gesamte Quellverzeichnis kopiert. Sind vertrauliche Daten vorhanden, die nicht hochgeladen werden sollen, verwenden Sie für diese eine [IGNORE-Datei](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots), oder legen Sie sie nicht im Quellverzeichnis ab. Greifen Sie stattdessen über einen [Datenspeicher](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true) auf Ihre Daten zu.
+> Zum Ausführen von Trainingsskripts wird von Azure Machine Learning das gesamte Quellverzeichnis kopiert. Sind vertrauliche Daten vorhanden, die nicht hochgeladen werden sollen, verwenden Sie für diese eine [IGNORE-Datei](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots), oder legen Sie sie nicht im Quellverzeichnis ab. Greifen Sie stattdessen über einen [Datenspeicher](/python/api/azureml-core/azureml.data?preserve-view=true&view=azure-ml-py) auf Ihre Daten zu.
 
 ## <a name="next-steps"></a>Nächste Schritte
 In diesem Artikel haben Sie ein Modell mit einem benutzerdefinierten Docker-Image trainiert. Weitere Informationen zu Azure Machine Learning finden Sie in den folgenden Artikeln:

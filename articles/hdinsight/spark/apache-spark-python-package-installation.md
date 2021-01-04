@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 6ef4a4f422bb787b3ead33ed1047d26d5e3c9c1f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5a0f9f9f972ec42987d6152c16e4377e399cdba5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978070"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896411"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Sicheres Verwalten der Python-Umgebung in Azure HDInsight mithilfe einer Skriptaktion
 
@@ -37,7 +37,7 @@ Es gibt zwei Arten von Open-Source-Komponenten, die im HDInsight-Dienst verfügb
 > [!IMPORTANT]
 > Mit dem HDInsight-Cluster bereitgestellte Komponenten werden vollständig unterstützt. Der Microsoft-Support unterstützt Sie beim Isolieren und Beheben von Problemen im Zusammenhang mit diesen Komponenten.
 >
-> Für benutzerdefinierte Komponenten steht kommerziell angemessener Support für eine weiterführende Behebung des Problems zur Verfügung. Der Microsoft-Support kann das Problem möglicherweise beheben, ODER Sie werden aufgefordert, verfügbare Kanäle für Open-Source-Technologien in Anspruch zu nehmen, die über umfassende Kenntnisse für diese Technologien verfügen. So können z. B. viele Communitywebsites verwendet werden, wie: [Frageseite von Microsoft Q&A (Fragen und Antworten) für HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html), `https://stackoverflow.com`. Für Apache-Projekte gibt es auch Projektwebsites bei `https://apache.org`.
+> Für benutzerdefinierte Komponenten steht kommerziell angemessener Support für eine weiterführende Behebung des Problems zur Verfügung. Der Microsoft-Support kann das Problem möglicherweise beheben, ODER Sie werden aufgefordert, verfügbare Kanäle für Open-Source-Technologien in Anspruch zu nehmen, die über umfassende Kenntnisse für diese Technologien verfügen. So können z. B. viele Communitywebsites verwendet werden, wie: [Frageseite von Microsoft Q&A (Fragen und Antworten) für HDInsight](/answers/topics/azure-hdinsight.html), `https://stackoverflow.com`. Für Apache-Projekte gibt es auch Projektwebsites bei `https://apache.org`.
 
 ## <a name="understand-default-python-installation"></a>Grundlegendes zur Python-Standardinstallation
 
@@ -46,8 +46,8 @@ Der Spark-Cluster in HDInsight wird mit der Anaconda-Installation erstellt. Im C
 |Einstellung |Python 2,7|Python 3.5|
 |----|----|----|
 |`Path`|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|Spark-Version|Standard ist 2.7|–|
-|Livy-Version|Standard ist 2.7|–|
+|Spark-Version|Standard ist 2.7|Die Konfiguration kann in „3,5“ geändert werden.|
+|Livy-Version|Standard ist 2.7|Die Konfiguration kann in „3,5“ geändert werden.|
 |Jupyter|PySpark-Kernel|PySpark3-Kernel|
 
 ## <a name="safely-install-external-python-packages"></a>Sicheres Installieren externer Python-Pakete
@@ -129,6 +129,24 @@ Der HDInsight-Cluster hängt von der integrierten Python-Umgebung (Python 2.7 od
     4. Speichern Sie die Änderungen, und starten Sie die betreffenden Dienste neu. Damit diese Änderungen übernommen werden, müssen Sie den Spark2-Dienst neu starten. Über die Ambari-Benutzeroberfläche werden Sie zu einem Neustart aufgefordert. Klicken Sie daher auf „Neu starten“, um alle betreffenden Dienste neu zu starten.
 
         ![Neustarten von Diensten](./media/apache-spark-python-package-installation/ambari-restart-services.png)
+
+    5. Legen Sie zwei Eigenschaften für Ihre Spark-Sitzung fest, um sicherzustellen, dass der Auftrag auf die aktualisierte Spark-Konfiguration verweist: `spark.yarn.appMasterEnv.PYSPARK_PYTHON` und `spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON`. 
+
+        Verwenden Sie die Funktion `spark.conf.set` mithilfe des Terminals oder einer Notebooks.
+
+        ```spark
+        spark.conf.set("spark.yarn.appMasterEnv.PYSPARK_PYTHON", "/usr/bin/anaconda/envs/py35/bin/python")
+        spark.conf.set("spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON", "/usr/bin/anaconda/envs/py35/bin/python")
+        ```
+
+        Fügen Sie die folgenden Eigenschaften zum Anforderungstext hinzu, wenn Sie Livy verwenden:
+
+        ```
+        “conf” : {
+        “spark.yarn.appMasterEnv.PYSPARK_PYTHON”:”/usr/bin/anaconda/envs/py35/bin/python”,
+        “spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON”:”/usr/bin/anaconda/envs/py35/bin/python”
+        }
+        ```
 
 4. Wenn Sie die neu erstellte virtuelle Umgebung unter Jupyter verwenden möchten, ändern Sie die Jupyter-Konfigurationen, und starten Sie Jupyter neu. Führen Sie Skriptaktionen für alle Headerknoten mit der folgenden Anweisung aus, um Jupyter auf die neu erstellte virtuelle Umgebung zu verweisen. Stellen Sie sicher, dass Sie den Pfad zu dem Präfix ändern, das Sie für Ihre virtuelle Umgebung angegeben haben. Nachdem Sie diese Skriptaktion ausgeführt haben, starten Sie den Jupyter-Dienst über die Ambari-Benutzeroberfläche neu, um diese Änderung zu übernehmen.
 

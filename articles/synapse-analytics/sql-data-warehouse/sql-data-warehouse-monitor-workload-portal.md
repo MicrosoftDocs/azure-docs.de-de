@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 01a22aa5d2ec7ed54be62f0975b0fefbafd84cd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53c68f44273b14658bd4d95ce7cf3cf847c077d0
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85211560"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025951"
 ---
 # <a name="monitor-workload---azure-portal"></a>Überwachen von Workloads – Azure-Portal
 
@@ -32,9 +32,9 @@ Navigieren Sie im Suchfeld zu den Log Analytics-Arbeitsbereichen, und erstellen 
 
 ![Log Analytics-Arbeitsbereiche](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspaces.png)
 
-![Hinzufügen eines Log Analytics-Arbeitsbereichs](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace.png)
+![Der Screenshot zeigt die Log Analytics-Arbeitsbereiche, in denen Sie „Hinzufügen“ auswählen können.](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace.png)
 
-![Hinzufügen eines Log Analytics-Arbeitsbereichs](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
+![Der Screenshot zeigt den Log Analytics-Arbeitsbereich, in dem Sie Werte eingeben können.](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
 
 Weitere Informationen zu Arbeitsbereichen finden Sie in dieser [Dokumentation](../../azure-monitor/learn/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace).
 

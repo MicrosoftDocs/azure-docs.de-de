@@ -8,16 +8,17 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 1a8d375519ed4c7d252afe60d71aad4c5244cd1c
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: a5669b15c041f663605a62ef8d02b206928d0c14
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283165"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101594"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-api-for-mongodb"></a>Erstellen eines Containers für die Azure Cosmos DB-API für MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
-In diesem Artikel werden die verschiedenen Möglichkeiten zur Erstellung eines Containers für die Azure Cosmos DB-API für MongoDB erläutert. Es wird gezeigt, wie Sie einen Container über das Azure-Portal, die Azure CLI, PowerShell oder unterstützte SDKs erstellen. In diesem Artikel erfahren Sie, wie Sie einen Container erstellen, den Partitionsschlüssel angeben und den Durchsatz bereitstellen.
+In diesem Artikel werden die verschiedenen Möglichkeiten zur Erstellung eines Containers für die Azure Cosmos DB-API für MongoDB erläutert. Hier wird gezeigt, wie ein Container mithilfe des Azure-Portals, mit der Azure CLI, PowerShell oder unterstützten SDKs erstellt wird. In diesem Artikel erfahren Sie, wie Sie einen Container erstellen, den Partitionsschlüssel angeben und den Durchsatz bereitstellen.
 
 Hier werden die verschiedenen Möglichkeiten zur Erstellung eines Containers für die Azure Cosmos DB-API für MongoDB erläutert. Wenn Sie eine andere API verwenden, finden Sie weitere Informationen zum Erstellen des Containers in den Artikeln zur [SQL-API](how-to-create-container.md), [Cassandra-API](how-to-create-container-cassandra.md), [Gremlin-API](how-to-create-container-gremlin.md) und [Tabellen-API](how-to-create-container-table.md).
 
@@ -36,7 +37,7 @@ Hier werden die verschiedenen Möglichkeiten zur Erstellung eines Containers fü
    * Geben Sie eine Container-ID ein.
    * Geben Sie einen Shardschlüssel ein.
    * Geben Sie den bereitzustellenden Durchsatz an (etwa 1.000 RUs).
-   * Klicken Sie auf **OK** .
+   * Klicken Sie auf **OK**.
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="Screenshot der Azure Cosmos DB-API für MongoDB, Dialogfeld „Container hinzufügen“":::
 
@@ -62,12 +63,11 @@ Wenn eine Timeoutausnahme zurückgegeben wird, wenn eine Sammlung erstellt wird,
 
 ## <a name="create-a-container-using-azure-resource-manager-templates"></a>Erstellen eines Containers mithilfe von Azure Resource Manager-Vorlagen
 
-[Erstellen Sie mithilfe einer Resource Manager-Vorlage eine Sammlung für Azure Cosmos DB für die MongoDB-API.](manage-sql-with-resource-manager.md#azure-cosmos-account-with-standard-provisioned-throughput)
+[Erstellen Sie mithilfe einer Resource Manager-Vorlage eine Sammlung für Azure Cosmos DB für die MongoDB-API.](./manage-with-templates.md#azure-cosmos-account-with-standard-provisioned-throughput)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Partitioning in Azure Cosmos DB](partitioning-overview.md) (Partitionierung in Azure Cosmos DB)
 * [Anforderungseinheiten in Azure Cosmos DB](request-units.md)
 * [Bereitstellen des Durchsatzes für Container und Datenbanken](set-throughput.md)
-* [Arbeiten mit einem Azure Cosmos-Konto](account-overview.md)
-
+* [Arbeiten mit einem Azure Cosmos-Konto](./account-databases-containers-items.md)

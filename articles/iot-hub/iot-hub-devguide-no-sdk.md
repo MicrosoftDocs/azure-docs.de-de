@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-ms.openlocfilehash: 3968f19329536169c3fb3eb1fbbaff99e99c293d
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ae8b01522a248b8b1dbdd255a9fcd55f16cf2369
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079620"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461712"
 ---
 # <a name="develop-without-using-an-azure-iot-hub-sdk"></a>Entwickeln ohne Verwendung eines Azure IoT Hub SDKs
 
@@ -48,7 +48,7 @@ Hilfe bei Verwendung der folgenden Protokolle ohne ein Azure IoT SDK:
 
 * Geräte-Apps zu **MQTT** finden Sie unter [MQTT-Unterstützung](iot-hub-mqtt-support.md). Ein Großteil dieses Themas befasst sich mit der direkten Verwendung des MQTT-Protokolls. Das Thema enthält aber auch Informationen zur Verwendung des [IoT MQTT-Beispielrepositorys](https://github.com/Azure-Samples/IoTMQTTSample). Dieses Repository enthält C-Beispiele, in denen die Bibliothek „Eclipse Mosquitto“ zum Senden von Nachrichten an IoT Hub verwendet wird.
 
-* Geräte- oder Back-End-Apps für **HTTPS** finden Sie unter den [Azure IoT Hub REST-APIs](https://docs.microsoft.com/rest/api/iothub/). Wie in [Entwicklungsvoraussetzungen](#development-prerequisites) erwähnt, denken Sie daran, dass Sie die Authentifizierung per X.509-Zertifizierungsstellenzertifikat (Certificate Authority, CA) nicht verwenden können.
+* Geräte- oder Back-End-Apps für **HTTPS** finden Sie unter den [Azure IoT Hub REST-APIs](/rest/api/iothub/). Wie in [Entwicklungsvoraussetzungen](#development-prerequisites) erwähnt, denken Sie daran, dass Sie die Authentifizierung per X.509-Zertifizierungsstellenzertifikat (Certificate Authority, CA) nicht verwenden können.
 
 Für Geräte empfehlen wir dringend die Verwendung von MQTT, wenn Ihr Gerät dies unterstützt.
 

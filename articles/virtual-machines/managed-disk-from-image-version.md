@@ -6,27 +6,24 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 10/06/2020
+ms.date: 10/27/2020
 ms.author: cynthn
 ms.reviewer: olayemio
-ms.openlocfilehash: 35edcfb4bdb0715245f4a3190fb22638b1162429
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 40d3ff736194c4634b949af52ee7b09db20dd06d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370983"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026130"
 ---
 # <a name="create-a-managed-disk-from-an-image-version"></a>Erstellen eines verwalteten Datenträgers aus einer Imageversion
 
-Falls es erforderlich ist, können Sie einen verwalteten Datenträger aus einer in einer Shared Image Gallery gespeicherten Imageversion erstellen.
+Falls erforderlich, können Sie das Betriebssystem oder einen einzelnen Datenträger aus einer Imageversion als verwalteten Datenträger aus einer Imageversion exportieren, die in einer Shared Image Gallery gespeichert ist.
 
 
 ## <a name="cli"></a>Befehlszeilenschnittstelle (CLI)
 
-Legen Sie die `source`-Variable auf die ID der Imageversion fest, und verwenden Sie anschließend [az disk create](/cli/azure/disk#az_disk_create), um den verwalteten Datenträger zu erstellen. 
-
-
-Eine Liste der Imageversionen können Sie mithilfe von [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list) anzeigen. In diesem Beispiel suchen wir nach allen Imageversionen, die Teil der Imagedefinition *myImageDefinition* im Imagekatalog *myGallery* sind.
+Listen Sie die Imageversionen in einem Katalog mithilfe von [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list) auf. In diesem Beispiel suchen wir nach allen Imageversionen, die Teil der Imagedefinition *myImageDefinition* im Imagekatalog *myGallery* sind.
 
 ```azurecli-interactive
 az sig image-version list \
@@ -36,28 +33,37 @@ az sig image-version list \
    -o table
 ```
 
+Legen Sie die `source`-Variable auf die ID der Imageversion fest, und verwenden Sie anschließend [az disk create](/cli/azure/disk?view=azure-cli-latest#az_disk_create), um den verwalteten Datenträger zu erstellen. 
 
-In diesem Beispiel erstellen wir einen verwalteten Datenträger mit dem Namen *myManagedDisk* in der Region *EastUS* und einer Ressourcengruppe mit dem Namen *myResourceGroup* . 
+In diesem Beispiel exportieren wir den Betriebssystemdatenträger der Imageversion, um einen verwalteten Datenträger namens *myManagedOSDisk* in der Region *EastUS* in einer Ressourcengruppe namens *myResourceGroup* zu erstellen. 
 
 ```azurecli-interactive
 source="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<galleryName>/images/<galleryImageDefinition>/versions/<imageVersion>"
 
-az disk create --resource-group myResourceGroup --location EastUS --name myManagedDisk --gallery-image-reference $source 
+az disk create --resource-group myResourceGroup --location EastUS --name myManagedOSDisk --gallery-image-reference $source 
 ```
 
-Wenn es sich bei dem Datenträger um einen für Daten bestimmten Datenträger handelt, fügen Sie `--gallery-image-reference-lun` hinzu, um die LUN anzugeben.
+
+
+Wenn Sie einen Datenträger aus der Imageversion exportieren möchten, fügen Sie `--gallery-image-reference-lun` hinzu, um den LUN-Speicherort des zu exportierenden Datenträgers anzugeben. 
+
+In diesem Beispiel exportieren wir den Datenträger an LUN 0 der Imageversion, um einen verwalteten Datenträger namens *myManagedDataDisk* in der Region *EastUS* in einer Ressourcengruppe namens *myResourceGroup* zu erstellen. 
+
+```azurecli-interactive
+source="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<galleryName>/images/<galleryImageDefinition>/versions/<imageVersion>"
+
+az disk create --resource-group myResourceGroup --location EastUS --name myManagedDataDisk --gallery-image-reference $source --gallery-image-reference-lun 0
+``` 
 
 ## <a name="powershell"></a>PowerShell
 
-Mit [Get-AzResource](/powershell/module/az.resources/get-azresource) können Sie alle Imageversionen auflisten. 
+Listen Sie die Imageversionen in einem Katalog mithilfe von [Get-AzResource](/powershell/module/az.resources/get-azresource) auf. 
 
 ```azurepowershell-interactive
 Get-AzResource `
    -ResourceType Microsoft.Compute/galleries/images/versions | `
    Format-Table -Property Name,ResourceId,ResourceGroupName
 ```
-
-
 
 Sobald Sie über alle erforderlichen Informationen verfügen, können Sie [Get-AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion) verwenden, um die gewünschte Version des Quellimages abzurufen und sie einer Variable zuzuweisen. In diesem Beispiel rufen wir die `1.0.0`-Imageversion der `myImageDefinition`-Definition im `myGallery`-Quellkatalog in der `myResourceGroup`-Ressourcengruppe ab.
 
@@ -69,29 +75,44 @@ $sourceImgVer = Get-AzGalleryImageVersion `
    -Name 1.0.0
 ```
 
-Richten Sie einige Variablen für die Datenträgerinformationen ein.
+Nachdem Sie die Variable `source` auf die ID der Imageversion festgelegt haben, verwenden Sie [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) zum Erstellen einer Datenträgerkonfiguration und [New-AzDisk](/powershell/module/az.compute/new-azdisk) zum Erstellen des Datenträgers. 
 
-```azurepowershell-interactive
-$location = "East US"
-$resourceGroup = "myResourceGroup"
-$diskName = "myDisk"
-```
+In diesem Beispiel exportieren wir den Betriebssystemdatenträger der Imageversion, um einen verwalteten Datenträger namens *myManagedOSDisk* in der Region *EastUS* in einer Ressourcengruppe namens *myResourceGroup* zu erstellen. 
 
-Erstellen Sie eine Datenträgerkonfiguration und anschließend mithilfe der Versions-ID des Quellimages den Datenträger. Für `-GalleryImageReference` ist die LUN nur erforderlich, wenn es sich bei der Quelle um einen für Daten bestimmten Datenträger handelt.
-
+Erstellt Sie eine Datenträgerkonfiguration.
 ```azurepowershell-interactive
 $diskConfig = New-AzDiskConfig `
-   -Location $location `
+   -Location EastUS `
    -CreateOption FromImage `
-   -GalleryImageReference @{Id = $sourceImgVer.Id; Lun=1}
+   -GalleryImageReference @{Id = $sourceImgVer.Id}
 ```
 
 Erstellen Sie den Datenträger.
 
 ```azurepowershell-interactive
 New-AzDisk -Disk $diskConfig `
-   -ResourceGroupName $resourceGroup `
-   -DiskName $diskName
+   -ResourceGroupName myResourceGroup `
+   -DiskName myManagedOSDisk
+```
+
+Wenn Sie einen Datenträger mit der Imageversion exportieren möchten, fügen Sie der Datenträgerkonfiguration eine LUN-ID hinzu, um den LUN-Speicherort des zu exportierenden Datenträgers anzugeben. 
+
+In diesem Beispiel exportieren wir den Datenträger an LUN 0 der Imageversion, um einen verwalteten Datenträger namens *myManagedDataDisk* in der Region *EastUS* in einer Ressourcengruppe namens *myResourceGroup* zu erstellen. 
+
+Erstellt Sie eine Datenträgerkonfiguration.
+```azurepowershell-interactive
+$diskConfig = New-AzDiskConfig `
+   -Location EastUS `
+   -CreateOption FromImage `
+   -GalleryImageReference @{Id = $sourceImgVer.Id; Lun=0}
+```
+
+Erstellen Sie den Datenträger.
+
+```azurepowershell-interactive
+New-AzDisk -Disk $diskConfig `
+   -ResourceGroupName myResourceGroup `
+   -DiskName myManagedDataDisk
 ```
 
 ## <a name="next-steps"></a>Nächste Schritte

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6c8e6fee2b9f01b8d7ab48990760aa4c4d6e11b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 497b8f5598cf7aa7720f47863d465f5e29789b07
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361499"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321945"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Zugriff auf Datasets mit Python mithilfe der Azure Machine Learning Python-Clientbibliothek
 Die Vorschau von Microsoft Azure Machine Learning Python-Clientbibliothek kann einen sicheren Zugriff auf Ihre Azure Machine Learning-Datasets aus einer lokalen Python-Umgebung aktivieren und ermöglicht die Erstellung und Verwaltung von Datasets im Arbeitsbereich.
@@ -73,11 +73,11 @@ Aus Sicherheitsgründen ist die Codeausschnitt-Funktionalität nur für Benutzer
 
 ![Screenshot mit den Einstellungen auf der Seite „USERS“ (Benutzer) von Azure Machine Learning Studio][security]
 
-Wenn Ihre Rolle nicht als **Besitzer**festgelegt ist, können Sie darum bitten, erneut als Besitzer eingeladen zu werden, oder den Besitzer des Arbeitsbereichs darum bitten, Ihnen den Codeausschnitt zu stellen.
+Wenn Ihre Rolle nicht als **Besitzer** festgelegt ist, können Sie darum bitten, erneut als Besitzer eingeladen zu werden, oder den Besitzer des Arbeitsbereichs darum bitten, Ihnen den Codeausschnitt zu stellen.
 
 Um das Autorisierungstoken zu erhalten, können Sie eine der folgenden Optionen auswählen:
 
-* Fragen Sie bei einem Besitzer nach einem Token. Besitzer können auf ihr Autorisierungstoken auf der Seite „Einstellungen“ ihres Arbeitsbereichs in Azure Machine Learning Studio (klassisch) zugreifen. Wählen Sie im linken Bereich **Einstellungen**, und klicken Sie auf **AUTORISIERUNGSTOKEN**, um die primären und sekundären Token zu sehen. Im Codebeispiel können zwar entweder das primäre oder das sekundäre Autorisierungstoken verwendet werden, es empfiehlt sich jedoch, dass Besitzer nur das sekundäre Autorisierungstoken freigeben.
+* Fragen Sie bei einem Besitzer nach einem Token. Besitzer können auf ihr Autorisierungstoken auf der Seite „Einstellungen“ ihres Arbeitsbereichs in Azure Machine Learning Studio (klassisch) zugreifen. Wählen Sie im linken Bereich **Einstellungen** , und klicken Sie auf **AUTORISIERUNGSTOKEN** , um die primären und sekundären Token zu sehen. Im Codebeispiel können zwar entweder das primäre oder das sekundäre Autorisierungstoken verwendet werden, es empfiehlt sich jedoch, dass Besitzer nur das sekundäre Autorisierungstoken freigeben.
 
    ![Autorisierungstoken](./media/python-data-access/ml-python-access-settings-tokens.png)
 
@@ -364,6 +364,5 @@ Wenn Ihre Daten bereits serialisiert sind, verwenden Sie `update_from_raw_data` 
 
 
 <!-- Module References -->
-[convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-
+[convert-to-csv]: /azure/machine-learning/studio-module-reference/convert-to-csv
+[split]: /azure/machine-learning/studio-module-reference/split-data

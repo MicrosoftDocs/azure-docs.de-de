@@ -1,17 +1,17 @@
 ---
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.date: 06/22/2020
+ms.date: 11/20/2020
 ms.topic: include
-ms.author: rgarcia
+ms.author: parkerra
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4d20b7dee533dae17cfb1c6138e336b91c7e2b0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d57167a9a4713e268c6864f3f1b3f2b1498b4ddb
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85296184"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95998385"
 ---
 ## <a name="putting-everything-together"></a>Zusammenfügen der Bestandteile
 
@@ -248,4 +248,4 @@ public class MainActivity extends AppCompatActivity {
 In diesem Tutorial haben Sie gelernt, wie Sie eine neue Android-App erstellen, bei der ARCore-Funktionalität mit Azure Spatial Anchors integriert wird. Weitere Informationen zur Azure Spatial Anchors-Bibliothek erhalten Sie, indem Sie unseren Leitfaden zum Erstellen und Suchen nach Ankern weiter durcharbeiten.
 
 > [!div class="nextstepaction"]
-> [Create and locate anchors using Azure Spatial Anchors](/azure/spatial-anchors/create-locate-anchors-overview) (Erstellen und Suchen nach Ankern mit Azure Spatial Anchors)
+> [Create and locate anchors using Azure Spatial Anchors](../articles/spatial-anchors/create-locate-anchors-overview.md) (Erstellen und Suchen nach Ankern mit Azure Spatial Anchors)

@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee0c5093fc1dab69e0502b8ed1efe42fa63f1eb9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 765bfe0f805ae4219110d689e8f7f8fd54a26cf3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363724"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173935"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planen der Bereitstellung einer Self-Service-Kennwortzurücksetzung (SSPR) von Azure Active Directory
 
@@ -48,13 +48,13 @@ Weitere Informationen zu SSPR. Lesen Sie [So funktioniert‘s: Self-Service-Kenn
 
 Die Aktivierung der Self-Service-Kennwortzurücksetzung (SSPR) bietet die folgenden wichtigen Vorteile:
 
-* **Kostenmanagement** . SSPR reduziert die Kosten für den IT-Support, da die Benutzer die Möglichkeit erhalten, ihre Kennwörter selbst zurückzusetzen. Reduziert werden auch die Kosten für den Zeitaufwand aufgrund vergessener Kennwörter und Kontosperren. 
+* **Kostenmanagement**. SSPR reduziert die Kosten für den IT-Support, da die Benutzer die Möglichkeit erhalten, ihre Kennwörter selbst zurückzusetzen. Reduziert werden auch die Kosten für den Zeitaufwand aufgrund vergessener Kennwörter und Kontosperren. 
 
-* **Intuitive Benutzerumgebung** . Durch den intuitiven einmaligen Benutzerregistrierungsprozess können Benutzer bei Bedarf und von jedem Gerät oder Standort aus ihre Kennwörter zurücksetzen und Konten entsperren. Mit SSPR können Benutzer schneller wieder an die Arbeit gehen und produktiver sein.
+* **Intuitive Benutzerumgebung**. Durch den intuitiven einmaligen Benutzerregistrierungsprozess können Benutzer bei Bedarf und von jedem Gerät oder Standort aus ihre Kennwörter zurücksetzen und Konten entsperren. Mit SSPR können Benutzer schneller wieder an die Arbeit gehen und produktiver sein.
 
-* **Flexibilität und Sicherheit** . SSPR ermöglicht Unternehmen den Zugang zu der Sicherheit und Flexibilität, die eine Cloudplattform bietet. Administratoren können Einstellungen ändern, neue Sicherheitsanforderungen aufnehmen und diese Änderungen ohne Unterbrechung des Anmeldevorgangs an die Benutzer weitergeben.
+* **Flexibilität und Sicherheit**. SSPR ermöglicht Unternehmen den Zugang zu der Sicherheit und Flexibilität, die eine Cloudplattform bietet. Administratoren können Einstellungen ändern, neue Sicherheitsanforderungen aufnehmen und diese Änderungen ohne Unterbrechung des Anmeldevorgangs an die Benutzer weitergeben.
 
-* **Zuverlässige Überwachung und Nutzungsverfolgung** . Auch wenn die Benutzer ihre eigenen Kennwörter zurücksetzen, kann eine Organisation die Sicherheit für ihre Geschäftssysteme gewährleisten. Zuverlässige Überwachungsprotokolle enthalten Informationen zu jedem Schritt des Kennwortzurücksetzungsprozesses. Diese Protokolle sind über eine API verfügbar, und der Benutzer hat die Möglichkeit, die Daten in ein SIEM-System (Security Incident and Event Monitoring) seiner Wahl zu importieren.
+* **Zuverlässige Überwachung und Nutzungsverfolgung**. Auch wenn die Benutzer ihre eigenen Kennwörter zurücksetzen, kann eine Organisation die Sicherheit für ihre Geschäftssysteme gewährleisten. Zuverlässige Überwachungsprotokolle enthalten Informationen zu jedem Schritt des Kennwortzurücksetzungsprozesses. Diese Protokolle sind über eine API verfügbar, und der Benutzer hat die Möglichkeit, die Daten in ein SIEM-System (Security Incident and Event Monitoring) seiner Wahl zu importieren.
 
 ### <a name="licensing"></a>Lizenzierung
 
@@ -115,7 +115,7 @@ Bevor Sie die Self-Service-Kennwortzurücksetzung bereitstellen, können Sie wah
 
 Microsoft empfiehlt Organisationen, die kombinierte Registrierungs-Benutzeroberfläche für SSPR und mehrstufige Authentifizierung zu aktivieren. Wenn Sie diese kombinierte Registrierungs-Benutzeroberfläche aktivieren, brauchen Benutzer ihre Registrierung nur einmal auszuwählen, um beide Funktionen zu aktivieren.
 
-Durch die kombinierte Registrierungsumgebung sind Organisationen nicht gezwungen, sowohl SSPR als auch Azure Multi-Factor Authentication zu aktivieren. Die kombinierte Registrierung sorgt in Organisationen für eine höhere Benutzerfreundlichkeit. Weitere Informationen finden Sie unter [Kombinierte Registrierung von Sicherheitsinformationen](concept-registration-mfa-sspr-combined.md).
+Durch die kombinierte Registrierungsumgebung sind Organisationen nicht gezwungen, sowohl SSPR als auch Azure AD Multi-Factor Authentication zu aktivieren. Die kombinierte Registrierung sorgt in Organisationen für eine höhere Benutzerfreundlichkeit. Weitere Informationen finden Sie unter [Kombinierte Registrierung von Sicherheitsinformationen](concept-registration-mfa-sspr-combined.md).
 
 ## <a name="plan-the-deployment-project"></a>Planen des Bereitstellungsprojekts
 
@@ -123,7 +123,7 @@ Berücksichtigen Sie die Anforderungen Ihrer Organisation, während Sie die Stra
 
 ### <a name="engage-the-right-stakeholders"></a>Einbeziehen der richtigen Beteiligten
 
-Fehler in Technologieprojekten sind in der Regel auf nicht erfüllte Erwartungen auf den Gebieten Auswirkungen, Ergebnisse und Zuständigkeiten zurückzuführen. Um diese Fallstricke zu vermeiden, [achten Sie darauf, die richtigen Beteiligten einzubeziehen](https://aka.ms/deploymentplans) und die Rolle der Beteiligten präzise zu definieren, indem Sie die Beteiligten, ihren Projektbeitrag und ihre Zuständigkeiten dokumentieren.
+Fehler in Technologieprojekten sind in der Regel auf nicht erfüllte Erwartungen auf den Gebieten Auswirkungen, Ergebnisse und Zuständigkeiten zurückzuführen. Um diese Fallstricke zu vermeiden, [achten Sie darauf, die richtigen Beteiligten einzubeziehen](../fundamentals/active-directory-deployment-plans.md) und die Rolle der Beteiligten präzise zu definieren, indem Sie die Beteiligten, ihren Projektbeitrag und ihre Zuständigkeiten dokumentieren.
 
 #### <a name="required-administrator-roles"></a>Erforderliche Administratorrollen
 
@@ -151,7 +151,7 @@ Die folgenden Einstellungen sind erforderlich, um SSPR mit den empfohlenen Werte
 
 | Bereich | Einstellung | Wert |
 | --- | --- | --- |
-| **SSPR-Eigenschaften** | Self-Service-Kennwortzurücksetzung aktiviert | **Ausgewählte** Gruppe für das Pilotprojekt/ **Alle** für die Produktion |
+| **SSPR-Eigenschaften** | Self-Service-Kennwortzurücksetzung aktiviert | **Ausgewählte** Gruppe für das Pilotprojekt/**Alle** für die Produktion |
 | **Authentifizierungsmethoden** | Zum Registrieren erforderliche Authentifizierungsmethoden | Immer 1 mehr als für das Zurücksetzen erforderlich |
 |   | Zum Zurücksetzen erforderliche Authentifizierungsmethoden | Eine oder zwei |
 | **Registrierung** | Registrierung von Benutzern bei der Anmeldung verlangen | Ja |
@@ -167,7 +167,7 @@ Die folgenden Einstellungen sind erforderlich, um SSPR mit den empfohlenen Werte
 
 Wählen Sie beim Aktivieren von SSPR eine entsprechende Sicherheitsgruppe in der Pilotumgebung aus.
 
-* Um die SSPR-Registrierung für alle Gruppen zu erzwingen, empfehlen wir die Verwendung der Option **Alle** .
+* Um die SSPR-Registrierung für alle Gruppen zu erzwingen, empfehlen wir die Verwendung der Option **Alle**.
 * Wählen Sie ansonsten die entsprechende Azure AD- oder AD-Sicherheitsgruppe aus.
 
 ### <a name="authentication-methods"></a>Authentifizierungsmethoden
@@ -190,7 +190,7 @@ Legen Sie **Anzahl der Tage, bevor Benutzer aufgefordert werden, ihre Authentifi
 
 ### <a name="notifications-settings"></a>Benachrichtigungseinstellungen
 
-Konfigurieren Sie beide Einstellungen **Benutzer über Kennwortzurücksetzungen benachrichtigen?** und **Sollen alle Administratoren benachrichtigt werden, wenn andere Administratoren ihr Kennwort zurücksetzen?** mit **Ja** . Durch die Auswahl von **Ja** bei beiden Optionen erhöht sich die Sicherheit, da gewährleistet ist, dass Benutzer von der Zurücksetzung ihres Kennworts Kenntnis erhalten. Außerdem ist gewährleistet, dass alle Administratoren Kenntnis erhalten, wenn ein Administrator ein Kennwort ändert. Wenn Benutzer oder Administratoren eine derartige Benachrichtigung erhalten und die Änderung nicht veranlasst haben, können sie sofort ein mögliches Sicherheitsproblem melden.
+Konfigurieren Sie beide Einstellungen **Benutzer über Kennwortzurücksetzungen benachrichtigen?** und **Sollen alle Administratoren benachrichtigt werden, wenn andere Administratoren ihr Kennwort zurücksetzen?** mit **Ja**. Durch die Auswahl von **Ja** bei beiden Optionen erhöht sich die Sicherheit, da gewährleistet ist, dass Benutzer von der Zurücksetzung ihres Kennworts Kenntnis erhalten. Außerdem ist gewährleistet, dass alle Administratoren Kenntnis erhalten, wenn ein Administrator ein Kennwort ändert. Wenn Benutzer oder Administratoren eine derartige Benachrichtigung erhalten und die Änderung nicht veranlasst haben, können sie sofort ein mögliches Sicherheitsproblem melden.
 
 ### <a name="customization-settings"></a>Anpassungseinstellungen
 
@@ -321,11 +321,11 @@ Mithilfe von vordefinierten Berichten im Azure-Portal können Sie die SSPR-Leist
 
 ### <a name="authentication-methods--usage-and-insights"></a>Authentifizierungsmethoden: Nutzung und Erkenntnisse
 
-Mithilfe der Funktion [Nutzung und Erkenntnisse](./howto-authentication-methods-usage-insights.md) können Sie besser verstehen, wie Authentifizierungsmethoden für Funktionen wie Azure MFA und SSPR in Ihrem Unternehmen funktionieren. Dank dieser Berichtsfunktion kann Ihr Unternehmen erkennen, welche Methoden registriert werden und wie sie verwendet werden.
+Mithilfe der Funktion [Nutzung und Erkenntnisse](./howto-authentication-methods-usage-insights.md) können Sie besser verstehen, wie Authentifizierungsmethoden für Funktionen wie Azure AD MFA und SSPR in Ihrem Unternehmen funktionieren. Dank dieser Berichtsfunktion kann Ihr Unternehmen erkennen, welche Methoden registriert werden und wie sie verwendet werden.
 
 ### <a name="troubleshoot"></a>Problembehandlung
 
-* Siehe [Problembehandlung für die Self-Service-Kennwortzurücksetzung](./active-directory-passwords-troubleshoot.md) 
+* Siehe [Problembehandlung für die Self-Service-Kennwortzurücksetzung](./troubleshoot-sspr.md) 
 
 * Folgen Sie [Häufig gestellte Fragen zur Kennwortverwaltung](./active-directory-passwords-faq.md) 
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 11/06/2020
 ms.author: erhopf
-ms.openlocfilehash: c2b96193204c6938338594054bc3cd4715008313
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a562c28235608d4a2425455b5543a76c99374f80
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89055310"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483813"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Sprachdienst: Neues in der Dokumentation
 
@@ -23,31 +23,32 @@ Herzlich Willkommen! Auf dieser Seite erfahren Sie, was in der Dokumentation zum
 
 ### <a name="service-updates"></a>Dienstupdates
 
-Informationen zu Updates des Sprachdiensts, des Speech SDK, des Speech Devices SDK oder der Speech-Befehlszeilenschnittstelle finden Sie unter folgenden Links:
+Informationen zu Updates des Sprachdiensts, des Speech SDK, des Speech Devices SDK, der Speech-Befehlszeilenschnittstelle oder der Speech-Container finden Sie unter folgenden Links:
 * [Versionshinweise zum Speech SDK](releasenotes.md)
 * [Versionshinweise zum Speech Devices SDK](devices-sdk-release-notes.md)
+* [Versionshinweise zu Cognitive Services-Containern](../containers/container-image-tags.md)
 
 ## <a name="may-2020"></a>Mai 2020
 
 ### <a name="new-articles"></a>Neue Artikel
 
-* [Verbessern der Custom Speech-Genauigkeit](how-to-custom-speech-improve-accuracy.md)
+* [Verbessern der Custom Speech-Genauigkeit](./how-to-custom-speech-evaluate-data.md)
 
 ### <a name="updated-articles"></a>Aktualisierte Artikel
 
 * [Informationen zur API für Audioeingabestreams des Speech SDK](how-to-use-audio-input-streams.md): Die zulässigen Beispiele pro Sekunde wurden aktualisiert.
 * [Automatische Spracherkennung zur Umwandlung von Sprache in Text](how-to-automatic-language-detection.md): Objective-C-Anweisungen wurden zur Dokumentation hinzugefügt.
-* [Auswählen eines Spracherkennungsmodus](how-to-choose-recognition-mode.md): JavaScript-Anweisungen wurden zur Dokumentation hinzugefügt.
+* [Auswählen eines Spracherkennungsmodus](./get-started-speech-to-text.md): JavaScript-Anweisungen wurden zur Dokumentation hinzugefügt.
 * [Konfigurieren von RHEL/CentOS 7 für das Speech SDK](how-to-configure-rhel-centos-7.md): Die Setupanweisungen wurden verbessert.
-* [Begriffslisten für Spracherkennung](how-to-phrase-lists.md): JavaScript-Anweisungen wurden zur Dokumentation hinzugefügt.
-* [Schnellstart: Synchrone Synthese für lange Audioinhalte in Python (Vorschau)](quickstarts/text-to-speech/async-synthesis-long-form-audio.md): Die Unterstützung für öffentliche neuronale Stimmen und zugehörige Parameter wurde hinzugefügt.
-* [Schnellstart: Erkennen von Sprache aus einer Audiodatei](quickstarts/speech-to-text-from-file.md): JavaScript-Anweisungen wurden zur Dokumentation hinzugefügt.
-* [Schnellstart: Erkennen von Spracheingaben per Mikrofon](quickstarts/speech-to-text-from-microphone.md ): Go- sowie JavaScript-Anweisungen wurden zur Dokumentation hinzugefügt.
-* [Schnellstart: Erkennen von Sprache aus einem Blobspeicher](quickstarts/from-blob.md): JavaScript-Anweisungen wurden zur Dokumentation hinzugefügt.
+* [Begriffslisten für Spracherkennung](./get-started-speech-to-text.md): JavaScript-Anweisungen wurden zur Dokumentation hinzugefügt.
+* [Schnellstart: Synchrone Synthese für lange Audioinhalte in Python (Vorschau)](./long-audio-api.md): Die Unterstützung für öffentliche neuronale Stimmen und zugehörige Parameter wurde hinzugefügt.
+* [Schnellstart: Erkennen von Sprache aus einer Audiodatei](./get-started-speech-to-text.md): JavaScript-Anweisungen wurden zur Dokumentation hinzugefügt.
+* [Schnellstart: Erkennen von Spracheingaben per Mikrofon](./get-started-speech-to-text.md): Go- sowie JavaScript-Anweisungen wurden zur Dokumentation hinzugefügt.
+* [Schnellstart: Erkennen von Sprache aus einem Blobspeicher](./batch-transcription.md): JavaScript-Anweisungen wurden zur Dokumentation hinzugefügt.
 * [Schnellstart: Erkennen von Sprache, Absichten und Entitäten mit Language Understanding (LUIS)](quickstarts/intent-recognition.md)
 * [Schnellstart: Einrichten der Entwicklungsumgebung](quickstarts/setup-platform.md): JavaScript-Anweisungen wurden zur Dokumentation hinzugefügt.
-* [Schnellstart: Synthetisieren von Sprache in eine Audiodatei](quickstarts/text-to-speech-audio-file.md): JavaScript-Anweisungen wurden zur Dokumentation hinzugefügt.
-* [Schnellstart: Synthetisieren von Sprache über einen Lautsprecher](quickstarts/text-to-speech.md): JavaScript-Anweisungen wurden zur Dokumentation hinzugefügt.
+* [Schnellstart: Synthetisieren von Sprache in eine Audiodatei](./get-started-text-to-speech.md): JavaScript-Anweisungen wurden zur Dokumentation hinzugefügt.
+* [Schnellstart: Synthetisieren von Sprache über einen Lautsprecher](./get-started-text-to-speech.md): JavaScript-Anweisungen wurden zur Dokumentation hinzugefügt.
 * [Was ist ein Schlüsselwort?](custom-keyword-overview.md): Der Abschnitt zu den ersten Schritten sowie die Links wurden aktualisiert.
 * [Angeben der Quellsprache für die Spracherkennung](how-to-specify-source-language.md): JavaScript- und Objective-C-Anweisungen wurden zur Dokumentation hinzugefügt.
 

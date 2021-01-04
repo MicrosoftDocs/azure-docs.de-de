@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 08/21/2020
-ms.openlocfilehash: 657c29b79c98adf1041c49c0315edfd4e9363a36
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 7f4d820b33f36c295c294000d33a0ca5177fc4d1
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91804060"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028069"
 ---
 # <a name="what-is-azure-hdinsight"></a>Worum handelt es sich bei Azure HDInsight?
 

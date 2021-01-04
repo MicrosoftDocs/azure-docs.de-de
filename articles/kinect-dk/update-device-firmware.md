@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Kinect, Firmware, Update, Wiederherstellung
-ms.openlocfilehash: ecfa4a18592d3bc70e3b7cdd66ff6464a54e560d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71557798a584635356cc47fd7c4a0309df4d018a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030683"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356223"
 ---
 # <a name="update-azure-kinect-dk-firmware"></a>Aktualisieren der Azure Kinect DK-Firmware
 
@@ -82,7 +82,7 @@ Firmwareupdates können aus verschiedenen Gründen fehlschlagen. Wenn ein Firmwa
 
 3. Wenn alle anderen Versuche fehlschlagen, führen Sie die Schritte zur [Wiederherstellung](https://support.microsoft.com/help/4494277/reset-azure-kinect-dk) aus, um auf die Firmenfirmware zurückzusetzen, und versuchen Sie es erneut.
 
-Konsultieren Sie für alle weiteren Probleme die [Microsoft-Supportseiten](https://aka.ms/kinectsupport)
+Konsultieren Sie für alle weiteren Probleme die [Microsoft-Supportseiten](./index.yml)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

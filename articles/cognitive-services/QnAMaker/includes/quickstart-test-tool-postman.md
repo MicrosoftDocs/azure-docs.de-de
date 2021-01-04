@@ -4,16 +4,16 @@ description: include file
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: qna-maker
 ms.topic: include
 ms.custom: include file
-ms.date: 04/27/2020
-ms.openlocfilehash: fabd79829425147667c46f686a1ec1ceb6a29b00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 11/09/2020
+ms.openlocfilehash: fa497b69b067d5556f11effdb52505895ecc3bdd
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87132886"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386519"
 ---
 In diesem Schnellstart auf Postman-Basis wird Schritt für Schritt erläutert, wie Sie eine Antwort aus einer Wissensdatenbank abrufen.
 
@@ -29,6 +29,8 @@ In diesem Schnellstart auf Postman-Basis wird Schritt für Schritt erläutert, w
 
 ## <a name="set-up-postman-for-requests"></a>Einrichten von Postman für Anforderungen
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker, allgemeine Verfügbarkeit (stabile Version)](#tab/v1)
+
 In dieser Schnellstartanleitung werden die gleichen Einstellungen für die Postman-Anforderung **POST** verwendet. Anschließend wird der an den Dienst gesendete JSON-Code des POST-Texts basierend auf der gewünschten Abfrage konfiguriert.
 
 Verwenden Sie diese Vorgehensweise, um Postman zu konfigurieren, und lesen Sie anschließend die nachfolgenden Abschnitte, um den JSON-Code im POST-Text zu konfigurieren.
@@ -43,7 +45,26 @@ Verwenden Sie diese Vorgehensweise, um Postman zu konfigurieren, und lesen Sie a
     |`Content-type`|`application/json`|Headerwert für Ihren Inhalt.|
     ||`{"question":"<Your question>"}`|Text der POST-Anforderung als JSON-Objekt. Dieser Wert ändert sich in jedem der folgenden Abschnitte abhängig vom Zweck der jeweiligen Abfrage.|
 
-1. Öffnen Sie Postman, und erstellen Sie eine neue einfache **POST**-Anforderung mit den Einstellungen Ihrer veröffentlichten Wissensdatenbank. Ändern Sie in den folgenden Abschnitten den JSON-Code im POST-Text, um die Abfrage für Ihre Wissensdatenbank zu ändern.
+1. Öffnen Sie Postman, und erstellen Sie eine neue einfache **POST** -Anforderung mit den Einstellungen Ihrer veröffentlichten Wissensdatenbank. Ändern Sie in den folgenden Abschnitten den JSON-Code im POST-Text, um die Abfrage für Ihre Wissensdatenbank zu ändern.
+
+# <a name="qna-maker-managed-preview-release"></a>[Mit QnA Maker verwaltet (Vorschauversion)](#tab/v2)
+
+In dieser Schnellstartanleitung werden die gleichen Einstellungen für die Postman-Anforderung **POST** verwendet. Anschließend wird der an den Dienst gesendete JSON-Code des POST-Texts basierend auf der gewünschten Abfrage konfiguriert.
+
+Verwenden Sie diese Vorgehensweise, um Postman zu konfigurieren, und lesen Sie anschließend die nachfolgenden Abschnitte, um den JSON-Code im POST-Text zu konfigurieren.
+
+1. Wählen Sie auf der Seite **Einstellungen** der Wissensdatenbank die Registerkarte **Postman** aus. Dort wird die Konfiguration zum Generieren einer Antwort auf der Grundlage der Wissensdatenbank angezeigt. Kopieren Sie die folgenden Informationen für die Verwendung in Postman:
+
+    |Name|Einstellung|Zweck und Wert|
+    |--|--|--|
+    |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|HTTP-Methode und Route für die URL.|
+    |`Host`|`https://YOUR-RESOURCE_NAME.cognitiveservices.azure.com/qnamaker`|Der URL-Host. Verketten Sie den Host- und den POST-Wert, um die vollständige generateAnswer-URL zu erhalten.|
+    |`Ocp-Apim-Subscription-Key`|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`|Headerwert für die Autorisierung Ihrer Anforderung. |
+    |`Content-type`|`application/json`|Headerwert für Ihren Inhalt.|
+    ||`{"question":"<Your question>"}`|Text der POST-Anforderung als JSON-Objekt. Dieser Wert ändert sich in jedem der folgenden Abschnitte abhängig vom Zweck der jeweiligen Abfrage.|
+
+1. Öffnen Sie Postman, und erstellen Sie eine neue einfache **POST** -Anforderung mit den Einstellungen Ihrer veröffentlichten Wissensdatenbank. Ändern Sie in den folgenden Abschnitten den JSON-Code im POST-Text, um die Abfrage für Ihre Wissensdatenbank zu ändern.
+---
 
 ## <a name="use-metadata-to-filter-answer"></a>Filtern von Antworten mithilfe von Metadaten
 

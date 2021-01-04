@@ -5,12 +5,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 09/11/2020
 ms.custom: mvc,subject-armqs, devx-track-azurecli
-ms.openlocfilehash: f0ef1c32035eed26c0717364bda030b6b7662b3e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 271913a731a2bdf5af94885b5fe4027c0334853c
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740290"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887500"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>Schnellstart: Schnellstart: Bereitstellen eines AKS-Clusters (Azure Kubernetes Service) mithilfe einer ARM-Vorlage
 
@@ -22,19 +22,17 @@ Azure Kubernetes Service (AKS) ist ein verwalteter Kubernetes-Dienst, mit dem Si
 
 Für diese Schnellstartanleitung werden Grundkenntnisse in Bezug auf die Kubernetes-Konzepte vorausgesetzt. Weitere Informationen finden Sie unter [Grundlegende Kubernetes-Konzepte für Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-Wenn Ihre Umgebung die Voraussetzungen erfüllt und Sie mit der Verwendung von ARM-Vorlagen vertraut sind, klicken Sie auf die Schaltfläche **In Azure bereitstellen** . Die Vorlage wird im Azure-Portal geöffnet.
+Wenn Ihre Umgebung die Voraussetzungen erfüllt und Sie mit der Verwendung von ARM-Vorlagen vertraut sind, klicken Sie auf die Schaltfläche **In Azure bereitstellen**. Die Vorlage wird im Azure-Portal geöffnet.
 
 [![In Azure bereitstellen](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Wenn Sie die Befehlszeilenschnittstelle lokal installieren und verwenden möchten, benötigen Sie für diese Schnellstartanleitung mindestens Version 2.0.61 der Azure-Befehlszeilenschnittstelle. Führen Sie `az --version` aus, um die Version zu ermitteln. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sie bei Bedarf unter [Installieren der Azure CLI][azure-cli-install].
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## <a name="prerequisites"></a>Voraussetzungen
+- Für diesen Artikel ist mindestens Version 2.0.61 der Azure CLI erforderlich. Bei Verwendung von Azure Cloud Shell ist die aktuelle Version bereits installiert.
 
-Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
-
-Um einen AKS-Cluster mithilfe einer Resource Manager-Vorlage zu erstellen, geben Sie einen öffentlichen SSH-Schlüssel und einen Azure Active Directory-Dienstprinzipal an. Alternativ können Sie anstelle eines Dienstprinzipals für Berechtigungen eine [verwaltete Identität](use-managed-identity.md) verwenden. Wenn Sie eine dieser Ressourcen benötigen, finden Sie im folgenden Abschnitt Informationen, andernfalls fahren Sie mit dem Abschnitt [Überprüfen der Vorlage](#review-the-template) fort.
+- Um einen AKS-Cluster mithilfe einer Resource Manager-Vorlage zu erstellen, geben Sie einen öffentlichen SSH-Schlüssel und einen Azure Active Directory-Dienstprinzipal an. Alternativ können Sie anstelle eines Dienstprinzipals für Berechtigungen eine [verwaltete Identität](use-managed-identity.md) verwenden. Wenn Sie eine dieser Ressourcen benötigen, finden Sie im folgenden Abschnitt Informationen, andernfalls fahren Sie mit dem Abschnitt [Überprüfen der Vorlage](#review-the-template) fort.
 
 ### <a name="create-an-ssh-key-pair"></a>Erstellen eines SSH-Schlüsselpaars
 
@@ -70,7 +68,7 @@ Die Ausgabe sieht in etwa wie das folgende Beispiel aus:
 }
 ```
 
-Notieren Sie sich die App-ID ( *appId* ) und das Kennwort ( *password* ). Diese Werte werden in den folgenden Schritten verwendet.
+Notieren Sie sich die App-ID (*appId*) und das Kennwort (*password*). Diese Werte werden in den folgenden Schritten verwendet.
 
 ## <a name="review-the-template"></a>Überprüfen der Vorlage
 
@@ -88,22 +86,22 @@ Weitere AKS-Beispiele finden Sie unter [Azure Schnellstartvorlagen][aks-quicksta
 
 2. Wählen Sie die folgenden Werte aus, bzw. geben Sie sie ein.
 
-    Im Rahmen dieser Schnellstartanleitung behalten Sie die Standardwerte für *Betriebssystem-Datenträgergröße (GB)* , *Agent-Anzahl* , *Größe der Agent-VM* , *Betriebssystemtyp* , und *Kubernetes-Version* bei. Geben Sie Ihre eigenen Werte für die folgenden Vorlagenparameter an:
+    Im Rahmen dieser Schnellstartanleitung behalten Sie die Standardwerte für *Betriebssystem-Datenträgergröße (GB)* , *Agent-Anzahl*, *Größe der Agent-VM*, *Betriebssystemtyp*, und *Kubernetes-Version* bei. Geben Sie Ihre eigenen Werte für die folgenden Vorlagenparameter an:
 
-    * **Abonnement** : Wählen Sie ein Azure-Abonnement aus.
-    * **Ressourcengruppe** : Wählen Sie **Neu erstellen** . Geben Sie einen eindeutigen Namen für die Ressourcengruppe an, z. B. *myResourceGroup* , und wählen Sie dann **OK** aus.
-    * **Standort** : Wählen Sie einen Ort aus, z. B. **USA, Osten** .
-    * **Clustername** : Geben Sie einen eindeutigen Namen für den AKS-Cluster ein, z. B. *myAKSCluster* .
-    * **DNS-Präfix** : Geben Sie ein eindeutiges DNS-Präfix für Ihren Cluster ein, z. B. *myakscluster* .
-    * **Benutzername des Linux-Administrators** : Geben Sie einen Benutzernamen ein, um mithilfe von SSH eine Verbindung herzustellen, z. B. *azureuser* .
-    * **Öffentlicher SSH RSA-Schlüssel** : Kopieren Sie den *öffentlichen* Teil Ihres SSH-Schlüsselpaar, und fügen Sie ihn ein (standardmäßig der Inhalt von *~/.ssh/id_rsa.pub* ).
-    * **Client-ID des Dienstprinzipals** : Kopieren Sie die *appId* Ihres Dienstprinzipals aus dem Befehl `az ad sp create-for-rbac`, und fügen Sie sie ein.
-    * **Clientgeheimnis des Dienstprinzipals** : Kopieren Sie das *password* Ihres Dienstprinzipals aus dem Befehl `az ad sp create-for-rbac`, und fügen Sie es ein.
-    * **Ich stimme den oben genannten Geschäftsbedingungen zu** : Aktivieren Sie dieses Kontrollkästchen, um zuzustimmen.
+    * **Abonnement**: Wählen Sie ein Azure-Abonnement aus.
+    * **Ressourcengruppe**: Wählen Sie **Neu erstellen**. Geben Sie einen eindeutigen Namen für die Ressourcengruppe an, z. B. *myResourceGroup*, und wählen Sie dann **OK** aus.
+    * **Standort**: Wählen Sie einen Ort aus, z. B. **USA, Osten**.
+    * **Clustername**: Geben Sie einen eindeutigen Namen für den AKS-Cluster ein, z. B. *myAKSCluster*.
+    * **DNS-Präfix**: Geben Sie ein eindeutiges DNS-Präfix für Ihren Cluster ein, z. B. *myakscluster*.
+    * **Benutzername des Linux-Administrators**: Geben Sie einen Benutzernamen ein, um mithilfe von SSH eine Verbindung herzustellen, z. B. *azureuser*.
+    * **Öffentlicher SSH RSA-Schlüssel**: Kopieren Sie den *öffentlichen* Teil Ihres SSH-Schlüsselpaar, und fügen Sie ihn ein (standardmäßig der Inhalt von *~/.ssh/id_rsa.pub*).
+    * **Client-ID des Dienstprinzipals**: Kopieren Sie die *appId* Ihres Dienstprinzipals aus dem Befehl `az ad sp create-for-rbac`, und fügen Sie sie ein.
+    * **Clientgeheimnis des Dienstprinzipals**: Kopieren Sie das *password* Ihres Dienstprinzipals aus dem Befehl `az ad sp create-for-rbac`, und fügen Sie es ein.
+    * **Ich stimme den oben genannten Geschäftsbedingungen zu**: Aktivieren Sie dieses Kontrollkästchen, um zuzustimmen.
 
     ![Resource Manager-Vorlage zum Erstellen eines Azure Kubernetes Service-Clusters im Portal](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
 
-3. Wählen Sie die Option **Kaufen** .
+3. Wählen Sie die Option **Kaufen**.
 
 Die Erstellung des AKS-Clusters dauert einige Minuten. Warten Sie, bis der Cluster erfolgreich bereitgestellt wurde, bevor Sie mit dem nächsten Schritt fortfahren.
 
@@ -257,14 +255,14 @@ Verwenden Sie zum Überwachen des Fortschritts den Befehl [kubectl get service][
 kubectl get service azure-vote-front --watch
 ```
 
-Die externe IP-Adresse ( *EXTERNAL-IP* ) für den Dienst *azure-vote-front* wird zunächst als *ausstehend* angezeigt.
+Die externe IP-Adresse (*EXTERNAL-IP*) für den Dienst *azure-vote-front* wird zunächst als *ausstehend* angezeigt.
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-Sobald die externe IP-Adresse ( *EXTERNAL-IP* ) von pending ( *ausstehend* ) in eine tatsächliche öffentliche IP-Adresse geändert wurde, verwenden Sie `CTRL-C`, um die `kubectl`-Überwachung zu beenden. Die folgende Beispielausgabe zeigt eine gültige öffentliche IP-Adresse, die dem Dienst zugewiesen ist:
+Sobald die externe IP-Adresse (*EXTERNAL-IP*) von pending (*ausstehend*) in eine tatsächliche öffentliche IP-Adresse geändert wurde, verwenden Sie `CTRL-C`, um die `kubectl`-Überwachung zu beenden. Die folgende Beispielausgabe zeigt eine gültige öffentliche IP-Adresse, die dem Dienst zugewiesen ist:
 
 ```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m

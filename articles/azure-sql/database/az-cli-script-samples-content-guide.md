@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: 893ea607b322c2f9b2d8a4e8b5b087e21c476d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 439167f29bb53d4a6e90b95826faa56e3c3170da
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87497170"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563357"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Azure CLI-Beispiele für Azure SQL-Datenbank und verwaltete SQL-Instanzen 
  
@@ -27,9 +27,9 @@ Sie können Azure SQL-Datenbank und verwaltete SQL-Instanzen konfigurieren, inde
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Wenn Sie die Befehlszeilenschnittstelle lokal installieren und verwenden möchten, müssen Sie für dieses Thema die Azure CLI in Version 2.0 oder höher ausführen. Führen Sie `az --version` aus, um die Version zu ermitteln. Installations- und Upgradeinformationen finden Sie bei Bedarf unter [Installieren von Azure CLI](/cli/azure/install-azure-cli).
+ - Für dieses Tutorial ist mindestens Version 2.0 der Azure CLI erforderlich. Bei Verwendung von Azure Cloud Shell ist die aktuelle Version bereits installiert.
 
 # <a name="azure-sql-database"></a>[Azure SQL-Datenbank](#tab/single-database)
 
@@ -73,7 +73,7 @@ Die folgende Tabelle enthält Links zu Azure CLI-Skriptbeispielen für verwaltet
 | [Konfigurieren einer Failovergruppe für eine verwaltete SQL-Instanz](../../sql-database/scripts/sql-database-add-managed-instance-to-failover-group-cli.md) | Erstellt zwei verwaltete SQL-Instanzen fügt sie einer Failovergruppe hinzu, und testet dann das Failover von der primären verwalteten SQL-Instanz auf die sekundäre verwaltete SQL-Instanz. |
 |||
 
-Weitere Beispiele zu verwalteten SQL-Instanzen finden Sie in den Artikeln zum [Erstellen](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/), [Aktualisieren](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/), [Verschieben einer Datenbank](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) und [Verwenden von Skripts](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).
+Weitere Beispiele zu verwalteten SQL-Instanzen finden Sie in den Artikeln zum [Erstellen](/archive/blogs/sqlserverstorageengine/create-azure-sql-managed-instance-using-azure-cli), [Aktualisieren](/archive/blogs/sqlserverstorageengine/modify-azure-sql-database-managed-instance-using-azure-cli), [Verschieben einer Datenbank](/archive/blogs/sqlserverstorageengine/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance) und [Verwenden von Skripts](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).
 
 Erfahren Sie mehr über die [Azure CLI-API für verwaltete SQL-Instanzen](../managed-instance/api-references-create-manage-instance.md#azure-cli-create-and-configure-managed-instances).
 

@@ -42,6 +42,8 @@
       href: api-management-get-started-publish-versions.md
     - name: '9: Anpassen des Entwicklerportals'
       href: api-management-howto-developer-portal-customize.md
+    - name: '10: Verwalten von APIs in Visual Studio Code'
+      href: visual-studio-code-tutorial.md
 - name: Beispiele
   items:
     - name: Richtlinien
@@ -58,6 +60,8 @@
           href: api-management-howto-policies.md
         - name: Richtlinienreferenz – Index
           href: api-management-policies.md
+        - name: Fehlerbehandlung
+          href: api-management-error-handling-policies.md
     - name: Sicherheit
       items:
         - name: Sicherheitsbaseline
@@ -70,8 +74,6 @@
       href: api-management-revisions.md
     - name: Verwalten mithilfe von Automatisierung
       href: automation-manage-api-management.md
-    - name: Fehlerbehandlung
-      href: api-management-error-handling-policies.md
     - name: API-Importbeschränkungen
       href: api-management-api-import-restrictions.md
     - name: Übersicht über das selbstgehostete Gateway
@@ -80,6 +82,8 @@
       href: observability.md
     - name: CI/CD unter Verwendung von ARM-Vorlagen
       href: devops-api-development-templates.md
+    - name: Vorläufiges Löschen
+      href: soft-delete.md
 - name: Anleitungen
   items:
     - name: Definieren von APIs
@@ -106,6 +110,8 @@
       items:
         - name: Kapazitätsmetrik
           href: api-management-capacity.md
+        - name: Planen und Verwalten von Kosten
+          href: plan-manage-costs.md
         - name: Aktualisieren und Skalieren
           href: upgrade-and-scale.md
         - name: Konfigurieren der automatischen Skalierung
@@ -214,7 +220,7 @@
           href: api-management-sample-flexible-throttling.md
         - name: Verwenden externer Dienste
           href: api-management-sample-send-request.md
-        - name: Verwalten von geheimen Schlüsseln mithilfe von Eigenschaften
+        - name: Verwalten von Geheimnissen mithilfe benannter Werte
           href: api-management-howto-properties.md
         - name: Richtlinien für die Zugriffsbeschränkung
           href: api-management-access-restriction-policies.md
@@ -238,6 +244,8 @@
           href: api-management-howto-create-groups.md
         - name: Abrufen von IP-Adressen
           href: api-management-howto-ip-addresses.md
+        - name: Abrufen von API-Analysen
+          href: howto-use-analytics.md
         - name: Protokollieren von Ereignissen in Azure Event Hubs
           href: api-management-howto-log-event-hubs.md
         - name: Protokollieren von Anforderungen mit Azure Application Insights
@@ -266,8 +274,10 @@
               href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
 - name: Verweis
   items:
+    - name: Azure CLI
+      href: /cli/azure/apim
     - name: Azure PowerShell
-      href: /powershell/module/az.apimanagement/?view=azps-2.6.0
+      href: /powershell/module/az.apimanagement/
     - name: REST
       href: /rest/api/apimanagement/
     - name: REST (Original)
@@ -277,6 +287,8 @@
     - name: Azure Policy-Integrationen
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
+    - name: Ressourcenprotokollschema
+      href: gateway-log-schema-reference.md
 - name: Ressourcen
   items:
     - name: Häufig gestellte Fragen
@@ -299,5 +311,9 @@
       href: /azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
     - name: API-Implementierungsleitfaden
       href: /azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json
-    - name: Behandeln eines Fehlers beim Aktualisieren von Hostnamen
-      href: api-management-troubleshoot-cannot-add-custom-domain.md
+    - name: Problembehandlung
+      items:
+        - name: Behandeln eines Fehlers beim Aktualisieren von Hostnamen
+          href: api-management-troubleshoot-cannot-add-custom-domain.md
+        - name: Problembehandlung bei Antworttimeouts und Fehlern
+          href: troubleshoot-response-timeout-and-errors.md

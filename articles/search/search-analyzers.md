@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/20/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 01b57526b15a806271d58b250f06a4372fe56b72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 544509a8c90c9273b748591509b1fa86510d71c3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532260"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013818"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analysetools für Textverarbeitung in der kognitiven Azure-Suche
 
@@ -317,7 +317,7 @@ Jedes in unveränderter Form ohne Konfiguration verwendete Analysetool wird in e
 
 In diesem Beispiel werden Beschreibungsfeldern Microsoft-Analysetools für Englisch und Französisch zugewiesen. Es ist ein Codeausschnitt aus einer größeren Definition des Hotelindex, der unter Verwendung der Hotelklasse in der Datei „hotels.cs“ des Beispiels [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) erstellt wird.
 
-Rufen Sie das [Analysetool](/dotnet/api/microsoft.azure.search.models.analyzer) unter Angabe des Typs [AnalyzerName](/dotnet/api/microsoft.azure.search.models.analyzername) auf, mit dem ein in der kognitiven Azure-Suche unterstütztes Textanalysetool bereitgestellt wird.
+Rufen Sie [LexicalAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer) unter Angabe des Typs [LexicalAnalyzerName](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) auf, mit dem ein in Azure Cognitive Search unterstütztes Textanalysetool bereitgestellt wird.
 
 ```csharp
     public partial class Hotel
@@ -343,7 +343,7 @@ Rufen Sie das [Analysetool](/dotnet/api/microsoft.azure.search.models.analyzer) 
 
 Wenn eine Anpassung oder Konfiguration erforderlich ist, müssen Sie ein Analysetoolkonstrukt zu einem Index hinzufügen. Nach der Definition können Sie es der Felddefinition hinzufügen, wie im vorherigen Beispiel gezeigt.
 
-Erstellen Sie ein [CustomAnalyzer](/dotnet/api/microsoft.azure.search.models.customanalyzer)-Objekt. Weitere Beispiele finden Sie unter [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
+Erstellen Sie ein [CustomAnalyzer](/dotnet/api/azure.search.documents.indexes.models.customanalyzer)-Objekt. Weitere Beispiele finden Sie unter [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
 
 ```csharp
 {

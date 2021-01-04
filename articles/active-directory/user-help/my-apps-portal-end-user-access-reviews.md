@@ -12,12 +12,12 @@ ms.date: 10/19/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: fbea4ef39b970f667c5dddec52f56a428d401f65
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 8da9e97aaa2c6d99990df4221d8b6e99ab18ac83
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277463"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124811"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Durchführen einer Zugriffsüberprüfung im Portal „Meine Apps“
 
@@ -76,5 +76,5 @@ Wenn Ihr Administrator Ihnen die Berechtigung zum Durchführen eigener Zugriffs�
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Zugreifen auf und Verwenden von Apps im Portal „Meine Apps“](my-apps-portal-end-user-access.md)
-- [Ändern Ihrer Profilinformationen](my-apps-portal-end-user-update-profile.md)
+- [Ändern Ihrer Profilinformationen](./my-account-portal-settings.md)
 - [Anzeigen und Aktualisieren gruppenbezogener Informationen](my-apps-portal-end-user-groups.md)

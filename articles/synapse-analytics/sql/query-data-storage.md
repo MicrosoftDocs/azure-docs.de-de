@@ -1,35 +1,35 @@
 ---
-title: Abfragen von Daten im Speicher mithilfe von SQL On-Demand (Vorschau)
-description: In diesem Artikel wird beschrieben, wie Sie Azure Storage mit der SQL On-Demand-Ressource (Vorschau) in Azure Synapse Analytics abfragen.
+title: Abfragen von Datenspeicher mit einem serverlosen SQL-Pool
+description: In diesem Artikel wird beschrieben, wie Sie Azure-Speicher mit der Ressource für einen serverlosen SQL-Pool in Azure Synapse Analytics abfragen.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0ac54eb5d6350cc234eb7036a3a1dc97a4f1b083
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 967250cf29d1f0248f296cb545a764bd8e611773
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91288374"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462652"
 ---
-# <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Abfragen von Speicherdateien mithilfe von SQL On-Demand-Ressourcen (Vorschau) innerhalb von Synapse SQL
+# <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Abfragen von Speicherdateien mit einem serverlosen SQL-Pool in Azure Synapse Analytics
 
-SQL On-Demand (Vorschau) ermöglicht Ihnen das Abfragen von Daten in Ihrem Data Lake. Dieses Feature bietet eine T-SQL-Abfrageoberfläche, die semistrukturierte und unstrukturierte Datenabfragen verarbeiten kann. Für Abfragen werden die folgenden T-SQL-Aspekte unterstützt:
+Ein serverloser SQL-Pool ermöglicht Ihnen das Abfragen von Daten in Ihrem Data Lake. Dieses Feature bietet eine T-SQL-Abfrageoberfläche, die semistrukturierte und unstrukturierte Datenabfragen verarbeiten kann. Für Abfragen werden die folgenden T-SQL-Aspekte unterstützt:
 
 - Vollständige [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)-Oberfläche, einschließlich der meisten [SQL-Funktionen und -Operatoren](overview-features.md).
 - CREATE EXTERNAL TABLE AS SELECT ([CETAS](develop-tables-cetas.md)) erstellt eine [externe Tabelle](develop-tables-external-tables.md) und exportiert parallel die Ergebnisse einer Transact-SQL-SELECT-Anweisung in Azure Storage.
 
-Weitere Informationen zu unterstützten und nicht unterstützten Aspekten finden Sie im Artikel [Übersicht über SQL On-Demand](on-demand-workspace-overview.md) oder in den Artikeln zu folgenden Themen:
+Weitere Informationen zu unterstützten und nicht unterstützten Aspekten finden Sie im Artikel [Übersicht über serverlose SQL-Pools](on-demand-workspace-overview.md) oder in den Artikeln zu folgenden Themen:
 - [Entwickeln des Speicherzugriffs](develop-storage-files-overview.md) mit Informationen dazu, wie Sie eine [externe Tabelle](develop-tables-external-tables.md) und die Funktion [OPENROWSET](develop-openrowset.md) verwenden, um Daten aus Speicher zu lesen.
 - [Steuern des Speicherzugriffs](develop-storage-files-storage-access-control.md) mit Informationen dazu, wie Sie für Synapse SQL den Zugriff auf Speicher per SAS-Authentifizierung oder per verwalteter Identität des Arbeitsbereichs ermöglichen.
 
 ## <a name="overview"></a>Übersicht
 
-Um reibungslose Vorgänge beim Abfragen von Daten in Azure Storage-Dateien zu gewährleisten, verwendet SQL On-Demand die Funktion [OPENROWSET](develop-openrowset.md) mit zusätzlichen Funktionen:
+Um reibungslose Vorgänge beim Abfragen von Daten in Azure Storage-Dateien zu gewährleisten, verwendet ein serverloser SQL-Pool die Funktion [OPENROWSET](develop-openrowset.md) mit zusätzlichen Funktionen:
 
 - [Abfragen mehrerer Dateien oder Ordner](#query-multiple-files-or-folders)
 - [Parquet-Dateiformat](#query-parquet-files)
@@ -47,7 +47,7 @@ Um Parquet-Quelldaten abzufragen, verwenden Sie FORMAT = 'PARQUET'.
 ```syntaxsql
 SELECT * FROM
 OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net//mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
-WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
+WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
 ```
 
 Beispiele zur Verwendung finden Sie im Artikel [Abfragen von Parquet-Dateien](query-parquet-files.md).
@@ -59,7 +59,7 @@ Um CSV-Quelldaten abzufragen, verwenden Sie FORMAT = 'CSV'. Sie können das Sche
 ```sql
 SELECT * FROM
 OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder/data.csv', FORMAT = 'CSV', PARSER_VERSION='2.0') 
-WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
+WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
 ```
 
 Es gibt noch einige zusätzliche Optionen, die Sie verwenden können, um Analyseregeln an das benutzerdefinierte CSV-Format anzupassen:
@@ -85,7 +85,7 @@ OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolde
 WITH (
       C1 int, 
       C2 varchar(20),
-      C3 as varchar(max)
+      C3 varchar(max)
 ) as rows
 ```
 
@@ -146,7 +146,7 @@ Der Rückgabedatentyp ist „nvarchar(1024)“. Um optimale Leistung zu erzielen
 
 ## <a name="work-with-complex-types-and-nested-or-repeated-data-structures"></a>Verwenden von komplexen Typen und geschachtelten oder wiederholten Datenstrukturen
 
-Um eine problemlose Verwendung von Daten zu ermöglichen, die in geschachtelten oder wiederholten Datentypen (beispielsweise in [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types)-Dateien) gespeichert sind, wurden über SQL On-Demand die unten angegebenen Erweiterungen hinzugefügt.
+Um eine problemlose Verwendung von Daten zu ermöglichen, die in geschachtelten oder wiederholten Datentypen (beispielsweise in [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types)-Dateien) gespeichert sind, wurden über den serverlosen SQL-Pool die unten angegebenen Erweiterungen hinzugefügt.
 
 #### <a name="project-nested-or-repeated-data"></a>Projizieren von geschachtelten oder wiederholten Daten
 
@@ -222,7 +222,7 @@ Sie können sich weiter über das Abfragen verschiedener Datentypen informieren,
 ### <a name="tools"></a>Tools
 
 Für Abfragen erforderliche Tools:
-    - Azure Synapse Studio (Vorschauversion)
+    - Azure Synapse Studio 
     - Azure Data Studio
     - SQL Server Management Studio
 

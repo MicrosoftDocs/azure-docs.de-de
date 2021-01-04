@@ -5,11 +5,11 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 07/27/2019
 ms.openlocfilehash: 1713c8898c0df2eb86732554d7656a26720009d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73590772"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993315"
 ---
 > [!div class="op_single_selector"]
 > * [Portal](../articles/iot-hub/iot-hub-portal-csharp-module-twin-getstarted.md)

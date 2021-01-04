@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
-ms.openlocfilehash: 235f4eb236e144d41ffb9958b09dab0cf5c269b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2c266d31a3aacc5bc97434de2246bfb1285a1ee
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462427"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565703"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>Anleitung: Ausführen einer Anwendung mit Fortanix Enclave Manager 
 
@@ -120,7 +120,7 @@ Beim Erstellen eines Fortanix Node Agents werden in Ihrer Azure-Ressourcengruppe
 1. Auf dieser Seite geben Sie Informationen zur Bereitstellung eines virtuellen Computers ein. Konkret handelt es sich bei dieser VM um einen Intel SGX-fähigen virtuellen Computer der DCsv2-Serie von Azure mit installierter Fortanix Node Agent-Software. Der Node Agent ermöglicht die sichere Ausführung Ihres konvertierten Images auf Intel SGX-Knoten in Azure.  Wählen Sie das  **Abonnement** und die  **Ressourcengruppe** aus, in der Sie den virtuellen Computer und die zugehörigen Ressourcen bereitstellen möchten. 
  
     > [!NOTE]
-    > Für die Bereitstellung von virtuellen Computern der DCsv2-Serie in Azure gelten Einschränkungen. Möglicherweise müssen Sie Kontingente für zusätzliche Kerne anfordern. Weitere Informationen finden Sie unter [Confidential Computing-Lösungen auf Azure VMs](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions). 
+    > Für die Bereitstellung von virtuellen Computern der DCsv2-Serie in Azure gelten Einschränkungen. Möglicherweise müssen Sie Kontingente für zusätzliche Kerne anfordern. Weitere Informationen finden Sie unter [Confidential Computing-Lösungen auf Azure VMs](./virtual-machine-solutions.md). 
 
 1. Wählen Sie eine verfügbare Region aus.
 1. Geben Sie in das Feld **Knotenname** einen Namen für Ihren virtuellen Computer ein. 
@@ -174,4 +174,4 @@ In diesem Schnellstart haben Sie mit Fortanix-Tools Ihr Anwendungsimage so konve
 
 Weitere Informationen zu den Confidential Computing-Angeboten von Azure finden Sie unter [Azure Confidential Computing: Übersicht](overview.md).
 
- Erfahren Sie, wie Sie ähnliche Aufgaben mit anderen Drittanbieterangeboten für Azure wie [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) und [Scone](https://sconedocs.github.io) erledigen können.  
+ Erfahren Sie, wie Sie ähnliche Aufgaben mit anderen Drittanbieterangeboten für Azure wie [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) und [Scone](https://sconedocs.github.io) erledigen können.

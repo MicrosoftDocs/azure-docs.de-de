@@ -1,20 +1,21 @@
 ---
 title: Modellieren von Graphdaten für die Gremlin-API von Azure Cosmos DB
 description: Hier erfahren Sie, wie Sie mithilfe der Gremlin-API von Azure Cosmos DB eine Graphdatenbank modellieren. In diesem Artikel wird beschrieben, in welchen Fällen eine Graphdatenbank verwendet werden sollte. Außerdem enthält er Informationen zu bewährten Methoden zum Modellieren von Entitäten und Beziehungen.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
-ms.author: jasonh
-ms.openlocfilehash: 2176708d3b5371a9bb66a59a7c6c0af56c337e28
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.author: chrande
+ms.openlocfilehash: d99e2e2ffd63b050e7373c98084fed3fb14727bf
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490627"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357044"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modellieren von Graphdaten für die Gremlin-API von Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Das folgende Dokument enthält Empfehlungen für die Modellierung von Graphdaten. Dieser Schritt ist entscheidend, um die Skalierbarkeit und Leistung eines Graphdatenbanksystems zu gewährleisten, auch wenn sich die Daten weiterentwickeln. Ein effizientes Datenmodell ist insbesondere bei großen Graphen wichtig.
 
@@ -29,19 +30,19 @@ Der in dieser Anleitung beschriebene Prozess basiert auf folgenden Annahmen:
 
 Eine Graphdatenbanklösung kann optimal angewendet werden, wenn die Entitäten und Beziehungen in einer Datendomäne folgende Merkmale aufweisen: 
 
-* Die Entitäten sind durch beschreibende Beziehungen **stark vernetzt** . Der Vorteil in diesem Szenario besteht darin, dass die Beziehungen persistent gespeichert werden.
-* Es gibt **zyklische Beziehungen** und **Entitäten mit Selbstverweis** . Dieses Muster stellt bei relationalen Datenbanken oder Dokumentdatenbanken häufig eine Herausforderung dar.
-* Zwischen Entitäten gibt es **Beziehungen, die sich dynamisch entwickeln** . Dieses Muster ist insbesondere bei hierarchischen oder auf einer Baumstruktur basierenden Daten mit zahlreichen Ebenen anzutreffen.
-* Zwischen Entitäten gibt es **m:n-Beziehungen** .
+* Die Entitäten sind durch beschreibende Beziehungen **stark vernetzt**. Der Vorteil in diesem Szenario besteht darin, dass die Beziehungen persistent gespeichert werden.
+* Es gibt **zyklische Beziehungen** und **Entitäten mit Selbstverweis**. Dieses Muster stellt bei relationalen Datenbanken oder Dokumentdatenbanken häufig eine Herausforderung dar.
+* Zwischen Entitäten gibt es **Beziehungen, die sich dynamisch entwickeln**. Dieses Muster ist insbesondere bei hierarchischen oder auf einer Baumstruktur basierenden Daten mit zahlreichen Ebenen anzutreffen.
+* Zwischen Entitäten gibt es **m:n-Beziehungen**.
 * Es gibt **Schreib- und Leseanforderungen (sowohl für Entitäten als auch für Beziehungen)** . 
 
-Sind die obigen Kriterien erfüllt, hat ein Ansatz mit einer Graphdatenbank voraussichtlich Vorteile für die **Abfragekomplexität** , die **Skalierbarkeit des Datenmodells** und die **Abfrageleistung** .
+Sind die obigen Kriterien erfüllt, hat ein Ansatz mit einer Graphdatenbank voraussichtlich Vorteile für die **Abfragekomplexität** , die **Skalierbarkeit des Datenmodells** und die **Abfrageleistung**.
 
 Im nächsten Schritt muss bestimmt werden, ob der Graph für Analysen oder für Transaktionen verwendet wird. Wenn der Graph für Workloads mit hohen Rechen- und Datenverarbeitungsanforderungen vorgesehen ist, sollten Sie sich mit dem [Cosmos DB Spark-Connector](./spark-connector.md) sowie mit der Verwendung der [GraphX-Bibliothek](https://spark.apache.org/graphx/) vertraut machen. 
 
 ## <a name="how-to-use-graph-objects"></a>Verwenden von Graphobjekten
 
-Im [Eigenschaftsgraph-Standard von Apache Tinkerpop](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) sind zwei Arten von Objekten definiert: **Scheitelpunkte** und **Kanten** . 
+Im [Eigenschaftsgraph-Standard von Apache Tinkerpop](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) sind zwei Arten von Objekten definiert: **Scheitelpunkte** und **Kanten**. 
 
 Im Anschluss finden Sie die bewährten Methoden für die Eigenschaften in den Graphobjekten:
 
@@ -77,7 +78,7 @@ Ein häufig begangener Fehler besteht darin, Eigenschaften einer einzelnen Entit
 
 * **In Scheitelpunkte eingebettete Eigenschaften:** Bei diesem Ansatz wird die Liste mit Schlüssel-Wert-Paaren verwendet, um alle Eigenschaften der Entität innerhalb eines Scheitelpunkts darzustellen. Dadurch verringert sich die Modellkomplexität, was wiederum zu einfacheren Abfragen und kosteneffizienteren Traversierungen führt.
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Entitätsmodell mit Scheitelpunkten für Eigenschaften" border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Diagramm: LUIS-Scheitelpunkt aus dem vorherigen Diagramm mit ID, Bezeichnung und Eigenschaften" border="false":::
 
 > [!NOTE]
 > In den obigen Beispielen werden anhand eines vereinfachten Graphmodells lediglich die beiden Aufteilungsarten für Entitätseigenschaften miteinander verglichen.
@@ -88,7 +89,7 @@ Es gibt jedoch Szenarien, in denen unter Umständen Verweise auf eine Eigenschaf
 
 ### <a name="relationship-modeling-with-edge-directions"></a>Beziehungsmodellierung mit Kantenrichtungen
 
-Nach Abschluss der Scheitelpunktmodellierung können die Kanten hinzugefügt werden, um die gegenseitigen Beziehungen anzugeben. Der erste Aspekt, der ausgewertet werden muss, ist die **Richtung der Beziehung** . 
+Nach Abschluss der Scheitelpunktmodellierung können die Kanten hinzugefügt werden, um die gegenseitigen Beziehungen anzugeben. Der erste Aspekt, der ausgewertet werden muss, ist die **Richtung der Beziehung**. 
 
 Kantenobjekte haben eine Standardrichtung, die bei einer Traversierung unter Verwendung der Funktion `out()` oder `outE()` verwendet wird. Die Verwendung dieser natürlichen Richtung ist effizient, da alle Scheitelpunkte mit ihren ausgehenden Kanten gespeichert werden. 
 
@@ -105,7 +106,7 @@ Die Verwendung aussagekräftiger Beziehungsbezeichnungen kann zur Verbesserung d
 * Verwenden Sie spezifische Begriffe für Beziehungsbezeichnungen.
 * Ordnen Sie die Bezeichnung des Quellscheitelpunkts der Bezeichnung des Zielscheitelpunkts mit dem Beziehungsnamen zu.
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Entitätsmodell mit Scheitelpunkten für Eigenschaften" border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Beispiele für Beziehungsbezeichnungen" border="false":::
 
 Je spezifischer die Bezeichnung, die bei der Traversierung zum Filtern der Kanten verwendet wird, desto besser. Diese Entscheidung kann sich auch erheblich auf die Abfragekosten auswirken. Die Abfragekosten können jederzeit [mithilfe des Schritts „Ausführungsprofil“](graph-execution-profile.md) ausgewertet werden.
 

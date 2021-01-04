@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 11/11/2020
 ms.author: aahi
-ms.openlocfilehash: 348fb301d1a36c8df405c641f7644889417b11ba
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: bb9b0da609169288521d21ee6d5e412a786c7549
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91545437"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94574344"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Containersicherheit in Azure Cognitive Services
 
@@ -33,7 +33,7 @@ Als alternativer und *sicherer* Ansatz könnten Consumer von Cognitive Services-
 
 ### <a name="container-networking"></a>Containernetzwerke
 
-Die Cognitive Services-Container sind erforderlich, um Messungsinformationen zu Abrechnungszwecken zu übermitteln. Die einzige Ausnahme bilden *Offlinecontainer*, da sie einer anderen Abrechnungsmethode unterliegen. Wenn Sie die verschiedenen Netzwerkkanäle, auf die sich die Cognitive Services-Container stützen, nicht in einer Zulassungsliste aufführen, funktionieren die Container nicht.
+Die Cognitive Services-Container sind erforderlich, um Messungsinformationen zu Abrechnungszwecken zu übermitteln. Wenn Sie die verschiedenen Netzwerkkanäle, auf die sich die Cognitive Services-Container stützen, nicht in einer Zulassungsliste aufführen, funktionieren die Container nicht.
 
 #### <a name="allow-list-cognitive-services-domains-and-ports"></a>Cognitive Services-Domänen und Ports in der Zulassungsliste aufführen
 

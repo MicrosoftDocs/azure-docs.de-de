@@ -7,16 +7,16 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 7ec511400d1e00d37993f2f4ee581bce1bccb897
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aef332e54fa650e1abbebe671560238d7eb318de
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715989"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492045"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Behandeln von Azure Files-Problemen unter Windows (SMB)
 
-Dieser Artikel beschreibt allgemeine Probleme im Zusammenhang mit Microsoft Azure Files, wenn Sie eine Verbindung von Windows-Clients herstellen. Darüber hinaus werden die möglichen Ursachen und Lösungen für diese Probleme bereitgestellt. Zusätzlich zu den Schritten zur Problembehandlung in diesem Artikel können Sie auch [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows)  verwenden, um sicherzustellen, dass die Windows-Clientumgebung über die richtigen erforderlichen Komponenten verfügt. AzFileDiagnostics automatisiert die Erkennung eines Großteils der Symptome, die in diesem Artikel erwähnt werden und hilft, Ihre Umgebung einzurichten, um eine optimale Leistung zu erzielen.
+Dieser Artikel beschreibt allgemeine Probleme im Zusammenhang mit Microsoft Azure Files, wenn Sie eine Verbindung von Windows-Clients herstellen. Darüber hinaus werden die möglichen Ursachen und Lösungen für diese Probleme bereitgestellt. Zusätzlich zu den Schritten zur Problembehandlung in diesem Artikel können Sie auch [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) verwenden, um sicherzustellen, dass die Windows-Clientumgebung über richtige erforderliche Komponenten verfügt. AzFileDiagnostics automatisiert die Erkennung eines Großteils der Symptome, die in diesem Artikel erwähnt werden und hilft, Ihre Umgebung einzurichten, um eine optimale Leistung zu erzielen.
 
 > [!IMPORTANT]
 > Der Inhalt dieses Artikels gilt nur für SMB-Freigaben. Weitere Informationen zu NFS-Freigaben finden Sie unter [Behandeln von Problemen mit Azure NFS-Dateifreigaben](storage-troubleshooting-files-nfs.md).
@@ -30,14 +30,14 @@ Wenn Sie versuchen, eine Dateifreigabe bereitzustellen, erhalten Sie möglicherw
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Ursache 1: Unverschlüsselter Kommunikationskanal
 
-Aus Sicherheitsgründen werden Verbindungen mit Azure-Dateifreigaben blockiert, wenn der Kommunikationskanal nicht verschlüsselt ist und der Verbindungsversuch nicht von dem gleichen Datencenter aus erfolgt, in dem sich die Azure-Dateifreigaben befinden. Unverschlüsselte Verbindungen innerhalb desselben Datencenters können auch blockiert werden, wenn die Einstellung [Sichere Übertragung erforderlich](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) für das Speicherkonto aktiviert ist. Ein verschlüsselter Kommunikationskanal wird nur dann bereitgestellt, wenn das Clientbetriebssystem des Benutzers SMB-Verschlüsselung unterstützt.
+Aus Sicherheitsgründen werden Verbindungen mit Azure-Dateifreigaben blockiert, wenn der Kommunikationskanal nicht verschlüsselt ist und der Verbindungsversuch nicht von dem gleichen Datencenter aus erfolgt, in dem sich die Azure-Dateifreigaben befinden. Unverschlüsselte Verbindungen innerhalb desselben Datencenters können auch blockiert werden, wenn die Einstellung [Sichere Übertragung erforderlich](../common/storage-require-secure-transfer.md) für das Speicherkonto aktiviert ist. Ein verschlüsselter Kommunikationskanal wird nur dann bereitgestellt, wenn das Clientbetriebssystem des Benutzers SMB-Verschlüsselung unterstützt.
 
 Windows 8, Windows Server 2012 und höhere Versionen jedes Systems handeln Anforderung aus, die SMB 3.0 umfassen, wodurch die Verschlüsselung unterstützt wird.
 
 ### <a name="solution-for-cause-1"></a>Lösung für Ursache 1
 
 1. Stellen Sie eine Verbindung von einem Client aus her, der SMB-Verschlüsselung unterstützt (Windows 8, Windows Server 2012 oder höher), oder stellen Sie eine Verbindung von einem virtuellen Computer aus her, der sich im selben Datencenter wie das Azure-Speicherkonto befindet, das für die Azure-Dateifreigabe verwendet wird.
-2. Vergewissern Sie sich, dass die Einstellung [Sichere Übertragung erforderlich](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) im Speicherkonto deaktiviert ist, wenn der Client keine SMB-Verschlüsselung unterstützt.
+2. Vergewissern Sie sich, dass die Einstellung [Sichere Übertragung erforderlich](../common/storage-require-secure-transfer.md) im Speicherkonto deaktiviert ist, wenn der Client keine SMB-Verschlüsselung unterstützt.
 
 ### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Ursache 2: Virtuelle Netzwerk- oder Firewallregeln sind für das Speicherkonto aktiviert. 
 
@@ -45,7 +45,7 @@ Wenn für das Speicherkonto Regeln für das virtuelle Netzwerk (VNET) und die Fi
 
 ### <a name="solution-for-cause-2"></a>Lösung für Ursache 2
 
-Stellen Sie sicher, dass virtuelle Netzwerk- und Firewallregeln für das Speicherkonto ordnungsgemäß konfiguriert sind. Um zu testen, ob virtuelle Netzwerk- oder Firewallregeln das Problem verursachen, ändern Sie vorübergehend die Einstellung für das Speicherkonto in **Zugriff aus allen Netzwerken zulassen**. Weitere Informationen finden Sie unter [Konfigurieren von Azure Storage-Firewalls und virtuellen Netzwerken](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Stellen Sie sicher, dass virtuelle Netzwerk- und Firewallregeln für das Speicherkonto ordnungsgemäß konfiguriert sind. Um zu testen, ob virtuelle Netzwerk- oder Firewallregeln das Problem verursachen, ändern Sie vorübergehend die Einstellung für das Speicherkonto in **Zugriff aus allen Netzwerken zulassen**. Weitere Informationen finden Sie unter [Konfigurieren von Azure Storage-Firewalls und virtuellen Netzwerken](../common/storage-network-security.md).
 
 ### <a name="cause-3-share-level-permissions-are-incorrect-when-using-identity-based-authentication"></a>Ursache 3: Berechtigungen auf Freigabeebene sind bei Verwendung der identitätsbasierten Authentifizierung falsch
 
@@ -55,10 +55,10 @@ Wenn Benutzer mithilfe der Active Directory (AD)- oder Azure Active Directory Do
 
 Überprüfen, ob Berechtigungen ordnungsgemäß konfiguriert sind:
 
-- **Active Directory (AD)** siehe [Zuweisen von Berechtigungen auf Freigabeebene für eine Identität](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions).
+- **Active Directory (AD)** siehe [Zuweisen von Berechtigungen auf Freigabeebene für eine Identität](./storage-files-identity-ad-ds-assign-permissions.md).
 
     Berechtigungszuweisungen auf Freigabeebene werden für Gruppen und Benutzer unterstützt, die mithilfe von Azure AD Connect von Active Directory (AD) zu Azure Active Directory (Azure AD) synchronisiert wurden.  Vergewissern Sie sich, dass Gruppen und Benutzer, denen Berechtigungen auf Freigabeebene zugewiesen werden, nicht zu den nicht unterstützten „reinen Cloudgruppen“ gehören.
-- **Azure Active Directory Domain Services (Azure AD DS)** siehe [Zuweisen von Zugriffsberechtigungen zu einer Identität](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable?tabs=azure-portal#assign-access-permissions-to-an-identity).
+- **Azure Active Directory Domain Services (Azure AD DS)** siehe [Zuweisen von Zugriffsberechtigungen zu einer Identität](./storage-files-identity-auth-active-directory-domain-service-enable.md?tabs=azure-portal#assign-access-permissions-to-an-identity).
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>„Fehler 53“, „Fehler 67“ oder „Fehler 87“ beim Versuch, eine Azure-Dateifreigabe einzubinden oder die Einbindung aufzuheben
@@ -111,7 +111,7 @@ TcpTestSucceeded : True
 ### <a name="solution-for-cause-1"></a>Lösung für Ursache 1
 
 #### <a name="solution-1---use-azure-file-sync"></a>Lösung 1: Azure-Dateisynchronisierung
-Mit der Azure-Dateisynchronisierung können Ihre lokalen Windows Server-Computer zu einem schnellen Cache für Ihre Azure-Dateifreigabe werden. Sie können ein beliebiges Protokoll verwenden, das unter Windows Server verfügbar ist, um lokal auf Ihre Daten zuzugreifen, z.B. SMB, NFS und FTPS. Die Azure-Dateisynchronisierung erfolgt über Port 443 und kann daher als Umgehung für den Zugriff auf Azure Files von Clients verwendet werden, bei denen Port 445 gesperrt ist. [Erfahren Sie, wie Sie die Azure-Dateisynchronisierung einrichten](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
+Mit der Azure-Dateisynchronisierung können Ihre lokalen Windows Server-Computer zu einem schnellen Cache für Ihre Azure-Dateifreigabe werden. Sie können ein beliebiges Protokoll verwenden, das unter Windows Server verfügbar ist, um lokal auf Ihre Daten zuzugreifen, z.B. SMB, NFS und FTPS. Die Azure-Dateisynchronisierung erfolgt über Port 443 und kann daher als Umgehung für den Zugriff auf Azure Files von Clients verwendet werden, bei denen Port 445 gesperrt ist. [Erfahren Sie, wie Sie die Azure-Dateisynchronisierung einrichten](./storage-sync-files-extend-servers.md).
 
 #### <a name="solution-2---use-vpn"></a>Lösung 2: VPN
 Indem Sie ein VPN für Ihr spezifisches Speicherkonto einrichten, durchläuft der Datenverkehr im Vergleich zum Internet einen sicheren Tunnel. Befolgen Sie die [Anweisungen zur Einrichtung eines VPN](storage-files-configure-p2s-vpn-windows.md) für den Zugriff auf Azure Files aus Windows.
@@ -120,7 +120,7 @@ Indem Sie ein VPN für Ihr spezifisches Speicherkonto einrichten, durchläuft de
 Arbeiten Sie mit Ihrer IT-Abteilung oder dem ISP zusammen, um den Ausgang von Datenverkehr über Port 445 für [IP-Bereiche von Azure](https://www.microsoft.com/download/details.aspx?id=41653) zu öffnen.
 
 #### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Lösung 4: REST-API-basierte Tools wie Storage-Explorer/PowerShell
-Azure Files unterstützt neben SMB auch REST. Der REST-Zugriff erfolgt über Port 443 (Standard: TCP). Es gibt verschiedene mit der REST-API geschriebene Tools, die eine vielseitige Benutzeroberfläche bereitstellen. [Storage-Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) ist eines davon. [Laden Sie Storage-Explorer herunter, installieren Sie ihn](https://azure.microsoft.com/features/storage-explorer/), und stellen eine Verbindung mit Ihrer Dateifreigabe in Azure Files her. Sie können auch [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) verwenden, die auch die REST-API nutzt.
+Azure Files unterstützt neben SMB auch REST. Der REST-Zugriff erfolgt über Port 443 (Standard: TCP). Es gibt verschiedene mit der REST-API geschriebene Tools, die eine vielseitige Benutzeroberfläche bereitstellen. [Storage-Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows) ist eines davon. [Laden Sie Storage-Explorer herunter, installieren Sie ihn](https://azure.microsoft.com/features/storage-explorer/), und stellen eine Verbindung mit Ihrer Dateifreigabe in Azure Files her. Sie können auch [PowerShell](./storage-how-to-use-files-powershell.md) verwenden, die auch die REST-API nutzt.
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>Ursache 2: NTLMv1 ist aktiviert
 
@@ -130,7 +130,7 @@ Um zu bestimmen, ob dies die Ursache des Fehlers ist, überprüfen Sie, ob der f
 
 **HKLM\SYSTEM\CurrentControlSet\Control\Lsa &gt; LmCompatibilityLevel**
 
-Weitere Informationen finden Sie im Thema [LmCompatibilityLevel](https://technet.microsoft.com/library/cc960646.aspx) im TechNet.
+Weitere Informationen finden Sie im Thema [LmCompatibilityLevel](/previous-versions/windows/it-pro/windows-2000-server/cc960646(v=technet.10)) im TechNet.
 
 ### <a name="solution-for-cause-2"></a>Lösung für Ursache 2
 
@@ -143,18 +143,18 @@ Setzen Sie den Wert **LmCompatibilityLevel** auf den Standardwert 3 im folgenden
 
 ### <a name="cause"></a>Ursache
 
-Der Fehler 1816 tritt auf, wenn Sie die Obergrenze der parallelen offenen Handles erreichen, die für eine Datei oder ein Verzeichnis in der Azure-Dateifreigabe zulässig sind. Weitere Informationen finden Sie unter [Skalierbarkeitsziele für Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#azure-files-scale-targets).
+Der Fehler 1816 tritt auf, wenn Sie die Obergrenze der parallelen offenen Handles erreichen, die für eine Datei oder ein Verzeichnis in der Azure-Dateifreigabe zulässig sind. Weitere Informationen finden Sie unter [Skalierbarkeitsziele für Azure Files](./storage-files-scale-targets.md#azure-files-scale-targets).
 
 ### <a name="solution"></a>Lösung
 
-Reduzieren Sie die Anzahl der gleichzeitig geöffneten Handles, indem Sie einige Handles schließen und es anschließend erneut versuchen. Weitere Informationen finden Sie unter [Checkliste zur Leistung und Skalierbarkeit von Microsoft Azure Storage](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+Reduzieren Sie die Anzahl der gleichzeitig geöffneten Handles, indem Sie einige Handles schließen und es anschließend erneut versuchen. Weitere Informationen finden Sie unter [Checkliste zur Leistung und Skalierbarkeit von Microsoft Azure Storage](../blobs/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-Verwenden Sie das PowerShell-Cmdlet [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle), um geöffnete Handles für eine Dateifreigabe, ein Verzeichnis oder eine Datei anzuzeigen.  
+Verwenden Sie das PowerShell-Cmdlet [Get-AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle), um geöffnete Handles für eine Dateifreigabe, ein Verzeichnis oder eine Datei anzuzeigen.  
 
-Verwenden Sie das PowerShell-Cmdlet [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle), um geöffnete Handles für eine Dateifreigabe, ein Verzeichnis oder eine Datei zu schließen.
+Verwenden Sie das PowerShell-Cmdlet [Close-AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle), um geöffnete Handles für eine Dateifreigabe, ein Verzeichnis oder eine Datei zu schließen.
 
 > [!Note]  
-> Die Cmdlets Get-AzStorageFileHandle und Close-AzStorageFileHandle sind im Az PowerShell-Modul, Version 2.4 oder höher, enthalten. Informationen zum Installieren des neuesten Az PowerShell-Moduls finden Sie unter [Installieren des Azure PowerShell-Moduls](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> Die Cmdlets Get-AzStorageFileHandle und Close-AzStorageFileHandle sind im Az PowerShell-Modul, Version 2.4 oder höher, enthalten. Informationen zum Installieren des neuesten Az PowerShell-Moduls finden Sie unter [Installieren des Azure PowerShell-Moduls](/powershell/azure/install-az-ps).
 
 <a id="noaaccessfailureportal"></a>
 ## <a name="error-no-access-when-you-try-to-access-or-delete-an-azure-file-share"></a>Fehler „Kein Zugriff“ beim Versuch, auf eine Azure-Dateifreigabe zuzugreifen oder sie zu löschen  
@@ -167,33 +167,92 @@ Fehlercode: 403
 
 ### <a name="solution-for-cause-1"></a>Lösung für Ursache 1
 
-Stellen Sie sicher, dass virtuelle Netzwerk- und Firewallregeln für das Speicherkonto ordnungsgemäß konfiguriert sind. Um zu testen, ob virtuelle Netzwerk- oder Firewallregeln das Problem verursachen, ändern Sie vorübergehend die Einstellung für das Speicherkonto in **Zugriff aus allen Netzwerken zulassen**. Weitere Informationen finden Sie unter [Konfigurieren von Azure Storage-Firewalls und virtuellen Netzwerken](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Stellen Sie sicher, dass virtuelle Netzwerk- und Firewallregeln für das Speicherkonto ordnungsgemäß konfiguriert sind. Um zu testen, ob virtuelle Netzwerk- oder Firewallregeln das Problem verursachen, ändern Sie vorübergehend die Einstellung für das Speicherkonto in **Zugriff aus allen Netzwerken zulassen**. Weitere Informationen finden Sie unter [Konfigurieren von Azure Storage-Firewalls und virtuellen Netzwerken](../common/storage-network-security.md).
 
 ### <a name="cause-2-your-user-account-does-not-have-access-to-the-storage-account"></a>Ursache 2: Ihr Benutzerkonto besitzt keinen Zugriff auf das Speicherkonto
 
 ### <a name="solution-for-cause-2"></a>Lösung für Ursache 2
 
-Navigieren Sie zu dem Speicherkonto, in dem sich die Azure-Dateifreigabe befindet, klicken Sie auf **Zugriffssteuerung (IAM)** , und überprüfen Sie, ob Ihr Benutzerkonto Zugriff auf das Speicherkonto besitzt. Weitere Informationen finden Sie unter [Schützen Ihres Speicherkontos mit rollenbasierter Zugriffssteuerung (Azure RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
+Navigieren Sie zu dem Speicherkonto, in dem sich die Azure-Dateifreigabe befindet, klicken Sie auf **Zugriffssteuerung (IAM)** , und überprüfen Sie, ob Ihr Benutzerkonto Zugriff auf das Speicherkonto besitzt. Weitere Informationen finden Sie unter [Schützen Ihres Speicherkontos mit rollenbasierter Zugriffssteuerung (Azure RBAC)](../blobs/security-recommendations.md#data-protection).
 
 <a id="open-handles"></a>
-## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Eine Datei oder ein Verzeichnis in einer Azure-Dateifreigabe kann nicht gelöscht werden
-Wenn Sie versuchen, eine Datei zu löschen, wird möglicherweise folgende Fehlermeldung angezeigt:
+## <a name="unable-to-modify-moverename-or-delete-a-file-or-directory"></a>Datei oder Verzeichnis kann nicht geändert, verschoben/umbenannt oder gelöscht werden
+Einer der Hauptzwecke einer Dateifreigabe ist, dass mehrere Benutzer und Anwendungen gleichzeitig mit Dateien und Verzeichnissen in der Freigabe interagieren können. Um diese Interaktion zu unterstützen, bieten Dateifreigaben verschiedene Methoden zur Vermittlung des Zugriffs auf Dateien und Verzeichnisse.
 
-Die angegebene Ressource ist zum Löschen durch einen SMB-Client markiert.
+Wenn Sie eine Datei aus einer bereitgestellten Azure-Dateifreigabe über SMB öffnen, fordert die Anwendung bzw. das Betriebssystem ein Dateihandle an, bei dem es sich um einen Verweis auf die Datei handelt. Unter anderem gibt die Anwendung beim Anfordern eines Dateihandles einen Dateifreigabemodus an, der die Exklusivitätsebene des Zugriffs auf die Datei bestimmt, die durch Azure Files erzwungen wird: 
 
-### <a name="cause"></a>Ursache
-Dieses Problem tritt in der Regel auf, wenn für die Datei oder das Verzeichnis ein geöffnetes Handle vorhanden ist. 
+- `None`: Sie verfügen über exklusiven Zugriff. 
+- `Read`: Andere Benutzer können die Datei lesen, während Sie diese geöffnet haben.
+- `Write`: Andere Benutzer können in die Datei schreiben, während Sie diese geöffnet haben. 
+- `ReadWrite`: Eine Kombination der Freigabemodi `Read` und `Write`.
+- `Delete`: Andere Benutzer können die Datei löschen, während Sie diese geöffnet haben. 
 
-### <a name="solution"></a>Lösung
+Zwar weist das FileREST-Protokoll als statusfreies Protokoll kein Konzept für Dateihandles auf, doch bietet es einen ähnlichen Mechanismus zur Vermittlung des Zugriffs auf Dateien und Ordner, der vom Skript, der Anwendung oder dem Dienst verwendet werden kann: Dateileases. Wenn eine Datei geleast ist, wird Sie wie ein Dateihandle mit dem Dateifreigabemodus `None` behandelt. 
 
-Wenn die SMB-Clients alle geöffneten Handles geschlossen haben und das Problem weiterhin auftritt, führen Sie Folgendes aus:
+Obwohl Dateihandles und Leases einen wichtigen Zweck erfüllen, können sie manchmal verwaist sein. Dies kann dann Probleme beim Ändern oder Löschen von Dateien verursachen. Möglicherweise werden Fehlermeldungen wie die folgenden angezeigt:
 
-- Verwenden Sie das PowerShell-Cmdlet [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle), um geöffnete Handles anzuzeigen.
+- Der Prozess kann nicht auf die Datei zugreifen, da sie bereits von einem anderen Prozess verwendet wird.
+- Die Aktion kann nicht ausgeführt werden, weil die Datei in einem anderen Programm geöffnet ist.
+- Das Dokument ist für die Bearbeitung durch einen anderen Benutzer gesperrt.
+- Die angegebene Ressource ist zum Löschen durch einen SMB-Client markiert.
 
-- Verwenden Sie das PowerShell-Cmdlet [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle), um geöffnete Handles zu schließen. 
+Die Lösung für dieses Problem hängt davon ab, ob es durch ein verwaistes Dateihandle oder eine verwaiste Lease verursacht wird. 
+
+### <a name="cause-1"></a>Ursache 1
+Ein Dateihandle verhindert, dass eine Datei bzw. ein Verzeichnis geändert oder gelöscht wird. Sie können das PowerShell-Cmdlet [Get-AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) verwenden, um geöffnete Handles anzuzeigen. 
+
+Wenn alle SMB-Clients ihre geöffneten Handles für eine Datei oder ein Verzeichnis geschlossen haben und das Problem weiterhin auftritt, können Sie das Schließen eines Dateihandles erzwingen.
+
+### <a name="solution-1"></a>Lösung 1
+Um das Schließen eines Dateihandles zu erzwingen, verwenden Sie das PowerShell-Cmdlet [Close-AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle). 
 
 > [!Note]  
-> Die Cmdlets Get-AzStorageFileHandle und Close-AzStorageFileHandle sind im Az PowerShell-Modul, Version 2.4 oder höher, enthalten. Informationen zum Installieren des neuesten Az PowerShell-Moduls finden Sie unter [Installieren des Azure PowerShell-Moduls](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> Die Cmdlets Get-AzStorageFileHandle und Close-AzStorageFileHandle sind im Az PowerShell-Modul, Version 2.4 oder höher, enthalten. Informationen zum Installieren des neuesten Az PowerShell-Moduls finden Sie unter [Installieren des Azure PowerShell-Moduls](/powershell/azure/install-az-ps).
+
+### <a name="cause-2"></a>Ursache 2
+Eine Dateilease verhindert, dass eine Datei geändert oder gelöscht wird. Mit dem folgenden PowerShell-Cmdlet können Sie überprüfen, ob eine Datei über eine Dateilease verfügt, Dazu ersetzen Sie `<resource-group>`, `<storage-account>`, `<file-share>` und `<path-to-file>` durch die entsprechenden Werte für Ihre Umgebung:
+
+```PowerShell
+# Set variables 
+$resourceGroupName = "<resource-group>"
+$storageAccountName = "<storage-account>"
+$fileShareName = "<file-share>"
+$fileForLease = "<path-to-file>"
+
+# Get reference to storage account
+$storageAccount = Get-AzStorageAccount `
+        -ResourceGroupName $resourceGroupName `
+        -Name $storageAccountName
+
+# Get reference to file
+$file = Get-AzStorageFile `
+        -Context $storageAccount.Context `
+        -ShareName $fileShareName `
+        -Path $fileForLease
+
+$fileClient = $file.ShareFileClient
+
+# Check if the file has a file lease
+$fileClient.GetProperties().Value
+```
+
+Wenn eine Datei über eine Lease verfügt, sollte das zurückgegebene Objekt die folgenden Eigenschaften enthalten:
+
+```Output
+LeaseDuration         : Infinite
+LeaseState            : Leased
+LeaseStatus           : Locked
+```
+
+### <a name="solution-2"></a>Lösung 2
+Um eine Lease für eine Datei zu entfernen, können Sie die Lease freigeben oder die Lease unterbrechen. Zum Freigeben der Lease benötigen Sie die Lease-ID, die Sie beim Erstellen der Lease festgelegt haben. Sie benötigen die Lease-ID nicht, um die Lease zu unterbrechen.
+
+Im folgenden Beispiel wird gezeigt, wie Sie die Lease für die unter Ursache 2 angegebene Datei unterbrechen (dieses Beispiel wird mit den PowerShell-Variablen aus Ursache 2 fortgesetzt):
+
+```PowerShell
+$leaseClient = [Azure.Storage.Files.Shares.Specialized.ShareLeaseClient]::new($fileClient)
+$leaseClient.Break() | Out-Null
+```
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Langsames Kopieren von Dateien in und aus Azure Files unter Windows
@@ -203,8 +262,8 @@ Die Leistung ist möglicherweise langsam, wenn Sie versuchen, Dateien in den Azu
 - Wenn Sie keine bestimmte Anforderung für die Mindest-E/A-Größe haben, empfehlen wir Ihnen für eine optimale Leistung die Verwendung von 1 MiB als E/A-Größe.
 -   Wenn Sie die endgültige Größe einer Datei kennen, die Sie mit Schreibvorgängen erweitern, und Ihre Software keine Kompatibilitätsprobleme aufweist, wenn das noch nicht geschriebene Fragment in der Datei Nullen enthält, legen Sie die Dateigröße im Voraus fest (anstatt jeden Schreibvorgang zu einem Erweiterungsschreibvorgang zu machen).
 -   Verwenden Sie die richtige Kopiermethode:
-    -   Verwenden Sie [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) für Übertragungen zwischen zwei Dateifreigaben.
-    -   Verwenden Sie [Robocopy](/azure/storage/files/storage-files-deployment-guide#robocopy) zwischen Dateifreigaben auf einem lokalen Computer.
+    -   Verwenden Sie [AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) für Übertragungen zwischen zwei Dateifreigaben.
+    -   Verwenden Sie [Robocopy](./storage-files-deployment-guide.md#robocopy) zwischen Dateifreigaben auf einem lokalen Computer.
 
 ### <a name="considerations-for-windows-81-or-windows-server-2012-r2"></a>Überlegungen zu Windows 8.1 oder Windows Server 2012 R2
 
@@ -231,7 +290,7 @@ Wenn Sie eine Azure-Dateifreigabe als Administrator mithilfe des Befehls „net 
 Standardmäßig wird der Windows-Datei-Explorer nicht als Administrator ausgeführt. Wenn Sie „net use“ von einer administrativen Eingabeaufforderung aus ausführen, ordnen Sie das Netzlaufwerk als Administrator zu. Da zugeordnete Laufwerke benutzerorientiert sind, zeigt das angemeldete Benutzerkonto die Laufwerke nicht an, wenn sie unter einem anderen Benutzerkonto eingebunden werden.
 
 ### <a name="solution"></a>Lösung
-Binden Sie die Freigabe von einer Befehlszeile für Benutzer ohne Administratorrechte aus ein. Alternativ können Sie [diesem TechNet-Thema folgen](https://technet.microsoft.com/library/ee844140.aspx), um den Registrierungswert **EnableLinkedConnections** zu konfigurieren.
+Binden Sie die Freigabe von einer Befehlszeile für Benutzer ohne Administratorrechte aus ein. Alternativ können Sie [diesem TechNet-Thema folgen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee844140(v=ws.10)), um den Registrierungswert **EnableLinkedConnections** zu konfigurieren.
 
 <a id="netuse"></a>
 ## <a name="net-use-command-fails-if-the-storage-account-contains-a-forward-slash"></a>Der Befehl „net use“ schlägt fehl, wenn das Speicherkonto einen Schrägstrich enthält
@@ -317,20 +376,20 @@ Sie können den Wert beispielsweise auf 0x100000 festlegen und überprüfen, ob 
 
 ### <a name="cause"></a>Ursache
 
-Der Fehler „AadDsTenantNotFound“ tritt auf, wenn Sie versuchen, die [Aktivierung der Azure Active Directory Domain Services-Authentifizierung über Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) für ein Speicherkonto vorzunehmen, für das [Azure Active Directory Domain Services (Azure AD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) nicht im Azure AD-Mandanten des zugehörigen Abonnements erstellt wurde.  
+Der Fehler „AadDsTenantNotFound“ tritt auf, wenn Sie versuchen, die [Aktivierung der Azure Active Directory Domain Services-Authentifizierung über Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) für ein Speicherkonto vorzunehmen, für das [Azure Active Directory Domain Services (Azure AD DS)](../../active-directory-domain-services/overview.md) nicht im Azure AD-Mandanten des zugehörigen Abonnements erstellt wurde.  
 
 ### <a name="solution"></a>Lösung
 
-Aktivieren Sie Azure AD DS für den Azure AD-Mandanten des Abonnements, in dem Ihr Speicherkonto bereitgestellt ist. Sie benötigen Administratorrechte für den Azure AD-Mandanten, um eine verwaltete Domäne erstellen zu können. Wenn Sie nicht der Administrator des Azure AD-Mandanten sind, wenden Sie sich an den Administrator und folgen Sie der schrittweisen Anleitung zum [Aktivieren von Azure Active Directory Domain Services über das Azure-Portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
+Aktivieren Sie Azure AD DS für den Azure AD-Mandanten des Abonnements, in dem Ihr Speicherkonto bereitgestellt ist. Sie benötigen Administratorrechte für den Azure AD-Mandanten, um eine verwaltete Domäne erstellen zu können. Wenn Sie nicht der Administrator des Azure AD-Mandanten sind, wenden Sie sich an den Administrator, und folgen Sie der Schrittanleitung zum [Erstellen und Konfigurieren einer verwalteten Azure Active Directory Domain Services-Domäne](../../active-directory-domain-services/tutorial-create-instance.md).
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
 ## <a name="unable-to-mount-azure-files-with-ad-credentials"></a>Azure Files mit AD-Anmeldeinformationen kann nicht eingebunden werden 
 
 ### <a name="self-diagnostics-steps"></a>Selbstdiagnoseschritte
-Stellen Sie zunächst sicher, dass Sie alle vier Schritte durchgeführt haben, um die [Azure Files-AD-Authentifizierung](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable) zu aktivieren.
+Stellen Sie zunächst sicher, dass Sie alle vier Schritte durchgeführt haben, um die [Azure Files-AD-Authentifizierung](./storage-files-identity-auth-active-directory-enable.md) zu aktivieren.
 
-Versuchen Sie dann, die [Azure-Dateifreigabe mit dem Speicherkontoschlüssel](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) einzubinden. Wenn beim Einbinden ein Fehler aufgetreten ist, laden Sie [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) herunter, um die Clientausführungsumgebung zu überprüfen und die nicht kompatible Clientkonfiguration zu erkennen, die zu einem Zugriffsfehler für Azure Files führen würde. Zudem stellt das Tool Anleitungen zur Selbsthilfe bereit und erfasst die Diagnoseablaufverfolgungen.
+Versuchen Sie dann, die [Azure-Dateifreigabe mit dem Speicherkontoschlüssel](./storage-how-to-use-files-windows.md) einzubinden. Wenn beim Einbinden ein Fehler aufgetreten ist, laden Sie [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) herunter, um die Clientausführungsumgebung zu überprüfen und die nicht kompatible Clientkonfiguration zu erkennen, die zu einem Zugriffsfehler für Azure Files führen würde. Zudem stellt das Tool Anleitungen zur Selbsthilfe bereit und erfasst die Diagnoseablaufverfolgungen.
 
 Drittens können Sie das Cmdlet Debug-AzStorageAccountAuth ausführen, um eine Reihe grundlegender Überprüfungen Ihrer AD-Konfiguration mit dem angemeldeten AD-Benutzer durchzuführen. Dieses Cmdlet wird von der [Version AzFilesHybrid v0.1.2+](https://github.com/Azure-Samples/azure-files-samples/releases) unterstützt. Sie müssen dieses Cmdlet mit einem AD-Benutzer ausführen, der über die Besitzerberechtigung für das Zielspeicherkonto verfügt.  
 ```PowerShell
@@ -340,13 +399,13 @@ $StorageAccountName = "<storage-account-name-here>"
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 ```
 Das Cmdlet führt diese nachfolgenden Überprüfungen der Reihe nach durch und bietet Anleitungen zu Fehlern:
-1. CheckADObjectPasswordIsCorrect: Sicherstellen, dass das für die AD-Identität konfigurierte Kennwort, das das Speicherkonto darstellt, mit dem kerb1- oder kerb2-Schlüssel des Speicherkontos übereinstimmt. Wenn das Kennwort falsch ist, können Sie [Update-AzStorageAccountADObjectPassword](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-update-password) ausführen, um das Kennwort zurückzusetzen. 
+1. CheckADObjectPasswordIsCorrect: Sicherstellen, dass das für die AD-Identität konfigurierte Kennwort, das das Speicherkonto darstellt, mit dem kerb1- oder kerb2-Schlüssel des Speicherkontos übereinstimmt. Wenn das Kennwort falsch ist, können Sie [Update-AzStorageAccountADObjectPassword](./storage-files-identity-ad-ds-update-password.md) ausführen, um das Kennwort zurückzusetzen. 
 2. CheckADObject: Vergewissern Sie sich, dass in Active Directory ein Objekt vorhanden ist, das das Speicherkonto darstellt und den richtigen SPN (Dienstprinzipalnamen) aufweist. Wenn der SPN nicht ordnungsgemäß eingerichtet ist, führen Sie das Cmdlet „Set-AD“ aus, das im Debug-Cmdlet zurückgegeben wird, um den SPN zu konfigurieren.
-3. CheckDomainJoined: Überprüfen Sie, ob der Clientcomputer Mitglied der AD-Domäne ist. Wenn Ihr Computer nicht in die AD-Domäne eingebunden ist, finden Sie weitere Informationen in diesem [Artikel](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain#:~:text=To%20join%20a%20computer%20to%20a%20domain&text=Navigate%20to%20System%20and%20Security,join%2C%20and%20then%20click%20OK) mit Anweisungen zum Domänenbeitritt.
+3. CheckDomainJoined: Überprüfen Sie, ob der Clientcomputer Mitglied der AD-Domäne ist. Wenn Ihr Computer nicht in die AD-Domäne eingebunden ist, finden Sie weitere Informationen in diesem [Artikel](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain) mit Anweisungen zum Domänenbeitritt.
 4. CheckPort445Connectivity: Überprüfen Sie, ob Port 445 für SMB-Verbindungen geöffnet ist. Wenn der erforderliche Port nicht geöffnet ist, finden Sie im Tool zur Problembehandlung [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) Informationen zu Konnektivitätsproblemen mit Azure Files.
 5. CheckSidHasAadUser: Überprüfung, ob der angemeldete AD-Benutzer mit Azure AD synchronisiert ist. Wenn Sie nachschlagen möchten, ob ein bestimmter AD-Benutzer mit Azure AD synchronisiert ist, können Sie den Benutzernamen und die Domäne in den Eingabeparametern angeben. 
 6. CheckGetKerberosTicket: Versuch, ein Kerberos-Ticket für die Verbindung mit dem Speicherkonto zu erhalten. Wenn kein gültiges Kerberos-Token vorhanden ist, führen Sie das Cmdlet „klist get cifs/storage-account-name.file.core.windows.net“ aus, und betrachten Sie den Fehlercode, um die Ursache für den Fehler beim Ticketabruf zu ermitteln.
-7. CheckStorageAccountDomainJoined: Überprüfung, ob die AD-Authentifizierung aktiviert wurde und die AD-Eigenschaften des Kontos eingegeben wurden. Wenn dies nicht der Fall ist, finden Sie [hier](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable) eine Anleitung zum Aktivieren der AD DS-Authentifizierung für Azure Files. 
+7. CheckStorageAccountDomainJoined: Überprüfung, ob die AD-Authentifizierung aktiviert wurde und die AD-Eigenschaften des Kontos eingegeben wurden. Wenn dies nicht der Fall ist, finden Sie [hier](./storage-files-identity-ad-ds-enable.md) eine Anleitung zum Aktivieren der AD DS-Authentifizierung für Azure Files. 
 
 ## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>Berechtigungen auf Verzeichnis-/Dateiebene (Windows-ACLs) können nicht mit Windows-Datei-Explorer konfiguriert werden
 
@@ -358,7 +417,7 @@ Beim Versuch, Windows-ACLs mit dem Datei-Explorer auf einer bereitgestellten Dat
 
 ### <a name="solution"></a>Lösung
 
-Wir empfehlen Ihnen, als Problemumgehung die Berechtigungen auf Verzeichnis-/Dateiebene mithilfe des [icacls-Tools](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) zu konfigurieren. 
+Wir empfehlen Ihnen, als Problemumgehung die Berechtigungen auf Verzeichnis-/Dateiebene mithilfe des [icacls-Tools](/windows-server/administration/windows-commands/icacls) zu konfigurieren. 
 
 ## <a name="errors-when-running-join-azstorageaccountforauth-cmdlet"></a>Fehler beim Ausführen des Cmdlets „Join-AzStorageAccountForAuth“
 
@@ -372,7 +431,7 @@ Dieser Fehler wird wahrscheinlich durch einen Syntaxfehler im Befehl „Join-AzS
 
 ## <a name="azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption"></a>Azure Files-Unterstützung der lokalen AD DS-Authentifizierung für die AES 256-Kerberos-Verschlüsselung
 
-Mit dem [AzFilesHybrid-Modul v0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases) haben wir die Azure Files-Unterstützung der lokalen AD DS-Authentifizierung für die AES 256-Kerberos-Verschlüsselung eingeführt. Wenn Sie die AD DS-Authentifizierung mit einer Modulversion unter v0.2.2 aktiviert haben, müssen Sie das neueste AzFilesHybrid-Modul (v0.2.2+) herunterladen und PowerShell nachfolgend ausführen. Wenn Sie die AD DS-Authentifizierung für Ihr Speicherkonto noch nicht aktiviert haben, können Sie zur Aktivierung diesem [Leitfaden](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable#option-one-recommended-use-azfileshybrid-powershell-module) folgen. 
+Mit dem [AzFilesHybrid-Modul v0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases) haben wir die Azure Files-Unterstützung der lokalen AD DS-Authentifizierung für die AES 256-Kerberos-Verschlüsselung eingeführt. Wenn Sie die AD DS-Authentifizierung mit einer Modulversion unter v0.2.2 aktiviert haben, müssen Sie das neueste AzFilesHybrid-Modul (v0.2.2+) herunterladen und PowerShell nachfolgend ausführen. Wenn Sie die AD DS-Authentifizierung für Ihr Speicherkonto noch nicht aktiviert haben, können Sie zur Aktivierung diesem [Leitfaden](./storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module) folgen. 
 
 ```PowerShell
 $ResourceGroupName = "<resource-group-name-here>"

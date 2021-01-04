@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.openlocfilehash: 165b7d00c3cf307e7996e84a35bb2a202f448cc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c09a910ea5f6ac5c66a94c73bda49d1f65630708
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86076877"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545224"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Verwenden von Apache Sqoop mit Hadoop in HDInsight
 
@@ -97,15 +97,15 @@ Der Cluster, die SQL-Datenbank und andere Objekte werden über das Azure-Portal 
 
     Der Name des [logischen SQL-Servers](../../azure-sql/database/logical-servers.md) lautet `<ClusterName>dbserver`. Der Datenbankname lautet `<ClusterName>db`. Der Name des Standardspeicherkontos lautet `e6qhezrh2pdqu`.
 
-3. Aktivieren Sie **Ich stimme den oben genannten Geschäftsbedingungen zu**.
+3. Aktivieren Sie **Ich stimme den oben genannten Geschäftsbedingungen zu** .
 
-4. Wählen Sie die Option **Kaufen**. Daraufhin wird eine neue Kachel mit der Bezeichnung „Bereitstellung für Vorlagenbereitstellung wird gesendet“ angezeigt. Das Erstellen des Clusters und der SQL-Datenbank dauert ca. 20 Minuten.
+4. Wählen Sie die Option **Kaufen** . Daraufhin wird eine neue Kachel mit der Bezeichnung „Bereitstellung für Vorlagenbereitstellung wird gesendet“ angezeigt. Das Erstellen des Clusters und der SQL-Datenbank dauert ca. 20 Minuten.
 
 ## <a name="run-sqoop-jobs"></a>Ausführen von Sqoop-Aufträgen
 
 HDInsight kann Sqoop-Aufträge mit verschiedenen Methoden ausführen. Die folgende Tabelle hilft Ihnen bei der Entscheidung, welche Methode für Sie geeignet ist. Folgen Sie anschließend dem Link für eine exemplarische Vorgehensweise.
 
-| **Verwenden Sie dies**, wenn Sie Folgendes wünschen: | ... eine **interaktive** Shell | ...**Batchverarbeitung** | ...von diesem **Clusterbetriebssystem** |
+| **Verwenden Sie dies** , wenn Sie Folgendes wünschen: | ... eine **interaktive** Shell | ... **Batchverarbeitung** | ...von diesem **Clusterbetriebssystem** |
 |:--- |:---:|:---:|:--- |:--- |
 | [SSH](apache-hadoop-use-sqoop-mac-linux.md) |? |? |Linux, Unix, Mac OS X oder Windows |
 | [.NET SDK für Hadoop](apache-hadoop-use-sqoop-dotnet-sdk.md) |&nbsp; |?  |Windows (vorläufig) |
@@ -120,6 +120,6 @@ HDInsight kann Sqoop-Aufträge mit verschiedenen Methoden ausführen. Die folgen
 
 Sie haben nun gelernt, wie Sie Sqoop verwenden. Weitere Informationen finden Sie unter:
 
-* [Verwenden von Apache Hive mit HDInsight](../hdinsight-use-hive.md)
+* [Verwenden von Apache Hive mit HDInsight](./hdinsight-use-hive.md)
 * [Hochladen von Daten in HDInsight](../hdinsight-upload-data.md): Andere Methoden zum Hochladen von Daten in HDInsight/Azure Blob Storage.
 * [Importieren und Exportieren von Daten zwischen Apache Hadoop unter HDInsight und einer SQL-Datenbank mithilfe von Apache Sqoop](./apache-hadoop-use-sqoop-mac-linux.md)

@@ -12,12 +12,12 @@ ms.date: 10/19/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: e54f153738d232eaddff8b0fc499a763581ca726
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 61dd185d00cef2382763e7435c081e1d412cdb92
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277438"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127875"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Anmelden beim Portal „Meine Apps“ und Starten von Apps über dieses
 
@@ -30,7 +30,7 @@ Sie können Ihr Geschäfts-, Schul- oder Unikonto mit dem webbasierten Portal **
 Wenn Sie keinen Zugriff auf das Portal **Meine Apps** haben, wenden Sie sich für die entsprechende Berechtigung an den Helpdesk Ihres Unternehmens.
 
 > [!IMPORTANT]
-> Dieser Inhalt richtet sich an Benutzer von **Meine Apps** . Administratoren können sich in der [Dokumentation zur Anwendungsverwaltung](../manage-apps/index.yml) über die Einrichtung und Verwaltung cloudbasierter Apps informieren.
+> Dieser Inhalt richtet sich an Benutzer von **Meine Apps**. Administratoren können sich in der [Dokumentation zur Anwendungsverwaltung](../manage-apps/index.yml) über die Einrichtung und Verwaltung cloudbasierter Apps informieren.
 
 ## <a name="supported-browsers"></a>Unterstützte Browser
 
@@ -60,7 +60,7 @@ Wenn Sie die Berechtigung für den Zugriff und die Nutzung der cloudbasierten Ap
 
 ### <a name="download-and-install-the-my-apps-secure-sign-in-extension"></a>Herunterladen und Installieren der Erweiterung zur sicheren Anmeldung bei „Meine Apps“
 
-Laden Sie nach der entsprechenden Aufforderung die **Erweiterung zur sicheren Anmeldung bei „Meine Apps“** herunter, und installieren Sie sie. Damit können Sie Ihren Desktopbrowser für das einmalige Anmelden bei den Cloud-Apps Ihres Unternehmens verwenden. Zeigen Sie dazu einfach im Portal **Meine Apps** auf eine App, klicken Sie auf **...** und anschließend auf **Anwendung verwalten** .
+Laden Sie nach der entsprechenden Aufforderung die **Erweiterung zur sicheren Anmeldung bei „Meine Apps“** herunter, und installieren Sie sie. Damit können Sie Ihren Desktopbrowser für das einmalige Anmelden bei den Cloud-Apps Ihres Unternehmens verwenden. Zeigen Sie dazu einfach im Portal **Meine Apps** auf eine App, klicken Sie auf **...** und anschließend auf **Anwendung verwalten**.
 
 Falls Ihre Organisation Sie bereits für einmaliges Anmelden eingerichtet hat, wird die Erweiterung automatisch installiert, sodass Sie diesen Abschnitt überspringen können.
 
@@ -77,9 +77,9 @@ Laden Sie die Erweiterung in Ihrem Browser herunter, und installieren Sie sie.
 
 - **Microsoft Edge** : Wechseln Sie im Microsoft Store zum Feature [Erweiterung zur sicheren Anmeldung bei „Meine Apps“](https://microsoftedge.microsoft.com/addons/detail/my-apps-secure-signin-ex/gaaceiggkkiffbfdpmfapegoiohkiipl). Klicken Sie auf **Herunterladen** , um die Erweiterung für den Microsoft Edge-Legacybrowser abzurufen.
 
-- **Google Chrome** : Wechseln Sie im Chrome Web Store zum Feature [Erweiterung zur sicheren Anmeldung bei „Meine Apps“](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl), und klicken Sie dann auf **Zu Chrome hinzufügen** .
+- **Google Chrome** : Wechseln Sie im Chrome Web Store zum Feature [Erweiterung zur sicheren Anmeldung bei „Meine Apps“](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl), und klicken Sie dann auf **Zu Chrome hinzufügen**.
 
-- **Mozilla Firefox** : Wechseln Sie auf der Seite **Firefox-Add-Ons** zum Feature [Erweiterung zur sicheren Anmeldung bei „Meine Apps“](https://addons.mozilla.org/firefox/addon/access-panel-extension/), und klicken Sie dann auf **Zu Firefox hinzufügen** .
+- **Mozilla Firefox** : Wechseln Sie auf der Seite **Firefox-Add-Ons** zum Feature [Erweiterung zur sicheren Anmeldung bei „Meine Apps“](https://addons.mozilla.org/firefox/addon/access-panel-extension/), und klicken Sie dann auf **Zu Firefox hinzufügen**.
 
 Rechts neben der **Adressleiste** wird ein Symbol hinzugefügt, über das Sie sich anmelden und die Erweiterung anpassen können.
 
@@ -87,9 +87,9 @@ Rechts neben der **Adressleiste** wird ein Symbol hinzugefügt, über das Sie si
 
 Sie können wählen, wie viele Anwendungen im Abschnitt **Zuletzt verwendet** angezeigt werden sollen, und festlegen, ob die internen URLs Ihrer Organisation umgeleitet werden dürfen.
 
-1. Klicken Sie auf das neue Symbol **Erweiterung zur sicheren Anmeldung bei „Meine Apps“** ![Symbol der Erweiterung](media/my-apps-portal/my-apps-portal-extension-icon.png) rechts neben der **Adressleiste** und dann auf **Anmelden, um zu beginnen** .
+1. Klicken Sie auf das neue Symbol **Erweiterung zur sicheren Anmeldung bei „Meine Apps“** ![Symbol der Erweiterung](media/my-apps-portal/my-apps-portal-extension-icon.png) rechts neben der **Adressleiste** und dann auf **Anmelden, um zu beginnen**.
 
-1. Klicken Sie mit der rechten Maustaste auf das Symbol **Einstellungen**![Einstellungssymbol](media/my-apps-portal/my-apps-portal-extension-settings-icon.png) und dann auf **Einstellungen** .
+1. Klicken Sie mit der rechten Maustaste auf das Symbol **Einstellungen**![Einstellungssymbol](media/my-apps-portal/my-apps-portal-extension-settings-icon.png) und dann auf **Einstellungen**.
 
 1. Wählen Sie im Feld **Einstellungen** die Anzahl der zuletzt verwendeten Anwendungen, die Sie im Portal anzeigen möchten, und ob die internen URLs Ihrer Organisation umgeleitet werden dürfen, damit Sie sie remote verwenden können.
 
@@ -117,7 +117,7 @@ Wenn Ihr Administrator Ihnen diese Berechtigung erteilt hat, können Sie auf der
 
    ![Seite „Apps hinzufügen“ im Portal „Meine Apps“ unter myapplications.microsoft.com](media/my-apps-portal/my-apps-portal-add-app-link.png)
 
-1. Wählen Sie in der Liste die App aus, die Sie hinzufügen möchten, und klicken Sie dann auf **Hinzufügen** .
+1. Wählen Sie in der Liste die App aus, die Sie hinzufügen möchten, und klicken Sie dann auf **Hinzufügen**.
 
 1. Die App wird der Liste auf der Seite **Apps** hinzugefügt.
 
@@ -151,7 +151,7 @@ Im Portal **Meine Apps** haben Sie folgende Möglichkeiten:
 
 Auf der Seite **Apps** haben Sie folgende Möglichkeiten:
 
-- [Ändern Ihrer Profilinformationen](my-apps-portal-end-user-update-profile.md)
+- [Ändern Ihrer Profilinformationen](./my-account-portal-settings.md)
 
 - [Anzeigen und Aktualisieren gruppenbezogener Informationen](my-apps-portal-end-user-groups.md)
 

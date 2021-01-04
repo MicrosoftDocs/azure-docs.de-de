@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 11/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d22d0da692516c89f6dd5ca7377ec83d7c430280
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e74c33a18baff3e1cb39328ce265f16975ef1b5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203434"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994841"
 ---
 # <a name="string-claims-transformations"></a>Transformationen von Zeichenfolgen-Ansprüchen
 
@@ -464,7 +464,7 @@ Bei der Anspruchstransformation wird nach dem Text des Elements gesucht und der 
     <InputClaim ClaimTypeReferenceId="responseCode" TransformationClaimType="mapFromClaim" />
   </InputClaims>
   <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />        
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />        
   </OutputClaims>
 </ClaimsTransformation>
 ```
@@ -573,7 +573,7 @@ Mithilfe dieser Anspruchstransformation können Sie unnötige Daten aus der Eige
 ```
 
 - Eingabeansprüche:
-    - **outputClaim:** Willkommen bei der Contoso-App. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions...
+    - **outputClaim:** Willkommen bei der Contoso-App. Wenn Sie diese Website weiterhin aufrufen und nutzen, erklären Sie sich mit den folgenden Bedingungen einverstanden...
 - Ausgabeansprüche:
     - **outputClaim:** NULL
 
@@ -886,7 +886,7 @@ Beispielsweise können Sie eine Telefonnummer normalisieren, indem Sie die Zeich
     - **inputClaim**: "+164-411-452-054"
 - Eingabeparameter:
     - **oldValue**: "-"
-    - **length**: ""
+    - **newValue**: ""
 - Ausgabeansprüche:
     - **outputClaim**: "+164411452054"
 

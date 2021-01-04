@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/07/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: fbf45ff2268c81a45bbbe844ffe8a7a2069793cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 797d52b43d5e18c29e68311e68bea0d0ccce3b83
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86230986"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027637"
 ---
 Derzeit nur in den folgenden Regionen verfügbar:
 
@@ -22,5 +22,9 @@ Derzeit nur in den folgenden Regionen verfügbar:
 - East US
 - USA (Ost) 2
 - USA Süd Mitte
+- Kanada, Mitte 
+- Kanada, Osten
+- Frankreich, Mitte
+- Japan, Osten
 - US Government, Virginia
 - US Gov Arizona

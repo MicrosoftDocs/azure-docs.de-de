@@ -39,8 +39,6 @@
           href: storage-snapshots-files.md
         - name: Entwicklung
           items:
-            - name: Verwalten der Parallelität
-              href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
             - name: Authentifizierung mit gemeinsam verwendetem Schlüssel
               href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
             - name: Shared Access Signatures (SAS)
@@ -67,6 +65,12 @@
           href: storage-sync-files-networking-overview.md
         - name: Informationen zum Cloudtiering
           href: storage-sync-cloud-tiering.md
+    - name: Leistung und Skalierbarkeit
+      items:
+        - name: "SMB\_Multichannel-Leistung"
+          href: storage-files-smb-multichannel-performance.md
+        - name: Skalierbarkeits- und Leistungsziele
+          href: storage-files-scale-targets.md
     - name: Verhindern einer versehentlichen Datenlöschung
       href: storage-files-prevent-file-share-deletion.md
     - name: Sichern von Dateifreigaben
@@ -75,8 +79,6 @@
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Verschlüsselung ruhender Daten mit kundenseitig verwalteten Schlüsseln
       href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Skalierbarkeits- und Leistungsziele
-      href: storage-files-scale-targets.md
     - name: Complianceangebote
       href: ../common/storage-compliance-offerings.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Häufig gestellte Fragen
@@ -87,8 +89,6 @@
       items:
         - name: Erstellen einer SMB-Dateifreigabe“
           href: storage-how-to-create-file-share.md
-        - name: Aktivieren großer Dateifreigaben
-          href: storage-files-how-to-create-large-file-share.md
         - name: Erstellen einer Premium-Dateifreigabe
           href: storage-how-to-create-premium-fileshare.md
         - name: Erstellen einer NFS-Freigabe
@@ -100,7 +100,7 @@
         - name: Bereitstellen der Azure-Dateisynchronisierung
           href: storage-sync-files-deployment-guide.md
         - name: SQL Server-Failoverclusterinstanz mit Premium-Dateifreigaben
-          href: ../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+          href: ../../azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Einbinden
       items:
         - name: Einbinden einer SMB-Dateifreigabe in Windows
@@ -231,6 +231,12 @@
               href: storage-files-migration-storsimple-8000.md
             - name: Migrationshandbuch zu StorSimple 1200
               href: storage-files-migration-storsimple-1200.md
+    - name: Verbessern der Leistung
+      items:
+        - name: Aktivieren von SMB Multichannel
+          href: storage-files-enable-smb-multichannel.md
+        - name: Aktivieren großer Dateifreigaben
+          href: storage-files-how-to-create-large-file-share.md
     - name: Entwickeln
       items:
         - name: Konfigurieren von Verbindungszeichenfolgen
@@ -283,13 +289,13 @@
           href: storage-troubleshoot-windows-file-connection-problems.md
         - name: Problembehandlung für Azure Files unter Linux (SMB)
           href: storage-troubleshoot-linux-file-connection-problems.md
-        - name: Problembehandlung für die Azure Files-Leistung
+        - name: Problembehandlung für die Leistung von Azure-Dateifreigaben
           href: storage-troubleshooting-files-performance.md
         - name: Problembehandlung für Azure Files unter Linux (NFS)
           href: storage-troubleshooting-files-nfs.md
         - name: Problembehandlung für Azure-Dateisynchronisierung
           href: storage-sync-files-troubleshoot.md
-        - name: Problembehandlung beim Löschen einer Azure Files-Instanz
+        - name: Problembehandlung beim Löschen von Azure-Dateifreigaben
           href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
         - name: Problembehandlung beim Sichern von Dateifreigaben
           href: ../../backup/troubleshoot-azure-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
@@ -311,7 +317,7 @@
     - name: Versionshinweise zur Azure-Dateisynchronisierung
       href: storage-files-release-notes.md
     - name: Azure Files bei Microsoft Q&A
-      href: 'https://docs.microsoft.com/answers/topics/azure-files.html'
+      href: /answers/topics/azure-files.html
     - name: Azure Files bei Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-files'
     - name: Preise für Azure Files

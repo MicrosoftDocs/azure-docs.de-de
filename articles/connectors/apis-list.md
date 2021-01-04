@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 23e6834f4850cc8f44f563a12f4704fec2e13ef7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bf91a3b7843d3212b62ced5b6a7c6fa54892ec9
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400807"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359747"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connectors für Azure Logic Apps
 
@@ -86,8 +86,8 @@ Logic Apps umfasst integrierte Trigger und Aktionen, sodass Sie zeitplanbasierte
 | [![Integrierter HTTP-Connector][http-icon]<br>**HTTP**][http-doc] | Aufrufen von HTTP- oder HTTPS-Endpunkten mit Triggern und Aktionen für HTTP. Andere integrierte HTTP-Trigger und -Aktionen umfassen [Integrierter HTTP + Swagger-Connector][http-swagger-doc] und [HTTP + Webhook][http-webhook-doc]. |
 | [![Integrierter Anforderungsconnector][http-request-icon]<br>**Anforderung**][http-request-doc] | - Festlegen, dass die Logik-App über andere Apps oder Dienste aufrufbar ist und bei Event Grid-Ressourcenereignissen oder bei Antworten auf Azure Security Center-Warnungen mit dem Trigger **Anforderung** ausgelöst wird. <br>- Senden von Antworten an eine App oder einen Dienst mit der Aktion **Antwort**. |
 | [![Integrierter Azure API Management-Connector][azure-api-management-icon]<br>**Azure API <br>Management**][azure-api-management-doc] | Aufrufen von Triggern und Aktionen, die in Ihren eigenen APIs definiert sind, die Sie mit Azure API Management verwalten und veröffentlichen. |
-| [![Integrierter Azure App Services-Connector][azure-app-services-icon]<br>**Azure App <br>Services** ][azure-app-services-doc] | Aufrufen von Azure API-Apps oder Web-Apps, die in Azure App Service gehostet werden. Die in diesen Apps definierten Trigger und Aktionen werden wie alle anderen erstklassigen Trigger und Aktionen angezeigt, wenn Swagger enthalten ist. |
-| [![Integrierter Azure Logic Apps-Connector][azure-logic-apps-icon]<br>**Azure Logic <br>Apps** ][nested-logic-app-doc] | Aufrufen anderer Logik-Apps, die mit dem Trigger **Anforderung** gestartet werden. |
+| [![Integrierter Azure App Services-Connector][azure-app-services-icon]<br>**Azure App <br>Services**][azure-app-services-doc] | Aufrufen von Azure API-Apps oder Web-Apps, die in Azure App Service gehostet werden. Die in diesen Apps definierten Trigger und Aktionen werden wie alle anderen erstklassigen Trigger und Aktionen angezeigt, wenn Swagger enthalten ist. |
+| [![Integrierter Azure Logic Apps-Connector][azure-logic-apps-icon]<br>**Azure Logic <br>Apps**][nested-logic-app-doc] | Aufrufen anderer Logik-Apps, die mit dem Trigger **Anforderung** gestartet werden. |
 |||
 
 ### <a name="run-code-from-logic-apps"></a>Ausführen von Code aus Logic Apps
@@ -141,7 +141,7 @@ Logic Apps bietet die folgenden beliebten Standardconnectors zur Automatisierung
 | [![Verwalteter SharePoint Online-Connector][sharepoint-online-icon]<br>**SharePoint<br>Online**][sharepoint-online-doc] | Herstellen einer Verbindung mit SharePoint Online, sodass Sie Dateien, Anlagen, Ordner und mehr verwalten können. |
 | [![Verwalteter Azure-Warteschlangenconnector][azure-queues-icon]<br>**Azure-<br>Warteschlangen**][azure-queues-doc] | Herstellen einer Verbindung mit Ihrem Azure Storage-Konto, sodass Sie Warteschlangen und Nachrichten erstellen und verwalten können. |
 | [![Verwalteter FTP-Connector][ftp-icon]<br>**FTP**][ftp-doc] | Herstellen einer Verbindung mit FTP-Servern, auf die Sie über das Internet zugreifen können, sodass Sie Ihre Dateien und Ordner verwenden können. |
-| [![Verwalteter Dateisystemconnector][file-system-icon]<br>**Dateisystem<br>** ][file-system-doc] | Herstellen einer Verbindung mit Ihrer lokalen Dateifreigabe, sodass Sie Dateien erstellen und verwalten können. |
+| [![Verwalteter Dateisystemconnector][file-system-icon]<br>**Dateisystem<br>**][file-system-doc] | Herstellen einer Verbindung mit Ihrer lokalen Dateifreigabe, sodass Sie Dateien erstellen und verwalten können. |
 | [![Verwalteter Azure Event Hubs-Connector][azure-event-hubs-icon]<br>**Azure Event Hubs**][azure-event-hubs-doc] | Nutzen und Veröffentlichen von Ereignissen über einen Event Hub. Sie können beispielsweise mithilfe von Event Hubs eine Ausgabe Ihrer Logik-App abrufen und die Ausgabe anschließend an einen Echtzeitanalyseanbieter senden. |
 | [![Verwalteter Azure Event Grid-Connector][azure-event-grid-icon]<br>**Azure Event**<br>**Grid**][azure-event-grid-doc] | Überwachen von Ereignissen, die von Event Grid veröffentlicht werden, z.B. bei Änderungen von Azure-Ressourcen oder Drittanbieterressourcen. |
 | [![Verwalteter Salesforce-Connector][salesforce-icon]<br>**Salesforce**][salesforce-doc] | Herstellen einer Verbindung mit Ihrem Salesforce-Konto, sodass Sie Elemente wie Datensätze, Aufträge, Objekte usw. erstellen und verwalten können. |
@@ -151,14 +151,16 @@ Logic Apps bietet die folgenden beliebten Standardconnectors zur Automatisierung
 
 ## <a name="on-premises-connectors"></a>Lokale Connectors
 
-Im Folgenden sind einige häufig verwendete Standardconnectors aufgeführt, die Logic Apps für den Zugriff auf Daten und Ressourcen in lokalen Systemen bereitstellt. Damit Sie eine Verbindung mit einem lokalen System herstellen können, müssen Sie zunächst [ein lokales Datengateway herunterladen, installieren und einrichten][gateway-doc]. Dieses Gateway stellt einen sicheren Kommunikationskanal dar, ohne dass die erforderliche Netzwerkinfrastruktur eingerichtet werden muss.
+Damit Sie eine Verbindung mit einem lokalen System herstellen können, müssen Sie zunächst [ein lokales Datengateway herunterladen, installieren und einrichten][gateway-doc]. Dieses Gateway stellt einen sicheren Kommunikationskanal dar, ohne dass die erforderliche Netzwerkinfrastruktur eingerichtet werden muss. 
+
+Im Folgenden sind *einige* häufig verwendete Standardconnectors aufgeführt, die Logic Apps für den Zugriff auf Daten und Ressourcen in lokalen Systemen bereitstellt. Die Liste der lokalen Connectors finden Sie unter [Unterstützte Datenquellen](../logic-apps/logic-apps-gateway-connection.md#supported-connections).
 
 :::row:::
     :::column:::
         [![BizTalk Server-Connector][biztalk-server-icon]<br>**BizTalk** <br>**Server**][biztalk-server-doc]
     :::column-end:::
     :::column:::
-        [![Dateisystemconnector][file-system-icon]<br>**Dateisystem<br>** ][file-system-doc]
+        [![Dateisystemconnector][file-system-icon]<br>**Dateisystem<br>**][file-system-doc]
     :::column-end:::
     :::column:::
         [![DB2-Connector][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc]
@@ -204,27 +206,27 @@ Logic Apps bietet Standardconnectors zum Erstellen von Business-to-Business-Lös
 
 :::row:::
     :::column:::
-        [![AS2-Decodierungsaktion][as2-icon]<br>**AS2-Decodierung<br>** ][as2-doc]
+        [![AS2-Decodierungsaktion][as2-icon]<br>**AS2-Decodierung<br>**][as2-doc]
     :::column-end:::
     :::column:::
-        [![AS2 Codierungsaktion][as2-icon]<br>**AS2-Codierung<br>** ][as2-doc]
+        [![AS2 Codierungsaktion][as2-icon]<br>**AS2-Codierung<br>**][as2-doc]
     :::column-end:::
     :::column:::
-        [![EDIFACT-Decodierungsaktion][edifact-icon]<br>**EDIFACT-Decodierung<br>** ][edifact-decode-doc]
+        [![EDIFACT-Decodierungsaktion][edifact-icon]<br>**EDIFACT-Decodierung<br>**][edifact-decode-doc]
     :::column-end:::
     :::column:::
-        [![EDIFACT-Codierungsaktion][edifact-icon]<br>**EDIFACT-Codierung<br>** ][edifact-encode-doc]
+        [![EDIFACT-Codierungsaktion][edifact-icon]<br>**EDIFACT-Codierung<br>**][edifact-encode-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [![Flatfile-Decodierungsaktion][flat-file-decode-icon]<br>**Flatfile-Decodierung<br>** ][flat-file-decode-doc]
+        [![Flatfile-Decodierungsaktion][flat-file-decode-icon]<br>**Flatfile-Decodierung<br>**][flat-file-decode-doc]
     :::column-end:::
     :::column:::
-        [![Flatfile-Codierungsaktion][flat-file-encode-icon]<br>**Flatfile-Codierung<br>** ][flat-file-encode-doc]
+        [![Flatfile-Codierungsaktion][flat-file-encode-icon]<br>**Flatfile-Codierung<br>**][flat-file-encode-doc]
     :::column-end:::
     :::column:::
-        [![Integrationskontoaktion][integration-account-icon]<br>**Integrationskonto<br>** ][integration-account-doc]
+        [![Integrationskontoaktion][integration-account-icon]<br>**Integrationskonto<br>**][integration-account-doc]
     :::column-end:::
     :::column:::
         [![Liquid-Transformationsaktion][liquid-icon]<br>**Liquid-** <br>**Transformationen**][json-liquid-transform-doc]
@@ -232,16 +234,16 @@ Logic Apps bietet Standardconnectors zum Erstellen von Business-to-Business-Lös
 :::row-end:::
 :::row:::
     :::column:::
-        [![X12-Decodierungsaktion][x12-icon]<br>**X12-Decodierung<br>** ][x12-decode-doc]
+        [![X12-Decodierungsaktion][x12-icon]<br>**X12-Decodierung<br>**][x12-decode-doc]
     :::column-end:::
     :::column:::
-        [![X12-Codierungsaktion][x12-icon]<br>**X12-Codierung<br>** ][x12-encode-doc]
+        [![X12-Codierungsaktion][x12-icon]<br>**X12-Codierung<br>**][x12-encode-doc]
     :::column-end:::
     :::column:::
         [![XML-Transformationsaktion][xml-transform-icon]<br>**XML-** <br>**Transformationen**][xml-transform-doc]
     :::column-end:::
     :::column:::
-        [![XML-Überprüfungsaktion][xml-validate-icon]<br>**XML-Überprüfung<br>** ][xml-validate-doc]
+        [![XML-Überprüfungsaktion][xml-validate-icon]<br>**XML-Überprüfung<br>**][xml-validate-doc]
     :::column-end:::
 :::row-end:::
 
@@ -302,7 +304,7 @@ Für Logik-Apps, die Sie erstellen und in einer dedizierten [Integrationsdienstu
 :::row-end:::
 :::row:::
     :::column:::
-        [![Azure Monitor-Protokolle-ISE-Connector][azure-monitor-logs-icon]<br>**Azure Monitor-Protokolle<br>** ][azure-monitor-logs-doc]
+        [![Azure Monitor-Protokolle-ISE-Connector][azure-monitor-logs-icon]<br>**Azure Monitor-Protokolle<br>**][azure-monitor-logs-doc]
     :::column-end:::
     :::column:::
         [![Azure Service Bus-ISE-Connector][azure-service-bus-icon]<br>**Azure Service <br>Bus**][azure-service-bus-doc]
@@ -316,13 +318,13 @@ Für Logik-Apps, die Sie erstellen und in einer dedizierten [Integrationsdienstu
 :::row-end:::
 :::row:::
     :::column:::
-        [![Azure-Warteschlangen-ISE-Connector][azure-queues-icon]<br>**Azure-Warteschlangen<br>** ][azure-queues-doc]
+        [![Azure-Warteschlangen-ISE-Connector][azure-queues-icon]<br>**Azure-Warteschlangen<br>**][azure-queues-doc]
     :::column-end:::
     :::column:::
         [![EDIFACT-ISE-Connector][edifact-icon]<br>**EDIFACT**][edifact-doc]
     :::column-end:::
     :::column:::
-        [![Dateisystem-ISE-Connector][file-system-icon]<br>**Dateisystem<br>** ][file-system-doc]
+        [![Dateisystem-ISE-Connector][file-system-icon]<br>**Dateisystem<br>**][file-system-doc]
     :::column-end:::
     :::column:::
         [![FTP-ISE-Connector][ftp-icon]<br>**FTP**][ftp-doc]

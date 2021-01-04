@@ -1,108 +1,151 @@
 ---
-title: Häufig gestellte Fragen zu Azure Synapse Analytics (Vorschau für Arbeitsbereiche)
-description: Häufig gestellte Fragen zu Azure Synapse Analytics (Vorschau für Arbeitsbereiche)
+title: 'Häufig gestellte Fragen: Azure Synapse Analytics'
+description: Häufig gestellte Fragen zu Azure Synapse Analytics
 services: synapse-analytics
-author: ArnoMicrosoft
+author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
-ms.date: 04/15/2020
-ms.author: acomet
+ms.date: 10/25/2020
+ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: ba6f79fffe5287be7574d422f026489d4da2795e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a427c77ec23bb933f96d8aec54ca33169aee84d4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87287494"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576025"
 ---
-# <a name="azure-synapse-analytics-workspaces-preview-frequently-asked-questions"></a>Azure Synapse Analytics (Vorschau für Arbeitsbereiche): häufig gestellte Fragen
+# <a name="azure-synapse-analytics-frequently-asked-questions"></a>Azure Synapse Analytics: Häufig gestellte Fragen
 
-In diesem Leitfaden finden Sie die am häufigsten gestellten Fragen zu Synapse Analytics.
-
-[!INCLUDE [preview](includes/note-preview.md)]
+In diesem Leitfaden finden Sie die am häufigsten gestellten Fragen zu Azure Synapse Analytics.
 
 ## <a name="general"></a>Allgemein
 
-### <a name="q-what-is-azure-synapse-analytics"></a>F: Was ist Azure Synapse Analytics?
+### <a name="q-how-can-i-use-rbac-roles-to-secure-my-workspace"></a>F: Wie kann ich RBAC-Rollen verwenden, um meinen Arbeitsbereich zu schützen?
 
-A: Azure Synapse ist eine integrierte Datenplattform für BI, KI und Continuous Intelligence. Sie verbindet mehrere Analyseruntimes wie SQL und Spark über eine einzelne Plattform miteinander und bietet so eine einheitliche Vorgehensweise für Folgendes:
+A: Mit Azure Synapse werden verschiedene Rollen sowie Bereiche für deren Zuweisung eingeführt, um das Schützen Ihres Arbeitsbereichs zu vereinfachen.
 
-- Schützen Ihrer Analyseressourcen (einschließlich des Netzwerks) und Verwalten des SSO-Zugriffs (Single Sign-On, einmaliges Anmelden) auf den Pool, die Daten und die Entwicklungsartefakte
-- Einfaches Überwachen und schnelles Optimieren und Debuggen von Ereignissen in Ihren Arbeitsbereichsaktivitäten auf beliebiger Ebene sowie Reagieren auf solche Ereignisse
-- Engine-übergreifendes Verwalten Ihrer Metadaten. Wenn Sie eine Spark-Tabelle erstellen, ist sie automatisch in Ihren Azure Synapse-Datenbanken verfügbar.
-- Interagieren mit den Daten über eine einheitliche Benutzeroberfläche. Mit Synapse Studio können Big Data-Entwickler, Dateningenieure, Datenbankadministratoren, Datenanalysten und Data Scientists die gleiche Plattform nutzen.
+RBAC-Rollen von Synapse:
+* Synapse-Administrator
+* Synapse SQL-Administrator
+* Synapse Spark-Administrator
+* Synapse-Mitwirkender (Vorschau)
+* Synapse-Artefaktherausgeber (Vorschau)
+* Synapse-Artefaktbenutzer (Vorschau)
+* Synapse-Compute-Operator (Vorschau)
+* Synapse-Anmeldeinformationen-Benutzer (Vorschau)
 
-Weitere Informationen finden Sie unter [Was ist Azure Synapse Analytics?](https://docs.microsoft.com/azure/synapse-analytics/overview-what-is).
+Weisen Sie die RBAC-Rollen den folgenden RBAC-Bereichen zu, um Ihren Synapse-Arbeitsbereich zu schützen:
+* Arbeitsbereiche
+* Spark-Pools
+* Integration Runtimes
+* Verknüpfte Dienste
+* Anmeldeinformationen
 
-### <a name="q-what-are-the-main-components-of-azure-synapse-analytics"></a>F: Was sind die Hauptkomponenten von Azure Synapse Analytics?
+Darüber hinaus verfügen Sie bei dedizierten SQL-Pools über alle Sicherheitsfunktionen, mit denen Sie bereits vertraut sind.
 
-A: Azure Synapse bietet folgende Funktionen:
+### <a name="q-how-do-i-control-cont-dedicated-sql-pools-serverless-sql-pools-and-serverless-spark-pools"></a>F: Wie kann ich dedizierte SQL-Pools, serverlose SQL-Pools und serverlose Spark-Pools steuern?
 
-- Analysefunktionen werden per SQL-Pool oder SQL On-Demand (Vorschauversion) (serverlos) bereitgestellt.
-- Apache Spark-Pool (Vorschauversion) mit vollständiger Scala-, Python-, SparkSQL- und C#-Unterstützung
-- Datenfluss für Big Data-Transformationen ohne Programmieraufwand
-- Datenintegration und -orchestrierung, um Ihre Daten zu integrieren und Ihre gesamte Codeentwicklung zu operationalisieren
-- Studio, um auf alle diese Funktionen über eine einzelne Webbenutzeroberfläche zugreifen zu können
+A: Der Ausgangspunkt ist, dass von Azure Synapse die integrierte Kostenanalyse und die Kostenwarnungen auf Azure-Abonnementebene genutzt werden.
 
-### <a name="q-how-does-azure-synapse-analytics-relate-to-azure-sql-data-warehouse"></a>F: Wie hängen Azure Synapse Analytics und Azure SQL Data Warehouse zusammen?
+- Dedizierte SQL-Pools: Sie verfügen über direkten Einblick in die Kosten und besitzen die Kontrolle darüber, weil Sie die dedizierten SQL-Pools erstellen und deren Größen angeben. Außerdem können Sie mit Azure RBAC-Rollen steuern, welche Benutzer dedizierte SQL-Pools erstellen oder skalieren können.
 
-A: Azure Synapse Analytics ist eine Weiterentwicklung von Azure SQL Data Warehouse zu einer Analyseplattform mit SQL-Pools als Data Warehouse-Lösung. Diese Plattform kombiniert die Datenerkundung, -erfassung, -transformation und -vorbereitung mit einer Analysebereitstellungsebene.
+- Serverlose SQL-Pools: Sie verfügen über Tools für die Überwachung und Kostenkontrolle, mit denen Sie die täglichen, wöchentlichen und monatlichen Ausgaben begrenzen können. Weitere Informationen finden Sie unter [Kostenverwaltung für serverlose SQL-Pools in Azure Synapse Analytics](./sql/data-processed.md). 
 
-## <a name="use-cases"></a>Anwendungsfälle
+- Serverlose Spark-Pools: Sie können mit Synapse-RBAC-Rollen einschränken, wer Spark-Pools erstellen kann.  
 
-### <a name="q-how-do-i-rename-a-published-artifact-dataset-notebook-sql-script-and-so-on-in-azure-synapse"></a>F: Wie kann ich ein veröffentlichtes Artefakt (Dataset, Notebook, SQL-Skript usw.) in Azure Synapse umbenennen?
+### <a name="q-will-synapse-workspace-support-folder-organization-of-objects-and-granularity-at-ga"></a>F: Verfügt der Synapse-Arbeitsbereich in der Phase „Allgemeine Verfügbarkeit“ über Unterstützung für die Anordnung von Objekten in Ordnern und der Granularität?
 
-A: Klonen Sie zum Umbenennen einer veröffentlichten Artefaktdatei zunächst die Datei, und benennen Sie die neue Datei dann wie gewünscht um. Sie müssen alle Verweise des Artefakts auf den neuen Dateinamen manuell aktualisieren und den alten Namen löschen.
+A: Für Synapse-Arbeitsbereiche werden benutzerdefinierte Ordner unterstützt.
 
-### <a name="q-what-is-a-good-use-case-for-synapse-sql-pool"></a>F: Was ist ein guter Anwendungsfall für einen Synapse SQL-Pool?
+### <a name="q-can-i-link-more-than-one-power-bi-workspaces-to-a-single-azure-synapse-workspace"></a>F: Kann ich mehr als einen Power BI-Arbeitsbereich mit einem einzelnen Azure Synapse-Arbeitsbereich verknüpfen?
+    
+A: Derzeit können Sie mit einem Azure Synapse-Arbeitsbereich nur einen Power BI-Arbeitsbereich verknüpfen. 
 
-A: Der SQL-Pool ist das Herzstück Ihrer Data Warehouse-Anforderungen. Hierbei handelt es sich um die führende Data Warehouse-Lösung in puncto [Preis-Leistungs-Verhältnis](https://azure.microsoft.com/services/sql-data-warehouse/compare/). Folgende Aspekte machen den SQL-Pool zur branchenführende cloudbasierten Data Warehouse-Lösung:
+### <a name="q-is-synapse-link-to-cosmos-db-ga"></a>F: Befindet sich Synapse Link für Cosmos DB in der Phase „Allgemeine Verfügbarkeit“?
 
-- Bereitstellung verschiedenster Workloads ohne Leistungsbeeinträchtigung dank hoher Parallelität und Workloadisolation
-- Einfacher Schutz Ihrer Daten durch erweiterte Features – von Netzwerksicherheit bis hin zu präzisem Zugriff
-- Breit aufgestelltes Ökosystem
+A: Synapse Link für Apache Spark befindet sich in der Phase „Allgemeine Verfügbarkeit“. Synapse Link für serverlose SQL-Pools befindet sich in der öffentlichen Vorschauphase.
 
-### <a name="q-what-is-a-good-use-case-for-spark-in-synapse"></a>F: Was ist ein guter Anwendungsfall für Spark in Synapse?
+### <a name="q-does-azure-synapse-workspace-support-cicd"></a>F: Wird für den Azure Synapse-Arbeitsbereich CI/CD unterstützt? 
 
-A: Unser oberstes Ziel besteht darin, eine erstklassige Datentechnikumgebung zu bieten, um Daten über den Data Lake per Batch oder Datenstrom zu transformieren. Die enge und einfache Integration in unsere Datenorchestrierung ermöglicht eine unkomplizierte Operationalisierung Ihrer Entwicklung.
+A: Ja! Alle Pipelineartefakte, Notebooks, SQL-Skripts und Spark-Auftragsdefinitionen befinden sich in Git. Alle Pooldefinitionen werden als ARM-Vorlagen in Git gespeichert. Dedizierte SQL-Poolobjekte (Schemas, Tabellen, Sichten usw.) werden über Datenbankprojekte mit CI/CD-Unterstützung verwaltet.
 
-Ein weiterer Spark-Anwendungsfall für Data Scientists umfasst folgende Aktionen:
+## <a name="pipelines"></a>Pipelines
 
-- Extrahieren eines Features
-- Erkunden von Daten
-- Trainieren eines Modells
+### <a name="q-how-do-i-ensure-i-know-what-credential-is-being-used-to-run-a-pipeline"></a>F: Wie kann ich ermitteln, welche Anmeldeinformationen zum Ausführen einer Pipeline verwendet werden? 
 
-### <a name="q-what-is-a-good-use-case-for-sql-on-demand-in-synapse"></a>F: Was ist ein guter Anwendungsfall für SQL On-Demand in Synapse?
+A: Jede Aktivität in einer Synapse-Pipeline wird mit den Anmeldeinformationen ausgeführt, die im verknüpften Dienst angegeben sind.
 
-A: SQL On-Demand ist ein Abfragedienst für die Daten in Ihrem Data Lake. Er ermöglicht die Demokratisierung des Zugriffs auf alle Ihre Daten. Hierzu wird eine vertraute T-SQL-Syntax bereitgestellt, mit der Daten direkt abgefragt werden können, ohne sie in einen speziellen Speicher kopieren oder laden zu müssen.
+### <a name="q-are-ssis-irs-supported-in-synapse-integrate"></a>F: Werden SSIS IRs in Synapse Integrate unterstützt?
 
-Im Anschluss finden Sie einige Beispiele für Anwendungsfälle:
+Antwort: Derzeit nicht. 
 
-- Grundlegende Ermittlung und Untersuchung: Bietet Datenanalysten, angehenden Data Scientists und Dateningenieuren eine einfache Methode, um sich mit T-SQL-Abfragen vom Typ „Schema-on-Read“ einen ersten Einblick in die Daten in ihrem Data Lake zu verschaffen.
-- Logisches Data Warehouse: Datenanalysten können das gesamte Ausdrucksspektrum der T-SQL-Sprache nutzen, um die Daten in Azure Storage direkt abzufragen und zu analysieren. Außerdem können sie vertraute BI-Tools wie Azure-Analysedienste oder Power BI Premium verwenden, um Dashboards durch erneutes Ausführen von Starlight Query-Abfragen zu aktualisieren.
-- ETL mit einer einzelnen Abfrage: Dateningenieure können Azure Storage-basierte Daten mittel MPP (Massively Parallel Processing) unter anderem in ein anderes Format transformieren sowie Filter- und Aggregierungsvorgänge ausführen. Darüber hinaus können sie Abfrageergebnisse in Azure Storage speichern und umgehend zur weiteren Verarbeitung in Starlight Query oder anderen relevanten Diensten verfügbar machen.
+### <a name="q-how-do-i-migrate-existing-pipelines-from-azure-data-factory-to-an-azure-synapse-workspace"></a>F: Wie kann ich vorhandene Pipelines aus Azure Data Factory zu einem Azure Synapse-Arbeitsbereich migrieren?
 
-### <a name="q-what-is-a-good-use-case-for-data-flow-in-synapse"></a>F: Was ist ein guter Anwendungsfall für den Datenfluss in Synapse?
+A: Aktuell müssen Sie Ihre Azure Data Factory-Pipelines und die zugehörigen Artefakte manuell neu erstellen, indem Sie den JSON-Code aus der ursprünglichen Pipeline exportieren und in Ihren Synapse-Arbeitsbereich importieren.
 
-A: Mit einem Datenfluss können Dateningenieure grafische Datentransformationslogik entwickeln, ohne Code schreiben zu müssen. Die resultierenden Datenflüsse werden als Aktivitäten innerhalb der Datenintegration und -orchestrierung ausgeführt. Datenflussaktivitäten können über vorhandene Planungs-, Steuerungs-, Fluss- und Überwachungsfunktionen operationalisiert werden.
+## <a name="apache-spark"></a>Apache Spark
 
-## <a name="security-and-access"></a>Sicherheit und Zugriff
+### <a name="q-what-is-the-difference-between-apache-spark-for-synapse-and-apache-spark"></a>F: Worin besteht der Unterschied zwischen Apache Spark für Synapse und Apache Spark?
 
-A: Der End-to-End-Prozess für einmaliges Anmelden ist ein wichtiger Authentifizierungsprozess in der Synapse Analytics. Das Verwalten und Übergeben der Identität über eine vollständige AAD-Integration ist erforderlich.
+A: Apache Spark für Synapse ist mit Apache Spark identisch, verfügt aber zusätzlich über Unterstützung für Integrationen mit anderen Diensten (AAD, Azure ML usw.) und zusätzliche Bibliotheken (mssparkutils, Hummingbird) sowie vorab optimierte Leistungskonfigurationen.
 
-### <a name="q-how-do-i-get-access-to-files-and-folders-in-the-adls-gen2"></a>F: Wie kann ich auf Dateien und Ordner in ADLS Gen2 zugreifen?
+Alle Workloads, die derzeit unter Apache Spark ausgeführt werden, sind ohne Änderungen auch unter MSFT Spark ausführbar. 
 
-A: Der Zugriff auf Dateien und Ordner wird aktuell über ADLS Gen2 verwaltet. Weitere Informationen finden Sie unter [Zugriffssteuerung in Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+### <a name="q-what-versions-of-spark-are-available"></a>F: Welche Versionen von Spark sind verfügbar?
 
-### <a name="q-can-i-use-third-party-business-intelligence-tools-to-access-azure-synapse-analytics"></a>F: Kann ich mit Business Intelligence-Tools von Drittanbietern auf Azure Synapse Analytics zugreifen?
+A: Azure Synapse Apache Spark verfügt über umfassende Unterstützung von Spark 2.4. Eine vollständige Liste mit den Kernkomponenten und derzeit unterstützten Versionen finden Sie unter [Versionsunterstützung für Apache Spark](./spark/apache-spark-version-support.md).
 
-A: Ja. Sie können Geschäftsanwendungen von Drittanbietern wie Tableau und Power BI verwenden, um eine Verbindung mit einer SQL-Pool- oder SQL On-Demand-Instanz herzustellen. Spark unterstützt IntelliJ.
+### <a name="q-is-there-an-equivalent-of-dbutils-in-azure-synapse-spark"></a>F: Gibt es in Azure Synapse Spark eine Option, die DBUtils entspricht?
+
+A: Ja. Azure Synapse Apache Spark verfügt über die Bibliothek **mssparkutils**. Die vollständige Dokumentation zum Hilfsprogramm finden Sie unter [Einführung in Microsoft Spark-Hilfsprogramme](./spark/microsoft-spark-utilities.md).
+
+### <a name="q-how-do-i-set-session-parameters-in-apache-spark"></a>F: Wie lege ich Sitzungsparameter in Apache Spark fest?
+
+A: Verwenden Sie zum Festlegen von Sitzungsparametern den verfügbaren Magic-Befehl „%%configure“. Damit die Parameter wirksam werden, ist ein Neustart der Sitzung erforderlich. 
+
+### <a name="q-how-do-i-set-cluster-level-parameters-in-a-serverless-spark-pool"></a>F: Wie kann ich in einem serverlosen Spark-Pool Parameter für die Clusterebene festlegen?
+
+A: Zum Festlegen von Parametern für die Clusterebene können Sie eine „spark.conf“-Datei für den Spark-Pool angeben. Vom Pool werden dann die Parameter berücksichtigt, die in der Konfigurationsdatei enthalten sind. 
+
+### <a name="q-can-i-run-a-multi-user-spark-cluster-in-azure-synapse-analytics"></a>F: Kann ich einen Spark-Cluster mit mehreren Benutzern in Azure Synapse Analytics ausführen?
+ 
+A: Azure Synapse verfügt über zweckgebundene Engines für bestimmte Anwendungsfälle. Apache Spark für Synapse wurde als Auftragsdienst und nicht als Clustermodell konzipiert. Es gibt zwei Szenarien, in denen ein mehrbenutzerfähiges Clustermodell benötigt wird.
+
+**Szenario 1: Viele Benutzer greifen auf einen Cluster zu, um Daten für BI-Zwecke bereitzustellen.**
+
+Die einfachste Lösungsmöglichkeit ist das Aufbereiten der Daten mit Spark und die anschließende Nutzung der Bereitstellungsfunktionen von Synapse SQL, damit für Power BI eine Verbindung mit diesen Datasets hergestellt werden kann.
+
+**Szenario 2: In einem Cluster sind mehrere Entwickler angeordnet, um Kosten zu sparen.**
+ 
+Bei diesem Szenario sollte für jeden Entwickler ein serverloser Spark-Pool vorhanden sein, für den die Nutzung einer geringen Zahl von Spark-Ressourcen festgelegt ist. Da für serverlose Spark-Pools erst dann Kosten anfallen, wenn sie aktiv genutzt werden, kann bei mehreren vorhandenen Entwicklern eine Kostenreduzierung erzielt werden. Von den Pools werden Metadaten (Spark-Tabellen) gemeinsam genutzt, damit die Zusammenarbeit leicht möglich ist.
+
+### <a name="q-how-do-i-include-manage-and-install-libraries"></a>F: Wie kann ich Bibliotheken einfügen, verwalten und installieren? 
+
+A:  Sie können externe Pakete mit der Datei „requirements.txt“ über den Synapse-Arbeitsbereich oder das Azure-Portal installieren, während Sie den Spark-Pool erstellen. Weitere Informationen finden Sie unter [Verwalten von Bibliotheken für Apache Spark in Azure Synapse Analytics](./spark/apache-spark-azure-portal-add-libraries.md).
+
+## <a name="dedicated-sql-pools"></a>Dedizierte SQL-Pools
+
+### <a name="q-what-are-the-functional-differences-between-dedicated-sql-pools-and-serverless-pools"></a>F: Welche Funktionsunterschiede gibt es zwischen dedizierten SQL-Pools und serverlosen Pools?
+
+A: Eine vollständige Liste mit den Unterschieden finden Sie unter [T-SQL-Funktionsunterschiede in Synapse SQL](./sql/overview-features.md).
+
+### <a name="q-now-that-azure-synapse-is-ga-how-do-i-move-my-dedicated-sql-pools-that-were-previously-standalone-into-azure-synapse"></a>F: Da Azure Synapse jetzt allgemein verfügbar ist: Wie kann ich meine dedizierten SQL-Pools, die bisher eigenständig waren, nach Azure Synapse verschieben? 
+
+A: Eine „Verschiebung“ oder „Migration“ ist nicht möglich. Sie können auswählen, dass neue Arbeitsbereichsfeatures für Ihre vorhandenen Pools aktiviert werden sollen. Wenn Sie so vorgehen, kommt es nicht zu Breaking Changes, sondern Sie können die neuen Features nutzen, z. B. Synapse Studio, Spark und serverlose SQL-Pools.
+
+### <a name="q-what-is-the-default-deployment-of-dedicated-sql-pools-now"></a>F: Wie sieht die Standardbereitstellung von dedizierten SQL-Pools jetzt aus? 
+
+A: Standardmäßig werden alle neuen dedizierten SQL-Pools in einem Arbeitsbereich bereitgestellt. Bei Bedarf können Sie aber trotzdem noch einen dedizierten SQL-Pool (vormals SQL DW) basierend auf dem Formfaktor „Eigenständig“ erstellen. 
+
+
+### <a name="q-what-are-the-functional-differences-between-dedicated-sql-pools-and-serverless-sql-pool"></a>F: Welche Funktionsunterschiede gibt es zwischen dedizierten SQL-Pools und serverlosen SQL-Pools? 
+
+A: Eine vollständige Liste mit den Unterschieden finden Sie unter [T-SQL-Funktionsunterschiede in Synapse SQL](./sql/overview-features.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Erstellen eines Arbeitsbereichs](quickstart-create-workspace.md)
-- [Verwenden von Synapse Studio](quickstart-synapse-studio.md)
-- [Erstellen eines SQL-Pools](quickstart-create-sql-pool-portal.md)
-- [Verwenden von SQL On-Demand](quickstart-sql-on-demand.md)
-- [Erstellen eines Apache Spark-Pools](quickstart-create-apache-spark-pool-portal.md) 
+* [Erste Schritte mit Azure Synapse Analytics](get-started.md)
+* [Erstellen eines Arbeitsbereichs](quickstart-create-workspace.md)
+* [Verwenden eines serverlosen SQL-Pools](quickstart-sql-on-demand.md)

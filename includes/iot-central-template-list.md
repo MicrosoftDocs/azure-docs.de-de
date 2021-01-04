@@ -8,14 +8,16 @@ ms.topic: include
 ms.date: 02/11/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 182296793b46f1900744bf629625906b2d6e9b2a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 08e4fd82bea6bb1b510b127db8dee7803ee112f5
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91377270"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96912111"
 ---
 **Anwendungsvorlagen**
+
+**IoT Central-Anwendungsvorlagen**
 
 | Vorlage                 | Name        | BESCHREIBUNG |
 | ------------------------ | ----------- | ----------- |
@@ -33,3 +35,7 @@ ms.locfileid: "91377270"
 | iotc-quality             | Überwachung der Wasserqualität | Erstellt eine Anwendung zur digitalen Überwachung der Wasserqualität. |
 | iotc-store               | In-Store-Analyse – Auftragsabschluss | Erstellt eine Anwendung zur Überwachung und Verwaltung des Auftragsabschlussflows in Ihrem Unternehmen. |
 | iotc-waste               | Vernetzte Abfallwirtschaft | Erstellt eine Anwendung zur Überwachung von Abfallbehältern und rechtzeitigen Entsendung von Mitarbeitern, die sie leeren sollen. |
+
+**Benutzerdefinierte Anwendungsvorlage**
+
+Wenn Sie Ihre eigene Anwendungsvorlage erstellt haben, können Sie damit eine neue Anwendung erstellen. Wenn Sie nach einer Anwendungsvorlage gefragt werden, geben Sie die App-ID ein, die unter dem Abschnitt [Export der Anwendungsvorlage](../articles/iot-central/core/howto-use-app-templates.md#create-an-application-template) Ihrer App im freigabefähigen URL-Link der exportierten App angezeigt wird. 

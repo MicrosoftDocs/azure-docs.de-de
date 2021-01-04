@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 303720cf50b5eabf22319e1eeae7423c4f1d94bb
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 29bcf2fdd3e20b28b1f2cb014137cfba37ccaf2e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201697"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931808"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Azure-Sicherheitsbaseline für Azure Kubernetes Service
 
@@ -20,7 +20,7 @@ Die Azure-Sicherheitsbaseline für Azure Kubernetes Service enthält Empfehlunge
 
 Die Baseline für diesen Dienst wird von [Azure Security Benchmark-Version 1.0](../security/benchmarks/overview.md) abgeleitet, die Empfehlungen dazu enthält, wie Sie Ihre Cloudlösungen in Azure mithilfe unserer bewährten Methoden schützen können.
 
-Weitere Informationen finden Sie unter [Übersicht über Azure-Sicherheitsbaselines](/azure/security/benchmarks/security-baselines-overview).
+Weitere Informationen finden Sie unter [Übersicht über Azure-Sicherheitsbaselines](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Netzwerksicherheit
 
@@ -85,7 +85,7 @@ Anhand von Einstellungen wie zugewiesene Bezeichnungen, Namespace oder Port für
 
 - [Sicherer Datenverkehr zwischen Pods durch Netzwerkrichtlinien in Azure Kubernetes Service (AKS)](use-network-policies.md)
 
-- [Konfigurieren von DDoS-Schutz](../virtual-network/manage-ddos-protection.md)
+- [Konfigurieren von DDoS-Schutz](../ddos-protection/manage-ddos-protection.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -178,7 +178,7 @@ Verwenden Sie beliebige der integrierten tagbezogenen Azure Policy-Definitionen
 
 Mit Netzwerkrichtlinien können Sie den Zugriff auf bestimmte Netzwerkpfade im Cluster basierend auf Namespaces und Bezeichnungsselektoren zulassen oder verweigern. Verwenden Sie diese Namespaces und Bezeichnungen als Deskriptoren für Datenverkehrs-Konfigurationsregeln. Verwenden Sie Azure PowerShell oder die Azure CLI, um Ressourcen anhand ihrer Tags zu suchen oder Aktionen auszuführen.
 
-- [Azure Policy mit CLI](/cli/azure/policy?view=azure-cli-latest)
+- [Azure Policy mit CLI](/cli/azure/policy)
 
 - [Erstellen und Verwenden von Tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -304,7 +304,7 @@ Die Datensammlung ist erforderlich, um einen Einblick in fehlende Updates, falsc
 
 **Leitfaden**: Führen Sie ein Onboarding von AKS-Instanzen (Azure Kubernetes Service) in Azure Monitor durch, und konfigurieren Sie Diagnoseeinstellungen für Ihren Cluster. 
 
-Verwenden Sie den Log Analytics-Arbeitsbereich von Azure Monitor, um Protokolle zu überprüfen und Abfragen nach Protokolldaten auszuführen. Azure Monitor-Protokolle werden im Azure-Portal oder über die CLI aktiviert und verwaltet und funktionieren sowohl mit der rollenbasierten Zugriffssteuerung von Azure (Azure RBAC) als auch mit nicht RBAC-fähigen AKS-Clustern.
+Verwenden Sie den Log Analytics-Arbeitsbereich von Azure Monitor, um Protokolle zu überprüfen und Abfragen nach Protokolldaten auszuführen. Azure Monitor-Protokolle werden im Azure-Portal oder über die Befehlszeilenschnittstelle aktiviert und verwaltet und funktionieren sowohl mit der rollenbasierten Zugriffssteuerung für Kubernetes (Kubernetes Role-Based Access Control, Kubernetes RBAC) als auch mit AKS-Clustern ohne RBAC-Unterstützung.
 
 Zeigen Sie die von AKS-Masterkomponenten (kube-apiserver und kube-controllermanager) generierten Protokolle für die Problembehandlung von Anwendungen und Diensten an. Aktivieren Sie Daten für Azure Sentinel oder eine SIEM-Drittanbieterlösung, und führen Sie ein Onboarding durch, um zentrale Protokollverwaltung und Überwachung zu ermöglichen.
 
@@ -382,7 +382,7 @@ Verwenden Sie die Azure CLI für Vorgänge wie „Abrufen von Zugriffsanmeldeinf
 
 - [Integration von AKS in Azure AD](./azure-ad-integration-cli.md)
 
-- [Abrufen von Mitgliedern einer Verzeichnisrolle in Azure AD mit PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Abrufen von Mitgliedern einer Verzeichnisrolle in Azure AD mit PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 - [Überwachen der Identität und des Zugriffs](../security-center/security-center-identity-access.md)
 
@@ -404,7 +404,7 @@ Führen Sie mit dem Azure AD PowerShell-Modul Ad-hoc-Abfragen zum Ermitteln von 
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3: Verwenden dedizierter Administratorkonten
 
-**Leitfaden**: Integrieren von Benutzerauthentifizierung für Ihre AKS-Cluster (Azure Kubernetes Service) mit Azure Active Directory (Azure AD). Melden Sie sich bei einem AKS-Cluster mit einem Azure AD-Authentifizierungstoken an. Konfigurieren Sie rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC) von Kubernetes für den administrativen Zugriff auf Informationen und Berechtigungen und Berechtigungen, Namespaces und Clusterressourcen in der Kubernetes-Konfiguration (kubeconfig). 
+**Leitfaden**: Integrieren von Benutzerauthentifizierung für Ihre AKS-Cluster (Azure Kubernetes Service) mit Azure Active Directory (Azure AD). Melden Sie sich bei einem AKS-Cluster mit einem Azure AD-Authentifizierungstoken an. Konfigurieren Sie rollenbasierte Zugriffssteuerung für Kubernetes (Kubernetes Role-Based Access Control, Kubernetes RBAC) für den administrativen Zugriff auf Informationen und Berechtigungen, Namespaces und Clusterressourcen im Zusammenhang mit der Kubernetes-Konfiguration (kubeconfig). 
 
 Erstellen Sie Richtlinien und Vorgänge für die Verwendung dedizierter Administratorkonten. Implementieren Sie Empfehlungen für die Identitäts- und Zugriffsverwaltung in Security Center.
 
@@ -735,7 +735,7 @@ Beachten Sie, dass sich der Prozess, mit dem Windows Server-Knoten auf dem neues
 
 Verwenden Sie das PowerShell-Cmdlet Get-AzSecurityTask, um den Abruf von Sicherheitstasks zu automatisieren, deren Durchführung Security Center empfiehlt, um den Sicherheitsstatus zu erhöhen und die Ergebnisse der Sicherheitsrisikoüberprüfung zu beheben.
 
-- [Verwenden von PowerShell zum Anzeigen von Sicherheitsrisiken, die von Azure Security Center erkannt werden](/powershell/module/az.security/get-azsecuritytask?view=azps-3.3.0)
+- [Verwenden von PowerShell zum Anzeigen von Sicherheitsrisiken, die von Azure Security Center erkannt werden](/powershell/module/az.security/get-azsecuritytask)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -763,7 +763,7 @@ Obwohl klassische Azure-Ressourcen über Resource Graph ermittelt werden können
 
 - [Erstellen von Abfragen mit Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Anzeigen Ihrer Azure-Abonnements](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Anzeigen Ihrer Azure-Abonnements](/powershell/module/az.accounts/get-azsubscription)
 
 - [Grundlegendes zu Azure RBAC](../role-based-access-control/overview.md)
 
@@ -773,7 +773,7 @@ Obwohl klassische Azure-Ressourcen über Resource Graph ermittelt werden können
 
 ### <a name="62-maintain-asset-metadata"></a>6.2: Verwalten von Ressourcenmetadaten
 
-**Leitfaden**: Wenden Sie Tags auf Ihre Azure-Ressourcen mit Metadaten an, um sie logisch in einer Taxonomie zu organisieren.
+**Leitfaden**: Wenden Sie Tags auf Azure-Ressourcen mit Metadaten an, um sie logisch in einer Taxonomie zu organisieren.
 
 - [Erstellen und Verwenden von Tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -925,17 +925,17 @@ Verwenden Sie Azure Resource Graph, um Ressourcen in Ihren Abonnements abzufrage
 
 Gewähren Sie Benutzern oder Gruppen mit Azure AD-Integration Zugriff auf Kubernetes-Ressourcen in einem Namespace oder im gesamten Cluster. 
 
-Verwenden Sie das Azure AD PowerShell-Modul, um Ad-hoc-Abfragen zum Ermitteln von Konten auszuführen, die Mitglieder von administrativen AKS-Gruppen sind. Stimmen Sie den Zugriff in regelmäßigen Abständen ab. Verwenden Sie die Azure CLI für Vorgänge wie „Abrufen von Zugriffsanmeldeinformationen für einen verwalteten Kubernetes-Cluster“. Implementieren Sie Empfehlungen für die Identitäts- und Zugriffsverwaltung in Security Center.
+Verwenden Sie das Azure AD PowerShell-Modul, um Ad-hoc-Abfragen zum Ermitteln von Konten auszuführen, die Mitglieder administrativer AKS-Gruppen sind. Stimmen Sie damit den Zugriff in regelmäßigen Abständen ab. Verwenden Sie die Azure CLI für Vorgänge wie „Abrufen von Zugriffsanmeldeinformationen für einen verwalteten Kubernetes-Cluster“. Implementieren Sie Empfehlungen für die Identitäts- und Zugriffsverwaltung in Security Center.
 
-- [Verwalten von AKS mit der Azure CLI](/cli/azure/aks?view=azure-cli-latest)
+- [Verwalten von AKS mit der Azure CLI](/cli/azure/aks)
 
 - [Verstehen der AKS- und Azure AD-Integration](concepts-identity.md)
 
 - [Integration von AKS in Azure AD](./azure-ad-integration-cli.md)
 
-- [Abrufen einer Verzeichnisrolle in Azure AD mit PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Abrufen einer Verzeichnisrolle in Azure AD mit PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Abrufen von Mitgliedern einer Verzeichnisrolle in Azure AD mit PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Abrufen von Mitgliedern einer Verzeichnisrolle in Azure AD mit PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 - [Überwachen der Identität und des Zugriffs](../security-center/security-center-identity-access.md)
 
@@ -949,7 +949,7 @@ Verwenden Sie das Azure AD PowerShell-Modul, um Ad-hoc-Abfragen zum Ermitteln v
 
 Implementieren Sie den Namespace in Kubernetes, um eine logische Isolationsgrenze zu erstellen. Verwenden Sie Azure Policy-Aliase im Namespace „Microsoft.ContainerService“, um benutzerdefinierte Richtlinien zum Überwachen oder Erzwingen der Konfiguration Ihrer AKS-Instanzen (Azure Kubernetes Service) zu erstellen. 
 
-Überprüfen und implementieren Sie zusätzliche Kubernetes-Features und -Überlegungen für Isolation und Mehrinstanzenfähigkeit für die folgenden Bereiche: Zeitplanung, Netzwerke, Authentifizierung/Autorisierung und Container. Implementieren Sie außerdem separate Abonnements oder Verwaltungsgruppen für Entwicklungs-, Test- und Produktionsumgebungen. Trennen Sie AKS-Cluster mit virtuellen Netzwerken bzw. Subnetzen, die entsprechend gekennzeichnet und durch eine Web Application Firewall (WAF) gesichert werden.
+Überprüfen und implementieren Sie zusätzliche Kubernetes-Features und -Überlegungen für Isolation und Mehrinstanzenfähigkeit für Folgendes: Zeitplanung, Netzwerke, Authentifizierung/Autorisierung und Container. Implementieren Sie außerdem separate Abonnements oder Verwaltungsgruppen für Entwicklungs-, Test- und Produktionsumgebungen. Trennen Sie AKS-Cluster mit virtuellen Netzwerken bzw. Subnetzen, die entsprechend gekennzeichnet und durch eine Web Application Firewall (WAF) gesichert werden.
 
 - [Informationen zu bewährten Methoden für die Clusterisolierung in AKS](operator-best-practices-cluster-isolation.md)
 
@@ -977,7 +977,7 @@ Beispiele für integrierte Richtliniendefinitionen für AKS:
 
 • In Kubernetes Services sollten autorisierte IP-Adressbereiche definiert werden.
 
-• Rollenbasierte Zugriffssteuerung (RBAC) sollte für Kubernetes Service verwendet werden.
+• Für Kubernetes-Dienste muss die rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC) verwendet werden.
 
 • Nur Ausführung zulässiger Containerimages im Kubernetes-Cluster zulassen.
 
@@ -1055,7 +1055,7 @@ Sicherheitshärtung beim AKS-Hostbetriebssystem für Agent-Knoten
 
 security-hardened-vm-host-image.md
 
-- [Speichern von Code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Speichern von Code in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -1322,10 +1322,9 @@ Markieren Sie Abonnements aussagekräftig (z. B. „Produktion“, „Nicht-Pro
 
 ### <a name="103-test-security-response-procedures"></a>10.3: Verfahren zum Testen der Reaktion auf Sicherheitsvorfälle
 
-**Leitfaden**: Führen Sie in regelmäßigen Abständen Tests zur Reaktionsfähigkeit Ihrer Systeme auf Vorfälle durch. Identifizieren Sie Schwachstellen und Lücken, und überarbeiten Sie den Plan bei Bedarf.
+**Leitfaden**: Führen Sie in regelmäßigen Abständen Tests zur Reaktionsfähigkeit Ihrer Systeme auf Vorfälle durch. Konsultieren Sie die folgende NIST-Publikation zum Identifizieren von Schwachstellen und Lücken, und überarbeiten Sie den Plan bei Bedarf.
 
-Informationen finden Sie in der folgenden Veröffentlichung des NIST: Guide to Test, Training, and Exercise Programs for IT 
-- [Tarife und Funktionen](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
+- [Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 

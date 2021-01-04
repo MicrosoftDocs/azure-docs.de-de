@@ -8,21 +8,21 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 10/26/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4d1d071a36531ed5f159543e33e9ac043160cd70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8be18049e6ae74a198f5885a46b70df581e0cd7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650764"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187458"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>Durchsatzlimits für Datenstromerfassung
 
 Im Folgenden werden Einschränkungen bei eingehenden Datenströmen in Azure Time Series Insights Gen2 beschrieben.
 
 > [!TIP]
-> Eine umfassende Liste aller Grenzwerte finden Sie unter [Planen Ihrer Azure Time Series Insights Gen2-Umgebung](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-plan#review-preview-limits).
+> Eine umfassende Liste aller Grenzwerte finden Sie unter [Planen Ihrer Azure Time Series Insights Gen2-Umgebung](./how-to-plan-your-environment.md#review-azure-time-series-insights-gen2-limits).
 
 ## <a name="per-environment-limitations"></a>Einschränkungen pro Umgebung
 
@@ -59,7 +59,7 @@ Bei der Planung Ihrer Azure Time Series Insights Gen2-Umgebung ist es wichtig, d
 
 Eine *Partition* ist eine geordnete Sequenz von Ereignissen, die in einem Event Hub besteht. Die Partitionsanzahl wird beim Erstellen des Hubs festgelegt und kann nicht geändert werden.
 
-Informationen zu den bewährten Methoden für die Event Hubs-Partitionierung finden Sie unter [Wie viele Partitionen benötige ich?](https://docs.microsoft.com/azure/event-hubs/event-hubs-faq#how-many-partitions-do-i-need).
+Informationen zu den bewährten Methoden für die Event Hubs-Partitionierung finden Sie unter [Wie viele Partitionen benötige ich?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need).
 
 > [!NOTE]
 > Für die meisten IoT Hubs, die mit Azure Time Series Insights Gen2 genutzt werden, sind nur vier Partitionen erforderlich.
@@ -92,9 +92,9 @@ Wir empfehlen Ihnen die folgenden bewährten Methoden, um dieses Problem zu umge
 
 Unter den folgenden Ressourcen finden Sie weitere Informationen zur Optimierung des Hub-Durchsatzes und der zugehörigen Partitionen:
 
-* [Skalieren von Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling)
-* [Skalierbarkeit – Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
-* [Event Hub-Partitionen](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#partitions)
+* [Skalieren von Azure IoT Hub](../iot-hub/iot-hub-scaling.md)
+* [Skalierbarkeit – Azure Event Hubs](../event-hubs/event-hubs-scalability.md#throughput-units)
+* [Event Hub-Partitionen](../event-hubs/event-hubs-features.md#partitions)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

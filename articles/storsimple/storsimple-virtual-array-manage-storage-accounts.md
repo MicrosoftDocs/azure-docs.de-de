@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: 8267a678f35d01119ae3e7d89a07c789dc969614
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70b6231829173059ffee675105bacbe1bd1532f2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85507499"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023890"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Verwenden des StorSimple-Geräte-Managers zum Verwalten der Anmeldeinformationen eines Speicherkontos für StorSimple Virtual Array
 
@@ -31,7 +31,7 @@ Der Abschnitt **Konfiguration** des StorSimple-Geräte-Manager-Dienstblatts Ihre
   
   ![Dashboards des Geräte-Manager-Diensts](./media/storsimple-virtual-array-manage-storage-accounts/ova-storageaccts-dashboard.png)  
 
-In diesem Tutorial wird erläutert, wie Sie die Anmeldeinformationen eines Speicherkontos für Ihr StorSimple Virtual Array hinzufügen, bearbeiten und löschen können. Die Informationen in diesem Tutorial gelten nur für das StorSimple Virtual Array. Weitere Informationen zum Verwalten der Speicherkonten der 8000-Serie finden Sie unter [Verwalten von Speicherkonten mithilfe des StorSimple Manager-Diensts](storsimple-manage-storage-accounts.md).
+In diesem Tutorial wird erläutert, wie Sie die Anmeldeinformationen eines Speicherkontos für Ihr StorSimple Virtual Array hinzufügen, bearbeiten und löschen können. Die Informationen in diesem Tutorial gelten nur für das StorSimple Virtual Array. Weitere Informationen zum Verwalten der Speicherkonten der 8000-Serie finden Sie unter [Verwalten von Speicherkonten mithilfe des StorSimple Manager-Diensts](./storsimple-8000-manage-storage-accounts.md).
 
 Anmeldeinformationen des Speicherkontos sind Daten, die das Gerät für den Zugriff auf das Speicherkonto mit dem Clouddienstanbieter nutzt. Für Microsoft Azure-Speicherkonten sind dies die Anmeldeinformationen, wie z. B. Kontoname und primärer Zugriffsschlüssel.
 
@@ -52,7 +52,7 @@ Zu den häufigsten Aufgaben im Zusammenhang mit Anmeldeinformationen eines Speic
 Es gibt drei Typen von Anmeldeinformationen eines Speicherkontos, die mit Ihrem StorSimple-Gerät verwendet werden können.
 
 * **Auto-generated storage accounts**(Automatisch generierte Anmeldeinformationen des Speicherkontos) – Diese Art von Anmeldeinformationen wird bei der ersten Erstellung des Dienstes automatisch generiert. Weitere Informationen zum Erstellen dieser Anmeldeinformationen eines Speicherkontos finden Sie unter [So erstellen Sie einen neuen Dienst](storsimple-virtual-array-manage-service.md#create-a-service).
-* **Storage accounts in the service subscription** (Dem Dienstabonnnement zugeordnete Anmeldeinformationen des Speicherkontos) – Diese Anmeldeinformationen für das Azure-Speicherkonto sind demselben Abonnement zugeordnet wie der Dienst. Weitere Informationen zum Erstellen dieser Anmeldeinformationen eines Speicherkontos finden Sie unter [Informationen zu Azure-Speicherkonten](../storage/common/storage-create-storage-account.md).
+* **Storage accounts in the service subscription** (Dem Dienstabonnnement zugeordnete Anmeldeinformationen des Speicherkontos) – Diese Anmeldeinformationen für das Azure-Speicherkonto sind demselben Abonnement zugeordnet wie der Dienst. Weitere Informationen zum Erstellen dieser Anmeldeinformationen eines Speicherkontos finden Sie unter [Informationen zu Azure-Speicherkonten](../storage/common/storage-account-create.md).
 * **Storage account credentials outside of the service subscription** (Nicht im Dienstabonnnement enthaltene Anmeldeinformationen des Speicherkontos) – Diese Anmeldeinformationen des Azure-Speicherkontos sind nicht Ihrem Dienst zugeordnet und waren wahrscheinlich schon vorhanden, bevor der Dienst erstellt wurde.
 
 ## <a name="add-a-storage-account-credential"></a>Hinzufügen von Anmeldeinformationen eines Speicherkontos
@@ -152,4 +152,3 @@ Um den StorSimple-Geräte-Manager-Dienst über die Änderung zu informieren, mü
 
 ## <a name="next-steps"></a>Nächste Schritte
 * Erfahren Sie, wie Sie [Ihr StorSimple Virtual Array verwalten](storsimple-ova-web-ui-admin.md).
-

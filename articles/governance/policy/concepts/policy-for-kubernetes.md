@@ -1,14 +1,14 @@
 ---
 title: Informationen zu Azure Policy für Kubernetes
 description: Hier erfahren Sie, wie Rego und Open Policy Agent von Azure Policy genutzt werden, um Cluster mit Kubernetes in Azure oder lokal zu verwalten.
-ms.date: 09/29/2020
+ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3478a98ef98001ee8a2e3bb502bf289ed52285e7
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: e2b9253d8ce60d5dc77d406e3c9d0469539f2c77
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951535"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511330"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Grundlegendes zu Azure Policy für Kubernetes-Cluster
 
@@ -37,7 +37,7 @@ Gehen Sie wie folgt vor, um Azure Policy zu aktivieren und mit Ihrem Kubernetes-
    - [AKS-Engine](#install-azure-policy-add-on-for-aks-engine)
 
    > [!NOTE]
-   > Informationen zu häufigen Problemen bei der Installation finden Sie unter [Problembehandlung – Azure Policy-Add-On](../troubleshoot/general.md#add-on-installation-errors).
+   > Informationen zu häufigen Problemen bei der Installation finden Sie unter [Problembehandlung – Azure Policy-Add-On](../troubleshoot/general.md#add-on-for-kubernetes-installation-errors).
 
 1. [Machen Sie sich mit der Azure Policy-Sprache für Kubernetes vertraut.](#policy-language)
 
@@ -80,7 +80,7 @@ Die folgende Empfehlung gilt nur für AKS und das Azure Policy-Add-On:
 
 - Verwenden Sie zum Planen von Gatekeeper-Pods den Systemknotenpool mit einem `CriticalAddonsOnly`-Taint. Weitere Informationen finden Sie unter [Verwenden von Systemknotenpools](../../../aks/use-system-pools.md#system-and-user-node-pools).
 - Schützen Sie von Ihren AKS-Clustern ausgehenden Datenverkehr. Weitere Informationen finden Sie unter [Steuern des ausgehenden Datenverkehrs für Clusterknoten](../../../aks/limit-egress-traffic.md).
-- Wenn für den Cluster `aad-pod-identity` aktiviert wurde, werden die IPTables der Knoten von NMI-Pods (Node Managed Identity) so geändert, dass Aufrufe für den Azure Instance Metadata-Endpunkt abgefangen werden. Diese Konfiguration bedeutet, dass jede Anforderung, die an den Metadatenendpunkt gerichtet ist, von NMI abgefangen wird, auch wenn `aad-pod-identity` vom Pod nicht verwendet wird. Die AzurePodIdentityException-CRD kann so konfiguriert werden, dass `aad-pod-identity` darüber informiert wird, dass an den Metadatenendpunkt gerichtete Anforderungen, die von einem Pod stammen, der in der CRD definierte Bezeichnungen abgleicht, ohne Verarbeitung in NMI über einen Proxy zu senden sind. Die Systempods mit der Bezeichnung `kubernetes.azure.com/managedby: aks` im Namespace _kube-system_ müssen in `aad-pod-identity` durch Konfiguration der AzurePodIdentityException-CRD ausgeschlossen werden. Weitere Informationen finden Sie unter [Disable aad-pod-identity for a specific pod or application (Deaktivieren von „aad-pod-identity“ für einen bestimmten Pod oder eine bestimmte Anwendung)](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md).
+- Wenn für den Cluster `aad-pod-identity` aktiviert wurde, werden die IPTables der Knoten von NMI-Pods (Node Managed Identity) so geändert, dass Aufrufe für den Azure Instance Metadata-Endpunkt abgefangen werden. Diese Konfiguration bedeutet, dass jede Anforderung, die an den Metadatenendpunkt gerichtet ist, von NMI abgefangen wird, auch wenn `aad-pod-identity` vom Pod nicht verwendet wird. Die AzurePodIdentityException-CRD kann so konfiguriert werden, dass `aad-pod-identity` darüber informiert wird, dass an den Metadatenendpunkt gerichtete Anforderungen, die von einem Pod stammen, der in der CRD definierte Bezeichnungen abgleicht, ohne Verarbeitung in NMI über einen Proxy zu senden sind. Die Systempods mit der Bezeichnung `kubernetes.azure.com/managedby: aks` im Namespace _kube-system_ müssen in `aad-pod-identity` durch Konfiguration der AzurePodIdentityException-CRD ausgeschlossen werden. Weitere Informationen finden Sie unter [Disable aad-pod-identity for a specific pod or application (Deaktivieren von „aad-pod-identity“ für einen bestimmten Pod oder eine bestimmte Anwendung)](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
   Installieren zur Konfiguration einer Ausnahme die [YAML-Datei „mic-exception“](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 
 ## <a name="install-azure-policy-add-on-for-aks"></a>Installieren des Azure Policy-Add-Ons für AKS
@@ -160,7 +160,7 @@ kubectl get pods -n kube-system
 kubectl get pods -n gatekeeper-system
 ```
 
-Vergewissern Sie sich abschließend, dass das neueste Add-On installiert ist. Führen Sie hierzu den folgenden Azure CLI-Befehl aus, und ersetzen Sie dabei `<rg>` durch den Namen Ihrer Ressourcengruppe und `<cluster-name>` durch den Namen Ihres AKS-Clusters: `az aks show -g <rg> -n <cluster-name>`. Das Ergebnis sollte in etwa wie die folgende Ausgabe aussehen, und **config.version** sollte `v2` lauten:
+Vergewissern Sie sich abschließend, dass das neueste Add-On installiert ist. Führen Sie hierzu den folgenden Azure CLI-Befehl aus, und ersetzen Sie dabei `<rg>` durch den Namen Ihrer Ressourcengruppe und `<cluster-name>` durch den Namen Ihres AKS-Clusters: `az aks show --query addonProfiles.azurepolicy -g <rg> -n <cluster-name>`. Das Ergebnis sollte in etwa wie die folgende Ausgabe aussehen, und **config.version** sollte `v2` lauten:
 
 ```output
 "addonProfiles": {
@@ -182,7 +182,7 @@ Bevor Sie das Azure Policy-Add-On installieren oder eines der Dienstfeatures akt
 
 1. Zum Aktivieren des Ressourcenanbieters führen Sie die Schritte unter [Ressourcenanbieter und -typen](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) aus, oder führen Sie entweder den Azure CLI- oder Azure PowerShell-Befehl aus:
 
-   - Azure-Befehlszeilenschnittstelle
+   - Azure CLI
 
      ```azurecli-interactive
      # Log in first with az login if you're not using Cloud Shell
@@ -286,7 +286,7 @@ Bevor Sie das Azure Policy-Add-On installieren oder eines der Dienstfeatures akt
 
 1. Zum Aktivieren des Ressourcenanbieters führen Sie die Schritte unter [Ressourcenanbieter und -typen](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) aus, oder führen Sie entweder den Azure CLI- oder Azure PowerShell-Befehl aus:
 
-   - Azure-Befehlszeilenschnittstelle
+   - Azure CLI
 
      ```azurecli-interactive
      # Log in first with az login if you're not using Cloud Shell
@@ -436,6 +436,14 @@ Das Add-On fordert alle 15 Minuten einen vollständigen Scan des Clusters an. N
 > [!NOTE]
 > Jeder Konformitätsbericht in Azure Policy für Ihre Kubernetes-Cluster umfasst sämtliche Verstöße der letzten 45 Minuten. Der Zeitstempel gibt an, wann ein Verstoß aufgetreten ist.
 
+Einige weitere Überlegungen:
+
+- Wenn das Clusterabonnement bei Azure Security Center registriert ist, werden automatisch Kubernetes-Richtlinien von Azure Security Center auf den Cluster angewendet.
+
+- Wenn eine Ablehnungsrichtlinie auf einen Cluster mit vorhandenen Kubernetes-Ressourcen angewendet wird, werden alle ggf. bereits vorhandenen Ressourcen, die nicht mit der neuen Richtlinie konform sind, weiterhin ausgeführt. Wenn die nicht konforme Ressource auf einem anderen Knoten neu geplant wird, wird die Ressourcenerstellung durch Gatekeeper blockiert.
+
+- Wenn ein Cluster über eine Ablehnungsrichtlinie verfügt, durch die Ressourcen überprüft werden, wird dem Benutzer beim Erstellen einer Bereitstellung keine Ablehnungsmeldung angezeigt. Stellen Sie sich beispielsweise eine Kubernetes-Bereitstellung vor, die Replikatgruppen und Pods enthält. Wenn ein Benutzer `kubectl describe deployment $MY_DEPLOYMENT` ausführt, wird im Rahmen von Ereignissen keine Ablehnungsmeldung zurückgegeben. Von `kubectl describe replicasets.apps $MY_DEPLOYMENT` werden jedoch die mit der Ablehnung zusammenhängenden Ereignisse zurückgegeben.
+
 ## <a name="logging"></a>Protokollierung
 
 Als Kubernetes-Controller/-Container werden sowohl vom Pod _azure-policy_ als auch vom Pod _gatekeeper_ Protokolle im Kubernetes-Cluster gespeichert. Die Protokolle können auf der Seite **Insights** des Kubernetes-Clusters verfügbar gemacht werden.
@@ -452,6 +460,10 @@ kubectl logs <gatekeeper pod name> -n gatekeeper-system
 ```
 
 Weitere Informationen finden Sie in der Gatekeeper-Dokumentation unter [Debuggen](https://github.com/open-policy-agent/gatekeeper#debugging).
+
+## <a name="troubleshooting-the-add-on"></a>Behandeln von Problemen mit dem Add-On
+
+Weitere Informationen zur Behandlung von Problemen im Zusammenhang mit dem Add-On für Kubernetes finden Sie im [Kubernetes-Abschnitt](/azure/governance/policy/troubleshoot/general#add-on-for-kubernetes-general-errors) des Artikels zur Azure Policy-Problembehandlung.
 
 ## <a name="remove-the-add-on"></a>Entfernen des Add-Ons
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 47eae616ffc62e42448da23fb02152dae17aa548
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 29518fb971649087d8a5afa39d69c7fc2c014f98
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92116728"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330980"
 ---
 | Resource | Ziel | Harte Grenze |
 |----------|--------------|------------|
@@ -21,7 +21,7 @@ ms.locfileid: "92116728"
 | Synchronisierungsgruppen pro Speichersynchronisierungsdienst | 200 Synchronisierungsgruppen | Ja |
 | Registrierte Server pro Speichersynchronisierungsdienst | 99 Server | Ja |
 | Cloudendpunkte pro Synchronisierungsgruppe | 1 Cloudendpunkt | Ja |
-| Serverendpunkte pro Synchronisierungsgruppe | 50 Serverendpunkte | Nein |
+| Serverendpunkte pro Synchronisierungsgruppe | 100 Serverendpunkte | Ja |
 | Serverendpunkte pro Server | 30 Serverendpunkte | Ja |
 | Dateisystemobjekte (Verzeichnisse und Dateien) pro Synchronisierungsgruppe | 100 Millionen Objekte | Nein |
 | Maximale Anzahl von Dateisystemobjekten (Verzeichnisse und Dateien) in einem Verzeichnis | 5 Millionen Objekte | Ja |

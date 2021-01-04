@@ -14,6 +14,8 @@
       href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
     - name: Erstellen eines Dashboards
       items:
+        - name: Azure CLI
+          href: quickstart-portal-dashboard-azure-cli.md
         - name: Azure PowerShell
           href: quickstart-portal-dashboard-powershell.md
         - name: ARM-Vorlage
@@ -25,6 +27,7 @@
       href: azure-portal-dashboard-share-access.md
     - name: Programmgesteuertes Erstellen von Azure-Dashboards
       href: azure-portal-dashboards-create-programmatically.md
+      displayName: 'Azure CLI, az portal dashboard, az portal'
 - name: Anleitungen
   items:
     - name: Verwalten von Einstellungen und Voreinstellungen im Azure-Portal
@@ -81,6 +84,9 @@
       href: azure-portal-dashboards-structure.md
     - name: Azure CLI
       href: /cli/azure/ext/portal/portal
+    - name: Integrierte Azure Policy-Aktionen
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Ressourcen
   items:
     - name: Azure-Roadmap

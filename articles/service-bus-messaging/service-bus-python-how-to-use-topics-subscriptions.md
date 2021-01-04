@@ -1,195 +1,220 @@
 ---
-title: 'Schnellstart: Verwenden von Azure Service Bus-Themen und -Abonnements mit Python'
-description: In diesem Artikel erfahren Sie, wie Sie ein Azure Service Bus-Thema und -Abonnement erstellen und Nachrichten an ein Thema senden sowie Nachrichten von einem Abonnement empfangen.
+title: Verwenden von Azure Service Bus-Themen und -Abonnements mit dem Python-Paket „azure/service-bus“ (Version 7.0.0)
+description: In diesem Artikel wird veranschaulicht, wie Sie Python zum Senden von Nachrichten an ein Thema und Empfangen von Nachrichten vom Abonnement verwenden.
 documentationcenter: python
 author: spelluru
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 11/18/2020
 ms.author: spelluru
 ms.custom: devx-track-python
-ms.openlocfilehash: f6d1b25cb502b8cb208ba5b59c91667e03c77778
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 43f633e427e20cfb0b044bd42b77f866e4cc0c61
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88064382"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489410"
 ---
-# <a name="quickstart-use-service-bus-topics-and-subscriptions-with-python"></a>Schnellstart: Verwenden von Service Bus-Themen und -Abonnements mit Python
-
-[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
-
-In diesem Artikel erfahren Sie, wie Sie Python mit Azure Service Bus-Themen und -Abonnements verwenden. In den Beispielen wird das [Azure Python SDK][Azure Python package]-Paket für Folgendes verwendet: 
-
-- Erstellen von Themen und Abonnements von Themen
-- Erstellen von Abonnementfiltern und -aktionen
-- Senden von Nachrichten an Themen 
-- Empfangen von Nachrichten aus Abonnements
-- Löschen von Themen und Abonnements
+# <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-python"></a>Senden von Nachrichten an ein Azure Service Bus-Thema und Empfangen von Nachrichten von Abonnements für das Thema (Python)
+In diesem Artikel wird veranschaulicht, wie Sie Python zum Senden von Nachrichten an ein Service Bus-Thema und Empfangen von Nachrichten von einem Abonnement für das Thema verwenden. 
 
 ## <a name="prerequisites"></a>Voraussetzungen
 - Ein Azure-Abonnement. Sie können [Ihre Visual Studio-oder MSDN-Abonnentenvorteile aktivieren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) oder [sich für ein kostenloses Konto anmelden](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Ein Service Bus-Namespace, der mithilfe der Schritte unter [Schnellstart: Verwenden des Azure-Portals zum Erstellen eines Service Bus-Themas und von Abonnements](service-bus-quickstart-topics-subscriptions-portal.md) erstellt wurde. Kopieren Sie den Namespacenamen, den Namen des SAS-Schlüssels und den Wert für den Primärschlüssel aus dem Bildschirm **SAS-Richtlinien** für die spätere Verwendung in diesem Schnellstart. 
-- Python 3.4x oder höher mit installiertem [Azure Python SDK][Azure Python package]-Paket. Weitere Informationen finden Sie im [Python-Installationshandbuch](/azure/developer/python/azure-sdk-install).
-
-## <a name="create-a-servicebusservice-object"></a>Erstellen eines ServiceBusService-Objekts
-
-Ein **ServiceBusService**-Objekt ermöglicht Ihnen das Arbeiten mit Themen und Abonnements von Themen. Um programmgesteuert auf Service Bus zuzugreifen, fügen Sie die folgende Zeile oben in Ihrer Python-Datei ein:
-
-```python
-from azure.servicebus.control_client import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
-```
-
-Fügen Sie den folgenden Code hinzu, um ein **ServiceBusService**-Objekt zu erstellen. Ersetzen Sie `<namespace>`, `<sharedaccesskeyname>` und `<sharedaccesskeyvalue>` durch Ihren Service Bus-Namespacenamen, den Namen des SAS-Schlüssels (Shared Access Signature) und den Wert des Primärschlüssels. Sie finden diese Werte unter **SAS-Richtlinien** in Ihrem Service Bus-Namespace im [Azure-Portal][Azure portal].
-
-```python
-bus_service = ServiceBusService(
-    service_namespace='<namespace>',
-    shared_access_key_name='<sharedaccesskeyname>',
-    shared_access_key_value='<sharedaccesskeyvalue>')
-```
-
-## <a name="create-a-topic"></a>Erstellen eines Themas
-
-Der folgende Code verwendet die Methode `create_topic`, um ein Service Bus-Thema namens `mytopic` mit Standardeinstellungen zu erstellen:
-
-```python
-bus_service.create_topic('mytopic')
-```
-
-Mithilfe von Themaoptionen können Sie die Standardthemaeinstellungen überschreiben, z.B. die Gültigkeitsdauer (Time to Live, TTL) oder die maximale Themagröße. Im folgenden Beispiel wird ein Thema mit dem Namen `mytopic` mit einer maximalen Themagröße von 5 GB und einer standardmäßigen Nachrichtengültigkeitsdauer von einer Minute erstellt:
-
-```python
-topic_options = Topic()
-topic_options.max_size_in_megabytes = '5120'
-topic_options.default_message_time_to_live = 'PT1M'
-
-bus_service.create_topic('mytopic', topic_options)
-```
-
-## <a name="create-subscriptions"></a>Erstellen von Abonnements
-
-Sie verwenden das **ServiceBusService**-Objekt auch, um Abonnements von Themen zu erstellen. Ein Abonnement kann über einen Filter verfügen, um den an die virtuelle Warteschlange übermittelten Nachrichtensatz einzuschränken. Wenn Sie keinen Filter angeben, verwenden neue Abonnements den Standardfilter **MatchAll**, der alle für das Thema veröffentlichten Nachrichten in die virtuelle Warteschlange des Abonnements einreiht. Mit dem folgenden Beispiel wird ein Abonnement von `mytopic` namens `AllMessages` erstellt, für das der Filter **MatchAll** verwendet wird:
-
-```python
-bus_service.create_subscription('mytopic', 'AllMessages')
-```
-
-### <a name="use-filters-with-subscriptions"></a>Verwenden von Filtern mit Abonnements
-
-Verwenden Sie die `create_rule`-Methode des **ServiceBusService**-Objekts, um die Nachrichten zu filtern, die in einem Abonnement angezeigt werden. Sie können Regeln angeben, wenn Sie das Abonnement erstellen, oder Sie können vorhandenen Abonnements Regeln hinzufügen.
-
-Der flexibelste Filtertyp ist ein **SqlFilter**, der eine Teilmenge von SQL-92 verwendet. SQL-Filter werden basierend auf den Eigenschaften von Nachrichten angewendet, die für das Thema veröffentlicht werden. Weitere Informationen zu den Ausdrücken, die mit einem SQL-Filter verwendet werden können, finden Sie unter der Syntax [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
-
-Da der Standardfilter **MatchAll** automatisch für alle neuen Abonnements gilt, müssen Sie ihn aus den Abonnements entfernen, die Sie filtern möchten, andernfalls überschreibt **MatchAll** alle anderen von Ihnen angegebenen Filter. Die Standardregel kann mithilfe der Methode `delete_rule` des Objekts **ServiceBusService** entfernt werden.
-
-Im folgenden Beispiel wird ein Abonnement von `mytopic` mit dem Namen `HighMessages` mit einer **SqlFilter**-Regel namens `HighMessageFilter` erstellt. Mit der `HighMessageFilter`-Regel werden nur Nachrichten ausgewählt, deren benutzerdefinierte `messageposition`-Eigenschaft größer als 3 ist:
-
-```python
-bus_service.create_subscription('mytopic', 'HighMessages')
-
-rule = Rule()
-rule.filter_type = 'SqlFilter'
-rule.filter_expression = 'messageposition > 3'
-
-bus_service.create_rule('mytopic', 'HighMessages', 'HighMessageFilter', rule)
-bus_service.delete_rule('mytopic', 'HighMessages', DEFAULT_RULE_NAME)
-```
-
-Im folgenden Beispiel wird ein Abonnement von `mytopic` mit dem Namen `LowMessages` mit einer **SqlFilter**-Regel namens `LowMessageFilter` erstellt. Mit der `LowMessageFilter`-Regel werden nur Nachrichten ausgewählt, deren `messageposition`-Eigenschaft kleiner als oder gleich 3 ist:
-
-```python
-bus_service.create_subscription('mytopic', 'LowMessages')
-
-rule = Rule()
-rule.filter_type = 'SqlFilter'
-rule.filter_expression = 'messageposition <= 3'
-
-bus_service.create_rule('mytopic', 'LowMessages', 'LowMessageFilter', rule)
-bus_service.delete_rule('mytopic', 'LowMessages', DEFAULT_RULE_NAME)
-```
-
-Wenn `AllMessages`, `HighMessages`und `LowMessages` alle wirksam sind, werden an `mytopic` gesendete Nachrichten stets an Empfänger des `AllMessages`-Abonnements übermittelt. Nachrichten werden abhängig vom `messageposition`-Eigenschaftswert auch selektiv an das `HighMessages`- oder `LowMessages`-Abonnement übermittelt. 
+- Befolgen Sie die Schritte im [Schnellstart: Erstellen eines Service Bus-Themas und eines oder mehrerer Abonnements dieses Themas im Azure-Portal](service-bus-quickstart-topics-subscriptions-portal.md). Notieren Sie sich die Verbindungszeichenfolge, den Themennamen und einen Abonnementnamen. Für diese Schnellstartanleitung verwenden Sie nur ein Abonnement. 
+- Python 2.7 oder höher mit installiertem [Azure Python SDK][Azure Python-Paket]. Weitere Informationen finden Sie im [Python-Installationshandbuch](/azure/developer/python/azure-sdk-install).
 
 ## <a name="send-messages-to-a-topic"></a>Senden von Nachrichten an ein Thema
 
-Anwendungen verwenden die `send_topic_message`-Methode des **ServiceBusService**-Objekts, um Nachrichten an ein Service Bus-Thema zu senden.
+1. Fügen Sie die folgende import-Anweisung hinzu. 
 
-Im folgenden Beispiel werden fünf Testnachrichten an das `mytopic`-Thema gesendet. Der benutzerdefinierte `messageposition`-Eigenschaftswert hängt von der Iteration der Schleife ab und bestimmt, welche Abonnements die Nachrichten empfangen. 
+    ```python
+    from azure.servicebus import ServiceBusClient, ServiceBusMessage
+    ```
+2. Fügen Sie die folgenden Konstanten hinzu. 
 
-```python
-for i in range(5):
-    msg = Message('Msg {0}'.format(i).encode('utf-8'),
-                  custom_properties={'messageposition': i})
-    bus_service.send_topic_message('mytopic', msg)
-```
+    ```python
+    CONNECTION_STR = "<NAMESPACE CONNECTION STRING>"
+    TOPIC_NAME = "<TOPIC NAME>"
+    SUBSCRIPTION_NAME = "<SUBSCRIPTION NAME>"
+    ```
+    
+    > [!IMPORTANT]
+    > - Ersetzen Sie `<NAMESPACE CONNECTION STRING>` durch die Verbindungszeichenfolge für Ihren Namespace.
+    > - Ersetzen Sie `<TOPIC NAME>` durch den Namen des Themas.
+    > - Ersetzen Sie `<SUBSCRIPTION NAME>` durch den Namen des Abonnements für das Thema. 
+3. Fügen Sie eine Methode zum Senden einer einzelnen Nachricht hinzu.
 
-### <a name="message-size-limits-and-quotas"></a>Größenbeschränkungen und Kontingente für Nachrichten
+    ```python
+    def send_single_message(sender):
+        # create a Service Bus message
+        message = ServiceBusMessage("Single Message")
+        # send the message to the topic
+        sender.send_messages(message)
+        print("Sent a single message")
+    ```
 
-Service Bus-Themen unterstützen eine maximale Nachrichtengröße von 256 KB im [Standard-Tarif](service-bus-premium-messaging.md) und 1 MB im [Premium-Tarif](service-bus-premium-messaging.md). Der Header, der die standardmäßigen und benutzerdefinierten Anwendungseigenschaften enthält, kann eine maximale Größe von 64 KB haben. Bei der Anzahl der Nachrichten, die in einem Thema enthalten sein können, besteht keine Beschränkung. Allerdings gilt eine Obergrenze für die Gesamtgröße der Nachrichten, die ein Thema enthalten kann. Sie können die Themagröße bei der Erstellung festlegen. Dabei gilt eine Obergrenze von 5 GB. 
+    Der Absender ist ein Objekt, das als Client für das von Ihnen erstellte Thema fungiert. Sie erstellen es später und senden es als Argument an diese Funktion. 
+4. Fügen Sie eine Methode zum Senden einer Liste mit Nachrichten hinzu.
 
-Weitere Informationen zu Kontingenten finden Sie unter [Service Bus-Kontingente][Service Bus quotas].
+    ```python
+    def send_a_list_of_messages(sender):
+        # create a list of messages
+        messages = [ServiceBusMessage("Message in list") for _ in range(5)]
+        # send the list of messages to the topic
+        sender.send_messages(messages)
+        print("Sent a list of 5 messages")
+    ```
+5. Fügen Sie eine Methode zum Senden eines Batchs mit Nachrichten hinzu.
 
+    ```python
+    def send_batch_message(sender):
+        # create a batch of messages
+        batch_message = sender.create_message_batch()
+        for _ in range(10):
+            try:
+                # add a message to the batch
+                batch_message.add_message(ServiceBusMessage("Message inside a ServiceBusMessageBatch"))
+            except ValueError:
+                # ServiceBusMessageBatch object reaches max_size.
+                # New ServiceBusMessageBatch object can be created here to send more data.
+                break
+        # send the batch of messages to the topic
+        sender.send_messages(batch_message)
+        print("Sent a batch of 10 messages")
+    ```
+6. Erstellen Sie einen Service Bus-Client und dann ein Absenderobjekt für das Thema, um Nachrichten senden zu können.
+
+    ```python
+    # create a Service Bus client using the connection string
+    servicebus_client = ServiceBusClient.from_connection_string(conn_str=CONNECTION_STR, logging_enable=True)
+    with servicebus_client:
+        # get a Topic Sender object to send messages to the topic
+        sender = servicebus_client.get_topic_sender(topic_name=TOPIC_NAME)
+        with sender:
+            # send one message        
+            send_single_message(sender)
+            # send a list of messages
+            send_a_list_of_messages(sender)
+            # send a batch of messages
+            send_batch_message(sender)
+    
+    print("Done sending messages")
+    print("-----------------------")
+    ```
+ 
 ## <a name="receive-messages-from-a-subscription"></a>Empfangen von Nachrichten aus einem Abonnement
-
-Anwendungen verwenden die `receive_subscription_message`-Methode für das **ServiceBusService**-Objekt, um Nachrichten von einem Abonnement zu empfangen. Im folgenden Beispiel werden Nachrichten vom `LowMessages`-Abonnement empfangen und nach dem Lesen gelöscht:
-
-```python
-msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
-print(msg.body)
-```
-
-Der optionale `peek_lock`-Parameter von `receive_subscription_message` bestimmt, ob Service Bus Nachrichten aus dem Abonnement löscht, nachdem sie gelesen wurden. Der Standardmodus für den Empfang von Nachrichten ist *PeekLock* oder `peek_lock` auf **TRUE** festgelegt. Dabei werden Nachrichten gelesen („peek“) und gesperrt, ohne sie aus dem Abonnement zu löschen. Anschließend muss jede Nachricht explizit abgeschlossen werden, um sie aus dem Abonnement zu entfernen.
-
-Zum Löschen von Nachrichten aus dem Abonnement nach dem Lesen können Sie den `peek_lock`-Parameter auf **FALSE**festlegen, wie im vorherigen Beispiel gezeigt. Das Löschen von Nachrichten im Rahmen des Empfangsvorgangs ist das einfachste Modell und funktioniert gut, wenn die Anwendung fehlende Nachrichten im Falle eines Fehlers tolerieren kann. Um dieses Verfahren zu verstehen, stellen Sie sich ein Szenario vor, in dem die Anwendung die Empfangsanforderung ausstellt und dann abstürzt, bevor diese verarbeitet wurde. Wenn die Nachricht beim Empfang gelöscht wurde, hat die Anwendung beim Neustart und der Wiederaufnahme der Nachrichtenverarbeitung die Nachricht verpasst, die sie vor dem Absturz empfangen hat.
-
-Wenn Ihre Anwendung fehlende Nachrichten nicht tolerieren kann, wird der Empfangsvorgang zu einem zweistufigen Vorgang. PeekLock ermittelt die nächste zu verarbeitende Nachricht, sperrt diese, um zu verhindern, dass andere Consumer sie erhalten, und sendet sie dann an die Anwendung zurück. Nach der Verarbeitung oder Speicherung der Nachricht schließt die Anwendung die zweite Stufe des Empfangsprozesses ab, indem sie die `complete`-Methode für das **Message**-Objekt aufruft.  Die Methode `complete` markiert die Nachricht als verarbeitet und entfernt sie aus dem Abonnement.
-
-Das folgende Beispiel veranschaulicht ein PeekLock-Szenario:
+Fügen Sie nach der print-Anweisung den folgenden Code hinzu. Mit diesem Code werden fortlaufend neue Nachrichten empfangen, bis fünf Sekunden lang (`max_wait_time`) keine neuen Nachrichten mehr empfangen werden. 
 
 ```python
-msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)
-if msg.body is not None:
-    print(msg.body)
-    msg.complete()
+with servicebus_client:
+    # get the Subscription Receiver object for the subscription    
+    receiver = servicebus_client.get_subscription_receiver(topic_name=TOPIC_NAME, subscription_name=SUBSCRIPTION_NAME, max_wait_time=5)
+    with receiver:
+        for msg in receiver:
+            print("Received: " + str(msg))
+            # complete the message so that the message is removed from the subscription
+            receiver.complete_message(msg)
 ```
 
-## <a name="handle-application-crashes-and-unreadable-messages"></a>Umgang mit Anwendungsabstürzen und nicht lesbaren Nachrichten
-
-Service Bus stellt Funktionen zur Verfügung, die Sie bei der ordnungsgemäßen Behandlung von Fehlern in der Anwendung oder bei Problemen beim Verarbeiten einer Nachricht unterstützen. Wenn eine Empfängeranwendung eine Nachricht aus einem bestimmten Grund nicht verarbeiten kann, kann sie die Methode `unlock` für das **Message**-Objekt aufrufen. Service Bus entsperrt die Nachricht innerhalb des Abonnements und stellt sie zum erneuten Empfang bereit, entweder von derselben oder einer anderen verarbeitenden Anwendung.
-
-Außerdem gibt es ein Timeout für Nachrichten, die innerhalb des Abonnements gesperrt sind. Wenn eine Anwendung eine Nachricht nicht verarbeiten kann, bevor das Timeout der Sperre abläuft (z.B. wenn die Anwendung abstürzt), entsperrt Service Bus die Nachricht automatisch und macht sie verfügbar, sodass sie erneut empfangen werden kann.
-
-Falls die Anwendung nach der Verarbeitung der Nachricht, aber vor dem Aufruf der Methode `complete` abstürzt, wird die Nachricht der Anwendung erneut zugestellt, wenn diese neu gestartet wird. Dies wird häufig als *At-Least-Once Processing* (Mindestens einmalige Verarbeitung) bezeichnet. Jede Nachricht wird mindestens ein Mal verarbeitet, wobei eine Nachricht in bestimmten Situationen unter Umständen erneut zugestellt wird. Wenn Ihr Szenario keine doppelte Verarbeitung tolerieren kann, können Sie die Eigenschaft **MessageId** der Nachricht verwenden, die über die Zustellversuche hinweg konstant bleibt, um die doppelte Zustellung von Nachrichten zu verarbeiten. 
-
-## <a name="delete-topics-and-subscriptions"></a>Löschen von Themen und Abonnements
-
-Verwenden Sie zum Löschen von Themen und Abonnements das [Azure-Portal][Azure portal] oder die `delete_topic`-Methode. Der folgende Code löscht das Thema namens `mytopic`:
+## <a name="full-code"></a>Vollständiger Code
 
 ```python
-bus_service.delete_topic('mytopic')
+from azure.servicebus import ServiceBusClient, ServiceBusMessage
+
+CONNECTION_STR = "<NAMESPACE CONNECTION STRING>"
+TOPIC_NAME = "<TOPIC NAME>"
+SUBSCRIPTION_NAME = "<SUBSCRIPTION NAME>"
+
+def send_single_message(sender):
+    message = ServiceBusMessage("Single Message")
+    sender.send_messages(message)
+    print("Sent a single message")
+
+def send_a_list_of_messages(sender):
+    messages = [ServiceBusMessage("Message in list") for _ in range(5)]
+    sender.send_messages(messages)
+    print("Sent a list of 5 messages")
+
+def send_batch_message(sender):
+    batch_message = sender.create_message_batch()
+    for _ in range(10):
+        try:
+            batch_message.add_message(ServiceBusMessage("Message inside a ServiceBusMessageBatch"))
+        except ValueError:
+            # ServiceBusMessageBatch object reaches max_size.
+            # New ServiceBusMessageBatch object can be created here to send more data.
+            break
+    sender.send_messages(batch_message)
+    print("Sent a batch of 10 messages")
+
+servicebus_client = ServiceBusClient.from_connection_string(conn_str=CONNECTION_STR, logging_enable=True)
+
+with servicebus_client:
+    sender = servicebus_client.get_topic_sender(topic_name=TOPIC_NAME)
+    with sender:
+        send_single_message(sender)
+        send_a_list_of_messages(sender)
+        send_batch_message(sender)
+
+print("Done sending messages")
+print("-----------------------")
+
+with servicebus_client:
+    receiver = servicebus_client.get_subscription_receiver(topic_name=TOPIC_NAME, subscription_name=SUBSCRIPTION_NAME, max_wait_time=5)
+    with receiver:
+        for msg in receiver:
+            print("Received: " + str(msg))
+            receiver.complete_message(msg)
 ```
 
-Beim Löschen eines Themas werden alle Abonnements für das Thema gelöscht. Abonnements können auch unabhängig voneinander gelöscht werden. Der folgende Code löscht das Abonnement mit dem Namen `HighMessages` aus dem `mytopic`-Thema:
+## <a name="run-the-app"></a>Ausführen der App
+Wenn Sie die Anwendung ausführen, sollte die folgende Ausgabe angezeigt werden: 
 
-```python
-bus_service.delete_subscription('mytopic', 'HighMessages')
+```console
+Sent a single message
+Sent a list of 5 messages
+Sent a batch of 10 messages
+Done sending messages
+-----------------------
+Received: Single Message
+Received: Message in list
+Received: Message in list
+Received: Message in list
+Received: Message in list
+Received: Message in list
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
 ```
 
-Standardmäßig sind Themen und Abonnements persistent und so lange vorhanden, bis Sie sie löschen. Um Abonnements nach Ablauf eines bestimmten Zeitraums automatisch zu löschen, können Sie den Parameter [auto_delete_on_idle](/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) für das Abonnement festlegen. 
+Navigieren Sie im Azure-Portal zu Ihrem Service Bus-Namespace. Vergewissern Sie sich auf der Seite **Übersicht**, dass die Anzahl für die **eingehenden** und **ausgehenden** Nachrichten „16“ beträgt. Falls diese Zahlen nicht angezeigt werden, sollten Sie die Seite nach einigen Minuten aktualisieren. 
 
-> [!TIP]
-> Sie können Service Bus-Ressourcen mit dem [Service Bus-Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/) verwalten. Mit dem Service Bus-Explorer können Sie eine Verbindung mit einem Service Bus-Namespace herstellen und Messagingentitäten einfach verwalten. Das Tool stellt erweiterte Features wie Import-/Exportfunktionen und Testmöglichkeiten für Themen, Warteschlangen, Abonnements, Relaydienste, Notification Hubs und Event Hubs zur Verfügung. 
+:::image type="content" source="./media/service-bus-python-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Anzahl ein- und ausgehender Nachrichten":::
+
+Wählen Sie im unteren Bereich das Thema aus, um die Seite **Service Bus-Thema** für Ihr Thema anzuzeigen. Auf dieser Seite sollten im Diagramm **Nachrichten** drei ein- und drei ausgehende Nachrichten angezeigt werden. 
+
+:::image type="content" source="./media/service-bus-python-how-to-use-topics-subscriptions/topic-page-portal.png" alt-text="Ein- und ausgehende Nachrichten":::
+
+Wenn Sie auf dieser Seite ein Abonnement auswählen, gelangen Sie zur Seite **Service Bus-Abonnement**. Auf dieser Seite werden die Anzahl aktiver Nachrichten, die Anzahl unzustellbarer Nachrichten und weitere Informationen angezeigt. In diesem Beispiel wurden alle Nachrichten empfangen, sodass die Anzahl aktiver Nachrichten „0“ ist. 
+
+:::image type="content" source="./media/service-bus-python-how-to-use-topics-subscriptions/active-message-count.png" alt-text="Anzahl aktiver Nachrichten":::
+
+Wenn Sie den Code für den Empfang auskommentieren, wird „16“ als Anzahl aktiver Nachrichten angezeigt. 
+
+:::image type="content" source="./media/service-bus-python-how-to-use-topics-subscriptions/active-message-count-2.png" alt-text="Anzahl aktiver Nachrichten: Ohne Empfangscode":::
 
 ## <a name="next-steps"></a>Nächste Schritte
+Weitere Informationen finden Sie in der folgenden Dokumentation bzw. unter den folgenden Beispielen: 
 
-Nachdem Sie nun mit den Grundlagen der Service Bus-Themen vertraut sind, finden Sie unter den folgenden Links weitere Informationen:
-
-* [Service Bus-Warteschlangen, -Themen und -Abonnements][Queues, topics, and subscriptions]
-* [SqlFilter.SqlExpression][SqlFilter.SqlExpression]-Referenz
-
-[Azure portal]: https://portal.azure.com
-[Azure Python package]: https://pypi.python.org/pypi/azure
-[Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[SqlFilter.SqlExpression]: service-bus-messaging-sql-filter.md
-[Service Bus quotas]: service-bus-quotas.md
+- [Azure Service Bus-Clientbibliothek für Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus)
+- [Beispiele:](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus/samples) 
+    - Der Ordner **sync_samples** enthält Beispiele zur synchronen Interaktion mit Service Bus. In dieser Schnellstartanleitung haben Sie diese Methode verwendet. 
+    - Der Ordner **async_samples** enthält Beispiele zur asynchronen Interaktion mit Service Bus. 
+- [azure-servicebus: Referenzdokumentation](/python/api/azure-servicebus/azure.servicebus?preserve-view=true&view=azure-python-preview)

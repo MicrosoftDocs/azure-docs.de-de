@@ -3,17 +3,17 @@ title: 'Tutorial: Erstellen einer App zur Überwachung der Wasserqualität mit A
 description: 'Tutorial: Es wird beschrieben, wie Sie mit Azure IoT Central-Anwendungsvorlagen eine Anwendung zur Überwachung der Wasserqualität erstellen.'
 author: miriambrus
 ms.author: miriamb
-ms.date: 11/12/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: a80fe998c1ab241e35bee195b927846e264dec59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e8f9b8b33d391c4e13c6076a8589d336455d8c0
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972355"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590221"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Tutorial: Erstellen einer Anwendung zur Überwachung der Wasserqualität in Azure IoT Central
 
@@ -188,7 +188,7 @@ Wählen Sie auf der Registerkarte **Geräte** die Option **+ Neu** aus, um ein n
 
 ## <a name="explore-and-configure-rules"></a>Erkunden und Konfigurieren von Regeln
 
-In Azure IoT Central können Sie Regeln erstellen, mit denen die Gerätetelemetrie automatisch überwacht wird. Diese Regeln lösen eine Aktion aus, wenn eine entsprechende Bedingung erfüllt ist. Eine mögliche Aktion ist das Senden von E-Mail-Benachrichtigungen. Andere Möglichkeiten sind eine Microsoft Flow-Aktion oder eine Webhookaktion zum Senden von Daten an andere Dienste.
+In Azure IoT Central können Sie Regeln erstellen, mit denen die Gerätetelemetrie automatisch überwacht wird. Diese Regeln lösen eine Aktion aus, wenn eine entsprechende Bedingung erfüllt ist. Eine mögliche Aktion ist das Senden von E-Mail-Benachrichtigungen. Andere Möglichkeiten sind eine Power Automate-Aktion oder eine Webhookaktion zum Senden von Daten an andere Dienste.
 
 Die von Ihnen erstellte Anwendung zur Überwachung der Wasserqualität verfügt über zwei vorkonfigurierte Regeln.
 

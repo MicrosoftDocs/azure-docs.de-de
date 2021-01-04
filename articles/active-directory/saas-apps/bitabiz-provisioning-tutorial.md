@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: f87a2347890f8d17e3901c6d8fc168c1d96c7661
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eccc3be7da201ee1e2af046c6b515871ef05adc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849319"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350771"
 ---
 # <a name="tutorial-configure-bitabiz-for-automatic-user-provisioning"></a>Tutorial: Konfigurieren von BitaBIZ für die automatische Benutzerbereitstellung
 
@@ -58,7 +58,7 @@ Bevor Sie BitaBIZ für die automatische Benutzerbereitstellung mit Azure AD konf
 
 2.  Navigieren Sie zu **INTEGRATION**.
 
-    :::image type="content" source="media/bitabiz-provisioning-tutorial/integration.png" alt-text="Screenshot der BitaBIZ-Verwaltungskonsole mit hervorgehobener Option „Setup admin“ (Administrator festlegen)" border="false":::
+    :::image type="content" source="media/bitabiz-provisioning-tutorial/integration.png" alt-text="Screenshot der BitaBIZ-Verwaltungskonsole mit hervorgehobener Option „Integration“" border="false":::
 
 2.  Navigieren Sie zu **Microsoft Azure AD-Bereitstellung**.  Wählen Sie für die automatische Benutzerbereitstellung die Option **Aktiviert** aus. Kopieren Sie die Werte von **URL des SCIM-Bereitstellungsendpunkts** und **Bearertoken**. Diese Werte werden im Azure-Portal auf der Registerkarte „Bereitstellung“ Ihrer BitaBIZ-Anwendung in das Feld „Mandanten-URL“ bzw. „Geheimes Token“ eingegeben.
 

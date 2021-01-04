@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 4dc28b51e33de6bf08995064404d2d4cc6ca9b58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d222234cd6ff3d910e6dbc51a394695ce467edce
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619575"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011852"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-databases"></a>Verwalten von Schemas in einer SaaS-Anwendung, die mehrinstanzenfähige Datenbanken mit Sharding verwendet
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -31,7 +31,7 @@ In diesem Tutorial werden die folgenden zwei Szenarien untersucht:
 - Bereitstellen der Aktualisierungen von Verweisdaten für alle Mandanten
 - Neuerstellen eines Index für die Tabelle mit den Verweisdaten
 
-Für die mandantendatenbankübergreifende Ausführung dieser Vorgänge wird das Feature [Elastische Aufträge](../../sql-database/elastic-jobs-overview.md) von Azure SQL-Datenbank verwendet. Die Aufträge gelten auch für die als Vorlage verwendete Mandantendatenbank. Bei der Wingtip Tickets-Beispielanwendung wird diese Vorlagendatenbank kopiert, um eine neue Mandantendatenbank bereitzustellen.
+Für die mandantendatenbankübergreifende Ausführung dieser Vorgänge wird das Feature [Elastische Aufträge](./elastic-jobs-overview.md) von Azure SQL-Datenbank verwendet. Die Aufträge gelten auch für die als Vorlage verwendete Mandantendatenbank. Bei der Wingtip Tickets-Beispielanwendung wird diese Vorlagendatenbank kopiert, um eine neue Mandantendatenbank bereitzustellen.
 
 In diesem Tutorial lernen Sie Folgendes:
 
@@ -44,20 +44,20 @@ In diesem Tutorial lernen Sie Folgendes:
 ## <a name="prerequisites"></a>Voraussetzungen
 
 - Die mehrinstanzenfähige Datenbankanwendung Wingtip Tickets muss bereitgestellt sein:
-    - Anleitungen hierzu finden Sie im ersten Tutorial, in dem die mehrinstanzenfähige SaaS-Datenbankanwendung Wingtip Tickets vorgestellt wird:<br />[Bereitstellen und Kennenlernen einer mehrinstanzenfähigen Anwendung mit Sharding, die Azure SQL-Datenbank verwendet](../../sql-database/saas-multitenantdb-get-started-deploy.md)
+    - Anleitungen hierzu finden Sie im ersten Tutorial, in dem die mehrinstanzenfähige SaaS-Datenbankanwendung Wingtip Tickets vorgestellt wird:<br />[Bereitstellen und Kennenlernen einer mehrinstanzenfähigen Anwendung mit Sharding, die Azure SQL-Datenbank verwendet](./saas-multitenantdb-get-started-deploy.md)
         - Der Bereitstellungsprozess dauert weniger als fünf Minuten.
     - Sie müssen die *mehrinstanzenfähige Wingtip-Version mit Sharding* installiert haben. Die Versionen *Eigenständig* und *Datenbank pro Mandant* unterstützen das vorliegende Tutorial nicht.
 
-- Die aktuelle Version von SQL Server Management Studio (SSMS) muss installiert sein. [Laden Sie SSMS herunter, und installieren Sie es](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+- Die aktuelle Version von SQL Server Management Studio (SSMS) muss installiert sein. [Laden Sie SSMS herunter, und installieren Sie es](/sql/ssms/download-sql-server-management-studio-ssms).
 
-- Azure PowerShell muss installiert sein. Ausführliche Informationen finden Sie unter [Erste Schritte mit Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+- Azure PowerShell muss installiert sein. Ausführliche Informationen finden Sie unter [Erste Schritte mit Azure PowerShell](/powershell/azure/get-started-azureps).
 
 > [!NOTE]
 > In diesem Tutorial werden Funktionen des Azure SQL-Datenbank-Diensts verwendet, die als eingeschränkte Vorschauversion vorliegen ([Aufträge für die elastische Datenbank](elastic-database-client-library.md)). Wenn Sie dieses Tutorial durcharbeiten möchten, geben Sie Ihre Abonnement-ID per E-Mail an *SaaSFeedback\@microsoft.com* mit dem Betreff „Elastic Jobs Preview“ an. Wenn Sie die Bestätigung erhalten haben, dass die Aktivierung für Ihr Abonnement ausgeführt wurde, [laden Sie die aktuellen Vorabversion-Cmdlets für Aufträge herunter und installieren Sie sie](https://github.com/jaredmoo/azure-powershell/releases). Die Vorschauversion ist eingeschränkt. Wenden Sie sich daher an *SaaSFeedback\@microsoft.com*, wenn Sie Fragen haben oder Support benötigen.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Einführung in SaaS-Schemaverwaltungsmuster
 
-Das in diesem Beispiel verwendete mehrinstanzenfähige Datenbankmodell mit Sharding ermöglicht, dass eine Mandantendatenbank einen oder mehrere Mandanten enthält. In diesem Beispiel wird untersucht, wie Sie eine Mischung aus einer Datenbank mit mehreren Mandanten und einer Datenbank mit nur einem Mandanten und damit ein *hybrides* Mandantenverwaltungsmodell verwenden können. Das Verwalten von Änderungen an diesen Datenbanken kann kompliziert sein. [Elastische Aufträge](../../sql-database/elastic-jobs-overview.md) erleichtern die Verwaltung einer großen Anzahl von Datenbanken. Aufträge ermöglichen es Ihnen, auf sichere und zuverlässige Weise Transact-SQL-Skripts als Aufgaben für eine Gruppe von Mandantendatenbanken auszuführen. Die Aufgaben sind unabhängig von Benutzerinteraktionen oder Eingaben. Mithilfe dieser Methode können Änderungen an Schemadaten oder an gemeinsamen Verweisdaten für alle Mandanten in einer Anwendung bereitgestellt werden. Elastische Aufträge können auch verwendet werden, um eine Gold-Version der Datenbank als Vorlage zu verwalten. Diese Vorlage dient zum Erstellen neuer Mandanten, wodurch immer sichergestellt wird, das die neuesten Schema- und Verweisdaten verwendet werden.
+Das in diesem Beispiel verwendete mehrinstanzenfähige Datenbankmodell mit Sharding ermöglicht, dass eine Mandantendatenbank einen oder mehrere Mandanten enthält. In diesem Beispiel wird untersucht, wie Sie eine Mischung aus einer Datenbank mit mehreren Mandanten und einer Datenbank mit nur einem Mandanten und damit ein *hybrides* Mandantenverwaltungsmodell verwenden können. Das Verwalten von Änderungen an diesen Datenbanken kann kompliziert sein. [Elastische Aufträge](./elastic-jobs-overview.md) erleichtern die Verwaltung einer großen Anzahl von Datenbanken. Aufträge ermöglichen es Ihnen, auf sichere und zuverlässige Weise Transact-SQL-Skripts als Aufgaben für eine Gruppe von Mandantendatenbanken auszuführen. Die Aufgaben sind unabhängig von Benutzerinteraktionen oder Eingaben. Mithilfe dieser Methode können Änderungen an Schemadaten oder an gemeinsamen Verweisdaten für alle Mandanten in einer Anwendung bereitgestellt werden. Elastische Aufträge können auch verwendet werden, um eine Gold-Version der Datenbank als Vorlage zu verwalten. Diese Vorlage dient zum Erstellen neuer Mandanten, wodurch immer sichergestellt wird, das die neuesten Schema- und Verweisdaten verwendet werden.
 
 ![Bildschirm](./media/saas-multitenantdb-schema-management/schema-management.png)
 
@@ -161,7 +161,7 @@ Beachten Sie folgende Elemente im Skript *OnlineReindex.sql*:
 <!-- TODO: Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment (*Tutorial link to come*)
 (saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 -->
-* [Verwalten horizontal hochskalierter Clouddatenbanken](../../sql-database/elastic-jobs-overview.md)
+* [Verwalten horizontal hochskalierter Clouddatenbanken](./elastic-jobs-overview.md)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
@@ -172,5 +172,4 @@ In diesem Tutorial haben Sie Folgendes gelernt:
 > * Aktualisieren von Verweisdaten in allen Mandantendatenbanken
 > * Erstellen eines Index für eine Tabelle in allen Mandantendatenbanken
 
-Absolvieren Sie als Nächstes das Tutorial [Ad-hoc-Berichterstellung](../../sql-database/saas-multitenantdb-adhoc-reporting.md), um das Ausführen verteilter Abfragen über Mandantendatenbanken hinweg zu untersuchen.
-
+Absolvieren Sie als Nächstes das Tutorial [Ad-hoc-Berichterstellung](./saas-multitenantdb-adhoc-reporting.md), um das Ausführen verteilter Abfragen über Mandantendatenbanken hinweg zu untersuchen.

@@ -2,17 +2,17 @@
 title: Verwenden eines verwalteten Images zum Erstellen eines benutzerdefinierten Imagepools
 description: Erstellen Sie einen benutzerdefinierten Batch-Imagepool über ein verwaltetes Image, um Serverknoten mit den Softwarekomponenten und Daten für Ihre Anwendung bereitzustellen.
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: 45bf0f8b3cb335b7025ff06189bf6bc4e0a896ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/18/2020
+ms.openlocfilehash: 0a357a1d8a22341297f3bee73fb0867fb03f374f
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85851284"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916575"
 ---
 # <a name="use-a-managed-image-to-create-a-custom-image-pool"></a>Verwenden eines verwalteten Images zum Erstellen eines benutzerdefinierten Imagepools
 
-Zum Erstellen eines benutzerdefinierten Imagepools für die virtuellen Computer des Batch-Pools können Sie ein verwaltetes Image zum Erstellen eines [Shared Image Gallery-Images](batch-sig-images.md) verwenden. Die ausschließliche Verwendung eines verwalteten Images wird ebenfalls unterstützt, jedoch nur für API-Versionen bis einschließlich 2019-08-01. 
+Zum Erstellen eines benutzerdefinierten Imagepools für die virtuellen Computer des Batch-Pools können Sie ein verwaltetes Image zum Erstellen eines [Shared Image Gallery-Images](batch-sig-images.md) verwenden. Die ausschließliche Verwendung eines verwalteten Images wird ebenfalls unterstützt, jedoch nur für API-Versionen bis einschließlich 2019-08-01.
 
 > [!IMPORTANT]
 > In den meisten Fällen sollten Sie benutzerdefinierte Images mithilfe von Shared Image Gallery erstellen. Durch die Verwendung von Shared Image Gallery können Sie Pools schneller bereitstellen, eine größere Anzahl von virtuellen Computern skalieren und die Zuverlässigkeit bei der Bereitstellung virtueller Computer verbessern. Weitere Informationen finden Sie unter [Verwenden von Shared Image Gallery zum Erstellen eines benutzerdefinierten Pools](batch-sig-images.md).
@@ -49,6 +49,7 @@ Wenn Sie einen neuen virtuellen Computer für das Image erstellen, können Sie e
 - Installieren Sie auf dem virtuellen Computer keine Azure-Erweiterungen wie die benutzerdefinierte Skripterweiterung. Wenn das Image eine vorinstallierte Erweiterung enthält, treten in Azure beim Bereitstellen des Batch-Pools unter Umständen Probleme auf.
 - Wenn Sie die angefügten Datenträger verwenden, müssen Sie sie innerhalb eines virtuellen Computers einbinden und formatieren, um sie zu verwenden.
 - Stellen Sie sicher, dass das von Ihnen bereitgestellte Basisbetriebssystem-Image den standardmäßigen temporären Datenträger verwendet. Der Batch-Knoten-Agent erwartet derzeit den standardmäßigen temporären Datenträger.
+- Stellen Sie sicher, dass der Betriebssystemdatenträger nicht verschlüsselt ist.
 - Sobald der virtuelle Computer ausgeführt wird, stellen Sie über RDP (für Windows) oder SSH (für Linux) eine Verbindung mit ihm her. Installieren Sie erforderliche Software, oder kopieren Sie die gewünschten Daten.  
 
 ### <a name="create-a-vm-snapshot"></a>Erstellen einer Momentaufnahme eines virtuellen Computers

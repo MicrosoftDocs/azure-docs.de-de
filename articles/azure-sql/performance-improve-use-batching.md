@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 487b668d9a3d934220fecf5c0896f7ef492c6775
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07334d62cee94be8b5b8dd6188c1d6354c4d584b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840488"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792598"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Gewusst wie: Verbessern der Leistung von Azure SQL-Datenbank- und Azure SQL Managed Instance-Anwendungen mithilfe der Batchverarbeitung
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -42,7 +42,7 @@ Im ersten Teil dieses Artikels werden verschiedene Batchverarbeitungstechniken f
 ### <a name="note-about-timing-results-in-this-article"></a>Hinweis zu den Zeitangaben in den Ergebnissen dieses Artikels
 
 > [!NOTE]
-> Die Ergebnisse sind keine Benchmarks, sondern veranschaulichen die **relative Leistung**. Die Zeitangaben basieren auf einem Durchschnittswert von mindestens zehn Testläufen. Bei den Vorgängen handelt es sich um Einfügungen in eine leere Tabelle. Die Testergebnisse wurden vor V12 ermittelt und entsprechen nicht unbedingt dem Durchsatz, der mit einer V12-Datenbank und den neuen [DTU-Dienstebenen](database/service-tiers-dtu.md) oder [Dienstebenen virtueller Kerne](database/service-tiers-vcore.md) erreicht wird. Der relative Nutzen der Batchverarbeitungstechnik dürfte jedoch ähnlich ausfallen.
+> Die Ergebnisse sind keine Benchmarks, sondern veranschaulichen die **relative Leistung** . Die Zeitangaben basieren auf einem Durchschnittswert von mindestens zehn Testläufen. Bei den Vorgängen handelt es sich um Einfügungen in eine leere Tabelle. Die Testergebnisse wurden vor V12 ermittelt und entsprechen nicht unbedingt dem Durchsatz, der mit einer V12-Datenbank und den neuen [DTU-Dienstebenen](database/service-tiers-dtu.md) oder [Dienstebenen virtueller Kerne](database/service-tiers-vcore.md) erreicht wird. Der relative Nutzen der Batchverarbeitungstechnik dürfte jedoch ähnlich ausfallen.
 
 ### <a name="transactions"></a>Transaktionen
 
@@ -93,7 +93,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Transaktionen werden genau genommen in beiden Beispielen verwendet. Im ersten Beispiel ist jeder einzelne Aufruf eine implizite Transaktion. Im zweiten Beispiel umschließt eine explizite Transaktion alle Aufrufe. Gemäß der Dokumentation für das [Write-Ahead-Transaktionsprotokoll](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL)werden Protokolldatensätze auf die Festplatte geleert, wenn für die Transaktion ein Commit ausgeführt wird. Wenn also mehr Aufrufe in eine Transaktion eingeschlossen werden, kann der Schreibvorgang für das Transaktionsprotokoll bis zum Commit der Transaktion hinausgezögert werden. Dadurch ermöglichen Sie im Endeffekt eine Batchverarbeitung der Schreibvorgänge für das Transaktionsprotokoll des Servers.
+Transaktionen werden genau genommen in beiden Beispielen verwendet. Im ersten Beispiel ist jeder einzelne Aufruf eine implizite Transaktion. Im zweiten Beispiel umschließt eine explizite Transaktion alle Aufrufe. Gemäß der Dokumentation für das [Write-Ahead-Transaktionsprotokoll](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL)werden Protokolldatensätze auf die Festplatte geleert, wenn für die Transaktion ein Commit ausgeführt wird. Wenn also mehr Aufrufe in eine Transaktion eingeschlossen werden, kann der Schreibvorgang für das Transaktionsprotokoll bis zum Commit der Transaktion hinausgezögert werden. Dadurch ermöglichen Sie im Endeffekt eine Batchverarbeitung der Schreibvorgänge für das Transaktionsprotokoll des Servers.
 
 Die folgende Tabelle zeigt einige Ad-hoc-Testergebnisse. Bei den Tests wurden jeweils die gleichen sequenziellen Einfügevorgänge mit und ohne Transaktionen ausgeführt. Zur Verbesserung der Aussagekraft wurde der erste Testsatz remote auf einem Laptop ausgeführt und an die Datenbank in Microsoft Azure gerichtet. Der zweite Testsatz wurde über einen Clouddienst und eine Clouddatenbank ausgeführt, die sich beide im selben Microsoft Azure-Datencenter (USA, Westen) befanden. Die folgende Tabelle zeigt die Dauer sequenzieller Einfügevorgänge mit und ohne Transaktionen (in Millisekunden).
 
@@ -120,7 +120,7 @@ Die folgende Tabelle zeigt einige Ad-hoc-Testergebnisse. Bei den Tests wurden je
 
 Wie Sie den Testergebnissen entnehmen können, verschlechtert sich die Leistung sogar, wenn ein einzelner Vorgang in eine Transaktion eingeschlossen wird. Wenn Sie aber die Anzahl der Vorgänge in einer einzelnen Transaktion erhöhen, ergibt sich eine Verbesserung der Leistung. Der Leistungsunterschied ist außerdem ausgeprägter, wenn alle Vorgänge innerhalb des gleichen Microsoft Azure-Datencenters abgewickelt werden. Die höhere Latenz bei Verwendung von Azure SQL-Datenbank oder Azure SQL Managed Instance außerhalb des Microsoft Azure-Rechenzentrums beeinträchtigt den Leistungszuwachs, der sich durch die Verwendung von Transaktionen erzielen lässt.
 
-Die Verwendung von Transaktionen kann zwar zur Verbesserung der Leistung beitragen, es empfiehlt sich jedoch, sich weiterhin mit den [bewährten Methoden für Transaktionen und Verbindungen](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms187484(v=sql.105))auseinanderzusetzen. Halten Sie die Transaktion so kurz wie möglich, und trennen Sie die Datenbankverbindung nach Abschluss der Arbeit. Die using-Anweisung im vorherigen Beispiel stellt sicher, dass die Verbindung nach Abschluss des nachfolgenden Codeblocks getrennt wird.
+Die Verwendung von Transaktionen kann zwar zur Verbesserung der Leistung beitragen, es empfiehlt sich jedoch, sich weiterhin mit den [bewährten Methoden für Transaktionen und Verbindungen](/previous-versions/sql/sql-server-2008-r2/ms187484(v=sql.105))auseinanderzusetzen. Halten Sie die Transaktion so kurz wie möglich, und trennen Sie die Datenbankverbindung nach Abschluss der Arbeit. Die using-Anweisung im vorherigen Beispiel stellt sicher, dass die Verbindung nach Abschluss des nachfolgenden Codeblocks getrennt wird.
 
 Das vorherige Beispiel zeigt, dass Sie jedem ADO.NET-Code mit nur zwei Zeilen eine lokale Transaktion hinzufügen können. Mit Transaktionen können Sie schnell die Leistung von Code für sequenzielle Einfüge-, Aktualisierungs- und Löschvorgänge verbessern. Die bestmögliche Leistung erzielen Sie jedoch, wenn Sie den Code noch weiter anpassen, um von clientseitiger Batchverarbeitung (etwa von Tabellenwertparametern) zu profitieren.
 
@@ -128,7 +128,7 @@ Weitere Informationen zu Transaktionen in ADO.NET finden Sie unter [Lokale Trans
 
 ### <a name="table-valued-parameters"></a>Tabellenwertparameter
 
-Tabellenwertparameter unterstützen benutzerdefinierte Tabellentypen als Parameter in Transact-SQL-Anweisungen, gespeicherten Prozeduren und Funktionen. Mithilfe dieser clientseitigen Batchverarbeitungstechnik können Sie innerhalb des Tabellenwertparameters mehrere Datenzeilen senden. Zur Verwendung von Tabellenwertparametern müssen Sie zunächst einen Tabellentyp definieren. Die folgende Transact-SQL-Anweisung erstellt einen Tabellentyp namens **MyTableType**:
+Tabellenwertparameter unterstützen benutzerdefinierte Tabellentypen als Parameter in Transact-SQL-Anweisungen, gespeicherten Prozeduren und Funktionen. Mithilfe dieser clientseitigen Batchverarbeitungstechnik können Sie innerhalb des Tabellenwertparameters mehrere Datenzeilen senden. Zur Verwendung von Tabellenwertparametern müssen Sie zunächst einen Tabellentyp definieren. Die folgende Transact-SQL-Anweisung erstellt einen Tabellentyp namens **MyTableType** :
 
 ```sql
     CREATE TYPE MyTableType AS TABLE
@@ -212,7 +212,7 @@ Weitere Informationen zu Tabellenwertparametern finden Sie unter [Tabellenwertpa
 
 ### <a name="sql-bulk-copy"></a>SQL-Massenkopieren
 
-SQL-Massenkopieren ist eine weitere Möglichkeit, um große Datenmengen in eine Zieldatenbank einzufügen. .NET-Anwendungen können für Masseneinfügevorgänge die Klasse **SqlBulkCopy** verwenden. **SqlBulkCopy** funktioniert ähnlich wie das Befehlszeilentool **Bcp.exe** oder die Transact-SQL-Anweisung **BULK INSERT**. Im folgenden Codebeispiel ist das Massenkopieren der Zeilen aus der Quelltabelle **DataTable** in die Zieltabelle „MyTable“ dargestellt.
+SQL-Massenkopieren ist eine weitere Möglichkeit, um große Datenmengen in eine Zieldatenbank einzufügen. .NET-Anwendungen können für Masseneinfügevorgänge die Klasse **SqlBulkCopy** verwenden. **SqlBulkCopy** funktioniert ähnlich wie das Befehlszeilentool **Bcp.exe** oder die Transact-SQL-Anweisung **BULK INSERT** . Im folgenden Codebeispiel ist das Massenkopieren der Zeilen aus der Quelltabelle **DataTable** in die Zieltabelle „MyTable“ dargestellt.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -293,7 +293,7 @@ Mithilfe der Klasse **DataAdapter** können Sie ein Objekt vom Typ **DataSet** �
 
 ### <a name="entity-framework"></a>Entity Framework
 
-[Entity Framework Core](https://docs.microsoft.com/ef/efcore-and-ef6/#saving-data) unterstützt die Batchverarbeitung.
+[Entity Framework Core](/ef/efcore-and-ef6/#saving-data) unterstützt die Batchverarbeitung.
 
 ### <a name="xml"></a>XML
 
@@ -380,7 +380,7 @@ Einige Szenarien bieten sich zwar ganz offensichtlich für die Batchverarbeitung
 
 Nehmen wir zum Beispiel eine Anwendung, die den Navigationsverlauf der einzelnen Benutzer nachverfolgt. Die Anwendung könnte nun bei jeder Seitenanforderung die Datenbank aufrufen und den Seitenaufruf des Benutzers dokumentieren. Eine bessere Leistung und Skalierbarkeit wird jedoch erzielt, wenn die Navigationsaktivitäten des Benutzers gepuffert und dann in Batches an die Datenbank übermittelt werden. Die Aktualisierung der Datenbank kann auf der Grundlage der verstrichenen Zeit und/oder der Puffergröße ausgelöst werden. So können Sie beispielsweise mithilfe einer Regel festlegen, dass der Batch nach 20 Sekunden oder bei Erreichen eines Pufferinhalts von 1000 Elementen verarbeitet werden soll.
 
-Im folgenden Codebeispiel werden gepufferte Ereignisse, die von einer Überwachungsklasse ausgelöst wurden, mithilfe von [Reactive Extensions - Rx](https://docs.microsoft.com/previous-versions/dotnet/reactive-extensions/hh242985(v=vs.103)) verarbeitet. Wenn der Puffer voll ist oder ein Timeout erreicht wurde, wird der Batch mit den Benutzerdaten unter Verwendung eines Tabellenwertparameters an die Datenbank gesendet.
+Im folgenden Codebeispiel werden gepufferte Ereignisse, die von einer Überwachungsklasse ausgelöst wurden, mithilfe von [Reactive Extensions - Rx](/previous-versions/dotnet/reactive-extensions/hh242985(v=vs.103)) verarbeitet. Wenn der Puffer voll ist oder ein Timeout erreicht wurde, wird der Batch mit den Benutzerdaten unter Verwendung eines Tabellenwertparameters an die Datenbank gesendet.
 
 Die folgende NavHistoryData-Klasse modelliert die Benutzernavigationsdetails. Sie enthält grundlegende Informationen wie Benutzer-ID, aufgerufene URL und Zugriffszeit.
 

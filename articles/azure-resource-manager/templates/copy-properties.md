@@ -1,20 +1,20 @@
 ---
 title: Definieren mehrerer Instanzen einer Eigenschaft
-description: Hier erfahren Sie, wie Sie den Kopiervorgang in einer Azure Resource Manager-Vorlage verwenden, um sie beim Erstellen einer Eigenschaft für eine Ressource mehrmals zu durchlaufen.
+description: Erfahren Sie, wie Sie den copy-Vorgang in einer Azure Resource Manager-Vorlage (ARM) verwenden, um sie beim Erstellen einer Eigenschaft für eine Ressource mehrmals zu durchlaufen.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: f199872d5bb8a0333bf7bedb9501a6ca1b884691
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 446a303104e6b538129cd22d1f1fbbba6282b2ee
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605242"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905926"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Eigenschafteniteration in ARM-Vorlagen
 
-In diesem Artikel erfahren Sie, wie Sie in Ihrer Azure Resource Manager-Vorlage (ARM-Vorlage) mehrere Instanzen einer Eigenschaft erstellen. Durch Hinzufügen des Elements **copy** zum Eigenschaftenabschnitt einer Ressource in Ihrer Vorlage kann die Anzahl von Elementen für eine Eigenschaft während der Bereitstellung dynamisch festgelegt werden. Außerdem vermeiden Sie so die Wiederholung von Vorlagensyntax.
+In diesem Artikel erfahren Sie, wie Sie in Ihrer Azure Resource Manager-Vorlage (ARM-Vorlage) mehrere Instanzen einer Eigenschaft erstellen. Durch Hinzufügen des Elements `copy` zum Eigenschaftenabschnitt einer Ressource in Ihrer Vorlage kann die Anzahl von Elementen für eine Eigenschaft während der Bereitstellung dynamisch festgelegt werden. Außerdem vermeiden Sie so die Wiederholung von Vorlagensyntax.
 
-Sie können copy nur mit Ressourcen der obersten Ebene verwenden, auch wenn Sie eine Kopie auf eine Eigenschaft anwenden. Weitere Informationen zum Ändern einer untergeordneten Ressource in eine Ressource der obersten Ebene finden Sie unter [Iterationen für eine untergeordnete Ressource](copy-resources.md#iteration-for-a-child-resource).
+Sie können `copy` nur mit Ressourcen der obersten Ebene verwenden, auch wenn Sie `copy` auf eine Eigenschaft anwenden. Weitere Informationen zum Ändern einer untergeordneten Ressource in eine Ressource der obersten Ebene finden Sie unter [Iterationen für eine untergeordnete Ressource](copy-resources.md#iteration-for-a-child-resource).
 
 „copy“ kann auch mit [Ressourcen](copy-resources.md), [Variablen](copy-variables.md) und [Ausgaben](copy-outputs.md) verwendet werden.
 
@@ -32,11 +32,11 @@ Das copy-Element hat das folgende allgemeine Format:
 ]
 ```
 
-Geben Sie für **name** den Namen der Ressourceneigenschaft an, die Sie erstellen möchten.
+Geben Sie für `name` den Namen der Ressourceneigenschaft an, die Sie erstellen möchten.
 
-Die Eigenschaft **count** gibt die gewünschte Anzahl von Iterationen für die Eigenschaft an.
+Die Eigenschaft `count` gibt die gewünschte Anzahl von Iterationen für die Eigenschaft an.
 
-Die Eigenschaft **input** gibt die Eigenschaften an, die Sie wiederholen möchten. Sie erstellen ein Array von Elementen, das auf der Grundlage des Werts in der Eigenschaft **input** erstellt wird.
+Die Eigenschaft `input` gibt die Eigenschaften an, die Sie wiederholen möchten. Erstellen Sie ein Array von Elementen, das aus dem Wert in der `input`-Eigenschaft erstellt wird.
 
 ## <a name="copy-limits"></a>Einschränkungen für „copy“
 
@@ -53,7 +53,7 @@ Frühere Versionen von PowerShell, CLI und der REST-API unterstützen den Wert �
 
 ## <a name="property-iteration"></a>Iteration von Eigenschaften
 
-Im folgenden Beispiel wird veranschaulicht, wie `copy` auf die dataDisks-Eigenschaft auf einem virtuellen Computer angewendet wird:
+Im folgenden Beispiel wird veranschaulicht, wie `copy` auf die `dataDisks`-Eigenschaft auf einer VM angewandt wird:
 
 ```json
 {
@@ -97,7 +97,7 @@ Im folgenden Beispiel wird veranschaulicht, wie `copy` auf die dataDisks-Eigensc
 }
 ```
 
-Beachten Sie Folgendes: Bei Verwendung von `copyIndex` in einer Eigenschaften-Iteration müssen Sie den Namen der Iteration angeben. Von der Eigenschafteniteration wird auch ein Offsetargument unterstützt. Der Offset muss nach dem Namen der Iteration angegeben werden. Beispiel: copyIndex('dataDisks', 1).
+Beachten Sie Folgendes: Bei Verwendung von `copyIndex` in einer Eigenschaften-Iteration müssen Sie den Namen der Iteration angeben. Von der Eigenschafteniteration wird auch ein Offsetargument unterstützt. Der Offset muss nach dem Namen der Iteration angegeben werden, z. B. mit `copyIndex('dataDisks', 1)`.
 
 Ressourcen-Manager erweitert das `copy`-Array während der Bereitstellung. Der Name des Arrays wird zum Namen der Eigenschaft. Die Eingabewerte werden zu den Eigenschaften des Objekts. Die bereitgestellte Vorlage sieht wie folgt aus:
 
@@ -188,7 +188,7 @@ Die folgende Beispielvorlage erstellt eine Failovergruppe für Datenbanken, die 
 }
 ```
 
-Das Kopierelement ist ein Array, sodass Sie mehrere Eigenschaften für die Ressource angeben können.
+Das `copy`-Element ist ein Array, sodass Sie mehrere Eigenschaften für die Ressource angeben können.
 
 ```json
 {
@@ -260,11 +260,10 @@ Das folgende Beispiel zeigt ein gängiges Szenario für die Erstellung mehrerer 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Ein Tutorial, das Sie durcharbeiten können, finden Sie unter [Tutorial: Erstellen mehrerer Ressourceninstanzen mit ARM-Vorlagen](template-tutorial-create-multiple-instances.md).
+* Ein entsprechendes Tutorial finden Sie unter [Tutorial: Erstellen mehrerer Ressourceninstanzen mit ARM-Vorlagen](template-tutorial-create-multiple-instances.md).
 * Informationen zu anderen Verwendungsmöglichkeiten des „copy“-Elements finden Sie unter:
   * [Ressourceniteration in ARM-Vorlagen](copy-resources.md)
   * [Variableniteration in ARM-Vorlagen](copy-variables.md)
   * [Ausgabeiteration in ARM-Vorlagen](copy-outputs.md)
-* Informationen zu den Abschnitten einer Vorlage finden Sie unter [Verstehen der Struktur und Syntax von ARM-Vorlagen](template-syntax.md).
+* Weitere Informationen zu den Abschnitten in einer Vorlage finden Sie unter [Verstehen der Struktur und Syntax von ARM-Vorlagen](template-syntax.md).
 * Informationen zum Bereitstellen Ihrer Vorlage finden Sie unter [Bereitstellen von Ressourcen mit ARM-Vorlagen und Azure PowerShell](deploy-powershell.md).
-

@@ -5,25 +5,25 @@ author: VidyaKukke
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: 84336051fc3d653fbe73f650f2fc2badb2ec58da
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 10c9b165041f0a4a1f09511f17bef3629353c3b2
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148941"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917527"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Netzwerksicherheit für Azure Event Grid-Ressourcen
 In diesem Artikel wird beschrieben, wie Sie die folgenden Sicherheitsfunktionen mit Azure Event Grid verwenden: 
 
 - Diensttags für ausgehenden Datenverkehr
-- IP-Firewallregeln für eingehenden Datenverkehr (Vorschau)
+- IP-Firewallregeln für eingehenden Datenverkehr
 - Private Endpunkte für eingehenden Datenverkehr
 
 
 ## <a name="service-tags"></a>Diensttags
-Ein Diensttag steht für eine Gruppe von IP-Adresspräfixen aus einem bestimmten Azure-Dienst. Microsoft verwaltet die Adresspräfixe, für die das Diensttag gilt, und aktualisiert das Tag automatisch, wenn sich die Adressen ändern. Auf diese Weise wird die Komplexität häufiger Updates an Netzwerksicherheitsregeln minimiert. Weitere Informationen zu Diensttags finden Sie unter [Diensttags: Übersicht](../virtual-network/service-tags-overview.md).
+Ein Diensttag steht für eine Gruppe von IP-Adresspräfixen eines bestimmten Azure-Diensts. Microsoft verwaltet die Adresspräfixe, für die das Diensttag gilt, und aktualisiert das Tag automatisch, wenn sich die Adressen ändern. Auf diese Weise wird die Komplexität häufiger Updates an Netzwerksicherheitsregeln minimiert. Weitere Informationen zu Diensttags finden Sie unter [Diensttags: Übersicht](../virtual-network/service-tags-overview.md).
 
-Sie können mithilfe von Diensttags Netzwerkzugriffssteuerungen in [Netzwerksicherheitsgruppen](../virtual-network/network-security-groups-overview.md#security-rules)  oder  [Azure Firewall](../firewall/service-tags.md) definieren. Verwenden Sie Diensttags anstelle von spezifischen IP-Adressen, wenn Sie Sicherheitsregeln erstellen. Wenn Sie den Diensttagnamen (z. B. **AzureEventGrid**) im entsprechenden Feld *Quelle*  oder  *Ziel*  einer Regel angeben, können Sie den Datenverkehr für den entsprechenden Dienst zulassen oder verweigern.
+Sie können Diensttags verwenden, um Netzwerkzugriffssteuerungen in [Netzwerksicherheitsgruppen](../virtual-network/network-security-groups-overview.md#security-rules) oder in der [Azure Firewall](../firewall/service-tags.md) zu definieren. Verwenden Sie Diensttags anstelle von spezifischen IP-Adressen, wenn Sie Sicherheitsregeln erstellen. Wenn Sie den Diensttagnamen (beispielsweise **AzureEventGrid**) im entsprechenden *Quell-* oder *Zielfeld* einer Regel angeben, können Sie den Datenverkehr für den entsprechenden Dienst zulassen oder verweigern.
 
 | Diensttag | Zweck | Eingehend oder ausgehend möglich? | Regional möglich? | Einsatz mit Azure Firewall möglich? |
 | --- | -------- |:---:|:---:|:---:|
@@ -45,7 +45,7 @@ Sie können [private Endpunkte](../private-link/private-endpoint-overview.md) ve
 Die Verwendung privater Endpunkte für Ihre Event Grid-Ressource bietet Ihnen folgende Möglichkeiten:
 
 - Sicheren Zugriff auf Ihr Thema oder Ihre Domäne über ein VNET über das Microsoft-Backbonenetzwerk im Gegensatz zum öffentlichen Internet.
-- Sicheres Verbinden aus lokalen Netzwerken, die eine Verbindung mit dem VNET über VPN oder ExpressRoutes mit privatem Peering herstellen.
+- Sicheres Verbinden aus lokalen Netzwerken, die eine Verbindung mit dem VNET über VPN oder ExpressRoute mit privatem Peering herstellen.
 
 Wenn Sie einen privaten Endpunkt für ein Thema oder eine Domäne in Ihrem VNET erstellen, wird an den Ressourcenbesitzer eine Einwilligungsanforderung zur Genehmigung gesendet. Wenn der Benutzer, der die Erstellung des privaten Endpunkts anfordert, auch ein Besitzer der Ressource ist, wird diese Einwilligungsanforderung automatisch genehmigt. Andernfalls befindet sich die Verbindung im Status **Ausstehend**, bis sie genehmigt wurde. Anwendungen im VNET können eine nahtlose Verbindung mit dem Event Grid-Dienst über den privaten Endpunkt herstellen, und zwar mit denselben Verbindungszeichenfolgen und Autorisierungsmechanismen, die auch sonst verwendet würden. Ressourcenbesitzer können Einwilligungsanforderungen und die privaten Endpunkte über die Registerkarte **Private Endpunkte** für die Ressource im Azure-Portal verwalten.
 

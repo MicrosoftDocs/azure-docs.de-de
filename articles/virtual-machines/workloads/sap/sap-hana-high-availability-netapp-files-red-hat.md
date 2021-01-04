@@ -7,17 +7,18 @@ author: rdeltcheva
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 8800adae73de2672dd89678a6346fe6b0df755ba
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cfa68bde2462cefd6f690247cfd1e3bd2e3dbc74
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144185"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489206"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Hochverfügbarkeit bei hochskalierten SAP HANA-Lösungen mit Azure NetApp Files unter Red Hat Enterprise Linux
 
@@ -101,17 +102,17 @@ Um SAP HANA-Hochverfügbarkeit in hochskalierten Systemen auf [Azure NetApp File
 
 SAP HANA-Dateisysteme werden mithilfe von Azure NetApp Files in NFS-Freigaben auf jedem Knoten eingebunden. Die Dateisystempfade „/hana/data“, „/hana/log“ und „/hana/shared“ sind für jeden Knoten eindeutig. 
 
-Eingebunden auf node1 ( **hanadb1** )
+Eingebunden auf node1 (**hanadb1**)
 
-- 10.32.2.4:/ **hanadb1** -data-mnt00001 in /hana/data
-- 10.32.2.4:/ **hanadb1** -log-mnt00001 in /hana/log
-- 10.32.2.4:/ **hanadb1** -shared-mnt00001 in /hana/shared
+- 10.32.2.4:/**hanadb1**-data-mnt00001 in /hana/data
+- 10.32.2.4:/**hanadb1**-log-mnt00001 in /hana/log
+- 10.32.2.4:/**hanadb1**-shared-mnt00001 in /hana/shared
 
-Eingebunden auf node2 ( **hanadb2** )
+Eingebunden auf node2 (**hanadb2**)
 
-- 10.32.2.4:/ **hanadb2** -data-mnt00001 in /hana/data
-- 10.32.2.4:/ **hanadb2** -log-mnt00001 in /hana/log
-- 10.32.2.4:/ **hanadb2** -shared-mnt00001 in /hana/shared
+- 10.32.2.4:/**hanadb2**-data-mnt00001 in /hana/data
+- 10.32.2.4:/**hanadb2**-log-mnt00001 in /hana/log
+- 10.32.2.4:/**hanadb2**-shared-mnt00001 in /hana/shared
 
 > [!NOTE]
 > Die Dateisystempfade „/hana/data“, „/hana/log“ und „/hana/shared“ werden nicht durch die beiden Knoten gemeinsam genutzt. Jeder Clusterknoten besitzt eigene, separate Dateisysteme.   
@@ -143,7 +144,7 @@ In den folgenden Anweisungen wird davon ausgegangen, dass Sie bereits [Azure Vir
 
 3.  Richten Sie entsprechend den Anweisungen in [Einrichten eines Kapazitätspools](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md) einen Azure NetApp Files-Kapazitätspool ein.
 
-    Die in diesem Artikel vorgestellte HANA-Architektur verwendet einen einzigen Azure NetApp Files-Kapazitätspool auf der Dienstebene *Ultra* . Für HANA-Workloads in Azure empfehlen wir die [Dienstebene](../../../azure-netapp-files/azure-netapp-files-service-levels.md) *Ultra* oder *Premium* für Azure NetApp Files.
+    Die in diesem Artikel vorgestellte HANA-Architektur verwendet einen einzigen Azure NetApp Files-Kapazitätspool auf der Dienstebene *Ultra*. Für HANA-Workloads in Azure empfehlen wir die [Dienstebene](../../../azure-netapp-files/azure-netapp-files-service-levels.md) *Ultra* oder *Premium* für Azure NetApp Files.
 
 4.  Delegieren Sie ein Subnetz an Azure NetApp Files, wie in den Anweisungen in [Delegieren eines Subnetzes an Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md) beschrieben.
 
@@ -224,12 +225,12 @@ Zuerst müssen Sie die Azure NetApp Files-Volumes erstellen. Führen Sie dann di
 3.  Erstellen Sie eine Verfügbarkeitsgruppe. Richten Sie die maximale Updatedomäne ein.
 4.  Erstellen Sie einen Lastenausgleich (intern). Sie sollten Load Balancer Standard verwenden.
     Wählen Sie das virtuelle Netzwerk aus, das Sie in Schritt 2 erstellt haben.
-5.  Erstellen Sie den virtuellen Computer 1 ( **hanadb1** ). 
-6.  Erstellen Sie den virtuellen Computer 2 ( **hanadb2** ).  
+5.  Erstellen Sie den virtuellen Computer 1 (**hanadb1**). 
+6.  Erstellen Sie den virtuellen Computer 2 (**hanadb2**).  
 7.  Beim Erstellen des virtuellen Computers werden keine Datenträger hinzugefügt, weil sich sämtliche Bereitstellungspunkt auf NFS-Freigaben von Azure NetApp Files befinden. 
 
 > [!IMPORTANT]
-> Floating IP-Adressen werden in IP-Konfigurationen mit zwei NICs in Szenarios mit Lastenausgleich nicht unterstützt. Weitere Informationen finden Sie unter [Azure Load Balancer – Einschränkungen](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Wenn Sie zusätzliche IP-Adressen für die VM benötigen, stellen Sie eine zweite NIC bereit.    
+> Floating IP-Adressen werden in IP-Konfigurationen mit zwei NICs in Szenarios mit Lastenausgleich nicht unterstützt. Weitere Informationen finden Sie unter [Azure Load Balancer – Einschränkungen](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Wenn Sie zusätzliche IP-Adressen für die VM benötigen, stellen Sie eine zweite NIC bereit.    
 
 > [!NOTE] 
 > Wenn virtuelle Computer ohne öffentliche IP-Adressen im Back-End-Pool einer internen Azure Load Balancer Standard-Instanz (ohne öffentliche IP-Adresse) platziert werden, liegt keine ausgehende Internetverbindung vor, sofern nicht in einer zusätzlichen Konfiguration das Routing an öffentliche Endpunkte zugelassen wird. Ausführliche Informationen zum Erreichen ausgehender Konnektivität finden Sie unter [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md) (Konnektivität mit öffentlichen Endpunkten für virtuelle Computer mithilfe von Azure Load Balancer Standard in SAP-Szenarien mit Hochverfügbarkeit).
@@ -237,77 +238,77 @@ Zuerst müssen Sie die Azure NetApp Files-Volumes erstellen. Führen Sie dann di
 8.  Führen Sie bei Verwendung von Load Balancer Standard die folgenden Konfigurationsschritte aus:
     1.  Erstellen Sie zunächst einen Front-End-IP-Pool:
         1.  Öffnen Sie den Lastenausgleich, und wählen Sie den **Front-End-IP-Pool** und dann **Hinzufügen** aus.
-        1.  Geben Sie den Namen des neuen Front-End-IP-Pools ein (z.B. **hana-frontend** ).
-        1.  Legen Sie die **Zuweisung** auf **Statisch** fest, und geben Sie die IP-Adresse ein (z. B. **10.32.0.10** ).
-        1.  Klicken Sie auf **OK** .
+        1.  Geben Sie den Namen des neuen Front-End-IP-Pools ein (z.B. **hana-frontend**).
+        1.  Legen Sie die **Zuweisung** auf **Statisch** fest, und geben Sie die IP-Adresse ein (z. B. **10.32.0.10**).
+        1.  Klicken Sie auf **OK**.
         1.  Notieren Sie nach Erstellen des neuen Front-End-IP-Pools dessen IP-Adresse.
     1.  Erstellen Sie als Nächstes einen Back-End-Pool:
         1.  Öffnen Sie den Lastenausgleich, und wählen Sie **Back-End-Pools** und dann **Hinzufügen** aus.
-        1.  Geben Sie den Namen des neuen Back-End-Pools ein (z.B. **hana-backend** ).
+        1.  Geben Sie den Namen des neuen Back-End-Pools ein (z.B. **hana-backend**).
         1.  Wählen Sie **Virtuellen Computer hinzufügen** aus.
         1.  Wählen Sie **Virtueller Computer** aus.
         1.  Wählen Sie die virtuellen Computer des SAP HANA-Clusters und deren IP-Adressen aus.
-        1.  Wählen Sie **Hinzufügen** .
+        1.  Wählen Sie **Hinzufügen**.
     1.  Erstellen Sie als Nächstes einen Integritätstest:
         1.  Öffnen Sie den Lastenausgleich, und wählen Sie **Integritätstests** und dann **Hinzufügen** aus.
-        1.  Geben Sie den Namen des neuen Integritätstests ein (z.B. **hana-hp** ).
+        1.  Geben Sie den Namen des neuen Integritätstests ein (z.B. **hana-hp**).
         1.  Wählen Sie als Protokoll TCP und als Port 625 **03** aus. Behalten Sie für das **Intervall** den Wert „5“ und als **Fehlerschwellenwert** „2“ bei.
-        1.  Klicken Sie auf **OK** .
+        1.  Klicken Sie auf **OK**.
     1.  Erstellen Sie als Nächstes die Lastenausgleichsregeln:
         1.  Öffnen Sie den Lastenausgleich, und wählen Sie **Lastenausgleichsregeln** und dann **Hinzufügen** aus.
-        1.  Geben Sie den Namen der neuen Lastenausgleichsregel ein (z. B. **hana-lb** ).
-        1.  Wählen Sie die Front-End-IP-Adresse, den Back-End-Pool und den Integritätstest aus, die Sie zuvor erstellt haben (z. B. **hana-frontend** , **hana-backend** und **hana-hp** ).
+        1.  Geben Sie den Namen der neuen Lastenausgleichsregel ein (z. B. **hana-lb**).
+        1.  Wählen Sie die Front-End-IP-Adresse, den Back-End-Pool und den Integritätstest aus, die Sie zuvor erstellt haben (z. B. **hana-frontend**, **hana-backend** und **hana-hp**).
         1.  Wählen Sie **HA-Ports** aus.
         1.  Erhöhen Sie die **Leerlaufzeitüberschreitung** auf 30 Minuten.
-        1.  Achten Sie darauf, dass Sie **„Floating IP“ aktivieren** .
-        1.  Klicken Sie auf **OK** .
+        1.  Achten Sie darauf, dass Sie **„Floating IP“ aktivieren**.
+        1.  Klicken Sie auf **OK**.
 
 
 9. Wenn Ihr Szenario die Verwendung von Load Balancer Basic vorschreibt, führen Sie stattdessen die folgenden Konfigurationsschritte aus:
     1.  Konfigurieren Sie den Lastenausgleich. Erstellen Sie zunächst einen Front-End-IP-Pool:
         1.  Öffnen Sie den Lastenausgleich, und wählen Sie den **Front-End-IP-Pool** und dann **Hinzufügen** aus.
-        1.  Geben Sie den Namen des neuen Front-End-IP-Pools ein (z.B. **hana-frontend** ).
-        1.  Legen Sie die **Zuweisung** auf **Statisch** fest, und geben Sie die IP-Adresse ein (z. B. **10.32.0.10** ).
-        1.  Klicken Sie auf **OK** .
+        1.  Geben Sie den Namen des neuen Front-End-IP-Pools ein (z.B. **hana-frontend**).
+        1.  Legen Sie die **Zuweisung** auf **Statisch** fest, und geben Sie die IP-Adresse ein (z. B. **10.32.0.10**).
+        1.  Klicken Sie auf **OK**.
         1.  Notieren Sie nach Erstellen des neuen Front-End-IP-Pools dessen IP-Adresse.
     1.  Erstellen Sie als Nächstes einen Back-End-Pool:
         1.  Öffnen Sie den Lastenausgleich, und wählen Sie **Back-End-Pools** und dann **Hinzufügen** aus.
-        1.  Geben Sie den Namen des neuen Back-End-Pools ein (z.B. **hana-backend** ).
+        1.  Geben Sie den Namen des neuen Back-End-Pools ein (z.B. **hana-backend**).
         1.  Wählen Sie **Virtuellen Computer hinzufügen** aus.
         1.  Wählen Sie die Verfügbarkeitsgruppe aus, die Sie in Schritt 3 erstellt haben.
         1.  Wählen Sie die virtuellen Computer des SAP HANA-Clusters aus.
-        1.  Klicken Sie auf **OK** .
+        1.  Klicken Sie auf **OK**.
     1.  Erstellen Sie als Nächstes einen Integritätstest:
         1.  Öffnen Sie den Lastenausgleich, und wählen Sie **Integritätstests** und dann **Hinzufügen** aus.
-        1.  Geben Sie den Namen des neuen Integritätstests ein (z.B. **hana-hp** ).
+        1.  Geben Sie den Namen des neuen Integritätstests ein (z.B. **hana-hp**).
         1.  Wählen Sie als Protokoll **TCP** und als Port 625 **03** aus. Behalten Sie für das **Intervall** den Wert „5“ und als **Fehlerschwellenwert** „2“ bei.
-        1.  Klicken Sie auf **OK** .
+        1.  Klicken Sie auf **OK**.
     1.  Erstellen Sie die Lastenausgleichsregeln für SAP HANA 1.0:
         1.  Öffnen Sie den Lastenausgleich, und wählen Sie **Lastenausgleichsregeln** und dann **Hinzufügen** aus.
         1.  Geben Sie den Namen der neuen Lastenausgleichsregel ein (z.B. „hana-lb-3 **03** 15“).
-        1.  Wählen Sie die Front-End-IP-Adresse, den Back-End-Pool und den Integritätstest, die Sie zuvor erstellt haben (z.B. **hana-frontend** ), aus.
+        1.  Wählen Sie die Front-End-IP-Adresse, den Back-End-Pool und den Integritätstest, die Sie zuvor erstellt haben (z.B. **hana-frontend**), aus.
         1.  Behalten Sie als **Protokoll** den Wert **TCP** bei, und geben Sie als Port 3 **03** 15 ein.
         1.  Erhöhen Sie die **Leerlaufzeitüberschreitung** auf 30 Minuten.
-        1.  Achten Sie darauf, dass Sie **„Floating IP“ aktivieren** .
-        1.  Klicken Sie auf **OK** .
+        1.  Achten Sie darauf, dass Sie **„Floating IP“ aktivieren**.
+        1.  Klicken Sie auf **OK**.
         1.  Wiederholen Sie diese Schritte für den Port 3 **03** 17.
     1.  Erstellen Sie für SAP HANA 2.0 Lastenausgleichsregeln für die Systemdatenbank:
         1.  Öffnen Sie den Lastenausgleich, und wählen Sie **Lastenausgleichsregeln** und dann **Hinzufügen** aus.
         1.  Geben Sie den Namen der neuen Lastenausgleichsregel ein (z.B. „hana-lb-3 **03** 13“).
-        1.  Wählen Sie die Front-End-IP-Adresse, den Back-End-Pool und den Integritätstest, die Sie zuvor erstellt haben (z.B. **hana-frontend** ), aus.
+        1.  Wählen Sie die Front-End-IP-Adresse, den Back-End-Pool und den Integritätstest, die Sie zuvor erstellt haben (z.B. **hana-frontend**), aus.
         1.  Behalten Sie als **Protokoll** den Wert **TCP** bei, und geben Sie als Port 3 **03** 13 ein.
         1.  Erhöhen Sie die **Leerlaufzeitüberschreitung** auf 30 Minuten.
-        1.  Achten Sie darauf, dass Sie **„Floating IP“ aktivieren** .
-        1.  Klicken Sie auf **OK** .
+        1.  Achten Sie darauf, dass Sie **„Floating IP“ aktivieren**.
+        1.  Klicken Sie auf **OK**.
         1.  Wiederholen Sie diese Schritte für den Port 3 **03** 14.
     1.  Erstellen Sie für SAP HANA 2.0 Lastenausgleichsregeln für die Mandantendatenbank:
         1.  Öffnen Sie den Lastenausgleich, und wählen Sie **Lastenausgleichsregeln** und dann **Hinzufügen** aus.
         1.  Geben Sie den Namen der neuen Lastenausgleichsregel ein (z.B. „hana-lb-3 **03** 40“).
-        1.  Wählen Sie die Front-End-IP-Adresse, den Back-End-Pool und den Integritätstest, die Sie zuvor erstellt haben (z.B. **hana-frontend** ) aus.
+        1.  Wählen Sie die Front-End-IP-Adresse, den Back-End-Pool und den Integritätstest, die Sie zuvor erstellt haben (z.B. **hana-frontend**) aus.
         1.  Behalten Sie als **Protokoll** den Wert **TCP** bei, und geben Sie als Port 3 **03** 40 ein.
         1.  Erhöhen Sie die **Leerlaufzeitüberschreitung** auf 30 Minuten.
-        1.  Achten Sie darauf, dass Sie **„Floating IP“ aktivieren** .
-        1.  Klicken Sie auf **OK** .
+        1.  Achten Sie darauf, dass Sie **„Floating IP“ aktivieren**.
+        1.  Klicken Sie auf **OK**.
         1.  Wiederholen Sie diese Schritte für die Ports 3 **03** 41 und 3 **03** 42.
 
 Weitere Informationen zu den erforderlichen Ports für SAP HANA finden Sie im Kapitel zu [Verbindungen mit Mandantendatenbanken](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) im Handbuch zu [SAP HANA-Mandantendatenbanken](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) oder im SAP-Hinweis [2388694](https://launchpad.support.sap.com/#/notes/2388694).
@@ -325,7 +326,7 @@ Weitere Informationen zu den erforderlichen Ports für SAP HANA finden Sie im Ka
     mkdir -p /hana/shared
     ```
 
-2. **[A]** Überprüfen Sie die Einstellung für die NFS-Domäne. Stellen Sie sicher, dass die Domäne als Azure NetApp Files-Standarddomäne (also **defaultv4iddomain.com** ) konfiguriert und die Zuordnung auf **nobody** festgelegt ist.
+2. **[A]** Überprüfen Sie die Einstellung für die NFS-Domäne. Stellen Sie sicher, dass die Domäne als Azure NetApp Files-Standarddomäne (also **defaultv4iddomain.com**) konfiguriert und die Zuordnung auf **nobody** festgelegt ist.
 
     ```
     sudo cat /etc/idmapd.conf
@@ -338,10 +339,10 @@ Weitere Informationen zu den erforderlichen Ports für SAP HANA finden Sie im Ka
     ```
 
     > [!IMPORTANT]    
-    > Stellen Sie sicher, dass die NFS-Domäne in „/etc/idmapd.conf“ auf der VM so festgelegt ist, dass sie mit der Standarddomänenkonfiguration für Azure NetApp Files übereinstimmt: **defaultv4iddomain.com** . Im Fall eines Konflikts zwischen der Domänenkonfiguration auf dem NFS-Client (also der VM) und dem NFS-Server (also der Azure NetApp-Konfiguration) werden die Berechtigungen für Dateien auf Azure NetApp Files-Volumes, die auf den VMs eingebunden sind, als „nobody“ angezeigt.
+    > Stellen Sie sicher, dass die NFS-Domäne in „/etc/idmapd.conf“ auf der VM so festgelegt ist, dass sie mit der Standarddomänenkonfiguration für Azure NetApp Files übereinstimmt: **defaultv4iddomain.com**. Im Fall eines Konflikts zwischen der Domänenkonfiguration auf dem NFS-Client (also der VM) und dem NFS-Server (also der Azure NetApp-Konfiguration) werden die Berechtigungen für Dateien auf Azure NetApp Files-Volumes, die auf den VMs eingebunden sind, als „nobody“ angezeigt.
     
 
-3. **[1]** Binden Sie die knotenspezifischen Volumes auf „node1“ ein ( **hanadb1** ). 
+3. **[1]** Binden Sie die knotenspezifischen Volumes auf „node1“ ein (**hanadb1**). 
 
     ```
     sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.32.2.4:/hanadb1-shared-mnt00001 /hana/shared
@@ -349,7 +350,7 @@ Weitere Informationen zu den erforderlichen Ports für SAP HANA finden Sie im Ka
     sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.32.2.4:/hanadb1-data-mnt00001 /hana/data
     ```
     
-4.  **[2]** Binden Sie die knotenspezifischen Volumes auf „node2“ ein ( **hanadb2** ).
+4.  **[2]** Binden Sie die knotenspezifischen Volumes auf „node2“ ein (**hanadb2**).
     
     ```
     sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.32.2.4:/hanadb2-shared-mnt00001 /hana/shared
@@ -373,7 +374,7 @@ Weitere Informationen zu den erforderlichen Ports für SAP HANA finden Sie im Ka
     Flags: rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.32.0.4,local_lock=none,addr=10.32.2.4
     ```
 
-6. **[A]** Überprüfen Sie **nfs4_disable_idmapping** . Diese Angabe sollte auf **Y** (Ja) festgelegt sein. Führen Sie den Einbindungsbefehl aus, um im Speicherort von **nfs4_disable_idmapping** die Verzeichnisstruktur zu erstellen. Sie können das Verzeichnis unter „/sys/modules“ nicht manuell erstellen, da der Zugriff für den Kernel bzw. die Treiber reserviert ist.
+6. **[A]** Überprüfen Sie **nfs4_disable_idmapping**. Diese Angabe sollte auf **Y** (Ja) festgelegt sein. Führen Sie den Einbindungsbefehl aus, um im Speicherort von **nfs4_disable_idmapping** die Verzeichnisstruktur zu erstellen. Sie können das Verzeichnis unter „/sys/modules“ nicht manuell erstellen, da der Zugriff für den Kernel bzw. die Treiber reserviert ist.
 
     ```
     # Check nfs4_disable_idmapping 
@@ -482,7 +483,7 @@ In diesem Beispiel verfügt jeder Clusterknoten über ein eigenes HANA-NFS-Datei
    pcs property set maintenance-mode=true
    ```
 
-2. **[1]** Erstellen Sie die Dateisystemressourcen für die **hanadb1** -Bereitstellungen.
+2. **[1]** Erstellen Sie die Dateisystemressourcen für die **hanadb1**-Bereitstellungen.
 
     ```
     pcs resource create hana_data1 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb1-data-mnt00001 directory=/hana/data fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=40s OCF_CHECK_LEVEL=20 --group hanadb1_nfs
@@ -490,7 +491,7 @@ In diesem Beispiel verfügt jeder Clusterknoten über ein eigenes HANA-NFS-Datei
     pcs resource create hana_shared1 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb1-shared-mnt00001 directory=/hana/shared fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=40s OCF_CHECK_LEVEL=20 --group hanadb1_nfs
     ```
 
-3. **[2]** Erstellen Sie die Dateisystemressourcen für die **hanadb2** -Bereitstellungen.
+3. **[2]** Erstellen Sie die Dateisystemressourcen für die **hanadb2**-Bereitstellungen.
 
     ```
     pcs resource create hana_data2 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb2-data-mnt00001 directory=/hana/data fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=40s OCF_CHECK_LEVEL=20 --group hanadb2_nfs
@@ -563,7 +564,7 @@ In diesem Beispiel verfügt jeder Clusterknoten über ein eigenes HANA-NFS-Datei
 
    Überprüfen Sie den Status des Clusters und sämtlicher Ressourcen.
    > [!NOTE]
-   > Dieser Artikel enthält Verweise auf den Begriff  *Slave* , einen Begriff, den Microsoft nicht mehr verwendet. Sobald der Begriff aus der Software entfernt wird, wird er auch aus diesem Artikel entfernt.
+   > Dieser Artikel enthält Verweise auf den Begriff *Slave*, einen Begriff, den Microsoft nicht mehr verwendet. Sobald der Begriff aus der Software entfernt wird, wird er auch aus diesem Artikel entfernt.
    
     ```
     sudo pcs status
@@ -616,7 +617,7 @@ In diesem Abschnitt wird beschrieben, wie Sie Ihre Einrichtung testen können.
    Auf diese Weise lässt sich überprüfen, ob der Cluster ein Failover ausführen kann, wenn der Zugriff auf `/hana/shared` auf dem aktiven Knoten verloren geht.     
 
 
-   **Erwartetes Ergebnis** : Wenn `/hana/shared` als schreibgeschütztes Dateisystem festgelegt wird, tritt beim `OCF_CHECK_LEVEL`-Attribut der Ressource `hana_shared1`, das Lese-/Schreibvorgänge auf dem Dateisystem ausführt, ein Fehler auf: Auf dem Dateisystem kann nicht geschrieben werden, daher wird ein Failover der HANA-Ressource ausgeführt.  Dasselbe Ergebnis ist zu erwarten, wenn der HANA-Knoten den Zugriff auf die NFS-Freigaben verliert. 
+   **Erwartetes Ergebnis**: Wenn `/hana/shared` als schreibgeschütztes Dateisystem festgelegt wird, tritt beim `OCF_CHECK_LEVEL`-Attribut der Ressource `hana_shared1`, das Lese-/Schreibvorgänge auf dem Dateisystem ausführt, ein Fehler auf: Auf dem Dateisystem kann nicht geschrieben werden, daher wird ein Failover der HANA-Ressource ausgeführt.  Dasselbe Ergebnis ist zu erwarten, wenn der HANA-Knoten den Zugriff auf die NFS-Freigaben verliert. 
 
    Zustand der Ressource vor dem Starten des Tests:
 

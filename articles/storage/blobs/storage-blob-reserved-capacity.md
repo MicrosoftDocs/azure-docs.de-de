@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/08/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cf96906b0dab9a94febe83468f813c7cae0675b0
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 1c957330fbd54660367fa350d6985929f0bbd3d1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874814"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95531388"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Optimieren der Kosten für Blobspeicher mit reservierter Kapazität
 
@@ -38,7 +38,7 @@ Reservierte Azure Storage-Kapazität ist für ein einzelnes Abonnement oder für
 
 Wenn Sie reservierte Azure Storage-Kapazität erwerben, können Sie Ihre Reservierung für Blockblob- und Azure Data Lake Storage Gen2-Daten verwenden. Die Reservierung gilt für Ihre Nutzung im erworbenen Umfang. Die Reservierung kann nicht auf ein bestimmtes Speicherkonto, einen bestimmten Container oder ein bestimmtes Objekt innerhalb des Abonnements beschränkt werden.
 
-Eine Azure Storage-Reservierung deckt nur die Menge der Daten ab, die in einem Abonnement oder einer freigegebenen Ressourcengruppe gespeichert werden. Gebühren für vorzeitiges Löschen, Betrieb, Bandbreite und Datenübertragung sind nicht in der Reservierung enthalten. Sobald Sie eine Reservierung erworben haben, werden die Kapazitätsgebühren für die jeweiligen Reservierungsattribute rabattiert und nicht mehr zu den Preisen der nutzungsbasierten Bezahlung abgerechnet. Weitere Informationen zu Azure-Reservierungen finden Sie unter [Was sind Azure-Reservierungen?](/azure/billing/billing-save-compute-costs-reservations).
+Eine Azure Storage-Reservierung deckt nur die Menge der Daten ab, die in einem Abonnement oder einer freigegebenen Ressourcengruppe gespeichert werden. Gebühren für vorzeitiges Löschen, Betrieb, Bandbreite und Datenübertragung sind nicht in der Reservierung enthalten. Sobald Sie eine Reservierung erworben haben, werden die Kapazitätsgebühren für die jeweiligen Reservierungsattribute rabattiert und nicht mehr zu den Preisen der nutzungsbasierten Bezahlung abgerechnet. Weitere Informationen zu Azure-Reservierungen finden Sie unter [Was sind Azure-Reservierungen?](../../cost-management-billing/reservations/save-compute-costs-reservations.md).
 
 ### <a name="supported-account-types-tiers-and-redundancy-options"></a>Unterstützte Kontotypen, Ebenen und Redundanzoptionen
 
@@ -67,7 +67,7 @@ Reservierungen sind heute für 100 TiB- oder 1 PB-Blöcke möglich (mit höher
 
 ## <a name="purchase-azure-storage-reserved-capacity"></a>Erwerben reservierter Azure Storage-Kapazität
 
-Sie können reservierte Azure Storage-Kapazität über das [Azure-Portal](https://portal.azure.com) erwerben. Sie können die Reservierung im Voraus oder monatlich bezahlen. Weitere Informationen zum Erwerb mit monatlichen Zahlungen finden Sie unter [Erwerben von Azure-Reservierungen mit Vorauszahlung oder monatlicher Zahlung](/azure/billing/billing-monthly-payments-reservations).
+Sie können reservierte Azure Storage-Kapazität über das [Azure-Portal](https://portal.azure.com) erwerben. Sie können die Reservierung im Voraus oder monatlich bezahlen. Weitere Informationen zum Erwerb mit monatlichen Zahlungen finden Sie unter [Erwerben von Azure-Reservierungen mit Vorauszahlung oder monatlicher Zahlung](../../cost-management-billing/reservations/prepare-buy-reservation.md).
 
 Hilfe bei der Ermittlung der geeigneten Reservierungsbedingungen für Ihr Szenario finden Sie unter [Grundlegendes zur Rabattierung von reservierter Azure Storage-Kapazität](../../cost-management-billing/reservations/understand-storage-charges.md).
 

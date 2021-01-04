@@ -5,23 +5,24 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: include
-ms.date: 09/12/2019
+ms.date: 12/16/2020
 ms.author: jonels
 ms.custom: include file
-ms.openlocfilehash: e7a6f7b4ba4219483cd3eb8f4600bc94213df131
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54cc31cdb0ddc7694568d60b1446f1cf99663e95
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74973412"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616625"
 ---
+## <a name="create-an-azure-database-for-postgresql---hyperscale-citus"></a>Erstellen einer Azure Database for PostgreSQL-Instanz: Hyperscale (Citus)
+
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 
-## <a name="sign-in-to-the-azure-portal"></a>Melden Sie sich auf dem Azure-Portal an.
+### <a name="sign-in-to-the-azure-portal"></a>Melden Sie sich auf dem Azure-Portal an.
 
 Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-## <a name="create-an-azure-database-for-postgresql---hyperscale-citus"></a>Erstellen einer Azure Database for PostgreSQL-Instanz: Hyperscale (Citus)
 
 Führen Sie die folgenden Schritte aus, um eine Azure-Datenbank für PostgreSQL-Server zu erstellen:
 1. Klicken Sie im Azure-Portal links oben auf **Ressource erstellen**.
@@ -53,7 +54,7 @@ Führen Sie die folgenden Schritte aus, um eine Azure-Datenbank für PostgreSQL-
 10. Die Seite leitet zur Überwachung der Bereitstellung um. Wenn sich der Livestatus von **Ihre Bereitstellung wird ausgeführt** in **Ihre Bereitstellung wurde abgeschlossen** ändert, klicken Sie links auf der Seite auf das Menüelement **Ausgaben**.
 11. Die Seite „Ausgaben“ enthält einen Koordinatorhostnamen mit einer Schaltfläche daneben, um den Wert in die Zwischenablage zu kopieren. Notieren Sie diese Informationen zur späteren Verwendung.
 
-## <a name="connect-to-the-database-using-psql"></a>Herstellen einer Verbindung mit der Datenbank mithilfe von psql
+### <a name="connect-to-the-database-using-psql"></a>Herstellen einer Verbindung mit der Datenbank mithilfe von psql
 
 Wenn Sie Ihren Azure Database for PostgreSQL-Server erstellt haben, wird eine Standarddatenbank mit dem Namen **citus** erstellt. Um eine Verbindung mit Ihrem Datenbankserver herzustellen, benötigen Sie eine Verbindungszeichenfolge und das Administratorkennwort.
 

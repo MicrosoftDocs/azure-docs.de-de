@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 695b0b0ac06e63912ca0a471be3d96c148458c29
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 2370f76bacb8645f1b343da4f056c8bcf06a26dd
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104239"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95796719"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Standardspalten in Azure Monitor-Protokollen
 Daten in Azure Monitor-Protokollen werden [als Gruppe von Datensätzen in einem Log Analytics-Arbeitsbereich oder einer Application Insights-Anwendung gespeichert](./data-platform-logs.md). Diese haben jeweils einen bestimmten Datentyp, der über eine eindeutigen Satz von Spalten verfügt. Viele Datentypen weisen Standardspalten auf, die sie mit mehreren Typen gemein haben. In diesem Artikel werden diese Spalten beschrieben, zusammen mit Beispielen für ihre Verwendung in Abfragen.
@@ -80,7 +80,7 @@ Die Spalte **\_ItemId** enthält einen eindeutigen Bezeichner für den Datensatz
 ## <a name="_resourceid"></a>\_ResourceId
 Die Spalte **\_ResourceId** enthält einen eindeutigen Bezeichner für die Ressource, der der Datensatz zugeordnet ist. Damit haben Sie eine Standardspalte, die Sie verwenden können, um den Bereich Ihrer Abfrage auf Datensätze aus einer bestimmten Quelle einzuschränken oder verwandte Daten aus mehreren Tabellen zusammenzuführen.
 
-Für Azure-Ressourcen ist der Wert von **_ResourceId** die [Azure-Ressourcen-ID-URL](../../azure-resource-manager/templates/template-functions-resource.md). Die Spalte ist zurzeit auf Azure-Ressourcen beschränkt, sie wird aber auf Ressourcen außerhalb von Azure, etwa auf lokale Computer, ausgeweitet.
+Für Azure-Ressourcen ist der Wert von **_ResourceId** die [Azure-Ressourcen-ID-URL](../../azure-resource-manager/templates/template-functions-resource.md). Die Spalte ist auf Azure-Ressourcen (einschließlich [Azure Arc-Ressourcen](../../azure-arc/overview.md)) oder auf benutzerdefinierte Protokolle beschränkt, bei denen während der Erfassung die Ressourcen-ID angegeben wurde.
 
 > [!NOTE]
 > Einige Datentypen verfügen bereits über Felder, die die Azure-Ressourcen-ID oder zumindest Teile davon wie die Abonnement-ID enthalten. Während diese Felder aus Gründen der Abwärtskompatibilität beibehalten werden, wird empfohlen, „_ResourceId“ zu verwenden, um eine Kreuzkorrelation durchzuführen, da sie konsistenter ist.
@@ -111,17 +111,47 @@ AzureActivity
 ) on _ResourceId  
 ```
 
-Mit der folgenden Abfrage werden **_ResourceId** analysiert und abgerechnete Datenvolumen pro Azure-Abonnement aggregiert.
+Mit der folgenden Abfrage werden **_ResourceId** analysiert und abgerechnete Datenvolumen pro Azure-Ressourcengruppe aggregiert.
 
 ```Kusto
 union withsource = tt * 
 | where _IsBillable == true 
 | parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
     resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
-| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by resourceGroup | sort by Bytes nulls last 
 ```
 
 Verwenden Sie diese `union withsource = tt *`-Abfragen mit Bedacht, da umfassende Scans verschiedener Datentypen kostenintensiv sind.
+
+Es ist immer effizienter, die Spalte „\_SubscriptionId“ zu verwenden, als sie durch Analysieren der Spalte „\_ResourceId“ zu extrahieren.
+
+## <a name="_substriptionid"></a>\_SubstriptionId
+Die Spalte **\_SubscriptionId** enthält die Abonnement-ID der Ressource, der der Datensatz zugeordnet ist. Mit dieser Standardspalte können Sie den Bereich Ihrer Abfrage auf Datensätze aus einem bestimmten Abonnement einschränken oder verschiedene Abonnements vergleichen.
+
+Bei Azure-Ressourcen ist der Wert von **__SubscriptionId** der Abonnementteil der [Azure-Ressourcen-ID-URL](../../azure-resource-manager/templates/template-functions-resource.md). Die Spalte ist auf Azure-Ressourcen (einschließlich [Azure Arc-Ressourcen](../../azure-arc/overview.md)) oder auf benutzerdefinierte Protokolle beschränkt, bei denen während der Erfassung die Ressourcen-ID angegeben wurde.
+
+> [!NOTE]
+> Einige Datentypen umfassen bereits Felder, die die Azure-Abonnement-ID enthalten. Diese Felder werden aus Gründen der Abwärtskompatibilität beibehalten, es wird jedoch empfohlen, die Spalte „\_SubscriptionId“ zu verwenden, um eine Kreuzkorrelation durchzuführen, da sie konsistenter ist.
+### <a name="examples"></a>Beispiele
+Mit der folgenden Abfrage werden die Leistungsdaten für Computer eines bestimmten Abonnements überprüft. 
+
+```Kusto
+Perf 
+| where TimeGenerated > ago(24h) and CounterName == "memoryAllocatableBytes"
+| where _SubscriptionId == "57366bcb3-7fde-4caf-8629-41dc15e3b352"
+| summarize avgMemoryAllocatableBytes = avg(CounterValue) by Computer
+```
+
+Mit der folgenden Abfrage werden **_ResourceId** analysiert und abgerechnete Datenvolumen pro Azure-Abonnement aggregiert.
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by _SubscriptionId | sort by Bytes nulls last 
+```
+
+Verwenden Sie diese `union withsource = tt *`-Abfragen mit Bedacht, da umfassende Scans verschiedener Datentypen kostenintensiv sind.
+
 
 ## <a name="_isbillable"></a>\_IsBillable
 Die Spalte **\_IsBillable** gibt an, ob erfasste Daten gebührenpflichtig sind. Daten, für die **\_IsBillable** gleich `false` ist, werden kostenlos gesammelt und Ihrem Azure-Konto nicht in Rechnung gestellt.
@@ -168,8 +198,7 @@ Verwenden Sie die folgende Abfrage, um die Größe von erfassten abrechenbaren E
 ```Kusto
 union withsource=table * 
 | where _IsBillable == true 
-| parse _ResourceId with "/subscriptions/" SubscriptionId "/" *
-| summarize Bytes=sum(_BilledSize) by  SubscriptionId | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by  _SubscriptionId | sort by Bytes nulls last 
 ```
 
 Verwenden Sie die folgende Abfrage, um die Größe von erfassten abrechenbaren Ereignissen pro Ressourcengruppe anzuzeigen:
@@ -178,7 +207,7 @@ Verwenden Sie die folgende Abfrage, um die Größe von erfassten abrechenbaren E
 union withsource=table * 
 | where _IsBillable == true 
 | parse _ResourceId with "/subscriptions/" SubscriptionId "/resourcegroups/" ResourceGroupName "/" *
-| summarize Bytes=sum(_BilledSize) by  SubscriptionId, ResourceGroupName | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by  _SubscriptionId, ResourceGroupName | sort by Bytes nulls last 
 
 ```
 
@@ -211,4 +240,4 @@ union withsource = tt *
 
 - Erfahren Sie mehr zum [Speichern von Azure Monitor-Protokolldaten](../log-query/log-query-overview.md).
 - Arbeiten Sie eine Lektion zum [Schreiben von Protokollabfragen ](../log-query/get-started-queries.md) durch.
-- Arbeiten Sie eine Lektion zum [Verknüpfen von Tabellen in Protokollabfragen](../log-query/joins.md) durch.
+- Arbeiten Sie eine Lektion zum [Verknüpfen von Tabellen in Protokollabfragen](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins) durch.

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 2f47ded22209a9d53510c7d0a2f8270096161354
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c5ad53c0040009e9ed1f28072540b46ce7b0b9a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86244128"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683918"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Installieren und Verwenden von Consul in Azure Kubernetes Service (AKS)
 
@@ -33,7 +33,7 @@ In diesem Artikel werden folgende Vorgehensweisen behandelt:
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
-Bei den in diesem Artikel beschriebenen Schritten wird vorausgesetzt, dass Sie einen AKS-Cluster (Kubernetes `1.13` und höher, RBAC aktiviert) erstellt und eine `kubectl`-Verbindung mit dem Cluster hergestellt haben. Wenn Sie Hilfe bei einem dieser Elemente benötigen, beachten Sie das Dokument [AKS-Schnellstart][aks-quickstart]. Stellen Sie sicher, dass Ihr Cluster im Linux-Knotenpool über mindestens drei Knoten verfügt.
+Bei den in diesem Artikel beschriebenen Schritten wird vorausgesetzt, dass Sie einen AKS-Cluster (ab Kubernetes `1.13`, Kubernetes RBAC aktiviert) erstellt und eine `kubectl`-Verbindung mit dem Cluster hergestellt haben. Wenn Sie Hilfe bei einem dieser Elemente benötigen, beachten Sie das Dokument [AKS-Schnellstart][aks-quickstart]. Stellen Sie sicher, dass Ihr Cluster im Linux-Knotenpool über mindestens drei Knoten verfügt.
 
 Sie benötigen [Helm][helm], um diese Schritte ausführen und Consul installieren zu können. In Ihrem Cluster sollte die neueste stabile Version installiert und ordnungsgemäß konfiguriert sein. Wenn Sie Hilfe bei der Installation von Helm benötigen, beachten Sie den [AKS Helm-Installationsleitfaden][helm-install]. Alle Consul-Pods müssen auch für die Ausführung auf Linux-Knoten geplant werden.
 

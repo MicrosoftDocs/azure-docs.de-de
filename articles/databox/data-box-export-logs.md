@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 1d924e96cfc287060107f541e44980295eb24745
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a915ac8de83a5e183660ec4a3d05044eafff4a9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494484"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337507"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Nachverfolgung und Ereignisprotokollierung für Azure Data Box und Azure Data Box Heavy-Exportaufträge
 
@@ -25,7 +25,7 @@ Die folgende Tabelle enthält eine Übersicht der Schritte eines Data Box-Export
 
 | Phase des Data Box-Exportauftrags       | Tool zum Nachverfolgen und Überwachen                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
-| Erstellung des Auftrags               | [Einrichten der Zugriffssteuerung für den Auftrag über RBAC](#set-up-access-control-on-the-order) <br> [Aktivieren ausführlicher Protokolle in der Bestellung](#enable-verbose-log-in-the-order)                                                    |
+| Erstellung des Auftrags               | [Einrichten der Zugriffssteuerung für den Auftrag über Azure RBAC](#set-up-access-control-on-the-order) <br> [Aktivieren ausführlicher Protokolle in der Bestellung](#enable-verbose-log-in-the-order)                                                    |
 | Auftrag verarbeitet            | [Nachverfolgen des Auftrags](#track-the-order) über <ul><li> Azure-Portal </li><li> Website des Spediteurs </li><li>E-Mail-Benachrichtigungen</ul> |
 | Einrichten des Geräts              | In [Aktivitätsprotokollen](#query-activity-logs-during-setup) protokollierter Zugriff auf Geräteanmeldeinformation              |
 | Daten vom Gerät kopieren        | [Überprüfen des Kopierens von Protokollen](#copy-log) <br> [Überprüfen der ausführlichen Protokolle](#verbose-log) vor dem Kopieren von Daten            |
@@ -46,15 +46,15 @@ Um den Zugriff auf einen Auftrag zu beschränken, können Sie folgende Aktionen 
 - Weisen Sie eine Rolle auf Auftragsebene zu. Der Benutzer verfügt nur über diese durch die Rollen definierten Berechtigungen für die Interaktion mit diesem spezifischen Data Box-Auftrag und kann nichts anderes ausführen.
 - Weisen Sie eine Rolle auf Ebene der Ressourcengruppe zu. Der Benutzer hat Zugriff auf alle Data Box-Aufträge innerhalb einer Ressourcengruppe.
 
-Weitere Informationen zur vorgeschlagenen RBAC-Nutzung finden Sie unter [Bewährte Methoden für Azure-RBAC](../role-based-access-control/best-practices.md).
+Weitere Informationen zur vorgeschlagenen Azure RBAC-Nutzung finden Sie unter [Bewährte Methoden für Azure RBAC](../role-based-access-control/best-practices.md).
 
 ## <a name="enable-verbose-log-in-the-order"></a>Aktivieren ausführlicher Protokolle in der Bestellung
 
-Wenn Sie einen Exportauftrag für Data Box erstellen, haben Sie die Möglichkeit, die Sammlung von ausführlichen Protokollen zu aktivieren. Auf der folgenden Abbildung sehen Sie die Oberfläche für Aufträge, über die Sie ausführliche Protokolle aktivieren können:
+Wenn Sie einen Exportauftrag für Data Box erstellen, haben Sie die Möglichkeit, die Sammlung eines ausführlichen Protokolls zu aktivieren. Auf der folgenden Abbildung sehen Sie die Oberfläche für Aufträge, über die Sie ausführliche Protokolle aktivieren können:
 
-![Exportoption auswählen](media/data-box-deploy-export-ordered/azure-data-box-export-04b.png)
+![Exportoption auswählen](media/data-box-deploy-export-ordered/azure-data-box-export-order-export-option.png)
 
-Wenn Sie die Option **Include verbose log** (Ausführliches Protokoll hinzufügen) auswählen, wird eine ausführliche Protokolldatei erstellt, wenn Sie Daten aus Ihrem Azure Storage-Konto kopieren. Dieses Protokoll enthält eine Liste aller Dateien, die erfolgreich exportiert wurden.      
+Wenn Sie die Option **Include verbose log** (Ausführliches Protokoll hinzufügen) auswählen, wird eine ausführliche Protokolldatei erstellt, wenn Sie Daten aus Ihrem Azure Storage-Konto kopieren. Dieses Protokoll enthält eine Liste aller Dateien, die erfolgreich exportiert wurden.
 
 Weitere Informationen zu Exportaufträgen finden Sie unter [Erstellen eines Exportauftrags für Data Box](data-box-deploy-export-ordered.md).
 

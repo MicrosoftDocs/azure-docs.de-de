@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: bf89e99842efa726e6ca05a08998c9d058dc02e3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0e94288b49cd57b59c126c95ca507477f1c56946
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019374"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321528"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Tutorial: Verwenden von R zum Erstellen eines Machine Learning-Modells (Vorschau)
 
@@ -45,7 +45,7 @@ Wenn Sie nicht über ein Azure-Abonnement verfügen, können Sie ein kostenloses
 
 Ein Azure Machine Learning-Arbeitsbereich ist eine grundlegende Cloudressource zum Experimentieren, Trainieren und Bereitstellen von Machine Learning-Modellen. Er verknüpft Ihr Azure-Abonnement und Ihre Ressourcengruppe mit einem einfach nutzbaren Objekt im Dienst. 
 
-Sie erstellen einen Arbeitsbereich über das Azure-Portal, einer webbasierten Konsole zum Verwalten Ihrer Azure-Ressourcen. 
+Es gibt viele [Möglichkeiten, einen Arbeitsbereich zu erstellen](how-to-manage-workspace.md). In diesem Tutorial erstellen Sie einen Arbeitsbereich über das Azure-Portal, einer webbasierten Konsole zum Verwalten Ihrer Azure-Ressourcen. 
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
@@ -74,7 +74,7 @@ Klonen Sie das https://github.com/Azure/azureml-sdk-for-r -GitHub-Repository, um
 
 1. Führen Sie `git clone https://github.com/Azure/azureml-sdk-for-r` im Terminal aus, um das Repository zu klonen.
 
-1. Navigieren Sie in RStudio zum Ordner *Vignettes* (Vignetten) des geklonten *azureml-sdk-for-r*-Ordners.  Wählen Sie unter *vignettes* (Vignetten) die Datei *train-and-deploy-first-model.Rmd* aus, um die in diesem Tutorial verwendete Vignette zu suchen. Die zusätzlichen Dateien, die für die Vignette verwendet werden, befinden sich im Unterordner *train-and-deploy-first-model*. Nachdem Sie die Vignette geöffnet haben, legen Sie den Speicherort des Arbeitsverzeichnisses auf **Session > Set Working Directory > To Source File Location** (Sitzung > Arbeitsverzeichnis festlegen > Auf Quelldatei-Speicherort). 
+1. Navigieren Sie in RStudio zum Ordner *Vignettes* (Vignetten) des geklonten *azureml-sdk-for-r* -Ordners.  Wählen Sie unter *vignettes* (Vignetten) die Datei *train-and-deploy-first-model.Rmd* aus, um die in diesem Tutorial verwendete Vignette zu suchen. Die zusätzlichen Dateien, die für die Vignette verwendet werden, befinden sich im Unterordner *train-and-deploy-first-model*. Nachdem Sie die Vignette geöffnet haben, legen Sie den Speicherort des Arbeitsverzeichnisses auf **Session > Set Working Directory > To Source File Location** (Sitzung > Arbeitsverzeichnis festlegen > Auf Quelldatei-Speicherort). 
 
 > [!Important]
 > Der restliche Inhalt dieses Artikels entspricht dem Inhalt der Datei *train-and-deploy-first-model.Rmd*. Falls Sie mit RMarkdown vertraut sind, können Sie den Code aus dieser Datei verwenden.  Alternativ können Sie die Codeausschnitte aus der Datei oder diesem Artikel kopieren und in ein R-Skript oder die Befehlszeile einfügen. 
@@ -184,7 +184,7 @@ Passen Sie für dieses Tutorial ein logistisches Regressionsmodell an Ihre hochg
 * Übermitteln des Auftrags
 
 ### <a name="prepare-the-training-script"></a>Vorbereiten des Trainingsskripts
-Ein Trainingsskript mit dem Namen `accidents.R` wurde für Sie im *train-and-deploy-first-model*-Verzeichnis bereitgestellt. Beachten Sie die folgenden Details **im Trainingsskript**, die angegeben wurden, um den Azure Machine Learning-Dienst für das Training zu nutzen:
+Ein Trainingsskript mit dem Namen `accidents.R` wurde für Sie im *train-and-deploy-first-model* -Verzeichnis bereitgestellt. Beachten Sie die folgenden Details **im Trainingsskript** , die angegeben wurden, um den Azure Machine Learning-Dienst für das Training zu nutzen:
 
 * Für das Trainingsskript wird das Argument `-d` genutzt, um das Verzeichnis mit den Trainingsdaten zu ermitteln. Wenn Sie Ihren Auftrag definieren und später dann senden, verweisen Sie auf den Datenspeicher für dieses Argument. Azure ML stellt den Speicherordner im Remotecluster für den Trainingsauftrag bereit.
 * Mit dem Trainingsskript wird die endgültige Genauigkeit als Metrik für die Ausführungsaufzeichnung in Azure ML mit `log_metric_to_run()` protokolliert. Das Azure ML SDK verfügt über Protokollierungs-APIs zum Protokollieren verschiedener Metriken bei Trainingsausführungen. Diese Metriken werden aufgezeichnet und in der Ausführungsaufzeichnung des Experiments dauerhaft gespeichert. Auf die Metriken kann dann jederzeit zugegriffen werden, oder sie können in [Studio](https://ml.azure.com) auf der Seite mit den Ausführungsdetails angezeigt werden. In der [Referenz](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) finden Sie alle Protokollierungsmethoden (`log_*()`).
@@ -289,7 +289,7 @@ as.numeric(predict(accident_model,newdata, type="response")*100)
 
 ## <a name="deploy-as-a-web-service"></a>Bereitstellen als Webdienst
 
-Mit Ihrem Modell können Sie die Gefahr einer tödlichen Verletzung aufgrund einer Kollision vorhersagen. Verwenden Sie Azure ML, um Ihr Modell als Vorhersagedienst bereitzustellen. In diesem Tutorial stellen Sie den Webdienst in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI) bereit.
+Mit Ihrem Modell können Sie die Gefahr einer tödlichen Verletzung aufgrund einer Kollision vorhersagen. Verwenden Sie Azure ML, um Ihr Modell als Vorhersagedienst bereitzustellen. In diesem Tutorial stellen Sie den Webdienst in [Azure Container Instances](../container-instances/index.yml) (ACI) bereit.
 
 ### <a name="register-the-model"></a>Registrieren des Modells
 
@@ -305,7 +305,7 @@ model <- register_model(ws,
 ### <a name="define-the-inference-dependencies"></a>Definieren der Rückschlussabhängigkeiten
 Zum Erstellen eines Webdiensts für Ihr Modell müssen Sie zuerst ein Bewertungsskript (`entry_script`) erstellen. Hierbei handelt es sich um ein R-Skript, für das Variablenwerte (im JSON-Format) als Eingabe verwendet werden und eine Vorhersage für Ihr Modell ausgegeben wird. Verwenden Sie für dieses Tutorial die angegebene Bewertungsdatei `accident_predict.R`. Das Bewertungsskript muss eine `init()`-Methode enthalten, mit der Ihr Modell geladen und eine Funktion zurückgegeben wird, für die das Modell zum Treffen einer Vorhersage basierend auf den Eingabedaten verwendet wird. Weitere Informationen finden Sie in der [Dokumentation](https://azure.github.io/azureml-sdk-for-r/reference/inference_config.html#details).
 
-Definieren Sie als Nächstes eine Azure ML-**Umgebung** für die Paketabhängigkeiten Ihres Skripts. Mit einer Umgebung geben Sie R-Pakete an (per CRAN oder auf andere Weise), die für die Ausführung Ihres Skripts benötigt werden. Sie können auch die Werte von Umgebungsvariablen angeben, auf die Ihr Skript verweisen kann, um sein Verhalten zu ändern. Standardmäßig wird von Azure ML das gleiche Docker-Standardimage erstellt, das mit dem Estimator für das Training verwendet wird. Erstellen Sie eine Umgebung ohne spezielle Attribute, da für das Tutorial keine besonderen Anforderungen gelten.
+Definieren Sie als Nächstes eine Azure ML- **Umgebung** für die Paketabhängigkeiten Ihres Skripts. Mit einer Umgebung geben Sie R-Pakete an (per CRAN oder auf andere Weise), die für die Ausführung Ihres Skripts benötigt werden. Sie können auch die Werte von Umgebungsvariablen angeben, auf die Ihr Skript verweisen kann, um sein Verhalten zu ändern. Standardmäßig wird von Azure ML das gleiche Docker-Standardimage erstellt, das mit dem Estimator für das Training verwendet wird. Erstellen Sie eine Umgebung ohne spezielle Attribute, da für das Tutorial keine besonderen Anforderungen gelten.
 
 ```R
 r_env <- r_environment(name = "basic_env")

@@ -3,12 +3,12 @@ title: 'Neuigkeiten Versionshinweise: Azure Event Grid'
 description: Hier finden Sie Informationen zu den Neuerungen in Azure Event Grid, z. B. aktuelle Versionshinweise, bekannte Probleme, Fehlerbehebungen, veraltete Funktionen und anstehende Änderungen.
 ms.topic: overview
 ms.date: 07/23/2020
-ms.openlocfilehash: 1edfa3e2bc4c8adae113b2215b7fb0483fba4c02
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7528cef7007704bbf434f16622707da8920eec2b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87172701"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350006"
 ---
 # <a name="whats-new-in-azure-event-grid"></a>Welche Neuerungen gibt es in Azure Event Grid?
 
@@ -40,7 +40,7 @@ Es werden fortlaufend Verbesserungen an Azure Event Grid vorgenommen. Damit Sie 
 - Dieses Release enthält zusätzliche Fehlerbehebungen, um die Qualität zu verbessern.
 - Als Version 5.3.1-preview entspricht dieses Release der API-Version 2020-04-01-Preview, die die folgenden neuen Funktionen umfasst: 
     - [Unterstützung für IP-Filterung beim Veröffentlichen von Ereignissen in Domänen und Themen](configure-firewall.md)
-    - [Partnerthemen](partner-topics-overview.md)
+    - [Partnerthemen](./partner-events-overview.md)
     - [Systemthemen als überwachte Ressourcen im Azure-Portal](system-topics.md)
     - [Ereignisbereitstellung mit verwalteter Dienstidentität](managed-service-identity.md) 
     - [Unterstützung für Private Link-Dienst](configure-private-endpoints.md)
@@ -49,7 +49,7 @@ Es werden fortlaufend Verbesserungen an Azure Event Grid vorgenommen. Damit Sie 
 - Dieses Release enthält verschiedene Fehlerbehebungen, um die Qualität zu verbessern.
 - Als Version 5.3.0-preview entspricht dieses Release der API-Version 2020-04-01-Preview, die die folgenden neuen Funktionen umfasst: 
     - [Unterstützung für IP-Filterung beim Veröffentlichen von Ereignissen in Domänen und Themen](configure-firewall.md)
-    - [Partnerthemen](partner-topics-overview.md)
+    - [Partnerthemen](./partner-events-overview.md)
     - [Systemthemen als überwachte Ressourcen im Azure-Portal](system-topics.md)
     - [Ereignisbereitstellung mit verwalteter Dienstidentität](managed-service-identity.md) 
     - [Unterstützung für Private Link-Dienst](configure-private-endpoints.md)
@@ -59,7 +59,7 @@ Es werden fortlaufend Verbesserungen an Azure Event Grid vorgenommen. Damit Sie 
 - Als Version 5.2.0-preview entspricht dieses Release der API-Version 2020-04-01-Preview.
 - Es fügt Unterstützung für die folgenden neuen Funktionen hinzu: 
     - [Unterstützung für IP-Filterung beim Veröffentlichen von Ereignissen in Domänen und Themen](configure-firewall.md)
-    - [Partnerthemen](partner-topics-overview.md)
+    - [Partnerthemen](./partner-events-overview.md)
     - [Systemthemen als überwachte Ressourcen im Azure-Portal](system-topics.md)
     - [Ereignisbereitstellung mit verwalteter Dienstidentität](managed-service-identity.md) 
     - [Unterstützung für Private Link-Dienst](configure-private-endpoints.md)

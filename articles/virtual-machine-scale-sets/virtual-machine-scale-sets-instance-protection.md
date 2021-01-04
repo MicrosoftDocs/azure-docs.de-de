@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: availability
 ms.date: 02/26/2020
 ms.reviewer: jushiman
-ms.custom: avverma
-ms.openlocfilehash: 8c4944da8ffcaa75e6448483918a29809c32830b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: 59720a3e89db29ba3eb0829084dd5252e27e9cc9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83124056"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746800"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Instanzschutz für Instanzen von Azure-VM-Skalierungsgruppen
 
@@ -28,13 +28,13 @@ In diesem Artikel wird beschrieben, wie Sie die verschiedenen Funktionen für de
 Skalierungsgruppen umfassen zwei Arten von Funktionen für den Instanzschutz:
 
 -   **Schutz vor horizontalem Herunterskalieren**
-    - Wird über die **protectFromScaleIn**-Eigenschaft auf der Skalierungsgruppeninstanz aktiviert
+    - Wird über die **protectFromScaleIn** -Eigenschaft auf der Skalierungsgruppeninstanz aktiviert
     - Schützt die Instanz vor dem Vorgang zum Abskalieren, der von der Autoskalierung initiiert wird
     - Vom Benutzer initiierte Instanzvorgänge (einschließlich dem Löschen der Instanz) werden **nicht blockiert**
     - In der Skalierungsgruppe initiierte Vorgänge (Aktualisieren, Durchführen von Reimaging, Aufheben der Zuordnung usw.) werden **nicht blockiert**
 
 -   **Schutz vor Skalierungsgruppenaktionen**
-    - Wird über die **protectFromScaleSetActions**-Eigenschaft auf der Skalierungsgruppeninstanz aktiviert
+    - Wird über die **protectFromScaleSetActions** -Eigenschaft auf der Skalierungsgruppeninstanz aktiviert
     - Schützt die Instanz vor dem Vorgang zum Abskalieren, der von der Autoskalierung initiiert wird
     - Schützt die Instanz vor Vorgängen, die in der Skalierungsgruppe initiiert werden (Aktualisieren, Durchführen von Reimaging, Aufheben der Zuordnung usw.)
     - Vom Benutzer initiierte Instanzvorgänge (einschließlich dem Löschen der Instanz) werden **nicht blockiert**

@@ -19,6 +19,8 @@
       href: virtual-machines-custom-preferences.md
     - name: Aktivieren auf virtuellen Computern per Azure Policy
       href: virtual-machines-policy-enable.md
+    - name: Reparieren eines fehlerhaften Automanage-Kontos
+      href: repair-automanage-account.md
 - name: Ressourcen
   expanded: true
   items:

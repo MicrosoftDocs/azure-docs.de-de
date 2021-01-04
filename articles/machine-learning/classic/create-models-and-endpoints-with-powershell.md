@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: ab14547ef5d9791728ce96fdf2c414945a46aab9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef9ea055f437b53313dc9ee11b0b91f095664f5e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362485"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322846"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Erstellen mehrerer Webdienst-Endpunkte von einem Experiment mit Machine Learning Studio (Classic) und PowerShell
 
-**GILT FÜR:**  ![Gilt für ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic) ![Gilt nicht für ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**GILT FÜR:**  ![Gilt für ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic) ![Gilt nicht für ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 Dies ist ein Beispiel für ein häufiges Machine Learning-Problem: Sie möchten viele Modelle erstellen, die denselben Trainingsworkflow haben und für die derselbe Algorithmus verwendet wird. Aber Sie möchten, dass die Modelle unterschiedliche Trainingsdatasets als Eingabe haben. In diesem Artikel erfahren Sie, wie Sie dies in größerem Umfang in Azure Machine Learning Studio (klassisch) mit nur einem Experiment durchführen.
 
@@ -28,7 +28,7 @@ Sie können das Modell einmalig trainieren, indem Sie eine zusammengefasste Vers
 
 Dies wäre vermutlich der beste Ansatz. Sie möchten in Azure Machine Learning Studio (klassisch) aber nicht 1.000 Trainingsexperimente erstellen müssen, also ein Experiment pro Standort. Dies ist nicht nur viel zu aufwendig, sondern auch eine ineffiziente Vorgehensweise, da alle Experimente mit Ausnahme des Trainingsdatasets die gleichen Komponenten aufweisen würden.
 
-Glücklicherweise können Sie hierfür die [Azure Machine Learning Studio-API (klassisch) für das erneute Trainieren](/azure/machine-learning/studio/retrain-machine-learning-model) verwenden und die Aufgabe mit [Azure Machine Learning Studio (klassisch) PowerShell](powershell-module.md) automatisieren.
+Glücklicherweise können Sie hierfür die [Azure Machine Learning Studio-API (klassisch) für das erneute Trainieren](./retrain-machine-learning-model.md) verwenden und die Aufgabe mit [Azure Machine Learning Studio (klassisch) PowerShell](powershell-module.md) automatisieren.
 
 > [!NOTE]
 > Damit das Beispiel schneller ausgeführt wird, reduzieren Sie die Standortanzahl von 1.000 auf 10. Es gelten aber dieselben Prinzipien und Verfahren wie für 1.000 Standorte. Möchten Sie das Trainieren aber mit 1.000 Datasets vornehmen, sollten Sie die folgenden PowerShell-Skripts gleichzeitig ausführen. Die Erklärung hierzu würde den Rahmen dieses Artikels sprengen, aber im Internet finden Sie Beispiele für das PowerShell-Multithreading.  
@@ -50,12 +50,12 @@ Im Experiment wird ein **Import Data** -Modul zum Importieren des Trainingsdatas
 Beachten Sie, dass dem Modul **Train Model** das Modul **Web Service Output** hinzugefügt wurde.
 Wenn dieses Experiment als Webdienst bereitgestellt wird, gibt der Endpunkt, der dieser Ausgabe zugeordnet ist, das trainierte Modell als ILEARNER-Datei zurück.
 
-Beachten Sie auch, dass Sie einen Webdienstparameter einrichten, der die URL definiert, die vom **Import Data**-Modul verwendet wird. Dies ermöglicht Ihnen die Verwendung des Parameters zum Angeben individueller Trainingsdatasets, um das Modell für jeden Standort zu trainieren.
-Es gibt weitere Möglichkeiten, wie Sie dies umsetzen könnten. Sie können eine SQL-Abfrage mit einem Webdienstparameter verwenden, um Daten aus einer Datenbank in Azure SQL-Datenbank abzurufen. Oder Sie können das **Web Service Input**-Modul verwenden, um das Dataset an den Webdienst zu übergeben.
+Beachten Sie auch, dass Sie einen Webdienstparameter einrichten, der die URL definiert, die vom **Import Data** -Modul verwendet wird. Dies ermöglicht Ihnen die Verwendung des Parameters zum Angeben individueller Trainingsdatasets, um das Modell für jeden Standort zu trainieren.
+Es gibt weitere Möglichkeiten, wie Sie dies umsetzen könnten. Sie können eine SQL-Abfrage mit einem Webdienstparameter verwenden, um Daten aus einer Datenbank in Azure SQL-Datenbank abzurufen. Oder Sie können das **Web Service Input** -Modul verwenden, um das Dataset an den Webdienst zu übergeben.
 
 ![Ein trainiertes Modellmodul mit Ausgabe an ein Webdienstausgabemodul](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 
-Wir führen dieses Trainingsexperiment jetzt aus, indem wir den Standardwert *rental001.csv* als Trainingsdataset verwenden. Wenn Sie die Ausgabe des Auswertungsmoduls (**Evaluate**) anzeigen, indem Sie auf die Ausgabe klicken und **Visualisieren** auswählen, sehen Sie, dass eine ordentliche Leistung von „*AUC* = 0,91“ angezeigt wird. Sie sind jetzt so weit, dass Sie aus diesem Trainingsexperiment einen Webdienst bereitstellen können.
+Wir führen dieses Trainingsexperiment jetzt aus, indem wir den Standardwert *rental001.csv* als Trainingsdataset verwenden. Wenn Sie die Ausgabe des Auswertungsmoduls ( **Evaluate** ) anzeigen, indem Sie auf die Ausgabe klicken und **Visualisieren** auswählen, sehen Sie, dass eine ordentliche Leistung von „ *AUC* = 0,91“ angezeigt wird. Sie sind jetzt so weit, dass Sie aus diesem Trainingsexperiment einen Webdienst bereitstellen können.
 
 ## <a name="deploy-the-training-and-scoring-web-services"></a>Bereitstellen der Webdienste für das Training und die Bewertung
 Klicken Sie zum Bereitstellen des Webdiensts für das Training unter dem Experimentbereich auf die Schaltfläche **Set Up Web Service** (Webdienst einrichten), und wählen Sie die Option **Deploy Web Service** (Webdienst bereitstellen). Geben Sie dem Webdienst den Namen „Bike Rental Training“.
@@ -99,7 +99,7 @@ Sie haben jetzt zehn Endpunkte erstellt, die alle dasselbe trainierte Modell ent
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>Aktualisieren der Endpunkte zur Verwendung separater Trainingsdatasets mit PowerShell
 Der nächste Schritt besteht darin, die Endpunkte mit Modellen zu aktualisieren, die basierend auf den individuellen Daten der einzelnen Kunden eindeutig trainiert wurden. Zuerst müssen Sie diese Modelle aber über den Webdienst **Bike Rental Training** erzeugen. Wir kehren zum Webdienst **Bike Rental Training** zurück. Sie müssen seinen BES-Endpunkt zehnmal mit zehn verschiedenen Trainingsdatasets aufrufen, um zehn verschiedene Modelle zu erzeugen. Hierfür verwenden Sie das PowerShell-Cmdlet **InovkeAmlWebServiceBESEndpoint**.
 
-Sie müssen außerdem Anmeldeinformationen für Ihr Blobspeicherkonto in `$configContent` bereitstellen. Dies erfolgt über die Felder `AccountName`, `AccountKey` und `RelativeLocation`. Der `AccountName` kann einer Ihrer Kontonamen sein, die im **Azure-Portal** angezeigt werden (Registerkarte*Speicher*). Nachdem Sie auf ein Speicherkonto geklickt haben, können Sie auf den `AccountKey` zugreifen, indem Sie unten auf die Schaltfläche **Zugriffsschlüssel verwalten** klicken und den *Primären Zugriffsschlüssel*kopieren. `RelativeLocation` ist der Pfad relativ zu Ihrem Speicher, in dem ein neues Modell gespeichert wird. Der Pfad `hai/retrain/bike_rental/` im folgenden Skript verweist beispielsweise auf einen Container namens `hai`, und `/retrain/bike_rental/` sind Unterordner. Derzeit können Sie keine Unterordner über die Benutzeroberfläche des Portals erstellen, aber dies ist mit [mehreren Azure Storage-Explorern](../../storage/common/storage-explorers.md) möglich. Es wird empfohlen, im Speicher wie folgt einen neuen Container zum Speichern der neuen trainierten Modelle (ILEARNER-Dateien) zu erstellen: Klicken Sie unten auf der Speicherseite auf die Schaltfläche **Hinzufügen**, und geben Sie dem Container den Namen `retrain`. Zusammengefasst beziehen sich die erforderlichen Änderungen am folgenden Skript auf `AccountName`, `AccountKey` und `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
+Sie müssen außerdem Anmeldeinformationen für Ihr Blobspeicherkonto in `$configContent` bereitstellen. Dies erfolgt über die Felder `AccountName`, `AccountKey` und `RelativeLocation`. Der `AccountName` kann einer Ihrer Kontonamen sein, die im **Azure-Portal** angezeigt werden (Registerkarte *Speicher* ). Nachdem Sie auf ein Speicherkonto geklickt haben, können Sie auf den `AccountKey` zugreifen, indem Sie unten auf die Schaltfläche **Zugriffsschlüssel verwalten** klicken und den *Primären Zugriffsschlüssel* kopieren. `RelativeLocation` ist der Pfad relativ zu Ihrem Speicher, in dem ein neues Modell gespeichert wird. Der Pfad `hai/retrain/bike_rental/` im folgenden Skript verweist beispielsweise auf einen Container namens `hai`, und `/retrain/bike_rental/` sind Unterordner. Derzeit können Sie keine Unterordner über die Benutzeroberfläche des Portals erstellen, aber dies ist mit [mehreren Azure Storage-Explorern](../../storage/common/storage-explorers.md) möglich. Es wird empfohlen, im Speicher wie folgt einen neuen Container zum Speichern der neuen trainierten Modelle (ILEARNER-Dateien) zu erstellen: Klicken Sie unten auf der Speicherseite auf die Schaltfläche **Hinzufügen** , und geben Sie dem Container den Namen `retrain`. Zusammengefasst beziehen sich die erforderlichen Änderungen am folgenden Skript auf `AccountName`, `AccountKey` und `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
 
 ```powershell
 # Invoke the retraining API 10 times
@@ -121,9 +121,9 @@ For ($i = 1; $i -le 10; $i++){
 > 
 > 
 
-Wie Sie oben sehen können, erstellen Sie die Konfigurationszeichenfolge dynamisch, anstatt zehn unterschiedliche JSON-Dateien für die BES-Auftragskonfiguration zu erstellen. Danach übergeben Sie die Konfigurationszeichenfolge an den *jobConfigString*-Parameter des **InvokeAmlWebServceBESEndpoint**-Cmdlets. Es ist tatsächlich nicht erforderlich, eine Kopie auf einem Datenträger zu speichern.
+Wie Sie oben sehen können, erstellen Sie die Konfigurationszeichenfolge dynamisch, anstatt zehn unterschiedliche JSON-Dateien für die BES-Auftragskonfiguration zu erstellen. Danach übergeben Sie die Konfigurationszeichenfolge an den *jobConfigString* -Parameter des **InvokeAmlWebServceBESEndpoint** -Cmdlets. Es ist tatsächlich nicht erforderlich, eine Kopie auf einem Datenträger zu speichern.
 
-Wenn alles gut geht, sollten nach einer Weile in Ihrem Azure-Speicherkonto zehn ILEARNER-Dateien, von *model001.ilearner* bis *model010.ilearner*, angezeigt werden. Jetzt können Sie die zehn Endpunkte des Webdiensts für die Bewertung mit diesen Modellen aktualisieren, indem Sie das PowerShell-Cmdlet **Patch-AmlWebServiceEndpoint** verwenden. Denken Sie erneut daran, dass Sie nur die nicht standardmäßigen Endpunkte patchen können, die Sie zuvor programmgesteuert erstellt haben.
+Wenn alles gut geht, sollten nach einer Weile in Ihrem Azure-Speicherkonto zehn ILEARNER-Dateien, von *model001.ilearner* bis *model010.ilearner* , angezeigt werden. Jetzt können Sie die zehn Endpunkte des Webdiensts für die Bewertung mit diesen Modellen aktualisieren, indem Sie das PowerShell-Cmdlet **Patch-AmlWebServiceEndpoint** verwenden. Denken Sie erneut daran, dass Sie nur die nicht standardmäßigen Endpunkte patchen können, die Sie zuvor programmgesteuert erstellt haben.
 
 ```powershell
 # Patch the 10 endpoints with respective .ilearner models
@@ -138,7 +138,7 @@ For ($i = 1; $i -le 10; $i++){
 }
 ```
 
-Dieser Vorgang sollte relativ schnell ausgeführt werden. Wenn die Ausführung abgeschlossen ist, haben Sie erfolgreich zehn Vorhersagewebdienst-Endpunkte erstellt. Jeder dieser Punkte enthält ein trainiertes Modell, das einzigartig mit dem Dataset trainiert wurde, das speziell zu dem entsprechenden Vermietungsstandort gehört. Und all dies aus einem einzigen Trainingsexperiment. Zur Überprüfung können Sie versuchen, diese Endpunkte mit dem **InvokeAmlWebServiceRRSEndpoint**-Cmdlet aufzurufen, wobei Sie jeweils dieselben Eingabedaten bereitstellen. Sie sollten davon ausgehen, dass Sie unterschiedliche Vorhersageergebnisse sehen, da die Modelle mit unterschiedlichen Trainingsdatasets trainiert wurden.
+Dieser Vorgang sollte relativ schnell ausgeführt werden. Wenn die Ausführung abgeschlossen ist, haben Sie erfolgreich zehn Vorhersagewebdienst-Endpunkte erstellt. Jeder dieser Punkte enthält ein trainiertes Modell, das einzigartig mit dem Dataset trainiert wurde, das speziell zu dem entsprechenden Vermietungsstandort gehört. Und all dies aus einem einzigen Trainingsexperiment. Zur Überprüfung können Sie versuchen, diese Endpunkte mit dem **InvokeAmlWebServiceRRSEndpoint** -Cmdlet aufzurufen, wobei Sie jeweils dieselben Eingabedaten bereitstellen. Sie sollten davon ausgehen, dass Sie unterschiedliche Vorhersageergebnisse sehen, da die Modelle mit unterschiedlichen Trainingsdatasets trainiert wurden.
 
 ## <a name="full-powershell-script"></a>Vollständiges PowerShell-Skript
 Hier ist der vollständige Quellcode angegeben:

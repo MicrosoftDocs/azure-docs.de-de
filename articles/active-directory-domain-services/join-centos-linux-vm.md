@@ -2,7 +2,7 @@
 title: Einbinden eines virtuellen CentOS-Computers in Azure AD Domain Services | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie einen virtuellen CentOS Linux-Computer in eine durch Azure Active Directory Domain Services verwaltete Domäne einbinden.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/13/2020
-ms.author: joflore
-ms.openlocfilehash: 6aa85564390728331f682c31d14655844d68b3c3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 76fc11384b55337f581a74239d4a40b90b284f32
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962172"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619656"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Einbinden eines virtuellen CentOS Linux-Computers in eine verwaltete Azure Active Directory Domain Services-Domäne
 

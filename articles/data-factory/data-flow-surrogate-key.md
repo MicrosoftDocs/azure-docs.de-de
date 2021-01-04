@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/08/2020
-ms.openlocfilehash: ade2fd6011bbcdaed4ce31ce70bfb4235429bb0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/30/2020
+ms.openlocfilehash: d1f8993b1adc297b1bfadba114df76a66e59afa2
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81606292"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147175"
 ---
 # <a name="surrogate-key-transformation-in-mapping-data-flow"></a>Transformation für Ersatzschlüssel im Zuordnungsdatenfluss 
 
@@ -25,15 +25,15 @@ Verwenden Sie die Transformation für Ersatzschlüssel, um einen inkrementell ge
 
 ![Transformation für Ersatzschlüssel](media/data-flow/surrogate.png "Transformation für Ersatzschlüssel")
 
-**Schlüsselspalte**: Der Name der Spalte mit dem generierten Ersatzschlüssel.
+**Schlüsselspalte** : Der Name der Spalte mit dem generierten Ersatzschlüssel.
 
-**Startwert**: Die niedrigste Schlüsselwert, der generiert wird.
+**Startwert** : Die niedrigste Schlüsselwert, der generiert wird.
 
 ## <a name="increment-keys-from-existing-sources"></a>Inkrementelle Schlüssel aus vorhandenen Quellen
 
-Um Ihre Sequenz von einem Wert aus zu starten, der in einer Quelle vorhanden ist, verwenden Sie nach der Transformation für Ersatzschlüssel eine Transformation für abgeleitete Spalten, und fügen Sie die beiden Werte zusammen:
+Um Ihre Sequenz von einem Wert aus zu starten, der in einer Quelle vorhanden ist, wird empfohlen, eine Cachesenke zum Speichern dieses Werts und eine Transformation für abgeleitete Spalten zum gemeinsamen Hinzufügen der beiden Werte zu verwenden. Verwenden Sie eine zwischengespeicherte Suche, um die Ausgabe abzurufen, und fügen Sie sie an den generierten Schlüssel an. Weitere Informationen finden Sie unter [Cachesenken](data-flow-sink.md#cache-sink) und [zwischengespeicherten Suchen](concepts-data-flow-expression-builder.md#cached-lookup).
 
-![Maximalwert für Ersatzschlüssel hinzufügen](media/data-flow/sk006.png "Transformation für Ersatzschlüssel – Maximalwert hinzufügen")
+![Ersatzschlüsselsuche](media/data-flow/cached-lookup-example.png "Ersatzschlüsselsuche")
 
 ### <a name="increment-from-existing-maximum-value"></a>Inkrement des vorhandenen Maximalwerts
 
@@ -41,19 +41,18 @@ Ein Seeding für den Schlüsselwert mit dem vorherigen Maximalwert lässt sich m
 
 #### <a name="database-sources"></a>Datenbankquellen
 
-Verwenden Sie eine SQL-Abfrageoption, um „MAX()“ aus Ihrer Quelle auszuwählen. Beispiel: `Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`/.
+Verwenden Sie eine SQL-Abfrageoption, um „MAX()“ aus Ihrer Quelle auszuwählen. Beispiel: `Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`.
 
-![Ersatzschlüsselabfrage](media/data-flow/sk002.png "Transformation für Ersatzschlüssel – Abfrage")
+![Ersatzschlüsselabfrage](media/data-flow/surrogate-key-max-database.png "Transformation für Ersatzschlüssel – Abfrage")
 
 #### <a name="file-sources"></a>Dateiquellen
 
 Wenn sich der vorherige Maximalwert in einer Datei befindet, verwenden Sie die `max()`-Funktion in der Aggregattransformation, um den vorherigen Maximalwert abzurufen:
 
-![Ersatzschlüsseldatei](media/data-flow/sk008.png "Ersatzschlüsseldatei")
+![Ersatzschlüsseldatei](media/data-flow/surrogate-key-max-file.png "Ersatzschlüsseldatei")
 
-In beiden Fällen müssen Sie die eingehenden neuen Daten mit der Quelle verknüpfen, die den vorherigen Maximalwert enthält.
+In beiden Fällen müssen Sie in eine Cachesenke schreiben und den Wert suchen. 
 
-![Ersatzschlüsselverknüpfung](media/data-flow/sk004.png "Ersatzschlüsselverknüpfung")
 
 ## <a name="data-flow-script"></a>Datenflussskript
 

@@ -17,12 +17,12 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e1ac0033b7ed2de90ece481cd02d64970ff5f9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f48c26a65314e2f23513fba155f07db3805a516
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85608108"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123063"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Problembehandlung: Fehlende Daten in Azure Active Directory-Aktivitätsprotokollen 
 
@@ -32,7 +32,7 @@ ms.locfileid: "85608108"
 
 Ich habe einige Aktionen im Azure-Portal ausgeführt und erwartet, die Überwachungsprotokolle für diese Aktionen auf dem Blatt `Activity logs > Audit Logs` zu finden. Ich kann sie jedoch nicht finden.
 
- ![Berichterstellung](./media/troubleshoot-missing-audit-data/01.png)
+ ![Screenshot: Einträge im Überwachungsprotokoll](./media/troubleshoot-missing-audit-data/01.png)
  
 ### <a name="cause"></a>Ursache
 
@@ -53,7 +53,7 @@ Warten Sie 15 Minuten bis zwei Stunden, und überprüfen Sie dann, ob die Aktion
 
 Ich habe mich kürzlich beim Azure-Portal angemeldet und erwartet, die Anmeldeprotokolle für diese Aktionen auf dem Blatt `Activity logs > Sign-ins` zu finden. Ich kann sie jedoch nicht finden.
 
- ![Berichterstellung](./media/troubleshoot-missing-audit-data/02.png)
+ ![Screenshot: Anmeldevorgänge im Aktivitätsprotokoll](./media/troubleshoot-missing-audit-data/02.png)
  
 ### <a name="cause"></a>Ursache
 
@@ -74,7 +74,7 @@ Warten Sie 15 Minuten bis zwei Stunden, und überprüfen Sie dann, ob die Aktion
 
 Ich kann nur die Anmelde- und Überwachungsdaten der letzten 30 Tage aus dem Azure-Portal anzeigen. Warum? 
 
- ![Berichterstellung](./media/troubleshoot-missing-audit-data/03.png)
+ ![Screenshot: Menu „Datum“](./media/troubleshoot-missing-audit-data/03.png)
 
 ### <a name="cause"></a>Ursache
 

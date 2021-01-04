@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: 081f073fa4933d67604173d2169a7abdc3ac7c3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4f54aff78526ba52e56ed9f4cf1feddf40fa69b
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403567"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358391"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Indizieren großer Datasets in der kognitiven Azure-Suche
 
@@ -27,7 +27,7 @@ In den folgenden Abschnitten werden Techniken zum Indizieren großer Datenmengen
 
 ## <a name="use-the-push-api"></a>Verwenden der Push-API
 
-Beim Pushen von Daten an einen Index mithilfe der [Rest-API zum Hinzufügen von Dokumenten](/rest/api/searchservice/addupdate-or-delete-documents) oder der [Indexmethode](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index) kommen einige wichtige Aspekte zum Tragen, die die Indizierungsgeschwindigkeit beeinflussen. Diese Faktoren werden im folgenden Abschnitt beschrieben und reichen von der festgelegten Dienstkapazität bis hin zu Codeoptimierungen.
+Beim Pushen von Daten an einen Index mithilfe der REST-API [Dokumente hinzufügen](/rest/api/searchservice/addupdate-or-delete-documents) oder der [IndexDocuments](/dotnet/api/azure.search.documents.searchclient.indexdocuments)-Methode kommen einige wichtige Aspekte zum Tragen, die die Indizierungsgeschwindigkeit beeinflussen. Diese Faktoren werden im folgenden Abschnitt beschrieben und reichen von der festgelegten Dienstkapazität bis hin zu Codeoptimierungen.
 
 Weitere Informationen und Codebeispiele, die die Pushmodellindizierung veranschaulichen, finden Sie unter [Tutorial: Optimieren der Indizierungsgeschwindigkeiten](tutorial-optimize-indexing-push-api.md).
 
@@ -52,7 +52,7 @@ Das Schema Ihres Indexes spielt eine wichtige Rolle bei der Indizierung von Date
 
 ### <a name="check-the-batch-size"></a>Überprüfen der Batchgröße
 
-Eines der einfachsten Verfahren für die Indizierung eines größeren Datasets ist das Senden mehrerer Dokumente oder Datensätze in einer einzelnen Anforderung. Solange die gesamte Nutzlast kleiner als 16MB ist, kann eine Anforderung bis zu 1.000 Dokumente in einem Uploadmassenvorgang verarbeiten. Diese Grenzwerte gelten unabhängig davon, ob Sie die [REST-API „Dokumente hinzufügen“](/rest/api/searchservice/addupdate-or-delete-documents) oder die [index-Methode](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index) im .NET SDK verwenden. Für beide APIs würden Sie 1000 Dokumente im Text der einzelnen Anforderungen verpacken.
+Eines der einfachsten Verfahren für die Indizierung eines größeren Datasets ist das Senden mehrerer Dokumente oder Datensätze in einer einzelnen Anforderung. Solange die gesamte Nutzlast kleiner als 16MB ist, kann eine Anforderung bis zu 1.000 Dokumente in einem Uploadmassenvorgang verarbeiten. Diese Grenzwerte gelten unabhängig davon, ob Sie die REST-API [Dokumente hinzufügen](/rest/api/searchservice/addupdate-or-delete-documents) oder die [IndexDocuments](/dotnet/api/azure.search.documents.searchclient.indexdocuments)-Methode im .NET SDK verwenden. Für beide APIs würden Sie 1000 Dokumente im Text der einzelnen Anforderungen verpacken.
 
 Wenn Sie Dokumente in Batches indizieren, verbessert sich die Indizierungsleistung erheblich. Die Bestimmung der optimalen Batchgröße für Ihre Daten ist ein wichtiger Faktor bei der Optimierung der Indizierungsgeschwindigkeit. Die optimale Batchgröße wird hauptsächlich durch die beiden folgenden Faktoren beeinflusst:
 

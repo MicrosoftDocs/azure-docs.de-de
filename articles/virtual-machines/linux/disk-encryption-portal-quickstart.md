@@ -7,12 +7,12 @@ ms.service: virtual-machines-linux
 ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 2a5588940d4efacc08d89b72bde4433d725a4994
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 13e6077ee9bd24cdfc9a7c1f405199989546680f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978406"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896020"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Schnellstart: Erstellen und Verschlüsseln eines virtuellen Linux-Computers mit dem Azure-Portal
 
@@ -26,7 +26,7 @@ Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
 ## <a name="create-a-virtual-machine"></a>Erstellen eines virtuellen Computers
 
-1. Klicken Sie links oben im Azure-Portal auf **Ressource erstellen**.
+1. Klicken Sie links oben im Azure-Portal auf **Ressource erstellen** .
 1. Wählen Sie auf der Seite „Neu“ unter „Beliebt“ die Option **Ubuntu Server 18.04 LTS** aus.
 1. Stellen Sie sicher, dass auf der Registerkarte „Grundlagen“ unter „Projektdetails“ das richtige Abonnement ausgewählt ist.
 1. Wählen Sie für „Ressourcengruppe“ die Option **Neu erstellen** aus. Geben Sie als Name *myResourceGroup* ein, und wählen Sie **OK** aus.
@@ -47,7 +47,7 @@ Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
     :::image type="content" source="../media/disk-encryption/portal-quickstart-vm-creation-storage.png" alt-text="Bildschirm: Erstellung der Linux-VM":::
 
 1. Klicken Sie auf „Überprüfen und erstellen“.
-1. Auf der Seite zum **Erstellen eines virtuellen Computers** werden die Details des virtuellen Computers angezeigt, den Sie erstellen möchten. Klicken Sie auf **Erstellen**, wenn Sie so weit sind.
+1. Auf der Seite zum **Erstellen eines virtuellen Computers** werden die Details des virtuellen Computers angezeigt, den Sie erstellen möchten. Klicken Sie auf **Erstellen** , wenn Sie so weit sind.
 
 Die Bereitstellung des virtuellen Computers dauert ein paar Minuten. Fahren Sie nach Abschluss der Bereitstellung mit dem nächsten Abschnitt fort.
 
@@ -68,14 +68,14 @@ Die Bereitstellung des virtuellen Computers dauert ein paar Minuten. Fahren Sie 
 1. Wählen Sie links von **Schlüsseltresor und Schlüssel** die Option **Klicken Sie hier, um einen Schlüssel auszuwählen.** aus.
 1. Wählen Sie unter **Auswählen des Schlüssels aus Azure Key Vault** unterhalb des Felds **Schlüsseltresor** die Option **Neu erstellen** aus.
 1. Vergewissern Sie sich, dass auf dem Bildschirm **Schlüsseltresor erstellen** die Ressourcengruppe *myResourceGroup* angegeben ist, und geben Sie einen Namen für Ihren Schlüsseltresor an.  Jeder Schlüsseltresor in Azure muss einen eindeutigen Namen haben.
-1. Aktivieren Sie auf der Registerkarte **Zugriffsrichtlinien** das Kontrollkästchen **Azure Disk Encryption für Volumeverschlüsselung**.
+1. Aktivieren Sie auf der Registerkarte **Zugriffsrichtlinien** das Kontrollkästchen **Azure Disk Encryption für Volumeverschlüsselung** .
 
     :::image type="content" source="../media/disk-encryption/portal-quickstart-keyvault-enable.png" alt-text="Bildschirm: Erstellung der Linux-VM":::
 
-1. Klicken Sie auf **Überprüfen + erstellen**.  
-1. Nachdem der Schlüsseltresor die Überprüfung bestanden hat, wählen Sie **Erstellen** aus. Sie gelangen zurück zum Fenster zum **Auswählen eines Schlüssels aus Azure Key Vault**.
+1. Klicken Sie auf **Überprüfen + erstellen** .  
+1. Nachdem der Schlüsseltresor die Überprüfung bestanden hat, wählen Sie **Erstellen** aus. Sie gelangen zurück zum Fenster zum **Auswählen eines Schlüssels aus Azure Key Vault** .
 1. Lassen Sie das Feld **Schlüssel** leer, und wählen Sie **Auswählen** aus.
-1. Klicken Sie oben im Verschlüsselungsfenster auf **Speichern**. In einem Popup werden Sie gewarnt, dass der virtuelle Computer neu gestartet wird. Klicken Sie auf **Ja**.
+1. Klicken Sie oben im Verschlüsselungsfenster auf **Speichern** . In einem Popup werden Sie gewarnt, dass der virtuelle Computer neu gestartet wird. Klicken Sie auf **Ja** .
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 

@@ -7,18 +7,19 @@ author: saghorpa
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fdaa1346e4837b3bf611d964158d132dcdfeeda
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 42333a3feae19b6c3c77494f7e843cac1d9bc078
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282685"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006318"
 ---
 # <a name="backup-and-restore-of-sap-hana-on-hana-large-instances"></a>Sichern und Wiederherstellen von SAP HANA in HANA (große Instanzen)
 
@@ -147,7 +148,7 @@ Informationen zum Erstellen eines öffentlichen Schlüssels finden Sie unter „
 
 ### <a name="step-4-create-an-sap-hana-user-account"></a>Schritt 4: Erstellen eines SAP HANA-Benutzerkontos
 
-Um mit der Erstellung von SAP HANA-Momentaufnahmen zu beginnen, erstellen Sie in SAP HANA ein Benutzerkonto, das die Skripts für Speichermomentaufnahmen verwenden kann. Erstellen Sie hierzu in SAP HANA Studio ein SAP HANA-Benutzerkonto. Der Benutzer muss unter der SYSTEMDB erstellt werden, *nicht* unter der SID-Datenbank für MDC. In einer Umgebung mit einem einzelnen Container wird der Benutzer in der Mandantendatenbank erstellt. Dieses Konto benötigt die Berechtigungen **Backup Admin** und **Catalog Read** . 
+Um mit der Erstellung von SAP HANA-Momentaufnahmen zu beginnen, erstellen Sie in SAP HANA ein Benutzerkonto, das die Skripts für Speichermomentaufnahmen verwenden kann. Erstellen Sie hierzu in SAP HANA Studio ein SAP HANA-Benutzerkonto. Der Benutzer muss unter der SYSTEMDB erstellt werden, *nicht* unter der SID-Datenbank für MDC. In einer Umgebung mit einem einzelnen Container wird der Benutzer in der Mandantendatenbank erstellt. Dieses Konto benötigt die Berechtigungen **Backup Admin** und **Catalog Read**. 
 
 Informationen zum Einrichten und Verwenden eines Benutzerkontos finden Sie unter „Enable communication with SAP HANA“ (Aktivieren der Kommunikation mit SAP HANA) bei [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
@@ -319,7 +320,7 @@ Wie bereits beschrieben, können Sie die Anzahl von bestimmten Bezeichnungen der
 ./azure_hana_backup --type=hana --prefix=dailyhana --frequency=15min --retention=28
 ```
 
-Im vorherigen Beispiel lautet die Bezeichnung der Momentaufnahme **dailyhana** . Die Anzahl der beibehaltenen Momentaufnahmen mit dieser Bezeichnung ist **28** . Als Reaktion auf die Speicherplatzbelegung können Sie die Anzahl von gespeicherten Momentaufnahmen reduzieren. Die Anzahl von Momentaufnahmen kann ganz einfach auf beispielsweise 15 verringert werden, indem der letzte Parameter bei der Skriptausführung auf **15** festgelegt wird:
+Im vorherigen Beispiel lautet die Bezeichnung der Momentaufnahme **dailyhana**. Die Anzahl der beibehaltenen Momentaufnahmen mit dieser Bezeichnung ist **28**. Als Reaktion auf die Speicherplatzbelegung können Sie die Anzahl von gespeicherten Momentaufnahmen reduzieren. Die Anzahl von Momentaufnahmen kann ganz einfach auf beispielsweise 15 verringert werden, indem der letzte Parameter bei der Skriptausführung auf **15** festgelegt wird:
 
 ```
 ./azure_hana_backup --type=hana --prefix=dailyhana --frequency=15min --retention=15
@@ -330,7 +331,7 @@ Wenn Sie das Skript mit dieser Einstellung ausführen, beträgt die Anzahl von M
  >[!NOTE]
  > Die Anzahl von Momentaufnahmen verringert sich durch dieses Skript aber nur, wenn Momentaufnahmen vorhanden sind, die älter als eine Stunde sind. Mit dem Skript werden keine Momentaufnahmen gelöscht, die weniger als eine Stunde alt sind. Diese Einschränkungen beziehen sich auf die bereitgestellten optionalen Funktionen für die Notfallwiederherstellung.
 
-Falls Sie eine Gruppe von Momentaufnahmen mit dem Sicherungspräfix (in den Syntaxbeispielen **dailyhana** ) nicht mehr benötigen, führen Sie das Skript mit der zu speichernden Anzahl **0** aus. Alle Momentaufnahmen, die für diese Bezeichnung eine Übereinstimmung ergeben, werden dann entfernt. Das Entfernen aller Momentaufnahmen kann sich auf die Funktionen für die Notfallwiederherstellung von großen HANA-Instanzen auswirken.
+Falls Sie eine Gruppe von Momentaufnahmen mit dem Sicherungspräfix (in den Syntaxbeispielen **dailyhana**) nicht mehr benötigen, führen Sie das Skript mit der zu speichernden Anzahl **0** aus. Alle Momentaufnahmen, die für diese Bezeichnung eine Übereinstimmung ergeben, werden dann entfernt. Das Entfernen aller Momentaufnahmen kann sich auf die Funktionen für die Notfallwiederherstellung von großen HANA-Instanzen auswirken.
 
 Alternativ können Sie bestimmte Momentaufnahmen auch mithilfe des Skripts `azure_hana_snapshot_delete` löschen. Dieses Skript dient zum Löschen einer Momentaufnahme oder einer Gruppe von Momentaufnahmen – entweder anhand der HANA-Sicherungs-ID aus HANA Studio oder anhand des Namens der Momentaufnahme. Die Sicherungs-ID ist derzeit nur mit den Momentaufnahmen verknüpft, die für den Momentaufnahmetyp **hana** erstellt werden. Für Momentaufnahmesicherungen vom Typ **logs** und **boot** wird keine SAP HANA-Momentaufnahme erstellt, sodass für diese Momentaufnahmen keine Sicherungs-ID zu finden ist. Bei Eingabe des Namens der Momentaufnahme wird auf den verschiedenen Volumes nach allen Momentaufnahmen gesucht, die dem eingegebenen Namen entsprechen. 
 
@@ -432,25 +433,25 @@ Die Schritte zur Integration von SnapCenter in SAP HANA lauten wie folgt:
 
 ### <a name="create-a-support-ticket-for-user-role-storage-setup"></a>Erstellen eines Supportticket für die Einrichtung der des Speichers für die Benutzerrolle
 
-1. Rufen Sie das Azure-Portal auf, und gehen Sie zur Seite **Abonnements** . Wählen Sie auf der Seite „Abonnements“ das SAP HANA-Abonnement aus, das unten rot umrandet ist.
+1. Rufen Sie das Azure-Portal auf, und gehen Sie zur Seite **Abonnements**. Wählen Sie auf der Seite „Abonnements“ das SAP HANA-Abonnement aus, das unten rot umrandet ist.
 
    :::image type="content" source="./media/snapcenter/create-support-case-for-user-role-storage-setup.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer":::
 
-1. Wählen Sie auf der Seite des SAP HANA-Abonnements die Unterseite **Ressourcengruppen** .
+1. Wählen Sie auf der Seite des SAP HANA-Abonnements die Unterseite **Ressourcengruppen**.
 
-   :::image type="content" source="./media/snapcenter/solution-lab-subscription-resource-groups.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer" lightbox="./media/snapcenter/solution-lab-subscription-resource-groups.png":::
+   :::image type="content" source="./media/snapcenter/solution-lab-subscription-resource-groups.png" alt-text="Ressourcengruppe für das Solution Lab-Abonnement" lightbox="./media/snapcenter/solution-lab-subscription-resource-groups.png":::
 
 1. Wählen Sie eine geeignete Ressourcengruppe in einer Region aus.
 
-   :::image type="content" source="./media/snapcenter/select-appropriate-resource-group-in-region.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer" lightbox="./media/snapcenter/select-appropriate-resource-group-in-region.png":::
+   :::image type="content" source="./media/snapcenter/select-appropriate-resource-group-in-region.png" alt-text="Auswählen einer geeigneten Ressourcengruppe in einer Region" lightbox="./media/snapcenter/select-appropriate-resource-group-in-region.png":::
 
 1. Wählen Sie einen SKU-Eintrag aus, der SAP HANA in Azure Storage entspricht.
 
-   :::image type="content" source="./media/snapcenter/select-sku-entry-corresponding-to-sap-hana.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer" lightbox="./media/snapcenter/select-sku-entry-corresponding-to-sap-hana.png":::
+   :::image type="content" source="./media/snapcenter/select-sku-entry-corresponding-to-sap-hana.png" alt-text="Auswählen des SKU-Eintrags, der SAP HANA entspricht" lightbox="./media/snapcenter/select-sku-entry-corresponding-to-sap-hana.png":::
 
 1. Erstellen Sie eine **neue Supportticketanforderung** (rot umrandet).
 
-   :::image type="content" source="./media/snapcenter/open-new-support-ticket-request.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer":::
+   :::image type="content" source="./media/snapcenter/open-new-support-ticket-request.png" alt-text="Erstellen einer neuen Supportticketanforderung":::
 
 1. Geben Sie die folgenden Informationen für das Ticket auf der Registerkarte **Grundeinstellungen** an:
 
@@ -468,7 +469,7 @@ Die Schritte zur Integration von SnapCenter in SAP HANA lauten wie folgt:
    * Einrichten von SnapCenter für HLI
    * Öffentlicher Schlüssel für den SnapCenter-Benutzer (snapcenter.pem): siehe das Beispiel zum Erstellen des öffentlichen Schlüssels weiter unten
 
-     :::image type="content" source="./media/snapcenter/new-support-request-details.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer" lightbox="./media/snapcenter/new-support-request-details.png":::
+     :::image type="content" source="./media/snapcenter/new-support-request-details.png" alt-text="Neue Supportanfrage, Registerkarte „Details“" lightbox="./media/snapcenter/new-support-request-details.png":::
 
 1. Wählen Sie **Überprüfen + erstellen** aus, um das Supportticket zu überprüfen. 
 
@@ -525,7 +526,7 @@ Lesen Sie vor dem Installieren von SnapCenter [SAP HANA-Sicherung/-Wiederherstel
 
 1. Konfigurieren Sie die Benutzeranmeldeinformationen für SnapCenter. Standardmäßig werden die Windows-Benutzeranmeldeinformationen eingetragen, die für die Installation der Anwendung verwendet wurden. 
 
-   :::image type="content" source="media/snapcenter/installation-user-inputs-dialog.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer"::: 
+   :::image type="content" source="media/snapcenter/installation-user-inputs-dialog.png" alt-text="Dialogfeld für die Benutzereingaben für die Installation"::: 
 
 1. Wenn Sie die Sitzung starten, speichern Sie die Sicherheitsausnahme, und die grafische Benutzeroberfläche wird gestartet.
 
@@ -536,20 +537,20 @@ Lesen Sie vor dem Installieren von SnapCenter [SAP HANA-Sicherung/-Wiederherstel
 
 1. Wählen Sie in SnapCenter **Storage System** (Speichersystem) und dann **+New** (Neu) aus. 
 
-   :::image type="content" source="./media/snapcenter/snapcenter-storage-connections-window.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer" lightbox="./media/snapcenter/snapcenter-storage-connections-window.png":::
+   :::image type="content" source="./media/snapcenter/snapcenter-storage-connections-window.png" alt-text="SnapCenter-Speicherverbindungen" lightbox="./media/snapcenter/snapcenter-storage-connections-window.png":::
 
    Der Standardwert ist eine SVM pro Mandant. Wenn ein Kunde über mehrere Mandanten oder HLIs in mehreren Regionen verfügt, empfiehlt es sich, alle SVMs in SnapCenter zu konfigurieren.
 
 1. Geben Sie unter „Add Storage System“ (Speichersystem hinzufügen) die Informationen für das hinzuzufügende Speichersystem, den SnapCenter-Benutzernamen und das Kennwort an, und wählen Sie dann **Submit** (Senden) aus.
 
-   :::image type="content" source="./media/snapcenter/new-storage-connection.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer":::
+   :::image type="content" source="./media/snapcenter/new-storage-connection.png" alt-text="Neue Speicherverbindung":::
 
    >[!NOTE]
    >Der Standardwert ist eine SVM pro Mandant.  Wenn mehrere Mandanten vorhanden sind, empfiehlt es sich, alle SVMs hier in SnapCenter zu konfigurieren. 
 
 1. Wählen Sie in SnapCenter **Hosts** und dann **+Add** (Hinzufügen) aus, um das HANA-Plug-In und die HANA DB-Hosts einzurichten.  Die aktuelle Version von SnapCenter erkennt die HANA-Datenbank auf dem Host automatisch.
 
-   :::image type="content" source="media/snapcenter/managed-hosts-new-host.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer" lightbox="media/snapcenter/managed-hosts-new-host.png":::
+   :::image type="content" source="media/snapcenter/managed-hosts-new-host.png" alt-text="Wählen Sie in SnapCenter „Hosts“ und dann „Add“ (Hinzufügen) aus." lightbox="media/snapcenter/managed-hosts-new-host.png":::
 
 1. Geben Sie die Informationen für den neuen Host an:
    1. Wählen Sie das Betriebssystem für den Hosttyp aus.
@@ -557,7 +558,7 @@ Lesen Sie vor dem Installieren von SnapCenter [SAP HANA-Sicherung/-Wiederherstel
    1. Geben Sie die Anmeldeinformationen an, die Sie verwenden möchten.
    1. Wählen Sie die Optionen **Microsoft Windows** und **SAP HANA** und dann **Submit** (Senden) aus.
 
-   :::image type="content" source="media/snapcenter/add-new-host-operating-system-credentials.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer":::
+   :::image type="content" source="media/snapcenter/add-new-host-operating-system-credentials.png" alt-text="Informationen für neuen Host":::
 
    >[!IMPORTANT]
    >Bevor Sie den ersten Knoten installieren können, erlaubt SnapCenter einem Benutzer ohne Root-Berechtigung das Installieren von Plug-Ins für die Datenbank.  Informationen dazu, wie Sie einen Benutzer ohne Root-Berechtigung aktivieren, finden Sie unter [Adding a non-root user and configuring sudo privileges](https://library.netapp.com/ecmdocs/ECMLP2590889/html/GUID-A3EEB5FC-242B-4C2C-B407-510E48A8F131.html) (Hinzufügen eines Benutzers ohne Root-Berechtigung und Konfigurieren von sudo-Rechten).
@@ -566,7 +567,7 @@ Lesen Sie vor dem Installieren von SnapCenter [SAP HANA-Sicherung/-Wiederherstel
 
 1. Wählen Sie nach der Installation des Plug-Ins in SnapCenter **Hosts** und dann **+Add** (Hinzufügen) aus, um einen HANA-Knoten hinzuzufügen.
 
-   :::image type="content" source="media/snapcenter/add-hana-node.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer" lightbox="media/snapcenter/add-hana-node.png":::
+   :::image type="content" source="media/snapcenter/add-hana-node.png" alt-text="Hinzufügen eines HANA-Knotens" lightbox="media/snapcenter/add-hana-node.png":::
 
 1. Geben Sie die Informationen für den HANA-Knoten an:
    1. Wählen Sie das Betriebssystem für den Hosttyp aus.
@@ -574,15 +575,15 @@ Lesen Sie vor dem Installieren von SnapCenter [SAP HANA-Sicherung/-Wiederherstel
    1. Wählen Sie **+** aus, um die für das HANA DB-Hostbetriebssystem konfigurierten Anmeldeinformationen hinzuzufügen, und wählen Sie dann **OK** aus.
    1. Wählen Sie **SAP HANA** und dann **Submit** (Senden) aus.
 
-   :::image type="content" source="media/snapcenter/add-hana-node-details.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer":::
+   :::image type="content" source="media/snapcenter/add-hana-node-details.png" alt-text="Details zum SAP HANA-Knoten":::
 
 1. Bestätigen Sie den Fingerabdruck, und wählen Sie **Confirm and Submit** (Bestätigen und senden) aus.
 
-   :::image type="content" source="media/snapcenter/confirm-submit-fingerprint.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer":::
+   :::image type="content" source="media/snapcenter/confirm-submit-fingerprint.png" alt-text="Bestätigen und Senden des Fingerabdrucks":::
 
 1. Wählen Sie für den HANA-Knoten unter der Systemdatenbank **Security** > **Users** > **SNAPCENTER** (Sicherheit > Benutzer > SNAPCENTER) aus, um den SnapCenter-Benutzer zu erstellen.
 
-   :::image type="content" source="media/snapcenter/create-snapcenter-user-hana-system-db.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer":::
+   :::image type="content" source="media/snapcenter/create-snapcenter-user-hana-system-db.png" alt-text="Erstellen des SnapCenter-Benutzers in HANA (System-DB)":::
 
 
 
@@ -595,15 +596,15 @@ Wenn Sie HSR konfiguriert haben, müssen Sie das System manuell konfigurieren.
 
 1. Wählen Sie in SnapCenter **Resources** (Ressourcen), **SAP HANA** (oben) und dann **+Add SAP HANA Database** (SAP HANA-Datenbank hinzufügen, rechts) aus.
 
-   :::image type="content" source="media/snapcenter/manual-hana-setup.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer" lightbox="media/snapcenter/manual-hana-setup.png":::
+   :::image type="content" source="media/snapcenter/manual-hana-setup.png" alt-text="Manuelles Einrichten von HANA" lightbox="media/snapcenter/manual-hana-setup.png":::
 
 1. Geben Sie die Ressourcendetails des HANA-Administratorbenutzers an, der auf dem Linux-Host oder auf dem Host konfiguriert ist, auf dem die Plug-Ins installiert sind. Die Sicherung wird über das Plug-In auf dem Linux-System verwaltet.
 
-   :::image type="content" source="media/snapcenter/provide-resource-details-sap-hana-database.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer":::
+   :::image type="content" source="media/snapcenter/provide-resource-details-sap-hana-database.png" alt-text="Geben Sie die Ressourcendetails des HANA-Administratorbenutzers an, der auf dem Linux-Host konfiguriert ist.":::
 
 1. Wählen Sie das Datenvolume aus, für das Sie Momentaufnahmen erstellen müssen, und wählen Sie **Save** (Speichern) und dann **Finish** (Fertigstellen) aus.
 
-   :::image type="content" source="media/snapcenter/provide-storage-footprint.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer":::
+   :::image type="content" source="media/snapcenter/provide-storage-footprint.png" alt-text="Wählen Sie das Datenvolume aus, für das Sie Momentaufnahmen erstellen müssen, und wählen Sie „Save“ (Speichern) und dann „Finish“ (Fertigstellen) aus.":::
 
 ### <a name="create-a-snapshot-policy"></a>Erstellen einer Momentaufnahmenrichtlinie
 
@@ -611,53 +612,53 @@ Bevor Sie SnapCenter zum Sichern von SAP HANA-Datenbankressourcen verwenden kön
 
 1. Wählen Sie in SnapCenter **Resources** (Ressourcen) und dann eine Datenbank aus.
 
-   :::image type="content" source="media/snapcenter/select-database-create-policy.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer":::
+   :::image type="content" source="media/snapcenter/select-database-create-policy.png" alt-text="Wählen Sie in SnapCenter „Resources“ (Ressourcen) und dann eine Datenbank aus.":::
 
 1. Befolgen Sie den Workflow des Konfigurations-Assistenten, um den Momentaufnahmenplaner zu konfigurieren.
 
-   :::image type="content" source="media/snapcenter/follow-workflow-configuration-wizard.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer" lightbox="media/snapcenter/follow-workflow-configuration-wizard.png":::
+   :::image type="content" source="media/snapcenter/follow-workflow-configuration-wizard.png" alt-text="Befolgen Sie den Workflow des Konfigurations-Assistenten, um den Momentaufnahmenplaner zu konfigurieren." lightbox="media/snapcenter/follow-workflow-configuration-wizard.png":::
 
 1. Geben Sie die Optionen zum Konfigurieren von Befehlen für die Vor- und Nachverarbeitung und speziellen SSL-Schlüsseln an.  In diesem Beispiel werden keine speziellen Einstellungen verwendet.
 
-   :::image type="content" source="media/snapcenter/configuration-options-pre-post-commands.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer" lightbox="media/snapcenter/configuration-options-pre-post-commands.png":::
+   :::image type="content" source="media/snapcenter/configuration-options-pre-post-commands.png" alt-text="Geben Sie die Optionen zum Konfigurieren von Befehlen für die Vor- und Nachverarbeitung und speziellen SSL-Schlüsseln an." lightbox="media/snapcenter/configuration-options-pre-post-commands.png":::
 
 1. Wählen Sie **Add** (Hinzufügen), um eine Momentaufnahmenrichtlinie zu erstellen, die auch für andere HANA-Datenbanken verwendet werden kann. 
 
-   :::image type="content" source="media/snapcenter/select-one-or-more-policies.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer":::
+   :::image type="content" source="media/snapcenter/select-one-or-more-policies.png" alt-text="Wählen Sie „Add“ (Hinzufügen), um eine Momentaufnahmenrichtlinie zu erstellen, die auch für andere HANA-Datenbanken verwendet werden kann.":::
 
 1. Geben Sie einen Namen und eine Beschreibung für die Richtlinie ein.
 
-   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer":::
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy.png" alt-text="Geben Sie einen Namen und eine Beschreibung für die Richtlinie ein.":::
 
 
 1. Wählen Sie den Sicherungstyp und die Sicherungshäufigkeit aus.
 
-   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-settings.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer":::
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-settings.png" alt-text="Wählen Sie den Sicherungstyp und die Sicherungshäufigkeit aus.":::
 
 1. Konfigurieren Sie die **On demand backup retention settings** (Aufbewahrungseinstellungen für die On-Demand-Sicherung).  In unserem Beispiel wird die Aufbewahrung auf drei Momentaufnahmekopien festgelegt, die aufbewahrt werden sollen.
 
-   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-retention-settings.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer":::
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-retention-settings.png" alt-text="Konfigurieren Sie die Aufbewahrungseinstellungen für die On-Demand-Sicherung.":::
 
 1. Konfigurieren Sie die **Hourly retention settings** (Einstellungen für die stündliche Aufbewahrung). 
 
-   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-hourly-retention-settings.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer":::
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-hourly-retention-settings.png" alt-text="Konfigurieren Sie die Einstellungen für die stündliche Aufbewahrung.":::
 
 1. Wenn eine SnapMirror-Einrichtung konfiguriert ist, wählen Sie **Update SnapMirror after creating a local SnapShot copy** (SnapMirror nach dem Erstellen einer lokalen SnapShot-Kopie aktualisieren) aus.
 
-   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-snapmirror.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer":::
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-snapmirror.png" alt-text="Wenn eine SnapMirror-Einrichtung erforderlich ist, wählen Sie „Update SnapMirror after creating a local SnapShot copy“ (SnapMirror nach dem Erstellen einer lokalen SnapShot-Kopie aktualisieren) aus.":::
 
 1. Wählen Sie **Finish** (Fertigstellen) aus, um die Zusammenfassung der neuen Sicherungsrichtlinie zu überprüfen. 
 1. Wählen Sie unter **Configure Schedule** (Zeitplan konfigurieren) die Option **Add** (Hinzufügen) aus.
 
-   :::image type="content" source="media/snapcenter/configure-schedules-for-selected-policies.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer":::
+   :::image type="content" source="media/snapcenter/configure-schedules-for-selected-policies.png" alt-text="Wählen Sie unter „Configure Schedule“ (Zeitplan konfigurieren) die Option „Add“ (Hinzufügen) aus.":::
 
 1. Wählen Sie das **Start date** (Startdatum), das Datum für **Expires on** (Ablaufdatum) und die Häufigkeit aus.
 
-   :::image type="content" source="media/snapcenter/add-schedules-for-policy.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer":::
+   :::image type="content" source="media/snapcenter/add-schedules-for-policy.png" alt-text="Wählen Sie das „Start date“ (Startdatum), das Datum für „Expires on“ (Ablaufdatum) und die Häufigkeit aus.":::
 
 1. Geben Sie die E-Mail-Details für Benachrichtigungen an.
 
-   :::image type="content" source="media/snapcenter/backup-policy-notification-settings.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer":::
+   :::image type="content" source="media/snapcenter/backup-policy-notification-settings.png" alt-text="Geben Sie die E-Mail-Details für Benachrichtigungen an.":::
 
 1.  Wählen Sie **OK** aus, um die Sicherungsrichtlinie zu erstellen.
 
@@ -704,11 +705,11 @@ Sie können die Datenbank mit SnapCenter wiederherstellen.  In diesem Abschnitt 
 
 1. Stellen Sie die Datenbankdateien über SnapCenter wieder her.  Wählen Sie die Datenbank und dann **Restore** (Wiederherstellen) aus.  
 
-   :::image type="content" source="media/snapcenter/restore-database-via-snapcenter.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer" lightbox="media/snapcenter/restore-database-via-snapcenter.png":::
+   :::image type="content" source="media/snapcenter/restore-database-via-snapcenter.png" alt-text="Wählen Sie die Datenbank und dann „Restore“ (Wiederherstellen) aus." lightbox="media/snapcenter/restore-database-via-snapcenter.png":::
 
 1. Wählen Sie den Wiederherstellungstyp aus.  In diesem Beispiel wird die gesamte Ressource wiederhergestellt. 
 
-   :::image type="content" source="media/snapcenter/restore-database-select-restore-type.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer":::
+   :::image type="content" source="media/snapcenter/restore-database-select-restore-type.png" alt-text="Wählen Sie den Wiederherstellungstyp aus.":::
 
    >[!NOTE]
    >Bei einer Standardinstallation müssen Sie keine Befehle angeben, um eine lokale Wiederherstellung aus der Momentaufnahme auf dem Datenträger durchzuführen. 
@@ -720,23 +721,23 @@ Sie können die Datenbank mit SnapCenter wiederherstellen.  In diesem Abschnitt 
    
    SnapCenter stellt die Daten am ursprünglichen Speicherort wieder her, sodass Sie den Wiederherstellungsvorgang in HANA starten können. Da SnapCenter den Sicherungskatalog nicht ändern kann (die Datenbank ist offline), wird eine Warnung angezeigt.
 
-   :::image type="content" source="media/snapcenter/restore-database-job-details-warning.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer":::
+   :::image type="content" source="media/snapcenter/restore-database-job-details-warning.png" alt-text="Da SnapCenter den Sicherungskatalog nicht ändern kann, wird eine Warnung angezeigt.":::
 
 1. Da alle Datenbankdateien wiederhergestellt werden, starten Sie den Wiederherstellungsvorgang in HANA. Klicken Sie in HANA Studio unter **Systems** (Systeme) mit der rechten Maustaste auf die Systemdatenbank, und wählen Sie **Backup and Recovery** > **Recover System Database** (Sicherung und Wiederherstellung > Systemdatenbank wiederherstellen) aus.
 
-   :::image type="content" source="media/snapcenter/hana-studio-backup-recovery.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer":::
+   :::image type="content" source="media/snapcenter/hana-studio-backup-recovery.png" alt-text="Starten Sie den Wiederherstellungsvorgang in HANA.":::
 
 1. Wählen Sie den Wiederherstellungstyp aus.
 
-   :::image type="content" source="media/snapcenter/restore-database-select-recovery-type.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer":::
+   :::image type="content" source="media/snapcenter/restore-database-select-recovery-type.png" alt-text="Wählen Sie den Wiederherstellungstyp aus.":::
 
 1. Wählen Sie den Speicherort des Sicherungskatalogs aus.
 
-   :::image type="content" source="media/snapcenter/restore-database-select-location-backup-catalog.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer":::
+   :::image type="content" source="media/snapcenter/restore-database-select-location-backup-catalog.png" alt-text="Wählen Sie den Speicherort des Sicherungskatalogs aus.":::
 
 1. Wählen Sie eine Sicherung aus, um die SAP HANA-Datenbank wiederherzustellen.
 
-   :::image type="content" source="media/snapcenter/restore-database-select-backup.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer":::
+   :::image type="content" source="media/snapcenter/restore-database-select-backup.png" alt-text="Wählen Sie eine Sicherung aus, um die SAP HANA-Datenbank wiederherzustellen.":::
 
    Nachdem die Datenbank wiederhergestellt wurde, wird eine Meldung mit einem Stempel für **Recovered to Time** (Wiederherstellungszeit) und **Recovered to Log Position** (Protokollposition der Wiederherstellung) angezeigt.
 
@@ -753,7 +754,7 @@ Sie können Volumes, die keine Datenvolumes sind, z. B. eine Netzwerkdateifreig
 
 Bevor Sie den Klonvorgang ausführen können, müssen Sie die gleiche HANA-Version wie die Quelldatenbank installiert haben. Die SID und die ID können unterschiedlich sein. 
 
-:::image type="content" source="media/snapcenter/system-cloning-diagram.png" alt-text="Erstellen einer Supportanfrage für die Einrichtung des Speichers für den Benutzer" lightbox="media/snapcenter/system-cloning-diagram.png" border="false":::
+:::image type="content" source="media/snapcenter/system-cloning-diagram.png" alt-text="Klonen des SAP HANA-Systems" lightbox="media/snapcenter/system-cloning-diagram.png" border="false":::
 
 1. Erstellen Sie einen HANA-Datenbank-Benutzerspeicher für die H34-Datenbank aus „/usr/sap/H34/HDB40“.
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: bc34d2044c3a91fe18e900b21d589dde855754d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71cbc09f21e21c325665809953f209615d835124
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91774577"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130152"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Erstellen eines Angebots für Dynamics 365 Business Central
 
@@ -72,7 +72,7 @@ Sammeln Sie über Ihr CRM-System (Customer Relationship Management) Kundenkontak
 
 ### <a name="test-drive"></a>Testversion
 
-Von Dynamics 365 Business Central-Angeboten wird derzeit keine Testversion unterstützt. Deaktivieren Sie das Kontrollkästchen **Testversion aktivieren**, um die Testversion aus Ihrem Angebot zu entfernen.
+Von Dynamics 365 Business Central-Angeboten wird derzeit keine Testversion unterstützt. Deaktivieren Sie das Kontrollkästchen **Testversion aktivieren** , um die Testversion aus Ihrem Angebot zu entfernen.
 
 ### <a name="customer-leads"></a>Kundenleads
 
@@ -217,7 +217,7 @@ Auf dieser Seite finden Sie Optionen, mit denen Sie festlegen können, wo und wi
 
 In diesem Abschnitt können Sie angeben, in welchen Märkten das Angebot verfügbar sein soll. Wählen Sie hierzu **Edit markets** (Märkte bearbeiten) aus. Dadurch wird das Popupfenster **Marktauswahl** angezeigt.
 
-Wählen Sie mindestens einen Markt aus, um Ihr Angebot zu veröffentlichen. Klicken Sie auf **Alle auswählen**, um Ihr Angebot in allen möglichen Märkten verfügbar zu machen, oder wählen Sie bestimmte Märkte aus, die Sie hinzufügen möchten.
+Wählen Sie mindestens einen Markt aus, um Ihr Angebot zu veröffentlichen. Klicken Sie auf **Alle auswählen** , um Ihr Angebot in allen möglichen Märkten verfügbar zu machen, oder wählen Sie bestimmte Märkte aus, die Sie hinzufügen möchten.
 
 Ihre hier getroffene Auswahl gilt nur für neue Käufe. Wenn Ihre App bereits von einem Benutzer in einem bestimmten Markt verwendet wird und Sie den Markt später entfernen, können Benutzer, die in diesem Markt bereits über Ihr Angebot verfügen, es weiterhin nutzen, aber Ihr Angebot ist nicht für neue Kunden in diesem Markt erhältlich.
 
@@ -242,8 +242,8 @@ Auf dieser Seite werden die technischen Informationen definiert, die für das He
 
 Wählen Sie die Option aus, die für Ihr Angebot gilt:
 
-* **Add-On**: Eine Add-On-App erweitert die Oberfläche und die vorhandene Funktionalität von Dynamics 365 Business Central. Weitere Informationen finden Sie unter [Add-On-Apps](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/developer/readiness/readiness-add-on-apps).
-* **Connect**: Eine Connect-App kann in Szenarios verwendet werden, in denen eine Point-to-Point-Verbindung zwischen Dynamics 365 Business Central und einer Drittanbieterlösung oder einem Drittanbieterdienst hergestellt werden muss. Weitere Informationen finden Sie unter [Connect-Apps](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/developer/readiness/readiness-connect-apps).
+* **Add-On** : Eine Add-On-App erweitert die Oberfläche und die vorhandene Funktionalität von Dynamics 365 Business Central. Weitere Informationen finden Sie unter [Add-On-Apps](/dynamics365/business-central/dev-itpro/developer/readiness/readiness-add-on-apps).
+* **Connect** : Eine Connect-App kann in Szenarios verwendet werden, in denen eine Point-to-Point-Verbindung zwischen Dynamics 365 Business Central und einer Drittanbieterlösung oder einem Drittanbieterdienst hergestellt werden muss. Weitere Informationen finden Sie unter [Connect-Apps](/dynamics365/business-central/dev-itpro/developer/readiness/readiness-connect-apps).
 
 ### <a name="file-upload"></a>Dateiupload
 
@@ -270,7 +270,7 @@ Wählen Sie **Entwurf speichern** aus, bevor Sie fortfahren.
 
 Auf dieser Seite können Sie eine Demonstration („Testversion“) einrichten, mit der Kunden Ihr Angebot vor dem Erwerb ausprobieren können. Weitere Informationen finden Sie unter [Was ist die Testversion?](../what-is-test-drive.md).
 
-Aktivieren Sie auf der Registerkarte [Angebotseinrichtung](#test-drive) das Kontrollkästchen **Testversion aktivieren**, um eine Testversion zu aktivieren. Deaktivieren Sie dieses Kontrollkästchen, um die Testversion aus Ihrem Angebot zu entfernen.
+Aktivieren Sie auf der Registerkarte [Angebotseinrichtung](#test-drive) das Kontrollkästchen **Testversion aktivieren** , um eine Testversion zu aktivieren. Deaktivieren Sie dieses Kontrollkästchen, um die Testversion aus Ihrem Angebot zu entfernen.
 
 Sobald Sie die Einrichtung der Testversion abgeschlossen haben, wählen Sie **Entwurf speichern** aus, bevor Sie fortfahren.
 
@@ -280,7 +280,7 @@ Auf dieser Seite können Sie zusätzliche Informationen zu Ihrem Angebot bereits
 
 ### <a name="target-release"></a>Zielrelease
 
-Geben Sie an, auf welches Release von Microsoft Dynamics Business Central Ihre Lösung abzielt: die **aktuelle Version**, die **nächste Hauptversion** oder die **nächste Nebenversion**. Diese Informationen ermöglichen es uns, Ihre Lösung entsprechend zu testen.
+Geben Sie an, auf welches Release von Microsoft Dynamics Business Central Ihre Lösung abzielt: die **aktuelle Version** , die **nächste Hauptversion** oder die **nächste Nebenversion**. Diese Informationen ermöglichen es uns, Ihre Lösung entsprechend zu testen.
 
 ### <a name="supported-editions"></a>Unterstützte Editionen
 

@@ -9,18 +9,18 @@ ms.date: 07/09/2019
 ms.topic: how-to
 manager: peterpr
 ms.custom: device-developer
-ms.openlocfilehash: fb6029a91714ed0229876bbaf6bb0790565be29c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: fc8ea41e804344735cfa2400d5d763622d8811c8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427838"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026249"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Erstellen der Azure IoT Central-Geräte-Bridge, um weitere IoT-Clouds mit IoT Central zu verbinden
 
 *Dieses Thema gilt für Administratoren.*
 
-Die IoT Central-Geräte-Bridge ist eine Open-Source-Lösung, die Sigfox, Particle, The Things Network und andere Clouds mit Ihrer IoT Central-App verbindet. Mit der IoT Central-Geräte-Bridge können Sie direkt von der Leistungsfähigkeit von IoT Central profitieren – ob Sie nun Geräte zur Ressourcennachverfolgung verwenden, die mit dem Low Power Wide Area Network von Sigfox verbunden sind, Geräte zur Überwachung der Luftqualität in der Gerätecloud von Particle nutzen oder in TTN Geräte zur Messung der Bodenfeuchtigkeit verwenden. Die Geräte-Bridge verbindet andere IoT-Clouds mit IoT Central, indem sie die Daten, die Ihre Geräte an die anderen Clouds senden, an Ihre IoT Central-App weiterleitet. In Ihrer IoT Central-App können Sie Regeln erstellen und Analysen für die Daten ausführen, Workflows in Microsoft Flow und Azure Logic Apps erstellen, Daten exportieren und vieles mehr. [IoT Central-Geräte-Bridge](https://aka.ms/iotcentralgithubdevicebridge) von GitHub abrufen
+Die IoT Central-Geräte-Bridge ist eine Open-Source-Lösung, die Sigfox, Particle, The Things Network und andere Clouds mit Ihrer IoT Central-App verbindet. Mit der IoT Central-Geräte-Bridge können Sie direkt von der Leistungsfähigkeit von IoT Central profitieren – ob Sie nun Geräte zur Ressourcennachverfolgung verwenden, die mit dem Low Power Wide Area Network von Sigfox verbunden sind, Geräte zur Überwachung der Luftqualität in der Gerätecloud von Particle nutzen oder in TTN Geräte zur Messung der Bodenfeuchtigkeit verwenden. Die Geräte-Bridge verbindet andere IoT-Clouds mit IoT Central, indem sie die Daten, die Ihre Geräte an die anderen Clouds senden, an Ihre IoT Central-App weiterleitet. In Ihrer IoT Central-App können Sie Regeln erstellen und Analysen für die Daten ausführen, Workflows in Power Automate und Azure-Logik-Apps erstellen, Daten exportieren u. v. m. [IoT Central-Geräte-Bridge](https://aka.ms/iotcentralgithubdevicebridge) von GitHub abrufen
 
 ## <a name="what-is-it-and-how-does-it-work"></a>Allgemeine Informationen und Funktionsweise
 Die IoT Central-Geräte-Bridge ist eine Open-Source-Lösung in GitHub. Über die Schaltfläche „Deploy to Azure“ (In Azure bereitstellen) wird eine benutzerdefinierte Azure Resource Manager-Vorlage mit mehreren Azure-Ressourcen in Ihrem Azure-Abonnement bereitgestellt. Die Ressource umfasst Folgendes:

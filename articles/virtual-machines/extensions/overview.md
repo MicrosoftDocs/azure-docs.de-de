@@ -4,16 +4,17 @@ description: Informationen zu Erweiterungen für virtuelle Azure-Computer
 services: virtual-machines
 author: amjads1
 ms.service: virtual-machines
+ms.subservice: extensions
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 08/03/2020
 ms.author: amjads
-ms.openlocfilehash: 73738f339bea3e8e075530e5de564c1c0854d283
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1dd26fce2e0a761ceed211933cb79ce518905e2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87552049"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965883"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Erweiterungen und Features für virtuelle Azure-Computer
 Erweiterungen sind kleine Anwendungen, die Konfiguration und Automatisierung für virtuelle Azure-Computer nach der Bereitstellung bereitstellen. Auf der Azure-Plattform werden Erweiterungen für viele Zwecke gehostet, z. B. VM-Konfiguration, Überwachung, Sicherheit und Hilfsprogramme. Herausgeber nehmen eine Anwendung, umschließen diese in einer Erweiterung und vereinfachen die Installation. Sie müssen lediglich noch die obligatorischen Parameter angeben. 

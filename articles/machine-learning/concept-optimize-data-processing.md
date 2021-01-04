@@ -10,12 +10,13 @@ ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: c73a5c5339403ecd91d45968405682c59f2f23b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: data4ml
+ms.openlocfilehash: 77edac14ef13901725eed656835e1a937d4f4ddf
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88719273"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360818"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Optimieren der Datenverarbeitung mit Azure Machine Learning
 

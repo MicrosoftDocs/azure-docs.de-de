@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
-ms.openlocfilehash: 21d4af6985dbe246e60fe95f8f03de7f8aa0501b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 13644872fca06ad8fc5806326736aea23e504520
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314061"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608655"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Bereitstellen eines Systems für horizontale SAP HANA-Skalierung mit Standbyknoten auf Azure-VMs mithilfe von Azure NetApp Files auf SUSE Linux Enterprise Server 
 
@@ -435,7 +436,7 @@ Führen Sie die folgenden Schritte aus, um das Betriebssystem zu konfigurieren u
     echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
     </code></pre>
 
-5. **[A]** Erstellen Sie manuell die SAP HANA-Gruppe und den -Benutzer. Die IDs für die Gruppe „sapsys“ und den Benutzer „**hn1**adm“ müssen auf dieselben IDs festgelegt werden, die während des Onboardings bereitgestellt werden. (In diesem Beispiel werden die IDs auf **1001** festgelegt.) Wenn die IDs nicht ordnungsgemäß festgelegt sind, können Sie nicht auf die Volumes zugreifen. Die IDs für die Gruppe „sapsys“ und die Benutzerkonten **„hn1**adm“ und „sapadm“ müssen auf allen virtuellen Computern identisch sein.  
+5. **[A]** Erstellen Sie manuell die SAP HANA-Gruppe und den -Benutzer. Die IDs für die Gruppe „sapsys“ und den Benutzer „**hn1** adm“ müssen auf dieselben IDs festgelegt werden, die während des Onboardings bereitgestellt werden. (In diesem Beispiel werden die IDs auf **1001** festgelegt.) Wenn die IDs nicht ordnungsgemäß festgelegt sind, können Sie nicht auf die Volumes zugreifen. Die IDs für die Gruppe „sapsys“ und die Benutzerkonten **„hn1** adm“ und „sapadm“ müssen auf allen virtuellen Computern identisch sein.  
 
     <pre><code>
     # Create user group 
@@ -533,7 +534,7 @@ In diesem Beispiel für die Bereitstellung von SAP HANA in einer Konfiguration m
     sudo zypper install libgcc_s1 libstdc++6 libatomic1 
     </code></pre>
 
-4. **[2], [3]** Übertragen Sie den Besitz der SAP HANA-Verzeichnisse `data` und `log` an „**hn1**adm“.   
+4. **[2], [3]** Übertragen Sie den Besitz der SAP HANA-Verzeichnisse `data` und `log` an „**hn1** adm“.   
 
     <pre><code>
     # Execute as root
@@ -655,9 +656,12 @@ In diesem Beispiel für die Bereitstellung von SAP HANA in einer Konfiguration m
 
 ## <a name="test-sap-hana-failover"></a>Testen des SAP HANA-Failovers 
 
+> [!NOTE]
+> Dieser Artikel enthält Verweise auf die Begriffe *Master* und *Slave*, die von Microsoft nicht mehr verwendet werden. Sobald diese Begriffe aus der Software entfernt wurden, werden sie auch aus diesem Artikel gelöscht.
+
 1. Simulieren Sie einen Knotenabsturz auf einem SAP HANA-Workerknoten. Gehen Sie folgendermaßen vor: 
 
-   a. Führen Sie die folgenden Befehle als „**hn1**adm“ aus, um den Status der Umgebung zu erfassen, bevor Sie den Knotenabsturz simulieren:  
+   a. Führen Sie die folgenden Befehle als „**hn1** adm“ aus, um den Status der Umgebung zu erfassen, bevor Sie den Knotenabsturz simulieren:  
 
    <pre><code>
     # Check the landscape status
@@ -712,7 +716,7 @@ In diesem Beispiel für die Bereitstellung von SAP HANA in einer Konfiguration m
 
 2. Beenden Sie den Namenserver, indem Sie die folgenden Schritte ausführen:
 
-   a. Führen Sie die folgenden Befehle als „**hn1**adm“ aus, um den Status der Umgebung vor dem Test zu überprüfen:  
+   a. Führen Sie die folgenden Befehle als „**hn1** adm“ aus, um den Status der Umgebung vor dem Test zu überprüfen:  
 
    <pre><code>
     #Landscape status 
@@ -734,7 +738,7 @@ In diesem Beispiel für die Bereitstellung von SAP HANA in einer Konfiguration m
     hanadb3, 3, 50313, 50314, 0.3, HDB|HDB_STANDBY, GRAY
    </code></pre>
 
-   b. Führen Sie die folgenden Befehle als „**hn1**adm“ auf dem aktiven Masterknoten aus (in diesem Fall **hanadb1**):  
+   b. Führen Sie die folgenden Befehle als „**hn1** adm“ auf dem aktiven Masterknoten aus (in diesem Fall **hanadb1**):  
 
     <pre><code>
         hn1adm@hanadb1:/usr/sap/HN1/HDB03> HDB kill

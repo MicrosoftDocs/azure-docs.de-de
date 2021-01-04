@@ -6,20 +6,19 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/29/2020
+ms.date: 12/02/2020
 ms.author: curtand
-ms.reviewer: elkuzmen
+ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6a7dcb1d24f3c1ff848e3393687b04d79d28058
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0af74967e2de47afeb357e2ac31b1a0ee849ef36
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373310"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547099"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Übernehmen eines nicht verwalteten Verzeichnisses als Administrator in Azure Active Directory
 
@@ -38,11 +37,11 @@ Einige Produkte, die SharePoint und OneDrive enthalten, z. B. Microsoft 365, un
 
 1. Erstellen Sie einen Benutzerkontext in der nicht verwalteten Organisation über eine Registrierung bei Power BI. Genau dies tun Sie in diesem Beispiel.
 
-2. Öffnen Sie die [Power BI-Website](https://powerbi.com), und klicken Sie auf **Kostenloser Einstieg** . Geben Sie ein Benutzerkonto ein, das den Domänennamen für die Organisation verwendet, z.B. `admin@fourthcoffee.xyz`. Nachdem Sie den Prüfcode eingegeben haben, suchen Sie in Ihren E-Mails nach dem Bestätigungscode.
+2. Öffnen Sie die [Power BI-Website](https://powerbi.com), und klicken Sie auf **Kostenloser Einstieg**. Geben Sie ein Benutzerkonto ein, das den Domänennamen für die Organisation verwendet, z.B. `admin@fourthcoffee.xyz`. Nachdem Sie den Prüfcode eingegeben haben, suchen Sie in Ihren E-Mails nach dem Bestätigungscode.
 
 3. Wählen Sie in der Bestätigungs-E-Mail von Power BI **Yes, that's me** (Ja, das bin ich) aus.
 
-4. Melden Sie sich mit dem Power BI-Benutzerkonto im [Microsoft 365 Admin Center](https://portal.office.com/admintakeover) an. Sie erhalten eine Nachricht mit der Aufforderung, der Administrator des Domänennamens zu werden ( **Become the Admin** ), der bereits in der nicht verwalteten Organisation bestätigt wurde. Wählen Sie **Yes, I want to be the admin** (Ja, ich möchte der Administrator werden) aus.
+4. Melden Sie sich mit dem Power BI-Benutzerkonto im [Microsoft 365 Admin Center](https://portal.office.com/admintakeover) an. Sie erhalten eine Nachricht mit der Aufforderung, der Administrator des Domänennamens zu werden (**Become the Admin**), der bereits in der nicht verwalteten Organisation bestätigt wurde. Wählen Sie **Yes, I want to be the admin** (Ja, ich möchte der Administrator werden) aus.
   
    ![Erster Screenshot für „Become the Admin“](./media/domains-admin-takeover/become-admin-first.png)
   
@@ -57,17 +56,17 @@ Wenn Sie die vorherigen Schritte abgeschlossen haben, sind Sie jetzt der globale
 ### <a name="adding-the-domain-name-to-a-managed-organization-in-azure-ad"></a>Hinzufügen des Domänennamens zu einer verwalteten Organisation in Azure AD
 
 1. Öffnen Sie das [Microsoft 365 Admin Center](https://admin.microsoft.com).
-2. Wählen Sie die Registerkarte **Benutzer** aus, und erstellen Sie ein neues Benutzerkonto mit einem Namen wie *user\@fourthcoffeexyz.onmicrosoft.com* , der keinen benutzerdefinierten Domänennamen verwendet. 
+2. Wählen Sie die Registerkarte **Benutzer** aus, und erstellen Sie ein neues Benutzerkonto mit einem Namen wie *user\@fourthcoffeexyz.onmicrosoft.com*, der keinen benutzerdefinierten Domänennamen verwendet. 
 3. Stellen Sie sicher, dass das neue Benutzerkonto globale Administratorberechtigungen für die Azure AD-Organisation hat.
-4. Öffnen Sie die Registerkarte **Domänen** im Microsoft 365 Admin Center, wählen Sie den Domänennamen aus, und klicken Sie auf **Entfernen** . 
+4. Öffnen Sie die Registerkarte **Domänen** im Microsoft 365 Admin Center, wählen Sie den Domänennamen aus, und klicken Sie auf **Entfernen**. 
   
    ![Entfernen des Domänennamens aus Microsoft 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. Wenn einige Ihrer Benutzer oder Gruppen in Microsoft 365 weiterhin auf den entfernten Domänennamen verweisen, müssen sie in die Domäne .onmicrosoft.com umbenannt werden. Wenn Sie die Löschung des Domänennamens erzwingen, werden alle Benutzer automatisch umbenannt, in diesem Beispiel in *user\@fourthcoffeexyz.onmicrosoft.com* .
+5. Wenn einige Ihrer Benutzer oder Gruppen in Microsoft 365 weiterhin auf den entfernten Domänennamen verweisen, müssen sie in die Domäne .onmicrosoft.com umbenannt werden. Wenn Sie die Löschung des Domänennamens erzwingen, werden alle Benutzer automatisch umbenannt, in diesem Beispiel in *user\@fourthcoffeexyz.onmicrosoft.com*.
   
 6. Melden Sie sich beim [Azure AD Admin Center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) mit dem Konto an, das globale Administratorberechtigungen für die Azure AD-Organisation hat.
   
-7. Klicken Sie auf **Benutzerdefinierte Domänennamen** , und fügen Sie den Domänennamen hinzu. Sie müssen die DNS-TXT-Einträge eingeben, um die Inhaberschaft des Domänennamens zu bestätigen. 
+7. Klicken Sie auf **Benutzerdefinierte Domänennamen**, und fügen Sie den Domänennamen hinzu. Sie müssen die DNS-TXT-Einträge eingeben, um die Inhaberschaft des Domänennamens zu bestätigen. 
   
    ![Überprüfte Domäne, wie zu Azure AD hinzugefügt](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
@@ -174,7 +173,7 @@ Bei einer erfolgreichen Abfrage kehren Sie ohne Fehler zur Eingabeaufforderung z
 * [Installieren und Konfigurieren von Azure PowerShell](/powershell/azure/)
 * [Azure PowerShell](/powershell/azure/)
 * [Azure-Cmdlet-Referenz](/powershell/azure/get-started-azureps)
-* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
+* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0&preserve-view=true)
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png

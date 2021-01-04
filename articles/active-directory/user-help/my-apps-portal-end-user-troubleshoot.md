@@ -12,12 +12,12 @@ ms.date: 03/21/2019
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: c5d1b08944417493d175de23c7738db58f1c7bd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ae946f82590f2270719570e4b589d49542ffec8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798005"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833978"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Problembehandlung beim Portal „Meine Apps“
 
@@ -51,7 +51,7 @@ Wenn Sie Probleme haben, sich am Portal **Meine Apps** anzumelden, können Sie F
 
 - Stellen Sie sicher, dass Ihr Kennwort stimmt und nicht abgelaufen ist. Weitere Informationen finden Sie unter [Zurücksetzen des Kennworts eines Geschäfts-, Schul- oder Unikontos](active-directory-passwords-update-your-own-password.md).
 
-- Stellen Sie sicher, dass Ihre Überprüfungsinformationen aktuell und korrekt sind. Weitere Informationen finden Sie unter [Was ist Azure Multi-Factor Authentication?](./multi-factor-authentication-end-user-first-time.md) oder [Changing your security info methods and information (Ändern Ihrer Sicherheitsinformationsmethoden und Sicherheitsinformationen)](./security-info-setup-auth-app.md).
+- Stellen Sie sicher, dass Ihre Überprüfungsinformationen aktuell und korrekt sind. Weitere Informationen finden Sie unter [Welche Bedeutung hat Azure AD Multi-Factor Authentication für mich?](./multi-factor-authentication-end-user-first-time.md) und [Ändern Ihrer Methoden und Angaben für Sicherheitsinformationen](./security-info-setup-auth-app.md).
 
 - Fügen Sie die URL des Portals **Meine Apps** zur Einstellung **Interneteigenschaften > Sicherheit > Vertrauenswürdige Sites** hinzu.
 
@@ -75,7 +75,7 @@ Wenn Sie die Meldung **Zugriff verweigert** erhalten, nachdem Sie eine App aus d
 
 - Stellen Sie sicher, dass Ihr Kennwort stimmt und nicht abgelaufen ist. Weitere Informationen finden Sie unter [Zurücksetzen des Kennworts eines Geschäfts-, Schul- oder Unikontos](active-directory-passwords-update-your-own-password.md).
 
-- Stellen Sie sicher, dass Ihre Überprüfungsinformationen aktuell und korrekt sind. Weitere Informationen finden Sie unter [Was ist Azure Multi-Factor Authentication?](./multi-factor-authentication-end-user-first-time.md) oder [Changing your security info methods and information (Ändern Ihrer Sicherheitsinformationsmethoden und Sicherheitsinformationen)](./security-info-setup-auth-app.md).
+- Stellen Sie sicher, dass Ihre Überprüfungsinformationen aktuell und korrekt sind. Weitere Informationen finden Sie unter [Welche Bedeutung hat Azure AD Multi-Factor Authentication für mich?](./multi-factor-authentication-end-user-first-time.md) und [Ändern Ihrer Methoden und Angaben für Sicherheitsinformationen](./security-info-setup-auth-app.md).
 
 - Löschen Sie den Cache des Browsers, und versuchen Sie erneut, sich anzumelden.
 
@@ -87,7 +87,7 @@ Nachdem Sie sich am Portal **Meine Apps** angemeldet haben, können Sie auch Ihr
 
 - [Zugreifen auf und Verwenden von Apps im Portal „Meine Apps“](my-apps-portal-end-user-access.md)
 
-- [Ändern Ihrer Profilinformationen](my-apps-portal-end-user-update-profile.md)
+- [Ändern Ihrer Profilinformationen](./my-account-portal-settings.md)
 
 - [Anzeigen und Aktualisieren gruppenbezogener Informationen](my-apps-portal-end-user-groups.md)
 

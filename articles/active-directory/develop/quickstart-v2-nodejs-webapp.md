@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: 34baa054104a6cf2c78864cc2827b16c1eedb084
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 643305057490cc550a5a8e39a892297b000cbc8e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91613304"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169408"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Schnellstart: Hinzufügen der Anmeldung mit OpenID Connect zu einer Node.js-Web-App
 
-In dieser Schnellstartanleitung erfahren Sie, wie Sie die OpenID Connect-Authentifizierung in einer Webanwendung einrichten, die unter Verwendung von Node.js mit Express erstellt wurde. Das Beispiel ist für die Ausführung auf jeder beliebigen Plattform konzipiert.
+In dieser Schnellstartanleitung laden Sie ein Codebeispiel herunter und führen es aus, das zeigt, wie Sie die OpenID Connect-Authentifizierung in einer Webanwendung einrichten, die unter Verwendung von Node.js mit Express erstellt wurde. Das Beispiel ist für die Ausführung auf jeder beliebigen Plattform konzipiert.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -51,7 +51,7 @@ In dieser Schnellstartanleitung erfahren Sie, wie Sie die OpenID Connect-Authen
 1. Wählen Sie in der Liste mit den Seiten für die App die Option **Authentifizierung** aus.
     - Wählen Sie im Abschnitt **Umleitungs-URIs** im Kombinationsfeld die Option **Web** aus, und geben Sie den folgenden Umleitungs-URI ein: `http://localhost:3000/auth/openid/return`
     - Legen Sie im Abschnitt **Erweiterte Einstellungen** die Option **Abmelde-URL** auf `https://localhost:3000` fest.
-    - Aktivieren Sie im Abschnitt **Erweiterte Einstellungen > Implizite Gewährung** die Option **ID-Token**, da in diesem Beispiel der [Flow für implizite Genehmigungen](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) aktiviert werden muss, um den Benutzer anzumelden.
+    - Aktivieren Sie im Abschnitt **Erweiterte Einstellungen > Implizite Gewährung** die Option **ID-Token**, da in diesem Beispiel der [Flow für implizite Genehmigungen](./v2-oauth2-implicit-grant-flow.md) aktiviert werden muss, um den Benutzer anzumelden.
 
 1. Wählen Sie **Speichern** aus.
 

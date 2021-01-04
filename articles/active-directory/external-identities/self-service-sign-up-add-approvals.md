@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d664d7cd169593924917bb02a0220e4047eb0cdb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82f0408b7e46493f6c3ec62d48a992e87f196f78
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88165237"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860608"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Hinzufügen eines benutzerdefinierten Genehmigungsworkflows zur Self-Service-Registrierung
 
@@ -29,7 +29,7 @@ Dieser Artikel enthält ein Beispiel für die Integration in ein Genehmigungssys
 
 ## <a name="register-an-application-for-your-approval-system"></a>Registrieren einer Anwendung für Ihr Genehmigungssystem
 
-Sie müssen Ihr Genehmigungssystem als Anwendung in Ihrem Azure AD-Mandanten registrieren, damit es sich mit Azure AD authentifizieren und über die Berechtigung zum Erstellen von Benutzern verfügen kann. Erfahren Sie mehr über [Grundlagen zu Authentifizierung und Autorisierung für Microsoft Graph](https://docs.microsoft.com/graph/auth/auth-concepts).
+Sie müssen Ihr Genehmigungssystem als Anwendung in Ihrem Azure AD-Mandanten registrieren, damit es sich mit Azure AD authentifizieren und über die Berechtigung zum Erstellen von Benutzern verfügen kann. Erfahren Sie mehr über [Grundlagen zu Authentifizierung und Autorisierung für Microsoft Graph](/graph/auth/auth-concepts).
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) als Azure AD-Administrator an.
 2. Wählen Sie unter **Azure-Dienste** die Option **Azure Active Directory** aus.
@@ -40,7 +40,7 @@ Sie müssen Ihr Genehmigungssystem als Anwendung in Ihrem Azure AD-Mandanten re
 
 5. Wählen Sie **Registrieren**. Sie können bei anderen Feldern die Standardwerte beibehalten.
 
-   ![Seite für das Registrieren einer Anwendung](media/self-service-sign-up-add-approvals/register-approvals-app.png)
+   ![Screenshot: Hervorgehobene Schaltfläche „Registrieren“](media/self-service-sign-up-add-approvals/register-approvals-app.png)
 
 6. Wählen Sie unter **Verwalten** im linken Menü **API-Berechtigungen** und dann **Berechtigung hinzufügen** aus.
 7. Wählen Sie auf der Seite **API-Berechtigungen anfordern** die Option **Microsoft Graph** aus, und wählen Sie **Anwendungsberechtigungen** aus.
@@ -263,14 +263,14 @@ Die `userMessage` in der Antwort wird dem Benutzer angezeigt, z. B.:
 
 ## <a name="user-account-creation-after-manual-approval"></a>Erstellung eines Benutzerkontos nach manueller Genehmigung
 
-Nach dem Erhalt der manuellen Genehmigung erstellt das benutzerdefinierte Genehmigungssystem mit [Microsoft Graph](https://docs.microsoft.com/graph/use-the-api) ein [Benutzerkonto](https://docs.microsoft.com/graph/azuread-users-concept-overview). Wie das Genehmigungssystem das Benutzerkonto bereitstellt, hängt von dem Identitätsanbieter ab, der vom Benutzer verwendet wurde.
+Nach dem Erhalt der manuellen Genehmigung erstellt das benutzerdefinierte Genehmigungssystem mit [Microsoft Graph](/graph/use-the-api) ein [Benutzerkonto](/graph/azuread-users-concept-overview). Wie das Genehmigungssystem das Benutzerkonto bereitstellt, hängt von dem Identitätsanbieter ab, der vom Benutzer verwendet wurde.
 
 ### <a name="for-a-federated-google-or-facebook-user"></a>Für einen verbundenen Google- oder Facebook-Benutzer
 
 > [!IMPORTANT]
 > Das Genehmigungssystem sollte explizit prüfen, ob `identities`, `identities[0]` und `identities[0].issuer` vorhanden sind und `identities[0].issuer` „facebook“ oder „google“ ist, um diese Methode zu verwenden.
 
-Wenn sich Ihr Benutzer mit einem Google- oder Facebook-Konto angemeldet hat, können Sie die [Benutzererstellungs-API](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0&tabs=http) verwenden.
+Wenn sich Ihr Benutzer mit einem Google- oder Facebook-Konto angemeldet hat, können Sie die [Benutzererstellungs-API](/graph/api/user-post-users?tabs=http) verwenden.
 
 1. Das Genehmigungssystem verwendet die HTTP-Anforderung aus dem Benutzerflow.
 
@@ -330,7 +330,7 @@ Content-type: application/json
 
 ### <a name="for-a-federated-azure-active-directory-user"></a>Für einen verbundenen Azure Active Directory-Benutzer
 
-Wenn ein Benutzer sich mit einem verbundenen Azure Active Directory-Konto anmeldet, müssen Sie den Benutzer mit der [Einladungs-API](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0) erstellen und ihm dann optional mit der [Benutzeraktualisierungs-API](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0) weitere Attribute zuweisen.
+Wenn ein Benutzer sich mit einem verbundenen Azure Active Directory-Konto anmeldet, müssen Sie den Benutzer mit der [Einladungs-API](/graph/api/invitation-post) erstellen und ihm dann optional mit der [Benutzeraktualisierungs-API](/graph/api/user-update) weitere Attribute zuweisen.
 
 1. Das Genehmigungssystem empfängt die HTTP-Anforderung aus dem Benutzerflow.
 
@@ -389,4 +389,4 @@ Content-type: application/json
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Erste Schritte mit unseren [Azure Functions-Schnellstartbeispielen](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).
-- Untersuchen Sie das [Beispiel für eine Self-Service-Registrierung für Gastbenutzer mit manueller Genehmigung](code-samples-self-service-sign-up.md#custom-approval-workflows). 
+- Untersuchen Sie das [Beispiel für eine Self-Service-Registrierung für Gastbenutzer mit manueller Genehmigung](code-samples-self-service-sign-up.md#custom-approval-workflows).

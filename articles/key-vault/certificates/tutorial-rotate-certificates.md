@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: eeceb1279579055bfff33f0a4413f0798418faed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 591d71e8cd6af2801540f5a1a41ad88b1f538e81
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83201513"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844487"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>Tutorial: Konfigurieren der automatischen Zertifikatrotation in Key Vault
 
@@ -41,13 +41,13 @@ Melden Sie sich unter https://portal.azure.com beim Azure-Portal an.
 
 ## <a name="create-a-vault"></a>Erstellen eines Tresors
 
-Erstellen Sie einen Schlüsseltresor, oder wählen Sie einen vorhandenen Tresor aus, um Vorgänge auszuführen. (Die Schritte zum Erstellen einer Key Vault-Instanz finden Sie [hier](../quick-create-portal.md).) In diesem Beispiel heißt der Schlüsseltresor **Example-Vault**.
+Sie können eine Azure Key Vault-Instanz im [Azure-Portal](../general/quick-create-portal.md), mit der [Azure-Befehlszeilenschnittstelle](../general/quick-create-cli.md) oder mit [Azure PowerShell](../general/quick-create-powershell.md) erstellen. In diesem Beispiel heißt der Schlüsseltresor **Example-Vault**.
 
 ![Ausgabe nach Erstellung des Schlüsseltresors](../media/certificates/tutorial-import-cert/vault-properties.png)
 
 ## <a name="create-a-certificate-in-key-vault"></a>Erstellen eines Zertifikats in Key Vault
 
-Erstellen Sie ein Zertifikat, oder importieren Sie ein Zertifikat in den Schlüsseltresor. (Die Schritte zum Erstellen eines Zertifikats in Key Vault finden Sie [hier](../quick-create-portal.md).) In diesem Beispiel wird das Zertifikat **ExampleCertificate** verwendet.
+Erstellen Sie ein Zertifikat, oder importieren Sie ein Zertifikat in den Schlüsseltresor. (Die Schritte zum Erstellen eines Zertifikats in Key Vault finden Sie [hier](../secrets/quick-create-portal.md).) In diesem Beispiel wird das Zertifikat **ExampleCertificate** verwendet.
 
 ## <a name="update-certificate-lifecycle-attributes"></a>Aktualisieren der Attribute des Zertifikatlebenszyklus
 
@@ -95,7 +95,7 @@ Zertifikate werden von Key Vault durch bewährte Partnerschaften mit Zertifizier
 1. Wählen Sie das Zertifikat aus, das Sie aktualisieren möchten. In diesem Beispiel wird das Zertifikat **ExampleCertificate** verwendet.
 1. Wählen Sie auf der oberen Menüleiste die Option **Ausstellungsrichtlinie** aus.
 
-   ![Zertifikateigenschaften](../media/certificates/tutorial-rotate-cert/cert-issuance-policy.png)
+   ![Screenshot: Hervorgehobene Schaltfläche „Ausstellungsrichtlinie“](../media/certificates/tutorial-rotate-cert/cert-issuance-policy.png)
 
 1. Aktualisieren Sie im Bildschirm **Ausstellungsrichtlinie** die folgenden Werte:
 
@@ -134,7 +134,7 @@ Set-AzureKeyVaultCertificatePolicy -VaultName $vaultName
 > }
 >  ```
 > 
-Weitere Informationen zu den Parametern finden Sie unter [az keyvault certificate](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-set-attributes).
+Weitere Informationen zu den Parametern finden Sie unter [az keyvault certificate](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-set-attributes).
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
@@ -152,5 +152,5 @@ So löschen Sie die Ressourcengruppe über das Portal:
 
 In diesem Tutorial haben Sie die Lebenszyklusattribute eines Zertifikats aktualisiert. Weitere Informationen zu Key Vault und zur Integration in Ihre Anwendungen finden Sie in den folgenden Artikeln:
 
-- Informieren Sie sich ausführlicher über die [Verwaltung der Zertifikaterstellung in Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios).
+- Informieren Sie sich ausführlicher über die [Verwaltung der Zertifikaterstellung in Azure Key Vault](./create-certificate-scenarios.md).
 - Lesen Sie die [Übersicht über Key Vault](../general/overview.md).

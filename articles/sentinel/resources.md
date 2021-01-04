@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
 ms.author: yelevin
-ms.openlocfilehash: 54c10d7941e053bec928f8f43310218d89124f9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2465cf74dbf4fbf074aed8f8e4097a236e628425
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461730"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660643"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Nützliche Ressourcen für das Arbeiten mit Azure Sentinel
 
@@ -62,7 +62,17 @@ Die folgenden unterstützten Vorgänge können überwacht werden.
 Sie können diese Daten anzeigen, indem Sie sie aus dem Azure-Aktivitätsprotokoll in Azure Sentinel streamen, wo sie die Daten untersuchen und analysieren können.
 
 1. Stellen Sie eine Verbindung mit der Datenquelle der [Azure-Aktivität](connect-azure-activity.md) her. Anschließend werden Überwachungsereignisse in eine neue Tabelle namens AzureActivity im Bildschirm **Protokolle** gestreamt.
-2. Fragen Sie die Daten dann wie jede andere Tabelle mit KQL ab.
+
+1. Fragen Sie die Daten dann wie jede andere Tabelle mit KQL ab.
+
+    Um beispielsweise herauszufinden, wer der letzte Benutzer war, der eine bestimmte Analyseregel bearbeitet hat, verwenden Sie die folgende Abfrage (ersetzen Sie `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` durch die Regel-ID der Regel, die Sie überprüfen möchten):
+
+    ```kusto
+    AzureActivity
+    | where OperationNameValue startswith "MICROSOFT.SECURITYINSIGHTS/ALERTRULES/WRITE"
+    | where Properties contains "alertRules/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    | project Caller , TimeGenerated , Properties
+    ```
 
 
 
@@ -82,4 +92,4 @@ Lesen Sie Azure Sentinel-Blogbeiträge aus den Bereichen [TechCommunity](https:/
 
 
 ## <a name="next-steps"></a>Nächste Schritte
-In diesem Dokument haben Sie eine Liste der Ressourcen gefunden, die bei der Arbeit mit Azure Sentinel hilfreich sind. Weitere Informationen zur Azure-Sicherheit und -Compliance finden Sie im [Microsoft Azure Security and Compliance-Blog](https://docs.microsoft.com/archive/blogs/azuresecurity/).
+In diesem Dokument haben Sie eine Liste der Ressourcen gefunden, die bei der Arbeit mit Azure Sentinel hilfreich sind. Weitere Informationen zur Azure-Sicherheit und -Compliance finden Sie im [Microsoft Azure Security and Compliance-Blog](/archive/blogs/azuresecurity/).

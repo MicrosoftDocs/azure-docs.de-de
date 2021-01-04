@@ -5,13 +5,13 @@ keywords: App-Dienst, Azure App Service, Skalierung, skalierbar, App Services-Pl
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
 ms.date: 10/01/2020
-ms.custom: seodec18
-ms.openlocfilehash: 0030a9340d874d94b9876e23f372e97655c145da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 7ade24b6478f78a51e0be68ae69ae0b076ecff1f
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742664"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607873"
 ---
 # <a name="configure-premiumv3-tier-for-azure-app-service"></a>Konfigurieren des PremiumV3-Tarifs für Azure App Service
 
@@ -82,7 +82,7 @@ Einige App Service-Pläne können nicht auf den PremiumV3-Tarif hochskaliert wer
 Wenn Ihre App in einer App Service-Bereitstellung ausgeführt wird, in der **PremiumV3** nicht verfügbar ist, oder Ihre App in einer Region ausgeführt wird, die **PremiumV3** derzeit nicht unterstützt, müssen Sie Ihre App erneut bereitstellen, um von **PremiumV3** profitieren zu können.  Sie haben zwei Möglichkeiten:
 
 - Erstellen Sie eine App in einer neuen Ressourcengruppe und mit einem neuen App Service-Plan. Wählen Sie beim Erstellen des App Service-Plans den Tarif **PremiumV3** aus. Mit diesem Schritt ist gewährleistet, dass der App Service-Plan in einer Bereitstellungseinheit bereitgestellt wird, die **PremiumV3** unterstützt. Stellen Sie Ihren Anwendungscode dann in der neu erstellten App erneut bereit. Wenn Sie den App Service-Plan aus Kostengründen auf einen niedrigeren Tarif herunterskalieren, können Sie jederzeit wieder auf **PremiumV3** hochskalieren, weil die Bereitstellungseinheit diesen Tarif unterstützt.
-- Wenn Ihre App bereits in einem vorhandenen **Premium**-Tarif ausgeführt wird, können Sie Ihre App mit allen App-Einstellungen, Verbindungszeichenfolgen und der Bereitstellungskonfiguration in einen neuen App Service-Plan klonen, der **PremiumV3** verwendet.
+- Wenn Ihre App bereits in einem vorhandenen **Premium**-Tarif ausgeführt wird, können Sie sie mit allen App-Einstellungen, Verbindungszeichenfolgen und der Bereitstellungskonfiguration in einer neuen Ressourcengruppe in einem neuen App Service-Plan klonen, bei dem **PremiumV3** verwendet wird.
 
     ![Screenshot: Klonen Ihrer App](media/app-service-configure-premium-tier/clone-app.png)
 
@@ -98,7 +98,7 @@ Sie können die Erstellung von Apps im Tarif **PremiumV3** mithilfe von Skripts 
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Durch den folgenden Befehl wird ein App Service-Plan in _P1V2_ erstellt. Den Befehl können Sie in der Cloud Shell ausführen. Für `--sku` sind die Optionen P1V3, _P2V3_ und _P3V3_ verfügbar.
+Der folgende Befehl erstellt einen App Service-Plan in _P1V3_. Den Befehl können Sie in der Cloud Shell ausführen. Für `--sku` sind die Optionen P1V3, _P2V3_ und _P3V3_ verfügbar.
 
 ```azurecli-interactive
 az appservice plan create \

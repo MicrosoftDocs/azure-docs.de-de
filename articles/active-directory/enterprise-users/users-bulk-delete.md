@@ -4,21 +4,21 @@ description: Löschen Sie Benutzer in einem Massenvorgang im Azure Admin Center 
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 04/27/2020
+manager: daveba
+ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4146fb6bfe6c06e699df1f563e1f26e0716b023
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b57d675003c1ebeb29927b86338f95cf7dd68090
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373228"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574462"
 ---
 # <a name="bulk-delete-users-in-azure-active-directory"></a>Massenlöschung von Benutzern in Azure Active Directory
 
@@ -34,7 +34,7 @@ Laden Sie die CSV-Vorlage herunter, und füllen Sie sie aus, um mehrere Azure AD
 
 Die Zeilen der heruntergeladenen CSV-Vorlage lauten wie folgt:
 
-- **Versionsnummer** : Die erste Zeile, die die Versionsnummer enthält, muss in der hochzuladenden CSV-Datei enthalten sein.
+- **Versionsnummer**: Die erste Zeile, die die Versionsnummer enthält, muss in der hochzuladenden CSV-Datei enthalten sein.
 - **Spaltenüberschriften:** Das Format der Spaltenüberschriften lautet &lt;*Elementname*&gt; [Eigenschaftenname] &lt;*Required (erforderlich) oder leer*&gt;. Beispiel: `User name [userPrincipalName] Required`. Einige ältere Versionen der Vorlage können geringfügige Abweichungen aufweisen.
 - **Beispielzeile:** In der Vorlage ist eine Zeile mit Beispielen für zulässige Werte für alle Spalten enthalten. Sie müssen die Beispielzeile entfernen und durch Ihre eigenen Einträge ersetzen.
 
@@ -53,7 +53,7 @@ Die Zeilen der heruntergeladenen CSV-Vorlage lauten wie folgt:
 
    ![Wählen Sie eine lokale CSV-Datei aus, in der Sie die Benutzer auflisten, die Sie löschen möchten.](./media/users-bulk-delete/bulk-delete.png)
 
-1. Öffnen Sie die CSV-Datei, und fügen Sie eine Zeile für jeden Benutzer hinzu, den Sie löschen möchten. Der einzige erforderliche Wert ist **Benutzerprinzipalname** . Speichern Sie dann die Datei.
+1. Öffnen Sie die CSV-Datei, und fügen Sie eine Zeile für jeden Benutzer hinzu, den Sie löschen möchten. Der einzige erforderliche Wert ist **Benutzerprinzipalname**. Speichern Sie dann die Datei.
 
    ![Die CSV-Datei enthält Namen und IDs der zu löschenden Benutzer.](./media/users-bulk-delete/delete-csv-file.png)
 
@@ -75,7 +75,7 @@ Als Nächstes können Sie entweder im Azure-Portal oder mithilfe von PowerShell 
 ## <a name="verify-deleted-users-in-the-azure-portal"></a>Überprüfen gelöschter Benutzer im Azure-Portal
 
 1. Melden Sie sich beim Azure-Portal mit einem Konto an, das über Benutzeradministratorberechtigungen in der Organisation verfügt.
-1. Klicken Sie im Navigationsbereich auf **Azure Active Directory** .
+1. Klicken Sie im Navigationsbereich auf **Azure Active Directory**.
 1. Wählen Sie unter **Verwalten** die Option **Benutzer** aus.
 1. Wählen Sie unter **Anzeigen** nur **Alle Benutzer** aus, und vergewissern Sie sich, dass die gelöschten Benutzer nicht mehr aufgelistet werden.
 

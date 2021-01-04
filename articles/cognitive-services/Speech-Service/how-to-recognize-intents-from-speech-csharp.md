@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1138a970bf7c52182f13d0fd14d0178a2d0cfeba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93a3adf00203e317be912e3e72de7a3f7ca666c6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88918790"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001093"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Erkennen von Absichten anhand gesprochener Sprache mit dem Speech SDK für C#
 
@@ -55,7 +55,7 @@ LUIS verwendet drei Arten von Schlüsseln:
 | Starter   | Hiermit können Sie Ihre LUIS-Anwendung nur mit Text testen.   |
 | Endpunkt  | Autorisiert den Zugriff auf eine bestimmte LUIS-App.            |
 
-Für diesen Leitfaden benötigen Sie den Endpunktschlüsseltyp. Dieser Leitfaden verwendet die LUIS-Beispiel-App für die Gebäudeautomatisierung, die Sie erstellen können, indem Sie die Anleitung im Schnellstart [Verwenden der vordefinierten Home Automation-App](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) befolgen. Wenn Sie selbst eine LUIS-App erstellt haben, können Sie diese stattdessen verwenden.
+Für diesen Leitfaden benötigen Sie den Endpunktschlüsseltyp. Dieser Leitfaden verwendet die LUIS-Beispiel-App für die Gebäudeautomatisierung, die Sie erstellen können, indem Sie die Anleitung im Schnellstart [Verwenden der vordefinierten Home Automation-App](../luis/luis-get-started-create-app.md) befolgen. Wenn Sie selbst eine LUIS-App erstellt haben, können Sie diese stattdessen verwenden.
 
 Wenn Sie eine LUIS-App erstellen, wird automatisch ein Startschlüssel generiert, mit dem Sie die App mithilfe von Textabfragen testen können. Mit diesem Schlüssel ist keine Integration des Speech-Diensts möglich und eignet sich nicht für diesen Leitfaden. Erstellen Sie eine LUIS-Ressource im Azure-Dashboard, und weisen Sie sie der LUIS-App zu. Sie können den Tarif für ein kostenloses Abonnement für diesen Leitfaden verwenden.
 
@@ -201,4 +201,4 @@ Den Code aus diesem Artikel finden Sie im Ordner **samples/csharp/sharedcontent/
 ## <a name="next-steps"></a>Nächste Schritte
 
 > [!div class="nextstepaction"]
-> [Schnellstart: Erkennen von Spracheingaben per Mikrofon](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)
+> [Schnellstart: Erkennen von Spracheingaben per Mikrofon](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore)

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: a3bd565b26d011e6186cc6957769db57f9cd1c9c
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: b8b0ac002cb52acdc043e4e8ca4fa91daae4e665
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093411"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457977"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Verwenden der Azure Active Directory-Authentifizierung für die Authentifizierung mit Synapse SQL
 
@@ -36,10 +36,10 @@ Die Konfigurationsschritte schließen die folgenden Verfahren zum Konfigurieren 
 
 1. Erstellen und Auffüllen von Azure AD
 2. Erstellen einer Azure Active Directory-Identität
-3. Zuweisen einer Rolle zur erstellten Azure Active Directory-Identität im Synapse-Arbeitsbereich (Vorschauversion)
+3. Zuweisen einer Rolle zur erstellten Azure Active Directory-Identität im Synapse-Arbeitsbereich
 4. Herstellen einer Verbindung mit Synapse Studio unter Verwendung von Azure AD-Identitäten
 
-## <a name="aad-pass-through-in-azure-synapse-analytics"></a>AAD-Pass-Through in Azure Synapse Analytics
+## <a name="azure-ad-pass-through-in-azure-synapse-analytics"></a>Azure AD-Passthrough in Azure Synapse Analytics
 
 Azure Synapse Analytics ermöglicht den Zugriff auf die Daten im Data Lake unter Verwendung Ihrer Azure Active Directory Identität.
 
@@ -49,13 +49,13 @@ Wenn Sie für die Dateien und Daten Zugriffsrechte festlegen, die in verschieden
 
 Das folgende Diagramm bietet eine Übersicht über die Lösungsarchitektur für die Azure AD-Authentifizierung mit Synapse SQL. Zur Unterstützung des nativen Benutzerkennworts von Azure AD werden nur der Cloudanteil und Azure AD/Synapse SQL berücksichtigt. Zur Unterstützung der Verbundauthentifizierung (oder von Benutzername und Kennwort für Windows-Anmeldeinformationen) ist die Kommunikation mit dem AD FS-Block erforderlich. Die Pfeile zeigen die Kommunikationswege.
 
-![Diagramm zur AAD-Authentifizierung](./media/aad-authentication/1-active-directory-authentication-diagram.png)
+![Diagramm zur Azure AD-Authentifizierung](./media/aad-authentication/1-active-directory-authentication-diagram.png)
 
 Das folgende Diagramm zeigt die Verbund-, Vertrauensstellungs- und Hostbeziehungen, die einem Client durch Übermittlung eines Tokens die Verbindungsherstellung mit einer Datenbank ermöglichen. Das Token wird von einem Azure Active Directory authentifiziert, und die Datenbank vertraut dem Token. 
 
 Bei „Customer1“ kann es sich um ein Azure Active Directory mit nativen Benutzern oder um ein Azure AD mit Verbundbenutzern handeln. „Customer2“ stellt eine mögliche Lösung einschließlich importierter Benutzer dar. In diesem Beispiel stammen diese aus einem dem Verbund angehörenden Azure Active Directory, und AD FS wird mit Azure Active Directory synchronisiert. 
 
-Wichtig: Für den Zugriff auf eine Datenbank mithilfe der Azure AD-Authentifizierung muss das Abonnement, das als Host fungiert, dem Azure AD zugeordnet sein. Das gleiche Abonnement muss auch verwendet werden, um die SQL Server-Instanz zu erstellen, in der Azure SQL-Datenbank oder der SQL-Pool gehostet wird.
+Wichtig: Für den Zugriff auf eine Datenbank mithilfe der Azure AD-Authentifizierung muss das Abonnement, das als Host fungiert, dem Azure AD zugeordnet sein. Das gleiche Abonnement muss auch verwendet werden, um die SQL Server-Instanz zu erstellen, in der Azure SQL-Datenbank oder der dedizierte SQL-Pool gehostet wird.
 
 ![Abonnementbeziehung](./media/aad-authentication/2-subscription-relationship.png)
 
@@ -65,7 +65,7 @@ Bei Verwendung der Azure AD-Authentifizierung sind zwei Administratorkonten fü
 
 Das Konto für die Azure AD-Administratoranmeldung kann ein Azure AD-Benutzer oder eine Azure AD-Gruppe sein. Wenn es sich bei dem Administrator um ein Gruppenkonto handelt, kann es von einem beliebigen Gruppenmitglied verwendet werden, sodass mehrere Azure AD-Administratoren die Synapse SQL-Instanz verwalten können. 
 
-Die Verwendung eines Gruppenkontos für den Administrator verbessert die Verwaltbarkeit und ermöglicht es Ihnen, Gruppenmitglieder in Azure AD zentral hinzuzufügen und zu entfernen, ohne die Benutzer oder Berechtigungen im Synapse Analytics-Arbeitsbereich zu ändern. Es kann jeweils nur ein Azure AD-Administrator (ein Benutzer oder eine Gruppe) konfiguriert werden.
+Die Verwendung eines Gruppenkontos als Administrator verbessert die Verwaltbarkeit und ermöglicht es Ihnen, Gruppenmitglieder in Azure AD zentral hinzuzufügen und zu entfernen, ohne die Benutzer oder Berechtigungen im Azure Synapse Analytics-Arbeitsbereich zu ändern. Es kann jeweils nur ein Azure AD-Administrator (ein Benutzer oder eine Gruppe) konfiguriert werden.
 
 ![Administratorstruktur](./media/aad-authentication/3-admin-structure.png)
 
@@ -109,7 +109,7 @@ Die Azure Active Directory-Authentifizierung unterstützt die folgenden Methoden
 - Azure Active Directory: universell mit MFA
 - Anwendungstokenauthentifizierung
 
-Die folgenden Authentifizierungsmethoden werden für Azure AD-Serverprinzipale (Anmeldungen) (**öffentliche Vorschau**) unterstützt:
+Die folgenden Authentifizierungsmethoden werden für Azure AD-Serverprinzipale (Anmeldungen) unterstützt:
 
 - Azure Active Directory Password
 - Azure Active Directory Integrated
@@ -119,10 +119,10 @@ Die folgenden Authentifizierungsmethoden werden für Azure AD-Serverprinzipale (
 
 - Um die Verwaltungsmöglichkeiten zu verbessern, wird empfohlen, eine dedizierte Azure AD-Gruppe als Administrator bereitzustellen.
 - Es kann jeweils nur ein Azure AD-Administrator (ein Benutzer oder eine Gruppe) für einen Synapse SQL-Pool konfiguriert werden.
-  - Das Hinzufügen von Azure AD-Serverprinzipalen (Anmeldungen) für SQL On-Demand (Vorschauversion) ermöglicht es, mehrere Azure AD-Serverprinzipale (Anmeldungen) zu erstellen, die der Rolle `sysadmin` hinzugefügt werden können.
+  - Das Hinzufügen von Azure AD-Serverprinzipalen (Anmeldungen) für Synapse SQL ermöglicht es, mehrere Azure AD-Serverprinzipale (Anmeldungen) zu erstellen, die der Rolle `sysadmin` hinzugefügt werden können.
 - Nur ein Azure AD-Administrator für Synapse SQL kann zunächst über ein Azure Active Directory-Konto eine Verbindung mit Synapse SQL herstellen. Der Active Directory-Administrator kann weitere Azure AD-Datenbankbenutzer konfigurieren.
 - Es wird empfohlen, das Verbindungstimeout auf 30 Sekunden festzulegen.
-- SQL Server 2016 Management Studio und SQL Server Data Tools für Visual Studio 2015 (ab Version 14.0.60311.1April 2016) unterstützen die Azure Active Directory-Authentifizierung. (Die Azure AD-Authentifizierung wird vom **.NET Framework-Datenanbieter für SqlServer**ab .NET Framework 4.6 unterstützt.) Daher können die neuesten Versionen dieser Tools und Datenschichtanwendungen (DAC und BACPAC) die Azure AD-Authentifizierung verwenden.
+- SQL Server 2016 Management Studio und SQL Server Data Tools für Visual Studio 2015 (ab Version 14.0.60311.1April 2016) unterstützen die Azure Active Directory-Authentifizierung. (Die Azure AD-Authentifizierung wird vom **.NET Framework-Datenanbieter für SqlServer** ab .NET Framework 4.6 unterstützt.) Daher können die neuesten Versionen dieser Tools und Datenschichtanwendungen (DAC und BACPAC) die Azure AD-Authentifizierung verwenden.
 - Ab Version 15.0.1 unterstützen [SQLCMD-Hilfsprogramm](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) und [BCP-Hilfsprogramm](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) die interaktive Active Directory-Authentifizierung mit MFA.
 - SQL Server Data Tools für Visual Studio 2015 erfordert mindestens die Data Tools-Version von April 2016 (Version 14.0.60311.1). Azure AD-Benutzer werden derzeit nicht im SSDT-Objekt-Explorer angezeigt. Sie können die Benutzer in [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) anzeigen, um dieses Problem zu umgehen.
 - [Microsoft JDBC-Treiber 6.0 für SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) unterstützt die Azure AD-Authentifizierung. Siehe auch [Einstellen der Verbindungseigenschaften](/sql/connect/jdbc/setting-the-connection-properties?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).

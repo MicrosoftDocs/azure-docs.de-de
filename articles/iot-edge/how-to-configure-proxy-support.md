@@ -9,13 +9,13 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
-- contperfq1
-ms.openlocfilehash: ae0c4c69cf500fb352cc889e068888084d1d8f8b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+- contperf-fy21q1
+ms.openlocfilehash: fb7cb0638ca86ea736749e6fb35e2295128162aa
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045957"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032982"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Konfigurieren eines IoT Edge-Geräts für die Kommunikation über einen Proxyserver
 
@@ -51,11 +51,11 @@ Dieser Artikel geht die folgenden vier Schritte zum Konfigurieren und anschließ
 
 Bevor Sie mit einem der Schritte in diesem Artikel beginnen, müssen Sie Ihre Proxy-URL kennen.
 
-Proxy-URLs haben das folgende Format: **Protokoll** :// **Proxyhost** : **Proxyport** .
+Proxy-URLs haben das folgende Format: **Protokoll**://**Proxyhost**:**Proxyport**.
 
 * Das **Protokoll** ist entweder HTTP oder HTTPS. Der Docker-Daemon kann abhängig von den Einstellungen Ihrer Containerregistrierung beide Protokolle verwenden, aber für den IoT Edge-Daemon und die Runtimecontainer sollte für Verbindungen mit dem Proxy immer HTTP verwendet werden.
 
-* Der **Proxyhost** ist eine Adresse für den Proxyserver. Wenn Ihr Proxyserver eine Authentifizierung erfordert, können Sie Ihre Anmeldeinformationen als Teil von „Proxyhost“ mit dem folgenden Format eingeben: **Benutzer** : **Kennwort**\@**Proxyhost** .
+* Der **Proxyhost** ist eine Adresse für den Proxyserver. Wenn Ihr Proxyserver eine Authentifizierung erfordert, können Sie Ihre Anmeldeinformationen als Teil von „Proxyhost“ mit dem folgenden Format eingeben: **Benutzer**:**Kennwort**\@**Proxyhost**.
 
 * Der **Proxyport** ist der Netzwerkport, an dem der Proxy auf Netzwerkdatenverkehr antwortet.
 
@@ -169,9 +169,9 @@ Der IoT Edge-Agent ist das erste Modul, das auf einem IoT Edge-Gerät gestartet 
 
 Dieser Schritt erfolgt einmalig auf dem IoT Edge-Gerät während der anfänglichen Geräteeinrichtung.
 
-1. Öffnen Sie die Datei „config.yaml“ auf Ihrem IoT Edge-Gerät. In Linux-Systemen befindet sich diese Datei unter **/etc/iotedge/config.yaml** . In Windows-Systemen befindet sich diese Datei unter **C:\ProgramData\iotedge\config.yaml** . Die Konfigurationsdatei ist geschützt. Sie benötigen also Administratorrechte, um darauf zuzugreifen. Auf Linux-Systemen verwenden Sie den Befehl `sudo`, bevor Sie die Datei in Ihrem bevorzugten Text-Editor öffnen. Unter Windows öffnen Sie einen Text-Editor wie Editor als Administrator und öffnen dann die Datei.
+1. Öffnen Sie die Datei „config.yaml“ auf Ihrem IoT Edge-Gerät. In Linux-Systemen befindet sich diese Datei unter **/etc/iotedge/config.yaml**. In Windows-Systemen befindet sich diese Datei unter **C:\ProgramData\iotedge\config.yaml**. Die Konfigurationsdatei ist geschützt. Sie benötigen also Administratorrechte, um darauf zuzugreifen. Auf Linux-Systemen verwenden Sie den Befehl `sudo`, bevor Sie die Datei in Ihrem bevorzugten Text-Editor öffnen. Unter Windows öffnen Sie einen Text-Editor wie Editor als Administrator und öffnen dann die Datei.
 
-2. Suchen Sie in der Datei „config.yaml“ nach dem Abschnitt **Edge Agent module spec** . Die IoT Edge-Agent-Definition enthält einen **env** -Parameter, dem Sie Umgebungsvariablen hinzufügen können.
+2. Suchen Sie in der Datei „config.yaml“ nach dem Abschnitt **Edge Agent module spec**. Die IoT Edge-Agent-Definition enthält einen **env**-Parameter, dem Sie Umgebungsvariablen hinzufügen können.
 
 3. Entfernen Sie die geschweiften Klammern, die Platzhalter für den env-Parameter darstellen, und fügen Sie die neue Variable in einer neuen Zeile hinzu. Denken Sie daran, dass Einzüge in YAML zwei Leerzeichen sind.
 
@@ -213,7 +213,7 @@ Das folgende Verfahren gilt für die gesamte Lebensdauer des IoT Edge-Geräts.
 
 ### <a name="azure-portal"></a>Azure-Portal
 
-Wenn Sie den Assistenten **Module festlegen** zum Erstellen von Bereitstellungen für IoT Edge-Geräte verwenden, verfügt jedes Modul über einen Abschnitt **Umgebungsvariablen** , in dem Sie Proxyserververbindungen konfigurieren können.
+Wenn Sie den Assistenten **Module festlegen** zum Erstellen von Bereitstellungen für IoT Edge-Geräte verwenden, verfügt jedes Modul über einen Abschnitt **Umgebungsvariablen**, in dem Sie Proxyserververbindungen konfigurieren können.
 
 Wählen Sie zum Konfigurieren der IoT Edge-Agent- und der IoT Edge-Hubmodule **Laufzeiteinstellungen** im ersten Schritt des Assistenten aus.
 
@@ -270,6 +270,12 @@ Wenn Sie die Umgebungsvariable **UpstreamProtocol** in die Datei „confige.yaml
     }
 }
 ```
+
+## <a name="working-with-traffic-inspecting-proxies"></a>Arbeiten mit Proxys für Datenverkehrsüberprüfung
+
+Wenn der Proxy, den Sie verwenden möchten, eine Datenverkehrsüberprüfung für TLS-gesicherte Verbindungen durchführt, ist es wichtig zu beachten, dass die Authentifizierung mit X.509-Zertifikaten nicht funktioniert. IoT Edge richtet einen End-to-End-verschlüsselten TLS-Kanal mit dem angegebenen Zertifikat und Schlüssel ein. Wenn dieser Kanal wegen einer Datenverkehrsüberprüfung gestört ist, kann ihn der Proxy mit den richtigen Anmeldeinformationen nicht wiederherstellen, und IoT Hub und der IoT Hub-Gerätebereitstellungsdienst (Device Provisioning Service) geben einen `Unauthorized`-Fehler zurück.
+
+Wenn Sie einen Proxy verwenden möchten, der eine Datenverkehrsüberprüfung durchführt, müssen Sie entweder die SAS-Authentifizierung (Shared Access Signature) verwenden oder IoT Hub und den IoT Hub-Gerätebereitstellungsdienst einer Positivliste hinzugefügt haben, um die Überprüfung zu vermeiden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

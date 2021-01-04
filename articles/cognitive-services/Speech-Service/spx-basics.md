@@ -10,16 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: bceffe5c53b9cbc863fd9c923ffa4718ebd50436
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 1b92d1b5853d6b794ebdcf0e2052b8f15081d608
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893814"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507573"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Erlernen der Grundlagen der Speech-Befehlszeilenschnittstelle
 
-In diesem Artikel lernen Sie die grundlegenden Verwendungsmuster der Speech-Befehlszeilenschnittstelle kennen, eines Befehlszeilentools zur Nutzung des Speech-Diensts ohne Programmierung. Sie können die Hauptfunktionen des Speech-Diensts schnell ausprobieren, ohne Entwicklungsumgebungen zu erstellen oder zu programmieren, um festzustellen, ob Sie Ihren Anwendungsfällen angemessen gerecht werden können. Außerdem ist die Speech-Befehlszeilenschnittstelle für den Produktionsbetrieb bereit und kann verwendet werden, um einfache Arbeitsabläufe im Speech-Dienst mithilfe von `.bat`- oder Shellskripts zu automatisieren.
+In diesem Artikel lernen Sie die grundlegenden Verwendungsmuster der Speech-Befehlszeilenschnittstelle kennen, eines Befehlszeilentools zur Nutzung des Speech-Diensts ohne Programmierung. Sie können die Hauptfunktionen des Speech-Diensts schnell ausprobieren, ohne Entwicklungsumgebungen zu erstellen oder zu programmieren, um festzustellen, ob Sie Ihren Anwendungsfällen angemessen gerecht werden können. Die Speech-Befehlszeilenschnittstelle ist für den Produktionsbetrieb bereit und kann verwendet werden, um einfache Arbeitsabläufe im Speech-Dienst mithilfe von `.bat`- oder Shellskripts zu automatisieren.
+
+In diesem Artikel wird davon ausgegangen, dass Sie mit der Eingabeaufforderung, mit dem Terminal oder mit PowerShell vertraut sind.
 
 [!INCLUDE [](includes/spx-setup.md)]
 
@@ -45,11 +47,24 @@ Geben Sie den folgenden Befehl ein, um die Optionen für den Befehl „recognize
 spx help recognize
 ```
 
-Nutzen Sie nun den Speech-Dienst für eine erste Spracherkennung mit Ihrem Standardmikrofon, indem Sie den unten angegebenen Befehl ausführen.
+Verwenden wir nun die Speech-Befehlszeilenschnittstelle, um eine Spracherkennung unter Verwendung des Standardmikrofons Ihres Systems durchzuführen. 
+
+>[!WARNING]
+> Bei Verwendung eines Docker-Containers funktioniert dieser Befehl nicht.
+
+Führen Sie den folgenden Befehl aus:
 
 ```shell
 spx recognize --microphone
 ```
+
+Mit der Speech-Befehlszeilenschnittstelle können Sie auch Sprache aus einer Audiodatei erkennen.
+
+```shell
+spx recognize --file /path/to/file.wav
+```
+> [!TIP]
+> Wenn Sie Sprache aus einer Audiodatei in einem Docker-Container erkennen möchten, vergewissern Sie sich, dass sich die Audiodatei in dem Verzeichnis befindet, das Sie im vorherigen Schritt eingebunden haben.
 
 Nachdem Sie den Befehl eingegeben haben, beginnt SPX mit dem aktiven Lauschen nach Audiodaten am aktuellen aktiven Eingabegerät und hält an, wenn Sie `ENTER` drücken. Die aufgezeichnete Sprache wird dann erkannt und in der Konsolenausgabe in Text konvertiert. Auch die Sprachsynthese lässt sich mithilfe der Speech-Befehlszeilenschnittstelle einfach verwenden. 
 
@@ -72,8 +87,9 @@ In diesem Befehl geben Sie sowohl die Quellsprache (Sprache, **aus** der überse
 
 ### <a name="configuration-files-in-the-datastore"></a>Konfigurationsdateien im Datenspeicher
 
-Mit der Speech-Befehlszeilenschnittstelle (Speech CLI) können mehrere Einstellungen in Konfigurationsdateien gelesen und geschrieben werden, die im lokalen Datenspeicher der Speech CLI gespeichert sind. In Speech CLI-Aufrufen wird hierbei für die Benennung das Symbol „@“ verwendet. Von der Speech CLI wird versucht, eine neue Einstellung im neuen Unterverzeichnis `./spx/data` zu speichern, das im aktuellen Arbeitsverzeichnis erstellt wird.
-Beim Suchen nach einem Konfigurationswert sucht die Speech CLI in Ihrem aktuellen Arbeitsverzeichnis und anschließend unter dem Pfad `./spx/data`.
+Das Verhalten der Speech-Befehlszeilenschnittstelle (Speech CLI) kann auf Einstellungen in Konfigurationsdateien basieren, auf die Sie in Speech CLI-Aufrufen mit dem Symbol \@ verweisen können.
+Von der Speech CLI wird eine neue Einstellung im neuen Unterverzeichnis `./spx/data` gespeichert, das im aktuellen Arbeitsverzeichnis erstellt wird.
+Beim Suchen nach einem Konfigurationswert sieht die Speech CLI zuerst in Ihrem aktuellen Arbeitsverzeichnis, anschließend im Datenspeicher unter `./spx/data` und dann in anderen Datenspeichern nach, z. B. in einem schreibgeschützten endgültigen Datenspeicher in der `spx`-Binärdatei.
 Bisher haben Sie den Datenspeicher zum Speichern Ihrer Werte `@key` und `@region` verwendet und mussten sie daher nicht in jedem Befehlszeilenaufruf angeben.
 Sie können Konfigurationsdateien auch verwenden, um Ihre eigenen Konfigurationseinstellungen zu speichern, oder sie sogar nutzen, um URLs oder andere dynamische Inhalte zu übergeben, die zur Laufzeit generiert werden.
 
@@ -141,6 +157,18 @@ sample_1    07baa2f8d9fd4fbcb9faea451ce05475    A sample wave file.
 sample_2    8f9b378f6d0b42f99522f1173492f013    Sample text synthesized.
 ```
 
+## <a name="synthesize-speech-to-a-file"></a>Synthetisieren von Sprache in eine Datei
+
+Führen Sie den folgenden Befehl aus, um die Ausgabe von Ihrem Lautsprecher in eine Datei vom Typ `.wav` zu ändern.
+
+```bash
+spx synthesize --text "The speech synthesizer greets you!" --audio output greetings.wav
+```
+
+Die Speech-Befehlszeilenschnittstelle gibt natürlichsprachliches Englisch in die Audiodatei `greetings.wav` aus.
+Unter Windows können Sie die Audiodatei wiedergeben, indem Sie `start greetings.wav` eingeben.
+
+
 ## <a name="batch-text-to-speech-synthesis"></a>Batch-Sprachsynthese
 
 Die einfachste Möglichkeit zum Ausführen von Batch-Sprachsynthese besteht darin, eine neue `.tsv`-Datei (Text mit Tabstopps) zu erstellen und den `--foreach`-Befehl an der Speech-Befehlszeilenschnittstelle zu verwenden. Betrachten Sie die folgende Datei `text_synthesis.tsv`:
@@ -181,4 +209,4 @@ spx synthesize --foreach audio.output;text in @C:\your\path\to\text_synthesis.ts
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Führen Sie die Schnellstarts zur [Spracherkennung](./quickstarts/speech-to-text-from-microphone.md) oder [Sprachsynthese](./quickstarts/text-to-speech.md) mithilfe des SDKs aus.
+* Führen Sie die Schnellstarts zur [Spracherkennung](get-started-speech-to-text.md?pivots=programmer-tool-spx) oder [Sprachsynthese](get-started-text-to-speech.md?pivots=programmer-tool-spx) mithilfe der Speech CLI durch.

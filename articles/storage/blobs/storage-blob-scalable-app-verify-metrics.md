@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: cfc3c445595bec046de4256a57d566067fe3d29e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 708a2369e5ba21f47f3d3fea509654b0385363f7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82692436"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912313"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Überprüfen von Durchsatz- und Latenzmetriken für ein Speicherkonto
 
@@ -24,7 +24,7 @@ Im vierten Teil der Serie lernen Sie Folgendes:
 > * Konfigurieren von Diagrammen im Azure-Portal
 > * Überprüfen von Durchsatz- und Latenzmetriken
 
-[Azure-Speichermetrik](../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) verwendet Azure Monitor, um einen einheitlichen Einblick in die Leistung und Verfügbarkeit Ihres Speicherkontos zu bieten.
+[Azure-Speichermetrik](./monitor-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) verwendet Azure Monitor, um einen einheitlichen Einblick in die Leistung und Verfügbarkeit Ihres Speicherkontos zu bieten.
 
 ## <a name="configure-metrics"></a>Konfigurieren von Metriken
 
@@ -52,7 +52,7 @@ Diagrammen können mehrere Metriken zugewiesen sein, aber die Zuweisung von mehr
 
 ## <a name="dimensions"></a>Dimensionen
 
-[Dimensionen](../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions) werden verwendet, um einen tieferen Einblick in die Diagramme und detailliertere Informationen zu erhalten. Unterschiedliche Metriken weisen unterschiedliche Dimensionen auf. Eine verfügbare Dimension ist die Dimension **API-Name**. Diese Dimension bricht das Diagramm in jeden einzelnen API-Aufruf auf. Die erste Abbildung unten enthält ein Beispieldiagramm der gesamten Transaktionen für ein Speicherkonto. In der zweiten Abbildung ist das gleiche Diagramm dargestellt. Hier ist jedoch die Dimension „API-Name“ ausgewählt. Wie Sie sehen können, ist jede Transaktion aufgeführt und gibt weitere Details darüber an, wie viele Aufrufe von „API-Name“ vorgenommen wurden.
+[Dimensionen](./monitor-blob-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions) werden verwendet, um einen tieferen Einblick in die Diagramme und detailliertere Informationen zu erhalten. Unterschiedliche Metriken weisen unterschiedliche Dimensionen auf. Eine verfügbare Dimension ist die Dimension **API-Name**. Diese Dimension bricht das Diagramm in jeden einzelnen API-Aufruf auf. Die erste Abbildung unten enthält ein Beispieldiagramm der gesamten Transaktionen für ein Speicherkonto. In der zweiten Abbildung ist das gleiche Diagramm dargestellt. Hier ist jedoch die Dimension „API-Name“ ausgewählt. Wie Sie sehen können, ist jede Transaktion aufgeführt und gibt weitere Details darüber an, wie viele Aufrufe von „API-Name“ vorgenommen wurden.
 
 ![Speicherkontometriken – Transaktionen ohne Dimension](./media/storage-blob-scalable-app-verify-metrics/transactionsnodimensions.png)
 

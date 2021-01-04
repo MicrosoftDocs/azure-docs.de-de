@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ee30e9bba35ad39606fbe201c49e4eed3e656c97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdee5420fa6a50974250c45260a3727755bfcba7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548272"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542591"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Öffnen eines Supporttickets für einen Import/Export-Auftrag
 
@@ -74,15 +74,15 @@ Nach dem Erstellen einer Supportanfrage können Sie den Lebenszyklus des Tickets
 
 1. Um zur Hilfe- und Supportseite zu gelangen, navigieren Sie zu **Durchsuchen > Hilfe und Support**.
 
-    ![Verwalten von Supportanfragen](./media/storage-import-export-contact-microsoft-support/manage-support-ticket2.png)   
+    ![Der Screenshot zeigt das Dialogfeld „Hilfe“.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket2.png)   
 
 2. Die Tabelle **Kürzlich gesendete Supportanfragen** wird unter **Hilfe + Support** angezeigt.
 
-    ![Verwalten von Supportanfragen](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
+    ![Der Screenshot zeigt die Seite „Hilfe und Support“ mit Ihrer Supportanfrage in einem geöffneten Status.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
 
 3. Klicken Sie auf eine Supportanfrage. Sie können den Status und die Details dieser Anfrage anzeigen. Wählen Sie **+ Neue Nachricht** aus, wenn Sie diese Anfrage nachverfolgen möchten.
 
-    ![Verwalten von Supportanfragen](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
+    ![Der Screenshot zeigt die Option „Neue Nachricht“, die für diese Anfrage ausgewählt wurde.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
 
 
 ## <a name="next-steps"></a>Nächste Schritte

@@ -1,6 +1,6 @@
 ---
-title: Bewährte Methoden für SQL-Pools
-description: Empfehlungen und bewährte Methoden, die Sie bei der Arbeit mit SQL-Pools kennen sollten.
+title: Best Practices für dedizierte SQL-Pools
+description: Empfehlungen und Best Practices, die Sie bei der Arbeit mit dedizierten SQL-Pools kennen sollten
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,20 +10,20 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 8483fd2a1b33330b868fb21d71922377e906e6c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03a536e16a6ba12611ed704b404c1bd411f0c4c8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85958420"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322704"
 ---
-# <a name="best-practices-for-sql-pools-in-azure-synapse-analytics"></a>Bewährte Methoden für SQL-Pools in Azure Synapse Analytics
+# <a name="best-practices-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Best Practices für dedizierte SQL-Pools in Azure Synapse Analytics
 
-Dieser Artikel bietet eine Sammlung von bewährten Methoden, mit denen Sie eine optimale Leistung für SQL-Pools in Azure Synapse Analytics erzielen können. Im Folgenden finden Sie grundlegende Anleitungen und wichtige Bereiche, auf die Sie sich beim Erstellen Ihrer Lösung konzentrieren sollten. In jedem Abschnitt wird ein Konzept vorgestellt und Sie dann über Links zu Artikeln mit ausführlicheren Informationen geleitet, in denen auf das jeweilige Konzept näher eingegangen wird.
+Dieser Artikel enthält eine Sammlung von Best Practices, mit denen Sie eine optimale Leistung für dedizierte SQL-Pools in Azure Synapse Analytics erzielen können. Im Folgenden finden Sie grundlegende Anleitungen und wichtige Bereiche, auf die Sie sich beim Erstellen Ihrer Lösung konzentrieren sollten. In jedem Abschnitt wird ein Konzept vorgestellt und Sie dann über Links zu Artikeln mit ausführlicheren Informationen geleitet, in denen auf das jeweilige Konzept näher eingegangen wird.
 
-## <a name="sql-pools-loading"></a>Laden von SQL-Pools
+## <a name="dedicated-sql-pools-loading"></a>Laden von dedizierten SQL-Pools
 
-Einen Leitfaden zum Laden von SQL-Pools finden Sie unter [Leitfaden zum Laden von Daten](data-loading-best-practices.md).
+Einen Leitfaden zum Laden von dedizierten SQL-Pools finden Sie unter [Bewährte Methoden zum Laden von Daten für Data Warehousing](data-loading-best-practices.md).
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>Reduzieren von Kosten durch das Pausieren und Skalieren
 
@@ -31,7 +31,7 @@ Weitere Informationen zur Kostensenkung durch Anhalten und Skalieren finden Sie 
 
 ## <a name="maintain-statistics"></a>Verwalten von Statistiken
 
-Während SQL Server Statistiken für Spalten automatisch erkannt und erstellt oder aktualisiert, ist für den SQL-Pool eine manuelle Verwaltung der Statistiken erforderlich. Sie sollten Ihre Statistik pflegen, um sicherzustellen, dass die SQL-Poolpläne optimiert sind.  Die vom Optimierer erstellten Pläne sind nur so gut wie die verfügbaren Statistiken.
+Während SQL Server Statistiken für Spalten automatisch erkennt und erstellt oder aktualisiert, ist für dedizierte SQL-Pools eine manuelle Verwaltung der Statistiken erforderlich. Sie sollten Ihre Statistik pflegen, um sicherzustellen, dass die SQL-Poolpläne optimiert sind.  Die vom Optimierer erstellten Pläne sind nur so gut wie die verfügbaren Statistiken.
 
 > [!TIP]
 > Das Erstellen von erfassten Statistiken für jede Spalte ist eine einfache Möglichkeit zum Einsteigen in das Thema Statistiken.  
@@ -40,13 +40,13 @@ Genauso wichtig ist es, Statistiken zu aktualisieren, da für Ihre Daten erhebli
 
 Um die Zeit für die Pflege der Statistik zu verkürzen, sollten Sie auswählen, welche Spalten Statistiken aufweisen oder am häufigsten aktualisiert werden müssen. Beispielsweise können Sie Datumsspalten aktualisieren, wenn täglich neue Werte hinzugefügt werden. Konzentrieren Sie sich auf die Verwendung von Statistiken für Spalten in Verknüpfungen, für in der WHERE-Klausel verwendete Spalten und für Spalten in GROUP BY.
 
-Weitere Informationen zu Statistiken finden Sie in den Artikeln [Verwalten von Tabellenstatistiken](develop-tables-statistics.md), [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) und [UPDATE STATISTICS](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Weitere Informationen zu Statistiken finden Sie in den Artikeln [Verwalten von Tabellenstatistiken](develop-tables-statistics.md), [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) und [UPDATE STATISTICS](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="group-insert-statements-into-batches"></a>Gruppieren von INSERT-Anweisungen in Batches
 
 Das einmalige Laden einer kleinen Tabelle mit einer INSERT-Anweisung wie `INSERT INTO MyLookup VALUES (1, 'Type 1')` kann je nach Ihren Anforderungen den besten Ansatz darstellen. Falls Sie im Laufe eines Tages aber Tausende oder Millionen von Zeilen laden müssen, ist es wahrscheinlich, dass Singleton-INSERT-Anweisungen nicht optimal sind.
 
-Eine Möglichkeit, dieses Problem zu beheben, besteht darin, einen Prozess zu entwickeln, der in eine Datei schreibt. Dann entwickeln Sie einen weiteren Prozess, der diese Datei regelmäßig lädt. Weitere Informationen finden Sie im Artikel [INSERT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Eine Möglichkeit, dieses Problem zu beheben, besteht darin, einen Prozess zu entwickeln, der in eine Datei schreibt. Dann entwickeln Sie einen weiteren Prozess, der diese Datei regelmäßig lädt. Weitere Informationen finden Sie im Artikel [INSERT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="use-polybase-to-load-and-export-data-quickly"></a>Verwenden von PolyBase zum schnellen Laden und Exportieren von Daten
 
@@ -64,12 +64,12 @@ Wenn Sie bei der Verwendung von Gzip-Textdateien den Durchsatz maximieren möcht
 - [Lademuster und -strategien für den Azure SQL-Pool](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/)
 - [Laden von Daten mit Azure Data Factory](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Verschieben von Daten mit Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 - [Create table as select (CTAS)](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
 ## <a name="load-then-query-external-tables"></a>Laden und Abfragen von externen Tabellen
 
-PolyBase ist für Abfragen nicht optimal. PolyBase-Tabellen für SQL-Pools unterstützen derzeit nur Azure-Blobdateien und Azure Data Lake Storage. Diese Dateien werden nicht durch Computeressourcen gestützt. Infolgedessen können SQL-Pools diese Arbeit nicht abnehmen und müssen die gesamte Datei durch Laden in tempdb lesen, damit tempdb die Daten lesen kann.
+PolyBase ist für Abfragen nicht optimal. PolyBase-Tabellen für dedizierte SQL-Pools unterstützen derzeit nur Azure-Blobdateien und Azure Data Lake Storage. Diese Dateien werden nicht durch Computeressourcen gestützt. Infolgedessen können dedizierte SQL-Pools diese Arbeit nicht auslagern und müssen die gesamte Datei in tempdb laden, damit die Daten gelesen werden können.
 
 Wenn Sie über mehrere auf diese Daten gerichtete Abfragen verfügen, sollten Sie diese Daten besser einmal laden, und die Abfragen sollten die lokale Tabelle verwenden. Weitere Hinweise zu PolyBase finden Sie im Artikel [Anleitung für die Verwendung von PolyBase](data-loading-best-practices.md).
 
@@ -89,14 +89,14 @@ Wenn Sie z. B. eine Tabelle mit Bestellungen verwenden, die nach „order_id“
 - [Tabellenübersicht](develop-tables-overview.md)
 - [Verteilen von Tabellen in SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Auswählen von Tabellenverteilungen](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/)
-- [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 ## <a name="do-not-over-partition"></a>Vermeiden von übermäßiger Partitionierung
 
-Das Partitionieren von Daten kann für die Verwaltung Ihrer Daten durch Partitionswechsel oder die Optimierung von Scans durch eine Partitionsbeseitigung zwar effektiv sein, aber eine zu hohe Zahl von Partitionen kann Ihre Abfragen verlangsamen.  Oft funktioniert eine Partitionierungsstrategie mit zu hoher Granularität, die für SQL Server gut geeignet ist, bei einem SQL-Pool nicht gut.  
+Das Partitionieren von Daten kann für die Verwaltung Ihrer Daten durch Partitionswechsel oder die Optimierung von Scans durch eine Partitionsbeseitigung zwar effektiv sein, aber eine zu hohe Zahl von Partitionen kann Ihre Abfragen verlangsamen.  Oft funktioniert eine Partitionierungsstrategie mit hoher Granularität, die für SQL Server gut geeignet ist, bei einem dedizierten SQL-Pool nicht gut.  
 
-Die Verwendung von zu vielen Partitionen kann die Effektivität von gruppierten Columnstore-Indizes reduzieren, wenn jede Partition weniger als 1 Million Zeilen enthält. SQL-Pools partitionieren Ihre Daten automatisch in 60 Datenbanken. Wenn Sie also eine Tabelle mit 100 Partitionen erstellen, wird das Ergebnis 6000 Partitionen sein. Jede Workload ist anders, sodass es ratsam ist, mit der Partitionierung zu experimentieren. So können Sie ermitteln, was für Ihre Workload am besten funktioniert.  
+Die Verwendung von zu vielen Partitionen kann die Effektivität von gruppierten Columnstore-Indizes reduzieren, wenn jede Partition weniger als 1 Million Zeilen enthält. Dedizierte SQL-Pools partitionieren Ihre Daten automatisch in 60 Datenbanken. Wenn Sie also eine Tabelle mit 100 Partitionen erstellen, wird das Ergebnis 6000 Partitionen sein. Jede Workload ist anders, sodass es ratsam ist, mit der Partitionierung zu experimentieren. So können Sie ermitteln, was für Ihre Workload am besten funktioniert.  
 
 Eine zu erwägende Option ist die Verwendung einer Granularität, die niedriger ist als die, die Sie mit SQL Server implementiert haben. Versuchen Sie es z. B. anstelle von täglichen Partitionen mit wöchentlichen oder monatlichen Partitionen.
 
@@ -119,8 +119,8 @@ Weitere Informationen zum Inhalt dieses Abschnitts finden Sie in den folgenden A
 - [Grundlegendes zu Transaktionen](develop-transactions.md)
 - [Optimieren von Transaktionen](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Tabellenpartitionierung](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [TRUNCATE TABLE](/sql/t-sql/statements/truncate-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [TRUNCATE TABLE](/sql/t-sql/statements/truncate-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 ## <a name="reduce-query-result-sizes"></a>Reduzieren von Abfrageergebnisgrößen
 
@@ -130,25 +130,25 @@ Durch die Reduzierung der Größe von Abfrageergebnissen können Sie Probleme au
 
 Wenn Sie Ihre DDL definieren, verwenden Sie den kleinsten Datentyp, der Ihre Daten unterstützt, da dies die Abfrageleistung verbessert.  Diese Empfehlung ist besonders wichtig für CHAR- und VARCHAR-Spalten.  Wenn der längste Wert in einer Spalte 25 Zeichen lang ist, sollten Sie die Spalte VARCHAR(25) definieren.  Vermeiden Sie es, für alle Zeichenspalten eine hohe Standardlänge zu definieren.  Definieren Sie darüber hinaus Spalten als VARCHAR, sofern dies ausreicht, anstatt NVARCHAR zu verwenden.
 
-In den Artikeln [Tabellenübersicht](develop-tables-overview.md), [Tabellendatentypen](develop-tables-data-types.md) und [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) finden Sie eine ausführlichere Übersicht über die wesentlichen Konzepte, die für die oben genannten Informationen relevant sind.
+In den Artikeln [Tabellenübersicht](develop-tables-overview.md), [Tabellendatentypen](develop-tables-data-types.md) und [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) finden Sie eine ausführlichere Übersicht über die wesentlichen Konzepte, die für die oben genannten Informationen relevant sind.
 
 ## <a name="use-temporary-heap-tables-for-transient-data"></a>Verwenden temporärer Heaptabellen für vorübergehende Daten
 
-Wenn Sie Daten in SQL-Pools temporär anordnen, wird der Gesamtprozess im Allgemeinen durch Heaptabellen beschleunigt.  Wenn Sie Daten nur laden, um sie vor der Ausführung von weiteren Transformationen bereitzustellen, wird der Ladevorgang der Tabelle auf die Heaptabelle schneller sein, als wenn Sie Daten in eine gruppierte Columnstore-Tabelle laden.  
+Wenn Sie Daten in dedizierten SQL-Pools temporär anordnen, wird der Gesamtprozess im Allgemeinen durch Heaptabellen beschleunigt.  Wenn Sie Daten nur laden, um sie vor der Ausführung von weiteren Transformationen bereitzustellen, wird der Ladevorgang der Tabelle auf die Heaptabelle schneller sein, als wenn Sie Daten in eine gruppierte Columnstore-Tabelle laden.  
 
 Beim Laden von Daten in eine temporäre Tabelle wird der Ladevorgang außerdem viel schneller als beim Laden einer Tabelle in einen dauerhaften Speicher durchgeführt.  Temporäre Tabellen beginnen mit einem „#“ und sind nur für die Sitzung zugänglich, in der sie erstellt wurden. Folglich funktionieren sie möglicherweise nur in eingeschränkten Szenarien. Heaptabellen werden in der WITH-Klausel von CREATE TABLE definiert.  Denken Sie beim Verwenden einer temporären Tabelle daran, auch für die temporäre Tabelle Statistiken zu erstellen.
 
-Weitere Anleitungen finden Sie in den Artikeln [Temporäre Tabellen](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) und [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Weitere Anleitungen finden Sie in den Artikeln [Temporäre Tabellen](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) und [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="optimize-clustered-columnstore-tables"></a>Optimieren von gruppierten Columnstore-Tabellen
 
-Gruppierte Columnstore-Indizes sind eine der effizientesten Möglichkeiten zum Speichern Ihrer Daten in einem SQL-Pool.  Tabellen werden in SQL-Pools standardmäßig als gruppierter Columnstore erstellt.  Die Verwendung einer guten Segmentqualität ist wichtig, um für Abfragen in Columnstore-Tabellen die beste Leistung zu erzielen.  Wenn Zeilen bei hohem Arbeitsspeicherdruck in Columnstore-Tabellen geschrieben werden, kann die Qualität von Columnstore-Segmenten leiden.  
+Gruppierte Columnstore-Indizes sind eine der effizientesten Möglichkeiten zum Speichern Ihrer Daten in einem dedizierten SQL-Pool.  Tabellen werden in einem dedizierten SQL-Pool standardmäßig als gruppierter Columnstore erstellt.  Die Verwendung einer guten Segmentqualität ist wichtig, um für Abfragen in Columnstore-Tabellen die beste Leistung zu erzielen.  Wenn Zeilen bei hohem Arbeitsspeicherdruck in Columnstore-Tabellen geschrieben werden, kann die Qualität von Columnstore-Segmenten leiden.  
 
 Die Segmentqualität kann anhand der Anzahl von Zeilen in einer komprimierten Zeilengruppe gemessen werden. Eine ausführliche Anleitung zur Erkennung und Verbesserung der Segmentqualität für gruppierte Columnstore-Tabellen finden Sie im Artikel [Tabellenindizes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) unter [Ursachen für eine schlechte Qualität des Columnstore-Index](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#causes-of-poor-columnstore-index-quality).  
 
 Weil qualitativ hochwertige Columnstore-Segmente wichtig sind, ist es eine gute Idee, Benutzer-IDs, die zur mittleren oder großen Ressourcenklasse gehören, zum Laden von Daten zu verwenden. Wenn Sie [Data Warehouse-Einheiten](resource-consumption-models.md) auf niedrigerer Ebene verwenden, sollten Sie dem ladenden Benutzer eine größere Ressourcenklasse zuweisen.
 
-Bei Columnstore-Tabellen werden Daten im Allgemeinen erst dann in ein komprimiertes Columnstore-Segment gepusht, wenn mehr als eine Million Zeilen pro Tabelle vorhanden sind. Jede SQL-Pooltabelle ist in 60 Tabellen partitioniert. Daher sind Columnstore-Tabellen für eine Abfrage nur dann von Vorteil, wenn die Tabelle mehr als 60 Millionen Zeilen aufweist.  
+Bei Columnstore-Tabellen werden Daten im Allgemeinen erst dann in ein komprimiertes Columnstore-Segment gepusht, wenn mehr als eine Million Zeilen pro Tabelle vorhanden sind. Jede Tabelle eines dedizierten SQL-Pools ist in 60 Tabellen partitioniert. Daher sind Columnstore-Tabellen für eine Abfrage nur dann von Vorteil, wenn die Tabelle mehr als 60 Millionen Zeilen aufweist.  
 
 > [!TIP]
 > Bei Tabellen mit weniger als 60 Millionen Zeilen ist ein Columnstore-Index möglicherweise nicht die optimale Lösung.  
@@ -157,7 +157,7 @@ Wenn Sie Ihre Daten partitionieren, muss jede Partition eine Million Zeilen aufw
 
 Wenn Ihre Tabelle nicht 6 Milliarden Zeilen aufweist, haben Sie zwei Hauptoptionen. Reduzieren Sie entweder die Anzahl der Partitionen, oder verwenden Sie stattdessen eine Heaptabelle.  Außerdem kann sich folgendes Experiment lohnen: Ermitteln Sie, ob eine bessere Leistung erzielt werden kann, indem eine Heaptabelle mit sekundären Indizes anstelle einer Columnstore-Tabelle verwendet wird.
 
-Beim Abfragen einer Columnstore-Tabelle werden die Abfragen schneller ausgeführt, wenn Sie nur die benötigten Spalten auswählen.  Weitere Informationen zu Tabellen- und Columnstore-Indizes finden Sie in den Artikeln [Tabellenindizes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [Columnstore-Indizes: Übersicht](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) und [Neuerstellen von Columnstore-Indizes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#rebuilding-indexes-to-improve-segment-quality).
+Beim Abfragen einer Columnstore-Tabelle werden die Abfragen schneller ausgeführt, wenn Sie nur die benötigten Spalten auswählen.  Weitere Informationen zu Tabellen- und Columnstore-Indizes finden Sie in den Artikeln [Tabellenindizes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [Columnstore-Indizes: Übersicht](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) und [Neuerstellen von Columnstore-Indizes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true#rebuilding-indexes-to-improve-segment-quality).
 
 ## <a name="use-larger-resource-class-to-improve-query-performance"></a>Verwenden einer größeren Ressourcenklasse zum Verbessern der Abfrageleistung
 
@@ -171,7 +171,7 @@ Weitere Informationen zu Ressourcenklassen finden Sie im Artikel [Ressourcenklas
 
 Wenn Sie eine lange Verzögerung bei Benutzerabfragen feststellen, werden Ihre Benutzer möglicherweise in größeren Ressourcenklassen ausgeführt. Dieses Szenario fördert die Verwendung von Parallelitätsslots, was dazu führen kann, dass andere Abfragen in die Warteschlange gestellt werden.  Führen Sie `SELECT * FROM sys.dm_pdw_waits` aus, um zu ermitteln, ob Zeilen zurückgegeben werden. So können Sie ermitteln, ob Benutzerabfragen in eine Warteschlange eingereiht werden.
 
-Weitere Informationen finden Sie in den Artikeln [Ressourcenklassen für die Workloadverwaltung](../sql-data-warehouse/resource-classes-for-workload-management.md) und [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Weitere Informationen finden Sie in den Artikeln [Ressourcenklassen für die Workloadverwaltung](../sql-data-warehouse/resource-classes-for-workload-management.md) und [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="use-dmvs-to-monitor-and-optimize-your-queries"></a>Verwenden von DMVs zum Überwachen und Optimieren von Abfragen
 
@@ -180,14 +180,14 @@ SQL-Pools verfügen über mehrere DMVs, mit denen die Abfrageausführung überwa
 - [Überwachen Ihrer Workload mit dynamischen Verwaltungssichten](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
 - [LABEL](develop-label.md)
-- [OPTION](/sql/t-sql/queries/option-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [sys.dm_pdw_sql_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [sys.dm_pdw_dms_workers](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [DBCC PDW_SHOWEXECUTIONPLAN](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [OPTION](/sql/t-sql/queries/option-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [sys.dm_pdw_sql_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [sys.dm_pdw_dms_workers](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [DBCC PDW_SHOWEXECUTIONPLAN](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

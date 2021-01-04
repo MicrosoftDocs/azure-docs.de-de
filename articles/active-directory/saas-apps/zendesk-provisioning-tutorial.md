@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 5c038cc309d8f1f13a04de01ed83e04afa70ba6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 620dd8fd586352ebeaf097a8f870a606f8e06c01
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546167"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359713"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Tutorial: Konfigurieren von Zendesk für die automatische Benutzerbereitstellung
 
@@ -43,7 +43,7 @@ Führen Sie zum Hinzufügen von Zendesk aus dem Azure Marketplace die folgenden 
 
     ![Azure Active Directory-Symbol](common/select-azuread.png)
 
-2. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie die Option **Alle Anwendungen**.
+2. Navigieren Sie zu **Unternehmensanwendungen** , und wählen Sie die Option **Alle Anwendungen**.
 
     ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
 
@@ -57,7 +57,7 @@ Führen Sie zum Hinzufügen von Zendesk aus dem Azure Marketplace die folgenden 
 
 ## <a name="assign-users-to-zendesk"></a>Zuweisen von Benutzern zu Zendesk
 
-Azure Active Directory ermittelt anhand von *Zuweisungen*, welche Benutzer Zugriff auf bestimmte Apps erhalten sollen. Im Zusammenhang mit der automatischen Benutzerbereitstellung werden nur die Benutzer oder Gruppen synchronisiert, die einer Anwendung in Azure AD zugewiesen wurden.
+Azure Active Directory ermittelt anhand von *Zuweisungen* , welche Benutzer Zugriff auf bestimmte Apps erhalten sollen. Im Zusammenhang mit der automatischen Benutzerbereitstellung werden nur die Benutzer oder Gruppen synchronisiert, die einer Anwendung in Azure AD zugewiesen wurden.
 
 Entscheiden Sie vor dem Konfigurieren und Aktivieren der automatischen Benutzerbereitstellung, welche Benutzer oder Gruppen in Azure AD Zugriff auf Zendesk benötigen. Zum Zuweisen dieser Benutzer oder Gruppen zu Zendesk befolgen Sie die Anleitung unter [Zuweisen eines Benutzers oder einer Gruppe zu einer Unternehmens-App](../manage-apps/assign-user-or-group-access-portal.md).
 
@@ -156,7 +156,7 @@ Informationen zum Lesen von Azure AD-Bereitstellungsprotokollen finden Sie unter
 
 ## <a name="connector-limitations"></a>Connector-Einschränkungen
 
-* Zendesk unterstützt die Verwendung von Gruppen für Benutzer mit ausschließlichen **Agent**-Rollen. Weitere Informationen finden Sie in der [Zendesk-Dokumentation](https://support.zendesk.com/hc/en-us/articles/203661966-Creating-managing-and-using-groups).
+* Zendesk unterstützt die Verwendung von Gruppen für Benutzer mit ausschließlichen **Agent** -Rollen. Weitere Informationen finden Sie in der [Zendesk-Dokumentation](https://support.zendesk.com/hc/en-us/articles/203661966-Creating-managing-and-using-groups).
 
 * Wenn einem Benutzer oder einer Gruppe eine benutzerdefinierte Rolle zugewiesen wird, weist der Azure AD-Dienst für die automatische Benutzerbereitstellung auch die Standardrolle **Agent** zu. Nur Agents kann eine benutzerdefinierte Rolle zugewiesen werden. Weitere Informationen finden Sie in der [Dokumentation zur Zendesk-API](https://developer.zendesk.com/rest_api/docs/support/users#json-format-for-agent-or-admin-requests). 
 

@@ -1,5 +1,5 @@
 ---
-title: Verwenden der rollenbasierten Zugriffssteuerung für StorSimple | Microsoft-Dokumentation
+title: Verwenden der rollenbasierten Zugriffssteuerung in Azure für StorSimple | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie die rollenbasierte Zugriffssteuerung von Azure (Azure RBAC) im Kontext von StorSimple verwenden.
 services: storsimple
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 38500edeca2241bfa9ab093e037af18159994b02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49c38e23ddbbfe983ff82ad25363c744292d4d69
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87920413"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518975"
 ---
-# <a name="role-based-access-control-for-storsimple"></a>Rollenbasierte Zugriffssteuerung für StorSimple
+# <a name="azure-role-based-access-control-for-storsimple"></a>Rollenbasierte Zugriffssteuerung in Azure für StorSimple
 
-Dieser Artikel enthält eine kurze Beschreibung von Verwendungsmöglichkeiten für die rollenbasierte Zugriffssteuerung von Azure (Azure RBAC) für Ihr StorSimple-Gerät. RBAC ermöglicht eine differenzierte Zugriffsverwaltung für Azure. Mit RBAC können Sie den Zugriff für StorSimple-Benutzer ausschließlich auf die für ihre Arbeit erforderlichen Bereiche beschränken, anstatt jedem Benutzer uneingeschränkten Zugriff zu gewähren. Weitere Informationen zu Grundlagen der Zugriffssteuerung in Azure finden Sie unter [Erste Schritte mit der rollenbasierten Zugriffssteuerung im Azure-Portal](../role-based-access-control/overview.md).
+Dieser Artikel enthält eine kurze Beschreibung von Verwendungsmöglichkeiten für die rollenbasierte Zugriffssteuerung von Azure (Azure RBAC) für Ihr StorSimple-Gerät. Azure RBAC ermöglicht eine differenzierte Zugriffsverwaltung für Azure. Mit Azure RBAC können Sie den Zugriff für StorSimple-Benutzer ausschließlich auf die für ihre Arbeit erforderlichen Bereiche beschränken, anstatt jedem Benutzer uneingeschränkten Zugriff zu gewähren. Weitere Informationen zu Grundlagen der Zugriffssteuerung in Azure finden Sie unter [Was ist die rollenbasierte Zugriffssteuerung in Azure (Azure Role-Based Access Control, Azure RBAC)?](../role-based-access-control/overview.md).
 
 Dieser Artikel gilt für Geräte der StorSimple 8000-Serie, die mit Update 3.0 oder höher im Azure-Portal ausgeführt werden.
 
@@ -31,7 +31,7 @@ Dieser Artikel gilt für Geräte der StorSimple 8000-Serie, die mit Update 3.0 o
 
 ## <a name="azure-roles-for-storsimple"></a>Azure-Rollen für StorSimple
 
-RBAC kann basierend auf Rollen zugewiesen werden. Die Rollen gewähren bestimmte Berechtigungsstufen basierend auf den verfügbaren Ressourcen in der Umgebung. Es gibt zwei Arten von Rollen, aus denen StorSimple-Benutzer auswählen können: integrierte oder benutzerdefinierte Rollen.
+Azure RBAC kann basierend auf Rollen zugewiesen werden. Die Rollen gewähren bestimmte Berechtigungsstufen basierend auf den verfügbaren Ressourcen in der Umgebung. Es gibt zwei Arten von Rollen, aus denen StorSimple-Benutzer auswählen können: integrierte oder benutzerdefinierte Rollen.
 
 * **Integrierte Rollen:** Die integrierten Rollen können Besitzer, Mitwirkende, Leser oder Benutzerzugriffsadministratoren sein. Weitere Informationen finden Sie unter [Integrierte Rollen für die rollenbasierte Zugriffssteuerung in Azure](../role-based-access-control/built-in-roles.md).
 
@@ -42,7 +42,7 @@ Um die verschiedenen Rollen, die für Benutzer von StorSimple-Geräten verfügba
 
 ## <a name="create-a-custom-role-for-storsimple-infrastructure-administrator"></a>Erstellen einer benutzerdefinierten Rolle für StorSimple-Infrastrukturadministratoren
 
-Im folgenden Beispiel beginnen wir mit der integrierten Rolle **Reader**, mit der Benutzer alle Ressourcenbereiche anzeigen, aber diese weder bearbeiten noch neue erstellen dürfen. Wir erweitern diese Rolle, um eine neue benutzerdefinierte Rolle für StorSimple-Infrastrukturadministratoren zu erstellen. Diese Rolle wird Benutzern zugewiesen, die die Infrastruktur für die StorSimple-Geräte verwalten.
+Im folgenden Beispiel beginnen wir mit der integrierten Rolle **Reader** , mit der Benutzer alle Ressourcenbereiche anzeigen, aber diese weder bearbeiten noch neue erstellen dürfen. Wir erweitern diese Rolle, um eine neue benutzerdefinierte Rolle für StorSimple-Infrastrukturadministratoren zu erstellen. Diese Rolle wird Benutzern zugewiesen, die die Infrastruktur für die StorSimple-Geräte verwalten.
 
 1. Führen Sie Windows PowerShell als Administrator aus.
 
@@ -58,7 +58,7 @@ Im folgenden Beispiel beginnen wir mit der integrierten Rolle **Reader**, mit de
     Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
     ```
 
-4. Öffnen Sie die JSON-Datei in Visual Studio. Wie Sie sehen, besteht eine typische Azure-Rolle aus drei Hauptabschnitten: **Actions**, **NotActions** und **AssignableScopes**.
+4. Öffnen Sie die JSON-Datei in Visual Studio. Wie Sie sehen, besteht eine typische Azure-Rolle aus drei Hauptabschnitten: **Actions** , **NotActions** und **AssignableScopes**.
 
     Im Abschnitt **Actions** sind alle zulässigen Vorgänge für diese Rolle aufgelistet. Jede Aktion wird von einem Ressourcenanbieter zugewiesen. Verwenden Sie für einen StorSimple-Infrastrukturadministrator den Ressourcenanbieter `Microsoft.StorSimple`.
 

@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6aa56eeab59dee3f080895d5f15285a2b2d41591
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 91edbbda43365b17b8276572804ba788dbee9f13
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088770"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426738"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>Bereitstellen von Azure Spring Cloud-Anwendungen mithilfe von IntelliJ
 
@@ -25,12 +25,12 @@ Bevor Sie dieses Beispiel ausführen, können Sie den [grundlegenden Schnellstar
 ## <a name="prerequisites"></a>Voraussetzungen
 * [JDK 8 Azul Zulu](/java/azure/jdk/java-jdk-install?preserve-view=true&view=azure-java-stable)
 * [Maven 3.5.0 oder höher](https://maven.apache.org/download.cgi)
-* [IntelliJ IDEA, Community/Ultimate Edition, Version 2020.1/2019.3](https://www.jetbrains.com/idea/download/#section=windows)
+* [IntelliJ IDEA, Community/Ultimate Edition, Version 2020.1/2020.2](https://www.jetbrains.com/idea/download/#section=windows)
 
 ## <a name="install-the-plug-in"></a>Installieren des Plug-Ins
-Sie können das Azure-Toolkit für IntelliJ IDEA 3.35.0 über die **Plug-Ins**-Benutzeroberfläche von IntelliJ hinzufügen.
+Sie können das Azure-Toolkit für IntelliJ IDEA 3.43.0 über die **Plug-Ins** -Benutzeroberfläche von IntelliJ hinzufügen.
 
-1. Starten Sie IntelliJ.  Wenn Sie zuvor ein Projekt geöffnet hatten, schließen Sie das Projekt, um das Dialogfeld „Willkommen“ anzuzeigen. Wählen Sie über den Link unten rechts **Konfigurieren** aus, und klicken Sie dann auf **Plug-Ins**, um das Dialogfeld „Plug-In-Konfiguration“ zu öffnen, und wählen Sie dann **Install Plugins from disk** (Plug-Ins von Datenträger installieren) aus.
+1. Starten Sie IntelliJ.  Wenn Sie zuvor ein Projekt geöffnet hatten, schließen Sie das Projekt, um das Dialogfeld „Willkommen“ anzuzeigen. Wählen Sie über den Link unten rechts **Konfigurieren** aus, und klicken Sie dann auf **Plug-Ins** , um das Dialogfeld „Plug-In-Konfiguration“ zu öffnen, und wählen Sie dann **Install Plugins from disk** (Plug-Ins von Datenträger installieren) aus.
 
     ![Auswählen von „Configure“ (Konfigurieren)](media/spring-cloud-intellij-howto/configure-plugin-1.png)
 
@@ -51,7 +51,7 @@ Mit den folgenden Prozeduren wird eine Hallo Welt Anwendung mithilfe von Intelli
 
 1. Laden Sie das Quellrepository für dieses Tutorial herunter, und entpacken Sie es oder klonen Sie es mithilfe des Git-Befehls Git Clone https://github.com/spring-guides/gs-spring-boot.git 
 1. in „gs-spring-boot\complete“.
-1. Öffnen Sie das IntelliJ-Dialogfeld **Willkommens**, und wählen Sie **Projekt importieren** aus, um den Importassistenten zu öffnen.
+1. Öffnen Sie das IntelliJ-Dialogfeld **Willkommens** , und wählen Sie **Projekt importieren** aus, um den Importassistenten zu öffnen.
 1. Wählen Sie den Ordner `gs-spring-boot\complete` aus.
 
     ![Importieren des Projekts](media/spring-cloud-intellij-howto/import-project-1.png)

@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4267921f123d163a98c7244d009b06430a8717d9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: dd887862a2571f4ffaeab9cf1ae42801df779ed0
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373377"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862104"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>Anzeigen der Zuweisungen benutzerdefinierter Rollen in Azure Active Directory
 
@@ -39,7 +39,7 @@ In diesem Verfahren wird das Anzeigen von Zuweisungen einer Rolle mit einem orga
 
 ## <a name="view-role-assignments-using-azure-ad-powershell"></a>Anzeigen von Rollenzuweisungen mithilfe von Azure AD PowerShell
 
-In diesem Abschnitt wird das Anzeigen von Zuweisungen einer Rolle mit einem organisationsweiten Bereich beschrieben. Dieser Artikel verwendet das [Azure Active Directory PowerShell Version 2](/powershell/module/azuread/?view=azureadps-2.0#directory_roles)-Modul. Zum Anzeigen von Zuweisungen im Einzelanwendungsbereich mithilfe von PowerShell können Sie die Cmdlets in [Zuweisen benutzerdefinierter Rollen mit Ressourcengeltungsbereich unter Verwendung von PowerShell in Azure Active Directory](../users-groups-roles/roles-assign-powershell.md) verwenden.
+In diesem Abschnitt wird das Anzeigen von Zuweisungen einer Rolle mit einem organisationsweiten Bereich beschrieben. Dieser Artikel verwendet das [Azure Active Directory PowerShell Version 2](/powershell/module/azuread/#directory_roles)-Modul. Zum Anzeigen von Zuweisungen im Einzelanwendungsbereich mithilfe von PowerShell können Sie die Cmdlets in [Zuweisen benutzerdefinierter Rollen mit Ressourcengeltungsbereich unter Verwendung von PowerShell in Azure Active Directory](./custom-assign-powershell.md) verwenden.
 
 ### <a name="prepare-powershell"></a>Vorbereiten von PowerShell
 
@@ -78,7 +78,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
 
 ## <a name="view-role-assignments-using-microsoft-graph-api"></a>Anzeigen von Rollenzuweisungen mithilfe der Microsoft Graph-API
 
-In diesem Abschnitt wird das Anzeigen von Zuweisungen einer Rolle mit einem organisationsweiten Bereich beschrieben.  Zum Anzeigen von Zuweisungen im Einzelanwendungsbereich mithilfe der Graph-API können Sie die Vorgänge in [Zuweisen von benutzerdefinierten Administratorrollen mithilfe der Graph-API in Azure Active Directory](../users-groups-roles/roles-assign-graph.md) verwenden.
+In diesem Abschnitt wird das Anzeigen von Zuweisungen einer Rolle mit einem organisationsweiten Bereich beschrieben.  Zum Anzeigen von Zuweisungen im Einzelanwendungsbereich mithilfe der Graph-API können Sie die Vorgänge in [Zuweisen von benutzerdefinierten Administratorrollen mithilfe der Graph-API in Azure Active Directory](./custom-assign-graph.md) verwenden.
 
 HTTP-Anforderung zum Abrufen einer Rollenzuweisung für eine bestimmte Rollendefinition
 

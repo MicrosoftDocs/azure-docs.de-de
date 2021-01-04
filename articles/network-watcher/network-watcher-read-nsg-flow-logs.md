@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: damendo
-ms.openlocfilehash: 18023f5a5b36dd971080d7a62fdd44698a205bb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f9b9e91cda93a986fdaaf0f53d8987544e783a2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272534"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966461"
 ---
 # <a name="read-nsg-flow-logs"></a>Lesen von NSG-Datenflussprotokollen
 
 Hier erfahren Sie, wie NSG-Datenflussprotokolle mit PowerShell gelesen werden.
 
-NSG-Datenflussprotokolle werden in einem Speicherkonto in [Blockblobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) gespeichert. Blockblobs setzen sich aus kleineren Blöcken zusammen. Jedes Protokoll stellt einen separaten Blockblob dar, der einmal pro Stunde generiert wird. Neue Protokolle werden stündlich generiert. Die Protokolle werden anhand der neuesten Daten alle paar Minuten mit neuen Einträgen aktualisiert. In diesem Artikel erfahren Sie, wie Sie Teile der Datenflussprotokolle lesen können.
+NSG-Datenflussprotokolle werden in einem Speicherkonto in [Blockblobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) gespeichert. Blockblobs setzen sich aus kleineren Blöcken zusammen. Jedes Protokoll stellt einen separaten Blockblob dar, der einmal pro Stunde generiert wird. Neue Protokolle werden stündlich generiert. Die Protokolle werden anhand der neuesten Daten alle paar Minuten mit neuen Einträgen aktualisiert. In diesem Artikel erfahren Sie, wie Sie Teile der Datenflussprotokolle lesen können.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -37,7 +37,7 @@ Bevor Sie beginnen, müssen Sie die NSG-Datenflussprotokollierung für mindesten
 
 ## <a name="retrieve-the-block-list"></a>Abrufen der Liste der Blöcke
 
-Mit dem folgenden PowerShell-Skript werden die erforderlichen Variablen zum Abfragen des Blobs mit dem NSG-Datenflussprotokoll eingerichtet, und die Blöcke im Blockblob [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) werden aufgelistet. Aktualisieren Sie das Skript so, dass es gültige Werte für Ihre Umgebung enthält.
+Mit dem folgenden PowerShell-Skript werden die erforderlichen Variablen zum Abfragen des Blobs mit dem NSG-Datenflussprotokoll eingerichtet, und die Blöcke im Blockblob [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) werden aufgelistet. Aktualisieren Sie das Skript so, dass es gültige Werte für Ihre Umgebung enthält.
 
 ```powershell
 function Get-NSGFlowLogCloudBlockBlob {
@@ -189,6 +189,6 @@ Anhand dieses Szenarios wird beispielhaft veranschaulicht, wie Einträge in NSG-
 
 Unter [Verwenden von Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Verwenden von Grafana](network-watcher-nsg-grafana.md) und [Verwenden von Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) erfahren Sie mehr zu den Möglichkeiten zum Anzeigen von NSG-Flussprotokollen. Ein Open-Source-Ansatz für Azure Functions, um die Blobs direkt zu nutzen und an verschiedene Consumer von Protokollanalysen zu senden, finden Sie hier: [AzureNetworkWatcherNSGFlowLogsConnector](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
-Mit [Azure Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) können Sie Einblicke in Ihren Datenverkehrsfluss erhalten. Traffic Analytics verwendet [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal), um den Datenverkehrsfluss abzufragen.
+Mit [Azure Traffic Analytics](./traffic-analytics.md) können Sie Einblicke in Ihren Datenverkehrsfluss erhalten. Traffic Analytics verwendet [Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md), um den Datenverkehrsfluss abzufragen.
 
 Weitere Informationen zu Speicherblobs erhalten Sie im Artikel: [Azure Blob Storage-Bindungen für Azure Functions](../azure-functions/functions-bindings-storage-blob.md).

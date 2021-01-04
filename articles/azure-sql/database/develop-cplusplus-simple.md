@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
-ms.openlocfilehash: 38e4839a41ad8e58e575e552e877303a5105ff36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e891c5797c9ce93e6cab7a07d2f68de1a9157249
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443663"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674771"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Herstellen einer Verbindung mit SQL-Datenbank mit C und C++
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ Stellen Sie sicher, dass Sie über Folgendes verfügen:
 
 * Ein aktives Azure-Konto. Wenn Sie kein Konto haben, können Sie sich für eine [kostenlose Azure-Testversion](https://azure.microsoft.com/pricing/free-trial/)registrieren.
 * [Visual Studio](https://www.visualstudio.com/downloads/). Sie müssen die C++-Sprachkomponenten installieren, um dieses Beispiel erstellen und ausführen zu können.
-* [Visual Studio-Linux-Entwicklung](https://docs.microsoft.com/cpp/linux/?view=vs-2019). Wenn Sie unter Linux entwickeln, müssen Sie auch die Linux-Erweiterung für Visual Studio installieren.
+* [Visual Studio-Linux-Entwicklung](/cpp/linux/?view=vs-2019). Wenn Sie unter Linux entwickeln, müssen Sie auch die Linux-Erweiterung für Visual Studio installieren.
 
 ## <a name="azure-sql-database-and-sql-server-on-virtual-machines"></a><a id="AzureSQL"></a>Azure SQL-Datenbank und SQL Server auf virtuellen Computern
 
@@ -39,7 +39,7 @@ Azure verfügt derzeit über zwei Optionen zum Hosten von SQL Server-Workloads: 
 
 ## <a name="data-access-technologies-odbc-and-ole-db"></a><a id="ODBC"></a>Datenzugriffstechnologien: ODBC und OLE DB
 
-Das Herstellen einer Verbindung mit Azure SQL-Datenbank ist nicht viel anders. Derzeit gibt es zwei Möglichkeiten, eine Verbindung mit Datenbanken herzustellen: ODBC (Open Database Connectivity) und OLE DB (Object Linking and Embedding Database). In den letzten Jahren hat Microsoft eine [Anpassung an ODBC in Bezug auf den Zugriff auf native relationale Daten](https://blogs.msdn.microsoft.com/sqlnativeclient/20../../microsoft-is-aligning-with-odbc-for-native-relational-data-access/) durchgeführt. ODBC ist relativ einfach und außerdem deutlich schneller als OLE DB. Der einzige Nachteil ist, dass für ODBC eine ältere API im C-Stil verwendet wird.
+Das Herstellen einer Verbindung mit Azure SQL-Datenbank ist nicht viel anders. Derzeit gibt es zwei Möglichkeiten, eine Verbindung mit Datenbanken herzustellen: ODBC (Open Database Connectivity) und OLE DB (Object Linking and Embedding Database). In den letzten Jahren hat Microsoft eine [Anpassung an ODBC in Bezug auf den Zugriff auf native relationale Daten](/archive/blogs/sqlnativeclient/microsoft-is-aligning-with-odbc-for-native-relational-data-access) durchgeführt. ODBC ist relativ einfach und außerdem deutlich schneller als OLE DB. Der einzige Nachteil ist, dass für ODBC eine ältere API im C-Stil verwendet wird.
 
 ## <a name="step-1--creating-your-azure-sql-database"></a><a id="Create"></a>Schritt 1:  Erstellen der Azure SQL-Datenbank
 
@@ -143,7 +143,7 @@ Sie finden die GetStarted-Projektmappe mit allen Beispielen dieses Artikels auf 
 ## <a name="next-steps"></a>Nächste Schritte
 
 * Lesen Sie die [Übersicht über die Entwicklung von SQL-Datenbanken](develop-overview.md)
-* Weitere Informationen: [ODBC-API-Referenz](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)
+* Weitere Informationen: [ODBC-API-Referenz](/sql/odbc/reference/syntax/odbc-api-reference/)
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 

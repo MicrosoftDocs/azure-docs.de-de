@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: tyao
-ms.openlocfilehash: f41dc688996b2431060a3cde209ca1ed4a21fe8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f260bfc7b097931cc1a978e790c1d9dd966703ac
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005615"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563510"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Konfigurieren einer IP-Einschränkungsregel mit einer Web Application Firewall für Azure Front Door
 
@@ -76,7 +76,7 @@ Gehen Sie zum Erstellen eines Azure Front Door-Profils gemäß den Anweisungen u
 1. Nachdem die Bereitstellung der WAF-Richtlinien abgeschlossen ist, navigieren Sie zu Ihrem Front-End-Hostnamen.
 2. Es sollte Ihre benutzerdefinierte Blockierungsmeldung angezeigt werden.
 
-   :::image type="content" source="../media/waf-front-door-configure-ip-restriction/waf-rule-test.png" alt-text="Benutzerdefinierte Regel":::
+   :::image type="content" source="../media/waf-front-door-configure-ip-restriction/waf-rule-test.png" alt-text="WAF-Regeltest":::
 
    > [!NOTE]
    > In der benutzerdefinierten Regel wurde absichtlich eine private IP-Adresse verwendet, um die Auslösung der Regel sicherzustellen. Erstellen Sie bei einer tatsächlichen Bereitstellung Regeln für *Zulassen* und *Ablehnen* mit IP-Adressen für Ihre bestimmte Situation.
@@ -166,9 +166,9 @@ In diesem Beispiel wird die WAF-Richtlinie auf **FrontendEndpoints[0]** angewand
 Vor dem Konfigurieren einer Richtlinie für IP-Einschränkung müssen Sie zunächst die PowerShell-Umgebung einrichten und ein Azure Front Door-Profil erstellen.
 
 #### <a name="set-up-your-powershell-environment"></a>Einrichten Ihrer PowerShell-Umgebung
-Azure PowerShell bietet eine Reihe von Cmdlets, die das [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)-Modell für die Verwaltung von Azure-Ressourcen verwenden.
+Azure PowerShell bietet eine Reihe von Cmdlets, die das [Azure Resource Manager](../../azure-resource-manager/management/overview.md)-Modell für die Verwaltung von Azure-Ressourcen verwenden.
 
-Sie können [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) auf Ihrem lokalen Computer installieren und in einer beliebigen PowerShell-Sitzung nutzen. Befolgen Sie die Anweisungen auf der Seite, um sich mit Ihren Azure-Anmeldeinformationen bei PowerShell anzumelden und das Az-Modul zu installieren.
+Sie können [Azure PowerShell](/powershell/azure/) auf Ihrem lokalen Computer installieren und in einer beliebigen PowerShell-Sitzung nutzen. Befolgen Sie die Anweisungen auf der Seite, um sich mit Ihren Azure-Anmeldeinformationen bei PowerShell anzumelden und das Az-Modul zu installieren.
 
 1. Stellen Sie mit dem folgenden Befehl eine Verbindung zu Azure her, und verwenden Sie dann ein interaktives Dialogfeld für die Anmeldung.
     ```

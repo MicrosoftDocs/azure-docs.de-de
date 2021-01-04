@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 9c84b35318637f5b89e6c88c0ebb3fd6616533fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aeb90e8e064c44f4d17f920261ed58310f0e55f0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86023124"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025700"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>Debuggen von Fehlern beim Erstellen einer Anwendung für benutzerdefinierte Befehle
 
@@ -24,7 +24,7 @@ Dieser Artikel beschreibt, wie Sie debuggen können, wenn beim Erstellen der Anw
 ## <a name="errors-when-creating-an-application"></a>Fehler beim Erstellen einer Anwendung
 Mit benutzerdefinierten Befehlen wird beim Erstellen einer Anwendung für benutzerdefinierte Befehle auch eine Anwendung in [LUIS](https://www.luis.ai/) erstellt. 
 
-[In LUIS gilt die Beschränkung von 500 Anwendungen pro Erstellungsressource](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits). Bei der Erstellung einer LUIS-Anwendung könnte ein Fehler auftreten, wenn Sie eine Erstellungsressource verwenden, die bereits 500 Anwendungen enthält. 
+[In LUIS gilt die Beschränkung von 500 Anwendungen pro Erstellungsressource](../luis/luis-limits.md). Bei der Erstellung einer LUIS-Anwendung könnte ein Fehler auftreten, wenn Sie eine Erstellungsressource verwenden, die bereits 500 Anwendungen enthält. 
 
 Stellen Sie sicher, dass die ausgewählte LUIS-Erstellungsressource weniger als 500 Anwendungen enthält. Andernfalls können Sie eine neue LUIS-Erstellungsressource erstellen, zu einer anderen wechseln oder versuchen, Ihre LUIS-Anwendungen zu bereinigen.  
 
@@ -61,7 +61,7 @@ Benutzerdefinierte Befehle gestatten es nicht, allgemeine Beispielsätze zwische
 
 Achten Sie darauf, keine allgemeinen Beispielsätze zu verwenden, die von verschiedenen Befehlen gemeinsam genutzt werden. 
 
-Die bewährte Methode für den Ausgleich Ihrer Beispielsätze über verschiedene Befehle hinweg finden Sie unter [LUIS: Bewährte Methode](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+Die bewährte Methode für den Ausgleich Ihrer Beispielsätze über verschiedene Befehle hinweg finden Sie unter [LUIS: Bewährte Methode](../luis/luis-concept-best-practices.md).
 
 ### <a name="empty-sample-sentences"></a>Leere Beispielsätze
 Sie müssen über mindestens einen Beispielsatz für jeden Befehl verfügen.
@@ -82,7 +82,7 @@ Sie können z. B. einen Parameter „{Fahrzeug}“ für die folgenden Beispiels
 | Book a flight | Book a {vehicle} (Reserviere ein {Fahrzeug}) |
 | Book a taxi (Reserviere ein Taxi) | Book a {vehicle} (Reserviere ein {Fahrzeug}) |
 
-Bewährte Methoden für LUIS-Trainings sind unter [LUIS: Bewährte Methode](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices) beschrieben.
+Bewährte Methoden für LUIS-Trainings sind unter [LUIS: Bewährte Methode](../luis/luis-concept-best-practices.md) beschrieben.
 
 ## <a name="cant-update-luis-key"></a>LUIS-Schlüssel kann nicht aktualisiert werden
 ### <a name="reassign-to-e0-authoring-resource"></a>Neuzuweisung zur Erstellungsressource E0

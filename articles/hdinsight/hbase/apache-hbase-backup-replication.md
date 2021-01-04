@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 5c0694f9ef16de9c69d424b5005ca0d5a277a77f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ed55387034a383e402d027fd5cab60c4a59c23c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505028"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657039"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Einrichten der Sicherung und Replikation für Apache HBase und Apache Phoenix in HDInsight
 
@@ -52,7 +52,7 @@ Nach dem Löschen des Clusters können Sie die Daten entweder an ihrem Speichero
 
 * Erstellen Sie eine neue HDInsight-Instanz, die auf den aktuellen Speicherort verweist. Die neue Instanz wird mit allen vorhandenen Daten erstellt.
 
-* Kopieren Sie den Ordner `hbase` in einen anderen Azure Storage-Blobcontainer oder an einen anderen Data Lake Storage-Speicherort, und starten Sie einen neuen Cluster mit diesen Daten. Verwenden Sie dazu entweder [AzCopy](../../storage/common/storage-use-azcopy.md) (Azure Storage) oder [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) (Data Lake Storage).
+* Kopieren Sie den Ordner `hbase` in einen anderen Azure Storage-Blobcontainer oder an einen anderen Data Lake Storage-Speicherort, und starten Sie einen neuen Cluster mit diesen Daten. Verwenden Sie dazu entweder [AzCopy](../../storage/common/storage-use-azcopy-v10.md) (Azure Storage) oder [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) (Data Lake Storage).
 
 ## <a name="export-then-import"></a>Exportieren und Importieren
 
@@ -219,6 +219,12 @@ Wenn Sie Ihrem Quellcluster kein sekundäres Azure-Speicherkonto zugeordnet habe
 hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.myaccount.blob.core.windows.net=mykey -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
 ```
 
+Wenn Ihr Zielcluster ein ADLS Gen 2-Cluster ist, ändern Sie den vorherigen Befehl gemäß der Konfigurationen, die von ADLS Gen 2 verwendet werden:
+
+```console
+hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.<account_name>.dfs.core.windows.net=<key> -Dfs.azure.account.auth.type.<account_name>.dfs.core.windows.net=SharedKey -Dfs.azure.always.use.https.<account_name>.dfs.core.windows.net=false -Dfs.azure.account.keyprovider.<account_name>.dfs.core.windows.net=org.apache.hadoop.fs.azurebfs.services.SimpleKeyProvider -snapshot 'Snapshot1' -copy-to 'abfs://<container>@<account_name>.dfs.core.windows.net/hbase'
+```
+
 Stellen Sie nach dem Exportieren der Momentaufnahme eine SSH-Verbindung mit dem Hauptknoten des Zielclusters her, und stellen Sie die Momentaufnahme mithilfe des Befehls `restore_snapshot` wie zuvor beschrieben wieder her.
 
 Momentaufnahmen stellen eine vollständige Sicherung einer Tabelle zum Zeitpunkt der Ausführung des Befehls `snapshot` dar. Mit Momentaufnahmen können weder inkrementelle Momentaufnahmen nach Zeitfenster erstellt noch Teilmengen einzubeziehender Spaltenfamilien angegeben werden.
@@ -245,4 +251,4 @@ Wenden Sie zum Aktivieren der Replikation in HDInsight eine Skriptaktion auf Ihr
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Konfigurieren von Apache HBase-Replikation](apache-hbase-replication.md)
-* [Arbeiten mit dem in HBase enthaltenen Import- und Exporthilfsprogramm](https://blogs.msdn.microsoft.com/data_otaku/2016/12/21/working-with-the-hbase-import-and-export-utility/)
+* [Arbeiten mit dem in HBase enthaltenen Import- und Exporthilfsprogramm](/archive/blogs/data_otaku/working-with-the-hbase-import-and-export-utility)

@@ -6,16 +6,16 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/16/2020
-author: djpmsft
-ms.author: daperlov
+ms.date: 12/09/2020
+author: dcstwh
+ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: 1bb523c1b5aa595a714930962bbbe4e7e04de517
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: da38dd99d0f27d83d5810a664d0c05f979f47080
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131393"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920073"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrisieren von verknüpften Diensten in Azure Data Factory
 
@@ -32,24 +32,26 @@ Das folgende Video enthält eine siebenminütige Einführung und Demonstration d
 
 > [!VIDEO https://channel9.msdn.com/shows/azure-friday/Parameterize-connections-to-your-data-stores-in-Azure-Data-Factory/player]
 
-## <a name="supported-data-stores"></a>Unterstützte Datenspeicher
+## <a name="supported-linked-service-types"></a>Unterstützte Arten verknüpfter Dienste
 
 Sie können jede Art von verknüpftem Dienst parametrisieren.
-Bei der Erstellung verknüpfter Dienste auf der Benutzeroberfläche bietet Data Factory integrierte Parametrisierungserfahrung für die folgenden Arten von Connectors. Im Blatt zur Erstellung/Bearbeitung von verknüpften Diensten finden Sie Optionen für neue Parameter und können dynamische Inhalte hinzufügen.
+Für die Erstellung verknüpfter Dienste auf der Benutzeroberfläche bietet Data Factory eine integrierte Parametrisierungsfunktion für die folgenden Arten verknüpfter Dienste. Im Blatt zur Erstellung/Bearbeitung von verknüpften Diensten finden Sie Optionen für neue Parameter und können dynamische Inhalte hinzufügen.
 
 - Amazon Redshift
 - Amazon S3
 - Azure Cosmos DB (SQL-API)
 - Azure Database for MySQL
+- Azure Databricks
 - Azure SQL-Datenbank
-- Azure Synapse Analytics (ehemals SQL DW)
+- Verwaltete Azure SQL-Instanz
+- Azure Synapse Analytics 
 - MySQL
 - Oracle
 - SQL Server
 - Generisches HTTP
 - Generisches REST
 
-Bei anderen Typen können Sie den verknüpften Dienst parametrisieren, indem Sie den JSON-Code auf der Benutzeroberfläche bearbeiten:
+Für andere Arten verknüpfter Dienste, die nicht in der obigen Liste enthalten sind, können Sie den verknüpften Dienst parametrisieren, indem Sie die JSON über die Benutzeroberfläche bearbeiten:
 
 - Im Blatt zur Erstellung/Bearbeitung von verknüpften Diensten erweitern Sie die Option „Erweitert“ am unteren Rand. Aktivieren Sie dann das Kontrollkästchen „Dynamische Inhalte im JSON-Format angeben“, und geben Sie die JSON-Nutzlast für den verknüpften Dienst an. 
 - Oder, nachdem Sie einen verknüpften Dienst ohne Parametrisierung erstellt haben, suchen Sie in [Verwaltungshub](author-visually.md#management-hub) -> Verknüpfte Dienste den bestimmten verknüpften Dienst, und klicken Sie auf „Code“ (Schaltfläche „{}“), um den JSON-Code zu bearbeiten. 

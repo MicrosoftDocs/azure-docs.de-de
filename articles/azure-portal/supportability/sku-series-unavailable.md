@@ -1,18 +1,16 @@
 ---
-title: 'Region oder SKU-Serien nicht verfügbar: Azure'
+title: Region oder SKU-Serien nicht verfügbar
 description: Einige SKU-Serien sind für das ausgewählte Abonnement für diese Region nicht verfügbar. Daher ist unter Umständen eine Supportanfrage für die Abonnementverwaltung erforderlich.
-services: Azure Supportability
 author: stevendotwang
-ms.service: azure-supportability
 ms.topic: troubleshooting
 ms.date: 01/27/2020
 ms.author: xingwan
-ms.openlocfilehash: fccde344a06d39bd4bb8e3178444ec20677e2f50
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 2bbe1dff6bbf8fed481300db95482c46b0e8a7b7
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078509"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745280"
 ---
 # <a name="region-or-sku-unavailable"></a>Region oder SKU nicht verfügbar
 

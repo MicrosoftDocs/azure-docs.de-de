@@ -14,11 +14,11 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 21f29135cc3b94e5b8c2dfc99b0f7be26b37d123
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425267"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995198"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrieren von Anwendungen zu MSAL.NET
 
@@ -29,7 +29,7 @@ Sowohl die Microsoft-Authentifizierungsbibliothek für .NET (MSAL.NET) als auch 
 - Ihre Anwendung kann inkrementelle Zustimmung aktivieren, und Unterstützung des bedingten Zugriffs ist einfacher.
 - Sie profitieren von der Innovation.
 
-**MSAL.NET ist jetzt die empfohlene Authentifizierungsbibliothek für die Verwendung mit Microsoft Identity Platform** . Für ADAL.NET werden keine neuen Features implementiert. Der Schwerpunkt liegt auf der Verbesserung von MSAL.
+**MSAL.NET ist jetzt die empfohlene Authentifizierungsbibliothek für die Verwendung mit Microsoft Identity Platform**. Für ADAL.NET werden keine neuen Features implementiert. Der Schwerpunkt liegt auf der Verbesserung von MSAL.
 
 Dieser Artikel beschreibt die Unterschiede zwischen der Microsoft-Authentifizierungsbibliothek für .NET (MSAL.NET) und der Azure AD-Authentifizierungsbibliothek für .NET (ADAL.NET) und hilft Ihnen bei der Migration zu MSAL.
 

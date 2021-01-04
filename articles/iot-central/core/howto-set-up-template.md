@@ -1,6 +1,6 @@
 ---
 title: Definieren eines neuen IoT-Gerätetyps in Azure IoT Central | Microsoft-Dokumentation
-description: In diesem Artikel für Ersteller erfahren Sie, wie Sie in Ihrer Azure IoT Central-Anwendung eine neue Azure IoT-Gerätevorlage erstellen. Sie definieren die Telemetriedaten, den Zustand, die Eigenschaften und die Befehle für den Typ.
+description: In diesem Artikel für Lösungsersteller erfahren Sie, wie Sie in Ihrer Azure IoT Central-Anwendung eine neue Azure IoT-Gerätevorlage erstellen. Sie definieren die Telemetriedaten, den Zustand, die Eigenschaften und die Befehle für den Typ.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/06/2019
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom:
-- contperfq1
+- contperf-fy21q1
 - device-developer
-ms.openlocfilehash: c8fb60a4b549a7203057dd60298d2ae0540450d6
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 9e5e96d97494f4ba9aa28e84b046cd057fe8eba7
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122652"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033407"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definieren eines neuen IoT-Gerätetyps in Ihrer Azure IoT Central-Anwendung
 
@@ -38,12 +38,12 @@ Anhand dieser Gerätevorlage kann ein Bediener echte Lüftergeräte erstellen un
 > [!NOTE]
 > Nur Ersteller und Administratoren können Gerätevorlagen erstellen, bearbeiten und löschen. Auf der Seite **Geräte** kann jeder Benutzer Geräte anhand vorhandener Gerätevorlagen erstellen.
 
-In einer IoT Central-Anwendung verwendet eine Gerätevorlage ein Gerätefunktionsmodell, um die Funktionen eines Geräts zu beschreiben. Als Ersteller haben Sie mehrere Möglichkeiten zum Erstellen von Gerätevorlagen:
+In einer IoT Central-Anwendung verwendet eine Gerätevorlage ein Gerätemodell, um die Funktionen eines Geräts zu beschreiben. Als Ersteller haben Sie mehrere Möglichkeiten zum Erstellen von Gerätevorlagen:
 
-- Entwerfen Sie die Gerätevorlage in IoT Central, und [implementieren Sie dann das entsprechende Gerätefunktionsmodell in Ihrem Gerätecode](concepts-telemetry-properties-commands.md).
-- Importieren Sie ein Gerätefunktionsmodell aus dem [Azure Certified for IoT-Gerätekatalog](https://aka.ms/iotdevcat). Fügen Sie dann alle Cloudeigenschaften, Anpassungen und Dashboards hinzu, die Ihre IoT Central-Anwendung benötigt.
-- Erstellen Sie ein Gerätefunktionsmodell mit Visual Studio Code. Implementieren Sie Ihren Gerätecode aus dem Modell. Importieren Sie das Gerätefunktionsmodell manuell in Ihre IoT Central-Anwendung, und fügen Sie dann alle Cloudeigenschaften, Anpassungen und Dashboards hinzu, die Ihre IoT Central-Anwendung benötigt.
-- Erstellen Sie ein Gerätefunktionsmodell mit Visual Studio Code. Implementieren Sie den Gerätecode aus dem Modell, und verbinden Sie das echte Gerät mithilfe einer Geräte bevorzugenden Verbindung mit Ihrer IoT Central-Anwendung. IoT Central ermittelt und importiert das Gerätefunktionsmodell automatisch aus dem öffentlichen Repository. Sie können dann alle Cloudeigenschaften, Anpassungen und Dashboards, die Ihre IoT Central-Anwendung benötigt, der Gerätevorlage hinzufügen.
+- Entwerfen Sie die Gerätevorlage in IoT Central, und [implementieren Sie dann das entsprechende Gerätemodell in Ihrem Gerätecode](concepts-telemetry-properties-commands.md).
+- Importieren Sie eine Gerätevorlage aus dem [Azure Certified for IoT-Gerätekatalog](https://aka.ms/iotdevcat). Passen Sie die Gerätevorlage Ihren Anforderungen in IoT Central an.
+- Erstellen Sie ein Gerätemodell mithilfe von [Digital Twins Definition Language (DTDL) – Version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Visual Studio Code weist eine Erweiterung auf, die das Erstellen von DTDL-Modellen unterstützt. Weitere Informationen finden Sie unter [Installieren und Verwenden der DTDL-Erstellungstools](../../iot-pnp/howto-use-dtdl-authoring-tools.md). Veröffentlichen Sie das Modell dann im öffentlichen Modellrepository. Weitere Informationen finden Sie unter [Gerätemodellrepository](../../iot-pnp/concepts-model-repository.md). Implementieren Sie den Gerätecode aus dem Modell, und verbinden Sie Ihr reales Gerät mit Ihrer IoT Central-Anwendung. IoT Central ermittelt das Gerätemodell, importiert es für Sie aus dem öffentlichen Repository und generiert eine Gerätevorlage. Sie können dann alle Cloudeigenschaften, Anpassungen und Dashboards, die Ihre IoT Central-Anwendung benötigt, der Gerätevorlage hinzufügen.
+- Erstellen Sie ein Gerätemodell per DTDL. Implementieren Sie Ihren Gerätecode aus dem Modell. Importieren Sie das Gerätemodell manuell in Ihre IoT Central-Anwendung, und fügen Sie dann alle Cloudeigenschaften, Anpassungen und Dashboards hinzu, die Ihre IoT Central-Anwendung benötigt.
 
 Sie können einer IoT Central-Anwendung Gerätevorlagen auch mithilfe der [REST-API](/learn/modules/manage-iot-central-apps-with-rest-api/) oder der [CLI](howto-manage-iot-central-from-cli.md) hinzufügen.
 
@@ -51,10 +51,10 @@ Einige [Anwendungsvorlagen](concepts-app-templates.md) enthalten bereits Geräte
 
 ## <a name="create-a-device-template-from-the-device-catalog"></a>Erstellen einer Gerätevorlage aus dem Gerätekatalog
 
-Als Ersteller können Sie mit einem für IoT Plug & Play (Vorschau) zertifizierten Gerät schnell mit der Erstellung Ihrer Lösung beginnen. Weitere Informationen finden Sie in der Liste im [Azure IoT-Gerätekatalog](https://catalog.azureiotsolutions.com/alldevices). IoT Central ist in den Gerätekatalog integriert, sodass Sie ein Gerätefunktionsmodell von einem dieser für IoT Plug & Play (Vorschau) zertifizierten Geräte importieren können. Zum Erstellen einer Gerätevorlage von einem dieser Geräte in IoT Central führen Sie die folgenden Schritte aus:
+Als Ersteller können Sie mit einem zertifizierten Gerät schnell mit der Erstellung Ihrer Lösung beginnen. Weitere Informationen finden Sie in der Liste im [Azure IoT-Gerätekatalog](https://catalog.azureiotsolutions.com/alldevices). IoT Central ist in den Gerätekatalog integriert, sodass Sie ein Gerätemodell von einem dieser zertifizierten Geräte importieren können. Zum Erstellen einer Gerätevorlage von einem dieser Geräte in IoT Central führen Sie die folgenden Schritte aus:
 
 1. Navigieren Sie in Ihrer IoT Central-Anwendung zur Seite **Gerätevorlagen**.
-1. Wählen Sie **+ Neu** und dann im Katalog eines der für IoT Plug & Play (Vorschau) zertifizierten Geräte aus. IoT Central erstellt eine Gerätevorlage basierend auf diesem Gerätefunktionsmodell.
+1. Wählen Sie **+ Neu** und dann im Katalog eines der zertifizierten Geräte aus. IoT Central erstellt eine Gerätevorlage basierend auf diesem Gerätemodell.
 1. Fügen Sie der Gerätevorlage beliebige Cloudeigenschaften, Anpassungen oder Ansichten hinzu.
 1. Wählen Sie **Veröffentlichen** aus, um Bedienern die Vorlage zum Anzeigen und Verbinden von Geräten zur Verfügung zu stellen.
 
@@ -62,57 +62,56 @@ Als Ersteller können Sie mit einem für IoT Plug & Play (Vorschau) zertifizie
 
 Eine Gerätevorlage umfasst Folgendes:
 
-- Ein _Gerätefunktionsmodell_, das die Telemetrie, Eigenschaften und Befehle angibt, die das Gerät implementiert. Diese Funktionen sind in einer oder mehreren Schnittstellen organisiert.
+- Ein _Gerätemodell_, das die Telemetrie, Eigenschaften und Befehle angibt, die das Gerät implementiert. Diese Funktionen sind in einer oder mehreren Komponenten organisiert.
 - _Cloudeigenschaften_, die Informationen definieren, die Ihre IoT Central-Anwendung über Ihre Geräte speichert. Beispielsweise kann eine Cloudeigenschaft das Datum der letzten Wartung eines Geräts erfassen. Diese Informationen werden niemals für das Gerät freigegeben.
-- Durch _Anpassungen_ kann der Ersteller einige der Definitionen im Gerätefunktionsmodell überschreiben. Beispielsweise kann der Ersteller den Namen einer Geräteeigenschaft überschreiben. Eigenschaftsnamen werden in IoT Central-Dashboards und -Formularen angezeigt.
+- Durch _Anpassungen_ kann der Ersteller einige der Definitionen im Gerätemodell überschreiben. Beispielsweise kann der Ersteller den Namen einer Geräteeigenschaft überschreiben. Eigenschaftsnamen werden in IoT Central-Dashboards und -Formularen angezeigt.
 - Mithilfe von _Dashboards und Formularen_ kann der Ersteller eine Benutzeroberfläche erstellen, mit der Bediener die mit der Anwendung verbundenen Geräte überwachen und verwalten können.
 
 Zum Erstellen einer Gerätevorlage in IoT Central führen Sie die folgenden Schritte aus:
 
 1. Navigieren Sie in Ihrer IoT Central-Anwendung zur Seite **Gerätevorlagen**.
-1. Wählen Sie **+ Neu** > **Benutzerdefiniert** aus.
-1. Geben Sie einen Namen für die Vorlage ein, z.B. **Umgebungssensor**.
-1. Drücken Sie die **EINGABETASTE**. IoT Central erstellt eine leere Gerätevorlage.
+1. Wählen Sie **+ Neu** > **IoT-Gerät** aus. Wählen Sie anschließend **Next: Anpassen**.
+1. Geben Sie einen Namen für die Vorlage ein, z. B. **Thermostat**. Wählen Sie anschließend **Next: Überprüfen** und anschließend **Erstellen** aus.
+1. IoT Central erstellt eine leere Gerätevorlage und ermöglicht Ihnen, ein benutzerdefiniertes Modell von Grund auf neu zu erstellen oder ein DTDL-Modell zu importieren.
 
 ## <a name="manage-a-device-template"></a>Verwalten einer Gerätevorlage
 
 Sie können eine Vorlage auf der jeweiligen Startseite umbenennen oder löschen.
 
-Nachdem Sie Ihrer Vorlage ein Gerätefunktionsmodell hinzugefügt haben, können Sie sie veröffentlichen. Erst nachdem Sie die Vorlage veröffentlicht haben, können Sie ein Gerät basierend auf dieser Vorlage verbinden, damit es den Bedienern auf der Seite **Geräte** angezeigt wird.
+Nachdem Sie Ihrer Vorlage ein Gerätemodell hinzugefügt haben, können Sie sie veröffentlichen. Erst nachdem Sie die Vorlage veröffentlicht haben, können Sie ein Gerät basierend auf dieser Vorlage verbinden, damit es den Bedienern auf der Seite **Geräte** angezeigt wird.
 
 ## <a name="create-a-capability-model"></a>Erstellen eines Funktionsmodells
 
-Sie können ein Gerätefunktionsmodell auf folgende Arten erstellen:
+Um ein Gerätemodell zu erstellen, haben Sie folgende Möglichkeiten:
 
 - Verwenden Sie IoT Central, um ein benutzerdefiniertes Modell ohne Vorlage zu erstellen.
-- Importieren Sie ein Modell aus einer JSON-Datei. Der Ersteller eines Geräts hat möglicherweise Visual Studio Code verwendet, um ein Gerätefunktionsmodell für Ihre Anwendung zu erstellen.
-- Wählen Sie eines der Geräte aus dem Gerätekatalog aus. Mit dieser Option wird das Gerätefunktionsmodell importiert, das der Hersteller für dieses Gerät veröffentlicht hat. Ein auf diese Weise importiertes Gerätefunktionsmodell wird automatisch veröffentlicht.
+- Importieren Sie ein DTDL-Modell aus einer JSON-Datei. Der Ersteller eines Geräts hat möglicherweise Visual Studio Code verwendet, um ein Gerätemodell für Ihre Anwendung zu erstellen.
+- Wählen Sie eines der Geräte aus dem Gerätekatalog aus. Mit dieser Option wird das Gerätemodell importiert, das der Hersteller für dieses Gerät veröffentlicht hat. Ein auf diese Weise importiertes Gerätemodell wird automatisch veröffentlicht.
 
 ## <a name="manage-a-capability-model"></a>Verwalten eines Funktionsmodells
 
-Nach dem Erstellen eines Gerätefunktionsmodells haben Sie folgende Möglichkeiten:
+Nach dem Erstellen eines Gerätemodells haben Sie folgende Möglichkeiten:
 
-- Fügen Sie dem Modell Schnittstellen hinzu. Ein Modell muss mindestens eine Schnittstelle aufweisen.
+- Fügen Sie dem Modell Komponenten hinzu. Ein Modell muss mindestens eine Komponente aufweisen.
 - Bearbeiten Sie Modellmetadaten, z. B. ID, Namespace und Name.
 - Löschen Sie das Modell.
 
-## <a name="create-an-interface"></a>Erstellen einer Schnittstelle
+## <a name="create-a-component"></a>Erstellen einer Komponente
 
-Eine Gerätefunktion muss mindestens eine Schnittstelle aufweisen. Eine Schnittstelle ist eine wiederverwendbare Sammlung von Funktionen.
+Ein Gerätemodell muss mindestens eine Standardkomponente aufweisen. Eine Komponente ist eine wiederverwendbare Sammlung von Funktionen.
 
-Zum Erstellen einer Schnittstelle führen Sie die folgenden Schritte aus:
+So erstellen Sie eine Komponente:
 
-1. Navigieren Sie zu Ihrem Gerätefunktionsmodell, und wählen Sie **+ Schnittstelle hinzufügen** aus.
+1. Wechseln Sie zu Ihrem Gerätemodell, und wählen Sie **+ Komponente hinzufügen** aus.
 
-1. Auf der Seite **Schnittstelle auswählen** können Sie folgende Aktionen ausführen:
+1. Auf der Seite **Komponentenschnittstelle hinzufügen** können Sie folgende Aktionen ausführen:
 
-    - Erstellen Sie eine benutzerdefinierte Schnittstelle ohne Vorlage.
-    - Importieren Sie eine vorhandene Schnittstelle aus einer Datei. Der Ersteller eines Geräts hat möglicherweise Visual Studio Code verwendet, um eine Schnittstelle für Ihr Gerät zu erstellen.
-    - Wählen Sie eine der Standardschnittstellen aus, z. B. die Schnittstelle **Geräteinformationen**. Standardschnittstellen geben die Funktionen an, die viele Geräte gemeinsam haben. Diese Standardschnittstellen werden von Azure IoT veröffentlicht und können nicht mit einer Versionsangabe versehen oder bearbeitet werden.
+    - Erstellen einer neuen benutzerdefinierten Komponente.
+    - Importieren einer vorhandenen Komponente aus einer DTDL-Datei. Der Ersteller eines Geräts hat möglicherweise Visual Studio Code verwendet, um eine Komponentenschnittstelle für Ihr Gerät zu erstellen.
 
-1. Nachdem Sie eine Schnittstelle erstellt haben, wählen Sie **Identität bearbeiten** aus, um den Anzeigenamen der Schnittstelle zu ändern.
+1. Nachdem Sie eine Komponente erstellt haben, wählen Sie **Identität bearbeiten** aus, um den Anzeigenamen der Komponente zu ändern.
 
-1. Wenn Sie eine benutzerdefinierte Schnittstelle ohne Vorlage erstellen möchten, können Sie die Funktionen Ihres Geräts hinzufügen. Gerätefunktionen sind Telemetrie, Eigenschaften und Befehle.
+1. Wenn Sie eine benutzerdefinierte Komponente ohne Vorlage erstellen möchten, können Sie die Funktionen Ihres Geräts hinzufügen. Gerätefunktionen sind Telemetrie, Eigenschaften und Befehle.
 
 ### <a name="telemetry"></a>Telemetrie
 
@@ -147,7 +146,7 @@ In der folgenden Tabelle sind die Konfigurationseinstellungen für eine Eigensch
 | Funktionstyp | Eigenschaft. |
 | Semantischer Typ | Der semantische Typ der Eigenschaft, z. B. Temperatur, Zustand oder Ereignis. Die Auswahl des semantischen Typs bestimmt, welches der folgenden Felder verfügbar ist. |
 | Schema | Der Eigenschaftsdatentyp, z.B. „double“, „string“ oder „vector“. Die verfügbaren Optionen werden durch den semantischen Typ bestimmt. Schema ist für die semantischen Typen „Ereignis“ und „Zustand“ nicht verfügbar. |
-| Schreibbar | Wenn die Eigenschaft nicht schreibbar ist, kann das Gerät Eigenschaftswerte an IoT Central melden. Ist die Eigenschaft schreibbar, kann das Gerät Eigenschaftswerte an IoT Central melden, und IoT Central kann Aktualisierungen der Eigenschaft an das Gerät senden.
+| Schreibbar | Wenn die Eigenschaft nicht schreibbar ist, kann das Gerät Eigenschaftswerte an IoT Central melden. Ist die Eigenschaft schreibbar, kann das Gerät Eigenschaftswerte an IoT Central melden, und IoT Central kann Aktualisierungen der Eigenschaft an das Gerät senden.
 | severity | Nur für den semantischen Typ „Ereignis“ verfügbar. Die Schweregrade lauten **Fehler**, **Information** und **Warnung**. |
 | Zustandswerte | Nur für den semantischen Typ „Zustand“ verfügbar. Definieren Sie die möglichen Zustandswerte, die jeweils einen Anzeigenamen, Namen, Enumerationstyp und Wert umfassen. |
 | Einheit | Eine Einheit für den Eigenschaftswert, z. B. **km/h**, **%** oder **&deg;C**. |
@@ -166,11 +165,12 @@ In der folgenden Tabelle sind die Konfigurationseinstellungen für eine Befehlsf
 | Anzeigename | Der Anzeigename für den Befehl, der in Dashboards und Formularen verwendet wird. |
 | Name | Der Name des Befehls. IoT Central generiert einen Wert für dieses Feld aus dem Anzeigenamen, Sie können aber ggf. einen eigenen Wert auswählen. Dieses Feld muss alphanumerisch sein. |
 | Funktionstyp | Befehl. |
-| Get-Help | `SynchronousExecutionType`. |
 | Comment | Beliebige Kommentare zur Befehlsfunktion. |
 | BESCHREIBUNG | Eine Beschreibung der Befehlsfunktion. |
 | Anforderung | Wenn aktiviert, eine Definition des Anforderungsparameters, einschließlich Name, Anzeigename, Schema, Einheit und Anzeigeeinheit. |
 | Antwort | Wenn aktiviert, eine Definition der Befehlsantwort, einschließlich Name, Anzeigename, Schema, Einheit und Anzeigeeinheit. |
+
+Weitere Informationen zur Implementierung von Befehlen durch Geräte finden Sie unter [Telemetrie-, Eigenschaften- und Befehlsnutzlasten – Befehle](concepts-telemetry-properties-commands.md#commands).
 
 #### <a name="offline-commands"></a>Offlinebefehle
 
@@ -185,13 +185,13 @@ Cloud-zu-Gerät-Nachrichten:
 - Erfordert, dass das Gerät einen Meldungshandler zur Verarbeitung der Cloud-zu-Gerät-Nachricht implementiert.
 
 > [!NOTE]
-> Diese Option steht nur in der IoT Central-Webbenutzeroberfläche zur Verfügung. Diese Einstellung ist nicht enthalten, wenn Sie ein Modell oder eine Schnittstelle aus der Gerätevorlage exportieren.
+> Diese Option steht nur in der IoT Central-Webbenutzeroberfläche zur Verfügung. Diese Einstellung ist nicht enthalten, wenn Sie ein Modell oder eine Komponente aus der Gerätevorlage exportieren.
 
-## <a name="manage-an-interface"></a>Verwalten einer Schnittstelle
+## <a name="manage-a-component"></a>Verwalten einer Komponente
 
-Wenn Sie die Schnittstelle noch nicht veröffentlicht haben, können Sie die durch die Schnittstelle definierten Funktionen bearbeiten. Nach dem Veröffentlichen der Schnittstelle müssen Sie eine neue Version der Gerätevorlage erstellen und der Schnittstelle eine Versionsangabe zuweisen, wenn Sie Änderungen vornehmen möchten. Änderungen, für die keine Versionsangabe erforderlich ist (z. B. Anzeigenamen oder Einheiten), können Sie im Abschnitt **Anpassen** vornehmen.
+Wenn Sie die Komponente noch nicht veröffentlicht haben, können Sie die durch die Komponente definierten Funktionen bearbeiten. Nach dem Veröffentlichen der Komponente müssen Sie eine neue Version der Gerätevorlage und eine neue [Version der Komponente](howto-version-device-template.md) erstellen, wenn Sie Änderungen vornehmen möchten. Änderungen, für die keine Versionsangabe erforderlich ist (z. B. Anzeigenamen oder Einheiten), können Sie im Abschnitt **Anpassen** vornehmen.
 
-Sie können die Schnittstelle auch als JSON-Datei exportieren, wenn Sie sie in einem anderen Funktionsmodell wiederverwenden möchten.
+Sie können die Komponente auch als JSON-Datei exportieren, wenn Sie sie in einem anderen Funktionsmodell wiederverwenden möchten.
 
 ## <a name="add-cloud-properties"></a>Hinzufügen von Cloudeigenschaften
 
@@ -208,21 +208,21 @@ In der folgenden Tabelle sind die Konfigurationseinstellungen für eine Cloudeig
 
 ## <a name="add-customizations"></a>Hinzufügen von Anpassungen
 
-Verwenden Sie Anpassungen, wenn Sie eine importierte Schnittstelle ändern oder IoT Central-spezifische Features zu einer Funktion hinzufügen müssen. Sie können nur Felder anpassen, die die Schnittstellenkompatibilität nicht beeinträchtigen. Beispielsweise können Sie folgende Aktionen ausführen:
+Verwenden Sie Anpassungen, wenn Sie eine importierte Komponente ändern oder IoT Central-spezifische Features einer Funktion hinzufügen müssen. Sie können nur Felder anpassen, die die Komponentenkompatibilität nicht beeinträchtigen. Beispielsweise können Sie folgende Aktionen ausführen:
 
 - Anpassen des Anzeigenamens und der Einheiten einer Funktion
 - Hinzufügen einer Standardfarbe, die beim Anzeigen des Werts in einem Diagramm verwendet werden soll
 - Angeben der anfänglichen, minimalen und maximalen Werte für eine Eigenschaft
 
-(Der Funktionsname oder -typ kann nicht angepasst werden.) Wenn Änderungen vorgenommen werden müssen, die im Abschnitt **Anpassen** nicht möglich sind, müssen Sie die Gerätevorlage und Schnittstelle mit einer Versionsangabe versehen, um die Funktion zu ändern.
+(Der Funktionsname oder -typ kann nicht angepasst werden.) Wenn Änderungen vorgenommen werden müssen, die im Abschnitt **Anpassen** nicht möglich sind, müssen Sie die Gerätevorlage und Komponente mit einer Versionsangabe versehen, um die Funktion zu ändern.
 
 ### <a name="generate-default-views"></a>Generieren von Standardansichten
 
 Das Generieren von Standardansichten ist eine schnelle Möglichkeit, Ihre wichtigen Geräteinformationen zu visualisieren. Sie können für Ihre Gerätevorlage bis zu drei Standardansichten generieren:
 
-- **Befehle** bietet eine Ansicht der Gerätebefehle und ermöglicht es dem Bediener, diese an Ihr Gerät auszugeben.
-- **Übersicht** stellt eine Ansicht mit Gerätetelemetrie bereit, in der Diagramme und Metriken angezeigt werden.
-- **Info** stellt eine Ansicht mit Geräteinformationen und Geräteeigenschaften bereit.
+- **Befehle:** Eine Ansicht der Gerätebefehle, die dem Bediener ermöglicht, diese an Ihr Gerät auszugeben.
+- **Übersicht**: Eine Ansicht mit Gerätetelemetrie, in der Diagramme und Metriken angezeigt werden.
+- **Info**: Eine Ansicht mit Geräteinformationen und -eigenschaften.
 
 Nachdem Sie **Standardansichten generieren** ausgewählt haben, werden diese automatisch im Abschnitt **Ansichten** Ihrer Gerätevorlage hinzugefügt.
 
@@ -237,13 +237,13 @@ Zum Hinzufügen eines Dashboards zu einer Gerätevorlage führen Sie die folgend
 1. Geben Sie im Feld **Dashboardname** einen Namen für das Dashboard ein.
 1. Fügen Sie dem Dashboard Kacheln aus der Liste mit statischen Kacheln und Kacheln für Eigenschaften, Cloudeigenschaften, Telemetrie und Befehle hinzu. Ziehen Sie die Kacheln, die Sie dem Dashboard hinzufügen möchten, per Drag & Drop.
 1. Wenn Sie mehrere Telemetriewerte auf einer einzelnen Diagrammkachel darstellen möchten, wählen Sie die Telemetriewerte und dann **Kombinieren** aus.
-1. Konfigurieren Sie jede Kachel, die Sie hinzufügen, um die Anzeige von Daten auf ihr anzupassen. Wählen Sie hierzu das Zahnradsymbol aus, oder wählen Sie auf der Diagrammkachel **Konfiguration ändern** aus.
+1. Konfigurieren Sie jede Kachel, die Sie hinzufügen, um die Anzeige von Daten auf ihr anzupassen. Greifen Sie auf diese Option zu, indem Sie das Zahnradsymbol auswählen, oder wählen Sie auf der Diagrammkachel **Konfiguration ändern** aus.
 1. Ordnen Sie die Kacheln auf Ihrem Dashboard an, und ändern Sie deren Größe.
 1. Speichern Sie die Änderungen.
 
 ### <a name="configure-preview-device-to-view-dashboard"></a>Konfigurieren eines Vorschaugeräts zum Anzeigen des Dashboards
 
-Wählen Sie **Vorschaugerät konfigurieren** aus, um das Dashboard anzuzeigen und zu testen. Dadurch können Sie das Dashboard so anzeigen, wie es nach der Veröffentlichung dem Bediener angezeigt wird. Überprüfen Sie mit dieser Option, ob in Ihren Ansichten die richtigen Daten angezeigt werden. Sie können zwischen folgenden Möglichkeiten auswählen:
+Wählen Sie **Vorschaugerät konfigurieren** aus, um das Dashboard anzuzeigen und zu testen. Mit diesem Feature können Sie das Dashboard so anzeigen, wie es nach der Veröffentlichung dem Bediener angezeigt wird. Überprüfen Sie mit diesem Feature, ob in Ihren Ansichten die richtigen Daten angezeigt werden. Sie können eine der folgenden Optionen auswählen:
 
 - Kein Vorschaugerät
 - Das tatsächliche Testgerät, das Sie für Ihre Gerätevorlage konfiguriert haben
@@ -266,9 +266,9 @@ Zum Hinzufügen eines Formulars zu einer Gerätevorlage führen Sie die folgende
 
 ## <a name="publish-a-device-template"></a>Veröffentlichen einer Gerätevorlage
 
-Bevor Sie ein Gerät verbinden können, das Ihr Gerätefunktionsmodell implementiert, müssen Sie die Gerätevorlage veröffentlichen.
+Bevor Sie eine Verbindung mit einem Gerät herstellen können, das Ihr Gerätemodell implementiert, müssen Sie die Gerätevorlage veröffentlichen.
 
-Nachdem Sie eine Gerätevorlage veröffentlicht haben, können Sie nur eingeschränkte Änderungen am Gerätefunktionsmodell vornehmen. Zum Ändern einer Schnittstelle müssen Sie [eine neue Version erstellen und veröffentlichen](./howto-version-device-template.md).
+Nachdem Sie eine Gerätevorlage veröffentlicht haben, können Sie nur eingeschränkte Änderungen am Gerätemodell vornehmen. Zum Ändern einer Komponente müssen Sie [eine neue Version erstellen und veröffentlichen](./howto-version-device-template.md).
 
 Wenn Sie eine Gerätevorlage veröffentlichen möchten, navigieren Sie zu der Gerätevorlage, und wählen Sie **Veröffentlichen** aus.
 

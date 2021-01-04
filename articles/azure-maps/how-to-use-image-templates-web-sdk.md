@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: f43c0086cfd6e51e0fbcd5d30911aa6c8e9a6518
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f455a1132a0f63e1ba3eb5d2a57a1f9bfa9a867
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335550"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895680"
 ---
 # <a name="how-to-use-image-templates"></a>Verwenden von Imagevorlagen
 
@@ -24,7 +24,7 @@ Bilder können mit HTML-Markern und verschiedenen Ebenen innerhalb des Azure Map
  - Polygon Ebenen können mit einem Füllmusterbild gerendert werden. 
  - HTML-Marker können Punkte mithilfe von Bildern und anderen HTML-Elementen rendern.
 
-Um eine gute Leistung bei Ebenen zu gewährleisten, laden Sie die Bilder vor dem Rendern in die Sprite-Ressource des Kartenbilds. Die [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions) des SymbolLayers laden standardmäßig ein paar Markerbilder in einigen wenigen Farben in das Kartenbild-Sprite vor. Diese und weitere Markerbilder sind als SVG-Vorlagen verfügbar. Sie können zum Erstellen von Images mit benutzerdefinierten Skalen verwendet oder als primäre und sekundäre Farbe des Kunden verwendet werden. Insgesamt werden 42 Bildvorlagen bereitgestellt: 27 Zeichensymbole und 15 Füllmuster für Polygone.
+Um eine gute Leistung bei Ebenen zu gewährleisten, laden Sie die Bilder vor dem Rendern in die Sprite-Ressource des Kartenbilds. Die [IconOptions](/javascript/api/azure-maps-control/atlas.iconoptions) des SymbolLayers laden standardmäßig ein paar Markerbilder in einigen wenigen Farben in das Kartenbild-Sprite vor. Diese und weitere Markerbilder sind als SVG-Vorlagen verfügbar. Sie können zum Erstellen von Images mit benutzerdefinierten Skalen verwendet oder als primäre und sekundäre Farbe des Kunden verwendet werden. Insgesamt werden 42 Bildvorlagen bereitgestellt: 27 Zeichensymbole und 15 Füllmuster für Polygone.
 
 Mithilfe der `map.imageSprite.createFromTemplate` -Funktion können Bildvorlagen zu den Sprite-Ressourcen des Kartenbilds hinzugefügt werden. Diese Funktion ermöglicht die Übergabe von bis zu fünf Parametern.
 
@@ -514,10 +514,10 @@ Weitere Informationen finden Sie unter dem Pen <a href='https://codepen.io/azure
 Erfahren Sie mehr zu den in diesem Artikel verwendeten Klassen und Methoden:
 
 > [!div class="nextstepaction"]
-> [ImageSpriteManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.imagespritemanager)
+> [ImageSpriteManager](/javascript/api/azure-maps-control/atlas.imagespritemanager)
 
 > [!div class="nextstepaction"]
-> [Atlas-Namespace](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas#functions
+> [Atlas-Namespace](/javascript/api/azure-maps-control/atlas#functions
 )
 
 In den folgenden Artikeln finden Sie weitere Codebeispiele, in denen Bildvorlagen verwendet werden können:

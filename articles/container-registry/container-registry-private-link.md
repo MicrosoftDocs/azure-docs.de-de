@@ -3,12 +3,12 @@ title: Einrichten einer privaten Verbindung
 description: Richten Sie einen privaten Endpunkt in einer Containerregistrierung ein, und ermöglichen Sie den Zugriff auf ein virtuelles Netzwerk über eine private Verbindung. Der Zugriff auf private Links ist ein Feature der Dienstebene Premium.
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 6bea4b2a6bedeac9dd0ff36631ba46adf4be4f8f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3193c65a2021d29f03bd9ae6cbc00fd6c349d9bf
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148471"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342299"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Herstellen einer privaten Verbindung mit einer Azure-Containerregistrierung über Azure Private Link
 
@@ -24,7 +24,7 @@ Diese Funktion ist auf der Dienstebene **Premium** der Containerregistrierung ve
 ## <a name="prerequisites"></a>Voraussetzungen
 
 * Wenn Sie die Azure CLI-Schritte in diesem Artikel verwenden möchten, wird mindestens die Azure CLI-Version 2.6.0 empfohlen. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sie bei Bedarf unter [Installieren der Azure CLI][azure-cli]. Alternativ können Sie [Azure Cloud Shell](../cloud-shell/quickstart.md) verwenden.
-* Sollten Sie noch nicht über eine Containerregistrierung verfügen, können Sie eine Registrierung erstellen (Premium-Tarif erforderlich) und ein Beispielimage (etwa `hello-world`) aus Docker Hub [importieren](container-registry-import-images.md). Zum Erstellen einer Registrierung können Sie das [Azure-Portal][quickstart-portal] oder die [Azure-Befehlszeilenschnittstelle][quickstart-cli] verwenden.
+* Sollten Sie noch nicht über eine Containerregistrierung verfügen, können Sie eine Registrierung erstellen (Premium-Tarif erforderlich) und ein öffentliches Beispielimage (etwa `mcr.microsoft.com/hello-world`) aus Microsoft Container Registry [importieren](container-registry-import-images.md). Zum Erstellen einer Registrierung können Sie das [Azure-Portal][quickstart-portal] oder die [Azure-Befehlszeilenschnittstelle][quickstart-cli] verwenden.
 * Um den Registrierungszugriff mithilfe einer privaten Verbindung in einem anderen Azure-Abonnement zu konfigurieren, müssen Sie den Ressourcenanbieter für Azure Container Registry in diesem Abonnement registrieren. Beispiel:
 
   ```azurecli
@@ -50,7 +50,7 @@ VM_NAME=<virtual-machine-name>
 
 Für die Einrichtung einer privaten Verbindung benötigen Sie den Namen eines virtuellen Netzwerks und eines Subnetzes. In diesem Beispiel wird für den virtuellen Computer und den privaten Endpunkt der Registrierung das gleiche Subnetz verwendet. In vielen Szenarien wird der Endpunkt jedoch in einem separaten Subnetz eingerichtet. 
 
-Wenn Sie einen virtuellen Computer erstellen, erstellt Azure standardmäßig in der gleichen Ressourcengruppe ein virtuelles Netzwerk. Der Name des virtuellen Netzwerks hängt von dem Namen des virtuellen Computers ab. Wenn Sie Ihren virtuellen Computer beispielsweise *MyDockerVM* nennen, lautet der Standardname des virtuellen Netzwerks *MyDockerVMVNET* mit einem Subnetz namens *MyDockerVMSubnet* . Legen Sie diese Werte in Umgebungsvariablen fest, indem Sie den Befehl [az network vnet list][az-network-vnet-list] ausführen:
+Wenn Sie einen virtuellen Computer erstellen, erstellt Azure standardmäßig in der gleichen Ressourcengruppe ein virtuelles Netzwerk. Der Name des virtuellen Netzwerks hängt von dem Namen des virtuellen Computers ab. Wenn Sie Ihren virtuellen Computer beispielsweise *MyDockerVM* nennen, lautet der Standardname des virtuellen Netzwerks *MyDockerVMVNET* mit einem Subnetz namens *MyDockerVMSubnet*. Legen Sie diese Werte in Umgebungsvariablen fest, indem Sie den Befehl [az network vnet list][az-network-vnet-list] ausführen:
 
 ```azurecli
 NETWORK_NAME=$(az network vnet list \
@@ -266,7 +266,7 @@ Richten Sie eine private Verbindung ein, wenn Sie eine Registrierung erstellen, 
     |Private DNS-Zone |Wählen Sie *(Neu) privatelink.azurecr.io* aus. |
     |||
 
-1. Klicken Sie auf **Überprüfen + erstellen** . Sie werden zur Seite **Überprüfen und erstellen** weitergeleitet, auf der Azure Ihre Konfiguration überprüft. 
+1. Klicken Sie auf **Überprüfen + erstellen**. Sie werden zur Seite **Überprüfen und erstellen** weitergeleitet, auf der Azure Ihre Konfiguration überprüft. 
 2. Wenn die Meldung **Überprüfung erfolgreich** angezeigt wird, wählen Sie **Erstellen** aus.
 
 Nachdem der private Endpunkt erstellt wurde, werden DNS-Einstellungen in der privaten Zone auf der Seite **Private Endpunkte** im Portal angezeigt:
@@ -298,7 +298,7 @@ az acr update --name $REGISTRY_NAME --public-network-enabled false
 ### <a name="disable-public-access---portal"></a>Deaktivieren des öffentlichen Zugriffs – Portal
 
 1. Navigieren Sie im Portal zu Ihrer Containerregistrierung, und wählen Sie **Einstellungen > Netzwerk** aus.
-1. Wählen Sie auf der Registerkarte **Öffentlicher Zugriff** in **Öffentlichen Netzwerkzugriff zulassen** die Option **Deaktiviert** aus. Klicken Sie dann auf **Speichern** .
+1. Wählen Sie auf der Registerkarte **Öffentlicher Zugriff** in **Öffentlichen Netzwerkzugriff zulassen** die Option **Deaktiviert** aus. Klicken Sie dann auf **Speichern**.
 
 ## <a name="validate-private-link-connection"></a>Überprüfen der Private Link-Verbindung
 
@@ -387,7 +387,12 @@ Wenn Sie später ein neues Replikat hinzufügen, müssen Sie für den Datenendpu
 
 Der private Endpunkt in diesem Beispiel integriert sich in eine private DNS-Zone, die einem virtuellen Basisnetzwerk zugeordnet ist. Diese Einrichtung verwendet den von Azure bereitgestellten DNS-Dienst direkt, um den öffentlichen FQDN der Registrierung in seine private IP-Adresse im virtuellen Netzwerk aufzulösen. 
 
-Die private Verbindung unterstützt zusätzliche DNS-Konfigurationsszenarien, in denen die private Zone verwendet wird, einschließlich benutzerdefinierter DNS-Lösungen. Angenommen, Sie verfügen z. B. über eine benutzerdefinierte DNS-Lösung, die im virtuellen Netzwerk oder lokal in einem Netzwerk bereitgestellt ist, das über ein VPN-Gateway mit dem virtuellen Netzwerk verbunden wird. Um den öffentlichen FQDN der Registrierung in die private IP-Adresse in diesen Szenarien aufzulösen, müssen Sie eine Weiterleitung auf Serverebene für den Azure DNS-Dienst (168.63.129.16) konfigurieren. Genaue Konfigurationsoptionen und -schritte sind von Ihren vorhandenen Netzwerken und dem DNS abhängig. Beispiele finden Sie unter [DNS-Konfiguration von privaten Azure-Endpunkten](../private-link/private-endpoint-dns.md).
+Die private Verbindung unterstützt zusätzliche DNS-Konfigurationsszenarien, in denen die private Zone verwendet wird, einschließlich benutzerdefinierter DNS-Lösungen. Angenommen, Sie verfügen z. B. über eine benutzerdefinierte DNS-Lösung, die im virtuellen Netzwerk oder lokal in einem Netzwerk bereitgestellt ist, das über ein VPN-Gateway oder über Azure ExpressRoute mit dem virtuellen Netzwerk verbunden wird. 
+
+Um den öffentlichen FQDN der Registrierung in die private IP-Adresse in diesen Szenarien aufzulösen, müssen Sie eine Weiterleitung auf Serverebene für den Azure DNS-Dienst (168.63.129.16) konfigurieren. Genaue Konfigurationsoptionen und -schritte sind von Ihren vorhandenen Netzwerken und dem DNS abhängig. Beispiele finden Sie unter [DNS-Konfiguration von privaten Azure-Endpunkten](../private-link/private-endpoint-dns.md).
+
+> [!IMPORTANT]
+> Falls Sie für Hochverfügbarkeit private Endpunkte in mehreren Regionen erstellt haben, sollten Sie in jeder Region eine separate Ressourcengruppe verwenden und darin das virtuelle Netzwerk und die zugehörige private DNS-Zone platzieren. Diese Konfiguration verhindert auch eine unvorhersehbare DNS-Auflösung, die durch die gemeinsame Nutzung derselben privaten DNS-Zone verursacht wird.
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
-ms.openlocfilehash: 3f6b1bb189390f6ddd02e9ea2d636dcaa66a4f19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8000d07824c27f60dd5d8d6a457521691fe2b7d7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88210856"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658399"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD-Anwendungsproxy: Verlauf der Versionsveröffentlichungen
 In diesem Artikel werden die veröffentlichten Versionen und Features des Anwendungsproxys von Azure Active Directory (Azure AD) aufgeführt. Das Azure AD-Team aktualisiert den Anwendungsproxy regelmäßig mit neuen Features und Funktionen. Anwendungsproxyconnectors werden automatisch aktualisiert, wenn eine neue Version veröffentlicht wird. 
@@ -38,7 +38,7 @@ Herunterladen des Azure AD-Anwendungsproxyconnectors |  [Laden Sie den aktuellen
 22. Juli 2020: Für den Download veröffentlicht: Diese Version steht nur über die Downloadseite zur Installation zur Verfügung. Ein automatisches Upgrade dieser Version wird zu einem späteren Zeitpunkt veröffentlicht.
 
 ### <a name="new-features-and-improvements"></a>Neue Features und Verbesserungen
--   Verbesserte Unterstützung für Azure Government-Cloudumgebungen. Ausführliche Informationen zur ordnungsgemäßen Installation des Connectors für die Azure Government-Cloudprüfung finden Sie unter [Voraussetzungen](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) und [Installieren des Agents für die Azure Government-Cloud](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud).
+-   Verbesserte Unterstützung für Azure Government-Cloudumgebungen. Ausführliche Informationen zur ordnungsgemäßen Installation des Connectors für die Azure Government-Cloudprüfung finden Sie unter [Voraussetzungen](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) und [Installieren des Agents für die Azure Government-Cloud](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud).
 - Unterstützung für die Verwendung des Webclients der Remotedesktopdienste mit dem Anwendungsproxy. Weitere Informationen finden Sie unter [Veröffentlichen des Remotedesktops per Azure AD-Anwendungsproxy](application-proxy-integrate-with-remote-desktop-services.md).
 - Verbesserte Aushandlungen für WebSocket-Erweiterungen 
 

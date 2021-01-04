@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 48ce6edc3d071d84c3921f85c2e9798b804d0279
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0cdf4699f5dc00087845ee6ca0d24ad6493c320b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017742"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426871"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Hinweise zur Migration von Media Services v2 zu v3
 
@@ -59,7 +59,7 @@ Wenn Sie derzeit über einen Videodienst verfügen, der auf Basis von der [älte
 * Die Liveausgabe ist einfacher zu verwenden als die Programmentität in den v2-APIs. 
 * Verbesserte RTMP-Unterstützung (höhere Stabilität und bessere Unterstützung für Quellcodierer).
 * Sichere RTMPS-Erfassung.<br/>Bei der Erstellung eines Liveereignisses erhalten Sie vier Erfassungs-URLs. Die vier Erfassungs-URLs sind nahezu identisch und verfügen über das gleiche Streamingtoken (AppId). Nur der Portnummernteil unterscheidet sich. Zwei der URLs dienen als primäre URL und Backup-URL für RTMPS.   
-* Sie verfügen über rollenbasierte Zugriffssteuerung (RBAC) für Ihre Entitäten. 
+* Sie verfügen über rollenbasierte Zugriffssteuerung von Azure (Azure RBAC) für Ihre Entitäten. 
 
 ## <a name="known-issues"></a>Bekannte Probleme
 

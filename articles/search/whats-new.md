@@ -6,27 +6,32 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 11/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 135e0ccfd9b4681932a9a69df0372aa400933124
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 73902cf53d9995f7dfc1991e3b7ed7c7c469bf2a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102573"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026660"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Neuerungen in der kognitiven Azure-Suche
 
 Informieren Sie sich über die Neuerungen im Dienst. Legen Sie ein Lesezeichen für diese Seite an, um über den Dienst auf dem Laufenden zu bleiben.
 
-## <a name="september-2020"></a>September 2020
-
-Erstellen Sie eine Identität für einen Suchdienst in Azure Active Directory, und verwenden Sie anschließend RBAC-Berechtigungen, um der Identität Leseberechtigungen für die Azure-Datenquellen zu erteilen. Wählen Sie optional die Funktion [Ausnahme für vertrauenswürdige Dienste](search-indexer-howto-access-trusted-service-exception.md) aus, falls IP-Regeln nicht in Frage kommen.
-
+## <a name="november-2020"></a>November 2020
 
 |Funktion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | BESCHREIBUNG | Verfügbarkeit  |
 |------------------------------|----------|-------------|---------------|
-| [Verwaltete Dienstidentität](search-howto-managed-identities-data-sources.md) | Indexer, Sicherheit | Erstellen Sie eine Identität für einen Suchdienst in Azure Active Directory, und verwenden Sie anschließend RBAC-Berechtigungen, um Zugriff auf Azure-Datenquellen zu gewähren. Bei diesem Ansatz sind keine Anmeldeinformationen in der Verbindungszeichenfolge erforderlich. <br><br>Eine weitere Möglichkeit zur Verwendung einer verwaltete Dienstidentität ist eine [Ausnahme für vertrauenswürdige Dienste](search-indexer-howto-access-trusted-service-exception.md), falls IP-Regeln nicht in Frage kommen. | Allgemein verfügbar. Greifen Sie auf diese Funktion zu, wenn Sie das Portal oder [Erstellen einer Datenquelle (Azure Cognitive Search-REST-API)](/rest/api/searchservice/create-data-source) mit „api-version=2020-06-30“ verwenden. |
+|[Verschlüsselung mit kundenseitig verwalteten Schlüsseln über Indexer, Datenquellen und Skillsets](search-security-manage-encryption-keys.md) | Sicherheit | Diese Ergänzung erweitert die kundenseitig verwaltete Verschlüsselung für alle Ressourcen, die von einem Suchdienst erstellt und verwaltet werden. Beachten Sie, dass bei der Unterstützung kundenseitig verwalteter Schlüssel zusätzlich zu der von Microsoft ausgeführten und verwalteten Basisverschlüsselung eine Verschlüsselungsschicht hinzugefügt wird. | Allgemein verfügbar mit der REST-API-Version 2020-06-30 |  
+
+## <a name="september-2020"></a>September 2020
+
+Erstellen Sie eine Identität für einen Suchdienst in Azure Active Directory, und verwenden Sie anschließend Azure RBAC-Berechtigungen, um der Identität Leseberechtigungen für die Azure-Datenquellen zu erteilen. Wählen Sie optional die Funktion [Ausnahme für vertrauenswürdige Dienste](search-indexer-howto-access-trusted-service-exception.md) aus, falls IP-Regeln nicht in Frage kommen.
+
+|Funktion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | BESCHREIBUNG | Verfügbarkeit  |
+|------------------------------|----------|-------------|---------------|
+| [Verwaltete Dienstidentität](search-howto-managed-identities-data-sources.md) | Indexer, Sicherheit | Erstellen Sie eine Identität für einen Suchdienst in Azure Active Directory, und verwenden Sie anschließend Azure RBAC-Berechtigungen, um Zugriff auf Azure-Datenquellen zu gewähren. Bei diesem Ansatz sind keine Anmeldeinformationen in der Verbindungszeichenfolge erforderlich. <br><br>Eine weitere Möglichkeit zur Verwendung einer verwaltete Dienstidentität ist eine [Ausnahme für vertrauenswürdige Dienste](search-indexer-howto-access-trusted-service-exception.md), falls IP-Regeln nicht in Frage kommen. | Allgemein verfügbar. Greifen Sie auf diese Funktion zu, wenn Sie das Portal oder [Erstellen einer Datenquelle (Azure Cognitive Search-REST-API)](/rest/api/searchservice/create-data-source) mit „api-version=2020-06-30“ verwenden. |
 | [Ausgehende Anforderungen über eine Private Link-Instanz](search-indexer-howto-access-private.md) | Indexer, Sicherheit | Erstellen Sie eine gemeinsam genutzte Private Link-Ressource, die Indexer beim Zugriff auf Azure-Ressourcen verwenden können, die durch Azure Private Link geschützt sind. Weitere Informationen zu allen Möglichkeiten, mit denen Sie Indexerverbindungen schützen können, finden Sie unter [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md) (Indexerzugriff auf Inhalte, die mit Azure-Netzwerksicherheitsfeatures geschützt werden). | Allgemein verfügbar. Greifen Sie auf diese Funktion zu, wenn Sie das Portal oder eine [gemeinsam genutzte Private Link-Ressource](/rest/api/searchmanagement/sharedprivatelinkresources) mit „api-version=2020-08-01“ verwenden. |
 | [Verwaltungs-REST-API (2020-08-01)](/rest/api/searchmanagement/management-api-versions) | REST | Neue stabile REST-API, um die Erstellung gemeinsam genutzter Private Link-Ressourcen zu unterstützen. | Allgemein verfügbar. |
 | [Verwaltungs-REST-API (2020-08-01-Preview)](/rest/api/searchmanagement/management-api-versions) | REST | Fügt eine gemeinsam genutzte Private Link-Ressource für Azure Functions und Azure SQL für MySQL-Datenbanken hinzu. | Öffentliche Vorschau. |
@@ -36,13 +41,13 @@ Erstellen Sie eine Identität für einen Suchdienst in Azure Active Directory, u
 
 |Funktion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | BESCHREIBUNG | Verfügbarkeit  |
 |---------|------------------|-------------|---------------|
-| [Doppelte Verschlüsselung](search-security-overview.md#encryption) | Sicherheit | Aktivieren Sie die doppelte Verschlüsselung auf Speicherebene, indem Sie die CMK-Verschlüsselung (Customer Managed Key, kundenseitig verwalteter Schlüssel) für neue Suchdienste konfigurieren. Erstellen Sie einen neuen Dienst, [konfigurieren sie kundenseitig verwaltete Schlüssel, und wenden Sie sie auf Indizes oder Synonymzuordnungen an](search-security-manage-encryption-keys.md), und profitieren Sie von doppelter Verschlüsselung für diesen Inhalt. | Allgemein verfügbar für alle Suchdienste, die nach dem 1. August 2020 in den folgenden Regionen erstellt wurden: USA, Westen 2; USA, Osten; USA, Süden-Mitte; US Gov Virginia; US Gov Arizona. Verwenden Sie zum Erstellen des Diensts das Portal, die Verwaltungs-REST-APIs oder SDKs. |
+| [Doppelte Verschlüsselung](search-security-overview.md#encryption) | Sicherheit | Aktivieren Sie die doppelte Verschlüsselung auf Speicherebene, indem Sie die Verschlüsseln kundenseitig verwalteter Schlüssel für neue Suchdienste konfigurieren. Erstellen Sie einen neuen Dienst, [konfigurieren sie kundenseitig verwaltete Schlüssel, und wenden Sie sie auf Indizes oder Synonymzuordnungen an](search-security-manage-encryption-keys.md), und profitieren Sie von doppelter Verschlüsselung für diesen Inhalt. | Allgemein verfügbar für alle Suchdienste, die nach dem 1. August 2020 in den folgenden Regionen erstellt wurden: USA, Westen 2; USA, Osten; USA, Süden-Mitte; US Gov Virginia; US Gov Arizona. Verwenden Sie zum Erstellen des Diensts das Portal, die Verwaltungs-REST-APIs oder SDKs. |
 
 ## <a name="july-2020"></a>Juli 2020
 
 |Funktion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | BESCHREIBUNG | Verfügbarkeit  |
 |---------|------------------|-------------|---------------|
-| [Azure.Search.Documents-Clientbibliothek](/dotnet/api/overview/azure/search.documents-readme) | Azure SDK für .NET | Eine vom Azure SDK-Team veröffentlichte .NET-Clientbibliothek, die für die Konsistenz mit anderen .NET-Clientbibliotheken konzipiert ist. <br/><br/>Version 11 ist für Search-REST-API-Version „2020-06-30“ ausgelegt, aber sie verfügt noch nicht über Unterstützung für Wissensspeicher, räumliche Typen oder [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder). <br/><br/>Weitere Informationen finden Sie unter [Schnellstart: Erstellen eines Suchindex in .NET](search-get-started-dotnet.md) and [Upgrade auf Version 11 des Azure Cognitive Search .NET SDK](search-dotnet-sdk-migration-version-11.md). | Allgemein verfügbar. </br> Installieren Sie das Paket [Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/) über NuGet. |
+| [Azure.Search.Documents-Clientbibliothek](/dotnet/api/overview/azure/search.documents-readme) | Azure SDK für .NET | Eine vom Azure SDK-Team veröffentlichte .NET-Clientbibliothek, die für die Konsistenz mit anderen .NET-Clientbibliotheken konzipiert ist. <br/><br/>Version 11 ist für Search-REST-API-Version „2020-06-30“ ausgelegt, aber sie verfügt noch nicht über Unterstützung für Wissensspeicher oder räumliche Typen. <br/><br/>Weitere Informationen finden Sie unter [Schnellstart: Erstellen eines Suchindex in .NET](search-get-started-dotnet.md) and [Upgrade auf Version 11 des Azure Cognitive Search .NET SDK](search-dotnet-sdk-migration-version-11.md). | Allgemein verfügbar. </br> Installieren Sie das Paket [Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/) über NuGet. |
 | [azure.search.documents-Clientbibliothek](/python/api/overview/azure/search-documents-readme)  | Azure SDK für Python| Eine vom Azure SDK-Team veröffentlichte Python-Clientbibliothek, die für die Konsistenz mit anderen Python-Clientbibliotheken konzipiert ist. <br/><br/>Version 11 ist auf die Search-REST-API-Version „2020-06-30“ ausgelegt. | Allgemein verfügbar. </br> Installieren Sie das Paket [azure-search-documents](https://pypi.org/project/azure-search-documents/) über PyPI. |
 | [@azure/search-documents-Clientbibliothek](/javascript/api/overview/azure/search-documents-readme)  | Azure SDK für JavaScript | Eine vom Azure SDK-Team veröffentlichte JavaScript-Clientbibliothek, die für die Konsistenz mit anderen JavaScript-Clientbibliotheken konzipiert ist. <br/><br/>Version 11 ist auf die Search-REST-API-Version „2020-06-30“ ausgelegt. | Allgemein verfügbar. </br> Installieren Sie das [Paket @azure/search-documents](https://www.npmjs.com/package/@azure/search-documents) über npm. |
 
@@ -85,7 +90,7 @@ Erstellen Sie eine Identität für einen Suchdienst in Azure Active Directory, u
 |Funktion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | BESCHREIBUNG | Verfügbarkeit  |
 |---------|------------------|-------------|---------------|
 | [**Von Kunden verwaltete Verschlüsselungsschlüssel**](search-security-manage-encryption-keys.md) |Sicherheit | Zusätzlich zur integrierten Verschlüsselung der Plattform wird eine zusätzliche Verschlüsselungsebene hinzugefügt. Mithilfe eines Verschlüsselungsschlüssels, den Sie erstellen und verwalten, können Sie Indexinhalt und Synonymzuordnungen verschlüsseln, bevor die Nutzlast einen Suchdienst erreicht. | Allgemein verfügbar. </br> Verwenden Sie REST-API 2019-05-06 oder höher suchen. Bei verwaltetem Code heißt das richtige Paket noch [.NET SDK Version 8.0-preview](search-dotnet-sdk-migration-version-9.md), auch wenn das Feature sich nicht mehr in der Vorschau befindet. |
-| [**IP-Regeln für eingehende Firewallunterstützung(Vorschau)**](service-configure-firewall.md) | Sicherheit | Beschränken Sie den Zugriff auf einen Suchdienstendpunkt auf bestimmte IP-Adressen. Die Vorschau-API verfügt über neue **IpRule** - und **NetworkRuleSet** -Eigenschaften in der [CreateOrUpdate-API](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). Diese Previewfunktion ist in den ausgewählten Regionen verfügbar. |  Öffentliche Vorschau mit api-version=2019-10-01-Preview.  |
+| [**IP-Regeln für eingehende Firewallunterstützung(Vorschau)**](service-configure-firewall.md) | Sicherheit | Beschränken Sie den Zugriff auf einen Suchdienstendpunkt auf bestimmte IP-Adressen. Die Vorschau-API verfügt über neue **IpRule**- und **NetworkRuleSet**-Eigenschaften in der [CreateOrUpdate-API](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). Diese Previewfunktion ist in den ausgewählten Regionen verfügbar. |  Öffentliche Vorschau mit api-version=2019-10-01-Preview.  |
 | [**Azure Private Link für einen privaten Suchendpunkt (Vorschau)**](service-create-private-endpoint.md) | Sicherheit| Sie können einen Suchdienst vor dem öffentlichen Internet abschirmen, indem Sie ihn als Private Link-Ressource ausführen, auf die nur Client-Apps und andere Azure-Dienste im gleichen virtuellen Netzwerk zugreifen können. | Öffentliche Vorschau mit api-version=2019-10-01-Preview.  |
 
 ## <a name="features-in-2019"></a>Funktionen in 2019

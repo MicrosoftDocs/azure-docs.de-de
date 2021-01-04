@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 716759fd6542cd473c236992ac88b69bfe5d0a66
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a268cd6b2fa3da6846554e3d1b170298abec7f18
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148023"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279400"
 ---
 # <a name="show-the-configuration-of-an-arc-enabled-postgresql-hyperscale-server-group"></a>Anzeigen der Konfiguration einer Arc-fähigen PostgreSQL Hyperscale-Servergruppe
 
@@ -210,7 +210,7 @@ Spec:
       Name:  citus
       Name:  pg_stat_statements
   Scale:
-    Shards:  2
+    Workers:  2
   Scheduling:
     Default:
       Resources:
@@ -236,20 +236,50 @@ Status:
 Events:               <none>
 ```
 
+>[!NOTE]
+>Vor dem Release von Oktober 2020 war `Workers` im vorherigen Beispiel `Shards`. Weitere Informationen finden Sie unter [Versionshinweise – Azure Arc-fähige Datendienste (Vorschauversion)](release-notes.md).
+
 Benennen wir einige bestimmte relevante Punkte in der Beschreibung der oben gezeigten `servergroup`. Welche Informationen erhalten wir zu dieser Servergruppe?
 
 - Es handelt sich um Version 12 von Postgres: 
-   > Typ: `postgresql-12`
+   > ```json
+   > Kind:         `postgresql-12`
+   > ```
 - Erstellungsdatum ist der Monat August 2020:
-   > Zeitstempel der Erstellung: `2020-08-31T21:01:07Z`
+   > ```json
+   > Creation Timestamp:  `2020-08-31T21:01:07Z`
+   > ```
 - In dieser Servergruppe wurden zwei Postgres-Erweiterungen erstellt: `citus` und `pg_stat_statements`
-   > Engine: Erweiterungen:   Name:  `citus`-Name: `pg_stat_statements`
+   > ```json
+   > Engine:
+   >    Extensions:
+   >      Name:  `citus`
+   >      Name:  `pg_stat_statements`
+   > ```
 - Es werden zwei Workerknoten verwendet.
-   > Skalierung: Shards: `2`
+   > ```json
+   > Scale:
+   >    Workers:  `2`
+   > ```
 - Es wird garantiert, dass 1 CPU/virtueller Kern und 512 MB RAM pro Knoten verwendet werden. Es werden mehr als 4 CPUs/virtuelle Kerne und 1024 MB Arbeitsspeicher verwendet:
-   > Zeitplanung: Standardwert:   Ressourcen:     Grenzwerte:       CPU:     4       Arbeitsspeicher:  1024 Mi     Anforderungen:       CPU:     1       Arbeitsspeicher:  512Mi
+   > ```json
+   > Scheduling:
+   >    Default: 
+   >      Resources:
+   >        Limits:
+   >          Cpu:     4
+   >          Memory:  1024Mi
+   >        Requests:
+   >          Cpu:     1
+   >          Memory:  512Mi
+   > ```
  - Steht für Abfragen zur Verfügung und weist kein Problem auf. Alle Knoten sind aktiv und werden ausgeführt:
-   > Status: ... Bereite Pods:         Zustand 3/3:              Bereit
+   > ```json
+   > Status:
+   >  ...
+   >  Ready Pods:         3/3
+   >  State:              Ready
+   > ```
 
 **Mit azdata:**
 
@@ -292,7 +322,7 @@ Gibt die folgende Ausgabe in einem Format und mit Inhalt zurück, der der von ku
       ]
     },
     "scale": {
-      "shards": 2
+      "workers": 2
     },
     "scheduling": {
       "default": {

@@ -7,13 +7,13 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/09/2020
 ms.author: duau
-ms.custom: seodec18
-ms.openlocfilehash: 292f50877fe40127e5aea95e395109bc76e1f75d
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 7a482e268137946222f1c8b427424598bd78f935
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940870"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735102"
 ---
 # <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>Tutorial: Erstellen und Ändern des Peerings für eine ExpressRoute-Verbindung mithilfe von CLI
 

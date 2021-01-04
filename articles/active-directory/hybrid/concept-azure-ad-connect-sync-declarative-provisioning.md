@@ -77,7 +77,7 @@ Verbindungen werden als eine oder mehrere Gruppen definiert. Innerhalb einer Gru
 ![Verbindungsdefinition](./media/concept-azure-ad-connect-sync-declarative-provisioning/join2.png)  
 Die Verbindungen in diesem Bild werden von oben nach unten verarbeitet. Zuerst prüft die Synchronisierungspipeline, ob eine Übereinstimmung für eine EmployeeID vorliegt. Andernfalls prüft die zweite Regel, ob die Objekte mithilfe des Kontonamens verbunden werden können. Liegt hier ebenfalls keine Übereinstimmung vor, prüft die dritte und letzte Regel eine etwas ungenauere Übereinstimmung unter Verwendung des Benutzernamens.
 
-Wenn alle Verbindungsregeln ausgewertet wurden und keine Übereinstimmung vorliegt, wird der **Verknüpfungstyp** auf der Seite **Beschreibung** verwendet. Wenn für diese Einstellung **Bereitstellen**festgelegt ist, wird im Ziel ein neues Objekt erstellt.  
+Wenn alle Verbindungsregeln ausgewertet wurden und keine Übereinstimmung vorliegt, wird der **Verknüpfungstyp** auf der Seite **Beschreibung** verwendet. Wenn für diese Einstellung **Bereitstellen** festgelegt ist, wird im Ziel ein neues Objekt erstellt.  
 ![Screenshot des geöffneten Dropdownmenüs „Verknüpfungstyp“.](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
 
 Ein Objekt darf nur über eine einzelne Synchronisierungsregel mit Verbindungsregeln im Bereich verfügen. Wenn mehrere Synchroniserungsregeln vorhanden sind und „Join“ (Verbindung) definiert ist, tritt ein Fehler auf. Die Rangfolge wird nicht zum Lösen von Verbindungskonflikten verwenden. Ein Objekt benötigt eine Verbindungsregel im Bereich, damit der Datenfluss der Attribute in die gleiche ein-/ausgehende Richtung erfolgt. Wenn der Datenfluss der Attribute sowohl ein- als auch ausgehend zum gleichen Objekt erfolgen soll, benötigen Sie sowohl eine ein- als auch eine ausgehende Synchronisierungsregel mit der Verbindung.
@@ -99,7 +99,7 @@ Transformationen werden verwendet, um festzulegen, wie der Datenfluss von Attrib
 Das Kontrollkästchen **Apply once** (Einmal anwenden) definiert, dass das Attribut nur festgelegt wird wenn das Objekt erstmals erstellt wird. Diese Konfiguration kann beispielsweise verwendet werden, um ein anfängliches Kennwort für ein neues Benutzerobjekt festzulegen.
 
 ### <a name="merging-attribute-values"></a>Zusammenführen von Attributwerten
-In den Attributflüssen ist eine Einstellung verfügbar, mit der Sie ermitteln können, ob mehrwertige Attribute aus mehreren verschiedenen Connectors zusammengeführt werden sollten. Beim Standardwert **Update**wird die Synchronisierungsregel mit der höchsten Rangfolge angewendet.
+In den Attributflüssen ist eine Einstellung verfügbar, mit der Sie ermitteln können, ob mehrwertige Attribute aus mehreren verschiedenen Connectors zusammengeführt werden sollten. Beim Standardwert **Update** wird die Synchronisierungsregel mit der höchsten Rangfolge angewendet.
 
 ![Screenshot des Abschnitts „Transformationen hinzufügen“ mit dem geöffneten Dropdownmenü „Zusammenführungstypen“.](./media/concept-azure-ad-connect-sync-declarative-provisioning/mergetype.png)  
 
@@ -118,7 +118,7 @@ Bei eingehenden Synchronisierungsregeln kann das Literal **NULL** verwendet werd
 
 Das Literal **AuthoritativeNull** ähnelt **NULL**, jedoch mit dem Unterschied, dass keine Regeln mit niedrigerer Rangfolge einen Wert beitragen können.
 
-Ein Attributfluss kann auch **IgnoreThisFlow**verwenden. Dieses Literal ähnelt NULL, da es angibt, dass kein beizutragender Wert vorhanden ist. Der Unterschied besteht darin, dass ein bereits vorhandener Wert im Ziel nicht entfernt wird. Es ist, als hätte es den Attributfluss nie gegeben.
+Ein Attributfluss kann auch **IgnoreThisFlow** verwenden. Dieses Literal ähnelt NULL, da es angibt, dass kein beizutragender Wert vorhanden ist. Der Unterschied besteht darin, dass ein bereits vorhandener Wert im Ziel nicht entfernt wird. Es ist, als hätte es den Attributfluss nie gegeben.
 
 Beispiel:
 
@@ -128,7 +128,7 @@ Dieser Ausdruck ist wie folgt zu lesen: Wenn sich das Postfach des Benutzers in 
 
 ### <a name="importedvalue"></a>ImportedValue
 Die Funktion „ImportedValue“ unterscheidet sich von allen anderen Funktionen, da der Attributname in Anführungszeichen statt in eckige Klammern eingeschlossen werden muss:  
-[https://login.microsoftonline.com/consumers/](`ImportedValue("proxyAddresses")`).
+`ImportedValue("proxyAddresses")`.
 
 Üblicherweise verwendet ein Attribut während der Synchronisierung den erwarteten Wert, selbst wenn er noch nicht exportiert wurde oder während des Exports ein Fehler empfangen wurde („top of the tower“). Bei einer eingehenden Synchronisierung wird vorausgesetzt, dass ein Attribut, das ein verbundenes Verzeichnis noch nicht erreicht hat, dieses schließlich erreicht. In einigen Fällen ist es wichtig, nur Werte zu synchronisieren, die vom verbundenen Verzeichnis bestätigt wurden („hologram and delta import tower“).
 

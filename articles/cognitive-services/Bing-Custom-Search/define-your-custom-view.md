@@ -10,16 +10,21 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: fa518900b05ba552cb066fbf55e4dbeaa6c681e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2d4eb75002474bbec57753bbf0255cc4c2b4a16
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86183204"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338638"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Konfigurieren der Benutzeroberfläche für die benutzerdefinierte Bing-Suche
 
-Mit einer benutzerdefinierten Suchinstanz können Sie die Benutzeroberfläche für die Suche so anpassen, dass nur Inhalte von Websites einbezogen werden, die Ihre Benutzer interessieren. Anstatt eine webweite Suche durchzuführen, durchsucht Bing nur die Segmente des Webs, die für Sie interessant sind. Um Ihre benutzerdefinierte Ansicht des Webs zu erstellen, verwenden Sie das [Portal](https://customsearch.ai) für die benutzerdefinierte Bing-Suche.
+> [!WARNING]
+> Die APIs der Bing-Suche werden von Cognitive Services auf Bing-Suchdienste umgestellt. Ab dem **30. Oktober 2020** müssen alle neuen Instanzen der Bing-Suche mit dem [hier](/bing/search-apis/bing-web-search/create-bing-search-service-resource) dokumentierten Prozess bereitgestellt werden.
+> APIs der Bing-Suche, die mit Cognitive Services bereitgestellt wurden, werden noch drei Jahre lang bzw. bis zum Ablauf Ihres Enterprise Agreement unterstützt (je nachdem, was zuerst geschieht).
+> Eine Anleitung zur Migration finden Sie unter [Bing-Suchdienste](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
+Mit einer benutzerdefinierten Suchinstanz können Sie die Benutzeroberfläche für die Suche so anpassen, dass nur Inhalte von Websites einbezogen werden, die Ihre Benutzer interessieren. Anstatt eine webweite Suche durchzuführen, durchsucht Bing nur die Segmente des Webs, die für Sie interessant sind. Um Ihre benutzerdefinierte Ansicht des Webs zu erstellen, verwenden Sie das [Portal](https://www.customsearch.ai) für die benutzerdefinierte Bing-Suche.
 
 Im Portal können Sie eine Suchinstanz erstellen, die die Websegmente angibt: Domänen, Unterseiten und Webseiten, die Bing durchsuchen soll, sowie diejenigen, die nicht durchsucht werden sollen. Das Portal kann auch Inhalt vorschlagen, der ggf. eingebunden werden soll.
 
@@ -74,16 +79,16 @@ Nach dem Hinzufügen von Websegmenten zur Liste **Aktiv** werden im Portal für 
 
 ## <a name="search-for-images-and-videos"></a>Suchen nach Bildern und Videos
 
-Sie können nach Bildern und Videos auf ähnliche Weise wie nach Webinhalten suchen, indem Sie die [API für die benutzerdefinierte Bing-Bildersuche](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) bzw. die [API für die benutzerdefinierte Bing-Videosuche](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference) verwenden. Sie können diese Ergebnisse mit der [gehosteten Benutzeroberfläche](hosted-ui.md) oder den APIs anzeigen. 
+Sie können nach Bildern und Videos auf ähnliche Weise wie nach Webinhalten suchen, indem Sie die [API für die benutzerdefinierte Bing-Bildersuche](/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) bzw. die [API für die benutzerdefinierte Bing-Videosuche](/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference) verwenden. Sie können diese Ergebnisse mit der [gehosteten Benutzeroberfläche](hosted-ui.md) oder den APIs anzeigen. 
 
-Diese APIs ähneln den APIs für die nicht benutzerdefinierte [Bing-Bildersuche](../Bing-Image-Search/overview.md) und [Bing-Videosuche](../Bing-Video-Search/search-the-web.md). Es wird aber das gesamte Web durchsucht, und der Abfrageparameter `customConfig` ist nicht erforderlich. In diesen Dokumentationssätzen finden Sie auch weitere Informationen zur Arbeit mit Bildern und Videos. 
+Diese APIs ähneln den APIs für die nicht benutzerdefinierte [Bing-Bildersuche](../Bing-Image-Search/overview.md) und [Bing-Videosuche](../bing-video-search/overview.md). Es wird aber das gesamte Web durchsucht, und der Abfrageparameter `customConfig` ist nicht erforderlich. In diesen Dokumentationssätzen finden Sie auch weitere Informationen zur Arbeit mit Bildern und Videos. 
 
 ## <a name="test-your-search-instance-with-the-preview-pane"></a>Testen Ihrer Suchinstanz mit dem Bereich „Vorschau“
 
 Sie können Ihre Suchinstanz im Vorschaubereich auf der rechten Seite testen, um Suchabfragen zu übermitteln und die Ergebnisse anzuzeigen. 
 
 1. Wählen Sie unterhalb des Suchfelds die Option **Meine Instanz**. Sie können die Ergebnisse Ihrer Suchbenutzeroberfläche mit Bing vergleichen, indem Sie die Option **Bing** wählen. 
-2. Wählen Sie einen sicheren Suchfilter und den zu durchsuchenden Markt aus (siehe [Abfrageparameter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)).
+2. Wählen Sie einen sicheren Suchfilter und den zu durchsuchenden Markt aus (siehe [Abfrageparameter](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)).
 3. Geben Sie eine Abfrage ein, und drücken Sie die EINGABETASTE, oder klicken Sie auf das Suchsymbol, um die Ergebnisse aus der aktuellen Konfiguration anzuzeigen. Sie können den Typ der von Ihnen durchgeführten Suche ändern, indem Sie auf **Web**, **Bild** oder **Video** klicken, um die entsprechenden Ergebnisse abzurufen. 
 
 <a name="adjustrank"></a>
@@ -160,4 +165,4 @@ Wenn Sie die benutzerdefinierte Suche auf der entsprechenden Ebene abonniert hab
 - [Aufrufen der benutzerdefinierten Suche](./search-your-custom-view.md)
 - [Konfigurieren der gehosteten Benutzeroberfläche](./hosted-ui.md)
 - [Verwenden von Dekorationsmarkierungen zum Hervorheben von Text](../bing-web-search/hit-highlighting.md)
-- [Einteilen von Webseiten](./page-webpages.md)
+- [Einteilen von Webseiten](../bing-web-search/paging-search-results.md)

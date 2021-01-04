@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49f3e082969b7483601088cd976d8cc30d500017
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 366d68be1a7f115980973015e363da6095876754
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367464"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997629"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Anleitung: Konfigurieren und Aktivieren von Risikorichtlinien
 
@@ -33,7 +33,7 @@ Beide Richtlinien dienen dazu, die Reaktion auf Risikoerkennungen in Ihrer Umgeb
 
 ## <a name="prerequisites"></a>Voraussetzungen 
 
-Wenn Ihre Organisation den Benutzern die Möglichkeit zur Eigenwartung erkannter Risiken geben möchte, müssen Benutzer sowohl für die Self-Service-Kennwortzurücksetzung als auch für Azure Multi-Factor Authentication registriert sein. Für eine optimale Erfahrung wird empfohlen [die Umgebung zur kombinierten Registrierung von Sicherheitsinformationen zu aktivieren](../authentication/howto-registration-mfa-sspr-combined.md). Wenn Sie Benutzern eine Eigenwartung erlauben, erreichen diese schneller wieder einen produktiven Zustand, ohne dass ein Eingriff durch einen Administrator erforderlich ist. Administratoren können diese Ereignisse weiterhin sehen und im Anschluss untersuchen. 
+Wenn Ihre Organisation den Benutzern bei Erkennung von Risiken die Möglichkeit geben möchte, selbst Maßnahmen zu ergreifen, müssen die Benutzer sowohl für die Self-Service-Kennwortzurücksetzung als auch für Azure AD Multi-Factor Authentication registriert sein. Für eine optimale Erfahrung wird empfohlen [die Umgebung zur kombinierten Registrierung von Sicherheitsinformationen zu aktivieren](../authentication/howto-registration-mfa-sspr-combined.md). Wenn Sie Benutzern eine Eigenwartung erlauben, erreichen diese schneller wieder einen produktiven Zustand, ohne dass ein Eingriff durch einen Administrator erforderlich ist. Administratoren können diese Ereignisse weiterhin sehen und im Anschluss untersuchen. 
 
 ## <a name="choosing-acceptable-risk-levels"></a>Auswählen akzeptabler Risikostufen
 
@@ -54,29 +54,29 @@ Konfigurierte vertrauenswürdige [Netzwerkadressen](../conditional-access/locati
 Führen Sie die folgenden Schritte aus, um die Richtlinien zum Benutzerrisiko und zum Anmelderisiko zu aktivieren.
 
 1. Navigieren Sie zum [Azure-Portal](https://portal.azure.com).
-1. Navigieren Sie zu **Azure Active Directory** > **Sicherheit** > **Identity Protection** > **Übersicht** .
+1. Navigieren Sie zu **Azure Active Directory** > **Sicherheit** > **Identity Protection** > **Übersicht**.
 1. Wählen Sie **Benutzerrisiko-Richtlinie** aus.
    1. Unter **Zuweisungen**
-      1. **Benutzer** : Wählen Sie **Alle Benutzer** oder **Einzelne Benutzer und Gruppen auswählen** aus, wenn Sie den Rollout einschränken.
+      1. **Benutzer**: Wählen Sie **Alle Benutzer** oder **Einzelne Benutzer und Gruppen auswählen** aus, wenn Sie den Rollout einschränken.
          1. Optional können Sie Benutzer aus der Richtlinie ausschließen.
-      1. **Bedingungen** - **Benutzerrisiko** : Die Empfehlung von Microsoft lautet, diese Option auf **Hoch** festzulegen.
+      1. **Bedingungen** - **Benutzerrisiko**: Die Empfehlung von Microsoft lautet, diese Option auf **Hoch** festzulegen.
    1. Unter **Steuerelemente**
-      1. **Zugriff** : Die Empfehlung von Microsoft lautet, den **Zugriff zuzulassen** und eine **Kennwortänderung anzufordern** .
+      1. **Zugriff**: Die Empfehlung von Microsoft lautet, den **Zugriff zuzulassen** und eine **Kennwortänderung anzufordern**.
    1. **Richtlinie erzwingen** - **Ein**
-   1. **Speichern** : Diese Aktion kehrt zur Seite **Übersicht** zurück.
+   1. **Speichern**: Diese Aktion kehrt zur Seite **Übersicht** zurück.
 1. Wählen Sie **Anmelderisiko-Richtlinie** aus.
    1. Unter **Zuweisungen**
-      1. **Benutzer** : Wählen Sie **Alle Benutzer** oder **Einzelne Benutzer und Gruppen auswählen** aus, wenn Sie den Rollout einschränken.
+      1. **Benutzer**: Wählen Sie **Alle Benutzer** oder **Einzelne Benutzer und Gruppen auswählen** aus, wenn Sie den Rollout einschränken.
          1. Optional können Sie Benutzer aus der Richtlinie ausschließen.
-      1. **Bedingungen** - **Anmelderisiko** : Die Empfehlung von Microsoft lautet, diese Option auf **Mittel und höher** festzulegen.
+      1. **Bedingungen** - **Anmelderisiko**: Die Empfehlung von Microsoft lautet, diese Option auf **Mittel und höher** festzulegen.
    1. Unter **Steuerelemente**
-      1. **Zugriff** : Die Empfehlung von Microsoft lautet, den **Zugriff zuzulassen** und eine **mehrstufige Authentifizierung anzufordern** .
+      1. **Zugriff**: Die Empfehlung von Microsoft lautet, den **Zugriff zuzulassen** und eine **mehrstufige Authentifizierung anzufordern**.
    1. **Richtlinie erzwingen** - **Ein**
    1. **Speichern**
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Aktivieren der Registrierungsrichtlinie für die mehrstufige Authentifizierung](howto-identity-protection-configure-mfa-policy.md)
+- [Aktivieren der Registrierungsrichtlinie für Azure AD Multi-Factor Authentication](howto-identity-protection-configure-mfa-policy.md)
 
 - [Was bedeutet Risiko?](concept-identity-protection-risks.md)
 

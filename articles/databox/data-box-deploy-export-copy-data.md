@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: fb1415874c42e3913d98d4a674732a4d9b98a0c5
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: ecc6e1e1a543f3190e9f73512ca0b9ae45cc3fe9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123907"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335212"
 ---
 # <a name="tutorial-copy-data-from-azure-data-box-via-smb-preview"></a>Tutorial: Kopieren von Daten aus Azure Data Box über SMB (Vorschau)
 
@@ -54,7 +54,7 @@ Wenn Sie einen Windows Server-Hostcomputer verwenden, führen Sie die folgenden 
 
 2. Kopieren Sie im Dialogfeld „Auf Freigabe zugreifen und Daten kopieren“ den **Benutzernamen** und das **Kennwort** für die Freigabe. Klicken Sie auf **OK**.
     
-    ![Abrufen der Anmeldeinformationen für Freigaben 2](media/data-box-deploy-export-copy-data/get-share-credentials-2.png)
+    ![Abrufen der Anmeldeinformationen für Freigaben, Option „Auf Freigabe zugreifen und Daten kopieren“](media/data-box-deploy-export-copy-data/get-share-credentials-2.png)
 
 3. Öffnen Sie ein Befehlsfenster, um über Ihren Hostcomputer auf die Freigaben zuzugreifen, die mit Ihrem Speicherkonto (*exportbvtdataset2* im folgenden Beispiel) verknüpft sind. Geben Sie an der Eingabeaufforderung Folgendes ein:
 
@@ -73,13 +73,13 @@ Wenn Sie einen Windows Server-Hostcomputer verwenden, führen Sie die folgenden 
     The command completed successfully.
     ```
 
-4. Drücken Sie WINDOWS-TASTE+R. Geben Sie im Fenster **Ausführen** die `\\<device IP address>` an. Wählen Sie **OK** aus, um den Datei-Explorer zu öffnen.
+5. Drücken Sie WINDOWS-TASTE+R. Geben Sie im Fenster **Ausführen** die `\\<device IP address>` an. Wählen Sie **OK** aus, um den Datei-Explorer zu öffnen.
     
-    ![Herstellen einer Verbindung mit der Freigabe über den Datei-Explorer](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
+    ![Herstellen einer Verbindung mit der Freigabe über den Datei-Explorer, Eingeben der Geräte-ID](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
 
     Die Freigaben sollten jetzt als Ordner angezeigt werden.
     
-    ![Herstellen einer Verbindung mit der Freigabe über den Datei-Explorer 2](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-2.png)
+    ![Herstellen einer Verbindung mit der Freigabe über den Datei-Explorer, Anzeigen von Freigaben](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-2.png)
 
     
 Wenn Sie einen Linux-Client verwenden, stellen Sie mit folgendem Code die SMB-Freigabe bereit. Der unten angegebene Parameter „vers“ ist die Version des SMB, den Ihr Linux-Host unterstützt. Geben Sie die entsprechende Version in den folgenden Befehl ein. Von Data Box unterstützte SMB-Versionen finden Sie unter [Unterstützte Dateisysteme für Linux-Clients](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients). 

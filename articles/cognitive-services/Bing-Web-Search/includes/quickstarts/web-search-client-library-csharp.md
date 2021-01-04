@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9dbed0de3cf6cc911111825a75430d0c616f4dc4
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: d391586ade9e9a58344f9b1666802a453770152a
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217596"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386649"
 ---
 Die Clientbibliothek für die Bing-Websuche erleichtert die Integration der Bing-Websuche in Ihre C#-Anwendung. In dieser Schnellstartanleitung erfahren Sie, wie Sie einen Client instanziieren, eine Anforderung senden und die Antwort ausgeben.
 
@@ -36,7 +36,7 @@ Im Folgenden sind die Tools aufgeführt, die Sie zum Ausführen dieser Schnellst
 > [!TIP]
 > Laden Sie den aktuellen Code als Visual Studio-Projektmappe von [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/) herunter.
 
-Der erste Schritt ist die Erstellung eines neuen Konsolenprojekts. Falls Sie Hilfe beim Einrichten eines Konsolenprojekts benötigen, lesen Sie [Hallo Welt – Ihr erstes Programm (C#-Programmierhandbuch)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). Um das Bing-Websuche-SDK in Ihrer Anwendung verwenden zu können, müssen Sie `Microsoft.Azure.CognitiveServices.Search.WebSearch` mithilfe des NuGet-Paket-Managers installieren.
+Der erste Schritt ist die Erstellung eines neuen Konsolenprojekts. Falls Sie Hilfe beim Einrichten eines Konsolenprojekts benötigen, lesen Sie [Hallo Welt – Ihr erstes Programm (C#-Programmierhandbuch)](/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). Um das Bing-Websuche-SDK in Ihrer Anwendung verwenden zu können, müssen Sie `Microsoft.Azure.CognitiveServices.Search.WebSearch` mithilfe des NuGet-Paket-Managers installieren.
 
 Beim Installieren des [Pakets mit dem SDK für die Websuche](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) werden auch die folgenden Komponenten installiert:
 
@@ -424,4 +424,3 @@ Denken Sie daran, nach dem Fertigstellen dieses Projekts Ihren Abonnementschlüs
 
 > [!div class="nextstepaction"]
 > [Cognitive Services SDK-Beispiele für Node.js](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/)
-                                    

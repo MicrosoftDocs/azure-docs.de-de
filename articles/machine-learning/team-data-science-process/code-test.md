@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: fc837405e03ffac41d216a5ba18384208b07aaf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcebc568db4a0d2b4b287045ba0a67c88d9b8c92
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090296"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020601"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Data Science-Codetests in Azure mit dem Team Data Science-Prozess und Azure DevOps Services
 Dieser Artikel ist ein vorläufiger Leitfaden für das Testen von Code in einem Data Science-Workflow. Solche Tests bieten Data Scientists eine systematische und effiziente Möglichkeit, die Qualität und das erwartete Ergebnis ihres Codes zu überprüfen. Wir verwenden ein TDSP-Projekt (Team Data Science-Prozess) mit dem [UCI Adult Income-Dataset](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome). Dieses Projekt wurde zu einem früheren Zeitpunkt veröffentlicht, um zu zeigen, wie das Codetesting funktioniert. 
@@ -124,7 +124,7 @@ Führen Sie die folgenden Schritte aus, um Codetests und einen automatischen Bui
 
     ![Liste der Vorlagen und Schaltfläche „Leerer Prozess“](./media/code-test/start_empty_process_template.PNG)
 
-    d. Benennen Sie den Build, und wählen Sie den Agent aus. Sie können hier den Standard-Agent verwenden, wenn Sie eine DSVM zum Abschließen des Buildprozesses verwenden möchten. Weitere Informationen zum Einrichten von Agents finden Sie unter [Build- und Release-Agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
+    d. Benennen Sie den Build, und wählen Sie den Agent aus. Sie können hier den Standard-Agent verwenden, wenn Sie eine DSVM zum Abschließen des Buildprozesses verwenden möchten. Weitere Informationen zum Einrichten von Agents finden Sie unter [Build- und Release-Agents](/azure/devops/pipelines/agents/agents?view=vsts).
     
     ![Auswahloptionen für Build und Agent](./media/code-test/select_agent.PNG)
 
@@ -155,7 +155,7 @@ Wenn die Warnungen nicht ordnungsgemäß eingerichtet wurden, erhalten Sie nach 
 * Nutzen Sie die oben genannten Verfahren und Beispiele des UCI-Szenarios zur Vorhersage des Einkommens in Ihren eigenen Data Science-Projekten.
 
 ## <a name="references"></a>References
-* [Team Data Science-Prozess](https://aka.ms/tdsp)
+* [Team Data Science-Prozess](./index.yml)
 * [Visual Studio-Testtools](https://www.visualstudio.com/vs/features/testing-tools/)
 * [Azure DevOps-Testressourcen](https://www.visualstudio.com/team-services/)
 * [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

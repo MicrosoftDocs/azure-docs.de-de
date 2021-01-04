@@ -6,18 +6,21 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 10/01/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: c822aaebb2451d709f6afcdeba959f39c4d491cb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ff6ae6ea6812397e737deb4b97bf1cd15e022c03
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964535"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743172"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Anmelden bei Azure Active Directory per E-Mail-Adresse als alternative Anmelde-ID (Vorschauversion)
+
+> [!NOTE]
+> Die Anmeldung bei Azure AD mit der E-Mail-Adresse als alternativer Anmelde-ID ist ein öffentliches Vorschaufeature von Azure Active Directory. Weitere Informationen zu Vorschauversionen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Viele Organisationen möchten es Benutzern ermöglichen, sich mit denselben Anmeldeinformationen bei Azure Active Directory (Azure AD) anzumelden, die sie auch für ihre lokale Verzeichnisumgebung verwenden. Bei diesem Ansatz, der als Hybridauthentifizierung bezeichnet wird, müssen sich Benutzer nur eine Kombination von Anmeldeinformationen merken.
 
@@ -27,12 +30,12 @@ Einige Organisationen sind aus folgenden Gründen nicht auf die Hybridauthentifi
 * Wenn Sie den Azure AD-UPN ändern, stimmen lokale und Azure AD-Umgebung nicht mehr überein, was zu Problemen mit bestimmten Anwendungen und Diensten führen kann.
 * Aufgrund von betrieblichen oder Compliancegründen möchte die Organisation den lokalen UPN nicht für die Anmeldung bei Azure AD verwenden.
 
-Zur Unterstützung der Umstellung auf die Hybridauthentifizierung können Sie nun Azure AD konfigurieren, damit Benutzer sich mit einer E-Mail-Adresse als alternativer Anmelde-ID in ihrer verifizierten Domäne anmelden können. Wenn *Contoso* beispielsweise in *Fabrikam*umbenannt wird, kann jetzt die E-Mail-Adresse als alternative Anmelde-ID anstelle des alten UPN `balas@contoso.com` verwendet werden. Für den Zugriff auf eine Anwendung oder Dienste melden sich Benutzer mit ihrer zugewiesenen E-Mail-Adresse wie `balas@fabrikam.com` bei Azure AD an.
+Zur Unterstützung der Umstellung auf die Hybridauthentifizierung können Sie nun Azure AD konfigurieren, damit Benutzer sich mit einer E-Mail-Adresse als alternativer Anmelde-ID in ihrer verifizierten Domäne anmelden können. Wenn *Contoso* beispielsweise in *Fabrikam* umbenannt wird, kann jetzt die E-Mail-Adresse als alternative Anmelde-ID anstelle des alten UPN `balas@contoso.com` verwendet werden. Für den Zugriff auf eine Anwendung oder Dienste melden sich Benutzer mit ihrer zugewiesenen E-Mail-Adresse wie `balas@fabrikam.com` bei Azure AD an.
 
 In diesem Artikel erfahren Sie, wie Sie die E-Mail-Adresse als alternative Anmelde-ID aktivieren und verwenden. Diese Funktion ist in der Azure AD Free Edition und höher verfügbar.
 
 > [!NOTE]
-> Die Anmeldung bei Azure AD mit der E-Mail-Adresse als alternativer Anmelde-ID ist ein öffentliches Vorschaufeature von Azure Active Directory. Weitere Informationen zu Vorschauversionen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Diese Funktion ist nur für Azure AD-Benutzer mit Cloudauthentifizierung verfügbar.
 
 ## <a name="overview-of-azure-ad-sign-in-approaches"></a>Übersicht über Ansätze für die Anmeldung bei Azure AD
 
@@ -169,6 +172,72 @@ Nachdem die Richtlinie angewendet wurde, kann es bis zu einer Stunde dauern, bis
 
 Um zu testen, ob Benutzer sich mit ihrer E-Mail-Adresse anmelden können, navigieren Sie zu [https://myprofile.microsoft.com][my-profile], und melden Sie sich mit einem Benutzerkonto an, das auf ihrer E-Mail-Adresse basiert, z. B. `balas@fabrikam.com`, und nicht auf ihrem UPN, z. B. `balas@contoso.com`. Die Anmeldung sollte wie bei einem UPN-basierten Anmeldeereignis aussehen und funktionieren.
 
+## <a name="enable-staged-rollout-to-test-user-sign-in-with-an-email-address"></a>Aktivieren von gestaffelten Rollouts zum Testen der Benutzeranmeldung mit einer E-Mail-Adresse  
+
+Ein [gestaffelter Rollout][staged-rollout] ermöglicht es Mandantenadministratoren, Features für bestimmte Gruppen zu aktivieren. Es wird empfohlen, dass Mandantenadministratoren einen gestaffelten Rollout verwenden, um die Benutzeranmeldung mit einer E-Mail-Adresse zu testen. Sobald das Feature für den gesamten Mandanten bereitgestellt werden kann, sollten die Administratoren eine Richtlinie zur Startbereichsermittlung verwenden.  
+
+
+Sie benötigen die Berechtigungen als *Mandantenadministrator*, um die folgenden Schritte auszuführen:
+
+1. Öffnen Sie eine PowerShell-Sitzung als Administrator, und installieren Sie dann das [AzureADPreview][Install-Module]-Modul mithilfe des Cmdlets *Install-Module*:
+
+    ```powershell
+    Install-Module AzureADPreview
+    ```
+
+    Wenn Sie dazu aufgefordert werden, wählen Sie **Y**, um NuGet zu installieren oder das Modul aus einem nicht vertrauenswürdigen Repository zu installieren.
+
+2. Melden Sie sich bei Ihrem Azure AD-Mandanten als *Mandantenadministrator* an, indem Sie das Cmdlet [Connect-AzureAD][Connect-AzureAD] verwenden:
+
+    ```powershell
+    Connect-AzureAD
+    ```
+
+    Der Befehl gibt die Informationen zu Ihrem Konto, Ihrer Umgebung und Ihrer Mandanten-ID zurück.
+
+3. Führen Sie die folgenden Cmdlets aus, um alle vorhandenen Richtlinien für gestaffelte Rollouts aufzulisten:
+   
+   ```powershell
+   Get-AzureADMSFeatureRolloutPolicy
+   ``` 
+
+4. Wenn für dieses Feature keine Richtlinien für gestaffelte Rollouts vorhanden sind, erstellen Sie eine neue Richtlinie für gestaffelte Rollouts, und notieren Sie sich die Richtlinien-ID:
+
+   ```powershell
+   New-AzureADMSFeatureRolloutPolicy -Feature EmailAsAlternateId -DisplayName "EmailAsAlternateId Rollout Policy" -IsEnabled $true
+   ```
+
+5. Suchen Sie die directoryObject-ID für die Gruppe, die der Richtlinie für gestaffelte Rollouts hinzugefügt werden soll. Notieren Sie sich den Wert, der für den *Id*-Parameter zurückgegeben wird, da Sie ihn im nächsten Schritt benötigen.
+   
+   ```powershell
+   Get-AzureADMSGroup -SearchString "Name of group to be added to the staged rollout policy"
+   ```
+
+6. Fügen Sie die Gruppe wie im folgenden Beispiel der Richtlinie für gestaffelte Rollouts hinzu. Ersetzen Sie den Wert im Parameter *-Id* durch den Wert, der in Schritt 4 für die Richtlinien-ID zurückgegeben wurde, und den Wert im Parameter *-RefObjectId* durch die *Id*, die Sie sich in Schritt 5 notiert haben. Es kann bis zu einer Stunde dauern, bis Benutzer in der Gruppe ihre Proxyadressen für die Anmeldung verwenden können.
+
+   ```powershell
+   Add-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -RefObjectId "GROUP_OBJECT_ID"
+   ```
+   
+Bei neuen Mitgliedern, die der Gruppe hinzugefügt werden, kann es bis zu 24 Stunden dauern, bis sie ihre Proxyadressen für die Anmeldung verwenden können.
+
+### <a name="removing-groups"></a>Entfernen von Gruppen
+
+Führen Sie den folgenden Befehl aus, um eine Gruppe aus einer Richtlinie für gestaffelte Rollouts zu entfernen:
+
+```powershell
+Remove-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -ObjectId "GROUP_OBJECT_ID" 
+```
+
+### <a name="removing-policies"></a>Entfernen von Richtlinien
+
+Um eine Richtlinie für gestaffelte Rollouts zu entfernen, deaktivieren Sie die Richtlinie zunächst und entfernen sie dann aus dem System:
+
+```powershell
+Set-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID" -IsEnabled $false 
+Remove-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID"
+```
+
 ## <a name="troubleshoot"></a>Problembehandlung
 
 Wenn Benutzer Probleme mit Anmeldeereignissen mit Ihrer E-Mail-Adresse haben, versuchen Sie es mit den folgenden Schritten zur Problembehandlung:
@@ -202,4 +271,5 @@ Weitere Informationen zu Hybrididentitätsvorgängen finden Sie unter [Funktions
 [Get-AzureADPolicy]: /powershell/module/azuread/get-azureadpolicy
 [New-AzureADPolicy]: /powershell/module/azuread/new-azureadpolicy
 [Set-AzureADPolicy]: /powershell/module/azuread/set-azureadpolicy
+[staged-rollout]: /powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged-rollout
 [my-profile]: https://myprofile.microsoft.com

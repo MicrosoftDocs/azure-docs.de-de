@@ -9,12 +9,12 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 205aed1811c3d9d21a10be7bc4f01c73eb7295b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17418b0255182934045acc9174b34cff2aefff99
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89254791"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307448"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Nachverfolgen von Experimenten und Bereitstellen von Modellen in Azure Machine Learning
 
@@ -26,11 +26,11 @@ Im folgenden Diagramm ist dargestellt, wie Sie mit MLflow-Tracking die Ausführu
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* Sie müssen [einen Azure Machine Learning-Arbeitsbereich bereitstellen](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace).
+* Sie müssen [einen Azure Machine Learning-Arbeitsbereich bereitstellen](../how-to-manage-workspace.md#create-a-workspace).
 
 ## <a name="create-a-new-notebook"></a>Erstellen eines neuen Notebooks
 
-Das Azure Machine Learning und das MLFlow SDK sind auf der Data Science-VM vorinstalliert und sind in der **azureml_py36_\*** -Conda-Umgebung zugänglich. Klicken Sie in Jupyterlab auf das Startprogramm, und wählen Sie den folgenden Kernel aus:
+Das Azure Machine Learning und das MLFlow SDK sind auf der Data Science-VM vorinstalliert und sind in der * *azureml_py36_\** _-Conda-Umgebung zugänglich. Klicken Sie in Jupyterlab auf das Startprogramm, und wählen Sie den folgenden Kernel aus:
 
 ![Kernelauswahl](./media/how-to-track-experiments/experiment-tracking-1.png)
 
@@ -131,13 +131,13 @@ In diesem Abschnitt zeigen wir, wie Modelle, die auf einer DSVM trainiert wurden
 
 ### <a name="step-1-create-inference-compute"></a>Schritt 1: Erstellen von Rückschlusscompute
 
-Klicken Sie im Menü auf der linken Seite in [AzureML Studio](https://ml.azure.com) auf __Compute__ und dann auf die Registerkarte __Rückschlusscluster__. Klicken Sie als nächstes auf __+ Neu__, wie unten besprochen:
+Klicken Sie im Menü auf der linken Seite in [AzureML Studio](https://ml.azure.com) auf __Compute__ und dann auf die Registerkarte __Rückschlusscluster__. Klicken Sie als nächstes auf __+ Neu__ , wie unten besprochen:
 
 ![Erstellen von Rückschlusscompute](./media/how-to-track-experiments/mlflow-experiments-6.png)
 
 Geben Sie im Bereich __Neuer Rückschlusscluster__ Details für Folgendes ein:
 
-* Computename
+_ Computename
 * Kubernetes Service. Wählen Sie „Neu erstellen“ aus.
 * Wählen Sie die Region aus.
 * Wählen Sie die VM-Größe aus (für die Zwecke dieses Tutorials ist die Standardgröße Standard_D3_v2 ausreichend).
@@ -163,7 +163,7 @@ Um das Diabetes-Modell bereitzustellen, navigieren Sie in [Azure Machine Learnin
 
 ![Auswählen des Modells](./media/how-to-track-experiments/mlflow-experiments-3.png)
 
-Klicken Sie anschließend im Modelldetailbereich auf die Schaltfläche __Bereitstellen__:
+Klicken Sie anschließend im Modelldetailbereich auf die Schaltfläche __Bereitstellen__ :
 
 ![Bereitstellen](./media/how-to-track-experiments/mlflow-experiments-4.png)
 
@@ -204,4 +204,4 @@ Löschen Sie die in Schritt 1 erstellten Rückschlusscomputeressourcen, damit k
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Weitere Informationen zum [Bereitstellen von Modellen in AzureML](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)
+* Weitere Informationen zum [Bereitstellen von Modellen in AzureML](../how-to-deploy-and-where.md)

@@ -4,19 +4,17 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: glenga
-ms.openlocfilehash: 5e0cff7bde6e80a776d694820ca7b69dafa7c0d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d66e7f497f85141de172c59b67676e1bb93955e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83648816"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020987"
 ---
-Privater Websitezugriff bedeutet, dass der Zugriff auf Ihre App nur über ein privates Netzwerk zugelassen wird, z. B. über ein virtuelles Azure-Netzwerk.
+Ein [privater Azure-Endpunkt](../articles/private-link/private-endpoint-overview.md) ist eine Netzwerkschnittstelle, die Sie privat und sicher mit einem Dienst verbindet, der von Azure Private Link unterstützt wird.  Ein privater Endpunkt verwendet eine private IP-Adresse aus Ihrem virtuellen Netzwerk und macht den Dienst so in Ihrem virtuellen Netzwerk verfügbar.
 
-* Zugriff auf private Sites ist im [Premium-Tarif](../articles/azure-functions/functions-premium-plan.md), [Verbrauchstarif](../articles/azure-functions/functions-scale.md#consumption-plan) und [App Service-Plan](../articles/azure-functions/functions-scale.md#app-service-plan) verfügbar, wenn Dienstendpunkte konfiguriert sind.
-    * Dienstendpunkte können unter **Plattformfeatures** > **Netzwerk** > **Zugriffseinschränkungen konfigurieren** > **Regel hinzufügen** pro App konfiguriert werden. Virtuelle Netzwerke können nun als Regeltyp ausgewählt werden.
-    * Weitere Informationen finden Sie unter [VNET-Dienstendpunkte](../articles/virtual-network/virtual-network-service-endpoints-overview.md).
-    * Bedenken Sie, dass Ihre Funktion auch mit Dienstendpunkten immer noch vollständigen ausgehenden Zugriff auf das Internet besitzt, selbst wenn die virtuelle Netzwerkintegration konfiguriert ist.
-* Der private Websitezugriff ist auch verfügbar, wenn eine App Service-Umgebung mit internen Lastenausgleich (ILB) konfiguriert ist. Weitere Informationen finden Sie unter [Erstellen und Verwenden eines internen Lastenausgleichs mit einer App Service-Umgebung](../articles/app-service/environment/create-ilb-ase.md).
+Sie können einen privaten Endpunkt für ihre Funktionen verwenden, die in den Plänen [Premium](../articles/azure-functions/functions-premium-plan.md) und [App Service](../articles/azure-functions/functions-scale.md#app-service-plan) gehostet werden.
 
-Informationen zum Einrichten des privaten Websitezugriffs finden Sie unter [Tutorial: Einrichten von privatem Websitezugriff für Azure Functions](../articles/azure-functions/functions-create-private-site-access.md).
+Wenn Sie eine eingehende private Endpunktverbindung für Funktionen erstellen, benötigen Sie auch einen DNS-Eintrag, um die private Adresse aufzulösen.  Standardmäßig wird ein privater DNS-Eintrag für Sie erstellt, wenn Sie einen privaten Endpunkt mithilfe des Azure-Portals erstellen.
+
+Weitere Informationen finden Sie unter [Verwenden privater Endpunkte für Web-Apps](../articles/app-service/networking/private-endpoint.md).

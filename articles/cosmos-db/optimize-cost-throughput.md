@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d7d77bdb223e8c3b71ef03febd4081d1f63bd1a3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 86de3e1199b00dff4e03f3b4292f86e6c19ea491
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475463"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296538"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimieren der Kosten für bereitgestellten Durchsatz in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Durch das Angebot eines Modells mit bereitgestelltem Durchsatz bietet Azure Cosmos DB vorhersagbare Leistung in jeder Größenordnung. Das vorzeitige Reservieren oder Bereitstellen von Durchsatz verhindert den „Noisy-Neighbor“-Effekt für die Leistung. Sie geben die genaue Durchsatzmenge an, die Sie benötigen, und Azure Cosmos DB garantiert den konfigurierten Durchsatz (durch SLA zugesichert).
 
@@ -30,7 +31,7 @@ Sie können Durchsatz für Datenbanken oder Container bereitstellen, und jede St
 
 Die folgenden Richtlinien können bei der Entscheidung für eine Durchsatzbereitstellungsstrategie hilfreich sein:
 
-**Die Bereitstellung von Durchsatz für eine Azure Cosmos-Datenbank (mit einer Gruppe von Containern) empfiehlt sich unter folgenden Voraussetzungen** :
+**Die Bereitstellung von Durchsatz für eine Azure Cosmos-Datenbank (mit einer Gruppe von Containern) empfiehlt sich unter folgenden Voraussetzungen**:
 
 1. Sie haben ein paar Dutzend Azure Cosmos-Container und möchten den Durchsatz für alle oder einige freigeben. 
 
@@ -136,7 +137,7 @@ Da Ihnen der bereitgestellte Durchsatz in Rechnung gestellt wird, können Sie du
 
 Führen Sie die folgenden Schritte aus, um den bereitgestellten Durchsatz für eine neue Workload zu ermitteln: 
 
-1. Führen Sie eine erste grobe Evaluierung mit der Kapazitätsplanung aus, und passen Sie Ihre Schätzungen mithilfe von Azure Cosmos-Explorer im Azure-Portal an. 
+1. Führen Sie mit dem Capacity Planner eine erste ungefähre Evaluierung durch, und passen Sie Ihre Schätzungen mithilfe des Azure Cosmos DB-Explorers im Azure-Portal an. 
 
 2. Es wird empfohlen, die Container mit einem höheren Durchsatz als erwartet zu erstellen, und sie dann bei Bedarf zentral herunterzuskalieren. 
 

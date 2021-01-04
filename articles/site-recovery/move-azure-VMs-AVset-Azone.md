@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: fd541e551102b205acff28b6bc06bc88abd14763
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8224ae4a48bb4915492240c414b90edb86a4c258
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605106"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393131"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Verschieben virtueller Azure-Computer in Verfügbarkeitszonen
 
@@ -62,7 +62,7 @@ Wenn Sie Ihre virtuellen Computer als *Einzelinstanz* in einer bestimmten Region
 4. Befolgen Sie bei virtuellen Linux-Computern die Anleitung Ihres Linux-Distributors, um die aktuellen vertrauenswürdigen Stammzertifikate und die Zertifikatsperrliste für den virtuellen Computer abzurufen.
 5. Vergewissern Sie sich, dass Sie keinen Authentifizierungsproxy verwenden, um die Netzwerkkonnektivität für virtuelle Computer zu steuern, die Sie migrieren möchten.
 
-6. Wenn der virtuelle Computer, den Sie verschieben möchten, keinen Zugriff auf das Internet hat und einen Firewallproxy zum Steuern des ausgehenden Zugriffs verwendet, überprüfen Sie die Anforderungen unter [Konfigurieren der ausgehenden Netzwerkkonnektivität](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
+6. Sehen Sie sich die [Anforderungen an die ausgehende Konnektivität für virtuelle Computer](azure-to-azure-tutorial-enable-replication.md#set-up-vm-connectivity) an.
 
 7. Ermitteln Sie das Quellnetzwerklayout und die Ressourcen, die Sie derzeit für die Überprüfung verwenden (einschließlich Lastenausgleichsmodule, Netzwerksicherheitsgruppen und öffentliche IP-Adresse).
 
@@ -99,16 +99,12 @@ In diesem Abschnitt erfahren Sie, wie Sie unter Verwendung von Azure Site Recove
 1. Wählen Sie im Azure-Portal die Option **Virtuelle Computer** und anschließend den virtuellen Computer aus, den Sie in Verfügbarkeitszonen verschieben möchten.
 2. Wählen Sie unter **Vorgänge** die Option **Notfallwiederherstellung** aus.
 3. Wählen Sie unter **Notfallwiederherstellung konfigurieren** > **Zielregion** die Zielregion für die Replikation aus. Vergewissern Sie sich, dass diese Region Verfügbarkeitszonen [unterstützt](../availability-zones/az-region.md).
-
-    ![Auswählen der Zielregion](media/azure-vms-to-zones/enable-rep-1.PNG)
-
 4. Klicken Sie auf **Weiter: Erweiterte Einstellungen**.
 5. Wählen Sie die entsprechenden Werte für Zielabonnement, Ziel-VM-Ressourcengruppe und virtuelles Netzwerk aus.
 6. Wählen Sie im Abschnitt **Verfügbarkeit** die Verfügbarkeitszone aus, in die Sie den virtuellen Computer verschieben möchten. 
    > [!NOTE]
    > Wenn die Option für Verfügbarkeitsgruppe oder -zone nicht angezeigt wird, vergewissern Sie sich, dass die [Voraussetzungen](#prepare-the-source-vms) erfüllt sind und die [Vorbereitung](#prepare-the-source-vms) der virtuellen Quellcomputer abgeschlossen ist.
   
-    ![Auswahloptionen für die Wahl einer Verfügbarkeitszone](media/azure-vms-to-zones/enable-rep-2.PNG)
 
 7. Klicken Sie auf **Replikation aktivieren**. Dadurch wird ein Auftrag gestartet, um die Replikation des virtuellen Computers zu aktivieren.
 
@@ -119,7 +115,6 @@ Nach Abschluss des Replikationsauftrags können Sie den Replikationsstatus über
 1. Wählen Sie im VM-Menü die Option **Notfallwiederherstellung** aus.
 2. Sie können die Replikationsintegrität und die erstellten Wiederherstellungspunkte sowie die Quell- und Zielregionen auf der Karte überprüfen.
 
-   ![Replikationsstatus](media/azure-to-azure-quickstart/replication-status.png)
 
 ## <a name="test-the-configuration"></a>Testen der Konfiguration
 

@@ -12,12 +12,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9a082270e2c113bcdf31ed6bd6db3d38a7117500
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62bfc528886767bc09159ca2a2696c8c9264b307
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279294"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349938"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Konfigurieren der Azure AD-Connector-Kontoberechtigungen 
 
@@ -149,7 +149,7 @@ Dieses Cmdlet legt die folgenden Berechtigungen fest:
 
  
 ### <a name="configure-ms-ds-consistency-guid-permissions"></a>Konfigurieren von MS-DS-Consistency-Guid-Berechtigungen 
-Um Berechtigungen für das AD DS-Connector-Konto festzulegen, wenn Sie das Attribut „ms-Ds-Consistency-Guid“ als Quellanker verwenden (auch bekannt als „Ich möchte den Quellanker durch Azure verwalten lassen“-Option), führen Sie Folgendes aus: 
+Um Berechtigungen für das AD DS-Connector-Konto festzulegen, wenn Sie das Attribut „ms-Ds-Consistency-Guid“ als Quellanker verwenden (auch bekannt als Option „Ich möchte den Quellanker durch Azure verwalten lassen“), führen Sie Folgendes aus: 
 
 ``` powershell
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 

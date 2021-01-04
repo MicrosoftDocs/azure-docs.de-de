@@ -1,7 +1,7 @@
 ---
 title: 'Two-Class Boosted Decision Tree: Modulreferenz'
 titleSuffix: Azure Machine Learning
-description: Hier erfahren Sie, wie Sie mithilfe des Moduls „Two-Class Boosted Decision Tree“ in Azure Machine Learning ein Machine Learning-Modell erstellen, das auf dem Algorithmus für Boosted Decision Trees basiert.
+description: Erfahren Sie, wie Sie das Two-Class Boosted Decision Tree-Modul im Designer verwenden, um einen binären Klassifizierer zu erstellen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
-ms.openlocfilehash: 833caa0cf264fb49d8b32255f429132cd888c6c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 810878956a89b6e7400be99692cf43925d1cd134
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907729"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375910"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Modul „Two-Class Boosted Decision Tree“
 
@@ -56,7 +56,7 @@ Diese Art von Modell kann mithilfe von [Train Model](././train-model.md) (Modell
   
 6.  Geben Sie unter **Number of trees constructed** (Anzahl erstellter Strukturen) die Gesamtzahl von Entscheidungsstrukturen an, die im Ensemble erstellt werden sollen. Mit einer höheren Anzahl von Entscheidungsbäumen erzielen Sie unter Umständen eine bessere Abdeckung, allerdings verlängert sich dadurch die Trainingsdauer.
   
-     Dieser Wert steuert auch die Anzahl von Bäumen, die bei der Visualisierung des trainierten Modells angezeigt werden. Wenn Sie eine einzelne Struktur anzeigen oder ausgeben möchten, legen Sie den Wert auf „1“ fest. In diesem Fall wird allerdings auch nur eine einzelne Struktur (die Struktur mit dem anfänglichen Parametersatz) generiert, und es finden keine weiteren Iterationen statt.
+     Wenn Sie den Wert auf 1 festlegen, wird nur eine einzelne Struktur (die Struktur mit dem anfänglichen Parametersatz) generiert, und es finden keine weiteren Iterationen statt.
   
 7.  Geben Sie unter **Random number seed** (Zufällig gewählter Startwert) eine nicht negative ganze Zahl ein, die als zufälliger Startwert verwendet werden soll. Die Angabe eines Startwerts gewährleistet Reproduzierbarkeit in verschiedenen Ausführungen, die auf den gleichen Daten und Parametern basieren.  
   

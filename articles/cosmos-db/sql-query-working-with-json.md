@@ -3,17 +3,19 @@ title: Arbeiten mit JSON in Azure Cosmos DB
 description: Erfahren Sie etwas über das Abfragen von geschachtelten JSON-Eigenschaften und das Zugreifen darauf sowie über das Verwenden von Sonderzeichen in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/19/2020
 ms.author: tisande
-ms.openlocfilehash: 355f73d46215aa9e05f4ea6d91bb173c77509b63
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9a9300db1adc3ff238c44887012400702690b0e8
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270851"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337828"
 ---
 # <a name="working-with-json-in-azure-cosmos-db"></a>Arbeiten mit JSON in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In der SQL (Core)-API von Azure Cosmos DB werden Elemente als JSON-Code gespeichert. Typsystem und Ausdrücke sind auf JSON-Typen beschränkt. Weitere Informationen finden Sie in der [JSON-Spezifikation](https://www.json.org/).
 

@@ -6,14 +6,15 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 353abe5ac55e49e01f6a99f72307b8525a72fc00
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7c05ca6462d49d1d41791e5b93b7723ac681d448
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281135"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080831"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partitionierung und horizontale Skalierung in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB arbeitet mit Partitionierung, um einzelne Container in einer Datenbank entsprechend den Leistungsanforderungen Ihrer Anwendung zu skalieren. Mithilfe der Partitionierung werden die Elemente in einem Container in Teilgruppen unterteilt, die als *logische Partitionen* bezeichnet werden. Logische Partitionen werden basierend auf dem Wert des *Partitionsschlüssels* erstellt, die jedem Element in einem Container zugeordnet ist. Alle Elemente in einer logischen Partition haben denselben Partitionsschlüsselwert.
 
@@ -73,11 +74,11 @@ Normalerweise benötigen kleinere Container nur eine einzige physische Partition
 
 Die folgende Abbildung zeigt, wie logische Partitionen physischen Partitionen zugeordnet werden, die global verteilt sind:
 
-:::image type="content" source="./media/partitioning-overview/logical-partitions.png" alt-text="Anzeigen der Anzahl von physischen Partitionen" border="false":::
+:::image type="content" source="./media/partitioning-overview/logical-partitions.png" alt-text="Abbildung zur Veranschaulichung der Azure Cosmos DB-Partitionierung" border="false":::
 
 ## <a name="choosing-a-partition-key"></a><a id="choose-partitionkey"></a>Auswählen eines Partitionsschlüssels
 
-Ein Partitionsschlüssel besteht aus zwei Komponenten: dem **Partitionsschlüsselpfad** und dem **Partitionsschlüsselwert** . Betrachten Sie z. B. dieses Element: { "userId" : "Andrew", "worksFor": "Microsoft" }. Wenn Sie "userId" als Partitionsschlüssel auswählen, sind die folgenden beiden Elemente die beiden Partitionsschlüsselkomponenten:
+Ein Partitionsschlüssel besteht aus zwei Komponenten: dem **Partitionsschlüsselpfad** und dem **Partitionsschlüsselwert**. Betrachten Sie z. B. dieses Element: { "userId" : "Andrew", "worksFor": "Microsoft" }. Wenn Sie "userId" als Partitionsschlüssel auswählen, sind die folgenden beiden Elemente die beiden Partitionsschlüsselkomponenten:
 
 * Der Partitionsschlüsselpfad (Beispiel: "/userId"). Der Partitionsschlüsselpfad akzeptiert alphanumerische Zeichen und Unterstriche (_). Mithilfe der Standardpfadnotation (/) können Sie auch geschachtelte Objekte verwenden.
 
@@ -113,7 +114,7 @@ Wenn Ihr Container auf mehr als ein paar physische Partitionen anwachsen könnte
 
 ## <a name="using-item-id-as-the-partition-key"></a>Verwenden der Element-ID als Partitionsschlüssel
 
-Wenn Ihr Container über eine Eigenschaft mit einer Vielzahl möglicher Werte verfügt, stellt diese Eigenschaft wahrscheinlich eine gute Wahl für den Partitionsschlüssel dar. Ein mögliches Beispiel für eine solche Eigenschaft ist die *Element-ID* . Für kleine Container mit vielen Lesevorgängen oder für beliebig große Container mit vielen Schreibvorgängen stellt die *Element-ID* natürlich eine gute Wahl für den Partitionsschlüssel dar.
+Wenn Ihr Container über eine Eigenschaft mit einer Vielzahl möglicher Werte verfügt, stellt diese Eigenschaft wahrscheinlich eine gute Wahl für den Partitionsschlüssel dar. Ein mögliches Beispiel für eine solche Eigenschaft ist die *Element-ID*. Für kleine Container mit vielen Lesevorgängen oder für beliebig große Container mit vielen Schreibvorgängen stellt die *Element-ID* natürlich eine gute Wahl für den Partitionsschlüssel dar.
 
 Die Systemeigenschaft *Element-ID* ist in jedem in Ihrem Container enthaltenen Element vorhanden. Möglicherweise verfügen Sie über weitere Eigenschaften, die eine logische ID Ihres Elements darstellen. In vielen Fällen handelt es sich auch dabei aus den gleichen Gründen wie bei der *Element-ID* um eine gute Wahl für den Partitionsschlüssel.
 

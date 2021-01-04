@@ -7,12 +7,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 53304f14286577bf0bc25b2a66442286527c5140
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a7f5ec0231612a2cee2a9435144c886527c228e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972439"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014474"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Tutorial: Erstellen einer Anwendung für die vernetzte Abfallwirtschaft in IoT Central
 
@@ -92,18 +92,18 @@ Als Lösungsentwickler können Sie Ansichten im Dashboard für Bediener erstelle
 
 Das Dashboard besteht aus unterschiedlichen Arten von Kacheln:
 
-* ***Wide World Waste Utility-Bildkachel***: Die erste Kachel im Dashboard ist eine Bildkachel des fiktiven Abfallentsorgungsunternehmens „Wide World Waste“. Sie können die Kachel anpassen und Ihr eigenes Bild einfügen oder das Bild entfernen. 
+* ***Wide World Waste Utility-Bildkachel** _: Die erste Kachel im Dashboard ist eine Bildkachel des fiktiven Abfallentsorgungsunternehmens „Wide World Waste“. Sie können die Kachel anpassen und Ihr eigenes Bild einfügen oder das Bild entfernen. 
 
-* ***Bildkachel für Abfallbehälter***: Sie können Bild- und Inhaltskacheln verwenden, um eine visuelle Darstellung des zu überwachenden Geräts und einen beschreibenden Text zu erstellen. 
+_ ***Bildkachel für Abfallbehälter** _: Sie können mithilfe von Bild- und Inhaltskacheln eine visuelle Darstellung des zu überwachenden Geräts zusammen mit einem beschreibenden Text erstellen. 
 
-* ***KPI-Kachel für Füllstand***: Auf der Kachel wird ein Wert angezeigt, der von einem Sensor vom Typ *Füllstand* im Abfallbehälter gemeldet wird. Der Sensor für den *Füllstand* und andere Abfallbehältersensoren für *Geruchsmessung* oder *Gewicht* können per Remotezugriff überwacht werden. Ein Bediener kann dann Maßnahmen ergreifen, z. B. ein Fahrzeug der Stadtreinigung losschicken. 
+_ ***KPI-Kachel für Füllstand** _: Auf der Kachel wird ein Wert angezeigt, der von einem Sensor vom Typ „Füllstand“ in einem Abfallbehälter gemeldet wird. Der Sensor für den *Füllstand* und andere Abfallbehältersensoren für *Geruchsmessung* oder *Gewicht* können per Remotezugriff überwacht werden. Ein Bediener kann dann Maßnahmen ergreifen, z. B. ein Fahrzeug der Stadtreinigung losschicken. 
 
-*  ***Karte mit dem Wasserüberwachungsbereich***: Für die Karte wird Azure Maps verwendet, und Sie können die Konfiguration direkt in Azure IoT Central durchführen. Auf der Kachel mit der Karte wird der Gerätestandort angezeigt. Bewegen Sie den Mauszeiger auf die Karte, und probieren Sie die Steuerelemente aus, z. B. Vergrößern, Verkleinern und Erweitern.
+*  ***Karte mit dem Abfallüberwachungsbereich** _: Für die Karte wird Azure Maps verwendet, und Sie können die Konfiguration direkt in Azure IoT Central durchführen. Auf der Kachel mit der Karte wird der Gerätestandort angezeigt. Bewegen Sie den Mauszeiger auf die Karte, und probieren Sie die Steuerelemente aus, z. B. Vergrößern, Verkleinern und Erweitern.
 
      ![Karte im Dashboard für vernetzte Abfallwirtschaft](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-map.png)
 
 
-* ***Balkendiagramm für Füllstand, Geruch oder Gewicht**: Sie können ein oder mehrere Elemente der Gerätetelemetriedaten in einem Balkendiagramm visualisieren. Sie können das Balkendiagramm auch erweitern.  
+_ ***Balkendiagramm für Füllstand, Geruch oder Gewicht**: Sie können ein oder mehrere Element(e) der Gerätetelemetriedaten in einem Balkendiagramm visualisieren. Sie können das Balkendiagramm auch erweitern.  
 
   ![Balkendiagramm im Dashboard für vernetzte Abfallwirtschaft](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-barchart.png)
 
@@ -197,7 +197,7 @@ Die Anwendung **Vernetzte Abfallwirtschaft** verfügt über zwei simulierte Ger�
 
 ## <a name="explore-and-configure-rules"></a>Erkunden und Konfigurieren von Regeln
 
-In Azure IoT Central können Sie Regeln zum automatischen Überwachen der Gerätetelemetrie erstellen und festlegen, dass Aktionen ausgelöst werden, wenn eine oder mehrere Bedingungen erfüllt sind. Die Aktionen können das Senden von E-Mail-Benachrichtigungen oder das Auslösen einer Microsoft Flow- oder Webhookaktion zum Senden von Daten an andere Dienste umfassen.
+In Azure IoT Central können Sie Regeln zum automatischen Überwachen der Gerätetelemetrie erstellen und festlegen, dass Aktionen ausgelöst werden, wenn eine oder mehrere Bedingungen erfüllt sind. Die Aktionen können das Senden von E-Mail-Benachrichtigungen oder aber das Auslösen einer Power Automate- oder Webhookaktion zum Senden von Daten an andere Dienste umfassen.
 
 Die Anwendung **Vernetzte Abfallwirtschaft** verfügt über vier Beispielregeln.
 

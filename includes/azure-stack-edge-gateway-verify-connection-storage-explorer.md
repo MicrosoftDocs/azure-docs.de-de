@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 12/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 3474a97f4b05fd1f944e18abebcef927232453e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 203c977fe9109cd8b2b6de561e975e20aacf700e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89080569"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185541"
 ---
 Falls Sie Storage-Explorer zum ersten Mal nutzen, müssen Sie die folgenden Schritte ausführen.
 
@@ -24,11 +24,11 @@ Führen Sie diese Schritte aus, um eine Verbindung mit dem Speicherkonto herzust
 
 1. Wählen Sie im Storage-Explorer Speicherkonten aus. Klicken Sie mit der rechten Maustaste, und wählen Sie **Verbindung mit Azure Storage herstellen** aus. 
 
-    ![Konfigurieren von Storage-Explorer](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-2.png)
+    ![Konfigurieren von Storage-Explorer 2](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-2.png)
 
 2. Wählen Sie im Dialogfeld **Verbindung mit Azure-Speicher herstellen** die Option **Speicherkontoname und -schlüssel verwenden**.
 
-    ![Konfigurieren von Storage-Explorer](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-3.png)
+    ![Konfigurieren von Storage-Explorer 3](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-3.png)
 
 2. Führen Sie im Dialogfeld **Verbindung mit Name und Schlüssel herstellen** die folgenden Schritte aus:
 
@@ -39,11 +39,11 @@ Führen Sie diese Schritte aus, um eine Verbindung mit dem Speicherkonto herzust
     5. Aktivieren Sie die Option **HTTP verwenden**, wenn die Übertragung per *http* erfolgt. 
     6. Wählen Sie **Weiter** aus.
 
-    ![Konfigurieren von Storage-Explorer](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-4.png)    
+    ![Konfigurieren von Storage-Explorer 4](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-4.png)    
 
 3. Überprüfen Sie im Dialogfeld **Verbindungszusammenfassung** die angegebenen Informationen. Wählen Sie **Verbinden**.
 
-    ![Konfigurieren von Storage-Explorer](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-5.png)
+    ![Konfigurieren von Storage-Explorer 5](media/azure-stack-edge-gateway-verify-connection-storage-explorer/connect-with-storage-explorer-5.png)
 
 4. Das Konto, das Sie erfolgreich hinzugefügt haben, wird im linken Bereich von Storage-Explorer mit dem Namenszusatz „(External, Other)“ ((Extern, Sonstiges)) angezeigt. Wählen Sie **Blobcontainer** aus, um den Container anzuzeigen.
 
@@ -59,27 +59,27 @@ Führen Sie die folgenden Schritte aus, um Daten in Ihr Edge-Speicherkonto auf d
 
 2. Navigieren Sie im Dialogfeld **Dateien hochladen** zu den Dateien, die Sie hochladen möchten, und wählen Sie diese aus. Wählen Sie **Weiter** aus.
 
-    ![Überprüfen der Datenübertragung](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-2.png)
+    ![Überprüfen der Datenübertragung 2](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-2.png)
 
 3. Bestätigen Sie, dass die Dateien hochgeladen wurden. Die hochgeladenen Dateien werden im Container angezeigt.
 
-    ![Überprüfen der Datenübertragung](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-3.png)
+    ![Überprüfen der Datenübertragung 3](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-3.png)
 
 4. Als Nächstes stellen Sie eine Verbindung mit dem Azure Storage-Konto her, das diesem Edge-Speicherkonto zugeordnet wurde. Alle Daten, die in das Edge-Speicherkonto hochgeladen werden, sollten automatisch dem Azure Storage-Konto zugeordnet werden. 
     
     Um die Verbindungszeichenfolge für das Azure Storage-Konto zu erhalten, wechseln Sie zu **Azure Storage-Konto > Zugriffsschlüssel**, und kopieren Sie die Verbindungszeichenfolge.
 
-    ![Überprüfen der Datenübertragung](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-5.png)
+    ![Überprüfen der Datenübertragung 4](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-5.png)
 
     Führen Sie mithilfe der Verbindungszeichenfolge ein Anfügen an das Azure Storage-Konto durch.  
 
-    ![Überprüfen der Datenübertragung](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-4.png)
+    ![Überprüfen der Datenübertragung 5](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-4.png)
 
 
 5. Überprüfen Sie im Dialogfeld **Verbindungszusammenfassung** die angegebenen Informationen. Wählen Sie **Verbinden**.
 
-    ![Überprüfen der Datenübertragung](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-6.png)
+    ![Überprüfen der Datenübertragung 6](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-6.png)
 
 6. Sie werden feststellen, dass die Dateien, die Sie in das Edge-Speicherkonto hochgeladen haben, in das Azure Storage-Konto übertragen wurden.
 
-    ![Überprüfen der Datenübertragung](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-7.png)
+    ![Überprüfen der Datenübertragung 7](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-7.png)

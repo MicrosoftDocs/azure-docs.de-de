@@ -3,18 +3,20 @@ title: Verwenden integrierter Notebookbefehle und -features in C#-Notebooks in A
 description: Erfahren Sie, wie Sie integrierte Befehle und Features verwenden, um allgemeine Vorgänge unter Verwendung der in Azure Cosmos DB integrierten C#-Notebooks durchzuführen.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 47ac6b4caf97b264df58732f8d031fc63091171e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67fe71d8e2d6ab239989cb30e9bf5a1b4d731037
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019265"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340476"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-c-notebooks-preview"></a>Verwenden integrierter Notebookbefehle und -features in C#-Notebooks in Azure Cosmos DB (Vorschau)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Integrierte Jupyter Notebooks in Azure Cosmos DB ermöglichen es Ihnen, Ihre Daten über das Azure-Portal zu analysieren und zu visualisieren. In diesem Artikel wird beschrieben, wie Sie integrierte Notebookbefehle und -features verwenden, um allgemeine Vorgänge in C#-Notebooks durchzuführen.
 
@@ -117,12 +119,12 @@ Beispielsweise kann im Beispiel *GetingStarted_Csharp.ipynb* die Variable mit de
 
 :::image type="content" source="media/use-notebook-features-and-commands/csharp-query-cell.png" alt-text="CSharp-Abfragezelle":::
 
-:::image type="content" source="media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png" alt-text="CSharp-Abfragezelle":::
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png" alt-text="Daten-Explorer in nteract":::
 
 ## <a name="use-built-in-dictionary-viewer"></a>Verwenden der integrierten Wörterbuchanzeige
 Sie können die integrierte Wörterbuchanzeige verwenden, um eine Variable anzuzeigen. Fügen Sie in einer Zelle die Variable, die Sie visualisieren möchten, in die letzte Zeile ein, die beim Ausführen der Zelle automatisch angezeigt wird.
 
-:::image type="content" source="media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png" alt-text="CSharp-Abfragezelle":::
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png" alt-text="Integrierte Wörterbuchanzeige":::
 
 ## <a name="upload-json-items-to-a-container"></a>Hochladen von JSON-Elementen in einen Container
 Sie können den Magic-Befehl ``%%upload`` verwenden, um Daten aus einer JSON-Datei in einen angegebenen Azure Cosmos-Container hochzuladen. Laden Sie die Elemente mithilfe des folgenden Befehls hoch:
@@ -160,7 +162,7 @@ Ersetzen Sie ``{notebookName}`` durch den Namen des Notebooks, das Sie ausführe
 ## <a name="reset-notebooks-workspace"></a>Zurücksetzen des Notebookarbeitsbereichs
 Wählen Sie in der Befehlsleiste den Befehl zum **Zurücksetzen des Arbeitsbereichs** aus, um den Notebookarbeitsbereich auf die Standardeinstellungen zurückzusetzen. Dadurch werden alle installierten benutzerdefinierten Pakete entfernt und der Jupyter-Server neu gestartet. Ihre Notebooks, Dateien und Azure Cosmos-Ressourcen sind nicht betroffen.  
 
-:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="CSharp-Abfragezelle":::
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Zurücksetzen des Notebookarbeitsbereichs":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 

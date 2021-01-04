@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 62aa8f966126d95af003478e7f43d3ccea2b48cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 833b6413cc5dfde1129075a286e5fe93a06e159f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310406"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890920"
 ---
 # <a name="create-a-map"></a>Erstellen einer Karte
 
@@ -22,7 +22,7 @@ In diesem Artikel erfahren Sie, wie Sie eine Karte erstellen und animieren.
 
 ## <a name="loading-a-map"></a>Laden einer Karte
 
-Um eine Karte zu laden, erstellen Sie eine neue Instanz der [Map-Klasse](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map). Beim Initialisieren der Karte übergeben Sie eine DIV-Element-ID zum Rendern der Karte und eine Reihe von Optionen, die beim Laden der Karte verwendet werden. Wenn im `atlas`-Namespace keine standardmäßigen Authentifizierungsinformationen angegeben sind, müssen diese Informationen beim Laden der Karte in den Kartenoptionen angegeben werden. Die Karte lädt aus Leistungsgründen verschiedene Ressourcen asynchron. Fügen Sie daher nach dem Erstellen der Karteninstanz ein `ready`- oder ein `load`-Ereignis zur Karte hinzu, und fügen Sie dann zusätzlichen Code, der mit der Karte interagiert, zum Ereignishandler hinzu. Das `ready`-Ereignis wird ausgelöst, sobald genügend Ressourcen geladen wurden, um eine programmgesteuerte Interaktion mit der Karte zu ermöglichen. Das `load`-Ereignis wird ausgelöst, nachdem die anfängliche Kartenansicht vollständig geladen wurde. 
+Um eine Karte zu laden, erstellen Sie eine neue Instanz der [Map-Klasse](/javascript/api/azure-maps-control/atlas.map). Beim Initialisieren der Karte übergeben Sie eine DIV-Element-ID zum Rendern der Karte und eine Reihe von Optionen, die beim Laden der Karte verwendet werden. Wenn im `atlas`-Namespace keine standardmäßigen Authentifizierungsinformationen angegeben sind, müssen diese Informationen beim Laden der Karte in den Kartenoptionen angegeben werden. Die Karte lädt aus Leistungsgründen verschiedene Ressourcen asynchron. Fügen Sie daher nach dem Erstellen der Karteninstanz ein `ready`- oder ein `load`-Ereignis zur Karte hinzu, und fügen Sie dann zusätzlichen Code, der mit der Karte interagiert, zum Ereignishandler hinzu. Das `ready`-Ereignis wird ausgelöst, sobald genügend Ressourcen geladen wurden, um eine programmgesteuerte Interaktion mit der Karte zu ermöglichen. Das `load`-Ereignis wird ausgelöst, nachdem die anfängliche Kartenansicht vollständig geladen wurde. 
 
 <br/>
 
@@ -48,10 +48,10 @@ Sehen Sie sich den Pen <a href='https://codepen.io/azuremaps/pen/eqMYpZ/'>render
 
 Beim Erstellen einer Karte können mehrere verschiedene Typen von Optionen übergeben werden, um die Funktionsweise der Karte anzupassen. Diese sind nachfolgend aufgeführt.
 
-- Mit [CameraOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.cameraoptions) und [CameraBoundOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.cameraboundsoptions) wird der Bereich angegeben, der auf der Karte angezeigt werden soll.
-- Mit [ServiceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.serviceoptions) wird angegeben, wie die Karte mit Diensten interagieren soll, die die Karte unterstützen.
-- Mit [StyleOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions) wird angegeben, wie die Karte formatiert und gerendert werden soll.
-- Mit [UserInteractionOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.userinteractionoptions) wird angegeben, wie die Karte erreicht werden soll, wenn der Benutzer mit der Karte interagiert. 
+- Mit [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions) und [CameraBoundOptions](/javascript/api/azure-maps-control/atlas.cameraboundsoptions) wird der Bereich angegeben, der auf der Karte angezeigt werden soll.
+- Mit [ServiceOptions](/javascript/api/azure-maps-control/atlas.serviceoptions) wird angegeben, wie die Karte mit Diensten interagieren soll, die die Karte unterstützen.
+- Mit [StyleOptions](/javascript/api/azure-maps-control/atlas.styleoptions) wird angegeben, wie die Karte formatiert und gerendert werden soll.
+- Mit [UserInteractionOptions](/javascript/api/azure-maps-control/atlas.userinteractionoptions) wird angegeben, wie die Karte erreicht werden soll, wenn der Benutzer mit der Karte interagiert. 
 
 Diese Optionen können auch nach dem Laden der Karte mit den Funktionen `setCamera`, `setServiceOptions`, `setStyle`und `setUserInteraction` aktualisiert werden. 
 
@@ -81,7 +81,7 @@ map.setCamera({
 });
 ```
 
-Im folgenden Code wird ein [Map-Objekt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map) erstellt, und die Optionen für Zentrieren und Zoomen werden festgelegt. Karteneigenschaften wie „Zentrieren“ und „Zoomfaktor“ gehören zu [CameraOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.cameraoptions).
+Im folgenden Code wird ein [Map-Objekt](/javascript/api/azure-maps-control/atlas.map) erstellt, und die Optionen für Zentrieren und Zoomen werden festgelegt. Karteneigenschaften wie „Zentrieren“ und „Zoomfaktor“ gehören zu [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions).
 
 <br/>
 
@@ -101,7 +101,7 @@ map.setCamera({
 });
 ```
 
-Im folgenden Code wird über `new atlas.Map()` ein [Map-Objekt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map) konstruiert. Karteneigenschaften wie `CameraBoundsOptions` können mit der Funktion [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map) der Map-Klasse definiert werden. Eigenschaften von Begrenzungen und Abständen werden mit `setCamera` festgelegt.
+Im folgenden Code wird über `new atlas.Map()` ein [Map-Objekt](/javascript/api/azure-maps-control/atlas.map) konstruiert. Karteneigenschaften wie `CameraBoundsOptions` können mit der Funktion [setCamera](/javascript/api/azure-maps-control/atlas.map) der Map-Klasse definiert werden. Eigenschaften von Begrenzungen und Abständen werden mit `setCamera` festgelegt.
 
 <br/>
 
@@ -110,7 +110,7 @@ Im folgenden Code wird über `new atlas.Map()` ein [Map-Objekt](https://docs.mic
 
 ### <a name="animate-map-view"></a>Animieren der Kartenansicht
 
-Beim Festlegen der Kameraoptionen der Karte können auch [Animationsoptionen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.animationoptions) festgelegt werden. Mit diesen Optionen werden der Animationstyp und die Dauer zum Verschieben der Kamera angegeben.
+Beim Festlegen der Kameraoptionen der Karte können auch [Animationsoptionen](/javascript/api/azure-maps-control/atlas.animationoptions) festgelegt werden. Mit diesen Optionen werden der Animationstyp und die Dauer zum Verschieben der Kamera angegeben.
 
 ```javascript
 map.setCamera({
@@ -135,7 +135,7 @@ Manchmal ist es nützlich, HTTP-Anforderungen ändern zu können, die vom Karten
 - Das Hinzufügen zusätzlicher Header zu Kachelanforderungen. Dies wird oft für kennwortgeschützte Dienste durchgeführt.
 - Ändern von URLs zum Ausführen von Anforderungen über einen Proxydienst.
 
-Die [Dienstoptionen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.serviceoptions) der Karte umfassen eine `transformRequest`-Funktion, die zum Ändern aller von der Karte gestellten Anforderungen verwendet werden kann, bevor diese durchgeführt werden. Die `transformRequest`-Option ist eine Funktion, die zwei Parameter akzeptiert: eine Zeichenfolgen-URL und eine Ressourcentyp-Zeichenfolge, die angibt, wofür die Anforderung verwendet wird. Diese Funktion muss ein [RequestParameters](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.requestparameters)-Ergebnis zurückgeben.
+Die [Dienstoptionen](/javascript/api/azure-maps-control/atlas.serviceoptions) der Karte umfassen eine `transformRequest`-Funktion, die zum Ändern aller von der Karte gestellten Anforderungen verwendet werden kann, bevor diese durchgeführt werden. Die `transformRequest`-Option ist eine Funktion, die zwei Parameter akzeptiert: eine Zeichenfolgen-URL und eine Ressourcentyp-Zeichenfolge, die angibt, wofür die Anforderung verwendet wird. Diese Funktion muss ein [RequestParameters](/javascript/api/azure-maps-control/atlas.requestparameters)-Ergebnis zurückgeben.
 
 ```JavaScript
 transformRequest: (url: string, resourceType: string) => RequestParameters
@@ -180,7 +180,7 @@ Schauen Sie sich die Codebeispiele an. Sie können den JavaScript-Code auf der R
 Erfahren Sie mehr zu den in diesem Artikel verwendeten Klassen und Methoden:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Map](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
 > [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions)
@@ -197,4 +197,4 @@ Sehen Sie sich Codebeispiele an, die zeigen, wie Sie Ihrer App Funktionen hinzuf
 > [Hinzufügen von Steuerelementen zur Karte](map-add-controls.md)
 
 > [!div class="nextstepaction"]
-> [Codebeispiele](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Codebeispiele](/samples/browse/?products=azure-maps)

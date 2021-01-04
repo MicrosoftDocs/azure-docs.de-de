@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d7a143f99eca73e0620e24ac5d93141ddb7d99e6
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: a0ad14481673f0061fb0170e60869109c87a6829
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215959"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379785"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Übersicht über Token in Azure Active Directory B2C
 
@@ -91,7 +91,7 @@ Die folgenden Eigenschaften werden zum [Verwalten der Tokenkompatibilität](conf
 
 - **Ausstelleranspruch (iss)** : Diese Eigenschaft gibt den Azure AD B2C-Mandanten an, der das Token ausgestellt hat. Standardwert: `https://<domain>/{B2C tenant GUID}/v2.0/`. Der Wert `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` enthält IDs für den Azure AD B2C-Mandanten und den in der Tokenanforderung verwendeten Benutzerflow. Verwenden Sie diesen Wert, wenn Ihre Anwendung oder Bibliothek Azure AD B2C benötigt, um die [OpenID Connect Discovery 1.0-Spezifikationen](https://openid.net/specs/openid-connect-discovery-1_0.html) zu erfüllen.
 
-- **Antragstelleranspruch (sub)** : Diese Eigenschaft gibt die Entität an, für die das Token Informationen bestätigt. Der Standardwert ist **ObjectID** . Dieser Wert füllt den Anspruch `sub` im Token mit der Objekt-ID des Benutzers auf. Der Wert **Nicht unterstützt** wird nur zur Abwärtskompatibilität angegeben. Es empfiehlt sich, baldmöglichst zu **ObjectID** zu wechseln.
+- **Antragstelleranspruch (sub)** : Diese Eigenschaft gibt die Entität an, für die das Token Informationen bestätigt. Der Standardwert ist **ObjectID**. Dieser Wert füllt den Anspruch `sub` im Token mit der Objekt-ID des Benutzers auf. Der Wert **Nicht unterstützt** wird nur zur Abwärtskompatibilität angegeben. Es empfiehlt sich, baldmöglichst zu **ObjectID** zu wechseln.
 
 - **Anspruch zur Darstellung der Richtlinien-ID:** Mit dieser Eigenschaft wird der Anspruchstyp angegeben, in den der in der Tokenanforderung verwendete Richtlinienname eingefügt wird. Standardwert: `tfp`. Der Wert `acr` wird nur zur Abwärtskompatibilität angegeben.
 
@@ -107,7 +107,7 @@ Bei der Überprüfung eines Tokens muss Ihre Anwendung sowohl die Signatur als a
 
 ### <a name="validate-signature"></a>Überprüfen der Signatur
 
-Ein JWT enthält drei Segmente: einen *Header* , einen *Textteil* und eine *Signatur* . Mit dem Signatursegment kann die Authentizität des Tokens überprüft werden, sodass es für Ihre Anwendung als vertrauenswürdig eingestuft werden kann. Azure AD B2C-Token werden mit branchenüblichen asymmetrischen Verschlüsselungsalgorithmen signiert, z.B. RSA 256.
+Ein JWT enthält drei Segmente: einen *Header*, einen *Textteil* und eine *Signatur*. Mit dem Signatursegment kann die Authentizität des Tokens überprüft werden, sodass es für Ihre Anwendung als vertrauenswürdig eingestuft werden kann. Azure AD B2C-Token werden mit branchenüblichen asymmetrischen Verschlüsselungsalgorithmen signiert, z.B. RSA 256.
 
 Der Header des Tokens enthält Informationen zum Schlüssel und zur Verschlüsselungsmethode, die zum Signieren des Tokens verwendet wird:
 
@@ -119,9 +119,9 @@ Der Header des Tokens enthält Informationen zum Schlüssel und zur Verschlüsse
 }
 ```
 
-Der Wert des Anspruchs **alg** ist der Algorithmus, mit dem das Token signiert wurde. Der Wert des Anspruchs **kid** ist der öffentliche Schlüssel, mit dem das Token signiert wurde. Azure AD B2C kann ein Token jederzeit mithilfe eines beliebigen Paars aus öffentlichen und privaten Schlüsseln aus einer Gruppe signieren. Die möglichen Schlüsselgruppen werden von Azure AD B2C regelmäßig rotiert. Ihre Anwendung muss daher über eine automatische Verarbeitung dieser Schlüsseländerungen verfügen. Die von Azure AD B2C verwendeten öffentlichen Schlüssel müssen alle 24 Stunden auf Änderungen überprüft werden. Um unerwartete Schlüsseländerungen zu behandeln, sollte Ihre Anwendung so geschrieben sein, dass die öffentlichen Schlüssel erneut abgerufen werden, wenn ein unerwarteter **kid** -Wert empfangen wird.
+Der Wert des Anspruchs **alg** ist der Algorithmus, mit dem das Token signiert wurde. Der Wert des Anspruchs **kid** ist der öffentliche Schlüssel, mit dem das Token signiert wurde. Azure AD B2C kann ein Token jederzeit mithilfe eines beliebigen Paars aus öffentlichen und privaten Schlüsseln aus einer Gruppe signieren. Die möglichen Schlüsselgruppen werden von Azure AD B2C regelmäßig rotiert. Ihre Anwendung muss daher über eine automatische Verarbeitung dieser Schlüsseländerungen verfügen. Die von Azure AD B2C verwendeten öffentlichen Schlüssel müssen alle 24 Stunden auf Änderungen überprüft werden. Um unerwartete Schlüsseländerungen zu behandeln, sollte Ihre Anwendung so geschrieben sein, dass die öffentlichen Schlüssel erneut abgerufen werden, wenn ein unerwarteter **kid**-Wert empfangen wird.
 
-Azure AD B2C verfügt über einen OpenID Connect-Metadatenendpunkt. Über diesen Endpunkt können Anwendungen zur Laufzeit Informationen zu Azure AD B2C anfordern. Diese Informationen umfassen Endpunkte, Tokeninhalte und Token-Signaturschlüssel. Ihr Azure AD B2C-Mandant enthält ein JSON-Metadatendokument für jede Richtlinie. Beim Metadatendokument handelt es sich um ein JSON-Objekt, das zahlreiche nützliche Informationen enthält, Die Metadaten enthalten **jwks_uri** , um den Ort anzugeben, an dem sich die Gruppe von öffentlichen Schlüsseln zum Signieren von Token befinden. Dieser Ort ist hier angegeben. Es wird jedoch empfohlen, ihn dynamisch mithilfe des Metadatendokuments abzurufen und dabei **jwks_uri** zu analysieren:
+Azure AD B2C verfügt über einen OpenID Connect-Metadatenendpunkt. Über diesen Endpunkt können Anwendungen zur Laufzeit Informationen zu Azure AD B2C anfordern. Diese Informationen umfassen Endpunkte, Tokeninhalte und Token-Signaturschlüssel. Ihr Azure AD B2C-Mandant enthält ein JSON-Metadatendokument für jede Richtlinie. Beim Metadatendokument handelt es sich um ein JSON-Objekt, das zahlreiche nützliche Informationen enthält, Die Metadaten enthalten **jwks_uri**, um den Ort anzugeben, an dem sich die Gruppe von öffentlichen Schlüsseln zum Signieren von Token befinden. Dieser Ort ist hier angegeben. Es wird jedoch empfohlen, ihn dynamisch mithilfe des Metadatendokuments abzurufen und dabei **jwks_uri** zu analysieren:
 
 ```
 https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/discovery/v2.0/keys
@@ -134,7 +134,7 @@ Das Metadatendokument für die Richtlinie `B2C_1_signupsignin1` im Mandaten `con
 https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/v2.0/.well-known/openid-configuration
 ```
 
-Sie haben zwei Optionen, um zu ermitteln, welche Richtlinie zum Signieren eines Tokens verwendet wurde (und wo die Metadaten angefordert werden können). Zunächst einmal ist der Richtlinienname im `acr` -Anspruch im Token enthalten. Sie können Ansprüche aus dem Hauptteil des JWT analysieren, indem Sie eine Base64-Decodierung auf den Hauptteil anwenden und die sich ergebende JSON-Zeichenfolge deserialisieren. Der Anspruch `acr` ist der Name der Richtlinie, die zum Ausstellen des Tokens verwendet wurde. Die andere Option besteht darin, die Richtlinie beim Übermitteln der Anforderung im Wert des Parameters `state` zu codieren und später zu decodieren, um die verwendete Richtlinie zu bestimmen. Beide Methoden sind gültig.
+Sie haben zwei Optionen, um zu ermitteln, welche Richtlinie zum Signieren eines Tokens verwendet wurde (und wo die Metadaten angefordert werden können). Zunächst einmal ist der Richtlinienname im Token im `tfp`-Anspruch (Standard) oder im `acr`-Anspruch (wie konfiguriert) enthalten. Sie können Ansprüche aus dem Hauptteil des JWT analysieren, indem Sie eine Base64-Decodierung auf den Hauptteil anwenden und die sich ergebende JSON-Zeichenfolge deserialisieren. Der Anspruch `tfp` bzw. `acr` ist der Name der Richtlinie, die zum Ausstellen des Tokens verwendet wurde. Die andere Option besteht darin, die Richtlinie beim Übermitteln der Anforderung im Wert des Parameters `state` zu codieren und später zu decodieren, um die verwendete Richtlinie zu bestimmen. Beide Methoden sind gültig.
 
 Die Beschreibung der Signaturüberprüfung geht über den Rahmen dieses Dokuments hinaus. Hilfreiche Informationen zur Tokenvalidierung stehen jedoch in zahlreichen Open-Source-Bibliotheken zur Verfügung.
 
@@ -142,10 +142,10 @@ Die Beschreibung der Signaturüberprüfung geht über den Rahmen dieses Dokument
 
 Wenn Ihre Anwendung oder API ein ID-Token empfängt, muss sie auch einige Überprüfungen anhand der Ansprüche im ID-Token durchführen. Folgende Ansprüche müssen überprüft werden:
 
-- **audience** : Hiermit wird überprüft, ob das ID-Token für Ihre Anwendung bestimmt ist.
-- **not before** und **expiration time** : Hiermit wird überprüft, ob das ID-Token abgelaufen ist.
-- **issuer** : Hiermit wird überprüft, ob das Token von Azure AD B2C für Ihre Anwendung ausgestellt wurde.
-- **nonce** : Eine Strategie zur Abwehr von Tokenwiedergabeangriffen.
+- **audience**: Hiermit wird überprüft, ob das ID-Token für Ihre Anwendung bestimmt ist.
+- **not before** und **expiration time**: Hiermit wird überprüft, ob das ID-Token abgelaufen ist.
+- **issuer**: Hiermit wird überprüft, ob das Token von Azure AD B2C für Ihre Anwendung ausgestellt wurde.
+- **nonce**: Eine Strategie zur Abwehr von Tokenwiedergabeangriffen.
 
 Eine vollständige Liste mit Validierungen, die von Ihrer Anwendung ausgeführt werden müssen, finden Sie in der [OpenID Connect-Spezifikation](https://openid.net).
 

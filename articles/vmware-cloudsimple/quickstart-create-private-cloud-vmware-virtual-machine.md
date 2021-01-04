@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 32ac78c6bc613daf04fc98c03044699f387f290d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd67a5a7f1bf665333e06c66f73c7f18727a3e12
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88140852"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427766"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Erstellen von virtuellen VMware-Computern in Ihrer privaten Cloud
 
@@ -28,7 +28,7 @@ Melden Sie sich unter [https://portal.azure.com](https://portal.azure.com) beim 
 1. Wählen Sie **Alle Dienste** aus.
 2. Suchen Sie nach **CloudSimple Services**.
 3. Wählen Sie den CloudSimple-Dienst aus, über den Sie Ihre private Cloud erstellen möchten.
-4. Klicken Sie auf der Seite **Übersicht** auf **Go to the CloudSimple portal**, um eine neue Browserregisterkarte für das CloudSimple-Portal zu öffnen.  Melden Sie sich nach Aufforderung mit Ihren Azure-Anmeldeinformationen an.  
+4. Klicken Sie auf der Seite **Übersicht** auf **Go to the CloudSimple portal** , um eine neue Browserregisterkarte für das CloudSimple-Portal zu öffnen.  Melden Sie sich nach Aufforderung mit Ihren Azure-Anmeldeinformationen an.  
 
     ![Starten des CloudSimple-Portals](media/launch-cloudsimple-portal.png)
 
@@ -46,7 +46,7 @@ Um auf vCenter zuzugreifen, starten Sie im CloudSimple-Portal. Klicken Sie auf d
   > Verwenden Sie für ISO-Uploads den vSphere HTML5-Client.  Die Verwendung eines Flash-Clients kann zu einem Fehler führen.
 
 1. Rufen Sie die ISO- oder vSphere-Vorlage ab, die Sie auf vCenter hochladen möchten, um einen virtuellen Computer zu erstellen, damit er in Ihrem lokalen System zur Verfügung steht.
-2. Klicken Sie in vCenter, auf das Symbol **Datenträger**, und wählen Sie **vsanDatastore** aus. Klicken Sie auf **Dateien** und dann auf **Neuer Ordner**.
+2. Klicken Sie in vCenter, auf das Symbol **Datenträger** , und wählen Sie **vsanDatastore** aus. Klicken Sie auf **Dateien** und dann auf **Neuer Ordner**.
     ![vCenter-ISO](media/vciso00.png)
 
 3. Erstellen Sie einen Ordner mit dem Namen „ISOs and Templates“.
@@ -57,38 +57,38 @@ Um auf vCenter zuzugreifen, starten Sie im CloudSimple-Portal. Klicken Sie auf d
 
 1. Klicken Sie in vCenter auf das Symbol **Hosts und Cluster**.
 
-2. Klicken Sie mit der rechten Maustaste auf **Workload**, und wählen Sie **Neuer virtueller Computer** aus.
-    ![Neuer virtueller Computer](media/vcvm01.png)
+2. Klicken Sie mit der rechten Maustaste auf **Workload** , und wählen Sie **Neuer virtueller Computer** aus.
+    ![Screenshot, der die Menüoption „Neuer virtueller Computer“ hervorhebt.](media/vcvm01.png)
 
 3. Wählen Sie **Neuen virtuellen Computer erstellen** aus, und klicken Sie auf **Weiter**.
-    ![Neuer virtueller Computer](media/vcvm02.png)
+    ![Screenshot, der die Option „Neuer virtueller Computer“ hervorhebt.](media/vcvm02.png)
 
 4. Benennen Sie den Computer, wählen Sie den Ordner **Workload-VMs** aus, und klicken Sie auf **Weiter**.
-    ![Neuer virtueller Computer](media/vcvm03.png)
+    ![Screenshot, der die Option „Workload-VMs“ hervorhebt](media/vcvm03.png)
 
 5. Wählen Sie die Computeressource **Workload** aus, und klicken Sie auf **Weiter**.
-    ![Neuer virtueller Computer](media/vcvm04.png)
+    ![Screenshot, der die Computeressource „Workload“ hervorhebt](media/vcvm04.png)
 
 6. Wählen Sie **vsanDatastore** aus, und klicken Sie auf **Weiter**.
-    ![Neuer virtueller Computer](media/vcvm05.png)
+    ![Screenshot, der die Option vsanDatastore hervorhebt.](media/vcvm05.png)
 
 7. Behalten Sie die Standardauswahl für ESXi 6.5-Kompatibilität bei, und klicken Sie auf **Weiter**.
-    ![Neuer virtueller Computer](media/vcvm06.png)
+    ![Screenshot mit der ausgewählten Option „ESXi 6.5-Kompatibilität“.](media/vcvm06.png)
 
 8. Wählen Sie das Gastbetriebssystem der ISO-Datei für den virtuellen Computer aus, den Sie erstellen, und klicken Sie auf **Weiter**.
-    ![Neuer virtueller Computer](media/vcvm07.png)
+    ![Screenshot, der zeigt, wie das Gastbetriebssystem der ISO-Datei für die VM ausgewählt wird.](media/vcvm07.png)
 
 9. Wählen Sie Optionen für Festplatte und Netzwerk aus. Wählen Sie für „Neues CD-/DVD-Laufwerk“ **Datastore-ISO-Datei** aus.  Wenn Sie Datenverkehr aus der öffentlichen IP-Adresse an diesen virtuellen Computer zulassen möchten, wählen Sie das Netzwerk als **vm-1** aus.
-    ![Neuer virtueller Computer](media/vcvm08.png)
+    ![Screenshot, der zeigt, wo Sie die ISO-Datei „Datastore“ auswählen.](media/vcvm08.png)
 
 10. Ein Auswahlfenster wird geöffnet. Wählen Sie die Datei aus, die Sie zuvor in den Ordner „ISO-Dateien und Vorlagen“ hochgeladen haben, und klicken Sie auf **OK**.
     ![Neuer virtueller Computer](media/vcvm10.png)
 
-11. Überprüfen Sie die Einstellungen, und klicken Sie auf **OK**, um den virtuellen Computer zu erstellen.
-    ![Neuer virtueller Computer](media/vcvm11.png)
+11. Überprüfen Sie die Einstellungen, und klicken Sie auf **OK** , um den virtuellen Computer zu erstellen.
+    ![Screenshot, der zeigt, wo Sie die Einstellungen überprüfen.](media/vcvm11.png)
 
 Der virtuelle Computer wird jetzt den Workload-Computeressourcen hinzugefügt und ist einsatzbereit. 
-![Neuer virtueller Computer](media/vcvm12.png)
+![Screenshot, der die VM zeigt, die den Computeressourcen für die Workload hinzugefügt wurde.](media/vcvm12.png)
 
 Die grundlegende Einrichtung ist jetzt abgeschlossen. Sie können mit der Verwendung Ihrer privaten Cloud ähnlich wie mit der Verwendung Ihrer lokalen Infrastruktur für virtuelle Computer beginnen.
 

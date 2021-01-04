@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.openlocfilehash: c787df901fc33c2dcd2c8a901202c72ea6de45d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84fd1a2d3d0dc4ce6960469ea3212b8ca1d4d07c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513609"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023022"
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Deaktivieren und Löschen eines StorSimple Virtual Array
 
@@ -30,7 +30,7 @@ Wenn Sie ein StorSimple Virtual Array deaktivieren, trennen Sie die Verbindung z
 * Deaktivieren eines Geräts 
 * Löschen eines deaktivierten Geräts
 
-Die in diesem Artikel veröffentlichten Informationen gelten nur für StorSimple Virtual Arrays. Informationen zur 8000-Serie finden Sie unter [Deaktivieren und Löschen eines Geräts](storsimple-deactivate-and-delete-device.md).
+Die in diesem Artikel veröffentlichten Informationen gelten nur für StorSimple Virtual Arrays. Informationen zur 8000-Serie finden Sie unter [Deaktivieren und Löschen eines Geräts](./storsimple-8000-deactivate-and-delete-device.md).
 
 ## <a name="when-to-deactivate"></a>Wann sollte deaktiviert werden?
 
@@ -90,5 +90,4 @@ Führen Sie die folgenden Schritte aus, um das Gerät zu löschen.
 
 * Informationen zum Failover finden Sie unter [Notfallwiederherstellung und Gerätefailover für das StorSimple Virtual Array](storsimple-virtual-array-failover-dr.md).
 
-* Weitere Informationen zum Verwenden des StorSimple-Geräte-Manager-Diensts finden Sie unter [Use the StorSimple Device Manager service to administer your StorSimple Virtual Array (Verwalten des StorSimple Virtual Array mithilfe des StorSimple Manager-Diensts)](storsimple-virtual-array-manager-service-administration.md). 
-
+* Weitere Informationen zum Verwenden des StorSimple-Geräte-Manager-Diensts finden Sie unter [Use the StorSimple Device Manager service to administer your StorSimple Virtual Array (Verwalten des StorSimple Virtual Array mithilfe des StorSimple Manager-Diensts)](storsimple-virtual-array-manager-service-administration.md).

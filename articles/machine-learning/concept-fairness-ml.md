@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 3f051d9fc1599c0877e1e8a58935d09d224ce22b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 459cb1f7ea6c756b8cf6eba70af5ebabe76cc8b0
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88689676"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335757"
 ---
 # <a name="mitigate-fairness-in-machine-learning-models-preview"></a>Erhöhen der Fairness von Machine Learning-Modellen (Vorschau)
 
 Hier finden Sie Informationen zur Fairness bei Machine Learning, und Sie erfahren, wie das Open-Source-Python-Paket [Fairlearn](https://fairlearn.github.io/) Fairnessprobleme bei Machine Learning-Modellen beheben kann. Wenn Sie keine Anstrengungen unternehmen, Fragestellungen rund um das Thema Fairness zu verstehen und die Fairness bei der Erstellung von Machine Learning-Modellen zu beurteilen, erstellen Sie möglicherweise Modelle, die keine fairen Ergebnisse liefern.
 
-In der folgenden Zusammenfassung des [Benutzerhandbuchs](https://fairlearn.github.io/user_guide/index.html) für das Open-Source-Paket Fairlearn wird beschrieben, wie Sie Fairlearn verwenden, um die Fairness der von Ihnen erstellten KI-Systeme zu bewerten.  Das Open-Source-Paket Fairlearn bietet ferner Optionen, die Ihnen helfen, von Ihnen festgestellte Fairness-Probleme zu reduzieren oder abzumildern.  In der [Anleitung](how-to-machine-learning-fairness-aml.md) und in den [Beispielnotebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) finden Sie weitere Informationen, wie Sie die Fairnessbewertung von KI-Systemen während des Trainings bei Azure Machine Learning aktivieren.
+In der folgenden Zusammenfassung des [Benutzerhandbuchs](https://fairlearn.github.io/master/user_guide/index.html) für das Open-Source-Paket Fairlearn wird beschrieben, wie Sie Fairlearn verwenden, um die Fairness der von Ihnen erstellten KI-Systeme zu bewerten.  Das Open-Source-Paket Fairlearn bietet ferner Optionen, die Ihnen helfen, von Ihnen festgestellte Fairness-Probleme zu reduzieren oder abzumildern.  In der [Anleitung](how-to-machine-learning-fairness-aml.md) und in den [Beispielnotebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) finden Sie weitere Informationen, wie Sie die Fairnessbewertung von KI-Systemen während des Trainings bei Azure Machine Learning aktivieren.
 
 
 ## <a name="what-is-fairness-in-machine-learning-models"></a>Was ist Fairness bei Machine Learning-Modellen?
@@ -108,6 +108,6 @@ Das Open-Source-Paket Fairlearn bietet Entschärfungsalgorithmen für die Nachbe
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Erfahren Sie in der folgenden Dokumentation zu Fairlearn mehr darüber, wie Sie die verschiedenen Komponenten verwenden: [GitHub](https://github.com/fairlearn/fairlearn/), [Benutzerhandbuch](https://fairlearn.github.io/user_guide/index.html), [Beispiele](https://fairlearn.github.io/auto_examples/) und [Beispielnotebooks](https://github.com/fairlearn/fairlearn/tree/master/notebooks).
+- Erfahren Sie in der folgenden Dokumentation zu Fairlearn mehr darüber, wie Sie die verschiedenen Komponenten verwenden: [GitHub](https://github.com/fairlearn/fairlearn/), [Benutzerhandbuch](https://fairlearn.github.io/master/user_guide/index.html), [Beispiele](https://fairlearn.github.io/master/auto_examples/) und [Beispielnotebooks](https://github.com/fairlearn/fairlearn/tree/master/notebooks).
 - In der [Anleitung](how-to-machine-learning-fairness-aml.md) wird beschrieben, wie Sie die Fairnessbewertung von Machine Learning-Modellen in Azure Machine Learning aktivieren.
 - Weitere Szenarios zur Fairnessbewertung in Azure Machine Learning finden Sie in den [Beispielnotebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness). 

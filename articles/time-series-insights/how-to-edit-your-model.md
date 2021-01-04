@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: cac4234d5bd93de8b059ea53a4697dae1bf5c64c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89efc1d4f34b250d211f9fd7492588bd2896eb6e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667878"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016852"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-gen2"></a>Datenmodellierung in Azure Time Series Insights Gen2
 
@@ -24,7 +24,7 @@ In diesem Artikel wird beschrieben, wie Sie mit dem Zeitreihenmodell in Azure Ti
 > [!TIP]
 >
 > * Erfahren Sie mehr über die [Zeitreihenmodelle](concepts-model-overview.md).
-> * Weitere Informationen zum Navigieren im [Azure Time Series Insights Gen2-Explorer](./time-series-insights-update-explorer.md).
+> * Weitere Informationen zum Navigieren im [Azure Time Series Insights Gen2-Explorer](./concepts-ux-panels.md).
 
 ## <a name="instances"></a>Instanzen
 
@@ -171,6 +171,6 @@ Wählen Sie zunächst die **Modell**-Ansicht aus der **Analyse**-Ansicht im Azur
 
 * Weitere Informationen zu Zeitreihenmodellen finden Sie unter [Datenmodellierung](./concepts-model-overview.md).
 
-* Weitere Informationen zur Gen2 finden Sie unter [Visualisieren von Daten im Azure Time Series Insights Gen2-Explorer](./time-series-insights-update-explorer.md).
+* Weitere Informationen zur Gen2 finden Sie unter [Visualisieren von Daten im Azure Time Series Insights Gen2-Explorer](./concepts-ux-panels.md).
 
 * Informationen zu unterstützten JSON-Formen finden Sie unter [Unterstützte JSON-Formen](./time-series-insights-send-events.md#supported-json-shapes).

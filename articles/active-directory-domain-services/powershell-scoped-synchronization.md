@@ -2,20 +2,20 @@
 title: Bereichsbezogene Synchronisierung für Azure AD Domain Services mithilfe von PowerShell | Microsoft-Dokumentation
 description: Hier erfahren Sie, wie Sie mithilfe von PowerShell in Azure AD die bereichsbezogene Synchronisierung von Azure AD für eine verwaltete Azure Active Directory Domain Services-Domäne konfigurieren.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/24/2020
-ms.author: joflore
-ms.openlocfilehash: dc6ebb88440ecdccc3ea78d85f0b6186100da01a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: c078117baf84d7dbfaaaa2b569abb8a5f5c67e6d
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967882"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619010"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-azure-ad-powershell"></a>Konfigurieren der bereichsbezogenen Synchronisierung von Azure AD für Azure Active Directory Domain Services mithilfe von PowerShell in Azure AD
 

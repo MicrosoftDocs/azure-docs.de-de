@@ -3,8 +3,10 @@
 - name: Übersicht
   href: media-services-overview.md
   items:
-    - name: Szenarien und Verfügbarkeit
+    - name: Häufige Szenarios
       href: scenarios-and-availability.md
+    - name: Regionale Verfügbarkeit
+      href: availability-regions-v-2.md
     - name: Konzepte
       href: media-services-concepts.md
 - name: Erste Schritte

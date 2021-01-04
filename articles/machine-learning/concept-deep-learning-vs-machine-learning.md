@@ -10,18 +10,18 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 09/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: d462ed4627254275703d88cadbaf5d55a106da55
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c612e2a95e2596b2732ed8282037c8ded908a0a0
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330127"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571384"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Vergleich von Deep Learning und Machine Learning in Azure Machine Learning
 
 Dieser Artikel enthält einen Vergleich von Deep Learning und Machine Learning sowie eine Beschreibung, wie dies mit dem weiteren Feld der künstlichen Intelligenz zusammenhängt. Informieren Sie sich über Deep Learning-Lösungen, die Sie unter Azure Machine Learning erstellen können, z. B. Betrugserkennung, Sprach- und Gesichtserkennung, Standpunktanalyse und Zeitreihenvorhersagen.
 
-Eine Anleitung zur Auswahl von Algorithmen für Ihre Lösungen finden Sie unter [Spickzettel für Machine Learning-Algorithmen](algorithm-cheat-sheet.md).
+Eine Anleitung zur Auswahl von Algorithmen für Ihre Lösungen finden Sie unter [Spickzettel für Machine Learning-Algorithmen](./algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri).
 
 ## <a name="deep-learning-machine-learning-and-ai"></a>Deep Learning, maschinelles Lernen und KI
 
@@ -69,11 +69,11 @@ Named-entity recognition (Erkennung benannter Entitäten) ist eine Deep Learning
 
 ### <a name="object-detection"></a>Objekterkennung
 
-Deep Learning wird in vielen Anwendungsfällen zur Objekterkennung angewandt. Die Objekterkennung erfolgt in zwei Schritten: Bildklassifizierung und anschließende Bildlokalisierung. Die Bild_klassifizierung_ identifiziert die Objekte des Bilds, z.B. Autos oder Personen. Die Bild_lokalisierung_ stellt die spezifische Position dieser Objekte bereit. 
+Deep Learning wird in vielen Anwendungsfällen zur Objekterkennung angewandt. Die Objekterkennung erfolgt in zwei Schritten: Bildklassifizierung und anschließende Bildlokalisierung. Die Bild _klassifizierung_ identifiziert die Objekte des Bilds, z.B. Autos oder Personen. Die Bild _lokalisierung_ stellt die spezifische Position dieser Objekte bereit. 
 
 Objekterkennung wird bereits in Branchen wie Gaming, Einzelhandel, Tourismus und selbstfahrenden Autos eingesetzt.
 
-Informieren Sie sich über die Verwendung eines Bildklassifizierungsmodells aus einem Open-Source-Framework in Azure Machine Learning: [Klassifizieren von Bildern mit einem Pytorch-Modell](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
+Informieren Sie sich über die Verwendung eines Bildklassifizierungsmodells aus einem Open-Source-Framework in Azure Machine Learning: [Klassifizieren von Bildern mit einem Pytorch-Modell](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri)
 
 ### <a name="image-caption-generation"></a>Generierung der Bildbeschriftung
 
@@ -92,8 +92,6 @@ Mit der richtigen Datentransformation kann ein neuronales Netz Text-, Audio- und
 Die auf Deep Learning-Methoden basierende Textanalyse umfasst das Analysieren großer Mengen von Textdaten (z. B. medizinischen Dokumenten oder Ausgabenbelegen), das Erkennen von Mustern und das Erstellen von organisierten und präzisen Informationen aus diesen.
 
 Unternehmen führen mit Deep Learning Textanalysen durch, um Insidergeschäfte zu erkennen und die Einhaltung gesetzlicher Vorschriften zu gewährleisten. Ein weiteres gängiges Beispiel ist Versicherungsbetrug: Mithilfe von Textanalysen wurden häufig große Mengen von Dokumenten analysiert, um zu ermitteln, mit welcher Wahrscheinlichkeit es sich bei einem Versicherungsanspruch um Betrug handelte. 
-
-Informieren Sie sich über die Verwendung eines TensorFlow-Modells in Azure Machine Learning: [Klassifizieren handschriftlicher Ziffern mit einem TensorFlow-Modell](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
 
 ## <a name="artificial-neural-networks"></a>Künstliche neuronale Netze
 
@@ -117,8 +115,11 @@ Convolutional Neural Networks wurden bereits in Bereichen wie Videoerkennung, Bi
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Die folgenden Artikel enthalten weitere Optionen zur Verwendung von Open-Source-Deep Learning-Modellen in [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri):
+Die folgenden Artikel enthalten weitere Optionen zur Verwendung von Open-Source-Deep Learning-Modellen in [Azure Machine Learning](./index.yml?WT.mc_id=docs-article-lazzeri):
 
-- [Klassifizieren von handschriftlichen Ziffern mithilfe einer TensorFlow-Schätzung und Keras](https://docs.microsoft.com/azure/machine-learning/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
 
-- [Klassifizieren handschriftlicher Ziffern mit einem Chainer-Modell](https://docs.microsoft.com/azure/machine-learning/how-to-train-ml-models)
+- [Klassifizieren handschriftlicher Ziffern mit einem TensorFlow-Modell](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri) 
+
+- [Klassifizieren von handschriftlichen Ziffern mithilfe einer TensorFlow-Schätzung und Keras](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
+
+- [Klassifizieren handschriftlicher Ziffern mit einem Chainer-Modell](./how-to-set-up-training-targets.md)

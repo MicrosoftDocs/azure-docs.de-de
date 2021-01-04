@@ -11,12 +11,12 @@ metadata:
   author: asudbring
   ms.author: allensu
   ms.date: 05/07/2020
-  ms.openlocfilehash: afc3b8c4d10bc55d8d7c8faa5e8d9eedd9e2a082
-  ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+  ms.openlocfilehash: 87f9328745484d3f9643e3fd297fd2bf07b00a43
+  ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91929743"
+  ms.lasthandoff: 11/17/2020
+  ms.locfileid: "94695570"
 landingContent:
 - title: Informationen zu Load Balancer
   linkLists:
@@ -61,7 +61,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Konfigurieren von Lastenausgleichs- und Ausgangsregeln in Load Balancer (Azure CLI)
-      url: configure-load-balancer-outbound-cli.md
+      url: ./quickstart-load-balancer-standard-public-cli.md#create-outbound-rule-configuration
     - text: Erstellen einer Load Balancer-Instanz mit Internetzugriff und IPv6 (PowerShell)
       url: load-balancer-ipv6-internet-ps.md
     - text: Konfigurieren des Verteilungsmodus
@@ -79,9 +79,9 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Erstellen eines Lastenausgleichs mit zonenredundantem Front-End
-      url: load-balancer-get-started-internet-az-portal.md
+      url: ./quickstart-load-balancer-standard-public-portal.md
     - text: Erstellen einer Load Balancer-Instanz mit einem Zonen-Front-End
-      url: load-balancer-get-started-internet-availability-zones-zonal-portal.md
+      url: ./quickstart-load-balancer-standard-public-portal.md
     - text: Lastenausgleich bei Konfigurationen mit mehreren IP-Adressen
       url: load-balancer-multiple-ip.md
 - title: Problembehandlung
@@ -105,10 +105,10 @@ landingContent:
   - linkListType: reference
     links:
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.network/?view=azps-2.5.0#load_balancer
-    - text: Azure CLI
-      url: https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest
+      url: /powershell/module/az.network/?view=azps-2.5.0#load_balancer
+    - text: Azure-Befehlszeilenschnittstelle
+      url: /cli/azure/network/lb?view=azure-cli-latest
     - text: ARM-Vorlagen
-      url: https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers#quickstart-templates
+      url: /azure/templates/microsoft.network/loadbalancers#quickstart-templates
     - text: Häufig gestellte Fragen zu Load Balancer
       url: load-balancer-faqs.md

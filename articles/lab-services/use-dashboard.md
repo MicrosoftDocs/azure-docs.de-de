@@ -3,17 +3,17 @@ title: Verwenden des Dashboards für ein Classroom-Lab in Azure Lab Services | M
 description: Erfahren Sie, wie Sie das Dashboard für ein Classroom-Lab in Azure Lab Services verwenden.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 607a3e7faaae65adb67afc0ab0ffd5698adf4655
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a91e1649d913956219ddcf192ab315a245b32eae
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90528260"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434599"
 ---
-# <a name="dashboard-for-classroom-labs"></a>Dashboard für Classroom-Labs
+# <a name="dashboard-for-labs"></a>Dashboard für Labs
 Dieser Artikel beschreibt die Dashboardansicht eines Classroom-Labs in Azure Lab Services. 
 
-![Die Bildschirmaufnahme zeigt die Dashboardansicht eines Classroom-Labs in Azure Lab Services.](./media/use-dashboard/dashboard.png)
+![Bildschirmaufnahme der Dashboardansicht eines Classroom-Labs in Azure Lab Services](./media/use-dashboard/dashboard.png)
 
 ## <a name="costs-and-billing-tile"></a>Kachel „Kosten und Abrechnung“
 Diese Kachel bietet die folgenden Details zur Kostenschätzung:

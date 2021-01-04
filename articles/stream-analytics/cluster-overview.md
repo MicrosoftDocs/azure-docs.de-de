@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: 613cf7d9b68fe42c26f2c01cb1fb5dd1da1e1fb5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f67df45b6b663584e848983251031146cdf8df60
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944344"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95247692"
 ---
 # <a name="overview-of-azure-stream-analytics-cluster-preview"></a>Übersicht über Azure Stream Analytics-Cluster (Vorschau)
 
@@ -69,7 +69,7 @@ Ihre Stream Analytics-Cluster werden basierend auf der ausgewählten Kapazität 
 
 ### <a name="which-inputs-and-outputs-can-i-privately-connect-to-from-my-stream-analytics-cluster"></a>Mit welchen Ein- und Ausgaben kann ich über meinen Stream Analytics-Cluster eine private Verbindung herstellen?
 
-Stream Analytics unterstützt verschiedene Eingabe- und Ausgabetypen. Alle Dienste, die Azure Private Link unterstützen, können eine private Verbindung mit Ihren Aufträgen herstellen. In Ihrem Cluster können Sie [private Endpunkte erstellen](private-endpoints.md), die Aufträgen den Zugriff auf Eingabe- und Ausgaberessourcen ermöglichen.
+Stream Analytics unterstützt verschiedene Eingabe- und Ausgabetypen. In Ihrem Cluster können Sie [private Endpunkte erstellen](private-endpoints.md), die Aufträgen den Zugriff auf Eingabe- und Ausgaberessourcen ermöglichen. Derzeit werden Azure SQL-Datenbank, Azure Storage, Azure Data Lake Storage Gen2, Azure Event Hub und Azure Service Bus unterstützt, und weitere Typen werden in Kürze hinzugefügt. 
 
 ## <a name="next-steps"></a>Nächste Schritte
 

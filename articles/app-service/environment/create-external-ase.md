@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: aa65508c4f8df2c11bab74cd34f3311b21c63d9c
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: c953c31792b8d01199d409cbd91124138a6ebb15
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164600"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927446"
 ---
 # <a name="create-an-external-app-service-environment"></a>Erstellen einer externen App Service-Umgebung
 
@@ -47,9 +47,9 @@ Nach dem Erstellen einer ASE können Sie folgende Elemente nicht mehr ändern:
 
 Es gibt drei Möglichkeiten, eine ASE zu erstellen:
 
-- **Beim Erstellen eines App Service-Plans** . Bei dieser Methode werden ASE und App Service-Plan in einem Schritt erstellt.
-- **Als eigenständige Aktion** . Bei dieser Methode wird eine eigenständige ASE erstellt, also eine ASE, die nichts enthält. Diese Methode ist ein erweiterter Prozess zum Erstellen einer ASE. Sie wird verwendet, um eine ASE mit einem ILB zu erstellen.
-- **Aus einer Azure Resource Manager-Vorlage** . Diese Methode eignet sich für fortgeschrittene Benutzer. Weitere Informationen finden Sie unter [Erstellen einer ASE aus einer Vorlage][MakeASEfromTemplate].
+- **Beim Erstellen eines App Service-Plans**. Bei dieser Methode werden ASE und App Service-Plan in einem Schritt erstellt.
+- **Als eigenständige Aktion**. Bei dieser Methode wird eine eigenständige ASE erstellt, also eine ASE, die nichts enthält. Diese Methode ist ein erweiterter Prozess zum Erstellen einer ASE. Sie wird verwendet, um eine ASE mit einem ILB zu erstellen.
+- **Aus einer Azure Resource Manager-Vorlage**. Diese Methode eignet sich für fortgeschrittene Benutzer. Weitere Informationen finden Sie unter [Erstellen einer ASE aus einer Vorlage][MakeASEfromTemplate].
 
 Eine externe ASE verfügt über eine öffentliche VIP – das bedeutet, dass sämtlicher HTTP-/HTTPS-Datenverkehr zu den Apps in der ASE auf eine über das Internet zugängliche IP-Adresse trifft. Eine ASE mit einem ILB verfügt über eine IP-Adresse aus dem von der ASE verwendeten Subnetz. Die Apps, die in einer ILB-ASE gehostet werden, sind nicht für den direkten Zugriff aus dem Internet verfügbar.
 
@@ -59,7 +59,7 @@ Der App Service-Plan ist ein Container mit Apps. Wenn Sie in App Service eine Ap
 
 Um eine ASE zu erstellen, während Sie einen App Service-Plan erstellen, gehen Sie folgendermaßen vor:
 
-1. Klicken Sie im [Azure-Portal](https://portal.azure.com/) auf **Ressource erstellen** > **Web + Mobil** > **Web-App** .
+1. Klicken Sie im [Azure-Portal](https://portal.azure.com/) auf **Ressource erstellen** > **Web + Mobil** > **Web-App**.
 
     ![Screenshot: Azure-Portal, in dem „Web + Mobil“ im Azure Marketplace ausgewählt und auf der rechten Seite der Bildschirm zum Erstellen einer neuen Web-App geöffnet ist][1]
 
@@ -69,27 +69,27 @@ Um eine ASE zu erstellen, während Sie einen App Service-Plan erstellen, gehen S
 
 4. Wählen Sie Ihr Betriebssystem aus (Windows, Linux oder Docker). 
 
-5. Klicken Sie auf den App Service-Plan, und wählen Sie anschließend die Option **Neu erstellen** . Linux-Web-Apps und Windows-Web-Apps können sich nicht im selben App Service-Plan befinden, jedoch in derselben App Service-Umgebung. 
+5. Klicken Sie auf den App Service-Plan, und wählen Sie anschließend die Option **Neu erstellen**. Linux-Web-Apps und Windows-Web-Apps können sich nicht im selben App Service-Plan befinden, jedoch in derselben App Service-Umgebung. 
 
     ![Screenshot: Azure-Portal, in dem die Bereiche „Web-App“, „App Service-Plan“ und „Neuer App Service-Plan“ geöffnet sind][2]
 
 6. Wählen Sie in der Dropdownliste **Speicherort** die Region aus, in der Sie die ASE erstellen möchten. Wenn Sie eine vorhandene ASE auswählen, wird keine neue ASE erstellt. Der App Service-Plan wird in der von Ihnen ausgewählten ASE erstellt. 
 
-7. Wählen Sie **Tarif** , und wählen Sie eine der SKUs in der Preisstufe **Isolated** aus. Wenn Sie eine SKU vom Typ **Isolated** und einen Speicherort auswählen, der keine ASE ist, wird an diesem Speicherort eine neue ASE erstellt. Um den Erstellungsprozess für eine ASE zu starten, klicken Sie auf **Auswählen** . Eine **Isolated** -SKU ist nur zusammen mit einer ASE verfügbar. Es ist außerdem nicht möglich, einen anderen SKU-Tarif als **Isolated** in einer ASE zu verwenden. 
+7. Wählen Sie **Tarif** , und wählen Sie eine der SKUs in der Preisstufe **Isolated** aus. Wenn Sie eine SKU vom Typ **Isolated** und einen Speicherort auswählen, der keine ASE ist, wird an diesem Speicherort eine neue ASE erstellt. Um den Erstellungsprozess für eine ASE zu starten, klicken Sie auf **Auswählen**. Eine **Isolated** -SKU ist nur zusammen mit einer ASE verfügbar. Es ist außerdem nicht möglich, einen anderen SKU-Tarif als **Isolated** in einer ASE zu verwenden. 
 
     ![Auswahl des Tarifs][3]
 
-8. Geben Sie den Namen für Ihre ASE ein. Dieser Name wird im aufrufbaren Namen für Ihre Apps verwendet. Wenn der Name der ASE _appsvcenvdemo_ ist, lautet der Domänenname *.appsvcenvdemo.p.azurewebsites.net* . Wenn Sie eine App namens *mytestapp* erstellen, kann sie unter der Adresse „mytestapp.appsvcenvdemo.p.azurewebsites.net“ aufgerufen werden. Sie dürfen keine Leerzeichen im Namen verwenden. Bei Verwendung von Großbuchstaben wird der entsprechende Domänenname dennoch vollständig in Kleinbuchstaben geschrieben.
+8. Geben Sie den Namen für Ihre ASE ein. Dieser Name wird im aufrufbaren Namen für Ihre Apps verwendet. Wenn der Name der ASE _appsvcenvdemo_ ist, lautet der Domänenname *.appsvcenvdemo.p.azurewebsites.net*. Wenn Sie eine App namens *mytestapp* erstellen, kann sie unter der Adresse „mytestapp.appsvcenvdemo.p.azurewebsites.net“ aufgerufen werden. Sie dürfen keine Leerzeichen im Namen verwenden. Bei Verwendung von Großbuchstaben wird der entsprechende Domänenname dennoch vollständig in Kleinbuchstaben geschrieben.
 
     ![Name für den neuen App Service-Plan][4]
 
-9. Geben Sie die Informationen für Ihr virtuelles Azure-Netzwerk an. Wählen Sie entweder **Neu erstellen** oder **Vorhandenes auswählen** . Sie können nur dann ein vorhandenes VNET auswählen, wenn Sie in der ausgewählten Region über ein VNET verfügen. Wenn Sie **Neu erstellen** ausgewählt haben, geben Sie einen Namen für das VNET ein. Es wird ein neues Resource Manager-VNET mit diesem Namen erstellt. Das VNET verwendet den Adressraum `192.168.250.0/23` in der ausgewählten Region. Bei Auswahl von **Vorhandene auswählen** gehen Sie wie folgt vor:
+9. Geben Sie die Informationen für Ihr virtuelles Azure-Netzwerk an. Wählen Sie entweder **Neu erstellen** oder **Vorhandenes auswählen**. Sie können nur dann ein vorhandenes VNET auswählen, wenn Sie in der ausgewählten Region über ein VNET verfügen. Wenn Sie **Neu erstellen** ausgewählt haben, geben Sie einen Namen für das VNET ein. Es wird ein neues Resource Manager-VNET mit diesem Namen erstellt. Das VNET verwendet den Adressraum `192.168.250.0/23` in der ausgewählten Region. Bei Auswahl von **Vorhandene auswählen** gehen Sie wie folgt vor:
 
     a. Wählen Sie den Adressblock des virtuellen Netzwerks aus, falls Sie mehr als ein VNET verwenden.
 
     b. Geben Sie einen neuen Subnetznamen an.
 
-    c. Wählen Sie die Größe des Subnetzes aus. *Die Größe sollte auf einen ausreichend großen Wert festgelegt werden, um das zukünftige Wachstum Ihrer ASE abzudecken.* Die empfohlene Größe ist `/24` mit 128 Adressen zur Verarbeitung einer ASE maximaler Größe. `/28` ist beispielsweise nicht zu empfehlen, da nur 16 Adressen verfügbar sind. In der Infrastruktur werden mindestens sieben und im Azure-Netzwerk weitere fünf Adressen verwendet. In einem `/28`-Subnetz können Sie höchstens vier Instanzen des App Service-Plans für eine externe ASE und nur drei Instanzen des App Service-Plans für eine ILB-ASE skalieren.
+    c. Wählen Sie die Größe des Subnetzes aus. *Die Größe sollte auf einen ausreichend großen Wert festgelegt werden, um das zukünftige Wachstum Ihrer ASE abzudecken.* Die empfohlene Größe ist `/24` mit 256 Adressen zur Verarbeitung einer ASE maximaler Größe. `/28` ist beispielsweise nicht zu empfehlen, da nur 16 Adressen verfügbar sind. In der Infrastruktur werden mindestens sieben und im Azure-Netzwerk weitere fünf Adressen verwendet. In einem `/28`-Subnetz können Sie höchstens vier Instanzen des App Service-Plans für eine externe ASE und nur drei Instanzen des App Service-Plans für eine ILB-ASE skalieren.
 
     d. Wählen Sie den IP-Bereich des Subnetzes aus.
 
@@ -105,21 +105,21 @@ Um eine ASE zu erstellen, während Sie einen App Service-Plan erstellen, gehen S
 
 1. Wählen Sie eine Ressourcengruppe aus, oder erstellen Sie sie. Mithilfe von Ressourcengruppen können Sie verwandte Azure-Ressourcen als Einheit verwalten. Ressourcengruppen sind auch nützlich, wenn Sie Regeln für die rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC) für Ihre Apps einrichten. Weitere Informationen finden Sie unter [Übersicht über Azure Resource Manager][ARMOverview].
 
-1. Klicken Sie auf den App Service-Plan, und wählen Sie anschließend die Option **Neu erstellen** . Linux-Web-Apps und Windows-Web-Apps können sich nicht im selben App Service-Plan befinden, jedoch in derselben App Service-Umgebung. 
+1. Klicken Sie auf den App Service-Plan, und wählen Sie anschließend die Option **Neu erstellen**. Linux-Web-Apps und Windows-Web-Apps können sich nicht im selben App Service-Plan befinden, jedoch in derselben App Service-Umgebung. 
 
     ![Screenshot: Azure-Portal, in dem die Bereiche „Web-App für Container“, „App Service-Plan“ und „Neuer App Service-Plan“ geöffnet sind][8]
 
 1. Wählen Sie in der Dropdownliste **Speicherort** die Region aus, in der Sie die ASE erstellen möchten. Wenn Sie eine vorhandene ASE auswählen, wird keine neue ASE erstellt. Der App Service-Plan wird in der von Ihnen ausgewählten ASE erstellt. 
 
-1. Wählen Sie **Tarif** , und wählen Sie eine der SKUs in der Preisstufe **Isolated** aus. Wenn Sie eine SKU vom Typ **Isolated** und einen Speicherort auswählen, der keine ASE ist, wird an diesem Speicherort eine neue ASE erstellt. Um den Erstellungsprozess für eine ASE zu starten, klicken Sie auf **Auswählen** . Eine **Isolated** -SKU ist nur zusammen mit einer ASE verfügbar. Es ist außerdem nicht möglich, einen anderen SKU-Tarif als **Isolated** in einer ASE zu verwenden. 
+1. Wählen Sie **Tarif** , und wählen Sie eine der SKUs in der Preisstufe **Isolated** aus. Wenn Sie eine SKU vom Typ **Isolated** und einen Speicherort auswählen, der keine ASE ist, wird an diesem Speicherort eine neue ASE erstellt. Um den Erstellungsprozess für eine ASE zu starten, klicken Sie auf **Auswählen**. Eine **Isolated** -SKU ist nur zusammen mit einer ASE verfügbar. Es ist außerdem nicht möglich, einen anderen SKU-Tarif als **Isolated** in einer ASE zu verwenden. 
 
     ![Auswahl des Tarifs][3]
 
-1. Geben Sie den Namen für Ihre ASE ein. Dieser Name wird im aufrufbaren Namen für Ihre Apps verwendet. Wenn der Name der ASE _appsvcenvdemo_ ist, lautet der Domänenname *.appsvcenvdemo.p.azurewebsites.net* . Wenn Sie eine App namens *mytestapp* erstellen, kann sie unter der Adresse „mytestapp.appsvcenvdemo.p.azurewebsites.net“ aufgerufen werden. Sie dürfen keine Leerzeichen im Namen verwenden. Bei Verwendung von Großbuchstaben wird der entsprechende Domänenname dennoch vollständig in Kleinbuchstaben geschrieben.
+1. Geben Sie den Namen für Ihre ASE ein. Dieser Name wird im aufrufbaren Namen für Ihre Apps verwendet. Wenn der Name der ASE _appsvcenvdemo_ ist, lautet der Domänenname *.appsvcenvdemo.p.azurewebsites.net*. Wenn Sie eine App namens *mytestapp* erstellen, kann sie unter der Adresse „mytestapp.appsvcenvdemo.p.azurewebsites.net“ aufgerufen werden. Sie dürfen keine Leerzeichen im Namen verwenden. Bei Verwendung von Großbuchstaben wird der entsprechende Domänenname dennoch vollständig in Kleinbuchstaben geschrieben.
 
     ![Name für den neuen App Service-Plan][4]
 
-1. Geben Sie die Informationen für Ihr virtuelles Azure-Netzwerk an. Wählen Sie entweder **Neu erstellen** oder **Vorhandenes auswählen** . Sie können nur dann ein vorhandenes VNET auswählen, wenn Sie in der ausgewählten Region über ein VNET verfügen. Wenn Sie **Neu erstellen** ausgewählt haben, geben Sie einen Namen für das VNET ein. Es wird ein neues Resource Manager-VNET mit diesem Namen erstellt. Das VNET verwendet den Adressraum `192.168.250.0/23` in der ausgewählten Region. Bei Auswahl von **Vorhandene auswählen** gehen Sie wie folgt vor:
+1. Geben Sie die Informationen für Ihr virtuelles Azure-Netzwerk an. Wählen Sie entweder **Neu erstellen** oder **Vorhandenes auswählen**. Sie können nur dann ein vorhandenes VNET auswählen, wenn Sie in der ausgewählten Region über ein VNET verfügen. Wenn Sie **Neu erstellen** ausgewählt haben, geben Sie einen Namen für das VNET ein. Es wird ein neues Resource Manager-VNET mit diesem Namen erstellt. Das VNET verwendet den Adressraum `192.168.250.0/23` in der ausgewählten Region. Bei Auswahl von **Vorhandene auswählen** gehen Sie wie folgt vor:
 
     a. Wählen Sie den Adressblock des virtuellen Netzwerks aus, falls Sie mehr als ein VNET verwenden.
 
@@ -143,7 +143,7 @@ Wenn Sie eine eigenständige ASE erstellen, enthält sie keinerlei Elemente. Fü
 
 1. Suchen Sie im Azure Marketplace nach **App Service-Umgebung** , oder wählen Sie **Neu** > **Web + Mobil** > **App Service-Umgebung** aus. 
 
-1. Geben Sie den Namen Ihrer ASE ein. Dieser Name wird für die in der ASE erstellten Apps verwendet. Wenn der Name *mynewdemoase* lautet, ist der Name der Unterdomäne *.mynewdemoase.p.azurewebsites.net* . Wenn Sie eine App namens *mytestapp* erstellen, kann sie unter der Adresse „mytestapp.mynewdemoase.p.azurewebsites.net“ aufgerufen werden. Sie dürfen keine Leerzeichen im Namen verwenden. Bei Verwendung von Großbuchstaben wird der entsprechende Domänenname dennoch vollständig in Kleinbuchstaben geschrieben. Bei Verwendung eines ILB wird Ihr ASE-Name nicht in Ihrer Unterdomäne verwendet, sondern stattdessen explizit während der ASE-Erstellung angegeben.
+1. Geben Sie den Namen Ihrer ASE ein. Dieser Name wird für die in der ASE erstellten Apps verwendet. Wenn der Name *mynewdemoase* lautet, ist der Name der Unterdomäne *.mynewdemoase.p.azurewebsites.net*. Wenn Sie eine App namens *mytestapp* erstellen, kann sie unter der Adresse „mytestapp.mynewdemoase.p.azurewebsites.net“ aufgerufen werden. Sie dürfen keine Leerzeichen im Namen verwenden. Bei Verwendung von Großbuchstaben wird der entsprechende Domänenname dennoch vollständig in Kleinbuchstaben geschrieben. Bei Verwendung eines ILB wird Ihr ASE-Name nicht in Ihrer Unterdomäne verwendet, sondern stattdessen explizit während der ASE-Erstellung angegeben.
 
     ![Benennung der ASE][5]
 
@@ -167,7 +167,7 @@ Wenn Sie eine eigenständige ASE erstellen, enthält sie keinerlei Elemente. Fü
 
 ## <a name="app-service-environment-v1"></a>App Service-Umgebung v1
 
-Sie können weiterhin Instanzen der ersten Version der App Service-Umgebung (ASEv1) erstellen. Um diesen Prozess zu starten, suchen Sie im Marketplace nach **App Service-Umgebung v1** . Eine solche ASE erstellen Sie auf die gleiche Weise wie eine eigenständige ASE. Nach Abschluss der Einrichtung verfügt Ihre ASEv1 über zwei Front-Ends und zwei Worker. Bei ASEv1 müssen Sie die Front-Ends und Worker verwalten. Diese werden beim Erstellen Ihrer App Service-Pläne nicht automatisch hinzugefügt. Die Front-Ends agieren als HTTP-/HTTPS-Endpunkte und senden Datenverkehr an die Worker. Die Worker sind die Rollen, die Ihre Apps hosten. Sie können die Anzahl von Front-Ends und Workern nach dem Erstellen der ASE anpassen. 
+Sie können weiterhin Instanzen der ersten Version der App Service-Umgebung (ASEv1) erstellen. Um diesen Prozess zu starten, suchen Sie im Marketplace nach **App Service-Umgebung v1**. Eine solche ASE erstellen Sie auf die gleiche Weise wie eine eigenständige ASE. Nach Abschluss der Einrichtung verfügt Ihre ASEv1 über zwei Front-Ends und zwei Worker. Bei ASEv1 müssen Sie die Front-Ends und Worker verwalten. Diese werden beim Erstellen Ihrer App Service-Pläne nicht automatisch hinzugefügt. Die Front-Ends agieren als HTTP-/HTTPS-Endpunkte und senden Datenverkehr an die Worker. Die Worker sind die Rollen, die Ihre Apps hosten. Sie können die Anzahl von Front-Ends und Workern nach dem Erstellen der ASE anpassen. 
 
 Weitere Informationen zu ASEv1 finden Sie unter [Einführung in die App Service-Umgebung v1][ASEv1Intro]. Weitere Informationen zur Skalierung, Verwaltung und Überwachung von ASEv1 finden Sie unter [Konfigurieren einer App Service-Umgebung][ConfigureASEv1].
 

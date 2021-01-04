@@ -8,14 +8,14 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: 6b475e34c01ca26abd3d8ab1d904521de19f941b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 01efb5736d7becf1b46c7c2898c22648b0421dd1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944170"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305814"
 ---
-# <a name="create-and-delete-jobs-in-an-azure-stream-analytics-cluster"></a>Erstellen und Löschen von Aufträgen in einem Azure Stream Analytics-Cluster
+# <a name="add-and-remove-jobs-in-an-azure-stream-analytics-cluster"></a>Hinzufügen und Entfernen von Aufträgen in einem Azure Stream Analytics-Cluster
 
 Sie können mehrere Azure Stream Analytics-Aufträge in einem Stream Analytics-Cluster ausführen. Das Ausführen von Aufträgen in einem Cluster ist ein einfacher Prozess mit zwei Schritten: Sie fügen dem Cluster den Auftrag hinzu und starten diesen. In diesem Artikel wird gezeigt, wie Sie Aufträge zu einem vorhandenen Cluster hinzufügen und daraus entfernen. Befolgen Sie die Schnellstartanleitung, um [einen Stream Analytics-Cluster](create-cluster.md) zu erstellen, wenn Sie nicht bereits über einen verfügen.
 

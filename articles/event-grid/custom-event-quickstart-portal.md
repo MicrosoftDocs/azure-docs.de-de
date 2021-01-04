@@ -4,11 +4,11 @@ description: 'Schnellstart: Verwenden Sie Azure Event Grid und das Azure-Portal,
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.openlocfilehash: 592e2d6b7393da8cb55a457b022d6c2358048cfe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87421041"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013665"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Schnellstart: Weiterleiten benutzerdefinierter Ereignisse an einen Webendpunkt mit dem Azure Portal und Event Grid
 
@@ -24,31 +24,31 @@ Azure Event Grid ist ein Ereignisdienst für die Cloud. In diesem Artikel erstel
 Ein Event Grid-Thema verfügt über einen benutzerdefinierten Endpunkt für die Veröffentlichung Ihrer Ereignisse. 
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/)an.
-2. Geben Sie in der Suchleiste des Themas **Event Grid-Themen**ein, und wählen Sie dann **Event Grid-Themen** aus der Dropdownliste aus. 
+2. Geben Sie in der Suchleiste des Themas **Event Grid-Themen** ein, und wählen Sie dann **Event Grid-Themen** aus der Dropdownliste aus. 
 
     :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Event Grid-Themen suchen und auswählen":::
 3. Wählen Sie auf der Symbolleiste der Seite **Event Grid-Themen** die Option **+ Hinzufügen** aus. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/add-event-grid-topic-button.png" alt-text="Event Grid-Themen suchen und auswählen":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/add-event-grid-topic-button.png" alt-text="Schaltfläche zum Hinzufügen von Event Grid-Themen":::
 4. Gehen Sie auf der Seite **Thema erstellen** wie folgt vor:
-    1. Wählen Sie Ihr Azure- **Abonnement**aus.
+    1. Wählen Sie Ihr Azure- **Abonnement** aus.
     2. Wählen Sie eine bereits vorhandene Ressourcengruppe aus, oder wählen Sie **Neu erstellen** aus, und geben Sie unter **Name** einen Namen für die **Ressourcengruppe** ein.
     3. Geben Sie unter **Name** einen eindeutigen Namen für das benutzerdefinierte Thema an. Der Name des Themas muss eindeutig sein, da er durch einen DNS-Eintrag dargestellt wird. Verwenden Sie nicht den Namen, der in der Abbildung zu sehen ist. Erstellen Sie stattdessen einen eigenen Namen. Dieser muss zwischen drei und 50 Zeichen lang sein und darf nur folgende Zeichen enthalten: a–z, A–Z, 0–9 und Bindestriche (-).
     4. Wählen Sie einen **Standort** für das Event Grid-Thema aus.
     5. Wählen Sie am unteren Rand der Seite die Option **Bewerten + erstellen** aus. 
 
-        :::image type="content" source="./media/custom-event-quickstart-portal/create-custom-topic.png" alt-text="Event Grid-Themen suchen und auswählen":::
+        :::image type="content" source="./media/custom-event-quickstart-portal/create-custom-topic.png" alt-text="Seite „Thema erstellen“":::
     6. Wählen Sie auf der Registerkarte **Überprüfen + erstellen** der Seite **Thema erstellen** den Befehl **Erstellen** aus. 
     
-        :::image type="content" source="./media/custom-event-quickstart-portal/review-create-page.png" alt-text="Event Grid-Themen suchen und auswählen":::
-5. Geben Sie nach erfolgreicher Bereitstellung noch mal in die Suchleiste **Event Grid-Themen**ein, und wählen Sie wie vorher **Event Grid-Themen** aus der Dropdownliste aus. 
+        :::image type="content" source="./media/custom-event-quickstart-portal/review-create-page.png" alt-text="Einstellungen überprüfen und erstellen":::
+5. Geben Sie nach erfolgreicher Bereitstellung noch mal in die Suchleiste **Event Grid-Themen** ein, und wählen Sie wie vorher **Event Grid-Themen** aus der Dropdownliste aus. 
 6. Wählen Sie das von Ihnen erstellte Thema aus der Liste aus. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Event Grid-Themen suchen und auswählen":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Ihr Thema aus der Liste auswählen":::
 
 7. Daraufhin wird die Seite **Event Grid-Thema** für Ihr Thema angezeigt. Lassen Sie diese Seite geöffnet. Sie wird im weiteren Verlauf der Schnellstartanleitung benötigt. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Event Grid-Themen suchen und auswählen":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Startseite des Event Grid-Themas":::
 
 ## <a name="create-a-message-endpoint"></a>Erstellen eines Nachrichtenendpunkts
 Erstellen Sie zunächst einen Endpunkt für die Ereignisnachricht, bevor Sie ein Abonnement für das benutzerdefinierte Thema erstellen. Der Endpunkt führt in der Regel Aktionen auf der Grundlage der Ereignisdaten aus. Der Einfachheit halber stellen Sie in dieser Schnellstartanleitung eine [vorgefertigte Web-App](https://github.com/Azure-Samples/azure-event-grid-viewer) bereit, die die Ereignisnachrichten anzeigt. Die bereitgestellte Lösung umfasst einen App Service-Plan, eine App Service-Web-App und Quellcode von GitHub.
@@ -69,16 +69,16 @@ Sie abonnieren ein Event Grid-Thema, um Event Grid mitzuteilen, welche Ereigniss
 
 1. Wählen Sie nun auf der Symbolleiste der Seite **Event Grid-Thema** für Ihr benutzerdefiniertes Thema die Option **+ Ereignisabonnement** aus.
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/new-event-subscription.png" alt-text="Event Grid-Themen suchen und auswählen":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/new-event-subscription.png" alt-text="Schaltfläche zum Hinzufügen eines Ereignisabonnements":::
 2. Gehen Sie auf der Seite **Ereignisabonnement erstellen** wie folgt vor:
     1. Geben Sie unter **Name** einen Namen für das Ereignisabonnement an.
     3. Wählen Sie unter **Endpunkttyp** die Option **Webhook** aus. 
     4. Wählen Sie **Endpunkt auswählen** aus. 
 
-        :::image type="content" source="./media/custom-event-quickstart-portal/provide-subscription-values.png" alt-text="Event Grid-Themen suchen und auswählen":::
+        :::image type="content" source="./media/custom-event-quickstart-portal/provide-subscription-values.png" alt-text="Angeben von Werten für das Ereignisabonnement":::
     5. Geben Sie für den Webhookendpunkt die URL Ihrer Web-App an, und fügen Sie `api/updates` der URL der Startseite hinzu. Klicken Sie auf **Auswahl bestätigen**.
 
-        :::image type="content" source="./media/custom-event-quickstart-portal/provide-endpoint.png" alt-text="Event Grid-Themen suchen und auswählen":::
+        :::image type="content" source="./media/custom-event-quickstart-portal/provide-endpoint.png" alt-text="Angeben der Endpunkt-URL":::
     6. Wählen Sie auf der Seite **Ereignisabonnement erstellen** die Option **Erstellen** aus.
 
 3. Zeigen Sie wieder Ihre Web-App an. Wie Sie sehen, wurde ein Abonnementüberprüfungsereignis an sie gesendet. Klicken Sie auf das Augensymbol, um die Ereignisdaten zu erweitern. Event Grid sendet das Überprüfungsereignis, damit der Endpunkt bestätigen kann, dass er Ereignisdaten empfangen möchte. Die Web-App enthält Code zur Überprüfung des Abonnements.
@@ -95,7 +95,7 @@ Im ersten Beispiel wird die Azure-Befehlszeilenschnittstelle verwendet. Es ruft 
 ### <a name="azure-cli"></a>Azure CLI
 1. Wählen Sie im Azure-Portal die Option **Cloud Shell** aus. Die Cloud Shell wird im unteren Bereich des Webbrowsers geöffnet. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Event Grid-Themen suchen und auswählen":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Cloud Shell-Symbol auswählen":::
 1. Wählen Sie links oben im Cloud Shell-Fenster die Option **Bash** aus. 
 
     ![Cloud Shell – Bash](./media/custom-event-quickstart-portal/cloud-shell-bash.png)
@@ -125,7 +125,7 @@ Im zweiten Beispiel werden ähnliche Schritte mit PowerShell ausgeführt.
 
 1. Wählen Sie im Azure-Portal die Option **Cloud Shell** aus (navigieren Sie alternativ zu `https://shell.azure.com/`). Die Cloud Shell wird im unteren Bereich des Webbrowsers geöffnet. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Event Grid-Themen suchen und auswählen":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Cloud Shell-Symbol auswählen":::
 1. Wählen Sie in der **Cloud Shell** links oben im Cloud Shell-Fenster die Option **PowerShell** aus. Eine Beispielabbildung des Fensters **Cloud Shell** finden Sie im Abschnitt für die Azure-Befehlszeilenschnittstelle.
 2. Legen Sie die folgenden Variablen fest. Aktualisieren Sie nach dem Kopieren und Einfügen der einzelnen Befehle den Namen des Themas (**topic name**) und den Namen der Ressourcengruppe (**resource group name**), bevor Sie den Befehl ausführen:
 
@@ -178,7 +178,7 @@ Im zweiten Beispiel werden ähnliche Schritte mit PowerShell ausgeführt.
 ### <a name="verify-in-the-event-grid-viewer"></a>Überprüfen im Event Grid-Viewer
 Sie haben das Ereignis ausgelöst, und Event Grid hat die Nachricht an den Endpunkt gesendet, den Sie beim Abonnieren konfiguriert haben. Zeigen Sie Ihre Web-App an, um das soeben gesendete Ereignis anzuzeigen.
 
-:::image type="content" source="./media/custom-event-quickstart-portal/event-grid-viewer-end.png" alt-text="Event Grid-Themen suchen und auswählen":::
+:::image type="content" source="./media/custom-event-quickstart-portal/event-grid-viewer-end.png" alt-text="Event Grid-Viewer":::
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 Wenn Sie dieses Ereignis weiterverwenden möchten, können Sie die Bereinigung der in diesem Artikel erstellten Ressourcen überspringen. Löschen Sie andernfalls die Ressourcen, die Sie in diesem Artikel erstellt haben.

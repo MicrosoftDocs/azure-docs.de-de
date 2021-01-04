@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: overview
-ms.date: 07/30/2020
-ms.openlocfilehash: e80ea37409f7b5beb48ba7b8e96aeeda9a5836e5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/30/2020
+ms.openlocfilehash: b9fb5d6537d2c8dffef397c56128dd4891c939b7
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89433431"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578126"
 ---
 # <a name="what-is-azure-data-share"></a>Was ist Azure Data Share?
 
@@ -45,7 +45,7 @@ Datenanbieter können ihren Datenconsumern inkrementelle Updates der freigegeben
 
 ![Ablauf der Datenfreigabe](media/data-share-flow.png)
 
-Wenn ein Datenconsumer eine Datenfreigabe akzeptiert, kann er die Daten in einem Datenspeicher seiner Wahl empfangen. Wenn der Datenanbieter beispielsweise Daten mit Azure Blob Storage freigibt, kann der Datenconsumer diese Daten in Azure Data Lake Store empfangen. Analog gilt Folgendes: Wenn der Datenanbieter Daten aus einer Azure Synapse Analytics-Instanz (vormals SQL Data Warehouse) freigibt, kann der Datenconsumer wählen, ob er die Daten in einer Azure Data Lake Store-Instanz, einer Azure SQL-Datenbank oder einer Azure Synapse Analytics-Instanz erhalten möchte. Bei der Freigabe über SQL-basierte Quellen kann der Datenconsumer auch auswählen, ob er Daten im Parquet- oder CSV-Format empfangen möchte. 
+Wenn ein Datenconsumer eine Datenfreigabe akzeptiert, kann er die Daten in einem Datenspeicher seiner Wahl empfangen. Wenn der Datenanbieter beispielsweise Daten mit Azure Blob Storage freigibt, kann der Datenconsumer diese Daten in Azure Data Lake Store empfangen. Analog gilt Folgendes: Wenn der Datenanbieter Daten aus einer Azure Synapse Analytics-Instanz freigibt, kann der Datenconsumer wählen, ob er die Daten in einer Azure Data Lake Store-, Azure SQL-Datenbank- oder Azure Synapse Analytics-Instanz erhalten möchte. Bei der Freigabe über SQL-basierte Quellen kann der Datenconsumer auch auswählen, ob er Daten im Parquet- oder CSV-Format empfangen möchte. 
 
 Mit der direkten Freigabe können Datenanbieter Daten direkt an ihrem Speicherort freigeben, ohne die Daten zu kopieren. Nachdem die Freigabebeziehung durch den Einladungsflow hergestellt wurde, wird eine symbolische Verbindung zwischen dem Quelldatenspeicher des Datenanbieters und dem Zieldatenspeicher des Datenconsumers hergestellt. Der Datenconsumer kann die Daten unter Verwendung seines eigenen Datenspeichers lesen und abfragen. Änderungen am Quelldatenspeicher sind sofort für den Datenconsumer verfügbar. Die direkte Freigabe befindet sich derzeit in der Vorschauphase für Azure Data Explorer.
 
@@ -73,9 +73,7 @@ Mit Azure Data Share haben Datenconsumer folgende Möglichkeiten:
 
 * Akzeptieren von Daten, die für Sie in einem [unterstützten Datenspeicher](supported-data-stores.md) freigegeben werden
 
-* Auslösen einer vollständigen oder inkrementellen Momentaufnahme einer Datenfreigabe, die Sie von einer Organisation erhalten haben
-
-* Abonnieren einer Datenfreigabe, um die aktuelle Kopie der Daten per inkrementeller Momentaufnahme zu erhalten
+* Direktes Zugreifen auf Daten oder Auslösen einer vollständigen oder inkrementellen Momentaufnahme der freigegebenen Daten
 
 Alle wichtigen Funktionen, die oben aufgeführt sind, werden über das Azure-Portal oder REST-APIs unterstützt. Weitere Informationen zur Verwendung von Azure Data Share mit REST-APIs finden Sie in unserer Referenzdokumentation. 
 

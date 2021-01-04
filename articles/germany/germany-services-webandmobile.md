@@ -7,12 +7,12 @@ author: gitralf
 ms.author: ralfwi
 ms.service: germany
 ms.custom: bfdocs
-ms.openlocfilehash: 3ddc2217cd784777c1456d01da8df17cb1a5acae
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7555be6d573a143ecce7b8fe50adfc6f3a990510
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124333"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018471"
 ---
 # <a name="azure-germany-web-and-mobile-services"></a>Webdienste und Mobile Services von Azure Deutschland
 
@@ -30,9 +30,4 @@ Die Adressen, die in Azure Deutschland für Azure App Service-Apps erstellt werd
 
 
 ## <a name="next-steps"></a>Nächste Schritte
-Abonnieren Sie den [Azure Deutschland-Blog](https://blogs.msdn.microsoft.com/azuregermany/), um weitere Informationen und Updates zu erhalten.
-
-
-
-
-
+Abonnieren Sie den [Azure Deutschland-Blog](/archive/blogs/azuregermany/), um weitere Informationen und Updates zu erhalten.

@@ -1,26 +1,16 @@
 ---
-title: Unterstützte Browser und Geräte für das Azure-Portal | Microsoft-Dokumentation
+title: Unterstützte Browser und Geräte für das Azure-Portal
 description: Sie können das Azure-Portal auf allen modernen Geräten und mit den neuesten Browserversionen verwenden. Lesen Sie diesen Artikel, um sicherzustellen, dass Ihr Browser unterstützt wird.
-services: azure-portal
-documentationcenter: ''
-author: adamabmsft
-manager: lwelicki
-editor: ''
 ms.assetid: 35fa18ec-21d8-41bf-af2b-e5e92703401d
-ms.service: azure-portal
-ms.workload: multiple
-ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/20/2019
-ms.author: mblythe
+ms.date: 11/18/2020
 ms.custom: accessibility
-ms.openlocfilehash: 63bfb7c92e77c4059a46a83b76b3818fcb6d63be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8009d0d4ac971d81e25b276b19605bc6a70cff02
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090209"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745671"
 ---
 # <a name="supported-devices"></a>Unterstützte Geräte
 

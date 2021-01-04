@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 68e47fe3cc674542a807ecbabd37cc6b624d5c03
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 167ed7e5c00452db4ee77e10236fec3ff86f0439
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145589"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175099"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Grundlegendes zur Integration der Bereitstellung in Azure Monitor-Protokolle
 
@@ -26,17 +26,17 @@ Die Bereitstellung ist mit Azure Monitor-Protokollen und Log Analytics integrier
 
 Sie sollten bereits mit Azure Monitor und Log Analytics vertraut sein. Wenn dies nicht der Fall ist, machen Sie sich zunächst mit diesen Features vertraut, bevor Sie sich über die Protokolle für die Anwendungsbereitstellung informieren. Weitere Informationen zur Azure-Überwachung finden Sie unter [Azure Monitor – Übersicht](../../azure-monitor/overview.md). Weitere Informationen zu Azure Monitor-Protokollen und Log Analytics finden Sie unter [Übersicht über Protokollabfragen in Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
-Nachdem Sie die Azure-Überwachung (Azure Monitor) konfiguriert haben, können Sie Protokolle für die Anwendungsbereitstellung aktivieren. Die Option befindet sich auf der Seite **Diagnoseeinstellungen** .
+Nachdem Sie die Azure-Überwachung (Azure Monitor) konfiguriert haben, können Sie Protokolle für die Anwendungsbereitstellung aktivieren. Die Option befindet sich auf der Seite **Diagnoseeinstellungen**.
 
 :::image type="content" source="media/application-provisioning-log-analytics/diagnostic-settings.png" alt-text="Zugreifen auf Diagnoseeinstellungen" lightbox="media/application-provisioning-log-analytics/diagnostic-settings.png":::
 
-:::image type="content" source="media/application-provisioning-log-analytics/enable-log-analytics.png" alt-text="Zugreifen auf Diagnoseeinstellungen" lightbox="media/application-provisioning-log-analytics/enable-log-analytics.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/enable-log-analytics.png" alt-text="Aktivieren von Protokollen für die Anwendungsbereitstellung" lightbox="media/application-provisioning-log-analytics/enable-log-analytics.png":::
 
 > [!NOTE]
 > Wenn Sie erst kürzlich einen Arbeitsbereich bereitgestellt haben, kann es einige Zeit dauern, bis Sie Protokolle an diesen senden können. Wenn eine Fehlermeldung angezeigt wird, dass das Abonnement nicht für die Verwendung von *microsoft.insights* registriert ist, versuchen Sie es nach einigen Minuten erneut.
  
 ## <a name="understanding-the-data"></a>Grundlegendes zu den Daten
-Der zugrunde liegende Datenstrom, der über die Bereitstellung an Protokollanzeigen gesendet wird, ist nahezu identisch. Azure Monitor-Protokolle empfangen fast denselben Datenstrom wie die Benutzeroberfläche des Azure-Portals und die Azure API. Wie in der folgenden Tabelle aufgeführt, weisen die Protokollfelder nur einige wenige **Unterschiede** auf. Weitere Informationen zu diesen Feldern finden Sie unter [ProvisioningObjectSummary auflisten](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http&preserve-view=true).
+Der zugrunde liegende Datenstrom, der über die Bereitstellung an Protokollanzeigen gesendet wird, ist nahezu identisch. Azure Monitor-Protokolle empfangen fast denselben Datenstrom wie die Benutzeroberfläche des Azure-Portals und die Azure API. Wie in der folgenden Tabelle aufgeführt, weisen die Protokollfelder nur einige wenige **Unterschiede** auf. Weitere Informationen zu diesen Feldern finden Sie unter [ProvisioningObjectSummary auflisten](/graph/api/provisioningobjectsummary-list?preserve-view=true&tabs=http&view=graph-rest-beta).
 
 |Azure Monitor-Protokolle   |Verwalten des Zugriffs auf Azure-Ressourcen mit RBAC und dem Azure-Portal   |Azure API |
 |----------|-----------|------------|
@@ -51,9 +51,9 @@ Azure Monitor-Arbeitsmappen bieten eine flexible Canvas für die Datenanalyse. S
 
 Die Anwendungsbereitstellung umfasst eine Reihe vorkonfigurierter Arbeitsmappen. Diese finden Sie auf der Seite „Arbeitsmappen“. Zum Anzeigen der Daten müssen Sie sicherstellen, dass alle Filter (timeRange, jobID, appName) ausgefüllt sind. Sie müssen auch sicherstellen, dass Sie eine Anwendung bereitgestellt haben. Andernfalls enthalten die Protokolle keine Daten.
 
-:::image type="content" source="media/application-provisioning-log-analytics/workbooks.png" alt-text="Zugreifen auf Diagnoseeinstellungen" lightbox="media/application-provisioning-log-analytics/workbooks.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/workbooks.png" alt-text="Arbeitsmappen für die Anwendungsbereitstellung" lightbox="media/application-provisioning-log-analytics/workbooks.png":::
 
-:::image type="content" source="media/application-provisioning-log-analytics/report.png" alt-text="Zugreifen auf Diagnoseeinstellungen" lightbox="media/application-provisioning-log-analytics/report.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/report.png" alt-text="Dashboard für die Anwendungsbereitstellung" lightbox="media/application-provisioning-log-analytics/report.png":::
 
 ## <a name="custom-queries"></a>Benutzerdefinierte Abfragen
 
@@ -100,15 +100,15 @@ Weitere Informationen zu Warnungen finden Sie unter [Reagieren auf Ereignisse mi
 
 Warnung über Spitze bei Ausfällen Ersetzen Sie die jobID durch die Auftrags-ID Ihrer Anwendung.
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert1.png" alt-text="Zugreifen auf Diagnoseeinstellungen" lightbox="media/application-provisioning-log-analytics/alert1.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert1.png" alt-text="Warnung über Spitze bei Ausfällen" lightbox="media/application-provisioning-log-analytics/alert1.png":::
 
 Möglicherweise ist ein Problem aufgetreten, das dazu führt, dass der Bereitstellungsdienst nicht mehr ausgeführt wird. Verwenden Sie die folgende Warnung, um zu ermitteln, wann während eines bestimmten Zeitintervalls keine Bereitstellungsereignisse auftreten.
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert2.png" alt-text="Zugreifen auf Diagnoseeinstellungen" lightbox="media/application-provisioning-log-analytics/alert2.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert2.png" alt-text="Möglicherweise ist ein Problem aufgetreten, das dazu führt, dass der Bereitstellungsdienst nicht mehr ausgeführt wird." lightbox="media/application-provisioning-log-analytics/alert2.png":::
 
 Warnung über eine Spitze bei Deaktivierungen oder Löschvorgängen
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert3.png" alt-text="Zugreifen auf Diagnoseeinstellungen" lightbox="media/application-provisioning-log-analytics/alert3.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert3.png" alt-text="Warnung über eine Spitze bei Deaktivierungen oder Löschvorgängen" lightbox="media/application-provisioning-log-analytics/alert3.png":::
 
 
 ## <a name="community-contributions"></a>Beiträge aus der Community
@@ -121,4 +121,4 @@ Wir verfolgen bei Abfragen und Dashboards für die Anwendungsbereitstellung eine
 - [Erste Schritte mit Abfragen in Azure Monitor-Protokollen](../../azure-monitor/log-query/get-started-queries.md)
 - [Erstellen und Verwalten von Benachrichtigungsgruppen im Azure-Portal](../../azure-monitor/platform/action-groups.md)
 - [Installieren und Verwenden der Log Analytics-Ansichten für Azure Active Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
-- [API für Bereitstellungsprotokolle](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta.md&preserve-view=true)
+- [API für Bereitstellungsprotokolle](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta.md)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 4bdca8921a99db764cbc8ee1edfdad8cf8b8568f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09859be61029242e987603e01b5c3fba8dffb2ca
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360938"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483885"
 ---
 # <a name="what-is-a-voice-assistant"></a>Was ist ein Sprachassistent?
 
@@ -32,7 +32,7 @@ Im ersten Schritt zur Erstellung eines Sprach-Assistenten wird festgelegt, welch
 |Konversation mit offenem Ende mit Integration von stabilen Fähigkeiten und vollständiger Bereitstellungssteuerung | Azure Bot Service-Bot mit [Direct Line Speech](direct-line-speech.md)-Kanal | <ul><li>„Ich möchte nach Stuttgart fahren“</li><li>„Welche Art von Pizza kann ich bestellen?“</li></ul>
 |Sprachgesteuerte oder einfache aufgabenorientierte Unterhaltungen mit vereinfachter Erstellung und vereinfachtem Hosting | [Benutzerdefinierte Befehle](custom-commands.md) | <ul><li>„Deckenlampe einschalten“</li><li>„Temperatur um fünf Grad erhöhen“</li><li>Weitere Beispiele sind [hier verfügbar](https://speech.microsoft.com/customcommands).</li></ul>
 
-Wir empfehlen Ihnen die Verwendung von [Direct Line Speech](direct-line-speech.md) als Standardauswahl, falls Sie noch nicht genau wissen, wie Ihr Assistent eingesetzt werden soll. Hiermit erhalten Sie eine Integration mit umfassenden Tools und Erstellungshilfen, z. B. die [Lösung „Virtueller Assistent“ und die Unternehmensvorlage](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) sowie den [QnA Maker-Dienst](https://docs.microsoft.com/azure/cognitive-services/QnAMaker/Overview/overview), um häufig verwendete Muster zu nutzen und zu erweitern und Ihre vorhandenen Wissensquellen zu verwenden.
+Wir empfehlen Ihnen die Verwendung von [Direct Line Speech](direct-line-speech.md) als Standardauswahl, falls Sie noch nicht genau wissen, wie Ihr Assistent eingesetzt werden soll. Hiermit erhalten Sie eine Integration mit umfassenden Tools und Erstellungshilfen, z. B. die [Lösung „Virtueller Assistent“ und die Unternehmensvorlage](/azure/bot-service/bot-builder-enterprise-template-overview) sowie den [QnA Maker-Dienst](../qnamaker/overview/overview.md), um häufig verwendete Muster zu nutzen und zu erweitern und Ihre vorhandenen Wissensquellen zu verwenden.
 
 Mit [benutzerdefinierten Befehlen](custom-commands.md) ist es einfach, funktionsreiche Apps mit Sprachsteuerung zu erstellen, die für Voice-First-Interaktionserfahrungen optimiert sind. Sie bieten eine einheitliche Benutzeroberfläche für die Erstellung, ein automatisches Hostingmodell und eine relativ geringe Komplexität, sodass Sie sich auf die Entwicklung der besten Lösung für Ihre Szenarien mit Sprachsteuerung konzentrieren können.
 
@@ -49,7 +49,7 @@ Sowohl bei Nutzung von [Direct Line Speech](direct-line-speech.md) als auch von 
 
 | Category | Features |
 |----------|----------|
-|[Benutzerdefiniertes Schlüsselwort](speech-devices-sdk-create-kws.md) | Benutzer können Konversationen mit Assistenten über ein benutzerdefiniertes Schlüsselwort wie z. B. „Hallo, Contoso“ starten. Eine App verwendet hierzu eine benutzerdefinierte Schlüsselwort-Engine im Speech SDK, um ein benutzerdefiniertes Schlüsselwort zu konfigurieren, [das Sie hier generieren können](speech-devices-sdk-create-kws.md). Sprachassistenten können eine dienstseitige Schlüsselwortüberprüfung nutzen, um die Genauigkeit der Schlüsselwortaktivierung zu verbessern (statt diesen Vorgang nur über das Gerät durchzuführen).
+|[Benutzerdefiniertes Schlüsselwort](./custom-keyword-basics.md) | Benutzer können Konversationen mit Assistenten über ein benutzerdefiniertes Schlüsselwort wie z. B. „Hallo, Contoso“ starten. Eine App verwendet hierzu eine benutzerdefinierte Schlüsselwort-Engine im Speech SDK, um ein benutzerdefiniertes Schlüsselwort zu konfigurieren, [das Sie hier generieren können](./custom-keyword-basics.md). Sprachassistenten können eine dienstseitige Schlüsselwortüberprüfung nutzen, um die Genauigkeit der Schlüsselwortaktivierung zu verbessern (statt diesen Vorgang nur über das Gerät durchzuführen).
 |[Spracherkennung](speech-to-text.md) | Sprachassistenten wandeln mithilfe der [Spracherkennung](speech-to-text.md) des Speech-Diensts Audiodaten in Echtzeit in erkannten Text um. Dieser Text ist während der Transkription sowohl für Ihre Assistentenimplementierung als auch für Ihre Clientanwendung verfügbar.
 |[Sprachsynthese](text-to-speech.md) | Textantworten von Ihrem Assistenten werden mithilfe der [Sprachsynthese](text-to-speech.md) des Speech-Diensts synthetisiert. Diese Synthese wird dann Ihrer Clientanwendung als Audiostream zur Verfügung gestellt. Microsoft bietet die Möglichkeit, eine benutzerdefinierte, hochwertige neuronale TTS-Stimme zu erstellen, die Ihrer Marke eine Stimme verleiht. [Kontaktieren Sie uns](mailto:mstts@microsoft.com), wenn Sie mehr darüber erfahren möchten.
 
@@ -72,7 +72,7 @@ Beispielcode für die Erstellung eines Sprachassistenten ist auf GitHub verfügb
 
 Sprachassistenten, die mit Azure Speech-Diensten erstellt wurden, können die gesamte Palette von Anpassungsoptionen nutzen.
 
-* [Custom Speech Service](how-to-custom-speech.md)
+* [Custom Speech Service](./custom-speech-overview.md)
 * [Custom Voice](how-to-custom-voice.md)
 * [Benutzerdefiniertes Schlüsselwort](custom-keyword-overview.md)
 

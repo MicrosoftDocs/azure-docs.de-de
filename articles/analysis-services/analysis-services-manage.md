@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 697e5484c007c095201344fb4829a92eb642a6e3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 91ffcac98b2b919a8fc131d235e699aad4fa215d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014850"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078899"
 ---
 # <a name="manage-analysis-services"></a>Verwalten von Analysis Services
 Nachdem Sie in Azure einen Analysis Services-Server erstellt haben, müssen Sie möglicherweise sofort oder zu einem späteren Zeitpunkt einige Verwaltungsaufgaben ausführen. Sie können z. B. Daten aktualisieren, steuern, wem Zugriff auf die Modelle auf dem Server gewährt wird, oder die Integrität des Servers überwachen. Einige Verwaltungsaufgaben können nur im Azure-Portal, andere in SQL Server Management Studio (SSMS) und bestimmte sowohl im Portal als auch in SSMS ausgeführt werden.
@@ -20,7 +20,7 @@ Nachdem Sie in Azure einen Analysis Services-Server erstellt haben, müssen Sie 
 ## <a name="azure-portal"></a>Azure-Portal
 Im [Azure-Portal](https://portal.azure.com/) können Sie Server erstellen und löschen, Serverressourcen überwachen, die Größe ändern und steuern, wer Zugriff auf die Server hat.  Wenn Probleme auftreten, können Sie eine Supportanfrage senden.
 
-![Abrufen von Servernamen in Azure](./media/analysis-services-manage/aas-manage-portal.png)
+![Screenshot: Zeigt, wo Sie im Azure-Portal Server erstellen und löschen, Serverressourcen überwachen, die Größe ändern und den Zugriff auf Ihre Server steuern können](./media/analysis-services-manage/aas-manage-portal.png)
 
 ## <a name="sql-server-management-studio"></a>SQL Server Management Studio
 Das Herstellen einer Verbindung mit dem Server in Azure entspricht dem Herstellen einer Verbindung mit einer Serverinstanz in der eigenen Organisation. In SSMS können Sie viele der gleichen Aufgaben ausführen, z. B. Verarbeiten von Daten oder Erstellen eines Verarbeitungsskripts, Verwalten von Rollen und Verwenden von PowerShell.
@@ -47,11 +47,11 @@ Verwenden Sie die neueste Version von SSMS, um alle aktuellen Features zu erhalt
     > [!NOTE]
     > Wenn Sie sich mit einem Microsoft-Konto, Live ID, Yahoo, Gmail usw. anmelden, lassen Sie das Kennwortfeld leer. Nachdem Sie auf „Verbinden“ geklickt haben, werden Sie zur Eingabe des Kennworts aufgefordert.
 
-    **Windows-Authentifizierung**, um Ihre Windows-Domäne\Ihren Benutzernamen und Ihr Kennwort als Anmeldeinformationen zu verwenden.
+    **Windows-Authentifizierung** , um Ihre Windows-Domäne\Ihren Benutzernamen und Ihr Kennwort als Anmeldeinformationen zu verwenden.
 
-    **Active Directory-Kennwortauthentifizierung**, um ein Organisationskonto zu verwenden. Dies ist beispielsweise beim Herstellen einer Verbindung von einem nicht mit der Domäne verbundenen Computer sinnvoll.
+    **Active Directory-Kennwortauthentifizierung** , um ein Organisationskonto zu verwenden. Dies ist beispielsweise beim Herstellen einer Verbindung von einem nicht mit der Domäne verbundenen Computer sinnvoll.
 
-    **Active Directory: universell mit MFA-Unterstützung**, wenn [nicht interaktive oder mehrstufige Authentifizierung](../azure-sql/database/authentication-mfa-ssms-overview.md) verwendet werden soll. 
+    **Active Directory: universell mit MFA-Unterstützung** , wenn [nicht interaktive oder mehrstufige Authentifizierung](../azure-sql/database/authentication-mfa-ssms-overview.md) verwendet werden soll. 
    
     ![Herstellen der Verbindung in SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 

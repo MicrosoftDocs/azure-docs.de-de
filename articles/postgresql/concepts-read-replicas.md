@@ -5,31 +5,36 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/15/2020
-ms.openlocfilehash: 7f81e6182209e29e41a21abadbaf05518844d201
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.date: 11/05/2020
+ms.openlocfilehash: 8fabf8169270c3162604b6535a6cf2fb07cd9a9d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490168"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422143"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Lesereplikate in Azure Database for PostgreSQL – Einzelserver
 
-Mit dem Feature für Lesereplikate können Sie Daten von einem Azure Database for PostgreSQL-Server auf einen schreibgeschützten Server replizieren. Sie können vom primären Server auf bis zu fünf Replikate replizieren. Replikate werden mithilfe der nativen Replikationstechnologie der PostgreSQL-Engine asynchron aktualisiert.
+Mit dem Feature für Lesereplikate können Sie Daten von einem Azure Database for PostgreSQL-Server auf einen schreibgeschützten Server replizieren. Replikate werden **asynchron** mithilfe der nativen physischen Replikationstechnologie der PostgreSQL-Engine aktualisiert. Sie können vom primären Server auf bis zu fünf Replikate replizieren.
 
 Replikate sind neue Server, die ähnlich wie reguläre Azure Database for PostgreSQL-Server verwaltet werden. Für jedes Lesereplikat werden Ihnen die bereitgestellten Computeressourcen in Form von virtuellen Kernen sowie der Speicher in GB/Monat in Rechnung gestellt.
 
 Erfahren Sie, wie Sie [Replikate erstellen und verwalten](howto-read-replicas-portal.md).
 
 ## <a name="when-to-use-a-read-replica"></a>Einsatzmöglichkeiten von Lesereplikaten
-Das Feature für Lesereplikate kann die Leistung und Skalierung von leseintensiven Workloads verbessern. Leseworkloads können in den Replikaten isoliert werden, während Schreibworkloads an den primären Server weitergeleitet werden können.
+Das Feature für Lesereplikate kann die Leistung und Skalierung von leseintensiven Workloads verbessern. Leseworkloads können in den Replikaten isoliert werden, während Schreibworkloads an den primären Server weitergeleitet werden können. Lesereplikate können auch in einer anderen Region bereitgestellt werden. Außerdem können sie im Fall einer Notfallwiederherstellung zu einem Lese-/Schreibserver hochgestuft werden.
 
 In einem häufig anzutreffenden Szenario verwenden BI- und Analyseworkloads das Lesereplikat als Datenquelle für die Berichterstellung.
 
-Da Replikate schreibgeschützt sind, führen sie nicht direkt zu einer verringerten Auslastung der Schreibkapazität auf dem primären Server. Dieses Feature ist nicht auf schreibintensive Workloads ausgerichtet.
+Da Replikate schreibgeschützt sind, führen sie nicht direkt zu einer verringerten Auslastung der Schreibkapazität auf dem primären Server.
 
-Das Feature für Lesereplikate verwendet die asynchrone Replikation von PostgreSQL. Das Feature ist nicht für synchrone Replikationsszenarien vorgesehen. Zwischen dem primären Server und dem Replikat entsteht eine messbare Verzögerung. Letztendlich sind die Daten auf dem Replikat mit den Daten auf dem primären Server konsistent. Verwenden Sie das Feature für Workloads, für die diese Verzögerung akzeptabel ist.
+### <a name="considerations"></a>Überlegungen
+Das Feature ist für Szenarien vorgesehen, in denen die Verzögerung akzeptabel und für das Abladen von Abfragen vorgesehen ist. Es ist nicht für Szenarien mit synchroner Replikation gedacht, in denen die Replikatdaten auf dem neuesten Stand sein müssen. Zwischen dem primären Server und dem Replikat entsteht eine messbare Verzögerung. Diese kann abhängig von der Workload und der Latenz zwischen dem primären Server und dem Replikat Minuten oder sogar Stunden betragen. Letztendlich sind die Daten auf dem Replikat mit den Daten auf dem primären Server konsistent. Verwenden Sie das Feature für Workloads, für die diese Verzögerung akzeptabel ist. 
 
+> [!NOTE]
+> Bei den meisten Workloads bieten Lesereplikate Updates vom primären Server nahezu in Echtzeit. Bei persistenten, sehr schreibintensiven primären Workloads kann die Verzögerung der Replikation jedoch immer weiter anwachsen, bis der Stand des primären Servers möglicherweise gar nicht mehr erreicht werden kann. Damit kann auch die Speicherauslastung auf dem primären Server ansteigen, da die WAL-Dateien erst gelöscht werden, wenn sie im Replikat empfangen wurden. Wenn diese Situation andauert, können Sie das Replikat durch das Löschen und erneute Erstellen des Lesereplikats nach Abschluss der schreibintensiven Workloads wieder in einen Zustand mit akzeptabler Verzögerung versetzen.
+> Asynchrone Lesereplikate eignen sich nicht für solche schreibintensiven Workloads. Wenn Sie Lesereplikate für Ihre Anwendung auswerten, überwachen Sie die Verzögerung im Replikat über einen vollständigen Workloadzyklus der App. Bewerten Sie dann anhand der Zeiten mit und ohne Spitzenwerte die mögliche Verzögerung und die erwartete RTO/RPO zu den einzelnen Zeitpunkten im Workloadzyklus.
+> 
 ## <a name="cross-region-replication"></a>Regionsübergreifende Replikation
 Sie können über Ihren primären Server ein Lesereplikat in einer anderen Region erstellen. Die regionsübergreifende Replikation kann beispielsweise hilfreich sein, um die Notfallwiederherstellung zu planen oder Daten näher beim Benutzer bereitzustellen.
 
@@ -74,59 +79,49 @@ Das Replikat erbt das Administratorkonto vom primären Server. Alle Benutzerkont
 
 Sie können wie bei einem normalen Azure Database for PostgreSQL-Server anhand des Hostnamens und eines gültigen Benutzerkontos eine Verbindung mit dem Replikat herstellen. Für einen Server namens **my replica** mit dem Administratorbenutzernamen **myadmin** können Sie mit psql eine Verbindung mit dem Replikat herstellen:
 
-```
+```bash
 psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 ```
 
 Geben Sie an der Eingabeaufforderung das Kennwort für das Benutzerkonto ein.
 
 ## <a name="monitor-replication"></a>Überwachen der Replikation
-Azure Database for PostgreSQL stellt zwei Metriken zum Überwachen der Replikation bereit. Die beiden Metriken sind **Maximale Verzögerung zwischen Replikaten** und **Replikatverzögerung** . Informationen zum Anzeigen dieser Metriken finden Sie im Abschnitt **Monitor a replica** (Überwachen eines Replikats) im Artikel [Howto read replicas](howto-read-replicas-portal.md) (Gewusst wie: Lesereplikate).
+Azure Database for PostgreSQL stellt zwei Metriken zum Überwachen der Replikation bereit. Die beiden Metriken sind **Maximale Verzögerung zwischen Replikaten** und **Replikatverzögerung**. Informationen zum Anzeigen dieser Metriken finden Sie im Abschnitt **Monitor a replica** (Überwachen eines Replikats) im Artikel [Howto read replicas](howto-read-replicas-portal.md) (Gewusst wie: Lesereplikate).
 
-Die Metrik **Maximale Verzögerung zwischen Replikaten** zeigt die Verzögerung in Bytes zwischen dem primären Server und dem Replikat mit der größten Verzögerung an. Diese Metrik ist nur auf dem primären Server verfügbar und nur dann, wenn mindestens eines der Lesereplikate mit dem primären Server verbunden ist.
+Die Metrik **Maximale Verzögerung zwischen Replikaten** zeigt die Verzögerung in Bytes zwischen dem primären Server und dem Replikat mit der größten Verzögerung an. Diese Metrik ist nur auf dem primären Server verfügbar und anwendbar. Außerdem trifft dies nur dann zu, wenn mindestens eines der Lesereplikate mit dem primären Server verbunden ist und sich der primäre Server im Streamingreplikationsmodus befindet. Die Informationen zur Verzögerung enthalten keine Details, wenn das Replikat gerade mithilfe der archivierten Protokolle vom primären Server auf den aktuellen Stand des primären Servers gebracht wird und sich dazu im Dateireplikationsmodus befindet.
 
-Die Metrik **Replikatverzögerung** zeigt die Zeit seit der letzten wiedergegebenen Transaktion an. Wenn auf dem primären Server keine Transaktionen stattfinden, gibt die Metrik diese Verzögerungszeit wieder. Diese Metrik steht nur für Replikatserver zur Verfügung. Die Metrik „Replikatverzögerung“ wird aus der Ansicht `pg_stat_wal_receiver` berechnet:
+Die Metrik **Replikatverzögerung** zeigt die Zeit seit der letzten wiedergegebenen Transaktion an. Wenn auf dem primären Server keine Transaktionen stattfinden, gibt die Metrik diese Verzögerungszeit wieder. Diese Metrik ist nur auf Replikatservern verfügbar und anwendbar. Die Metrik „Replikatverzögerung“ wird aus der Ansicht `pg_stat_wal_receiver` berechnet:
 
 ```SQL
-EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
+SELECT EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
 ```
 
 Richten Sie eine Benachrichtigung ein, die Sie informiert, wenn die Replikatverzögerung einen für Ihre Workload nicht akzeptablen Wert erreicht. 
 
 Um weitere Erkenntnisse zu erhalten, können Sie die Replikationsverzögerung in Bytes auf allen Replikaten direkt vom primären Server abfragen.
 
-In PostgreSQL, Version 10:
-
-```SQL
-select pg_wal_lsn_diff(pg_current_wal_lsn(), replay_lsn) 
-AS total_log_delay_in_bytes from pg_stat_replication;
-```
-
-In PostgreSQL, Version 9.6 und früher:
-
-```SQL
-select pg_xlog_location_diff(pg_current_xlog_location(), replay_location) 
-AS total_log_delay_in_bytes from pg_stat_replication;
-```
-
 > [!NOTE]
 > Wenn ein primärer Server oder ein Lesereplikat neu gestartet wird, spiegelt die Metrik „Replikatverzögerung“ die benötigte Zeit zum Neustarten und anschließenden Aufholen wider.
 
-## <a name="stop-replication"></a>Beenden der Replikation
-Sie können die Replikation zwischen einem primären Server und einem Replikat beenden. Durch die Beendigungsaktion wird das Replikat neu gestartet, und die zugehörigen Replikationseinstellungen werden entfernt. Sobald die Replikation zwischen einem primären Server und einem Lesereplikat beendet wurde, wird das Replikat zu einem eigenständigen Server. Bei den Daten auf diesem eigenständigen Server handelt es sich um die Daten, die zu dem Zeitpunkt, als der Befehl zum Beenden der Replikation gestartet wurde, auf dem Replikatserver vorhanden waren. Der eigenständige Server wird nicht zusammen mit dem primären Server aktualisiert.
+## <a name="stop-replication--promote-replica"></a>Beenden der Replikation/Höherstufen des Replikats
+Sie können die Replikation zwischen einem primären Server und einem Replikat jederzeit beenden. Durch das Beenden wird das Replikat neu gestartet und auf einen unabhängigen, eigenständigen Server mit Lese- und Schreibzugriff heraufgestuft. Bei den Daten auf diesem eigenständigen Server handelt es sich um die Daten, die zum Zeitpunkt der Beendigung der Replikation auf dem Replikatserver vorhanden waren. Alle nachfolgenden Updates auf dem primären Server werden nicht an das Replikat weitergegeben. Möglicherweise gibt es jedoch auf dem Replikatserver akkumulierte Protokolle, die noch nicht angewandt wurden. Während des Neustarts wendet das Replikat alle ausstehenden Protokolle an, bevor Clientverbindungen akzeptiert werden.  
 
-> [!IMPORTANT]
-> Der eigenständige Server kann nicht wieder in ein Replikat umgewandelt werden.
-> Stellen Sie vor dem Beenden der Replikation auf einem Lesereplikat sicher, dass das Replikat alle erforderlichen Daten enthält.
+### <a name="considerations"></a>Überlegungen
+- Überprüfen Sie vor dem Beenden der Replikation auf einem Lesereplikat die Replikationsverzögerung, um sicherzustellen, dass das Replikat alle erforderlichen Daten enthält. 
+- Da das Lesereplikat alle ausstehenden Protokolle anwenden muss, bevor es in einen eigenständigen Server umgewandelt werden kann, ist die RTO für schreibintensive Workloads beim Beenden der Replikation möglicherweise höher, da für das Replikat eine erhebliche Verzögerung auftreten kann. Beachten Sie dies, wenn Sie planen, ein Replikat höher zu stufen.
+- Der höher gestufte Replikatserver kann nicht wieder in ein Replikat umgewandelt werden.
+- Wenn Sie ein Replikat auf den primären Server höher stufen, können Sie die Replikation mit dem alten primären Server nicht erneut einrichten. Wenn Sie zur alten primären Region zurückwechseln möchten, können Sie entweder einen neuen Replikatserver mit einem neuen Namen erstellen oder den alten primären Server löschen und ein Replikat mit dem Namen des alten primären Servers erstellen.
+- Wenn Sie über mehrere Lesereplikate verfügen und eines davon als primären Server höher stufen möchten, bleiben die anderen Replikatserver weiterhin mit dem alten primären Server verbunden. Sie müssen eventuell Replikate vom neuen, höher gestuften Server neu erstellen.
 
 Wenn Sie die Replikation beenden, verliert das Replikat alle Links zu seinem vorherigen primären Server und zu anderen Replikaten.
 
 Erfahren Sie, wie Sie die [Replikation auf ein Replikat beenden](howto-read-replicas-portal.md).
 
-## <a name="failover"></a>Failover
-Zwischen dem primären Server und Replikatservern erfolgt kein automatisiertes Failover. 
+## <a name="failover-to-replica"></a>Failover zum Replikat
 
-Da die Replikation asynchron erfolgt, gibt es eine Verzögerung zwischen dem primären Server und dem Replikat. Die Verzögerungsdauer kann durch eine Reihe von Faktoren beeinflusst werden, z. B. durch den Umfang der Workload auf dem primären Server und die Latenzzeit zwischen Rechenzentren. Üblicherweise beträgt die Replikatverzögerung einige Sekunden bis zu einigen Minuten. In Fällen, in denen der primäre Server sehr hohe Arbeitsauslastungen aufweist und das Replikat nicht schnell genug ist, kann die Verzögerung jedoch höher sein. Sie können die tatsächliche Replikatverzögerung mithilfe der Metrik *Replikatverzögerung* nachverfolgen, die für jedes Replikat verfügbar ist. Diese Metrik zeigt die seit der letzten wiedergegebenen Transaktion verstrichene Zeit an. Es wird empfohlen, die durchschnittliche Verzögerung zu ermitteln, indem Sie die Replikatverzögerung über einen bestimmten Zeitraum hinweg beobachten. Sie können eine Warnung für die Replikatverzögerung festlegen, sodass Sie Maßnahmen ergreifen können, wenn sie sich außerhalb des erwarteten Bereichs befindet.
+Bei einem Fehler des primären Servers erfolgt **kein** automatisches Failover zum Lesereplikat. 
+
+Da die Replikation asynchron erfolgt, könnte eine signifikante Verzögerung zwischen dem primären Server und dem Replikat auftreten. Die Verzögerungsdauer wird durch eine Reihe von Faktoren beeinflusst, z. B. durch den Typ der Workload auf dem primären Server und die Latenz zwischen dem primären und dem Replikatserver. In typischen Fällen mit nominaler Schreibworkload wird von einer Replikatverzögerung zwischen einigen Sekunden und einigen Minuten ausgegangen. In Fällen, in denen auf dem primären Server sehr schreibintensive Workloads ausgeführt werden und das Replikat nicht schnell genug ist, kann die Verzögerung jedoch deutlich höher sein. Sie können die Replikatverzögerung für jedes Replikat mithilfe der Metrik *Replikatverzögerung* nachverfolgen. Die Metrik zeigt die Zeit seit der letzten wiedergegebenen Transaktion im Replikat an. Es wird empfohlen, die durchschnittliche Verzögerung zu ermitteln, indem Sie die Replikatverzögerung über einen bestimmten Zeitraum beobachten. Sie können eine Warnung für die Replikatverzögerung festlegen, sodass Sie benachrichtigt werden und Maßnahmen ergreifen können, wenn sie außerhalb des erwarteten Bereichs liegt.
 
 > [!Tip]
 > Wenn Sie ein Failover auf das Replikat durchführen, zeigt die Verzögerung zum Zeitpunkt der Trennung des Replikats vom primären Server an, wie viel Daten verloren gehen.
@@ -134,10 +129,10 @@ Da die Replikation asynchron erfolgt, gibt es eine Verzögerung zwischen dem pri
 Gehen Sie folgendermaßen vor, nachdem Sie entschieden haben, ein Failover auf ein Replikat durchzuführen: 
 
 1. Beenden der Replikation auf das Replikat<br/>
-   Dieser Schritt ist erforderlich, damit der Replikatserver Schreibvorgänge akzeptieren kann. Im Rahmen dieses Vorgangs wird der Replikatserver neu gestartet und vom primären Server getrennt. Nachdem Sie die das Beenden der Replikation gestartet haben, dauert der Abschluss des Back-End-Prozesse in der Regel etwa 2 Minuten. Informationen zu den Auswirkungen dieser Aktion finden Sie im Abschnitt [Beenden der Replikation](#stop-replication) in diesem Artikel.
+   Dieser Schritt ist erforderlich, damit der Replikatserver ein eigenständiger Server werden und Schreibvorgänge akzeptieren kann. Im Rahmen dieses Vorgangs wird der Replikatserver neu gestartet und vom primären Server getrennt. Nachdem Sie die Beendigung der Replikation initiiert haben, dauert es in der Regel einige Minuten, bis die noch nicht angewandten übrigen Protokolle angewandt wurden und die Datenbank als Server mit Lese- und Schreibzugriff geöffnet wird. Informationen zu den Auswirkungen dieser Aktion finden Sie im Abschnitt [Beenden der Replikation](#stop-replication--promote-replica) in diesem Artikel.
     
 2. Verweisen der Anwendung auf das (ehemalige) Replikat<br/>
-   Jeder Server verfügt über eine eindeutige Verbindungszeichenfolge. Aktualisieren Sie Ihre Anwendung so, dass Sie auf das (ehemalige) Replikat und nicht auf den primären Server verweist.
+   Jeder Server verfügt über eine eindeutige Verbindungszeichenfolge. Aktualisieren Sie die Verbindungszeichenfolge Ihrer Anwendung so, dass sie auf das (ehemalige) Replikat und nicht auf den primären Server verweist.
     
 Wenn die Anwendung erfolgreich Lese- und Schreibvorgänge verarbeitet, haben Sie das Failover abgeschlossen. Die Ausfallzeit Ihrer Anwendung hängt davon ab, ob Sie ein Problem erkennen und die oben beschriebenen Schritte 1 und 2 ausführen.
 
@@ -154,11 +149,10 @@ Lesereplikate und [logische Decodierung](concepts-logical.md) sind beide vom Wri
 
 Um den richtigen Protokolliergrad zu konfigurieren, verwenden Sie den Parameter für die Unterstützung der Azure-Replikation. Für die Unterstützung der Azure-Replikation gibt es drei Einstellungsoptionen:
 
-* **Off** : Speichert am wenigsten Informationen im Write-Ahead-Protokoll. Diese Einstellung ist auf den meisten Azure Database for PostgreSQL-Servern nicht verfügbar.  
-* **Replica** : Ausführlichere Informationen als bei **Off** . Dies ist der mindestens erforderliche Protokolliergrad, damit [Lesereplikate](concepts-read-replicas.md) funktionieren. Auf den meisten Servern ist dies die Standardeinstellung.
-* **Logical** : Noch ausführlichere Informationen als bei **Replica** . Dies ist der mindestens erforderliche Protokolliergrad, damit die logische Decodierung funktioniert. Lesereplikate funktionieren bei dieser Einstellung ebenfalls.
+* **Off**: Speichert am wenigsten Informationen im Write-Ahead-Protokoll. Diese Einstellung ist auf den meisten Azure Database for PostgreSQL-Servern nicht verfügbar.  
+* **Replica**: Ausführlichere Informationen als bei **Off**. Dies ist der mindestens erforderliche Protokolliergrad, damit [Lesereplikate](concepts-read-replicas.md) funktionieren. Auf den meisten Servern ist dies die Standardeinstellung.
+* **Logical**: Noch ausführlichere Informationen als bei **Replica**. Dies ist der mindestens erforderliche Protokolliergrad, damit die logische Decodierung funktioniert. Lesereplikate funktionieren bei dieser Einstellung ebenfalls.
 
-Der Server muss nach einer Änderung dieses Parameters neu gestartet werden. Intern legt dieser Parameter die Postgres-Parameter `wal_level`, `max_replication_slots` und `max_wal_senders` fest.
 
 ### <a name="new-replicas"></a>Neue Replikate
 Ein Lesereplikat wird als neuer Azure Database for PostgreSQL-Server erstellt. Ein vorhandener Server kann nicht in ein Replikat umgewandelt werden. Es kann kein Replikat eines anderen Lesereplikats erstellt werden.
@@ -172,8 +166,8 @@ Firewallregeln, VNET-Regeln und Parametereinstellungen werden beim Erstellen ein
 Skalieren virtueller Kerne zwischen „Universell“ und „Arbeitsspeicheroptimiert“:
 * PostgreSQL erfordert, dass die Einstellung `max_connections` auf einem sekundären Server [größer oder gleich der Einstellung auf dem primären Server](https://www.postgresql.org/docs/current/hot-standby.html) ist. Andernfalls wird der sekundäre Server nicht gestartet.
 * In Azure Database for PostgreSQL ist die maximal zulässige Anzahl von Verbindungen für jeden Server an die Compute-SKU gebunden, da Verbindungen Speicher belegen. Weitere Informationen zur [Zuordnung zwischen „max_connections“ und Compute-SKUs](concepts-limits.md)
-* **Hochskalieren** : Skalieren Sie zuerst die Computekapazität eines Replikats und dann den primären Server hoch. Diese Reihenfolge verhindert, dass die `max_connections`-Anforderung durch Fehler beeinträchtigt wird.
-* **Herunterskalieren** : Skalieren Sie zuerst die Computekapazität des primären Servers und dann das Replikat herunter. Wenn Sie auf das Replikat eine geringere Skalierung anwenden als auf den primären Server, tritt ein Fehler auf, weil die `max_connections`-Anforderung verletzt wird.
+* **Hochskalieren**: Skalieren Sie zuerst die Computekapazität eines Replikats und dann den primären Server hoch. Diese Reihenfolge verhindert, dass die `max_connections`-Anforderung durch Fehler beeinträchtigt wird.
+* **Herunterskalieren**: Skalieren Sie zuerst die Computekapazität des primären Servers und dann das Replikat herunter. Wenn Sie auf das Replikat eine geringere Skalierung anwenden als auf den primären Server, tritt ein Fehler auf, weil die `max_connections`-Anforderung verletzt wird.
 
 Skalieren des Speichers:
 * Für alle Replikate ist die automatische Speichervergrößerung aktiviert. Dies soll verhindern, dass aufgrund eines vollen Replikatspeichers Replikationsprobleme auftreten. Diese Einstellung kann nicht deaktiviert werden.

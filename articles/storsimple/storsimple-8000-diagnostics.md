@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: ca674f38b5c327123bc1d13dd284f84f614881b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf0570cd62a2c329407cfb6dd087020f53cdc991
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300444"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954068"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Verwenden des StorSimple-Diagnosetools für die Behandlung von Problemen mit Geräten der 8000-Serie
 
@@ -332,7 +332,7 @@ Hier ist eine Beispielausgabe des 8100-Geräts angegeben. In der Ausgabe ist Fol
 * DATA2 bis DATA5 sind im Portal nicht aktiviert.
 * Die DNS-Serverkonfiguration ist gültig, und das Gerät kann über den DNS-Server eine Verbindung herstellen.
 * Die NTP-Serverkonnektivität ist ebenfalls in Ordnung.
-* Die Ports 80 und 443 sind offen. Port 9354 ist dagegen blockiert. Gemäß den [Netzwerkanforderungen des Systems](storsimple-system-requirements.md) ist es erforderlich, dass Sie diesen Port für die Service Bus-Kommunikation öffnen.
+* Die Ports 80 und 443 sind offen. Port 9354 ist dagegen blockiert. Gemäß den [Netzwerkanforderungen des Systems](./storsimple-8000-system-requirements.md) ist es erforderlich, dass Sie diesen Port für die Service Bus-Kommunikation öffnen.
 * Das TLS/SSL-Zertifikat ist gültig.
 * Das Gerät kann eine Verbindung mit dem Speicherkonto herstellen: _myss8000storageacct_.
 * Die Konnektivität mit den Updateservern ist gültig.
@@ -388,7 +388,7 @@ Führen Sie die folgenden Schritte aus, um dieses Tool zu verwenden:
 
     Gehen Sie wie folgt vor, wenn die vom Diagnosetool gemeldeten Lese-/Schreiblatenzen hoch sind:
 
-    1. Konfigurieren Sie Storage Analytics für Blobdienste, und analysieren Sie die Ausgabe, um die Wartezeiten für das Azure-Speicherkonto zu verstehen. Eine ausführliche Anleitung finden Sie unter [Aktivieren der Speichermetriken und Anzeigen von Metrikdaten](../storage/common/storage-enable-and-view-metrics.md). Falls diese Wartezeiten ebenfalls hoch und mit den Zahlen vergleichbar sind, die Sie über das StorSimple-Diagnosetool erhalten haben, sollten Sie eine Serviceanfrage in Bezug auf den Azure-Speicher stellen.
+    1. Konfigurieren Sie Storage Analytics für Blobdienste, und analysieren Sie die Ausgabe, um die Wartezeiten für das Azure-Speicherkonto zu verstehen. Eine ausführliche Anleitung finden Sie unter [Aktivieren der Speichermetriken und Anzeigen von Metrikdaten](../storage/blobs/monitor-blob-storage.md). Falls diese Wartezeiten ebenfalls hoch und mit den Zahlen vergleichbar sind, die Sie über das StorSimple-Diagnosetool erhalten haben, sollten Sie eine Serviceanfrage in Bezug auf den Azure-Speicher stellen.
 
     2. Wenn die Speicherkonto-Wartezeiten niedrig sind, können Sie sich an Ihren Netzwerkadministrator wenden, um die Wartezeitprobleme in Ihrem Netzwerk untersuchen zu lassen.
 
@@ -440,6 +440,6 @@ In der Tabelle unten wird beschrieben, wie die verschiedenen Windows PowerShell-
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Informieren Sie sich über die [Syntax des Invoke-HcsDiagnostics-Cmdlets](https://technet.microsoft.com/library/mt795371.aspx).
+* Informieren Sie sich über die [Syntax des Invoke-HcsDiagnostics-Cmdlets](/previous-versions/windows/powershell-scripting/mt795371(v=wps.630)).
 
-* Lesen Sie sich weitere Informationen dazu durch, wie Sie die [Behandlung von Bereitstellungsproblemen](storsimple-troubleshoot-deployment.md) auf Ihrem StorSimple-Gerät durchführen.
+* Lesen Sie sich weitere Informationen dazu durch, wie Sie die [Behandlung von Bereitstellungsproblemen](./storsimple-8000-troubleshoot-deployment.md) auf Ihrem StorSimple-Gerät durchführen.

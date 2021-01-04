@@ -10,12 +10,12 @@ metadata:
   author: jimzim
   ms.author: jzim
   ms.date: 03/06/2020
-  ms.openlocfilehash: c92ce909abd9a36f2515eefeb60ff0066221a4e1
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 74ba5f8270e366621a0fd352bd76747077d9cc08
+  ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "89468963"
+  ms.lasthandoff: 11/10/2020
+  ms.locfileid: "94411319"
 landingContent:
 - title: Informationen zu Azure Red Hat OpenShift
   linkLists:
@@ -41,6 +41,10 @@ landingContent:
       url: ./howto-create-private-cluster-3x.md
     - text: Konfigurieren der DNS-Weiterleitung für einen Azure Red Hat OpenShift 4-Cluster
       url: dns-forwarding.md
+    - text: Konfigurieren der integrierten Containerregistrierung für Azure Red Hat OpenShift 4
+      url: built-in-container-registry.md
+    - text: Bereitstellen einer Open Liberty-/WebSphere Liberty-Anwendung in Azure Red Hat OpenShift 4-Clustern
+      url: howto-deploy-java-liberty-app.md
 - title: Verweis
   linkLists:
   - linkListType: reference

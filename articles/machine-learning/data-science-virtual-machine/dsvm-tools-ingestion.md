@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 736504febea16af53c2c05bc367513b2dde93ccf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89cf81f8d0a66c29a345f56676fbb97601743710
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012313"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308973"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Datenerfassungstools für die Data Science-VM
 
@@ -31,7 +31,7 @@ Nachstehend sind einige der Datenverschiebungstools aufgeführt, die in der DSVM
 | Unterstützte DSVM-Versionen      | Windows      |
 | Typische Verwendung      | Importieren mehrerer Blobs aus Azure-Blobspeicher in Azure Data Lake Store.      |
 |  Verwendung/Ausführung    |   Öffnen Sie eine Eingabeaufforderung, und geben Sie `adlcopy` ein, um die Hilfe anzuzeigen.    |
-| Links zu Beispielen      | [Verwenden von AdlCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| Links zu Beispielen      | [Verwenden von AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)      |
 | Verwandte Tools auf der DSVM      | AzCopy, Azure CLI     |
 
 ## <a name="azure-cli"></a>Azure CLI
@@ -42,7 +42,7 @@ Nachstehend sind einige der Datenverschiebungstools aufgeführt, die in der DSVM
 | Unterstützte DSVM-Versionen      | Windows, Linux     |
 | Typische Verwendung      | Importieren und Exportieren von Daten in bzw. aus Azure Storage und Azure Data Lake Store.      |
 |  Verwendung/Ausführung    |   Öffnen Sie eine Eingabeaufforderung, und geben Sie `az` ein, um die Hilfe anzuzeigen.    |
-| Links zu Beispielen      | [Verwenden der Azure-Befehlszeilenschnittstelle](https://docs.microsoft.com/cli/azure)     |
+| Links zu Beispielen      | [Verwenden der Azure-Befehlszeilenschnittstelle](/cli/azure)     |
 | Verwandte Tools auf der DSVM      | AzCopy, AdlCopy      |
 
 
@@ -54,7 +54,7 @@ Nachstehend sind einige der Datenverschiebungstools aufgeführt, die in der DSVM
 | Unterstützte DSVM-Versionen      | Windows      |
 | Typische Verwendung      | Kopieren von Dateien in Azure-Blobspeicher und Kopieren von Blobs zwischen Konten.      |
 |  Verwendung/Ausführung    |   Öffnen Sie eine Eingabeaufforderung, und geben Sie `azcopy` ein, um die Hilfe anzuzeigen.    |
-| Links zu Beispielen      | [AzCopy unter Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)      |
+| Links zu Beispielen      | [AzCopy unter Windows](../../storage/common/storage-use-azcopy-v10.md)      |
 | Verwandte Tools auf der DSVM      | AdlCopy     |
 
 
@@ -66,7 +66,7 @@ Nachstehend sind einige der Datenverschiebungstools aufgeführt, die in der DSVM
 | Unterstützte DSVM-Versionen      | Windows      |
 | Typische Verwendung      | Importieren von Dateien von einem virtuellen Computer in CosmosDB, Importieren von Daten aus Azure-Tabellenspeicher in CosmosDB und Importieren von Daten aus einer Microsoft SQL Server-Datenbank in CosmosDB     |
 |  Verwendung/Ausführung    |   Öffnen Sie zum Verwenden der Befehlszeilenversion eine Eingabeaufforderung, und geben Sie `dt` ein. Öffnen Sie zum Verwenden des GUI-Tools eine Eingabeaufforderung, und geben Sie `dtui` ein.    |
-| Links zu Beispielen      | [Importieren von Daten in Azure Cosmos DB mit der DocumentDB-API](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
+| Links zu Beispielen      | [Importieren von Daten in Azure Cosmos DB mit der DocumentDB-API](../../cosmos-db/import-data.md)      |
 | Verwandte Tools auf der DSVM      | AzCopy, AdlCopy      |
 
 ## <a name="azure-storage-explorer"></a>Azure Storage-Explorer
@@ -88,7 +88,7 @@ Nachstehend sind einige der Datenverschiebungstools aufgeführt, die in der DSVM
 | Unterstützte DSVM-Versionen      | Windows      |
 | Typische Verwendung      | Importieren einer CSV-Datei in eine SQL Server-Tabelle und Exportieren einer SQL Server-Tabelle in eine Datei.      |
 |  Verwendung/Ausführung    |   Öffnen Sie eine Eingabeaufforderung, und geben Sie `bcp` ein, um die Hilfe anzuzeigen.    |
-| Links zu Beispielen      | [bcp-Hilfsprogramm](https://docs.microsoft.com/sql/tools/bcp-utility)      |
+| Links zu Beispielen      | [bcp-Hilfsprogramm](/sql/tools/bcp-utility)      |
 | Verwandte Tools auf der DSVM      | SQL Server, sqlcmd      |
 
 ## <a name="blobfuse"></a>blobfuse

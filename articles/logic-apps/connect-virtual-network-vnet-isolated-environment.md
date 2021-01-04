@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 09/25/2020
-ms.openlocfilehash: 7fee95a435b477639fe2b98cf2c9cbf500df5941
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 11/12/2020
+ms.openlocfilehash: 6c5badf4760bff559fb050278df84c7ad6e703bd
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310015"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616942"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Herstellen einer Verbindung mit virtuellen Azure-Netzwerken in Azure Logic Apps mithilfe einer Integrationsdienstumgebung
 
@@ -196,7 +196,7 @@ Wenn Sie den Zugriff für diese Abhängigkeiten nicht zulassen, tritt ein Fehler
    | **Location** | Ja | <*Azure-Datencenterregion*> | Die Azure-Datencenterregion, in der Sie Ihre Umgebung bereitstellen. |
    | **SKU** | Ja | **Premium** oder **Developer (keine SLA)** | Die ISE-SKU, die erstellt und verwendet werden soll. Informationen zu den Unterschieden zwischen diesen SKUs finden Sie unter [ISE-SKUs](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Wichtig**: Diese Option ist nur bei der ISE-Erstellung verfügbar und kann später nicht mehr geändert werden. |
    | **Zusätzliche Kapazität** | Premium: <br>Ja <p><p>Developer: <br>Nicht verfügbar | Premium: <br>0 bis 10 <p><p>Developer: <br>Nicht verfügbar | Die Anzahl der für diese ISE-Ressource zu verwendenden zusätzlichen Verarbeitungseinheiten. Weitere Informationen zum Hinzufügen von Kapazität nach dem Erstellen finden Sie im Abschnitt [Hinzufügen von ISE-Kapazität](../logic-apps/ise-manage-integration-service-environment.md#add-capacity). |
-   | **Zugriffsendpunkt** | Ja | **Intern** oder **Extern** | Der für Ihre ISE zu verwendende Typ von Zugriffsendpunkten. Diese Endpunkte bestimmen, ob Anforderungs- oder Webhooktrigger für Logik-Apps in Ihrer ISE Aufrufe von außerhalb Ihres virtuellen Netzwerks empfangen können. <p><p>Ihre Auswahl hat auch Einfluss auf die Methode, mit der Sie Eingaben und Ausgaben im Ausführungsverlauf Ihrer Logik-App anzeigen und darauf zugreifen können. Weitere Informationen finden Sie unter [ISE-Endpunktzugriff](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Wichtig**: Sie können den Zugriffsendpunkt nur während der Erstellung der ISE auswählen und diese Option später nicht mehr ändern. |
+   | **Zugriffsendpunkt** | Ja | **Intern** oder **Extern** | Der für Ihre ISE zu verwendende Typ von Zugriffsendpunkten. Diese Endpunkte bestimmen, ob Anforderungs- oder Webhooktrigger für Logik-Apps in Ihrer ISE Aufrufe von außerhalb Ihres virtuellen Netzwerks empfangen können. <p><p>Wenn Sie z. B. die folgenden webhook-basierten Trigger verwenden möchten, stellen Sie sicher, dass Sie **Extern** auswählen: <p><p>– Azure DevOps <br>– Azure Event Grid <br>– Common Data Service <br>– Office 365 <br>– SAP (ISE-Version) <p><p>Ihre Auswahl hat auch Einfluss auf die Methode, mit der Sie Eingaben und Ausgaben im Ausführungsverlauf Ihrer Logik-App anzeigen und darauf zugreifen können. Weitere Informationen finden Sie unter [ISE-Endpunktzugriff](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Wichtig**: Sie können den Zugriffsendpunkt nur während der Erstellung der ISE auswählen und diese Option später nicht mehr ändern. |
    | **Virtuelles Netzwerk** | Ja | <*Azure-virtual-network-name*> | Das virtuelle Azure-Netzwerk, in das Sie Ihre Umgebung einfügen möchten, damit Logik-Apps in dieser Umgebung auf Ihr virtuelles Netzwerk zugreifen können. Wenn Sie nicht über ein Netzwerk verfügen, [erstellen Sie zunächst ein virtuelles Azure-Netzwerk](../virtual-network/quick-create-portal.md). <p><p>**Wichtig**: Sie können diese Einfügung *nur* einmalig durchführen, wenn Sie Ihre ISE erstellen. |
    | **Subnetze** | Ja | <*subnet-resource-list*> | Für eine ISE werden vier *leere* Subnetze benötigt. Diese sind zum Erstellen und Bereitstellen von Ressourcen in Ihrer ISE erforderlich und werden von internen Logic Apps-Komponenten (etwa Connectors und Zwischenspeicherung zur Leistungsverbesserung) verwendet. <p>**Wichtig**: [Überprüfen Sie unbedingt die Subnetzanforderungen, bevor Sie mit diesen Schritten zum Erstellen Ihrer Subnetze fortfahren.](#create-subnet) |
    |||||
@@ -205,7 +205,7 @@ Wenn Sie den Zugriff für diese Abhängigkeiten nicht zulassen, tritt ein Fehler
 
    **Erstellen von Subnetzen**
 
-   Für Ihre ISE werden vier *leere* Subnetze benötigt. Diese sind zum Erstellen und Bereitstellen von Ressourcen in Ihrer ISE erforderlich und werden von internen Logic Apps-Komponenten (etwa Connectors und Zwischenspeicherung zur Leistungsverbesserung) verwendet. Sie können diese Subnetzadressen *nicht mehr ändern*, nachdem Sie Ihre Umgebung erstellt haben. Stellen Sie bei der Erstellung und Bereitstellung Ihrer ISE über das Azure-Portal sicher, dass Sie diese Subnetze nicht an Azure-Dienste delegieren. Wenn Sie die ISE jedoch über die REST-API, über Azure PowerShell oder eine Azure Resource Manager-Vorlage erstellen und bereitstellen, müssen Sie ein leeres Subnetz an `Microsoft.integrationServiceEnvironment` [delegieren](../virtual-network/manage-subnet-delegation.md). Weitere Informationen finden Sie unter [Hinzufügen oder Entfernen einer Subnetzdelegierung](../virtual-network/manage-subnet-delegation.md).
+   Ihre ISE benötigt vier *leere* Subnetze, die zum Erstellen und Bereitstellen von Ressourcen in Ihrer ISE erforderlich sind und von internen Logic Apps-Komponenten (etwa Connectors und Zwischenspeicherung zur Leistungsverbesserung) verwendet werden. Sie können diese Subnetzadressen *nicht mehr ändern*, nachdem Sie Ihre Umgebung erstellt haben. Stellen Sie bei der Erstellung und Bereitstellung Ihrer ISE über das Azure-Portal sicher, dass Sie diese Subnetze nicht an Azure-Dienste delegieren. Wenn Sie die ISE jedoch über die REST-API, über Azure PowerShell oder eine Azure Resource Manager-Vorlage erstellen und bereitstellen, müssen Sie ein leeres Subnetz an `Microsoft.integrationServiceEnvironment` [delegieren](../virtual-network/manage-subnet-delegation.md). Weitere Informationen finden Sie unter [Hinzufügen oder Entfernen einer Subnetzdelegierung](../virtual-network/manage-subnet-delegation.md).
 
    Jedes Subnetz muss folgende Anforderungen erfüllen:
 
@@ -278,27 +278,35 @@ Wenn Sie den Zugriff für diese Abhängigkeiten nicht zulassen, tritt ein Fehler
 
 1. Um Ihre Umgebung anzuzeigen, wählen Sie **Zu Ressource wechseln** aus, wenn Azure nach Abschluss der Bereitstellung nicht automatisch zu Ihrer Umgebung wechselt.
 
+1. Für eine ISE, die Zugriff auf einen *externen* Endpunkt hat, müssen Sie eine Netzwerksicherheitsgruppe erstellen, wenn Sie noch keine besitzen, und eine Eingangssicherheitsregel hinzufügen, um Datenverkehr von IP-Adressen für ausgehenden Datenverkehr des verwalteten Connectors zuzulassen. Eine Regel kann wie folgt eingerichtet werden:
+
+   1. Wählen Sie im ISE-Menü unter **Einstellungen** die Option **Eigenschaften** aus.
+
+   1. Kopieren Sie unter **Ausgehende IP-Adressen des Connectors** die öffentlichen IP-Adressbereiche, die auch im Artikel [IP-Adressen für die ausgehende Richtung](../logic-apps/logic-apps-limits-and-config.md#outbound) aufgeführt werden.
+
+   1. Erstellen Sie eine Netzwerksicherheitsgruppe, falls noch keine vorhanden ist.
+   
+   1. Fügen Sie basierend auf den folgenden Informationen eine Eingangssicherheitsregel für die öffentlichen IP-Adressen für ausgehenden Datenverkehr hinzu, die Sie kopiert haben. Weitere Informationen finden Sie im [Tutorial: Filtern von Netzwerkdatenverkehr mithilfe einer Netzwerksicherheitsgruppe über das Azure-Portal](../virtual-network/tutorial-filter-network-traffic.md#create-a-network-security-group).
+
+      | Zweck | Quelldiensttag oder IP-Adressen | Quellports | Zieldiensttag oder IP-Adressen | Zielports | Notizen |
+      |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
+      | Zulassen von Datenverkehr von ausgehenden IP-Adressen des Connectors | <*connector-public-outbound-IP-addresses*> | * | Adressraum für das virtuelle Netzwerk mit ISE-Subnetzen | * | |
+      |||||||
+
 1. Informationen zum Überprüfen der Netzwerkintegrität für Ihre ISE finden Sie unter [Verwalten Ihrer Integrationsdienstumgebung](../logic-apps/ise-manage-integration-service-environment.md#check-network-health).
+
+   > [!CAUTION]
+   > Wenn das Netzwerk Ihrer ISE fehlerhaft ist, kann die interne ASE (App Service-Umgebung), die von Ihrer ISE verwendet wird, ebenfalls fehlerhaft sein. Wenn die ASE länger als sieben Tage fehlerhaft ist, wird die ASE gesperrt. Überprüfen Sie das Setup Ihres virtuellen Netzwerks, um diesen Zustand aufzulösen. Beheben Sie alle Probleme, die Sie finden, und starten Sie Ihre ISE dann neu. Andernfalls wird die gesperrte ASE nach 90 Tagen gelöscht, und Ihre ISE wird unbrauchbar. Stellen Sie also sicher, dass Sie Ihre ISE fehlerfrei halten, um den erforderlichen Datenverkehr zuzulassen.
+   > 
+   > Weitere Informationen finden Sie in den folgenden Themen:
+   >
+   > * [Übersicht: Azure App Service-Diagnose](../app-service/overview-diagnostics.md)
+   > * [Nachrichtenprotokollierung für eine Azure App Service-Umgebung](../app-service/environment/using-an-ase.md#logging)
 
 1. Informationen zum Erstellen von Logik-Apps und anderen Artefakten in Ihrer ISE finden Sie unter [Hinzufügen von Ressourcen zu Ihrer Integrationsdienstumgebung (Integration Service Environment, ISE) in Azure Logic Apps](../logic-apps/add-artifacts-integration-service-environment-ise.md).
 
    > [!IMPORTANT]
-   > Verwaltete ISE-Connectors, die nach dem Erstellen der ISE verfügbar sind, werden nicht automatisch in der Connectorauswahl im Logik-App-Designer aufgeführt. Bevor Sie diese ISE-Connectors verwenden können, müssen Sie sie [manuell Ihrer ISE hinzufügen und bereitstellen](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment), damit sie im Logik-App-Designer angezeigt werden.
-
-   > [!IMPORTANT]
-   > Verwaltete ISE-Connectors unterstützen zurzeit keine [Tags](../azure-resource-manager/management/tag-support.md). Wenn Sie eine Richtlinie einrichten, die das Tagging erzwingt, kann das Hinzufügen von ISE-Connectors  
-   > mit einem diesem Beispiel ähnlichen Fehler fehlschlagen: 
-   > 
-   > ```json
-   > {
-   >    "error": { 
-   >       "code": "IntergrationServiceEnvironmentManagedApiDefinitionTagsNotSupported", 
-   >       "message": "The tags are not supported in the managed API 'azureblob'."
-   >    }
-   > }
-   > ```
-   > Zum Hinzufügen von ISE-Connectors müssen Sie Ihre Richtlinie entweder deaktivieren oder entfernen.
-   > 
+   > Nachdem Sie Ihre ISE erstellt haben, können Sie verwaltete ISE-Connectors verwenden. Diese werden jedoch nicht automatisch in der Connectorauswahl des Logik-App-Designers angezeigt. Bevor Sie diese ISE-Connectors verwenden können, müssen Sie diese Connectors [manuell Ihrer ISE hinzufügen und bereitstellen](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment), damit diese im Logik-App-Designer angezeigt werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

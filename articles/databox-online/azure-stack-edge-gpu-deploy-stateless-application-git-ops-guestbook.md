@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 3200cfe290cbba208c61e914b17ffa6cd65e6eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82b786f3c90a7ef482ccbcd6e66fb9abfc4eea5f
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899563"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561935"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Bereitstellen einer zustandslosen PHP-Gästebuchanwendung mit Redis in einem für Arc aktivierten Kubernetes-Cluster auf einem Azure Stack Edge Pro-GPU-Gerät
 
@@ -25,18 +25,21 @@ In diesem Artikel wird erläutert, wie Sie eine einfache Multi-Tier-Webanwendung
 
 Die Bereitstellung erfolgt unter Verwendung von GitOps in dem für Arc aktivierten Kubernetes-Cluster auf Ihrem Azure Stack Edge Pro-Gerät. 
 
-Dieses Verfahren ist für Benutzer gedacht, die den Artikel [Kubernetes-Workloads auf einem Azure Stack Edge Pro-Gerät](azure-stack-edge-gpu-kubernetes-workload-management.md) gelesen haben und mit den Konzepten von [Was ist Kubernetes mit Azure Arc-Unterstützung (Vorschauversion)?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview) vertraut sind.
+Dieses Verfahren ist für Benutzer gedacht, die den Artikel [Kubernetes-Workloads auf einem Azure Stack Edge Pro-Gerät](azure-stack-edge-gpu-kubernetes-workload-management.md) gelesen haben und mit den Konzepten von [Was ist Kubernetes mit Azure Arc-Unterstützung (Vorschauversion)?](../azure-arc/kubernetes/overview.md) vertraut sind.
 
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 Stellen Sie vor der Bereitstellung der zustandslosen Anwendung sicher, dass die folgenden Voraussetzungen auf Ihrem Gerät und auf dem Client erfüllt sind, den Sie für den Zugriff auf das Gerät verwenden:
 
+> [!NOTE]
+> Dieser Artikel enthält Verweise auf den Begriff Slave, einen Begriff, den Microsoft nicht mehr verwendet. Sobald der Begriff aus der Software entfernt wird, wird er auch aus diesem Artikel entfernt.
+
 ### <a name="for-device"></a>Für das Gerät
 
 1. Sie verfügen über Anmeldeinformationen für ein Azure Stack Edge Pro-Gerät mit einem Knoten.
     1. Das Gerät ist aktiviert. Siehe [Aktivieren des Geräts](azure-stack-edge-gpu-deploy-activate.md).
-    1. Das Gerät verfügt über die Computerolle (über das Azure-Portal konfiguriert) und umfasst einen Kubernetes-Cluster. Siehe [Konfigurieren der Computeumgebung](azure-stack-edge-gpu-deploy-configure-compute.md).
+    1. Das Gerät verfügt über die über das Azure-Portal konfigurierte Computerolle und umfasst einen Kubernetes-Cluster. Siehe [Konfigurieren der Computeumgebung](azure-stack-edge-gpu-deploy-configure-compute.md).
 
 1. Sie haben Azure Arc im vorhandenen Kubernetes-Cluster auf Ihrem Gerät aktiviert und verfügen im Azure-Portal über eine entsprechende Azure Arc-Ressource. Die ausführlichen Schritte sind unter [Aktivieren von Azure Arc auf einem Azure Stack Edge Pro-Gerät](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md) beschrieben.
 
@@ -44,7 +47,7 @@ Stellen Sie vor der Bereitstellung der zustandslosen Anwendung sicher, dass die 
 
 1. Sie verfügen über ein Windows-Clientsystem, das für den Zugriff auf das Azure Stack Edge Pro-Gerät verwendet wird.
   
-    - Auf dem Client wird Windows PowerShell 5.0 oder höher ausgeführt. Informationen zum Herunterladen der neuesten Version von Windows PowerShell finden Sie unter [Installieren von Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+    - Auf dem Client wird Windows PowerShell 5.0 oder höher ausgeführt. Informationen zum Herunterladen der neuesten Version von Windows PowerShell finden Sie unter [Installieren von Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
     
     - Sie können auch einen anderen Client mit einem [unterstützten Betriebssystem](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) verwenden. In diesem Artikel wird die Vorgehensweise bei Verwendung eines Windows-Clients beschrieben. 
     
@@ -79,7 +82,7 @@ Führen Sie diese Schritte aus, um die Azure Arc-Ressource für die Bereitstell
 
 1. Navigieren Sie zu **Konfigurationen**, und wählen Sie **+ Konfiguration hinzufügen** aus.
 
-    ![Wechseln zu „Konfigurationen“](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
+    ![Screenshot: Kubernetes-Cluster mit Azure Arc-Unterstützung und ausgewählter Option „Konfiguration hinzufügen“](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
 
 1. Geben Sie unter **Konfiguration hinzufügen** die geeigneten Werte für die Felder ein, und wählen Sie **Anwenden** aus.
 
@@ -100,11 +103,11 @@ Führen Sie diese Schritte aus, um die Azure Arc-Ressource für die Bereitstell
 
 1. Die Bereitstellung der Konfiguration wird gestartet, und für **Operatorstatus** wird **Ausstehend** angezeigt. 
 
-    ![Wechseln zu „Konfigurationen“](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
+    ![Screenshot: Kubernetes-Cluster mit Azure Arc-Unterstützung im Zustand „Ausstehend“ während der Aktualisierung](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
 
 1. Die Bereitstellung nimmt einige Minuten in Anspruch. Wenn die Bereitstellung abgeschlossen ist, wird für **Operatorstatus** **Installiert** angezeigt.
 
-    ![Wechseln zu „Konfigurationen“](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
+    ![Screenshot: Kubernetes-Cluster mit Azure Arc-Unterstützung im Zustand „Installiert“](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
 
 
 ## <a name="verify-deployment"></a>Überprüfen der Bereitstellung

@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title: Dokumentation zur Vorschauversion von Azure Digital Twins
+title: Azure Digital Twins-Dokumentation
 summary: Hier erfahren Sie, wie Sie mit Azure Digital Twins eine digitale Darstellung Ihrer Ressourcen, Umgebungen und Geschäftssysteme erstellen, um IoT-Lösungen der nächsten Generation zu entwickeln, die als Modell für die reale Welt dienen.
 metadata:
-  title: 'Dokumentation zur Vorschauversion von Azure Digital Twins-Dokumentation: Tutorials, API-Referenz | Microsoft-Dokumentation'
+  title: Azure Digital Twins-Dokumentation – Tutorials, API-Referenz | Microsoft-Dokumentation
   description: Hier erfahren Sie, wie mithilfe von Azure Digital Twins Personen, Orte und Dinge verbunden sowie IoT-Lösungen mit Raumauswertung erstellt werden.
   ms.service: digital-twins
   ms.topic: landing-page
@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: b9d6067fe8c5c81024f6fa211d32e0ecc92f5a47
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: bcba2b48fdecda311ce349f90ba43023b906bd44
+  ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92358981"
+  ms.lasthandoff: 11/26/2020
+  ms.locfileid: "96186404"
 landingContent:
 - title: Über Azure Digital Twins
   linkLists:
@@ -71,20 +71,24 @@ landingContent:
     links:
     - text: Schreiben von App-Authentifizierungscode
       url: how-to-authenticate-client.md
-- title: Anzeigen der API-Referenz
+- title: Ermitteln der APIs
   linkLists:
+  - linkListType: reference
+    links:
+    - text: REST-APIs
+      url: /rest/api/azure-digitaltwins/
   - linkListType: how-to-guide
     links:
     - text: Verwenden der Azure Digital Twins-APIs und SDKs
       url: how-to-use-apis-sdks.md
   - linkListType: how-to-guide
     links:
+    - text: Senden von Anforderungen mit Postman
+      url: how-to-use-postman.md
+  - linkListType: how-to-guide
+    links:
     - text: Erstellen benutzerdefinierter SDKs mit AutoRest
       url: how-to-create-custom-sdks.md
-  - linkListType: reference
-    links:
-    - text: REST-APIs
-      url: /rest/api/azure-digitaltwins/
 - title: Untersuchen von Codebeispielen
   linkLists:
   - linkListType: sample

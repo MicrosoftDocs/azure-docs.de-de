@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: 15396467e92b3e035add03d0d29888558571aa2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3adbf34e4c19a76c2b5b2b1968c7821f37965929
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84711237"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965628"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Konfigurieren von Reverse-DNS für in Azure gehostete Dienste
 
@@ -247,11 +247,10 @@ Nein. Azure unterstützt derzeit Reverse-DNS nur für öffentliche IPv4-IP-Adres
 
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>Kann ich aus Azure Compute Services heraus E-Mails an externe Domänen senden?
 
-Ob es technisch möglich ist, E-Mails direkt aus einer Azure-Bereitstellung heraus zu senden, hängt vom Abonnementtyp ab. Unabhängig davon empfiehlt Microsoft für den Versand ausgehender E-Mails die Verwendung vertrauenswürdiger E-Mail-Relaydienste. Ausführlichere Informationen finden Sie unter [Enhanced Azure Security for sending Emails – November 2017 Update](https://blogs.msdn.microsoft.com/mast/2017/11/15/enhanced-azure-security-for-sending-emails-november-2017-update/) (Verbesserte Azure-Sicherheit beim Senden von E-Mails – Update vom November 2017).
+Ob es technisch möglich ist, E-Mails direkt aus einer Azure-Bereitstellung heraus zu senden, hängt vom Abonnementtyp ab. Unabhängig davon empfiehlt Microsoft für den Versand ausgehender E-Mails die Verwendung vertrauenswürdiger E-Mail-Relaydienste. Ausführlichere Informationen finden Sie unter [Enhanced Azure Security for sending Emails – November 2017 Update](../virtual-network/troubleshoot-outbound-smtp-connectivity.md) (Verbesserte Azure-Sicherheit beim Senden von E-Mails – Update vom November 2017).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 Weitere Informationen zu Reverse-DNS finden Sie unter [Reverse DNS](https://en.wikipedia.org/wiki/Reverse_DNS_lookup) in der Wikipedia.
 <br>
 Erfahren Sie, wie [die Reverse-Lookupzone für Ihren vom ISP zugewiesenen IP-Adressbereich in Azure DNS gehostet wird](dns-reverse-dns-for-azure-services.md).
-

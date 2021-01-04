@@ -8,22 +8,22 @@ ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 190aaae81d51434b57b5aaa6817a443dc541d26e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5acb8e347046780c84f0aa324b997abb5e2aa840
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069135"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629222"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Aktivieren und Erstellen großer Dateifreigaben
 
-Wenn Sie große Dateifreigaben in Ihrem Speicherkonto aktivieren, können Ihre Dateifreigaben auf bis zu 100 TiB hochskaliert werden. Sie können diese Skalierung bei Ihren vorhandenen Speicherkonten für die vorhandenen Dateifreigaben aktivieren.
+Wenn Sie in Ihrem Speicherkonto große Dateifreigaben aktivieren, können Ihre Dateifreigaben auf bis zu 100 TiB hochskaliert werden. Gleichzeitig werden die IOPS- und Durchsatzgrenzwerte für Standardfreigaben erhöht. Sie können diese Skalierung auch bei Ihren vorhandenen Speicherkonten für vorhandene Dateifreigaben aktivieren. Weitere Informationen finden Sie unter [Skalierungsziele für Dateifreigaben und Dateien](storage-files-scale-targets.md#azure-files-scale-targets). 
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 - Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
-- Falls Sie die Azure CLI verwenden möchten, [installieren Sie die neueste Version](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-- Falls Sie das Azure PowerShell-Modul verwenden möchten, [installieren Sie die neueste Version](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-4.6.0).
+- Falls Sie die Azure CLI verwenden möchten, [installieren Sie die neueste Version](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Falls Sie das Azure PowerShell-Modul verwenden möchten, [installieren Sie die neueste Version](/powershell/azure/install-az-ps?view=azps-4.6.0).
 
 ## <a name="restrictions"></a>Beschränkungen
 
@@ -65,7 +65,7 @@ Die Aktivierung großer Dateifreigaben für ein Konto kann nicht rückgängig ge
 
 # <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
-[Installieren Sie zunächst die neueste Version der Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), damit Sie große Dateifreigaben aktivieren können.
+[Installieren Sie zunächst die neueste Version der Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), damit Sie große Dateifreigaben aktivieren können.
 
 Um ein Speicherkonto mit aktivierten großen Dateifreigaben zu erstellen, verwenden Sie den folgenden Befehl. Ersetzen Sie `<yourStorageAccountName>`, `<yourResourceGroup>` und `<yourDesiredRegion>` durch Ihre Angaben.
 
@@ -76,7 +76,7 @@ az storage account create --name <yourStorageAccountName> -g <yourResourceGroup>
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-[Installieren Sie zunächst die neueste Version von PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0), damit Sie große Dateifreigaben aktivieren können.
+[Installieren Sie zunächst die neueste Version von PowerShell](/powershell/azure/install-az-ps?view=azps-3.0.0), damit Sie große Dateifreigaben aktivieren können.
 
 Um ein Speicherkonto mit aktivierten großen Dateifreigaben zu erstellen, verwenden Sie den folgenden Befehl. Ersetzen Sie `<yourStorageAccountName>`, `<yourResourceGroup>` und `<yourDesiredRegion>` durch Ihre Angaben.
 

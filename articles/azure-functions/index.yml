@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Dokumentation zu Azure Functions
-summary: Azure Functions ist ein serverloser Computedienst, mit dem Sie ereignisgesteuerten Code ausführen können, ohne eine explizite Infrastruktur bereitstellen oder verwalten zu müssen.
+summary: Azure Functions ist ein serverloser Computedienst, mit dem Sie ereignisgesteuerten Code ausführen können, ohne eine explizite Infrastruktur bereitstellen oder verwalten zu müssen. Die Funktionen für bedarfsgesteuertes Computing (Compute On-Demand) ermöglichen eine einfache Integration und direkte Unterstützungsfunktionalität. Sie können damit auch Web-APIs bereitstellen, auf Datenbankänderungen reagieren, IoT-Datenströme verarbeiten und Nachrichtenwarteschlangen verwalten.
 metadata:
   title: Dokumentation zu Azure Functions
-  description: Azure Functions ist ein serverloser Computedienst, mit dem Sie ereignisgesteuerten Code ausführen können, ohne eine explizite Infrastruktur bereitstellen oder verwalten zu müssen.
+  description: Azure Functions ist ein serverloser Computedienst, mit dem Sie ereignisgesteuerten Code ausführen können, ohne eine explizite Infrastruktur bereitstellen oder verwalten zu müssen. Die Funktionen für bedarfsgesteuertes Computing (Compute On-Demand) ermöglichen eine einfache Integration und direkte Unterstützungsfunktionalität. Sie können damit auch Web-APIs bereitstellen, auf Datenbankänderungen reagieren, IoT-Datenströme verarbeiten und Nachrichtenwarteschlangen verwalten.
   ms.service: azure-functions
   ms.topic: landing-page
   author: ggailey777
   ms.author: azfundocs
   ms.date: 09/17/2019
-  ms.openlocfilehash: 7a6f493bef86952de212eea264cccea1c0bcfeca
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: e6c3cb1a9d536ed898c48c45f57434dc4bf66970
+  ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "87810053"
+  ms.lasthandoff: 12/15/2020
+  ms.locfileid: "97505289"
 landingContent:
 - title: Informationen zu Azure Functions
   linkLists:
@@ -41,15 +41,21 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Erstellen Ihrer ersten Funktion (C#)
-      url: functions-create-your-first-function-visual-studio.md
+      url: create-first-function-vs-code-csharp.md
+    - text: Erstellen Ihrer ersten Funktion (Go)
+      url: create-first-function-vs-code-other.md?tabs=go
     - text: Erstellen Ihrer ersten Funktion (Java)
-      url: functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java
+      url: create-first-function-vs-code-java.md
     - text: Erstellen Ihrer ersten Funktion (JavaScript)
-      url: functions-create-first-function-vs-code.md?pivots=programming-language-javascript
+      url: create-first-function-vs-code-node.md
     - text: Erstellen Ihrer ersten Funktion (PowerShell)
-      url: functions-create-first-function-vs-code.md?pivots=programming-language-powershell
+      url: create-first-function-vs-code-powershell.md
     - text: Erstellen Ihrer ersten Funktion (Python)
-      url: functions-create-first-function-vs-code.md?pivots=programming-language-python
+      url: create-first-function-vs-code-python.md
+    - text: Erstellen Ihrer ersten Funktion (Rust)
+      url: create-first-function-vs-code-other.md?tabs=rust
+    - text: Erstellen Ihrer ersten Funktion (TypeScript)
+      url: create-first-function-vs-code-typescript.md
   - linkListType: learn
     links:
     - text: Erstellen von serverloser Logik

@@ -10,12 +10,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ceffc928a0cf8313723ff6193d9a6a63f8465f90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b6acaa76d21cb1321feb5466c4fb7a9bacfa846
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266308"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348108"
 ---
 # <a name="tutorial-basic-active-directory-environment"></a>Tutorial: Grundlegende Active Directory-Umgebung
 
@@ -331,7 +331,7 @@ Nachdem nun der virtuelle Computer erstellt und umbenannt wurde und über eine s
 
     ```powershell
     # Filename:    3_InstallAD_CP.ps1
-    # Description: Creates an on-premises AD envrionment.  This is part of
+    # Description: Creates an on-premises AD environment.  This is part of
     #              the Azure AD Connect password hash sync tutorial.
     #
     # DISCLAIMER:

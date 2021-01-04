@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: a4d8d7eaed40b876adecb82f339be4a4c434325f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 785381e0a42f2b502e4ea7054753d5f3fb67f385
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616855"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632769"
 ---
 # <a name="data-access-strategies"></a>Datenzugriffsstrategien
 
@@ -28,7 +28,7 @@ Normalerweise steuert ein Clouddatenspeicher den Zugriff mithilfe der folgenden 
 * Autorisierungsmechanismen, die Benutzer auf bestimmte Aktionen und Daten einschränken
 
 > [!TIP]
-> Mit der [Einführung des statischen IP-Adressbereichs](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses) können Sie jetzt Listen-IP-Adressbereiche für die jeweilige Azure Integration Runtime-Region zulassen, um sicherzustellen, dass Sie in Ihren Clouddatenspeichern nicht alle Azure-IP-Adressen zulassen müssen. Auf diese Weise können Sie die IP-Adressen einschränken, denen der Zugriff auf die Datenspeicher gestattet wird.
+> Mit der [Einführung des statischen IP-Adressbereichs](./azure-integration-runtime-ip-addresses.md) können Sie jetzt Listen-IP-Adressbereiche für die jeweilige Azure Integration Runtime-Region zulassen, um sicherzustellen, dass Sie in Ihren Clouddatenspeichern nicht alle Azure-IP-Adressen zulassen müssen. Auf diese Weise können Sie die IP-Adressen einschränken, denen der Zugriff auf die Datenspeicher gestattet wird.
 
 > [!NOTE] 
 > Die IP-Adressbereiche sind für Azure Integration Runtime gesperrt und werden derzeit nur für Datenverschiebungs-, Pipeline- und externe Aktivitäten verwendet. Dataflows und Azure Integration Runtimes, die ein verwaltetes virtuelles Netzwerk aktivieren, verwenden diese IP-Adressbereiche derzeit nicht. 
@@ -37,11 +37,11 @@ Dies sollte in vielen Szenarien funktionieren, und wir verstehen, dass eine eind
 
 ## <a name="data-access-strategies-through-azure-data-factory"></a>Datenzugriffsstrategien für Azure Data Factory
 
-* **[Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview)** : Sie können eine Azure Integration Runtime in einem verwalteten virtuellen Azure Data Factory-Netzwerk erstellen. Diese nutzt private Endpunkte, um eine sichere Verbindung mit unterstützten Datenspeichern herzustellen. Der Datenverkehr zwischen dem verwalteten virtuellen Netzwerk und den Datenquellen wird über das Microsoft-Backbonenetzwerk übertragen und nicht für das öffentliche Netzwerk verfügbar gemacht.
-* **[Vertrauenswürdiger Dienst](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)** – Azure Storage (Blob, ADLS Gen2) unterstützt die Firewallkonfiguration, die ausgewählten vertrauenswürdigen Azure-Plattformdiensten einen sicheren Zugriff auf das Speicherkonto ermöglicht. Vertrauenswürdige Dienste erzwingen die Authentifizierung der verwalteten Identität. Dadurch wird sichergestellt, dass keine andere Data Factory eine Verbindung mit diesem Speicher herstellen kann. Eine Ausnahme besteht nur dann, wenn dies über die verwaltete Identität genehmigt wurde. Weitere Informationen finden Sie in **[diesem Blog](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)** . Deshalb ist dies extrem sicher und empfehlenswert. 
+* **[Private Link](../private-link/private-link-overview.md)** : Sie können eine Azure Integration Runtime in einem verwalteten virtuellen Azure Data Factory-Netzwerk erstellen. Diese nutzt private Endpunkte, um eine sichere Verbindung mit unterstützten Datenspeichern herzustellen. Der Datenverkehr zwischen dem verwalteten virtuellen Netzwerk und den Datenquellen wird über das Microsoft-Backbonenetzwerk übertragen und nicht für das öffentliche Netzwerk verfügbar gemacht.
+* **[Vertrauenswürdiger Dienst](../storage/common/storage-network-security.md#exceptions)** – Azure Storage (Blob, ADLS Gen2) unterstützt die Firewallkonfiguration, die ausgewählten vertrauenswürdigen Azure-Plattformdiensten einen sicheren Zugriff auf das Speicherkonto ermöglicht. Vertrauenswürdige Dienste erzwingen die Authentifizierung der verwalteten Identität. Dadurch wird sichergestellt, dass keine andere Data Factory eine Verbindung mit diesem Speicher herstellen kann. Eine Ausnahme besteht nur dann, wenn dies über die verwaltete Identität genehmigt wurde. Weitere Informationen finden Sie in **[diesem Blog](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)** . Deshalb ist dies extrem sicher und empfehlenswert. 
 * **Eindeutige statische IP-Adresse** – Sie müssen eine selbstgehostete Integration Runtime einrichten, um eine statische IP-Adresse für Data Factory-Connectors zu erhalten. Durch diesen Mechanismus wird sichergestellt, dass Sie den Zugriff von allen anderen IP-Adressen blockieren können. 
-* **[Statischer IP-Adressbereich](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses)** – Sie können die IP-Adressen der Azure Integration Runtime verwenden, um deren Auflistung in Ihrem Speicher (z B. S3, Salesforce usw.) zuzulassen. Er schränkt IP-Adressen, die eine Verbindung mit den Datenspeichern herstellen können, sicherlich ein, basiert aber auch auf Authentifizierungs-/Autorisierungsregeln.
-* **[Diensttag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)** – Ein Diensttag stellt eine Gruppe von IP-Adresspräfixen eines bestimmten Azure-Diensts (wie Azure Data Factory) dar. Microsoft verwaltet die Adresspräfixe, für die das Diensttag gilt, und aktualisiert das Tag automatisch, wenn sich die Adressen ändern. Auf diese Weise wird die Komplexität häufiger Updates an Netzwerksicherheitsregeln minimiert. Dies ist nützlich, wenn der Datenzugriff auf in IaaS gehostete Datenspeicher in Virtual Network gefiltert wird.
+* **[Statischer IP-Adressbereich](./azure-integration-runtime-ip-addresses.md)** – Sie können die IP-Adressen der Azure Integration Runtime verwenden, um deren Auflistung in Ihrem Speicher (z B. S3, Salesforce usw.) zuzulassen. Er schränkt IP-Adressen, die eine Verbindung mit den Datenspeichern herstellen können, sicherlich ein, basiert aber auch auf Authentifizierungs-/Autorisierungsregeln.
+* **[Diensttag](../virtual-network/service-tags-overview.md)** – Ein Diensttag stellt eine Gruppe von IP-Adresspräfixen eines bestimmten Azure-Diensts (wie Azure Data Factory) dar. Microsoft verwaltet die Adresspräfixe, für die das Diensttag gilt, und aktualisiert das Tag automatisch, wenn sich die Adressen ändern. Auf diese Weise wird die Komplexität häufiger Updates an Netzwerksicherheitsregeln minimiert. Dies ist nützlich, wenn der Datenzugriff auf in IaaS gehostete Datenspeicher in Virtual Network gefiltert wird.
 * **Azure-Dienste zulassen** – Einige Dienste ermöglichen es Ihnen, die Verbindung aller Azure-Dienste damit zuzulassen, falls Sie diese Option auswählen. 
 
 Weitere Informationen zu unterstützten Netzwerksicherheitsmechanismen für Datenspeicher in Azure Integration Runtime und selbstgehosteter Integration Runtime finden Sie in den nachstehenden zwei Tabellen.  
@@ -82,7 +82,7 @@ Weitere Informationen zu unterstützten Netzwerksicherheitsmechanismen für Date
 ## <a name="next-steps"></a>Nächste Schritte
 
 Weitere Informationen finden Sie in den folgenden verwandten Artikeln:
-* [Unterstützte Datenspeicher](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)
-* [Azure Key Vault – „Vertrauenswürdige Dienste“](https://docs.microsoft.com/azure/key-vault/key-vault-overview-vnet-service-endpoints#trusted-services)
-* [Azure Storage – „Vertrauenswürdige Microsoft-Dienste“](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services)
-* [Verwaltete Identität für Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)
+* [Unterstützte Datenspeicher](./copy-activity-overview.md#supported-data-stores-and-formats)
+* [Azure Key Vault – „Vertrauenswürdige Dienste“](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services)
+* [Azure Storage – „Vertrauenswürdige Microsoft-Dienste“](../storage/common/storage-network-security.md#trusted-microsoft-services)
+* [Verwaltete Identität für Data Factory](./data-factory-service-identity.md)

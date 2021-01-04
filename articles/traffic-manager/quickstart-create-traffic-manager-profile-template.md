@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: duau
 ms.date: 09/01/2020
-ms.openlocfilehash: dbdb6a255fdf0214103a0011f25b0a6d25014e69
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ec569781a6318062810358c2c5e17ba71efc4f71
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89299149"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676002"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-an-arm-template"></a>Schnellstart: Erstellen eines Traffic Manager-Profils mithilfe einer ARM-Vorlage
 
@@ -43,7 +43,7 @@ Weitere Vorlagen zu Azure Traffic Manager finden Sie unter [Azure-Schnellstartvo
 
 ## <a name="deploy-the-template"></a>Bereitstellen der Vorlage
 
-1. Wählen Sie **Try it** (Ausprobieren) im folgenden Codeblock aus, um Azure Cloud Shell zu öffnen. Folgen Sie dann den Anweisungen, um sich bei Azure anzumelden. 
+1. Wählen Sie **Try it** (Ausprobieren) im folgenden Codeblock aus, um Azure Cloud Shell zu öffnen. Folgen Sie dann den Anweisungen, um sich bei Azure anzumelden.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -66,7 +66,7 @@ Weitere Vorlagen zu Azure Traffic Manager finden Sie unter [Azure-Schnellstartvo
 
 1. Gehen Sie die Werte ein.
 
-    Bei der Vorlagenbereitstellung wird ein Profil mit zwei externen Endpunkten erstellt. **Endpoint1** verwendet den Zielendpunkt *w<span>ww.microsoft</span>.com* mit dem Standort **Europa, Norden**. **Endpoint2** verwendet den Zielendpunkt *d<span>ocs.microsoft</span>.com* mit dem Standort **USA, Süden-Mitte**. 
+    Bei der Vorlagenbereitstellung wird ein Profil mit zwei externen Endpunkten erstellt. **Endpoint1** verwendet den Zielendpunkt `www.microsoft.com` mit dem Standort in **Europa, Norden**. **Endpoint2** verwendet den Zielendpunkt `docs.microsoft.com` mit dem Standort in **USA, Süden-Mitte**.
 
     Der Ressourcengruppenname ist der Projektname mit dem Zusatz **rg**.
 
@@ -87,21 +87,23 @@ Azure PowerShell wird verwendet, um die Vorlage bereitzustellen. Neben Azure Pow
     Get-AzTrafficManagerProfile -Name ExternalEndpointExample -ResourceGroupName $resourceGroupName | Select RelativeDnsName
     ```
 
-    Kopieren Sie den Wert von **RelativeDnsName**. Der DNS-Name Ihres Traffic Manager-Profils lautet *<* relativednsname *>.trafficmanager.net*. 
+    Kopieren Sie den Wert von **RelativeDnsName**. Der DNS-Name Ihres Traffic Manager-Profils lautet `<relativednsname>.trafficmanager.net`.
 
-1. Führen Sie in einer lokalen PowerShell-Instanz den folgenden Befehl aus. Ersetzen Sie dabei die Variable **{relativeDNSname}** durch *<* relativednsname *>.trafficmanager.net*:
+1. Führen Sie in einer lokalen PowerShell-Instanz den folgenden Befehl aus. Ersetzen Sie dabei die Variable **{relativeDNSname}** durch `<relativednsname>.trafficmanager.net`.
 
     ```powershell
     Resolve-DnsName -Name {relativeDNSname} | Select-Object NameHost | Select -First 1
     ```
-    Abhängig davon, welche Region näher liegt, sollte für „NameHost“ entweder *w<span>ww.microsoft</span>.com* oder *d<span>ocs.microsoft</span>.com* zurückgegeben werden.
 
-1. Um zu überprüfen, ob die Auflösung in den anderen Endpunkt möglich ist, deaktivieren Sie den Endpunkt für das im letzten Schritt abgerufene Ziel. Ersetzen Sie **{endpointName}** entweder durch **endpoint1** oder **endpoint2**, um das Ziel für *w<span>ww.microsoft</span>.com* oder *d<span>ocs.microsoft</span>.com* zu deaktivieren.
+    Abhängig davon, welche Region näher zu Ihnen liegt, sollte für „NameHost“ entweder `www.microsoft.com` oder `docs.microsoft.com` zurückgegeben werden.
+
+1. Um zu überprüfen, ob die Auflösung in den anderen Endpunkt möglich ist, deaktivieren Sie den Endpunkt für das im letzten Schritt abgerufene Ziel. Ersetzen Sie **{endpointName}** entweder durch **endpoint1** oder durch **endpoint2** , um das Ziel für `www.microsoft.com` oder `docs.microsoft.com` zu deaktivieren.
 
     ```azurepowershell-interactive
     Disable-AzTrafficManagerEndpoint -Name {endpointName} -Type ExternalEndpoints -ProfileName ExternalEndpointExample -ResourceGroupName $resourceGroupName -Force
     ```
-1. Führen Sie den Befehl aus Schritt 2 erneut in einer lokalen PowerShell-Instanz aus. Dieses Mal sollten Sie den anderen NameHost-Wert für den anderen Endpunkt erhalten. 
+
+1. Führen Sie den Befehl aus Schritt 2 erneut in einer lokalen PowerShell-Instanz aus. Dieses Mal sollten Sie den anderen NameHost-Wert für den anderen Endpunkt erhalten.
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
@@ -115,8 +117,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In dieser Schnellstartanleitung haben Sie Folgendes erstellt:
-* Traffic Manager-Profil
+In dieser Schnellstartanleitung haben Sie ein Traffic Manager-Profil erstellt.
 
 Weitere Informationen zum Weiterleiten des Datenverkehrs finden Sie in den Tutorials zu Traffic Manager.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: cd9b85f22866c529b66fa6df07bd524516726086
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: a5457dc94082f089d3adf02c9614d05d2c5db244
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165331"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484004"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Vorbereiten von Daten für Custom Speech
 
@@ -57,7 +57,7 @@ Dateien sollten nach Typ in einem Dataset gruppiert und als ZIP-Datei hochgelade
 
 ## <a name="upload-data"></a>Hochladen von Daten
 
-Navigieren Sie zum Hochladen der Daten zum <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech-Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>. Klicken Sie im Portal auf **Daten hochladen** , um den Assistenten zu starten und Ihr erstes Dataset zu erstellen. Sie werden aufgefordert, einen Sprachdatentyp für das Dataset auszuwählen, bevor Sie die Daten hochladen können.
+Navigieren Sie zum Hochladen der Daten zum <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech-Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>. Klicken Sie im Portal auf **Daten hochladen**, um den Assistenten zu starten und Ihr erstes Dataset zu erstellen. Sie werden aufgefordert, einen Sprachdatentyp für das Dataset auszuwählen, bevor Sie die Daten hochladen können.
 
 ![Screenshot: Hervorgehobene Option zum Hochladen von Audio im Speech-Portal](./media/custom-speech/custom-speech-select-audio.png)
 
@@ -204,4 +204,4 @@ Stellen Sie anhand der folgenden Tabelle sicher, dass die zugehörige Datendatei
 * [Überprüfen Ihrer Daten](how-to-custom-speech-inspect-data.md)
 * [Bewerten Ihrer Daten](how-to-custom-speech-evaluate-data.md)
 * [Trainieren Ihres Modells](how-to-custom-speech-train-model.md)
-* [Bereitstellen Ihres Modells](how-to-custom-speech-deploy-model.md)
+* [Bereitstellen Ihres Modells](./how-to-custom-speech-train-model.md)

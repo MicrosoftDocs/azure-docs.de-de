@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 027a816e846996aa7c61a1747327128f9a0feed0
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 36c12fa7dd37ce1ffebde16cf6ca856d9fcdca0a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079206"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93391992"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Welche Neuerungen gibt es in Azure SQL-Datenbank und SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -56,7 +56,7 @@ Diese Tabelle bietet einen schnellen Vergleich der Änderungen in der Terminolog
 | Elastische Abfragen | Weitere Informationen finden Sie unter [Übersicht über elastische Abfragen](elastic-query-overview.md). |
 | Elastische Transaktionen | [Verteilte Transaktionen über Clouddatenbanken](elastic-transactions-overview.md). |
 | Abfrage-Editor im Azure-Portal |Weitere Informationen finden Sie unter [Verwenden des SQL-Abfrage-Editors im Azure-Portal zum Verbinden und Abfragen von Daten](connect-query-portal.md).|
-| R-Dienste/maschinelles Lernen mit Singletons und Pools für elastische Datenbanken |Weitere Informationen finden Sie unter [Machine Learning Services in Azure SQL Database (Machine Learning Services in Azure SQL-Datenbank)](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
+| R-Dienste/maschinelles Lernen mit Singletons und Pools für elastische Datenbanken |Weitere Informationen finden Sie unter [Machine Learning Services in Azure SQL Database (Machine Learning Services in Azure SQL-Datenbank)](/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
 |Azure SQL-Analyse|Weitere Informationen finden Sie unter [Azure SQL-Analyse](../../azure-monitor/insights/azure-sql.md).|
 | &nbsp; |
 
@@ -66,7 +66,7 @@ Diese Tabelle bietet einen schnellen Vergleich der Änderungen in der Terminolog
 | ---| --- |
 | <a href="/azure/azure-sql/database/elastic-transactions-overview">Verteilte Transaktionen</a> | Verteilte Transaktionen in verwalteten Instanzen |
 | <a href="/azure/sql-database/sql-database-instance-pools">Instanzenpools</a> | Eine praktische und kostengünstige Möglichkeit, um kleinere SQL-Instanzen zur Cloud zu migrieren. |
-| <a href="https://aka.ms/managed-instance-aadlogins">Azure AD-Serverprinzipale auf Instanzebene (Anmeldungen)</a> | Erstellen Sie Anmeldungen auf Instanzebene mithilfe der Anweisung <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a>. |
+| <a href="/en-gb/sql/t-sql/statements/create-login-transact-sql">Azure AD-Serverprinzipale auf Instanzebene (Anmeldungen)</a> | Erstellen Sie Anmeldungen auf Instanzebene mithilfe der Anweisung <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a>. |
 | [Transaktionsreplikation](../managed-instance/replication-transactional-overview.md) | Replizieren Sie die Änderungen aus Ihren Tabellen in andere Datenbanken in SQL Managed Instance, SQL-Datenbank oder SQL Server. Sie können auch Ihre Tabellen aktualisieren, wenn einige Zeilen in anderen Instanzen von SQL Managed Instance oder SQL Server geändert werden. Weitere Informationen finden Sie unter [Konfigurieren der Replikation in Azure SQL Managed Instance](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
 | Bedrohungserkennung |Weitere Informationen finden Sie unter [Konfigurieren der Bedrohungserkennung in Azure SQL Managed Instance](../managed-instance/threat-detection-configure.md).|
 | Langfristiges Aufbewahren von Sicherungen | Weitere Informationen finden Sie unter [Konfigurieren der Langzeitaufbewahrung von Sicherungen für Azure SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md) (zurzeit in der eingeschränkten Public Preview). | 
@@ -85,13 +85,13 @@ Diese Tabelle bietet einen schnellen Vergleich der Änderungen in der Terminolog
 ### <a name="sql-managed-instance-h1-2019-updates"></a>Updates von SQL Managed Instance H1 2019
 
 Die folgenden Funktionen sind im SQL Managed Instance-Bereitstellungsmodell in der ersten Jahreshälfte 2019 aktiviert:
-  - Unterstützung für Abonnements mit <a href="https://aka.ms/sql-mi-visual-studio-subscribers">monatlicher Azure-Gutschrift für Visual Studio-Abonnenten</a> und erhöhte [regionale Grenzwerte](../managed-instance/resource-limits.md#regional-resource-limitations).
-  - Unterstützung für <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019">SharePoint 2016 und SharePoint 2019</a> und <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance">Dynamics 365 Business Central</a>.
-  - Erstellen von verwalteten Instanzen mit <a href="https://aka.ms/managed-instance-collation">Sortierung auf Instanzebene</a> und einer <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">Zeitzone</a> Ihrer Wahl.
+  - Unterstützung für Abonnements mit <a href="/azure/azure-sql/managed-instance/resource-limits">monatlicher Azure-Gutschrift für Visual Studio-Abonnenten</a> und erhöhte [regionale Grenzwerte](../managed-instance/resource-limits.md#regional-resource-limitations).
+  - Unterstützung für <a href="/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019">SharePoint 2016 und SharePoint 2019</a> und <a href="/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance">Dynamics 365 Business Central</a>.
+  - Erstellen von verwalteten Instanzen mit <a href="/azure/azure-sql/managed-instance/scripts/create-powershell-azure-resource-manager-template">Sortierung auf Instanzebene</a> und einer <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">Zeitzone</a> Ihrer Wahl.
   - Verwaltete Instanzen sind jetzt durch eine [integrierte Firewall](../managed-instance/management-endpoint-verify-built-in-firewall.md) geschützt.
-  - Konfigurieren von SQL Managed Instance für die Verwendung von [öffentlichen Endpunkten](../managed-instance/public-endpoint-configure.md), einer Verbindung zur [Proxy-Außerkraftsetzung](connectivity-architecture.md#connection-policy) für eine bessere Netzwerkleistung und <a href="https://aka.ms/four-cores-sql-mi-update">vier virtuellen Kernen bei der Gen5-Hardwaregenerierung</a> oder <a href="https://aka.ms/managed-instance-configurable-backup-retention">Konfigurieren der Beibehaltung der Sicherung bis zu 35 Tage</a> für eine Point-in-Time-Wiederherstellung. [Die langfristige Sicherungsaufbewahrung](long-term-retention-overview.md#sql-managed-instance-support) (bis zu 10 Jahre) ist zurzeit in der eingeschränkten Public Preview verfügbar.  
+  - Konfigurieren von SQL Managed Instance für die Verwendung von [öffentlichen Endpunkten](../managed-instance/public-endpoint-configure.md), einer Verbindung zur [Proxy-Außerkraftsetzung](connectivity-architecture.md#connection-policy) für eine bessere Netzwerkleistung und <a href="https://aka.ms/four-cores-sql-mi-update">vier virtuellen Kernen bei der Gen5-Hardwaregenerierung</a> oder <a href="/azure/azure-sql/database/automated-backups-overview">Konfigurieren der Beibehaltung der Sicherung bis zu 35 Tage</a> für eine Point-in-Time-Wiederherstellung. [Die langfristige Sicherungsaufbewahrung](long-term-retention-overview.md#sql-managed-instance-support) (bis zu 10 Jahre) ist zurzeit in der eingeschränkten Public Preview verfügbar.  
   - Neue Funktionen ermöglichen Ihnen die <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">Geowiederherstellung Ihrer Datenbank in einem anderen Rechenzentrum mithilfe von PowerShell </a>, das [Umbenennen einer Datenbank](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/) und das [Löschen eines virtuellen Clusters](../managed-instance/virtual-cluster-delete.md).
-  - Die neue integrierte [Rolle „Mitwirkender für Instanzen“](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) ermöglicht SoD-Einhaltung (Separation of Duty, Aufgabentrennung) von Sicherheitsprinzipien und Einhaltung von Unternehmensstandards.
+  - Die neue integrierte [Rolle „Mitwirkender für Instanzen“](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) ermöglicht SoD-Einhaltung (Separation of Duty, Aufgabentrennung) von Sicherheitsprinzipien und Einhaltung von Unternehmensstandards.
   - SQL Managed Instance ist in den folgenden Azure Government-Regionen für GA (US Gov Texas, US Gov Arizona) sowie in China, Norden 2, und China, Osten 2, verfügbar. Außerdem ist sie in den folgenden öffentlichen Regionen verfügbar: Australien, Mitte; Australien, Mitte 2; Brasilien, Süden; Frankreich, Süden; VAE, Mitte; VAE, Norden; Südafrika, Norden; Südafrika, Westen.
 
 ## <a name="known-issues"></a>Bekannte Probleme
@@ -100,11 +100,11 @@ Die folgenden Funktionen sind im SQL Managed Instance-Bereitstellungsmodell in d
 |---------|---------|---------|---------|
 |[Verteilte Transaktionen können auch nach dem Entfernen einer verwalteten Instanz aus der Serververtrauensstellungsgruppe ausgeführt werden.](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Oktober 2020|Mit Problemumgehung||
 |[Verteilte Transaktionen können nach einem Managed Instance-Skalierungsvorgang nicht ausgeführt werden.](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Oktober 2020|Mit Problemumgehung||
-|[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql)-Anweisungen in Azure SQL und die `BACKUP`/`RESTORE`-Anweisung in Managed Instance können keine verwalteten Azure AD-Identitäten verwenden, um sich für Azure Storage zu authentifizieren.|Sep 2020|Mit Problemumgehung||
+|[BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql)/[OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15)-Anweisung in Azure SQL und die `BACKUP`/`RESTORE`-Anweisung in Managed Instance können keine verwalteten Azure AD-Identitäten verwenden, um sich für Azure Storage zu authentifizieren.|Sep 2020|Mit Problemumgehung||
 |[Der Dienstprinzipal kann nicht auf Azure AD und Azure Key Vault zugreifen](#service-principal-cannot-access-azure-ad-and-akv)|August 2020|Mit Problemumgehung||
 |[Wiederherstellen der manuellen Sicherung ohne CHECKSUM schlägt möglicherweise fehl](#restoring-manual-backup-without-checksum-might-fail)|Mai 2020|Gelöst|Juni 2020|
 |[Der Agent reagiert beim Ändern, Deaktivieren oder Aktivieren vorhandener Aufträge nicht mehr](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Mai 2020|Gelöst|Juni 2020|
-|[Berechtigungen für Ressourcengruppe werden nicht auf SQL Managed Instance angewendet](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|Februar 2020|Mit Problemumgehung||
+|[Berechtigungen für Ressourcengruppe werden nicht auf SQL Managed Instance angewendet](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|Februar 2020|Gelöst|November 2020|
 |[Einschränkung beim manuellen Failover über das Portal für Failovergruppen](#limitation-of-manual-failover-via-portal-for-failover-groups)|Januar 2020|Mit Problemumgehung||
 |[SQL-Agent-Rollen benötigen explizite EXECUTE-Berechtigungen für Anmeldungen, die keine Systemadministratoranmeldungen sind](#in-memory-oltp-memory-limits-are-not-applied)|Dezember 2019|Mit Problemumgehung||
 |[SQL Agent-Aufträge können durch den Neustart des Agent-Prozesses unterbrochen werden](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Dezember 2019|Gelöst|März 2020|
@@ -131,15 +131,15 @@ Die folgenden Funktionen sind im SQL Managed Instance-Bereitstellungsmodell in d
 
 ### <a name="distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group"></a>Verteilte Transaktionen können auch nach dem Entfernen einer verwalteten Instanz aus der Vertrauensstellungsgruppe des Servers ausgeführt werden
 
-[Serververtrauensstellungsgruppen](https://docs.microsoft.com/azure/azure-sql/managed-instance/server-trust-group-overview) werden verwendet, um eine Vertrauensstellung zwischen verwalteten Instanzen einzurichten. Die Vertrauensstellung ist eine Voraussetzung für [verteilte Transaktionen](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview). Nachdem Sie Managed Instance aus der Vertrauensstellungsgruppe des Servers entfernt oder die Gruppe gelöscht haben, können Sie möglicherweise weiterhin verteilte Transaktionen ausführen. Es gibt eine Problemumgehung, mit der Sie sicherstellen können, dass verteilte Transaktionen deaktiviert sind, und zwar ein [vom Benutzer initiiertes manuelles Failover](https://docs.microsoft.com/azure/azure-sql/managed-instance/user-initiated-failover) auf Managed Instance.
+[Serververtrauensstellungsgruppen](../managed-instance/server-trust-group-overview.md) werden verwendet, um eine Vertrauensstellung zwischen verwalteten Instanzen einzurichten. Die Vertrauensstellung ist eine Voraussetzung für [verteilte Transaktionen](./elastic-transactions-overview.md). Nachdem Sie Managed Instance aus der Vertrauensstellungsgruppe des Servers entfernt oder die Gruppe gelöscht haben, können Sie möglicherweise weiterhin verteilte Transaktionen ausführen. Es gibt eine Problemumgehung, mit der Sie sicherstellen können, dass verteilte Transaktionen deaktiviert sind, und zwar ein [vom Benutzer initiiertes manuelles Failover](../managed-instance/user-initiated-failover.md) auf Managed Instance.
 
 ### <a name="distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation"></a>Verteilte Transaktionen können nach einem Managed Instance-Skalierungsvorgang nicht ausgeführt werden
 
-Bei Managed Instance-Skalierungsvorgängen, bei denen die Dienstebene oder die Anzahl von virtuellen Kernen geändert wird, werden Einstellungen für die Serververtrauensstellungsgruppe im Back-End zurückgesetzt und die Ausführung von [verteilten Transaktionen](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview) deaktiviert. Dieses Problem lässt sich umgehen, indem Sie die [Serververtrauensstellungsgruppe](https://docs.microsoft.com/azure/azure-sql/managed-instance/server-trust-group-overview) im Azure-Portal löschen und eine neue erstellen.
+Bei Managed Instance-Skalierungsvorgängen, bei denen die Dienstebene oder die Anzahl von virtuellen Kernen geändert wird, werden Einstellungen für die Serververtrauensstellungsgruppe im Back-End zurückgesetzt und die Ausführung von [verteilten Transaktionen](./elastic-transactions-overview.md) deaktiviert. Dieses Problem lässt sich umgehen, indem Sie die [Serververtrauensstellungsgruppe](../managed-instance/server-trust-group-overview.md) im Azure-Portal löschen und eine neue erstellen.
 
 ### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>BULK INSERT- und BACKUP/RESTORE-Anweisungen können keine verwalteten Identitäten verwenden, um auf Azure Storage zuzugreifen
 
-Die BULK INSERT-Anweisung kann `DATABASE SCOPED CREDENTIAL` nicht mit einer verwalteten Identität verwenden, um sich bei Azure Storage zu authentifizieren. Dieses Problem lässt sich umgehen, indem Sie zur Shared Access Signature-Authentifizierung (SAS) wechseln. Das folgende Beispiel funktioniert nicht in Azure SQL (weder in Azure SQL-Datenbank noch in Managed Instance):
+BULK INSERT-, BACKUP- und RESTORE-Anweisungen sowie die OPENROWSET-Funktion können `DATABASE SCOPED CREDENTIAL` nicht mit Managed Identity zur Authentifizierung für Azure-Speicher verwenden. Dieses Problem lässt sich umgehen, indem Sie zur Shared Access Signature-Authentifizierung (SAS) wechseln. Das folgende Beispiel funktioniert nicht in Azure SQL (weder in Azure SQL-Datenbank noch in Managed Instance):
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Identity';
@@ -150,19 +150,19 @@ GO
 BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
 ```
 
-**Problemumgehung**: Verwenden Sie die [SAS-Authentifizierung, um sich bei Azure Storage zu authentifizieren](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage).
+**Problemumgehung** : Verwenden Sie die [SAS-Authentifizierung, um sich bei Azure Storage zu authentifizieren](/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage).
 
 ### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>Der Dienstprinzipal kann nicht auf Azure AD und Azure Key Vault zugreifen.
 
 In einigen Fällen kann ein Problem bei dem Dienstprinzipal auftreten, der für den Zugriff auf Azure AD- und Azure Key Vault-Dienste (AKV) verwendet wird. Dieses Problem beeinträchtigt die Verwendung von Azure AD-Authentifizierung und Transparent Database Encryption (TDE) mit SQL Managed Instance. Dabei kann es sich um ein vorübergehendes Konnektivitätsproblem handeln, oder Anweisungen, z. B. „CREATE LOGIN/USER FROM EXTERNAL PROVIDER“ oder „EXECUTE AS LOGIN/USER“, können nicht ausgeführt werden. In manchen Fällen ist es eventuell nicht möglich, TDE mit einem kundenseitig verwalteten Schlüssel in einer neuen Azure SQL Managed Instance einzurichten.
 
-**Problemumgehung**: Wenn Sie verhindern möchten, dass dieses Problem in Ihrer Instanz von SQL Managed Instance auftritt, bevor Sie Updatebefehle ausführen, oder falls dieses Problem bereits nach Updatebefehlen aufgetreten ist, wechseln Sie zum Azure-Portal, und öffnen Sie in SQL Managed Instance das [Blatt „Active Directory-Administrator“](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-portal). Überprüfen Sie, ob die Fehlermeldung „Die verwaltete Instanz benötigt einen Dienstprinzipal für den Zugriff auf Azure Active Directory. Klicken Sie hier, um einen Dienstprinzipal zu erstellen.“ angezeigt wird. Falls diese Fehlermeldung auftritt, klicken Sie darauf, und befolgen Sie die Schritt-für-Schritt-Anweisungen, die so lange angezeigt werden, bis der Fehler behoben wurde.
+**Problemumgehung** : Wenn Sie verhindern möchten, dass dieses Problem in Ihrer Instanz von SQL Managed Instance auftritt, bevor Sie Updatebefehle ausführen, oder falls dieses Problem bereits nach Updatebefehlen aufgetreten ist, wechseln Sie zum Azure-Portal, und öffnen Sie in SQL Managed Instance das [Blatt „Active Directory-Administrator“](./authentication-aad-configure.md?tabs=azure-powershell#azure-portal). Überprüfen Sie, ob die Fehlermeldung „Die verwaltete Instanz benötigt einen Dienstprinzipal für den Zugriff auf Azure Active Directory. Klicken Sie hier, um einen Dienstprinzipal zu erstellen.“ angezeigt wird. Falls diese Fehlermeldung auftritt, klicken Sie darauf, und befolgen Sie die Schritt-für-Schritt-Anweisungen, die so lange angezeigt werden, bis der Fehler behoben wurde.
 
 ### <a name="restoring-manual-backup-without-checksum-might-fail"></a>Wiederherstellen der manuellen Sicherung ohne CHECKSUM schlägt möglicherweise fehl
 
 Unter bestimmten Umständen kann die manuelle Sicherung von Datenbanken, die für eine verwalteten Instanz ohne CHECKSUM erstellt wurde, nicht wiederhergestellt werden. Versuchen Sie in solchen Fällen erneut, die Sicherung wiederherzustellen, bis der Vorgang erfolgreich war.
 
-**Problemumgehung**: Erstellen Sie manuelle Sicherungen von Datenbanken für verwaltete Instanzen mit aktivierter CHECKSUM.
+**Problemumgehung** : Erstellen Sie manuelle Sicherungen von Datenbanken für verwaltete Instanzen mit aktivierter CHECKSUM.
 
 ### <a name="agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs"></a>Der Agent reagiert beim Ändern, Deaktivieren oder Aktivieren vorhandener Aufträge nicht mehr
 
@@ -172,19 +172,19 @@ Unter bestimmten Umständen kann es vorkommen, dass der Agent nicht mehr reagier
 
 Wenn die Azure-Rolle „Mitwirkender“ von SQL Managed Instance auf eine Ressourcengruppe (RG) angewandt wird, betrifft dies nicht SQL Managed Instance und hat keine Auswirkungen.
 
-**Problemumgehung**: Richten Sie eine Rolle „Mitwirkender“ von SQL Managed Instance für Benutzer auf Abonnementebene ein.
+**Problemumgehung** : Richten Sie eine Rolle „Mitwirkender“ von SQL Managed Instance für Benutzer auf Abonnementebene ein.
 
 ### <a name="limitation-of-manual-failover-via-portal-for-failover-groups"></a>Einschränkung beim manuellen Failover über das Portal für Failovergruppen
 
 Wenn sich eine Failovergruppe über mehrere Instanzen in verschiedenen Azure-Abonnements oder Ressourcengruppen erstreckt, kann von der primären Instanz in der Failovergruppe kein manuelles Failover initiiert werden.
 
-**Problemumgehung**: Initiieren Sie das Failover über das Portal von der geosekundären Instanz.
+**Problemumgehung** : Initiieren Sie das Failover über das Portal von der geosekundären Instanz.
 
 ### <a name="sql-agent-roles-need-explicit-execute-permissions-for-non-sysadmin-logins"></a>SQL-Agent-Rollen benötigen explizite EXECUTE-Berechtigungen für Anmeldungen, die keine Systemadministratoranmeldungen sind
 
-Wenn Anmeldungen für Nicht-Systemadministratoren einer der [festen SQL-Agent-Datenbankrollen](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles) hinzugefügt werden, besteht ein Problem, bei dem den gespeicherten Masterprozeduren explizite EXECUTE-Berechtigungen gewährt werden müssen, damit diese Anmeldungen funktionieren. Wenn dieses Problem auftritt, wird die Fehlermeldung „The EXECUTE permission was denied on the object <object_name> (Microsoft SQL Server, Error: 229)“ (Die Berechtigung EXECUTE wurde für das Objekt <objekt_name> verweigert (Microsoft SQL Server, Fehler: 229) angezeigt.
+Wenn Anmeldungen für Nicht-Systemadministratoren einer der [festen SQL-Agent-Datenbankrollen](/sql/ssms/agent/sql-server-agent-fixed-database-roles) hinzugefügt werden, besteht ein Problem, bei dem den gespeicherten Masterprozeduren explizite EXECUTE-Berechtigungen gewährt werden müssen, damit diese Anmeldungen funktionieren. Wenn dieses Problem auftritt, wird die Fehlermeldung „The EXECUTE permission was denied on the object <object_name> (Microsoft SQL Server, Error: 229)“ (Die Berechtigung EXECUTE wurde für das Objekt <objekt_name> verweigert (Microsoft SQL Server, Fehler: 229) angezeigt.
 
-**Problemumgehung**: Nachdem Sie einer festen SQL-Agent-Datenbankrolle (SQLAgentUserRole, SQLAgentReaderRole oder SQLAgentOperatorRole) Anmeldungen hinzugefügt haben, führen Sie für jede hinzugefügte Anmeldung das folgende T-SQL-Skript aus, um den aufgelisteten gespeicherten Prozeduren explizit EXECUTE-Berechtigungen zu erteilen.
+**Problemumgehung** : Nachdem Sie einer festen SQL-Agent-Datenbankrolle (SQLAgentUserRole, SQLAgentReaderRole oder SQLAgentOperatorRole) Anmeldungen hinzugefügt haben, führen Sie für jede hinzugefügte Anmeldung das folgende T-SQL-Skript aus, um den aufgelisteten gespeicherten Prozeduren explizit EXECUTE-Berechtigungen zu erteilen.
 
 ```tsql
 USE [master]
@@ -204,13 +204,13 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
 
 In einigen Fällen werden auf der Dienstebene „Unternehmenskritisch“ [maximale Arbeitsspeicherlimits für speicheroptimierte Objekte](../managed-instance/resource-limits.md#in-memory-oltp-available-space) nicht ordnungsgemäß angewandt. Mit SQL Managed Instance kann die Workload eventuell mehr Arbeitsspeicher für In-Memory-OLTP-Vorgänge belegen. Dies kann sich auf die Verfügbarkeit und Stabilität der Instanz auswirken. In-Memory-OLTP-Abfragen, die die Grenzwerte erreichen, führen möglicherweise nicht sofort zu Fehlern. Dieses Problem wird bald behoben. Bei Abfragen, die mehr In-Memory-OLTP-Arbeitsspeicher belegen, treten früher Fehler auf, wenn sie die [Grenzwerte](../managed-instance/resource-limits.md#in-memory-oltp-available-space) erreichen.
 
-**Problemumgehung**: [Überwachen Sie die In-Memory-OLTP-Arbeitsspeichernutzung](https://docs.microsoft.com/azure/azure-sql/in-memory-oltp-monitor-space) mithilfe von [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring), um sicherzustellen, dass die Workload nicht mehr als den verfügbaren Arbeitsspeicher belegt. Erhöhen Sie die Arbeitsspeicherlimits, die von der Anzahl von virtuellen Kernen abhängen, oder optimieren Sie Ihre Workload, damit sie weniger Arbeitsspeicher belegt.
+**Problemumgehung** : [Überwachen Sie die In-Memory-OLTP-Arbeitsspeichernutzung](../in-memory-oltp-monitor-space.md) mithilfe von [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring), um sicherzustellen, dass die Workload nicht mehr als den verfügbaren Arbeitsspeicher belegt. Erhöhen Sie die Arbeitsspeicherlimits, die von der Anzahl von virtuellen Kernen abhängen, oder optimieren Sie Ihre Workload, damit sie weniger Arbeitsspeicher belegt.
  
 ### <a name="wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty"></a>Zurückgegebener Fehler bei dem Versuch, eine nicht leere Datei zu entfernen
 
 SQL Server und SQL Managed Instance [lassen nicht das Löschen von Dateien zu, die nicht leer sind](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). Wenn Sie versuchen, eine nicht leere Datendatei mithilfe der Anweisung `ALTER DATABASE REMOVE FILE` zu entfernen, wird der Fehler `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` nicht sofort zurückgegeben. SQL Managed Instance versucht weiterhin, die Datei zu löschen, und für den Vorgang tritt nach 30 Minuten der Fehler `Internal server error` auf.
 
-**Problemumgehung**: Entfernen Sie den Inhalt der Datei mit dem Befehl `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)`. Wenn es sich um die einzige Datei in der Dateigruppe handelt, müssen Sie Daten aus der Tabelle oder Partition löschen, die dieser Dateigruppe zugeordnet ist, bevor Sie die Datei verkleinern, und diese Daten optional in eine andere Tabelle/Partition laden.
+**Problemumgehung** : Entfernen Sie den Inhalt der Datei mit dem Befehl `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)`. Wenn es sich um die einzige Datei in der Dateigruppe handelt, müssen Sie Daten aus der Tabelle oder Partition löschen, die dieser Dateigruppe zugeordnet ist, bevor Sie die Datei verkleinern, und diese Daten optional in eine andere Tabelle/Partition laden.
 
 ### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore"></a>Das Ändern der Dienstebene und Erstellen von Instanzvorgängen wird durch die laufende Datenbankwiederherstellung blockiert
 
@@ -218,19 +218,19 @@ Durch die laufende `RESTORE`-Anweisung blockieren der Migrationsprozess des Date
 
 Der Wiederherstellungsvorgang blockiert diese Vorgänge für die verwalteten Instanzen und Instanzenpools in dem Subnetz, in dem der Wiederherstellungsvorgang ausgeführt wird. Die Instanzen in Instanzenpools sind davon nicht betroffen. Beim Erstellen oder Ändern von Vorgängen auf Dienstebene tritt kein Fehler oder Timeout auf. Sie werden fortgesetzt, sobald der Wiederherstellungsvorgang abgeschlossen oder abgebrochen wurde.
 
-**Problemumgehung**: Warten Sie, bis der Wiederherstellungsvorgang abgeschlossen ist, oder brechen Sie ihn ab, wenn die Erstellung oder Aktualisierung der Dienstebene eine höhere Priorität hat.
+**Problemumgehung** : Warten Sie, bis der Wiederherstellungsvorgang abgeschlossen ist, oder brechen Sie ihn ab, wenn die Erstellung oder Aktualisierung der Dienstebene eine höhere Priorität hat.
 
 ### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>Resource Governor auf Dienstebene „Unternehmenskritisch“ muss möglicherweise nach einem Failover neu konfiguriert werden
 
 Das Feature [Resource Governor](/sql/relational-databases/resource-governor/resource-governor), mit dem Sie die der Benutzerworkload zugewiesenen Ressourcen einschränken können, klassifiziert möglicherweise eine Benutzerworkload nach einem Failover oder einer vom Benutzer initiierten Änderung der Dienstebene (z. B. Änderung der maximalen virtuellen Kerne oder der maximalen Instanzspeichergröße) falsch.
 
-**Problemumgehung**: Führen Sie `ALTER RESOURCE GOVERNOR RECONFIGURE` regelmäßig oder als Teil des SQL-Agent-Auftrags aus, der den SQL-Task beim Starten der Instanz ausführt, wenn Sie [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) verwenden.
+**Problemumgehung** : Führen Sie `ALTER RESOURCE GOVERNOR RECONFIGURE` regelmäßig oder als Teil des SQL-Agent-Auftrags aus, der den SQL-Task beim Starten der Instanz ausführt, wenn Sie [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) verwenden.
 
 ### <a name="cross-database-service-broker-dialogs-must-be-reinitialized-after-service-tier-upgrade"></a>Datenbankübergreifende Service Broker-Dialoge müssen nach einem Upgrade der Dienstebene erneut initialisiert werden
 
-Datenbankübergreifenden Service Broker-Dialoge stellen die Zustellung der Nachrichten an die Dienste in anderen Datenbanken nach Änderung der Dienstebene ein. Die Nachrichten sind *nicht verloren*, sondern befinden sich in der Absenderwarteschlange. Jegliche Änderung virtueller Kerne oder der Instanzspeichergröße von SQL Managed Instance führt dazu, dass der Wert `service_broke_guid` in der Sicht [sys.databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) für alle Datenbanken geändert wird. Ein `DIALOG`, der mit der Anweisung [BEGIN DIALOG](/sql/t-sql/statements/begin-dialog-conversation-transact-sql) erstellt wurde und auf Service Broker in einer anderen Datenbank verweist, stellt die Zustellung von Nachrichten an den Zieldienst ein.
+Datenbankübergreifenden Service Broker-Dialoge stellen die Zustellung der Nachrichten an die Dienste in anderen Datenbanken nach Änderung der Dienstebene ein. Die Nachrichten sind *nicht verloren* , sondern befinden sich in der Absenderwarteschlange. Jegliche Änderung virtueller Kerne oder der Instanzspeichergröße von SQL Managed Instance führt dazu, dass der Wert `service_broke_guid` in der Sicht [sys.databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) für alle Datenbanken geändert wird. Ein `DIALOG`, der mit der Anweisung [BEGIN DIALOG](/sql/t-sql/statements/begin-dialog-conversation-transact-sql) erstellt wurde und auf Service Broker in einer anderen Datenbank verweist, stellt die Zustellung von Nachrichten an den Zieldienst ein.
 
-**Problemumgehung**: Beenden Sie vor dem Aktualisieren der Dienstebene alle Aktivitäten, die datenbankübergreifende Dialogkonversationen von Service Broker verwenden, und initialisieren Sie sie danach neu. Wenn nach dem Ändern der Dienstebene noch nicht zugestellte Nachrichten vorhanden sind, lesen Sie sie aus der Quellwarteschlange, und senden Sie sie erneut an die Zielwarteschlange.
+**Problemumgehung** : Beenden Sie vor dem Aktualisieren der Dienstebene alle Aktivitäten, die datenbankübergreifende Dialogkonversationen von Service Broker verwenden, und initialisieren Sie sie danach neu. Wenn nach dem Ändern der Dienstebene noch nicht zugestellte Nachrichten vorhanden sind, lesen Sie sie aus der Quellwarteschlange, und senden Sie sie erneut an die Zielwarteschlange.
 
 ### <a name="impersonation-of-azure-ad-login-types-is-not-supported"></a>Identitätswechsel für Azure AD-Anmeldetypen wird nicht unterstützt.
 
@@ -258,7 +258,7 @@ Die Datenbank im Status *Wird wiederhergestellt* weist temporär einen zufällig
 
 In der Anfangsphase kann der Benutzer auf die leere Datenbank zugreifen und sogar in dieser Datenbank Tabellen erstellen oder Daten laden. Diese temporäre Datenbank wird gelöscht, wenn der Wiederherstellungsdienst die zweite Phase startet.
 
-**Problemumgehung**: Greifen Sie erst dann auf die Datenbank zu, die Sie wiederherstellen, wenn Sie feststellen, dass die Wiederherstellung abgeschlossen ist.
+**Problemumgehung** : Greifen Sie erst dann auf die Datenbank zu, die Sie wiederherstellen, wenn Sie feststellen, dass die Wiederherstellung abgeschlossen ist.
 
 ### <a name="tempdb-structure-and-content-is-re-created"></a>Struktur und Inhalt von TEMPDB werden neu erstellt.
 
@@ -279,13 +279,13 @@ Dieses Beispiel veranschaulicht, dass eine Instanz von SQL Managed Instance unte
 
 In diesem Beispiel funktionieren vorhandene Datenbanken weiterhin und können ohne Probleme weiter wachsen, solange keine neuen Dateien hinzugefügt werden. Es könnten jedoch keine neuen Datenbanken erstellt oder wiederhergestellt werden, da für neue Datenträgerlaufwerke nicht genügend Speicherplatz vorhanden ist, selbst nicht dann, wenn die Gesamtgröße aller Datenbanken das Größenlimit der Instanz nicht überschreitet. Der Fehler, der in diesem Fall zurückgegeben wird, ist nicht klar.
 
-Sie können mithilfe von Systemansichten [die Anzahl von verbleibenden Dateien identifizieren](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1). Wenn Sie dieses Limit erreichen, versuchen Sie, [einige der kleineren Dateien mithilfe der DBCC SHRINKFILE-Anweisung zu leeren und zu löschen](/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file), oder wechseln Sie zur [Dienstebene „Unternehmenskritisch“, für die dieses Limit nicht gilt](/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+Sie können mithilfe von Systemansichten [die Anzahl von verbleibenden Dateien identifizieren](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1). Wenn Sie dieses Limit erreichen, versuchen Sie, [einige der kleineren Dateien mithilfe der DBCC SHRINKFILE-Anweisung zu leeren und zu löschen](/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file), oder wechseln Sie zur [Dienstebene „Unternehmenskritisch“, für die dieses Limit nicht gilt](../managed-instance/resource-limits.md#service-tier-characteristics).
 
 ### <a name="guid-values-shown-instead-of-database-names"></a>Anstelle von Datenbanknamen werden GUID-Werte gezeigt.
 
 Mehrere Systemansichten, Leistungsindikatoren, Fehlermeldungen, XEvents und Fehlerprotokolleinträge zeigen GUID-Datenbankbezeichner anstelle der eigentlichen Datenbanknamen an. Verlassen Sie sich nicht auf diese GUIDs, da sie in Zukunft durch tatsächliche Datenbanknamen ersetzt werden.
 
-**Problemumgehung**: Verwenden Sie die Sicht „sys.databases“, um den tatsächlichen Datenbanknamen aus dem physischen Datenbanknamen aufzulösen, der in Form von GUID-Datenbankbezeichnern angegeben wurde:
+**Problemumgehung** : Verwenden Sie die Sicht „sys.databases“, um den tatsächlichen Datenbanknamen aus dem physischen Datenbanknamen aufzulösen, der in Form von GUID-Datenbankbezeichnern angegeben wurde:
 
 ```tsql
 SELECT name as ActualDatabaseName, physical_database_name as GUIDDatabaseIdentifier 
@@ -330,7 +330,7 @@ using (var scope = new TransactionScope())
 
 CLR-Module in SQL Managed Instance und Verbindungsserver oder verteilte Abfragen, die auf eine aktuelle Instanz verweisen, können die IP-Adresse der lokalen Instanz mitunter nicht auflösen. Dieser Fehler ist ein vorübergehendes Problem.
 
-**Problemumgehung**: Verwenden Sie nach Möglichkeit Kontextverbindungen im CLR-Modul.
+**Problemumgehung** : Verwenden Sie nach Möglichkeit Kontextverbindungen im CLR-Modul.
 
 ## <a name="updates"></a>Aktualisierungen
 
@@ -340,4 +340,4 @@ Informationen zu Updates und Verbesserungen für alle Azure-Dienste finden Sie u
 
 ## <a name="contribute-to-content"></a>Mitwirkung am Inhalt
 
-Informationen zur Mitwirkung an der Azure SQL-Dokumentation finden Sie im [Leitfaden für Dokumentationsmitwirkende](https://docs.microsoft.com/contribute/).
+Informationen zur Mitwirkung an der Azure SQL-Dokumentation finden Sie im [Leitfaden für Dokumentationsmitwirkende](/contribute/).

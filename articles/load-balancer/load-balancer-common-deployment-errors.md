@@ -10,12 +10,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.author: anavin
-ms.openlocfilehash: 527f71b1980b5a62d3db94fe89a1bce98142e31a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae3899a61e942695fed1e3da5fc543b298a42e24
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84221011"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695553"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-load-balancer"></a>Troubleshooting gängiger Azure-Bereitstellungsfehler mit Azure Load Balancer
 
@@ -35,11 +35,11 @@ In diesem Artikel werden einige häufige Azure Load Balancer-Bereitstellungsfehl
 |CannotUseInactiveHealthProbe| Sie können nicht über einen Test verfügen, der von keiner für die Integrität von VM-Skalierungsgruppen konfigurierten Regel verwendet wird. Stellen Sie sicher, dass der eingerichtete Test aktiv genutzt wird. |
 |VMScaleSetCannotUseMultipleLoadBalancersOfSameType| Es können nicht mehrere Load Balancer-Instanzen desselben Typs (intern, öffentlich) vorhanden sein. Maximal sind eine interne und eine öffentliche Load Balancer-Instanz möglich. |
 |VMScaleSetCannotReferenceLoadbalancerWhenLargeScaleOrCrossAZ | Load Balancer Basic wird für VM-Skalierungsgruppen mit mehreren Platzierungsgruppen und verfügbarkeitszonenübergreifende VM-Skalierungsgruppen nicht unterstützt. Verwenden Sie stattdessen Load Balancer Standard. |
-|MarketplacePurchaseEligibilityFailed | Wechseln Sie zum richtigen Administratorkonto, um Käufe zu aktivieren, da das Abonnement ein EA-Abonnement ist. Weitere Informationen finden Sie [hier](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase). |
-|ResourceDeploymentFailure| Wenn der Load Balancer einen Fehlerstatus besitzt, führen Sie die folgenden Schritte aus, um den Fehlerstatus aufzuheben:<ol><li>Melden Sie sich auf https://resources.azure.com mit Ihren Anmeldeinformationen für das Azure-Portal an.</li><li>Wählen Sie **Lesen/Schreiben** aus.</li><li>Erweitern Sie auf der linken Seite **Abonnements** und dann das Abonnement mit dem Load Balancer, der aktualisiert werden soll.</li><li>Erweitern Sie **ResourceGroups** und dann die Ressourcengruppe mit dem Load Balancer, der aktualisiert werden soll.</li><li>Wählen Sie **Microsoft.Network** > **LoadBalancers** und dann den zu aktualisierenden Load Balancer **LoadBalancer_1**.</li><li>Wählen Sie auf der Anzeigeseite **LoadBalancer_1** die Option **GET** > **Bearbeiten**.</li><li>Ändern Sie den **ProvisioningState**-Wert von **Fehler** in **Erfolgreich**.</li><li>Wählen Sie **PUT**aus.</li></ol>|
+|MarketplacePurchaseEligibilityFailed | Wechseln Sie zum richtigen Administratorkonto, um Käufe zu aktivieren, da das Abonnement ein EA-Abonnement ist. Weitere Informationen finden Sie [hier](../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase). |
+|ResourceDeploymentFailure| Wenn der Load Balancer einen Fehlerstatus besitzt, führen Sie die folgenden Schritte aus, um den Fehlerstatus aufzuheben:<ol><li>Melden Sie sich auf https://resources.azure.com mit Ihren Anmeldeinformationen für das Azure-Portal an.</li><li>Wählen Sie **Lesen/Schreiben** aus.</li><li>Erweitern Sie auf der linken Seite **Abonnements** und dann das Abonnement mit dem Load Balancer, der aktualisiert werden soll.</li><li>Erweitern Sie **ResourceGroups** und dann die Ressourcengruppe mit dem Load Balancer, der aktualisiert werden soll.</li><li>Wählen Sie **Microsoft.Network** > **LoadBalancers** und dann den zu aktualisierenden Load Balancer **LoadBalancer_1**.</li><li>Wählen Sie auf der Anzeigeseite **LoadBalancer_1** die Option **GET** > **Bearbeiten**.</li><li>Ändern Sie den **ProvisioningState**-Wert von **Fehler** in **Erfolgreich**.</li><li>Wählen Sie **PUT** aus.</li></ol>|
 |  |  |
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 * Sehen Sie sich die [SKU-Vergleichstabelle](./skus.md) für Azure Load Balancer an.
-* Erfahren Sie etwas über die [Grenzwerte von Azure Load Balancer](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer).
+* Erfahren Sie etwas über die [Grenzwerte von Azure Load Balancer](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer).

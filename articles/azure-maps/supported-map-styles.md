@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4a50a9d6d4a485f7d8e63adb9ae5032f49edc261
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3404c02dc159309ed1e9fcd6f9f6bb593fc7552
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310355"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896938"
 ---
 # <a name="azure-maps-supported-built-in-map-styles"></a>In Azure Maps unterstützte integrierte Kartenstile
 
@@ -27,8 +27,8 @@ Eine **Straßenkarte** ist eine Standardkarte, auf der Straßen angezeigt werden
 
 **Anwendbare APIs:**
 
-* [Kartenbild](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Kartenkachel](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Kartenbild](/rest/api/maps/render/getmapimage)
+* [Kartenkachel](/rest/api/maps/render/getmaptile)
 * Web-SDK-Kartensteuerelement
 * Android-Kartensteuerelement
 * Power BI-Visualisierung
@@ -52,7 +52,7 @@ Der Kartenstil **Satellit** ist eine Kombination aus Satellitenbildern und Lufta
 
 **Anwendbare APIs:**
 
-* [Satellitenkachel](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
+* [Satellitenkachel](/rest/api/maps/render/getmapimagerytilepreview)
 * Web-SDK-Kartensteuerelement
 * Android-Kartensteuerelement
 * Power BI-Visualisierung
@@ -77,8 +77,8 @@ Dieser Kartenstil ist eine Hybriddarstellung, bei der Straßen und Bezeichnungen
 
 **Anwendbare APIs:**
 
-* [Kartenbild](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Kartenkachel](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Kartenbild](/rest/api/maps/render/getmapimage)
+* [Kartenkachel](/rest/api/maps/render/getmaptile)
 * Web-SDK-Kartensteuerelement
 * Android-Kartensteuerelement
 * Power BI-Visualisierung
@@ -114,7 +114,7 @@ Dieser Kartenstil ist eine Hybriddarstellung, bei der Straßen und Bezeichnungen
 
 **Anwendbare APIs:**
 
-* [Kartenkachel](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Kartenkachel](/rest/api/maps/render/getmaptile)
 * Web-SDK-Kartensteuerelement
 * Android-Kartensteuerelement
 * Power BI-Visualisierung
@@ -134,4 +134,4 @@ Dieser Kartenstil ist eine Hybriddarstellung, bei der Straßen und Bezeichnungen
 
 Informationen, wie ein Kartenstil in Azure Maps festgelegt wird:
 
-[Auswählen eines Kartenstils](https://docs.microsoft.com/azure/azure-maps/choose-map-style)
+[Auswählen eines Kartenstils](./choose-map-style.md)

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
 ms.openlocfilehash: c4497805e64ef303c9d7340c48a49027b3a26bef
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144687"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011019"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Probleme mit der Konfiguration und Verwaltung von Microsoft Azure Cloud Services: Häufig gestellte Fragen (FAQs)
 
@@ -193,10 +193,10 @@ Windows 10 und Windows Server 2016 unterstützen HTTP/2 auf Client- und Serverse
 
 1. Führen Sie „regedit.exe“ aus.
 2. Navigieren Sie zu folgendem Registrierungsschlüssel: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
-3. Erstellen Sie einen neuen DWORD-Wert namens **DuoEnabled** .
+3. Erstellen Sie einen neuen DWORD-Wert namens **DuoEnabled**.
 4. Legen Sie hierfür den Wert 1 fest.
 5. Starten Sie den Server neu.
-6. Wechseln Sie zu Ihrer **Standardwebsite** , und erstellen Sie unter **Bindungen** eine neue TLS-Bindung mit dem selbstsignierten Zertifikat, das Sie gerade erstellt haben. 
+6. Wechseln Sie zu Ihrer **Standardwebsite**, und erstellen Sie unter **Bindungen** eine neue TLS-Bindung mit dem selbstsignierten Zertifikat, das Sie gerade erstellt haben. 
 
 Weitere Informationen finden Sie unter
 
@@ -231,7 +231,7 @@ Bei Microsoft gilt ein strenger Verhaltenskodex, der es internen Technikern nich
 Dieser Fehler kann auftreten, wenn Sie die RDP-Datei eines Computers verwenden, der Mitglied von Azure Active Directory ist. Gehen Sie folgendermaßen vor, um das Problem zu beheben:
 
 1. Klicken Sie mit der rechten Maustaste auf die heruntergeladene RDP-Datei, und wählen Sie **Bearbeiten** aus.
-2. Fügen Sie vor dem Benutzernamen das Präfix „&#92;“ hinzu. Verwenden Sie z. B. **.\username** anstelle von **username** .
+2. Fügen Sie vor dem Benutzernamen das Präfix „&#92;“ hinzu. Verwenden Sie z. B. **.\username** anstelle von **username**.
 
 ## <a name="scaling"></a>Skalierung
 

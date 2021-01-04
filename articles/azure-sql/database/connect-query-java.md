@@ -11,11 +11,11 @@ ms.devlang: java
 ms.date: 06/26/2020
 ms.custom: devx-track-java, devx-track-azurecli
 ms.openlocfilehash: badf6b8887c356c2a7fc7308f6aa15f551e4bb67
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746722"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972673"
 ---
 # <a name="use-java-and-jdbc-with--azure-sql-database"></a>Verwenden von Java und JDBC mit Azure SQL-Datenbank
 
@@ -150,7 +150,7 @@ Dabei handelt es sich um eine [Apache Maven](https://maven.apache.org/)-Datei, d
 
 ### <a name="prepare-a-configuration-file-to-connect-to-azure-sql-database"></a>Vorbereiten einer Konfigurationsdatei für das Herstellen einer Verbindung mit Azure SQL-Datenbank
 
-Erstellen Sie eine Datei vom Typ *src/main/resources/application.properties* , und fügen Sie Folgendes hinzu:
+Erstellen Sie eine Datei vom Typ *src/main/resources/application.properties*, und fügen Sie Folgendes hinzu:
 
 ```properties
 url=jdbc:sqlserver://$AZ_DATABASE_NAME.database.windows.net:1433;database=demo;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
@@ -176,7 +176,7 @@ CREATE TABLE todo (id INT PRIMARY KEY, description VARCHAR(255), details VARCHAR
 
 Fügen Sie als Nächstes den Java-Code hinzu, der JDBC zum Speichern und Abrufen von Daten in bzw. aus Ihrer Azure SQL-Datenbank nutzt.
 
-Erstellen Sie eine Datei vom Typ *src/main/java/DemoApplication.java* , die Folgendes enthält:
+Erstellen Sie eine Datei vom Typ *src/main/java/DemoApplication.java*, die Folgendes enthält:
 
 ```java
 package com.example.demo;
@@ -225,7 +225,7 @@ public class DemoApplication {
 }
 ```
 
-Dieser Java-Code verwendet die weiter oben erstellten Dateien *application.properties* und *schema.sql* , um eine Verbindung mit der SQL Server-Datenbank herzustellen und ein Schema zu erstellen, in dem Ihre Daten gespeichert werden.
+Dieser Java-Code verwendet die weiter oben erstellten Dateien *application.properties* und *schema.sql*, um eine Verbindung mit der SQL Server-Datenbank herzustellen und ein Schema zu erstellen, in dem Ihre Daten gespeichert werden.
 
 Sie sehen, dass in dieser Datei Methoden zum Einfügen, Lesen, Aktualisieren und Löschen von Daten kommentiert wurden: Diese Methoden werden im verbleibenden Artikel codiert, und Sie können nacheinander die Auskommentierung aufheben.
 

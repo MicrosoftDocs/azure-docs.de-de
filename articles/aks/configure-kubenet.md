@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 3bc245fa02f57a433a76a316caac67ed5d884fe9
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 6cb083e823583105f04aaa59a99357b2b2b2426b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072746"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97034053"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Verwenden von kubenet-Netzwerken mit Ihren eigenen IP-Adressbereichen in Azure Kubernetes Service (AKS)
 
@@ -34,7 +34,7 @@ Dieser Artikel veranschaulicht die Verwendung von *kubenet*-Netzwerken zum Erste
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
-Azure CLI-Version 2.0.65 oder höher muss installiert und konfiguriert sein. Führen Sie  `az --version` aus, um die Version zu ermitteln. Wenn Sie eine Installation oder ein Upgrade ausführen müssen, finden Sie weitere Informationen unter  [Installieren der Azure CLI][install-azure-cli].
+Azure CLI-Version 2.0.65 oder höher muss installiert und konfiguriert sein. Führen Sie `az --version` aus, um die Version zu ermitteln. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sie bei Bedarf unter [Installieren der Azure CLI][install-azure-cli].
 
 ## <a name="overview-of-kubenet-networking-with-your-own-subnet"></a>Übersicht über kubenet-Netzwerke mit eigenem Subnetz
 
@@ -57,7 +57,7 @@ Mit *Azure CNI* empfängt jeder Pod eine IP-Adresse im IP-Subnetz und kann direk
 * Zu den **in kubenet nicht unterstützten** Funktionen gehören:
    * [Azure-Netzwerkrichtlinien](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), aber Calico-Netzwerkrichtlinien werden in kubenet unterstützt.
    * [Windows-Knotenpools](./windows-faq.md)
-   * [Add-On für virtuelle Knoten](virtual-nodes-portal.md#known-limitations)
+   * [Add-On für virtuelle Knoten](virtual-nodes.md#network-requirements)
 
 ### <a name="ip-address-availability-and-exhaustion"></a>IP-Adressenverfügbarkeit und -auslastung
 
@@ -224,7 +224,6 @@ Für die erfolgreiche Weiterleitung von Anforderungen in einem Kubenet-Netzwerk 
 Einschränkungen:
 
 * Vor der Erstellung des Clusters müssen Berechtigungen zugewiesen werden. Stellen Sie sicher, dass Sie einen Dienstprinzipal mit Schreibberechtigungen für das benutzerdefinierte Subnetz und die benutzerdefinierte Routingtabelle verwenden.
-* Verwaltete Identitäten werden derzeit nicht mit benutzerdefinierten Routentabellen in kubenet unterstützt.
 * Vor dem Erstellen des AKS-Clusters muss dem Subnetz eine benutzerdefinierte Routingtabelle zugeordnet werden.
 * Die zugeordnete Routingtabellenressource kann nach der Clustererstellung nicht mehr aktualisiert werden. Benutzerdefinierte Regeln in der Routingtabelle können jedoch geändert werden.
 * Von jedem AKS-Cluster muss eine einzelne, eindeutige Routingtabelle für alle Subnetze verwendet werden, die dem Cluster zugeordnet sind. Eine Routingtabelle kann nicht von mehreren Clustern genutzt werden, da dies zu Überschneidungen bei Pod-CIDRs sowie zu Konflikten bei Routingregeln führen kann.

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ae9404d366b24c0cc1bcf01ecffc71a427f949d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94abb33d39765a19306a013576d43fb2602d1c37
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88034344"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017626"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Migrieren von Massendaten zur Azure-Dateisynchronisierung mit Azure Data Box
 Zum Migrieren von Massendaten in die Azure-Dateisynchronisierung gibt es zwei Möglichkeiten:
@@ -25,7 +25,7 @@ In diesem Artikel wird erklärt, wie Sie Dateien offline auf eine Weise migriere
 ## <a name="migration-tools"></a>Migrationstools
 Der Prozess, den wir in diesem Artikel beschreiben, funktioniert nicht nur für Data Box, sondern auch für andere Offlinemigrationstools. Er funktioniert auch für Tools wie AzCopy oder Robocopy oder Partnertools und -dienste, die direkt über das Internet funktionieren. Um die anfängliche Herausforderung für das Hochladen zu meistern, befolgen Sie die Schritte in diesem Artikel, um diese Tools in einer Weise zu verwenden, die mit der Azure-Dateisynchronisierung kompatibel ist.
 
-In einigen Fällen müssen Sie von einem Windows-Server zu einem anderen Windows-Server wechseln, bevor Sie die Azure-Dateisynchronisierung übernehmen. Der [Speichermigrationsdienst](https://aka.ms/storagemigrationservice) (Storage Migration Service, SMS) kann dabei helfen. Egal, ob Sie zu einer Serverbetriebssystemversion migrieren müssen, die von Azure-Dateisynchronisierung unterstützt wird (Windows Server 2012R2 und höher), oder einfach migrieren müssen, weil Sie ein neues System für Azure-Dateisynchronisierung kaufen, SMS bietet zahlreiche Features und Vorteile, die Ihnen helfen, die jeweilige Migration reibungslos zu erledigen.
+In einigen Fällen müssen Sie von einem Windows-Server zu einem anderen Windows-Server wechseln, bevor Sie die Azure-Dateisynchronisierung übernehmen. Der [Speichermigrationsdienst](/windows-server/storage/storage-migration-service/overview) (Storage Migration Service, SMS) kann dabei helfen. Egal, ob Sie zu einer Serverbetriebssystemversion migrieren müssen, die von Azure-Dateisynchronisierung unterstützt wird (Windows Server 2012R2 und höher), oder einfach migrieren müssen, weil Sie ein neues System für Azure-Dateisynchronisierung kaufen, SMS bietet zahlreiche Features und Vorteile, die Ihnen helfen, die jeweilige Migration reibungslos zu erledigen.
 
 ## <a name="benefits-of-using-a-tool-to-transfer-data-offline"></a>Vorteile der Verwendung eines Tools zur Offlineübertragung von Daten
 Es folgen die wesentlichen Vorteile der Verwendung eines Übertragungstools wie Data Box für die Offlinemigration:

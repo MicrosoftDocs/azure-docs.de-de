@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/11/2018
 ms.author: kenwith
-ms.openlocfilehash: e9e97aec66d99d149320938540c48b9ad68eaf0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 714cbb06506cc3e0dffe74007712d9cbad072284
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90068029"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655067"
 ---
 # <a name="troubleshoot-common-problem-adding-or-removing-an-application-to-azure-active-directory"></a>Behandeln gängiger Probleme beim Hinzufügen oder Entfernen einer Anwendung in Azure Active Directory
 In diesem Artikel werden häufige Probleme beschrieben, die beim Hinzufügen oder Entfernen einer App in Azure Active Directory auftreten.
@@ -31,9 +31,9 @@ In manchen Fällen führen vorübergehende Probleme, Netzwerkprobleme oder ein F
 Wenn beim Klicken auf die Schaltfläche **Hinzufügen** ein Fehler auftritt, wird eine **Benachrichtigung** mit einem **Fehlerstatus** angezeigt. Wenn Sie weitere Details zu dem Fehler benötigen oder diese einem Supporttechniker weitergeben möchten, können Sie ausführliche Informationen zum Fehler anzeigen, indem Sie die Schritte im Abschnitt [Anzeigen von Details einer Portalbenachrichtigung](#how-to-see-the-details-of-a-portal-notification) ausführen.
 
 ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Ich weiß nicht, wie die Anwendung nach dem Hinzufügen eingerichtet wird.
-Für allgemeine Informationen zu Anwendungen bietet sich der Artikel [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) als Ausgangspunkt an.
+Für allgemeine Informationen zu Anwendungen bietet sich der Artikel [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](../saas-apps/tutorial-list.md) als Ausgangspunkt an.
 
-Zudem finden Sie weitere Informationen zur Verwendung und Funktionsweise des einmaligen Anmeldens mit Azure AD in der [Dokumentbibliothek zu Azure AD-Anwendungen](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index).
+Zudem finden Sie weitere Informationen zur Verwendung und Funktionsweise des einmaligen Anmeldens mit Azure AD in der [Dokumentbibliothek zu Azure AD-Anwendungen](./what-is-application-management.md).
 
 ## <a name="i-want-to-delete-an-application-but-the-delete-button-is-disabled"></a>Ich möchte eine Anwendung löschen, aber die Schaltfläche „Löschen“ ist deaktiviert
 
@@ -43,7 +43,7 @@ Die Schaltfläche „Löschen“ ist in den folgenden Fällen deaktiviert:
 
 - Bei Microsoft-Anwendungen können Sie diese nicht von der Benutzeroberfläche löschen, unabhängig von Ihrer Rolle
 
-- Bei Dienstprinzipalen, die einer verwalteten Identität entsprechen. Dienstprinzipale für verwaltete Identitäten können auf dem Blatt „Enterprise apps“ (Unternehmens-Apps) nicht gelöscht werden. Sie müssen zur Azure-Ressource wechseln, um dies zu verwalten. Weitere Informationen zu verwalteten Identitäten finden Sie [hier](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+- Bei Dienstprinzipalen, die einer verwalteten Identität entsprechen. Dienstprinzipale für verwaltete Identitäten können auf dem Blatt „Enterprise apps“ (Unternehmens-Apps) nicht gelöscht werden. Sie müssen zur Azure-Ressource wechseln, um dies zu verwalten. Weitere Informationen zu verwalteten Identitäten finden Sie [hier](../managed-identities-azure-resources/overview.md).
 
 ## <a name="how-to-see-the-details-of-a-portal-notification"></a>Anzeigen von Details einer Portalbenachrichtigung
 Sie können die Details von Portalbenachrichtigungen anzeigen, indem Sie folgende Schritte ausführen:

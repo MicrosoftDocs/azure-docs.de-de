@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a5af62cd8c110e38ffd2a72ef2441a8e548e1ece
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 92bd3ff925080def4b2f074d07e662dfdbdbee01
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475480"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080849"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Optimieren der Speicherkosten in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB bietet unbegrenzten Speicher und Durchsatz. Im Gegensatz zum Durchsatz, den Sie für Ihre Azure Cosmos-Container oder -Datenbanken konfigurieren bzw. bereitstellen müssen, wird der Speicher auf Nutzungsbasis abgerechnet. Kosten fallen nur für den logischen Speicher an, den Sie nutzen. Sie müssen keinen Speicher im Voraus reservieren. Der Speicher wird auf Grundlage der Daten, die Sie Ihrem Azure Cosmos-Container hinzufügen bzw. aus diesem entfernen, automatisch zentral hoch- und herunterskaliert.
 

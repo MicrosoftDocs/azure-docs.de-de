@@ -8,15 +8,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 85d7159edb1bc8608165264578d77519bf09efc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fffb52e333bea1b2be11b127a9eab6656dc1d1f5
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195071"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94740327"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Phase „Datenerfassung und -auswertung“ des Team Data Science-Prozesses
 
@@ -48,9 +48,7 @@ In dieser Phase werden drei Hauptaufgaben durchgeführt:
 Richten Sie den Prozess so ein, dass die Daten von den Quellspeicherorten an die Zielspeicherorte verschoben werden, an denen Analysevorgänge wie das Trainieren oder das Erstellen von Vorhersagen ausgeführt werden. Technische Details und Optionen zum Verschieben der Daten mit den verschiedenen Azure-Datendiensten finden Sie unter [Laden von Daten in Speicherumgebungen für Analysen](ingest-data.md). 
 
 ### <a name="explore-the-data"></a>Untersuchen der Daten
-Bevor Sie Modelle trainieren können, müssen Sie ein gutes Verständnis der Daten entwickeln. DataSets sind in der Praxis häufig überladen oder weisen fehlende Werte oder verschiedene andere Diskrepanzen auf. Sie können die Datenzusammenfassung und -visualisierung verwenden, um die Qualität Ihrer Daten zu überprüfen und die Informationen bereitzustellen, die vor der Modellerstellung zum Verarbeiten der Daten erforderlich sind. Dieser Prozess ist häufig iterativ.
-
-TDSP verfügt über das automatisierte Hilfsprogramm [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils), mit dem Daten visualisiert und Berichte zur Datenzusammenfassung visualisiert werden können. Es wird empfohlen, mit IDEAR zu beginnen, um die Daten zu untersuchen. Auf diese Weise können Sie interaktiv ohne Codierung ein erstes Verständnis der Daten entwickeln. Anschließend können Sie benutzerdefinierten Code für die Datenauswertung und -visualisierung schreiben. Eine Anleitung zum Bereinigen der Daten finden Sie unter [Aufgaben zur Vorbereitung von Daten für erweitertes Machine Learning](prepare-data.md).  
+Bevor Sie Modelle trainieren können, müssen Sie ein gutes Verständnis der Daten entwickeln. DataSets sind in der Praxis häufig überladen oder weisen fehlende Werte oder verschiedene andere Diskrepanzen auf. Sie können die Datenzusammenfassung und -visualisierung verwenden, um die Qualität Ihrer Daten zu überprüfen und die Informationen bereitzustellen, die vor der Modellerstellung zum Verarbeiten der Daten erforderlich sind. Dieser Prozess ist häufig iterativ. Eine Anleitung zum Bereinigen der Daten finden Sie unter [Aufgaben zur Vorbereitung von Daten für erweitertes Machine Learning](prepare-data.md).  
 
 Wenn Sie mit der Qualität der bereinigten Daten zufrieden sind, versuchen Sie im nächsten Schritt, die den Daten zugrunde liegenden Muster besser zu verstehen. Durch diese Datenanalyse können Sie ein geeignetes Vorhersagemodell für Ihr Ziel auswählen und entwickeln. Suchen Sie nach Belegen für die Beziehungen der Daten mit dem Ziel. Überprüfen Sie, ob ausreichend Daten für die nächsten Modellierungsschritte vorhanden sind. Auch dieser Prozess ist häufig iterativ. Unter Umständen müssen Sie nach neuen Datenquellen mit genaueren bzw. relevanteren Daten suchen, um das DataSet zu erweitern, das im vorherigen Schritt ursprünglich identifiziert wurde. 
 
@@ -66,7 +64,7 @@ In dieser Phase entwickeln Sie eine Lösungsarchitektur der Datenpipeline. Sie e
 ## <a name="artifacts"></a>Artefakte
 Hier sind die Ergebnisse dieser Phase angegeben:
 
-   * [Bericht zur Datenqualität](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): Dieser Bericht enthält Datenzusammenfassungen, Beziehungen zwischen den einzelnen Attributen und Zielen, die Rangfolge der Variablen usw. Mit dem in TDSP enthaltenen Tool [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) können Sie diesen Bericht für alle DataSets in Tabellenform, z.B. als CSV-Datei oder relationale Tabelle, schnell erstellen. 
+   * [Bericht zur Datenqualität](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): Dieser Bericht enthält Datenzusammenfassungen, Beziehungen zwischen den einzelnen Attributen und Zielen, die Rangfolge der Variablen usw. 
    * **Lösungsarchitektur**: Dies kann ein Diagramm oder eine Beschreibung Ihrer Datenpipeline sein, die zum Ausführen von Bewertungen oder Vorhersagen für neue Daten nach dem Erstellen eines Modells verwendet wird. Die Pipeline zum erneuten Trainieren Ihres Modells basierend auf den neuen Daten ist ebenfalls enthalten. Speichern Sie das Dokument im Verzeichnis [Project](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project), wenn Sie die Vorlage für die TDSP-Verzeichnisstruktur verwenden.
    * **Prüfpunktentscheidung**: Bevor Sie mit der vollständigen Featureentwicklung und Modellerstellung beginnen, können Sie das Projekt erneut auswerten, um zu ermitteln, ob Daten in ausreichender Menge vorhanden sind. Es kann beispielsweise sein, dass Sie bereit zum Fortfahren sind oder mehr Daten erfassen müssen oder das Projekt beenden müssen, weil für die Beantwortung der Frage keine Daten zur Verfügung stehen.
 
@@ -82,4 +80,4 @@ Hier finden Sie Links zu jedem Schritt im Lebenszyklus des TDSP:
 
 Wir bieten vollständige exemplarische Vorgehensweisen, in denen sämtliche Schritte im Prozess für bestimmte Szenarien gezeigt werden. Der Artikel mit [exemplarischen Vorgehensweisen](walkthroughs.md) enthält eine Liste der Szenarien mit Links und Kurzbeschreibungen. Die exemplarischen Vorgehensweisen zeigen auch, wie Cloud- und lokale Tools sowie Dienste in einem Workflow oder einer Pipeline zum Erstellen einer intelligenten Anwendung kombiniert werden. 
 
-Beispiele für die Ausführung der Schritte in TDSPs mit Azure Machine Learning Studio finden Sie unter [Verwenden des TDSP mit Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle-data).
+Beispiele für die Ausführung der Schritte in TDSPs mit Azure Machine Learning Studio finden Sie unter [Verwenden des TDSP mit Azure Machine Learning]().

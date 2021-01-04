@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 351503db52e4c62414cd5dcbae1f750032a37eb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eea3c8525d31a3ca551e9cbc7d21d7dde163b5cc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542273"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697984"
 ---
 # <a name="azure-api-management-faqs"></a>Häufig gestellte Fragen zu Azure API Management
 Hier erhalten Sie Antworten auf häufig gestellte Fragen sowie Informationen zu Mustern und bewährten Methoden für Azure API Management.
@@ -71,18 +71,7 @@ Ja, Sie können API Management unter Verwendung der folgenden Komponenten progra
 * PowerShell-Cmdlets für [Dienstbereitstellung](/powershell/module/wds) und [Dienstverwaltung](/powershell/azure/servicemanagement/overview)
 
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>Wie füge ich Benutzer zur Gruppe „Administratoren“ hinzu?
-So fügen Sie Benutzer zur Gruppe „Administratoren“ hinzu:
-
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
-2. Wechseln Sie zur Ressourcengruppe mit der API Management-Instanz, die Sie aktualisieren möchten.
-3. Weisen Sie in API Management dem Benutzer die Rolle **Api Management Service Contributor** (Mitwirkender für API Management) hinzu.
-
-Der neu hinzugefügte Mitwirkende kann nun Azure PowerShell-[Cmdlets](/powershell/azure/) verwenden. So melden Sie sich als Administrator an:
-
-1. Verwenden Sie das `Connect-AzAccount`-Cmdlet, um sich anzumelden.
-2. Legen Sie den Kontext auf das Abonnement fest, das den Dienst enthält. Verwenden Sie hierfür `Set-AzContext -SubscriptionID <subscriptionGUID>`.
-3. Rufen Sie mithilfe von `Get-AzApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>` eine URL für einmaliges Anmelden ab.
-4. Greifen Sie über die URL auf das Verwaltungsportal zu.
+Bei der Gruppe „Administratoren“ handelt es sich um eine unveränderliche Systemgruppe. Azure-Abonnementadministratoren sind Mitglieder dieser Gruppe. Sie können dieser Gruppe keine Benutzer hinzufügen. Weitere Informationen finden Sie unter [Erstellen und Verwenden von Gruppen für Entwicklerkonten in Azure API Management](./api-management-howto-create-groups.md).
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Weshalb ist die Richtlinie, die ich hinzufügen möchte, im Richtlinien-Editor nicht verfügbar?
 Ist die Richtlinie, die Sie hinzufügen möchten, im Richtlinien-Editor abgeblendet, stellen Sie sicher, dass Sie sich im richtigen Bereich für die Richtlinie befinden. Jede Richtlinienanweisung ist für die Verwendung in bestimmten Bereichen und Richtlinienabschnitten vorgesehen. Informationen zu den Richtlinienabschnitten und Bereichen für eine Richtlinie finden Sie unter [API Management policies](./api-management-policies.md) (API Management-Richtlinien) im Abschnitt „Verwendung“ der jeweiligen Richtlinie.

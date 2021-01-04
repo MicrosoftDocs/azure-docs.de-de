@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 231b6ffa3730721d4e44ecb15c2fc58591b80178
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a1a8df6d503ec5f5bf9c1e739e5ecf6486a85776
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314811"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697419"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Beheben von Problemen mit Azure Load Balancer
 
@@ -35,7 +35,7 @@ Wenn die externen Clients für die Back-End-VMs den Load Balancer durchlaufen, w
 
 **Überprüfung und Lösung**
 
-Standard-ILBs sind **standardmäßig sicher** . Basic-ILBs erlaubten eine Verbindung mit dem Internet über eine *ausgeblendete* öffentliche IP-Adresse. Dies wird für Produktionsworkloads nicht empfohlen, weil die IP-Adresse weder statisch noch über Netzwerksicherheitsgruppen gesperrt ist, die Sie besitzen. Wenn Sie vor Kurzem von einem Basic-ILB zu einem Standard-ILB gewechselt haben, sollten Sie eine öffentliche IP-Adresse explizit über die [Nur ausgehend](egress-only.md)-Konfiguration erstellen, die die IP-Adresse über Netzwerksicherheitsgruppen sperrt. 
+Standard-ILBs sind **standardmäßig sicher**. Basic-ILBs erlaubten eine Verbindung mit dem Internet über eine *ausgeblendete* öffentliche IP-Adresse. Dies wird für Produktionsworkloads nicht empfohlen, weil die IP-Adresse weder statisch noch über Netzwerksicherheitsgruppen gesperrt ist, die Sie besitzen. Wenn Sie vor Kurzem von einem Basic-ILB zu einem Standard-ILB gewechselt haben, sollten Sie eine öffentliche IP-Adresse explizit über die [Nur ausgehend](egress-only.md)-Konfiguration erstellen, die die IP-Adresse über Netzwerksicherheitsgruppen sperrt. Sie können in Ihrem Subnetz auch eine [NAT Gateway](../virtual-network/nat-overview.md)-Instanz verwenden.
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Symptom: VMs hinter dem Load Balancer antworten nicht auf Integritätstests
 Damit Back-End-Server Teil einer Load Balancer-Gruppe sein können, müssen sie die Überprüfung bestehen. Weitere Informationen zu Integritätstests finden Sie unter [Grundlegendes zu Load Balancer-Tests](load-balancer-custom-probe-overview.md). 
@@ -87,7 +87,7 @@ Wenn alle vorhergehenden Ursachen anscheinend ordnungsgemäß überprüft und au
         - Wenn keine eingehenden Pakete auf der Back-End-Pool-VM festgestellt werden, blockiert möglicherweise die Fehlkonfiguration von Netzwerksicherheitsgruppen oder UDR den Datenverkehr. 
         - Wenn keine ausgehenden Pakete auf der Back-End-Pool-VM festgestellt werden, muss die VM auf andere Probleme (z. B. das Blockieren des Testports durch eine Anwendung) überprüft werden. 
     - Überprüfen Sie, ob die Testpakete zwangsweise an ein anderes Ziel gesendet werden (möglicherweise über UDR-Einstellungen), bevor sie den Load Balancer erreichen. Dies kann verursachen, dass der Datenverkehr die Back-End-VM nicht erreicht. 
-* Ändern Sie den Testtyp (z.B. von HTTP in TCP), und konfigurieren Sie den entsprechenden Port in Netzwerksicherheitsgruppen-ACLs und der Firewall, um zu prüfen, ob das Problem in der Konfiguration der Testantwort liegt. Weitere Informationen zur Konfiguration von Integritätstests finden Sie unter [Endpoint Load Balancing health probe configuration](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/) (Konfiguration von Integritätstests für den Endpunktlastenausgleich).
+* Ändern Sie den Testtyp (z.B. von HTTP in TCP), und konfigurieren Sie den entsprechenden Port in Netzwerksicherheitsgruppen-ACLs und der Firewall, um zu prüfen, ob das Problem in der Konfiguration der Testantwort liegt. Weitere Informationen zur Konfiguration von Integritätstests finden Sie unter [Endpoint Load Balancing health probe configuration](/archive/blogs/mast/endpoint-load-balancing-heath-probe-configuration-details) (Konfiguration von Integritätstests für den Endpunktlastenausgleich).
 
 ## <a name="symptom-vms-behind-load-balancer-are-not-responding-to-traffic-on-the-configured-data-port"></a>Symptom: VMs hinter dem Load Balancer antworten nicht auf Datenverkehr am konfigurierten Datenport
 
@@ -103,73 +103,72 @@ Wenn eine VM nicht auf den Datenverkehr antwortet, kann dies daran liegen, dass 
 **Überprüfung und Lösung**
 
 1. Melden Sie sich an der Back-End-VM an. 
-2. Öffnen Sie eine Eingabeaufforderung, und führen Sie den folgenden Befehl aus, um zu überprüfen, ob eine Anwendung am Datenport lauscht:  netstat -an  
-            Wenn der Port nicht mit dem Status „EMPFANGSBEREIT“ aufgeführt ist, konfigurieren Sie den richtigen Listenerport. 
-3. Wenn der Port als „Empfangsbereit“ markiert ist, überprüfen Sie die Zielanwendung an diesem Port auf mögliche Probleme. 
-4. Ursache 2: Eine Netzwerksicherheitsgruppe blockiert den Port auf der VM des Load Balancer-Back-End-Pools
+2. Öffnen Sie eine Eingabeaufforderung, und führen Sie den folgenden Befehl aus, um zu überprüfen, ob eine Anwendung am Datenport lauscht:  
+            netstat -an 
+3. Wenn der Port nicht mit dem Status „EMPFANGSBEREIT“ aufgeführt ist, konfigurieren Sie den richtigen Listenerport. 
+4. Wenn der Port als „Empfangsbereit“ markiert ist, überprüfen Sie die Zielanwendung an diesem Port auf mögliche Probleme.
 
-### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>Wenn eine oder mehrere im Subnetz oder auf der VM konfigurierte Netzwerksicherheitsgruppen die Quell-IP oder den Port blockieren, kann die VM nicht antworten.  
+### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>Ursache 2: Eine Netzwerksicherheitsgruppe blockiert den Port auf der VM des Load Balancer-Back-End-Pools  
 
-Beim öffentlichen Load Balancer wird für die Kommunikation zwischen den Clients und den Back-End-VMs des Load Balancers die IP-Adresse der Internetclients verwendet.
+Wenn eine oder mehrere im Subnetz oder auf der VM konfigurierte Netzwerksicherheitsgruppen die Quell-IP oder den Port blockieren, kann die VM nicht antworten.
 
-Stellen Sie sicher, dass die IP-Adressen der Clients in der Netzwerksicherheitsgruppe der Back-End-VMs zulässig sind. Listen Sie die Netzwerksicherheitsgruppen auf, die auf der Back-End-VM konfiguriert sind.
+Beim öffentlichen Load Balancer wird für die Kommunikation zwischen den Clients und den Back-End-VMs des Load Balancers die IP-Adresse der Internetclients verwendet. Stellen Sie sicher, dass die IP-Adressen der Clients in der Netzwerksicherheitsgruppe der Back-End-VMs zulässig sind.
 
-1. Weitere Informationen finden Sie unter [Verwalten von Netzwerksicherheitsgruppen](../virtual-network/manage-network-security-group.md). Überprüfen Sie Folgendes anhand der Liste von Netzwerksicherheitsgruppen:
-1. Beim eingehenden oder ausgehenden Datenverkehr am Datenport tritt eine Störung auf.
-    - Eine Regel **Alle verweigern** für Netzwerksicherheitsgruppen der NIC der VM oder des Subnetzes weist eine höhere Priorität als die Standardregel auf, die Load Balancer-Tests und -Datenverkehr zulässt (Netzwerksicherheitsgruppen müssen die Load Balancer-IP-Adresse 168.63.129.16 (Testport) zulassen). 
-    - Wenn eine der Regeln den Datenverkehr blockiert, entfernen und konfigurieren Sie diese Regeln, um den Datenverkehr zuzulassen.
-1. Testen Sie, ob die VM jetzt auf Integritätstests antwortet.  
-1. Ursache 3: Der Zugriff auf den Load Balancer erfolgt über die gleiche VM und Netzwerkschnittstelle
+1. Listen Sie die Netzwerksicherheitsgruppen auf, die auf der Back-End-VM konfiguriert sind. Weitere Informationen finden Sie unter [Verwalten von Netzwerksicherheitsgruppen](../virtual-network/manage-network-security-group.md).
+1. Überprüfen Sie Folgendes anhand der Liste von Netzwerksicherheitsgruppen:
+    - Beim eingehenden oder ausgehenden Datenverkehr am Datenport tritt eine Störung auf. 
+    - Eine Regel **Alle verweigern** für Netzwerksicherheitsgruppen der NIC der VM oder des Subnetzes weist eine höhere Priorität als die Standardregel auf, die Load Balancer-Tests und -Datenverkehr zulässt (Netzwerksicherheitsgruppen müssen die Load Balancer-IP-Adresse 168.63.129.16 (Testport) zulassen).
+1. Wenn eine der Regeln den Datenverkehr blockiert, entfernen und konfigurieren Sie diese Regeln, um den Datenverkehr zuzulassen.  
+1. Testen Sie, ob die VM jetzt auf Integritätstests antwortet.
 
-### <a name="cause-3-accessing-the-load-balancer-from-the-same-vm-and-network-interface"></a>Wenn die auf der Back-End-VM eines Load Balancers gehostete Anwendung versucht, auf eine andere Anwendung zuzugreifen, die auf der gleichen Back-End-VM gehostet wird und die gleiche Netzwerkschnittstelle verwendet, ist dies ein nicht unterstütztes Szenario, das fehl schlägt. 
+### <a name="cause-3-accessing-the-load-balancer-from-the-same-vm-and-network-interface"></a>Ursache 3: Der Zugriff auf den Load Balancer erfolgt über die gleiche VM und Netzwerkschnittstelle 
 
-**Lösung:** Sie können dieses Problem mit einer der folgenden Methoden beheben: 
+Wenn die auf der Back-End-VM eines Load Balancers gehostete Anwendung versucht, auf eine andere Anwendung zuzugreifen, die auf der gleichen Back-End-VM gehostet wird und die gleiche Netzwerkschnittstelle verwendet, ist dies ein nicht unterstütztes Szenario, das fehl schlägt. 
 
-Konfigurieren Sie separate Back-End-Pool-VMs für jede Anwendung.
+**Lösung:** Sie können dieses Problem mit einer der folgenden Methoden beheben:
+* Konfigurieren Sie separate Back-End-Pool-VMs für jede Anwendung. 
 * Konfigurieren Sie die Anwendung in VMs mit zwei NICs, damit jede Anwendung eine eigene Netzwerkschnittstelle und IP-Adresse verwendet. 
-* Ursache 4: Der Zugriff auf das Front-End des internen Load Balancers erfolgt über die beteiligte VM des Load Balancer-Back-End-Pools 
 
-### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>Wenn ein interner Load Balancer innerhalb eines VNet konfiguriert wird und eine der teilnehmenden Back-End-VMs versucht, auf das Front-End des internen Load Balancers zuzugreifen, treten möglicherweise Fehler auf, wenn der Flow der Ausgangs-VM zugeordnet wird.
+### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>Ursache 4: Der Zugriff auf das Front-End des internen Load Balancers erfolgt über die beteiligte VM des Load Balancer-Back-End-Pools
 
-Dieses Szenario wird nicht unterstützt. **Auflösung:** Es gibt mehrere Möglichkeiten, die Blockierung für dieses Szenarios aufzuheben, einschließlich der Verwendung eines Proxys.
+Wenn ein interner Load Balancer innerhalb eines VNet konfiguriert wird und eine der teilnehmenden Back-End-VMs versucht, auf das Front-End des internen Load Balancers zuzugreifen, treten möglicherweise Fehler auf, wenn der Flow der Ausgangs-VM zugeordnet wird. Dieses Szenario wird nicht unterstützt.
 
-Evaluieren Sie Application Gateway oder andere Proxys von Drittanbietern (z.B. nginx oder haproxy). Weitere Informationen zu Application Gateway finden Sie unter [Übersicht über Application Gateway](../application-gateway/application-gateway-introduction.md). **Details:** Interne Lastenausgleichsmodule führen für ausgehende Verbindungen keine Übersetzung für das Front-End eines internen Lastenausgleichsmoduls durch, da sich beide im privaten IP-Adressraum befinden.
+**Auflösung:** Es gibt mehrere Möglichkeiten, die Blockierung für dieses Szenarios aufzuheben, einschließlich der Verwendung eines Proxys. Evaluieren Sie Application Gateway oder andere Proxys von Drittanbietern (z.B. nginx oder haproxy). Weitere Informationen zu Application Gateway finden Sie unter [Übersicht über Application Gateway](../application-gateway/overview.md).
 
-Über öffentliche Load Balancer werden [ausgehende Verbindungen](load-balancer-outbound-connections.md) von privaten IP-Adressen im virtuellen Netzwerk mit öffentlichen IP-Adressen bereitgestellt. Bei internen Load Balancern wird mit diesem Ansatz die potenzielle SNAT-Portüberlastung in einem eindeutigen internen IP-Adressraum vermieden, für den die Übersetzung nicht erforderlich ist. Hierbei ergibt sich die folgende Nebenwirkung: Wenn ein von einem virtuellen Computer ausgehender Flow in den Back-End-Pool versucht, einen Flow zum Front-End der internen Load Balancer-Instanz im Pool auszuführen _und_ sich selbst zugewiesen ist, stimmen die beiden Verzweigungen des Flows nicht überein.
+**Details:** Interne Lastenausgleichsmodule führen für ausgehende Verbindungen keine Übersetzung für das Front-End eines internen Lastenausgleichsmoduls durch, da sich beide im privaten IP-Adressraum befinden. Über öffentliche Load Balancer werden [ausgehende Verbindungen](load-balancer-outbound-connections.md) von privaten IP-Adressen im virtuellen Netzwerk mit öffentlichen IP-Adressen bereitgestellt. Bei internen Load Balancern wird mit diesem Ansatz die potenzielle SNAT-Portüberlastung in einem eindeutigen internen IP-Adressraum vermieden, für den die Übersetzung nicht erforderlich ist.
 
-Aufgrund dieser fehlenden Übereinstimmung tritt für den Flow ein Fehler auf. Der Flow ist erfolgreich, wenn er nicht dem virtuellen Computer im Back-End-Pool zugeordnet ist, die den Flow zum Front-End erstellt hat. Wenn der Flow sich selbst zugeordnet ist, geht der ausgehende Flow zum Front-End scheinbar vom virtuellen Computer und der zugehörige eingehende Flow scheinbar vom virtuellen Computer an sich selbst aus.
+Hierbei ergibt sich die folgende Nebenwirkung: Wenn ein von einem virtuellen Computer ausgehender Flow in den Back-End-Pool versucht, einen Flow zum Front-End der internen Load Balancer-Instanz im Pool auszuführen _und_ sich selbst zugewiesen ist, stimmen die beiden Verzweigungen des Flows nicht überein. Aufgrund dieser fehlenden Übereinstimmung tritt für den Flow ein Fehler auf. Der Flow ist erfolgreich, wenn er nicht dem virtuellen Computer im Back-End-Pool zugeordnet ist, die den Flow zum Front-End erstellt hat.
 
-Aus Sicht des Gastbetriebssystems stimmen die eingehenden und ausgehenden Bestandteile desselben Flows innerhalb des virtuellen Computers nicht überein. Der TCP-Stack erkennt nicht, dass es sich bei diesen Hälften um Teile desselben Flows handelt. Die Quelle und das Ziel stimmen nicht überein. Wenn der Flow keinem anderen virtuellen Computer im Back-End-Pool zugeordnet ist, stimmen die Teile des Flows überein, und der virtuelle Computer kann auf den Flow antworten. Das Symptom für dieses Szenario sind zeitweilige Verbindungstimeouts, die auftreten, wenn der Flow zu demselben Back-End zurückkehrt, vom dem er ursprünglich stammt.
+Wenn der Flow sich selbst zugeordnet ist, geht der ausgehende Flow zum Front-End scheinbar vom virtuellen Computer und der zugehörige eingehende Flow scheinbar vom virtuellen Computer an sich selbst aus. Aus Sicht des Gastbetriebssystems stimmen die eingehenden und ausgehenden Bestandteile desselben Flows innerhalb des virtuellen Computers nicht überein. Der TCP-Stack erkennt nicht, dass es sich bei diesen Hälften um Teile desselben Flows handelt. Die Quelle und das Ziel stimmen nicht überein. Wenn der Flow keinem anderen virtuellen Computer im Back-End-Pool zugeordnet ist, stimmen die Teile des Flows überein, und der virtuelle Computer kann auf den Flow antworten.
 
-Zu den häufig genutzten Problemumgehungen gehören das Einfügen einer Proxyebene hinter dem internen Load Balancer und das Verwenden von DSR-Stilregeln (Direct Server Return). Weitere Informationen finden Sie unter [Mehrere Front-Ends für Azure Load Balancer](load-balancer-multivip-overview.md). Sie können eine interne Load Balancer-Instanz mit dem Proxy eines Drittanbieters kombinieren oder die interne [Application Gateway](../application-gateway/application-gateway-introduction.md)-Instanz für Proxyszenarien mit HTTP/HTTPS verwenden.
+Das Symptom für dieses Szenario sind zeitweilige Verbindungstimeouts, die auftreten, wenn der Flow zu demselben Back-End zurückkehrt, vom dem er ursprünglich stammt. Zu den häufig genutzten Problemumgehungen gehören das Einfügen einer Proxyebene hinter dem internen Load Balancer und das Verwenden von DSR-Stilregeln (Direct Server Return). Weitere Informationen finden Sie unter [Mehrere Front-Ends für Azure Load Balancer](load-balancer-multivip-overview.md).
 
-Es ist zwar möglich, zum Beheben dieses Problems einen öffentlichen Load Balancer zu nutzen, aber das sich ergebende Szenario ist anfällig für [SNAT-Auslastung](load-balancer-outbound-connections.md). Nutzen Sie diesen zweiten Ansatz nur, wenn eine sorgfältige Verwaltung durchgeführt werden kann. Symptom: Der Back-End-Port für die vorhandene LB-Regel eines Lastenausgleichs, der eine VM-Skalierungsgruppe im Back-End-Pool bereitgestellt hat, kann nicht geändert werden.
+Sie können eine interne Load Balancer-Instanz mit dem Proxy eines Drittanbieters kombinieren oder die interne [Application Gateway](../application-gateway/overview.md)-Instanz für Proxyszenarien mit HTTP/HTTPS verwenden. Es ist zwar möglich, zum Beheben dieses Problems einen öffentlichen Load Balancer zu nutzen, aber das sich ergebende Szenario ist anfällig für [SNAT-Auslastung](load-balancer-outbound-connections.md). Nutzen Sie diesen zweiten Ansatz nur, wenn eine sorgfältige Verwaltung durchgeführt werden kann.
 
-## <a name="symptom-cannot-change-backend-port-for-existing-lb-rule-of-a-load-balancer-which-has-vm-scale-set-deployed-in-the-backend-pool"></a>Ursache: Der Back-End-Port kann nicht für eine Lastenausgleichsregel geändert werden, die von einem Integritätstest für den Lastenausgleich verwendet wird, auf den von der VM-Skalierungsgruppe verwiesen wird. 
-### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>**Lösung** Um den Port zu ändern, können Sie den Integritätstest entfernen, indem Sie die VM-Skalierungsgruppe aktualisieren, den Port aktualisieren und dann den Integritätstest erneut konfigurieren.
-Symptom: Geringer Datenverkehr wird noch über den Lastenausgleich geleitet, nachdem VMs aus dem Back-End-Pool des Lastenausgleichs entfernt wurden.
+## <a name="symptom-cannot-change-backend-port-for-existing-lb-rule-of-a-load-balancer-which-has-vm-scale-set-deployed-in-the-backend-pool"></a>Symptom: Der Back-End-Port für die vorhandene LB-Regel eines Lastenausgleichs, der eine VM-Skalierungsgruppe im Back-End-Pool bereitgestellt hat, kann nicht geändert werden. 
+### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>Ursache: Der Back-End-Port kann nicht für eine Lastenausgleichsregel geändert werden, die von einem Integritätstest für den Lastenausgleich verwendet wird, auf den von der VM-Skalierungsgruppe verwiesen wird.
+**Lösung** Um den Port zu ändern, können Sie den Integritätstest entfernen, indem Sie die VM-Skalierungsgruppe aktualisieren, den Port aktualisieren und dann den Integritätstest erneut konfigurieren.
 
-## <a name="symptom-small-traffic-is-still-going-through-load-balancer-after-removing-vms-from-backend-pool-of-the-load-balancer"></a>Ursache: Aus dem Back-End-Pool entfernte virtuelle Computer sollten keinen Datenverkehr mehr empfangen. 
-### <a name="cause--vms-removed-from-backend-pool-should-no-longer-receive-traffic-the-small-amount-of-network-traffic-could-be-related-to-storage-dns-and-other-functions-within-azure"></a>Die geringe Menge an Netzwerkdatenverkehr könnte im Zusammenhang mit Speicher, DNS und andere Funktionen in Azure stehen. Um dies zu überprüfen, können Sie eine Netzwerküberwachung durchführen. 
-Die für Ihre Blob-Speicherkonten verwendeten vollqualifizierten Namen (FQDN) werden in den Eigenschaften des jeweiligen Speicherkontos aufgeführt. Auf einem virtuellen Computer innerhalb Ihres Azure-Abonnements können Sie einen nslookup-Vorgang durchführen, um die Azure IP zu ermitteln, die diesem Speicherkonto zugewiesen ist.  Zusätzliche Netzwerkerfassungen
+## <a name="symptom-small-traffic-is-still-going-through-load-balancer-after-removing-vms-from-backend-pool-of-the-load-balancer"></a>Symptom: Geringer Datenverkehr wird noch über den Lastenausgleich geleitet, nachdem VMs aus dem Back-End-Pool des Lastenausgleichs entfernt wurden. 
+### <a name="cause--vms-removed-from-backend-pool-should-no-longer-receive-traffic-the-small-amount-of-network-traffic-could-be-related-to-storage-dns-and-other-functions-within-azure"></a>Ursache: Aus dem Back-End-Pool entfernte virtuelle Computer sollten keinen Datenverkehr mehr empfangen. Die geringe Menge an Netzwerkdatenverkehr könnte im Zusammenhang mit Speicher, DNS und andere Funktionen in Azure stehen. 
+Um dies zu überprüfen, können Sie eine Netzwerküberwachung durchführen. Die für Ihre Blob-Speicherkonten verwendeten vollqualifizierten Namen (FQDN) werden in den Eigenschaften des jeweiligen Speicherkontos aufgeführt.  Auf einem virtuellen Computer innerhalb Ihres Azure-Abonnements können Sie einen nslookup-Vorgang durchführen, um die Azure IP zu ermitteln, die diesem Speicherkonto zugewiesen ist.
 
-## <a name="additional-network-captures"></a>Wenn Sie eine Supportanfrage öffnen möchten, erfassen Sie die folgenden Informationen, um eine schnellere Lösung zu ermöglichen.
-Wählen Sie eine einzelne Back-End-VM für die Durchführung der folgenden Tests aus: Verwenden Sie „Psping“ von einer der Back-End-VMs im VNET, um die Testportantwort zu testen (Beispiel: psping 10.0.0.4:3389), und zeichnen Sie die Ergebnisse auf.
+## <a name="additional-network-captures"></a>Zusätzliche Netzwerkerfassungen
+Wenn Sie eine Supportanfrage öffnen möchten, erfassen Sie die folgenden Informationen, um eine schnellere Lösung zu ermöglichen. Wählen Sie eine einzelne Back-End-VM für die Durchführung der folgenden Tests aus:
+- Verwenden Sie „Psping“ von einer der Back-End-VMs im VNET, um die Testportantwort zu testen (Beispiel: psping 10.0.0.4:3389), und zeichnen Sie die Ergebnisse auf. 
 - Wenn bei diesen Pingtests keine Antwort empfangen wird, führen Sie beim Ausführen von „PsPing“ eine gleichzeitige Netsh-Ablaufverfolgung auf der Back-End-VM und der VNET-Test-VM aus, und beenden Sie dann die Netsh-Ablaufverfolgung. 
-- Symptom: Load Balancer in fehlerhaftem Zustand 
  
-## <a name="symptom-load-balancer-in-failed-state"></a>**Lösung** 
+## <a name="symptom-load-balancer-in-failed-state"></a>Symptom: Load Balancer in fehlerhaftem Zustand 
 
-Nachdem Sie die Ressource identifiziert haben, die sich in einem fehlerhaften Zustand befindet, wechseln Sie zum [Azure-Ressourcen-Explorer](https://resources.azure.com/), und identifizieren Sie die Ressource in diesem Zustand.
+**Lösung**
 
-- Aktualisieren Sie die Umschaltfläche oben rechts auf „Lesen/Schreiben“. 
+- Nachdem Sie die Ressource identifiziert haben, die sich in einem fehlerhaften Zustand befindet, wechseln Sie zum [Azure-Ressourcen-Explorer](https://resources.azure.com/), und identifizieren Sie die Ressource in diesem Zustand. 
+- Aktualisieren Sie die Umschaltfläche oben rechts auf „Lesen/Schreiben“.
 - Klicken Sie für die Ressource im fehlerhaften Zustand auf „Bearbeiten“.
 - Klicken Sie auf „PUT“, gefolgt von „GET“, um sicherzustellen, dass der Bereitstellungszustand auf „Erfolgreich“ aktualisiert wurde.
 - Sie können dann mit anderen Aktionen fortfahren, weil die Ressource nicht mehr fehlerhaft ist.
-- Nächste Schritte
 
 
-## <a name="next-steps"></a>Sollte sich das Problem mit den oben genannten Schritten nicht beheben lassen, erstellen Sie ein [Supportticket](https://azure.microsoft.com/support/options/).
+## <a name="next-steps"></a>Nächste Schritte
 
-If the preceding steps do not resolve the issue, open a <bpt id="p1">[</bpt>support ticket<ept id="p1">](https://azure.microsoft.com/support/options/)</ept>.
-
+Sollte sich das Problem mit den oben genannten Schritten nicht beheben lassen, erstellen Sie ein [Supportticket](https://azure.microsoft.com/support/options/).

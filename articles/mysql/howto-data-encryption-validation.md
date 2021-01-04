@@ -1,17 +1,17 @@
 ---
 title: 'Gewährleisten der Überprüfung von Azure Database for MySQL: Datenverschlüsselung'
 description: Hier erfahren Sie, wie Sie die Verschlüsselung von Azure Database for MySQL (Datenverschlüsselung) mit dem kundenseitig verwalteten Schlüssel überprüfen.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: e7b747bd2babeeccb210bb30c3eb28f22d4befe7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f47b3d5679b70461eaba64b5815770162cb6fda
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905794"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241071"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-mysql"></a>Überprüfen der Datenverschlüsselung für Azure Database for MySQL
 
@@ -27,11 +27,11 @@ Dieser Artikel hilft Ihnen, zu überprüfen, ob die Datenverschlüsselung mit ku
     * Wählen Sie den für Serververschlüsselung verwendeten Schlüssel aus.
     * Legen Sie den Status des Schlüssels **Aktiviert** auf **Nein** fest.
   
-       Nach einiger Zeit (**ungefähr 15 Minuten**) sollte der **Status** des Azure Database for MySQL-Servers **Zugriff nicht möglich** lauten. Bei allen E/A-Vorgängen, die auf dem Server ausgeführt werden, tritt ein Fehler auf, der bestätigt, dass der Server tatsächlich mit dem Kundenschlüssel verschlüsselt wurde und der Schlüssel aktuell ungültig ist.
+       Nach einiger Zeit ( **ungefähr 15 Minuten** ) sollte der **Status** des Azure Database for MySQL-Servers **Zugriff nicht möglich** lauten. Bei allen E/A-Vorgängen, die auf dem Server ausgeführt werden, tritt ein Fehler auf, der bestätigt, dass der Server tatsächlich mit dem Kundenschlüssel verschlüsselt wurde und der Schlüssel aktuell ungültig ist.
     
        Um den Server erneut **Verfügbar** zu machen, können Sie den Schlüssel erneut überprüfen. 
     
-    * Legen Sie den Status des Schlüssels in Key Vault auf **Ja**fest.
+    * Legen Sie den Status des Schlüssels in Key Vault auf **Ja** fest.
     * Wählen Sie auf dem Server **Datenverschlüsselung** die Option **Schlüssel erneut überprüfen** aus.
     * Wenn die erneute Überprüfung des Schlüssels erfolgreich war, ändert sich der **Status** des Servers in **Verfügbar**.
 

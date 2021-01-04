@@ -1,20 +1,20 @@
 ---
 title: Referenz des Moduls „Extract N-Gram Features from Text“
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Sie das Modul Extract N-Gram in Azure Machine Learning verwenden, um Textdaten in Merkmale zu zerlegen.
+description: Erfahren Sie, wie Sie das Extract N-Gram-Modul im Azure Machine Learning-Designer verwenden, um Textdaten in Merkmale zu zerlegen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/01/2019
-ms.openlocfilehash: c21c63bdb64f7c15c049bfe4039ef47cea689922
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/08/2019
+ms.openlocfilehash: 37a10d90fa0e277fbe45d9f1377e365cb3d42996
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907968"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861459"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Referenz des Moduls „Extract N-Gram Features from Text“
 
@@ -28,7 +28,7 @@ Das Modul unterstützt die folgenden Szenarien für die Verwendung eines N-Gramm
 
 * [Verwenden einer vorhandenen Sammlung von Textmerkmalen](#use-an-existing-n-gram-dictionary), um eine Spalte mit freiem Text in Merkmale zu zerlegen.
 
-* [Bewerten oder Veröffentlichen eines Modells](#score-or-publish-a-model-that-uses-n-grams), das N-Gramme verwendet.
+* [Bewerten oder Bereitstellen eines Modells](#build-inference-pipeline-that-uses-n-grams-to-deploy-a-real-time-endpoint), das N-Gramme verwendet
 
 ### <a name="create-a-new-n-gram-dictionary"></a>Erstellen eines neuen N-Gramm-Wörterbuchs
 
@@ -94,17 +94,23 @@ Das Modul unterstützt die folgenden Szenarien für die Verwendung eines N-Gramm
 
 1.  Übermitteln Sie die Pipeline.
 
-### <a name="score-or-publish-a-model-that-uses-n-grams"></a>Bewerten oder Veröffentlichen eines Modells, das N-Gramme verwendet
+### <a name="build-inference-pipeline-that-uses-n-grams-to-deploy-a-real-time-endpoint"></a>Erstellen von Rückschlusspipelines, die N-Gramme zum Bereitstellen eines Echtzeitendpunkts verwenden
 
-1.  Kopieren Sie das Modul **Extract N-Gram Features from Text** aus dem Trainingsdatenfluss in den Bewertungsdatenfluss.
+Eine Trainingspipeline mit **Extract N-Grams Feature From Text** und **Score Model** für Vorhersagen über das Testdataset wird in der folgenden Struktur erstellt:
 
-1.  Verbinden Sie die Ausgabe **Result Vocabulary** (Ergebnisvokabular) aus dem Trainingsdatenfluss mit dem **Input Vocabulary** (Eingabevokabular) für den Bewertungsdatenfluss.
+:::image type="content" source="./media/module/extract-n-gram-training-pipeline-score-model.png" alt-text="Beispiel für eine Trainingspipeline zum Extrahieren von N-Grammen" border="true":::
 
-1.  Ändern Sie im Bewertungsworkflow das Modul „Extract N-Gram Features from Text“, und legen Sie den **Vocabulary mode**-Parameter auf **ReadOnly** fest. Belassen Sie alle anderen Parameter ungeändert.
+Der **Vokabularmodus** des Moduls **Extract N-Grams Feature From Text** lautet **Create** (Erstellen), und der **Vokabularmodus** des Moduls, das mit dem Modul **Score Model** verbunden ist, lautet **ReadOnly** (Schreibgeschützt).
 
-1.  Um die Pipeline zu veröffentlichen, speichern Sie das **Ergebnisvokabular** als Dataset.
+Nachdem Sie die obige Trainingspipeline erfolgreich übermittelt haben, können Sie die Ausgabe des eingekreisten Moduls als Dataset registrieren.
 
-1.  Verbinden Sie dann das gespeicherte Dataset mit dem Modul „Extract N-Gram Features from Text“ in Ihrem Bewertungsgraphen.
+:::image type="content" source="./media/module/extract-n-gram-output-voc-register-dataset.png" alt-text="Registrieren eines Datasets" border="true":::
+
+Danach können Sie eine Echtzeit-Rückschlusspipeline erstellen. Nachdem Sie die Rückschlusspipeline erstellt haben, müssen Sie diese manuell wie folgt anpassen:
+
+:::image type="content" source="./media/module/extract-n-gram-inference-pipeline.png" alt-text="Rückschlusspipeline" border="true":::
+
+Übermitteln Sie dann die Rückschlusspipeline, und stellen Sie einen Echtzeitendpunkt bereit.
 
 ## <a name="results"></a>Ergebnisse
 

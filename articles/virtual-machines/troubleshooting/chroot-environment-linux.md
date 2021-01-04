@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.date: 05/05/2020
 ms.author: kaib
-ms.openlocfilehash: 5d803acc7f2287d0b88791d85fa876f89e4a0955
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 0d8a030061ef6aa848344152edaa3267ad916e2a
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332184"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377937"
 ---
 # <a name="chroot-environment-in-a-linux-rescue-vm"></a>Chroot-Umgebung auf einem virtuellen Linux-Rettungscomputer
 
@@ -34,13 +34,13 @@ In diesem Artikel wird beschrieben, wie Sie Probleme bei der chroot-Umgebung auf
 
    1. Greifen Sie mit dem folgenden Befehl auf Ihre VM als Stammbenutzer zu:
 
-      `#sudo su -`
+      `sudo su -`
 
-   1. Suchen Sie den Datenträger mithilfe von `dmesg` (die Methode, die Sie zum Ermitteln Ihres neuen Datenträgers verwenden, kann möglicherweise anders sein). Im folgenden Beispiel wird **dmesg** zum Filtern auf **SCSI**-Datenträgern verwendet:
+   1. Suchen Sie den Datenträger mithilfe von `dmesg` (die Methode, die Sie zum Ermitteln Ihres neuen Datenträgers verwenden, kann möglicherweise anders sein). Im folgenden Beispiel wird **dmesg** zum Filtern auf **SCSI** -Datenträgern verwendet:
 
       `dmesg | grep SCSI`
 
-      Ihre Ausgabe entspricht etwa folgendem Beispiel: In diesem Beispiel soll der **SDC**-Datenträger Folgendes durchführen:
+      Ihre Ausgabe entspricht etwa folgendem Beispiel: In diesem Beispiel soll der **SDC** -Datenträger Folgendes durchführen:
 
       ```
       [    0.294784] SCSI subsystem initialized
@@ -53,17 +53,17 @@ In diesem Artikel wird beschrieben, wie Sie Probleme bei der chroot-Umgebung auf
    1. Die folgenden Befehle für den Zugriff auf die chroot-Umgebung verwenden:
 
       ```
-      #mkdir /rescue
-      #mount /dev/sdc1 /rescue
-      #mount /dev/sdc15 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount /dev/sdc1 /rescue
+      mount /dev/sdc15 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Behandeln Sie die Probleme der chroot-Umgebung.
@@ -71,16 +71,16 @@ In diesem Artikel wird beschrieben, wie Sie Probleme bei der chroot-Umgebung auf
    1. Die folgenden Befehle zum Beenden der chroot-Umgebung verwenden:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -101,13 +101,13 @@ In diesem Artikel wird beschrieben, wie Sie Probleme bei der chroot-Umgebung auf
 
    1. Greifen Sie mit dem folgenden Befehl auf Ihre VM als Stammbenutzer zu:
 
-      `#sudo su -`
+      `sudo su -`
 
-   1. Suchen Sie den Datenträger mithilfe von `dmesg` (die Methode, die Sie zum Ermitteln Ihres neuen Datenträgers verwenden, kann möglicherweise anders sein). Im folgenden Beispiel wird **dmesg** zum Filtern auf **SCSI**-Datenträgern verwendet:
+   1. Suchen Sie den Datenträger mithilfe von `dmesg` (die Methode, die Sie zum Ermitteln Ihres neuen Datenträgers verwenden, kann möglicherweise anders sein). Im folgenden Beispiel wird **dmesg** zum Filtern auf **SCSI** -Datenträgern verwendet:
 
       `dmesg | grep SCSI`
 
-      Ihre Ausgabe entspricht etwa folgendem Beispiel: In diesem Beispiel soll der **SDC**-Datenträger Folgendes durchführen:
+      Ihre Ausgabe entspricht etwa folgendem Beispiel: In diesem Beispiel soll der **SDC** -Datenträger Folgendes durchführen:
 
       ```
       [    0.294784] SCSI subsystem initialized
@@ -120,17 +120,17 @@ In diesem Artikel wird beschrieben, wie Sie Probleme bei der chroot-Umgebung auf
    1. Die folgenden Befehle für den Zugriff auf die chroot-Umgebung verwenden:
 
       ```
-      #mkdir /rescue
-      #mount -o nouuid /dev/sdc2 /rescue
-      #mount -o nouuid /dev/sdc1 /rescue/boot/
-      #cd /rescue
+      mkdir /rescue
+      mount -o nouuid /dev/sdc2 /rescue
+      mount -o nouuid /dev/sdc1 /rescue/boot/
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Behandeln Sie die Probleme der chroot-Umgebung.
@@ -138,16 +138,16 @@ In diesem Artikel wird beschrieben, wie Sie Probleme bei der chroot-Umgebung auf
    1. Die folgenden Befehle zum Beenden der chroot-Umgebung verwenden:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -171,13 +171,13 @@ In diesem Artikel wird beschrieben, wie Sie Probleme bei der chroot-Umgebung auf
 
    1. Greifen Sie mit dem folgenden Befehl auf Ihre VM als Stammbenutzer zu:
 
-      `#sudo su -`
+      `sudo su -`
 
-   1. Suchen Sie den Datenträger mithilfe von `dmesg` (die Methode, die Sie zum Ermitteln Ihres neuen Datenträgers verwenden, kann möglicherweise anders sein). Im folgenden Beispiel wird **dmesg** zum Filtern auf **SCSI**-Datenträgern verwendet:
+   1. Suchen Sie den Datenträger mithilfe von `dmesg` (die Methode, die Sie zum Ermitteln Ihres neuen Datenträgers verwenden, kann möglicherweise anders sein). Im folgenden Beispiel wird **dmesg** zum Filtern auf **SCSI** -Datenträgern verwendet:
 
       `dmesg | grep SCSI`
 
-      Ihre Ausgabe entspricht etwa folgendem Beispiel: In diesem Beispiel soll der **SDC**-Datenträger Folgendes durchführen:
+      Ihre Ausgabe entspricht etwa folgendem Beispiel: In diesem Beispiel soll der **SDC** -Datenträger Folgendes durchführen:
 
       ```
       [    0.294784] SCSI subsystem initialized
@@ -190,9 +190,9 @@ In diesem Artikel wird beschrieben, wie Sie Probleme bei der chroot-Umgebung auf
    1. Verwenden Sie den folgenden Befehl, um die logische Volumegruppe zu aktivieren:
 
       ```
-      #vgscan --mknodes
-      #vgchange -ay
-      #lvscan
+      vgscan --mknodes
+      vgchange -ay
+      lvscan
       ```
 
    1. Verwenden Sie den Befehl `lsblk`, um die LVM-Namen abzurufen:
@@ -221,23 +221,23 @@ In diesem Artikel wird beschrieben, wie Sie Probleme bei der chroot-Umgebung auf
    1. Die folgenden Befehle für den Zugriff auf die chroot-Umgebung verwenden:
 
       ```
-      #mkdir /rescue
-      #mount /dev/mapper/rootvg-rootlv /rescue
-      #mount /dev/mapper/rootvg-varlv /rescue/var
-      #mount /dev/mapper/rootvg-homelv /rescue/home
-      #mount /dev/mapper/rootvg-usrlv /rescue/usr
-      #mount /dev/mapper/rootvg-tmplv /rescue/tmp
-      #mount /dev/mapper/rootvg-optlv /rescue/opt
-      #mount /dev/sdc2 /rescue/boot/
-      #mount /dev/sdc1 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount /dev/mapper/rootvg-rootlv /rescue
+      mount /dev/mapper/rootvg-varlv /rescue/var
+      mount /dev/mapper/rootvg-homelv /rescue/home
+      mount /dev/mapper/rootvg-usrlv /rescue/usr
+      mount /dev/mapper/rootvg-tmplv /rescue/tmp
+      mount /dev/mapper/rootvg-optlv /rescue/opt
+      mount /dev/sdc2 /rescue/boot/
+      mount /dev/sdc1 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Behandeln Sie die Probleme der chroot-Umgebung.
@@ -245,22 +245,22 @@ In diesem Artikel wird beschrieben, wie Sie Probleme bei der chroot-Umgebung auf
    1. Die folgenden Befehle zum Beenden der chroot-Umgebung verwenden:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue/home
-      #umount /rescue/var
-      #umount /rescue/usr
-      #umount /rescue/tmp
-      #umount /rescue/opt
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue/home
+      umount /rescue/var
+      umount /rescue/usr
+      umount /rescue/tmp
+      umount /rescue/opt
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -284,13 +284,13 @@ In diesem Artikel wird beschrieben, wie Sie Probleme bei der chroot-Umgebung auf
 
    1. Greifen Sie mit dem folgenden Befehl auf Ihre VM als Stammbenutzer zu:
 
-      `#sudo su -`
+      `sudo su -`
 
-   1. Suchen Sie den Datenträger mithilfe von `dmesg` (die Methode, die Sie zum Ermitteln Ihres neuen Datenträgers verwenden, kann möglicherweise anders sein). Im folgenden Beispiel wird **dmesg** zum Filtern auf **SCSI**-Datenträgern verwendet:
+   1. Suchen Sie den Datenträger mithilfe von `dmesg` (die Methode, die Sie zum Ermitteln Ihres neuen Datenträgers verwenden, kann möglicherweise anders sein). Im folgenden Beispiel wird **dmesg** zum Filtern auf **SCSI** -Datenträgern verwendet:
 
       `dmesg | grep SCSI`
 
-      Ihre Ausgabe entspricht etwa folgendem Beispiel: In diesem Beispiel soll der **SDC**-Datenträger Folgendes durchführen:
+      Ihre Ausgabe entspricht etwa folgendem Beispiel: In diesem Beispiel soll der **SDC** -Datenträger Folgendes durchführen:
 
       ```
       [    0.294784] SCSI subsystem initialized
@@ -303,9 +303,9 @@ In diesem Artikel wird beschrieben, wie Sie Probleme bei der chroot-Umgebung auf
    1. Verwenden Sie den folgenden Befehl, um die logische Volumegruppe zu aktivieren:
 
       ```
-      #vgscan --mknodes
-      #vgchange -ay
-      #lvscan
+      vgscan --mknodes
+      vgchange -ay
+      lvscan
       ```
 
    1. Verwenden Sie den Befehl `lsblk`, um die LVM-Namen abzurufen:
@@ -333,22 +333,22 @@ In diesem Artikel wird beschrieben, wie Sie Probleme bei der chroot-Umgebung auf
    1. Die folgenden Befehle für den Zugriff auf die chroot-Umgebung verwenden:
 
       ```
-      #mkdir /rescue
-      #mount /dev/mapper/rootvg-rootlv /rescue
-      #mount /dev/mapper/rootvg-varlv /rescue/var
-      #mount /dev/mapper/rootvg-homelv /rescue/home
-      #mount /dev/mapper/rootvg-usrlv /rescue/usr
-      #mount /dev/mapper/rootvg-tmplv /rescue/tmp
-      #mount /dev/sdc1 /rescue/boot/
-      #mount /dev/sdc15 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount /dev/mapper/rootvg-rootlv /rescue
+      mount /dev/mapper/rootvg-varlv /rescue/var
+      mount /dev/mapper/rootvg-homelv /rescue/home
+      mount /dev/mapper/rootvg-usrlv /rescue/usr
+      mount /dev/mapper/rootvg-tmplv /rescue/tmp
+      mount /dev/sdc1 /rescue/boot/
+      mount /dev/sdc15 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Behandeln Sie die Probleme der chroot-Umgebung.
@@ -356,21 +356,21 @@ In diesem Artikel wird beschrieben, wie Sie Probleme bei der chroot-Umgebung auf
    1. Die folgenden Befehle zum Beenden der chroot-Umgebung verwenden:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue/home
-      #umount /rescue/var
-      #umount /rescue/usr
-      #umount /rescue/tmp
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue/home
+      umount /rescue/var
+      umount /rescue/usr
+      umount /rescue/tmp
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -391,13 +391,13 @@ In diesem Artikel wird beschrieben, wie Sie Probleme bei der chroot-Umgebung auf
 
    1. Greifen Sie mit dem folgenden Befehl auf Ihre VM als Stammbenutzer zu:
 
-      `#sudo su -`
+      `sudo su -`
 
-   1. Suchen Sie den Datenträger mithilfe von `dmesg` (die Methode, die Sie zum Ermitteln Ihres neuen Datenträgers verwenden, kann möglicherweise anders sein). Im folgenden Beispiel wird **dmesg** zum Filtern auf **SCSI**-Datenträgern verwendet:
+   1. Suchen Sie den Datenträger mithilfe von `dmesg` (die Methode, die Sie zum Ermitteln Ihres neuen Datenträgers verwenden, kann möglicherweise anders sein). Im folgenden Beispiel wird **dmesg** zum Filtern auf **SCSI** -Datenträgern verwendet:
 
       `dmesg | grep SCSI`
 
-      Ihre Ausgabe entspricht etwa folgendem Beispiel: In diesem Beispiel soll der **SDC**-Datenträger Folgendes durchführen:
+      Ihre Ausgabe entspricht etwa folgendem Beispiel: In diesem Beispiel soll der **SDC** -Datenträger Folgendes durchführen:
 
       ```
       [    0.294784] SCSI subsystem initialized
@@ -410,18 +410,18 @@ In diesem Artikel wird beschrieben, wie Sie Probleme bei der chroot-Umgebung auf
    1. Die folgenden Befehle für den Zugriff auf die chroot-Umgebung verwenden:
 
       ```
-      #mkdir /rescue
-      #mount -o nouuid /dev/sdc2 /rescue
-      #mount -o nouuid /dev/sdc1 /rescue/boot/
-      #mount /dev/sdc15 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount -o nouuid /dev/sdc2 /rescue
+      mount -o nouuid /dev/sdc1 /rescue/boot/
+      mount /dev/sdc15 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      ##chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Behandeln Sie die Probleme der chroot-Umgebung.
@@ -429,17 +429,17 @@ In diesem Artikel wird beschrieben, wie Sie Probleme bei der chroot-Umgebung auf
    1. Die folgenden Befehle zum Beenden der chroot-Umgebung verwenden:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -460,13 +460,13 @@ In diesem Artikel wird beschrieben, wie Sie Probleme bei der chroot-Umgebung auf
 
    1. Greifen Sie mit dem folgenden Befehl auf Ihre VM als Stammbenutzer zu:
 
-      `#sudo su -`
+      `sudo su -`
 
-   1. Suchen Sie den Datenträger mithilfe von `dmesg` (die Methode, die Sie zum Ermitteln Ihres neuen Datenträgers verwenden, kann möglicherweise anders sein). Im folgenden Beispiel wird **dmesg** zum Filtern auf **SCSI**-Datenträgern verwendet:
+   1. Suchen Sie den Datenträger mithilfe von `dmesg` (die Methode, die Sie zum Ermitteln Ihres neuen Datenträgers verwenden, kann möglicherweise anders sein). Im folgenden Beispiel wird **dmesg** zum Filtern auf **SCSI** -Datenträgern verwendet:
 
       `dmesg | grep SCSI`
 
-      Ihre Ausgabe entspricht etwa folgendem Beispiel: In diesem Beispiel soll der **SDC**-Datenträger Folgendes durchführen:
+      Ihre Ausgabe entspricht etwa folgendem Beispiel: In diesem Beispiel soll der **SDC** -Datenträger Folgendes durchführen:
 
       ```
       [    0.294784] SCSI subsystem initialized
@@ -479,18 +479,18 @@ In diesem Artikel wird beschrieben, wie Sie Probleme bei der chroot-Umgebung auf
    1. Die folgenden Befehle für den Zugriff auf die chroot-Umgebung verwenden:
 
       ```
-      #mkdir /rescue
-      #mount -o nouuid /dev/sdc4 /rescue
-      #mount -o nouuid /dev/sdc3 /rescue/boot/
-      #mount /dev/sdc2 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount -o nouuid /dev/sdc4 /rescue
+      mount -o nouuid /dev/sdc3 /rescue/boot/
+      mount /dev/sdc2 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Behandeln Sie die Probleme der chroot-Umgebung.
@@ -498,17 +498,17 @@ In diesem Artikel wird beschrieben, wie Sie Probleme bei der chroot-Umgebung auf
    1. Die folgenden Befehle zum Beenden der chroot-Umgebung verwenden:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue
       ```
 
       > [!NOTE]

@@ -6,13 +6,13 @@ ms.author: wesmc
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 03/12/2020
-ms.openlocfilehash: 580c378df5fc3912aa540b5d85adf99bc42605e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/14/2020
+ms.openlocfilehash: 6ff5731e7d346c954253ec4186357595461b7678
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511941"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400253"
 ---
 # <a name="use-azure-iot-dps-ip-connection-filters"></a>Verwenden von IP-Verbindungsfiltern in Azure IoT DPS
 
@@ -22,7 +22,7 @@ Sicherheit ist ein wichtiger Aspekt jeder IoT-Lösung. Manchmal müssen Sie im R
 
 Es gibt zwei spezielle Anwendungsfälle, in denen es nützlich ist, Verbindungen von bestimmten IP-Adressen zu einem DPS-Endpunkt zu blockieren:
 
-* Ihr DPS sollte Datenverkehr nur aus einem bestimmten IP-Adressbereich empfangen und jeglichen anderen Datenverkehr ablehnen. Beispielsweise verwenden Sie Ihren DPS bei [Azure Express Route](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services), um private Verbindungen zwischen einem DPS und Ihren Geräten zu erstellen.
+* Ihr DPS sollte Datenverkehr nur aus einem bestimmten IP-Adressbereich empfangen und jeglichen anderen Datenverkehr ablehnen. Beispielsweise verwenden Sie Ihren DPS bei [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services), um private Verbindungen zwischen einem DPS und Ihren Geräten zu erstellen.
 
 * Sie müssen Datenverkehr von IP-Adressen ablehnen, die vom DPS-Administrator als verdächtig eingestuft wurden.
 
@@ -48,7 +48,7 @@ Nachdem Sie **IP-Filterregel hinzufügen** ausgewählt haben, füllen Sie die Fe
 
 ![Nach dem Auswählen von „IP-Filterregel hinzufügen“](./media/iot-dps-ip-filtering/ip-filter-after-selecting-add.png)
 
-* Geben Sie einen **Namen** für die IP-Filterregel an. Er muss eine eindeutige alphanumerische Zeichenfolge ohne Beachtung von Groß-/Kleinschreibung sein, die bis zu 128 Zeichen umfassen kann. Nur alphanumerische ASCII 7-Bit-Zeichen und die Zeichen `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` sind zulässig.
+* Geben Sie einen **Namen** für die IP-Filterregel an. Er muss eine eindeutige alphanumerische Zeichenfolge ohne Beachtung von Groß-/Kleinschreibung sein, die bis zu 128 Zeichen umfassen kann. Nur alphanumerische ASCII 7-Bit-Zeichen und die Zeichen `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` sind zulässig.
 
 * Geben Sie eine einzelne IPv4-Adresse oder einen Block von IP-Adressen in CIDR-Notation ein. In CIDR-Notation steht 192.168.100.0/22 beispielsweise für die 1.024 IPv4-Adressen von 192.168.100.0 bis 192.168.103.255.
 
@@ -58,7 +58,7 @@ Nachdem Sie die Felder ausgefüllt haben, wählen Sie **Speichern** aus, um die 
 
 ![Benachrichtigung über das Speichern einer IP-Filterregel](./media/iot-dps-ip-filtering/ip-filter-save-new-rule.png)
 
-Die Option **Hinzufügen** ist deaktiviert, wenn Sie das Maximum von 10 IP-Filterregeln erreichen.
+Die Option **Hinzufügen** ist deaktiviert, wenn Sie das Maximum von 100 IP-Filterregeln erreichen.
 
 Wenn Sie eine vorhandene Regel bearbeiten möchten, wählen Sie die zu ändernden Daten aus, nehmen Sie die Änderung vor, und wählen Sie **Speichern** aus, um Ihre Bearbeitung zu speichern.
 
@@ -74,7 +74,7 @@ Wählen Sie zum Löschen einer IP-Filterregel das Papierkorbsymbol in dieser Zei
 
 ## <a name="update-ip-filter-rules-in-code"></a>Aktualisieren von IP-Filterregeln in Code
 
-Möglicherweise müssen Sie Ihren IP-Filter für DPS über den REST-Endpunkt des Azure-Ressourcenanbieters abrufen und ändern. Lesen Sie dazu `properties.ipFilterRules` unter [createorupdate-Methode](https://docs.microsoft.com/rest/api/iot-dps/iotdpsresource/createorupdate).
+Möglicherweise müssen Sie Ihren IP-Filter für DPS über den REST-Endpunkt des Azure-Ressourcenanbieters abrufen und ändern. Lesen Sie dazu `properties.ipFilterRules` unter [createorupdate-Methode](/rest/api/iot-dps/iotdpsresource/createorupdate).
 
 Eine Aktualisierung von IP-Filterregeln für DPS wird bei Azure CLI oder Azure PowerShell derzeit nicht unterstützt, kann jedoch mit Azure Resource Manager Vorlagen erreicht werden. Unter [Azure Resource Manager-Vorlagen](../azure-resource-manager/templates/overview.md) finden Sie Anleitungen zur Verwendung von Resource Manager-Vorlagen. Die folgenden Vorlagenbeispiele zeigen, wie Sie IP-Filterregeln für DPS erstellen, bearbeiten und löschen.
 
@@ -135,7 +135,7 @@ Aktualisieren Sie die Attribute für die IP-Filterregel der Vorlage aufgrund Ihr
 
 | attribute                | BESCHREIBUNG |
 | ------------------------ | ----------- |
-| **FilterName**           | Geben Sie einen Namen für die IP-Filterregel an. Er muss eine eindeutige alphanumerische Zeichenfolge ohne Beachtung von Groß-/Kleinschreibung sein, die bis zu 128 Zeichen umfassen kann. Nur die alphanumerischen ASCII-7-Bit-Zeichen plus {„-“, „:“, „/“, „\'“, „.“, „+“, „%“, „_“, „#“, „*“, „?“, „!“, „(“, „)“, „,“, „=“, „@“, „;“, „'“} werden akzeptiert. |
+| **FilterName**           | Geben Sie einen Namen für die IP-Filterregel an. Er muss eine eindeutige alphanumerische Zeichenfolge ohne Beachtung von Groß-/Kleinschreibung sein, die bis zu 128 Zeichen umfassen kann. Nur die alphanumerischen ASCII-7-Bit-Zeichen sowie `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` werden akzeptiert. |
 | **Aktion**               | Akzeptierte Werte sind **Accept**  (Akzeptieren) oder  **Reject**  (Ablehnen) als Aktion für die IP-Filterregel. |
 | **ipMask**               | Geben Sie eine einzelne IPv4-Adresse oder einen Block von IP-Adressen in CIDR-Notation ein. In CIDR-Notation steht 192.168.100.0/22 beispielsweise für die 1.024 IPv4-Adressen von 192.168.100.0 bis 192.168.103.255. |
 

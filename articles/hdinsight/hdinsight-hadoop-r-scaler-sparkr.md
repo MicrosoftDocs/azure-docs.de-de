@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
-ms.openlocfilehash: 28a97edcbe84ae63a3d3d0cad2b9275c672f5664
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c12398ceacf8495a05037422a6501dc8138abc10
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86082274"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628693"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Kombinieren von ScaleR und SparkR in HDInsight
 
-In diesem Dokument wird erläutert, wie Flugverspätungen mithilfe eines logistischen **ScaleR**-Regressionsmodells vorhergesagt werden können. Das Beispiel nutzt Flugverspätungs- und Wetterdaten, die mit **SparkR** verknüpft werden.
+In diesem Dokument wird erläutert, wie Flugverspätungen mithilfe eines logistischen **ScaleR** -Regressionsmodells vorhergesagt werden können. Das Beispiel nutzt Flugverspätungs- und Wetterdaten, die mit **SparkR** verknüpft werden.
 
 Obwohl beide Pakete in der Spark-Ausführungs-Engine von Apache Hadoop ausgeführt werden, sind sie für die In-Memory-Datenfreigabe gesperrt, da sie jeweils eigene Spark-Sitzungen erfordern. Bis dieses Problem in einer der nächsten Versionen von ML Server behoben wird, besteht die Problemumgehung darin, nicht überlappende Spark-Sitzungen zu verwenden und Daten mithilfe von Zwischendateien auszutauschen. Die folgenden Anweisungen zeigen, dass diese Anforderungen einfach zu erfüllen sind.
 
@@ -25,7 +25,7 @@ Dieses Beispiel wurde ursprünglich bei einem Vortrag von Mario Inchiosa und Ron
 
 Der Code wurde ursprünglich für ML Server unter Spark in einem HDInsight-Cluster in Azure geschrieben. Das Konzept der Kombination von SparkR und ScaleR in einem Skript gilt jedoch auch im Kontext lokaler Umgebungen.
 
-Für die Schritte in diesem Dokument setzen wir einen mittleren Wissensstand in Bezug auf R und die [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction)-Bibliothek von ML Server voraus. Sie erhalten im Verlauf des Szenarios auch eine Einführung in [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html).
+Für die Schritte in diesem Dokument setzen wir einen mittleren Wissensstand in Bezug auf R und die [ScaleR](/machine-learning-server/r/concept-what-is-revoscaler)-Bibliothek von ML Server voraus. Sie erhalten im Verlauf des Szenarios auch eine Einführung in [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html).
 
 ## <a name="the-airline-and-weather-datasets"></a>Datasets mit Fluglinien- und Wetterdaten
 
@@ -459,7 +459,7 @@ rxGetInfo(testDS)
 
 ## <a name="train-and-test-a-logistic-regression-model"></a>Trainieren und Testen eines logistischen Regressionsmodells
 
-Wir sind jetzt bereit zum Erstellen eines Modells. Um den Einfluss der Wetterdaten auf Verspätungen bei der Ankunftszeit zu erkennen, verwenden wir die logistische Regressionsroutine von ScaleR. Wir modellieren damit, ob eine Ankunftsverspätung von mehr als 15 Minuten vom Wetter an den Abflug- und Ankunftsflughäfen beeinflusst wird:
+Wir sind jetzt bereit zum Erstellen eines Modells. Um den Einfluss der Wetterdaten auf verspätete Ankunftszeiten zu erkennen, verwenden wir die ScaleR-Routine für die logistische Regression. Wir modellieren damit, ob eine Ankunftsverspätung von mehr als 15 Minuten vom Wetter an den Abflug- und Ankunftsflughäfen beeinflusst wird:
 
 ```
 logmsg('train a logistic regression model for Arrival Delay > 15 minutes') 
@@ -506,7 +506,7 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>Andere Bewertungsmöglichkeiten
 
-Sie können das Modell auch zum Bewerten von Daten auf einer anderen Plattform verwenden. Dazu speichern wir es in einer RDS-Datei und übertragen und importieren diese Datei anschließend in die Zielbewertungsumgebung, z. B. Microsoft SQL Server R Services. Dabei sollte sichergestellt werden, dass die Faktorebenen der Daten, die bewertet werden sollen, mit den Faktorebenen übereinstimmen, auf deren Grundlage das Modell erstellt wurde. Diese Übereinstimmung kann erreicht werden, indem die Spalteninformationen, die den Modellierungsdaten zugeordnet sind, mit der ScaleR-Funktion `rxCreateColInfo()` extrahiert und gespeichert und diese Spalteninformationen zu Vorhersagezwecken dann auf die Eingabedatenquelle angewendet werden. Im folgenden Code speichern wir einige Zeilen des Test-DataSets und extrahieren und verwenden die Spalteninformationen aus diesem Beispiel im Vorhersageskript:
+Sie können das Modell auch zum Bewerten von Daten auf einer anderen Plattform verwenden. Dazu speichern Sie es in einer RDS-Datei und übertragen und importieren diese Datei anschließend in die Zielbewertungsumgebung, z. B. Microsoft SQL Server R Services. Dabei sollte sichergestellt werden, dass die Faktorebenen der Daten, die bewertet werden sollen, mit den Faktorebenen übereinstimmen, auf deren Grundlage das Modell erstellt wurde. Diese Übereinstimmung kann erreicht werden, indem die Spalteninformationen, die den Modellierungsdaten zugeordnet sind, mit der ScaleR-Funktion `rxCreateColInfo()` extrahiert und gespeichert und dann zu Vorhersagezwecken auf die Eingabedatenquelle angewendet werden. Im folgenden Codebeispiel speichern wir einige Zeilen des Testdatasets und extrahieren und verwenden die Spalteninformationen aus diesem Beispiel im Vorhersageskript:
 
 ```
 # save the model and a sample of the test dataset 
@@ -535,7 +535,7 @@ In diesem Artikel haben wir gezeigt, wie die Verwendung von SparkR für die Date
 
 ## <a name="next-steps-and-more-information"></a>Nächste Schritte und weitere Informationen
 
-- Weitere Informationen zur Verwendung von ML Server auf Apache Spark finden Sie im [Leitfaden zu den ersten Schritten](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
+- Weitere Informationen zur Verwendung von ML Server auf Apache Spark finden Sie im [Leitfaden zu den ersten Schritten](/machine-learning-server/r/how-to-revoscaler-spark).
 
 - Informationen zu ML Services in HDInsight finden Sie in der [Übersicht über ML Services in HDInsight](r-server/r-server-overview.md).
 
@@ -543,4 +543,4 @@ Weitere Informationen zur Verwendung von SparkR finden Sie unter:
 
 - [Apache SparkR-Dokument](https://spark.apache.org/docs/2.1.0/sparkr.html) (in englischer Sprache).
 
-- [SparkR Overview](https://docs.databricks.com/spark/latest/sparkr/overview.html) (Übersicht über SparkR) bei Databricks.
+- [SparkR Overview](/azure/databricks/spark/latest/sparkr/overview) (SparkR – Übersicht)

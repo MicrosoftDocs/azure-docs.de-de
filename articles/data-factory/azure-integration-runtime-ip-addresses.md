@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: 55d8b5ebdfb226247f8a500f36e6df3ae02ea58a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb83be59a3ccb11ea8bbd88307596937caa2b354
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619048"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638294"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>IP-Adressen von Azure Integration Runtime
 
@@ -31,12 +31,12 @@ Die von Azure Integration Runtime verwendeten IP-Adressen richten sich nach der 
 
 ## <a name="azure-integration-runtime-ip-addresses-specific-regions"></a>IP-Adressen von Azure Integration Runtime: Bestimmte Regionen
 
-Lassen Sie Datenverkehr von den IP-Adressen zu, die für Azure Integration Runtime in der jeweiligen Azure-Region aufgeführt sind, in der sich Ihre Ressourcen befinden. Sie können eine IP-Adressbereichsliste der Diensttags über den [Downloadlink für den IP-Adressbereich der Diensttags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) abrufen. Wenn die Azure-Region z. B. **AustraliaEast** ist, können Sie eine IP-Adressbereichsliste von **DataFactory.AustraliaEast** erhalten.
+Lassen Sie Datenverkehr von den IP-Adressen zu, die für Azure Integration Runtime in der jeweiligen Azure-Region aufgeführt sind, in der sich Ihre Ressourcen befinden. Sie können eine IP-Adressbereichsliste der Diensttags über den [Downloadlink für den IP-Adressbereich der Diensttags](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) abrufen. Wenn die Azure-Region z. B. **AustraliaEast** ist, können Sie eine IP-Adressbereichsliste von **DataFactory.AustraliaEast** erhalten.
 
 
 ## <a name="known-issue-with-azure-storage"></a>Bekanntes Problem mit Azure Storage
 
-* Beim Herstellen einer Verbindung mit einem Azure Storage-Konto haben IP-Netzwerkregeln keine Auswirkungen auf Anforderungen aus der Azure Integration Runtime-Instanz, die sich in derselben Region befindet wie das Storage-Konto. Weitere Informationen finden Sie in [diesem Artikel](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range). 
+* Beim Herstellen einer Verbindung mit einem Azure Storage-Konto haben IP-Netzwerkregeln keine Auswirkungen auf Anforderungen aus der Azure Integration Runtime-Instanz, die sich in derselben Region befindet wie das Storage-Konto. Weitere Informationen finden Sie in [diesem Artikel](../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range). 
 
   Stattdessen wird empfohlen, [beim Herstellen einer Verbindung mit Azure Storage vertrauenswürdige Dienste](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993) zu verwenden. 
 

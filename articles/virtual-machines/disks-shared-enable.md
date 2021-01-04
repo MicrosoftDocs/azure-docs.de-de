@@ -7,23 +7,19 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions
-ms.openlocfilehash: 82d482cd0a1b3a5b6028b9249030b7b1a093d22d
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: e8bb97196fcceea0c86f58fe4a63146e681c427e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570546"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500732"
 ---
 # <a name="enable-shared-disk"></a>Aktivieren freigegebener Datenträger
 
 In diesem Artikel erfahren Sie, wie Sie das Feature für freigegebene Datenträger für verwaltete Azure-Datenträger aktivieren. Freigegebene Azure-Datenträger sind ein neues Feature für verwaltete Azure-Datenträger, mit dem Sie einen verwalteten Datenträger gleichzeitig an mehrere virtuelle Computer (Virtual Machines, VMs) anfügen können. Durch das Anfügen eines verwalteten Datenträgers an mehrere virtuelle Computer können Sie entweder neue gruppierte Anwendungen in Azure bereitstellen oder bereits vorhandene gruppierte Anwendungen zu Azure migrieren. 
 
-Informationen zum Konzept verwalteter Datenträger mit aktivierten freigegebenen Datenträgern finden Sie in den folgenden Artikeln:
-
-* Linux: [Freigegebene Azure-Datenträger](linux/disks-shared.md)
-
-* Windows: [Freigegebene Azure-Datenträger](windows/disks-shared.md)
+Informationen zum Konzept verwalteter Datenträger mit aktivierten freigegebenen Datenträgern finden Sie unter [Freigegebene Azure-Datenträger](disks-shared.md).
 
 ## <a name="limitations"></a>Einschränkungen
 
@@ -31,7 +27,7 @@ Informationen zum Konzept verwalteter Datenträger mit aktivierten freigegebenen
 
 ## <a name="supported-operating-systems"></a>Unterstützte Betriebssysteme
 
-Freigegebene Datenträger unterstützen verschiedene Betriebssysteme. Informationen zu den unterstützten Betriebssystemen finden Sie im Konzeptartikel in den Abschnitten [Windows](windows/disks-shared.md#windows) und [Linux](linux/disks-shared.md#linux).
+Freigegebene Datenträger unterstützen verschiedene Betriebssysteme. Informationen zu den unterstützten Betriebssystemen finden Sie im Konzeptartikel in den Abschnitten [Windows](./disks-shared.md#windows) und [Linux](./disks-shared.md#linux).
 
 ## <a name="disk-sizes"></a>Datenträgergrößen
 

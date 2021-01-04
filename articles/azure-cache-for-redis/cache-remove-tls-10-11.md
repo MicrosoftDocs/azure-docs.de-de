@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 69df5a65df99a7497099e71e9f41701458370c87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd0e6f893d152259c46ff06e9ec20af54395c5e6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84423920"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994382"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Entfernen der Verwendung von TLS 1.0 und 1.1 mit Azure Cache for Redis
 
@@ -19,10 +19,14 @@ Es zeichnet sich ein branchenweiter Trend zur ausschließlichen Verwendung von T
 
 Im Rahmen dieser Anstrengung nehmen wir die folgenden Änderungen an Azure Cache for Redis vor:
 
-* **Phase 1:** Wir konfigurieren die standardmäßige TLS-Mindestversion für neu erstellte Cache-Instanzen auf 1.2 (zuvor TLS 1.0).  Vorhandene Cache-Instanzen werden zu diesem Zeitpunkt nicht aktualisiert. Wenn erforderlich, dürfen Sie die [TLS-Mindestversion aus Gründen der Abwärtskompatibilität zurück auf 1.0 oder 1.1 zurückändern](cache-configure.md#access-ports). Diese Änderung können Sie über das Azure-Portal oder andere Verwaltungs-APIs ausführen.
-* **Phase 2:** Wir beenden die Unterstützung der TLS-Versionen 1.0 und 1.1. Nach dieser Änderung müssen Sie in Ihrer Anwendung für die Kommunikation mit dem Cache TLS 1.2 oder höher verwenden.
+* **Phase 1:** Wir konfigurieren die standardmäßige TLS-Mindestversion für neu erstellte Cache-Instanzen mit 1.2 (zuvor TLS 1.0). Vorhandene Cache-Instanzen werden zu diesem Zeitpunkt nicht aktualisiert. Sie können weiterhin das Azure-Portal oder andere Verwaltungs-APIs nutzen, um bei Bedarf für Abwärtskompatibilität [die TLS-Mindestversion](cache-configure.md#access-ports) in 1.0 oder 1.1 zu ändern.
+* **Phase 2:** Wir stellen die Unterstützung der TLS-Versionen 1.1 und 1.0 ein. Nach dieser Änderung muss Ihre Anwendung für die Kommunikation mit dem Cache TLS 1.2 oder höher verwenden. Es wird vorausgesetzt, dass der Dienst Azure Cache for Redis verfügbar ist, während wir ihn zur Unterstützung von TLS 1.2 oder höher migrieren.
 
-Zusätzlich entfernen wir im Rahmen dieser Änderung die Unterstützung für ältere, unsichere Suites mit Verschlüsselungsverfahren.  Unsere unterstützten Suites mit Verschlüsselungsverfahren werden auf folgende beschränkt, wenn der Cache mit einer TLS-Mindestversion von 1.2 konfiguriert ist.
+  > [!NOTE]
+  > Phase 2 ist vorläufig so geplant, dass sie nicht vor dem 31. Dezember 2020 beginnt. Wir empfehlen Ihnen jedoch dringend, jetzt mit der Planung für diese Änderung zu beginnen und Clients zur Unterstützung von TLS 1.2 oder höher proaktiv zu aktualisieren. 
+  >
+
+Als Teil dieser Änderung entfernen wir auch die Unterstützung für ältere Verschlüsselungssammlungen, die nicht sicher sind. Unsere unterstützten Sammlungen mit Verschlüsselungsverfahren werden auf folgende beschränkt, wenn der Cache mit der mindestens mit TLS 1.2 konfiguriert ist:
 
 * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256
@@ -38,7 +42,9 @@ Die Daten, zu denen diese Änderungen wirksam werden sind:
 | Azure Deutschland        |  13. März 2020    | Aufgrund von COVID-19 verschoben  |
 | Azure China 21Vianet |  13. März 2020    | Aufgrund von COVID-19 verschoben  |
 
-HINWEIS:  Neues Datum für Phase 2 noch nicht festgelegt
+> [!NOTE]
+> Phase 2 ist vorläufig so geplant, dass sie nicht vor dem 31. Dezember 2020 beginnt. Dieser Artikel wird aktualisiert, sobald spezifische Termine festgelegt wurden.
+>
 
 ## <a name="check-whether-your-application-is-already-compliant"></a>Überprüfen, ob Ihre Anwendung bereits konform ist
 
@@ -59,7 +65,7 @@ Bei Redis .NET-Clients wird standardmäßig die früheste TLS-Version in .NET Fr
 
 Redis .NET Core-Clients verwenden standardmäßig die TLS-Standardversion des Betriebssystems, die natürlich vom Betriebssystem abhängig ist. 
 
-Je nach verwendeter Betriebssystemversion und den angewandten Patches kann die TLS-Standardversion variieren. Diesbezügliche Informationen für Windows finden Sie in [diesem](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) Artikel. 
+Je nach verwendeter Betriebssystemversion und den angewandten Patches kann die TLS-Standardversion variieren. Diesbezügliche Informationen für Windows finden Sie in [diesem](/dotnet/framework/network-programming/tls#support-for-tls-12) Artikel. 
 
 Wenn Sie ein altes Betriebssystem verwenden oder nur sichergehen möchten, wird empfohlen, die bevorzugte TLS-Version manuell über den Client zu konfigurieren.
 

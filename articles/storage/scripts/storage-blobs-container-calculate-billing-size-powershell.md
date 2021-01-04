@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: f8bd47a8fde700382f9789ab1c77ff35e9b1f4f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d921a968f50f64788ccbd7637bc04c8492a3f90
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999529"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96010893"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Berechnen der Gesamtabrechnungsgröße eines Blobcontainers
 
@@ -31,7 +31,7 @@ Mit diesem Skript berechnen Sie die Größe eines Containers in Azure Blob Stora
 
 Die Gesamtgröße des Blobcontainers beinhaltet die Größe des eigentlichen Containers sowie die Größe aller Blobs unter dem Container.
 
-In den folgenden Abschnitten erfahren Sie, wie die Speicherkapazität für Blobcontainer und Blobs berechnet wird. Im folgenden Abschnitt steht Len(X) für die Anzahl von Zeichen in der Zeichenfolge.
+In den folgenden Abschnitten erfahren Sie, wie die Speicherkapazität für Blobcontainer und Blobs berechnet wird.  Im folgenden Abschnitt steht Len(X) für die Anzahl von Zeichen in der Zeichenfolge.
 
 ### <a name="blob-containers"></a>Blobcontainer
 
@@ -120,6 +120,6 @@ Aufschlüsselung:
 
 - Weitere Informationen zur Abrechnung von Azure Storage finden Sie unter [Understanding Windows Azure Storage Billing – Bandwidth, Transactions, and Capacity](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/) (Grundlegendes zur Abrechnung von Microsoft Azure Storage: Bandbreite, Transaktionen und Kapazität).
 
-- Weitere Informationen zum Azure PowerShell-Modul finden Sie in der [Azure PowerShell-Dokumentation](https://docs.microsoft.com/powershell/azure/).
+- Weitere Informationen zum Azure PowerShell-Modul finden Sie in der [Azure PowerShell-Dokumentation](/powershell/azure/).
 
 - Weitere PowerShell-Skriptbeispiele für Speicher finden Sie in den [PowerShell-Beispielen für Azure Storage](../blobs/storage-samples-blobs-powershell.md).

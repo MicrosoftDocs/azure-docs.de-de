@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/17/2020
-ms.openlocfilehash: 4e7da02f7dd7e8fb19e031b814624b289730b3ee
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 10/21/2020
+ms.openlocfilehash: e068ad01c07af4e5833399c0053da3362cd6aaa6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367719"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185639"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Tutorial: Erstellen von Azure AD-Benutzern mithilfe von Azure AD-Anwendungen
 
@@ -62,12 +62,12 @@ In diesem Tutorial lernen Sie Folgendes:
     Set-AzSqlServer -ResourceGroupName <resource group> -ServerName <server name> -AssignIdentity
     ```
 
-    Weitere Informationen finden Sie unter dem [AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver)-Befehl.
+    Weitere Informationen finden Sie unter dem [AzSqlServer](/powershell/module/az.sql/set-azsqlserver)-Befehl.
 
     > [!IMPORTANT]
     > Wenn eine Azure AD-Identität für den logischen Azure SQL-Server eingerichtet wird, muss der Identität die Berechtigung [**Verzeichnisleser**](../../active-directory/roles/permissions-reference.md#directory-readers) erteilt werden. Dieser Schritt wird im folgenden Abschnitt ausführlich erläutert. **Überspringen Sie diesen Schritt nicht**, weil die Azure AD-Authentifizierung nicht mehr funktioniert.
 
-    - Wenn Sie in der Vergangenheit den Befehl [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) mit dem Parameter `AssignIdentity` für das Erstellen eines neuen SQL-Servers verwendet haben, müssen Sie anschließend den Befehl [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) als separaten Befehl ausführen, um diese Eigenschaft im Azure-Fabric zu aktivieren.
+    - Wenn Sie in der Vergangenheit den Befehl [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) mit dem Parameter `AssignIdentity` für das Erstellen eines neuen SQL-Servers verwendet haben, müssen Sie anschließend den Befehl [Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver) als separaten Befehl ausführen, um diese Eigenschaft im Azure-Fabric zu aktivieren.
 
 1. Überprüfen Sie, ob die Serveridentität erfolgreich zugewiesen wurde. Führen Sie den folgenden PowerShell-Befehl aus:
 
@@ -163,9 +163,9 @@ Eine ähnliche Vorgehensweise zum Festlegen der Berechtigung **Verzeichnisleser*
 
     Stellen Sie sicher, dass Sie die **Anwendungsberechtigungen** und die **delegierten Berechtigungen** hinzufügen.
 
-    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="object-id":::
+    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="Screenshot mit der „App-Registrierungen“-Seite für Azure Active Directory. Eine App mit dem Anzeigenamen „AppSP“ ist hervorgehoben.":::
 
-    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="object-id":::
+    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="api-permissions":::
 
 2. Außerdem müssen Sie einen geheimen Clientschlüssel für die Anmeldung erstellen. Befolgen Sie hier die Anweisungen, um ein [Zertifikat hochzuladen oder ein Geheimnis für die Anmeldung zu erstellen](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
 
@@ -177,6 +177,16 @@ In diesem Tutorial verwenden wir *AppSP* als Hauptdienstprinzipal und *myapp* al
 
 Weitere Informationen zum Erstellen einer Azure AD-Anwendung finden Sie unter [Vorgehensweise: Erstellen einer Azure AD-Anwendung und eines Dienstprinzipals mit Ressourcenzugriff über das Portal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
+### <a name="permissions-required-to-set-or-unset-the-azure-ad-admin"></a>Erforderliche Berechtigungen zum Festlegen oder zum Aufheben der Festlegung des Azure AD-Administrators
+
+Damit der Dienstprinzipal einen Azure AD-Administrator für Azure SQL festlegen oder dessen Festlegung aufheben kann, ist eine zusätzliche API-Berechtigung erforderlich. Die [Directory.Read.All](/graph/permissions-reference#application-permissions-18)-Berechtigung der Anwendungs-API muss zu Ihrer Anwendung in Azure AD hinzugefügt werden.
+
+:::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Directory.Reader.All-Berechtigungen in Azure AD":::
+
+Der Dienstprinzipal benötigt auch die Rolle [**Mitwirkender von SQL Server**](../../role-based-access-control/built-in-roles.md#sql-server-contributor) für SQL-Datenbank oder die Rolle [**Mitwirkender für verwaltete SQL-Instanzen**](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) für SQL Managed Instance.
+
+> [!NOTE]
+> Obwohl die Azure AD Graph-API veraltet ist, gilt für dieses Tutorial immer noch die Berechtigung **Directory.Reader.All**. Die Microsoft Graph-API gilt nicht für dieses Tutorial.
 
 ## <a name="create-the-service-principal-user-in-azure-sql-database"></a>Erstellen des Dienstprinzipalbenutzers in Azure SQL-Datenbank
 
@@ -196,7 +206,7 @@ Nachdem ein Dienstprinzipal in Azure AD erstellt wurde, erstellen Sie den Benut
     GO
     ```
 
-    Weitere Informationen finden Sie unter [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+    Weitere Informationen finden Sie unter [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
 
     Alternativ kann die `ALTER ANY USER`-Berechtigung erteilt werden, anstatt die `db_owner`-Rolle zuzuweisen. Dadurch kann der Dienstprinzipal weitere Azure AD-Benutzer hinzufügen.
 
@@ -301,5 +311,5 @@ Nachdem ein Dienstprinzipal in Azure AD erstellt wurde, erstellen Sie den Benut
 - [Verwenden verwalteter Identitäten für App Service und Azure Functions](../../app-service/overview-managed-identity.md)
 - [Azure AD Service Principal authentication to SQL DB - Code Sample (Azure AD-Dienstprinzipalauthentifizierung bei SQL DB: Codebeispiel)](https://techcommunity.microsoft.com/t5/azure-sql-database/azure-ad-service-principal-authentication-to-sql-db-code-sample/ba-p/481467)
 - [Anwendungs- und Dienstprinzipalobjekte in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md)
-- [Erstellen eines Azure-Dienstprinzipals mit Azure PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)
+- [Erstellen eines Azure-Dienstprinzipals mit Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps)
 - [Rolle „Verzeichnisleseberechtigte“ in Azure Active Directory für Azure SQL](authentication-aad-directory-readers-role.md)

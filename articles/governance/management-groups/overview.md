@@ -1,15 +1,15 @@
 ---
 title: Organisieren Ihrer Ressourcen mit Verwaltungsgruppen – Azure Governance
 description: Informationen zu Verwaltungsgruppen und ihrer Verwendung sowie zur Funktionsweise ihrer Berechtigungen
-ms.date: 09/22/2020
+ms.date: 11/17/2020
 ms.topic: overview
-ms.custom: contperfq1
-ms.openlocfilehash: be3369369f28930fd1ecad295a4dad4d14e75cd3
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 9f23a279733169f17f0f82cb80aa08bfafcd45d0
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951875"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030670"
 ---
 # <a name="what-are-azure-management-groups"></a>Was sind Azure-Verwaltungsgruppen?
 
@@ -150,7 +150,7 @@ Rollendefinitionen können an beliebiger Stelle innerhalb der Verwaltungsgruppen
 
 Wir betrachten nun als Beispiel einen kleinen Abschnitt einer Hierarchie für ein visuelles Element.
 
-:::image type="complex" source="./media/subtree.png" alt-text="Diagramm eines Beispiels für die Verwaltungsgruppenhierarchie." border="false":::
+:::image type="complex" source="./media/subtree.png" alt-text="Diagramm eines Teilbereichs des Beispiels für die Verwaltungsgruppenhierarchie." border="false":::
    Das Diagramm konzentriert sich auf die Stammverwaltungsgruppe mit den untergeordneten Verwaltungsgruppen „IT“ und „Marketing“. Die Verwaltungsgruppe „IT“ weist eine einzige untergeordnete Verwaltungsgruppe namens „Production“ auf, während die Verwaltungsgruppe „Marketing“ über zwei untergeordnete kostenlose Testabonnements verfügt.
 :::image-end:::
 
@@ -171,7 +171,11 @@ Es bestehen Einschränkungen für die Verwendung benutzerdefinierter Rollen für
  - Sie können nur eine Verwaltungsgruppe in den zuweisbaren Bereichen einer neuen Rolle definieren. Diese Einschränkung soll die Anzahl der Situationen verringern, in denen Rollendefinitionen und Rollenzuweisungen getrennt werden. Diese Situation tritt auf, wenn ein Abonnement oder eine Verwaltungsgruppe mit einer Rollenzuweisung in ein anderes übergeordnetes Element verschoben wird, das nicht über die Rollendefinition verfügt.  
  - Aktionen der Datenebene des Ressourcenanbieters können in benutzerdefinierten Rollen für Verwaltungsgruppen nicht definiert werden. Diese Einschränkung besteht, weil beim Aktualisieren der Ressourcenanbieter für die Datenebene ein Latenzproblem auftritt.
    An diesem Latenzproblem wird gearbeitet, und diese Aktionen werden bei der Rollendefinition deaktiviert, um Risiken zu verringern.
- - Der Azure Resource Manager überprüft nicht, ob die Verwaltungsgruppe im zuweisbaren Bereich der Rollendefinition vorhanden ist. Wenn ein Tippfehler vorhanden oder eine falsche Verwaltungsgruppen-ID aufgelistet ist, wird die Rollendefinition dennoch erstellt.  
+ - Der Azure Resource Manager überprüft nicht, ob die Verwaltungsgruppe im zuweisbaren Bereich der Rollendefinition vorhanden ist. Wenn ein Tippfehler vorhanden oder eine falsche Verwaltungsgruppen-ID aufgelistet ist, wird die Rollendefinition dennoch erstellt.
+
+> [!IMPORTANT]
+> Das Hinzufügen einer Verwaltungsgruppe zu `AssignableScopes` befindet sich derzeit in der Vorschauphase. Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen.
+> Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar. Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="moving-management-groups-and-subscriptions"></a>Verschieben von Verwaltungsgruppen und Abonnements 
 
@@ -194,7 +198,7 @@ Wenn die Rolle „Besitzer“ in Ihrem Abonnement von der aktuellen Verwaltungsg
 
 Verwaltungsgruppen werden im [Azure-Aktivitätsprotokoll](../../azure-monitor/platform/platform-logs-overview.md) unterstützt. Alle Ereignisse, die für eine Verwaltungsgruppe auftreten, können am gleichen zentralen Ort wie bei anderen Azure-Ressourcen gesucht werden. Sie können beispielsweise alle Änderungen an Rollen- oder Richtlinienzuweisungen anzeigen, die für eine bestimmte Verwaltungsgruppe vorgenommen wurden.
 
-:::image type="content" source="./media/al-mg.png" alt-text="Diagramm eines Beispiels für die Verwaltungsgruppenhierarchie." border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="Screenshot: Aktivitätsprotokolle und -vorgänge im Zusammenhang mit der ausgewählten Verwaltungsgruppe" border="false":::
 
 Wenn Sie Verwaltungsgruppen außerhalb des Azure-Portals abfragen möchten, sieht der Zielbereich für Verwaltungsgruppen wie folgt aus: **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** .
 

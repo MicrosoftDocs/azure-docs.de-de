@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: f12919cd35441c6c198269e2f79c705c1d304acd
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ba615d3e41393afe007238a0fe1e694732ad123e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278827"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087637"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Partitionierung in der Cassandra-API von Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 In diesem Artikel wird beschrieben, wie die Partitionierung in der Cassandra-API von Azure Cosmos DB funktioniert. 
 
@@ -83,11 +84,11 @@ insert into uprofile.user (user, id, message) values ('theo', 2, 'hello again');
 
 Wenn Daten zurückgegeben werden, werden diese, wie in Apache Cassandra erwartet, nach dem Clusteringschlüssel sortiert:
 
-:::image type="content" source="./media/cassandra-partitioning/select-from-pk.png" alt-text="Partitionen":::
+:::image type="content" source="./media/cassandra-partitioning/select-from-pk.png" alt-text="Screenshot der zurückgegebenen Daten nach Clusteringschlüssel sortiert":::
 
 Mit einem solchen Datenmodell können jeder Partition mehrere Datensätze gruppiert nach Benutzer zugewiesen werden. Sie können daher eine Abfrage ausgeben, die durch den `partition key` (in diesem Fall `user`) effizient weitergeleitet wird, um alle Nachrichten für einen bestimmten Benutzer abzurufen. 
 
-:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning2.png" alt-text="Partitionen" border="false":::
+:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning2.png" alt-text="Diagramm der möglichen Zuweisung mehrerer Datensätze zu jeder Partition gruppiert nach Benutzer" border="false":::
 
 
 ## <a name="composite-partition-key"></a>Zusammengesetzter Partitionsschlüssel

@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 4e9b9a7fb6e739b3bd288557457d1c152e372e26
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 54a96d1f3227cd4a66e344b63b2ecb337df31aba
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045294"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461072"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integration in Logic Apps mit einem benutzerdefinierten Connector
 
@@ -24,7 +24,7 @@ Azure Digital Twins verfügt zurzeit über keinen zertifizierten (vordefinierten
 > [!NOTE]
 > Es gibt mehrere Versionen des Swagger für das im oben verknüpften benutzerdefinierten Swagger-Beispiel. Die neueste Version befindet sich im Unterordner mit dem aktuellsten Datum. Aber auch die im Beispiel enthaltenen früheren Versionen werden noch unterstützt.
 
-In diesem Artikel verwenden Sie das [Azure-Portal](https://portal.azure.com), um einen **benutzerdefinierten Connector** zu erstellen, der zum Herstellen einer Verbindung zwischen Logic Apps und einer Azure Digital Twins-Instanz verwendet werden kann. Sie erstellen dann  **eine Logik-App**, die diese Verbindung für ein Beispielszenario verwendet, in dem durch einen Timer ausgelöste Ereignisse automatisch einen Zwilling in Ihrer Azure Digital Twins Instanz aktualisieren. 
+In diesem Artikel verwenden Sie das [Azure-Portal](https://portal.azure.com), um einen **benutzerdefinierten Connector** zu erstellen, der zum Herstellen einer Verbindung zwischen Logic Apps und einer Azure Digital Twins-Instanz verwendet werden kann. Sie erstellen dann  **eine Logik-App** , die diese Verbindung für ein Beispielszenario verwendet, in dem durch einen Timer ausgelöste Ereignisse automatisch einen Zwilling in Ihrer Azure Digital Twins Instanz aktualisieren. 
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -40,18 +40,17 @@ Zu den Voraussetzungen zählen auch die folgenden Punkte. Im weiteren Verlauf di
 
 Um eine Instanz von Azure Digital Twins mit Logic Apps in diesem Artikel zu verbinden, müssen Sie die **Azure Digital Twins-Instanz** bereits eingerichtet haben. 
 
-Richten Sie zunächst eine Azure Digital Twins-Instanz und die erforderliche Authentifizierung ein, um damit arbeiten zu können. Anweisungen hierzu finden Sie unter [*Vorgehensweise: Einrichten einer Instanz und der Authentifizierung*](how-to-set-up-instance-portal.md). Abhängig von Ihrer bevorzugten Umgebung wird der Setupartikel für das [Azure-Portal](how-to-set-up-instance-portal.md), die [CLI](how-to-set-up-instance-cli.md) oder das [automatisierte Cloud Shell-Bereitstellungsskriptbeispiel](how-to-set-up-instance-scripted.md) bereitgestellt. Alle Versionen der Anleitung enthalten auch Schritte zur Überprüfung, ob Sie jeden Schritt erfolgreich abgeschlossen haben und für die Nutzung Ihrer neuen Instanz bereit sind.
+Richten Sie zunächst eine **Azure Digital Twins-Instanz** und die erforderliche Authentifizierung ein, um damit arbeiten zu können. Anweisungen hierzu finden Sie unter [*Vorgehensweise: Einrichten einer Instanz und der Authentifizierung*](how-to-set-up-instance-portal.md). Abhängig von Ihrer bevorzugten Umgebung wird der Setupartikel für das [Azure-Portal](how-to-set-up-instance-portal.md), die [CLI](how-to-set-up-instance-cli.md) oder das [automatisierte Cloud Shell-Bereitstellungsskriptbeispiel](how-to-set-up-instance-scripted.md) bereitgestellt. Alle Versionen der Anleitung enthalten auch Schritte zur Überprüfung, ob Sie jeden Schritt erfolgreich abgeschlossen haben und für die Nutzung Ihrer neuen Instanz bereit sind.
+* Nach dem Einrichten der Azure Digital Twins-Instanz benötigen Sie den **_Hostnamen_** der Instanz ([im Azure-Portal suchen](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
-In diesem Tutorial benötigen Sie mehrere Werte, die Sie bei der Einrichtung Ihrer Instanz verwendet haben. Wenn Sie diese Werte erneut abrufen müssen, verwenden Sie die unten aufgeführten Links zu den entsprechenden Abschnitten im Artikel zur Einrichtung, um sie im [Azure-Portal](https://portal.azure.com) zu ermitteln.
-* Azure Digital Twins-Instanz: **_Hostname_** ([im Portal suchen](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* Azure AD-App-Registrierung: **_Anwendungs-ID (Client)_** ([im Portal suchen](how-to-set-up-instance-portal.md#collect-important-values))
-* Azure AD-App-Registrierung: **_Verzeichnis-ID (Client)_** ([im Portal suchen](how-to-set-up-instance-portal.md#collect-important-values))
+Um den Connector zu authentifizieren, müssen Sie außerdem eine **App-Registrierung** einrichten. Führen Sie die Anweisungen unter [ *Erstellen einer App-Registrierung*](how-to-create-app-registration.md) aus, um diese einzurichten. 
+* Wenn Sie über eine App-Registrierung verfügen, benötigen Sie die **_Anwendungs-ID (Client)_** und die **_Verzeichnis-ID (Mandant)_** ([im Azure-Portal suchen](how-to-create-app-registration.md#collect-client-id-and-tenant-id)) der Registrierung.
 
 ### <a name="get-app-registration-client-secret"></a>Abrufen des geheimen Clientschlüssels für die Azure AD-App-Registrierung
 
-Außerdem müssen Sie einen **_geheimen Clientschlüssel_** für die Azure AD-App-Registrierung erstellen. Navigieren Sie zu diesem Zweck zur Seite [App-Registrierungen](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) im Azure-Portal (Sie können diesen Link verwenden oder nach ihm in der Suchleiste des Portals suchen). Wählen Sie Ihre Registrierung in der Liste aus, um die zugehörigen Details zu öffnen. 
+Außerdem müssen Sie einen **_geheimen Clientschlüssel_** für die Azure AD-App-Registrierung erstellen. Navigieren Sie zu diesem Zweck zur Seite [App-Registrierungen](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) im Azure-Portal (Sie können diesen Link verwenden oder nach ihm in der Suchleiste des Portals suchen). Wählen Sie die Registrierung aus der Liste aus, die Sie im vorherigen Abschnitt erstellt haben, um die zugehörigen Details zu öffnen. 
 
-Klicken Sie im Menü der Registrierung auf *Zertifikate und geheime Schlüssel*, und wählen Sie *+ Neuer geheimer Clientschlüssel* aus.
+Klicken Sie im Menü der Registrierung auf *Zertifikate und geheime Schlüssel* , und wählen Sie *+ Neuer geheimer Clientschlüssel* aus.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Portalansicht einer Azure AD-App-Registrierung. Im Ressourcenmenü gibt es eine Hervorhebung von „Zertifikate und geheime Schlüssel“ und eine Hervorhebung auf der Seite von „Neuer geheimer Clientschlüssel“":::.
 
@@ -67,7 +66,7 @@ Vergewissern Sie sich nun, dass der geheime Clientschlüssel auf der Seite _Zert
 
 In diesem Artikel wird Logic Apps verwendet, um einen Zwilling in Ihrer Azure Digital Twins-Instanz zu aktualisieren. Um fortzufahren, sollten Sie mindestens einen Zwilling in der Instanz hinzufügen. 
 
-Sie können Zwillinge mit den [DigitalTwins-APIs](how-to-use-apis-sdks.md), dem [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) oder der [Azure Digital Twins-CLI](how-to-use-cli.md) hinzufügen. Ausführliche Schritte zum Erstellen von Zwillingen mithilfe dieser Methoden finden Sie unter [*Vorgehensweise: Verwalten digitaler Zwillinge*](how-to-manage-twin.md).
+Sie können Zwillinge mit den [DigitalTwins-APIs](/rest/api/digital-twins/dataplane/twins), dem [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) oder der [Azure Digital Twins-CLI](how-to-use-cli.md) hinzufügen. Ausführliche Schritte zum Erstellen von Zwillingen mithilfe dieser Methoden finden Sie unter [*Vorgehensweise: Verwalten digitaler Zwillinge*](how-to-manage-twin.md).
 
 Sie benötigen die **_Zwillings-ID_** eines Zwillings in Ihrer Instanz, den Sie erstellt haben.
 
@@ -75,40 +74,40 @@ Sie benötigen die **_Zwillings-ID_** eines Zwillings in Ihrer Instanz, den Sie 
 
 In diesem Schritt erstellen Sie einen [benutzerdefinierten Logic Apps-Connector](../logic-apps/custom-connector-overview.md) für die Azure Digital Twins-APIs. Anschließend können Sie bei der Erstellung einer Logik-App im nächsten Abschnitt Azure Digital Twins einbinden.
 
-Navigieren Sie zu diesem Zweck zur Seite [Benutzerdefinierter Logic Apps-Connector](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) im Azure-Portal (Sie können diesen Link verwenden oder nach ihm in der Suchleiste des Portals suchen). Klicken Sie auf *+ Hinzufügen*.
+Navigieren Sie zu diesem Zweck zur Seite [Benutzerdefinierter Logic Apps-Connector](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) im Azure-Portal (Sie können diesen Link verwenden oder nach ihm in der Suchleiste des Portals suchen). Klicken Sie auf *+ Hinzufügen* .
 
 :::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="Portalansicht einer Azure AD-App-Registrierung. Im Ressourcenmenü gibt es eine Hervorhebung von „Zertifikate und geheime Schlüssel“ und eine Hervorhebung auf der Seite von „Neuer geheimer Clientschlüssel“":::
 
-Wählen Sie auf der Seite *Benutzerdefinierten Logic Apps-Connector erstellen*, die anschließend angezeigt wird, Ihr Abonnement und Ihre Ressourcengruppe sowie einen Namen und einen Bereitstellungsort für den neuen Connector aus. Klicke Sie auf *Überprüfen und erstellen*. 
+Wählen Sie auf der Seite *Benutzerdefinierten Logic Apps-Connector erstellen* , die anschließend angezeigt wird, Ihr Abonnement und Ihre Ressourcengruppe sowie einen Namen und einen Bereitstellungsort für den neuen Connector aus. Klicke Sie auf *Überprüfen und erstellen* . 
 
 :::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="Portalansicht einer Azure AD-App-Registrierung. Im Ressourcenmenü gibt es eine Hervorhebung von „Zertifikate und geheime Schlüssel“ und eine Hervorhebung auf der Seite von „Neuer geheimer Clientschlüssel“":::
 
-Auf diese Weise gelangen Sie zur Registerkarte *Überprüfen und erstellen*, auf der Sie unten auf *Erstellen* klicken können, um die Ressource zu erstellen.
+Auf diese Weise gelangen Sie zur Registerkarte *Überprüfen und erstellen* , auf der Sie unten auf *Erstellen* klicken können, um die Ressource zu erstellen.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/review-logic-apps-custom-connector.png" alt-text="Portalansicht einer Azure AD-App-Registrierung. Im Ressourcenmenü gibt es eine Hervorhebung von „Zertifikate und geheime Schlüssel“ und eine Hervorhebung auf der Seite von „Neuer geheimer Clientschlüssel“":::
 
-Sie gelangen zur Bereitstellungsseite für den Connector. Wenn die Bereitstellung abgeschlossen ist, klicken Sie auf die Schaltfläche *Zu Ressource wechseln*, um die Details des Connectors im Portal anzuzeigen.
+Sie gelangen zur Bereitstellungsseite für den Connector. Wenn die Bereitstellung abgeschlossen ist, klicken Sie auf die Schaltfläche *Zu Ressource wechseln* , um die Details des Connectors im Portal anzuzeigen.
 
 ### <a name="configure-connector-for-azure-digital-twins"></a>Konfigurieren des Connectors für Azure Digital Twins
 
 Als Nächstes konfigurieren Sie den von Ihnen erstellten Connector für die Verbindung mit Azure Digital Twins.
 
-Laden Sie zunächst eine benutzerdefinierte Azure Digital Twins Swagger-Datei herunter, die geändert wurde, um mit Logic Apps zusammenzuarbeiten. Laden Sie das Beispiel **Benutzerdefinierte Azure Digital Twins-Swagger** über [**diesen Link**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) herunter, indem Sie auf die Schaltfläche *ZIP herunterladen* klicken. Navigieren Sie zu dem heruntergeladenen Ordner *Azure_Digital_Twins_Custom_Swaggers.zip*, und entzippen Sie ihn. 
+Laden Sie zunächst eine benutzerdefinierte Azure Digital Twins Swagger-Datei herunter, die geändert wurde, um mit Logic Apps zusammenzuarbeiten. Laden Sie das Beispiel **Benutzerdefinierte Azure Digital Twins-Swagger (Logic Apps-Connector)** über [**diesen Link**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) herunter, indem Sie auf die Schaltfläche *ZIP herunterladen* klicken. Navigieren Sie zum heruntergeladenen Ordner *Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_.zip* , und entzippen Sie ihn. 
 
-Der benutzerdefinierte Swagger für dieses Tutorial befindet sich im Ordner _**Azure_Digital_Twins_Custom_Swaggers\LogicApps**_. Dieser Ordner enthält die Unterordner *stable* und *preview*, die jeweils verschiedene Versionen des Swagger nach Datum geordnet enthalten. Der Ordner mit dem aktuellen Datum enthält die neueste Kopie des Swagger. Unabhängig von der ausgewählten Version hat die Swagger-Datei die Bezeichnung _**digitaltwins.json**_.
+Der benutzerdefinierte Swagger für dieses Tutorial befindet sich im Ordner _**Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_ \LogicApps **_. Dieser Ordner enthält die Unterordner *stable* und *preview* , die jeweils verschiedene Versionen des Swagger nach Datum geordnet enthalten. Der Ordner mit dem aktuellen Datum enthält die neueste Kopie des Swagger. Unabhängig von der ausgewählten Version hat die Swagger-Datei die Bezeichnung „_** digitaltwins.json**_“.
 
 > [!NOTE]
-> Sofern Sie keine Previewfunktion verwenden, empfiehlt sich im Allgemeinen die Verwendung der neuesten Swagger-Version unter *stable*. Frühere Versionen und Vorschauversionen des Swagger werden jedoch ebenfalls unterstützt. 
+> Sofern Sie keine Previewfunktion verwenden, empfiehlt sich im Allgemeinen die Verwendung der neuesten Swagger-Version unter *stable* . Frühere Versionen und Vorschauversionen des Swagger werden jedoch ebenfalls unterstützt. 
 
 Wechseln Sie dann zur Übersichtsseite Ihres Connector im [Azure-Portal](https://portal.azure.com), und wählen Sie *Bearbeiten* aus.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/edit-connector.png" alt-text="Portalansicht einer Azure AD-App-Registrierung. Im Ressourcenmenü gibt es eine Hervorhebung von „Zertifikate und geheime Schlüssel“ und eine Hervorhebung auf der Seite von „Neuer geheimer Clientschlüssel“":::
 
-Konfigurieren Sie auf der Seite *Benutzerdefinierten Logic Apps-Connector bearbeiten*, die anschließend angezeigt wird, die folgenden Informationen:
+Konfigurieren Sie auf der Seite *Benutzerdefinierten Logic Apps-Connector bearbeiten* , die anschließend angezeigt wird, die folgenden Informationen:
 * **Benutzerdefinierte Connectors**
     - API-Endpunkt: REST (Standardwert beibehalten)
     - Importmodus: OpenAPI-Datei (Standardwert beibehalten)
-    - Datei: Dies ist die benutzerdefinierte Swagger-Datei, die Sie zuvor heruntergeladen haben. Wählen Sie *Importieren* aus, suchen Sie die Datei auf Ihrem Computer (*Azure_Digital_Twins_Custom_Swaggers\LogicApps\...\digitaltwins.json*), und wählen Sie dann *Öffnen* aus.
+    - Datei: Dies ist die benutzerdefinierte Swagger-Datei, die Sie zuvor heruntergeladen haben. Klicken Sie auf *Importieren* , suchen Sie die Datei auf Ihrem Computer ( *Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_\LogicApps\...\digitaltwins.json* ), und klicken Sie auf *Öffnen* .
 * **Allgemeine Informationen**
     - Symbol: Laden Sie ein Symbol hoch, das Ihnen gefällt.
     - Symbolhintergrundfarbe: Geben Sie für Ihre Farbe einen Hexadezimalcode im Format „#xxxxxx“ ein.
@@ -117,16 +116,16 @@ Konfigurieren Sie auf der Seite *Benutzerdefinierten Logic Apps-Connector bearbe
     - Host: Der *Hostname* Ihrer Azure Digital Twins-Instanz.
     - Basis-URL: / (Standardwert beibehalten)
 
-Klicken Sie dann unten im Fenster auf die Schaltfläche *Sicherheit*, um mit dem nächsten Konfigurationsschritt fortzufahren.
+Klicken Sie dann unten im Fenster auf die Schaltfläche *Sicherheit* , um mit dem nächsten Konfigurationsschritt fortzufahren.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/configure-next.png" alt-text="Portalansicht einer Azure AD-App-Registrierung. Im Ressourcenmenü gibt es eine Hervorhebung von „Zertifikate und geheime Schlüssel“ und eine Hervorhebung auf der Seite von „Neuer geheimer Clientschlüssel“":::
 
-Klicken Sie im Schritt „Sicherheit“ auf *Bearbeiten*, und konfigurieren Sie die folgenden Informationen:
+Klicken Sie im Schritt „Sicherheit“ auf *Bearbeiten* , und konfigurieren Sie die folgenden Informationen:
 * **Authentifizierungstyp:** OAuth 2.0
-* **OAuth 2.0**:
+* **OAuth 2.0** :
     - Identitätsanbieter: Azure Active Directory
     - Client-ID: Die *Anwendungs-ID (Client)* für Ihre Azure AD-App-Registrierung.
-    - Geheimer Clientschlüssel: Der *geheime Clientschlüssel*, den Sie in [*Voraussetzungen*](#prerequisites) für Ihre Azure AD-App-Registrierung erstellt haben.
+    - Geheimer Clientschlüssel: Der *geheime Clientschlüssel* , den Sie in [*Voraussetzungen*](#prerequisites) für Ihre Azure AD-App-Registrierung erstellt haben.
     - Anmelde-URL: https://login.windows.net (Standardwert beibehalten)
     - Mandanten-ID: Die *Verzeichnis-ID (Mandant)* für Ihre Azure-AD-App-Registrierung.
     - Ressourcen-URL: 0b07f429-9f4b-4714-9392-cc5e8e80c8b0
@@ -158,7 +157,7 @@ Fügen Sie im Menü der Registrierung unter *Authentifizierungs* einen URI hinzu
 
 :::image type="content" source="media/how-to-integrate-logic-apps/add-uri.png" alt-text="Portalansicht einer Azure AD-App-Registrierung. Im Ressourcenmenü gibt es eine Hervorhebung von „Zertifikate und geheime Schlüssel“ und eine Hervorhebung auf der Seite von „Neuer geheimer Clientschlüssel“"::: 
 
-Geben Sie die *Umleitungs-URL* des benutzerdefinierten Connectors in das neue Feld ein, und klicken Sie auf das Symbol *Speichern*.
+Geben Sie die *Umleitungs-URL* des benutzerdefinierten Connectors in das neue Feld ein, und klicken Sie auf das Symbol *Speichern* .
 
 :::image type="content" source="media/how-to-integrate-logic-apps/save-uri.png" alt-text="Portalansicht einer Azure AD-App-Registrierung. Im Ressourcenmenü gibt es eine Hervorhebung von „Zertifikate und geheime Schlüssel“ und eine Hervorhebung auf der Seite von „Neuer geheimer Clientschlüssel“":::
 
@@ -168,17 +167,17 @@ Sie sind jetzt fertig mit der Einrichtung eines benutzerdefinierten Connectors, 
 
 Nun erstellen Sie eine Logik-App, die Ihren neuen Connector zum Automatisieren von Azure Digital Twins-Updates verwendet.
 
-Suchen Sie im [Azure-Portal](https://portal.azure.com) über die Suchleiste nach *Logik-Apps*. Durch Auswählen dieser Option gelangen Sie zur Seite *Logic-Apps*. Klicken Sie auf die Schaltfläche *Logik-App erstellen*, um eine neue Logik-App zu erstellen.
+Suchen Sie im [Azure-Portal](https://portal.azure.com) über die Suchleiste nach *Logik-Apps* . Durch Auswählen dieser Option gelangen Sie zur Seite *Logic-Apps* . Klicken Sie auf die Schaltfläche *Logik-App erstellen* , um eine neue Logik-App zu erstellen.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Portalansicht einer Azure AD-App-Registrierung. Im Ressourcenmenü gibt es eine Hervorhebung von „Zertifikate und geheime Schlüssel“ und eine Hervorhebung auf der Seite von „Neuer geheimer Clientschlüssel“":::
 
 Geben Sie auf der anschließend angezeigten Seite *Logik-App* Ihr Abonnement und Ihre Ressourcengruppe ein. Wählen Sie außerdem einen Namen für Ihre Logik-App sowie den Bereitstellungsstandort aus.
 
-Klicken Sie auf die Schaltfläche _Überprüfen und erstellen_.
+Klicken Sie auf die Schaltfläche _Überprüfen und erstellen_ .
 
-Daraufhin gelangen Sie zur Registerkarte *Überprüfen und erstellen*, auf der Sie Ihre Angaben überprüfen und unten auf *Erstellen* klicken können, um die Ressource zu erstellen.
+Daraufhin gelangen Sie zur Registerkarte *Überprüfen und erstellen* , auf der Sie Ihre Angaben überprüfen und unten auf *Erstellen* klicken können, um die Ressource zu erstellen.
 
-Sie gelangen zur Bereitstellungsseite für die Logik-App. Wenn die Bereitstellung abgeschlossen ist, klicken Sie auf die Schaltfläche *Zu Ressource wechseln*, um mit dem *Designer für Logik-Apps* fortzufahren, in dem Sie die Logik des Workflows angeben.
+Sie gelangen zur Bereitstellungsseite für die Logik-App. Wenn die Bereitstellung abgeschlossen ist, klicken Sie auf die Schaltfläche *Zu Ressource wechseln* , um mit dem *Designer für Logik-Apps* fortzufahren, in dem Sie die Logik des Workflows angeben.
 
 ### <a name="design-workflow"></a>Entwerfen des Workflows
 
@@ -186,11 +185,11 @@ Wählen Sie im *Designer für Logik-Apps* unter *Starten Sie mit einem gängigen
 
 :::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-designer-recurrence.png" alt-text="Portalansicht einer Azure AD-App-Registrierung. Im Ressourcenmenü gibt es eine Hervorhebung von „Zertifikate und geheime Schlüssel“ und eine Hervorhebung auf der Seite von „Neuer geheimer Clientschlüssel“":::
 
-Ändern Sie auf der Seite *Designer für Logik-Apps*, die anschließend angezeigt wird, die Häufigkeit der **Wiederholung** in *Sekunde*, sodass das Ereignis alle 3 Sekunden ausgelöst wird. Auf diese Weise können die Ergebnisse später leicht eingesehen werden, ohne sehr lange warten zu müssen.
+Ändern Sie auf der Seite *Designer für Logik-Apps* , die anschließend angezeigt wird, die Häufigkeit der **Wiederholung** in *Sekunde* , sodass das Ereignis alle 3 Sekunden ausgelöst wird. Auf diese Weise können die Ergebnisse später leicht eingesehen werden, ohne sehr lange warten zu müssen.
 
-Klicken Sie auf *+ Neuen Schritt hinzufügen*.
+Klicken Sie auf *+ Neuen Schritt hinzufügen* .
 
-Daraufhin wird ein Feld zum *Auswählen einer Aktion* geöffnet. Wechseln Sie zur Registerkarte *Benutzerdefiniert*. Der zuvor erstellte benutzerdefinierte Connector sollte im oberen Feld angezeigt werden.
+Daraufhin wird ein Feld zum *Auswählen einer Aktion* geöffnet. Wechseln Sie zur Registerkarte *Benutzerdefiniert* . Der zuvor erstellte benutzerdefinierte Connector sollte im oberen Feld angezeigt werden.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/custom-action.png" alt-text="Portalansicht einer Azure AD-App-Registrierung. Im Ressourcenmenü gibt es eine Hervorhebung von „Zertifikate und geheime Schlüssel“ und eine Hervorhebung auf der Seite von „Neuer geheimer Clientschlüssel“":::
 
@@ -200,10 +199,10 @@ Sie werden möglicherweise aufgefordert, sich mit ihren Azure-Anmeldeinformation
 
 Füllen Sie die Felder im neuen Feld *DigitalTwinsAdd* wie folgt aus:
 * _id:_ Geben Sie die *Zwillings-ID* des digitalen Zwillings in Ihrer Instanz an, die die Logik-App aktualisieren soll.
-* _twin:_ In dieses Feld geben Sie den Text ein, der für die ausgewählte API-Anforderung erforderlich ist. Für *DigitalTwinsUpdate* ist dieser Text JSON-Patchcode. Weitere Informationen zum Strukturieren eines JSON-Patches zum Aktualisieren Ihres Zwillings finden Sie im Abschnitt [Aktualisieren eines digitalen Zwillings](how-to-manage-twin.md#update-a-digital-twin) von *Vorgehensweise: Verwalten digitaler Zwillinge*.
-* _api-version:_ Die neueste API-Version. In der aktuellen öffentlichen Vorschau lautet dieser Wert *2020-05-31-preview*.
+* _twin:_ In dieses Feld geben Sie den Text ein, der für die ausgewählte API-Anforderung erforderlich ist. Für *DigitalTwinsUpdate* ist dieser Text JSON-Patchcode. Weitere Informationen zum Strukturieren eines JSON-Patches zum Aktualisieren Ihres Zwillings finden Sie im Abschnitt [Aktualisieren eines digitalen Zwillings](how-to-manage-twin.md#update-a-digital-twin) von *Vorgehensweise: Verwalten digitaler Zwillinge* .
+* _api-version:_ Die neueste API-Version. Derzeit ist dieser Wert *2020-10-31* .
 
-Klicken Sie im Designer für Logik-Apps auf *Speichern*.
+Klicken Sie im Designer für Logik-Apps auf *Speichern* .
 
 Sie können weitere Vorgänge auswählen, indem Sie im gleichen Fenster _+ Neuer Schritt_ auswählen.
 

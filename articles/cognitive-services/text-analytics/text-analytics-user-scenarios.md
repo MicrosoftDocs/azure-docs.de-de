@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 4f540c7e853efe370c84b7c4d0a7d74911b8cd6c
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: a4c551a6e9b8d79fdeb7b5219f311c7c7c969757
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91823941"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505357"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Beispielbenutzerszenarien für die Textanalyse-API
 
@@ -61,4 +61,4 @@ Gruppieren Sie Meinungen im Zusammenhang mit bestimmten Aspekten eines Produkts 
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Worum handelt es sich bei der Textanalyse-API?](overview.md)
-* [Senden einer Anforderung an die Textanalyse-API mit der Clientbibliothek](quickstarts/text-analytics-sdk.md)
+* [Senden einer Anforderung an die Textanalyse-API mit der Clientbibliothek](quickstarts/client-libraries-rest-api.md)

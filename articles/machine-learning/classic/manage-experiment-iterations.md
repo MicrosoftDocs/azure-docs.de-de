@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 374320c0becfecc6691af91b36a1d80b087300e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c958de5e49fbb7519ae71b13e9deba9af0c698de
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361942"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312875"
 ---
 # <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Verwalten von Experimentausführungen in Azure Machine Learning Studio (Classic)
 
-**GILT FÜR:**  ![Gilt für ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic) ![Gilt nicht für ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**GILT FÜR:**  ![Gilt für ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic) ![Gilt nicht für ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Das Entwickeln eines solchen Vorhersageanalysemodells ist ein iterativer Prozess: Sie ändern die verschiedenen Funktionen und Parameter des Experiments, und die Ergebnisse nähern sich solange an, bis Sie der Ansicht sind, ein trainiertes, effektives Modell erreicht zu haben. Wichtig für diesen Prozess ist das Verfolgen der verschiedenen Iterationen der Experimentparameter und -konfigurationen.
@@ -33,7 +33,7 @@ Sie können die vorherigen Testläufe der Experimente zu jedem beliebigen Zeitpu
 ## <a name="view-the-prior-run"></a>Anzeigen des vorherigen Testlaufs
 Wenn ein Experiment geöffnet ist, das Sie mindestens einmal ausgeführt haben, können Sie den vorherigen Testlauf des Versuchs anzeigen, indem Sie im Eigenschaftenbereich auf **Prior Run** (Vorheriger Testlauf) klicken.
 
-Angenommen, Sie erstellen ein Experiment und führen Versionen dieses Experiments um 11:23 Uhr 11:42 Uhr und 11:55 Uhr aus. Wenn Sie den letzten Testlauf des Experiments (11:55) öffnen und auf **Prior Run**(Vorheriger Testlauf) klicken, wird die Version, die Sie um 11:42 Uhr ausgeführt haben, geöffnet.
+Angenommen, Sie erstellen ein Experiment und führen Versionen dieses Experiments um 11:23 Uhr 11:42 Uhr und 11:55 Uhr aus. Wenn Sie den letzten Testlauf des Experiments (11:55) öffnen und auf **Prior Run** (Vorheriger Testlauf) klicken, wird die Version, die Sie um 11:42 Uhr ausgeführt haben, geöffnet.
 
 ## <a name="view-the-run-history"></a>Anzeigen des Ausführungsverlaufs
 Sie können alle vorherigen Testläufe eines Experiments anzeigen, indem Sie in einem geöffneten Experiment auf **View Run History** (Ausführungsverlauf anzeigen) klicken.
@@ -47,7 +47,7 @@ Angenommen, Sie erstellen ein Experiment mit dem Modul [Linear Regression][linea
 | 0,4 |11.9.2014 16:28:36 |
 | 0.5 |11.9.2014 16:33:31 |
 
-Wenn Sie auf **VIEW RUN HISTORY**(AUSFÜHRUNGSVERLAUF ANZEIGEN) klicken, wird eine Liste aller Testläufe angezeigt:
+Wenn Sie auf **VIEW RUN HISTORY** (AUSFÜHRUNGSVERLAUF ANZEIGEN) klicken, wird eine Liste aller Testläufe angezeigt:
 
 ![Beispiel für einen Ausführungsverlauf](./media/manage-experiment-iterations/viewrunhistory.jpg)
 
@@ -68,12 +68,12 @@ Wenn Sie ausgehend von der Konfiguration eines vorherigen Testlaufs eine Iterati
 Nehmen wir beispielsweise an, Sie haben den Ausführungsverlauf des Experiments aus dem vorherigen Abschnitt. Sie möchten sehen, was geschieht, wenn Sie den Parameter **Learning rate** (Lernrate) auf 0,4 festlegen und verschiedene Werte für den Parameter **Number of training epochs** (Anzahl der Trainingsperioden) ausprobieren.
 
 1. Klicken Sie auf **VIEW RUN HISTORY** (AUSFÜHRUNGSVERLAUF ANZEIGEN), und öffnen Sie die Iteration des Experiments, die Sie um 16:28:36 Uhr ausgeführt haben (in der Sie den Parameterwert 0,4 festgelegt haben).
-2. Klicken Sie auf **SAVE AS**(SPEICHERN UNTER).
+2. Klicken Sie auf **SAVE AS** (SPEICHERN UNTER).
 3. Geben Sie einen neuen Titel ein, und klicken Sie auf das Häkchen für **OK** . Es wird eine neue Kopie des Experiments erstellt.
 4. Ändern Sie den Parameter **Number of training epochs** (Anzahl der Trainingsperioden).
-5. Klicken Sie auf **RUN**(AUSFÜHREN).
+5. Klicken Sie auf **RUN** (AUSFÜHREN).
 
 Sie können diese Version  des Experiments nun weiterhin ändern und ausführen, wobei ein neuer Ausführungsverlauf zur Dokumentation Ihrer Arbeit erstellt wird.
 
 <!-- Module References -->
-[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
+[linear-regression]: /azure/machine-learning/studio-module-reference/linear-regression

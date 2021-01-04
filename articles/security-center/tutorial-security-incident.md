@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2020
 ms.author: memildin
-ms.openlocfilehash: 02b0ee4d572290436cc45bab73921ae1298bc72f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b9f0b3219a75900a44a73ca0fc3e453f023bddb8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92358997"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787158"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Tutorial: Selektieren, Untersuchen und Beantworten von Sicherheitswarnungen
 Security Center analysiert Ihre Hybrid Cloud-Workloads ständig mithilfe von Advanced Analytics- und Threat Intelligence-Funktionen, um Sie vor potenziell schädlichen Aktivitäten auf Ihren Cloudressourcen warnen zu können. Sie können auch Warnungen aus anderen Sicherheitsprodukten und -diensten in Security Center integrieren. Nach der Auslösung einer Warnung muss schnell gehandelt werden, um das potenzielle Sicherheitsproblem zu untersuchen und zu beheben. 
@@ -49,7 +49,7 @@ Beurteilen Sie die Warnungen auf der Seite **Sicherheitswarnungen** :
 Wenn Sie Sicherheitswarnungen selektieren, priorisieren Sie Warnungen nach ihrem Schweregrad, indem Sie sich den Warnungen mit höherem Schweregrad zuerst widmen. Weitere Informationen zum Schweregrad von Warnungen finden Sie unter [Wie werden Warnungen klassifiziert?](security-center-alerts-overview.md#how-are-alerts-classified).
 
 > [!TIP]
-> Sie können Azure Security Center mit verbreiteten SIEM-Lösungen wie Azure Sentinel verbinden und die Warnungen über ein Tool Ihrer Wahl nutzen. Weitere Informationen finden Sie unter [Exportieren von Warnungen in ein SIEM-System](continuous-export.md).
+> Sie können Azure Security Center mit verbreiteten SIEM-Lösungen wie Azure Sentinel verbinden und die Warnungen über ein Tool Ihrer Wahl nutzen. Weitere Informationen finden Sie unter [Streamen von Warnungen in eine SIEM-, SOAR- oder IT-Service-Management-Lösung](export-to-siem.md).
 
 
 ## <a name="investigate-a-security-alert"></a>Untersuchen einer Sicherheitswarnung
@@ -60,7 +60,7 @@ Gehen Sie wie folgt vor, sobald Sie entschieden haben, welche Warnung Sie zuerst
 1. Wählen Sie auf der Seite mit der Übersicht über die Warnungen die Ressource aus, die zuerst untersucht werden soll.
 1. Beginnen Sie mit der Untersuchung im linken Bereich, in dem allgemeine Informationen zur Sicherheitswarnung angezeigt werden.
 
-    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="Seite mit der Liste der Sicherheitswarnungen":::
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="Linker Bereich der Seite „Warnungsdetails“, in der die allgemeinen Informationen hervorgehoben sind":::
 
     In diesem Bereich wird Folgendes angezeigt:
     - Schweregrad, Status und Aktivitätszeit der Warnung
@@ -68,7 +68,7 @@ Gehen Sie wie folgt vor, sobald Sie entschieden haben, welche Warnung Sie zuerst
     - Betroffene Ressourcen
     - Kill Chain-Absicht der Aktivität auf der MITRE ATT&CK-Matrix
 
-1. Ausführlichere Informationen zur Untersuchung der verdächtigen Aktivität finden Sie auf der Registerkarte **Warnungsdetails** .
+1. Ausführlichere Informationen zur Untersuchung der verdächtigen Aktivität finden Sie auf der Registerkarte **Warnungsdetails**.
 
 1. Die Informationen auf dieser Seite reichen möglicherweise für eine Reaktion aus. Wenn Sie weitere Informationen benötigen:
 
@@ -80,24 +80,24 @@ Nachdem Sie eine Warnung untersucht und ihr Ausmaß ermittelt haben, können Sie
 
 1.  Öffnen Sie die Registerkarte **Aktion ausführen** , um die empfohlenen Reaktionen anzuzeigen.
 
-    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Seite mit der Liste der Sicherheitswarnungen" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Registerkarte „Maßnahme ergreifen“ zu Sicherheitswarnungen" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
 
 1.  Im Abschnitt **Auswirkungen der Bedrohung minimieren** , finden Sie die manuellen Schritte zur Behebung des Problems.
 1.  Um Ihre Ressourcen zu sichern und zukünftige Angriffe dieser Art zu verhindern, setzen Sie die Sicherheitsempfehlungen im Abschnitt **Künftige Angriffe verhindern** um.
-1.  Um eine Logik-App mit automatisierten Reaktionsschriften zu starten, verwenden Sie den Abschnitt **Automatisierte Antwort auslösen** .
+1.  Um eine Logik-App mit automatisierten Reaktionsschriften zu starten, verwenden Sie den Abschnitt **Automatisierte Antwort auslösen**.
 1.  Wenn die erkannte Aktivität *nicht* bösartig ist, können Sie künftige Warnungen dieser Art im Abschnitt **Ähnliche Warnungen unterdrücken** unterdrücken.
 
-1.  Wenn Sie die Untersuchung der Warnung abgeschlossen und entsprechend reagiert haben, ändern Sie den Status in **Verworfen** .
+1.  Wenn Sie die Untersuchung der Warnung abgeschlossen und entsprechend reagiert haben, ändern Sie den Status in **Verworfen**.
 
-    :::image type="content" source="./media/tutorial-security-incident/set-status-dismissed.png" alt-text="Seite mit der Liste der Sicherheitswarnungen":::
+    :::image type="content" source="./media/tutorial-security-incident/set-status-dismissed.png" alt-text="Festlegen des Status einer Warnung":::
 
     Dadurch wird die Warnung aus der Hauptwarnungsliste entfernt. Mit dem Filter auf der Seite mit der Liste der Warnungen können Sie alle Warnungen mit dem Status **Verworfen** anzeigen.
 
 1.  Wir würden uns freuen, wenn Sie Microsoft Feedback zur Warnung zur Verfügung stellen würden:
-    1. Markieren Sie die Warnung als **Hilfreich** oder **Nicht hilfreich** .
+    1. Markieren Sie die Warnung als **Hilfreich** oder **Nicht hilfreich**.
     1. Wählen Sie einen Grund aus und fügen Sie einen Kommentar hinzu.
 
-        :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Seite mit der Liste der Sicherheitswarnungen":::
+        :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Feedback zur Nützlichkeit einer Warnung an Microsoft":::
 
     > [!TIP]
     > Wir berücksichtigen Ihr Feedback, um unsere Algorithmen zu verbessern und bessere Sicherheitswarnungen bereitzustellen.

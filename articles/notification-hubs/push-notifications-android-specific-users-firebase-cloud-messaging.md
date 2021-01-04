@@ -18,11 +18,11 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
 ms.openlocfilehash: 870842074bb4a0012a48115586a8ad571275d470
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91281030"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022410"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-android-apps-using-azure-notification-hubs"></a>Tutorial: Senden von Pushbenachrichtigungen an bestimmte Android-Apps mit Azure Notification Hubs
 
@@ -485,7 +485,7 @@ Aktualisieren Sie als Nächstes die Android-Anwendung, die Sie in [Tutorial: Sen
 
 1. Führen Sie die Anwendung unter Verwendung von Android Studio auf einem Gerät oder einen Emulator aus.
 2. Geben Sie in der Android-App einen Benutzernamen und ein Kennwort ein. Beide müssen den gleichen Zeichenfolgenwert aufweisen und dürfen keine Leerzeichen oder Sonderzeichen enthalten.
-3. Tippen Sie in der Android-App auf **Anmelden**. Warten Sie, bis die Popupmeldung **Angemeldet und registriert**angezeigt wird. Dadurch wird die Schaltfläche **Send Notification (Benachrichtigung senden)** aktiviert.
+3. Tippen Sie in der Android-App auf **Anmelden**. Warten Sie, bis die Popupmeldung **Angemeldet und registriert** angezeigt wird. Dadurch wird die Schaltfläche **Send Notification (Benachrichtigung senden)** aktiviert.
 
     ![Screenshot eines Emulators, der zeigt, wie die App zur Benachrichtigung von Benutzern durch Notification Hubs nach der Anmeldung aussieht.][A2]
 4. Klicken Sie auf die Umschaltflächen, um alle Plattformen zu aktivieren, auf denen Sie die App ausgeführt und einen Benutzer registriert haben.

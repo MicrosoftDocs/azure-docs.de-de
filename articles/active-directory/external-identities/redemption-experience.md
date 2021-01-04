@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2427d974f96c0905ea2eb33daea7c89de277ec9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8520afdd05ecce8604ce72596bdf06053217cc2e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441809"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173089"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B-Zusammenarbeit: Einlösen von Einladungen
 
@@ -33,7 +33,7 @@ Wenn Sie Ihrem Verzeichnis [über das Azure-Portal](./b2b-quickstart-add-guest-u
 
 1. Der Gast erhält eine [Einladungs-E-Mail](./invitation-email-elements.md), die über **Microsoft-Einladungen** gesendet wird.
 2. Der Gast wählt **Einladung annehmen** in der E-Mail aus.
-3. Der Gast verwendet seine eigenen Anmeldeinformationen, um sich bei Ihrem Verzeichnis anzumelden. Wenn der Gast kein Konto hat, das über einen Verbund in Ihrem Verzeichnis verwendet werden kann, und die Funktion für die [E-Mail-Einmalkennung](./one-time-passcode.md) (One-Time Passcode, OTP) nicht aktiviert ist, wird der Gast aufgefordert, ein persönliches [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) oder ein [Azure AD-Self-Service-Konto](../users-groups-roles/directory-self-service-signup.md) zu erstellen. Ausführliche Informationen finden Sie unter [Flow beim Einlösen der Einladung](#invitation-redemption-flow).
+3. Der Gast verwendet seine eigenen Anmeldeinformationen, um sich bei Ihrem Verzeichnis anzumelden. Wenn der Gast kein Konto hat, das über einen Verbund in Ihrem Verzeichnis verwendet werden kann, und die Funktion für die [E-Mail-Einmalkennung](./one-time-passcode.md) (One-Time Passcode, OTP) nicht aktiviert ist, wird der Gast aufgefordert, ein persönliches [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) oder ein [Azure AD-Self-Service-Konto](../enterprise-users/directory-self-service-signup.md) zu erstellen. Ausführliche Informationen finden Sie unter [Flow beim Einlösen der Einladung](#invitation-redemption-flow).
 4. Der Gast wird schrittweise durch die im Folgenden beschriebene [Zustimmungsbenutzeroberfläche](#consent-experience-for-the-guest) geführt.
 
 ## <a name="redemption-through-a-direct-link"></a>Einlösung über einen direkten Link
@@ -74,9 +74,9 @@ Wenn ein Benutzer in einer [Einladungs-E-Mail](invitation-email-elements.md) auf
 
 7. Wenn [Einmalkennung per E-Mail für Gastbenutzer](./one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode) aktiviert ist, wird in der Einladungs-E-Mail eine Kennung an den Benutzer gesendet. Der Benutzer ruft diese Kennung ab und gibt sie auf der Anmeldeseite von Azure AD ein.
 
-8. Wenn „Einmalkennung per E-Mail für Gastbenutzer“ deaktiviert ist, überprüft Azure AD, ob das Domänensuffix zu einem Consumerkonto gehört. In diesem Fall wird der Benutzer aufgefordert, ein persönliches [Microsoft-Konto](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) zu erstellen. Andernfalls wird der Benutzer aufgefordert, ein [Azure AD-Self-Service-Konto](../users-groups-roles/directory-self-service-signup.md) zu erstellen.
+8. Wenn „Einmalkennung per E-Mail für Gastbenutzer“ deaktiviert ist, überprüft Azure AD, ob das Domänensuffix zu einem Consumerkonto gehört. In diesem Fall wird der Benutzer aufgefordert, ein persönliches [Microsoft-Konto](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) zu erstellen. Andernfalls wird der Benutzer aufgefordert, ein [Azure AD-Self-Service-Konto](../enterprise-users/directory-self-service-signup.md) zu erstellen.
 
-9. Azure AD versucht, ein [Azure AD-Self-Service-Konto](../users-groups-roles/directory-self-service-signup.md) zu erstellen, indem der Zugriff auf die E-Mail-Adresse überprüft wird. Die Überprüfung des Kontos erfolgt, indem ein Code an die E-Mail-Adresse gesendet wird, den der Benutzer abruft und an Azure AD sendet. Wenn der Mandant des eingeladenen Benutzers jedoch zu einem Verbund gehört oder das Feld AllowEmailVerifiedUsers im Mandanten des eingeladenen Benutzers auf FALSE festgelegt ist, kann der Benutzer die Einlösung nicht abschließen, wodurch der Flow mit einem Fehler endet. Weitere Informationen finden Sie unter [Problembehandlung für die Azure Active Directory B2B Collaboration](./troubleshoot.md#the-user-that-i-invited-is-receiving-an-error-during-redemption).
+9. Azure AD versucht, ein [Azure AD-Self-Service-Konto](../enterprise-users/directory-self-service-signup.md) zu erstellen, indem der Zugriff auf die E-Mail-Adresse überprüft wird. Die Überprüfung des Kontos erfolgt, indem ein Code an die E-Mail-Adresse gesendet wird, den der Benutzer abruft und an Azure AD sendet. Wenn der Mandant des eingeladenen Benutzers jedoch zu einem Verbund gehört oder das Feld AllowEmailVerifiedUsers im Mandanten des eingeladenen Benutzers auf FALSE festgelegt ist, kann der Benutzer die Einlösung nicht abschließen, wodurch der Flow mit einem Fehler endet. Weitere Informationen finden Sie unter [Problembehandlung für die Azure Active Directory B2B Collaboration](./troubleshoot.md#the-user-that-i-invited-is-receiving-an-error-during-redemption).
 
 10. Der Benutzer wird aufgefordert, ein persönliches [Microsoft-Konto (MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) zu erstellen.
 
@@ -88,7 +88,7 @@ Für Just-in-Time-Einlösungen (JIT), bei denen die Einlösung über einen Link 
 
 Wenn sich ein Gast zum ersten Mal anmeldet, um auf Ressourcen in einer Partnerorganisation zuzugreifen, wird er schrittweise durch die folgenden Seiten geführt. 
 
-1. Der Gast überprüft die Seite **Berechtigungen überprüfen** , die die Datenschutzerklärung der einladenden Organisation beschreibt. Der Benutzer muss der Nutzung seiner Informationen gemäß den Datenschutzrichtlinien der Organisation **zustimmen** , um fortfahren zu können.
+1. Der Gast überprüft die Seite **Berechtigungen überprüfen**, die die Datenschutzerklärung der einladenden Organisation beschreibt. Der Benutzer muss der Nutzung seiner Informationen gemäß den Datenschutzrichtlinien der Organisation **zustimmen**, um fortfahren zu können.
 
    ![Screenshot: Seite „Berechtigungen überprüfen“](media/redemption-experience/review-permissions.png) 
 

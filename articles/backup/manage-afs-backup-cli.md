@@ -3,29 +3,27 @@ title: Verwalten der Sicherungen von Azure-Dateifreigaben mit der Azure-Befehlsz
 description: Erfahren Sie, wie Sie über die Azure-Befehlszeilenschnittstelle Azure-Dateifreigaben, die durch Azure Backup gesichert wurden, verwalten und überwachen.
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: 44c095d58e2da5a74985ce216268aab15922ed1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a8a785016845b836a102663a959e4b2f28696b6
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332745"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566451"
 ---
 # <a name="manage-azure-file-share-backups-with-the-azure-cli"></a>Verwalten der Sicherungen von Azure-Dateifreigaben mit der Azure-Befehlszeilenschnittstelle
 
 Azure CLI ist die Befehlszeilenumgebung zum Verwalten von Azure-Ressourcen. Azure CLI ist ein großartiges Tool zum Erstellen einer benutzerdefinierten Automatisierung zur Verwendung von Azure-Ressourcen. In diesem Artikel wird erläutert, wie Sie die Aufgaben zur Verwaltung und Überwachung der durch [Azure Backup](./backup-overview.md) gesicherten Azure-Dateifreigaben durchführen. Sie können diese Schritte auch über das [Azure-Portal](https://portal.azure.com/) ausführen.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Wenn Sie die Befehlszeilenschnittstelle lokal installieren und verwenden möchten, benötigen Sie mindestens die Version 2.0.18 der Azure-Befehlszeilenschnittstelle. Führen Sie zum Ermitteln der CLI-Version `az --version` aus. Installations- und Upgradeinformationen finden Sie bei Bedarf unter [Installieren von Azure CLI](/cli/azure/install-azure-cli).
-
 ## <a name="prerequisites"></a>Voraussetzungen
 
 In diesem Artikel wird vorausgesetzt, dass Sie bereits über eine durch [Azure Backup](./backup-overview.md) gesicherte Azure-Dateifreigabe verfügen. Wenn Sie noch nicht über eine Dateifreigabe verfügen, erfahren Sie unter [Sichern von Azure-Dateifreigaben mit CLI](backup-afs-cli.md), wie Sie die Sicherung für Ihre Dateifreigaben konfigurieren. In diesem Artikel verwenden Sie die folgenden Ressourcen:
-
-* **Ressourcengruppe:** *azurefiles*
-* **RecoveryServicesVault:** *azurefilesvault*
-* **Speicherkonto:** *afsaccount*
-* **Dateifreigabe:** *azurefiles*
+   -  **Ressourcengruppe:** *azurefiles*
+   -  **RecoveryServicesVault:** *azurefilesvault*
+   -  **Speicherkonto:** *afsaccount*
+   -  **Dateifreigabe:** *azurefiles*
+  
+  [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+   - Für dieses Tutorial ist mindestens Version 2.0.18 der Azure CLI erforderlich. Bei Verwendung von Azure Cloud Shell ist die aktuelle Version bereits installiert.
 
 ## <a name="monitor-jobs"></a>Überwachen von Aufträgen
 

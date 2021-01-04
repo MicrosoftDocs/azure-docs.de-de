@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 576eaf2ad9350651e4400d980e6fedce236dfa57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dfd729a48b7e81028078fd035b3b900f4d7b9bc
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257604"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444114"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>Daemon-App, die Web-APIs aufruft – Aufrufen einer Web-API aus der App
 
@@ -69,17 +69,14 @@ Für Daemon-Apps müssen die von Ihnen aufgerufenen Web-APIs vorab genehmigt wer
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [Daemon app - move to production (Daemon-App – Übergang in die Produktion)](./scenario-daemon-production.md?tabs=dotnet)
+Fahren Sie mit dem nächsten Artikel in diesem Szenario fort: [Überführen in die Produktion](./scenario-daemon-production.md?tabs=dotnet).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Daemon app - move to production (Daemon-App – Übergang in die Produktion)](./scenario-daemon-production.md?tabs=python)
+Fahren Sie mit dem nächsten Artikel in diesem Szenario fort: [Überführen in die Produktion](./scenario-daemon-production.md?tabs=python).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Daemon app - move to production (Daemon-App – Übergang in die Produktion)](./scenario-daemon-production.md?tabs=java)
+Fahren Sie mit dem nächsten Artikel in diesem Szenario fort: [Überführen in die Produktion](./scenario-daemon-production.md?tabs=java).
 
 ---

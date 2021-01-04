@@ -8,17 +8,14 @@ ms.date: 1/20/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c40f7d988f2b5f206f42eae787efcdce786948a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eef5e60b06eedb1fb07c57aa2e369dd3830fcad5
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857077"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932403"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Tutorial: Generieren simulierter Gerätedaten
-
-> [!NOTE]
-> Dieser Artikel ist Teil einer Tutorialreihe zur Verwendung von Azure Machine Learning für IoT Edge. Falls Sie direkt zu diesem Artikel navigiert sind, ist es ratsam, mit dem [ersten Artikel](tutorial-machine-learning-edge-01-intro.md) der Reihe zu beginnen.
 
 In diesem Artikel verwenden wir Machine Learning-Trainingsdaten, um ein Gerät zu simulieren, das Telemetriedaten an Azure IoT Hub sendet. Wie eingangs erwähnt, wird in diesem Tutorial das [Turbofan Engine Degradation Simulation-Dataset](https://c3.nasa.gov/dashlink/resources/139/) genutzt, um Flugzeugtriebwerk-Daten für das Trainieren und Testen zu simulieren.
 
@@ -45,6 +42,18 @@ Das DeviceHarness-Projekt ist ein .NET Core-Projekt in C#, das aus vier Klassen 
 Die Abarbeitung der in diesem Artikel beschriebenen Aufgaben sollte ungefähr 20 Minuten dauern.
 
 Die realen Abläufe dieses Schritts werden meist von Geräte- und Cloudentwicklern durchgeführt.
+
+In diesem Abschnitt des Tutorials lernen Sie Folgendes:
+
+> [!div class="checklist"]
+>
+> * Integrieren eines externes Projekt in Ihre Entwicklungsumgebung
+> * Generieren simulierter IoT-Gerätedaten mithilfe des Beispielprojekts „DeviceHarness“
+> * Anzeigen generierter Daten in IoT Hub
+
+## <a name="prerequisites"></a>Voraussetzungen
+
+Dieser Artikel ist Teil einer Tutorialreihe zur Verwendung von Azure Machine Learning für IoT Edge. Jeder Artikel in der Reihe baut auf der Arbeit im vorherigen Artikel auf. Wenn Sie diesen Artikel direkt aufgerufen haben, wechseln Sie zum [ersten Artikel](tutorial-machine-learning-edge-01-intro.md) in der Reihe.
 
 ## <a name="configure-visual-studio-code-and-build-deviceharness-project"></a>Konfigurieren von Visual Studio Code und Erstellen des DeviceHarness-Projekts
 
@@ -156,6 +165,10 @@ Die Daten, die wir gerade an Ihren IoT-Hub gesendet haben, wurden an den Speiche
 1. Die Dateien werden im [Avro](https://avro.apache.org/)-Format geschrieben. Doppelklicken Sie auf eine dieser Dateien, um eine weitere Browserregisterkarte zu öffnen und die Daten teilweise zu rendern. Wenn Sie aufgefordert werden, die Datei in einem Programm zu öffnen, können Sie VS Code auswählen. Die Daten werden dann richtig gerendert.
 
 1. Es ist nicht erforderlich, die Daten jetzt zu lesen oder zu interpretieren. Dies erledigen wir im nächsten Artikel.
+
+## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+
+Dieses Tutorial ist Teil einer Reihe, in der jeder Artikel auf den Schritten aufbaut, die jeweils im vorherigen Artikel ausgeführt wurden. Warten Sie mit dem Bereinigen von Ressourcen, bis Sie das letzte Tutorial abgeschlossen haben.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

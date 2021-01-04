@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 10/21/2020
 ms.author: b-juche
-ms.openlocfilehash: 61978566eba792a1d5b1db45ea4a9e8d6e84a543
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: f7b9cabdc7c2c706ff3b8dd5a0b3b5f7ed3666d6
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931035"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369028"
 ---
-# <a name="azure-netapp-files-sdks-and-cli-tools"></a>Azure NetApp Files SDKs und CLI-Tools
+# <a name="azure-netapp-files-sdks-cli-tools-and-arm-templates"></a>Azure NetApp Files SDKs, CLI-Tools und ARM-Vorlagen
 
-Dieser Artikel enthält eine Auflistung der SDKs und Befehlszeilentools (CLI-Tools), die von Azure NetApp Files unterstützt werden.
+Dieser Artikel enthält eine Auflistung der SDKs, Befehlszeilentools (CLI-Tools) und ARM-Vorlagen (Azure Resource Manager), die von Azure NetApp Files unterstützt werden.
 
 ## <a name="supported-sdks"></a>Unterstützte SDKs 
 
@@ -44,12 +44,18 @@ In der folgenden Tabelle sind die unterstützten CLI-Tools und die zugehörigen 
 
 |    Tool    |    Befehlsreferenz    |
 |------------------|--------------------------------------------|
-|    Azure CLI  |    [az netappfiles](/cli/azure/netappfiles?view=azure-cli-latest)    |
-|    PowerShell   |    [Azure PowerShell für Azure NetApp Files](/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files)    |
+|    Azure CLI  |    [az netappfiles](/cli/azure/netappfiles?view=azure-cli-latest&preserve-view=true)    |
+|    PowerShell   |    [Azure PowerShell für Azure NetApp Files](/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files&preserve-view=true)    |
 
 ## <a name="code-samples"></a>Codebeispiele
 
 Informationen finden Sie unter [Codebeispiele für Azure NetApp Files](/samples/browse/?filter-products=netapp&products=azure-netapp-files).
+
+## <a name="azure-resource-manager-templates"></a>Azure-Ressourcen-Manager-Vorlagen  
+
+Mit Azure Resource Manager (ARM) können Sie Ihre Anwendungen mithilfe einer deklarativen Vorlage bereitstellen. In einer Vorlage können Sie mehrere Dienste zusammen mit ihren Abhängigkeiten bereitstellen. Sie verwenden die gleiche Vorlage, um Ihre Anwendung während jeder Phase des Anwendungslebenszyklus wiederholt bereitzustellen.   
+
+Informationen finden Sie unter [Azure-Schnellstartvorlagen](https://azure.microsoft.com/resources/templates/?term=anf).
 
 ## <a name="next-steps"></a>Nächste Schritte   
  [Herunterladen von Azure SDKs](https://azure.microsoft.com/downloads/)

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
-ms.custom: mvc
-ms.openlocfilehash: c8d7b13f9e35a41a414a44c908997cfcc550af41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: a21df6e5f8d437415bb5376969d56d26153b5c5f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89011734"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500460"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>Tutorial: Überwachen eines virtuellen Linux-Computers in Azure
 
@@ -192,4 +192,4 @@ In diesem Tutorial haben Sie die Leistung Ihrer VM konfiguriert und angezeigt. S
 Im nächsten Tutorial erhalten Sie Informationen zu Azure Security Center.
 
 > [!div class="nextstepaction"]
-> [Verwalten der VM-Sicherheit](tutorial-azure-security.md)
+> [Verwalten der VM-Sicherheit](../tutorial-azure-security.md)

@@ -1,30 +1,35 @@
 ---
-title: Anfordern von Daten zu öffentlichen Verkehrsmitteln/Routen mit dem Microsoft Azure Maps-Mobilitätsdienst
-description: Hier erfahren Sie, wie Sie den Azure Maps-Mobilitätsdienst zum Anfordern von Daten zum öffentlichen Nahverkehr nutzen. Zu diesen Daten zählen beispielsweise Stadtbereich-IDs, Haltestellen, Routen und Routenbeschreibungen.
+title: Anfordern von Daten zu öffentlichen Verkehrsmitteln/Routen mit Microsoft Azure Maps-Mobilitätsdiensten (Vorschau)
+description: Erfahren Sie, wie Sie die Azure Maps-Mobilitätsdienste (Vorschau) zum Anfordern von Daten zum öffentlichen Nahverkehr nutzen. Zu diesen Daten zählen beispielsweise Stadtbereich-IDs, Haltestellen, Routen und Routenbeschreibungen.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/22/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 3ded5f6186d8ccdae0f42ecb9942c70e09f2dd9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 740080d742f535f868b2ae194b24bebe5ac6ac24
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310882"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906028"
 ---
-# <a name="request-public-transit-data-using-the-azure-maps-mobility-service"></a>Anfordern von Daten zu öffentlichen Verkehrsmitteln/Routen mit dem Mobilitätsdienst von Azure Maps
+# <a name="request-public-transit-data-using-the-azure-maps-mobility-services-preview"></a>Anfordern von Daten zu öffentlichen Verkehrsmitteln/Routen mit den Azure Maps-Mobilitätsdiensten (Vorschau) 
 
-Dieser Artikel zeigt, wie Sie den Azure Maps-[Mobilitätsdienst](https://aka.ms/AzureMapsMobilityService) verwenden, um Daten zu öffentlichen Verkehrsmitteln/Routen anzufordern. Daten zu öffentlichen Verkehrsmitteln umfassen Haltestellen, Routen und geschätzte Reisezeiten.
+> [!IMPORTANT]
+> Mobilitätsdienste von Azure Maps befinden sich derzeit in der öffentlichen Vorschau.
+> Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar. Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+In diesem Artikel wird erläutert, wie Sie Azure Maps-[Mobilitätsdienste](/rest/api/maps/mobility) verwenden, um Daten zu öffentlichen Verkehrsmitteln/Routen anzufordern. Daten zu öffentlichen Verkehrsmitteln umfassen Haltestellen, Routen und geschätzte Reisezeiten.
 
 In diesem Artikel lernen Sie Folgendes:
 
-* Rufen Sie die ID für einen Stadtbereich mit der [Get Metro Area-API](https://aka.ms/AzureMapsMobilityMetro) ab.
-* Fordern Sie Informationen zu Haltestellen in der Nähe an, indem Sie den Dienst [Get Nearby Transit](https://aka.ms/AzureMapsMobilityNearbyTransit) verwenden.
-* Führen Sie eine Abfrage über die [Get Transit Routes-API](https://aka.ms/AzureMapsMobilityTransitRoute) durch, um eine Route mit öffentlichen Verkehrsmitteln zu planen.
+* Rufen Sie die ID für einen Stadtbereich mit der [Get Metro Area-API](/rest/api/maps/mobility/getmetroareapreview) ab.
+* Fordern Sie Informationen zu Haltestellen in der Nähe an, indem Sie den Dienst [Get Nearby Transit](/rest/api/maps/mobility/getnearbytransitpreview) verwenden.
+* Führen Sie eine Abfrage über die [Get Transit Routes-API](/rest/api/maps/mobility/gettransitroutepreview) durch, um eine Route mit öffentlichen Verkehrsmitteln zu planen.
 * Fordern Sie die Geometrie der Verkehrsroute und den zugehörigen detaillierten Zeitplan an, indem Sie die [Get Transit Itinerary-API](https://aka.ms/https://azure.microsoft.com/services/azure-maps/) verwenden.
 
 ## <a name="prerequisites"></a>Voraussetzungen
@@ -36,7 +41,7 @@ In diesem Tutorial wird die Anwendung [Postman](https://www.postman.com/) verwen
 
 ## <a name="get-a-metro-area-id"></a>Abrufen einer ID für den Stadtbereich
 
-Um detaillierte Informationen über Anbieter von öffentlichen Verkehrsmittel und unterstützte öffentliche Verkehrsmittelarten für einen bestimmten Stadtbereich anzufordern, benötigen Sie die `metroId` dieses Bereichs. Mit der [API zum Abrufen des Stadtbereichs](https://aka.ms/AzureMapsMobilityMetro) können Sie Stadtbereiche anfordern, in denen der Azure Maps-Mobilitätsdienst verfügbar ist. Die Antwort enthält dann Details wie `metroId`, `metroName` und eine Darstellung der Geometrie des Stadtbereichs im GeoJSON-Format.
+Um detaillierte Informationen über Anbieter von öffentlichen Verkehrsmittel und unterstützte öffentliche Verkehrsmittelarten für einen bestimmten Stadtbereich anzufordern, benötigen Sie die `metroId` dieses Bereichs. Mit der [Get Metro Area-API](/rest/api/maps/mobility/getmetroareapreview) können Sie Stadtbereiche anfordern, in denen die Azure Maps-Mobilitätsdienste verfügbar sind. Die Antwort enthält dann Details wie `metroId`, `metroName` und eine Darstellung der Geometrie des Stadtbereichs im GeoJSON-Format.
 
 Wir erstellen nun eine Anforderung zum Abrufen der Stadtbereich-ID für „Seattle-Tacoma“. Führen Sie die folgenden Schritte aus, um die ID für einen Stadtbereich anzufordern:
 
@@ -111,9 +116,9 @@ Wir erstellen nun eine Anforderung zum Abrufen der Stadtbereich-ID für „Seatt
 
 ## <a name="request-nearby-transit-stops"></a>Anfordern von Verkehrsmittel-Haltestellen in der Nähe
 
-Mit dem Azure Maps-Dienst [Get Nearby Transit](https://aka.ms/AzureMapsMobilityNearbyTransit) können Sie Verkehrsobjekte durchsuchen. Die API gibt die Details zum Verkehrsobjekt zurück, z. B. Haltestellen öffentlicher Verkehrsmittel und Leihfahrräder im Bereich eines bestimmten Orts. Als Nächstes senden wir eine Anforderung an den Dienst, um nach den Haltestellen von öffentlichen Verkehrsmitteln innerhalb eines Radius von 300 Metern um einen bestimmten Ort zu suchen.
+Mit dem Azure Maps-Dienst [Get Nearby Transit](/rest/api/maps/mobility/getnearbytransitpreview) können Sie Verkehrsobjekte durchsuchen. Die API gibt die Details zum Verkehrsobjekt zurück, z. B. Haltestellen öffentlicher Verkehrsmittel und Leihfahrräder im Bereich eines bestimmten Orts. Als Nächstes senden wir eine Anforderung an den Dienst, um nach den Haltestellen von öffentlichen Verkehrsmitteln innerhalb eines Radius von 300 Metern um einen bestimmten Ort zu suchen.
 
-Führen Sie die hier angegebenen Schritte aus, um eine Anforderung an [Get Nearby Transit](https://aka.ms/AzureMapsMobilityNearbyTransit) zu senden:
+Führen Sie die hier angegebenen Schritte aus, um eine Anforderung an [Get Nearby Transit](/rest/api/maps/mobility/getnearbytransitpreview) zu senden:
 
 1. Klicken Sie in Postman auf **New Request (Neue Anforderung)**  | **GET request (GET-Anforderung)** , und nennen Sie sie **Get Nearby stops** (Haltestellen in der Nähe abrufen).
 
@@ -216,11 +221,11 @@ Zu Lernzwecken verwenden wir im nächsten Abschnitt eine `id` einer Bushaltestel
 
 ## <a name="request-a-transit-route"></a>Anfordern einer Verkehrsroute
 
-Die Azure Maps-API [Get Transit Routes](https://aka.ms/AzureMapsMobilityTransitRoute) ermöglicht die Reiseplanung. Sie gibt die bestmöglichen Routenoptionen von einem Ursprung zu einem Ziel zurück. Der Dienst bietet verschiedene Fortbewegungsmodi, z. B. zu Fuß, mit dem Fahrrad und öffentlichen Verkehrsmitteln. Als Nächstes suchen wir nach einer Route von der nächstgelegenen Bushaltestelle zum Space Needle-Turm in Seattle.
+Die Azure Maps-API [Get Transit Routes](/rest/api/maps/mobility/gettransitroutepreview) ermöglicht die Reiseplanung. Sie gibt die bestmöglichen Routenoptionen von einem Ursprung zu einem Ziel zurück. Der Dienst bietet verschiedene Fortbewegungsmodi, z. B. zu Fuß, mit dem Fahrrad und öffentlichen Verkehrsmitteln. Als Nächstes suchen wir nach einer Route von der nächstgelegenen Bushaltestelle zum Space Needle-Turm in Seattle.
 
 ### <a name="get-location-coordinates-for-destination"></a>Abrufen von Standortkoordinaten für ein Ziel
 
-Zum Abrufen der Standortkoordinaten des Space Needle-Turms verwenden wir den [Dienst für die Fuzzysuche](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) von Azure Maps.
+Zum Abrufen der Standortkoordinaten des Space Needle-Turms verwenden wir den [Dienst für die Fuzzysuche](/rest/api/maps/search/getsearchfuzzy) von Azure Maps.
 
 Führen Sie diese Schritte aus, um eine Anforderung an den Dienst für die Fuzzysuche zu senden:
 
@@ -337,7 +342,7 @@ Führen Sie die folgenden Schritte aus, um eine Route anzufordern:
 
     Wir fordern die Routen für das öffentliche Verkehrsmittel „Bus“ an, indem wir die Parameter `modeType` und `transitType` angeben. Die Anforderungs-URL enthält die Standorte, die in den vorherigen Abschnitten abgerufen wurden. Für `originType` verfügen wir jetzt über eine **stopId**. Und für `destionationType` haben wir die **position**.
 
-    Sehen Sie sich die [Liste mit den URI-Parametern](https://aka.ms/AzureMapsMobilityTransitRoute#uri-parameters) an, die Sie in Ihrer Anforderung für die [Get Transit Routes-API](https://aka.ms/AzureMapsMobilityTransitRoute) verwenden können.
+    Sehen Sie sich die [Liste mit den URI-Parametern](/rest/api/maps/mobility/gettransitroutepreview#uri-parameters) an, die Sie in Ihrer Anforderung für die [Get Transit Routes-API](/rest/api/maps/mobility/gettransitroutepreview) verwenden können.
   
     ```HTTP
     https://atlas.microsoft.com/mobility/transit/route/json?subscription-key={subscription-key}&api-version=1.0&originType=stopId&origin=522---2060603&destionationType=position&destination=47.62039,-122.34928&modeType=publicTransit&transitType=bus
@@ -524,7 +529,7 @@ Führen Sie die folgenden Schritte aus, um eine Route anzufordern:
 
 ## <a name="request-fastest-route-itinerary"></a>Anfordern der schnellsten Reiseroute
 
-Mit dem Dienst [Get Transit Itinerary](https://aka.ms/AzureMapsMobilityTransitItinerary) von Azure Maps können Sie Daten für eine bestimmte Route anfordern, indem Sie die **Reiserouten-ID** der Route verwenden, die von der [Get Transit Routes-API](https://aka.ms/AzureMapsMobilityTransitRoute) zurückgegeben wird. Führen Sie die folgenden Schritte aus, um eine Anforderung zu senden:
+Mit dem Dienst [Get Transit Itinerary](/rest/api/maps/mobility/gettransititinerarypreview) von Azure Maps können Sie Daten für eine bestimmte Route anfordern, indem Sie die **Reiserouten-ID** der Route verwenden, die von der [Get Transit Routes-API](/rest/api/maps/mobility/gettransitroutepreview) zurückgegeben wird. Führen Sie die folgenden Schritte aus, um eine Anforderung zu senden:
 
 1. Klicken Sie in Postman auf **New Request (Neue Anforderung)**  | **GET request (GET-Anforderung)** , und nennen Sie sie **Get Transit info** (Verkehrsinformationen abrufen).
 
@@ -796,12 +801,12 @@ Mit dem Dienst [Get Transit Itinerary](https://aka.ms/AzureMapsMobilityTransitIt
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Erfahren Sie, wie Sie mithilfe des Mobilitätsdiensts Echtzeitdaten anfordern:
+Erfahren Sie, wie Sie mithilfe der Mobilitätsdienste (Vorschau) Echtzeitdaten anfordern:
 
 > [!div class="nextstepaction"]
 > [Anfordern von Echtzeitdaten](how-to-request-real-time-data.md)
 
-Erkunden der Dokumentation der API des Azure Maps-Mobilitätsdiensts
+Machen Sie sich mit der API-Dokumentation für Azure Maps-Mobilitätsdienste (Vorschau) vertraut:
 
 > [!div class="nextstepaction"]
-> [Dokumentation des Mobilitätsdiensts](https://aka.ms/AzureMapsMobilityService)
+> [Dokumentation zu Mobilitätsdiensten](/rest/api/maps/mobility)

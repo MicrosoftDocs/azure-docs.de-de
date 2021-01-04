@@ -1,6 +1,6 @@
 ---
 title: Konvertieren einer Ressourcenklasse in eine Arbeitsauslastungsgruppe
-description: In diesem Artikel erfahren Sie, wie Sie eine Workloadgruppe erstellen, die einer Ressourcenklasse in Azure Synapse Analytics ähnelt.
+description: Erfahren Sie, wie Sie eine Workloadgruppe erstellen, die einer Ressourcenklasse in einem dedizierten SQL-Pool ähnelt.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 08/13/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: fe65aa8c69bc4bd3837ea68bc48ffdbbeed87e0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b82342ffb76f8bb58b8f6875751601094d6131ca
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461373"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461896"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Konvertieren von Ressourcenklassen in Arbeitsauslastungsgruppen
 

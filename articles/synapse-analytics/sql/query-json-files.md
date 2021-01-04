@@ -1,24 +1,24 @@
 ---
-title: Abfragen von JSON-Dateien mit SQL On-Demand (Vorschauversion)
-description: In diesem Abschnitt wird erläutert, wie JSON-Dateien mithilfe von SQL On-Demand in Azure Synapse Analytics gelesen werden.
+title: Abfragen von JSON-Dateien mit einem serverlosen SQL-Pool
+description: In diesem Abschnitt wird erläutert, wie JSON-Dateien mithilfe eines serverlosen SQL-Pools in Azure Synapse Analytics gelesen werden.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 86ed3f005788627166c65b30398279f04388546c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 5703e4ac3d4a545041c7d258f0b1f0e7c79a33b5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930848"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462601"
 ---
-# <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Abfragen von JSON-Dateien mit SQL On-Demand (Vorschauversion) in Azure Synapse Analytics
+# <a name="query-json-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Abfragen von JSON-Dateien mit einem serverlosen SQL-Pool in Azure Synapse Analytics
 
-In diesem Artikel erfahren Sie, wie Sie eine Abfrage mit SQL On-Demand (Vorschauversion) in Azure Synapse Analytics schreiben können. Das Ziel der Abfrage ist das Lesen von JSON-Dateien mithilfe von [OPENROWSET](develop-openrowset.md). 
+In diesem Artikel erfahren Sie, wie Sie eine Abfrage mit einem serverlosen SQL-Pool in Azure Synapse Analytics schreiben können. Das Ziel der Abfrage ist das Lesen von JSON-Dateien mithilfe von [OPENROWSET](develop-openrowset.md). 
 - JSON-Standarddateien, in denen mehrere JSON-Dokumente als JSON-Array gespeichert sind.
 - Durch Zeilen getrennte JSON-Dateien, in denen JSON-Dokumente durch Zeilenumbruchzeichen getrennt sind. Gängige Erweiterungen für diese Dateitypen sind `jsonl`, `ldjson`und `ndjson`.
 

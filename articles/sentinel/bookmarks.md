@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/24/2019
-ms.openlocfilehash: eacc104bf7157732f91507f631bcda2cd166bfb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e3b6802bab2c5fae97be8e55c8d5c11ff570f78
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77588687"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651311"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Behalten des Überblicks über Daten beim Hunting mit Azure Sentinel
 
@@ -133,7 +133,7 @@ Sie können auch die unformatierten Lesezeichendaten für alle Lesezeichen anzei
 > [!div class="mx-imgBorder"]
 > ![Lesezeichenprotokolle](./media/bookmarks/bookmark-logs.png)
 
-In dieser Ansicht werden alle Ihre Lesezeichen mit den zugehörigen Metadaten angezeigt. Sie können KQL-Abfragen ([Keyword Query Language](https://docs.microsoft.com/sharepoint/dev/general-development/keyword-query-language-kql-syntax-reference)) verwenden, um nach der neuesten Version des bestimmten Lesezeichens zu filtern, das Sie suchen.
+In dieser Ansicht werden alle Ihre Lesezeichen mit den zugehörigen Metadaten angezeigt. Sie können KQL-Abfragen ([Keyword Query Language](/sharepoint/dev/general-development/keyword-query-language-kql-syntax-reference)) verwenden, um nach der neuesten Version des bestimmten Lesezeichens zu filtern, das Sie suchen.
 
 > [!NOTE]
 > Es kann eine erhebliche Verzögerung (gemessen in Minuten) zwischen der Erstellung eines Lesezeichens und dem Zeitpunkt liegen, ab dem es auf der Registerkarte **Lesezeichen** angezeigt wird.

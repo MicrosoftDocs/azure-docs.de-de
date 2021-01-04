@@ -7,35 +7,35 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: 2af96c0c2e850d8e1be67c23e71aa677773c1e03
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7030ffeb49c0a3919894f6dcf81e7252777267c5
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283210"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629596"
 ---
 # <a name="how-to-configure-virtual-machine-offer-listing-details"></a>Konfigurieren von Details zu VM-Angebotsauflistungen
 
-Auf der Seite **Angebotsliste** können Sie Angebotsdetails wie Name, Beschreibung, Links und Kontakte definieren.
+Auf der Seite **Angebotsliste** (Auswahl im Partner Center im linken Navigationsmenü) können Sie Angebotsdetails wie Name, Beschreibung, Links und Kontakte definieren.
 
 > [!NOTE]
-> Die Inhalte der Angebotsliste wie Beschreibung, Dokumente, Screenshots und Nutzungsbedingungen müssen nicht in englischer Sprache vorliegen, sofern die Angebotsbeschreibung mit dem folgenden Satz beginnt: „Diese Anwendung ist nur auf \<non-English language> verfügbar“. Sie können auch eine URL als Link zu einer Website bereitstellen, die Inhalte in einer anderen Sprache als der in der Angebotsliste verwendeten anzubieten.
+> Die Inhalte der Angebotsliste wie Beschreibung, Dokumente, Screenshots und Nutzungsbedingungen müssen nicht in englischer Sprache vorliegen, sofern die Angebotsbeschreibung mit dem folgenden Satz beginnt: „Diese Anwendung ist nur auf \<non-English language> verfügbar“. Sie können auch eine Webadresse als Link zu einer Website bereitstellen, die Inhalte in einer anderen Sprache als der in der Angebotsliste verwendeten anbietet.
 
 ## <a name="marketplace-details"></a>Marketplace-Details
 
 ### <a name="name"></a>Name
 
-Der hier eingegebene Name wird Kunden als Titel Ihres Angebots angezeigt. In dieses Feld wird automatisch der Name eingetragen, den Sie beim Erstellen des Angebots im Feld **Angebotsalias** eingegeben haben. Sie können diesen Namen später ändern. Der Name:
+Der hier eingegebene Name wird Kunden als Titel Ihres Angebots angezeigt. In dieses Feld wird automatisch der Name eingetragen, den Sie beim Erstellen des Angebots im Feld **Angebotsalias** eingegeben haben. Der Name:
 
-- Kann markenrechtlich geschützt sein. Sie können Marken- und Copyrightsymbole einschließen.
-- Darf nicht mehr als 50 Zeichen umfassen.
+- Kann Marken- und Copyrightsymbole enthalten.
+- Darf höchstens 50 Zeichen umfassen.
 - Darf keine Emojis enthalten.
 
 ### <a name="search-results-summary"></a>Zusammenfassung der Suchergebnisse
 
 Geben Sie eine kurze Beschreibung Ihres Angebots ein, die in den Azure Marketplace-Suchergebnissen angezeigt werden soll. Sie darf bis zu 100 Zeichen enthalten.
 
-### <a name="long-summary"></a>Lange Zusammenfassung
+### <a name="short-description"></a>Kurze Beschreibung
 
 Geben Sie eine längere Beschreibung Ihres Angebots ein, die in den Azure Marketplace-Suchergebnissen angezeigt werden soll. Sie darf bis zu 256 Zeichen enthalten.
 
@@ -49,14 +49,14 @@ Verwenden Sie HTML-Tags, um Ihre Beschreibung zu formatieren und ansprechender z
 
 ### <a name="privacy-policy-link"></a>Link zur Datenschutzrichtlinie
 
-Geben Sie die Webadresse (URL) der Datenschutzrichtlinie Ihrer Organisation ein. Stellen Sie sicher, dass Ihr Angebot den Datenschutzbestimmungen und -gesetzen entspricht. Sie müssen auch eine gültige Datenschutzrichtlinie auf Ihrer Website veröffentlichen.
+Geben Sie die Webadresse (URL) der Datenschutzrichtlinie Ihrer Organisation ein. Stellen Sie sicher, dass Ihr Angebot den Datenschutzbestimmungen und -vorschriften entspricht. Sie müssen auch eine gültige Datenschutzrichtlinie auf Ihrer Website veröffentlichen.
 
 ## <a name="useful-links"></a>Nützliche Links
 
-Stellen Sie ergänzende Onlinedokumente zu Ihrem Angebot bereit. Um einen Link hinzuzufügen, wählen Sie **Link hinzufügen** aus, und füllen Sie dann die folgenden Felder aus:
+Stellen Sie ergänzende Onlinedokumente zu Ihrem Angebot bereit. Um einen Link hinzuzufügen, wählen Sie **Link hinzufügen** aus, und füllen Sie die folgenden Felder aus:
 
-- **Name** : Kunden wird der Name auf der Seite mit den Details angezeigt.
-- **Link (URL):** Geben Sie einen Link ein, über den Kunden Ihr Onlinedokument anzeigen können.
+- **Name**: Kunden wird der Name auf der Seite mit den Details angezeigt.
+- **Link**: Geben Sie eine Webadresse ein, über die Kunden Ihr Onlinedokument anzeigen können.
 
 ## <a name="customer-support-links"></a>Kundensupportlinks
 
@@ -67,21 +67,17 @@ Geben Sie die Supportwebsite an, auf der Kunden Ihr Supportteam erreichen könne
 
 ## <a name="partner-support-contact"></a>Partnersupportkontakt
 
-Geben Sie Kontaktinformationen für Microsoft-Partner an, die sie verwenden können, wenn Ihre Kunden ein Supportticket öffnen. Diese Informationen werden nicht im Azure Marketplace aufgeführt.
-
-- Name
-- Email
-- Phone
+Geben Sie **Name**, **E-Mail-Adresse** und **Telefonnummer** an, die von Microsoft-Partnern verwendet werden sollen, wenn Ihre Kunden ein Supportticket öffnen. Diese Informationen werden nicht im Azure Marketplace aufgeführt.
 
 ## <a name="engineering-contact"></a>Engineering-Kontakt
 
-Geben Sie Kontaktinformationen an, die Microsoft verwenden soll, wenn Probleme (einschließlich Zertifizierungsprobleme) bei Ihrem Angebot auftreten. Diese Informationen werden nicht im Azure Marketplace aufgeführt.
+Geben Sie **Name**, **E-Mail-Adresse** und **Telefonnummer** an, die von Microsoft verwendet werden sollen, wenn Probleme (einschließlich Zertifizierungsprobleme) bei Ihrem Angebot auftreten. Diese Informationen werden nicht im Azure Marketplace aufgeführt.
 
-- Name
-- Email
-- Phone
+## <a name="cloud-solution-provider-program-contact"></a>Kontakt für Cloud Solution Provider-Programm
 
-## <a name="azure-marketplace-media"></a>Azure Marketplace-Medien
+Geben Sie **Name**, **E-Mail-Adresse** und **Telefonnummer** der Person an, die für das CSP-Programm zuständig ist (falls zutreffend). Diese Informationen werden nicht im Azure Marketplace aufgeführt. Geben Sie für **Marketingmaterialien für das CSP-Programm** die Webadresse ein, über die Partner in diesem Programm Ihre Marketingmaterialien anzeigen können.
+
+## <a name="marketplace-media"></a>Marketplace-Medien
 
 Stellen Sie Logos und Bilder zur Verwendung mit Ihrem Angebot bereit. Alle Bilder müssen das PNG-Format aufweisen. Bei unscharfen Bildern wird Ihre Übermittlung abgelehnt.
 
@@ -90,13 +86,13 @@ Stellen Sie Logos und Bilder zur Verwendung mit Ihrem Angebot bereit. Alle Bilde
 >[!NOTE]
 >Wenn beim Hochladen von Dateien ein Problem auftritt, vergewissern Sie sich, dass das lokale Netzwerk den von Partner Center verwendeten Dienst https://upload.xboxlive.com nicht blockiert.
 
-### <a name="azure-marketplace-logos"></a>Azure Marketplace-Logos
+### <a name="logos"></a>Logos
 
-Geben Sie eine PNG-Datei für das **große** Logo an. Dies wird in Partner Center verwendet, um ein **kleines** und ein **mittleres** Logo zu erstellen. Sie können diese Logos später durch andere Bilder ersetzen.
+Geben Sie eine PNG-Datei für das **große** Logo an. Dies wird in Partner Center verwendet, um ein **kleines** und ein **mittleres** Logo zu erstellen. Sie können diese Logos später optional durch andere Bilder ersetzen.
 
-- **Groß** (von 216 × 216 bis 350 × 350 Pixel, erforderlich)
-- **Mittel** (90 × 90 Pixel, optional)
-- **Klein** (48 × 48 Pixel, optional)
+- **Groß** (von 216 x 216 bis 350 x 350 Pixel, erforderlich)
+- **Mittel** (90 x 90 Pixel, optional)
+- **Klein** (48 x 48 Pixel, optional)
 
 Diese Logos werden an unterschiedlichen Stellen in der Auflistung verwendet:
 
@@ -114,8 +110,8 @@ Fügen Sie optional bis zu fünf Videos hinzu, die Ihr Angebot vorstellen. Die V
 
 Weitere Ressourcen für Marketplace-Listen finden Sie unter [Bewährte Methoden für Angebotslistung](gtm-offer-listing-best-practices.md).
 
-Wählen Sie **Entwurf speichern** aus, bevor Sie fortfahren.
+Wählen Sie **Entwurf speichern** aus, bevor Sie mit der nächsten Registerkarte im linken Navigationsmenü (**Vorschauzielgruppe**) fortfahren.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Erstellen von Plänen](azure-vm-create-plans.md)
+- [Erstellen einer Vorschauzielgruppe](azure-vm-create-preview.md)

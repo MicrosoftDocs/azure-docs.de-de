@@ -1,17 +1,17 @@
 ---
 title: Automatisieren der Computermigration in Azure Migrate
 description: Hier wird beschrieben, wie Sie eine große Anzahl von Computern mithilfe von Skripts in Azure Migrate migrieren.
-author: snehaamicrosoft
-ms.service: azure-migrate
-ms.topic: article
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
+ms.topic: how-to
 ms.date: 04/01/2019
-ms.author: snehaa
-ms.openlocfilehash: c354c1c9dfacfcb6bf84f1140b58deca60c1874e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01196b23ce5bf9ce842da89d0773a77e6a1d5107
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86109840"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754231"
 ---
 # <a name="scale-migration-of-vms"></a>Skalieren der Migration von VMs 
 

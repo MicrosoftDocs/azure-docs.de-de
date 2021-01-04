@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 05/31/2020
+ms.date: 11/23/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: d2c2673e6863725e064f3ad8561ab77eb1b051eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd5c56ef74fbe0c60a9d395a7b8a0fbc496e773c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371523"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95534839"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Tutorial: Laden des Datasets „New York Taxis“
 
@@ -24,9 +24,6 @@ In diesem Tutorial wird die [COPY-Anweisung](https://docs.microsoft.com/sql/t-sq
 
 > [!div class="checklist"]
 >
-> * Erstellen eines SQL-Pools im Azure-Portal
-> * Einrichten einer Firewallregel auf Serverebene im Azure-Portal
-> * Herstellen einer Verbindung mit dem Data Warehouse mit SSMS
 > * Erstellen eines festgelegten Benutzers zum Laden von Daten
 > * Erstellen der Tabellen für das Beispieldataset 
 > * Verwenden der T-SQL-Anweisung „COPY“ zum Laden von Daten in Ihr Data Warehouse
@@ -36,128 +33,9 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
-Bevor Sie mit diesem Tutorial beginnen, laden Sie die neueste Version von [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) herunter, und installieren Sie sie.
+Bevor Sie mit diesem Tutorial beginnen, laden Sie die neueste Version von [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) herunter, und installieren Sie sie.  
 
-## <a name="log-in-to-the-azure-portal"></a>Anmelden beim Azure-Portal
-
-Melden Sie sich beim [Azure-Portal](https://portal.azure.com/)an.
-
-## <a name="create-a-blank-database"></a>Leere Datenbank erstellen
-
-Ein SQL-Pool wird mit einem definierten Satz von [Computeressourcen](memory-concurrency-limits.md) erstellt. Die Datenbank wird in einer [Azure-Ressourcengruppe](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) und auf einem [logischen SQL-Server](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) erstellt.
-
-Führen Sie die folgenden Schritte zum Erstellen einer leeren Datenbank aus.
-
-1. Klicken Sie im Azure-Portal links oben auf **Ressource erstellen**.
-
-2. Wählen Sie auf der Seite **Neu** die Option **Datenbanken** und dann auf der Seite **Neu** unter **Ausgewählte** die Option **Azure Synapse Analytics** aus.
-
-    ![Erstellen eines Data Warehouse](./media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
-
-3. Füllen Sie das Formular mit den folgenden Informationen aus:
-
-   | Einstellung            | Vorgeschlagener Wert       | BESCHREIBUNG                                                  |
-   | ------------------ | --------------------- | ------------------------------------------------------------ |
-   | *Name**            | mySampleDataWarehouse | Gültige Datenbanknamen finden Sie unter [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Datenbankbezeichner). |
-   | **Abonnement**   | Ihr Abonnement     | Ausführliche Informationen zu Ihren Abonnements finden Sie unter [Abonnements](https://account.windowsazure.com/Subscriptions). |
-   | **Ressourcengruppe** | myResourceGroup       | Gültige Ressourcengruppennamen finden Sie unter [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Benennungsregeln und Einschränkungen). |
-   | **Quelle auswählen**  | Leere Datenbank        | Gibt an, dass eine leere Datenbank erstellt werden soll. Hinweis: Ein Data Warehouse ist ein Datenbanktyp. |
-
-    ![Erstellen eines Data Warehouse](./media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
-
-4. Wählen Sie **Server** aus, um einen neuen Server für Ihre neue Datenbank zu erstellen und zu konfigurieren. Füllen Sie das Formular **Neuer Server** mit den folgenden Informationen aus:
-
-    | Einstellung                | Vorgeschlagener Wert          | BESCHREIBUNG                                                  |
-    | ---------------------- | ------------------------ | ------------------------------------------------------------ |
-    | **Servername**        | Ein global eindeutiger Name | Gültige Servernamen finden Sie unter [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Benennungsregeln und Einschränkungen). |
-    | **Serveradministratoranmeldung** | Ein gültiger Name           | Gültige Anmeldenamen finden Sie unter [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Datenbankbezeichner). |
-    | **Kennwort**           | Ein gültiges Kennwort       | Ihr Kennwort muss mindestens acht Zeichen umfassen und Zeichen aus drei der folgenden Kategorien enthalten: Großbuchstaben, Kleinbuchstaben, Zahlen und nicht alphanumerische Zeichen. |
-    | **Location**           | Gültiger Standort       | Informationen zu Regionen finden Sie unter [Azure-Regionen](https://azure.microsoft.com/regions/). |
-
-    ![Erstellen des Servers](./media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
-
-5. Wählen Sie **Auswählen**.
-
-6. Wählen Sie **Leistungsebene** aus, um anzugeben, ob „Gen1“ oder „Gen2“ als Data Warehouse verwendet werden soll, und um die Anzahl von Data Warehouse-Einheiten festzulegen.
-
-7. Wählen Sie für dieses Tutorial die SQL-Pool-Option **Gen2** aus. Der Schieberegler ist standardmäßig auf **DW1000c** festgelegt.  Schieben Sie ihn nach oben und unten, um sich mit der Funktionsweise vertraut zu machen.
-
-    ![Konfigurieren der Leistung](./media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
-
-8. Wählen Sie **Übernehmen**.
-9. Wählen Sie auf dem Bereitstellungsblatt eine **Sortierung** für die leere Datenbank aus. Verwenden Sie für dieses Tutorial den Standardwert. Weitere Informationen über Sortierungen finden Sie unter [Sortierungen](/sql/t-sql/statements/collations?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
-
-10. Nachdem Sie das Formular ausgefüllt haben, wählen Sie **Erstellen** aus, um die Datenbank bereitzustellen. Die Bereitstellung dauert einige Minuten.
-
-11. Wählen Sie auf der Symbolleiste die Option **Benachrichtigungen** aus, um den Bereitstellungsprozess zu überwachen.
-  
-     ![Screenshot, der das Azure-Portal mit geöffnetem Bereich „Benachrichtigungen“ und „Bereitstellung wird durchgeführt“ zeigt.](./media/load-data-from-azure-blob-storage-using-polybase/notification.png)
-
-## <a name="create-a-server-level-firewall-rule"></a>Erstellen einer Firewallregel auf Serverebene
-
-Eine Firewallregel auf Serverebene verhindert, dass externe Anwendungen und Tools eine Verbindung mit dem Server oder mit Datenbanken auf dem Server herstellen. Zum Herstellen von Konnektivität können Sie Firewallregeln hinzufügen, mit denen Konnektivität für bestimmte IP-Adressen ermöglicht wird.  Führen Sie die folgenden Schritte aus, um eine [Firewallregel auf Serverebene](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) für die IP-Adresse Ihres Clients zu erstellen.
-
-> [!NOTE]
-> Azure Synapse Analytics kommuniziert über Port 1433. Wenn Sie versuchen, eine Verbindung über ein Unternehmensnetzwerk herzustellen, wird ausgehender Datenverkehr über Port 1433 von der Firewall Ihres Netzwerks unter Umständen nicht zugelassen. In diesem Fall können Sie nur dann eine Verbindung mit Ihrem Server herstellen, wenn Ihre IT-Abteilung Port 1433 öffnet.
-
-1. Wählen Sie nach Abschluss der Bereitstellung im Menü auf der linken Seite **SQL-Datenbanken** und dann auf der Seite **SQL-Datenbanken** die Option **mySampleDatabase** aus. Die Übersichtsseite für Ihre Datenbank wird geöffnet. Auf dieser Seite wird der vollqualifizierte Servername (z. B. **mynewserver-20180430.database.windows.net**) angezeigt, und es werden Optionen zur weiteren Konfiguration bereitgestellt.
-
-2. Kopieren Sie diesen vollqualifizierten Servernamen, um in den nachfolgenden Schnellstarts eine Verbindung mit Ihrem Server und den Datenbanken herzustellen. Wählen Sie den Servernamen aus, um die Servereinstellungen zu öffnen.
-
-    ![Suchen des Servernamens](././media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
-
-3. Wählen Sie den Servernamen aus, um die Servereinstellungen zu öffnen.
-
-    ![Servereinstellungen](./media/load-data-from-azure-blob-storage-using-polybase/server-settings.png)
-
-4. Wählen Sie die Option **Firewalleinstellungen anzeigen** aus. Die Seite **Firewalleinstellungen** für den Server wird geöffnet.
-
-    ![Serverfirewallregel](./media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png)
-
-5. Wählen Sie in der Symbolleiste die Option **Client-IP-Adresse hinzufügen** aus, um Ihre aktuelle IP-Adresse einer neuen Firewallregel hinzuzufügen. Eine Firewallregel kann Port 1433 für eine einzelne IP-Adresse oder einen Bereich von IP-Adressen öffnen.
-
-6. Wählen Sie **Speichern** aus. Für Ihre aktuelle IP-Adresse wird eine Firewallregel auf Serverebene erstellt, und auf dem Server wird Port 1433 geöffnet.
-
-7. Wählen Sie **OK** aus, und schließen Sie anschließend die Seite **Firewalleinstellungen**.
-
-Jetzt können Sie mithilfe dieser IP-Adresse eine Verbindung mit dem SQL-Server und den zugehörigen Data Warehouses herstellen. Die Verbindung über SQL Server Management Studio oder ein anderes Tool Ihrer Wahl hergestellt werden. Verwenden Sie zum Herstellen der Verbindung das Serveradministratorkonto, das Sie zuvor erstellt haben.  
-
-> [!IMPORTANT]
-> Standardmäßig ist der Zugriff über die SQL-Datenbank-Firewall für alle Azure-Dienste aktiviert. Wählen Sie auf dieser Seite die Option **AUS** und dann **Speichern** aus, um die Firewall für alle Azure-Dienste zu deaktivieren.
-
-## <a name="get-the-fully-qualified-server-name"></a>Abrufen des vollqualifizierten Servernamens
-
-Rufen Sie den vollqualifizierten Servernamen für Ihren Server im Azure-Portal ab. Später verwenden Sie den vollqualifizierten Namen zum Herstellen einer Verbindung mit dem Server.
-
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/)an.
-2. Wählen Sie im Menü auf der linken Seite die Option **Azure Synapse Analytics** und dann auf der Seite **Azure Synapse Analytics** Ihre Datenbank aus.
-3. Suchen Sie im Azure-Portal auf der Seite für Ihre Datenbank unter **Zusammenfassung** nach Ihrer Datenbank, und kopieren Sie den **Servernamen**. In diesem Beispiel lautet der vollqualifizierte Name „mynewserver-20180430.database.windows.net“.
-
-    ![Verbindungsinformationen](././media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
-
-## <a name="connect-to-the-server-as-server-admin"></a>Herstellen einer Verbindung mit dem Server als Serveradministrator
-
-In diesem Abschnitt wird [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) zum Herstellen einer Verbindung mit Ihrem Server verwendet.
-
-1. Öffnen Sie SQL Server Management Studio.
-
-2. Geben Sie im Dialogfeld **Mit Server verbinden** die folgenden Informationen ein:
-
-    | Einstellung        | Vorgeschlagener Wert                            | BESCHREIBUNG                                                  |
-    | -------------- | ------------------------------------------ | ------------------------------------------------------------ |
-    | Servertyp    | Datenbank-Engine                            | Dieser Wert ist erforderlich.                                       |
-    | Servername    | Der vollqualifizierte Servername            | Der Name sollte etwa wie folgt lauten: **mynewserver-20180430.database.windows.net**. |
-    | Authentifizierung | SQL Server-Authentifizierung                  | In diesem Tutorial haben wir als einzigen Authentifizierungstyp die SQL-Authentifizierung konfiguriert. |
-    | Anmeldename          | Das Serveradministratorkonto                   | Hierbei handelt es sich um das Konto, das Sie beim Erstellen des Servers angegeben haben. |
-    | Kennwort       | Das Kennwort für das Serveradministratorkonto | Hierbei handelt es sich um das Kennwort, das Sie beim Erstellen des Servers angegeben haben. |
-
-    ![Verbindung mit dem Server herstellen](./media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
-
-3. Wählen Sie **Verbinden**. Das Fenster „Objekt-Explorer“ wird in SSMS geöffnet.
-
-4. Erweitern Sie im Objekt-Explorer den Eintrag **Datenbanken**. Erweitern Sie dann **Systemdatenbanken** und **Master**, um die Objekte in der Masterdatenbank anzuzeigen.  Erweitern Sie **mySampleDatabase**, um die Objekte in der neuen Datenbank anzuzeigen.
-
-    ![Datenbankobjekte](./media/load-data-from-azure-blob-storage-using-polybase/connected.png)
+In diesem Tutorial wird vorausgesetzt, dass Sie bereits einen dedizierten SQL-Pool aus dem folgenden [Tutorial](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal#connect-to-the-server-as-server-admin) erstellt haben.
 
 ## <a name="create-a-user-for-loading-data"></a>Erstellen eines Benutzers zum Laden von Daten
 
@@ -165,7 +43,7 @@ Das Serveradministratorkonto dient zum Ausführen von Verwaltungsvorgänge und e
 
 Es wird empfohlen, eine Anmeldung und einen Benutzer speziell zum Laden von Daten zu erstellen. Fügen Sie dann den Benutzer für das Laden einer [Ressourcenklasse](resource-classes-for-workload-management.md) hinzu, die eine geeignete maximale Speicherbelegung ermöglicht.
 
-Da Sie momentan als Serveradministrator verbunden sind, können Sie Anmeldungen und Benutzer erstellen. Führen Sie die folgenden Schritte aus, um eine Anmeldung und einen Benutzer mit dem Namen **LoaderRC20** zu erstellen. Weisen Sie den Benutzer dann der Ressourcenklasse **staticrc20** zu.
+Verbinden Sie sich als Serveradministrator, damit Sie Anmeldungen und Benutzer erstellen können. Führen Sie die folgenden Schritte aus, um eine Anmeldung und einen Benutzer mit dem Namen **LoaderRC20** zu erstellen. Weisen Sie den Benutzer dann der Ressourcenklasse **staticrc20** zu.
 
 1. Wählen Sie in SSMS mit der rechten Maustaste **Master** zum Anzeigen eines Dropdownmenüs und dann **Neue Abfrage** aus. Ein neues Abfragefenster wird geöffnet.
 

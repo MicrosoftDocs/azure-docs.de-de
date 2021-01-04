@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/10/2017
 ms.author: alkohli
-ms.openlocfilehash: 3a992e432a6111b5da02187bcf6592587c4d31bf
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5723e8d9fc7b0a72393dda1b225ca073a6474a0a
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977509"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534312"
 ---
 # <a name="install-update-05-on-your-storsimple-virtual-array"></a>Installieren von Update 0.5 in StorSimple Virtual Array
 
@@ -92,26 +92,26 @@ Verwenden Sie diese Methode zum Installieren von Updates auf einem Gerät, auf d
 
 1. Wechseln Sie auf der lokalen Webbenutzeroberfläche zu **Wartung** > **Softwareupdate**.
    
-    ![Aktualisieren des Geräts 1](./media/storsimple-virtual-array-install-update-05/update1m.png)
+    ![Screenshot: Menü „Wartung“ mit ausgewählter Option „Softwareupdate“](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
-2. Geben Sie in **Updatedateipfad**den Dateinamen für das Update oder den Hotfix ein. Sie können auch zur Installationsdatei des Updates oder Hotfixes navigieren, sofern sie auf einer Netzwerkfreigabe abgelegt wurde. Klicken Sie auf **Anwenden**.
+2. Geben Sie in **Updatedateipfad** den Dateinamen für das Update oder den Hotfix ein. Sie können auch zur Installationsdatei des Updates oder Hotfixes navigieren, sofern sie auf einer Netzwerkfreigabe abgelegt wurde. Klicken Sie auf **Anwenden**.
    
-    ![Aktualisieren des Geräts 2](./media/storsimple-virtual-array-install-update-05/update2m.png)
+    ![Screenshot: Textfeld „Updatedateipfad“ auf der Seite „Softwareupdate“](./media/storsimple-virtual-array-install-update-05/update2m.png)
 
 3. Es wird eine Warnung angezeigt. Da es sich hierbei um ein Gerät mit einem Einzelknoten handelt, wird das Gerät neu gestartet, und es kommt zu Ausfallzeit. Klicken Sie auf das Häkchensymbol.
    
-   ![Aktualisieren des Geräts 3](./media/storsimple-virtual-array-install-update-05/update3m.png)
+   ![Screenshot: Dialogfeld mit Downtimewarnung](./media/storsimple-virtual-array-install-update-05/update3m.png)
 
 4. Das Update wird gestartet. Nachdem das Gerät erfolgreich aktualisiert wurde, wird es neu gestartet. Auf die lokale Benutzeroberfläche kann währenddessen nicht zugegriffen werden.
    
-    ![Aktualisieren des Geräts 4](./media/storsimple-virtual-array-install-update-05/update5m.png)
+    ![Screenshot: Erfolgsmeldung für das Update](./media/storsimple-virtual-array-install-update-05/update5m.png)
 
 5. Nach dem Neustart wird die Seite **Anmelden** angezeigt. Um sicherzustellen, dass die Gerätesoftware aktualisiert wurde, wechseln Sie auf der lokalen Webbenutzeroberfläche zu **Wartung** >  **Softwareupdate**. Die angezeigte Softwareversion sollte **10.0.0.0.0.10290.0** für Update 0.5 lauten.
    
    > [!NOTE]
    > Die Softwareversionen werden in der lokalen Webbenutzeroberfläche und im Azure-Portal etwas unterschiedlich angegeben. Beispiel: Die lokale Webbenutzeroberfläche gibt **10.0.0.0.0.10290** an, und das Azure-Portal **10.0.10290.0**, obwohl es sich um die gleiche Version handelt.
    
-    ![Aktualisieren des Geräts 5](./media/storsimple-virtual-array-install-update-05/update6m.png)
+    ![Screenshot: Seite „Softwareupdate“ mit der aktuellen Softwareversion](./media/storsimple-virtual-array-install-update-05/update6m.png)
 
 6. Im nächsten Schritt wird der MDS-Agent aktualisiert. Wechseln Sie auf der Seite **Softwareupdate** zum **Updatedateipfad**, und suchen Sie die Datei `GenevaMonitoringAgentPackageInstaller.msi`. Wiederholen Sie die Schritte 2–4. Melden Sie sich nach dem Neustart des virtuellen Arrays an der lokalen Webbenutzeroberfläche an.
 

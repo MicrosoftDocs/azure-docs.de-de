@@ -39,6 +39,8 @@
       href: template-samples.md
 - name: Konzepte
   items:
+    - name: Konzepte und Best Practices
+      href: concepts-and-best-practices.md
     - name: Geschäftskontinuität
       href: virtual-network-disaster-recovery-guidance.md
     - name: Konnektivität
@@ -71,12 +73,18 @@
           href: ../expressroute/cross-network-connectivity.md?toc=%2fazure%2fvirtual-network%2ftoc.json
         - name: Peering
           href: virtual-network-peering-overview.md
-    - name: Integration für Azure-Dienste
+    - name: Integrieren von Azure-Diensten
       items:
-        - name: Dienstendpunkte
-          href: virtual-network-service-endpoints-overview.md
+        - name: Übersicht
+          href: vnet-integration-for-azure-services.md
         - name: Bereitstellen eines dedizierten Diensts
           href: virtual-network-for-azure-services.md
+        - name: Private Link
+          href: ../private-link/private-link-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+        - name: Dienstendpunkte
+          href: virtual-network-service-endpoints-overview.md
+        - name: Diensttags
+          href: service-tags-overview.md
     - name: IP-Dienste
       items:
         - name: Öffentliche IP-Adressen
@@ -95,8 +103,12 @@
           href: public-ip-security-baseline.md
     - name: Sicherheit
       items:
-        - name: Sicherheitsbaseline
+        - name: Virtual Network-Sicherheitsbaseline
           href: security-baseline.md
+        - name: Virtual Network NAT-Sicherheitsbaseline
+          href: nat-security-baseline.md
+        - name: Netzwerkisolation von Azure-Diensten
+          href: vnet-integration-for-azure-services.md
         - name: Netzwerksicherheitsgruppen
           items:
             - name: Übersicht
@@ -112,7 +124,7 @@
         - name: Kubernetes-Netzwerkrichtlinien
           href: kubernetes-network-policies.md
         - name: DDoS-Schutz
-          href: ddos-protection-overview.md
+          href: 'https://docs.microsoft.com/azure/ddos-protection/ddos-protection-overview'
         - name: TAP eines virtuellen Netzwerks
           href: virtual-network-tap-overview.md
         - name: Sicherheitskontrollen von Azure Policy
@@ -299,9 +311,9 @@
                 - name: Azure CLI
                   href: virtual-network-service-endpoint-policies-cli.md
         - name: Verwalten des DDoS-Schutzes
-          href: manage-ddos-protection.md
+          href: 'https://docs.microsoft.com/azure/ddos-protection/manage-ddos-protection'
         - name: Durchführen des Onboardings von Partnern für DDoS Protection Standard
-          href: ddos-protection-partner-onboarding.md
+          href: 'https://docs.microsoft.com/azure/ddos-protection/ddos-protection-partner-onboarding'
         - name: Verwalten von Netzwerksicherheitsgruppen
           href: manage-network-security-group.md
         - name: Sicherheitsszenarien

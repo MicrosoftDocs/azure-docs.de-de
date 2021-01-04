@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 08/17/2020
-ms.openlocfilehash: a3d7386e976551d70fbbc08930b2ab5603aa5d50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/06/2020
+ms.openlocfilehash: 4070f373175f3497156ced011a57e2ed7bd6e770
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269045"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009771"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Übersicht: Automatisieren der Bereitstellung für Azure Logic Apps durch Verwenden von Azure Resource Manager-Vorlagen
 
@@ -288,7 +288,7 @@ Die [Workflowressourcendefinition Ihrer Logik-App in einer Vorlage](/azure/templ
 * Die ID für jedes Integrationskonto, das von ihrer Logik-App verwendet wird
 * Die Workflowdefinition ihrer Logik-App
 * Ein `parameters`-Objekt, das die zur Laufzeit zu verwendenden Werte festlegt
-* Weitere Ressourceninformationen zu ihrer Logik-App, z. B. Name, Typ, Speicherort usw.
+* Weitere Ressourceninformationen zu Ihrer Logik-App, z. B. Name, Typ, Speicherort, eventuelle Laufzeitkonfigurationseinstellungen usw.
 
 ```json
 {
@@ -307,7 +307,8 @@ Die [Workflowressourcendefinition Ihrer Logik-App in einer Vorlage](/azure/templ
             },
             "definition": {<workflow-definition>},
             "parameters": {<workflow-definition-parameter-values>},
-            "accessControl": {}
+            "accessControl": {},
+            "runtimeConfiguration": {}
          },
          "name": "[parameters('LogicAppName')]", // Template parameter reference
          "type": "Microsoft.Logic/workflows",
@@ -334,7 +335,8 @@ Die folgenden Attribute gehören speziell zur Ressourcendefinition Ihrer Logik-A
 | `definition` | Ja | Object | Die Workflowdefinition, die Ihrer Logik-App zugrunde liegt. Diese Definition ist das Objekt, das in der Codeansicht angezeigt wird und im Thema [Schemareferenz zur Definitionssprache für Workflows in Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md) vollständig beschrieben ist. In dieser Workflowdefinition sind im `parameters`-Objekt die Parameter für die Werte deklariert, die zur Logik-App-Laufzeit verwendet werden sollen. Weitere Informationen hierzu finden Sie unter [Workflowdefinition und -parameter](#workflow-definition-parameters). <p><p>Um die Attribute anzuzeigen, die zur Workflowdefinition ihrer Logik-App gehören, wechseln Sie im Azure-Portal oder in Visual Studio von der „Entwurfsansicht“ in die „Codeansicht“, oder verwenden Sie ein Tool wie [Azure-Ressourcen-Explorer](https://resources.azure.com). |
 | `parameters` | Nein | Object | Die zur [Workflowdefinition gehörenden Parameterwerte](#workflow-definition-parameters), die zur Logik-App-Laufzeit verwendet werden sollen. Die Parameterdefinitionen für diese Werte sind im [„parameters“-Objekt Ihrer Workflowdefinition](#workflow-definition-parameters) enthalten. Wenn in Ihrer Logik-App [verwaltete Connectors](../connectors/apis-list.md) für den Zugriff auf andere Dienste und Systeme verwendet werden, enthält dieses Objekt außerdem ein `$connections`-Objekt, das die zur Laufzeit zu verwendenden Verbindungswerte festlegt. |
 | `accessControl` | Nein | Object | Hiermit werden Sicherheitsattribute für Ihre Logik-App angegeben, etwa Einschränken des IP-Zugriffs auf Anforderungstrigger oder Ausführungsverlaufseingaben und -ausgaben. Weitere Informationen finden Sie unter [Schützen des Zugriffs und der Daten in Azure Logic Apps](../logic-apps/logic-apps-securing-a-logic-app.md). |
-||||
+| `runtimeConfiguration` | Nein | Object | Zum Angeben von `operationOptions`-Eigenschaften, mit denen gesteuert wird, wie sich Ihre Logik-App zur Laufzeit verhält. Sie können beispielsweise Ihre Logik-App in einem [Modus mit hohem Durchsatz](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode) ausführen. |
+|||||
 
 Weitere Informationen zu Ressourcendefinitionen für diese Logic Apps-Objekte finden Sie unter [Microsoft.Logic-Ressourcentypen](/azure/templates/microsoft.logic/allversions):
 
@@ -437,7 +439,7 @@ In der folgenden Syntax ist zu sehen, wo Sie Parameter sowohl auf der Vorlagen- 
 }
 ```
 
-<a name="secure-workflow-definition-parmameters"></a>
+<a name="secure-workflow-definition-parameters"></a>
 
 ### <a name="secure-workflow-definition-parameters"></a>Sichere Workflowdefinitionsparameter
 

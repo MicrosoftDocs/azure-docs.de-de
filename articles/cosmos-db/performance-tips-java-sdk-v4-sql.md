@@ -3,19 +3,21 @@ title: Leistungstipps für das Azure Cosmos DB Java SDK v4
 description: Informieren Sie sich, wie Sie mit Clientkonfigurationsoptionen die Leistung von Azure Cosmos-Datenbanken für das Java SDK v4 verbessern.
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 10/13/2020
 ms.author: anfeldma
-ms.custom: devx-track-java
-ms.openlocfilehash: a014038996ae2846d059551b565feedd8de560a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-java, contperf-fy21q2
+ms.openlocfilehash: 79f8c868b68cba1cff3e99e88e989fcc4d2a3df2
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88258312"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029038"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Leistungstipps für das Azure Cosmos DB Java SDK v4
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
@@ -38,20 +40,13 @@ Im Anschluss finden Sie einige Optionen zur Optimierung der Datenbankleistung:
 * **Verbindungsmodus: Verwenden des direkten Modus**
 <a id="direct-connection"></a>
     
-    Die Art der Verbindung eines Clients mit Azure Cosmos DB hat erhebliche Auswirkungen auf die Leistung, insbesondere im Hinblick auf die clientseitige Latenz. Der Verbindungsmodus ist eine wichtige Einstellung bei der Clientkonfiguration. Dies sind die beiden für das Azure Cosmos DB Java SDK v4 verfügbaren Verbindungsmodi:  
-
-    * Direkter Modus (Standard)      
-    * Gatewaymodus
-
-    Diese Verbindungsmodi entscheiden im Wesentlichen über die Weiterleitung von Datenebenenanforderungen (Lese- und Schreibvorgänge für Dokumente) vom Clientcomputer an Partitionen im Azure Cosmos DB-Back-End. Im Allgemeinen ist der direkte Modus die bevorzugte Option für eine optimale Leistung. Er ermöglicht es dem Client, TCP-Verbindungen direkt mit Partitionen im Azure Cosmos DB-Back-End zu öffnen und Anforderungen *direkt* und ohne Vermittler zu senden. Im Gatewaymodus werden Anforderungen vom Client an einen sogenannten „Gatewayserver“ im Azure Cosmos DB-Front-End weitergeleitet, der wiederum Ihre Anforderungen an die entsprechenden Partitionen im Azure Cosmos DB-Back-End verteilt. Wenn Ihre Anwendung in einem Unternehmensnetzwerk mit strengen Firewalleinschränkungen ausgeführt wird, ist der Gatewaymodus die beste Wahl, da er den HTTPS-Standardport und einen einzelnen Endpunkt verwendet. Im Gatewaymodus ist jedoch jeweils ein zusätzlicher Netzwerkhop erforderlich (Client zu Gateway und Gateway zu Partition), wenn Daten in Azure Cosmos DB geschrieben oder daraus gelesen werden, was sich negativ auf die Leistung auswirkt. Aus diesem Grund bietet der direkte Modus die bessere Leistung, da weniger Netzwerkhops erforderlich sind.
-
-    Der Verbindungsmodus für Anforderungen auf Datenebene wird im Azure Cosmos DB-Client-Generator mithilfe der Methoden *directMode()* oder *gatewayMode()* konfiguriert, wie unten gezeigt. Um einen der beiden Modi mit den Standardeinstellungen zu konfigurieren, rufen Sie beide Methoden ohne Argumente auf. Andernfalls übergeben Sie eine Konfigurationseinstellungs-Klasseninstanz als Argument (*DirectConnectionConfig* für *directMode()* und *GatewayConnectionConfig* für *gatewayMode()* .)
+    Als Standardverbindungsmodus des Java SDK wird der direkte Modus verwendet. Sie können den Verbindungsmodus im Client-Generator mithilfe der Methode *directMode()* oder *gatewayMode()* wie unten gezeigt konfigurieren. Um einen der beiden Modi mit den Standardeinstellungen zu konfigurieren, rufen Sie beide Methoden ohne Argumente auf. Andernfalls übergeben Sie eine Konfigurationseinstellungs-Klasseninstanz als Argument (*DirectConnectionConfig* für *directMode()* und *GatewayConnectionConfig* für *gatewayMode()* ). Weitere Informationen zu verschiedenen Konnektivitätsoptionen finden Sie im Artikel zu den [Konnektivitätsmodi](sql-sdk-connection-modes.md).
     
     ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Java V4 SDK
 
-    # <a name="async"></a>[Asynchron](#tab/api-async)
+    # <a name="async"></a>[Async](#tab/api-async)
 
-    Java SDK V4 (Maven com.azure::azure-cosmos) Asynchrone API
+    Java SDK V4 (Maven com.azure::azure-cosmos) Async-API
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceClientConnectionModeAsync)]
 
@@ -92,13 +87,13 @@ Im Anschluss finden Sie einige Optionen zur Optimierung der Datenbankleistung:
 
 * **Aktivieren des beschleunigten Netzwerkbetriebs auf Ihrer Azure-VM für geringere Wartezeit**
 
-Es wird empfohlen, dass Sie die Anweisungen zum Aktivieren des beschleunigten Netzwerkbetriebs für Ihre [Windows-](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) oder [Linux-VM](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) befolgen (für Anweisungen jeweils klicken), um die Leistung zu maximieren.
+Es wird empfohlen, dass Sie die Anweisungen zum Aktivieren des beschleunigten Netzwerkbetriebs für Ihre [Windows-](../virtual-network/create-vm-accelerated-networking-powershell.md) oder [Linux-VM](../virtual-network/create-vm-accelerated-networking-cli.md) befolgen (für Anweisungen jeweils klicken), um die Leistung zu maximieren.
 
 Ohne den beschleunigten Netzwerkbetrieb können E/A-Vorgänge zwischen Ihrer Azure-VM und anderen Azure-Ressourcen unnötigerweise über einen Host und einen virtuellen Switch zwischen der VM und dessen Netzwerkkarte weitergeleitet werden. Wenn sich der Host und der virtuelle Switch inline auf dem Datenpfad befinden, sorgt dies beim Kommunikationskanal nicht nur für eine längere Wartezeit und Jitter, sondern auch die CPU-Zyklen von der VM werden reduziert. Bei beschleunigtem Netzwerkbetrieb erstellt die VM ohne Vermittler direkt Schnittstellen mit der Netzwerkkarte. Alle Netzwerkrichtliniendetails, die zuvor vom Host und dem virtuellen Switch verarbeitet wurden, werden jetzt über die Hardware der Netzwerkkarte verarbeitet, und der Host und der virtuelle Switch werden umgangen. Im Allgemeinen sind eine kürzere und *konsistentere* Wartezeit, ein höherer Durchsatz und eine geringere CPU-Auslastung zu erwarten, wenn Sie den beschleunigten Netzwerkbetrieb aktivieren.
 
 Einschränkungen: Der beschleunigte Netzwerkbetrieb muss vom Betriebssystem der VM unterstützt werden und kann nur aktiviert werden, wenn die VM beendet und ihre Zuordnung aufgehoben wurde. Die VM kann nicht mit dem Azure Resource Manager bereitgestellt werden.
 
-Weitere Informationen finden Sie in den Anweisungen für [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) bzw. [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+Weitere Informationen finden Sie in den Anweisungen für [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) bzw. [Linux](../virtual-network/create-vm-accelerated-networking-cli.md).
 
 ## <a name="sdk-usage"></a>SDK-Verwendung
 * **Installieren des neuesten SDKs**
@@ -129,15 +124,15 @@ Weitere Informationen finden Sie in den Anweisungen für [Windows](https://docs.
     
     Bei Verwendung der Sync-API ermöglicht eine geografische Kollokation einen höheren und konsistenteren Durchsatz (siehe [Bereitstellen von Clients in derselben Azure-Region für eine bessere Leistung](#collocate-clients)), der Durchsatz der Async-API wird jedoch nicht erreicht.
 
-    Einige Benutzer sind möglicherweise auch nicht mit [Project Reactor](https://projectreactor.io/) vertraut. Dabei handelt es sich um das Reactive Streams-Framework, das zum Implementieren der Async-API des Azure Cosmos DB Java SDK v4 verwendet wird. Wenn dies ein Problem darstellt, empfiehlt es sich, den [Einführungsleitfaden zu Reactor-Mustern](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md) durchzulesen und sich mithilfe dieser [Einführung in das reaktive Programmieren](https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Intro) damit vertraut zu machen. Wenn Sie Azure Cosmos DB bereits mit einer Async-Schnittstelle verwendet haben und es sich bei dem verwendeten SDK um das Azure Cosmos DB Async Java SDK v2 gehandelt hat, sind Sie möglicherweise mit [ReactiveX](http://reactivex.io/)/[RxJava](https://github.com/ReactiveX/RxJava) vertraut, sind sich aber nicht sicher, was sich bei Project Reactor geändert hat. Sehen Sie sich in diesem Fall unseren [Leitfaden mit dem Vergleich von Reactor und RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) an.
+    Einige Benutzer sind möglicherweise auch nicht mit [Project Reactor](https://projectreactor.io/) vertraut. Dabei handelt es sich um das Reactive Streams-Framework, das zum Implementieren der Async-API des Azure Cosmos DB Java SDK v4 verwendet wird. Wenn dies ein Problem darstellt, empfiehlt es sich, den [Einführungsleitfaden zu Reactor-Mustern](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-pattern-guide.md) durchzulesen und sich mithilfe dieser [Einführung in das reaktive Programmieren](https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Intro) damit vertraut zu machen. Wenn Sie Azure Cosmos DB bereits mit einer Async-Schnittstelle verwendet haben und es sich bei dem verwendeten SDK um das Azure Cosmos DB Async Java SDK v2 gehandelt hat, sind Sie möglicherweise mit [ReactiveX](http://reactivex.io/)/[RxJava](https://github.com/ReactiveX/RxJava) vertraut, sind sich aber nicht sicher, was sich bei Project Reactor geändert hat. Sehen Sie sich in diesem Fall unseren [Leitfaden mit dem Vergleich von Reactor und RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) an.
 
     Die folgenden Codeausschnitte zeigen, wie Sie Ihren Azure Cosmos DB-Client für Async- oder Sync-API-Vorgänge initialisieren:
 
     ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Java V4 SDK
 
-    # <a name="async"></a>[Asynchron](#tab/api-async)
+    # <a name="async"></a>[Async](#tab/api-async)
 
-    Java SDK V4 (Maven com.azure::azure-cosmos) Asynchrone API
+    Java SDK V4 (Maven com.azure::azure-cosmos) Async-API
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceClientAsync)]
 
@@ -155,49 +150,49 @@ Weitere Informationen finden Sie in den Anweisungen für [Windows](https://docs.
 
     Im Azure Cosmos DB Java SDK v4 ist der direkte Modus die beste Wahl, um die Datenbankleistung bei den meisten Workloads zu verbessern. 
 
-    * ***Übersicht über den direkten Modus***
+    * ***Übersicht über den direkten Modus** _
 
-        :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Abbildung der Azure Cosmos DB-Verbindungsrichtlinie" border="false":::
+        :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Darstellung der Architektur im direkten Modus" border="false":::
 
-        Die clientseitige Architektur, die im direkten Modus eingesetzt wird, ermöglicht vorhersagbare Netzwerkauslastungen und Multiplexzugriff auf Azure Cosmos DB-Replikate. Das obige Diagramm zeigt, wie Clientanforderungen im direkten Modus an Replikate im Cosmos DB-Back-End weitergeleitet werden. Bei der Architektur für den direkten Modus werden auf der Clientseite bis zu 10 **Kanäle** pro DB-Replikat zugeordnet. Ein Kanal ist eine TCP-Verbindung mit einem vorgeschalteten Anforderungspuffer, der 30 Anforderungen aufnehmen kann. Die zu einem Replikat gehörenden Kanäle werden nach Bedarf dynamisch vom **Dienstendpunkt** des Replikats zugeordnet. Wenn der Benutzer eine Anforderung im direkten Modus übermittelt, leitet der **TransportClient** die Anforderung basierend auf dem Partitionsschlüssel an den richtigen Dienstendpunkt weiter. In der **Anforderungswarteschlange** werden die Anforderungen vor dem Dienstendpunkt gepuffert.
+        Die clientseitige Architektur, die im direkten Modus eingesetzt wird, ermöglicht vorhersagbare Netzwerkauslastungen und Multiplexzugriff auf Azure Cosmos DB-Replikate. Das obige Diagramm zeigt, wie Clientanforderungen im direkten Modus an Replikate im Cosmos DB-Back-End weitergeleitet werden. Bei der Architektur für den direkten Modus werden auf Clientseite bis zu 10 *Kanäle* pro DB-Replikat zugeordnet. Ein Kanal ist eine TCP-Verbindung mit einem vorgeschalteten Anforderungspuffer, der 30 Anforderungen aufnehmen kann. Die zu einem Replikat gehörenden Kanäle werden nach Bedarf dynamisch vom **Dienstendpunkt** des Replikats zugeordnet. Wenn der Benutzer eine Anforderung im direkten Modus übermittelt, leitet der **TransportClient** die Anforderung basierend auf dem Partitionsschlüssel an den richtigen Dienstendpunkt weiter. In der **Anforderungswarteschlange** werden die Anforderungen vor dem Dienstendpunkt gepuffert.
 
-    * ***Konfigurationsoptionen für den direkten Modus***
+    * ***Konfigurationsoptionen für den direkten Modus** _
 
-        Wenn ein nicht standardmäßiges Verhalten beim direkten Modus gewünscht ist, erstellen Sie eine *DirectConnectionConfig*-Instanz, passen Sie deren Eigenschaften an, und übergeben Sie die angepasste Eigenschafteninstanz dann an die Methode *directMode()* im Azure Cosmos DB-Client-Generator.
+        Wenn ein nicht standardmäßiges Verhalten beim direkten Modus gewünscht ist, erstellen Sie eine DirectConnectionConfig-Instanz. Passen Sie deren Eigenschaften an, und übergeben Sie die angepasste Eigenschafteninstanz dann an die Methode *directMode()* im Azure Cosmos DB-Client-Generator.
 
         Diese Konfigurationseinstellungen steuern das Verhalten der zugrunde liegenden Architektur des weiter oben behandelten direkten Modus.
 
         Verwenden Sie als ersten Schritt die folgenden empfohlenen Konfigurationseinstellungen. Diese *DirectConnectionConfig*-Optionen sind erweiterte Konfigurationseinstellungen, die sich auf unerwartete Weise auf die SDK-Leistung auswirken können. Es wird empfohlen, dass Benutzer diese nicht ändern, es sei denn, sie kennen die möglichen Auswirkungen und dies ist absolut notwendig. Wenden Sie sich an das [Azure Cosmos DB-Team](mailto:CosmosDBPerformanceSupport@service.microsoft.com), wenn Sie mit diesem speziellen Thema Probleme haben.
 
-        | Konfigurationsoption       | Standard    |
-        | :------------------:       | :-----:    |
-        | idleConnectionTimeout      | „PT1M“     |
-        | maxConnectionsPerEndpoint  | „PT0S“     |
-        | connectTimeout             | „PT1M10S“  |
-        | idleEndpointTimeout        | 8388608    |
-        | maxRequestsPerConnection   | 10         |
+        | Konfigurationsoption       | Standard   |
+        | :------------------:       | :-----:   |
+        | idleConnectionTimeout      | „PT0“     |
+        | maxConnectionsPerEndpoint  | „130“     |
+        | connectTimeout             | „PT5S“    |
+        | idleEndpointTimeout        | „PT1H“    |
+        | maxRequestsPerConnection   | „30“      |
 
 * **Optimieren von parallelen Abfragen für partitionierte Sammlungen**
 
     Das Azure Cosmos DB Java SDK v4 unterstützt parallele Abfragen, mit denen Sie eine partitionierte Sammlung parallel abfragen können. Weitere Informationen finden Sie in den [Codebeispielen](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples) für die Arbeit mit dem Azure Cosmos DB Java SDK v4. Parallele Abfragen sind darauf ausgelegt, Latenz und Durchsatz im Vergleich mit seriellen Abfragen zu verbessern.
 
-    * ***Optimieren von setMaxDegreeOfParallelism\:***
+    * ***Optimieren von setMaxDegreeOfParallelism\:** _
     
         Bei parallelen Abfragen werden mehrere Partitionen parallel abgefragt. Die Daten einer individuell partitionierten Sammlung werden in Bezug auf die Abfrage aber seriell abgerufen. Legen Sie also „setMaxDegreeOfParallelism“ auf die Anzahl von Partitionen fest, bei der die Wahrscheinlichkeit, dass die bestmögliche Leistung für die Abfrage erzielt wird, am höchsten ist (vorausgesetzt, alle anderen Systembedingungen bleiben unverändert). Falls Ihnen die Anzahl von Partitionen nicht bekannt ist, können Sie setMaxDegreeOfParallelism auf einen hohen Wert festlegen. Das System wählt für den maximalen Grad an Parallelität dann den minimalen Wert aus (Anzahl von Partitionen, Benutzereingabe).
 
         Es ist wichtig zu beachten, dass sich für parallele Abfragen die größten Vorteile ergeben, wenn die Daten in Bezug auf die Abfrage gleichmäßig auf alle Partitionen verteilt werden. Wenn die partitionierte Auflistung so partitioniert ist, dass sich alle Daten bzw. die meisten Daten, die von einer Abfrage zurückgegeben werden, auf einigen wenigen Partitionen befinden (schlimmstenfalls nur auf einer Partition), können aufgrund dieser Partitionierung Engpässe bei der Leistung auftreten.
 
-    * ***Optimieren von setMaxBufferedItemCount\:***
+    **Optimieren von setMaxBufferedItemCount\:** _
     
-        Parallele Abfragen sind so konzipiert, dass Ergebnisse vorab abgerufen werden, während der Client den aktuellen Batch der Ergebnisse verarbeitet. Diese Art des Abrufs führt zu einer Verbesserung der Latenz einer Abfrage. setMaxBufferedItemCount begrenzt die Anzahl von vorab abgerufenen Ergebnissen. Wenn Sie „setMaxBufferedItemCount“ auf die erwartete Anzahl von zurückgegebenen Ergebnissen (oder eine höhere Anzahl) festlegen, ist der Vorteil durch das vorherige Abrufen für die Abfrage am größten.
+        Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. setMaxBufferedItemCount limits the number of pre-fetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from pre-fetching.
 
-        Das vorherige Abrufen funktioniert unabhängig von MaxDegreeOfParallelism, und es ist nur ein Puffer für die Daten aller Partitionen vorhanden.
+        Pre-fetching works the same way irrespective of the MaxDegreeOfParallelism, and there is a single buffer for the data from all partitions.
 
-* **Aufskalieren Ihrer Clientworkload**
+**Aufskalieren Ihrer Clientworkload**
 
-    Wenn Sie auf einem hohen Durchsatzniveau testen, kann sich die Clientanwendung als Engpass erweisen, da der Computer die CPU- oder Netzwerkauslastung deckelt. Wenn dieser Punkt erreicht wird, können Sie das Azure Cosmos DB-Konto weiter auslasten, indem Sie Ihre Clientanwendungen auf mehrere Server horizontal hochskalieren.
+    If you are testing at high throughput levels, the client application may become the bottleneck due to the machine capping out on CPU or network utilization. If you reach this point, you can continue to push the Azure Cosmos DB account further by scaling out your client applications across multiple servers.
 
-    Eine gute Faustregel ist, eine CPU-Auslastung von 50 Prozent auf einem beliebigen Server nicht zu überschreiten, um die Wartezeit gering zu halten.
+    A good rule of thumb is not to exceed >50% CPU utilization on any given server, to keep latency low.
 
    <a id="tune-page-size"></a>
 
@@ -238,19 +233,19 @@ Weitere Informationen finden Sie in den Anweisungen für [Windows](https://docs.
 
     Aus verschiedenen Gründen kann es erforderlich sein, die Protokollierung in einem Thread hinzuzufügen, der einen hohen Anforderungsdurchsatz verursacht. Wenn das Ziel darin besteht, den bereitgestellten Durchsatz eines Containers mit den von diesem Thread generierten Anforderungen vollständig auszuschöpfen, kann die Leistung mithilfe von Protokollierungsoptimierungen erheblich verbessert werden.
 
-    * ***Konfigurieren einer Async-Protokollierung***
+    * ***Konfigurieren einer Async-Protokollierung** _
 
         Die Wartezeit einer synchronen Protokollierung ist notwendigerweise ein Faktor der Berechnung der Gesamtwartezeit des Threads, der Anforderungen generiert. Eine asynchrone Protokollierung wie [log4j2](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flogging.apache.org%2Flog4j%2Flog4j-2.3%2Fmanual%2Fasync.html&data=02%7C01%7CCosmosDBPerformanceInternal%40service.microsoft.com%7C36fd15dea8384bfe9b6b08d7c0cf2113%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637189868158267433&sdata=%2B9xfJ%2BWE%2F0CyKRPu9AmXkUrT3d3uNA9GdmwvalV3EOg%3D&reserved=0) wird empfohlen, um den Protokollierungsaufwand von Hochleistungsanwendungsthreads zu entkoppeln.
 
-    * ***Deaktivieren der Netty-Protokollierung***
+    _ ***Deaktivieren der Netty-Protokollierung** _
 
-        Die Netty-Bibliotheksprotokollierung führt zu übermäßiger Kommunikation und muss deaktiviert werden (das Unterdrücken der Anmeldung in der Konfiguration reicht möglicherweise nicht aus), um zusätzliche CPU-Kosten zu vermeiden. Wenn Sie sich nicht im Debuggingmodus befinden, deaktivieren Sie die Protokollierung von Netty vollständig. Wenn Sie also „log4j“ verwenden, um die zusätzlichen CPU-Kosten zu verhindern, die durch ``org.apache.log4j.Category.callAppenders()`` von Netty anfallen, fügen Sie Ihrer Codebasis die folgende Zeile hinzu:
+        Netty library logging is chatty and needs to be turned off (suppressing sign in the configuration may not be enough) to avoid additional CPU costs. If you are not in debugging mode, disable netty's logging altogether. So if you are using log4j to remove the additional CPU costs incurred by ``org.apache.log4j.Category.callAppenders()`` from netty add the following line to your codebase:
 
         ```java
         org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
         ```
 
- * **Ressourcengrenzwert des Betriebssystems für geöffnete Dateien**
+ _ **Ressourcengrenzwert des Betriebssystems für geöffnete Dateien**
  
     Einige Linux-Systeme (z. B. Red Hat) haben eine Obergrenze für die Anzahl von offenen Dateien und damit für die Gesamtanzahl von Verbindungen. Führen Sie den folgenden Befehl aus, um die aktuellen Grenzwerte anzuzeigen:
 
@@ -276,9 +271,9 @@ Weitere Informationen finden Sie in den Anweisungen für [Windows](https://docs.
 
     Geben Sie beim API-Aufruf mit Punktschreibvorgängen wie unten gezeigt Elementpartitionsschlüssel an, um die Leistung zu verbessern:
 
-    # <a name="async"></a>[Asynchron](#tab/api-async)
+    # <a name="async"></a>[Async](#tab/api-async)
 
-    Java SDK V4 (Maven com.azure::azure-cosmos) Asynchrone API
+    Java SDK V4 (Maven com.azure::azure-cosmos) Async-API
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceNoPKAsync)]
 
@@ -292,9 +287,9 @@ Weitere Informationen finden Sie in den Anweisungen für [Windows](https://docs.
 
     Geben Sie also nicht wie unten gezeigt nur die Elementinstanz an:
 
-    # <a name="async"></a>[Asynchron](#tab/api-async)
+    # <a name="async"></a>[Async](#tab/api-async)
 
-    Java SDK V4 (Maven com.azure::azure-cosmos) Asynchrone API
+    Java SDK V4 (Maven com.azure::azure-cosmos) Async-API
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceAddPKAsync)]
 
@@ -318,7 +313,7 @@ Weitere Informationen finden Sie in den Anweisungen für [Windows](https://docs.
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=MigrateIndexingAsync)]
 
-    Weitere Informationen finden Sie unter [Indizierungsrichtlinien für Azure Cosmos DB](indexing-policies.md).
+    Weitere Informationen finden Sie unter [Indizierungsrichtlinien für Azure Cosmos DB](index-policy.md).
 
 ## <a name="throughput"></a>Throughput
 <a id="measure-rus"></a>
@@ -335,7 +330,7 @@ Weitere Informationen finden Sie in den Anweisungen für [Windows](https://docs.
 
     # <a name="async"></a>[Asynchron](#tab/api-async)
 
-    Java SDK V4 (Maven com.azure::azure-cosmos) Asynchrone API
+    Java SDK V4 (Maven com.azure::azure-cosmos) Async-API
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceRequestChargeAsync)]
 
@@ -372,4 +367,4 @@ Weitere Informationen finden Sie in den Anweisungen für [Windows](https://docs.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zum Entwerfen einer auf Skalierung und hohe Leistung ausgelegten Anwendung finden Sie unter [Partitionieren und Skalieren in Azure Cosmos DB](partition-data.md).
+Weitere Informationen zum Entwerfen einer auf Skalierung und hohe Leistung ausgelegten Anwendung finden Sie unter [Partitionieren und Skalieren in Azure Cosmos DB](partitioning-overview.md).

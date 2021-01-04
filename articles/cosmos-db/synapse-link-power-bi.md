@@ -1,26 +1,27 @@
 ---
-title: Power BI und Synapse SQL (serverlos) zum Analysieren von Azure Cosmos DB-Daten mit Synapse Link
-description: Hier erfahren Sie, wie Sie eine Synapse SQL (serverlos)-Datenbank und Sichten zu Synapse Link für Azure Cosmos DB erstellen, die Azure Cosmos-Container abfragen und dann mit Power BI ein Modell für diese Sichten erstellen.
+title: Power BI und serverloser SQL-Pool zum Analysieren von Azure Cosmos DB-Daten mit Synapse Link
+description: Hier erfahren Sie, wie Sie eine serverlose SQL-Pooldatenbank und Sichten zu Synapse Link für Azure Cosmos DB erstellen, die Azure Cosmos DB-Container abfragen und dann mit Power BI ein Modell für diese Sichten erstellen.
 author: ArnoMicrosoft
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/30/2020
 ms.author: acomet
-ms.openlocfilehash: 03ea1b0cdfef30935b38078d0811d1408a78c41e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 959070ca431c3397779a2a22c16f03b3adebbb35
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930476"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444507"
 ---
-# <a name="use-power-bi-and-synapse-sql-serverless-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Verwenden von Power BI und Synapse SQL (serverlos) zum Analysieren von Azure Cosmos DB-Daten mit Synapse Link (Vorschau)
+# <a name="use-power-bi-and-serverless-synapse-sql-pool-preview-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Verwenden von Power BI und serverlosem Synapse SQL-Pool (Vorschau) zum Analysieren von Azure Cosmos DB-Daten mit Synapse Link 
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-In diesem Artikel erfahren Sie, wie Sie eine Synapse SQL (serverlos)-Datenbank (die zuvor als „**SQL On-Demand**-Datenbank“ bezeichnet wurde) und Sichten zu Synapse Link für Azure Cosmos DB erstellen. Sie werden die Azure Cosmos-Container abfragen und dann ein Modell mit Power BI für diese Sichten erstellen, um die betreffende Abfrage anzuzeigen.
-
-> [!NOTE]
-> Die Verwendung des Azure Cosmos DB-Analysespeichers mit Synapse SQL (serverlos) befindet sich zurzeit in der geschlossenen Vorschau. Wenn Sie Zugriff anfordern möchten, wenden Sie sich an das [Azure Cosmos DB-Team](mailto:cosmosdbsynapselink@microsoft.com).
+In diesem Artikel erfahren Sie, wie Sie eine Datenbank im serverlosen SQL-Pool und Sichten zu Synapse Link für Azure Cosmos DB erstellen. Sie werden die Azure Cosmos DB-Container abfragen und dann ein Modell mit Power BI für diese Sichten erstellen, um die betreffende Abfrage anzuzeigen.
 
 In diesem Szenario verwenden Sie simulierte Daten zu Surface-Produktverkäufen in einem Partner-Einzelhandelsgeschäft. Sie werden den Umsatz pro Geschäft – basierend auf der Nähe zu großen Haushalten und der Auswirkung von Werbung – für eine bestimmte Woche analysieren. In diesem Artikel erstellen Sie die zwei Sichten **RetailSales** und **StoreDemographics** sowie eine Abfrage zwischen beiden. Sie können die Beispielproduktdaten aus diesem [GitHub](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData)-Repository abrufen.
+
+> [!IMPORTANT]
+> Die Unterstützung von serverlosen SQL-Pools in Synapse für Azure Synapse Link für Azure Cosmos DB befindet sich derzeit in der Vorschauphase. Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -44,9 +45,9 @@ Wechseln Sie im Synapse-Arbeitsbereich zur Registerkarte **Entwickeln**, wählen
 
 :::image type="content" source="./media/synapse-link-power-bi/add-sql-script.png" alt-text="Hinzufügen eines SQL-Skripts zum Synapse Analytics-Arbeitsbereich":::
 
-Jeder Arbeitsbereich enthält einen Endpunkt für Synapse SQL (serverlos). Nachdem Sie ein SQL-Skript erstellt haben, stellen Sie über die Symbolleiste oben eine Verbindung mit **SQL On-Demand** her.
+Jeder Arbeitsbereich enthält einen serverlosen SQL-Endpunkt. Nachdem Sie ein SQL-Skript erstellt haben, stellen Sie über die Symbolleiste oben eine Verbindung mit **Integriert** her.
 
-:::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Hinzufügen eines SQL-Skripts zum Synapse Analytics-Arbeitsbereich":::
+:::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Aktivieren des SQL-Skripts zur Verwendung des serverlosen SQL-Endpunkts im Arbeitsbereich":::
 
 Erstellen Sie die neue Datenbank **RetailCosmosDB** und eine SQL-Sicht für die Container mit Synapse Link-Aktivierung. Der folgende Befehl zeigt, wie eine Datenbank erstellt wird:
 
@@ -55,9 +56,9 @@ Erstellen Sie die neue Datenbank **RetailCosmosDB** und eine SQL-Sicht für die 
 Create database RetailCosmosDB
 ```
 
-Erstellen Sie als Nächstes mehrere Sichten für verschiedene Azure Cosmos-Container mit Synapse Link-Aktivierung. Dies wird es Ihnen ermöglichen, Azure Cosmos DB-Daten in verschiedenen Containern mithilfe von T-SQL zu verknüpfen und abzufragen.  Beim Erstellen der Sichten müssen Sie die Datenbank **RetailCosmosDB** auswählen.
+Erstellen Sie als Nächstes mehrere Sichten für verschiedene Azure Cosmos-Container mit Synapse Link-Aktivierung. Sichten ermöglichen es Ihnen, Azure Cosmos DB-Daten in verschiedenen Containern mithilfe von T-SQL zu verknüpfen und abzufragen.  Beim Erstellen der Sichten müssen Sie die Datenbank **RetailCosmosDB** auswählen.
 
-Die folgenden Skripts zeigen, wie Sichten für jeden Container erstellt werden. Der Einfachheit halber verwenden wir das Feature [Automatischer Schemarückschluss](analytical-store-introduction.md#analytical-schema) von Synapse SQL (serverlos) in Containern mit Synapse Link-Aktivierung:
+Die folgenden Skripts zeigen, wie Sichten für jeden Container erstellt werden. Der Einfachheit halber verwenden wir das Feature [Automatischer Schemarückschluss](analytical-store-introduction.md#analytical-schema) des serverlosen SQL-Pools in Containern mit Synapse Link-Aktivierung:
 
 
 ### <a name="retailsales-view"></a>Sicht „RetailSales“:
@@ -106,11 +107,11 @@ GROUP BY p.[advertising], p.[storeId], p.[weekStarting], q.[largeHH]
 
 Wählen Sie **Ausführen** aus, um die folgende Tabelle als Ergebnis zu erhalten:
 
-:::image type="content" source="./media/synapse-link-power-bi/join-views-query-results.png" alt-text="Hinzufügen eines SQL-Skripts zum Synapse Analytics-Arbeitsbereich":::
+:::image type="content" source="./media/synapse-link-power-bi/join-views-query-results.png" alt-text="Abfrageergebnisse nach dem Verknüpfen der Sichten „StoreDemographics“ und „RetailSales“":::
 
 ## <a name="model-views-over-containers-with-power-bi"></a>Modellsichten für Container mit Power BI
 
-Öffnen Sie als Nächstes den Power BI-Desktop, und stellen Sie mit den folgenden Schritten eine Verbindung mit dem Endpunkt für Synapse SQL (serverlos) her:
+Öffnen Sie als Nächstes den Power BI-Desktop, und stellen Sie mit den folgenden Schritten eine Verbindung mit dem serverlosen SQL-Endpunkt her:
 
 1. Öffnen Sie die Power BI Desktop-Anwendung. Wählen Sie **Daten abrufen** und dann **Weitere** aus.
 
@@ -128,11 +129,11 @@ Wählen Sie **Ausführen** aus, um die folgende Tabelle als Ergebnis zu erhalten
 
 1. Ziehen Sie die Spalte **StoreId** aus der Sicht **RetailSales** zur Spalte **StoreId** in der Sicht **StoreDemographics**.
 
-1. Wählen Sie die Beziehung „Viele zu eins (*:1)“ aus, weil es in der Sicht **RetailSales** mehrere Zeilen mit derselben Speicher-ID gibt, die Sicht **StoreDemographics** aber nur eine Zeile mit der Speicher-ID enthält (es handelt sich um eine Dimensionstabelle).
+1. Wählen Sie die Beziehung „Viele zu eins (*:1)“ aus, weil es in der Sicht **RetailSales** mehrere Zeilen mit derselben Speicher-ID gibt. Die Sicht **StoreDemographics** enthält jedoch nur eine Zeile mit der Speicher-ID (es handelt sich um eine Dimensionstabelle).
 
 Navigieren Sie jetzt zum Fenster **Bericht**, und erstellen Sie einen Bericht, um die relative Wichtigkeit der Haushaltsgröße mit dem durchschnittlichen Umsatz pro Geschäft – basierend auf der verstreuten Darstellung von Umsatz und LargeHH-Index – zu vergleichen:
 
-1. Wählen Sie **Punktdiagramm**aus.
+1. Wählen Sie **Punktdiagramm** aus.
 
 1. Verschieben Sie **LargeHH** mit Drag und Drop aus der Sicht **StoreDemographics** in die x-Achse.
 
@@ -141,8 +142,10 @@ Navigieren Sie jetzt zum Fenster **Bericht**, und erstellen Sie einen Bericht, u
 1. Verschieben Sie den **productCode** mit Drag und Drop aus der Sicht **RetailSales** in die Legende, um eine bestimmte Produktlinie auszuwählen.
 Nachdem Sie diese Optionen ausgewählt haben, sollte ein Diagramm wie der folgende Screenshot angezeigt werden:
 
-:::image type="content" source="./media/synapse-link-power-bi/household-size-average-revenue-report.png" alt-text="Hinzufügen eines SQL-Skripts zum Synapse Analytics-Arbeitsbereich":::
+:::image type="content" source="./media/synapse-link-power-bi/household-size-average-revenue-report.png" alt-text="Bericht, der die relative Wichtigkeit der Haushaltsgröße mit dem durchschnittlichen Umsatz pro Geschäft vergleicht":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Verwenden Sie Synapse SQL (serverlos) zum [Analysieren von Azure Open Datasets und Visualisieren der Ergebnisse in Azure Synapse Studio](../synapse-analytics/sql/tutorial-data-analyst.md).
+[Verwenden von T-SQL zum Abfragen von Azure Cosmos DB-Daten mithilfe von Azure Synapse Link](../synapse-analytics/sql/query-cosmos-db-analytical-store.md)
+
+Verwenden Sie den serverlosen SQL-Pool zum [Analysieren von Azure Open Datasets und Visualisieren der Ergebnisse in Azure Synapse Studio](../synapse-analytics/sql/tutorial-data-analyst.md).

@@ -5,12 +5,12 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 11/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: a995f30872216a8b704d3d1714bbece4bb8271f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fb6aa7d7c655a1ba4b44dabc33e32ce04ae458f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840063"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489274"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Packen einer vorhandenen .NET-App in einen Container für Service Fabric Mesh
 
@@ -51,6 +51,12 @@ Das Dialogfeld **Unterstützung für Containerorchestrator hinzufügen** wird an
 ![Visual Studio-Dialogfeld zum Hinzufügen des Containerorchestrators](./media/service-fabric-mesh-howto-containerize-vs/add-container-orchestration-support.png)
 
 Wählen Sie in der Dropdownliste die Option **Service Fabric Mesh** aus, und klicken Sie anschließend auf **OK**.
+
+
+>[!NOTE]
+> Ab dem 2. November 2020 [gelten die Grenzwerte für die Downloadrate](https://docs.docker.com/docker-hub/download-rate-limit/) für anonyme und authentifizierte Anforderungen an Docker Hub von Docker-Konten im Plan „Free“. Diese Grenzwerte werden durch die IP-Adresse erzwungen. Ausführlichere Informationen finden Sie unter [Authentifizieren mit Docker Hub](../container-registry/buffer-gate-public-content.md#authenticate-with-docker-hub).
+>
+> Um Ratenlimits zu vermeiden, ersetzen Sie den Standardwert `FROM microsoft/aspnet:4.7.2-windowsservercore-1803 AS base` in Ihrem Dockerfile durch `FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-1803 AS base`.
 
 Das Tool überprüft daraufhin, ob Docker installiert ist, fügt Ihrem Projekt ein Dockerfile hinzu und ruft ein Docker-Image für Ihr Projekt ab.  
 Ihrer Projektmappe wird ein Service Fabric Mesh-Anwendungsprojekt hinzugefügt. Es enthält Ihre Mesh-Veröffentlichungsprofile und Konfigurationsdateien. Das Projekt hat den gleichen Namen wie Ihr Projekt, am Ende wird allerdings noch „Application“ angehängt (Beispiel: **eShopLegacyWebFormsApplication**). 

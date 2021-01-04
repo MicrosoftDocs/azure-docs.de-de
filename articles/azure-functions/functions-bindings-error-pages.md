@@ -1,18 +1,18 @@
 ---
-title: Azure Functions – Anleitung zu Fehlerbehandlung
-description: Erfahren Sie, wie Sie Fehler in Azure Functions mit Links zu bestimmten Bindungsfehlern behandeln können.
+title: 'Azure Functions: Leitfaden für Fehlerbehandlung und Wiederholungen'
+description: Erfahren Sie, wie Sie Fehler und Wiederholungsereignisse in Azure Functions mit Links zu bestimmten Bindungsfehlern behandeln können.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 10/01/2020
 ms.author: cshoe
-ms.openlocfilehash: 0617d55f7c67c788b1e898d963f7d509cef72d49
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: e52babd5b0612b4590f1422a941b25ba30c3f169
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096843"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93284453"
 ---
-# <a name="azure-functions-error-handling"></a>Azure Functions – Fehlerbehandlung
+# <a name="azure-functions-error-handling-and-retries"></a>Fehlerbehandlung und Wiederholungen in Azure Functions
 
 Das Behandeln von Fehlern in Azure Functions ist wichtig, um verlorene Daten und verpasste Ereignisse zu vermeiden sowie um die Integrität Ihrer Anwendung zu überwachen.
 
@@ -20,7 +20,7 @@ Dieser Artikel beschreibt allgemeine Strategien für die Fehlerbehandlung zusamm
 
 ## <a name="handling-errors"></a>Behandlung von Fehlern
 
-[!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
+[!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-retries.md)]
 
 ## <a name="binding-error-codes"></a>Bindungsfehlercodes
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
 ms.reviewer: arvindh
-ms.openlocfilehash: 8968fd54968f3115641d2315a534ba61a247a06d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9bcf45cdfbadbf16f48f8f2ac3bd0c6320a2803f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605123"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649227"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Endbenutzerumgebungen für Anwendungen in Azure Active Directory
 
@@ -37,13 +37,13 @@ Standardmäßig werden alle Anwendungen auf einer einzelnen Seite aufgelistet. S
 
 „Meine Apps“ ist unabhängig vom Azure-Portal und setzt nicht voraus, dass Benutzer über ein Azure- oder Microsoft 365-Abonnement verfügen.
 
-Weitere Informationen zu „Meine Apps“ in Azure AD finden Sie in der [Einführung in „Meine Apps“](../user-help/active-directory-saas-access-panel-introduction.md).
+Weitere Informationen zu „Meine Apps“ in Azure AD finden Sie in der [Einführung in „Meine Apps“](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="microsoft-365-application-launcher"></a>Microsoft 365-Anwendungsstartprogramm
 
 Für Organisationen, die Microsoft 365 bereitgestellt haben, werden Anwendungen, die Benutzern über Azure AD zugewiesen werden, auch im Office 365-Portal unter [https://portal.office.com/myapps](https://portal.office.com/myapps) angezeigt. So können Benutzer in einer Organisation ihre Apps einfach und komfortabel starten, ohne ein zweites Portal verwenden zu müssen. Diese Lösung für den App-Start wird für Unternehmen empfohlen, die Microsoft 365 nutzen.
 
-Weitere Informationen zum Office 365-Anwendungsstartprogramm finden Sie unter [Anzeige Ihrer App im Office 365-Anwendungsstartprogramm](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
+Weitere Informationen zum Office 365-Anwendungsstartprogramm finden Sie unter [Anzeige Ihrer App im Office 365-Anwendungsstartprogramm](/previous-versions/office/office-365-api/).
 
 ## <a name="direct-sign-on-to-federated-apps"></a>Direkte Anmeldung bei Verbund-Apps
 

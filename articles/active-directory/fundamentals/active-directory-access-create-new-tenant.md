@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c7225adcfe970d17f8f86afdd15e36e2ba76de3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: eeea88d8c21ba754fbeadbb24891126b639616c7
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91287014"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437239"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Schnellstart: Erstellen eines neuen Mandanten in Azure Active Directory
 Sie können alle Verwaltungsaufgaben über das Azure Active Directory-Portal (Azure AD-Portal) ausführen. Dazu gehört auch das Erstellen eines neuen Mandanten für Ihre Organisation. 
@@ -33,25 +33,29 @@ Nach der Anmeldung im Azure-Portal können Sie einen neuen Mandanten für Ihre O
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) Ihrer Organisation an.
 
-1. Wählen Sie im Menü des Azure-Portals die Option **Ressource erstellen** aus.  
+1. Wählen Sie im Azure-Portalmenü **Azure Active Directory** aus.  
 
-    ![Azure Active Directory: Seite „Ressource erstellen“](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+    <kbd>![Azure Active Directory – Übersichtsseite – Erstellen eines Mandanten](media/active-directory-access-create-new-tenant/azure-ad-portal.png)</kbd>  
 
-1. Suchen Sie nach **Azure Active Directory**, und wählen Sie diese Option aus.
+1. Wählen Sie **Mandant erstellen** aus.
 
-    Daraufhin wird die Seite **Verzeichnis erstellen** angezeigt.
+1. Wählen Sie auf der Registerkarte „Grundlagen“ den Mandantentyp aus, den Sie erstellen möchten: **Azure Active Directory** oder **Azure Active Directory (B2C)** .
 
-    ![Seite zum Erstellen eines Azure Active Directory-Verzeichnisses](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)
+1. Klicken Sie auf **Weiter: Konfiguration**, um zur Registerkarte „Konfiguration“ zu gelangen.
 
-1.  Geben Sie auf der Seite **Verzeichnis erstellen** die folgenden Informationen ein:
+    <kbd>![Azure Active Directory – Seite „Mandant erstellen“ – Registerkarte „Konfiguration“](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)</kbd>
+
+1.  Geben Sie auf der Registerkarte „Konfiguration“ die folgenden Informationen ein:
     
-    - Geben Sie in das Feld **Organisationsname**_Contoso_ ein.
+    - Geben Sie in das Feld **Organisationsname** den Namen _Contoso-Organisation_ ein.
 
-    - Geben Sie in das Feld **Name der Anfangsdomäne**_Contoso_ ein.
+    - Geben Sie in das Feld **Name der Anfangsdomäne** den Namen _Contosoorg_ ein.
 
     - Übernehmen Sie im Feld **Land oder Region** die Option _USA_.
 
-1. Klicken Sie auf **Erstellen**.
+1. Klicken Sie auf **Weiter: Überprüfen + erstellen**. Überprüfen Sie die von Ihnen eingegebenen Informationen, und wählen Sie **Erstellen** aus, wenn die Informationen korrekt sind.
+
+    <kbd>![Azure Active Directory – Seite „Überprüfen und erstellen“ für den Mandanten](media/active-directory-access-create-new-tenant/azure-ad-review.png)</kbd>
 
 Ihr neuer Mandant wird mit der Domäne „contoso.onmicrosoft.com“ erstellt.
 
@@ -63,7 +67,7 @@ Wenn Sie diese Anwendung nicht mehr verwenden möchten, können Sie den Mandante
 
     Der Mandant und die dazugehörigen Informationen werden gelöscht.
 
-    ![Seite „Übersicht“ mit hervorgehobener Schaltfläche „Verzeichnis löschen“](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
+    <kbd>![Seite „Übersicht“ mit hervorgehobener Schaltfläche „Verzeichnis löschen“](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)</kbd>
 
 ## <a name="next-steps"></a>Nächste Schritte
 - Wie Sie zusätzliche Domänennamen ändern oder hinzufügen, erfahren Sie unter [Hinzufügen eines benutzerdefinierten Domänennamens zu Azure Active Directory](add-custom-domain.md).

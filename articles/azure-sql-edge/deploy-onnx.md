@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 10/13/2020
-ms.openlocfilehash: 8da0b34339f2ac03f50e2dcb1a4ed13cc2ea9785
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 6dd7715292470d186806443d0a0b05bdbb084a43
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075432"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392179"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model-and-sql-machine-learning"></a>Bereitstellen eines ONNX-Modells sowie von maschinellem Lernen in SQL und Treffen von Vorhersagen damit
 
@@ -26,11 +26,11 @@ Dieser Schnellstart basiert auf **SciKit-learn** und verwendet das [Boston Housi
 
 * Wenn Sie Azure SQL Edge verwenden und kein Azure SQL Edge-Modul bereitgestellt haben, führen Sie die Schritte unter [Bereitstellen von Azure SQL Edge](deploy-portal.md) aus.
 
-* Installieren Sie [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download).
+* Installieren Sie [Azure Data Studio](/sql/azure-data-studio/download).
 
 * Installieren Sie die für diese Schnellstartanleitung erforderlichen Python-Pakete.
 
-  1. Öffnen Sie [Neues Notebook](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks), das mit dem Python 3-Kernel verbunden ist. 
+  1. Öffnen Sie [Neues Notebook](/sql/azure-data-studio/sql-notebooks), das mit dem Python 3-Kernel verbunden ist. 
   1. Klicken Sie auf **Manage Packages** (Pakete verwalten).
   1. Suchen Sie auf der Registerkarte **Installiert** in der Liste der installierten Pakete nach den folgenden Python-Paketen. Ist eines dieser Pakete nicht installiert, wählen Sie die Registerkarte **Neu hinzufügen** aus, suchen Sie nach dem Paket, und klicken Sie auf **Installieren**.
      - **scikit-learn**
@@ -76,7 +76,7 @@ print("\n**_ Training dataset y\n")
 print(y_train.head())
 ```
 
-**Ausgabe**:
+_*Ausgabe:**
 
 ```text
 **_ Training dataset x
@@ -141,7 +141,7 @@ print('_*_ Scikit-learn r2 score: {}'.format(sklearn_r2_score))
 print('_*_ Scikit-learn MSE: {}'.format(sklearn_mse))
 ```
 
-**Ausgabe**:
+_*Ausgabe:**
 
 ```text
 **_ Scikit-learn r2 score: 0.7406426641094094
@@ -215,7 +215,7 @@ print('MSE are equal' if sklearn_mse == onnx_mse else 'Difference in MSE scores:
 print()
 ```
 
-**Ausgabe**:
+_*Ausgabe:**
 
 ```text
 **_ Onnx r2 score: 0.7406426691136831
@@ -227,7 +227,7 @@ MSE are equal
 
 ## <a name="insert-the-onnx-model"></a>Einfügen des ONNX-Modells
 
-Speichern Sie das Modell in Azure SQL Edge oder Azure SQL Managed Instance, und zwar in einer `models`-Tabelle in einer Datenbank vom Typ `onnx`. Geben Sie in der Verbindungszeichenfolge die **Serveradresse**, den **Benutzernamen** und das **Kennwort** an.
+Speichern Sie das Modell in Azure SQL Edge oder Azure SQL Managed Instance, und zwar in einer `models`-Tabelle in einer Datenbank vom Typ `onnx`. Geben Sie in der Verbindungszeichenfolge die _*Serveradresse**, den **Benutzernamen** und das **Kennwort** an.
 
 ```python
 import pyodbc

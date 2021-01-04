@@ -7,18 +7,26 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 06c4ac3be0e9d1021e64cf1a34bda94ed02c9982
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: ca56c285baff9982ff465b0d4115d15eadedb8c9
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102492"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534754"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Verwalten von Azure Digital Twins-Modellen
 
-Sie können [Modelle](concepts-models.md), die Ihrer Azure Digital Twins-Instanz bekannt sind, mithilfe der [**DigitalTwinsModels-APIs**](how-to-use-apis-sdks.md), dem [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) oder der [Azure Digital Twins-CLI](how-to-use-cli.md) verwalten. 
+Sie können [Modelle](concepts-models.md), die Ihrer Azure Digital Twins-Instanz bekannt sind, mithilfe der [**DigitalTwinModels-APIs**](/rest/api/digital-twins/dataplane/models), dem [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) oder der [Azure Digital Twins-CLI](how-to-use-cli.md) verwalten. 
 
 Zu den Verwaltungsvorgängen gehören das Hochladen, Überprüfen, Abrufen und Löschen von Modellen. 
+
+## <a name="prerequisites"></a>Voraussetzungen
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
+## <a name="ways-to-manage-models"></a>Möglichkeiten zum Verwalten von Modellen
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
 ## <a name="create-models"></a>Erstellen von Modellen
 
@@ -69,17 +77,7 @@ Mit dieser Methode können Sie Modelle für die Stationen oder Bereiche des Kran
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## <a name="manage-models-with-apis"></a>Verwalten von Modellen mit APIs
-
-In den folgenden Abschnitten wird erläutert, wie Sie unterschiedliche Modellverwaltungsvorgänge mithilfe der [Azure Digital Twins-APIs und -SDKs](how-to-use-apis-sdks.md) durchführen.
-
-> [!NOTE]
-> In den nachfolgenden Beispielen wird aus Gründen der Übersichtlichkeit nicht auf die Fehlerbehandlung eingegangen. Es wird jedoch dringend empfohlen, in Ihren Projekten Dienstaufrufe in Try/Catch-Blöcken zu umschließen.
-
-> [!TIP] 
-> Es gibt für alle SDK-Methoden synchrone und asynchrone Versionen. Bei Pagingaufrufen geben die asynchronen Methoden `AsyncPageable<T>` zurück, während die synchronen Versionen `Pageable<T>` zurückgeben.
-
-### <a name="upload-models"></a>Hochladen von Modellen
+## <a name="upload-models"></a>Hochladen von Modellen
 
 Nachdem Sie Modelle erstellt haben, können Sie sie in die Azure Digital Twins-Instanz hochladen.
 
@@ -132,15 +130,14 @@ Modelldateien können mehr als ein einzelnes Modell enthalten. In diesem Fall m�
  
 Modelldateien werden beim Hochladen vom Dienst überprüft.
 
-### <a name="retrieve-models"></a>Abrufen von Modellen
+## <a name="retrieve-models"></a>Abrufen von Modellen
 
 Sie können Modelle auflisten und abrufen, die auf Ihrer Azure Digital Twins-Instanz gespeichert sind. 
 
 Dafür haben Sie die folgenden Möglichkeiten:
-* Alle Modelle abrufen
 * Ein einzelnes Modell abrufen
-* Ein einzelnes Modell mit Abhängigkeiten abrufen
-* Metadaten für Modelle abrufen
+* Alle Modelle abrufen
+* Abrufen von Metadaten und Abhängigkeiten für Modelle
 
 Hier sehen Sie ein paar Beispielaufrufe:
 
@@ -148,31 +145,28 @@ Hier sehen Sie ein paar Beispielaufrufe:
 // 'client' is a valid DigitalTwinsClient object
 
 // Get a single model, metadata and data
-ModelData md1 = client.GetModel(id);
+DigitalTwinsModelData md1 = client.GetModel(id);
 
 // Get a list of the metadata of all available models
-Pageable<ModelData> pmd2 = client.GetModels();
-
-// Get a list of metadata and full model definitions
-Pageable<ModelData> pmd3 = client.GetModels(null, true);
+Pageable<DigitalTwinsModelData> pmd2 = client.GetModels();
 
 // Get models and metadata for a model ID, including all dependencies (models that it inherits from, components it references)
-Pageable<ModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
+Pageable<DigitalTwinsModelData> pmd3 = client.GetModels(new GetModelsOptions { IncludeModelDefinition = true });
 ```
 
-Die API-Aufrufe zum Abrufen von Modellen geben alle `ModelData`-Objekte zurück. `ModelData` enthält Metadaten zum Modell, das in der Azure Digital Twins-Instanz gespeichert ist, z. B. Name, DTMI und Erstellungsdatum des Modells. Das Objekt `ModelData` kann auch das Modell selbst enthalten. Je nach Parametern können Sie daher die Abrufaufrufe verwenden, um entweder nur Metadaten (was z. B. nützlich ist, wenn Sie eine Liste verfügbarer Tools für die Benutzeroberfläche anzeigen möchten) oder das gesamte Modell abzurufen.
+Die API-Aufrufe zum Abrufen von Modellen geben alle `DigitalTwinsModelData`-Objekte zurück. `DigitalTwinsModelData` enthält Metadaten zum Modell, das in der Azure Digital Twins-Instanz gespeichert ist, z. B. Name, DTMI und Erstellungsdatum des Modells. Das Objekt `DigitalTwinsModelData` kann auch das Modell selbst enthalten. Je nach Parametern können Sie daher die Abrufaufrufe verwenden, um entweder nur Metadaten (was z. B. nützlich ist, wenn Sie eine Liste verfügbarer Tools für die Benutzeroberfläche anzeigen möchten) oder das gesamte Modell abzurufen.
 
 Der Aufruf `RetrieveModelWithDependencies` gibt nicht nur das angeforderte Modell zurück, sondern auch alle Modelle, von denen das angeforderte Modell abhängig ist.
 
 Modelle werden nicht unbedingt genau in dem Dokumentformat zurückgegeben, in dem sie hochgeladen wurden. Azure Digital Twins gewährleistet nur, dass das Rückgabeformat semantisch gleichwertig ist. 
 
-### <a name="update-models"></a>Aktualisieren von Modellen
+## <a name="update-models"></a>Aktualisieren von Modellen
 
 Nachdem ein Modell in Ihre Azure Digital Twins-Instanz hochgeladen wurde, ist die gesamte Modellschnittstelle unveränderlich. Dies bedeutet, dass es kein herkömmliches „Bearbeiten“ von Modellen gibt. Azure Digital Twins lässt auch keinen erneuten Upload desselben Modells zu.
 
 Wenn Sie stattdessen Änderungen an einem Modell vornehmen möchten, wie ein Update von **oder**, können Sie eine `displayName`neuere Version`description` desselben Modells hochladen. 
 
-#### <a name="model-versioning"></a>Versionsverwaltung der Modelle
+### <a name="model-versioning"></a>Versionsverwaltung der Modelle
 
 Um eine neue Version eines bestehenden Modells zu erstellen, beginnen Sie mit der DTDL des ursprünglichen Modells. Aktualisieren Sie die Felder, die Sie ändern möchten, oder fügen Sie sie hinzu bzw. entfernen sie.
 
@@ -194,7 +188,7 @@ Laden Sie dann die neue Version des Modells auf Ihre Instanz hoch.
 
 Diese Version des Modells wird dann in Ihrer Instanz für digitale Zwillinge zur Verfügung stehen. Frühere Versionen des Modells werden dabei **nicht überschrieben**, sodass mehrere Versionen des Modells in Ihrer Instanz gleichzeitig vorhanden sind, bis Sie sie [ entfernen](#remove-models).
 
-#### <a name="impact-on-twins"></a>Auswirkungen auf Zwillinge
+### <a name="impact-on-twins"></a>Auswirkungen auf Zwillinge
 
 Wenn Sie einen neuen Zwilling erstellen, da die neue Modellversion und die alte Modellversion parallel vorhanden sind, kann der neue Zwilling entweder die neue Version des Modells oder die ältere Version verwenden.
 
@@ -202,7 +196,7 @@ Dies bedeutet auch, dass sich das Hochladen einer neuen Version eines Modells ni
 
 Sie können diese vorhandenen Zwillinge auf die neue Modellversion aktualisieren, indem Sie sie patchen, wie im Abschnitt [*Aktualisieren eines Modells eines digitalen Zwillings*](how-to-manage-twin.md#update-a-digital-twins-model) von *Gewusst wie: Verwalten digitaler Zwillinge* beschrieben. Innerhalb desselben Patches müssen Sie sowohl die **Modell-ID** (für die neue Version) aktualisieren und **alle Felder, die im Zwilling geändert werden müssen, um sie an das neue Modell anzupassen**.
 
-### <a name="remove-models"></a>Entfernen von Modellen
+## <a name="remove-models"></a>Entfernen von Modellen
 
 Ebenso gibt es zwei Möglichkeiten, Modelle aus dem Dienst zu entfernen:
 * **Außerbetriebsetzung:** Wenn ein Modell außer Betrieb gesetzt wurde, können Sie es nicht mehr zum Erstellen neuer digitaler Zwillinge verwenden. Vorhandene digitale Zwillinge, die dieses Modell bereits verwenden, sind nicht betroffen. Deshalb können Sie sie weiterhin aktualisieren, indem Sie z. B. Eigenschaften ändern und Beziehungen hinzufügen oder löschen.
@@ -210,7 +204,7 @@ Ebenso gibt es zwei Möglichkeiten, Modelle aus dem Dienst zu entfernen:
 
 Es handelt sich hierbei um separate Features, die einander nicht beeinträchtigen. Sie können aber zusammen verwendet werden, um ein Modell schrittweise zu entfernen. 
 
-#### <a name="decommissioning"></a>Außerbetriebsetzung
+### <a name="decommissioning"></a>Außerbetriebsetzung
 
 Mithilfe des folgenden Codes können Sie Modelle außer Betrieb setzen:
 
@@ -223,7 +217,7 @@ client.DecommissionModel(dtmiOfPlanetInterface);
 
 Der Status „Außerbetriebsetzung“ eines Modells ist in den `ModelData`-Datensätzen enthalten, die von den APIs zum Abrufen von Modellen zurückgegeben werden.
 
-#### <a name="deletion"></a>Löschen
+### <a name="deletion"></a>Löschen
 
 Sie können entweder alle Modelle auf einmal aus der Instanz löschen oder einzeln bestimmte Modelle zum Löschen auswählen.
 
@@ -231,7 +225,7 @@ Ein Beispiel für das Löschen aller Modelle finden Sie in der Beispiel-App, die
 
 Im Rest dieses Abschnitts wird das Löschen von Modellen ausführlicher beschrieben, und Sie erfahren, wie Sie einzelne Modelle löschen können.
 
-##### <a name="before-deletion-deletion-requirements"></a>Vor dem Löschen: Löschanforderungen
+#### <a name="before-deletion-deletion-requirements"></a>Vor dem Löschen: Löschanforderungen
 
 Generell können Modelle jederzeit gelöscht werden.
 
@@ -239,7 +233,7 @@ Allerdings stellen Modelle, von denen andere Modelle abhängig sind (durch eine 
 
 Hierzu können Sie das abhängige Modell aktualisieren, um die Abhängigkeiten zu entfernen, oder das abhängige Modell vollständig löschen.
 
-##### <a name="during-deletion-deletion-process"></a>Beim Löschen: Löschvorgang
+#### <a name="during-deletion-deletion-process"></a>Beim Löschen: Löschvorgang
 
 Selbst wenn ein Modell die Anforderungen zum sofortigen Löschen erfüllt, sollten Sie zunächst einige Maßnahmen ergreifen, um unbeabsichtigte Folgen für die übrigen Zwillinge zu vermeiden. Im Folgenden wird erläutert, wie Sie den Prozess verwalten können:
 1. Setzen Sie zunächst das Modell außer Betrieb.
@@ -255,7 +249,7 @@ Dazu können Sie den folgenden Aufruf verwenden:
 await client.DeleteModelAsync(IDToDelete);
 ```
 
-##### <a name="after-deletion-twins-without-models"></a>Nach dem Löschen: Zwillinge ohne Modelle
+#### <a name="after-deletion-twins-without-models"></a>Nach dem Löschen: Zwillinge ohne Modelle
 
 Nach dem Löschen eines Modells werden sämtliche digitale Zwillinge, die das Modell verwendet haben, als Zwillinge ohne Modell betrachtet. Es gibt zwar keine Abfrage, die Sie verwenden können, um eine Liste aller Zwillinge in diesem Zustand zu erhalten, aber Sie *können* die Zwillinge des jeweiligen gelöschten Modells abfragen, um herauszufinden, welche Zwillinge betroffen sind.
 
@@ -274,19 +268,13 @@ Im Folgenden finden Sie eine Übersicht darüber, wozu Zwillinge ohne Modell (ni
 * Ausgehende Beziehungen bearbeiten (z. B. Beziehungen dieses Zwillings *zu* anderen Zwillingen)
 * Eigenschaften bearbeiten
 
-##### <a name="after-deletion-re-uploading-a-model"></a>Nach dem Löschen: Erneutes Hochladen eines Modells
+#### <a name="after-deletion-re-uploading-a-model"></a>Nach dem Löschen: Erneutes Hochladen eines Modells
 
 Wenn Sie ein Modell löschen, können Sie später ein neues Modell mit derselben ID hochladen. Dann passiert Folgendes:
 * Der Lösungsspeicher erkennt das Modell als ganz neues Modell an. Er erinnert sich nicht daran, dass das alte Modell hochgeladen wurde.   
 * Wenn das Diagramm übrig gebliebene Zwillinge enthält, die auf das neue Modell verweisen, werden diese nicht mehr als verwaist angesehen. Die Modell-ID ist dann einschließlich einer neuen Definition wieder gültig. Wenn sich die neue Definition für das Modell jedoch von der gelöschten Modelldefinition unterscheidet, weisen diese Zwillinge möglicherweise Eigenschaften und Beziehungen auf, die der gelöschten Definition entsprechen und mit der neuen nicht gültig sind.
 
 Azure Digital Twins geht dagegen nicht vor. Deshalb sollten Sie darauf achten, Twins richtig zu patchen, damit sie durch den Wechsel der Modelldefinition nicht ihre Gültigkeit verlieren.
-
-## <a name="manage-models-with-cli"></a>Verwalten von Modellen mit der CLI
-
-Modelle können auch mit der Azure Digital Twins-CLI verwaltet werden. Die Befehle finden Sie unter [*Vorgehensweise: Verwenden der Azure Digital Twins-Befehlszeilenschnittstelle*](how-to-use-cli.md).
-
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## <a name="next-steps"></a>Nächste Schritte
 

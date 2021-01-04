@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: dikamath
   ms.author: dikamath
-  ms.date: 10/19/2020
-  ms.openlocfilehash: 31b3ad9c33ffd07b62067de3aa46333608522f97
-  ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+  ms.date: 11/19/2020
+  ms.openlocfilehash: c460df29183cbf40bee1f539435669121b3ee6ed
+  ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/19/2020
-  ms.locfileid: "92172131"
+  ms.lasthandoff: 12/04/2020
+  ms.locfileid: "96608417"
 landingContent:
 - title: Informationen zu Azure VMware Solution
   linkLists:
@@ -32,15 +32,17 @@ landingContent:
       url: concepts-storage.md
     - text: Zugriff und Identität für private Clouds
       url: concepts-identity.md
-    - text: Rollenbasierte Zugriffssteuerung
+    - text: Rollenbasierte Zugriffssteuerung (vSphere)
       url: concepts-role-based-access-control.md
+    - text: Überwachen und Reparieren von privaten Clouds
+      url: concepts-monitor-repair-private-cloud.md
     - text: Upgrades für private Clouds
       url: concepts-upgrades.md
 - title: Erste Schritte
   linkLists:
   - linkListType: deploy
     links:
-    - text: Planen der Bereitstellung
+    - text: 0. Planen der Bereitstellung
       url: production-ready-deployment-steps.md
     - text: 1. Bereitstellen von Azure VMware Solution
       url: deploy-azure-vmware-solution.md
@@ -94,6 +96,8 @@ landingContent:
       url: concepts-api-management.md
     - text: Hub-and-Spoke-Modell
       url: concepts-hub-and-spoke.md
+    - text: Azure Security Center
+      url: azure-security-integration.md
     - text: Azure Backup Server
       url: set-up-backup-server-for-azure-vmware-solution.md
     - text: Lebenszyklusverwaltung auf virtuellen Computern
@@ -120,9 +124,15 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
+    - text: Azure CLI
+      url: /cli/azure/ext/vmware/vmware
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.vmware
-    - text: Hilfe bei Bereitstellungsfehlern
-      url: fix-deployment-provisioning-failures.md
+      url: /powershell/module/az.vmware
     - text: Häufig gestellte Fragen
       url: faq.md
+- title: Problembehandlung
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Öffnen einer Supportanfrage für Bereitstellungsfehler
+      url: fix-deployment-provisioning-failures.md

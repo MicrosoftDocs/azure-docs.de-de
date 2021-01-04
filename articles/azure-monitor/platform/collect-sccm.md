@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
 ms.openlocfilehash: 20d55de7ef0f7b7f49b922409f8cb61874fae0f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448150"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008972"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Herstellen einer Verbindung zwischen Configuration Manager und Azure Monitor
 Sie können Ihre Microsoft Endpoint Configuration Manager-Umgebung mit Azure Monitor verbinden, um die Daten der Gerätesammlung zu synchronisieren und in Azure Monitor und Azure Automation auf diese Sammlungen zu verweisen.  
@@ -133,7 +133,7 @@ Nachdem Sie die Erstkonfiguration für den Import von Gerätesammlungen aus Ihre
 2. Wählen Sie in der Liste der Log Analytics-Arbeitsbereiche den Arbeitsbereich aus, in dem Configuration Manager registriert ist.  
 3. Wählen Sie **Erweiterte Einstellungen**.
 4. Wählen Sie hierzu **Computergruppen** und anschließend **SCCM** aus.  
-5. Wählen Sie **Configuration Manager-Sammlungsmitgliedschaften importieren**aus, und klicken Sie anschließend auf **Speichern**.  
+5. Wählen Sie **Configuration Manager-Sammlungsmitgliedschaften importieren** aus, und klicken Sie anschließend auf **Speichern**.  
    
     ![Screenshot der erweiterten Einstellungen für Computergruppen für SCCM mit der Option „Hiermit werden Configuration Manager-Sammlungsmitgliedschaften importiert“](./media/collect-sccm/sccm-computer-groups01.png)
 

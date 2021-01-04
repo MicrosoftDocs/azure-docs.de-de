@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1846a6d94b81a907ac05fe92151c860aab457292
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: b625a81ff328e6760ec0ad8d9acb5735f402df73
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315841"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455629"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Azure-Sicherheitsbaseline für Logic Apps
 
@@ -98,7 +98,7 @@ Verwenden Sie die adaptive Netzwerkhärtung in Azure Security Center, um NSG-Kon
 
 - [Einschränken eingehender IP-Adressen](logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
 
-- [Konfigurieren von DDoS-Schutz](../virtual-network/manage-ddos-protection.md)
+- [Konfigurieren von DDoS-Schutz](../ddos-protection/manage-ddos-protection.md)
 
 - [Bereitstellen von Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -182,7 +182,7 @@ Stellen Sie die Firewalllösung Ihrer Wahl an allen Netzwerkgrenzen Ihrer Organi
 
 - DDoS Protection Standard sollte aktiviert sein.
 
-Sie können auch Azure Blueprints verwenden, um umfangreiche Azure-Bereitstellungen zu vereinfachen, indem wichtige Umgebungsartefakte, z. B. Azure Resource Manager-Vorlagen, rollenbasierte Zugriffssteuerung (RBAC) und Richtlinien, gemeinsam in einer Blaupausendefinition gepackt werden. Sie können die Blaupause leicht auf neue Abonnements und Umgebungen anwenden und die Steuerung und Verwaltung durch die Versionsverwaltung optimieren.
+Sie können auch Azure Blueprints verwenden, um umfangreiche Azure-Bereitstellungen zu vereinfachen, indem wichtige Umgebungsartefakte, z. B. Azure Resource Manager-Vorlagen, rollenbasierte Zugriffssteuerung von Azure (Azure RBAC) und Richtlinien, gemeinsam in einer Blaupausendefinition gepackt werden. Sie können die Blaupause leicht auf neue Abonnements und Umgebungen anwenden und die Steuerung und Verwaltung durch die Versionsverwaltung optimieren.
 
 - [Konfigurieren und Verwalten von Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -384,7 +384,7 @@ Wenn Sie Infrastructure-as-Code nutzen, vermeiden Sie die Speicherung von Kennw�
 
 - [Absichern von und Zugreifen auf Daten in Logic Apps](logic-apps-securing-a-logic-app.md)
 
-- [Festlegen und Abrufen eines Geheimnisses aus Azure Key Vault](../key-vault/secrets/quick-create-portal.md)
+- [Festlegen und Abrufen eines Geheimnisses aus Azure Key Vault](../key-vault/general/quick-create-portal.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -578,7 +578,7 @@ Für Logik-Apps, die Direktzugriff auf Ressourcen in einem virtuellen Azure-Netz
 
 Beim Erstellen Ihrer ISE können Sie auswählen, ob interne oder externe Zugriffsendpunkte verwendet werden sollen. Ihre Auswahl bestimmt, ob Anforderungs- oder Webhooktrigger für Logik-Apps in Ihrer ISE Aufrufe von außerhalb Ihres virtuellen Netzwerks empfangen können.
 
-Implementieren Sie außerdem eine Isolation mit separaten Abonnements und Verwaltungsgruppen für einzelne Sicherheitsdomänen, z. B. Umgebungstyp und Datenvertraulichkeitsstufe. Sie können die Zugriffsebene auf diejenigen Ihrer Azure-Ressourcen beschränken, die von Ihren Anwendungen und Unternehmensumgebungen gefordert werden. Sie können den Zugriff auf Azure-Ressourcen über rollenbasierte Azure Active Directory-Zugriffssteuerung steuern.
+Implementieren Sie außerdem eine Isolation mit separaten Abonnements und Verwaltungsgruppen für einzelne Sicherheitsdomänen, z. B. Umgebungstyp und Datenvertraulichkeitsstufe. Sie können die Zugriffsebene auf diejenigen Ihrer Azure-Ressourcen beschränken, die von Ihren Anwendungen und Unternehmensumgebungen gefordert werden. Sie können den Zugriff auf Azure-Ressourcen über die rollenbasierte Azure-Zugriffssteuerung (Azure RBAC) regeln.
 
 - [Grundlegendes zu Connectors für Logic Apps](../connectors/apis-list.md)
 
@@ -644,9 +644,9 @@ Microsoft verwaltet die zugrunde liegende Infrastruktur für Azure Logic Apps un
 
 **Verantwortlichkeit**: Shared
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Verwenden der rollenbasierten Zugriffssteuerung zum Steuern des Zugriffs auf Ressourcen
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Verwenden von Azure RBAC zum Steuern des Zugriffs auf Ressourcen
 
-**Leitfaden**: Sie können nur bestimmten Benutzern oder Gruppen erlauben, bestimmte Aufgaben auszuführen, wie z. B. das Verwalten, Bearbeiten und Anzeigen von Logik-Apps. Um die jeweiligen Berechtigungen zu steuern, verwenden Sie die rollenbasierte Zugriffssteuerung in Azure (Role-Based Access Control, RBAC), damit Sie den Mitgliedern in Ihrem Azure-Abonnement benutzerdefinierte oder integrierte Rollen zuweisen können:
+**Leitfaden**: Sie können nur bestimmten Benutzern oder Gruppen erlauben, bestimmte Aufgaben auszuführen, wie z. B. das Verwalten, Bearbeiten und Anzeigen von Logik-Apps. Um die jeweiligen Berechtigungen zu steuern, verwenden Sie die rollenbasierte Zugriffssteuerung in Azure (Azure Role-Based Access Control, RBAC), damit Sie den Mitgliedern in Ihrem Azure-Abonnement benutzerdefinierte oder integrierte Rollen zuweisen können:
 
 - Logik-App-Mitwirkender: Ermöglicht Ihnen die Verwaltung von Logik-Apps, aber nicht die Änderung des App-Zugriffs.
 - Logik-App-Operator: Ermöglicht Ihnen das Lesen, Aktivieren und Deaktivieren von Logik-Apps, die Sie aber nicht bearbeiten oder aktualisieren können.
@@ -705,7 +705,7 @@ Wenn Sie eine Integrationsdienstumgebung (Integration Service Environment, ISE) 
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2: Bereitstellen der automatisierten Lösung für die Patchverwaltung von Betriebssystemen
 
-**Leitfaden**: Nicht zutreffend. Diese Empfehlung ist für Computeressourcen vorgesehen.
+**Anleitung:** Nicht zutreffend. Diese Empfehlung ist für Computeressourcen vorgesehen.
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -873,7 +873,7 @@ Verwenden Sie Azure Resource Graph, um Ressourcen in ihren Abonnements abzufrage
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12: Einschränken der Möglichkeiten der Benutzer, Skripte innerhalb von Computeressourcen auszuführen
 
-**Leitfaden**: Nicht zutreffend. Diese Empfehlung ist für Computeressourcen vorgesehen.
+**Anleitung:** Nicht zutreffend. Diese Empfehlung ist für Computeressourcen vorgesehen.
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -883,7 +883,7 @@ Verwenden Sie Azure Resource Graph, um Ressourcen in ihren Abonnements abzufrage
 
 **Leitfaden**: Ressourcen im Zusammenhang mit Ihren Logik-Apps, die für den Geschäftsbetrieb erforderlich sind, aber ein höheres Risiko für das Unternehmen darstellen können, sollten innerhalb des eigenen virtuellen Computers und/oder virtuellen Netzwerks isoliert und entweder mit einer Azure Firewall oder einer Netzwerksicherheitsgruppe ausreichend abgesichert werden.
 
-Logik-Apps, die für den Geschäftsbetrieb erforderlich sind, aber ein höheres Risiko für die Organisation darstellen können, sollten nach Möglichkeit mittels gesonderter Ressourcengruppen mit spezifischen Berechtigungen und RBAC-Grenzen isoliert werden.
+Logik-Apps, die für den Geschäftsbetrieb erforderlich sind, aber ein höheres Risiko für die Organisation darstellen können, sollten nach Möglichkeit mittels gesonderter Ressourcengruppen mit spezifischen Berechtigungen und Azure RBAC-Grenzen isoliert werden.
 
 - [Erstellen eines virtuellen Netzwerks](../virtual-network/quick-create-portal.md) 
 
@@ -891,7 +891,7 @@ Logik-Apps, die für den Geschäftsbetrieb erforderlich sind, aber ein höheres 
 
 - [Erstellen von Verwaltungsgruppen](../governance/management-groups/create-management-group-portal.md) 
 
-- [Absichern des Zugriffs auf Logic Apps über RBAC](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+- [Absichern des Zugriffs auf Logic Apps über Azure RBAC](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -991,7 +991,7 @@ Außerdem bietet Azure Resource Manager die Möglichkeit, die Vorlage in JSON-Co
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: Sicheres Speichern von benutzerdefinierten Betriebssystemimages
 
-**Leitfaden**: Nicht zutreffend. Diese Leitlinie ist für Computeressourcen vorgesehen.
+**Leitfaden**: Nicht zutreffend; diese Leitlinie ist für Computeressourcen vorgesehen.
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -1009,7 +1009,7 @@ Außerdem bietet Azure Resource Manager die Möglichkeit, die Vorlage in JSON-Co
 
 ### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7.8: Bereitstellen von Konfigurationsverwaltungstools für Betriebssysteme
 
-**Leitfaden**: Nicht zutreffend. Diese Leitlinie ist für Computeressourcen vorgesehen.
+**Leitfaden**: Nicht zutreffend; diese Leitlinie ist für Computeressourcen vorgesehen.
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -1027,7 +1027,7 @@ Außerdem bietet Azure Resource Manager die Möglichkeit, die Vorlage in JSON-Co
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: Implementieren der automatisierten Konfigurationsüberwachung für Betriebssysteme
 
-**Leitfaden**: Nicht zutreffend. Diese Leitlinie ist für Computeressourcen vorgesehen.
+**Leitfaden**: Nicht zutreffend; diese Leitlinie ist für Computeressourcen vorgesehen.
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 

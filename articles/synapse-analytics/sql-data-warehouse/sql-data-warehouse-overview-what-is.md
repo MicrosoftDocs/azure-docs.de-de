@@ -1,6 +1,6 @@
 ---
-title: Was ist Azure Synapse Analytics (früher SQL DW)?
-description: Azure Synapse Analytics (früher SQL DW) ist ein unbegrenzter Analysedienst, der Data Warehousing für Unternehmen mit Big Data-Analysen vereint.
+title: Was ist ein dedizierter SQL-Pool (vormals SQL DW)?
+description: Ein dedizierter SQL-Pool (vormals SQL DW) in Azure Synapse Analytics ist die Data Warehousing-Funktion für Unternehmen in Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,37 +10,30 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 27311270c1383a54192d072d0e152c7cf1a58225
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2f9ab6dacde0259905368d8a0cb788dde77bbfb2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85200952"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453645"
 ---
-# <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Was ist Azure Synapse Analytics (früher SQL DW)?
+# <a name="what-is-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Was ist ein dedizierter SQL-Pool (vormals SQL DW) in Azure Synapse Analytics?
 
-> [!NOTE] 
->Sehen Sie sich die [Dokumentation zu Azure Synapse (Vorschau für Arbeitsbereiche)](../overview-what-is.md) an.
->
+Azure Synapse Analytics ist ein Analysedienst, der Data Warehousing für Unternehmen mit Big Data-Analysen vereint. Dedizierter SQL-Pool (vormals SQL DW) bezieht sich auf die Data Warehousing-Features für Unternehmen, die in Azure Synapse Analytics zur Verfügung stehen.
 
-Azure Synapse ist ein Analysedienst, der Data Warehousing für Unternehmen mit Big Data-Analysen vereint. Er ermöglicht flexible Datenabfragen nach Ihren Vorstellungen, indem serverlose On-Demand-Ressourcen oder bereitgestellten Ressourcen im gewünschten Umfang verwendet werden. Azure Synapse kombiniert diese beiden Welten in einer vereinheitlichten Oberfläche zur Erfassung, Vorbereitung, Verwaltung und Verarbeitung von Daten für sofortige BI- und Machine Learning-Anforderungen.
 
-Azure Synapse besteht aus vier Komponenten:
 
-- Synapse SQL: Umfassende T-SQL-basierte Analyse – allgemein verfügbar
-  - SQL-Pool (Bezahlung pro bereitgestellter DWU)
-  - SQL On-Demand (Bezahlung pro verarbeitetem TB) – Vorschau
-- Spark: Fest integriertes Apache Spark (Vorschau)
-- Synapse-Pipelines: Hybrid-Datenintegration (Vorschau)
-- Studio: Einheitliche Benutzeroberfläche. (Vorschauversion)
+![Dedizierter SQL-Pool (vormals SQL DW) in Bezug auf Azure Synapse](./media/sql-data-warehouse-overview-what-is/dedicated-sql-pool.png)
 
-## <a name="synapse-sql-pool-in-azure-synapse"></a>Synapse SQL-Pool in Azure Synapse
 
-Ein Synapse SQL-Pool bezieht sich auf die Data Warehousing-Features für Unternehmen, die in Azure Synapse allgemein zur Verfügung stehen.
 
-Der SQL-Pool ist eine Sammlung von Analyseressourcen, die bei Verwendung von Synapse SQL bereitgestellt werden. Die Größe des SQL-Pools wird durch die Data Warehouse-Einheiten (DWUs) bestimmt.
+Ein dedizierter SQL-Pool (vormals SQL DW) ist eine Sammlung von Analyseressourcen, die bei Verwendung von Synapse SQL bereitgestellt werden. Die Größe eines dedizierten SQL-Pools (vormals SQL DW) wird durch Data Warehouse-Einheiten (Data Warehouse Units, DWUs) bestimmt.
 
-Führen Sie den Import großer Datenmengen mit einfachen [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)-T-SQL-Abfragen durch, und nutzen Sie anschließend die Vorteile von MPP für Hochleistungsanalysen. Bei der Integration und Analyse wird der Synapse SQL-Pool für Ihr Unternehmen somit zur alleinigen zuverlässigen Quelle für die Gewinnung schneller und besser fundierter Erkenntnisse.  
+Nach der Erstellung des dedizierten SQL-Pools können Sie Big Data mit einfachen [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)-T-SQL-Abfragen importieren und anschließend die Vorteile der Engine für verteilte Abfragen für Hochleistungsanalysen nutzen. Bei der Integration und Analyse der Daten wird der dedizierte SQL-Pool (vormals SQL DW) für Ihr Unternehmen somit zur alleinigen zuverlässigen Quelle für die Gewinnung schneller und besser fundierter Erkenntnisse.
+
+> [!NOTE]
+>Informieren Sie sich ausführlicher in der [Dokumentation zu Azure Synapse Analytics](../overview-what-is.md).
+> 
 
 ## <a name="key-component-of-a-big-data-solution"></a>Schlüsselkomponente einer Big Data-Lösung
 
@@ -48,16 +41,16 @@ Data Warehousing ist eine Schlüsselkomponente einer cloudbasierten Komplettlös
 
 ![Data Warehouse-Lösung](./media/sql-data-warehouse-overview-what-is/data-warehouse-solution.png)
 
-In einer Clouddatenlösung werden Daten aus verschiedensten Quellen in Big Data-Speichern erfasst. Nach der Speicherung in einem Big Data-Speicher werden die Daten durch Hadoop, Spark und Machine Learning-Algorithmen vorbereitet und trainiert. Wenn die Daten für komplexe Analysen bereit sind, fragt der Synapse SQL-Pool die Big Data-Speicher mithilfe von PolyBase ab. PolyBase verwendet T-SQL-Standardabfragen, um die Daten an Tabellen des Synapse SQL-Pools zu übermitteln.
+In einer Clouddatenlösung werden Daten aus verschiedensten Quellen in Big Data-Speichern erfasst. Nach der Speicherung in einem Big Data-Speicher werden die Daten durch Hadoop, Spark und Machine Learning-Algorithmen vorbereitet und trainiert. Wenn die Daten für komplexe Analysen bereit sind, fragt der dedizierte SQL-Pool die Big Data-Speicher mithilfe von PolyBase ab. PolyBase verwendet T-SQL-Standardabfragen, um die Daten an Tabellen des dedizierten SQL-Pools (vormals SQL DW) zu übermitteln.
 
-Der Synapse SQL-Pool speichert Daten in relationalen Tabellen mit spaltenbasiertem Speicher. Dieses Format zeichnet sich durch erheblich geringere Datenspeicherkosten und eine bessere Abfrageleistung aus. Nachdem die Daten gespeichert wurden, können Sie Analysen in großem Umfang durchführen. Im Vergleich zu herkömmlichen Datenbanksystemen dauern Analyseabfragen nur noch Sekunden statt Minuten (oder Stunden statt Tage).
+Der dedizierte SQL-Pool (vormals SQL DW) speichert Daten in relationalen Tabellen mit spaltenbasiertem Speicher. Dieses Format zeichnet sich durch erheblich geringere Datenspeicherkosten und eine wesentlich bessere Abfrageleistung aus. Nachdem die Daten gespeichert wurden, können Sie Analysen in großem Umfang durchführen. Im Vergleich zu herkömmlichen Datenbanksystemen dauern Analyseabfragen nur noch Sekunden statt Minuten (oder Stunden statt Tage).
 
 Die Analyseergebnisse können an Berichtsdatenbanken oder Anwendungen auf der ganzen Welt übermittelt werden. Business Analysts können so Erkenntnisse gewinnen und fundierte Geschäftsentscheidungen treffen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Erkunden Sie die [Architektur von Azure Synapse](massively-parallel-processing-mpp-architecture.md).
-- Führen Sie eine schnelle [Erstellung eines SQL-Pools](create-data-warehouse-portal.md) durch.
+- Informieren Sie sich darüber, wie Sie schnell [einen dedizierten SQL-Pool erstellen](create-data-warehouse-portal.md).
 - [Laden von Beispieldaten](load-data-from-azure-blob-storage-using-polybase.md)
 - Ansehen von [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 

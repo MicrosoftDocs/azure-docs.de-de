@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 06/03/2020
-ms.openlocfilehash: 49e885862a49bb3bbea718566ee5389e6b08e860
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4da14c1fbdaf71018e62b0f97e288a66edef5c8
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444595"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677288"
 ---
 # <a name="sql-database-audit-log-format"></a>Überwachungsprotokollformate in Azure SQL-Datenbank
 
@@ -89,8 +89,8 @@ Für die Datenbank `Database1` unter `Server1` wäre beispielsweise folgender Pf
 | target_server_principal_name | target_server_principal_name_s | Zielanmeldung der Aktion NULL, falls nicht zutreffend | sysname | Zeichenfolge |
 | target_server_principal_sid | target_server_principal_sid_s | SID der Zielanmeldung NULL, falls nicht zutreffend | varbinary | Zeichenfolge |
 | transaction_id | transaction_id_d | nur SQL Server (ab 2016), 0 für Azure SQL-Datenbank | BIGINT | INT |
-| user_defined_event_id | user_defined_event_id_d | Benutzerdefinierte Ereignis-ID, die als Argument an sp_audit_write übergeben wird NULL für Systemereignisse (Standardwert), ungleich 0 für benutzerdefinierte Ereignisse Weitere Informationen: [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | SMALLINT | INT |
-| user_defined_information | user_defined_information_s | Benutzerdefinierte Informationen, die als Argument an sp_audit_write übergeben werden NULL für Systemereignisse (Standardwert), ungleich 0 für benutzerdefinierte Ereignisse Weitere Informationen: [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar(4000) | Zeichenfolge |
+| user_defined_event_id | user_defined_event_id_d | Benutzerdefinierte Ereignis-ID, die als Argument an sp_audit_write übergeben wird NULL für Systemereignisse (Standardwert), ungleich 0 für benutzerdefinierte Ereignisse Weitere Informationen: [sp_audit_write (Transact-SQL)](/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | SMALLINT | INT |
+| user_defined_information | user_defined_information_s | Benutzerdefinierte Informationen, die als Argument an sp_audit_write übergeben werden NULL für Systemereignisse (Standardwert), ungleich 0 für benutzerdefinierte Ereignisse Weitere Informationen: [sp_audit_write (Transact-SQL)](/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar(4000) | Zeichenfolge |
 
 ## <a name="next-steps"></a>Nächste Schritte
 

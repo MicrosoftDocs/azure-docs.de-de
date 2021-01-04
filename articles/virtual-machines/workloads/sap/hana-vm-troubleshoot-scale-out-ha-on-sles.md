@@ -7,17 +7,18 @@ author: hermanndms
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 5c3a24bc9d754a15a0b372667fbcd689365a9aec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87758100299eb170a7950a1a7a2c6bd2029b27fb
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088307"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621551"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Überprüfen und Problembehandlung beim Setup der SAP HANA-Hochverfügbarkeitskonfiguration zur horizontalen Skalierung unter SLES 12 SP3 
 
@@ -44,6 +45,9 @@ Alle Tests für die horizontale Skalierung mit SAP HANA in Kombination mit der S
 SUSE hat eine [ausführliche Beschreibung dieses leistungsoptimierten Setups][sles-hana-scale-out-ha-paper] veröffentlicht.
 
 Sie finden die VM-Typen, die für die horizontale Skalierung mit SAP HANA unterstützt werden, im [SAP HANA-zertifizierten IaaS-Verzeichnis][sap-hana-iaas-list].
+
+> [!NOTE]
+> Dieser Artikel enthält Verweise auf die Begriffe *Master* und *Slave*, die von Microsoft nicht mehr verwendet werden. Sobald diese Begriffe aus der Software entfernt wurden, werden sie auch aus diesem Artikel gelöscht.
 
 Bei der horizontalen Skalierung mit SAP HANA in Kombination mit mehreren Subnetzen und virtuellen Netzwerkkarten sowie der Einrichtung der HSR gab es ein technisches Problem. Es ist zwingend erforderlich, dass Sie die neuesten Patches von SAP HANA 2.0 verwenden, bei denen dieses Problem behoben wurde. Folgende SAP HANA-Versionen werden unterstützt: 
 
@@ -550,7 +554,7 @@ Last change: Wed Sep 12 07:46:54 2018 by root via cibadmin on hso-hana-vm-s2-1
 7 nodes configured
 17 resources configured
 
-              *** Resource management is DISABLED ***
+              **_ Resource management is DISABLED _*_
   The cluster will not attempt to start, stop or recover services
 
 Online: [ hso-hana-dm hso-hana-vm-s1-0 hso-hana-vm-s1-1 hso-hana-vm-s1-2 hso-hana-vm-s2-0 hso-hana-vm-s2-1 hso-hana-vm-s2-2 ]
@@ -586,7 +590,7 @@ crm configure property maintenance-mode=false
 </code></pre>
 
 
-Mit einem weiteren **crm** Befehl wird die vollständige Clusterkonfiguration in einem Editor geöffnet, sodass Sie sie bearbeiten können. Nachdem die Änderungen gespeichert wurden, startet der Cluster die entsprechenden Aktionen:
+Mit einem weiteren _ *crm**-Befehl wird die vollständige Clusterkonfiguration in einem Editor geöffnet, sodass Sie sie bearbeiten können. Nachdem die Änderungen gespeichert wurden, startet der Cluster die entsprechenden Aktionen:
 
 <pre><code>
 crm configure edit

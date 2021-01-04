@@ -17,12 +17,12 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1efafd353bea20ea1ada0b5e92a9e6df00deb78
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c075e19422341ad7ccfd3ad951517876ab26a495
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91273599"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858415"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konten und Berechtigungen
 
@@ -252,7 +252,7 @@ Es besteht eine Beschränkung auf 20 Synchronisierungsdienstkonten in Azure AD.
 Um nicht verwendete Azure AD-Dienstkonten zu entfernen, führen Sie das folgende Azure AD PowerShell-Cmdlet aus: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 >[!NOTE]
->Bevor Sie die oben aufgeführten PowerShell-Befehle verwenden können, müssen Sie [Azure Active Directory-PowerShell für das Graph-Modul](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) installieren und mit [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) eine Verbindung zu Ihrer Azure AD-Instanz herstellen.
+>Bevor Sie die oben aufgeführten PowerShell-Befehle verwenden können, müssen Sie [Azure Active Directory-PowerShell für das Graph-Modul](/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module) installieren und mit [Connect-AzureAD](/powershell/module/azuread/connect-azuread) eine Verbindung zu Ihrer Azure AD-Instanz herstellen.
 
 Weitere Informationen zum Verwalten oder Zurücksetzen des Kennworts für das Azure AD Connector-Konto finden Sie unter [Verwalten der Azure AD Connect-Konten](how-to-connect-azureadaccount.md).
 

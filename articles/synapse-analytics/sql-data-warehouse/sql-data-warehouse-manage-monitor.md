@@ -1,6 +1,6 @@
 ---
-title: Überwachen der Workload Ihres SQL-Pools mit DMVs
-description: Hier erfahren Sie, wie Sie die Workload Ihres SQL-Pools von Azure Synapse Analytics und die Abfrageausführung mit DMVs überwachen können.
+title: Überwachen der Workload Ihres dedizierten SQL-Pools mit DMVs
+description: Hier erfahren Sie, wie Sie die Workload Ihres dedizierten SQL-Pools von Azure Synapse Analytics und die Abfrageausführung mit DMVs überwachen können.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 03/24/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: synapse-analytics
-ms.openlocfilehash: 9eb1006bdba6c69136c972359bb13420a04f4180
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1992c3d525fc1f5a098e1969887a752233d47990
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048023"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453808"
 ---
-# <a name="monitor-your-azure-synapse-analytics-sql-pool-workload-using-dmvs"></a>Überwachen der Workload Ihres SQL-Pools von Azure Synapse Analytics mit DMVs
+# <a name="monitor-your-azure-synapse-analytics-dedicated-sql-pool-workload-using-dmvs"></a>Überwachen der Workload Ihres dedizierten SQL-Pools von Azure Synapse Analytics mit DMVs
 
 In diesem Artikel wird beschrieben, wie Sie Ihre Workload mit dynamischen Verwaltungssichten (Dynamic Management Views, DMVs) überwachen können, einschließlich der Untersuchung von Abfrageausführungen im SQL-Pool.
 
@@ -139,7 +139,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
 * Überprüfen Sie die Spalte *total_elapsed_time*, um festzustellen, ob das Verschieben von Daten in einer bestimmten Verteilung erheblich länger dauert als in anderen Verteilungen.
-* Überprüfen Sie für die Verteilung mit langer Laufzeit die Spalte *rows_processed*, um festzustellen, ob die Anzahl der Zeilen, die von dieser Verteilung verschoben werden, beträchtlich größer als bei den anderen ist. Falls ja, kann dies auf eine Ungleichmäßigkeit der zugrunde liegenden Daten hinweisen.
+* Überprüfen Sie für die Verteilung mit langer Laufzeit die Spalte *rows_processed*, um festzustellen, ob die Anzahl der Zeilen, die von dieser Verteilung verschoben werden, beträchtlich größer als bei den anderen ist. Falls ja, kann dies auf eine Ungleichmäßigkeit der zugrunde liegenden Daten hinweisen. Eine Ursache für Datenschiefe ist die Verteilung einer Spalte mit vielen NULL-Werten (deren Zeilen alle in dieselbe Verteilung eingefügt werden). Sie vermeiden langsame Abfragen, indem Sie die Verteilung dieser Spaltentypen vermeiden oder indem Sie die Abfrage nach Möglichkeit filtern, um NULL-Werte auszuschließen. 
 
 Wird die Abfrage gerade ausgeführt, können Sie mit [DBCC PDW_SHOWEXECUTIONPLAN](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) aus dem Cache des SQL Server-Plans den berechneten SQL Server-Ausführungsplan für den derzeit ausgeführten SQL-Schritt innerhalb einer bestimmten Verteilung abrufen.
 

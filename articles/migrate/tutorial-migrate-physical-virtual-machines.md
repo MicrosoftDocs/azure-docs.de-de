@@ -1,15 +1,18 @@
 ---
 title: Migrieren von Computern als physischer Server zu Azure mit Azure Migrate
 description: In diesem Artikel wird beschrieben, wie Sie physische Computer mit Azure Migrate zu Azure migrieren.
+author: rahulg1190
+ms.author: rahugup
+ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: 187d660c0aa3ce1fa37a706b37102d2e4f9b4d25
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: af1c321e5c537fbd3af770cb392c538e6056e075
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308500"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752871"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrieren von Computern als physische Server zu Azure
 
@@ -52,7 +55,7 @@ Bereiten Sie Azure für die Migration mit der Servermigration vor.
 
 **Aufgabe** | **Details**
 --- | ---
-**Erstellen eines Azure Migrate-Projekts** | Ihr Azure-Konto benötigt zum Erstellen eines Projekts Berechtigungen vom Typ „Mitwirkender“ oder „Besitzer“.
+**Erstellen eines Azure Migrate-Projekts** | Ihr Azure-Konto benötigt zum [Erstellen eines neuen Projekts](https://docs.microsoft.com/azure/migrate/create-manage-projects) Berechtigungen vom Typ „Mitwirkender“ oder „Besitzer“.
 **Überprüfen der Berechtigungen für Ihr Azure-Konto** | Ihr Azure-Konto benötigt Berechtigungen zum Erstellen eines virtuellen Computers sowie zum Schreiben auf einen verwalteten Azure-Datenträger.
 
 
@@ -110,28 +113,6 @@ Bereiten Sie die Bereitstellung der Appliance wie folgt vor:
 
 > [!NOTE]
 > Die Replikationsappliance sollte nicht auf einem zu replizierenden Quellcomputer oder auf der Ermittlungs- und Bewertungsappliance von Azure Migrate installiert werden, die Sie unter Umständen bereits installiert haben.
-
-## <a name="add-the-server-migration-tool"></a>Hinzufügen des Tools für die Servermigration
-
-Richten Sie ein Azure Migrate-Projekt ein, und fügen Sie diesem dann das Tool für die Servermigration hinzu.
-
-1. Wählen Sie im Azure-Portal **Alle Dienste** aus, und suchen Sie nach **Azure Migrate**.
-2. Wählen Sie unter **Dienste** die Option **Azure Migrate** aus.
-3. Klicken Sie in der **Übersicht** auf **Server bewerten und migrieren**.
-4. Klicken Sie unter **Server ermitteln, bewerten und migrieren** auf **Server bewerten und migrieren**.
-
-    ![Ermitteln und Bewerten von Servern](./media/tutorial-migrate-physical-virtual-machines/assess-migrate.png)
-
-5. Klicken Sie unter **Server ermitteln, bewerten und migrieren** auf **Tools hinzufügen**.
-6. Wählen Sie unter **Projekt migrieren** Ihr Azure-Abonnement aus, und erstellen Sie bei Bedarf eine Ressourcengruppe.
-7. Geben Sie unter **Projektdetails** den Projektnamen und die geografische Region an, in der Sie das Projekt erstellen möchten. Klicken Sie anschließend auf **Weiter**. Beachten Sie die unterstützten geografischen Regionen für [öffentliche](migrate-support-matrix.md#supported-geographies-public-cloud) und [behördliche Clouds](migrate-support-matrix.md#supported-geographies-azure-government).
-
-    ![Erstellen eines Azure Migrate-Projekts](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
-
-8. Wählen Sie unter **Bewertungstool auswählen** die Option **Hinzufügen eines Bewertungstools vorerst überspringen** >  und anschließend **Weiter** aus.
-9. Wählen Sie unter **Migrationstool auswählen** Folgendes aus: **Azure Migrate: Servermigration** > **Weiter**.
-10. Überprüfen Sie die Einstellungen unter **Überprüfen + Tools hinzufügen**, und klicken Sie auf **Tools hinzufügen**.
-11. Nachdem Sie das Tool hinzugefügt haben, wird es im Azure Migrate-Projekt unter **Server** > **Migrationstools** angezeigt.
 
 ## <a name="set-up-the-replication-appliance"></a>Einrichten der Replikationsappliance
 
@@ -194,7 +175,7 @@ Auf Computern, die Sie migrieren möchten, müssen Sie den Mobility Service-Agen
     ```
 2. Führen Sie das Mobility Service-Installationsprogramm aus:
     ```
-   UnifiedAgent.exe /Role "MS" /Silent
+   UnifiedAgent.exe /Role "MS" /Platform "VmWare" /Silent
     ```
 3. Registrieren Sie den Agent bei der Replikationsappliance:
     ```
@@ -212,7 +193,7 @@ Auf Computern, die Sie migrieren möchten, müssen Sie den Mobility Service-Agen
     ```
 2. Führen Sie das Installationsskript aus:
     ```
-    sudo ./install -r MS -q
+    sudo ./install -r MS -v VmWare -q
     ```
 3. Registrieren Sie den Agent bei der Replikationsappliance:
     ```

@@ -1,7 +1,7 @@
 ---
 title: 'Multiclass Neural Network: Modulreferenz'
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Sie mit dem Modul „Multiclass Neural Network“ (Neuronales Netz mit mehreren Klassen) in Azure Machine Learning ein neuronales Netzmodell erstellen, mit dem Sie ein Ziel vorhersagen können, das mehrere Werte hat.
+description: Erfahren Sie, wie Sie das Multiclass Neural Network-Modul im Azure Machine Learning-Designer verwenden, um ein Ziel vorherzusagen, das mehrklassige Werte hat.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 1b5ccc9deb3c11d847cd194992d7972f82a5c160
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4f7f8a7793f31ffbf2099cbfb314fc5097319f5
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905279"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421259"
 ---
 # <a name="multiclass-neural-network-module"></a>Modul „Multiclass Neural Network“ (Neuronales Netz mit mehreren Klassen)
 

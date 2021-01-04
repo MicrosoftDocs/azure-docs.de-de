@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 10/10/2018
+ms.date: 10/30/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7eeafe41888163c27f583529bed1998f067e107f
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: cd91d1d2c9f5a4a413f9ea64cfdef649823d0f09
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107622"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131019"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Gewähren des Zugriffs auf lokale Anwendungen für B2B-Benutzer in Azure AD
 
@@ -29,7 +29,7 @@ Wenn Ihre lokalen Apps die SAML-basierte Authentifizierung verwenden, können Si
 Dazu müssen Sie die folgenden zwei Schritte ausführen:
 
 - Integrieren Sie die App unter Verwendung von SAML, wie unter [Konfigurieren des SAML-basierten einmaligen Anmeldens](../manage-apps/configure-saml-single-sign-on.md) beschrieben. Notieren Sie unbedingt den Wert, den Sie für **Anmelde-URL** angeben.
--  Verwenden Sie den Azure AD-Anwendungsproxy, um die lokale App mit **Azure Active Directory** als Authentifizierungsquelle zu veröffentlichen. Anweisungen dazu finden Sie unter [Veröffentlichen von Anwendungen mit Azure AD-Anwendungsproxy](../manage-apps/application-proxy-publish-azure-portal.md). 
+-  Verwenden Sie den Azure AD-Anwendungsproxy, um die lokale App mit **Azure Active Directory** als Authentifizierungsquelle zu veröffentlichen. Anweisungen dazu finden Sie unter [Veröffentlichen von Anwendungen mit Azure AD-Anwendungsproxy](../manage-apps/application-proxy-add-on-premises-application.md). 
 
    Verwenden Sie beim Konfigurieren der Einstellung **Interne URL** die Anmelde-URL, die Sie in der Vorlage „Nicht-Kataloganwendung“ angegeben haben. Auf diese Weise können Benutzer außerhalb der Unternehmensgrenzen auf die App zugreifen. Der Anwendungsproxy führt das SAML-basierte einmalige Anmelden für die lokale App aus.
  
@@ -39,8 +39,8 @@ Dazu müssen Sie die folgenden zwei Schritte ausführen:
 
 Um B2B-Benutzern den Zugriff auf lokale Anwendungen zu ermöglichen, die durch die integrierte Windows-Authentifizierung und eingeschränkte Kerberos-Delegierung geschützt sind, benötigen Sie die folgenden Komponenten:
 
-- **Authentifizierung über den Azure AD-Anwendungsproxy** . B2B-Benutzer müssen sich bei der lokalen Anwendung authentifizieren können. Zu diesem Zweck müssen Sie die lokale App über den Azure AD-Anwendungsproxy veröffentlichen. Weitere Informationen finden Sie unter [Erste Schritte mit dem Anwendungsproxy und Installieren des Connectors](../manage-apps/application-proxy-enable.md) und [Veröffentlichen von Anwendungen mit Azure AD-Anwendungsproxy](../manage-apps/application-proxy-publish-azure-portal.md).
-- **Autorisierung über ein B2B-Benutzerobjekt im lokalen Verzeichnis** . Die Anwendung muss Zugriffsüberprüfungen für Benutzer ausführen können und ihnen Zugriff auf die richtigen Ressourcen gewähren. IWA und KCD erfordern für diese Autorisierung ein Benutzerobjekt im lokalen Windows Server Active Directory-Verzeichnis. Der Anwendungsproxy benötigt dieses Benutzerobjekt, um die Identität des Benutzers anzunehmen und ein Kerberos-Token für die App abzurufen (siehe [So funktioniert das einmalige Anmelden mit KCD](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works)). 
+- **Authentifizierung über den Azure AD-Anwendungsproxy**. B2B-Benutzer müssen sich bei der lokalen Anwendung authentifizieren können. Zu diesem Zweck müssen Sie die lokale App über den Azure AD-Anwendungsproxy veröffentlichen. Weitere Informationen finden Sie im [Tutorial: Hinzufügen einer lokalen Anwendung für den Remotezugriff über den Anwendungsproxy](../manage-apps/application-proxy-add-on-premises-application.md).
+- **Autorisierung über ein B2B-Benutzerobjekt im lokalen Verzeichnis**. Die Anwendung muss Zugriffsüberprüfungen für Benutzer ausführen können und ihnen Zugriff auf die richtigen Ressourcen gewähren. IWA und KCD erfordern für diese Autorisierung ein Benutzerobjekt im lokalen Windows Server Active Directory-Verzeichnis. Der Anwendungsproxy benötigt dieses Benutzerobjekt, um die Identität des Benutzers anzunehmen und ein Kerberos-Token für die App abzurufen (siehe [So funktioniert das einmalige Anmelden mit KCD](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works)). 
 
    > [!NOTE]
    > Stellen Sie beim Konfigurieren des Azure AD-Anwendungsproxys sicher, dass **Delegierte Identität für Anmeldung** in der Konfiguration des einmaligen Anmeldens für die integrierte Windows-Authentifizierung (IWA) auf **Benutzerprinzipalname** (Standard) festgelegt ist.
@@ -71,13 +71,13 @@ Sie können die lokalen B2B-Benutzerobjekte mithilfe von Richtlinien für die Le
 
 ### <a name="create-b2b-guest-user-objects-through-mim"></a>Erstellen von B2B-Gastbenutzerobjekten über MIM
 
-Informationen zur Verwendung von MIM 2016 Service Pack 1 und des MIM-Verwaltungs-Agents für Microsoft Graph zum Erstellen von Gastbenutzerobjekten im lokalen Verzeichnis finden Sie unter [Azure AD-Business-to-Business-Kollaboration (B2B) mit Microsoft Identity Manager(MIM) 2016 SP1 mit Azure-Anwendungsproxy](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario).
+Informationen zur Verwendung von MIM 2016 Service Pack 1 und des MIM-Verwaltungs-Agents für Microsoft Graph zum Erstellen von Gastbenutzerobjekten im lokalen Verzeichnis finden Sie unter [Azure AD-Business-to-Business-Kollaboration (B2B) mit Microsoft Identity Manager(MIM) 2016 SP1 mit Azure-Anwendungsproxy](/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario).
 
 ### <a name="create-b2b-guest-user-objects-through-a-script-preview"></a>Erstellen von B2B-Gastbenutzerobjekten über ein Skript (Vorschau)
 
 Es ist ein PowerShell-Beispielskript verfügbar, das Sie als Ausgangspunkt für die Erstellung von Gastbenutzerobjekten in Ihrem lokalen Active Directory-Verzeichnis verwenden können.
 
-Sie können das Skript und die Infodatei aus dem [Download Center](https://www.microsoft.com/download/details.aspx?id=51495) herunterladen. Wählen Sie die Datei **Script and Readme to pull Azure AD B2B users on-prem.zip** aus.
+Sie können das Skript und die Infodatei unter [Connectors für Microsoft Identity Manager 2016 und Forefront Identity Manager 2010 R2](https://www.microsoft.com/download/details.aspx?id=51495) herunterladen. Wählen Sie im Downloadpaket die Datei **Script and Readme to pull Azure AD B2B users on-prem.zip** aus.
 
 Lesen Sie vor der Verwendung des Skripts unbedingt die Voraussetzungen und wichtigen Hinweise in der zugehörigen Infodatei. Beachten Sie außerdem, dass das Skript nur als Beispiel zur Verfügung gestellt wird. Ihr Entwicklerteam oder ein Partner muss das Skript vor der Ausführung anpassen und überprüfen.
 
@@ -90,4 +90,3 @@ Stellen Sie sicher, dass Sie über die richtigen Clientzugriffslizenzen (Client 
 - [Azure Active Directory B2B-Zusammenarbeit für Hybridorganisationen](hybrid-organizations.md)
 
 - Eine Übersicht zu Azure AD Connect finden Sie unter [Integrieren Ihrer lokalen Verzeichnisse in Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
-

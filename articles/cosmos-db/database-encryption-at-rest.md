@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: ceb2b8812b52b1ca2030a0fd0006c9388630c05e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: abe4bb3a53e3177857cb8041fd255ec916985054
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487482"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089864"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Datenverschlüsselung in Azure Cosmos DB 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 „Verschlüsselung ruhender Daten“ ist ein Ausdruck, der sich im Allgemeinen auf die Verschlüsselung von Daten auf permanenten Speichergeräten wie Solid State-Laufwerken (SSDs) und Festplattenlaufwerken (HDDs) bezieht. Cosmos DB speichert die primären Datenbanken auf SSDs. Die Medienanlagen und die Sicherungen werden in Azure Blob Storage gespeichert und in der Regel durch HDDs gesichert. Mit der Veröffentlichung der Verschlüsselung von ruhenden Daten für Cosmos DB werden Ihre gesamten Datenbanken, Medienanhänge und Sicherungen jetzt verschlüsselt. Damit werden Ihre Daten jetzt während der Übertragung (über das Netzwerk) und im Ruhezustand (permanenter Speicher) verschlüsselt, sodass Sie eine End-to-End-Verschlüsselung erhalten.
 

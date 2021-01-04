@@ -3,13 +3,13 @@ title: Erstellen von Containerimages für Service Fabric in Azure
 description: In diesem Tutorial erfahren Sie, wie Sie Containerimages für eine Service Fabric-Anwendung mit mehreren Containern erstellen.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc
-ms.openlocfilehash: 73d202b3b812b59ed8dadd4a6508dfe2873ecd6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 31b5f870465bc1dff9d6ff7827a4efed084bcf62
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532209"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739061"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutorial: Erstellen von Containerimages für einen Linux-Service Fabric-Cluster
 
@@ -65,7 +65,7 @@ Die Befehlsausführung kann eine Weile dauern, da alle erforderlichen Abhängigk
 docker images
 ```
 
-Beachten Sie, dass zwei Images heruntergeladen oder erstellt wurden. Das Image *azure-vote-front* enthält die Anwendung. Es wurde von einem *Python*-Image von Docker Hub abgeleitet.
+Beachten Sie, dass zwei Images heruntergeladen oder erstellt wurden. Das Image *azure-vote-front* enthält die Anwendung. Es wurde von einem *Python* -Image von Docker Hub abgeleitet.
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
@@ -82,7 +82,7 @@ Führen Sie zunächst den Befehl **az login** aus, um sich bei Ihrem Azure-Konto
 az login
 ```
 
-Verwenden Sie dann den Befehl **az account**, um Ihr Abonnement für die Erstellung der Azure Container Registry-Instanz auszuwählen. Anstelle von <subscription_id> müssen Sie die Abonnement-ID Ihres Azure-Abonnements angeben.
+Verwenden Sie dann den Befehl **az account** , um Ihr Abonnement für die Erstellung der Azure Container Registry-Instanz auszuwählen. Anstelle von <subscription_id> müssen Sie die Abonnement-ID Ihres Azure-Abonnements angeben.
 
 ```azurecli
 az account set --subscription <subscription_id>
@@ -106,7 +106,7 @@ Im weiteren Verlauf des Tutorials verwenden wir „acrName“ als Platzhalter f�
 
 ## <a name="sign-in-to-your-container-registry"></a>Anmelden bei Ihrer Containerregistrierung
 
-Melden Sie sich zunächst bei Ihrer ACR-Instanz an, bevor Sie Images per Push in sie übertragen. Verwenden Sie den Befehl **az acr login**, um den Vorgang abzuschließen. Geben Sie den eindeutigen Namen an, den die Containerregistrierung bei ihrer Erstellung erhalten hat.
+Melden Sie sich zunächst bei Ihrer ACR-Instanz an, bevor Sie Images per Push in sie übertragen. Verwenden Sie den Befehl **az acr login** , um den Vorgang abzuschließen. Geben Sie den eindeutigen Namen an, den die Containerregistrierung bei ihrer Erstellung erhalten hat.
 
 ```azurecli
 az acr login --name <acrName>
@@ -138,7 +138,7 @@ Führen Sie den folgenden Befehl aus, um den loginServer-Namen abzurufen:
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Dadurch wird eine Tabelle mit den folgenden Ergebnissen ausgegeben. Dieses Ergebnis wird zur Kennzeichnung Ihres **azure-vote-front**-Images verwendet, bevor es im nächsten Schritt an die Containerregistrierung weitergeleitet wird.
+Dadurch wird eine Tabelle mit den folgenden Ergebnissen ausgegeben. Dieses Ergebnis wird zur Kennzeichnung Ihres **azure-vote-front** -Images verwendet, bevor es im nächsten Schritt an die Containerregistrierung weitergeleitet wird.
 
 ```output
 Result

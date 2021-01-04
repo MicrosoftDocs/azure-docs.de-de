@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 13000c5a61dc2c4d49aa395271beddef64d32245
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c13b6ed991403e65c4c4d71c964f1f7f4d1ffe7b
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119214"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443312"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Daemon-App, die Web-APIs aufruft – Aufruf eines Tokens
 
@@ -202,7 +202,7 @@ Weitere Informationen finden Sie in der Protokolldokumentation: [Microsoft Ident
 
 ## <a name="application-token-cache"></a>Anwendungstokencache
 
-In MSAL.NET verwendet `AcquireTokenForClient` den Anwendungstokencache. (Alle anderen AcquireToken*XX*-Methoden verwenden den Benutzertokencache.) Rufen Sie `AcquireTokenSilent` nicht vor `AcquireTokenForClient` auf, da `AcquireTokenSilent` den *Benutzertokencache* verwendet. `AcquireTokenForClient` überprüft den *Anwendungstokencache* selbst und aktualisiert diesen.
+In MSAL.NET verwendet `AcquireTokenForClient` den Anwendungstokencache. (Alle anderen AcquireToken *XX*-Methoden verwenden den Benutzertokencache.) Rufen Sie `AcquireTokenSilent` nicht vor `AcquireTokenForClient` auf, da `AcquireTokenSilent` den *Benutzertokencache* verwendet. `AcquireTokenForClient` überprüft den *Anwendungstokencache* selbst und aktualisiert diesen.
 
 ## <a name="troubleshooting"></a>Problembehandlung
 
@@ -233,17 +233,14 @@ Content: {
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [Daemon-App – Aufrufen einer Web-API](./scenario-daemon-call-api.md?tabs=dotnet)
+Fahren Sie mit dem nächsten Artikel in diesem Szenario fort: [Aufrufen einer Web-API](./scenario-daemon-call-api.md?tabs=dotnet).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Daemon-App – Aufrufen einer Web-API](./scenario-daemon-call-api.md?tabs=python)
+Fahren Sie mit dem nächsten Artikel in diesem Szenario fort: [Aufrufen einer Web-API](./scenario-daemon-call-api.md?tabs=python).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Daemon-App – Aufrufen einer Web-API](./scenario-daemon-call-api.md?tabs=java)
+Fahren Sie mit dem nächsten Artikel in diesem Szenario fort: [Aufrufen einer Web-API](./scenario-daemon-call-api.md?tabs=java).
 
 ---

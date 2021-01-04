@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 828b5c34aaccf2a53aa197f921a8ef02d46821ae
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2350177373bc99907c437d814d8f01193f18f3fd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280469"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95895722"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Durchführen einer Point-in-Time-Wiederherstellung von Blockblobdaten
 
@@ -29,7 +29,7 @@ Weitere Informationen zur Point-in-Time-Wiederherstellung finden Sie unter [Poin
 
 Bevor Sie die Point-in-Time-Wiederherstellung aktivieren und konfigurieren, aktivieren Sie die Voraussetzungen für das Speicherkonto: vorläufiges Löschen, Änderungsfeed und Blobversionsverwaltung. Weitere Informationen zum Aktivieren dieser Funktionen finden Sie in den folgenden Artikeln:
 
-- [Aktivieren von „Vorläufiges Löschen“ für Blobs](soft-delete-enable.md)
+- [Aktivieren von „Vorläufiges Löschen“ für Blobs](./soft-delete-blob-enable.md)
 - [Aktivieren und Deaktivieren des Änderungsfeeds](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
 - [Aktivieren und Verwalten der Blobversionsverwaltung](versioning-enable.md)
 
@@ -122,7 +122,7 @@ Führen Sie die folgenden Schritte aus, um alle Container und Blobs im Speicherk
 1. Bestätigen Sie durch Aktivieren des Kontrollkästchens, dass Sie den Vorgang fortsetzen möchten.
 1. Wählen Sie **Wiederherstellen** aus, um den Wiederherstellungsvorgang zu starten.
 
-    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="Screenshot des Konfigurierens der Point-in-Time-Wiederherstellung im Azure-Portal":::
+    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="Screenshot der Wiederherstellung aller Container zu einem bestimmten Wiederherstellungspunkt":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -169,14 +169,14 @@ Führen Sie die folgenden Schritte aus, um einen Bereich von Blobs in einem oder
 1. Geben Sie die wiederherzustellenden Bereiche an. Verwenden Sie einen Schrägstrich (/), um den Containernamen vom Blobpräfix zu trennen.
 1. Standardmäßig wird unter **Ausgewählte Container wiederherstellen** ein Bereich angegeben, der alle Blobs im Container umfasst. Löschen Sie diesen Bereich, wenn Sie nicht den gesamten Container wiederherstellen möchten. In der folgenden Abbildung wird der Standardbereich angegeben.
 
-    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="Screenshot des Konfigurierens der Point-in-Time-Wiederherstellung im Azure-Portal":::
+    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="Screenshot des Standardblobbereichs, der vor der Angabe eines benutzerdefinierten Bereichs gelöscht werden muss":::
 
 1. Bestätigen Sie durch Aktivieren des Kontrollkästchens, dass Sie den Vorgang fortsetzen möchten.
 1. Wählen Sie **Wiederherstellen** aus, um den Wiederherstellungsvorgang zu starten.
 
 Die folgende Abbildung zeigt einen Wiederherstellungsvorgang für mehrere Bereiche.
 
-:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="Screenshot des Konfigurierens der Point-in-Time-Wiederherstellung im Azure-Portal":::
+:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="Screenshot der Wiederherstellung von Blobbereichen in einem oder mehreren Containern":::
 
 In dem in der Abbildung gezeigten Wiederherstellungsvorgang werden die folgenden Aktionen ausgeführt:
 
@@ -248,6 +248,6 @@ Um den Wiederherstellungsvorgang synchron auszuführen und die Ausführung bis z
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Point-in-Time-Wiederherstellung für Blockblobs](point-in-time-restore-overview.md)
-- [Vorläufiges Löschen](soft-delete-overview.md)
+- [Vorläufiges Löschen](./soft-delete-blob-overview.md)
 - [Änderungsfeed](storage-blob-change-feed.md)
 - [Blobversionsverwaltung](versioning-overview.md)

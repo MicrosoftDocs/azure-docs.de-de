@@ -6,19 +6,19 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: 4297cc83ab3fa280e15480aefcd5aef8734c65ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/30/2020
+ms.openlocfilehash: 8257be28344ac7a03738c80a003c1229282ae305
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531060"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145706"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Erstellen von Ausdrücken im Zuordnungsdatenfluss
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Im Zuordnungsdatenfluss werden viele Transformationseigenschaften als Ausdrücke eingegeben. Diese Ausdrücke bestehen aus Spaltenwerten, Parametern, Funktionen, Operatoren und Literalen, die zur Laufzeit zu einem Spark-Datentyp ausgewertet werden. Die Zuordnung von Datenflüssen verfügt über eine dedizierte Funktion, die Sie bei der Erstellung dieser Ausdrücke unterstützen soll, den so genannten **Ausdrucks-Generator**. Der Ausdrucks-Generator nutzt die [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense)-Codevervollständigung für Hervorhebung, Syntaxüberprüfung und automatische Vervollständigung und soll Ihnen das Erstellen von Datenflüssen erleichtern. In diesem Artikel wird erläutert, wie Sie den Ausdrucks-Generator verwenden, um Ihre Geschäftslogik effektiv zu erstellen.
+Im Zuordnungsdatenfluss werden viele Transformationseigenschaften als Ausdrücke eingegeben. Diese Ausdrücke bestehen aus Spaltenwerten, Parametern, Funktionen, Operatoren und Literalen, die zur Laufzeit zu einem Spark-Datentyp ausgewertet werden. Die Zuordnung von Datenflüssen verfügt über eine dedizierte Funktion, die Sie bei der Erstellung dieser Ausdrücke unterstützen soll, den so genannten **Ausdrucks-Generator**. Der Ausdrucks-Generator nutzt die [IntelliSense](/visualstudio/ide/using-intellisense)-Codevervollständigung für Hervorhebung, Syntaxüberprüfung und automatische Vervollständigung und soll Ihnen das Erstellen von Datenflüssen erleichtern. In diesem Artikel wird erläutert, wie Sie den Ausdrucks-Generator verwenden, um Ihre Geschäftslogik effektiv zu erstellen.
 
 ![Ausdrucks-Generator](media/data-flow/expresion-builder.png "Ausdrucks-Generator")
 
@@ -30,15 +30,15 @@ Der Ausdrucks-Generator kann auf verschiedene Weise geöffnet werden. Diese hän
 
 Bei einigen Transformationen wie [Filtern](data-flow-filter.md) wird der Ausdrucks-Generator durch Klicken auf ein blaues Ausdruckstextfeld geöffnet. 
 
-![Blaues Ausdrucksfeld](media/data-flow/expressionbox.png "Ausdrucks-Generator")
+![Blaues Ausdrucksfeld](media/data-flow/expressionbox.png "Blaues Ausdrucksfeld")
 
 Wenn Sie in einer Übereinstimmungs- oder Gruppieren nach-Bedingung auf Spalten verweisen, kann ein Ausdruck Werte aus Spalten extrahieren. Wählen Sie zum Erstellen eines Ausdrucks die Option **Berechnete Spalte** aus.
 
-![Option „Berechnete Spalte“](media/data-flow/computedcolumn.png "Ausdrucks-Generator")
+![Option „Berechnete Spalte“](media/data-flow/computedcolumn.png "Option „Berechnete Spalte“")
 
 In Fällen, in denen ein Ausdruck oder ein Literalwert gültige Eingaben sind, können Sie mit **Dynamischen Inhalt hinzufügen** einen Ausdruck erstellen, der zu einem Literalwert ausgewertet wird.
 
-![Option „Dynamischen Inhalt hinzufügen“](media/data-flow/add-dynamic-content.png "Ausdrucks-Generator")
+![Option „Dynamischen Inhalt hinzufügen“](media/data-flow/add-dynamic-content.png "Option „Dynamischen Inhalt hinzufügen“")
 
 ## <a name="expression-elements"></a>Elemente eines Ausdrucks
 
@@ -72,6 +72,16 @@ Wenn Sie Spaltennamen mit Sonder- oder Leerzeichen haben, setzen Sie den Namen i
 ### <a name="parameters"></a>Parameter
 
 Parameter sind Werte, die von einer Pipeline zur Laufzeit an einen Datenfluss übergeben werden. Um auf einen Parameter zu verweisen, klicken Sie entweder in der Ansicht **Ausdruckselemente** auf den Parameter, oder verweisen Sie darauf mit einem Dollarzeichen vor seinem Namen. Beispielsweise wird mit `$parameter1` auf einen Parameter mit dem Namen „parameter1“ verwiesen. Weitere Informationen finden Sie unter [Parametrisieren von Zuordnungsdatenflüssen](parameters-data-flow.md).
+
+### <a name="cached-lookup"></a>Zwischengespeicherte Suche
+
+Eine zwischengespeicherte Suche ermöglicht die Inlinesuche der Ausgabe einer zwischengespeicherten Senke. Für jede Senke stehen zwei Funktionen zur Verfügung: `lookup()` und `outputs()`. Die Syntax zum Verweisen auf diese Funktionen lautet `cacheSinkName#functionName()`. Weitere Informationen finden Sie unter [Cachesenken](data-flow-sink.md#cache-sink).
+
+`lookup()` akzeptiert die übereinstimmenden Spalten in der aktuellen Transformation als Parameter und gibt eine komplexe Spalte zurück. Diese entspricht der Zeile mit den übereinstimmenden Schlüsselspalten in der Cachesenke. Die zurückgegebene komplexe Spalte enthält eine untergeordnete Spalte für jede zugeordnete Spalte in der Cachesenke. Ein Beispiel: Sie verfügen über eine Fehlercode-Cachesenke `errorCodeCache`, die eine Schlüsselspalte mit Codeübereinstimmung und eine Spalte namens `Message` aufweist. Ein Aufruf von `errorCodeCache#lookup(errorCode).Message` würde die Meldung zurückgeben, die dem übergebenen Code entspricht. 
+
+`outputs()` akzeptiert keine Parameter und gibt die gesamte Cachesenke als Array komplexer Spalten zurück. Ein Aufruf ist nicht möglich, wenn Schlüsselspalten in der Senke angegeben sind. Dieser Vorgang sollte nur dann verwendet werden, wenn die Cachesenke nur einige wenige Zeilen enthält. Ein gängiger Anwendungsfall ist das Anfügen des Maximalwerts eines Schlüssels, der inkrementell erhöht wird. Wenn die zwischengespeicherte aggregierte Einzelzeile `CacheMaxKey` die Spalte `MaxKey` enthält, können Sie durch Aufruf von `CacheMaxKey#outputs()[1].MaxKey` auf den ersten Wert verweisen.
+
+![Zwischengespeicherte Suche](media/data-flow/cached-lookup-example.png "Zwischengespeicherte Suche")
 
 ### <a name="locals"></a>Locals
 

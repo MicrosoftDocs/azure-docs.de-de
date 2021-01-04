@@ -4,12 +4,12 @@ description: Greifen Sie mit CodeLens in Visual Studio schnell auf die Applicati
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.custom: vs-azure
-ms.openlocfilehash: 92879e9dc7b9de7ef5862f30241f2b80e6aac9e8
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 2cfc4e06dcb5671f34ff98794c9569b6ed5ddae7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932650"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538494"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Application Insights-Telemetrie in Visual Studio CodeLens
 Methoden im Code Ihrer Web-App können mit Telemetrie zu Laufzeitausnahmen und Anforderungsantwortzeiten kommentiert werden. Wenn Sie [Azure Application Insights](./app-insights-overview.md) in Ihrer Anwendung installieren, wird die Telemetrie in Visual Studio [CodeLens](/visualstudio/ide/find-code-changes-and-other-history-with-codelens?view=vs-2015) angezeigt. Hierbei handelt es sich um die praktischen Hinweise am Anfang jeder Funktion, die Aufschluss darüber geben, an wie vielen Stellen auf die Funktion verwiesen wird oder von wem sie zuletzt bearbeitet wurde.
@@ -30,7 +30,7 @@ Application Insights-Telemetrie finden Sie in den CodeLens-Indikatoren der öffe
 > 
 
 ## <a name="exceptions-in-codelens"></a>Ausnahmen in CodeLens
-![TBD](./media/visual-studio-codelens/codelens-exceptions.png)
+![Screenshot der 47 in CodeLens angezeigten Ausnahmen](./media/visual-studio-codelens/codelens-exceptions.png)
 
 Der CodeLens-Ausnahmenindikator gibt Aufschluss darüber, wie viele Ausnahmen in den letzten 24 Stunden beim Verarbeiten der von der Methode bedienten Anforderung aufgetreten sind. Dabei werden die 15 am häufigsten aufgetretenen Ausnahmen des jeweiligen Zeitraums angezeigt.
 
@@ -52,7 +52,7 @@ Durch Klicken auf den CodeLens-Ausnahmenindikator werden weitere Details angezei
 > 
 
 ## <a name="requests-in-codelens"></a>Anforderungen in CodeLens
-![TBD](./media/visual-studio-codelens/codelens-requests.png)
+![Screenshot der Details zu 684 Anforderungen, einschließlich 7 % fehlerhafte Anforderungen](./media/visual-studio-codelens/codelens-requests.png)
 
 Der CodeLens-Anforderungsindikator zeigt die Anzahl von HTTP-Anforderungen, die von einer Methode in den letzten 24 Stunden bedient wurden, sowie den Prozentsatz nicht erfolgreicher Anforderungen an.
 

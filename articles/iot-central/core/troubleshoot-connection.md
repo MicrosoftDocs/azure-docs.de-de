@@ -7,13 +7,13 @@ ms.author: dobett
 ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
-ms.custom: device-developer
-ms.openlocfilehash: 6438b938dc007e8d157f6549b3ed164cd2a723e8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.custom: device-developer, devx-track-azurecli
+ms.openlocfilehash: 2bbf400840c968587de3a0a0951d28c7c35b210f
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424477"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990889"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Behandeln von Problemen, warum Daten von Ihren Geräten nicht in Azure IoT Central angezeigt werden
 
@@ -135,7 +135,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 | Bereitgestellt | Kein sofort erkennbares Problem. | – |
 | Registriert | Das Gerät hat noch keine Verbindung mit IoT Central hergestellt. | Überprüfen Sie Ihre Geräteprotokolle auf Konnektivitätsprobleme. |
 | Blockiert | Das Gerät ist für die Verbindung mit IoT Central blockiert. | Das Gerät kann sich nicht mit der IoT Central-Anwendung verbinden. Heben Sie die Blockierung des Geräts in IoT Central auf, und versuchen Sie es erneut. Weitere Informationen finden Sie unter [Geräte blockieren](concepts-get-connected.md#device-status-values). |
-| Nicht genehmigt | Das Gerät ist nicht genehmigt. | Das Gerät ist nicht für die Verbindung mit der IoT Central-Anwendung zugelassen. Genehmigen Sie das Gerät in IoT Central, und versuchen Sie es erneut. Weitere Informationen finden Sie unter [Geräte genehmigen](concepts-get-connected.md#connect-without-registering-devices). |
+| Nicht genehmigt | Das Gerät ist nicht genehmigt. | Das Gerät ist nicht für die Verbindung mit der IoT Central-Anwendung zugelassen. Genehmigen Sie das Gerät in IoT Central, und versuchen Sie es erneut. Weitere Informationen finden Sie unter [Geräte genehmigen](concepts-get-connected.md#device-registration). |
 | Nicht zugeordnet | Das Gerät ist keiner Gerätevorlage zugeordnet. | Ordnen Sie das Gerät einer Gerätevorlage zu, sodass IoT Central weiß, wie die Daten zu analysieren sind. |
 
 Erfahren Sie mehr über [Gerätestatuscodes](concepts-get-connected.md#device-status-values).

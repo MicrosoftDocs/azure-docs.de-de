@@ -2,16 +2,16 @@
 title: Behandeln von Problemen mit Azure Automation-Runbooks
 description: In diesem Artikel erfahren Sie, wie Sie Probleme mit Azure Automation-Runbooks beheben.
 services: automation
-ms.date: 07/28/2020
+ms.date: 11/03/2020
 ms.topic: conceptual
 ms.service: automation
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1cbb5be8c1a4045b218c0e6bf5ac7ed0b901aa80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7ab093f601ebcd33d184b9a9008f9de447534a1
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87904801"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368082"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Beheben von Runbookproblemen
 
@@ -42,7 +42,7 @@ Wenn während der Ausführung von Runbooks in Azure Automation Fehler auftreten,
     * [Erneuern Sie das Zertifikat](../manage-runas-account.md#cert-renewal), wenn das ausführende Konto abgelaufen ist.
     * [Erneuern Sie den Webhook](../automation-webhooks.md#renew-a-webhook), wenn Sie versuchen, einen abgelaufenen Webhook zum Starten des Runbooks zu verwenden.
     * [Überprüfen Sie die Auftragsstatuswerte](../automation-runbook-execution.md#job-statuses), um den aktuellen Runbookstatus und einige mögliche Ursachen des Problems zu ermitteln.
-    * [Fügen Sie dem Runbook eine zusätzliche Ausgabe hinzu](../automation-runbook-output-and-messages.md#monitor-message-streams), um zu ermitteln, was passiert, bevor das Runbook angehalten wird.
+    * [Fügen Sie dem Runbook eine zusätzliche Ausgabe hinzu](../automation-runbook-output-and-messages.md#working-with-message-streams), um zu ermitteln, was passiert, bevor das Runbook angehalten wird.
     * [Behandeln Sie alle Ausnahmen](../automation-runbook-execution.md#exceptions), die von Ihrem Auftrag ausgelöst werden.
 
 1. Führen Sie diesen Schritt aus, wenn der Runbookauftrag oder die Umgebung auf dem Hybrid Runbook Worker nicht reagiert.
@@ -201,7 +201,7 @@ Dieser Fehler kann in den folgenden Fällen auftreten:
 Führen Sie die folgenden Schritte aus, um zu ermitteln, ob die Authentifizierung in Azure erfolgt ist und Sie auf das gewünschte Abonnement zugreifen können:
 
 1. Testen Sie Ihr Skript außerhalb von Azure Automation, um sicherzustellen, dass es eigenständig verwendet werden kann.
-1. Stellen Sie sicher, dass Ihr Skript das Cmdlet [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0) vor dem Cmdlet `Select-*` ausführt.
+1. Stellen Sie sicher, dass Ihr Skript das Cmdlet [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) vor dem Cmdlet `Select-*` ausführt.
 1. Fügen Sie am Anfang Ihres Runbooks `Disable-AzContextAutosave –Scope Process` hinzu. Dieses Cmdlet stellt sicher, dass alle Anmeldeinformationen nur für die Ausführung des aktuellen Runbooks gelten.
 1. Wenn die Fehlermeldung weiterhin angezeigt wird, ändern Sie Ihren Code, indem Sie den Parameter `AzContext` für `Connect-AzAccount` hinzufügen und dann den Code ausführen.
 
@@ -251,7 +251,7 @@ Start-AzAutomationRunbook `
     –AutomationAccountName 'MyAutomationAccount' `
     –Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
-    -AzContext $AzureContext `
+    -AzContext $AzContext `
     –Parameters $params –wait
 ```
 
@@ -398,7 +398,7 @@ Wenn der Stream Objekte enthält, wird der Ausgabestream von `Start-AzAutomation
 
 ### <a name="resolution"></a>Lösung
 
-Implementieren Sie eine Abruflogik, und verwenden Sie das Cmdlet [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0), um die Ausgabe abzurufen. Der folgende Code ist ein Beispiel für eine solche Logik:
+Implementieren Sie eine Abruflogik, und verwenden Sie das Cmdlet [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput), um die Ausgabe abzurufen. Der folgende Code ist ein Beispiel für eine solche Logik:
 
 ```powershell
 $automationAccountName = "ContosoAutomationAccount"
@@ -476,14 +476,14 @@ Beim Ausführen des Cmdlets `Get-AzAutomationJobOutput` wird folgende Fehlermeld
 
 ### <a name="cause"></a>Ursache
 
-Dieser Fehler kann beim Abrufen der Auftragsausgabe von einem Runbook auftreten, das über zahlreiche [ausführliche Streams](../automation-runbook-output-and-messages.md#monitor-verbose-stream) verfügt.
+Dieser Fehler kann beim Abrufen der Auftragsausgabe von einem Runbook auftreten, das über zahlreiche [ausführliche Streams](../automation-runbook-output-and-messages.md#write-output-to-verbose-stream) verfügt.
 
 ### <a name="resolution"></a>Lösung
 
 Führen Sie eine der folgenden Aktionen aus, um diesen Fehler zu beheben:
 
 * Bearbeiten Sie das Runbook, und verringern Sie die Anzahl ausgegebener Auftragsdatenströme.
-* Verringern Sie die Anzahl von Datenströmen, die beim Ausführen des Cmdlets abgerufen werden. Hierzu können Sie den Wert des Parameters `Stream` für das Cmdlet [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) so festlegen, dass ausschließlich Ausgabedatenströme abgerufen werden. 
+* Verringern Sie die Anzahl von Datenströmen, die beim Ausführen des Cmdlets abgerufen werden. Hierzu können Sie den Wert des Parameters `Stream` für das Cmdlet [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput) so festlegen, dass ausschließlich Ausgabedatenströme abgerufen werden. 
 
 ## <a name="scenario-runbook-job-fails-because-allocated-quota-was-exceeded"></a><a name="quota-exceeded"></a>Szenario: Fehler beim Runbookauftrag, da das zugeordnete Kontingent überschritten wurde
 
@@ -576,7 +576,7 @@ Dieser Fehler weist möglicherweise darauf hin, dass Runbooks, die in einer Azur
 
 Es gibt zwei Möglichkeiten, diesen Fehler zu beheben:
 
-* Anstelle von [Start-Job](/powershell/module/microsoft.powershell.core/start-job?view=powershell-7) verwenden Sie [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0), um das Runbook zu starten.
+* Anstelle von [Start-Job](/powershell/module/microsoft.powershell.core/start-job) verwenden Sie [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook), um das Runbook zu starten.
 * Führen Sie das Runbook auf einem Hybrid Runbook Worker aus.
 
 Weitere Informationen zu diesem Verhalten und anderen von Azure Automation-Runbooks finden Sie unter [Ausführen von Runbooks in Azure Automation](../automation-runbook-execution.md).
@@ -605,8 +605,8 @@ Eine weitere Lösung ist das Optimieren des Runbooks durch die Erstellung von [u
 
 Die PowerShell-Cmdlets für dieses Szenario, die das untergeordnete Runbook aktivieren, sind:
 
-* [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0). Mit diesem Cmdlet können Sie ein Runbook starten und Parameter an das Runbook übergeben.
-* [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0). Mit diesem Cmdlet können Sie den Auftragsstatus für jedes untergeordnete Element überprüfen, wenn Vorgänge vorhanden sind, die nach Abschluss des untergeordneten Runbooks durchgeführt werden müssen.
+* [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook). Mit diesem Cmdlet können Sie ein Runbook starten und Parameter an das Runbook übergeben.
+* [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob). Mit diesem Cmdlet können Sie den Auftragsstatus für jedes untergeordnete Element überprüfen, wenn Vorgänge vorhanden sind, die nach Abschluss des untergeordneten Runbooks durchgeführt werden müssen.
 
 ## <a name="scenario-error-in-job-streams-about-the-get_serializationsettings-method"></a><a name="get-serializationsettings"></a>Szenario: Fehler zur get_SerializationSettings-Methode wird in Auftragsdatenströmen angezeigt
 
@@ -642,7 +642,7 @@ Wenn Ihr Runbook oder Ihre Anwendung versucht, in einer Azure-Sandbox ausgeführ
 
 ### <a name="cause"></a>Ursache
 
-Dieses Problem kann auftreten, da eine Azure-Sandbox den Zugriff auf alle Out-of-Process-COM-Server verhindert. Sandkastenanwendungen oder -runbooks können beispielsweise die Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI) oder den Windows Installer-Dienst (msiserver.exe) nicht aufrufen. 
+Dieses Problem kann auftreten, da eine Azure-Sandbox den Zugriff auf alle Out-of-Process-COM-Server verhindert. Sandkastenanwendungen oder -runbooks können beispielsweise die Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI) oder den Windows Installer-Dienst (msiserver.exe) nicht aufrufen.
 
 ### <a name="resolution"></a>Lösung
 

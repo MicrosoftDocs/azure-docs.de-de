@@ -3,18 +3,20 @@ title: Benutzerdefinierte Funktionen (UDFs) in Azure Cosmos DB
 description: Erfahren Sie mehr zu benutzerdefinierten Funktionen in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: c17fcbb7f6cd2d7f4948defad49e8319a013eb86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98698264f0beb25a8b4f74861f1150ae889d7115
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91262058"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546334"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Benutzerdefinierte Funktionen (UDFs) in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Die SQL-API bietet Unterstützung für benutzerdefinierte Funktionen (UDFs). Bei skalaren UDFs können null oder mehrere Argumente übergeben und ein einziges Argumentergebnis zurückgegeben werden. Die API überprüft, ob jedes Argument ein gültiger JSON-Wert ist.  
 
@@ -142,4 +144,4 @@ Wie im vorherigen Beispiel gezeigt, vereinen UDFs den Funktionsumfang der JavaSc
 
 - [Einführung in Azure Cosmos DB](introduction.md)
 - [System functions (Systemfunktionen)](sql-query-system-functions.md)
-- [Aggregate](sql-query-aggregates.md)
+- [Aggregate](sql-query-aggregate-functions.md)

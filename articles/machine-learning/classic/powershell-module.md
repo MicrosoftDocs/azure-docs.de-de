@@ -8,16 +8,16 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 04/25/2019
-ms.openlocfilehash: 01c0b6610968c8eaa493a63aa9004d8ea4c36ca2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f66363ec8b64dea1a076f81f4fc89bafe5ca4151
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530765"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322331"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>PowerShell-Module für Azure Machine Learning Studio (klassisch)
 
-**GILT FÜR:**  ![Gilt für ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic) ![Gilt nicht für ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**GILT FÜR:**  ![Gilt für ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic) ![Gilt nicht für ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Mithilfe von PowerShell-Modulen können Sie Ihre Ressourcen und Objekte für Studio (klassisch) wie Arbeitsbereiche, Datasets und Webdienste programmgesteuert verwalten.
@@ -34,17 +34,17 @@ Trotz einiger Ähnlichkeiten ist jedes dieser PowerShell-Module für bestimmte S
 
 ## <a name="azure-powershell-az-and-azurerm"></a><a name="az-rm"></a> Azure PowerShell Az und AzureRM
 
-Az ist nun das vorgesehene PowerShell-Modul für die Interaktion mit Azure und umfasst die gesamte Funktionalität von AzureRM. Für AzureRM werden weiterhin Bugfixes bereitgestellt, jedoch keine neuen Cmdlets oder Features.  Az und AzureRM verwalten beide Lösungen, die mit dem **Azure Resource Manager**-Bereitstellungsmodell bereitgestellt werden. Zu diesen Ressourcen gehören Studio-Arbeitsbereiche (klassisch) und neue Studio-Webdienste (klassisch). 
+Az ist nun das vorgesehene PowerShell-Modul für die Interaktion mit Azure und umfasst die gesamte Funktionalität von AzureRM. Für AzureRM werden weiterhin Bugfixes bereitgestellt, jedoch keine neuen Cmdlets oder Features.  Az und AzureRM verwalten beide Lösungen, die mit dem **Azure Resource Manager** -Bereitstellungsmodell bereitgestellt werden. Zu diesen Ressourcen gehören Studio-Arbeitsbereiche (klassisch) und neue Studio-Webdienste (klassisch). 
 
-PowerShell (klassisch) kann zusammen mit Az oder AzureRM installiert werden, um sowohl neue als auch klassische Ressourcentypen abzudecken. Eine gleichzeitige Installation von Az und AzureRM wird jedoch nicht empfohlen. Bei der Auswahl zwischen Az und AzureRM empfiehlt Microsoft, Az für alle zukünftigen Bereitstellungen zu verwenden.  Weitere Informationen zu Az und AzureRM sowie zum Migrationspfad finden Sie in der [Einführung zu Azure PowerShell Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
+PowerShell (klassisch) kann zusammen mit Az oder AzureRM installiert werden, um sowohl neue als auch klassische Ressourcentypen abzudecken. Eine gleichzeitige Installation von Az und AzureRM wird jedoch nicht empfohlen. Bei der Auswahl zwischen Az und AzureRM empfiehlt Microsoft, Az für alle zukünftigen Bereitstellungen zu verwenden.  Weitere Informationen zu Az und AzureRM sowie zum Migrationspfad finden Sie in der [Einführung zu Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
 
-Befolgen Sie zum Einstieg in Az die [Installationsanweisungen für Azure Az](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Befolgen Sie zum Einstieg in Az die [Installationsanweisungen für Azure Az](/powershell/azure/install-az-ps).
 
 ## <a name="powershell-classic"></a><a name="classic"></a> PowerShell – klassisch
 
 Das [klassische PowerShell-Modul](https://aka.ms/amlps) von Studio (klassisch) ermöglicht Ihnen das Verwalten von Ressourcen, die mit dem **klassischen Bereitstellungsmodell** bereitgestellt wurden. Zu diesen Ressourcen zählen Studio-Benutzerobjekte (klassisch), „klassische“ Webdienste und „klassische“ Webdienstendpunkte.
 
-Microsoft empfiehlt jedoch, für alle künftigen Ressourcen das Resource Manager-Bereitstellungsmodell zu verwenden, um die Bereitstellung und Verwaltung der Ressourcen zu vereinfachen. Weitere Informationen über die Bereitstellungsmodelle finden Sie im Artikel zum [Vergleich der Azure Resource Manager-Bereitstellung und der klassischen Bereitstellung](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
+Microsoft empfiehlt jedoch, für alle künftigen Ressourcen das Resource Manager-Bereitstellungsmodell zu verwenden, um die Bereitstellung und Verwaltung der Ressourcen zu vereinfachen. Weitere Informationen über die Bereitstellungsmodelle finden Sie im Artikel zum [Vergleich der Azure Resource Manager-Bereitstellung und der klassischen Bereitstellung](../../azure-resource-manager/management/deployment-models.md).
 
 Laden Sie zum Einstieg in PowerShell (klassisch) das [Versionspaket](https://github.com/hning86/azuremlps/releases) von GitHub herunter, und befolgen Sie die [Anweisungen für die Installation](https://github.com/hning86/azuremlps/blob/master/README.md). In den Anweisungen wird erklärt, wie Sie die Blockierung der heruntergeladenen/entzippten DLL aufheben und sie dann in Ihre PowerShell-Umgebung importieren.
 
@@ -55,11 +55,11 @@ PowerShell (klassisch) kann zusammen mit Az oder AzureRM installiert werden, um 
 
 | Aufgabe | **Az** |  **PowerShell – klassisch** |
 | --- | --- | --- |
-| Erstellen/Löschen von Arbeitsbereichen | [Resource Manager-Vorlagen](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
-| Verwalten von Vertragsplänen für Arbeitsbereiche | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | |
+| Erstellen/Löschen von Arbeitsbereichen | [Resource Manager-Vorlagen](./deploy-with-resource-manager-template.md) |  |
+| Verwalten von Vertragsplänen für Arbeitsbereiche | [New-AzMlCommitmentPlan](/powershell/module/az.machinelearning/new-azmlcommitmentplan) | |
 | Verwalten von Arbeitsbereichsbenutzern |  | [Add-AmlWorkspaceUsers](https://github.com/hning86/azuremlps#add-amlworkspaceusers)|
-| Verwalten von Webdiensten | [New-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlwebservice) <br>(„Neue“ Webdienste)| [New-AmlWebService](https://github.com/hning86/azuremlps#manage-classic-web-service) <br>(„Klassische“ Webdienste) |
-| Verwalten von Webdienst-Endpunkten/-schlüsseln |  [Get-AzMlWebServiceKey](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservicekey)|  [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint)|
+| Verwalten von Webdiensten | [New-AzMlWebService](/powershell/module/az.machinelearning/new-azmlwebservice) <br>(„Neue“ Webdienste)| [New-AmlWebService](https://github.com/hning86/azuremlps#manage-classic-web-service) <br>(„Klassische“ Webdienste) |
+| Verwalten von Webdienst-Endpunkten/-schlüsseln |  [Get-AzMlWebServiceKey](/powershell/module/az.machinelearning/get-azmlwebservicekey)|  [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint)|
 | Verwalten von Benutzerdatasets/trainierten Modellen| | [Get-AmlDataset](https://github.com/hning86/azuremlps#manage-user-assets-dataset-trained-model-transform) |
 | Verwalten von Benutzerexperimenten |  | [Start-AmlExperiment](https://github.com/hning86/azuremlps#manage-experiment) |
 | Verwalten von benutzerdefinierten Modulen | | [New-AmlCustomModule](https://github.com/hning86/azuremlps#manage-custom-module) |
@@ -68,4 +68,4 @@ PowerShell (klassisch) kann zusammen mit Az oder AzureRM installiert werden, um 
 ## <a name="next-steps"></a>Nächste Schritte
 Lesen Sie die vollständige Dokumentation zu diesem PowerShell-Modul:
 * [PowerShell – klassisch](https://aka.ms/amlps)
-* [Azure PowerShell Az](https://docs.microsoft.com/powershell/module/az.machinelearning/#machine_learning)
+* [Azure PowerShell Az](/powershell/module/az.machinelearning/#machine_learning)

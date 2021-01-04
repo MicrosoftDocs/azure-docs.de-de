@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: aca3b0bea65923cee1bae25020058666c973922c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffa70afa0edf29181bc622cbef6ff8716134b1f7
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73837118"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364937"
 ---
 # <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>Häufig gestellte Fragen (FAQ) zur Textanalyse in Cognitive Service
 
@@ -29,11 +29,11 @@ In der Stimmungsanalyse ist immer ein gewisses Maß an Ungenauigkeit vorhanden. 
 
 ## <a name="can-i-add-my-own-training-data-or-models"></a>Kann ich meine eigenen Trainingsdaten oder Modelle hinzufügen?
 
-Nein, die Modelle sind vortrainiert. Die einzigen Vorgänge zum Hochladen von Daten sind die Bewertung, Schlüsselbegriffserkennung und Spracherkennung. Benutzerdefinierte Modelle werden nicht gehostet. Wenn Sie benutzerdefinierte Machine Learning-Modelle erstellen und hosten möchten, informieren Sie sich über die [Machine Learning-Funktionen in Microsoft R Server](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package).
+Nein, die Modelle sind vortrainiert. Die einzigen Vorgänge zum Hochladen von Daten sind die Bewertung, Schlüsselbegriffserkennung und Spracherkennung. Benutzerdefinierte Modelle werden nicht gehostet. Wenn Sie benutzerdefinierte Machine Learning-Modelle erstellen und hosten möchten, informieren Sie sich über die [Machine Learning-Funktionen in Microsoft R Server](/r-server/r/concept-what-is-the-microsoftml-package).
 
 ## <a name="can-i-request-additional-languages"></a>Kann ich weitere Sprachen anfordern?
 
-Die Stimmungsanalyse und Schlüsselbegriffserkennung sind für eine [bestimmte Auswahl von Sprachen](text-analytics-supported-languages.md) verfügbar. Die Verarbeitung natürlicher Sprache ist komplex und erfordert umfangreiche Tests, bevor neue Funktionen veröffentlicht werden können. Aus diesem Grund wird die Unterstützung nicht frühzeitig angekündigt, sodass niemand sich auf eine Funktion verlässt, die mehr Entwicklungszeit benötigt. 
+Die Stimmungsanalyse und Schlüsselbegriffserkennung sind für eine [bestimmte Auswahl von Sprachen](./language-support.md) verfügbar. Die Verarbeitung natürlicher Sprache ist komplex und erfordert umfangreiche Tests, bevor neue Funktionen veröffentlicht werden können. Aus diesem Grund wird die Unterstützung nicht frühzeitig angekündigt, sodass niemand sich auf eine Funktion verlässt, die mehr Entwicklungszeit benötigt. 
 
 Sie können für bestimmte Sprachen auf der [User Voice](https://cognitive.uservoice.com/forums/555922-text-analytics)-Website abstimmen, damit die Entscheidung leichter fällt, welche Sprache als nächstes priorisiert wird. 
 

@@ -6,26 +6,26 @@ author: jeevansd
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.topic: article
+ms.topic: tutorial
 ms.workload: identity
 ms.date: 10/10/2019
 ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: celested
-ms.openlocfilehash: 14a25559b1eddd4adb58ae2106e8c9e92873ea48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f74cdb700013dc9b124c6a2df195456f08e4b60a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88751150"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182137"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Tutorials zur Integration von SaaS-Anwendungen in Azure Active Directory
 
 Um Sie bei der Integration Ihrer cloudfähigen [SaaS](https://azure.microsoft.com/overview/what-is-saas/)-Anwendungen (Software-as-a-Service) in Azure Active Directory zu unterstützen, haben wir eine Sammlung von Tutorials entwickelt, in denen die Konfiguration erläutert wird.
 
-Eine Liste mit allen in Azure AD integrierten SaaS-Apps finden Sie im [Active Directory-Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps).
+Eine Liste mit allen in Azure AD integrierten SaaS-Apps finden Sie im [Active Directory-Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/azure-active-directory-apps).
 
-Verwenden Sie das [Anwendungsnetzwerkportal](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing), um das Hinzufügen einer [SCIM](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)-fähigen Anwendung zum Katalog für die automatische Bereitstellung oder das Hinzufügen einer SAML/OIDC-fähigen Anwendung zum Katalog für einmaliges Anmelden (SSO) anzufordern.
+Verwenden Sie das [Anwendungsnetzwerkportal](../develop/v2-howto-app-gallery-listing.md), um das Hinzufügen einer [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md)-fähigen Anwendung zum Katalog für die automatische Bereitstellung oder das Hinzufügen einer SAML/OIDC-fähigen Anwendung zum Katalog für einmaliges Anmelden (SSO) anzufordern.
 
 ## <a name="quick-links"></a>Quicklinks
 
@@ -34,7 +34,7 @@ Verwenden Sie das [Anwendungsnetzwerkportal](https://docs.microsoft.com/azure/ac
 | ![Logo: Atlassian Cloud](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)| [Atlassian Cloud – Benutzerbereitstellung](atlassian-cloud-provisioning-tutorial.md)|
 | ![Logo: ServiceNow](./media/tutorial-list/active-directory-saas-servicenow-tutorial.png)| [ServiceNow](servicenow-tutorial.md)|[ServiceNow – Benutzerbereitstellung](servicenow-provisioning-tutorial.md)|
 | ![Logo: Slack](./media/tutorial-list/active-directory-saas-slack-tutorial.png)| [Puffer](slack-tutorial.md)|[Slack – Benutzerbereitstellung](slack-provisioning-tutorial.md)|
-| ![Logo: SuccessFactors](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| [SuccessFactors – Benutzerbereitstellung](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial) |
+| ![Logo: SuccessFactors](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| [SuccessFactors – Benutzerbereitstellung](./sap-successfactors-inbound-provisioning-tutorial.md) |
 | ![Logo: Workday](./media/tutorial-list/active-directory-saas-workday-tutorial.png)| [Workday](workday-tutorial.md)| [Workday – Benutzerbereitstellung](workday-inbound-tutorial.md)|
 
 Verwenden Sie das Inhaltsverzeichnis auf der linken Seite, um auf weitere Tutorials zuzugreifen.
@@ -47,7 +47,7 @@ Verwenden Sie das Inhaltsverzeichnis auf der linken Seite, um auf weitere Tutori
 | ![Logo: Alibaba Cloud Service (rollenbasiertes einmaliges Anmelden)](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Alibaba Cloud-Dienst (rollenbasiertes einmaliges Anmelden)](alibaba-cloud-service-role-based-sso-tutorial.md)| |
 | ![Logo: Google Cloud Platform](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Google Cloud Platform](google-apps-tutorial.md)| [Google Cloud Platform – Benutzerbereitstellung](google-apps-provisioning-tutorial.md) |
 | ![Logo: Salesforce](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)| [Salesforce – Benutzerbereitstellung](salesforce-provisioning-tutorial.md) |
-| ![Logo: SAP Cloud Identity Platform](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [SAP Cloud Identity-Plattform](saphana-tutorial.md)|[SAP Cloud Identity-Plattform – Bereitstellung](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial) |
+| ![Logo: SAP Cloud Identity Platform](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [SAP Cloud Identity-Plattform](saphana-tutorial.md)|[SAP Cloud Identity-Plattform – Bereitstellung](./sap-cloud-platform-identity-authentication-provisioning-tutorial.md) |
 
 ## <a name="oneclick-sso"></a>Einmaliges Anmelden mit einem Klick (OneClick SSO)
 

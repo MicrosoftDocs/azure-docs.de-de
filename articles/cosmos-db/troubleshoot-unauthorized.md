@@ -3,18 +3,20 @@ title: Troubleshooting von Ausnahmen bei nicht autorisierten Vorgängen in Azure
 description: Erfahren Sie mehr über das Diagnostizieren und Beheben von Ausnahmen bei nicht autorisierten Vorgängen.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: a4f51b641ca38b2b6f74bb77928537270d12f1e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa9bf1fd706ccf6064893f1141be5e5b2f185ff3
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88870849"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411166"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-unauthorized-exceptions"></a>Diagnose und Troubleshooting für Ausnahmen bei nicht autorisierten Vorgängen in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 HTTP 401: The MAC signature found in the HTTP request is not the same as the computed signature. (Die MAC-Signatur in der HTTP-Anforderung entspricht nicht der berechneten Signatur.)
 Die Fehlermeldung 401, dass die MAC-Signatur in der HTTP-Anforderung nicht der berechneten Signatur entspricht, kann in folgenden Szenarien auftreten.
@@ -51,3 +53,5 @@ Es liegt eine Racebedingung bei der Containererstellung vor. Eine Anwendungsinst
 ## <a name="next-steps"></a>Nächste Schritte
 * [Diagnostizieren und Behandeln](troubleshoot-dot-net-sdk.md) von Problemen bei Verwendung des .NET SDK für Azure Cosmos DB
 * Weitere Informationen zu Leistungsrichtlinien für [.NET Version 3](performance-tips-dotnet-sdk-v3-sql.md) und [.NET Version 2](performance-tips.md)
+* [Diagnostizieren und Behandeln](troubleshoot-java-sdk-v4-sql.md) von Problemen bei Verwendung des Java v4 SDK für Azure Cosmos DB.
+* Weitere Informationen zu Leistungsrichtlinien für das [Java v4 SDK](performance-tips-java-sdk-v4-sql.md).

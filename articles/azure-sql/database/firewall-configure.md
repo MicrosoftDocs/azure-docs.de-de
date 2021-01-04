@@ -5,24 +5,24 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 titleSuffix: Azure SQL Database and Azure Synapse Analytics
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: 9b6b0ee6fa33ecd0d677d7d075236517d85d4ab7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce528e268e0ed1e34f53e32196bceef5ad8a2fcb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335118"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452489"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Azure SQL-Datenbank- und Azure Synapse-IP-Firewallregeln
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Wenn Sie z. B. einen neuen Server in Azure SQL-Datenbank oder Azure Synapse Analytics namens *mysqlserver* erstellen, blockiert eine Firewall auf Serverebene alle Zugriffe auf den öffentlichen Endpunkt für den Server (auf den unter *mysqlserver.database.windows.net* zugegriffen werden kann). Der Einfachheit halber wird *SQL-Datenbank* als Sammelbegriff für SQL-Datenbank und Azure Synapse Analytics (vormals SQL Data Warehouse) verwendet.
+Wenn Sie z. B. einen neuen Server in Azure SQL-Datenbank oder Azure Synapse Analytics namens *mysqlserver* erstellen, blockiert eine Firewall auf Serverebene alle Zugriffe auf den öffentlichen Endpunkt für den Server (auf den unter *mysqlserver.database.windows.net* zugegriffen werden kann). Der Einfachheit halber wird *SQL-Datenbank* verwendet, um sowohl auf SQL-Datenbank als auch auf Azure Synapse Analytics zu verweisen.
 
 > [!IMPORTANT]
 > Dieser Artikel gilt *nicht* für *Azure SQL Managed Instance*. Informationen zur Netzwerkkonfiguration finden Sie unter [Herstellen einer Verbindung zwischen einer Anwendung und einer verwalteten Azure SQL-Instanz](../managed-instance/connect-application-instance.md).
@@ -50,7 +50,7 @@ IP-Firewallregeln auf Datenbankebene gestatten Clients den Zugriff auf bestimmte
   
 - IP-Firewallregeln auf Datenbankebene für Master- und Benutzerdatenbanken können nur mithilfe von Transact-SQL-Anweisungen und erst nach der Konfiguration der ersten Firewall auf Serverebene erstellt und verwaltet werden.
 - Wenn Sie in der IP-Firewallregel auf Datenbankebene einen IP-Adressbereich angeben, der außerhalb des Bereichs der IP-Firewallregel auf Serverebene liegt, können nur die Clients auf die Datenbank zugreifen, die über IP-Adressen in dem auf Datenbankebene angegebenen Bereich verfügen.
-- Es können maximal 128 IP-Firewallregeln auf Datenbankebene für eine Datenbank verwendet werden. Weitere Informationen zum Konfigurieren von IP-Firewallregeln auf Datenbankebene finden Sie im Beispiel weiter unten in diesem Artikel und unter [sp_set_database_firewall_rule (Azure SQL-Datenbank)](https://msdn.microsoft.com/library/dn270010.aspx).
+- Es können maximal 128 IP-Firewallregeln auf Datenbankebene für eine Datenbank verwendet werden. Weitere Informationen zum Konfigurieren von IP-Firewallregeln auf Datenbankebene finden Sie im Beispiel weiter unten in diesem Artikel und unter [sp_set_database_firewall_rule (Azure SQL-Datenbank)](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database).
 
 ### <a name="recommendations-for-how-to-set-firewall-rules"></a>Empfehlungen zum Festlegen von Firewallregeln
 
@@ -107,18 +107,18 @@ Wenn Sie in Azure gehosteten Anwendungen die Verbindungsherstellung mit Ihrer SQ
 
 Um IP-Firewallregeln für die Azure SQL Server-Instanz erstellen und verwalten zu können, müssen Sie über eine der folgenden Rollen verfügen:
 
-- Rolle [Mitwirkender von SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
-- Rolle [SQL-Sicherheits-Manager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager)
+- Rolle [Mitwirkender von SQL Server](../../role-based-access-control/built-in-roles.md#sql-server-contributor)
+- Rolle [SQL-Sicherheits-Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager)
 - Besitzer der Ressource, die die Azure SQL Server-Instanz enthält
 
 ## <a name="create-and-manage-ip-firewall-rules"></a>Erstellen und Verwalten von IP-Firewallregeln
 
-Die erste Firewalleinstellung auf Serverebene können Sie im [Azure-Portal](https://portal.azure.com/) oder programmgesteuert mithilfe von [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql), über die [Azure CLI](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule) oder mithilfe einer [REST-API](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) von Azure erstellen. Weitere IP-Firewallregeln auf Serverebene können mithilfe dieser Methoden oder mithilfe von Transact-SQL erstellt und verwaltet werden.
+Die erste Firewalleinstellung auf Serverebene können Sie im [Azure-Portal](https://portal.azure.com/) oder programmgesteuert mithilfe von [Azure PowerShell](/powershell/module/az.sql), über die [Azure CLI](/cli/azure/sql/server/firewall-rule) oder mithilfe einer [REST-API](/rest/api/sql/firewallrules/createorupdate) von Azure erstellen. Weitere IP-Firewallregeln auf Serverebene können mithilfe dieser Methoden oder mithilfe von Transact-SQL erstellt und verwaltet werden.
 
 > [!IMPORTANT]
 > IP-Firewallregeln auf Datenbankebene können nur mithilfe von Transact-SQL erstellt und verwaltet werden.
 
-Um die Leistung zu verbessern, werden IP-Firewallregeln auf Serverebene vorübergehend auf Datenbankebene zwischengespeichert. Informationen zum Aktualisieren des Caches finden Sie unter [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
+Um die Leistung zu verbessern, werden IP-Firewallregeln auf Serverebene vorübergehend auf Datenbankebene zwischengespeichert. Informationen zum Aktualisieren des Caches finden Sie unter [DBCC FLUSHAUTHCACHE](/sql/t-sql/database-console-commands/dbcc-flushauthcache-transact-sql).
 
 > [!TIP]
 > Mithilfe der [Datenbanküberwachung](../../azure-sql/database/auditing-overview.md) können Sie Firewalländerungen auf Server- und Datenbankebene überwachen.
@@ -232,10 +232,10 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 | API | Ebene | BESCHREIBUNG |
 | --- | --- | --- |
-| [List firewall rules](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |Server |Zeigt die aktuellen IP-Firewallregeln auf Serverebene an |
-| [Create or update firewall rules](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Server |Erstellt oder aktualisiert IP-Firewallregeln auf Serverebene |
-| [Delete firewall rules](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Server |Entfernt IP-Firewallregeln auf Serverebene |
-| [Get firewall rules](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Server | Ruft IP-Firewallregeln auf Serverebene ab |
+| [List firewall rules](/rest/api/sql/firewallrules/listbyserver) |Server |Zeigt die aktuellen IP-Firewallregeln auf Serverebene an |
+| [Create or update firewall rules](/rest/api/sql/firewallrules/createorupdate) |Server |Erstellt oder aktualisiert IP-Firewallregeln auf Serverebene |
+| [Delete firewall rules](/rest/api/sql/firewallrules/delete) |Server |Entfernt IP-Firewallregeln auf Serverebene |
+| [Get firewall rules](/rest/api/sql/firewallrules/get) | Server | Ruft IP-Firewallregeln auf Serverebene ab |
 
 ## <a name="troubleshoot-the-database-firewall"></a>Behandeln von Problemen mit der Datenbankfirewall
 

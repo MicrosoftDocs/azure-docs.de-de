@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: fc10d385df1dffed07e771d622d9bf9d8bedee39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1cd6d93ff45d7fb40ae7ca1874343486bd0b8cb
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086533"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547927"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Autorisieren von Benutzern für Apache Ambari-Ansichten
 
@@ -24,11 +24,11 @@ Active Directory-Benutzer können sich mit ihren Domänenanmeldeinformationen be
 > [!WARNING]  
 > Ändern Sie nicht das Kennwort für den Ambari-Watchdog (hdinsightwatchdog) in Ihrem Linux-basierten HDInsight-Cluster. Durch eine Kennwortänderung wird die Möglichkeit zum Verwenden von Skriptaktionen oder zum Durchführen von Skalierungsvorgängen mit Ihren Cluster deaktiviert.
 
-Falls noch nicht geschehen, führen Sie [diese Anweisungen](./domain-joined/apache-domain-joined-configure.md) aus, um einen neuen ESP-Cluster bereitzustellen.
+Falls noch nicht geschehen, führen Sie [diese Anweisungen](./domain-joined/apache-domain-joined-configure-using-azure-adds.md) aus, um einen neuen ESP-Cluster bereitzustellen.
 
 ## <a name="access-the-ambari-management-page"></a>Zugreifen auf die Ambari-Verwaltungsseite
 
-Um zur **Ambari-Verwaltungsseite** in der [Apache Ambari-Webbenutzeroberfläche](hdinsight-hadoop-manage-ambari.md) zu navigieren, rufen Sie `https://CLUSTERNAME.azurehdinsight.net` auf. Geben Sie den Benutzernamen und das Kennwort für den Clusteradministrator ein, die Sie beim Erstellen des Clusters definiert haben. Wählen Sie anschließend im Ambari-Dashboard die Option **Ambari verwalten** unterhalb des **Administrator**-Menüs aus:
+Um zur **Ambari-Verwaltungsseite** in der [Apache Ambari-Webbenutzeroberfläche](hdinsight-hadoop-manage-ambari.md) zu navigieren, rufen Sie `https://CLUSTERNAME.azurehdinsight.net` auf. Geben Sie den Benutzernamen und das Kennwort für den Clusteradministrator ein, die Sie beim Erstellen des Clusters definiert haben. Wählen Sie anschließend im Ambari-Dashboard die Option **Ambari verwalten** unterhalb des **Administrator** -Menüs aus:
 
 ![Apache Ambari-Dashboard – Verwalten](./media/hdinsight-authorize-users-to-ambari/manage-apache-ambari.png)
 
@@ -167,13 +167,13 @@ curl -k -u $user:$userPassword -H "X-Requested-By: ambari" \
 
 ## <a name="grant-permissions-to-apache-hive-views"></a>Erteilen von Berechtigungen für Apache Hive-Ansichten
 
-Ambari verfügt über Ansichtsinstanzen für u.a. [Apache Hive](https://hive.apache.org/) und [Apache TEZ](https://tez.apache.org/). Wechseln Sie zur **Ambari-Verwaltungsseite**, um den Zugriff auf eine oder mehrere Hive-Ansichtsinstanzen zu gewähren.
+Ambari verfügt über Ansichtsinstanzen für u.a. [Apache Hive](https://hive.apache.org/) und [Apache TEZ](https://tez.apache.org/). Wechseln Sie zur **Ambari-Verwaltungsseite** , um den Zugriff auf eine oder mehrere Hive-Ansichtsinstanzen zu gewähren.
 
 1. Wählen Sie auf der Verwaltungsseite den Link **Ansichten** unterhalb der Menüüberschrift **Ansichten** auf der linken Seite aus.
 
     ![Apache Ambari-Ansichten – Links anzeigen](./media/hdinsight-authorize-users-to-ambari/apache-ambari-views-link.png)
 
-2. Erweitern Sie auf der Seite „Ansichten“ die Zeile **HIVE**. Eine Hive-Ansicht wird standardmäßig beim Hinzufügen des Hive-Diensts zum Cluster erstellt. Sie können bei Bedarf auch weitere Hive-Ansichtsinstanzen erstellen. Wählen Sie eine Hive-Ansicht aus:
+2. Erweitern Sie auf der Seite „Ansichten“ die Zeile **HIVE** . Eine Hive-Ansicht wird standardmäßig beim Hinzufügen des Hive-Diensts zum Cluster erstellt. Sie können bei Bedarf auch weitere Hive-Ansichtsinstanzen erstellen. Wählen Sie eine Hive-Ansicht aus:
 
     ![HDInsight-Ansichten – Apache Hive-Ansicht](./media/hdinsight-authorize-users-to-ambari/views-apache-hive-view.png)
 
@@ -183,22 +183,22 @@ Ambari verfügt über Ansichtsinstanzen für u.a. [Apache Hive](https://hive.apa
 
 **Erteilen einer Berechtigung für diese Gruppen** ![Erteilen einer Berechtigung für diese Gruppen](./media/hdinsight-authorize-users-to-ambari/add-group-to-view-permission.png)
 
-1. Klicken Sie zum Hinzufügen eines Benutzers auf die Schaltfläche **Benutzer hinzufügen**.
+1. Klicken Sie zum Hinzufügen eines Benutzers auf die Schaltfläche **Benutzer hinzufügen** .
 
    * Wenn Sie mit der Eingabe des Benutzernamens beginnen, wird eine Dropdownliste mit den zuvor definierten Namen angezeigt.
 
      ![Apache Ambari-Benutzer – Automatische Vervollständigung](./media/hdinsight-authorize-users-to-ambari/ambari-user-autocomplete.png)
 
-   * Wählen Sie einen Namen aus, oder geben Sie den vollständigen Benutzernamen ein. Klicken Sie auf die Schaltfläche **Neu**, um diesen Benutzernamen als neuen Benutzer hinzuzufügen.
+   * Wählen Sie einen Namen aus, oder geben Sie den vollständigen Benutzernamen ein. Klicken Sie auf die Schaltfläche **Neu** , um diesen Benutzernamen als neuen Benutzer hinzuzufügen.
 
-   * Aktivieren Sie zum Speichern der Änderungen das **blaue Kontrollkästchen**.
+   * Aktivieren Sie zum Speichern der Änderungen das **blaue Kontrollkästchen** .
 
      ![Apache Ambari – Benutzerberechtigungen erteilen](./media/hdinsight-authorize-users-to-ambari/user-entered-permissions.png)
 
-1. Klicken Sie zum Hinzufügen einer Gruppe auf die Schaltfläche **Gruppe hinzufügen**.
+1. Klicken Sie zum Hinzufügen einer Gruppe auf die Schaltfläche **Gruppe hinzufügen** .
 
    * Beginnen Sie mit der Eingabe des Gruppennamens. Die Vorgehensweise bei der Auswahl eines bereits existierenden Gruppennamens oder beim Hinzufügen einer neuen Gruppe entspricht der Vorgehensweise beim Hinzufügen von Benutzern.
-   * Aktivieren Sie zum Speichern der Änderungen das **blaue Kontrollkästchen**.
+   * Aktivieren Sie zum Speichern der Änderungen das **blaue Kontrollkästchen** .
 
      ![Apache Ambari – Berechtigungen erteilen](./media/hdinsight-authorize-users-to-ambari/ambari-group-entered.png)
 
@@ -208,7 +208,7 @@ Es kann nützlich sein, Benutzer direkt einer Ansicht hinzuzufügen, wenn Sie ei
 
 [Apache TEZ](https://tez.apache.org/)-Ansichtsinstanzen ermöglichen Benutzern das Überwachen und Debuggen aller Tez-Aufträge, die von [Apache Hive](https://hive.apache.org/)-Abfragen und [Apache Pig](https://pig.apache.org/)-Skripts übermittelt wurden. Eine Tez-Ansichtsinstanz wird standardmäßig bei der Bereitstellung des Clusters erstellt.
 
-Erweitern Sie wie zuvor beschrieben auf der Seite „Ansichten“ die Zeile **TEZ**, um Benutzer und Gruppen einer Tez-Ansichtsinstanz zuzuweisen.
+Erweitern Sie wie zuvor beschrieben auf der Seite „Ansichten“ die Zeile **TEZ** , um Benutzer und Gruppen einer Tez-Ansichtsinstanz zuzuweisen.
 
 ![HDInsight-Ansichten – Apache Tez-Ansicht](./media/hdinsight-authorize-users-to-ambari/views-apache-tez-view.png)
 
@@ -224,11 +224,11 @@ Es gibt fünf Sicherheitsrollen für Benutzer und Gruppen, die nachfolgend in ab
 * Dienstoperator
 * Clusterbenutzer
 
-Wechseln Sie zum Verwalten der Rollen zur **Ambari-Verwaltungsseite**, und wählen Sie in der Menügruppe *Cluster* auf der linken Seite den Link **Rollen** aus.
+Wechseln Sie zum Verwalten der Rollen zur **Ambari-Verwaltungsseite** , und wählen Sie in der Menügruppe *Cluster* auf der linken Seite den Link **Rollen** aus.
 
 ![Apache Ambari – Menülink „Rollen“](./media/hdinsight-authorize-users-to-ambari/cluster-roles-menu-link.png)
 
-Klicken Sie auf der Seite „Rollen“ auf das blaue Fragezeichen neben der Tabellenüberschrift **Rollen**, um die Liste der Berechtigungen anzuzeigen, die den Rollen jeweils zugeordnet sind.
+Klicken Sie auf der Seite „Rollen“ auf das blaue Fragezeichen neben der Tabellenüberschrift **Rollen** , um die Liste der Berechtigungen anzuzeigen, die den Rollen jeweils zugeordnet sind.
 
 ![Apache Ambari – Menülink „Rollen“ und Berechtigungen](./media/hdinsight-authorize-users-to-ambari/roles-menu-permissions.png "Apache Ambari – Menülink „Rollen“ und Berechtigungen")
 

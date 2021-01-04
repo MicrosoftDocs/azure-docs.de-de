@@ -9,14 +9,15 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: b450d8463c09647b8f87547afe9d714c4b8659c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd2d27addb6860e49ac12eb36d8b625b8bf92001
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82858561"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100404"
 ---
 # <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>Tutorial: Migrieren Ihrer Daten zu einem Cassandra-API-Konto in Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Entwickler verfügen unter Umständen über lokal oder in der Cloud ausgeführte Cassandra-Workloads, die sie zu Azure migrieren möchten. Solche Workloads können zu einem Cassandra-API-Konto in Azure Cosmos DB migriert werden. Dieses Tutorial enthält Informationen zu verschiedenen Optionen, die für die Migration von Apache Cassandra-Daten zum Cassandra-API-Konto in Azure Cosmos DB zur Verfügung stehen.
 

@@ -3,25 +3,20 @@ title: Bereitstellen des Diagnosetools für Windows Virtual Desktop (klassisch) 
 description: So stellen Sie das Diagnose-UX-Tool für Windows Virtual Desktop (klassisch) bereit.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 61c31b24b01b40da4d73a308a4f304f6ff242e41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9672d18fe99d8baae3c73fa3782531eb84114713
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88691410"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97515637"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Bereitstellen des Diagnosetools für Windows Virtual Desktop (klassisch)
 
 >[!IMPORTANT]
 >Dieser Inhalt gilt für Windows Virtual Desktop (klassisch). Der Dienst unterstützt keine Windows Virtual Desktop-Objekte in Azure Resource Manager.
-
->[!IMPORTANT]
->Seit dem 16. März 2020 haben wir Diagnoseabfragen vorübergehend deaktiviert, die sich aufgrund steigender Dienstanforderung negativ auf die Funktionalität für Benutzer ausgewirkt haben. Dies bewirkt, dass das Tool nicht mehr funktioniert, da es dafür diese Abfragen benötigt. Wir aktualisieren diesen Artikel, sobald Diagnoseabfragen wieder verfügbar sind.
->
->Bis dahin empfehlen wir Ihnen dringend, für die fortlaufende Überwachung die [Protokollanalyse](diagnostics-log-analytics-2019.md) zu verwenden.
 
 Folgende Aufgaben kann das Diagnosetool für Windows Virtual Desktop für Sie erledigen:
 
@@ -43,8 +38,8 @@ Sie müssen eine Azure Active Directory-App-Registrierung und einen Log Analytic
 
 Außerdem müssen Sie diese beiden PowerShell-Module installieren, bevor Sie beginnen:
 
-- [Azure PowerShell-Modul](/powershell/azure/install-az-ps?view=azps-2.4.0/)
-- [Azure AD-Modul](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/)
+- [Azure PowerShell-Modul](/powershell/azure/install-az-ps?view=azps-2.4.0/&preserve-view=true)
+- [Azure AD-Modul](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/&preserve-view=true)
 
 Stellen Sie sicher, dass Ihre Abonnement-ID zur Hand haben, wenn Sie sich anmelden.
 
@@ -121,7 +116,7 @@ Im Folgenden wird erläutert, wie die empfohlenen Leistungsindikatoren manuell k
     -   Prozessorinformationen(\*)\\Prozessorzeit
     -   Benutzereingabeverzögerung pro Sitzung(\*)\\Maximale Eingabeverzögerung
 
-Weitere Informationen zu den Leistungsindikatoren finden Sie unter [Windows- und Linux-Leistungsdatenquellen in Azure Monitor](/azure/azure-monitor/platform/data-sources-performance-counters).
+Weitere Informationen zu den Leistungsindikatoren finden Sie unter [Windows- und Linux-Leistungsdatenquellen in Azure Monitor](../../azure-monitor/platform/data-sources-performance-counters.md).
 
 >[!NOTE]
 >Alle weiteren Indikatoren, die Sie konfigurieren, werden im Diagnosetool selbst nicht angezeigt. Damit sie im Diagnosetool angezeigt werden, müssen Sie die Konfigurationsdatei des Tools konfigurieren. Anleitungen dazu, wie Sie dies mit der erweiterten Verwaltung durchführen, werden zu einem späteren Zeitpunkt auf GitHub verfügbar sein.
@@ -204,7 +199,7 @@ So legen Sie den Umleitungs-URI fest
 
 Bevor Sie das Diagnosetool für Ihre Benutzer verfügbar machen, stellen Sie sicher, dass diese über die folgenden Berechtigungen verfügen:
 
-- Benutzer benötigen Lesezugriff für Log Analytics. Weitere Informationen finden Sie unter [Erste Schritte mit Rollen, Berechtigungen und Sicherheit in Azure Monitor](/azure/azure-monitor/platform/roles-permissions-security).
+- Benutzer benötigen Lesezugriff für Log Analytics. Weitere Informationen finden Sie unter [Erste Schritte mit Rollen, Berechtigungen und Sicherheit in Azure Monitor](../../azure-monitor/platform/roles-permissions-security.md).
 -  Benutzer benötigen ferner Lesezugriff für den Windows Virtual Desktop-Mandanten (RDS-Rolle „Leser“). Weitere Informationen finden Sie unter [Delegierter Zugriff in Windows Virtual Desktop](delegated-access-virtual-desktop-2019.md).
 
 Sie müssen Ihren Benutzern außerdem noch folgende Informationen zur Verfügung stellen:

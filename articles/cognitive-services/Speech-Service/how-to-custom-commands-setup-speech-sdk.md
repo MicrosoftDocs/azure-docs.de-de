@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 49922599adb30e6c631f29b4831fda60cc000a40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa3a6d16b79800043bdcd3f183dd86fa278dd1a9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360122"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026026"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Integrieren in eine Clientanwendung mithilfe des Speech SDK
 
@@ -35,7 +35,7 @@ Außerdem benötigen Sie:
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) oder höher. Dieses Handbuch basiert auf Visual Studio 2019.
 > * Azure-Abonnementschlüssel für Spracherkennungsdienste. [Beziehen Sie einen kostenlos](overview.md#try-the-speech-service-for-free), oder erstellen Sie ihn im [Azure-Portal](https://portal.azure.com)
-> * [Aktivieren Ihres Geräts für die Entwicklung](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
+> * [Aktivieren Ihres Geräts für die Entwicklung](/windows/uwp/get-started/enable-your-device-for-development)
 
 ## <a name="step-1-publish-custom-commands-application"></a>Schritt 1: Veröffentlichen der Anwendung für benutzerdefinierte Befehle
 
@@ -43,7 +43,7 @@ Außerdem benötigen Sie:
 1. Wechseln Sie zu **Einstellungen**, und wählen Sie **LUIS-Ressource** aus.
 1. Wenn **Vorhersageressource** nicht zugewiesen ist, wählen Sie einen Vorhersageschlüssel aus, oder erstellen Sie einen neuen
 
-    Vor dem Veröffentlichen einer Anwendung ist immer ein Abfragevorhersageschlüssel erforderlich. Weitere Informationen zu LUIS-Ressourcen finden Sie unter [Erstellen einer LUIS-Ressource](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription).
+    Vor dem Veröffentlichen einer Anwendung ist immer ein Abfragevorhersageschlüssel erforderlich. Weitere Informationen zu LUIS-Ressourcen finden Sie unter [Erstellen einer LUIS-Ressource](../luis/luis-how-to-azure-subscription.md).
 
 1. Wechseln Sie zurück zu den Bearbeitungsbefehlen, und wählen Sie **Veröffentlichen** aus.
 
@@ -408,7 +408,7 @@ Fügen Sie die CodeBehind-Quelle wie folgt hinzu:
 
 1. Wählen Sie auf der Menüleiste **Erstellen** > **Projektmappe erstellen** aus, um die Anwendung zu erstellen. Der Code sollte ohne Fehler kompiliert werden.
 
-1. Wählen Sie **Debuggen** > **Debuggen starten** aus (oder drücken Sie**F5**), um die Anwendung zu starten. Das Fenster **helloworld** wird angezeigt.
+1. Wählen Sie **Debuggen** > **Debuggen starten** aus (oder drücken Sie **F5**), um die Anwendung zu starten. Das Fenster **helloworld** wird angezeigt.
 
    ![Beispielanwendung für den virtuellen UWP-Assistenten in C#: Schnellstart](media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
 

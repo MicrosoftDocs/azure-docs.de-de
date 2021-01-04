@@ -1,14 +1,17 @@
 ---
-title: Ermitteln von Apps, Rollen und Funktionen auf lokalen Servern mit Azure Migrate
+title: Ermitteln von Apps auf lokalen Servern mit Azure Migrate
 description: Erfahren Sie, wie Sie Apps, Rollen und Funktionen auf lokalen Servern mithilfe der Azure Migrate-Serverbewertung ermitteln.
-ms.topic: article
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 06/10/2020
-ms.openlocfilehash: 6bdc26ac3a27026183e889bf258e2e1a5dadebfb
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: eb589c08122cd47747c005c13d12b336319fd558
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315211"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752004"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Ermitteln von Apps, Rollen und Features eines Computers
 
@@ -23,7 +26,7 @@ Die Ermittlung des Bestands an Apps, Rollen und Features, die auf lokalen Comput
 ## <a name="before-you-start"></a>Vorbereitung
 
 - Stellen Sie Folgendes sicher:
-    - Sie haben ein Azure Migrate-Projekt [erstellt](how-to-add-tool-first-time.md).
+    - Sie haben ein Azure Migrate-Projekt [erstellt](./create-manage-projects.md).
     - Sie haben das Azure Migrate-Serverbewertungstool zu einem Projekt [hinzugefügt](how-to-assess.md).
 - Sie haben die Unterstützung und die Anforderungen für die App-Ermittlung [überprüft](migrate-support-matrix-vmware.md#vmware-requirements).
 - Stellen Sie sicher, dass auf den virtuellen Computern, auf denen Sie die App-Ermittlung ausführen, PowerShell Version 2.0 oder höher sowie die VMware Tools (höher als 10.2.0) installiert sind.

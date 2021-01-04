@@ -7,12 +7,12 @@ author: gitralf
 ms.author: ralfwi
 ms.service: germany
 ms.custom: bfmigrate
-ms.openlocfilehash: 6790ea1d95fdfa2225c782b97a84084bbe6b4118
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 2692b07deb8e13222214a363f2c99c1b5e9a5aef
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124613"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96012434"
 ---
 # <a name="migrate-database-resources-to-global-azure"></a>Migrieren von Datenbankressourcen zu Azure weltweit
 
@@ -37,7 +37,7 @@ Weitere Informationen finden Sie unter:
 
 - Erfahren Sie, wie Sie [eine Datenbank in eine BACPAC-Datei exportieren](../azure-sql/database/database-export.md).
 - Erfahren Sie, wie Sie [eine BACPAC-Datei in eine neue Datenbank importieren](../azure-sql/database/database-import.md).
-- Lesen Sie die [Dokumentation zu Azure SQL-Datenbank](https://docs.microsoft.com/azure/sql-database/).
+- Lesen Sie die [Dokumentation zu Azure SQL-Datenbank](/azure/sql-database/).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -110,13 +110,13 @@ Bei diesem Ansatz werden die Vorteile von Features genutzt, die nur im Premium-T
 So exportieren Sie aus der Quellinstanz und importieren Sie in die Zielinstanz:
 
 1. Erstellen Sie im Premium-Tarif eine neue Azure Cache for Redis-Instanz in der Zielregion. Verwenden Sie dieselbe Größe wie für die Azure Cache for Redis-Quellinstanz.
-1. [Exportieren Sie Daten aus dem Quellcache](../redis-cache/cache-how-to-import-export-data.md), oder verwenden Sie das [PowerShell-Cmdlet „Export-AzRedisCache“](/powershell/module/az.rediscache/export-azrediscache).
+1. [Exportieren Sie Daten aus dem Quellcache](../azure-cache-for-redis/cache-how-to-import-export-data.md), oder verwenden Sie das [PowerShell-Cmdlet „Export-AzRedisCache“](/powershell/module/az.rediscache/export-azrediscache).
 
    > [!NOTE]
    > Das Azure Storage-Exportkonto muss sich in derselben Region wie die Cacheinstanz befinden.
 
 1. Kopieren Sie die exportierten Blobs in ein Speicherkonto in der Zielregion (z. B. mit AzCopy).
-1. [Importieren Sie Daten in den Zielcache](../redis-cache/cache-how-to-import-export-data.md), oder verwenden Sie das [PowerShell-Cmdlet „Import-AzRedisCache“](/powershell/module/az.rediscache/import-azrediscache).
+1. [Importieren Sie Daten in den Zielcache](../azure-cache-for-redis/cache-how-to-import-export-data.md), oder verwenden Sie das [PowerShell-Cmdlet „Import-AzRedisCache“](/powershell/module/az.rediscache/import-azrediscache).
 1. Konfigurieren Sie Ihre Anwendung so, dass sie die Azure Cache for Redis-Zielinstanz verwendet.
 
 ### <a name="option-4-write-data-to-two-azure-cache-for-redis-instances-read-from-one-instance"></a>Option 4: Schreiben von Daten in zwei Azure Cache for Redis-Instanzen, Lesen aus einer Instanz
@@ -128,11 +128,11 @@ Bei diesem Ansatz müssen Sie Ihre Anwendung ändern. Die Anwendung muss Daten i
 
 Weitere Informationen finden Sie unter:
 
-- Lesen Sie die [Übersicht über Azure-Cache für Redis](../redis-cache/cache-overview.md).
+- Lesen Sie die [Übersicht über Azure-Cache für Redis](../azure-cache-for-redis/cache-overview.md).
 
 ## <a name="postgresql-and-mysql"></a>PostgreSQL und MySQL
 
-Weitere Informationen finden Sie in den Artikeln im Abschnitt „Sichern und Migrieren von Daten“ in [PostgreSQL](https://docs.microsoft.com/azure/postgresql/) und [MySQL](https://docs.microsoft.com/azure/mysql/).
+Weitere Informationen finden Sie in den Artikeln im Abschnitt „Sichern und Migrieren von Daten“ in [PostgreSQL](../postgresql/index.yml) und [MySQL](../mysql/index.yml).
 
 ![PostgreSQL und MySQL](./media/germany-migration-main/databases.png)
 

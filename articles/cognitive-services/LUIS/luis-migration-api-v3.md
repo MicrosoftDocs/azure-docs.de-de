@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: a5760db2d6e453d631680d6154e6d9a03ce55cd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59cf250a9db5a1f6759495c1b5a3c48cb07cde15
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541338"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018785"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Änderungen an Vorhersageendpunkten in V3
 
@@ -60,7 +60,7 @@ Wenn Sie wissen, dass keine Ihrer Clientanwendungen oder -integrationen (Bot Fra
 
 ### <a name="bing-spell-check"></a>Bing-Rechtschreibprüfung
 
-Diese API wird auf V3-Vorhersageendpunkten nicht unterstützt. Verwenden Sie für Rechtschreibkorrekturen weiterhin V2-API-Vorhersageendpunkte. Wenn Sie die V3-API verwenden und eine Rechtschreibkorrektur benötigen, lassen Sie die Clientanwendung die API [Bing-Rechtschreibprüfung](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/overview) aufrufen, und korrigieren Sie den Text vor der Übermittlung an die LUIS-API.
+Diese API wird auf V3-Vorhersageendpunkten nicht unterstützt. Verwenden Sie für Rechtschreibkorrekturen weiterhin V2-API-Vorhersageendpunkte. Wenn Sie die V3-API verwenden und eine Rechtschreibkorrektur benötigen, lassen Sie die Clientanwendung die API [Bing-Rechtschreibprüfung](../bing-spell-check/overview.md) aufrufen, und korrigieren Sie den Text vor der Übermittlung an die LUIS-API.
 
 ## <a name="bot-framework-and-azure-bot-service-client-applications"></a>Bot Framework- und Azure Bot Service-Clientanwendungen
 

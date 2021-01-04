@@ -3,12 +3,12 @@ title: Verbessern der Leistung von Azure-Anwendungen mit Advisor
 description: Anhand der Empfehlungen zur Leistung in Azure Advisor können Sie die Geschwindigkeit und Reaktionszeit Ihrer unternehmenskritischen Anwendungen verbessern.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 44252171a714acec0a9c0e83c9272b2f845560b3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 55f5ac6784bf613170fd10060799ab5ad1290a62
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077812"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183344"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Verbessern der Leistung von Azure-Anwendungen mit Azure Advisor
 
@@ -22,7 +22,7 @@ Azure Advisor ermittelt Traffic Manager-Profile, für die eine längere Gültigk
 
 ## <a name="improve-database-performance-by-using-sql-database-advisor-temporarily-disabled"></a>Verbessern der Datenbankleistung mithilfe von SQL Database Advisor (vorübergehend deaktiviert)
 
-In Azure Advisor erhalten Sie eine einheitliche, konsolidierte Übersicht über die Empfehlungen für alle Ihre Azure-Ressourcen. Integriert ist SQL Database Advisor, um Empfehlungen zum Verbessern der Leistung Ihrer Datenbank zu geben. SQL Database Advisor bewertet die Leistung Ihrer Datenbank durch eine Analyse des Nutzungsverlaufs. Anschließend werden Empfehlungen gegeben, die für die typische Workload der Datenbank am besten geeignet sind.
+In Azure Advisor erhalten Sie eine einheitliche, konsolidierte Übersicht über die Empfehlungen für alle Ihre Azure-Ressourcen. Integriert ist SQL Database Advisor, um Empfehlungen zum Verbessern der Leistung Ihrer Datenbank zu geben.  SQL Database Advisor bewertet die Leistung Ihrer Datenbank durch eine Analyse des Nutzungsverlaufs. Anschließend werden Empfehlungen gegeben, die für die typische Workload der Datenbank am besten geeignet sind.
 
 > [!NOTE]
 > Bevor Sie Empfehlungen erhalten können, muss die Datenbank ca. eine Woche lang verwendet werden, und innerhalb dieser Woche muss konsistent Aktivität bestehen. SQL Database Advisor kann leichter für einheitliche Abfragemuster als für zufällige Aktivitätsspitzen optimiert werden.
@@ -108,7 +108,7 @@ Advisor erkennt, ob Sie Leistung und Durchsatz bei Ladevorgängen verbessern kö
 
 ## <a name="co-locate-the-storage-account-in-the-same-region-to-minimize-latency-when-loading"></a>Bereitstellen des Speicherkontos in derselben Region, um die Latenz beim Laden zu minimieren
 
-Advisor erkennt, ob Sie Daten aus einer anderen Region als der Ihres SQL-Pools laden. Sie sollten Daten aus einem Speicherkonto laden, das sich in derselben Region wie der SQL-Pool befindet, um die Latenz beim Laden zu minimieren. Dadurch werden die Latenz verringert und die Leistung beim Laden verbessert.
+Advisor erkennt, ob Sie Daten aus einer anderen Region als der Ihres dedizierten SQL-Pools laden. Sie sollten Daten aus einem Speicherkonto laden, das sich in derselben Region wie der dedizierte SQL-Pool befindet, um die Wartezeit beim Laden zu minimieren. Dadurch werden die Latenz verringert und die Leistung beim Laden verbessert.
 
 ## <a name="use-a-supported-kubernetes-version"></a>Verwenden einer unterstützten Kubernetes-Version
 
@@ -120,17 +120,17 @@ Advisor ermittelt nicht unterstützte Versionen von Kubernetes.
 Eine länger andauernde hohe CPU-Auslastung kann die Abfrageleistung für Ihre Workload beeinträchtigen. Durch Erhöhen der CPU-Größe können Sie die Laufzeit von Datenbankabfragen optimieren und die Gesamtleistung verbessern. Advisor ermittelt Server mit einer hohen CPU-Auslastung, auf denen wahrscheinlich Workloads mit eingeschränkter CPU-Leistung ausgeführt werden, und empfiehlt die Skalierung der Computegröße.
 
 ### <a name="reduce-memory-constraints-on-your-azure-database-for-mysql-azure-database-for-postgresql-and-azure-database-for-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>Reduzieren der Speicherbeschränkungen auf den Servern für Azure Database for MySQL, Azure Database for PostgreSQL und Azure Database for MariaDB oder Verschieben in arbeitsspeicheroptimierte SKU
-Eine niedrige Cachetrefferquote kann die Abfrageleistung beeinträchtigen und zu erhöhtem IOPS führen. Dieser Zustand kann durch einen ungültigen Abfrageplan oder eine speicherintensive Workload verursacht werden. Durch Korrigieren des Abfrageplans oder  [Vergrößern des Speichers](../postgresql/concepts-pricing-tiers.md) des Servers für Azure Database for PostgreSQL, Azure Database for MySQL oder Azure Database for MariaDB kann die Ausführung der Datenbankworkload optimiert werden. Azure Advisor ermittelt Server, die von einer solchen hohen Änderungsrate des Pufferpools betroffen sind. Es wird empfohlen, eine der folgenden Maßnahmen zu ergreifen: 
+Eine niedrige Cachetrefferquote kann die Abfrageleistung beeinträchtigen und zu erhöhtem IOPS führen. Dieser Zustand kann durch einen ungültigen Abfrageplan oder eine speicherintensive Workload verursacht werden. Durch Korrigieren des Abfrageplans oder [Vergrößern des Speichers](../postgresql/concepts-pricing-tiers.md) des Servers für Azure Database for PostgreSQL, Azure Database for MySQL oder Azure Database for MariaDB kann die Ausführung der Datenbankworkload optimiert werden. Azure Advisor ermittelt Server, die von einer solchen hohen Änderungsrate des Pufferpools betroffen sind. Es wird empfohlen, eine der folgenden Maßnahmen zu ergreifen: 
 - Korrigieren des Abfrageplans
 - Verschieben zu einer SKU mit mehr Arbeitsspeicher 
 - Erhöhen der Speichergröße, um den IOPS-Wert zu erhöhen
 
 ### <a name="use-an-azure-database-for-mysql-or-azure-database-for-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Verwenden eines Lesereplikats für Azure Database for MySQL oder Azure Database for PostgreSQL zum Aufskalieren von Lesevorgängen für leseintensive Workloads
-Advisor nutzt eine workloadbasierte Heuristik, z. B. das Verhältnis von Lese- zu Schreibvorgängen auf dem Server in den letzten sieben Tagen, um leseintensive Workloads zu identifizieren. Eine Azure Database for PostgreSQL-Ressource oder Azure Database for MySQL-Ressource mit einem hohen Verhältnis von Lese- zu Schreibvorgängen kann zu CPU- und/oder Speicherkonflikten führen, durch die die Abfrageleistung beeinträchtigt wird. Durch Hinzufügen eines  [Replikats](../postgresql/howto-read-replicas-portal.md) können Schreibvorgänge horizontal auf den Replikatserver skaliert werden, sodass CPU- oder Speicherkonflikte auf dem primären Server verhindert werden. Advisor ermittelt Server mit diesen leseintensiven Workloads und empfiehlt, dass ein  [Lesereplikat](../postgresql/concepts-read-replicas.md)  hinzugefügt wird, um einige der Leseworkloads auszulagern.
+Advisor nutzt eine workloadbasierte Heuristik, z. B. das Verhältnis von Lese- zu Schreibvorgängen auf dem Server in den letzten sieben Tagen, um leseintensive Workloads zu identifizieren. Eine Azure Database for PostgreSQL-Ressource oder Azure Database for MySQL-Ressource mit einem hohen Verhältnis von Lese- zu Schreibvorgängen kann zu CPU- und/oder Speicherkonflikten führen, durch die die Abfrageleistung beeinträchtigt wird. Durch Hinzufügen eines [Replikats](../postgresql/howto-read-replicas-portal.md) können Schreibvorgänge auf den Replikatserver aufskaliert und dadurch CPU- oder Speicherkonflikte auf dem primären Server verhindert werden. Advisor ermittelt Server mit diesen leseintensiven Workloads und empfiehlt, dass ein [Lesereplikat](../postgresql/concepts-read-replicas.md) hinzugefügt wird, um einige der Leseworkloads auszulagern.
 
 
 ### <a name="scale-your-azure-database-for-mysql-azure-database-for-postgresql-or-azure-database-for-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Skalieren des Servers für Azure Database for MySQL, Azure Database for PostgreSQL oder Azure Database for MariaDB auf eine höhere SKU zur Verhinderung von Verbindungseinschränkungen
-Jede neue Verbindung mit dem Datenbankserver belegt Speicher. Die Leistung des Datenbankservers verschlechtert sich, wenn aufgrund einer [Obergrenze](../postgresql/concepts-limits.md) des Speichers Fehler bei Verbindungen mit dem Server auftreten. Azure Advisor ermittelt Server mit vielen Verbindungsfehlern. Es empfiehlt sich, ein Upgrade der Verbindungsbeschränkungen des Servers vorzunehmen, sodass dem Server mehr Arbeitsspeicher zur Verfügung steht, indem Sie eine der folgenden Aktionen ausführen:
+Jede neue Verbindung mit dem Datenbankserver belegt Speicher. Die Leistung des Datenbankservers verschlechtert sich, wenn aufgrund einer [Obergrenze](../postgresql/concepts-limits.md) des Speichers Fehler bei Verbindungen mit dem Server auftreten. Azure Advisor ermittelt Server mit vielen Verbindungsfehlern. Es empfiehlt sich, ein Upgrade der Verbindungsbeschränkungen des Servers vorzunehmen, sodass dem Server mehr Arbeitsspeicher zur Verfügung steht, indem Sie eine der folgenden Aktionen ausführen:
 - Hochskalieren der Computeressourcen 
 - Verwenden von arbeitsspeicheroptimierten SKUs mit mehr Computekapazität pro Kern
 
@@ -146,7 +146,7 @@ Advisor ermittelt Azure Cosmos DB-Konten mit Datenverkehr aus einer derzeit ni
 
 ## <a name="configure-your-azure-cosmos-db-indexing-policy-by-using-custom-included-or-excluded-paths"></a>Konfigurieren der Azure Cosmos DB-Indizierungsrichtlinie mit benutzerdefinierten eingeschlossenen oder ausgeschlossenen Pfaden
 
-Advisor ermittelt Azure Cosmos DB-Container, die die standardmäßige Indizierungsrichtlinie verwenden, aber von einer benutzerdefinierten Indizierungsrichtlinie profitieren könnten. Diese Einschätzung basiert auf dem Workloadmuster. Die Standardindizierungsrichtlinie indiziert alle Eigenschaften. Mit einer benutzerdefinierten Indizierungsrichtlinie mit expliziten ein- bzw. ausgeschlossenen Pfaden für Abfragefilter lassen sich die Anforderungseinheiten und der Speicherbedarf für die Indizierung verringern. [Weitere Informationen zum Ändern von Indizierungsrichtlinien](/azure/cosmos-db/index-policy)
+Advisor ermittelt Azure Cosmos DB-Container, die die standardmäßige Indizierungsrichtlinie verwenden, aber von einer benutzerdefinierten Indizierungsrichtlinie profitieren könnten. Diese Einschätzung basiert auf dem Workloadmuster. Die Standardindizierungsrichtlinie indiziert alle Eigenschaften. Mit einer benutzerdefinierten Indizierungsrichtlinie mit expliziten ein- bzw. ausgeschlossenen Pfaden für Abfragefilter lassen sich die Anforderungseinheiten und der Speicherbedarf für die Indizierung verringern. [Weitere Informationen zum Ändern von Indizierungsrichtlinien](../cosmos-db/index-policy.md)
 
 ## <a name="set-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Festlegen der Azure Cosmos DB-Abfrageseitengröße (MaxItemCount) auf „–1“ 
 

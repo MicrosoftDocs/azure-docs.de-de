@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: SAP
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad1567a3a6cba2c2fbc519ffe5d384aba25ab51d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54f3f0e1b57525a3bd425575ff03a9f3c91b0044
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88648988"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951212"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>SAP-Workload in Szenarien mit Unterstützung von virtuellen Azure-Computern
 Der Entwurf einer SAP NetWeaver-, Business One-, `Hybris`- oder S/4HANA-Systemarchitektur in Azure eröffnet eine Vielzahl von Möglichkeiten für verschiedene Architekturen und Werkzeuge, um zu einer skalierbaren, effizienten und hochverfügbaren Bereitstellung zu gelangen. Abhängig vom verwendeten Betriebssystem oder DBMS gelten jedoch Einschränkungen. Darüber hinaus werden nicht alle Szenarien, die lokal unterstützt werden, in gleicher Weise auch in Azure unterstützt. Das vorliegende Dokument stellt die unterstützten Nicht-Hochverfügbarkeitskonfigurationen und Hochverfügbarkeitskonfigurationen sowie Architekturen vor, die ausschließlich Azure-VMs verwenden. Informationen zu unterstützten Szenarien mit [großen HANA-Instanzen](./hana-overview-architecture.md) finden Sie im Artikel [Unterstützte Szenarien für große HANA-Instanzen](./hana-supported-scenario.md). 
@@ -46,7 +47,7 @@ In diesen Konfiguration werden die SAP-Anwendungsschicht und die DBMS-Ebene auf 
 
 Grafisch dargestellt sieht dies so aus:
 
-![Einfache Konfiguration mit 2 Ebenen](./media/sap-planning-supported-configurations/three-tier-simple-configuration.png)
+![Dienstebene einer einfachen Konfiguration auf 3 Ebenen.](./media/sap-planning-supported-configurations/three-tier-simple-configuration.png)
 
 Dieser Konfigurationstyp wird unter Windows, Red Hat, SUSE und Oracle Linux für die DBMS-Systeme von SQL Server, Oracle, Db2, SAP HANA, maxDB und SAP ASE für Produktions- und Nicht-Produktionsumgebungen unterstützt. Dies ist die Standardkonfiguration bei der Bereitstellung von [großen Azure HANA-Instanzen](./hana-overview-architecture.md). Zur Vereinfachung haben wir in der SAP-Anwendungsschicht nicht zwischen SAP Central Services und SAP-Dialoginstanzen unterschieden. In dieser einfachen Konfiguration mit 3 Ebenen wäre kein Hochverfügbarkeitsschutz für SAP Central Services gegeben.
 
@@ -83,7 +84,7 @@ In vielen Fällen werden mehrere Dialoginstanzen auf Bare-Metal-Servern oder sog
 
 Eine 3-Ebenen-Konfiguration mit Ausführung mehrerer SAP-Dialoginstanzen innerhalb von Azure-VMs könnte so aussehen:
 
-![Mehrere DBMS-Instanzen in einer Einheit](./media/sap-planning-supported-configurations/multiple-dialog-instances.png)
+![Diagramm einer Konfiguration auf 3 Ebenen, bei der mehrere SAP-Dialoginstanzen in Azure VMs ausgeführt werden.](./media/sap-planning-supported-configurations/multiple-dialog-instances.png)
 
 Zur Vereinfachung haben wir in der SAP-Anwendungsschicht nicht zwischen SAP Central Services und SAP-Dialoginstanzen unterschieden. In dieser einfachen Konfiguration mit 3 Ebenen wäre kein Hochverfügbarkeitsschutz für SAP Central Services gegeben. Für Produktionssysteme ist es nicht empfehlenswert, SAP Central Services ungeschützt zu lassen. Einzelheiten zu sogenannten „Multi-SID-Konfigurationen“ mit SAP Central Services-Instanzen und zur Hochverfügbarkeit solcher Multi-SID-Konfigurationen finden Sie in späteren Abschnitten dieses Dokuments.
 
@@ -208,7 +209,7 @@ Die Konfiguration wird dokumentiert in [Multi-SID-Hochverfügbarkeitsleitfaden f
 
 Ein Multi-SID-Cluster mit Enqueue Replication-Server sieht schematisch wie folgt aus:
 
-![Hochverfügbarkeitskonfiguration für DBMS und ASCS](./media/sap-planning-supported-configurations/high-available-multi-system-configuration.png)
+![Diagramm eines Multi-SID-Clusters mit Enqueue Replication-Server.](./media/sap-planning-supported-configurations/high-available-multi-system-configuration.png)
 
 
 ## <a name="sap-hana-scale-out-scenarios"></a>Szenarien zum Aufskalieren von SAP HANA

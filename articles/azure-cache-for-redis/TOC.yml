@@ -67,7 +67,7 @@
         - name: Sicherheitsbaseline
           href: security-baseline.md
     - name: Cachingarchitektur
-      href: /azure/architecture/best-practices/caching?toc=%252fazure%252fredis-cache%252ftoc.json
+      href: /azure/architecture/best-practices/caching?toc=%2fazure%2fredis-cache%2ftoc.json
 - name: Anleitungen
   items:
     - name: Planen

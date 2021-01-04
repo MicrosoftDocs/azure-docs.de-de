@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: a82f3c347c75d658e3e7ec52d51107f5a240ee5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11014c5a5c5cd0cabae1b62083bd5e662be2c6b7
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88056515"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348932"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Kompatibilitätsgrad für Azure Stream Analytics-Aufträge
 
@@ -33,7 +33,7 @@ Wenn Sie einen neuen Stream Analytics-Auftrag erstellen, gilt es als bewährte M
 
 ## <a name="set-the-compatibility-level"></a>Festlegen des Kompatibilitätsgrads
 
-Sie können den Kompatibilitätsgrad für einen Stream Analytics-Auftrag über das Azure-Portal oder mithilfe des [REST-API-Aufrufs „create job“](/rest/api/streamanalytics/stream-analytics-job) festlegen.
+Sie können den Kompatibilitätsgrad für einen Stream Analytics-Auftrag über das Azure-Portal oder mithilfe des [REST-API-Aufrufs „create job“](/rest/api/streamanalytics/2016-03-01/streamingjobs/createorreplace#compatibilitylevel) festlegen.
 
 So aktualisieren Sie den Kompatibilitätsgrad des Auftrags im Azure-Portal
 
@@ -53,7 +53,7 @@ Beim Kompatibilitätsgrad 1.2 wurden die folgenden grundlegenden Änderungen ei
 
 ###  <a name="amqp-messaging-protocol"></a>AMQP-Messagingprotokoll
 
-**Ebene 1.2**: Azure Stream Analytics verwendet das Nachrichtenprotokoll [Advanced Message Queueing Protocol (AMQP)](../service-bus-messaging/service-bus-amqp-overview.md), um in Service Bus-Warteschlangen und -Themen zu schreiben. AMQP gibt Ihnen die Möglichkeit, plattformübergreifende Hybridanwendungen mit einem offenen Standard zu erstellen.
+**Ebene 1.2** : Azure Stream Analytics verwendet das Nachrichtenprotokoll [Advanced Message Queueing Protocol (AMQP)](../service-bus-messaging/service-bus-amqp-overview.md), um in Service Bus-Warteschlangen und -Themen zu schreiben. AMQP gibt Ihnen die Möglichkeit, plattformübergreifende Hybridanwendungen mit einem offenen Standard zu erstellen.
 
 ### <a name="geospatial-functions"></a>Geofunktionen
 
@@ -77,13 +77,13 @@ Weitere Informationen finden Sie unter [Updates to geospatial features in Azure 
 
 **Vorherige Ebenen:** Das Upsertverhalten war durch *Einfügen oder Zusammenführen*  definiert.
 
-**Ebene 1.2:** Durch die native Integration der Bulk-API in die Cosmos DB-Ausgabe werden der Durchsatz maximiert und Drosselungsanforderungen effizient verarbeitet. Weitere Informationen finden Sie auf der Seite zur [Azure Stream Analytics-Ausgabe an Azure Cosmos DB](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output#improved-throughput-with-compatibility-level-12).
+**Ebene 1.2:** Durch die native Integration der Bulk-API in die Cosmos DB-Ausgabe werden der Durchsatz maximiert und Drosselungsanforderungen effizient verarbeitet. Weitere Informationen finden Sie auf der Seite zur [Azure Stream Analytics-Ausgabe an Azure Cosmos DB](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12).
 
 Das Upsertverhalten ist durch *Einfügen oder Ersetzen*  definiert.
 
 ### <a name="datetimeoffset-when-writing-to-sql-output"></a>DateTimeOffset beim Schreiben in SQL-Ausgabe
 
-**Vorherige Ebenen:** [DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017)-Typen wurden an UTC angepasst.
+**Vorherige Ebenen:** [DateTimeOffset](/sql/t-sql/data-types/datetimeoffset-transact-sql)-Typen wurden an UTC angepasst.
 
 **Ebene 1.2:** DateTimeOffset wird nicht mehr angepasst.
 
@@ -151,4 +151,4 @@ Beim Kompatibilitätsgrad 1.1 wurden die folgenden grundlegenden Änderungen ein
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Problembehandlung von Azure Stream Analytics-Eingaben](stream-analytics-troubleshoot-input.md)
-* [Stream Analytics-Ressourcenintegrität](stream-analytics-resource-health.md)
+* [Stream Analytics-Ressourcenintegrität](./stream-analytics-troubleshoot-query.md)

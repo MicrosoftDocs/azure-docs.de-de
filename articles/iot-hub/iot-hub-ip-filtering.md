@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/25/2020
 ms.author: robinsh
-ms.openlocfilehash: a9a95c0151ed6dd3a2ad4a9d548723cdff0bcfb8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 501b609d745e0a86bc1e00bccae54bb4f6e49376
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147080"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545275"
 ---
 # <a name="use-ip-filters"></a>Verwenden von IP-Filtern
 
@@ -39,7 +39,7 @@ Alle Verbindungsversuche über eine IP-Adresse, die für eine IP-Ablehnungsregel
 
 Das Raster **IP-Filter** im Portal ist für ein IoT Hub standardmäßig leer. Diese Standardeinstellung bedeutet, dass Ihr Hub Verbindungen von allen IP-Adressen akzeptiert. Die Standardeinstellung entspricht einer Regel, bei der der IP-Adressbereich 0.0.0.0/0 zulässig ist.
 
-Wenn Sie die Seite mit den IP-Filtereinstellungen aufrufen möchten, wählen Sie **Netzwerk**, **Öffentlicher Zugriff** und dann **Ausgewählte IP-Bereiche** aus:
+Wenn Sie die Seite mit den IP-Filtereinstellungen aufrufen möchten, wählen Sie **Netzwerk** , **Öffentlicher Zugriff** und dann **Ausgewählte IP-Bereiche** aus:
 
 :::image type="content" source="media/iot-hub-ip-filtering/ip-filter-default.png" alt-text="Standardeinstellungen der IP-Filterung von IoT Hub":::
 
@@ -53,7 +53,7 @@ Nachdem Sie **IP-Filterregel hinzufügen** ausgewählt haben, füllen Sie die Fe
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png" alt-text="Standardeinstellungen der IP-Filterung von IoT Hub":::
 
-* Geben Sie einen **Namen** für die IP-Filterregel an. Er muss eine eindeutige alphanumerische Zeichenfolge ohne Beachtung von Groß-/Kleinschreibung sein, die bis zu 128 Zeichen umfassen kann. Nur alphanumerische ASCII 7-Bit-Zeichen und die Zeichen `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` sind zulässig.
+* Geben Sie einen **Namen** für die IP-Filterregel an. Er muss eine eindeutige alphanumerische Zeichenfolge ohne Beachtung von Groß-/Kleinschreibung sein, die bis zu 128 Zeichen umfassen kann. Nur alphanumerische ASCII 7-Bit-Zeichen und die Zeichen `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` sind zulässig.
 
 * Geben Sie eine einzelne IPv4-Adresse oder einen Block von IP-Adressen in CIDR-Notation ein. In CIDR-Notation steht 192.168.100.0/22 beispielsweise für die 1.024 IPv4-Adressen von 192.168.100.0 bis 192.168.103.255.
 
@@ -75,7 +75,7 @@ Wählen Sie zum Löschen einer IP-Filterregel das Papierkorbsymbol in dieser Zei
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-cli"></a>Abrufen und Aktualisieren von IP-Filtern über die Azure-Befehlszeilenschnittstelle
 
-Die IP-Filter für Ihren IoT Hub können über die [Azure-Befehlszeilenschnittstelle](/cli/azure/?view=azure-cli-latest) abgerufen und aktualisiert werden.
+Die IP-Filter für Ihren IoT Hub können über die [Azure-Befehlszeilenschnittstelle](/cli/azure/) abgerufen und aktualisiert werden.
 
 Wenn Sie die aktuellen IP-Filter für Ihren IoT Hub abrufen möchten, führen Sie Folgendes aus:
 
@@ -159,7 +159,7 @@ Wenn Sie beispielsweise Adressen im Bereich 192.168.100.0/22 zulassen und alle a
 
 Sie können die Reihenfolge der IP-Filterregeln im Raster ändern, indem Sie auf die drei vertikal angeordneten Punkte am Anfang der Zeile klicken und Drag & Drop nutzen.
 
-Klicken Sie auf **Speichern**, um die neue Reihenfolge der IP-Filterregeln zu speichern.
+Klicken Sie auf **Speichern** , um die neue Reihenfolge der IP-Filterregeln zu speichern.
 
 :::image type="content" source="media/iot-hub-ip-filtering/ip-filter-rule-order.png" alt-text="Standardeinstellungen der IP-Filterung von IoT Hub":::
 
@@ -167,4 +167,4 @@ Klicken Sie auf **Speichern**, um die neue Reihenfolge der IP-Filterregeln zu sp
 
 Weitere Informationen zu den Funktionen von IoT Hub finden Sie unter:
 
-* [IoT Hub-Metriken](iot-hub-metrics.md)
+* [Überwachen von IoT Hub](monitor-iot-hub.md)

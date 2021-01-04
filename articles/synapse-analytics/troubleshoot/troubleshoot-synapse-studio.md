@@ -1,5 +1,5 @@
 ---
-title: Problembehandlung in Synapse Studio (Vorschauversion)
+title: Problembehandlung für Synapse Studio
 description: Problembehandlung in Azure Synapse Studio
 author: julieMSFT
 ms.service: synapse-analytics
@@ -8,28 +8,28 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 33022d005deca5d1350278218fb6f1fca1a35ca1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a96709c7538bda6d6b338c29dc512902e9ca2c87
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287746"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445852"
 ---
-# <a name="azure-synapse-studio-preview-troubleshooting"></a>Azure Synapse Studio (Vorschauversion): Problembehandlung
+# <a name="azure-synapse-studio-troubleshooting"></a>Problembehandlung für Azure Synapse Studio
 
 Dieser Leitfaden zur Problembehandlung enthält Anweisungen dazu, welche Informationen beim Öffnen eines Supporttickets zu Netzwerkkonnektivitätsproblemen bereitgestellt werden müssen. Mit den richtigen Informationen können wir das Problem möglicherweise schneller beheben.
 
-## <a name="sql-on-demand-preview-service-connectivity-issue"></a>Dienstkonnektivitätsproblem bei SQL On-Demand (Vorschauversion)
+## <a name="serverless-sql-pool-service-connectivity-issue"></a>Dienstkonnektivitätsproblem bei serverlosem SQL-Pool
 
 ### <a name="symptom-1"></a>Symptom 1
 
-Die Option „SQL On-Demand“ ist in der Dropdownliste „Verbinden mit“ abgeblendet dargestellt.
+Die Option „Serverloser SQL-Pool“ ist in der Dropdownliste „Verbinden mit“ abgeblendet dargestellt.
 
 ![symptom1](media/troubleshooting-synapse-studio/symptom1v2.png)
 
 ### <a name="symptom-2"></a>Symptom 2
 
-Wenn Sie die Abfrage mit „SQL On-Demand“ ausführen, erhalten Sie die Fehlermeldung „Fehler beim Herstellen einer Verbindung zum Server“.
+Wenn Sie die Abfrage mit „Serverloser SQL-Pool“ ausführen, erhalten Sie die Fehlermeldung „Fehler beim Herstellen einer Verbindung zum Server“.
 
 ![Symptom 2](media/troubleshooting-synapse-studio/symptom2.png)
  
@@ -45,7 +45,7 @@ Wenn Sie die Abfrage mit „SQL On-Demand“ ausführen, erhalten Sie die Fehler
 
 Wiederholen Sie den Vorgang, den Sie in Azure Synapse Studio ausgeführt haben, um die Problembehandlung zu beginnen.
 
-- Wählen Sie für Symptom 1 die Schaltfläche „Aktualisieren“ rechts neben dem Dropdownmenü „Datenbank verwenden“ auf der Registerkarte „SQL-Skript“ aus, und prüfen Sie, ob „SQL On-Demand“ angezeigt wird.
+- Wählen Sie für Symptom 1 die Schaltfläche „Aktualisieren“ rechts neben dem Dropdownmenü „Datenbank verwenden“ auf der Registerkarte „SQL-Skript“ aus, und prüfen Sie, ob „Serverloser SQL-Pool“ angezeigt wird.
 - Versuchen Sie bei Symptom 2, die Abfrage erneut auszuführen, um zu prüfen, ob sie erfolgreich ausgeführt wird.
 
 Wenn das Problem weiterhin besteht, drücken Sie F12 in Ihrem Browser, um „Entwicklertools“ (DevTools) zu öffnen.
@@ -71,7 +71,7 @@ Wenn eines der Elemente etwas anderes als „20x“ aufweist und:
 
     - Wenn ERR_NAME_NOT_RESOLVED angezeigt wird und Sie Ihren Arbeitsbereich innerhalb von 10 Minuten erstellt haben, warten Sie 10 Minuten und versuchen Sie erneut zu prüfen, ob das Problem immer noch besteht.
     - Wenn ERR_INTERNET_DISCONNECTED oder ERR_NETWORK_CHANGED angezeigt wird, deutet dies möglicherweise darauf hin, dass Ihre PC-Netzwerkverbindung Probleme hat. Überprüfen Sie Ihre Netzwerkverbindung, und wiederholen Sie den Vorgang.
-    - Wenn ERR_CONNECTION_RESET, ERR_SSL_PROTOCOL_ERROR oder andere Fehlercodes angezeigt werden, die „SSL“ enthalten, deutet dies möglicherweise darauf hin, dass Ihre lokale SSL-Konfiguration Probleme hat oder dass Ihr Netzwerkadministrator den Zugriff auf den SQL On-Demand-Server blockiert hat. Öffnen Sie ein Supportticket, und fügen Sie den Fehlercode in der Beschreibung ein.
+    - Wenn ERR_CONNECTION_RESET, ERR_SSL_PROTOCOL_ERROR oder andere Fehlercodes angezeigt werden, die „SSL“ enthalten, deutet dies möglicherweise darauf hin, dass Ihre lokale SSL-Konfiguration Probleme hat oder dass Ihr Netzwerkadministrator den Zugriff auf den serverlosen SQL-Poolserver blockiert hat. Öffnen Sie ein Supportticket, und fügen Sie den Fehlercode in der Beschreibung ein.
     - Wenn ERR_NETWORK_ACCESS_DENIED angezeigt wird, müssen Sie möglicherweise mit dem Administrator prüfen, ob Ihre lokale Firewallrichtlinie den Zugriff entweder auf die Domäne „*.database.windows.net“ oder den Remoteport 1443 blockiert hat.
     - Versuchen Sie optional, den gleichen Vorgang direkt auf einem anderen Computer und/oder in einer Netzwerkumgebung auszuführen, um ein Problem mit der Netzwerkkonfiguration auf Ihrem PC auszuschließen.
 

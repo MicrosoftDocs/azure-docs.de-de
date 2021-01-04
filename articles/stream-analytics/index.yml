@@ -10,12 +10,12 @@ metadata:
   author: mamccrea
   ms.author: mamccrea
   ms.date: 09/16/2019
-  ms.openlocfilehash: 0ed62ea8b209fd1bd959a714d457b447653c4f00
-  ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+  ms.openlocfilehash: c5220c56f2925275461f4b9967822f544f31a575
+  ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/14/2020
-  ms.locfileid: "92016228"
+  ms.lasthandoff: 10/30/2020
+  ms.locfileid: "93129387"
 landingContent:
 - title: Informationen zu Azure Stream Analytics
   linkLists:
@@ -200,7 +200,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Einrichten einer CI/CD-Pipeline mit Visual Studio Code
-      url: setup-cicd-vs-code.md
+      url: ./cicd-overview.md
     - text: Einrichten einer CI/CD-Pipeline mit Visual Studio
       url: stream-analytics-tools-for-visual-studio-cicd.md
     - text: Einrichten von CI/CD für IoT Edge-Aufträge mithilfe von REST-APIs

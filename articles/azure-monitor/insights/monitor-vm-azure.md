@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 85c4807d5bf71078e3cfb26bbc27e9eecc10c041
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc89790c7d268bcfa0c08bd26249bc91979d7fca
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90029460"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186897"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Überwachen von virtuellen Azure-Computern mit Azure Monitor
 In diesem Artikel wird beschrieben, wie Sie mit Azure Monitor Überwachungsdaten von virtuellen Azure-Computern erfassen und analysieren, um deren Integrität aufrechtzuerhalten. Virtuelle Computer können wie alle [anderen Azure-Ressourcen](monitor-azure-resource.md) mit Azure Monitor auf Verfügbarkeit und Leistung überwacht werden, unterscheiden sich jedoch von anderen Ressourcen darin, dass Sie außerdem das Gastbetriebssystem und die darin ausgeführten Workloads überwachen müssen. 
@@ -64,7 +64,7 @@ Um alle Features von Azure Monitor zum Überwachen einer VM zu aktivieren, müss
 Die einzelnen Konfigurationsschritte werden in den folgenden Abschnitten beschrieben.
 
 ### <a name="enable-azure-monitor-for-vms"></a>Aktivieren von Azure Monitor für VMs
-[Azure Monitor für VMs](vminsights-overview.md) ist ein [Einblick](insights-overview.md) in Azure Monitor, der das primäre Tool zur VM-Überwachung in Azure Monitor ist. Gegenüber standardmäßigen Azure Monitor-Features bietet Azure Monitor für VMs den folgenden Mehrwert.
+[Azure Monitor für VMs](vminsights-overview.md) ist ein [Einblick](../monitor-reference.md) in Azure Monitor, der das primäre Tool zur VM-Überwachung in Azure Monitor ist. Gegenüber standardmäßigen Azure Monitor-Features bietet Azure Monitor für VMs den folgenden Mehrwert.
 
 - Vereinfachtes Onboarding von Log Analytics-Agent und Dependency-Agent zum Aktivieren der Überwachung eines VM-Gastbetriebssystems und von Workloads. 
 - Vordefinierte Leistungsdiagramme und -arbeitsmappen, mit denen Sie Kernleistungsmetriken aus dem VM-Gastbetriebssystem analysieren und Trends erkennen können.
@@ -139,8 +139,8 @@ Nachdem Sie die Sammlung von Überwachungsdaten für einen virtuellen Computer k
 | Metriken | Öffnet den [Metrik-Explorer](../platform/metrics-getting-started.md), wobei der Bereich auf den aktuellen virtuellen Computer festgelegt ist. |
 | Diagnoseeinstellungen | Aktiviert und konfiguriert die [Diagnoseerweiterung](../platform/diagnostics-extension-overview.md) für die aktuelle VM. |
 | Advisor-Empfehlungen | Empfehlungen für die aktuelle VM vom [Azure Advisor](../../advisor/index.yml). |
-| Protokolle | Öffnet [Log Analytics](../log-query/log-query-overview.md#what-is-log-analytics), wobei der [Bereich](../log-query/scope.md) auf den aktuellen virtuellen Computer festgelegt ist. |
-| Verbindungsmonitor | Öffnet [Network Watcher – Verbindungsmonitor](../../network-watcher/connection-monitor-preview.md), um die Verbindungen zwischen dem aktuellen virtuellen Computer und anderen VMs zu überwachen. |
+| Protokolle | Öffnet [Log Analytics](../log-query/log-analytics-overview.md), wobei der [Bereich](../log-query/scope.md) auf den aktuellen virtuellen Computer festgelegt ist. |
+| Verbindungsmonitor | Öffnet [Network Watcher – Verbindungsmonitor](../../network-watcher/connection-monitor-overview.md), um die Verbindungen zwischen dem aktuellen virtuellen Computer und anderen VMs zu überwachen. |
 
 
 ## <a name="analyzing-metric-data"></a>Analysieren von Metrikdaten
@@ -207,7 +207,7 @@ Um beispielsweise eine Warnung zu erstellen, mit der überprüft wird, ob virtue
 
 ```kusto
 Heartbeat
-| where TimeGenerated < ago(10m)
+| where TimeGenerated > ago(10m)
 | where ResourceGroup == "my-resource-group"
 | summarize max(TimeGenerated) by Computer
 ```
@@ -218,7 +218,7 @@ Um eine Warnung zu erstellen, wenn auf allen virtuellen Windows-Computern im Abo
 
 ```kusto
 Event
-| where TimeGenerated < ago(1hr)
+| where TimeGenerated > ago(1hr)
 | where EventID == 4625
 ```
 
@@ -242,4 +242,3 @@ Ausführliche Informationen zum Verbinden Ihrer vorhandenen Operations Manager-V
 
 * [Erfahren Sie, wie Sie Daten in Azure Monitor-Protokollen mithilfe von Protokollabfragen analysieren.](../log-query/get-started-queries.md)
 * [Erfahren Sie mehr über Warnungen mithilfe von Metriken und Protokollen in Azure Monitor.](../platform/alerts-overview.md)
-

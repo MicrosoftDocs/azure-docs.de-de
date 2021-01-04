@@ -3,12 +3,12 @@ title: Leitfaden zum Azure Relay-Hybridverbindungsprotokoll | Microsoft-Dokument
 description: In diesem Artikel werden die clientseitigen Interaktionen mit dem Hybridverbindungsrelay für die Verbindung von Clients in Listener- und Absenderrollen beschrieben.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 893092124961ffa9df2535ca6de75def2930b797
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a812aa401077b81934d89ada99cf1dc312d8dbc
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531444"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862325"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure Relay-Hybridverbindungsprotokoll
 
@@ -414,7 +414,7 @@ Das Absenderprotokoll ist praktisch identisch mit der Erstellung eines Listeners
 Das Ziel ist die maximale Transparenz für den End-to-End-WebSocket. Die Adresse für die Verbindung ist dieselbe wie für den Listener, aber die „action“ ist anders, und das Token benötigt eine andere Berechtigung:
 
 ```
-wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sbc-hc-token=...
+wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sb-hc-token=...
 ```
 
 Die _namespace-address_ ist der vollqualifizierte Domänenname des Azure Relaynamespace, der die Hybridverbindung hostet, typischerweise in der Form `{myname}.servicebus.windows.net`.
@@ -433,7 +433,7 @@ Die Optionen des Abfragezeichenfolgenparameters lauten wie folgt:
  Der `{path}` ist der URL-codierte Namespacepfad der vorkonfigurierten Hybridverbindung, für die dieser Listener registriert werden soll. Der `path`-Ausdruck kann mit einem Suffix und einem Abfragezeichenfolgenausdruck für die weitere Kommunikation erweitert werden. Wenn die Hybridverbindung unter dem Pfad `hyco` registriert ist, kann der `path`-Ausdruck `hyco/suffix?param=value&...` lauten, gefolgt von den hier definierten Abfragezeichenfolgenparametern. Ein vollständiger Ausdruck kann dann wie folgt lauten:
 
 ```
-wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sbc-hc-token=...
+wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sb-hc-token=...
 ```
 
 Der `path`-Ausdruck wird an den Listener in dem Adress-URI übergeben, der in der accept-Steuerungsnachricht enthalten ist.
@@ -462,7 +462,7 @@ Das HTTP-Anforderungsprotokoll ermöglicht beliebige HTTP-Anforderungen, mit Aus
 Für HTTP-Anforderungen wird auf die reguläre Laufzeitadresse der Entität verwiesen, aber ohne das Infix $hc, das für WebSocket-Clients von Hybridverbindungen verwendet wird.
 
 ```
-https://{namespace-address}/{path}?sbc-hc-token=...
+https://{namespace-address}/{path}?sb-hc-token=...
 ```
 
 Die _namespace-address_ ist der vollqualifizierte Domänenname des Azure Relaynamespace, der die Hybridverbindung hostet, typischerweise in der Form `{myname}.servicebus.windows.net`.

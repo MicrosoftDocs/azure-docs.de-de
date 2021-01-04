@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 5748ff87e94daef80b140e015371eb7a334fffac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f1edc14efdeaf70bf4c2acc0e31e1517753ed3e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361482"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546346"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Verwalten des Konfigurationsservers für die Notfallwiederherstellung von virtuellen VMware-Computern/physischen Servern
 
@@ -29,11 +29,11 @@ Bei der mit der OVF-Vorlage bereitgestellten Lizenz handelt es sich um eine Eval
 Sie können wie folgt auf den Konfigurationsserver zugreifen:
 
 * Melden Sie sich bei dem virtuellen Computer an, auf dem er bereitgestellt wird, und starten Sie den **Azure Site Recovery Configuration Manager** über die Desktopverknüpfung.
-* Alternativ können Sie remote über „https://*Konfigurationsservername*/:44315/“ auf den Konfigurationsserver zugreifen. Melden Sie sich mit Administratoranmeldeinformationen an.
+* Alternativ können Sie remote über „https:// *Konfigurationsservername* /:44315/“ auf den Konfigurationsserver zugreifen. Melden Sie sich mit Administratoranmeldeinformationen an.
 
 ## <a name="modify-vmware-server-settings"></a>Ändern von VMware-Servereinstellungen
 
-1. Klicken Sie nach dem [Anmelden](#access-configuration-server) auf **vCenter-Server/vSphere ESXi-Server hinzufügen**, um dem Konfigurationsserver einen anderen VMware-Server zuzuordnen.
+1. Klicken Sie nach dem [Anmelden](#access-configuration-server) auf **vCenter-Server/vSphere ESXi-Server hinzufügen** , um dem Konfigurationsserver einen anderen VMware-Server zuzuordnen.
 2. Geben Sie die Eigenschaften ein, und wählen Sie dann **OK** aus.
 
 ## <a name="modify-credentials-for-automatic-discovery"></a>Ändern der Anmeldeinformationen für die automatische Ermittlung
@@ -77,14 +77,14 @@ Gehen Sie wie folgt vor, falls Sie im Rahmen der OVF-Bereitstellung des Konfigur
 Anmeldeinformationen können auch über „CSPSConfigtool.exe“ hinzugefügt werden.
 
 1. Melden Sie sich beim Konfigurationsserver an, und starten Sie „CSPSConfigtool.exe“.
-2. Klicken Sie auf **Hinzufügen**, geben Sie die neuen Anmeldeinformationen ein, und klicken Sie anschließend auf **OK**.
+2. Klicken Sie auf **Hinzufügen** , geben Sie die neuen Anmeldeinformationen ein, und klicken Sie anschließend auf **OK**.
 
 ## <a name="modify-proxy-settings"></a>Ändern von Proxyeinstellungen
 
 Ändern Sie die Proxyeinstellungen, die vom Konfigurationsservercomputer für den Internetzugriff in Azure verwendet werden. Ändern Sie die Einstellungen auf beiden Computern, wenn Sie zusätzlich zum Standardprozessserver, der auf dem Konfigurationsservercomputer ausgeführt wird, über einen weiteren Prozessservercomputer verfügen.
 
 1. Klicken Sie nach der [Anmeldung](#access-configuration-server) beim Konfigurationsserver auf **Konnektivität verwalten**.
-2. Aktualisieren Sie die Proxywerte. Klicken Sie auf **Speichern**, um die Einstellungen zu aktualisieren.
+2. Aktualisieren Sie die Proxywerte. Klicken Sie auf **Speichern** , um die Einstellungen zu aktualisieren.
 
 ## <a name="add-a-network-adapter"></a>Hinzufügen eines Netzwerkadapters
 
@@ -126,10 +126,10 @@ Sie können den Konfigurationsserver bei Bedarf im selben Tresor erneut registri
 
 
 1. Öffnen Sie im Tresor **Verwalten** > **Site Recovery-Infrastruktur** > **Konfigurationsserver**.
-2. Klicken Sie unter **Server** auf **Registrierungsschlüssel herunterladen**, um die Datei mit den Tresoranmeldeinformationen herunterzuladen.
+2. Klicken Sie unter **Server** auf **Registrierungsschlüssel herunterladen** , um die Datei mit den Tresoranmeldeinformationen herunterzuladen.
 3. Melden Sie sich auf dem Konfigurationsservercomputer an.
 4. Öffnen Sie in **%ProgramData%\ASR\home\svsystems\bin** die Datei **cspsconfigtool.exe**.
-5. Klicken Sie auf der Registerkarte **Tresorregistrierung** auf **Durchsuchen**, und suchen Sie die Datei mit den Anmeldeinformationen für den Tresor, die Sie heruntergeladen haben.
+5. Klicken Sie auf der Registerkarte **Tresorregistrierung** auf **Durchsuchen** , und suchen Sie die Datei mit den Anmeldeinformationen für den Tresor, die Sie heruntergeladen haben.
 6. Geben Sie bei Bedarf die Proxyserverdetails an. Klicken Sie anschließend auf **Registrieren**.
 7. Öffnen Sie als Administrator ein PowerShell-Eingabefenster, und führen Sie den folgenden Befehl aus:
    ```
@@ -169,12 +169,12 @@ Sie führen Updaterollups aus, um den Konfigurationsserver zu aktualisieren. Upd
 - Wenn Sie Version 9.7, 9.8, 9.9 oder 9.10 ausführen, können Sie direkt auf 9.11 aktualisieren.
 - Falls Sie Version 9.6 oder eine ältere Version ausführen und auf 9.11 aktualisieren möchten, müssen Sie zuerst das Upgrade auf Version 9.7 durchführen, bevor das Upgrade auf 9.11 möglich ist.
 
-Ausführliche Informationen zum Supporthinweis für Azure Site Recovery-Komponenten finden Sie [hier](https://aka.ms/asr_support_statement).
-Links zu Updaterollups zum Aktualisieren aller Versionen des Konfigurationsservers finden Sie [hier](https://aka.ms/asr_update_rollups).
+Ausführliche Informationen zum Supporthinweis für Azure Site Recovery-Komponenten finden Sie [hier](./service-updates-how-to.md#support-statement-for-azure-site-recovery).
+Links zu Updaterollups zum Aktualisieren aller Versionen des Konfigurationsservers finden Sie [hier](./service-updates-how-to.md#links-to-currently-supported-update-rollups).
 
 > [!IMPORTANT]
 > Mit jeder neuen N-Version einer Azure Site Recovery-Komponente, die veröffentlicht wird, werden alle Versionen, die älter als „N-4“ sind, nicht mehr unterstützt. Es ist immer ratsam, auf die neueste verfügbare Version zu aktualisieren.</br>
-> Ausführliche Informationen zum Supporthinweis für Azure Site Recovery-Komponenten finden Sie [hier](https://aka.ms/asr_support_statement).
+> Ausführliche Informationen zum Supporthinweis für Azure Site Recovery-Komponenten finden Sie [hier](./service-updates-how-to.md#support-statement-for-azure-site-recovery).
 
 Aktualisieren Sie den Server wie folgt:
 
@@ -183,16 +183,16 @@ Aktualisieren Sie den Server wie folgt:
     ![Aktualisieren](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Laden Sie die Datei mit dem Update-Installer auf den Konfigurationsserver herunter.
 
-    ![Aktualisieren](./media/vmware-azure-manage-configuration-server/update1.png)
+    ![Screenshot: Herunterladen der Updateinstallerdatei](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. Doppelklicken Sie auf die Datei, um das Installationsprogramm auszuführen.
-5. Das Installationsprogramm erkennt die aktuelle Version, die auf dem Computer ausgeführt wird. Klicken Sie auf **Ja**, um das Upgrade zu starten.
+5. Das Installationsprogramm erkennt die aktuelle Version, die auf dem Computer ausgeführt wird. Klicken Sie auf **Ja** , um das Upgrade zu starten.
 6. Nach Abschluss des Upgrades wird die Serverkonfiguration überprüft.
 
-    ![Aktualisieren](./media/vmware-azure-manage-configuration-server/update3.png)
+    ![Screenshot: Abgeschlossene Serverüberprüfungskonfiguration](./media/vmware-azure-manage-configuration-server/update3.png)
 
-7. Klicken Sie auf **Fertig stellen**, um das Installationsprogramm zu schließen.
-8. Informationen zum Durchführen des Upgrades für die restlichen Site Recovery-Komponenten finden Sie in der [Upgradeanleitung](https://aka.ms/asr_vmware_upgrades).
+7. Klicken Sie auf **Fertig stellen** , um das Installationsprogramm zu schließen.
+8. Informationen zum Durchführen des Upgrades für die restlichen Site Recovery-Komponenten finden Sie in der [Upgradeanleitung](./service-updates-how-to.md#vmware-vmphysical-server-disaster-recovery-to-azure).
 
 ## <a name="upgrade-configuration-serverprocess-server-from-the-command-line"></a>Aktualisieren des Konfigurationsservers/Prozessservers über die Befehlszeile
 

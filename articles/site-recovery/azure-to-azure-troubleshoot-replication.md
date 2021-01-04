@@ -6,11 +6,11 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
 ms.openlocfilehash: dc14334668b76ee8cbb81e48abfe1eecf17fa138
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86130394"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007357"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Behandeln von Problemen bei der Replikation während der Notfallwiederherstellung von Azure-VMs
 
@@ -35,7 +35,7 @@ Das Ereignis **Die Datenänderungsrate überschreitet die unterstützten Grenzwe
 
 Wenn Sie das Ereignis auswählen, sehen Sie die genauen Datenträgerinformationen:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="Azure Site Recovery-Seite mit einer zu hohen Datenänderungsrate":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="Seite mit Details zum Datenänderungsraten-Ereignis":::
 
 ### <a name="azure-site-recovery-limits"></a>Azure Site Recovery-Grenzwerte
 
@@ -56,7 +56,7 @@ Premium-Datenträger – P20, P30, P40 oder P50 | 16 KB oder höher |20 MB/s | 
 
 Für Azure Site Recovery gelten Grenzwerte für die Datenänderungsrate abhängig vom Typ des Datenträgers. Um herauszufinden, ob sich dieses Problem wiederholt oder ob es vorübergehend auftritt, ermitteln Sie die Datenänderungsrate des betroffenen virtuellen Computers. Navigieren Sie zu dem virtuellen Quellcomputer, suchen Sie die Metriken unter **Überwachung**, und fügen Sie die Metriken wie in diesem Screenshot dargestellt hinzu:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/churn.png" alt-text="Azure Site Recovery-Seite mit einer zu hohen Datenänderungsrate":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/churn.png" alt-text="Seite mit den drei Schritten zum Ermitteln der Datenänderungsrate":::
 
 1. Wählen Sie **Metrik hinzufügen** aus, und fügen Sie **Auf den Betriebssystemdatenträger geschriebene Bytes/s** und **Auf den Datenträger geschriebene Bytes/s** hinzu.
 1. Überwachen Sie die im Screenshot dargestellte Spitze.

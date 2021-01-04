@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
-ms.author: duau
-ms.openlocfilehash: d533b8fed47b1790cc35429613179f440f1fac51
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 11/23/2020
+ms.author: yuajia
+ms.openlocfilehash: cd99be40700ab1c34176f2bf7497e4debf5cd424
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961747"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483796"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Überwachung von Metriken und Protokollen in Azure Front Door
 
@@ -61,7 +61,7 @@ Diagnoseprotokolle bieten umfassende Informationen zu Vorgängen und Fehlern, di
 
 Aktivitätsprotokolle geben Einblick in die Vorgänge, die für Azure-Ressourcen ausgeführt wurden. Diagnoseprotokolle bieten Einblicke in Vorgänge, die Ihre Ressource ausgeführt hat. Weitere Informationen finden Sie unter [Erfassen und Nutzen von Protokolldaten aus Ihren Azure-Ressourcen](../azure-monitor/platform/platform-logs-overview.md).
 
-:::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Aktivitätsprotokoll":::
+:::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Diagnoseprotokolle":::
 
 So konfigurieren Sie Diagnoseprotokolle für Ihre Front Door-Instanz
 
@@ -91,10 +91,11 @@ Front Door stellt derzeit Diagnoseprotokolle bereit (stündlicher Batch). Diagno
 | RulesEngineMatchNames | Die Namen der Regeln, mit denen die Anforderung übereinstimmte. |
 | SecurityProtocol | Die TLS-/SSL-Protokollversion, die von der Anforderung verwendet wird, oder NULL, wenn keine Verschlüsselung verwendet wird. |
 | SentToOriginShield </br> (veraltet) * **Hinweise dazu finden Sie im folgenden Abschnitt.**| Wenn der Wert TRUE ist, wurde die Anforderung vom Origin Shield-Cache anstelle des Edge-POP beantwortet. Origin Shield ist ein übergeordneter Cache zum Verbessern der Cachetrefferquote. |
-| isReceivedFromClient | Wenn dies „true“ ergibt, stammte die Anforderung vom Client. Wenn dies „false“ ergibt, ist die Anforderung ein Fehler in der Edge (untergeordneter POP) und wird von Origin Shield (übergeordneter POP) beantwortet. 
+| isReceivedFromClient | Wenn dies „true“ ergibt, stammte die Anforderung vom Client. Wenn dies „false“ ergibt, ist die Anforderung ein Fehler in der Edge (untergeordneter POP) und wird von Origin Shield (übergeordneter POP) beantwortet. |
 | TimeTaken | Die Dauer vom ersten Byte der Anforderung an Front Door bis zum letzten Byte der Antwort in Sekunden. |
 | TrackingReference | Die eindeutige Verweiszeichenfolge zur Identifizierung einer Anforderung, die von der Front Door-Instanz verarbeitet wird. Diese wird auch als X-Azure-Ref-Header an den Client gesendet. Sie ist für die Suche nach Informationen in den Zugriffsprotokollen für eine bestimmte Anforderung erforderlich. |
 | UserAgent | Der vom Client verwendete Browsertyp |
+| ErrorInfo | Dieses Feld enthält den spezifischen Fehlertyp zur weiteren Problembehandlung. </br> Mögliche Werte sind: </br> **NoError**: Gibt an, dass kein Fehler gefunden wurde. </br> **CertificateError**: Generischer SSL-Zertifikatsfehler.</br> **CertificateNameCheckFailed**: Der Hostname im SSL-Zertifikat ist ungültig oder stimmt nicht überein. </br> **ClientDisconnected**: Anforderungsfehler aufgrund der Clientnetzwerkverbindung. </br> **UnspecifiedClientError**: Generischer Clientfehler. </br> **InvalidRequest**: Ungültige Anforderung. Dies kann aufgrund einer falschen Formatierung von Header, Text und URL auftreten. </br> **DNSFailure**: DNS-Fehler. </br> **DNSNameNotResolved**: Der Servername oder die Adresse konnte nicht aufgelöst werden. </br> **OriginConnectionAborted**: Die Verbindung mit dem Ursprung wurde plötzlich beendet. </br> **OriginConnectionError**: Generischer Fehler der Ursprungsverbindung. </br> **OriginConnectionRefused**: Die Verbindung mit dem Ursprung konnte nicht hergestellt werden. </br> **OriginError**: Generischer Ursprungsfehler. </br> **OriginInvalidResponse**: Der Ursprung hat eine ungültige oder unbekannte Antwort zurückgegeben. </br> **OriginTimeout**: Das Zeitlimit für die Ursprungsanforderung ist abgelaufen. </br> **ResponseHeaderTooBig**: Der Ursprung hat einen zu großen Antwortheader zurückgegeben. </br> **RestrictedIP**: Die Anforderung wurde aufgrund einer eingeschränkten IP-Adresse blockiert. </br> **SSLHandshakeError**: Aufgrund eines Fehlers beim SSL-Handshake kann keine Verbindung mit dem Ursprung hergestellt werden. </br> **UnspecifiedError**: Es ist ein Fehler aufgetreten, der keinem Fehler in der Tabelle entspricht. |
 
 ### <a name="sent-to-origin-shield-deprecation"></a>An eingestellte Unterstützung von Origin Shield gesendet
 Die unformatierte Protokolleigenschaft **isSentToOriginShield** wurde eingestellt und durch ein neues Feld, **isReceivedFromClient**, ersetzt. Verwenden Sie das neue Feld, wenn Sie bereits das veraltete Feld verwenden. 

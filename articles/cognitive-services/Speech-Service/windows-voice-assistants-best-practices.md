@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
-ms.openlocfilehash: 948fbcd57514f4ef77483b05c60324e867e0e3ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76a29af80891142fcf7f56f93f5c7acc5c58ab04
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89293641"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165144"
 ---
 # <a name="design-assistant-experiences-for-windows-10"></a>Entwerfen von Assistenten für Windows 10
 
@@ -69,8 +69,8 @@ Auch wenn sich die Zustände schnell ändern, empfiehlt sich die Bereitstellung 
 
 Wenn die Assistenten-App den Fokus hat, bedeutet dies, dass der Kunde mit der App interagieren möchte. Dann müssen alle Sprachaktivierungsfunktionen in der Hauptansicht der App behandelt werden. Die Größe dieser Ansicht kann vom Kunden geändert werden. Im Rest dieses Dokuments werden anhand des konkreten Beispiels eines Finanzdienst-Assistenten mit dem Namen „Contoso“ die Interaktionen mit der Assistenten-Shell erläutert. In diesem und den folgenden Diagrammen wird die Spracheingabe des Kunden in Sprechblasen auf der linken Seite angezeigt, und die Antworten des Assistenten werden in Sprechblasen auf der rechten Seite angezeigt.
 
-**In-App-Ansicht. Anfangszustand, wenn die Sprachaktivierung beginnt:** 
-![Screenshot des Sprach-Assistenten unter Windows vor der Aktivierung](media/voice-assistants/windows_voice_assistant/initial_state.png)
+**In-App-Ansicht. Anfangszustand bei Beginn der Sprachaktivierung:** 
+![ Der Screenshot zeigt die App des Contoso-Finanz-Assistenten, die im Standardcanvas geöffnet ist. Eine Cartoonsprechblase auf der rechten Seite sagt „Contoso“.](media/voice-assistants/windows_voice_assistant/initial_state.png)
 
 **In-App-Ansicht. Nach erfolgreicher Sprachaktivierung wird die Hörfunktion gestartet:** ![Screenshot des Sprach-Assistenten unter Windows während des Hörens durch den Sprach-Assistenten](media/voice-assistants/windows_voice_assistant/listening.png)
 
@@ -102,15 +102,15 @@ Wenn der Bildschirm deaktiviert bleibt, kann die Assistenten-App mit einem Earco
 
 Der Assistent muss die Schließrichtlinien in diesem Abschnitt implementieren, damit sich Kunden leichter anmelden können, wenn sie ihren Windows-PCs wieder verwenden möchten. Der Assistent muss folgende Anforderungen implementieren:
 
-- **Alle Assistenten-Canvas, in denen die obige Sperre angezeigt wird, müssen in der oberen rechten Ecke ein X enthalten**, mit dem der Assistent geschlossen wird.
-- **Die Assistenten-App muss auch durch Drücken einer beliebigen Taste geschlossen werden**. Tastatureingaben sind ein typisches Signal für Sperrbildschirm-Apps, dass sich der Kunde anmelden möchte. Daher sollten Tastatur-/Texteingaben nicht an die App weitergeleitet werden. Stattdessen sollte sich die App selbst schließen, wenn Tastatureingaben erkannt werden, damit sich der Kunde problemlos bei seinem Gerät anmelden kann.
+- **Alle Assistenten-Canvas, in denen die obige Sperre angezeigt wird, müssen in der oberen rechten Ecke ein X enthalten** , mit dem der Assistent geschlossen wird.
+- **Die Assistenten-App muss auch durch Drücken einer beliebigen Taste geschlossen werden** . Tastatureingaben sind ein typisches Signal für Sperrbildschirm-Apps, dass sich der Kunde anmelden möchte. Daher sollten Tastatur-/Texteingaben nicht an die App weitergeleitet werden. Stattdessen sollte sich die App selbst schließen, wenn Tastatureingaben erkannt werden, damit sich der Kunde problemlos bei seinem Gerät anmelden kann.
 - **Wenn der Bildschirm deaktiviert wird, muss sich die App selbst schließen.** Dadurch wird sichergestellt, dass der Anmeldebildschirm beim nächsten Mal, wenn der Kunde den PC verwendet, für die Anmeldung bereit ist.
 - Wenn die App &quot;gerade verwendet wird&quot;, kann ihre Ausführung auf dem Sperrbildschirm fortgesetzt werden. &quot;gerade verwendet&quot; bezeichnet eine beliebige Eingabe oder Ausgabe. Beispielsweise kann die App beim Streaming von Musik oder Video auf dem Sperrbildschirm fortgesetzt werden. &quot;Folgen Sie uns&quot; und andere Dialogfeldschritte mit mehreren Durchläufen sind zulässig, damit die App auf dem Sperrbildschirm aktiviert bleibt.
 - **Implementierungsdetails zum Schließen der Anwendung** finden Sie [in der obigen Anleitung zur Implementierung der Sperrbildschirmfunktion](windows-voice-assistants-implementation-guide.md#closing-the-application).
 
-![Screenshot des Sprach-Assistenten unter Windows vor der Aktivierung](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
+![Der Screenshot zeigt die obige Sperransicht der App des Contoso-Finanz-Assistenten.](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
 
-![Screenshot des Sprach-Assistenten unter Windows vor der Aktivierung](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
+![Screenshot eines Desktops, der den Windows-Sperrbildschirm anzeigt.](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
 
 ### <a name="privacy-amp-security-considerations-above-lock"></a>Überlegungen zu Datenschutz und Sicherheit auf dem Sperrbildschirm
 
@@ -118,7 +118,7 @@ Viele PCs sind portierbar, jedoch nicht immer in Reichweite des Kunden. Sie werd
 
 Daher sollten für die Assistenten die Anweisungen in diesem Abschnitt befolgt werden, um die Sicherheit zu gewährleisten. Interaktionen auf dem Sperrbildschirm erfolgen, wenn der Windows-Benutzer nicht authentifiziert ist. Dies bedeutet, dass im Allgemeinen **Eingaben in den Assistenten ebenfalls als nicht authentifiziert** behandelt werden sollen.
 
-- Assistenten sollten **eine Zulassungsliste für Funktionen implementieren, um Funktionen zu erkennen, auf die ohne Risiko auf dem Sperrbildschirm zugegriffen werden kann**.
+- Assistenten sollten **eine Zulassungsliste für Funktionen implementieren, um Funktionen zu erkennen, auf die ohne Risiko auf dem Sperrbildschirm zugegriffen werden kann** .
 - Technologien der Sprecheridentifikation können bei der Minderung einiger Risiken genutzt werden, die Sprecheridentifikation ersetzt jedoch nicht die Windows-Authentifizierung.
 - Die Zulassungsliste für Funktionen sollte drei Klassen von Aktionen oder Funktionen beinhalten:
 
@@ -130,13 +130,13 @@ Daher sollten für die Assistenten die Anweisungen in diesem Abschnitt befolgt w
 
 Im Fall von Contoso sind allgemeine öffentliche Börseninformationen ohne Authentifizierung sicher. Kundenspezifische Informationen, z. B. die Anzahl der im Besitz befindlichen Aktien, sind mit Sprecheridentifikation wahrscheinlich sicher. Das Kaufen oder Verkaufen von Aktien sollte jedoch nie ohne Windows-Authentifizierung zugelassen werden.
 
-Für zusätzliche Sicherheit **werden Weblinks und andere Arten des Startens einer App durch eine andere App immer von Windows blockiert, bis sich der Kunde anmeldet**. Als letztes Mittel der Risikominderung behält sich Microsoft das Recht vor, eine Anwendung aus der Zulassungsliste der aktivierten Assistenten zu entfernen, wenn ein schwerwiegendes Sicherheitsproblem nicht rechtzeitig behoben wird.
+Für zusätzliche Sicherheit **werden Weblinks und andere Arten des Startens einer App durch eine andere App immer von Windows blockiert, bis sich der Kunde anmeldet** . Als letztes Mittel der Risikominderung behält sich Microsoft das Recht vor, eine Anwendung aus der Zulassungsliste der aktivierten Assistenten zu entfernen, wenn ein schwerwiegendes Sicherheitsproblem nicht rechtzeitig behoben wird.
 
 ## <a name="design-guidance-for-voice-activation-preview"></a>Entwurfsleitfaden für die Sprachaktivierungsvorschau
 
 Wenn die Assistenten-App nach Entsperrung des Sperrbildschirms _nicht_ den Fokus hat, bietet Windows für nahtlose Kundeninteraktionen eine weniger intrusive Sprachaktivierungs-Benutzeroberfläche. Dies gilt insbesondere für Fälle falscher Aktivierungen, die stark störend wirken, wenn durch sie die App vollständig gestartet wird. Der Grundgedanke ist, dass jeder Assistent auch in der Shell, dem Taskleistensymbol des Assistenten, verfügbar ist. Wenn die Hintergrundaktivierung angefordert wird, wird über dem Taskleistensymbol des Assistenten eine kleine Ansicht angezeigt. Die Assistenten sollten in dieser Canvas eine kleine Hörbenutzeroberfläche bereitstellen. Nach der Verarbeitung der Anforderungen können Assistenten die Größe dieser Ansicht ändern, um eine kontextbasierte Antwort anzuzeigen oder in der Hauptansicht der App größere, ausführlichere visuelle Elemente anzuzeigen.
 
-- Damit die Vorschau minimal bleibt, verfügt sie über keine Titelleiste. Daher **muss der Assistent oben rechts ein X zeichnen, damit Kunden die Ansicht schließen können**. Informationen zu den APIs, die beim Klicken auf die Schaltfläche zum Schließen aufgerufen werden müssen, finden Sie unter [Schließen der Anwendung](windows-voice-assistants-implementation-guide.md#closing-the-application).
+- Damit die Vorschau minimal bleibt, verfügt sie über keine Titelleiste. Daher **muss der Assistent oben rechts ein X zeichnen, damit Kunden die Ansicht schließen können** . Informationen zu den APIs, die beim Klicken auf die Schaltfläche zum Schließen aufgerufen werden müssen, finden Sie unter [Schließen der Anwendung](windows-voice-assistants-implementation-guide.md#closing-the-application).
 - Zur Unterstützung der Sprachaktivierungsvorschau können Assistenten Kunden während der ersten Ausführung auffordern, den Assistenten an die Taskleiste anzuheften.
 
 **Sprachaktivierungsvorschau: Anfangszustand**
@@ -149,7 +149,7 @@ Der Assistent „Contoso“ wird auf der Taskleiste angezeigt: das kreisförmige
 
 ![Screenshot des Sprach-Assistenten unter Windows in Kompaktansicht beim Überprüfen der Aktivierung](media/voice-assistants/windows_voice_assistant/compact_view_activating.png)
 
-**Wenn die endgültige Aktivierung bestätigt wurde**, präsentiert der Assistent die Hör-UX. Der Assistent muss immer rechts oben in der Sprachaktivierungsvorschau ein X zum Schließen zeichnen.
+**Wenn die endgültige Aktivierung bestätigt wurde** , präsentiert der Assistent die Hör-UX. Der Assistent muss immer rechts oben in der Sprachaktivierungsvorschau ein X zum Schließen zeichnen.
 
 ![Screenshot des hörenden Sprach-Assistenten unter Windows in der Kompaktansicht](media/voice-assistants/windows_voice_assistant/compact_view_listening.png)
 
@@ -157,7 +157,7 @@ In der Sprachaktivierungsvorschau können **schnelle Antworten** angezeigt werde
 
 ![Screenshot des antwortenden Sprach-Assistenten unter Windows in der Kompaktansicht](media/voice-assistants/windows_voice_assistant/compact_view_response.png)
 
-**Wechsel der Ansicht**. Der Assistent kann jederzeit zur Hauptansicht der App wechseln, um weitere Informationen, Dialogfelder oder Antworten bereitzustellen, die einen größeren Bildschirm erfordern. Implementierungsdetails finden Sie im Abschnitt [Wechsel von der Kompaktansicht zur vollständigen Ansicht](windows-voice-assistants-implementation-guide.md#transition-from-compact-view-to-full-view).
+**Wechsel der Ansicht** . Der Assistent kann jederzeit zur Hauptansicht der App wechseln, um weitere Informationen, Dialogfelder oder Antworten bereitzustellen, die einen größeren Bildschirm erfordern. Implementierungsdetails finden Sie im Abschnitt [Wechsel von der Kompaktansicht zur vollständigen Ansicht](windows-voice-assistants-implementation-guide.md#transition-from-compact-view-to-full-view).
 
 ![Screenshots des Sprach-Assistenten unter Windows vor und nach dem Erweitern der Kompaktansicht](media/voice-assistants/windows_voice_assistant/compact_transition.png)
 

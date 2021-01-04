@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 6251894018ceeb2a99ebb62939b6e446fea825a2
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 948b30cbf37ae5f4f357860569579d8591412414
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220719"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630395"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Teil 1: Aktivieren der AD DS-Authentifizierung für Ihre Dateifreigaben in Azure 
 
@@ -28,20 +28,20 @@ Durch die Cmdlets im AzFilesHybrid-PowerShell-Modul werden die erforderlichen Ä
 
 ### <a name="download-azfileshybrid-module"></a>Herunterladen des AzFilesHybrid-Moduls
 
-- [Herunterladen und Entpacken des AzFilesHybrid-Moduls (GA-Modul: v0.2.0+)](https://github.com/Azure-Samples/azure-files-samples/releases) Beachten Sie, dass die AES 256-Kerberos-Verschlüsselung ab Version 0.2.2 unterstützt wird. Wenn Sie die Funktion mit einer älteren AzFilesHybrid-Version als v0.2.2 aktiviert haben und ein Update zur Unterstützung der AES 256 Kerberos-Verschlüsselung durchführen möchten, lesen Sie [diesen Artikel](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). 
+- [Herunterladen und Entpacken des AzFilesHybrid-Moduls (GA-Modul: v0.2.0+)](https://github.com/Azure-Samples/azure-files-samples/releases) Beachten Sie, dass die AES 256-Kerberos-Verschlüsselung ab Version 0.2.2 unterstützt wird. Wenn Sie die Funktion mit einer älteren AzFilesHybrid-Version als v0.2.2 aktiviert haben und ein Update zur Unterstützung der AES 256 Kerberos-Verschlüsselung durchführen möchten, lesen Sie [diesen Artikel](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). 
 - Installieren Sie das Modul auf einem Gerät mit Domäneneinbindung in die lokale AD DS-Umgebung mithilfe von AD DS-Anmeldeinformationen, die zum Erstellen eines Dienstanmeldekontos oder eines Computerkontos in der Ziel-AD-Umgebungen berechtigt sind, und führen Sie das Modul dann aus.
 -  Führen Sie das Skript mit lokalen AD DS-Anmeldeinformationen aus, die mit Ihrer Azure AD-Umgebung synchronisiert sind. Die lokalen AD DS-Anmeldeinformationen müssen über die Rolle „Speicherkontobesitzer“ oder „Mitwirkender“ für Azure-Rollen verfügen.
 
 ### <a name="run-join-azstorageaccountforauth"></a>Ausführen von Join-AzStorageAccountForAuth
 
-Mit dem Cmdlet `Join-AzStorageAccountForAuth` wird die Entsprechung eines Offlinedomänenbeitritts im Auftrag des angegebenen Speicherkontos durchgeführt. Das Skript verwendet das Cmdlet, um ein [Computerkonto](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) in Ihrer AD-Domäne zu erstellen. Wenn Sie aus irgendeinem Grund kein Computerkonto verwenden können, können Sie stattdessen das Skript ändern, um ein [Dienstanmeldekonto](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) zu erstellen. Wenn Sie diesen Befehl manuell ausführen möchten, sollten Sie das Konto auswählen, das am besten für Ihre Umgebung geeignet ist.
+Mit dem Cmdlet `Join-AzStorageAccountForAuth` wird die Entsprechung eines Offlinedomänenbeitritts im Auftrag des angegebenen Speicherkontos durchgeführt. Das Skript verwendet das Cmdlet, um ein [Computerkonto](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) in Ihrer AD-Domäne zu erstellen. Wenn Sie aus irgendeinem Grund kein Computerkonto verwenden können, können Sie stattdessen das Skript ändern, um ein [Dienstanmeldekonto](/windows/win32/ad/about-service-logon-accounts) zu erstellen. Wenn Sie diesen Befehl manuell ausführen möchten, sollten Sie das Konto auswählen, das am besten für Ihre Umgebung geeignet ist.
 
 Das vom Cmdlet erstellte AD DS-Konto repräsentiert das Speicherkonto. Wenn das AD DS-Konto unter einer AD-Organisationseinheit (OE) erstellt wird, die einen Kennwortablauf erzwingt, müssen Sie das Kennwort vor Erreichen des maximalen Kennwortalters aktualisieren. Wenn Sie das Kontokennwort nicht vor diesem Datum aktualisieren, führt dies beim Zugriff auf Azure-Dateifreigaben zu Authentifizierungsfehlern. Weitere Informationen zum Aktualisieren des Kennworts finden Sie unter [Aktualisieren des Kennworts für das AD DS-Konto](storage-files-identity-ad-ds-update-password.md).
 
 Ersetzen Sie die Platzhalterwerte in den Parametern unten durch ihre eigenen Werte, bevor Sie das Skript in PowerShell ausführen.
 > [!IMPORTANT]
-> Mit dem Cmdlet für den Domänenbeitritt wird ein AD-Konto erstellt, das das Speicherkonto (die Dateifreigabe) in AD repräsentiert. Sie können sich wahlweise als Computerkonto oder Dienstanmeldekonto registrieren. Einzelheiten finden Sie unter [Häufig gestellte Fragen](https://docs.microsoft.com/azure/storage/files/storage-files-faq#security-authentication-and-access-control). Für Computerkonten gilt eine Standardfrist für den Ablauf des Kennworts, die in AD auf 30 Tage festgelegt ist. Analog dazu kann für das Dienstanmeldekonto in der AD-Domäne oder Organisationseinheit (OU) eine Standardablauffrist für das Kennwort festgelegt sein.
-> Für beide Kontotypen wir empfohlen, das in Ihrer AD-Umgebung konfigurierte Kenntwortablaufalter zu überprüfen und eine [Aktualisierung des Kennworts Ihrer Speicherkontoidentität](storage-files-identity-ad-ds-update-password.md) für das AD-Konto zu planen, bevor das maximale Kennwortalter erreicht ist. Sie können in Erwägung ziehen, [eine neue AD-Organisationseinheit (OE) in AD](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) zu erstellen und die Richtlinie zum Ablauf des Kennworts für [Computerkonten](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)?redirectedfrom=MSDN) oder Dienstanmeldekonten entsprechend zu deaktivieren. 
+> Mit dem Cmdlet für den Domänenbeitritt wird ein AD-Konto erstellt, das das Speicherkonto (die Dateifreigabe) in AD repräsentiert. Sie können sich wahlweise als Computerkonto oder Dienstanmeldekonto registrieren. Einzelheiten finden Sie unter [Häufig gestellte Fragen](./storage-files-faq.md#security-authentication-and-access-control). Für Computerkonten gilt eine Standardfrist für den Ablauf des Kennworts, die in AD auf 30 Tage festgelegt ist. Analog dazu kann für das Dienstanmeldekonto in der AD-Domäne oder Organisationseinheit (OU) eine Standardablauffrist für das Kennwort festgelegt sein.
+> Für beide Kontotypen wir empfohlen, das in Ihrer AD-Umgebung konfigurierte Kenntwortablaufalter zu überprüfen und eine [Aktualisierung des Kennworts Ihrer Speicherkontoidentität](storage-files-identity-ad-ds-update-password.md) für das AD-Konto zu planen, bevor das maximale Kennwortalter erreicht ist. Sie können in Erwägung ziehen, [eine neue AD-Organisationseinheit (OE) in AD](/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) zu erstellen und die Richtlinie zum Ablauf des Kennworts für [Computerkonten](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)) oder Dienstanmeldekonten entsprechend zu deaktivieren. 
 
 ```PowerShell
 #Change the execution policy to unblock importing AzFilesHybrid.psm1 module
@@ -89,7 +89,7 @@ Wenn Sie das oben beschriebene Skript `Join-AzStorageAccountForAuth` bereits erf
 
 ### <a name="checking-environment"></a>Überprüfen der Umgebung
 
-Sie müssen als ersten Schritt den Zustand der Umgebung überprüfen. Insbesondere müssen Sie überprüfen, ob [Active Directory PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps) installiert ist und die Shell mit Administratorrechten ausgeführt wird. Überprüfen Sie dann, ob das [Modul „Az.Storage 2.0“](https://www.powershellgallery.com/packages/Az.Storage/2.0.0) installiert ist. Ist dies nicht der Fall, installieren Sie das Modul. Wenn Sie diese beiden Überprüfungen durchgeführt haben, überprüfen Sie, ob Ihre AD DS-Umgebung ein bereits vorhandenes [Computerkonto](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (Standardwert) oder ein [Dienstanmeldekonto](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) mit dem SPN/UPN „cifs/ihr-speicherkontoname.file.core.windows.net“ aufweist. Wenn das Konto nicht vorhanden ist, erstellen Sie wie im folgenden Abschnitt beschrieben ein Konto.
+Sie müssen als ersten Schritt den Zustand der Umgebung überprüfen. Insbesondere müssen Sie überprüfen, ob [Active Directory PowerShell](/powershell/module/addsadministration/?view=win10-ps) installiert ist und die Shell mit Administratorrechten ausgeführt wird. Überprüfen Sie dann, ob das [Modul „Az.Storage 2.0“](https://www.powershellgallery.com/packages/Az.Storage/2.0.0) installiert ist. Ist dies nicht der Fall, installieren Sie das Modul. Wenn Sie diese beiden Überprüfungen durchgeführt haben, überprüfen Sie, ob Ihre AD DS-Umgebung ein bereits vorhandenes [Computerkonto](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (Standardwert) oder ein [Dienstanmeldekonto](/windows/win32/ad/about-service-logon-accounts) mit dem SPN/UPN „cifs/ihr-speicherkontoname.file.core.windows.net“ aufweist. Wenn das Konto nicht vorhanden ist, erstellen Sie wie im folgenden Abschnitt beschrieben ein Konto.
 
 ### <a name="creating-an-identity-representing-the-storage-account-in-your-ad-manually"></a>Manuelles Erstellen einer Identität, die das Speicherkonto in Ihrem AD darstellt
 

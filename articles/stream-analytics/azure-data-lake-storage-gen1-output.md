@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 59b4a04231df3b93b093750cc6c9d70982a418a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 688cd7c2e54a6b4c6b5a11705e10c33604324f09
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665343"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576280"
 ---
 # <a name="azure-data-lake-storage-gen-1-output-from-azure-stream-analytics"></a>Azure Data Lake Storage Gen 1-Edition von Azure Stream Analytics
 
@@ -36,7 +36,7 @@ In der folgenden Tabelle sind Eigenschaftsnamen und deren Beschreibungen für di
 | Codieren | Bei Verwendung des CSV- oder JSON-Formats muss eine Codierung angegeben werden. UTF-8 ist derzeit das einzige unterstützte Codierungsformat.|
 | Trennzeichen | Gilt nur für die CSV-Serialisierung. Stream Analytics unterstützt eine Reihe von üblichen Trennzeichen zum Serialisieren der CSV-Daten. Unterstützte Werte sind Komma, Semikolon, Leerzeichen, Tabstopp und senkrechter Strich.|
 | Format | Gilt nur für die JSON-Serialisierung. **Separate Zeile** gibt an, dass die Ausgabe so formatiert wird, dass jedes JSON-Objekt in einer neuen Zeile enthalten ist. Wenn Sie **Separate Zeile** auswählen, wird der JSON-Code objektweise gelesen. Der gesamte Inhalt an sich wäre kein gültiger JSON-Code.  **Array** gibt an, dass die Ausgabe als Array aus JSON-Objekten formatiert wird. Dieses Array wird nur geschlossen, wenn der Auftrag beendet wird oder Stream Analytics mit dem nächsten Zeitfenster fortfährt. Im Allgemeinen ist es besser, in separaten Zeilen geschriebenen JSON-Code zu verwenden, da er keine spezielle Behandlung erfordert, während noch in die Ausgabedatei geschrieben wird.|
-| Authentifizierungsmodus | Sie können den Zugriff auf Ihr Data Lake Storage-Konto autorisieren, indem Sie eine [verwaltete Identität](stream-analytics-managed-identities-adls.md) oder ein Benutzertoken verwenden. Nachdem Sie Zugriff gewährt haben, können Sie ihn auch wiederrufen, indem Sie das Kennwort für das Benutzerkonto ändern, die Data Lake Storage-Ausgabe für diesen Auftrag löschen oder den Stream Analytics-Auftrag löschen. |
+| Authentifizierungsmodus | Sie können den Zugriff auf Ihr Data Lake Storage-Konto mit einer [verwalteten Identität](stream-analytics-managed-identities-adls.md) (Vorschau) oder einem Benutzertoken autorisieren. Nachdem Sie Zugriff gewährt haben, können Sie ihn auch wiederrufen, indem Sie das Kennwort für das Benutzerkonto ändern, die Data Lake Storage-Ausgabe für diesen Auftrag löschen oder den Stream Analytics-Auftrag löschen. |
 
 ## <a name="partitioning"></a>Partitionierung
 

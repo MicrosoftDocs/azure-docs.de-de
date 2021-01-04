@@ -7,22 +7,22 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/06/2020
-ms.openlocfilehash: b4e34befbf28de2b985ff49ce17a87a25842015e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80567a211f08d6322c80b6645f8b70ec7df64b59
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87901690"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130662"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Konfigurieren von Richtlinien für die Ereignisreihenfolge in Azure Stream Analytics
 
-Dieser Artikel beschreibt die Erstellung und Verwendung von Richtlinien für die Eingangsverzögerung und Ereignisse mit falscher Reihenfolge in Azure Stream Analytics. Diese Richtlinien werden nur angewendet, wenn Sie die Klausel [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) in Ihrer Abfrage verwenden, und sie werden nur auf Cloudeingabequellen angewendet.
+Dieser Artikel beschreibt die Erstellung und Verwendung von Richtlinien für die Eingangsverzögerung und Ereignisse mit falscher Reihenfolge in Azure Stream Analytics. Diese Richtlinien werden nur angewendet, wenn Sie die Klausel [TIMESTAMP BY](/stream-analytics-query/timestamp-by-azure-stream-analytics) in Ihrer Abfrage verwenden, und sie werden nur auf Cloudeingabequellen angewendet.
 
 ## <a name="event-time-and-arrival-time"></a>Ereigniszeit und Eingangszeit
 
 Ihr Stream Analytics-Auftrag kann Ereignisse basierend auf der *Ereigniszeit* oder der *Eingangszeit* verarbeiten. Die **Ereignis-/Anwendungszeit** ist der Zeitstempel in der Ereignisnutzlast (als das Ereignis generiert wurde). Die **Eingangszeit** ist der Zeitstempel, zu dem das Ereignis an der Eingabequelle (Event Hubs/IoT Hub/Blob Storage) eingegangen ist. 
 
-Stream Analytics verarbeitet Ereignisse standardmäßig nach der *Eingangszeit*. Sie können Ereignisse jedoch auch nach der *Ereigniszeit* verarbeiten, indem Sie die Klausel [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) in Ihrer Abfrage verwenden. Richtlinien für die Eingangsverzögerung und die falsche Reihenfolge werden nur angewendet, wenn Sie Ereignisse nach der Ereigniszeit verarbeiten. Berücksichtigen Sie beim Konfigurieren dieser Einstellungen die Anforderungen an die Latenz und die Richtigkeit für Ihr Szenario. 
+Stream Analytics verarbeitet Ereignisse standardmäßig nach der *Eingangszeit*. Sie können Ereignisse jedoch auch nach der *Ereigniszeit* verarbeiten, indem Sie die Klausel [TIMESTAMP BY](/stream-analytics-query/timestamp-by-azure-stream-analytics) in Ihrer Abfrage verwenden. Richtlinien für die Eingangsverzögerung und die falsche Reihenfolge werden nur angewendet, wenn Sie Ereignisse nach der Ereigniszeit verarbeiten. Berücksichtigen Sie beim Konfigurieren dieser Einstellungen die Anforderungen an die Latenz und die Richtigkeit für Ihr Szenario. 
 
 ## <a name="what-is-late-arrival-policy"></a>Was ist eine Richtlinie für die Eingangsverzögerung?
 
@@ -83,4 +83,4 @@ Wenn eine Partition keine Daten für mehr als den konfigurierten Schwellenwert f
 
 ## <a name="next-steps"></a>Nächste Schritte
 * [Grundlegendes zur Behandlung von Zeitangaben](stream-analytics-time-handling.md)
-* [In Stream Analytics verfügbare Metriken](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-monitoring#metrics-available-for-stream-analytics)
+* [In Stream Analytics verfügbare Metriken](./stream-analytics-monitoring.md#metrics-available-for-stream-analytics)

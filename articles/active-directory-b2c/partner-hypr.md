@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 4f6b09061a4aa98824e176af55efcedfab3df48c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b80b1a4b3f9bcde6cf01b0e0e59425c6783bd5d9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051865"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953762"
 ---
 # <a name="tutorial-for-configuring-hypr-with-azure-active-directory-b2c"></a>Tutorial zum Konfigurieren von HYPR mit Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Zunächst benötigen Sie Folgendes:
 
 - Ein Azure AD-Abonnement Falls Sie über kein Abonnement verfügen, können Sie ein [kostenloses Azure-Konto](https://azure.microsoft.com/free/) verwenden.
 
-- Einen [Azure AD B2C-Mandanten](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant). Der Mandant ist mit Ihrem Azure-Abonnement verknüpft.
+- Einen [Azure AD B2C-Mandanten](./tutorial-create-tenant.md). Der Mandant ist mit Ihrem Azure-Abonnement verknüpft.
 
 - Einen HYPR Cloud-Mandanten. Registrieren Sie sich für ein kostenloses [Demokonto](https://get.hypr.com/free-trial).
 
@@ -62,7 +62,7 @@ Im folgenden Architekturdiagramm ist die Implementierung dargestellt.
 
 1. Wechseln Sie im Richtlinienordner zur [Azure AD B2C-HYPR-Richtlinie](https://github.com/HYPR-Corp-Public/Azure-AD-B2C-HYPR-Sample/tree/master/policy).
 
-2. Folgen Sie den Anweisungen in diesem [Dokument](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack), um das [LocalAccounts Starter Pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) herunterzuladen.
+2. Folgen Sie den Anweisungen in diesem [Dokument](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack), um das [LocalAccounts Starter Pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) herunterzuladen.
 
 3. Konfigurieren Sie die Richtlinie für den Azure AD B2C-Mandanten.
 
@@ -91,6 +91,6 @@ Im folgenden Architekturdiagramm ist die Implementierung dargestellt.
 
 Weitere Informationen finden Sie in den folgenden Artikeln:
 
-- [Benutzerdefinierte Richtlinien in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Benutzerdefinierte Richtlinien in Azure AD B2C](./custom-policy-overview.md)
 
-- [Erste Schritte mit benutzerdefinierten Richtlinien in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Erste Schritte mit benutzerdefinierten Richtlinien in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

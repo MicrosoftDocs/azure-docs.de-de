@@ -3,12 +3,12 @@ title: Verwalten und Überwachen von Azure-VM-Sicherungen
 description: Erfahren Sie mehr über das Verwalten und Überwachen von Azure-VM-Sicherungen mit dem Azure Backup-Dienst.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 2052d80428af89862b5348943b446f1b800ab36f
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: a56f13afa23a81b9cd2b34d34e1ca302c0c667f0
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174089"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "96002907"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Verwalten von Azure-VM-Sicherungen mit dem Azure Backup-Dienst
 
@@ -101,7 +101,7 @@ Sie können eine On-Demand-Sicherung eines virtuellen Computers ausführen, nach
 
 So lösen Sie eine On-Demand-Sicherung aus:
 
-1. Wählen Sie auf dem[Dashboard für die Tresorelemente](#view-vms-on-the-dashboard) unter **Geschütztes Element** die Option **Sicherungselement** aus.
+1. Wählen Sie auf dem [Dashboard für die Tresorelemente](#view-vms-on-the-dashboard) unter **Geschütztes Element** die Option **Sicherungselement** aus.
 
     ![Die Option „Jetzt sichern“](./media/backup-azure-manage-vms/backup-now-button.png)
 
@@ -144,7 +144,7 @@ So beenden Sie den Schutz eines virtuellen Computers und löschen die Daten
 1. Wählen Sie auf dem [Dashboard für die Tresorelemente](#view-vms-on-the-dashboard) die Option **Sicherung beenden** aus.
 2. Wählen Sie **Sicherungsdaten löschen** aus, und bestätigen Sie Ihre Auswahl bei Bedarf. Geben Sie den Namen des Sicherungselements ein, und fügen Sie gegebenenfalls einen Kommentar hinzu.
 
-    ![Löschen von Sicherungsdaten](./media/backup-azure-manage-vms/delete-backup-data1.png)
+    ![Löschen von Sicherungsdaten](./media/backup-azure-manage-vms/delete-backup-data.png)
 
 > [!NOTE]
 > Nach Abschluss des Löschvorgangs werden die gesicherten Daten 14 Tage lang mit dem [Status „Vorläufig gelöscht“](./soft-delete-virtual-machines.md) aufbewahrt. <br>Zusätzlich können Sie das [vorläufige Löschen auch aktivieren oder deaktivieren](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
@@ -177,7 +177,7 @@ Es gibt zwei Möglichkeiten, die Sicherungsdaten eines virtuellen Computers zu l
   * Wählen Sie auf dem [Dashboard für die Tresorelemente](#view-vms-on-the-dashboard) die Option **Sicherungsdaten löschen** aus.
   * Geben Sie den Namen des Sicherungselements ein, um zu bestätigen, dass Sie die Wiederherstellungspunkte löschen möchten.
 
-    ![Löschen von Sicherungsdaten](./media/backup-azure-manage-vms/delete-backup-data1.png)
+    ![Löschen von Sicherungsdaten](./media/backup-azure-manage-vms/delete-backup-data.png)
 
   * Wählen Sie **Löschen** aus, um die Sicherungsdaten des Elements zu löschen. Sie erhalten einer Benachrichtigung, dass die Sicherungsdaten gelöscht wurden.
 
@@ -190,7 +190,7 @@ Zum Schutz Ihrer Daten bietet Azure Backup ein Feature für vorläufiges Lösche
 
 * Wenn für Azure Backup konfigurierte Azure-VMs entweder gelöscht oder verschoben werden, ohne den Schutz zu beenden, schlagen geplante Sicherungsaufträge und bedarfsgesteuerte (Ad-hoc-)Sicherungsaufträge mit dem Fehler „UserErrorVmNotFoundV2“ fehl. Die Vorüberprüfung der Sicherung wird nur bei fehlgeschlagenen bedarfsgesteuerten Sicherungsaufträgen als kritisch angezeigt (fehlerhafte geplante Aufträge werden nicht angezeigt).
 * Diese Sicherungselemente bleiben in dem System aktiv, das die vom Benutzer festgelegte Sicherungs-und Aufbewahrungsrichtlinie einhält. Die gesicherten Daten für diese Azure-VMs werden gemäß der Aufbewahrungsrichtlinie beibehalten. Die abgelaufenen Wiederherstellungspunkte (mit Ausnahme des letzten Wiederherstellungspunkts) werden gemäß des Aufbewahrungszeitraums bereinigt, der in der Sicherungsrichtlinie festgelegt wurde.
-* Wir empfehlen das Löschen der Sicherungselemente, bei denen die primäre Datenquelle nicht mehr vorhanden ist. Auf diese Weise werden zusätzliche Kosten vermieden, wenn das Sicherungselement oder die Daten für die Löschressourcen nicht mehr benötigt werden, da der letzte Wiederherstellungspunkt dauerhaft beibehalten und dem Benutzer entsprechend den geltenden Preisen eine Gebühr für die Sicherung berechnet wird.
+* Um zusätzliche Kosten zu vermeiden, empfehlen wir, die Sicherungselemente zu löschen, wenn die primäre Datenquelle nicht mehr vorhanden ist. Dies ist in einem Szenario der Fall, in dem das Sicherungselement bzw. die Sicherungsdaten für die gelöschten Ressourcen nicht mehr benötigt werden, da der letzte Wiederherstellungspunkt für immer erhalten bleibt und Ihnen die Kosten gemäß der anwendbaren Sicherungspreise in Rechnung gestellt werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

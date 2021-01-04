@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fd367b337a0f26323411111ea7eb1120bf6d75d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b019c12103a0324e21ef7c06b0c7a5d7fe14e6ec
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965181"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743886"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Ausschließen von ungeeigneten Kennwörtern mit dem Azure Active Directory-Kennwortschutz
 
@@ -24,7 +24,7 @@ Viele Sicherheitsanleitungen enthalten die Empfehlung, dass dasselbe Kennwort ni
 
 Beim Azure AD-Kennwortschutz werden globale Standardlisten mit gesperrten Kennwörtern automatisch auf alle Benutzer eines Azure AD-Mandanten angewendet. Zur Unterstützung Ihrer eigenen Geschäfts- und Sicherheitsanforderungen können Sie Einträge in einer benutzerdefinierten Liste mit gesperrten Kennwörtern definieren. Wenn Benutzer ihre Kennwörter ändern oder zurücksetzen, werden diese anhand dieser Listen mit gesperrten Kennwörtern überprüft, um die Nutzung von sicheren Kennwörtern zu erzwingen.
 
-Sie sollten auch zusätzliche Features wie [Azure Multi-Factor Authentication](concept-mfa-howitworks.md) nutzen und sich nicht nur auf die sicheren Kennwörter verlassen, die mit dem Azure AD-Kennwortschutz erzwungen werden. Weitere Informationen zur Verwendung mehrerer Sicherheitsebenen für Ihre Anmeldeereignisse finden Sie unter [Ihr Kennwort spielt keine Rolle](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
+Sie sollten auch zusätzliche Features wie [Azure AD Multi-Factor Authentication](concept-mfa-howitworks.md) nutzen und sich nicht nur auf die sicheren Kennwörter verlassen, die mit dem Azure AD-Kennwortschutz erzwungen werden. Weitere Informationen zur Verwendung mehrerer Sicherheitsebenen für Ihre Anmeldeereignisse finden Sie unter [Ihr Kennwort spielt keine Rolle](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
 
 > [!IMPORTANT]
 > In diesem Konzeptartikel wird für Administratoren beschrieben, wie der Azure AD-Kennwortschutz funktioniert. Wenn Sie bereits als Endbenutzer für die Self-Service-Kennwortzurücksetzung registriert sind und den Zugriff auf Ihr Konto verloren haben, navigieren Sie zu [https://aka.ms/sspr](https://aka.ms/sspr).
@@ -202,7 +202,7 @@ Wir sehen uns nun ein etwas anderes Beispiel an, um zu veranschaulichen, wie zus
 > [!IMPORTANT]
 > Der Algorithmus für gesperrte Kennwörter und die globale Liste mit den gesperrten Kennwörtern können sich in Azure basierend auf der laufenden Sicherheitsanalyse und -forschung jederzeit ändern.
 >
-> Für den lokalen DC-Agent-Dienst in Hybridszenarien werden aktualisierte Algorithmen erst nach einer Neuinstallation der DC-Agent-Software wirksam.
+> In Hybridszenarien werden aktualisierte Algorithmen für den lokalen DC-Agent-Dienst erst nach einem Upgrade der DC-Agent-Software wirksam.
 
 ## <a name="what-do-users-see"></a>Anzeige für Benutzer
 

@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88e9d16a205df16a2be63e67f45cdbcf9144b30f
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f41354630f4885a30bd5c036495b216a2cc05599
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108455"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96167793"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Skalierung und Hosting von Azure Functions
 
@@ -257,6 +257,6 @@ Die folgende Vergleichstabelle zeigt alle wichtigen Aspekte, um Sie bei der Ents
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-+ [Schnellstart: Erstellen eines Azure Functions-Projekts mit Visual Studio Code](functions-create-first-function-vs-code.md)
++ [Schnellstart: Erstellen eines Azure Functions-Projekts mit Visual Studio Code](./create-first-function-vs-code-csharp.md)
 + [Bereitstellungstechnologien in Azure Functions](functions-deployment-technologies.md) 
 + [Azure Functions: Entwicklerhandbuch](functions-reference.md)

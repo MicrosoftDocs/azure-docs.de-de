@@ -7,12 +7,12 @@ author: gitralf
 ms.author: ralfwi
 ms.service: germany
 ms.custom: bfmigrate, devx-track-azurecli
-ms.openlocfilehash: c70bb5d94ca54ee50b737447863256cf7b98f31e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e048a0761dbbc6458d8dc6aa3e639d173097e5f0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741603"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018585"
 ---
 # <a name="migrate-management-tool-resources-to-global-azure"></a>Migrieren von Verwaltungstoolressourcen zu Azure weltweit
 
@@ -36,9 +36,9 @@ Sie können zusätzliche Endpunkte in der Zielumgebung definieren, indem Sie den
 
 Weitere Informationen finden Sie unter:
 
-- Frischen Sie Ihre Kenntnisse auf, indem Sie die [Traffic Manager-Tutorials](https://docs.microsoft.com/azure/traffic-manager) durcharbeiten.
+- Frischen Sie Ihre Kenntnisse auf, indem Sie die [Traffic Manager-Tutorials](../traffic-manager/index.yml) durcharbeiten.
 - Lesen Sie [Was ist Traffic Manager?](../traffic-manager/traffic-manager-overview.md)
-- Informieren Sie sich über das [Erstellen eines Traffic Manager-Profils](../traffic-manager/traffic-manager-create-profile.md).
+- Informieren Sie sich über das [Erstellen eines Traffic Manager-Profils](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 - Erfahren Sie mehr über das [Blau-Grün-Szenario](https://azure.microsoft.com/blog/blue-green-deployments-using-azure-traffic-manager/).
 
 ## <a name="backup"></a>Backup
@@ -47,8 +47,8 @@ Azure Backup-Aufträge und -Momentaufnahmen von Azure Deutschland können nicht 
 
 Weitere Informationen finden Sie unter: 
 
-- Frischen Sie Ihre Kenntnisse auf, indem Sie die [Tutorials zu Backup](https://docs.microsoft.com/azure/backup/) durcharbeiten.
-- Lesen Sie die [Übersicht über die Funktionen in Azure Backup](../backup/backup-introduction-to-azure-backup.md).
+- Frischen Sie Ihre Kenntnisse auf, indem Sie die [Tutorials zu Backup](../backup/index.yml) durcharbeiten.
+- Lesen Sie die [Übersicht über die Funktionen in Azure Backup](../backup/backup-overview.md).
 
 ## <a name="scheduler"></a>Scheduler
 
@@ -56,8 +56,8 @@ Azure Scheduler wird eingestellt. Wenn Sie Planungsaufträge erstellen möchten,
 
 Weitere Informationen finden Sie unter:
 
-- Erfahren Sie mehr, indem Sie die [Tutorials zu Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow) durcharbeiten.
-- Lesen Sie [Was ist Azure Logic Apps?](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
+- Erfahren Sie mehr, indem Sie die [Tutorials zu Azure Logic Apps](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md) durcharbeiten.
+- Lesen Sie [Was ist Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="network-watcher"></a>Network Watcher
 
@@ -65,7 +65,7 @@ Das Migrieren einer Azure Network Watcher-Instanz von Azure Deutschland zu Azure
 
 Weitere Informationen finden Sie unter:
 
-- Frischen Sie Ihre Kenntnisse auf, indem Sie die [Network Watcher-Tutorials](https://docs.microsoft.com/azure/network-watcher) durcharbeiten.
+- Frischen Sie Ihre Kenntnisse auf, indem Sie die [Network Watcher-Tutorials](../network-watcher/index.yml) durcharbeiten.
 - Im Artikel [Übersicht über Azure Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) finden Sie weitere Informationen zu diesem Thema.
 - Erfahren Sie mehr über [Datenflussprotokolle für Netzwerksicherheitsgruppen](../network-watcher/network-watcher-nsg-flow-logging-portal.md).
 - Erfahren Sie mehr über [Verbindungsmonitor](../network-watcher/connection-monitor.md).

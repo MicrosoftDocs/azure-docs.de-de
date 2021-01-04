@@ -5,12 +5,12 @@ author: sebastianburckhardt
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d480b8db69b34eda7ca1ea8e1b2755179f9c673f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88d2a23104b67dae8fd480406eb9171e9f3d5652
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88055172"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740020"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>Entwicklerhandbuch für dauerhafte Entitäten in .NET
 
@@ -70,7 +70,7 @@ public class Counter
 Die Funktion `Run` enthält den Baustein, der für die Nutzung der klassenbasierten Syntax erforderlich ist. Hierbei muss es sich um eine *statische* Azure-Funktion handeln. Sie wird einmal pro Vorgangsmeldung ausgeführt, die von der Entität verarbeitet wird. Wenn `DispatchAsync<T>` aufgerufen wird und sich die Entität nicht bereits im Arbeitsspeicher befindet, wird ein Objekt vom Typ `T` erstellt, und die Felder werden mit den Daten aus dem letzten gespeicherten JSON-Code im Speicher gefüllt (falls vorhanden). Anschließend wird die Methode mit dem übereinstimmenden Namen aufgerufen.
 
 > [!NOTE]
-> Der Zustand einer klassenbasierten Entität wird **implizit erstellt**, bevor die Entität einen Vorgang verarbeitet, und kann per Vorgang **explizit gelöscht** werden, indem `Entity.Current.DeleteState()` aufgerufen wird.
+> Der Zustand einer klassenbasierten Entität wird **implizit erstellt** , bevor die Entität einen Vorgang verarbeitet, und kann per Vorgang **explizit gelöscht** werden, indem `Entity.Current.DeleteState()` aufgerufen wird.
 
 ### <a name="class-requirements"></a>Klassenanforderungen
  
@@ -427,7 +427,7 @@ public class HttpEntity
     [JsonIgnore]
     private readonly HttpClient client;
 
-    public class HttpEntity(IHttpClientFactory factory)
+    public HttpEntity(IHttpClientFactory factory)
     {
         this.client = factory.CreateClient();
     }
@@ -456,7 +456,7 @@ public class HttpEntity
 
 Bisher ging es um die klassenbasierte Syntax, weil wir glauben, dass sie für die meisten Anwendungen besser geeignet ist. Die funktionsbasierte Syntax kann aber für Anwendungen geeignet sein, bei denen eigene Abstraktionen für den Entitätszustand und die Vorgänge definiert bzw. verwaltet werden sollen. Darüber hinaus kann sie auch gut für die Implementierung von Bibliotheken geeignet sein, für die eine Generizität benötigt wird, die von der klassenbasierten Syntax derzeit nicht unterstützt wird. 
 
-Mit der funktionsbasierten Syntax wird die Vorgangsübermittlung explizit von der Entitätsfunktion verarbeitet und der Zustand der Entität explizit verwaltet. Im folgenden Code ist die *Counter*-Entität dargestellt, die mit der funktionsbasierten Syntax implementiert wird.  
+Mit der funktionsbasierten Syntax wird die Vorgangsübermittlung explizit von der Entitätsfunktion verarbeitet und der Zustand der Entität explizit verwaltet. Im folgenden Code ist die *Counter* -Entität dargestellt, die mit der funktionsbasierten Syntax implementiert wird.  
 
 ```csharp
 [FunctionName("Counter")]

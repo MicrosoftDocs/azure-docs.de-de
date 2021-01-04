@@ -7,24 +7,24 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 09/04/2020
-ms.openlocfilehash: c52fabcfc2ff22df2de6dd93f2543d625310baef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/30/2020
+ms.openlocfilehash: 83c575aa40b80d9a8e39263e89a5e7860c8f8774
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89484340"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95741660"
 ---
-# <a name="publishing-guide-for-container-offers"></a>Leitfaden für die Veröffentlichung von Containerangeboten
+# <a name="publishing-guide-for-azure-container-offers"></a>Leitfaden für die Veröffentlichung von Azure-Containerangeboten
 
-Containerangebote erleichtern Ihnen die Veröffentlichung Ihres Containerimages im Azure Marketplace. Informieren Sie sich in diesem Handbuch über die Anforderungen für dieses Angebot. 
+Azure-Containerangebote erleichtern Ihnen die Veröffentlichung Ihres Containerimages im Azure Marketplace. Informieren Sie sich in diesem Handbuch über die Anforderungen für diesen Angebotstyp.
 
-Containerangebote sind Transaktionsangebote, die über den Azure Marketplace bereitgestellt und abgerechnet werden. Den Benutzern wird die Listenoption „Jetzt kaufen“ angezeigt.
+Azure-Containerangebote sind Transaktionsangebote, die über den Azure Marketplace bereitgestellt und abgerechnet werden. Den Benutzern wird die Listenoption „Jetzt kaufen“ angezeigt.
 
-Verwenden Sie den Angebotstyp *Container*, wenn Ihre Lösung ein Docker-Container-Image ist, das als Kubernetes-basierte Azure Container Service-Instanz eingerichtet wird. 
+Verwenden Sie den Angebotstyp Azure Container, wenn Ihre Lösung ein Docker-Container-Image ist, das als Kubernetes-basierte Azure Container-Instanz eingerichtet wird.
 
 > [!NOTE]
-> Beispiele für Kubernetes-basierte Azure Container Service-Instanzen sind Azure Kubernetes Service oder Azure Container Instances, die Wahl der Azure-Kunden für eine Kubernetes-basierte Containerruntime.  
+> Eine Azure Container-Instanz ist eine Laufzeit-Docker-Instanz, mit der sich Container in Azure besonders schnell und einfach ausführen lassen, ohne dass Sie dazu virtuelle Computer verwalten oder einen übergeordneten Dienst einführen müssen. Container-Instanzen können direkt in Azure bereitgestellt oder von Azure Kubernetes Services oder Azure Kubernetes Service Engine orchestriert werden.  
 
 Microsoft unterstützt derzeit kostenlose und Bring-Your-Own-License-Lizenzierungsmodelle (BYOL).
 
@@ -39,9 +39,6 @@ Microsoft unterstützt derzeit kostenlose und Bring-Your-Own-License-Lizenzierun
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Informieren Sie sich (falls noch nicht geschehen), wie Sie [Ihr Cloudgeschäft mit dem Azure Marketplace ausweiten](https://azuremarketplace.microsoft.com/sell).
+- Informationen zum Vorbereiten von technischen Ressourcen für ein Containerangebot finden Sie unter [Erstellen von technischen Ressourcen für Azure-Container](create-azure-container-technical-assets.md).
 
-So registrieren Sie sich in Partner Center und beginnen mit der Arbeit
-
-- [Melden Sie sich bei Partner Center an](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership), um Ihr Angebot zu erstellen oder abzuschließen.
-- Weitere Informationen finden Sie unter [Erstellen eines Azure-Containerangebots](./partner-center-portal/create-azure-container-offer.md).
+- Weitere Informationen zum Erstellen eines Azure-Containerangebots finden Sie unter [Erstellen eines Azure-Containerangebots in Azure Marketplace](create-azure-container-offer.md).

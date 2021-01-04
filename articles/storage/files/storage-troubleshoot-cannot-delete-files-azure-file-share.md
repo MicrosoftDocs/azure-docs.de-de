@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: files
 services: storage
 tags: ''
-ms.openlocfilehash: 1c50f54491e0284005c4b762b0c4b35a8460f5ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d4f10745d90ccd83e7251af40d3e92a230f2fcd
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85511976"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629681"
 ---
 # <a name="azure-file-share--failed-to-delete-files-from-azure-file-share"></a>Azure-Dateifreigabe – Dateien wurden nicht aus Azure-Dateifreigabe gelöscht
 
@@ -34,7 +34,7 @@ Unzureichendes Kontingent für die Verarbeitung dieses Befehls
 
 ## <a name="cause"></a>Ursache
 
-Der Fehler 1816 tritt auf, wenn Sie die Obergrenze der parallel offenen Handles erreichen, die für eine Datei auf dem Computer zulässig sind, auf dem die Dateifreigabe bereitgestellt wird. Weitere Informationen finden Sie unter [Checkliste zur Leistung und Skalierbarkeit von Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-performance-checklist).
+Der Fehler 1816 tritt auf, wenn Sie die Obergrenze der parallel offenen Handles erreichen, die für eine Datei auf dem Computer zulässig sind, auf dem die Dateifreigabe bereitgestellt wird. Weitere Informationen finden Sie unter [Checkliste zur Leistung und Skalierbarkeit von Azure Storage](../blobs/storage-performance-checklist.md).
 
 ## <a name="resolution"></a>Lösung
 
@@ -44,7 +44,7 @@ Reduzieren Sie die Anzahl von gleichzeitig geöffneten Handles, indem Sie einige
 
 ### <a name="install-the-latest-azure-powershell-module"></a>Installieren des aktuellen Azure PowerShell-Moduls
 
-* [Installieren des Azure PowerShell-Moduls](https://docs.microsoft.com/powershell/azure/install-az-ps)
+* [Installieren des Azure PowerShell-Moduls](/powershell/azure/install-az-ps)
 
 ### <a name="connect-to-azure"></a>Stellen Sie eine Verbindung mit Azure her:
 

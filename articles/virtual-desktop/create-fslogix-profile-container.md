@@ -7,11 +7,11 @@ ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 6a9f2c62d8e7f17f6ea8377982c79fef3dfbb97c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88002815"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016827"
 ---
 # <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Erstellen eines Profilcontainers mit Azure NetApp Files und AD DS
 

@@ -1,6 +1,6 @@
 ---
 title: Verknüpfen von Azure Information Protection mit Azure Sentinel
-description: Streamen Sie Protokollierungsinformationen aus Azure Information Protection in Azure Sentinel, indem Sie den Datenconnector „Azure Information Protection“ konfigurieren. 
+description: Streamen Sie Protokollierungsinformationen aus Azure Information Protection in Azure Sentinel, indem Sie den Datenconnector „Azure Information Protection“ konfigurieren.
 services: sentinel
 author: yelevin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: 160912ef53b5c079d026c5d16230f49eadf66366
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82ea47037902ce3a9449f71a9edf62cb80863d4b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88794439"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655985"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>Verknüpfen von Daten aus Azure Information Protection
 
@@ -25,7 +25,7 @@ ms.locfileid: "88794439"
 
 Sie können Protokollierungsinformationen aus [Azure Information Protection](https://azure.microsoft.com/services/information-protection/) in Azure Sentinel streamen, indem Sie den Datenconnector „Azure Information Protection“ konfigurieren. Azure Information Protection unterstützt Sie bei der Kontrolle und Absicherung Ihrer sensiblen Daten, und zwar unabhängig davon, ob sie in der Cloud oder lokal gespeichert sind.
 
-Wenn die [zentrale Berichterstellung für Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) bereits so konfiguriert ist, dass Protokollierungsinformationen von diesem Dienst im gleichen Log Analytics-Arbeitsbereich gespeichert werden, den Sie derzeit für Azure Sentinel ausgewählt haben, können Sie die Konfiguration dieses Datenconnectors überspringen. Die Protokollierungsinformationen aus Azure Information Protection stehen Azure Sentinel bereits zur Verfügung.
+Wenn die [zentrale Berichterstellung für Azure Information Protection](/azure/information-protection/reports-aip) bereits so konfiguriert ist, dass Protokollierungsinformationen von diesem Dienst im gleichen Log Analytics-Arbeitsbereich gespeichert werden, den Sie derzeit für Azure Sentinel ausgewählt haben, können Sie die Konfiguration dieses Datenconnectors überspringen. Die Protokollierungsinformationen aus Azure Information Protection stehen Azure Sentinel bereits zur Verfügung.
 
 Wenn die Protokollierung von Informationen aus Azure Information Protection jedoch in einen anderen Log Analytics-Arbeitsbereich erfolgt als in denjenigen, den Sie derzeit für Azure Sentinel ausgewählt haben, führen Sie einen der folgenden Schritte aus:
 
@@ -51,7 +51,7 @@ Wenn die Protokollierung von Informationen aus Azure Information Protection jedo
 
 - Lese- und Schreibberechtigungen für den Log Analytics-Arbeitsbereich, den Sie für Azure Sentinel und Azure Information Protection verwenden.
 
-- Azure Information Protection wurde dem Azure-Portal hinzugefügt. Wenn Sie bei diesem Schritt Hilfe benötigen, siehe [Hinzufügen von Azure Information Protection zum Azure-Portal](https://docs.microsoft.com/azure/information-protection/quickstart-viewpolicy#add-azure-information-protection-to-the-azure-portal).
+- Azure Information Protection wurde dem Azure-Portal hinzugefügt. Wenn Sie bei diesem Schritt Hilfe benötigen, siehe [Hinzufügen von Azure Information Protection zum Azure-Portal](/azure/information-protection/quickstart-viewpolicy#add-azure-information-protection-to-the-azure-portal).
 
 ## <a name="connect-to-azure-information-protection"></a>Herstellen einer Verbindung mit Azure Information Protection
 
@@ -69,7 +69,7 @@ Befolgen Sie die folgenden Anweisungen, wenn Sie keinen Log Analytics-Arbeitsber
 
 6. Die Berichtsdaten aus Azure Information Protection werden im ausgewählten Arbeitsbereich in der Tabelle **InformationProtectionLogs_CL** gespeichert. 
     
-    Um das relevante Schema in Azure Monitor für diese Berichtsdaten zu verwenden, suchen Sie nach **InformationProtectionEvents**. Weitere Informationen zu diesen Ereignisfunktionen finden Sie in der Azure Information Protection-Dokumentation im Abschnitt [Benutzerfreundliche Schemareferenz für Ereignisfunktionen](https://docs.microsoft.com/azure/information-protection/reports-aip#friendly-schema-reference-for-event-functions).
+    Um das relevante Schema in Azure Monitor für diese Berichtsdaten zu verwenden, suchen Sie nach **InformationProtectionEvents**. Weitere Informationen zu diesen Ereignisfunktionen finden Sie in der Azure Information Protection-Dokumentation im Abschnitt [Benutzerfreundliche Schemareferenz für Ereignisfunktionen](/azure/information-protection/reports-aip#friendly-schema-reference-for-event-functions).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

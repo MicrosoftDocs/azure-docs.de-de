@@ -3,12 +3,12 @@ title: Häufig gestellte Fragen (FAQ) zu Azure Service Bus | Microsoft-Dokumenta
 description: Dieser Artikel bietet Antworten auf einige häufig gestellte Fragen (FAQ) zu Azure Service Bus.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: addd629f137c5f638cd32a639f79cdbbafc4a94d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: acd741101928f5a2dfd72eab1598af6e4556a3d1
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90894520"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96022137"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Häufig gestellte Fragen (FAQ) zu Azure Service Bus
 
@@ -41,17 +41,23 @@ Azure Service Bus speichert Kundendaten. Diese Daten werden von Service Bus auto
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Welche Ports muss ich in der Firewall öffnen? 
 Sie können die folgenden Protokolle mit Azure Service Bus verwenden, um Nachrichten zu senden und zu empfangen:
 
-- Advanced Message Queuing Protocol (AMQP)
-- Service Bus Messaging Protocol (SBMP)
-- HTTP
+- Advanced Message Queuing Protocol 1.0 (AMQP)
+- Hypertext Transfer Protocol 1.1 mit TLS (HTTPS)
 
-In der folgenden Tabelle finden Sie die ausgehenden Ports, die Sie öffnen müssen, um diese Protokolle für die Kommunikation mit Azure Event Hubs verwenden zu können. 
+In der folgenden Tabelle finden Sie die ausgehenden TCP-Ports, die Sie öffnen müssen, um diese Protokolle für die Kommunikation mit Azure Service Bus verwenden zu können:
 
-| Protocol | Ports | Details | 
+| Protocol | Port | Details | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 und 5672 | Weitere Informationen finden Sie im [AMQP 1.0 in Azure Service Bus und Event Hubs – Protokollleitfaden](service-bus-amqp-protocol-guide.md). | 
-| SBMP | 9350 bis 9354 | Siehe [Konnektivitätsmodus](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet&preserve-view=true) |
-| HTTP, HTTPS | 80, 443 | 
+| AMQP | 5671 | AMQP mit TLS. Weitere Informationen finden Sie im [AMQP 1.0 in Azure Service Bus und Event Hubs – Protokollleitfaden](service-bus-amqp-protocol-guide.md). | 
+| HTTPS | 443 | Dieser Port wird für die HTTP/REST-API und für AMQP-over-WebSockets verwendet. |
+
+Der HTTPS-Port ist in der Regel für die ausgehende Kommunikation auch dann erforderlich, wenn AMQP über Port 5671 verwendet wird, da mehrere Verwaltungsvorgänge, die von den Client-SDKs ausgeführt werden, und der Abruf von Token aus Azure Active Directory (falls verwendet) über HTTPS erfolgen. 
+
+Die offiziellen Azure-SDKs verwenden im Allgemeinen das AMQP-Protokoll zum Senden von Nachrichten an und Empfangen von Nachrichten von Service Bus. 
+
+[!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
+
+Das ältere WindowsAzure.ServiceBus-Paket für .NET Framework verfügt über eine Option zur Verwendung von Legacy-SBMP (Service Bus Messaging Protocol), das auch als „NetMessaging“ bezeichnet wird. Dieses Protokoll verwendet die TCP-Ports 9350 bis 9354. Der Standardmodus für dieses Paket besteht darin, automatisch zu erkennen, ob diese Ports für die Kommunikation verfügbar sind. wenn dies nicht der Fall ist, wechselt die Verbindung zu WebSockets mit TLS über Port 443. Sie können diese Einstellung überschreiben und diesen Modus erzwingen, indem Sie `Https` [ConnectivityMode](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) auf die Einstellung [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity?view=azure-dotnet) festlegen, die global auf die Anwendung angewendet wird.
 
 ### <a name="what-ip-addresses-do-i-need-to-add-to-allow-list"></a>Welche IP-Adressen muss ich in die Zulassungsliste aufnehmen?
 Um die richtigen IP-Adressen zu ermitteln, die Sie in die Zulassungsliste für Ihre Verbindungen aufnehmen sollten, führen Sie die folgenden Schritte aus:
@@ -83,7 +89,7 @@ Wenn Sie **Zonenredundanz** für Ihren Namespace verwenden, müssen Sie einige z
     > Die vom `nslookup`-Befehl zurückgegebene IP-Adresse ist keine statische IP-Adresse. Allerdings bleibt sie konstant, bis die zugrunde liegende Bereitstellung gelöscht oder in einen anderen Cluster verschoben wird.
 
 ### <a name="where-can-i-find-the-ip-address-of-the-client-sendingreceiving-messages-tofrom-a-namespace"></a>Wo finde ich die IP-Adresse des Clients, der Nachrichten an einen Namespace sendet bzw. von diesem empfängt? 
-Die IP-Adressen von Clients, die Nachrichten an einen Namespace senden oder von diesem empfangen, werden von uns nicht protokolliert. Generieren Sie die Schlüssel neu, damit die Authentifizierung aller vorhandenen Clients nicht mehr funktioniert, und überprüfen Sie die Einstellungen der rollenbasierten Zugriffssteuerung ([Role-Based Access Control, RBAC](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)), um sicherzustellen, dass nur zulässige Benutzer oder Anwendungen Zugriff auf den Namespace haben. 
+Die IP-Adressen von Clients, die Nachrichten an einen Namespace senden oder von diesem empfangen, werden von uns nicht protokolliert. Generieren Sie die Schlüssel neu, damit die Authentifizierung aller vorhandenen Clients nicht mehr funktioniert, und überprüfen Sie die Einstellungen der [rollenbasierten Zugriffssteuerung in Azure (Azure RBAC)](authenticate-application.md#azure-built-in-roles-for-azure-service-bus), um sicherzustellen, dass nur zulässige Benutzer oder Anwendungen Zugriff auf den Namespace haben. 
 
 Wenn Sie einen **Premium**-Namespace verwenden, schränken Sie den Zugriff auf den Namespace mithilfe von [IP-Filtern](service-bus-ip-filtering.md), [Dienstendpunkten für virtuelle Netzwerke](service-bus-service-endpoints.md) und [privaten Endpunkten](private-link-service.md) ein. 
 

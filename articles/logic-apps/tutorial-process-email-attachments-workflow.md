@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 02/27/2020
-ms.openlocfilehash: 38b4713383368f0c64983738f2ed65f60edb9e67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e58dcf8206ae9feab4d8a09517bf9efda244dd5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334088"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451572"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutorial: Automatisieren von Aufgaben zur Verarbeitung von E-Mails mithilfe von Azure Logic Apps, Azure Functions und Azure Storage
 
@@ -160,7 +160,7 @@ Erstellen Sie nun mithilfe des in diesen Schritten bereitgestellten Codeausschni
 
    ![Erstellte Funktions-App](./media/tutorial-process-email-attachments-workflow/function-app-created.png)
 
-   Sie können auch die [Azure-Befehlszeilenschnittstelle](../azure-functions/functions-create-first-azure-function-azure-cli.md) oder [PowerShell und Resource Manager-Vorlagen](../azure-resource-manager/templates/deploy-powershell.md) verwenden, um eine Funktions-App zu erstellen.
+   Sie können auch die [Azure-Befehlszeilenschnittstelle](../azure-functions/create-first-function-cli-csharp.md) oder [PowerShell und Resource Manager-Vorlagen](../azure-resource-manager/templates/deploy-powershell.md) verwenden, um eine Funktions-App zu erstellen.
 
 1. Erweitern Sie in der Liste **Funktions-Apps** Ihre Funktions-App, sofern sie noch nicht erweitert ist. Wählen Sie unter Ihrer Funktions-App die Option **Funktionen** aus. Wählen Sie auf der Funktionen-Symbolleiste **Neue Funktion** aus.
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
-ms.openlocfilehash: c41a6679009f1467c5bcd04d9629ef9256238e00
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: e2e97b857f648390ec017a529115b23c4f17a68d
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127044"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427988"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>Tutorial: Erstellen einer IoT Edge-Instanz für die Videoanalyse (Intel NUC)
 
@@ -117,9 +117,9 @@ Konfigurieren Sie IoT Edge für die Registrierung und Verbindungsherstellung mit
 
 1. Ersetzen Sie `{scope_id}` durch den **ID-Bereich**, den Sie sich im vorherigen Tutorial in der Datei *scratchpad.txt* notiert haben.
 
-1. Ersetzen Sie `{registration_id}` durch das Gerät *lva-gateway-001*, das Sie im vorherigen Tutorial erstellt haben.
+1. Ersetzen Sie `{registration_id}` durch das Gerät *gateway-001*, das Sie im vorherigen Tutorial erstellt haben.
 
-1. Ersetzen Sie `{symmetric_key}` durch den **Primärschlüssel** für das Gerät **lva-gateway-001**, den Sie sich im vorherigen Tutorial in der Datei *scratchpad.txt* notiert haben.
+1. Ersetzen Sie `{symmetric_key}` durch den **Primärschlüssel** für das Gerät **gateway-001**, den Sie sich im vorherigen Tutorial in der Datei *scratchpad.txt* notiert haben.
 
 1. Führen Sie den folgenden Befehl aus, um den IoT Edge-Daemon neu zu starten:
 
@@ -140,7 +140,7 @@ Konfigurieren Sie IoT Edge für die Registrierung und Verbindungsherstellung mit
 
 Falls die IoT Edge-Module nicht richtig gestartet werden, helfen Ihnen die Informationen unter [Behandeln von Problemen bei Ihrem IoT Edge-Gerät](../../iot-edge/troubleshoot.md) weiter.
 
-## <a name="collect-the-rstp-stream-from-your-camera"></a>Erfassen des RSTP-Datenstroms von Ihrer Kamera
+## <a name="collect-the-rtsp-stream-from-your-camera"></a>Erfassen des RTSP-Datenstroms von Ihrer Kamera
 
 Identifizieren Sie die RTSP-Datenstrom-URLs für die Kameras, die mit Ihrem IoT Edge-Gerät verbunden sind, z. B.:
 

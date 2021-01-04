@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
 ms.openlocfilehash: 8694c403b14234a70b0a67f9f4defb7817ba3ae3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372207"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005383"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Anleitung mit den ersten Schritten für Azure-Entwickler
 
@@ -62,11 +62,11 @@ App Service wurde mit Blick auf DevOps entworfen. App Service unterstützt versc
 
 Sie können Ihre vorhandenen Anwendungen zu App Service migrieren, indem Sie das [Onlinetool für die Migration](https://appmigration.microsoft.com/) verwenden.
 
-> **Einsatzgebiete** : Verwenden Sie App Service, wenn Sie vorhandene Webanwendungen zu Azure migrieren, und wenn Sie eine vollständig verwaltete Hostingplattform für Ihre Web-Apps benötigen. Sie können App Service auch verwenden, wenn Sie mobile Clients unterstützen oder REST-APIs mit Ihrer App verfügbar machen müssen.
+> **Einsatzgebiete**: Verwenden Sie App Service, wenn Sie vorhandene Webanwendungen zu Azure migrieren, und wenn Sie eine vollständig verwaltete Hostingplattform für Ihre Web-Apps benötigen. Sie können App Service auch verwenden, wenn Sie mobile Clients unterstützen oder REST-APIs mit Ihrer App verfügbar machen müssen.
 >
-> **Erste Schritte** : App Service erleichtert die Erstellung und Bereitstellung Ihrer ersten [Web-App](../../app-service/quickstart-dotnetcore.md), [mobilen App](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started) oder [API-App](../../app-service/app-service-web-tutorial-rest-api.md).
+> **Erste Schritte**: App Service erleichtert die Erstellung und Bereitstellung Ihrer ersten [Web-App](../../app-service/quickstart-dotnetcore.md), [mobilen App](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started) oder [API-App](../../app-service/app-service-web-tutorial-rest-api.md).
 >
-> **Jetzt testen** : Mit App Service können Sie eine kurzlebige App bereitstellen, um die Plattform zu testen, ohne sich für ein Azure-Konto registrieren zu müssen. Testen Sie die Plattform und [erstellen Sie Ihre Azure App Service-App](https://tryappservice.azure.com/).
+> **Jetzt testen**: Mit App Service können Sie eine kurzlebige App bereitstellen, um die Plattform zu testen, ohne sich für ein Azure-Konto registrieren zu müssen. Testen Sie die Plattform und [erstellen Sie Ihre Azure App Service-App](https://tryappservice.azure.com/).
 
 #### <a name="azure-virtual-machines"></a>Azure Virtual Machines
 
@@ -74,19 +74,19 @@ Als Infrastructure-as-a-Service-Anbieter (IaaS) ermöglicht Azure es Ihnen, Ihre
 
 Aufgrund dieses Maß an Kontrolle, über das Sie mit den VMs verfügen, können Sie eine Vielzahl von Serverworkloads auf Azure ausführen, die in kein PaaS-Modell passen. Diese Workloads enthalten Datenbankserver, Windows Server Active Directory und Microsoft SharePoint. Weitere Informationen finden Sie in der Dokumentation für Virtual Machines für [Linux](../../virtual-machines/linux/index.yml) oder [Windows](../../virtual-machines/windows/index.yml).
 
-> **Einsatzgebiete** : Verwenden Sie virtuelle Computer, wenn Sie über die volle Kontrolle über Ihre Anwendungsinfrastruktur verfügen möchten oder lokale Anwendungsworkflows zu Azure migrieren möchten, ohne Änderungen vorzunehmen.
+> **Einsatzgebiete**: Verwenden Sie virtuelle Computer, wenn Sie über die volle Kontrolle über Ihre Anwendungsinfrastruktur verfügen möchten oder lokale Anwendungsworkflows zu Azure migrieren möchten, ohne Änderungen vorzunehmen.
 >
-> **Erste Schritte** : Erstellen Sie eine [Linux-VM](../../virtual-machines/linux/quick-create-portal.md) oder eine [Windows-VM](../../virtual-machines/windows/quick-create-portal.md) im Azure-Portal.
+> **Erste Schritte**: Erstellen Sie eine [Linux-VM](../../virtual-machines/linux/quick-create-portal.md) oder eine [Windows-VM](../../virtual-machines/windows/quick-create-portal.md) im Azure-Portal.
 
 #### <a name="azure-functions-serverless"></a>Azure Functions (serverlos)
 
 Anstatt sich darum zu kümmern, eine ganze Anwendung oder die Infrastruktur zum Ausführen Ihres Codes aufzubauen und zu verwalten, wäre es nicht von Vorteil, wenn Sie Ihren Code einfach schreiben und als Reaktion auf Ereignisse oder nach einem Zeitplan ausführen lassen könnten?  [Azure Functions](../../azure-functions/functions-overview.md) ist ein serverloses Angebot, mit dem Sie nur den benötigten Code schreiben. Mit Azure Functions können Sie die Codeausführung mit HTTP-Anforderungen, Webhooks, Clouddienstereignissen oder einem Zeitplan auslösen. Sie können in der Entwicklungssprache Ihrer Wahl programmieren, z.B. in C\#, F\#, Node.js, Python oder PHP. Über die nutzungsbasierte Abrechnung zahlen Sie nur für den Zeitraum, in dem Ihr Code ausgeführt wird, und Azure skaliert flexibel nach Bedarf.
 
-> **Einsatzgebiete** : Verwenden Sie Azure Functions, wenn Sie über Code verfügen, der von anderen Azure-Diensten, von webbasierten-Ereignissen oder nach einem Zeitplan ausgelöst wird. Sie können Functions auch verwenden, wenn Sie den Mehraufwand eines vollständigen gehosteten Projekts nicht brauchen oder wenn nur für den Zeitraum zahlen wollen, in dem Ihr Code ausgeführt wird. Weitere Informationen finden Sie in der [Übersicht über Azure Functions](../../azure-functions/functions-overview.md).
+> **Einsatzgebiete**: Verwenden Sie Azure Functions, wenn Sie über Code verfügen, der von anderen Azure-Diensten, von webbasierten-Ereignissen oder nach einem Zeitplan ausgelöst wird. Sie können Functions auch verwenden, wenn Sie den Mehraufwand eines vollständigen gehosteten Projekts nicht brauchen oder wenn nur für den Zeitraum zahlen wollen, in dem Ihr Code ausgeführt wird. Weitere Informationen finden Sie in der [Übersicht über Azure Functions](../../azure-functions/functions-overview.md).
 >
-> **Erste Schritte** : Befolgen Sie das Schnellstart-Tutorial für Functions, um [Ihre erste Funktion](../../azure-functions/functions-create-first-azure-function.md) im Portal zu erstellen.
+> **Erste Schritte**: Befolgen Sie das Schnellstart-Tutorial für Functions, um [Ihre erste Funktion](../../azure-functions/functions-create-first-azure-function.md) im Portal zu erstellen.
 >
-> **Jetzt testen** : Mit Azure Functions können Sie Ihren Code ausführen, ohne sich für ein Azure-Konto registrieren zu müssen. Probieren Sie es jetzt aus, und [erstellen Sie Ihre erste Azure-Funktion](https://tryappservice.azure.com/).
+> **Jetzt testen**: Mit Azure Functions können Sie Ihren Code ausführen, ohne sich für ein Azure-Konto registrieren zu müssen. Probieren Sie es jetzt aus, und [erstellen Sie Ihre erste Azure-Funktion](https://tryappservice.azure.com/).
 
 #### <a name="azure-service-fabric"></a>Azure Service Fabric
 
@@ -114,23 +114,23 @@ Neben dem Anwendungshosting umfasst Azure Dienstangebote zur Erweiterung der Fun
 
 Die meisten Anwendungen müssen Daten speichern, daher spielt es keine Rolle, wie Sie Ihre Anwendung in Azure hosten möchten. Denken Sie nur an mindestens einen der folgenden Speicher- und Datendienste.
 
-- **Azure Cosmos DB** : Ein global verteilter Datenbankdienst mit Unterstützung mehrerer Datenmodelle. Diese Datenbank ermöglicht Ihnen, für eine beliebige Anzahl von geografischen Azure-Regionen mit einer umfassenden SLA elastische Skalierungen für Durchsatz und Speicher durchzuführen.
+- **Azure Cosmos DB**: Ein global verteilter Datenbankdienst mit Unterstützung mehrerer Datenmodelle. Diese Datenbank ermöglicht Ihnen, für eine beliebige Anzahl von geografischen Azure-Regionen mit einer umfassenden SLA elastische Skalierungen für Durchsatz und Speicher durchzuführen.
 
   > **Einsatzgebiete:** Wenn Ihre Anwendung Dokument-, Tabellen- oder Diagrammdatenbanken einschließlich MongoDB-Datenbanken benötigt, mit mehreren klar definierten Konsistenzmodellen.
   >
-  > **Erste Schritte** : [Erstellen einer Azure Cosmos DB-Web-App](../../cosmos-db/create-sql-api-dotnet.md). Wenn Sie ein MongoDB-Entwickler sind, lesen Sie [Azure Cosmos DB: Erstellen einer Web-App mit einer MongoDB-API mit .NET und dem Azure-Portal](../../cosmos-db/create-mongodb-dotnet.md).
+  > **Erste Schritte**: [Erstellen einer Azure Cosmos DB-Web-App](../../cosmos-db/create-sql-api-dotnet.md). Wenn Sie ein MongoDB-Entwickler sind, lesen Sie [Azure Cosmos DB: Erstellen einer Web-App mit einer MongoDB-API mit .NET und dem Azure-Portal](../../cosmos-db/create-mongodb-dotnet.md).
 
-- **Azure Storage** : Bietet dauerhaften, hoch verfügbaren Speicher für Blobs, Warteschlangen, Dateien und andere Arten von nicht relationalen Daten. Storage stellt die Speichergrundlage für VMs bereit.
+- **Azure Storage**: Bietet dauerhaften, hoch verfügbaren Speicher für Blobs, Warteschlangen, Dateien und andere Arten von nicht relationalen Daten. Storage stellt die Speichergrundlage für VMs bereit.
 
-  > **Einsatzgebiete** : Wenn Ihre App nicht relationale Daten speichert, wie Schlüssel-Wert-Paare (Tabellen), Blobs, Dateifreigaben oder Meldungen (Warteschlangen).
+  > **Einsatzgebiete**: Wenn Ihre App nicht relationale Daten speichert, wie Schlüssel-Wert-Paare (Tabellen), Blobs, Dateifreigaben oder Meldungen (Warteschlangen).
   >
-  > **Erste Schritte** : Wählen Sie einen Typ aus den folgenden Speichertypen aus: [Blobs](../../storage/blobs/storage-quickstart-blobs-dotnet.md), [Tabellen](../../cosmos-db/tutorial-develop-table-dotnet.md), [Warteschlangen](../../storage/queues/storage-dotnet-how-to-use-queues.md) oder [Dateien](../../storage/files/storage-dotnet-how-to-use-files.md).
+  > **Erste Schritte**: Wählen Sie einen Typ aus den folgenden Speichertypen aus: [Blobs](../../storage/blobs/storage-quickstart-blobs-dotnet.md), [Tabellen](../../cosmos-db/tutorial-develop-table-dotnet.md), [Warteschlangen](../../storage/queues/storage-dotnet-how-to-use-queues.md) oder [Dateien](../../storage/files/storage-dotnet-how-to-use-files.md).
 
-- **Azure SQL-Datenbank** : Eine auf Azure basierende Version der Microsoft SQL Server-Engine zum Speichern relationaler Tabellendaten in der Cloud. SQL-Datenbank bietet vorhersagbare Leistung, Skalierbarkeit ohne Downtime, Geschäftskontinuität, und Datenschutz.
+- **Azure SQL-Datenbank**: Eine auf Azure basierende Version der Microsoft SQL Server-Engine zum Speichern relationaler Tabellendaten in der Cloud. SQL-Datenbank bietet vorhersagbare Leistung, Skalierbarkeit ohne Downtime, Geschäftskontinuität, und Datenschutz.
 
-  > **Einsatzgebiete** : Wenn Ihre Anwendung Datenspeicherung mit referentieller Integrität, Transaktionsunterstützung und Unterstützung für TSQL-Abfragen erfordert.
+  > **Einsatzgebiete**: Wenn Ihre Anwendung Datenspeicherung mit referentieller Integrität, Transaktionsunterstützung und Unterstützung für TSQL-Abfragen erfordert.
   >
-  > **Erste Schritte** : [Erstellen Sie eine Datenbank in Azure SQL-Datenbank in wenigen Minuten über das Azure-Portal](../../azure-sql/database/single-database-create-quickstart.md).
+  > **Erste Schritte**: [Erstellen Sie eine Datenbank in Azure SQL-Datenbank in wenigen Minuten über das Azure-Portal](../../azure-sql/database/single-database-create-quickstart.md).
 
 
 Sie können [Azure Data Factory](../../data-factory/introduction.md) verwenden, um vorhandene lokale Daten in Azure zu verschieben. Wenn Sie nicht dazu bereit sind, Daten in die Cloud zu verschieben, können Sie mit [Hybrid Connections](../../app-service/app-service-hybrid-connections.md) in Azure App Service eine Verbindung Ihrer von App Service gehosteten App mit lokalen Ressourcen herstellen. Sie können von Ihren lokalen Anwendungen aus auch eine Verbindung mit Azure-Daten und Speicherdiensten herstellen.
@@ -144,19 +144,19 @@ Azure bietet mehrere Methoden zum Verwenden von Containern in Ihren Anwendungen.
 
 - **Azure Kubernetes Service:** Hiermit können Sie einen Cluster mit virtuellen Computern, die für die Ausführung von Anwendungen in Containern vorkonfiguriert sind, erstellen, konfigurieren und verwalten. Weitere Informationen zu Azure Kubernetes Service finden Sie unter [Einführung in Azure Kubernetes Service](../../aks/intro-kubernetes.md).
 
-  > **Einsatzgebiete** : Wenn Sie produktionsreife, skalierbare Umgebungen erstellen müssen, die zusätzliche Planungs- und Verwaltungstools bereitstellen, oder wenn Sie einen Docker Swarm-Cluster bereitstellen.
+  > **Einsatzgebiete**: Wenn Sie produktionsreife, skalierbare Umgebungen erstellen müssen, die zusätzliche Planungs- und Verwaltungstools bereitstellen, oder wenn Sie einen Docker Swarm-Cluster bereitstellen.
   >
-  > **Erste Schritte** : [Stellen Sie einen Kubernetes Service-Cluster bereit](../../aks/tutorial-kubernetes-deploy-cluster.md).
+  > **Erste Schritte**: [Stellen Sie einen Kubernetes Service-Cluster bereit](../../aks/tutorial-kubernetes-deploy-cluster.md).
 
-- **Docker-Computer** : Hiermit können Sie eine Docker-Engine auf virtuellen Hosts installieren und verwalten, indem Sie Docker-Computerbefehle verwenden.
+- **Docker-Computer**: Hiermit können Sie eine Docker-Engine auf virtuellen Hosts installieren und verwalten, indem Sie Docker-Computerbefehle verwenden.
 
-  >**Einsatzgebiete** : Wenn Sie schnell einen Prototyp für eine App erstellen müssen, indem Sie einen einzelnen Docker-Host erstellen.
+  >**Einsatzgebiete**: Wenn Sie schnell einen Prototyp für eine App erstellen müssen, indem Sie einen einzelnen Docker-Host erstellen.
 
-- **Benutzerdefiniertes Docker-Image für App Service** : Hiermit können Sie Docker-Container von einer Containerregistrierung oder einen Kundencontainer verwenden, wenn Sie eine Web-App unter Linux bereitstellen.
+- **Benutzerdefiniertes Docker-Image für App Service**: Hiermit können Sie Docker-Container von einer Containerregistrierung oder einen Kundencontainer verwenden, wenn Sie eine Web-App unter Linux bereitstellen.
 
-  > **Einsatzgebiete** : Wenn Sie eine Web-App unter Linux für ein Docker-Image bereitstellen.
+  > **Einsatzgebiete**: Wenn Sie eine Web-App unter Linux für ein Docker-Image bereitstellen.
   >
-  > **Erste Schritte** : [Verwenden eines benutzerdefinierten Docker-Image für App Service unter Linuxx](../../app-service/quickstart-custom-container.md?pivots=platform-linux%253fpivots%253dplatform-linux).
+  > **Erste Schritte**: [Verwenden eines benutzerdefinierten Docker-Image für App Service unter Linuxx](../../app-service/quickstart-custom-container.md?pivots=platform-linux%253fpivots%253dplatform-linux).
 
 ### <a name="authentication"></a>Authentifizierung
 
@@ -164,15 +164,15 @@ Es ist wichtig, nicht nur zu wissen, wer Ihre Anwendungen verwendet, sondern auc
 
 - **Azure Active Directory (Azure AD)** : Der mehrinstanzenfähige, cloudbasierte Identitäts- und Zugriffsverwaltungsdienst von Microsoft. Sie können das einmalige Anmelden (SSO) zu Ihren Anwendungen hinzufügen, indem Sie in Azure AD integrieren. Sie können auf Verzeichniseigenschaften zugreifen, indem Sie direkt die Azure AD Graph-API oder die Microsoft Graph-API verwenden. Sie können mit Azure AD-Unterstützung für das OAuth2.0-Autorisierungsframework und Open ID Connect integrieren, indem Sie native HTTP/REST-Endpunkte und die Azure AD-Authentifizierungsbibliotheken für mehrere Plattformen verwenden.
 
-  > **Einsatzgebiete** : Wenn Sie SSO bereitstellen, mit graphbasierten Daten arbeiten oder domänenbasierte Benutzer authentifizieren möchten.
+  > **Einsatzgebiete**: Wenn Sie SSO bereitstellen, mit graphbasierten Daten arbeiten oder domänenbasierte Benutzer authentifizieren möchten.
   >
-  > **Erste Schritte** : Weitere Informationen finden Sie im [Entwicklerhandbuch zu Azure Active Directory](../../active-directory/develop/v2-overview.md).
+  > **Erste Schritte**: Weitere Informationen finden Sie im [Entwicklerhandbuch zu Azure Active Directory](../../active-directory/develop/v2-overview.md).
 
-- **App Service-Authentifizierung** : Wenn Sie App Service zum Hosten Ihrer App auswählen, erhalten Sie auch integrierte Authentifizierungsunterstützung für Azure AD, zusammen mit Identitätsanbietern aus sozialen Netzwerken wie Facebook, Google, Microsoft und Twitter.
+- **App Service-Authentifizierung**: Wenn Sie App Service zum Hosten Ihrer App auswählen, erhalten Sie auch integrierte Authentifizierungsunterstützung für Azure AD, zusammen mit Identitätsanbietern aus sozialen Netzwerken wie Facebook, Google, Microsoft und Twitter.
 
-  > **Einsatzgebiete** : Wenn Sie die Authentifizierung in einer App Service-App mithilfe von Azure AD, Identitätsanbietern aus sozialen Netzwerken oder beidem aktivieren möchten.
+  > **Einsatzgebiete**: Wenn Sie die Authentifizierung in einer App Service-App mithilfe von Azure AD, Identitätsanbietern aus sozialen Netzwerken oder beidem aktivieren möchten.
   >
-  > **Erste Schritte** : Weitere Informationen zur Authentifizierung in App Service finden Sie unter [Authentifizierung und Autorisierung in Azure App Service](../../app-service/overview-authentication-authorization.md).
+  > **Erste Schritte**: Weitere Informationen zur Authentifizierung in App Service finden Sie unter [Authentifizierung und Autorisierung in Azure App Service](../../app-service/overview-authentication-authorization.md).
 
 Weitere Informationen zu bewährten Sicherheitsmethoden in Azure finden Sie unter [Sicherheit in Azure – bewährte Methoden und Muster](../../security/fundamentals/best-practices-and-patterns.md).
 
@@ -180,13 +180,13 @@ Weitere Informationen zu bewährten Sicherheitsmethoden in Azure finden Sie unte
 
 Wenn Ihre Anwendung in Azure eingerichtet ist und ausgeführt wird, müssen Sie die Leistung überwachen, nach Problemen Ausschau halten und anzeigen können, wie Kunden Ihre App verwenden. Azure bietet mehrere Überwachungsoptionen.
 
--   **Application Insights** : Ein in Azure gehosteter erweiterbarer Analytics-Dienst, der in Visual Studio integrierbar ist, um Ihre Live-Web-Anwendungen zu überwachen. Dies stellt für Sie die Daten bereit, die Sie benötigen, um die Leistung und Benutzerfreundlichkeit Ihrer Apps zu verbessern, unabhängig davon, ob diese in Azure gehostet werden oder nicht.
+-   **Application Insights**: Ein in Azure gehosteter erweiterbarer Analytics-Dienst, der in Visual Studio integrierbar ist, um Ihre Live-Web-Anwendungen zu überwachen. Dies stellt für Sie die Daten bereit, die Sie benötigen, um die Leistung und Benutzerfreundlichkeit Ihrer Apps zu verbessern, unabhängig davon, ob diese in Azure gehostet werden oder nicht.
 
-    >**Erste Schritte** : Befolgen Sie die Anweisungen unter [Application Insights – Tutorial](../../azure-monitor/app/app-insights-overview.md).
+    >**Erste Schritte**: Befolgen Sie die Anweisungen unter [Application Insights – Tutorial](../../azure-monitor/app/app-insights-overview.md).
 
--   **Azure Monitor** : Ein Dienst, der Ihnen dabei hilft, die Metriken und Protokolle, die von Ihrer Azure-Infrastruktur und Ihren Azure-Ressourcen erstellt werden, zu visualisieren, Abfragen dafür durchzuführen, weiterzuleiten, zu archivieren und darauf zu reagieren. Monitor ist eine einzelne Quelle zum Überwachen von Azure-Ressourcen und stellt die Datenansichten bereit, die Ihnen im Azure-Portal angezeigt werden.
+-   **Azure Monitor**: Ein Dienst, der Ihnen dabei hilft, die Metriken und Protokolle, die von Ihrer Azure-Infrastruktur und Ihren Azure-Ressourcen erstellt werden, zu visualisieren, Abfragen dafür durchzuführen, weiterzuleiten, zu archivieren und darauf zu reagieren. Monitor ist eine einzelne Quelle zum Überwachen von Azure-Ressourcen und stellt die Datenansichten bereit, die Ihnen im Azure-Portal angezeigt werden.
 
-    >**Erste Schritte** : [Erste Schritte mit Azure Monitor](../../azure-monitor/overview.md).
+    >**Erste Schritte**: [Erste Schritte mit Azure Monitor](../../azure-monitor/overview.md).
 
 ### <a name="devops-integration"></a>DevOps-Integration
 
@@ -200,7 +200,7 @@ Unabhängig davon, ob Azure VMs bereitstellt oder Ihre Web-Apps mit Continuous I
 * Ansible
 * Azure DevOps
 
-> **Erste Schritte** : DevOps-Optionen für eine App Service-App können Sie hier anzeigen: [Kontinuierliche Bereitstellung in Azure App Service](../../app-service/deploy-continuous-deployment.md).
+> **Erste Schritte**: DevOps-Optionen für eine App Service-App können Sie hier anzeigen: [Kontinuierliche Bereitstellung in Azure App Service](../../app-service/deploy-continuous-deployment.md).
 >
 > **Jetzt testen:** [Testen Sie mehrere der DevOps-Integrationen](https://azure.microsoft.com/try/devops/).
 
@@ -219,7 +219,7 @@ Es ist zwar unwahrscheinlich aber nicht unmöglich, dass ein gesamtes Rechenzent
 
 Einige Dienste, wie VM und App Services, verwenden [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md), um die Unterstützung in mehreren Regionen mit Failover zwischen Regionen zu ermöglichen, um Unternehmensanwendungen mit hoher Verfügbarkeit zu unterstützen. Ein Beispiel finden Sie unter [Azure-Referenzarchitektur: Ausführen einer Webanwendung in mehreren Regionen](/azure/architecture/reference-architectures/app-service-web-app/multi-region).
 
->**Einsatzgebiete** : Wenn Sie über Unternehmensanwendungen und Anwendungen mit hoher Verfügbarkeit verfügen, die vom Failover und der Replikation profitieren.
+>**Einsatzgebiete**: Wenn Sie über Unternehmensanwendungen und Anwendungen mit hoher Verfügbarkeit verfügen, die vom Failover und der Replikation profitieren.
 
 ## <a name="how-do-i-manage-my-applications-and-projects"></a>Wie verwalte ich meine Anwendungen und Projekte?
 
@@ -267,9 +267,9 @@ Zusätzlich zur logischen Gruppierung und dem Verwalten von zugehörigen Ressour
 
 Sie entwickeln diese Bereitstellungen, indem Sie eine Azure Resource Manager-Vorlage verwenden, einem JSON-formatierten Dokument. Mit Vorlagen können Sie eine Bereitstellung definieren und Ihre Anwendungen verwalten, indem Sie deklarative Vorlagen anstelle von Skripts verwenden. Ihre Vorlagen können für unterschiedliche Umgebungen geeignet sein, z.B. Testing, Staging und Produktion. Beispielsweise können Sie durch anhand von Vorlagen eine Schaltfläche zu einem GitHub-Repository hinzufügen, die den Code im Repository für eine Reihe von Azure-Diensten mit einem einzigen Klick bereitstellt.
 
-> **Einsatzgebiete** : Verwenden Sie Resource Manager-Vorlagen, wenn Sie eine vorlagenbasierte Bereitstellung für Ihre App wünschen, die Sie programmgesteuert verwalten können, indem Sie REST APIs, die Azure-Befehlszeilenschnittstelle und Azure PowerShell verwenden.
+> **Einsatzgebiete**: Verwenden Sie Resource Manager-Vorlagen, wenn Sie eine vorlagenbasierte Bereitstellung für Ihre App wünschen, die Sie programmgesteuert verwalten können, indem Sie REST APIs, die Azure-Befehlszeilenschnittstelle und Azure PowerShell verwenden.
 >
-> **Erste Schritte** : Erste Schritte zum Verwenden von Vorlagen finden Sie unter [Erstellen von Azure Resource Manager-Vorlagen](../../azure-resource-manager/templates/template-syntax.md).
+> **Erste Schritte**: Erste Schritte zum Verwenden von Vorlagen finden Sie unter [Erstellen von Azure Resource Manager-Vorlagen](../../azure-resource-manager/templates/template-syntax.md).
 
 ## <a name="understanding-accounts-subscriptions-and-billing"></a>Grundlegendes zu Konten, Abonnements und Abrechnung
 
@@ -299,13 +299,13 @@ Wenn Sie den Zugriff auf Azure-Ressourcen gewähren, ist es empfehlenswert, Benu
 
 - **Rollenbasierte Zugriffssteuerung von Azure (Azure RBAC)** : In Azure können Sie Benutzerkonten (Prinzipalen) in einem angegebenen Bereich Zugriff gewähren: Abonnement, Ressourcengruppe oder einzelne Ressourcen. Mit Azure RBAC können Sie Ressourcen in einer Ressourcengruppe bereitstellen und einem bestimmten Benutzer oder einer bestimmten Gruppe Berechtigungen erteilen. Sie können auch den Zugriff auf nur die Ressourcen beschränken, die zur Zielressourcengruppe gehören. Sie können auch den Zugriff auf eine einzelne Ressource, z.B. einen virtuellen Computer oder ein virtuelles Netzwerk, gewähren. Um Zugriff zu gewähren, weisen Sie dem Benutzer, der Gruppe oder dem Dienstprinzipal eine Rolle zu. Es existieren viele vordefinierte Rollen, und Sie können auch Ihre eigenen benutzerdefinierten Rollen definieren. Weitere Informationen finden Sie in folgendem Artikel: [Was ist die rollenbasierte Zugriffssteuerung in Azure (Azure Role-Based Access Control, Azure RBAC)?](../../role-based-access-control/overview.md).
 
-  > **Einsatzgebiete** : Wenn Sie eine differenzierte Zugriffsverwaltung für Benutzer und Gruppen benötigen, oder wenn Sie einen Benutzer zum Besitzer eines Abonnements machen müssen.
+  > **Einsatzgebiete**: Wenn Sie eine differenzierte Zugriffsverwaltung für Benutzer und Gruppen benötigen, oder wenn Sie einen Benutzer zum Besitzer eines Abonnements machen müssen.
   >
-  > **Erste Schritte** : Weitere Informationen finden Sie unter [Hinzufügen oder Entfernen von Azure-Rollenzuweisungen über das Azure-Portal](../../role-based-access-control/role-assignments-portal.md).
+  > **Erste Schritte**: Weitere Informationen finden Sie unter [Hinzufügen oder Entfernen von Azure-Rollenzuweisungen über das Azure-Portal](../../role-based-access-control/role-assignments-portal.md).
 
-- **Dienstprinzipalobjekte** : Neben dem Bereitstellen des Zugriffs für Benutzerprinzipale und Gruppen können Sie einem Dienstprinzipal den gleichen Zugriff gewähren.
+- **Dienstprinzipalobjekte**: Neben dem Bereitstellen des Zugriffs für Benutzerprinzipale und Gruppen können Sie einem Dienstprinzipal den gleichen Zugriff gewähren.
 
-  > **Einsatzgebiete** : Wenn Sie programmgesteuert Azure-Ressourcen verwalten oder den Zugriff für Anwendungen gewähren. Weitere Informationen finden Sie unter [Erstellen einer Active Directory-Anwendung und eines Dienstprinzipals](../../active-directory/develop/howto-create-service-principal-portal.md).
+  > **Einsatzgebiete**: Wenn Sie programmgesteuert Azure-Ressourcen verwalten oder den Zugriff für Anwendungen gewähren. Weitere Informationen finden Sie unter [Erstellen einer Active Directory-Anwendung und eines Dienstprinzipals](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### <a name="tags"></a>`Tags`
 
@@ -327,10 +327,10 @@ Beim Übergang von lokalem Computing zu in der Cloud gehosteten Diensten sind di
 
 Azure bietet eine Reihe von Abrechnungs-REST-APIs, die den Zugriff auf den Ressourcenverbrauch und Metadateninformationen für Azure-Abonnements gewähren. Durch diese Abrechnungs-APIs können Sie Azure-Kosten besser vorhersagen und verwalten. Sie können Ausgaben in Stundenschritten verfolgen und analysieren und Ausgabenwarnungen erstellen. Außerdem können Sie die künftige Abrechnung auf der Grundlage der aktuellen Nutzungstrends vorhersagen.
 
->**Erste Schritte** : Weitere Informationen zur Verwendung der Abrechnungs-APIs finden Sie unter [Verwenden der Azure-Abrechnungs-APIs, um programmgesteuerte Einblicke in die Nutzung Ihrer Azure-Ressourcen zu erlangen](../../cost-management-billing/manage/usage-rate-card-overview.md).
+>**Erste Schritte**: Weitere Informationen zur Verwendung der Abrechnungs-APIs finden Sie unter [Verwenden der Azure-Abrechnungs-APIs, um programmgesteuerte Einblicke in die Nutzung Ihrer Azure-Ressourcen zu erlangen](../../cost-management-billing/manage/usage-rate-card-overview.md).
 
 #### <a name="predict-future-costs"></a>Vorhersagen künftiger Kosten
 
 Es ist zwar schwierig, die Kosten im Voraus zu schätzen, aber Azure bietet Ihnen einige hilfreiche Tools. Sie können zum Beispiel einen [Preisrechner](https://azure.microsoft.com/pricing/calculator/) nutzen, um die Kosten der bereitgestellten Ressourcen einzuschätzen. Darüber hinaus können Sie die Abrechnungsressourcen im Portal und die Abrechnungs-REST-APIs verwenden, um die künftigen Kosten basierend auf der aktuellen Nutzung vorherzusagen.
 
->**Erste Schritte** : Weitere Informationen finden Sie unter [Verwenden der Azure-Abrechnungs-APIs, um programmgesteuerte Einblicke in die Nutzung Ihrer Azure-Ressourcen zu erlangen](../../cost-management-billing/manage/usage-rate-card-overview.md).
+>**Erste Schritte**: Weitere Informationen finden Sie unter [Verwenden der Azure-Abrechnungs-APIs, um programmgesteuerte Einblicke in die Nutzung Ihrer Azure-Ressourcen zu erlangen](../../cost-management-billing/manage/usage-rate-card-overview.md).

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
-ms.openlocfilehash: 6b95162d34b706b0bbb3e2940ea214e5a662655d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5566717387f6da375129a0e70c9ad825198d66b7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984917"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005706"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Migrieren von SQL Server-Agent-Aufträgen zu ADF mit SSMS
 
@@ -37,11 +37,11 @@ Mit dem **Assistenten für die SSIS-Auftragsmigration** können Sie generell fol
 |SSIS-Auftragsschritt|Aktivität „SSIS-Paket ausführen“|<li> Der Name der Aktivität lautet \<step name>. <li> Das im Auftragsschritt verwendete Proxykonto wird als Windows-Authentifizierung dieser Aktivität migriert. <li> *Ausführungsoptionen*, mit Ausnahme der im Auftragsschritt definierten Option *32-Bit-Runtime verwenden*, werden bei der Migration ignoriert. <li> Die im Auftragsschritt definierte *Überprüfung* wird bei der Migration ignoriert.|
 |schedule      |Zeitplantrigger        |Der Name des Zeitplantriggers lautet *Generiert für \<schedule name>* . <br> <br> Die folgenden Optionen im Auftragszeitplan des SQL-Agents werden bei der Migration ignoriert: <li> Intervall der zweiten Ebene <li> *Automatisch starten, wenn der SQL Server-Agent startet* <li> *Starten, wenn sich die CPUs im Leerlauf befinden* <li> *Wochentag* und *Wochenendtag* <time zone> <br> Nach der Migration des Auftragszeitplans des SQL-Agents zum ADF-Zeitplantrigger sind folgende Unterschiede vorhanden: <li> Die nachfolgende Ausführung des ADF-Zeitplantriggers erfolgt unabhängig vom Ausführungszustand der zuvor ausgelösten Ausführung. <li> Die Wiederholungskonfiguration für den ADF-Zeitplantrigger unterscheidet sich von der täglichen Häufigkeit im SQL-Agent-Auftrag.|
 
-- Generieren von Azure Resource Manager-Vorlagen (ARM) im lokalen Ausgabeordner, die direkt oder später manuell in Data Factory bereitgestellt werden. Weitere Informationen zu den Azure Resource Manager-Vorlagen in ADF finden Sie unter [Microsoft.DataFactory-Ressourcentypen](https://docs.microsoft.com/azure/templates/microsoft.datafactory/allversions).
+- Generieren von Azure Resource Manager-Vorlagen (ARM) im lokalen Ausgabeordner, die direkt oder später manuell in Data Factory bereitgestellt werden. Weitere Informationen zu den Azure Resource Manager-Vorlagen in ADF finden Sie unter [Microsoft.DataFactory-Ressourcentypen](/azure/templates/microsoft.datafactory/allversions).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Die in diesem Artikel beschriebene Funktion erfordert Version 18.5 oder höher von SQL Server Management Studio. Die neueste Version von SSMS können Sie unter [Herunterladen von SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) abrufen.
+Die in diesem Artikel beschriebene Funktion erfordert Version 18.5 oder höher von SQL Server Management Studio. Die neueste Version von SSMS können Sie unter [Herunterladen von SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) abrufen.
 
 ## <a name="migrate-ssis-jobs-to-adf"></a>Migrieren von SSIS-Aufträgen zu ADF
 

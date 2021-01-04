@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/17/2019
 ms.author: jeedes
-ms.openlocfilehash: cd1be43bd8984df8fef690e595ec99f4b112c3c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c875c89d5b565e95fccaceebdccad82da75b238e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88533641"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521916"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sugar-crm"></a>Tutorial: Integration des einmaligen Anmeldens (Single Sign-On, SSO) von Azure Active Directory mit Sugar CRM
 
@@ -26,7 +26,7 @@ In diesem Tutorial erfahren Sie, wie Sie Sugar CRM in Azure Active Directory (Az
 * Ermöglichen Sie es Ihren Benutzern, sich mit ihren Azure AD-Konten automatisch bei Sugar CRM anzumelden.
 * Verwalten Sie Ihre Konten zentral im Azure-Portal.
 
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -39,7 +39,7 @@ Für die ersten Schritte benötigen Sie Folgendes:
 
 In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure AD in einer Testumgebung.
 
-* Sugar CRM unterstützt **SP**-initiiertes einmaliges Anmelden.
+* Sugar CRM unterstützt **SP** -initiiertes einmaliges Anmelden.
 
 > [!NOTE]
 > Der Bezeichner dieser Anwendung ist ein fester Zeichenfolgenwert, daher kann in einem Mandanten nur eine Instanz konfiguriert werden.
@@ -50,7 +50,7 @@ Zum Konfigurieren der Integration von Sugar CRM in Azure AD müssen Sie Sugar CR
 
 1. Melden Sie sich mit einem Geschäfts-, Schul- oder Unikonto oder mit einem persönlichen Microsoft-Konto beim [Azure-Portal](https://portal.azure.com) an.
 1. Wählen Sie im linken Navigationsbereich den Dienst **Azure Active Directory** aus.
-1. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie dann **Alle Anwendungen** aus.
+1. Navigieren Sie zu **Unternehmensanwendungen** , und wählen Sie dann **Alle Anwendungen** aus.
 1. Wählen Sie zum Hinzufügen einer neuen Anwendung **Neue Anwendung** aus.
 1. Geben Sie im Abschnitt **Aus Katalog hinzufügen** den Suchbegriff **Sugar CRM** in das Suchfeld ein.
 1. Wählen Sie **Sugar CRM** im Ergebnisbereich aus, und fügen Sie dann die App hinzu. Warten Sie einige Sekunden, während die App Ihrem Mandanten hinzugefügt wird.
@@ -72,9 +72,9 @@ Zum Konfigurieren und Testen des einmaligen Anmeldens von Azure AD bei Sugar CRM
 
 Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal zu aktivieren.
 
-1. Suchen Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **Sugar CRM** den Abschnitt **Verwalten**, und wählen Sie **Einmaliges Anmelden** aus.
+1. Suchen Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **Sugar CRM** den Abschnitt **Verwalten** , und wählen Sie **Einmaliges Anmelden** aus.
 1. Wählen Sie auf der Seite **SSO-Methode auswählen** die Methode **SAML** aus.
-1. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Bearbeitungs- bzw. Stiftsymbol für **Grundlegende SAML-Konfiguration**, um die Einstellungen zu bearbeiten.
+1. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Bearbeitungs- bzw. Stiftsymbol für **Grundlegende SAML-Konfiguration** , um die Einstellungen zu bearbeiten.
 
    ![Bearbeiten der SAML-Basiskonfiguration](common/edit-urls.png)
 
@@ -111,16 +111,16 @@ In diesem Abschnitt erstellen Sie im Azure-Portal einen Testbenutzer mit dem Nam
 1. Führen Sie unter den Eigenschaften für **Benutzer** die folgenden Schritte aus:
    1. Geben Sie im Feld **Name** die Zeichenfolge `B.Simon` ein.  
    1. Geben Sie im Feld **Benutzername** die Zeichenfolge username@companydomain.extension ein. Beispiel: `B.Simon@contoso.com`.
-   1. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den Wert aus dem Feld **Kennwort**.
+   1. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen** , und notieren Sie sich den Wert aus dem Feld **Kennwort**.
    1. Klicken Sie auf **Erstellen**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Zuweisen des Azure AD-Testbenutzers
 
 In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anmeldens von Azure, indem Sie ihr Zugriff auf Sugar CRM gewähren.
 
-1. Wählen Sie im Azure-Portal **Unternehmensanwendungen** > **Alle Anwendungen** aus.
+1. Wählen Sie im Azure-Portal **Unternehmensanwendungen**  > **Alle Anwendungen** aus.
 1. Wählen Sie in der Anwendungsliste **Sugar CRM** aus.
-1. Navigieren Sie auf der Übersichtsseite der App zum Abschnitt **Verwalten**, und wählen Sie **Benutzer und Gruppen** aus.
+1. Navigieren Sie auf der Übersichtsseite der App zum Abschnitt **Verwalten** , und wählen Sie **Benutzer und Gruppen** aus.
 
    ![Link „Benutzer und Gruppen“](common/users-groups-blade.png)
 
@@ -142,11 +142,11 @@ In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anme
 
 1. Klicken Sie unter **Administration** auf **Kennwortverwaltung**.
 
-    ![Verwaltung](./media/sugarcrm-tutorial/ic795889.png "Verwaltung")
+    ![Screenshot: Abschnitt „Administration“ (Verwaltung), in dem Sie „Password Management“ (Kennwortverwaltung) auswählen können](./media/sugarcrm-tutorial/ic795889.png "Verwaltung")
 
 1. Wählen Sie die Option **SAML-Authentifizierung aktivieren**.
 
-    ![Verwaltung](./media/sugarcrm-tutorial/ic795890.png "Verwaltung")
+    ![Screenshot: Option zum Auswählen der SAML-Authentifizierung](./media/sugarcrm-tutorial/ic795890.png "Verwaltung")
 
 1. Führen Sie im Abschnitt für die **SAML-Authentifizierung** die folgenden Schritte aus:
 
@@ -166,7 +166,7 @@ Damit sich Azure AD-Benutzer bei Sugar CRM anmelden können, müssen sie in Suga
 
 **Führen Sie zum Bereitstellen eines Benutzerkontos die folgenden Schritte aus:**
 
-1. Melden Sie sich an der **Sugar CRM**-Unternehmenswebsite als Administrator an.
+1. Melden Sie sich an der **Sugar CRM** -Unternehmenswebsite als Administrator an.
 
 1. Wechseln Sie zu **Administrator**.
 
@@ -174,7 +174,7 @@ Damit sich Azure AD-Benutzer bei Sugar CRM anmelden können, müssen sie in Suga
 
 1. Klicken Sie im Abschnitt **Verwaltung** auf **Benutzerverwaltung**.
 
-    ![Verwaltung](./media/sugarcrm-tutorial/ic795893.png "Verwaltung")
+    ![Screenshot: Abschnitt „Administration“ (Verwaltung), in dem Sie „User Management“ (Benutzerverwaltung) auswählen können](./media/sugarcrm-tutorial/ic795893.png "Verwaltung")
 
 1. Klicken Sie auf **Benutzer \> Neuen Benutzer** erstellen.
 
@@ -182,15 +182,15 @@ Damit sich Azure AD-Benutzer bei Sugar CRM anmelden können, müssen sie in Suga
 
 1. Führen Sie auf der Registerkarte **Benutzerprofil** die folgenden Schritte aus:
 
-    ![Neuer Benutzer](./media/sugarcrm-tutorial/ic795895.png "Neuer Benutzer")
+    ![Screenshot: Registerkarte „User Profile“ (Benutzerprofil), auf der Sie die beschriebenen Werte eingeben können](./media/sugarcrm-tutorial/ic795895.png "Neuer Benutzer")
 
-    * Geben Sie die entsprechenden Informationen in die Textfelder **Benutzername**, **Nachname** und **E-Mail-Adresse** eines gültigen Azure Active Directory-Kontos ein, das Sie bereitstellen möchten.
+    * Geben Sie die entsprechenden Informationen in die Textfelder **Benutzername** , **Nachname** und **E-Mail-Adresse** eines gültigen Azure Active Directory-Kontos ein, das Sie bereitstellen möchten.
   
 1. Wählen Sie als **Status** **Aktiv** aus.
 
 1. Führen Sie auf der Registerkarte „Kennwort“ die folgenden Schritte aus:
 
-    ![Neuer Benutzer](./media/sugarcrm-tutorial/ic795896.png "Neuer Benutzer")
+    ![Screenshot: Registerkarte „Password“ (Kennwort), auf der Sie die beschriebenen Werte eingeben können](./media/sugarcrm-tutorial/ic795896.png "Neuer Benutzer")
 
     a. Geben Sie das Kennwort in das entsprechende Textfeld ein.
 
@@ -203,15 +203,14 @@ Damit sich Azure AD-Benutzer bei Sugar CRM anmelden können, müssen sie in Suga
 
 In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich.
 
-Wenn Sie im Zugriffsbereich auf die Kachel „Sugar CRM“ klicken, sollten Sie automatisch bei der Sugar CRM-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Wenn Sie im Zugriffsbereich auf die Kachel „Sugar CRM“ klicken, sollten Sie automatisch bei der Sugar CRM-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Liste mit den Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste mit den Tutorials zur Integration von SaaS-Apps in Azure Active Directory](./tutorial-list.md)
 
-- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Was ist der bedingte Zugriff in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Was ist der bedingte Zugriff in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Testen von Sugar CRM mit Azure AD](https://aad.portal.azure.com/)
-

@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 391d4d6cb925eec0ea7be19eb6fa6849aa38985e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0fadcf3f5aefa76ab03d6313643fc18df71f6c3b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369742"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004652"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Konfigurieren von Einstellungen für Azure AD-Rollen in PIM
 
@@ -30,7 +30,7 @@ Ein Administrator für privilegierte Rollen kann Privileged Identity Management 
 Ab November 2019 werden die Azure AD Rollen von Privileged Identity Management auf eine neue Version aktualisiert, die dem Verhalten von Azure-Ressourcenrollen entspricht. Dadurch werden zusätzliche Features verfügbar, und es kommt zu [Änderungen an der vorhandenen API](azure-ad-roles-features.md#api-changes). Welche Verfahren Sie in diesem Artikel während der Einführung der neuen Version befolgen, hängt von Ihrer aktuellen Version von Privileged Identity Management ab. Führen Sie die Schritte in diesem Abschnitt aus, um Ihre Version von Privileged Identity Management zu ermitteln. Nachdem Sie Ihre Version von Privileged Identity Management kennen, können Sie die Verfahren in diesem Artikel auswählen, die dieser Version entsprechen.
 
 1. Melden Sie sich am [Azure-Portal](https://portal.azure.com/) als Benutzer mit der Rolle [Administrator für privilegierte Rollen](../roles/permissions-reference.md#privileged-role-administrator) an.
-1. Öffnen Sie **Azure AD Privileged Identity Management** . Wenn sich oben auf der Übersichtsseite ein Banner befindet, befolgen Sie die Anweisungen auf der Registerkarte **Neue Version** dieses Artikels. Andernfalls befolgen Sie die Anweisungen auf der Registerkarte **Vorherige Version** .
+1. Öffnen Sie **Azure AD Privileged Identity Management**. Wenn sich oben auf der Übersichtsseite ein Banner befindet, befolgen Sie die Anweisungen auf der Registerkarte **Neue Version** dieses Artikels. Andernfalls befolgen Sie die Anweisungen auf der Registerkarte **Vorherige Version**.
 
   [![Auswählen von „Azure AD“ > „Privileged Identity Management“](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
@@ -44,7 +44,7 @@ Führen Sie die folgenden Schritte aus, um die Einstellungen für eine Azure AD-
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) als Benutzer mit der Rolle [Administrator für privilegierte Rollen](../roles/permissions-reference.md#privileged-role-administrator) an.
 gt
-1. Öffnen Sie **Azure AD Privileged Identity Management** &gt; **Azure AD-Rollen** &gt; **Rolleneinstellungen** .
+1. Öffnen Sie **Azure AD Privileged Identity Management** &gt; **Azure AD-Rollen** &gt; **Rolleneinstellungen**.
 
     ![Seite „Rolleneinstellungen“ mit einer Auflistung der Azure AD-Rollen](./media/pim-how-to-change-default-settings/role-settings.png)
 
@@ -52,7 +52,7 @@ gt
 
     ![Seite „Details zur Rolleneinstellung“ mit einer Auflistung mehrerer Zuweisungs- und Aktivierungseinstellungen](./media/pim-how-to-change-default-settings/role-settings-page.png)
 
-1. Klicken Sie auf **Bearbeiten** , um die Seite „Rolleneinstellungen“ zu öffnen.
+1. Klicken Sie auf **Bearbeiten**, um die Seite „Rolleneinstellungen“ zu öffnen.
 
     ![Seite „Rolleneinstellungen“ mit Optionen zum Aktualisieren von Zuweisungs- und Aktivierungseinstellungen](./media/pim-how-to-change-default-settings/role-settings-edit.png)
 
@@ -81,17 +81,17 @@ Beim Typ **Aktiv** können Sie eine dieser Optionen für die Zuweisungsdauer wä
 
 ## <a name="require-multi-factor-authentication"></a>Mehrstufige Authentifizierung erforderlich
 
-Privileged Identity Management ermöglicht die optionale Erzwingung der Azure Multi-Factor Authentication (MFA) für zwei bestimmte Szenarien.
+Privileged Identity Management ermöglicht die optionale Erzwingung von Azure AD Multi-Factor Authentication in zwei bestimmten Szenarien.
 
 ### <a name="require-multi-factor-authentication-on-active-assignment"></a>Multi-Factor Authentication bei aktiver Zuweisung erforderlich
 
 Es kann vorkommen, dass Sie einen Benutzer einer Rolle für einen kurzen Zeitraum (z. B. einen Tag) zuweisen möchten. In diesem Fall müssen die zugewiesenen Benutzer die Aktivierung nicht anfordern. In diesem Szenario kann Privileged Identity Management die Multi-Factor Authentication (MFA) nicht erzwingen, wenn der Benutzer seine Rollenzuweisung verwendet, weil die Rolle ab dem Moment der Zuweisung bereits aktiv ist.
 
-Sie können sicherstellen, dass der Administrator, der die Zuweisung bearbeitet, auch wirklich die angegebene Person ist, indem Sie für die aktive Zuweisung MFA erzwingen. Aktivieren Sie dafür das Kontrollkästchen neben der Option **Multi-Factor Authentication bei aktiver Zuweisung erforderlich** .
+Sie können sicherstellen, dass der Administrator, der die Zuweisung bearbeitet, auch wirklich die angegebene Person ist, indem Sie für die aktive Zuweisung MFA erzwingen. Aktivieren Sie dafür das Kontrollkästchen neben der Option **Multi-Factor Authentication bei aktiver Zuweisung erforderlich**.
 
 ### <a name="require-multi-factor-authentication-on-activation"></a>Bei Aktivierung Multi-Factor Authentication anfordern
 
-Sie können erzwingen, dass Benutzer, die für eine Rolle berechtigt sind,vor der Aktivierung ihre Identität über Azure MFA bestätigen müssen. Mithilfe von MFA kann mit hoher Wahrscheinlichkeit sichergestellt werden, dass es sich auch wirklich um den jeweiligen Benutzer handelt. Durch die Erzwingung dieser Option werden wichtige Ressourcen in Situationen geschützt, in denen das Benutzerkonto unter Umständen kompromittiert wurde.
+Sie können erzwingen, dass Benutzer, die für eine Rolle berechtigt sind, vor der Aktivierung ihre Identität über Azure AD Multi-Factor Authentication bestätigen müssen. Mithilfe von MFA kann mit hoher Wahrscheinlichkeit sichergestellt werden, dass es sich auch wirklich um den jeweiligen Benutzer handelt. Durch die Erzwingung dieser Option werden wichtige Ressourcen in Situationen geschützt, in denen das Benutzerkonto unter Umständen kompromittiert wurde.
 
 Damit vor der Aktivierung MFA erzwungen wird, müssen Sie unter **Rolleneinstellung bearbeiten** auf der Registerkarte „Zuweisung“ das Kontrollkästchen für die Option **Bei Aktivierung Multi-Factor Authentication anfordern** aktivieren.
 
@@ -103,23 +103,23 @@ Mit dem Schieberegler **Maximale Aktivierungsdauer** geben Sie die maximale Zeit
 
 ## <a name="require-justification"></a>Verlangen einer Begründung
 
-Sie können verlangen, dass Benutzer bei der Aktivierung eine geschäftliche Begründung angeben müssen. Um eine Begründung zu verlangen, aktivieren Sie das Kontrollkästchen **Begründung für aktive Zuweisung erforderlich** oder **Begründung für Aktivierung erforderlich** .
+Sie können verlangen, dass Benutzer bei der Aktivierung eine geschäftliche Begründung angeben müssen. Um eine Begründung zu verlangen, aktivieren Sie das Kontrollkästchen **Begründung für aktive Zuweisung erforderlich** oder **Begründung für Aktivierung erforderlich**.
 
 ## <a name="require-approval-to-activate"></a>Erzwingen der Genehmigung für die Aktivierung
 
 Wenn Sie mehrere genehmigende Personen festlegen, ist der Genehmigungsvorgang abgeschlossen, sobald eine dieser Personen die Genehmigung gewährt oder verweigert hat. Sie können keine Genehmigung von mindestens zwei Benutzern anfordern. Wenn Sie für die Aktivierung einer Rolle eine Genehmigung anfordern möchten, gehen Sie wie folgt vor.
 
-1. Aktivieren Sie das Kontrollkästchen **Genehmigung zum Aktivieren anfordern** .
+1. Aktivieren Sie das Kontrollkästchen **Genehmigung zum Aktivieren anfordern**.
 
 1. Wählen Sie **Genehmigende Personen auswählen** aus.
 
     ![Bereich „Mitglied oder Gruppe auswählen“ zum Auswählen von genehmigenden Personen](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
-1. Wählen Sie mindestens einen Benutzer aus, und klicken Sie dann auf **Auswählen** . Sie müssen mindestens eine genehmigende Person auswählen. Für genehmigende Personen gibt es keine Standardeinstellung.
+1. Wählen Sie mindestens einen Benutzer aus, und klicken Sie dann auf **Auswählen**. Sie müssen mindestens eine genehmigende Person auswählen. Für genehmigende Personen gibt es keine Standardeinstellung.
 
     Ihre Auswahl wird in der Liste der ausgewählten genehmigenden Personen angezeigt.
 
-1. Wenn Sie alle gewünschten Rolleneinstellungen angegeben haben, klicken Sie auf **Aktualisieren** , um Ihre Änderungen zu speichern.
+1. Wenn Sie alle gewünschten Rolleneinstellungen angegeben haben, klicken Sie auf **Aktualisieren**, um Ihre Änderungen zu speichern.
 
 # <a name="previous-version"></a>[Vorherige Version](#tab/previous)
 
@@ -127,7 +127,7 @@ Wenn Sie mehrere genehmigende Personen festlegen, ist der Genehmigungsvorgang ab
 
 Führen Sie die folgenden Schritte aus, um die Einstellungen für eine Azure AD-Rolle zu öffnen.
 
-1. Öffnen Sie **Azure AD Privileged Identity Management** .
+1. Öffnen Sie **Azure AD Privileged Identity Management**.
 
 1. Wählen Sie **Azure AD-Rollen** aus.
 
@@ -167,8 +167,8 @@ Mit dem Schalter **Incident/Ticket anfordern** können Sie festlegen, dass berec
 
 Mit dem Schalter **Multi-Factor Authentication** können Sie angeben, ob Benutzer ihre Identität mit MFA verifizieren müssen, bevor sie ihre Rollen aktivieren können. Sie müssen ihre Identität nur einmal pro Sitzung verifizieren, nicht jedes Mal, wenn sie eine Rolle aktivieren. Beachten Sie zwei Tipps, wenn Sie die MFA aktivieren:
 
-- Benutzer, die Microsoft-Konten als E-Mail-Adressen verwenden (in der Regel @outlook.com, aber nicht immer), können sich nicht für Azure Multi-Factor Authentication registrieren. Wenn Sie Benutzern mit Microsoft-Konten Rollen zuweisen möchten, sollten Sie sie zu permanenten Administratoren machen oder Multi-Factor Authentication für diese Rolle deaktivieren.
-- Sie können Multi-Factor Authentication für sehr privilegierte Rollen für Azure AD und Microsoft 365 nicht deaktivieren. Dieses Sicherheitsfeature trägt zum Schutz der folgenden Rollen bei:  
+- Benutzer, die Microsoft-Konten als E-Mail-Adressen verwenden (in der Regel @outlook.com, aber nicht immer), können sich nicht für Azure AD Multi-Factor Authentication registrieren. Wenn Sie Benutzern mit Microsoft-Konten Rollen zuweisen möchten, sollten Sie sie zu permanenten Administratoren machen oder Multi-Factor Authentication für diese Rolle deaktivieren.
+- Sie können Azure AD Multi-Factor Authentication für sehr privilegierte Rollen für Azure AD und Microsoft 365 nicht deaktivieren. Dieses Sicherheitsfeature trägt zum Schutz der folgenden Rollen bei:  
   
   - Azure Information Protection-Administrator
   - Rechnungsadministrator
@@ -200,11 +200,11 @@ Wenn Sie die angeforderte Genehmigung zum Aktivieren einer Rolle delegieren möc
 
     Wenn Sie keine genehmigenden Personen angeben, wird der Administrator für privilegierte Rollen zum Standardgenehmiger und muss dann alle Aktivierungsanforderungen für diese Rolle genehmigen.
 
-1. Um genehmigende Personen hinzuzufügen, klicken Sie auf **Genehmigende Personen auswählen** .
+1. Um genehmigende Personen hinzuzufügen, klicken Sie auf **Genehmigende Personen auswählen**.
 
     ![Azure AD-Rollen – Einstellungen: Genehmigung anfordern](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
 
-1. Wählen Sie zusätzlich zum Administrator für privilegierten Rollen eine oder mehrere genehmigende Personen aus, und klicken Sie dann auf **Auswählen** . Es sollten mindestens zwei genehmigende Personen hinzugefügt werden. Auch wenn Sie sich selbst als genehmigende Person hinzufügen, können Sie eine Rollenaktivierung nicht für sich selbst genehmigen. Ihre Auswahl wird in der Liste der ausgewählten genehmigenden Personen angezeigt.
+1. Wählen Sie zusätzlich zum Administrator für privilegierten Rollen eine oder mehrere genehmigende Personen aus, und klicken Sie dann auf **Auswählen**. Es sollten mindestens zwei genehmigende Personen hinzugefügt werden. Auch wenn Sie sich selbst als genehmigende Person hinzufügen, können Sie eine Rollenaktivierung nicht für sich selbst genehmigen. Ihre Auswahl wird in der Liste der ausgewählten genehmigenden Personen angezeigt.
 
 1. Wenn Sie alle gewünschten Rolleneinstellungen angegeben haben, wählen Sie **Speichern** aus, um die Änderungen zu speichern.
 

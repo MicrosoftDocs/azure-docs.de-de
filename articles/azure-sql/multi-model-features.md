@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: 59a709a206eb29b875272674ee19e414023cc37f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5a067272caf9b072117ba57b7b16f8d78a8b456
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87073313"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791646"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database--sql-managed-instance"></a>Funktionen für mehrere Modelle in Azure SQL-Datenbank und SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -44,7 +44,7 @@ Die Azure SQL-Produktfamilie stellt die folgenden Features für mehrere Modelle 
 - [Schlüssel-Wert-Paare](#key-value-pairs) werden nicht explizit als spezielle Funktionen unterstützt, da sie nativ als zweispaltige Tabellen modelliert werden können.
 
   > [!Note]
-  > Sie können JSON-Pfadausdrücke, XQuery/XPath-Ausdrücke, räumliche Funktionen und Graphabfrageausdrücke in ein und derselben Transact-SQL-Abfrage verwenden, um auf alle in der Datenbank gespeicherten Daten zuzugreifen. Darüber hinaus können alle Tools und Programmiersprachen, die Transact-SQL-Abfragen ausführen können, auch diese Abfrageschnittstelle verwenden, um auf Daten in mehreren Modellen zuzugreifen. Dies ist der entscheidende Unterschied zu solchen Datenbanken mit mehreren Modellen – wie z.B. [Azure Cosmos DB](/azure/cosmos-db/) –, die spezielle APIs für die verschiedenen Datenmodelle bereitstellen.
+  > Sie können JSON-Pfadausdrücke, XQuery/XPath-Ausdrücke, räumliche Funktionen und Graphabfrageausdrücke in ein und derselben Transact-SQL-Abfrage verwenden, um auf alle in der Datenbank gespeicherten Daten zuzugreifen. Darüber hinaus können alle Tools und Programmiersprachen, die Transact-SQL-Abfragen ausführen können, auch diese Abfrageschnittstelle verwenden, um auf Daten in mehreren Modellen zuzugreifen. Dies ist der entscheidende Unterschied zu solchen Datenbanken mit mehreren Modellen – wie z.B. [Azure Cosmos DB](../cosmos-db/index.yml) –, die spezielle APIs für die verschiedenen Datenmodelle bereitstellen.
 
 In den folgenden Abschnitten erfahren Sie mehr über die wichtigsten Funktionen für mehrere Modelle, die in Azure SQL-Produkten enthalten sind.
 
@@ -142,7 +142,7 @@ CREATE TABLE Collection (
 
 Sie können diese Schlüssel-Wert-Struktur ohne jede Einschränkung an Ihre Anforderungen anpassen. Ein Beispiel: Ein Wert kann ein XML-Dokument anstelle des `nvarchar(max)`-Typs sein. Wenn der Wert ein JSON-Dokument ist, können Sie eine `CHECK`-Einschränkung einfügen, die die Gültigkeit des JSON-Inhalts überprüft. Sie können eine beliebige Anzahl von Werten für einen einzigen Schlüssel in den zusätzlichen Spalten hinzufügen, berechnete Spalten und Indizes hinzufügen, um den Datenzugriff zu vereinfachen und zu optimieren, die Tabelle als speicheroptimierte reine Schematabelle definieren, um die Leistung zu verbessern, und vieles mehr.
 
-Ein Praxisbeispiel für die effektive Nutzung des relationalen Modells als Schlüssel-Wert-Paar-Lösung finden Sie im Blogbeitrag [How bwin is using In-Memory OLTP to achieve unprecedented performance and scale](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) (Wie bwin In-Memory-OLTP für beispiellose Leistung und Skalierung nutzt). In diesem Beitrag wird die ASP.NET-Cachinglösung erläutert, mit der das Unternehmen 1.200.000 Batches pro Sekunde verarbeitet.
+Ein Praxisbeispiel für die effektive Nutzung des relationalen Modells als Schlüssel-Wert-Paar-Lösung finden Sie im Blogbeitrag [How bwin is using In-Memory OLTP to achieve unprecedented performance and scale](/archive/blogs/sqlcat/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale) (Wie bwin In-Memory-OLTP für beispiellose Leistung und Skalierung nutzt). In diesem Beitrag wird die ASP.NET-Cachinglösung erläutert, mit der das Unternehmen 1.200.000 Batches pro Sekunde verarbeitet.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -1,43 +1,43 @@
 ---
 title: Primärschlüssel, Fremdschlüssel und eindeutiger Schlüssel
-description: Unterstützung von Tabellenconstraints im Synapse SQL-Pool in Azure Synapse Analytics
+description: Unterstützung von Tabellenconstraints bei dedizierten SQL-Pools in Azure Synapse Analytics
 services: synapse-analytics
-author: XiaoyuMSFT
+author: mstehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 09/05/2019
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 562e2cce317d8774ecf72971d53be4f66f9c3da4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdb27c5c9f5ec8a7be433ab6e421ecabf5c8c254
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212767"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505578"
 ---
-# <a name="primary-key-foreign-key-and-unique-key-in-synapse-sql-pool"></a>Primärschlüssel, Fremdschlüssel und eindeutiger Schlüssel im Synapse SQL-Pool
+# <a name="primary-key-foreign-key-and-unique-key-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Primärschlüssel, Fremdschlüssel und eindeutige Schlüssel bei Verwendung eines dedizierten SQL-Pools in Azure Synapse Analytics
 
-Hier erfahren Sie mehr über Tabellenconstraints im Synapse SQL-Pool, einschließlich Primärschlüssel, Fremdschlüssel und eindeutigem Schlüssel.
+Erfahren Sie mehr über Tabellenconstraints in einem dedizierten SQL-Pool, einschließlich Primärschlüssel, Fremdschlüssel und eindeutigem Schlüssel.
 
 ## <a name="table-constraints"></a>Tabellenconstraints
 
-Der Synapse SQL-Pool unterstützt die folgenden Tabellenconstraints: 
+Dedizierte SQL-Pools unterstützen die folgenden Tabellenconstraints: 
 - PRIMARY KEY wird nur unterstützt, wenn sowohl NONCLUSTERED als auch NOT ENFORCED verwendet werden.    
 - Der UNIQUE-Constraint wird nur unterstützt, wenn NOT ENFORCED verwendet wird.
 
 Informationen zur Syntax finden Sie unter [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) und [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
 
-Der FOREIGN KEY-Constraint wird im Synapse SQL-Pool nicht unterstützt.  
+Der FOREIGN KEY-Constraint wird in dedizierten SQL-Pools nicht unterstützt.  
 
 
 ## <a name="remarks"></a>Bemerkungen
 
-Mit einem Primärschlüssel und/oder einem eindeutigen Schlüssel kann die Synapse SQL-Pool-Engine einen optimalen Ausführungsplan für eine Abfrage erstellen.  Alle Werte in einer Primärschlüsselspalte oder einer Spalte für einen eindeutigen Constraint müssen eindeutig sein.
+Mit einem Primärschlüssel und/oder einem eindeutigen Schlüssel kann die Engine für den dedizierten SQL-Pool einen optimalen Ausführungsplan für eine Abfrage erstellen.  Alle Werte in einer Primärschlüsselspalte oder einer Spalte für einen eindeutigen Constraint müssen eindeutig sein.
 
-Nach dem Erstellen einer Tabelle mit Hauptschlüssel oder eindeutigem Constraint im Synapse SQL-Pool müssen Benutzer sicherstellen, dass alle Werte in den betreffenden Spalten eindeutig sind.  Eine Verletzung dieser Bedingung kann dazu führen, dass die Abfrage ungenaue Ergebnisse zurückgibt.  Dieses Beispiel zeigt, wie eine Abfrage ungenaue Ergebnisse zurückgeben kann, falls die Hauptschlüsselspalte oder die Spalte mit dem Eindeutig-Contraint doppelte Werte enthält.  
+Nach dem Erstellen einer Tabelle mit Hauptschlüssel oder eindeutigem Constraint in einem dedizierten SQL-Pool müssen Benutzer sicherstellen, dass alle Werte in den betreffenden Spalten eindeutig sind.  Eine Verletzung dieser Bedingung kann dazu führen, dass die Abfrage ungenaue Ergebnisse zurückgibt.  Dieses Beispiel zeigt, wie eine Abfrage ungenaue Ergebnisse zurückgeben kann, falls die Hauptschlüsselspalte oder die Spalte mit dem Eindeutig-Contraint doppelte Werte enthält.  
 
 ```sql
  -- Create table t1
@@ -164,12 +164,13 @@ a1          total
 
 ## <a name="examples"></a>Beispiele
 
-Erstellen einer Synapse SQL-Pooltabelle mit einem Primärschlüssel: 
+Erstellen einer Tabelle in einem dedizierten SQL-Pool mit einem Primärschlüssel: 
 
 ```sql 
 CREATE TABLE mytable (c1 INT PRIMARY KEY NONCLUSTERED NOT ENFORCED, c2 INT);
 ```
-Erstellen einer Synapse SQL-Pooltabelle mit einem eindeutigen Constraint:
+
+Erstellen einer Tabelle in einem dedizierten SQL-Pool mit einem eindeutigen Constraint:
 
 ```sql
 CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
@@ -177,4 +178,4 @@ CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Nach dem Erstellen der Tabellen für den Synapse SQL-Pool werden im nächsten Schritt Daten in die Tabelle geladen. Ein Tutorial zum Laden von Daten finden Sie unter [Laden von Daten in den Synapse SQL-Pool](load-data-wideworldimportersdw.md).
+Nach dem Erstellen der Tabellen für den dedizierten SQL-Pool werden im nächsten Schritt Daten in die Tabelle geladen. Ein Tutorial zum Laden von Daten finden Sie unter [Laden von Daten in einen dedizierten SQL-Pool](load-data-wideworldimportersdw.md).

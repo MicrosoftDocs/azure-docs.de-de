@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: 958bfa605e0195b5f4fde2c0ff53a8ce567f50a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bea4c049c3d7ea17e173f069a3e99cbcca1fe48
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89257142"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041991"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Verwenden der Azure AD-Authentifizierung zum Zugreifen auf die Media Services-API mit REST
 
@@ -33,7 +33,7 @@ Bei Verwendung der Azure AD-Authentifizierung mit Azure Media Services können S
 - Die **Benutzerauthentifizierung** dient der Authentifizierung einer Person, die die App zum Interagieren mit Azure Media Services-Ressourcen verwendet. Die interaktive Anwendung soll den Benutzer zuerst zur Eingabe seiner Anmeldeinformationen auffordern. Ein Beispiel hierfür ist eine Verwaltungskonsolen-App, die von autorisierten Benutzern zum Überwachen von Codierungsaufträgen oder Livestreaming verwendet wird. 
 - Die **Dienstprinzipalauthentifizierung** dient der Authentifizierung eines Diensts. Anwendungen, für die diese Authentifizierungsmethode normalerweise verwendet wird, sind Apps, die Daemondienste, Dienste der mittleren Ebene oder geplante Aufträge wie Web-Apps, Funktions-Apps, Logik-Apps, APIs oder Microservices ausführen.
 
-    In diesem Tutorial wird gezeigt, wie Sie die Azure AD-**Dienstprinzipal**authentifizierung für den Zugriff auf die AMS-API mit REST verwenden. 
+    In diesem Tutorial wird gezeigt, wie Sie die Azure AD- **Dienstprinzipal** authentifizierung für den Zugriff auf die AMS-API mit REST verwenden. 
 
     > [!NOTE]
     > **Dienstprinzipale** werden als Best Practice für die meisten Anwendungen empfohlen, die eine Verbindung mit Azure Media Services herstellen. 
@@ -43,7 +43,7 @@ In diesem Tutorial lernen Sie Folgendes:
 > [!div class="checklist"]
 > * Abrufen der Authentifizierungsinformationen aus dem Azure-Portal
 > * Abrufen des Zugriffstokens mithilfe von Postman
-> * Testen der **Assets**-API unter Verwendung des Zugriffstokens
+> * Testen der **Assets** -API unter Verwendung des Zugriffstokens
 
 
 > [!IMPORTANT]
@@ -71,7 +71,7 @@ Für den Zugriff auf die Media Services-API müssen Sie die folgenden Datenpunkt
 |Client-ID (Anwendungs-ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Client-ID der Azure AD-Anwendung. Die Client-ID ist erforderlich, um das Zugriffstoken abzurufen. |
 |Geheimer Clientschlüssel|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD-Anwendungsschlüssel (Clientgeheimnis). Das Clientgeheimnis ist erforderlich, um das Zugriffstoken abzurufen.|
 
-### <a name="get-aad-auth-info-from-the-azure-portal"></a>Abrufen von AAD-Authentifizierungsinformationen aus dem Azure-Portal
+### <a name="get-azure-active-directory-auth-info-from-the-azure-portal"></a>Abrufen von Azure Active Directory-Authentifizierungsinformationen über das Azure-Portal
 
 Führen Sie die folgenden Schritte aus, um die Informationen abzurufen:
 
@@ -80,7 +80,7 @@ Führen Sie die folgenden Schritte aus, um die Informationen abzurufen:
 3. Wählen Sie **API-Zugriff** aus.
 4. Klicken Sie auf **Verbindung mit Azure Media Services-API über Dienstprinzipal herstellen**.
 
-    ![API-Zugriff](./media/connect-with-rest/connect-with-rest01.png)
+    ![Screenshot der ausgewählten Option „API-Zugriff“ im Menü „Media Services“ und der im rechten Bereich ausgewählten Option „Verbindung mit Azure Media Services-API über Dienstprinzipal herstellen“](./media/connect-with-rest/connect-with-rest01.png)
 
 5. Wählen Sie eine vorhandene **Azure AD-Anwendung** aus, oder erstellen Sie eine neue Anwendung (nachfolgend gezeigt).
 
@@ -94,7 +94,7 @@ Führen Sie die folgenden Schritte aus, um die Informationen abzurufen:
    3. Klicken Sie erneut auf **Neu erstellen**.
    4. Klicken Sie auf **Speichern**.
 
-      ![API-Zugriff](./media/connect-with-rest/new-app.png)
+      ![Screenshot des Dialogfelds „Neu erstellen“ mit hervorgehobenem Textfeld „App erstellen“ und ausgewählter Schaltfläche „Speichern“](./media/connect-with-rest/new-app.png)
 
       Die neue App wird auf der Seite angezeigt.
 
@@ -103,14 +103,14 @@ Führen Sie die folgenden Schritte aus, um die Informationen abzurufen:
    1. Wählen Sie die Anwendung aus.
    2. Die **Client-ID** wird im Fenster rechts angezeigt. 
 
-      ![API-Zugriff](./media/connect-with-rest/existing-client-id.png)
+      ![Screenshot der ausgewählten Optionen „Azure AD-App“ und „Anwendung verwalten“ mit hervorgehobener Option „Client-ID“ im rechten Bereich](./media/connect-with-rest/existing-client-id.png)
 
 7. Rufen Sie den **Schlüssel** der Anwendung (das Clientgeheimnis) ab. 
 
    1. Klicken Sie auf die Schaltfläche **Anwendung verwalten** (beachten Sie, dass sich die Client-ID unter **Anwendungs-ID** befindet). 
    2. Klicken Sie auf **Schlüssel**.
     
-       ![API-Zugriff](./media/connect-with-rest/manage-app.png)
+       ![Screenshot der ausgewählten Schaltfläche „Anwendung verwalten“ mit hervorgehobener Option „Anwendungs-ID“ im mittleren Bereich und ausgewählter Option „Schlüssel“ im rechten Bereich](./media/connect-with-rest/manage-app.png)
    3. Generieren Sie den App-Schlüssel (das Clientgeheimnis), indem Sie **BESCHREIBUNG** und **LÄUFT AB** ausfüllen und auf **Speichern** klicken.
     
        Nach dem Klicken auf die Schaltfläche **Speichern** wird der Schlüsselwert angezeigt. Kopieren Sie den Schlüsselwert, bevor Sie das Blatt verlassen.
@@ -124,18 +124,18 @@ Sie können Werte für AD-Verbindungsparameter für Ihre Datei „web.config“ 
 
 ## <a name="get-the-access-token-using-postman"></a>Abrufen des Zugriffstokens mithilfe von Postman
 
-In diesem Abschnitt wird gezeigt, wie Sie mithilfe von **Postman** eine REST-API ausführen, die ein JWT-Bearertoken (Zugriffstoken) zurückgibt. Um eine beliebige Media Services-REST-API aufzurufen, müssen Sie Ihren Aufrufen den Autorisierungsheader und den Wert „Bearer *Ihr_Zugriffstoken*“ hinzufügen (wie im nächsten Abschnitt dieses Tutorials gezeigt). 
+In diesem Abschnitt wird gezeigt, wie Sie mithilfe von **Postman** eine REST-API ausführen, die ein JWT-Bearertoken (Zugriffstoken) zurückgibt. Um eine beliebige Media Services-REST-API aufzurufen, müssen Sie Ihren Aufrufen den Autorisierungsheader und den Wert „Bearer *Ihr_Zugriffstoken* “ hinzufügen (wie im nächsten Abschnitt dieses Tutorials gezeigt). 
 
 1. Öffnen Sie **Postman**.
-2. Wählen Sie **POST**aus.
-3. Geben Sie die URL mit Ihrem Mandantennamen im folgenden Format ein: Der Mandantenname muss auf **.onmicrosoft.com**, die URL muss auf **oauth2/token** enden: 
+2. Wählen Sie **POST** aus.
+3. Geben Sie die URL mit Ihrem Mandantennamen im folgenden Format ein: Der Mandantenname muss auf **.onmicrosoft.com** , die URL muss auf **oauth2/token** enden: 
 
     `https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token`
 
 4. Wählen Sie die Registerkarte **Headers** (Header) aus.
 5. Geben Sie die Informationen für **Headers** (Header) mithilfe der Schlüssel/Wert-Daten ein. 
 
-    ![Datentabelle](./media/connect-with-rest/headers-data-grid.png)
+    ![Screenshot der Registerkarte „Header“ mit ausgewählter Aktion „Massenbearbeitung“](./media/connect-with-rest/headers-data-grid.png)
 
     Alternativ können Sie auf den Link **Bulk Edit** (Massenbearbeitung) im rechten Bereich des Postman-Fensters klicken und den folgenden Code einfügen.
 
@@ -160,16 +160,16 @@ In diesem Abschnitt wird gezeigt, wie Sie mithilfe von **Postman** eine REST-API
 
 8. Klicken Sie auf **Senden**.
 
-    ![Tokenabruf](./media/connect-with-rest/connect-with-rest04.png)
+    ![Screenshot des Textfelds „Veröffentlichen“ und der Registerkarten „Header“ und „Text“ mit hervorgehobener Option „access_token“ und ausgewählter Schaltfläche „Senden“](./media/connect-with-rest/connect-with-rest04.png)
 
-Die zurückgegebene Antwort enthält das **Zugriffstoken**, das Sie für den Zugriff auf beliebige AMS-APIs verwenden.
+Die zurückgegebene Antwort enthält das **Zugriffstoken** , das Sie für den Zugriff auf beliebige AMS-APIs verwenden.
 
-## <a name="test-the-assets-api-using-the-access-token"></a>Testen der **Assets**-API unter Verwendung des Zugriffstokens
+## <a name="test-the-assets-api-using-the-access-token"></a>Testen der **Assets** -API unter Verwendung des Zugriffstokens
 
-In diesem Abschnitt wird gezeigt, wie Sie mithilfe von **Postman** auf die **Assets**-API zugreifen.
+In diesem Abschnitt wird gezeigt, wie Sie mithilfe von **Postman** auf die **Assets** -API zugreifen.
 
 1. Öffnen Sie **Postman**.
-2. Wählen Sie **GET**aus.
+2. Wählen Sie **GET** aus.
 3. Fügen Sie den REST-API-Endpunkt ein (z.B. https://amshelloworld.restv2.westus.media.azure.net/api/Assets).
 4. Wählen Sie die Registerkarte **Authorization** (Autorisierung) aus. 
 5. Klicken Sie auf **Bearer Token** (Bearertoken).
@@ -178,7 +178,7 @@ In diesem Abschnitt wird gezeigt, wie Sie mithilfe von **Postman** auf die **Ass
     ![Tokenabruf](./media/connect-with-rest/connect-with-rest05.png)
 
     > [!NOTE]
-    > Die Postman-Benutzeroberfläche für einen Mac und einen PC unterscheidet sich möglicherweise. Wenn die Mac-Version im Abschnitt **Authentication** (Authentifizierung) keine Option „Bearer Token“ (Bearertoken) in der Dropdownliste aufweist, müssen Sie den **Authorization**-Header auf dem Mac-Client manuell hinzufügen.
+    > Die Postman-Benutzeroberfläche für einen Mac und einen PC unterscheidet sich möglicherweise. Wenn die Mac-Version im Abschnitt **Authentication** (Authentifizierung) keine Option „Bearer Token“ (Bearertoken) in der Dropdownliste aufweist, müssen Sie den **Authorization** -Header auf dem Mac-Client manuell hinzufügen.
 
    ![Autorisierungsheader](./media/connect-with-rest/auth-header.png)
 

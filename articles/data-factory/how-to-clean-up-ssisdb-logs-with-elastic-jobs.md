@@ -11,12 +11,12 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2c308bd038f273a7cec0442e42f8a749bc4bb8fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3539b867d8f03d11e7799498d0207a65ac9db7d8
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89073555"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636628"
 ---
 # <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Bereinigen von SSISDB-Protokollen mit Aufträgen für die elastische Azure-Datenbank
 
@@ -160,7 +160,7 @@ $Job | Set-AzureRmSqlElasticJob -IntervalType $IntervalType -IntervalCount $Inte
 
 ## <a name="clean-up-logs-with-transact-sql"></a>Bereinigen von Protokollen mit Transact-SQL
 
-Mit den folgenden Transact-SQL-Beispielskripts wird ein neuer elastischer Auftrag erstellt, um die gespeicherte Prozedur für die SSISDB-Protokollbereinigung auszulösen. Weitere Informationen finden Sie unter [Erstellen und Verwalten von Aufträgen für die elastische Datenbank mit Transact-SQL (T-SQL)](../sql-database/elastic-jobs-tsql.md).
+Mit den folgenden Transact-SQL-Beispielskripts wird ein neuer elastischer Auftrag erstellt, um die gespeicherte Prozedur für die SSISDB-Protokollbereinigung auszulösen. Weitere Informationen finden Sie unter [Erstellen und Verwalten von Aufträgen für die elastische Datenbank mit Transact-SQL (T-SQL)](../azure-sql/database/elastic-jobs-tsql-create-manage.md).
 
 1. Erstellen bzw. ermitteln Sie eine leere Azure SQL-Datenbank (S0 oder höher) als SSISDBCleanup-Auftragsdatenbank. Erstellen Sie anschließend im [Azure-Portal](https://ms.portal.azure.com/#create/Microsoft.SQLElasticJobAgent) einen Agent für elastische Aufträge.
 

@@ -1,16 +1,19 @@
 ---
-title: Überwachen von Java-Anwendungen in beliebiger Umgebung – Azure Monitor Application Insights
-description: Überwachen der Anwendungsleistung für Java-Anwendungen, die in einer beliebigen Umgebung ausgeführt werden, ohne die App zu instrumentieren. Verteilte Ablaufverfolgung und Anwendungszuordnung.
+title: Azure Monitor Application Insights Java
+description: Überwachung der Anwendungsleistung ohne Codeänderungen für Java-Anwendungen, die in einer beliebigen Umgebung ausgeführt werden. Verteilte Ablaufverfolgung und Anwendungszuordnung.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 1182813c0b79d43c2c264482629ad97f23683a49
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+author: MS-jgol
+ms.custom: devx-track-java
+ms.author: jgol
+ms.openlocfilehash: 4b29e5375c10fc3c1aaa203df720fdd24090d11e
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215279"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601134"
 ---
-# <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Java-Anwendungsüberwachung ohne Code mit Azure Monitor Application Insights – Public Preview
+# <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java-Anwendungsüberwachung ohne Code mit Azure Monitor Application Insights
 
 Bei der Java-Anwendungsüberwachung ohne Code geht es um Einfachheit. Es gibt keine Codeänderungen, und der Java-Agent kann durch nur wenige Konfigurationsänderungen aktiviert werden.
 
@@ -18,7 +21,7 @@ Bei der Java-Anwendungsüberwachung ohne Code geht es um Einfachheit. Es gibt ke
 
 Das Application Insights Java SDK muss nicht mehr zu Ihrer Anwendung hinzugefügt werden, da der 3.0-Agent Anforderungen, Abhängigkeiten und Protokolle eigenständig und automatisch sammelt.
 
-Sie können weiterhin benutzerdefinierte Telemetriedaten aus Ihrer Anwendung senden. Der 3.0-Agent verfolgt und korreliert diese zusammen mit allen automatisch gesammelten Telemetriedaten.
+Sie können weiterhin benutzerdefinierte Telemetriedaten aus Ihrer Anwendung senden. Der 3.0-Agent verfolgt und korreliert diese zusammen mit der gesamten automatisch gesammelten Telemetrie.
 
 Der 3.0-Agent unterstützt Java 8 und höher.
 
@@ -26,15 +29,20 @@ Der 3.0-Agent unterstützt Java 8 und höher.
 
 **1. Herunterladen des Agents**
 
-Laden Sie [applicationinsights-agent-3.0.0-PREVIEW.7.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.7/applicationinsights-agent-3.0.0-PREVIEW.7.jar) herunter.
+> [!WARNING]
+> **Bei einem Upgrade von Vorschauversion 3.0**
+>
+> Lesen Sie sich sorgfältig alle [Konfigurationsoptionen](./java-standalone-config.md) durch, da neben dem Dateinamen, der nun komplett in Kleinbuchstaben geschrieben wird, auch die JSON-Struktur vollständig geändert wurde.
+
+Laden Sie [applicationinsights-agent-3.0.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0/applicationinsights-agent-3.0.0.jar) herunter.
 
 **2. Verweisen der JVM auf den Agent**
 
-Fügen Sie den JVM-Argumenten Ihrer Anwendung den Eintrag `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.7.jar` hinzu.
+Fügen Sie den JVM-Argumenten Ihrer Anwendung den Eintrag `-javaagent:path/to/applicationinsights-agent-3.0.0.jar` hinzu.
 
 Typische JVM-Argumente sind `-Xmx512m` und `-XX:+UseG1GC`. Wenn Sie wissen, wo diese hinzugefügt werden, wissen Sie auch, wo dieses Argument hinzuzufügen ist.
 
-Weitere Informationen zum Konfigurieren der JVM-Argumente Ihrer Anwendung finden Sie unter [3.0 Preview: Tipps zum Aktualisieren Ihrer JVM-Argumente](./java-standalone-arguments.md).
+Weitere Informationen zum Konfigurieren der JVM-Argumente Ihrer Anwendung finden Sie unter [Tipps für das Updaten Ihrer JVM-Argumente](./java-standalone-arguments.md).
 
 **3. Verweisen des Agents auf die Application Insights-Ressource**
 
@@ -43,16 +51,14 @@ Wenn Sie noch nicht über eine Application Insights-Ressource verfügen, können
 Verweisen Sie den Agent auf Ihre Application Insights-Ressource, indem Sie eine Umgebungsvariable festlegen:
 
 ```
-APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
+APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
-Sie können aber auch eine Konfigurationsdatei mit dem Namen `ApplicationInsights.json` erstellen und sie im gleichen Verzeichnis wie `applicationinsights-agent-3.0.0-PREVIEW.7.jar` mit folgendem Inhalt ablegen:
+Sie können aber auch eine Konfigurationsdatei mit dem Namen `applicationinsights.json` erstellen und sie im gleichen Verzeichnis wie `applicationinsights-agent-3.0.0.jar` mit folgendem Inhalt ablegen:
 
 ```json
 {
-  "instrumentationSettings": {
-    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
-  }
+  "connectionString": "InstrumentationKey=..."
 }
 ```
 
@@ -70,21 +76,23 @@ Starten Sie nun Ihre Anwendung, und wechseln Sie zur Application Insights-Ressou
 
 ## <a name="configuration-options"></a>Konfigurationsoptionen
 
-In der Datei `ApplicationInsights.json` können Sie zusätzlich Folgendes konfigurieren:
+In der Datei `applicationinsights.json` können Sie zusätzlich Folgendes konfigurieren:
 
 * Cloudrollenname
 * Cloudrolleninstanz
-* Erfassung des Anwendungsprotokolls
-* JMX-Metriken
-* Mikrometer
-* Heartbeat
 * Stichproben
+* JMX-Metriken
+* Benutzerdefinierte Dimensionen
+* Telemetrieprozessoren (Vorschauversion)
+* Automatisch gesammelte Protokolle
+* Automatisch gesammelte Micrometer-Metriken (einschließlich Spring Boot Actuator-Metriken)
+* Heartbeat
 * HTTP-Proxy
 * Selbstdiagnose
 
-Ausführliche Informationen finden Sie unter [3.0 Public Preview: Konfigurationsoptionen](./java-standalone-config.md).
+Ausführliche Informationen finden Sie unter [Konfigurationsoptionen](./java-standalone-config.md).
 
-## <a name="autocollected-requests-dependencies-logs-and-metrics"></a>Automatisch gesammelte Anforderungen, Abhängigkeiten, Protokolle und Metriken
+## <a name="auto-collected-requests-dependencies-logs-and-metrics"></a>Automatisch gesammelte Anforderungen, Abhängigkeiten, Protokolle und Metriken
 
 ### <a name="requests"></a>Requests
 
@@ -122,15 +130,16 @@ Ausführliche Informationen finden Sie unter [3.0 Public Preview: Konfigurations
 * Micrometer (einschließlich Metriken des Spring Boot-Aktors)
 * JMX-Metriken
 
-## <a name="sending-custom-telemetry-from-your-application"></a>Senden benutzerdefinierter Telemetriedaten aus Ihrer Anwendung
+## <a name="send-custom-telemetry-from-your-application"></a>Senden benutzerdefinierter Telemetriedaten aus Ihrer Anwendung
 
 Unser Ziel in Version 3.0 und höher besteht darin, Ihnen das Senden benutzerdefinierter Telemetriedaten mithilfe von Standard-APIs zu ermöglichen.
 
-Es werden Micrometer, OpenTelemetry-API und die gängigen Protokollierungsframeworks unterstützt. Mit Application Insights Java 3.0 werden die Telemetriedaten automatisch erfasst und mit allen automatisch gesammelten Telemetriedaten korreliert.
+Wir unterstützen bisher Micrometer, beliebte Protokollierungsframeworks und das Application Insights Java 2.x SDK.
+Application Insights Java 3.0 erfasst automatisch die über diese APIs gesendeten Telemetriedaten und korreliert sie mit automatisch gesammelten Telemetriedaten.
 
 ### <a name="supported-custom-telemetry"></a>Unterstützte benutzerdefinierte Telemetrie
 
-Die folgende Tabelle zeigt die derzeit unterstützten benutzerdefinierten Telemetrietypen, die Sie zur Ergänzung des Java 3.0-Agents aktivieren können. Zusammenfassung für das [Application Insights Java 2.x SDK](#sending-custom-telemetry-using-application-insights-java-sdk-2x): Benutzerdefinierte Metriken werden über Micrometer unterstützt, benutzerdefinierte Ausnahmen und Ablaufverfolgungen können durch Protokollierungsframeworks aktiviert werden, und jede Art von benutzerdefinierter Telemetrie wird unterstützt. 
+Die folgende Tabelle zeigt die derzeit unterstützten benutzerdefinierten Telemetrietypen, die Sie zur Ergänzung des Java 3.0-Agents aktivieren können. Zusammenfassung für das [Application Insights Java 2.x SDK](#send-custom-telemetry-using-application-insights-java-2x-sdk): Benutzerdefinierte Metriken werden über Micrometer unterstützt, benutzerdefinierte Ausnahmen und Ablaufverfolgungen können durch Protokollierungsframeworks aktiviert werden, und jede Art von benutzerdefinierter Telemetrie wird unterstützt.
 
 |                     | Mikrometer | Log4j, logback, JUL | 2.x SDK |
 |---------------------|------------|---------------------|---------|
@@ -144,91 +153,101 @@ Die folgende Tabelle zeigt die derzeit unterstützten benutzerdefinierten Teleme
 
 Wir planen derzeit kein SDK mit Application Insights 3.0.
 
-Application Insights Java 3.0 lauscht bereits auf Telemetriedaten, die an das Application Insights Java SDK 2.x gesendet werden. Diese Funktionalität ist ein wichtiger Bestandteil der Upgrades für vorhandene 2.x-Benutzer und füllt eine wichtige Lücke in der Unterstützung benutzerdefinierter Telemetriedaten bis zur allgemeinen Verfügbarkeit der OpenTelemetry-API.
+Application Insights Java 3.0 lauscht bereits auf Telemetriedaten, die an das Application Insights Java 2.x SDK gesendet werden. Diese Funktionalität ist ein wichtiger Bestandteil der Upgrades für vorhandene 2.x-Benutzer und füllt eine wichtige Lücke in der Unterstützung benutzerdefinierter Telemetriedaten bis zur allgemeinen Verfügbarkeit der OpenTelemetry-API.
 
-## <a name="sending-custom-telemetry-using-application-insights-java-sdk-2x"></a>Senden benutzerdefinierter Telemetriedaten mit Application Insights Java SDK 2.x
+### <a name="send-custom-metrics-using-micrometer"></a>Senden benutzerdefinierter Metriken mithilfe von Micrometer
+
+Fügen Sie der Anwendung Micrometer hinzu:
+
+```xml
+<dependency>
+  <groupId>io.micrometer</groupId>
+  <artifactId>micrometer-core</artifactId>
+  <version>1.6.1</version>
+</dependency>
+```
+
+Verwenden Sie die [globale Registrierung](https://micrometer.io/docs/concepts#_global_registry) von Micrometer, um eine Verbrauchseinheit zu erstellen:
+
+```java
+static final Counter counter = Metrics.counter("test_counter");
+```
+
+und zeichnen Sie damit Metriken auf:
+
+```java
+counter.increment();
+```
+
+### <a name="send-custom-traces-and-exceptions-using-your-favorite-logging-framework"></a>Senden benutzerdefinierter Ablaufverfolgungen und Ausnahmen mit Ihrem bevorzugten Protokollierungsframework
+
+Log4j, Logback und java.util.logging sind automatisch instrumentiert, und die Protokollierung dieser Protokollierungsframeworks wird automatisch als Telemetrie für Ablaufverfolgung und Ausnahmen erfasst.
+
+Die Protokollierung wird standardmäßig nur gesammelt, wenn diese ab der Ebene INFO erfolgt.
+Weitere Informationen zum Ändern dieser Ebene finden Sie in unter [Konfigurationsoptionen](./java-standalone-config.md#auto-collected-logging).
+
+Wenn Sie benutzerdefinierte Dimensionen an Ihre Protokolle anfügen möchten, können Sie [Log4j 1 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html), [Log4j 2 MDC](https://logging.apache.org/log4j/2.x/manual/thread-context.html) oder [Logback MDC](http://logback.qos.ch/manual/mdc.html) verwenden, damit Application Insights Java 3.0 diese MDC-Eigenschaften automatisch als benutzerdefinierte Dimensionen in Ihrer Telemetrie für Ablaufverfolgung und Ausnahmen erfasst.
+
+### <a name="send-custom-telemetry-using-application-insights-java-2x-sdk"></a>Senden benutzerdefinierter Telemetriedaten mit dem Application Insights Java 2.x SDK
 
 Fügen Sie `applicationinsights-core-2.6.0.jar` zu Ihrer Anwendung hinzu (alle 2.x-Versionen werden von Application Insights Java 3.0 unterstützt, aber es lohnt sich, die neueste Version zu verwenden, wenn Sie die Wahl haben):
 
 ```xml
-  <dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>applicationinsights-core</artifactId>
-    <version>2.6.0</version>
-  </dependency>
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-core</artifactId>
+  <version>2.6.0</version>
+</dependency>
 ```
 
 Erstellen Sie einen TelemetryClient:
 
   ```java
-private static final TelemetryClient telemetryClient = new TelemetryClient();
+static final TelemetryClient telemetryClient = new TelemetryClient();
 ```
 
-und verwenden Sie diesen zum Senden benutzerdefinierter Telemetriedaten.
+und senden Sie damit benutzerdefinierte Telemetriedaten:
 
-### <a name="events"></a>Ereignisse
+##### <a name="events"></a>Ereignisse
 
-  ```java
+```java
 telemetryClient.trackEvent("WinGame");
 ```
-### <a name="metrics"></a>Metriken
 
-Sie können Metriktelemetrie über [Micrometer](https://micrometer.io) senden:
-
-```java
-  Counter counter = Metrics.counter("test_counter");
-  counter.increment();
-```
-
-Sie können aber auch Application Insights Java SDK 2.x verwenden:
+##### <a name="metrics"></a>Metriken
 
 ```java
-  telemetryClient.trackMetric("queueLength", 42.0);
+telemetryClient.trackMetric("queueLength", 42.0);
 ```
 
-### <a name="dependencies"></a>Abhängigkeiten
+##### <a name="dependencies"></a>Abhängigkeiten
 
 ```java
-  boolean success = false;
-  long startTime = System.currentTimeMillis();
-  try {
-      success = dependency.call();
-  } finally {
-      long endTime = System.currentTimeMillis();
-      RemoteDependencyTelemetry telemetry = new RemoteDependencyTelemetry();
-      telemetry.setTimestamp(new Date(startTime));
-      telemetry.setDuration(new Duration(endTime - startTime));
-      telemetryClient.trackDependency(telemetry);
-  }
+boolean success = false;
+long startTime = System.currentTimeMillis();
+try {
+    success = dependency.call();
+} finally {
+    long endTime = System.currentTimeMillis();
+    RemoteDependencyTelemetry telemetry = new RemoteDependencyTelemetry();
+    telemetry.setTimestamp(new Date(startTime));
+    telemetry.setDuration(new Duration(endTime - startTime));
+    telemetryClient.trackDependency(telemetry);
+}
 ```
 
-### <a name="logs"></a>Protokolle
-Sie können benutzerdefinierte Protokolltelemetriedaten über Ihr bevorzugtes Protokollierungsframework senden.
-
-Sie können aber auch Application Insights Java SDK 2.x verwenden:
+##### <a name="logs"></a>Protokolle
 
 ```java
-  telemetryClient.trackTrace(message, SeverityLevel.Warning, properties);
+telemetryClient.trackTrace(message, SeverityLevel.Warning, properties);
 ```
 
-### <a name="exceptions"></a>Ausnahmen
-Sie können benutzerdefinierte Ausnahmetelemetriedaten über Ihr bevorzugtes Protokollierungsframework senden.
-
-Sie können aber auch Application Insights Java SDK 2.x verwenden:
+##### <a name="exceptions"></a>Ausnahmen
 
 ```java
-  try {
-      ...
-  } catch (Exception e) {
-      telemetryClient.trackException(e);
-  }
+try {
+    ...
+} catch (Exception e) {
+    telemetryClient.trackException(e);
+}
 ```
-
-## <a name="upgrading-from-application-insights-java-sdk-2x"></a>Upgrade von Application Insights Java SDK 2.x
-
-Wenn Sie bereits Application Insights Java SDK 2.x in Ihrer Anwendung verwenden, müssen Sie es nicht entfernen. Der Java 3.0-Agent erkennt es und erfasst und korreliert alle benutzerdefinierten Telemetriedaten, die über das Java SDK 2.x gesendet werden, während gleichzeitig alle vom Java SDK 2.x durchgeführten automatischen Sammlungen unterdrückt werden, um eine doppelte Erfassung zu verhindern.
-
-Wenn Sie den Application Insights 2.x-Agent verwendet haben, müssen Sie das JVM-Argument `-javaagent:` entfernen, das auf den 2.x-Agent verweist.
-
-> [!NOTE]
-> Hinweis: TelemetryInitializers und TelemetryProcessors von Java SDK 2.x werden bei Verwendung des 3.0-Agents nicht ausgeführt.

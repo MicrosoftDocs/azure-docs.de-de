@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 044ee51fb7ff675af0fb97224313c388c4cbeac1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b89ae74a1f4ead568a5454c9494d4a82b0eeea3e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371340"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015178"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect-or-cloudlink-platform"></a>Tutorial: Azure Active Directory-Integration mit Mitel MiCloud Connect oder CloudLink Platform
 
@@ -25,7 +25,7 @@ In diesem Tutorial erfahren Sie, wie Sie die Mitel Connect-App verwenden, um Az
 * Sie können den Benutzerzugriff auf MiCloud Connect- und CloudLink-Apps in Azure AD unter Verwendung ihrer Anmeldeinformationen steuern.
 * Sie können es Benutzern in Ihrem Konto ermöglichen, sich mit ihren Azure AD-Konten automatisch bei MiCloud Connect oder CloudLink anzumelden (einmaliges Anmelden; Single Sign-On, SSO).
 
-Ausführliche Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Worum handelt es sich beim einmaligen Anmelden (Single Sign-On, SSO)?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Ausführliche Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Worum handelt es sich beim einmaligen Anmelden (Single Sign-On, SSO)?](../manage-apps/what-is-single-sign-on.md).
 
 Wenn Sie kein Azure-Abonnement besitzen, [erstellen Sie ein kostenloses Konto](https://azure.microsoft.com/free/), bevor Sie mit der Integration von Azure AD mit Mitel MiCloud Connect oder CloudLink Platform beginnen.
 
@@ -41,7 +41,7 @@ Um die Azure AD-Integration in MiCloud Connect zu konfigurieren, benötigen Si
 In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden (SSO) von Azure AD.
 
 * Mitel Connect unterstützt **SP**-initiiertes einmaliges Anmelden.
-* Nach dem Konfigurieren von Mitel Connect können Sie die Sitzungssteuerung erzwingen, die in Echtzeit vor der Exfiltration und Infiltration vertraulicher Unternehmensdaten schützt. Die Sitzungssteuerung basiert auf bedingtem Zugriff. [Hier](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app) erfahren Sie, wie Sie die Sitzungssteuerung mit Microsoft Cloud App Security erzwingen.
+* Nach dem Konfigurieren von Mitel Connect können Sie die Sitzungssteuerung erzwingen, die in Echtzeit vor der Exfiltration und Infiltration vertraulicher Unternehmensdaten schützt. Die Sitzungssteuerung basiert auf bedingtem Zugriff. [Hier](/cloud-app-security/proxy-deployment-any-app) erfahren Sie, wie Sie die Sitzungssteuerung mit Microsoft Cloud App Security erzwingen.
 
 ## <a name="add-mitel-connect-from-the-gallery"></a>Hinzufügen von Mitel Connect aus dem Katalog
 
@@ -221,7 +221,7 @@ Erstellen Sie in Ihrem MiCloud Connect-Konto einen Benutzer mit den folgenden D
 
 In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich.
 
-Wenn Sie im Zugriffsbereich die Kachel „Mitel Connect“ auswählen, sollten Sie automatisch zur Anmeldung bei der MiCloud Connect-Anwendung umgeleitet werden, die Sie im Feld **Anmelde-URL** als Standardanwendung konfiguriert haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Wenn Sie im Zugriffsbereich die Kachel „Mitel Connect“ auswählen, sollten Sie automatisch zur Anmeldung bei der MiCloud Connect-Anwendung umgeleitet werden, die Sie im Feld **Anmelde-URL** als Standardanwendung konfiguriert haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="configure-and-test-azure-ad-sso-with-cloudlink-platform"></a>Konfigurieren und Testen des einmaligen Anmelden von Azure AD mit CloudLink Platform
 
@@ -375,12 +375,12 @@ Erstellen Sie in Ihrem CloudLink-Kontoportal einen Benutzer mit den folgenden De
 
 In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden (SSO) über den Zugriffsbereich.
 
-Wenn Sie im Zugriffsbereich die Kachel „Mitel Connect“ auswählen, werden Sie automatisch zur Anmeldung bei der CloudLink-Anwendung umgeleitet, die Sie im Feld **Anmelde-URL** als Standardanwendung konfiguriert haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Wenn Sie im Zugriffsbereich die Kachel „Mitel Connect“ auswählen, werden Sie automatisch zur Anmeldung bei der CloudLink-Anwendung umgeleitet, die Sie im Feld **Anmelde-URL** als Standardanwendung konfiguriert haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](./tutorial-list.md)
 
-- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Was ist bedingter Zugriff?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Was ist bedingter Zugriff?](../conditional-access/overview.md)

@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bb120a533e4d11b34bb9712bf0164cec5a7728ce
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 851a87885ac765c829e8c2be9fd1205e22906ca9
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207732"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445153"
 ---
 # <a name="hierarchical-state-override"></a>Hierarchische Zustandsüberschreibung
 
@@ -40,14 +40,21 @@ Die festgelegten Zustände, die überschrieben werden können, sind die folgende
   > [!IMPORTANT]
   > Der durchsichtige Effekt funktioniert nur, wenn der [Renderingmodus](../../concepts/rendering-modes.md) *TileBasedComposition* verwendet wird.
 
+* **`Shell`** : Die Geometrie wird als transparente, entsättigte Shell gerendert. In diesem Modus können unwichtige Teile einer Szene ausgeblendet werden, während trotzdem ein Gefühl für die Form und relative Positionierung erhalten bleibt. Verwenden Sie den Status [ShellRenderingSettings](shell-effect.md), um die Renderingdarstellung der Shell zu ändern. In der folgenden Abbildung sehen Sie das Automodell vollständig als Shell gerendert, mit Ausnahme der blauen Federn:
+
+  ![Der Shellmodus wird zum Ausblenden bestimmter Objekte verwendet.](./media/shell.png)
+
+  > [!IMPORTANT]
+  > Der Shellmodus funktioniert nur, wenn der [Renderingmodus](../../concepts/rendering-modes.md) *TileBasedComposition* verwendet wird.
+
 * **`Selected`** : Die Geometrie wird mit einer [Auswahlgliederung](outlines.md) gerendert.
 
   ![Konturoption zum Hervorheben eines ausgewählten Teils](./media/selection-outline.png)
 
 * **`DisableCollision`** : Die Geometrie ist von [räumlichen Abfragen](spatial-queries.md) ausgenommen. Das **`Hidden`** -Flag wirkt sich nicht auf das Kollisionsstatus-Flag aus, deshalb werden diese beiden Flags häufig zusammen festgelegt.
 
-* **`UseCutPlaneFilterMask`** : Verwenden Sie eine einzelne Filterbitmaske, um die Auswahl der Schnittebene zu steuern. Dieses Flag bestimmt, ob die jeweilige Filtermaske verwendet oder von der übergeordneten Filtermaske geerbt werden soll. Die Filterbitmaske selbst wird mit der `CutPlaneFilterMask`-Eigenschaft festgelegt. Ausführliche Informationen zur Funktionsweise der Filterung finden Sie im Abschnitt [Selektive Schnittebenen](cut-planes.md#selective-cut-planes).
-![Selektive Schnittebenen](./media/selective-cut-planes.png)
+* **`UseCutPlaneFilterMask`** : Verwenden Sie eine einzelne Filterbitmaske, um die Auswahl der Schnittebene zu steuern. Dieses Flag bestimmt, ob die jeweilige Filtermaske verwendet oder von der übergeordneten Filtermaske geerbt werden soll. Die Filterbitmaske selbst wird mit der `CutPlaneFilterMask`-Eigenschaft festgelegt. Ausführliche Informationen zur Funktionsweise der Filterung finden Sie im Abschnitt [Selektive Schnittebenen](cut-planes.md#selective-cut-planes). Im folgenden Beispiel sind nur der Reifen und die Felge angeschnitten, während der Rest der Szene unbeeinflusst bleibt.
+![Selektive Schnittebenen](./media/selective-cut-planes-hierarchical-override.png)
 
 
 > [!TIP]
@@ -101,7 +108,7 @@ Das Überschreiben der `tint color` ist etwas Besonderes, da es sowohl den Zusta
 
 Eine Instanz von `HierarchicalStateOverrideComponent` selbst führt nicht zu einem großen Runtimemehraufwand. Jedoch bewährt es sich immer, die Anzahl der aktiven Komponenten niedrig zu halten. Wenn Sie beispielsweise ein Auswahlsystem implementieren, das das ausgewählte Objekt hervorhebt, wird empfohlen, die Komponente zu löschen, wenn die Hervorhebung entfernt wird. Die Beibehaltung der Komponenten mit neutralen Features kann sich schnell häufen.
 
-Durch das transparente Rendering werden die GPUs des Servers durch mehr Workload belastet als beim Standardrendering. Wenn große Teile des Szenendiagramms zu *durchsichtig* wechseln und viele Geometrieebenen sichtbar sind, kann dies zu einem Leistungsengpass führen. Das gleiche gilt für Objekte mit [Auswahlgliederungen](../../overview/features/outlines.md#performance).
+Durch das transparente Rendering werden die GPUs des Servers durch mehr Workload belastet als beim Standardrendering. Wenn große Teile des Szenendiagramms zu *durchsichtig* wechseln und viele Geometrieebenen sichtbar sind, kann dies zu einem Leistungsengpass führen. Das gleiche gilt für Objekte mit [Auswahlkonturen](../../overview/features/outlines.md#performance) und für das [Shell-Rendering](../../overview/features/shell-effect.md#performance) . 
 
 ## <a name="api-documentation"></a>API-Dokumentation
 

@@ -1,7 +1,7 @@
 ---
 title: Bereitstellen von ML-Modellen in Azure Functions-Apps (Vorschauversion)
 titleSuffix: Azure Machine Learning
-description: Hier erfahren Sie, wie Sie mithilfe von Azure Machine Learning ein Modell in einer Azure Functions-App bereitstellen.
+description: Erfahren Sie, wie Sie Azure Machine Learning zum Packen und Bereitstellen eines Modells als Webdienst in einer Azure Functions-App verwenden.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: vaidya-s
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
-ms.custom: how-to, racking-python
-ms.openlocfilehash: cc5bc5b2c9f78854909b965487f7b4299f3a1579
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, racking-python, devx-track-azurecli
+ms.openlocfilehash: 901e4d458cc2d77d4e7f13c1782b86c8532ca499
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567450"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327167"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Bereitstellen eines Machine Learning-Modells in Azure Functions (Vorschauversion)
 
@@ -26,12 +26,12 @@ Hier erfahren Sie, wie Sie ein Modell in Azure Machine Learning als Funktions-Ap
 > [!IMPORTANT]
 > Azure Machine Learning und Azure Functions sind zwar allgemein verfügbar, die Funktion zum Bereitstellen eines Modells aus dem Machine Learning-Dienst für Functions befindet sich jedoch in der Vorschauphase.
 
-Mit Azure Machine Learning können Sie Docker-Images auf der Grundlage trainierter Machine Learning-Modelle erstellen. Azure Machine Learning bietet nun die Vorschaufunktion zum Einbinden dieser Machine Learning-Modelle in Funktions-Apps, die [in Azure Functions bereitgestellt](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies#docker-container) werden können.
+Mit Azure Machine Learning können Sie Docker-Images auf der Grundlage trainierter Machine Learning-Modelle erstellen. Azure Machine Learning bietet nun die Vorschaufunktion zum Einbinden dieser Machine Learning-Modelle in Funktions-Apps, die [in Azure Functions bereitgestellt](../azure-functions/functions-deployment-technologies.md#docker-container) werden können.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 * Ein Azure Machine Learning-Arbeitsbereich. Weitere Informationen finden Sie im Artikel [Erstellen eines Arbeitsbereichs](how-to-manage-workspace.md).
-* Die [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
+* Die [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
 * Ein in Ihrem Arbeitsbereich registriertes trainiertes Machine Learning-Modell. Falls Sie kein Modell besitzen, können Sie anhand der Informationen unter [Tutorial: Trainieren von Bildklassifikationsmodellen mit MNIST-Daten und Scikit-learn mithilfe von Azure Machine Learning](tutorial-train-models-with-aml.md) ein Modell trainieren und registrieren.
 
     > [!IMPORTANT]
@@ -54,16 +54,16 @@ Vor der Bereitstellung müssen Sie die Elemente definieren, die zum Ausführen d
     >
     > Wenn die Anforderungsdaten in einem Format vorliegen, das in Ihrem Modell nicht verwendet werden kann, können sie im Skript in ein akzeptables Format umgewandelt werden. Außerdem kann die Antwort umgewandelt werden, bevor sie an den Client zurückgegeben wird.
     >
-    > Beim Packen für Functions wird die Eingabe standardmäßig als Text behandelt. Wenn Sie die Rohbytes der Eingabe verarbeiten möchten (z. B. für Blob-Trigger), müssen Sie [AMLRequest zum Akzeptieren von Rohdaten](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#binary-data) verwenden.
+    > Beim Packen für Functions wird die Eingabe standardmäßig als Text behandelt. Wenn Sie die Rohbytes der Eingabe verarbeiten möchten (z. B. für Blob-Trigger), müssen Sie [AMLRequest zum Akzeptieren von Rohdaten](./how-to-deploy-advanced-entry-script.md#binary-data) verwenden.
 
-Weitere Informationen zum Einstiegsskript finden Sie unter [Definieren des Bewertungscodes](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#script).
+Weitere Informationen zum Einstiegsskript finden Sie unter [Definieren des Bewertungscodes](./how-to-deploy-and-where.md#define-an-entry-script).
 
 * **Abhängigkeiten**, z. B. Hilfsprogramme oder Python/Conda-Pakete, die zum Ausführen des Eingabeskripts oder Modells erforderlich sind
 
 Diese Entitäten werden in einer __Rückschlusskonfiguration__ gekapselt. Die Rückschlusskonfiguration verweist auf das Eingabeskript und andere Abhängigkeiten.
 
 > [!IMPORTANT]
-> Beim Erstellen einer Rückschlusskonfiguration zur Verwendung mit Azure Functions müssen Sie ein [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true)-Objekt verwenden. Beachten Sie, dass Sie beim Definieren einer benutzerdefinierten Umgebung azureml-defaults mit Version > = 1.0.45 als Pip-Abhängigkeit hinzufügen müssen. Dieses Paket enthält die erforderlichen Funktionen zum Hosten des Modells als Webdienst. Im folgenden Beispiel wird veranschaulicht, wie ein Environment-Objekt erstellt und mit einer Rückschlusskonfiguration verwendet wird:
+> Beim Erstellen einer Rückschlusskonfiguration zur Verwendung mit Azure Functions müssen Sie ein [Environment](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py)-Objekt verwenden. Beachten Sie, dass Sie beim Definieren einer benutzerdefinierten Umgebung azureml-defaults mit Version > = 1.0.45 als Pip-Abhängigkeit hinzufügen müssen. Dieses Paket enthält die erforderlichen Funktionen zum Hosten des Modells als Webdienst. Im folgenden Beispiel wird veranschaulicht, wie ein Environment-Objekt erstellt und mit einer Rückschlusskonfiguration verwendet wird:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -96,7 +96,7 @@ pip install azureml-contrib-functions
 
 ## <a name="create-the-image"></a>Erstellen des Images
 
-Verwenden Sie zum Erstellen des in Azure Functions bereitgestellten Docker-Images [azureml.contrib.functions.package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true) oder die spezifische Paketfunktion für den Trigger, den Sie verwenden möchten. Der folgende Codeausschnitt veranschaulicht, wie ein neues Paket mit einem Blob-Trigger aus der Modell- und Rückschlusskonfiguration erstellt wird:
+Verwenden Sie zum Erstellen des in Azure Functions bereitgestellten Docker-Images [azureml.contrib.functions.package](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) oder die spezifische Paketfunktion für den Trigger, den Sie verwenden möchten. Der folgende Codeausschnitt veranschaulicht, wie ein neues Paket mit einem Blob-Trigger aus der Modell- und Rückschlusskonfiguration erstellt wird:
 
 > [!NOTE]
 > Im Codeausschnitt wird davon ausgegangen, dass `model` ein registriertes Modell und `inference_config` die Konfiguration für die Rückschlussumgebung enthält. Weitere Informationen finden Sie unter [Bereitstellen von Modellen mit Azure Machine Learning](how-to-deploy-and-where.md).
@@ -113,7 +113,7 @@ print(blob.location)
 Bei `show_output=True` wird die Ausgabe des Docker-Buildprozesses angezeigt. Nach Abschluss des Prozesses wurde das Image in der Azure Container Registry-Instanz für Ihren Arbeitsbereich erstellt. Nachdem das Image erstellt wurde, wird der Speicherort in Ihrer Instanz von Azure Container Registry angezeigt. Der zurückgegebene Speicherort weist das Format `<acrinstance>.azurecr.io/package@sha256:<imagename>` auf.
 
 > [!NOTE]
-> Pakete für Functions unterstützen derzeit HTTP-Trigger, Blob-Trigger und Service Bus-Trigger. Weitere Informationen zu Triggern finden Sie unter [Azure Functions-Bindungen](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger#blob-name-patterns).
+> Pakete für Functions unterstützen derzeit HTTP-Trigger, Blob-Trigger und Service Bus-Trigger. Weitere Informationen zu Triggern finden Sie unter [Azure Functions-Bindungen](../azure-functions/functions-bindings-storage-blob-trigger.md#blob-name-patterns).
 
 > [!IMPORTANT]
 > Speichern Sie die Speicherortinformationen, da sie beim Bereitstellen des Images verwendet werden.
@@ -293,12 +293,12 @@ Nachdem das Image geladen wurde und die App verfügbar ist, verwenden Sie die fo
 
     Sobald der Befehl abgeschlossen ist, öffnen Sie die Datei. Sie enthält die vom Modell zurückgegebenen Daten.
 
-Weitere Informationen zur Verwendung von Blobtriggern finden Sie im Artikel [Erstellen einer Funktion, die durch Azure Blob Storage ausgelöst wird](/azure/azure-functions/functions-create-storage-blob-triggered-function).
+Weitere Informationen zur Verwendung von Blobtriggern finden Sie im Artikel [Erstellen einer Funktion, die durch Azure Blob Storage ausgelöst wird](../azure-functions/functions-create-storage-blob-triggered-function.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Erfahren Sie in der Dokumentation zu [Functions](/azure/azure-functions/functions-create-function-linux-custom-image), wie Sie Ihre Funktions-App konfigurieren.
-* Weitere Informationen zu Blob Storage-Triggern finden Sie unter [Azure Blob Storage-Bindungen](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
+* Erfahren Sie in der Dokumentation zu [Functions](../azure-functions/functions-create-function-linux-custom-image.md), wie Sie Ihre Funktions-App konfigurieren.
+* Weitere Informationen zu Blob Storage-Triggern finden Sie unter [Azure Blob Storage-Bindungen](../azure-functions/functions-bindings-storage-blob.md).
 * [Bereitstellen Ihres Modells in Azure App Service](how-to-deploy-app-service.md).
 * [Consume a ML Model deployed as a web service (Nutzen eines als Webdienst bereitgestellten Azure Machine Learning-Modells)](how-to-consume-web-service.md).
-* [API-Referenz](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true)
+* [API-Referenz](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py)

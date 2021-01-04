@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 9d1759e5b809bc40e63fb6024fb7f107ad347da6
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 0c2deb1ae1d41f8daaed8856f97c4b458930c616
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094136"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484378"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Planungs- und Implementierungsleitfaden für die SAP BusinessObjects BI-Plattform in Azure
 
@@ -137,7 +138,7 @@ Die BI-Plattform benötigt eine Datenbank für CMS und Überwachungsdatenspeiche
 
 - MaxDB
 
-Dieses Dokument veranschaulicht die Richtlinien zur Bereitstellung der **SAP BOBI-Plattform unter Windows mit Azure SQL-Datenbank** und der **SAP BOBI-Plattform unter Linux mit Azure Database for MySQL** . Es ist auch unser empfohlener Ansatz für die Ausführung der SAP BusinessObjects BI-Plattform in Azure.
+Dieses Dokument veranschaulicht die Richtlinien zur Bereitstellung der **SAP BOBI-Plattform unter Windows mit Azure SQL-Datenbank** und der **SAP BOBI-Plattform unter Linux mit Azure Database for MySQL**. Es ist auch unser empfohlener Ansatz für die Ausführung der SAP BusinessObjects BI-Plattform in Azure.
 
 ## <a name="sizing"></a>Festlegen der Größe
 
@@ -266,4 +267,4 @@ Beim DBaaS-Angebot (Database-as-a-Service) verfügt jede neu erstellte Datenbank
 - [Bereitstellung der SAP BusinessObjects BI-Plattform unter Linux](businessobjects-deployment-guide-linux.md)
 - [Azure Virtual Machines – Planung und Implementierung für SAP](planning-guide.md)
 - [Azure Virtual Machines – Bereitstellung für SAP](deployment-guide.md)
-- [Azure Virtual Machines – DBMS-Bereitstellung für SAP](dbms-guide.md)
+- [Azure Virtual Machines – DBMS-Bereitstellung für SAP](./dbms_guide_general.md)

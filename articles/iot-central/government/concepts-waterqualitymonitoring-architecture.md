@@ -3,23 +3,19 @@ title: Referenzarchitektur für eine mit Azure IoT Central erstellte Lösung zur
 description: Enthält eine Beschreibung der Konzepte einer Lösung zur Überwachung der Wasserqualität, die mit Azure IoT Central erstellt wurde.
 author: miriambrus
 ms.author: miriamb
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 2afe53ade9106fa5e1ebb9ec43492a86bd9fc213
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 229074ad97e6d066a358da19bbbd43158fe1d6fc
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127317"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586719"
 ---
 # <a name="water-quality-monitoring-reference-architecture"></a>Überwachung der Wasserqualität: Referenzarchitektur 
-
-
-
 Die Lösung für die Überwachung der Wasserqualität kann mit der **Azure IoT Central-App-Vorlage** als Einstieg in IoT-Anwendungen erstellt werden. Dieser Artikel enthält einen Leitfaden mit einer allgemeinen Referenzarchitektur für die Entwicklung einer Komplettlösung. 
-
 
 ![Architektur zur Überwachung der Wasserqualität](./media/concepts-waterqualitymonitoring-architecture/concepts-waterqualitymonitoring-architecture1.png)
 
@@ -27,8 +23,8 @@ Konzepte:
 
 1. Geräte und Konnektivität  
 1. IoT Central 
-2. Erweiterbarkeit und Integrationen
-3. Geschäftsanwendungen
+1. Erweiterbarkeit und Integrationen
+1. Geschäftsanwendungen
 
 Wir werfen nun einen Blick auf Schlüsselkomponenten, die bei einer Lösung zur Überwachung der Wasserqualität in der Regel eine Rolle spielen.
 
@@ -41,10 +37,10 @@ Geräte, die für intelligente Lösungen im Wasserwirtschaftsbereich zum Einsatz
 Azure IoT Central ist eine IoT-App-Plattform, mit der Sie Ihre IoT-Lösung schnell in Betrieb nehmen können. Sie können Ihre Lösung mit Branding versehen, anpassen und in Dienste von Drittanbietern integrieren.
 Nachdem Sie Ihre intelligenten Wasserwirtschaftsgeräte mit IoT Central verbunden haben, stehen Ihnen hierfür Befehls-, Steuerungs-, Überwachungs- und Alarmfunktionen, eine Benutzeroberfläche mit integrierter rollenbasierter Zugriffssteuerung (RBAC), konfigurierbare Dashboards zum Gewinnen von Erkenntnissen und Erweiterungsoptionen zur Verfügung. 
 
-## <a name="extensibility-and-integrations"></a>Erweiterbarkeit und Integrationen 
+## <a name="extensibility-and-integrations"></a>Erweiterbarkeit und Integrationen
 Sie können Ihre IoT-Anwendung in IoT Central erweitern und haben folgende Optionen:
 * Transformieren und Integrieren Ihrer IoT-Daten für erweiterte Analysen, z. B. für das Training von Machine Learning-Modellen durch kontinuierlichen Datenexport aus der IoT Central-Anwendung
-* Automatisieren von Workflows in anderen Systemen, indem in der IoT Central-Anwendung Aktionen über Microsoft Flow oder Webhooks ausgelöst werden
+* Automatisieren von Workflows in anderen Systemen, indem in der IoT Central-Anwendung Aktionen über Power Automate oder Webhooks ausgelöst werden
 * Programmgesteuertes Zugreifen auf Ihre IoT-Anwendung in IoT Central über IoT Central-APIs
 
 ## <a name="business-applications"></a>Geschäftsanwendungen 

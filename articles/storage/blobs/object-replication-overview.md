@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 11/13/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4105698198e6fb7f4e3d3526ff9590ebca4898f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47a2aae39be93361e1e0e581efb56cc678b444cd
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612165"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549088"
 ---
 # <a name="object-replication-for-block-blobs"></a>Objektreplikation für Blockblobs
 
@@ -43,14 +43,36 @@ Die Objektreplikation erfordert, dass außerdem die folgenden Azure Storage-Funk
 
 Durch das Aktivieren des Änderungsfeeds und der Blobversionsverwaltung können zusätzliche Kosten entstehen. Weitere Informationen finden Sie auf der Seite [Preise für Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
+## <a name="how-object-replication-works"></a>Funktionsweise der Objektreplikation
+
+Bei der Objektreplikation werden Blockblobs in einem Container entsprechend den von Ihnen konfigurierten Regeln asynchron kopiert. Der Inhalt des Blobs, alle dem Blob zugeordneten Versionen sowie die Metadaten und Eigenschaften des Blobs werden aus dem Quellcontainer in den Zielcontainer kopiert.
+
+> [!IMPORTANT]
+> Da Blockblobdaten asynchron repliziert werden, sind das Quell- und das Zielkonto nicht sofort synchron. Zurzeit gibt es keine SLA darüber, wie lange es dauert, Daten in das Zielkonto zu replizieren. Sie können den Replikationsstatus des Quellblobs überprüfen, um zu ermitteln, ob die Replikation abgeschlossen ist. Weitere Informationen finden Sie unter [Überprüfen des Replikationsstatus eines Blobs](object-replication-configure.md#check-the-replication-status-of-a-blob).
+
+### <a name="blob-versioning"></a>Blobversionsverwaltung
+
+Die Objektreplikation erfordert, dass die Blobversionsverwaltung sowohl für das Quell- als auch das Zielkonto aktiviert ist. Wenn ein repliziertes Blob im Quellkonto geändert wird, wird vor der Änderung eine neue Blobversion im Quellkonto erstellt, die den vorherigen Zustand des Blobs widerspiegelt. Die aktuelle Version (oder das Basisblob) im Quellkonto spiegelt die neuesten Updates wider. Sowohl die aktualisierte aktuelle Version als auch die neue vorherige Version werden in das Zielkonto repliziert. Weitere Informationen zur Auswirkung von Schreibvorgängen auf Blobversionen finden Sie unter [Versionsverwaltung für Schreibvorgänge](versioning-overview.md#versioning-on-write-operations).
+
+Wenn ein Blob im Quellkonto gelöscht wird, wird seine aktuelle Version in einer früheren Version aufgezeichnet und dann gelöscht. Alle vorherigen Versionen des Blobs bleiben auch nach dem Löschen der aktuellen Version erhalten. Dieser Status wird in das Zielkonto repliziert. Weitere Informationen zur Auswirkung von Löschvorgängen auf Blobversionen finden Sie unter [Versionsverwaltung für Löschvorgänge](versioning-overview.md#versioning-on-delete-operations).
+
+### <a name="snapshots"></a>Momentaufnahmen
+
+Die Objektreplikation unterstützt keine Blobmomentaufnahmen. Momentaufnahmen für ein Blob im Quellkonto werden nicht in das Zielkonto repliziert.
+
+### <a name="blob-tiering"></a>Blobtiering
+
+Die Objektreplikation wird unterstützt, wenn sich das Quell- und das Zielkonto in der Ebene „Heiß“ oder „Kalt“ befinden. Quell- und Zielkonten befinden sich möglicherweise in unterschiedlichen Ebenen. Die Objektreplikation schlägt jedoch ein fehl, wenn ein Blob im Quell- oder Zielkonto in die Archivzugriffsebene verschoben wurde. Weitere Informationen zu Blobebenen finden Sie unter [Zugriffsebenen für Azure Blob Storage – „Heiß“, „Kalt“ und „Archiv“](storage-blob-storage-tiers.md).
+
+### <a name="immutable-blobs"></a>Unveränderliche Blobs
+
+Die Objektreplikation unterstützt keine unveränderlichen Blobs. Wenn für einen Quell- oder Zielcontainer eine zeitbasierte Aufbewahrungsrichtlinie oder eine gesetzliche Aufbewahrungspflicht gilt, schlägt die Objektreplikation fehl. Weitere Informationen zu unveränderlichen Blobs finden Sie unter [Speichern unternehmenskritischer Blobdaten mit unveränderlichem Speicher](storage-blob-immutable-storage.md).
+
 ## <a name="object-replication-policies-and-rules"></a>Objektreplikationsrichtlinien und -regeln
 
 Wenn Sie die Objektreplikation konfigurieren, erstellen Sie eine Replikationsrichtlinie, in der das Quellspeicherkonto und das Zielkonto angegeben werden. Eine Replikationsrichtlinie enthält mindestens eine Regel, die einen Quellcontainer und einen Zielcontainer angibt sowie anzeigt, welche Blockblobs im Quellcontainer repliziert werden.
 
 Nachdem Sie die Objektreplikation konfiguriert haben, überprüft Azure Storage den Änderungsfeed für das Quellkonto regelmäßig und repliziert asynchron alle Schreib- oder Löschvorgänge in das Zielkonto. Die Replikationswartezeit hängt von der Größe des Blockblobs ab, das repliziert wird.
-
-> [!IMPORTANT]
-> Da Blockblobdaten asynchron repliziert werden, sind das Quell- und das Zielkonto nicht sofort synchron. Zurzeit gibt es keine SLA darüber, wie lange es dauert, Daten in das Zielkonto zu replizieren.
 
 ### <a name="replication-policies"></a>Replikationsrichtlinien
 

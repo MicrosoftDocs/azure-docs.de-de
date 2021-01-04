@@ -1,26 +1,24 @@
 ---
 title: Bewerten der Fairness von ML-Modellen in Python (Vorschau)
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Sie die Fairness Ihrer Modelle in Azure Machine Learning bewerten.
+description: Erfahren Sie, wie Sie mithilfe von Fairlearn und dem Python-SDK für Azure Machine Learning die Fairness Ihrer Machine Learning-Modelle beurteilen und minimieren können.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
-ms.date: 09/01/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0332400ce6808e92ba09e3bee3277495f6b6d1a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fbd4990fd330960bb8dbce2e2a8d1bcb578cf2a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897484"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701183"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Verwenden von Azure Machine Learning mit dem Open-Source-Paket Fairlearn zur Bewertung der Fairness von ML-Modellen (Vorschau)
-
-
 
 In dieser Schrittanleitung erfahren Sie, wie Sie das Open-Source-Python-Paket [Fairlearn](https://fairlearn.github.io/) mit Azure Machine Learning verwenden, um die folgenden Aufgaben auszuführen:
 
@@ -33,7 +31,7 @@ In dieser Schrittanleitung erfahren Sie, wie Sie das Open-Source-Python-Paket [F
 
 ## <a name="azure-machine-learning-fairness-sdk"></a>Azure Machine Learning-Fairness-SDK 
 
-Das Azure Machine Learning-Fairness-SDK (`azureml-contrib-fairness`) integriert das Open-Source-Python-Paket [Fairlearn](http://fairlearn.github.io) in Azure Machine Learning. Weitere Informationen zur Integration von Fairlearn in Azure Machine Learning finden Sie in diesen [Beispielnotebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness). Weitere Informationen zu Fairlearn finden Sie in der [Anleitung mit Beispielen](https://fairlearn.github.io/auto_examples/) und den [Beispielnotebooks](https://github.com/fairlearn/fairlearn/tree/master/notebooks). 
+Das Azure Machine Learning-Fairness-SDK (`azureml-contrib-fairness`) integriert das Open-Source-Python-Paket [Fairlearn](http://fairlearn.github.io) in Azure Machine Learning. Weitere Informationen zur Integration von Fairlearn in Azure Machine Learning finden Sie in diesen [Beispielnotebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness). Weitere Informationen zu Fairlearn finden Sie in der [Anleitung mit Beispielen](https://fairlearn.github.io/master/auto_examples/) und den [Beispielnotebooks](https://github.com/fairlearn/fairlearn/tree/master/notebooks). 
 
 Verwenden Sie die folgenden Befehle, um die Pakete `azureml-contrib-fairness` und `fairlearn` zu installieren:
 ```bash
@@ -205,7 +203,7 @@ Im folgenden Beispiel wird gezeigt, wie Sie das Fairnesspaket verwenden, um Erke
     1. Wenn Sie Ihr ursprüngliches Modell mit den obigen Schritten registriert haben, können Sie im linken Bereich auf **Modelle** klicken, um es anzuzeigen.
     1. Klicken Sie auf ein Modell und dann auf die Registerkarte **Fairness**, um das Dashboard zur Erklärungsvisualisierung anzuzeigen.
 
-    Weitere Informationen zum Visualisierungsdashboard und den enthaltenen Funktionen finden Sie im [Fairlearn-Benutzerhandbuch](https://fairlearn.github.io/user_guide/assessment.html#fairlearn-dashboard).
+    Weitere Informationen zum Visualisierungsdashboard und den enthaltenen Funktionen finden Sie im [Fairlearn-Benutzerhandbuch](https://fairlearn.github.io/master/user_guide/assessment.html#fairlearn-dashboard).
 
 ## <a name="upload-fairness-insights-for-multiple-models"></a>Hochladen von Erkenntnissen zur Fairness für mehrere Modelle
 
@@ -311,9 +309,9 @@ Wenn Sie mehrere Modelle vergleichen und sehen möchten, wie sich deren Fairness
 
 ## <a name="upload-unmitigated-and-mitigated-fairness-insights"></a>Hochladen von nicht entschärften und entschärften Erkenntnissen zur Fairness
 
-Sie können die [Entschärfungsalgorithmen](https://fairlearn.github.io/user_guide/mitigation.html) von Fairlearn verwenden, die von diesen generierten entschärften Modelle mit dem ursprünglichen, nicht entschärften Modell vergleichen und durch die jeweiligen Kompromisse zwischen Leistung und Fairness der verglichenen Modelle navigieren.
+Sie können die [Entschärfungsalgorithmen](https://fairlearn.github.io/master/user_guide/mitigation.html) von Fairlearn verwenden, die von diesen generierten entschärften Modelle mit dem ursprünglichen, nicht entschärften Modell vergleichen und durch die jeweiligen Kompromisse zwischen Leistung und Fairness der verglichenen Modelle navigieren.
 
-Ein Beispiel für die Verwendung des [Rastersuche-Entschärfungsalgorithmus](https://fairlearn.github.io/user_guide/mitigation.html#grid-search) (der mehrere entschärfte Modelle mit unterschiedlichen Kompromissen zwischen Fairness und Leistung erstellt) finden Sie in diesem [Beispielnotebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb). 
+Ein Beispiel für die Verwendung des [Rastersuche-Entschärfungsalgorithmus](https://fairlearn.github.io/master/user_guide/mitigation.html#grid-search) (der mehrere entschärfte Modelle mit unterschiedlichen Kompromissen zwischen Fairness und Leistung erstellt) finden Sie in diesem [Beispielnotebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb). 
 
 Das Hochladen von Erkenntnissen zur Fairness für mehrere Modelle in einer einzigen Ausführung ermöglicht einen Vergleich der Modelle in Bezug auf die Fairness und Leistung. Sie können auf jedes der im Modellvergleichsdiagramm angezeigten Modelle klicken, um die Erkenntnisse zur Fairness des jeweiligen Modells im Detail anzuzeigen.
 

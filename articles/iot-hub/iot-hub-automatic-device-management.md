@@ -10,18 +10,18 @@ ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: e30daa3f81ed5dcae1323e721bf85cfed8fa9614
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0e017f4df413d6db528bb99756646859d9a74aea
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147811"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545394"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Automatische Verwaltung von IoT-Geräten und -Modulen über das Azure-Portal
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
-Die automatische Geräteverwaltung in Azure IoT Hub automatisiert viele der repetitiven und komplexen Aufgaben im Zusammenhang mit der Verwaltung eines umfangreichen Gerätebestands. Mit der automatischen Geräteverwaltung können Sie eine Gruppe von Geräten auf der Grundlage ihrer Eigenschaften als Ziel festlegen, eine gewünschte Konfiguration definieren und dann IoT Hub die Geräte aktualisieren lassen, wenn sie in den entsprechenden Bereich fallen. Dieses Update erfolgt mithilfe einer _automatischen Gerätekonfiguration_ oder einer _automatischen Modulkonfiguration_, mit der Sie die Fertigstellung und Compliance zusammenfassen, Zusammenführung und Konflikte verarbeiten und Konfigurationen gestaffelt einführen können.
+Die automatische Geräteverwaltung in Azure IoT Hub automatisiert viele der repetitiven und komplexen Aufgaben im Zusammenhang mit der Verwaltung eines umfangreichen Gerätebestands. Mit der automatischen Geräteverwaltung können Sie eine Gruppe von Geräten auf der Grundlage ihrer Eigenschaften als Ziel festlegen, eine gewünschte Konfiguration definieren und dann IoT Hub die Geräte aktualisieren lassen, wenn sie in den entsprechenden Bereich fallen. Dieses Update erfolgt mithilfe einer _automatischen Gerätekonfiguration_ oder einer _automatischen Modulkonfiguration_ , mit der Sie die Fertigstellung und Compliance zusammenfassen, Zusammenführung und Konflikte verarbeiten und Konfigurationen gestaffelt einführen können.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -31,7 +31,7 @@ Bei der automatischen Geräteverwaltung werden mehrere Geräte- oder Modulzwilli
 
 * Der **Zielinhalt** definiert die gewünschten Eigenschaften, die in den Zielgeräte- oder -modulzwillingen hinzugefügt oder aktualisiert werden sollen. Der Inhalt umfasst einen Pfad zu dem Abschnitt der gewünschten Eigenschaften, die geändert werden sollen.
 
-* Die **Metriken** definieren die zusammenfassenden Angaben zu verschiedenen Konfigurationszuständen wie z.B. **Erfolgreich**, **In Bearbeitung** und **Fehler**. Benutzerdefinierte Metriken werden als Abfragen für gemeldete Zwillingseigenschaften angegeben.  Systemmetriken sind die Standardmetriken, die den Zwillingsaktualisierungsstatus messen, z. B. die Anzahl von Zielzwillingen und die Anzahl der Zwillinge, die erfolgreich aktualisiert wurden.
+* Die **Metriken** definieren die zusammenfassenden Angaben zu verschiedenen Konfigurationszuständen wie z.B. **Erfolgreich** , **In Bearbeitung** und **Fehler**. Benutzerdefinierte Metriken werden als Abfragen für gemeldete Zwillingseigenschaften angegeben.  Systemmetriken sind die Standardmetriken, die den Zwillingsaktualisierungsstatus messen, z. B. die Anzahl von Zielzwillingen und die Anzahl der Zwillinge, die erfolgreich aktualisiert wurden.
 
 Automatische Konfigurationen werden zum ersten Mal kurz nach Erstellung der Konfiguration ausgeführt und anschließend in Intervallen von fünf Minuten. Metrikabfragen werden bei jeder Ausführung der automatischen Konfiguration ausgeführt.
 
@@ -70,7 +70,7 @@ Zum Erstellen einer Konfiguration müssen fünf Schritte ausgeführt werden. Die
 
 1. Geben Sie Ihrer Konfiguration einen eindeutigen Namen, der bis zu 128 Kleinbuchstaben umfasst. Verwenden Sie dabei weder Leerzeichen noch die folgenden ungültigen Zeichen: `& ^ [ ] { } \ | " < > /`.
 
-2. Fügen Sie Bezeichnungen hinzu, um Ihre Konfigurationen im Blick zu behalten. Bezeichnungen sind **Name**-**Wert**-Paare, die Ihre Konfiguration beschreiben. Zum Beispiel: `HostPlatform, Linux` oder `Version, 3.0.1`.
+2. Fügen Sie Bezeichnungen hinzu, um Ihre Konfigurationen im Blick zu behalten. Bezeichnungen sind **Name** - **Wert** -Paare, die Ihre Konfiguration beschreiben. Zum Beispiel: `HostPlatform, Linux` oder `Version, 3.0.1`.
 
 3. Wählen Sie **Weiter** aus, um zum nächsten Schritt zu wechseln. 
 
@@ -146,7 +146,7 @@ Da mehrere Konfigurationen dasselbe Gerät oder Modul als Ziel verwenden können
    
    Verwenden Sie für die automatische Modulkonfiguration eine Abfrage, um Tags oder gemeldete Eigenschaften aus den Modulen anzugeben, die für den IoT Hub registriert sind. Zum Beispiel: `from devices.modules where tags.environment='test'` oder `from devices.modules where properties.reported.chillerProperties.model='4000x'`. Der Platzhalter kann nicht als Ziel für alle Module verwendet werden. 
 
-3. Klicken Sie auf **Weiter**, um mit dem letzten Schritt fortzufahren.
+3. Klicken Sie auf **Weiter** , um mit dem letzten Schritt fortzufahren.
 
 ### <a name="review-configuration"></a>Überprüfen der Konfiguration
 
@@ -162,29 +162,29 @@ Gehen Sie folgendermaßen vor, um ausführliche Informationen zu einer Konfigura
 
 3. Überprüfen Sie die Konfigurationsliste. Für jede Konfiguration können Sie die folgenden Details anzeigen:
 
-   * **ID**: Name der Konfiguration.
+   * **ID** : Name der Konfiguration.
 
-   * **Zielbedingung**: Abfrage zum Definieren von Zielgeräten oder -modulen.
+   * **Zielbedingung** : Abfrage zum Definieren von Zielgeräten oder -modulen.
 
-   * **Priorität**: Prioritätsnummer, die der Konfiguration zugewiesen wurde.
+   * **Priorität** : Prioritätsnummer, die der Konfiguration zugewiesen wurde.
 
-   * **Erstellungszeit**: Zeitstempel der Konfigurationserstellung. Dieser Zeitstempel wird zur Konfliktlösung verwendet, wenn zwei Konfigurationen dieselbe Priorität aufweisen. 
+   * **Erstellungszeit** : Zeitstempel der Konfigurationserstellung. Dieser Zeitstempel wird zur Konfliktlösung verwendet, wenn zwei Konfigurationen dieselbe Priorität aufweisen. 
 
-   * **Systemmetriken**: Metriken, die von IoT Hub berechnet werden und vom Entwickler nicht angepasst werden können. Unter „Ziel“ wird die Anzahl von Gerätezwillingen angegeben, die die Zielbedingung erfüllen. Unter „Gilt für“ wird die Anzahl von Gerätezwillingen angegeben, die durch die Konfiguration geändert wurden. Hierzu zählen auch Teiländerungen, falls auch durch eine separate Konfiguration mit höherer Priorität Änderungen vorgenommen wurden. 
+   * **Systemmetriken** : Metriken, die von IoT Hub berechnet werden und vom Entwickler nicht angepasst werden können. Unter „Ziel“ wird die Anzahl von Gerätezwillingen angegeben, die die Zielbedingung erfüllen. Unter „Gilt für“ wird die Anzahl von Gerätezwillingen angegeben, die durch die Konfiguration geändert wurden. Hierzu zählen auch Teiländerungen, falls auch durch eine separate Konfiguration mit höherer Priorität Änderungen vorgenommen wurden. 
 
-   * **Benutzerdefinierte Metriken**: Metriken, die vom Entwickler als Abfragen für gemeldete Zwillingseigenschaften angegeben wurden.  Pro Konfiguration können bis zu fünf benutzerdefinierte Metriken definiert werden. 
+   * **Benutzerdefinierte Metriken** : Metriken, die vom Entwickler als Abfragen für gemeldete Zwillingseigenschaften angegeben wurden.  Pro Konfiguration können bis zu fünf benutzerdefinierte Metriken definiert werden. 
    
 4. Wählen Sie die Konfiguration aus, die Sie überwachen möchten.  
 
 5. Prüfen Sie die Konfigurationsdetails. Anhand von Registerkarten können Sie bestimmte Details zu den Geräten anzeigen, die die Konfiguration erhalten haben.
 
-   * **Zielbedingung**: Geräte oder Module, die die Zielbedingung erfüllen. 
+   * **Zielbedingung** : Geräte oder Module, die die Zielbedingung erfüllen. 
 
-   * **Metriken**: Liste der Systemmetriken und der benutzerdefinierten Metriken.  Sie können für jede Metrik eine Liste der berücksichtigten Geräte oder Module anzeigen, indem Sie die Metrik in der Dropdownliste und dann **Geräte anzeigen** oder **Module anzeigen** auswählen.
+   * **Metriken** : Liste der Systemmetriken und der benutzerdefinierten Metriken.  Sie können für jede Metrik eine Liste der berücksichtigten Geräte oder Module anzeigen, indem Sie die Metrik in der Dropdownliste und dann **Geräte anzeigen** oder **Module anzeigen** auswählen.
 
-   * **Gerätezwillingseinstellungen** oder **Modulzwillingseinstellungen**: Zwillingseinstellungen, die von der Konfiguration festgelegt werden. 
+   * **Gerätezwillingseinstellungen** oder **Modulzwillingseinstellungen** : Zwillingseinstellungen, die von der Konfiguration festgelegt werden. 
 
-   * **Konfigurationsbezeichnungen**: Schlüssel-Wert-Paare zur Beschreibung einer Konfiguration.  Bezeichnungen besitzen keine Auswirkungen auf Funktionen. 
+   * **Konfigurationsbezeichnungen** : Schlüssel-Wert-Paare zur Beschreibung einer Konfiguration.  Bezeichnungen besitzen keine Auswirkungen auf Funktionen. 
 
 ## <a name="modify-a-configuration"></a>Ändern einer Konfiguration
 
@@ -236,8 +236,7 @@ Wenn Sie eine Konfiguration löschen, übernehmen alle Gerätezwillinge die näc
 In diesem Artikel haben Sie erfahren, wie IoT-Geräte bedarfsgerecht konfiguriert und überwacht werden. Folgen Sie diesen Links, um mehr über das Verwalten von Azure IoT Hub zu erfahren:
 
 * [Massenverwaltung von IoT Hub-Geräteidentitäten](iot-hub-bulk-identity-mgmt.md)
-* [IoT Hub-Metriken](iot-hub-metrics.md)
-* [Vorgangsüberwachung](iot-hub-operations-monitoring.md)
+* [Überwachen Ihres IoT-Hubs](monitor-iot-hub.md)
 
 Weitere Informationen zu den Funktionen von IoT Hub finden Sie unter:
 

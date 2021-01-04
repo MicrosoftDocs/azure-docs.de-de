@@ -3,17 +3,19 @@ title: Häufig gestellte Fragen zur Tabellen-API in Azure Cosmos DB
 description: Hier finden Sie Antworten auf häufig gestellte Fragen zur Tabellen-API in Azure Cosmos DB.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-table
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: sngun
-ms.openlocfilehash: 77e74a36d7b353d0713a7bf17f7a6341558f0739
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c5404c026385f9ebf06c4f0289a4db0bf944d172
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485000"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341233"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Häufig gestellte Fragen zur Tabellen-API in Azure Cosmos DB
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 Die Tabellen-API von Azure Cosmos DB steht im [Azure-Portal](https://portal.azure.com) zur Verfügung. Sie müssen sich zunächst für ein Azure-Abonnement registrieren. Nach der Registrierung können Sie Ihrem Azure-Abonnement ein Azure Cosmos DB-Table-API-Konto und Ihrem Konto anschließend Tabellen hinzufügen. Die unterstützten Sprachen und entsprechenden Schnellstartanleitungen finden Sie in der [Einführung in die Table-API von Azure Cosmos DB](table-introduction.md).
 
@@ -195,7 +197,7 @@ Ja. Die Table-API von Azure Cosmos DB ermöglicht die automatische Indizierung a
 
 Ja. Sie können die Indizierungsrichtlinie ändern, indem Sie die Indexdefinition bereitstellen. Sie müssen die Einstellungen richtig codieren und mit Escapezeichen versehen.
 
-Für .NET-fremde SDKs kann die Indizierungsrichtlinie nur über den **Daten-Explorer** im Portal festgelegt werden: Navigieren Sie zu der spezifischen Tabelle, die Sie ändern möchten. Navigieren Sie dann zu **Scale & Settings** (Skalierung und Einstellungen) > „Indizierungsrichtlinie“, nehmen Sie die gewünschte Änderung vor, und klicken Sie anschließend auf **Speichern** .
+Für .NET-fremde SDKs kann die Indizierungsrichtlinie nur über den **Daten-Explorer** im Portal festgelegt werden: Navigieren Sie zu der spezifischen Tabelle, die Sie ändern möchten. Navigieren Sie dann zu **Scale & Settings** (Skalierung und Einstellungen) > „Indizierungsrichtlinie“, nehmen Sie die gewünschte Änderung vor, und klicken Sie anschließend auf **Speichern**.
 
 Bei Verwendung des .NET SDKs kann die Richtlinie in der Datei „app.config“ übermittelt werden:
 

@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 1319b1b7a53303bad78c0b8e6701676755aa1484
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: b944ed37fe8df5fd4964342d8c0f52a040612ee4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167847"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486401"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-red-hat-enterprise-linux-for-sap-applications-multi-sid-guide"></a>Hochverfügbarkeit für SAP NetWeaver auf virtuellen Azure-Computern unter Red Hat Enterprise Linux für SAP-Anwendungen: Multi-SID-Leitfaden
 
@@ -52,9 +53,9 @@ ms.locfileid: "92167847"
 In diesem Artikel wird beschrieben, wie Sie mehrere hochverfügbare SAP NetWeaver-Systeme (Multi-SID) in einem Cluster mit zwei Knoten auf virtuellen Azure-Computern mit Red Hat Enterprise Linux für SAP-Anwendungen bereitstellen.  
 
 In den Beispielkonfigurationen, Installationsbefehlen usw. werden drei SAP NetWeaver 7.50-Systeme in einem einzelnen hochverfügbaren Cluster mit zwei Knoten bereitgestellt. Die SIDs der SAP-Systeme lauten:
-* **NW1:** ASCS-Instanznummer **00** und virtueller Hostname **msnw1ascs** ; ERS-Instanznummer **02** und virtueller Hostname **msnw1ers**  
-* **NW2:** ASCS-Instanznummer **10** und virtueller Hostname **msnw2ascs** ; ERS-Instanznummer **12** und virtueller Hostname **msnw2ers**  
-* **NW3:** ASCS-Instanznummer **20** und virtueller Hostname **msnw3ascs** ; ERS-Instanznummer **22** und virtueller Hostname **msnw3ers**  
+* **NW1:** ASCS-Instanznummer **00** und virtueller Hostname **msnw1ascs**; ERS-Instanznummer **02** und virtueller Hostname **msnw1ers**  
+* **NW2:** ASCS-Instanznummer **10** und virtueller Hostname **msnw2ascs**; ERS-Instanznummer **12** und virtueller Hostname **msnw2ers**  
+* **NW3:** ASCS-Instanznummer **20** und virtueller Hostname **msnw3ascs**; ERS-Instanznummer **22** und virtueller Hostname **msnw3ers**  
 
 Die Datenbankebene und die Bereitstellung der SAP-NFS-Freigaben werden in diesem Artikel nicht behandelt. In den Beispielen in diesem Artikel wird [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md)-Volume **sapMSID** für die NFS-Freigaben verwendet, wobei davon ausgegangen wird, dass das Volume bereits bereitgestellt wurde. Außerdem wird davon ausgegangen, dass das Azure NetApp Files-Volume mit dem NFSv3-Protokoll bereitgestellt wurde und dass die folgenden Dateipfade für die Clusterressourcen für die ASCS- und ERS-Instanzen von den SAP-Systemen „NW1“, „NW2“ und „NW3“ vorhanden sind:  
 
@@ -128,7 +129,7 @@ Die folgende Liste enthält die Konfiguration des (A)SCS- und ERS-Lastenausgleic
   * IP-Adresse für NW3:  10.3.1.54
 
 * Testports
-  * Port 620 <strong>&lt;Nr.&gt;</strong> (für NW1, NW2 und NW3 also die Testports 620 **00** , 620 **10** und 620 **20** )
+  * Port 620 <strong>&lt;Nr.&gt;</strong> (für NW1, NW2 und NW3 also die Testports 620 **00**, 620 **10** und 620 **20**)
 * Lastenausgleichsregeln: Erstellen Sie jeweils eine pro Instanz (NW1/ASCS, NW2/ASCS und NW3/ASCS).
   * Wenn Sie Load Balancer Standard verwenden, wählen Sie **HA-Ports** aus.
   * Wenn Sie Load Balancer Basic verwenden, erstellen Sie Lastenausgleichsregeln für die folgenden Ports:
@@ -148,7 +149,7 @@ Die folgende Liste enthält die Konfiguration des (A)SCS- und ERS-Lastenausgleic
   * IP-Adresse für NW3: 10.3.1.55
 
 * Testport
-  * Port 621 <strong>&lt;Nr.&gt;</strong> (für NW1, NW2 und N3 – also die Testports 621 **02** , 621 **12** und 621 **22** )
+  * Port 621 <strong>&lt;Nr.&gt;</strong> (für NW1, NW2 und N3 – also die Testports 621 **02**, 621 **12** und 621 **22**)
 * Lastenausgleichsregeln: Erstellen Sie jeweils eine pro Instanz (NW1/ERS, NW2/ERS und NW3/ERS).
   * Wenn Sie Load Balancer Standard verwenden, wählen Sie **HA-Ports** aus.
   * Wenn Sie Load Balancer Basic verwenden, erstellen Sie Lastenausgleichsregeln für die folgenden Ports:
@@ -162,7 +163,7 @@ Die folgende Liste enthält die Konfiguration des (A)SCS- und ERS-Lastenausgleic
   * Mit primären Netzwerkschnittstellen von allen virtuellen Computern verbunden, die Teil des (A)SCS/ERS-Clusters sein sollen
 
 > [!IMPORTANT]
-> Floating IP-Adressen werden in IP-Konfigurationen mit zwei NICs in Szenarien mit Lastenausgleich nicht unterstützt. Weitere Informationen finden Sie unter [Azure Load Balancer – Einschränkungen](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Wenn Sie zusätzliche IP-Adressen für die VM benötigen, stellen Sie eine zweite NIC bereit.  
+> Floating IP-Adressen werden in IP-Konfigurationen mit zwei NICs in Szenarien mit Lastenausgleich nicht unterstützt. Weitere Informationen finden Sie unter [Azure Load Balancer – Einschränkungen](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Wenn Sie zusätzliche IP-Adressen für die VM benötigen, stellen Sie eine zweite NIC bereit.  
 
 > [!Note]
 > Wenn virtuelle Computer ohne öffentliche IP-Adressen im Back-End-Pool einer internen Azure Load Balancer Standard-Instanz (ohne öffentliche IP-Adresse) platziert werden, liegt keine ausgehende Internetverbindung vor, sofern nicht in einer zusätzlichen Konfiguration das Routing an öffentliche Endpunkte zugelassen wird. Ausführliche Informationen zum Erreichen ausgehender Konnektivität finden Sie unter [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md) (Konnektivität mit öffentlichen Endpunkten für virtuelle Computer mithilfe von Azure Load Balancer Standard in SAP-Szenarien mit Hochverfügbarkeit).  
@@ -207,7 +208,7 @@ In dieser Dokumentation wird Folgendes vorausgesetzt:
 
 ### <a name="prepare-for-sap-netweaver-installation"></a>Vorbereiten der SAP NetWeaver-Installation
 
-1. Fügen Sie der vorhandenen Azure Load Balancer-Instanz die Konfiguration für das neu bereitgestellte System ( **NW2** , **NW3** ) hinzu. Eine entsprechende Anleitung finden Sie unter [Manuelles Bereitstellen von Azure Load Balancer über das Azure-Portal](./high-availability-guide-rhel-netapp-files.md#deploy-linux-manually-via-azure-portal). Passen Sie die IP-Adressen, Integritätstestports und Lastenausgleichsregeln für Ihre Konfiguration an.  
+1. Fügen Sie der vorhandenen Azure Load Balancer-Instanz die Konfiguration für das neu bereitgestellte System (**NW2**, **NW3**) hinzu. Eine entsprechende Anleitung finden Sie unter [Manuelles Bereitstellen von Azure Load Balancer über das Azure-Portal](./high-availability-guide-rhel-netapp-files.md#deploy-linux-manually-via-azure-portal). Passen Sie die IP-Adressen, Integritätstestports und Lastenausgleichsregeln für Ihre Konfiguration an.  
 
 2. **[A]** Richten Sie die Namensauflösung für die zusätzlichen SAP-Systeme ein. Sie können entweder einen DNS-Server verwenden oder `/etc/hosts` auf allen Knoten ändern. In diesem Beispiel wird die Verwendung der Datei `/etc/hosts` gezeigt.  Passen Sie die IP-Adressen und die Hostnamen an Ihre Umgebung an. 
 
@@ -223,7 +224,7 @@ In dieser Dokumentation wird Folgendes vorausgesetzt:
     10.3.1.55 msnw3ers
    ```
 
-3. **[A]** Erstellen Sie die freigegebenen Verzeichnisse für die zusätzlichen SAP-Systeme **NW2** und **NW3** , die Sie im Cluster bereitstellen. 
+3. **[A]** Erstellen Sie die freigegebenen Verzeichnisse für die zusätzlichen SAP-Systeme **NW2** und **NW3**, die Sie im Cluster bereitstellen. 
 
     ```
     sudo mkdir -p /sapmnt/NW2
@@ -246,7 +247,7 @@ In dieser Dokumentation wird Folgendes vorausgesetzt:
     sudo chattr +i /usr/sap/NW3/ERS22
    ```
 
-4. **[A** ] Fügen Sie die Bereitstellungseinträge für die Dateisysteme „/sapmnt/SID“ und „/usr/sap/SID/SYS“ bei den zusätzlichen SAP-Systemen hinzu, die Sie im Cluster bereitstellen. In diesem Beispiel sind das **NW2** und **NW3** .  
+4. **[A**] Fügen Sie die Bereitstellungseinträge für die Dateisysteme „/sapmnt/SID“ und „/usr/sap/SID/SYS“ bei den zusätzlichen SAP-Systemen hinzu, die Sie im Cluster bereitstellen. In diesem Beispiel sind das **NW2** und **NW3**.  
 
    Aktualisieren Sie die Datei `/etc/fstab` mit den Dateisystemen für die zusätzlichen SAP-Systeme, die Sie im Cluster bereitstellen.  
 
@@ -297,7 +298,7 @@ In dieser Dokumentation wird Folgendes vorausgesetzt:
     sudo swpm/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=virtual_hostname
     ```
 
-   Falls bei der Installation kein Unterordner unter „/usr/sap/ **SID** /ASCS **Instanznr.** “ erstellt werden kann, legen Sie den Besitzer auf „ **sid** adm“ und die Gruppe auf „sapsys“ des Ordners „ASCS **Instanznr.** “ fest, und versuchen Sie es noch mal.
+   Falls bei der Installation kein Unterordner unter „/usr/sap/**SID**/ASCS **Instanznr.** “ erstellt werden kann, legen Sie den Besitzer auf „**sid** adm“ und die Gruppe auf „sapsys“ des Ordners „ASCS **Instanznr.** “ fest, und versuchen Sie es noch mal.
 
 3. **[1]** Erstellen Sie eine virtuelle IP-Adresse sowie Integritätstest-Clusterressourcen für die ERS-Instanz des zusätzlichen SAP-Systems, das Sie im Cluster bereitstellen. Das hier gezeigte Beispiel gilt für **NW2** und **NW3** ERS, wobei NFS auf Azure NetApp Files-Volumes mit dem NFSv3-Protokoll verwendet wird.  
 
@@ -350,9 +351,9 @@ In dieser Dokumentation wird Folgendes vorausgesetzt:
    > [!NOTE]
    > Verwenden Sie SWPM SP 20 PL 05 oder höher. Bei niedrigeren Versionen werden die Berechtigungen nicht ordnungsgemäß festgelegt, sodass bei der Installation ein Fehler auftritt.
 
-   Falls bei der Installation kein Unterordner unter „/usr/sap/ **NW2** /ERS **Instanznr.** “ erstellt werden kann, legen Sie den Besitzer auf „ **sid** adm“ und die Gruppe auf „sapsys“ des Ordners „ERS **Instanznr.** “ fest, und versuchen Sie es noch mal.
+   Falls bei der Installation kein Unterordner unter „/usr/sap/**NW2**/ERS **Instanznr.** “ erstellt werden kann, legen Sie den Besitzer auf „**sid** adm“ und die Gruppe auf „sapsys“ des Ordners „ERS **Instanznr.** “ fest, und versuchen Sie es noch mal.
 
-   Wenn die ERS-Gruppe des neu bereitgestellten SAP-Systems zu einem anderen Clusterknoten migriert werden musste, vergessen Sie nicht, die Ortseinschränkung für die ERS-Gruppe zu entfernen. Die Einschränkung kann mithilfe des folgenden Befehls entfernt werden. (Das Beispiel gilt für die SAP-Systeme **NW2** und **NW3** .) Sorgen Sie dafür, die temporären Einschränkungen für dieselbe Ressource aufzuheben, mit der Sie im Befehl die ERS-Clustergruppe verschoben haben.
+   Wenn die ERS-Gruppe des neu bereitgestellten SAP-Systems zu einem anderen Clusterknoten migriert werden musste, vergessen Sie nicht, die Ortseinschränkung für die ERS-Gruppe zu entfernen. Die Einschränkung kann mithilfe des folgenden Befehls entfernt werden. (Das Beispiel gilt für die SAP-Systeme **NW2** und **NW3**.) Sorgen Sie dafür, die temporären Einschränkungen für dieselbe Ressource aufzuheben, mit der Sie im Befehl die ERS-Clustergruppe verschoben haben.
 
     ```
       pcs resource clear fs_NW2_AERS
@@ -391,7 +392,7 @@ In dieser Dokumentation wird Folgendes vorausgesetzt:
 
 6. **[A]**  Aktualisieren Sie die Datei „/usr/sap/sapservices“.
 
-   Um den Start der Instanzen durch das „sapinit“-Startskript zu verhindern, müssen alle von Pacemaker verwalteten Instanzen aus der Datei `/usr/sap/sapservices` auskommentiert werden.  Das im Anschluss gezeigte Beispiel gilt für die SAP-Systeme **NW2** und **NW3** .  
+   Um den Start der Instanzen durch das „sapinit“-Startskript zu verhindern, müssen alle von Pacemaker verwalteten Instanzen aus der Datei `/usr/sap/sapservices` auskommentiert werden.  Das im Anschluss gezeigte Beispiel gilt für die SAP-Systeme **NW2** und **NW3**.  
 
    ```
     # On the node where ASCS was installed, comment out the line for the ASCS instacnes
@@ -542,7 +543,7 @@ In dieser Dokumentation wird Folgendes vorausgesetzt:
         rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started rhelmsscl1
     ```
 
-8. **[A]**  Fügen Sie Firewallregeln für ASCS und ERS auf beiden Knoten hinzu.  Das folgende Beispiel zeigt die Firewallregeln für beide SAP-Systeme – **NW2** und **NW3** .  
+8. **[A]**  Fügen Sie Firewallregeln für ASCS und ERS auf beiden Knoten hinzu.  Das folgende Beispiel zeigt die Firewallregeln für beide SAP-Systeme – **NW2** und **NW3**.  
 
    ```
     # NW2 - ASCS

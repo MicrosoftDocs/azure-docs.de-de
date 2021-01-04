@@ -3,19 +3,19 @@ title: Leitfaden zum Steuern des Verhaltens beim Herunterfahren von Windows in A
 description: Schritte zum automatischen Herunterfahren eines virtuellen Windows-Computers, der sich im Leerlauf befindet, und zum Entfernen des Windows-Befehls zum Herunterfahren.
 ms.topic: article
 ms.date: 09/29/2020
-ms.openlocfilehash: c6021131787dde4fe23ec4caad107bda2e20158a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 248bbeabaf704ba636e2f82c7a93d0ee90a09f22
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541559"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647697"
 ---
 # <a name="guide-to-controlling-windows-shutdown-behavior"></a>Leitfaden zum Steuern des Verhaltens beim Herunterfahren von Windows
 
 Azure Lab Services bietet mehrere Kostenkontrollen, um zu verhindern, dass virtuelle Windows-Computer (VMs) unerwartet ausgeführt werden:
- - [Zeitplan festlegen](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#set-a-schedule-for-the-lab)
- - [Festlegen von Kontingenten für Benutzer](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users)
- - [Aktivieren von automatischem Herunterfahren beim Trennen der Verbindung](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
+ - [Zeitplan festlegen](./tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+ - [Festlegen von Kontingenten für Benutzer](./how-to-configure-student-usage.md#set-quotas-for-users)
+ - [Aktivieren von automatischem Herunterfahren beim Trennen der Verbindung](./how-to-enable-shutdown-disconnect.md)
 
 Selbst bei Verwendung dieser Kostenkontrollen können Situationen eintreten, in denen eine Windows-VM unerwartet weiter ausgeführt und folglich vom Kontingent des Studenten abgezogen wird:
 
@@ -25,7 +25,7 @@ Selbst bei Verwendung dieser Kostenkontrollen können Situationen eintreten, in 
 
 - **Die VM wird mit dem Windows-Befehl zum Herunterfahren ausgeschaltet.**
   
-    Ein Kursteilnehmer kann zum Ausschalten der VM den Windows-Befehl zum Herunterfahren oder andere in Windows bereitgestellte Mechanismen zum Herunterfahren statt der [Stopp-Schaltfläche in Azure Lab Services](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-use-classroom-lab#start-or-stop-the-vm) verwenden.  In diesem Fall ist aus Sicht von Azure Lab Services die VM noch in Verwendung.
+    Ein Kursteilnehmer kann zum Ausschalten der VM den Windows-Befehl zum Herunterfahren oder andere in Windows bereitgestellte Mechanismen zum Herunterfahren statt der [Stopp-Schaltfläche in Azure Lab Services](./how-to-use-classroom-lab.md#start-or-stop-the-vm) verwenden.  In diesem Fall ist aus Sicht von Azure Lab Services die VM noch in Verwendung.
     
 Um diese Situationen zu verhindern, werden im Leitfaden die Schritte zum automatischen Herunterfahren einer Windows-VM im Leerlauf und zum Entfernen des Windows-Befehls zum Herunterfahren aus dem **Startmenü** beschrieben.  
 

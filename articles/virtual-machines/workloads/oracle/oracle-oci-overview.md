@@ -3,16 +3,17 @@ title: Integrieren von Microsoft Azure mit Oracle Cloud Infrastructure | Microso
 description: Hier finden Sie Informationen zu Lösungen, die in Microsoft Azure ausgeführte Oracle-Apps mit Datenbanken in Oracle Cloud Infrastructure (OCI) integrieren.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 06/01/2020
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 2e09f92e21743d39cbd132637cc63b27e8cfe944
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: e8e9bf23c236f805135d7d46b969c564975448ac
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996149"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965407"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Oracle-Anwendungslösungen mit Integration von Microsoft Azure und Oracle Cloud Infrastructure
 
@@ -48,6 +49,7 @@ Die cloudübergreifende Konnektivität ist auf folgende Regionen beschränkt:
 * Azure „Kanada, Mitte“ (CanadaCentral) und OCI „Toronto“ (Kanada, Südosten)
 * Azure „Europa, Westen“ (WestEurope) und OCI „Amsterdam“ (Niederlande, Nordwesten)
 * Azure „Japan, Osten“ (JapanEast) und OCI „Tokyo“ (Japan, Osten)
+* Azure „USA, Wesen“ (WestUS) und OCI „San Jose“ (USA, Westen)
 
 ## <a name="networking"></a>Netzwerk
 

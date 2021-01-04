@@ -7,13 +7,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/28/2020
-ms.openlocfilehash: a4fcdad0efda1ab2a43be65865e3aac59f7ef3e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/30/2020
+ms.openlocfilehash: 7ed1d9db09357b0702188c01a802600ff6350aff
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84187610"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147265"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Suchtransformation in einem Zuordnungsdatenfluss
 
@@ -27,7 +27,7 @@ Eine Suchtransformation ist mit einer linken äußeren Verknüpfung vergleichbar
 
 ## <a name="configuration"></a>Konfiguration
 
-![Suchtransformation](media/data-flow/lookup1.png "Nachschlagen")
+![Screenshot der Registerkarte „Sucheinstellungen“ mit den im folgenden Text beschriebenen Bezeichnungen](media/data-flow/lookup1.png "Nachschlagen")
 
 **Primärer Datenstrom:** Der eingehende Datenstrom. Dieser Datenstrom entspricht der linken Seite einer Verknüpfung.
 
@@ -65,9 +65,13 @@ Verwenden Sie einen kleinen Satz bekannter Daten, wenn Sie die Suchtransformatio
 
 ![Broadcastjoin](media/data-flow/broadcast.png "Broadcastjoin")
 
-Wenn bei Join, Lookup- und Exists-Transformationen der Arbeitsspeicher des Workerknotens groß genug für einen oder beide Datenströme ist, können Sie die Leistung optimieren, indem Sie die **Übertragung** aktivieren. Standardmäßig entscheidet die Spark-Engine automatisch, ob eine Seite übertragen werden soll oder nicht. Klicken Sie auf **Fest**, um die zu übertragende Seite manuell auszuwählen.
+Wenn bei Join, Lookup- und Exists-Transformationen der Arbeitsspeicher des Workerknotens groß genug für einen oder beide Datenströme ist, können Sie die Leistung optimieren, indem Sie die **Übertragung** aktivieren. Standardmäßig entscheidet die Spark-Engine automatisch, ob eine Seite übertragen werden soll oder nicht. Klicken Sie auf **Fest** , um die zu übertragende Seite manuell auszuwählen.
 
 Es wird nicht empfohlen, die Übertragung über die Option **Aus** zu deaktivieren, es sei denn, für Ihre Joins treten Timeoutfehler auf.
+
+## <a name="cached-lookup"></a>Zwischengespeicherte Suche
+
+Wenn Sie mehrere kleinere Suchvorgänge für dieselbe Quelle ausführen, sind eine Cachesenke und zwischengespeicherte Suche möglicherweise besser geeignet als eine Suchtransformation. Gängige Beispiele, in denen eine Cachesenke besser geeignet sein könnte, ist das Suchen eines Höchstwerts in einem Datenspeicher und das Abgleichen von Fehlercodes mit einer Fehlermeldungsdatenbank. Weitere Informationen finden Sie unter [Cachesenken](data-flow-sink.md#cache-sink) und [zwischengespeicherten Suchen](concepts-data-flow-expression-builder.md#cached-lookup).
 
 ## <a name="data-flow-script"></a>Datenflussskript
 
@@ -85,7 +89,7 @@ Es wird nicht empfohlen, die Übertragung über die Option **Aus** zu deaktivier
 ```
 ### <a name="example"></a>Beispiel
 
-![Suchtransformation](media/data-flow/lookup-dsl-example.png "Nachschlagen")
+![Screenshot der Registerkarte „Sucheinstellungen“ für den folgenden Code](media/data-flow/lookup-dsl-example.png "Nachschlagen")
 
 Der nachfolgende Codeausschnitt zeigt das Datenflussskript für die obige Suchkonfiguration.
 

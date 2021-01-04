@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 44c5f9f1a7c0d014d101ad45a80e1e53c42f69a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fabb4cd1e555a7a67a53bf2f5a99d93c87df436c
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009034"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532804"
 ---
 # <a name="display-feature-information"></a>Anzeigen von Featureinformationen
 
@@ -63,9 +63,7 @@ map.events.add((OnFeatureClick) (features) -> {
 }, symbolLayer.getId());    //Limit this event to the symbol layer.
 ```
 
-<center>
-
-![Animation: Tippen auf ein Merkmal und Anzeigen einer Popupmeldung](./media/display-feature-information-android/symbol-layer-click-toast-message.gif)</center>
+![Animation: Tippen auf ein Merkmal und Anzeigen einer Popupmeldung](./media/display-feature-information-android/symbol-layer-click-toast-message.gif)
 
 Neben Popupmeldungen gibt es aber auch noch verschiedene andere Möglichkeiten, um die Metadateneigenschaften eines Merkmals zu präsentieren:
 

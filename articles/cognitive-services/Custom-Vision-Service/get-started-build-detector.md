@@ -13,11 +13,11 @@ ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: bilderkennung, bilderkennungs-app, custom vision
 ms.openlocfilehash: ab747ad5e7b9362e9c587741198a0191c032b124
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91596891"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018361"
 ---
 # <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>Schnellstart: Erstellen einer Objekterkennung mit der Custom Vision-Website
 

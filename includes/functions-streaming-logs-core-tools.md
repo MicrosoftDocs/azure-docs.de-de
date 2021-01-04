@@ -5,11 +5,11 @@ ms.date: 7/24/2019
 ms.topic: include
 ms.service: azure-functions
 ms.openlocfilehash: 0159ceb6e5d6d64a7a9bda383396607e4ce05b84
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164862"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020349"
 ---
 #### <a name="built-in-log-streaming"></a>Integriertes Protokollstreaming
 

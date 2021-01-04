@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
-ms.custom: fasttrack-new
-ms.openlocfilehash: 60177dd00dc6326aae4cfdc0b658c85f2635f8c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: fasttrack-new, devx-track-js
+ms.openlocfilehash: aa3bce73d2a91538dff0fdeb9e0eb814d878459a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86253693"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676024"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Schützen des SPA-Back-Ends mit OAuth 2.0, Azure Active Directory B2C und Azure API Management
 
@@ -53,7 +53,7 @@ Es folgt eine kurze Übersicht über die Schritte:
 1. Konfigurieren der Funktions-API zum Aktivieren von EasyAuth mit den neuen Azure AD B2C-Client-IDs und -schlüsseln und Sperren der APIM-VIP 
 1. Erstellen der API-Definition in API Management
 1. Einrichten von Oauth2 für die API Management-API-Konfiguration
-1. Einrichten der **CORS**-Richtlinie und Hinzufügen der **validate-jwt**-Richtlinie zum Validieren des OAuth-Tokens für jede eingehende Anforderung
+1. Einrichten der **CORS** -Richtlinie und Hinzufügen der **validate-jwt** -Richtlinie zum Validieren des OAuth-Tokens für jede eingehende Anforderung
 1. Erstellen der aufrufenden Anwendung für die Nutzung der API
 1. Hochladen der JS-Beispiel-SPA
 1. Konfigurieren der JS-Client-Beispiel-App mit den neuen Azure AD B2C-Client-IDs und -schlüsseln 
@@ -180,7 +180,7 @@ Sie müssen dem Bereich mit IP-Einschränkungen CIDR-formatierte Adressblöcke h
    > Ihre Funktions-API sollte nun nur noch von API Management oder über Ihre Adresse aufgerufen werden können.
    
 ## <a name="import-the-function-app-definition"></a>Importieren der Funktions-App-Definition
-1. Öffnen Sie das Blatt *API Management* und anschließend *Ihre Instanz*.
+1. Öffnen Sie das Blatt *API Management* und anschließend *Ihre Instanz* .
 1. Wählen Sie im Bereich „API Management“ Ihrer Instanz das Blatt „APIs“ aus.
 1. Wählen Sie im Bereich „Neue API hinzufügen“ die Option „Funktions-App“ und dann oben im Popupfenster „Vollständig“ aus.
 1. Klicken Sie auf „Durchsuchen“, wählen Sie die Funktions-App aus, in der Sie die API hosten, und klicken Sie auf „Auswählen“.
@@ -192,8 +192,8 @@ Sie müssen dem Bereich mit IP-Einschränkungen CIDR-formatierte Adressblöcke h
 1. Wählen Sie anschließend auf der Registerkarte „Sicherheit“ das Blatt „OAuth 2.0“ aus, und klicken Sie auf „Hinzufügen“.
 1. Geben Sie Werte für *Anzeigename* und *Beschreibung* für den hinzugefügten OAuth-Endpunkt an. (Diese Werte werden im nächsten Schritt als Oauth2-Endpunkt angezeigt.)
 1. Sie können einen beliebigen Wert für die URL der Clientregistrierungsseite eingeben, da dieser Wert nicht verwendet wird.
-1. Aktivieren Sie den Gewährungstyp *Implizite Authentifizierung*, und lassen Sie den Gewährungstyp „Autorisierungscode“ aktiviert.
-1. Wechseln Sie zu den Feldern für *Autorisierungs-* und *Tokenendpunkt*, und geben Sie die Werte ein, die Sie zuvor im XML-Dokument der bekannten Konfiguration notiert haben.
+1. Aktivieren Sie den Gewährungstyp *Implizite Authentifizierung* , und lassen Sie den Gewährungstyp „Autorisierungscode“ aktiviert.
+1. Wechseln Sie zu den Feldern für *Autorisierungs-* und *Tokenendpunkt* , und geben Sie die Werte ein, die Sie zuvor im XML-Dokument der bekannten Konfiguration notiert haben.
 1. Scrollen Sie nach unten, und geben Sie einen *zusätzlichen Textparameter* mit der Bezeichnung „resource“ und der Client-ID der Back-End-Funktions-API aus der Azure AD B2C-App-Registrierung an.
 1. Wählen Sie „Clientanmeldeinformationen“ aus, und legen Sie die Client-ID auf die App-ID der Entwicklerkonsolen-App fest. Überspringen Sie diesen Schritt, wenn Sie das Verbrauchsmodell von API Management verwenden.
 1. Legen Sie den geheimen Clientschlüssel auf den zuvor notierten Schlüssel fest. Überspringen Sie diesen Schritt, wenn Sie das Verbrauchsmodell von API Management verwenden.
@@ -249,7 +249,7 @@ Sie müssen dem Bereich mit IP-Einschränkungen CIDR-formatierte Adressblöcke h
    > API Management ist nun in der Lage, auf quellenübergreifende Anforderungen an JS-SPA-Apps zu reagieren. Der Dienst führt Drosselung, Ratenbegrenzung und Vorabvalidierung des JWT-Authentifizierungstokens VOR dem Weiterleiten der Anforderung an die Funktions-API durch.
 
    > [!NOTE]
-   > Der folgende Abschnitt ist optional und gilt nicht für den **Verbrauchstarif**, der keine Unterstützung für das Entwicklerportal bietet.
+   > Der folgende Abschnitt ist optional und gilt nicht für den **Verbrauchstarif** , der keine Unterstützung für das Entwicklerportal bietet.
    > Wenn Sie nicht beabsichtigen, das Entwicklerportal zu verwenden, oder dieses nicht verwenden können, da Sie den Verbrauchstarif verwenden, überspringen Sie diesen Schritt, und fahren Sie direkt mit [Erstellen der JavaScript-SPA für die Verwendung der API](#build-the-javascript-spa-to-consume-the-api) fort.
 
 ## <a name="optional-configure-the-developer-portal"></a>(Optional:) Konfigurieren des Entwicklerportals
@@ -260,7 +260,7 @@ Sie müssen dem Bereich mit IP-Einschränkungen CIDR-formatierte Adressblöcke h
    Nachdem nun die OAuth 2.0-Benutzerautorisierung für die `Echo API` aktiviert ist, ruft die Entwicklerkonsole im Namen des Benutzers ein Zugriffstoken ab, bevor die API aufgerufen wird.
 
 1. Navigieren Sie im Entwicklerportal zu irgendeinem Vorgang unter der `Echo API`, und wählen Sie **Ausprobieren** aus, damit Sie zur Entwicklerkonsole gelangen.
-1. Beachten Sie ein neues Element im Abschnitt **Autorisierung**, das dem soeben hinzugefügten Autorisierungsserver entspricht.
+1. Beachten Sie ein neues Element im Abschnitt **Autorisierung** , das dem soeben hinzugefügten Autorisierungsserver entspricht.
 1. Wählen Sie in der Dropdownliste „Autorisierung“ die Option **Autorisierungscode** aus. Sie werden dann aufgefordert, sich beim Azure AD-Mandanten anzumelden. Wenn Sie bereits mit dem Konto angemeldet sind, werden Sie möglicherweise nicht dazu aufgefordert.
 1. Nach der erfolgreichen Anmeldung wird der Anforderung ein `Authorization: Bearer`-Header mit einem Zugriffstoken von Azure AD B2C im Base64-Format hinzugefügt. 
 1. Wählen Sie **Senden** aus, dann können Sie die API aufrufen.

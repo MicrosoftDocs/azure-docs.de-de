@@ -12,12 +12,12 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 03/05/2020
-  ms.openlocfilehash: e31651c07cc9567af0deac8311b2321ad6dee4ba
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: a7cbc96775b512828d7b3a741834c00942ac2980
+  ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91337503"
+  ms.lasthandoff: 11/20/2020
+  ms.locfileid: "94984633"
 landingContent:
 - title: Erste Schritte mit Studio (klassisch)
   linkLists:
@@ -36,9 +36,9 @@ landingContent:
     - text: PowerShell-Module
       url: powershell-module.md
     - text: Algorithmen und Module
-      url: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/index
+      url: /azure/machine-learning/studio-module-reference/index
     - text: REST-Verwaltungs-APIs
-      url: https://docs.microsoft.com/rest/api/machinelearning/
+      url: /rest/api/machinelearning/
     - text: Webdienst-Fehlercodes
       url: web-service-error-codes.md
 - title: Weitere Azure ML-Technologien
@@ -46,8 +46,8 @@ landingContent:
   - linkListType: reference
     links:
     - text: Azure Machine Learning
-      url: /azure/machine-learning/
+      url: ../index.yml
     - text: Virtueller Computer für Data Science
-      url: /azure/machine-learning/data-science-virtual-machine
+      url: ../data-science-virtual-machine/index.yml
     - text: Vergleichen unserer ML-Produkte
-      url: https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
+      url: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=%2fazure%2fmachine-learning%2fstudio%2fcontext%2fml-context

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbcc2351b7ead3714cfd21aa30b031cec75074a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eafeaf59757fcda978fa89b4bc2f9882b769e48
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84463755"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835899"
 ---
 # <a name="simulating-risk-detections-in-identity-protection"></a>Simulieren von Risikoerkennungen in Identity Protection
 
@@ -40,7 +40,7 @@ Im Artikel [Was bedeutet Risiko?](concept-identity-protection-risks.md) finden S
 Für die folgenden Schritte müssen folgende Voraussetzungen erfüllt sein:
 
 - Sie benötigen den [Tor-Browser](https://www.torproject.org/projects/torbrowser.html.en), um anonyme IP-Adressen zu simulieren. Möglicherweise müssen Sie einen virtuellen Computer verwenden, wenn Ihre Organisation die Verwendung des Tor-Browsers einschränkt.
-- Sie benötigen ein Testkonto, das noch nicht für Azure Multi-Factor Authentication registriert ist.
+- Sie benötigen ein Testkonto, das noch nicht für Azure AD Multi-Factor Authentication registriert ist.
 
 **Führen Sie die folgende Schritte aus, um eine Anmeldung über eine anonyme IP-Adresse zu simulieren,** :
 
@@ -61,7 +61,7 @@ Das unten stehende Verfahren verwendet folgende neu erstellte Elemente:
 Für das folgende Verfahren müssen Sie ein Benutzerkonto verwenden, das folgende Voraussetzungen erfüllt:
 
 - Anmeldeverlauf von mindestens 30 Tagen
-- Azure Multi-Factor Authentication aktiviert.
+- Azure AD Multi-Factor Authentication aktiviert.
 
 **Gehen Sie folgendermaßen vor, um eine Anmeldung von einem unbekannten Ort zu simulieren**:
 

@@ -1,19 +1,19 @@
 ---
-title: Hinzufügen einer Symbolebene zu Android-Karten | Microsoft Azure Maps
-description: Erfahren Sie, wie Sie einer Karte einen Marker hinzufügen. Sehen Sie sich ein Beispiel an, in dem das Azure Maps Android SDK verwendet wird, um eine Symbolebene hinzuzufügen, die punktbasierte Daten aus einer Datenquelle enthält.
+title: Hinzufügen einer Symbolebene zu einer Karte mithilfe des Android SDK für Azure Maps
+description: Erfahren Sie, wie Sie einer Karte einen Marker hinzufügen. Sehen Sie sich ein Beispiel an, in dem das Microsoft Azure Maps Android SDK verwendet wird, um eine Symbolebene hinzuzufügen, die punktbasierte Daten aus einer Datenquelle enthält.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/26/2019
+ms.date: 11/24/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 10969e20cd7ae71cade230f6643a27d5d940ceaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 300a7968b2072459d6d7709e4d89388e1bcf59f3
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311273"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531206"
 ---
 # <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Hinzufügen einer Symbolebene zu einer Karte mithilfe des Android SDK für Azure Maps
 
@@ -21,7 +21,9 @@ Dieser Artikel zeigt Ihnen, wie Sie Punktdaten aus einer Datenquelle als Symbole
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Um die Schritte in diesem Artikel vollständig abzuschließen, müssen Sie das [Android SDK für Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) installieren, um eine Karte zu laden.
+1. [Erstellen eines Azure Maps-Kontos](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Abrufen eines Primärschlüssels](quick-demo-map-app.md#get-the-primary-key-for-your-account) (auch primärer Schlüssel oder Abonnementschlüssel genannt)
+3. Laden Sie das [Android SDK für Azure Maps](./how-to-use-android-map-control-library.md) herunter und installieren Sie des.
 
 ## <a name="add-a-symbol-layer"></a>Hinzufügen einer Symbolebene
 
@@ -62,7 +64,7 @@ Um der Karte über die Symbolebene einen Marker hinzuzufügen, führen Sie die f
         //Create a point feature and add it to the data source.
         dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64)));
     
-        //Add a custom image icon to the map resources.
+        //Add a red custom image icon to the map resources.
         map.images.add("my-icon", R.drawable.mapcontrol_marker_red);
     
         //Create a symbol layer and add it to the map.
@@ -71,8 +73,6 @@ Um der Karte über die Symbolebene einen Marker hinzuzufügen, führen Sie die f
         });
     
     ```
-    
-    Der obige Codeausschnitt ruft zuerst mit der Rückrufmethode **onReady()** eine Instanz des Azure Maps-Kartensteuerelements ab. Dann erstellt er ein Datenquellenobjekt mithilfe der **DataSource**-Klasse und fügt es der Karte hinzu. Er fügt der Karte anschließend ein **Feature** mit einer Punktgeometrie hinzu. Ein rotes Markerbild wird als Symbol für das Symbol festgelegt. Eine **Symbolebene** verwendet Text oder Symbole zum Rendern punktbasierter Daten, die in der Datenquelle als Symbole auf der Karte umschlossen sind. Anschließend wird eine Symbolebene erstellt. Die Datenquelle wird an diese übergeben, um sie zu rendern, und dann den Ebenen der Karte hinzugefügt.
     
     Nachdem Sie den obigen Codeausschnitt hinzugefügt haben, sollte `MainActivity.java` wie folgt aussehen:
     
@@ -165,22 +165,20 @@ Um der Karte über die Symbolebene einen Marker hinzuzufügen, führen Sie die f
         }
     }
     ```
-    
-Wenn Sie Ihre Anwendung ausführen, sollten Sie an dieser Stelle einen Marker auf der Karte sehen, wie hier gezeigt:
 
-<center>
+Wenn Sie die Anwendung ausführen, sollten Sie an dieser Stelle einen Marker auf der Karte sehen, wie hier gezeigt:
 
-![Android-Kartenpin](./media/how-to-add-symbol-to-android-map/android-map-pin.png)</center>
+![Android-Kartenpin](./media/how-to-add-symbol-to-android-map/android-map-pin.png)
 
 > [!TIP]
 > Standardmäßig optimieren Symbolebenen das Rendering von Symbolen, indem sie überlappende Symbole ausblenden. Beim Zoomen werden die ausgeblendeten Symbole angezeigt. Legen Sie die Option `iconAllowOverlap` auf `true` fest, um dieses Feature zu deaktivieren und alle Symbole jederzeit anzuzeigen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Informationen dazu, wie Sie Ihrer Karte weitere Elemente hinzufügen, finden Sie unter:
+Wie Sie Ihrer Karte weitere Daten hinzufügen, erfahren Sie hier:
 
 > [!div class="nextstepaction"]
-> [Hinzufügen von Formen zu einer Android-Karte](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+> [Hinzufügen von Formen zu einer Android-Karte](./how-to-add-shapes-to-android-map.md)
 
 > [!div class="nextstepaction"]
 > [Anzeigen von Featureinformationen](display-feature-information-android.md)

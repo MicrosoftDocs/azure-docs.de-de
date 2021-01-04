@@ -8,14 +8,15 @@ ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: b7e57656a6749f600d07b679aad6b8c77ac96551
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 42f01b140a44d7aa6d75dece9a4398fd7b41bf5a
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476704"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905110"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Behandeln von Problemen bei Verwendung von Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In diesem Artikel werden Sie durch einen allgemeinen empfohlenen Ansatz für die Problembehandlung von Abfragen in Azure Cosmos DB geführt. Sie sollten die in diesem Artikel beschriebenen Schritte zwar nicht als umfassende Verteidigung gegen mögliche Abfrageprobleme ansehen, hier sind jedoch die gängigsten Leistungstipps zusammengefasst. Sie können diesen Artikel als Ausgangspunkt für das Troubleshooting von langsamen oder aufwendigen Abfragen in der Core (SQL)-API von Azure Cosmos DB verwenden. Sie können auch [Diagnoseprotokolle](cosmosdb-monitor-resource-logs.md) verwenden, um Abfragen zu identifizieren, die langsam sind oder beträchtliche Durchsatzmengen verbrauchen. Wenn Sie die Azure Cosmos DB-API für MongoDB verwenden, wird das [Handbuch zur Problembehandlung bei Abfragen mit der Azure Cosmos DB-API für MongoDB](mongodb-troubleshoot-query.md) empfohlen.
 
@@ -50,7 +51,7 @@ Beim Optimieren einer Abfrage in Azure Cosmos DB ist der erste Schritt immer da
 
 Vergleichen Sie nach dem Abrufen der Abfragemetriken die **Anzahl der abgerufenen Dokumente** mit der **Anzahl der Ausgabedokumente** für Ihre Abfrage. Verwenden Sie diesen Vergleich zum Identifizieren der relevanten Abschnitte, auf die in diesem Artikel verwiesen werden soll.
 
-Bei der **Anzahl der abgerufenen Dokumente** handelt es sich um die Anzahl von Dokumenten, die die Abfrage-Engine laden musste. Bei der **Anzahl der Ausgabedokumente** handelt es sich um die Anzahl von Dokumenten, die für die Ergebnisse der Abfrage benötigt wurden. Wenn die **Anzahl der abgerufenen Dokumente** deutlich höher ist als die **Anzahl der Ausgabedokumente** , konnte mindestens ein Teil der Abfrage einen Index nicht nutzen, und es musste eine Überprüfung durchgeführt werden.
+Bei der **Anzahl der abgerufenen Dokumente** handelt es sich um die Anzahl von Dokumenten, die die Abfrage-Engine laden musste. Bei der **Anzahl der Ausgabedokumente** handelt es sich um die Anzahl von Dokumenten, die für die Ergebnisse der Abfrage benötigt wurden. Wenn die **Anzahl der abgerufenen Dokumente** deutlich höher ist als die **Anzahl der Ausgabedokumente**, konnte mindestens ein Teil der Abfrage einen Index nicht nutzen, und es musste eine Überprüfung durchgeführt werden.
 
 Die folgenden Abschnitte sollen Ihnen helfen, die relevanten Abfrageoptimierungen für Ihr Szenario besser zu verstehen.
 
@@ -92,7 +93,7 @@ Die folgenden Abschnitte sollen Ihnen helfen, die relevanten Abfrageoptimierunge
 
 ## <a name="queries-where-retrieved-document-count-exceeds-output-document-count"></a>Abfragen, bei denen die Anzahl der abgerufenen Dokumente die Anzahl der Ausgabedokumente überschreitet
 
- Bei der **Anzahl der abgerufenen Dokumente** handelt es sich um die Anzahl von Dokumenten, die die Abfrage-Engine laden musste. Die **Anzahl der Ausgabedokumente** ist die Anzahl von Dokumenten, die von der Abfrage zurückgegebenen wurden. Wenn die **Anzahl der abgerufenen Dokumente** deutlich höher ist als die **Anzahl der Ausgabedokumente** , konnte mindestens ein Teil der Abfrage einen Index nicht nutzen, und es musste eine Überprüfung durchgeführt werden.
+ Bei der **Anzahl der abgerufenen Dokumente** handelt es sich um die Anzahl von Dokumenten, die die Abfrage-Engine laden musste. Die **Anzahl der Ausgabedokumente** ist die Anzahl von Dokumenten, die von der Abfrage zurückgegebenen wurden. Wenn die **Anzahl der abgerufenen Dokumente** deutlich höher ist als die **Anzahl der Ausgabedokumente**, konnte mindestens ein Teil der Abfrage einen Index nicht nutzen, und es musste eine Überprüfung durchgeführt werden.
 
 Nachstehend finden Sie ein Beispiel für eine Überprüfungsabfrage, die nicht vollständig vom Index bedient wurde:
 
@@ -195,9 +196,7 @@ Sie können der Indizierungsrichtlinie jederzeit Eigenschaften hinzufügen, ohne
 
 ### <a name="understand-which-system-functions-use-the-index"></a>Ermitteln der Systemfunktionen, die den Index verwenden
 
-Wenn der Ausdruck in einen Bereich von Zeichenfolgenwerten übersetzt werden kann, kann der Index genutzt werden. Andernfalls ist dies nicht möglich.
-
-Hier ist die Liste einiger allgemeiner Zeichenfolgenfunktionen, die den Index verwenden können:
+Die meisten Systemfunktionen verwenden Indizes. Es folgt eine Liste einiger allgemeiner Zeichenfolgenfunktionen, die Indizes verwenden:
 
 - STARTSWITH(str_expr1, str_expr2, bool_expr)  
 - CONTAINS(str_expr, str_expr, bool_expr)
@@ -213,7 +212,26 @@ Nachstehend sind einige allgemeine Systemfunktionen aufgeführt, die den Index n
 
 ------
 
-Andere Teile der Abfrage verwenden möglicherweise weiterhin den Index, auch wenn die für die Systemfunktionen nicht gilt.
+Wenn eine Systemfunktion Indizes verwendet und dennoch eine hohe RU-Gebühr aufweist, können Sie versuchen, der Abfrage `ORDER BY` hinzuzufügen. In einigen Fällen kann das Hinzufügen von `ORDER BY` zu einer verbesserten Indexnutzung der Systemfunktion führen, insbesondere dann, wenn die Abfrage eine lange Ausführungsdauer hat oder mehrere Seiten umfasst.
+
+Sehen Sie sich beispielsweise die folgende Abfrage mit `CONTAINS` an. `CONTAINS` sollte einen Index verwenden. Stellen Sie sich jedoch vor, dass Sie nach dem Hinzufügen des entsprechenden Indexes weiterhin eine sehr hohe RU-Gebühr beobachten, wenn Sie die folgende Abfrage ausführen:
+
+Ursprüngliche Abfrage:
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+```
+
+Aktualisierte Abfrage mit `ORDER BY`:
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+ORDER BY c.town
+```
 
 ### <a name="understand-which-aggregate-queries-use-the-index"></a>Verstehen, welche Aggregatabfragen den Index verwenden
 
@@ -493,3 +511,4 @@ Die folgenden Artikel enthalten u. a. Informationen dazu, wie Sie RUs pro Abfra
 * [Abrufen von SQL-Abfrageausführungsmetriken und Analysieren der Abfrageleistung mit dem .NET SDK](profile-sql-api-query.md)
 * [Optimieren der Abfrageleistung mit Azure Cosmos DB](./sql-api-query-metrics.md)
 * [Tipps zur Leistungssteigerung für das .NET SDK](performance-tips.md)
+* [Leistungstipps für das Java v4 SDK](performance-tips-java-sdk-v4-sql.md)

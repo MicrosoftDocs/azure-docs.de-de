@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: f9e52d931f8873cebf42534fd6bf03b144e61e23
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9fa38e045bbe29e5d45587adf0d277c1414fee4c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974667"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549037"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>HDInsight-Verwaltungs-IP-Adressen
 
-Dieser Artikel enthält die IP-Adressen, die von den Integritäts- und Verwaltungsdiensten von Azure HDInsight verwendet werden. Wenn Sie Netzwerksicherheitsgruppen (NSGs) oder benutzerdefinierte Routen (User Defined Routes, UDRs) verwenden, müssen Sie möglicherweise einige dieser IP-Adressen zur Liste der zulässigen Adressen für eingehenden Netzwerkdatenverkehr hinzufügen.
+Dieser Artikel enthält die IP-Adressen, die von den Integritäts- und Verwaltungsdiensten von Azure HDInsight verwendet werden. Wenn Sie Netzwerksicherheitsgruppen (NSGs) oder benutzerdefinierte Routen (User Defined Routes, UDRs) verwenden, müssen Sie möglicherweise einige dieser IP-Adressen der Liste der zulässigen Adressen für eingehenden Netzwerkdatenverkehr hinzufügen.
 
 ## <a name="introduction"></a>Einführung
  
@@ -28,11 +28,13 @@ Wenn Sie Netzwerksicherheitsgruppen (NSG) oder benutzerdefinierte Routen (User-D
 
 Wenn Sie IP-Adressen für eine hier nicht aufgeführte Region benötigen, können Sie die [Ermittlungs-API für Diensttags](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) verwenden, um IP-Adressen für Ihre Region zu finden. Wenn Sie die API nicht verwenden können, laden Sie die [JSON-Datei mit Diensttags](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) herunter, und suchen Sie nach der gewünschten Region.
 
+HDInsight führt die Überprüfung für diese Regeln mit Clustererstellung und -skalierung durch, um weitere Fehler zu vermeiden. Wenn die Überprüfung nicht bestanden wird, tritt bei Erstellung und Skalierung ein Fehler auf.
+
 In den folgenden Abschnitten werden die spezifischen IP-Adressen erläutert, die zugelassen werden müssen.
 
 ## <a name="azure-dns-service"></a>Azure DNS-Dienst
 
-Wenn Sie den von Azure bereitgestellten DNS-Dienst verwenden, müssen Sie den Zugriff von __168.63.129.16__ an Port 53 zulassen. Weitere Informationen finden Sie im Dokument [Namensauflösung für virtuelle Computer und Rolleninstanzen](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Überspringen Sie diesen Schritt, wenn Sie ein benutzerdefiniertes DNS verwenden.
+Wenn Sie den von Azure bereitgestellten DNS-Dienst verwenden, müssen Sie den Zugriff auf __168.63.129.16__ an Port 53 sowohl für TCP als auch UDP zulassen. Weitere Informationen finden Sie im Dokument [Namensauflösung für virtuelle Computer und Rolleninstanzen](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Überspringen Sie diesen Schritt, wenn Sie ein benutzerdefiniertes DNS verwenden.
 
 ## <a name="health-and-management-services-all-regions"></a>Integritäts- und Verwaltungsdienste: Alle Regionen
 
@@ -87,7 +89,7 @@ Lassen Sie Datenverkehr von den IP-Adressen zu, die für Azure HDInsight-Integri
 | &nbsp; | Vereinigte Arabische Emirate, Norden | 65.52.252.96</br>65.52.252.97 | \*:443 | Eingehend |
 | &nbsp; | VAE, Mitte | 20.37.76.96</br>20.37.76.99 | \*:443 | Eingehend |
 
-Informationen zu den IP-Adressen, die für Azure Government verwendet werden, finden Sie im Dokument [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) (Azure Government – Daten und Analyse)
+Informationen zu den IP-Adressen, die für Azure Government verwendet werden, finden Sie im Dokument [Azure Government Intelligence + Analytics](../azure-government/compare-azure-government-global-azure.md) (Azure Government – Daten und Analyse)
 
 Weitere Informationen finden Sie unter [Steuern des Netzwerkdatenverkehrs](./control-network-traffic.md).
 

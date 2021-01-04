@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-table
 ms.devlang: php
 ms.topic: sample
 ms.date: 07/23/2020
-ms.openlocfilehash: 26381d03598485598f0f72242862edd191e9bd30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d059c899e4a64d4d2c1b880b2a1d0f89258f33b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318754"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079630"
 ---
 # <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>Verwenden des Azure Table Storage-Diensts oder der Azure Cosmos DB-Tabellen-API über PHP
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -64,7 +65,7 @@ Um den Table Storage-Dienst oder die Azure Cosmos DB-APIs verwenden zu können, 
 * Verweisen Sie mithilfe der [require_once][require_once]-Anweisung auf die Autoloaderdatei.
 * Verweisen Sie auf alle Klassen, die Sie verwenden.
 
-Das folgende Beispiel zeigt, wie die Autoloaderdatei eingeschlossen und die **TableRestProxy**-Klasse referenziert wird.
+Das folgende Beispiel zeigt, wie die Autoloaderdatei eingeschlossen und die **TableRestProxy** -Klasse referenziert wird.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -101,7 +102,7 @@ Um einen Azure Cosmos DB-Tabellenclient zu instanziieren, benötigen Sie zunäch
 $connectionString = "DefaultEndpointsProtocol=[https];AccountName=[myaccount];AccountKey=[myaccountkey];TableEndpoint=[https://myendpoint/]";
 ```
 
-Um einen Azure Table Storage-Dienstclient oder einen Azure Cosmos DB-Client zu erstellen, müssen Sie die **TableRestProxy**-Klasse verwenden. Ihre Möglichkeiten:
+Um einen Azure Table Storage-Dienstclient oder einen Azure Cosmos DB-Client zu erstellen, müssen Sie die **TableRestProxy** -Klasse verwenden. Ihre Möglichkeiten:
 
 * die Verbindungszeichenfolge direkt an die Klasse weitergeben oder
 * den **CloudConfigurationManager (CCM)** verwenden, um mehrere externe Quellen für die Verbindungszeichenfolge zu überprüfen:
@@ -120,7 +121,7 @@ $tableClient = TableRestProxy::createTableService($connectionString);
 
 ## <a name="create-a-table"></a>Erstellen einer Tabelle
 
-Mithilfe eines **TableRestProxy**-Objekts können Sie eine Tabelle mit der **createTable**-Methode erstellen. Wenn Sie eine Tabelle erstellen, können Sie das Timeout für den Tabellenspeicherdienst festlegen. (Weitere Informationen zum Timeout für den Tabellenspeicherdienst finden Sie unter [Festlegen von Timeouts für Tabellenspeicherdienstvorgänge][table-service-timeouts].)
+Mithilfe eines **TableRestProxy** -Objekts können Sie eine Tabelle mit der **createTable** -Methode erstellen. Wenn Sie eine Tabelle erstellen, können Sie das Timeout für den Tabellenspeicherdienst festlegen. (Weitere Informationen zum Timeout für den Tabellenspeicherdienst finden Sie unter [Festlegen von Timeouts für Tabellenspeicherdienstvorgänge][table-service-timeouts].)
 
 ```php
 require_once 'vendor\autoload.php';
@@ -148,7 +149,7 @@ Informationen zu Einschränkungen für Tabellennamen finden Sie unter [Grundlege
 
 ## <a name="add-an-entity-to-a-table"></a>Hinzufügen einer Entität zu einer Tabelle
 
-Um einer Tabelle eine Entität hinzuzufügen, erstellen Sie ein neues **Entity**-Objekt und übergeben es an **TableRestProxy->insertEntity**. Beachten Sie, dass Sie beim Erstellen einer Entität einen `PartitionKey` und einen `RowKey` angeben müssen. Dabei handelt es sich um eindeutige Kennzeichner für eine Entität und um Werte, die viel schneller als andere Entitätseigenschaften abgefragt werden können. Das System verwendet `PartitionKey`, um die Entitäten der Tabelle automatisch über viele Speicherknoten zu verteilen. Entitäten mit dem gleichen `PartitionKey` werden auf dem gleichen Knoten gespeichert. (Vorgänge für mehrere Entitäten, die auf dem gleichen Knoten gespeichert sind, haben eine höhere Leistung als Vorgänge für Entitäten, die auf verschiedenen Knoten gespeichert sind.) Der `RowKey` ist die eindeutige ID einer Entität innerhalb einer Partition.
+Um einer Tabelle eine Entität hinzuzufügen, erstellen Sie ein neues **Entity** -Objekt und übergeben es an **TableRestProxy->insertEntity**. Beachten Sie, dass Sie beim Erstellen einer Entität einen `PartitionKey` und einen `RowKey` angeben müssen. Dabei handelt es sich um eindeutige Kennzeichner für eine Entität und um Werte, die viel schneller als andere Entitätseigenschaften abgefragt werden können. Das System verwendet `PartitionKey`, um die Entitäten der Tabelle automatisch über viele Speicherknoten zu verteilen. Entitäten mit dem gleichen `PartitionKey` werden auf dem gleichen Knoten gespeichert. (Vorgänge für mehrere Entitäten, die auf dem gleichen Knoten gespeichert sind, haben eine höhere Leistung als Vorgänge für Entitäten, die auf verschiedenen Knoten gespeichert sind.) Der `RowKey` ist die eindeutige ID einer Entität innerhalb einer Partition.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -184,7 +185,7 @@ catch(ServiceException $e){
 
 Informationen zu Tabelleneigenschaften und -typen finden Sie unter [Grundlegendes zum Tabellendienst-Datenmodell][table-data-model].
 
-Die **TableRestProxy**-Klasse bietet zwei alternative Methoden zum Einfügen von Entitäten: **insertOrMergeEntity** und **insertOrReplaceEntity**. Um diese Methoden zu verwenden, erstellen Sie ein neues **Entity** -Objekt, und übergeben Sie es als Parameter an eine Methode. Jede Methode fügt die Entität ein, falls sie nicht vorhanden ist. Falls die Entität bereits vorhanden ist, aktualisiert **insertOrMergeEntity** die Eigenschaftswerte, falls die Eigenschaften bereits vorhanden sind, und fügt neue Werte hinzu, falls sie nicht vorhanden sind, während **insertOrReplaceEntity** eine vorhandene Entität vollständig ersetzt. Das folgende Beispiel zeigt die Verwendung von **insertOrMergeEntity**. Wenn die Entität mit dem `PartitionKey` "tasksSeattle" und dem `RowKey` "1" noch nicht vorhanden ist, wird sie eingefügt. Falls sie jedoch zuvor eingefügt wurde (wie in dem Beispiel oben gezeigt), wird die `DueDate`-Eigenschaft aktualisiert, und die `Status`-Eigenschaft wird hinzugefügt. Auch die Eigenschaften `Description` und `Location` werden aktualisiert, allerdings mit Werten, mit denen sie effektiv unverändert bleiben. Falls die letzten zwei Eigenschaft nicht wie im Beispiel gezeigt hinzugefügt würden, sondern auf der Zielentität vorhanden wären, blieben ihre vorhandenen Werte unverändert.
+Die **TableRestProxy** -Klasse bietet zwei alternative Methoden zum Einfügen von Entitäten: **insertOrMergeEntity** und **insertOrReplaceEntity**. Um diese Methoden zu verwenden, erstellen Sie ein neues **Entity** -Objekt, und übergeben Sie es als Parameter an eine Methode. Jede Methode fügt die Entität ein, falls sie nicht vorhanden ist. Falls die Entität bereits vorhanden ist, aktualisiert **insertOrMergeEntity** die Eigenschaftswerte, falls die Eigenschaften bereits vorhanden sind, und fügt neue Werte hinzu, falls sie nicht vorhanden sind, während **insertOrReplaceEntity** eine vorhandene Entität vollständig ersetzt. Das folgende Beispiel zeigt die Verwendung von **insertOrMergeEntity**. Wenn die Entität mit dem `PartitionKey` "tasksSeattle" und dem `RowKey` "1" noch nicht vorhanden ist, wird sie eingefügt. Falls sie jedoch zuvor eingefügt wurde (wie in dem Beispiel oben gezeigt), wird die `DueDate`-Eigenschaft aktualisiert, und die `Status`-Eigenschaft wird hinzugefügt. Auch die Eigenschaften `Description` und `Location` werden aktualisiert, allerdings mit Werten, mit denen sie effektiv unverändert bleiben. Falls die letzten zwei Eigenschaft nicht wie im Beispiel gezeigt hinzugefügt würden, sondern auf der Zielentität vorhanden wären, blieben ihre vorhandenen Werte unverändert.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -228,7 +229,7 @@ catch(ServiceException $e){
 
 ## <a name="retrieve-a-single-entity"></a>Abrufen einer einzelnen Entität
 
-Mit der **TableRestProxy->getEntity**-Methode können Sie eine einzelne Entität durch Abfragen der Werte für `PartitionKey` und `RowKey` abrufen. Im Beispiel unten werden der Partitionsschlüssel `tasksSeattle` und der Zeilenschlüssel `1` an die **getEntity**-Methode übergeben.
+Mit der **TableRestProxy->getEntity** -Methode können Sie eine einzelne Entität durch Abfragen der Werte für `PartitionKey` und `RowKey` abrufen. Im Beispiel unten werden der Partitionsschlüssel `tasksSeattle` und der Zeilenschlüssel `1` an die **getEntity** -Methode übergeben.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -258,7 +259,7 @@ echo $entity->getPartitionKey().":".$entity->getRowKey();
 
 ## <a name="retrieve-all-entities-in-a-partition"></a>Abrufen aller Entitäten einer Partition
 
-Entitätsabfragen werden mithilfe von Filtern erstellt. (Weitere Informationen finden Sie unter [Abfragen von Tabellen und Entitäten][filters].) Um alle Entitäten in einer Partition abzurufen, verwenden Sie den Filter „PartitionKey eq *Partitionsname*“. Das folgende Beispiel zeigt, wie alle Entitäten in der Partition `tasksSeattle` durch Übergeben eines Filters an die **queryEntities** -Methode abgerufen werden.
+Entitätsabfragen werden mithilfe von Filtern erstellt. (Weitere Informationen finden Sie unter [Abfragen von Tabellen und Entitäten][filters].) Um alle Entitäten in einer Partition abzurufen, verwenden Sie den Filter „PartitionKey eq *Partitionsname* “. Das folgende Beispiel zeigt, wie alle Entitäten in der Partition `tasksSeattle` durch Übergeben eines Filters an die **queryEntities** -Methode abgerufen werden.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -326,7 +327,7 @@ foreach($entities as $entity){
 
 ## <a name="retrieve-a-subset-of-entity-properties"></a>Abrufen einer Teilmenge von Entitätseigenschaften
 
-Eine Abfrage kann eine Teilmenge der Entitätseigenschaften abrufen. Diese Technik namens *Projektion*reduziert die Bandbreite und kann die Abfrageleistung, besonders für große Entitäten, verbessern. Um eine abzurufende Eigenschaft anzugeben, übergeben Sie den Namen der Eigenschaft an die **Query->addSelectField**-Methode. Sie können diese Methode mehrfach aufrufen, um weitere Eigenschaften hinzuzufügen. Nach dem Ausführen von **TableRestProxy->queryEntities** haben die zurückgegebenen Entitäten nur die ausgewählten Eigenschaften. (Wenn Sie eine Teilmenge der Tabellenentitäten zurückgeben möchten, verwenden Sie einen Filter, wie in den Abfragen oben gezeigt wird.)
+Eine Abfrage kann eine Teilmenge der Entitätseigenschaften abrufen. Diese Technik namens *Projektion* reduziert die Bandbreite und kann die Abfrageleistung, besonders für große Entitäten, verbessern. Um eine abzurufende Eigenschaft anzugeben, übergeben Sie den Namen der Eigenschaft an die **Query->addSelectField** -Methode. Sie können diese Methode mehrfach aufrufen, um weitere Eigenschaften hinzuzufügen. Nach dem Ausführen von **TableRestProxy->queryEntities** haben die zurückgegebenen Entitäten nur die ausgewählten Eigenschaften. (Wenn Sie eine Teilmenge der Tabellenentitäten zurückgeben möchten, verwenden Sie einen Filter, wie in den Abfragen oben gezeigt wird.)
 
 ```php
 require_once 'vendor/autoload.php';
@@ -366,7 +367,7 @@ foreach($entities as $entity){
 
 ## <a name="update-an-entity"></a>Aktualisieren einer Entität
 
-Sie können eine vorhandene Entität mithilfe der Methoden **Entity->setProperty** und **Entity->addProperty** für die Entität und des darauf folgenden Aufrufs von **TableRestProxy->updateEntity** aktualisieren. Das folgende Beispiel ruft eine Entität ab, ändert eine Eigenschaft, entfernt eine andere Eigenschaft und fügt eine neue Eigenschaft hinzu. Beachten Sie, dass Sie eine Eigenschaft durch Festlegen ihres Werts auf **null**entfernen können.
+Sie können eine vorhandene Entität mithilfe der Methoden **Entity->setProperty** und **Entity->addProperty** für die Entität und des darauf folgenden Aufrufs von **TableRestProxy->updateEntity** aktualisieren. Das folgende Beispiel ruft eine Entität ab, ändert eine Eigenschaft, entfernt eine andere Eigenschaft und fügt eine neue Eigenschaft hinzu. Beachten Sie, dass Sie eine Eigenschaft durch Festlegen ihres Werts auf **null** entfernen können.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -401,7 +402,7 @@ catch(ServiceException $e){
 
 ## <a name="delete-an-entity"></a>Löschen einer Entität
 
-Um eine Entität zu löschen, übergeben Sie den Tabellennamen und die Werte für `PartitionKey` und `RowKey` der Entität an die **TableRestProxy->deleteEntity**-Methode.
+Um eine Entität zu löschen, übergeben Sie den Tabellennamen und die Werte für `PartitionKey` und `RowKey` der Entität an die **TableRestProxy->deleteEntity** -Methode.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -426,11 +427,11 @@ catch(ServiceException $e){
 }
 ```
 
-Für Parallelitätsüberprüfungen können Sie das ETag für eine zu löschende Entität mithilfe der **DeleteEntityOptions->setEtag**-Methode und durch Übergeben des **DeleteEntityOptions**-Objekts an **deleteEntity** als vierten Parameter festlegen.
+Für Parallelitätsüberprüfungen können Sie das ETag für eine zu löschende Entität mithilfe der **DeleteEntityOptions->setEtag** -Methode und durch Übergeben des **DeleteEntityOptions** -Objekts an **deleteEntity** als vierten Parameter festlegen.
 
 ## <a name="batch-table-operations"></a>Batch-Tabellenvorgänge
 
-Mithilfe der **TableRestProxy->batch**-Methode können Sie mehrere Vorgänge in einer einzelnen Anforderung ausführen. Das Muster umfasst hier das Hinzufügen von Vorgängen zum **BatchRequest**-Objekt und die darauf folgende Übergabe des **BatchRequest**-Objekts an die **TableRestProxy->batch**-Methode. Um einem **BatchRequest** -Objekt einen Vorgang hinzuzufügen, können Sie eine der folgenden Methoden mehrfach aufrufen:
+Mithilfe der **TableRestProxy->batch** -Methode können Sie mehrere Vorgänge in einer einzelnen Anforderung ausführen. Das Muster umfasst hier das Hinzufügen von Vorgängen zum **BatchRequest** -Objekt und die darauf folgende Übergabe des **BatchRequest** -Objekts an die **TableRestProxy->batch** -Methode. Um einem **BatchRequest** -Objekt einen Vorgang hinzuzufügen, können Sie eine der folgenden Methoden mehrfach aufrufen:
 
 * **addInsertEntity** (fügt einen insertEntity-Vorgang hinzu)
 * **addUpdateEntity** (fügt einen updateEntity-Vorgang hinzu)
@@ -439,7 +440,7 @@ Mithilfe der **TableRestProxy->batch**-Methode können Sie mehrere Vorgänge in 
 * **addInsertOrMergeEntity** (fügt einen insertOrMergeEntity-Vorgang hinzu)
 * **addDeleteEntity** (fügt einen deleteEntity-Vorgang hinzu)
 
-Das folgende Beispiel zeigt die Ausführung von **insertEntity**- und **deleteEntity**-Vorgängen in einer einzelnen Anforderung. 
+Das folgende Beispiel zeigt die Ausführung von **insertEntity** - und **deleteEntity** -Vorgängen in einer einzelnen Anforderung. 
 
 ```php
 require_once 'vendor/autoload.php';
@@ -491,7 +492,7 @@ Weitere Informationen zu Batch-Tabellenvorgängen finden Sie unter [Durchführen
 
 ## <a name="delete-a-table"></a>Löschen einer Tabelle
 
-Um eine Tabelle zu löschen, übergeben Sie den Tabellennamen an die **TableRestProxy->deleteTable**-Methode.
+Um eine Tabelle zu löschen, übergeben Sie den Tabellennamen an die **TableRestProxy->deleteTable** -Methode.
 
 ```php
 require_once 'vendor/autoload.php';

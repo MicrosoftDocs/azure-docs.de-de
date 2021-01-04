@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 59a87e7c91266dd1ec2d7263df7149d07f6e7ce8
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 40d70c7bd740d8c72ddb72047a3bae3586e1aa1f
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342296"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445250"
 ---
 # <a name="feature-coverage-for-machines"></a>Funktionsabdeckung für Computer
 
@@ -30,12 +30,12 @@ Die beiden folgenden Registerkarten enthalten die Azure Security Center-Features
 
 |**Feature**|**Dokumentation zu virtuellen Computern**|**Azure Virtual Machine Scale Sets**|**Computer mit Azure Arc-Unterstützung**|**Azure Defender erforderlich**
 |----|:----:|:----:|:----:|:----:|
-|[Microsoft Defender ATP-Integration](security-center-wdatp.md)|✔</br>(für unterstützte Versionen)|✔</br>(für unterstützte Versionen)|✔|Ja|
+|[Integration in Microsoft Defender für Endpunkt](security-center-wdatp.md)|✔</br>(für unterstützte Versionen)|✔</br>(für unterstützte Versionen)|✔|Ja|
 |[Virtual Machine-Verhaltensanalysen (und Sicherheitswarnungen)](alerts-reference.md)|✔|✔|✔|Ja|
 |[Dateilose Sicherheitswarnungen](alerts-reference.md#alerts-windows)|✔|✔|✔|Ja|
 |[Netzwerkbasierte Sicherheitswarnungen](other-threat-protections.md#network-layer)|✔|✔|-|Ja|
 |[Just-in-Time-VM-Zugriff](security-center-just-in-time.md)|✔|-|-|Ja|
-|[Native Sicherheitsrisikobewertung](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Ja|
+|[Native Sicherheitsrisikobewertung](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|✔|Ja|
 |[Dateiintegritätsüberwachung](security-center-file-integrity-monitoring.md)|✔|✔|✔|Ja|
 |[Adaptive Anwendungssteuerungen](security-center-adaptive-application.md)|✔|-|✔|Ja|
 |[Netzwerkübersicht](security-center-network-recommendations.md#network-map)|✔|✔|-|Ja|
@@ -46,7 +46,7 @@ Die beiden folgenden Registerkarten enthalten die Azure Security Center-Features
 |Bewertung von Sicherheitsfehlkonfigurationen|✔|✔|✔|Azure: Nein<br><br>Arc-Unterstützung: Ja|
 |[Endpoint Protection-Bewertung](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: Nein<br><br>Arc-Unterstützung: Ja|
 |Bewertung der Datenträgerverschlüsselung|✔</br>(für [unterstützte Szenarien](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Nein|
-|Sicherheitsrisikobewertung durch Drittanbieter|✔|-|-|Nein|
+|Sicherheitsrisikobewertung durch Drittanbieter|✔|-|✔|Nein|
 |[Netzwerksicherheitsbewertung](security-center-network-recommendations.md)|✔|✔|-|Nein|
 
 
@@ -54,12 +54,12 @@ Die beiden folgenden Registerkarten enthalten die Azure Security Center-Features
 
 |**Feature**|**Dokumentation zu virtuellen Computern**|**Azure Virtual Machine Scale Sets**|**Computer mit Azure Arc-Unterstützung**|**Azure Defender erforderlich**
 |----|:----:|:----:|:----:|:----:|
-|[Microsoft Defender ATP-Integration](security-center-wdatp.md)|-|-|-|Ja|
+|[Integration in Microsoft Defender für Endpunkt](security-center-wdatp.md)|-|-|-|Ja|
 |[Virtual Machine-Verhaltensanalysen (und Sicherheitswarnungen)](./azure-defender.md)|✔</br>(für unterstützte Versionen)|✔</br>(für unterstützte Versionen)|✔|Ja|
 |[Dateilose Sicherheitswarnungen](alerts-reference.md#alerts-windows)|-|-|-|Ja|
 |[Netzwerkbasierte Sicherheitswarnungen](other-threat-protections.md#network-layer)|✔|✔|-|Ja|
 |[Just-in-Time-VM-Zugriff](security-center-just-in-time.md)|✔|-|-|Ja|
-|[Native Sicherheitsrisikobewertung](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Ja|
+|[Native Sicherheitsrisikobewertung](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|✔|Ja|
 |[Dateiintegritätsüberwachung](security-center-file-integrity-monitoring.md)|✔|✔|✔|Ja|
 |[Adaptive Anwendungssteuerungen](security-center-adaptive-application.md)|✔|-|✔|Ja|
 |[Netzwerkübersicht](security-center-network-recommendations.md#network-map)|✔|✔|-|Ja|
@@ -70,7 +70,7 @@ Die beiden folgenden Registerkarten enthalten die Azure Security Center-Features
 |Bewertung von Sicherheitsfehlkonfigurationen|✔|✔|✔|Azure: Nein<br><br>Arc-Unterstützung: Ja|
 |[Endpoint Protection-Bewertung](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Nein|
 |Bewertung der Datenträgerverschlüsselung|✔</br>(für [unterstützte Szenarien](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Nein|
-|Sicherheitsrisikobewertung durch Drittanbieter|✔|-|-|Nein|
+|Sicherheitsrisikobewertung durch Drittanbieter|✔|-|✔|Nein|
 |[Netzwerksicherheitsbewertung](security-center-network-recommendations.md)|✔|✔|-|Nein|
 
 --- 

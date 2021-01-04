@@ -3,12 +3,12 @@ title: Hinzufügen eines Artefaktrepositorys zu Ihrem Lab in Azure DevTest Labs 
 description: Erfahren Sie, wie Sie Ihr eigenes Artefaktrepository für Ihr Lab in Azure DevTest Labs angeben, um Tools zu speichern, die im öffentlichen Artefaktrepository nicht verfügbar sind.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7553f6b1afa416a5428577a8313bdadb669e32c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dd7d89020bf077e29b177f6871f43b52467b0d8
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88270970"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97512010"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Hinzufügen eines Artefaktrepositorys zu Ihrem Lab in DevTest Labs
 DevTest Labs ermöglicht das Angeben eines Artefakts, das einem virtuellen Computer hinzugefügt werden soll – entweder beim Erstellen des virtuellen Computers oder nach Erstellung des virtuellen Computers. Bei diesem Artefakt kann es sich beispielsweise um ein Tool oder um eine Anwendung handeln, das bzw. die Sie auf dem virtuellen Computer installieren möchten. Artefakte werden in einer JSON-Datei definiert, die aus einem GitHub- oder Azure DevOps-Git-Repository geladen wird.
@@ -25,7 +25,7 @@ Bevor Sie Ihrem Lab ein Repository hinzufügen können, rufen Sie zunächst wich
 ### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>Abrufen der Klon-URL und des persönlichen Zugriffstokens für das GitHub-Repository
 
 1. Navigieren Sie zur Startseite des GitHub-Repositorys, das die Artefakt- oder Resource Manager-Vorlagendefinitionen enthält.
-2. Wählen Sie **Clone or download**aus.
+2. Wählen Sie **Clone or download** aus.
 3. Um die URL in die Zwischenablage zu kopieren, klicken Sie auf die Schaltfläche **HTTPS-Klon-URL**. Speichern Sie die URL für die spätere Verwendung.
 4. Wählen Sie das Profilbild in der oberen rechten Ecke von GitHub aus, und wählen Sie **Einstellungen**.
 5. Wählen Sie im Menü **Personal settings** (Persönliche Einstellungen) auf der linken Seite die Option **Developer Settings** (Entwicklereinstellungen) aus.

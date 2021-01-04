@@ -35,11 +35,11 @@
 - name: Verweis
   items:
     - name: REST-API-Referenz
-      href: 'https://go.microsoft.com/fwlink/?linkid=2089907'
+      href: /rest/api/cognitiveservices/inkrecognizer/inkrecognizer
     - name: PowerShell
-      href: 'https://aka.ms/azure-powershell-cognitiveservices'
-    - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
+      href: /powershell/module/azurerm.cognitiveservices/
+    - name: Azure-Befehlszeilenschnittstelle
+      href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
     - name: Sprachunterstützung
       href: language-support.md
     - name: Regions

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 5c3ac14af6eb863daa9eadd32727f4fb53d2185f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46e9ece70d9f980065c719ee1205eb46591b45c0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322856"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025241"
 ---
 # <a name="upgrade-composite-entity-to-machine-learning-entity"></a>Upgrade einer zusammengesetzten Entität zu einer Machine Learning-Entität
 
@@ -29,7 +29,7 @@ Der Upgradeprozess umfasst Folgendes:
     * Wird eine untergeordnete Entität in der zusammengesetzten Entität _und_ als separate Entität (in Beispieläußerungen beschriftet) verwendet, wird sie der Version als Entität und der neuen Machine Learning-Entität als untergeordnete Entität hinzugefügt.
     * Wenn die untergeordnete Entität eine Rolle verwendet, werden die einzelnen Rollen jeweils in eine untergeordnete Entität gleichen Namens konvertiert.
     * Handelt es sich bei der untergeordneten Entität um eine Nicht-Machine Learning-Entität (regulärer Ausdruck, Listenentität oder vordefinierte Entität), wird eine neue untergeordnete Entität gleichen Namens erstellt. Die neue untergeordnete Entität verfügt über ein Feature, das die Nicht-Machine Learning-Entität mit dem hinzugefügten erforderlichen Feature verwendet.
-* Namen werden beibehalten, müssen aber auf der gleichen Ebene (Unterentität/gleichgeordnetes Element) eindeutig sein. Weitere Informationen finden Sie unter [Beschränkungen für eindeutige Benennungen](luis-boundaries.md#name-uniqueness).
+* Namen werden beibehalten, müssen aber auf der gleichen Ebene (Unterentität/gleichgeordnetes Element) eindeutig sein. Weitere Informationen finden Sie unter [Beschränkungen für eindeutige Benennungen](./luis-limits.md#name-uniqueness).
 * Beschriftungen in Beispieläußerungen werden auf die neue Machine Learning-Entität mit untergeordneten Entitäten umgestellt.
 
 Die Modelländerungen werden im folgenden Diagramm veranschaulicht:

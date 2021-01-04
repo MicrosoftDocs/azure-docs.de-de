@@ -1,21 +1,27 @@
 ---
-title: 'Tutorial: Verwenden von Creator zum Erstellen von Gebäudeplänen'
-description: Tutorial zum Erstellen von Gebäudeplänen mithilfe von Azure Maps Creator
+title: 'Tutorial: Erstellen von Gebäudeplänen mithilfe von Microsoft Azure Maps Creator (Vorschauversion)'
+description: In diesem Tutorial erfahren Sie, wie Sie Gebäudepläne mithilfe von Microsoft Azure Maps Creator (Vorschauversion) erstellen.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/22/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 731ffe02b16fe832bb5feba34973ca81bf941646
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eab8a2729209bb0023662b652f862b4fa678470e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371421"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905722"
 ---
-# <a name="tutorial-use-creator-to-create-indoor-maps"></a>Tutorial: Verwenden von Creator zum Erstellen von Gebäudeplänen
+# <a name="tutorial-use-creator-preview-to-create-indoor-maps"></a>Tutorial: Erstellen von Gebäudeplänen mithilfe von Creator (Vorschau)
+
+> [!IMPORTANT]
+> Azure Maps Creator-Dienste befinden sich derzeit in der Public Preview-Phase.
+> Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar. Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
 
 In diesem Tutorial wird die Erstellung von Gebäudeplänen gezeigt. Sie erfahren in diesem Tutorial, wie Sie mithilfe der API folgende Aktionen ausführen:
 
@@ -34,7 +40,7 @@ Zum Erstellen von Gebäudeplänen ist Folgendes erforderlich:
 
 1. [Erstellen eines Azure Maps-Kontos](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Abrufen eines Primärschlüssels](quick-demo-map-app.md#get-the-primary-key-for-your-account) (auch primärer Schlüssel oder Abonnementschlüssel genannt)
-3. [Erstellen einer Creator-Ressource](how-to-manage-creator.md)
+3. [Erstellen einer Creator-Ressource (Vorschau)](how-to-manage-creator.md)
 4. Herunterladen des [Beispielzeichenpakets](https://github.com/Azure-Samples/am-creator-indoor-data-examples/blob/master/Sample%20-%20Contoso%20Drawing%20Package.zip)
 
 In diesem Tutorial wird die Anwendung [Postman](https://www.postman.com/) verwendet. Sie können aber auch eine andere API-Entwicklungsumgebung verwenden.
@@ -44,7 +50,7 @@ In diesem Tutorial wird die Anwendung [Postman](https://www.postman.com/) verwen
 
 ## <a name="upload-a-drawing-package"></a>Hochladen eines Zeichnungspakets
 
-Verwenden Sie die [Datenupload-API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview), um das Zeichnungspaket in Azure Maps-Ressourcen hochzuladen.
+Verwenden Sie die [Datenupload-API](/rest/api/maps/data/uploadpreview), um das Zeichnungspaket in Azure Maps-Ressourcen hochzuladen.
 
 Bei der Datenupload-API handelt es sich um eine zeitintensive Transaktion, durch die das hier definierte Muster implementiert wird. Nach Abschluss des Vorgangs wird die eindeutige Daten-ID (`udid`) verwendet, um auf das hochgeladene Paket zuzugreifen und es zu konvertieren. Führen Sie die folgenden Schritte aus, um die eindeutige Daten-ID (`udid`) zu erhalten:
 
@@ -102,7 +108,7 @@ Bei der Datenupload-API handelt es sich um eine zeitintensive Transaktion, durch
 
  Nach dem Hochladen des Zeichnungspakets wird die eindeutige Daten-ID (`udid`) für das hochgeladene Paket verwendet, um das Paket in Kartendaten zu konvertieren. Von der Konvertierungs-API wird eine zeitintensive Transaktion verwendet, durch die das [hier](creator-long-running-operation.md) definierte Muster implementiert wird. Nach Abschluss des Vorgangs wird die Konvertierungs-ID (`conversionId`) verwendet, um auf die konvertierten Daten zuzugreifen. Führen Sie die folgenden Schritte aus, um die Konvertierungs-ID (`conversionId`) zu erhalten:
 
-1. Wählen Sie **Neu**aus. Wählen Sie im Fenster **Create New** (Neu erstellen) die Option **Request** (Anforderung) aus. Geben Sie einen **Anforderungsnamen** ein, und wählen Sie eine Sammlung aus. Klicken Sie auf **Speichern**.
+1. Wählen Sie **Neu** aus. Wählen Sie im Fenster **Create New** (Neu erstellen) die Option **Request** (Anforderung) aus. Geben Sie einen **Anforderungsnamen** ein, und wählen Sie eine Sammlung aus. Klicken Sie auf **Speichern**.
 
 2. Wählen Sie auf der Registerkarte „Builder“ (Generator) die HTTP-Methode **POST** aus, und geben Sie die folgende URL ein, um Ihr hochgeladenes Zeichnungspaket in Kartendaten zu konvertieren. Verwenden Sie die eindeutige Daten-ID (`udid`) für das hochgeladene Paket.
 
@@ -111,7 +117,7 @@ Bei der Datenupload-API handelt es sich um eine zeitintensive Transaktion, durch
     ```
 
     >[!IMPORTANT]
-    > Die API-URLs in diesem Dokument müssen möglicherweise entsprechend dem Speicherort der Creator-Ressource angepasst werden. Weitere Details finden Sie unter [Zugreifen auf Creator-Dienste](how-to-manage-creator.md#access-to-creator-services).
+    > Die API-URLs in diesem Dokument müssen möglicherweise entsprechend dem Speicherort der Creator-Ressource angepasst werden. Ausführlichere Informationen finden Sie unter [Zugreifen auf Creator-Dienste](how-to-manage-creator.md#access-to-creator-services).
 
 3. Klicken Sie auf die Schaltfläche **Send** (Senden), und warten Sie, bis die Anforderung verarbeitet wurde. Navigieren Sie nach Abschluss der Anforderung zur Registerkarte **Headers** (Header) der Antwort, und suchen Sie nach dem Schlüssel **Location** (Speicherort). Kopieren Sie den Wert des Schlüssels **Location** (Speicherort). Hierbei handelt es sich um die Status-URL (`status URL`) für die Konvertierungsanforderung. Diesen verwenden Sie im nächsten Schritt.
 
@@ -164,11 +170,11 @@ Das Beispielzeichnungspaket sollte sich ohne Fehler oder Warnungen konvertieren 
 
 ## <a name="create-a-dataset"></a>Erstellen eines Datasets
 
-Das Dataset ist eine Sammlung von Kartenfeatures wie Gebäuden, Ebenen und Räumen. Verwenden Sie zum Erstellen eines Datasets die [Dataseterstellungs-API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview). Die Dataseterstellungs-API akzeptiert die Konvertierungs-ID (`conversionId`) für das konvertierte Zeichnungspaket und gibt eine Dataset-ID (`datasetId`) des erstellten Datasets zurück. Die folgenden Schritte veranschaulichen das Erstellen eines Datasets.
+Das Dataset ist eine Sammlung von Kartenfeatures wie Gebäuden, Ebenen und Räumen. Verwenden Sie zum Erstellen eines Datasets die [Dataseterstellungs-API](/rest/api/maps/dataset/createpreview). Die Dataseterstellungs-API akzeptiert die Konvertierungs-ID (`conversionId`) für das konvertierte Zeichnungspaket und gibt eine Dataset-ID (`datasetId`) des erstellten Datasets zurück. Die folgenden Schritte veranschaulichen das Erstellen eines Datasets.
 
 1. Wählen Sie in der Postman-Anwendung **New** (Neu) aus. Wählen Sie im Fenster **Create New** (Neu erstellen) die Option **Request** (Anforderung) aus. Geben Sie einen **Anforderungsnamen** ein, und wählen Sie eine Sammlung aus. Klicken Sie unten auf der Seite auf **Speichern**.
 
-2. Senden Sie eine Anforderung vom Typ **POST** an die [Dataseterstellungs-API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview), um ein neues Dataset zu erstellen. Fügen Sie vor dem Übermitteln der Anforderung sowohl Ihren Abonnementschlüssel als auch die Konvertierungs-ID (`conversionId`) an, und verwenden Sie dabei die Konvertierungs-ID (`conversionId`), den Sie im Rahmen des Konvertierungsprozesses in Schritt 5 erhalten haben.  Die Anforderung sollte wie die folgende URL aussehen:
+2. Senden Sie eine Anforderung vom Typ **POST** an die [Dataseterstellungs-API](/rest/api/maps/dataset/createpreview), um ein neues Dataset zu erstellen. Fügen Sie vor dem Übermitteln der Anforderung sowohl Ihren Abonnementschlüssel als auch die Konvertierungs-ID (`conversionId`) an, und verwenden Sie dabei die Konvertierungs-ID (`conversionId`), den Sie im Rahmen des Konvertierungsprozesses in Schritt 5 erhalten haben.  Die Anforderung sollte wie die folgende URL aussehen:
 
     ```http
     https://atlas.microsoft.com/dataset/create?api-version=1.0&conversionID={conversionId}&type=facility&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -224,7 +230,7 @@ Bei einem Kachelset handelt es sich um eine Gruppe von Vektorkacheln, die auf de
 
 ## <a name="query-datasets-with-wfs-api"></a>Abfragen von Datasets mit der WFS-API
 
- Datasets können mithilfe der [WFS-API](https://docs.microsoft.com/rest/api/maps/wfs) abgefragt werden. Mit der WFS-API können Sie Featuresammlungen, eine bestimmte Sammlung oder ein bestimmtes Feature mit einer **Feature-ID** abfragen. Durch die **Feature-ID** wird das Feature innerhalb des Datasets eindeutig identifiziert. Sie wird beispielsweise verwendet, um anzugeben, welcher Featurezustand in einem bestimmten Zustandsset aktualisiert werden soll.
+ Datasets können mithilfe der [WFS-API](/rest/api/maps/wfs) abgefragt werden. Mit der WFS-API können Sie Featuresammlungen, eine bestimmte Sammlung oder ein bestimmtes Feature mit einer **Feature-ID** abfragen. Durch die **Feature-ID** wird das Feature innerhalb des Datasets eindeutig identifiziert. Sie wird beispielsweise verwendet, um anzugeben, welcher Featurezustand in einem bestimmten Zustandsset aktualisiert werden soll.
 
 1. Wählen Sie in der Postman-Anwendung **New** (Neu) aus. Wählen Sie im Fenster **Create New** (Neu erstellen) die Option **Request** (Anforderung) aus. Geben Sie einen **Anforderungsnamen** ein, und wählen Sie eine Sammlung aus. Klicken Sie unten auf der Seite auf **Speichern**.
 
@@ -234,7 +240,7 @@ Bei einem Kachelset handelt es sich um eine Gruppe von Vektorkacheln, die auf de
     https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
     ```
 
-3. Der Antworttext wird im GeoJSON-Format zurückgegeben und enthält alle Sammlungen im Dataset. Der Einfachheit halber enthält das hier gezeigte Beispiel nur die Sammlung `unit`. Ein Beispiel mit allen Sammlungen finden Sie unter [WFS-API für Sammlungsbeschreibungen](https://docs.microsoft.com/rest/api/maps/wfs/collectiondescriptionpreview). Wenn Sie weitere Informationen zu einer Sammlung benötigen, können Sie auf eine der URLs im Element `link` klicken.
+3. Der Antworttext wird im GeoJSON-Format zurückgegeben und enthält alle Sammlungen im Dataset. Der Einfachheit halber enthält das hier gezeigte Beispiel nur die Sammlung `unit`. Ein Beispiel mit allen Sammlungen finden Sie unter [WFS-API für Sammlungsbeschreibungen](/rest/api/maps/wfs/collectiondescriptionpreview). Wenn Sie weitere Informationen zu einer Sammlung benötigen, können Sie auf eine der URLs im Element `link` klicken.
 
     ```json
     {
@@ -304,7 +310,7 @@ Bei einem Kachelset handelt es sich um eine Gruppe von Vektorkacheln, die auf de
 
 1. Wählen Sie in der Postman-Anwendung **New** (Neu) aus. Wählen Sie im Fenster **Create New** (Neu erstellen) die Option **Request** (Anforderung) aus. Geben Sie einen **Anforderungsnamen** ein, und wählen Sie eine Sammlung aus. Klicken Sie unten auf der Seite auf **Speichern**.
 
-2. Senden Sie eine Anforderung vom Typ **POST** an die [API zum Erstellen von Zustandssets](https://docs.microsoft.com/rest/api/maps/featurestate/createstatesetpreview). Verwenden Sie die Dataset-ID (`datasetId`) des Datasets mit dem Zustand, den Sie ändern möchten. Die Anforderung sollte wie die folgende URL aussehen:
+2. Senden Sie eine Anforderung vom Typ **POST** an die [API zum Erstellen von Zustandssets](/rest/api/maps/featurestate/createstatesetpreview). Verwenden Sie die Dataset-ID (`datasetId`) des Datasets mit dem Zustand, den Sie ändern möchten. Die Anforderung sollte wie die folgende URL aussehen:
 
     ```http
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -402,9 +408,9 @@ Bei einem Kachelset handelt es sich um eine Gruppe von Vektorkacheln, die auf de
 
 7. Nach erfolgreicher Aktualisierung erhalten Sie den HTTP-Statuscode `200 OK`. Falls Sie [dynamische Stile](indoor-map-dynamic-styling.md) für einen Gebäudeplan implementiert haben, wird die Aktualisierung zum angegebenen Zeitstempel auf Ihrer Karte gerendert.
 
-Mit der [API zum Abrufen von Featurezuständen](https://docs.microsoft.com/rest/api/maps/featurestate/getstatespreview) können Sie den Zustand eines Features unter Verwendung der zugehörigen Feature-ID (`ID`) abrufen. Mit der [API zum Löschen von Featurezuständen](https://docs.microsoft.com/rest/api/maps/featurestate/deletestatesetpreview) können Sie das Zustandsset und die zugehörigen Ressourcen löschen.
+Mit der [API zum Abrufen von Featurezuständen](/rest/api/maps/featurestate/getstatespreview) können Sie den Zustand eines Features unter Verwendung der zugehörigen Feature-ID (`ID`) abrufen. Mit der [API zum Löschen von Featurezuständen](/rest/api/maps/featurestate/deletestatesetpreview) können Sie das Zustandsset und die zugehörigen Ressourcen löschen.
 
-Weitere Informationen zu den verschiedenen Azure Maps Creator-Diensten aus diesem Artikel finden Sie unter [Creator für Gebäudepläne](creator-indoor-maps.md).
+Weitere Informationen zu den verschiedenen Azure Maps Creator-Diensten (Vorschau) aus diesem Artikel finden Sie unter [Creator (Vorschau) für Gebäudepläne](creator-indoor-maps.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

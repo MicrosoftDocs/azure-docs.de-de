@@ -7,18 +7,19 @@ author: msjuergent
 manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/21/2020
+ms.date: 11/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6785ae821f701121185f0064c6317c69d50191ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7777888bd27325e9094032458922969494a9a64e
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77617064"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94984956"
 ---
 # <a name="know-the-terms"></a>Informationen zu Begriffen
 
@@ -44,6 +45,7 @@ Im Handbuch zur Architektur und technischen Bereitstellung werden mehrere allgem
 - **Revision**: Es gibt zwei unterschiedliche Stamprevisionen für Stamps von SAP HANA (große Instanzen). Diese unterscheiden sich in der Architektur und in der Nähe zu Hosts für virtuelle Computer in Azure.
     - „Revision 3“ (Rev 3) ist der ursprüngliche Entwurf, der von Mitte des Jahres 2016 an bereitgestellt wurde.
     - „Revision 4“ (Rev 4) ist ein neuer Entwurf, der größere Nähe zu Hosts für virtuelle Computer in Azure und damit geringere Netzwerklatenz zwischen Azure-VMS und Einheiten von SAP HANA (große Instanzen) bieten kann. 
+    - „Revision 4.2“ (Rev 4.2): Für vorhandene DCs der Revision 4 werden Ressourcen in BareMetal-Infrastruktur umbenannt.  Kunden können über das Azure-Portal auf Ihre Ressourcen als BareMetal-Instanzen zugreifen. 
 
 Es sind viele weitere Ressourcen zum Bereitstellen einer SAP-Workload in der Cloud verfügbar. Die Planung einer Bereitstellung von SAP HANA in Azure erfordert, dass Sie mit den Prinzipien von Azure-IaaS und der Bereitstellung von SAP-Workloads in Azure-IaaS vertraut sind. Bevor Sie fortfahren, sollten Sie den Artikel zur [Verwendung von SAP-Lösungen auf Azure-VMs](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) lesen. 
 

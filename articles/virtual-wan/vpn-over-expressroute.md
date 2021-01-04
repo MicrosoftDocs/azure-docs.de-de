@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6c6f71277c276bed603989774637bd95999de333
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: b8dde3ed76587e2343edaec8626287853ec6ef9b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079053"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487506"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>ExpressRoute-Verschlüsselung: IPsec über ExpressRoute für Virtual WAN
 
@@ -95,7 +95,7 @@ Die Standortressource stimmt mit den Nicht-ExpressRoute-VPN-Standorten für ein 
 
    Wenn BGP aktiviert ist, wird BGP für alle Verbindungen verwendet, die für diesen Standort in Azure erstellt werden. Die Vorgehensweise zum Konfigurieren von BGP für eine Virtual WAN-Instanz ist dieselbe wie beim Konfigurieren von BGP für ein Azure-VPN-Gateway. 
    
-   Die lokale BGP-Peeradresse darf *nicht* mit der IP-Adresse Ihres VPN-Geräts oder dem Adressraum des virtuellen Netzwerks des VPN-Standorts übereinstimmen. Verwenden Sie als BGP-Peer-IP-Adresse eine andere IP-Adresse für das VPN-Gerät. Dabei kann es sich um eine Adresse handeln, die der Loopback-Schnittstelle des Geräts zugewiesen ist. Es kann aber auch *keine* APIPA-Adresse (169.254.*x*.*x*) sein. Geben Sie diese Adresse im entsprechenden lokalen Netzwerkgateway an, das den Standort darstellt. Informationen zu den Voraussetzungen für BGP finden Sie unter [Übersicht über BGP mit Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
+   Die lokale BGP-Peeradresse darf *nicht* mit der IP-Adresse Ihres VPN-Geräts oder dem Adressraum des virtuellen Netzwerks des VPN-Standorts übereinstimmen. Verwenden Sie als BGP-Peer-IP-Adresse eine andere IP-Adresse für das VPN-Gerät. Dabei kann es sich um eine Adresse handeln, die der Loopback-Schnittstelle des Geräts zugewiesen ist. Es kann aber auch *keine* APIPA-Adresse (169.254.*x*.*x*) sein. Geben Sie diese Adresse im entsprechenden VPN-Standort an, der den Speicherort darstellt. Informationen zu den Voraussetzungen für BGP finden Sie unter [Übersicht über BGP mit Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
 
 1. Klicken Sie auf **Weiter: Überprüfen + Erstellen >** , um die festgelegten Werte zu überprüfen und die VPN-Site zu erstellen. Wenn Sie **Hubs** für die Verbindung ausgewählt haben, wird die Verbindung zwischen dem lokalen Netzwerk und dem VPN-Gateway des Hubs hergestellt.
 
@@ -105,16 +105,16 @@ Nachdem Sie den VPN-Standort erstellt und die Verbindung mit dem Hub hergestellt
 
 1. Kehren Sie zur Virtual WAN-Ressourcenseite zurück und wählen Sie die Hubressource aus. Oder navigieren Sie vom VPN-Standort zum verbundenen Hub.
 
-   :::image type="content" source="./media/vpn-over-expressroute/hub-selection.png" alt-text="VPN über ExpressRoute":::
+   :::image type="content" source="./media/vpn-over-expressroute/hub-selection.png" alt-text="Hub auswählen":::
 1. Wählen Sie unter **Konnektivität** die Option **VPN (Site-to-Site)** aus.
 
-   :::image type="content" source="./media/vpn-over-expressroute/vpn-select.png" alt-text="VPN über ExpressRoute":::
+   :::image type="content" source="./media/vpn-over-expressroute/vpn-select.png" alt-text="Auswählen des VPN (Site-to-Site)":::
 1. Wählen Sie das Auslassungszeichen (**...**) neben dem VPN-Standort über ExpressRoute aus, und wählen Sie **VPN-Verbindung mit diesem Hub bearbeiten** aus.
 
-   :::image type="content" source="./media/vpn-over-expressroute/config-menu.png" alt-text="VPN über ExpressRoute":::
+   :::image type="content" source="./media/vpn-over-expressroute/config-menu.png" alt-text="Menü „Konfiguration eingeben“":::
 1. Wählen Sie für **Private Azure-IP-Adresse verwenden** den Wert **Ja** aus. Mit dieser Einstellung wird das Hub-VPN-Gateway so konfiguriert, dass für diese Verbindung anstelle der öffentlichen IP-Adressen private IP-Adressen innerhalb des Hubadressbereichs auf dem Gateway verwendet werden. Dadurch wird sichergestellt, dass der Datenverkehr aus dem lokalen Netzwerk die privaten ExpressRoute-Peeringpfade durchläuft und nicht das öffentliche Internet für diese VPN-Verbindung verwendet wird. Der folgende Screenshot zeigt die Einstellung:
 
-   :::image type="content" source="./media/vpn-over-expressroute/vpn-link-configuration.png" alt-text="VPN über ExpressRoute" border="false":::
+   :::image type="content" source="./media/vpn-over-expressroute/vpn-link-configuration.png" alt-text="Einstellung für die Verwendung einer privaten IP-Adresse für die VPN-Verbindung" border="false":::
 1. Wählen Sie **Speichern** aus.
 
 Nachdem Sie Ihre Änderungen gespeichert haben, verwendet das VPN-Gateway des Hubs die privaten IP-Adressen des VPN-Gateways, um die IPsec/IKE-Verbindungen mit dem lokalen VPN-Gerät über ExpressRoute herzustellen.

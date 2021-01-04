@@ -7,19 +7,19 @@ ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: bfb6e9cb510f5fe887f108dfdea5932406aafe0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57d3d1c6bb14db3eb2ca499069934a628d2f7fea
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292925"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425780"
 ---
 # <a name="cloud-partner-portal-api-reference"></a>Cloud-Partnerportal-API-Referenz
 
 > [!NOTE]
 > Die Cloud-Partnerportal-APIs sind in Partner Center integriert und funktionieren auch weiterhin. Der Übergang führt zu kleineren Änderungen. Beachten Sie die in diesem Dokument aufgeführten [Änderungen an CCP-APIs](#changes-to-cpp-apis-after-the-migration-to-partner-center), um sicherzustellen, dass Ihr Code nach dem Produktübergang zu Partner Center weiterhin funktioniert. CPP-APIs sollten nur für vorhandene Produkte verwendet werden, die bereits vor dem Übergang zu Partner Center integriert wurden. Neue Produkte sollten die Partner Center-APIs für die Übermittlung verwenden.
 
-Die Cloud-Partnerportal-REST-APIs ermöglichen programmgesteuertes Abrufen und Bearbeiten von Workloads, Angeboten und Herausgeberprofilen. In den APIs wird rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC) verwendet, um die richtigen Berechtigungen während der Verarbeitungszeit zu erzwingen.
+Die Cloud-Partnerportal-REST-APIs ermöglichen programmgesteuertes Abrufen und Bearbeiten von Workloads, Angeboten und Herausgeberprofilen. In den APIs wird rollenbasierte Zugriffssteuerung von Azure (Azure Role-Based Access Control, Azure RBAC) verwendet, um die richtigen Berechtigungen während der Verarbeitungszeit zu erzwingen.
 
 Diese Referenz enthält die technischen Details für die Cloud-Partnerportal-REST-APIs. Die Nutzlastbeispiele in diesem Dokument dienen nur zu Referenzzwecken und können geändert werden, wenn neue Funktionalität hinzugefügt wurde.
 

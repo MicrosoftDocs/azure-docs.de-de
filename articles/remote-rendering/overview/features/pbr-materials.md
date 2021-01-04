@@ -5,18 +5,18 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: ad7fc7d9d02cd9a9a6fe74534a7c674fe0ac778d
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: f2e63903546e173e17f2b457b78eb41bcdf65dbd
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893253"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555565"
 ---
 # <a name="pbr-materials"></a>PBR-Materialien
 
 *PBR-Materialien* sind einer der unterstützten [Materialtypen](../../concepts/materials.md) in Azure Remote Rendering. Sie werden für [Gittermodelle](../../concepts/meshes.md) verwendet, die eine realistische Beleuchtung erhalten sollen.
 
-PBR steht für **P**hysically **B**ased **R**endering. Dies besagt, dass das Material die visuellen Eigenschaften einer Oberfläche auf physikalisch plausible Weise beschreibt, sodass realistische Ergebnisse unter allen Beleuchtungsbedingungen möglich sind. Die meisten modernen Spiele-Engines und Inhaltserstellungstools unterstützen PBR-Materialien, da sie als die beste Annäherung an realistische Szenarien für Echtzeitrendering angesehen werden.
+PBR steht für **P** hysically **B** ased **R** endering. Dies besagt, dass das Material die visuellen Eigenschaften einer Oberfläche auf physikalisch plausible Weise beschreibt, sodass realistische Ergebnisse unter allen Beleuchtungsbedingungen möglich sind. Die meisten modernen Spiele-Engines und Inhaltserstellungstools unterstützen PBR-Materialien, da sie als die beste Annäherung an realistische Szenarien für Echtzeitrendering angesehen werden.
 
 ![Mit ARR gerendertes gITF-Beispielmodell eines Helms](media/helmet.png)
 
@@ -42,6 +42,12 @@ Diese Eigenschaften gelten für alle Materialien:
 * **isDoubleSided**: Wenn diese Eigenschaft auf „true“ festgelegt ist, werden Dreiecke mit diesem Material auch dann gerendert, wenn die Kamera auf ihre Rückseite gerichtet ist. Für die PBR-Materialien wird die Beleuchtung auch für die Rückseite korrekt berechnet. Diese Option ist standardmäßig deaktiviert. Weitere Informationen finden Sie unter [:::no-loc text="Single-sided":::-Rendering](single-sided-rendering.md).
 
 * **TransparencyWritesDepth:** Wenn das TransparencyWritesDepth-Flag für das Material festgelegt und das Material transparent ist, leisten Objekte, die dieses Material verwenden, einen Beitrag zum letzten Tiefenpuffer. Sehen Sie sich das PBR-Materialflag *transparent* im nächsten Abschnitt an. Es wird empfohlen, dieses Feature zu aktivieren, wenn Ihr Anwendungsfall einen plausibleren [Farbverschiebungsausgleich](late-stage-reprojection.md) für vollständig transparente Szenen erfordert. Bei Szenen, die teilweise transparent und teilweise nicht transparent sind, kann diese Einstellung zu nicht plausiblem Reprojektionsverhalten oder nicht plausiblen Reprojektionsartefakten führen. Aus diesem Grund wird dieses Flag für normale Anwendungsfälle standardmäßig deaktiviert. Diese Einstellung wird auch empfohlen. Die geschriebenen Tiefenwerte werden der pixelbasierten Tiefenebene des Objekts entnommen, das sich der Kamera am nächsten befindet.
+
+* **FresnelEffect:** Dieses Materialflag ermöglicht den additiven [Fresnel-Effekt](../../overview/features/fresnel-effect.md) für das jeweilige Material. Die Darstellung des Effekts wird durch die anderen Fresnel-Parameter bestimmt, die im Folgenden erläutert werden. 
+
+* **FresnelEffectColor:** Die für dieses Material verwendete Fresnel-Farbe. Nur wichtig, wenn das Bit für den Fresnel-Effekt für dieses Material festgelegt wurde (siehe oben). Diese Eigenschaft steuert die Basisfarbe des Fresnel-Glanzes (eine vollständige Erläuterung finden Sie unter [Fresnel-Effekt](../../overview/features/fresnel-effect.md)). Gegenwärtig sind nur die RGB-Kanalwerte wichtig und der Alphawert wird ignoriert.
+
+* **FresnelEffectExponent:** Der Fresnel-Exponent, der für dieses Material verwendet wird. Nur wichtig, wenn das Bit für den Fresnel-Effekt für dieses Material festgelegt wurde (siehe oben). Diese Eigenschaft steuert die Verteilung des Fresnel-Glanzes. Der Mindestwert 0,01 bewirkt eine Verteilung über das gesamte Objekt. Der Maximalwert 10,0 schränkt den Glanz nur auf die am stärksten zierenden sichtbaren Kanten ein.
 
 ## <a name="pbr-material-properties"></a>PBR-Materialeigenschaften
 
@@ -85,10 +91,10 @@ Eine Konvertierung von *Specular-Glossiness* in *Metalness-Roughness* ist nicht 
 
 ## <a name="api-documentation"></a>API-Dokumentation
 
-* [C# PbrMaterial-Klasse](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
-* [C# RemoteManager.CreateMaterial()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
-* [C++ PbrMaterial-Klasse](https://docs.microsoft.com/cpp/api/remote-rendering/pbrmaterial)
-* [C++ RemoteManager::CreateMaterial()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#creatematerial)
+* [C# PbrMaterial-Klasse](/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
+* [C# RemoteManager.CreateMaterial()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [C++ PbrMaterial-Klasse](/cpp/api/remote-rendering/pbrmaterial)
+* [C++ RemoteManager::CreateMaterial()](/cpp/api/remote-rendering/remotemanager#creatematerial)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

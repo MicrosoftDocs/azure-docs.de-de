@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 470324799cd157c8b33311e1cae8b5b698433e1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f1dacb57931913edfb181f023bdf98717777d50
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88079908"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562241"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Tutorial: Hinzufügen von Azure CDN zu einer Azure App Service-Web-App
 
@@ -43,7 +43,7 @@ Sie lernen Folgendes:
 Für dieses Tutorial benötigen Sie Folgendes:
 
 - [Installation von Git](https://git-scm.com/)
-- [Installieren der Azure-Befehlszeilenschnittstelle](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Installieren der Azure-Befehlszeilenschnittstelle](/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -135,7 +135,7 @@ In diesem Abschnitt des Tutorials stellen Sie eine Änderung für die Web-App be
 
 ```bash
 git commit -am "version 2"
-git push azure master
+git push azure main
 ```
 
 Navigieren Sie nach Abschluss der Bereitstellung zur Web-App-URL. Die Änderung wird angezeigt.
@@ -230,7 +230,7 @@ Aktualisieren Sie die Seite, um sicherzustellen, dass diese Seite im CDN zwische
 
 ```bash
 git commit -am "version 3"
-git push azure master
+git push azure main
 ```
 
 Navigieren Sie in einem Browser mit einer neuen Abfragezeichenfolge, z.B. `q=2`, zur CDN-Endpunkt-URL. Azure CDN ruft die aktuelle Datei *index.html* ab und zeigt *V3* an. Wenn Sie dagegen mit der Abfragezeichenfolge `q=1` zum CDN-Endpunkt navigieren, wird *V2* angezeigt.
@@ -269,5 +269,3 @@ Die folgenden Artikel enthalten Informationen zur Optimierung der CDN-Leistung:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Hinzufügen einer benutzerdefinierten Domäne zum Azure CDN-Endpunkt](cdn-map-content-to-custom-domain.md)
-
-

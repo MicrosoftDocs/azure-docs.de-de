@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.custom: devx-track-python, devx-track-js
-ms.openlocfilehash: 41d7fe8e22b39d8755f86e5ee490aa6e7dff97fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cbe4d44f5e1c8b34a3d7bb9d05b9546f320b81c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330620"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023467"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Tutorial: Erstellen einer Flask-App mit Azure Cognitive Services
 
@@ -64,7 +64,7 @@ Wie bereits erwähnt, benötigen Sie für dieses Tutorial drei Abonnementschlüs
 * Textanalyse
 * Spracherkennungsdienste
 
-Unter [Schnellstart: Erstellen eines Cognitive Services-Kontos im Azure-Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) finden Sie eine Schritt-für-Schritt-Anleitung zur Erstellung von Ressourcen.
+Unter [Schnellstart: Erstellen eines Cognitive Services-Kontos im Azure-Portal](../cognitive-services-apis-create-account.md) finden Sie eine Schritt-für-Schritt-Anleitung zur Erstellung von Ressourcen.
 
 > [!IMPORTANT]
 > In diesem Tutorial erstellen Sie Ihre Ressourcen in der Region „USA, Westen“. Bei Verwendung einer anderen Region müssen Sie die Basis-URL in Ihren gesamten Python-Dateien anpassen.
@@ -475,7 +475,7 @@ Drücken Sie **STRG+C**, um die App zu beenden, und fahren Sie dann mit dem näc
 
 ## <a name="analyze-sentiment"></a>Analysieren von Stimmungen
 
-Die [Textanalyse-API](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) kann genutzt werden, um die Standpunktanalyse durchzuführen, Schlüsselbegriffe aus Text zu extrahieren oder die Quellsprache zu erkennen. In dieser App nutzen wir die Standpunktanalyse, um zu ermitteln, ob der angegebene Text positiv, neutral oder negativ ist. Die API gibt eine numerische Bewertung zwischen 0 und 1 zurück. Dabei weisen Werte nahe 1 auf eine positive Stimmung und Werte nahe 0 auf eine negative Stimmung hin.
+Die [Textanalyse-API](../text-analytics/overview.md) kann genutzt werden, um die Standpunktanalyse durchzuführen, Schlüsselbegriffe aus Text zu extrahieren oder die Quellsprache zu erkennen. In dieser App nutzen wir die Standpunktanalyse, um zu ermitteln, ob der angegebene Text positiv, neutral oder negativ ist. Die API gibt eine numerische Bewertung zwischen 0 und 1 zurück. Dabei weisen Werte nahe 1 auf eine positive Stimmung und Werte nahe 0 auf eine negative Stimmung hin.
 
 In diesem Abschnitt führen Sie einige Schritte aus:
 
@@ -659,7 +659,7 @@ Drücken Sie **STRG+C**, um die App zu beenden, und fahren Sie dann mit dem näc
 
 ## <a name="convert-text-to-speech"></a>Konvertieren von Text in Sprache
 
-Mit der [Text-to-Speech-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech) kann Ihre App Text in synthetisierte Sprache konvertieren, die natürlich und menschenähnlich ist. Der Dienst unterstützt standardmäßige, neuronale und benutzerdefinierte Stimmen. In unserer Beispiel-App werden einige der verfügbaren Stimmen genutzt. Eine vollständige Liste finden Sie unter [Unterstützte Sprachen](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech).
+Mit der [Text-to-Speech-API](../speech-service/text-to-speech.md) kann Ihre App Text in synthetisierte Sprache konvertieren, die natürlich und menschenähnlich ist. Der Dienst unterstützt standardmäßige, neuronale und benutzerdefinierte Stimmen. In unserer Beispiel-App werden einige der verfügbaren Stimmen genutzt. Eine vollständige Liste finden Sie unter [Unterstützte Sprachen](../speech-service/language-support.md#text-to-speech).
 
 In diesem Abschnitt führen Sie einige Schritte aus:
 
@@ -954,7 +954,7 @@ Navigieren Sie zur angegebenen Serveradresse. Geben Sie Text in den Eingabeberei
 > [!TIP]
 > Wenn die vorgenommenen Änderungen nicht angezeigt werden oder die App nicht wie erwartet funktioniert, sollten Sie versuchen, Ihren Cache zu löschen oder ein InPrivate- bzw. Inkognito-Fenster zu öffnen.
 
-Das ist alles! Sie verfügen über eine funktionierende App, mit der Übersetzungen durchgeführt, Stimmungen analysiert und Sprache synthetisiert werden kann. Drücken Sie **STRG+C**, um die App zu beenden. Sehen Sie sich auch die anderen Komponenten von [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/) an.
+Das ist alles! Sie verfügen über eine funktionierende App, mit der Übersetzungen durchgeführt, Stimmungen analysiert und Sprache synthetisiert werden kann. Drücken Sie **STRG+C**, um die App zu beenden. Sehen Sie sich auch die anderen Komponenten von [Azure Cognitive Services](../index.yml) an.
 
 ## <a name="get-the-source-code"></a>Herunterladen des Quellcodes
 
@@ -962,6 +962,6 @@ Der Quellcode für dieses Projekt ist auf [GitHub](https://github.com/MicrosoftT
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Referenz zu Translator](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
+* [Referenz zu Translator](./reference/v3-0-reference.md)
 * [Referenz zur Textanalyse-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
-* [Referenz zur Text-to-Speech-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)
+* [Referenz zur Text-to-Speech-API](../speech-service/rest-text-to-speech.md)

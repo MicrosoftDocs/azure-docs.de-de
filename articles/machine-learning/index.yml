@@ -12,13 +12,13 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 09/21/2020
-  ms.custom: contperfq1
-  ms.openlocfilehash: 0695af04856b5e67c6e3de86c6c3cd32007aee02
-  ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+  ms.custom: contperf-fy21q1
+  ms.openlocfilehash: f6664dd78effd3a1f203a564265f1dc7a1f0ce03
+  ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/15/2020
-  ms.locfileid: "92090317"
+  ms.lasthandoff: 12/10/2020
+  ms.locfileid: "97031316"
 landingContent:
 - title: 'Erste Schritte: Code First'
   linkLists:
@@ -71,11 +71,11 @@ landingContent:
   - linkListType: reference
     links:
     - text: Python SDK
-      url: https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py
+      url: /python/api/overview/azure/ml/?view=azure-ml-py
     - text: REST-API
-      url: https://docs.microsoft.com/rest/api/azureml/
+      url: /rest/api/azureml/
     - text: Machine Learning-CLI
-      url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
+      url: /cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
 - title: Suchen nach Studio (klassisch)
   linkLists:
   - linkListType: overview

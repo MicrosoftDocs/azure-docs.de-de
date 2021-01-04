@@ -8,20 +8,20 @@ ms.reviewer: zhshang
 ms.date: 11/13/2019
 ms.topic: conceptual
 ms.service: signalr
-ms.openlocfilehash: 105b40da2a612d2a2e9958eff52bfb786c500bc1
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 77c8887ac19c6ce4c7d83734bdd2b44d9213914d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876072"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151118"
 ---
 # <a name="reacting-to-azure-signalr-service-events"></a>Reagieren auf Azure SignalR Service-Ereignisse
 
 Azure SignalR Service-Ereignisse ermöglichen es Anwendungen, auf Clientverbindungen zu reagieren, die über moderne serverlose Architekturen verbunden oder getrennt werden. Dies geschieht ohne komplizierten Code oder teure und ineffiziente Abrufdienste.  Stattdessen werden Ereignisse über [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) an Abonnenten wie [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) oder sogar Ihren eigenen benutzerdefinierten HTTP-Listener gepusht. Bei Azure SignalR zahlen Sie nur für die tatsächliche Nutzung.
 
-Azure SignalR Service-Ereignisse werden zuverlässig an den Event Grid-Dienst gesendet, der zuverlässige Zustellungsdienste für Ihre Anwendungen durch umfangreiche Wiederholungsrichtlinien und Zustellung unzustellbarer Nachrichten bereitstellt. Weitere Informationen finden Sie unter [Event Grid – Übermittlung und Wiederholung von Nachrichten](https://docs.microsoft.com/azure/event-grid/delivery-and-retry).
+Azure SignalR Service-Ereignisse werden zuverlässig an den Event Grid-Dienst gesendet, der zuverlässige Zustellungsdienste für Ihre Anwendungen durch umfangreiche Wiederholungsrichtlinien und Zustellung unzustellbarer Nachrichten bereitstellt. Weitere Informationen finden Sie unter [Event Grid – Übermittlung und Wiederholung von Nachrichten](../event-grid/delivery-and-retry.md).
 
-![Event Grid-Modell](https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png)
+![Event Grid-Modell](/azure/event-grid/media/overview/functional-model.png)
 
 ## <a name="serverless-state"></a>Serverloser Zustand
 Azure SignalR Service-Ereignisse sind nur aktiv, wenn sich Clientverbindungen in einem serverlosen Zustand befinden. Wenn ein Client keine Weiterleitung an einen Hubserver vornimmt, geht er in den serverlosen Zustand über. Der klassische Modus funktioniert nur, wenn der Hub, mit dem die Clientverbindungen eine Verbindung herstellen, keinen Hubserver besitzt. Der serverlose Modus wird als bewährte Methode empfohlen. Weitere Informationen zum Dienstmodus finden Sie unter [Auswählen des Dienstmodus](https://github.com/Azure/azure-signalr/blob/dev/docs/faq.md#what-is-the-meaning-of-service-mode-defaultserverlessclassic-how-can-i-choose).

@@ -12,13 +12,13 @@ ms.topic: end-user-help
 ms.date: 09/01/2020
 ms.author: curtand
 ms.reviewer: kexia
-metadata ms.custom: contperfq1
-ms.openlocfilehash: 3d95ad4aa100b0a185bde015dfe34d747fc77ec9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: caa2c66d66cce09f5b5b0fe0948ab924389d756e
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89322601"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033781"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Allgemeine Probleme mit der zweistufigen Überprüfung in Verbindung mit Ihrem Geschäfts-, Schul- oder Unikonto
 
@@ -74,6 +74,7 @@ Es ist ein häufiges Problem, den Prüfcode nicht zu erhalten. Das Problem bezie
 
 Versuchen Sie Folgendes | Info und Anleitung
 --------- | ------------
+Verwenden Sie die Microsoft Authenticator-App oder Bestätigungscodes. | Bei der Anmeldung wird die Fehlermeldung „Sie haben das Limit für Verifizierungsanrufe erreicht.“ oder „Sie haben das Limit für SMS-Prüfcodes erreicht.“ angezeigt. <br/><br/>Microsoft begrenzt möglicherweise wiederholte Authentifizierungsversuche, die innerhalb kurzer Zeit vom gleichen Benutzer durchgeführt werden. Diese Einschränkung gilt nicht für die Verifizierung per Microsoft Authenticator oder Prüfcode. Wenn diese Grenzwerte erreicht sind, können Sie die Authenticator-App oder einen Prüfcode verwenden oder nach einigen Minuten erneut versuchen, sich anzumelden.
 Starten Sie Ihr mobiles Gerät neu | Gelegentlich benötigt Ihr Gerät nur einen Neustart. Wenn Sie Ihr Gerät neu starten, werden alle Hintergrundprozesse und Dienste beendet. Beim Neustart werden auch die Kernkomponenten des Geräts heruntergefahren. Jeder Dienst oder jede Komponente wird aktualisiert, wenn Sie Ihr Gerät neu starten.
 Überprüfen Sie, ob Ihre Sicherheitsinformationen richtig sind | Stellen Sie sicher, dass die Informationen zu Ihrer Sicherheitsüberprüfungsmethode zutreffend sind, insbesondere Ihre Telefonnummern. Wenn Sie eine falsche Telefonnummer eingeben, landen alle Ihre Benachrichtigungen bei dieser falschen Nummer. Glücklicherweise kann dieser Benutzer mit den Benachrichtigungen nichts anfangen, aber es wird Ihnen auch nicht helfen, sich bei Ihrem Konto anzumelden. Um sicherzustellen, dass Ihre Informationen richtig sind, lesen Sie die Anweisungen im Artikel [Verwalten der Einstellungen für die zweistufige Überprüfung](multi-factor-authentication-end-user-manage-settings.md).
 Überprüfen Sie, ob Benachrichtigungen aktiviert sind | Stellen Sie sicher, dass die Benachrichtigungen auf Ihrem mobilen Gerät aktiviert sind. Vergewissern Sie sich, dass folgende Benachrichtigungsmodi zulässig sind: <br/><br/> &bull; Telefonanrufe <br/> &bull; Ihre Authentifizierungs-App <br/> &bull; Ihre Messaging-App <br/><br/> Stellen Sie sicher, dass diese Modi eine Warnung erstellen, die auf Ihrem Gerät _sichtbar_ ist.

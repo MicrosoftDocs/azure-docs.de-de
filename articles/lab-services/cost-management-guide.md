@@ -5,12 +5,12 @@ author: rbest
 ms.author: rbest
 ms.date: 08/16/2020
 ms.topic: article
-ms.openlocfilehash: 98e04ba6bb1310935c4893a3616dfd68c2e99a55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29f6be5319c5a142ad3ea0d73deb2f95d8cb0d7a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797631"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659725"
 ---
 # <a name="cost-management-for-azure-lab-services"></a>Kostenverwaltung für Azure Lab Services
 
@@ -31,7 +31,7 @@ Diese Schätzung weist möglicherweise nicht alle möglichen Kosten aus. Einige 
 
 ## <a name="analyze-the-previous-months-usage"></a>Analysieren der Nutzung im Vormonat
 
-Die Kostenanalyse dient zum Analysieren der Nutzung im Vormonat, um ggf. Anpassungen für das Lab zu ermitteln. Die Aufschlüsselung bisheriger Kosten finden Sie in der [Abonnementkostenanalyse](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis). Im Azure-Portal können Sie **Abonnements** in das Suchfeld eingeben und dann die Option **Abonnements** auswählen. 
+Die Kostenanalyse dient zum Analysieren der Nutzung im Vormonat, um ggf. Anpassungen für das Lab zu ermitteln. Die Aufschlüsselung bisheriger Kosten finden Sie in der [Abonnementkostenanalyse](../cost-management-billing/costs/quick-acm-cost-analysis.md). Im Azure-Portal können Sie **Abonnements** in das Suchfeld eingeben und dann die Option **Abonnements** auswählen. 
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot mit dem Suchfeld und der Schaltfläche „Abonnements“](./media/cost-management-guide/subscription-search.png)
@@ -46,7 +46,7 @@ Wählen Sie im linken Bereich unter **Kostenverwaltung** die Option **Kostenanal
 > [!div class="mx-imgBorder"]
 > ![Screenshot mit einer Abonnementkostenanalyse in einem Graph](./media/cost-management-guide/subscription-cost-analysis.png)
 
-Dieses Dashboard ermöglicht eine eingehende Kostenanalyse, einschließlich der Möglichkeit zum Export in verschiedene Dateitypen nach einem Zeitplan. Weitere Informationen finden Sie unter [Was ist „Azure Cost Management + Abrechnung“?](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview).
+Dieses Dashboard ermöglicht eine eingehende Kostenanalyse, einschließlich der Möglichkeit zum Export in verschiedene Dateitypen nach einem Zeitplan. Weitere Informationen finden Sie unter [Was ist „Azure Cost Management + Abrechnung“?](../cost-management-billing/cost-management-billing-overview.md).
 
 Sie können nach Ressourcentyp filtern. Bei Verwenden von `microsoft.labservices/labaccounts` werden nur die Kosten angezeigt, die Lab-Diensten zugeordnet sind.
 
@@ -70,7 +70,7 @@ Um die Gesamtkosten für den Imagekatalog zu erhalten, ändern Sie den Ressource
 
 Einige Universitäten haben das Labkonto und die Ressourcengruppe als Möglichkeit zum Trennen der Kurse verwendet. Jeder Kurs verfügt über ein eigenes Labkonto und eine eigene Ressourcengruppe. 
 
-Fügen Sie im Kostenanalysebereich einen Filter auf Basis des Ressourcengruppenamens mit dem entsprechenden Ressourcengruppenamen für den Kurs hinzu. Dann sind nur die Kosten für diesen Kurs sichtbar. Dies ermöglicht beim Anzeigen der Kosten eine klarere Abgrenzung zwischen den Kursen. Das Feature [Geplanter Export](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data) der Kostenanalyse ermöglicht, die Kosten der einzelnen Kurse in separate Dateien herunterzuladen.
+Fügen Sie im Kostenanalysebereich einen Filter auf Basis des Ressourcengruppenamens mit dem entsprechenden Ressourcengruppenamen für den Kurs hinzu. Dann sind nur die Kosten für diesen Kurs sichtbar. Dies ermöglicht beim Anzeigen der Kosten eine klarere Abgrenzung zwischen den Kursen. Das Feature [Geplanter Export](../cost-management-billing/costs/tutorial-export-acm-data.md) der Kostenanalyse ermöglicht, die Kosten der einzelnen Kurse in separate Dateien herunterzuladen.
 
 ## <a name="manage-costs"></a>Verwalten von Kosten
 
@@ -90,7 +90,7 @@ Sie können diese Einstellungen sowohl auf Labkonto- als auch auf Labebene konfi
 > [!NOTE]
 > Diese Einstellung ist nur für virtuelle Windows-Computer verfügbar.
 
-Wenn die Einstellung **Benutzer trennen, wenn virtuelle Computer im Leerlauf sind** aktiviert ist, wird der Benutzer von allen Computern im Lab getrennt, wenn das Windows-Betriebssystem die Sitzung als im Leerlauf erachtet (einschließlich der Vorlagen-VMs). Für die [Definition von Leerlauf durch das Windows-Betriebssystem](https://docs.microsoft.com/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) werden zwei Kriterien verwendet: 
+Wenn die Einstellung **Benutzer trennen, wenn virtuelle Computer im Leerlauf sind** aktiviert ist, wird der Benutzer von allen Computern im Lab getrennt, wenn das Windows-Betriebssystem die Sitzung als im Leerlauf erachtet (einschließlich der Vorlagen-VMs). Für die [Definition von Leerlauf durch das Windows-Betriebssystem](/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) werden zwei Kriterien verwendet: 
 
 * Benutzerabwesenheit: keine Tastatur- oder Mauseingabe.
 * Kein Ressourcenverbrauch: Alle Prozessoren und alle Datenträger befanden sich für einen bestimmten Zeitraum (in Prozent) im Leerlauf.
@@ -122,7 +122,7 @@ Die Einstellung **Herunterfahren beim Trennen aktivieren** wird für virtuelle W
 * Für Linux: eine SSH-Verbindung wird getrennt.
  
 > [!NOTE]
-> Es werden nur [bestimmte Distributionen und Versionen von Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux#supported-linux-distributions) unterstützt.
+> Es werden nur [bestimmte Distributionen und Versionen von Linux](../virtual-machines/extensions/diagnostics-linux.md#supported-linux-distributions) unterstützt.
  
 Sie können angeben, wie lange die VMs auf eine erneute Verbindungsherstellung des Benutzers warten sollen, bevor sie automatisch heruntergefahren werden. 
 

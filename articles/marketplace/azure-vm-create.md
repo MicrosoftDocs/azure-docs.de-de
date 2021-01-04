@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/20/2020
-ms.openlocfilehash: 5964292d7037465456efe22283a5552a2bfc7ad8
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 2ef80d26336ddbe3c015dfcde0c5ed29b762f39b
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331259"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629715"
 ---
 # <a name="how-to-create-a-virtual-machine-offer-on-azure-marketplace"></a>Erstellen eines VM-Angebots im Azure Marketplace
 
@@ -22,13 +22,13 @@ Bevor Sie beginnen, [erstellen Sie im Partner Center ein Konto für den kommerzi
 
 ## <a name="before-you-begin"></a>Bevor Sie beginnen
 
-Falls noch nicht geschehen, informieren Sie sich unter [Planen eines VM-Angebots](marketplace-virtual-machines.md). Dort werden die technischen Anforderungen für Ihren virtuellen Computer erläutert. Außerdem finden Sie Informationen und Ressourcen, die Sie beim Erstellen Ihres Angebots benötigen. 
+Falls noch nicht geschehen, informieren Sie sich unter [Planen eines VM-Angebots](marketplace-virtual-machines.md). Dort werden die technischen Anforderungen für Ihren virtuellen Computer erläutert. Außerdem finden Sie Informationen und Ressourcen, die Sie beim Erstellen Ihres Angebots benötigen.
 
 ## <a name="create-a-new-offer"></a>Erstellen eines neuen Angebots
 
 1. Melden Sie sich bei [Partner Center](https://partner.microsoft.com/dashboard/home) an.
 2. Wählen Sie im linken Bereich **Kommerzieller Marketplace** > **Übersicht** aus.
-3. Wählen Sie auf der Seite **Übersicht** die Option **Neues Angebot** > **Virtueller Azure-Computer** aus.
+3. Wählen Sie auf der Seite **Übersicht** die Option **+ Neues Angebot** > **Virtueller Azure-Computer** aus.
 
     ![Screenshot: Menüoptionen im linken Bereich und Schaltfläche „Neues Angebot“.](./media/create-vm/new-offer-azure-virtual-machine.png)
 
@@ -45,23 +45,23 @@ Geben Sie einen **Angebotsalias** ein. Der Angebotsalias ist der Name, der für 
 
 - Dieser Name wird nicht im Azure Marketplace verwendet. Er unterscheidet sich vom Angebotsnamen und anderen Werten, die Kunden präsentiert werden.
 
+Wählen Sie **Erstellen** aus, um das Angebot zu generieren und fortzufahren. In Partner Center wird die Seite **Angebotseinrichtung** geöffnet.
+
 ## <a name="enable-a-test-drive-optional"></a>Aktivieren einer Testversion (optional)
 
-Eine Testversion ist eine hervorragende Möglichkeit, Ihr Angebot potenziellen Kunden zu präsentieren, indem Sie ihnen für eine festgelegte Anzahl von Stunden Zugang zu einer vorkonfigurierten Umgebung gewähren. Wenn Sie eine Testversion anbieten, können Sie die Konvertierungsrate erhöhen und hochqualifizierte Leads generieren. Weitere Informationen zu Testversionen finden Sie unter [Was ist eine Testversion?](partner-center-portal/test-drive.md)
+Eine Testversion ist eine hervorragende Möglichkeit, Ihr Angebot potenziellen Kunden zu präsentieren, indem Sie ihnen für eine festgelegte Anzahl von Stunden Zugang zu einer vorkonfigurierten Umgebung gewähren. Wenn Sie eine Testversion anbieten, können Sie die Konvertierungsrate erhöhen und hochqualifizierte Leads generieren. Weitere Informationen zu Testversionen finden Sie unter [Was ist eine Testversion?](./what-is-test-drive.md)
 
 > [!TIP]
 > Eine Testversion unterscheidet sich von einer kostenlosen Testversion. Sie können entweder eine Testversion, eine kostenlose Testversion oder beides anbieten. Mit beiden können Kunden Ihre Lösung für einen festgelegten Zeitraum nutzen. Eine Testversion umfasst jedoch auch eine praktische, selbstgesteuerte Tour durch die wichtigsten Features und Vorteile Ihres Produkts, die in einem praxisnahen Implementierungsszenario veranschaulicht werden.
 
-**So aktivieren Sie eine Testversion**
-1.  Aktivieren Sie unter **Testversion** das Kontrollkästchen **Aktivieren einer Testversion** .
-1.  Wählen Sie in der eingeblendeten Liste den Typ der Testversion aus.
+Aktivieren Sie das Kontrollkästchen **Aktivieren einer Testversion**, um eine Testversion zu aktivieren. Sie konfigurieren die Testversion später. Eine Testversion erfordert das Konfigurieren eines CRM-Systems (siehe nächster Abschnitt).
 
-## <a name="configure-lead-management"></a>Konfigurieren der Leadverwaltung
+## <a name="configure-customer-leads-management"></a>Konfigurieren der Verwaltung von Kundenleads
 
-Wenn Sie Ihr Angebot mithilfe von Partner Center im kommerziellen Marketplace veröffentlichen, sollten Sie es mit Ihrem CRM-System (Customer Relationship Management) verbinden. Dadurch empfangen Sie Kontaktinformationen zum Kunden, sobald jemand sein Interesse an Ihrem Produkt bekundet oder es verwendet. Das Herstellen einer Verbindung mit einem CRM-System ist erforderlich, wenn Sie eine Testversion aktivieren möchten (siehe vorheriger Abschnitt). Andernfalls ist das Herstellen einer Verbindung mit einem CRM optional.
+Wenn Sie ein Angebot mithilfe von Partner Center im kommerziellen Marketplace veröffentlichen, sollten Sie es mit Ihrem CRM-System (Customer Relationship Management) verbinden. Dadurch empfangen Sie Kontaktinformationen zum Kunden, sobald jemand sein Interesse an Ihrem Produkt bekundet oder es verwendet. Das Herstellen einer Verbindung mit einem CRM-System ist erforderlich, wenn Sie eine Testversion aktivieren möchten (siehe vorheriger Abschnitt). Andernfalls ist das Herstellen einer Verbindung mit einem CRM optional.
 
-Wählen Sie unter **Kundenleads** den Link **Verbinden** aus.
-1. Wählen Sie im Dialogfeld **Verbindungsdetails** eine Leadzielgruppe aus der Liste aus.
+1. Wählen Sie unter **Kundenleads** den Link **Verbinden** aus.
+1. Wählen Sie im Dialogfeld **Verbindungsdetails** eine Leadzielgruppe aus.
 1. Füllen Sie alle angezeigten Felder aus. Ausführliche Schritte finden Sie in den folgenden Artikeln:
 
    - [Konfigurieren des Angebots zum Senden von Leads an die Azure-Tabelle](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md#configure-your-offer-to-send-leads-to-the-azure-table)
@@ -71,13 +71,9 @@ Wählen Sie unter **Kundenleads** den Link **Verbinden** aus.
    - [Konfigurieren Ihres Angebots zum Senden von Leads zu Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
 
 1. Um die von Ihnen angegebene Konfiguration zu überprüfen, wählen Sie den Link **Überprüfen** aus.
-1. Wählen Sie **OK** aus, um das Dialogfeld zu schließen.
+1. Wählen Sie **Verbinden**.
 
-## <a name="resell-through-csps"></a>Verkaufen über CSPs
-
-Erweitern Sie die Reichweite Ihres Angebots, indem Sie es für Partner im [Cloud Solution Provider](https://azure.microsoft.com/offers/ms-azr-0145p/)-Programm (CSP) verfügbar machen. Alle BYOL-Pläne (Bring-Your-Own-License) werden im Programm automatisch aktiviert. Sie können auch Ihre Nicht-BYOL-Pläne aktivieren.
-
-Wählen Sie **Erstellen** aus, um das Angebot zu generieren und fortzufahren.
+Wählen Sie **Entwurf speichern** aus, bevor Sie mit der nächsten Registerkarte im linken Navigationsmenü (**Eigenschaften**) fortfahren.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

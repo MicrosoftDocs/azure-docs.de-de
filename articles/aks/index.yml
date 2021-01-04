@@ -9,12 +9,12 @@ metadata:
   author: laurenhughes
   ms.author: lahugh
   ms.date: 07/21/2020
-  ms.openlocfilehash: 9ce4a4e20f6d33880be5dbefe49c2d1d9e6e8c5d
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 84d02dba9bc1d45205bc610dc1d155a80179e93e
+  ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91568385"
+  ms.lasthandoff: 12/10/2020
+  ms.locfileid: "97007652"
 landingContent:
 - title: Informationen zu Azure Kubernetes Service (AKS)
   linkLists:
@@ -79,9 +79,11 @@ landingContent:
   - linkListType: architecture
     links:
     - text: Baselinearchitektur für einen AKS-Cluster
-      url: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
+      url: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks?WT.mc_id=AKSDOCSPAGE
     - text: AKS-Lösungen
-      url: /azure/architecture/reference-architectures/containers/aks-start-here
+      url: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE
+    - text: Anleitung zu Day 2-Vorgängen
+      url: /azure/architecture/operator-guides/aks/aks-triage-practices?WT.mc_id=AKSDOCSPAGE
     - text: Best Practices für Clusteroperatoren und -entwickler
       url: best-practices.md
     - text: Suchen nach Best Practices

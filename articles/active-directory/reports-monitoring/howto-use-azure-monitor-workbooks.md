@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 510991c1afba9a5ffbfd77e855ee25d8b641bdd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76dc7693b1773038d610f9ed42eddad2c81e3eaf
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226980"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126633"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Verwenden von Azure Monitor-Arbeitsmappen für Azure Active Directory-Berichte
 
@@ -174,7 +174,7 @@ Mit dieser Arbeitsmappe werden die Trends für deaktivierte Anmeldungen angezeig
 
 Für deaktivierte Anmeldungen erhalten Sie eine Aufschlüsselung nach dem Status des bedingten Zugriffs.
 
-![Status des bedingten Zugriffs](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
+![Screenshot: Status des bedingten Zugriffs und kürzlich erfolgte Anmeldungen](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
 
 ## <a name="conditional-access-insights"></a>Erkenntnisse zum bedingten Zugriff
@@ -183,7 +183,7 @@ Für deaktivierte Anmeldungen erhalten Sie eine Aufschlüsselung nach dem Status
 
 Arbeitsmappen enthalten Anmeldeprotokollabfragen, mit denen IT-Administratoren die Auswirkung von Richtlinien für bedingten Zugriff im Mandanten überwachen können. Sie können berichten, wie vielen Benutzern der Zugriff gewährt oder verweigert wurde. Die Arbeitsmappe enthält Informationen darüber, wie viele Benutzer die Richtlinien für bedingten Zugriff umgangen haben, auf Grundlage der Attribute der Benutzer zum Zeitpunkt der Anmeldung. Sie enthält Informationen pro Bedingung, sodass die Auswirkung einer Richtlinie pro Bedingung, einschließlich Geräteplattform, Gerätestatus, Client-App, Anmelderisiko, Standort und Anwendung, kontextualisiert werden kann.
 
-### <a name="instructions"></a>Instructions 
+### <a name="instructions"></a>Anleitungen 
 Um auf die Arbeitsmappe für Erkenntnisse zum bedingten Zugriff zuzugreifen, wählen Sie im Abschnitt „Bedingter Zugriff“ die Arbeitsmappe **Erkenntnisse zum bedingten Zugriff** aus. In dieser Arbeitsmappe werden die erwarteten Auswirkungen der einzelnen Richtlinien für bedingten Zugriff im Mandanten angezeigt. Wählen Sie in der Dropdownliste eine oder mehrere Richtlinien für bedingten Zugriff aus, und schränken Sie den Bereich der Arbeitsmappe ein, indem Sie die folgenden Filter anwenden: 
 
 - **Zeitbereich**
@@ -194,12 +194,12 @@ Um auf die Arbeitsmappe für Erkenntnisse zum bedingten Zugriff zuzugreifen, wä
 
 - **Datenansicht**
 
-![Status des bedingten Zugriffs](./media/howto-use-azure-monitor-workbooks/access-insights.png)
+![Screenshot: Bereich „Bedingter Zugriff“, in dem Sie eine Richtlinie für bedingten Zugriff auswählen können](./media/howto-use-azure-monitor-workbooks/access-insights.png)
 
 
 In „Zusammenfassung der Auswirkungen“ wird die Anzahl der Benutzer oder Anmeldungen angezeigt, für die die ausgewählten Richtlinien ein bestimmtes Ergebnis hatten. „Gesamt“ gibt die Anzahl der Benutzer oder Anmeldungen an, für die die ausgewählten Richtlinien im ausgewählten Zeitbereich ausgewertet wurden. Klicken Sie auf eine Kachel, um die Daten in der Arbeitsmappe nach dem entsprechenden Ergebnistyp zu filtern. 
 
-![Status des bedingten Zugriffs](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
+![Screenshot: Kacheln zum Filtern von Ergebnissen z. B. nach Gesamtzahl oder nach erfolgreichen und fehlerhaften Anmeldungen](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
 
 In dieser Arbeitsmappe werden auch die Auswirkungen der ausgewählten Richtlinien nach sechs einzelnen Bedingungen untergliedert angezeigt: 
 - **Gerätestatus**
@@ -209,15 +209,11 @@ In dieser Arbeitsmappe werden auch die Auswirkungen der ausgewählten Richtlinie
 - **Location**
 - **Anwendungen**
 
-![Status des bedingten Zugriffs](./media/howto-use-azure-monitor-workbooks/device-platform.png)
+![Screenshot: Details nach Verwendung des Filters für die Gesamtzahl der Anmeldungen](./media/howto-use-azure-monitor-workbooks/device-platform.png)
 
 Sie können auch einzelne Anmeldungen untersuchen, die nach den in der Arbeitsmappe ausgewählten Parametern gefiltert sind. Suchen Sie nach einzelnen Benutzern, sortiert nach Anmeldehäufigkeit, und zeigen Sie die entsprechenden Anmeldeereignisse an. 
 
-![Status des bedingten Zugriffs](./media/howto-use-azure-monitor-workbooks/filtered.png)
-
-
-
-
+![Screenshot: Individuelle Anmeldungen, die Sie überprüfen können](./media/howto-use-azure-monitor-workbooks/filtered.png)
 
 ## <a name="sign-ins-by-grant-controls"></a>Anmeldungen nach Steuerelementen zur Rechteerteilung
 
@@ -254,7 +250,7 @@ Für jeden Trend erhalten Sie eine Aufschlüsselung nach App und Protokoll.
 
 ## <a name="sign-ins-failure-analysis"></a>Analyse der Anmeldungsfehler
 
-Verwenden Sie die Arbeitsmappe zur **Analyse der Anmeldungsfehler**, um Fehler in folgenden Bereichen zu beheben:
+Verwenden Sie die Arbeitsmappe zur **Analyse der Anmeldungsfehler** , um Fehler in folgenden Bereichen zu beheben:
 
 - Anmeldungen
 - Richtlinien für bedingten Zugriff

@@ -3,12 +3,12 @@ title: Grenzwerte und Kontingente von Azure-Abonnements
 description: Stellt eine Liste allgemeiner Azure-Abonnements und Diensteinschränkungen, Kontingenten und Einschränkungen bereit. Dieser Artikel enthält Informationen zum Erhöhen von Grenzwerten und Höchstwerten.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: f18bd4589ea995696175fa23300432793f0f5974
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 4d56c5c3fd33d1cda05e23d5bc53e7540428671b
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950243"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547847"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Einschränkungen für Azure-Abonnements und Dienste, Kontingente und Einschränkungen
 
@@ -156,6 +156,10 @@ Die aktuellen Werte für Azure Machine Learning Compute-Kontingente finden Sie a
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-action-groups.md)]
 
+### <a name="autoscale"></a>Autoscale
+
+[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-autoscale.md)]
+
 ### <a name="log-queries-and-language"></a>Protokollieren von Abfragen und Sprache
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-log-queries.md)]
@@ -285,7 +289,11 @@ Spezifische Grenzwerte für Media Services v2 (Legacy) finden Sie unter [Media 
 
 ### <a name="virtual-network-gateway-limits"></a>Grenzwerte des Gateways des virtuellen Netzwerks
 
-[!INCLUDE [virtual-wan-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
+[!INCLUDE [virtual-network-gateway-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
+
+### <a name="nat-gateway-limits"></a>Grenzwerte für NAT Gateway
+
+[!INCLUDE [nat-gateway-limits](../../../includes/azure-nat-gateway-limits.md)]
 
 ### <a name="virtual-wan-limits"></a>Grenzwerte für Virtual WAN
 
@@ -303,6 +311,10 @@ Die folgende Tabelle gilt für v1, v2, Standard und WAF SKUs, sofern nichts ande
 ### <a name="private-link-limits"></a>Private Link-Grenzwerte
 
 [!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)]
+
+## <a name="purview-limits"></a>Purview-Grenzwerte
+
+Die aktuellen Werte für Azure Purview-Kontingente finden Sie auf der [Seite „Azure Purview-Kontingent“](../../purview/how-to-manage-quotas.md)
 
 ### <a name="traffic-manager-limits"></a>Traffic Manager-Grenzwerte
 
@@ -390,7 +402,7 @@ Weitere Informationen finden Sie unter [Größen virtueller Computer](../../virt
 
 #### <a name="disk-encryption-sets"></a>Datenträgerverschlüsselungssätze
 
-Pro Region und Abonnement können maximal 50 Datenträgerverschlüsselungssätze erstellt werden. Weitere Informationen finden Sie in der Dokumentation zur Verschlüsselung für [Linux](../../virtual-machines/linux/disk-encryption.md#restrictions)- oder [Windows](../../virtual-machines/windows/disk-encryption.md#restrictions)-VMs. Wenn Sie das Kontingent erhöhen müssen, wenden Sie sich an den Azure-Support.
+Pro Region und Abonnement können maximal 50 Datenträgerverschlüsselungssätze erstellt werden. Weitere Informationen finden Sie in der Dokumentation zur Verschlüsselung für [Linux](../../virtual-machines/disk-encryption.md#restrictions)- oder [Windows](../../virtual-machines/disk-encryption.md#restrictions)-VMs. Wenn Sie das Kontingent erhöhen müssen, wenden Sie sich an den Azure-Support.
 
 ### <a name="managed-virtual-machine-disks"></a>Verwaltete VM-Datenträger
 

@@ -13,12 +13,12 @@ ms.date: 07/16/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: f716af1d50eb8a24d8ab70f784cba31f65795cb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c71c55adbf79af780169380269b5081322f94baf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88165905"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083438"
 ---
 # <a name="considerations-for-using-universal-windows-platform-with-msalnet"></a>Überlegungen zur Verwendung der Universellen Windows-Plattform mit MSAL.NET
 Entwickler von Anwendungen, die die UWP (Universelle Windows-Plattform) mit MSAL.NET verwenden, sollten sich mit den Konzepten befassen, die in diesem Artikel vorgestellt werden.
@@ -64,4 +64,4 @@ Die folgenden Beispiele enthalten weitere Informationen.
 Beispiel | Plattform | BESCHREIBUNG 
 |------ | -------- | -----------|
 |[active-directory-dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | Eine UWP-Clientanwendung, die MSAL.NET verwendet. Sie greift für einen Benutzer, der sich über einen Azure AD 2.0-Endpunkt authentifiziert, auf Microsoft Graph zu. <br>![Topologie](media/msal-net-uwp-considerations/topology-native-uwp.png)|
-|[active-directory-xamarin-native-v2](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | Eine einfache Xamarin Forms-App, die die Verwendung von MSAL zeigt, um persönliche Microsoft-Konten und Azure AD über den Azure AD 2.0-Endpunkt zu authentifizieren. Ferner wird der Zugriff auf Microsoft Graph und das resultierende Token gezeigt. <br>![Topologie](media/msal-net-uwp-considerations/topology-xamarin-native.png)|
+|[active-directory-xamarin-native-v2](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | Eine Xamarin Forms-App, die die Verwendung von MSAL zeigt, um persönliche Microsoft-Konten und Azure AD über Microsoft Identity Platform zu authentifizieren. Ferner wird der Zugriff auf Microsoft Graph und das resultierende Token gezeigt. <br>![Diagramm, das die Verwendung von MSAL zeigt, um persönliche Microsoft-Konten und Azure AD über Microsoft Identity Platform zu authentifizieren.](media/msal-net-uwp-considerations/topology-xamarin-native.png)|

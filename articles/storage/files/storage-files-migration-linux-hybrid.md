@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 202f7fd065641f9921df5237fb83e7900819c8f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46bcfd48d8fdfb228670b87df166c1ad8de61e52
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563504"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626349"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migration von Linux zu einer Hybrid-Cloud-Bereitstellung mit der Azure-Dateisynchronisierung
 
@@ -219,6 +219,6 @@ Unter dem Link im folgenden Abschnitt finden Sie Informationen zur Behandlung vo
 
 Machen Sie sich weiter mit Azure-Dateifreigaben und der Azure-Dateisynchronisierung vertraut. In den folgenden Artikeln werden erweiterte Optionen, bewährte Methoden und Ansätze zum Troubleshooting erläutert. Diese Artikel sind mit der entsprechenden [Dokumentation zur Azure-Dateifreigabe](storage-files-introduction.md) verlinkt.
 
-* [Azure-Dateisynchronisierung – Übersicht](https://aka.ms/AFS)
+* [Azure-Dateisynchronisierung – Übersicht](./storage-sync-files-planning.md)
 * [Azure-Dateisynchronisierung – Bereitstellungsleitfaden](storage-files-deployment-guide.md)
 * [Azure-Dateisynchronisierung – Troubleshooting](storage-sync-files-troubleshoot.md)

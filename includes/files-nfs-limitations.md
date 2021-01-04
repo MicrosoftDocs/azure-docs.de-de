@@ -5,24 +5,26 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 09/15/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 866640d90c66dd82e8be61d221bc903907575454
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 372342611265640a2a64100f003880a430d61ca0
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91642520"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620941"
 ---
 In der Vorschau weist NFS die folgenden Einschränkungen auf:
 
-- NFS 4.1 unterstützt derzeit nur die obligatorischen Features aus der [Protokollspezifikation](https://tools.ietf.org/html/rfc5661). Optionale Features wie Delegierungen und Rückrufe aller Art, Upgrades und Downgrades von Sperren sowie Kerberos-Authentifizierung und -Verschlüsselung werden nicht unterstützt.
+- NFS 4.1 unterstützt derzeit nur die meisten Features aus der [Protokollspezifikation](https://tools.ietf.org/html/rfc5661). Einige Features wie Delegierungen und Rückrufe aller Art, Upgrades und Downgrades von Sperren, Kerberos-Authentifizierung und Verschlüsselung werden nicht unterstützt.
 - Wenn sich die meisten Ihrer Anforderungen schwerpunktmäßig auf Metadaten beziehen, ist die Wartezeit im Vergleich zu Lese-/Schreib-/Aktualisierungsvorgängen schlechter.
 - Es muss ein neues Speicherkonto erstellt werden, um eine NFS-Freigabe zu erstellen.
-- Nur die REST-APIs der Verwaltungsebene werden unterstützt. REST-APIs der Datenebene sind nicht verfügbar, was bedeutet, dass Tools wie Speicher-Explorer nicht mit NFS-Freigaben funktionieren und Sie auch nicht in der Lage sind, NFS-Freigabedaten im Azure-Portal zu durchsuchen.
+- Nur die REST-APIs der Verwaltungsebene werden unterstützt. REST-APIs der Datenebene sind nicht verfügbar. Das bedeutet, dass Tools wie der Speicher-Explorer mit NFS-Freigaben nicht funktionieren und Sie keine NFS-Freigabedaten im Azure-Portal durchsuchen können.
+- AzCopy wird derzeit nicht unterstützt.
 - Nur für den Premium-Tarif verfügbar.
-- Derzeit nur mit lokal redundantem Speicher (LRS) verfügbar.
+- NFS-Freigaben akzeptieren nur numerische UID/GID. Um zu verhindern, dass Ihre Clients eine alphanumerische UID/GID senden, sollten Sie die ID-Zuordnung deaktivieren.
+- Freigaben können nur aus einem Speicherkonto auf einem einzelnen virtuellen Computer eingebunden werden, wenn private Verbindungen verwendet werden. Der Versuch, Freigaben aus anderen Speicherkonten einzubinden, schlägt fehl.
 
 ### <a name="azure-storage-features-not-yet-supported"></a>Noch nicht unterstützte Azure Storage-Funktionen
 

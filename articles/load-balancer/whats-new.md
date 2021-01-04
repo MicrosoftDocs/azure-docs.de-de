@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: anavin
-ms.openlocfilehash: 3a20b69189226486de8cfceb95e2fa79a976cb12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a30a42e8a8c4049b53274da512089dd29965e775
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841032"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573152"
 ---
 # <a name="whats-new-in-azure-load-balancer"></a>Neues in Azure Load Balancer
 
@@ -42,7 +42,7 @@ Die Produktgruppe arbeitet aktiv an Lösungen für die folgenden bekannten Probl
 
 |Problem |BESCHREIBUNG  |Minderung  |
 | ---------- |---------|---------|
-| Log Analytics-Export | Von Log Analytics können keine Metriken für Load Balancer Standard-Instanzen und keine Integritätstest-Statusprotokolle für Load Balancer Basic exportiert werden.  | [Verwenden Sie Azure Monitor für mehrdimensionale Metriken für Load Balancer Standard.](load-balancer-standard-diagnostics.md) Zwar kann Log Analytics nicht für die Überwachung verwendet werden, in Azure Monitor kann jedoch ein breites Spektrum mehrdimensionaler Metriken visualisiert werden. Das vorkonfigurierte Metrikdashboard steht auf dem untergeordneten Blatt „Erkenntnisse“ Ihrer Load Balancer-Instanz zur Verfügung. Führen Sie bei Verwendung von Load Balancer Basic ein [Upgrade auf Standard](upgrade-basic-standard.md) durch, um die Metriküberwachung auf Produktionsebene zu ermöglichen.
+| Lastenausgleich-Warnereignis und Integritätstest-Statusprotokolle | Die Protokollierung funktioniert für Lastenausgleich-Warnereignisse für Load Balancer Basic und Load Balancer Standard sowie für Integritätstest-Statusprotokolle für Load Balancer Basic nicht.  | [Verwenden Sie Azure Monitor für mehrdimensionale Metriken für Load Balancer Standard.](load-balancer-standard-diagnostics.md) Azure Monitor bietet ein breites Spektrum an mehrdimensionalen Metriken, die auch als Protokolle exportiert werden können. Das vorkonfigurierte Metrikdashboard steht auf dem untergeordneten Blatt „Erkenntnisse“ Ihrer Load Balancer-Instanz zur Verfügung. Führen Sie bei Verwendung von Load Balancer Basic ein [Upgrade auf Standard](upgrade-basic-standard.md) durch, um die Metriküberwachung auf Produktionsebene zu ermöglichen.
 
   
 

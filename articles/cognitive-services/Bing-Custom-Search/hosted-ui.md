@@ -11,14 +11,19 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 4a63a54f5ad4d1bcccecb1d1a4892ef55c238b92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca3f9da681c60608b5b196b17191f0b4d549f305
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319179"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338366"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Konfigurieren der gehosteten Benutzeroberfläche
+
+> [!WARNING]
+> Die APIs der Bing-Suche werden von Cognitive Services auf Bing-Suchdienste umgestellt. Ab dem **30. Oktober 2020** müssen alle neuen Instanzen der Bing-Suche mit dem [hier](/bing/search-apis/bing-web-search/create-bing-search-service-resource) dokumentierten Prozess bereitgestellt werden.
+> APIs der Bing-Suche, die mit Cognitive Services bereitgestellt wurden, werden noch drei Jahre lang bzw. bis zum Ablauf Ihres Enterprise Agreement unterstützt (je nachdem, was zuerst geschieht).
+> Eine Anleitung zur Migration finden Sie unter [Bing-Suchdienste](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Die benutzerdefinierte Bing-Suche bietet eine gehostete Benutzeroberfläche, die Sie problemlos als JavaScript-Codeausschnitt in Ihre Webseiten und -anwendungen integrieren können. Mithilfe des Portals für die benutzerdefinierte Bing-Suche können Sie das Layout, die Farbe und die Suchoptionen der Benutzeroberfläche konfigurieren.
 
@@ -49,7 +54,7 @@ Gehen Sie folgendermaßen vor, um eine gehostete Benutzeroberfläche für Ihre W
 
 6. Geben Sie unter **Zusätzliche Konfigurationen** entsprechende Werte für Ihre App an. Diese Einstellungen sind optional. Die Auswirkungen der angewendeten oder entfernten Einstellungen sehen Sie im Vorschaubereich auf der rechten Seite. Folgende Konfigurationsoptionen stehen zur Verfügung:  
 
-7. Geben Sie den Abonnementschlüssel für die Suche ein, oder wählen Sie einen in der Dropdownliste aus. Die Dropdownliste enthält Schlüssel aus den Abonnements Ihres Azure-Kontos. Weitere Informationen finden Sie unter [Create a Cognitive Services APIs account in the Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) (Erstellen eines Cognitive Services-APIs-Kontos im Azure-Portal).  
+7. Geben Sie den Abonnementschlüssel für die Suche ein, oder wählen Sie einen in der Dropdownliste aus. Die Dropdownliste enthält Schlüssel aus den Abonnements Ihres Azure-Kontos. Weitere Informationen finden Sie unter [Create a Cognitive Services APIs account in the Azure portal](../cognitive-services-apis-create-account.md) (Erstellen eines Cognitive Services-APIs-Kontos im Azure-Portal).  
 
 8. Wenn Sie die Vorschlagssuche aktiviert haben, geben Sie den Abonnementschlüssel für die Vorschlagssuche ein, oder wählen Sie einen in der Dropdownliste aus. Die Dropdownliste enthält Schlüssel aus den Abonnements Ihres Azure-Kontos. Für die benutzerdefinierte Vorschlagssuche muss ein bestimmter Abonnementtarif verwendet werden. Weitere Informationen finden Sie unter [Preise](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
 
@@ -77,7 +82,7 @@ Die gehostete Benutzeroberfläche kann auf zwei Arten genutzt werden:
   `https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`  
   
   > [!NOTE]
-  > Fügen Sie nach Bedarf der URL die folgenden Abfrageparameter hinzu. Weitere Informationen zu diesen Parametern finden Sie in der Referenz zur [API für die benutzerdefinierte Suche](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters).
+  > Fügen Sie nach Bedarf der URL die folgenden Abfrageparameter hinzu. Weitere Informationen zu diesen Parametern finden Sie in der Referenz zur [API für die benutzerdefinierte Suche](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters).
   >
   > - q
   > - mkt
@@ -148,4 +153,4 @@ Die folgenden Konfigurationen gelten nur, wenn Sie die gehostete Benutzeroberfl�
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Verwenden von Dekorationsmarkierungen zum Hervorheben von Text](../bing-web-search/hit-highlighting.md)
-- [Einteilen von Webseiten](./page-webpages.md)
+- [Einteilen von Webseiten](../bing-web-search/paging-search-results.md)

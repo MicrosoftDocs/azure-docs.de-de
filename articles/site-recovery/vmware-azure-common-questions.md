@@ -3,12 +3,12 @@ title: Allgemeine Fragen zu VMware-Notfallwiederherstellung mit Azure Site Recov
 description: Hier erhalten Sie Antworten auf allgemeine Fragen zur Notfallwiederherstellung von lokalen virtuellen VMware-Computern in Azure mithilfe von Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 421a96255e7dbbec723122fb3920dcc27da72670
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8f292e7f624b80e8e13514a714c5759d88fbe57c
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359797"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379989"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Allgemeine Fragen zur VMware-zu-Azure-Replikation
 
@@ -153,7 +153,7 @@ Offlinereplikation wird nicht unterstützt. Fordern Sie dieses Feature im [Feedb
 
 ### <a name="what-is-asrseeddisk"></a>Was ist asrseeddisk?
 
-Für jeden Quelldatenträger werden Daten in einen verwalteten Datenträger in Azure repliziert. Dieser Datenträger hat das Präfix **asrseeddisk** . Er speichert die Kopie des Quelldatenträgers und alle Wiederherstellungspunkt-Momentaufnahmen.
+Für jeden Quelldatenträger werden Daten in einen verwalteten Datenträger in Azure repliziert. Dieser Datenträger hat das Präfix **asrseeddisk**. Er speichert die Kopie des Quelldatenträgers und alle Wiederherstellungspunkt-Momentaufnahmen.
 
 ### <a name="can-i-exclude-disks-from-replication"></a>Kann ich Datenträger von der Replikation ausschließen?
 
@@ -176,7 +176,7 @@ Für die VMware-Replikation in Azure können Sie die Datenträgergröße der Que
 
 ### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-server-without-impacting-ongoing-replication"></a>Kann ich lokale Computer zu einem neuen vCenter-Server migrieren, ohne die laufende Replikation zu beeinträchtigen?
 
-Nein. Eine Änderung von VMware Vcenter oder der Migration beeinträchtigt die laufende Replikation. Richten Sie Site Recovery mit dem neuen vCenter Server ein, und aktivieren Sie die Replikation für Computer erneut.
+Informationen zum Migrieren von Computern zu einem neuen vCenter-Server finden Sie in unserem [Leitfaden](vmware-azure-manage-vcenter.md#migrate-all-vms-to-a-new-server).
 
 ### <a name="can-i-replicate-to-a-cache-or-target-storage-account-that-has-a-virtual-network-with-azure-firewalls-configured-on-it"></a>Kann ich die Replikation in einem Cache oder einem Zielspeicherkonto durchführen, für den bzw. das ein virtuelles Netzwerk (mit Azure Firewalls) konfiguriert ist?
 
@@ -322,7 +322,7 @@ Ja, Sie können die IP-Adresse beim Failover behalten. Stellen Sie sicher, dass 
 
 ### <a name="can-i-change-the-target-vm-size-or-vm-type-before-failover"></a>Kann ich die Größe oder den Typ der Ziel-VM vor dem Failover ändern?
 
-Ja, Sie können den Typ oder die Größe des virtuellen Computers jederzeit vor dem Failover ändern. Verwenden Sie im Portal die **Compute und Netzwerk** -Einstellungen für den replizierten virtuellen Computer.
+Ja, Sie können den Typ oder die Größe des virtuellen Computers jederzeit vor dem Failover ändern. Verwenden Sie im Portal die **Compute und Netzwerk**-Einstellungen für den replizierten virtuellen Computer.
 
 ### <a name="how-far-back-can-i-recover"></a>Wie weit kann ich bei der Wiederherstellung zurückgehen?
 

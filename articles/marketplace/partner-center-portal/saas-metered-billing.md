@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 8bcea36b99ae51da256d6b4fc49a4e3965a8c82c
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 9f72d54fda8f66c2fce35f0520b51406aa276bb0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279182"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892752"
 ---
 # <a name="metered-billing-for-saas-using-the-commercial-marketplace-metering-service"></a>Volumenabrechnung für SaaS mit dem Messungsdienst für den kommerziellen Marketplace
 
@@ -40,7 +40,7 @@ Bei der Definition des Angebots und seiner Preismodelle ist es wichtig, die Ange
 - Jedem Plan ist ein Preismodell zugeordnet: **pauschal** oder **pro Benutzer**. Alle Pläne in einem Angebot müssen dem gleichen Preismodell zugeordnet sein. Es ist beispielsweise nicht zulässig, ein Angebot mit einem Pauschalgebührenmodell und einem benutzerbasierten Preismodell zu erstellen.
 - In jedem Plan, der für ein pauschales Abrechnungsmodell konfiguriert wird, ist mindestens eine wiederkehrende Gebühr enthalten (die allerdings 0 EUR betragen kann):
     - Wiederkehrende **monatliche** Gebühr: Pauschale monatliche Gebühr, die monatlich im Voraus bezahlt wird, wenn der Benutzer den Tarif erwirbt
-    - Wiederkehrende **Jahresgebühr**: Pauschale Jahresgebühr, die jährlich im Voraus bezahlt wird, wenn der Benutzer den Tarif erwirbt
+    - Wiederkehrende **Jahresgebühr** : Pauschale Jahresgebühr, die jährlich im Voraus bezahlt wird, wenn der Benutzer den Tarif erwirbt
 - Zusätzlich zu den wiederkehrenden Gebühren kann der Pauschaltarif auch optionale, benutzerdefinierte Dimensionen enthalten, mit denen dem Kunden die zusätzliche, nicht in der Pauschale enthaltene Nutzung berechnet wird.  Jede Dimension stellt eine abrechenbare Einheit dar, die Ihr Dienst über die [API für den Messungsdienst für den kommerziellen Marketplace](./marketplace-metering-service-apis.md) an Microsoft übermittelt.
 
 ## <a name="sample-offer"></a>Beispielangebot
@@ -97,7 +97,7 @@ Die anderen Attribute einer Dimension sind planspezifisch und können von Plan z
 Dimensionen verfügen auch über zwei spezielle Konzepte: „aktiviert“ und „unbegrenzt“:
 
 - **Aktiviert** gibt an, dass dieser Plan Teil dieser Dimension ist.  Wenn Sie einen neuen Tarif erstellen, der keine auf dieser Dimension basierenden Nutzungsereignisse sendet, sollten Sie diese Option deaktiviert lassen.  Außerdem werden alle neuen Dimensionen, die nach der ersten Veröffentlichung eines Plans hinzugefügt wurden, für den bereits veröffentlichten Plan als „nicht aktiviert“ angezeigt.  Eine deaktivierte Dimension wird in keiner Dimensionenliste für einen Plan angezeigt, der für Kunden sichtbar ist.
-- **Unbegrenzt**, dargestellt durch das Unendlichkeitssymbol „∞“, gibt an, dass diese Dimension in diesem Tarif zwar enthalten ist, die Nutzung aber nicht anhand dieser Dimension gemessen wird.  Dadurch können Sie Ihren Kunden vermitteln, dass die durch diese Dimension dargestellte Funktion im Plan enthalten und die Nutzung nicht begrenzt ist.  Eine Dimension mit unbegrenzter Nutzung wird in Dimensionenlisten für einen Plan, der für Kunden sichtbar ist, mit dem Hinweis angezeigt, dass dadurch für diesen Plan keine Kosten entstehen.
+- **Unbegrenzt** , dargestellt durch das Unendlichkeitssymbol „∞“, gibt an, dass diese Dimension in diesem Tarif zwar enthalten ist, die Nutzung aber nicht anhand dieser Dimension gemessen wird.  Dadurch können Sie Ihren Kunden vermitteln, dass die durch diese Dimension dargestellte Funktion im Plan enthalten und die Nutzung nicht begrenzt ist.  Eine Dimension mit unbegrenzter Nutzung wird in Dimensionenlisten für einen Plan, der für Kunden sichtbar ist, mit dem Hinweis angezeigt, dass dadurch für diesen Plan keine Kosten entstehen.
 
 >[!Note] 
 >Folgende Szenarien werden explizit unterstützt: <br> - Sie können einem neuen Plan eine neue Dimension hinzufügen.  Die neue Dimension wird nicht für bereits veröffentlichte Pläne aktiviert. <br> - Sie können einen **pauschalen** Plan ohne Dimensionen veröffentlichen und anschließend einen neuen Plan hinzufügen und eine neue Dimension für diesen Plan konfigurieren. Die neue Dimension wird nicht für bereits veröffentlichte Pläne aktiviert.
@@ -143,7 +143,7 @@ Nachdem ein Plan veröffentlicht wurde, können die Details auf der Planebene ni
 
 ### <a name="upper-limits"></a>Obergrenzen
 
-Für ein einzelnes Angebot können maximal 18 individuelle Dimensionen konfiguriert werden.
+Für ein einzelnes Angebot können maximal 30 individuelle Dimensionen konfiguriert werden.
 
 ## <a name="get-support"></a>Support
 

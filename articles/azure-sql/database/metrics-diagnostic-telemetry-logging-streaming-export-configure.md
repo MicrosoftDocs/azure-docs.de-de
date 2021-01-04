@@ -9,14 +9,14 @@ ms.devlang: sqldbrb=2
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 04/06/2020
-ms.openlocfilehash: 1442ca7957a458e1458c4815033bf5e79c67c32a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 999bb83af6937d4a7b3d7ee8207e2fd689a23d35
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448928"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490805"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Konfigurieren des Streamingexports von Diagnosetelemetrie aus Azure SQL Database und SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -58,17 +58,17 @@ Die Diagnosetelemetriedaten können für die Analyse an eine der folgenden Azure
 
 - **[Log Analytics-Arbeitsbereich](#stream-into-sql-analytics)** :
 
-  An einen [Log Analytics-Arbeitsbereich](../../azure-monitor/platform/resource-logs-collect-workspace.md) gestreamte Daten können von [SQL Analytics](../../azure-monitor/insights/azure-sql.md) verwendet werden. SQL Analytics ist eine auf die Cloud beschränkte Überwachungslösung. Sie ermöglicht die intelligente Überwachung Ihrer Datenbanken mit Leistungsberichten, Warnungen und Empfehlungen zur Risikominderung. Die an einen Log Analytics-Arbeitsbereich gestreamten Daten können zusammen mit anderen gesammelten Überwachungsdaten analysiert werden. Sie ermöglichen Ihnen außerdem die Nutzung anderer Azure Monitor-Features wie Warnungen und Visualisierungen.
+  An einen [Log Analytics-Arbeitsbereich](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) gestreamte Daten können von [SQL Analytics](../../azure-monitor/insights/azure-sql.md) verwendet werden. SQL Analytics ist eine auf die Cloud beschränkte Überwachungslösung. Sie ermöglicht die intelligente Überwachung Ihrer Datenbanken mit Leistungsberichten, Warnungen und Empfehlungen zur Risikominderung. Die an einen Log Analytics-Arbeitsbereich gestreamten Daten können zusammen mit anderen gesammelten Überwachungsdaten analysiert werden. Sie ermöglichen Ihnen außerdem die Nutzung anderer Azure Monitor-Features wie Warnungen und Visualisierungen.
 - **[Azure Event Hubs](#stream-into-event-hubs)** :
 
-  Daten, die an einen [Azure Event Hub](../../azure-monitor/platform/resource-logs-stream-event-hubs.md) gestreamt werden, bieten die folgenden Funktionen:
+  Daten, die an einen [Azure Event Hub](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) gestreamt werden, bieten die folgenden Funktionen:
 
   - **Streamen von Protokollen an Protokollierungs- und Telemetriedatensysteme von Drittanbietern**: Streamen Sie alle Ihre Metriken und Ressourcenprotokolle an einen einzelnen Event Hub, um Protokolldaten an ein SIEM- oder Protokollanalysetool eines Drittanbieters weiterzureichen.
   - **Erstellen einer benutzerdefinierten Telemetrie- und Protokollierungsplattform:** Event Hubs ermöglichen dank des hochgradig skalierbaren Veröffentlichen-Abonnieren-Musters eine flexible Erfassung der Metriken und Ressourcenprotokolle auf einer benutzerdefinierten Telemetrieplattform. Ausführliche Informationen finden Sie unter [Designing and Sizing a Global Scale Telemetry Platform on Azure Event Hubs](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) (Entwerfen und Dimensionieren einer globalen Telemetrieplattform in Azure Event Hubs).
-  - **Anzeigen der Dienstintegrität durch Streamen von Daten an Power BI**: Verwenden Sie Event Hubs, Stream Analytics und Power BI, um sich anhand Ihrer Diagnosedaten nahezu in Echtzeit einen Einblick in Ihre Azure-Dienste verschaffen. Details zu dieser Lösung finden Sie unter [Stream Analytics und Power BI: Ein Dashboard zur Echtzeitanalyse von Streamingdaten](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-power-bi-dashboard).
+  - **Anzeigen der Dienstintegrität durch Streamen von Daten an Power BI**: Verwenden Sie Event Hubs, Stream Analytics und Power BI, um sich anhand Ihrer Diagnosedaten nahezu in Echtzeit einen Einblick in Ihre Azure-Dienste verschaffen. Details zu dieser Lösung finden Sie unter [Stream Analytics und Power BI: Ein Dashboard zur Echtzeitanalyse von Streamingdaten](../../stream-analytics/stream-analytics-power-bi-dashboard.md).
 - **[Azure Storage](#stream-into-azure-storage)** :
 
-  Durch das Streamen von Daten an [Azure Storage](../../azure-monitor/platform/resource-logs-collect-storage.md) können Sie immense Mengen von Diagnosetelemetriedaten archivieren, und zwar zu einem Bruchteil der Kosten der beiden vorherigen Streamingoptionen.
+  Durch das Streamen von Daten an [Azure Storage](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) können Sie immense Mengen von Diagnosetelemetriedaten archivieren, und zwar zu einem Bruchteil der Kosten der beiden vorherigen Streamingoptionen.
 
 Die an eines dieser Ziele gestreamten Diagnosetelemetriedaten können für die Messung der Ressourcenverwendung und der Abfrageausführungsstatistiken verwendet werden, um die Leistungsüberwachung zu vereinfachen.
 
@@ -85,11 +85,11 @@ Sie können die Protokollierung von Metriken und Diagnosetelemetriedaten mit ein
 - Azure Resource Manager-Vorlage
 
 > [!NOTE]
-> Informationen zum Aktivieren des Streamens von Sicherheitstelemetriedaten finden Sie unter [Einrichten der Überwachung für Ihre Datenbank](../../sql-database/sql-database-auditing.md#setup-auditing) sowie unter [Überwachungsprotokolle in Azure Monitor-Protokollen und Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
+> Informationen zum Aktivieren des Streamens von Sicherheitstelemetriedaten finden Sie unter [Einrichten der Überwachung für Ihre Datenbank](./auditing-overview.md#setup-auditing) sowie unter [Überwachungsprotokolle in Azure Monitor-Protokollen und Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 
 ## <a name="configure-the-streaming-export-of-diagnostic-telemetry"></a>Konfigurieren des Streamingexports von Diagnosetelemetriedaten
 
-Das Menü **Diagnoseeinstellungen** im Azure-Portal kann für das Aktivieren und Konfigurieren des Streamings von Diagnosetelemetriedaten verwendet werden. Darüber hinaus können Sie PowerShell, die Azure-Befehlszeilenschnittstelle, die [REST-API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings) und [Resource Manager-Vorlagen](../../azure-monitor/platform/diagnostic-settings-template.md) verwenden, um das Streaming von Diagnosetelemetriedaten zu konfigurieren. Für das Streaming der Diagnosetelemetriedaten können folgende Ziele festgelegt werden: Azure Storage, Azure Event Hubs und Azure Monitor-Protokolle.
+Das Menü **Diagnoseeinstellungen** im Azure-Portal kann für das Aktivieren und Konfigurieren des Streamings von Diagnosetelemetriedaten verwendet werden. Darüber hinaus können Sie PowerShell, die Azure-Befehlszeilenschnittstelle, die [REST-API](/rest/api/monitor/diagnosticsettings) und [Resource Manager-Vorlagen](../../azure-monitor/samples/resource-manager-diagnostic-settings.md) verwenden, um das Streaming von Diagnosetelemetriedaten zu konfigurieren. Für das Streaming der Diagnosetelemetriedaten können folgende Ziele festgelegt werden: Azure Storage, Azure Event Hubs und Azure Monitor-Protokolle.
 
 > [!IMPORTANT]
 > Der Streamingexport von Diagnosetelemetriedaten ist standardmäßig nicht aktiviert.
@@ -231,7 +231,7 @@ Führen Sie zum Aktivieren des Streamings von Diagnosetelemetriedaten für eine 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Das Azure Resource Manager-Modul von PowerShell wird weiterhin unterstützt, aber alle zukünftigen Entwicklungen erfolgen für das Az.Sql-Modul. Informationen zu diesen Cmdlets finden Sie unter [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Die Argumente für die Befehle im Az-Modul und den AzureRm-Modulen sind im Wesentlichen identisch.
+> Das Azure Resource Manager-Modul von PowerShell wird weiterhin unterstützt, aber alle zukünftigen Entwicklungen erfolgen für das Az.Sql-Modul. Informationen zu diesen Cmdlets finden Sie unter [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Die Argumente für die Befehle im Az-Modul und den AzureRm-Modulen sind im Wesentlichen identisch.
 
 Sie können die Protokollierung von Metriken und Diagnosen mit PowerShell aktivieren.
 
@@ -271,7 +271,7 @@ Sie können diese Parameter miteinander kombinieren, um mehrere Ausgabeoptionen 
 
 **So konfigurieren Sie mehrere Azure-Ressourcen**
 
-Wenn mehrere Abonnements unterstützt werden, verwenden Sie das PowerShell-Skript aus [Enable Azure resource metrics logging using PowerShell](https://blogs.technet.microsoft.com/msoms/20../../enable-azure-resource-metrics-logging-using-powershell/) (Aktivieren der Protokollierung der Azure-Ressourcenmetriken mit PowerShell).
+Wenn mehrere Abonnements unterstützt werden, verwenden Sie das PowerShell-Skript aus [Enable Azure resource metrics logging using PowerShell](/archive/blogs/msoms/enable-azure-resource-metrics-logging-using-powershell) (Aktivieren der Protokollierung der Azure-Ressourcenmetriken mit PowerShell).
 
 Geben Sie die Arbeitsbereichsressourcen-ID \<$WSID\> als Parameter an, wenn Sie das Skript `Enable-AzureRMDiagnostics.ps1` ausführen, um Diagnosedaten von mehreren Ressourcen an den Arbeitsbereich zu senden.
 
@@ -335,7 +335,7 @@ Sie können eine Sammlung von Datenbanken mit Azure SQL-Analyse überwachen, ind
 2. Erstellen Sie in der Lösung einen Log Analytics-Arbeitsbereich.
 3. Konfigurieren Sie Datenbanken zum Streamen von Diagnosetelemetriedaten in den Arbeitsbereich.
 
-Sie können den Streamingexport der Diagnosetelemetriedaten mithilfe der integrierten Option **An Log Analytics senden** auf der Registerkarte „Diagnoseeinstellungen“ im Azure-Portal konfigurieren. Sie können das Streaming in den Log Analytics-Arbeitsbereich anhand von Diagnoseeinstellungen auch mit [PowerShell-Cmdlets](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-powershell#configure-the-streaming-export-of-diagnostic-telemetry), der [Azure CLI](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-cli#configure-the-streaming-export-of-diagnostic-telemetry), der [Azure Monitor-REST-API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings) oder [Resource Manager-Vorlagen](../../azure-monitor/platform/diagnostic-settings-template.md) aktivieren.
+Sie können den Streamingexport der Diagnosetelemetriedaten mithilfe der integrierten Option **An Log Analytics senden** auf der Registerkarte „Diagnoseeinstellungen“ im Azure-Portal konfigurieren. Sie können das Streaming in den Log Analytics-Arbeitsbereich anhand von Diagnoseeinstellungen auch mit [PowerShell-Cmdlets](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-powershell#configure-the-streaming-export-of-diagnostic-telemetry), der [Azure CLI](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-cli#configure-the-streaming-export-of-diagnostic-telemetry), der [Azure Monitor-REST-API](/rest/api/monitor/diagnosticsettings) oder [Resource Manager-Vorlagen](../../azure-monitor/samples/resource-manager-diagnostic-settings.md) aktivieren.
 
 ### <a name="create-an-azure-sql-analytics-resource"></a>Erstellen einer Azure SQL-Analyse-Ressource
 
@@ -428,7 +428,7 @@ Wenn Sie die Azure SQL-Analyse verwenden, können Sie Ihre Datenerfassungsnutzun
 
 ## <a name="metrics-and-logs-available"></a>Verfügbare Metriken und Protokolle
 
-Informationen zum Überwachen von Telemetriedaten, die für Singletons, Pooldatenbanken, Pools für elastische Datenbanken, verwaltete Instanzen und Instanzdatenbanken verfügbar sind, finden Sie in diesem Abschnitt dieses Artikels. Mit der [Protokollabfragesprache von Azure Monitor](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) können Sie die in SQL Analytics gesammelten Überwachungstelemetriedaten für Ihre eigene benutzerdefinierte Analyse und Anwendungsentwicklung verwenden.
+Informationen zum Überwachen von Telemetriedaten, die für Singletons, Pooldatenbanken, Pools für elastische Datenbanken, verwaltete Instanzen und Instanzdatenbanken verfügbar sind, finden Sie in diesem Abschnitt dieses Artikels. Mit der [Protokollabfragesprache von Azure Monitor](../../azure-monitor/log-query/get-started-queries.md) können Sie die in SQL Analytics gesammelten Überwachungstelemetriedaten für Ihre eigene benutzerdefinierte Analyse und Anwendungsentwicklung verwenden.
 
 ### <a name="basic-metrics"></a>Grundlegende Metriken
 
@@ -543,7 +543,7 @@ Die folgenden Tabellen enthalten Details zu Telemetriedaten, die für alle Proto
 |query_id_d|ID der Abfrage im Abfragespeicher |
 |plan_id_d|ID des Plans im Abfragespeicher |
 
-Weitere Informationen zu [Laufzeitstatistikdaten des Abfragespeichers](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
+Weitere Informationen zu [Laufzeitstatistikdaten des Abfragespeichers](/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
 
 #### <a name="query-store-wait-statistics"></a>Wartestatistiken des Abfragespeichers
 
@@ -581,7 +581,7 @@ Weitere Informationen zu [Laufzeitstatistikdaten des Abfragespeichers](https://d
 |query_id_d|ID der Abfrage im Abfragespeicher |
 |plan_id_d|ID des Plans im Abfragespeicher |
 
-Weitere Informationen zu [Wartestatistikdaten des Abfragespeichers](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
+Weitere Informationen zu [Wartestatistikdaten des Abfragespeichers](/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
 
 #### <a name="errors-dataset"></a>Fehlerdataset
 
@@ -610,7 +610,7 @@ Weitere Informationen zu [Wartestatistikdaten des Abfragespeichers](https://docs
 |query_hash_s|Der Abfragehash der fehlerhaften Abfrage (falls verfügbar) |
 |query_plan_hash_s|Hash des Abfrageplans der fehlerhaften Abfrage (falls verfügbar) |
 
-Weitere Informationen zu [SQL-Fehlermeldungen](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors).
+Weitere Informationen zu [SQL-Fehlermeldungen](/sql/relational-databases/errors-events/database-engine-events-and-errors).
 
 #### <a name="database-wait-statistics-dataset"></a>Dataset zur Wartestatistik der Datenbank
 
@@ -639,7 +639,7 @@ Weitere Informationen zu [SQL-Fehlermeldungen](https://docs.microsoft.com/sql/re
 |delta_wait_time_ms_d|Gesamtwartezeit im Zeitraum |
 |delta_waiting_tasks_count_d|Anzahl von wartenden Aufgaben |
 
-Weitere Informationen zu [Datenbankwartestatistiken](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
+Weitere Informationen zu [Datenbankwartestatistiken](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
 
 #### <a name="time-outs-dataset"></a>Dataset zu Timeouts
 

@@ -6,14 +6,20 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 775aa44043e9c8900bd0c040ab603736314ea34e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b57bafdc3f4748bf634955334424941b55e02fd8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469982"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492368"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Erstellen eines Azure AD-Mandanten für Azure Red Hat OpenShift
+
+> [!IMPORTANT]
+> Azure Red Hat OpenShift 3.11 wird zum 30. Juni 2022 eingestellt. Unterstützung für die Erstellung neuer Azure Red Hat OpenShift 3.11-Cluster wird bis zum 30. November 2020 bereitgestellt. Nach der Einstellung werden die verbleibenden Azure Red Hat OpenShift 3.11-Cluster abgeschaltet, um Sicherheitsrisiken zu vermeiden.
+> 
+> Führen Sie die Schritte in diesem Leitfaden aus, um [einen Azure Red Hat OpenShift 4-Cluster zu erstellen](tutorial-create-cluster.md).
+> Wenn Sie spezielle Fragen haben, [kontaktieren Sie uns](mailto:arofeedback@microsoft.com).
 
 Für Microsoft Azure Red Hat OpenShift ist ein [Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md)-Mandant (Azure AD-Mandant) erforderlich, in dem Sie Ihren Cluster erstellen. Ein *Mandant* ist eine dedizierte Instanz von Azure AD, die Unternehmen oder App-Entwicklern bereitgestellt wird, wenn diese sich für Azure, Microsoft Intune oder Microsoft 365 registrieren und damit eine Geschäftsbeziehung mit Microsoft eingehen. Jeder Azure AD-Mandant unterscheidet sich von anderen Azure AD-Mandanten und verfügt über eigene Identitäten für Geschäfts-, Schul- oder Unikonten sowie über eigene App-Registrierungen.
 

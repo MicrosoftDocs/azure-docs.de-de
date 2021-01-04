@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d1b17a3e4556f6a963f3ecacd31472ce3f75b0fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93360e48dad13b9ec57175d31ecb61d32974f066
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85248546"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128401"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: Erstellen einer Pipeline mit Kopieraktivität mithilfe des Data Factory-Kopier-Assistenten
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ In diesem Schritt erstellen Sie im Azure-Portal eine Azure Data Factory namens *
        Der Name der Azure Data Factory muss global eindeutig sein. Sollte der Fehler `Data factory name “ADFTutorialDataFactory” is not available` auftreten, ändern Sie den Namen der Data Factory (z.B. in „IhrNameADFTutorialDataFactoryTTMMJJJJ“), und wiederholen Sie den Vorgang. Benennungsregeln für Data Factory-Artefakte finden Sie im Thema [Data Factory – Benennungsregeln](data-factory-naming-rules.md) .  
       
        ![Data Factory-Name nicht verfügbar](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)    
-   2. Wählen Sie Ihr Azure- **Abonnement**aus.
+   2. Wählen Sie Ihr Azure- **Abonnement** aus.
    3. Führen Sie unter „Ressourcengruppe“ einen der folgenden Schritte aus: 
       
       - Wählen Sie **Use existing** (Vorhandene verwenden), um eine vorhandene Ressourcengruppe auszuwählen.
@@ -91,7 +91,7 @@ In diesem Schritt erstellen Sie im Azure-Portal eine Azure Data Factory namens *
    
    1. Geben Sie unter **Name des verknüpften Diensts** als Name **AzureStorageLinkedService** ein.
    2. Überprüfen Sie, ob unter **Kontoauswahlmethode** die Option **Über Azure-Abonnements** ausgewählt ist.
-   3. Wählen Sie Ihr Azure- **Abonnement**aus.  
+   3. Wählen Sie Ihr Azure- **Abonnement** aus.  
    4. Wählen Sie in der Liste mit den **Azure-Speicherkonten**, die im ausgewählten Abonnement verfügbar sind, ein Azure-Speicherkonto aus. Sie können sich auch für das manuelle Eingeben von Speicherkontoeinstellungen entscheiden, indem Sie unter **Kontoauswahlmethode** die Option **Manuell eingeben** auswählen und dann auf **Weiter** klicken. 
       
       ![Kopiertool – Azure Blob Storage-Konto angeben](./media/data-factory-copy-data-wizard-tutorial/copy-tool-specify-azure-blob-storage-account.png)
@@ -100,10 +100,10 @@ In diesem Schritt erstellen Sie im Azure-Portal eine Azure Data Factory namens *
    1. Doppelklicken Sie auf **adftutorial** (Ordner).
    2. Wählen Sie **emp.txt** aus, und klicken Sie auf **Auswählen**.
       
-      ![Kopiertool – Eingabedatei- oder -ordner auswählen](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
+      ![Screenshot: Option „Auswählen“ für die Eingabedatei](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
 6. Klicken Sie auf der Seite **Choose the input file or folder** (Eingabedatei oder -ordner auswählen) auf **Weiter**. Aktivieren Sie nicht die Option **Binary copy**(Binärkopie). 
    
-    ![Kopiertool – Eingabedatei- oder -ordner auswählen](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
+    ![Screenshot: Option „Binary copy“ (Binärkopie) für die Eingabedatei](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
 7. Auf der Seite **File format settings** (Dateiformateinstellungen) werden die Trennzeichen und das Schema angezeigt. Diese Informationen werden vom Assistenten beim Analysieren der Datei automatisch erkannt. Sie können die Trennzeichen auch manuell eingeben, um die automatische Erkennung für den Kopier-Assistenten zu beenden oder die Werte zu überschreiben. Klicken Sie auf **Weiter**, nachdem Sie die Trennzeichen und Vorschaudaten geprüft haben. 
    
     ![Kopiertool – Dateiformateinstellungen](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)  
@@ -114,7 +114,7 @@ In diesem Schritt erstellen Sie im Azure-Portal eine Azure Data Factory namens *
    
    1. Geben Sie im Feld **Verbindungsname** den Text **AzureSqlLinkedService** ein.
    2. Überprüfen Sie, ob unter **Server/database selection method** (Server-/Datenbankauswahlmethode) die Option **Über Azure-Abonnements** ausgewählt ist.
-   3. Wählen Sie Ihr Azure- **Abonnement**aus.  
+   3. Wählen Sie Ihr Azure- **Abonnement** aus.  
    4. Wählen Sie **Servername** und **Datenbank** aus.
    5. Geben Sie **Benutzername** und **Kennwort** ein.
    6. Klicken Sie auf **Weiter**.  
@@ -128,10 +128,10 @@ In diesem Schritt erstellen Sie im Azure-Portal eine Azure Data Factory namens *
     ![Kopiertool – Schemazuordnung](./media/data-factory-copy-data-wizard-tutorial/schema-mapping-page.png)
 12. Klicken Sie auf der Seite **Leistungseinstellungen** auf **Weiter**. 
     
-    ![Kopiertool – Leistungseinstellungen](./media/data-factory-copy-data-wizard-tutorial/performance-settings.png)
+    ![Screenshot: Seite „Leistungseinstellungen“, auf der Sie „Weiter“ auswählen können](./media/data-factory-copy-data-wizard-tutorial/performance-settings.png)
 13. Überprüfen Sie die Informationen auf der Seite **Zusammenfassung**, und klicken Sie auf **Fertig stellen**. Der Assistent erstellt zwei verknüpfte Dienste, zwei Datasets (Eingabe und Ausgabe) und eine Pipeline in der Data Factory erstellt (von der aus Sie den Kopier-Assistenten gestartet haben). 
     
-    ![Kopiertool – Leistungseinstellungen](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
+    ![Screenshot: Seite „Zusammenfassung“, auf der Sie „Weiter“ auswählen können](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
 ## <a name="launch-monitor-and-manage-application"></a>Starten der Anwendung „Überwachung und Verwaltung“
 1. Klicken Sie auf der Seite **Bereitstellung** auf diesen Link: `Click here to monitor copy pipeline`.

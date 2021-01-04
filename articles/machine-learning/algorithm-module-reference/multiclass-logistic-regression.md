@@ -1,7 +1,7 @@
 ---
 title: Logistische Regression mit mehreren Klassen Modulreferenz
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Sie mit dem Modul Multiclass Logistic Regression in Azure Machine Learning ein logistisches Regressionsmodell erstellen, mit dem Sie mehrere Werte vorhersagen können.
+description: Erfahren Sie, wie Sie mit dem Modul Multiclass Logistic Regression im Azure Machine Learning-Designer mehrere Werte vorhersagen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 247a0bef8e166c72f185f2d384067fc5814a602e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2bbc28735bcbfd952c4941453956acd0568ea67
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90893752"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420732"
 ---
 # <a name="multiclass-logistic-regression-module"></a>Modul „Multiclass Logistic Regression“
 

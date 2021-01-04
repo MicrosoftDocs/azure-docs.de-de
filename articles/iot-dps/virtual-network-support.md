@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: d90b18094a26830ee6909251d46837eff95a812a
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: f1409a931195d236b2729e629e4603c606137593
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998594"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959780"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Unterstützung von Azure IoT Hub Device Provisioning Service (DPS) für virtuelle Netzwerke
 
@@ -38,7 +38,7 @@ Aus verschiedenen Gründen möchten Kunden möglicherweise die Verbindung mit Az
 
 Zu den gängigen Ansätzen zum Einschränken der Konnektivität gehören [DPS-IP-Filterregeln](./iot-dps-ip-filtering.md) und virtuelle Netzwerke (VNET) mit [privaten Endpunkten](../private-link/private-endpoint-overview.md). In diesem Artikel wird der VNET-Ansatz für DPS mit privaten Endpunkten beschrieben. 
 
-Geräte, die in lokalen Netzwerken betrieben werden, können privates Peering mit [virtuellen privaten Netzwerken (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) oder [ExpressRoute](https://azure.microsoft.com/services/expressroute/) verwenden, um eine Verbindung mit einem VNET in Azure herzustellen und über private Endpunkte auf DPS-Ressourcen zuzugreifen. 
+Geräte, die in lokalen Netzwerken betrieben werden, können privates Peering mit [virtuellen privaten Netzwerken (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) oder [ExpressRoute](https://azure.microsoft.com/services/expressroute/) verwenden, um eine Verbindung mit einem VNET in Azure herzustellen und über private Endpunkte auf DPS-Ressourcen zuzugreifen. 
 
 Ein privater Endpunkt ist eine private IP-Adresse, die in einem kundeneigenen VNET zugeordnet ist, über das eine Azure-Ressource zugänglich ist. Wenn Sie über einen privaten Endpunkt für Ihre DPS-Ressource verfügen, können Sie zulassen, dass in Ihrem VNET ausgeführte Geräte die Bereitstellung durch Ihre DPS-Ressource anfordern, ohne Datenverkehr an den öffentlichen Endpunkt zu erlauben.
 
@@ -51,7 +51,7 @@ Vergewissern Sie sich, dass die folgenden Voraussetzungen erfüllt sind, bevor S
 
 * Sie haben ein Azure-VNET mit einem Subnetz bereitgestellt, in dem der private Endpunkt erstellt wird. Weitere Informationen finden Sie unter [Erstellen eines virtuellen Netzwerks mithilfe der Azure-Befehlszeilenschnittstelle](../virtual-network/quick-create-cli.md).
 
-* Richten Sie in Ihrem Azure-VNET für Geräte, die in lokalen Netzwerken ausgeführt werden, ein [virtuelles privates Netzwerk (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) oder das private [ExpressRoute-Peering](https://azure.microsoft.com/services/expressroute/) ein.
+* Richten Sie in Ihrem Azure-VNET für Geräte, die in lokalen Netzwerken ausgeführt werden, ein [virtuelles privates Netzwerk (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) oder das private [ExpressRoute-Peering](https://azure.microsoft.com/services/expressroute/) ein.
 
 ## <a name="private-endpoint-limitations"></a>Einschränkungen privater Endpunkte
 
@@ -154,5 +154,5 @@ Ausführliche Preisinformationen finden Sie unter [Azure Private Link – Preise
 
 Verwenden Sie die unten angegebenen Links, um weitere Informationen zu den Sicherheitsfeatures von DPS zu erhalten:
 
-* [Security](concepts-security.md)
+* [Security](./concepts-service.md#attestation-mechanism)
 * [Unterstützung für TLS 1.2](tls-support.md)

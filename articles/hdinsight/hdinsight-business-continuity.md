@@ -8,12 +8,12 @@ keywords: Hochverfügbarkeit, Hadoop
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: beb3c54a0ab7f6f063232a1ad49744d99746c589
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: f83f5aec264aeae1a729e81932843825a0ce6673
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893644"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546941"
 ---
 # <a name="azure-hdinsight-business-continuity"></a>Geschäftskontinuität in Azure HDInsight
 
@@ -39,7 +39,7 @@ In diesem Abschnitt werden einige bewährte Methoden erläutert, die Sie bei der
 
 * Verwenden Sie die Azure-Überwachungstools in HDInsight, um ungewöhnliches Verhalten im Cluster zu erkennen und entsprechende Warnmeldungen festzulegen. Sie können die vorkonfigurierten spezifischen Verwaltungslösungen für HDInsight-Cluster bereitstellen, die wichtige Leistungsmetriken für den jeweiligen Clustertyp erfassen. Weitere Informationen finden Sie unter [Verwenden von Azure Monitor-Protokollen zum Überwachen von HDInsight-Clustern](./hdinsight-hadoop-oms-log-analytics-tutorial.md).  
 
-* Abonnieren Sie Azure-Integritätswarnungen, um über Dienstprobleme, geplante Wartungen sowie Integritäts- und Sicherheitsempfehlungen für ein Abonnement, einen Dienst oder eine Region benachrichtigt zu werden. Integritätsbenachrichtigungen, die die Problemursache und eine feste ETA enthalten, helfen Ihnen bei der besseren Ausführung von Failovern und Failbacks. Weitere Informationen finden Sie in der [Dokumentation zu Azure Service Health](/azure/service-health/).
+* Abonnieren Sie Azure-Integritätswarnungen, um über Dienstprobleme, geplante Wartungen sowie Integritäts- und Sicherheitsempfehlungen für ein Abonnement, einen Dienst oder eine Region benachrichtigt zu werden. Integritätsbenachrichtigungen, die die Problemursache und eine feste ETA enthalten, helfen Ihnen bei der besseren Ausführung von Failovern und Failbacks. Weitere Informationen finden Sie in der [Dokumentation zu Azure Service Health](../service-health/index.yml).
 
 ## <a name="single-region-availability"></a>Verfügbarkeit bei einer einzelnen Region
 

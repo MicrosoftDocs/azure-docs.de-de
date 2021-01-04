@@ -3,18 +3,20 @@ title: Räumliche Funktionen in der Abfragesprache für Azure Cosmos DB
 description: Erfahren Sie mehr über räumliche SQL-Systemfunktionen in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 87d73787998d1a49d7512723b212c26b7107513f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9bc614aa044ace0224086c7f18b54783757711a
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85559796"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549139"
 ---
 # <a name="spatial-functions-azure-cosmos-db"></a>Räumliche Funktionen (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cosmos DB unterstützt die folgenden integrierten OGC-Funktionen (Open Geospatial Consortium ) für das Abfragen von Geodaten. 
 
@@ -38,4 +40,4 @@ Die folgenden Skalarfunktionen führen einen Vorgang für den Eingabewert eines 
 - [Systemfunktionen in Azure Cosmos DB](sql-query-system-functions.md)
 - [Einführung in Azure Cosmos DB](introduction.md)
 - [Benutzerdefinierte Funktionen](sql-query-udfs.md)
-- [Aggregate](sql-query-aggregates.md)
+- [Aggregate](sql-query-aggregate-functions.md)

@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4854e61b646c0ca2a2070d676e3efc5cfbac6b9b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 564f19a1be5b3ce8a5267a07bd4f1f6de80fecf1
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044580"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621279"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Durchführen von Bildklassifizierungen im Edge-Bereich mit dem Custom Vision Service
 
@@ -98,7 +98,7 @@ Für die Erstellung einer Bildklassifizierung benötigen Sie eine Gruppe von Tra
 
 3. Navigieren Sie in dem lokal geklonten Git-Repository zum ersten Bildordner: **Cognitive-CustomVision-Windows/Samples/Images/Hemlock**. Wählen Sie in dem Ordner alle zehn Bilder und anschließend **Öffnen** aus.
 
-4. Fügen Sie dieser Gruppe von Bildern das Tag **hemlock** hinzu, und drücken Sie die**EINGABETASTE**, um das Tag anzuwenden.
+4. Fügen Sie dieser Gruppe von Bildern das Tag **hemlock** hinzu, und drücken Sie die **EINGABETASTE**, um das Tag anzuwenden.
 
 5. Wählen Sie **10 Dateien hochladen** aus.
 
@@ -110,7 +110,7 @@ Für die Erstellung einer Bildklassifizierung benötigen Sie eine Gruppe von Tra
 
 8. Navigieren Sie zum zweiten Bildordner: **Cognitive-CustomVision-Windows/Samples/Images/Japanese Cherry**. Wählen Sie in dem Ordner alle zehn Bilder und anschließend **Öffnen** aus.
 
-9. Fügen Sie dieser Gruppe von Bildern das Tag **japanese cherry** hinzu, und drücken Sie die**EINGABETASTE**, um das Tag anzuwenden.
+9. Fügen Sie dieser Gruppe von Bildern das Tag **japanese cherry** hinzu, und drücken Sie die **EINGABETASTE**, um das Tag anzuwenden.
 
 10. Wählen Sie **10 Dateien hochladen** aus. Klicken Sie nach dem erfolgreichen Hochladen der Bilder auf **Fertig**.
 
@@ -449,9 +449,7 @@ Andernfalls können Sie die in diesem Artikel verwendeten lokalen Konfiguratione
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In diesem Tutorial haben Sie ein Custom Vision-Modell trainiert und als Modul auf einem IoT Edge-Gerät bereitgestellt. Anschließend haben Sie ein Modul erstellt, das den Bildklassifizierungsdienst abfragen und die Ergebnisse an IoT Hub zurückgeben kann. 
-
-Eine ausführlichere Version dieses Szenarios mit einem Livekamerafeed finden Sie im GitHub-Projekt [Custom Vision + Azure IoT Edge on a Raspberry Pi 3](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi) (Custom Vision und Azure IoT Edge auf einem Raspberry Pi 3). 
+In diesem Tutorial haben Sie ein Custom Vision-Modell trainiert und als Modul auf einem IoT Edge-Gerät bereitgestellt. Anschließend haben Sie ein Modul erstellt, das den Bildklassifizierungsdienst abfragen und die Ergebnisse an IoT Hub zurückgeben kann.
 
 Sie können mit den nächsten Tutorials fortfahren, um andere Möglichkeiten kennenzulernen, wie Azure IoT Edge Ihnen beim Umwandeln von Daten in geschäftliche Erkenntnisse auf Edge-Ebene helfen kann.
 

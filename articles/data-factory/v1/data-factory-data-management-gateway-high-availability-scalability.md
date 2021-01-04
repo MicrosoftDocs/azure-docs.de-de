@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 4ee89f4bba70bb5e81eef21247d556f65a2a1f16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8d05293359cff16bb6d8c9a629a1fbf68104365
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80065208"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003615"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Datenverwaltungsgateway – Hochverfügbarkeit und Skalierbarkeit (Vorschauversion)
 > [!NOTE]
@@ -49,7 +49,7 @@ Das folgende Diagramm enthält die Architekturübersicht zur Skalierbarkeits- un
 
 Ein **logisches Gateway** ist das Gateway, das Sie einer Data Factory im Azure-Portal hinzufügen. Bisher konnten Sie nur einen lokalen Windows-Computer mit installiertem Datenverwaltungsgateway einem logischen Gateway zuordnen. Dieser lokale Gatewaycomputer wird als Knoten bezeichnet. Jetzt können Sie einem logischen Gateway bis zu **vier physische Knoten** zuordnen. Ein logisches Gateway, das über mehrere Knoten verfügt, wird als **Gateway mit mehreren Knoten** bezeichnet.  
 
-Hierbei sind alle Knoten **aktiv**. Alle Knoten können Datenverschiebungsaufträge verarbeiten, um Daten zwischen lokalen und Cloudatenspeichern zu verschieben. Einer der Knoten fungiert sowohl als Verteiler als auch als Worker. Die anderen Knoten in den Gruppen sind Workerknoten. Ein **Verteiler**knoten führt für Datenverschiebungsaufgaben/-aufträge den Pullvorgang aus dem Clouddienst durch und verteilt sie an Workerknoten (auch sich selbst). Ein **Worker**knoten führt Datenverschiebungsaufträge aus, um Daten zwischen lokalen und Clouddatenspeichern zu verschieben. Alle Knoten sind Worker. Nur ein Knoten kann sowohl Verteiler als auch Worker sein.    
+Hierbei sind alle Knoten **aktiv**. Alle Knoten können Datenverschiebungsaufträge verarbeiten, um Daten zwischen lokalen und Cloudatenspeichern zu verschieben. Einer der Knoten fungiert sowohl als Verteiler als auch als Worker. Die anderen Knoten in den Gruppen sind Workerknoten. Ein **Verteiler** knoten führt für Datenverschiebungsaufgaben/-aufträge den Pullvorgang aus dem Clouddienst durch und verteilt sie an Workerknoten (auch sich selbst). Ein **Worker** knoten führt Datenverschiebungsaufträge aus, um Daten zwischen lokalen und Clouddatenspeichern zu verschieben. Alle Knoten sind Worker. Nur ein Knoten kann sowohl Verteiler als auch Worker sein.    
 
 Normalerweise beginnen Sie mit einem Knoten und führen dann das **Aufskalieren** durch, um weitere Knoten hinzuzufügen, wenn die Belastung der Datenverschiebung von dem bzw. den vorhandenen Knoten nicht mehr bewältigt werden kann. Sie können die Datenverschiebungsfunktion eines Gatewayknotens auch **hochskalieren**, indem Sie die Anzahl von gleichzeitigen Aufträgen erhöhen, die auf dem Knoten ausgeführt werden können. Diese Funktion ist auch für ein Gateway mit nur einem Knoten verfügbar (auch wenn die Skalierbarkeits- und Verfügbarkeitsfunktion nicht aktiviert ist). 
 
@@ -79,12 +79,12 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie die beiden folgenden Artike
         ![Datenverwaltungsgateway – Express-Setup erfolgreich](media/data-factory-data-management-gateway-high-availability-scalability/express-setup-success.png)
     2. Starten Sie für das Gateway den Konfigurations-Manager für die Datenverwaltung, indem Sie [diese Anleitung](data-factory-data-management-gateway.md#configuration-manager) befolgen. Folgendes wird angezeigt: Gatewayname, Knotenname, Status usw.
 
-        ![Datenverwaltungsgateway – Installation erfolgreich](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
+        ![Screenshot: Benutzeroberfläche mit dem Gatewaynamen, dem Namen des Knoten und dem Status](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
 4. Bei Auswahl von **Manuelles Setup**:
     1. Laden Sie das Installationspaket über das Microsoft Download Center herunter, und führen Sie es aus, um das Gateway auf Ihrem Computer zu installieren.
     2. Verwenden Sie den **Authentifizierungsschlüssel** von der Seite **Konfigurieren**, um das Gateway zu registrieren.
     
-        ![Datenverwaltungsgateway – Installation erfolgreich](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-authentication-key.png)
+        ![Screenshot: Benutzeroberfläche, in der der Authentifizierungsschlüssel verwendet wird](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-authentication-key.png)
     3. Auf der Seite **Neuer Gatewayknoten** können Sie einen benutzerdefinierten **Namen** für den Gatewayknoten angeben. Standardmäßig entspricht der Knotenname dem Computernamen.    
 
         ![Datenverwaltungsgateway – Name angeben](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-name.png)
@@ -108,7 +108,7 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie die beiden folgenden Artike
 6. Starten Sie im Azure-Portal die Seite **Gateway**: 
     1. Klicken Sie auf der Data Factory-Startseite im Portal auf **Verknüpfte Dienste**.
     
-        ![Data Factory-Startseite](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png)
+        ![Screenshot: Kachel „Verknüpfte Dienste“ hervorgehoben](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png)
     2. Wählen Sie das **Gateway** aus, um die Seite **Gateway** anzuzeigen:
     
         ![Data Factory-Startseite](media/data-factory-data-management-gateway-high-availability-scalability/linked-services-gateway.png)
@@ -164,7 +164,7 @@ Hier sind die Anforderungen für das TLS/SSL-Zertifikat angegeben, das zum Schü
 - Jeder Integration Runtime-Knoten muss diesem Zertifikat und dem Clientcomputer, der die Anwendung für die Anmeldeinformationsverwaltung ausführt, vertrauen. 
   > [!NOTE]
   > Die Anwendung für die Anmeldeinformationsverwaltung wird beim sicheren Festlegen von Anmeldeinformationen über den Kopier-Assistenten/das Azure-Portal verwendet. Dies kann auf jedem Computer im gleichen Netzwerk wie der lokale/private Datenspeicher ausgelöst werden.
-- Platzhalterzertifikate werden unterstützt. Wenn der FQDN **node1.domain.contoso.com** lautet, können Sie * **.domain.contoso.com** als Antragstellernamen des Zertifikats verwenden.
+- Platzhalterzertifikate werden unterstützt. Wenn der FQDN **node1.domain.contoso.com** lautet, können Sie *_.domain.contoso.com_* als Antragstellernamen des Zertifikats verwenden.
 - SAN-Zertifikate sind nicht empfehlenswert, da nur das letzte Element des alternativen Antragstellernamens verwendet wird und alle anderen aufgrund von aktuellen Einschränkungen ignoriert werden. Beispiel: Wenn Sie ein SAN-Zertifikat mit den SANs **node1.domain.contoso.com** und **node2.domain.contoso.com** haben, können Sie dieses Zertifikat nur auf dem Computer mit dem FQDN **node2.domain.contoso.com** verwenden.
 - Unterstützt alle Schlüsselgrößen, die von Windows Server 2012 R2 für TLS/SSL-Zertifikate unterstützt werden.
 - Zertifikate mit CNG-Schlüsseln werden nicht unterstützt.

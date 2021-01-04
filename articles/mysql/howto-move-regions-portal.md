@@ -1,18 +1,18 @@
 ---
 title: Verschieben von Azure-Regionen – Azure-Portal – Azure Database for MySQL
 description: Verschieben Sie einen Azure Database for MySQL-Server mithilfe eines Lesereplikats und des Azure-Portals aus einer Azure-Region in eine andere.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
-ms.openlocfilehash: e0333c5cabec597261938765298b622bf2fe79a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 279526d31adf25d1f4cd5a6d9b15519679bd88b9
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542511"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540228"
 ---
 # <a name="move-an-azure-database-for-mysql-server-to-another-region-by-using-the-azure-portal"></a>Verschieben eines Azure Database for MySQL-Servers mithilfe des Azure-Portals in eine andere Region
 
@@ -21,7 +21,7 @@ Es gibt verschiedene Szenarien, in denen ein vorhandener Azure Database for MySQ
 Sie können ein [regionsübergreifendes Lesereplikat](concepts-read-replicas.md#cross-region-replication) für Azure Database for MySQL verwenden, um die Verschiebung in eine andere Region vorzunehmen. Hierzu erstellen Sie zunächst ein Lesereplikat in der Zielregion. Beenden Sie anschließend die Replikation auf dem Lesereplikatserver, um ihn zu einem eigenständigen Server zu machen, der sowohl Lese- als auch Schreibdatenverkehr akzeptiert. 
 
 > [!NOTE]
-> Der Schwerpunkt des vorliegenden Artikels liegt auf dem Verschieben des Servers in eine andere Region. Wenn Sie Ihren Server in eine andere Ressourcengruppe oder ein anderes Abonnement verschieben möchten, finden Sie entsprechende Informationen im Artikel [Verschieben](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription). 
+> Der Schwerpunkt des vorliegenden Artikels liegt auf dem Verschieben des Servers in eine andere Region. Wenn Sie Ihren Server in eine andere Ressourcengruppe oder ein anderes Abonnement verschieben möchten, finden Sie entsprechende Informationen im Artikel [Verschieben](../azure-resource-manager/management/move-resource-group-and-subscription.md). 
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -50,7 +50,7 @@ Führen Sie die folgenden Schritte aus, um mithilfe des Azure-Portals einen regi
 > Der eigenständige Server kann nicht wieder in ein Replikat umgewandelt werden.
 > Stellen Sie vor dem Beenden der Replikation auf einem Lesereplikat sicher, dass das Replikat alle erforderlichen Daten enthält.
 
-Das Beenden der Replikation auf dem Replikatserver macht diesen zu einem eigenständigen Server. Führen Sie die folgenden Schritte aus, um im Azure-Portal die Replikation auf dem Replikat zu beenden:
+Das Beenden der Replikation auf dem Replikatserver macht diesen zu einem eigenständigen Server. Führen Sie die folgenden Schritte aus, um im Azure-Portal die Replikation in das Replikat zu beenden:
 
 1. Nachdem das Replikat erstellt wurde, suchen Sie den Azure Database for MySQL-Quellserver, und wählen Sie ihn aus. 
 1. Wählen Sie im Menü unter **EINSTELLUNGEN** die Option **Replikation** aus.

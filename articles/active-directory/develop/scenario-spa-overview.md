@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
-ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: dc0aee2e6c1b06850ffd0385626955a9798e7aeb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: aaddev, identityplatformtop40, devx-track-js
+ms.openlocfilehash: 17acb2bc5e96a136f31371c0be912c2c758c0f76
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257315"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443856"
 ---
 # <a name="scenario-single-page-application"></a>Szenario: Einseitige Anwendung
 
@@ -58,5 +58,4 @@ Zum Aktivieren dieses Szenarios für Anwendung benötigen Sie Folgendes:
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-> [!div class="nextstepaction"]
-> [App-Registrierung](scenario-spa-app-registration.md)
+Fahren Sie mit dem nächsten Artikel in diesem Szenario fort: [App-Registrierung](scenario-spa-app-registration.md).

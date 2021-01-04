@@ -6,12 +6,12 @@ ms.author: bwren
 ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: 26b155484dafac4a63fe2a6c7ff292ee8bbacbc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ce9183fad50c43ea7070f5fa09e0d445caf89df
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317207"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451245"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Tutorial: Erstellen eines Metrikdiagramms in Azure Monitor
 Mit dem Metrik-Explorer – einem Azure Monitor-Feature im Azure-Portal – können Sie auf der Grundlage von Metrikwerten Diagramme erstellen, Trends visuell korrelieren sowie Spitzen und Einbrüche bei Metrikwerten untersuchen. Verwenden Sie den Metrik-Explorer, um die Integrität und Auslastung Ihrer Azure-Ressourcen zu untersuchen oder um Diagramme auf der Grundlage benutzerdefinierter Metriken zu zeichnen. 
@@ -85,5 +85,5 @@ Sie können die Formatierung des Diagramms, den Titel und erweiterte Diagrammein
 Sie wissen nun, wie Sie mit Metriken in Azure Monitor arbeiten. Als Nächstes erfahren Sie, wie Sie Metriken verwenden, um proaktive Warnungen zu senden.
 
 > [!div class="nextstepaction"]
-> [Erstellen, Anzeigen und Verwalten von Metrikwarnungen mit Azure Monitor](../platform/alerts-metric.md)
+> [Erstellen, Anzeigen und Verwalten von Metrikwarnungen mit Azure Monitor](../platform/metrics-charts.md#create-alert-rules)
 

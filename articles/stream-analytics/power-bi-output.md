@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: aee5cb077604e5fc95647eca0e6570ea3582a785
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 29bd4dc5cabe8b29efe7b89395c5e7d36bd0347a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91823001"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129778"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Power BI-Ausgabe für Azure Stream Analytics
 
@@ -27,7 +27,7 @@ In der folgenden Tabelle sind Eigenschaftsnamen und deren Beschreibungen aufgef�
 | Eigenschaftenname | BESCHREIBUNG |
 | --- | --- |
 | Ausgabealias |Stellen Sie einen Anzeigenamen bereit, der in Abfragen verwendet wird, um die Abfrageausgabe an diese Power BI-Ausgabe weiterzuleiten. |
-| Gruppenarbeitsbereich |Um die gemeinsame Datennutzung mit anderen Power BI-Benutzern zu ermöglichen, können Sie Gruppen in Ihrem Power BI-Konto auswählen. Wählen Sie alternativ **Mein Arbeitsbereich**, wenn Sie nicht in eine Gruppe schreiben möchten. Zum Aktualisieren einer vorhandenen Gruppe muss die Power BI-Authentifizierung erneuert werden. |
+| Gruppenarbeitsbereich |Um die gemeinsame Datennutzung mit anderen Power BI-Benutzern zu ermöglichen, können Sie Gruppen in Ihrem Power BI-Konto auswählen. Wählen Sie alternativ **Mein Arbeitsbereich** , wenn Sie nicht in eine Gruppe schreiben möchten. Zum Aktualisieren einer vorhandenen Gruppe muss die Power BI-Authentifizierung erneuert werden. |
 | Datasetname |Geben Sie einen Datasetnamen an, den die Power BI-Ausgabe verwenden soll. |
 | Tabellenname |Geben Sie einen Tabellennamen unter dem Dataset der Power BI-Ausgabe ein. Derzeit darf die Power BI-Ausgabe von Stream Analytics-Aufträgen nur eine Tabelle pro Dataset aufweisen. |
 | Autorisieren der Verbindung | Sie müssen die Autorisierung mit Power BI durchführen, um Ihre Ausgabeeinstellungen zu konfigurieren. Nachdem Sie für diese Ausgabe den Zugriff auf Ihr Power BI-Dashboard gewährt haben, können Sie ihn widerrufen, indem Sie das Kennwort des Benutzerkontos ändern, die Auftragsausgabe löschen oder den Stream Analytics-Auftrag löschen. | 
@@ -51,7 +51,7 @@ Power BI verwendet die FIFO-Aufbewahrungsrichtlinie (First In, First Out). Daten
 
 Azure Stream Analytics aktualisiert das Datenmodell dynamisch zur Laufzeit, wenn sich das Ausgabeschema ändert. Nachverfolgt werden Änderungen an Spaltennamen und -typen sowie das Hinzufügen/Entfernen von Spalten.
 
-Die folgende Tabelle enthält die Datentypkonvertierungen von [Stream Analytics-Datentypen](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics) in [EDM-Typen (Entity Data Model)](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) von Power BI für den Fall, dass noch kein Power BI-Dataset und noch keine Tabelle vorhanden sind.
+Die folgende Tabelle enthält die Datentypkonvertierungen von [Stream Analytics-Datentypen](/stream-analytics-query/data-types-azure-stream-analytics) in [EDM-Typen (Entity Data Model)](/dotnet/framework/data/adonet/entity-data-model) von Power BI für den Fall, dass noch kein Power BI-Dataset und noch keine Tabelle vorhanden sind.
 
 Quelle: Stream Analytics | Ziel: Power BI
 -----|-----
@@ -76,7 +76,7 @@ Datetime | String | String |  Datetime | String
 
 ## <a name="output-batch-size"></a>Ausgabebatchgröße
 
-Informationen zur Ausgabebatchgröße finden Sie unter [Einschränkungen für Power BI-REST-API](https://msdn.microsoft.com/library/dn950053.aspx).
+Informationen zur Ausgabebatchgröße finden Sie unter [Einschränkungen für Power BI-REST-API](/power-bi/developer/automation/api-rest-api-limitations).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

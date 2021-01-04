@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: a4ac56a4d588071f599f62e6de94d9ec7367a1ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 538a650c6063422f89c8ed3d1753981a293693b7
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87924752"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94338085"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Verwalten von Data Box Disk über das Azure-Portal
 
@@ -29,15 +29,15 @@ Führen Sie die folgenden Schritte aus, um einen Auftrag zu stornieren.
 
 1.  Navigieren Sie zu **Übersicht > Abbrechen**. 
 
-    ![Abbrechen eines Auftrags (1)](media/data-box-portal-ui-admin/cancel-order1.png)
+    ![Befehl „Abbrechen“ auf der Registerkarte „Übersicht“ für einen Auftrag](media/data-box-portal-ui-admin/portal-ui-admin-cancel-command.png)
 
 2.  Geben Sie einen Grund für den Abbruch an.  
 
-    ![Abbrechen eines Auftrags (2)](media/data-box-portal-ui-admin/cancel-order2.png)
+    ![Grund für die Stornierung des Auftrags](media/data-box-portal-ui-admin/portal-ui-admin-cancel-order-reason.png)
 
 3.  Nach Abbruch des Auftrags aktualisiert das Portal den Status des Auftrags und zeigt **Abgebrochen** an.
 
-    ![Abbrechen eines Auftrags (3)](media/data-box-portal-ui-admin/cancel-order3.png)
+    ![Stornierter Auftrag](media/data-box-portal-ui-admin/portal-ui-admin-canceled-order.png)
 
 Sie erhalten keine E-Mail-Benachrichtigung, wenn der Auftrag abgebrochen wird.
 
@@ -49,13 +49,13 @@ Führen Sie die folgenden Schritte aus, um einen Auftrag zu klonen.
 
 1.  Navigieren Sie zu **Übersicht > Klonen**. 
 
-    ![Klonen eines Auftrags (1)](media/data-box-portal-ui-admin/clone-order1.png)
+    ![Befehl „Klonen“ auf der Registerkarte „Übersicht“ für einen Auftrag](media/data-box-portal-ui-admin/portal-ui-admin-clone-command.png)
 
 2.  Die Auftragsdetails bleiben unverändert. Als Auftragsname wird der Name des ursprünglichen Auftrags mit dem Zusatz *-Clone* verwendet. Aktivieren Sie das Kontrollkästchen, um zu bestätigen, dass Sie die Datenschutzinformationen gelesen haben. Klicken Sie auf **Erstellen**.    
 
 Der Klon wird in wenigen Minuten erstellt und im Portal angezeigt.
 
-[![Klonen eines Auftrags (3)](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
+[![Geklonter Auftrag](media/data-box-portal-ui-admin/portal-ui-admin-cloned-order.png)](media/data-box-portal-ui-admin/portal-ui-admin-cloned-order.png#lightbox) 
 
 ## <a name="delete-order"></a>Löschen eines Auftrags
 
@@ -65,15 +65,15 @@ Sie können nur Aufträge löschen, die abgeschlossen sind oder abgebrochen wurd
 
 1. Wechseln Sie zu **All resources** (Alle Ressourcen). Suchen Sie nach Ihrem Auftrag.
 
-    ![Suchen nach Data Box Disk-Aufträgen](media/data-box-portal-ui-admin/search-data-box-disk-orders.png)
+    ![Suchen von Aufträgen](media/data-box-portal-ui-admin/portal-ui-admin-search-data-box-disk-orders.png)
 
 2. Klicken Sie auf den Auftrag, den Sie löschen möchten, und navigieren zu **Übersicht**. Klicken Sie auf der Befehlsleiste auf **Löschen**.
 
-    ![Löschen eines Data Box Disk-Auftrags (1)](media/data-box-portal-ui-admin/delete-order1.png)
+    ![Löschen einer Bestellung](media/data-box-portal-ui-admin/portal-ui-admin-delete-command.png)
 
 3. Geben Sie bei entsprechender Aufforderung den Namen des Auftrags ein, um die Auftragslöschung zu bestätigen. Klicken Sie auf **Löschen**.
 
-     ![Löschen eines Data Box Disk-Auftrags (2)](media/data-box-portal-ui-admin/delete-order2.png)
+     ![Bestätigen der Löschung des Auftrags](media/data-box-portal-ui-admin/portal-ui-admin-confirm-deletion.png)
 
 
 ## <a name="download-shipping-label"></a>Versandetikett herunterladen
@@ -83,11 +83,11 @@ Das Adressetikett muss unter Umständen heruntergeladen werden, wenn Sie das Rü
 Führen Sie die folgenden Schritte aus, um ein Adressetikett herunterzuladen.
 1.  Navigieren Sie zu **Übersicht > Versandetikett herunterladen**. Diese Option steht erst zur Verfügung, wenn der Datenträger versendet wurde. 
 
-    ![Versandetikett herunterladen](media/data-box-portal-ui-admin/download-shipping-label.png)
+    ![Versandetikett herunterladen](media/data-box-portal-ui-admin/portal-ui-admin-download-shipping-label.png)
 
 2.  Dadurch wird das folgende Rücksendeetikett heruntergeladen. Speichern Sie das Etikett, drucken Sie es aus, und bringen Sie es an der Rücklieferung an.
 
-    ![Beispiel für Versandetikett](media/data-box-portal-ui-admin/example-shipping-label.png)
+    ![Beispiel für Versandetikett](media/data-box-portal-ui-admin/portal-ui-admin-example-shipping-label.png)
 
 ## <a name="edit-shipping-address"></a>Bearbeiten der Lieferadresse
 
@@ -97,11 +97,11 @@ Führen Sie die folgenden Schritte aus, um den Auftrag zu bearbeiten.
 
 1. Navigieren Sie zu **Auftragsdetails > Lieferadresse bearbeiten**.
 
-    ![Bearbeiten der Lieferadresse (1)](media/data-box-portal-ui-admin/edit-shipping-address1.png)
+    ![Befehl „Lieferadresse bearbeiten“ in „Auftragsdetails“](media/data-box-portal-ui-admin/portal-ui-admin-edit-shipping-address-command.png)
 
 2. Nun können Sie die Lieferadresse bearbeiten und die Änderungen speichern.
 
-    ![Bearbeiten der Lieferadresse (2)](media/data-box-portal-ui-admin/edit-shipping-address2.png)
+    ![Dialogfeld „Lieferadresse bearbeiten“](media/data-box-portal-ui-admin/portal-ui-admin-edit-shipping-address-dbox.png)
 
 ## <a name="edit-notification-details"></a>Bearbeiten der Benachrichtigungsdetails
 
@@ -111,11 +111,11 @@ Führen Sie die folgenden Schritte aus, um die Benachrichtigungsdetails zu bearb
 
 1. Navigieren Sie zu **Auftragsdetails > Benachrichtigungsdetails bearbeiten**.
 
-    ![Bearbeiten der Benachrichtigungsdetails (1)](media/data-box-portal-ui-admin/edit-notification-details1.png)
+    ![Befehl „Benachrichtigungsdetails bearbeiten“ in „Auftragsdetails“](media/data-box-portal-ui-admin/portal-ui-admin-edit-notification-details-command.png)
 
 2. Nun können Sie die Benachrichtigungsdetails bearbeiten und die Änderungen speichern.
  
-    ![Bearbeiten der Benachrichtigungsdetails (2)](media/data-box-portal-ui-admin/edit-notification-details2.png)
+    ![Dialogfeld „Benachrichtigungsdetails bearbeiten“](media/data-box-portal-ui-admin/portal-ui-admin-edit-notification-details-dbox.png)
 
 ## <a name="view-order-status"></a>Anzeigen des Auftragsstatus
 

@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 08/03/2020
 ms.author: curtand
-ms.openlocfilehash: d9023579b6627e9dab9feac8dfaccd94dc9f5c12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a002254995e42fc586b707e3cb373dac66e678ee
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798124"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834148"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-page"></a>Anzeigen und Suchen Ihrer letzten Anmeldeaktivität auf der Seite „Meine Anmeldungen“
 
@@ -46,7 +46,7 @@ Bevor Sie festlegen, dass etwas nicht richtig ist, stellen Sie sicher, dass Sie 
 
 ### <a name="if-you-see-an-unsuccessful-sign-in"></a>Wenn eine nicht erfolgreiche Anmeldung angezeigt wird
 
-Wenn eine nicht erfolgreiche Anmeldung angezeigt wird, kann das bedeuten, dass Sie Ihre Anmeldeinformationen falsch eingegeben haben. Es kann auch bedeuten, dass ein Angreifer versucht hat, Ihr Kennwort zu erraten. Als Reaktion auf dieses Risiko müssen Sie Ihr Kennwort nicht ändern, aber es wird empfohlen, dass Sie sich für Azure Multi-Factor Authentication (MFA) registrieren. Mit Multi-Factor Authentication ist das Kennwort auch dann nicht ausreichend für den Zugriff auf Ihr Konto, wenn der Hacker es erraten hat.
+Wenn eine nicht erfolgreiche Anmeldung angezeigt wird, kann das bedeuten, dass Sie Ihre Anmeldeinformationen falsch eingegeben haben. Es kann auch bedeuten, dass ein Angreifer versucht hat, Ihr Kennwort zu erraten. Als Reaktion auf dieses Risiko müssen Sie Ihr Kennwort nicht ändern, aber es wird empfohlen, sich für Azure AD Multi-Factor Authentication (MFA) zu registrieren. Mit Multi-Factor Authentication ist das Kennwort auch dann nicht ausreichend für den Zugriff auf Ihr Konto, wenn der Hacker es erraten hat.
 
 ![Kachel „Nicht erfolgreiche Anmeldung“](media/my-account-portal-sign-ins-page/unsuccessful.png)
 

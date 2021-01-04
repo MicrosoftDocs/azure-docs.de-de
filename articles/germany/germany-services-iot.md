@@ -7,12 +7,12 @@ author: gitralf
 ms.author: ralfwi
 ms.service: germany
 ms.custom: bfdocs
-ms.openlocfilehash: 77ef5ce8db9959d0830c31be8f7f8317122a51c9
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 730256e315e04489892030e39fef0b6d27879f5a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124423"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018491"
 ---
 # <a name="azure-germany-iot-services"></a>IoT-Dienste von Azure Deutschland
 
@@ -40,7 +40,7 @@ Beide Lösungen können auf zwei Arten bereitgestellt werden: über die Website 
 
 ### <a name="deploy-via-website"></a>Bereitstellen über die Website
 
-Befolgen Sie die Anweisungen im [Tutorial für die vorkonfigurierten Lösungen](../iot-accelerators/iot-accelerators-remote-monitoring-explore.md), das über die zuvor erwähnte Homepage abgerufen werden kann.
+Befolgen Sie die Anweisungen im [Tutorial für die vorkonfigurierten Lösungen](../iot-accelerators/quickstart-remote-monitoring-deploy.md), das über die zuvor erwähnte Homepage abgerufen werden kann.
 
 ### <a name="deploy-via-powershell"></a>Bereitstellen über PowerShell
 
@@ -71,4 +71,4 @@ Gehen Sie hierzu wie folgt vor:
 
 
 ## <a name="next-steps"></a>Nächste Schritte
-Abonnieren Sie den [Azure Deutschland-Blog](https://blogs.msdn.microsoft.com/azuregermany/), um weitere Informationen und Updates zu erhalten.
+Abonnieren Sie den [Azure Deutschland-Blog](/archive/blogs/azuregermany/), um weitere Informationen und Updates zu erhalten.

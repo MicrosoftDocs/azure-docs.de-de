@@ -5,12 +5,12 @@ ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.date: 10/10/2019
-ms.openlocfilehash: c20333c83275edb90a266afec3ec3756ae1e0e7e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 41b7c80c85331f288343351749e6b2e5292b30c6
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216265"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241606"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>Problembehandlung für U-SQL-Laufzeitfehler aufgrund von Laufzeitänderungen
 
@@ -33,7 +33,7 @@ Sie können den Verlauf der Laufzeitversionen, die von Ihren bisherigen Aufträg
 
 1. Gehen Sie im Azure-Portal zu Ihrem Data Lake Analytics-Konto.
 2. Wählen Sie **Alle Aufträge anzeigen** aus. Eine Liste mit allen aktiven und kürzlich abgeschlossenen Aufträge im Konto wird angezeigt.
-3. Klicken Sie optional auf **Filtern** , um die Aufträge nach den Werten **Zeitbereich** , **Auftragsname** und **Ersteller** zu suchen.
+3. Klicken Sie optional auf **Filtern**, um die Aufträge nach den Werten **Zeitbereich**, **Auftragsname** und **Ersteller** zu suchen.
 4. Die Laufzeit, die bei den abgeschlossenen Aufträgen verwendet wurde, wird angezeigt.
 
 ![Anzeigen der Laufzeitversion eines früheren Auftrags](./media/runtime-troubleshoot/prior-job-usql-runtime-version-.png)
@@ -49,9 +49,23 @@ Beispielsweise bezeichnet „release_20190318_adl_3394512_2“ die zweite Versio
 
 Es können zwei Probleme mit der Laufzeitversion auftreten:
 
-1. Ein Skript oder ein Benutzercode ändert das Verhalten von einer Version zur nächsten. Solche wichtigen Änderungen werden normalerweise im Voraus durch die Veröffentlichung von Versionshinweisen mitgeteilt. Wenn Sie eine solche wichtige Änderung feststellen, melden Sie dieses geänderte Verhalten dem Microsoft-Support (falls noch nicht dokumentiert), und übergeben Sie Ihre Aufträge für die ältere Laufzeitversion.
+1. Ein Skript oder ein Benutzercode ändert das Verhalten von einer Version zur nächsten. Solche wichtigen Änderungen werden normalerweise im Voraus durch die Veröffentlichung von Versionshinweisen mitgeteilt. Wenn Sie eine solche wichtige Änderung feststellen, melden Sie dieses geänderte Verhalten dem Microsoft-Support (falls noch nicht dokumentiert), und übergeben Sie Ihre Aufträge für die ältere Runtimeversion.
 
-2. Sie haben eine nicht standardmäßige Laufzeit entweder explizit oder implizit verwendet, als diese an Ihr Konto angeheftet wurde, und diese Laufzeit wurde nach einiger Zeit entfernt. Wenn Laufzeiten fehlen, aktualisieren Sie Ihre Skripts so, dass sie mit der aktuellen Standardlaufzeit ausgeführt werden. Wenn Sie zusätzliche Zeit benötigen, wenden Sie sich an den Microsoft-Support.
+2. Sie haben eine nicht standardmäßige Laufzeit entweder explizit oder implizit verwendet, als diese an Ihr Konto angeheftet wurde, und diese Laufzeit wurde nach einiger Zeit entfernt. Wenn Runtimes fehlen, aktualisieren Sie Ihre Skripts so, dass sie mit der aktuellen Standardlaufzeit ausgeführt werden. Wenn Sie zusätzliche Zeit benötigen, wenden Sie sich an den Microsoft-Support.
+
+## <a name="known-issues"></a>Bekannte Probleme
+
+* Das Verweisen auf die Datei „Newtonsoft.Json“ ab Version 12.0.3 in einem USQL-Skript führt zu folgendem Kompilierungsfehler:
+
+    *„In Ihrem Data Lake Analytics-Konto ausgeführte Aufträge werden wahrscheinlich langsamer ausgeführt oder können nicht erfolgreich abgeschlossen werden. Ein unerwartetes Problem verhindert eine automatische Wiederherstellung dieser Funktionalität für Ihr Azure Data Lake Analytics-Konto. Die Azure Data Lake-Techniker wurden informiert, um das Problem zu untersuchen.“*  
+
+    Die Aufrufliste enthält Folgendes:  
+    `System.IndexOutOfRangeException: Index was outside the bounds of the array.`  
+    `at Roslyn.Compilers.MetadataReader.PEFile.CustomAttributeTableReader.get_Item(UInt32 rowId)`  
+    `...`
+
+    **Lösung**: Verwenden Sie höchstens Version 12.0.2 der Datei „Newtonsoft.Json“.
+
 
 ## <a name="see-also"></a>Weitere Informationen
 

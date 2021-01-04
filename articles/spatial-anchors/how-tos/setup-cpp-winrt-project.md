@@ -1,19 +1,19 @@
 ---
 title: Installieren von Azure Spatial Anchors für eine C++/WinRT-HoloLens-Anwendung
 description: Konfigurieren eines C++/WinRT-HoloLens-Projekts für die Verwendung von Azure Spatial Anchors
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 43d5c1ae03c359dcbef21f8e7ba3205bc6ab0004
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 69134ef87d90fe69de2d9e4e9222e90f65edc785
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096112"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95507007"
 ---
 # <a name="configuring-azure-spatial-anchors-in-a-cwinrt-hololens-project"></a>Konfigurieren von Azure Spatial Anchors in einem C++/WinRT-HoloLens-Projekt
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e7447d03fc231d8d96b71c7d944a380c10add0d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b21bea924ee8eaed37246ce55feaf8243e3e7d4
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757935"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408736"
 ---
 # <a name="security-control-v2-identity-management"></a>Sicherheitskontrolle V2: Identitätsverwaltung
 
@@ -39,13 +39,13 @@ Hinweis: Azure AD unterstützt externe Identitätsanbieter, die es Benutzern ohn
 
 - [Definieren von Azure AD-Mandanten](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/)  
 
-- [Verwenden externer Identitätsanbieter für eine Anwendung](/azure/active-directory/b2b/identity-providers)
+- [Verwenden externer Identitätsanbieter für eine Anwendung](../../active-directory/external-identities/identity-providers.md)
 
 - [Was ist die Identitätssicherheitsbewertung in Azure AD?](../../active-directory/fundamentals/identity-secure-score.md)
 
-**Verantwortlichkeit**: Kunde
+**Verantwortlichkeit** : Kunde
 
-**Sicherheitsverantwortliche beim Kunden** ([weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Sicherheitsverantwortliche beim Kunden** ( [weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Funktion von Identitäts- und Schlüsselverwaltung in der Cloud](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys) 
 
@@ -75,9 +75,9 @@ Für Dienste, die keine verwalteten Identitäten unterstützen, können Sie stat
 
 Verwenden Sie Azure Key Vault für die Registrierung von Sicherheitsprinzipalen: authentication#authorize-a-security-principal-to-access-key-vault
 
-**Verantwortlichkeit**: Kunde
+**Verantwortlichkeit** : Kunde
 
-**Sicherheitsverantwortliche beim Kunden** ([weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Sicherheitsverantwortliche beim Kunden** ( [weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Funktion von Identitäts- und Schlüsselverwaltung in der Cloud](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
@@ -95,9 +95,9 @@ Verwenden Sie Azure AD Single Sign-On (SSO), um den Zugriff auf die Daten und Re
 
 - [Grundlegendes zu Anwendungs-SSO mit Azure AD](../../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**Verantwortlichkeit**: Kunde
+**Verantwortlichkeit** : Kunde
 
-**Sicherheitsverantwortliche beim Kunden** ([weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Sicherheitsverantwortliche beim Kunden** ( [weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicherheitsarchitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -130,9 +130,9 @@ Hinweis: Die Authentifizierung allein auf der Grundlage von Kennwortanmeldeinfor
 
 - [Ausschließen von ungeeigneten Kennwörtern mit dem Azure AD-Kennwortschutz](../../active-directory/authentication/concept-password-ban-bad.md)
 
-**Verantwortlichkeit**: Kunde
+**Verantwortlichkeit** : Kunde
 
-**Sicherheitsverantwortliche beim Kunden** ([weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Sicherheitsverantwortliche beim Kunden** ( [weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicherheitsarchitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -163,13 +163,13 @@ Azure Advanced Threat Protection (ATP) ist eine Sicherheitslösung, die lokale A
 
 - [Überwachungsaktivitätsberichte in Azure AD](../../active-directory/reports-monitoring/concept-audit-logs.md)
 
-- [Anzeigen riskanter Azure AD-Anmeldungen](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Anzeigen riskanter Azure AD-Anmeldungen](../../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Identifizieren von Azure AD-Benutzern, die aufgrund riskanter Aktivitäten gekennzeichnet wurden](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Identifizieren von Azure AD-Benutzern, die aufgrund riskanter Aktivitäten gekennzeichnet wurden](../../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Überwachen der identitäts- und zugriffsbezogenen Aktivitäten von Benutzern in Azure Security Center](../../security-center/security-center-identity-access.md)
 
-- [Warnungen im Threat Intelligence-Schutzmodul von Azure Security Center](/azure/security-center/alerts-reference)
+- [Warnungen im Threat Intelligence-Schutzmodul von Azure Security Center](../../security-center/alerts-reference.md)
 
 - [Integrieren von Azure-Aktivitätsprotokollen in Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -177,9 +177,9 @@ Azure Advanced Threat Protection (ATP) ist eine Sicherheitslösung, die lokale A
 
 - [Azure Advanced Threat Protection](/azure-advanced-threat-protection/what-is-atp)
 
-**Verantwortlichkeit**: Kunde
+**Verantwortlichkeit** : Kunde
 
-**Sicherheitsverantwortliche beim Kunden** ([weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Sicherheitsverantwortliche beim Kunden** ( [weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Anwendungssicherheit und DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -199,9 +199,9 @@ Verwenden Sie die Azure AD-Zugriffsberechtigung für eine präzisere Zugriffsste
 
 - [Konfigurieren der Verwaltung von Authentifizierungssitzungen mit bedingtem Zugriff](../../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)
 
-**Verantwortlichkeit**: Kunde
+**Verantwortlichkeit** : Kunde
 
-**Sicherheitsverantwortliche beim Kunden** ([weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Sicherheitsverantwortliche beim Kunden** ( [weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Funktion von Identitäts- und Schlüsselverwaltung in der Cloud](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
@@ -225,9 +225,9 @@ Für GitHub können Sie das native Feature zur geheimen Überprüfung verwenden,
 
 - [Geheime Überprüfung in GitHub](https://docs.github.com/github/administering-a-repository/about-secret-scanning)
 
-**Verantwortlichkeit**: Kunde
+**Verantwortlichkeit** : Kunde
 
-**Sicherheitsverantwortliche beim Kunden** ([weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Sicherheitsverantwortliche beim Kunden** ( [weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Anwendungssicherheit und DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -249,9 +249,9 @@ Alternativ dazu ist Microsoft Cloud App Security ein CASB-Service (Cloud Access 
 
 - [Bewährte Methoden für Microsoft Cloud App Security](/cloud-app-security/best-practices)
 
-**Verantwortlichkeit**: Kunde
+**Verantwortlichkeit** : Kunde
 
-**Sicherheitsverantwortliche beim Kunden** ([weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Sicherheitsverantwortliche beim Kunden** ( [weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicherheitsarchitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

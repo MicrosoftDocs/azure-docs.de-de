@@ -7,13 +7,13 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.custom: devx-track-js
-ms.openlocfilehash: 052a28dc69bf5c758133ca98366efc63105f4a56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 8ca670049b49500e6b6310bca25cb78ded31a294
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289870"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95537848"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hosten einer statischen Website in Azure Storage
 
@@ -54,9 +54,9 @@ Das Feature zum Hosten statischer Websites muss für das Speicherkonto aktiviert
 
 <a id="cli"></a>
 
-Sie können das Hosting statischer Websites über die [Azure-Befehlszeilenschnittstelle (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) aktivieren.
+Sie können das Hosting statischer Websites über die [Azure-Befehlszeilenschnittstelle (CLI)](/cli/azure/?view=azure-cli-latest) aktivieren.
 
-1. Öffnen Sie zunächst [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), oder falls Sie die Azure-CLI lokal [installiert](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) haben, öffnen Sie eine Befehlskonsolenanwendung wie Windows PowerShell.
+1. Öffnen Sie zunächst [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest), oder falls Sie die Azure-CLI lokal [installiert](/cli/azure/install-azure-cli?view=azure-cli-latest) haben, öffnen Sie eine Befehlskonsolenanwendung wie Windows PowerShell.
 
 2. Wenn Ihre Identität mehreren Abonnements zugeordnet ist, legen Sie das aktive Abonnement auf das Abonnement des Speicherkontos fest, auf dem Ihre statische Website gehostet wird.
 
@@ -136,7 +136,7 @@ Sie können das Hosting statischer Websites über das Azure PowerShell-Modul akt
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-In diesen Anweisungen wird gezeigt, wie Sie Dateien mit der Version von Storage-Explorer hochladen, die im Azure-Portal angezeigt wird. Sie können aber auch die Version von [Storage-Explorer](https://azure.microsoft.com/features/storage-explorer/) verwenden, die außerhalb vom Azure-Portal ausgeführt wird. Sie können [AzCopy](../common/storage-use-azcopy-v10.md), PowerShell, die CLI oder eine beliebige benutzerdefinierte Anwendung verwenden, die Dateien in den **$web**-Container Ihres Kontos hochladen kann. Ein Schritt-für-Schritt-Tutorial, in dem Dateien mithilfe von Visual Studio Code hochgeladen werden, finden Sie unter [Tutorial: Host a static website on Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host) (Tutorial: Hosten einer statischen Website in Blob Storage) aus, bevor Sie mit diesem Tutorial beginnen.
+In diesen Anweisungen wird gezeigt, wie Sie Dateien mit der Version von Storage-Explorer hochladen, die im Azure-Portal angezeigt wird. Sie können aber auch die Version von [Storage-Explorer](https://azure.microsoft.com/features/storage-explorer/) verwenden, die außerhalb vom Azure-Portal ausgeführt wird. Sie können [AzCopy](../common/storage-use-azcopy-v10.md), PowerShell, die CLI oder eine beliebige benutzerdefinierte Anwendung verwenden, die Dateien in den **$web**-Container Ihres Kontos hochladen kann. Ein Schritt-für-Schritt-Tutorial, in dem Dateien mithilfe von Visual Studio Code hochgeladen werden, finden Sie unter [Tutorial: Host a static website on Blob Storage](./storage-blob-static-website-host.md) (Tutorial: Hosten einer statischen Website in Blob Storage) aus, bevor Sie mit diesem Tutorial beginnen.
 
 1. Wählen Sie **Storage-Explorer (Vorschau)** aus.
 
@@ -173,7 +173,7 @@ az storage blob upload-batch -s <source-path> -d '$web' --account-name <storage-
 > [!NOTE]
 > Wenn Sie eine Speicherortinstallation der Azure-CLI verwenden, können Sie den Pfad zu einem beliebigen Speicherort auf Ihrem lokalen Computer verwenden (z.B. `C:\myFolder`).
 >
-> Wenn Sie Azure Cloud Shell verwenden, müssen Sie auf eine Dateifreigabe verweisen, die für Cloud Shell sichtbar ist. Dieser Speicherort kann die Dateifreigabe der Cloudfreigabe selbst sein oder eine vorhandene Dateifreigabe, die Sie aus Cloud Shell bereitstellen. Informationen zur Vorgehensweise finden Sie unter [Beibehalten von Dateien in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage).
+> Wenn Sie Azure Cloud Shell verwenden, müssen Sie auf eine Dateifreigabe verweisen, die für Cloud Shell sichtbar ist. Dieser Speicherort kann die Dateifreigabe der Cloudfreigabe selbst sein oder eine vorhandene Dateifreigabe, die Sie aus Cloud Shell bereitstellen. Informationen zur Vorgehensweise finden Sie unter [Beibehalten von Dateien in Azure Cloud Shell](../../cloud-shell/persisting-shell-storage.md).
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -259,7 +259,7 @@ Nachdem Sie Metriken aktiviert haben, werden Datenverkehrsstatistiken zu Dateien
 
 4. Wählen Sie dann die Metrik **Ausgehend** aus.
 
-   ![Metriken von statischen Websites in Azure Storage: Metrik](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
+   ![Der Screenshot zeigt die Metrik „Ausgehend“ für statische Websites in Azure Storage.](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
 
 5. Wählen Sie **Summe** aus dem Selektor *Aggregation* aus.
 
@@ -279,4 +279,3 @@ Nachdem Sie Metriken aktiviert haben, werden Datenverkehrsstatistiken zu Dateien
 ## <a name="next-steps"></a>Nächste Schritte
 
 * Erfahren Sie, wie Sie eine benutzerdefinierte Domäne mit Ihrer statischen Website konfigurieren. Weitere Informationen finden Sie unter [Zuordnen einer benutzerdefinierten Domäne zu einem Azure Blob Storage-Endpunkt](storage-custom-domain-name.md).
-

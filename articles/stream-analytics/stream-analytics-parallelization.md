@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: aed0c83bfa61f6afdbdcca3c10dbd5fac3f823d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b41677d1e4f3ba3889472a3fb9bd6c6a9db4c0a8
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458177"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123369"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Nutzen der Parallelisierung von Abfragen in Azure Stream Analytics
 Dieser Artikel veranschaulicht das Nutzen der Parallelisierung in Azure Stream Analytics. Erfahren Sie, wie Sie Stream Analytics-Aufträge durch Konfigurieren der Eingabe in Partitionen und Optimieren der Analysenabfragedefinition skalieren.
@@ -22,7 +22,7 @@ Als Voraussetzung sollten Sie mit dem Konzept der Streamingeinheiten vertraut se
 Eine Stream Analytics-Auftragsdefinition umfasst mindestens eine Streamingeingabe, eine Abfrage und eine Ausgabe. Bei Eingaben handelt es sich um Eingaben, aus denen der Auftrag den Datenstrom liest. Bei der Abfrage wird die Datenstromeingabe transformiert, und der Auftrag sendet die Auftragsergebnisse an die Ausgabe.
 
 ## <a name="partitions-in-inputs-and-outputs"></a>Partitionen in Eingaben und Ausgaben
-Durch die Partitionierung können Daten basierend auf einem [Partitionsschlüssel](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#partitions) in Teilmengen unterteilt werden. Wenn Ihre Eingabe (z. B. Event Hubs) durch einen Schlüssel partitioniert ist, wird dringend empfohlen, diesen Partitionsschlüssel anzugeben, wenn Sie dem Stream Analytics-Auftrag Eingaben hinzufügen. Bei der Skalierung eines Stream Analytics-Auftrags werden die Partitionen in der Eingabe und Ausgabe genutzt. Mit einem Stream Analytics-Auftrag können unterschiedliche Partitionen parallel genutzt und beschrieben werden, wodurch sich der Durchsatz erhöht. 
+Durch die Partitionierung können Daten basierend auf einem [Partitionsschlüssel](../event-hubs/event-hubs-scalability.md#partitions) in Teilmengen unterteilt werden. Wenn Ihre Eingabe (z. B. Event Hubs) durch einen Schlüssel partitioniert ist, wird dringend empfohlen, diesen Partitionsschlüssel anzugeben, wenn Sie dem Stream Analytics-Auftrag Eingaben hinzufügen. Bei der Skalierung eines Stream Analytics-Auftrags werden die Partitionen in der Eingabe und Ausgabe genutzt. Mit einem Stream Analytics-Auftrag können unterschiedliche Partitionen parallel genutzt und beschrieben werden, wodurch sich der Durchsatz erhöht. 
 
 ### <a name="inputs"></a>Eingaben
 Alle Azure Stream Analytics-Eingaben können Partitionierung nutzen:
@@ -41,14 +41,14 @@ Bei der Arbeit mit Stream Analytics können Sie Partitionierung in den Ausgaben 
 -   Event Hubs (Partitionsschlüssel muss explizit festgelegt werden)
 -   IoT Hub (Partitionsschlüssel muss explizit festgelegt werden)
 -   Service Bus
-- SQL und Azure Synapse Analytics mit optionaler Partitionierung: Weitere Informationen finden Sie auf der Seite [Ausgabe an Azure SQL-Datenbank](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
+- SQL und Azure Synapse Analytics mit optionaler Partitionierung: Weitere Informationen finden Sie auf der Seite [Ausgabe an Azure SQL-Datenbank](./stream-analytics-sql-output-perf.md).
 
 Power BI unterstützt keine Partitionierung. Sie können die Eingabe aber dennoch partitionieren, wie in [diesem Abschnitt](#multi-step-query-with-different-partition-by-values) beschrieben. 
 
 Weitere Informationen zu den Partitionen finden Sie in den folgenden Artikeln:
 
 * [Event Hubs-Features im Überblick](../event-hubs/event-hubs-features.md#partitions)
-* [Datenpartitionierung](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning)
+* [Datenpartitionierung](/azure/architecture/best-practices/data-partitioning)
 
 
 ## <a name="embarrassingly-parallel-jobs"></a>Hochgradig parallele Aufträge
@@ -89,7 +89,7 @@ Abfrage:
     WHERE TollBoothId > 100
 ```
 
-Diese Abfrage stellt einen einfachen Filter dar. Daher ist keine Partitionierung der Eingabe erforderlich, die an den Event Hub gesendet wird. Beachten Sie, dass Aufträge mit einem niedrigeren Kompatibilitätsgrad als 1.2 die **PARTITION BY PartitionId**-Klausel enthalten müssen, damit die zweite, weiter oben genannte Anforderung erfüllt ist. Für die Ausgabe muss die Event Hub-Ausgabe im Auftrag so konfiguriert werden, dass der Partitionsschlüssel auf **PartitionId** festgelegt ist. Eine letzte Prüfung besteht darin, sicherzustellen, dass die Anzahl der Eingabepartitionen mit der Anzahl der Ausgabepartitionen identisch ist.
+Diese Abfrage stellt einen einfachen Filter dar. Daher ist keine Partitionierung der Eingabe erforderlich, die an den Event Hub gesendet wird. Beachten Sie, dass Aufträge mit einem niedrigeren Kompatibilitätsgrad als 1.2 die **PARTITION BY PartitionId** -Klausel enthalten müssen, damit die zweite, weiter oben genannte Anforderung erfüllt ist. Für die Ausgabe muss die Event Hub-Ausgabe im Auftrag so konfiguriert werden, dass der Partitionsschlüssel auf **PartitionId** festgelegt ist. Eine letzte Prüfung besteht darin, sicherzustellen, dass die Anzahl der Eingabepartitionen mit der Anzahl der Ausgabepartitionen identisch ist.
 
 ### <a name="query-with-a-grouping-key"></a>Abfrage mit einem Gruppierungsschlüssel
 
@@ -174,7 +174,7 @@ Kompatibilitätsgrad 1,2 oder höher ermöglicht standardmäßig die parallele 
 Die Gesamtzahl der von einem Stream Analytics-Auftrag verwendbaren Streaming-Einheiten hängt von der Anzahl an Schritten in der für den Auftrag definierten Abfrage und der Anzahl an Partitionen für die einzelnen Schritte ab.
 
 ### <a name="steps-in-a-query"></a>Schritte einer Abfrage
-Eine Abfrage kann einen oder mehrere Schritte umfassen. Jeder Schritt besteht aus einer Unterabfrage, die mit dem Schlüsselwort **WITH** definiert wird. Die Abfrage, die sich außerhalb des Schlüsselworts **WITH** befindet (nur eine Abfrage), wird ebenfalls als Schritt gezählt, beispielsweise die **SELECT**-Anweisung in der folgenden Abfrage:
+Eine Abfrage kann einen oder mehrere Schritte umfassen. Jeder Schritt besteht aus einer Unterabfrage, die mit dem Schlüsselwort **WITH** definiert wird. Die Abfrage, die sich außerhalb des Schlüsselworts **WITH** befindet (nur eine Abfrage), wird ebenfalls als Schritt gezählt, beispielsweise die **SELECT** -Anweisung in der folgenden Abfrage:
 
 Abfrage:
 
@@ -279,7 +279,7 @@ Die [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree/master/
 |    5 K   |   18 |  P4   |
 |    10 K  |   36 |  P6   |
 
-[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) unterstützt paralleles Schreiben, auch Partitionierungsvererbung genannt, was aber nicht standardmäßig aktiviert ist. Allerdings ist das Aktivieren der Partitionierungsvererbung zusammen mit einer vollständig parallelen Abfrage möglicherweise nicht ausreichend, um höhere Durchsätze zu erreichen. Die Schreibdurchsätze von SQL sind signifikant von Ihrer Datenbankkonfiguration und dem Tabellenschema abhängig. Der Artikel [SQL-Ausgabeleistung](./stream-analytics-sql-output-perf.md) enthält weitere Details zu den Parametern, mit denen sich Ihr Schreibdurchsatz maximieren lässt. Wie im Artikel [Azure Stream Analytics-Ausgabe in Azure SQL-Datenbank](./stream-analytics-sql-output-perf.md#azure-stream-analytics) erwähnt, lässt sich diese Lösung nicht als vollständig parallele Pipeline linear über 8 Partitionen hinaus skalieren, und sie erfordert möglicherweise vor der SQL-Ausgabe eine Neupartitionierung (siehe unter [ INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Premium-SKUs sind erforderlich, um hohe E/A-Raten zusammen mit dem Mehraufwand durch Protokollsicherungen, die alle paar Minuten erfolgen, aufrechtzuerhalten.
+[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) unterstützt paralleles Schreiben, auch Partitionierungsvererbung genannt, was aber nicht standardmäßig aktiviert ist. Allerdings ist das Aktivieren der Partitionierungsvererbung zusammen mit einer vollständig parallelen Abfrage möglicherweise nicht ausreichend, um höhere Durchsätze zu erreichen. Die Schreibdurchsätze von SQL sind signifikant von Ihrer Datenbankkonfiguration und dem Tabellenschema abhängig. Der Artikel [SQL-Ausgabeleistung](./stream-analytics-sql-output-perf.md) enthält weitere Details zu den Parametern, mit denen sich Ihr Schreibdurchsatz maximieren lässt. Wie im Artikel [Azure Stream Analytics-Ausgabe in Azure SQL-Datenbank](./stream-analytics-sql-output-perf.md#azure-stream-analytics) erwähnt, lässt sich diese Lösung nicht als vollständig parallele Pipeline linear über 8 Partitionen hinaus skalieren, und sie erfordert möglicherweise vor der SQL-Ausgabe eine Neupartitionierung (siehe unter [ INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Premium-SKUs sind erforderlich, um hohe E/A-Raten zusammen mit dem Mehraufwand durch Protokollsicherungen, die alle paar Minuten erfolgen, aufrechtzuerhalten.
 
 #### <a name="cosmos-db"></a>Cosmos DB
 |Datenerfassungsrate (Ereignisse pro Sekunde) | Streaming-Einheiten | Ausgaberessourcen  |
@@ -311,17 +311,17 @@ Alle [Azure-Beispiele zum bedarfsorientierten Streaming](https://github.com/Azur
 
 ### <a name="identifying-bottlenecks"></a>Identifizieren von Engpässen
 
-Verwenden Sie den Bereich „Metriken“ in ihrem Azure Stream Analytics-Auftrag, um Engpässe in Ihrer Pipeline zu identifizieren. Überprüfen Sie **Eingabe-/Ausgabeereignisse** hinsichtlich des Durchsatzes sowie ["Wasserzeichenverzögerung"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) oder **Ereignisse im Rückstand**, um festzustellen, ob der Auftrag mit der Eingangsrate Schritt halten kann. Suchen Sie für Event Hub-Metriken nach **Gedrosselte Anforderungen**, und passen Sie die Schwellenwerteinheiten (TU) entsprechend an. Überprüfen Sie für Cosmos DB-Metriken **Max. genutzte RU/Sek. pro Partitionsschlüsselbereich** unter „Durchsatz“, um sicherzustellen, dass Ihre Partitionsschlüsselbereiche gleichmäßig genutzt werden. Überwachen Sie für Azure SQL-DB **Protokoll-E/A** und **CPU**.
+Verwenden Sie den Bereich „Metriken“ in ihrem Azure Stream Analytics-Auftrag, um Engpässe in Ihrer Pipeline zu identifizieren. Überprüfen Sie **Eingabe-/Ausgabeereignisse** hinsichtlich des Durchsatzes sowie ["Wasserzeichenverzögerung"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) oder **Ereignisse im Rückstand** , um festzustellen, ob der Auftrag mit der Eingangsrate Schritt halten kann. Suchen Sie für Event Hub-Metriken nach **Gedrosselte Anforderungen** , und passen Sie die Schwellenwerteinheiten (TU) entsprechend an. Überprüfen Sie für Cosmos DB-Metriken **Max. genutzte RU/Sek. pro Partitionsschlüsselbereich** unter „Durchsatz“, um sicherzustellen, dass Ihre Partitionsschlüsselbereiche gleichmäßig genutzt werden. Überwachen Sie für Azure SQL-DB **Protokoll-E/A** und **CPU**.
 
 ## <a name="get-help"></a>Hier erhalten Sie Hilfe
 
-Weitere Unterstützung finden Sie auf der [Frageseite von Microsoft Q&A (Fragen und Antworten) zu Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Weitere Unterstützung finden Sie auf der [Frageseite von Microsoft Q&A (Fragen und Antworten) zu Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Nächste Schritte
 * [Einführung in Azure Stream Analytics](stream-analytics-introduction.md)
 * [Erste Schritte mit Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Stream Analytics Query Language Reference (in englischer Sprache)](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referenz zur Azure Stream Analytics-Verwaltungs-REST-API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Stream Analytics Query Language Reference (in englischer Sprache)](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referenz zur Azure Stream Analytics-Verwaltungs-REST-API](/rest/api/streamanalytics/)
 
 <!--Image references-->
 
@@ -334,10 +334,9 @@ Weitere Unterstützung finden Sie auf der [Frageseite von Microsoft Q&A (Fragen 
 <!--Link references-->
 
 [microsoft.support]: https://support.microsoft.com
-[azure.event.hubs.developer.guide]: https://msdn.microsoft.com/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: /previous-versions/azure/dn789972(v=azure.100)
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
-
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

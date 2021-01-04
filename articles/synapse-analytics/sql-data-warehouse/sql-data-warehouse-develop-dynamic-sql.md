@@ -1,30 +1,30 @@
 ---
 title: Verwenden von dynamischem SQL
-description: Tipps für Entwicklungslösungen mit dynamischem SQL in Synapse SQL-Pools.
+description: Tipps für Entwicklungslösungen mit dynamischem SQL für dedizierte SQL-Pools in Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: bce79b8e18b3ec6f1fd139af280086281bbdda98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 52bc7bdc63f754d52bf4a69097c1dd309a6dc3ec
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213464"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462776"
 ---
-# <a name="dynamic-sql-in-synapse-sql-pool"></a>Dynamisches SQL im Synapse SQL-Pool
+# <a name="dynamic-sql-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Dynamisches SQL für dedizierte SQL-Pools in Azure Synapse Analytics
 
-In diesem Artikel finden Sie Tipps für Entwicklungslösungen mit dynamischem SQL in SQL-Pools.
+In diesem Artikel finden Sie Tipps für Entwicklungslösungen mit dynamischem SQL in dedizierten SQL-Pools.
 
 ## <a name="dynamic-sql-example"></a>Beispiel für dynamisches SQL
 
-Beim Entwickeln von Anwendungscode für einen SQL-Pool müssen Sie unter Umständen dynamisches SQL verwenden, um flexible, generische und modulare Lösungen bereitstellen zu können. SQL-Pools unterstützen zurzeit keine Blobdatentypen.
+Beim Entwickeln von Anwendungscode für einen dedizierten SQL-Pool müssen Sie unter Umständen dynamisches SQL verwenden, um flexible, generische und modulare Lösungen bereitstellen zu können. Dedizierte SQL-Pools unterstützen zurzeit keine Blobdatentypen.
 
 Dass keine Blobdatentypen unterstützt werden, könnte die Einschränkung der Größe Ihrer Zeichenfolgen zur Folge haben, da Blobdatentypen sowohl den Typ VARCHAR(MAX) als auch NVARCHAR(MAX) enthalten.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Erste Schritte zum Analysieren mit Spark'
+title: 'Schnellstart: Erste Schritte beim Analysieren mit Spark'
 description: In diesem Tutorial erfahren Sie, wie Sie Daten mit Apache Spark analysieren.
 services: synapse-analytics
 author: saveenr
@@ -10,20 +10,23 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: ec6af7c23f781d25114794066a228adbfe7528d0
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ee4dc945f63180fd06f13287b22949d0ac1e3873
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093615"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862019"
 ---
 # <a name="analyze-with-apache-spark"></a>Analysieren mit Apache Spark
 
-## <a name="analyze-nyc-taxi-data-in-blob-storage--using-spark"></a>Analysieren von NYC Taxi-Daten im Blobspeicher mithilfe von Spark
+## <a name="analyze-nyc-taxi-data-in-blob-storage-using-spark"></a>Analysieren von NYC Taxi-Daten im Blobspeicher mithilfe von Spark
 
 In diesem Tutorial werden die grundlegenden Schritte zum Laden und Analysieren von Daten mit Apache Spark für Azure Synapse beschrieben.
 
-1. Klicken Sie im Hub **Daten** auf **Neue Ressource hinzufügen** (Schaltfläche „Plus“ oberhalb von **Verknüpft**) > **Beispiele durchsuchen**. Suchen Sie nach **NYC Taxi and Limousine Commission – Fahrtenaufzeichnungen für „Yellow Taxi“** , und klicken Sie darauf. Klicken Sie am unteren Rand der Seite auf **Weiter** und anschließend auf **Dataset hinzufügen**. Klicken Sie nun im Hub **Daten** unter **Verknüpft** mit der rechten Maustaste auf **Azure Blob Storage > Beispieldatasets > nyc_tlc_yellow**, und wählen Sie **Neues Notebook** aus.
+1. Klicken Sie im Hub **Daten** auf **Neue Ressource hinzufügen** (Schaltfläche „Plus“ oberhalb von **Verknüpft**) > **Katalog durchsuchen**. 
+1. Suchen Sie nach **NYC Taxi and Limousine Commission – Fahrtenaufzeichnungen für „Yellow Taxi“** , und klicken Sie darauf. 
+1. Klicken Sie am unteren Rand der Seite auf **Weiter** und anschließend auf **Dataset hinzufügen**. 
+1. Klicken Sie nun im Hub **Daten** unter **Verknüpft** mit der rechten Maustaste auf **Azure Blob Storage > Beispieldatasets > nyc_tlc_yellow**, und wählen Sie **Neues Notebook** aus.
 1. Dadurch wird ein neues Notebook mit dem folgendem Code erstellt:
     ```
     from azureml.opendatasets import NycTlcYellow
@@ -32,12 +35,16 @@ In diesem Tutorial werden die grundlegenden Schritte zum Laden und Analysieren v
     data_df = data.to_spark_dataframe()
     display(data_df.limit(10))
     ```
-1. Wählen Sie im Notebook im Menü **Anfügen an** einen Spark-Pool aus.
-1. Klicken Sie für die Zelle auf **Ausführen**.
+1. Wählen Sie im Notebook im Menü **Anfügen an** einen serverlosen Spark-Pool aus.
+1. Wählen Sie für die Zelle **Ausführen** aus.
+1. Wenn Sie nur das Schema des Datenrahmens anzeigen möchten, führen Sie eine Zelle mit dem folgenden Code aus:
+    ```
+    data_df.printSchema()
+    ```
 
 ## <a name="load-the-nyc-taxi-data-into-the-spark-nyctaxi-database"></a>Laden der NYC Taxi-Daten in die Spark-Datenbank „nyctaxi“
 
-In einer Tabelle in **SQLDB1** sind Daten verfügbar. Laden Sie sie in eine Spark-Datenbank mit dem Namen **nyctaxi**.
+In einer Tabelle in **SQLPOOL1** sind Daten verfügbar. Laden Sie sie in eine Spark-Datenbank mit dem Namen **nyctaxi**.
 
 1. Navigieren Sie in Synapse Studio zum Hub **Entwickeln**.
 1. Wählen Sie **+**  > **Notebook** aus.
@@ -47,14 +54,14 @@ In einer Tabelle in **SQLDB1** sind Daten verfügbar. Laden Sie sie in eine Spar
     ```scala
     %%spark
     spark.sql("CREATE DATABASE IF NOT EXISTS nyctaxi")
-    val df = spark.read.sqlanalytics("SQLDB1.dbo.Trip") 
+    val df = spark.read.sqlanalytics("SQLPOOL1.dbo.Trip") 
     df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
 
 1. Navigieren Sie zum Hub **Daten**, klicken Sie mit der rechten Maustaste auf **Datenbanken**, und wählen Sie dann **Aktualisieren** aus. Die folgenden Datenbanken sollten angezeigt werden:
 
-    - **SQLDB1** (SQL-Pool)
-    - **nyctaxi** (Spark)
+    - **SQLPOOL1 (SQL)**
+    - **nyctaxi (Spark)**
 
 ## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>Analysieren der NYC Taxi-Daten mithilfe von Spark und Notebooks
 
@@ -67,7 +74,7 @@ In einer Tabelle in **SQLDB1** sind Daten verfügbar. Laden Sie sie in eine Spar
    display(df)
    ```
 
-1. Führen Sie den folgenden Code aus, um dieselbe Analyse durchzuführen, die wir zuvor mit dem SQL-Pool **SQLDB1** vorgenommen haben. Mit diesem Code werden die Ergebnisse der Analyse in einer Tabelle mit dem Namen **nyctaxi.passengercountstats** gespeichert und die Ergebnisse visualisiert.
+1. Führen Sie den folgenden Code aus, um dieselbe Analyse durchzuführen, die Sie zuvor mit dem dedizierten SQL-Pool **SQLPOOL1** vorgenommen haben. Mit diesem Code werden die Ergebnisse der Analyse in einer Tabelle mit dem Namen **nyctaxi.passengercountstats** gespeichert und die Ergebnisse visualisiert.
 
    ```py
    %%pyspark
@@ -86,40 +93,25 @@ In einer Tabelle in **SQLDB1** sind Daten verfügbar. Laden Sie sie in eine Spar
 
 1. Wählen Sie in den Zellenergebnissen **Diagramm** aus, um die visualisierten Daten anzuzeigen.
 
-## <a name="customize-data-visualization-with-spark-and-notebooks"></a>Anpassen der Datenvisualisierung mit Spark und Notebooks
-
-Sie können mit Notebooks steuern, wie Diagramme gerendert werden. Mit dem folgenden Code wird ein einfaches Beispiel angezeigt. Hierbei werden die gängigen Bibliotheken **matplotlib** und **seaborn** verwendet. Mit dem Code wird die gleiche Art von Liniendiagramm wie bei den zuvor ausgeführten SQL-Abfragen gerendert.
-
-```py
-%%pyspark
-import matplotlib.pyplot
-import seaborn
-
-seaborn.set(style = "whitegrid")
-df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
-df = df.toPandas()
-seaborn.lineplot(x="PassengerCount", y="SumTripDistance" , data = df)
-seaborn.lineplot(x="PassengerCount", y="AvgTripDistance" , data = df)
-matplotlib.pyplot.show()
-```
 
 
 
-## <a name="load-data-from-a-spark-table-into-a-sql-pool-table"></a>Laden von Daten aus einer Spark-Tabelle in eine SQL-Pooltabelle
 
-Weiter oben haben wir Daten aus der SQL-Pooltabelle **SQLDB1.dbo.Trip** in die Spark-Tabelle **nyctaxi.trip** kopiert. Anschließend haben wir mit Spark die Daten in der Spark-Tabelle **nyctaxi.passengercountstats** aggregiert. Nun kopieren wir die Daten aus **nyctaxi.passengercountstats** in eine SQL-Pooltabelle mit dem Namen **SQLDB1.dbo.PassengerCountStats**.
+## <a name="load-data-from-a-spark-table-into-a-dedicated-sql-pool-table"></a>Laden von Daten aus einer Spark-Tabelle in eine Tabelle mit dedizierten SQL-Pools
 
-Führen Sie die folgende Zelle in Ihrem Notebook aus. Hiermit wird die aggregierte Spark-Tabelle zurück in die SQL-Pooltabelle kopiert.
+Weiter oben haben Sie Daten aus der Tabelle mit den dedizierten SQL-Pools **SQLPOOL1.dbo.Trip** in die Spark-Tabelle **nyctaxi.trip** kopiert. Anschließend haben wir mit Spark die Daten in der Spark-Tabelle **nyctaxi.passengercountstats** aggregiert. Nun kopieren Sie die Daten aus **nyctaxi.passengercountstats** in eine Tabelle mit dedizierten SQL-Pools mit dem Namen **SQLPOOL1.dbo.PassengerCountStats**.
+
+Führen Sie die folgende Zelle in Ihrem Notebook aus. Hiermit wird die aggregierte Spark-Tabelle zurück in die Tabelle mit dedizierten SQL-Pools kopiert.
 
 ```scala
 %%spark
 val df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
-df.write.sqlanalytics("SQLDB1.dbo.PassengerCountStats", Constants.INTERNAL )
+df.write.sqlanalytics("SQLPOOL1.dbo.PassengerCountStats", Constants.INTERNAL )
 ```
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 > [!div class="nextstepaction"]
-> [Analysieren von Daten mit SQL On-Demand](get-started-analyze-sql-on-demand.md)
+> [Analysieren von Daten mit einem serverlosen SQL-Pool](get-started-analyze-sql-on-demand.md)
 
 

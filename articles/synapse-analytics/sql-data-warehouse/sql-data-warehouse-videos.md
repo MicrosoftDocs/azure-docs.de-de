@@ -11,18 +11,18 @@ ms.date: 02/15/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0515827ab2d93c76ea91e95c2d53a44273b5633b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eaf41e903f1a55dd85c6b6282617564a32087707
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213787"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447822"
 ---
-# <a name="azure-synapse-analytics---sql-pool-videos"></a>Azure Synapse Analytics – SQL-Pool-Videos
+# <a name="azure-synapse-analytics---dedicated-sql-pool--formerly-sql-dw-videos"></a>Azure Synapse Analytics – Videos zum dedizierten SQL-Pool (früher SQL DW)
 
-Sehen Sie sich die neuesten Azure Synapse SQL-Pool-Videos an, um neue Funktionen und Leistungsverbesserungen kennenzulernen. 
+Sehen Sie sich die neuesten Videos zum dedizierten SQL-Pool (früher SQL DW) an, um neue Funktionen und Leistungsverbesserungen kennenzulernen. 
 
-Wählen Sie zum Einstieg das unten aufgeführte Übersichtsvideo aus, um Informationen zu den Neuerungen in Azure Synapse SQL-Pool zu erhalten. Darüber hinaus erfahren Sie, wie Sie mit modernen Data Warehouse-Mustern echte Szenarien wie z. B. Cyberkriminalität meistern können.
+Wählen Sie zum Einstieg das unten aufgeführte Übersichtsvideo aus, um Informationen zu den Neuerungen beim dedizierten SQL-Pool zu erhalten. Darüber hinaus erfahren Sie, wie Sie mit modernen Data Warehouse-Mustern echte Szenarien wie z. B. Cyberkriminalität meistern können.
 </br>
 
 <a href="https://www.youtube.com/watch?v=7MDCWgxPnVY&list=PLXtHYVsvn_b_v4EKljH6dGo9qJ7JjItWL&index=2">

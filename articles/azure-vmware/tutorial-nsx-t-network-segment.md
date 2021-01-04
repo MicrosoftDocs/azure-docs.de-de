@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Erstellen eines NSX-T-Netzwerksegments in Azure VMware Solution'
-description: Hier erfahren Sie, wie Sie die NSX-T-Netzwerksegmente erstellen, die für virtuelle Computer in vCenter verwendet werden.
+title: 'Tutorial: Hinzufügen eines NSX-T-Netzwerksegments in Azure VMware Solution'
+description: Hier erfahren Sie, wie Sie ein NSX-T-Netzwerksegment für die Verwendung für virtuelle Computer in vCenter erstellen.
 ms.topic: tutorial
-ms.date: 09/21/2020
-ms.openlocfilehash: f88f186d2af10bcc114d64920a3ac489ef7be54f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 11/09/2020
+ms.openlocfilehash: 8ecb37a42e2986bd1c6261b8fe6c23382323b31d
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367668"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335047"
 ---
-# <a name="tutorial-create-an-nsx-t-network-segment-in-azure-vmware-solution"></a>Tutorial: Erstellen eines NSX-T-Netzwerksegments in Azure VMware Solution
+# <a name="tutorial-add-a-network-segment-in-azure-vmware-solution"></a>Tutorial: Hinzufügen eines Netzwerksegments in Azure VMware Solution 
 
 Die in vCenter erstellten virtuellen Computer (VMs) werden in den unter NSX-T erstellten Netzwerksegmenten platziert und sind in vCenter sichtbar.
 
@@ -23,60 +23,22 @@ In diesem Tutorial lernen Sie Folgendes:
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Sie müssen über eine private Azure VMware Solution-Cloud mit Zugriff auf die vCenter- und NSX-T Manager-Verwaltungsschnittstellen verfügen. Weitere Informationen finden Sie im Tutorial zum [Konfigurieren des Netzwerks](tutorial-configure-networking.md).
+Eine private Azure VMware Solution-Cloud mit Zugriff auf die vCenter- und NSX-T Manager-Verwaltungsschnittstellen Weitere Informationen finden Sie im Tutorial zum [Konfigurieren des Netzwerks](tutorial-configure-networking.md).
 
-## <a name="provision-a-network-segment-in-nsx-t"></a>Bereitstellen eines Netzwerksegments in NSX-T
+## <a name="add-a-network-segment"></a>Hinzufügen eines Netzwerksegments
 
-1. Wählen Sie in der vCenter-Instanz für Ihre private Cloud **SDDC-Datacenter > Networks** (SDDC-Datacenter > Netzwerke) aus. Beachten Sie, dass noch keine Netzwerke vorhanden sind.
-
-   :::image type="content" source="media/nsxt/vcenter-without-ls01.png" alt-text="Wählen Sie in der vCenter-Instanz für Ihre private Cloud „SDDC-Datacenter > Networks“ (SDDC-Datacenter > Netzwerke) aus. Beachten Sie, dass noch keine Netzwerke vorhanden sind.":::
-
-1. Wählen Sie in NSX-T Manager für Ihre private Cloud **Networking** (Netzwerk) aus.
-
-   :::image type="content" source="media/nsxt/nsxt-network-overview.png" alt-text="Wählen Sie in der vCenter-Instanz für Ihre private Cloud „SDDC-Datacenter > Networks“ (SDDC-Datacenter > Netzwerke) aus. Beachten Sie, dass noch keine Netzwerke vorhanden sind.":::
-
-1. Wählen Sie **Segments** (Segmente) aus.
-
-   :::image type="content" source="media/nsxt/nsxt-select-segments.png" alt-text="Wählen Sie in der vCenter-Instanz für Ihre private Cloud „SDDC-Datacenter > Networks“ (SDDC-Datacenter > Netzwerke) aus. Beachten Sie, dass noch keine Netzwerke vorhanden sind.":::
-
-1. Wählen Sie auf der Übersichtsseite der NSX-T-Segmente die Option **ADD SEGMENT** (SEGMENT HINZUFÜGEN) aus. Im Rahmen der Bereitstellung der privaten Cloud werden drei Segmente erstellt. Diese können nicht für virtuelle Computer verwendet werden.  Für virtuelle Computer muss ein neues Netzwerksegment hinzugefügt werden.
-
-   :::image type="content" source="media/nsxt/nsxt-segments-overview.png" alt-text="Wählen Sie in der vCenter-Instanz für Ihre private Cloud „SDDC-Datacenter > Networks“ (SDDC-Datacenter > Netzwerke) aus. Beachten Sie, dass noch keine Netzwerke vorhanden sind.":::
-
-1. Geben Sie einen Namen für das Segment ein, wählen Sie unter **Connected Gateway** (Verbundenes Gateway) das vorkonfigurierte Gateway der Ebene 1 (TNTxx-T1) aus, und übernehmen Sie für **Type** (Typ) die Option „Flex“. Wählen Sie unter **Transport Zone** (Transportzone) die vorkonfigurierte Überlagerung (TNTxx-OVERLAY-TZ) und anschließend „Set Subnets“ (Subnetze festlegen) aus. Für alle anderen Einstellungen in diesem Abschnitt sowie für die Einstellungen unter **PORTS** und **SEGMENT PROFILES** (SEGMENTPROFILE) können die Standardwerte übernommen werden.
-
-   :::image type="content" source="media/nsxt/nsxt-create-segment-specs.png" alt-text="Wählen Sie in der vCenter-Instanz für Ihre private Cloud „SDDC-Datacenter > Networks“ (SDDC-Datacenter > Netzwerke) aus. Beachten Sie, dass noch keine Netzwerke vorhanden sind.":::
-
-1. Legen Sie die IP-Adresse des Gateways für das neue Segment fest, und wählen Sie dann **ADD** (HINZUFÜGEN) aus. Die von Ihnen verwendete IP-Adresse muss Teil eines nicht überlappenden RFC1918-Adressblocks sein. Dadurch wird sichergestellt, dass Sie eine Verbindung mit den virtuellen Computern im neuen Segment herstellen können.
-
-   :::image type="content" source="media/nsxt/nsxt-create-segment-gateway.png" alt-text="Wählen Sie in der vCenter-Instanz für Ihre private Cloud „SDDC-Datacenter > Networks“ (SDDC-Datacenter > Netzwerke) aus. Beachten Sie, dass noch keine Netzwerke vorhanden sind.":::
-
-1. Wenden Sie das neue Netzwerksegment an, indem Sie **APPLY** (ANWENDEN) auswählen und die Konfiguration mithilfe der Option **SAVE** (SPEICHERN) speichern.
-
-   :::image type="content" source="media/nsxt/nsxt-create-segment-apply.png" alt-text="Wählen Sie in der vCenter-Instanz für Ihre private Cloud „SDDC-Datacenter > Networks“ (SDDC-Datacenter > Netzwerke) aus. Beachten Sie, dass noch keine Netzwerke vorhanden sind.":::
-
-   :::image type="content" source="media/nsxt/nsxt-create-segment-save.png" alt-text="Wählen Sie in der vCenter-Instanz für Ihre private Cloud „SDDC-Datacenter > Networks“ (SDDC-Datacenter > Netzwerke) aus. Beachten Sie, dass noch keine Netzwerke vorhanden sind.":::
-
-1. Das neue Netzwerksegment wurde nun erstellt, und Sie können die Option zum Fortsetzen der Konfiguration des Segments ablehnen, indem Sie **NO** (NEIN) auswählen.
-
-   :::image type="content" source="media/nsxt/nsxt-create-segment-continue-no.png" alt-text="Wählen Sie in der vCenter-Instanz für Ihre private Cloud „SDDC-Datacenter > Networks“ (SDDC-Datacenter > Netzwerke) aus. Beachten Sie, dass noch keine Netzwerke vorhanden sind.":::
-
-1. Vergewissern Sie sich, dass das neue Netzwerksegment in NSX-T vorhanden ist, indem Sie **Networking > Segments** (Netzwerk > Segmente) auswählen und überprüfen, ob sich das neue Segment in der Liste befindet (in diesem Fall „ls01“).
-
-   :::image type="content" source="media/nsxt/nsxt-new-segment-overview-2.png" alt-text="Wählen Sie in der vCenter-Instanz für Ihre private Cloud „SDDC-Datacenter > Networks“ (SDDC-Datacenter > Netzwerke) aus. Beachten Sie, dass noch keine Netzwerke vorhanden sind.":::
-
-1. Vergewissern Sie sich, dass das neue Netzwerksegment in vCenter vorhanden ist, indem Sie **Networking > SDDC-Datacenter** (Netzwerk > SDDC-Datacenter) auswählen und überprüfen, ob sich das neue Segment in der Liste befindet (in diesem Fall „ls01“).
-
-   :::image type="content" source="media/nsxt/vcenter-with-ls01-2.png" alt-text="Wählen Sie in der vCenter-Instanz für Ihre private Cloud „SDDC-Datacenter > Networks“ (SDDC-Datacenter > Netzwerke) aus. Beachten Sie, dass noch keine Netzwerke vorhanden sind.":::
+[!INCLUDE [add-network-segment-steps](includes/add-network-segment-steps.md)]
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In diesem Tutorial haben Sie die NSX-T-Netzwerksegmente erstellt, die für virtuelle Computer in vCenter verwendet werden. Sie können jetzt eine [Inhaltsbibliothek zum Bereitstellen von VMs in Azure VMware Solution erstellen](deploy-vm-content-library.md). Sie können auch einen virtuellen Computer in dem Netzwerk bereitstellen, das Sie in diesem Tutorial erstellt haben.
+In diesem Tutorial haben Sie ein NSX-T-Netzwerksegment erstellt, das für virtuelle Computer in vCenter verwendet wird. 
 
-Fahren Sie andernfalls mit dem nächsten Tutorial fort, um zu erfahren, wie Sie ExpressRoute Global Reach-Peering mit einer privaten Cloud in einer Azure VMware Solution-Instanz erstellen.
+Sie können nun Folgendes: 
 
-> [!div class="nextstepaction"]
-> [Zusammenfassen lokaler Umgebungen mittels Peering zu einer privaten Cloud](tutorial-expressroute-global-reach-private-cloud.md)
+- [Erstellen und Verwalten von DHCP für Azure VMware Solution](manage-dhcp.md)
+- [Erstellen einer Inhaltsbibliothek zum Bereitstellen von VMs in Azure VMware Solution](deploy-vm-content-library.md) 
+- [Zusammenfassen lokaler Umgebungen mittels Peering zu einer privaten Cloud](tutorial-expressroute-global-reach-private-cloud.md)
+
 
 <!-- LINKS - external-->
 

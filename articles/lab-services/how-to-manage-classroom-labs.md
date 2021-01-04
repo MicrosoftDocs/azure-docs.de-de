@@ -1,17 +1,17 @@
 ---
-title: Verwalten von Classroom-Labs in Azure Lab Services | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie ein Classroom-Lab erstellen, alle Classroom-Labs anzeigen, den Registrierungslink für einen Lab-Benutzer freigeben oder ein Lab löschen.
+title: Verwalten von Labs in Azure Lab Services | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie ein Classroom-Lab erstellen, alle Labs anzeigen, den Registrierungslink für einen Lab-Benutzer freigeben oder ein Lab löschen.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 1a251f668508ee0b727c5e2ace65d1ea4eb5123e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: db7a2f58f99252a7e5076dd86c37b65bbe8ea37a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91251676"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434208"
 ---
-# <a name="manage-classroom-labs-in-azure-lab-services"></a>Verwalten von Classroom-Labs in Azure Lab Services 
-In diesem Artikel erfahren Sie, wie Sie ein Classroom-Lab erstellen und löschen. Außerdem erfahren Sie, wie Sie alle Classroom-Labs in einem Labkonto anzeigen. 
+# <a name="manage-labs-in-azure-lab-services"></a>Verwalten von Labs in Azure Lab Services 
+In diesem Artikel erfahren Sie, wie Sie ein Classroom-Lab erstellen und löschen. Außerdem erfahren Sie, wie Sie alle Labs in einem Labkonto anzeigen. 
 
 ## <a name="prerequisites"></a>Voraussetzungen
 Zum Einrichten eines Classroom-Labs in einem Labkonto müssen Sie Mitglied der Rolle **Ersteller des Labs** für das Labkonto sein. Das zum Erstellen eines Lab-Kontos verwendete Konto wird dieser Rolle automatisch hinzugefügt. Ein Besitzer des Labs kann der Rolle „Ersteller des Labs“ weitere Benutzer hinzufügen, indem er die Schritte im folgenden Artikel ausführt: [Hinzufügen eines Benutzers zur Rolle „Ersteller des Labs“](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
@@ -103,22 +103,26 @@ Zum Einrichten eines Classroom-Labs in einem Labkonto müssen Sie Mitglied der R
 > [!NOTE]
 > Beim Erstellen eines Classroom-Labs werden möglicherweise einige dieser VM-Größen nicht in der Liste angezeigt. Die Liste wird basierend auf der aktuellen Kapazität des Standorts des Labs aufgefüllt. Wenn der Ersteller des Lab-Kontos [Lab-Erstellern das Auswählen eines Standorts für das Lab gestattet](allow-lab-creator-pick-lab-location.md), können Sie versuchen, einen anderen Ort für das Lab auszuwählen, und dann nachsehen, ob die VM-Größe verfügbar ist. 
 
+## <a name="view-all-labs"></a>Anzeigen aller Labs
 
-## <a name="view-all-classroom-labs"></a>Anzeigen aller Classroom-Labs
 1. Navigieren Sie zum [Azure Lab Services-Portal](https://labs.azure.com).
-2. Wählen Sie **Anmelden**. Wählen Sie eine **Benutzer-ID** aus (oder geben Sie eine Benutzer-ID ein), die der Rolle **Lab-Ersteller** im Labkonto angehört, und geben Sie das Kennwort ein. Azure Lab Services unterstützt Geschäfts-, Schul- oder Unikonten und Microsoft-Konten. 
-3. Stellen Sie sicher, dass alle Labs im ausgewählten Lab-Konto angezeigt werden. Auf der Kachel des Labs sehen Sie die Anzahl der virtuellen Computer im Lab und das Kontingent für jeden Benutzer (außerhalb der geplanten Zeit).
+1. Wählen Sie **Anmelden**. Wählen Sie eine **Benutzer-ID** aus (oder geben Sie eine Benutzer-ID ein), die der Rolle **Lab-Ersteller** im Labkonto angehört, und geben Sie das Kennwort ein. Azure Lab Services unterstützt Geschäfts-, Schul- oder Unikonten und Microsoft-Konten. 
+
+    [!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
+1. Stellen Sie sicher, dass alle Labs im ausgewählten Lab-Konto angezeigt werden. Auf der Kachel des Labs sehen Sie die Anzahl der virtuellen Computer im Lab und das Kontingent für jeden Benutzer (außerhalb der geplanten Zeit).
 
     ![Alle Labs](./media/how-to-manage-classroom-labs/all-labs.png)
-3. Verwenden Sie die Dropdownliste im oberen Bereich, um ein anderes Lab-Konto auszuwählen. Die Labs im ausgewählten Lab-Konto werden angezeigt. 
+1. Verwenden Sie die Dropdownliste im oberen Bereich, um ein anderes Lab-Konto auszuwählen. Die Labs im ausgewählten Lab-Konto werden angezeigt. 
 
 ## <a name="delete-a-classroom-lab"></a>Löschen eines Classroom-Labs
+
 1. Wählen Sie auf der Kachel für das Lab die drei Punkte (...) in der Ecke und dann **Löschen** aus. 
 
     ![Schaltfläche „Löschen“](./media/how-to-manage-classroom-labs/delete-button.png)
-3. Wählen Sie im Dialogfeld **Lab löschen** den Befehl **Löschen** aus, um mit dem Löschvorgang fortzufahren. 
+1. Wählen Sie im Dialogfeld **Lab löschen** den Befehl **Löschen** aus, um mit dem Löschvorgang fortzufahren. 
 
 ## <a name="switch-to-another-classroom-lab"></a>Zu einem anderen Classroom-Lab wechseln
+
 Um aus dem aktuellen zu einem anderen Classroom-Lab zu wechseln, treffen Sie im Lab-Konto oben in der Dropdownliste mit den Labs eine Wahl.
 
 ![Wählen Sie das Lab in der Dropdownliste oben aus.](./media/how-to-manage-classroom-labs/switch-lab.png)
@@ -135,5 +139,5 @@ Weitere Informationen finden Sie in folgenden Artikeln:
 
 - [Einrichten und Veröffentlichen von Vorlagen als Labbesitzer](how-to-create-manage-template.md)
 - [Konfigurieren und Steuern der Nutzung eines Labs als Labbesitzer](how-to-configure-student-usage.md)
-- [Zugreifen auf ein Classroom-Lab in Azure Lab Services](how-to-use-classroom-lab.md) (als Labbenutzer)
+- [Zugreifen auf Labs als Labbenutzer](how-to-use-classroom-lab.md)
 

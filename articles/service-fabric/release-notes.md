@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 9bfca7def313fc701798ff96d0ed4b18ca13ef60
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9960f15f2f91b51b73727ab421eb58dddc5bb2b3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313873"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485568"
 ---
 # <a name="service-fabric-releases"></a>Service Fabric-Versionen
 
@@ -23,6 +23,28 @@ ms.locfileid: "92313873"
 Dieser Artikel enthält weitere Informationen zu den neuesten Versionen und Updates für die Service Fabric-Runtime und -SDKs.
 
 ## <a name="whats-new-in-service-fabric"></a>Neuigkeiten in Service Fabric
+
+### <a name="service-fabric-72"></a>Service Fabric 7.2 
+Wir freuen uns, Ihnen mitteilen zu können, dass die Einführung von Release 7.2 der Service Fabric-Runtime zusammen mit Tools und SDK-Updates in den verschiedenen Azure-Regionen begonnen hat. Die Updates für .NET SDK, Java SDK und Service Fabric-Runtime sind über den Webplattform-Installer, NuGet-Pakete und Maven-Repositorys verfügbar.
+## <a name="what-is-new-in-service-fabric-7"></a>Was ist neu in Service Fabric 7.2?
+Dieses Release bietet eine Vielzahl von wichtigen Features und Verbesserungen. Hier sehen Sie einige der wichtigsten Features:
+## <a name="key-announcements-in-72"></a>Wichtige Ankündigungen in 7.2
+- **Vorschau**: [**Verwaltete Service Fabric-Cluster**](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-managed-clusters-are-now-in-public-preview/ba-p/1721572) befinden sich nun in der öffentlichen Vorschau. Verwaltete Service Fabric-Cluster sollen die Clusterbereitstellung und -verwaltung vereinfachen, indem die zugrunde liegenden Ressourcen, aus denen sich der Service Fabric-Cluster zusammensetzt, in einer einzelnen ARM-Ressource gekapselt werden. Weitere Einzelheiten finden Sie unter [Übersicht über verwaltete Service Fabric-Cluster](./overview-managed-cluster.md).
+- **Vorschau**: [**Die Unterstützung zustandsloser Dienste mit mehr Instanzen als Knoten**](./service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) befindet sich nun in der öffentlichen Vorschau. Eine Platzierungsrichtlinie ermöglicht das Erstellen mehrerer zustandsloser Instanzen einer Partition auf einem Knoten.
+- [**FabricObserver (FO) 3.0**](https://aka.ms/sf/fabricobserver) ist nun verfügbar.
+    - Sie können FabricObserver jetzt in Linux- und Windows-Clustern ausführen.
+    - Sie können jetzt benutzerdefinierte Observer-Plug-Ins erstellen. Weitere Informationen und Code finden Sie in der [Infodatei zum Plug-In](https://github.com/microsoft/service-fabric-observer/blob/master/Documentation/Plugins.md) und im [Beispielprojekt für das Plug-In](https://github.com/microsoft/service-fabric-observer/tree/master/SampleObserverPlugin).
+    - Sie können jetzt sämtliche Observer-Einstellungen über ein Upgrade von Anwendungsparametern ändern. Dies bedeutet, dass Sie FO nicht mehr erneut bereitstellen müssen, um bestimmte Observer-Einstellungen zu ändern. Weitere Informationen finden Sie im [Beispiel](https://github.com/microsoft/service-fabric-observer/blob/master/Documentation/Using.md#parameterUpdates).
+- [**Unterstützung für Ubuntu 18.04 OneBox-Containerimages**](https://hub.docker.com/_/microsoft-service-fabric-onebox)
+- **Vorschau**: [**Schlüsseltresorverweise für Service Fabric-Anwendungen unterstützen **NUR Geheimnisse mit Versionsangabe**. Geheimnisse ohne Versionsangabe werden nicht unterstützt.**](./service-fabric-keyvault-references.md)
+- Das SF SDK erfordert das neueste Update 16.7.6 für VS 2019 oder Version 16.8 Preview 4, um neue zustandslose, zustandsbehaftete oder Akteurprojekte in .NET Framework zu erstellen. Wenn Sie nicht über das neueste VS-Update verfügen, verwenden Sie nach dem Erstellen des Dienstprojekts den Paket-Manager, um Microsoft.ServiceFabric.Services (Version 4.2.x) für zustandsbehaftete oder zustandslose Projekte und Microsoft.ServiceFabric.Actors (Version 4.2.x) für Akteurprojekte von nuget.org zu installieren.
+- **RunToCompletion:** Service Fabric unterstützt das Konzept der Ausführung bis zum Abschluss für ausführbare Gastanwendungsdateien. Wenn die Ausführung des Replikats mit diesem Update abgeschlossen ist, werden die diesem Replikat zugewiesenen Clusterressourcen freigegeben.
+- [**Die Unterstützung der Ressourcengovernance wurde verbessert**](./service-fabric-resource-governance.md), sodass jetzt auch die Angaben für Anforderungen und Grenzwerte für CPU- und Arbeitsspeicherressourcen möglich sind.
+
+### <a name="service-fabric-72-releases"></a>Service Fabric 7.2-Releases
+| Veröffentlichungsdatum | Release | Weitere Informationen |
+|---|---|---|
+| 21. Oktober 2020 | [Azure Service Fabric 7.2](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-2-release/ba-p/1805653)  | [Versionshinweise](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72-releasenotes.md)|
 
 ### <a name="service-fabric-71"></a>Service Fabric 7.1
 Aufgrund der aktuellen Corona-Pandemie und angesichts der vielen Herausforderungen, vor denen unsere Kunden stehen, stellen wir Version 7.1 zur Verfügung, es erfolgen aber keine automatischen Upgrades – auch nicht für Cluster, die für den Empfang von automatischen Upgrades eingerichtet sind. Wir setzen die automatischen Upgrades bis auf Weiteres aus, um sicherzustellen, dass Kunden Upgrades zu einem für sie geeigneten Zeitpunkt durchführen können. So lassen sich unerwartete Unterbrechungen vermeiden.
@@ -86,7 +108,7 @@ Wir aktualisieren auch unsere geplanten Veröffentlichungstermine, um anzugeben,
 Dies ist die neueste Version von Service Fabric mit wichtigen Features und umfangreichen Verbesserungen.
 
 ### <a name="key-announcements"></a>Wichtige Ankündigungen
- - [**KeyVaultReference-Unterstützung für Anwendungsgeheimnisse (Vorschau)** ](./service-fabric-keyvault-references.md): Service Fabric-Anwendungen, für die [verwaltete Identitäten](./concepts-managed-identity.md) aktiviert sind, können nun direkt auf eine Key Vault-Geheimnis-URL als Umgebungsvariable, Anwendungsparameter oder Containerrepository-Anmeldeinformationen verweisen. Service Fabric löst das Geheimnis mithilfe der verwalteten Identität der Anwendung automatisch auf. 
+ - [**KeyVaultReference-Unterstützung für Anwendungsgeheimnisse (Vorschau)**](./service-fabric-keyvault-references.md): Service Fabric-Anwendungen, für die [verwaltete Identitäten](./concepts-managed-identity.md) aktiviert sind, können nun direkt auf eine Key Vault-Geheimnis-URL als Umgebungsvariable, Anwendungsparameter oder Containerrepository-Anmeldeinformationen verweisen. Service Fabric löst das Geheimnis mithilfe der verwalteten Identität der Anwendung automatisch auf. 
      
 - **Verbesserte Upgradesicherheit für zustandslose Dienste**: Um die Verfügbarkeit während eines Anwendungsupgrades zu gewährleisten, haben wir neue Konfigurationen eingeführt, um die [Mindestanzahl von Instanzen für zustandslose Dienste](/dotnet/api/system.fabric.description.statelessservicedescription?view=azure-dotnet) zu definieren, die als verfügbar erachtet werden. Zuvor war dieser Wert für alle Dienste 1 und konnte nicht geändert werden. Mit dieser neuen Sicherheitsüberprüfung pro Dienst können Sie sicherstellen, dass Ihre Dienste bei Anwendungsupgrades, Clusterupgrades und anderen Wartungsarbeiten, die von den Integritäts- und Sicherheitsüberprüfungen von Service Fabric abhängig sind, eine Mindestanzahl von aktiven Instanzen beibehalten.
   

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3cc8974be9adb81391134790d85336016a7d9f1c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f3f66209b2d0a1bae18364e38790c237952e729f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204332"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458258"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Azure-Sicherheitsbaseline für Azure Machine Learning
 
@@ -21,7 +21,7 @@ Die Azure-Sicherheitsbaseline für Microsoft Azure Machine Learning enthält Emp
 
 ## <a name="network-security"></a>Netzwerksicherheit
 
-*Weitere Informationen finden Sie unter [Azure-Sicherheitsvergleichstest: Netzwerksicherheit](/azure/security/benchmarks/security-control-network-security).*
+*Weitere Informationen finden Sie unter [Azure-Sicherheitsvergleichstest: Netzwerksicherheit](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: Schützen von Azure-Ressourcen in virtuellen Netzwerken
 
@@ -71,11 +71,11 @@ Aktivieren Sie Netzwerksicherheitsgruppen-Datenflussprotokolle, und senden Sie P
 
 Stellen Sie die Azure Firewall an allen Netzwerkgrenzen der Organisation mit aktivierter, auf Threat Intelligence basierender Filterung bereit, und konfigurieren Sie das Feature so, dass schädlicher Netzwerkdatenverkehr „mit Warnungen gemeldet und verweigert“ wird.
 
-- [Konfigurieren von DDoS-Schutz](../virtual-network/manage-ddos-protection.md)
+- [Konfigurieren von DDoS-Schutz](../ddos-protection/manage-ddos-protection.md)
 
 - [Verwenden des Arbeitsbereichs hinter Azure Firewall für Azure Machine Learning](how-to-access-azureml-behind-firewall.md)
 
-- [Weitere Informationen zur Bedrohungserkennung in Azure Security Center](/azure/security-center/security-center-alerts-service-layer)
+- [Weitere Informationen zur Bedrohungserkennung in Azure Security Center](../security-center/azure-defender.md)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -145,7 +145,7 @@ Azure Machine Learning Service dokumentiert eine Liste von Diensttags für die C
 
 Für eine Ressource in Ihrem virtuellen Azure Machine Learning-Netzwerk, die das Feld „Description“ (Beschreibung) unterstützt, verwenden Sie diese, um die Regeln zu dokumentieren, die Datenverkehr zu/aus einem Netzwerk erlauben.
 
-- [Erstellen und Verwenden von Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [Erstellen und Verwenden von Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center-Überwachung**: Nicht zutreffend
 
@@ -155,7 +155,7 @@ Für eine Ressource in Ihrem virtuellen Azure Machine Learning-Netzwerk, die das
 
 **Leitfaden**: Verwenden Sie das Azure-Aktivitätsprotokoll zum Überwachen der Konfigurationen von Netzwerkressourcen und zum Erkennen von Änderungen bei Netzwerkressourcen, die sich auf Azure Machine Learning beziehen. Erstellen Sie Warnungen in Azure Monitor, die bei Änderungen an wichtigen Netzwerkressourcen ausgelöst werden.
 
-- [Anzeigen und Abrufen von Azure-Aktivitätsprotokollereignissen](/azure/azure-monitor/platform/activity-log-view)
+- [Anzeigen und Abrufen von Azure-Aktivitätsprotokollereignissen](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Erstellen von Warnungen in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -165,7 +165,7 @@ Für eine Ressource in Ihrem virtuellen Azure Machine Learning-Netzwerk, die das
 
 ## <a name="logging-and-monitoring"></a>Protokollierung und Überwachung
 
-*Weitere Informationen finden Sie unter [Azure-Sicherheitsvergleichstest: Protokollierung und Überwachung](/azure/security/benchmarks/security-control-logging-monitoring).*
+*Weitere Informationen finden Sie unter [Azure-Sicherheitsvergleichstest: Protokollierung und Überwachung](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: Verwenden von genehmigten Zeitsynchronisierungsquellen
 
@@ -197,7 +197,7 @@ Sie können Vorgangsprotokolle von Machine Learning Service auch zu Sicherheits-
 
 - [Grundlegendes zur Protokollierung und zu verschiedenen Protokolltypen in Azure](../azure-monitor/platform/platform-logs-overview.md)
 
-- [Aktivieren der Protokollierung in Azure Machine Learning](/azure/machine-learning/how-to-enable-logging)
+- [Aktivieren der Protokollierung in Azure Machine Learning](./how-to-track-experiments.md)
 
 - [Überwachen von Azure Machine Learning](monitor-azure-machine-learning.md)
 
@@ -237,11 +237,11 @@ Alternativ können Sie auch Daten in Azure Sentinel oder einer SIEM-Drittanbiete
 
 - [Ausführen von Abfragen für Azure Machine Learning in Log Analytics-Arbeitsbereichen](monitor-azure-machine-learning.md#analyzing-log-data)
 
-- [Aktivieren der Protokollierung in Azure Machine Learning](/azure/machine-learning/how-to-enable-logging)
+- [Aktivieren der Protokollierung in Azure Machine Learning](./how-to-track-experiments.md)
 
 - [Durchführen des Onboardings für Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Erste Schritte mit Log Analytics-Abfragen](../azure-monitor/log-query/get-started-portal.md)
+- [Erste Schritte mit Log Analytics-Abfragen](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Ausführen benutzerdefinierter Abfragen in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -299,19 +299,19 @@ Azure Machine Learning bietet unterschiedliche Unterstützung für verschiedene 
 
 ## <a name="identity-and-access-control"></a>Identität und Zugriffssteuerung
 
-*Weitere Informationen finden Sie unter [Azure-Sicherheitsvergleichstest: Identität und Zugriffssteuerung](/azure/security/benchmarks/security-control-identity-access-control).*
+*Weitere Informationen finden Sie unter [Azure-Sicherheitsvergleichstest: Identität und Zugriffssteuerung](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Verwalten eines Bestands von Administratorkonten
 
-**Leitfaden**: Sie können die Registerkarte „Identitäts- und Zugriffsverwaltung“ für eine Ressource im Azure-Portal verwenden, um rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC) zu konfigurieren und den Bestand der Azure Machine Learning-Ressourcen zu verwalten. Die Rollen werden Benutzern, Gruppen, Dienstprinzipalen und verwalteten Identitäten in Active Directory zugewiesen. Sie können für Einzelbenutzer und Gruppen integrierte oder benutzerdefinierte Rollen verwenden.
+**Leitfaden**: Sie können die Registerkarte „Identitäts- und Zugriffsverwaltung“ für eine Ressource im Azure-Portal verwenden, um rollenbasierte Zugriffssteuerung in Azure (Azure RBAC) zu konfigurieren und den Bestand der Azure Machine Learning-Ressourcen zu verwalten. Die Rollen werden Benutzern, Gruppen, Dienstprinzipalen und verwalteten Identitäten in Active Directory zugewiesen. Sie können für Einzelbenutzer und Gruppen integrierte oder benutzerdefinierte Rollen verwenden.
 
-Azure Machine Learning bietet für gängige Verwaltungsszenarien in Azure Machine Learning eine integrierte RBAC-Funktion. Eine Person mit einem Profil in Azure Active Directory (Azure AD) kann diese RBAC-Rollen Benutzern, Gruppen, Dienstprinzipalen oder verwalteten Identitäten zuweisen, um den Zugriff auf Ressourcen und Vorgänge für Azure Machine Learning-Ressourcen zu gewähren oder zu verweigern.
+Azure Machine Learning bietet für gängige Verwaltungsszenarien in Azure Machine Learning integrierte Rollen. Eine Person mit einem Profil in Azure Active Directory (Azure AD) kann diese Rollen Benutzern, Gruppen, Dienstprinzipalen oder verwalteten Identitäten zuweisen, um den Zugriff auf Ressourcen und Vorgänge für Azure Machine Learning-Ressourcen zu gewähren oder zu verweigern.
 
 Sie können auch das Azure AD PowerShell-Modul verwenden, um Ad-hoc-Abfragen zum Ermitteln von Konten durchzuführen, die Mitglieder von Verwaltungsgruppen sind.
 
-- [Informationen zur rollenbasierten Zugriffssteuerung in Azure Machine Learning](how-to-assign-roles.md)
+- [Informationen zur rollenbasierten Azure-Zugriffssteuerung in Azure Machine Learning](how-to-assign-roles.md)
 
-- [Abrufen einer Verzeichnisrolle in Azure Active Directory mit PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Abrufen einer Verzeichnisrolle in Azure Active Directory mit PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -333,7 +333,7 @@ Sie können auch Just-In-Time-Zugriff auf Verwaltungskonten aktivieren, indem Si
 
 - [Weitere Informationen zu Machine Learning-Standardrollen](how-to-assign-roles.md#default-roles)
 
-- [Weitere Informationen zu Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [Weitere Informationen zu Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -377,7 +377,7 @@ Sie können auch Just-In-Time-Zugriff auf Verwaltungskonten aktivieren, indem Si
 
 **Leitfaden**: Verwenden Sie Azure Active Directory-Sicherheitsberichte und -Überwachungsfunktionen, um verdächtige oder nicht sichere Aktivität in der Umgebung zu ermitteln. Verwenden Sie Azure Security Center zum Überwachen von identitäts- und zugriffsbezogenen Aktivitäten.
 
-- [Identifizieren von Azure AD-Benutzern, die aufgrund riskanter Aktivitäten gekennzeichnet wurden](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Identifizieren von Azure AD-Benutzern, die aufgrund riskanter Aktivitäten gekennzeichnet wurden](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Überwachen der identitäts- und zugriffsbezogenen Aktivitäten von Benutzern in Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -417,11 +417,11 @@ Der Rollenzugriff kann für mehrere Ebenen in Azure gelten. Für Machine Learnin
  
 Verwenden Sie Azure Active Directory Privileged Identity Management (Azure AD/PIM) für die Generierung von Protokollen und Warnungen bei verdächtigen oder sicherheitsrelevanten Aktivitäten in der Umgebung.
 
-- [Grundlegendes zur Azure AD-Berichterstellung](/azure/active-directory/reports-monitoring)
+- [Grundlegendes zur Azure AD-Berichterstellung](../active-directory/reports-monitoring/index.yml)
 
 - [Was sind Azure AD-Zugriffsüberprüfungen?](../active-directory/governance/access-reviews-overview.md)
 
-- [Bereitstellen von Azure AD Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Bereitstellen von Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -434,7 +434,7 @@ Verwenden Sie Azure Active Directory Privileged Identity Management (Azure AD/PI
 Sie können diesen Prozess optimieren, indem Sie Diagnoseeinstellungen für Azure AD-Benutzerkonten erstellen und die Überwachungs- und Anmeldeprotokolle an einen Log Analytics-Arbeitsbereich senden. Sie können gewünschte Warnungen im Log Analytics-Arbeitsbereich konfigurieren.
  
  
-- [Integrieren von Azure-Aktivitätsprotokollen in Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Integrieren von Azure-Aktivitätsprotokollen in Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Azure Security Center-Überwachung**: Nicht zutreffend
 
@@ -444,7 +444,7 @@ Sie können diesen Prozess optimieren, indem Sie Diagnoseeinstellungen für Azur
 
 **Leitfaden**: Mit den Azure AD Identity Protection-Funktionen können Sie automatische Antworten auf erkannte verdächtige Aktionen im Zusammenhang mit Benutzeridentitäten konfigurieren. Außerdem können Sie Daten zur weiteren Untersuchung in Azure Sentinel erfassen.
  
-- [Anzeigen riskanter Azure AD-Anmeldungen](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Anzeigen riskanter Azure AD-Anmeldungen](../active-directory/identity-protection/overview-identity-protection.md)
  
 - [Konfigurieren und Aktivieren von Risikorichtlinien für den Identitätsschutz](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
  
@@ -464,13 +464,13 @@ Sie können diesen Prozess optimieren, indem Sie Diagnoseeinstellungen für Azur
 
 ## <a name="data-protection"></a>Schutz von Daten
 
-*Weitere Informationen finden Sie unter [Azure-Sicherheitsvergleichstest: Datenschutz](/azure/security/benchmarks/security-control-data-protection).*
+*Weitere Informationen finden Sie unter [Azure-Sicherheitsvergleichstest: Datenschutz](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Verwalten eines Bestands an vertraulichen Informationen
 
 **Leitfaden**: Verwenden Sie Tags für die Nachverfolgung von Azure-Ressourcen, die vertrauliche Informationen speichern oder verarbeiten.
  
-- [Erstellen und Verwenden von Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [Erstellen und Verwenden von Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center-Überwachung**: Nicht zutreffend
 
@@ -480,11 +480,11 @@ Sie können diesen Prozess optimieren, indem Sie Diagnoseeinstellungen für Azur
 
 **Leitfaden**: Implementieren Sie eine Isolation mit separaten Abonnements und Verwaltungsgruppen für einzelne Sicherheitsdomänen, z. B. Umgebungstyp und Datenvertraulichkeitsstufe. Sie können die Zugriffsebene auf diejenigen Ihrer Azure-Ressourcen beschränken, die von Ihren Anwendungen und Unternehmensumgebungen gefordert werden. Sie können den Zugriff auf Azure-Ressourcen über die rollenbasierte Zugriffssteuerung in Azure steuern.
  
-- [Erstellen zusätzlicher Azure-Abonnements](/azure/billing/billing-create-subscription)
+- [Erstellen zusätzlicher Azure-Abonnements](../cost-management-billing/manage/create-subscription.md)
 
-- [Erstellen von Verwaltungsgruppen](../governance/management-groups/create.md)
+- [Erstellen von Verwaltungsgruppen](../governance/management-groups/create-management-group-portal.md)
  
-- [Erstellen und Verwenden von Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [Erstellen und Verwenden von Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center-Überwachung**: Nicht zutreffend
 
@@ -526,11 +526,12 @@ Für die zugrunde liegende Plattform, die von Microsoft verwaltet wird, behandel
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4.6: Verwenden von Azure RBAC zum Verwalten des Zugriffs auf Ressourcen
 
-**Leitfaden**: Azure Machine Learning unterstützt die Verwendung von Azure Active Directory (Azure AD) zum Autorisieren von Anforderungen an Machine Learning-Ressourcen. Mit Azure AD können Sie Azure RBAC (rollenbasierte Zugriffssteuerung) zum Gewähren von Berechtigungen für einen Sicherheitsprinzipal verwenden, bei dem es sich um einen Benutzer oder einen Anwendungsdienstprinzipal handeln kann.
+**Leitfaden**: Azure Machine Learning unterstützt die Verwendung von Azure Active Directory (Azure AD) zum Autorisieren von Anforderungen an Machine Learning-Ressourcen. Mit Azure AD können Sie Azure RBAC (Azure Role-Based Access Control, rollenbasierte Zugriffssteuerung von Azure) zum Gewähren von Berechtigungen für einen Sicherheitsprinzipal verwenden, bei dem es sich um einen Benutzer oder einen Anwendungsdienstprinzipal handeln kann.
 
 - [Verwalten des Zugriffs auf einen Azure Machine Learning-Arbeitsbereich](how-to-assign-roles.md)
+- [Verwenden von Azure RBAC für die Kubernetes-Autorisierung](../aks/manage-azure-rbac.md)
 
-**Azure Security Center-Überwachung**: Nicht zutreffend
+**Azure Security Center-Überwachung:** Nicht zutreffend
 
 **Verantwortlichkeit**: Kunde
 
@@ -554,7 +555,7 @@ Microsoft verwaltet die zugrunde liegende Infrastruktur für Machine Learning un
 
 - [Grundlegendes zur Verschlüsselung ruhender Daten in Azure](../security/fundamentals/encryption-atrest.md)
 
-- [Konfigurieren der von Kunden verwalteten Verschlüsselungsschlüssel](../storage/common/storage-encryption-keys-portal.md)
+- [Konfigurieren der von Kunden verwalteten Verschlüsselungsschlüssel](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 **Azure Security Center-Überwachung**: Nicht zutreffend
 
@@ -572,7 +573,7 @@ Microsoft verwaltet die zugrunde liegende Infrastruktur für Machine Learning un
 
 ## <a name="vulnerability-management"></a>Verwaltung von Sicherheitsrisiken
 
-*Weitere Informationen finden Sie unter [Azure-Sicherheitsvergleichstest: Verwaltung von Sicherheitsrisiken](/azure/security/benchmarks/security-control-vulnerability-management).*
+*Weitere Informationen finden Sie unter [Azure-Sicherheitsvergleichstest: Verwaltung von Sicherheitsrisiken](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: Ausführen automatisierter Scan-Tools für Sicherheitsrisiken
 
@@ -580,7 +581,7 @@ Microsoft verwaltet die zugrunde liegende Infrastruktur für Machine Learning un
 
 Azure Machine Learning bietet unterschiedliche Unterstützung für verschiedene Computeressourcen und sogar Ihre eigenen Computeressourcen. Befolgen Sie für Computeressourcen, die sich im Besitz Ihrer Organisation befinden, die Empfehlungen aus Azure Security Center zum Durchführen von Sicherheitsrisikobewertungen für Ihre virtuellen Azure-Computer, Containerimages und SQL Server-Instanzen.
 
-- [Implementieren von Empfehlungen für die Sicherheitsrisikobewertung aus Azure Security Center](../security-center/security-center-vulnerability-assessment-recommendations.md)
+- [Implementieren von Empfehlungen für die Sicherheitsrisikobewertung aus Azure Security Center](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Azure Security Center-Überwachung**: Nicht zutreffend
 
@@ -592,9 +593,9 @@ Azure Machine Learning bietet unterschiedliche Unterstützung für verschiedene 
 
 Azure Machine Learning bietet unterschiedliche Unterstützung für verschiedene Computeressourcen und sogar Ihre eigenen Computeressourcen. Verwenden Sie für alle Computeressourcen, die sich im Besitz Ihrer Organisation befinden, Azure Automation-Updateverwaltung, um sicherzustellen, dass die aktuellsten Sicherheitsupdates auf Ihren Windows- und Linux-VMs installiert sind. Stellen Sie bei virtuellen Windows-Computern sicher, dass Windows Update aktiviert wurde und auf „Automatisch Aktualisieren“ festgelegt ist.
 
-- [Konfigurieren der Updateverwaltung für virtuelle Computer in Azure](/azure/automation/automation-update-management)
+- [Konfigurieren der Updateverwaltung für virtuelle Computer in Azure](../automation/update-management/overview.md)
 
-- [Grundlegendes zu von Security Center überwachten Azure-Sicherheitsrichtlinien](../security-center/security-center-policy-definitions.md)
+- [Grundlegendes zu von Security Center überwachten Azure-Sicherheitsrichtlinien](../security-center/policy-reference.md)
 
 **Azure Security Center-Überwachung**: Nicht zutreffend
 
@@ -612,7 +613,7 @@ Azure Machine Learning bietet unterschiedliche Unterstützung für verschiedene 
 
 **Leitfaden**: Azure Machine Learning bietet unterschiedliche Unterstützung für verschiedene Computeressourcen und sogar Ihre eigenen Computeressourcen. Befolgen Sie für Computeressourcen, die sich im Besitz Ihrer Organisation befinden, Empfehlungen aus Azure Security Center zum Durchführen von Sicherheitsrisikobewertungen für Ihre virtuellen Azure-Computer, Containerimages und SQL Server-Instanzen. Exportieren Sie die Scanergebnisse in regelmäßigen Abständen und vergleichen Sie die Ergebnisse mit vorherigen Scans, um zu überprüfen, ob die Sicherheitsrisiken behoben wurden. Wenn Sie die von Azure Security Center vorgeschlagenen Empfehlungen zur Verwaltung von Sicherheitsrisiken verwenden, können Sie in das Portal der ausgewählten Lösung wechseln, um die historischen Scandaten anzuzeigen.
 
-- [Implementieren von Empfehlungen für die Sicherheitsrisikobewertung aus Azure Security Center](../security-center/security-center-vulnerability-assessment-recommendations.md)
+- [Implementieren von Empfehlungen für die Sicherheitsrisikobewertung aus Azure Security Center](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Azure Security Center-Überwachung**: Nicht zutreffend
 
@@ -628,7 +629,7 @@ Azure Machine Learning bietet unterschiedliche Unterstützung für verschiedene 
 
 ## <a name="inventory-and-asset-management"></a>Bestands- und Ressourcenverwaltung
 
-*Weitere Informationen finden Sie unter [Azure-Sicherheitsvergleichstest: Bestands- und Ressourcenverwaltung](/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Weitere Informationen finden Sie unter [Azure-Sicherheitsvergleichstest: Bestands- und Ressourcenverwaltung](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1: Verwenden der automatisierten Asset Discovery-Lösung
 
@@ -638,7 +639,7 @@ Obwohl klassische Azure-Ressourcen über Azure Resource Graph Explorer ermittelt
 
 - [Schnellstart: Ausführen Ihrer ersten Resource Graph-Abfrage mithilfe des Azure Resource Graph-Explorers](../governance/resource-graph/first-query-portal.md)
 
-- [Anzeigen Ihrer Azure-Abonnements](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Anzeigen Ihrer Azure-Abonnements](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Grundlegendes zu Azure RBAC](../role-based-access-control/overview.md)
 
@@ -650,7 +651,7 @@ Obwohl klassische Azure-Ressourcen über Azure Resource Graph Explorer ermittelt
 
 **Leitfaden**: Wenden Sie Tags auf Ihre Azure-Ressourcen an, um Metadaten hinzuzufügen und die Ressourcen einer Taxonomie entsprechend logisch zu organisieren.
 
-- [Erstellen und Verwenden von Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [Erstellen und Verwenden von Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center-Überwachung**: Nicht zutreffend
 
@@ -662,15 +663,15 @@ Obwohl klassische Azure-Ressourcen über Azure Resource Graph Explorer ermittelt
  
  
  
-- [Erstellen zusätzlicher Azure-Abonnements](/azure/billing/billing-create-subscription)
+- [Erstellen zusätzlicher Azure-Abonnements](../cost-management-billing/manage/create-subscription.md)
  
  
  
-- [Erstellen von Verwaltungsgruppen](../governance/management-groups/create.md)
+- [Erstellen von Verwaltungsgruppen](../governance/management-groups/create-management-group-portal.md)
  
  
  
-- [Erstellen und Verwenden von Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [Erstellen und Verwenden von Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center-Überwachung**: Nicht zutreffend
 
@@ -784,7 +785,7 @@ Implementieren Sie eine Drittanbieterlösung, wenn adaptive Anwendungssteuerunge
 
 **Leitfaden**: Azure Machine Learning bietet unterschiedliche Unterstützung für verschiedene Computeressourcen und sogar Ihre eigenen Computeressourcen. Für Computeressourcen, die sich im Besitz Ihrer Organisation befinden, können Sie abhängig vom Skripttyp betriebssystemspezifische Konfigurationen oder Ressourcen von Drittanbietern verwenden, um die Möglichkeit von Benutzern zur Skriptausführung innerhalb von Azure-Computeressourcen einzuschränken.  Sie können auch die adaptiven Anwendungssteuerungen in Azure Security Center verwenden, um sicherzustellen, dass nur autorisierte Software ausgeführt und die Ausführung jeglicher nicht autorisierter Software in Azure Virtual Machines blockiert wird.
 
-- [Steuern der PowerShell-Skriptausführung in Windows-Umgebungen](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+- [Steuern der PowerShell-Skriptausführung in Windows-Umgebungen](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 
 - [Verwenden der adaptiven Anwendungssteuerungen in Azure Security Center](../security-center/security-center-adaptive-application.md)
 
@@ -802,7 +803,7 @@ Implementieren Sie eine Drittanbieterlösung, wenn adaptive Anwendungssteuerunge
 
 ## <a name="secure-configuration"></a>Sichere Konfiguration
 
-*Weitere Informationen finden Sie unter [Azure-Sicherheitsvergleichstest: Sichere Konfiguration](/azure/security/benchmarks/security-control-secure-configuration).*
+*Weitere Informationen finden Sie unter [Azure-Sicherheitsvergleichstest: Sichere Konfiguration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Einrichten sicherer Konfigurationen für alle Azure-Ressourcen
 
@@ -814,7 +815,7 @@ Sie können auch die Empfehlungen von Azure Security Center als sichere Konfigur
 
 Azure Machine Learning unterstützt Git-Repositorys zur Nachverfolgung der Arbeit – Sie können Repositorys direkt für Ihr freigegebenes Arbeitsbereichsdateisystem klonen, Git auf Ihrer lokalen Arbeitsstation verwenden und als Teil Ihrer Machine Learning-Umgebung sicherstellen, dass sichere Konfigurationen für Coderessourcen gelten.
 
-- [Anzeigen verfügbarer Azure Policy-Aliase](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Anzeigen verfügbarer Azure Policy-Aliase](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Tutorial: Erstellen und Verwalten von Richtlinien zur Konformitätserzwingung](../governance/policy/tutorials/create-and-manage.md)
 
@@ -870,7 +871,7 @@ Azure Machine Learning bietet unterschiedliche Unterstützung für verschiedene 
 
 Beachten Sie, dass von Microsoft in Azure Marketplace veröffentlichte VM-Images von Microsoft verwaltet und gepflegt werden. 
 
-- [Implementieren von Empfehlungen für die Sicherheitsrisikobewertung aus Azure Security Center](../security-center/security-center-vulnerability-assessment-recommendations.md)
+- [Implementieren von Empfehlungen für die Sicherheitsrisikobewertung aus Azure Security Center](../security-center/deploy-vulnerability-assessment-vm.md)
 
 - [Erstellen eines virtuellen Azure-Computers mithilfe einer ARM-Vorlage](../virtual-machines/windows/ps-template.md)
 
@@ -892,9 +893,9 @@ Beachten Sie, dass von Microsoft in Azure Marketplace veröffentlichte VM-Images
 
 Azure Machine Learning unterstützt Git-Repositorys zur Nachverfolgung der Arbeit – Sie können Repositorys direkt für Ihr freigegebenes Arbeitsbereichsdateisystem klonen, Git auf Ihrer lokalen Arbeitsstation verwenden und als Teil Ihrer Machine Learning-Umgebung sicherstellen, dass sichere Konfigurationen für Coderessourcen gelten.
 
-- [Speichern von Code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Speichern von Code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Dokumentation zu Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Dokumentation zu Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center-Überwachung**: Nicht zutreffend
 
@@ -902,15 +903,17 @@ Azure Machine Learning unterstützt Git-Repositorys zur Nachverfolgung der Arbei
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: Sicheres Speichern von benutzerdefinierten Betriebssystemimages
 
-**Leitfaden**: Azure Machine Learning bietet unterschiedliche Unterstützung für verschiedene Computeressourcen und sogar Ihre eigenen Computeressourcen. Verwenden Sie für Computeressourcen, die sich im Besitz Ihrer Organisation befinden, rollenbasierte Zugriffssteuerung in Azure (RBAC), um sicherzustellen, dass nur autorisierte Benutzer auf Ihre benutzerdefinierten Images zugreifen können. Mit einer Azure Shared Image Gallery können Sie Ihre Images für unterschiedliche Benutzer, Dienstprinzipale oder AD-Gruppen in Ihrer Organisation freigeben. Speichern Sie Containerimages in Azure Container Registry, und stellen Sie mithilfe von RBAC sicher, dass nur autorisierte Benutzer über Zugriff verfügen.
+**Leitfaden**: Azure Machine Learning bietet unterschiedliche Unterstützung für verschiedene Computeressourcen und sogar Ihre eigenen Computeressourcen. Verwenden Sie für Computeressourcen, die sich im Besitz Ihrer Organisation befinden, rollenbasierte Zugriffssteuerung in Azure (Azure RBAC), um sicherzustellen, dass nur autorisierte Benutzer auf Ihre benutzerdefinierten Images zugreifen können. Mit einer Azure Shared Image Gallery können Sie Ihre Images für unterschiedliche Benutzer, Dienstprinzipale oder AD-Gruppen in Ihrer Organisation freigeben. Speichern Sie Containerimages in Azure Container Registry, und stellen Sie mithilfe von Azure RBAC sicher, dass nur autorisierte Benutzer über Zugriff verfügen.
 
-- [Grundlegendes zu RBAC in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Grundlegendes zu Azure RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-- [Grundlegendes zu RBAC für Container Registry](../container-registry/container-registry-roles.md)
+- [Grundlegendes zu Azure RBAC für Container Registry](../container-registry/container-registry-roles.md)
 
-- [Konfigurieren von RBAC in Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+- [Konfigurieren von Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 - [Übersicht über den Katalog mit freigegebenen Images](../virtual-machines/windows/shared-image-galleries.md)
+
+- [Verwenden von Azure RBAC für die Kubernetes-Autorisierung](../aks/manage-azure-rbac.md)
 
 **Azure Security Center-Überwachung**: Nicht zutreffend
 
@@ -958,7 +961,7 @@ Azure Machine Learning bietet unterschiedliche Unterstützung für verschiedene 
 
 Azure Machine Learning bietet unterschiedliche Unterstützung für verschiedene Computeressourcen und sogar Ihre eigenen Computeressourcen. Verwenden Sie für Computeressourcen, die sich im Besitz Ihrer Organisation befinden, Compute &amp; Apps von Azure Security Center, und befolgen Sie die Empfehlungen für VMs und Server sowie Container.
 
-- [Grundlegendes zu Azure Security Center-Containerempfehlungen](/azure/security-center/security-center-container-recommendations)
+- [Grundlegendes zu Azure Security Center-Containerempfehlungen](../security-center/container-security.md)
 
 **Azure Security Center-Überwachung**: Nicht zutreffend
 
@@ -978,11 +981,11 @@ Verwenden Sie Azure Key Vault anstelle von Klartext in Ihren Trainingsskripts, u
 
 - [Verwenden von verwalteten Identitäten für Azure-Ressourcen](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-- [Erstellen einer Key Vault-Instanz](/azure/key-vault/quick-create-portal)
+- [Erstellen einer Key Vault-Instanz](../key-vault/general/quick-create-portal.md)
 
-- [Authentifizieren bei Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+- [Authentifizieren bei Key Vault](../key-vault/general/authentication.md)
 
-- [Zuweisen einer Key Vault-Zugriffsrichtlinie](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
+- [Zuweisen einer Key Vault-Zugriffsrichtlinie](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -1013,7 +1016,7 @@ Verwenden Sie Azure Key Vault anstelle von Klartext in Ihren Trainingsskripts, u
 
 ## <a name="malware-defense"></a>Schutz vor Schadsoftware
 
-*Weitere Informationen finden Sie unter [Azure-Sicherheitsvergleichstest: Schutz vor Schadsoftware](/azure/security/benchmarks/security-control-malware-defense).*
+*Weitere Informationen finden Sie unter [Azure-Sicherheitsvergleichstest: Schutz vor Schadsoftware](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-antimalware-software"></a>8.1: Verwenden zentral verwalteter Antischadsoftware
 
@@ -1023,7 +1026,7 @@ Azure Machine Learning bietet unterschiedliche Unterstützung für verschiedene 
 
 - [Konfigurieren von Microsoft Antimalware für Azure](../security/fundamentals/antimalware.md)
 
-- [Bedrohungsschutz in Azure Security Center](../security-center/threat-protection.md)
+- [Bedrohungsschutz in Azure Security Center](../security-center/azure-defender.md)
 
 **Azure Security Center-Überwachung**: Nicht zutreffend
 
@@ -1053,7 +1056,7 @@ Azure Machine Learning bietet unterschiedliche Unterstützung für verschiedene 
 
 ## <a name="data-recovery"></a>Datenwiederherstellung
 
-*Weitere Informationen finden Sie unter [Azure-Sicherheitsvergleichstest: Datenwiederherstellung](/azure/security/benchmarks/security-control-data-recovery).*
+*Weitere Informationen finden Sie unter [Azure-Sicherheitsvergleichstest: Datenwiederherstellung](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Sicherstellen regelmäßiger automatisierter Sicherungen
 
@@ -1070,7 +1073,7 @@ Azure Machine Learning bietet unterschiedliche Unterstützung für verschiedene 
 **Leitfaden**: Datensicherung in Machine Learning Service erfolgt über Datenverwaltung in verbundenen Datenspeichern. Aktivieren Sie Azure Backup für VMs, und konfigurieren Sie die gewünschte Häufigkeit und Beibehaltungsdauer. Sichern Sie kundenseitig verwaltete Schlüsseln in Azure Key Vault.
 
 - [Wiederherstellen von Dateien aus einer Sicherung von virtuellen Azure-Computern](../backup/backup-azure-restore-files-from-vm.md)
-- [Wiederherstellen von Key Vault-Schlüsseln in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Wiederherstellen von Key Vault-Schlüsseln in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Azure Security Center-Überwachung**: Nicht zutreffend
 
@@ -1088,16 +1091,16 @@ Azure Machine Learning bietet unterschiedliche Unterstützung für verschiedene 
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Sicherstellen des Schutzes von Sicherungen und von kundenseitig verwalteten Schlüsseln
 
-**Leitfaden**: Für die lokale Sicherung erfolgt eine Verschlüsselung im Ruhezustand über die beim Sichern in Azure bereitgestellte Passphrase. Verwenden Sie rollenbasierte Zugriffssteuerung, um Sicherungen und kundenseitig verwaltete Schlüssel zu schützen. 
+**Leitfaden**: Für die lokale Sicherung erfolgt eine Verschlüsselung im Ruhezustand über die beim Sichern in Azure bereitgestellte Passphrase. Verwenden Sie rollenbasierte Zugriffssteuerung in Azure, um Sicherungen und kundenseitig verwaltete Schlüssel zu schützen. 
 
 Aktivieren Sie vorläufiges Löschen und den Löschschutz in Key Vault, um Schlüssel vor versehentlichem oder böswilligem Löschen zu schützen. Wenn Azure Storage zum Speichern von Sicherungen verwendet wird, aktivieren Sie vorläufiges Löschen, um Ihre Daten zu speichern und wiederherzustellen, wenn Blobs oder Blobmomentaufnahmen gelöscht werden.
  
  
 - [Grundlegendes zu Azure RBAC](../role-based-access-control/overview.md)
 
-- [Aktivieren des vorläufigen Löschens und des Löschschutzes in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Aktivieren des vorläufigen Löschens und des Löschschutzes in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-- [Vorläufiges Löschen für Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Vorläufiges Löschen für Azure Blob Storage](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center-Überwachung**: Nicht zutreffend
 
@@ -1105,7 +1108,7 @@ Aktivieren Sie vorläufiges Löschen und den Löschschutz in Key Vault, um Schl�
 
 ## <a name="incident-response"></a>Reaktion auf Vorfälle
 
-*Weitere Informationen finden Sie unter [Azure-Sicherheitsvergleichstest: Reaktion auf Vorfälle](/azure/security/benchmarks/security-control-incident-response).*
+*Weitere Informationen finden Sie unter [Azure-Sicherheitsvergleichstest: Reaktion auf Vorfälle](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Erstellen eines Leitfadens für die Reaktion auf Vorfälle
 
@@ -1129,7 +1132,7 @@ Markieren Sie Abonnements außerdem mithilfe von Tags, und erstellen Sie ein Ben
 
 - [Sicherheitswarnungen in Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-- [Verwenden von Tags zum Organisieren von Azure-Ressourcen](/azure/azure-resource-manager/resource-group-using-tags)
+- [Verwenden von Tags zum Organisieren von Azure-Ressourcen](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -1179,7 +1182,7 @@ Markieren Sie Abonnements außerdem mithilfe von Tags, und erstellen Sie ein Ben
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Penetrationstests und Red Team-Übungen
 
-*Weitere Informationen finden Sie unter [Azure-Sicherheitsvergleichstest: Penetrationstests und Red Team-Übungen](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Weitere Informationen finden Sie unter [Azure-Sicherheitsvergleichstest: Penetrationstests und Red Team-Übungen](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Durchführen regelmäßiger Penetrationstests Ihrer Azure-Ressourcen und Sicherstellen der Behebung aller kritischen Sicherheitsergebnissen
 
@@ -1195,5 +1198,5 @@ Markieren Sie Abonnements außerdem mithilfe von Tags, und erstellen Sie ein Ben
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Lesen Sie den [Vergleichstest für die Azure-Sicherheit](/azure/security/benchmarks/overview).
-- Erfahren Sie mehr über [Azure-Sicherheitsbaselines](/azure/security/benchmarks/security-baselines-overview).
+- Lesen Sie den [Vergleichstest für die Azure-Sicherheit](../security/benchmarks/overview.md).
+- Erfahren Sie mehr über [Azure-Sicherheitsbaselines](../security/benchmarks/security-baselines-overview.md).

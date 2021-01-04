@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: 4a0529248c58f7fa7f962d9d1432411c351c7bdd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e64f4ab31aed5c4c3e70ef10faf2049027525014
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440642"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593643"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Fehlertoleranz der Kopieraktivität in Azure Data Factory
 > [!div class="op_single_selector" title1="Wählen Sie die von Ihnen verwendete Version des Data Factory-Diensts aus:"]
@@ -27,7 +27,7 @@ ms.locfileid: "89440642"
 
 Wenn Sie Daten aus dem Quell- in den Zielspeicher kopieren, bietet die Azure Data Factory-Kopieraktivität eine bestimmte Ebene von Fehlertoleranzen, um eine Unterbrechung aufgrund Fehlern während der Datenverschiebung zu verhindern. Sie kopieren beispielsweise Millionen von Zeilen aus dem Quell- in den Zielspeicher. In der Zieldatenbank wurde ein Primärschlüssel (Primary Key, PK) erstellt, für die Quelldatenbank aber wurden keine Primärschlüssel definiert. Wenn Sie doppelte Zeilen aus der Quelle in das Ziel kopieren, wird diese PK-Verletzung in der Zieldatenbank angezeigt. Dann bietet Ihnen die Kopieraktivität zwei Möglichkeiten zur Behandlung solcher Fehler: 
 - Sie können die Kopieraktivität abbrechen, sobald ein Fehler aufgetreten ist. 
-- Sie können den Rest weiter kopieren, indem Sie die Fehlertoleranz aktivieren, um die inkompatiblen Daten zu überspringen. Überspringen Sie in diesem Fall beispielsweise die doppelte Zeile. Außerdem können Sie die übersprungenen Daten protokollieren, indem Sie das Sitzungsprotokoll innerhalb der Kopieraktivität aktivieren. 
+- Sie können den Rest weiter kopieren, indem Sie die Fehlertoleranz aktivieren, um die inkompatiblen Daten zu überspringen. Überspringen Sie in diesem Fall beispielsweise die doppelte Zeile. Außerdem können Sie die übersprungenen Daten protokollieren, indem Sie das Sitzungsprotokoll innerhalb der Kopieraktivität aktivieren. Ausführlichere Informationen finden Sie im [Sitzungsprotokoll in der Copy-Aktivität](copy-activity-log.md).
 
 ## <a name="copying-binary-files"></a>Kopieren von Binärdateien 
 
@@ -61,13 +61,20 @@ Wenn Sie Binärdateien zwischen Storage-Speichern kopieren, können Sie die Fehl
         "dataInconsistency": true 
     }, 
     "validateDataConsistency": true, 
-    "logStorageSettings": { 
-        "linkedServiceName": { 
-            "referenceName": "ADLSGen2", 
-            "type": "LinkedServiceReference" 
-            }, 
-        "path": "sessionlog/" 
-     } 
+    "logSettings": {
+        "enableCopyActivityLog": true,
+        "copyActivityLogSettings": {            
+            "logLevel": "Warning",
+            "enableReliableLogging": false
+        },
+        "logLocationSettings": {
+            "linkedServiceName": {
+               "referenceName": "ADLSGen2",
+               "type": "LinkedServiceReference"
+            },
+            "path": "sessionlog/"
+        }
+    }
 } 
 ```
 Eigenschaft | BESCHREIBUNG | Zulässige Werte | Erforderlich
@@ -76,7 +83,7 @@ skipErrorFile | Eine Gruppe von Eigenschaften zur Angabe der Fehlertypen, die w�
 fileMissing | Eines der Schlüssel-Wert-Paare in der „skipErrorFile“-Eigenschaftensammlung zur Bestimmung, ob Sie von anderen Anwendungen gelöschte Dateien überspringen möchten, wenn ADF in der Zwischenzeit kopiert. <br/> – True: Sie möchten den Rest kopieren, indem Sie die von anderen Anwendungen gelöschten Dateien überspringen. <br/> – False: Die Kopieraktivität soll abgebrochen werden, sobald alle Dateien während der Datenverschiebung aus dem Quellspeicher gelöscht werden. <br/>Beachten Sie, dass diese Eigenschaft auf „true“ als Standardwert festgelegt wird. | True (Standard) <br/>False | Nein
 fileForbidden | Eines der Schlüssel-Wert-Paare in der „skipErrorFile“-Eigenschaftensammlung zur Bestimmung, ob Sie die jeweiligen Dateien überspringen möchten, wenn die ACLs dieser Dateien oder Ordner eine höhere Berechtigungsstufe als die in ADF konfigurierte Verbindung erfordern. <br/> – True: Sie möchten den Rest kopieren, indem Sie die Dateien überspringen. <br/> – False: Sie möchten die Kopieraktivität abbrechen, nachdem Ihnen das Berechtigungsproblem bei Ordnern oder Dateien mitgeteilt wurde. | True <br/>False (Standard) | Nein
 dataInconsistency | Eines der Schlüssel-Wert-Paare in der „skipErrorFile“-Eigenschaftensammlung zur Bestimmung, ob Sie die inkonsistenten Daten zwischen Quell- und Zielspeicher überspringen möchten. <br/> – True: Sie möchten den Rest kopieren, indem Sie inkonsistente Daten überspringen. <br/> – False: Sie möchten die Kopieraktivität abbrechen, sobald inkonsistente Daten gefunden wurden. <br/>Beachten Sie, dass diese Eigenschaft nur gültig ist, wenn Sie „validateDataConsistency“ als „True“ festlegen. | True <br/>False (Standard) | Nein
-logStorageSettings  | Eine Gruppe von Eigenschaften, die angegeben werden können, wenn Sie die Namen der übersprungenen Objekte protokollieren möchten. | &nbsp; | Nein
+logSettings  | Eine Gruppe von Eigenschaften, die angegeben werden können, wenn Sie die Namen der übersprungenen Objekte protokollieren möchten. | &nbsp; | Nein
 linkedServiceName | Der verknüpfte Dienst von [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) oder [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) zum Speichern der Sitzungsprotokolldateien. | Die Namen eines verknüpften Diensts vom Typ `AzureBlobStorage` oder `AzureBlobFS`, der auf die Instanz verweist, in der Sie die Protokolldatei speichern. | Nein
 path | Der Pfad der Protokolldateien. | Geben Sie den Pfad an, in dem Sie die Protokolldateien speichern. Wenn Sie keinen Pfad angeben, erstellt der Dienst automatisch einen Container. | Nein
 
@@ -93,7 +100,7 @@ path | Der Pfad der Protokolldateien. | Geben Sie den Pfad an, in dem Sie die Pr
 > - Nur bei der Angabe mehrerer Dateien im Quelldataset, bei dem es sich um einen Ordner, einen Platzhalter oder eine Liste von Dateien handeln kann, kann die Kopieraktivität die jeweiligen fehlerhaften Dateien überspringen. Wenn im Quelldataset eine einzelne Datei angegeben ist, die an das Ziel kopiert werden soll, schlägt die Kopieraktivität fehl, wenn ein Fehler aufgetreten ist.
 >
 > Zum Überspringen bestimmter Dateien, wenn überprüft wird, dass sie zwischen Quell- und Zielspeicher inkonsistent sind:
-> - Weitere Informationen finden Sie [hier](https://docs.microsoft.com/azure/data-factory/copy-activity-data-consistency) im Dokument zur Datenkonsistenz.
+> - Weitere Informationen finden Sie [hier](./copy-activity-data-consistency.md) im Dokument zur Datenkonsistenz.
 
 ### <a name="monitoring"></a>Überwachung 
 
@@ -108,7 +115,7 @@ Sie können die Anzahl der Dateien, die gelesen, geschrieben und übersprungen w
             "filesWritten": 1, 
             "filesSkipped": 2, 
             "throughput": 297,
-            "logPath": "https://myblobstorage.blob.core.windows.net//myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
+            "logFilePath": "myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
             "dataConsistencyVerification": 
            { 
                 "VerificationResult": "Verified", 
@@ -161,7 +168,7 @@ Die Kopieraktivität unterstützt drei Szenarien zum Erkennen, Überspringen und
 >[!NOTE]
 >- Wenn Sie Daten mit PolyBase in Azure Synapse Analytics (ehemals SQL Data Warehouse) laden möchten, konfigurieren Sie die nativen Fehlertoleranzeinstellungen von PolyBase, indem Sie in der Kopieraktivität über „[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)“ Ablehnungsrichtlinien angeben. Sie können für nicht mit PolyBase kompatible Zeilen weiterhin die Umleitung an ein Blob oder ADLS aktivieren, wie unten gezeigt.
 >- Dieses Feature ist nicht anwendbar, wenn die Kopieraktivität zum Aufruf von [Amazon Redshift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift) konfiguriert ist.
->- Dieses Feature ist nicht anwendbar, wenn die Kopieraktivität dafür konfiguriert ist, eine [gespeicherte Prozedur aus einer SQL-Senke](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink) aufzurufen.
+>- Dieses Feature ist nicht anwendbar, wenn die Kopieraktivität dafür konfiguriert ist, eine [gespeicherte Prozedur aus einer SQL-Senke](./connector-azure-sql-database.md#invoke-a-stored-procedure-from-a-sql-sink) aufzurufen.
 
 ### <a name="configuration"></a>Konfiguration
 Das folgende Beispiel zeigt eine JSON-Definition, mit der das Überspringen der inkompatiblen Zeilen in der Kopieraktivität konfiguriert wird:
@@ -175,12 +182,19 @@ Das folgende Beispiel zeigt eine JSON-Definition, mit der das Überspringen der 
         "type": "AzureSqlSink" 
     }, 
     "enableSkipIncompatibleRow": true, 
-    "logStorageSettings": { 
-    "linkedServiceName": { 
-        "referenceName": "ADLSGen2", 
-        "type": "LinkedServiceReference" 
-        }, 
-    "path": "sessionlog/" 
+    "logSettings": {
+        "enableCopyActivityLog": true,
+        "copyActivityLogSettings": {            
+            "logLevel": "Warning",
+            "enableReliableLogging": false
+        },
+        "logLocationSettings": {
+            "linkedServiceName": {
+               "referenceName": "ADLSGen2",
+               "type": "LinkedServiceReference"
+            },
+            "path": "sessionlog/"
+        }
     } 
 }, 
 ```
@@ -188,7 +202,7 @@ Das folgende Beispiel zeigt eine JSON-Definition, mit der das Überspringen der 
 Eigenschaft | BESCHREIBUNG | Zulässige Werte | Erforderlich
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Gibt an, ob nicht kompatible Zeilen beim Kopieren übersprungen werden sollen. | True<br/>False (Standardwert) | Nein
-logStorageSettings | Eine Gruppe von Eigenschaften, die angegeben werden können, wenn Sie die inkompatiblen Zeilen protokollieren möchten. | &nbsp; | Nein
+logSettings | Eine Gruppe von Eigenschaften, die angegeben werden können, wenn Sie die inkompatiblen Zeilen protokollieren möchten. | &nbsp; | Nein
 linkedServiceName | Der verknüpfte Dienst von [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) oder [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) zum Speichern des Protokolls mit den übersprungenen Zeilen. | Die Namen eines verknüpften Diensts vom Typ `AzureBlobStorage` oder `AzureBlobFS`, der auf die Instanz verweist, in der Sie die Protokolldatei speichern. | Nein
 path | Der Pfad der Protokolldateien mit den übersprungenen Zeilen. | Geben Sie den gewünschten Pfad für die Protokollierung der inkompatiblen Daten an. Wenn Sie keinen Pfad angeben, erstellt der Dienst automatisch einen Container. | Nein
 
@@ -203,7 +217,7 @@ Nach Abschluss der Ausführung der Kopieraktivität wird die Anzahl übersprunge
             "rowsSkipped": 2,
             "copyDuration": 16,
             "throughput": 0.01,
-            "logPath": "https://myblobstorage.blob.core.windows.net//myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
+            "logFilePath": "myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
             "errors": []
         },
 
@@ -298,5 +312,3 @@ Weitere Informationen finden Sie in den anderen Artikeln zur Kopieraktivität:
 
 - [Kopieraktivität – Übersicht](copy-activity-overview.md)
 - [Leistung der Kopieraktivität](copy-activity-performance.md)
-
-

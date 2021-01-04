@@ -5,16 +5,16 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 58ce4d7593b23807f4b31e3e71cbfdcd873b1fcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3249ba2089c3d9650aa46f665353ad392d0e773
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253495"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365566"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Relevanzbewertungen geben den Erfolg der Personalisierung an.
 
-Die Relevanzbewertung gibt an, wie gut die Personalisierungsauswahl – die [RewardActionID](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/rank/rank#response) – für den Benutzer war. Der Wert der Relevanzbewertung richtet sich nach Ihrer Geschäftslogik und basiert auf Beobachtungen zum Benutzerverhalten.
+Die Relevanzbewertung gibt an, wie gut die Personalisierungsauswahl – die [RewardActionID](/rest/api/cognitiveservices/personalizer/rank/rank#response) – für den Benutzer war. Der Wert der Relevanzbewertung richtet sich nach Ihrer Geschäftslogik und basiert auf Beobachtungen zum Benutzerverhalten.
 
 Die Personalisierung trainiert die eigenen Machine Learning-Modelle durch Auswertung der Relevanz.
 
@@ -22,7 +22,7 @@ Erfahren Sie, [wie](how-to-settings.md#configure-rewards-for-the-feedback-loop) 
 
 ## <a name="use-reward-api-to-send-reward-score-to-personalizer"></a>Verwenden der Relevanz-API für die Bewertung der Personalisierung
 
-Die Relevanzergebnisse werden mithilfe der [Relevanz-API](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/reward) an die Personalisierung übermittelt. In der Regel wird die Relevanz als Zahl zwischen 0 und 1 angegeben. Ein negatives Relevanzergebnis mit dem Wert -1 ist in bestimmten Szenarien möglich und sollte nur verwendet werden, wenn Sie Erfahrung mit dem vertiefenden Lernen (Reinforcement Learning, RL) haben. Die Personalisierung trainiert das Modell, um im Lauf der Zeit die höchstmögliche Relevanzsumme zu erreichen.
+Die Relevanzergebnisse werden mithilfe der [Relevanz-API](/rest/api/cognitiveservices/personalizer/events/reward) an die Personalisierung übermittelt. In der Regel wird die Relevanz als Zahl zwischen 0 und 1 angegeben. Ein negatives Relevanzergebnis mit dem Wert -1 ist in bestimmten Szenarien möglich und sollte nur verwendet werden, wenn Sie Erfahrung mit dem vertiefenden Lernen (Reinforcement Learning, RL) haben. Die Personalisierung trainiert das Modell, um im Lauf der Zeit die höchstmögliche Relevanzsumme zu erreichen.
 
 Die Relevanzergebnisse werden nach dem Benutzerverhalten übermittelt, wobei ein Zeitraum von mehreren Tagen vergehen kann. Die maximale Zeitspanne, die die Personalisierung wartet, bevor ein Ereignis als ohne Relevanz oder als Standardrelevanz eingestuft wird, kann im Azure-Portal mit der [Reward Wait Time](#reward-wait-time) (Relevanzwartezeit) konfiguriert werden.
 
@@ -73,7 +73,7 @@ Sie können die Relevanz-API auch mit derselben Ereignis-ID aufrufen und dabei u
 Aggregationswerte:
 
 *  **Erstes:** Die erste empfangene Relevanzbewertung für das Ereignis wird angewandt, alle späteren werden verworfen.
-* **Sum**: Alle für die eventId erfassten Relevanzbewertungen werden übernommen und zusammenführt.
+* **Sum** : Alle für die eventId erfassten Relevanzbewertungen werden übernommen und zusammenführt.
 
 Sämtliche nach der **Reward Wait Time** (Relevanzwartezeit) empfangenen Bewertungen für ein Ereignis werden verworfen und nicht in das Training von Modellen einbezogen.
 

@@ -1,24 +1,15 @@
 ---
 title: Freigeben von Azure-Portaldashboards mithilfe von rollenbasierter Zugriffssteuerung in Azure
 description: In diesem Artikel wird erläutert, wie Sie mithilfe der rollenbasierten Zugriffssteuerung (Role-Based Access Control, RBAC) ein Dashboard im Azure-Portal freigeben.
-services: azure-portal
-documentationcenter: ''
-author: mgblythe
-manager: mtillman
 ms.assetid: 8908a6ce-ae0c-4f60-a0c9-b3acfe823365
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 03/23/2020
-ms.author: mblythe
-ms.openlocfilehash: b74cae439ce351a4d720f215679cc0802eebe898
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: de2efd75d07c3dc7df771aad1bd9c73453dad212
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092204"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745977"
 ---
 # <a name="share-azure-dashboards-by-using-azure-role-based-access-control"></a>Freigeben von Azure-Dashboards mithilfe der rollenbasierten Zugriffssteuerung
 
@@ -41,7 +32,7 @@ Mit der rollenbasierten Zugriffssteuerung in Azure (Azure RBAC) können Sie Ben
 
 Die von Ihnen zugewiesenen Berechtigungen werden vom Abonnement an die Ressource vererbt. Das veröffentlichte Dashboard ist eine Ressource. Es kann sein, dass Sie Benutzer bereits Rollen für das Abonnement zugewiesen haben, die für das veröffentlichte Dashboard gelten.
 
-Ein Beispiel: Sie verfügen über ein Azure-Abonnement, und verschiedenen Mitgliedern Ihres Teams wurden die Rollen *Besitzer* , *Mitwirkender* oder *Leser* für das Abonnement zugewiesen. Benutzer, die als Besitzer oder Mitwirkende festgelegt sind, können Dashboards im Abonnement anzeigen, erstellen, ändern oder löschen. Benutzer, die als Leser festgelegt wurden, können Dashboards auflisten und anzeigen, aber sie können diese nicht ändern oder löschen. Benutzer mit Leserzugriff können lokale Änderungen an einem veröffentlichten Dashboard vornehmen (z. B. bei der Problembehandlung), aber sie können diese Änderungen nicht erneut auf dem Server veröffentlichen. Sie können eine private Kopie des Dashboards zur eigenen Verwendung erstellen.
+Ein Beispiel: Sie verfügen über ein Azure-Abonnement, und verschiedenen Mitgliedern Ihres Teams wurden die Rollen *Besitzer*, *Mitwirkender* oder *Leser* für das Abonnement zugewiesen. Benutzer, die als Besitzer oder Mitwirkende festgelegt sind, können Dashboards im Abonnement anzeigen, erstellen, ändern oder löschen. Benutzer, die als Leser festgelegt wurden, können Dashboards auflisten und anzeigen, aber sie können diese nicht ändern oder löschen. Benutzer mit Leserzugriff können lokale Änderungen an einem veröffentlichten Dashboard vornehmen (z. B. bei der Problembehandlung), aber sie können diese Änderungen nicht erneut auf dem Server veröffentlichen. Sie können eine private Kopie des Dashboards zur eigenen Verwendung erstellen.
 
 Sie können der Ressourcengruppe mit mehreren Dashboards oder einem einzelnen Dashboard Berechtigungen zuweisen. Beispielsweise können Sie entscheiden, dass eine Gruppe von Benutzern über begrenzte Berechtigungen in Bezug auf das Abonnement und gleichzeitig über einen besseren Zugriff auf ein bestimmtes Dashboard verfügen soll. Weisen Sie diese Benutzer einer Rolle für das Dashboard zu.
 
@@ -51,7 +42,7 @@ Angenommen, Sie konfigurieren ein Dashboard, das Sie für eine Gruppe von Benutz
 
 Vor dem Zuweisen des Zugriffs müssen Sie das Dashboard veröffentlichen.
 
-1. Wählen Sie im Dashboard die Option **Freigeben** .
+1. Wählen Sie im Dashboard die Option **Freigeben**.
 
     ![Auswählen einer Freigabe für Ihr Dashboard](./media/azure-portal-dashboard-share-access/share-dashboard-for-access-control.png)
 
@@ -79,7 +70,7 @@ Sie können einer Gruppe von Benutzern einer Rolle für das Dashboard zuweisen.
 
     ![Hinzufügen eines Benutzers für den Zugriff auf das Dashboard](./media/azure-portal-dashboard-share-access/manage-users-existing-users.png)
 
-1. Wählen Sie die Rolle aus, die die zu gewährenden Berechtigungen darstellt. Wählen Sie für dieses Beispiel die Option **Mitwirkender** .
+1. Wählen Sie die Rolle aus, die die zu gewährenden Berechtigungen darstellt. Wählen Sie für dieses Beispiel die Option **Mitwirkender**.
 
 1. Wählen Sie den Benutzer bzw. die Gruppe aus, der bzw. die der Rolle zugewiesen werden soll. Verwenden Sie das Suchfeld, wenn der gesuchte Benutzer oder die Gruppe in der Liste nicht angezeigt wird. Die Liste mit den verfügbaren Gruppen hängt von den Gruppen ab, die Sie in Active Directory erstellt haben.
 

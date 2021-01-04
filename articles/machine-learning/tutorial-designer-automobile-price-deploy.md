@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Bereitstellen von ML-Modellen mit dem Designer'
 titleSuffix: Azure Machine Learning
-description: In diesem Tutorial erfahren Sie, wie Sie im Azure Machine Learning-Designer eine Predictive Analytics-Lösung erstellen. Sie erhalten Informationen zum Trainieren, Bewerten und Bereitstellen eines Machine Learning-Modells unter Verwendung von Drag & Drop-Modulen.
-author: peterclu
-ms.author: peterlu
+description: Erstellen einer Predictive Analytics-Lösung im Azure Machine Learning-Designer Sie erhalten Informationen zum Trainieren, Bewerten und Bereitstellen eines Machine Learning-Modells mithilfe von Drag & Drop-Modulen.
+author: likebupt
+ms.author: keli19
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 06/28/2020
+ms.date: 11/25/2020
 ms.custom: designer
-ms.openlocfilehash: 95e5b3ac568cfa370fd1e49fad990b681aef46d9
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 14be695f2f58b9738af11a3d2ca3f06592a1cc6e
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311513"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575957"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: Bereitstellen eines Machine Learning-Modells mit dem Designer
 
@@ -63,7 +63,7 @@ Zum Bereitstellen Ihrer Pipeline müssen Sie zunächst die Trainingspipeline in 
 
     Falls dies die erstmalige Ausführung ist, kann es bis zu 20 Minuten dauern, bis der Ausführungsvorgang für die Pipeline vollständig abgeschlossen ist. In den Standardcomputeeinstellungen ist eine minimale Knotengröße von 0 festgelegt. Das bedeutet, dass der Designer Ressourcen nach dem Leerlauf zuordnen muss. Wiederholte Pipelineausführungen werden schneller abgeschlossen, da die Computeressourcen bereits zugeordnet sind. Außerdem verwendet der Designer für jedes Modul zwischengespeicherte Ergebnisse, um die Effizienz weiter zu steigern.
 
-1. Klicken Sie auf **Bereitstellen** .
+1. Klicken Sie auf **Bereitstellen**.
 
 ## <a name="create-an-inferencing-cluster"></a>Erstellen eines Rückschlussclusters
 
@@ -81,7 +81,7 @@ Im angezeigten Dialogfeld können Sie auswählen, in welchen vorhandenen AKS-Clu
     
 1. Wählen Sie unter **Region** eine verfügbare Region in der Nähe aus.
 
-1. Klicken Sie auf **Erstellen** .
+1. Klicken Sie auf **Erstellen**.
 
     > [!NOTE]
     > Die Erstellung eines neuen AKS-Diensts dauert etwa 15 Minuten. Der Bereitstellungsstatus kann auf der Seite **Rückschlusscluster** überprüft werden.
@@ -97,9 +97,9 @@ Kehren Sie nach Abschluss der Bereitstellung des AKS-Diensts zur Echtzeit-Rücks
 
 1. Wählen Sie den erstellten AKS-Cluster aus.
 
-1. Klicken Sie auf **Bereitstellen** .
+1. Klicken Sie auf **Bereitstellen**.
     
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Screenshot: Position der Schaltfläche „Pipeline erstellen“":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Screenshot: Einrichtung eines neuen Echtzeit-Endpunkts":::
 
     Nach Abschluss der Bereitstellung wird über der Canvas eine Erfolgsbenachrichtigung angezeigt. Dies kann einige Minuten dauern.
 
@@ -113,6 +113,8 @@ Nach Abschluss der Bereitstellung können Sie Ihren Echtzeitendpunkt anzeigen, i
 
 1. Auf der Registerkarte **Consume** (Nutzen) finden Sie Sicherheitsschlüssel und Optionen zum Festlegen der Authentifizierungsmethoden.
 
+1. Auf der Registerkarte **Bereitstellungsprotokolle** finden Sie ausführliche Bereitstellungsprotokolle für den Echtzeitendpunkt. 
+
 Weitere Informationen zur Nutzung Ihres Webdiensts finden Sie unter [Nutzen eines als Webdienst bereitgestellten Modells](how-to-consume-web-service.md).
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
@@ -121,7 +123,7 @@ Weitere Informationen zur Nutzung Ihres Webdiensts finden Sie unter [Nutzen eine
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In diesem Tutorial wurden die wichtigsten Schritte zum Erstellen, Bereitstellen und Verwenden eines Machine Learning-Modells im Designer vermittelt. Weitere Informationen zur Verwendung des Designers für andere Arten von Aufgaben finden Sie in unseren anderen Beispielpipelines.
+In diesem Tutorial wurden die wichtigsten Schritte zum Erstellen, Bereitstellen und Verwenden eines Machine Learning-Modells im Designer vermittelt. Weitere Informationen zur Verwendung des Designers finden Sie unter den folgenden Links:
 
-> [!div class="nextstepaction"]
-> [Designer-Beispiele](samples-designer.md)
++ [Designer-Beispiele](samples-designer.md): Erfahren Sie, wie Sie den Designer für andere Arten von Aufgaben verwenden.
++ [Verwenden von Azure Machine Learning Studio in einem virtuellen Netzwerk](how-to-enable-studio-virtual-network.md)

@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99d83005599c59f6a4249014139b594764df8acf
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0932e4b6163264b0b514958e1e898b297e249870
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373194"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378549"
 ---
 # <a name="assign-custom-roles-to-manage-enterprise-apps-in-azure-active-directory"></a>Zuweisen benutzerdefinierter Rollen zum Verwalten von Unternehmens-Apps in Azure Active Directory
 
@@ -76,7 +76,7 @@ Das Erteilen der Berechtigung zum Aktualisieren erfolgt in zwei Schritten:
 
 #### <a name="assignment-tips"></a>Zuweisungstipps
 
-* Wenn Sie zugewiesenen Personen Berechtigungen zum Verwalten des Benutzer- und Gruppenzugriffs für alle organisationsweiten Unternehmens-Apps erteilen möchten, öffnen Sie in Azure AD die Seite **Übersicht** für Ihre Organisation, und bearbeiten Sie die Liste der organisationsweiten **Rollen und Administratoren** .
+* Wenn Sie zugewiesenen Personen Berechtigungen zum Verwalten des Benutzer- und Gruppenzugriffs für alle organisationsweiten Unternehmens-Apps erteilen möchten, öffnen Sie in Azure AD die Seite **Übersicht** für Ihre Organisation, und bearbeiten Sie die Liste der organisationsweiten **Rollen und Administratoren**.
 * Wenn Sie zugewiesenen Personen Berechtigungen zum Verwalten des Benutzer- und Gruppenzugriffs für eine bestimmte Unternehmens-App erteilen möchten, navigieren Sie in Azure AD zu dieser App, und öffnen Sie die Liste **Rollen und Administratoren** für diese App. Wählen Sie die neue benutzerdefinierte Rolle aus, und schließen Sie die Benutzer- oder Gruppenzuweisung ab. Die zugewiesenen Personen können den Benutzer- und Gruppenzugriff nur für diese bestimmte App verwalten.
 * Wenn Sie Ihre benutzerdefinierte Rollenzuweisung testen möchten, melden Sie sich als die zugewiesene Person an, und öffnen Sie die Seite **Benutzer und Gruppen** einer Anwendung, um zu überprüfen, ob die Option **Benutzer hinzufügen** aktiviert ist.
 

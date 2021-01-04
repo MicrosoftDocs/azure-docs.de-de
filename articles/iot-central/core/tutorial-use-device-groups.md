@@ -3,17 +3,16 @@ title: 'Tutorial: Verwenden von Gerätegruppen in Ihrer Azure IoT Central-Anwend
 description: 'Tutorial: Hier erfahren Sie, wie Sie als Operator mithilfe von Gerätegruppen Telemetriedaten von Geräten in Ihrer Azure IoT Central-Anwendung analysieren.'
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/12/2020
+ms.date: 11/16/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-manager: peterpfr
-ms.openlocfilehash: 3192a9f121d4380a3e681747596fc91997662bf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c26afc9cf9630f6d26ddc76759393a6ea1a8696
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90967947"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990272"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>Tutorial: Verwenden von Gerätegruppen zum Analysieren von Gerätetelemetriedaten
 
@@ -29,17 +28,18 @@ In diesem Tutorial lernen Sie Folgendes:
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Erstellen Sie zunächst anhand der Schnellstartanleitungen [Erstellen einer Azure IoT Central-Anwendung](./quick-deploy-iot-central.md) und [Hinzufügen eines simulierten Geräts zu Ihrer IoT Central-Anwendung](./quick-create-simulated-device.md) die Gerätevorlage **MXChip IoT DevKit**, um sie hier verwenden zu können.
+Erstellen Sie zunächst mithilfe der Schnellstartanleitungen [Erstellen einer Azure IoT Central-Anwendung](./quick-deploy-iot-central.md) und [Hinzufügen eines simulierten Geräts zu Ihrer IoT Central-Anwendung](./quick-create-simulated-device.md) die Gerätevorlage **Sensor Controller** (Sensorcontroller), um sie hier verwenden zu können.
 
 ## <a name="create-simulated-devices"></a>Erstellen von simulierten Geräten
 
-Fügen Sie vor dem Erstellen einer Gerätegruppe mindestens fünf simulierte Geräte aus der Gerätevorlage **MXChip IoT DevKit** hinzu, um sie in diesem Tutorial zu verwenden:
+Fügen Sie vor dem Erstellen einer Gerätegruppe mindestens fünf simulierte Geräte auf der Grundlage der Gerätevorlage **Sensor Controller** hinzu, um sie in diesem Tutorial zu verwenden:
 
-![Fünf simulierte Sensorgeräte](./media/tutorial-use-device-groups/simulated-devices.png)
+
+:::image type="content" source="media/tutorial-use-device-groups/simulated-devices.png" alt-text="Screenshot: Fünf simulierte Geräte vom Typ „Sensor Controller“":::
 
 Verwenden Sie bei vier der simulierten Sensorgeräte die Ansicht **Gerät verwalten**, um den Kundennamen auf *Contoso* festzulegen:
 
-![Festlegen des Kundennamens auf „Contoso“](./media/tutorial-use-device-groups/customer-name.png)
+:::image type="content" source="media/tutorial-use-device-groups/customer-name.png" alt-text="Screenshot: Festlegen der Cloudeigenschaft „Kundenname“":::
 
 ## <a name="create-a-device-group"></a>Erstellen einer Gerätegruppe
 
@@ -47,20 +47,18 @@ Gehen Sie wie folgt vor, um eine Gerätegruppe zu erstellen:
 
 1. Wählen Sie im linken Bereich **Gerätegruppen** aus.
 
-1. Wählen Sie **+** aus:
+1. Wählen Sie **+ Neu** aus.
 
-    ![Neue Gerätegruppe](media/tutorial-use-device-groups/image1.png)
+1. Nennen Sie Ihre Gerätegruppe *Contoso devices* (Contoso-Geräte). Sie können auch eine Beschreibung hinzufügen. Eine Gerätegruppe kann nur Geräte aus einer einzigen Gerätevorlage enthalten. Wählen Sie für diese Gruppe die Gerätevorlage **Sensor Controller** aus.
 
-1. Nennen Sie Ihre Gerätegruppe *Contoso-Geräte*. Sie können auch eine Beschreibung hinzufügen. Eine Gerätegruppe kann nur Geräte aus einer einzigen Gerätevorlage enthalten. Wählen Sie die Gerätevorlage **MXChip IoT DevKit** aus, die für diese Gruppe verwendet werden soll.
-
-1. Wenn Sie die Gruppe so anpassen möchten, dass sie nur die zu **Contoso** gehörenden Geräte enthält, wählen Sie **+ Filter** aus. Wählen Sie die Eigenschaft **Kundenname**, den Vergleichsoperator **Ist gleich** und **Contoso** als Wert aus. Sie können mehrere Filter hinzufügen. Dann werden Geräte, die **alle** Filterkriterien erfüllen, in die Gerätegruppe aufgenommen. Die von Ihnen erstellte Gerätegruppe ist für jeden zugänglich, der Zugriff auf die Anwendung hat, sodass jeder die Gerätegruppe anzeigen, ändern oder löschen kann:
-
-    ![Gerätegruppenabfrage](media/tutorial-use-device-groups/image2.png)
+1. Wenn Sie die Gruppe so anpassen möchten, dass sie nur die zu **Contoso** gehörenden Geräte enthält, wählen Sie **+ Filter** aus. Wählen Sie die Eigenschaft **Kundenname**, den Vergleichsoperator **Ist gleich** und **Contoso** als Wert aus. Sie können mehrere Filter hinzufügen. Dann werden Geräte, die **alle** Filterkriterien erfüllen, in die Gerätegruppe aufgenommen. Die von Ihnen erstellte Gerätegruppe ist für jeden zugänglich, der Zugriff auf die Anwendung hat, sodass jeder die Gerätegruppe anzeigen, ändern oder löschen kann.
 
     > [!TIP]
     > Die Gerätegruppe ist eine dynamische Abfrage. Jedes Mal, wenn Sie die Liste der Geräte anzeigen, werden möglicherweise andere Geräte in der Liste angezeigt. Die Liste hängt davon ab, welche Geräte derzeit die Kriterien der Abfrage erfüllen.
 
 1. Wählen Sie **Speichern** aus.
+
+:::image type="content" source="media/tutorial-use-device-groups/device-group-query.png" alt-text="Screenshot: Konfiguration der Gerätegruppenabfrage":::
 
 > [!NOTE]
 > Wählen Sie für „Azure IoT Edge-Geräte“ die Option „Azure IoT Edge-Vorlagen“ aus, um eine Gerätegruppe zu erstellen.
@@ -75,13 +73,13 @@ So analysieren Sie die Telemetriedaten für eine Gerätegruppe:
 
 1. Wählen Sie in der von Ihnen erstellten Gerätegruppe **Contoso-Geräte** aus. Fügen Sie dann die Telemetrietypen **Temperatur** und **Luftfeuchtigkeit** hinzu:
 
-    ![Erstellen von Analysen](./media/tutorial-use-device-groups/create-analysis.png)
+    :::image type="content" source="media/tutorial-use-device-groups/create-analysis.png" alt-text="Screenshot: Für die Analyse ausgewählte Telemetrietypen":::
 
-    Verwenden Sie die Zahnradsymbole neben den Telemetrietypen, um einen Aggregationstyp auszuwählen. Der Standardwert ist **Durchschnitt**. Verwenden Sie **Aufteilen nach**, um die Anzeigeart für die Aggregatdaten zu ändern. Sollten Sie z. B. nach „Geräte-ID“ aufteilen, wird für jedes Gerät ein Plot angezeigt, wenn Sie **Analysieren** auswählen.
+    Verwenden Sie die Zahnradsymbole neben den Telemetrietypen, um einen Aggregationstyp auszuwählen. Der Standardwert ist **Durchschnitt**. Verwenden Sie **Gruppieren nach**, um die Darstellung der Aggregatdaten zu ändern. Sollten Sie z. B. nach „Geräte-ID“ aufteilen, wird für jedes Gerät ein Plot angezeigt, wenn Sie **Analysieren** auswählen.
 
 1. Wählen Sie **Analysieren** aus, um die durchschnittlichen Telemetriewerte anzuzeigen:
 
-    ![Anzeigen der Analyse](./media/tutorial-use-device-groups/view-analysis.png)
+    :::image type="content" source="media/tutorial-use-device-groups/view-analysis.png" alt-text="Screenshot: Durchschnittswerte für alle Contoso-Geräte":::
 
     Sie können die Ansicht anpassen, den angezeigten Zeitraum ändern und die Daten exportieren.
 

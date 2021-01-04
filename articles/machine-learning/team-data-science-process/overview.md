@@ -8,15 +8,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: overview
-ms.date: 1/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fc9a5e604e6ac52eb0e853725123272ca924fa36
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 4a341d33c957af8fe7423bda80f1d34a7f59cdd6
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91362230"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737998"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Was ist der Team Data Science-Prozess (TDSP)?
 
@@ -100,7 +100,7 @@ Es folgt ein Beispiel für ein Team, das an mehreren Projekten arbeitet und vers
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Tools und Hilfsprogramme für die Projektausführung
 
-Die Einführung von Prozessen stellt in den meisten Organisationen eine große Herausforderung dar. Durch bereitgestellte Tools zur Implementierung des Data Science-Prozesses und Data Science-Lebenszyklus lassen sich die Hürden reduzieren und die Konsistenz der Einführung erhöhen. Der TDSP umfasst ein anfängliches Set von Tools und Skripts für den Schnelleinstieg in die Einführung des TDSP in einem Team. Darüber hinaus können einige der allgemeinen Aufgaben im Data Science-Lebenszyklus, z.B. die Datenuntersuchung und Basismodellierung, automatisiert werden. Es ist eine klar definierte Struktur für Einzelpersonen festgelegt, die freigegebene Tools und Hilfsprogramme im freigegebenen Coderepository ihres Teams hinzufügen. Diese Ressourcen können dann in anderen Projekten des Teams oder der Organisation genutzt werden. Der TDSP plant zudem, die Bereitstellung von Tools und Hilfsprogrammen für die gesamte Community zu ermöglichen. Die TDSP-Hilfsprogramme können von [GitHub](https://github.com/Azure/Azure-TDSP-Utilities) geklont werden.
+Die Einführung von Prozessen stellt in den meisten Organisationen eine große Herausforderung dar. Durch bereitgestellte Tools zur Implementierung des Data Science-Prozesses und Data Science-Lebenszyklus lassen sich die Hürden reduzieren und die Konsistenz der Einführung erhöhen. Der TDSP umfasst ein anfängliches Set von Tools und Skripts für den Schnelleinstieg in die Einführung des TDSP in einem Team. Darüber hinaus können einige der allgemeinen Aufgaben im Data Science-Lebenszyklus, z.B. die Datenuntersuchung und Basismodellierung, automatisiert werden. Es ist eine klar definierte Struktur für Einzelpersonen festgelegt, die freigegebene Tools und Hilfsprogramme im freigegebenen Coderepository ihres Teams hinzufügen. Diese Ressourcen können dann in anderen Projekten des Teams oder der Organisation genutzt werden.  Microsoft bietet in [Azure Machine Learning](../index.yml) umfassende Tools, die sowohl Open-Source-Tools (Python, R, ONNX und allgemeine Deep Learning-Frameworks) als auch Microsoft-Tools (AutoML) unterstützen.
 
 
 ## <a name="next-steps"></a>Nächste Schritte

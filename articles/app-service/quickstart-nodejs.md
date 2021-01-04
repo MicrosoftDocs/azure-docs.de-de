@@ -6,12 +6,13 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: f105acaa4e2801ca6dc8c33b404fdb9f9d65adc8
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+adobe-target: true
+ms.openlocfilehash: b42abfda863ed38eb3c29004630f905edef075c4
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633721"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359101"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Erstellen einer Node.js-Web-App in Azure
 
@@ -79,7 +80,7 @@ In diesem Abschnitt wird Ihre Node.js-App mithilfe von VS Code und der Azure A
     - Linux: Wählen Sie **Neue Web-App erstellen** aus.
     - Windows: Wählen Sie **Neue Web-App erstellen... Erweitert** aus.
 
-1. Geben Sie einen global eindeutigen Namen für Ihre Web-App ein, und drücken Sie die **EINGABETASTE** . Der Name muss innerhalb von Azure eindeutig sein und darf nur alphanumerische Zeichen („A–Z“, „a–z“ und „0–9“) und Bindestriche („-“) enthalten.
+1. Geben Sie einen global eindeutigen Namen für Ihre Web-App ein, und drücken Sie die **EINGABETASTE**. Der Name muss innerhalb von Azure eindeutig sein und darf nur alphanumerische Zeichen („A–Z“, „a–z“ und „0–9“) und Bindestriche („-“) enthalten.
 
 1. Wenn Linux Ihre Zielplattform ist, wählen Sie eine Node.js-Version aus, wenn Sie dazu aufgefordert werden. Eine **LTS** -Version wird empfohlen.
 
@@ -142,7 +143,7 @@ Sie können sich die Protokollausgabe (Aufrufe von `console.log`) der App direkt
 
 1. Wenn Sie dazu aufgefordert werden, aktivieren Sie die Protokollierung, und starten Sie die Anwendung neu. Sobald die App neu gestartet wurde, wird das VS Code-Ausgabefenster mit einer Verbindung mit dem Protokollstream geöffnet. 
 
-    :::image type="content" source="media/quickstart-nodejs/enable-restart.png" alt-text="Screenshot: Azure-App-Dienst in VS Code mit ausgewähltem blauem Pfeil":::
+    :::image type="content" source="media/quickstart-nodejs/enable-restart.png" alt-text="Screenshot: Visual Studio Code-Aufforderung zum Aktivieren der Protokollierung und zum Neustarten der Anwendung mit ausgewählter Schaltfläche „Ja“":::
 
 1. Nach einigen Sekunden wird im Ausgabefenster eine Meldung mit dem Hinweis angezeigt, dass eine Verbindung mit dem Protokollstreamingdienst hergestellt wurde. Sie können weitere Ausgabeaktivitäten generieren, indem Sie die Seite im Browser aktualisieren.
 
@@ -206,7 +207,7 @@ Wenn sich das Problem durch Festlegen der Umgebungsvariable nicht beheben lässt
 
 Bevor Sie fortfahren, stellen Sie sicher, dass alle erforderlichen Komponenten installiert und konfiguriert sind.
 
-In VS Code sehen Sie Ihre Azure-E-Mail-Adresse in der Statusleiste und Ihr Abonnement im **AZURE APP SERVICE-Explorer** .
+In VS Code sehen Sie Ihre Azure-E-Mail-Adresse in der Statusleiste und Ihr Abonnement im **AZURE APP SERVICE-Explorer**.
 
 > [!div class="nextstepaction"]
 > [Ich bin auf ein Problem gestoßen](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=getting-started)
@@ -264,7 +265,7 @@ code .
 
 Wählen Sie im **AZURE APP SERVICE-Explorer** den blauen, nach oben weisenden Pfeil aus, um Ihre App in Azure bereitzustellen.
 
-:::image type="content" source="./media/quickstart-nodejs/deploy.png" alt-text="Screenshot: Azure-App-Dienst in VS Code mit ausgewähltem blauem Pfeil":::
+:::image type="content" source="./media/quickstart-nodejs/deploy.png" alt-text="Screenshot: Azure App Service-Menü in Visual Studio Code mit ausgewähltem blauem Bereitstellungspfeil":::
 
 > [!TIP]
 > Sie können die Anwendung auch über die **Befehlspalette** (STRG+UMSCHALT+P) bereitstellen, indem Sie „deploy to web app“ eingeben und den Befehl **Azure App Service: Bereitstellen in Web-App** ausführen.
@@ -281,11 +282,11 @@ Wählen Sie im **AZURE APP SERVICE-Explorer** den blauen, nach oben weisenden Pf
 
 1. Wählen Sie **Ja** aus, wenn Sie aufgefordert werden, Ihre Konfiguration für die Ausführung von `npm install` auf dem Zielserver zu aktualisieren. Ihre App wird anschließend bereitgestellt.
 
-    :::image type="content" source="./media/quickstart-nodejs/server-build.png" alt-text="Screenshot: Azure-App-Dienst in VS Code mit ausgewähltem blauem Pfeil":::
+    :::image type="content" source="./media/quickstart-nodejs/server-build.png" alt-text="Screenshot: Aufforderung zum Aktualisieren der Konfiguration auf dem Zielserver mit ausgewählter Schaltfläche „Ja“":::
 
 1. Wenn die Bereitstellung startet, werden Sie aufgefordert, Ihren Arbeitsbereich zu aktualisieren, sodass spätere Bereitstellungen automatisch die gleiche App Service-Web-App als Ziel verwenden. Klicken Sie auf **Ja** , um sicherzustellen, dass Ihre Änderungen für die richtige App bereitgestellt werden.
 
-    :::image type="content" source="./media/quickstart-nodejs/save-configuration.png" alt-text="Screenshot: Azure-App-Dienst in VS Code mit ausgewähltem blauem Pfeil":::
+    :::image type="content" source="./media/quickstart-nodejs/save-configuration.png" alt-text="Screenshot: Aufforderung zum Aktualisieren des Arbeitsbereichs mit ausgewählter Schaltfläche „Ja“":::
 
 > [!TIP]
 > Stellen Sie sicher, dass Ihre Anwendung an dem Port lauscht, der von der PORT-Umgebungsvariable `process.env.PORT` bereitgestellt wird.
@@ -315,7 +316,7 @@ Das VS Code-Ausgabefenster wird mit einer Verbindung mit dem Protokollstream ge
 
 ![Anzeigen von Streamingprotokollen](./media/quickstart-nodejs/view-logs.png)
 
-:::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="Screenshot: Azure-App-Dienst in VS Code mit ausgewähltem blauem Pfeil":::
+:::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="Screenshot: Visual Studio Code-Aufforderung zum Aktivieren der Dateiprotokollierung und zum Neustarten der Web-App mit ausgewählter Schaltfläche „Ja“":::
 
 Nach einigen Sekunden sehen Sie eine Meldung, die Sie darüber informiert, dass eine Verbindung mit dem Protokollstreamingdienst hergestellt wurde. Aktualisieren Sie die Seite mehrmals, um weitere Aktivitäten anzuzeigen.
 

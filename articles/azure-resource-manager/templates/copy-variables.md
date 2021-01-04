@@ -1,18 +1,18 @@
 ---
 title: Definieren mehrerer Instanzen einer Variablen
-description: Verwenden des copy-Vorgangs in einer Azure Resource Manager-Vorlage, um sie beim Erstellen einer Variablen mehrere Male zu durchlaufen.
+description: Verwenden des copy-Vorgangs in einer Azure Resource Manager-Vorlage (ARM), um sie beim Erstellen einer Variable mehrere Male zu durchlaufen.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: aca69dd858c7a940592e74123b97b8d364d9e11c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8acd85659b843cb482e1ccc61e28da03431db1b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84678442"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905892"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>Variableniteration in ARM-Vorlagen
 
-In diesem Artikel wird gezeigt, wie Sie mehr als einen Wert für eine Variable in Ihrer Azure Resource Manager-Vorlage (ARM) erstellen können. Durch das Hinzufügen des **copy**-Elements zum Variablenabschnitt Ihrer Vorlage können Sie die Anzahl der Elemente für eine Variable während der Bereitstellung dynamisch festlegen. Außerdem vermeiden Sie so die Wiederholung von Vorlagensyntax.
+In diesem Artikel wird gezeigt, wie Sie mehr als einen Wert für eine Variable in Ihrer Azure Resource Manager-Vorlage (ARM) erstellen können. Durch das Hinzufügen des `copy`-Elements zum Variablenabschnitt Ihrer Vorlage können Sie die Anzahl der Elemente für eine Variable während der Bereitstellung dynamisch festlegen. Außerdem vermeiden Sie so die Wiederholung von Vorlagensyntax.
 
 Sie können „copy“ auch mit [Ressourcen](copy-resources.md), [Eigenschaften in einer Ressource](copy-properties.md) und [Ausgaben](copy-outputs.md) verwenden.
 
@@ -30,9 +30,9 @@ Das copy-Element hat das folgende allgemeine Format:
 ]
 ```
 
-Die Eigenschaft **name** ist ein beliebiger Wert, der die Schleife identifiziert. Die Eigenschaft **count** gibt die für die Variable gewünschte Anzahl von Iterationen an.
+Die Eigenschaft `name` ist ein beliebiger Wert, der die Schleife identifiziert. Die `count`-Eigenschaft gibt die für die Variable gewünschte Anzahl von Iterationen an.
 
-Die Eigenschaft **input** gibt die Eigenschaften an, die Sie wiederholen möchten. Sie erstellen ein Array von Elementen, das aus dem Wert in der **input**-Eigenschaft erstellt wird. Es kann sich um eine einzelne Eigenschaft handeln (z. B. eine Zeichenfolge) oder um ein Objekt mit mehreren Eigenschaften.
+Die Eigenschaft `input` gibt die Eigenschaften an, die Sie wiederholen möchten. Erstellen Sie ein Array von Elementen, das aus dem Wert in der `input`-Eigenschaft erstellt wird. Es kann sich um eine einzelne Eigenschaft handeln (z. B. eine Zeichenfolge) oder um ein Objekt mit mehreren Eigenschaften.
 
 ## <a name="copy-limits"></a>Einschränkungen für „copy“
 
@@ -92,7 +92,7 @@ Die vorangehende Vorlage gibt ein Array mit den folgenden Werten zurück:
 ]
 ```
 
-Das nächste Beispiel zeigt, wie Sie ein Array von Objekten mit drei Eigenschaften erstellen, „name“, „diskSizeGB“ und „diskIndex“.
+Das nächste Beispiel zeigt, wie Sie ein Array von Objekten mit den drei Eigenschaften `name`, `diskSizeGB` und `diskIndex` erstellen.
 
 ```json
 {
@@ -160,10 +160,10 @@ Das vorangehende Beispiel gibt ein Array mit den folgenden Werten zurück:
 ```
 
 > [!NOTE]
-> Die Variableniteration unterstützt ein Offsetargument. Der Offset muss nach dem Namen der Iteration angegeben werden. Beispiel: copyIndex('diskNames', 1). Wenn Sie keinen Offsetwert angeben, nimmt die erste Instanz den Standardwert 0 an.
+> Die Variableniteration unterstützt ein Offsetargument. Der Offset muss nach dem Namen der Iteration angegeben werden, z. B. mit `copyIndex('diskNames', 1)`. Wenn Sie keinen Offsetwert angeben, nimmt die erste Instanz den Standardwert 0 an.
 >
 
-Sie können das „copy“-Element auch innerhalb einer Variablen verwenden. Mit dem folgenden Beispiel wird ein Objekt erstellt, bei dem einer seiner Werte ein Array ist.
+Sie können das `copy`-Element auch innerhalb einer Variable verwenden. Mit dem folgenden Beispiel wird ein Objekt erstellt, bei dem einer seiner Werte ein Array ist.
 
 ```json
 {
@@ -236,7 +236,7 @@ Das vorangehende Beispiel gibt ein Objekt mit den folgenden Werten zurück:
 }
 ```
 
-Im nächsten Beispiel werden die verschiedenen Möglichkeiten gezeigt, mit denen Sie „copy“ zusammen mit Variablen verwenden können.
+Im nächsten Beispiel werden die verschiedenen Möglichkeiten gezeigt, mit denen Sie `copy` zusammen mit Variablen verwenden können.
 
 ```json
 {
@@ -321,11 +321,10 @@ Die folgenden Beispiele zeigen allgemeine Szenarien für das Erstellen mehrerer 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Ein Tutorial, das Sie durcharbeiten können, finden Sie unter [Tutorial: Erstellen mehrerer Ressourceninstanzen mit ARM-Vorlagen](template-tutorial-create-multiple-instances.md).
+* Ein entsprechendes Tutorial finden Sie unter [Tutorial: Erstellen mehrerer Ressourceninstanzen mit ARM-Vorlagen](template-tutorial-create-multiple-instances.md).
 * Informationen zu anderen Verwendungsmöglichkeiten des „copy“-Elements finden Sie unter:
   * [Ressourceniteration in ARM-Vorlagen](copy-resources.md)
   * [Eigenschafteniteration in ARM-Vorlagen](copy-properties.md)
   * [Ausgabeiteration in ARM-Vorlagen](copy-outputs.md)
-* Informationen zu den Abschnitten einer Vorlage finden Sie unter [Verstehen der Struktur und Syntax von ARM-Vorlagen](template-syntax.md).
+* Weitere Informationen zu den Abschnitten in einer Vorlage finden Sie unter [Verstehen der Struktur und Syntax von ARM-Vorlagen](template-syntax.md).
 * Informationen zum Bereitstellen Ihrer Vorlage finden Sie unter [Bereitstellen von Ressourcen mit ARM-Vorlagen und Azure PowerShell](deploy-powershell.md).
-

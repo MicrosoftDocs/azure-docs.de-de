@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/09/2020
-ms.openlocfilehash: 2e597299c9b157d79a5317c97550fc30820636d6
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.date: 11/12/2020
+ms.openlocfilehash: 1489ce74da2ecff5212feb5a1a2e3c9151b73424
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940355"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555582"
 ---
 # <a name="convert-to-image-directory"></a>Konvertieren in ein Bildverzeichnis
 
@@ -47,9 +47,10 @@ In diesem Artikel erfahren Sie, wie Sie das Modul „Convert to Image Directory�
     
     ![Bildbeispieldataset](./media/module/image-sample-dataset.png)
 
-    Für die Bewertung darf der Bilddatasetordner nur nicht klassifizierte Bilder enthalten.
+    > [!NOTE]
+    > Für Rückschlüsse darf der Bilddatasetordner nur nicht klassifizierte Bilder enthalten.
 
-1. [Registrieren Sie das Bilddataset als Dateidataset](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) in Ihrem Arbeitsbereich, da die Eingabe des Moduls „Convert to Image Directory“ (In Bildverzeichnis konvertieren) ein **Dateidataset** sein muss.
+1. [Registrieren Sie das Bilddataset als Dateidataset](../how-to-create-register-datasets.md) in Ihrem Arbeitsbereich, da die Eingabe des Moduls „Convert to Image Directory“ (In Bildverzeichnis konvertieren) ein **Dateidataset** sein muss.
 
 1. Fügen Sie das registrierte Bilddataset zur Canvas hinzu. Sie finden Ihr registriertes Dataset in der Kategorie **Datasets** in der Modulliste im linken Teil der Canvas. Derzeit unterstützt der Designer die Visualisierung von Bilddatasets nicht.
 
@@ -82,4 +83,4 @@ Das Modul **Convert to Image Directory** (In Bildverzeichnis konvertieren) gibt 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Sehen Sie sich den [Satz der verfügbaren Module](module-reference.md) für Azure Machine Learning an. 
+Sehen Sie sich den [Satz der verfügbaren Module](module-reference.md) für Azure Machine Learning an.

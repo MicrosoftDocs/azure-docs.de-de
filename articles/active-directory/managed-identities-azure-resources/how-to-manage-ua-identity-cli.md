@@ -16,12 +16,12 @@ ms.date: 04/17/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 29a1a991ab79c38dad1a89533091d80406615d35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edb326c889a76eedd82c8918c705bdb5bbe5d195
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90969477"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893607"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Erstellen, Auflisten oder Löschen einer vom Benutzer zugewiesenen verwalteten Identität mithilfe der Azure-Befehlszeilenschnittstelle
 
@@ -30,15 +30,15 @@ Verwaltete Identitäten für Azure-Ressourcen stellen für Azure-Dienste eine ve
 
 In diesem Artikel erfahren Sie, wie Sie mit der Azure-Befehlszeilenschnittstelle eine vom Benutzer zugewiesene verwaltete Identität erstellen, auflisten und löschen.
 
+Wenn Sie noch kein Azure-Konto haben, sollten Sie sich [für ein kostenloses Konto registrieren](https://azure.microsoft.com/free/), bevor Sie fortfahren.
+
 ## <a name="prerequisites"></a>Voraussetzungen
 
-- Wenn Sie nicht mit verwalteten Identitäten für Azure-Ressourcen vertraut sind, helfen Ihnen die Informationen in der [Übersicht](overview.md) weiter. **Machen Sie sich den [Unterschied zwischen einer vom System und einer vom Benutzer zugewiesenen verwalteten Identität](overview.md#managed-identity-types)** bewusst.
-- Wenn Sie noch kein Azure-Konto haben, sollten Sie sich [für ein kostenloses Konto registrieren](https://azure.microsoft.com/free/), bevor Sie fortfahren.
-- Die Beispielskripts können auf zwei Arten ausgeführt werden:
-    - Verwenden Sie den Dienst [Azure Cloud Shell](../../cloud-shell/overview.md), den Sie mithilfe der Schaltfläche **Testen** in der rechten oberen Ecke der Codeblöcke öffnen können.
-    - Führen Sie Skripts lokal aus, indem Sie die aktuelle Version der [Azure-Befehlszeilenschnittstelle](/cli/azure/install-azure-cli) installieren, und melden Sie sich dann mit dem Befehl [az login](/cli/azure/reference-index#az-login) bei Azure an. Verwenden Sie ein Konto, das dem Azure-Abonnement zugeordnet ist, in dem Sie Ressourcen erstellen möchten.   
+- Wenn Sie mit verwalteten Identitäten für Azure-Ressourcen noch nicht vertraut sind, lesen Sie [Was sind verwaltete Identitäten für Azure-Ressourcen?](overview.md). Informationen zu systemseitig zugewiesenen und benutzerseitig zugewiesenen Typen verwalteter Identitäten finden Sie unter [Arten von verwalteten Identitäten](overview.md#managed-identity-types).
 
-> [!NOTE]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+> [!NOTE]   
 > Um Benutzerberechtigungen bei Verwendung eines App Service-Prinzipals mithilfe der Befehlszeilenschnittstelle zu ändern, müssen Sie dem Dienstprinzipal zusätzliche Berechtigungen in der Azure AD Graph-API zuweisen, da Teile der GET-Anforderungen in der Befehlszeilenschnittstelle für die Graph-API ausgeführt werden. Andernfalls erhalten Sie möglicherweise eine Meldung mit einem Hinweis auf unzureichende Berechtigungen zum Durchführen des Vorgangs. Dazu müssen Sie die App-Registrierung in Azure Active Directory aufrufen, Ihre App auswählen, auf „API-Berechtigungen“ klicken, nach unten scrollen und „Azure Active Directory Graph“ auswählen. Wählen Sie anschließend „Anwendungsberechtigungen“ aus, und fügen Sie dann die entsprechenden Berechtigungen hinzu. 
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Erstellen einer benutzerseitig zugewiesenen verwalteten Identität 

@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial zur Bildklassifizierung: Bereitstellen von Modellen'
 titleSuffix: Azure Machine Learning
-description: Dies ist das zweite Tutorial einer zweiteiligen Reihe. Es veranschaulicht, wie Sie mit Azure Machine Learning ein Bildklassifizierungsmodell mit scikit-learn in einem Python Jupyter Notebook bereitstellen.
+description: Dieses Tutorial zeigt, wie Sie mit Azure Machine Learning ein Bildklassifizierungsmodell mit scikit-learn in einem Python Jupyter Notebook bereitstellen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: f0d78fc55ca60fa883c742885acf2fa98ede61ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee6529f36c302cba1dc7b5a4b53aaf96ce58e4a5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896590"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532782"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutorial: Bereitstellen eines Bildklassifizierungsmodells in Azure Container Instances
 
@@ -358,6 +358,6 @@ service.delete()
 
 + Weitere Informationen zu den Bereitstellungsoptionen für Azure Machine Learning finden Sie [hier](how-to-deploy-and-where.md).
 + Erfahren Sie, wie [Clients für den Webdienst erstellt werden](how-to-consume-web-service.md).
-+  [Treffen Sie asynchron Vorhersagen für große Datenmengen](how-to-use-parallel-run-step.md).
++  [Treffen Sie asynchron Vorhersagen für große Datenmengen](./tutorial-pipeline-batch-scoring-classification.md).
 + [Überwachen Sie Ihre Azure Machine Learning-Modelle mit Application Insights](how-to-enable-app-insights.md).
-+ Probieren Sie das Tutorial [Erstellen Ihres Regressionsmodells mit automatisiertem Machine Learning](tutorial-auto-train-models.md) aus. 
++ Probieren Sie das Tutorial [Erstellen Ihres Regressionsmodells mit automatisiertem Machine Learning](tutorial-auto-train-models.md) aus.

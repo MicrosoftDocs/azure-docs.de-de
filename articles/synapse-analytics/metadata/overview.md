@@ -1,6 +1,6 @@
 ---
 title: Modell mit gemeinsam genutzten Metadaten
-description: Azure Synapse Analytics ermöglicht den verschiedenen Berechnungsengines von Arbeitsbereichen die gemeinsame Nutzung von Datenbanken und Tabellen zwischen Spark-Pools (Vorschauversion), der SQL On-Demand-Engine (Vorschauversion) und SQL-Pools.
+description: Azure Synapse Analytics ermöglicht den verschiedenen Berechnungsengines von Arbeitsbereichen die gemeinsame Nutzung von Datenbanken und Tabellen zwischen serverlosen Apache Spark-Pools, dem serverlosen SQL-Pool und dedizierten SQL-Pools.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -9,18 +9,16 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: c11a0ccb08f03775a07716e6c547d849cda347dd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b10b6f011fa7daee4094f0cc7b819d36127fedcd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87387335"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460352"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Azure Synapse Analytics: Gemeinsam genutzte Metadaten
 
-Azure Synapse Analytics ermöglicht den verschiedenen Berechnungsengines von Arbeitsbereichen die gemeinsame Nutzung von Datenbanken und Tabellen zwischen Spark-Pools (Vorschauversion) und der SQL On-Demand-Engine (Vorschauversion).
-
-[!INCLUDE [preview](../includes/note-preview.md)]
+Azure Synapse Analytics ermöglicht den verschiedenen Berechnungsengines von Arbeitsbereichen die gemeinsame Nutzung von Datenbanken und Tabellen zwischen serverlosen Apache Spark-Pools und dem serverlosen SQL-Pool.
 
 Die gemeinsame Nutzung unterstützt das sogenannte moderne Data Warehouse und ermöglicht den Arbeitsbereich-SQL-Engines den Zugriff auf mit Spark erstellte Datenbanken und Tabellen. Außerdem ermöglicht es den SQL-Engines die Erstellung eigener Objekte, die nicht gemeinsam mit anderen Engines genutzt werden.
 
@@ -32,7 +30,7 @@ Das Modell mit gemeinsam genutzten Metadaten unterstützt das moderne Data Wareh
 
 2. Die von Spark erstellten Datenbanken und alle zugehörigen Tabellen sind in allen Spark-Poolinstanzen des Azure Synapse-Arbeitsbereichs sichtbar und können von beliebigen Spark-Aufträgen verwendet werden. Diese Funktion ist abhängig von den [Berechtigungen](#security-model-at-a-glance), da allen Spark-Pools in einem Arbeitsbereich der gleiche Katalogmetaspeicher zugrunde liegt.
 
-3. Die von Spark erstellten Datenbanken und ihre Parquet-basierten Tabellen werden in der SQL On-Demand-Engine des Arbeitsbereichs sichtbar. [Datenbanken](database.md) werden automatisch in den SQL On-Demand-Metadaten erstellt, und [sowohl die externen als auch die verwalteten Tabellen](table.md), die von einem Spark-Auftrag erstellt werden, werden als externe Tabellen in den SQL On-Demand-Metadaten im Schema `dbo` der entsprechenden Datenbank zugänglich gemacht. 
+3. Die von Spark erstellten Datenbanken und ihre Parquet-basierten Tabellen werden im serverlosen SQL-Pool des Arbeitsbereichs sichtbar. [Datenbanken](database.md) werden automatisch in den Metadaten des serverlosen SQL-Pools erstellt, und [sowohl die externen als auch die verwalteten Tabellen](table.md), die von einem Spark-Auftrag erstellt werden, werden als externe Tabellen in den Metadaten des serverlosen SQL-Pools im Schema `dbo` der entsprechenden Datenbank zugänglich gemacht. 
 
 <!--[INSERT PICTURE]-->
 
@@ -52,7 +50,7 @@ Weitere Informationen finden Sie unter [Gemeinsam genutzte Azure Synapse Analy
 
 ## <a name="change-maintenance"></a>Änderungsverwaltung
 
-Wenn ein Metadatenobjekt mit Spark gelöscht oder geändert wird, werden die Änderungen übernommen und an die SQL On-Demand-Engine weitergegeben. Da die Synchronisierung asynchron erfolgt, kommt es bei der Implementierung der Änderungen in der SQL-Engine zu einer kurzen Verzögerung.
+Wenn ein Metadatenobjekt mit Spark gelöscht oder geändert wird, werden die Änderungen übernommen und an den serverlosen SQL-Pool weitergegeben. Da die Synchronisierung asynchron erfolgt, kommt es bei der Implementierung der Änderungen in der SQL-Engine zu einer kurzen Verzögerung.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

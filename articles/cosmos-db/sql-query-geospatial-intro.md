@@ -3,18 +3,20 @@ title: Räumliche Daten und GeoJSON-Standortdaten in Azure Cosmos DB
 description: Hier finden Sie grundlegende Informationen zur Erstellung räumlicher Objekte mit Azure Cosmos DB und der SQL-API.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: b874ad4ce566cfca3b0dbd28bdfe48bf30272121
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a2e4e14927932575c9da42392329eea279f922fe
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482824"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336162"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Räumliche Daten und GeoJSON-Standortdaten in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Dieser Artikel bietet eine Einführung in die Funktionalität von Geodaten in Azure Cosmos DB. Das Speichern und Verwenden räumlicher Daten wird derzeit nur von Azure Cosmos DB-SQL-API-Konten unterstützt. In unserer Dokumentation zur räumlichen Indizierung werden folgende Fragen beantwortet:
 
@@ -36,7 +38,7 @@ Räumliche Daten werden häufig in Abfragen zur örtlichen Nähe verwendet, beis
 
 Räumliche Daten beschreiben die Position und Form von Objekten im Raum. In den meisten Fällen entsprechen diese Daten Objekten auf der Erde und Geodaten. Räumliche Daten dienen zur Darstellung des Orts einer Person, einer Sehenswürdigkeit, der Umgrenzung einer Stadt oder eines Sees.
 
-Die SQL-API von Azure Cosmos DB unterstützt zwei Typen räumlicher Daten: **geometrische** und **geografische** .
+Die SQL-API von Azure Cosmos DB unterstützt zwei Typen räumlicher Daten: **geometrische** und **geografische**.
 
 - Der **geometrische** Datentyp stellt Daten in einem euklidischen (zweidimensionalen) Koordinatensystem dar.
 - Der **geography** -Datentyp stellt Daten in einem Erdkugel-Koordinatensystem dar.

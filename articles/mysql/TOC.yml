@@ -1,4 +1,4 @@
-- name: Dokumentation zu Azure Database for MySQL
+- name: Dokumentation zur Azure-Datenbank für MySQL
   href: index.yml
 - name: Übersicht
   items:
@@ -12,6 +12,10 @@
           href: concepts-certificate-rotation.md
 - name: Verfügbare Dokumentation
   items:
+    - name: Datenbankbereitstellung
+      items:
+        - name: GitHub Actions
+          href: quickstart-mysql-github-actions.md
     - name: Migration
       items:
         - name: Migrieren von Daten mit „mysqldump“ oder „phpmyadmin“
@@ -29,6 +33,9 @@
     - name: Minimieren der Datenbeschädigung
       href: how-to-fix-corrupt-database.md
       displayName: corrupt data
+    - name: Versioning policy (Versionsverwaltungsrichtlinie)
+      href: concepts-version-policy.md
+      displayName: version policy
 - name: Einzelner Server
   expanded: true
   items:
@@ -85,8 +92,6 @@
               href: connect-cpp.md
             - name: Go
               href: connect-go.md
-            - name: GitHub-Aktionen
-              href: quickstart-mysql-github-actions.md
     - name: Tutorials
       items:
         - name: Erstellen einer Datenbank
@@ -113,8 +118,6 @@
           href: sample-scripts-azure-cli.md
         - name: Java-Verbindungspool
           href: sample-scripts-java-connection-pooling.md
-        - name: Azure Policy-Integrationen
-          href: ./policy-reference.md
     - name: Konzepte
       items:
         - name: Server
@@ -123,6 +126,8 @@
           href: concepts-supported-versions.md
         - name: Einschränkungen
           href: concepts-limits.md
+        - name: Bewährte Methoden für den Betrieb
+          href: concept-operation-excellence-best-practices.md
         - name: Tarife
           items:
             - name: Tarife
@@ -153,6 +158,9 @@
               href: concepts-azure-ad-authentication.md
             - name: Doppelte Infrastrukturverschlüsselung
               href: concepts-infrastructure-double-encryption.md
+            - name: Sicherheitskontrollen von Azure Policy
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
             - name: Sicherheitsbaseline
               href: security-baseline.md
         - name: Geplante Wartung
@@ -191,6 +199,10 @@
             - name: Empfehlungen zur Leistung
               href: concepts-performance-recommendations.md
               displayName: recommendation
+            - name: Bewährte Methoden für die Überwachung
+              href: concept-monitoring-best-practices.md
+            - name: Bewährte Methoden für Leistung
+              href: concept-performance-best-practices.md
         - name: Anwendungsentwicklung
           items:
             - name: 'Anwendungsentwicklung: Übersicht'
@@ -284,6 +296,10 @@
           items:
             - name: Beenden/Starten des MySQL-Servers
               href: how-to-stop-start-server.md
+        - name: Hauptversionsupgrade
+          items:
+            - name: Hauptversionsupgrade
+              href: how-to-major-version-upgrade.md
         - name: Automatische Speichervergrößerung
           items:
             - name: Azure-Portal
@@ -439,6 +455,8 @@
               href: flexible-server/connect-python.md
     - name: Tutorials
       items:
+        - name: WordPress in Azure Kubernetes
+          href: flexible-server/tutorial-deploy-wordpress-on-aks.md
         - name: Erstellen einer PHP-App (Laravel) mit Datenbank
           href: flexible-server/tutorial-php-database-app.md
         - name: Herstellen einer Verbindung mit einer privaten Web-App
@@ -468,6 +486,8 @@
               href: flexible-server/concepts-high-availability.md
         - name: Überwachung und Protokolle
           items:
+            - name: Serverparameter
+              href: flexible-server/concepts-server-parameters.md
             - name: Protokolle für langsame Abfragen
               href: flexible-server/concepts-slow-query-logs.md
             - name: Überwachungsprotokolle
@@ -525,7 +545,7 @@
             - name: Azure-Portal
               href: flexible-server/how-to-configure-server-parameters-portal.md
               displayName: server parameters
-            - name: Azure CLI
+            - name: Azure-Befehlszeilenschnittstelle
               href: flexible-server/how-to-configure-server-parameters-cli.md
               displayName: 'server parameters, cli'
         - name: Überwachung und Protokolle
@@ -564,6 +584,9 @@
       href: /azure/templates/microsoft.dbformysql/allversions
     - name: Gespeicherte Verwaltungsprozeduren
       href: reference-stored-procedures.md
+    - name: Azure Policy-Integrationen
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Ressourcen
   items:
     - name: Bereitstellungsvorlagen

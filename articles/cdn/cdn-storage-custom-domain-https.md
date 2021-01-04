@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 5b6fe2b2704f101a7775b7eb700375105b0a9eca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6061de0a330518baaa829a9a1c8a05f196d68dcb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81259883"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92777842"
 ---
 # <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Tutorial: Zugreifen auf Speicherblobs unter Verwendung einer benutzerdefinierten Azure CDN-Domäne über HTTPS
 
@@ -37,7 +37,7 @@ Wenn Sie einen CDN-Endpunkt in Ihrem Profil erstellen, wird der Endpunktname, be
 Durch Verwenden des HTTPS-Protokolls für Ihre benutzerdefinierte Domäne stellen Sie sicher, dass Ihre Daten im Internet über die TLS-/SSL-Verschlüsselung sicher zugestellt werden. Wenn Ihr Webbrowser über HTTPS eine Verbindung mit einer Website herstellt, überprüft er das Sicherheitszertifikat der Website, um sicherzustellen, dass es von einer legitimen Zertifizierungsstelle stammt. Um HTTPS für Ihre benutzerdefinierte Domäne zu konfigurieren, befolgen Sie die Anweisungen in diesem Tutorial: [Konfigurieren von HTTPS in einer benutzerdefinierten Azure CDN-Domäne](cdn-custom-ssl.md).
 
 ## <a name="shared-access-signatures"></a>Shared Access Signatures
-Wenn der Blobspeicher-Endpunkt so konfiguriert ist, dass anonyme Lesezugriffe unterbunden werden, müssen Sie bei jeder Anforderung an Ihre benutzerdefinierte Domäne ein [Shared Access Signature](cdn-sas-storage-support.md)-Token (SAS-Token) bereitstellen. Die Blob-Speicherendpunkte lehnen anonyme Lesezugriffe standardmäßig ab. Weitere Informationen finden Sie unter [Verwalten des anonymen Lesezugriffs auf Container und Blobs](../storage/blobs/storage-manage-access-to-resources.md).
+Wenn der Blobspeicher-Endpunkt so konfiguriert ist, dass anonyme Lesezugriffe unterbunden werden, müssen Sie bei jeder Anforderung an Ihre benutzerdefinierte Domäne ein [Shared Access Signature](cdn-sas-storage-support.md)-Token (SAS-Token) bereitstellen. Die Blob-Speicherendpunkte lehnen anonyme Lesezugriffe standardmäßig ab. Weitere Informationen finden Sie unter [Verwalten des anonymen Lesezugriffs auf Container und Blobs](../storage/blobs/anonymous-read-access-configure.md).
 
 Zum SAS-Token hinzugefügte Einschränkungen werden von Azure CDN ignoriert. Beispielsweise verfügen alle SAS-Token über eine Ablaufzeit, d.h., Inhalte sind auch mit einer abgelaufenen SAS weiterhin zugänglich, bis sie von den CDN-POP-Servern (Point-of-Presence) gelöscht werden. Über die Einstellung im Cacheantwortheader können Sie steuern, wie lange die Daten im Azure CDN zwischengespeichert werden. Weitere Informationen hierzu finden Sie unter [Verwalten des Ablaufs von Azure Storage-Blobs im Azure CDN](cdn-manage-expiration-of-blob-content.md).
 
@@ -61,7 +61,3 @@ Wenn Sie beispielsweise in den Vereinigten Staaten ein Konto besitzen, auf das �
 
 ## <a name="next-steps"></a>Nächste Schritte
 [Tutorial: Festlegen der Azure CDN-Cacheregeln](cdn-caching-rules-tutorial.md)
-
-
-
-

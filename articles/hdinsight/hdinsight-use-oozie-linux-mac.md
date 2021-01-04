@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 1e88fc64ea297f70f56478588312675fb233f221
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b0d3ac4775ca057856c28ab42197bb734f149d6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085938"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534939"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Verwenden von Apache Oozie mit Apache Hadoop zum Definieren und Ausführen eines Workflows in Linux-basiertem Azure HDInsight
 
@@ -31,11 +31,11 @@ Sie können Oozie auch dazu verwenden, bestimmte Aufträge für ein System zu pl
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* **Einen Hadoop-Cluster in HDInsight**. Weitere Informationen finden Sie unter [Erste Schritte mit HDInsight unter Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* **Einen Hadoop-Cluster in HDInsight** . Weitere Informationen finden Sie unter [Erste Schritte mit HDInsight unter Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* **SSH-Client**. Weitere Informationen finden Sie unter [Herstellen einer Verbindung mit HDInsight (Apache Hadoop) per SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+* **SSH-Client** . Weitere Informationen finden Sie unter [Herstellen einer Verbindung mit HDInsight (Apache Hadoop) per SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* **Eine Azure SQL-Datenbank**.  Weitere Informationen finden Sie unter [Erstellen einer Datenbank in Azure SQL-Datenbank im Azure-Portal](../sql-database/sql-database-get-started.md).  Der Artikel verwendet eine Datenbank namens **oozietest**.
+* **Eine Azure SQL-Datenbank** .  Weitere Informationen finden Sie unter [Erstellen einer Datenbank in Azure SQL-Datenbank im Azure-Portal](../azure-sql/database/single-database-create-quickstart.md).  Der Artikel verwendet eine Datenbank namens **oozietest** .
 
 * Das URI-Schema für Ihren primären Clusterspeicher. `wasb://` für Azure Storage, `abfs://` für Azure Data Lake Storage Gen2 oder `adl://` für Azure Data Lake Storage Gen1. Wenn die sichere Übertragung für Azure Storage aktiviert ist, lautet der URI `wasbs://`. Siehe auch [Vorschreiben einer sicheren Übertragung in Azure Storage](../storage/common/storage-require-secure-transfer.md).
 
@@ -130,7 +130,7 @@ Verwenden Sie die folgenden Schritte, um ein Skript der Hive-Abfragesprache (Hiv
 
      Die Workflowdefinitionsdatei („workflow.xml“ in diesem Artikel) übergibt diese Werte zur Laufzeit an das HiveQL-Skript.
 
-1. Um die Datei zu speichern, drücken Sie **STRG+X**, geben Sie **J** ein, und drücken Sie auf die **EINGABETASTE**.  
+1. Um die Datei zu speichern, drücken Sie **STRG+X** , geben Sie **J** ein, und drücken Sie auf die **EINGABETASTE** .  
 
 1. Führen Sie den folgenden Befehl aus, um `useooziewf.hql` nach `wasbs:///tutorials/useoozie/useooziewf.hql` zu kopieren:
 
@@ -215,7 +215,7 @@ Oozie-Workflowdefinitionen sind in der Sprache der Hadoop-Prozessdefinition (hPD
 
      Beachten Sie auch den Eintrag `<archive>mssql-jdbc-7.0.0.jre8.jar</archive>` im Abschnitt „Sqoop“. Dieser Eintrag weist Oozie an, dieses Archiv für Sqoop zur Verfügung zu stellen, wenn diese Aktion ausgeführt wird.
 
-3. Um die Datei zu speichern, drücken Sie **STRG+X**, geben Sie **J** ein, und drücken Sie auf die **EINGABETASTE**.  
+3. Um die Datei zu speichern, drücken Sie **STRG+X** , geben Sie **J** ein, und drücken Sie auf die **EINGABETASTE** .  
 
 4. Kopieren Sie mit folgendem Befehl die Datei `workflow.xml` nach `/tutorials/useoozie/workflow.xml`:
 
@@ -382,7 +382,7 @@ Die Auftragsdefinition beschreibt, wo sich die workflow.xml-Datei befindet. Sie 
 
 4. Nachdem der Nano-Editor geöffnet wurde, fügen Sie den bearbeiteten XML-Code als Inhalt der Datei ein.
 
-5. Um die Datei zu speichern, drücken Sie **STRG+X**, geben Sie **J** ein, und drücken Sie auf die **EINGABETASTE**.
+5. Um die Datei zu speichern, drücken Sie **STRG+X** , geben Sie **J** ein, und drücken Sie auf die **EINGABETASTE** .
 
 ## <a name="submit-and-manage-the-job"></a>Übermitteln und Verwalten des Auftrags
 
@@ -457,7 +457,7 @@ Die folgenden Schritte verwenden den Oozie-Befehl zum Übermitteln und Verwalten
 
     Wenn Sie nach diesem Befehl den Status überprüfen, lautet dieser „Wird ausgeführt“, und Informationen für die Aktionen innerhalb des Auftrags werden zurückgegeben.  Die Ausführung des Auftrags nimmt einige Minuten in Anspruch.
 
-6. Bearbeiten Sie den Code unten so, dass `<serverName>` durch Ihren Servernamen ersetzt wird und `<sqlLogin>` durch die Serveranmeldung.  *Sobald die Aufgabe erfolgreich abgeschlossen wurde*, können Sie mit dem folgenden Befehl überprüfen, ob die Daten generiert wurden und ob die SQL-Datenbanktabelle exportiert wurde.  Geben Sie in der Eingabeaufforderung das Kennwort ein.
+6. Bearbeiten Sie den Code unten so, dass `<serverName>` durch Ihren Servernamen ersetzt wird und `<sqlLogin>` durch die Serveranmeldung.  *Sobald die Aufgabe erfolgreich abgeschlossen wurde* , können Sie mit dem folgenden Befehl überprüfen, ob die Daten generiert wurden und ob die SQL-Datenbanktabelle exportiert wurde.  Geben Sie in der Eingabeaufforderung das Kennwort ein.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
@@ -517,11 +517,11 @@ Um auf die Oozie-Webbenutzeroberfläche zuzugreifen, gehen Sie folgendermaßen v
 
 2. Nachdem Sie einen Tunnel erstellt haben, öffnen Sie mithilfe des URI `http://headnodehost:8080` die Ambari-Webbenutzeroberfläche in Ihrem Webbrowser.
 
-3. Klicken Sie auf der linken Seite der Seite auf **Oozie** > **QuickLinks** > **Oozie Web UI**.
+3. Klicken Sie auf der linken Seite der Seite auf **Oozie** > **QuickLinks** > **Oozie Web UI** .
 
     ![Apache Ambari – Schritte in der Oozie-Webbenutzeroberfläche](./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png)
 
-4. Die Oozie-Webbenutzeroberfläche zeigt standardmäßig aktive Workflowaufträge an. Klicken Sie zum Anzeigen aller Workflowaufträge auf **Alle Aufträge**.
+4. Die Oozie-Webbenutzeroberfläche zeigt standardmäßig aktive Workflowaufträge an. Klicken Sie zum Anzeigen aller Workflowaufträge auf **Alle Aufträge** .
 
     ![Workflowaufträge in der Oozie-Webkonsole](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png)
 
@@ -531,7 +531,7 @@ Um auf die Oozie-Webbenutzeroberfläche zuzugreifen, gehen Sie folgendermaßen v
 
 6. Auf der Registerkarte **Auftragsinformationen** können Sie die grundlegenden Auftragsinformationen und die einzelnen Aktionen innerhalb des Auftrags anzeigen. Auf den Registerkarten am oberen Rand können Sie die **Auftragsdefinition** und **Auftragskonfiguration** anzeigen, auf das **Auftragsprotokoll** zugreifen oder einen gerichteten azyklischen Graph (Directed Acyclic Graph, DAG) unter **DAG des Auftrags** anzeigen.
 
-   * **Auftragsprotokoll:** Wählen Sie die Schaltfläche **Get Logs** (Protokolle abrufen) aus, um alle Protokolle für den Auftrag abzurufen, oder filtern Sie die Protokolle mithilfe des Felds **Suchfilter eingeben**.
+   * **Auftragsprotokoll:** Wählen Sie die Schaltfläche **Get Logs** (Protokolle abrufen) aus, um alle Protokolle für den Auftrag abzurufen, oder filtern Sie die Protokolle mithilfe des Felds **Suchfilter eingeben** .
 
        ![HDInsight – Apache Oozie-Auftragsprotokoll](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png)
 
@@ -543,7 +543,7 @@ Um auf die Oozie-Webbenutzeroberfläche zuzugreifen, gehen Sie folgendermaßen v
 
     ![HDInsight-Oozie-Auftrag – Aktionsinfo](./media/hdinsight-use-oozie-linux-mac/oozie-job-action-info.png)
 
-8. Sie können Details für die Aktion anzeigen, z. B. einen Link zur **Konsolen-URL**. Verwenden Sie diesen Link zum Anzeigen von JobTracker-Informationen für den Auftrag.
+8. Sie können Details für die Aktion anzeigen, z. B. einen Link zur **Konsolen-URL** . Verwenden Sie diesen Link zum Anzeigen von JobTracker-Informationen für den Auftrag.
 
 ## <a name="schedule-jobs"></a>Planen von Aufträgen
 
@@ -576,7 +576,7 @@ Sie können den Koordinator verwenden, um den Start, das Ende und die Häufigkei
     > * `${coordTimezone}`: Für Koordinatoraufträge wird eine feste Zeitzone ohne Sommerzeit verwendet (in der Regel in UTC). Diese Zeitzone wird als *Oozie-Verarbeitungszeitzone* bezeichnet.
     > * `${wfPath}`: Der Pfad der Datei „workflow.xml“.
 
-2. Um die Datei zu speichern, drücken Sie **STRG+X**, geben Sie **J** ein, und drücken Sie auf die **EINGABETASTE**.
+2. Um die Datei zu speichern, drücken Sie **STRG+X** , geben Sie **J** ein, und drücken Sie auf die **EINGABETASTE** .
 
 3. Verwenden Sie den folgenden Befehl, um die Datei in das Arbeitsverzeichnis dieses Auftrags zu kopieren:
 
@@ -631,7 +631,7 @@ Sie können den Koordinator verwenden, um den Start, das Ende und die Häufigkei
 
        Diese Werte legen die Startzeit auf 12:00 Uhr am 10. Mai 2018 und die Endzeit auf den 12. Mai 2018 fest. Das Intervall für die Auftragsausführung ist auf „täglich“ festgelegt. Die Häufigkeit wird in Minuten angegeben. Daher gilt 24 Stunden x 60 Minuten = 1.440 Minuten. Schließlich wird die Zeitzone auf UTC festgelegt.
 
-5. Um die Datei zu speichern, drücken Sie **STRG+X**, geben Sie **J** ein, und drücken Sie auf die **EINGABETASTE**.
+5. Um die Datei zu speichern, drücken Sie **STRG+X** , geben Sie **J** ein, und drücken Sie auf die **EINGABETASTE** .
 
 6. Verwenden Sie den folgenden Befehl zum Übermitteln und Starten des Auftrags:
 

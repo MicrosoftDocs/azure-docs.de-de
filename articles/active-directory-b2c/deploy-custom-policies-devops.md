@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 411fa207323a9bff6cfcc3b17769203c444dd844
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13f5f8da0bd58cef0974e8ea8f5f3c5172daa0ba
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388679"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928731"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Bereitstellen benutzerdefinierter Richtlinien mit Azure Pipelines
 
@@ -29,18 +29,18 @@ Drei Hauptschritte sind erforderlich, um Azure Pipelines zum Verwalten benutzerd
 1. Konfigurieren einer Azure-Pipeline
 
 > [!IMPORTANT]
-> Bei der Verwaltung von benutzerdefinierten Richtlinien in Azure AD B2C mit Azure Pipelines werden derzeit **Vorschau**-Vorgänge verwendet, die im `/beta`-Endpunkt der Microsoft Graph-API zur Verfügung stehen. Die Verwendung dieser APIs in Produktionsanwendungen wird nicht unterstützt. Weitere Informationen finden Sie in der [Microsoft Graph-REST-API-Beta-Endpunkt-Referenz](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta).
+> Bei der Verwaltung von benutzerdefinierten Richtlinien in Azure AD B2C mit Azure Pipelines werden derzeit **Vorschau**-Vorgänge verwendet, die im `/beta`-Endpunkt der Microsoft Graph-API zur Verfügung stehen. Die Verwendung dieser APIs in Produktionsanwendungen wird nicht unterstützt. Weitere Informationen finden Sie in der [Microsoft Graph-REST-API-Beta-Endpunkt-Referenz](/graph/api/overview?toc=.%2fref%2ftoc.json&view=graph-rest-beta).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* [Azure AD B2C-Mandant](tutorial-create-tenant.md) und Anmeldeinformationen für einen Benutzer im Verzeichnis mit der Rolle [B2C-IEF-Richtlinienadministrator](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
+* [Azure AD B2C-Mandant](tutorial-create-tenant.md) und Anmeldeinformationen für einen Benutzer im Verzeichnis mit der Rolle [B2C-IEF-Richtlinienadministrator](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)
 * [Benutzerdefinierte Richtlinien](custom-policy-get-started.md), die in Ihren Mandanten hochgeladen wurden
 * [Verwaltungs-App](microsoft-graph-get-started.md), die mit der Microsoft Graph-API-Berechtigung *Policy.ReadWrite.TrustFramework* in Ihrem Mandanten registriert wurde
 * [Azure-Pipeline](https://azure.microsoft.com/services/devops/pipelines/) und Zugriff auf ein [Azure DevOps Services-Projekt][devops-create-project]
 
 ## <a name="client-credentials-grant-flow"></a>Gewährungsflow für Clientanmeldeinformationen
 
-In dem hier beschriebenen Szenario wrden Dienst-zu-Dienst-Aufrufe zwischen Azure Pipelines und Azure AD B2C mithilfe des [Gewährungsflows für OAuth 2.0-Clientanmeldeinformationen](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md) verwendet. Dieser Gewährungsflow erlaubt einem Webdienst wie Azure Pipelines (vertraulicher Client), beim Aufrufen eines anderen Webdiensts (in diesem Fall die Microsoft Graph-API) seine eigenen Anmeldeinformationen zum Authentifizieren zu verwenden, anstatt die Identität eines Benutzers anzunehmen. Azure Pipelines ruft ohne Benutzereingriff ein Token ab und sendet dann Anforderungen an die Microsoft Graph-API.
+In dem hier beschriebenen Szenario wrden Dienst-zu-Dienst-Aufrufe zwischen Azure Pipelines und Azure AD B2C mithilfe des [Gewährungsflows für OAuth 2.0-Clientanmeldeinformationen](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) verwendet. Dieser Gewährungsflow erlaubt einem Webdienst wie Azure Pipelines (vertraulicher Client), beim Aufrufen eines anderen Webdiensts (in diesem Fall die Microsoft Graph-API) seine eigenen Anmeldeinformationen zum Authentifizieren zu verwenden, anstatt die Identität eines Benutzers anzunehmen. Azure Pipelines ruft ohne Benutzereingriff ein Token ab und sendet dann Anforderungen an die Microsoft Graph-API.
 
 ## <a name="register-an-application-for-management-tasks"></a>Registrieren einer Anwendung für Verwaltungstasks
 
@@ -151,7 +151,7 @@ Fügen Sie als Nächstes einen Task zum Bereitstellen einer Richtliniendatei hin
     * **Taskversion**: 2.*
     * **Anzeigename**: Der Name der Richtlinie, die dieser Task hochladen soll, zum Beispiel *B2C_1A_TrustFrameworkBase*.
     * **Typ:** Dateipfad
-    * **Skriptpfad:** Wählen Sie die Auslassungspunkte (***...***) aus, navigieren Sie zum Ordner *Skripts*, und wählen Sie dann die Datei *DeployToB2C.ps1* aus.
+    * **Skriptpfad:** Wählen Sie die Auslassungspunkte (**_..._* _) aus, navigieren Sie zum Ordner _Skripts*, und wählen Sie dann die Datei *DeployToB2C.ps1* aus.
     * **Argumente**:
 
         Geben Sie als **Argumente** die folgenden Werte ein. Ersetzen Sie `{alias-name}` durch den Alias, den Sie im vorherigen Abschnitt definiert haben.
@@ -211,10 +211,10 @@ Es sollte ein Benachrichtigungsbanner mit dem Hinweis angezeigt werden, dass ein
 
 Weitere Informationen:
 
-* [Dienst-zu-Dienst-Aufrufe mit Clientanmeldeinformationen](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
-* [Azure DevOps Services](https://docs.microsoft.com/azure/devops/user-guide/?view=azure-devops)
+* [Dienst-zu-Dienst-Aufrufe mit Clientanmeldeinformationen](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md)
+* [Azure DevOps Services](/azure/devops/user-guide/)
 
 <!-- LINKS - External -->
-[devops]: https://docs.microsoft.com/azure/devops/?view=azure-devops
-[devops-create-project]:  https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops
-[devops-pipelines]: https://docs.microsoft.com/azure/devops/pipelines
+[devops]: /azure/devops/
+[devops-create-project]:  /azure/devops/organizations/projects/create-project
+[devops-pipelines]: /azure/devops/pipelines

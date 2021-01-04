@@ -7,18 +7,19 @@ author: MashaMSFT
 editor: monicar
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b3f2e8b56af41d1729b9786adda3abdcc4eb0b02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9fa23ca2ae655a11d7aaa4be67e08a6b3fa44394
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325027"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359386"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Konfigurieren eines Load Balancers für eine SQL Server-AlwaysOn-Verfügbarkeitsgruppe auf virtuellen Azure-Computern
 
@@ -27,7 +28,7 @@ ms.locfileid: "91325027"
 
 In diesem Artikel erfahren Sie, wie Sie einen Load Balancer für eine SQL Server-AlwaysOn-Verfügbarkeitsgruppe auf virtuellen Azure-Computern erstellen, auf denen Azure Resource Manager ausgeführt wird. Eine Verfügbarkeitsgruppe benötigt einen Load Balancer, wenn sich die SQL Server-Instanzen auf virtuellen Azure-Computern befinden. Der Load-Balancer speichert die IP-Adresse für den Verfügbarkeitsgruppenlistener. Wenn sich eine Verfügbarkeitsgruppe über mehrere Regionen erstreckt, benötigt jede Region einen Load Balancer.
 
-Für diese Aufgabe benötigen Sie eine SQL Server-AlwaysOn-Verfügbarkeitsgruppe, die auf virtuellen Azure-Computern mit Resource Manager bereitgestellt wird. Beide virtuellen SQL Server-Computer müssen der gleichen Verfügbarkeitsgruppe angehören. Mithilfe der [Microsoft-Vorlage](availability-group-azure-marketplace-template-configure.md) können Sie die Verfügbarkeitsgruppe in Resource Manager automatisch erstellen. Diese Vorlage nimmt Ihnen die Erstellung eines internen Load Balancers ab. 
+Für diese Aufgabe benötigen Sie eine SQL Server-AlwaysOn-Verfügbarkeitsgruppe, die auf virtuellen Azure-Computern mit Resource Manager bereitgestellt wird. Beide virtuellen SQL Server-Computer müssen der gleichen Verfügbarkeitsgruppe angehören. Mithilfe der [Microsoft-Vorlage](./availability-group-quickstart-template-configure.md) können Sie die Verfügbarkeitsgruppe in Resource Manager automatisch erstellen. Diese Vorlage nimmt Ihnen die Erstellung eines internen Load Balancers ab. 
 
 Alternativ können Sie aber auch eine [Verfügbarkeitsgruppe manuell konfigurieren](availability-group-manually-configure-tutorial.md).
 
@@ -127,7 +128,7 @@ Mit dem Test wird definiert, wie Azure überprüft, welche SQL Server-Instanz ge
 4.  Klicken Sie auf **OK**. 
 
 > [!NOTE]
-> Vergewissern Sie sich, dass der angegebene Port in der Firewall beider SQL Server-Instanzen geöffnet ist. Beide Instanzen benötigen eine eingehende Regel für den verwendeten TCP-Port. Weitere Informationen finden Sie unter [Hinzufügen oder Bearbeiten einer Firewallregel](https://technet.microsoft.com/library/cc753558.aspx). 
+> Vergewissern Sie sich, dass der angegebene Port in der Firewall beider SQL Server-Instanzen geöffnet ist. Beide Instanzen benötigen eine eingehende Regel für den verwendeten TCP-Port. Weitere Informationen finden Sie unter [Hinzufügen oder Bearbeiten einer Firewallregel](/previous-versions/orphan-topics/ws.11/cc753558(v=ws.11)). 
 > 
 
 Azure erstellt den Test und ermittelt dann mit seiner Hilfe, welche SQL Server-Instanz über den Listener für die Verfügbarkeitsgruppe verfügt.
@@ -289,7 +290,7 @@ Konfigurieren Sie nach der Konfiguration der Verfügbarkeitsgruppe für die Verw
 Wenn eine Verfügbarkeitsgruppe an einer verteilten Verfügbarkeitsgruppe beteiligt ist, benötigt der Lastenausgleich eine zusätzliche Regel. In dieser Regel wird der vom Listener der verteilten Verfügbarkeitsgruppe verwendete Port gespeichert.
 
 >[!IMPORTANT]
->Dieser Schritt ist nur erforderlich, wenn die Verfügbarkeitsgruppe an einer [verteilten Verfügbarkeitsgruppe](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups) beteiligt ist. 
+>Dieser Schritt ist nur erforderlich, wenn die Verfügbarkeitsgruppe an einer [verteilten Verfügbarkeitsgruppe](/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups) beteiligt ist. 
 
 1. Erstellen Sie auf jedem Server, der an der verteilten Verfügbarkeitsgruppe beteiligt ist, eine eingehende Regel für den Listener-TCP-Port der verteilten Verfügbarkeitsgruppe. In vielen Beispielen in der Dokumentation wird 5022 verwendet. 
 
@@ -302,7 +303,7 @@ Wenn eine Verfügbarkeitsgruppe an einer verteilten Verfügbarkeitsgruppe beteil
    |**Name** |Name zum Identifizieren der Lastenausgleichsregel für die verteilte Verfügbarkeitsgruppe 
    |**Frontend IP address** (Front-End-IP-Adresse) |Verwenden Sie dieselbe Front-End-IP-Adresse wie die Verfügbarkeitsgruppe.
    |**Protokoll** |TCP
-   |**Port** |5022 – der Port für den [Endpunktlistener der verteilten Verfügbarkeitsgruppe](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Es kann sich um einen beliebigen verfügbaren Port handeln.  
+   |**Port** |5022 – der Port für den [Endpunktlistener der verteilten Verfügbarkeitsgruppe](/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Es kann sich um einen beliebigen verfügbaren Port handeln.  
    |**Back-End-Port** | 5022 – verwenden Sie denselben Wert wie bei **Port**.
    |**Back-End-Pool** |Der Pool, der die virtuellen Computer mit den SQL Server-Instanzen enthält. 
    |**Integritätstest** |Wählen Sie den Test aus, den Sie erstellt haben.

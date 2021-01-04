@@ -1,6 +1,6 @@
 ---
-title: Erstellen und Aktualisieren von Statistiken für Tabellen mit Azure Synapse SQL
-description: Empfehlungen und Beispiele zum Erstellen und Aktualisieren von Abfrageoptimierungsstatistiken für Tabellen in Synapse SQL-Pools.
+title: Erstellen und Aktualisieren von Statistiken für Tabellen
+description: Empfehlungen und Beispiele zum Erstellen und Aktualisieren von Abfrageoptimierungsstatistiken für Tabellen im dedizierten SQL-Pool.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,43 +10,43 @@ ms.subservice: sql-dw
 ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 15ba0d4b77461d77a2d0b89ecc9e411a105d49d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: e7fc89dcc0e7938ea2958d5c804abe82e20f186d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88799314"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447936"
 ---
-# <a name="table-statistics-in-synapse-sql-pool"></a>Tabellenstatistiken in Synapse SQL-Pools
+# <a name="table-statistics-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Tabellenstatistiken für den dedizierten SQL-Pool in Azure Synapse Analytics
 
-In diesem Artikel finden Sie Empfehlungen und Beispiele zum Erstellen und Aktualisieren von Abfrageoptimierungsstatistiken für Tabellen in SQL-Pools.
+In diesem Artikel finden Sie Empfehlungen und Beispiele zum Erstellen und Aktualisieren von Abfrageoptimierungsstatistiken für Tabellen im dedizierten SQL-Pool.
 
 ## <a name="why-use-statistics"></a>Gründe für die Verwendung von Statistiken
 
-Je mehr Informationen zu Ihren Daten der SQL-Pool besitzt, desto schneller können Abfragen dafür durchgeführt werden. Nach dem Laden der Daten in den SQL-Pool ist das Erstellen von Statistiken zu Ihren Daten eine der wichtigsten Maßnahmen, die Sie zur Optimierung Ihrer Abfragen treffen können.
+Je mehr Informationen zu Ihren Daten der dedizierte SQL-Pool hat, desto schneller können Abfragen dafür ausgeführt werden. Nach dem Laden der Daten in den dedizierten SQL-Pool ist das Erfassen von Statistiken zu Ihren Daten eine der wichtigsten Maßnahmen, die Sie zur Optimierung Ihrer Abfragen treffen können.
 
-Der Abfrageoptimierer im SQL-Pool arbeitet kostenorientiert. Die Kosten der verschiedenen Abfragepläne werden verglichen, und dann wird der Plan mit den geringsten Kosten gewählt. In den meisten Fällen wird der Plan gewählt, der am schnellsten ausgeführt wird.
+Der Abfrageoptimierer im dedizierten SQL-Pool arbeitet kostenorientiert. Die Kosten der verschiedenen Abfragepläne werden verglichen, und dann wird der Plan mit den geringsten Kosten gewählt. In den meisten Fällen wird der Plan gewählt, der am schnellsten ausgeführt wird.
 
 Wenn der Abfrageoptimierer z.B. schätzt, dass das Datum, nach dem die Abfrage gefiltert wird, eine Zeile zurückgibt, wird er einen Plan auswählen. Wenn er schätzt, dass für das ausgewählte Datum 1 Million Zeilen zurückgegeben werden, wird er einen anderen Plan zurückgegeben.
 
 ## <a name="automatic-creation-of-statistic"></a>Automatische Erstellung von Statistiken
 
-Wenn die AUTO_CREATE_STATISTICS-Datenbankoption aktiviert ist, werden im SQL-Pool eingehende Benutzerabfragen auf fehlende Statistiken analysiert.
+Wenn die Datenbankoption „AUTO_CREATE_STATISTICS“ aktiviert ist, werden im dedizierten SQL-Pool eingehende Benutzerabfragen auf fehlende Statistiken hin analysiert.
 
 Wenn Statistiken fehlen, erstellt der Abfrageoptimierer Statistiken für einzelne Spalten im Abfrageprädikat oder der Verknüpfungsbedingung, um Kardinalitätsschätzungen für den Abfrageplan zu verbessern.
 
 > [!NOTE]
 > Die automatische Erstellung von Statistiken ist zurzeit standardmäßig aktiviert.
 
-Sie können überprüfen, ob AUTO_CREATE_STATISTICS bei Ihrem SQL-Pool konfiguriert ist, indem Sie den folgenden Befehl ausführen:
+Sie können überprüfen, ob „AUTO_CREATE_STATISTICS“ bei Ihrem dedizierten SQL-Pool konfiguriert wurde, indem Sie den folgenden Befehl ausführen:
 
 ```sql
 SELECT name, is_auto_create_stats_on
 FROM sys.databases
 ```
 
-Wenn AUTO_CREATE_STATISTICS nicht für Ihren SQL-Pool konfiguriert ist, sollten Sie diese Eigenschaft durch Ausführen des folgenden Befehls aktivieren:
+Wenn „AUTO_CREATE_STATISTICS“ für Ihren dedizierten SQL-Pool nicht konfiguriert wurde, sollten Sie diese Eigenschaft durch Ausführen des folgenden Befehls aktivieren:
 
 ```sql
 ALTER DATABASE <yourdatawarehousename>
@@ -82,11 +82,11 @@ DBCC SHOW_STATISTICS (<table_name>, <target>)
 
 ## <a name="update-statistics"></a>Statistikaktualisierung
 
-Eine bewährte Methode ist es, die Statistiken für Datenspalten im Zuge des Hinzufügens neuer Daten täglich zu aktualisieren. Bei jedem Laden von neuen Zeilen in den SQL-Pool werden neue Daten für Lade- oder Transaktionsvorgänge hinzugefügt. Durch diese Ergänzungen wird die Datenverteilung geändert, und die Statistiken sind nicht mehr aktuell.
+Eine bewährte Methode ist es, die Statistiken für Datenspalten im Zuge des Hinzufügens neuer Daten täglich zu aktualisieren. Bei jedem Laden von neuen Zeilen in den dedizierten SQL-Pool werden neue Daten für Lade- oder Transaktionsvorgänge hinzugefügt. Durch diese Ergänzungen wird die Datenverteilung geändert, und die Statistiken sind nicht mehr aktuell.
 
 Statistiken zu einer Länder-/Regionenspalte in einer Kundentabelle müssen unter Umständen nie aktualisiert werden, da sich die Verteilung der Werte in der Regel nicht ändert. Wenn davon auszugehen ist, dass die Verteilung zwischen Kunden konstant ist, bewirkt das Hinzufügen neuer Zeilen zur Tabellenvariante keine Änderung der Datenverteilung.
 
-Wenn Ihr SQL-Pool allerdings nur ein Land/eine Region enthält und Sie Daten eines neuen Lands/einer neuen Region hinzufügen, führt dies dazu, dass Daten aus mehreren Ländern/Regionen gespeichert werden. Sie müssen dann die Statistiken in der Länder-/Regionenspalte aktualisieren.
+Wenn Ihr dedizierter SQL-Pool allerdings nur ein Land/eine Region enthält und Sie Daten eines neuen Lands/einer neuen Region hinzufügen, führt dies dazu, dass Daten aus mehreren Ländern/Regionen gespeichert werden. In diesem Fall müssen Sie die Statistiken in der Länder-/Regionenspalte aktualisieren.
 
 Im Folgenden finden Sie Empfehlungen für Updates für Statistiken:
 
@@ -182,11 +182,11 @@ WHERE
     st.[user_created] = 1;
 ```
 
-Beispielsweise sind für **Datumsspalten** in einem SQL-Pool normalerweise häufige Statistikaktualisierungen erforderlich. Bei jedem Laden von neuen Zeilen in den SQL-Pool werden neue Daten für Lade- oder Transaktionsvorgänge hinzugefügt. Durch diese Ergänzungen wird die Datenverteilung geändert, und die Statistiken sind nicht mehr aktuell.
+Beispielsweise sind für **Datumsspalten** in einem dedizierten SQL-Pool normalerweise häufige Statistikaktualisierungen erforderlich. Bei jedem Laden von neuen Zeilen in den dedizierten SQL-Pool werden neue Daten für Lade- oder Transaktionsvorgänge hinzugefügt. Durch diese Ergänzungen wird die Datenverteilung geändert, und die Statistiken sind nicht mehr aktuell.
 
 Im Gegensatz dazu müssen die Statistiken für die Spalte „Geschlecht“ in einer Kundentabelle unter Umständen nie aktualisiert werden. Wenn davon auszugehen ist, dass die Verteilung zwischen Kunden konstant ist, bewirkt das Hinzufügen neuer Zeilen zur Tabellenvariante keine Änderung der Datenverteilung.
 
-Wenn Ihr SQL-Pool nur ein Geschlecht enthält und eine neue Anforderung zu mehr als einem Geschlecht führt, müssen Sie die Statistiken für die Spalte „Geschlecht“ aktualisieren.
+Wenn Ihr dedizierter SQL-Pool nur ein Geschlecht enthält und eine neue Anforderung zu mehr als einem Geschlecht führt, müssen Sie die Statistiken für die Spalte „Geschlecht“ aktualisieren.
 
 Weitere Informationen finden Sie im allgemeinen Leitfaden zu [Statistik](/sql/relational-databases/statistics/statistics?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
@@ -214,7 +214,7 @@ In diesen Beispielen wird veranschaulicht, wie Sie verschiedene Optionen zum Ers
 
 Zum Erstellen von Statistiken für eine Spalte geben Sie einen Namen für das Statistikobjekt und den Namen der Spalte an.
 
-Bei dieser Syntax werden alle Standardoptionen verwendet. Standardmäßig wird in SQL-Pools beim Erstellen von Statistiken eine Stichprobenrate von **20 %** der Tabelle verwendet.
+Bei dieser Syntax werden alle Standardoptionen verwendet. Beim Erstellen von Statistiken werden standardmäßig von **20 Prozent** der Tabelle Stichproben genommen.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
@@ -312,11 +312,11 @@ CREATE STATISTICS stats_col2 on dbo.table2 (col2);
 CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
-### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>Verwenden einer gespeicherten Prozedur zum Erstellen von Statistiken für alle Spalten einer Datenbank
+### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-sql-pool"></a>Verwenden einer gespeicherten Prozedur zum Erstellen von Statistiken für alle Spalten in einem SQL-Pool
 
-Der SQL-Pool verfügt nicht über eine gespeicherte Systemprozedur, die „sp_create_stats“ in SQL Server entspricht. Mit dieser gespeicherten Prozedur wird ein Einzelspaltenstatistik-Objekt für jede Spalte der Datenbank erstellt, die nicht bereits über eine Statistik verfügt.
+Der dedizierte SQL-Pool verfügt nicht über eine gespeicherte Systemprozedur, die „sp_create_stats“ in SQL Server entspricht. Mit dieser gespeicherten Prozedur wird ein Einzelspaltenstatistik-Objekt für jede Spalte in einem SQL-Pool erstellt, die nicht bereits über eine Statistik verfügt.
 
-Das folgende Beispiel ist eine nützliche Einstiegshilfe für den Datenbankentwurf. Sie können diesen Vorgang an Ihre Anforderungen anpassen.
+Das folgende Beispiel ist eine nützliche Einstiegshilfe für Ihren SQL-Pool-Entwurf. Sie können diesen Vorgang an Ihre Anforderungen anpassen.
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]
@@ -462,7 +462,7 @@ UPDATE STATISTICS dbo.table1;
 Die UPDATE STATISTICS-Anweisung ist einfach zu verwenden. Bedenken Sie, dass hiermit *alle* Statistiken der Tabelle aktualisiert werden, sodass unter Umständen mehr Arbeit als erforderlich erledigt wird. Wenn die Leistung kein Problem darstellt, ist dies die einfachste und umfassendste Möglichkeit sicherzustellen, dass die Statistiken aktuell sind.
 
 > [!NOTE]
-> Beim Aktualisieren aller Statistiken einer Tabelle führt der SQL-Pool einen Scan durch, um für jedes Statistikobjekt Stichproben der Tabelle zu nehmen. Wenn die Tabelle groß ist und viele Spalten und Statistiken enthält, kann es effizienter sein, je nach Bedarf einzelne Spalten zu aktualisieren.
+> Beim Aktualisieren aller Statistiken einer Tabelle führt der dedizierte SQL-Pool einen Scan durch, um für jedes Statistikobjekt Stichproben der Tabelle zu nehmen. Wenn die Tabelle groß ist und viele Spalten und Statistiken enthält, kann es effizienter sein, je nach Bedarf einzelne Spalten zu aktualisieren.
 
 Informationen zur Implementierung einer `UPDATE STATISTICS`-Prozedur finden Sie unter [Temporäre Tabellen in SQL Data Warehouse](sql-data-warehouse-tables-temporary.md). Die Implementierungsmethode unterscheidet sich etwas von der obigen `CREATE STATISTICS`-Prozedur, aber das Ergebnis ist identisch.
 
@@ -546,7 +546,7 @@ Mit DBCC SHOW_STATISTICS() werden die Daten angezeigt, die in einem Statistikobj
 Dies sind die Headermetadaten zur Statistik. Im Histogramm wird die Verteilung der Werte in der ersten Schlüsselspalte des Statistikobjekts angezeigt. Der Dichtevektor misst die spaltenübergreifende Korrelation.
 
 > [!NOTE]
-> Der SQL-Pool berechnet Kardinalitätsschätzungen anhand der Daten im Statistikobjekt.
+> Der dedizierte SQL-Pool berechnet Kardinalitätsschätzungen anhand der Daten im Statistikobjekt.
 
 ### <a name="show-header-density-and-histogram"></a>Anzeigen von Header, Dichte und Histogramm
 
@@ -578,7 +578,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 
 ## <a name="dbcc-show_statistics-differences"></a>DBCC SHOW_STATISTICS()-Unterschiede
 
-DBCC SHOW_STATISTICS() ist im Vergleich zu SQL Server strenger in SQL-Pools implementiert:
+DBCC SHOW_STATISTICS() ist im Vergleich zu SQL Server im dedizierten SQL-Pool strenger implementiert:
 
 - Nicht dokumentierte Funktionen werden nicht unterstützt.
 - Verwendung von Stats_stream nicht möglich.

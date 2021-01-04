@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8edf782c03300cf22bd349548da425669f492bc1
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: efa160eb422658aeeb2eea3ad3c1d305b4b9f8be
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093530"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462407"
 ---
 # <a name="sql-authentication"></a>SQL-Authentifizierung
 
@@ -22,10 +22,10 @@ Azure Synapse Analytics beinhaltet zwei SQL-Formfaktoren, mit denen Sie den Ress
 
 Für die Autorisierung bei Synapse SQL können Sie zwei Autorisierungstypen verwenden:
 
-- AAD-Autorisierung
+- Azure Active Directory-Autorisierung
 - SQL-Autorisierung
 
-Die AAD-Autorisierung basiert auf Azure Active Directory und bietet Ihnen einen zentralen Ort für die Benutzerverwaltung. Die SQL-Autorisierung ermöglicht Legacy-Anwendungen die Verwendung von Synapse SQL auf vertraute Weise.
+Die Azure Active Directory-Autorisierung bietet Ihnen einen zentralen Ort für die Benutzerverwaltung. Die SQL-Autorisierung ermöglicht Legacy-Anwendungen die Verwendung von Synapse SQL auf vertraute Weise.
 
 ## <a name="administrative-accounts"></a>Verwaltungskonten
 
@@ -51,18 +51,18 @@ Die Konten **Serveradministrator** und **Azure AD-Administrator** weisen die fol
 - Sie können Mitglieder für die Rollen `dbmanager` und `loginmanager` hinzufügen und entfernen.
 - Sie können die `sys.sql_logins`-Systemtabelle anzeigen.
 
-## <a name="sql-on-demand-preview"></a>[SQL On-Demand (Vorschauversion)](#tab/serverless)
+## <a name="serverless-sql-pool"></a>[Serverloser SQL-Pool](#tab/serverless)
 
-Zum Verwalten der Benutzer, die Zugriff auf SQL On-Demand haben, können Sie die nachfolgenden Anweisungen ausführen.
+Zum Verwalten der Benutzer, die Zugriff auf den serverlosen SQL-Pool haben, können Sie die nachfolgenden Anweisungen ausführen.
 
-Verwenden Sie die folgende Syntax, um eine Anmeldung für SQL On-Demand zu erstellen:
+Verwenden Sie die folgende Syntax, um eine Anmeldung für den serverlosen SQL-Pool zu erstellen:
 
 ```sql
 CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
 -- or
 CREATE LOGIN Mary@domainname.net FROM EXTERNAL PROVIDER;
 ```
-Sobald die Anmeldung erstellt wurde, können Sie Benutzer in den einzelnen Datenbanken im SQL On-Demand-Endpunkt erstellen und diesen Benutzern die erforderlichen Berechtigungen erteilen. Zum Erstellen eines Benutzers können Sie die folgende Syntax verwenden:
+Sobald die Anmeldung erstellt wurde, können Sie Benutzer in den einzelnen Datenbanken im Endpunkt für den serverlosen SQL-Pool erstellen und diesen Benutzern die erforderlichen Berechtigungen erteilen. Zum Erstellen eines Benutzers können Sie die folgende Syntax verwenden:
 ```sql
 CREATE USER Mary FROM LOGIN Mary;
 -- or
@@ -158,7 +158,7 @@ Verwenden Sie in Azure SQL-Datenbank oder Synapse (serverlos) die Anweisung `AL
 ALTER ROLE db_owner ADD MEMBER Mary;
 ```
 
-Verwenden Sie für einen SQL-Pool [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Verwenden Sie für einen dedizierten SQL-Pool [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ```sql
 EXEC sp_addrolemember 'db_owner', 'Mary';

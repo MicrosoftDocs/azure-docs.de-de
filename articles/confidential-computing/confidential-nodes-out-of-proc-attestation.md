@@ -6,12 +6,12 @@ author: agowdamsft
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 90b74e51dce994c3041c15feec729ff1fae2bb00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b79b3b40f3fbfe7d70550db3aaf7b365aa455e89
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90998456"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564156"
 ---
 # <a name="platform-software-management-with-sgx-quote-helper-daemon-set"></a>Plattformsoftwareverwaltung mit DaemonSet für SGX-Angebotshilfe
 
@@ -126,10 +126,10 @@ spec:
 
 [Schnellstart: Beispiele für vertrauliche Container](https://github.com/Azure-Samples/confidential-container-samples)
 
-[DCsv2: SKU-Liste](https://docs.microsoft.com/azure/virtual-machines/dcv2-series)
+[DCsv2: SKU-Liste](../virtual-machines/dcv2-series.md)
 
 <!-- LINKS - external -->
-[Azure Attestation]: https://docs.microsoft.com/en-us/azure/attestation/
+[Azure Attestation]: ../attestation/index.yml
 
 
 <!-- LINKS - internal -->

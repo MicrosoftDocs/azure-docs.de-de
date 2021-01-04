@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: overview
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: 1a57660733b7257b224c38a55059f1bf069495a0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0de93eff0fc422bc28fe7b2c42c295c8d8b1acc4
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890241"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344469"
 ---
 # <a name="what-is-metrics-advisor-preview"></a>Was ist Metrics Advisor (Vorschauversion)? 
 
@@ -63,4 +63,4 @@ Der Workflow ist ganz einfach: Nach dem Onboarding Ihrer Daten können Sie die A
 ## <a name="next-steps"></a>Nächste Schritte
 
 * Sehen Sie sich eine Schnellstartanleitung an: [Überwachen Ihrer ersten Metrik im Web](quickstarts/web-portal.md)
-* Sehen Sie sich eine Schnellstartanleitung an: [Verwenden der REST-APIs zum Anpassen Ihrer Lösung](quickstarts/rest-api.md)
+* Sehen Sie sich eine Schnellstartanleitung an: [Verwenden der REST-APIs zum Anpassen Ihrer Lösung](./quickstarts/rest-api-and-client-library.md)

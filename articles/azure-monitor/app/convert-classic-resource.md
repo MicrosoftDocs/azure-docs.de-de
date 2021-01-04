@@ -3,18 +3,18 @@ title: Migrieren einer klassischen Application Insights-Ressource in Azure Monit
 description: Erfahren Sie mehr über die erforderlichen Schritte zum Aktualisieren einer klassischen Application Insights-Ressource in Azure Monitor auf das neue arbeitsbereichsbasierte Modell.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 0d2c7d1b9ee57e6d201205c04557e1b5f5623eb0
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 709cff1326bb6393a14c594ea434a6c16fb80860
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930576"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536522"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Migrieren zu arbeitsbereichsbasierten Application Insights-Ressourcen
 
 Dieser Leitfaden führt Sie durch die Migration einer klassischen Application Insights-Ressource zu einer arbeitsbereichsbasierten Ressource. Arbeitsbereichsbasierte Ressourcen unterstützen die vollständige Integration zwischen Application Insights und Log Analytics. Arbeitsbereichsbasierte Ressourcen senden Application Insights-Telemetriedaten an einen gemeinsamen Log Analytics-Arbeitsbereich, über den Sie auf die [aktuellen Features von Azure Monitor](#new-capabilities) zugreifen und gleichzeitig Anwendungs-, Infrastruktur- und Plattformprotokolle an einem konsolidierten Speicherort sammeln können.
 
-Arbeitsbereichsbasierte Ressourcen ermöglichen eine gemeinsame rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC) über Ihre Ressourcen hinweg, und die Notwendigkeit app- bzw. arbeitsbereichsübergreifender Abfragen entfällt.
+Arbeitsbereichsbasierte Ressourcen ermöglichen eine gemeinsame rollenbasierte Zugriffssteuerung in Azure (Azure RBAC) in allen Ihren Ressourcen, und die Notwendigkeit anwendungs- bzw. arbeitsbereichsübergreifender Abfragen entfällt.
 
 **Arbeitsbereichsbasierte Ressourcen sind zurzeit in allen kommerziellen Regionen und für Azure US Government verfügbar.**
 

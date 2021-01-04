@@ -10,7 +10,7 @@
       href: require-tou.md
 - name: Tutorials
   items:
-    - name: Anfordern von Azure Multi-Factor Authentication
+    - name: Anfordern von Azure AD Multi-Factor Authentication
       href: ../authentication/tutorial-enable-azure-mfa.md?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json
 - name: Konzepte
   expanded: false

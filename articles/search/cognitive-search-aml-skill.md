@@ -8,21 +8,21 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: 6a3916a41635a1c76bddbb092294f6d362fc6050
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1e6f4e16e3eda8519913a9e2ae14f7cc909bf61
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88924710"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445454"
 ---
 # <a name="aml-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>AML-Skill in einer Anreicherungspipeline von Azure Cognitive Search
 
 > [!IMPORTANT] 
 > Diese Qualifikation ist zurzeit als öffentliche Vorschauversion verfügbar. Die Vorschaufunktion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Derzeit wird das .NET SDK nicht unterstützt.
 
-Mit dem **AML**-Skill können Sie die KI-Anreicherung durch ein benutzerdefiniertes AML-Modell ([Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md)) erweitern. Nachdem ein AML-Modell [trainiert und bereitgestellt](../machine-learning/concept-azure-machine-learning-architecture.md#workspace) wurde, integriert ein **AML**-Skill dieses in die KI-Anreicherung.
+Mit dem **AML** -Skill können Sie die KI-Anreicherung durch ein benutzerdefiniertes AML-Modell ( [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md)) erweitern. Nachdem ein AML-Modell [trainiert und bereitgestellt](../machine-learning/concept-azure-machine-learning-architecture.md#workspace) wurde, integriert ein **AML** -Skill dieses in die KI-Anreicherung.
 
-Wie integrierte Skills weist ein **AML**-Skill Eingaben und Ausgaben auf. Die Eingaben werden als JSON-Objekt an den bereitgestellten AML-Dienst gesendet, das eine JSON-Nutzlast als Antwort zusammen mit einem Erfolgsstatuscode ausgibt. Es wird erwartet, dass die Antwort die von Ihrem Skill **AML** angegebenen Ergebnisse aufweist. Jede andere Antwort gilt als Fehler und es werden keine Anreicherung durchgeführt.
+Wie integrierte Skills weist ein **AML** -Skill Eingaben und Ausgaben auf. Die Eingaben werden als JSON-Objekt an den bereitgestellten AML-Dienst gesendet, das eine JSON-Nutzlast als Antwort zusammen mit einem Erfolgsstatuscode ausgibt. Es wird erwartet, dass die Antwort die von Ihrem Skill **AML** angegebenen Ergebnisse aufweist. Jede andere Antwort gilt als Fehler und es werden keine Anreicherung durchgeführt.
 
 > [!NOTE]
 > Der Indexer versucht zwei Mal, bestimmte Standard-HTTP-Statuscodes, die vom AML-Dienst zurückgegeben werden, erneut zu ermitteln. Diese HTTP-Statuscodes lauten:
@@ -33,7 +33,7 @@ Wie integrierte Skills weist ein **AML**-Skill Eingaben und Ausgaben auf. Die Ei
 
 * Ein [AML-Arbeitsbereich](../machine-learning/concept-workspace.md)
 * Eine [Azure Kubernetes Service-AML-Computeziel](../machine-learning/concept-compute-target.md) in diesem Arbeitsbereich mit einem [bereitgestellten Modell](../machine-learning/how-to-deploy-azure-kubernetes-service.md)
-  * Für das [Computeziel sollte SSL aktiviert sein](../machine-learning/how-to-secure-web-service.md#deploy-on-aks-and-field-programmable-gate-array-fpga). Azure Cognitive Search ermöglicht nur Zugriff auf **HTTPS**-Endpunkte.
+  * Für das [Computeziel sollte SSL aktiviert sein](../machine-learning/how-to-secure-web-service.md#deploy-on-aks-and-field-programmable-gate-array-fpga). Azure Cognitive Search ermöglicht nur Zugriff auf **HTTPS** -Endpunkte.
   * Selbstsignierte Zertifikate können nicht verwendet werden.
 
 ## <a name="odatatype"></a>@odata.type  
@@ -45,7 +45,7 @@ Bei den Parametern wird zwischen Groß- und Kleinschreibung unterschieden. Welch
 
 | Parametername | BESCHREIBUNG |
 |--------------------|-------------|
-| `uri` | (Erforderlich für [keine Authentifizierung oder Schlüsselauthentifizierung](#WhatSkillParametersToUse)) Der [Bewertungs-URI des AML-Diensts](../machine-learning/how-to-consume-web-service.md), an den die _JSON_-Nutzlast gesendet wird. Nur das **HTTPS**-URI-Schema ist zulässig. |
+| `uri` | (Erforderlich für [keine Authentifizierung oder Schlüsselauthentifizierung](#WhatSkillParametersToUse)) Der [Bewertungs-URI des AML-Diensts](../machine-learning/how-to-consume-web-service.md), an den die _JSON_ -Nutzlast gesendet wird. Nur das **HTTPS** -URI-Schema ist zulässig. |
 | `key` | (Erforderlich für [Schlüsselauthentifizierung](#WhatSkillParametersToUse)) Der [Schlüssel für den AML-Dienst](../machine-learning/how-to-consume-web-service.md#authentication-with-keys). |
 | `resourceId` | (Erforderlich für [Tokenauthentifizierung](#WhatSkillParametersToUse)). Die Azure Resource Manager-Ressourcen-ID des AML-Diensts. Er sollte im Format „subscriptions/{GUID}/resourceGroups/{Ressourcengruppenname}/Microsoft.MachineLearningServices/workspaces/{Workspacename}/services/{Dienstname} vorliegen. |
 | `region` | (Optional für [Tokenauthentifizierung](#WhatSkillParametersToUse)). Die [Region](https://azure.microsoft.com/global-infrastructure/regions/), in der der AML-Dienst bereitgestellt wird. |
@@ -58,21 +58,21 @@ Bei den Parametern wird zwischen Groß- und Kleinschreibung unterschieden. Welch
 
 Welche AML-Skillparameter erforderlich sind, hängt davon ab, welche Authentifizierung der AML-Dienst ggf. erfordert. AML-Dienste bieten drei Authentifizierungsoptionen:
 
-* [Schlüsselbasierte Authentifizierung](../machine-learning/concept-enterprise-security.md#authentication-for-web-service-deployment). Ein statischer Schlüssel wird bereitgestellt, um Bewertungsanforderungen von AML-Skills zu authentifizieren.
+* [Schlüsselbasierte Authentifizierung](../machine-learning/how-to-authenticate-web-service.md#key-based-authentication). Ein statischer Schlüssel wird bereitgestellt, um Bewertungsanforderungen von AML-Skills zu authentifizieren.
   * Verwenden Sie die Parameter _uri_ und _key_.
-* [Tokenbasierte Authentifizierung](../machine-learning/concept-enterprise-security.md#authentication). Der AML-Dienst wird [mithilfe von tokenbasierter Authentifizierung](../machine-learning/how-to-deploy-azure-kubernetes-service.md#authentication-with-tokens) bereitgestellt. Der [verwalteten Identität](../active-directory/managed-identities-azure-resources/overview.md) des Azure Cognitive Search-Diensts wird die [Leserrolle](../machine-learning/how-to-assign-roles.md) im Arbeitsbereich des AML-Diensts erteilt. Der AML-Skill verwendet dann die verwaltete Identität des Azure Cognitive Search-Diensts für die Authentifizierung mit dem AML-Dienst, ohne dass statische Schlüssel erforderlich sind.
-  * Verwenden Sie den _resourceId_-Parameter.
-  * Wenn sich der Azure Cognitive Search-Dienst in einer anderen Region als der AML-Arbeitsbereich befindet, verwenden Sie den Parameter _region_, um die Region festzulegen, in der der AML-Dienst bereitgestellt wurde.
+* [Tokenbasierte Authentifizierung](../machine-learning/how-to-authenticate-web-service.md#token-based-authentication). Der AML-Dienst wird [mithilfe von tokenbasierter Authentifizierung](../machine-learning/how-to-authenticate-web-service.md#token-based-authentication) bereitgestellt. Der [verwalteten Identität](../active-directory/managed-identities-azure-resources/overview.md) des Azure Cognitive Search-Diensts wird die [Leserrolle](../machine-learning/how-to-assign-roles.md) im Arbeitsbereich des AML-Diensts erteilt. Der AML-Skill verwendet dann die verwaltete Identität des Azure Cognitive Search-Diensts für die Authentifizierung mit dem AML-Dienst, ohne dass statische Schlüssel erforderlich sind.
+  * Verwenden Sie den _resourceId_ -Parameter.
+  * Wenn sich der Azure Cognitive Search-Dienst in einer anderen Region als der AML-Arbeitsbereich befindet, verwenden Sie den Parameter _region_ , um die Region festzulegen, in der der AML-Dienst bereitgestellt wurde.
 * Keine Authentifizierung. Es ist keine Authentifizierung erforderlich, um den AML-Dienst zu verwenden.
-  * Verwenden Sie den _uri_-Parameter.
+  * Verwenden Sie den _uri_ -Parameter.
 
 ## <a name="skill-inputs"></a>Skilleingaben
 
-Es gibt keine „vordefinierten“ Eingaben für diese Qualifikation. Sie können mindestens ein Feld auswählen, das zum Zeitpunkt der Ausführung dieses Skills bereits verfügbar ist, da Eingaben und die an den AML-Dienst gesendete _JSON_-Nutzlast unterschiedliche Felder aufweisen.
+Es gibt keine „vordefinierten“ Eingaben für diese Qualifikation. Sie können mindestens ein Feld auswählen, das zum Zeitpunkt der Ausführung dieses Skills bereits verfügbar ist, da Eingaben und die an den AML-Dienst gesendete _JSON_ -Nutzlast unterschiedliche Felder aufweisen.
 
 ## <a name="skill-outputs"></a>Skillausgaben
 
-Es gibt keine „vordefinierten“ Ausgaben für diese Qualifikation. Abhängig von der Antwort, die Ihr AML-Dienst zurückgibt, fügen Sie Ausgabefelder hinzu, damit sie von der _JSON_-Antwort übernommen werden können.
+Es gibt keine „vordefinierten“ Ausgaben für diese Qualifikation. Abhängig von der Antwort, die Ihr AML-Dienst zurückgibt, fügen Sie Ausgabefelder hinzu, damit sie von der _JSON_ -Antwort übernommen werden können.
 
 ## <a name="sample-definition"></a>Beispieldefinition
 
@@ -98,7 +98,7 @@ Es gibt keine „vordefinierten“ Ausgaben für diese Qualifikation. Abhängig 
 
 ## <a name="sample-input-json-structure"></a>Beispiel für eine Eingabe-JSON-Struktur
 
-Diese _JSON_-Struktur stellt die Nutzlast dar, die an Ihren AML-Dienst gesendet wird. Die Felder der Struktur auf oberster Ebene entsprechen den im Abschnitt `inputs` der Skilldefinition angegebenen „Namen“. Der Wert dieser Felder ergibt sich aus der `source` dieser Felder (die aus einem Feld im Dokument oder möglicherweise aus einer anderen Qualifikation stammen kann).
+Diese _JSON_ -Struktur stellt die Nutzlast dar, die an Ihren AML-Dienst gesendet wird. Die Felder der Struktur auf oberster Ebene entsprechen den im Abschnitt `inputs` der Skilldefinition angegebenen „Namen“. Der Wert dieser Felder ergibt sich aus der `source` dieser Felder (die aus einem Feld im Dokument oder möglicherweise aus einer anderen Qualifikation stammen kann).
 
 ```json
 {
@@ -108,7 +108,7 @@ Diese _JSON_-Struktur stellt die Nutzlast dar, die an Ihren AML-Dienst gesendet 
 
 ## <a name="sample-output-json-structure"></a>Beispiel für eine Ausgabe-JSON-Struktur
 
-Die „Ausgabe“ entspricht der Antwort, die von Ihrem AML-Dienst zurückgegebenen wird. Der AML-Dienst sollte nur eine _JSON_-Nutzlast zurückgeben (verifiziert durch Untersuchen des `Content-Type`-Antwortheaders) und sollte ein Objekt sein, bei dem die Felder Anreicherungen sind, die mit den „Namen“ in `output` übereinstimmen und deren Wert als die Anreicherung angesehen wird.
+Die „Ausgabe“ entspricht der Antwort, die von Ihrem AML-Dienst zurückgegebenen wird. Der AML-Dienst sollte nur eine _JSON_ -Nutzlast zurückgeben (verifiziert durch Untersuchen des `Content-Type`-Antwortheaders) und sollte ein Objekt sein, bei dem die Felder Anreicherungen sind, die mit den „Namen“ in `output` übereinstimmen und deren Wert als die Anreicherung angesehen wird.
 
 ```json
 {

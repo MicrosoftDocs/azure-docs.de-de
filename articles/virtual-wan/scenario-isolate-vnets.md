@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f725932b30fad062123d6c752f2d563b84f98b2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5e2ce17be6d8a1fa82d8a92b9b788f0bd2a37b8
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267634"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424746"
 ---
 # <a name="scenario-isolating-vnets"></a>Szenario: Isolieren von virtuellen Netzwerken (VNETs)
 
@@ -26,10 +26,10 @@ In diesem Szenario bleibt die Workload in einem bestimmten VNET isoliert und kan
 
 | From |   To |  *VNETs* | *Branches* |
 | -------------- | -------- | ---------- | ---|
-| VNETs     | &#8594;|           |     X    |
-| Branches   | &#8594;|    X     |     X    |
+| VNETs     | &#8594;| Direkt |   Direkt    |
+| Branches   | &#8594;|  Direkt  |   Direkt    |
 
-Jede Zelle in der vorstehenden Tabelle beschreibt, ob eine Virtual WAN-Verbindung (die Seite „From“ des Flows, die Zeilenheader) ein Zielpräfix (die Seite „To“ des Flows, die kursiv formatierten Spaltenheader) für einen bestimmten Datenverkehrsfluss lernt. Dabei bedeutet ein „X“, dass die Konnektivität durch eine Virtual WAN-Verbindung bereitgestellt wird.
+Die Zellen in der vorherigen Tabelle beschreiben, ob eine Virtual WAN-Verbindung (die Seite „Von“ des Flows, die Zeilenüberschriften) mit einem Zielpräfix (die Seite „Zu“ des Flows, die kursiven Spaltenüberschriften) kommuniziert. In diesem Szenario gibt es keine Firewalls oder virtuellen Netzwerkgeräte, sodass die Kommunikation direkt über Virtual WAN erfolgt (daher das Wort „Direkt“ in der Tabelle).
 
 Diese Verbindungsmatrix gibt zwei verschiedene Zeilenmuster an, die in zwei Routingtabellen übersetzt werden. Virtual WAN verfügt bereits über eine Standardroutingtabelle, daher ist eine weitere Routingtabelle erforderlich. In diesem Beispiel nennen wir die Routingtabelle **RT_VNET**.
 
@@ -51,10 +51,10 @@ Weitere Informationen zum Routing für virtuelle Hubs finden Sie unter [Informat
 Führen Sie zur Konfiguration dieses Szenarios die folgenden Schritte aus:
 
 1. Erstellen Sie eine benutzerdefinierte Routingtabelle in jedem Hub. Im Beispiel ist **RT_VNet** die Routingtabelle. Informationen, wie eine Routingtabelle erstellt wird, finden Sie unter [Konfigurieren des Routings für virtuelle Hubs](how-to-virtual-hub-routing.md). Weitere Informationen über Routingtabellen finden Sie unter [Informationen zum Routing virtueller Hubs](about-virtual-hub-routing.md).
-2. Wenn Sie die **RT_VNet**-Routingtabelle erstellen, konfigurieren Sie die folgenden Einstellungen:
+2. Wenn Sie die **RT_VNet** -Routingtabelle erstellen, konfigurieren Sie die folgenden Einstellungen:
 
    * **Zuordnung:** Wählen Sie die VNETs aus, die Sie isolieren möchten.
-   * **Weitergabe**: Wählen Sie die Option für Zweige aus, was impliziert, dass Zweigverbindungen (VPN/ER/P2S-Verbindungen) Routen an diese Routingtabelle weitergeben.
+   * **Weitergabe** : Wählen Sie die Option für Zweige aus, was impliziert, dass Zweigverbindungen (VPN/ER/P2S-Verbindungen) Routen an diese Routingtabelle weitergeben.
 
 :::image type="content" source="./media/routing-scenarios/isolated/isolated-vnets.png" alt-text="Isolierte VNETs":::
 

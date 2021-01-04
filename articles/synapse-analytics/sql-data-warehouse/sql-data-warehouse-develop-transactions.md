@@ -1,5 +1,5 @@
 ---
-title: Verwenden von Transaktionen in einem Synapse SQL-Pool
+title: Verwenden von Transaktionen in Azure Synapse Analytics SQL-Pools
 description: Dieser Artikel enthält Tipps für das Implementieren von Transaktionen und Entwickeln von Lösungen in einem Synapse SQL-Pool.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 03/22/2019
 ms.author: xiaoyul
+ms.custom: azure-synapse
 ms.reviewer: igorstan
-ms.openlocfilehash: 40a9e5268b7fccc5c01775c10e55eee47f1aaf3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5a3c0863bb35f0988d7928bb9a2857f6aceded6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213379"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463207"
 ---
-# <a name="use-transactions-in-synapse-sql-pool"></a>Verwenden von Transaktionen in einem Synapse SQL-Pool
+# <a name="use-transactions-in-a-sql-pool-in-azure-synapse"></a>Verwenden von Transaktionen in einem SQL-Pool in Azure Synapse 
 
 Dieser Artikel enthält Tipps für das Implementieren von Transaktionen und Entwickeln von Lösungen in einem SQL-Pool.
 
@@ -27,7 +28,7 @@ Wie zu erwarten, unterstützen SQL-Pools Transaktionen als Teil der Data Warehou
 
 ## <a name="transaction-isolation-levels"></a>Transaktionsisolationsstufen
 
-SQL-Pools implementieren ACID-Transaktionen. Die Isolationsstufe der Transaktionsunterstützung ist standardmäßig auf READ UNCOMMITTED (Lesen ohne Commit) festgelegt.  Sie können diese in READ COMMITTED SNAPSHOT ISOLATION (Read Committed-Momentaufnahmeisolation) ändern, indem Sie die Datenbankoption READ_COMMITTED_SNAPSHOT für eine Benutzerdatenbank aktivieren, wenn Sie mit der Masterdatenbank verbunden sind.  
+SQL-Pools implementieren ACID-Transaktionen. Die Isolationsstufe der Transaktionsunterstützung ist standardmäßig auf READ UNCOMMITTED (Lesen ohne Commit) festgelegt.  Sie können diese in READ COMMITTED SNAPSHOT ISOLATION (Read Committed-Momentaufnahmeisolation) ändern, indem Sie die Datenbankoption READ_COMMITTED_SNAPSHOT für einen Benutzer-SQL-Pool aktivieren, wenn Sie mit der Masterdatenbank verbunden sind.  
 
 Nach der Aktivierung werden alle Transaktionen in dieser Datenbank unter READ COMMITTED SNAPSHOT ISOLATION ausgeführt, und die Einstellung READ UNCOMMITTED auf Sitzungsebene wird nicht berücksichtigt. Ausführliche Informationen finden Sie unter [ALTER DATABASE SET-Optionen (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 

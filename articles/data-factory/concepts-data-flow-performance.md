@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 08/12/2020
-ms.openlocfilehash: a6f2c16730a9140fdbd1710a3aa0df0ee91795d6
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.date: 11/24/2020
+ms.openlocfilehash: cc06f12317f5e30721452e07bd4dc5f50dfdb7ec
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874831"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022359"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Anleitung zur Leistung und Optimierung der Mapping Data Flow-Funktion
 
@@ -87,6 +87,12 @@ Wenn Sie gut mit der Kardinalität Ihrer Daten vertraut sind, kann die Schlüsse
 > [!TIP]
 > Beim manuellen Festlegen des Partitionierungsschemas werden die Daten neu angeordnet, sodass die Vorteile des Spark-Optimierers ggf. nicht voll zur Geltung kommen. Eine bewährte Methode besteht darin, die Partitionierung nicht manuell festzulegen, sofern dies nicht unbedingt erforderlich ist.
 
+## <a name="logging-level"></a>Protokolliergrad
+
+Wenn Sie nicht voraussetzen, dass jede Pipelineausführung Ihrer Datenflussaktivitäten alle ausführlichen Telemetrieprotokolle vollständig protokolliert, können Sie den Protokolliergrad optional auf „Standard“ oder „Kein“ festlegen. Wenn Sie Ihre Datenflüsse im Modus „Ausführlich“ (Standard) ausführen, fordern Sie an, dass ADF die Aktivität während der Datentransformation auf den einzelnen Partitionsebenen vollständig protokolliert. Da dies ein kostspieliger Vorgang sein kann, kann nur die ausschließliche Aktivierung von „Ausführlich“ bei der Problembehandlung den gesamten Datenfluss und die Pipelineleistung verbessern. Der Modus „Standard“ protokolliert nur die Transformationszeitspannen, während „Kein“ nur eine Zusammenfassung der Zeitspannen bietet.
+
+![Protokolliergrad](media/data-flow/logging.png "Festlegen des Protokolliergrads")
+
 ## <a name="optimizing-the-azure-integration-runtime"></a><a name="ir"></a> Optimieren der Azure Integration Runtime
 
 Datenflüsse werden in Spark-Clustern ausgeführt, die zur Laufzeit gestartet werden. Die Konfiguration für den verwendeten Cluster wird in der Integration Runtime (IR) der Aktivität definiert. Beim Definieren Ihrer Integration Runtime müssen drei Leistungsaspekte berücksichtigt werden: Clustertyp, Clustergröße und Gültigkeitsdauer.
@@ -155,7 +161,7 @@ Azure SQL-Datenbank verfügt über eine eindeutige Partitionierungsoption, die d
 
 #### <a name="isolation-level"></a>Isolationsstufe
 
-Die Isolationsstufe des Lesevorgangs auf einem Azure SQL-Quellsystem hat eine Auswirkung auf die Leistung. Wenn Sie die Option „Lesen ohne Commit“ auswählen, ergibt sich die schnellste Leistung, und Datenbanksperren werden verhindert. Weitere Informationen zu SQL-Isolationsstufen finden Sie unter [Grundlegendes zu Isolationsstufen](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels?view=sql-server-ver15).
+Die Isolationsstufe des Lesevorgangs auf einem Azure SQL-Quellsystem hat eine Auswirkung auf die Leistung. Wenn Sie die Option „Lesen ohne Commit“ auswählen, ergibt sich die schnellste Leistung, und Datenbanksperren werden verhindert. Weitere Informationen zu SQL-Isolationsstufen finden Sie unter [Grundlegendes zu Isolationsstufen](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels).
 
 #### <a name="read-using-query"></a>Lesen per Abfrage
 
@@ -163,7 +169,7 @@ Sie können Lesevorgänge aus Azure SQL-Datenbank durchführen, indem Sie eine T
 
 ### <a name="azure-synapse-analytics-sources"></a>Azure Synapse Analytics-Quellen
 
-Bei Verwendung von Azure Synapse Analytics ist in den Quelloptionen die Einstellung **Staging aktivieren** vorhanden. Dies ermöglicht ADF das Lesen aus Synapse über [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15). Bei dieser Vorgehensweise ergibt sich eine starke Verbesserung der Leseleistung. Beim Aktivieren von PolyBase müssen Sie in den Einstellungen für Datenflussaktivitäten einen Azure Blob Storage- oder Azure Data Lake Storage Gen2-Stagingspeicherort angeben.
+Bei Verwendung von Azure Synapse Analytics ist in den Quelloptionen die Einstellung **Staging aktivieren** vorhanden. Dies ermöglicht ADF das Lesen aus Synapse über ```Polybase```. Bei dieser Vorgehensweise ergibt sich eine starke Verbesserung der Leseleistung. Beim Aktivieren von ```Polybase``` müssen Sie in den Einstellungen für Datenflussaktivitäten einen Azure Blob Storage- oder Azure Data Lake Storage Gen2-Stagingspeicherort angeben.
 
 ![Staging aktivieren](media/data-flow/enable-staging.png "Staging aktivieren")
 
@@ -183,6 +189,10 @@ Wenn Datenflüsse in Senken schreiben, werden alle benutzerdefinierten Partition
 
 Bei Azure SQL-Datenbank sollte die Standardpartitionierung in den meisten Fällen funktionieren. Es besteht die Möglichkeit, dass Ihre Senke über zu viele Partitionen verfügt, sodass sie von Ihrer SQL-Datenbank-Instanz nicht mehr verarbeitet werden können. Reduzieren Sie in diesem Fall die Anzahl von Partitionen, die von Ihrer SQL-Datenbank-Senke ausgegeben werden.
 
+#### <a name="impact-of-error-row-handling-to-performance"></a>Auswirkung der Fehlerzeilenbehandlung auf die Leistung
+
+Wenn Sie die Fehlerzeilenbehandlung („Bei Fehler fortsetzen“) in der Senkentransformation aktivieren, führt ADF einen zusätzlichen Schritt aus, bevor die kompatiblen Zeilen in die Zieltabelle geschrieben werden. Dieser zusätzliche Schritt führt zu einer geringen Leistungseinbuße, die für diesen Schritt mit etwa 5 % veranschlagt werden kann. Eine zusätzliche kleine Leistungseinbuße tritt auf, wenn Sie auch die Option für inkompatible Zeilen für eine Protokolldatei festlegen.
+
 #### <a name="disabling-indexes-using-a-sql-script"></a>Deaktivieren von Indizes per SQL-Skript
 
 Durch das Deaktivieren von Indizes vor dem Laden in eine SQL-Datenbank kann die Leistung beim Schreiben in die Tabelle erheblich verbessert werden. Führen Sie den unten angegebenen Befehl aus, bevor Sie in Ihre SQL-Senke schreiben.
@@ -198,7 +208,7 @@ Dies kann sowohl nativ mit Pre- und Post-SQL-Skripts auf einer Azure SQL-Datenba
 ![Indizes deaktivieren](media/data-flow/disable-indexes-sql.png "Indizes deaktivieren")
 
 > [!WARNING]
-> Beim Deaktivieren von Indizes übernimmt der Datenfluss quasi die Kontrolle über eine Datenbank, und die Durchführung von Abfragen ist dann wahrscheinlich nicht erfolgreich. Aus diesem Grund werden viele ETL-Aufträge nachts ausgelöst, um Konflikte dieser Art zu vermeiden. Weitere Informationen finden Sie im Artikel [Deaktivieren von Indizes und Einschränkungen](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints?view=sql-server-ver15).
+> Beim Deaktivieren von Indizes übernimmt der Datenfluss quasi die Kontrolle über eine Datenbank, und die Durchführung von Abfragen ist dann wahrscheinlich nicht erfolgreich. Aus diesem Grund werden viele ETL-Aufträge nachts ausgelöst, um Konflikte dieser Art zu vermeiden. Weitere Informationen finden Sie im Artikel [Deaktivieren von Indizes und Einschränkungen](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints).
 
 #### <a name="scaling-up-your-database"></a>Hochskalieren Ihrer Datenbank
 
@@ -206,7 +216,7 @@ Planen Sie die Anpassung der Größe Ihrer Quelle und Senke in Azure SQL-Datenba
 
 ### <a name="azure-synapse-analytics-sinks"></a>Azure Synapse Analytics-Senken
 
-Stellen Sie beim Schreiben in Azure Synapse Analytics sicher, dass die Option **Staging aktivieren** aktiviert ist. Hierdurch wird für ADF das Schreiben mit [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) ermöglicht, sodass für die Daten quasi ein Massenladevorgang erfolgt. Bei Verwendung von PolyBase müssen Sie auf ein Azure Data Lake Storage Gen2- oder Azure Blob Storage-Konto für das Staging der Daten verweisen.
+Stellen Sie beim Schreiben in Azure Synapse Analytics sicher, dass die Option **Staging aktivieren** aktiviert ist. Hierdurch wird für ADF das Schreiben mit [PolyBase](/sql/relational-databases/polybase/polybase-guide) ermöglicht, sodass für die Daten quasi ein Massenladevorgang erfolgt. Bei Verwendung von PolyBase müssen Sie auf ein Azure Data Lake Storage Gen2- oder Azure Blob Storage-Konto für das Staging der Daten verweisen.
 
 Mit Ausnahme von PolyBase gelten für Azure Synapse Analytics die gleichen bewährten Methoden wie für Azure SQL-Datenbank.
 
@@ -239,7 +249,6 @@ Beim Schreiben in Cosmos DB kann die Leistung verbessert werden, indem der Durc
 **Durchsatz:** Legen Sie hier einen höheren Durchsatz fest, damit Dokumente schneller in Cosmos DB geschrieben werden können. Beachten Sie die höheren RU-Kosten bei einer höheren Durchsatzeinstellung.
 
 **Write Throughput Budget** (Budget für Schreibdurchsatz): Verwenden Sie einen Wert, der kleiner als die Gesamtanzahl der RUs pro Minute ist. Wenn Ihr Datenfluss eine hohe Anzahl von Spark-Partitionen enthält, können Sie durch das Festlegen eines Durchsatzbudgets eine bessere Balance zwischen diesen Partitionen erzielen.
-
 
 ## <a name="optimizing-transformations"></a>Optimieren von Transformationen
 

@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: ef99ff874376e0d76e45e4b0b2c36a78d938130b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf4d0a845b7f26c82ba3940d6613a33bcacf9187
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843625"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448331"
 ---
 # <a name="recover-from-a-failed-azure-stack-edge-pro-gpu-device"></a>Wiederherstellung nach Ausfall eines „Azure Stack Edge Pro mit GPU“-Geräts 
 
 In diesem Artikel wird die Wiederherstellung nach einem nicht tolerierbaren Fehler auf Ihrem „Azure Stack Edge Pro mit GPU“-Gerät beschrieben. Ein nicht tolerierbarer Fehler auf einem „Azure Stack Edge Pro mit GPU“-Gerät erfordert einen Geräteaustausch.
 
-## <a name="before-you-begin"></a>Vorbereitung
+## <a name="before-you-begin"></a>Bevor Sie beginnen
 
 Stellen Sie sicher, dass Sie über Folgendes verfügen:
 
@@ -62,7 +62,8 @@ Zur Vorbereitung auf einen möglichen Geräteausfall sollten Sie eine der folgen
 | Drittanbietersoftware           | Verweis auf die Lösung                               |
 |--------------------------------|---------------------------------------------------------|
 | Cohesity                       | [https://www.cohesity.com/solution/cloud/azure/](https://www.cohesity.com/solution/cloud/azure/) <br> Weitere Informationen erhalten Sie bei Cohesity.          |
-| Veritas                        | Weitere Informationen erhalten Sie bei Veritas.   |
+| Commvault                      | https://www.commvault.com/azure <br> Weitere Informationen erhalten Sie bei Commvault. |
+| Veritas                        | http://veritas.com/azure <br> Weitere Informationen erhalten Sie bei Veritas.   |
 
 Nach vollständiger Konfiguration des Ersatzgeräts aktivieren Sie das Gerät für die lokale Speicherung. 
 
@@ -80,9 +81,10 @@ Zur Vorbereitung auf einen möglichen Geräteausfall sollten Sie eine der folgen
 
 | Sicherungslösungen        | Unterstütztes Betriebssystem   | Referenz                                                                |
 |-------------------------|----------------|--------------------------------------------------------------------------|
-| MARS-Agent (Microsoft Azure Recovery Services) für Azure Backup | Windows        | [Informationen zum MARS-Agent](/azure/backup/backup-azure-about-mars)    |
-| Cohesity                | Windows, Linux | [Lösungsübersicht zur Integration, Sicherung und Wiederherstellung in Microsoft Azure](https://www.cohesity.com/solution/cloud/azure) <br>Weitere Informationen erhalten Sie bei Cohesity.                          |
-| Veritas                 | Windows, Linux | Weitere Informationen erhalten Sie bei Veritas.                    |
+| MARS-Agent (Microsoft Azure Recovery Services) für Azure Backup | Windows        | [Informationen zum MARS-Agent](../backup/backup-azure-about-mars.md)    |
+| Cohesity                | Windows, Linux | [Lösungsübersicht zur Microsoft Azure-Integration, Sicherung und Wiederherstellung](https://www.cohesity.com/solution/cloud/azure) <br>Weitere Informationen erhalten Sie bei Cohesity.                          |
+| Commvault               | Windows, Linux | https://www.commvault.com/azure <br> Weitere Informationen erhalten Sie bei Commvault.
+| Veritas                 | Windows, Linux | http://veritas.com/azure <br> Weitere Informationen erhalten Sie bei Veritas.                    |
 
 Nach vollständiger Konfiguration des Ersatzgeräts können Sie die VMs mit dem zuvor verwendeten VM-Image erneut bereitstellen. 
 

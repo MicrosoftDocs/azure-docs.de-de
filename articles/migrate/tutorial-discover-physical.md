@@ -1,15 +1,18 @@
 ---
 title: Ermitteln physischer Server mit der Azure Migrate-Serverbewertung
 description: Hier erfahren Sie, wie Sie lokale physische Server mit der Azure Migrate-Serverbewertung ermitteln.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: e7cbd7939248686a251fdf56bf1a5f1acc952a3a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 1263bc3ffe18aa951b3e5b61747c889d36acbab1
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314083"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752809"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>Tutorial: Ermitteln physischer Server mit der Serverbewertung
 
@@ -75,11 +78,15 @@ Wenn Sie gerade erst ein kostenloses Azure-Konto erstellt haben, sind Sie der Be
 
 Richten Sie ein Konto ein, das von der Appliance für den Zugriff auf die physischen Server verwendet werden kann.
 
-- Richten Sie auf allen Windows-Servern, die Sie in die Ermittlung einbeziehen möchten, ein lokales Benutzerkonto ein. Fügen Sie das Benutzerkonto den folgenden Gruppen hinzu: Remoteverwaltungsbenutzer, Systemmonitorbenutzer und Leistungsprotokollbenutzer.
-- Linux-Server: Sie benötigen ein root-Konto auf den Linux-Servern, die Sie ermitteln möchten. Legen Sie den Zugriff alternativ wie folgt fest:
-    - setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk
-    - setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk (wenn „/usr/sbin/fdisk“ nicht vorhanden ist)<br/> - setcap "cap_dac_override, cap_dac_read_search, cap_fowner,cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap=+eip" /sbin/lvm
-    - setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode chmod a+r /sys/class/dmi/id/product_uuid
+- Verwenden Sie für Windows-Server ein Domänenkonto für in die Domäne eingebundene Computer und ein lokales Konto für nicht in die Domäne eingebundene Computer. Das Benutzerkonto sollte diesen Gruppen hinzugefügt werden: Remoteverwaltungsbenutzer, Leistungsüberwachungsbenutzer und Leistungsprotokollbenutzer.
+- Linux-Server: Sie benötigen ein root-Konto auf den Linux-Servern, die Sie ermitteln möchten. Alternativ dazu können Sie auch mithilfe der folgenden Befehle ein Konto mit den erforderlichen Funktionen festlegen, bei dem es sich nicht um das root-Konto handelt:
+
+**Befehl** | **Zweck**
+--- | --- |
+setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk _(wenn „/usr/sbin/fdisk“ nicht vorhanden ist)_ | Erfassen der Daten zur Datenträgerkonfiguration
+setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<br>cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br>cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | Erfassen der Daten zur Datenträgerleistung
+setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | Erfassen der BIOS-Seriennummer
+chmod a+r /sys/class/dmi/id/product_uuid | Erfassen der BIOS-GUID
 
 
 ## <a name="set-up-a-project"></a>Einrichten eines Projekts
@@ -137,13 +144,13 @@ Vergewissern Sie sich vor der Bereitstellung, dass die gezippte Datei sicher ist
 3.  Überprüfen Sie die aktuellen Applianceversionen und Hashwerte:
     - Öffentliche Cloud:
 
-        **Szenario** | **Herunterladen*** | **Hashwert**
+        **Szenario** | **Herunterladen** _ | _ *Hashwert**
         --- | --- | ---
         Physisch (85,8 MB) | [Aktuelle Version](https://go.microsoft.com/fwlink/?linkid=2140334) | ce5e6f0507936def8020eb7b3109173dad60fc51dd39c3bd23099bc9baaabe29
 
     - Azure Government:
 
-        **Szenario** | **Herunterladen*** | **Hashwert**
+        **Szenario** | **Herunterladen** _ | _ *Hashwert**
         --- | --- | ---
         Physisch (85,8 MB) | [Aktuelle Version](https://go.microsoft.com/fwlink/?linkid=2140338) | ae132ebc574caf231bf41886891040ffa7abbe150c8b50436818b69e58622276
  

@@ -3,12 +3,12 @@ title: Informationen zu Repositorys und Images
 description: Einführung in die grundlegenden Konzepte von Azure-Containerregistrierungen, Repositorys und Containerimages.
 ms.topic: article
 ms.date: 06/16/2020
-ms.openlocfilehash: f3a3e2a00b4fb35f9e9dd1415d5c197aef0d39b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd2f93c119817c722401f7290064894f3d39dac9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85390447"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335893"
 ---
 # <a name="about-registries-repositories-and-images"></a>Informationen zu Registrierungen, Repositorys und Images
 
@@ -16,7 +16,7 @@ Dieser Artikel stellt die grundlegenden Konzepte von Containerregistern, Reposit
 
 ## <a name="registry"></a>Registrierung
 
-Eine Container-*Registrierung* ist ein Dienst, der Containerimages verteilt und speichert. Docker Hub ist eine öffentliche Containerregistrierung, die die Open-Source-Community unterstützt und als allgemeiner Katalog von Images dient. Azure Container Registry bietet Benutzern die direkte Steuerung ihrer Images mit integrierter Authentifizierung, [Georeplikation](container-registry-geo-replication.md), die die globale Verteilung und Zuverlässigkeit netzwerknaher Bereitstellungen unterstützt, [Konfiguration von virtuellen Netzwerken und Firewalls](container-registry-vnet.md), [Tagsperren](container-registry-image-lock.md) und vielen anderen erweiterten Funktionen. 
+Eine Container- *Registrierung* ist ein Dienst, der Containerimages verteilt und speichert. Docker Hub ist eine öffentliche Containerregistrierung, die die Open-Source-Community unterstützt und als allgemeiner Katalog von Images dient. Azure Container Registry bietet Benutzern die direkte Steuerung ihrer Images mit integrierter Authentifizierung, [Georeplikation](container-registry-geo-replication.md), die die globale Verteilung und Zuverlässigkeit netzwerknaher Bereitstellungen unterstützt, [Konfiguration von virtuellen Netzwerken und Firewalls](container-registry-vnet.md), [Tagsperren](container-registry-image-lock.md) und vielen anderen erweiterten Funktionen. 
 
 Zusätzlich zu den Docker-Containerimages unterstützt Azure Container Registry verwandte [Inhaltsartefakte](container-registry-image-formats.md) einschließlich Open Container Initiative-Imageformaten (OCI).
 
@@ -26,9 +26,9 @@ Die Adresse eines Elements in einer Azure-Containerregistrierung enthält die fo
 
 `[loginUrl]/[repository:][tag]`
 
-* **loginUrl**: Der vollqualifizierte Name des Registrierungshosts. Der Registrierungshost in einer Azure-Containerregistrierung hat das Format *meineregistrierung*.azurecr.io (nur Kleinbuchstaben). Sie müssen die loginUrl angeben, wenn Sie Docker oder andere Clienttools verwenden, um Artefakte in eine Azure-Containerregistrierung zu pullen oder pushen. 
-* **Repository**: Name einer logischen Gruppierung mit mindestens einem verknüpften Image oder Artefakt, z. B. die Images für eine Anwendung oder ein Basisbetriebssystem. Kann einen *Namespacepfad* enthalten. 
-* **Tag**: Bezeichner für eine bestimmte Version eines in einem Repository gespeicherten Images oder Artefakts.
+* **loginUrl** : Der vollqualifizierte Name des Registrierungshosts. Der Registrierungshost in einer Azure-Containerregistrierung hat das Format *meineregistrierung*.azurecr.io (nur Kleinbuchstaben). Sie müssen die loginUrl angeben, wenn Sie Docker oder andere Clienttools verwenden, um Artefakte in eine Azure-Containerregistrierung zu pullen oder pushen. 
+* **Repository** : Name einer logischen Gruppierung mit mindestens einem verknüpften Image oder Artefakt, z. B. die Images für eine Anwendung oder ein Basisbetriebssystem. Kann einen *Namespacepfad* enthalten. 
+* **Tag** : Bezeichner für eine bestimmte Version eines in einem Repository gespeicherten Images oder Artefakts.
 
 Beispielsweise kann der vollständige Name eines Images in einer Azure-Containerregistrierung so aussehen:
 
@@ -45,7 +45,7 @@ Ein *Repository* ist eine Sammlung von Containerimages oder anderen Artefakten m
 - *acr-helloworld:v1*
 - *acr-helloworld:v2*
 
-Repository-Namen können auch [Namespaces](container-registry-best-practices.md#repository-namespaces) enthalten. Mit Namespaces können Sie verwandte Repositorys und den Artefaktbesitz in Ihrer Organisation identifizieren, indem Sie durch Schrägstriche getrennte Namen verwenden. Allerdings verwaltet die Registrierung alle Repositorys unabhängig voneinander und nicht als Hierarchie. Beispiele:
+Repository-Namen können auch [Namespaces](container-registry-best-practices.md#repository-namespaces) enthalten. Mit Namespaces können Sie verwandte Repositorys und den Artefaktbesitz in Ihrer Organisation identifizieren, indem Sie durch Schrägstriche getrennte Namen verwenden. Allerdings verwaltet die Registrierung alle Repositorys unabhängig voneinander und nicht als Hierarchie. Zum Beispiel:
 
 - *marketing/campaign10-18/web:v2*
 - *marketing/campaign10-18/api:v3*
@@ -73,7 +73,7 @@ Informationen zu Benennungsregeln für Tags finden Sie in der [Docker-Dokumentat
 
 ### <a name="layer"></a>Ebene
 
-Containerimages bestehen aus einer oder mehreren *Ebenen*, die jeweils einer Zeile in der Dockerfile-Datei entsprechen, die das Image definiert. Images in einer Registrierung teilen allgemeine Ebenen, die die Speichereffizienz verbessern. Z.B. können mehrere Bilder in verschiedenen Repositorys dieselbe Alpine Linux-Basisebene teilen, aber nur eine Kopie dieser Ebene wird in der Registrierung gespeichert.
+Containerimages bestehen aus einer oder mehreren *Ebenen* , die jeweils einer Zeile in der Dockerfile-Datei entsprechen, die das Image definiert. Images in einer Registrierung teilen allgemeine Ebenen, die die Speichereffizienz verbessern. Z.B. können mehrere Bilder in verschiedenen Repositorys dieselbe Alpine Linux-Basisebene teilen, aber nur eine Kopie dieser Ebene wird in der Registrierung gespeichert.
 
 Die Ebenenfreigabe optimiert außerdem die Ebenenverteilung auf Knoten mit mehreren Images, die gemeinsame Ebenen verwenden. Wenn ein Image auf einem Knoten beispielsweise die Alpine Linux-Ebene als Basis enthält, wird beim nachfolgenden Pull-Vorgang eines anderen Images, das auf dieselbe Ebene des Knotens verweist, die Ebene nicht auf den Knoten übertragen. Stattdessen verweist es auf die Ebene, die bereits auf dem Knoten vorhanden ist.
 

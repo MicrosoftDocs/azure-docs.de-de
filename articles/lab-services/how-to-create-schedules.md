@@ -1,16 +1,16 @@
 ---
-title: Erstellen eines Zeitplans für Classroom-Labs in Azure Lab Services | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie Zeitpläne für Classroom-Labs in Azure Lab Services erstellen, sodass virtuelle Computer in den Labs zu einem bestimmten Zeitpunkt gestartet und heruntergefahren werden.
+title: Erstellen eines Zeitplans für Labs in Azure Lab Services | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie Zeitpläne für Labs in Azure Lab Services erstellen, sodass virtuelle Computer in den Labs zu einem bestimmten Zeitpunkt gestartet und heruntergefahren werden.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4eb4e2459069b61990f51f8d8de76522b736723e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2a827c3d9f3022cb7d27ee43c9c95227c44f97e7
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326438"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434024"
 ---
-# <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Erstellen und Verwalten von Zeitplänen für Classroom-Labs in Azure Lab Services 
+# <a name="create-and-manage-schedules-for-labs-in-azure-lab-services"></a>Erstellen und Verwalten von Zeitplänen für Labs in Azure Lab Services 
 Mithilfe von Zeitplänen können Sie ein Classroom-Lab so konfigurieren, dass VMs im Lab automatisch zu einem bestimmten Zeitpunkt gestartet und heruntergefahren werden. Sie können einen einmaligen Zeitplan oder einen sich wiederholenden Zeitplan definieren. Die folgenden Verfahren zeigen die Schritte zum Erstellen und Verwalten von Zeitplänen für ein Classroom-Lab: 
 
 > [!IMPORTANT]
@@ -77,4 +77,4 @@ Weitere Informationen finden Sie in folgenden Artikeln:
 - [Erstellen und Verwalten von Labkonten als Administrator](how-to-manage-lab-accounts.md)
 - [Erstellen und Verwalten von Labs als Labbesitzer](how-to-manage-classroom-labs.md)
 - [Konfigurieren und Steuern der Nutzung eines Labs als Labbesitzer](how-to-configure-student-usage.md)
-- [Zugreifen auf ein Classroom-Lab in Azure Lab Services](how-to-use-classroom-lab.md) (als Labbenutzer)
+- [Zugreifen auf Labs als Labbenutzer](how-to-use-classroom-lab.md)

@@ -1,6 +1,6 @@
 ---
-title: Konzepte für Wetterdienste in Microsoft Azure Maps
-description: Hier finden Sie Informationen zu den Konzepten für Wetterdienste in Microsoft Azure Maps.
+title: Konzepte für Wetterinfodienste in Microsoft Azure Maps (Vorschau)
+description: Erfahren Sie mehr über die Konzepte für Wetterinfodienste in Microsoft Azure Maps (Vorschau).
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2020
@@ -8,20 +8,24 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4430737814ef904e83b2bf3ce25edf3d44e2668d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 657cb6a86122d267b86e82b6f02eb58e968cddd3
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972040"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904736"
 ---
-# <a name="weather-services-in-azure-maps"></a>Wetterdienste in Azure Maps
+# <a name="weather-services-preview-in-azure-maps"></a>Wetterinfodienste in Azure Maps (Vorschau)
 
-In diesem Artikel werden Konzepte vorgestellt, die für die [Wetterdienste von Azure Maps](https://aka.ms/AzureMapsWeatherService) gelten. Es empfiehlt sich, diesen Artikel zu lesen, bevor Sie die Wetter-APIs verwenden.
+> [!IMPORTANT]
+> Die Wetterinfodienste in Azure Maps befinden sich derzeit in der öffentlichen Vorschau.
+> Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar. Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+In diesem Artikel werden Konzepte vorgestellt, die für die [Wetterinfodienste](/rest/api/maps/weather) von Azure Maps gelten. Es empfiehlt sich, diesen Artikel zu lesen, bevor Sie die Wetter-APIs verwenden.
 
 ## <a name="unit-types"></a>Einheitstypen
 
-Einige der Wetterdienst-APIs ermöglichen es dem Benutzer, anzugeben, ob die Daten entweder in metrischen oder in Zolleinheiten zurückgegeben werden. Die zurückgegebene Antwort für diese APIs enthält den unitType und einen numerischen Wert, der für die Übersetzung von Einheiten verwendet werden kann. Weitere Informationen zum Interpretieren dieser Werte finden Sie in der Tabelle unten.
+Bei einigen Wetterinfodienst-APIs (Vorschau) kann der Benutzer angeben, ob die Daten in metrischen oder in Zolleinheiten zurückgegeben werden sollen. Die zurückgegebene Antwort für diese APIs enthält den unitType und einen numerischen Wert, der für die Übersetzung von Einheiten verwendet werden kann. Weitere Informationen zum Interpretieren dieser Werte finden Sie in der Tabelle unten.
 
 |unitType|BESCHREIBUNG         |
 |--------|--------------------|
@@ -52,7 +56,7 @@ Einige der Wetterdienst-APIs ermöglichen es dem Benutzer, anzugeben, ob die Dat
 
 ## <a name="weather-icons"></a>Wettersymbole
 
-Einige der Wetterinfodienst-APIs geben den `iconCode` in der Antwort zurück. Der `iconCode` ist ein numerischer Wert, der zum Definieren des Symbols verwendet wird. Stellen Sie aus Ihren Anwendungen keine direkten Verknüpfungen mit diesen Bildern her, da sich die URLs ändern können und werden.
+Von einigen Wetterinfodienst-APIs (Vorschau) wird `iconCode` in der Antwort zurückgegeben. Der `iconCode` ist ein numerischer Wert, der zum Definieren des Symbols verwendet wird. Stellen Sie aus Ihren Anwendungen keine direkten Verknüpfungen mit diesen Bildern her, da sich die URLs ändern können und werden.
 
 | Symbolnummer |Symbol| Day (Tag) | Nacht | Text |
 |-------------|:----:|-----|-------|------|
@@ -100,7 +104,7 @@ Einige der Wetterinfodienst-APIs geben den `iconCode` in der Antwort zurück. De
 
 ## <a name="radar-and-satellite-imagery-color-scale"></a>Farbskala für Radar- und Satellitenbilder
 
-Über die [Get Map Tile v2-API](https://aka.ms/AzureMapsWeatherTiles) können Benutzer die neuesten Radar- und Infrarotsatellitenbilder anfordern. Weitere Informationen zur Interpretation von Farben für Radar- und Satellitenkacheln finden Sie im nachfolgenden Leitfaden.
+Über die [Get Map Tile v2-API](/rest/api/maps/renderv2/getmaptilepreview) können Benutzer die neuesten Radar- und Infrarotsatellitenbilder anfordern. Weitere Informationen zur Interpretation von Farben für Radar- und Satellitenkacheln finden Sie im nachfolgenden Leitfaden.
 
 ### <a name="radar-images"></a>Radarbilder
 
@@ -475,7 +479,7 @@ Die detaillierte Farbpalette für Infrarotsatellitenkacheln sehen Sie unten.
 
 ## <a name="index-ids-and-index-groups-ids"></a>Index-IDs and Indexgruppen-IDs
 
-Über die [API zum Abrufen von Tagesindizes](https://aka.ms/AzureMapsWeatherDailyIndices) können Benutzer die zurückgegebenen Ergebnisse auf bestimmte Indextypen oder Indexgruppen beschränken.
+Über die [API zum Abrufen von Tagesindizes](/rest/api/maps/weather) können Benutzer die zurückgegebenen Ergebnisse auf bestimmte Indextypen oder Indexgruppen beschränken.
 
 Im Anschluss finden Sie eine Tabelle mit verfügbaren Index-IDs, den zugehörigen Namen und einem Link zu deren Bereichen. Danach folgt eine Tabelle mit den verschiedenen Indexgruppen.
 
@@ -547,7 +551,7 @@ Die folgende Liste enthält verfügbare Indexgruppen (indexGroupId):
 
 ## <a name="daily-index-range-sets"></a>Tagesindexbereiche
 
-Von der [API zum Abrufen von Tagesindizes](https://aka.ms/AzureMapsWeatherDailyIndices) werden der Bereichswert und der zugehörige Kategoriename für die jeweilige Index-ID zurückgegeben. Bereiche sind nicht für alle Indizes gleich. Die folgenden Tabellen enthalten die verschiedenen Bereiche, die von den unter [Index-IDs and Indexgruppen-IDs](#index-ids-and-index-groups-ids) aufgeführten unterstützten Indizes verwendet werden. Von welchen Indizes welche Bereiche verwendet werden, erfahren Sie im Abschnitt [Index-IDs and Indexgruppen-IDs](#index-ids-and-index-groups-ids) dieses Dokuments.
+Von der [API zum Abrufen von Tagesindizes](/rest/api/maps/weather) werden der Bereichswert und der zugehörige Kategoriename für die jeweilige Index-ID zurückgegeben. Bereiche sind nicht für alle Indizes gleich. Die folgenden Tabellen enthalten die verschiedenen Bereiche, die von den unter [Index-IDs and Indexgruppen-IDs](#index-ids-and-index-groups-ids) aufgeführten unterstützten Indizes verwendet werden. Von welchen Indizes welche Bereiche verwendet werden, erfahren Sie im Abschnitt [Index-IDs and Indexgruppen-IDs](#index-ids-and-index-groups-ids) dieses Dokuments.
 
 ### <a name="poor-excellent-1"></a>Schlecht bis ausgezeichnet 1
 

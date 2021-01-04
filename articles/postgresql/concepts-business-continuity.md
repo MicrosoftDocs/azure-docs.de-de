@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: 4189aadb6e37fc70bcaeecca2110d6fcc3959dd3
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: cf3c07f32f15ff176974219bd8143a1ea315c945
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939867"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93423044"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Übersicht über die Geschäftskontinuität mit Azure Database for PostgreSQL – Einzelserver
 
@@ -21,17 +21,22 @@ Diese Übersicht beschreibt die Funktionen, die Azure Database for PostgreSQL f�
 
 Wenn Sie Ihren Plan für die Geschäftskontinuität entwickeln, müssen Sie ermitteln, wie viel Zeit maximal vergehen darf, bis die Anwendung nach einer Störung vollständig wiederhergestellt ist – diese Zeitspanne ist Ihre RTO (Recovery Time Objective). Sie müssen auch herausfinden, wie viele kürzlich durchgeführte Datenupdates (in einem bestimmten Zeitraum) verloren gehen dürfen, wenn die Anwendung nach einer Störung wiederhergestellt wird – diese Zeitspanne ist Ihre RPO (Recovery Point Objective).
 
-Azure Database for PostgreSQL bietet Geschäftskontinuitätsfeatures, die georedundante Sicherungen mit der Möglichkeit zum Initiieren der Geowiederherstellung und zum Bereitstellen von Lesereplikaten in einer anderen Region umfassen. Jedes Feature weist unterschiedliche Eigenschaften für die Wiederherstellungszeit und mögliche Datenverluste auf. Beim Feature für die [Geowiederherstellung](concepts-backup.md) wird ein neuer Server mithilfe der Sicherungsdaten erstellt, die aus einer anderen Region repliziert werden. Die Gesamtzeit der Wiederherstellung hängt von der Größe der Datenbank und der Anzahl der wiederherzustellenden Protokolle ab. Die Gesamtzeit zum Einrichten des Servers variiert von wenigen Minuten bis zu einigen Stunden. Mit [Lesereplikaten](concepts-read-replicas.md) werden Transaktionsprotokolle vom primären Standort asynchron an das Replikat gestreamt. Die Verzögerung zwischen dem primären Standort und dem Replikat hängt von der Wartezeit zwischen den Standorten und der Menge der zu übertragenden Daten ab. Bei einem Ausfall eines primären Standorts (z. B. einem Verfügbarkeitszonenfehler) ermöglicht das Heraufstufen des Replikats kürzere RTOs und geringere Datenverluste. 
+Azure Database for PostgreSQL bietet Geschäftskontinuitätsfeatures, die georedundante Sicherungen mit der Möglichkeit zum Initiieren der Geowiederherstellung und zum Bereitstellen von Lesereplikaten in einer anderen Region umfassen. Jedes Feature weist unterschiedliche Eigenschaften für die Wiederherstellungszeit und mögliche Datenverluste auf. Beim Feature für die [Geowiederherstellung](concepts-backup.md) wird ein neuer Server mithilfe der Sicherungsdaten erstellt, die aus einer anderen Region repliziert werden. Die Gesamtzeit der Wiederherstellung hängt von der Größe der Datenbank und der Anzahl der wiederherzustellenden Protokolle ab. Die Gesamtzeit zum Einrichten des Servers variiert von wenigen Minuten bis zu einigen Stunden. Mit [Lesereplikaten](concepts-read-replicas.md) werden Transaktionsprotokolle vom primären Standort asynchron an das Replikat gestreamt. Bei einem Ausfall der primären Datenbank aufgrund eines Fehlers auf Zonen- oder Regionsebene bietet ein Failover auf das Replikat eine kürzere RTO und reduziert mögliche Datenverluste.
 
-In der folgenden Tabelle werden RTO und RPO in einem typischen Szenario verglichen:
+> [!NOTE]
+> Die Verzögerung zwischen dem primären Server und dem Replikat hängt von der Latenz zwischen den Standorten, der Menge der zu übertragenden Daten und vor allem von der Schreibworkload des primären Servers ab. Schreibintensive Workloads können erhebliche Verzögerungen verursachen. 
+>
+> Da die Replikation von Lesereplikaten asynchron abläuft, sollten diese **nicht** für Lösungen mit Hochverfügbarkeit eingeplant werden, da die höheren Verzögerungen auch höhere RTOs und RPOs bedeuten können. Nur bei Workloads mit einer geringeren Verzögerung zu Zeiten mit und ohne Spitzenwerte können Lesereplikate als Alternative für Hochverfügbarkeit fungieren. Davon abgesehen sind Lesereplikate nur für Szenarien mit echter Leseskalierung für leseintensive Workloads und für die Notfallwiederherstellung vorgesehen.
+
+In der folgenden Tabelle werden RTO und RPO in einem Szenario mit einer **typischen Workload** verglichen:
 
 | **Funktion** | **Grundlegend** | **Allgemeiner Zweck** | **Arbeitsspeicheroptimiert** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Point-in-Time-Wiederherstellung von Sicherung | Beliebiger Wiederherstellungspunkt innerhalb der Aufbewahrungsdauer | Beliebiger Wiederherstellungspunkt innerhalb der Aufbewahrungsdauer | Beliebiger Wiederherstellungspunkt innerhalb der Aufbewahrungsdauer |
 | Geowiederherstellung von georeplizierten Sicherungen | Nicht unterstützt | RTO: variiert <br/>RPO < 1 Stunde | RTO: variiert <br/>RPO < 1 Stunde |
-| Lesereplikate | RTO: mehrere Minuten <br/>RPO < 5 Min.* | RTO: mehrere Minuten <br/>RPO < 5 Min.*| RTO: mehrere Minuten <br/>RPO < 5 Min.*|
+| Lesereplikate | RTO – Minuten* <br/>RPO < 5 Min.* | RTO – Minuten* <br/>RPO < 5 Min.*| RTO – Minuten* <br/>RPO < 5 Min.*|
 
-\* Die RPO kann in einigen Fällen in Abhängigkeit von verschiedenen Faktoren wie der Workload der primären Datenbank und der Wartezeit zwischen Regionen höher sein. 
+ \* RTOs und RPOs können in einigen Fällen in Abhängigkeit von verschiedenen Faktoren wie der Latenz zwischen den Standorten, der Menge der zu übertragenden Daten und vor allem der Schreibworkload in der primären Datenbank **deutlich höher sein**. 
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Wiederherstellen eines Servers nach einem Benutzer- oder Anwendungsfehler
 
@@ -56,7 +61,7 @@ Das Geowiederherstellungsfeature stellt den Server mithilfe georedundanter Siche
 > Die Geowiederherstellung ist nur möglich, wenn Sie den Server mit einem georedundanten Sicherungsspeicher bereitgestellt haben. Wenn Sie von lokal redundanten zu georedundanten Sicherungen für einen bestehenden Server wechseln möchten, müssen Sie mit „pg_dump“ ein Speicherabbild Ihres bestehenden Servers erstellen und ihn auf einem neu erstellten Server wiederherstellen, der mit georedundanten Sicherungen konfiguriert ist.
 
 ## <a name="cross-region-read-replicas"></a>Regionsübergreifende Lesereplikate
-Mithilfe regionsübergreifender Lesereplikate können Sie Ihre BCDR-Planung (Business Continuity & Disaster Recovery) verbessern. Lesereplikate werden mithilfe der physischen Replikationstechnologie von PostgreSQL asynchron aktualisiert. Weitere Informationen zu Lesereplikaten, zu verfügbaren Regionen und zum Failover finden Sie im [Konzeptartikel zu Lesereplikaten](concepts-read-replicas.md). 
+Mithilfe regionsübergreifender Lesereplikate können Sie Ihre BCDR-Planung (Business Continuity & Disaster Recovery) verbessern. Lesereplikate werden mithilfe der physischen Replikationstechnologie von PostgreSQL asynchron aktualisiert und können damit zu Verzögerungen auf dem primären Server führen. Weitere Informationen zu Lesereplikaten, zu verfügbaren Regionen und zum Failover finden Sie im [Konzeptartikel zu Lesereplikaten](concepts-read-replicas.md). 
 
 ## <a name="faq"></a>Häufig gestellte Fragen
 ### <a name="where-does-azure-database-for-postgresql-store-customer-data"></a>Wo werden Kundendaten von Azure Database for PostgreSQL gespeichert?

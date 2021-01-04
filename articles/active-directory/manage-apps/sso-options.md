@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: 5c02733167db5071b1f2a9c5e04dc05a069fda3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7ec8a913634322be5a1eb854972cfa2a0217381
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604205"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651922"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Optionen für einmaliges Anmelden in Azure AD
 
@@ -49,7 +49,7 @@ In der folgenden Tabelle werden die Methoden für einmaliges Anmelden zusammenge
 | [Verknüpft](#linked-sign-on) | Cloud und lokal | Wählen Sie das verknüpfte Anmelden aus, wenn die Anwendung für einmaliges Anmelden bei einem anderen Identitätsanbieterdienst konfiguriert ist. Mit dieser Option wird der Anwendung kein einmaliges Anmelden hinzugefügt. Die Anwendung kann das einmalige Anmelden jedoch möglicherweise bereits über einen anderen Dienst implementiert haben, z.B. Active Directory-Verbunddienste.|
 | [Disabled](#disabled-sso) | Cloud und lokal | Wählen Sie das deaktivierte einmalige Anmelden, wenn die App nicht für einmaliges Anmelden konfiguriert werden kann. Dieser Modus ist beim Erstellen der App standardmäßig eingestellt.|
 | [Integrierte Windows-Authentifizierung (IWA)](#integrated-windows-authentication-iwa-sso) | Nur lokal | Wählen Sie einmaliges Anmelden vom Typ IWA für Anwendungen, die die [integrierte Windows-Authentifizierung (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication) verwenden oder Ansprüche unterstützen. Bei IWA verwenden die Anwendungsproxyconnectors die eingeschränkte Kerberos-Delegierung (Kerberos Constrained Delegation, KCD), um Benutzer für die Anwendung zu authentifizieren. |
-| [Headerbasiert](#header-based-sso) | Nur lokal | Verwenden Sie das headerbasierte einmalige Anmelden, wenn die Anwendung für die Authentifizierung Header verwendet. Headerbasiertes einmaliges Anmelden erfordert PingAccess für Azure AD. Der Anwendungsproxy verwendet Azure AD, um den Benutzer zu authentifizieren, und leitet Datenverkehr dann über den Connectordienst weiter.  |
+| [Headerbasiert](#header-based-sso) | Nur lokal | Verwenden Sie das headerbasierte einmalige Anmelden, wenn die Anwendung für die Authentifizierung Header verwendet. Der Anwendungsproxy verwendet Azure AD, um den Benutzer zu authentifizieren, und leitet Datenverkehr dann über den Connectordienst weiter.  |
 
 ## <a name="openid-connect-and-oauth"></a>OpenID Connect und OAuth 2.0
 
@@ -59,7 +59,7 @@ Weitere Informationen finden Sie unter
 
 - [OAuth 2.0](../develop/v2-oauth2-auth-code-flow.md)
 - [OpenID Connect 1.0](../develop/v2-protocols-oidc.md)
-- [Microsoft Identity Platform (vormals Azure Active Directory für Entwickler)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
+- [Microsoft Identity Platform (vormals Azure Active Directory für Entwickler)](../develop/index.yml)
 
 ## <a name="saml-sso"></a>SAML SSO
 
@@ -137,7 +137,7 @@ Wenn der Endbenutzer die Anmeldeinformationen verwaltet, gilt Folgendes:
 
 ### <a name="linked-sign-on-for-application-migration"></a>Verknüpftes Anmelden für die Migration von Anwendungen
 
-Das verknüpfte Anmelden sorgt während der Migration von Anwendungen über einen längeren Zeitraum für eine einheitliche Benutzererfahrung. Wenn Sie Anwendungen in Azure Active Directory migrieren, können Sie mithilfe des verknüpften Anmeldens schnell Links für alle Anwendungen veröffentlichen, die Sie migrieren möchten.  Benutzer finden alle Links im [MyApps-Portal](../user-help/active-directory-saas-access-panel-introduction.md) und im [Microsoft 365-Anwendungsstarter](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Benutzer erkennen nicht, dass sie auf eine verknüpfte Anwendung bzw. eine migrierte Anwendung zugreifen.  
+Das verknüpfte Anmelden sorgt während der Migration von Anwendungen über einen längeren Zeitraum für eine einheitliche Benutzererfahrung. Wenn Sie Anwendungen in Azure Active Directory migrieren, können Sie mithilfe des verknüpften Anmeldens schnell Links für alle Anwendungen veröffentlichen, die Sie migrieren möchten.  Benutzer finden alle Links im [MyApps-Portal](../user-help/my-apps-portal-end-user-access.md) und im [Microsoft 365-Anwendungsstarter](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Benutzer erkennen nicht, dass sie auf eine verknüpfte Anwendung bzw. eine migrierte Anwendung zugreifen.  
 
 Nachdem ein Benutzer sich mit einer verknüpften Anwendung authentifiziert hat, muss ein Kontodatensatz erstellt werden, bevor der Endbenutzer Zugriff durch das einmalige Anmelden erhält. Die Bereitstellung dieses Kontodatensatzes kann automatisch oder manuell durch einen Administrator erfolgen.
 
@@ -180,24 +180,14 @@ Dieses Diagramm erläutert die Vorgänge, die bei einem Zugriff eines Benutzers 
 
 ## <a name="header-based-sso"></a>Headerbasiertes einmaliges Anmelden
 
-Das headerbasierte einmalige Anmelden funktioniert für Anwendungen, die für die Authentifizierung HTTP-Header verwenden. Diese Anmeldemethode verwendet einen Drittanbieter-Authentifizierungsdienst mit dem Namen PingAccess. Ein Benutzer muss sich nur bei Azure AD authentifizieren.
+Das headerbasierte einmalige Anmelden funktioniert für Anwendungen, die für die Authentifizierung HTTP-Header verwenden.
 
-Wählen Sie headerbasiertes einmaliges Anmelden aus, wenn ein Anwendungsproxy und PingAccess für die Anwendung konfiguriert sind.
+Wählen Sie headerbasiertes einmaliges Anmelden aus, wenn ein Anwendungsproxy für die lokale Anwendung konfiguriert ist.
 
-Informationen zum Konfigurieren der headerbasierten Authentifizierung finden Sie unter [Headerbasierte Authentifizierung für einmaliges Anmelden mit Anwendungsproxy und PingAccess](application-proxy-configure-single-sign-on-with-ping-access.md).
+Weitere Informationen zur headerbasierten Authentifizierung finden Sie unter [Headerbasiertes einmaliges Anmelden für lokale Apps mit Azure AD-App-Proxy (Vorschau)](application-proxy-configure-single-sign-on-with-headers.md).
 
-### <a name="what-is-pingaccess-for-azure-ad"></a>Was ist PingAccess für Azure AD?
-
-Mit PingAccess für Azure AD können Benutzer auf Anwendungen zugreifen, die Header für die Authentifizierung verwenden, und sich bei diesen einmalig anmelden. Der Anwendungproxy behandelt diese Anwendungen wie alle anderen und verwendet Azure AD zum Authentifizieren des Zugriffs und zum Leiten des Datenverkehrs durch den Connectordienst. Nach der Authentifizierung übersetzt der PingAccess-Dienst das Azure AD-Zugriffstoken in ein Headerformat, das an die Anwendung gesendet wird.
-
-Ihre Benutzer bemerken keinen Unterschied, wenn sie sich für die Nutzung Ihrer Unternehmensanwendungen anmelden. Sie können weiterhin überall und auf beliebigen Geräten arbeiten. Die Anwendungsproxyconnectors leiten Remotedatenverkehr an alle Apps weiter und sorgen auch weiterhin für automatischen Lastenausgleich.
-
-### <a name="how-do-i-get-a-license-for-pingaccess"></a>Wie erhalte ich eine Lizenz für PingAccess?
-
-Da dieses Szenario im Rahmen einer Partnerschaft von Azure AD und PingAccess angeboten wird, benötigen Sie Lizenzen für beide Dienste. Azure AD Premium-Abonnements enthalten aber eine grundlegende PingAccess-Lizenz, die bis zu 20 Anwendungen abdeckt. Wenn Sie mehr als 20 headerbasierte Anwendungen veröffentlichen müssen, können Sie bei PingAccess eine weitere Lizenz erhalten.
-
-Weitere Informationen finden Sie unter [Azure Active Directory-Editionen](../fundamentals/active-directory-whatis.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 * [Schnellstartserie zur Anwendungsverwaltung](view-applications-portal.md)
 * [Planen einer Bereitstellung für einmaliges Anmelden](plan-sso-deployment.md)
+* [Einmaliges Anmelden mit lokalen Apps](application-proxy-config-sso-how-to.md)

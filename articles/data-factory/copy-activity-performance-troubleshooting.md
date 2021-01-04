@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: b21f7ba81a74482da6fc4a59948bf16036e5d337
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 89f7a4a23f4d1b62fe5a76fbd4625bae8bb3018f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951085"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634759"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Problembehandlung für die Leistung der Kopieraktivität
 
@@ -38,13 +38,13 @@ Als Hilfe ist hier angegeben, für welche Fälle in den Tipps zur Leistungsoptim
 | Category              | Tipps zur Leistungsoptimierung                                      |
 | --------------------- | ------------------------------------------------------------ |
 | Bezogen auf den Datenspeicher   | Laden von Daten in **Azure Synpase Analytics (vormals SQL DW)** : Es wird vorgeschlagen, PolyBase oder eine COPY-Anweisung zu verwenden, falls dies nicht bereits genutzt wird. |
-| &nbsp;                | Kopieren von Daten für **Azure SQL-Datenbank**: Wenn für die DTU eine hohe Auslastung besteht, wird ein Upgrade auf einen höheren Tarif vorgeschlagen. |
-| &nbsp;                | Kopieren von Daten für **Azure Cosmos DB**: Wenn für die RU eine hohe Auslastung besteht, wird ein Upgrade auf eine höhere RU vorgeschlagen. |
-|                       | Kopieren von Daten aus **SAP Table**: Es wird vorgeschlagen, beim Kopieren von großen Datenmengen die Partitionsoption des SAP-Connectors zum Aktivieren der parallelen Last und zur Erhöhung der maximalen Partitionsanzahl zu nutzen. |
-| &nbsp;                | Erfassen von Daten aus **Amazon Redshift**: Es wird vorgeschlagen, UNLOAD zu verwenden, falls dies nicht bereits genutzt wird. |
+| &nbsp;                | Kopieren von Daten für **Azure SQL-Datenbank** : Wenn für die DTU eine hohe Auslastung besteht, wird ein Upgrade auf einen höheren Tarif vorgeschlagen. |
+| &nbsp;                | Kopieren von Daten für **Azure Cosmos DB** : Wenn für die RU eine hohe Auslastung besteht, wird ein Upgrade auf eine höhere RU vorgeschlagen. |
+|                       | Kopieren von Daten aus **SAP Table** : Es wird vorgeschlagen, beim Kopieren von großen Datenmengen die Partitionsoption des SAP-Connectors zum Aktivieren der parallelen Last und zur Erhöhung der maximalen Partitionsanzahl zu nutzen. |
+| &nbsp;                | Erfassen von Daten aus **Amazon Redshift** : Es wird vorgeschlagen, UNLOAD zu verwenden, falls dies nicht bereits genutzt wird. |
 | Drosselung des Datenspeichers | Wenn beim Kopieren vom Datenspeicher einige Lese-/Schreibvorgänge gedrosselt werden, wird vorgeschlagen, die zulässige Anforderungsrate für den Datenspeicher zu überprüfen und zu erhöhen oder die gleichzeitige Arbeitsauslastung zu reduzieren. |
 | Integration Runtime  | Wenn Sie eine **selbstgehostete Integration Runtime (IR)** nutzen und die Kopieraktivität lange in der Warteschlange verbleibt, bis die IR über die verfügbare Ressource für die Ausführung verfügt, wird das horizontale bzw. vertikale Hochskalieren Ihrer IR vorgeschlagen. |
-| &nbsp;                | Bei Verwendung einer **Azure Integration Runtime**, die sich nicht in einer optimalen Region befindet, und einer daraus resultierenden langsamen Durchführung von Lese-/Schreibvorgängen wird vorgeschlagen, die Verwendung einer IR in einer anderen Region zu konfigurieren. |
+| &nbsp;                | Bei Verwendung einer **Azure Integration Runtime** , die sich nicht in einer optimalen Region befindet, und einer daraus resultierenden langsamen Durchführung von Lese-/Schreibvorgängen wird vorgeschlagen, die Verwendung einer IR in einer anderen Region zu konfigurieren. |
 | Fehlertoleranz       | Wenn Sie die Fehlertoleranz konfigurieren und das Überspringen von inkompatiblen Zeilen zu einer langsamen Leistung führt, lautet der Vorschlag, die Kompatibilität von Quellen- und Senkendaten sicherzustellen. |
 | gestaffeltem Kopieren           | Wenn das gestaffelte Kopieren konfiguriert, aber für Ihr Quell-/Senkenpaar nicht hilfreich ist, wird die Entfernung vorgeschlagen. |
 | Fortfahren                | Wenn die Kopieraktivität ab dem letzten Fehlerpunkt fortgesetzt wird und Sie die DIU-Einstellung nach der ursprünglichen Ausführung ändern, sollte Ihnen bewusst sein, dass die neue DIU-Einstellung nicht wirksam wird. |
@@ -74,7 +74,7 @@ Gehen Sie wie folgt vor, falls die Leistung der Kopieraktivität nicht Ihre Erwa
 
     - Überprüfen Sie, ob Sie [Dateien basierend auf einem Dateipfad oder -namen mit datetime-Partition kopieren](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) können. Diese Vorgehensweise ist nicht mit einer höheren Belastung bei der Auflistung aufseiten der Quelle verbunden.
 
-    - Überprüfen Sie, ob Sie stattdessen den nativen Filter des Datenspeichers verwenden können, also „**prefix**“ für Amazon S3/Azure Blob/Azure File Storage und „**listAfter/listBefore**“ für ADLS Gen1. Diese Filter sind serverseitige Datenspeicherfilter mit einer deutlich besseren Leistung.
+    - Überprüfen Sie, ob Sie stattdessen den nativen Filter des Datenspeichers verwenden können, also „ **prefix** “ für Amazon S3/Azure Blob/Azure File Storage und „ **listAfter/listBefore** “ für ADLS Gen1. Diese Filter sind serverseitige Datenspeicherfilter mit einer deutlich besseren Leistung.
 
     - Erwägen Sie, große Einzeldatasets in mehrere kleinere Datasets zu unterteilen, und ermöglichen Sie die gleichzeitige Ausführung dieser Kopieraufträge, die jeweils für einen Teil der Daten bestimmt sind. Hierfür können Sie „Lookup/GetMetadata + ForEach + Copy“ verwenden. Die Lösungsvorlagen [Kopieren von Dateien aus mehreren Containern](solution-template-copy-files-multiple-containers.md) und [Migrieren von Daten aus Amazon S3 zu ADLS Gen2](solution-template-migration-s3-azure.md) dienen hier als allgemeine Beispiele.
 
@@ -128,7 +128,7 @@ Gehen Sie wie folgt vor, falls die Kopierleistung nicht Ihre Erwartungen erfüll
 
     - Überprüfen Sie, ob Sie [Dateien basierend auf einem Dateipfad oder -namen mit datetime-Partition kopieren](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) können. Diese Vorgehensweise ist nicht mit einer höheren Belastung bei der Auflistung aufseiten der Quelle verbunden.
 
-    - Überprüfen Sie, ob Sie stattdessen den nativen Filter des Datenspeichers verwenden können, also „**prefix**“ für Amazon S3/Azure Blob/Azure File Storage und „**listAfter/listBefore**“ für ADLS Gen1. Diese Filter sind serverseitige Datenspeicherfilter mit einer deutlich besseren Leistung.
+    - Überprüfen Sie, ob Sie stattdessen den nativen Filter des Datenspeichers verwenden können, also „ **prefix** “ für Amazon S3/Azure Blob/Azure File Storage und „ **listAfter/listBefore** “ für ADLS Gen1. Diese Filter sind serverseitige Datenspeicherfilter mit einer deutlich besseren Leistung.
 
     - Erwägen Sie, große Einzeldatasets in mehrere kleinere Datasets zu unterteilen, und ermöglichen Sie die gleichzeitige Ausführung dieser Kopieraufträge, die jeweils für einen Teil der Daten bestimmt sind. Hierfür können Sie „Lookup/GetMetadata + ForEach + Copy“ verwenden. Die Lösungsvorlagen [Kopieren von Dateien aus mehreren Containern](solution-template-copy-files-multiple-containers.md) und [Migrieren von Daten aus Amazon S3 zu ADLS Gen2](solution-template-migration-s3-azure.md) dienen hier als allgemeine Beispiele.
 
@@ -178,11 +178,11 @@ Hier finden Sie Referenzen zur Leistungsüberwachung und -optimierung für einig
 
 * Azure Blob Storage: [Skalierbarkeits- und Leistungsziele für Blob Storage](../storage/blobs/scalability-targets.md) und [Checkliste zu Leistung und Skalierbarkeit für Blob Storage](../storage/blobs/storage-performance-checklist.md).
 * Azure Table Storage: [Skalierbarkeits- und Leistungsziele für Table Storage](../storage/tables/scalability-targets.md) und [Checkliste zu Leistung und Skalierbarkeit für Table Storage](../storage/tables/storage-performance-checklist.md).
-* Azure SQL-Datenbank: Sie können [die Leistung überwachen](../sql-database/sql-database-single-database-monitor.md) und den prozentualen Anteil der Datenbanktransaktionseinheit (Database Transaction Unit, DTU) überprüfen.
+* Azure SQL-Datenbank: Sie können [die Leistung überwachen](../azure-sql/database/monitor-tune-overview.md) und den prozentualen Anteil der Datenbanktransaktionseinheit (Database Transaction Unit, DTU) überprüfen.
 * Azure Synapse Analytics (ehemals SQL Data Warehouse): Die Funktion wird in DWUs (Data Warehouse-Einheiten) gemessen. Weitere Informationen finden Sie unter [Verwalten von Computeressourcen im Azure Synapse Analytics-Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB: [Leistungsebenen in Azure Cosmos DB](../cosmos-db/performance-levels.md)
-* SQL Server: [Überwachen und Optimieren der Leistung](https://msdn.microsoft.com/library/ms189081.aspx).
-* Lokaler Dateiserver: [Leistungsoptimierung für Dateiserver](https://msdn.microsoft.com/library/dn567661.aspx)
+* SQL Server: [Überwachen und Optimieren der Leistung](/sql/relational-databases/performance/monitor-and-tune-for-performance).
+* Lokaler Dateiserver: [Leistungsoptimierung für Dateiserver](/previous-versions//dn567661(v=vs.85))
 
 ## <a name="next-steps"></a>Nächste Schritte
 Weitere Informationen finden Sie in den anderen Artikeln zur Kopieraktivität:

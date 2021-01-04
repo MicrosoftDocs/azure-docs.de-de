@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: d22ab9f028f0491db33d62d0a6dff8d06282f925
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: b03db9632f5f47a7600c5b9037d16b1cff6ccf69
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91368718"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344248"
 ---
 # <a name="buy-a-reservation"></a>Kaufen einer Reservierung
 
@@ -21,9 +21,9 @@ Mit Azure-Reservierungen können Sie Geld sparen, indem Sie sich bei zahlreichen
 
 ## <a name="who-can-buy-a-reservation"></a>Wer kann eine Reservierung kaufen?
 
-Um einen Plan zu kaufen, müssen Sie eine Rolle als Abonnementverantwortlicher bei einem Enterprise-Abonnement (MS-AZR-0017P oder MS-AZR-0148P) oder einem Abonnement mit nutzungsbasierter Zahlung (MS-AZR-0003P oder MS-AZR-0023P) oder einem Abonnement im Rahmen der Microsoft-Kundenvereinbarung haben. Cloudlösungsanbieter können Azure-Reservierungen über das Azure-Portal oder  [Partner Center](/partner-center/azure-reservations)  erwerben.
+Um eine Reservierung kaufen zu können, müssen Sie für ein Enterprise-Abonnement (MS-AZR-0017P oder MS-AZR-0148P), für ein Abonnement mit nutzungsbasierter Zahlung (MS-AZR-0003P oder MS-AZR-0023P) oder für ein Abonnement mit Microsoft-Kundenvereinbarung über die Besitzer- oder Reservierungskäuferrolle verfügen. Cloudlösungsanbieter können Azure-Reservierungen über das Azure-Portal oder  [Partner Center](/partner-center/azure-reservations)  erwerben.
 
-EA-Kunden (Enterprise Agreement) können Käufe für EA-Administratoren beschränken, indem sie die Option **Reservierte Instanzen hinzufügen** im EA-Portal deaktivieren. EA-Administratoren müssen der Besitzer für mindestens ein EA-Abonnement sein, um eine Reservierung zu erwerben. Die Option ist nützlich für Unternehmen, die ein zentralisiertes Team benötigen, um Reservierungen für verschiedene Kostenstellen einzukaufen. Nach dem Kauf können zentralisierte Teams die Reservierungen um Kostenstellenbesitzer erweitern. Die Besitzer können dann die Reservierung auf ihre Abonnements ausdehnen. Das zentrale Team muss keinen Zugriff des Abonnenten haben, wenn die Reservierung gekauft wird.
+EA-Kunden (Enterprise Agreement) können Käufe für EA-Administratoren beschränken, indem sie die Option **Reservierte Instanzen hinzufügen** im EA-Portal deaktivieren. EA-Administratoren benötigen für mindestens ein EA-Abonnement Zugriff als Besitzer oder Reservierungskäufer, um eine Reservierung erwerben zu können. Die Option ist nützlich für Unternehmen, die ein zentralisiertes Team für den Erwerb von Reservierungen benötigen.
 
 Ein Reservierungsrabatt gilt nur für Ressourcen in Verbindung mit Abonnements, die über Enterprise, einen Cloud Solution Provider (CSP), eine Microsoft-Kundenvereinbarung und individuelle Pläne mit nutzungsbasierten Tarifen erworben wurden.
 
@@ -81,7 +81,7 @@ Sie können Reservierungen über das Azure-Portal, APIs, PowerShell und die CLI 
 - [Azure Database for MySQL](../../mysql/concept-reserved-pricing.md)
 - [Azure Database for MariaDB](../../mariadb/concept-reserved-pricing.md)
 - [Azure Synapse Analytics](prepay-sql-data-warehouse-charges.md)
-- [Virtuelle Computer](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Virtuelle Computer](../../virtual-machines/prepay-reserved-vm-instances.md)
 
 ## <a name="buy-reservations-with-monthly-payments"></a>Erwerben von Reservierungen mit monatlicher Zahlung
 

@@ -1,7 +1,7 @@
 ---
 title: 'Export Data (Daten exportieren): Modulreferenz'
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Sie das Modul „Export Data“ in Azure Machine Learning verwenden, um Ergebnisse, Zwischendaten und Arbeitsdaten aus Ihren Pipelines in Cloudspeicherzielen außerhalb von Azure Machine Learning zu speichern.
+description: Verwenden Sie das Modul Export Data im Azure Machine Learning-Designer, um Ergebnisse und Zwischendaten außerhalb von Azure Machine Learning zu speichern.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/28/2020
-ms.openlocfilehash: 5964ed9773d45b809fc79252eabc754b1b04af84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6e3d56958168cd279c98a4ba4c021c2362c2694
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907981"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421310"
 ---
 # <a name="export-data-module"></a>Modul „Export Data“ (Daten exportieren)
 

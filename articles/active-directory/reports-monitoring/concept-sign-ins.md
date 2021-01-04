@@ -17,24 +17,24 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23074dcd7ee888d6d9d8bf288cf0fda66dc0ceec
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d61962667953b20f4b542874e902411bb579b9c3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319757"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122842"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Berichte zu Anmeldeaktivitäten im Azure Active Directory-Portal
 
 Die Architektur für die Berichterstellung in Azure Active Directory (Azure AD) umfasst die folgenden Komponenten:
 
 - **Aktivität** 
-    - **Anmeldungen**: Informationen zur Nutzung von verwalteten Anwendungen und Aktivitäten der Benutzeranmeldung.
+    - **Anmeldungen** : Informationen zur Nutzung von verwalteten Anwendungen und Aktivitäten der Benutzeranmeldung.
     - **Überwachungsprotokolle** - [Überwachungsprotokolle](concept-audit-logs.md) stellen Systemaktivitätsinformationen zu Benutzern und zur Gruppenverwaltung, zu verwalteten Anwendungen und zu Verzeichnisaktivitäten bereit.
     - **Bereitstellungsprotokolle** - [Bereitstellungsprotokolle](./concept-provisioning-logs.md) ermöglichen Kunden die Überwachung von Aktivitäten durch den Bereitstellungsdienst, z. B. die Erstellung einer Gruppe in ServiceNow oder eines aus Workday importierten Benutzers. 
 - **Security** 
-    - **Riskante Anmeldungen**: Eine [riskante Anmeldung](../identity-protection/overview-identity-protection.md) ist ein Indikator für einen Anmeldeversuch von einem Benutzer, der nicht der rechtmäßige Besitzer eines Benutzerkontos ist.
-    - **Benutzer mit Risikomarkierung**: Ein [Benutzer mit Risikomarkierung](../identity-protection/overview-identity-protection.md) ist ein Indikator für ein ggf. kompromittiertes Benutzerkonto.
+    - **Riskante Anmeldungen** : Eine [riskante Anmeldung](../identity-protection/overview-identity-protection.md) ist ein Indikator für einen Anmeldeversuch von einem Benutzer, der nicht der rechtmäßige Besitzer eines Benutzerkontos ist.
+    - **Benutzer mit Risikomarkierung** : Ein [Benutzer mit Risikomarkierung](../identity-protection/overview-identity-protection.md) ist ein Indikator für ein ggf. kompromittiertes Benutzerkonto.
 
 In diesem Artikel erhalten Sie einen Überblick über den Bericht zu Anmeldeaktivitäten.
 
@@ -64,7 +64,7 @@ Wählen Sie im Menü im [Azure-Portal](https://portal.azure.com) die Option **Az
 
 Wählen Sie unter **Überwachung** die Option **Anmeldungen** aus, um den [Bericht zu Anmeldeaktivitäten](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns) zu öffnen.
 
-![Anmeldeaktivität](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Anmeldeaktivität")
+![Screenshot: Menü „Überwachung“ mit ausgewählten Anmeldungen](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Anmeldeaktivität")
 
 Es kann bei einigen Anmeldedatensätzen bis zu zwei Stunden dauern, bis sie im Portal angezeigt werden.
 
@@ -80,19 +80,19 @@ Ein Anmeldungsprotokoll enthält eine Standardlistenansicht mit folgenden Inform
 - Status der Risikoerkennung
 - Status der MFA-Anforderung (Multi-Factor Authentication)
 
-![Anmeldeaktivität](./media/concept-sign-ins/sign-in-activity.png "Anmeldeaktivität")
+![Screenshot: Anmeldungen bei Office 365 SharePoint Online](./media/concept-sign-ins/sign-in-activity.png "Anmeldeaktivität")
 
 Sie können die Listenansicht anpassen, indem Sie in der Symbolleiste auf **Spalten** klicken.
 
-![Anmeldeaktivität](./media/concept-sign-ins/19.png "Anmeldeaktivität")
+![Screenshot: Seite „Anmeldungen“ mit der Option „Spalten“](./media/concept-sign-ins/19.png "Anmeldeaktivität")
 
 Im Dialogfeld **Spalten** erhalten Sie Zugriff auf die auswählbaren Attribute. In einem Bericht zu Anmeldeaktivitäten dürfen keine Felder enthalten sein, die mehr als einen Wert für eine beliebige Anmeldeanforderung als Spalte aufweisen. Dies gilt beispielsweise für Authentifizierungsdetails, Daten zum bedingten Zugriff und den Netzwerkspeicherort.   
 
-![Anmeldeaktivität](./media/concept-sign-ins/columns.png "Anmeldeaktivität")
+![Screenshot: Dialogfeld „Spalten“ mit auszuwählenden Attributen](./media/concept-sign-ins/columns.png "Anmeldeaktivität")
 
 Wählen Sie in der Listenansicht ein Element aus, um ausführlichere Informationen zu erhalten.
 
-![Anmeldeaktivität](./media/concept-sign-ins/basic-sign-in.png "Anmeldeaktivität")
+![Screenshot: Ansicht mit ausführlichen Informationen](./media/concept-sign-ins/basic-sign-in.png "Anmeldeaktivität")
 
 > [!NOTE]
 > Benutzer können nun in allen Anmeldeberichten Probleme mit Richtlinien für bedingten Zugriff beheben. Durch Klicken auf die Registerkarte **Bedingter Zugriff** eines Anmeldedatensatzes können Benutzer den Status des bedingten Zugriffs überprüfen und die Richtliniendetails für die Anmeldung sowie die jeweiligen Richtlinienergebnisse ansehen.
@@ -104,15 +104,15 @@ Wählen Sie in der Listenansicht ein Element aus, um ausführlichere Information
 
 Zuerst schränken Sie die gemeldeten Daten auf einen Umfang ein, der für Sie geeignet ist. Filtern Sie die Anmeldedaten anschließend mit dem Datumsfeld als Standardfilter. Azure AD bietet eine breite Palette zusätzlicher Filter, die Sie festlegen können:
 
-![Anmeldeaktivität](./media/concept-sign-ins/04.png "Anmeldeaktivität")
+![Screenshot: Option „Filter hinzufügen“](./media/concept-sign-ins/04.png "Anmeldeaktivität")
 
 **Anforderungs-ID-** : ID der Anforderung, die Sie interessiert.
 
-**Benutzer**: Name oder Benutzerprinzipalname des Benutzers, der Sie interessiert.
+**Benutzer** : Name oder Benutzerprinzipalname des Benutzers, der Sie interessiert.
 
-**Anwendung**: Name der Zielanwendung.
+**Anwendung** : Name der Zielanwendung.
  
-**Status**: der Anmeldestatus, der Sie interessiert:
+**Status** : der Anmeldestatus, der Sie interessiert:
 
 - Erfolg
 
@@ -121,9 +121,9 @@ Zuerst schränken Sie die gemeldeten Daten auf einen Umfang ein, der für Sie ge
 - Unterbrochen
 
 
-**IP-Adresse**: IP-Adresse des Geräts, mit dem die Verbindung mit Ihrem Mandanten hergestellt wird.
+**IP-Adresse** : IP-Adresse des Geräts, mit dem die Verbindung mit Ihrem Mandanten hergestellt wird.
 
-**Standort**: Standort, von dem aus die Verbindung eingeleitet wurde:
+**Standort** : Standort, von dem aus die Verbindung eingeleitet wurde:
 
 - City
 
@@ -132,13 +132,13 @@ Zuerst schränken Sie die gemeldeten Daten auf einen Umfang ein, der für Sie ge
 - Land/Region
 
 
-**Ressource**: Name des Diensts, der für die Anmeldung verwendet wird.
+**Ressource** : Name des Diensts, der für die Anmeldung verwendet wird.
 
 
-**Ressourcen-ID**: ID des Diensts, der für die Anmeldung verwendet wird.
+**Ressourcen-ID** : ID des Diensts, der für die Anmeldung verwendet wird.
 
 
-**Client-App**: Typ der Client-App, die zum Herstellen einer Verbindung mit Ihrem Mandanten verwendet wird:
+**Client-App** : Typ der Client-App, die zum Herstellen einer Verbindung mit Ihrem Mandanten verwendet wird:
 
 ![Client-App-Filter](./media/concept-sign-ins/client-app-filter.png)
 
@@ -164,24 +164,24 @@ Zuerst schränken Sie die gemeldeten Daten auf einen Umfang ein, der für Sie ge
 
 
 
-**Betriebssystem**: das Betriebssystem, das auf dem Gerät ausgeführt wird, mit dem die Anmeldung bei Ihrem Mandanten erfolgt. 
+**Betriebssystem** : das Betriebssystem, das auf dem Gerät ausgeführt wird, mit dem die Anmeldung bei Ihrem Mandanten erfolgt. 
 
 
-**Gerätebrowser**: Wenn die Verbindung in einem Browser eingeleitet wurde, können Sie in diesem Feld nach Browsername filtern.
+**Gerätebrowser** : Wenn die Verbindung in einem Browser eingeleitet wurde, können Sie in diesem Feld nach Browsername filtern.
 
 
-**Korrelations-ID**: Korrelations-ID der Aktivität.
+**Korrelations-ID** : Korrelations-ID der Aktivität.
 
 
 
 
-**Bedingter Zugriff**: Status der angewendeten Regeln für bedingten Zugriff
+**Bedingter Zugriff** : Status der angewendeten Regeln für bedingten Zugriff
 
-- **Nicht angewendet**: Keine Richtlinie betraf den Benutzer und die Anwendung bei der Anmeldung.
+- **Nicht angewendet** : Keine Richtlinie betraf den Benutzer und die Anwendung bei der Anmeldung.
 
-- **Erfolg**: Eine oder mehrere Richtlinien für bedingten Zugriff betrafen den Benutzer und die Anwendung (aber nicht notwendigerweise die anderen Bedingungen) bei der Anmeldung. 
+- **Erfolg** : Eine oder mehrere Richtlinien für bedingten Zugriff betrafen den Benutzer und die Anwendung (aber nicht notwendigerweise die anderen Bedingungen) bei der Anmeldung. 
 
-- **Fehler**: Die Anmeldung hat zwar die Benutzer- und Anwendungsbedingung mindestens einer Richtlinie für bedingten Zugriff erfüllt, die Gewährungssteuerelemente wurden jedoch nicht erfüllt oder sind auf Blockieren des Zugriffs eingestellt.
+- **Fehler** : Die Anmeldung hat zwar die Benutzer- und Anwendungsbedingung mindestens einer Richtlinie für bedingten Zugriff erfüllt, die Gewährungssteuerelemente wurden jedoch nicht erfüllt oder sind auf Blockieren des Zugriffs eingestellt.
 
 
 
@@ -214,9 +214,9 @@ Azure AD und das Azure-Portal enthalten weitere Einstiegspunkte für Anmeldedate
 
 Mit dem Graphen für Benutzeranmeldungen auf der Übersichtsseite **Identitätssicherheit und Schutz** werden wöchentliche Aggregationen der Anmeldungen angezeigt. Die Standardeinstellung für den Zeitraum beträgt 30 Tage.
 
-![Anmeldeaktivität](./media/concept-sign-ins/06.png "Anmeldeaktivität")
+![Screenshot: Diagramm der Anmeldungen in einem Monat](./media/concept-sign-ins/06.png "Anmeldeaktivität")
 
-Wenn Sie im Anmeldungsgraph auf einen Tag klicken, wird eine Übersicht über die Anmeldeaktivitäten für den entsprechenden Tag angezeigt.
+Wenn Sie im Diagramm der Anmeldungen auf einen Tag klicken, wird eine Übersicht über die Anmeldeaktivitäten für den entsprechenden Tag angezeigt.
 
 Jede Zeile in der Liste mit den Anmeldeaktivitäten zeigt Folgendes:
 
@@ -244,7 +244,7 @@ Durch Klicken auf ein Element können Sie ausführlichere Informationen zum ents
 
 Wenn Sie auf der Seite **Benutzer** im Abschnitt **Aktivität** auf **Anmeldevorgänge** klicken, wird eine umfassenden Übersicht über alle Benutzeranmeldungen angezeigt.
 
-![Anmeldeaktivität](./media/concept-sign-ins/08.png "Anmeldeaktivität")
+![Screenshot: Abschnitt „Aktivität“ mit auszuwählenden Anmeldungen](./media/concept-sign-ins/08.png "Anmeldeaktivität")
 
 ## <a name="usage-of-managed-applications"></a>Nutzung von verwalteten Anwendungen
 
@@ -256,11 +256,11 @@ Mit einer anwendungsorientierten Ansicht Ihrer Anmeldedaten können Sie beispiel
 
 Der Einstiegspunkt für diese Daten sind die drei wichtigsten Anwendungen in Ihrer Organisation. Die Daten sind im Bericht über die letzten 30 Tage im Abschnitt **Übersicht** unter **Unternehmensanwendungen** enthalten.
 
-![Anmeldeaktivität](./media/concept-sign-ins/10.png "Anmeldeaktivität")
+![Der Screenshot zeigt, wo Sie die Übersicht auswählen können.](./media/concept-sign-ins/10.png "Anmeldeaktivität")
 
 Der Graph zur App-Nutzung gibt die wöchentlichen Aggregationen von Anmeldungen für Ihre beliebtesten drei Anwendungen in einem bestimmten Zeitraum an. Die Standardeinstellung für den Zeitraum beträgt 30 Tage.
 
-![Anmeldeaktivität](./media/concept-sign-ins/graph-chart.png "Anmeldeaktivität")
+![Screenshot: App-Nutzung für den Zeitraum von einem Monat](./media/concept-sign-ins/graph-chart.png "Anmeldeaktivität")
 
 Wenn Sie möchten, können Sie den Fokus auf eine bestimmte Anwendung festlegen.
 

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 74527f57340f850b60dd00dcd054992c423a49c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd292fa6b4f613e0a5f5a80e0cd87675f529baf5
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90038893"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516170"
 ---
 # <a name="migrate-manually-from-windows-virtual-desktop-classic"></a>Manuelles Migrieren von Windows Virtual Desktop (klassisch)
 
@@ -35,7 +35,7 @@ Trotz des Aufwands ist eine Migration von der klassischen Version wichtig. Nach 
 - Verwalten von Windows Virtual Desktop über das Azure-Portal
 - Zuweisen von Azure Active Directory-Benutzergruppen (AD) zu Anwendungsgruppen
 - Verwenden des verbesserten Log Analytics-Features für die Problembehandlung in Ihrer Bereitstellung
-- Verwenden der nativen rollenbasierte Zugriffssteuerung in Azure zum Verwalten des administrativen Zugriffs
+- Verwenden der nativen rollenbasierte Zugriffssteuerung in Azure (Azure RBAC) zum Verwalten des administrativen Zugriffs
 
 ## <a name="when-should-i-migrate"></a>Gründe für eine Migration
 

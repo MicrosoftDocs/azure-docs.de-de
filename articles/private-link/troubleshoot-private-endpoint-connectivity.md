@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: fcc482e6231bbd925fd500a37989052765dede58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f861f9efa6ecc1886647ed6c460b6718ff97e8a1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77538533"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522327"
 ---
 # <a name="troubleshoot-azure-private-endpoint-connectivity-problems"></a>Behandeln von Problemen mit der Konnektivität privater Azure-Endpunkte
 
@@ -56,7 +56,7 @@ Vergewissern Sie sich mithilfe der folgenden Schritte, dass alle üblichen Konfi
     
        ![VNET- und DNS-Konfiguration](./media/private-endpoint-tsg/vnet-dns-configuration.png)
     
-1. Überprüfen Sie mithilfe von [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview), ob Daten übermittelt werden.
+1. Überprüfen Sie mithilfe von [Azure Monitor](../azure-monitor/overview.md), ob Daten übermittelt werden.
 
     a. Wählen Sie unter der privaten Endpunktressource **Überwachen** aus.
      - Wählen Sie **Eingehende Daten** oder **Ausgehende Daten** aus. 
@@ -93,7 +93,7 @@ Vergewissern Sie sich mithilfe der folgenden Schritte, dass alle üblichen Konfi
        - Vergewissern Sie sich, dass der Eintrag für die private DNS-Zone vorhanden ist. Falls nicht, erstellen Sie ihn.
      - Vorgehensweise bei Verwendung eines benutzerdefinierten DNS:
        - Überprüfen Sie die Einstellungen Ihres benutzerdefinierten DNS, und vergewissern Sie sich, dass die DNS-Konfiguration korrekt ist.
-       Einen entsprechenden Leitfaden finden Sie unter [Was ist privater Endpunkt in Azure? – DNS-Konfiguration](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+       Einen entsprechenden Leitfaden finden Sie unter [Was ist privater Endpunkt in Azure? – DNS-Konfiguration](./private-endpoint-overview.md#dns-configuration).
 
     b. Sollten die Probleme mit der Konnektivität auf Netzwerksicherheitsgruppen (NSGs) oder benutzerdefinierte Routen zurückzuführen sein, gehen Sie wie folgt vor:
      - Überprüfen Sie die NSG-Ausgangsregeln, und erstellen Sie geeignete Ausgangsregeln, um den Datenverkehr zuzulassen.
@@ -107,5 +107,5 @@ Vergewissern Sie sich mithilfe der folgenden Schritte, dass alle üblichen Konfi
 
 ## <a name="next-steps"></a>Nächste Schritte
 
- * [Schnellstart: Erstellen eines privaten Endpunkts mit dem Azure-Portal](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal)
+ * [Schnellstart: Erstellen eines privaten Endpunkts mit dem Azure-Portal](./create-private-endpoint-portal.md)
  * [Problembehandlung bei Konnektivitätsproblemen beim Private Link-Dienst](troubleshoot-private-link-connectivity.md)

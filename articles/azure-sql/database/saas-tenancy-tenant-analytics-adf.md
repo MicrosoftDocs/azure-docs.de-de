@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 8ee440c77ec94a7c3e61c37e589aa5ef23031ca7
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: dc47c996748b126841cbeff1ea3f6f18f423951f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332415"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457653"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Machen Sie sich mit SaaS-Analysen mit Azure SQL-Datenbank, Azure Synapse Analytics, Data Factory und Power BI vertraut
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Dieses Tutorial führt Sie durch ein End-to-End-Analyseszenario. Dieses Szenario veranschaulicht, wie Softwareanbieter mit Analysen für Mandantendaten kluge Entscheidungen treffen können. Sie verwenden Analysen auf der Grundlage von Daten, die aus den einzelnen Mandantendatenbank extrahiert wurden, um Einblicke in das Mandantenverhalten zu erhalten. Dies umfasst auch ihre Verwendung der Wingtip Tickets SaaS-Beispielanwendung. Dieses Szenario umfasst drei Schritte:
 
-1. **Extrahieren von Daten** aus jeder Mandantendatenbank in einen Analysespeicher, in diesem Fall einen SQL-Pool.
+1. **Extrahieren von Daten** aus jeder Mandantendatenbank in einen Analysespeicher, in diesem Fall einen dedizierten SQL-Pool
 2. **Optimieren der extrahierten Daten** für die Verarbeitung bei der Analyse
 3. **Verwenden von Business Intelligence-Tools** zum Darstellen hilfreicher Einblicke für die Entscheidungsfindung
 
@@ -45,7 +45,7 @@ SaaS-Anwendungen enthalten potentiell große Mengen an Mandantendaten in der Clo
 
 Der Zugriff auf die Daten für alle Mandanten ist einfach, wenn sämtliche Daten sich in nur einer mehrinstanzenfähigen Datenbank befinden. Komplexer wird der Zugriff, wenn die Daten auf Tausende von Datenbanken verteilt sind. Zur Vereinfachung können Sie die Daten für die Abfrage in eine Analysedatenbank oder ein Data Warehouse extrahieren.
 
-In diesem Tutorial wird ein End-to-End-Analyseszenario für die Wingtip Tickets SaaS-Anwendung gezeigt. Als erstes wird [Azure Data Factory (ADF)](../../data-factory/introduction.md) als Orchestrierungstool verwendet, um Ticketverkäufe und zugehörige Daten aus jeder Mandantendatenbank zu extrahieren. Diese Daten werden in einem Analysespeicher in Stagingtabellen geladen. Der Analysespeicher kann entweder eine SQL-Datenbank oder ein SQL-Pool sein. In diesem Tutorial wird [Azure Synapse Analytics (früher SQL Data Warehouse)](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) als Analysespeicher verwendet.
+In diesem Tutorial wird ein End-to-End-Analyseszenario für die Wingtip Tickets SaaS-Anwendung gezeigt. Als erstes wird [Azure Data Factory (ADF)](../../data-factory/introduction.md) als Orchestrierungstool verwendet, um Ticketverkäufe und zugehörige Daten aus jeder Mandantendatenbank zu extrahieren. Diese Daten werden in einem Analysespeicher in Stagingtabellen geladen. Der Analysespeicher kann entweder eine SQL-Datenbank-Instanz oder ein dedizierter SQL-Pool sein. In diesem Tutorial wird [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) als Analysespeicher verwendet.
 
 Als Nächstes werden die extrahierten Daten in mehrere Tabellen im [Sternschema](https://www.wikipedia.org/wiki/Star_schema) transformiert und geladen. Die Tabellen bestehen aus einer zentralen Faktentabelle und den zugehörigen Dimensionstabellen:
 
@@ -70,10 +70,10 @@ Dieses Tutorial enthält grundlegende Beispiele für Erkenntnisse, die aus Wingt
 
 Stellen Sie vor dem Durchführen dieses Tutorials sicher, dass die folgenden Voraussetzungen erfüllt sind:
 
-- Die Anwendung Wingtip Tickets SaaS Database Per Tenant wird bereitgestellt. Unter [Bereitstellen und Kennenlernen der Wingtip-SaaS-Anwendung](../../sql-database/saas-dbpertenant-get-started-deploy.md) finden Sie Informationen zur Bereitstellung in weniger als fünf Minuten.
-- [Quellcode](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) und Skripts zur Anwendung Wingtip Tickets SaaS Database Per Tenant können von GitHub heruntergeladen werden. Weitere Informationen finden Sie in den Downloadanweisungen. Achten Sie darauf, die *ZIP-Datei zu entsperren* , bevor Sie ihren Inhalt extrahieren.
+- Die Anwendung Wingtip Tickets SaaS Database Per Tenant wird bereitgestellt. Unter [Bereitstellen und Kennenlernen der Wingtip-SaaS-Anwendung](./saas-dbpertenant-get-started-deploy.md) finden Sie Informationen zur Bereitstellung in weniger als fünf Minuten.
+- [Quellcode](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) und Skripts zur Anwendung Wingtip Tickets SaaS Database Per Tenant können von GitHub heruntergeladen werden. Weitere Informationen finden Sie in den Downloadanweisungen. Achten Sie darauf, die *ZIP-Datei zu entsperren*, bevor Sie ihren Inhalt extrahieren.
 - Power BI Desktop wird installiert. [Power BI Desktop herunterladen](https://powerbi.microsoft.com/downloads/)
-- Der Batch zusätzlicher Mandanten wurde bereitgestellt. Weitere Informationen finden Sie im [**Tutorial zum Bereitstellen von Mandanten**](../../sql-database/saas-dbpertenant-provision-and-catalog.md).
+- Der Batch zusätzlicher Mandanten wurde bereitgestellt. Weitere Informationen finden Sie im [**Tutorial zum Bereitstellen von Mandanten**](./saas-dbpertenant-provision-and-catalog.md).
 
 ### <a name="create-data-for-the-demo"></a>Erstellen von Daten für die Demo
 
@@ -81,23 +81,23 @@ In diesem Tutorial werden Analysen von Ticketverkaufsdaten betrachtet. In diesem
 
 1. Öffnen Sie *…\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* in der PowerShell ISE, und legen Sie den folgenden Wert fest:
     - **$DemoScenario** = **1** Kaufen von Tickets für Veranstaltungen an allen Veranstaltungsorten
-2. Drücken Sie **F5** , um das Skript auszuführen und einen Ticketbestellverlauf für alle Veranstaltungswerte zu erstellen. Bei 20 Mandaten generiert das Skript zehntausende Tickets, was möglicherweise mehr als 10 Minuten in Anspruch nimmt.
+2. Drücken Sie **F5**, um das Skript auszuführen und einen Ticketbestellverlauf für alle Veranstaltungswerte zu erstellen. Bei 20 Mandaten generiert das Skript zehntausende Tickets, was möglicherweise mehr als 10 Minuten in Anspruch nimmt.
 
 ### <a name="deploy-azure-synapse-analytics-data-factory-and-blob-storage"></a>Bereitstellen von Azure Synapse Analytics, Data Factory und Blob Storage
 
-Die Transaktionsdaten der Mandanten werden in der Wingtip Tickets-App über viele Datenbanken verteilt. Azure Data Factory (ADF) wird verwendet, um das Extrahieren, Laden und Transformieren (ELT) dieser Daten in das Data Warehouse zu orchestrieren. Um Daten am effizientesten in Azure Synapse Analytics (früher SQL Data Warehouse) zu laden, extrahiert ADF Daten als Zwischenschritt in Blobdateien und verwendet anschließend [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading), um die Daten in das Data Warehouse zu laden.
+Die Transaktionsdaten der Mandanten werden in der Wingtip Tickets-App über viele Datenbanken verteilt. Azure Data Factory (ADF) wird verwendet, um das Extrahieren, Laden und Transformieren (ELT) dieser Daten in das Data Warehouse zu orchestrieren. Um Daten am effizientesten in Azure Synapse Analytics zu laden, extrahiert ADF Daten als Zwischenschritt in Blobdateien und verwendet anschließend [PolyBase](../../synapse-analytics/sql-data-warehouse/design-elt-data-loading.md), um die Daten in das Data Warehouse zu laden.
 
-In diesem Schritt stellen Sie zusätzliche Ressourcen bereit, die im Tutorial verwendet werden: einen SQL-Pool mit dem Namen _tenantanalytics_ , eine Azure Data Factory-Instanz namens _dbtodwload-\<user\>_ und ein Azure-Speicherkonto mit dem Namen _wingtipstaging\<user\>_ . Das Speicherkonto wird verwendet, um extrahierte Datendateien vorübergehend als Blobs aufzunehmen, bevor sie in das Data Warehouse geladen werden. Durch diesen Schritt wird auch das Data Warehouse-Schema bereitgestellt und die ADF-Pipeline definiert, die den ELT-Prozess orchestriert.
+In diesem Schritt stellen Sie zusätzliche Ressourcen bereit, die im Tutorial verwendet werden: einen dedizierten SQL-Pool mit dem Namen _tenantanalytics_, eine Azure Data Factory-Instanz namens _dbtodwload-\<user\>_ und ein Azure-Speicherkonto mit dem Namen _wingtipstaging\<user\>_ . Das Speicherkonto wird verwendet, um extrahierte Datendateien vorübergehend als Blobs aufzunehmen, bevor sie in das Data Warehouse geladen werden. Durch diesen Schritt wird auch das Data Warehouse-Schema bereitgestellt und die ADF-Pipeline definiert, die den ELT-Prozess orchestriert.
 
 1. Öffnen Sie *…\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* in der PowerShell ISE, und legen Sie folgendes fest:
     - **$DemoScenario** = **2** Bereitstellen von Data Warehouse für Mandantenanalyse, Blob Storage und Data Factory
-1. Drücken Sie **F5** , um das Demoskript auszuführen und die Azure-Ressourcen bereitzustellen.
+1. Drücken Sie **F5**, um das Demoskript auszuführen und die Azure-Ressourcen bereitzustellen.
 
 Überprüfen Sie jetzt die bereitgestellten Azure-Ressourcen:
 
 #### <a name="tenant-databases-and-analytics-store"></a>Mandantendatenbanken und Analysespeicher
 
-Verwenden Sie [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) zum Herstellen einer Verbindung mit den Servern **tenants1-dpt-&lt;Benutzer&gt;** und **catalog-dpt-&lt;Benutzer&gt;** . Ersetzen Sie &lt;Benutzer&gt; durch die jeweiligen Werte, die Sie beim Bereitstellen der App verwendet haben. Verwenden Sie als Benutzernamen *developer* und als Kennwort *P\@ssword1* . Weitere Informationen finden Sie im [Einführungstutorial](../../sql-database/saas-dbpertenant-wingtip-app-overview.md).
+Verwenden Sie [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) zum Herstellen einer Verbindung mit den Servern **tenants1-dpt-&lt;Benutzer&gt;** und **catalog-dpt-&lt;Benutzer&gt;** . Ersetzen Sie &lt;Benutzer&gt; durch die jeweiligen Werte, die Sie beim Bereitstellen der App verwendet haben. Verwenden Sie als Benutzernamen *developer* und als Kennwort *P\@ssword1*. Weitere Informationen finden Sie im [Einführungstutorial](./saas-dbpertenant-wingtip-app-overview.md).
 
 ![Verbinden mit SQL-Datenbank von SSMS](./media/saas-tenancy-tenant-analytics-adf/ssmsSignIn.JPG)
 
@@ -107,8 +107,8 @@ Führen Sie im Objekt-Explorer folgende Schritte durch:
 1. Erweitern Sie den Datenbankknoten, und sehen Sie sich die Liste der Mandantendatenbanken an.
 1. Erweitern Sie den Server *catalog-dpt-&lt;Benutzer&gt;* .
 1. Stellen Sie sicher, dass der Analysespeicher die folgenden Objekte enthält:
-    1. Die Tabellen **raw_Tickets** , **raw_Customers** , **raw_Events** und **raw_Venues** enthalten die extrahierten Rohdaten aus den Mandantendatenbanken.
-    1. Die Tabellen im Sternschema heißen **fact_Tickets** , **dim_Customers** , **dim_Venues** , **dim_Events** und **dim_Dates** .
+    1. Die Tabellen **raw_Tickets**, **raw_Customers**, **raw_Events** und **raw_Venues** enthalten die extrahierten Rohdaten aus den Mandantendatenbanken.
+    1. Die Tabellen im Sternschema heißen **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** und **dim_Dates**.
     1. Die gespeicherte Prozedur **sp_transformExtractedData** wird verwendet, um die Daten zu transformieren und in die Tabellen im Sternschema zu laden.
 
 ![Screenshot: Objekt-Explorer mit erweiterten Tabellen, um verschiedene Datenbankobjekte anzuzeigen](./media/saas-tenancy-tenant-analytics-adf/DWtables.JPG)
@@ -120,8 +120,8 @@ Führen Sie im Objekt-Explorer folgende Schritte durch:
    ![DWtables](./media/saas-tenancy-tenant-analytics-adf/adf-staging-storage.PNG)
 
 1. Klicken Sie auf das Speicherkonto **wingtipstaging\<user\>** , um die vorhandenen Objekte zu untersuchen.
-1. Klicken Sie auf die Kachel **Blobs** .
-1. Klicken Sie auf den Container **configfile** .
+1. Klicken Sie auf die Kachel **Blobs**.
+1. Klicken Sie auf den Container **configfile**.
 1. Überprüfen Sie, ob **configfile** eine JSON-Datei mit dem Namen **TableConfig.json** enthält. Diese Datei enthält die Namen der Quell- und Zieltabellen, Spalten und Tracker-Spalten.
 
 #### <a name="azure-data-factory-adf"></a>Azure Data Factory (ADF)
@@ -138,28 +138,28 @@ Gehen Sie folgendermaßen vor, um die Data Factory zu starten:
 
 ## <a name="extract-load-and-transform-data"></a>Extrahieren, Laden und Transformieren (ELT) von Daten
 
-Azure Data Factory wird für die Orchestrierung des Extrahierens, Ladens und Transformierens von Daten verwendet. In diesem Tutorial extrahieren Sie Daten aus vier verschiedenen SQL-Ansichten aus jeder der folgenden Mandantendatenbanken: **rawTickets** , **rawCustomers** , **rawEvents** und **rawVenues** . Diese Ansichten enthalten die ID der Veranstaltungsorte, damit Sie zwischen Daten aus jedem Veranstaltungsort im Data Warehouse unterscheiden können. Die Daten werden in die entsprechenden Stagingtabellen im Data Warehouse geladen: **rawTickets** , **rawCustomers** , **rawEvents** und **rawVenue** . Anschließend transformiert eine gespeicherte Prozedur die Rohdaten und füllt die Tabellen im Sternschema auf: **fact_Tickets** , **dim_Customers** , **dim_Venues** , **dim_Events** und **dim_Dates** .
+Azure Data Factory wird für die Orchestrierung des Extrahierens, Ladens und Transformierens von Daten verwendet. In diesem Tutorial extrahieren Sie Daten aus vier verschiedenen SQL-Ansichten aus jeder der folgenden Mandantendatenbanken: **rawTickets**, **rawCustomers**, **rawEvents** und **rawVenues**. Diese Ansichten enthalten die ID der Veranstaltungsorte, damit Sie zwischen Daten aus jedem Veranstaltungsort im Data Warehouse unterscheiden können. Die Daten werden in die entsprechenden Stagingtabellen im Data Warehouse geladen: **rawTickets**, **rawCustomers**, **rawEvents** und **rawVenue**. Anschließend transformiert eine gespeicherte Prozedur die Rohdaten und füllt die Tabellen im Sternschema auf: **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** und **dim_Dates**.
 
 Im vorherigen Abschnitt haben Sie die notwendigen Azure-Ressourcen bereitgestellt und initialisiert, darunter die Data Factory. Die bereitgestellte Data Factory enthält Pipelines, Datasets, verknüpfte Dienste usw., die für das Extrahieren, Laden und Transformieren von Mandantendaten erforderlich sind. Sehen Sie sich diese Objekte weiter an und lösen die Pipeline aus, um Daten aus den Mandantendatenbanken in das Data Warehouse zu verschieben.
 
 ### <a name="data-factory-pipeline-overview"></a>Übersicht über Data Factory-Pipeline
 
-Dieser Abschnitt befasst sich mit den Objekten, die in der Data Factory erstellt wurden. Die folgende Abbildung zeigt den allgemeinen Workflow der ADF-Pipeline, die in diesem Tutorial verwendet wird. Wenn Sie die Pipeline lieber später näher betrachten und gleich die Ergebnisse sehen wollen, fahren Sie direkt mit dem nächsten Abschnitt, **Auslösen der Pipelineausführung** , fort.
+Dieser Abschnitt befasst sich mit den Objekten, die in der Data Factory erstellt wurden. Die folgende Abbildung zeigt den allgemeinen Workflow der ADF-Pipeline, die in diesem Tutorial verwendet wird. Wenn Sie die Pipeline lieber später näher betrachten und gleich die Ergebnisse sehen wollen, fahren Sie direkt mit dem nächsten Abschnitt, **Auslösen der Pipelineausführung**, fort.
 
 ![adf_übersicht](./media/saas-tenancy-tenant-analytics-adf/adf-data-factory.PNG)
 
-Wechseln Sie auf der Seite „Übersicht“ zur Registerkarte **Autor** im linken Bereich. Sie werden sehen, dass drei [Pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) und drei [Datasets](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) erstellt wurden.
+Wechseln Sie auf der Seite „Übersicht“ zur Registerkarte **Autor** im linken Bereich. Sie werden sehen, dass drei [Pipelines](../../data-factory/concepts-pipelines-activities.md) und drei [Datasets](../../data-factory/concepts-datasets-linked-services.md) erstellt wurden.
 ![adf_autor](./media/saas-tenancy-tenant-analytics-adf/adf_author_tab.JPG)
 
 Die drei geschachtelte Pipelines sind: SQLDBToDW, DBCopy und TableCopy.
 
 **Pipeline 1: SQLDBToDW** sucht nach den Namen der Mandantendatenbanken, die in der Katalogdatenbank gespeichert sind (Tabellenname: [__ShardManagement].[ShardsGlobal]). Außerdem führt sie für jede Mandantendatenbank die Pipeline **DBCopy** aus. Nach Abschluss dieses Vorgangs wird das bereitgestellte gespeicherte Prozedurschema **sp_TransformExtractedData** ausgeführt. Diese gespeicherte Prozedur transformiert die geladenen Daten in Stagingtabellen und füllt die Tabellen im Sternschema auf.
 
-**Pipeline 2: DBCopy** sucht die Namen der Quelltabellen und -spalten aus einer Konfigurationsdatei, die in Blob Storage gespeichert ist.  Die **TableCopy** -Pipeline wird dann für jede der vier Tabellen ausgeführt: TicketFacts, CustomerFacts, EventFacts und VenueFacts. Die **[ForEach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** -Aktivität wird parallel für alle 20 Datenbanken ausgeführt. ADF lässt die Ausführung von maximal 20 parallelen Schleifeniterationen zu. Erwägen Sie die Erstellung mehrerer Pipelines für mehrere Datenbanken.
+**Pipeline 2: DBCopy** sucht die Namen der Quelltabellen und -spalten aus einer Konfigurationsdatei, die in Blob Storage gespeichert ist.  Die **TableCopy**-Pipeline wird dann für jede der vier Tabellen ausgeführt: TicketFacts, CustomerFacts, EventFacts und VenueFacts. Die **[ForEach](../../data-factory/control-flow-for-each-activity.md)** -Aktivität wird parallel für alle 20 Datenbanken ausgeführt. ADF lässt die Ausführung von maximal 20 parallelen Schleifeniterationen zu. Erwägen Sie die Erstellung mehrerer Pipelines für mehrere Datenbanken.
 
-**Pipeline 3: TableCopy** verwendet die Versionsnummern der Zeilen in SQL-Datenbank ( _Zeilenversion_ ), um Zeilen zu identifizieren, die geändert oder aktualisiert wurden. Diese Aktivität sucht nach der Start- und Endversion der Zeilen zum Extrahieren der Zeilen aus den Quelltabellen. Die Tabelle **CopyTracker** ist in jeder Mandantendatenbank gespeichert. Sie verfolgt bei jeder Ausführung die letzte Zeile, die aus jeder Quelltabelle extrahiert wurde. Neue oder geänderte Zeilen werden in die entsprechenden Stagingtabellen im Data Warehouse kopiert: **raw_Tickets** , **raw_Customers** , **raw_Venues** und **raw_Events** . Abschließend wird die letzte Zeilenversion in der Tabelle **CopyTracker** gespeichert, um als Anfangszeilenversion für die nächste Extraktion verwendet zu werden.
+**Pipeline 3: TableCopy** verwendet die Versionsnummern der Zeilen in SQL-Datenbank (_Zeilenversion_), um Zeilen zu identifizieren, die geändert oder aktualisiert wurden. Diese Aktivität sucht nach der Start- und Endversion der Zeilen zum Extrahieren der Zeilen aus den Quelltabellen. Die Tabelle **CopyTracker** ist in jeder Mandantendatenbank gespeichert. Sie verfolgt bei jeder Ausführung die letzte Zeile, die aus jeder Quelltabelle extrahiert wurde. Neue oder geänderte Zeilen werden in die entsprechenden Stagingtabellen im Data Warehouse kopiert: **raw_Tickets**, **raw_Customers**, **raw_Venues** und **raw_Events**. Abschließend wird die letzte Zeilenversion in der Tabelle **CopyTracker** gespeichert, um als Anfangszeilenversion für die nächste Extraktion verwendet zu werden.
 
-Außerdem gibt es drei parametrisierte verknüpfte Dienste, die die Data Factory-Instanz mit den SQL-Quelldatenbanken, dem SQL-Zielpool und Blob Storage als Zwischenschritt verknüpfen. Klicken Sie auf der Registerkarte **Author** (Autor) auf **Connections** (Verbindungen), um die verknüpften Dienste wie in der folgenden Abbildung gezeigt anzuzeigen:
+Außerdem gibt es drei parametrisierte verknüpfte Dienste, die die Data Factory mit den SQL-Quelldatenbanken, dem dedizierten SQL-Zielpool und Blob Storage als Zwischenspeicher verknüpfen. Klicken Sie auf der Registerkarte **Author** (Autor) auf **Connections** (Verbindungen), um die verknüpften Dienste wie in der folgenden Abbildung gezeigt anzuzeigen:
 
 ![adf_verknüpftedienste](./media/saas-tenancy-tenant-analytics-adf/linkedservices.JPG)
 
@@ -167,7 +167,7 @@ Für die drei verknüpften Dienste gibt es drei entsprechende Datasets, die sich
   
 ### <a name="data-warehouse-pattern-overview"></a>Übersicht Data Warehouse-Muster
 
-Azure Synapse (ehemals SQL Data Warehouse) wird als Analysespeicher verwendet, um eine Aggregation für die Mandantendaten durchzuführen. In diesem Beispiel wird PolyBase zum Laden von Daten in das Data Warehouse verwendet. Rohdaten werden in Stagingtabellen geladen, die über eine Identitätsspalte verfügen, um Zeilen nachzuverfolgen, die in die Tabellen im Sternschema transformiert wurden. Die folgende Abbildung zeigt das Lademuster: ![Das Diagramm zeigt das Lademuster von Datenbanktabellen.](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
+Azure Synapse wird als Analysespeicher verwendet, um Aggregation für die Mandantendaten auszuführen. In diesem Beispiel wird PolyBase zum Laden von Daten in das Data Warehouse verwendet. Rohdaten werden in Stagingtabellen geladen, die über eine Identitätsspalte verfügen, um Zeilen nachzuverfolgen, die in die Tabellen im Sternschema transformiert wurden. Die folgende Abbildung zeigt das Lademuster: ![Das Diagramm zeigt das Lademuster von Datenbanktabellen.](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
 
 In diesem Beispiel werden SCD-Dimensionstabellen (Slowly Changing Dimensions) vom Typ 1 verwendet. Jede Dimension verfügt über einen Ersatzschlüssel, der über eine Identitätsspalte definiert wird. Es empfiehlt sich, die Datumsdimensionstabelle vorab aufzufüllen, um Zeit zu sparen. Für die anderen Dimensionstabellen wird eine CREATE TABLE AS SELECT (CTAS)-Anwendung verwendet, um eine temporäre Tabelle zu erstellen, die die vorhandenen geänderten und nicht geänderten Zeilen, sowie die Ersatzschlüssel enthält. Dies erfolgt über IDENTITY_INSERT=ON. Neue Zeilen werden über IDENTITY_INSERT=OFF in die Tabelle eingefügt. Für einfaches Rollback werden Dimensionstabellen umbenannt und die temporäre Tabelle zur neuen Dimensionstabelle umbenannt. Vor jeder Ausführung wird die alte Dimensionstabelle gelöscht.
 
@@ -182,7 +182,7 @@ Gehen Sie folgendermaßen vor, um die vollständige Pipeline für Extraktion, La
 1. Wählen Sie auf der Registerkarte **Author** (Autor) der ADF-Benutzeroberfläche die Pipeline **SQLDBToDW** aus dem linken Bereich aus.
 1. Klicken Sie auf **Trigger** (Auslösen), und klicken Sie im nun angezeigten Dropdownmenü auf **Trigger now** (Jetzt auslösen). Diese Aktion führt die Pipeline sofort aus. In einem Produktionsszenario definieren Sie normalerweise einen Zeitplan zur Ausführung der Pipeline, um die Daten nach Plan zu aktualisieren.
   ![Screenshot: Factory-Ressourcen für eine Pipeline namens „SQLDBToDW“ mit erweiterter Option „Trigger“ (Auslösen) und ausgewählter Option „Trigger Now“ (Jetzt auslösen)](./media/saas-tenancy-tenant-analytics-adf/adf_trigger.JPG)
-1. Klicken Sie auf der Seite **Pipeline Run** (Pipelineausführung) auf **Fertig stellen** .
+1. Klicken Sie auf der Seite **Pipeline Run** (Pipelineausführung) auf **Fertig stellen**.
 
 ### <a name="monitor-the-pipeline-run"></a>Überwachen der Pipelineausführung
 
@@ -197,22 +197,22 @@ Nachdem die Pipeline abgeschlossen wurde, enthält die Faktentabelle Ticketverka
 
 ### <a name="visualize-tenant-data"></a>Visualisieren von Mandantendaten
 
-Die Daten im Sternschema enthalten sämtliche Daten zu Ticketverkäufen, die Sie für die Analyse benötigen. Durch das grafische Visualisieren von Daten erkennen Sie Trends in großen Datasets einfacher. In diesem Abschnitt verwenden Sie **Power BI** , um die Mandantendaten im Data Warehouse zu bearbeiten und zu visualisieren.
+Die Daten im Sternschema enthalten sämtliche Daten zu Ticketverkäufen, die Sie für die Analyse benötigen. Durch das grafische Visualisieren von Daten erkennen Sie Trends in großen Datasets einfacher. In diesem Abschnitt verwenden Sie **Power BI**, um die Mandantendaten im Data Warehouse zu bearbeiten und zu visualisieren.
 
 Gehen Sie gemäß den folgenden Schritte vor, um eine Verbindung mit Power BI herzustellen und die Ansichten, die Sie zuvor erstellt haben, zu importieren:
 
 1. Starten Sie Power BI Desktop.
 2. Wählen Sie im Menüband „Start“ die Optionen **Daten abrufen** und **Mehr** aus.
 3. Wählen Sie im Fenster **Daten abrufen** die Option **Azure SQL-Datenbank** aus.
-4. Geben Sie im Datenbank-Anmeldefenster den Servernamen ( **catalog-dpt&lt;-Benutzer&gt;.database.windows.net** ) ein. Wählen Sie für **Data Connectivity Mode** (Datenkonnektivitätsmodus) **Import** (Importieren) aus, und klicken Sie dann auf **OK** .
+4. Geben Sie im Datenbank-Anmeldefenster den Servernamen (**catalog-dpt&lt;-Benutzer&gt;.database.windows.net**) ein. Wählen Sie für **Data Connectivity Mode** (Datenkonnektivitätsmodus) **Import** (Importieren) aus, und klicken Sie dann auf **OK**.
 
     ![anmeldung-in-power-bi](./media/saas-tenancy-tenant-analytics-adf/powerBISignIn.PNG)
 
-5. Wählen Sie im linken Bereich **Datenbank** aus, und geben Sie dann als Benutzername *developer* und als Kennwort *P\@ssword1* ein. Klicken Sie auf **Verbinden** .  
+5. Wählen Sie im linken Bereich **Datenbank** aus, und geben Sie dann als Benutzername *developer* und als Kennwort *P\@ssword1* ein. Klicken Sie auf **Verbinden**.  
 
     ![datenbank-anmeldeseite](./media/saas-tenancy-tenant-analytics-adf/databaseSignIn.PNG)
 
-6. Wählen Sie im Bereich **Navigator** unter der Analysedatenbank die folgenden Tabellen im Sternschema aus: **fact_Tickets** , **dim_Events** , **dim_Venues** , **dim_Customers** und **dim_Dates** . Wählen Sie dann **Laden** aus.
+6. Wählen Sie im Bereich **Navigator** unter der Analysedatenbank die folgenden Tabellen im Sternschema aus: **fact_Tickets**, **dim_Events**, **dim_Venues**, **dim_Customers** und **dim_Dates**. Wählen Sie dann **Laden** aus.
 
 Glückwunsch! Sie haben die Daten erfolgreich in Power BI geladen. Jetzt können Sie interessante Visualisierungen untersuchen, die Ihnen Erkenntnisse über Ihre Mandanten verschaffen. Nun erfahren Sie, wie Sie dem Geschäftsteam von Wingtip Tickets über Analysen datengesteuerte Empfehlungen geben können. Die Empfehlungen helfen bei der Optimierung des Geschäftsmodells und der Benutzeroberfläche für die Kunden.
 
@@ -276,4 +276,4 @@ Glückwunsch!
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- Zusätzliche [Tutorials, die auf der Wingtip-SaaS-Anwendung aufbauen](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+- Zusätzliche [Tutorials, die auf der Wingtip-SaaS-Anwendung aufbauen](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

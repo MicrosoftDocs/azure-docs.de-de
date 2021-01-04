@@ -4,12 +4,12 @@ description: Enthält Antworten auf häufig gestellte Fragen zur Sicherung von S
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 6abfdb09fe16272e870fff517359759968417f79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89316770dc137bff031e6268db5ece156edd4f25
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461222"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172378"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Häufig gestellte Fragen zu SQL Server-Datenbanken, die auf einer Azure VM-Sicherungsinstanz ausgeführt werden
 
@@ -35,20 +35,20 @@ Die Funktion der automatischen Reparatur ist standardmäßig für alle Benutzer 
 - Erstellen Sie auf der SQL Server-Instanz im Ordner *C:\Programme\Azure Workload Backup\bin* die Datei **ExtensionSettingsOverrides.json** (bzw. bearbeiten Sie sie).
 - Legen Sie in **ExtensionSettingsOverrides.json** Folgendes fest: *{"EnableAutoHealer": false}* .
 - Speichern Sie Ihre Änderungen, und schließen Sie die Datei.
-- Öffnen Sie auf der SQL Server-Instanz den **Task-Manager**, und starten Sie dann den Dienst **AzureWLBackupCoordinatorSvc** neu.
+- Öffnen Sie auf der SQL Server-Instanz den **Task-Manager** , und starten Sie dann den Dienst **AzureWLBackupCoordinatorSvc** neu.
 
 ## <a name="can-i-control-how-many-concurrent-backups-run-on-the-sql-server"></a>Kann ich steuern, wie viele gleichzeitige Sicherungen für die SQL Server-Instanz ausgeführt werden?
 
 Ja. Sie können die Rate verringern, mit der die Sicherungsrichtlinie ausgeführt wird, um die Auswirkungen auf eine SQL Server-Instanz zu minimieren. So ändern Sie die Einstellung:
 
-1. Erstellen Sie auf der SQL Server-Instanz im Ordner *C:\Programme\Azure Workload Backup\bin* die Datei *ExtensionSettingsOverrides.json*.
+1. Erstellen Sie auf der SQL Server-Instanz im Ordner *C:\Programme\Azure Workload Backup\bin* die Datei *ExtensionSettingsOverrides.json* .
 2. Ändern Sie in der Datei *ExtensionSettingsOverrides.json* die Einstellung **DefaultBackupTasksThreshold** in einen niedrigeren Wert (z. B. „5“). <br>
   `{"DefaultBackupTasksThreshold": 5}`
 <br>
-Der Standardwert von „DefaultBackupTasksThreshold“ ist **20**.
+Der Standardwert von „DefaultBackupTasksThreshold“ ist **20** .
 
 3. Speichern Sie Ihre Änderungen, und schließen Sie die Datei.
-4. Öffnen Sie auf der SQL Server-Instanz **Task-Manager**. Starten Sie den Dienst **AzureWLBackupCoordinatorSvc** neu.<br/> <br/>
+4. Öffnen Sie auf der SQL Server-Instanz **Task-Manager** . Starten Sie den Dienst **AzureWLBackupCoordinatorSvc** neu.<br/> <br/>
  Zwar ist diese Methode hilfreich, wenn die Sicherungsanwendung viele Ressourcen verbraucht, der [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) von SQL Server stellt jedoch eine allgemeinere Möglichkeit zur Angabe von Grenzwerten für die Menge an CPU, physischer E/A und Speicher dar, den eingehende Anwendungsanforderungen nutzen können.
 
 > [!NOTE]
@@ -104,7 +104,7 @@ Eine Datenbank, die Sie [einer automatisch geschützten Instanz hinzufügen](bac
   
 ## <a name="can-i-protect-databases-that-have-tde-transparent-data-encryption-turned-on-and-will-the-database-stay-encrypted-through-the-entire-backup-process"></a>Kann ich Datenbanken schützen, für die TDE (Transparent Data Encryption) aktiviert ist, und bleibt die Datenbank während des gesamten Sicherungsprozesses verschlüsselt?
 
-Ja, Azure Backup unterstützt die Sicherung von Datenbanken und Servern in SQL Server mit aktivierter TDE. Backup unterstützt [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) mit Schlüsseln, die von Azure verwaltet werden, oder mit kundenseitig verwalteten Schlüssen (Bring Your Own Key, BYOK).  Backup führt im Rahmen des Sicherungsprozesses keine SQL-Verschlüsselung durch, daher bleibt die Datenbank bei der Sicherung verschlüsselt.
+Ja, Azure Backup unterstützt die Sicherung von Datenbanken und Servern in SQL Server mit aktivierter TDE. Backup unterstützt [TDE](/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) mit Schlüsseln, die von Azure verwaltet werden, oder mit kundenseitig verwalteten Schlüssen (Bring Your Own Key, BYOK).  Backup führt im Rahmen des Sicherungsprozesses keine SQL-Verschlüsselung durch, daher bleibt die Datenbank bei der Sicherung verschlüsselt.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

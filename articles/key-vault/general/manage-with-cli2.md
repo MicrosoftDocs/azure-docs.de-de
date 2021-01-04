@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: dc60d2b6cef8ad19526c5ec243ae1c43529954a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb7e047d998342125a52af5ea3ae1e88fe88d313
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87504533"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289903"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Verwalten von Key Vault mit der Azure CLI 
 
@@ -129,7 +129,7 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 Die Ausgabe dieses Befehls zeigt die Eigenschaften des Schlüsseltresors, den Sie erstellt haben. Die zwei wichtigsten Eigenschaften sind diese:
 
 * **name:** Im Beispiel lautet der Name „ContosoKeyVault“. Sie verwenden diesen Namen für andere Key Vault-Befehle.
-* **vaultUri**: In diesem Beispiel lautet der URI https://contosokeyvault.vault.azure.net. Anwendungen, die Ihren Tresor über die zugehörige REST-API nutzen, müssen diesen URI verwenden.
+* **vaultUri** : In diesem Beispiel lautet der URI https://contosokeyvault.vault.azure.net. Anwendungen, die Ihren Tresor über die zugehörige REST-API nutzen, müssen diesen URI verwenden.
 
 Ihr Azure-Konto ist jetzt autorisiert, Vorgänge in diesem Schlüsseltresor durchzuführen. Derzeit ist noch keine andere Person autorisiert.
 
@@ -194,7 +194,7 @@ Anwendungen, die einen Schlüsseltresor verwenden, müssen sich mithilfe eines A
 
 Die Anwendung muss beide dieser Werte in Azure Active Directory vorlegen, um ein Token zu erhalten. Die Konfiguration des Tokenabrufs hängt von der Anwendung ab. Bei der [Key Vault-Beispielanwendung](https://www.microsoft.com/download/details.aspx?id=45343) legt der Anwendungsbesitzer diese Werte in der Datei „app.config“ fest.
 
-Ausführliche Anweisungen zum Registrieren einer Anwendung in Azure Active Directory finden Sie in den Artikeln [Integrieren von Anwendungen in Azure Active Directory](../../active-directory/develop/active-directory-integrating-applications.md), [Erstellen einer Azure Active Directory-Anwendung und eines Dienstprinzipals mit Ressourcenzugriff mithilfe des Portals](../../active-directory/develop/howto-create-service-principal-portal.md) und [Erstellen eines Azure-Dienstprinzipals mit der Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
+Ausführliche Anweisungen zum Registrieren einer Anwendung in Azure Active Directory finden Sie in den Artikeln [Integrieren von Anwendungen in Azure Active Directory](../../active-directory/develop/quickstart-register-app.md), [Erstellen einer Azure Active Directory-Anwendung und eines Dienstprinzipals mit Ressourcenzugriff mithilfe des Portals](../../active-directory/develop/howto-create-service-principal-portal.md) und [Erstellen eines Azure-Dienstprinzipals mit der Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 Registrieren Sie eine Anwendung in Azure Active Directory:
 

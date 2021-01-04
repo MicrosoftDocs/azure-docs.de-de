@@ -2,8 +2,10 @@
   href: index.yml
 - name: Übersicht
   items:
-    - name: Azure AD-Rollen
+    - name: Was ist Azure AD RBAC?
       href: custom-overview.md
+    - name: Grundlegendes zu Azure AD-Rollen
+      href: concept-understand-roles.md
 - name: Schnellstarts
   items:
     - name: Erstellen unbegrenzter App-Registrierungen
@@ -11,16 +13,16 @@
 - name: Tutorials
   items:
     - name: Erstellen einer dynamischen Gruppe
-      href: /azure/active-directory/enterprise-users/users-revoke-access.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+      href: ../enterprise-users/users-revoke-access.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Konzepte
   expanded: true
   items:
     - name: Delegieren von Azure AD-Administratorrollen
       href: concept-delegation.md
     - name: Vergleichen von Standardbenutzerberechtigungen
-      href: /azure/active-directory/fundamentals/users-default-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+      href: ../fundamentals/users-default-permissions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Vergleichen von Azure- und Azure AD-Rollen
-      href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+      href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Grundlegendes zu Verwaltungseinheiten in Azure AD
       href: administrative-units.md
 - name: Anleitungen
@@ -29,15 +31,15 @@
     - name: Benutzer und Rollen
       items:
         - name: Zuweisen von Benutzern zu Administratorrollen
-          href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: Widerrufen des Zugriffs eines Benutzers
-          href: /azure/active-directory/enterprise-users/users-revoke-access.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+          href: ../enterprise-users/users-revoke-access.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: Zuweisen einer Rolle zu einem Gastbenutzer
-          href: /azure/active-directory/b2b/add-guest-to-role?context=azure/active-directory/roles/context/ugr-context
+          href: ../external-identities/add-guest-to-role.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: Einschränken des Zugriffs durch Gastbenutzer
-          href: /azure/active-directory/enterprise-users/users-restrict-guest-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+          href: ../enterprise-users/users-restrict-guest-permissions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: Dynamische Gruppen und Gäste
-          href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/roles/context/ugr-context
+          href: ../external-identities/use-dynamic-groups.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Rollen und Berechtigungen
       expanded: true
       items:
@@ -50,14 +52,12 @@
     - name: Benutzerdefinierte Rollen
       expanded: true
       items:
-        - name: Übersicht über benutzerdefinierte Rollen
-          href: custom-overview.md
         - name: Erstellen einer benutzerdefinierten Rolle
           href: custom-create.md
         - name: Anzeigen der Zuweisungen von benutzerdefinierten Rollen
           href: custom-view-assignments.md
         - name: Zuweisen benutzerdefinierter Rollen im Azure-Portal
-          href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: Zuweisen von benutzerdefinierten Rollen in PowerShell
           href: custom-assign-powershell.md
         - name: Zuweisen benutzerdefinierter Rollen für Unternehmens-Apps
@@ -111,7 +111,7 @@
     - name: Problembehandlung
       items:
         - name: Erhalten von Support für Azure AD
-          href: /azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Verweis
   items:
     - name: Rollen mit geringstmöglichen Berechtigungen nach Aufgabe
@@ -125,4 +125,4 @@
     - name: Azure AD PowerShell für Graph
       href: /powershell/azure/active-directory/install-adv2?view=azureadps-2.0
     - name: Azure AD-Diensteinschränkungen
-      href: /azure/active-directory/fundamentals/directory-service-limits-restrictions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+      href: ../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context

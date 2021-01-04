@@ -2,13 +2,13 @@
 title: Ereignisfilter für Azure Event Grid
 description: Hier erfahren Sie, wie Sie Ereignisse beim Erstellen eines Azure Event Grid-Abonnements filtern können.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 837209d4197c271598155776b8d171a705e1f454
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/03/2020
+ms.openlocfilehash: bc3e84037693fcd909961ba409871d947ef1de7d
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86120091"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574905"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Grundlegendes zur Ereignisfilterung für Event Grid-Abonnements
 
@@ -72,7 +72,7 @@ Wenn Sie einen einzelnen Filter mit mehreren Werten angeben, wird ein **OR**-Vor
 ]
 ```
 
-Wenn Sie mehrere verschiedene Filter angeben, wird ein **AND**-Vorgang ausgeführt, sodass jede Filterbedingung erfüllt sein muss. Beispiel: 
+Wenn Sie mehrere verschiedene Filter angeben, wird ein **AND**-Vorgang ausgeführt, sodass jede Filterbedingung erfüllt sein muss. Hier sehen Sie ein Beispiel: 
 
 ```json
 "advancedFilters": [
@@ -116,6 +116,23 @@ Die verfügbaren Operatoren für **Zeichenfolgen** sind:
 * StringNotIn
 
 Bei sämtlichen Zeichenfolgenvergleichen wird die Groß-/Kleinschreibung **nicht** beachtet.
+
+> [!NOTE]
+> Wenn der JSON-Code des Ereignisses nicht den erweiterten Filterschlüssel enthält, wird der Filter für die folgenden Operatoren als **nicht übereinstimmend** ausgewertet: 
+> - NumberGreaterThan
+> - NumberGreaterThanOrEquals
+> - NumberLessThan
+> - NumberLessThanOrEquals
+> - NumberIn
+> - BoolEquals
+> - StringContains
+> - StringBeginsWith
+> - StringEndsWith
+> - StringIn
+> 
+>Der Filter wird für die folgenden Operatoren als **übereinstimmend** ausgewertet:
+> - NumberNotIn
+> - StringNotIn
 
 ### <a name="key"></a>Schlüssel
 

@@ -9,12 +9,12 @@ ms.custom: vs-azure, devx-track-csharp
 ms.topic: how-to
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: addccf337f82b1695c76ae975c4a33f44ba50f8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c62534acdbfbff7fd4e718bad1f07a92c641626
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448137"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792394"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Hinzufügen von Key Vault zu Ihrer Webanwendung mithilfe der Option „Verbundene Dienste“ in Visual Studio
 
@@ -24,7 +24,7 @@ Ausführliche Informationen zu den Änderungen, die durch verbundene Dienste in 
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-- **Ein Azure-Abonnement**. Falls Sie kein Abonnement besitzen, können Sie sich für ein [kostenloses Konto](https://azure.microsoft.com/pricing/free-trial/) registrieren.
+- **Ein Azure-Abonnement** . Falls Sie kein Abonnement besitzen, können Sie sich für ein [kostenloses Konto](https://azure.microsoft.com/pricing/free-trial/) registrieren.
 - **Visual Studio 2019, Version 16.3** oder höher. [Jetzt herunterladen](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)
 
 
@@ -32,13 +32,13 @@ Ausführliche Informationen zu den Änderungen, die durch verbundene Dienste in 
 
 Vergewissern Sie sich zunächst, dass Sie bei Visual Studio angemeldet sind. Melden Sie sich mit dem gleichen Konto an, das Sie auch für Ihr Azure-Abonnement verwenden. Öffnen Sie dann ein Webprojekt (ASP.NET 4.7.1 oder höher oder ASP.NET Core 2.0), und führen Sie die folgenden Schritte aus:
 
-1. Klicken Sie im **Projektmappen-Explorer** mit der rechten Maustaste auf das Projekt, dem Sie die Key Vault-Unterstützung hinzufügen möchten, und klicken Sie dann auf **Hinzufügen** > **Verbundener Dienst** > **Hinzufügen**.
+1. Klicken Sie im **Projektmappen-Explorer** mit der rechten Maustaste auf das Projekt, dem Sie die Key Vault-Unterstützung hinzufügen möchten, und klicken Sie dann auf **Hinzufügen** > **Verbundener Dienst** > **Hinzufügen** .
    Die Seite „Verbundener Dienst“ wird mit den Diensten angezeigt, die Sie dem Projekt hinzufügen können.
-1. Wählen Sie im Menü der verfügbaren Dienste **Azure Key Vault** aus, und klicken Sie auf **Weiter**.
+1. Wählen Sie im Menü der verfügbaren Dienste **Azure Key Vault** aus, und klicken Sie auf **Weiter** .
 
    ![Auswählen von „Azure Key Vault“](../media/vs-key-vault-add-connected-service/key-vault-connected-service.png)
 
-1. Wählen Sie das zu verwendende Abonnement und anschließend eine bereits vorhandene Key Vault-Instanz aus, und klicken Sie auf **Fertig stellen**. 
+1. Wählen Sie das zu verwendende Abonnement und anschließend eine bereits vorhandene Key Vault-Instanz aus, und klicken Sie auf **Fertig stellen** . 
 
    ![Wählen Sie Ihr Abonnement aus.](../media/vs-key-vault-add-connected-service/key-vault-connected-service-select-vault.png)
 
@@ -46,7 +46,7 @@ Nun wird die Verbindung mit Key Vault hergestellt, und Sie können auf Ihre Gehe
 
 ## <a name="access-your-secrets-in-code-aspnet-core"></a>Zugreifen auf Ihre Geheimnisse in Code (ASP.NET Core)
 
-1. Öffnen Sie eine der Seitendateien (z. B. *Index.cshtml.cs*), und schreiben Sie den folgenden Code:
+1. Öffnen Sie eine der Seitendateien (z. B. *Index.cshtml.cs* ), und schreiben Sie den folgenden Code:
    1. Schließen Sie mithilfe der folgenden using-Anweisung einen Verweis auf `Microsoft.Extensions.Configuration` ein:
 
        ```csharp
@@ -77,7 +77,7 @@ Nun wird die Verbindung mit Key Vault hergestellt, und Sie können auf Ihre Gehe
        }
        ```
 
-   1. Um den Wert zur Laufzeit zu bestätigen, fügen Sie Code hinzu, um `ViewData["Message"]` für die *CSHTML*-Datei anzuzeigen, um den geheimen Schlüssel in einer Nachricht anzuzeigen.
+   1. Um den Wert zur Laufzeit zu bestätigen, fügen Sie Code hinzu, um `ViewData["Message"]` für die *CSHTML* -Datei anzuzeigen, um den geheimen Schlüssel in einer Nachricht anzuzeigen.
 
       ```cshtml
           <p>@ViewData["Message"]</p>
@@ -115,7 +115,7 @@ Sie können die Konfiguration so einrichten, dass die Datei „web. config“ im
          <add key="<secretNameInYourKeyVault>" value="dummy"/>
         ```
 
-1. Bearbeiten Sie die `About`-Methode in *HomeController.cs*, um den Wert zur Bestätigung anzuzeigen.
+1. Bearbeiten Sie die `About`-Methode in *HomeController.cs* , um den Wert zur Bestätigung anzuzeigen.
 
    ```csharp
    public ActionResult About()
@@ -123,7 +123,7 @@ Sie können die Konfiguration so einrichten, dass die Datei „web. config“ im
        ViewBag.Message = "Key vault value = " + ConfigurationManager.AppSettings["<secretNameInYourKeyVault>"];
    }
    ```
-1. Führen Sie die App lokal unter dem Debugger aus, wechseln Sie zur Registerkarte **Info**, und überprüfen Sie, ob der Wert aus dem Key Vault angezeigt wird.
+1. Führen Sie die App lokal unter dem Debugger aus, wechseln Sie zur Registerkarte **Info** , und überprüfen Sie, ob der Wert aus dem Key Vault angezeigt wird.
 
 ## <a name="troubleshooting"></a>Problembehandlung
 
@@ -131,12 +131,12 @@ Wenn Ihr Key Vault in einem anderen Microsoft-Konto als dem ausgeführt wird, mi
 
 1. Wechseln Sie zum [Azure-Portal](https://portal.azure.com), und öffnen Sie den Schlüsseltresor.
 
-1. Wählen Sie **Zugriffsrichtlinien** und dann **Zugriffsrichtlinie hinzufügen**, und wählen Sie das Konto, bei dem Sie angemeldet sind, als Prinzipal aus.
+1. Wählen Sie **Zugriffsrichtlinien** und dann **Zugriffsrichtlinie hinzufügen** , und wählen Sie das Konto, bei dem Sie angemeldet sind, als Prinzipal aus.
 
 1. Wählen Sie in Visual Studio **Datei** > **Kontoeinstellungen** aus.
 Wählen Sie **Konto hinzufügen** im Abschnitt **Alle Konten** aus. Melden Sie sich mit dem Konto an, das Sie als Prinzipal der Zugriffsrichtlinie ausgewählt haben.
 
-1. Wählen Sie **Tools** > **Optionen** aus, und suchen Sie **Azure-Dienstauthentifizierung**. Wählen Sie dann das Konto aus, das Sie soeben Visual Studio hinzugefügt haben.
+1. Wählen Sie **Tools** > **Optionen** aus, und suchen Sie **Azure-Dienstauthentifizierung** . Wählen Sie dann das Konto aus, das Sie soeben Visual Studio hinzugefügt haben.
 
 Wenn Sie nun die Anwendung debuggen, stellt Visual Studio eine Verbindung mit dem Konto her, in dem sich Ihr Key Vault befindet.
 
@@ -204,6 +204,6 @@ Betrifft die Projektdatei (.NET-Verweise) und `packages.config` (NuGet-Verweise)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Wenn Sie dieses Tutorial befolgt haben, sind Ihre Key Vault-Berechtigungen so eingerichtet, dass sie mit Ihrem eigenen Azure-Abonnement ausgeführt werden, aber das ist für ein Produktionsszenario möglicherweise nicht wünschenswert. Sie können eine verwaltete Identität erstellen, um Key Vault-Zugriff für Ihre App zu verwalten. Weitere Informationen finden Sie unter [Authentifizieren bei Key Vault](/azure/key-vault/general/authentication) und [Zuweisen einer Key Vault-Zugriffsrichtlinie](/azure/key-vault/general/assign-access-policy-portal).
+Wenn Sie dieses Tutorial befolgt haben, sind Ihre Key Vault-Berechtigungen so eingerichtet, dass sie mit Ihrem eigenen Azure-Abonnement ausgeführt werden, aber das ist für ein Produktionsszenario möglicherweise nicht wünschenswert. Sie können eine verwaltete Identität erstellen, um Key Vault-Zugriff für Ihre App zu verwalten. Weitere Informationen finden Sie unter [Authentifizieren bei Key Vault](./authentication.md) und [Zuweisen einer Key Vault-Zugriffsrichtlinie](./assign-access-policy-portal.md).
 
 Weitere Informationen zur Key Vault-Entwicklung finden Sie im [Key Vault-Entwicklerhandbuch](developers-guide.md).

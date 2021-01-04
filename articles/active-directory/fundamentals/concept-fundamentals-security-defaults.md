@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
-ms.openlocfilehash: 2c056bd4d5fa9037ce00588269c0da2937ff57ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperf-fy20q4
+ms.openlocfilehash: 9c912b7122a40ae39bcbb703e1387af25fff2bc8
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705332"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029905"
 ---
 # <a name="what-are-security-defaults"></a>Was sind Sicherheitsstandards?
 
 Die Aufrechterhaltung der Sicherheit kann schwierig sein, da gängige identitätsbezogene Angriffe, z. B. Kennwortspray, Replay und Phishing, immer zahlreicher und beliebter werden. Sicherheitsstandards in Azure Active Directory (Azure AD) können den Schutz Ihrer Organisation vor solchen Angriffen mit vorkonfigurierten Sicherheitseinstellungen vereinfachen:
 
-- Festlegen, dass sich alle Benutzer für Azure Multi-Factor Authentication registrieren müssen.
+- Festlegen, dass sich alle Benutzer für Azure AD Multi-Factor Authentication registrieren müssen.
 - Festlegen, dass Administratoren mehrstufige Authentifizierung durchführen müssen.
 - Blockieren älterer Authentifizierungsprotokolle.
 - Festlegen, dass Benutzer bei Bedarf mehrstufige Authentifizierung ausführen müssen.
@@ -52,13 +52,13 @@ Microsoft stellt allen Benutzern Sicherheitsstandards zur Verfügung. Das Ziel i
 
 ### <a name="unified-multi-factor-authentication-registration"></a>Einheitliche Registrierung für die mehrstufige Authentifizierung
 
-Alle Benutzer in Ihrem Mandanten müssen sich für mehrstufige Authentifizierung (MFA) in Form von Azure Multi-Factor Authentication registrieren. Benutzer haben 14 Tage Zeit, sich mithilfe der Microsoft Authenticator-App für Azure Multi-Factor Authentication zu registrieren. Nach Ablauf der 14 Tage kann sich der Benutzer erst nach erfolgter Registrierung anmelden. Die 14-tägige Frist eines Benutzers beginnt nach seiner ersten erfolgreichen interaktiven Anmeldung nach Aktivierung der Sicherheitsstandards.
+Alle Benutzer in Ihrem Mandanten müssen sich für mehrstufige Authentifizierung (MFA) in Form von Azure AD Multi-Factor Authentication registrieren. Benutzer haben 14 Tage Zeit, sich mithilfe der Microsoft Authenticator-App für Azure AD Multi-Factor Authentication zu registrieren. Nach Ablauf der 14 Tage kann sich der Benutzer erst nach erfolgter Registrierung anmelden. Die 14-tägige Frist eines Benutzers beginnt nach seiner ersten erfolgreichen interaktiven Anmeldung nach Aktivierung der Sicherheitsstandards.
 
 ### <a name="protecting-administrators"></a>Schützen von Administratoren
 
 Benutzer mit privilegiertem Zugriff besitzen erweiterten Zugriff auf Ihre Umgebung. Aufgrund der weitreichenden Befugnisse, die diese Konten haben, sollten Sie sie mit Bedacht verwalten. Eine gängige Methode zur Verbesserung des Schutzes von privilegierten Konten ist eine strengere Form der Kontoüberprüfung für die Anmeldung. In Azure AD können Sie eine striktere Kontoüberprüfung erreichen, indem Sie mehrstufige Authentifizierung verlangen.
 
-Nach Abschluss der Azure Multi-Factor Authentication-Registrierung ist für die folgenden 9 Azure AD-Administratorrollen bei jeder Anmeldung eine zusätzliche Authentifizierung erforderlich:
+Nach Abschluss der Azure AD Multi-Factor Authentication-Registrierung ist für die folgenden 9 Azure AD-Administratorrollen bei jeder Anmeldung eine zusätzliche Authentifizierung erforderlich:
 
 - Globaler Administrator
 - SharePoint-Administrator
@@ -120,7 +120,7 @@ Nachfolgend werden zusätzliche Aspekte im Zusammenhang mit der Bereitstellung v
 
 ### <a name="authentication-methods"></a>Authentifizierungsmethoden
 
-Diese kostenlosen Sicherheitsstandards ermöglichen die Registrierung für mehrstufige Authentifizierung und deren Nutzung **unter alleiniger Verwendung der Microsoft Authenticator-App mit Benachrichtigungen**. Der bedingte Zugriff ermöglicht die Verwendung und Aktivierung einer beliebigen Authentifizierungsmethode, für die sich der Administrator entscheidet.
+Diese kostenlosen Sicherheitsstandards ermöglichen die Registrierung für und Verwendung von Azure AD Multi-Factor Authentication **unter alleiniger Verwendung der Microsoft Authenticator-App mit Benachrichtigungen**. Der bedingte Zugriff ermöglicht die Verwendung und Aktivierung einer beliebigen Authentifizierungsmethode, für die sich der Administrator entscheidet.
 
 | Methode | Standardwerte für die Sicherheit | Bedingter Zugriff |
 | --- | --- | --- |
@@ -128,14 +128,14 @@ Diese kostenlosen Sicherheitsstandards ermöglichen die Registrierung für mehrs
 | Prüfcode aus mobiler App oder Hardwaretoken | X** | X |
 | Textnachricht an Telefon |   | X |
 | Auf Telefon anrufen |   | X |
-| App-Kennwörter |   | X*** |
+| App-Kennwörter |   | X**_ |
 
-- ** Benutzer können Prüfcodes von der Microsoft Authenticator-App verwenden, können sich jedoch nur mit der Benachrichtigungsoption registrieren.
-- ** App-Kennwörter sind nur in Szenarien mit benutzerbasierter MFA mit Legacyauthentifizierung verfügbar, wenn diese Methode von Administratoren aktiviert wurde.
+- _* Benutzer können Prüfcodes von der Microsoft Authenticator-App verwenden, können sich jedoch nur mit der Benachrichtigungsoption registrieren.
+- **_ App-Kennwörter sind nur in Szenarien mit benutzerbasierter MFA mit Legacyauthentifizierung verfügbar, wenn diese Methode von Administratoren aktiviert wurde.
 
 ### <a name="disabled-mfa-status"></a>Deaktivierter MFA-Status
 
-Wenn Ihre Organisation früher benutzerbasierte Azure Multi-Factor Authentication verwendet hat, sollten Sie nicht beunruhigt sein, wenn Sie auf der Statusseite der mehrstufigen Authentifizierung keine Benutzer mit dem Status  **Aktiviert** oder  **Erzwungen** sehen. **Deaktiviert** ist der geeignete Status für Benutzer, die Sicherheitsstandards oder auf bedingtem Zugriff basierende Azure Multi-Factor Authentication verwenden.
+Wenn Ihre Organisation früher benutzerbasierte Azure AD Multi-Factor Authentication verwendet hat, sollten Sie nicht beunruhigt sein, wenn Sie auf der Statusseite der mehrstufigen Authentifizierung keine Benutzer mit dem Status _ *Aktiviert** oder **Erzwungen** sehen. **Deaktiviert** ist der geeignete Status für Benutzer, die Sicherheitsstandards oder auf bedingtem Zugriff basierende Azure AD Multi-Factor Authentication verwenden.
 
 ### <a name="conditional-access"></a>Bedingter Zugriff
 
@@ -149,7 +149,7 @@ Hier finden Sie schrittweise Anleitungen, wie Sie bedingten Zugriff verwenden k�
 - [Vorschreiben der MFA für die Azure-Verwaltung](../conditional-access/howto-conditional-access-policy-azure-management.md)
 - [Blockieren älterer Authentifizierungsmethoden](../conditional-access/howto-conditional-access-policy-block-legacy.md)
 - [Erzwingen der MFA für alle Benutzer](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
-- [Verlangen von Azure MFA-Registrierung](../identity-protection/howto-identity-protection-configure-mfa-policy.md): Erfordert Azure AD Identity Protection von Azure AD Premium P2.
+- [Verlangen von Azure AD MFA-Registrierung](../identity-protection/howto-identity-protection-configure-mfa-policy.md): Erfordert Azure AD Identity Protection von Azure AD Premium P2.
 
 ## <a name="enabling-security-defaults"></a>Aktivieren von Sicherheitsstandards
 

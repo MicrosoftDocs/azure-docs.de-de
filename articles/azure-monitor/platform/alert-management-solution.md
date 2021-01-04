@@ -6,21 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
-ms.openlocfilehash: 26943971eeee96ed831c5d524868a2342891d594
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: adc29916c6b674531d7b0e8fcdd4e151b4a17bde
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108404"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997255"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Warnungsverwaltungslösung in Azure Log Analytics
 
 ![Symbol „Alert Management“](media/alert-management-solution/icon.png)
-
-> [!NOTE]
->  Azure Monitor unterstützt jetzt erweiterte Funktionen zum [Verwalten von skalierbaren Warnungen](./alerts-overview.md), einschließlich der von [Überwachungstools wie System Center Operations Manager, Zabbix oder Nagios](./alerts-managing-nagios-zabbix-scom.md?toc=%252fazure%252fazure-monitor%252ftoc.json) generierten.
->  
-
 
 Die Alert Management-Lösung unterstützt Sie beim Analysieren aller Warnungen in Ihrem Log Analytics-Repository.  Diese Warnungen können aus einer Vielzahl von Quellen stammen, einschließlich der [von Log Analytics erstellten](./alerts-overview.md) oder [aus Nagios oder Zabbix importierten](../learn/quick-collect-linux-computer.md). Die Lösung importiert auch Warnungen aus beliebigen [verbundenen System Center Operations Manager-Verwaltungsgruppen](./om-agents.md).
 
@@ -76,7 +71,7 @@ Wenn Sie nach rechts scrollen, werden im Dashboard mehrere allgemeine Abfragen a
 
 
 ## <a name="log-analytics-records"></a>Log Analytics-Datensätze
-Mit der Alert Management-Lösung werden alle Datensätze vom Typ **Warnung**analysiert.  Von Log Analytics erstellte oder von Nagios bzw. Zabbix gesammelte Warnungen werden nicht direkt von der Lösung gesammelt.
+Mit der Alert Management-Lösung werden alle Datensätze vom Typ **Warnung** analysiert.  Von Log Analytics erstellte oder von Nagios bzw. Zabbix gesammelte Warnungen werden nicht direkt von der Lösung gesammelt.
 
 Die Lösung importiert Warnungen aus System Center Operations Manager, und es werden jeweils ein entsprechender Datensatz vom Typ **Warnung** und der SourceSystem-Eintrag **OpsManager** erstellt.  Die Eigenschaften der Datensätze sind in der folgenden Tabelle aufgeführt:  
 

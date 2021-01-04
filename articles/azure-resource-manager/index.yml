@@ -11,12 +11,12 @@ metadata:
   author: tfitzmac
   ms.author: tomfitz
   ms.date: 03/04/2020
-  ms.openlocfilehash: d67c16a10a0f0efbab281f14cf39c185ba1c82ef
-  ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+  ms.openlocfilehash: e844a428910a220d77c143baa74124a112135387
+  ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/12/2020
-  ms.locfileid: "91948786"
+  ms.lasthandoff: 12/01/2020
+  ms.locfileid: "96435211"
 highlightedContent:
   items:
   - title: Was ist Resource Manager?
@@ -90,7 +90,7 @@ conceptualContent:
     - url: managed-applications/create-uidefinition-overview.md
       itemType: how-to-guide
       text: Definieren des Portalbereichs zum Erstellen einer App
-    - url: ../marketplace/partner-center-portal/create-new-azure-apps-offer.md
+    - url: ../marketplace/create-new-azure-apps-offer.md
       itemType: tutorial
       text: Hinzufügen einer App zum Marketplace
     footerLink:

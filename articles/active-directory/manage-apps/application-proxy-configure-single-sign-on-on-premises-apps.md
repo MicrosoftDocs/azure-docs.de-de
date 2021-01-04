@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c706de8a7638c16f3778d0d5295069c13b79d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7d51aa7e75d7e94d1c2ac66d7edb92a3ef9395b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387267"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657464"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>SAML-SSO (Single Sign-On, einmaliges Anmelden) für lokale Anwendungen mit dem Anwendungsproxy
 
@@ -33,9 +33,9 @@ SAML-SSO mit dem Anwendungsproxy kann auch mit dem Feature SAML-Tokenverschlüss
 
 In den Protokolldiagrammen unten sind die SSO-Sequenzen für einen vom Dienstanbieter initiierten (SP-initiiert) und einen vom Identitätsanbieter initiierten Datenfluss (IdP-initiiert) beschrieben. Der Anwendungsproxy funktioniert mit SAML-SSO, indem die SAML-Anforderung und -Antwort für die lokale Anwendung zwischengespeichert wird.
 
-  ![SAML-SP-Datenfluss](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-sp-initiated-flow.png)
+  ![Das Diagramm zeigt die Interaktionen von Anwendung, Anwendungsproxy, Client und Azure AD beim SP-initiierten einmaligen Anmelden.](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-sp-initiated-flow.png)
 
-  ![SAML-SP-Datenfluss](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-idp-initiated-flow.png)
+  ![Das Diagramm zeigt die Interaktionen von Anwendung, Anwendungsproxy, Client und Azure AD beim IDP-initiierten einmaligen Anmelden.](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-idp-initiated-flow.png)
 
 ## <a name="create-an-application-and-set-up-saml-sso"></a>Erstellen einer Anwendung und Einrichten von SAML-SSO
 
@@ -97,5 +97,5 @@ Nachdem Sie alle Schritte abgeschlossen haben, sollte Ihre App betriebsbereit se
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Wie stellt der Azure AD-Anwendungsproxy das einmalige Anmelden bereit?](application-proxy-single-sign-on.md)
+- [Wie stellt der Azure AD-Anwendungsproxy das einmalige Anmelden bereit?](./what-is-single-sign-on.md)
 - [Problembehandlung von Anwendungsproxys](application-proxy-troubleshoot.md)

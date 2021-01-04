@@ -10,14 +10,19 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: f469196f96b97903f69e29d1a38900369653e02f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19b769d1fff431f95c20e607c17747f2ff483d2f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86200508"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487183"
 ---
 # <a name="search-categories-for-the-bing-local-business-search-api"></a>Suchkategorien der API für die Bing-Suche nach ortsansässigen Unternehmen
+
+> [!WARNING]
+> Die APIs der Bing-Suche werden von Cognitive Services auf Bing-Suchdienste umgestellt. Ab dem **30. Oktober 2020** müssen alle neuen Instanzen der Bing-Suche mit dem [hier](/bing/search-apis/bing-web-search/create-bing-search-service-resource) dokumentierten Prozess bereitgestellt werden.
+> APIs der Bing-Suche, die mit Cognitive Services bereitgestellt wurden, werden noch drei Jahre lang oder bis zum Ablauf Ihres Enterprise Agreement unterstützt (je nachdem, was zuerst geschieht).
+> Eine Anleitung zur Migration finden Sie unter [Bing-Suchdienste](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Mit der API für die Bing-Suche nach ortsansässigen Unternehmen können Sie in einer Vielzahl von Kategorien nach lokalen Geschäftsentitäten suchen. Dabei erhalten die Ergebnisse in der Nähe des Standorts eines Benutzers Priorität. Sie können diese Suchvorgänge zusammen mit den [Parametern](specify-geographic-search.md) `localCircularView` und `localMapView` in Suchvorgänge einschließen.
 

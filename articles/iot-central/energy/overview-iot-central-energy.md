@@ -3,22 +3,19 @@ title: Erstellen von Energielösungen mit IoT Central | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie mithilfe von Azure IoT Central-Anwendungsvorlagen Energielösungen erstellen.
 author: op-ravi
 ms.author: omravi
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 0cc9fd5836371a925be531de773ea9c2e276c0eb
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: ff7b98908296714a59aa9a24767e80e212e00e68
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127351"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516651"
 ---
 # <a name="build-energy-solutions-with-iot-central"></a>Erstellen von Lösungen für die Energiebranche mit IoT Central 
-
-
-
 
 Intelligente Messgeräte und Solarpanels spielen in der Transformation der Energiebranche eine wichtige Rolle. Intelligente Messgeräte sorgen für mehr Kontrolle und Echtzeiterkenntnisse in Bezug auf den Energieverbrauch, und das Wachstum von Solarpanels sorgt für Durchbrüche bei der Erzeugung erneuerbarer Energien. Die Apps für die Überwachung von intelligenten Messgeräten und Solarpanels sind Beispielvorlagen, die die verschiedenen Funktionen demonstrieren sollen. Partner können mithilfe dieser Vorlagen Energielösungen mit IoT Central für ihre speziellen Anforderungen erstellen. Zum Bereitstellen und Verwenden dieser Anwendungen ist kein neuer Code erforderlich, und es fallen keine zusätzlichen Kosten an. Erfahren Sie mehr über Energieanwendungsvorlagen und ihre Funktionen.
 

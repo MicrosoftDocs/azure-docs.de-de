@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8776ad915ff215eef143f62aaa9e242ff0354f3e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 28a9080ce878e262573adf0b3c79394079c09ca2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368790"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835967"
 ---
 # <a name="identity-protection-policies"></a>Richtlinien für den Identitätsschutz
 
@@ -24,11 +24,11 @@ Azure Active Directory Identity Protection enthält drei Standardrichtlinien, di
 
 ![Richtlinien für den Identitätsschutz](./media/concept-identity-protection-policies/identity-protection-policies.png)
 
-## <a name="azure-mfa-registration-policy"></a>Azure MFA-Registrierungsrichtlinie
+## <a name="azure-ad-mfa-registration-policy"></a>Azure AD MFA-Registrierungsrichtlinie
 
-Identity Protection kann Organisationen beim Rollout von Azure Multi-Factor Authentication (MFA) mithilfe einer Richtlinie für den bedingten Zugriff unterstützen, die die Registrierung bei der Anmeldung erfordert. Wenn Sie diese Richtlinie aktivieren, können Sie sicherstellen, dass neue Benutzer in Ihrer Organisation sich am ersten Tag für MFA registrieren. Die mehrstufige Authentifizierung (MFA) ist eine der Methoden zur Eigenwartung für Risikoereignisse in Identity Protection. Eigenwartung ermöglicht Ihren Benutzern, selbst Maßnahmen zu ergreifen, um so das Helpdesk-Telefonaufkommen zu verringern.
+Identity Protection kann Organisationen beim Rollout von Azure AD Multi-Factor Authentication (MFA) mithilfe einer Richtlinie für den bedingten Zugriff unterstützen, die die Registrierung bei der Anmeldung erfordert. Wenn Sie diese Richtlinie aktivieren, können Sie sicherstellen, dass neue Benutzer in Ihrer Organisation sich am ersten Tag für MFA registrieren. Die mehrstufige Authentifizierung (MFA) ist eine der Methoden zur Eigenwartung für Risikoereignisse in Identity Protection. Eigenwartung ermöglicht Ihren Benutzern, selbst Maßnahmen zu ergreifen, um so das Helpdesk-Telefonaufkommen zu verringern.
 
-Weitere Informationen zu Azure Multi-Factor Authentication finden Sie im Artikel [Funktionsweise: Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md).
+Weitere Informationen zu Azure AD Multi-Factor Authentication finden Sie im Artikel [Funktionsweise: Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md).
 
 ## <a name="sign-in-risk-policy"></a>Richtlinie zum Anmelderisiko
 
@@ -37,7 +37,7 @@ Identity Protection analysiert Signale von jeder Anmeldung (sowohl in Echtzeit a
 Wenn Risiken erkannt werden, können die Benutzer die mehrstufige Authentifizierung zur Eigenwartung durchführen und das riskante Anmeldeereignis schließen, um unnötigen Aufwand für Administratoren zu vermeiden.
 
 > [!NOTE] 
-> Benutzer müssen sich vor Auslösen der Anmelderisikorichtlinie bereits für Azure Multi-Factor Authentication registriert haben.
+> Benutzer müssen sich vor Auslösen der Anmelderisikorichtlinie bereits für Azure AD Multi-Factor Authentication registriert haben.
 
 ### <a name="custom-conditional-access-policy"></a>Benutzerdefinierte Richtlinie für bedingten Zugriff
 
@@ -58,8 +58,8 @@ Wenn Risiken erkannt werden, können die Benutzer die Self-Service-Kennwortzurü
 
 - [Aktivieren der Self-Service-Kennwortzurücksetzung in Azure AD](../authentication/howto-sspr-deployment.md)
 
-- [Aktivieren von Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+- [Aktivieren von Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
 
-- [Aktivieren der Registrierungsrichtlinie für die mehrstufige Authentifizierung](howto-identity-protection-configure-mfa-policy.md)
+- [Aktivieren der Registrierungsrichtlinie für Azure AD Multi-Factor Authentication](howto-identity-protection-configure-mfa-policy.md)
 
 - [Aktivieren von Anmelde- und Benutzerrisikorichtlinien](howto-identity-protection-configure-risk-policies.md)

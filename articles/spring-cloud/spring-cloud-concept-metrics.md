@@ -7,13 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: f84201de1f63704fefcf5de4041b95ed8c2122cd
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 015aadb791172f5033bf0198caad567c9bc03221
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094057"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95974662"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Grundlegendes zu Metriken für Azure Spring Cloud
 
@@ -110,7 +109,6 @@ Die verfügbaren Metriken und ihre Details sind in den nachfolgenden Tabellen au
 >| jvm.gc.pause.total.count | jvm.gc.pause (total-count) | Anzahl | Anzahl aller Garbage Collections nach dem Start dieser Java-VM, einschließlich Eden- und Tenured-Garbage Collections. |
 >| jvm.gc.pause.total.time | jvm.gc.pause (total-time) | Millisekunden | Gesamte für Garbage Collections verwendete Zeit nach dem Start dieser Java-VM, einschließlich Eden- und Tenured-Garbage Collections. |
 
-::: zone pivot="programming-language-csharp"
 ### <a name="performance-net"></a>Leistung (.NET)
 
 >[!div class="mx-tdCol2BreakAll"]
@@ -136,7 +134,6 @@ Die verfügbaren Metriken und ihre Details sind in den nachfolgenden Tabellen au
 >| Anzahl aktiver Timer               | active-timer-count               | Anzahl | Anzahl der Timer, die zurzeit aktiv sind. Ein aktiver Timer ist ein Timer, der zu einem beliebigen Zeitpunkt in der Zukunft für einen Takt registriert ist und noch nicht abgebrochen wurde. |
 
 Weitere Informationen finden Sie unter [dotnet-Leistungsindikatoren](/dotnet/core/diagnostics/dotnet-counters).
-::: zone-end
 
 ### <a name="request"></a>Anforderung
 >[!div class="mx-tdCol2BreakAll"]
@@ -147,7 +144,6 @@ Weitere Informationen finden Sie unter [dotnet-Leistungsindikatoren](/dotnet/cor
 >| tomcat.global.request.total.count | tomcat.global.request (total-count) | Anzahl | Gesamtzahl aller vom Tomcat-Webserver verarbeiteten Anforderungen. |
 >| tomcat.global.request.max | tomcat.global.request.max | Millisekunden | Maximale vom Tomcat-Webserver in Anspruch genommene Zeit für die Verarbeitung einer Anforderung. |
 
-::: zone pivot="programming-language-csharp"
 ### <a name="request-net"></a>Anforderung (.NET)
 
 >[!div class="mx-tdCol2BreakAll"]
@@ -159,7 +155,6 @@ Weitere Informationen finden Sie unter [dotnet-Leistungsindikatoren](/dotnet/cor
 >| Anforderungsfehler | failed-requests | Anzahl | Anzahl von fehlerhaften Anforderungen |
 
 Weitere Informationen finden Sie unter [dotnet-Leistungsindikatoren](/dotnet/core/diagnostics/dotnet-counters).
-::: zone-end
 
 ### <a name="session"></a>Sitzung
 >[!div class="mx-tdCol2BreakAll"]

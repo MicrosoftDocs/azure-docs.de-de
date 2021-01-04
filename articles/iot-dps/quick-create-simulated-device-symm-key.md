@@ -1,6 +1,6 @@
 ---
-title: 'Schnellstart: Verwenden eines symmetrischen Schlüssels zum Bereitstellen eines simulierten Geräts mithilfe von C für Azure IoT Hub'
-description: In dieser Schnellstartanleitung verwenden Sie das C-Geräte-SDK, um ein simuliertes Gerät zu erstellen, das einen symmetrischen Schlüssel mit Azure IoT Hub Device Provisioning Service (DPS) verwendet.
+title: 'Schnellstart: Verwenden eines symmetrischen Schlüssels zum Bereitstellen von Geräten in Azure IoT Hub mithilfe von C'
+description: In dieser Schnellstartanleitung wird das C-Geräte-SDK verwendet, um ein Gerät bereitzustellen, das einen symmetrischen Schlüssel mit Azure IoT Hub Device Provisioning Service (DPS) verwendet.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/14/2020
@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 5b28cfcf064e8e876d239ab13507279934dba500
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7df7c9ab6bfbc8a39050b78a76114ae2a0a9d9b7
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90528589"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746504"
 ---
-# <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Schnellstart: Bereitstellen eines simulierten Geräts mit symmetrischen Schlüsseln
+# <a name="quickstart-provision-a-device-with-symmetric-keys"></a>Schnellstart: Bereitstellen eines Geräts mit symmetrischen Schlüsseln
 
-In dieser Schnellstartanleitung erfahren Sie, wie Sie einen Gerätesimulator auf einem Windows-Entwicklungscomputer erstellen und ausführen. Sie konfigurieren dieses simulierte Gerät so, dass es zum Authentifizieren bei einer Device Provisioning Service-Instanz einen symmetrischen Schlüssel verwendet und einem IoT Hub zugewiesen wird. Beispielcode aus dem [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) wird verwendet, um eine Startsequenz für das Gerät zu simulieren, die die Bereitstellung einleitet. Das Gerät wird anhand der individuellen Registrierung bei einer Device Provisioning Service-Instanz erkannt und dem IoT Hub zugeordnet.
+In dieser Schnellstartanleitung erfahren Sie, wie Sie Gerätebereitstellungscode auf einem Entwicklungscomputer unter Windows ausführen, um ihn als IoT-Gerät mit einem IoT-Hub zu verbinden. Dieses Gerät wird so konfiguriert, dass es zur Authentifizierung bei einer Device Provisioning Service-Instanz einen symmetrischen Schlüssel verwendet und einem IoT-Hub zugewiesen wird. Zum Bereitstellen des Geräts wird Beispielcode aus dem [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) verwendet. Das Gerät wird anhand der individuellen Registrierung bei einer Device Provisioning Service-Instanz erkannt und dem IoT Hub zugeordnet.
 
 In diesem Artikel wird zwar die Bereitstellung mit einer individuellen Registrierung gezeigt, Sie können jedoch auch Registrierungsgruppen verwenden. Bei der Verwendung von Registrierungsgruppen gibt es einige Unterschiede. Sie müssen beispielsweise einen abgeleiteten Geräteschlüssel mit einer eindeutigen Registrierungs-ID für das Gerät verwenden. Obwohl Registrierungsgruppen mit symmetrischem Schlüssel nicht auf veraltete Geräte begrenzt sind, enthält [Bereitstellen veralteter Geräte mit Nachweis durch symmetrischen Schlüssel](how-to-legacy-device-symm-key.md) ein Beispiel für eine Registrierungsgruppe. Weitere Informationen finden Sie unter [Gruppenregistrierungen für Nachweis des symmetrischen Schlüssels](concepts-symmetric-key-attestation.md#group-enrollments).
 
@@ -36,7 +36,7 @@ In diesem Artikel wird von der Nutzung einer Windows-Arbeitsstation ausgegangen.
 
 Die folgenden Voraussetzungen gelten für eine Windows-Entwicklungsumgebung. Informationen zu Linux oder macOS finden Sie in der SDK-Dokumentation im entsprechenden Abschnitt unter [Vorbereiten Ihrer Entwicklungsumgebung](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md).
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 mit der aktivierten Workload [„Desktopentwicklung mit C++“](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development). Visual Studio 2015 und Visual Studio 2017 werden ebenfalls unterstützt.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 mit der aktivierten Workload [„Desktopentwicklung mit C++“](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development). Visual Studio 2015 und Visual Studio 2017 werden ebenfalls unterstützt.
 
 * Die neueste Version von [Git](https://git-scm.com/download/) ist installiert.
 
@@ -46,7 +46,7 @@ Die folgenden Voraussetzungen gelten für eine Windows-Entwicklungsumgebung. Inf
 
 In diesem Abschnitt bereiten Sie eine Entwicklungsumgebung vor, die zum Erstellen des [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) verwendet wird. 
 
-Das SDK enthält den Beispielcode für ein simuliertes Gerät. Dieses simulierte Gerät versucht, die Bereitstellung während seiner Startsequenz auszuführen.
+Das SDK enthält den Beispielcode für die Gerätebereitstellung. Durch diesen Code wird versucht, die Bereitstellung im Rahmen der Startsequenz des Geräts durchzuführen.
 
 1. Laden Sie das [CMake-Buildsystem](https://cmake.org/download/) herunter.
 
@@ -73,13 +73,13 @@ Das SDK enthält den Beispielcode für ein simuliertes Gerät. Dieses simulierte
     cd cmake
     ```
 
-5. Erstellen Sie mithilfe des folgenden Befehls eine spezifische SDK-Version für Ihre Entwicklungsclientplattform: Im `cmake`-Verzeichnis wird eine Visual Studio-Projektmappe für das simulierte Gerät generiert. 
+5. Erstellen Sie mithilfe des folgenden Befehls eine spezifische SDK-Version für Ihre Entwicklungsclientplattform: Im Verzeichnis `cmake` wird eine Visual Studio-Projektmappe für den Gerätebereitstellungscode generiert. 
 
     ```cmd
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
     
-    Falls `cmake` Ihren C++-Compiler nicht findet, treten beim Ausführen des obigen Befehls unter Umständen Buildfehler auf. Führen Sie den Befehl in diesem Fall an der [Visual Studio-Eingabeaufforderung](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs) aus. 
+    Falls `cmake` Ihren C++-Compiler nicht findet, treten beim Ausführen des obigen Befehls unter Umständen Buildfehler auf. Führen Sie den Befehl in diesem Fall an der [Visual Studio-Eingabeaufforderung](/dotnet/framework/tools/developer-command-prompt-for-vs) aus. 
 
     Nach erfolgreicher Erstellung ähneln die letzten Ausgabezeilen der folgenden Ausgabe:
 
@@ -123,7 +123,7 @@ Das SDK enthält den Beispielcode für ein simuliertes Gerät. Dieses simulierte
 
 <a id="firstbootsequence"></a>
 
-## <a name="simulate-first-boot-sequence-for-the-device"></a>Simulieren der ersten Startsequenz für das Gerät
+## <a name="run-the-provisioning-code-for-the-device"></a>Ausführen des Bereitstellungscodes für das Gerät
 
 Aktualisieren Sie in diesem Abschnitt den Beispielcode, um die Startsequenz des Geräts an Ihre Instanz des Device Provisioning-Diensts zu senden. Diese Startsequenz bewirkt, dass das Gerät, die erkannt und einem mit der Instanz des Device Provisioning-Diensts verknüpften IoT Hub zugewiesen wird.
 
@@ -158,7 +158,7 @@ Aktualisieren Sie in diesem Abschnitt den Beispielcode, um die Startsequenz des 
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Suchen Sie den Aufruf von `prov_dev_set_symmetric_key_info()` in **prov\_dev\_client\_sample.c**, der auskommentiert ist.
+6. Suchen Sie in **prov\_dev\_client\_sample.c** den auskommentierten Aufruf von `prov_dev_set_symmetric_key_info()`.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -178,7 +178,7 @@ Aktualisieren Sie in diesem Abschnitt den Beispielcode, um die Startsequenz des 
 
 8. Wählen Sie im Visual Studio-Menü die Option **Debuggen** > **Starten ohne Debugging** aus, um die Projektmappe auszuführen. Wählen Sie in der Aufforderung zum erneuten Erstellen des Projekts **Ja** aus, um das Projekt vor der Ausführung neu zu erstellen.
 
-    Die folgende Ausgabe ist ein Beispiel für das erfolgreiche Starten des simulierten Geräts und das Herstellen der Verbindung mit der Provisioning Service-Instanz, die einem IoT Hub zugewiesen werden soll:
+    Die folgende Beispielausgabe zeigt die erfolgreiche Verbindungsherstellung des Geräts mit der Provisioning Service-Instanz, um einem IoT-Hub zugewiesen zu werden:
 
     ```cmd
     Provisioning API Version: 1.2.8
@@ -194,7 +194,7 @@ Aktualisieren Sie in diesem Abschnitt den Beispielcode, um die Startsequenz des 
     Press enter key to exit:
     ```
 
-9. Navigieren Sie im Portal zu dem IoT-Hub, dem Ihr simuliertes Gerät zugewiesen wurde, und wählen Sie die Registerkarte **IoT-Geräte** aus. Nach erfolgreicher Bereitstellung des simulierten Geräts auf dem Hub wird die dazugehörige Geräte-ID auf dem Blatt **IoT-Geräte** angezeigt, und der *STATUS* lautet **Aktiviert**. Unter Umständen müssen Sie oben auf die Schaltfläche **Aktualisieren** klicken. 
+9. Navigieren Sie im Portal zu dem IoT-Hub, dem Ihr Gerät zugewiesen wurde, und wählen Sie die Registerkarte **IoT-Geräte** aus. Nachdem das Gerät erfolgreich für den Hub bereitgestellt wurde, wird die zugehörige Geräte-ID auf dem Blatt **IoT-Geräte** angezeigt, und der *STATUS* lautet **Aktiviert**. Unter Umständen müssen Sie oben auf die Schaltfläche **Aktualisieren** klicken. 
 
     ![Geräteregistrierung bei der IoT Hub-Instanz](./media/quick-create-simulated-device-symm-key/hub-registration.png) 
 
@@ -209,7 +209,7 @@ Wenn Sie das Geräteclientbeispiel weiterhin verwenden und erkunden möchten, ü
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In diesem Schnellstart haben Sie auf Ihrem Windows-Computer ein simuliertes Gerät erstellt und im Portal mit dem symmetrischen Schlüssel mithilfe von Azure IoT Hub Device Provisioning Service für Ihren IoT-Hub bereitgestellt. Informationen zum programmgesteuerten Registrieren Ihres Geräts finden Sie im Schnellstart für die programmgesteuerte Registrierung von X.509-Geräten. 
+In dieser Schnellstartanleitung haben Sie Gerätebereitstellungscode auf Ihrem Windows-Computer ausgeführt.  Das Gerät wurde mit einem symmetrischen Schlüssel authentifiziert und für Ihren IoT-Hub bereitgestellt. Informationen zum Bereitstellen eines Geräts mit X.509-Zertifikat finden Sie in der folgenden Schnellstartanleitung für X.509-Geräte: 
 
 > [!div class="nextstepaction"]
-> [Azure-Schnellstart: Registrieren von X.509-Geräten bei Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-java.md)
+> [Schnellstart: Bereitstellen eines simulierten X.509-Geräts mithilfe des Azure IoT C SDK](quick-create-simulated-device-x509.md)

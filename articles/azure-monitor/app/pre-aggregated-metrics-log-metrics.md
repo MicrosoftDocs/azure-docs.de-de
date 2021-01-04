@@ -6,12 +6,12 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: f7bfa15b12618715bf0d911e4b4927a1fa327107
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b93ac774dffb837d93853353e83b8da4ab4d8d4
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539128"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027158"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Protokollbasierte und vorab aggregierte Metriken in Azure Application Insights
 
@@ -40,6 +40,28 @@ Die neueren SDKs (SDK [Application Insights 2.7](https://www.nuget.org/packages
 Bei SDKs, die keine Vorabaggregation implementieren (d. h. ältere Versionen von Application Insights SDKs oder SDKs zur Browserinstrumentierung), füllt das Application Insights-Back-End weiterhin die neuen Metriken auf, indem es die Ereignisse aggregiert, die vom Application Insights-Endpunkt zur Ereignissammlung empfangen werden. So können Sie zwar nicht von dem reduzierten Datenvolumen profitieren, das über die Leitung übertragen wird, können die vorab aggregierten Metriken aber dennoch bei SDKs nutzen, die Metriken während der Erfassung nicht vorab aggregieren. Auf diese Weise erhalten Sie eine bessere Leistung und Unterstützung für Dimensionswarnungen nahezu in Echtzeit.
 
 Es ist erwähnenswert, dass der Sammlungsendpunkt Ereignisse vor der Erfassungs-Stichprobenerstellung aggregiert, was bedeutet, dass die [Erfassungs-Stichprobenerstellung](./sampling.md) niemals die Genauigkeit von vorab aggregierten Metriken beeinträchtigt, unabhängig davon, welche SDK-Version Sie mit Ihrer Anwendung verwenden.  
+
+### <a name="sdk-supported-pre-aggregated-metrics-table"></a>Tabelle mit vorab aggregierten Metriken (mit SDK-Unterstützung)
+
+| Aktuelle Produktions-SDKs | Standardmetriken (SDK-Vorabaggregation) | Benutzerdefinierte Metriken (ohne SDK-Vorabaggregation) | Benutzerdefinierte Metriken (mit SDK-Vorabaggregation)|
+|------------------------------|-----------------------------------|----------------------------------------------|---------------------------------------|
+| .NET Core und .NET Framework | Unterstützt (V2.13.1+)| Unterstützt über [TrackMetric](api-custom-events-metrics.md#trackmetric)| Unterstützt (V2.7.2+) über [GetMetric](get-metric.md) |
+| Java                         | Nicht unterstützt       | Unterstützt über [TrackMetric](api-custom-events-metrics.md#trackmetric)| Nicht unterstützt                           |
+| Node.js                      | Nicht unterstützt       | Unterstützt über [TrackMetric](api-custom-events-metrics.md#trackmetric)| Nicht unterstützt                           |
+| Python                       | Nicht unterstützt       | Unterstützt                                 | Unterstützt über [OpenCensus.stats](opencensus-python.md#metrics) |  
+
+
+### <a name="codeless-supported-pre-aggregated-metrics-table"></a>Tabelle mit vorab aggregierten Metriken (Unterstützung ohne Code)
+
+| Aktuelle Produktions-SDKs | Standardmetriken (SDK-Vorabaggregation) | Benutzerdefinierte Metriken (ohne SDK-Vorabaggregation) | Benutzerdefinierte Metriken (mit SDK-Vorabaggregation)|
+|-------------------------|--------------------------|-------------------------------------------|-----------------------------------------|
+| ASP.NET                 | Unterstützt <sup>1<sup>    | Nicht unterstützt                             | Nicht unterstützt                           |
+| ASP.NET Core            | Unterstützt <sup>2<sup>    | Nicht unterstützt                             | Nicht unterstützt                           |
+| Java                    | Nicht unterstützt            | Nicht unterstützt                             | [Unterstützt](java-in-process-agent.md#metrics) |
+| Node.js                 | Nicht unterstützt            | Nicht unterstützt                             | Nicht unterstützt                           |
+
+1. Beim Anfügen ohne Code (ASP.NET) in App Service werden nur Metriken im Überwachungsmodus „Vollständig“ ausgegeben. Beim Anfügen ohne Code (ASP.NET) in App Service, auf virtuellen Computern, in VMSS und in lokalen Umgebungen werden Standardmetriken ohne Dimensionen ausgegeben. Ein SDK ist für alle Dimensionen erforderlich.
+2. Beim Anfügen ohne Code (ASP.NET) in App Service werden Standardmetriken ohne Dimensionen ausgegeben. Ein SDK ist für alle Dimensionen erforderlich.
 
 ## <a name="using-pre-aggregation-with-application-insights-custom-metrics"></a>Verwenden der Vorabaggregation mit benutzerdefinierten Application Insights-Metriken
 

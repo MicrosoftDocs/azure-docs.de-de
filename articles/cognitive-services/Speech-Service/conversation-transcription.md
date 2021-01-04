@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: trbye
-ms.openlocfilehash: dcc7721aec067c4de309e3fdd926245a9d240f0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c27493748381a3aced92aab41745f352f228c50e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81402513"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024992"
 ---
 # <a name="what-is-conversation-transcription-in-meetings-preview"></a>Worum handelt es sich bei der Unterhaltungstranskription (Vorschau) in Besprechungen?
 
@@ -34,9 +34,11 @@ Die Unterhaltungstranskription ist eine [Spracherkennungslösung](speech-to-text
 > [!NOTE]
 > Obwohl die Unterhaltungstranskription die Anzahl der Sprecher im Raum nicht begrenzt, ist sie für 2 bis 10 Sprecher pro Sitzung optimiert.
 
-## <a name="use-cases"></a>Anwendungsfälle
+## <a name="get-started"></a>Erste Schritte
 
-### <a name="inclusive-meetings"></a>Inklusive Besprechungen
+Informationen zu den ersten Schritten finden Sie in der [Schnellstartanleitung](how-to-use-conversation-transcription.md) zur Unterhaltungstranskription in Echtzeit.
+
+## <a name="use-cases"></a>Anwendungsfälle
 
 Um Besprechungen für alle Beteiligten, z. B. taube und schwerhörige Teilnehmer, zu ermöglichen, ist es wichtig, dass die Transkription in Echtzeit erfolgt. Die Unterhaltungstranskription im Echtzeitmodus nimmt den Audiostream von Besprechungen auf und bestimmt, wer was sagt, sodass alle Besprechungsteilnehmer der Transkription folgen und ohne Verzögerung an der Besprechung teilnehmen können.
 
@@ -52,8 +54,12 @@ Dies ist eine allgemeine Übersicht darüber, wie die Unterhaltungstranskription
 
 ## <a name="expected-inputs"></a>Erwartete Eingaben
 
-- **Mehrkanalaudiostream**: Weitere Informationen zu Spezifikationen und Design finden Sie unter den [Mikrofonempfehlungen für das Speech-Geräte-SDK von Microsoft](https://aka.ms/cts/microphone). Weitere Informationen zum Development Kit und dessen Erwerb finden Sie unter [Abrufen des Speech-Geräte-SDK von Microsoft](https://aka.ms/cts/getsdk).
+- **Mehrkanalaudiostream**: Weitere Informationen zu Spezifikationen und Design finden Sie unter den [Mikrofonempfehlungen für das Speech-Geräte-SDK von Microsoft](./speech-devices-sdk-microphone.md). Weitere Informationen zum Development Kit und dessen Erwerb finden Sie unter [Abrufen des Speech-Geräte-SDK von Microsoft](./get-speech-devices-sdk.md).
 - **Benutzersprachbeispiele**: Für die Unterhaltungstranskription sind vor der Unterhaltung Benutzerprofile erforderlich. Sie müssen Audioaufzeichnungen von jedem Benutzer sammeln und die Aufzeichnungen dann an den [Dienst für die Signaturgenerierung](https://aka.ms/cts/signaturegenservice) senden, um die Audioaufnahmen zu überprüfen und Benutzerprofile zu generieren.
+
+> [!NOTE]
+> Samples der Benutzerstimme sind optional. Ohne diese Eingabe weist die Transkription verschiedene Sprecher aus, zeigt sie aber als „Sprecher1“, „Speaker2“ usw., statt sie als zuvor registrierte Namen spezifischer Sprecher zu erkennen.
+
 
 ## <a name="real-time-vs-asynchronous"></a>Echtzeitmodus im Vergleich zum asynchronen Modus
 
@@ -73,9 +79,9 @@ Audiodaten werden live verarbeitet, um den Sprecherbezeichner und das Transkript
 
 ## <a name="language-support"></a>Sprachunterstützung
 
-Die Unterhaltungstranskription unterstützt derzeit „en-US“ und „zh-CN“ in den folgenden Regionen: USA, Mitte ( *centralus*) und Asien, Osten ( *eastasia*). Wenn Sie die Unterstützung zusätzlicher Gebietsschemas benötigen, wenden Sie sich an das [Team für das Unterhaltungstranskriptionfeature](mailto:CTSFeatureCrew@microsoft.com).
+Aktuell unterstützt die Unterhaltungstranskription [alle Sprachen für Sprache-in-Text](language-support.md#speech-to-text) in den folgenden Regionen:  `centralus`, `eastasia`, `eastus`, `westeurope`. Wenn Sie die Unterstützung zusätzlicher Gebietsschemas benötigen, wenden Sie sich an das [Team für das Unterhaltungstranskriptionfeature](mailto:CTSFeatureCrew@microsoft.com).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 > [!div class="nextstepaction"]
-> [Transkribieren von Unterhaltungen in Echtzeit](how-to-use-conversation-transcription-service.md)
+> [Transkribieren von Unterhaltungen in Echtzeit](how-to-use-conversation-transcription.md)

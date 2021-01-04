@@ -8,16 +8,16 @@ metadata:
   ms.service: sql-managed-instance
   ms.subservice: operations
   ms.topic: landing-page
-  author: MashaMSFT
-  ms.author: mathoma
-  ms.reviewer: sstein
+  author: stevestein
+  ms.author: sstein
+  ms.reviewer: 
   ms.date: 05/27/2020
-  ms.openlocfilehash: 8396dc248f9b525fb6c6cddd5f8a4b6399b68975
-  ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+  ms.openlocfilehash: a647b65725b15b04d30ae7789d6d4429fe949377
+  ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/28/2020
-  ms.locfileid: "92779576"
+  ms.lasthandoff: 11/13/2020
+  ms.locfileid: "94593908"
 landingContent:
 - title: Verwaltete Azure SQL-Instanz
   linkLists:

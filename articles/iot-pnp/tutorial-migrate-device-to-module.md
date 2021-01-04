@@ -1,24 +1,24 @@
 ---
-title: Verbinden eines generischen IoT Plug & Play-Moduls | Microsoft-Dokumentation
-description: Verwenden Sie C#-Beispielcode für ein IoT Plug & Play-Gerät in einem generischen Modul.
+title: 'Tutorial: Verbinden eines generischen Azure IoT Plug & Play-Moduls | Microsoft-Dokumentation'
+description: 'Tutorial: Verwenden von C#-Beispielcode für ein IoT Plug & Play-Gerät in einem generischen Modul'
 author: ericmitt
 ms.author: ericmitt
 ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 671809b9cdbe72c8f3091b0056897c2342a38b1f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 9ac616ddf1c3475f2ca3b3e8097bb74da72faa77
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089161"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95500270"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Tutorial: Verbinden eines IoT Plug & Play-Moduls (C#)
 
 In diesem Tutorial wird veranschaulicht, wie Sie eine Verbindung für ein generisches IoT Plug & Play-[Modul](../iot-hub/iot-hub-devguide-module-twins.md) herstellen.
 
-Bei einem Gerät handelt es sich um ein IoT Plug & Play-Gerät, wenn es bei der Verbindungsherstellung mit einem IoT-Hub seine Modell-ID veröffentlicht und die Eigenschaften und Methoden implementiert, die im DTDL-Modell (Digital Twins Definition Language) beschrieben sind. Die Identifizierung erfolgt hierbei über die Modell-ID. Weitere Informationen dazu, wie Geräte die DTDL und eine Modell-ID nutzen, finden Sie im [Entwicklerhandbuch für IoT Plug & Play](./concepts-developer-guide-device-csharp.md). Für Module werden Modell-IDs und DTDL-Modelle auf die gleiche Weise verwendet.
+Bei einem Gerät handelt es sich um ein IoT Plug & Play-Gerät, wenn es bei der Verbindungsherstellung mit einem IoT-Hub seine Modell-ID veröffentlicht und die Eigenschaften und Methoden implementiert, die im DTDL-Modell (Digital Twins Definition Language) beschrieben sind. Die Identifizierung erfolgt hierbei über die Modell-ID. Weitere Informationen dazu, wie Geräte die DTDL und eine Modell-ID nutzen, finden Sie im [Entwicklerhandbuch für IoT Plug & Play](./concepts-developer-guide-device.md). Für Module werden Modell-IDs und DTDL-Modelle auf die gleiche Weise verwendet.
 
 In diesem Tutorial wird veranschaulicht, wie Sie das C#-Gerätebeispiel mit einem Thermostat in ein generisches Modul konvertieren, um die Implementierung eines IoT Plug & Play-Moduls zu demonstrieren.
 
@@ -35,7 +35,7 @@ Fügen Sie Ihrem IoT-Hub mit dem Azure IoT-Explorer ein neues Gerät mit dem Nam
 
 Fügen Sie **my-module-device** das Modul **my-module** hinzu:
 
-1. Navigieren Sie im Azure IoT-Explorer zum Gerät **my-module-device** .
+1. Navigieren Sie im Azure IoT-Explorer zum Gerät **my-module-device**.
 
 1. Wählen Sie **Modulkennung** und dann **+ Hinzufügen** aus.
 
@@ -94,9 +94,9 @@ git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
 
 Führen Sie das Öffnen und Vorbereiten des Beispielprojekts wie folgt durch:
 
-1. Öffnen Sie in Visual Studio 2019 die Projektdatei *azure-iot-sdk-csharp\iot-hub\Samples\device\PnpDeviceSamples\Thermostat\Thermostat.csproj* .
+1. Öffnen Sie in Visual Studio 2019 die Projektdatei *azure-iot-sdk-csharp\iot-hub\Samples\device\PnpDeviceSamples\Thermostat\Thermostat.csproj*.
 
-1. Navigieren Sie in Visual Studio zu **Projekt > Thermostateigenschaften > Debuggen** . Fügen Sie dem Projekt dann die folgenden Umgebungsvariablen hinzu:
+1. Navigieren Sie in Visual Studio zu **Projekt > Thermostateigenschaften > Debuggen**. Fügen Sie dem Projekt dann die folgenden Umgebungsvariablen hinzu:
 
     | Name | Wert |
     | ---- | ----- |
@@ -109,18 +109,18 @@ Führen Sie das Öffnen und Vorbereiten des Beispielprojekts wie folgt durch:
 
 Ändern Sie den Code wie folgt, damit er nicht wie ein Gerät, sondern wie ein Modul funktioniert:
 
-1. Öffnen Sie in Visual Studio die Datei *Parameter.cs* , und ändern Sie die Zeile, in der die Variable **PrimaryConnectionString** festgelegt wird, wie folgt:
+1. Öffnen Sie in Visual Studio die Datei *Parameter.cs*, und ändern Sie die Zeile, in der die Variable **PrimaryConnectionString** festgelegt wird, wie folgt:
 
     ```csharp
     public string PrimaryConnectionString { get; set; } = Environment.GetEnvironmentVariable("IOTHUB_MODULE_CONNECTION_STRING");
     ```
 
-1. Öffnen Sie in Visual Studio die Datei *Program.cs* , und ersetzen Sie die sieben Instanzen der `DeviceClient`-Klasse durch die `ModuleClient`-Klasse.
+1. Öffnen Sie in Visual Studio die Datei *Program.cs*, und ersetzen Sie die sieben Instanzen der `DeviceClient`-Klasse durch die `ModuleClient`-Klasse.
 
     > [!TIP]
-    > Verwenden Sie die Visual Studio-Funktion zum Suchen/Ersetzen mit Aktivierung von **Groß-/Kleinschreibung beachten** und **Nur ganzes Wort suchen** , um `DeviceClient` durch `ModuleClient` zu ersetzen.
+    > Verwenden Sie die Visual Studio-Funktion zum Suchen/Ersetzen mit Aktivierung von **Groß-/Kleinschreibung beachten** und **Nur ganzes Wort suchen**, um `DeviceClient` durch `ModuleClient` zu ersetzen.
 
-1. Öffnen Sie in Visual Studio die Datei *Thermostat.cs* , und ersetzen Sie beide Instanzen der `DeviceClient`-Klasse wie unten angegeben durch die `ModuleClient`-Klasse.
+1. Öffnen Sie in Visual Studio die Datei *Thermostat.cs*, und ersetzen Sie beide Instanzen der `DeviceClient`-Klasse wie unten angegeben durch die `ModuleClient`-Klasse.
 
 1. Speichern Sie Dateien, in denen Sie die Änderungen vorgenommen haben.
 
@@ -169,9 +169,9 @@ Wenn Sie den Code ausführen und dann den Azure IoT-Explorer verwenden, um den a
 
 Mit den Dienst-SDKs können Sie die Modell-ID von verbundenen IoT Plug & Play-Geräten und -Modulen abrufen. Sie können die Dienst-SDKs verwenden, um schreibbare Eigenschaften festzulegen und Befehle aufzurufen:
 
-1. Öffnen Sie in einer anderen Instanz von Visual Studio das Projekt *azure-iot-sdk-csharp\iot-hub\Samples\service\PnpServiceSamples\Thermostat\Thermostat.csproj* .
+1. Öffnen Sie in einer anderen Instanz von Visual Studio das Projekt *azure-iot-sdk-csharp\iot-hub\Samples\service\PnpServiceSamples\Thermostat\Thermostat.csproj*.
 
-1. Navigieren Sie in Visual Studio zu **Projekt > Thermostateigenschaften > Debuggen** . Fügen Sie dem Projekt dann die folgenden Umgebungsvariablen hinzu:
+1. Navigieren Sie in Visual Studio zu **Projekt > Thermostateigenschaften > Debuggen**. Fügen Sie dem Projekt dann die folgenden Umgebungsvariablen hinzu:
 
     | Name | Wert |
     | ---- | ----- |
@@ -181,7 +181,7 @@ Mit den Dienst-SDKs können Sie die Modell-ID von verbundenen IoT Plug & Play-Ge
     > [!TIP]
     > Sie können Ihre IoT-Hub-Verbindungszeichenfolge auch im Azure IoT-Explorer ermitteln.
 
-1. Öffnen Sie die Datei *Program.cs* , und ändern Sie die Zeile, in der ein Befehl aufgerufen wird, wie folgt:
+1. Öffnen Sie die Datei *Program.cs*, und ändern Sie die Zeile, in der ein Befehl aufgerufen wird, wie folgt:
 
     ```csharp
     CloudToDeviceMethodResult result = await s_serviceClient.InvokeDeviceMethodAsync(s_deviceId, "my-module", commandInvocation);
@@ -238,4 +238,4 @@ Sie können den Azure IoT-Explorer verwenden, um Folgendes anzuzeigen:
 In diesem Tutorial wurde beschrieben, wie Sie für ein IoT Plug & Play-Gerät mit Modulen eine Verbindung mit einem IoT-Hub herstellen. Weitere Informationen zu IoT Plug & Play-Gerätemodellen finden Sie unter:
 
 > [!div class="nextstepaction"]
-> [Anleitung für Entwickler: Modellierung mit IoT Plug & Play](./concepts-developer-guide-device-csharp.md)
+> [Anleitung für Entwickler: Modellierung mit IoT Plug & Play](./concepts-developer-guide-device.md)

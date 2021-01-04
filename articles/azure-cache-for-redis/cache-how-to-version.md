@@ -6,22 +6,18 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: ed0f486afe466d31388fa99b4ce5f5754210533f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9f48de7ef5d9525a995af4ebbd12c5f14f40189
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91571239"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349136"
 ---
 # <a name="set-redis-version-for-azure-cache-for-redis-preview"></a>Festlegen der Version für Azure Cache for Redis (Vorschau)
 In diesem Artikel erfahren Sie, wie Sie die Version der Redis-Software konfigurieren, die mit Ihrer Cache-Instanz verwendet werden soll. Azure Cache for Redis bietet die neueste Hauptversion von Redis und mindestens eine frühere Version. Diese Versionen werden regelmäßig aktualisiert, sobald neuere Redis-Software veröffentlicht wird. Sie können zwischen den beiden verfügbaren Versionen wählen. Beachten Sie, dass automatisch ein Upgrade Ihres Caches auf die nächste Version erfolgt, wenn die derzeit verwendete Version nicht mehr unterstützt wird.
 
 ## <a name="prerequisites"></a>Voraussetzungen
-* Azure-Abonnement –  [Erstellen eines kostenlosen Kontos](https://azure.microsoft.com/free/)
-
-> [!NOTE]
-> Diese Funktion befindet sich zurzeit in der Vorschauphase. [Wenden Sie sich an uns](mailto:azurecache@microsoft.com), wenn Sie daran interessiert sind.
->
+* Azure-Abonnement – [Erstellen eines kostenlosen Kontos](https://azure.microsoft.com/free/)
 
 ## <a name="create-a-cache"></a>Erstellen eines Caches
 Führen Sie die folgenden Schritte aus, um einen Cache zu erstellen:
@@ -44,7 +40,7 @@ Führen Sie die folgenden Schritte aus, um einen Cache zu erstellen:
    
 1. Wählen Sie auf der Seite **Erweitert** eine zu verwendende Redis-Version aus.
    
-    :::image type="content" source="media/cache-how-to-version/select-redis-version.png" alt-text="Auswählen von „Azure Cache for Redis“.":::
+    :::image type="content" source="media/cache-how-to-version/select-redis-version.png" alt-text="Redis-Version.":::
 
 1. Klicken Sie auf **Erstellen**. 
    

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/1/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 66e0ac622479d38d2e2a3cbf499bb7900251571d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12cf4b029424bbbdb7449e6e1d04684ed485ef97
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91359390"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779015"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Konfigurieren von HTTPS in einer benutzerdefinierten Azure CDN-Domäne
 
@@ -68,9 +68,9 @@ Bei Verwendung eines CDN-verwalteten Zertifikats kann das HTTPS-Feature mit nur 
 
 Um HTTPS für eine benutzerdefinierte Domäne zu aktivieren, führen Sie die folgenden Schritte aus:
 
-1. Rufen Sie das [Azure-Portal](https://portal.azure.com) auf, um ein von Ihrer Azure CDN-Instanz verwaltetes Zertifikat zu ermitteln. Suchen Sie nach **CDN-Profile**, und wählen Sie diese Option aus. 
+1. Rufen Sie das [Azure-Portal](https://portal.azure.com) auf, um ein von Ihrer Azure CDN-Instanz verwaltetes Zertifikat zu ermitteln. Suchen Sie nach **CDN-Profile** , und wählen Sie diese Option aus. 
 
-2. Wählen Sie das Profil **Azure CDN Standard von Microsoft**, **Azure CDN Standard von Akamai**, **Azure CDN Standard von Verizon** oder **Azure CDN Premium von Verizon** aus.
+2. Wählen Sie das Profil **Azure CDN Standard von Microsoft** , **Azure CDN Standard von Akamai** , **Azure CDN Standard von Verizon** oder **Azure CDN Premium von Verizon** aus.
 
 3. Wählen Sie in der Liste mit den CDN-Endpunkten den Endpunkt aus, der Ihre benutzerdefinierte Domäne enthält.
 
@@ -86,7 +86,7 @@ Um HTTPS für eine benutzerdefinierte Domäne zu aktivieren, führen Sie die fol
 
 5. Wählen Sie unter „Zertifikatverwaltungstyp“ die Option **CDN verwaltet** aus.
 
-6. Klicken Sie auf **Ein**, um HTTPS zu aktivieren.
+6. Klicken Sie auf **Ein** , um HTTPS zu aktivieren.
 
     ![HTTPS-Status benutzerdefinierter Domänen](./media/cdn-custom-ssl/cdn-select-cdn-managed-certificate.png)
 
@@ -124,19 +124,19 @@ Registrieren Sie Azure CDN über PowerShell als App in Ihrem Azure Active Direct
  
 Gewähren Sie Azure CDN Berechtigungen für den Zugriff auf die Zertifikate (Geheimnisse) in Ihrem Azure Key Vault-Konto.
 
-1. Klicken Sie in Ihrem Key Vault-Konto unter „EINSTELLUNGEN“ auf **Zugriffsrichtlinien** und anschließend auf **Neu hinzufügen**, um eine neue Richtlinie zu erstellen.
+1. Klicken Sie in Ihrem Key Vault-Konto unter „EINSTELLUNGEN“ auf **Zugriffsrichtlinien** und anschließend auf **Neu hinzufügen** , um eine neue Richtlinie zu erstellen.
 
     ![Erstellen einer neuen Zugriffsrichtlinie](./media/cdn-custom-ssl/cdn-new-access-policy.png)
 
-2. Suchen Sie unter **Prinzipal auswählen** nach **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**, und wählen Sie **Microsoft.Azure.Cdn** aus. Klicken Sie auf **Auswählen**.
+2. Suchen Sie unter **Prinzipal auswählen** nach **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** , und wählen Sie **Microsoft.Azure.Cdn** aus. Klicken Sie auf **Auswählen** .
 
     ![Zugriffsrichtlinieneinstellungen](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
 
-3. Wählen Sie **Zertifikatberechtigungen** aus, und aktivieren Sie dann die Kontrollkästchen für das **Abrufen** und **Auflisten**, um CDN diese Berechtigungen zu erteilen und das Abrufen und Auflisten der Zertifikate zu ermöglichen.
+3. Wählen Sie **Zertifikatberechtigungen** aus, und aktivieren Sie dann die Kontrollkästchen für das **Abrufen** und **Auflisten** , um CDN diese Berechtigungen zu erteilen und das Abrufen und Auflisten der Zertifikate zu ermöglichen.
 
-4. Wählen Sie **Berechtigungen für Geheimnis** aus, und aktivieren Sie dann die Kontrollkästchen für das **Abrufen** und **Auflisten**, um CDN diese Berechtigungen zu erteilen und das Abrufen und Auflisten der Geheimnisse zu ermöglichen.
+4. Wählen Sie **Berechtigungen für Geheimnis** aus, und aktivieren Sie dann die Kontrollkästchen für das **Abrufen** und **Auflisten** , um CDN diese Berechtigungen zu erteilen und das Abrufen und Auflisten der Geheimnisse zu ermöglichen.
 
-5. Klicken Sie auf **OK**. 
+5. Klicken Sie auf **OK** . 
 
     Das Azure CDN kann nun auf diesen Schlüsseltresor und auf die darin gespeicherten Zertifikate (Geheimnisse) zugreifen.
  
@@ -159,7 +159,7 @@ Gewähren Sie Azure CDN Berechtigungen für den Zugriff auf die Zertifikate (Geh
     - Die Zertifikate (Geheimnisse) unter dem ausgewählten Schlüsseltresor 
     - Die verfügbaren Zertifikatversionen 
  
-5. Klicken Sie auf **Ein**, um HTTPS zu aktivieren.
+5. Klicken Sie auf **Ein** , um HTTPS zu aktivieren.
   
 6. Wenn Sie Ihr eigenes Zertifikat verwenden, ist keine Domänenüberprüfung erforderlich. Fahren Sie mit [Warten auf die Weitergabe](#wait-for-propagation) fort.
 
@@ -182,7 +182,7 @@ Ihr CNAME-Eintrag sollte im folgenden Format vorliegen, wobei *Name* Ihr benutze
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azureedge.net |
 
-Weitere Informationen über CNAME-Einträge finden Sie unter [Erstellen Sie die CNAME-DNS-Einträge](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
+Weitere Informationen über CNAME-Einträge finden Sie unter [Erstellen Sie die CNAME-DNS-Einträge](./cdn-map-content-to-custom-domain.md).
 
 Wenn Ihr CNAME-Eintrag im richtigen Format vorliegt, überprüft DigiCert automatisch Ihren benutzerdefinierten Domänennamen und erstellt ein dediziertes Zertifikat für Ihren Domänennamen. DigiCert sendet Ihnen keine Bestätigungs-E-Mail, und Sie müssen Ihre Anforderung nicht genehmigen. Das Zertifikat ist ein Jahr lang gültig und wird automatisch verlängert, bevor es abläuft. Fahren Sie mit [Warten auf die Weitergabe](#wait-for-propagation) fort. 
 
@@ -262,9 +262,9 @@ In den obigen Schritten haben Sie das HTTPS-Protokoll für Ihre benutzerdefinier
 
 ### <a name="disable-the-https-feature"></a>Deaktivieren des HTTPS-Features 
 
-1. Suchen Sie im [Azure-Portal](https://portal.azure.com) nach **CDN-Profile**, und wählen Sie den Eintrag aus. 
+1. Suchen Sie im [Azure-Portal](https://portal.azure.com) nach **CDN-Profile** , und wählen Sie den Eintrag aus. 
 
-2. Wählen Sie das Profil **Azure CDN Standard von Microsoft**, **Azure CDN Standard von Verizon** oder **Azure CDN Premium von Verizon** aus.
+2. Wählen Sie das Profil **Azure CDN Standard von Microsoft** , **Azure CDN Standard von Verizon** oder **Azure CDN Premium von Verizon** aus.
 
 3. Wählen Sie in der Liste mit den Endpunkten den Endpunkt aus, der Ihre benutzerdefinierte Domäne enthält.
 
@@ -272,7 +272,7 @@ In den obigen Schritten haben Sie das HTTPS-Protokoll für Ihre benutzerdefinier
 
     ![Liste mit benutzerdefinierten Domänen](./media/cdn-custom-ssl/cdn-custom-domain-HTTPS-enabled.png)
 
-5. Klicken Sie auf **Aus**, um HTTPS zu deaktivieren, und wählen Sie dann **Anwenden** aus.
+5. Klicken Sie auf **Aus** , um HTTPS zu deaktivieren, und wählen Sie dann **Anwenden** aus.
 
     ![Dialogfeld „HTTPS für benutzerdefinierte Domänen“](./media/cdn-custom-ssl/cdn-disable-custom-ssl.png)
 
@@ -337,4 +337,3 @@ Fahren Sie mit dem nächsten Tutorial fort, um zu erfahren, wie Sie das Caching 
 
 > [!div class="nextstepaction"]
 > [Tutorial: Festlegen der Azure CDN-Cacheregeln](cdn-caching-rules-tutorial.md)
-

@@ -1,6 +1,6 @@
 ---
 title: Integration der Quellcodeverwaltung
-description: Professionelle DevOps-Datenbankumgebung für den SQL-Pool mit nativer Integration der Quellcodeverwaltung mithilfe von Azure Repos (Git und GitHub)
+description: Professionelle DevOps-Datenbankumgebung für den dedizierten SQL-Pool mit nativer Integration der Quellcodeverwaltung mithilfe von Azure Repos (Git und GitHub)
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 84abfea39cb7311e7cd60346d936c08c28c334d4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 862fa839c56746042c072ae3100832fb2b78451a
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89441320"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296905"
 ---
-# <a name="source-control-integration-for-sql-pool"></a>Integration der Quellcodeverwaltung für den SQL-Pool
+# <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integration der Quellcodeverwaltung für den dedizierten SQL-Pool in Azure Synapse Analytics
 
-In diesem Tutorial wird erläutert, wie Sie Ihr SSDT-Datenbankprojekt (SQL Server Data Tools) mit Quellcodeverwaltung integrieren.  Die Integration der Quellcodeverwaltung ist der erste Schritt bei der Erstellung Ihrer Continuous Integration- und Continuous Deployment-Pipeline mit der SQL-Pool-Ressource in Azure Synapse Analytics.
+In diesem Tutorial wird erläutert, wie Sie Ihr SSDT-Datenbankprojekt (SQL Server Data Tools) mit Quellcodeverwaltung integrieren.  Die Integration der Quellcodeverwaltung ist der erste Schritt bei der Erstellung Ihrer Continuous Integration- und Continuous Deployment-Pipeline mit der Ressource des dedizierten SQL-Pools in Azure Synapse Analytics.
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
@@ -38,11 +38,13 @@ In diesem Tutorial wird erläutert, wie Sie Ihr SSDT-Datenbankprojekt (SQL Serve
    ![Verwalten von Verbindungen](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Verwalten von Verbindungen")
 
 3. Stellen Sie eine Verbindung mit Ihrem Projekt her, indem Sie **Verbindungen verwalten** und dann **Verbindung mit einem Projekt herstellen** auswählen.
- ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Verbinden")
+ 
+    ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Verbinden")
 
 
 4. Suchen Sie das Projekt, das Sie in Schritt 1 erstellt haben, und wählen Sie **Verbinden** aus.
-![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Verbinden")
+ 
+    ![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Verbinden")
 
 
 3. Klonen Sie das Azure-DevOps-Repository aus Ihrem Projekt auf dem lokalen Computer.
@@ -85,8 +87,8 @@ Weitere Informationen zum Verbinden von Projekten mithilfe von Visual Studio fin
 
    ![Überprüfen](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Überprüfen der Änderungen")
 
-4. (**Optional**) Verwenden Sie den Schemavergleich, und übertragen Sie die Änderungen mithilfe von SSDT in Ihre Data Warehouse-Zielinstanz, um sicherzustellen, dass die Objektdefinitionen in Ihrem Azure-Repository und im lokalen Repository Ihr Data Warehouse widerspiegeln.
+4. (**Optional**) Verwenden Sie den Schemavergleich, und aktualisieren Sie mithilfe von SSDT die Änderungen an Ihrem dedizierten SQL-Zielpool, um sicherzustellen, dass die Objektdefinitionen in Ihrem Azure-Repository und im lokalen Repository Ihren dedizierten SQL-Pool widerspiegeln.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Entwurfsentscheidungen und Programmiertechniken für Data Warehouses in Azure Synapse Analytics](sql-data-warehouse-overview-develop.md)
+- [Entwickeln für den dedizierten SQL-Pool](sql-data-warehouse-overview-develop.md)

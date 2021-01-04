@@ -3,12 +3,12 @@ title: Registrierungsübergreifende Authentifizierung über eine ACR-Aufgabe
 description: Konfigurieren einer ACR-Aufgabe (Azure Container Registry) für den Zugriff auf eine andere private Azure Container Registry mithilfe einer verwalteten Identität für Azure-Ressourcen
 ms.topic: article
 ms.date: 07/06/2020
-ms.openlocfilehash: 8b961a2ff6a795f03798cc6f6a7d303391036ef8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a460102eafa5c1eda2f37330887d985387d5df5
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86057353"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026257"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Registrierungsübergreifende Authentifizierung in einer ACR-Aufgabe unter Verwendung einer in Azure verwalteten Identität 
 
@@ -39,16 +39,12 @@ Wenn Sie nicht bereits die erforderlichen Azure-Containerregistrierungen haben, 
 
 ## <a name="prepare-base-registry"></a>Vorbereiten der Basisregistrierung
 
-Erstellen Sie zunächst ein Arbeitsverzeichnis und anschließend eine Datei namens „Dockerfile“ mit folgendem Inhalt. In diesem einfachen Beispiel wird ein Node.js-Basisimage auf der Grundlage eines öffentlichen Images in Docker Hub erstellt.
-    
-```bash
-echo FROM node:9-alpine > Dockerfile
-```
+Führen Sie zu Demonstrationszwecken einmalig [az acr import][az-acr-import] aus, um ein öffentliches Node.js-Image von Docker Hub in Ihre Basisregistrierung zu importieren. In der Praxis können Images in der Basisregistrierung von einem anderen Team oder Prozess in der Organisation verwaltet werden.
 
-Führen Sie im aktuellen Verzeichnis den Befehl [az acr build][az-acr-build] aus, um das Basisimage zu erstellen und an die Basisregistrierung zu pushen. In der Praxis kann die Basisregistrierung von einem anderen Team oder Prozess in der Organisation verwaltet werden.
-    
 ```azurecli
-az acr build --image baseimages/node:9-alpine --registry mybaseregistry --file Dockerfile .
+az acr import --name mybaseregistry \
+  --source docker.io/library/node:9-alpine \
+  --image baseimages/node:9-alpine 
 ```
 
 ## <a name="define-task-steps-in-yaml-file"></a>Definieren von Aufgabenschritten in einer YAML-Datei

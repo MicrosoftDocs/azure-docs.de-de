@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53f99456449e778ff7c1fd3ab096e1afd3562c1e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8ab484e8caaffaf57f19f1fcd1e65f4b8e723f86
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88948860"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077896"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Schnellstart: Fordern der Annahme von Nutzungsbedingungen vor dem Zugreifen auf Cloud-Apps
 
@@ -27,7 +27,7 @@ Bevor Sie den Zugriff auf bestimmte Cloud-Apps in Ihrer Umgebung gewähren, möc
 
 Dieser Schnellstart veranschaulicht das Konfigurieren einer [Azure AD-Richtlinie für bedingten Zugriff](./overview.md), durch die für eine ausgewählte Cloud-App in Ihrer Umgebung erforderlich ist, dass Nutzungsbedingungen akzeptiert werden.
 
-![Richtlinie erstellen](./media/require-tou/5555.png)
+:::image type="content" source="./media/require-tou/5555.png" alt-text="Screenshot des Azure-Portals. Ein Bereich, in dem eine Richtlinie mit dem Namen „Nutzungsbedingungen für Isabella erforderlich“ angezeigt wird" border="false":::
 
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
 
@@ -35,8 +35,8 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 
 Für die Durchführung des Szenarios im Rahmen dieses Schnellstarts benötigen Sie Folgendes:
 
-- **Zugriff auf eine Azure AD Premium-Edition**: Der bedingte Zugriff von Azure AD ist eine Funktion, die in Azure AD Premium enthalten ist.
-- **Ein Testkonto unter dem Namen Isabella Simonsen**: Wenn Sie nicht wissen, wie Sie ein Testkonto erstellen, lesen Sie [Hinzufügen von cloudbasierten Benutzern](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
+- **Zugriff auf eine Azure AD Premium-Edition** : Der bedingte Zugriff von Azure AD ist eine Funktion, die in Azure AD Premium enthalten ist.
+- **Ein Testkonto unter dem Namen Isabella Simonsen** : Wenn Sie nicht wissen, wie Sie ein Testkonto erstellen, lesen Sie [Hinzufügen von cloudbasierten Benutzern](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 ## <a name="test-your-sign-in"></a>Testen Ihrer Anmeldung
 
@@ -66,15 +66,15 @@ Dieser Abschnitt enthält die Schritte, die Sie zum Erstellen von Beispielnutzun
 
 1. Klicken Sie im Bereich **Verwalten** auf **Nutzungsbedingungen**.
 
-   ![Nutzungsbedingungen](./media/require-tou/04.png)
+   :::image type="content" source="./media/require-tou/04.png" alt-text="Screenshot: Abschnitt „Verwalten“ der Seite „Azure Active Directory“. Das Element „Nutzungsbedingungen“ ist hervorgehoben." border="false":::
 
 1. Klicken Sie oben im Menü auf **Neue Bedingungen**.
 
-   ![Nutzungsbedingungen](./media/require-tou/05.png)
+   :::image type="content" source="./media/require-tou/05.png" alt-text="Screenshot: Menü auf der Seite „Azure Active Directory“. Das Element „Neue Bedingungen“ ist hervorgehoben." border="false":::
 
 1. Gehen Sie auf der Seite **Neue Nutzungsbedingungen** folgendermaßen vor:
 
-   ![Nutzungsbedingungen](./media/require-tou/112.png)
+   :::image type="content" source="./media/require-tou/112.png" alt-text="Screenshot: Seite „Neue Nutzungsbedingungen“, auf der die Felder für Name, Anzeigename, Dokument, Sprache, bedingten Zugriff und die Umschaltfläche zum Erweitern der Nutzungsbedingungen hervorgehoben sind" border="false":::
 
    1. Geben Sie im Textfeld **Name** den Text **Meine Nutzungsbedingungen** ein.
    1. Geben Sie im Textfeld **Anzeigename** den Text **Meine Nutzungsbedingungen** ein.
@@ -99,7 +99,7 @@ Legen Sie in Ihrer Richtlinie Folgendes fest:
 | Cloud-Apps | Microsoft Azure Management |
 | Gewähren von Zugriff | Meine Nutzungsbedingungen |
 
-![Richtlinie erstellen](./media/require-tou/1234.png)
+:::image type="content" source="./media/require-tou/1234.png" alt-text="Screenshot: Bereich im Azure-Portal, in dem eine Richtlinie definiert wird. Pfeile geben an, dass die Richtlinie den Zugriff auf „Meine Nutzungsbedingungen“ gewährt und einen Benutzer und eine App enthält" border="false":::
 
 **So konfigurieren Sie die Richtlinie für bedingten Zugriff**
 
@@ -109,19 +109,19 @@ Legen Sie in Ihrer Richtlinie Folgendes fest:
 
 1. Klicken Sie im Abschnitt **Zuweisung** auf **Benutzer und Gruppen**.
 
-   ![Benutzer und Gruppen](./media/require-tou/06.png)
+   :::image type="content" source="./media/require-tou/06.png" alt-text="Screenshot: Abschnitt „Zuweisungen“ im Azure-Portalbereich, in dem eine Richtlinie definiert wird. Das Element „Benutzer und Gruppen“ ist sichtbar, und es ist nichts ausgewählt." border="false":::
 
 1. Gehen Sie auf der Seite **Benutzer und Gruppen** folgendermaßen vor:
 
-   ![Benutzer und Gruppen](./media/require-tou/24.png)
+   :::image type="content" source="./media/require-tou/24.png" alt-text="Screenshot: Registerkarte „Einschließen“ der Seite „Benutzer und Gruppen“. „Benutzer und Gruppen auswählen“ und „Benutzer und Gruppen“ sind ausgewählt. „Auswählen“ ist hervorgehoben." border="false":::
 
-   1. Klicken Sie auf **Benutzer und Gruppen auswählen**, und wählen Sie dann **Benutzer und Gruppen** aus.
+   1. Klicken Sie auf **Benutzer und Gruppen auswählen** , und wählen Sie dann **Benutzer und Gruppen** aus.
    1. Klicken Sie auf **Auswählen**.
    1. Wählen Sie auf der Seite **Auswählen** den Benutzer **Isabella Simonsen** aus, und klicken Sie dann auf **Auswählen**.
    1. Klicken Sie auf der Seite **Benutzer und Gruppen** auf **Fertig**.
 1. Klicken Sie auf **Cloud-Apps**.
 
-   ![Cloud-Apps](./media/require-tou/08.png)
+   :::image type="content" source="./media/require-tou/08.png" alt-text="Screenshot: Abschnitt „Zuweisungen“ im Azure-Portalbereich, in dem eine Richtlinie definiert wird. Das Element „Cloud-Apps“ ist sichtbar, und es ist nichts ausgewählt." border="false":::
 
 1. Gehen Sie auf der Seite **Cloud-Apps** folgendermaßen vor:
 
@@ -152,7 +152,7 @@ Legen Sie in Ihrer Richtlinie Folgendes fest:
 
 Nachdem Sie nun Ihre Richtlinie für bedingten Zugriff konfiguriert haben, möchten Sie wahrscheinlich wissen, ob sie erwartungsgemäß funktioniert. Verwenden Sie im ersten Schritt das What-If-Richtlinientool des bedingten Zugriffs, um eine Anmeldung für Ihren Testbenutzer zu simulieren. Die Simulation schätzt die Auswirkungen dieser Anmeldungen auf Ihre Richtlinien ab und generiert einen Simulationsbericht.  
 
-Legen Sie zum Initialisieren des **What If**-Richtlinienauswertungstools Folgendes fest:
+Legen Sie zum Initialisieren des **What If** -Richtlinienauswertungstools Folgendes fest:
 
 - Benutzer: **Isabella Simonsen**
 - Cloud-App: **Microsoft Azure Management**
@@ -170,13 +170,13 @@ Durch Klicken auf **What If** wird ein Simulationsbericht mit folgenden Informat
 
    ![What If](./media/require-tou/14.png)
 
-1. Klicken Sie auf **Benutzer**, wählen Sie **Isabella Simonsen** aus, und klicken Sie dann auf **Auswählen**.
+1. Klicken Sie auf **Benutzer** , wählen Sie **Isabella Simonsen** aus, und klicken Sie dann auf **Auswählen**.
 
    ![Benutzer](./media/require-tou/15.png)
 
 1. So wählen Sie eine Cloud-App aus
 
-   ![Cloud-Apps](./media/require-tou/16.png)
+   :::image type="content" source="./media/require-tou/16.png" alt-text="Screenshot: Abschnitt „Cloud-Apps“. Text gibt an, dass eine App ausgewählt ist." border="false":::
 
    1. Klicken Sie auf **Cloud-Apps**.
    1. Klicken Sie auf der Seite **Cloud-Apps** auf **Apps auswählen**.
@@ -191,7 +191,7 @@ Im vorherigen Abschnitt haben Sie gelernt, wie Sie eine simulierte Anmeldung aus
 
 Um Ihre Richtlinie zu testen, versuchen Sie, sich im [Azure-Portal](https://portal.azure.com) mit dem Testkonto **Isabella Simonsen** anzumelden. Es sollte ein Dialogfeld angezeigt werden, in dem Sie Ihre Nutzungsbedingungen akzeptieren müssen.
 
-![Nutzungsbedingungen](./media/require-tou/57.png)
+:::image type="content" source="./media/require-tou/57.png" alt-text="Screenshot: Dialogfeld mit dem Titel „Nutzungsbedingungen für Identitätssicherheit und -schutz“ sowie den Schaltflächen „Ablehnen“, „Akzeptieren“ und „Meine Nutzungsbedingungen“" border="false":::
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
@@ -200,11 +200,11 @@ Löschen Sie den Testbenutzer, wenn er nicht mehr benötigt wird, und löschen S
 - Wenn Sie nicht wissen, wie ein Azure AD-Benutzer gelöscht wird, lesen Sie [Löschen von Benutzern aus Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 - Zum Löschen Ihrer Richtlinie wählen Sie die Richtlinie aus, und klicken Sie dann in der Symbolleiste für den Schnellzugriff auf **Löschen**.
 
-    ![Multi-Factor Authentication](./media/require-tou/33.png)
+    :::image type="content" source="./media/require-tou/33.png" alt-text="Screenshot: Richtlinie „MFA für Azure-Portalbenutzer erforderlich“. Das Kontextmenü ist sichtbar, in dem „Löschen“ hervorgehoben ist." border="false":::
 
 - Um Ihre Nutzungsbedingungen zu löschen, wählen Sie sie aus, und klicken Sie dann auf der Symbolleiste oben auf **Bedingungen löschen**.
 
-    ![Multi-Factor Authentication](./media/require-tou/29.png)
+    :::image type="content" source="./media/require-tou/29.png" alt-text="Screenshot: Teil einer Tabelle, die Dokumente mit Nutzungsbedingungen enthält. Das Dokument „Meine Nutzungsbedingungen“ ist sichtbar. Im Menü ist die Option „Bedingungen löschen“ hervorgehoben." border="false":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 

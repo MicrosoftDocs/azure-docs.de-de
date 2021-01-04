@@ -1,6 +1,6 @@
 ---
 title: Anwendungstypen für Microsoft Identity Platform | Azure
-description: Die Typen von Apps und Szenarien, die vom Microsoft Identity Platform (v2.0)-Endpunkt unterstützt werden.
+description: Die Typen von Apps und Szenarien, die vom Microsoft Identity Platform-Endpunkt unterstützt werden.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -8,27 +8,27 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 11/13/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: d04dd0ec7c6d3166e2170001d6ff341d203c0d6b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.custom: aaddev, fasttrack-edit, contperf-fy21q2
+ms.openlocfilehash: fd1fc59fd1ade6036c57f15415afccfc693f7bff
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103151"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029752"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Anwendungstypen für Microsoft Identity Platform
 
-Der Microsoft Identity Platform (v2.0)-Endpunkt unterstützt die Authentifizierung für eine Vielzahl moderner App-Architekturen, die alle auf den branchenüblichen Standardprotokollen [OAuth 2.0 oder OpenID Connect](active-directory-v2-protocols.md) basieren. Dieser Artikel beschreibt die App-Typen, die Sie unabhängig von der bevorzugten Sprache oder Plattform mithilfe von Microsoft Identity Platform erstellen können. Die Informationen dienen Ihrem Verständnis allgemeiner Szenarien, bevor Sie [beginnen, mit Code zuarbeiten](v2-overview.md#getting-started).
+Der Microsoft Identity Platform-Endpunkt unterstützt die Authentifizierung für eine Vielzahl moderner App-Architekturen, die alle auf den branchenüblichen Standardprotokollen [OAuth 2.0 oder OpenID Connect](active-directory-v2-protocols.md) basieren. Dieser Artikel beschreibt die App-Typen, die Sie unabhängig von der bevorzugten Sprache oder Plattform mithilfe von Microsoft Identity Platform erstellen können. Die Informationen dienen Ihrem Verständnis allgemeiner Szenarien, bevor Sie beginnen, in den [Anwendungsszenarios](authentication-flows-app-scenarios.md#application-scenarios) mit Code zu arbeiten.
 
 ## <a name="the-basics"></a>Grundlagen
 
 Sie müssen jede App, die den Microsoft Identity Platform-Endpunkt verwendet, im Azure-Portal in [App-Registrierungen](https://go.microsoft.com/fwlink/?linkid=2083908) registrieren. Beim App-Registrierungsvorgang werden die folgenden Werte für die App erfasst und zugewiesen:
 
-* Eine **Anwendungs- (bzw. Client-) ID** , die Ihre App eindeutig identifiziert
-* Ein **Umleitungs-URI** , der zum Umleiten von Antworten zurück an die App verwendet werden kann
+* Eine **Anwendungs- (bzw. Client-) ID**, die Ihre App eindeutig identifiziert
+* Ein **Umleitungs-URI**, der zum Umleiten von Antworten zurück an die App verwendet werden kann
 * Einige andere szenariospezifische Werte, wie z.B. unterstützte Kontotypen
 
 Nähere Informationen finden Sie im Artikel zum [Registrieren einer App](quickstart-register-app.md).
@@ -81,10 +81,9 @@ In Webserver-Apps werden beim Authentifizierungsablauf für die Anmeldung folgen
 
 Sie können die Identität des Benutzers validieren, indem Sie das ID-Token mit einem öffentlichen Signaturschlüssel überprüfen, der vom Microsoft Identity Plattform-Endpunkt empfangen wird. Ein Sitzungscookie wird festgelegt, das zur Identifizierung des Benutzers in nachfolgenden Seitenanforderungen verwendet werden kann.
 
-Um dieses Szenario in Aktion zu sehen, können Sie eines der Web-App-Codebeispiele für die Anmeldung im Abschnitt [Erste Schritte mit Microsoft Identity Plattform](v2-overview.md#getting-started) testen.
+Um dieses Szenario in Aktion zu sehen, testen Sie die Codebeispiele in [Szenario: Web-App, die Benutzer anmeldet](scenario-web-app-sign-user-overview.md).
 
 Neben der einfachen Anmeldung benötigt eine Webserver-App möglicherweise Zugriff auf einen anderen Webdienst, z.B. auf eine REST-API. In diesem Fall wird die Webserver-App in einem kombinierten OpenID Connect- und OAuth 2.0-Vorgang ausgeführt, indem der [OAuth 2.0-Autorisierungscodefluss](v2-oauth2-auth-code-flow.md) verwendet wird. Weitere Informationen zu diesem Szenario finden Sie in den [ersten Schritten mit Web-Apps und Web-APIs](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIDConnect-DotNet).
-
 
 ## <a name="web-apis"></a>Web-APIs
 
@@ -106,9 +105,9 @@ Eine Web-API kann Zugriffstoken von allen App-Typen empfangen, z. B. von Webserv
 
 ![Zeigt den Authentifizierungsflow für Web-APIs](./media/v2-app-types/convergence-scenarios-webapi.svg)
 
-Informationen zum Schützen einer Web-API mithilfe von OAuth2-Zugriffstoken finden Sie in den Web-API-Codebeispielen im Abschnitt [Erste Schritte mit Microsoft Identity Plattform](v2-overview.md#getting-started).
+Informationen zum Schützen einer Web-API mithilfe von OAuth2-Zugriffstoken finden Sie in den Web-API-Codebeispielen in [Szenario: Geschützte Web-API](scenario-protected-web-api-overview.md).
 
-Oftmals müssen Web-APIs auch ausgehende Anforderungen an nachgelagerte Web-APIs stellen, die von Microsoft Identity Plattform geschützt werden. Zu diesem Zweck können Web-APIs den **On-Behalf-Of** -Fluss nutzen, der der Web-API ermöglicht, ein eingehendes Zugriffstoken gegen ein anderes Zugriffstoken zu tauschen, das in ausgehenden Anforderungen verwendet werden soll. Weitere Informationen finden Sie unter [Microsoft Identity Plattform und On-Behalf-Of-Fluss in OAuth 2.0](v2-oauth2-on-behalf-of-flow.md).
+Oftmals müssen Web-APIs auch ausgehende Anforderungen an nachgelagerte Web-APIs stellen, die von Microsoft Identity Plattform geschützt werden. Zu diesem Zweck können Web-APIs den **On-Behalf-Of**-Fluss nutzen, der der Web-API ermöglicht, ein eingehendes Zugriffstoken gegen ein anderes Zugriffstoken zu tauschen, das in ausgehenden Anforderungen verwendet werden soll. Weitere Informationen finden Sie unter [Microsoft Identity Plattform und On-Behalf-Of-Fluss in OAuth 2.0](v2-oauth2-on-behalf-of-flow.md).
 
 ## <a name="mobile-and-native-apps"></a>Mobile und native Apps
 

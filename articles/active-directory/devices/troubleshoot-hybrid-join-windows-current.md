@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ec59c07d66150bf7b184c149a9b1ed9015c17645
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e235bf90568a1382a5ecee3ff4d2283aaa32f10b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89433652"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083215"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Beheben von Problemen mit Geräten mit Hybrid-Azure Active Directory-Einbindung
 
@@ -99,11 +99,11 @@ Dieses Feld gibt an, ob das Gerät in ein lokales Active Directory eingebunden i
 
 #### <a name="workplacejoined--no"></a>WorkplaceJoined: Nein
 
-Dieses Feld gibt an, ob das Gerät bei Azure AD als privates Gerät registriert ist (markiert als *Workplace Join*). Dieser Wert sollte für in eine Domäne eingebundene Computer mit Hybrideinbindung in Azure AD **NO** lauten. Wenn der Wert **YES** lautet, wurde vor Abschluss der Hybrideinbindung in Azure AD ein Geschäfts-, Schul- oder Unikonto hinzugefügt. In diesem Fall wird das Konto bei Verwendung von Windows 10-Version 1607 oder höher ignoriert.
+Dieses Feld gibt an, ob das Gerät bei Azure AD als privates Gerät registriert ist (markiert als *Workplace Join* ). Dieser Wert sollte für in eine Domäne eingebundene Computer mit Hybrideinbindung in Azure AD **NO** lauten. Wenn der Wert **YES** lautet, wurde vor Abschluss der Hybrideinbindung in Azure AD ein Geschäfts-, Schul- oder Unikonto hinzugefügt. In diesem Fall wird das Konto bei Verwendung von Windows 10-Version 1607 oder höher ignoriert.
 
 #### <a name="azureadjoined--yes"></a>AzureAdJoined: YES
 
-Dieses Feld gibt an, ob das Gerät eingebunden ist. Der Wert ist **YES**, wenn das Gerät entweder in Azure AD oder hybrid in Azure AD eingebunden ist.
+Dieses Feld gibt an, ob das Gerät eingebunden ist. Der Wert ist **YES** , wenn das Gerät entweder in Azure AD oder hybrid in Azure AD eingebunden ist.
 Wenn der Wert **NO** lautet, wurde der Azure AD-Beitritt noch nicht abgeschlossen.
 
 Fahren Sie mit den nächsten Schritten zur weiteren Problembehandlung fort.
@@ -135,9 +135,9 @@ Verwenden Sie die Protokolle der Ereignisanzeige, um die Phase und den Fehlercod
 1. Öffnen Sie die Ereignisprotokolle der **Benutzergeräteregistrierung** in der Ereignisanzeige. Sie finden sie unter **Anwendungs- und Dienstprotokolle** > **Microsoft** > **Windows** > **Benutzergeräteregistrierung**.
 2. Suchen Sie nach Ereignissen mit den folgenden eventIDs: 304, 305, 307.
 
-![Fehlerprotokollereignis](./media/troubleshoot-hybrid-join-windows-current/1.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/1.png" alt-text="Screenshot der Ereignisanzeige. Ein Ereignis mit der ID 304 ist ausgewählt, und die zugehörigen Informationen werden angezeigt. Der Fehlercode und die Phase sind hervorgehoben." border="false":::
 
-![Fehlerprotokollereignis](./media/troubleshoot-hybrid-join-windows-current/2.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/2.png" alt-text="Screenshot der Ereignisanzeige. Ein Ereignis mit der ID 305 ist sichtbar, und die zugehörigen Informationen werden angezeigt. Der Fehlercode ist hervorgehoben." border="false":::
 
 ### <a name="step-4-check-for-possible-causes-and-resolutions-from-the-lists-below"></a>Schritt 4: Überprüfen Sie die folgenden Listen auf mögliche Ursachen und Lösungen
 
@@ -210,7 +210,7 @@ Verwenden Sie die Protokolle der Ereignisanzeige, um die Phase und den Fehlercod
 1. Öffnen Sie die Ereignisprotokolle der **Benutzergeräteregistrierung** in der Ereignisanzeige. Sie finden sie unter **Anwendungs- und Dienstprotokolle** > **Microsoft** > **Windows** > **Benutzergeräteregistrierung**.
 2. Suchen Sie nach Ereignissen mit den folgenden eventIDs: 201
 
-![Fehlerprotokollereignis](./media/troubleshoot-hybrid-join-windows-current/5.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/5.png" alt-text="Screenshot der Ereignisanzeige. Ein Ereignis mit der ID 201 ist ausgewählt, und die zugehörigen Informationen werden angezeigt. Der Fehlercode ist hervorgehoben." border="false":::
 
 ###### <a name="network-errors"></a>Netzwerkfehler
 
@@ -255,7 +255,7 @@ Verwenden Sie die Protokolle der Ereignisanzeige, um Fehlercode, Unterfehlercode
 1. Öffnen Sie die Ereignisprotokolle der **Benutzergeräteregistrierung** in der Ereignisanzeige. Sie finden sie unter **Anwendungs- und Dienstprotokolle** > **Microsoft** > **Windows** > **Benutzergeräteregistrierung**.
 2. Suchen Sie nach Ereignissen mit den folgenden eventIDs: 305
 
-![Fehlerprotokollereignis](./media/troubleshoot-hybrid-join-windows-current/3.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/3.png" alt-text="Screenshot der Ereignisanzeige. Ein Ereignis mit der ID 305 ist sichtbar. Die zugehörigen Informationen werden angezeigt, und die ADAL-Fehlercodes und der Status sind hervorgehoben." border="false":::
 
 ##### <a name="configuration-errors"></a>Konfigurationsfehler
 
@@ -330,7 +330,7 @@ Verwenden Sie die Protokolle der Ereignisanzeige, um die Phase und den Fehlercod
 1. Öffnen Sie die Ereignisprotokolle der **Benutzergeräteregistrierung** in der Ereignisanzeige. Sie finden sie unter **Anwendungs- und Dienstprotokolle** > **Microsoft** > **Windows** > **Benutzergeräteregistrierung**.
 2. Suchen Sie nach Ereignissen mit den folgenden eventIDs: 204
 
-![Fehlerprotokollereignis](./media/troubleshoot-hybrid-join-windows-current/4.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/4.png" alt-text="Screenshot der Ereignisanzeige. Informationen zu einem Ereignis mit der ID 204 werden angezeigt, und der Fehlercode, der HTTP-Status und die Meldung sind hervorgehoben." border="false":::
 
 ##### <a name="http-errors-returned-from-drs-server"></a>Vom DRS-Server zurückgegebene HTTP-Fehler
 

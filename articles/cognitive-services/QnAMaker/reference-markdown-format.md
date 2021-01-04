@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 03/19/2020
-ms.openlocfilehash: f5f640f8895cd6defe31a68b790ce841c4679a6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f49e05578f55a38845acbd4010f928fb17c51606
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777359"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352268"
 ---
 # <a name="markdown-format-supported-in-qna-maker-answer-text"></a>Im Antworttext von QnA Maker unterstütztes Markdown-Format
 
@@ -22,7 +22,7 @@ Sie können Ihren Markdowncode anhand des Tutorials **[CommonMark](https://commo
 
 Mit der [Rich-Text-Bearbeitung](How-To/edit-knowledge-base.md#add-an-editorial-qna-set) von Antworten können Sie als Autor die Formatierungssymbolleiste verwenden, um Text schnell auszuwählen und zu formatieren.
 
-Markdown eignet sich besser, wenn Sie Inhalte automatisch generieren müssen, um Wissensdatenbanken zu erstellen, die im Rahmen einer CI/CD-Pipeline oder für [Batchtests](Quickstarts/batch-testing.md) importiert werden.
+Markdown eignet sich besser, wenn Sie Inhalte automatisch generieren müssen, um Wissensdatenbanken zu erstellen, die im Rahmen einer CI/CD-Pipeline oder für [Batchtests](./index.yml) importiert werden.
 
 ## <a name="supported-markdown-format"></a>Unterstütztes Markdown-Format
 

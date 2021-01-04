@@ -5,13 +5,13 @@ author: marcvaneijk
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
-ms.custom: seodec18
-ms.openlocfilehash: 72f9e332a4faa98a8a86ef7b6edbefe20357e33f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: ea010a625c3e3cd6228513299d878733bf3775ce
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356884"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744749"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Entwickeln von ARM-Vorlagen für Cloudkonsistenz
 
@@ -205,7 +205,7 @@ Um den absoluten URI eines Artefakts zu konstruieren, ist die bevorzugte Methode
 }
 ```
 
-Bei diesem Ansatz können alle Bereitstellungsartefakte, einschließlich Konfigurationsskripts, am gleichen Speicherort wie die Vorlage selbst gespeichert werden. Um den Speicherort aller Links zu ändern, müssen Sie nur eine andere Basis-URL für die _artifactsLocation_-Parameter angeben.
+Bei diesem Ansatz können alle Bereitstellungsartefakte, einschließlich Konfigurationsskripts, am gleichen Speicherort wie die Vorlage selbst gespeichert werden. Um den Speicherort aller Links zu ändern, müssen Sie nur eine andere Basis-URL für die _artifactsLocation_ -Parameter angeben.
 
 ## <a name="factor-in-differing-regional-capabilities"></a>Berücksichtigen verschiedener Funktionen je nach Region
 
@@ -295,7 +295,7 @@ Mithilfe dieser Vorlagenfunktion können Sie Ihre Vorlage in jeder beliebigen Cl
 
 ### <a name="track-versions-using-api-profiles"></a>Nachverfolgen von Versionen mithilfe von API-Profilen
 
-Es kann sehr komplex sein, den Überblick über alle verfügbaren Ressourcenanbieter und die zugehörigen API-Versionen zu behalten, die in Azure Stack vorhanden sind. Zum Zeitpunkt des Verfassens ist beispielsweise die neueste API-Version für **Microsoft.Compute/availabilitySets** in Azure `2018-04-01`, während die verfügbare API-Version für Azure und Azure Stack `2016-03-30` ist. Die Standard-API-Version für **Microsoft.storage/storageAccounts**, die von allen Azure- und Azure Stack-Standorten gemeinsam genutzt wird, ist `2016-01-01`, während die neueste API-Version in Azure `2018-02-01` ist.
+Es kann sehr komplex sein, den Überblick über alle verfügbaren Ressourcenanbieter und die zugehörigen API-Versionen zu behalten, die in Azure Stack vorhanden sind. Zum Zeitpunkt des Verfassens ist beispielsweise die neueste API-Version für **Microsoft.Compute/availabilitySets** in Azure `2018-04-01`, während die verfügbare API-Version für Azure und Azure Stack `2016-03-30` ist. Die Standard-API-Version für **Microsoft.storage/storageAccounts** , die von allen Azure- und Azure Stack-Standorten gemeinsam genutzt wird, ist `2016-01-01`, während die neueste API-Version in Azure `2018-02-01` ist.
 
 Aus diesem Grund wurde im Ressourcen-Manager das Konzept der API-Profile in Vorlagen eingeführt. Ohne API-Profile wird jede Ressource in einer Vorlage mit einem `apiVersion`-Element konfiguriert, das die API-Version für diese spezifische Ressource beschreibt.
 
@@ -611,7 +611,7 @@ Da VM-Erweiterungen Erstanbieterressourcen von Ressourcen-Manager sind, haben si
 
 Die API-Version der VM-Erweiterungsressource muss an allen Standorten vorhanden sein, die Ihre Vorlage als Ziel haben soll. Die Standortabhängigkeit funktioniert wie die Verfügbarkeit der API-Version des Ressourcenanbieters, die bereits im Abschnitt „Überprüfen der Version aller Ressourcentypen“ beschrieben wurde.
 
-Um eine Liste der verfügbaren API-Versionen für die VM-Erweiterungsressource abzurufen, verwenden Sie wie gezeigt das Cmdlet [Get-AzureRmResourceProvider](/powershell/module/az.resources/get-azresourceprovider) mit dem Ressourcenanbieter **Microsoft.Compute**:
+Um eine Liste der verfügbaren API-Versionen für die VM-Erweiterungsressource abzurufen, verwenden Sie wie gezeigt das Cmdlet [Get-AzureRmResourceProvider](/powershell/module/az.resources/get-azresourceprovider) mit dem Ressourcenanbieter **Microsoft.Compute** :
 
 ```azurepowershell-interactive
 Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}

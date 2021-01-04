@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 58e481e34d9f798b73b72b114b071cf035c3319f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f95df6fb74071dc16814f11fb48521f984c89778
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90967912"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995521"
 ---
 # <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definieren eines neuen IoT-Gatewaygerätetyps in Ihrer Azure IoT Central-Anwendung
 
@@ -51,11 +51,11 @@ So erstellen sie eine Gerätevorlage für ein Gerät vom Typ **S1 Sensor**:
 
 1. Wählen Sie auf der Seite **Überprüfen** die Option **Erstellen** aus, um die Gerätevorlage Ihrer Anwendung hinzuzufügen. 
 
-So erstellen sie eine Gerätevorlage für ein Gerät vom Typ **RS40 Occupancy Sensor**:
+So erstellen sie eine Gerätevorlage für ein Gerät vom Typ **_RS40 Occupancy Sensor_*:
 
 1. Wählen Sie im linken Bereich **Gerätevorlagen** aus. Wählen Sie anschließend **+** aus, um mit dem Hinzufügen der Vorlage zu beginnen.
 
-1. Scrollen Sie nach unten zur Kachel für das Gerät **RS40 Occupancy Sensor**. Wählen Sie die Kachel und anschließend **Weiter: Anpassen**.
+1. Scrollen Sie nach unten zur Kachel für das Gerät **_RS40 Occupancy Sensor_*. Wählen Sie die Kachel und anschließend **Weiter: Anpassen**.
 
 1. Wählen Sie auf der Seite **Überprüfen** die Option **Erstellen** aus, um die Gerätevorlage Ihrer Anwendung hinzuzufügen. 
 
@@ -142,7 +142,7 @@ So veröffentlichen Sie die Gatewaygerätevorlage:
 
 3. Wählen Sie im Dialogfeld **Publish a Device Template** (Gerätevorlage veröffentlichen) die Option **Veröffentlichen** aus.
 
-Nachdem eine Gerätevorlage veröffentlicht wurde, wird sie auf der Seite **Geräte** und für den Bediener angezeigt. In einer veröffentlichten Gerätevorlage können Sie ein Gerätefunktionsmodell nicht bearbeiten, ohne eine neue Versionsnummer zu erstellen. Sie können jedoch Cloudeigenschaften, Anpassungen und Ansichten in einer veröffentlichten Gerätevorlage aktualisieren. Diese Aktualisierungen bewirken nicht das Erstellen einer neuen Version. Wählen Sie nach dem Vornehmen von Änderungen die Option **Veröffentlichen**, um diese Änderungen für Ihren Bediener bereitzustellen.
+Nachdem eine Gerätevorlage veröffentlicht wurde, wird sie auf der Seite **Geräte** und für den Bediener angezeigt. In einer veröffentlichten Gerätevorlage können Sie ein Gerätemodell nicht bearbeiten, ohne eine neue Versionsnummer zu erstellen. Sie können jedoch Cloudeigenschaften, Anpassungen und Ansichten in einer veröffentlichten Gerätevorlage aktualisieren. Diese Aktualisierungen bewirken nicht das Erstellen einer neuen Version. Wählen Sie nach dem Vornehmen von Änderungen die Option **Veröffentlichen**, um diese Änderungen für Ihren Bediener bereitzustellen.
 
 ## <a name="create-the-simulated-devices"></a>Erstellen der simulierten Geräte
 

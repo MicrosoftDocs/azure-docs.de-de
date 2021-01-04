@@ -1,17 +1,17 @@
 ---
 title: Zugriff auf öffentliches Netzwerk verweigern – Azure-Portal – Azure Database for MariaDB
 description: Erfahren Sie mehr über das Konfigurieren des Verweigerns des Zugriffs auf öffentliche Netzwerke für Ihre Azure Database for MariaDB-Instanz im Azure-Portal.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: f33dbfa0b96d7f6d85443005ff7e8b1a780c75a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3117ebfd258c72bb97432871c2ea74d30c52f669
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86104383"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242189"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-mariadb-using-azure-portal"></a>„Zugriff auf öffentliches Netzwerk verweigern“ in Azure Database for MariaDB im Azure-Portal
 
@@ -29,7 +29,7 @@ Gehen Sie wie folgt vor, um „Zugriff auf öffentliches Netzwerk verweigern“ 
 
 1. Wählen Sie im [Azure-Portal](https://portal.azure.com/) Ihren vorhandenen Azure Database for MariaDB-Server aus.
 
-1. Klicken Sie auf der Seite des MariaDB-Servers unter **Einstellungen** auf **Verbindungssicherheit**, um die Seite zur Konfiguration der Verbindungssicherheit zu öffnen.
+1. Klicken Sie auf der Seite des MariaDB-Servers unter **Einstellungen** auf **Verbindungssicherheit** , um die Seite zur Konfiguration der Verbindungssicherheit zu öffnen.
 
 1. Wählen Sie in „Zugriff auf öffentliches Netzwerk verweigern“ die Option **Ja** aus, um den öffentlichen Zugriff auf Ihren MariaDB-Server zu verweigern.
 

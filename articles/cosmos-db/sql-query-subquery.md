@@ -3,17 +3,19 @@ title: SQL-Unterabfragen für Azure Cosmos DB
 description: Hier erfahren Sie mehr über SQL-Unterabfragen und ihre gängigen Anwendungsfälle sowie über verschiedene Arten von Unterabfragen in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: 42d9e8b190747a3ffaf0e46ea1eddda33d09bb24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5f209229d17a2587258d21ee90e7560e629d082
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74870563"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340854"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>SQL-Unterabfragenbeispiele für Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Eine Unterabfrage ist eine Abfrage, die in einer anderen Abfrage geschachtelt ist. Eine Unterabfrage wird auch als innere Abfrage oder innere Auswahl bezeichnet. Die Anweisung, die eine Unterabfrage enthält, wird in der Regel als äußere Abfrage bezeichnet.
 
@@ -23,16 +25,16 @@ In diesem Artikel werden SQL-Unterabfragen und ihre gängigen Anwendungsfälle i
 
 Es gibt zwei Haupttypen von Unterabfragen:
 
-* **Korreliert**: Eine Unterabfrage, die auf Werte aus der äußeren Abfrage verweist. Die Unterabfrage wird für jede Zeile, die die äußere Abfrage verarbeitet, einmal ausgewertet.
-* **Nicht korreliert**: Eine Unterabfrage, die von der äußeren Abfrage unabhängig ist. Sie kann ohne Abhängigkeit von der äußeren Abfrage eigenständig ausgeführt werden.
+* **Korreliert** : Eine Unterabfrage, die auf Werte aus der äußeren Abfrage verweist. Die Unterabfrage wird für jede Zeile, die die äußere Abfrage verarbeitet, einmal ausgewertet.
+* **Nicht korreliert** : Eine Unterabfrage, die von der äußeren Abfrage unabhängig ist. Sie kann ohne Abhängigkeit von der äußeren Abfrage eigenständig ausgeführt werden.
 
 > [!NOTE]
 > Azure Cosmos DB unterstützt nur korrelierte Unterabfragen.
 
 Unterabfragen können basierend auf der Anzahl der Zeilen und Spalten, die sie zurückgeben, weiter klassifiziert werden. Es gibt drei Typen:
-* **Tabelle**: Gibt mehrere Zeilen und mehrere Spalten zurück.
-* **Mehrwertig**: Gibt mehrere Zeilen und eine einzelne Spalte zurück.
-* **Skalar**: Gibt eine einzelne Zeile und eine einzelne Spalte zurück.
+* **Tabelle** : Gibt mehrere Zeilen und mehrere Spalten zurück.
+* **Mehrwertig** : Gibt mehrere Zeilen und eine einzelne Spalte zurück.
+* **Skalar** : Gibt eine einzelne Zeile und eine einzelne Spalte zurück.
 
 SQL-Abfragen in Azure Cosmos DB geben stets eine einzelne Spalte zurück (entweder einen einfachen Wert oder ein komplexes Dokument). Daher sind nur mehrwertige und skalare Unterabfragen in Azure Cosmos DB anwendbar. Sie können eine mehrwertige Unterabfrage nur in der FROM-Klausel als relationalen Ausdruck verwenden. Sie können eine skalare Unterabfrage in der SELECT- oder WHERE-Klausel als skalaren Ausdruck oder in der FROM-Klausel als relationalen Ausdruck verwenden.
 

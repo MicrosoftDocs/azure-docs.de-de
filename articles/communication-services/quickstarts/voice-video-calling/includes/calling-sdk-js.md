@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: eaa7efe761490a639acabd9fd6d91378e1259a67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff9eca855269597477bc42a319c99c886576d92c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779562"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94482656"
 ---
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -148,6 +148,7 @@ Gibt eine Zeichenfolge zurück, die den aktuellen Zustand eines Anrufs darstellt
 * Hold: der Anruf wird gehalten; es werden keine Medien zwischen lokalem Endpunkt und Remoteteilnehmern übertragen
 * Disconnecting: Übergangsstatus, ehe der Anruf in den Zustand „Disconnected“ wechselt.
 * Disconnected: der Endzustand des Anrufs
+   * Wenn die Netzwerkverbindung unterbrochen wird, wechselt der Status nach ungefähr 2 Minuten in „Disconnected“.
 
 
 * Um zu ermitteln, warum ein bestimmter Anruf beendet wurde, überprüfen Sie die `callEndReason`-Eigenschaft.
@@ -233,6 +234,9 @@ const source callClient.getDeviceManager().getCameraList()[1];
 localVideoStream.switchSource(source);
 
 ```
+### <a name="faq"></a>Häufig gestellte Fragen
+ * Ändert sich der Status des Anrufs in „Disconnected“, wenn die Netzwerkverbindung unterbrochen wird?
+    * Ja, wenn die Netzwerkverbindung länger als 2 Minuten unterbrochen wird, geht der Anruf in den Status „Disconnected“ über und wird beendet.
 
 ## <a name="remote-participants-management"></a>Verwaltung von Remoteteilnehmern
 
@@ -270,7 +274,8 @@ Folgende Werte sind hierfür möglich:
 * Connected: Teilnehmer ist mit dem Anruf verbunden
 * Hold: Teilnehmer wird gehalten
 * EarlyMedia: Ansage wird wiedergegeben, bevor der Teilnehmer mit dem Anruf verbunden ist
-* Disconnected: In diesem Endzustand ist der Teilnehmer vom Anruf getrennt
+* Disconnected: In diesem Endzustand wird der Teilnehmer vom Anruf getrennt.
+   * Wenn die Netzwerkverbindung des Remoteteilnehmers unterbrochen wird, ändert sich dessen Status nach etwa 2 Minuten in „Disconnected“.
 
 Um zu erfahren, warum ein Teilnehmer den Anruf verlassen hat, prüfen Sie die `callEndReason`-Eigenschaft:
 ```js
@@ -410,7 +415,9 @@ Sie können den Skalierungsmodus später aktualisieren, indem Sie die `updateSca
 ```js
 view.updateScalingMode('Crop')
 ```
-
+### <a name="faq"></a>Häufig gestellte Fragen
+* Ändert sich der Status eines Remoteteilnehmers in „Disconnected“, wenn seine Netzwerkverbindung unterbrochen wird?
+    * Ja, wenn die Netzwerkverbindung eines Remoteteilnehmers mehr als 2 Minuten lang unterbrochen ist, ändert sich sein Status in „Disconnected“, und er wird aus dem Anruf entfernt.
 ## <a name="device-management"></a>Geräteverwaltung
 
 `DeviceManager` ermöglicht Ihnen das Aufzählen lokaler Geräte, die in einem Anruf zur Übertragung Ihrer Audio-/Videostreams verwendet werden können. DeviceManager erlaubt Ihnen auch, von einem Benutzer die Berechtigung für den Zugriff auf sein Mikrofon und seine Kamera über die native Browser-API anzufordern.

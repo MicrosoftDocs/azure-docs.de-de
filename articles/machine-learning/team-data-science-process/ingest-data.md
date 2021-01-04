@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f8eab59d810fb825dbebf80d01d8efd2dd0a9841
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46e911ad6bdf5a478d46e425f8700740ece56c6e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76720536"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452671"
 ---
 # <a name="load-data-into-storage-environments-for-analytics"></a>Laden von Daten in Speicherumgebungen für Analysen
 
-Im Team Data Science-Prozess müssen Daten in jeder Phase auf die am besten geeignete Weise erfasst oder geladen werden. Datenziele können etwa Azure Blob Storage, Azure SQL-Datenbank-Instanzen, SQL Server auf virtuellen Azure-Computern, HDInsight (Hadoop), Synapse Analytics und Azure Machine Learning sein. 
+Im Team Data Science-Prozess müssen Daten in jeder Phase auf die am besten geeignete Weise erfasst oder geladen werden. Datenziele können etwa Azure Blob Storage, Azure SQL-Datenbank-Instanzen, SQL Server auf virtuellen Azure-Computern, HDInsight (Hadoop), Azure Synapse Analytics und Azure Machine Learning sein. 
 
 In den folgenden Artikeln erfahren Sie, wie Sie Daten in verschiedenen Zielumgebungen erfassen, in denen die Daten dann gespeichert und verarbeitet werden.
 

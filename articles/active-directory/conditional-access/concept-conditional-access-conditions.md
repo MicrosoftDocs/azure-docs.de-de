@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dddad5692ab2eebb6ef9b427c091be449791d7c
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 96d1eaff4d1b93ad3bb489f177020c351fe4d13d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91818356"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95904034"
 ---
 # <a name="conditional-access-conditions"></a>Bedingter Zugriff: Bedingungen
 
@@ -120,7 +120,7 @@ Diese Einstellung funktioniert mit allen Browsern. Die folgenden Betriebssysteme
 | macOS | Chrome, Safari |
 
 > [!NOTE]
-> Bei Edge 85+ muss der Benutzer beim Browser angemeldet sein, um die Geräteidentität ordnungsgemäß zu übergeben. Andernfalls ist das Verhalten vergleichbar mit Chrome ohne Kontoerweiterung. Diese Anmeldung erfolgt in einem Azure AD Hybrid Join-Szenario möglicherweise nicht automatisch. 
+> Bei Microsoft Edge 85+ muss der Benutzer beim Browser angemeldet sein, um die Geräteidentität ordnungsgemäß zu übergeben. Andernfalls ist das Verhalten vergleichbar mit Chrome ohne Kontoerweiterung. Diese Anmeldung erfolgt in einem Azure AD Hybrid Join-Szenario möglicherweise nicht automatisch. 
 
 #### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>Warum wird im Browser eine Aufforderung zur Clientzertifikatauswahl angezeigt?
 
@@ -193,8 +193,8 @@ Wenn Sie **Andere Clients** auswählen, können Sie eine Bedingung für Apps mit
 
 Mit der Bedingung „Gerätezustand“ können in Hybrid-Azure AD eingebundene Geräte und/oder Geräte ausgeschlossen werden, die mit einer Microsoft Intune-Compliancerichtlinie aus den Richtlinien für bedingten Zugriff einer Organisation als konform markiert sind.
 
-Beispiel: *Alle Benutzer*, die auf die Cloud-App für die *Microsoft Azure-Verwaltung* zugreifen, einschließlich **Alle Gerätezustände**, ausgenommen **Gerät in Hybrid-Azure AD eingebunden** und **Gerät als konform markiert** und für *Zugriffssteuerungen*die Option **Blockieren**. 
-   - In diesem Beispiel würde eine Richtlinie erstellt, die nur den Zugriff auf die Microsoft Azure-Verwaltung von Geräten zulässt, die in Hybrid-Azure AD eingebunden und/oder als konform markiert sind.
+Beispiel: *Alle Benutzer*, die auf die Cloud-App für die *Microsoft Azure-Verwaltung* zugreifen, einschließlich **Alle Gerätezustände**, ausgenommen **Gerät in Hybrid-Azure AD eingebunden** und **Gerät als konform markiert** und für *Zugriffssteuerungen* die Option **Blockieren**. 
+   - In diesem Beispiel würde eine Richtlinie erstellt, die nur den Zugriff auf die Microsoft Azure-Verwaltung von Geräten zulässt, die in Hybrid-Azure AD eingebunden oder als konform markiert sind.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

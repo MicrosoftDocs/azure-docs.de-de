@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: e3eb6b750c805951a67a2e869c862f1285a342a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67c556e44f07240b1ad1bcde61f40042da46def8
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448331"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122196"
 ---
 # <a name="respond-to-azure-defender-for-key-vault-alerts"></a>Reagieren auf Warnungen zu Azure Defender für Key Vault
 Wenn Sie eine Warnung von Azure Defender für Key Vault erhalten, empfiehlt es sich, die Warnung wie unten beschrieben zu untersuchen und auf sie zu reagieren. Azure Defender für Key Vault schützt Anwendungen und Anmeldeinformationen. Selbst wenn Sie mit der Anwendung oder dem Benutzer, die bzw. der die Warnung ausgelöst hat, vertraut sind, sollten Sie bei jeder Warnung die Situation unbedingt überprüfen.  
@@ -72,4 +72,4 @@ Auf dieser Seite wurde die Reaktion auf eine Warnung von Azure Defender für Key
 
 - [Einführung in Azure Defender für Key Vault](defender-for-key-vault-introduction.md)
 - [Unterdrücken von Warnungen von Azure Defender](alerts-suppression-rules.md)
-- [Exportieren von Sicherheitswarnungen](continuous-export.md)
+- [Fortlaufendes Exportieren von Security Center-Daten](continuous-export.md)

@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: 0b034d0135c66852b07e0a2ed2fd69e8c3fdc4a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ab32cd37d732cd9f177363da547edd22bd5af77
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132839"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349264"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services und maschinelles Lernen
 
 Cognitive Services bietet Funktionen für maschinelles Lernen, mit denen allgemeine Probleme gelöst werden können, etwa ein Analysieren von Text auf emotionale Stimmungslagen oder Analysieren von Bildern, um Objekte oder Gesichter zu erkennen. Sie benötigen keine speziellen Kenntnisse zu maschinellem Lernen oder Data Science, um diese Dienste zu verwenden. 
 
-[Cognitive Services](welcome.md) ist eine Gruppe von Diensten, die jeweils unterschiedliche generalisierte Vorhersagefunktionen unterstützen. Die Dienste sind in verschiedene Kategorien eingeteilt, anhand denen Sie den richtigen Dienst finden können. 
+[Cognitive Services](./what-are-cognitive-services.md) ist eine Gruppe von Diensten, die jeweils unterschiedliche generalisierte Vorhersagefunktionen unterstützen. Die Dienste sind in verschiedene Kategorien eingeteilt, anhand denen Sie den richtigen Dienst finden können. 
 
 |Dienstkategorie|Zweck|
 |--|--|
@@ -44,7 +44,7 @@ Machine Learning (maschinelles Lernen) ist ein Konzept, bei dem Sie Daten und ei
 
 Der Prozess zum Erstellen eines Machine Learning-Systems erfordert einige Kenntnisse zu Machine Learning oder Data Science.
 
-Machine Learning wird über [Azure Machine Learning-Produkte und -Dienste](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context) bereitgestellt.
+Machine Learning wird über [Azure Machine Learning-Produkte und -Dienste](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%2fmachine-learning%2fstudio%2fcontext%2fml-context) bereitgestellt.
 
 ## <a name="what-is-a-cognitive-service"></a>Was ist ein Cognitive Service (kognitiver Dienst)?
 
@@ -91,9 +91,9 @@ In den folgenden Punkten ist jeder Dienst entsprechend der Art von Daten kategor
 |--|--|--|--|
 |[Anomalieerkennung](./Anomaly-Detector/overview.md)|x|x|x|
 |Bing-Suche |x|||
-|[Maschinelles Sehen](./Computer-vision/Home.md)|x|||
+|[Maschinelles Sehen](./computer-vision/overview.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
-|[Custom Vision](./Custom-Vision-Service/home.md)||x||
+|[Custom Vision](./custom-vision-service/overview.md)||x||
 |[Gesichtserkennung](./Face/Overview.md)|x|x||
 |[Formularerkennung](./form-recognizer/overview.md)||x||
 |[Plastischer Reader](./immersive-reader/overview.md)|x|||
@@ -101,7 +101,7 @@ In den folgenden Punkten ist jeder Dienst entsprechend der Art von Daten kategor
 |[Language Understanding (LUIS)](./LUIS/what-is-luis.md)||x||
 |[Personalisierung](./personalizer/what-is-personalizer.md)|x*|x*|x|
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
-|[Sprechererkennung](./speaker-recognition/home.md)||x||
+|[Sprechererkennung](./speech-service/speaker-recognition-overview.md)||x||
 |[Text-zu-Sprache (Text-to-Speech, TTS)](speech-service/text-to-speech.md)|x|x||
 |[Spracherkennung (Speech-to-Text, STT)](speech-service/speech-to-text.md)|x|x||
 |[Sprachübersetzung](speech-service/speech-translation.md)|x|||
@@ -127,16 +127,16 @@ Folgende Cognitive Services stellen exportierte Modelle für andere Machine Lear
 
 |Cognitive Service|Modellinformationen|
 |--|--|
-|[Custom Vision](./custom-vision-service/home.md)|[Exportieren](./Custom-Vision-Service/export-model-python.md) für TensorFlow für Android, CoreML für iOS11, ONNX für Windows ML|
+|[Custom Vision](./custom-vision-service/overview.md)|[Exportieren](./Custom-Vision-Service/export-model-python.md) für TensorFlow für Android, CoreML für iOS11, ONNX für Windows ML|
 
 ## <a name="learn-more"></a>Weitere Informationen
 
-* [Architekturleitfaden – Welche Machine Learning-Produkte bietet Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+* [Architekturleitfaden – Welche Machine Learning-Produkte bietet Microsoft?](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
 * [Machine Learning – Einführung: Deep Learning im Vergleich zu maschinellem Lernen](../machine-learning/concept-deep-learning-vs-machine-learning.md)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Erstellen Sie Ihr Cognitive Service-Konto im [Azure-Portal](cognitive-services-apis-create-account.md) oder mit der [Azure-Befehlszeilenschnittstelle](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli).
+* Erstellen Sie Ihr Cognitive Service-Konto im [Azure-Portal](cognitive-services-apis-create-account.md) oder mit der [Azure-Befehlszeilenschnittstelle](./cognitive-services-apis-create-account-cli.md).
 * Erfahren Sie, wie Sie sich bei einer Cognitive Service-Instanz [authentifizieren](authentication.md).
 * Verwenden Sie [Diagnoseprotokollierung](diagnostic-logging.md) zur Problemerkennung und zum Debuggen. 
 * Stellen Sie einen Cognitive Service in einem Docker-[Container](cognitive-services-container-support.md) bereit.

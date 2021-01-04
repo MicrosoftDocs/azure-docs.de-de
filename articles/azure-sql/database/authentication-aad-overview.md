@@ -1,6 +1,6 @@
 ---
 title: Authentifizierung über Azure Active Directory
-description: Erfahren Sie, wie Sie Azure Active Directory für die Authentifizierung bei Azure SQL-Datenbank, Azure SQL Managed Instance und Azure Synapse Analytics verwenden.
+description: Erfahren Sie, wie Sie Azure Active Directory für die Authentifizierung bei Azure SQL-Datenbank, Azure SQL Managed Instance und Synapse SQL in Azure Synapse Analytics verwenden.
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
@@ -11,18 +11,18 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
-ms.openlocfilehash: d90cc76da20861ae9eca7aaf59a49e5f3e866c92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a636c0e2a41b636f30ada14d4f16a022f2890b71
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444437"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454290"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Verwenden der Azure Active Directory-Authentifizierung
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Die Azure Active Directory (Azure AD)-Authentifizierung ist ein Mechanismus zum Herstellen einer Verbindung mit [Azure SQL-Datenbank](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) und [Azure Synapse Analytics (früher SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) unter Verwendung von Identitäten in Azure AD.
+Die Azure Active Directory-Authentifizierung (Azure AD) ist ein Mechanismus zum Herstellen einer Verbindung mit [Azure SQL-Datenbank](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) und [Synapse SQL in Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) unter Verwendung von Identitäten in Azure AD.
 
 > [!NOTE]
 > Dieser Artikel gilt für Azure SQL-Datenbank, SQL Managed Instance und Azure Synapse Analytics.
@@ -61,7 +61,7 @@ Die Konfigurationsschritte schließen die folgenden Verfahren zum Konfigurieren 
 6. Herstellen einer Verbindung mit Ihrer Datenbank unter Verwendung von Azure AD-Identitäten
 
 > [!NOTE]
-> Informationen zum Erstellen und Auffüllen von Azure AD und zum anschließenden Konfigurieren von Azure AD mit Azure SQL-Datenbank, SQL Managed Instance und Azure Synapse finden Sie unter [Konfigurieren von Azure AD mit Azure SQL-Datenbank](authentication-aad-configure.md).
+> Informationen zum Erstellen und Auffüllen von Azure AD und zum anschließenden Konfigurieren von Azure AD mit Azure SQL-Datenbank, SQL Managed Instance und Synapse SQL in Azure Synapse Analytics finden Sie unter [Konfigurieren von Azure AD mit Azure SQL-Datenbank](authentication-aad-configure.md).
 
 ## <a name="trust-architecture"></a>Architektur von Vertrauensstellungen
 
@@ -153,21 +153,21 @@ Die folgenden Authentifizierungsmethoden werden für Azure AD-Serverprinzipale (
   - Das Hinzufügen von Azure AD-Serverprinzipalen (Anmeldungen) für SQL Managed Instance ermöglicht es, mehrere Azure AD-Serverprinzipale (Anmeldungen) zu erstellen, die der Rolle `sysadmin` hinzugefügt werden können.
 - Nur ein Azure AD-Administrator für den Server kann unter Verwendung eines Azure Active Directory-Kontos anfangs eine Verbindung mit dem Server oder der verwalteten Instanz herstellen. Der Active Directory-Administrator kann weitere Azure AD-Datenbankbenutzer konfigurieren.
 - Es wird empfohlen, das Verbindungstimeout auf 30 Sekunden festzulegen.
-- SQL Server 2016 Management Studio und SQL Server Data Tools für Visual Studio 2015 (ab Version 14.0.60311.1April 2016) unterstützen die Azure Active Directory-Authentifizierung. (Die Azure AD-Authentifizierung wird vom **.NET Framework-Datenanbieter für SqlServer**ab .NET Framework 4.6 unterstützt.) Daher können die neuesten Versionen dieser Tools und Datenebenenanwendungen (DAC und BACPAC) die Azure AD-Authentifizierung verwenden.
+- SQL Server 2016 Management Studio und SQL Server Data Tools für Visual Studio 2015 (ab Version 14.0.60311.1April 2016) unterstützen die Azure Active Directory-Authentifizierung. (Die Azure AD-Authentifizierung wird vom **.NET Framework-Datenanbieter für SqlServer** ab .NET Framework 4.6 unterstützt.) Daher können die neuesten Versionen dieser Tools und Datenebenenanwendungen (DAC und BACPAC) die Azure AD-Authentifizierung verwenden.
 - Ab Version 15.0.1 unterstützen das [SQLCMD-Hilfsprogramm](/sql/tools/sqlcmd-utility) und das [BCP-Hilfsprogramm](/sql/tools/bcp-utility) die interaktive Active Directory-Authentifizierung mit Multi-Factor Authentication.
-- SQL Server Data Tools für Visual Studio 2015 erfordert mindestens die Data Tools-Version von April 2016 (Version 14.0.60311.1). Azure AD-Benutzer werden derzeit nicht im SSDT-Objekt-Explorer angezeigt. Sie können die Benutzer in [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx) anzeigen, um dieses Problem zu umgehen.
+- SQL Server Data Tools für Visual Studio 2015 erfordert mindestens die Data Tools-Version von April 2016 (Version 14.0.60311.1). Azure AD-Benutzer werden derzeit nicht im SSDT-Objekt-Explorer angezeigt. Sie können die Benutzer in [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql) anzeigen, um dieses Problem zu umgehen.
 - [Microsoft JDBC-Treiber 6.0 für SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) unterstützt die Azure AD-Authentifizierung. Siehe auch [Einstellen der Verbindungseigenschaften](/sql/connect/jdbc/setting-the-connection-properties).
 - PolyBase kann sich nicht per Azure AD-Authentifizierung authentifizieren.
 - Die Azure AD-Authentifizierung wird für Azure SQL-Datenbank und Azure Synapse auf den Blättern **Datenbank importieren** und **Datenbank exportieren** im Azure-Portal unterstützt. Import- und Exportvorgänge mit Azure AD-Authentifizierung werden auch per PowerShell-Befehl unterstützt.
-- Die Azure AD-Authentifizierung wird für SQL-Datenbank, SQL Managed Instance und Azure Synapse mithilfe der CLI unterstützt. Weitere Informationen finden Sie unter [Konfigurieren und Verwalten der Azure AD-Authentifizierung mit SQL-Datenbank oder Azure Synapse](authentication-aad-configure.md) und [SQL Server – az sql server](https://docs.microsoft.com/cli/azure/sql/server).
+- Die Azure AD-Authentifizierung wird für SQL-Datenbank, SQL Managed Instance und Azure Synapse mithilfe der CLI unterstützt. Weitere Informationen finden Sie unter [Konfigurieren und Verwalten der Azure AD-Authentifizierung mit SQL-Datenbank oder Azure Synapse](authentication-aad-configure.md) und [SQL Server – az sql server](/cli/azure/sql/server).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Informationen zum Erstellen und Auffüllen einer Azure AD-Instanz und zum anschließenden Konfigurieren der Instanz mit Azure SQL-Datenbank, SQL Managed Instance oder Azure Synapse finden Sie unter [Konfigurieren und Verwalten der Azure Active Directory-Authentifizierung mit SQL-Datenbank, SQL Managed Instance oder Azure Synapse](authentication-aad-configure.md).
 - Ein Tutorial zur Verwendung von Azure AD-Serverprinzipalen (Anmeldungen) mit SQL Managed Instance finden Sie unter [Sicherheit für verwaltete Azure SQL-Instanz durch Azure AD-Serverprinzipale (Anmeldungen)](../managed-instance/aad-security-configure-tutorial.md).
 - Eine Übersicht über Anmeldungen, Benutzer, Datenbankrollen und Berechtigungen in SQL-Datenbank finden Sie unter [Anmeldungen, Benutzer, Datenbankrollen und Berechtigungen](logins-create-manage.md).
-- Weitere Informationen zu Datenbankprinzipalen finden Sie unter [Prinzipale](https://msdn.microsoft.com/library/ms181127.aspx).
-- Weitere Informationen zu Datenbankrollen finden Sie unter [Datenbankrollen](https://msdn.microsoft.com/library/ms189121.aspx).
+- Weitere Informationen zu Datenbankprinzipalen finden Sie unter [Prinzipale](/sql/relational-databases/security/authentication-access/principals-database-engine).
+- Weitere Informationen zu Datenbankrollen finden Sie unter [Datenbankrollen](/sql/relational-databases/security/authentication-access/database-level-roles).
 - Die Syntax zum Erstellen von Azure AD-Serverprinzipalen (Anmeldungen) für SQL Managed Instance finden Sie unter [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 - Weitere Informationen zu Firewallregeln in SQL-Datenbank finden Sie unter [Übersicht über Firewallregeln für Azure SQL-Datenbank](firewall-configure.md).
 

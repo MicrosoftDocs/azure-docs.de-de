@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 9b5463ba789a1bcfb707fb03c70f1a8464cb6b59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83c290adea02915db1dc52bd359b4d3165611522
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767357"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547706"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Abfragesyntax für das IoT Hub-Nachrichtenrouting
 
@@ -23,7 +23,7 @@ Das Nachrichtenrouting ermöglicht Benutzern, verschiedene Datentypen wie Gerät
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Mithilfe des Nachrichtenroutings können Sie Abfragen für Nachrichteneigenschaften und Nachrichtentext sowie für Gerätezwillingstags und Gerätezwillingseigenschaften durchführen. Wenn der Text nicht das JSON-Format aufweist, kann die Nachricht dennoch durch das Nachrichtenrouting weitergeleitet werden, jedoch können keine Abfragen des Nachrichtentexts ausgeführt werden.  Abfragen werden mit booleschen Ausdrücken beschrieben. Hierbei gibt der boolesche Wert TRUE an, dass die Abfrage erfolgreich ist, wodurch alle eingehenden Daten weitergeleitet werden, und der boolesche Wert FALSE gibt an, dass die Abfrage fehlgeschlagen ist und Daten nicht weitergeleitet werden. Wenn die Auswertung des Ausdrucks NULL oder „nicht definiert“ ergibt, wird er als FALSE angesehen. Außerdem wird im Fall eines Fehlers eine Fehlermeldung in Diagnoseprotokollen generiert. Damit die Weiterleitung gespeichert und ausgewertet wird, muss die Abfragesyntax richtig sein.  
+Mithilfe des Nachrichtenroutings können Sie Abfragen für Nachrichteneigenschaften und Nachrichtentext sowie für Gerätezwillingstags und Gerätezwillingseigenschaften durchführen. Wenn der Text nicht das JSON-Format aufweist, kann die Nachricht dennoch durch das Nachrichtenrouting weitergeleitet werden, jedoch können keine Abfragen des Nachrichtentexts ausgeführt werden.  Abfragen werden mit booleschen Ausdrücken beschrieben. Hierbei gibt der boolesche Wert TRUE an, dass die Abfrage erfolgreich ist, wodurch alle eingehenden Daten weitergeleitet werden, und der boolesche Wert FALSE gibt an, dass die Abfrage fehlgeschlagen ist und Daten nicht weitergeleitet werden. Wenn die Auswertung des Ausdrucks NULL oder „nicht definiert“ ergibt, wird er als FALSE angesehen. Außerdem wird im Fall eines Fehlers eine Fehlermeldung in den [Protokollen zu Routenressourcen](monitor-iot-hub-reference.md#routes) von IoT Hub generiert. Damit die Weiterleitung gespeichert und ausgewertet wird, muss die Abfragesyntax richtig sein.  
 
 ## <a name="message-routing-query-based-on-message-properties"></a>Abfrage des Nachrichtenroutings basierend auf Nachrichteneigenschaften 
 

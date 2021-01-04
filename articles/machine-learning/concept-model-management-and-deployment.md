@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6f03a1e44fdb62570b693753f5e01c7ab0f53e78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64784d747e9f33961c2f5d2df95e0d5a83e01548
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302416"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324832"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Verwaltung, Bereitstellung und Überwachung von Modellen mit Azure Machine Learning
 
@@ -71,6 +71,9 @@ Registrierte Modelle werden anhand des Namens und der Version identifiziert. Jed
 Sie können kein registriertes Modell löschen, das in einer aktiven Bereitstellung verwendet wird.
 Weitere Informationen finden Sie im Abschnitt „Registrieren eines Modells“ von [Bereitstellen von Modellen](how-to-deploy-and-where.md#registermodel).
 
+> [!IMPORTANT]
+> Bei Verwendung der Option „Filtern nach `Tags`“ auf der Seite „Modelle“ von Azure Machine Learning Studio müssen Kunden `TagName=TagValue` (ohne Leerzeichen) anstelle von `TagName : TagValue` verwenden.
+
 ### <a name="profile-models"></a>Profilmodelle
 
 Azure Machine Learning kann Ihnen helfen, die CPU- und Arbeitsspeicheranforderungen des Diensts zu verstehen, der bei der Bereitstellung Ihres Modells erstellt wird. Die Profilerstellung testet den Dienst, der Ihr Modell ausführt, und gibt Informationen wie CPU-Auslastung, Speicherauslastung und Antwortlatenz zurück. Sie bietet auch eine CPU- und Speicherempfehlung auf der Grundlage der Ressourcenauslastung.
@@ -106,7 +109,7 @@ Sie stellen auch die Konfiguration der Zielbereitstellungsplattform bereit. Beis
 Wenn das Image erstellt wird, werden auch die Komponenten hinzugefügt, die von Azure Machine Learning benötigt werden. Beispielsweise die Ressourcen, die erforderlich sind, um den Webdienst auszuführen und mit IoT Edge zu interagiere.
 
 #### <a name="batch-scoring"></a>Batchbewertung
-Die Batchbewertung durch ML-Pipelines wird unterstützt. Weitere Informationen finden Sie im Artikel [Batchvorhersagen für Big Data](how-to-use-parallel-run-step.md).
+Die Batchbewertung durch ML-Pipelines wird unterstützt. Weitere Informationen finden Sie im Artikel [Batchvorhersagen für Big Data](./tutorial-pipeline-batch-scoring-classification.md).
 
 #### <a name="real-time-web-services"></a>Echtzeit-Webdienste
 
@@ -142,7 +145,7 @@ Weitere Informationen finden Sie unter [Bereitstellen von Modellen](how-to-deplo
 
 ### <a name="analytics"></a>Analytics
 
-Microsoft Power BI unterstützt die Verwendung von Machine Learning-Modellen für Datenanalysen. Weitere Informationen finden Sie unter [Integration von Azure Machine Learning in Power BI (Vorschau)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+Microsoft Power BI unterstützt die Verwendung von Machine Learning-Modellen für Datenanalysen. Weitere Informationen finden Sie unter [Integration von Azure Machine Learning in Power BI (Vorschau)](/power-bi/service-machine-learning-integration).
 
 ## <a name="capture-the-governance-data-required-for-capturing-the-end-to-end-ml-lifecycle"></a>Sammeln der erforderlichen Governancedaten zur Erfassung des ML-Lebenszyklus End-to-End
 
@@ -158,7 +161,7 @@ Bei Azure ML können Sie den End-to-End-Überwachungspfad Ihrer gesamten ML-Ress
 > [!TIP]
 > Während einige Informationen zu Modellen und Datasets automatisch erfasst werden, können Sie mithilfe von __Tags__ zusätzliche Informationen hinzufügen. Wenn Sie in Ihrem Arbeitsbereich nach registrierten Modellen und Datasets suchen, können Sie Tags als Filter verwenden.
 >
-> Die Zuordnung eines Datasets zu einem registrierten Modell ist ein optionaler Schritt. Informationen zum Referenzieren eines Datasets beim Registrieren eines Modells finden Sie in der Referenz zur [Model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true)-Klasse.
+> Die Zuordnung eines Datasets zu einem registrierten Modell ist ein optionaler Schritt. Informationen zum Referenzieren eines Datasets beim Registrieren eines Modells finden Sie in der Referenz zur [Model](/python/api/azureml-core/azureml.core.model%28class%29?preserve-view=true&view=azure-ml-py)-Klasse.
 
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Benachrichtigen, Automatisieren und Warnen bei Ereignissen im ML-Lebenszyklus

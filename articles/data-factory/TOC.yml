@@ -145,6 +145,10 @@
           href: tutorial-deploy-ssis-packages-azure-powershell.md
         - name: Beitreten zum virtuellen Netzwerk
           href: tutorial-deploy-ssis-virtual-network.md
+    - name: Herkunft
+      items:
+        - name: "Pushen von Data\_Factory-Herkunftsdaten an Azure Purview"
+          href: turorial-push-lineage-to-purview.md
     - name: End-to-End-Labs
       items:
         - name: Datenintegration mit Data Factory und Datenfreigabe
@@ -203,6 +207,8 @@
       href: concepts-roles-permissions.md
     - name: Benennungsregeln
       href: naming-rules.md
+    - name: Datenredundanz
+      href: concepts-data-redundancy.md
 - name: Anleitungen
   items:
     - name: Autor
@@ -257,7 +263,7 @@
           href: connector-azure-sql-database.md
         - name: Verwaltete Azure SQL-Instanz
           href: connector-azure-sql-managed-instance.md
-        - name: Azure Synapse Analytics (ehemals SQL Data Warehouse)
+        - name: Azure Synapse Analytics
           href: connector-azure-sql-data-warehouse.md
         - name: Azure Table Storage
           href: connector-azure-table-storage.md
@@ -449,6 +455,8 @@
           href: copy-activity-fault-tolerance.md
         - name: Datenkonsistenzprüfung
           href: copy-activity-data-consistency.md
+        - name: Protokoll der Copy-Aktivität
+          href: copy-activity-log.md
         - name: Unterstützung für Format und Komprimierung (Legacy)
           href: supported-file-formats-and-compression-codecs-legacy.md
     - name: Transformieren von Daten
@@ -684,6 +692,10 @@
           href: how-to-create-tumbling-window-trigger.md
         - name: Erstellen einer Triggerabhängigkeit für ein rollierendes Fenster
           href: tumbling-window-trigger-dependency.md
+    - name: Herkunft
+      items:
+        - name: Herstellen einer Verbindung zwischen einer Data Factory und Azure Purview
+          href: connect-data-factory-to-azure-purview.md
     - name: Szenarien
       items:
         - name: Datenmigration für Data Lake und EDW
@@ -746,8 +758,14 @@
           href: data-factory-troubleshoot-guide.md
         - name: Connectors
           href: connector-troubleshoot-guide.md
+        - name: Trigger für Pipelines
+          href: pipeline-trigger-troubleshoot-guide.md
         - name: Datenflüsse
           href: data-flow-troubleshoot-guide.md
+        - name: Continuous Integration und Continuous Deployment
+          href: ci-cd-github-troubleshoot-guide.md
+        - name: Sicherheit und Zugriffssteuerung
+          href: security-and-access-control-troubleshoot-guide.md
         - name: Selbstgehostete Integration Runtimes
           href: self-hosted-integration-runtime-troubleshoot-guide.md
         - name: Azure-SSIS-Integrationslaufzeit

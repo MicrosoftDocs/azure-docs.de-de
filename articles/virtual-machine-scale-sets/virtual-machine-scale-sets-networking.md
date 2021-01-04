@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: 91157f625b328dfc03927cf0036aea1b6040cdbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 234834af4fcf4ad809f548d171a4c1c406d85895
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88783721"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016691"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Netzwerk für Azure-VM-Skalierungsgruppen
 
@@ -43,7 +43,7 @@ Der beschleunigte Netzwerkbetrieb von Azure ermöglicht die E/A-Virtualisierung 
 ```
 
 ## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Azure-VM-Skalierungsgruppen mit Azure Load Balancer
-Weitere Informationen zum Konfigurieren von Load Balancer Standard mit VM-Skalierungsgruppen basierend auf Ihrem Szenario finden Sie unter [Azure Load Balancer mit Azure-VM-Skalierungsgruppen](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-virtual-machine-scale-sets).
+Weitere Informationen zum Konfigurieren von Load Balancer Standard mit VM-Skalierungsgruppen basierend auf Ihrem Szenario finden Sie unter [Azure Load Balancer mit Azure-VM-Skalierungsgruppen](../load-balancer/load-balancer-standard-virtual-machine-scale-sets.md).
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Erstellen einer Skalierungsgruppe, die auf ein Application Gateway verweist
 Um eine Skalierungsgruppe zu erstellen, die ein Application Gateway verwendet, verweisen Sie wie in dieser ARM-Vorlagenkonfiguration im Abschnitt „ipConfigurations“ Ihrer Skalierungsgruppe auf den Back-End-Adresspool des Application Gateways:
@@ -299,7 +299,7 @@ Das folgende Beispiel ist ein Skalierungsgruppen-Netzwerkprofil mit mehreren NIC
 ```
 
 ## <a name="nsg--asgs-per-scale-set"></a>Netzwerksicherheitsgruppe und Anwendungssicherheitsgruppen pro Skalierungsgruppe
-Mithilfe von [Netzwerksicherheitsgruppen](../virtual-network/security-overview.md) können Sie ein- und ausgehenden Datenverkehr von Azure-Ressourcen in einem virtuellen Azure-Netzwerk unter Verwendung von Sicherheitsregeln filtern. Mithilfe von [Anwendungssicherheitsgruppen](../virtual-network/security-overview.md#application-security-groups) können Sie die Netzwerksicherheit von Azure-Ressourcen steuern und sie als Erweiterung Ihrer Anwendungsstruktur gruppieren.
+Mithilfe von [Netzwerksicherheitsgruppen](../virtual-network/network-security-groups-overview.md) können Sie ein- und ausgehenden Datenverkehr von Azure-Ressourcen in einem virtuellen Azure-Netzwerk unter Verwendung von Sicherheitsregeln filtern. Mithilfe von [Anwendungssicherheitsgruppen](../virtual-network/network-security-groups-overview.md#application-security-groups) können Sie die Netzwerksicherheit von Azure-Ressourcen steuern und sie als Erweiterung Ihrer Anwendungsstruktur gruppieren.
 
 Netzwerksicherheitsgruppen können direkt auf eine Skalierungsgruppe angewendet werden. Hierzu muss dem Abschnitt mit den Netzwerkschnittstellenkonfigurationen der Skalierungsgruppen-VM-Eigenschaften ein Verweis hinzugefügt werden.
 

@@ -9,10 +9,10 @@ ms.date: 10/31/2019
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: af4ef156cccded6afe2db09628446a6ffe1ad53a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92204638"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Überprüfen der ExpressRoute-Konnektivität
@@ -100,7 +100,7 @@ Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 ```
 
 >[!TIP]
->Wenn Sie den Namen einer Ressourcengruppe suchen, können Sie ihn durch Auflisten aller Ressourcengruppen in Ihrem Abonnement ermitteln. Verwenden Sie dazu den Befehl *Get-AzResourceGroup* .
+>Wenn Sie den Namen einer Ressourcengruppe suchen, können Sie ihn durch Auflisten aller Ressourcengruppen in Ihrem Abonnement ermitteln. Verwenden Sie dazu den Befehl *Get-AzResourceGroup*.
 >
 
 
@@ -165,7 +165,7 @@ Im Azure-Portal können Sie den Peeringstatus einer ExpressRoute-Verbindung auf 
 Im vorherigen Beispiel wurde wie angegeben das private Azure-Peering bereitgestellt, während öffentliche Azure-Peerings und Microsoft-Peerings nicht bereitgestellt werden. Für einen erfolgreich bereitgestellten Peeringkontext wären auch die primären und sekundären Point-to-Point-Subnetze aufgelistet. Die /30-Subnetze werden für die Schnittstellen-IP-Adresse der MSEEs und CEs/PE-MSEEs verwendet. Für die bereitgestellten Peerings gibt die Liste auch an, wer die Konfiguration zuletzt geändert hat. 
 
 > [!NOTE]
-> Wenn ein Peering nicht aktiviert wird, sollten Sie überprüfen, ob die zugewiesenen primären und sekundären Subnetze mit der Konfiguration auf dem verknüpften CE/PE-MSEE übereinstimmen. Überprüfen Sie auch, ob die Angaben für *VlanId* , *AzureASN* und *PeerASN* auf den MSEEs stimmen und ob diese Werte zu den Werten auf dem verknüpften CE/PE-MSEE passen. Wenn MD5-Hashing gewählt wird, sollte der gemeinsam verwendete Schlüssel für das MSEE- und PE-MSEE/CE-Paar gleich sein. Der zuvor konfigurierte gemeinsam verwendete Schlüssel wird aus Sicherheitsgründen nicht angezeigt. Wenn Sie die Konfiguration auf MSEE-Routern ändern müssen, helfen Ihnen die Informationen unter [Erstellen und Ändern des Routings für eine ExpressRoute-Verbindung][CreatePeering] weiter.  
+> Wenn ein Peering nicht aktiviert wird, sollten Sie überprüfen, ob die zugewiesenen primären und sekundären Subnetze mit der Konfiguration auf dem verknüpften CE/PE-MSEE übereinstimmen. Überprüfen Sie auch, ob die Angaben für *VlanId*, *AzureASN* und *PeerASN* auf den MSEEs stimmen und ob diese Werte zu den Werten auf dem verknüpften CE/PE-MSEE passen. Wenn MD5-Hashing gewählt wird, sollte der gemeinsam verwendete Schlüssel für das MSEE- und PE-MSEE/CE-Paar gleich sein. Der zuvor konfigurierte gemeinsam verwendete Schlüssel wird aus Sicherheitsgründen nicht angezeigt. Wenn Sie die Konfiguration auf MSEE-Routern ändern müssen, helfen Ihnen die Informationen unter [Erstellen und Ändern des Routings für eine ExpressRoute-Verbindung][CreatePeering] weiter.  
 >
 
 > [!NOTE]
@@ -228,7 +228,7 @@ At line:1 char:1
 ```
 
 > [!NOTE]
-> Wenn ein Peering nicht aktiviert wird, sollten Sie überprüfen, ob die zugewiesenen primären und sekundären Subnetze mit der Konfiguration auf dem verknüpften CE/PE-MSEE übereinstimmen. Überprüfen Sie auch, ob die Angaben für *VlanId* , *AzureASN* und *PeerASN* auf den MSEEs stimmen und ob diese Werte zu den Werten auf dem verknüpften CE/PE-MSEE passen. Wenn MD5-Hashing gewählt wird, sollte der gemeinsam verwendete Schlüssel für das MSEE- und PE-MSEE/CE-Paar gleich sein. Der zuvor konfigurierte gemeinsam verwendete Schlüssel wird aus Sicherheitsgründen nicht angezeigt. Wenn Sie die Konfiguration auf MSEE-Routern ändern müssen, helfen Ihnen die Informationen unter [Erstellen und Ändern des Routings für eine ExpressRoute-Verbindung][CreatePeering] weiter.  
+> Wenn ein Peering nicht aktiviert wird, sollten Sie überprüfen, ob die zugewiesenen primären und sekundären Subnetze mit der Konfiguration auf dem verknüpften CE/PE-MSEE übereinstimmen. Überprüfen Sie auch, ob die Angaben für *VlanId*, *AzureASN* und *PeerASN* auf den MSEEs stimmen und ob diese Werte zu den Werten auf dem verknüpften CE/PE-MSEE passen. Wenn MD5-Hashing gewählt wird, sollte der gemeinsam verwendete Schlüssel für das MSEE- und PE-MSEE/CE-Paar gleich sein. Der zuvor konfigurierte gemeinsam verwendete Schlüssel wird aus Sicherheitsgründen nicht angezeigt. Wenn Sie die Konfiguration auf MSEE-Routern ändern müssen, helfen Ihnen die Informationen unter [Erstellen und Ändern des Routings für eine ExpressRoute-Verbindung][CreatePeering] weiter.  
 >
 >
 
@@ -278,7 +278,7 @@ Path    : 123##
 ```
 
 > [!NOTE]
-> Wenn der Status eines eBGP-Peerings zwischen einem MSEE und einem CE/PE-MSEE „Aktiv“ oder „Im Leerlauf“ lautet, sollten Sie überprüfen, ob die zugewiesenen primären und sekundären Peersubnetze mit der Konfiguration auf dem verknüpften CE/PE-MSEE übereinstimmen. Überprüfen Sie auch, ob die Angaben für *VlanId* , *AzureASN* und *PeerASN* auf den MSEEs stimmen und ob diese Werte zu den Werten auf dem verknüpften PE-MSEE/CE passen. Wenn MD5-Hashing gewählt wird, sollte der gemeinsam verwendete Schlüssel für das MSEE- und CE/PE-MSEE-Paar gleich sein. Wenn Sie die Konfiguration auf MSEE-Routern ändern müssen, helfen Ihnen die Informationen unter [Erstellen und Ändern des Routings für eine ExpressRoute-Verbindung][CreatePeering] weiter.
+> Wenn der Status eines eBGP-Peerings zwischen einem MSEE und einem CE/PE-MSEE „Aktiv“ oder „Im Leerlauf“ lautet, sollten Sie überprüfen, ob die zugewiesenen primären und sekundären Peersubnetze mit der Konfiguration auf dem verknüpften CE/PE-MSEE übereinstimmen. Überprüfen Sie auch, ob die Angaben für *VlanId*, *AzureASN* und *PeerASN* auf den MSEEs stimmen und ob diese Werte zu den Werten auf dem verknüpften PE-MSEE/CE passen. Wenn MD5-Hashing gewählt wird, sollte der gemeinsam verwendete Schlüssel für das MSEE- und CE/PE-MSEE-Paar gleich sein. Wenn Sie die Konfiguration auf MSEE-Routern ändern müssen, helfen Ihnen die Informationen unter [Erstellen und Ändern des Routings für eine ExpressRoute-Verbindung][CreatePeering] weiter.
 >
 
 

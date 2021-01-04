@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 260a3fbb8486a1e9eeaa87e920143615e5fae867
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b942fb321d2bceef64930bea0c660f66747508b6
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83681823"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629305"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutorial: Verwenden der Apache Kafka Producer- und Consumer-APIs
 
@@ -34,7 +34,7 @@ Weitere Informationen zu den APIs finden Sie in der Apache-Dokumentation unter [
 ## <a name="prerequisites"></a>Voraussetzungen
 
 * Apache Kafka in einem HDInsight-Cluster. Informationen zum Erstellen des Clusters finden Sie unter [Schnellstart: Erstellen eines Apache Kafka-Clusters in Azure HDInsight im Azure-Portal](apache-kafka-get-started.md).
-* [Version 8 des Java Developer Kit (JDK)](https://aka.ms/azure-jdks) oder eine vergleichbare Lösung (etwa OpenJDK).
+* [Version 8 des Java Developer Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-long-term-support) oder eine vergleichbare Lösung (etwa OpenJDK).
 * Ordnungsgemäße [Installation](https://maven.apache.org/install.html) von [Apache Maven](https://maven.apache.org/download.cgi) (gemäß Apache).  Maven ist ein Projekterstellungssystem für Java-Projekte.
 * Ein SSH-Client wie Putty. Weitere Informationen finden Sie unter [Herstellen einer Verbindung mit HDInsight (Hadoop) per SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -184,7 +184,7 @@ Wenn Sie diesen Schritt überspringen möchten, können Sie vorgefertigte JAR-Da
 
     Die gelesenen Datensätze und die Anzahl von Datensätzen wird angezeigt.
 
-1. Drücken Sie __STRG+C__, um den Consumer zu beenden.
+1. Drücken Sie __STRG+C__ , um den Consumer zu beenden.
 
 ### <a name="multiple-consumers"></a>Mehrere Consumer
 
@@ -196,7 +196,7 @@ Die Consumer-Anwendung akzeptiert einen Parameter, der als Gruppen-ID verwendet 
 java -jar kafka-producer-consumer.jar consumer myTest $KAFKABROKERS myGroup
 ```
 
-Drücken Sie __STRG+C__, um den Consumer zu beenden.
+Drücken Sie __STRG+C__ , um den Consumer zu beenden.
 
 Führen Sie den folgenden Befehl aus, um diesen Vorgang in Aktion zu sehen:
 
@@ -206,7 +206,7 @@ tmux new-session 'java -jar kafka-producer-consumer.jar consumer myTest $KAFKABR
 \; attach
 ```
 
-Dieser Befehl teilt das Terminal mit `tmux` in zwei Spalten auf. In jeder Spalte wird ein Consumer mit dem gleichen Gruppen-ID-Wert gestartet. Beachten Sie nach Abschluss des Lesens durch die Consumer, dass jeder nur einen Teil der Datensätze gelesen hat. Drücken Sie zweimal __STRG+C__, um `tmux` zu beenden.
+Dieser Befehl teilt das Terminal mit `tmux` in zwei Spalten auf. In jeder Spalte wird ein Consumer mit dem gleichen Gruppen-ID-Wert gestartet. Beachten Sie nach Abschluss des Lesens durch die Consumer, dass jeder nur einen Teil der Datensätze gelesen hat. Drücken Sie zweimal __STRG+C__ , um `tmux` zu beenden.
 
 Der Verbrauch durch die Clients in derselben Gruppe wird über die Partitionen für das Thema gesteuert. In diesem Codebeispiel besitzt das zuvor erstellte Thema `test` acht Partitionen. Wenn Sie acht Consumer starten, liest jeder Consumer Datensätze aus einer einzelnen Partition für das Thema.
 
@@ -217,9 +217,9 @@ Datensätze werden in Kafka in der Reihenfolge gespeichert, in der sie in einer 
 
 ## <a name="common-issues-faced"></a>Häufige Probleme
 
-1. **Fehler beim Erstellen von Themen** Wenn für Ihren Cluster das Enterprise-Sicherheitspaket aktiviert ist, verwenden Sie die [vordefinierten JAR-Dateien für Producer und Consumer](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Prebuilt-Jars/kafka-producer-consumer-esp.jar). Die ESP-JAR-Datei kann aus dem Code im [`DomainJoined-Producer-Consumer`-Unterverzeichnis](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer) erstellt werden. Beachten Sie, dass die Producer- und Consumer-Eigenschaften eine zusätzliche `CommonClientConfigs.SECURITY_PROTOCOL_CONFIG`-Eigenschaft für ESP-aktivierte Cluster aufweisen.
+1. **Fehler beim Erstellen von Themen** Wenn für Ihren Cluster das Enterprise-Sicherheitspaket aktiviert ist, verwenden Sie die [vordefinierten JAR-Dateien für Producer und Consumer](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Prebuilt-Jars/kafka-producer-consumer-esp.jar). Die ESP-JAR-Datei kann aus dem Code im [Unterverzeichnis `DomainJoined-Producer-Consumer`](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer) erstellt werden. Die Producer- und Consumer-Eigenschaften weisen eine zusätzliche `CommonClientConfigs.SECURITY_PROTOCOL_CONFIG`-Eigenschaft für ESP-aktivierte Cluster auf.
 
-2. **Probleme mit ESP-aktivierten Clustern** Wenn bei den Produce- und Consume-Vorgängen Fehler auftreten und Sie einen ESP-aktivierten Cluster verwenden, prüfen Sie, ob der Benutzer `kafka` in allen Ranger-Richtlinien vorhanden ist. Wenn er nicht vorhanden ist, fügen Sie ihn allen Ranger-Richtlinien hinzu.
+2. **Fehler bei ESP-aktivierten Clustern:** Wenn bei den Produce- und Consume-Vorgängen Fehler auftreten und Sie einen ESP-aktivierten Cluster verwenden, prüfen Sie, ob der Benutzer `kafka` in allen Ranger-Richtlinien vorhanden ist. Wenn er nicht vorhanden ist, fügen Sie ihn allen Ranger-Richtlinien hinzu.
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
@@ -227,9 +227,9 @@ Zum Bereinigen der im Rahmen dieses Tutorials erstellten Ressourcen können Sie 
 
 So entfernen Sie die Ressourcengruppe über das Azure-Portal:
 
-1. Erweitern Sie im Azure-Portal das Menü auf der linken Seite, um das Menü mit den Diensten zu öffnen, und klicken Sie auf __Ressourcengruppen__, um die Liste mit Ihren Ressourcengruppen anzuzeigen.
+1. Erweitern Sie im Azure-Portal das Menü auf der linken Seite, um das Menü mit den Diensten zu öffnen, und klicken Sie auf __Ressourcengruppen__ , um die Liste mit Ihren Ressourcengruppen anzuzeigen.
 2. Suchen Sie die zu löschende Ressourcengruppe, und klicken Sie mit der rechten Maustaste rechts neben dem Eintrag auf die Schaltfläche __Mehr__ (...).
-3. Klicken Sie auf __Ressourcengruppe löschen__, und bestätigen Sie den Vorgang.
+3. Klicken Sie auf __Ressourcengruppe löschen__ , und bestätigen Sie den Vorgang.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

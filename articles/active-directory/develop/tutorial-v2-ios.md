@@ -13,16 +13,16 @@ ms.date: 09/18/2020
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 70194c7adc55a00c5cb65928daac184499eb124d
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: aff89d49dec9bafedb3c9a5a76abdeb803740a12
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611111"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95746726"
 ---
 # <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>Tutorial: Anmelden von Benutzern und Aufrufen von Microsoft Graph aus einer iOS- oder macOS-App
 
-In diesem Tutorial wird die Integration einer iOS- oder macOS-App in Microsoft Identity Platform beschrieben. Die App meldet einen Benutzer an, ruft ein Zugriffstoken zum Aufrufen der Microsoft Graph-API ab und sendet eine Anforderung an die Microsoft Graph-API.
+In diesem Tutorial erstellen Sie eine iOS- oder macOS-App, die in die Microsoft Identity Platform eingebunden wird, um Benutzer anzumelden und ein Zugriffstoken abzurufen, mit dem die Microsoft Graph-API aufgerufen werden kann.
 
 Am Ende dieses Leitfadens akzeptiert Ihre Anwendung Anmeldungen von persönlichen Microsoft-Konten (z.B. outlook.com, live.com u.a.) sowie von Geschäfts,- Schul- oder Unikonten von allen Unternehmen oder Organisationen, die Azure Active Directory nutzen. Dieses Tutorial gilt für iOS- und macOS-Apps. Bei diesen beiden Plattformen sind einige Schritte unterschiedlich.
 
@@ -32,7 +32,7 @@ Dieses Tutorial umfasst folgende Punkte:
 > * Erstellen eines iOS- oder macOS-App-Projekts in *Xcode*
 > * Registrieren der App im Azure-Portal
 > * Hinzufügen von Code zur Unterstützung der Benutzeranmeldung und -abmeldung
-> * Hinzufügen von Code, um die Microsoft Graph-API aufzurufen
+> * Hinzufügen von Code zum Aufrufen der Microsoft Graph-API
 > * Testen der App
 
 ## <a name="prerequisites"></a>Voraussetzungen
@@ -80,7 +80,7 @@ Wenn Sie eine vollständige Version der App herunterladen möchten, die Sie in d
 
 7. Wählen Sie im oberen Bildschirmbereich die Option **Neue Benutzeroberfläche ausprobieren** aus, um die neue Benutzeroberfläche für die App-Registrierung zu öffnen, und wählen Sie dann **+ Neue Registrierung** >  **+ Plattform hinzufügen** > **iOS/macOS** aus.
     - Geben Sie die Bündel-ID Ihres Projekts ein. Wenn Sie den Code heruntergeladen haben, lautet diese `com.microsoft.identitysample.MSALiOS`. Wählen Sie bei der Erstellung eines eigenen Projekts Ihr Projekt in Xcode aus, und öffnen Sie die Registerkarte **General** (Allgemein). Die Paket-ID wird im Abschnitt **Identity** (Identität) angezeigt.
-8. Wählen Sie `Configure` aus, und speichern Sie die **MSAL-Konfiguration**, die auf der Seite **MSAL-Konfiguration** angezeigt wird, damit Sie diese später beim Konfigurieren Ihrer App eingeben können. Wählen Sie **Fertig**aus.
+8. Wählen Sie `Configure` aus, und speichern Sie die **MSAL-Konfiguration**, die auf der Seite **MSAL-Konfiguration** angezeigt wird, damit Sie diese später beim Konfigurieren Ihrer App eingeben können. Wählen Sie **Fertig** aus.
 
 ## <a name="add-msal"></a>Hinzufügen von MSAL
 
@@ -854,7 +854,7 @@ Nach der Anmeldung zeigt die App die vom Microsoft Graph-Endpunkt `/me` zurückg
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Erfahren Sie in unserer mehrteiligen Szenarioreihe mehr über das Entwickeln von mobilen Apps, die geschützte Web-APIs abrufen.
+In der mehrteiligen Szenarioreihe erfahren Sie mehr über das Entwickeln von mobilen Apps, die geschützte Web-APIs abrufen.
 
 > [!div class="nextstepaction"]
 > [Szenario: Mobile App, die Web-APIs aufruft](scenario-mobile-overview.md)

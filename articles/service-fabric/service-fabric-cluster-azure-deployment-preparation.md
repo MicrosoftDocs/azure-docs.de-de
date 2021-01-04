@@ -3,12 +3,12 @@ title: Planen der Bereitstellung eines Azure Service Fabric-Clusters
 description: Erfahren Sie in diesem Artikel, wie Sie die Bereitstellung von Service Fabric-Clusters für eine Produktionsumgebung in Azure planen und vorbereiten.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 1064e59491b7144aafade24bd50131478fe025eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9de59811397eb47809c6d71f608e43beae5bfadb
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281326"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109622"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planen und Vorbereiten der Clusterbereitstellung
 
@@ -89,8 +89,6 @@ Kurzlebige Betriebssystemdatenträger sind kein spezifisches Feature von Service
 
 > [!NOTE]
 > Benutzeranwendungen sollten auf dem Betriebssystemdatenträger keine Abhängigkeit, keine Datei und kein Artefakt aufweisen, da der Betriebssystemdatenträger im Falle eines Betriebssystemupgrades verloren gehen würde.
-> Daher empfiehlt es sich nicht, [PatchOrchestrationApplication](https://github.com/microsoft/Service-Fabric-POA) mit kurzlebigen Datenträgern zu verwenden.
->
 
 > [!NOTE]
 > Vorhandene nicht kurzlebige VMSS können nicht direkt aktualisiert werden, um kurzlebige Datenträger zu verwenden.

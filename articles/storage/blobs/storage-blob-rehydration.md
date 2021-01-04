@@ -9,19 +9,19 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: a416c22c5b8e09104b20a17bc5042302fa56d8ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f74d4ffdd724039354a311234317dac889cd7cfe
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88035143"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545930"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Aktivieren von Blobdaten aus der Archivzugriffsebene
 
 Während ein Blob sich auf der Archivzugriffsebene befindet, wird es als offline betrachtet und kann nicht gelesen oder geändert werden. Die Blobmetadaten bleiben online und verfügbar, sodass Sie das Blob und seine Eigenschaften auflisten können. Das Lesen und Ändern von Blobdaten ist nur auf Onlineebenen wie der heißen oder der kalten Zugriffsebene möglich. Es gibt zwei Optionen, um Daten aus der Archivzugriffsebene abzurufen und auf sie zuzugreifen.
 
-1. [Aktivieren eines archivierten Blobs auf einer Onlineebene](#rehydrate-an-archived-blob-to-an-online-tier): Aktivieren Sie ein Archivblob auf der heißen oder kalten Zugriffsebene, indem Sie die Ebene mithilfe des Vorgangs [Blobebene festlegen](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) ändern.
-2. [Kopieren eines archivierten Blobs auf eine Onlineebene](#copy-an-archived-blob-to-an-online-tier): Erstellen Sie eine neue Kopie eines Archivblobs mithilfe des Vorgangs [Blob kopieren](https://docs.microsoft.com/rest/api/storageservices/copy-blob). Geben Sie einen anderen Blobnamen und als Zielebene eine heiße oder kalte Zugriffsebene an.
+1. [Aktivieren eines archivierten Blobs auf einer Onlineebene](#rehydrate-an-archived-blob-to-an-online-tier): Aktivieren Sie ein Archivblob auf der heißen oder kalten Zugriffsebene, indem Sie die Ebene mithilfe des Vorgangs [Blobebene festlegen](/rest/api/storageservices/set-blob-tier) ändern.
+2. [Kopieren eines archivierten Blobs auf eine Onlineebene](#copy-an-archived-blob-to-an-online-tier): Erstellen Sie eine neue Kopie eines Archivblobs mithilfe des Vorgangs [Blob kopieren](/rest/api/storageservices/copy-blob). Geben Sie einen anderen Blobnamen und als Zielebene eine heiße oder kalte Zugriffsebene an.
 
  Weitere Informationen zu Ebenen finden Sie unter [Azure Blob Storage: Archivzugriffsebenen „Heiß“, „Kalt“ und „Archiv“](storage-blob-storage-tiers.md).
 
@@ -31,7 +31,7 @@ Während ein Blob sich auf der Archivzugriffsebene befindet, wird es als offline
 
 ## <a name="copy-an-archived-blob-to-an-online-tier"></a>Kopieren eines archivierten Blobs auf eine Onlineebene
 
-Wenn Sie das Archivblob nicht aktivieren möchten, können Sie einen Vorgang vom Typ [Blob kopieren](https://docs.microsoft.com/rest/api/storageservices/copy-blob) ausführen. Das ursprüngliche Blob bleibt unverändert im Archiv, während ein neues Blobs auf der heißen oder kalten Onlineebene erstellt wird, mit dem Sie arbeiten können. Beim Vorgang „Blob kopieren“ können Sie auch die optionale Eigenschaft *x-ms-rehydrate-priority* auf „Standard“ oder „Hoch“ festlegen, um die Priorität anzugeben, mit der die Blobkopie erstellt werden soll.
+Wenn Sie das Archivblob nicht aktivieren möchten, können Sie einen Vorgang vom Typ [Blob kopieren](/rest/api/storageservices/copy-blob) ausführen. Das ursprüngliche Blob bleibt unverändert im Archiv, während ein neues Blobs auf der heißen oder kalten Onlineebene erstellt wird, mit dem Sie arbeiten können. Beim Vorgang „Blob kopieren“ können Sie auch die optionale Eigenschaft *x-ms-rehydrate-priority* auf „Standard“ oder „Hoch“ festlegen, um die Priorität anzugeben, mit der die Blobkopie erstellt werden soll.
 
 Das Kopieren eines Blobs aus dem Archiv kann je nach ausgewählter Aktivierungspriorität mehrere Stunden dauern. Im Hintergrund liest der Vorgang **Blob kopieren** das Archivblob, um ein neues Onlineblob auf der ausgewählten Zielebene zu erstellen. Das neue Blob ist beim Auflisten von Blobs möglicherweise sichtbar, aber die Daten sind erst verfügbar, wenn der Lesevorgang aus dem Quellarchivblob abgeschlossen ist und Daten in das neue Onlinezielblob geschrieben werden. Das neue Blob ist eine unabhängige Kopie, und jegliche Änderungen oder Löschungen wirken sich nicht auf das Quellarchivblob aus.
 

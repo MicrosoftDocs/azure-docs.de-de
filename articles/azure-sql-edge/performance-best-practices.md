@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 35985404d5ac97940c324c3ad7f7d46c959b4902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02f22883a0989714d8b74f778cacf1ba2c65d0b4
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90931779"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392009"
 ---
 # <a name="performance-best-practices-and-configuration-guidelines"></a>Leistungsbezogene bewährte Methoden und Konfigurationsrichtlinien
 
@@ -28,13 +28,13 @@ Azure SQL Edge erstellt standardmäßig nur eine tempdb-Datendatei im Rahmen der
 
 ### <a name="use-clustered-columnstore-indexes-where-possible"></a>Verwenden von gruppierten Columnstore-Indizes, wann immer dies möglich ist
 
-IoT- und Edge-Geräte generieren tendenziell große Datenmengen, die in der Regel in einem Zeitfenster zur Analyse aggregiert werden. Einzelne Datenzeilen werden selten für irgendwelche Analysen verwendet. Columnstore-Indizes eignen sich ideal zum Speichern und Abfragen solcher großen Datasets. Dieser Index verwendet spaltenbasierte Datenspeicherung und Abfrageverarbeitung, um eine bis zu zehnmal höhere Abfrageleistung im Vergleich zur herkömmlichen zeilenorientierten Speicherung zu erzielen. Sie können im Vergleich zur unkomprimierten Datengröße außerdem eine bis zu 10-mal höhere Datenkomprimierung erzielen. Weitere Informationen finden Sie unter [Columnstore-Indizes: Übersicht](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview).
+IoT- und Edge-Geräte generieren tendenziell große Datenmengen, die in der Regel in einem Zeitfenster zur Analyse aggregiert werden. Einzelne Datenzeilen werden selten für irgendwelche Analysen verwendet. Columnstore-Indizes eignen sich ideal zum Speichern und Abfragen solcher großen Datasets. Dieser Index verwendet spaltenbasierte Datenspeicherung und Abfrageverarbeitung, um eine bis zu zehnmal höhere Abfrageleistung im Vergleich zur herkömmlichen zeilenorientierten Speicherung zu erzielen. Sie können im Vergleich zur unkomprimierten Datengröße außerdem eine bis zu 10-mal höhere Datenkomprimierung erzielen. Weitere Informationen finden Sie unter [Columnstore-Indizes: Übersicht](/sql/relational-databases/indexes/columnstore-indexes-overview).
 
 Darüber hinaus profitieren andere Azure SQL Edge-Features wie Datenstreaming und Datenaufbewahrung von den Columnstore-Optimierungen im Zusammenhang mit Dateneinfügung und Datenentfernung. 
 
 ### <a name="simple-recovery-model"></a>Einfaches Wiederherstellungsmodell
 
-Da der Speicher auf Edge-Geräten eingeschränkt sein kann, wird für alle Benutzerdatenbanken in Azure SQL Edge standardmäßig das einfache Wiederherstellungsmodell verwendet. Beim einfachen Wiederherstellungsmodell wird Protokollspeicherplatz automatisch freigegeben, um die Speicherplatzanforderungen gering zu halten. Hierdurch entfällt im Wesentlichen die Notwendigkeit, den Speicherplatz für Transaktionsprotokolle zu verwalten. Auf Edge-Geräten mit eingeschränktem Speicherplatz kann dies hilfreich sein. Weitere Informationen zum einfachen Wiederherstellungsmodell und zu weiteren verfügbaren Wiederherstellungsmodellen finden Sie unter [Wiederherstellungsmodelle](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server).
+Da der Speicher auf Edge-Geräten eingeschränkt sein kann, wird für alle Benutzerdatenbanken in Azure SQL Edge standardmäßig das einfache Wiederherstellungsmodell verwendet. Beim einfachen Wiederherstellungsmodell wird Protokollspeicherplatz automatisch freigegeben, um die Speicherplatzanforderungen gering zu halten. Hierdurch entfällt im Wesentlichen die Notwendigkeit, den Speicherplatz für Transaktionsprotokolle zu verwalten. Auf Edge-Geräten mit eingeschränktem Speicherplatz kann dies hilfreich sein. Weitere Informationen zum einfachen Wiederherstellungsmodell und zu weiteren verfügbaren Wiederherstellungsmodellen finden Sie unter [Wiederherstellungsmodelle](/sql/relational-databases/backup-restore/recovery-models-sql-server).
 
 Vorgänge wie Protokollversand und Point-in-Time-Wiederherstellungen, die Transaktionsprotokollsicherungen erfordern, werden vom einfachen Wiederherstellungsmodell nicht unterstützt.  
 
@@ -56,16 +56,9 @@ Transaktionen in Azure SQL Edge können entweder vollständig dauerhaft sein, wa
 
 Vollständig dauerhafte Transaktionscommits sind synchron, melden, dass ein COMMIT erfolgreich ausgeführt wurde, und geben die Steuerung erst an den Client zurück, nachdem die Protokolldatensätze für die Transaktion auf den Datenträger geschrieben wurden. Verzögert dauerhafte Transaktionscommits sind asynchron und melden, dass ein COMMIT erfolgreich ausgeführt wurde, bevor die Protokolldatensätze für die Transaktion auf den Datenträger geschrieben wurden. Damit eine Transaktion dauerhaft ist, müssen die Transaktionsprotokolleinträge auf dem Datenträger festgeschrieben werden. Verzögert dauerhafte Transaktionen werden dauerhaft, nachdem die Transaktionsprotokolleinträge auf den Datenträger geleert wurden. 
 
-In Bereitstellungen, in denen **der Verlust einiger Daten** toleriert werden kann, oder auf Edgegeräten mit langsamem Speicher, kann verzögerte Dauerhaftigkeit verwendet werden, um Datenerfassung und datenaufbewahrungsbasierte Bereinigung zu optimieren. Weitere Informationen finden Sie im Thema [Steuern der Transaktionsdauerhaftigkeit](https://docs.microsoft.com/sql/relational-databases/logs/control-transaction-durability).
+In Bereitstellungen, in denen **der Verlust einiger Daten** toleriert werden kann, oder auf Edgegeräten mit langsamem Speicher, kann verzögerte Dauerhaftigkeit verwendet werden, um Datenerfassung und datenaufbewahrungsbasierte Bereinigung zu optimieren. Weitere Informationen finden Sie im Thema [Steuern der Transaktionsdauerhaftigkeit](/sql/relational-databases/logs/control-transaction-durability).
 
 
 ### <a name="linux-os-configurations"></a>Linux-Konfigurationen 
 
-Verwenden Sie die folgenden [Konfigurationseinstellungen für das Linux-Betriebssystem](https://docs.microsoft.com/sql/linux/sql-server-linux-performance-best-practices#linux-os-configuration), um die beste Leistung für eine SQL-Installation zu erzielen.
-
-
-
-
-
-
-
+Verwenden Sie die folgenden [Konfigurationseinstellungen für das Linux-Betriebssystem](/sql/linux/sql-server-linux-performance-best-practices#linux-os-configuration), um die beste Leistung für eine SQL-Installation zu erzielen.

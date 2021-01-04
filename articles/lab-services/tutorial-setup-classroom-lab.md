@@ -2,13 +2,13 @@
 title: Einrichten eines Classroom-Labs in Azure Lab Services | Microsoft-Dokumentation
 description: In diesem Tutorial richten Sie unter Verwendung von Azure Lab Services ein Classroom-Lab mit virtuellen Computern für Kursteilnehmer ein.
 ms.topic: tutorial
-ms.date: 06/26/2020
-ms.openlocfilehash: 1155646d31ddb8a0a3abce025acde5c4cb645f54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/03/2020
+ms.openlocfilehash: 3abbf5221382b46dbf4e73f9f4dc3b639bc5ecbd
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336733"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602495"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Einrichten eines Classroom-Labs 
 In diesem Tutorial richten Sie ein Classroom-Lab mit virtuellen Computern ein, die von den Teilnehmern im Classroom verwendet werden.  
@@ -121,19 +121,71 @@ Erstellen Sie ein geplantes Ereignis für das Lab, damit VMs im Lab zu bestimmte
 
 ## <a name="add-users-to-the-lab"></a>Hinzufügen von Benutzern zum Lab
 
-1. Klicken Sie im linken Menü auf **Benutzer**. Die Option **Zugriff beschränken** ist standardmäßig aktiviert. Wenn diese Einstellung aktiviert ist, kann sich ein Benutzer auch dann nicht beim Lab registrieren, wenn er über den Registrierungslink verfügt. Um sich zu registrieren, muss er in der Liste der Benutzer enthalten sein. Nur Benutzer in der Liste können sich über den von Ihnen gesendeten Registrierungslink beim Lab registrieren. In diesem Verfahren fügen Sie der Liste Benutzer hinzu. Alternativ können Sie **Zugriff beschränken** deaktivieren. In diesem Fall können sich Benutzer beim Lab registrieren, wenn sie über den Registrierungslink verfügen. 
-2. Wählen Sie auf der Symbolleiste die Option **Benutzer hinzufügen** und anschließend **Per E-Mail-Adresse hinzufügen** aus. 
+Wenn Sie Benutzer hinzufügen, ist die Option **Zugriff einschränken** standardmäßig aktiviert. Wenn sie nicht in der Benutzerliste enthalten sind, können sich Kursteilnehmer daher selbst dann nicht beim Labor registrieren, wenn sie über einen Registrierungslink verfügen. Nur in der Liste enthaltene Benutzer können sich über den von Ihnen gesendeten Registrierungslink beim Lab registrieren. Sie können **Zugriff beschränken** deaktivieren. In diesem Fall können sich Kursteilnehmer beim Lab registrieren, wenn sie über den Registrierungslink verfügen. 
 
-    ![Schaltfläche „Benutzer hinzufügen“](./media/how-to-configure-student-usage/add-users-button.png)
-1. Geben Sie auf der Seite **Benutzer hinzufügen** die E-Mail-Adressen von Benutzern in separaten Zeilen oder durch Semikolons getrennt in einer einzelnen Zeile ein. 
+### <a name="add-users-from-an-azure-ad-group"></a>Hinzufügen von Benutzern aus einer Azure AD-Gruppe
 
-    ![Hinzufügen der E-Mail-Adressen von Benutzern](./media/how-to-configure-student-usage/add-users-email-addresses.png)
-4. Wählen Sie **Speichern** aus. In der Liste werden die E-Mail-Adressen und der Status (registriert oder nicht registriert) von Benutzern angezeigt. 
+Sie können eine Labbenutzerliste mit einer vorhandenen Azure AD-Gruppe (Azure Active Directory) synchronisieren, damit Sie Benutzer nicht manuell hinzufügen oder löschen müssen. 
 
-    ![Benutzerliste](./media/how-to-configure-student-usage/users-list-new.png)
+In der Azure Active Directory-Instanz Ihrer Organisation kann eine Azure AD-Gruppe erstellt werden, um den Zugriff auf Organisationsressourcen und cloudbasierte Apps zu verwalten. Weitere Informationen finden Sie unter [Verwalten des Zugriffs auf Apps und Ressourcen mithilfe von Azure Active Directory-Gruppen](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups). Wenn in Ihrer Organisation Microsoft Office 365- oder Azure-Dienste verwendet werden, verfügt Ihre Organisation bereits über Administratoren, die Ihre Azure Active Directory-Instanz verwalten. 
 
-    Nach der Registrierung für das Lab werden die Namen von Benutzern in der Liste angezeigt. 
+> [!IMPORTANT]
+> Stellen Sie sicher, dass die Benutzerliste leer ist. Wenn in einem Lab Benutzer vorhanden sind, die Sie manuell oder durch Importieren einer CSV-Datei hinzugefügt haben, wird die Option zum Synchronisieren des Labs mit einer vorhandenen Gruppe nicht angezeigt. 
+
+1. Wählen Sie im linken Bereich die Option **Benutzer**. 
+1. Klicken Sie auf **Über Gruppe synchronisieren**. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-sync-group.png" alt-text="Hinzufügen von Benutzern aus einer Azure AD-Gruppe durch Synchronisieren":::
     
+1. Sie werden aufgefordert, eine vorhandene Azure AD-Gruppe auszuwählen, mit der ihr Lab synchronisiert werden soll. 
+    
+    Wird keine Azure AD-Gruppe in der Liste angezeigt, kann dies folgende Gründe haben:
+
+    -   Sie sind ein Gastbenutzer einer Azure Active Directory-Instanz (trifft in der Regel zu, wenn Sie sich außerhalb der Organisation befinden, die die Azure AD-Instanz besitzt) und können nicht innerhalb der Azure AD-Instanz nach Gruppen suchen. In diesem Fall können Sie dem Lab keine Azure AD-Gruppe hinzufügen. 
+    -   Über Teams erstellte Azure AD-Gruppen werden in dieser Liste nicht angezeigt. Sie können die Azure Lab Services-App innerhalb von Teams hinzufügen, um Labs direkt darin zu erstellen und zu verwalten. Weitere Informationen finden Sie unter [Verwalten von Lab Services-Benutzerlisten aus Teams](how-to-manage-user-lists-within-teams.md). 
+1. Nachdem Sie die Azure AD-Gruppe ausgewählt haben, mit der ihr Lab synchronisiert werden soll, klicken Sie auf **Hinzufügen**.
+1. Sobald ein Lab synchronisiert ist, werden alle Benutzer innerhalb der Azure AD-Gruppe als Benutzer in das Lab gepullt, und die Benutzerliste wird aktualisiert. Nur die Personen in dieser Azure AD-Gruppe haben Zugriff auf das Lab. Die Benutzerliste wird alle 24 Stunden aktualisiert, damit sie der aktuellen Mitgliedschaft der Azure AD-Gruppe entspricht. Sie können auch auf der Registerkarte „Benutzer“ auf die Schaltfläche „Synchronisieren“ klicken, um die neuesten Änderungen in der Azure AD-Gruppe manuell zu synchronisieren.
+1. Laden Sie die Benutzer in Ihr Lab ein, indem Sie auf die Schaltfläche **Alle einladen** klicken, sodass an alle Benutzer eine E-Mail mit dem Link zur Registrierung beim Lab gesendet wird. 
+
+### <a name="add-users-manually-from-emails-or-csv-file"></a>Manuelles Hinzufügen von Benutzern aus E-Mails oder CSV-Dateien
+
+In diesem Abschnitt fügen Sie manuell (per E-Mail-Adresse oder durch Hochladen einer CSV-Datei) Kursteilnehmer hinzu. 
+
+#### <a name="add-users-by-email-address"></a>Hinzufügen von Benutzern per E-Mail-Adresse
+
+1. Wählen Sie im linken Bereich die Option **Benutzer**. 
+1. Klicken Sie auf **Benutzer manuell hinzufügen**. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-manually.png" alt-text="Benutzer manuell hinzufügen":::
+1. Wählen Sie **Per E-Mail-Adresse hinzufügen** (Standard) aus, und geben Sie die E-Mail-Adressen der Kursteilnehmer in separaten Zeilen oder durch Semikolons getrennt in einer einzelnen Zeile ein. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-email-addresses.png" alt-text="Hinzufügen der E-Mail-Adressen von Benutzern":::
+1. Wählen Sie **Speichern** aus. 
+
+    In der Liste werden die E-Mail-Adressen und Status der aktuellen Benutzer angezeigt, und zwar unabhängig davon, ob Sie beim Lab registriert sind oder nicht. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="Benutzerliste":::
+
+    > [!NOTE]
+    > Nachdem die Kursteilnehmer beim Lab registriert wurden, werden ihre Namen in der Liste angezeigt. Der in der Liste angezeigte Name wird aus Vor- und Nachnamen der Kursteilnehmer in Azure Active Directory zusammengesetzt. 
+
+#### <a name="add-users-by-uploading-a-csv-file"></a>Hinzufügen von Benutzern durch Hochladen einer CSV-Datei
+
+Sie können auch eine CSV-Datei mit E-Mail-Adressen von Benutzern hochladen, um Benutzer hinzuzufügen. 
+
+Eine CSV-Textdatei wird zum Speichern von durch Trennzeichen getrennten tabellarischen Daten (Zahlen und Text) verwendet. Anstatt Informationen in Spaltenfeldern (z. B. in Tabellenkalkulationen) zu speichern, speichert eine CSV-Datei Informationen, die durch Trennzeichen voneinander getrennt sind. Jede Zeile in einer CSV-Datei verfügt über die gleiche Anzahl von durch Trennzeichen getrennten „Feldern“. Sie können Excel verwenden, um auf einfache Weise CSV-Dateien zu erstellen und zu bearbeiten.
+
+1. Erstellen Sie in Microsoft Excel eine CSV-Datei, die die E-Mail-Adressen der Kursteilnehmer in einer Spalte auflistet.
+
+    :::image type="content" source="./media/how-to-configure-student-usage/csv-file-with-users.png" alt-text="Liste der Benutzer in einer CSV-Datei":::
+1. Wählen Sie oben im Bereich **Benutzer** die Option **Benutzer hinzufügen** und anschließend **CSV hochladen** aus.
+1. Wählen Sie die CSV-Datei aus, die die E-Mail-Adressen der Kursteilnehmer enthält, und wählen Sie dann **Öffnen** aus.
+
+    Im Fenster **Benutzer hinzufügen** wird die Liste der E-Mail-Adressen aus der CSV-Datei angezeigt. 
+1. Wählen Sie **Speichern** aus. 
+1. Zeigen Sie im Bereich **Benutzer** die Liste der hinzugefügten Kursteilnehmer an. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="Liste der hinzugefügten Benutzer im Bereich „Benutzer“"::: 
 
 ## <a name="send-invitation-emails-to-users"></a>Senden von Einladungs-E-Mails an Benutzer
 
@@ -145,7 +197,7 @@ Erstellen Sie ein geplantes Ereignis für das Lab, damit VMs im Lab zu bestimmte
     ![Senden eines Registrierungslinks per E-Mail](./media/tutorial-setup-classroom-lab/send-email.png)
 4. Der Status der **Einladung** wird in der Liste **Benutzer** angezeigt. Der Status sollte sich in **Wird gesendet** und dann in **Gesendet am &lt;Datum&gt;** ändern. 
 
-    Weitere Informationen zum Hinzufügen von Kursteilnehmern zu einer Klasse sowie zum Verwalten der Verwendung des Labs finden Sie unter [Hinzufügen und Verwalten von Labbenutzern](how-to-configure-student-usage.md).
+Weitere Informationen zum Hinzufügen von Kursteilnehmern zu einer Klasse sowie zum Verwalten der Verwendung des Labs finden Sie unter [Hinzufügen und Verwalten von Labbenutzern](how-to-configure-student-usage.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 In diesem Tutorial haben Sie ein Lab für Ihre Klasse in Azure erstellt. Um zu erfahren, wie ein Teilnehmer auf einen virtuellen Computer im Labor über den Registrierungslink zugreifen kann, fahren Sie mit nächsten Tutorial fort:

@@ -6,19 +6,18 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: c189411b13baf2497f0752c15550dd419f88f754
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 53884c2f6d9f2e8cbb5676e9ac10e8fb15ed919e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088600"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024278"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Verwenden des Trennschalterdashboards mit Azure Spring Cloud
 
 **Dieser Artikel gilt für:** ✔️ Java
 
-::: zone pivot="programming-language-java"
 [Spring Cloud Netflix Turbine](https://github.com/Netflix/Turbine) wird häufig verwendet, um mehrere [Hystrix](https://github.com/Netflix/Hystrix)-Metrikdatenströme zu aggregieren, sodass die Datenströme mit dem Hystrix-Dashboard in einer einzelnen Ansicht überwacht werden können. In diesem Tutorial wird veranschaulicht, wie sie in Azure Spring Cloud verwendet werden.
 > [!NOTE]
 > Netflix Hystrix wird in vielen bestehenden Spring Cloud-Apps verwendet, befindet sich aber nicht mehr in aktiver Entwicklung. Wenn Sie ein neues Projekt entwickeln, verwenden Sie stattdessen Spring Cloud-Trennschalterimplementierungen wie [resilience4j](https://github.com/resilience4j/resilience4j). Anders als die in diesem Tutorial gezeigte Turbine vereinigt das neue Spring Cloud-Trennschalterframework alle Implementierungen seiner Metrikdatenpipeline in Micrometer. Wir arbeiten weiterhin an der Micrometer-Unterstützung in Azure Spring Cloud, daher wird sie in diesem Tutorial nicht behandelt.
@@ -84,4 +83,4 @@ Als Web-App sollte das Hystrix-Dashboard mit `test-endpoint` arbeiten. Wenn es n
 ## <a name="next-steps"></a>Nächste Schritte
 * [Bereitstellen einer Dienstinstanz über die Azure CLI](./spring-cloud-quickstart.md#provision-an-instance-of-azure-spring-cloud)
 * [Vorbereiten einer Java Spring-Anwendung für die Bereitstellung in Azure Spring Cloud](./spring-cloud-tutorial-prepare-app-deployment.md)
-::: zone-end
+

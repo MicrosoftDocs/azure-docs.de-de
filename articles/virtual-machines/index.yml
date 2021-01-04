@@ -11,12 +11,12 @@ metadata:
   author: cynthn
   ms.author: cynthn
   ms.date: 02/14/2020
-  ms.openlocfilehash: 09e6d6400c9aa2fcdd54dbc568c4429c1b71497c
-  ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+  ms.openlocfilehash: 075704312bc29cf195a98c343f707ece91dd3387
+  ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/13/2020
-  ms.locfileid: "91970060"
+  ms.lasthandoff: 11/20/2020
+  ms.locfileid: "94986044"
 highlightedContent:
   items:
   - title: Erstellen eines virtuellen Linux-Computers mit der Azure CLI
@@ -64,7 +64,7 @@ conceptualContent:
     - url: ./windows/tutorial-manage-data-disk.md
       itemType: tutorial
       text: Erstellen und Verwalten von Datenträgern
-    - url: ../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?context=azure/virtual-machines/windows/context/windows-vm-context
+    - url: ../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?context=%2fazure/virtual-machines/windows/context/windows-vm-context
       itemType: how-to-guide
       text: Konfigurieren von verwalteten Identitäten
     - url: ./troubleshooting/index.yml

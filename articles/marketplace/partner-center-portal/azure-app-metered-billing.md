@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 52ae961a813b6d14592953fdf8662cbaecf662e1
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d015cec30e516541b50c2acfac38fad898965e1b
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280447"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436350"
 ---
 # <a name="managed-application-metered-billing"></a>Getaktete Abrechnung für verwaltete Anwendungen 
 
@@ -22,7 +22,7 @@ Mit dem Marketplace-Messungsdienst können Sie verwaltete Anwendungspläne für 
 
 Damit ein verwalteter Anwendungsplan die getaktete Abrechnung verwenden kann, ist Folgendes erforderlich:
 
-* Es müssen alle Angebotsanforderungen erfüllt sein, die unter [Erstellen eines Azure-Anwendungsangebots](create-new-azure-apps-offer.md) beschrieben sind.
+* Es müssen alle Angebotsanforderungen erfüllt sein, die unter [Erstellen eines Azure-Anwendungsangebots](../create-new-azure-apps-offer.md) beschrieben sind.
 * Der **Preis** muss so konfiguriert sein, dass den Kunden die Kosten pro Monat für Ihren Dienst berechnet werden. Der Preis kann null sein, wenn Sie keine feste Gebühr berechnen möchten und stattdessen ausschließlich die getaktete Abrechnung verwenden.
 * Es müssen **Abrechnungsdimensionen** für die Messungsereignisse festgelegt werden, die der Kunde zusätzlich zum Pauschalpreis bezahlen soll.
 * Es muss in die [Marketplace-Messungsdienst-APIs](./marketplace-metering-service-apis.md) integriert werden, um Microsoft über abrechenbare Ereignisse zu informieren.
@@ -107,7 +107,7 @@ Nachdem ein Plan veröffentlicht wurde, können die Details auf der Planebene ni
 
 ### <a name="upper-limits"></a>Obergrenzen
 
-Für ein einzelnes Angebot können maximal 18 individuelle Dimensionen konfiguriert werden.
+Für ein einzelnes Angebot können maximal 30 individuelle Dimensionen konfiguriert werden.
 
 ## <a name="get-support"></a>Support
 

@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/19/2020
 ms.author: duau
 ms.openlocfilehash: 55c316a370b9e44e906e48b4716201384567c9c2
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205879"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003785"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Tutorial: Steuern des Routings von Datenverkehr mit gewichteten Endpunkten unter Verwendung von Traffic Manager
 
@@ -56,18 +56,18 @@ In diesem Abschnitt erstellen Sie die beiden virtuellen Computer *myIISVMEastUS*
 1. Wählen Sie im Azure-Portal links oben **Ressource erstellen** > **Compute** > **Windows Server 2019 Datacenter** aus.
 2. Geben Sie unter **Virtuellen Computer erstellen** auf der Registerkarte **Grundlagen** die folgenden Werte ein (bzw. wählen Sie sie aus):
 
-   - **Abonnement** > **Ressourcengruppe** : Wählen Sie **Neu erstellen** aus, und geben Sie **myResourceGroupTM1** ein.
-   - **Instanzendetails** > **Name des virtuellen Computers** : Geben Sie *myIISVMEastUS* ein.
-   - **Instanzendetails** > **Region** :  Wählen Sie **USA, Osten** aus.
-   - **Administratorkonto** > **Benutzername** :  Geben Sie den gewünschten Benutzernamen ein.
-   - **Administratorkonto** > **Kennwort** :  Geben Sie das gewünschte Kennwort ein. Das Kennwort muss mindestens zwölf Zeichen lang sein und die [definierten Anforderungen an die Komplexität](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) erfüllen.
-   - **Regeln für eingehende Ports** > **Öffentliche Eingangsports** : Wählen Sie **Ausgewählte Ports zulassen** aus.
-   - **Regeln für eingehende Ports** > **Eingangsports auswählen** : Wählen Sie im Dropdownfeld **RDP** und **HTTP** aus.
+   - **Abonnement** > **Ressourcengruppe**: Wählen Sie **Neu erstellen** aus, und geben Sie **myResourceGroupTM1** ein.
+   - **Instanzendetails** > **Name des virtuellen Computers**: Geben Sie *myIISVMEastUS* ein.
+   - **Instanzendetails** > **Region**:  Wählen Sie **USA, Osten** aus.
+   - **Administratorkonto** > **Benutzername**:  Geben Sie den gewünschten Benutzernamen ein.
+   - **Administratorkonto** > **Kennwort**:  Geben Sie das gewünschte Kennwort ein. Das Kennwort muss mindestens zwölf Zeichen lang sein und die [definierten Anforderungen an die Komplexität](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) erfüllen.
+   - **Regeln für eingehende Ports** > **Öffentliche Eingangsports**: Wählen Sie **Ausgewählte Ports zulassen** aus.
+   - **Regeln für eingehende Ports** > **Eingangsports auswählen**: Wählen Sie im Dropdownfeld **RDP** und **HTTP** aus.
 
 3. Wählen Sie die Registerkarte **Verwaltung** oder **Weiter: Datenträger** und anschließend **Weiter: Netzwerk** > **Weiter: Verwaltung** aus. Legen Sie unter **Überwachung** die Option **Startdiagnose** auf **Aus** fest.
-4. Klicken Sie auf **Überprüfen + erstellen** .
-5. Überprüfen Sie die Einstellungen, und klicken Sie dann auf **Erstellen** .  
-6. Führen Sie die Schritte zum Erstellen eines zweiten virtuellen Computers mit dem Namen *myIISVMWestEurope* aus. Geben Sie der **Ressourcengruppe** den Namen *myResourceGroupTM2* , und verwenden Sie als **Standort** die Option *Europa, Westen* . Legen Sie bei allen anderen Einstellungen die gleichen Optionen fest wie für *myIISVMEastUS* .
+4. Klicken Sie auf **Überprüfen + erstellen**.
+5. Überprüfen Sie die Einstellungen, und klicken Sie dann auf **Erstellen**.  
+6. Führen Sie die Schritte zum Erstellen eines zweiten virtuellen Computers mit dem Namen *myIISVMWestEurope* aus. Geben Sie der **Ressourcengruppe** den Namen *myResourceGroupTM2*, und verwenden Sie als **Standort** die Option *Europa, Westen*. Legen Sie bei allen anderen Einstellungen die gleichen Optionen fest wie für *myIISVMEastUS*.
 7. Die Erstellung der VMs kann einige Minuten dauern. Fahren Sie mit den restlichen Schritten erst fort, nachdem beide VMs erstellt wurden.
 
 ![Erstellen einer VM](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
@@ -76,12 +76,12 @@ In diesem Abschnitt erstellen Sie die beiden virtuellen Computer *myIISVMEastUS*
 
 In diesem Abschnitt installieren Sie den IIS-Server auf den beiden virtuellen Computern („myIISVMEastUS“ und „myIISVMWestEurope“) und aktualisieren dann die Standardwebseite. Die benutzerdefinierte Webseite zeigt den Namen des virtuellen Computers an, mit dem Sie eine Verbindung herstellen, wenn Sie die Website über einen Webbrowser besuchen.
 
-1. Wählen Sie im linken Menü die Option **Alle Ressourcen** . Wählen Sie in der Ressourcenliste **myIISVMEastUS** in der Ressourcengruppe **myResourceGroupTM1** aus.
+1. Wählen Sie im linken Menü die Option **Alle Ressourcen**. Wählen Sie in der Ressourcenliste **myIISVMEastUS** in der Ressourcengruppe **myResourceGroupTM1** aus.
 2. Wählen Sie auf der Seite **Übersicht** die Option **Verbinden** aus. Wählen Sie unter **Connect to virtual machine** (Mit virtuellem Computer verbinden) die Option **RDP-Datei herunterladen** aus.
 3. Öffnen Sie die heruntergeladene RDP-Datei. Wählen Sie **Verbinden** aus, wenn eine entsprechende Aufforderung angezeigt wird. Geben Sie den Benutzernamen und das Kennwort an, die Sie beim Erstellen des virtuellen Computers angegeben haben. Unter Umständen müssen Sie **Weitere Optionen** > **Anderes Konto verwenden** auswählen, um die Anmeldeinformationen anzugeben, die Sie beim Erstellen des virtuellen Computers eingegeben haben.
-4. Klicken Sie auf **OK** .
+4. Klicken Sie auf **OK**.
 5. Während des Anmeldevorgangs wird unter Umständen eine Zertifikatwarnung angezeigt. Sollte eine Warnung angezeigt werden, wählen Sie **Ja** bzw. **Weiter** aus, um mit der Verbindungsherstellung fortzufahren.
-6. Navigieren Sie auf dem Serverdesktop zu **Windows-Verwaltungsprogramme** > **Server-Manager** .
+6. Navigieren Sie auf dem Serverdesktop zu **Windows-Verwaltungsprogramme** > **Server-Manager**.
 7. Öffnen Sie Windows PowerShell auf dem ersten virtuellen Computer. Verwenden Sie die folgenden Befehle, um den IIS-Server zu installieren und die HTM-Standarddatei zu aktualisieren.
 
     ```powershell-interactive
@@ -97,42 +97,42 @@ In diesem Abschnitt installieren Sie den IIS-Server auf den beiden virtuellen Co
 
     ![Installieren von IIS und Anpassen der Webseite](./media/tutorial-traffic-manager-improve-website-response/deployiis.png)
 
-8. Schließen Sie die RDP-Verbindung mit **myIISVMEastUS** .
-9. Wiederholen Sie die Schritte 1 bis 8. Erstellen Sie eine RDP-Verbindung mit dem virtuellen Computer **myIISVMWestEurope** innerhalb der Ressourcengruppe **myResourceGroupTM2** , um IIS zu installieren und die dazugehörige Standardwebseite anzupassen.
+8. Schließen Sie die RDP-Verbindung mit **myIISVMEastUS**.
+9. Wiederholen Sie die Schritte 1 bis 8. Erstellen Sie eine RDP-Verbindung mit dem virtuellen Computer **myIISVMWestEurope** innerhalb der Ressourcengruppe **myResourceGroupTM2**, um IIS zu installieren und die dazugehörige Standardwebseite anzupassen.
 
 #### <a name="configure-dns-names-for-the-vms-running-iis"></a>Konfigurieren von DNS-Namen für die virtuellen Computer, die IIS ausführen
 
 Traffic Manager leitet Benutzerdatenverkehr basierend auf dem DNS-Namen der Dienstendpunkte weiter. In diesem Abschnitt konfigurieren Sie die DNS-Namen für die IIS-Server „myIISVMEastUS“ und „myIISVMWestEurope“.
 
-1. Wählen Sie im linken Menü die Option **Alle Ressourcen** . Wählen Sie in der Ressourcenliste **myIISVMEastUS** in der Ressourcengruppe **myResourceGroupTM1** aus.
+1. Wählen Sie im linken Menü die Option **Alle Ressourcen**. Wählen Sie in der Ressourcenliste **myIISVMEastUS** in der Ressourcengruppe **myResourceGroupTM1** aus.
 2. Wählen Sie auf der Seite **Übersicht** unter **DNS-Name** die Option **Konfigurieren** aus.
-3. Fügen Sie auf der Seite **Konfiguration** einen eindeutigen Namen als DNS-Name hinzu. Klicken Sie dann auf **Speichern** .
-4. Wiederholen Sie die Schritte 1 bis 3 für den virtuellen Computer **myIISVMWestEurope** in der Ressourcengruppe **myResourceGroupTM2** .
+3. Fügen Sie auf der Seite **Konfiguration** einen eindeutigen Namen als DNS-Name hinzu. Klicken Sie dann auf **Speichern**.
+4. Wiederholen Sie die Schritte 1 bis 3 für den virtuellen Computer **myIISVMWestEurope** in der Ressourcengruppe **myResourceGroupTM2**.
 
 ### <a name="create-a-test-vm"></a>Erstellen eines virtuellen Testcomputers
 
-In diesem Abschnitt erstellen Sie je einen virtuellen Computer ( *myVMEastUS* und *myVMWestEurope* ) in den Azure-Regionen **USA, Osten** und **Europa, Westen** . Mit diesen virtuellen Computern testen Sie, wie Traffic Manager Datenverkehr an den Websiteendpunkt mit dem höheren Gewichtungswert weiterleitet.
+In diesem Abschnitt erstellen Sie je einen virtuellen Computer (*myVMEastUS* und *myVMWestEurope*) in den Azure-Regionen **USA, Osten** und **Europa, Westen**. Mit diesen virtuellen Computern testen Sie, wie Traffic Manager Datenverkehr an den Websiteendpunkt mit dem höheren Gewichtungswert weiterleitet.
 
 1. Wählen Sie im Azure-Portal links oben **Ressource erstellen** > **Compute** > **Windows Server 2019 Datacenter** aus.
 2. Geben Sie unter **Virtuellen Computer erstellen** auf der Registerkarte **Grundlagen** die folgenden Werte ein (bzw. wählen Sie sie aus):
 
-   - **Abonnement** > **Ressourcengruppe** : Wählen Sie **myResourceGroupTM1** aus.
-   - **Instanzendetails** > **Name des virtuellen Computers** : Geben Sie *myVMEastUS* ein.
-   - **Instanzendetails** > **Region** :  Wählen Sie **USA, Osten** aus.
-   - **Administratorkonto** > **Benutzername** :  Geben Sie den gewünschten Benutzernamen ein.
-   - **Administratorkonto** > **Kennwort** :  Geben Sie das gewünschte Kennwort ein. Das Kennwort muss mindestens zwölf Zeichen lang sein und die [definierten Anforderungen an die Komplexität](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) erfüllen.
-   - **Regeln für eingehende Ports** > **Öffentliche Eingangsports** : Wählen Sie **Ausgewählte Ports zulassen** aus.
-   - **Regeln für eingehende Ports** > **Eingangsports auswählen** : Wählen Sie im Dropdownfeld **RDP** aus.
+   - **Abonnement** > **Ressourcengruppe**: Wählen Sie **myResourceGroupTM1** aus.
+   - **Instanzendetails** > **Name des virtuellen Computers**: Geben Sie *myVMEastUS* ein.
+   - **Instanzendetails** > **Region**:  Wählen Sie **USA, Osten** aus.
+   - **Administratorkonto** > **Benutzername**:  Geben Sie den gewünschten Benutzernamen ein.
+   - **Administratorkonto** > **Kennwort**:  Geben Sie das gewünschte Kennwort ein. Das Kennwort muss mindestens zwölf Zeichen lang sein und die [definierten Anforderungen an die Komplexität](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) erfüllen.
+   - **Regeln für eingehende Ports** > **Öffentliche Eingangsports**: Wählen Sie **Ausgewählte Ports zulassen** aus.
+   - **Regeln für eingehende Ports** > **Eingangsports auswählen**: Wählen Sie im Dropdownfeld **RDP** aus.
 
 3. Wählen Sie die Registerkarte **Verwaltung** oder **Weiter: Datenträger** und anschließend **Weiter: Netzwerk** > **Weiter: Verwaltung** aus. Legen Sie unter **Überwachung** die Option **Startdiagnose** auf **Aus** fest.
-4. Klicken Sie auf **Überprüfen + erstellen** .
-5. Überprüfen Sie die Einstellungen, und klicken Sie dann auf **Erstellen** .  
-6. Führen Sie die Schritte zum Erstellen eines zweiten virtuellen Computers mit dem Namen *myVMWestEurope* aus. Geben Sie der **Ressourcengruppe** den Namen *myResourceGroupTM2* , und verwenden Sie als **Standort** die Option *Europa, Westen* . Legen Sie bei allen anderen Einstellungen die gleichen Optionen fest wie für *myVMEastUS* .
+4. Klicken Sie auf **Überprüfen + erstellen**.
+5. Überprüfen Sie die Einstellungen, und klicken Sie dann auf **Erstellen**.  
+6. Führen Sie die Schritte zum Erstellen eines zweiten virtuellen Computers mit dem Namen *myVMWestEurope* aus. Geben Sie der **Ressourcengruppe** den Namen *myResourceGroupTM2*, und verwenden Sie als **Standort** die Option *Europa, Westen*. Legen Sie bei allen anderen Einstellungen die gleichen Optionen fest wie für *myVMEastUS*.
 7. Die Erstellung der VMs kann einige Minuten dauern. Fahren Sie mit den restlichen Schritten erst fort, nachdem beide VMs erstellt wurden.
 
 ## <a name="create-a-traffic-manager-profile"></a>Erstellen eines Traffic Manager-Profils
 
-Erstellen Sie ein Traffic Manager-Profil auf der Grundlage der Routingmethode **Gewichtet** .
+Erstellen Sie ein Traffic Manager-Profil auf der Grundlage der Routingmethode **Gewichtet**.
 
 1. Wählen Sie links oben auf dem Bildschirm **Ressource erstellen** > **Netzwerk** > **Traffic Manager-Profil** > **Erstellen** aus.
 2. Geben Sie unter **Traffic Manager-Profil erstellen** die folgenden Informationen ein, bzw. wählen Sie sie aus. Behalten Sie bei den anderen Einstellungen die Standardwerte bei, und wählen Sie anschließend **Erstellen** aus.
@@ -159,7 +159,7 @@ Fügen Sie die beiden virtuellen Computer hinzu, auf denen die IIS-Server („my
     | ---                     | ---                                                |
     | type                    | Geben Sie den Azure-Endpunkt ein.                                   |
     | Name           | Geben Sie **myEastUSEndpoint** ein.                                        |
-    | Zielressourcentyp           | Wählen Sie **Öffentliche IP-Adresse** .                          |
+    | Zielressourcentyp           | Wählen Sie **Öffentliche IP-Adresse**.                          |
     | Zielressource          | Wählen Sie eine öffentliche IP-Adresse aus, um die Liste der Ressourcen mit öffentlichen IP-Adressen im gleichen Abonnement anzuzeigen. Wählen Sie in **Ressource** die öffentliche IP-Adresse mit dem Namen **myIISVMEastUS-ip** aus. Dies ist die öffentliche IP-Adresse der IIS-Server-VM in „USA, Osten“.|
     |  Weight      | Geben Sie **100** ein.        |
     |        |           |
@@ -181,7 +181,7 @@ In diesem Tutorial verwenden Sie der Einfachheit halber den DNS-Namen des Traffi
 Sie können den DNS-Namen des Traffic Manager-Profils folgendermaßen bestimmen:
 
 1. Suchen Sie über die Suchleiste des Portals nach dem Namen des Traffic Manager-Profils, das Sie im vorhergehenden Abschnitt erstellt haben. Wählen Sie in den angezeigten Ergebnissen das Traffic Manager-Profil aus.
-2. Wählen Sie **Übersicht** .
+2. Wählen Sie **Übersicht**.
 3. Im Traffic Manager-Profil wird der dazugehörige DNS-Name angezeigt. In Produktionsbereitstellungen konfigurieren Sie mithilfe eines DNS-CNAME-Eintrags einen benutzerdefinierten Domänennamen für den Verweis auf den Traffic Manager-Domänennamen.
 
    ![Traffic Manager-DNS-Name](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-dns-name.png)
@@ -190,12 +190,12 @@ Sie können den DNS-Namen des Traffic Manager-Profils folgendermaßen bestimmen:
 
 In diesem Abschnitt sehen Sie Traffic Manager in Aktion.
 
-1. Wählen Sie im linken Menü die Option **Alle Ressourcen** . Wählen Sie in der Ressourcenliste **myVMEastUS** in der Ressourcengruppe **myResourceGroupTM1** aus.
+1. Wählen Sie im linken Menü die Option **Alle Ressourcen**. Wählen Sie in der Ressourcenliste **myVMEastUS** in der Ressourcengruppe **myResourceGroupTM1** aus.
 2. Wählen Sie auf der Seite **Übersicht** die Option **Verbinden** aus. Wählen Sie unter **Connect to virtual machine** (Mit virtuellem Computer verbinden) die Option **RDP-Datei herunterladen** aus.
 3. Öffnen Sie die heruntergeladene RDP-Datei. Wählen Sie **Verbinden** aus, wenn eine entsprechende Aufforderung angezeigt wird. Geben Sie den Benutzernamen und das Kennwort ein, die Sie beim Erstellen des virtuellen Computers festgelegt haben. Unter Umständen müssen Sie **Weitere Optionen** > **Anderes Konto verwenden** auswählen, um die Anmeldeinformationen anzugeben, die Sie beim Erstellen des virtuellen Computers eingegeben haben.
-4. Klicken Sie auf **OK** .
+4. Klicken Sie auf **OK**.
 5. Während des Anmeldevorgangs wird unter Umständen eine Zertifikatwarnung angezeigt. Sollte eine Warnung angezeigt werden, wählen Sie **Ja** bzw. **Weiter** aus, um mit der Verbindungsherstellung fortzufahren.
-6. Geben Sie auf dem virtuellen Computer „myVMEastUS“ in einem Webbrowser den DNS-Namen Ihres Traffic Manager-Profils an, um Ihre Website anzuzeigen. Sie werden zu der Website weitergeleitet, die auf dem IIS-Server „myIISVMEastUS“ gehostet wird, da ihm eine höhere Gewichtung ( **100** ) zugewiesen ist. Dem IIS-Server „myIISVMWestEurope“ ist eine niedrigere Endpunktgewichtung ( **25** ) zugewiesen.
+6. Geben Sie auf dem virtuellen Computer „myVMEastUS“ in einem Webbrowser den DNS-Namen Ihres Traffic Manager-Profils an, um Ihre Website anzuzeigen. Sie werden zu der Website weitergeleitet, die auf dem IIS-Server „myIISVMEastUS“ gehostet wird, da ihm eine höhere Gewichtung (**100**) zugewiesen ist. Dem IIS-Server „myIISVMWestEurope“ ist eine niedrigere Endpunktgewichtung (**25**) zugewiesen.
 
    ![Testen des Traffic Manager-Profils](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
 
@@ -203,7 +203,7 @@ In diesem Abschnitt sehen Sie Traffic Manager in Aktion.
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-Wenn Sie die in diesem Tutorial erstellten Ressourcengruppen nicht mehr benötigen, können Sie sie löschen. Wählen Sie hierzu die Ressourcengruppe aus ( **ResourceGroupTM1** oder **ResourceGroupTM2** ), und wählen Sie dann **Löschen** .
+Wenn Sie die in diesem Tutorial erstellten Ressourcengruppen nicht mehr benötigen, können Sie sie löschen. Wählen Sie hierzu die Ressourcengruppe aus (**ResourceGroupTM1** oder **ResourceGroupTM2**), und wählen Sie dann **Löschen**.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

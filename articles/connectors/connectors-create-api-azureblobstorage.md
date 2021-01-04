@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: 34608a085c0d60e0ce07e5d198622f80a43f8b38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd23ff0f5ad9912440d38903a344011b069aaf16
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284080"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677728"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Erstellen und Verwalten von Blobs in Azure Blob Storage mithilfe von Azure Logic Apps
 
@@ -89,7 +89,7 @@ In Azure Logic Apps handelt es sich bei einer [Aktion](../logic-apps/logic-apps-
 
    ![Hinzufügen eines neuen Schritts zum Logik-App-Workflow](./media/connectors-create-api-azureblobstorage/add-new-step-logic-app-workflow.png) 
 
-   Um eine Aktion zwischen vorhandenen Schritten hinzuzufügen, bewegen Sie den Mauszeiger über den Verbindungspfeil. Wählen Sie das daraufhin angezeigte Pluszeichen ( **+** ) aus, und klicken Sie auf **Aktion hinzufügen**.
+   Um eine Aktion zwischen vorhandenen Schritten hinzuzufügen, bewegen Sie den Mauszeiger über den Verbindungspfeil. Wählen Sie das daraufhin angezeigte Pluszeichen ( **+** ) aus, und klicken Sie auf **Aktion hinzufügen** .
 
 3. Geben Sie im Suchfeld „azure blob“ als Filter ein. Wählen Sie in der Liste mit den Aktionen die gewünschte Aktion aus.
 
@@ -106,7 +106,7 @@ Falls Ihre Verbindung bereits besteht, können Sie die erforderlichen Informatio
   
       ![Auswählen des mit dem Trigger zu verwendenden Speicherordners](./media/connectors-create-api-azureblobstorage/action-select-folder.png)
 
-   2. Suchen Sie anhand der **ID**-Nummer des Blobs nach der gewünschten Datei, und wählen Sie sie aus. Sie finden diese **ID**-Nummer in den Blobmetadaten, die vom oben beschriebenen Blobspeichertrigger zurückgegeben werden.
+   2. Suchen Sie anhand der **ID** -Nummer des Blobs nach der gewünschten Datei, und wählen Sie sie aus. Sie finden diese **ID** -Nummer in den Blobmetadaten, die vom oben beschriebenen Blobspeichertrigger zurückgegeben werden.
 
 5. Wenn Sie fertig sind, wählen Sie auf der Symbolleiste des Designers die Option **Speichern** aus.
 Stellen Sie zum Testen Ihrer Logik-App sicher, dass der ausgewählte Ordner ein Blob enthält.
@@ -185,7 +185,7 @@ Um die Ausnahme und die Unterstützung für verwaltete Identitäten einzurichten
 
 1. Wählen Sie in Ihrem Speicherkonto unter **Einstellungen** die Option **Firewalls und virtuelle Netzwerke** aus. Wählen Sie unter **Zugriff zulassen von** die Option **Ausgewählte Netzwerke** aus, damit die zugehörigen Einstellungen angezeigt werden.
 
-1. Aktivieren Sie unter **Ausnahmen** das Kontrollkästchen **Vertrauenswürdigen Microsoft-Diensten den Zugriff auf dieses Speicherkonto erlauben**, und wählen Sie dann **Speichern** aus.
+1. Aktivieren Sie unter **Ausnahmen** das Kontrollkästchen **Vertrauenswürdigen Microsoft-Diensten den Zugriff auf dieses Speicherkonto erlauben** , und wählen Sie dann **Speichern** aus.
 
    ![Auswählen der Ausnahme, die vertrauenswürdige Microsoft-Dienste zulässt](./media/connectors-create-api-azureblobstorage/allow-trusted-services-firewall.png)
 
@@ -202,9 +202,8 @@ Um die Ausnahme und die Unterstützung für verwaltete Identitäten einzurichten
 
 ### <a name="access-storage-accounts-through-azure-api-management"></a>Zugreifen auf Speicherkonten über Azure API Management
 
-Wenn Sie für [API Management](../api-management/api-management-key-concepts.md) einen Dedicated-Tarif verwenden, können Sie die Speicher-API als Front-End verwenden, indem Sie API Management verwenden und dessen IP-Adressen das Passieren der Firewall gestatten. Im Grunde fügen Sie das virtuelle Azure-Netzwerk, das von API Management verwendet wird, der Firewalleinstellung des Speicherkontos hinzu. Sie können dann entweder die API Management-Aktion oder die HTTP-Aktion verwenden, um die Azure Storage-APIs aufzurufen. Wenn Sie diese Option auswählen, müssen Sie den Authentifizierungsprozess jedoch selbst handhaben. Weitere Informationen finden Sie unter [Einfache Unternehmensintegrationsarchitektur](https://aka.ms/aisarch).
+Wenn Sie für [API Management](../api-management/api-management-key-concepts.md) einen Dedicated-Tarif verwenden, können Sie die Speicher-API als Front-End verwenden, indem Sie API Management verwenden und dessen IP-Adressen das Passieren der Firewall gestatten. Im Grunde fügen Sie das virtuelle Azure-Netzwerk, das von API Management verwendet wird, der Firewalleinstellung des Speicherkontos hinzu. Sie können dann entweder die API Management-Aktion oder die HTTP-Aktion verwenden, um die Azure Storage-APIs aufzurufen. Wenn Sie diese Option auswählen, müssen Sie den Authentifizierungsprozess jedoch selbst handhaben. Weitere Informationen finden Sie unter [Einfache Unternehmensintegrationsarchitektur](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 * Informationen zu anderen [Logic Apps-Connectors](../connectors/apis-list.md)
-

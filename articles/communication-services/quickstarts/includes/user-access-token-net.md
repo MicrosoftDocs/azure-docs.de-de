@@ -2,20 +2,20 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: matthewrobertson
-manager: nimag
+author: tomaschladek
+manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
-ms.author: marobert
-ms.openlocfilehash: 5c9066f369183de3b4cfe19cc5635e8f1b4a94a2
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.author: tchladek
+ms.openlocfilehash: ae388263daeb47786df22007348d2572e035de87
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779338"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816748"
 ---
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -27,16 +27,16 @@ ms.locfileid: "91779338"
 
 ### <a name="create-a-new-c-application"></a>Erstellen einer neuen C#-Anwendung
 
-Verwenden Sie in einem Konsolenfenster (z. B. cmd, PowerShell oder Bash) den Befehl `dotnet new` zum Erstellen einer neuen Konsolen-App mit dem Namen `UserAccessTokensQuickstart`. Dieser Befehl erstellt ein einfaches „Hallo Welt“-C#-Projekt mit einer einzigen Quelldatei: **Program.cs**.
+Verwenden Sie in einem Konsolenfenster (z. B. cmd, PowerShell oder Bash) den Befehl `dotnet new` zum Erstellen einer neuen Konsolen-App mit dem Namen `AccessTokensQuickstart`. Dieser Befehl erstellt ein einfaches „Hallo Welt“-C#-Projekt mit einer einzigen Quelldatei: **Program.cs**.
 
 ```console
-dotnet new console -o UserAccessTokensQuickstart
+dotnet new console -o AccessTokensQuickstart
 ```
 
 Wechseln Sie zum neu erstellten App-Ordner, und verwenden Sie den Befehl `dotnet build`, um Ihre Anwendung zu kompilieren.
 
 ```console
-cd UserAccessTokensQuickstart
+cd AccessTokensQuickstart
 dotnet build
 ```
 
@@ -45,7 +45,7 @@ dotnet build
 Installieren Sie im Anwendungsverzeichnis mithilfe des Befehls `dotnet add package` das .NET-Paket der Azure Communication Services-Bibliothek „Administration“.
 
 ```console
-dotnet add package Azure.Communication.Administration --version 1.0.0-beta.2
+dotnet add package Azure.Communication.Administration --version 1.0.0-beta.3
 ```
 
 ### <a name="set-up-the-app-framework"></a>Einrichten des App-Frameworks
@@ -62,22 +62,19 @@ Verwenden Sie zum Einstieg den folgenden Code:
 using System;
 using Azure.Communication.Administration;
 
-namespace UserAccessTokensQuickstart
+namespace AccessTokensQuickstart
 {
     class Program
     {
         static async System.Threading.Tasks.Task Main(string[] args)
         {
-            Console.WriteLine("Azure Communication Services - User Access Tokens Quickstart");
+            Console.WriteLine("Azure Communication Services - Access Tokens Quickstart");
 
             // Quickstart code goes here
         }
     }
 }
 ```
-
-[!INCLUDE [User Access Tokens Object Model](user-access-tokens-object-model.md)]
-
 ## <a name="authenticate-the-client"></a>Authentifizieren des Clients
 
 Initialisieren Sie einen Kommunikationsidentitätsclient (`CommunicationIdentityClient`) mit Ihrer Verbindungszeichenfolge. Im folgenden Code wird die Verbindungszeichenfolge für die Ressource aus einer Umgebungsvariablen namens `COMMUNICATION_SERVICES_CONNECTION_STRING` abgerufen. Informationen zur Verwaltung der Verbindungszeichenfolge Ihrer Ressource finden Sie [hier](../create-communication-resource.md#store-your-connection-string).
@@ -91,47 +88,57 @@ string ConnectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERV
 var client = new CommunicationIdentityClient(ConnectionString);
 ```
 
-## <a name="create-a-user"></a>Erstellen eines Benutzers
+## <a name="create-an-identity"></a>Erstellen einer Identität
 
-Von Azure Communication Services wird ein einfaches Identitätsverzeichnis gepflegt. Verwenden Sie die Methode `createUser`, um in dem Verzeichnis einen neuen Eintrag mit einer eindeutigen `Id` zu erstellen. Es empfiehlt sich, eine Zuordnung zwischen den Benutzern Ihrer Anwendung und den von Communication Services generierten Identitäten zu pflegen (etwa durch Speichern in der Datenbank Ihres Anwendungsservers).
+Von Azure Communication Services wird ein einfaches Identitätsverzeichnis gepflegt. Verwenden Sie die `createUser`-Methode, um einen neuen Eintrag im Verzeichnis mit einer eindeutigen empfangenen `Id`.Store-Identität mit einer Zuordnung zu den Benutzern Ihrer Anwendung zu erstellen. Beispielsweise, indem Sie sie in der Datenbank des Anwendungsservers speichern. Die Identität ist später erforderlich, um Zugriffstoken auszustellen.
 
 ```csharp
-var userResponse = await client.CreateUserAsync();
-var user = userResponse.Value;
-Console.WriteLine($"\nCreated a user with ID: {user.Id}");
+var identityResponse = await client.CreateUserAsync();
+var identity = identityResponse.Value;
+Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
 ```
 
-## <a name="issue-user-access-tokens"></a>Ausstellen von Benutzerzugriffstoken
+## <a name="issue-identity-access-tokens"></a>Ausstellen von Identitätszugriffstoken
 
-Verwenden Sie die Methode `issueToken`, um ein Zugriffstoken für einen Communication Services-Benutzer auszustellen. Ohne Angabe des optionalen Parameters `user` wird ein neuer Benutzer erstellt und mit dem Token zurückgegeben.
+Verwenden Sie die Methode `issueToken`, um ein Zugriffstoken für eine bereits vorhandene Communication Services-Identität auszustellen. Der Parameter `scopes` definiert einen Satz primitiver Elemente, die dieses Zugriffstoken autorisieren. Weitere Informationen finden Sie in der [Liste der unterstützten Aktionen](../../concepts/authentication.md). Eine neue Instanz des Parameters `communicationUser` kann basierend auf der Zeichenfolgendarstellung der Azure Communication Service-Identität generiert werden.
 
 ```csharp
-// Issue an access token with the "voip" scope for a new user
-var tokenResponse = await client.IssueTokenAsync(user, scopes: new [] { CommunicationTokenScope.VoIP });
+// Issue an access token with the "voip" scope for an identity
+var tokenResponse = await client.IssueTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
 var token =  tokenResponse.Value.Token;
 var expiresOn = tokenResponse.Value.ExpiresOn;
-Console.WriteLine($"\nIssued a token with 'voip' scope that expires at {expiresOn}:");
+Console.WriteLine($"\nIssued an access token with 'voip' scope that expires at {expiresOn}:");
 Console.WriteLine(token);
 ```
 
-Benutzerzugriffstoken sind kurzlebige Anmeldeinformationen, die neu ausgestellt werden müssen, um Dienstunterbrechungen für Ihre Benutzer zu vermeiden. Die Antworteigenschaft `expiresOn` gibt die Lebensdauer des Tokens an.
+Zugriffstoken sind kurzlebige Anmeldeinformationen, die erneut ausgestellt werden müssen. Wenn dies nicht der Fall ist, kann die Benutzerumgebung Ihrer Anwendung unterbrochen werden. Die Antworteigenschaft `expiresOn` gibt die Lebensdauer des Zugriffstokens an. 
 
-## <a name="revoke-user-access-tokens"></a>Widerrufen von Benutzerzugriffstoken
+## <a name="refresh-access-tokens"></a>Zugriffstoken für die Aktualisierung
 
-Manchmal müssen Benutzerzugriffstoken ggf. explizit widerrufen werden – etwa, wenn ein Benutzer das Kennwort ändert, mit dem er sich bei Ihrem Dienst authentifiziert. Diese Funktion wird über die Azure Communication Services-Clientbibliothek „Administration“ bereitgestellt.
+Verwenden Sie zum Aktualisieren eines Zugriffstokens das `CommunicationUser`-Objekt für die erneute Ausstellung:
 
 ```csharp  
-await client.RevokeTokensAsync(user);
-Console.WriteLine($"\nSuccessfully revoked all tokens for user with ID: {user.Id}");
+// Value existingIdentity represents identity of Azure Communication Services stored during identity creation
+identity = new CommunicationUser(existingIdentity);
+tokenResponse = await client.IssueTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
 ```
 
-## <a name="delete-a-user"></a>Löschen eines Benutzers
+## <a name="revoke-access-tokens"></a>Widerrufen von Zugriffstoken
 
-Wird eine Identität gelöscht, werden alle aktiven Token widerrufen, und für die Identitäten können keine weiteren Token mehr ausgestellt werden. Außerdem werden alle gespeicherten Inhalte entfernt, die dem Benutzer zugeordnet sind.
+In einigen Fällen können Sie Zugriffstoken explizit widerrufen. Beispielsweise dann, wenn der Benutzer einer Anwendung das Kennwort ändert, das für die Authentifizierung beim Dienst verwendet wird. Die Methode `RevokeTokensAsync` erklärt alle aktiven Zugriffstoken für ungültig, die für die Identität ausgestellt wurden.
+
+```csharp  
+await client.RevokeTokensAsync(identity);
+Console.WriteLine($"\nSuccessfully revoked all access tokens for identity with ID: {identity.Id}");
+```
+
+## <a name="delete-an-identity"></a>Löschen einer Identität
+
+Wird eine Identität gelöscht, werden alle aktiven Zugriffstoken widerrufen, und für die Identitäten können keine Zugriffstoken mehr ausgestellt werden. Außerdem werden alle gespeicherten Inhalte entfernt, die der Identität zugeordnet sind.
 
 ```csharp
-await client.DeleteUserAsync(user);
-Console.WriteLine($"\nDeleted the user with ID: {user.Id}");
+await client.DeleteUserAsync(identity);
+Console.WriteLine($"\nDeleted the identity with ID: {identity.Id}");
 ```
 
 ## <a name="run-the-code"></a>Ausführen des Codes

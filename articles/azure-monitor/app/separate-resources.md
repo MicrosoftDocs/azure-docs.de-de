@@ -3,12 +3,12 @@ title: 'Entwerfen der Application Insights-Bereitstellung: Eine oder mehrere Res
 description: Leiten Sie Telemetriedaten für Entwicklungs-, Test- und Produktionsabläufe an verschiedene Ressourcen.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 264cbe35e7af50577b345d686b639e47760f428d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49e9b8920af7333e0d95e23e6e5cf0828d448609
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88258712"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536352"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Wie viele Application Insights-Ressourcen soll ich bereitstellen?
 
@@ -26,7 +26,7 @@ Jede Application Insights-Ressource umfasst Metriken, die standardmäßig verfü
 
 -   Für Anwendungskomponenten, die gemeinsam bereitgestellt werden. Normalerweise von einem einzelnen Team entwickelt und von der gleichen Gruppe von DevOps/ITOps-Benutzern verwaltet.
 -   Wenn es sinnvoll ist, KPIs (Key Performance Indicators), wie z. B. Antwortzeiten, Fehlerraten in Dashboards usw., standardmäßig für alle Komponenten zu aggregieren (Sie können auf der Metriken-Explorer-Benutzeroberfläche eine Segmentierung nach Rollenname auswählen).
--   Wenn die rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC) zwischen den Anwendungskomponenten nicht unterschiedlich verwaltet werden muss.
+-   Wenn die rollenbasierte Zugriffssteuerung in Azure (Azure RBAC) zwischen den Anwendungskomponenten nicht unterschiedlich verwaltet werden muss.
 -   Wenn Sie keine Warnungskriterien für Metriken benötigen, die sich zwischen den Komponenten unterscheiden.
 -   Wenn Sie fortlaufende Exporte zwischen den Komponenten nicht unterschiedlich verwalten müssen.
 -   Wenn Sie die Abrechnung/Kontingente zwischen den Komponenten nicht unterschiedlich verwalten müssen.

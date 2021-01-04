@@ -1,20 +1,20 @@
 ---
 title: Behandeln von Bereitstellungsproblemen
-description: Hier erfahren Sie, wie Azure Ressource Manager-Vorlagenbereitstellungen überwacht und Probleme damit behandelt werden. Sie finden hier Aktivitätsprotokolle und den Bereitstellungsverlauf.
+description: Hier erfahren Sie, wie Azure Ressource Manager-Vorlagenbereitstellungen (ARM-Vorlagen) überwacht und Probleme damit behandelt werden. Sie finden hier Aktivitätsprotokolle und den Bereitstellungsverlauf.
 author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 68ddb5c07ffac2aad4e2dafd16301fa29f391797
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a44edc7cd09709f14415fa0a92e63558001d46d
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119343"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928527"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Tutorial: Problembehandlung bei Bereitstellungen von ARM-Vorlagen
 
-Hier erfahren Sie, wie Probleme bei der Bereitstellung von ARM-Vorlagen (Azure Resource Manager) behandelt werden. In diesem Tutorial erzeugen Sie zwei Fehler in einer Vorlage und lernen dann, wie die Probleme mithilfe der Aktivitätsprotokolle und des Bereitstellungsverlaufs behoben werden.
+Hier erfahren Sie, wie Probleme bei der Bereitstellung von ARM-Vorlagen (Azure Resource Manager-Vorlagen) behandelt werden. In diesem Tutorial erzeugen Sie zwei Fehler in einer Vorlage und lernen dann, wie die Probleme mithilfe der Aktivitätsprotokolle und des Bereitstellungsverlaufs behoben werden.
 
 Im Zusammenhang mit der Vorlagenbereitstellung gibt es zwei Fehlertypen:
 
@@ -37,7 +37,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 
 Damit Sie die Anweisungen in diesem Artikel ausführen können, benötigen Sie Folgendes:
 
-- Visual Studio Code mit der Erweiterung „Azure Resource Manager-Tools“. Weitere Informationen finden Sie unter [Schnellstart: Erstellen von Azure Resource Manager-Vorlagen mit Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+- Visual Studio Code mit der Erweiterung „Azure Resource Manager-Tools“. Weitere Informationen finden Sie unter [Schnellstart: Erstellen von ARM-Vorlagen mit Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="create-a-problematic-template"></a>Erstellen einer problematischen Vorlage
 
@@ -96,14 +96,14 @@ Der Bereitstellungsfehler lässt sich im Azure-Portal mit dem folgenden Verfahre
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 2. Öffnen Sie die Ressourcengruppe, indem Sie **Ressourcengruppen** und dann den Namen der Ressourcengruppe auswählen. Unter **Bereitstellung** sollte **1 Fehler** angezeigt werden.
 
-    ![Resource Manager-Tutorial zur Problembehandlung](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
+    ![Screenshot, auf dem die fehlerhafte Bereitstellung hervorgehoben ist](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
 3. Wählen Sie **Fehlerdetails** aus.
 
-    ![Resource Manager-Tutorial zur Problembehandlung](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
+    ![Screenshot, auf dem der Link „Fehlerdetails“ hervorgehoben ist](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
 
     Die Fehlermeldung ist identisch mit der zuvor gezeigten:
 
-    ![Resource Manager-Tutorial zur Problembehandlung](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png)
+    ![Screenshot der Fehlerdetails](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png)
 
 Sie können den Fehler auch in den Aktivitätsprotokollen finden:
 

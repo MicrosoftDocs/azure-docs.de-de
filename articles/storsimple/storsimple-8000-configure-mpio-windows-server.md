@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: alkohli
-ms.openlocfilehash: cc88d5b7a458c3666cdb4469d7021917d27115f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d44fada1eddf2d3f80bec085d8a5bf751197eb1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514330"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968807"
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Konfigurieren von Multipfad-E/A für Ihr StorSimple-Gerät
 
 In diesem Tutorial werden die Schritte zum Installieren und Verwenden von MPIO (Multipath I/O, Multipfad-E/A) auf einem Host unter Windows Server 2012 R2 beschrieben, der mit einem physischen StorSimple-Gerät verbunden ist. Die Anleitung in diesem Artikel gilt nur für physische Geräte der StorSimple 8000-Serie. MPIO wird von StorSimple Cloud Appliances derzeit nicht unterstützt.
 
-Windows Server unterstützt das MPIO-Feature (Multipath I/O, Multipfad-E/A), um Sie bei der Erstellung hochverfügbarer, fehlertoleranter iSCSI-Netzwerkkonfigurationen zu unterstützen. MPIO verwendet redundante physische Pfadkomponenten (Adapter, Kabel und Switches), um logische Pfade zwischen dem Server und dem Speichergerät zu erstellen. Wenn bei einer Komponente ein Fehler auftritt, durch den ein logischer Pfad fehlschlägt, verwendet die Multipfad-Logik einen anderen Pfad für E/A, sodass Anwendungen weiterhin auf ihre Daten zugreifen können. Darüber hinaus kann MPIO abhängig von Ihrer Konfiguration auch die Leistung durch ein Umverteilen der Lasten auf alle Pfade verbessern. Weitere Informationen finden Sie in der [MPIO-Übersicht](https://technet.microsoft.com/library/cc725907.aspx "Übersicht und Features von MPIO").
+Windows Server unterstützt das MPIO-Feature (Multipath I/O, Multipfad-E/A), um Sie bei der Erstellung hochverfügbarer, fehlertoleranter iSCSI-Netzwerkkonfigurationen zu unterstützen. MPIO verwendet redundante physische Pfadkomponenten (Adapter, Kabel und Switches), um logische Pfade zwischen dem Server und dem Speichergerät zu erstellen. Wenn bei einer Komponente ein Fehler auftritt, durch den ein logischer Pfad fehlschlägt, verwendet die Multipfad-Logik einen anderen Pfad für E/A, sodass Anwendungen weiterhin auf ihre Daten zugreifen können. Darüber hinaus kann MPIO abhängig von Ihrer Konfiguration auch die Leistung durch ein Umverteilen der Lasten auf alle Pfade verbessern. Weitere Informationen finden Sie in der [MPIO-Übersicht](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc725907(v=ws.11) "Übersicht und Features von MPIO").
 
 Für eine hohe Verfügbarkeit Ihrer StorSimple-Lösung sollte MPIO auf dem StorSimple-Gerät konfiguriert werden. Wenn MPIO auf den Hostservern unter Windows Server 2012 R2 installiert ist, können die Server den Ausfall einer Verknüpfung, des Netzwerks oder einer Schnittstelle tolerieren.
 
@@ -108,7 +108,7 @@ Nachdem MPIO unter Windows Server konfiguriert wurde, können auf dem StorSimple
       > **Wenn Sie ein privates Netzwerk für iSCSI-Verbindungen verwenden, geben Sie die IP-Adresse des DATA-Ports ein, der mit dem privaten Netzwerk verbunden ist.**
     
 4. Wiederholen Sie die Schritte 2 bis 3 für eine zweite Netzwerkschnittstelle (z. B. DATA 1) auf Ihrem Gerät. Denken Sie daran, dass diese Schnittstellen für iSCSI aktiviert sein sollten. Weitere Informationen finden Sie unter [Ändern von Netzwerkschnittstellen](storsimple-8000-modify-device-config.md#modify-network-interfaces).
-5. Wählen Sie die Registerkarte **Ziele** im Dialogfeld **Eigenschaften des iSCSI-Initiators** aus. Der Ziel-IQN des StorSimple-Geräts sollte unter **Ermittelte Ziele**angezeigt werden.
+5. Wählen Sie die Registerkarte **Ziele** im Dialogfeld **Eigenschaften des iSCSI-Initiators** aus. Der Ziel-IQN des StorSimple-Geräts sollte unter **Ermittelte Ziele** angezeigt werden.
 
    ![Eigenschaften des iSCSI-Initiators – Registerkarte "Ziele"](./media/storsimple-configure-mpio-windows-server/IC741007.png)
    
@@ -191,4 +191,3 @@ Das folgende Verfahren beschreibt, wie Sitzungen hinzugefügt werden, wenn ein S
 ## <a name="next-steps"></a>Nächste Schritte
 
 Erfahren Sie mehr zum Thema [Verwenden des StorSimple-GeräteManager-Diensts, um eine StorSimple-Gerätekonfiguration zu ändern](storsimple-8000-modify-device-config.md).
-

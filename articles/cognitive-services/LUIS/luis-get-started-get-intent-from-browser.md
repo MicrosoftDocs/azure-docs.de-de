@@ -1,18 +1,18 @@
 ---
-title: 'Schnellstart: Abfragen zur Vorhersage mit einem Browser – LUIS'
-description: In dieser Schnellstartanleitung bestimmen Sie im Browser mithilfe einer verfügbaren öffentlichen LUIS-App aus Konversationstext die Absicht eines Benutzers.
+title: 'Abfragen von Vorhersagen mithilfe eines Browsers: LUIS'
+description: In diesem Artikel bestimmen Sie im Browser mithilfe einer verfügbaren öffentlichen LUIS-App aus Konversationstext die Absicht eines Benutzers.
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: quickstart
-ms.date: 04/21/2020
-ms.openlocfilehash: ce7544bee32586aa4cdeeb7f47a84744194db5da
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.topic: conceptual
+ms.date: 11/30/2020
+ms.openlocfilehash: 6aa681c8ea60cb57ac3e6d143c60cc46bc057719
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91316272"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436911"
 ---
-# <a name="quickstart-query-prediction-runtime-with-user-text"></a>Schnellstart: Abfragen der Vorhersagelaufzeit mit Benutzertext
+# <a name="how-to-query-the-prediction-runtime-with-user-text"></a>Abfragen der Vorhersagelaufzeit mit Benutzertext
 
 Um zu verstehen, was ein LUIS-Vorhersageendpunkt zurückgibt, zeigen Sie ein Vorhersageergebnis in einem Webbrowser an.
 

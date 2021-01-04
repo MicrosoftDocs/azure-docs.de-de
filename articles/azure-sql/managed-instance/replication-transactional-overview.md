@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 04/20/2020
-ms.openlocfilehash: a335f6ac015397ba2b2634d0d604c194a768260a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76bb4ffb4ebeb01baf8236d6be84c900b23ffbc0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283206"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790813"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Transaktionsreplikation mit Azure SQL Managed Instance (Vorschau)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -35,11 +35,11 @@ Sie können Transaktionsreplikation auch verwenden, um Änderungen an Azure SQL 
 - Eine Instanzdatenbank in Azure SQL Managed Instance
 
   > [!NOTE]
-  > Um alle Features von Azure SQL Managed Instance verwenden zu können, müssen Sie die neuesten Versionen von [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) und [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) verwenden.
+  > Um alle Features von Azure SQL Managed Instance verwenden zu können, müssen Sie die neuesten Versionen von [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) und [SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt) verwenden.
 
 ### <a name="components"></a>Komponenten
 
-Die wichtigsten Komponenten der Transaktionsreplikation (**Verleger**, **Verteiler** und **Abonnent**) sind in der folgenden Abbildung dargestellt:  
+Die wichtigsten Komponenten der Transaktionsreplikation ( **Verleger** , **Verteiler** und **Abonnent** ) sind in der folgenden Abbildung dargestellt:  
 
 ![Replikation zu SQL-Datenbank](./media/replication-transactional-overview/replication-to-sql-database.png)
 
@@ -65,21 +65,21 @@ Azure SQL Managed Instance kann als Abonnent der folgenden Versionen von SQL Ser
 
    > [!NOTE]
    >
-   > - Für andere Versionen von SQL Server, die keine Veröffentlichung in Objekten in Azure unterstützen, kann die Methode der [erneuten Veröffentlichung von Daten](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) verwendet werden, um Daten in neuere Versionen von SQL Server verschieben.
+   > - Für andere Versionen von SQL Server, die keine Veröffentlichung in Objekten in Azure unterstützen, kann die Methode der [erneuten Veröffentlichung von Daten](/sql/relational-databases/replication/republish-data) verwendet werden, um Daten in neuere Versionen von SQL Server verschieben.
    > - Der Versuch, Replikationen mit einer älteren Version zu konfigurieren, kann zu dem Fehler mit der Nummer MSSQL_REPL20084 (Der Prozess konnte keine Verbindung mit dem Abonnenten herstellen.) oder MSSQ_REPL40532 (Der von der Anmeldung angeforderte Server \<name> kann nicht geöffnet werden. Die Anmeldung ist fehlgeschlagen.)
 
 ### <a name="types-of-replication"></a>Replikationstypen
 
-Es gibt verschiedene [Replikationstypen](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication):
+Es gibt verschiedene [Replikationstypen](/sql/relational-databases/replication/types-of-replication):
 
 | Replikation | Azure SQL-Datenbank | Verwaltete Azure SQL-Instanz |
 | :----| :------------- | :--------------- |
-| [**Transaktionsreplikation**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Ja (nur als Abonnent) | Ja |
-| [**Momentaufnahme**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Ja (nur als Abonnent) | Ja|
-| [**Mergereplikation**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Nein | Nein|
-| [**Peer-to-Peer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Nein | Nein|
-| [**Bidirektional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Nein | Ja|
-| [**Aktualisierbare Abonnements**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Nein | Nein|
+| [**Transaktionsreplikation**](/sql/relational-databases/replication/transactional/transactional-replication) | Ja (nur als Abonnent) | Ja |
+| [**Momentaufnahme**](/sql/relational-databases/replication/snapshot-replication) | Ja (nur als Abonnent) | Ja|
+| [**Mergereplikation**](/sql/relational-databases/replication/merge/merge-replication) | Nein | Nein|
+| [**Peer-to-Peer**](/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Nein | Nein|
+| [**Bidirektional**](/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Nein | Ja|
+| [**Aktualisierbare Abonnements**](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Nein | Nein|
 | &nbsp; | &nbsp; | &nbsp; |
 
 ### <a name="supportability-matrix"></a>Unterstützungsmatrix
@@ -148,7 +148,7 @@ Bei dieser Konfiguration ist eine Datenbank in Azure SQL-Datenbank oder Azure SQ
 - Konfigurieren Sie VPN-Peering zwischen den virtuellen Netzwerken der Replikationsteilnehmer, sofern die virtuellen Netzwerke unterschiedlich sind.
 
 > [!NOTE]
-> Möglicherweise tritt beim Herstellen einer Verbindung mit einer Azure Storage-Datei der Fehler 53 auf, wenn Port 445 (ausgehend) der Netzwerksicherheitsgruppe gesperrt ist und der Verteiler eine Azure SQL Managed Instance-Datenbank und der Abonnent ein lokales System ist. [Aktualisieren Sie die vNet-Netzwerksicherheitsgruppe](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems), um dieses Problem zu beheben.
+> Möglicherweise tritt beim Herstellen einer Verbindung mit einer Azure Storage-Datei der Fehler 53 auf, wenn Port 445 (ausgehend) der Netzwerksicherheitsgruppe gesperrt ist und der Verteiler eine Azure SQL Managed Instance-Datenbank und der Abonnent ein lokales System ist. [Aktualisieren Sie die vNet-Netzwerksicherheitsgruppe](../../storage/files/storage-troubleshoot-windows-file-connection-problems.md), um dieses Problem zu beheben.
 
 ## <a name="with-failover-groups"></a>Mit Failovergruppen
 
@@ -196,16 +196,16 @@ Weitere Informationen zum Konfigurieren von Transaktionsreplikation finden Sie i
 
 - [Konfigurieren der Replikation zwischen einem SQL Managed Instance-Verleger und -Abonnenten](../managed-instance/replication-between-two-instances-configure-tutorial.md)
 - [Konfigurieren der Replikation zwischen einem SQL Managed Instance-Verleger, SQL Managed Instance-Verteiler und SQL Server-Abonnenten](../managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md)
-- [Erstellen Sie eine Veröffentlichung](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
-- [Erstellen Sie ein Pushabonnement](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) mit dem Servernamen als Abonnent (z. B. `N'azuresqldbdns.database.windows.net` und dem Namen der Datenbank in Azure SQL-Datenbank als Zieldatenbank, z. B. **AdventureWorks**. )
+- [Erstellen Sie eine Veröffentlichung](/sql/relational-databases/replication/publish/create-a-publication).
+- [Erstellen Sie ein Pushabonnement](/sql/relational-databases/replication/create-a-push-subscription) mit dem Servernamen als Abonnent (z. B. `N'azuresqldbdns.database.windows.net` und dem Namen der Datenbank in Azure SQL-Datenbank als Zieldatenbank, z. B. **AdventureWorks** . )
 
 ## <a name="see-also"></a>Weitere Informationen  
 
 - [Replikation mit einer SQL Managed Instance und einer Failovergruppe](transact-sql-tsql-differences-sql-server.md#replication)
 - [Replikation zu SQL-Datenbank-Einzeldatenbanken und in einem Pool zusammengefassten Datenbanken](../database/replication-to-sql-database.md)
 - [Konfigurieren der Replikation in einer verwalteten Azure SQL-Datenbank-Instanzdatenbank](../managed-instance/replication-between-two-instances-configure-tutorial.md)
-- [Erstellen einer Veröffentlichung](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Erstellen eines Pushabonnements](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
-- [Replikationstypen](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
-- [Überwachen (Replikation)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
-- [Initialisieren eines Abonnements](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
+- [Erstellen einer Veröffentlichung](/sql/relational-databases/replication/publish/create-a-publication)
+- [Erstellen eines Pushabonnements](/sql/relational-databases/replication/create-a-push-subscription/)
+- [Replikationstypen](/sql/relational-databases/replication/types-of-replication)
+- [Überwachen (Replikation)](/sql/relational-databases/replication/monitor/monitoring-replication)
+- [Initialisieren eines Abonnements](/sql/relational-databases/replication/initialize-a-subscription)

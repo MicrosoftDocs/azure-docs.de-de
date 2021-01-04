@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/20/2019
-ms.openlocfilehash: 3ec50acc693452fe73d929effcea98b12fc5ff8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6482b2ec07a0473ddbea2098d37c5d67c8b68704
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75933936"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539699"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Arbeiten im Apache Hadoop-Ökosystem in HDInsight auf einem Windows-Computer
 
@@ -31,17 +31,17 @@ Beispiele für Aufgaben, die Sie mit PowerShell erledigen können:
 * [Ausführen von Apache Hive-Abfragen mit PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 * [Verwalten von Clustern mit PowerShell](hdinsight-administer-use-powershell.md).
 
-Führen Sie die Schritte zum [Installieren und Konfigurieren von Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) aus, um die neueste Version zu erhalten.
+Führen Sie die Schritte zum [Installieren und Konfigurieren von Azure PowerShell](/powershell/azure/install-az-ps) aus, um die neueste Version zu erhalten.
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>Hilfsprogramme für die Ausführung in einem Browser
 
 Die folgenden Hilfsprogramme verfügen über eine Webbenutzeroberfläche, die in einem Browser ausgeführt wird:
-* **[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)** ist eine interaktive Befehlszeilen-Shell, die in Ihrem Browser und aus dem Azure-Portal heraus ausgeführt wird.
+* **[Azure Cloud Shell](../cloud-shell/overview.md)** ist eine interaktive Befehlszeilen-Shell, die in Ihrem Browser und aus dem Azure-Portal heraus ausgeführt wird.
 
 * Die **[Apache Ambari-Webbenutzeroberfläche](hdinsight-hadoop-manage-ambari.md)** ist ein Hilfsprogramm zum Verwalten und Überwachen im Azure-Portal, mit dem Sie verschiedene Arten von Aufträgen verwalten können. Beispiele:
     * [Verwenden von Apache Ambari mit der REST-API](hdinsight-hadoop-manage-ambari-rest-api.md)
     * [Apache Hive-Ansicht in Apache Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md)
-    * [Apache Tez-Ansicht in Apache Ambari](hdinsight-debug-ambari-tez-view.md)
+    * [Apache Tez-Ansicht in Apache Ambari](./index.yml)
 
 ## <a name="data-lake-hadoop-tools-for-visual-studio"></a>Data Lake-Tools (Hadoop) für Visual Studio
 
@@ -58,7 +58,7 @@ Beispiele für Aufgaben, die Sie mit Visual Studio und den Data Lake-Tools für 
 Sie können Visual Studio mit dem .NET SDK verwenden, um Cluster zu verwalten und Big Data-Anwendungen zu entwickeln. Sie können auch andere IDEs für die folgenden Aufgaben verwenden, in den Beispielen wird jedoch Visual Studio gezeigt.
 
 Beispiele für Aufgaben, die Sie mit dem .NET SDK in Visual Studio ausführen können:
-* [Azure HDInsight SDK für .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet)
+* [Azure HDInsight SDK für .NET](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true)
 * [Ausführen von Apache Hive-Abfragen mit dem .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 * [Verwenden benutzerdefinierter C#-Funktionen mit Apache Hive- und Apache Pig-Streaming für Apache Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 
@@ -84,13 +84,13 @@ Apache Spark-Cluster in HDInsight enthalten Apache Zeppelin-Notebooks und -Kerne
 
 In Situationen, in denen Sie Tools oder Technologien verwenden müssen, die nur unter Linux verfügbar sind, sollten Sie die folgenden Möglichkeiten in Erwägung ziehen:
 
-* **Bash auf Ubuntu unter Windows 10** stellt ein Linux-Subsystem unter Windows bereit. Bash erlaubt die direkte Ausführung von Linux-Hilfsprogrammen, ohne eine dedizierte Linux-Installation verwalten zu müssen. Die Installationsschritte finden Sie unter [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) (Windows-Subsystem für Linux: Installationshandbuch für Windows 10).  Es funktionieren auch andere [Unix-Shells](https://www.gnu.org/software/bash/).
+* **Bash auf Ubuntu unter Windows 10** stellt ein Linux-Subsystem unter Windows bereit. Bash erlaubt die direkte Ausführung von Linux-Hilfsprogrammen, ohne eine dedizierte Linux-Installation verwalten zu müssen. Die Installationsschritte finden Sie unter [Windows Subsystem for Linux Installation Guide for Windows 10](/windows/wsl/install-win10) (Windows-Subsystem für Linux: Installationshandbuch für Windows 10).  Es funktionieren auch andere [Unix-Shells](https://www.gnu.org/software/bash/).
 * **Docker für Windows** ermöglicht den Zugriff auf viele Linux-basierten Tools und kann direkt unter Windows ausgeführt werden. Sie können Docker beispielsweise verwenden, um den Beeline-Client für Hive direkt unter Windows auszuführen. Sie können auch Docker verwenden, um ein lokales Jupyter-Notebook auszuführen und eine Remoteverbindung mit Spark in HDInsight herzustellen. [Erste Schritte mit Docker für Windows](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](https://mobaxterm.mobatek.net/)** ermöglicht das Durchsuchen des Clusterdateisystems über eine SSH-Verbindung auf einer grafischen Benutzeroberfläche.
 
 ## <a name="cross-platform-tools"></a>Plattformübergreifende Tools
 
-Die Azure-Befehlszeilenschnittstelle (CLI) ist die plattformübergreifende Befehlszeilenumgebung von Microsoft zum Verwalten von Azure-Ressourcen.  Weitere Informationen finden Sie unter [Azure-Befehlszeilenschnittstelle (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+Die Azure-Befehlszeilenschnittstelle (CLI) ist die plattformübergreifende Befehlszeilenumgebung von Microsoft zum Verwalten von Azure-Ressourcen.  Weitere Informationen finden Sie unter [Azure-Befehlszeilenschnittstelle (CLI)](/cli/azure/).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

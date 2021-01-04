@@ -1,6 +1,6 @@
 ---
 title: Erstellen von Ersatzschlüsseln mit IDENTITY
-description: Empfehlungen und Beispiele zum Erstellen von Ersatzschlüsseln für Tabellen im Synapse SQL-Pool mithilfe der Eigenschaft IDENTITY.
+description: Empfehlungen und Beispiele zum Erstellen von Ersatzschlüsseln für Tabellen im dedizierten SQL-Pool mithilfe der IDENTITY-Eigenschaft.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 07/20/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8b4e9aa73a959bcaac18df38f975331ecbf6b034
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 96e81b3d7781f1c6f7bf5743a083e9640dd6c831
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876004"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323587"
 ---
-# <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Erstellen von Ersatzschlüsseln im Synapse SQL-Pool mit IDENTITY
+# <a name="using-identity-to-create-surrogate-keys-using-dedicated-sql-pool-in-azuresynapse-analytics"></a>Verwenden von IDENTITY zum Erstellen von Ersatzschlüsseln mithilfe eines dedizierten SQL-Pools in Azure Synapse Analytics
 
-In diesem Artikel finden Sie Empfehlungen und Beispiele zum Erstellen von Ersatzschlüsseln für Tabellen im Synapse SQL-Pool mithilfe der IDENTITY-Eigenschaft.
+In diesem Artikel finden Sie Empfehlungen und Beispiele zum Erstellen von Ersatzschlüsseln für Tabellen in einem dedizierten SQL-Pool mithilfe der IDENTITY-Eigenschaft.
 
 ## <a name="what-is-a-surrogate-key"></a>Was ist ein Ersatzschlüssel?
 
@@ -31,7 +31,7 @@ Ein Ersatzschlüssel für eine Tabelle ist eine Spalte mit einem eindeutigen Bez
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Erstellen einer Tabelle mit einer IDENTITY-Spalte
 
-Die IDENTITY-Eigenschaft wurde so entwickelt, dass sie über alle Verteilungen im Synapse SQL-Pool aufskaliert werden kann. Aus diesem Grund ist die Implementierung von IDENTITY auf das Erreichen dieser Ziele ausgerichtet.
+Die IDENTITY-Eigenschaft wurde so entwickelt, dass sie über alle Verteilungen im dedizierten SQL-Pool aufskaliert werden kann. Aus diesem Grund ist die Implementierung von IDENTITY auf das Erreichen dieser Ziele ausgerichtet.
 
 Sie können beim Erstellen einer Tabelle definieren, dass diese die IDENTITY-Eigenschaft hat, indem Sie Syntax verwenden, die der folgenden Anweisung ähnelt:
 
@@ -53,7 +53,7 @@ Im restlichen Abschnitt werden die Feinheiten der Implementierung hervorgehoben,
 
 ### <a name="allocation-of-values"></a>Zuordnung von Werten
 
-Die Eigenschaft IDENTITY garantiert nicht die Reihenfolge, in der die Ersatzwerte aufgrund der verteilten Architektur des Data Warehouse zugeordnet werden. Die IDENTITY-Eigenschaft wurde so entwickelt, dass sie über alle Verteilungen im Synapse SQL-Pool aufskaliert werden kann. 
+Die Eigenschaft IDENTITY garantiert nicht die Reihenfolge, in der die Ersatzwerte aufgrund der verteilten Architektur des Data Warehouse zugeordnet werden. Die IDENTITY-Eigenschaft wurde so entwickelt, dass sie über alle Verteilungen im dedizierten SQL-Pool aufskaliert werden kann. 
 
 Dies wird in folgendem Beispiel veranschaulicht:
 
@@ -103,7 +103,7 @@ CREATE TABLE AS SELECT (CTAS) folgt dem gleichen SQL Server-Verhalten wie SELECT
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>Explizites Einfügen von Werten in eine IDENTITY-Spalte
 
-Synapse SQL-Pool unterstützt die `SET IDENTITY_INSERT <your table> ON|OFF`-Syntax. Mit dieser Syntax können Sie explizit Werte in die IDENTITY-Spalte einfügen.
+Dedizierte SQL-Pools unterstützen die Syntax `SET IDENTITY_INSERT <your table> ON|OFF`. Mit dieser Syntax können Sie explizit Werte in die IDENTITY-Spalte einfügen.
 
 Viele Datenmodellierer verwenden vordefinierte negative Werte für bestimmte Zeilen in ihren Dimensionen. Die Zeile „-1“ oder „unbekannter Member“ ist ein Beispiel.
 
@@ -164,7 +164,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > Aktuell ist es nicht möglich, `CREATE TABLE AS SELECT` zu verwenden, wenn Sie Daten mit einer IDENTITY-Spalte in eine Tabelle laden.
 >
 
-Weitere Informationen zum Laden von Daten finden Sie unter [Entwerfen von ELT-Prozessen für den Synapse SQL-Pool](design-elt-data-loading.md) und [Bewährte Methoden zum Laden von Daten](guidance-for-loading-data.md).
+Weitere Informationen zum Laden von Daten finden Sie unter [Entwerfen von ELT-Prozessen für dedizierte SQL-Pools](design-elt-data-loading.md) und [Bewährte Methoden zum Laden von Daten](guidance-for-loading-data.md).
 
 ## <a name="system-views"></a>Systemsichten
 
@@ -198,7 +198,7 @@ Die IDENTITY-Eigenschaft kann in folgenden Fällen nicht verwendet werden:
 - Wenn die Spalte auch der Verteilungsschlüssel ist
 - Wenn die Tabelle eine externe Tabelle ist
 
-Die folgenden verwandten Funktionen werden im Synapse SQL-Pool nicht unterstützt:
+Die folgenden verwandten Funktionen werden einem dedizierten SQL-Pool nicht unterstützt:
 
 - [IDENTITY()](/sql/t-sql/functions/identity-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

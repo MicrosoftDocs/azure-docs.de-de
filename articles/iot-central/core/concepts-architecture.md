@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: cc33d3c07461b5662e1454ec131dbc2b5f19a390
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7b048581b29fa4244c42261810f382b229a627dd
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126172"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985965"
 ---
 # <a name="azure-iot-central-architecture"></a>Azure IoT Central-Architektur
 
@@ -54,7 +54,7 @@ IoT Central bietet die folgenden Funktionen für IoT Edge-Geräte:
   - Die von jedem Modul gesendeten Telemetriedaten
   - Die von jedem Modul gemeldeten Eigenschaften
   - Die Befehle, auf die jedes Modul reagiert
-  - Die Beziehungen zwischen einem Gerätefunktionsmodell für das IoT Edge-Gateway und dem Funktionsmodell für nachgeschaltete Geräte
+  - Die Beziehungen zwischen einem IoT Edge-Gatewaygerät und dem nachgeschalteten Gerät
   - Cloudeigenschaften, die auf dem IoT Edge-Gerät nicht gespeichert werden
   - Anpassungen, Dashboards und Formulare, die Teil der IoT Central-Anwendung sind
 
@@ -133,12 +133,12 @@ In einer Azure IoT Central-Anwendung definieren Gerätevorlagen das Verhalten un
 
 ![Vorlagenarchitektur](media/concepts-architecture/template-architecture.png)
 
-In einer Gerätevorlage für eine IoT Central-Anwendung gilt Folgendes:
+In einer IoT Central-[Gerätevorlage](concepts-device-templates.md) gilt Folgendes:
 
-- **Gerätefunktionsmodelle** geben die Funktionen eines Geräts an, z. B. die vom Gerät gesendeten Telemetriedaten, die Eigenschaften, die den Gerätestatus definieren, und die Befehle, auf die das Gerät reagiert. Gerätefunktionen sind in einer oder mehreren Schnittstellen organisiert.
+- Ein **Gerätemodell** gibt die Funktionen eines Geräts an, z. B. die vom Gerät gesendeten Telemetriedaten, die Eigenschaften, die den Gerätestatus definieren, und die Befehle, auf die das Gerät reagiert. Gerätefunktionen sind in einer oder mehreren Schnittstellen organisiert.
 - **Cloudeigenschaften** geben die Eigenschaften an, die IoT Central für ein Gerät speichert. Diese Eigenschaften werden nur in IoT Central gespeichert und nie an ein Gerät gesendet.
 - **Ansichten** geben die Dashboards und Formulare an, die der Generator erstellt, damit der Operator die Geräte überwachen und verwalten kann.
-- Durch **Anpassungen** kann der Generator einige der Definitionen im Gerätefunktionsmodell überschreiben, damit Sie für die IoT Central-Anwendung relevanter werden.
+- Durch **Anpassungen** kann der Generator einige der Definitionen im Gerätemodell überschreiben, damit sie für die IoT Central-Anwendung relevanter werden.
 
 Eine Anwendung kann ein oder mehrere simulierte und echte Geräte basierend auf den einzelnen Gerätevorlagen verwenden.
 
@@ -152,7 +152,7 @@ In einer Azure IoT Central-Anwendung können Sie [Aufträge erstellen und ausfü
 
 ## <a name="role-based-access-control-rbac"></a>Rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC)
 
-Ein Administrator kann mithilfe einer der vordefinierten Rollen oder durch Erstellen einer benutzerdefinierten Rolle [Zugriffsregeln für eine Azure IoT Central-Anwendung definieren](howto-manage-users-roles.md). Über Rollen wird festgelegt, auf welche Bereiche einer Anwendung ein Benutzer zugreifen und welche Aktionen er ausführen darf.
+Jede IoT Central-Anwendung verfügt über ein eigenes integriertes RBAC-System. Ein Administrator kann mithilfe einer der vordefinierten Rollen oder durch Erstellen einer benutzerdefinierten Rolle [Zugriffsregeln für eine Azure IoT Central-Anwendung definieren](howto-manage-users-roles.md). Über Rollen wird festgelegt, auf welche Bereiche einer Anwendung ein Benutzer zugreifen und welche Aktionen er ausführen darf.
 
 ## <a name="security"></a>Sicherheit
 

@@ -1,7 +1,7 @@
 ---
 title: Auslösen einer Machine Learning-Pipeline für neue Daten
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Sie die Ausführung einer Machine Learning-Pipeline mithilfe von Azure Logic Apps auslösen.
+description: Hier erfahren Sie, wie Sie eine Azure Machine Learning-Pipeline ausführen, indem Sie mit Azure Logic Apps auf neue Daten reagieren.
 services: machine-learning
 author: NilsPohlmann
 ms.author: nilsp
@@ -10,13 +10,13 @@ ms.subservice: core
 ms.workload: data-services
 ms.date: 02/07/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4
-ms.openlocfilehash: 2e3544bee5158a855467f8cb142f176df2187ef5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, contperf-fy20q4
+ms.openlocfilehash: 37a18d147d3aca713d0c6bd934e23aa22b2521a5
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318295"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028885"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Auslösen der Ausführung einer Machine Learning-Pipeline aus einer Logik-App
 
@@ -94,6 +94,9 @@ Führen Sie nach der Bereitstellung Ihrer Logik-App die folgenden Schritte aus, 
     > ![HTTP-Einstellungen](media/how-to-trigger-published-pipeline/http-settings.png)
 
 1. Wählen Sie **Speichern** aus. Der Zeitplan ist nun bereit.
+
+> [!IMPORTANT]
+> Wenn Sie mit der rollenbasierten Zugriffssteuerung in Azure (Azure RBAC) den Zugriff auf Ihre Pipeline verwalten, [legen Sie die Berechtigungen für Ihr Pipelineszenario fest (Training oder Bewertung)](how-to-assign-roles.md#common-scenarios).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

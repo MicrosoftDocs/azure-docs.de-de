@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: b97ae5d4ba4295ebbb51c960e4cbb76c53dc88a8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f941c394c3dab0e5e6997898a48a248f6a0cfe42
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148062"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352438"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Verwenden des WebJobs SDK für die ereignisgesteuerte Hintergrundverarbeitung
 
@@ -66,7 +66,8 @@ static void Main(string[] args)
 }
 ```
 
-Aufgrund der Verwendung der standardmäßigen .NET Core-Konfigurations-APIs steht in Version 3.*x* keine API zum Ändern von Verbindungszeichenfolgennamen zur Verfügung.
+> [!NOTE]
+> Aufgrund der Verwendung der standardmäßigen .NET Core-Konfigurations-APIs steht in Version 3.*x* keine API zum Ändern von Verbindungszeichenfolgennamen zur Verfügung. Siehe [Entwickeln und Bereitstellen von WebJobs mit Visual Studio](webjobs-dotnet-deploy-vs.md).
 
 ### <a name="host-development-settings"></a>Hostentwicklungseinstellungen
 

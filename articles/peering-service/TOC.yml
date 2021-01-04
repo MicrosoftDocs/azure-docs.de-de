@@ -43,7 +43,7 @@
     - name: Netzwerkblog
       href: 'https://azure.microsoft.com/blog/topics/networking'
     - name: 'Frageseite von Microsoft Q&A (Fragen und Antworten): Netzwerke'
-      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
+      href: /answers/topics/azure-virtual-network.html
     - name: Netzwerkfeedback
       href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
     - name: Preise

@@ -4,12 +4,12 @@ description: Es wird beschrieben, wie Sie die Web-App-Leistungsanalyse und Diagn
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.custom: vs-azure
-ms.openlocfilehash: a3937719fd47ba988cf1e0a93f4c06fcc8112d3e
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: d2de29d897c84496fd44d74d88d58decbc64b7f8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932208"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532901"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Debuggen von Anwendungen mit Azure Application Insights in Visual Studio
 In Visual Studio (2015 und höher) können Sie mithilfe von Telemetriedaten aus [Azure Application Insights](./app-insights-overview.md) sowohl beim Debuggen als auch in der Produktion in Ihrer ASP.NET-Web-App die Leistung analysieren und Probleme diagnostizieren.
@@ -53,12 +53,12 @@ Ausnahmeberichte werden im Suchfenster angezeigt. (Bei einigen älteren Typen de
 
 Klicken Sie auf eine Ausnahme, um eine Stapelüberwachung zu erhalten. Wenn der Code der App in Visual Studio geöffnet ist, können Sie sich durch die Stapelüberwachung bis zur entsprechenden Zeile im Code klicken.
 
-![Ausnahmestapelüberwachung](./media/visual-studio/17.png)
+![Screenshot des „About“-Objekts in einer Stapelüberwachung](./media/visual-studio/17.png)
 
 ## <a name="view-request-and-exception-summaries-in-the-code"></a>Anzeigen von Zusammenfassungen von Anforderungen und Ausnahmen im Code
 In der Codebereichszeile wird oberhalb jeder Handlermethode die Anzahl von Anforderungen und Ausnahmen angezeigt, die von Application Insights innerhalb der letzten 24 Stunden protokolliert wurden.
 
-![Ausnahmestapelüberwachung](./media/visual-studio/21.png)
+![Screenshot einer Ausnahme in einem Kontextdialogfeld](./media/visual-studio/21.png)
 
 > [!NOTE] 
 > CodeLens zeigt Application Insights-Daten nur an, wenn Sie Ihre [App zum Senden von Telemetriedaten an das Application Insights-Portal konfiguriert haben](./asp-net.md).

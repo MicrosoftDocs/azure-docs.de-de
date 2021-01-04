@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
 ms.openlocfilehash: f230445ecdb046c2b631e89567df71e1d09c3234
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369946"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999228"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analysieren des Azure Site Recovery-Bereitstellungsplaner-Berichts
 In diesem Artikel werden die Arbeitsblätter beschrieben, die im Excel-Bericht enthalten sind, der mit dem Azure Site Recovery-Bereitstellungsplaner für das Szenario „Hyper-V zu Azure“ erstellt wird.
@@ -209,7 +209,7 @@ Falls ein Datenträger aufgrund seiner Workloadmerkmale beispielsweise in die Ka
 
 **Memory (MB)** (Arbeitsspeicher (MB)): Der Arbeitsspeicher (RAM) auf der VM.
 
-**NICs** : Die Anzahl von NICs auf der VM.
+**NICs**: Die Anzahl von NICs auf der VM.
 
 **Boot Type** (Starttyp): Dies ist der Starttyp der VM. Er kann entweder „BIOS“ oder „EFI“ lauten.
 
@@ -264,7 +264,7 @@ Der Excel-Bericht, der mit dem Site Recovery-Bereitstellungsplaner erstellt wurd
 
 **Memory (MB)** (Arbeitsspeicher (MB)): Die Größe des Arbeitsspeichers (RAM) auf der VM.
 
-**NICs** : Die Anzahl von NICs auf der VM.
+**NICs**: Die Anzahl von NICs auf der VM.
 
 **Boot Type** (Starttyp): Dies ist der Starttyp der VM. Er kann entweder „BIOS“ oder „EFI“ lauten.
 
@@ -296,7 +296,7 @@ Im Arbeitsblatt wird der gesamte freie Speicherplatz für jedes Volume der Hyper
     Wenn nicht genügend freier Speicherplatz zum Speichern der Protokolldateien verfügbar ist, wird die Replikation angehalten. Der Replikationsstatus der VM wechselt in diesem Fall zu „Neusynchronisierung erforderlich“.
 * Falls die Netzwerkbandbreite nicht ausreicht, um die Protokolldateien per Pushvorgang nach Azure zu übertragen, bildet sich auf dem Volume für die Protokolldateien ein Rückstau. Im schlimmsten Fall, wenn die Größe der Protokolldateien auf mehr als 50% der VHD-Größe ansteigt, wird für die VM der Modus „Neusynchronisierung erforderlich“ aktiviert. Schlimmstenfalls benötigen Sie 50% zusätzlichen freien Speicherplatz der VHD-Größe für die Deltareplikation.
 
-**Hyper-V-Host** : Die Liste mit den Hyper-V-Servern für die Profilerstellung. Wenn ein Server Teil eines Hyper-V-Clusters ist, werden alle Clusterknoten gruppiert.
+**Hyper-V-Host**: Die Liste mit den Hyper-V-Servern für die Profilerstellung. Wenn ein Server Teil eines Hyper-V-Clusters ist, werden alle Clusterknoten gruppiert.
 
 **Volume (VHD path)** (Volume (VHD-Pfad)): Jedes Volume mit einem Hyper-V-Host, auf dem VHDs/VHDXs vorhanden sind. 
 

@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dc931c461988daf9ff6fb2f954b52fa58ce94af
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 795f5ede382e561ee810e54e1f8897c5d806e8b8
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369776"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412373"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>In vier Schritten zu einem sicheren Identitätsfundament mit Azure Active Directory
 
@@ -147,7 +147,7 @@ Ebenso kann der [Bericht zur Self-Service-Kennwortverwaltung](../authentication/
 
 ### <a name="self-service-app-management"></a>Self-Service-App-Verwaltung
 
-Damit Ihre Benutzer über ihren Zugriffsbereich Anwendungen selbst ermitteln können, müssen Sie den [Self-Service-Anwendungszugriff](../manage-apps/access-panel-manage-self-service-access.md) auf alle Anwendungen aktivieren, die Benutzer selbst ermitteln und für die sie den Zugriff anfordern können sollen. Der Self-Service-Anwendungszugriff bietet die Möglichkeit, dass Benutzer Anwendungen selbst ermitteln können und die entsprechende Geschäftseinheit den Zugriff auf diese Anwendungen optional genehmigen kann. Sie können der Geschäftseinheit ermöglichen, die Anmeldeinformationen zu verwalten, die Benutzern zugewiesen wurden, damit diese über ihren Zugriffsbereich direkt auf [Anwendungen mit einmaligem Anmelden](../manage-apps/application-sign-in-problem-password-sso-gallery.md#configure-password-sso-for-an-azure-ad-gallery-app) per Kennwort zugreifen können.
+Damit Ihre Benutzer über ihren Zugriffsbereich Anwendungen selbst ermitteln können, müssen Sie den [Self-Service-Anwendungszugriff](../manage-apps/access-panel-manage-self-service-access.md) auf alle Anwendungen aktivieren, die Benutzer selbst ermitteln und für die sie den Zugriff anfordern können sollen. Der Self-Service-Anwendungszugriff bietet die Möglichkeit, dass Benutzer Anwendungen selbst ermitteln können und die entsprechende Geschäftseinheit den Zugriff auf diese Anwendungen optional genehmigen kann. Sie können der Geschäftseinheit ermöglichen, die Anmeldeinformationen zu verwalten, die Benutzern zugewiesen wurden, damit diese über ihren Zugriffsbereich direkt auf [Anwendungen mit einmaligem Anmelden](../manage-apps/troubleshoot-password-based-sso.md#automatically-capture-sign-in-fields-for-an-app) per Kennwort zugreifen können.
 
 ### <a name="self-service-group-management"></a>Self-Service-Gruppenverwaltung
 
@@ -267,6 +267,6 @@ Wir empfehlen Ihnen, die folgende Checkliste zur Referenz auszudrucken, damit Si
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Erfahren Sie, wie Sie Ihren Sicherheitsstatus erhöhen können, indem Sie die Funktionen von Azure Active Directory und diese Fünf-Schritte-Checkliste verwenden: [Fünf Schritte zum Sichern Ihrer Identitätsinfrastruktur](https://aka.ms/securitysteps).
+Erfahren Sie, wie Sie Ihren Sicherheitsstatus erhöhen können, indem Sie die Funktionen von Azure Active Directory und diese Fünf-Schritte-Checkliste verwenden: [Fünf Schritte zum Sichern Ihrer Identitätsinfrastruktur](../../security/fundamentals/steps-secure-identity.md).
 
-Erfahren Sie, wie Identitätsfunktionen in Azure AD helfen können, den Übergang zur cloudgesteuerten Verwaltung zu beschleunigen, indem sie die Lösungen und Funktionen bereitstellen, die es Organisationen erlauben, sich schnell anzupassen und zunehmend mehr von ihrer Identitätsverwaltung aus konventionellen, lokalen Systemen nach Azure AD zu verschieben: [So stellt Azure AD die über die Cloud gesteuerte Verwaltung für lokale Workloads bereit](https://aka.ms/cloudgoverned).
+Erfahren Sie, wie Identitätsfunktionen in Azure AD helfen können, den Übergang zur cloudgesteuerten Verwaltung zu beschleunigen, indem sie die Lösungen und Funktionen bereitstellen, die es Organisationen erlauben, sich schnell anzupassen und zunehmend mehr von ihrer Identitätsverwaltung aus konventionellen, lokalen Systemen nach Azure AD zu verschieben: [So stellt Azure AD die über die Cloud gesteuerte Verwaltung für lokale Workloads bereit](./cloud-governed-management-for-on-premises.md).

@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: dech
 ms.custom: devx-track-js
-ms.openlocfilehash: b1e0f8c301d40ff10dbf977731d457a31b096328
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1115d7bb0d6857aa39f246743df54a6cf3fd3676
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477996"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098656"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Erstellen einer Node.js-Konsolen-App mit dem JavaScript SDK zum Verwalten von Daten der Azure Cosmos DB-SQL-API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -85,7 +86,7 @@ Ihre App ist erstellt. Stellen Sie nun sicher, dass sie mit Azure Cosmos DB komm
 
 1. Öffnen Sie die Datei *config.js* in einem Text-Editor Ihrer Wahl.
 
-1. Kopieren Sie den folgenden Codeausschnitt, und fügen Sie ihn in die Datei *config.js* ein. Legen Sie die Eigenschaften `endpoint` und `key` auf den Endpunkt-URI und den Primärschlüssel Ihrer Azure Cosmos DB-Instanz fest. Die Datenbank- und Containernamen werden auf **Aufgaben** und **Elemente** festgelegt. Der Partitionsschlüssel, den Sie für diese Anwendung verwenden, ist **/category** .
+1. Kopieren Sie den folgenden Codeausschnitt, und fügen Sie ihn in die Datei *config.js* ein. Legen Sie die Eigenschaften `endpoint` und `key` auf den Endpunkt-URI und den Primärschlüssel Ihrer Azure Cosmos DB-Instanz fest. Die Datenbank- und Containernamen werden auf **Aufgaben** und **Elemente** festgelegt. Der Partitionsschlüssel, den Sie für diese Anwendung verwenden, ist **/category**.
 
    :::code language="javascript" source="~/cosmosdb-nodejs-get-started/config.js":::
 
@@ -93,7 +94,7 @@ Ihre App ist erstellt. Stellen Sie nun sicher, dass sie mit Azure Cosmos DB komm
 
    :::image type="content" source="media/sql-api-nodejs-get-started/node-js-tutorial-keys.png" alt-text="Screenshot: Abrufen von Schlüsseln über das Azure-Portal":::
 
-Das JavaScript SDK verwendet die generischen Begriffe *Container* und *Element* . Ein Container kann eine Sammlung, ein Graph oder eine Tabelle sein. Ein Element kann ein Dokument, ein Edge/Vertex oder eine Zeile sein und stellt den Inhalt eines Containers dar. Im vorherigen Codeausschnitt wird der `module.exports = config;`-Code verwendet, um das Konfigurationsobjekt zu exportieren, sodass Sie in der Datei *app. js* darauf verweisen können.
+Das JavaScript SDK verwendet die generischen Begriffe *Container* und *Element*. Ein Container kann eine Sammlung, ein Graph oder eine Tabelle sein. Ein Element kann ein Dokument, ein Edge/Vertex oder eine Zeile sein und stellt den Inhalt eines Containers dar. Im vorherigen Codeausschnitt wird der `module.exports = config;`-Code verwendet, um das Konfigurationsobjekt zu exportieren, sodass Sie in der Datei *app. js* darauf verweisen können.
 
 ## <a name="create-a-database-and-a-container"></a>Erstellen einer Datenbank und eines Containers
 

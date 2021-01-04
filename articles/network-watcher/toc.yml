@@ -13,7 +13,8 @@
       href: diagnose-vm-network-traffic-filtering-problem-powershell.md
     - name: Diagnostizieren eines Problems mit dem Filter für VM-Datenverkehr – Azure CLI
       href: diagnose-vm-network-traffic-filtering-problem-cli.md
-    - name: Konfigurieren von NSG-Flowprotokollen mithilfe einer ARM-Vorlage
+    - name: Konfigurieren von NSG-Datenflussprotokollen mithilfe einer ARM-Vorlage
+      displayName: Resource Manager
       href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
 - name: Tutorials
   items:
@@ -27,8 +28,8 @@
       href: network-watcher-nsg-flow-logging-portal.md
 - name: Konzepte
   items:
-    - name: Verbindungsmonitor (Vorschau)
-      href: connection-monitor-preview.md
+    - name: Verbindungsmonitor
+      href: connection-monitor-overview.md
     - name: Diagnostizieren von Problemen mit dem Filter für VM-Netzwerkdatenverkehr
       href: network-watcher-ip-flow-verify-overview.md
     - name: Diagnostizieren von NSG-Regeln und Datenverkehrsfilterung
@@ -57,26 +58,28 @@
   items:
     - name: Konfigurieren von Network Watcher
       href: network-watcher-create.md
-    - name: Erstellen eines Verbindungsmonitors (Vorschau)
+    - name: Erstellen eines Verbindungsmonitors
       items:
         - name: Verwenden des Azure-Portals
-          href: connection-monitor-preview-create-using-portal.md
+          href: connection-monitor-create-using-portal.md
         - name: Verwenden von ARMClient
-          href: connection-monitor-preview-create-using-arm-client.md
-    - name: Migrieren zu Verbindungsmonitor (Vorschau)
+          href: connection-monitor-create-using-template.md
+        - name: Verwenden von PowerShell
+          href: connection-monitor-create-using-powershell.md
+    - name: Migrieren zu Verbindungsmonitor
       items:
         - name: Von Netzwerkleistungsmonitor
-          href: migrate-to-connection-monitor-preview-from-network-performance-monitor.md
-        - name: Von Verbindungsmonitor
-          href: migrate-to-connection-monitor-preview-from-connection-monitor.md
+          href: migrate-to-connection-monitor-from-network-performance-monitor.md
+        - name: Von Verbindungsmonitor (Klassisch)
+          href: migrate-to-connection-monitor-from-connection-monitor-classic.md
     - name: Diagnostizieren von VM-Netzwerkproblemen
       items:
         - name: Installieren der VM-Erweiterung
           items:
             - name: Windows
-              href: ../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+              href: ../virtual-machines/extensions/network-watcher-windows.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
             - name: Linux
-              href: ../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+              href: ../virtual-machines/extensions/network-watcher-linux.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
         - name: Diagnostizieren eines Routingproblems
           items:
             - name: Azure PowerShell
@@ -181,7 +184,7 @@
     - name: Bestimmen der relativen Wartezeit zwischen einem Standort und einer Azure-Region
       href: view-relative-latencies.md
     - name: Überwachen der Netzwerkleistung
-      href: ../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+      href: ../azure-monitor/insights/network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
     - name: Verschieben von Ressourcen
       items:
         - name: Verschieben von Network Watcher-Ressourcen
@@ -211,7 +214,7 @@
     - name: Azure-Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: "Frageseite von Microsoft\_Q&A (Fragen und Antworten)"
-      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
+      href: /answers/topics/azure-virtual-network.html
     - name: Preise
       href: 'https://azure.microsoft.com/pricing/details/network-watcher/'
     - name: Dienstupdates

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: 1fb5b78f210a9bd817a2987dcb30fa25d156d5d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0eb9afc179f1dd2559f0db7b212f6b3a1da15824
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82780435"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998752"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Fehler „InvalidNetworkConfigurationErrorCode“ bei der Clustererstellung in Azure HDInsight
 
@@ -68,6 +68,19 @@ Da Azure Storage und SQL nicht über feste IP-Adressen verfügen, müssen wir au
 
     Wenn Routen definiert sind, sollten Sie sicherstellen, dass Routen für IP-Adressen für die Region vorhanden sind, in der der Cluster bereitgestellt wurde, und dass **NextHopType** für jede Route auf **Internet** festgelegt ist. Für jede erforderliche IP-Adresse, die im obigen Artikel dokumentiert ist, muss eine Route definiert sein.
 
+## <a name="failed-to-establish-an-outbound-connection-from-the-cluster-for-the-communication-with-the-hdinsight-resource-provider-please-ensure-that-outbound-connectivity-is-allowed"></a>„Failed to establish an outbound connection from the cluster for the communication with the HDInsight resource provider. Please ensure that outbound connectivity is allowed.“ (Es konnte für die Kommunikation keine ausgehende Verbindung vom Cluster mit dem HDInsight-Ressourcenanbieter hergestellt werden. Sorgen Sie dafür, dass ausgehende Konnektivität zulässig ist.)
+
+### <a name="issue"></a>Problem
+
+Die Fehlerbeschreibung enthält den folgenden Text: „Failed to establish an outbound connection from the cluster for the communication with the HDInsight resource provider. Please ensure that outbound connectivity is allowed.“ (Es konnte für die Kommunikation keine ausgehende Verbindung vom Cluster mit dem HDInsight-Ressourcenanbieter hergestellt werden. Sorgen Sie dafür, dass ausgehende Konnektivität zulässig ist.).
+
+### <a name="cause"></a>Ursache
+
+Wenn HDInsight-Cluster in Private Link verwendet werden, muss der ausgehende Zugriff vom Cluster so konfiguriert werden, dass es zulässig ist, Verbindungen zum HDInsight-Ressourcenanbieter herzustellen.
+
+### <a name="resolution"></a>Lösung
+
+* Informationen zur Lösung des Problems finden Sie in den Einrichtungsschritten für Private Link in HDInsight unter [Schützen und Isolieren von Azure HDInsight-Clustern mit Private Link (Vorschauversion)](../hdinsight-private-link.md).
 ---
 
 ## <a name="virtual-network-configuration-is-not-compatible-with-hdinsight-requirement"></a>Die Konfiguration des virtuellen Netzwerks ist nicht mit der HDInsight-Anforderung kompatibel.
@@ -101,7 +114,7 @@ Vergewissern Sie sich, dass sich 168.63.129.16 in der benutzerdefinierten DNS-Ke
     cat /etc/resolv.conf | grep nameserver*
     ```
 
-    Die Ausgabe sollte folgendermaßen aussehen:
+    Die Ausgabe sollte in etwa wie folgt aussehen:
 
     ```output
     nameserver 168.63.129.16
@@ -116,7 +129,7 @@ Vergewissern Sie sich, dass sich 168.63.129.16 in der benutzerdefinierten DNS-Ke
 **Option 1:**  
 Fügen Sie 168.63.129.16 mithilfe der Schritte unter [Planen eines virtuellen Netzwerks für Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md) als erstes benutzerdefiniertes DNS für das virtuelle Netzwerk hinzu. Diese Schritte gelten nur, wenn der benutzerdefinierte DNS-Server unter Linux ausgeführt wird.
 
-**Option 2**  
+**Option 2:**  
 Stellen Sie eine DNS-Server-VM für das virtuelle Netzwerk bereit. Dieser Vorgang umfasst die folgenden Schritte:
 
 * Erstellen Sie eine VM im virtuellen Netzwerk, die als DNS-Weiterleitung konfiguriert wird. (Dies kann eine Linux- oder Windows-VM sein.)
@@ -145,4 +158,4 @@ Wenn Ihr Problem nicht aufgeführt ist oder Sie es nicht lösen können, besuche
 
 * Nutzen Sie [@AzureSupport](https://twitter.com/azuresupport) – das offizielle Microsoft Azure-Konto zur Verbesserung der Benutzerfreundlichkeit. Hierüber hat die Azure-Community Zugriff auf die richtigen Ressourcen: Antworten, Support und Experten.
 
-* Sollten Sie weitere Unterstützung benötigen, senden Sie eine Supportanfrage über das [Azure-Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Wählen Sie dazu auf der Menüleiste die Option **Support** aus, oder öffnen Sie den Hub **Hilfe und Support**. Ausführlichere Informationen hierzu finden Sie unter [Erstellen einer Azure-Supportanfrage](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Zugang zu Abonnementverwaltung und Abrechnungssupport ist in Ihrem Microsoft Azure-Abonnement enthalten. Technischer Support wird über einen [Azure-Supportplan](https://azure.microsoft.com/support/plans/) bereitgestellt.
+* Sollten Sie weitere Unterstützung benötigen, senden Sie eine Supportanfrage über das [Azure-Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Wählen Sie dazu auf der Menüleiste die Option **Support** aus, oder öffnen Sie den Hub **Hilfe und Support**. Ausführlichere Informationen hierzu finden Sie unter [Erstellen einer Azure-Supportanfrage](../../azure-portal/supportability/how-to-create-azure-support-request.md). Zugang zu Abonnementverwaltung und Abrechnungssupport ist in Ihrem Microsoft Azure-Abonnement enthalten. Technischer Support wird über einen [Azure-Supportplan](https://azure.microsoft.com/support/plans/) bereitgestellt.

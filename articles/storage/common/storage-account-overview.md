@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c93508bebdcfce35a89b3d5e2a8abecc7ac84722
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7008cfcdeb4615b42839f92a6df71357f9acf911
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280146"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484990"
 ---
 # <a name="storage-account-overview"></a>Speicherkontoübersicht
 
@@ -60,7 +60,7 @@ In den meisten Fällen sollten Sie Konten vom Typ „Allgemein v2“ verwenden. 
 
 - Ihre Anwendungen verursachen eine hohe Transaktionslast oder nutzen eine erhebliche Bandbreite für die Georeplikation, erfordern aber keine großen Kapazitäten. In diesem Fall sind Allgemein v1-Konten möglicherweise die wirtschaftlich sinnvollste Wahl.
 
-- Sie verwenden eine ältere Version der [REST-API für Speicherdienste](https://msdn.microsoft.com/library/azure/dd894041.aspx) (vor 2014-02-14) oder eine Clientbibliothek mit einer niedrigeren Version als 4.x. Sie können kein Upgrade für Ihre Anwendung durchführen.
+- Sie verwenden eine ältere Version der [REST-API für Speicherdienste](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) (vor 2014-02-14) oder eine Clientbibliothek mit einer niedrigeren Version als 4.x. Sie können kein Upgrade für Ihre Anwendung durchführen.
 
 ### <a name="blockblobstorage-accounts"></a>BlockBlobStorage-Konten
 
@@ -127,13 +127,13 @@ Alle Daten in Ihrem Speicherkonto werden auf Dienstseite verschlüsselt. Weitere
 
 Ein Speicherkonto bietet einen eindeutigen Namespace für Ihre Daten in Azure. Jedes Objekt, das Sie in Azure speichern, besitzt eine Adresse, die den eindeutigen Namen Ihres Speicherkontos enthält. Die Kombination aus Kontoname und Azure Storage-Dienstendpunkt bildet die Endpunkte für Ihr Speicherkonto.
 
-Wenn Ihr allgemeines Speicherkonto beispielsweise *meinspeicherkonto*heißt, lauten die Standardendpunkte für dieses Konto wie folgt:
+Wenn Ihr allgemeines Speicherkonto beispielsweise *meinspeicherkonto* heißt, lauten die Standardendpunkte für dieses Konto wie folgt:
 
 - Blob Storage: `https://*mystorageaccount*.blob.core.windows.net`
 - Table Storage: `https://*mystorageaccount*.table.core.windows.net`
 - Queue Storage: `https://*mystorageaccount*.queue.core.windows.net`
 - Azure Files: `https://*mystorageaccount*.file.core.windows.net`
-- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` (Verwendet den [ABFS-Treiber, der speziell für Big Data optimiert ist](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction#key-features-of-data-lake-storage-gen2).)
+- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` (Verwendet den [ABFS-Treiber, der speziell für Big Data optimiert ist](../blobs/data-lake-storage-introduction.md#key-features-of-data-lake-storage-gen2).)
 
 > [!NOTE]
 > Blockblob- und Blockspeicherkonten machen nur den Endpunkt des Blob-Diensts verfügbar.
@@ -167,7 +167,7 @@ Wenn Sie ein Upgrade eines Allgemein v1- oder Blob Storage-Kontos auf ein Allgem
 
 ### <a name="azcopy"></a>AzCopy
 
-AzCopy ist ein Windows-Befehlszeilenprogramm, mit dem sehr effizient Daten in und aus Azure Storage kopiert werden können. Mit AzCopy können Sie Daten aus einem vorhandenen allgemeinen Speicherkonto in ein Blob Storage-Konto kopieren oder Daten von lokalen Speichergeräten hochladen. Weitere Informationen finden Sie unter [Übertragen von Daten mit dem Befehlszeilenprogramm AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+AzCopy ist ein Windows-Befehlszeilenprogramm, mit dem sehr effizient Daten in und aus Azure Storage kopiert werden können. Mit AzCopy können Sie Daten aus einem vorhandenen allgemeinen Speicherkonto in ein Blob Storage-Konto kopieren oder Daten von lokalen Speichergeräten hochladen. Weitere Informationen finden Sie unter [Übertragen von Daten mit dem Befehlszeilenprogramm AzCopy](./storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="data-movement-library"></a>Data Movement-Bibliothek
 
@@ -177,7 +177,7 @@ Die Azure Storage Data Movement-Bibliothek für .NET basiert auf dem Kernframewo
 
 Sie können eine benutzerdefinierte Anwendung erstellen, um Ihre Daten aus einem Speicherkonto vom Typ „Allgemein v1“ in ein Blob Storage-Konto zu migrieren. Verwenden Sie eine der Azure-Clientbibliotheken oder die REST-API für Azure Storage-Dienste. Azure Storage bietet umfassende Clientbibliotheken für mehrere Programmiersprachen und Plattformen wie .NET, Java, C++, Node.JS, PHP, Ruby und Python. Die Clientbibliotheken bieten erweiterte Funktionen, beispielsweise Wiederholungslogik, Protokollierung und parallele Uploads. Die Entwicklung kann direkt mit der REST-API erfolgen. Diese API lässt sich mithilfe jeder Sprache aufrufen, die HTTP/HTTPS-Anforderungen verarbeitet.
 
-Weitere Informationen zur Azure Storage REST-API finden Sie unter [Azure Storage-Dienste – REST-API-Referenz](https://docs.microsoft.com/rest/api/storageservices/).
+Weitere Informationen zur Azure Storage REST-API finden Sie unter [Azure Storage-Dienste – REST-API-Referenz](/rest/api/storageservices/).
 
 > [!IMPORTANT]
 > Mit clientseitiger Verschlüsselung verschlüsselte Blobs speichern Metadaten im Zusammenhang mit der Verschlüsselung mit dem Blob. Wenn Sie einen mit clientseitiger Verschlüsselung verschlüsselten Blob kopieren, müssen Sie sicherstellen, dass die Blobmetadaten und insbesondere die verschlüsselungsbezogenen Metadaten beim Kopiervorgang erhalten bleiben. Wenn Sie einen Blob ohne die Verschlüsselungsmetadaten kopieren, ist der Blobinhalt nicht mehr abrufbar. Weitere Informationen zu den auf die Verschlüsselung bezogenen Metadaten finden Sie unter [Clientseitige Azure Storage-Verschlüsselung](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

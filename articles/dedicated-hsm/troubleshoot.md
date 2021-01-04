@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 622ead2ab58075fe6edbe2c013f14391624fd2b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b911181abea06894873e64da51afbb8799f1066a
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88590454"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927837"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Behandeln von Problemen mit dem Azure Dedicated HSM-Dienst
 
@@ -71,7 +71,7 @@ Wenn die Kapazitätsgrenze für einen bestimmten Stempel oder eine Region nahezu
 ###  <a name="how-do-i-see-hsms-when-provisioned"></a>Anzeigen von HSMs nach der Bereitstellung
 Da Dedicated HSM ein auf die Whitelist gesetzter Dienst ist, wird er im Azure-Portal als „Ausgeblendeter Typ“ angesehen. Zum Anzeigen der HSM-Ressourcen müssen Sie das Kontrollkästchen „Ausgeblendete Typen anzeigen“ wie unten dargestellt aktivieren. Die NIC-Ressource folgt immer auf das HSM und ist ein guter Ort, um die IP-Adresse des HSM zu ermitteln, bevor SSH für die Verbindungsherstellung genutzt wird.
 
-![Subnetzdelegierung](./media/troubleshoot/hsm-provisioned.png)
+![Screenshot, auf dem die Option „Ausgeblendete Typen anzeigen“ aktiviert ist](./media/troubleshoot/hsm-provisioned.png)
 
 ## <a name="networking-resources"></a>Netzwerkressourcen
 
@@ -85,7 +85,7 @@ Für Dedicated HSM wird das ExpressRoute-Gateway als „Tunnel“ für die Kommu
 
 In den für Dedicated HSM bereitgestellten Beispielvorlagen wird angenommen, dass die HSM-IP-Adresse automatisch aus dem jeweiligen Subnetzbereich stammt. Sie können eine explizite IP-Adresse für das HSM per „NetworkInterfaces“-Attribut in der ARM-Vorlage angeben. 
 
-![Subnetzdelegierung](./media/troubleshoot/private-ip-address.png)
+![Screenshot: Beispielvorlage für Dedicated HSM](./media/troubleshoot/private-ip-address.png)
 
 ## <a name="hsm-initialization"></a>HSM-Initialisierung
 

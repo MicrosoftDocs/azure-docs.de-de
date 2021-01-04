@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4871af354d68a8d6dcaf3170271959146f57cba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fc688ca0981024e5e08c9fb20ecb6704efbd7f2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763617"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997493"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Konfigurieren des Workflows für die Administratoreinwilligung (Vorschau)
 
@@ -62,11 +62,11 @@ Nachdem der Workflow für die Administratoreinwilligung aktiviert wurde, können
 
 2. Die Meldung **Genehmigung erforderlich** wird angezeigt. Der Benutzer gibt ein, warum er Zugriff auf die App benötigt und klickt anschließend auf **Genehmigung anfordern**.
 
-   ![Benutzeranforderung zur Administratoreinwilligung und Begründung](media/configure-admin-consent-workflow/end-user-justification.png)
+   ![Screenshot: Dialogfeld „Genehmigung erforderlich“, in dem Sie eine Genehmigung anfordern können](media/configure-admin-consent-workflow/end-user-justification.png)
 
 3. In einer Meldung **Anforderung gesendet** wird bestätigt, dass die Anforderung an den Administrator gesendet wurde. Wenn der Benutzer mehrere Anforderungen sendet, wird nur die erste Anforderung an den Administrator übermittelt.
 
-   ![Benutzeranforderung zur Administratoreinwilligung und Begründung](media/configure-admin-consent-workflow/end-user-sent-request.png)
+   ![Screenshot: Sendebestätigung für die Anforderung](media/configure-admin-consent-workflow/end-user-sent-request.png)
 
  4. Der Benutzer erhält eine E-Mail-Benachrichtigung, wenn die Anforderung genehmigt, abgelehnt oder blockiert wurde. 
 
@@ -147,7 +147,7 @@ Nein, aktuell erhalten Anforderer Updates nur per E-Mail-Benachrichtigung.
 
 **Habe ich als Prüfer die Möglichkeit, eine Anwendung nicht für alle Benutzer zu genehmigen?**
  
-Wenn Sie Bedenken haben, die Administratoreinwilligung zu erteilen und allen Benutzern im Mandanten die Nutzung der Anwendung zu ermöglichen, empfehlen wir Ihnen, die Anforderung abzulehnen. Erteilen Sie dann manuell die Administratoreinwilligung, indem Sie den Zugriff auf die Anwendung durch die Anforderung einer Benutzerzuweisung einschränken. Anschließend können Sie der Anwendung Benutzer oder Gruppen zuweisen. Weitere Informationen finden Sie unter [Zuweisen von Benutzern und Gruppen zu einer Anwendung in Azure Active Directory](methods-for-assigning-users-and-groups.md).
+Wenn Sie Bedenken haben, die Administratoreinwilligung zu erteilen und allen Benutzern im Mandanten die Nutzung der Anwendung zu ermöglichen, empfehlen wir Ihnen, die Anforderung abzulehnen. Erteilen Sie dann manuell die Administratoreinwilligung, indem Sie den Zugriff auf die Anwendung durch die Anforderung einer Benutzerzuweisung einschränken. Anschließend können Sie der Anwendung Benutzer oder Gruppen zuweisen. Weitere Informationen finden Sie unter [Zuweisen von Benutzern und Gruppen zu einer Anwendung in Azure Active Directory](./assign-user-or-group-access-portal.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
@@ -157,6 +157,6 @@ Weitere Informationen zur Einwilligung für Anwendungen finden Sie unter [Azure 
 
 [Erteilen einer mandantenweiten Administratoreinwilligung für eine Anwendung](grant-admin-consent.md)
 
-[Berechtigungen und Zustimmung im Microsoft Identity Platform-Endpunkt](../develop/active-directory-v2-scopes.md)
+[Berechtigungen und Zustimmung im Microsoft Identity Platform-Endpunkt](../develop/v2-permissions-and-consent.md)
 
 [Azure AD bei StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

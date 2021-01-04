@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 8480299c2c889a243150028ac9651f4b62656aec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b43d446930d1f8c40c12e5d0aeba6eb202ef47ef
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74110346"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353730"
 ---
 # <a name="voice-assistants-frequently-asked-questions"></a>Häufig gestellte Fragen zu Sprachassistenten
 
-Wenn Sie in diesem Dokument keine Antworten auf Ihre Fragen finden, sehen Sie sich die [weiteren Supportoptionen](support.md) an.
+Wenn Sie in diesem Dokument keine Antworten auf Ihre Fragen finden, sehen Sie sich die [weiteren Supportoptionen](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) an.
 
 ## <a name="general"></a>Allgemein
 
@@ -35,9 +35,9 @@ Wenn Sie in diesem Dokument keine Antworten auf Ihre Fragen finden, sehen Sie si
 
 **A:** Die beste Möglichkeit, um mit dem Erstellen einer Anwendung für benutzerdefinierte Befehle (Vorschau) oder eines grundlegenden Bot Framework-Bots zu beginnen.
 
-- [Erstellen einer Anwendung für benutzerdefinierte Befehle (Vorschau)](quickstart-custom-speech-commands-create-new.md)
-- [Tutorial: Erstellen und Bereitstellen eines Basisbots](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
-- [Herstellen einer Verbindung mit einem Direct Line Speech-Kanal für einen Bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Erstellen einer Anwendung für benutzerdefinierte Befehle (Vorschau)](./quickstart-custom-commands-application.md)
+- [Tutorial: Erstellen und Bereitstellen eines Basisbots](/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+- [Herstellen einer Verbindung mit einem Direct Line Speech-Kanal für einen Bot](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
 ## <a name="debugging"></a>Debuggen
 
@@ -62,7 +62,7 @@ Eine ausführlichere Anleitung finden Sie im [Tutorialabschnitt](tutorial-voice-
 **A:** Dieser Fehler weist auf ein Kommunikationsproblem zwischen dem Assistenten und dem Sprachassistentendienst hin.
 
 - Stellen Sie für benutzerdefinierte Befehle (Vorschau) sicher, dass die Anwendung für benutzerdefinierte Befehle (Vorschau) veröffentlicht wurde.
-- Stellen Sie für „Direct Line Speech“ sicher, dass Sie eine [Verbindung Ihres Bots mit dem Direct Line Speech-Kanal hergestellt](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) und Ihrem Bot [Unterstützung für das Streaming-Protokoll hinzugefügt](https://aka.ms/botframework/addstreamingprotocolsupport) haben (mit der entsprechenden Websocketunterstützung). Überprüfen Sie dann, ob Ihr Bot auf eingehende Anforderungen vom Kanal reagiert.
+- Stellen Sie für „Direct Line Speech“ sicher, dass Sie eine [Verbindung Ihres Bots mit dem Direct Line Speech-Kanal hergestellt](/azure/bot-service/bot-service-channel-connect-directlinespeech) und Ihrem Bot [Unterstützung für das Streaming-Protokoll hinzugefügt](/azure/bot-service/directline-speech-bot) haben (mit der entsprechenden Websocketunterstützung). Überprüfen Sie dann, ob Ihr Bot auf eingehende Anforderungen vom Kanal reagiert.
 
 **F: Dieser Code funktioniert trotzdem nicht, und/oder ich erhalte bei der Verwendung eines `DialogServiceConnector` eine andere Fehlermeldung. Wie soll ich vorgehen?**
 

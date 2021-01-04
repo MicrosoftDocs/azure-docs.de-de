@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: ca76563475dfbf8d35595c1de3cdee37f80e3ce1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2f61085d3dab6d4489aa190204be4169ea5c2fb
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83690236"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638005"
 ---
 # <a name="plan-and-manage-costs-for-azure-data-factory"></a>Planen und Verwalten von Kosten für Azure Data Factory
 
@@ -56,13 +56,13 @@ Nun können Sie 30 Aktivitätsausführungen und 380 DIU-Stunden im ADF-Preisrech
 
 ## <a name="use-budgets-and-cost-alerts"></a>Verwenden von Budgets und Kostenwarnungen
 
-Sie können [Budgets](https://docs.microsoft.com/azure/cost-management/tutorial-acm-create-budgets) erstellen, um Kosten zu verwalten, und Warnungen erstellen, die die Beteiligten automatisch über Ausgabenanomalien und Überschreitungsrisiken informieren.  Warnungen basieren auf Ausgaben im Vergleich zum Budget und zu Kostenschwellenwerten.  Wenn Sie ein Budget erstellen, können Sie es entweder auf Abonnementebene oder mit einer geringeren Granularität ausführen, indem Sie zusätzliche Filter hinzufügen, z. B. die Ressourcen-ID und den Namen der Verbrauchseinheit.  Sie können jedoch kein Budget für einzelne Pipelines innerhalb einer Factory erstellen.
+Sie können [Budgets](../cost-management-billing/costs/tutorial-acm-create-budgets.md) erstellen, um Kosten zu verwalten, und Warnungen erstellen, die die Beteiligten automatisch über Ausgabenanomalien und Überschreitungsrisiken informieren.  Warnungen basieren auf Ausgaben im Vergleich zum Budget und zu Kostenschwellenwerten.  Wenn Sie ein Budget erstellen, können Sie es entweder auf Abonnementebene oder mit einer geringeren Granularität ausführen, indem Sie zusätzliche Filter hinzufügen, z. B. die Ressourcen-ID und den Namen der Verbrauchseinheit.  Sie können jedoch kein Budget für einzelne Pipelines innerhalb einer Factory erstellen.
 
 ## <a name="monitor-costs-at-factory-level"></a>Überwachen der Kosten auf Factory-Ebene
 
-Sobald Sie beginnen, Azure Data Factory zu verwenden, können Sie die anfallenden Kosten im Azure-Portal im Bereich [Kostenanalyse](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis) ablesen.
+Sobald Sie beginnen, Azure Data Factory zu verwenden, können Sie die anfallenden Kosten im Azure-Portal im Bereich [Kostenanalyse](../cost-management-billing/costs/quick-acm-cost-analysis.md) ablesen.
 
-1. Um die [Kostenanalyse](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis) anzuzeigen, öffnen Sie das Fenster **Kostenverwaltung + Abrechnung**, wählen im Menü die Option **Kostenverwaltung** aus und wählen dann **Kostenanalyse öffnen** aus.
+1. Um die [Kostenanalyse](../cost-management-billing/costs/quick-acm-cost-analysis.md) anzuzeigen, öffnen Sie das Fenster **Kostenverwaltung + Abrechnung** , wählen im Menü die Option **Kostenverwaltung** aus und wählen dann **Kostenanalyse öffnen** aus.
 2. In der Standardansicht werden die kumulierten Kosten für den aktuellen Monat angezeigt.  Sie können zu einem anderen Zeitbereich und einer anderen Granularität wechseln, z. B. täglich oder monatlich.
 3. Wählen Sie zum Eingrenzen der Kosten auf einen Dienst wie Azure Data Factory die Option **Filter hinzufügen** und dann **Dienstname** aus.  Wählen Sie dann in der Liste **Azure Data Factory v2** aus.
 4. Sie können zusätzliche Filter hinzufügen, um die Kosten für eine bestimmte Factory-Instanz und die Granularität bestimmter ADF-Verbrauchseinheiten zu analysieren.
@@ -73,7 +73,7 @@ Sobald Sie beginnen, Azure Data Factory zu verwenden, können Sie die anfallende
 
 Je nach Typ der Aktivitäten in der Pipeline, Menge der zu verschiebenden und transformierenden Daten und Komplexität der Transformation werden bei der Ausführung einer Pipeline verschiedene Verbrauchseinheiten für die Abrechnung in Azure Data Factory gezählt.
 
-Sie können den Umfang der Nutzung für verschiedene Verbrauchseinheiten für einzelne Pipelineausführungen auf der Azure Data Factory-Benutzeroberfläche anzeigen. Um die Benutzeroberfläche für die Überwachung zu öffnen, wählen Sie die Kachel **Überwachen und verwalten** im Blatt „Data Factory“ des [Azure-Portals](https://portal.azure.com/) aus. Wenn Sie sich bereits auf der Benutzeroberfläche von ADF befinden, klicken Sie auf der linken Seitenleiste auf das Symbol **Überwachen**. Die standardmäßige Überwachungsansicht ist eine Liste der Pipelineausführungen.
+Sie können den Umfang der Nutzung für verschiedene Verbrauchseinheiten für einzelne Pipelineausführungen auf der Azure Data Factory-Benutzeroberfläche anzeigen. Um die Benutzeroberfläche für die Überwachung zu öffnen, wählen Sie die Kachel **Überwachen und verwalten** im Blatt „Data Factory“ des [Azure-Portals](https://portal.azure.com/) aus. Wenn Sie sich bereits auf der Benutzeroberfläche von ADF befinden, klicken Sie auf der linken Seitenleiste auf das Symbol **Überwachen** . Die standardmäßige Überwachungsansicht ist eine Liste der Pipelineausführungen.
 
 Wenn Sie auf die Schaltfläche **Verbrauch** neben dem Namen der Pipeline klicken, wird ein Popupfenster angezeigt, in dem die aggregierte Nutzung der Pipelineausführung für alle Aktivitäten in der Pipeline angezeigt wird.
 
@@ -81,12 +81,12 @@ Wenn Sie auf die Schaltfläche **Verbrauch** neben dem Namen der Pipeline klicke
 
 ![Details zur Pipelinenutzung](media/plan-manage-costs/pipeline-consumption-details.png)
 
-In der Ansicht für die Nutzung durch die Pipelineausführung wird der für jede ADF-Verbrauchseinheit genutzte Betrag für die jeweilige Pipeline ausgeführt, der tatsächliche Preis wird jedoch nicht angezeigt, da der Betrag, der Ihnen in Rechnung gestellt wird, vom Typ Ihres Azure-Kontos und vom verwendeten Währungstyp abhängig ist.  Die vollständige Liste der unterstützten Kontotypen finden Sie unter [Grundlegendes zu Cost Management-Daten](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data).
+In der Ansicht für die Nutzung durch die Pipelineausführung wird der für jede ADF-Verbrauchseinheit genutzte Betrag für die jeweilige Pipeline ausgeführt, der tatsächliche Preis wird jedoch nicht angezeigt, da der Betrag, der Ihnen in Rechnung gestellt wird, vom Typ Ihres Azure-Kontos und vom verwendeten Währungstyp abhängig ist.  Die vollständige Liste der unterstützten Kontotypen finden Sie unter [Grundlegendes zu Cost Management-Daten](../cost-management-billing/costs/understand-cost-mgt-data.md).
 
 ## <a name="monitor-consumption-at-activity-run-level"></a>Überwachen der Nutzung auf Aktivitätsausführungsebene
 Nachdem Sie den aggregierten Verbrauch auf Pipelineausführungsebene ermittelt haben, müssen Sie in bestimmten Szenarien einen weiteren Drilldown ausführen und ermitteln, welche Aktivität in der Pipeline die teuerste ist.
 
-Um die Nutzung auf Aktivitätsausführungsebene abzurufen, wechseln Sie zur Benutzeroberfläche **Erstellen und überwachen** Ihrer Data Factory. Auf der Registerkarte **Überwachen** wird eine Liste der Pipelineausführungen angezeigt. Klicken Sie auf den Link **Pipelinename**, um auf die Liste von Aktivitätsausführungen in der Pipelineausführung zuzugreifen.  Klicken Sie auf die Schaltfläche **Ausgabe** neben dem Aktivitätsnamen, und suchen Sie in der JSON-Ausgabe nach der Eigenschaft **billableDuration**:
+Um die Nutzung auf Aktivitätsausführungsebene abzurufen, wechseln Sie zur Benutzeroberfläche **Erstellen und überwachen** Ihrer Data Factory. Auf der Registerkarte **Überwachen** wird eine Liste der Pipelineausführungen angezeigt. Klicken Sie auf den Link **Pipelinename** , um auf die Liste von Aktivitätsausführungen in der Pipelineausführung zuzugreifen.  Klicken Sie auf die Schaltfläche **Ausgabe** neben dem Aktivitätsnamen, und suchen Sie in der JSON-Ausgabe nach der Eigenschaft **billableDuration** :
 
 Im Folgenden sehen Sie eine Beispielausgabe für eine Kopieraktivitätsausführung:
 
@@ -101,5 +101,5 @@ Hier sehen Sie eine Beispielausgabe für die Ausführung einer Zuordnungsdatenfl
 Die folgenden Artikel enthalten weitere Informationen zu den Preisen für Azure Data Factory:
 
 - [Azure Data Factory – Preise](https://azure.microsoft.com/pricing/details/data-factory/ssis/)
-- [Grundlegendes zu Azure Data Factory-Preisen anhand von Beispielen](https://docs.microsoft.com/azure/data-factory/pricing-concepts)
+- [Grundlegendes zu Azure Data Factory-Preisen anhand von Beispielen](./pricing-concepts.md)
 - [Azure Data Factory-Preisrechner](https://azure.microsoft.com/pricing/calculator/?service=data-factory)

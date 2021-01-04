@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: f3f35bb7002ea976305b31a27fa6efebecf07710
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e210c1683d5f14181bc0549e73a892eb91d2e746
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087162"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305695"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning Anomaly Detection-API
 
@@ -28,9 +28,9 @@ Die [Anomaly Detection-API](https://gallery.azure.ai/MachineLearningAPI/Anomaly-
 
 Diese API kann die folgenden Arten anomaler Muster in Zeitreihendaten erkennen:
 
-* **Positive und negative Trends**: Bei der Überwachung der Arbeitsspeichernutzung kann ein Aufwärtstrend in Bezug auf das Computing interessant sein, da dies ein Hinweis auf einen Speicherverlust sein kann.
-* **Änderungen in den dynamischen Wertebereich**: Bei der Überwachung der durch einen Clouddienst ausgelösten Ausnahmen können Änderungen im dynamischen Wertebereich z.B. auf eine Instabilität der Dienstintegrität hinweisen.
-* **Spitzen und Abfälle**: Beim Überwachen der Anzahl von fehlerhaften Anmeldeversuchen bei einem Dienst oder der Anzahl von Auscheckvorgängen in einer E-Commerce-Website könnten Spitzen oder Abfälle z.B. auf anormales Verhalten hinweisen.
+* **Positive und negative Trends** : Bei der Überwachung der Arbeitsspeichernutzung kann ein Aufwärtstrend in Bezug auf das Computing interessant sein, da dies ein Hinweis auf einen Speicherverlust sein kann.
+* **Änderungen in den dynamischen Wertebereich** : Bei der Überwachung der durch einen Clouddienst ausgelösten Ausnahmen können Änderungen im dynamischen Wertebereich z.B. auf eine Instabilität der Dienstintegrität hinweisen.
+* **Spitzen und Abfälle** : Beim Überwachen der Anzahl von fehlerhaften Anmeldeversuchen bei einem Dienst oder der Anzahl von Auscheckvorgängen in einer E-Commerce-Website könnten Spitzen oder Abfälle z.B. auf anormales Verhalten hinweisen.
 
 Diese Machine Learning-Erkennungselemente verfolgen diese Art von Wertänderungen in Abhängigkeit der Zeit und melden fortlaufende Änderungen der Werte als Anomaliebewertungen. Sie benötigen keine Ad-hoc-Schwellenwertanpassung, und ihre Bewertungen können verwendet werden, um falsch positive Raten zu steuern. Die Anomaly Detection-API ist beispielsweise in den folgenden Szenarios nützlich: Dienstüberwachung durch Nachverfolgen von KPIs in Abhängigkeit der Zeit, Nutzungsüberwachung anhand von Metriken wie der Anzahl von Suchvorgängen oder der Anzahl von Klicks, Leistungsüberwachung anhand von Indikatoren wie Arbeitsspeicher, CPU, Dateilesevorgänge usw. in Abhängigkeit der Zeit.
 
@@ -39,20 +39,20 @@ Das Anomaly Detection-Angebot verfügt über nützliche Tools für die ersten Sc
 * Mit der [Webanwendung](https://anomalydetection-aml.azurewebsites.net/) können Sie die Ergebnisse von Anomaly Detection-APIs für Ihre Daten auswerten und visualisieren.
 
 > [!NOTE]
-> Probieren Sie die **IT Anomaly Insights-Lösung**, die von [dieser API](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2) unterstützt wird.
+> Probieren Sie die **IT Anomaly Insights-Lösung** , die von [dieser API](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2) unterstützt wird.
 >
 <!-- This Solution is no longer available
 > To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**Start here >**</a>
 -->
 
 ## <a name="api-deployment"></a>API-Bereitstellung
-Um die API zu verwenden, müssen Sie sie für Ihr Azure-Abonnement bereitstellen, wo sie als Azure Machine Learning-Webdienst gehostet wird.  Sie können dies über den [Azure KI-Katalog](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2) vornehmen.  Hiermit werden Ihrem Azure-Abonnement zwei (klassische) Azure Machine Learning Studio-Webdienste (und die mit ihnen verknüpften Ressourcen) bereitgestellt – einer für die Erkennung von Anomalien mit Saisonabhängigkeitserkennung und ein weiterer ohne Saisonabhängigkeitserkennung.  Sobald die Bereitstellung abgeschlossen ist, können Sie die APIs auf der Seite [ (klassische) Azure Machine Learning Studio-Webdienste](https://services.azureml.net/webservices/) verwalten.  Von dieser Seite aus finden Sie Ihre Endpunkt-Speicherorte und API-Schlüssel sowie Beispielcodes für den API-Aufruf.  Ausführlichere Anweisungen finden Sie [hier](/azure/machine-learning/studio/manage-new-webservice).
+Um die API zu verwenden, müssen Sie sie für Ihr Azure-Abonnement bereitstellen, wo sie als Azure Machine Learning-Webdienst gehostet wird.  Sie können dies über den [Azure KI-Katalog](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2) vornehmen.  Hiermit werden Ihrem Azure-Abonnement zwei (klassische) Azure Machine Learning Studio-Webdienste (und die mit ihnen verknüpften Ressourcen) bereitgestellt – einer für die Erkennung von Anomalien mit Saisonabhängigkeitserkennung und ein weiterer ohne Saisonabhängigkeitserkennung.  Sobald die Bereitstellung abgeschlossen ist, können Sie die APIs auf der Seite [ (klassische) Azure Machine Learning Studio-Webdienste](https://services.azureml.net/webservices/) verwalten.  Von dieser Seite aus finden Sie Ihre Endpunkt-Speicherorte und API-Schlüssel sowie Beispielcodes für den API-Aufruf.  Ausführlichere Anweisungen finden Sie [hier](../classic/manage-new-webservice.md).
 
 ## <a name="scaling-the-api"></a>Skalieren der API
 Standardmäßig enthält der kostenlose Dev/Test-Abrechnungsplan Ihrer Bereitstellung 1.000 Transaktionen/Monat und zwei Computestunden/Monat.  Sie können nach Ihren Bedürfnissen auf einen anderen Plan aktualisieren.  Informationen zu den Preisen verschiedener Pläne finden Sie [hier](https://azure.microsoft.com/pricing/details/machine-learning/) unter „Produktions-Web-API-Preise“.
 
 ## <a name="managing-aml-plans"></a>Verwalten von AML-Plänen
-Sie können Ihren Abrechnungsplan [hier](https://services.azureml.net/plans/) verwalten.  Der Name des Plans basiert auf dem Namen der Ressourcengruppe, die Sie bei Bereitstellung der API ausgewählt haben, plus einer Zeichenfolge, die für Ihr Abonnement eindeutig ist.  Anweisungen zum Aktualisieren Ihres Plans stehen [hier](/azure/machine-learning/studio/manage-new-webservice) im Abschnitt „Managing billing plans“ (Verwalten von Abrechnungsplänen) zur Verfügung.
+Sie können Ihren Abrechnungsplan [hier](https://services.azureml.net/plans/) verwalten.  Der Name des Plans basiert auf dem Namen der Ressourcengruppe, die Sie bei Bereitstellung der API ausgewählt haben, plus einer Zeichenfolge, die für Ihr Abonnement eindeutig ist.  Anweisungen zum Aktualisieren Ihres Plans stehen [hier](../classic/manage-new-webservice.md) im Abschnitt „Managing billing plans“ (Verwalten von Abrechnungsplänen) zur Verfügung.
 
 ## <a name="api-definition"></a>API-Definition
 Der Webdienst stellt eine REST-basierte API über HTTPS bereit, die auf unterschiedliche Weise genutzt werden kann, beispielsweise durch eine Web- oder mobile Anwendung, R, Python, Excel usw.  Sie senden Zeitreihendaten über einen REST-API-Aufruf an diesen Dienst, und dann wird eine Kombination der unten beschriebenen drei Anomaliearten ausgeführt.
@@ -197,4 +197,3 @@ Die API führt alle Erkennungsmodule für Ihre Zeitreihendaten aus und gibt für
 
 [1]: ./media/apps-anomaly-detection-api/anomaly-detection-score.png
 [2]: ./media/apps-anomaly-detection-api/anomaly-detection-seasonal.png
-

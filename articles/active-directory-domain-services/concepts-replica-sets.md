@@ -2,20 +2,20 @@
 title: Konzepte zu Replikatgruppen für Azure AD Domain Services | Microsoft-Dokumentation
 description: Erfahren Sie, was Replikatgruppen in Azure Active Directory Domain Services sind und wie sie Redundanz für Anwendungen bereitstellen, die Identitätsdienste erfordern.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.author: joflore
-ms.openlocfilehash: 499f4df303993d97ebb4eb38de98828b085aff00
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 5359a955ea97b559b7e3d244bfb6c4fb09e8681b
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961067"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620034"
 ---
 # <a name="replica-sets-concepts-and-features-for-azure-active-directory-domain-services-preview"></a>Konzepte und Features zu Replikatgruppen für Azure Active Directory Domain Services (Vorschauversion)
 
@@ -54,7 +54,7 @@ Das folgende Beispiel zeigt eine verwaltete Domäne, für die mit drei Replikatg
 
 ## <a name="deployment-considerations"></a>Überlegungen zur Bereitstellung
 
-Die Standard-SKU für eine verwaltete Domäne ist die *Enterprise*-SKU, die mehrere Replikatgruppen unterstützt. Um bei einem Wechsel von der *Standard*-SKU zusätzliche Replikatgruppen zu erstellen, [führen Sie ein Upgrade der verwalteten Domänen ](change-sku.md) auf *Enterprise* oder *Premium* durch.
+Die Standard-SKU für eine verwaltete Domäne ist die *Enterprise*-SKU, die mehrere Replikatgruppen unterstützt. Um bei einem Wechsel von der *Standard*-SKU zusätzliche Replikatgruppen zu erstellen, [führen Sie ein Upgrade der verwalteten Domänen](change-sku.md) auf *Enterprise* oder *Premium* durch.
 
 Die maximale Anzahl von Replikatgruppen, die während der Vorschauphase unterstützt werden, beträgt vier. Dies schließt auch das erste Replikat ein, das beim Erstellen der verwalteten Domäne erstellt wird.
 

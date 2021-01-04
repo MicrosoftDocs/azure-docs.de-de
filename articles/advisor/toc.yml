@@ -13,6 +13,10 @@
         - name: ARM-Vorlage
           displayName: Resource Manager
           href: advisor-alerts-arm.md
+- name: Konzepte
+  items:
+    - name: Sicherheitsbaseline
+      href: security-baseline.md
 - name: Tutorials
   items:
     - name: Erste Schritte mit Advisor

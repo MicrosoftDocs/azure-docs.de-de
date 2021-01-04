@@ -3,17 +3,16 @@ title: 'Tutorial: Erstellen und Verwalten von Regeln in Ihrer Azure IoT Centra
 description: In diesem Tutorial wird gezeigt, wie Azure IoT Central-Regeln es Ihnen ermöglichen, Ihre Geräte nahezu in Echtzeit zu überwachen und Aktionen, wie das Senden einer E-Mail, durch Auslösen der Regel automatisch aufzurufen.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/06/2020
+ms.date: 11/16/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-manager: philmea
-ms.openlocfilehash: 555da74da65f3b1897a276cf819a263334cfa053
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d49e3585460c95ca931f497a63cbc281aed1db1
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80999060"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94991012"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Tutorial: Erstellen einer Regel und Einrichten von Benachrichtigungen in Ihrer Azure IoT Central-Anwendung
 
@@ -21,9 +20,9 @@ ms.locfileid: "80999060"
 
 Mithilfe von Azure IoT Central können Sie Ihre verbundenen Geräte remote überwachen. Azure IoT Central-Regeln ermöglichen es Ihnen, Ihre Geräte nahezu in Echtzeit zu überwachen und Aktionen (wie das Senden einer E-Mail) automatisch aufzurufen. In diesem Artikel wird erläutert, wie Regeln zum Überwachen der Telemetriedaten erstellt werden, die von Ihren Geräten gesendet werden.
 
-Telemetriedaten werden verwendet, um numerische Daten vom Gerät zu senden. Eine Regel wird ausgelöst, wenn die ausgewählten Gerätetelemetriedaten einen angegebenen Schwellenwert überschreiten.
+Telemetriedaten werden verwendet, um numerische Daten vom Gerät zu senden. Eine Regel wird ausgelöst, wenn die ausgewählten Telemetriedaten einen angegebenen Schwellenwert überschreiten.
 
-In diesem Tutorial erstellen Sie eine Regel, um eine E-Mail zu senden, wenn die von einem simulierten Umgebungssensorgerät gemessene Temperatur 70&deg; F übersteigt.
+In diesem Tutorial erstellen Sie eine Regel zum Senden einer E-Mail, wenn die von einem simulierten Sensorgerät gemessene Temperatur 70&deg; F übersteigt.
 
 In diesem Tutorial lernen Sie Folgendes:
 
@@ -34,25 +33,25 @@ In diesem Tutorial lernen Sie Folgendes:
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Erstellen Sie zunächst anhand der Schnellstartanleitungen [Erstellen einer Azure IoT Central-Anwendung](./quick-deploy-iot-central.md) und [Hinzufügen eines simulierten Geräts zu Ihrer IoT Central-Anwendung](./quick-create-simulated-device.md) die Gerätevorlage **MXChip IoT DevKit**, um sie hier verwenden zu können.
+Erstellen Sie zunächst anhand der Schnellstarts [Erstellen einer Azure IoT Central-Anwendung](./quick-deploy-iot-central.md) und [Hinzufügen eines simulierten Geräts zu Ihrer IoT Central-Anwendung](./quick-create-simulated-device.md) die Gerätevorlage **Sensor Controller**, um sie hier verwenden zu können.
 
 ## <a name="create-a-rule"></a>Erstellen einer Regel
 
-Um eine Telemetrieregel zu erstellen, muss für die Gerätevorlage mindestens ein Telemetriewert definiert sein. In diesem Tutorial wird ein simuliertes Gerät **MXChip IoT DevKit** verwendet, das Telemetriedaten zur Temperatur und Luftfeuchtigkeit sendet. Die Schritte zum Hinzufügen dieser Gerätevorlage sowie zum Erstellen eines simulierten Geräts wurden im Rahmen der Schnellstartanleitung [Schnellstart: Hinzufügen eines simulierten Geräts zu Ihrer IoT Central-Anwendung (Previewfunktionen)](./quick-create-simulated-device.md) ausgeführt. Die Regel überwacht die vom Gerät gemeldete Temperatur und sendet eine E-Mail, sobald die Temperatur 70 Grad übersteigt.
+Um eine Telemetrieregel zu erstellen, muss für die Gerätevorlage mindestens ein Telemetriewert definiert sein. In diesem Tutorial wird ein simuliertes Gerät **Sensor Controller** verwendet, das Telemetriedaten zur Temperatur und Luftfeuchtigkeit sendet. Die Schritte zum Hinzufügen dieser Gerätevorlage sowie zum Erstellen eines simulierten Geräts wurden im Rahmen der Schnellstartanleitung [Schnellstart: Hinzufügen eines simulierten Geräts zu Ihrer IoT Central-Anwendung (Previewfunktionen)](./quick-create-simulated-device.md) ausgeführt. Die Regel überwacht die vom Gerät gemeldete Temperatur und sendet eine E-Mail, sobald die Temperatur 70 Grad übersteigt.
 
 1. Klicken Sie im linken Bereich auf **Regeln**.
 
 1. Wenn Sie noch keine Regeln erstellt haben, wird der folgende Bildschirm angezeigt:
 
-    ![Noch keine Regeln](media/tutorial-create-telemetry-rules/rules-landing-page1.png)
+    :::image type="content" source="media/tutorial-create-telemetry-rules/rules-landing-page.png" alt-text="Screenshot, der die leere Liste von Regeln zeigt":::
 
-1. Wählen Sie **+** aus, um eine neue Regel hinzuzufügen.
+1. Wählen Sie **+ Neu** aus, um eine neue Regel hinzuzufügen.
 
 1. Geben Sie den Namen _Temperature monitor_ ein, um die Regel zu identifizieren, und drücken Sie anschließend die EINGABETASTE.
 
-1. Wählen Sie die Gerätevorlage für **MXChip IoT DevKit** aus. Die Regel gilt standardmäßig automatisch für alle Geräte, die der Gerätevorlage zugeordnet sind. Wenn Sie nach einer Teilmenge der Geräte filtern möchten, wählen Sie **+ Filter** aus, und verwenden Sie Geräteeigenschaften, um die Geräte anzugeben. Wenn Sie die Regel deaktivieren möchten, verwenden Sie die Umschaltfläche **Aktiviert/Deaktiviert** in der Kopfzeile der Regel:
+1. Wählen Sie die Gerätevorlage **Sensor Controller** aus. Die Regel gilt standardmäßig automatisch für alle Geräte, die der Gerätevorlage zugeordnet sind. Wenn Sie nach einer Teilmenge der Geräte filtern möchten, wählen Sie **+ Filter** aus, und verwenden Sie Geräteeigenschaften, um die Geräte anzugeben. Wenn Sie die Regel deaktivieren möchten, verwenden Sie die Umschaltfläche **Aktiviert/Deaktiviert**:
 
-    ![Filter und Aktivierung](media/tutorial-create-telemetry-rules/device-filters.png)
+    :::image type="content" source="media/tutorial-create-telemetry-rules/device-filters.png" alt-text="Screenshot, der die Auswahl der Gerätevorlage in der Regeldefinition zeigt":::
 
 ### <a name="configure-the-rule-conditions"></a>Konfigurieren der Regelbedingungen
 
@@ -62,14 +61,14 @@ Die von der Regel überwachten Kriterien werden mithilfe von Bedingungen definie
 
 1. Wählen Sie als Nächstes unter **Operator** die Option **Ist größer als** aus, und geben Sie unter **Wert** die Zahl _70_ ein.
 
-    ![Bedingung](media/tutorial-create-telemetry-rules/condition-filled-out1.png)
+    :::image type="content" source="media/tutorial-create-telemetry-rules/condition-filled-out.png" alt-text="Screenshot, der die Temperaturbedingung für die Regel zeigt":::
 
 1. Optional kann auch eine **Zeitaggregation** festgelegt werden. Bei Verwendung einer Zeitaggregation muss im entsprechenden Dropdownmenü auch ein Aggregationstyp (beispielsweise „Durchschnitt“ oder „Summe“) ausgewählt werden.
 
     * Ohne Aggregation wird diese Regel für jeden Telemetriedatenpunkt ausgelöst, der die Bedingung erfüllt. Wenn Sie die Regel beispielswiese so konfigurieren, dass sie bei einem Temperaturwert über 70 ausgelöst wird, erfolgt die Auslösung nahezu sofort, wenn die Temperatur diesen Wert überschreitet.
     * Mit Aggregation wird die Regel ausgelöst, wenn der Aggregatwert der Telemetriedatenpunkte im Zeitfenster die Bedingung erfüllt. Wenn Sie die Regel beispielsweise so konfigurieren, dass sie ausgelöst wird, wenn der Temperaturwert über 70 liegt, und für den Durchschnittswert der Zeitaggregation zehn Minuten festgelegt ist, wird die Regel ausgelöst, wenn das Gerät eine Durchschnittstemperatur von über 70 meldet (berechnet für ein zehnminütiges Intervall).
 
-     ![Aggregatbedingung](media/tutorial-create-telemetry-rules/aggregate-condition-filled-out1.png)
+    :::image type="content" source="media/tutorial-create-telemetry-rules/aggregate-condition-filled-out.png" alt-text="Screenshot, der die ausgefüllte Aggregatbedingung zeigt":::
 
 Sie können einer Regel mehrere Bedingungen hinzufügen, indem Sie **+ Bedingung** auswählen. Wenn mehrere Bedingungen angegeben werden, müssen alle Bedingungen erfüllt sein, damit die Regel ausgelöst wird. Jede Bedingung wird durch eine implizite `AND`-Klausel verknüpft. Bei Verwendung einer Zeitaggregation mit mehreren Bedingungen müssen alle Telemetriewerte aggregiert werden.
 
@@ -84,7 +83,7 @@ Nachdem Sie die Bedingung definiert haben, richten Sie die Aktionen ein, die aus
     > [!NOTE]
     > E-Mails werden nur an die Benutzer gesendet, die der Anwendung hinzugefügt wurden und sich mindestens einmal angemeldet haben. Erfahren Sie mehr über die [Benutzerverwaltung](howto-administer.md) in Azure IoT Central.
 
-   ![Konfigurieren einer Aktion](media/tutorial-create-telemetry-rules/configure-action1.png)
+    :::image type="content" source="media/tutorial-create-telemetry-rules/configure-action.png" alt-text="Screenshot, der die E-Mail-Aktion für die Regel zeigt":::
 
 1. Wählen Sie zum Speichern der Aktion die Option **Fertig** aus. Einer Regel können mehrere Aktionen hinzugefügt werden.
 
@@ -92,7 +91,7 @@ Nachdem Sie die Bedingung definiert haben, richten Sie die Aktionen ein, die aus
 
 Nach einer Weile erhalten Sie eine E-Mail, wenn die Regel ausgelöst wird:
 
-![Beispiel-E-Mail](media/tutorial-create-telemetry-rules/email.png)
+:::image type="content" source="media/tutorial-create-telemetry-rules/email.png" alt-text="Screenshot, der das Feld „Benachrichtigungs-E-Mail“ zeigt":::
 
 ## <a name="delete-a-rule"></a>Löschen einer Regel
 

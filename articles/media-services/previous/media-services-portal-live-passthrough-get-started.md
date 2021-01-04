@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 15b876104dfa1a35077a34aa178d650e2d68855e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 707c12cac6bbceee925c4710eff29482f687d47f
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266730"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040729"
 ---
 # <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Durchführen von Livestreaming mit lokalen Encodern mit dem Azure-Portal
 
@@ -133,7 +133,7 @@ Weitere Informationen zu Pass-Through-Kanälen finden Sie unter [Livestreaming m
 ## <a name="get-ingest-urls"></a>Abrufen von Erfassungs-URLs
 Wenn der Kanal erstellt wurde, können Sie Erfassungs-URLs abrufen, die Sie dem Liveencoder bereitstellen. Diese URLs werden vom Encoder zur Eingabe eines Livedatenstroms verwendet.
 
-![Erstellt](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
+![Screenshot der Seite „Livestreaming“ mit einem ausgewählten Kanal und dem Kanalbereich](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
 ## <a name="watch-the-event"></a>Ansehen des Ereignisses
 Klicken Sie zum Überwachen des Ereignisses im Azure-Portal auf **Überwachen** , oder kopieren Sie die Streaming-URL, und verwenden Sie einen Player Ihrer Wahl. 

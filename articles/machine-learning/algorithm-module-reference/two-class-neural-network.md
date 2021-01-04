@@ -1,7 +1,7 @@
 ---
 title: 'Two-Class Neural Network: Modulreferenz'
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Sie mit dem Modul „Two-Class Neural Network“ (Neuronales Netz mit zwei Klassen) in Azure Machine Learning ein neuronales Netzmodell erstellen, mit dem Sie ein Ziel vorhersagen können, das nur zwei Werte hat.
+description: Erfahren Sie, wie Sie mit dem Modul Two-Class Neural Network in Azure Machine Learning einen binären Klassifizierer erstellen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 2ad4fc575a6e9d07e4e24c2d570f68edbbea46c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9131a2439facef00cae818bffef38e536a40a2fd
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907691"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421157"
 ---
 # <a name="two-class-neural-network-module"></a>Modul „Two-Class Neural Network“ (Neuronales Netz mit zwei Klassen)
 

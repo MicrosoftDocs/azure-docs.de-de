@@ -7,13 +7,13 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 01/28/2020
 ms.author: cynthn
-ms.custom: include file
-ms.openlocfilehash: 0e8972b1b2bfaac12baee1ea823429749ed70461
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: 6432c125c4fedd962faa28a4c84c7494300b0472
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82792750"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755315"
 ---
 ## <a name="list-information"></a>Auflisten von Informationen
 

@@ -6,14 +6,15 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/17/2020
-ms.openlocfilehash: cd2bc3ec7e70049ee7e2c700731515a272e541dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7ec71220b75647e789508c760e50957b3b497fa
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87094403"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090034"
 ---
 # <a name="how-to-request-quota-increase-for-azure-cosmos-db-resources"></a>Anfordern einer Kontingenterhöhung für Azure Cosmos DB-Ressourcen
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Die Ressourcen in Azure Cosmos DB verfügen über [Standardkontingente und -limits](concepts-limits.md). In manchen Fällen erfordert Ihre Workload u. U. ein höheres Kontingent als das Standardkontingent. In diesem Fall müssen Sie beim Azure Cosmos DB-Team eine Erhöhung des Kontingents anfordern. In diesem Artikel wird erläutert, wie Sie eine Kontingenterhöhung für Azure Cosmos DB-Ressourcen anfordern. Außerdem erfahren Sie, wie Sie ein Abonnement für den Zugriff auf eine Region aktivieren.
 
@@ -37,29 +38,29 @@ Um eine Erhöhung des Kontingents anzufordern, müssen Sie eine neue Supportanfr
 
 1. Geben Sie die folgenden Details im Formular ein:
 
-   * **Beschreibung**: Geben Sie eine kurze Beschreibung Ihrer Anfrage ein, z. B. zu Ihrer Workload und warum das Standardkontingent nicht ausreicht. Je nach dem Ressourcentyp, für den Sie eine Erhöhung des Kontingents anfordern, müssen Sie die folgenden Details im Feld **Beschreibung** angeben:
+   * **Beschreibung** : Geben Sie eine kurze Beschreibung Ihrer Anfrage ein, z. B. zu Ihrer Workload und warum das Standardkontingent nicht ausreicht. Je nach dem Ressourcentyp, für den Sie eine Erhöhung des Kontingents anfordern, müssen Sie die folgenden Details im Feld **Beschreibung** angeben:
 
-     **Regionsanfragen**: Wenn Sie beantragen, der Zulassungsliste eine Region hinzuzufügen, stellen Sie sicher, dass Sie die folgenden Werte angeben:
+     **Regionsanfragen** : Wenn Sie beantragen, der Zulassungsliste eine Region hinzuzufügen, stellen Sie sicher, dass Sie die folgenden Werte angeben:
 
         * Regionsname
         * Abonnement-ID
 
-     **Anfragen zum Durchsatzlimit**: Wenn Sie beantragen, das Kontingent für den Durchsatz zu erhöhen, stellen Sie sicher, dass Sie die folgenden Werte angeben:
+     **Anfragen zum Durchsatzlimit** : Wenn Sie beantragen, das Kontingent für den Durchsatz zu erhöhen, stellen Sie sicher, dass Sie die folgenden Werte angeben:
 
         * Datenbankname
         * Abonnement-ID
         * Neues Durchsatzlimit
 
-     **Anfragen zum Limit für Datenbankkonten**: Wenn Sie beantragen, das Kontingent für die Anzahl der Datenbankkonten in einem Abonnement zu erhöhen, stellen Sie sicher, dass Sie die folgenden Werte angeben:
+     **Anfragen zum Limit für Datenbankkonten** : Wenn Sie beantragen, das Kontingent für die Anzahl der Datenbankkonten in einem Abonnement zu erhöhen, stellen Sie sicher, dass Sie die folgenden Werte angeben:
 
        * Abonnement-ID
        * Neues Limit für Datenbankkonten
 
-   * **Dateiupload**: Laden Sie die Diagnosedateien oder andere Dateien hoch, die Ihnen für die Supportanfrage relevant erscheinen. Weitere Informationen bzw. eine Anleitung zum Hochladen von Dateien finden Sie im Artikel des [Azure-Supports]( ../azure-portal/supportability/how-to-manage-azure-support-request.md#upload-files).
+   * **Dateiupload** : Laden Sie die Diagnosedateien oder andere Dateien hoch, die Ihnen für die Supportanfrage relevant erscheinen. Weitere Informationen bzw. eine Anleitung zum Hochladen von Dateien finden Sie im Artikel des [Azure-Supports]( ../azure-portal/supportability/how-to-manage-azure-support-request.md#upload-files).
 
-   * **Schweregrad**: Wählen Sie basierend auf den geschäftlichen Auswirkungen einen der verfügbaren Schweregrade aus.
+   * **Schweregrad** : Wählen Sie basierend auf den geschäftlichen Auswirkungen einen der verfügbaren Schweregrade aus.
 
-   * **Bevorzugte Kontaktmethode**: Sie können wählen, ob der Kontakt entweder per **E-Mail** oder per **Telefon** hergestellt werden soll.
+   * **Bevorzugte Kontaktmethode** : Sie können wählen, ob der Kontakt entweder per **E-Mail** oder per **Telefon** hergestellt werden soll.
 
 1. Geben Sie die restlichen Details im Formular an, z. B. Ihre Verfügbarkeit, die für den Support gewünschte Sprache, Kontaktinformationen, E-Mail-Adresse und Telefonnummer.
 

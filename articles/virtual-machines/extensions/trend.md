@@ -4,16 +4,17 @@ description: Dieser Artikel beschreibt, wie Sie Trend Micro Security auf einem m
 author: axayjo
 tags: azure-service-management
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: akjosh
-ms.openlocfilehash: bed1d567aa48a11c01ae952e6a4a2028e260e6e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d6d80287d05517933f066d5e49fa31e78a48943
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87288516"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966378"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Installieren und Konfigurieren von Trend Micro Deep Security als Dienst auf einem virtuellen Windows-Computer
 
@@ -65,7 +66,7 @@ write-host $vm.VM.ProvisionGuestAgent
 
 Wenn Sie den Namen des Clouddiensts und des virtuellen Computers nicht kennen, führen Sie **Get-AzureVM** aus, um diese Informationen für alle virtuellen Computer im aktuellen Abonnement anzuzeigen.
 
-Wenn der Befehl **write-host** den Wert **True** zurückgibt, ist der VM-Agent installiert. Wenn **False**zurückgegeben wird, nutzen Sie die Anweisungen und den Link zum Download im Azure-Blogbeitrag [VM Agent and Extensions - Part 2](https://go.microsoft.com/fwlink/p/?LinkId=403947)(VM-Agent und Erweiterungen, Teil 2, in englischer Sprache).
+Wenn der Befehl **write-host** den Wert **True** zurückgibt, ist der VM-Agent installiert. Wenn **False** zurückgegeben wird, nutzen Sie die Anweisungen und den Link zum Download im Azure-Blogbeitrag [VM Agent and Extensions - Part 2](https://go.microsoft.com/fwlink/p/?LinkId=403947)(VM-Agent und Erweiterungen, Teil 2, in englischer Sprache).
 
 Wenn der VM-Agent installiert ist, führen Sie diese Befehle aus.
 

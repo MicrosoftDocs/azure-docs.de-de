@@ -9,12 +9,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 1cfe617ab424fbb29e2866cd98d4b8c390f306c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c02abf095beefdd131a5835d015175d56a63de47
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91339362"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322828"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Vorhersagen einer Antwort mit einem einfachen Modell
 
@@ -82,7 +82,7 @@ Dasselbe machen wir nun für jeden Diamanten in dieser Liste. Wenn wir damit fer
 ## <a name="draw-the-model-through-the-data-points"></a>Zeichnen des Modells durch die Datenpunkte
 Wenn wir uns jetzt die Punkte etwas genauer ansehen, sieht die Sammlung wie eine dicke, unscharfe Linie aus. Wir nehmen unseren Textmarker und zeichnen eine Gerade mittendurch.
 
-Durch das Zeichnen einer Geraden haben wir ein *Modell*erstellt. Stellen Sie sich vor, dies wäre die reale Welt, von der Sie eine vereinfachte Cartoonversion erstellen. Doch der Cartoon ist falsch, denn die Gerade verläuft nicht durch alle Datenpunkte. Aber es ist eine nützliche Vereinfachung.
+Durch das Zeichnen einer Geraden haben wir ein *Modell* erstellt. Stellen Sie sich vor, dies wäre die reale Welt, von der Sie eine vereinfachte Cartoonversion erstellen. Doch der Cartoon ist falsch, denn die Gerade verläuft nicht durch alle Datenpunkte. Aber es ist eine nützliche Vereinfachung.
 
 ![Lineare Regressionsgerade](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/linear-regression-line.png)
 
@@ -129,4 +129,4 @@ Sehen Sie sich unbedingt auch die anderen Videos in der Reihe „Data Science f�
 
 ## <a name="next-steps"></a>Nächste Schritte
 * [Durchführen eines ersten Data Science-Experiments mit Machine Learning Studio (klassisch)](create-experiment.md)
-* [Einführung in Machine Learning in Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)
+* [Einführung in Machine Learning in Microsoft Azure](../overview-what-is-azure-ml.md)

@@ -6,12 +6,9 @@
       tocHref: /azure/virtual-desktop
       topicHref: /azure/virtual-desktop/index
       items:
-        - name: Verweis
+        - name: Referenz
           tocHref: /WindowsServerDocs/remote/remote-desktop-services/clients/rdp-files
           topicHref: /azure/virtual-desktop/index
-        - name: Verweis
+        - name: Referenz
           tocHref: /WindowsServerDocs/remote/remote-desktop-services/virtual-machine-recs
-          topicHref: /azure/virtual-desktop/index
-        - name: Verweis
-          tocHref: /WindowsServerDocs/remote/remote-desktop-services/network-guidance
           topicHref: /azure/virtual-desktop/index

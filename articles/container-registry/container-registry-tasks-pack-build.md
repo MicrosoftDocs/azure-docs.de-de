@@ -3,13 +3,13 @@ title: Erstellen eines Images mithilfe von Cloud Native Buildpacks
 description: Verwenden Sie den Befehl „az acr pack build“, um ein Containerimage aus einer App zu erstellen und ohne Dockerfile an Azure Container Registry zu überführen.
 ms.topic: article
 ms.date: 10/24/2019
-ms.custom: devx-track-js
-ms.openlocfilehash: cad7d5c066dd8c8a7468833cb67e6085f067417a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 264fc7314c78088ebfefb9ddb8edbe38fa16581a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91262109"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736632"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Erstellen und Übertragen eines Images aus einer App mithilfe eines Cloud Native-Buildpacks
 
@@ -45,7 +45,7 @@ az acr pack build \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
-In diesem Beispiel wird das `node-app`-Image mit dem `1.0`-Tag erstellt und mithilfe von Push an die *myregistry*-Containerregistrierung übertragen. In diesem Beispiel wird der Name der Zielcontainerregistrierung dem Namen des Image explizit vorangestellt. Wenn dieser nicht angegeben ist, wird der Anmeldeservername der Registrierung automatisch dem Imagenamen vorangestellt.
+In diesem Beispiel wird das `node-app`-Image mit dem `1.0`-Tag erstellt und mithilfe von Push an die *myregistry* -Containerregistrierung übertragen. In diesem Beispiel wird der Name der Zielcontainerregistrierung dem Namen des Image explizit vorangestellt. Wenn dieser nicht angegeben ist, wird der Anmeldeservername der Registrierung automatisch dem Imagenamen vorangestellt.
 
 Die Befehlsausgabe zeigt den Status der Erstellung und Übertragung des Images mithilfe von Push an. 
 
@@ -85,7 +85,7 @@ Nachdem das Image erfolgreich erstellt wurde, können Sie es mit Docker ausführ
 az acr login --name myregistry
 ```
 
-Führen Sie das Image aus, und ersetzen Sie das Imagetag durch *runid*:
+Führen Sie das Image aus, und ersetzen Sie das Imagetag durch *runid* :
 
 ```console
 docker run --rm -p 8080:8080 myregistry.azurecr.io/java-app:runid

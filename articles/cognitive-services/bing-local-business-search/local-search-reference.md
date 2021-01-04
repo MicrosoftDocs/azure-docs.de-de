@@ -10,14 +10,19 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: d5de1cc606f97655427c0c86aea0c5c722e1bab8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9791d99598fe3d043c42a37e2f4993edd6c5b3ba
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84171462"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487132"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Referenz für die API für die Bing-Suche nach ortsansässigen Unternehmen v7
+
+> [!WARNING]
+> Die APIs der Bing-Suche werden von Cognitive Services auf Bing-Suchdienste umgestellt. Ab dem **30. Oktober 2020** müssen alle neuen Instanzen der Bing-Suche mit dem [hier](/bing/search-apis/bing-web-search/create-bing-search-service-resource) dokumentierten Prozess bereitgestellt werden.
+> APIs der Bing-Suche, die mit Cognitive Services bereitgestellt wurden, werden noch drei Jahre lang oder bis zum Ablauf Ihres Enterprise Agreement unterstützt (je nachdem, was zuerst geschieht).
+> Eine Anleitung zur Migration finden Sie unter [Bing-Suchdienste](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Die API für die Suche nach ortsansässigen Unternehmen sendet eine Suchabfrage an Bing, um Ergebnisse zu erhalten, die Restaurants, Hotels oder andere lokale Unternehmen umfassen. Für Orte kann die Abfrage den Namen des ortsansässigen Unternehmens oder eine Kategorie angeben (z.B. Restaurants in meiner Nähe). Entitätsergebnisse enthalten Personen, Orte oder Gegenstände. Orte sind in diesem Zusammenhang Geschäftsentitäten, Staaten, Länder/Regionen, usw.  
 
@@ -29,7 +34,7 @@ Informationen zu Abfrageparametern, die in Anforderungen enthalten sein sollten,
   
 Weitere Informationen zu den JSON-Objekten, die die Antwort enthält, finden Sie unter [Antwortobjekte](#response-objects).
 
-Informationen zur zulässigen Verwendung und Anzeige der Ergebnisse finden Sie unter [Verwendungs- und Anzeigeanforderungen](use-display-requirements.md).
+Informationen zur zulässigen Verwendung und Anzeige der Ergebnisse finden Sie unter [Verwendungs- und Anzeigeanforderungen](../bing-web-search/use-display-requirements.md).
 
 
   
@@ -95,7 +100,7 @@ Im Folgenden finden Sie die JSON-Antwortobjekte, die die Antwort enthalten könn
 ### <a name="error"></a>Fehler  
 Definiert den aufgetretenen Fehler.  
   
-|Element|BESCHREIBUNG|type|  
+|Element|Beschreibung|type|  
 |-------------|-----------------|----------|  
 |<a name="error-code"></a>code|Der Fehlercode, der die Kategorie des Fehlers angibt. Eine Liste der möglichen Codes finden Sie unter [Fehlercodes](#error-codes).|String|  
 |<a name="error-message"></a>message|Eine Beschreibung des Fehlers.|String|  
@@ -165,7 +170,7 @@ Definiert Informationen zu einem ortsansässigen Unternehmen, z.B. ein Restauran
 ### <a name="querycontext"></a>QueryContext  
 Definiert den Abfragekontext, den Bing für die Anforderung verwendet hat.  
   
-|Element|BESCHREIBUNG|type|  
+|Element|Beschreibung|type|  
 |-------------|-----------------|----------|  
 |adultIntent|Ein boolescher Wert, der angibt, ob die angegebene Abfrage nicht jugendfreie Inhalte aufweist. Der Wert ist **TRUE**, wenn die Abfrage nicht jugendfreie Inhalte aufweist, andernfalls ist er **FALSE**.|Boolean|  
 |alterationOverrideQuery|Die zu verwendende Abfragezeichenfolge, um Bing zu zwingen, die ursprüngliche Zeichenfolge zu verwenden. Wenn die Abfragezeichenfolge z.B. *saling downwind* lautet, lautet die Abfragezeichenfolge zum Überschreiben *+saling downwind*. Denken Sie daran, die Abfragezeichenfolge mit den Ergebnissen in *%2Bsaling+downwind* zu codieren.<br /><br /> Dieses Feld ist nur enthalten, wenn die ursprüngliche Abfragezeichenfolge einen Rechtschreibfehler enthält.|String|  

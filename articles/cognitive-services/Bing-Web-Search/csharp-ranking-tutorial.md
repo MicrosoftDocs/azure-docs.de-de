@@ -12,14 +12,19 @@ ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8bfd7b6e5c9a2a7e3d9ed750e544036f3874271f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 077c715616e377d8b296e53fdd5a861f944ab940
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88933221"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349502"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Erstellen einer Suchclient-Konsolen-App in C#
+
+> [!WARNING]
+> Die APIs der Bing-Suche werden von Cognitive Services auf Bing-Suchdienste umgestellt. Ab dem **30. Oktober 2020** müssen alle neuen Instanzen der Bing-Suche mit dem [hier](/bing/search-apis/bing-web-search/create-bing-search-service-resource) dokumentierten Prozess bereitgestellt werden.
+> APIs der Bing-Suche, die mit Cognitive Services bereitgestellt wurden, werden noch drei Jahre lang bzw. bis zum Ablauf Ihres Enterprise Agreement unterstützt (je nachdem, was zuerst eintritt).
+> Eine Anleitung zur Migration finden Sie unter [Erstellen einer Ressource für die Bing-Suche über Azure Marketplace](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 In diesem Tutorial erfahren Sie, wie Sie eine einfache .NET Core-Konsolen-App erstellen, mit der Benutzer die Bing-Websuche-API abfragen und nach Rang sortierte Ergebnisse anzeigen können.
 
@@ -48,7 +53,7 @@ Nennen Sie die Anwendung **MyConsoleSearchApp**, und klicken Sie anschließend a
 
 „JSON.net“ ermöglicht die Arbeit mit den von der API zurückgegebenen JSON-Antworten. Fügen Sie Ihrem Projekt das entsprechende NuGet-Paket hinzu:
 
-- Klicken Sie im**Projektmappen-Explorer** mit der rechten Maustaste auf das Projekt, und wählen Sie **NuGet-Pakete verwalten...** aus.
+- Klicken Sie im **Projektmappen-Explorer** mit der rechten Maustaste auf das Projekt, und wählen Sie **NuGet-Pakete verwalten...** aus.
 - Suchen Sie auf der Registerkarte **Durchsuchen** nach `Newtonsoft.Json`. Wählen Sie die neueste Version aus, und klicken Sie auf **Installieren**.
 - Klicken Sie im Fenster **Änderungen überprüfen** auf die Schaltfläche **OK**.
 - Schließen Sie die Visual Studio-Registerkarte **NuGet: MyConsoleSearchApp**.
@@ -57,7 +62,7 @@ Nennen Sie die Anwendung **MyConsoleSearchApp**, und klicken Sie anschließend a
 
 Dieses Tutorial basiert auf der Assembly `System.Web`. Fügen Sie Ihrem Projekt einen Verweis auf diese Assembly hinzu:
 
-- Klicken Sie im**Projektmappen-Explorer** mit der rechten Maustaste auf **Verweise**, und klicken Sie anschließend auf **Verweis hinzufügen...** .
+- Klicken Sie im **Projektmappen-Explorer** mit der rechten Maustaste auf **Verweise**, und klicken Sie anschließend auf **Verweis hinzufügen...** .
 - Klicken Sie auf **Assemblys > Framework**, scrollen Sie nach unten, und aktivieren Sie das Kontrollkästchen für **System.Web**
 - Klicken Sie auf **OK**.
 
@@ -72,7 +77,7 @@ using System.Net.Http;
 
 ## <a name="ask-the-user-for-a-query"></a>Anfordern einer Benutzerabfrage
 
-Öffnen Sie **Program.cs** im**Projektmappen-Explorer**. Aktualisieren Sie die Methode `Main()`:
+Öffnen Sie **Program.cs** im **Projektmappen-Explorer**. Aktualisieren Sie die Methode `Main()`:
 
 ```csharp
 static void Main()
@@ -223,7 +228,7 @@ Bevor wir darauf eingehen, wie Sie nach Rang sortierte Ergebnisse anzeigen, sehe
 }
 ```
 
-Das JSON-Objekt `rankingResponse` ([Dokumentation](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) beschreibt die korrekte Anzeigereihenfolge für Suchergebnisse. Es enthält mindestens eine der folgenden priorisierten Gruppen:
+Das JSON-Objekt `rankingResponse` ([Dokumentation](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) beschreibt die korrekte Anzeigereihenfolge für Suchergebnisse. Es enthält mindestens eine der folgenden priorisierten Gruppen:
 
 - `pole`: Die Suchergebnisse, die am sichtbarsten sein und beispielsweise über dem Hauptbereich und der Randleiste angezeigt werden sollen.
 - `mainline`: Die Suchergebnisse, die in der Hauptlinie angezeigt werden sollen.

@@ -5,12 +5,12 @@ author: EMaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: cf1b9db8de2c0f2c852a41d1e30343c5cef1b20b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 216dc843b31eac355e1d818014f3d70b2ef83132
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396687"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647901"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Leitfaden zum Einrichten eines Windows-Vorlagencomputers in Azure Lab Services
 
@@ -47,7 +47,7 @@ Write-Host "Installing OneDrive..."
 
 ### <a name="onedrive-customizations"></a>OneDrive-Anpassungen
 
-Es gibt viele [Anpassungen, die für OneDrive ](https://docs.microsoft.com/onedrive/use-group-policy) vorgenommen werden können. Im Folgenden werden einige der gängigeren Anpassungen behandelt.
+Es gibt viele [Anpassungen, die für OneDrive ](/onedrive/use-group-policy) vorgenommen werden können. Im Folgenden werden einige der gängigeren Anpassungen behandelt.
 
 #### <a name="silently-move-windows-known-folders-to-onedrive"></a>Automatisches Verschieben von bekannten Windows-Ordnern in OneDrive
 
@@ -61,7 +61,7 @@ Wenn Sie mit einem Computer arbeiten, der Active Directory nicht verwendet, kön
 
 Wenn Ihr virtueller Computer mit Active Directory verbunden ist, können Sie den Vorlagencomputer so festlegen, dass die Kursteilnehmer automatisch aufgefordert werden, bekannte Ordner in OneDrive zu verschieben.  
 
-Sie müssen zunächst Ihre Organisations-ID abrufen.  Weitere Anweisungen finden Sie unter [Abrufen Ihrer Microsoft 365-Organisations-ID](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id).  Sie können die Organisations-ID auch mit den folgenden PowerShell-Befehlen abrufen.
+Sie müssen zunächst Ihre Organisations-ID abrufen.  Weitere Anweisungen finden Sie unter [Abrufen Ihrer Microsoft 365-Organisations-ID](/onedrive/find-your-office-365-tenant-id).  Sie können die Organisations-ID auch mit den folgenden PowerShell-Befehlen abrufen.
 
 ```powershell
 Install-Module MSOnline -Confirm
@@ -137,7 +137,7 @@ Wenn Ihr Vorlagencomputer Office benötigt, empfehlen wir die Installation von O
 
 ### <a name="change-the-microsoft-365-update-channel"></a>Ändern des Microsoft 365-Updatekanals
 
-Mit dem Office-Konfigurationstool können Sie festlegen, wie häufig Office Updates erhält. Wenn Sie ändern müssen, wie häufig Office nach der Installation Updates erhält, können Sie die URL des Updatekanals ändern. Die URL-Adressen für den Updatekanal finden Sie unter [Ändern des Updatekanals für Microsoft 365 Apps für Geräte in Ihrer Organisation](https://docs.microsoft.com/deployoffice/change-update-channels). Im folgenden Beispiel wird gezeigt, wie Sie Microsoft 365 für die Verwendung des monatlichen Updatekanals einrichten.
+Mit dem Office-Konfigurationstool können Sie festlegen, wie häufig Office Updates erhält. Wenn Sie ändern müssen, wie häufig Office nach der Installation Updates erhält, können Sie die URL des Updatekanals ändern. Die URL-Adressen für den Updatekanal finden Sie unter [Ändern des Updatekanals für Microsoft 365 Apps für Geräte in Ihrer Organisation](/deployoffice/change-update-channels). Im folgenden Beispiel wird gezeigt, wie Sie Microsoft 365 für die Verwendung des monatlichen Updatekanals einrichten.
 
 ```powershell
 # Update to the Microsoft 365 Monthly Channel
@@ -188,7 +188,7 @@ Sie können auch PowerShell verwenden, um Microsoft Store-Anwendungen zu aktuali
 
 ### <a name="stop-automatic-windows-updates"></a>Beenden automatischer Windows-Updates
 
-Nachdem Sie Windows auf die neueste Version aktualisiert haben, können Sie ggf. die Beendigung von Windows-Updates in Erwägung ziehen.  Automatische Updates können möglicherweise geplante Kurszeiten beeinträchtigen.  Wenn Ihr Kurs länger dauert, sollten Sie die Kursteilnehmer bitten, manuell nach Updates zu suchen oder automatische Updates für eine Zeit außerhalb der geplanten Unterrichtszeiten festzulegen.  Weitere Informationen zu Anpassungsoptionen für Windows Update finden Sie unter [Verwalten zusätzlicher Windows Update-Einstellungen](https://docs.microsoft.com/windows/deployment/update/waas-wu-settings).
+Nachdem Sie Windows auf die neueste Version aktualisiert haben, können Sie ggf. die Beendigung von Windows-Updates in Erwägung ziehen.  Automatische Updates können möglicherweise geplante Kurszeiten beeinträchtigen.  Wenn Ihr Kurs länger dauert, sollten Sie die Kursteilnehmer bitten, manuell nach Updates zu suchen oder automatische Updates für eine Zeit außerhalb der geplanten Unterrichtszeiten festzulegen.  Weitere Informationen zu Anpassungsoptionen für Windows Update finden Sie unter [Verwalten zusätzlicher Windows Update-Einstellungen](/windows/deployment/update/waas-wu-settings).
 
 Automatische Windows-Updates können mithilfe des folgenden PowerShell-Skripts beendet werden.
 

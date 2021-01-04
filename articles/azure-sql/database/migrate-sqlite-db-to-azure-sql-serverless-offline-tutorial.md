@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/08/2020
 ms.custom: sqldbrb=1
-ms.openlocfilehash: 6e60403344a0341b4aee74a001287c09ba67e114
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2f240247cbba0f80254d504792df45be55c6a1b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448905"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790405"
 ---
 # <a name="how-to-migrate-your-sqlite-database-to-azure-sql-database-serverless"></a>Migrieren Ihrer SQLite-Datenbank zu „Azure SQL-Datenbank – serverlos“
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -59,7 +59,7 @@ Mit den im Anschluss aufgeführten Schritten wird Ihre Datenbank mit nur einigen
 
     ![Screenshot: Leeres Blatt „Verknüpfte Dienste“ in Azure Data Factory](./media/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial/linked-services-create.png)
 
-6. Klicken Sie bei **Verbindungen** unter **Verknüpfter Dienst** auf **Neu**.
+6. Klicken Sie bei **Verbindungen** unter **Verknüpfter Dienst** auf **Neu** .
 
 7. Suchen Sie nach dem Connector „ODBC“, und wählen Sie ihn aus.
 
@@ -109,4 +109,4 @@ Mit den im Anschluss aufgeführten Schritten wird Ihre Datenbank mit nur einigen
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Informationen zu den ersten Schritten finden Sie unter [Schnellstart: Erstellen einer Einzeldatenbank in Azure SQL-Datenbank über das Azure-Portal](single-database-create-quickstart.md).
-- Ressourceneinschränkungen werden unter [Ressourceneinschränkungen für die serverlose Computeebene](../../sql-database/sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5) beschrieben.
+- Ressourceneinschränkungen werden unter [Ressourceneinschränkungen für die serverlose Computeebene](./resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5) beschrieben.

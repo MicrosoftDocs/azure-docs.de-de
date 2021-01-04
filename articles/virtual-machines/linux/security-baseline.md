@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ab266e1a94a647c4c1f0c42cc75fe6b6a68d9afa
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 45a33981c51f5a2590843fafc1e54f54d2e567cf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205148"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498471"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Azure-Sicherheitsbaseline für Virtuelle Linux-Computer
 
@@ -78,7 +78,7 @@ Sie können auch Azure Web Application Firewall (WAF) vor kritischen Webanwendun
 
 Sie können mit dem Just-in-Time-Netzwerkzugriff in Azure Security Center die Verfügbarkeit von virtuellen Linux-Computern auf genehmigte IP-Adressen und einen begrenzten Zeitraum einschränken. Verwenden Sie außerdem die adaptive Netzwerkhärtung in Azure Security Center, um NSG-Konfigurationen zu empfehlen, die Ports und Quell-IP-Adressen basierend auf tatsächlichem Datenverkehr und Threat Intelligence einschränken.
 
-* [Konfigurieren von DDoS-Schutz](../../virtual-network/manage-ddos-protection.md)
+* [Konfigurieren von DDoS-Schutz](../../ddos-protection/manage-ddos-protection.md)
 
 * [Bereitstellen von Azure Firewall](../../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -278,7 +278,7 @@ Alternativ dazu können Sie zum Überwachen und Überprüfen Ihrer Protokolle au
 
 * [Durchführen des Onboardings für Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-* [Grundlegendes zum Log Analytics-Arbeitsbereich](../../azure-monitor/log-query/get-started-portal.md)
+* [Grundlegendes zum Log Analytics-Arbeitsbereich](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Ausführen benutzerdefinierter Abfragen in Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
@@ -308,7 +308,7 @@ Alternativ dazu können Sie zum Einrichten von Warnungen für anomale Aktivität
 
 * [Anweisungen für das Onboarding von Linux-Servern in Azure Security Center](../../security-center/quickstart-onboard-machines.md)
 
-* [Der folgende Link enthält die empfohlenen Sicherheitsrichtlinien von Microsoft, die als Kriterienliste für die ausgewählte Sicherheitsrisikosoftware dienen können.](./security-recommendations.md)
+* [Der folgende Link enthält die empfohlenen Sicherheitsrichtlinien von Microsoft, die als Kriterienliste für die ausgewählte Sicherheitsrisikosoftware dienen können.](../security-recommendations.md)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -458,7 +458,7 @@ Alternativ dazu können Sie zum Einrichten von Warnungen für anomale Aktivität
 
 **Leitfaden**: Konfigurieren Sie Diagnoseeinstellungen für Azure Active Directory, um die Überwachungs- und Anmeldeprotokolle an einen Log Analytics-Arbeitsbereich zu senden. Verwenden Sie außerdem Azure Monitor, um Protokolle zu überprüfen und Abfragen für Syslog-Daten von virtuellen Azure-Computern auszuführen.
 
-* [Grundlegendes zum Log Analytics-Arbeitsbereich](../../azure-monitor/log-query/get-started-portal.md)
+* [Grundlegendes zum Log Analytics-Arbeitsbereich](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Integrieren von Azure-Aktivitätsprotokollen in Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -586,7 +586,7 @@ Microsoft verwendet das TLS-Protokoll (Transport Layer Security) zum Schutz von 
 
 **Leitfaden**: Virtuelle Datenträger auf virtuellen Linux-Computern (VMs) werden mithilfe der serverseitigen Verschlüsselung oder von Azure Disk Encryption (ADE) im Ruhezustand verschlüsselt. Azure Disk Encryption nutzt das DM-Crypt-Feature von Linux, um verwaltete Datenträger auf dem virtuellen Gastcomputer mit kundenseitig verwalteten Schlüsseln zu verschlüsseln. Die serverseitige Verschlüsselung mit vom Kunden verwalteten Schlüsseln bewirkt eine ADE-Verbesserung, indem Sie beliebige Betriebssystemtypen und Images für Ihre VMs verwenden können, indem Daten im Speicherdienst verschlüsselt werden.
 
-* [Serverseitige Verschlüsselung von verwalteten Azure-Datenträgern](../windows/disk-encryption.md)
+* [Serverseitige Verschlüsselung von verwalteten Azure-Datenträgern](../disk-encryption.md)
 
 * [Azure Disk Encryption für Linux-VMs](./disk-encryption-overview.md)
 
@@ -618,7 +618,7 @@ Microsoft verwendet das TLS-Protokoll (Transport Layer Security) zum Schutz von 
 
 * [Anweisungen für das Onboarding von Linux-Servern in Azure Security Center](../../security-center/quickstart-onboard-machines.md)
 
-* [Von Microsoft empfohlene Sicherheitsrichtlinien](./security-recommendations.md)
+* [Von Microsoft empfohlene Sicherheitsrichtlinien](../security-recommendations.md)
 
 **Azure Security Center-Überwachung:** Ja
 
@@ -628,9 +628,9 @@ Microsoft verwendet das TLS-Protokoll (Transport Layer Security) zum Schutz von 
 
 **Leitfaden**: Verwenden Sie die Azure-Updateverwaltung, um Updates und Patches für Ihre VMs zu verwalten. In der Updateverwaltung werden unterstützte Systeme mithilfe des lokal konfigurierten Updaterepositorys gepatcht.
 
-* [Updateverwaltung in Azure](../../automation/update-management/update-mgmt-overview.md)
+* [Updateverwaltung in Azure](../../automation/update-management/overview.md)
 
-* [Verwalten von Updates und Patches für Ihre VMs](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Verwalten von Updates und Patches für Ihre VMs](../../automation/update-management/manage-updates-for-vm.md)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -640,9 +640,9 @@ Microsoft verwendet das TLS-Protokoll (Transport Layer Security) zum Schutz von 
 
 **Leitfaden**: Sie können eine Lösung für die Patchverwaltung von Drittanbietern verwenden. Sie können die Azure-Updateverwaltung verwenden, um Updates und Patches für Ihre VMs zu verwalten. In der Updateverwaltung werden unterstützte Systeme mithilfe des lokal konfigurierten Updaterepositorys gepatcht.
 
-* [Updateverwaltung in Azure](../../automation/update-management/update-mgmt-overview.md)
+* [Updateverwaltung in Azure](../../automation/update-management/overview.md)
 
-* [Verwalten von Updates und Patches für Ihre VMs](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Verwalten von Updates und Patches für Ihre VMs](../../automation/update-management/manage-updates-for-vm.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar.
 
@@ -978,7 +978,7 @@ In den meisten Fällen sind die Microsoft-Basisvorlagen in Kombination mit Azure
 
 * [Integrieren mit verwalteten Azure-Identitäten](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-* [Erstellen einer Key Vault-Instanz](../../key-vault/secrets/quick-create-portal.md)
+* [Erstellen einer Key Vault-Instanz](../../key-vault/general/quick-create-portal.md)
 
 * [Authentifizieren bei Key Vault](../../key-vault/general/authentication.md)
 
@@ -1016,7 +1016,7 @@ In den meisten Fällen sind die Microsoft-Basisvorlagen in Kombination mit Azure
 
 **Leitfaden**: Sie benötigen ein Drittanbietertool für den Schutz vor Schadsoftware auf dem virtuellen Azure-Linux-Computer.
 
-* [Konfigurieren von Microsoft Antimalware für Cloud Services und Virtual Machines](./security-recommendations.md)
+* [Konfigurieren von Microsoft Antimalware für Cloud Services und Virtual Machines](../security-recommendations.md)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -1034,7 +1034,7 @@ In den meisten Fällen sind die Microsoft-Basisvorlagen in Kombination mit Azure
 
 **Leitfaden**: Sie benötigen ein Drittanbietertool für den Schutz vor Schadsoftware auf dem virtuellen Azure-Linux-Computer.
 
-* [Konfigurieren von Microsoft Antimalware für Cloud Services und Virtual Machines](./security-recommendations.md)
+* [Konfigurieren von Microsoft Antimalware für Cloud Services und Virtual Machines](../security-recommendations.md)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -1088,7 +1088,7 @@ Wenn Sie Azure Disk Encryption verwenden, können Sie die Azure-VM mit den Versc
 
 * [Sichern und Wiederherstellen einer verschlüsselten VM](../../backup/backup-azure-vms-encryption.md)
 
-**Azure Security Center-Überwachung**: Nicht zutreffend
+**Azure Security Center-Überwachung:** Nicht zutreffend
 
 **Verantwortlichkeit**: Kunde
 

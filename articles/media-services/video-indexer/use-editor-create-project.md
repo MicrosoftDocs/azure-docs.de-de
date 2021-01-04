@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
-ms.openlocfilehash: 5eaf17281fef32d682a2dac17b379faf7ec23a53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28186a7dcced47a42b3249f1f74b13e969b41978
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970077"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041357"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Verwenden des Video Indexer-Editors zum Erstellen von Projekten
 
@@ -35,7 +35,7 @@ In diesem Artikel wird gezeigt, wie Sie ein Projekt von Grund auf neu erstellen 
 1. Wählen Sie die Registerkarte **Projekte** aus. Wenn Sie bereits Projekte erstellt haben, werden hier alle Ihre anderen Projekte angezeigt.
 1. Klicken Sie auf **Neues Projekt erstellen**.  
 
-    ![Neues Projekt](./media/video-indexer-view-edit/new-project.png)
+    ![Screenshot der Seite „Video Indexer“ mit ausgewählter Registerkarte „Projekte“](./media/video-indexer-view-edit/new-project.png)
 1. Weisen Sie Ihrem Projekt einen Namen zu, indem Sie auf das Stiftsymbol klicken. Ersetzen Sie den Text „Unbenanntes Projekt“ durch Ihren Projektnamen, und klicken Sie auf das Häkchen.
 
     ![Neues Projekt](./media/video-indexer-view-edit/new-project3.png)
@@ -57,7 +57,7 @@ In diesem Artikel wird gezeigt, wie Sie ein Projekt von Grund auf neu erstellen 
 
     ![Filtern](./media/video-indexer-view-edit/visual-text.png)
 
-    Sie können mehrere Filter in Ihrer Abfrage überlagern. Verwenden Sie die Schaltflächen **+** / **-** , um Filter hinzuzufügen/zu entfernen. Verwenden Sie **Filter löschen**, um alle Filter zu entfernen.
+    Sie können mehrere Filter in Ihrer Abfrage überlagern. Verwenden Sie die Schaltflächen **+** / **-** , um Filter hinzuzufügen/zu entfernen. Verwenden Sie **Filter löschen** , um alle Filter zu entfernen.
 1. Um Videos hinzuzufügen, wählen Sie sie aus, und wählen Sie anschließend **Hinzufügen** aus.
 1. Jetzt werden alle von Ihnen ausgewählten Videos angezeigt. Dies sind die Videos, aus denen Sie Clips für Ihr Projekt auswählen werden.
 

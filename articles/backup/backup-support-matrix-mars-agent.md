@@ -3,12 +3,12 @@ title: Unterstützungsmatrix für den MARS-Agent
 description: Dieser Artikel enthält eine Übersicht über die Azure Backup-Unterstützung beim Sichern von Computern, auf denen der MARS-Agent (Microsoft Azure Recovery Services) ausgeführt wird.
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 53034d058e0cd2e1623acc6629da0a694b35e60b
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 26a47c2648d1307d2e7da2b25455f3f036cbf32d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173528"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997238"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Supportmatrix für die Sicherung mit dem Microsoft Azure Recovery Services (MARS)-Agent
 
@@ -168,6 +168,17 @@ Windows Server 2008 R2 SP1 |1\.700 GB
 Windows Server 2008 SP2| 1\.700 GB
 Windows 8 oder höher| 54.400 GB
 Windows 7| 1\.700 GB
+
+### <a name="minimum-retention-limits"></a>Mindestwerte für die Aufbewahrung
+
+Im Folgenden finden Sie die minimale Aufbewahrungsdauer, die für die verschiedenen Wiederherstellungspunkte festgelegt werden kann:
+
+|Wiederherstellungspunkt |Duration  |
+|---------|---------|
+|Täglicher Wiederherstellungspunkt    |   7 Tage      |
+|Wöchentlicher Wiederherstellungspunkt     |    4 Wochen     |
+|Monatlicher Wiederherstellungspunkt    |   3 Monate      |
+|Jährlicher Wiederherstellungspunkt  |      1 Jahr   |
 
 ### <a name="other-limitations"></a>Weitere Einschränkungen
 

@@ -1,18 +1,18 @@
 ---
 title: Definieren mehrerer Instanzen eines Ausgabewerts
-description: Verwenden des „copy“-Vorgangs in einer Azure Resource Manager-Vorlage, um das Zurückgeben eines Werts aus einer Bereitstellung mehrere Male zu durchlaufen.
+description: Verwenden des copy-Vorgangs in einer Azure Resource Manager-Vorlage (ARM), um das Zurückgeben eines Werts aus einer Bereitstellung mehrere Male zu durchlaufen.
 ms.topic: conceptual
 ms.date: 04/17/2020
-ms.openlocfilehash: 50c4b4b8f301ad88d3dfde98ace1aed4431693db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ae20ed9ec3fdb3b76adbd370f5ba22f9386d613
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82583426"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905943"
 ---
 # <a name="output-iteration-in-arm-templates"></a>Ausgabeiteration in ARM-Vorlagen
 
-In diesem Artikel wird gezeigt, wie Sie mehr als einen Wert für eine Ausgabe in Ihrer Azure Resource Manager-Vorlage (ARM) erstellen können. Durch das Hinzufügen des **copy**-Elements zum Variablenabschnitt Ihrer Vorlage können Sie eine Anzahl von Elementen während der Bereitstellung dynamisch zurückgeben.
+In diesem Artikel wird gezeigt, wie Sie mehr als einen Wert für eine Ausgabe in Ihrer Azure Resource Manager-Vorlage (ARM) erstellen können. Durch das Hinzufügen des `copy`-Elements zum Ausgabenabschnitt Ihrer Vorlage können Sie eine Anzahl von Elementen während der Bereitstellung dynamisch zurückgeben.
 
 Sie können „copy“ auch mit [Ressourcen](copy-resources.md), [Eigenschaften in einer Ressource](copy-properties.md) und [Variablen](copy-variables.md) verwenden.
 
@@ -27,9 +27,9 @@ Das copy-Element hat das folgende allgemeine Format:
 }
 ```
 
-Die Eigenschaft **count** gibt die gewünschte Anzahl von Iterationen für den Ausgabewert an.
+Die `count`-Eigenschaft gibt die gewünschte Anzahl von Iterationen für den Ausgabewert an.
 
-Die Eigenschaft **input** gibt die Eigenschaften an, die Sie wiederholen möchten. Sie erstellen ein Array von Elementen, das aus dem Wert in der **input**-Eigenschaft erstellt wird. Es kann sich um eine einzelne Eigenschaft handeln (z. B. eine Zeichenfolge) oder um ein Objekt mit mehreren Eigenschaften.
+Die Eigenschaft `input` gibt die Eigenschaften an, die Sie wiederholen möchten. Erstellen Sie ein Array von Elementen, das aus dem Wert in der `input`-Eigenschaft erstellt wird. Es kann sich um eine einzelne Eigenschaft handeln (z. B. eine Zeichenfolge) oder um ein Objekt mit mehreren Eigenschaften.
 
 ## <a name="copy-limits"></a>Einschränkungen für „copy“
 
@@ -166,11 +166,10 @@ Das vorangehende Beispiel gibt ein Array mit den folgenden Werten zurück:
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Ein Tutorial, das Sie durcharbeiten können, finden Sie unter [Tutorial: Erstellen mehrerer Ressourceninstanzen mit ARM-Vorlagen](template-tutorial-create-multiple-instances.md).
+* Ein entsprechendes Tutorial finden Sie unter [Tutorial: Erstellen mehrerer Ressourceninstanzen mit ARM-Vorlagen](template-tutorial-create-multiple-instances.md).
 * Informationen zu anderen Verwendungsmöglichkeiten des „copy“-Elements finden Sie unter:
   * [Ressourceniteration in ARM-Vorlagen](copy-resources.md)
   * [Eigenschafteniteration in ARM-Vorlagen](copy-properties.md)
   * [Variableniteration in ARM-Vorlagen](copy-variables.md)
-* Informationen zu den Abschnitten einer Vorlage finden Sie unter [Erstellen von ARM-Vorlagen](template-syntax.md).
+* Weitere Informationen zu den Abschnitten in einer Vorlage finden Sie unter [Verstehen der Struktur und Syntax von ARM-Vorlagen](template-syntax.md).
 * Informationen zum Bereitstellen Ihrer Vorlage finden Sie unter [Bereitstellen von Ressourcen mit ARM-Vorlagen und Azure PowerShell](deploy-powershell.md).
-

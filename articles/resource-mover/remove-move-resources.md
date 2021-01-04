@@ -5,14 +5,14 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 11/30/2020
 ms.author: raynew
-ms.openlocfilehash: 38a633a7a11ac29271231679e7075920e1f33a70
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 63548e2bf470c012e0dd8a5f879a51eeb631f453
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945942"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459284"
 ---
 # <a name="manage-move-collections-and-resource-groups"></a>Verwalten von Verschiebungssammlungen und Ressourcengruppen
 
@@ -43,12 +43,11 @@ Gehen Sie wie folgt vor, um eine Ressource (in unserem Beispiel die Computer „
 
 ```azurepowershell-interactive
 # Remove a resource using the resource ID
-Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus - Name PSDemoVM
+Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus -Name PSDemoVM
 ```
 **Erwartete Ausgabe**
-![Ausgabetext nach dem Entfernen einer Ressource in einer Sammlung für die Verschiebung](./media/remove-move-resources/remove-resource.png)
 
-
+![Ausgegebener Text nach dem Entfernen einer Ressource aus einer Verschiebungssammlung](./media/remove-move-resources/remove-resource.png)
 
 ## <a name="remove-a-collection-powershell"></a>Entfernen einer Sammlung (PowerShell)
 
@@ -59,9 +58,11 @@ Gehen Sie wie folgt vor, um eine ganze Sammlung für die Verschiebung mithilfe v
 
     ```azurepowershell-interactive
     # Remove a resource using the resource ID
-    Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus 
+    Remove-AzResourceMoverMoveCollection -SubscriptionId <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus -MoveCollectionName MoveCollection-centralus-westcentralus
     ```
-    **Erwartete Ausgabe** ![Ausgabetext nach dem Entfernen einer Sammlung für die Verschiebung](./media/remove-move-resources/remove-collection.png)
+    **Erwartete Ausgabe**
+    
+    ![Ausgegebener Text nach dem Entfernen einer Verschiebungssammlung](./media/remove-move-resources/remove-collection.png)
 
 ## <a name="vm-resource-state-after-removing"></a>Zustand einer VM-Ressource nach dem Entfernen
 

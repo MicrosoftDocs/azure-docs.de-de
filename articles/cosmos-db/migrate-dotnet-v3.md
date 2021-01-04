@@ -4,16 +4,18 @@ description: Erfahren Sie, wie Sie Ihre vorhandene .NET-Anwendung von v2 des SDK
 author: stefArroyo
 ms.author: esarroyo
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: c86121bfd78452f613109c59cbc7a8b763755124
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 514a6c6daccfe63865ae0b2b9f5bf29c5cbedc29
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842987"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334020"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-net-sdk-v3"></a>Migrieren einer Anwendung für die Verwendung des Azure Cosmos DB .NET SDK v3
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]
 > Informationen zum Azure Cosmos DB .NET SDK v3 finden Sie in den [Versionshinweisen](sql-api-sdk-dotnet-standard.md), im [.NET-GitHub-Repository](https://github.com/Azure/azure-cosmos-dotnet-v3), in den [Tipps zur Leistungssteigerung](performance-tips-dotnet-sdk-v3-sql.md) für das .NET SDK v3 sowie im [Handbuch zur Problembehandlung](troubleshoot-dot-net-sdk.md).

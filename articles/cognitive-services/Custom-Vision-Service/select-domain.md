@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
-ms.openlocfilehash: 1fb30cc0634224213dc9a188a16902e07d379904
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87b9e4a3ca7151b3666928b00add175eddeea050
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82127771"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409381"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Auswählen einer Domäne für ein Custom Vision-Projekt
 
@@ -42,27 +42,15 @@ Auf dem Blatt „Einstellungen“ für das Custom Vision-Projekt können Sie ein
 
 ## <a name="compact-domains"></a>Kompaktdomänen
 
-Die von Kompaktdomänen generierten Modelle können für die lokale Ausführung exportiert werden. Die Modellleistung variiert je nach ausgewählter Domäne. In der folgenden Tabelle geben wir die Modellgröße und die Rückschlusszeit auf der Intel Desktop-CPU und der NVIDIA-GPU \[1\] an. 
+Die von Kompaktdomänen generierten Modelle können für die lokale Ausführung exportiert werden. In der öffentlichen Vorschauversion 3.4 der API von Custom Vision können Sie eine Liste der exportierbaren Plattformen für kompakte Domänen erhalten, indem Sie die GetDomains-API aufrufen.
 
-> [!NOTE]
-> Diese Zahlen enthalten keine Vor- und Nachverarbeitungszeit.
+Die Modellleistung variiert je nach ausgewählter Domäne. In der folgenden Tabelle geben wir die Modellgröße und die Rückschlusszeit auf der Intel Desktop-CPU und der NVIDIA-GPU \[1\] an. Diese Zahlen enthalten keine Vor- und Nachverarbeitungszeit.
 
 |Aufgabe|Domain|Modellgröße|CPU-Rückschlusszeit|GPU-Rückschlusszeit|
 |---|---|---|---|---|
-|Klassifizierung|Allgemein (kompakt)|5 MB|13 ms|5 ms|
-|Objekterkennung|Allgemein (kompakt)|45 MB|35 ms|5 ms|
+|Klassifizierung|General (compact) (Allgemein (kompakt))|5 MB|13 ms|5 ms|
+|Objekterkennung|General (compact) (Allgemein (kompakt))|45 MB|35 ms|5 ms|
 |Objekterkennung|Allgemein (kompakt) [$1]|14 MB|27 ms|7 ms|
-
-## <a name="vaidk-vision-ai-dev-kit"></a>VAIDK (Vision AI Dev Kit)
-
-Wenn eine kompakte Domäne ausgewählt ist, wird die zusätzliche Option „Exportieren von Funktionen“ bereitgestellt, die das Unterscheiden zwischen „Basisplattformen“ und „Vision AI Dev Kit“ ermöglicht.
-
-Unter _Exportieren von Funktionen_ sind diese beiden Optionen verfügbar:
-
-- Basisplattformen (Tensorflow, CoreML, ONNX usw.)
-- Vision AI Dev Kit.
-
-Wenn _Vision AI Dev Kit_ ausgewählt ist, sind die kompakten Domänen _Generisch_, _Besondere Merkmale_ und _Einzelhandel_, aber nicht _Lebensmittel_ für die Bildklassifizierung verfügbar, während sowohl _Allgemein (kompakt)_ als _Allgemein (kompakt) [S1]_ für die Objekterkennung verfügbar sind.
 
 >[!NOTE]
 >Die Domäne __Allgemein (kompakt)__ für die Objekterkennung erfordert eine spezielle Nachverarbeitungslogik. Die Einzelheiten entnehmen Sie einem Beispielskript im exportierten ZIP-Paket. Wenn Sie ein Modell ohne die Nachverarbeitungslogik benötigen, verwenden Sie __Allgemein (kompakt) [S1]__ .

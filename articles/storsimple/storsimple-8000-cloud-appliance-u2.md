@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 219e2b77a0f6f30307c43f006fcdd3828d3c8fbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d78051c1a5af82a986152c8244d25b68dd65d552
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87021374"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968841"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Bereitstellen und Verwalten einer StorSimple Cloud Appliance in Azure (ab Update 3)
 
@@ -47,7 +47,7 @@ Die StorSimple Cloud Appliance steht in zwei Modellen zur Verfügung, dem Standa
 | **Maximale Kapazität** |30 TB |64 TB |
 | **Azure-VM** |Standard_A3 (4 Kerne, 7 GB Arbeitsspeicher)| Standard_DS3 (4 Kerne, 14 GB Arbeitsspeicher)|
 | **Regionale Verfügbarkeit** |Alle Azure-Regionen |Azure-Regionen, die Storage Premium und DS3-Azure-VMs unterstützen<br></br>Verwenden Sie [diese Liste](https://azure.microsoft.com/regions/services/), um zu ermitteln, ob in Ihrer Region sowohl **Virtuelle Computer > DS-Serie** als auch **Storage > Disk Storage** verfügbar ist. |
-| **Speichertyp** |Verwendet Azure Storage Standard für lokale Datenträger<br></br> Erfahren Sie, wie Sie ein [Storage Standard-Konto erstellen](../storage/common/storage-create-storage-account.md) |Verwendet Azure Storage Premium für lokale Datenträger<sup>2</sup> <br></br> |
+| **Speichertyp** |Verwendet Azure Storage Standard für lokale Datenträger<br></br> Erfahren Sie, wie Sie ein [Storage Standard-Konto erstellen](../storage/common/storage-account-create.md) |Verwendet Azure Storage Premium für lokale Datenträger<sup>2</sup> <br></br> |
 | **Informationen zu Workloads** |Abrufen von Dateien aus Sicherungskopien auf Elementebene |Entwicklungs- und Testszenarien für die Cloud <br></br>Workloads mit geringer Wartezeit und höherer Leistung<br></br>Sekundäres Gerät für die Notfallwiederherstellung |
 
 <sup>1</sup> *Ehemals 1100*
@@ -96,7 +96,7 @@ Bevor Sie das Cloudgerät bereitstellen, müssen Sie in Ihrer Umgebung die folge
 Führen Sie für Ihren StorSimple-Geräte-Manager-Dienst die folgenden Updates durch, bevor Sie ein Cloudgerät erstellen:
 
 * Fügen Sie den virtuellen Computern, die als Hostserver für Ihr Cloudgerät fungieren sollen, [Zugriffssteuerungsdatensätze](storsimple-8000-manage-acrs.md) hinzu.
-* Verwenden Sie ein [Speicherkonto](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) in derselben Region wie das Cloudgerät. Speicherkonten in anderen Regionen können zu Leistungseinbußen führen. Sie können ein Standard- oder Storage Premium-Konto für das Cloudgerät verwenden. Weitere Informationen zum Erstellen eines [Storage Standard-Kontos](../storage/common/storage-create-storage-account.md).
+* Verwenden Sie ein [Speicherkonto](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) in derselben Region wie das Cloudgerät. Speicherkonten in anderen Regionen können zu Leistungseinbußen führen. Sie können ein Standard- oder Storage Premium-Konto für das Cloudgerät verwenden. Weitere Informationen zum Erstellen eines [Storage Standard-Kontos](../storage/common/storage-account-create.md).
 * Verwenden Sie zum Erstellen des Cloudgeräts ein anderes Speicherkonto als das Konto, das für die Daten verwendet wird. Die Verwendung ein und desselben Speicherkontos kann zu Leistungseinbußen führen.
 
 Stellen Sie vorab sicher, dass die folgenden Informationen vorliegen:
@@ -267,7 +267,7 @@ Sie müssen das Cloudgerät löschen, damit alle Gebühren wegfallen. Sie könne
 ## <a name="troubleshoot-internet-connectivity-errors"></a>Behandeln von Internetverbindungsfehlern
 Wenn beim Erstellen eines Cloudgeräts keine Verbindung mit dem Internet besteht, kann der Erstellungsschritt nicht erfolgreich ausgeführt werden. Führen Sie im Azure-Portal die folgenden Schritte aus, um Probleme mit der Internetverbindung zu behandeln:
 
-1. [Erstellen Sie einen virtuellen Windows-Computer im Azure-Portal.](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) Für diesen virtuellen Computer müssen dasselbe Speicherkonto, virtuelle Netzwerk und Subnetz wie für Ihr Cloudgerät verwendet werden. Wenn in Azure ein Windows Server-Host vorhanden ist, für den dasselbe Speicherkonto, virtuelle Netzwerk und Subnetz verwendet werden, können Sie zum Behandeln von Internetverbindungsproblemen auch diesen Host verwenden.
+1. [Erstellen Sie einen virtuellen Windows-Computer im Azure-Portal.](../virtual-machines/windows/quick-create-portal.md) Für diesen virtuellen Computer müssen dasselbe Speicherkonto, virtuelle Netzwerk und Subnetz wie für Ihr Cloudgerät verwendet werden. Wenn in Azure ein Windows Server-Host vorhanden ist, für den dasselbe Speicherkonto, virtuelle Netzwerk und Subnetz verwendet werden, können Sie zum Behandeln von Internetverbindungsproblemen auch diesen Host verwenden.
 2. Melden Sie sich remote bei dem virtuellen Computer an, den Sie im vorherigen Schritt erstellt haben.
 3. Öffnen Sie auf dem virtuellen Computer ein Befehlsfenster. (Drücken Sie WINDOWS-TASTE+R, und geben Sie `cmd` ein.)
 4. Führen Sie an der Eingabeaufforderung den folgenden Befehl aus:

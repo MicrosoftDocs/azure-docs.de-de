@@ -6,13 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 1802708c3b9e15a2459f29d15da72f2dc1da1a4f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 2fbdd46b872c4c70999355d457045f4aac8aa34c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093989"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742801"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Aktivieren einer systemseitig zugewiesenen verwalteten Identität für eine Azure Spring Cloud-Anwendung
 
@@ -33,9 +33,9 @@ Für die Erstellung einer App mit einer systemseitig zugewiesenen Identität mus
 Erstellen Sie zuerst eine Anwendung, und aktivieren Sie dann das Feature, um eine verwaltete Entität im [Azure-Portal](https://portal.azure.com/) einzurichten.
 
 1. Erstellen Sie wie gewohnt eine App im Portal. Navigieren Sie im Portal zu dieser App.
-2. Scrollen Sie im linken Navigationsbereich nach unten zur Gruppe **Einstellungen**.
+2. Scrollen Sie im linken Navigationsbereich nach unten zur Gruppe **Einstellungen** .
 3. Wählen Sie **Identität** aus.
-4. Ändern Sie auf der Registerkarte **Systemseitig zugewiesen** den **Status** in *Ein*. Klicken Sie auf **Speichern**.
+4. Ändern Sie auf der Registerkarte **Systemseitig zugewiesen** den **Status** in *Ein* . Klicken Sie auf **Speichern** .
 
  ![Verwaltete Identität im Portal](./media/spring-cloud-managed-identity/identity-1.png)
 
@@ -73,7 +73,7 @@ Bei einer App, für die eine vom System zugewiesene verwaltete Identität nicht 
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) mit einem Konto an, das dem Azure-Abonnement zugeordnet ist, das die Azure Spring Cloud-Instanz enthält.
 1. Navigieren Sie zum gewünschten virtuellen Computer, und wählen Sie **Identität** aus.
-1. Wählen Sie unter **Vom System zugewiesen**/**Status** die Option **Aus** aus, und klicken Sie dann auf **Speichern**:
+1. Wählen Sie unter **Vom System zugewiesen**/**Status** die Option **Aus** aus, und klicken Sie dann auf **Speichern** :
 
  ![Verwaltete Identität](./media/spring-cloud-managed-identity/remove-identity.png)
 

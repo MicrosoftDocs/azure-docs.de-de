@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 8faf4ca8e27b280a60750d5f349ab0282ed593bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b750659bf22e856ee8ad7368e3fea64dd7245df
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999495"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960358"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Überwachen von Hardwarekomponenten und Status mithilfe des StorSimple-Geräte-Manager-Diensts
 
@@ -74,7 +74,7 @@ Führen Sie die folgenden Schritte aus, um den Hardwarestatus einer Gerätekompo
 
    ![Screenshot, der das ausgewählte Element „Controller 1-Komponenten“ anzeigt. Auf dem angrenzenden Blatt weist der Clusterknoten den Status „Fehler“ auf.](./media/storsimple-8000-monitor-hardware-status/hw-health4.png)  
 
-4. Sollte sich eine Komponente nicht in einem **fehlerfreien** Zustand befinden, wenden Sie sich an den Support von Microsoft. Sind Warnungen auf dem Gerät aktiviert, werden Sie per E-Mail benachrichtigt. Informationen zum Austauschen fehlerhafter Hardwarekomponenten finden Sie unter [Austausch von StorSimple-Hardwarekomponenten](storsimple-hardware-component-replacement.md).
+4. Sollte sich eine Komponente nicht in einem **fehlerfreien** Zustand befinden, wenden Sie sich an den Support von Microsoft. Sind Warnungen auf dem Gerät aktiviert, werden Sie per E-Mail benachrichtigt. Informationen zum Austauschen fehlerhafter Hardwarekomponenten finden Sie unter [Austausch von StorSimple-Hardwarekomponenten](./storsimple-8000-hardware-component-replacement.md).
 
 ## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>Komponentenliste für das primäre Gehäuse eines StorSimple-Geräts
 Die folgende Tabelle gibt Aufschluss über die physischen und logischen Komponenten im primären Gehäuse Ihres lokalen StorSimple-Geräts (sowohl bei 8100 als auch bei 8600).
@@ -146,6 +146,5 @@ Die folgende Tabelle gibt Aufschluss über die physischen und logischen Komponen
 ## <a name="next-steps"></a>Nächste Schritte
 * Weitere Informationen zum Verwalten Ihres Geräts mit dem StorSimple-Geräte-Manager-Dienst finden Sie unter [Verwalten von StorSimple-Geräten mithilfe des StorSimple-Geräte-Manager-Diensts](storsimple-8000-manager-service-administration.md).
 * Informationen zum Behandeln von Problemen mit einer beeinträchtigten oder fehlerhaften Gerätekomponente finden Sie unter [StorSimple-Überwachungsindikatoren](storsimple-monitoring-indicators.md).
-* Informationen zum Austauschen fehlerhafter Hardwarekomponenten finden Sie unter [Austausch von StorSimple-Hardwarekomponenten](storsimple-hardware-component-replacement.md).
+* Informationen zum Austauschen fehlerhafter Hardwarekomponenten finden Sie unter [Austausch von StorSimple-Hardwarekomponenten](./storsimple-8000-hardware-component-replacement.md).
 * Sollten weiterhin Geräteprobleme auftreten, [wenden Sie sich an den Microsoft-Support](storsimple-8000-contact-microsoft-support.md).
-

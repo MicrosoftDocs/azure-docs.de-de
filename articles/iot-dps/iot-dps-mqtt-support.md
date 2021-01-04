@@ -10,12 +10,12 @@ ms.author: ravokkar
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 7683f5d60c5d788707e2f89774cee42e7820db87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a7ec2f4f8fdf631a6bc5096296275291ec41751
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87924205"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967124"
 ---
 # <a name="communicate-with-your-dps-using-the-mqtt-protocol"></a>Kommunikation mit Ihrer DPS-Instanz über das MQTT-Protokoll
 
@@ -29,13 +29,13 @@ DPS ist kein voll funktionsfähiger MQTT-Broker und unterstützt nicht alle im M
 Die gesamte Gerätekommunikation mit DPS muss mithilfe von TLS/SSL gesichert werden. Daher unterstützt DPS keine unsicheren Verbindungen über Port 1883.
 
  > [!NOTE] 
- > DPS unterstützt derzeit keine Geräte, die den TPM-[Nachweismechanismus](https://docs.microsoft.com/azure/iot-dps/concepts-device#attestation-mechanism) über das MQTT-Protokoll nutzen.
+ > DPS unterstützt derzeit keine Geräte, die den TPM-[Nachweismechanismus](./concepts-service.md#attestation-mechanism) über das MQTT-Protokoll nutzen.
 
 ## <a name="connecting-to-dps"></a>Verbinden mit DPS
 
 Ein Gerät kann das MQTT-Protokoll zum Herstellen einer Verbindung mit einem DPS über eine der folgenden Optionen verwenden.
 
-* Bibliotheken in den [Azure IoT-Bereitstellungs-SDKs](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#microsoft-azure-provisioning-sdks)
+* Bibliotheken in den [Azure IoT-Bereitstellungs-SDKs](../iot-hub/iot-hub-devguide-sdks.md#microsoft-azure-provisioning-sdks)
 * Das MQTT-Protokoll direkt
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>Direktes Verwenden des Protokolls MQTT (als Gerät)
@@ -44,7 +44,7 @@ Wenn ein Gerät die SDKs von Geräten nicht verwenden kann, lässt es sich denno
 
 * Verwenden Sie im Feld **ClientId** den Wert **registrationId**.
 
-* Verwenden Sie im Feld **Benutzername** den Wert `{idScope}/registrations/{registration_id}/api-version=2019-03-31`. Dabei ist `{idScope}` der [idScope](https://docs.microsoft.com/azure/iot-dps/concepts-device#id-scope) des DPS.
+* Verwenden Sie im Feld **Benutzername** den Wert `{idScope}/registrations/{registration_id}/api-version=2019-03-31`. Dabei ist `{idScope}` der [idScope](./concepts-service.md#id-scope) des DPS.
 
 * Verwenden Sie im Feld **Kennwort** ein SAS-Token. Das Format des SAS-Tokens ist das gleiche wie das für die Protokolle HTTPS und AMQP:
 
@@ -70,8 +70,8 @@ Damit Sie das MQTT-Protokoll direkt verwenden können, *muss* Ihr Client die Ver
 
 Zum Registrieren eines Geräts über DPS sollte es abonnieren und dazu `$dps/registrations/res/#` als **Themenfilter** verwenden. Der Platzhalter mit mehreren Ebenen `#` im Themenfilter wird nur verwendet, um dem Gerät das Empfangen zusätzlicher Eigenschaften im Themennamen zu erlauben. DPS lässt die Verwendung des Platzhalters `#` oder `?` zum Filtern von Unterthemen nicht zu. Da DPS kein allgemeiner Nachrichtenbrokerdienst für das Veröffentlichen und Abonnieren ist, werden nur die dokumentierten Themennamen und -filter unterstützt.
 
-Das Gerät sollte eine Registrierungsmeldung an DPS veröffentlichen und dabei `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` als **Themennamen** verwenden. Die Nutzlast sollte das Objekt [Geräteregistrierung](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice#deviceregistration) im JSON-Format enthalten.
-In einem erfolgreichen Szenario erhält das Gerät eine Antwort auf den Themennamen `$dps/registrations/res/202/?$rid={request_id}&retry-after=x`. Dabei ist „x“ der Retry-After-Wert in Sekunden. Die Nutzlast der Antwort enthält das Objekt [RegistrationOperationStatus](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice#registrationoperationstatus) im JSON-Format.
+Das Gerät sollte eine Registrierungsmeldung an DPS veröffentlichen und dabei `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` als **Themennamen** verwenden. Die Nutzlast sollte das Objekt [Geräteregistrierung](/rest/api/iot-dps/runtimeregistration/registerdevice#deviceregistration) im JSON-Format enthalten.
+In einem erfolgreichen Szenario erhält das Gerät eine Antwort auf den Themennamen `$dps/registrations/res/202/?$rid={request_id}&retry-after=x`. Dabei ist „x“ der Retry-After-Wert in Sekunden. Die Nutzlast der Antwort enthält das Objekt [RegistrationOperationStatus](/rest/api/iot-dps/runtimeregistration/registerdevice#registrationoperationstatus) im JSON-Format.
 
 ## <a name="polling-for-registration-operation-status"></a>Abrufen des Registrierungsvorgangsstatus
 

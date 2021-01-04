@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: duau
-ms.openlocfilehash: dd4c6f0b9d518acf06f7d018a65cc2b9b92db33d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2365317d83a4c11fa17cb5c449a25b70da17c2eb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89395450"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368365"
 ---
 # <a name="configure-expressroute-global-reach"></a>Konfigurieren von ExpressRoute Global Reach
 
@@ -105,17 +105,17 @@ Wenn der vorherige Vorgang abgeschlossen ist, verfügen Sie dank der beiden Expr
 
 Verwenden Sie den folgenden Befehl, um die Konfiguration für die Leitung zu überprüfen, für die die Konfiguration vorgenommen wurde (Leitung 1 im obigen Beispiel).
 ```azurepowershell-interactive
-$ckt1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
+$ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
 ```
 
-Wenn Sie in PowerShell *$ckt1* ausführen, wird *CircuitConnectionStatus* in der Ausgabe angezeigt. So können Sie ermitteln, ob die Verbindung hergestellt wurde. Mögliche Werte: „Connected“ (Verbunden) und „Disconnected“ (Getrennt). 
+Wenn Sie einfach *$ckt_1* in PowerShell ausführen, wird *CircuitConnectionStatus* in der Ausgabe angezeigt. So können Sie ermitteln, ob die Verbindung hergestellt wurde. Mögliche Werte: „Connected“ (Verbunden) und „Disconnected“ (Getrennt). 
 
 ## <a name="disable-connectivity"></a>Deaktivieren der Konnektivität
 
 Um die Konnektivität zwischen Ihren lokalen Netzwerken zu deaktivieren, führen Sie die Befehle für die Leitung aus, in der die Konfiguration vorgenommen wurde (z.B. Leitung 1 im vorherigen Beispiel).
 
 ```azurepowershell-interactive
-$ckt1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
+$ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
 Remove-AzExpressRouteCircuitConnectionConfig -Name "Your_connection_name" -ExpressRouteCircuit $ckt_1
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
 ```

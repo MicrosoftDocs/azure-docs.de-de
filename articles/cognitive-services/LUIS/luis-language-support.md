@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
-ms.openlocfilehash: e377f910e1c1ddda864ea312b40fe3608c166376
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1da43d0ef208d61ced6c8ca8dbc7603e0ef51155
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541389"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96021570"
 ---
 # <a name="language-and-region-support-for-luis"></a>Sprach- und Regionsunterstützung für LUIS
 
@@ -28,7 +28,7 @@ Wenn Sie eine mehrsprachige LUIS-Clientanwendung benötigen, z.B. einen Chatbot,
 
 LUIS versteht Äußerungen in den folgenden Sprachen:
 
-| Sprache |Gebietsschema  |  Vordefinierte Domäne | Vordefinierte Entität | Ausdrucklistenempfehlungen | \**[Textanalyse](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Stimmung und<br>Schlüsselwörter)|
+| Sprache |Gebietsschema  |  Vordefinierte Domäne | Vordefinierte Entität | Ausdrucklistenempfehlungen | \**[Textanalyse](../text-analytics/language-support.md)<br>(Stimmung und<br>Schlüsselwörter)|
 |--|--|:--:|:--:|:--:|:--:|
 | Englisch (USA) |`en-US` | ✔ | ✔  |✔|✔|
 | Arabisch (Vorschau, modernes Hocharabisch) |`ar-AR`|-|-|-|-|
@@ -69,7 +69,7 @@ Die Sprachunterstützung variiert für [vordefinierte Entitäten](luis-reference
 Informationen zu den Sprachen für den Spracherkennungsmodus von Speech finden Sie unter [Unterstützte Sprachen](../speech-service/speech-to-text.md) für Speech.
 
 ### <a name="bing-spell-check-supported-languages"></a>Unterstützte Sprachen der Bing-Rechtschreibprüfung
-Eine Liste und den Status der unterstützten Sprachen finden Sie unter [Liste und Status der unterstützten Sprachen](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) für die Bing-Rechtschreibprüfung.
+Eine Liste und den Status der unterstützten Sprachen finden Sie unter [Liste und Status der unterstützten Sprachen](../bing-spell-check/language-support.md) für die Bing-Rechtschreibprüfung.
 
 ## <a name="rare-or-foreign-words-in-an-application"></a>Seltene oder fremdsprachliche Wörter in einer Anwendung
 In der Kultur `en-us` lernt LUIS, die meisten englischen Wörter zu unterscheiden, einschließlich umgangssprachlicher. In der Kultur `zh-cn` lernt LUIS, die meisten chinesische Zeichen zu unterscheiden. Wenn Sie ein seltenes Wort in `en-us` bzw. ein seltenes Zeichen in `zh-cn` verwenden und sehen, dass LUIS das betreffende Wort bzw. Zeichen offenbar nicht unterscheiden kann, können Sie das Wort oder Zeichen einem [Ausdruckslistenfeature](luis-how-to-add-features.md) hinzufügen. Beispielsweise sollten Wörter außerhalb der Kultur der Anwendung, also fremdsprachliche Wörter, einem Ausdruckslistenfeature hinzugefügt werden.

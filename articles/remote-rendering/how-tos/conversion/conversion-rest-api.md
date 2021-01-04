@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 341d24e73c9e07bb3155535d98a88145643c1692
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 889a70005f1cbabaad525147b4661ea04886138a
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201782"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445607"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>Verwenden der REST-API für die Modellkonvertierung
 
@@ -26,13 +26,13 @@ Informationen zu den Basis-URLs, an die Anforderungen gesendet werden, finden Si
 
 Diese Header müssen für alle Anforderungen angegeben werden:
 
-- Der **Authorization**-Header muss den Wert „Bearer [*TOKEN*]“ aufweisen, wobei [*TOKEN*] ein [Dienstzugriffstoken](../tokens.md) ist.
+- Der **Authorization** -Header muss den Wert „Bearer [ *TOKEN* ]“ aufweisen, wobei [ *TOKEN* ] ein [Dienstzugriffstoken](../tokens.md) ist.
 
 ### <a name="common-response-headers"></a>Allgemeine Antwortheader
 
 Alle Antworten enthalten die folgenden Header:
 
-- Der **MS-CV**-Header enthält eine eindeutige Zeichenfolge, die verwendet werden kann, um den Aufruf innerhalb des Diensts nachzuverfolgen.
+- Der **MS-CV** -Header enthält eine eindeutige Zeichenfolge, die verwendet werden kann, um den Aufruf innerhalb des Diensts nachzuverfolgen.
 
 ## <a name="endpoints"></a>Endpunkte
 
@@ -47,7 +47,7 @@ Ihr Azure Remote Rendering-Konto muss Zugriff auf das angegebene Speicherkonto b
 
 | Endpunkt | Methode |
 |-----------|:-----------|
-| /v1/accounts/**accountID**/conversions/create | POST |
+| /v1/accounts/ **accountID** /conversions/create | POST |
 
 Gibt die ID der aktuell ausgeführten Konvertierung in einem JSON-Dokument als Wrapper zurück. Der Feldname lautet „conversionId“.
 
@@ -79,7 +79,7 @@ Wenn Ihr ARR-Konto nicht mit Ihrem Speicherkonto verknüpft ist, können Sie mit
 
 | Endpunkt | Methode |
 |-----------|:-----------|
-| /v1/accounts/**accountID**/conversions/createWithSharedAccessSignature | POST |
+| /v1/accounts/ **accountID** /conversions/createWithSharedAccessSignature | POST |
 
 Gibt die ID der aktuell ausgeführten Konvertierung in einem JSON-Dokument als Wrapper zurück. Der Feldname lautet `conversionId`.
 
@@ -120,7 +120,7 @@ Der Status einer aktuell ausgeführten Konvertierung, die mit einem der oben gen
 
 | Endpunkt | Methode |
 |-----------|:-----------|
-| /v1/accounts/**accountID**/conversions/**conversionId** | GET |
+| /v1/accounts/ **accountID** /conversions/ **conversionId** | GET |
 
 Gibt ein JSON-Dokument mit einem Feld „status“ zurück, das die folgenden Werte aufweisen kann:
 
@@ -130,6 +130,21 @@ Gibt ein JSON-Dokument mit einem Feld „status“ zurück, das die folgenden We
 - „Failure“ (Fehler)
 
 Wenn der Status „Failure“ lautet, wird ein zusätzliches Feld „error“ mit einem Unterfeld „Message“ angezeigt, das Fehlerinformationen enthält. Zusätzliche Protokolle werden in Ihren Ausgabecontainer hochgeladen.
+
+## <a name="list-conversions"></a>Konvertierungen auflisten
+
+Verwenden Sie diese Schnittstelle, um eine Liste aller Konvertierungen für ein Konto abzurufen:
+
+| Endpunkt | Methode |
+|-----------|:-----------|
+| /v1/accounts/ **accountID** /conversions?skiptoken= **skipToken** | GET |
+
+| Parameter | Erforderlich |
+|-----------|:-----------|
+| accountID | Ja |
+| skiptoken | Nein |
+
+Gibt ein JSON-Dokument zurück, das ein Array der Konvertierungen und deren Details enthält. Diese Abfrage gibt jeweils maximal 50 Konvertierungen zurück. Wenn mehr Konvertierungen abgerufen werden müssen, enthält die Antwort eine **nextLink** -Eigenschaft, die das skipToken enthält, das zum Abrufen des nächsten Resultsets abgefragt werden kann.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

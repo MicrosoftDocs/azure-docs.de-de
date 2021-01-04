@@ -8,22 +8,21 @@ ms.author: chalton
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: 3330b4d5df366a5e886157e875f40d7e370c7442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/02/2020
+ms.openlocfilehash: 4bab8def514df21d948d67f3cfba846c43917be2
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542736"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530934"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>Indizieren verschlüsselter Blobs mithilfe von Blobindexern und Skillsets in Azure Cognitive Search
 
-In diesem Artikel wird beschrieben, wie mit [Azure Cognitive Search](search-what-is-azure-search.md) Dokumente indiziert werden, die zuvor in [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) mithilfe von [Azure Key Vault](../key-vault/general/overview.md) verschlüsselt wurden. Ein Indexer kann normalerweise keine Inhalte aus verschlüsselten Dateien extrahieren, da er keinen Zugriff auf den Verschlüsselungsschlüssel hat. Wenn Sie jedoch den benutzerdefinierten Skill [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile) und anschließend den Skill [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) verwenden, können Sie einen kontrollierten Zugriff auf den Schlüssel zum Entschlüsseln der Dateien ermöglichen und den Inhalt extrahieren lassen. Dadurch haben Sie die Möglichkeit, diese Dokumente zu indizieren, ohne sich Gedanken darum machen zu müssen, dass Ihre ruhenden Daten unverschlüsselt gespeichert werden.
+In diesem Artikel wird beschrieben, wie mit [Azure Cognitive Search](search-what-is-azure-search.md) Dokumente indiziert werden, die zuvor in [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) mithilfe von [Azure Key Vault](../key-vault/general/overview.md) verschlüsselt wurden. Ein Indexer kann normalerweise keine Inhalte aus verschlüsselten Dateien extrahieren, da er keinen Zugriff auf den Verschlüsselungsschlüssel hat. Wenn Sie jedoch den benutzerdefinierten Skill [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile) und anschließend den Skill [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) verwenden, können Sie einen kontrollierten Zugriff auf den Schlüssel zum Entschlüsseln der Dateien ermöglichen und den Inhalt extrahieren lassen. Dadurch erhalten Sie die Möglichkeit, diese Dokumente zu indizieren, ohne den Verschlüsselungsstatus Ihrer gespeicherten Dokumente zu kompromittieren.
 
-In dieser Anleitung werden Postman und die Azure Cognitive Search-REST-APIs verwendet, um folgende Aufgaben durchzuführen:
+Ausgehend von zuvor verschlüsselten ganzen Dokumenten (unstrukturierter Text) wie PDF, HTML, DOCX und PPTX in Azure Blob Storage werden in diesem Leitfaden Postman und die REST-APIs von Search verwendet, um die folgenden Aufgaben auszuführen:
 
 > [!div class="checklist"]
-> * Beginnen Sie mit vollständigen Dokumenten (unstrukturierter Text, beispielsweise im PDF-, HTML-, DOCX- oder PPTX-Format) in Azure Blob Storage, die mit Azure Key Vault verschlüsselt wurden.
 > * Definieren Sie eine Pipeline, mit der die Dokumente entschlüsselt und Text aus den Dokumenten extrahiert wird.
 > * Definieren Sie einen Index zum Speichern der Ausgabe.
 > * Führen Sie die Pipeline aus, um den Index zu erstellen und zu laden.
@@ -36,13 +35,10 @@ Sollten Sie über kein Azure-Abonnement verfügen, können Sie ein [kostenloses 
 Bei diesem Beispiel wird vorausgesetzt, dass Sie Ihre Dateien bereits in Azure Blob Storage hochgeladen und verschlüsselt haben. Eine Anleitung zum ersten Hochladen und Verschlüsseln von Dateien finden Sie in [diesem Tutorial](../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md).
 
 + [Azure Storage (in englischer Sprache)](https://azure.microsoft.com/services/storage/)
-+ [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
++ [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) im selben Abonnement wie Azure Cognitive Search. **Vorläufiges Löschen** und **Löschschutz** müssen für den Schlüsseltresor aktiviert sein.
++ [Azure Cognitive Search](search-create-service-portal.md) in einem [abrechenbaren Tarif](search-sku-tier.md#tier-descriptions) (mindestens Basic in einer beliebigen Region)
 + [Azure-Funktion](https://azure.microsoft.com/services/functions/)
 + [Postman-Desktop-App](https://www.getpostman.com/)
-+ [Neuer](search-create-service-portal.md) oder [bereits vorhandener](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) Suchdienst 
-
-> [!Note]
-> Im Rahmen dieser Anleitung können Sie den kostenlosen Dienst verwenden. Der kostenlose Suchdienst ist auf drei Indizes, drei Indexer, drei Datenquellen und drei Skillsets beschränkt. Im Rahmen dieser Anleitung wird je eine der Komponenten erstellt. Vergewissern Sie sich zunächst, dass Ihr Dienst über genügend freie Kapazität für die neuen Ressourcen verfügt.
 
 ## <a name="1---create-services-and-collect-credentials"></a>1\. Erstellen von Diensten und Erfassen von Anmeldeinformationen
 
@@ -108,7 +104,7 @@ Nehmen Sie sich wie bei der Azure-Funktion die Zeit, den Administratorschlüssel
 
 2. Rufen Sie unter **Einstellungen** > **Schlüssel** einen Administratorschlüssel ab, um Vollzugriff auf den Dienst zu erhalten. Es gibt zwei austauschbare Administratorschlüssel – diese wurden zum Zweck der Geschäftskontinuität bereitgestellt, falls Sie einen Rollover für einen Schlüssel durchführen müssen. Für Anforderungen zum Hinzufügen, Ändern und Löschen von Objekten können Sie den primären oder den sekundären Schlüssel verwenden.
 
-   ![Abrufen des Dienstnamens sowie der Administrator- und Abfrageschlüssel](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![Abrufen des Dienstnamens sowie der Administrator- und Abfrageschlüssel](media/search-get-started-javascript/service-name-and-keys.png)
 
 Für alle an Ihren Dienst gesendeten Anforderungen ist ein API-Schlüssel im Header erforderlich. Ein gültiger Schlüssel stellt anforderungsbasiert eine Vertrauensstellung her zwischen der Anwendung, die die Anforderung sendet, und dem Dienst, der sie verarbeitet.
 
@@ -132,24 +128,23 @@ Rufen Sie den Wert für `admin-key` ab, indem Sie den zuvor notierten Azure Cogn
 
 ![Postman-App, Registerkarte mit den Variablen](media/indexing-encrypted-blob-files/postman-variables-window.jpg "Fenster mit den Postman-Variablen")
 
-
 | Variable    | Ursprung |
 |-------------|-----------------|
 | `admin-key` | Auf der Seite **Schlüssel** des Azure Cognitive Search-Diensts  |
-| `search-service-name` | Der Name des Azure Cognitive Search-Diensts. Die URL ist `https://{{search-service-name}}.search.windows.net`. | 
-| `storage-connection-string` | Wählen Sie im Speicherkonto auf der Registerkarte **Zugriffsschlüssel** **key1** > **Verbindungszeichenfolge** aus. | 
-| `storage-container-name` | Der Name des Blobcontainers, der die verschlüsselten Dateien enthält, die indiziert werden sollen. | 
-| `function-uri` |  In der Azure-Funktion unter **Zusammenfassung** auf der Hauptseite | 
-| `function-code` | In der Azure-Funktion, indem Sie zu **App-Schlüssel** navigieren, klicken, um den **Standardschlüssel** anzuzeigen, und den Wert kopieren | 
+| `search-service-name` | Der Name des Azure Cognitive Search-Diensts. Die URL ist `https://{{search-service-name}}.search.windows.net`. |
+| `storage-connection-string` | Wählen Sie im Speicherkonto auf der Registerkarte **Zugriffsschlüssel** **key1** > **Verbindungszeichenfolge** aus. |
+| `storage-container-name` | Der Name des Blobcontainers, der die verschlüsselten Dateien enthält, die indiziert werden sollen. |
+| `function-uri` |  In der Azure-Funktion unter **Zusammenfassung** auf der Hauptseite |
+| `function-code` | In der Azure-Funktion, indem Sie zu **App-Schlüssel** navigieren, klicken, um den **Standardschlüssel** anzuzeigen, und den Wert kopieren |
 | `api-version` | Übernehmen Sie **2020-06-30**. |
-| `datasource-name` | Übernehmen Sie **encrypted-blobs-ds**. | 
-| `index-name` | Übernehmen Sie **encrypted-blobs-idx**. | 
-| `skillset-name` | Übernehmen Sie **encrypted-blobs-ss**. | 
-| `indexer-name` | Übernehmen Sie **encrypted-blobs-ixr**. | 
+| `datasource-name` | Übernehmen Sie **encrypted-blobs-ds**. |
+| `index-name` | Übernehmen Sie **encrypted-blobs-idx**. |
+| `skillset-name` | Übernehmen Sie **encrypted-blobs-ss**. |
+| `indexer-name` | Übernehmen Sie **encrypted-blobs-ixr**. |
 
 ### <a name="review-the-request-collection-in-postman"></a>Überprüfen der Auflistung von Anforderungen in Postman
 
-Beim Ausführen dieser Anleitung müssen Sie vier HTTP-Anforderungen ausgeben: 
+Beim Ausführen dieser Anleitung müssen Sie vier HTTP-Anforderungen ausgeben:
 
 - **PUT-Anforderung zum Erstellen des Index**: Dieser Index enthält die Daten, die von Azure Cognitive Search verwendet und zurückgegeben werden.
 - **POST-Anforderung zum Erstellen der Datenquelle**: Diese Datenquelle verbindet Ihren Azure Cognitive Search-Dienst mit Ihrem Speicherkonto und somit mit verschlüsselten Blobdateien. 

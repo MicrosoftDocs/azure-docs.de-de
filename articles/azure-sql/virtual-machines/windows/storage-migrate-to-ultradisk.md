@@ -8,18 +8,19 @@ editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 4ddafd9fbeda1752a782085244597aea3ccbdd2d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 42d7760d25f6ab591c19889eb2159711d6de1b07
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91271901"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356751"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>Migrieren eines Protokolldatenträgers zu einem Ultra-Datenträger
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -50,7 +51,7 @@ Gehen Sie zum Aktivieren der Kompatibilität wie folgt vor:
 
 1. Wählen Sie für **Ultra-Datenträgerkompatibilität aktivieren** die Option **Ja** aus. 
 
-   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Auswählen zusätzlicher Einstellungen für Datenträger unter „Einstellungen“ im Azure-Portal":::
+   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Screenshot mit der Option „Ja“.":::
 
 1. Wählen Sie **Speichern** aus. 
 
@@ -83,7 +84,7 @@ Konfigurieren Sie SQL Server für die Verwendung des neuen Protokolllaufwerks. 
 1. Überprüfen Sie das von SQL Server verwendete Dienstkonto. Hierzu können Sie den SQL Server-Konfigurations-Manager oder „Services.msc“ verwenden.
 1. Navigieren Sie zu Ihrem neuen Datenträger. 
 1. Erstellen Sie einen oder mehrere Ordner für Ihre Protokolldatei. 
-1. Klicken Sie mit der rechten Maustaste auf den Ordner, und wählen Sie **Eigenschaften**aus.
+1. Klicken Sie mit der rechten Maustaste auf den Ordner, und wählen Sie **Eigenschaften** aus.
 1. Erteilen Sie dem SQL Server-Dienstkonto auf der Registerkarte **Sicherheit** Vollzugriff. 
 1. Wählen Sie **OK** aus, um Ihre Einstellungen zu speichern. 
 1. Wiederholen Sie diese Vorgehensweise für jeden Ordner auf der Stammebene, der SQL-Daten enthalten soll. 

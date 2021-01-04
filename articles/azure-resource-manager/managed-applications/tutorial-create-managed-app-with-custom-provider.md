@@ -6,12 +6,12 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ace58bd3bb89f9e8545bf125f272e62c3a134061
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 50a65583c41dd94b174a33432afcf42b31e67df0
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949826"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437047"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Tutorial: Erstellen einer verwalteten Anwendung mit benutzerdefinierten Aktionen und Ressourcen
 
@@ -41,7 +41,7 @@ Für dieses Tutorial müssen Sie mit Folgendem vertraut sein:
 
 In diesem Tutorial wird eine verwaltete Anwendung erstellt, deren verwaltete Ressourcengruppe eine Instanz eines benutzerdefinierten Anbieters, ein Speicherkonto und eine Funktion enthält. Die in diesem Beispiel verwendete Azure-Funktion implementiert eine API zur Behandlung der Vorgänge des benutzerdefinierten Anbieters für Aktionen und Ressourcen. Ein Azure Storage-Konto wird als grundlegender Speicher für die Ressourcen Ihres benutzerdefinierten Anbieters verwendet.
 
-Die Benutzeroberflächendefinition für die Erstellung einer verwalteten Anwendungsinstanz enthält die Eingabeelemente `funcname` und `storagename`. Der Name des Speicherkontos und der Funktion muss global eindeutig sein. Funktionsdateien werden standardmäßig über das [Paket mit Beispielfunktionen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip) bereitgestellt. Alternativ können Sie aber auch ein Eingabeelement für einen Paketlink in *createUIDefinition.json* hinzufügen:
+Die Benutzeroberflächendefinition für die Erstellung einer verwalteten Anwendungsinstanz enthält die Eingabeelemente `funcname` und `storagename`. Der Name des Speicherkontos und der Funktion muss global eindeutig sein. Funktionsdateien werden standardmäßig über das [Paket mit Beispielfunktionen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip) bereitgestellt. Alternativ können Sie aber auch ein Eingabeelement für einen Paketlink in *createUiDefinition.json* hinzufügen:
 
 ```json
 {
@@ -74,7 +74,7 @@ Die Benutzeroberflächendefinition für die Erstellung einer verwalteten Anwendu
 }
 ```
 
-Und eine Ausgabe in *createUIDefinition.json*:
+Und eine Ausgabe in *createUiDefinition.json*:
 
 ```json
   "funcname": "[steps('applicationSettings').funcname]",
@@ -82,13 +82,13 @@ Und eine Ausgabe in *createUIDefinition.json*:
   "zipFileBlobUri": "[steps('applicationSettings').zipFileBlobUri]"
 ```
 
-Die vollständige Beispieldatei *createUIDefinition.json* finden Sie unter [Reference: User interface elements artifact](reference-createuidefinition-artifact.md) (Referenz: Artefakt für Benutzeroberflächenelemente).
+Die vollständige Beispieldatei *createUiDefinition.json* finden Sie unter [Reference: User interface elements artifact](reference-createuidefinition-artifact.md) (Referenz: Artefakt für Benutzeroberflächenelemente).
 
 ## <a name="template-with-custom-provider"></a>Vorlage mit benutzerdefiniertem Anbieter
 
 Um eine verwaltete Anwendungsinstanz mit benutzerdefiniertem Anbieter erstellen zu können, muss in der Datei **mainTemplate.json** eine benutzerdefinierte Anbieterressource mit dem Namen **public** und dem Typ **Microsoft.CustomProviders/resourceProviders** definiert werden. In dieser Ressource werden die Ressourcentypen und Aktionen für Ihren Dienst definiert. Definieren Sie Ressourcen vom Typ `Microsoft.Web/sites` und `Microsoft.Storage/storageAccounts`, um Instanzen von Azure-Funktionen bzw. Azure Storage-Konten bereitzustellen.
 
-In diesem Tutorial werden der Ressourcentyp `users`, die benutzerdefinierte Aktion `ping` und die benutzerdefinierte Aktion `users/contextAction` erstellt, die im Kontext einer benutzerdefinierten Ressource vom Typ `users` ausgeführt wird. Geben Sie für jeden Ressourcentyp und jede Aktion einen Endpunkt an, der auf die Funktion mit dem Namen verweist, der in der Datei [createUIDefinition.json](#user-interface-definition) angegeben wurde. Geben Sie den Routingtyp (**routingType**) als `Proxy,Cache` (für Ressourcentypen) bzw. als `Proxy` (für Aktionen) an:
+In diesem Tutorial werden der Ressourcentyp `users`, die benutzerdefinierte Aktion `ping` und die benutzerdefinierte Aktion `users/contextAction` erstellt, die im Kontext einer benutzerdefinierten Ressource vom Typ `users` ausgeführt wird. Geben Sie für jeden Ressourcentyp und jede Aktion einen Endpunkt an, der auf die Funktion mit dem Namen verweist, der in der Datei [createUiDefinition.json](#user-interface-definition) angegeben wurde. Geben Sie den Routingtyp (**routingType**) als `Proxy,Cache` (für Ressourcentypen) bzw. als `Proxy` (für Aktionen) an:
 
 ```json
 {
@@ -339,11 +339,11 @@ Sie können zu der Instanz der verwalteten Anwendung navigieren und auf der Übe
 
 * Navigieren Sie zur Seite „Users“ (Benutzer), und klicken Sie auf die Schaltfläche „Add“ (Hinzufügen). Geben Sie Werte für die Erstellung einer Ressource an, und übermitteln Sie das Formular:
 
-![Erstellen einer benutzerdefinierten Ressource](./media/tutorial-create-managed-app-with-custom-provider/create-custom-resource.png)
+![Screenshot: Unter „Users“ (Benutzer) ausgewählte Schaltfläche „Add“ (Hinzufügen)](./media/tutorial-create-managed-app-with-custom-provider/create-custom-resource.png)
 
 * Navigieren Sie zur Seite „Users“ (Benutzer), und klicken Sie auf „Custom Context Action“ (Benutzerdefinierte Kontextaktion):
 
-![Erstellen einer benutzerdefinierten Ressource](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-resource-action.png)
+![Screenshot: Ausgewählte Option „Custom Context Action“ (Benutzerdefinierte Kontextaktion)](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-resource-action.png)
 
 [!INCLUDE [clean-up-section-portal](../../../includes/clean-up-section-portal.md)]
 
@@ -353,6 +353,6 @@ Fragen zu Azure Managed Applications können bei [Stack Overflow](https://stacko
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Informationen zum Veröffentlichen der verwalteten Anwendung im Azure Marketplace finden Sie unter [Verwaltete Azure-Anwendungen im Marketplace](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
+Informationen zum Veröffentlichen der verwalteten Anwendung im Azure Marketplace finden Sie unter [Verwaltete Azure-Anwendungen im Marketplace](../../marketplace/create-new-azure-apps-offer.md).
 
 Informieren Sie sich ausführlicher über [benutzerdefinierte Azure-Anbieter](../custom-providers/overview.md).

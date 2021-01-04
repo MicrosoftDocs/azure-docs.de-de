@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 2036505dea134a59e7dc0c75a030175b15dac0b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddb73de87789934aa66893bdbe6519011cf324b3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031941"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186098"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Protokollabfragebereich und Zeitbereich in Azure Monitor Log Analytics
-Wenn Sie eine [Protokollabfrage](log-query-overview.md) in [Log Analytics im Azure-Portal](get-started-portal.md) ausführen, sind die von der Abfrage ausgewerteten Daten von dem von Ihnen ausgewählten Bereich und Zeitbereich abhängig. In diesem Artikel wird der Bereich, der Zeitbereich und das Festlegen dieser Bereiche je nach Ihren Anforderungen beschrieben. Außerdem erfahren Sie mehr über das Verhalten von verschiedenen Bereichstypen.
+Wenn Sie eine [Protokollabfrage](log-query-overview.md) in [Log Analytics im Azure-Portal](./log-analytics-tutorial.md) ausführen, sind die von der Abfrage ausgewerteten Daten von dem von Ihnen ausgewählten Bereich und Zeitbereich abhängig. In diesem Artikel wird der Bereich, der Zeitbereich und das Festlegen dieser Bereiche je nach Ihren Anforderungen beschrieben. Außerdem erfahren Sie mehr über das Verhalten von verschiedenen Bereichstypen.
 
 
 ## <a name="query-scope"></a>Abfragebereich
@@ -51,9 +51,7 @@ Sie können die folgenden Befehle in einer Abfrage nicht verwenden, wenn diese e
 - [workspace](workspace-expression.md)
  
 
-## <a name="query-limits"></a>Abfragegrenzwerte
-Möglicherweise bestehen Ihre Geschäftsanforderungen an eine Azure-Ressource darin, Daten in mehrere Log Analytics-Arbeitsbereiche zu schreiben. Der Arbeitsbereich muss sich nicht in derselben Region wie die Ressource befinden, und in einem einzelnen Arbeitsbereich könnten Daten aus Ressourcen in einer Vielzahl von Regionen gesammelt werden.  
-
+## <a name="query-scope-limits"></a>Abfragebereichsgrenzen
 Das Festlegen des Bereichs auf eine Ressource oder eine Gruppe von Ressourcen ist ein besonderes Leistungsfeature von Log Analytics, da dies Ihnen die automatische Konsolidierung verteilter Daten in einer einzelnen Abfrage ermöglicht. Es kann die Leistung jedoch erheblich beeinträchtigen, wenn Daten aus Arbeitsbereichen in mehreren Azure-Regionen abgerufen werden müssen.
 
 Log Analytics schützt vor übermäßigem Mehraufwand durch Abfragen, die Arbeitsbereiche in mehreren Regionen umfassen, indem eine Warnung oder Fehlermeldung ausgegeben wird, wenn eine bestimmte Anzahl von Regionen verwendet wird. Ihre Abfrage empfängt eine Warnung, wenn der Bereich Arbeitsbereiche in mindestens 5 Regionen enthält. Sie wird zwar weiterhin ausgeführt, aber ihre Ausführung kann übermäßig lange dauern.
@@ -66,12 +64,8 @@ Die Ausführung Ihrer Abfrage wird blockiert, wenn der Bereich Arbeitsbereiche i
 
 
 ## <a name="time-range"></a>Uhrzeitbereich
-Der Zeitbereich gibt, basierend auf dem Zeitpunkt der Erstellung des Datensatzes, die Gruppe der für die Abfrage auszuwertenden Datensätzen an. Er wird durch eine in der folgenden Tabelle angegebene Standardspalte in jedem Datensatz im Arbeitsbereich oder in der Anwendung definiert.
+Der Zeitbereich gibt, basierend auf dem Zeitpunkt der Erstellung des Datensatzes, die Gruppe der für die Abfrage auszuwertenden Datensätzen an. Er wird durch die in der folgenden Tabelle angegebene Spalte **TimeGenerated** in jedem Datensatz im Arbeitsbereich oder in der Anwendung definiert. Bei einer klassischen Application Insights-Anwendung wird die Spalte **timestamp** für den Zeitbereich verwendet.
 
-| Standort | Column |
-|:---|:---|
-| Log Analytics-Arbeitsbereich          | TimeGenerated |
-| Application Insights-Anwendung | timestamp     |
 
 Legen Sie den Zeitbereich fest, indem Sie diesen aus der Zeitauswahl im oberen Bereich des Fensters „Log Analytics“ auswählen.  Sie können einen vordefinierten Zeitraum auswählen oder auf **Benutzerdefiniert** klicken, um einen bestimmten Zeitbereich anzugeben.
 
@@ -81,17 +75,17 @@ Wenn Sie in der Abfrage einen Filter festlegen, der die in der obigen Tabelle ge
 
 ![Gefilterte Abfrage](media/scope/query-filtered.png)
 
-Wenn Sie die Befehle [workspace](workspace-expression.md) oder [app](app-expression.md) zum Abrufen von Daten aus einem anderen Arbeitsbereich oder einer Anwendung verwenden, verhält sich die Zeitauswahl möglicherweise anders. Wenn es sich beim Bereich um einen Log Analytics-Arbeitsbereich handelt und Sie **app** verwenden oder es sich beim Bereich um eine Application Insights-Anwendung handelt und Sie **workspace** verwenden, versteht Log Analytics möglicherweise nicht, dass die im Filter verwendete Spalte den Zeitfilter bestimmen soll.
+Wenn Sie die Befehle [workspace](workspace-expression.md) oder [app](app-expression.md) zum Abrufen von Daten aus einem anderen Arbeitsbereich oder einer klassischen Anwendung verwenden, verhält sich die Zeitauswahl möglicherweise anders. Wenn es sich beim Bereich um einen Log Analytics-Arbeitsbereich handelt und Sie **app** verwenden oder es sich beim Bereich um eine klassische Application Insights-Anwendung handelt und Sie **workspace** verwenden, versteht Log Analytics möglicherweise nicht, dass die im Filter verwendete Spalte den Zeitfilter bestimmen soll.
 
 Im folgenden Beispiel ist der Bereich auf einen Log Analytics-Arbeitsbereich festgelegt.  Die Abfrage verwendet den **workspace**-Befehl zum Abrufen von Daten aus einem anderen Log Analytics-Arbeitsbereich. Die Zeitauswahl wird in **In Abfrage festlegen** geändert, da ein Filter erkannt wird, der die erwartete Spalte **TimeGenerated** verwendet.
 
 ![Abfrage mit dem workspace-Befehl](media/scope/query-workspace.png)
 
-Wenn die Abfrage jedoch den Befehl **app** zum Abrufen von Daten aus einer Application Insights-Anwendung verwendet, erkennt Log Analytics die Spalte **timestamp** im Filter nicht, und die Zeitauswahl bleibt unverändert. In diesem Fall werden beide Filter angewendet. Im Beispiel sind nur Datensätze in der Abfrage enthalten, die in den letzten 24 Stunden erstellt wurden, obwohl in der **where**-Klausel sieben Tage angegeben sind.
+Wenn die Abfrage jedoch den Befehl **app** zum Abrufen von Daten aus einer klassischen Application Insights-Anwendung verwendet, erkennt Log Analytics die Spalte **timestamp** im Filter nicht, und die Zeitauswahl bleibt unverändert. In diesem Fall werden beide Filter angewendet. Im Beispiel sind nur Datensätze in der Abfrage enthalten, die in den letzten 24 Stunden erstellt wurden, obwohl in der **where**-Klausel sieben Tage angegeben sind.
 
 ![Abfrage mit dem app-Befehl](media/scope/query-app.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Weitere Informationen erhalten Sie im [Tutorial zum Verwenden von Log Analytics im Azure-Portal](get-started-portal.md).
+- Weitere Informationen erhalten Sie im [Tutorial zum Verwenden von Log Analytics im Azure-Portal](./log-analytics-tutorial.md).
 - Weitere Informationen erhalten Sie im [Tutorial zum Schreiben von Abfragen](get-started-queries.md).

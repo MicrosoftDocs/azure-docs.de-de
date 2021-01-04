@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 7be326e0f01ed6a00244c0f5b9ed6a960b2b6e0b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "86171855"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Interoperabilität in Azure-Back-End-Konnektivitätsfeatures: Konfigurationsdetails zur Testeinrichtung
@@ -23,7 +23,7 @@ In diesem Artikel werden die Konfigurationsdetails der [Testeinrichtung][Setup] 
 
 ## <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Spoke-VNET-Konnektivität per VNET-Peering
 
-Die folgende Abbildung zeigt die Details zum Peering von virtuellen Azure-Netzwerken eines virtuellen Spoke-Netzwerks (VNET). Weitere Informationen zur Einrichtung eines Peerings zwischen zwei VNETs finden Sie unter [Erstellen, Ändern oder Löschen eines Peerings virtueller Netzwerke][VNet-Config]. Wenn das Spoke-VNET die Gateways verwenden soll, die mit dem Hub-VNET verbunden sind, aktivieren Sie **Remotegateways verwenden** .
+Die folgende Abbildung zeigt die Details zum Peering von virtuellen Azure-Netzwerken eines virtuellen Spoke-Netzwerks (VNET). Weitere Informationen zur Einrichtung eines Peerings zwischen zwei VNETs finden Sie unter [Erstellen, Ändern oder Löschen eines Peerings virtueller Netzwerke][VNet-Config]. Wenn das Spoke-VNET die Gateways verwenden soll, die mit dem Hub-VNET verbunden sind, aktivieren Sie **Remotegateways verwenden**.
 
 [![1]][1]
 

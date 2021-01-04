@@ -10,12 +10,12 @@ metadata:
   author: ecfan
   ms.author: estfan; logicappspm
   ms.date: 09/18/2019
-  ms.openlocfilehash: e8f9f48693d0ff9ea2505f92afa0e41284cd304c
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: c801c46424f7128577e1426ae5f15a8623359d6a
+  ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91761395"
+  ms.lasthandoff: 12/08/2020
+  ms.locfileid: "96852760"
 landingContent:
 - title: Informationen zu Azure Logic Apps
   linkLists:
@@ -31,6 +31,8 @@ landingContent:
       url: concepts-schedule-automated-recurring-tasks-workflows.md
     - text: B2B-Unternehmensintegration
       url: logic-apps-enterprise-integration-overview.md
+    - text: Ressourcenintegrität für Logik-Apps
+      url: healthy-unhealthy-resource.md
   - linkListType: learn
     links:
     - text: Einführung in Azure Logic Apps

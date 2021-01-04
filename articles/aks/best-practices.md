@@ -4,12 +4,12 @@ description: Sammlung der bewährten Methoden für Clusterbetreiber und Entwickl
 services: container-service
 ms.topic: article
 ms.date: 12/07/2018
-ms.openlocfilehash: 1278a03d3ffc7ccb11b0e3c4c84f6c213648440b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8f9c1946567ac3c3ea1045a216d6b0486fd959a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88008779"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686258"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Best Practices für Clusterbetreiber und -entwickler zum Erstellen und Verwalten von Anwendungen in Azure Kubernetes Service (AKS)
 
@@ -30,7 +30,7 @@ Arbeiten Sie als Clusterbetreiber mit Anwendungsbesitzern und -entwicklern zusam
 * [Best Practices für erweiterte Scheduler-Features](operator-best-practices-advanced-scheduler.md)
     * Umfasst die Verwendung von Markierungen und Toleranzen, Knotenselektoren und -affinität sowie Inter-Pod-Affinität und Anti-Affinität.
 * [Best Practices für Authentifizierung und Autorisierung](operator-best-practices-identity.md)
-    * Umfasst die Integration mit Azure Active Directory unter Verwendung rollenbasierter Zugriffskontrolle (RBAC) und Podidentitäten.
+    * Umfasst die Azure Active Directory-Integration, die Verwendung der rollenbasierten Zugriffssteuerung für Kubernetes (Kubernetes Role-Based Access Control. Kubernetes RBAC), die Verwendung von Azure RBAC sowie Podidentitäten.
 
 **Security**
 

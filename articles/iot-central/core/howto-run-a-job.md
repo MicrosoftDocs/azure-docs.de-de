@@ -5,14 +5,14 @@ ms.service: iot-central
 services: iot-central
 author: philmea
 ms.author: philmea
-ms.date: 09/30/2020
+ms.date: 11/19/2020
 ms.topic: how-to
-ms.openlocfilehash: 2b5fc349ae7d92bf36cfe9b1f3272cc1f4f7446b
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 19d8738790b5634b9de989fa94edac6a542f85f4
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017946"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917340"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Erstellen und Ausführen von Aufträgen in Ihrer Azure IoT Central-Anwendung
 
@@ -38,23 +38,52 @@ Im folgenden Beispiel wird gezeigt, wie Sie einen Auftrag erstellen und ausführ
 
     Wählen Sie **Speichern und beenden** aus, um den Auftrag zur Liste von gespeicherten Aufträgen auf der Seite **Aufträge** hinzuzufügen. Sie können später zu einem Auftrag aus der Liste von gespeicherten Aufträgen zurückkehren.
 
-    Klicken Sie auf **Weiter**, um zur Seite **Delivery options** (Übermittlungsoptionen) zu gelangen. Auf der Seite **Delivery options**(Übermittlungsoptionen) können Sie die Übermittlungsoptionen für den Auftrag festlegen: **Batches** und **Cancellation threshold** (Abbruchschwellenwert).
+1. Klicken Sie auf **Weiter**, um zur Seite **Delivery options** (Übermittlungsoptionen) zu gelangen. Auf der Seite **Delivery options**(Übermittlungsoptionen) können Sie die Übermittlungsoptionen für den Auftrag festlegen: **Batches** und **Cancellation threshold** (Abbruchschwellenwert).
 
     Mit Batches können Aufträge für eine große Anzahl von Geräten gestaffelt werden. Der Auftrag wird in mehrere Batches unterteilt, von denen jeder eine Teilmenge der Geräte enthält. Die Batches werden in eine Warteschlange eingereiht und nacheinander ausgeführt.
 
     Mit dem Abbruchschwellenwert können Sie einen Auftrag automatisch abbrechen, wenn die Anzahl von Fehlern den festgelegten Grenzwert überschreitet. Der Schwellenwert kann auf alle Geräte im Auftrag oder auf einzelne Batches angewendet werden.
 
-    :::image type="content" source="media/howto-run-a-job/job-wizard-delivery-options.png" alt-text="Screenshot, der die Auswahl zum Erstellen des Eigenschaftenauftrags „Leichten Schwellenwert festlegen“ zeigt":::
+    :::image type="content" source="media/howto-run-a-job/job-wizard-delivery-options.png" alt-text="Screenshot: Seite „Delivery options“ (Übermittlungsoptionen) des Auftrags-Assistenten":::
 
-    Wählen Sie **Weiter** aus, um zur Registerkarte **Überprüfen** zu wechseln. Auf der Seite **Überprüfung** werden die Details der Auftragskonfiguration angezeigt. Wählen Sie **Ausführen** aus, um den Auftrag zu übermitteln.
+1. Wählen Sie **Weiter** aus, um zur Registerkarte **Zeitplan** zu wechseln. Auf der Seite **Zeitplan** können Sie einen Zeitplan für die spätere Ausführung des Auftrags aktivieren:
 
-    :::image type="content" source="media/howto-run-a-job/job-wizard-review.png" alt-text="Screenshot, der die Auswahl zum Erstellen des Eigenschaftenauftrags „Leichten Schwellenwert festlegen“ zeigt":::
+    Wählen Sie eine Wiederholungsoption für den Zeitplan aus. Sie können folgende Turnusse für die Ausführung eines Auftrags einrichten:
+
+    * Einmalig
+    * Täglich
+    * Wöchentlich
+
+    Legen Sie Startdatum und -uhrzeit für einen geplanten Auftrag fest. Das Datum und die Uhrzeit beziehen sich auf Ihre Zeitzone und nicht auf die Ortszeit des Geräts.
+
+    Um einen wiederkehrenden Zeitplan zu beenden, wählen Sie Folgendes aus:
+
+    * **An diesem Tag**, um ein Enddatum für den Zeitplan festzulegen.
+    * **Nach**, um die Anzahl der Ausführungen des Auftrags anzugeben.
+
+    Geplante Aufträge werden immer auf den Geräten in einer Gerätegruppe ausgeführt, selbst wenn sich die Gerätegruppenmitgliedschaft im Laufe der Zeit ändert.
+
+    :::image type="content" source="media/howto-run-a-job/job-wizard-schedule.png" alt-text="Screenshot: Seite mit Zeitplanoptionen des Auftrags-Assistenten":::
+
+1. Wählen Sie **Weiter** aus, um zur Registerkarte **Überprüfen** zu wechseln. Auf der Seite **Überprüfung** werden die Details der Auftragskonfiguration angezeigt. Wählen Sie **Zeitplan** aus, um den Auftrag zu planen:
+
+    :::image type="content" source="media/howto-run-a-job/job-wizard-schedule-review.png" alt-text="Screenshot der Seite des Assistenten zur Überprüfung des geplanten Auftrags":::
+
+1. Auf der Seite mit Auftragsdetails werden Informationen zu geplanten Aufträgen angezeigt. Wenn der geplante Auftrag ausgeführt wird, wird eine Liste der Auftragsinstanzen angezeigt. Die geplante Auftragsausführung ist auch Teil der **Letzte 30 Tage**-Auftragsliste.
+
+    Auf dieser Seite können Sie den geplanten Auftrag **aus dem Zeitplan entfernen** oder **Bearbeiten**. Sie können zu einem geplanten Auftrag aus der Liste der geplanten Aufträge zurückkehren.
+
+    :::image type="content" source="media/howto-run-a-job/job-schedule-details.png" alt-text="Screenshot der Seite mit Details des geplanten Auftrags":::
+
+1. Im Auftrags-Assistenten können Sie auswählen, dass ein Auftrag nicht geplant, sondern sofort ausgeführt wird. Der folgende Screenshot zeigt einen Auftrag ohne Zeitplan, der sofort ausgeführt werden kann. Wählen Sie **Ausführen** aus, um den Auftrag auszuführen:
+
+    :::image type="content" source="media/howto-run-a-job/job-wizard-schedule-immediate.png" alt-text="Screenshot der Seite „Überprüfung“ des Auftrags-Assistenten":::
 
 1. Ein Auftrag durchläuft die Phasen *Ausstehend*, *Wird ausgeführt* und *Abgeschlossen*. Die Auftragsausführungsdetails enthalten Metriken des Typs „Ergebnis“, Details zu „Dauer“ und das Raster der Geräteliste.
 
     Wenn der Auftrag abgeschlossen wurde, können Sie **Ergebnisprotokoll** auswählen, um eine CSV-Datei mit Ihren Auftragsdetails, einschließlich der Geräte und deren Statuswerten, herunterzuladen. Diese Informationen können bei der Problembehandlung hilfreich sein.
 
-    :::image type="content" source="media/howto-run-a-job/download-details.png" alt-text="Screenshot, der die Auswahl zum Erstellen des Eigenschaftenauftrags „Leichten Schwellenwert festlegen“ zeigt":::
+    :::image type="content" source="media/howto-run-a-job/download-details.png" alt-text="Screenshot, der den Gerätestatus zeigt":::
 
 1. Der Auftrag wird jetzt auf der Seite **Aufträge** in der Liste **Letzte 30 Tage** angezeigt. Auf dieser Seite werden Ihre zurzeit ausgeführten Aufträge sowie der Verlauf aller zuvor ausgeführten oder gespeicherten Aufträge gezeigt.
 
@@ -65,17 +94,17 @@ Im folgenden Beispiel wird gezeigt, wie Sie einen Auftrag erstellen und ausführ
 
 Um einen aktiven Auftrag zu beenden, öffnen Sie ihn und wählen Sie **Anhalten** aus. Der Auftragsstatus wird geändert, um anzugeben, dass der Auftrag angehalten wurde. Im Abschnitt **Zusammenfassung** wird angezeigt, welche Geräte abgeschlossen wurden, fehlgeschlagen sind oder noch ausstehen.
 
-:::image type="content" source="media/howto-run-a-job/manage-job.png" alt-text="Screenshot, der die Auswahl zum Erstellen des Eigenschaftenauftrags „Leichten Schwellenwert festlegen“ zeigt":::
+:::image type="content" source="media/howto-run-a-job/manage-job.png" alt-text="Screenshot, der einen aktiven Auftrag und die Schaltfläche zum Anhalten eines Auftrags zeigt":::
 
 Wenn sich ein Auftrag in einem angehaltenen Zustand befindet, können Sie **Fortsetzen** auswählen, um seine Ausführung fortzusetzen. Der Auftragsstatus wird geändert, um anzugeben, dass der Auftrag wieder ausgeführt wird. Der Abschnitt **Zusammenfassung** wird weiterhin mit dem neuesten Status aktualisiert.
 
-:::image type="content" source="media/howto-run-a-job/stopped-job.png" alt-text="Screenshot, der die Auswahl zum Erstellen des Eigenschaftenauftrags „Leichten Schwellenwert festlegen“ zeigt":::
+:::image type="content" source="media/howto-run-a-job/stopped-job.png" alt-text="Screenshot, der einen angehaltenen Auftrag und die Schaltfläche zum Fortsetzen eines Auftrags zeigt":::
 
 ## <a name="copy-a-job"></a>Kopieren eines Auftrags
 
 Wählen Sie zum Kopieren eines vorhandenen Auftrags einen bereits ausgeführten Auftrag aus. Wählen Sie auf der Seite „Auftragsergebnisse“ oder der Seite mit den Auftragsdetails **Kopieren** aus:
 
-:::image type="content" source="media/howto-run-a-job/job-details-copy.png" alt-text="Screenshot, der die Auswahl zum Erstellen des Eigenschaftenauftrags „Leichten Schwellenwert festlegen“ zeigt":::
+:::image type="content" source="media/howto-run-a-job/job-details-copy.png" alt-text="Screenshot, der die Schaltfläche „Kopieren“ zeigt":::
 
 Daraufhin wird eine Kopie der Auftragskonfiguration geöffnet, die Sie bearbeiten können; an den Auftragsnamen ist **Kopie** angefügt.
 
@@ -113,13 +142,13 @@ Wählen Sie **Ergebnisprotokoll** aus, um eine CSV-Datei mit den Auftragsdetails
 
 Sie können die Geräteliste auf der Seite mit den **Auftragsdetails** filtern, indem Sie auf das Filtersymbol klicken. Außerdem können Sie zum Filtern die Felder **Geräte-ID** und **Status** verwenden:
 
-:::image type="content" source="media/howto-run-a-job/filter.png" alt-text="Screenshot, der die Auswahl zum Erstellen des Eigenschaftenauftrags „Leichten Schwellenwert festlegen“ zeigt":::
+:::image type="content" source="media/howto-run-a-job/filter.png" alt-text="Screenshot, der die Auswahl für das Filtern einer Geräteliste anzeigt":::
 
 ## <a name="customize-columns-in-the-device-list"></a>Anpassen der Spalten der Geräteliste
 
 Sie können der Geräteliste Spalten hinzufügen, indem Sie das Symbol „Spaltenoptionen“ auswählen:
 
-:::image type="content" source="media/howto-run-a-job/column-options.png" alt-text="Screenshot, der die Auswahl zum Erstellen des Eigenschaftenauftrags „Leichten Schwellenwert festlegen“ zeigt":::
+:::image type="content" source="media/howto-run-a-job/column-options.png" alt-text="Screenshot, der das Symbol für Spaltenoptionen anzeigt":::
 
 Über das Dialogfeld **Spaltenoptionen** können Sie die Spalten der Geräteliste auswählen. Wählen Sie die Spalten aus, die Sie anzeigen möchten. Wählen Sie den Pfeil nach rechts und anschließend **OK** aus. Wählen Sie **Alle auswählen**, um alle verfügbaren Spalten auszuwählen. Die ausgewählten Spalten werden in der Geräteliste angezeigt.
 
@@ -129,7 +158,7 @@ Ausgewählte Spalten werden in einer oder mehreren Benutzersitzungen beibehalten
 
 Sie können einen Auftrag, bei dem bei Geräten ein Fehler aufgetreten ist, erneut ausführen. Wählen Sie **Rerun on failed** (Bei Fehler erneut ausführen) aus:
 
-:::image type="content" source="media/howto-run-a-job/rerun.png" alt-text="Screenshot, der die Auswahl zum Erstellen des Eigenschaftenauftrags „Leichten Schwellenwert festlegen“ zeigt":::
+:::image type="content" source="media/howto-run-a-job/rerun.png" alt-text="Screenshot, der die Schaltfläche zum erneuten Ausführen eines Auftrags auf Geräten mit Fehlern anzeigt":::
 
 Geben Sie einen Auftragsnamen und eine Beschreibung an, und wählen Sie dann **Rerun job** (Auftrag erneut ausführen) aus. Ein neuer Auftrag wird übermittelt, um die Aktion auf Geräten, bei denen ein Fehler aufgetreten ist, erneut auszuführen.
 

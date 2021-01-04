@@ -37,11 +37,13 @@
           href: onboard-service-principal.md
         - name: Verbinden von Computern mit Azure Arc mithilfe von PowerShell DSC
           href: onboard-dsc.md
+        - name: Verbinden von Computern über Windows Admin Center
+          href: onboard-windows-admin-center.md
         - name: Verbinden von Computern mit Azure Arc mithilfe von PowerShell
           href: onboard-powershell.md
     - name: Verwalten
       items:
-        - name: Azure-VM-Erweiterungen
+        - name: VM-Erweiterungen
           items:
             - name: Übersicht
               href: manage-vm-extensions.md
@@ -53,8 +55,16 @@
               href: manage-vm-extensions-powershell.md
             - name: Bereitstellen von Erweiterungen mithilfe einer ARM-Vorlage
               href: manage-vm-extensions-template.md
+        - name: Verwenden von verwalteten Identitäten auf einem Server
+          href: managed-identity-authentication.md
         - name: Agent verwalten
           href: manage-agent.md
+    - name: Szenarien
+      items:
+        - name: Durchführen des Onboardings in Azure Sentinel
+          href: scenario-onboard-azure-sentinel.md
+        - name: Durchführen des Onboardings in Azure Security Center
+          href: ../../security-center/quickstart-onboard-machines.md
     - name: Problembehandlung
       items:
         - name: Agent-Verbindungsprobleme
@@ -76,7 +86,7 @@
     - name: Go
       href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/hybridcompute/mgmt/2020-08-02/hybridcompute'
     - name: Java
-      href: /java/api/overview/azure/hybridcompute/management
+      href: /java/api/overview/azure/compute/resourcemanagement
     - name: JavaScript
       href: /javascript/api/%40azure/arm-hybridcompute
     - name: Python

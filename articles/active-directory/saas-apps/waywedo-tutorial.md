@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 310a42d25ce7fb7970777e8f36abbbee562ab01d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0205617198ec8e57cb891d2415d2b5413a945f1b
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88523874"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608934"
 ---
 # <a name="tutorial-integrate-way-we-do-with-azure-active-directory"></a>Tutorial: Integrieren von Way We Do in Azure Active Directory
 
@@ -26,7 +26,7 @@ In diesem Tutorial erfahren Sie, wie Sie Way We Do in Azure Active Directory (Az
 * Ermöglichen Sie Ihren Benutzern, sich mit ihren Azure AD-Konten automatisch bei Way We Do anzumelden.
 * Verwalten Sie Ihre Konten zentral im Azure-Portal.
 
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -117,26 +117,26 @@ Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal 
 
     ![Way We Do: Speichern](./media/waywedo-tutorial/tutorial_waywedo_save.png)
 
-    a. Klicken Sie auf die Schaltfläche **Turn on single sign-on (Einmaliges Anmelden aktivieren)** , um zu **Ja** zu wechseln und damit das einmalige Anmelden zu aktivieren.
+    1. Klicken Sie auf die Schaltfläche **Turn on single sign-on (Einmaliges Anmelden aktivieren)**, um zu **Ja** zu wechseln und damit das einmalige Anmelden zu aktivieren.
 
-    b. Geben Sie im Textfeld **Single sign-on name (Name für einmaliges Anmelden)** Ihren Namen ein.
+    1. Geben Sie im Textfeld **Single sign-on name (Name für einmaliges Anmelden)** Ihren Namen ein.
 
-    c. Fügen Sie in das Textfeld **Entity ID** (Entitäts-ID) den Wert von **Azure AD-Bezeichner** ein, den Sie aus dem Azure-Portal kopiert haben.
+    1. Fügen Sie in das Textfeld **Entity ID** (Entitäts-ID) den Wert von **Azure AD-Bezeichner** ein, den Sie aus dem Azure-Portal kopiert haben.
 
-    d. Fügen Sie in das Textfeld **SAML SSO URL** (SSO-Anmelde-URL) den Wert der **Anmelde-URL** ein, den Sie aus dem Azure-Portal kopiert haben.
+    1. Fügen Sie in das Textfeld **SAML SSO URL** (SSO-Anmelde-URL) den Wert der **Anmelde-URL** ein, den Sie aus dem Azure-Portal kopiert haben.
 
-    e. Laden Sie das Zertifikat hoch, indem Sie auf die **Auswahlschaltfläche** neben **Certificate (Zertifikat)** klicken.
+    1. Laden Sie das Zertifikat hoch, indem Sie auf die **Auswahlschaltfläche** neben **Certificate (Zertifikat)** klicken.
 
-    f. **Optionale Einstellungen** -
-    
-    * „Enable Passwords“ (Kennwörter aktivieren): Wenn diese Option deaktiviert ist, ist das reguläre Kennwort für Way We Do nicht nutzbar, sodass Benutzer nur einmaliges Anmelden verwenden können.
+    1. **Optionale Einstellungen** -
 
-    * „Enable Auto-provisioning“ (Automatische Bereitstellung aktivieren): Wenn diese Option aktiviert ist, wird die zum Anmelden verwendete E-Mail-Adresse automatisch mit der Liste der Benutzer in Way We Do verglichen. Wenn die E-Mail-Adresse nicht mit einem aktiven Benutzer in Way We Do übereinstimmt, wird automatisch ein neues Benutzerkonto für die Person hinzugefügt, die sich anmeldet, und alle fehlenden Informationen werden angefordert.
+        * „Enable Passwords“ (Kennwörter aktivieren): Wenn diese Option deaktiviert ist, ist das reguläre Kennwort für Way We Do nicht nutzbar, sodass Benutzer nur einmaliges Anmelden verwenden können.
 
-      > [!NOTE]
-      > Über einmaliges Anmelden hinzugefügte Benutzer werden als allgemeine Benutzer hinzugefügt, und ihnen wird keine Rolle im System zugewiesen. Ein Administrator kann ihre Sicherheitsrolle als Editor oder Administrator ändern und auch eine oder mehrere Organigrammrollen zuweisen.
+        * „Enable Auto-provisioning“ (Automatische Bereitstellung aktivieren): Wenn diese Option aktiviert ist, wird die zum Anmelden verwendete E-Mail-Adresse automatisch mit der Liste der Benutzer in Way We Do verglichen. Wenn die E-Mail-Adresse nicht mit einem aktiven Benutzer in Way We Do übereinstimmt, wird automatisch ein neues Benutzerkonto für die Person hinzugefügt, die sich anmeldet, und alle fehlenden Informationen werden angefordert.
 
-    g. Klicken Sie auf **Save (Speichern)** , um Ihre Einstellungen beizubehalten.
+          > [!NOTE]
+          > Über einmaliges Anmelden hinzugefügte Benutzer werden als allgemeine Benutzer hinzugefügt, und ihnen wird keine Rolle im System zugewiesen. Ein Administrator kann ihre Sicherheitsrolle als Editor oder Administrator ändern und auch eine oder mehrere Organigrammrollen zuweisen.
+
+    1. Klicken Sie auf **Save (Speichern)**, um Ihre Einstellungen beizubehalten.
 
 ### <a name="create-an-azure-ad-test-user"></a>Erstellen eines Azure AD-Testbenutzers
 
@@ -155,7 +155,7 @@ In diesem Abschnitt erstellen Sie im Azure-Portal einen Testbenutzer mit dem Nam
 In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anmeldens von Azure, indem Sie ihm Zugriff auf Way We Do gewähren.
 
 1. Wählen Sie im Azure-Portal **Unternehmensanwendungen** > **Alle Anwendungen** aus.
-1. Wählen Sie in der Anwendungsliste **Way We Do**aus.
+1. Wählen Sie in der Anwendungsliste **Way We Do** aus.
 1. Navigieren Sie auf der Übersichtsseite der App zum Abschnitt **Verwalten**, und wählen Sie **Benutzer und Gruppen** aus.
 
    ![Link „Benutzer und Gruppen“](common/users-groups-blade.png)
@@ -177,12 +177,12 @@ In diesem Abschnitt wird in Way We Do ein Benutzer mit dem Namen Britta Simon 
 
 ### <a name="test-sso"></a>Testen des einmaligen Anmeldens
 
-Wenn Sie im Zugriffsbereich die Kachel „Way We Do“ auswählen, sollten Sie automatisch bei der Way We Do-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Wenn Sie im Zugriffsbereich die Kachel „Way We Do“ auswählen, sollten Sie automatisch bei der Way We Do-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Weitere Ressourcen
 
-- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](./tutorial-list.md)
 
-- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Was ist der bedingte Zugriff in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Was ist der bedingte Zugriff in Azure Active Directory?](../conditional-access/overview.md)

@@ -5,18 +5,18 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 04/20/2020
+ms.date: 11/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 67e33732574d2a6c173675d5adf0a7d1c2050688
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d94cd649df9da6b36ac484d4fc1e6acef7a21bb7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90528175"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026164"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Steuern von Updates mit der Wartungssteuerung und der Azure CLI
 
-Mit der Wartungssteuerung können Sie entscheiden, wann Sie Updates auf Ihre isolierten VMs und dedizierten Azure-Hosts anwenden. In diesem Thema werden die Azure CLI-Optionen für die Wartungssteuerung behandelt. Weitere Informationen zu den Vorteilen der Verwendung der Wartungssteuerung, ihren Einschränkungen und anderen Verwaltungsoptionen finden Sie unter [Verwalten von Plattformupdates mit der Wartungssteuerung](maintenance-control.md).
+Mit der Wartungssteuerung können Sie entscheiden, wann Sie Plattformupdates der Hostinfrastruktur auf Ihre isolierten VMs und Ihre dedizierten Azure-Hosts anwenden. In diesem Thema werden die Azure CLI-Optionen für die Wartungssteuerung behandelt. Weitere Informationen zu den Vorteilen der Verwendung der Wartungssteuerung, ihren Einschränkungen und anderen Verwaltungsoptionen finden Sie unter [Verwalten von Plattformupdates mit der Wartungssteuerung](maintenance-control.md).
 
 ## <a name="create-a-maintenance-configuration"></a>Erstellen einer Wartungskonfiguration
 
@@ -28,14 +28,14 @@ az group create \
    --name myMaintenanceRG
 az maintenance configuration create \
    -g myMaintenanceRG \
-   --name myConfig \
-   --maintenanceScope host\
+   --resource-name myConfig \
+   --maintenance-scope host\
    --location eastus
 ```
 
 Kopieren Sie die Konfigurations-ID aus der Ausgabe, um sie später zu verwenden.
 
-Durch die Verwendung von `--maintenanceScope host` wird sichergestellt, dass die Wartungskonfiguration zum Steuern von Updates für den Host verwendet wird.
+Durch die Verwendung von `--maintenance-scope host` wird sichergestellt, dass die Wartungskonfiguration zum Steuern von Updates für die Hostinfrastruktur verwendet wird.
 
 Wenn Sie versuchen, eine Konfiguration mit dem gleichen Namen, aber an einem anderen Speicherort zu erstellen, erhalten Sie eine Fehlermeldung. Konfigurationsnamen müssen für Ihre Ressourcengruppe eindeutig sein.
 
@@ -44,6 +44,30 @@ Mithilfe von `az maintenance configuration list` können Sie verfügbare Wartung
 ```azurecli-interactive
 az maintenance configuration list --query "[].{Name:name, ID:id}" -o table 
 ```
+
+### <a name="create-a-maintenance-configuration-with-scheduled-window"></a>Erstellen einer Wartungskonfiguration mit einem geplanten Fenster
+Sie können auch ein geplantes Fenster deklarieren, in dem Azure die Updates auf Ihre Ressourcen anwendet. In diesem Beispiel wird eine Wartungskonfiguration mit dem Namen myConfig mit einem geplanten Fenster von 5 Stunden am vierten Montag jeden Monats erstellt. Nachdem Sie ein geplantes Fenster erstellt haben, müssen Sie die Updates nicht mehr manuell anwenden.
+
+```azurecli-interactive
+az maintenance configuration create \
+   -g myMaintenanceRG \
+   --resource-name myConfig \
+   --maintenance-scope host \
+   --location eastus \
+   --maintenance-window-duration "05:00" \
+   --maintenance-window-recur-every "Month Fourth Monday" \
+   --maintenance-window-start-date-time "2020-12-30 08:00" \
+   --maintenance-window-time-zone "Pacific Standard Time"
+```
+
+> [!IMPORTANT]
+> Die **Dauer** der Wartung muss *2 Stunden* oder länger sein. Die Wartung muss mindestens ein Mal in 35 Tagen **wiederholt** werden.
+
+Die Wiederholung der Wartung kann täglich, wöchentlich oder monatlich ausgedrückt werden. Beispiele:
+- **daily**- maintenance-window-recur-every: „Day“ **oder** „3Days“
+- **weekly**- maintenance-window-recur-every: „3Weeks“ **oder** „Week Saturday,Sunday“
+- **monthly**- maintenance-window-recur-every: „Month day23,day24“ **oder** „Month Last Sunday“ **oder** „Month Fourth Monday“
+
 
 ## <a name="assign-the-configuration"></a>Zuweisen der Konfiguration
 
@@ -251,7 +275,7 @@ Verwenden Sie `az maintenance configuration delete`, um eine Wartungskonfigurati
 az maintenance configuration delete \
    --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
    -g myResourceGroup \
-   --name myConfig
+   --resource-name myConfig
 ```
 
 ## <a name="next-steps"></a>Nächste Schritte

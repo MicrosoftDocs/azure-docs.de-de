@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 08/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: b903fda9a64233b4906941167ca7fd5819a0316b
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: f5e774e9b7327d4b403f6a09187e97082a77aa78
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164481"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186802"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Aktivieren von Azure Monitor für VMs: Übersicht
 
@@ -127,7 +127,7 @@ Im Folgenden sind verschiedene Methoden für die Bereitstellung dieser Agents au
 | Methode | BESCHREIBUNG |
 |:---|:---|
 | [Azure portal](./vminsights-enable-portal.md) | Installieren Sie beide Agents auf einem einzelnen virtuellen Computer, einer VM-Skalierungsgruppe oder virtuellen Hybridcomputern, die mit Azure Arc verbunden sind. |
-| [Resource Manager-Vorlagen](vminsights-enable-powershell.md) | Installieren Sie beide Agents mithilfe einer der unterstützten Methoden zum Bereitstellen einer Resource Manager-Vorlage, z. B. über die CLI oder PowerShell. |
+| [Resource Manager-Vorlagen](vminsights-enable-resource-manager.md) | Installieren Sie beide Agents mithilfe einer der unterstützten Methoden zum Bereitstellen einer Resource Manager-Vorlage, z. B. über die CLI oder PowerShell. |
 | [Azure Policy](./vminsights-enable-policy.md) | Weisen Sie eine Azure Policy-Initiative zu, um die Agents bei der Erstellung eines virtuellen Computers oder einer VM-Skalierungsgruppe automatisch zu installieren. |
 | [Manuelle Installation](./vminsights-enable-hybrid.md) | Installieren Sie die Agents auf dem Gastbetriebssystem auf Computern, die außerhalb von Azure gehostet werden, z. B. in Ihrem Rechenzentrum oder anderen Cloudumgebungen. |
 

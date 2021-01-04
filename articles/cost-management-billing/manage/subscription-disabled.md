@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 11/17/2020
 ms.author: banders
-ms.openlocfilehash: 550be6c10402398b62af307281660b93981a0df3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cad3082981bcfc699bc230badf44e2ffc2e1bed3
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91308961"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744424"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>Reaktivieren eines deaktivierten Azure-Abonnements
 
@@ -54,6 +54,10 @@ Wenn Sie der Kontoadministrator sind und versehentlich ein individuelles Abonnem
     ![Screenshot mit Links für die Reaktivierung im rechten Bereich](./media/subscription-disabled/reactivate-sub.png)
 
 [Wenden Sie sich an den Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), falls Sie andere Abonnementtypen verwenden, um Ihr Abonnement reaktivieren zu lassen.
+
+## <a name="after-reactivation"></a>Nach der Reaktivierung
+
+Nach der erneuten Aktivierung Ihres Abonnements kann es zu einer Verzögerung beim Erstellen oder Verwalten von Ressourcen kommen. Wenn die Verzögerung 30 Minuten überschreitet, wenden Sie sich an den [Azure-Abrechnungssupport](https://go.microsoft.com/fwlink/?linkid=2083458), um Hilfe zu erhalten. Die meisten Azure-Ressourcen werden automatisch fortgesetzt, sodass keine Aktion erforderlich ist. Es wird jedoch empfohlen, die Azure-Dienstressourcen zu überprüfen und alle Ressourcen, die nicht automatisch fortgesetzt werden, neu zu starten.
 
 ## <a name="need-help-contact-us"></a>Sie brauchen Hilfe? Wenden Sie sich an uns.
 

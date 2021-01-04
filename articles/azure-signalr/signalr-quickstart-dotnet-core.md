@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
-ms.openlocfilehash: b5a2064e2fd80b895b0e801090c66d7119cf69dd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3cfcf57f455a5c3b17b794acf2ded66ed2285eff
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151012"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873504"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>Schnellstart: Erstellen eines Chatraums mit SignalR Service
 
@@ -32,13 +32,13 @@ Der Code für dieses Tutorial kann aus dem [GitHub-Repository „AzureSignalR-sa
 * Installieren Sie das [.NET Core SDK](https://www.microsoft.com/net/download/windows).
 * Laden Sie das GitHub-Repository [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) herunter, oder klonen Sie es. 
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/asrs/qsnetcore)
+Treten Probleme auf? Verwenden Sie den [Leitfaden zur Problembehandlung](signalr-howto-troubleshoot-guide.md), oder [informieren Sie uns](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="create-an-azure-signalr-resource"></a>Erstellen einer Azure SignalR-Ressource
 
 [!INCLUDE [azure-signalr-create](../../includes/signalr-create.md)]
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/asrs/qsnetcore)
+Treten Probleme auf? Verwenden Sie den [Leitfaden zur Problembehandlung](signalr-howto-troubleshoot-guide.md), oder [informieren Sie uns](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="create-an-aspnet-core-web-app"></a>Erstellen einer ASP.NET Core-Web-App
 
@@ -52,13 +52,13 @@ In diesem Abschnitt verwenden Sie die [.NET Core-Befehlszeilenschnittstelle (CLI
     dotnet new mvc
     ```
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/asrs/qsnetcore)
+Treten Probleme auf? Verwenden Sie den [Leitfaden zur Problembehandlung](signalr-howto-troubleshoot-guide.md), oder [informieren Sie uns](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="add-secret-manager-to-the-project"></a>Hinzufügen des Geheimnis-Managers
 
 In diesem Abschnitt fügen Sie Ihrem Projekt das [Geheimnis-Manager-Tool](/aspnet/core/security/app-secrets) hinzu. Im Geheimnis-Manager-Tool werden sensible Daten für die Entwicklungsarbeit außerhalb Ihrer Projektstruktur gespeichert. Mit diesem Ansatz können Sie verhindern, dass App-Geheimnisse versehentlich im Quellcode angegeben werden.
 
-1. Öffnen Sie die Datei mit der Endung *.csproj* . Fügen Sie das `DotNetCliToolReference`-Element hinzu, um *Microsoft.Extensions.SecretManager.Tools* einzubinden. Fügen Sie auch ein `UserSecretsId`-Element hinzu, wie im folgenden Code für *chattest.csproj* gezeigt, und speichern Sie die Datei.
+1. Öffnen Sie die Datei mit der Endung *.csproj*. Fügen Sie das `DotNetCliToolReference`-Element hinzu, um *Microsoft.Extensions.SecretManager.Tools* einzubinden. Fügen Sie auch ein `UserSecretsId`-Element hinzu, wie im folgenden Code für *chattest.csproj* gezeigt, und speichern Sie die Datei.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -76,7 +76,7 @@ In diesem Abschnitt fügen Sie Ihrem Projekt das [Geheimnis-Manager-Tool](/aspne
     </Project>
     ```
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/asrs/qsnetcore)
+Treten Probleme auf? Verwenden Sie den [Leitfaden zur Problembehandlung](signalr-howto-troubleshoot-guide.md), oder [informieren Sie uns](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="add-azure-signalr-to-the-web-app"></a>Hinzufügen von Azure SignalR zur Web-App
 
@@ -96,7 +96,7 @@ In diesem Abschnitt fügen Sie Ihrem Projekt das [Geheimnis-Manager-Tool](/aspne
 
     Dieses Geheimnis enthält die Verbindungszeichenfolge für den Zugriff auf Ihre SignalR Service-Ressource. *Azure:SignalR:ConnectionString* ist der Standardkonfigurationsschlüssel, nach dem SignalR sucht, um eine Verbindung herzustellen. Ersetzen Sie den Wert im folgenden Befehl durch die Verbindungszeichenfolge für Ihre SignalR Service-Ressource.
 
-    Sie müssen diesen Befehl in demselben Verzeichnis wie die *.csproj* -Datei ausführen.
+    Sie müssen diesen Befehl in demselben Verzeichnis wie die *.csproj*-Datei ausführen.
 
     ```dotnetcli
     dotnet user-secrets set Azure:SignalR:ConnectionString "<Your connection string>"
@@ -107,7 +107,7 @@ In diesem Abschnitt fügen Sie Ihrem Projekt das [Geheimnis-Manager-Tool](/aspne
     Auf dieses Geheimnis wird mit der Konfigurations-API zugegriffen. Ein Doppelpunkt (:) kann im Konfigurationsnamen mit der Konfigurations-API auf allen unterstützten Plattformen verwendet werden. Siehe [Konfiguration nach Umgebung](/dotnet/core/extensions/configuration-providers#environment-variable-configuration-provider).
 
 
-4. Öffnen Sie *Startup.cs* , und aktualisieren Sie die `ConfigureServices`-Methode auf die Nutzung des Azure SignalR Service, indem Sie die Methoden `AddSignalR()` und `AddAzureSignalR()` aufrufen:
+4. Öffnen Sie *Startup.cs*, und aktualisieren Sie die `ConfigureServices`-Methode auf die Nutzung des Azure SignalR Service, indem Sie die Methoden `AddSignalR()` und `AddAzureSignalR()` aufrufen:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -117,7 +117,7 @@ In diesem Abschnitt fügen Sie Ihrem Projekt das [Geheimnis-Manager-Tool](/aspne
     }
     ```
 
-    Indem kein Parameter an `AddAzureSignalR()` übergeben wird, wird in diesem Code der Standardkonfigurationsschlüssel für die Verbindungszeichenfolge der SignalR Service-Ressource verwendet. Der Standardkonfigurationsschlüssel lautet *Azure:SignalR:ConnectionString* .
+    Indem kein Parameter an `AddAzureSignalR()` übergeben wird, wird in diesem Code der Standardkonfigurationsschlüssel für die Verbindungszeichenfolge der SignalR Service-Ressource verwendet. Der Standardkonfigurationsschlüssel lautet *Azure:SignalR:ConnectionString*.
 
 5. Aktualisieren Sie in *Startup.cs* die `Configure`-Methode, indem Sie sie durch den folgenden Code ersetzen.
 
@@ -168,13 +168,13 @@ Für beide Methoden wird die Schnittstelle `Clients` genutzt, die über das ASP.
 
 ### <a name="add-the-client-interface-for-the-web-app"></a>Hinzufügen der Clientschnittstelle für die Web-App
 
-Die Clientbenutzeroberfläche für diese Chatraum-App besteht aus HTML- und JavaScript-Code in einer Datei mit dem Namen *index.html* , die im Verzeichnis *wwwroot* enthalten ist.
+Die Clientbenutzeroberfläche für diese Chatraum-App besteht aus HTML- und JavaScript-Code in einer Datei mit dem Namen *index.html*, die im Verzeichnis *wwwroot* enthalten ist.
 
-Kopieren Sie die Datei *css/site.css* aus dem Ordner *wwwroot* des [Beispielrepositorys](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom/wwwroot). Ersetzen Sie die *css/site.css* -Datei Ihres Projekts durch die von Ihnen kopierte Datei.
+Kopieren Sie die Datei *css/site.css* aus dem Ordner *wwwroot* des [Beispielrepositorys](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom/wwwroot). Ersetzen Sie die *css/site.css*-Datei Ihres Projekts durch die von Ihnen kopierte Datei.
 
-Hier ist der Hauptcode von *index.html* :
+Hier ist der Hauptcode von *index.html*:
 
-Erstellen Sie eine neue Datei im Verzeichnis *wwwroot* mit dem Namen *index.html* , kopieren Sie den folgenden HTML-Code, und fügen Sie ihn in die neu erstellte Datei ein:
+Erstellen Sie eine neue Datei im Verzeichnis *wwwroot* mit dem Namen *index.html*, kopieren Sie den folgenden HTML-Code, und fügen Sie ihn in die neu erstellte Datei ein:
 
 ```html
 <!DOCTYPE html>
@@ -328,7 +328,7 @@ Wenn die Verbindungsherstellung erfolgreich ist, wird diese Verbindung an `bindC
 
 In diesem Abschnitt fügen Sie eine Entwicklungslaufzeitumgebung für ASP.NET Core hinzu. Weitere Informationen finden Sie unter [Arbeiten mit mehreren Umgebungen in ASP.NET Core](/aspnet/core/fundamentals/environments).
 
-1. Erstellen Sie in Ihrem Projekt einen Ordner mit dem Namen *Eigenschaften* .
+1. Erstellen Sie in Ihrem Projekt einen Ordner mit dem Namen *Eigenschaften*.
 
 2. Fügen Sie dem Ordner eine neue Datei namens *launchSettings.json* mit folgendem Inhalt hinzu, und speichern Sie die Datei.
 
@@ -347,7 +347,7 @@ In diesem Abschnitt fügen Sie eine Entwicklungslaufzeitumgebung für ASP.NET Co
     }
     ```
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/asrs/qsnetcore)
+Treten Probleme auf? Verwenden Sie den [Leitfaden zur Problembehandlung](signalr-howto-troubleshoot-guide.md), oder [informieren Sie uns](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="build-and-run-the-app-locally"></a>Lokales Erstellen und Ausführen der App
 
@@ -382,7 +382,7 @@ In diesem Abschnitt fügen Sie eine Entwicklungslaufzeitumgebung für ASP.NET Co
 
     ![Beispiel für einen Azure SignalR-Gruppenchat](media/signalr-quickstart-dotnet-core/signalr-quickstart-complete-local.png)
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/asrs/qsnetcore)
+Treten Probleme auf? Verwenden Sie den [Leitfaden zur Problembehandlung](signalr-howto-troubleshoot-guide.md), oder [informieren Sie uns](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
@@ -393,17 +393,17 @@ Wenn Sie die Schnellstart-Beispielanwendung nicht mehr benötigen, können Sie d
 > [!IMPORTANT]
 > Das Löschen einer Ressourcengruppe kann nicht rückgängig gemacht werden und umfasst alle Ressourcen dieser Gruppe. Achten Sie daher darauf, dass Sie nicht versehentlich die falsche Ressourcengruppe oder die falschen Ressourcen löschen. Falls Sie die Ressourcen zum Hosten dieses Beispiels in einer vorhandenen Ressourcengruppe erstellt haben, die beizubehaltende Ressourcen enthält, können Sie die Ressourcen einzeln über ihr Blatt löschen, statt die Ressourcengruppe zu löschen.
 
-Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an, und klicken Sie auf **Ressourcengruppen** .
+Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an, und klicken Sie auf **Ressourcengruppen**.
 
 Geben Sie im Textfeld **Nach Name filtern** den Namen Ihrer Ressourcengruppe ein. In dieser Schnellstartanleitung wurde eine Ressourcengruppe mit dem Namen *SignalRTestResources* verwendet. Wählen Sie in Ihrer Ressourcengruppe in der Ergebnisliste die Auslassungspunkte ( **...** ) > **Ressourcengruppe löschen** aus.
 
 ![Auswahl für das Löschen einer Ressourcengruppe](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)
 
-Sie werden aufgefordert, das Löschen der Ressourcengruppe zu bestätigen. Geben Sie zur Bestätigung den Namen Ihrer Ressourcengruppe ein, und klicken Sie auf **Löschen** .
+Sie werden aufgefordert, das Löschen der Ressourcengruppe zu bestätigen. Geben Sie zur Bestätigung den Namen Ihrer Ressourcengruppe ein, und klicken Sie auf **Löschen**.
 
 Daraufhin werden die Ressourcengruppe und alle darin enthaltenen Ressourcen gelöscht.
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/asrs/qsnetcore)
+Treten Probleme auf? Verwenden Sie den [Leitfaden zur Problembehandlung](signalr-howto-troubleshoot-guide.md), oder [informieren Sie uns](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
@@ -411,5 +411,3 @@ In diesem Schnellstart haben Sie eine neue Azure SignalR Service-Ressource erste
 
 > [!div class="nextstepaction"]
 > [Azure SignalR Service-Authentifizierung](./signalr-concept-authenticate-oauth.md)
-
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/asrs/qsnetcore)

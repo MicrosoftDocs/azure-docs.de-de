@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/20/2020
+ms.date: 10/28/2020
 ms.author: jeedes
-ms.openlocfilehash: a5e7e46041e339646e4813a4cce61046f2a57e5e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 81a7efea268600e661981b35f79149fe814ef084
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319064"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180675"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>Tutorial: Integration des einmaligen Anmeldens (Single Sign-On, SSO) von Azure Active Directory mit 8x8
 
@@ -25,8 +25,6 @@ In diesem Tutorial erfahren Sie, wie Sie 8x8 in Azure Active Directory (Azure A
 * Steuern Sie in Azure AD, wer Zugriff auf 8x8 hat.
 * Ermöglichen Sie es Ihren Benutzern, sich mit ihren Azure AD-Konten automatisch bei 8x8 anzumelden.
 * Verwalten Sie Ihre Konten zentral im Azure-Portal.
-
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -44,8 +42,6 @@ In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure
 
 * 8x8 unterstützt **SP- und IDP-initiiertes** einmaliges Anmelden.
 
-* Nach dem Konfigurieren von 8x8 können Sie die Sitzungssteuerung erzwingen, die in Echtzeit vor der Exfiltration und Infiltration vertraulicher Daten Ihrer Organisation schützt. Die Sitzungssteuerung basiert auf bedingtem Zugriff. [Hier](/cloud-app-security/proxy-deployment-any-app) erfahren Sie, wie Sie die Sitzungssteuerung mit Microsoft Cloud App Security erzwingen.
-
 > [!NOTE]
 > Der Bezeichner dieser Anwendung ist ein fester Zeichenfolgenwert, daher kann in einem Mandanten nur eine Instanz konfiguriert werden.
 
@@ -53,7 +49,7 @@ In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure
 
 Zum Konfigurieren der Integration von 8x8 in Azure AD müssen Sie 8x8 aus dem Katalog zur Liste mit den verwalteten SaaS-Apps hinzufügen.
 
-1. Melden Sie sich mit einem Geschäfts-, Schul- oder Unikonto oder mit einem persönlichen Microsoft-Konto beim [Azure-Portal](https://portal.azure.com) an.
+1. Melden Sie sich mit einem Geschäfts-, Schul- oder Unikonto oder mit einem persönlichen Microsoft-Konto beim Azure-Portal an.
 1. Wählen Sie im linken Navigationsbereich den Dienst **Azure Active Directory** aus.
 1. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie dann **Alle Anwendungen** aus.
 1. Wählen Sie zum Hinzufügen einer neuen Anwendung **Neue Anwendung** aus.
@@ -77,7 +73,7 @@ Führen Sie zum Konfigurieren und Testen des einmaligen Anmeldens von Azure AD 
 
 Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal zu aktivieren.
 
-1. Navigieren Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **8x8** zum Abschnitt **Verwalten**, und wählen Sie **Einmaliges Anmelden** aus.
+1. Navigieren Sie im Azure-Portal auf der Anwendungsintegrationsseite für **8x8** zum Abschnitt **Verwalten**, und wählen Sie **Einmaliges Anmelden** aus.
 1. Wählen Sie auf der Seite **SSO-Methode auswählen** die Methode **SAML** aus.
 1. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Bearbeitungs- bzw. Stiftsymbol für **Grundlegende SAML-Konfiguration**, um die Einstellungen zu bearbeiten.
 
@@ -130,10 +126,10 @@ In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anm
 
 Der nächste Teil des Tutorials hängt von der Art Ihres 8x8-Abonnements ab:
 
-* Kunden mit 8x8-Editionen und X Series-Kunden, die Configuration Manager für die Verwaltung nutzen, finden weitere Informationen unter [Konfigurieren von 8x8 Configuration Manager](#configure-8x8-configuration-manager).
+* Kunden mit 8x8-Editionen und X Series-Kunden, die Configuration Manager für die Verwaltung nutzen, finden weitere Informationen unter [Konfigurieren der 8x8-Verwaltungskonsole](#configure-8x8-admin-console).
 * Virtual Office-Kunden, die Account Manager für die Verwaltung verwenden, finden weitere Informationen unter [Konfigurieren von 8x8 Account Manager](#configure-8x8-account-manager).
 
-### <a name="configure-8x8-configuration-manager"></a>Konfigurieren von 8x8 Configuration Manager
+### <a name="configure-8x8-admin-console"></a>Konfigurieren der 8x8-Verwaltungskonsole
 
 1. Wenn Sie die Konfiguration in 8x8 automatisieren möchten, müssen Sie die **Browsererweiterung zur sicheren Anmeldung bei „Meine Apps“** installieren, indem Sie auf **Erweiterung installieren** klicken.
 
@@ -143,7 +139,7 @@ Der nächste Teil des Tutorials hängt von der Art Ihres 8x8-Abonnements ab:
 
     ![Einrichtungskonfiguration](common/setup-sso.png)
 
-1. Wenn Sie 8x8 manuell einrichten möchten, müssen Sie sich beim [Configuration Manager](https://vo-cm.8x8.com/) von 8x8 als Administrator anmelden.
+1. Wenn Sie 8x8 manuell einrichten möchten, müssen Sie sich bei der [Verwaltungskonsole](https://admin.8x8.com/) von 8x8 als Administrator anmelden.
 
 1. Klicken Sie auf der Startseite auf **Identity Management** (Identitätsverwaltung).
 
@@ -153,9 +149,9 @@ Der nächste Teil des Tutorials hängt von der Art Ihres 8x8-Abonnements ab:
 
     ![Screenshot, auf dem die Optionen „Einmaliges Anmelden (S S O)“ und „Microsoft Azure A D“ hervorgehoben sind](./media/8x8virtualoffice-tutorial/configure2.png)
 
-1. Kopieren Sie die drei URLs und das Signaturzertifikat von der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** in Azure AD in den Abschnitt **Microsoft Azure AD SAML Settings** (Microsoft Azure AD-SAML-Einstellungen) in 8x8 Configuration Manager.
+1. Kopieren Sie die drei URLs und das Signaturzertifikat von der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** in Azure AD in den Abschnitt **Microsoft Azure AD SAML Settings** (Microsoft Azure AD-SAML-Einstellungen) in der 8x8-Verwaltungskonsole.
 
-    ![8x8 Configuration Manager](./media/8x8virtualoffice-tutorial/configure3.png)
+    ![8x8-Verwaltungskonsole](./media/8x8virtualoffice-tutorial/configure3.png)
 
     a. Kopieren Sie den Wert der **Anmelde-URL** in **IDP Login URL** (IDP-Anmelde-URL).
 
@@ -211,20 +207,21 @@ In diesem Abschnitt erstellen Sie in 8x8 einen Benutzer namens Britta Simon. Wen
 
 ## <a name="test-sso"></a>Testen des einmaligen Anmeldens
 
-In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich.
+In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden mit den folgenden Optionen: 
 
-Wenn Sie im Zugriffsbereich auf die Kachel „8x8“ klicken, sollten Sie automatisch bei der 8x8-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>SP-initiiert:
 
-## <a name="additional-resources"></a>Zusätzliche Ressourcen
+* Klicken Sie im Azure-Portal auf **Diese Anwendung testen**. Dadurch werden Sie zur Anmelde-URL für 8x8 weitergeleitet, wo Sie den Anmeldeflow initiieren können.  
 
-- [Liste mit den Tutorials zur Integration von SaaS-Apps in Azure Active Directory](./tutorial-list.md)
+* Rufen Sie direkt die 8x8-Anmelde-URL auf, und initiieren Sie den Anmeldeflow.
 
-- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>IDP-initiiert:
 
-- [Was ist der bedingte Zugriff in Azure Active Directory?](../conditional-access/overview.md)
+* Klicken Sie im Azure-Portal auf **Diese Anwendung testen**. Dadurch sollten Sie automatisch bei der 8x8-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. 
 
-- [8x8 mit Azure AD ausprobieren](https://aad.portal.azure.com/)
+Sie können auch den Microsoft-Zugriffsbereich verwenden, um die Anwendung in einem beliebigen Modus zu testen. Wenn Sie im Zugriffsbereich auf die Kachel „8x8“ klicken, geschieht Folgendes: Wenn Sie den SP-Modus konfiguriert haben, werden Sie zum Initiieren des Anmeldeflows zur Anmeldeseite der Anwendung weitergeleitet, und wenn Sie den IDP-Modus konfiguriert haben, sollten Sie automatisch bei der 8x8-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](../user-help/my-apps-portal-end-user-access.md).
 
-- [Was ist Sitzungssteuerung in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Schützen von Apps mit der App-Steuerung für bedingten Zugriff von Microsoft Cloud App Security](/cloud-app-security/proxy-intro-aad)
+## <a name="next-steps"></a>Nächste Schritte
+
+Nach dem Konfigurieren von 8x8 können Sie die Sitzungssteuerung erzwingen, die in Echtzeit vor der Exfiltration und Infiltration vertraulicher Daten Ihrer Organisation schützt. Die Sitzungssteuerung basiert auf bedingtem Zugriff. [Hier](/cloud-app-security/proxy-deployment-any-app) erfahren Sie, wie Sie die Sitzungssteuerung mit Microsoft Cloud App Security erzwingen.

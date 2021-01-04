@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.date: 10/21/2020
 ms.author: duau
 ms.openlocfilehash: b0fd844021e7398e061072d7939b782616580c1c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368688"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185197"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit"></a>Schnellstart: Erstellen und Ändern einer ExpressRoute-Verbindung
 
@@ -43,11 +43,11 @@ Sie können eine ExpressRoute-Verbindung erstellen, indem Sie die Option zum Ers
 
 2. Nachdem Sie **ExpressRoute** ausgewählt haben, wird die Seite **ExpressRoute erstellen** angezeigt. Geben Sie **Ressourcengruppe**, **Region** und **Name** für die Verbindung an. Wählen Sie anschließend **Next: Konfiguration >** .
 
-    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-basic.png" alt-text="Erstellen Sie eine ExpressRoute-Verbindung.":::
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-basic.png" alt-text="Konfigurieren der Ressourcengruppe und der Region":::
 
 3. Wenn Sie die Werte auf der Seite ausfüllen, stellen Sie sicher, dass Sie den richtigen SKU-Tarif (Local, Standard oder Premium) sowie das richtige Abrechnungsmodell für die Datenmessung (Unbegrenzt oder Taktung) angeben.
 
-    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-configuration.png" alt-text="Erstellen Sie eine ExpressRoute-Verbindung.":::
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-configuration.png" alt-text="Konfigurieren der Verbindung":::
     
     * Der **Porttyp** bestimmt, ob Sie eine Verbindung mit einem Dienstanbieter oder direkt mit dem globalen Netzwerk von Microsoft an einem Peeringstandort herstellen.
     * **Neue erstellen oder aus klassischer importieren** bestimmt, ob eine neue Verbindung erstellt wird oder ob eine klassische Verbindung zu Azure Resource Manager migriert wird.
@@ -74,17 +74,17 @@ Sie können eine ExpressRoute-Verbindung erstellen, indem Sie die Option zum Ers
 
 Sie können alle erstellten Verbindungen anzeigen, indem Sie im Menü auf der linken Seite **Alle Dienste > Netzwerk > ExpressRoute-Leitungen** auswählen.
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-menu.png" alt-text="Erstellen Sie eine ExpressRoute-Verbindung.":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-menu.png" alt-text="ExpressRoute-Verbindungsmenü":::
 
 Alle ExpressRoute-Verbindungen, die im Abonnement erstellt werden, werden hier angezeigt.
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-list.png" alt-text="Erstellen Sie eine ExpressRoute-Verbindung.":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-list.png" alt-text="ExpressRoute-Verbindungsliste":::
 
 **Anzeigen der Eigenschaften**
 
 Sie können die Eigenschaften der Verbindung anzeigen, indem Sie die Verbindung auswählen. Auf der Seite **Übersicht** Ihrer Verbindung wird der Dienstschlüssel im Dienstschlüsselfeld angezeigt. Stellen Sie den Dienstschlüssel für Ihre Verbindung dem Dienstanbieter bereit, um den Bereitstellungsprozess abzuschließen. Der Dienstschlüssel ist für Ihre Verbindung spezifisch.
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview.png" alt-text="Erstellen Sie eine ExpressRoute-Verbindung.":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview.png" alt-text="Anzeigen von Eigenschaften":::
 
 ### <a name="send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>Senden Sie den Dienstschlüssel zur Bereitstellung an Ihren Konnektivitätsanbieter.
 
@@ -95,7 +95,7 @@ Wenn Sie eine neue ExpressRoute-Verbindung erstellen, weist die Verbindung folge
 Anbieterstatus: **Nicht bereitgestellt**<BR>
 Schaltkreisstatus: **Aktiviert**
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview-provisioning-state.png" alt-text="Erstellen Sie eine ExpressRoute-Verbindung.":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview-provisioning-state.png" alt-text="Startet den Bereitstellungsprozess":::
 
 Die Verbindung wechselt in den folgenden Zustand, wenn sie vom Konnektivitätsanbieter aktuell für Sie aktiviert wird:
 
@@ -111,7 +111,7 @@ Schaltkreisstatus: **Aktiviert**
 
 Sie können die Eigenschaften der gewünschten Verbindung anzeigen, indem Sie die Verbindung auswählen. Überprüfen Sie den **Anbieterstatus**, und stellen Sie sicher, dass er in **Provisioned** geändert wurde, bevor Sie fortfahren.
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/provisioned.png" alt-text="Erstellen Sie eine ExpressRoute-Verbindung.":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/provisioned.png" alt-text="Verbindungs- und Anbieterstatus":::
 
 ### <a name="create-your-routing-configuration"></a>Erstellen Sie die Routingkonfiguration.
 
@@ -149,7 +149,7 @@ Sie können folgende Aufgaben ausführen, ohne Ausfallzeiten zu verursachen:
   > [!IMPORTANT]
   > Ein Ändern des Abrechnungsplans von **Datenflatrate** in **Datentaktung** (Volumentarif) wird nicht unterstützt.
 
-* Sie können die Option *Klassische Vorgänge zulassen*aktivieren und deaktivieren.
+* Sie können die Option *Klassische Vorgänge zulassen* aktivieren und deaktivieren.
   > [!IMPORTANT]
   > Unter Umständen müssen Sie die ExpressRoute-Verbindung neu erstellen, wenn nicht ausreichend Kapazität am vorhandenen Port verfügbar ist. Die Verbindung kann nicht aktualisiert werden, wenn an dieser Stelle keine zusätzliche Kapazität verfügbar ist.
   >
@@ -159,7 +159,7 @@ Sie können folgende Aufgaben ausführen, ohne Ausfallzeiten zu verursachen:
 
 Wählen Sie **Konfiguration** aus, um eine ExpressRoute-Verbindung zu bearbeiten.
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-configuration.png" alt-text="Erstellen Sie eine ExpressRoute-Verbindung.":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-configuration.png" alt-text="Ändern der Verbindung":::
 
 ## <a name="deprovisioning-an-expressroute-circuit"></a><a name="delete"></a>Aufheben der Bereitstellung einer ExpressRoute-Verbindung
 
@@ -174,7 +174,7 @@ Wenn der Bereitstellungsstatus des ExpressRoute-Verbindungsdienstanbieters **Ber
 
 Sie können Ihre ExpressRoute-Verbindung löschen. Wählen Sie hierzu das Symbol **Löschen**. Sorgen Sie dafür, dass der Bereitstellungsstatus *Nicht bereitgestellt* lautet, bevor Sie fortfahren.
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-delete.png" alt-text="Erstellen Sie eine ExpressRoute-Verbindung.":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-delete.png" alt-text="Löschen der Verbindung":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -11,29 +11,29 @@ ms.topic: troubleshooting
 ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
-ms.custom: contperfq2
-ms.openlocfilehash: ec39a6d106973808e26b7c06dce8b3054af490ff
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: e6d3674aaa4c89f42c2e7b87a6be6cdc8ecabf64
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427382"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028273"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Probleme beim Anmelden bei für SAML-basiertes einmaliges Anmelden konfigurierten Apps
 Zur Behandlung der unten aufgeführten Anmeldeprobleme werden folgende Vorgehensweisen empfohlen, um bessere Diagnosen zu erzielen und Lösungsschritte zu automatisieren:
 
-- Installieren Sie die [Browsererweiterung zur sicheren Anmeldung für„Meine Apps“](access-panel-extension-problem-installing.md), um Azure Active Directory (Azure AD) dabei zu unterstützen, bessere Diagnosen und Lösungen bereitzustellen, wenn Sie die Testumgebung im Azure-Portal nutzen.
-- Reproduzieren Sie den Fehler mithilfe der Testfunktionen auf der App-Konfigurationsseite im Azure-Portal. Weitere Informationen finden Sie unter [Debuggen von SAML-basierten Anwendungen für einmaliges Anmelden](../azuread-dev/howto-v1-debug-saml-sso-issues.md).
+- Installieren Sie die [Browsererweiterung zur sicheren Anmeldung für„Meine Apps“](./access-panel-deployment-plan.md), um Azure Active Directory (Azure AD) dabei zu unterstützen, bessere Diagnosen und Lösungen bereitzustellen, wenn Sie die Testumgebung im Azure-Portal nutzen.
+- Reproduzieren Sie den Fehler mithilfe der Testfunktionen auf der App-Konfigurationsseite im Azure-Portal. Weitere Informationen finden Sie unter [Debuggen von SAML-basierten Anwendungen für einmaliges Anmelden](./debug-saml-sso-issues.md).
 
-Wenn Sie die [Testumgebung](../azuread-dev/howto-v1-debug-saml-sso-issues.md) im Azure-Portal mit der sicheren Browsererweiterung für „Meine Apps“ verwenden, müssen Sie die folgenden Schritte nicht manuell ausführen, um die Seite zur Konfiguration des SAML-basierten einmaligen Anmeldens zu öffnen.
+Wenn Sie die [Testumgebung](./debug-saml-sso-issues.md) im Azure-Portal mit der sicheren Browsererweiterung für „Meine Apps“ verwenden, müssen Sie die folgenden Schritte nicht manuell ausführen, um die Seite zur Konfiguration des SAML-basierten einmaligen Anmeldens zu öffnen.
 
 So öffnen Sie die Seite für die Konfiguration des SAML-basierten einmaligen Anmeldens:
 1.  Öffnen Sie das [**Azure-Portal**](https://portal.azure.com/), und melden Sie sich als **Globaler Administrator** oder **Co-Admin** an.
-1.  Öffnen Sie die **Azure Active Directory-Erweiterung** , indem Sie oben im Hauptnavigationsmenü auf der linken Seite auf **Alle Dienste** klicken.
-1.  Geben Sie im Filtersuchfeld **Azure Active Directory** ein, und klicken Sie auf das Element **Azure Active Directory** .
-1.  Klicken Sie im linken Azure Active Directory-Navigationsmenü auf **Unternehmensanwendungen** .
-1.  Wählen Sie **Alle Anwendungen** , um eine Liste mit Ihren Anwendungen anzuzeigen.
-    Wenn die gewünschte Anwendung nicht angezeigt wird, verwenden Sie das Steuerelement **Filter** oberhalb der Liste **Alle Anwendungen** , und legen Sie die Option **Anzeigen** auf **Alle Anwendungen** fest.
+1.  Öffnen Sie die **Azure Active Directory-Erweiterung**, indem Sie oben im Hauptnavigationsmenü auf der linken Seite auf **Alle Dienste** klicken.
+1.  Geben Sie im Filtersuchfeld **Azure Active Directory** ein, und klicken Sie auf das Element **Azure Active Directory**.
+1.  Klicken Sie im linken Azure Active Directory-Navigationsmenü auf **Unternehmensanwendungen**.
+1.  Wählen Sie **Alle Anwendungen**, um eine Liste mit Ihren Anwendungen anzuzeigen.
+    Wenn die gewünschte Anwendung nicht angezeigt wird, verwenden Sie das Steuerelement **Filter** oberhalb der Liste **Alle Anwendungen**, und legen Sie die Option **Anzeigen** auf **Alle Anwendungen** fest.
 1.  Wählen Sie die Anwendung aus, die Sie für das einmalige Anmelden konfigurieren möchten.
 1. Nachdem die Anwendung geladen wurde, wählen Sie im linken Navigationsmenü der Anwendung die Option **Einmaliges Anmelden** aus.
 1. Wählen Sie die Option für SAML-basiertes einmaliges Anmelden aus.
@@ -49,7 +49,7 @@ Das `Issuer`-Attribut, das in der SAML-Anforderung von der Anwendung an Azure AD
 
 Stellen Sie sicher, dass das `Issuer`-Attribut in der SAML-Anforderung mit dem in Azure AD konfigurierten Bezeichnerwert übereinstimmt.
 
-Überprüfen Sie auf der Konfigurationsseite für das SAML-basierte einmalige Anmelden im Abschnitt **Grundlegende SAML-Konfiguration** , ob der Wert im Textfeld „Bezeichner“ mit dem im Fehler angezeigten Bezeichnerwert übereinstimmt.
+Überprüfen Sie auf der Konfigurationsseite für das SAML-basierte einmalige Anmelden im Abschnitt **Grundlegende SAML-Konfiguration**, ob der Wert im Textfeld „Bezeichner“ mit dem im Fehler angezeigten Bezeichnerwert übereinstimmt.
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>Die Antwortadresse stimmt nicht mit den für die Anwendung konfigurierten Antwortadressen überein
 `Error AADSTS50011: The reply address 'https:\//contoso.com' does not match the reply addresses configured for the application.`
@@ -88,7 +88,7 @@ Azure AD unterstützt die von der Anwendung für einmaliges Anmelden gesendete S
 
 **Lösung**
 
-1. Erfassen Sie die SAML-Anforderung. Im Tutorial [Debug SAML-based single sign-on to applications in Azure Active Directory (Debuggen des SAML-basierten einmaligen Anmeldens bei Anwendungen in Azure AD)](../azuread-dev/howto-v1-debug-saml-sso-issues.md) erhalten Sie Informationen zum Erfassen der SAML-Anforderung.
+1. Erfassen Sie die SAML-Anforderung. Im Tutorial [Debug SAML-based single sign-on to applications in Azure Active Directory (Debuggen des SAML-basierten einmaligen Anmeldens bei Anwendungen in Azure AD)](./debug-saml-sso-issues.md) erhalten Sie Informationen zum Erfassen der SAML-Anforderung.
 1. Wenden Sie sich an den Anwendungshersteller, und teilen Sie diesem folgende Informationen mit:
     - SAML-Anforderung
     - [Anforderungen des SAML-Protokolls für einmaliges Anmelden bei Azure AD](../develop/single-sign-on-saml-protocol.md)
@@ -119,9 +119,9 @@ Das Anwendungsobjekt ist beschädigt, und Azure AD erkennt das für die Anwendun
 
 Um das Zertifikat zu löschen und ein neues zu erstellen, führen Sie die folgenden Schritte aus:
 1. Wählen Sie im Konfigurationsbildschirm für das SAML-basierte einmalige Anmelden im Abschnitt **SAML-Signaturzertifikat** die Option **Neues Zertifikat erstellen** aus.
-1. Wählen Sie das Ablaufdatum aus, und klicken Sie anschließend auf **Speichern** .
-1. Aktivieren Sie **Neues Zertifikat aktivieren** , um das aktive Zertifikat außer Kraft zu setzen. Klicken Sie oben im Bereich auf **Speichern** , und akzeptieren Sie die Aktivierung des Rolloverzertifikats.
-1. Klicken Sie im Abschnitt **SAML-Signaturzertifikat** auf **Entfernen** , um das **nicht verwendete** Zertifikat zu entfernen.
+1. Wählen Sie das Ablaufdatum aus, und klicken Sie anschließend auf **Speichern**.
+1. Aktivieren Sie **Neues Zertifikat aktivieren**, um das aktive Zertifikat außer Kraft zu setzen. Klicken Sie oben im Bereich auf **Speichern**, und akzeptieren Sie die Aktivierung des Rolloverzertifikats.
+1. Klicken Sie im Abschnitt **SAML-Signaturzertifikat** auf **Entfernen**, um das **nicht verwendete** Zertifikat zu entfernen.
 
 ## <a name="saml-request-not-present-in-the-request"></a>SAML-Anforderung nicht in der Anforderung vorhanden
 `Error AADSTS750054: SAMLRequest or SAMLResponse must be present as query string parameters in HTTP request for SAML Redirect binding.`
@@ -147,15 +147,32 @@ Löschen Sie nicht verwendete Antwort-URLs, die für die Anwendung konfiguriert 
 
 Löschen Sie auf der Konfigurationsseite für das SAML-basierte einmalige Anmelden im Feld **Antwort-URL (Assertionsverbraucherdienst-URL)** nicht verwendete oder standardmäßige Antwort-URLs, die vom System erstellt wurden. Beispiel: `https://127.0.0.1:444/applications/default.aspx`.
 
+
+## <a name="authentication-method-by-which-the-user-authenticated-with-the-service-doesnt-match-requested-authentication-method"></a>Die Authentifizierungsmethode, mit der sich der Benutzer beim Dienst authentifiziert hat, stimmt nicht mit der angeforderten Authentifizierungsmethode überein.
+`Error: AADSTS75011 Authentication method by which the user authenticated with the service doesn't match requested authentication method 'AuthnContextClassRef'. `
+
+**Mögliche Ursache**
+
+Der `RequestedAuthnContext` ist in der SAML-Anforderung enthalten. Das bedeutet, dass in der Anwendung der von `AuthnContextClassRef` angegebene `AuthnContext` erwartet wird. Der Benutzer hat sich jedoch bereits vor dem Zugriff auf die Anwendung authentifiziert, und der `AuthnContext` (Authentifizierungsmethode), der für die vorherige Authentifizierung verwendet wurde, unterscheidet sich von der angeforderten Authentifizierungsmethode. Beispielsweise ist der Zugriff eines Verbundbenutzers auf „myapps“ und „WIA“ erfolgt. `AuthnContextClassRef` ist `urn:federation:authentication:windows`. In AAD wird keine neue Authentifizierungsanforderung durchgeführt. Stattdessen wird der Authentifizierungskontext verwendet, der über den Identitätsanbieter (in diesem Fall AD FS oder ein anderer Verbunddienst) weitergeleitet wurde. Daher besteht keine Übereinstimmung, wenn die Anwendung nicht `urn:federation:authentication:windows` anfordert. Ein anderes Szenario ist die Verwendung von MultiFactor: `'X509, MultiFactor`.
+
+**Auflösung**
+
+
+`RequestedAuthnContext` ist ein optionaler Wert. Überprüfen Sie in der Anwendung, ob dieser Wert entfernt werden kann.
+
+Eine andere Möglichkeit besteht darin, dafür zu sorgen, dass `RequestedAuthnContext` berücksichtigt wird. Dies erfolgt durch Anfordern einer neuen Authentifizierung. Bei der Verarbeitung der SAML-Anforderung wird dadurch eine neue Authentifizierung durchgeführt, bei der `AuthnContext` berücksichtigt wird. Damit eine neue Authentifizierung angefordert wird, muss die SAML-Anforderung den Wert `forceAuthn="true"` enthalten. 
+
+
+
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problem beim Anpassen der SAML-Ansprüche, die an eine Anwendung gesendet werden
 Informationen zum Anpassen der SAML-Attributsansprüche, die an Ihre Anwendung gesendet werden, finden Sie unter [Anspruchszuordnung in Azure Active Directory](../develop/active-directory-claims-mapping.md).
 
 ## <a name="errors-related-to-misconfigured-apps"></a>Fehler im Zusammenhang mit falsch konfigurierten Apps
 Stellen Sie sicher, dass die Konfigurationen im Portal mit der App übereinstimmen. Vergleichen Sie insbesondere Client-/Anwendungs-ID, Antwort-URLs, Clientgeheimnisse/-schlüssel und App-ID-URI.
 
-Vergleichen Sie die Ressource, auf die Sie zugreifen möchten, im Code mit den konfigurierten Berechtigungen auf der Registerkarte **Erforderliche Ressourcen** , um sicherzustellen, dass Sie nur Ressourcen anfordern, die Sie konfiguriert haben.
+Vergleichen Sie die Ressource, auf die Sie zugreifen möchten, im Code mit den konfigurierten Berechtigungen auf der Registerkarte **Erforderliche Ressourcen**, um sicherzustellen, dass Sie nur Ressourcen anfordern, die Sie konfiguriert haben.
 
 ## <a name="next-steps"></a>Nächste Schritte
 - [Schnellstartserie zur Anwendungsverwaltung](add-application-portal-assign-users.md)
-- [Debuggen des SAML-basierten einmaligen Anmeldens bei Anwendungen in Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
-- [Anforderungen des SAML-Protokolls für einmaliges Anmelden bei Azure AD](../develop/active-directory-single-sign-on-protocol-reference.md)
+- [Debuggen des SAML-basierten einmaligen Anmeldens bei Anwendungen in Azure AD](./debug-saml-sso-issues.md)
+- [Anforderungen des SAML-Protokolls für einmaliges Anmelden bei Azure AD](../develop/single-sign-on-saml-protocol.md)

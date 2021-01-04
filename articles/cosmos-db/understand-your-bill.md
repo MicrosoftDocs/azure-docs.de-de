@@ -5,25 +5,26 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 11/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d1b03417b81299ca959670287e252402e994f15a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3ac90b79053e59047dbe64598688e77b9df059d1
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476398"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358710"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Grundlegendes zu Ihrer Azure Cosmos DB-Rechnung
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Als vollständig verwalteter cloudnativer Datenbankdienst vereinfacht Azure Cosmos DB die Abrechnung, da nur die Datenbankvorgänge und die Speichernutzung berechnet werden. Im Vergleich zu lokalen oder über IaaS gehostete Alternativen gibt es keine zusätzlichen Lizenzgebühren und keine Kosten für Hardware, Hilfsprogramme oder Gebäude. Wenn Sie dazu noch die Funktionalität zum Einbeziehen mehrerer Regionen berücksichtigen, sorgt der Datenbankdienst gegenüber vorhandenen lokalen oder über IaaS gehosteten Lösungen für eine deutliche Reduzierung der Kosten.
 
-- **Datenbankvorgänge** : Die Art und Weise, wie Ihre Datenbankvorgänge abgerechnet werden, hängt vom Typ des Azure Cosmos-Kontos ab, das Sie verwenden.
+- **Datenbankvorgänge**: Die Art und Weise, wie Ihre Datenbankvorgänge abgerechnet werden, hängt vom Typ des Azure Cosmos-Kontos ab, das Sie verwenden.
 
-  - **Bereitgestellter Durchsatz** : Die Abrechnung erfolgt auf Stundenbasis für den für die jeweilige Stunde bereitgestellten maximalen Durchsatz in Inkrementen von 100 RU/s.
-  - **Serverlos** : Ihnen wird die Gesamtmenge der durch Ihre Datenbankvorgänge pro Stunde verbrauchten Anforderungseinheiten in Rechnung gestellt.
+  - **Bereitgestellter Durchsatz**: Die Abrechnung erfolgt auf Stundenbasis für den für die jeweilige Stunde bereitgestellten maximalen Durchsatz in Inkrementen von 100 RU/s.
+  - **Serverlos**: Ihnen wird die Gesamtmenge der durch Ihre Datenbankvorgänge pro Stunde verbrauchten Anforderungseinheiten in Rechnung gestellt.
 
-- **Storage** : Für die Gesamtmenge des Speichers (in GB), der für Daten und Indizes für eine angegebene Stunde genutzt wird, wird eine Pauschale berechnet.
+- **Storage**: Für die Gesamtmenge des Speichers (in GB), der für Daten und Indizes für eine angegebene Stunde genutzt wird, wird eine Pauschale berechnet.
 
 Aktuelle Preisinformationen finden Sie auf der [Preisseite](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
@@ -102,11 +103,11 @@ Wenn Sie um 9.30 Uhr den bereitgestellten Durchsatz für einen oder mehrere Cont
 
 * Wenn in einem Monat mit 720 Stunden Ihr bereitgestellter Durchsatz 300 Stunden lang 120.000 RUs/Sek. und während der restlichen 420 Stunden 155.000 RUs/Sek. betrug, weist Ihre Monatsrechnung Folgendes aus: (300 x 9,60 US-Dollar/Stunde) + (420 x 12,40 US-Dollar/Stunde) = 2.880 + 5.208 = 8.088 US-Dollar pro Monat. 
 
-:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Abrechnungsbeispiel für dedizierten Durchsatz":::
+:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Abrechnungsbeispiel für gemeinsam genutzten Durchsatz":::
 
-## <a name="billing-examples-with-geo-replication-and-multi-region-writes"></a>Abrechnungsbeispiele mit Georeplikation und Schreibvorgängen für mehrere Regionen  
+## <a name="billing-examples-with-geo-replication"></a>Abrechnungsbeispiele mit Georeplikation  
 
-Sie können jederzeit Azure-Regionen auf der ganzen Welt zu Ihrem Azure Cosmos-Datenbankkonto hinzufügen oder aus diesem entfernen. Der Durchsatz, den Sie für die verschiedenen Azure Cosmos-Datenbanken und -Container konfiguriert haben, wird in jeder Azure-Region reserviert, die mit Ihrem Azure Cosmos-Datenbankkonto verknüpft ist. Wenn der bereitgestellte Gesamtdurchsatz (RUs/Sek.), der für alle Datenbanken und Container in Ihrem Azure Cosmos-Datenbankkonto (pro Stunde) konfiguriert ist, die Summe „X“ ergibt und die Anzahl der mit Ihrem Datenbankkonto verknüpften Azure-Regionen „Y“ lautet, berechnet sich der bereitgestellte Durchsatz für Ihr Azure Cosmos-Datenbankkonto pro Stunde wie folgt: (a) bei Schreibanforderungen für eine Region = X mal Y RUs/Sek. bzw. (b) bei Schreibanforderungen für alle Regionen = X mal (Y+1) RUs/Sek. Der bereitgestellte Durchsatz (Schreibanforderung für eine Region) kostet 0,008 US-Dollar/Stunde pro 100 RUs/Sek., und der bereitgestellte Durchsatz bei Schreibanforderungen für mehrere Regionen (Konfiguration für Schreibvorgänge für mehrere Regionen) kostet 0,016 US-Dollar/Stunde pro 100 RUs/Sek. (siehe [Preise](https://azure.microsoft.com/pricing/details/cosmos-db/)). Azure Cosmos DB erlaubt in jedem Fall das Lesen von Daten in den Regionen, und zwar unabhängig davon, ob die Schreibanforderung für eine oder mehrere Regionen ausgewählt wurde.
+Sie können jederzeit Azure-Regionen auf der ganzen Welt zu Ihrem Azure Cosmos-Datenbankkonto hinzufügen oder aus diesem entfernen. Der Durchsatz, den Sie für die verschiedenen Azure Cosmos-Datenbanken und -Container konfiguriert haben, wird in jeder Azure-Region reserviert, die mit Ihrem Azure Cosmos-Datenbankkonto verknüpft ist. Wenn der bereitgestellte Gesamtdurchsatz (RUs/Sek.), der für alle Datenbanken und Container in Ihrem Azure Cosmos-Datenbankkonto (pro Stunde) konfiguriert ist, die Summe „T“ ergibt und die Anzahl der mit Ihrem Datenbankkonto verknüpften Azure-Regionen „N“ ist, ist der bereitgestellte Durchsatz für Ihr Azure Cosmos-Datenbankkonto pro Stunde T x N RUs/Sek. Der bereitgestellte Durchsatz (Schreibanforderung für eine Region) kostet 0,008 US-Dollar/Stunde pro 100 RUs/Sek., und der bereitgestellte Durchsatz bei Schreibanforderungen für mehrere Regionen (Konfiguration für Schreibvorgänge in mehreren Regionen) kostet 0,016 US-Dollar/Stunde pro 100 RUs/Sek. (siehe [Preise](https://azure.microsoft.com/pricing/details/cosmos-db/)). Azure Cosmos DB erlaubt in jedem Fall das Lesen von Daten in den Regionen, und zwar unabhängig davon, ob die Schreibanforderung für eine oder mehrere Regionen ausgewählt wurde.
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>Abrechnungsbeispiel: Azure Cosmos DB-Konto mit mehreren Regionen und Schreibanforderung für eine Region
 
@@ -192,7 +193,7 @@ Betrachten Sie das folgende Beispiel für ein Azure Cosmos-Konto mit mehreren Re
 
 Visuell werden die Änderungen im insgesamt bereitgestellten Durchsatz während der 720 Stunden im Monat in der folgenden Abbildung dargestellt: 
 
-:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Abrechnungsbeispiel für dedizierten Durchsatz":::
+:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Praxisbeispiel":::
 
 Die monatliche Gesamtrechnung wird (30 Tage und 720 Stunden im Monat vorausgesetzt) wie folgt berechnet:
 

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 11/26/2020
 ms.author: jingwang
-ms.openlocfilehash: 182e04625f829304168bfdefe000bb8797646c75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a48ac86e8f9814adef9be2360b2446335d368447
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87926891"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296555"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Kopieren von Daten aus Teradata Vantage mithilfe von Azure Data Factory
 
@@ -41,7 +41,7 @@ Sie können Daten aus Teradata Vantage in beliebige unterstützte Senkendatenspe
 Der Teradata-Connector unterstützt insbesondere Folgendes:
 
 - Teradata, **Version 14.10, 15.0, 15.10, 16.0, 16.10 und 16.20**.
-- Kopieren von Dateien unter Verwendung der **Standard**- oder **Windows**-Authentifizierung
+- Kopieren von Daten unter Verwendung der **Standard**-, **Windows**- oder **LDAP**-Authentifizierung.
 - Paralleles Kopieren aus einer Teradata-Quelle. Weitere Informationen finden Sie im Abschnitt [Paralleles Kopieren aus Teradata](#parallel-copy-from-teradata).
 
 ## <a name="prerequisites"></a>Voraussetzungen
@@ -72,9 +72,10 @@ Weitere Verbindungseigenschaften, die Sie abhängig von Ihrem Anwendungsfall in 
 
 | Eigenschaft | BESCHREIBUNG | Standardwert |
 |:--- |:--- |:--- |
-| UseDataEncryption | Mit dieser Eigenschaft wird angegeben, ob die gesamte Kommunikation mit der Teradata-Datenbank verschlüsselt werden soll. Zulässige Werte sind „0“ und „1“.<br><br/>- **0 (deaktiviert, Standardwert):** Nur Authentifizierungsinformationen werden verschlüsselt.<br/>- **1 (aktiviert):** Alle zwischen dem Treiber und der Datenbank übermittelten Daten werden verschlüsselt. | Nein |
-| CharacterSet | Der Zeichensatz, der für die Sitzung verwendet werden soll. Beispiel: `CharacterSet=UTF16`.<br><br/>Bei diesem Wert kann es sich um einen benutzerdefinierten Zeichensatz oder um einen der folgenden vordefinierten Zeichensätze handeln: <br/>- ASCII<br/>- UTF8<br/>- UTF16<br/>- LATIN1252_0A<br/>- LATIN9_0A<br/>- LATIN1_0A<br/>- Shift-JIS (Windows, DOS-kompatibel, KANJISJIS_0S)<br/>- EUC (Unix-kompatibel, KANJIEC_0U)<br/>- IBM Mainframe (KANJIEBCDIC5035_0I)<br/>- KANJI932_1S0<br/>- BIG5 (TCHBIG5_1R0)<br/>- GB (SCHGB2312_1T0)<br/>- SCHINESE936_6R0<br/>- TCHINESE950_8R0<br/>- NetworkKorean (HANGULKSC5601_2R4)<br/>- HANGUL949_7R0<br/>- ARABIC1256_6A0<br/>- CYRILLIC1251_2A0<br/>- HEBREW1255_5A0<br/>- LATIN1250_1A0<br/>- LATIN1254_7A0<br/>- LATIN1258_8A0<br/>- THAI874_4A0 | Der Standardwert ist `ASCII`. |
-| MaxRespSize |Die maximale Größe des Antwortpuffers für SQL-Anforderungen in Kilobytes (KB). Beispiel: `MaxRespSize=‭10485760‬`.<br/><br/>Ab der Teradata Database-Version 16.00 beträgt der Höchstwert „7361536“. Bei Verbindungen mit älteren Versionen beträgt der Höchstwert „1048576“. | Der Standardwert ist `65536`. |
+| UseDataEncryption | Mit dieser Eigenschaft wird angegeben, ob die gesamte Kommunikation mit der Teradata-Datenbank verschlüsselt werden soll. Zulässige Werte sind „0“ und „1“.<br><br/>- **0 (deaktiviert, Standardwert):** Nur Authentifizierungsinformationen werden verschlüsselt.<br/>- **1 (aktiviert):** Alle zwischen dem Treiber und der Datenbank übermittelten Daten werden verschlüsselt. | `0` |
+| CharacterSet | Der Zeichensatz, der für die Sitzung verwendet werden soll. Beispiel: `CharacterSet=UTF16`.<br><br/>Bei diesem Wert kann es sich um einen benutzerdefinierten Zeichensatz oder um einen der folgenden vordefinierten Zeichensätze handeln: <br/>- ASCII<br/>- UTF8<br/>- UTF16<br/>- LATIN1252_0A<br/>- LATIN9_0A<br/>- LATIN1_0A<br/>- Shift-JIS (Windows, DOS-kompatibel, KANJISJIS_0S)<br/>- EUC (Unix-kompatibel, KANJIEC_0U)<br/>- IBM Mainframe (KANJIEBCDIC5035_0I)<br/>- KANJI932_1S0<br/>- BIG5 (TCHBIG5_1R0)<br/>- GB (SCHGB2312_1T0)<br/>- SCHINESE936_6R0<br/>- TCHINESE950_8R0<br/>- NetworkKorean (HANGULKSC5601_2R4)<br/>- HANGUL949_7R0<br/>- ARABIC1256_6A0<br/>- CYRILLIC1251_2A0<br/>- HEBREW1255_5A0<br/>- LATIN1250_1A0<br/>- LATIN1254_7A0<br/>- LATIN1258_8A0<br/>- THAI874_4A0 | `ASCII` |
+| MaxRespSize |Die maximale Größe des Antwortpuffers für SQL-Anforderungen in Kilobytes (KB). Beispiel: `MaxRespSize=‭10485760‬`.<br/><br/>Ab der Teradata Database-Version 16.00 beträgt der Höchstwert „7361536“. Bei Verbindungen mit älteren Versionen beträgt der Höchstwert „1048576“. | `65536` |
+| MechanismName | Um das LDAP-Protokoll zum Authentifizieren der Verbindung zu verwenden, geben Sie `MechanismName=LDAP` an. | – |
 
 **Beispiel mit Standardauthentifizierung**
 
@@ -105,6 +106,24 @@ Weitere Verbindungseigenschaften, die Sie abhängig von Ihrem Anwendungsfall in 
             "connectionString": "DBCName=<server>",
             "username": "<username>",
             "password": "<password>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Beispiel mit LDAP-Authentifizierung**
+
+```json
+{
+    "name": "TeradataLinkedService",
+    "properties": {
+        "type": "Teradata",
+        "typeProperties": {
+            "connectionString": "DBCName=<server>;MechanismName=LDAP;Uid=<username>;Pwd=<password>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

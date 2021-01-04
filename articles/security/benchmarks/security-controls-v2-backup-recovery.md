@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b2e54545fb79120a3f9d66067da267df3b151b3f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1ed477c6cf069dbb402e5bda9c1f48f7bc208f18
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322120"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698800"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>Sicherheitskontrolle V2: Sicherung und Wiederherstellung
 
@@ -32,9 +32,9 @@ Für ein höheres Maß an Schutz können Sie die Option für georedundante Speic
 
 - [Business Continuity &amp; Disaster Recovery auf Unternehmensebene](/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery)
 
-- [Aktivieren von Azure Backup](/azure/backup/)
+- [Aktivieren von Azure Backup](../../backup/index.yml)
 
-- [Wie kann ich die regionsübergreifende Wiederherstellung aktivieren?](/azure/backup/backup-azure-arm-restore-vms#cross-region-restore)
+- [Wie kann ich die regionsübergreifende Wiederherstellung aktivieren?](../../backup/backup-azure-arm-restore-vms.md#cross-region-restore)
 
 **Verantwortlichkeit**: Kunde
 
@@ -58,15 +58,15 @@ Stellen Sie sicher, dass Ihre Sicherungen vor Angriffen geschützt sind. Dazu ge
 
 Für lokale Sicherungen mit Azure Backup erfolgt eine Verschlüsselung im Ruhezustand über die bereitgestellte Passphrase. Für regelmäßige Azure-Dienstsicherungen werden die Sicherungsdaten automatisch mit von der Azure-Plattform verwalteten Schlüsseln verschlüsselt. Sie können sich dafür entscheiden, die Sicherungen mit einem vom Kunden verwalteten Schlüssel zu verschlüsseln. Stellen Sie in diesem Fall sicher, dass der vom Kunden verwaltete Schlüssel im Schlüsseltresor ebenfalls Teil der Sicherung ist. 
 
-Verwenden Sie rollenbasierte Zugriffssteuerung in Azure Backup, Azure Key Vault oder anderen Ressourcen, um Sicherungen und vom Kunden verwaltete Schlüssel zu schützen. Zusätzlich können Sie erweiterte Sicherheitsfeatures aktivieren, die MFA erfordern, bevor Sicherungen geändert oder gelöscht werden können.
+Verwenden Sie rollenbasierte Zugriffssteuerung von Azure in Azure Backup, Azure Key Vault oder anderen Ressourcen, um Sicherungen und kundenseitig verwaltete Schlüssel zu schützen. Zusätzlich können Sie erweiterte Sicherheitsfeatures aktivieren, die MFA erfordern, bevor Sicherungen geändert oder gelöscht werden können.
 
-- [Übersicht über Sicherheitsfeatures in Azure Backup](/azure/backup/security-overview)
+- [Übersicht über Sicherheitsfeatures in Azure Backup](../../backup/security-overview.md)
 
-- [Verschlüsselung von Sicherungsdaten mit von Kunden verwalteten Schlüsseln](/azure/backup/encryption-at-rest-with-cmk) 
+- [Verschlüsselung von Sicherungsdaten mit von Kunden verwalteten Schlüsseln](../../backup/encryption-at-rest-with-cmk.md) 
 
-- [Sichern von Schlüsseltresorschlüsseln in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Sichern von Schlüsseltresorschlüsseln in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
-- [Sicherheitsfeatures für den Schutz von Hybridsicherungen vor Angriffen](/azure/backup/backup-azure-security-feature#prevent-attacks)
+- [Sicherheitsfeatures für den Schutz von Hybridsicherungen vor Angriffen](../../backup/backup-azure-security-feature.md#prevent-attacks)
 
 **Verantwortlichkeit**: Kunde
 
@@ -86,9 +86,9 @@ Verwenden Sie rollenbasierte Zugriffssteuerung in Azure Backup, Azure Key Vault 
 
 Führen Sie regelmäßige Datenwiederherstellungen Ihrer Sicherung aus. Stellen Sie sicher, dass gesicherte kundenseitig verwaltete Schlüssel wiederhergestellt werden können.
 
-- [Wiederherstellen von Dateien aus einer Sicherung von virtuellen Azure-Computern](/azure/backup/backup-azure-restore-files-from-vm)
+- [Wiederherstellen von Dateien aus einer Sicherung von virtuellen Azure-Computern](../../backup/backup-azure-restore-files-from-vm.md)
 
-- [Wiederherstellen von Key Vault-Schlüsseln in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Wiederherstellen von Key Vault-Schlüsseln in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Verantwortlichkeit**: Kunde
 
@@ -106,7 +106,7 @@ Führen Sie regelmäßige Datenwiederherstellungen Ihrer Sicherung aus. Stellen 
 
 Stellen Sie sicher, dass Sie über Maßnahmen verfügen, um den Verlust von Schlüsseln zu verhindern bzw. sich von den daraus resultierenden Folgen zu erholen. Aktivieren Sie vorläufiges Löschen und den Löschschutz in Azure Key Vault, um Schlüssel vor versehentlichem oder böswilligem Löschen zu schützen.  
 
-- [Aktivieren des vorläufigen Löschens und des Löschschutzes in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Aktivieren des vorläufigen Löschens und des Löschschutzes in Key Vault](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Verantwortlichkeit**: Kunde
 
@@ -117,4 +117,3 @@ Stellen Sie sicher, dass Sie über Maßnahmen verfügen, um den Verlust von Schl
 - [Vorbereitung auf Vorfälle](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
 - [Datensicherheit](/azure/cloud-adoption-framework/organize/cloud-security-data-security)
-

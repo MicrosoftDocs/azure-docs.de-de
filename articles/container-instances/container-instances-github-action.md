@@ -3,13 +3,13 @@ title: Bereitstellen einer Containerinstanz mithilfe einer GitHub Actions-Aktion
 description: Konfigurieren Sie eine GitHub Actions-Aktion, die die Schritte für das Erstellen, Pushen und Bereitstellen eines Containerimages in Azure Container Instances automatisiert.
 ms.topic: article
 ms.date: 08/20/2020
-ms.custom: github-actions-azure
-ms.openlocfilehash: c01075bcb64aa9b91869daba2e995957da74daf4
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: github-actions-azure, devx-track-azurecli
+ms.openlocfilehash: 0068b9869e5ef7a3b6c0fd21c1b69cdae1d4ab4b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019187"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454825"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Konfigurieren einer GitHub Actions-Aktion zum Erstellen einer Containerinstanz
 
@@ -56,7 +56,7 @@ Im GitHub-Workflow müssen Sie die Azure-Anmeldeinformationen bereitstellen, um 
 Rufen Sie zunächst die Ressourcen-ID Ihrer Ressourcengruppe ab: Ersetzen Sie den Namen Ihrer Gruppe im folgenden [az group show][az-group-show]-Befehl:
 
 ```azurecli
-groupId=$(az group show \
+$groupId=$(az group show \
   --name <resource-group-name> \
   --query id --output tsv)
 ```

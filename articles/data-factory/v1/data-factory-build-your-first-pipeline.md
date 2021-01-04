@@ -3,20 +3,20 @@ title: 'Data Factory-Tutorial: Erste Datenpipeline '
 description: In diesem Azure Data Factory-Tutorial erfahren Sie, wie Sie eine Data Factory erstellen und planen, die Daten unter Verwendung eines Hive-Skripts in einem Hadoop-Cluster verarbeitet.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 80644ed2d655544fa176a7be92aec3c01aa3bf14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a79872c11d76a74932fe232fa3f7818edc58ffcc
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75966076"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496210"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutorial: Erstellen Ihrer ersten Pipeline zum Transformieren von Daten mithilfe eines Hadoop-Clusters
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ In diesem Tutorial führen Sie die folgenden Schritte aus:
 3. Erstellen von **verknüpften Diensten**. Sie erstellen einen verknüpften Dienst, um einen Datenspeicher oder einen Computedienst mit der Data Factory zu verknüpfen. Ein Datenspeicher wie Azure Storage hält Ein-/Ausgabedaten von Aktivitäten in der Pipeline. Ein Computedienst (etwa ein HDInsight-Hadoop-Cluster) verarbeitet/transformiert Daten.
 
     In diesem Tutorial erstellen Sie zwei verknüpfte Dienste: **Azure Storage** und **Azure HDInsight**. Der mit Azure Storage verknüpfte Dienst verknüpft ein Azure Storage-Konto, das die Eingabe-/Ausgabedaten enthält, mit der Data Factory. Der mit Azure HDInsight verknüpfte Dienst verknüpft einen Azure HDInsight-Cluster, der zum Transformieren von Daten verwendet wird, mit der Data Factory.
-3. Erstellen von **Datasets**für Eingabe und Ausgabe Ein Eingabedataset stellt die Eingabe für eine Aktivität in der Pipeline dar, und ein Ausgabedataset stellt die Ausgabe für die Aktivität dar.
+3. Erstellen von **Datasets** für Eingabe und Ausgabe Ein Eingabedataset stellt die Eingabe für eine Aktivität in der Pipeline dar, und ein Ausgabedataset stellt die Ausgabe für die Aktivität dar.
 
     In diesem Tutorial legen die Eingabe- und Ausgabedatasets Speicherorte der Eingabe- und Ausgabedaten in Azure Blob Storage fest. Der mit Azure Storage verknüpfte Dienst gibt an, welches Azure Storage-Konto verwendet werden soll. Ein Eingabedataset gibt an, wo sich die Eingabedateien befinden, ein Ausgabedataset gibt an, wo die Ausgabedateien platziert werden.
 

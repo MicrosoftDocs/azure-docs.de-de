@@ -4,12 +4,12 @@ description: Erstellen einer über HTTP ausgelösten, serverlosen PowerShell-Fun
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ec4b2273f6be6ea4aabed2b660e0b7553f861d0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b94d583ca26b88d093810528d3193f20d765f1d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89072042"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349247"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Tutorial: Verwenden einer über HTTP ausgelösten Azure-Funktion zum Erstellen einer Containergruppe
 
@@ -27,13 +27,13 @@ Folgendes wird vermittelt:
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Die Voraussetzungen für die Installation und Verwendung von Visual Studio Code mit der Azure Functions-Erweiterung unter Ihrem Betriebssystem finden Sie unter [Konfigurieren Ihrer Umgebung](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell#configure-your-environment).
+Die Voraussetzungen für die Installation und Verwendung von Visual Studio Code mit der Azure Functions-Erweiterung unter Ihrem Betriebssystem finden Sie unter [Konfigurieren Ihrer Umgebung](../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-powershell#configure-your-environment).
 
 Für zusätzliche Schritte in diesem Artikel wird Azure PowerShell verwendet. Wenn Sie eine Installation oder ein Upgrade ausführen müssen, lesen Sie die Informationen unter [Installieren von Azure PowerShell][azure-powershell-install] und [Anmelden bei Azure](/powershell/azure/get-started-azureps#sign-in-to-azure).
 
 ## <a name="create-a-basic-powershell-function"></a>Erstellen einer einfachen PowerShell-Funktion
 
-Führen Sie die Schritte unter [Erstellen Ihrer ersten PowerShell-Funktion in Azure](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell) aus, um mit der Vorlage „HTTP-Trigger“ eine PowerShell-Funktion zu erstellen. Verwenden Sie für die Azure-Funktion den Standardnamen **HttpTrigger**. Folgen Sie den Anweisungen im Schnellstart, um die Funktion lokal zu testen, und veröffentlichen Sie das Projekt in einer Funktions-App in Azure. Dieses Beispiel ist eine einfache, über HTTP ausgelöste Funktion, die eine Textzeichenfolge zurückgibt. In späteren Schritten dieses Artikels ändern Sie die Funktion, um eine Containergruppe zu erstellen.
+Führen Sie die Schritte unter [Erstellen Ihrer ersten PowerShell-Funktion in Azure](../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-powershell) aus, um mit der Vorlage „HTTP-Trigger“ eine PowerShell-Funktion zu erstellen. Verwenden Sie für die Azure-Funktion den Standardnamen **HttpTrigger**. Folgen Sie den Anweisungen im Schnellstart, um die Funktion lokal zu testen, und veröffentlichen Sie das Projekt in einer Funktions-App in Azure. Dieses Beispiel ist eine einfache, über HTTP ausgelöste Funktion, die eine Textzeichenfolge zurückgibt. In späteren Schritten dieses Artikels ändern Sie die Funktion, um eine Containergruppe zu erstellen.
 
 In diesem Artikel wird davon ausgegangen, dass Sie das Projekt mit dem Namen *myfunctionapp* in einer Azure-Ressourcengruppe veröffentlichen, die automatisch entsprechend dem Namen der Funktions-App benannt wird (auch *myfunctionapp*). Ersetzen Sie diese Namen in späteren Schritten durch den eindeutigen Namen Ihrer Funktions-App und Ressourcengruppe.
 

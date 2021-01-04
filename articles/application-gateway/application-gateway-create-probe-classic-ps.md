@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 1445d1418bde6d5d15e365c59ceb56e7661faccb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13441899eeb5ca2b7c60977ab2858fe40a398d1a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088069"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397857"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Erstellen eines benutzerdefinierten Tests für ein Azure Application Gateway (klassisch) mithilfe von PowerShell
 
@@ -200,7 +200,6 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Wenn Sie Transport Layer Security (TLS) konfigurieren möchten, früher als SSL-Auslagerung (Secure Sockets Layer) bekannt, lesen Sie den Abschnitt [Konfigurieren eines Anwendungsgateways für die TLS-Auslagerung](application-gateway-ssl.md).
+Wenn Sie Transport Layer Security (TLS) konfigurieren möchten, früher als SSL-Auslagerung (Secure Sockets Layer) bekannt, lesen Sie den Abschnitt [Konfigurieren eines Anwendungsgateways für die TLS-Auslagerung](./tutorial-ssl-powershell.md).
 
-Wenn Sie ein Anwendungsgateway für die Verwendung mit einem internen Lastenausgleich konfigurieren möchten, lesen Sie den Abschnitt [Erstellen eines Anwendungsgateways mit einem internen Lastenausgleich (ILB)](application-gateway-ilb.md).
-
+Wenn Sie ein Anwendungsgateway für die Verwendung mit einem internen Lastenausgleich konfigurieren möchten, lesen Sie den Abschnitt [Erstellen eines Anwendungsgateways mit einem internen Lastenausgleich (ILB)](./application-gateway-ilb-arm.md).

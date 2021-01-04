@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: cf138248e878b21531df2035dfeda1b90162ea99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf5ab7361c84fb787366c7c361829e52362fe427
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536102"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025907"
 ---
 # <a name="intents-in-your-luis-app"></a>Absichten in Ihrer LUIS-App
 
@@ -32,7 +32,7 @@ Absichten einer Reise-App   |   Beispiele für Äußerungen   |
 Alle Anwendungen enthalten die vordefinierte Absicht „[None](#none-intent)“, die als Fallbackabsicht fungiert.
 
 ## <a name="prebuilt-domains-provide-intents"></a>Vordefinierte Domänen stellen Absichten bereit
-Zusätzlich zu den von Ihnen definierten Absichten können Sie die von einer [vordefinierten Domäne](luis-how-to-use-prebuilt-domains.md) vordefinierten Absichten verwenden.
+Zusätzlich zu den von Ihnen definierten Absichten können Sie die von einer [vordefinierten Domäne](./howto-add-prebuilt-models.md) vordefinierten Absichten verwenden.
 
 ## <a name="return-all-intents-scores"></a>Zurückgeben von Bewertungen für alle Absichten
 Sie weisen eine Äußerung einer einzigen Absicht zu. Wenn LUIS eine Äußerung am Endpunkt empfängt, gibt es standardmäßig die am besten bewertete Absicht für die Äußerung zurück.
@@ -59,7 +59,7 @@ Erstellen Sie eine Absicht, wenn die _Benutzerabsicht_ eine Aktion in der Client
 
 ## <a name="prebuilt-domain-intents"></a>Absichten vordefinierter Domänen
 
-[Vordefinierte Domänen](luis-how-to-use-prebuilt-domains.md) stellen Absichten mit Äußerungen bereit.
+[Vordefinierte Domänen](./howto-add-prebuilt-models.md) stellen Absichten mit Äußerungen bereit.
 
 ## <a name="none-intent"></a>Absicht „None“
 

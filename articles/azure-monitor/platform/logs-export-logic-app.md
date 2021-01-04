@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: ed9942fa7b73418e3ef1ddf0651781d32b662995
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 04f1eb0d9db00a2be1a4619cafe38aa18145fc78
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92049508"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185996"
 ---
 # <a name="archive-data-from-log-analytics-workspace-to-azure-storage-using-logic-app"></a>Archivieren von Daten aus dem Log Analytics-Arbeitsbereich in Azure Storage mithilfe von Logic Apps
 In diesem Artikel wird eine Methode zur Verwendung von [Azure Logic Apps](../../logic-apps/index.yml) zum Abfragen von Daten in einem Log Analytics-Arbeitsbereich in Azure Monitor und zum Senden der Daten an Azure Storage beschrieben. Verwenden Sie diesen Vorgang, wenn Sie Ihre Azure Monitor Logs-Daten für Überprüfungs- und Complianceszenarios exportieren müssen oder wenn Sie zulassen müssen, dass diese Daten von einem anderen Dienst abgerufen werden können.  
@@ -25,7 +25,7 @@ Die in diesem Artikel beschriebene Methode beschreibt einen geplanten Export aus
 - Einmaliger Export auf lokalen Computer mit einem PowerShell-Skript. Informationen hierzu finden Sie unter [Invoke-AzOperationalInsightsQueryExport]](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 ## <a name="overview"></a>Übersicht
-Für dieses Verfahren wird der [Azure Monitor Logs-Connector](https://docs.microsoft.com/connectors/azuremonitorlogs/) verwendet, mit dem Sie eine Protokollabfrage über eine Logik-App ausführen und das Ergebnis in anderen Aktionen im Workflow verwenden können. Der [Azure Blob Storage-Connector](https://docs.microsoft.com/connectors/azureblob/) wird in diesem Verfahren verwendet, um das Abfrageergebnis an Azure Storage zu senden. Die anderen Aktionen werden in den folgenden Abschnitten beschrieben.
+Für dieses Verfahren wird der [Azure Monitor Logs-Connector](/connectors/azuremonitorlogs/) verwendet, mit dem Sie eine Protokollabfrage über eine Logik-App ausführen und das Ergebnis in anderen Aktionen im Workflow verwenden können. Der [Azure Blob Storage-Connector](/connectors/azureblob/) wird in diesem Verfahren verwendet, um das Abfrageergebnis an Azure Storage zu senden. Die anderen Aktionen werden in den folgenden Abschnitten beschrieben.
 
 ![Übersicht: Logic Apps](media/logs-export-logicapp/logic-app-overview.png)
 

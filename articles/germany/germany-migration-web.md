@@ -7,12 +7,12 @@ author: gitralf
 ms.author: ralfwi
 ms.service: germany
 ms.custom: bfmigrate
-ms.openlocfilehash: c43ce7865605eb5ea241ea78953d9b7018fe8869
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: d67a4aadbe22b5447aa73063e48c0ca43fb45d04
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122216"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018581"
 ---
 # <a name="migrate-web-resources-to-global-azure"></a>Migrieren von Webressourcen zu Azure weltweit
 
@@ -68,7 +68,7 @@ Migrieren von Apps, die Sie mit dem Web Apps-Feature von Azure App Service erste
 
 Weitere Informationen finden Sie unter:
 
-- Frischen Sie Ihre Kenntnisse auf, indem Sie die [Tutorials zu App Service](https://docs.microsoft.com/azure/app-service/tutorial-dotnetcore-sqldb-app) durcharbeiten.
+- Frischen Sie Ihre Kenntnisse auf, indem Sie die [Tutorials zu App Service](../app-service/tutorial-dotnetcore-sqldb-app.md) durcharbeiten.
 - Informieren Sie sich darüber, wie [Azure Resource Manager-Vorlagen exportiert werden](../azure-resource-manager/templates/export-template-portal.md).
 - Lesen Sie die [Übersicht über Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Lesen Sie die [Übersicht über Azure App Service](../app-service/overview.md).
@@ -85,7 +85,7 @@ Um Einstellungen von einer Azure Notification Hubs-Instanz zu einer anderen Inst
 
 Weitere Informationen finden Sie unter:
 
-- Frischen Sie Ihre Kenntnisse auf, indem Sie die [Notification Hubs-Tutorials](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started) durcharbeiten.
+- Frischen Sie Ihre Kenntnisse auf, indem Sie die [Notification Hubs-Tutorials](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md) durcharbeiten.
 - Lesen Sie die [Übersicht über Notification Hubs](../notification-hubs/notification-hubs-push-notification-overview.md).
 
 ## <a name="event-hubs"></a>Event Hubs

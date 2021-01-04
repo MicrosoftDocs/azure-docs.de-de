@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 04528d28e9f54710cd0a63372e32b099c2e07fb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b190bf0c474640c07d84971069072d3af2faa66d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86026167"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321901"
 ---
 # <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Datenstichproben im Azure-Blob-Speicher
 
@@ -25,7 +25,7 @@ Dieser Artikel behandelt das Erstellen von Stichproben aus Daten in Azure Blob S
 **Warum eine Datenstichprobe entnehmen?**
 Wenn das zu analysierende Dataset groß ist, sollten Sie in der Regel eine Komprimierung der Daten durchführen, um eine geringere aber immer noch repräsentative Größe zu erhalten. Die Stichprobenentnahme erleichtert das Verständnis der Daten, das Durchsuchen und die Funktionsverarbeitung. Die Funktion besteht innerhalb des Cortana-Analyseprozesses darin, schnell Prototypen der Funktionen zur Datenverarbeitung und Modelle für das maschinelle Lernen zu erstellen.
 
-Dieser Stichprobentask ist ein Schritt im [Team Data Science-Prozess (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Dieser Stichprobentask ist ein Schritt im [Team Data Science-Prozess (TDSP)](./index.yml).
 
 ## <a name="download-and-down-sample-data"></a>Download und Downsampling von Daten
 1. Laden Sie die Daten aus Azure Blob Storage mithilfe des Blob-Diensts aus dem folgenden Python-Beispielcode herunter: 
@@ -102,7 +102,6 @@ Mit dem folgenden Beispielcode können Sie ein Downsampling der Daten durchführ
         print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
     ```
 
-3. Lesen Sie die Daten wie in der folgenden Abbildung dargestellt mit dem Azure Machine Learning-Modul [Import Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) aus dem Azure-Blob:
+3. Lesen Sie die Daten wie in der folgenden Abbildung dargestellt mit dem Azure Machine Learning-Modul [Import Data](/azure/machine-learning/studio-module-reference/import-data) aus dem Azure-Blob:
 
 ![Reader-Blob](./media/sample-data-blob/reader_blob.png)
-

@@ -1,25 +1,22 @@
 ---
 title: Überwachungsprotokolle in Azure Database for MySQL – Flexible Server
 description: In diesem Artikel werden die in Azure Database for MySQL – Flexible Server verfügbaren Überwachungsprotokolle beschrieben.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 00d0808e83a888a39f9268328feb209167c9b644
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5aab78ad99b80ff1d7be92bd36847b01dbc0e33b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91295988"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542217"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Überwachen der Datenbankaktivität mit Überwachungsprotokolle in Azure Database for MySQL – Flexible Server
 
 > [!IMPORTANT] 
 > Azure Database for MySQL – Flexible Server befindet sich aktuell in der öffentlichen Vorschau.
-
-> [!NOTE]
-> Die Integration mit Azure Monitor-Diagnoseeinstellungen für den Zugriff auf Protokolle wird gerade bereitgestellt, und die vollständige Funktionalität wird bald verfügbar sein.
 
 Azure Database for MySQL – Flexible Server bietet Benutzern die Möglichkeit, Überwachungsprotokolle zu konfigurieren. Überwachungsprotokolle können dazu verwendet werden, die Aktivität auf Datenbankebene zu überwachen, einschließlich Verbindungs-, Administrator-, DDL- und DML-Ereignisse. Diese Arten von Protokollen werden häufig zu Compliancezwecken verwendet.
 
@@ -52,9 +49,6 @@ Sie können die folgenden anderen Parameter verwenden, um das Verhalten der Übe
 | `TABLE_ACCESS` | - Nur für MySQL 5.7 verfügbar <br> - Leseanweisungen für Tabelle, z. B. SELECT oder INSERT INTO... SELECT <br> - Löschanweisungen für Tabelle, z. B. DELETE oder TRUNCATE TABLE <br> - Einfügeanweisungen für Tabelle, z. B. INSERT oder REPLACE <br> - Aktualisierungsanweisungen für Tabelle, z. B. UPDATE |
 
 ## <a name="access-audit-logs"></a>Zugreifen auf Überwachungsprotokolle
-
-> [!NOTE]
-> Die Integration mit Azure Monitor-Diagnoseeinstellungen für den Zugriff auf Protokolle wird gerade bereitgestellt, und die vollständige Funktionalität wird bald verfügbar sein.
 
 Überwachungsprotokolle sind mit den Diagnoseeinstellungen von Azure Monitor integriert. Nachdem Sie Überwachungsprotokolle auf Ihrem flexiblen MySQL-Server aktiviert haben, können Sie sie an Azure Monitor-Protokolle, Event Hubs oder Azure Storage senden. Weitere Informationen über Diagnoseeinstellungen finden Sie in der [Dokumentation zu Diagnoseprotokollen](../../azure-monitor/platform/platform-logs-overview.md). Weitere Informationen zum Aktivieren von Diagnoseeinstellungen im Azure-Portal finden Sie im Artikel zum [Portal für Überwachungsprotokolle](how-to-configure-audit-logs-portal.md#set-up-diagnostics).
 

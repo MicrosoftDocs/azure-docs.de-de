@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
-ms.date: 03/17/2020
-ms.openlocfilehash: 81d0731f6ea77325b3f33f91bf8d5d1386dab2fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: e67376e2ef79f9711f54ce54d0d91623593ca8ea
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283376"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853287"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Konnektivitätsarchitektur für Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -104,10 +104,10 @@ Stellen Sie SQL Managed Instance in einem dedizierten Subnetz im virtuellen Netz
 - **Subnetzdelegierung:** Das Subnetz von SQL Managed Instance muss an den Ressourcenanbieter `Microsoft.Sql/managedInstances` delegiert werden.
 - **Netzwerksicherheitsgruppe (NSG)** : Eine NSG muss dem Subnetz von SQL Managed Instance zugeordnet werden. Sie können eine NSG verwenden, um den Zugriff auf den Datenendpunkt von SQL Managed Instance zu steuern, indem Sie Datenverkehr an Port 1433 und die Ports 11000 bis 11999 filtern, wenn SQL Managed Instance für Verbindungsumleitungen konfiguriert ist. Der Dienst stellt automatisch die [Regeln](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) zur Verfügung, die erforderlich sind, um einen ununterbrochenen Fluss des Verwaltungsdatenverkehrs zu ermöglichen, und hält sie auf dem neuesten Stand.
 - **Benutzerdefinierte Routingtabelle (User Defined Route, UDR):** Eine UDR-Tabelle muss dem Subnetz von SQL Managed Instance zugeordnet werden. Sie können der Routingtabelle Einträge hinzufügen, um Datenverkehr mit lokalen privaten IP-Bereichen als Ziel über das virtuelle Netzwerkgateway oder das virtuelle Netzwerkgerät (Network Appliance, NVA) zu leiten. Der Dienst stellt automatisch die [Einträge](#user-defined-routes-with-service-aided-subnet-configuration) zur Verfügung, die erforderlich sind, um einen ununterbrochenen Fluss des Verwaltungsdatenverkehrs zu ermöglichen, und hält sie auf dem neuesten Stand.
-- **Ausreichende IP-Adressen**: Das Subnetz von SQL Managed Instance muss mindestens 16 IP-Adressen umfassen. Der empfohlene Mindestwert sind 32 IP-Adressen. Weitere Informationen finden Sie unter [Ermitteln der Größe des Subnetzes für SQL Managed Instance](vnet-subnet-determine-size.md). Sie können verwaltete Instanzen im [vorhandenen Netzwerk](vnet-existing-add-subnet.md) bereitstellen, nachdem Sie dieses entsprechend den [Netzwerkanforderungen für SQL Managed Instance](#network-requirements) konfiguriert haben. Erstellen Sie andernfalls ein [neues Netzwerk und Subnetz](virtual-network-subnet-create-arm-template.md).
+- **Ausreichende IP-Adressen**: Das Subnetz von SQL Managed Instance muss mindestens 32 IP-Adressen umfassen. Weitere Informationen finden Sie unter [Ermitteln der Größe des Subnetzes für SQL Managed Instance](vnet-subnet-determine-size.md). Sie können verwaltete Instanzen im [vorhandenen Netzwerk](vnet-existing-add-subnet.md) bereitstellen, nachdem Sie dieses entsprechend den [Netzwerkanforderungen für SQL Managed Instance](#network-requirements) konfiguriert haben. Erstellen Sie andernfalls ein [neues Netzwerk und Subnetz](virtual-network-subnet-create-arm-template.md).
 
 > [!IMPORTANT]
-> Wenn Sie eine verwaltete Instanz erstellen, wird eine Netzwerkzielrichtlinie auf das Subnetz angewendet, um nicht konforme Änderungen am Netzwerksetup zu verhindern. Nachdem die letzte Instanz aus dem Subnetz entfernt wurde, wird auch die Netzwerkzielrichtlinie entfernt.
+> Wenn Sie eine verwaltete Instanz erstellen, wird eine Netzwerkzielrichtlinie auf das Subnetz angewendet, um nicht konforme Änderungen am Netzwerksetup zu verhindern. Nachdem die letzte Instanz aus dem Subnetz entfernt wurde, wird auch die Netzwerkzielrichtlinie entfernt. Die folgenden Regeln dienen nur zu Informationszwecken und sollten nicht mit ARM-Vorlagen, PowerShell oder der Befehlszeilenschnittstelle bereitgestellt werden. Wenn Sie die neueste offizielle Vorlage verwenden möchten, können Sie diese jederzeit [aus dem Portal abrufen](https://docs.microsoft.com/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal).
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Obligatorische Eingangssicherheitsregeln mit dienstgestützter Subnetzkonfiguration
 
@@ -301,6 +301,8 @@ Stellen Sie SQL Managed Instance in einem dedizierten Subnetz im virtuellen Netz
 
 \* MI-SUBNETZ bezieht sich auf den IP-Adressbereich für das Subnetz in der Form „x.x.x.x/y“. Diese Informationen finden Sie im Azure-Portal in den Subnetzeigenschaften.
 
+\** Wenn die Zieladresse die Adresse von einem der Azure-Dienste ist, leitet Azure den Datenverkehr über das Azure-Backbonenetzwerk direkt an den Dienst weiter, und nicht über das Internet. Der Datenverkehr zwischen Azure-Diensten wird nicht über das Internet übertragen. Dies gilt unabhängig davon, in welcher Azure-Region das virtuelle Netzwerk vorhanden ist oder in welcher Azure-Region eine Instanz des Azure-Diensts bereitgestellt wird. Weitere Informationen finden Sie auf der [UDR-Dokumentationsseite](../../virtual-network/virtual-networks-udr-overview.md).
+
 Darüber hinaus können Sie der Routingtabelle Einträge hinzufügen, um Datenverkehr mit lokalen privaten IP-Bereichen als Ziel über ein virtuelles Netzwerkgateway oder ein virtuelles Netzwerkgerät (Network Appliance, NVA) zu leiten.
 
 Wenn das virtuelle Netzwerk ein benutzerdefiniertes DNS enthält, muss der benutzerdefinierte DNS-Server öffentliche DNS-Einträge auflösen können. Die Verwendung zusätzlicher Funktionen wie Azure AD Authentication macht unter Umständen auch die Auflösung zusätzlicher FQDNs erforderlich. Weitere Informationen finden Sie unter [Konfigurieren eines benutzerdefinierten DNS für eine verwaltete Azure SQL-Datenbank-Instanz](custom-dns-configure.md).
@@ -312,221 +314,9 @@ Wenn das virtuelle Netzwerk ein benutzerdefiniertes DNS enthält, muss der benut
 Die folgenden Features von virtuellen Netzwerken werden derzeit von SQL Managed Instance nicht unterstützt:
 
 - **Microsoft-Peering**: Die Aktivierung von [Microsoft-Peering](../../expressroute/expressroute-faqs.md#microsoft-peering) für ExpressRoute-Verbindungen, die direkt oder transitiv mit einem virtuellen Netzwerk verbunden sind, in dem sich SQL Managed Instance befindet, wirkt sich auf den Datenverkehrsfluss zwischen den Komponenten von SQL Managed Instance innerhalb des virtuellen Netzwerks und den Diensten aus, von denen sie abhängt, und verursacht dadurch Verfügbarkeitsprobleme. SQL Managed Instance-Bereitstellungen im virtuellen Netzwerk mit bereits aktiviertem Microsoft-Peering schlagen wahrscheinlich fehl.
-- **Globales Peering virtueller Netzwerke**: Die Azure-Regionen übergreifende Konnektivität durch [Peering virtueller Netzwerke](../../virtual-network/virtual-network-peering-overview.md) funktioniert für SQL Managed Instance aufgrund der [dokumentierten Einschränkungen beim Lastenausgleich](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) nicht.
+- **Globales Peering virtueller Netzwerke**: Konnektivität per [Peering virtueller Netzwerke](../../virtual-network/virtual-network-peering-overview.md) über Azure-Regionen hinweg funktioniert nicht für SQL Managed Instances in Subnetzen, die vor dem 22.09.2020 erstellt wurden.
 - **AzurePlatformDNS**: Die Verwendung des AzurePlatformDNS-[Diensttags](../../virtual-network/service-tags-overview.md) zur Blockierung der DNS-Auflösung der Plattform würde dazu führen, dass SQL Managed Instance nicht mehr verfügbar ist. Obwohl SQL Managed Instance kundenspezifisches DNS für die DNS-Auflösung innerhalb der Engine unterstützt, besteht eine Abhängigkeit vom Plattform-DNS für Plattformvorgänge.
 - **NAT-Gateway**: Die Verwendung von [Azure Virtual Network NAT](../../virtual-network/nat-overview.md) zur Steuerung der ausgehenden Konnektivität mit einer bestimmten öffentlichen IP-Adresse würde dazu führen, dass SQL Managed Instance nicht erreichbar ist. Der SQL Managed Instance-Dienst ist aktuell auf die Verwendung eines Basislastenausgleichs beschränkt, der keine parallelen eingehenden und ausgehenden Flows für Virtual Network NAT zulässt.
-
-### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>[Veraltet] Netzwerkanforderungen ohne dienstgestützte Subnetzkonfiguration
-
-Stellen Sie SQL Managed Instance in einem dedizierten Subnetz im virtuellen Netzwerk bereit. Das Subnetz muss diese Merkmale aufweisen:
-
-- **Dediziertes Subnetz**: Das Subnetz von SQL Managed Instance darf keinen anderen Clouddienst enthalten, der mit ihm verknüpft ist, und es darf kein Gatewaysubnetz sein. Das Subnetz darf keine Ressourcen außer SQL Managed Instance enthalten, und Sie können später keine anderen Ressourcentypen im Subnetz hinzufügen.
-- **Netzwerksicherheitsgruppe (NSG)** : Eine NSG, die mit dem virtuellen Netzwerk verknüpft ist, muss [Eingangssicherheitsregeln](#mandatory-inbound-security-rules) und [Ausgangssicherheitsregeln](#mandatory-outbound-security-rules) vor allen anderen Regeln definieren. Sie können eine NSG verwenden, um den Zugriff auf den Datenendpunkt von SQL Managed Instance zu steuern, indem Sie Datenverkehr an Port 1433 und die Ports 11000 bis 11999 filtern, wenn SQL Managed Instance für Verbindungsumleitungen konfiguriert ist.
-- **Benutzerdefinierte Routingtabelle (User Defined Route, UDR):** Eine UDR-Tabelle, die mit dem virtuellen Netzwerk verknüpft ist, muss bestimmte [Einträge](#user-defined-routes) enthalten.
-- **Keine Dienstendpunkte**: Dem Subnetz von SQL Managed Instance sollte kein Dienstendpunkt zugeordnet werden. Wenn Sie das virtuelle Netzwerk erstellen, überprüfen Sie, ob die Option „Dienstendpunkte“ auf „Deaktiviert“ festgelegt ist.
-- **Ausreichende IP-Adressen**: Das Subnetz von SQL Managed Instance muss mindestens 16 IP-Adressen umfassen. Der empfohlene Mindestwert sind 32 IP-Adressen. Weitere Informationen finden Sie unter [Ermitteln der Größe des Subnetzes für SQL Managed Instance](vnet-subnet-determine-size.md). Sie können verwaltete Instanzen im [vorhandenen Netzwerk](vnet-existing-add-subnet.md) bereitstellen, nachdem Sie dieses entsprechend den [Netzwerkanforderungen für SQL Managed Instance](#network-requirements) konfiguriert haben. Erstellen Sie andernfalls ein [neues Netzwerk und Subnetz](virtual-network-subnet-create-arm-template.md).
-
-> [!IMPORTANT]
-> Sie können keine neue verwaltete Instanz bereitstellen, wenn das Zielsubnetz nicht über diese Merkmale verfügt. Wenn Sie eine verwaltete Instanz erstellen, wird eine Netzwerkzielrichtlinie auf das Subnetz angewendet, um nicht konforme Änderungen am Netzwerksetup zu verhindern. Nachdem die letzte Instanz aus dem Subnetz entfernt wurde, wird auch die Netzwerkzielrichtlinie entfernt.
-
-### <a name="mandatory-inbound-security-rules"></a>Obligatorische Eingangssicherheitsregeln
-
-| Name       |Port                        |Protocol|`Source`           |Destination|Aktion|
-|------------|----------------------------|--------|-----------------|-----------|------|
-|management  |9000, 9003, 1438, 1440, 1452|TCP     |Any              |MI-SUBNETZ  |Allow |
-|mi_subnet   |Any                         |Any     |MI-SUBNETZ        |MI-SUBNETZ  |Allow |
-|health_probe|Any                         |Any     |AzureLoadBalancer|MI-SUBNETZ  |Allow |
-
-### <a name="mandatory-outbound-security-rules"></a>Obligatorische Ausgangssicherheitsregeln
-
-| Name       |Port          |Protocol|`Source`           |Destination|Aktion|
-|------------|--------------|--------|-----------------|-----------|------|
-|management  |443, 12000    |TCP     |MI-SUBNETZ        |AzureCloud |Allow |
-|mi_subnet   |Any           |Any     |MI-SUBNETZ        |MI-SUBNETZ  |Allow |
-
-> [!IMPORTANT]
-> Stellen Sie sicher, dass es nur eine Eingangsregel für die Ports 9000, 9003, 1438, 1440 und 1452 und eine Ausgangsregel für die Ports 443 und 12000 gibt. Die Bereitstellung von SQL Managed Instance über Azure Resource Manager-Bereitstellungen führt zu einem Fehler, wenn Regeln für eingehenden und ausgehenden Datenverkehr für jeden Port separat konfiguriert werden. Wenn für diese Ports separate Regeln gelten, schlägt die Bereitstellung mit dem Fehlercode `VnetSubnetConflictWithIntendedPolicy` fehl.
-
-\* MI-SUBNETZ bezieht sich auf den IP-Adressbereich für das Subnetz in der Form „x.x.x.x/y“. Diese Informationen finden Sie im Azure-Portal in den Subnetzeigenschaften.
-
-> [!IMPORTANT]
-> Obwohl die erforderlichen Eingangssicherheitsregeln den Datenverkehr von _allen_ Quellen an den Ports 9000, 9003, 1438, 1440 und 1452 zulassen, sind diese Ports durch eine integrierte Firewall geschützt. Weitere Informationen finden Sie unter [Ermitteln der IP-Adresse des Verwaltungsendpunkts](management-endpoint-find-ip-address.md).
-
-> [!NOTE]
-> Wenn Sie die Transaktionsreplikation in SQL Managed Instance verwenden und eine Instanzdatenbank als Herausgeber oder Verteiler einsetzen, öffnen Sie in den Sicherheitsregeln des Subnetzes Port 445 (TCP ausgehend). Dieser Port ermöglicht den Zugriff auf die Azure-Dateifreigabe.
-
-### <a name="user-defined-routes"></a>Benutzerdefinierte Routen
-
-|Name|Adresspräfix|Nächster Hop|
-|----|--------------|-------|
-|subnet_to_vnetlocal|MI-SUBNETZ|Virtuelles Netzwerk|
-|mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|
-|mi-13-104-14-nexthop-internet|13.104.0.0/14|Internet|
-|mi-20-33-16-nexthop-internet|20.33.0.0/16|Internet|
-|mi-20-34-15-nexthop-internet|20.34.0.0/15|Internet|
-|mi-20-36-14-nexthop-internet|20.36.0.0/14|Internet|
-|mi-20-40-13-nexthop-internet|20.40.0.0/13|Internet|
-|mi-20-48-12-nexthop-internet|20.48.0.0/12|Internet|
-|mi-20-64-10-nexthop-internet|20.64.0.0/10|Internet|
-|mi-20-128-16-nexthop-internet|20.128.0.0/16|Internet|
-|mi-20-135-16-nexthop-internet|20.135.0.0/16|Internet|
-|mi-20-136-16-nexthop-internet|20.136.0.0/16|Internet|
-|mi-20-140-15-nexthop-internet|20.140.0.0/15|Internet|
-|mi-20-143-16-nexthop-internet|20.143.0.0/16|Internet|
-|mi-20-144-14-nexthop-internet|20.144.0.0/14|Internet|
-|mi-20-150-15-nexthop-internet|20.150.0.0/15|Internet|
-|mi-20-160-12-nexthop-internet|20.160.0.0/12|Internet|
-|mi-20-176-14-nexthop-internet|20.176.0.0/14|Internet|
-|mi-20-180-14-nexthop-internet|20.180.0.0/14|Internet|
-|mi-20-184-13-nexthop-internet|20.184.0.0/13|Internet|
-|mi-20-192-10-nexthop-internet|20.192.0.0/10|Internet|
-|mi-40-64-10-nexthop-internet|40.64.0.0/10|Internet|
-|mi-51-4-15-nexthop-internet|51.4.0.0/15|Internet|
-|mi-51-8-16-nexthop-internet|51.8.0.0/16|Internet|
-|mi-51-10-15-nexthop-internet|51.10.0.0/15|Internet|
-|mi-51-18-16-nexthop-internet|51.18.0.0/16|Internet|
-|mi-51-51-16-nexthop-internet|51.51.0.0/16|Internet|
-|mi-51-53-16-nexthop-internet|51.53.0.0/16|Internet|
-|mi-51-103-16-nexthop-internet|51.103.0.0/16|Internet|
-|mi-51-104-15-nexthop-internet|51.104.0.0/15|Internet|
-|mi-51-132-16-nexthop-internet|51.132.0.0/16|Internet|
-|mi-51-136-15-nexthop-internet|51.136.0.0/15|Internet|
-|mi-51-138-16-nexthop-internet|51.138.0.0/16|Internet|
-|mi-51-140-14-nexthop-internet|51.140.0.0/14|Internet|
-|mi-51-144-15-nexthop-internet|51.144.0.0/15|Internet|
-|mi-52-96-12-nexthop-internet|52.96.0.0/12|Internet|
-|mi-52-112-14-nexthop-internet|52.112.0.0/14|Internet|
-|mi-52-125-16-nexthop-internet|52.125.0.0/16|Internet|
-|mi-52-126-15-nexthop-internet|52.126.0.0/15|Internet|
-|mi-52-130-15-nexthop-internet|52.130.0.0/15|Internet|
-|mi-52-132-14-nexthop-internet|52.132.0.0/14|Internet|
-|mi-52-136-13-nexthop-internet|52.136.0.0/13|Internet|
-|mi-52-145-16-nexthop-internet|52.145.0.0/16|Internet|
-|mi-52-146-15-nexthop-internet|52.146.0.0/15|Internet|
-|mi-52-148-14-nexthop-internet|52.148.0.0/14|Internet|
-|mi-52-152-13-nexthop-internet|52.152.0.0/13|Internet|
-|mi-52-160-11-nexthop-internet|52.160.0.0/11|Internet|
-|mi-52-224-11-nexthop-internet|52.224.0.0/11|Internet|
-|mi-64-4-18-nexthop-internet|64.4.0.0/18|Internet|
-|mi-65-52-14-nexthop-internet|65.52.0.0/14|Internet|
-|mi-66-119-144-20-nexthop-internet|66.119.144.0/20|Internet|
-|mi-70-37-17-nexthop-internet|70.37.0.0/17|Internet|
-|mi-70-37-128-18-nexthop-internet|70.37.128.0/18|Internet|
-|mi-91-190-216-21-nexthop-internet|91.190.216.0/21|Internet|
-|mi-94-245-64-18-nexthop-internet|94.245.64.0/18|Internet|
-|mi-103-9-8-22-nexthop-internet|103.9.8.0/22|Internet|
-|mi-103-25-156-24-nexthop-internet|103.25.156.0/24|Internet|
-|mi-103-25-157-24-nexthop-internet|103.25.157.0/24|Internet|
-|mi-103-25-158-23-nexthop-internet|103.25.158.0/23|Internet|
-|mi-103-36-96-22-nexthop-internet|103.36.96.0/22|Internet|
-|mi-103-255-140-22-nexthop-internet|103.255.140.0/22|Internet|
-|mi-104-40-13-nexthop-internet|104.40.0.0/13|Internet|
-|mi-104-146-15-nexthop-internet|104.146.0.0/15|Internet|
-|mi-104-208-13-nexthop-internet|104.208.0.0/13|Internet|
-|mi-111-221-16-20-nexthop-internet|111.221.16.0/20|Internet|
-|mi-111-221-64-18-nexthop-internet|111.221.64.0/18|Internet|
-|mi-129-75-16-nexthop-internet|129.75.0.0/16|Internet|
-|mi-131-107-16-nexthop-internet|131.107.0.0/16|Internet|
-|mi-131-253-1-24-nexthop-internet|131.253.1.0/24|Internet|
-|mi-131-253-3-24-nexthop-internet|131.253.3.0/24|Internet|
-|mi-131-253-5-24-nexthop-internet|131.253.5.0/24|Internet|
-|mi-131-253-6-24-nexthop-internet|131.253.6.0/24|Internet|
-|mi-131-253-8-24-nexthop-internet|131.253.8.0/24|Internet|
-|mi-131-253-12-22-nexthop-internet|131.253.12.0/22|Internet|
-|mi-131-253-16-23-nexthop-internet|131.253.16.0/23|Internet|
-|mi-131-253-18-24-nexthop-internet|131.253.18.0/24|Internet|
-|mi-131-253-21-24-nexthop-internet|131.253.21.0/24|Internet|
-|mi-131-253-22-23-nexthop-internet|131.253.22.0/23|Internet|
-|mi-131-253-24-21-nexthop-internet|131.253.24.0/21|Internet|
-|mi-131-253-32-20-nexthop-internet|131.253.32.0/20|Internet|
-|mi-131-253-61-24-nexthop-internet|131.253.61.0/24|Internet|
-|mi-131-253-62-23-nexthop-internet|131.253.62.0/23|Internet|
-|mi-131-253-64-18-nexthop-internet|131.253.64.0/18|Internet|
-|mi-131-253-128-17-nexthop-internet|131.253.128.0/17|Internet|
-|mi-132-245-16-nexthop-internet|132.245.0.0/16|Internet|
-|mi-134-170-16-nexthop-internet|134.170.0.0/16|Internet|
-|mi-134-177-16-nexthop-internet|134.177.0.0/16|Internet|
-|mi-137-116-15-nexthop-internet|137.116.0.0/15|Internet|
-|mi-137-135-16-nexthop-internet|137.135.0.0/16|Internet|
-|mi-138-91-16-nexthop-internet|138.91.0.0/16|Internet|
-|mi-138-196-16-nexthop-internet|138.196.0.0/16|Internet|
-|mi-139-217-16-nexthop-internet|139.217.0.0/16|Internet|
-|mi-139-219-16-nexthop-internet|139.219.0.0/16|Internet|
-|mi-141-251-16-nexthop-internet|141.251.0.0/16|Internet|
-|mi-146-147-16-nexthop-internet|146.147.0.0/16|Internet|
-|mi-147-243-16-nexthop-internet|147.243.0.0/16|Internet|
-|mi-150-171-16-nexthop-internet|150.171.0.0/16|Internet|
-|mi-150-242-48-22-nexthop-internet|150.242.48.0/22|Internet|
-|mi-157-54-15-nexthop-internet|157.54.0.0/15|Internet|
-|mi-157-56-14-nexthop-internet|157.56.0.0/14|Internet|
-|mi-157-60-16-nexthop-internet|157.60.0.0/16|Internet|
-|mi-167-105-16-nexthop-internet|167.105.0.0/16|Internet|
-|mi-167-220-16-nexthop-internet|167.220.0.0/16|Internet|
-|mi-168-61-16-nexthop-internet|168.61.0.0/16|Internet|
-|mi-168-62-15-nexthop-internet|168.62.0.0/15|Internet|
-|mi-191-232-13-nexthop-internet|191.232.0.0/13|Internet|
-|mi-192-32-16-nexthop-internet|192.32.0.0/16|Internet|
-|mi-192-48-225-24-nexthop-internet|192.48.225.0/24|Internet|
-|mi-192-84-159-24-nexthop-internet|192.84.159.0/24|Internet|
-|mi-192-84-160-23-nexthop-internet|192.84.160.0/23|Internet|
-|mi-192-197-157-24-nexthop-internet|192.197.157.0/24|Internet|
-|mi-193-149-64-19-nexthop-internet|193.149.64.0/19|Internet|
-|mi-193-221-113-24-nexthop-internet|193.221.113.0/24|Internet|
-|mi-194-69-96-19-nexthop-internet|194.69.96.0/19|Internet|
-|mi-194-110-197-24-nexthop-internet|194.110.197.0/24|Internet|
-|mi-198-105-232-22-nexthop-internet|198.105.232.0/22|Internet|
-|mi-198-200-130-24-nexthop-internet|198.200.130.0/24|Internet|
-|mi-198-206-164-24-nexthop-internet|198.206.164.0/24|Internet|
-|mi-199-60-28-24-nexthop-internet|199.60.28.0/24|Internet|
-|mi-199-74-210-24-nexthop-internet|199.74.210.0/24|Internet|
-|mi-199-103-90-23-nexthop-internet|199.103.90.0/23|Internet|
-|mi-199-103-122-24-nexthop-internet|199.103.122.0/24|Internet|
-|mi-199-242-32-20-nexthop-internet|199.242.32.0/20|Internet|
-|mi-199-242-48-21-nexthop-internet|199.242.48.0/21|Internet|
-|mi-202-89-224-20-nexthop-internet|202.89.224.0/20|Internet|
-|mi-204-13-120-21-nexthop-internet|204.13.120.0/21|Internet|
-|mi-204-14-180-22-nexthop-internet|204.14.180.0/22|Internet|
-|mi-204-79-135-24-nexthop-internet|204.79.135.0/24|Internet|
-|mi-204-79-179-24-nexthop-internet|204.79.179.0/24|Internet|
-|mi-204-79-181-24-nexthop-internet|204.79.181.0/24|Internet|
-|mi-204-79-188-24-nexthop-internet|204.79.188.0/24|Internet|
-|mi-204-79-195-24-nexthop-internet|204.79.195.0/24|Internet|
-|mi-204-79-196-23-nexthop-internet|204.79.196.0/23|Internet|
-|mi-204-79-252-24-nexthop-internet|204.79.252.0/24|Internet|
-|mi-204-152-18-23-nexthop-internet|204.152.18.0/23|Internet|
-|mi-204-152-140-23-nexthop-internet|204.152.140.0/23|Internet|
-|mi-204-231-192-24-nexthop-internet|204.231.192.0/24|Internet|
-|mi-204-231-194-23-nexthop-internet|204.231.194.0/23|Internet|
-|mi-204-231-197-24-nexthop-internet|204.231.197.0/24|Internet|
-|mi-204-231-198-23-nexthop-internet|204.231.198.0/23|Internet|
-|mi-204-231-200-21-nexthop-internet|204.231.200.0/21|Internet|
-|mi-204-231-208-20-nexthop-internet|204.231.208.0/20|Internet|
-|mi-204-231-236-24-nexthop-internet|204.231.236.0/24|Internet|
-|mi-205-174-224-20-nexthop-internet|205.174.224.0/20|Internet|
-|mi-206-138-168-21-nexthop-internet|206.138.168.0/21|Internet|
-|mi-206-191-224-19-nexthop-internet|206.191.224.0/19|Internet|
-|mi-207-46-16-nexthop-internet|207.46.0.0/16|Internet|
-|mi-207-68-128-18-nexthop-internet|207.68.128.0/18|Internet|
-|mi-208-68-136-21-nexthop-internet|208.68.136.0/21|Internet|
-|mi-208-76-44-22-nexthop-internet|208.76.44.0/22|Internet|
-|mi-208-84-21-nexthop-internet|208.84.0.0/21|Internet|
-|mi-209-240-192-19-nexthop-internet|209.240.192.0/19|Internet|
-|mi-213-199-128-18-nexthop-internet|213.199.128.0/18|Internet|
-|mi-216-32-180-22-nexthop-internet|216.32.180.0/22|Internet|
-|mi-216-220-208-20-nexthop-internet|216.220.208.0/20|Internet|
-|mi-23-96-13-nexthop-internet|23.96.0.0/13|Internet|
-|mi-42-159-16-nexthop-internet|42.159.0.0/16|Internet|
-|mi-51-13-17-nexthop-internet|51.13.0.0/17|Internet|
-|mi-51-107-16-nexthop-internet|51.107.0.0/16|Internet|
-|mi-51-116-16-nexthop-internet|51.116.0.0/16|Internet|
-|mi-51-120-16-nexthop-internet|51.120.0.0/16|Internet|
-|mi-51-120-128-17-nexthop-internet|51.120.128.0/17|Internet|
-|mi-51-124-16-nexthop-internet|51.124.0.0/16|Internet|
-|mi-102-37-18-nexthop-internet|102.37.0.0/18|Internet|
-|mi-102-133-16-nexthop-internet|102.133.0.0/16|Internet|
-|mi-199-30-16-20-nexthop-internet|199.30.16.0/20|Internet|
-|mi-204-79-180-24-nexthop-internet|204.79.180.0/24|Internet|
-||||
 
 ## <a name="next-steps"></a>Nächste Schritte
 

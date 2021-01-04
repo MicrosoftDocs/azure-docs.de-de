@@ -1,6 +1,6 @@
 ---
 title: Erstellen eines SMB-Volumes für Azure NetApp Files | Microsoft-Dokumentation
-description: In diesem Artikel wird beschrieben, wie Sie ein SMBv3-Volume in Azure NetApp Files erstellen. Sie erhalten Informationen zu den Anforderungen für Active Directory-Verbindungen und Active Directory Domain Services.
+description: In diesem Artikel wird beschrieben, wie Sie ein SMB3-Volume in Azure NetApp Files erstellen. Sie erhalten Informationen zu den Anforderungen für Active Directory-Verbindungen und Active Directory Domain Services.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 12/01/2020
 ms.author: b-juche
-ms.openlocfilehash: d0a16dc639fb3206b480c1091a66686955cbb11d
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: cd2a293ebcc35d4884211f50783738a502dcc7de
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932344"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854824"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Erstellen eines SMB-Volumes für Azure NetApp Files
 
-Azure NetApp Files unterstützt das Erstellen von Volumes mithilfe von NFS (NFSv3 und NFSv4.1), SMBv3 oder einem dualen Protokoll (NFSv3 und SMB). Der Kapazitätsverbrauch eines Volumes wird mit der bereitgestellten Kapazität des dazugehörigen Pools verrechnet. In diesem Artikel wird veranschaulicht, wie Sie ein SMB v3-Volume erstellen.
+Azure NetApp Files unterstützt das Erstellen von Volumes mithilfe von NFS (NFSv3 und NFSv4.1), SMB3 oder einem dualen Protokoll (NFSv3 und SMB). Der Kapazitätsverbrauch eines Volumes wird mit der bereitgestellten Kapazität des dazugehörigen Pools verrechnet. In diesem Artikel wird veranschaulicht, wie Sie ein SMB3-Volume erstellen.
 
 ## <a name="before-you-begin"></a>Voraussetzungen 
 Sie müssen bereits einen Kapazitätspool eingerichtet haben.   
@@ -84,7 +84,7 @@ Ein Subnetz muss an Azure NetApp Files delegiert werden.
 
 * Azure NetApp Files unterstützt [LDAP-Signatur](/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server), was eine sichere Übertragung des LDAP-Datenverkehrs zwischen dem Azure NetApp Files-Dienst und den [Active Directory-Zieldomänencontrollern](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) ermöglicht. Wenn Sie den Leitfaden von Microsoft Advisory [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) für LDAP-Signatur befolgen, sollten Sie das LDAP-Signaturfeature in Azure NetApp Files aktivieren, indem Sie das Kontrollkästchen **LDAP-Signatur** im Fenster [Active Directory beitreten](#create-an-active-directory-connection) aktivieren. 
 
-    Die Konfiguration der [LDAP-Kanalbindung](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) hat keine Auswirkungen auf den Azure NetApp Files-Dienst. 
+    Die Konfiguration der [LDAP-Kanalbindung](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) hat allein keine Auswirkungen auf den Azure NetApp Files-Dienst. Wenn Sie jedoch sowohl die LDAP-Kanalbindung als auch sicheres LDAP verwenden (z. B. LDAPS oder `start_tls`), tritt bei der Erstellung des SMB-Volumes ein Fehler auf.
 
 Weitere Informationen zu zusätzlichen AD-Informationen finden Sie in den [häufig gestellten Fragen zu SMB](./azure-netapp-files-faqs.md#smb-faqs) für Azure NetApp Files. 
 
@@ -146,7 +146,7 @@ Diese Einstellung wird in **Active Directory-Verbindungen** unter **NetApp-Konto
     * **AD-DNS-Domänenname**  
         Dies ist der Domänenname Ihrer Active Directory Domain Services, denen Sie beitreten möchten.
     * **AD-Standortname**  
-        Dies ist der Name des Standorts, auf den die Domänencontrollerermittlung beschränkt wird.
+        Dies ist der Name des Standorts, auf den die Domänencontrollerermittlung beschränkt wird. Sollte dem Standortnamen in Active Directory-Standorte und -Dienste entsprechen.
     * **Präfix des SMB-Servers (Computerkonto)**  
         Dies ist das Namenspräfix für das Computerkonto in Active Directory, das Azure NetApp Files für die Erstellung von neuen Konten verwendet.
 

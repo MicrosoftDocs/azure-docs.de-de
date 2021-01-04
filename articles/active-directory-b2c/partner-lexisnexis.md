@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: c753e9a18f9869e1bf11aa437fb60484f2553e17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f408699cae9580188a3780fc8f8654eaa97c26b
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259253"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108432"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Tutorial zum Konfigurieren von LexisNexis mit Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ Zunächst benötigen Sie Folgendes:
 
 - Ein Azure AD-Abonnement Falls Sie über kein Abonnement verfügen, können Sie ein [kostenloses Azure-Konto](https://azure.microsoft.com/free/) verwenden.
 
-- [Einen Azure AD B2C-Mandanten](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant), der mit Ihrem Azure-Abonnement verknüpft ist.
+- [Einen Azure AD B2C-Mandanten](./tutorial-create-tenant.md), der mit Ihrem Azure-Abonnement verknüpft ist.
 
 ## <a name="scenario-description"></a>Beschreibung des Szenarios
 
@@ -73,14 +73,14 @@ Nachdem das Konto erstellt wurde, erhalten Sie die Informationen, die Sie für d
 
 ### <a name="part-1---deploy-the-api"></a>Teil 1: Bereitstellen der API
 
-Stellen Sie den angegebenen [API-Code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api) für einen Azure-Dienst bereit. Der Code kann mit [dieser Anleitung](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019) aus Visual Studio veröffentlicht werden.
+Stellen Sie den angegebenen [API-Code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api) für einen Azure-Dienst bereit. Der Code kann mit [dieser Anleitung](/visualstudio/deployment/quickstart-deploy-to-azure) aus Visual Studio veröffentlicht werden.
 
 >[!NOTE]
 >Sie benötigen die URL des bereitgestellten Diensts, um Azure AD mit den erforderlichen Einstellungen zu konfigurieren.
 
 ### <a name="part-2---configure-the-api"></a>Teil 2: Konfigurieren der API
 
-Anwendungseinstellungen können [per App Service in Azure konfiguriert werden](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings).  Mit dieser Methode können Einstellungen sicher konfiguriert werden, ohne sie in ein Repository einzuchecken. Sie müssen die folgenden Einstellungen für die REST-API angeben:
+Anwendungseinstellungen können [per App Service in Azure konfiguriert werden](../app-service/configure-common.md#configure-app-settings).  Mit dieser Methode können Einstellungen sicher konfiguriert werden, ohne sie in ein Repository einzuchecken. Sie müssen die folgenden Einstellungen für die REST-API angeben:
 
 | Anwendungseinstellungen | `Source` | Notizen |
 | :-------- | :------------| :-----------|
@@ -95,13 +95,13 @@ Anwendungseinstellungen können [per App Service in Azure konfiguriert werden](h
 
 Diese Lösung verwendet benutzerdefinierte Benutzeroberflächenvorlagen, die von Azure AD B2C geladen werden. Diese Benutzeroberflächenvorlagen führen die Profilerstellung aus. Die Profile werden dann direkt an den ThreatMetrix-Dienst gesendet.
 
-Lesen Sie diese [Anweisungen](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#custom-page-content-walkthrough) zum Bereitstellen der enthaltenen [Benutzeroberflächendateien](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) in einem Blob Storage-Konto. Die Anweisungen umfassen das Einrichten eines Blob Storage-Kontos, das Konfigurieren von CORS und das Aktivieren des öffentlichen Zugriffs.
+Lesen Sie diese [Anweisungen](./customize-ui-with-html.md#custom-page-content-walkthrough) zum Bereitstellen der enthaltenen [Benutzeroberflächendateien](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) in einem Blob Storage-Konto. Die Anweisungen umfassen das Einrichten eines Blob Storage-Kontos, das Konfigurieren von CORS und das Aktivieren des öffentlichen Zugriffs.
 
 Die Benutzeroberfläche basiert auf der [Vorlage „Ozeanblau“](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template/ocean_blue). Alle Links auf der Benutzeroberfläche sollten aktualisiert werden, sodass sie auf den bereitgestellten Speicherort verweisen. Suchen Sie im Benutzeroberflächenordner https://yourblobstorage/blobcontainer, und ersetzen Sie die Angabe durch den bereitgestellten Speicherort.
 
 ### <a name="part-4---create-api-policy-keys"></a>Teil 4: Erstellen von API-Richtlinienschlüsseln
 
-Richten Sie sich nach diesem [Dokument](https://docs.microsoft.com/azure/active-directory-b2c/secure-rest-api#add-rest-api-username-and-password-policy-keys), um zwei Richtlinienschlüssel zu erstellen: einen für den API-Benutzernamen und einen für das oben definierte API-Kennwort.
+Richten Sie sich nach diesem [Dokument](./secure-rest-api.md#add-rest-api-username-and-password-policy-keys), um zwei Richtlinienschlüssel zu erstellen: einen für den API-Benutzernamen und einen für das oben definierte API-Kennwort.
 
 Für die Beispielrichtlinie werden diese Schlüsselnamen verwendet:
 
@@ -122,7 +122,7 @@ Suchen Sie in der bereitgestellten Richtlinie [TrustFrameworkExtensions](https:/
 
 ### <a name="part-7---configure-the-azure-ad-b2c-policy"></a>Teil 7: Konfigurieren der Azure AD B2C-Richtlinie
 
-Richten Sie sich nach diesem [Dokument](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack), um das [LocalAccounts-Startpaket](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) herunterzuladen und die [Richtlinie](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy) für den Azure AD B2C-Mandanten zu konfigurieren.
+Richten Sie sich nach diesem [Dokument](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack), um das [LocalAccounts-Startpaket](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) herunterzuladen und die [Richtlinie](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy) für den Azure AD B2C-Mandanten zu konfigurieren.
 
 >[!NOTE]
 >Aktualisieren Sie die bereitgestellten Richtlinien, sodass sie sich auf Ihren genauen Mandanten beziehen.
@@ -153,6 +153,6 @@ Richten Sie sich nach diesem [Dokument](https://docs.microsoft.com/azure/active-
 
 Weitere Informationen finden Sie in den folgenden Artikeln:
 
-- [Benutzerdefinierte Richtlinien in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Benutzerdefinierte Richtlinien in Azure AD B2C](./custom-policy-overview.md)
 
-- [Erste Schritte mit benutzerdefinierten Richtlinien in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Erste Schritte mit benutzerdefinierten Richtlinien in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

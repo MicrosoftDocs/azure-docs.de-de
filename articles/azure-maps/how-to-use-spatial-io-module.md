@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 61ea102d0e020f7890da1ae86cdfbb5c3db8f51b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e64df21b31d686b72b210d2c62956745350891f5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335295"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895391"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Verwenden des Moduls Spatial IO von Azure Maps
 
@@ -40,7 +40,7 @@ Dieses Video enthält eine Übersicht über das Modul Spatial IO im Azure Maps 
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Bevor Sie das Modul Spatial IO einsetzen können, müssen Sie [ein Azure Maps-Konto einrichten](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account) und [den primären Abonnementschlüssel für Ihr Konto ](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account) abrufen.
+Bevor Sie das Modul Spatial IO einsetzen können, müssen Sie [ein Azure Maps-Konto einrichten](./quick-demo-map-app.md#create-an-azure-maps-account) und [den primären Abonnementschlüssel für Ihr Konto ](./quick-demo-map-app.md#get-the-primary-key-for-your-account) abrufen.
 
 ## <a name="installing-the-spatial-io-module"></a>Installieren des Moduls Spatial IO
 
@@ -68,7 +68,7 @@ Sie können das Azure Maps-Modul Spatial IO mit einer der beiden folgenden Opti
 
 1. Erstellen Sie eine neue HTML-Datei.
 
-2. Laden Sie das Azure Maps Web SDK, und initialisieren Sie das Kartensteuerelement. Unter [Verwenden des Azure Maps-Kartensteuerelements](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) erhalten Sie weitere Informationen. Nach diesem Schritt sollte Ihre HTML-Datei so aussehen:
+2. Laden Sie das Azure Maps Web SDK, und initialisieren Sie das Kartensteuerelement. Unter [Verwenden des Azure Maps-Kartensteuerelements](./how-to-use-map-control.md) erhalten Sie weitere Informationen. Nach diesem Schritt sollte Ihre HTML-Datei so aussehen:
 
     ```html
     <!DOCTYPE html>
@@ -256,4 +256,4 @@ Das hier vorgestellte Feature ist nur eines der vielen, die im Modul Spatial IO
 Weitere Informationen finden Sie in der Dokumentation zum Azure Maps-Modul Spatial IO:
 
 > [!div class="nextstepaction"]
-> [Spatial IO-Paket von Azure Maps](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/)
+> [Spatial IO-Paket von Azure Maps](/javascript/api/azure-maps-spatial-io/)

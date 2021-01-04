@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 030a69c7eca70c081a1d9392bfa527f3386d7c2b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 60bd416cf330676485f83720be4365b56c56baaf
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150608"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436707"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Tutorial: Verwenden von Azure IoT Hub-Nachrichtenanreicherungen
 
@@ -38,13 +38,13 @@ Hier sind die Aufgaben, die Sie beim Durcharbeiten dieses Tutorials ausführen:
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* Sie benötigen ein Azure-Abonnement. Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
-* Installieren Sie [Visual Studio](https://www.visualstudio.com/).
+- Sie benötigen ein Azure-Abonnement. Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
 
-* Stellen Sie sicher, dass Port 8883 in Ihrer Firewall geöffnet ist. Für das Beispielgerät in diesem Tutorial wird das MQTT-Protokoll verwendet, das über Port 8883 kommuniziert. In einigen Netzwerkumgebungen von Unternehmen oder Bildungseinrichtungen ist dieser Port unter Umständen blockiert. Weitere Informationen und Problemumgehungen finden Sie unter [Herstellen einer Verbindung mit IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+- Installieren Sie [Visual Studio](https://www.visualstudio.com/).
 
+- Stellen Sie sicher, dass Port 8883 in Ihrer Firewall geöffnet ist. Für das Beispielgerät in diesem Tutorial wird das MQTT-Protokoll verwendet, das über Port 8883 kommuniziert. In einigen Netzwerkumgebungen von Unternehmen oder Bildungseinrichtungen ist dieser Port unter Umständen blockiert. Weitere Informationen und Problemumgehungen finden Sie unter [Herstellen einer Verbindung mit IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="retrieve-the-iot-c-samples-repository"></a>Abrufen des Repositorys „IoT C#-Beispiele“
 
@@ -73,7 +73,7 @@ Sie können das nachstehende Skript verwenden oder das Skript im Ordner „/reso
 
 Einige Ressourcennamen müssen global eindeutig sein. Hierzu gehören beispielsweise der Name des IoT-Hubs und der Name des Speicherkontos. Um die Ausführung des Skripts zu vereinfachen, wird an diese Ressourcennamen der alphanumerische Zufallswert *randomValue* angefügt. Der Zufallswert wird einmal am Anfang des Skripts generiert. Er wird nach Bedarf im gesamten Skript an die Ressourcennamen angefügt. Wenn Sie keinen Zufallswert verwenden möchten, können Sie den Wert auf eine leere Zeichenfolge oder auf einen bestimmten Wert festlegen.
 
-Falls Sie dies noch nicht getan haben, öffnen Sie ein Azure [Cloud Shell-Fenster](https://shell.azure.com), und sorgen Sie dafür, dass es auf „Bash“ festgelegt ist. Öffnen Sie das Skript im entzippten Repository, wählen Sie es mit STRG+A vollständig aus, und kopieren Sie es dann mit STRG+C. Alternativ können Sie das folgende CLI-Skript kopieren oder es direkt in Cloud Shell öffnen. Fügen Sie das Skript im Cloud Shell-Fenster ein, indem Sie mit der rechten Maustaste auf die Befehlszeile klicken und **Einfügen** auswählen. Das Skript führt jeweils eine Anweisung aus. Nachdem das Skript die Ausführung beendet hat, drücken Sie die**EINGABETASTE**, um sicherzustellen, dass der letzte Befehl ausgeführt wird. Der nachstehende Codeblock zeigt das verwendete Skript und Kommentare mit einer Erläuterung der jeweiligen Funktion.
+Falls Sie dies noch nicht getan haben, öffnen Sie ein Azure [Cloud Shell-Fenster](https://shell.azure.com), und sorgen Sie dafür, dass es auf „Bash“ festgelegt ist. Öffnen Sie das Skript im entzippten Repository, wählen Sie es mit STRG+A vollständig aus, und kopieren Sie es dann mit STRG+C. Alternativ können Sie das folgende CLI-Skript kopieren oder es direkt in Cloud Shell öffnen. Fügen Sie das Skript im Cloud Shell-Fenster ein, indem Sie mit der rechten Maustaste auf die Befehlszeile klicken und **Einfügen** auswählen. Das Skript führt jeweils eine Anweisung aus. Nachdem das Skript die Ausführung beendet hat, drücken Sie die **EINGABETASTE**, um sicherzustellen, dass der letzte Befehl ausgeführt wird. Der nachstehende Codeblock zeigt das verwendete Skript und Kommentare mit einer Erläuterung der jeweiligen Funktion.
 
 Hier sind die vom Skript erstellten Ressourcen. *enriched* bedeutet, dass die Ressource für Nachrichten mit Anreicherungen vorgesehen ist. *original* bedeutet, dass die Ressource für Nachrichten vorgesehen ist, die nicht angereichert werden.
 

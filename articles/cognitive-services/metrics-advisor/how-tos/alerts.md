@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: ab1c07bd7814afb054bb20b77bbc84c1ee9df017
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 30d8fdf99da7a4854db0985bed6256ecd6f7a366
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046790"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420919"
 ---
 # <a name="how-to-configure-alerts-and-get-notifications-using-a-hook"></a>Gewusst wie: Konfigurieren von Warnungen und Erhalten von Benachrichtigungen per Hook
 
@@ -28,7 +28,7 @@ Metrics Advisor unterstützt drei unterschiedliche Arten von Hooks: E-Mail-Hook,
 ### <a name="email-hook"></a>E-Mail-Hook
 
 > [!Note]
-> Metrics Advisor-Ressourcenadministratoren müssen die E-Mail-Einstellungen konfigurieren und SMTP-bezogene Informationen in Metrics Advisor eingeben, bevor Anomaliewarnungen gesendet werden können. Der Administrator der Ressourcengruppe oder der Abonnementadministrator muss mindestens eine Rolle des *Cognitive Services Metrics Advisor-Administrators* auf der Registerkarte zur Zugriffssteuerung der Metrics Advisor-Ressource zuweisen. 
+> Metrics Advisor-Ressourcenadministratoren müssen die E-Mail-Einstellungen konfigurieren und SMTP-bezogene Informationen in Metrics Advisor eingeben, bevor Anomaliewarnungen gesendet werden können. Der Administrator der Ressourcengruppe oder der Abonnementadministrator muss mindestens eine Rolle des *Cognitive Services Metrics Advisor-Administrators* auf der Registerkarte zur Zugriffssteuerung der Metrics Advisor-Ressource zuweisen. [Erfahren Sie mehr über die Konfiguration der E-Mail-Einstellungen](../faq.md#how-to-set-up-email-settings-and-enable-alerting-by-email).
 
 Für die Erstellung eines E-Mail-Hooks sind die folgenden Parameter verfügbar: 
 
@@ -88,11 +88,11 @@ Zum Erstellen eines Azure DevOps-Hooks müssen Sie die unten angegebenen Informa
 Navigieren Sie zur Seite mit den Metrikdetails. Sie finden den Abschnitt **Warnungseinstellungen** unten links auf dieser Seite. Es sind alle Warnungseinstellungen aufgeführt, die zur ausgewählten Erkennungskonfiguration gehören. Wenn eine neue Erkennungskonfiguration erstellt wird, sind keine Warnungseinstellungen vorhanden, und es werden keine Warnungen gesendet.  
 Sie können die Symbole **Hinzufügen**, **Bearbeiten** und **Löschen** verwenden, um Warnungseinstellungen zu ändern.
 
-:::image type="content" source="../media/alerts/alert-setting.png" alt-text="Fenster für Webhookerstellung":::
+:::image type="content" source="../media/alerts/alert-setting.png" alt-text="Menüelement „Warnungseinstellungen“":::
 
 Klicken Sie auf die Schaltfläche **Hinzufügen** oder **Bearbeiten**, um ein Fenster zum Hinzufügen bzw. Bearbeiten Ihrer Warnungseinstellungen anzuzeigen.
 
-:::image type="content" source="../media/alerts/edit-alert.png" alt-text="Fenster für Webhookerstellung":::
+:::image type="content" source="../media/alerts/edit-alert.png" alt-text="Hinzufügen oder Bearbeiten von Warnungseinstellungen":::
 
 **Alert setting name** (Name der Warnungseinstellung): Der Name der jeweiligen Warnungseinstellung. Er wird im Titel der Benachrichtigungs-E-Mail angezeigt.
 
@@ -134,7 +134,7 @@ Die Auswahloption **Operator** stellt die logische Beziehung der einzelnen Absch
 |UND     | Eine Warnung wird nur gesendet, wenn eine Reihe mit jedem Warnungsabschnitt übereinstimmt und es sich bei allen Datenpunkten um Anomalien handelt. Wenn die Metriken unterschiedliche Dimensionsnamen aufweisen, wird nie eine Warnung ausgelöst.         |
 |oder     | Die Warnung wird gesendet, wenn mindestens ein Abschnitt Anomalien enthält.         |
 
-:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="Fenster für Webhookerstellung":::
+:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="Operator für Abschnitt mit mehreren Warnungseinstellungen":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 

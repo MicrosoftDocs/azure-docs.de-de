@@ -1,17 +1,17 @@
 ---
 title: 'Serverkonzepte: Azure Database for MySQL Flexible Server'
 description: Dieses Thema enthält Aspekte und Richtlinien für die Arbeit mit Azure Database for MySQL Flexible Server.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 7217817e9add6214c2da8362a2769cad0c2cf330
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cce4810a9e1a4d7143e2bab384d4b26471b7238
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90931377"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240748"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Serverkonzepte in Azure Database for MySQL Flexible Server (Vorschau)
 
@@ -44,12 +44,12 @@ Sie können in einer Instanz von Azure Database for MySQL Flexible Server eine o
 
 ## <a name="stopstart-an-azure-database-for-mysql-flexible-server"></a>Anhalten/Starten einer Azure Database for MySQL Flexible Server-Instanz
 
-Azure Database for MySQL Flexible Server bietet Ihnen die Möglichkeit, den Server **anzuhalten**, wenn er nicht benutzt wird, und den Server zu **starten**, wenn Sie die Aktivität wieder aufnehmen. Dies erfolgt im Wesentlichen, um Kosten auf den Datenbankservern zu sparen und für die Ressource nur dann zu bezahlen, wenn sie in Gebrauch ist. Dies wird noch wichtiger bei Dev-Test-Workloads und wenn Sie den Server nur für einen Teil des Tages benutzen. Wenn Sie den Server anhalten, werden alle aktiven Verbindungen beendet. Wenn Sie den Server später wieder online bringen möchten, können Sie entweder das [Azure-Portal](how-to-stop-start-server-portal.md) oder die CLI verwenden.
+Azure Database for MySQL Flexible Server bietet Ihnen die Möglichkeit, den Server **anzuhalten** , wenn er nicht benutzt wird, und den Server zu **starten** , wenn Sie die Aktivität wieder aufnehmen. Dies erfolgt im Wesentlichen, um Kosten auf den Datenbankservern zu sparen und für die Ressource nur dann zu bezahlen, wenn sie in Gebrauch ist. Dies wird noch wichtiger bei Dev-Test-Workloads und wenn Sie den Server nur für einen Teil des Tages benutzen. Wenn Sie den Server anhalten, werden alle aktiven Verbindungen beendet. Wenn Sie den Server später wieder online bringen möchten, können Sie entweder das [Azure-Portal](how-to-stop-start-server-portal.md) oder die CLI verwenden.
 
 Wenn sich der Server im Status **Angehalten** befindet, wird das Compute des Servers nicht in Rechnung gestellt. Der Speicher wird jedoch weiterhin in Rechnung gestellt, da der Speicher des Servers verbleibt, um sicherzustellen, dass die Datendateien verfügbar sind, wenn der Server wieder gestartet wird.
 
 > [!IMPORTANT]
-> Wenn Sie den Server **anhalten**, bleibt er für die nächsten sieben Tage in diesem Zustand. Wenn Sie ihn während dieser Zeit nicht manuell **starten**, wird der Server nach Ablauf von sieben Tagen automatisch gestartet. Wenn Sie den Server nicht verwenden, können Sie ihn wieder **anhalten**.
+> Wenn Sie den Server **anhalten** , bleibt er für die nächsten sieben Tage in diesem Zustand. Wenn Sie ihn während dieser Zeit nicht manuell **starten** , wird der Server nach Ablauf von sieben Tagen automatisch gestartet. Wenn Sie den Server nicht verwenden, können Sie ihn wieder **anhalten**.
 
 Während der Zeit, in der der Server angehalten ist, können keine Verwaltungsvorgänge auf dem Server durchgeführt werden. Sie müssen [den Server starten](how-to-stop-start-server-portal.md), um Konfigurationseinstellungen auf dem Server zu ändern. Weitere Informationen finden Sie unter den [Einschränkungen zum Anhalten/Starten](./concepts-limitations.md#stopstart-operation).
 
@@ -59,6 +59,6 @@ Sie können Azure Database for MySQL Flexible Server mithilfe des [Azure-Portals
 
 ## <a name="next-steps"></a>Nächste Schritte
 
--   Weitere Informationen zum  [Erstellen von Servern](./quickstart-create-server-portal.md).
+-   Informieren Sie sich über die [Servererstellung](./quickstart-create-server-portal.md).
 -   Weitere Informationen zu [Überwachung und Warnungen](./how-to-alert-on-metric.md).
 

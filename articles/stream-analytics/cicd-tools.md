@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: e772701396f172eaab906f99463bd9019728b531
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa75a553ffc131f4827aa045849f1317d894ddc5
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930485"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123149"
 ---
 # <a name="automate-builds-tests-and-deployments-of-an-azure-stream-analytics-job-using-cicd-tools"></a>Automatisieren von Builds, Tests und Bereitstellungen eines Azure Stream Analytics-Auftrags mit CI/CD-Tools
 
@@ -25,7 +25,7 @@ Sie können das [Paket direkt herunterladen](https://www.npmjs.com/package/azure
 
 ## <a name="build-the-project"></a>Erstellen des Projekts
 
-Das npm-Paket **asa-streamanalytics-cicd** stellt die Tools für die Generierung von Azure Resource Manager-Vorlagen von [Visual Studio Code-Projekten](quick-create-vs-code.md) oder [Visual Studio-Projekten](stream-analytics-quick-create-vs.md) für Stream Analytics bereit. Sie können das npm-Paket auch unter Windows, macOS und Linux verwenden, ohne Visual Studio Code oder Visual Studio zu installieren.
+Das npm-Paket **asa-streamanalytics-cicd** stellt die Tools für die Generierung von Azure Resource Manager-Vorlagen von [Visual Studio Code-Projekten](./quick-create-visual-studio-code.md) oder [Visual Studio-Projekten](stream-analytics-quick-create-vs.md) für Stream Analytics bereit. Sie können das npm-Paket auch unter Windows, macOS und Linux verwenden, ohne Visual Studio Code oder Visual Studio zu installieren.
 
 Nachdem Sie das Paket installiert haben, verwenden Sie den folgenden Befehl, um die Stream Analytics-Projekte zu erstellen.
 
@@ -33,7 +33,7 @@ Nachdem Sie das Paket installiert haben, verwenden Sie den folgenden Befehl, um 
 azure-streamanalytics-cicd build -project <projectFullPath> [-outputPath <outputPath>]
 ```
 
-Der *build*-Befehl führt eine Überprüfung der Schlüsselwortsyntax durch und gibt die Azure Resource Manager-Vorlage aus.
+Der *build* -Befehl führt eine Überprüfung der Schlüsselwortsyntax durch und gibt die Azure Resource Manager-Vorlage aus.
 
 | Parameter | Beschreibung |
 |---|---|

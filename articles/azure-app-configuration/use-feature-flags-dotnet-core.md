@@ -3,8 +3,7 @@ title: Tutorial zur Verwendung von Featureflags in einer .NET Core-App | Micros
 description: In diesem Tutorial erfahren Sie, wie Sie Featureflags in .NET Core-Apps implementieren.
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -12,14 +11,14 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 09/17/2020
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: f8ad2558c664d1a8b577f01b707200d416d5348a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 8c0dd9713c673ad676058acc7dbbb3cb5a65362e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078900"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929190"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Verwenden von Featureflags in einer ASP.NET Core-App
 
@@ -107,7 +106,7 @@ Die Verbindung zwischen Ihrer ASP.NET Core-Anwendung und App Configuration läs
               .UseStartup<Startup>();
    ```
 
-2. Öffnen Sie die Datei *Startup.cs*, und aktualisieren Sie die `Configure`-Methode, um Middleware hinzuzufügen, damit die Featureflagwerte in regelmäßigen Abständen aktualisiert werden können, während die ASP.NET Core-Web-App weiterhin Anforderungen empfängt.
+2. Öffnen Sie *Startup.cs*, und aktualisieren Sie die `Configure`-Methode, um die integrierte Middleware namens `UseAzureAppConfiguration` hinzuzufügen. Diese Middleware gestattet die regelmäßige Aktualisierung der Featureflagwerte, während die ASP.NET Core-Web-App weiterhin Anforderungen empfängt.
 
    ```csharp
    public void Configure(IApplicationBuilder app, IHostingEnvironment env)

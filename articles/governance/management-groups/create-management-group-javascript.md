@@ -1,15 +1,15 @@
 ---
 title: 'Schnellstart: Erstellen einer Verwaltungsgruppe mit JavaScript'
 description: In dieser Schnellstartanleitung erstellen Sie mithilfe von JavaScript eine Verwaltungsgruppe, um Ihre Ressourcen in einer Ressourcenhierarchie zu organisieren.
-ms.date: 09/30/2020
+ms.date: 11/18/2020
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 965e4b8f81a26cab8f6e34cab3e51d6a97f5a6a6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c1b800f150cebacf8d17785feb1bded5189f1574
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676232"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886599"
 ---
 # <a name="quickstart-create-a-management-group-with-javascript"></a>Schnellstart: Erstellen einer Verwaltungsgruppe mit JavaScript
 
@@ -56,11 +56,11 @@ Um JavaScript zum Abfragen von Azure Resource Graph zu aktivieren, muss die Umge
    ```
 
    > [!NOTE]
-   > Überprüfen Sie in _package.json_ , ob `@azure/arm-managementgroups` in Version **1.1.0** oder höher und `@azure/ms-rest-nodeauth` in Version **3.0.5** oder höher vorliegen.
+   > Überprüfen Sie in _package.json_, ob `@azure/arm-managementgroups` in Version **1.1.0** oder höher und `@azure/ms-rest-nodeauth` in Version **3.0.5** oder höher vorliegen.
 
 ## <a name="create-the-management-group"></a>Erstellen der Verwaltungsgruppe
 
-1. Erstellen Sie eine neue Datei mit dem Namen _index.js_ , und geben Sie den folgenden Code ein.
+1. Erstellen Sie eine neue Datei mit dem Namen _index.js_, und geben Sie den folgenden Code ein.
 
    ```javascript
    const argv = require("yargs").argv;
@@ -71,7 +71,7 @@ Um JavaScript zum Abfragen von Azure Resource Graph zu aktivieren, muss die Umge
        const createMG = async () => {
           const credentials = await authenticator.interactiveLogin();
           const client = new managementGroups.ManagementGroupsAPI(credentials);
-          const result = await client.createOrUpdate(
+          const result = await client.managementGroups.createOrUpdate(
              groupId: argv.groupID,
              {
                  displayName: argv.displayName
@@ -90,7 +90,7 @@ Um JavaScript zum Abfragen von Azure Resource Graph zu aktivieren, muss die Umge
    node index.js --groupID "<NEW_MG_GROUP_ID>" --displayName "<NEW_MG_FRIENDLY_NAME>"
    ```
 
-   Ersetzen Sie jeden Tokenplatzhalter `<>` durch die _Verwaltungsgruppen-ID_ bzw. den _Anzeigenamen der Verwaltungsgruppe_ .
+   Ersetzen Sie jeden Tokenplatzhalter `<>` durch die _Verwaltungsgruppen-ID_ bzw. den _Anzeigenamen der Verwaltungsgruppe_.
 
    Wenn das Skript versucht, sich zu authentifizieren, wird im Terminal eine Meldung ähnlich der folgenden angezeigt:
 

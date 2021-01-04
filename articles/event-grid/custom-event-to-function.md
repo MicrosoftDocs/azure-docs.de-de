@@ -4,11 +4,11 @@ description: 'Schnellstart: Verwenden Sie Azure Event Grid und die Azure CLI ode
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.openlocfilehash: aea52bcaa94d6f288e86e44e1a0f294796d8e4a3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91324393"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996343"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Schnellstart: Weiterleiten von benutzerdefinierten Ereignissen an eine Azure-Funktion mit Event Grid
 
@@ -26,7 +26,7 @@ Vor dem Abonnieren des benutzerdefinierten Themas erstellen wir zunächst eine F
         :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="Auswählen des Event Grid-Triggers":::
 3. Geben Sie auf der Seite **Neue Funktion** einen Namen für die Funktion ein, und wählen Sie **Funktion erstellen** aus.
 
-    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Auswählen des Event Grid-Triggers":::
+    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Seite „Neue Funktion“":::
 4. Verwenden Sie die Seite **Code und testen**, um den vorhandenen Code für die Funktion anzuzeigen und zu aktualisieren. 
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
@@ -46,7 +46,7 @@ Ein Event Grid-Thema verfügt über einen benutzerdefinierten Endpunkt für die 
 4. Gehen Sie auf der Seite **Thema erstellen** wie folgt vor:
 
     1. Geben Sie unter **Name** einen eindeutigen Namen für das benutzerdefinierte Thema an. Der Name des Themas muss eindeutig sein, da er durch einen DNS-Eintrag dargestellt wird. Verwenden Sie nicht den Namen, der in der Abbildung zu sehen ist. Erstellen Sie stattdessen einen eigenen Namen. Dieser muss zwischen drei und 50 Zeichen lang sein und darf nur folgende Zeichen enthalten: a–z, A–Z, 0–9 und Bindestriche (-).
-    2. Wählen Sie Ihr Azure- **Abonnement**aus.
+    2. Wählen Sie Ihr Azure- **Abonnement** aus.
     3. Wählen Sie dieselbe Ressourcengruppe wie in den vorherigen Schritten aus.
     4. Wählen Sie einen **Standort** für das Event Grid-Thema aus.
     5. Behalten Sie im Feld **Ereignisschema** den Standardwert **Event Grid-Schema** bei. 
@@ -88,7 +88,7 @@ Sie abonnieren ein Event Grid-Thema, um Event Grid mitzuteilen, welche Ereigniss
     
         Durch die Batchverarbeitung kann ein hoher Durchsatz erreicht werden. Legen Sie für **Max. Anzahl von Ereignissen pro Batch** die maximale Anzahl von Ereignissen fest, die ein Abonnement in einen Batch einschließen soll. „Bevorzugte Batchgröße“ legt die bevorzugte Obergrenze der Batchgröße in KB fest, kann jedoch überschritten werden, wenn ein einzelnes Ereignis größer als dieser Schwellenwert ist.
     
-        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Auswählen des Event Grid-Triggers":::
+        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Aktivieren von Batchverarbeitung":::
     6. Wählen Sie auf der Seite **Ereignisabonnement erstellen** die Option **Erstellen** aus.
 
 ## <a name="send-an-event-to-your-topic"></a>Senden eines Ereignisses an Ihr Thema

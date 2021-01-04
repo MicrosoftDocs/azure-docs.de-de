@@ -7,7 +7,7 @@
       items:
         - name: Worum handelt es sich bei Azure HDInsight?
           href: ./hdinsight-overview.md
-    - name: Lernprogramme
+    - name: Tutorials
       expanded: true
       items:
         - name: Erstellen von HDInsight-Clustern
@@ -500,7 +500,7 @@
           items:
             - name: Verwenden von MapReduce mit Apache Hadoop
               items:
-                - name: Übersicht über MapReduce
+                - name: Verwenden von MapReduce
                   href: ./hadoop/hdinsight-use-mapreduce.md
                 - name: Verwenden von SSH
                   href: ./hadoop/apache-hadoop-use-mapreduce-ssh.md

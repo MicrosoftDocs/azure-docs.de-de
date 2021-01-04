@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: c592055be1987786b94623bde5352e2a3cc0e092
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19d4cc388494e149b7f258a8e9f154041a3dd070
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630150"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021965"
 ---
 # <a name="speech-service-for-telephony-data"></a>Speech-Dienste für Telefoniedaten
 
@@ -60,7 +60,7 @@ Es ist nicht ungewöhnlich, dass 35 % eines Supportanrufs aus sogenannten Sprech
 
 ### <a name="translation"></a>Sprachübersetzung
 
-Einige Unternehmen experimentieren mit der Bereitstellung übersetzter Transkripte von Supportanrufen in Fremdsprachen, damit Bereitstellungsmanager die Erfahrungen der Kunden weltweit verstehen können. Unsere [Übersetzungsfunktionen](/azure/cognitive-services/speech-service/speech-translation) sind unübertroffen. Wir können Audio in Audio oder Audio in Text für eine große Anzahl von Gebietsschemas übersetzen.
+Einige Unternehmen experimentieren mit der Bereitstellung übersetzter Transkripte von Supportanrufen in Fremdsprachen, damit Bereitstellungsmanager die Erfahrungen der Kunden weltweit verstehen können. Unsere [Übersetzungsfunktionen](./speech-translation.md) sind unübertroffen. Wir können Audio in Audio oder Audio in Text für eine große Anzahl von Gebietsschemas übersetzen.
 
 ### <a name="text-to-speech"></a>Text-zu-Sprache
 
@@ -94,7 +94,7 @@ Eine typische Lösung verwendet die folgenden Dienste:
 
 - Der Speech-Dienst wird zum Transkribieren von Sprache in Text verwendet. Um die Batch-Transkriptions-API zu nutzen, ist ein Standardabonnement (S0) für den Speech-Dienst erforderlich. Kostenlose Abonnements (F0) funktionieren nicht.
 - [Azure Storage](https://azure.microsoft.com/services/storage/) wird verwendet, um Telefoniedaten und die von der Batch-Transkriptions-API zurückgegebenen Transkripte zu speichern. Dieses Speicherkonto sollte Benachrichtigungen verwenden, insbesondere wenn neue Dateien hinzugefügt werden. Mit diesen Benachrichtigungen wird der Transkriptionsprozess ausgelöst.
-- [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) wird verwendet, um den SAS-URI (Shared Access Signatures) für jede Aufzeichnung zu erstellen und die HTTP POST-Anforderung zum Starten einer Transkription auszulösen. Darüber hinaus werden mit Azure Functions Anforderungen zum Abrufen und Löschen von Transkriptionen mit der Batch-Transkriptions-API erstellt.
+- [Azure Functions](../../azure-functions/index.yml) wird verwendet, um den SAS-URI (Shared Access Signatures) für jede Aufzeichnung zu erstellen und die HTTP POST-Anforderung zum Starten einer Transkription auszulösen. Darüber hinaus werden mit Azure Functions Anforderungen zum Abrufen und Löschen von Transkriptionen mit der Batch-Transkriptions-API erstellt.
 
 Die oben genannten Technologien werden von uns intern zur Unterstützung von Microsoft-Kundenanrufen im Batchmodus verwendet.
 :::image type="content" source="media/scenarios/call-center-batch-pipeline.png" alt-text="Technologien zur Unterstützung von Microsoft-Kundenanrufen im Batchmodus":::
@@ -111,7 +111,7 @@ Die oben genannten Technologien werden von uns intern zur Echtzeitanalyse von Mi
 
 ## <a name="a-word-on-ivrs"></a>Kurzer Hinweis zu interaktiven Sprachantworten (IVR)
 
-Der Speech-Dienst kann entweder mit dem [Speech SDK](speech-sdk.md) oder der [REST-API](rest-apis.md) problemlos in jede Lösung integriert werden. Die Callcentertranskription kann jedoch zusätzliche Technologien erfordern. In der Regel ist eine Verbindung zwischen einem IVR-System und Azure erforderlich. Obwohl wir solche Komponenten nicht anbieten, folgt hier eine Beschreibung, was eine Verbindung mit einem IVR bedeutet.
+Der Speech-Dienst kann entweder mit dem [Speech SDK](speech-sdk.md) oder der [REST-API](./overview.md#reference-docs) problemlos in jede Lösung integriert werden. Die Callcentertranskription kann jedoch zusätzliche Technologien erfordern. In der Regel ist eine Verbindung zwischen einem IVR-System und Azure erforderlich. Obwohl wir solche Komponenten nicht anbieten, folgt hier eine Beschreibung, was eine Verbindung mit einem IVR bedeutet.
 
 Verschiedene IVR- oder Telefoniedienstprodukte (wie Genesys oder AudioCodes) bieten Integrationsfunktionen, die genutzt werden können, um die Durchleitung von eingehenden und ausgehenden Audiodaten an einen Azure-Dienst zu ermöglichen. Grundsätzlich kann ein benutzerdefinierter Azure-Dienst eine spezifische Schnittstelle bereitstellen, um Telefonanrufsitzungen zu definieren (z. B. Anrufstart oder Anrufende) und eine WebSocket-API zum Empfangen eines eingehenden Audiodatenstroms verfügbar zu machen, die mit dem Speech-Dienst verwendet wird. Ausgehende Antworten, wie z.B. Unterhaltungstranskriptionen oder Verbindungen mit dem Bot Framework, können mit dem Sprachsynthesedienst von Microsoft synthetisiert und zur Wiedergabe an das IVR-System zurückgegeben werden.
 
@@ -123,10 +123,10 @@ Ein weiteres Szenario ist die direkte Integration mit dem Session Initiation Pro
 
 | Speech-Dienst | Modell | BESCHREIBUNG |
 | -------------- | ----- | ----------- |
-| Spracherkennung | [Akustikmodell](how-to-customize-acoustic-models.md) | Erstellen Sie ein benutzerdefiniertes Akustikmodell für Anwendungen, Tools oder Geräte, die in speziellen Umgebungen (etwa in einem Auto oder in einer Produktionshalle) verwendet werden, in denen jeweils besondere Aufzeichnungsverhältnisse herrschen. Beispiele wären etwa Sprecher mit Akzent, bestimmte Hintergrundgeräusche oder die Verwendung eines bestimmten Mikrofons für die Aufzeichnung. |
-|                | [Sprachmodell](how-to-customize-language-model.md) | Erstellen Sie ein benutzerdefiniertes Sprachmodell, um die Transkription spezifischen Vokabulars und spezifischer Grammatik (beispielsweise aus der Medizin- oder IT-Branche) zu verbessern. |
-|                | [Aussprachemodell](how-to-customize-pronunciation.md) | Durch ein benutzerdefiniertes Aussprachemodell können Sie die phonetische Form und Darstellung eines Worts oder Begriffs definieren. Dies ist für die Verarbeitung angepasster Benennungen wie Produktnamen oder Akronymen hilfreich. Erforderlich ist zu Beginn lediglich eine Aussprachedatei, bei der es sich um eine einfache `.txt`-Datei handelt. |
-| Text-zu-Sprache | [Voicefont](how-to-customize-voice-font.md) | Mithilfe benutzerdefinierter Voicefonts können Sie eine wiedererkennbare, einzigartige Stimme für Ihre Marke erstellen. Für den Einstieg reicht bereits eine kleine Datenmenge aus. Je mehr Daten Sie bereitstellen, desto natürlicher und menschenähnlicher klingt Ihr Voicefont. |
+| Spracherkennung | [Akustikmodell](./how-to-custom-speech-train-model.md) | Erstellen Sie ein benutzerdefiniertes Akustikmodell für Anwendungen, Tools oder Geräte, die in speziellen Umgebungen (etwa in einem Auto oder in einer Produktionshalle) verwendet werden, in denen jeweils besondere Aufzeichnungsverhältnisse herrschen. Beispiele wären etwa Sprecher mit Akzent, bestimmte Hintergrundgeräusche oder die Verwendung eines bestimmten Mikrofons für die Aufzeichnung. |
+|                | [Sprachmodell](./how-to-custom-speech-train-model.md) | Erstellen Sie ein benutzerdefiniertes Sprachmodell, um die Transkription spezifischen Vokabulars und spezifischer Grammatik (beispielsweise aus der Medizin- oder IT-Branche) zu verbessern. |
+|                | [Aussprachemodell](./how-to-custom-speech-train-model.md) | Durch ein benutzerdefiniertes Aussprachemodell können Sie die phonetische Form und Darstellung eines Worts oder Begriffs definieren. Dies ist für die Verarbeitung angepasster Benennungen wie Produktnamen oder Akronymen hilfreich. Erforderlich ist zu Beginn lediglich eine Aussprachedatei, bei der es sich um eine einfache `.txt`-Datei handelt. |
+| Text-zu-Sprache | [Voicefont](./how-to-custom-voice-create-voice.md) | Mithilfe benutzerdefinierter Voicefonts können Sie eine wiedererkennbare, einzigartige Stimme für Ihre Marke erstellen. Für den Einstieg reicht bereits eine kleine Datenmenge aus. Je mehr Daten Sie bereitstellen, desto natürlicher und menschenähnlicher klingt Ihr Voicefont. |
 
 ## <a name="sample-code"></a>Beispielcode
 
@@ -138,7 +138,7 @@ Auf GitHub steht Beispielcode für jedes der Features des Speech-Diensts zur Ver
 
 ## <a name="reference-docs"></a>Referenz
 
-- [Speech SDK](speech-sdk-reference.md)
+- [Speech SDK](./speech-sdk.md)
 - [Speech-Geräte-SDK](speech-devices-sdk.md)
 - [REST-API: Spracherkennung](rest-speech-to-text.md)
 - [REST-API: Sprachsynthese](rest-text-to-speech.md)

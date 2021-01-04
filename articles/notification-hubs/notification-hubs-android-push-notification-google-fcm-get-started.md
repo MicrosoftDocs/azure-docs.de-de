@@ -16,12 +16,12 @@ ms.date: 06/22/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: 7e68e93e8a103ccf92c949df779d929ac4095d92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5485dacc4d9e3210ad69819caf4e36f96c626da
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268824"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428377"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-06"></a>Tutorial: Senden von Pushbenachrichtigungen an Android-Geräte mit Firebase SDK-Version 0.6
 
@@ -92,14 +92,14 @@ Der Hub ist jetzt für die Verwendung mit Firebase Cloud Messaging konfiguriert.
 2. Wählen Sie die Zielversion des Android SDK aus, das in Ihrem Projekt verwendet wird. Wählen Sie dann **Paketdetails anzeigen** aus. 
 
     ![Android SDK Manager – Auswählen der Zielversion](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
-3. Wählen Sie die Option **Google-APIs**, falls diese Installation noch nicht durchgeführt wurde.
+3. Wählen Sie die Option **Google-APIs** , falls diese Installation noch nicht durchgeführt wurde.
 
     ![Android SDK Manager – „Google-APIs“ ausgewählt](./media/notification-hubs-android-studio-add-google-play-services/googole-apis-selected.png)
-4. Wechseln Sie auf die Registerkarte **SDK Tools** (SDK-Tools). Wählen Sie wie in der folgenden Abbildung dargestellt die Option **Google Play Services**, falls Google Play Services noch nicht installiert ist. Wählen Sie dann **Anwenden** aus, um die Installation auszuführen. Notieren Sie den SDK-Pfad, den Sie in einem späteren Schritt angeben müssen.
+4. Wechseln Sie auf die Registerkarte **SDK Tools** (SDK-Tools). Wählen Sie wie in der folgenden Abbildung dargestellt die Option **Google Play Services** , falls Google Play Services noch nicht installiert ist. Wählen Sie dann **Anwenden** aus, um die Installation auszuführen. Notieren Sie den SDK-Pfad, den Sie in einem späteren Schritt angeben müssen.
 
     ![Android SDK Manager – „Google Play Services“ ausgewählt](./media/notification-hubs-android-studio-add-google-play-services/google-play-services-selected.png)
-3. Wählen Sie **OK**, wenn das Dialogfeld **Änderung bestätigen** angezeigt wird. Die gewünschten Komponenten werden mit dem entsprechenden Installationsprogramm installiert. Wählen Sie **Fertig stellen**, wenn die Installation der Komponenten abgeschlossen ist.
-4. Wählen Sie **OK**, um das Dialogfeld **Settings for New Projects** (Einstellungen für neue Projekte) zu schließen.  
+3. Wählen Sie **OK** , wenn das Dialogfeld **Änderung bestätigen** angezeigt wird. Die gewünschten Komponenten werden mit dem entsprechenden Installationsprogramm installiert. Wählen Sie **Fertig stellen** , wenn die Installation der Komponenten abgeschlossen ist.
+4. Wählen Sie **OK** , um das Dialogfeld **Settings for New Projects** (Einstellungen für neue Projekte) zu schließen.  
 1. Öffnen Sie die Datei „AndroidManifest.xml“, und fügen Sie dann das folgende Tag zum Tag *application* hinzu.
 
     ```xml
@@ -171,11 +171,11 @@ Der Hub ist jetzt für die Verwendung mit Firebase Cloud Messaging konfiguriert.
 
 ### <a name="add-code"></a>Code hinzufügen
 
-1. Erweitern Sie in der Projektansicht die Knoten **app** > **src** > **main** > **java**. Klicken Sie mit der rechten Maustaste unter **java** auf Ihren Paketordner. Wählen Sie **Neu** und dann **Java-Klasse** aus. Geben Sie **NotificationSettings** als Name ein, und wählen Sie **OK** aus.
+1. Erweitern Sie in der Projektansicht die Knoten **app** > **src** > **main** > **java** . Klicken Sie mit der rechten Maustaste unter **java** auf Ihren Paketordner. Wählen Sie **Neu** und dann **Java-Klasse** aus. Geben Sie **NotificationSettings** als Name ein, und wählen Sie **OK** aus.
 
     Aktualisieren Sie diese drei Platzhalter im weiter unten angegebenen Code für die `NotificationSettings`-Klasse:
 
-   * **HubListenConnectionString:** Die **DefaultListenAccessSignature**-Verbindungszeichenfolge für Ihren Hub. Sie können diese Verbindungszeichenfolge kopieren, indem Sie im [Azure portal] im Hub auf **Zugriffsrichtlinien** klicken.
+   * **HubListenConnectionString:** Die **DefaultListenAccessSignature** -Verbindungszeichenfolge für Ihren Hub. Sie können diese Verbindungszeichenfolge kopieren, indem Sie im [Azure portal] im Hub auf **Zugriffsrichtlinien** klicken.
    * **HubName:** Verwenden Sie den Namen des Hubs, der im [Azure portal] auf der Hubseite angezeigt wird.
 
      `NotificationSettings` -Code:
@@ -411,7 +411,7 @@ Der Hub ist jetzt für die Verwendung mit Firebase Cloud Messaging konfiguriert.
     android:id="@+id/text_hello"
     ```
 
-    ![Azure Notification Hubs – Testsendung](./media/notification-hubs-android-push-notification-google-fcm-get-started/activity-main-xml.png)
+    ![Screenshot: android:id="@+id/text_hello"-ID, die auf das TextView-Steuerelement angewendet wird.](./media/notification-hubs-android-push-notification-google-fcm-get-started/activity-main-xml.png)
 
 10. Als Nächstes fügen Sie eine Unterklasse für den Empfänger hinzu, den Sie in „AndroidManifest.xml“ definiert haben. Fügen Sie dem Projekt eine weitere neue Klasse namens `FirebaseService`hinzu.
 
@@ -557,7 +557,7 @@ Sie können Pushbenachrichtigungen mit folgenden Schritten über das [Azure port
 
 Vor dem Testen von Pushbenachrichtigungen in einem Emulator müssen Sie sicherstellen, dass das Emulatorimage die Google-API-Ebene unterstützt, die Sie für die App ausgewählt haben. Wenn das Image keine nativen Google-APIs unterstützt, wird unter Umständen die Ausnahme **SERVICE\_NOT\_AVAILABLE** angezeigt.
 
-Stellen Sie zusätzlich sicher, dass Ihr Google-Konto dem ausgeführten Emulator unter **Einstellungen** > **Konten** hinzugefügt wurde. Andernfalls führt die Registrierung bei FCM möglicherweise zur Ausnahme **AUTHENTICATION\_FAILED**.
+Stellen Sie zusätzlich sicher, dass Ihr Google-Konto dem ausgeführten Emulator unter **Einstellungen** > **Konten** hinzugefügt wurde. Andernfalls führt die Registrierung bei FCM möglicherweise zur Ausnahme **AUTHENTICATION\_FAILED** .
 
 ## <a name="next-steps"></a>Nächste Schritte
 

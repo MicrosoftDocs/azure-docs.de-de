@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: d6b59de048cdf00d352c4f488ecb51bfdf83640f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d3e3615ede7406a3b581171ae759ec0ec53f13e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89178925"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655369"
 ---
 # <a name="connect-office-365-logs-to-azure-sentinel"></a>Herstellen einer Verbindung von Office 365-Protokollen mit Azure Sentinel
 
-Der [Office 365](https://docs.microsoft.com/office/)-Protokollconnector liefert Azure Sentinel Informationen zu laufenden Benutzer- und Administratoraktivitäten in **Exchange** und **SharePoint** (einschließlich **OneDrive**) und jetzt auch **Teams**. Diese Informationen umfassen Details zu Aktionen wie z. B. Dateidownloads, gesendeten Zugriffsanforderungen, Änderungen an Gruppenereignissen und Postfachvorgängen, Teams-Ereignissen (etwa Chat-, Team-, Mitglieds- oder Kanalereignissen) sowie ausführliche Informationen zu dem Benutzer, der die Aktionen durchgeführt hat. Das Verbinden von Office 365-Protokollen mit Azure Sentinel ermöglicht Ihnen, diese Daten in Ihren Arbeitsmappen anzuzeigen und zu analysieren, sie zum Erstellen benutzerdefinierter Warnungen abzufragen und zu integrieren, um den Untersuchungsprozess zu verbessern und Ihnen einen besseren Einblick in Ihre Office 365-Sicherheit zu geben.
+Der [Office 365](/office/)-Protokollconnector liefert Azure Sentinel Informationen zu laufenden Benutzer- und Administratoraktivitäten in **Exchange** und **SharePoint** (einschließlich **OneDrive**) und jetzt auch **Teams**. Diese Informationen umfassen Details zu Aktionen wie z. B. Dateidownloads, gesendeten Zugriffsanforderungen, Änderungen an Gruppenereignissen und Postfachvorgängen, Teams-Ereignissen (etwa Chat-, Team-, Mitglieds- oder Kanalereignissen) sowie ausführliche Informationen zu dem Benutzer, der die Aktionen durchgeführt hat. Das Verbinden von Office 365-Protokollen mit Azure Sentinel ermöglicht Ihnen, diese Daten in Ihren Arbeitsmappen anzuzeigen und zu analysieren, sie zum Erstellen benutzerdefinierter Warnungen abzufragen und zu integrieren, um den Untersuchungsprozess zu verbessern und Ihnen einen besseren Einblick in Ihre Office 365-Sicherheit zu geben.
 
 > [!IMPORTANT]
 > Die **Erweiterung für Microsoft Teams-Protokolle** des Office 365-Protokollconnectors befindet sich derzeit in der Public Preview.
@@ -38,9 +38,9 @@ Der [Office 365](https://docs.microsoft.com/office/)-Protokollconnector liefert
 - Ihre Office 365-Bereitstellung muss sich auf demselben Mandanten wie Ihr Azure Sentinel-Arbeitsbereich befinden.
 
 > [!IMPORTANT]
-> - Damit der Connector über die Verwaltungsaktivitäts-API von Office 365 auf Daten zugreifen kann, muss für Ihre Office 365-Bereitstellung die **einheitliche Überwachungsprotokollierung** aktiviert sein. Abhängig vom Typ Ihrer Lizenz für Office 365/Microsoft 365 ist sie möglicherweise standardmäßig aktiviert. Informieren Sie sich im [Security & Compliance Center](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center) über den Status der einheitlichen Überwachungsprotokollierung gemäß Ihrem Lizenztyp.
-> - Sie können den aktuellen Status der einheitlichen Überwachungsprotokollierung von Office 365 auch manuell aktivieren, deaktivieren und überprüfen. Anweisungen finden Sie unter [Aktivieren oder Deaktivieren der Office 365-Überwachungsprotokollsuche](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off).
-> - Weitere Informationen finden Sie unter [Office 365-Verwaltungsaktivitäts-API – Referenz](https://docs.microsoft.com/office/office-365-management-api/office-365-management-activity-api-reference).
+> - Damit der Connector über die Verwaltungsaktivitäts-API von Office 365 auf Daten zugreifen kann, muss für Ihre Office 365-Bereitstellung die **einheitliche Überwachungsprotokollierung** aktiviert sein. Abhängig vom Typ Ihrer Lizenz für Office 365/Microsoft 365 ist sie möglicherweise standardmäßig aktiviert. Informieren Sie sich im [Security & Compliance Center](/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center) über den Status der einheitlichen Überwachungsprotokollierung gemäß Ihrem Lizenztyp.
+> - Sie können den aktuellen Status der einheitlichen Überwachungsprotokollierung von Office 365 auch manuell aktivieren, deaktivieren und überprüfen. Anweisungen finden Sie unter [Aktivieren oder Deaktivieren der Office 365-Überwachungsprotokollsuche](/office365/securitycompliance/turn-audit-log-search-on-or-off).
+> - Weitere Informationen finden Sie unter [Office 365-Verwaltungsaktivitäts-API – Referenz](/office/office-365-management-api/office-365-management-activity-api-reference).
 
 
    > [!NOTE]
@@ -70,4 +70,3 @@ Der [Office 365](https://docs.microsoft.com/office/)-Protokollconnector liefert
 In diesem Dokument haben Sie erfahren, wie Sie Office 365 mit Azure Sentinel verbinden. Weitere Informationen zu Azure Sentinel finden Sie in den folgenden Artikeln:
 - Erfahren Sie, wie Sie [Einblick in Ihre Daten und potenzielle Bedrohungen erhalten](quickstart-get-visibility.md).
 - Beginnen Sie mit dem Erkennen von Bedrohungen mit Azure Sentinel mithilfe von [integrierten](tutorial-detect-threats-built-in.md) oder [benutzerdefinierten](tutorial-detect-threats-custom.md) Regeln.
-

@@ -3,27 +3,27 @@ title: Übersicht über virtuelle Computer der HBv2-Serie – Azure Virtual Mac
 description: Erfahren Sie mehr über die Größe virtueller Computer der HBv2-Serie in Azure.
 services: virtual-machines
 author: vermagit
-manager: gwallace
 tags: azure-resource-manager
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 09/28/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 48366f205ed8eb2d179bdc39c8da3d673f066a69
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: be66f29881250843f70ba85b8ef7c80ae8b31aa6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332589"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966937"
 ---
 # <a name="hbv2-series-virtual-machine-overview"></a>Übersicht über virtuelle Computer der HBv2-Serie 
 
  
 Die Maximierung der Leistung von HPC-Anwendungen (High Performance Computing) für AMD EPYC erfordert ein durchdachtes Konzept für die Lokalität des Arbeitsspeichers und die Prozessplatzierung. Im Anschluss finden Sie einen Überblick über die AMD EPYC-Architektur sowie über unsere Implementierung in Azure für HPC-Anwendungen. Der Begriff **pNUMA** bezieht sich hier auf eine physische NUMA-Domäne; **vNUMA** steht für eine virtualisierte NUMA-Domäne. 
 
-Physisch handelt es sich bei einem Server der [HBv2-Serie](../../hbv2-series.md) um zwei EPYC 7742-CPUs mit jeweils 64 Kernen, wodurch sich eine Gesamtanzahl von 128 physischen Kernen ergibt. Diese 128 Kerne sind in 32 pNUMA-Domänen (16 pro Socket) unterteilt, die jeweils vier Kerne umfassen und von AMD als **Core Complex** (oder **CCX** ) bezeichnet werden. Jeder CCX verfügt über einen eigenen L3-Cache, der dem Betriebssystem eine pNUMA-/vNUMA-Grenze signalisiert. Vier benachbarte CCX teilen sich den Zugriff auf zwei Kanäle des physischen DRAM. 
+Physisch handelt es sich bei einem Server der [HBv2-Serie](../../hbv2-series.md) um zwei EPYC 7742-CPUs mit jeweils 64 Kernen, wodurch sich eine Gesamtanzahl von 128 physischen Kernen ergibt. Diese 128 Kerne sind in 32 pNUMA-Domänen (16 pro Socket) unterteilt, die jeweils vier Kerne umfassen und von AMD als **Core Complex** (oder **CCX**) bezeichnet werden. Jeder CCX verfügt über einen eigenen L3-Cache, der dem Betriebssystem eine pNUMA-/vNUMA-Grenze signalisiert. Vier benachbarte CCX teilen sich den Zugriff auf zwei Kanäle des physischen DRAM. 
 
 Damit der Azure-Hypervisor über genügend Platz verfügt, um ohne Beeinträchtigung des virtuellen Computers agieren zu können, werden die physischen pNUMA-Domänen 0 und 16 (d. h. der erste CCX jedes CPU-Sockets) reserviert. Alle verbleibenden 30 pNUMA-Domänen werden der VM zugewiesen und werden dadurch zu vNUMA. Für den virtuellen Computer steht somit Folgendes zur Verfügung:
 

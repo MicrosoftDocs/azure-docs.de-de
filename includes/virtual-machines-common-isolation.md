@@ -2,18 +2,18 @@
 title: include file
 description: include file
 services: virtual-machines
-author: ayshakeen
+author: styli365
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/18/2019
-ms.author: azcspmt;ayshak;cynthn
+ms.date: 11/05/2020
+ms.author: sttsinar
 ms.custom: include file
-ms.openlocfilehash: 4f6a6dd28662c98c89dad39da3fd5c967f227dc3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd31152c6742271658cf4fd7ac2a5e2957651c84
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87084047"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96478403"
 ---
 Azure Compute bietet VM-Größen, die für einen bestimmten Hardwaretyp isoliert und für einen einzelnen Kunden bestimmt sind. Die Größen isolierter VMs gelten für eine bestimmte Hardwaregeneration und sind veraltet, sobald die Hardwaregeneration außer Betrieb gesetzt wird.
 
@@ -25,15 +25,19 @@ Da isolierte VMs groß sind, können Kunden die Ressourcen dieser VMs zudem unte
 Zu den aktuellen Angebote isolierter virtueller Computer zählen Folgende:
 * Standard_E64is_v3
 * Standard_E64i_v3
+* Standard_E80ids_v4
+* Standard_E80is_v4
 * Standard_M128ms
 * Standard_GS5
 * Standard_G5
 * Standard_F72s_v2
 
+
 > [!NOTE]
 > Die Größen von isolierten VMs haben eine durch die Hardware begrenzte Lebensdauer. Ausführliche Informationen hierzu finden Sie weiter unten.
 
 ## <a name="deprecation-of-isolated-vm-sizes"></a>Eingestellte Unterstützung von Größen isolierter VMs
+
 Da es sich bei der Größe isolierter VMs um eine hardwaregebundene Größe handelt, werden über Azure 12 Monate vor der offiziellen Einstellung der Unterstützung der Größe Erinnerungen bereitgestellt.  Zudem wird über Azure eine aktualisierte Größe isolierter VMs für die nächste Hardwareversion bereitgestellt, auf die der Kunde seine Workload verschieben kann.
 
 | Size | Datum für die Außerbetriebnahme der Isolation | 
@@ -58,14 +62,19 @@ Da es sich bei der Größe isolierter VMs um eine hardwaregebundene Größe hand
 **A:** Wir werden 12 Monate vor der offiziellen Einstellung der Unterstützung der Größen von isolierten VMs Erinnerungen bereitstellen.
 
 ### <a name="q-im-an-azure-service-fabric-customer-relying-on-the-silver-or-gold-durability-tiers-does-this-change-impact-me"></a>F: Ich bin ein Azure Service Fabric-Kunde, der die Dauerhaftigkeitsstufen Silver oder Gold verwendet. Wirkt sich diese Änderung auf mich aus?
-**A:** Nein. Die von den [Dauerhaftigkeitsstufen](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) von Service Fabric bereitgestellten Garantien werden auch nach dieser Änderung weiterhin funktionieren. Wenn Sie aus anderen Gründen physische Hardwareisolierung benötigen, müssen Sie möglicherweise dennoch eine der oben beschriebenen Aktionen ausführen. 
+**A:** Nein. Die von den [Dauerhaftigkeitsstufen](../articles/service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) von Service Fabric bereitgestellten Garantien werden auch nach dieser Änderung weiterhin funktionieren. Wenn Sie aus anderen Gründen physische Hardwareisolierung benötigen, müssen Sie möglicherweise dennoch eine der oben beschriebenen Aktionen ausführen. 
  
 ### <a name="q-what-are-the-milestones-for-d15_v2-or-ds15_v2-isolation-retirement"></a>F: Welche Meilensteine gibt es bei der Einstellung der Unterstützung der Isolation von D15_v2 bzw. DS15_v2? 
 **A:** 
-| Date | Aktion | 
-| --- | --- |
-| 18. November 2019 | Verfügbarkeit von D/DS15i_v2 (PAYG, 1 Jahr RI) |
-| 14. Mai 2020  | Letzter Tag zum Erwerb von D/DS15i_v2 RI für 1 Jahr | 
-| 15. Mai 2020   | D/DS15_v2-Isolationsgarantie entfernt | 
-| 15. Mai 2021  | Außerbetriebnahme von D/DS15i_v2 (alle Kunden mit Ausnahme derjenigen, die vor dem 18. November 2019 RIs von D/DS15_v2 für 3 Jahre erworben haben)| 
-| 17. November 2022  | Außerbetriebnahme von D/DS15i_v2 nach Ablauf von RIs für 3 Jahre (für Kunden, die vor dem 18. November 2019 RIs von D/DS15_v2 für 3 Jahre erworben haben) | 
+ 
+| Date | Aktion |
+|---|---| 
+| 18. November 2019 | Verfügbarkeit von D/DS15i_v2 (PAYG, 1 Jahr RI) | 
+| 14. Mai 2020 | Letzter Tag zum Erwerb von D/DS15i_v2 RI für 1 Jahr | 
+| 15. Mai 2020 | D/DS15_v2-Isolationsgarantie entfernt | 
+| 15. Mai 2021 | Außerbetriebnahme von D/DS15i_v2 (alle Kunden mit Ausnahme derjenigen, die vor dem 18. November 2019 RIs von D/DS15_v2 für 3 Jahre erworben haben)| 
+| 17. November 2022 | Außerbetriebnahme von D/DS15i_v2 nach Ablauf von RIs für 3 Jahre (für Kunden, die vor dem 18. November 2019 RIs von D/DS15_v2 für 3 Jahre erworben haben) |
+
+## <a name="next-steps"></a>Nächste Schritte
+
+Kunden können auch die Ressourcen dieser isolierten virtuellen Computer weiter unterteilen, indem sie die [Azure-Unterstützung für geschachtelte virtuelle Computer](https://azure.microsoft.com/blog/nested-virtualization-in-azure/) verwenden.

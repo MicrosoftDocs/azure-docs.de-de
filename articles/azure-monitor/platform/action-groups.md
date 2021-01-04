@@ -6,29 +6,29 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: ab76b4aafd73173077d5b2b9f29e6e2da24c1710
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: a2144827cd27c0af6610dabdf5ad205359f550cc
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104392"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435483"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Erstellen und Verwalten von Aktionsgruppen im Azure-Portal
-Eine Aktionsgruppe ist eine Sammlung von Benachrichtigungseinstellungen, die vom Besitzer eines Azure-Abonnements definiert wurden. Azure Monitor- und Service Health-Warnungen verwenden Aktionsgruppen, um Benutzer zu benachrichtigen, dass eine Warnung ausgelöst wurde. Verschiedene Warnungen können je nach den Bedürfnissen des Benutzers die gleiche Aktionsgruppe oder verschiedene Aktionsgruppen verwenden. Sie können in einem Abonnement bis zu 2.000 Aktionsgruppen konfigurieren.
+Eine Aktionsgruppe ist eine Sammlung von Benachrichtigungseinstellungen, die vom Besitzer eines Azure-Abonnements definiert wurden. Azure Monitor- und Service Health-Warnungen verwenden Aktionsgruppen, um Benutzer zu benachrichtigen, dass eine Warnung ausgelöst wurde. Verschiedene Warnungen können je nach den Bedürfnissen des Benutzers die gleiche Aktionsgruppe oder verschiedene Aktionsgruppen verwenden. 
 
 In diesem Artikel wird beschrieben, wie Sie Aktionsgruppen im Azure-Portal erstellen und verwalten.
 
 Jede Aktion besteht aus den folgenden Eigenschaften:
 
 * **Typ:** Die ausgeführte Benachrichtigung oder Aktion. Beispiele sind das Senden eines Sprachanrufs, SMS, E-Mail oder das Auslösen verschiedener Arten von automatisierten Aktionen. Siehe „Typen“ weiter unten in diesem Artikel.
-* **Name** : Ein eindeutiger Bezeichner innerhalb der Aktionsgruppe.
-* **Details** : Die entsprechenden Details. Diese können je nach *Typ* variieren.
+* **Name**: Ein eindeutiger Bezeichner innerhalb der Aktionsgruppe.
+* **Details**: Die entsprechenden Details. Diese können je nach *Typ* variieren.
 
 Weitere Informationen zum Verwenden von Azure Resource Manager-Vorlagen zur Konfigurierung von Aktionsgruppen finden Sie unter [Aktionsgruppen-Resource Manager-Vorlagen](./action-groups-create-resource-manager-template.md).
 
 ## <a name="create-an-action-group-by-using-the-azure-portal"></a>Erstellen einer Aktionsgruppe mit dem Azure-Portal
 
-1. Suchen Sie im [Azure-Portal](https://portal.azure.com) nach dem Eintrag **Überwachen** , und wählen Sie ihn aus. Im Bereich **Überwachen** sind alle Ihre Überwachungseinstellungen und -daten an einem zentralen Ort zusammengefasst.
+1. Suchen Sie im [Azure-Portal](https://portal.azure.com) nach dem Eintrag **Überwachen**, und wählen Sie ihn aus. Im Bereich **Überwachen** sind alle Ihre Überwachungseinstellungen und -daten an einem zentralen Ort zusammengefasst.
 
 1. Wählen Sie **Warnungen** und dann **Aktionen verwalten** aus.
 
@@ -59,15 +59,15 @@ Gehen Sie unter **Instanzendetails** wie folgt vor:
 
 1. Definieren Sie eine Liste von Benachrichtigungen, die bei Auslösung einer Warnung gesendet werden. Geben Sie für jede Benachrichtigung Folgendes an:
 
-    a. **Benachrichtigungstyp** : Wählen Sie den Typ der zu sendenden Benachrichtigung aus. Verfügbare Optionen:
+    a. **Benachrichtigungstyp**: Wählen Sie den Typ der zu sendenden Benachrichtigung aus. Verfügbare Optionen:
       * E-Mail an Azure Resource Manager-Rolle: Sendet eine E-Mail an Benutzer, die bestimmten ARM-Rollen auf Abonnementebene zugewiesen sind.
       * E-Mail/SMS/Push/Sprachanruf: Sendet diese Benachrichtigungstypen an bestimmte Empfänger.
     
-    b. **Name** : Geben Sie einen eindeutigen Namen für die Benachrichtigung ein.
+    b. **Name**: Geben Sie einen eindeutigen Namen für die Benachrichtigung ein.
 
-    c. **Details** : Geben Sie je nach ausgewähltem Benachrichtigungstyp eine E-Mail-Adresse, eine Telefonnummer usw. ein.
+    c. **Details**: Geben Sie je nach ausgewähltem Benachrichtigungstyp eine E-Mail-Adresse, eine Telefonnummer usw. ein.
     
-    d. **Allgemeines Warnungsschema** : Sie können auch das [allgemeine Warnungsschema](./alerts-common-schema.md) verwenden, das den Vorteil einer einzelnen erweiterbaren und einheitlichen Warnungsnutzlast für alle Benachrichtigungsdienste in Azure Monitor bietet.
+    d. **Allgemeines Warnungsschema**: Sie können auch das [allgemeine Warnungsschema](./alerts-common-schema.md) verwenden, das den Vorteil einer einzelnen erweiterbaren und einheitlichen Warnungsnutzlast für alle Benachrichtigungsdienste in Azure Monitor bietet.
 
     ![Die Registerkarte „Benachrichtigungen“](./media/action-groups/action-group-2-notifications.png)
     
@@ -79,11 +79,11 @@ Gehen Sie unter **Instanzendetails** wie folgt vor:
 
     a. **Aktionstyp:** Wählen Sie „Automation-Runbook“, „Azure-Funktion“, „ITSM“, „Logik-App“, „Sicherer Webhook“ oder „Webhook“ aus.
     
-    b. **Name** : Geben Sie einen eindeutigen Namen für die Aktion ein.
+    b. **Name**: Geben Sie einen eindeutigen Namen für die Aktion ein.
 
-    c. **Details** : Geben Sie je nach Aktionstyp einen Webhook-URI, eine Azure-App, eine ITSM-Verbindung oder ein Automation-Runbook ein. Legen Sie für die ITSM-Aktion darüber hinaus **Arbeitselement** und andere Felder fest, die Ihr ITSM-Tool benötigt.
+    c. **Details**: Geben Sie je nach Aktionstyp einen Webhook-URI, eine Azure-App, eine ITSM-Verbindung oder ein Automation-Runbook ein. Legen Sie für die ITSM-Aktion darüber hinaus **Arbeitselement** und andere Felder fest, die Ihr ITSM-Tool benötigt.
     
-    d. **Allgemeines Warnungsschema** : Sie können auch das [allgemeine Warnungsschema](./alerts-common-schema.md) verwenden, das den Vorteil einer einzelnen erweiterbaren und einheitlichen Warnungsnutzlast für alle Benachrichtigungsdienste in Azure Monitor bietet.
+    d. **Allgemeines Warnungsschema**: Sie können auch das [allgemeine Warnungsschema](./alerts-common-schema.md) verwenden, das den Vorteil einer einzelnen erweiterbaren und einheitlichen Warnungsnutzlast für alle Benachrichtigungsdienste in Azure Monitor bietet.
     
     ![Die Registerkarte „Aktionen“](./media/action-groups/action-group-3-actions.png)
 
@@ -93,7 +93,7 @@ Gehen Sie unter **Instanzendetails** wie folgt vor:
 
     ![Die Registerkarte „Tags“](./media/action-groups/action-group-4-tags.png)
     
-1. Klicken Sie auf **Überprüfen + erstellen** , um die Einstellungen zu überprüfen. Dadurch wird eine schnelle Überprüfung Ihrer Eingaben vorgenommen, um sicherzustellen, dass alle erforderlichen Felder ausgewählt sind. Wenn Probleme vorliegen, werden diese hier angezeigt. Nachdem Sie die Einstellungen überprüft haben, klicken Sie auf **Erstellen** , um die Aktionsgruppe bereitzustellen.
+1. Klicken Sie auf **Überprüfen + erstellen**, um die Einstellungen zu überprüfen. Dadurch wird eine schnelle Überprüfung Ihrer Eingaben vorgenommen, um sicherzustellen, dass alle erforderlichen Felder ausgewählt sind. Wenn Probleme vorliegen, werden diese hier angezeigt. Nachdem Sie die Einstellungen überprüft haben, klicken Sie auf **Erstellen**, um die Aktionsgruppe bereitzustellen.
     
     ![Die Registerkarte „Überprüfen + erstellen“](./media/action-groups/action-group-5-review.png)
 
@@ -149,6 +149,10 @@ Es kann sein, dass Sie in einer Aktionsgruppe über eine begrenzte Anzahl von IT
 Es kann sein, dass Sie in einer Aktionsgruppe über eine begrenzte Anzahl von Logik-App-Aktionen verfügen.
 
 ### <a name="secure-webhook"></a>Sicherer Webhook
+
+> [!NOTE]
+> Zur Verwendung der Webhookaktion ist es erforderlich, dass der Webhookendpunkt des Ziels entweder keine Details der Warnung zum erfolgreichen Funktionieren benötigt oder die Warnungskontextinformationen, die als Teil des POST-Vorgangs bereitgestellt werden, analysieren kann. Wenn der Webhookendpunkt die Warnungskontextinformationen nicht selbst verarbeiten kann, können Sie eine Lösung wie eine [Logik-App-Aktion](./action-groups-logic-app.md) zur benutzerdefinierten Bearbeitung der Warnungskontextinformationen verwenden, um sie an das erwartete Datenformat des Webhooks anzupassen.
+
 Mithilfe der Aktion „Aktionsgruppenwebhook“ können Sie Azure Active Directory nutzen, um die Verbindung zwischen Ihrer Aktionsgruppe und Ihrer geschützten Web-API (Webhookendpunkt) zu sichern. Der gesamte Workflow für das Nutzen dieser Funktionalität wird unten beschrieben. Eine Übersicht über Azure AD-Anwendungen und -Dienstprinzipale finden Sie unter [Microsoft Identity Platform (v2.0): Übersicht](../../active-directory/develop/v2-overview.md).
 
 1. Erstellen Sie eine Azure AD-Anwendung für ihre geschützte Web-API. Weitere Informationen finden Sie unter [Geschützte Web-API: App-Registrierung](../../active-directory/develop/scenario-protected-web-api-app-registration.md).
@@ -157,7 +161,7 @@ Mithilfe der Aktion „Aktionsgruppenwebhook“ können Sie Azure Active Directo
 2. Aktivieren Sie Aktionsgruppen, um Ihre Azure AD-Anwendung zu verwenden.
 
     > [!NOTE]
-    > Sie müssen Mitglied der [Rolle „Azure AD-Anwendungsadministrator“](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles) sein, um dieses Skript ausführen zu können.
+    > Sie müssen Mitglied der [Rolle „Azure AD-Anwendungsadministrator“](../../active-directory/roles/permissions-reference.md#available-roles) sein, um dieses Skript ausführen zu können.
     
     - Ändern Sie den Connect-AzureAD-Befehl des PowerShell-Skripts so, dass Ihre Azure AD-Mandanten-ID verwendet wird.
     - Ändern Sie die Variable „$myAzureADApplicationObjectId“ des PowerShell-Skripts, um die Objekt-ID Ihrer Azure AD-Anwendung zu verwenden.
@@ -259,6 +263,10 @@ Es kann sein, dass Sie in einer Aktionsgruppe über eine begrenzte Anzahl von Sp
 Die Preise für unterstützte Länder/Regionen sind auf der [Seite mit der Preisübersicht für Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) aufgeführt.
 
 ### <a name="webhook"></a>Webhook
+
+> [!NOTE]
+> Zur Verwendung der Webhookaktion ist es erforderlich, dass der Webhookendpunkt des Ziels entweder keine Details der Warnung zum erfolgreichen Funktionieren benötigt oder die Warnungskontextinformationen, die als Teil des POST-Vorgangs bereitgestellt werden, analysieren kann. Wenn der Webhookendpunkt die Warnungskontextinformationen nicht selbst verarbeiten kann, können Sie eine Lösung wie eine [Logik-App-Aktion](./action-groups-logic-app.md) zur benutzerdefinierten Bearbeitung der Warnungskontextinformationen verwenden, um sie an das erwartete Datenformat des Webhooks anzupassen.
+
 Webhooks werden mithilfe der folgenden Regeln verarbeitet:
 - Ein Webhookaufruf wird maximal dreimal versucht.
 - Der Aufruf wird wiederholt, wenn innerhalb des Timeoutzeitraums keine Antwort empfangen wird oder einer der folgenden HTTP-Statuscodes zurückgegeben wird: 408, 429, 503 oder 504
@@ -266,53 +274,139 @@ Webhooks werden mithilfe der folgenden Regeln verarbeitet:
 - Der zweite und der dritte Versuch warten 30 Sekunden auf eine Antwort.
 - Nachdem bei allen drei Versuchen, den Webhook aufzurufen, ein Fehler aufgetreten ist, ruft keine der Aktionsgruppen den Endpunkt während der nächsten 15 Minuten auf.
 
-Quell-IP-Adressbereiche
- - 13.72.19.232
- - 13.106.57.181
- - 13.106.54.3
- - 13.106.54.19
- - 13.106.38.142
- - 13.106.38.148
- - 13.106.57.196
- - 13.106.57.197
- - 52.244.68.117
- - 52.244.65.137
- - 52.183.31.0
- - 52.184.145.166
- - 51.4.138.199
- - 51.5.148.86
- - 51.5.149.19
+Quell-IP-Adressbereiche:
+
+ - 13.66.60.119/32
+ - 13.66.143.220/30
+ - 13.66.202.14/32
+ - 13.66.248.225/32
+ - 13.66.249.211/32
+ - 13.67.10.124/30
+ - 13.69.109.132/30
+ - 13.71.199.112/30
+ - 13.77.53.216/30
+ - 13.77.172.102/32
+ - 13.77.183.209/32
+ - 13.78.109.156/30
+ - 13.84.49.247/32
+ - 13.84.51.172/32
+ - 13.84.52.58/32
+ - 13.86.221.220/30
+ - 13.106.38.142/32
+ - 13.106.38.148/32
+ - 13.106.54.3/32
+ - 13.106.54.19/32
+ - 13.106.57.181/32
+ - 13.106.57.196/31
+ - 20.38.149.132/30
+ - 20.42.64.36/30
+ - 20.43.121.124/30
+ - 20.44.17.220/30
+ - 20.45.123.236/30
+ - 20.72.27.152/30
+ - 20.150.172.228/30
+ - 20.192.238.124/30
+ - 20.193.202.4/30
+ - 40.68.195.137/32
+ - 40.68.201.58/32
+ - 40.68.201.65/32
+ - 40.68.201.206/32
+ - 40.68.201.211/32
+ - 40.68.204.18/32
+ - 40.115.37.106/32
+ - 40.121.219.215/32
+ - 40.121.221.62/32
+ - 40.121.222.201/32
+ - 40.121.223.186/32
+ - 51.104.9.100/30
+ - 52.183.20.244/32
+ - 52.183.31.0/32
+ - 52.183.94.59/32
+ - 52.184.145.166/32
+ - 191.233.50.4/30
+ - 191.233.207.64/26
+ - 2603:1000:4:402::178/125
+ - 2603:1000:104:402::178/125
+ - 2603:1010:6:402::178/125
+ - 2603:1010:101:402::178/125
+ - 2603:1010:304:402::178/125
+ - 2603:1010:404:402::178/125
+ - 2603:1020:5:402::178/125
+ - 2603:1020:206:402::178/125
+ - 2603:1020:305:402::178/125
+ - 2603:1020:405:402::178/125
+ - 2603:1020:605:402::178/125
+ - 2603:1020:705:402::178/125
+ - 2603:1020:805:402::178/125
+ - 2603:1020:905:402::178/125
+ - 2603:1020:a04:402::178/125
+ - 2603:1020:b04:402::178/125
+ - 2603:1020:c04:402::178/125
+ - 2603:1020:d04:402::178/125
+ - 2603:1020:e04:402::178/125
+ - 2603:1020:f04:402::178/125
+ - 2603:1020:1004:800::f8/125
+ - 2603:1020:1104:400::178/125
+ - 2603:1030:f:400::978/125
+ - 2603:1030:10:402::178/125
+ - 2603:1030:104:402::178/125
+ - 2603:1030:107:400::f0/125
+ - 2603:1030:210:402::178/125
+ - 2603:1030:40b:400::978/125
+ - 2603:1030:40c:402::178/125
+ - 2603:1030:504:802::f8/125
+ - 2603:1030:608:402::178/125
+ - 2603:1030:807:402::178/125
+ - 2603:1030:a07:402::8f8/125
+ - 2603:1030:b04:402::178/125
+ - 2603:1030:c06:400::978/125
+ - 2603:1030:f05:402::178/125
+ - 2603:1030:1005:402::178/125
+ - 2603:1040:5:402::178/125
+ - 2603:1040:207:402::178/125
+ - 2603:1040:407:402::178/125
+ - 2603:1040:606:402::178/125
+ - 2603:1040:806:402::178/125
+ - 2603:1040:904:402::178/125
+ - 2603:1040:a06:402::178/125
+ - 2603:1040:b04:402::178/125
+ - 2603:1040:c06:402::178/125
+ - 2603:1040:d04:800::f8/125
+ - 2603:1040:f05:402::178/125
+ - 2603:1040:1104:400::178/125
+ - 2603:1050:6:402::178/125
+ - 2603:1050:403:400::1f8/125
 
 Um Updates über Änderungen an diesen IP-Adressen zu erhalten, empfehlen wir Ihnen, eine Service Health-Warnung zu konfigurieren, die eine Überwachung auf Informationsbenachrichtigungen des Aktionsgruppendiensts ausführt.
 
 Es kann sein, dass Sie in einer Aktionsgruppe über eine begrenzte Anzahl von Webhookaktionen verfügen.
 
-### <a name="service-tag"></a>Diensttag
+Häufige Aktualisierungen der Quell-IP-Adressen können im Webhook recht zeitaufwändig sein. Die Verwendung von **Diensttags** für *ActionGroup* hilft bei der Minimierung der Komplexität von häufigen manuellen Aktualisierungen von IP-Adressen. Die oben angegebenen Präfixe für Quell-IP-Adressbereiche,für die das **Diensttag** gilt, werden automatisch von Microsoft verwaltet.
+
+#### <a name="service-tag"></a>Diensttag
 Ein Diensttag steht für eine Gruppe von IP-Adresspräfixen eines bestimmten Azure-Diensts. Microsoft verwaltet die Adresspräfixe, für die das Diensttag gilt, und aktualisiert das Diensttag automatisch, wenn sich die Adressen ändern. Auf diese Weise wird die Komplexität häufiger Updates an Netzwerksicherheitsregeln für eine Aktionsgruppe minimiert.
 
-1. Suchen Sie im Azure-Portal unter „Azure-Dienste“ nach *Netzwerksicherheitsgruppe* .
-2. Klicken Sie auf **Hinzufügen** , und erstellen Sie eine Netzwerksicherheitsgruppe.
+1. Suchen Sie im Azure-Portal unter „Azure-Dienste“ nach *Netzwerksicherheitsgruppe*.
+2. Klicken Sie auf **Hinzufügen**, und erstellen Sie eine Netzwerksicherheitsgruppe.
 
    1. Fügen Sie den Ressourcengruppennamen hinzu, und geben Sie die *Instanzdetails* ein.
-   1. Klicken Sie auf **Überprüfen + erstellen** und dann auf *Erstellen* .
+   1. Klicken Sie auf **Überprüfen + erstellen** und dann auf *Erstellen*.
    
    :::image type="content" source="media/action-groups/action-group-create-security-group.png" alt-text="Beispiel für das Erstellen einer Netzwerksicherheitsgruppe"border="true":::
 
-3. Wechseln Sie zur Ressourcengruppe, und klicken Sie dann auf die erstellte *Netzwerksicherheitsgruppe* .
+3. Wechseln Sie zur Ressourcengruppe, und klicken Sie dann auf die erstellte *Netzwerksicherheitsgruppe*.
 
-    1. Klicken Sie auf *Eingangssicherheitsregeln* .
-    1. Klicken Sie auf **Hinzufügen** .
+    1. Klicken Sie auf *Eingangssicherheitsregeln*.
+    1. Klicken Sie auf **Hinzufügen**.
     
     :::image type="content" source="media/action-groups/action-group-add-service-tag.png" alt-text="Beispiel für das Hinzufügen eines Diensttags"border="true":::
 
 4. Im rechten Bereich wird ein neues Fenster geöffnet.
     1.  Auswählen der Quelle: **Diensttag**
     1.  Quelldiensttag: **ActionGroup**
-    1.  Klicken Sie auf **Hinzufügen** .
+    1.  Klicken Sie auf **Hinzufügen**.
     
     :::image type="content" source="media/action-groups/action-group-service-tag.png" alt-text="Beispiel für das Hinzufügen eines Diensttags"border="true":::
-
-Die Verwendung von **Diensttags** für „ActionGroup“ hilft bei der Minimierung der Komplexität von häufigen Aktualisierungen von IP-Adressen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 * Erfahren Sie mehr über das [SMS-Warnungsverhalten in Aktionsgruppen](./alerts-sms-behavior.md).  

@@ -10,11 +10,11 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 07/20/2020
 ms.openlocfilehash: d50f577a7170982be004cc8957114f79675fbc6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078611"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006097"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Verwalten von Logik-Apps im Azure-Portal
 
@@ -198,7 +198,7 @@ Sie können das Azure-Portal für die Versionskontrolle Ihrer Logik-Apps verwend
 
    ![Screenshot einer Logik-App im Azure-Portal mit Auswahl der Versionsseite unter den Entwicklungstools](./media/manage-logic-apps-with-azure-portal/logic-apps-menu-versions.png)
 
-1. Wählen Sie in der Liste die **Version** Ihrer Logik-App aus, die Sie verwalten möchten. Sie können den **Version**sbezeichner in die Suchleiste eingeben, um die Liste zu filtern.
+1. Wählen Sie in der Liste die **Version** Ihrer Logik-App aus, die Sie verwalten möchten. Sie können den **Version** sbezeichner in die Suchleiste eingeben, um die Liste zu filtern.
 
 1. Auf der Seite **Verlaufsversion** werden die Details der früheren Version im schreibgeschützten Modus angezeigt. Sie können zwischen den Modi Logic Apps-**Designer** und **Codeansicht** auswählen.
 

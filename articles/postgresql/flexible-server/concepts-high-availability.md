@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 7db9ac0eb624c2732295639d65e0311fcf459f71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0d9b6042ae695caa73d926653f237b756bf4971
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930322"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366722"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Hochverfügbarkeitskonzepte für Azure Database for PostgreSQL – Flexible Server
 
@@ -43,7 +43,7 @@ Die Integrität der Konfiguration für Hochverfügbarkeit wird laufend überwach
 
 PostgreSQL-Clientanwendungen sind mit dem primären Server über den Namen des Datenbankservers verbunden. Lesevorgänge der Anwendung werden direkt vom primären Server ermöglicht, während Commit- und Schreibvorgänge in der Anwendung erst dann bestätigt werden, nachdem die Daten sowohl auf dem primären Server als auch auf dem Standbyreplikatserver persistent gespeichert wurden. Aufgrund dieser zusätzlichen Roundtripanforderung ist bei Anwendungen mit einer höheren Latenz für Schreib- und Commitvorgänge zu rechnen. Sie können die Integrität der Hochverfügbarkeit im Portal überwachen.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="Zonenredundante Hochverfügbarkeit"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="Zonenredundante Hochverfügbarkeit: stabiler Zustand"::: 
 
 1. Clients stellen eine Verbindung mit der Flexible Server-Instanz her und führen Schreibvorgänge aus.
 2. Änderungen werden an den Standbystandort repliziert.
@@ -64,7 +64,7 @@ Bei anderen vom Benutzer eingeleiteten Vorgängen, wie z. B. Skalieren der Comp
 
 Zu den ungeplanten Ausfällen gehören Softwarefehler oder Ausfälle von Infrastrukturkomponenten, die die Verfügbarkeit der Datenbank beeinträchtigen. Falls das Überwachungssystem erkennt, dass der Server nicht verfügbar ist, wird die Replikation in das Standbyreplikat unterbrochen und das Standbyreplikat als primärer Datenbankserver aktiviert. Clients können sich mit der gleichen Verbindungszeichenfolge wieder mit dem Datenbankserver verbinden und ihren Betrieb fortsetzen. Das gesamte Failover dauert erwartungsgemäß 60 bis 120 Sekunden. Abhängig von der Aktivität auf dem primären Datenbankserver zum Zeitpunkt des Failovers, wie z. B. umfangreiche Transaktionen, und der Wiederherstellungszeit kann das Failover jedoch länger dauern.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="Zonenredundante Hochverfügbarkeit"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="Zonenredundante Hochverfügbarkeit: Failover"::: 
 
 1. Der primäre Datenbankserver ist ausgefallen, die Clients verlieren Konnektivität mit der Datenbank. 
 2. Der Standbyserver wird als neuer primärer Server aktiviert. Der Client stellt mithilfe derselben Verbindungszeichenfolge eine Verbindung mit dem neuen primären Server her. Wenn sich die Clientanwendung in derselben Zone wie der primäre Datenbankserver befindet, werden Wartezeiten verkürzt und die Leistung verbessert.
@@ -101,17 +101,19 @@ Mit Hochverfügbarkeit konfigurierte Flexible Server-Instanzen replizieren Daten
 -   Hochverfügbarkeit wird nur in Regionen mit mehreren Zonen unterstützt.
 -   Aufgrund der synchronen Replikation in eine andere Verfügbarkeitszone kann es bei Anwendungen zu mehr Latenz bei Schreib- und Commitvorgängen kommen.
 
--   Standbyreplikate können nicht für schreibgeschützte Abfragen verwendet werden.
+-   Standbyreplikate können nicht für Leseabfragen verwendet werden.
 
--   Je nach Aktivität des primären Servers zum Zeitpunkt des Failovers kann es bis zu zwei Minuten oder länger dauern, bis das Failover abgeschlossen ist.
+-   Abhängig von der Workload und der Aktivität auf dem primären Server kann der Failovervorgang länger als 120 Sekunden dauern.
 
--   Ein Neustart des primären Datenbankservers für das Übernehmen von Änderungen an statischen Parametern führt auch zu einem Neustart des Standbyreplikats.
+-   Ein Neustart des primären Datenbankservers führt auch zu einem Neustart des Standbyreplikats. 
 
 -   Das Konfigurieren zusätzlicher Lesereplikate wird nicht unterstützt.
 
 -   Das Konfigurieren vom Kunden ausgelöster Verwaltungsaufgaben kann im verwalteten Wartungsfenster nicht geplant werden.
 
--   Geplante Ereignisse wie das Skalieren von Compute- und Speicherkapazität finden zuerst auf dem Standby- und dann auf dem primären Server statt. Für den Dienst erfolgt kein Failover. 
+-   Geplante Ereignisse wie das Skalieren von Compute- und Speicherkapazität finden zuerst auf dem Standby- und dann auf dem primären Server statt. Der Server führt für diese geplanten Vorgänge kein Failover aus. 
+
+-  Wenn die logische Decodierung oder logische Replikation mit einem flexiblen Server mit Hochverfügbarkeit konfiguriert ist, werden die logischen Replikationsslots bei einem Failover auf den Standbyserver nicht auf den Standbyserver kopiert.  
 
 ## <a name="next-steps"></a>Nächste Schritte
 

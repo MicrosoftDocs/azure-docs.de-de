@@ -3,18 +3,20 @@ title: Behandeln von Problemen bei Verwendung des Azure Functions-Triggers für
 description: Häufig auftretende Probleme, Problemumgehungen und Diagnoseschritte bei Verwendung des Azure Functions-Triggers für Cosmos DB
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 03/13/2020
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 7bf7d418e3f2680b32f61e42cffc76c921068508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9fc5da214a50cb000d2154d08bb9b6f6f98ac5ec
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79365507"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340529"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnostizieren und Behandeln von Problemen bei Verwendung des Azure Functions-Triggers für Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In diesem Artikel werden häufig auftretende Probleme, Problemumgehungen und Diagnoseschritte bei Verwendung des [Azure Functions-Triggers für Cosmos DB](change-feed-functions.md) erläutert.
 
@@ -41,7 +43,7 @@ Wenn Sie manuell eine eigene Instanz des [Azure Cosmos DB-SDK-Clients](./sql-api
 
 Die Azure-Funktion schlägt mit folgender Fehlermeldung fehl: „Either the source collection 'collection-name' (in database 'database-name') or the lease collection 'collection2-name' (in database 'database2-name') does not exist. Both collections must exist before the listener starts. To automatically create the lease collection, set 'CreateLeaseCollectionIfNotExists' to 'true'“ (Die Quellsammlung 'Name der Sammlung' (in Datenbank 'Datenbankname') oder die Lease-Sammlung 'Name der Sammlung2' (in Datenbank 'Datenbankname2') ist nicht vorhanden. Beide Sammlungen müssen vorhanden sein, damit der Listener gestartet werden kann. Legen Sie zum automatischen Erstellen der Lease-Sammlung 'CreateLeaseCollectionIfNotExists' auf 'true' fest).
 
-Das heißt, dass einer oder beide der für die ordnungsgemäße Funktion des Triggers erforderlichen Azure Cosmos-Container nicht vorhanden oder für die Azure-Funktion nicht erreichbar ist. **In der Fehlermeldung wird Ihnen mitgeteilt, nach welcher Azure Cosmos-Datenbank und welchen Containern der Trigger sucht**, entsprechend Ihrer jeweiligen Konfiguration.
+Das heißt, dass einer oder beide der für die ordnungsgemäße Funktion des Triggers erforderlichen Azure Cosmos-Container nicht vorhanden oder für die Azure-Funktion nicht erreichbar ist. **In der Fehlermeldung wird Ihnen mitgeteilt, nach welcher Azure Cosmos-Datenbank und welchen Containern der Trigger sucht** , entsprechend Ihrer jeweiligen Konfiguration.
 
 1. Überprüfen Sie das `ConnectionStringSetting`-Attribut, und stellen Sie sicher, dass es **auf eine Einstellung verweist, die in Ihrer Azure-Funktions-App vorhanden ist**. Der Wert dieses Attributs darf nicht die Verbindungszeichenfolge selbst sein, sondern muss dem Namen der Konfigurationseinstellung entsprechen.
 2. Überprüfen Sie, ob `databaseName` und `collectionName` in Ihrem Azure Cosmos-Konto vorhanden sind. Wenn Sie die automatische Ersetzung von Werten (mit `%settingName%`-Mustern) nutzen, vergewissern Sie sich, dass der Name der Einstellung in der Azure-Funktions-App vorhanden ist.

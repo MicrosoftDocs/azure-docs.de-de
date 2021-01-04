@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2019
-ms.openlocfilehash: 9a195497b4376633bd3c767d7d0ea029109fdf9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/12/2020
+ms.openlocfilehash: c66fbe59fd5b2660d02bfca285f78666d64569fe
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76314537"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555599"
 ---
 # <a name="apply-sql-transformation"></a>Anwenden der SQL-Transformation
 
@@ -29,11 +29,26 @@ Mit dem Modul „Apply SQL Transformation“ (Anwenden einer SQL-Transformation)
 -   Ausführen von SQL-Abfrageanweisungen, um Daten zu filtern oder zu ändern und die Abfrageergebnisse als Datentabelle zurückzugeben  
 
 > [!IMPORTANT]
-> Die in diesem Modul verwendete SQL-Engine ist **SQLite**. Weitere Informationen zur SQLite-Syntax finden Sie unter [SQL As Understood By SQLite](https://www.sqlite.org/index.html).  
+> Die in diesem Modul verwendete SQL-Engine ist **SQLite**. Weitere Informationen zur SQLite-Syntax finden Sie unter [SQL As Understood By SQLite](https://www.sqlite.org/index.html).
+> Dieses Modul leitet Daten an SQLite weiter, das sich in der Arbeitsspeicherdatenbank befindet, daher benötigt die Modulausführung viel mehr Speicher und kann einen `Out of memory`-Fehler auslösen. Stellen Sie sicher, dass Ihr Computer über genügend RAM verfügt.
 
 ## <a name="how-to-configure-apply-sql-transformation"></a>Konfigurieren von „Apply SQL Transformation“  
 
 Das Modul kann bis zu drei Datasets als Eingaben übernehmen. Wenn Sie auf die Datasets verweisen, die mit den einzelnen Eingabeports verbunden sind, müssen Sie die Namen `t1`, `t2` und `t3` verwenden. Die Tabellennummer gibt den Index des Eingabeports an.  
+
+Das folgende Codebeispiel zeigt, wie zwei Tabellen verknüpft werden können. t1 und t2 sind zwei Datasets, die mit dem linken und mittleren Eingabeport von **Anwenden der SQL-Transformation** verbunden sind:
+
+```sql
+SELECT t1.*
+    , t3.Average_Rating
+FROM t1 join
+    (SELECT placeID
+        , AVG(rating) AS Average_Rating
+    FROM t2
+    GROUP BY placeID
+    ) as t3
+on t1.placeID = t3.placeID
+```
   
 Der verbleibende Parameter ist eine SQL-Abfrage, für die die SQLite-Syntax verwendet wird. Wenn Sie mehrere Zeilen in das Textfeld **SQL-Skript** eingeben, verwenden Sie ein Semikolon, um jede Anweisung zu beenden. Andernfalls werden Zeilenumbrüche in Leerzeichen konvertiert.  
 

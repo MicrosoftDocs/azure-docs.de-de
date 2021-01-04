@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 583384d6f0ec71dc724868db61ee07ead7269607
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f8086aced26fc46fb1430df074082e8c3365baa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287320"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746811"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Erstellen eines Profilcontainers mit Azure Files und AD DS
 
@@ -58,7 +58,7 @@ Gehen Sie wie folgt vor, um eine Dateifreigabe zu erstellen:
 
 2. Klicken Sie in der Übersicht auf **Dateifreigaben**.
 
-3. Klicken Sie auf **+Dateifreigaben**, erstellen Sie eine neue Dateifreigabe mit dem Namen **Profile**, und geben Sie dann entweder ein geeignetes Kontingent ein, oder lassen Sie das Feld leer, um kein Kontingent anzugeben.
+3. Klicken Sie auf **+Dateifreigaben** , erstellen Sie eine neue Dateifreigabe mit dem Namen **Profile** , und geben Sie dann entweder ein geeignetes Kontingent ein, oder lassen Sie das Feld leer, um kein Kontingent anzugeben.
 
 4. Klicken Sie auf **Erstellen**.
 
@@ -68,9 +68,9 @@ Als Nächstes müssen Sie die Active Directory-Authentifizierung (AD) aktivieren
 
 1. Remotedesktopprotokoll im virtuellen Computer, der in die Domäne eingebunden ist
 
-2. Befolgen Sie die Anweisungen unter [Aktivieren der AD DS-Authentifizierung für Ihre Azure-Dateifreigaben](../storage/files/storage-files-identity-ad-ds-enable.md), um das Modul „AzFilesHybrid“ zu installieren und die Authentifizierung zu aktivieren.
+2. Befolgen Sie die Anweisungen unter [Teil 1: Aktivieren der AD DS-Authentifizierung für Ihre Dateifreigaben in Azure](../storage/files/storage-files-identity-ad-ds-enable.md), um das Modul „AzFilesHybrid“ zu installieren und die Authentifizierung zu aktivieren.
 
-3.  Öffnen Sie im Azure-Portal Ihr Speicherkonto, klicken Sie auf **Konfiguration**, und bestätigen Sie dann, dass die Option **Active Directory (AD)** auf **Aktiviert** festgelegt ist.
+3.  Öffnen Sie im Azure-Portal Ihr Speicherkonto, klicken Sie auf **Konfiguration** , und bestätigen Sie dann, dass die Option **Active Directory (AD)** auf **Aktiviert** festgelegt ist.
 
      > [!div class="mx-imgBorder"]
      > ![Screenshot der Konfigurationsseite mit aktiviertem Azure Active Directory (AD)](media/active-directory-enabled.png)
@@ -86,7 +86,7 @@ Zum Konfigurieren von Berechtigungen auf Freigabeebene weisen Sie jedem Benutzer
 >[!NOTE]
 >Die Konten oder Gruppen, denen Sie Berechtigungen zuweisen, sollten in der Domäne erstellt und mit Azure AD synchronisiert worden sein. In Azure AD erstellte Konten funktionieren nicht.
 
-So weisen Sie rollenbasierte Zugriffssteuerungsberechtigungen (RBAC) zu:
+Zuweisen von Berechtigungen über die rollenbasierte Zugriffssteuerung in Azure (Azure Role-Based Access Control, Azure RBAC):
 
 1. Öffnen Sie das Azure-Portal.
 
@@ -106,7 +106,7 @@ So weisen Sie rollenbasierte Zugriffssteuerungsberechtigungen (RBAC) zu:
 
 ## <a name="assign-users-permissions-on-the-azure-file-share"></a>Zuweisen von Benutzerberechtigungen für die Azure-Dateifreigabe
 
-Nachdem Sie den Benutzern RBAC-Berechtigungen zugewiesen haben, müssen Sie als Nächstes die NTFS-Berechtigungen konfigurieren.
+Nachdem Sie Ihren Benutzern Azure RBAC-Berechtigungen zugewiesen haben, müssen Sie als Nächstes die NTFS-Berechtigungen konfigurieren.
 
 Sie benötigen zwei Information aus dem Azure-Portal, um loszulegen:
 
@@ -202,7 +202,7 @@ So konfigurieren Sie FSLogix auf Ihrer Sitzungshost-VM:
 
     - Navigieren Sie zu **Computer** > **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **FSLogix**.
 
-    - Erstellen Sie einen **Profiles**-Schlüssel.
+    - Erstellen Sie einen **Profiles** -Schlüssel.
 
     - Erstellen Sie **Enabled, DWORD** mit dem Wert 1.
 

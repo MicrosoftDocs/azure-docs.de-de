@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: aad4cdfe38ee9dd7530cb8ebe21cded18cb0a1ec
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: d8afa769c90c5cf9450343cda1a65809062468fb
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128623"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888690"
 ---
 # <a name="communication-services-logs"></a>Communication Services-Protokolle
 
@@ -22,7 +22,7 @@ Azure Communication Services bietet Protokollierungsfunktionen, mit denen Sie Ih
 
 ## <a name="enable-diagnostic-logs-in-your-resource"></a>Aktivieren von Diagnoseprotokollen in der Ressource
 
-Die Protokollierung ist standardmäßig deaktiviert, wenn eine Ressource erstellt wird. Navigieren Sie zum Aktivieren der Protokollierung im Ressourcenmenü unter dem Abschnitt **Überwachung** zum Blatt **Diagnoseeinstellungen** . Klicken Sie dann auf **Diagnoseeinstellung hinzufügen** .
+Die Protokollierung ist standardmäßig deaktiviert, wenn eine Ressource erstellt wird. Navigieren Sie zum Aktivieren der Protokollierung im Ressourcenmenü unter dem Abschnitt **Überwachung** zum Blatt **Diagnoseeinstellungen**. Klicken Sie dann auf **Diagnoseeinstellung hinzufügen**.
 
 Wählen Sie als nächstes das gewünschte Archivziel aus. Derzeit unterstützen wir Speicherkonten und Log Analytics als Archivziele. Nachdem Sie die Arten von Protokollen ausgewählt haben, die Sie erfassen möchten, speichern Sie die Diagnoseeinstellungen.
  
@@ -30,15 +30,15 @@ Neue Einstellungen werden in etwa zehn Minuten wirksam. Die Protokolle werden im
 
 :::image type="content" source="./media/diagnostic-settings.png" alt-text="Optionen für ACS-Diagnoseeinstellungen":::
 
-Weitere Informationen zum Konfigurieren der Diagnose finden Sie in der [Übersicht über Azure-Ressourcenprotokolle](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview).
+Weitere Informationen zum Konfigurieren der Diagnose finden Sie in der [Übersicht über Azure-Ressourcenprotokolle](../../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="resource-log-categories"></a>Ressourcenprotokollkategorien
 
 Communication Services bietet drei Arten von Protokollen, die Sie aktivieren können:
 
 * **Nutzungsprotokolle** – Stellt Nutzungsdaten bereit, die den einzelnen abgerechneten Dienstangeboten zugeordnet sind.
-* **Chat-Betriebsprotokolle** : Stellt grundlegende Informationen zum Chatdienst bereit.
-* **SMS-Betriebsprotokolle** : Stellt grundlegende Informationen zum SMS-Dienst bereit.
+* **Chat-Betriebsprotokolle**: Stellt grundlegende Informationen zum Chatdienst bereit.
+* **SMS-Betriebsprotokolle**: Stellt grundlegende Informationen zum SMS-Dienst bereit.
 
 ### <a name="usage-logs-schema"></a>Schema für Nutzungsprotokolle
 

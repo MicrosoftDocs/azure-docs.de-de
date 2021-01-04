@@ -3,18 +3,30 @@ title: Azure Event Grid – Problembehandlung bei der Abonnementüberprüfung
 description: In diesem Artikel erfahren Sie, wie Sie Probleme bei Abonnementüberprüfungen beheben können.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 48844859013507ab684ef8879b7b85dd6b6fe8cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 857760182675d5673a3b09495c2faaf7372a4164
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118986"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592939"
 ---
 # <a name="troubleshoot-azure-event-grid-subscription-validations"></a>Problembehandlung bei der Abonnementüberprüfung für Azure Event Grid
-In diesem Artikel erfahren Sie, wie Sie Probleme bei der Überprüfung von Ereignisabonnements beheben. 
+Wenn bei der Erstellung eines Ereignisabonnements eine Fehlermeldung wie `The attempt to validate the provided endpoint https://your-endpoint-here failed. For more details, visit https://aka.ms/esvalidation` angezeigt wird, weist dies darauf hin, dass im Überprüfungshandshake ein Fehler aufgetreten ist. Überprüfen Sie Folgendes, um diesen Fehler zu beheben:
+
+- Führen Sie einen HTTP POST-Aufruf an Ihre Webhook-URL mit dem Beispielanforderungstext [SubscriptionValidationEvent](webhook-event-delivery.md#validation-details) unter Verwendung von Postman oder curl oder einem ähnlichen Tool aus.
+- Wenn Ihr Webhook einen Handshake-Mechanismus mit synchroner Überprüfung implementiert, überprüfen Sie, ob der Überprüfungscode als Teil der Antwort zurückgegeben wird.
+- Wenn Ihr Webhook einen Handshake-Mechanismus mit asynchroner Überprüfung implementiert, überprüfen Sie, ob Ihr „HTTP POST“-Aufruf „200 OK“ zurückgibt.
+- Wenn Ihr Webhook `403 (Forbidden)` in der Antwort zurückgibt, überprüfen Sie, ob sich Ihr Webhook hinter einem Azure Application Gateway oder einer Web Application Firewall befindet. Wenn dies der Fall ist, müssen Sie diese Firewallregeln deaktivieren und erneut einen HTTP POST-Aufruf ausführen:
+    - 920300 (Fehlender Accept-Header für Anforderung)
+    - 942430 (Eingeschränkte Anomalieerkennung für SQL-Zeichen (Argumente): Anzahl von Sonderzeichen überschritten (12))
+    - 920230 (Mehrere URL-Codierungen erkannt)
+    - 942130 (Angriff mit Einschleusung von SQL-Befehlen: SQL-Tautologie erkannt.)
+    - 931130 (Möglicher RFI-Angriff (Remote File Inclusion) = Domänenexterner Verweis/Link)
 
 > [!IMPORTANT]
 > Ausführliche Informationen zur Endpunktüberprüfung für Webhooks finden Sie unter [Webhook-Ereignisbereitstellung](webhook-event-delivery.md).
+
+In den folgenden Abschnitten wird gezeigt, wie Sie mithilfe von Postman und Curl ein Ereignisabonnement überprüfen.  
 
 ## <a name="validate-event-grid-event-subscription-using-postman"></a>Überprüfen eines Event Grid-Ereignisabonnements mithilfe von Postman
 Im folgenden Beispiel erfahren Sie, wie Sie ein Webhookabonnement eines Event Grid-Ereignisses mit Postman überprüfen: 
@@ -65,14 +77,7 @@ Im folgenden Beispiel erfahren Sie, wie Sie ein Webhookabonnement eines Cloudere
 
 Verwenden Sie die **HTTP OPTIONS**-Methode für die Überprüfung mit Cloudereignissen. Weitere Informationen zur Cloudereignisüberprüfung für Webhooks finden Sie unter [Endpunktüberprüfung mit Cloudereignissen](webhook-event-delivery.md#endpoint-validation-with-event-grid-events).
 
-## <a name="error-code-403"></a>Fehlercode: 403
-Wenn Ihr Webhook „403 (Forbidden)“ in der Antwort zurückgibt, überprüfen Sie, ob sich Ihr Webhook hinter einem Azure Application Gateway oder einer Web Application Firewall befindet. Wenn dies der Fall ist, müssen Sie die folgenden Firewallregeln deaktivieren und erneut einen HTTP POST-Aufruf ausführen:
-
-  - 920300 (Fehlender Accept-Header in Anforderung; das können wir beheben)
-  - 942430 (Eingeschränkte Anomalieerkennung für SQL-Zeichen (Argumente): Anzahl von Sonderzeichen überschritten (12))
-  - 920230 (Mehrere URL-Codierungen erkannt)
-  - 942130 (Angriff mit Einschleusung von SQL-Befehlen: SQL-Tautologie erkannt.)
-  - 931130 (Möglicher RFI-Angriff (Remote File Inclusion) = Domänenexterner Verweis/Link)
+## <a name="troubleshoot-event-subscription-validation"></a>Problembehandlung bei der Überprüfung von Ereignisabonnements
 
 ## <a name="next-steps"></a>Nächste Schritte
 Wenn Sie weitere Hilfe benötigen, veröffentlichen Sie Ihr Problem im [Stack Overflow-Forum](https://stackoverflow.com/questions/tagged/azure-eventgrid), oder öffnen Sie ein [Supportticket](https://azure.microsoft.com/support/options/). 

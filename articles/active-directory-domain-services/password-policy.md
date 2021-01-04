@@ -2,7 +2,7 @@
 title: Erstellen und Verwenden von Kennwortrichtlinien in Azure AD Domain Services | Microsoft-Dokumentation
 description: Hier erfahren Sie, wie und warum differenzierte Kennwortrichtlinien verwendet werden, um Kontokennwörter in einer verwalteten Azure AD DS-Domäne zu sichern und zu steuern.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
@@ -10,15 +10,15 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 240b96a47c84ec3b15a356edc35549a4a197b219
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: df132af1675b3f373fe1eab5685c5d2f07813445
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967966"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619231"
 ---
-# <a name="password-and-account-lockout-policies-on-active-directory-domain-services-managed-domains"></a>Kennwort- und Kontosperrungsrichtlinien für verwaltete Active Directory Domain Services-Domänen
+# <a name="password-and-account-lockout-policies-on-azure-active-directory-domain-services-managed-domains"></a>Kennwort- und Kontosperrungsrichtlinien für verwaltete Azure Active Directory Domain Services-Domänen
 
 Um die Benutzersicherheit in Azure Active Directory Domain Services (Azure AD DS) zu verwalten, können Sie differenzierte Kennwortrichtlinien definieren, die die Einstellungen für die Kontosperre oder die minimale Kennwortlänge und -komplexität steuern. Eine differenzierte Standardkennwortrichtlinie wird erstellt und auf alle Benutzer in einer verwalteten Azure AD DS-Domäne angewendet. Um eine differenzierte Steuerung zu gewährleisten und bestimmte Geschäfts- oder Complianceanforderungen zu erfüllen, können zusätzliche Richtlinien erstellt und auf bestimmte Gruppen von Benutzern angewendet werden.
 

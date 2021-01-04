@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 10/23/2019
 ms.reviewer: cweining
-ms.openlocfilehash: b439dcfc755f0113ffabf792850a2bd0fbcf322e
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: cbbec71ff8ab762ea0da764a7db9459123850271
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996512"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95530232"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Debugmomentaufnahmen von Ausnahmen in .NET-Apps
 Wenn eine Ausnahme auftritt, können Sie automatisch eine Debugmomentaufnahme von Ihrer aktiven Webanwendung erfassen. Die Momentaufnahme zeigt den Status des Quellcodes und der Variablen in dem Moment, in dem die Ausnahme ausgelöst wurde. Der Momentaufnahmedebugger in [Azure Application Insights](./app-insights-overview.md) überwacht Ausnahmetelemetriedaten aus Ihrer Web-App. Er erfasst Momentaufnahmen Ihrer am häufigsten ausgelösten Ausnahmen, damit Sie die erforderlichen Informationen zur Diagnose von Problemen in der Produktion erhalten. Binden Sie das [NuGet-Paket des Momentaufnahmesammlers](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) in Ihre Anwendung ein, und konfigurieren Sie optional Parameter für die Datensammlung in [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Momentaufnahmen finden Sie im Application Insights-Portal unter [Ausnahmen](./asp-net-exceptions.md).
@@ -39,7 +39,7 @@ Wenn Sie den Momentaufnahmedebugger aktiviert haben, aber keine Momentaufnahmen 
 
 ## <a name="grant-permissions"></a>Erteilen von Berechtigungen
 
-Der Zugriff auf Momentaufnahmen wird durch die rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC) geschützt. Um eine Momentaufnahme zu überprüfen, muss Ihnen zuerst die erforderliche Rolle durch einen Abonnementbesitzer zugewiesen werden.
+Der Zugriff auf Momentaufnahmen wird durch die rollenbasierte Zugriffssteuerung in Azure (Azure RBAC) geschützt. Um eine Momentaufnahme zu überprüfen, muss Ihnen zuerst die erforderliche Rolle durch einen Abonnementbesitzer zugewiesen werden.
 
 > [!NOTE]
 > Weder Besitzer noch Mitwirkende erhalten diese Rolle automatisch. Wenn sie Momentaufnahmen anzeigen möchten, müssen sie sich die Rolle selbst zuweisen.

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f3441d7c7f42c58928bb97c945e7b1e7673f7afa
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: b60a6e53e8fecd71885204690231776ff69fc08f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876837"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018374"
 ---
 # <a name="configure-device-redirections"></a>Konfigurieren von Geräteumleitungen
 
@@ -19,11 +19,11 @@ Durch Konfigurieren von Geräteumleitungen für Ihre Windows Virtual Desktop-Umg
 
 ## <a name="supported-device-redirections"></a>Unterstützte Geräteumleitungen
 
-Unterschiedliche Clients unterstützen jeweils andere Geräteumleitungen. Eine vollständige Liste der von den einzelnen Clients unterstützten Geräteumleitungen finden Sie unter [Vergleichen der Clients](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-app-compare).
+Unterschiedliche Clients unterstützen jeweils andere Geräteumleitungen. Eine vollständige Liste der von den einzelnen Clients unterstützten Geräteumleitungen finden Sie unter [Vergleichen der Clients](/windows-server/remote/remote-desktop-services/clients/remote-desktop-app-compare).
 
 ## <a name="customizing-rdp-properties-for-a-host-pool"></a>Anpassen von RDP-Eigenschaften für einen Hostpool
 
-Weitere Informationen zum Anpassen von RDP-Eigenschaften für einen Hostpool mit PowerShell oder dem Azure-Portal finden Sie unter [RDP-Eigenschaften](customize-rdp-properties.md). Die vollständige Liste der unterstützten RDP-Eigenschaften finden Sie unter [Unterstützte RDP-Dateieinstellungen](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context).
+Weitere Informationen zum Anpassen von RDP-Eigenschaften für einen Hostpool mit PowerShell oder dem Azure-Portal finden Sie unter [RDP-Eigenschaften](customize-rdp-properties.md). Die vollständige Liste der unterstützten RDP-Eigenschaften finden Sie unter [Unterstützte RDP-Dateieinstellungen](/windows-server/remote/remote-desktop-services/clients/rdp-files?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext).
 
 ## <a name="setup-device-redirections"></a>Einrichten von Geräteumleitungen
 
@@ -50,7 +50,10 @@ Legen Sie die folgende RDP-Eigenschaft fest, um die Kameraumleitung zu konfiguri
 - `camerastoredirect:s:*` leitet alle Kameras um.
 - Mit `camerastoredirect:s:` deaktivieren Sie die Kameraumleitung.
 
-Sie können auch bestimmte Kameras mithilfe einer durch Semikolons getrennten Liste von KSCATEGORY_VIDEO_CAMERA-Schnittstellen umleiten, z. B. `camerastoredirect:s:\?\usb#vid_0bda&pid_58b0&mi`.
+>[!NOTE]
+>Selbst wenn die `camerastoredirect:s:`-Eigenschaft deaktiviert ist, können lokale Kameras über die `devicestoredirect:s:`-Eigenschaft umgeleitet werden. Um die Kameraumleitung vollständig zu deaktivieren, legen Sie `camerastoredirect:s:` fest und stellen Sie entweder `devicestoredirect:s:` ein, oder definieren Sie eine Teilmenge von Plug & Play-Geräten, die keine Kamera enthält.
+
+Sie können auch bestimmte Kameras mithilfe einer durch Semikolons getrennten Liste von KSCATEGORY_VIDEO_CAMERA-Schnittstellen umleiten, z. B. `camerastoredirect:s:\?\usb#vid_0bda&pid_58b0&mi`. 
 
 ### <a name="clipboard-redirection"></a>Umleitung der Zwischenablage
 

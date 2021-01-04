@@ -72,6 +72,8 @@
       items:
         - name: Steuerung von HANA in Azure (große Instanzen) über das Azure-Portal
           href: hana-li-portal.md
+        - name: Verwalten von BareMetal-Instanzen über das Azure-Portal
+          href: baremetal-infrastructure-portal.md
         - name: HA-Einrichtung mit STONITH
           href: ha-setup-with-stonith.md
         - name: Betriebssystemsicherung für Typ-II-SKUs

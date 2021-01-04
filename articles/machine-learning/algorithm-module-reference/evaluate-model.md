@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 6dfee84c44643823a4ec76c32e750febc6646be5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9abf5a17330566aee2414b8499f228d297880cbf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908055"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323798"
 ---
 # <a name="evaluate-model-module"></a>Modul „Evaluate Model“
 
@@ -30,17 +30,25 @@ Mithilfe dieses Moduls können Sie die Genauigkeit eines trainierten Modells mes
 
 
 > [!TIP]
-> Wenn Sie mit der Modellauswertung noch nicht vertraut sind, empfehlen wir Ihnen die Videoreihe von Dr. Stephen Elston im Rahmen des [Kurses zum maschinellen Lernen](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) von EdX. 
+> Wenn Sie mit der Modellauswertung noch nicht vertraut sind, empfehlen wir Ihnen die Videoreihe von Dr. Stephen Elston im Rahmen des [Kurses zum maschinellen Lernen](/archive/blogs/machinelearning/new-edx-course-data-science-machine-learning-essentials) von EdX. 
 
 
 ## <a name="how-to-use-evaluate-model"></a>Verwenden von Evaluate Model
-1. Verbinden Sie die **Bewertetes Dataset**-Ausgabe des [Bewertungsmodells](./score-model.md) oder die Ergebnisdataset-Ausgabe von [Zuweisen von Daten zu Clustern](./assign-data-to-clusters.md) mit dem linken Eingangsport von **Evaluate Model** (Bewerten eines Modells). 
+1. Verbinden Sie die **Bewertetes Dataset** -Ausgabe des [Bewertungsmodells](./score-model.md) oder die Ergebnisdataset-Ausgabe von [Zuweisen von Daten zu Clustern](./assign-data-to-clusters.md) mit dem linken Eingangsport von **Evaluate Model** (Bewerten eines Modells). 
     > [!NOTE] 
     > Wenn Sie Module wie „Select Columns in Dataset“ (Spalten im Dataset auswählen) verwenden, um einen Teil des Eingabedatasets auszuwählen, stellen Sie sicher, dass die Spalte „Actual label“ (im Training verwendet), die Spalte „Scored Probabilities“ und die Spalte „Scored Labels“ vorhanden sind, um Metriken wie AUC, Genauigkeit für binäre Klassifizierung/Anomalieerkennung zu berechnen.
     > Die Spalten „Actual label“ und „Scored Labels“ sind vorhanden, um Metriken für die mehrklassige Klassifizierung/Regression zu berechnen.
     > Die Spalte „Assignments“ und die Spalten „DistancesToClusterCenter no.X“ (X ist der Schwerpunktindex, der von 0 bis zur Anzahl der Schwerpunkte minus 1 reicht) sind vorhanden, um Metriken für das Clustering zu berechnen.
 
-2. [Optional] Verbinden Sie die **Bewertetes Dataset**-Ausgabe des [Bewertungsmodells](./score-model.md) oder die Ergebnisdataset-Ausgabe von „Zuweisen von Daten zu Clustern“ für das zweite Modell mit dem **rechten** Eingangsport von **Evaluate Model** (Bewerten eines Modells). Sie können die Ergebnisse zweier verschiedener Modelle auf der Grundlage derselben Daten einfach vergleichen. Die beiden Eingabealgorithmen sollten denselben Algorithmustyp aufweisen. Sie können auch Ergebnisse zweier verschiedener Ausführungen über dieselben Daten mit unterschiedlichen Parametern vergleichen.
+    > [!IMPORTANT]
+    > + Um die Ergebnisse auszuwerten, sollte das Ausgabedataset bestimmte Bewertungsspaltennamen enthalten, die die Anforderungen des Evaluate Model-Moduls erfüllen.
+    > + Es wird angenommen, dass die Spalte `Labels` die tatsächlichen Bezeichnungen enthält.
+    > + Für die Regressionsaufgabe muss das auszuwertende Dataset über eine Spalte mit dem Namen `Regression Scored Labels` verfügen, die bewertete Bezeichnungen darstellt.
+    > + Für die binäre Klassifizierungsaufgabe muss das auszuwertende Dataset über zwei Spalten mit den Namen `Binary Class Scored Labels` und `Binary Class Scored Probabilities` verfügen, die bewertete Bezeichnungen bzw. Wahrscheinlichkeiten darstellen.
+    > + Für die Mehrfachklassifizierungsaufgabe muss das auszuwertende Dataset über eine Spalte mit dem Namen `Multi Class Scored Labels` verfügen, die bewertete Bezeichnungen darstellt.
+    > Wenn die Ausgaben des Upstreammoduls diese Spalten nicht enthalten, müssen Sie entsprechend den oben genannten Anforderungen Änderungen vornehmen.
+
+2. [Optional] Verbinden Sie die **Bewertetes Dataset** -Ausgabe des [Bewertungsmodells](./score-model.md) oder die Ergebnisdataset-Ausgabe von „Zuweisen von Daten zu Clustern“ für das zweite Modell mit dem **rechten** Eingangsport von **Evaluate Model** (Bewerten eines Modells). Sie können die Ergebnisse zweier verschiedener Modelle auf der Grundlage derselben Daten einfach vergleichen. Die beiden Eingabealgorithmen sollten denselben Algorithmustyp aufweisen. Sie können auch Ergebnisse zweier verschiedener Ausführungen über dieselben Daten mit unterschiedlichen Parametern vergleichen.
 
     > [!NOTE]
     > Als Algorithmustyp sind zweiklassige Klassifizierung, mehrklassige Klassifizierung, Regression oder Clustering unter den Algorithmen für maschinelles Lernen möglich. 
@@ -49,10 +57,10 @@ Mithilfe dieses Moduls können Sie die Genauigkeit eines trainierten Modells mes
 
 ## <a name="results"></a>Ergebnisse
 
-Nachdem Sie **Evaluate Model** (Bewerten eines Modells) ausgeführt haben, wählen Sie das Modul, um den **Evaluate Model**-Navigationsbereich auf der rechten Seite zu öffnen.  Wählen Sie dann die Registerkarte **Ausgaben und Protokolle** aus. Auf der Registerkarte weist der Abschnitt **Datenausgaben** verschiedene Symbole auf. Das Symbol **Visualisieren** besitzt ein Balkendiagrammsymbol und stellt eine erste Möglichkeit dar, um die Ergebnisse anzuzeigen.
+Nachdem Sie **Evaluate Model** (Bewerten eines Modells) ausgeführt haben, wählen Sie das Modul, um den **Evaluate Model** -Navigationsbereich auf der rechten Seite zu öffnen.  Wählen Sie dann die Registerkarte **Ausgaben und Protokolle** aus. Auf der Registerkarte weist der Abschnitt **Datenausgaben** verschiedene Symbole auf. Das Symbol **Visualisieren** besitzt ein Balkendiagrammsymbol und stellt eine erste Möglichkeit dar, um die Ergebnisse anzuzeigen.
 
 Bei einer binären Klassifizierung können Sie nach dem Klicken auf das Symbol **Visualisieren** die binäre Konfusionsmatrix visualisieren.
-Bei einer Multiklassifizierung befindet sich die Plotdatei der Konfusionsmatrix auf der Registerkarte **Ausgaben und Protokolle**:
+Bei einer Multiklassifizierung befindet sich die Plotdatei der Konfusionsmatrix auf der Registerkarte **Ausgaben und Protokolle** :
 > [!div class="mx-imgBorder"]
 > ![Vorschau für hochgeladenes Image](media/module/multi-class-confusion-matrix.png)
 
@@ -105,7 +113,7 @@ Die für Regressionsmodelle zurückgegebenen Metriken sind so gestaltet, dass si
   
 
   
-- **Coefficient of determination** (Bestimmtheitsmaß), oft auch als R<sup>2</sup> bezeichnet, stellt die Vorhersagekraft des Modells als Wert von 0 bis 1 dar. 0 bedeutet, dass das Modell zufällig ist (also nichts erklärt). 1 bedeutet, dass es eine perfekte Anpassung gibt. Bei der Interpretation der R<sup>2</sup>-Werte ist jedoch Vorsicht geboten, da niedrige Werte völlig normal und hohe Werte verdächtig sein können.
+- **Coefficient of determination** (Bestimmtheitsmaß), oft auch als R <sup>2</sup> bezeichnet, stellt die Vorhersagekraft des Modells als Wert von 0 bis 1 dar. 0 bedeutet, dass das Modell zufällig ist (also nichts erklärt). 1 bedeutet, dass es eine perfekte Anpassung gibt. Bei der Interpretation der R<sup>2</sup>-Werte ist jedoch Vorsicht geboten, da niedrige Werte völlig normal und hohe Werte verdächtig sein können.
 
 ###  <a name="metrics-for-clustering-models"></a>Metriken für Clusteringmodelle
 
@@ -134,4 +142,4 @@ Die folgenden Metriken werden für die Auswertung von Clusteringmodellen herange
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Sehen Sie sich den [Satz der verfügbaren Module](module-reference.md) für Azure Machine Learning an. 
+Sehen Sie sich den [Satz der verfügbaren Module](module-reference.md) für Azure Machine Learning an.

@@ -3,12 +3,12 @@ title: Verbinden von Hybridcomputern mit Azure im großen Stil
 description: In diesem Artikel erfahren Sie, wie Sie Computer über Azure Arc-fähige Server unter Verwendung eines Dienstprinzipals mit Azure verbinden.
 ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: dc92b1cb96b61caa17f141ca9a78fb10fe59a2a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f71bbc46ccac533db39176363f206ab033e60316
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91713412"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92360120"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Verbinden von Hybridcomputern mit Azure im großen Stil
 
@@ -16,7 +16,7 @@ Sie können Azure Arc-fähige Server je nach Anforderungen mithilfe verschiedene
 
 Die Methoden zum Installieren und Konfigurieren des Connected Machine-Agents erfordern, dass die von Ihnen verwendete automatisierte Methode über Administratorberechtigungen auf den Computern verfügt. Unter Linux muss hierfür das root-Konto verwendet werden. Unter Windows müssen Sie Mitglied der Gruppe „Lokale Administratoren“ sein.
 
-Bevor Sie beginnen, sollten Sie die [Voraussetzungen](agent-overview.md#prerequisites) überprüfen und sicherstellen, dass Ihr Abonnement und Ihre Ressourcen auch diese Anforderungen erfüllen.
+Bevor Sie beginnen, sollten Sie die [Voraussetzungen](agent-overview.md#prerequisites) überprüfen und sicherstellen, dass Ihr Abonnement und Ihre Ressourcen auch diese Anforderungen erfüllen. Informationen zu unterstützten Regionen und andere Überlegungen finden Sie unter [Unterstützte Azure-Regionen](overview.md#supported-regions).
 
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
 
@@ -56,7 +56,7 @@ Um den Dienstprinzipal mithilfe der PowerShell zu erstellen, führen Sie Folgend
     $credential.GetNetworkCredential().password
     ```
 
-3. Suchen Sie in der Ausgabe den Kennwortwert unter dem Feld **Kennwort**, und kopieren Sie ihn. Suchen Sie außerdem den Wert unter dem Feld **ApplicationId**, und kopieren Sie ihn ebenfalls. Speichern Sie beide zur späteren Verwendung an einem sicheren Ort. Sollten Sie Ihr Dienstprinzipalkennwort vergessen oder verlieren, können Sie es mithilfe des Cmdlets [`New-AzADSpCredential`](/powershell/module/azurerm.resources/new-azurermadspcredential) zurücksetzen.
+3. Suchen Sie in der Ausgabe den Kennwortwert unter dem Feld **Kennwort** , und kopieren Sie ihn. Suchen Sie außerdem den Wert unter dem Feld **ApplicationId** , und kopieren Sie ihn ebenfalls. Speichern Sie beide zur späteren Verwendung an einem sicheren Ort. Sollten Sie Ihr Dienstprinzipalkennwort vergessen oder verlieren, können Sie es mithilfe des Cmdlets [`New-AzADSpCredential`](/powershell/module/azurerm.resources/new-azurermadspcredential) zurücksetzen.
 
 Die Werte der folgenden Eigenschaften werden mit Parametern verwendet, die an `azcmagent` übergeben werden:
 
@@ -79,7 +79,7 @@ Im Folgenden finden Sie die Einstellungen, die Sie für den Befehl `azcmagent` k
 * `subscription-id` : Die Abonnement-ID (GUID) Ihres Azure-Abonnements, in das Computer aufgenommen werden sollen.
 * `resource-group` : Der Name der Ressourcengruppe, zu der Ihre verbundenen Computer gehören sollen.
 * `location` : Siehe [Unterstützte Azure-Regionen](overview.md#supported-regions). Bei diesem Standort kann es sich um denselben Standort wie bei der Ressourcengruppe oder um einen anderen Standort handeln.
-* `resource-name` : (*Optional*) Wird für die Azure-Ressourcendarstellung Ihres lokalen Computers verwendet. Ohne Angabe dieses Werts wird der Hostname des Computers verwendet.
+* `resource-name` : ( *Optional* ) Wird für die Azure-Ressourcendarstellung Ihres lokalen Computers verwendet. Ohne Angabe dieses Werts wird der Hostname des Computers verwendet.
 
 Weitere Informationen zum `azcmagent`-Befehlszeilentool finden Sie in der [Azcmagent-Referenz](./manage-agent.md).
 
@@ -131,7 +131,7 @@ azcmagent connect \
 ```
 
 >[!NOTE]
->Sie müssen auf Linux-Computern über *Stamm*zugriffsberechtigungen verfügen, um **azcmagent** ausführen zu können.
+>Sie müssen auf Linux-Computern über *Stamm* zugriffsberechtigungen verfügen, um **azcmagent** ausführen zu können.
 
 Vergewissern Sie sich im Azure-Portal, dass die Serververbindung erfolgreich hergestellt wurde, nachdem Sie den Agent installiert und für die Verbindungsherstellung mit Azure Arc-fähigen Servern konfiguriert haben. Zeigen Sie Ihre Computer im [Azure-Portal](https://aka.ms/hybridmachineportal) an.
 
@@ -143,4 +143,4 @@ Vergewissern Sie sich im Azure-Portal, dass die Serververbindung erfolgreich her
 
 - Erfahren Sie, wie Sie Ihren Computer mithilfe von [Azure Policy](../../governance/policy/overview.md) verwalten, wie z. B. bei der VM-[Gastkonfiguration](../../governance/policy/concepts/guest-configuration.md), dem Überprüfen, ob der Computer dem erwarteten Log Analytics-Arbeitsbereich Bericht erstattet, beim Aktivieren der Überwachung mit [Azure Monitor mit VMs](../../azure-monitor/insights/vminsights-enable-policy.md) und vieles mehr.
 
-- Weitere Informationen zum [Log Analytics-Agent](../../azure-monitor/platform/log-analytics-agent.md). Der Log Analytics-Agent für Windows und Linux ist erforderlich, wenn Sie Daten zur Betriebssystem- und Workloadüberwachung erfassen, diese mithilfe von Automation Runbooks oder Funktionen wie Updateverwaltung oder andere Azure-Dienste wie [Azure Security Center](../../security-center/security-center-intro.md) nutzen möchten.
+- Weitere Informationen zum [Log Analytics-Agent](../../azure-monitor/platform/log-analytics-agent.md). Der Log Analytics-Agent für Windows und Linux ist erforderlich, wenn Sie Daten zur Betriebssystem- und Workloadüberwachung erfassen, diese mithilfe von Automation Runbooks oder Funktionen wie Updateverwaltung oder andere Azure-Dienste wie [Azure Security Center](../../security-center/security-center-introduction.md) nutzen möchten.

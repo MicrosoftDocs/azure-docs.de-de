@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 184073ef3ee1b6a67c844754f7da81f88bbbdf62
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e556ca2051fd75eb9bf6411c5479e63554606d48
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757026"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368337"
 ---
 # <a name="how-to-manage-settings"></a>Verwalten von Einstellungen
 
@@ -33,7 +33,7 @@ Zum Trainieren oder Bereitstellen von Modellen muss Ihrem Arbeitsbereich ein Tra
 
 Wenn Sie über kein Abonnement verfügen, gehen Sie folgendermaßen vor:
 
-1. Abonnieren Sie Translator, um eine Translator-Ressource zu erstellen. Befolgen Sie die Schritte unter [Registrieren für Translator](https://docs.microsoft.com/azure/cognitive-services/translator/translator-how-to-signup), um Translator zu abonnieren und einen Translator-Schlüssel abzurufen.
+1. Abonnieren Sie Translator, um eine Translator-Ressource zu erstellen. Befolgen Sie die Schritte unter [Registrieren für Translator](../translator-how-to-signup.md), um Translator zu abonnieren und einen Translator-Schlüssel abzurufen.
 2. Notieren Sie sich den Schlüssel Ihres Translator-Abonnements. „Key1“ oder „Key2“ sind zulässig.
 3. Navigieren Sie zurück zum Custom Translator-Portal.
 
@@ -52,7 +52,7 @@ Wenn Sie über kein Abonnement verfügen, gehen Sie folgendermaßen vor:
     ![Dialogfeld „Neuen Arbeitsbereich erstellen“](media/how-to/create-new-workspace-dialog.png)
 
 >[!Note]
->Der benutzerdefinierte Translator unterstützt nicht das Erstellen eines Arbeitsbereichs für eine Textübersetzungs-API-Ressource (auch als Azure-Abonnementschlüssel bezeichnet), die innerhalb von [Enabled VNET](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet) erstellt wurde.
+>Der benutzerdefinierte Translator unterstützt nicht das Erstellen eines Arbeitsbereichs für eine Textübersetzungs-API-Ressource (auch als Azure-Abonnementschlüssel bezeichnet), die innerhalb von [Enabled VNET](../../../api-management/api-management-using-with-vnet.md) erstellt wurde.
 
 ### <a name="modify-existing-key"></a>Ändern eines vorhandenen Schlüssels
 
@@ -89,11 +89,11 @@ In Custom Translator können Sie Ihren Arbeitsbereich für andere freigeben, z.B
 
 ## <a name="sharing-permissions"></a>Freigabeberechtigungen
 
-1. **Leser**: Benutzer mit dieser Freigabeberechtigung können alle Informationen im Arbeitsbereich anzeigen.
+1. **Leser** : Benutzer mit dieser Freigabeberechtigung können alle Informationen im Arbeitsbereich anzeigen.
 
-2. **Bearbeiter**: Benutzer mit dieser Freigabeberechtigung können im Arbeitsbereich Dokumente hinzufügen, Modelle trainieren sowie Dokumente und Projekte löschen. Außerdem haben sie die Möglichkeit, einen Abonnementschlüssel hinzuzufügen. Allerdings können diese Benutzer nicht ändern, für wen der Arbeitsbereich freigegeben ist, den Arbeitsbereich löschen oder den Arbeitsbereichsnamen ändern.
+2. **Bearbeiter** : Benutzer mit dieser Freigabeberechtigung können im Arbeitsbereich Dokumente hinzufügen, Modelle trainieren sowie Dokumente und Projekte löschen. Außerdem haben sie die Möglichkeit, einen Abonnementschlüssel hinzuzufügen. Allerdings können diese Benutzer nicht ändern, für wen der Arbeitsbereich freigegeben ist, den Arbeitsbereich löschen oder den Arbeitsbereichsnamen ändern.
 
-3. **Besitzer**: Benutzer mit dieser Freigabeberechtigung verfügen über uneingeschränkte Berechtigungen für den Arbeitsbereich.
+3. **Besitzer** : Benutzer mit dieser Freigabeberechtigung verfügen über uneingeschränkte Berechtigungen für den Arbeitsbereich.
 
 ## <a name="change-sharing-permission"></a>Ändern der Freigabeberechtigung
 

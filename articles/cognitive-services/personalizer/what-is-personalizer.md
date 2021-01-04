@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: Personalisierung, Azure Personalisierung, Machine Learning
-ms.openlocfilehash: ae17b799c2b222525db53d5bb8e0afdbbcf19975
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 28aae130d062eaf57a66a9b90a6602c3874f1494
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777240"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094147"
 ---
 # <a name="what-is-personalizer"></a>Was ist die Personalisierung?
 
@@ -105,7 +105,7 @@ Da für die Personalisierung die gesamten Informationen nahezu in Echtzeit genut
 
 Wir stellen Schnellstartanleitungen in C#, JavaScript und Python bereit. Jede Schnellstartanleitung enthält Informationen zu grundlegenden Entwurfsmustern und ist jeweils so konzipiert, dass Sie in weniger als zehn Minuten über ausführbaren Code verfügen. 
 
-* [Schnellstart: Personalisierungsclientbibliothek](sdk-learning-loop.md)
+* [Schnellstart: Personalisierungsclientbibliothek](./quickstart-personalizer-sdk.md)
 
 Nachdem Sie Gelegenheit hatten, erste Schritte mit dem Personalisierungsdienst auszuführen, erfahren Sie in unseren Tutorials mehr dazu, wie Sie die Personalisierung in Webanwendungen, Chatbots oder in einer Azure Notebooks-Instanz verwenden.
 
@@ -115,10 +115,10 @@ Nachdem Sie Gelegenheit hatten, erste Schritte mit dem Personalisierungsdienst a
 
 ## <a name="reference"></a>Verweis 
 
-* [Personalisierung: C#/.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet)
-* [Personalisierung: Go SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer)
-* [Personalisierung: JavaScript SDK](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest)
-* [Personalisierung: Python SDK](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python)
+* [Personalisierung: C#/.NET SDK](/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet)
+* [Personalisierung: Go SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview)
+* [Personalisierung: JavaScript SDK](/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest)
+* [Personalisierung: Python SDK](/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python)
 * [REST-APIs](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank)
 
 ## <a name="next-steps"></a>Nächste Schritte

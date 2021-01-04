@@ -5,19 +5,15 @@ metadata:
   title: Dokumentation zum Azure-Portal
   description: Erfahren Sie, wie Sie Ihre Azure-Abonnements und -Ressourcen mithilfe der webbasierten Konsole des Azure-Portals verwalten. Das Azure-Portal ist eine Alternative zur Verwendung von Befehlszeilentools.
   services: Azure portal
-  ms.service: azure-portal
-  ms.subservice: 
   ms.topic: landing-page
   ms.collection: collection
-  author: mblythe
-  ms.author: mblythe
   ms.date: 08/05/2020
-  ms.openlocfilehash: 4a491a2924af90afc43ddb4aa097f9967c8f156a
-  ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+  ms.openlocfilehash: c1617f295a101ae645743d60fdbe82a09d936ea2
+  ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/15/2020
-  ms.locfileid: "92089280"
+  ms.lasthandoff: 12/07/2020
+  ms.locfileid: "96749010"
 landingContent:
 - title: Informationen zum Azure-Portal
   linkLists:

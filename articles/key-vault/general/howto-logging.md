@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8a975673bec3b3579eaa699f873fe8c4b1481d38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e0007f3b0dad8a68e9d81cebbe9fe24b5a7db3c
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744651"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285643"
 ---
 # <a name="how-to-enable-key-vault-logging"></a>Aktivieren der Protokollierung in Key Vault
 
@@ -64,7 +64,7 @@ Set-AzContext -SubscriptionId "<subscriptionID>"
 
 Sie können zwar ein vorhandenes Speicherkonto für Ihre Protokolle verwenden, aber hier soll ein neues für Key Vault-Protokolle dediziertes Speicherkonto erstellt werden. 
 
-Um die Verwaltung noch weiter zu vereinfachen, verwenden wir auch die gleiche Ressourcengruppe wie die Gruppe, die den Schlüsseltresor enthält. Im [Azure CLI-Schnellstart](quick-create-cli.md) und im [Azure PowerShell-Schnellstart](quick-create-powershell.md) wird diese Ressourcengruppe als **myResourceGroup** (meineRessourcengruppe) bezeichnet. Der Standort ist *eastus* . Ersetzen Sie diese Werte gegebenenfalls durch Ihre eigenen. 
+Um die Verwaltung noch weiter zu vereinfachen, verwenden wir auch die gleiche Ressourcengruppe wie die Gruppe, die den Schlüsseltresor enthält. Im [Azure CLI-Schnellstart](quick-create-cli.md) und im [Azure PowerShell-Schnellstart](quick-create-powershell.md) wird diese Ressourcengruppe als **myResourceGroup** (meineRessourcengruppe) bezeichnet. Der Standort ist *eastus*. Ersetzen Sie diese Werte gegebenenfalls durch Ihre eigenen. 
 
 Geben Sie außerdem einen Speicherkontonamen an. Speicherkontonamen müssen eindeutig und zwischen drei und 24 Zeichen lang sein und dürfen nur Zahlen und Kleinbuchstaben enthalten.  Zuletzt wird ein Speicherkonto mit der SKU „Standard_LRS“ erstellt.
 
@@ -147,7 +147,7 @@ Protokollierte Inhalte
   * Erstellen, Ändern oder Löschen dieser Schlüssel oder Geheimnisse.
   * Signieren, Verifizieren, Verschlüsseln, Entschlüsseln, Ver- und Entpacken von Schlüsseln, Erhalten von Geheimnissen und Auflisten von Schlüsseln und Geheimnissen (und deren Versionen).
 * Bei nicht authentifizierten Anforderungen wird eine 401-Antwort zurückgegeben. Beispiele sind Anforderungen ohne Bearertoken, falsch formatierte oder abgelaufene Anforderungen oder Anforderungen, deren Token ungültig ist.  
-* Event Grid-Benachrichtigungsereignisse für „Läuft demnächst ab“, „Abgelaufen“ und „Tresorzugriffsrichtlinie geändert“ (neues Versionsereignis wird nicht protokolliert). Ereignisse werden unabhängig davon protokolliert, ob im Schlüsseltresor ein Ereignisabonnement erstellt wurde. Weitere Informationen finden Sie unter [Event Grid-Ereignisschema für Schlüsseltresor](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault).
+* Event Grid-Benachrichtigungsereignisse für „Läuft demnächst ab“, „Abgelaufen“ und „Tresorzugriffsrichtlinie geändert“ (neues Versionsereignis wird nicht protokolliert). Ereignisse werden unabhängig davon protokolliert, ob im Schlüsseltresor ein Ereignisabonnement erstellt wurde. Weitere Informationen finden Sie unter [Event Grid-Ereignisschema für Schlüsseltresor](../../event-grid/event-schema-key-vault.md).
 
 ## <a name="access-your-logs"></a>Zugreifen auf Ihre Protokolle
 

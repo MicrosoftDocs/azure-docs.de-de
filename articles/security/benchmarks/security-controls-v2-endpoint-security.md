@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 452b1a33520309ae696ab318c034f0186c993fdc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e74994847608b7fb59a1bf507691f02cf02b714a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91402921"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408888"
 ---
 # <a name="security-control-v2-endpoint-security"></a>Sicherheitskontrolle V2: Endpunktsicherheit
 
@@ -34,9 +34,9 @@ Microsoft Defender Advanced Threat Protection bietet EDR-Funktionen im Rahmen ei
 
 - [Durchführen des Onboardings für Windows-fremde Server](/windows/security/threat-protection/microsoft-defender-atp/configure-endpoints-non-windows)
 
-**Verantwortlichkeit**: Kunde
+**Verantwortlichkeit** : Kunde
 
-**Sicherheitsverantwortliche beim Kunden** ([weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Sicherheitsverantwortliche beim Kunden** ( [weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastruktur- und Endpunktsicherheit](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -60,11 +60,11 @@ Microsoft Antimalware für Azure Cloud Services ist die Standard-Antischadsoftwa
 
 - [Konfigurieren von Microsoft Antimalware für Cloud Services und Virtual Machines](../fundamentals/antimalware.md)
 
-- [Unterstützte Endpoint Protection-Lösungen](https://docs.microsoft.com/azure/security-center/security-center-services?tabs=features-windows#supported-endpoint-protection-solutions-)
+- [Unterstützte Endpoint Protection-Lösungen](../../security-center/security-center-services.md?tabs=features-windows#supported-endpoint-protection-solutions-)
 
-**Verantwortlichkeit**: Kunde
+**Verantwortlichkeit** : Kunde
 
-**Sicherheitsverantwortliche beim Kunden** ([weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Sicherheitsverantwortliche beim Kunden** ( [weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastruktur- und Endpunktsicherheit](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -86,9 +86,9 @@ Befolgen Sie die Empfehlungen in Azure Security Center: „Compute &amp; Apps“
 
 - [Bereitstellen von Microsoft Antimalware für Azure Cloud Services und Virtual Machines](../fundamentals/antimalware.md)
 
-**Verantwortlichkeit**: Kunde
+**Verantwortlichkeit** : Kunde
 
-**Sicherheitsverantwortliche beim Kunden** ([weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Sicherheitsverantwortliche beim Kunden** ( [weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastruktur- und Endpunktsicherheit](/azure/cloud-adoption-framework/organize/cloud-security)
 

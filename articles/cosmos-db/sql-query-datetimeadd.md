@@ -3,18 +3,20 @@ title: DateTimeAdd in der Abfragesprache für Azure Cosmos DB
 description: Erfahren Sie mehr über die SQL-Systemfunktion DateTimeAdd in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 0b2741a3d2b013ba7bd97038eb4ba4512f36af11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc81849a13fdaef748c5fd631ee66ea5e3eb67c4
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86261505"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335788"
 ---
 # <a name="datetimeadd-azure-cosmos-db"></a>DateTimeAdd (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Gibt einen DateTime-Zeichenfolgenwert zurück, der sich aus dem Hinzufügen eines angegebenen Zahlenwerts (als ganze Zahl mit Vorzeichen) zu einer angegebenen DateTime-Zeichenfolge ergibt  
   

@@ -8,14 +8,14 @@ author: ShaneBala-keyvault
 ms.author: sudbalas
 manager: ravijan
 ms.date: 09/30/2020
-ms.openlocfilehash: bea4a5d92309710645dd63e611cd0a5e3b742c34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86190fa307133360c411aafc070412e7d527039e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91604078"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324957"
 ---
-# <a name="azure-key-vault-recovery-overview"></a>Übersicht über die Azure Key Vault-Wiederherstellung
+# <a name="how-to-enable-soft-delete-and-purge-protection"></a>Vorläufiges Löschen und Löschschutz aktivieren
 
 In diesem Artikel werden die beiden Wiederherstellungsfeatures vorläufiges Löschen und Löschschutz von Azure Key Vault behandelt. Dieses Dokument enthält eine Übersicht über diese Features und zeigt, wie Sie sie über das Azure-Portal, die Azure-Befehlszeilenschnittstelle und Azure PowerShell verwalten.
 
@@ -44,7 +44,7 @@ Der **Löschschutz** soll das Löschen von Schlüsseltresoren, Schlüsseln, Gehe
 1. Überprüfen Sie, ob das Optionsfeld neben „Vorläufiges Löschen“ auf „Wiederherstellung dieses Tresors und der zugehörigen Objekte ermöglichen (empfohlen)“ festgelegt ist.
 1. Wenn für den Schlüsseltresor vorläufiges Löschen nicht aktiviert ist, klicken Sie auf das Optionsfeld, um das vorläufige Löschen zu aktivieren, und klicken Sie dann auf „Speichern“.
 
-:::image type="content" source="../media/key-vault-recovery-1.png" alt-text="Screenshot des Azure-Portals":::
+:::image type="content" source="../media/key-vault-recovery-1.png" alt-text="Für Eigenschaften ist das vorläufige Löschen hervorgehoben, so wie auch der Wert, um es zu aktivieren.":::
 
 ## <a name="grant-access-to-a-service-principal-to-purge-and-recover-deleted-secrets"></a>Gewähren des Zugriffs auf einen Dienstprinzipal zum Bereinigen und Wiederherstellen gelöschter Geheimnisse
 
@@ -56,7 +56,7 @@ Der **Löschschutz** soll das Löschen von Schlüsseltresoren, Schlüsseln, Gehe
 1. Scrollen Sie im Dropdownmenü ganz nach unten, und klicken Sie auf „Wiederherstellen“ und „Bereinigen“.
 1. Sicherheitsprinzipale benötigen für die meisten Vorgänge auch die Funktionen zum Abrufen und Auflisten.
 
-:::image type="content" source="../media/key-vault-recovery-2.png" alt-text="Screenshot des Azure-Portals":::
+:::image type="content" source="../media/key-vault-recovery-2.png" alt-text="Im linken Navigationsbereich sind die Richtlinien für den Zugriff hervorgehoben. Für die Zugriffsrichtlinien wird die Dropdownliste für geheime Positionen angezeigt und es sind vier Einträge ausgewählt: Abrufen, Auflisten, Wiederherstellen und Bereinigen.":::
 
 ## <a name="list-recover-or-purge-a-soft-deleted-key-vault"></a>Auflisten, Wiederherstellen oder Bereinigen vorläufig gelöschter Schlüsseltresore
 
@@ -72,9 +72,9 @@ Der **Löschschutz** soll das Löschen von Schlüsseltresoren, Schlüsseln, Gehe
 1. Wählen Sie die Option „Wiederherstellen“ am unteren Rand des Kontextbereichs aus, wenn Sie den Schlüsseltresor wiederherstellen möchten.
 1. Wählen Sie die Option „Bereinigen“ aus, wenn Sie den Schlüsseltresor dauerhaft löschen möchten.
 
-:::image type="content" source="../media/key-vault-recovery-3.png" alt-text="Screenshot des Azure-Portals":::
+:::image type="content" source="../media/key-vault-recovery-3.png" alt-text="Für Schlüsseltresore ist die Option zum Verwalten gelöschter Tresore hervorgehoben.":::
 
-:::image type="content" source="../media/key-vault-recovery-4.png" alt-text="Screenshot des Azure-Portals":::
+:::image type="content" source="../media/key-vault-recovery-4.png" alt-text="Für „Gelöschte Schlüsseltresore verwalten“ ist der einzige aufgeführte Schlüsseltresor hervorgehoben und ausgewählt. Zudem ist die Schaltfläche „Wiederherstellen“ hervorgehoben.":::
 
 ## <a name="list-recover-or-purge-soft-deleted-secrets-keys-and-certificates"></a>Auflisten, Wiederherstellen oder Bereinigen vorläufig gelöschter Geheimnisse, Schlüssel und Zertifikate
 
@@ -87,7 +87,7 @@ Der **Löschschutz** soll das Löschen von Schlüsseltresoren, Schlüsseln, Gehe
 1. Wählen Sie das Geheimnis, den Schlüssel oder das Zertifikat aus, den oder das Sie verwalten möchten.
 1. Wählen Sie unten im Kontextbereich eine der Optionen „Wiederherstellen“ oder „Bereinigen“ aus.
 
-:::image type="content" source="../media/key-vault-recovery-5.png" alt-text="Screenshot des Azure-Portals":::
+:::image type="content" source="../media/key-vault-recovery-5.png" alt-text="Für „Schlüssel“ ist die Option „Gelöschte Schlüssel verwalten“ hervorgehoben.":::
 
 # <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
@@ -241,14 +241,6 @@ Der **Löschschutz** soll das Löschen von Schlüsseltresoren, Schlüsseln, Gehe
 
     ```powershell
     Get-AzKeyVault -VaultName "ContosoVault"
-    ```
-
-* Aktivieren des vorläufigen Löschens für den Schlüsseltresor
-
-    ```powershell
-    ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
-
-    Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
     ```
 
 * Löschen von Schlüsseltresoren

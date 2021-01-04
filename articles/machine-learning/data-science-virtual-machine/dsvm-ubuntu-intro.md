@@ -8,12 +8,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
-ms.openlocfilehash: 375149047d51574e14df15b6385b8c296d49a8ec
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4a414b706dffae76eaa9841ee7b1fe6bcc1ac0d3
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85254700"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109843"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Schnellstart: Einrichten von Data Science Virtual Machine für Linux (Ubuntu)
 
@@ -46,7 +46,7 @@ Mit den folgenden Schritten erstellen Sie eine Instanz der Data Science Virtual 
        * **Name des virtuellen Computers**: Geben Sie den Namen des virtuellen Computers ein. Dieser Name wird im Azure-Portal verwendet.
        * **Region**: Wählen Sie das am besten geeignete Rechenzentrum aus. Den schnellsten Netzwerkzugriff erreichen Sie mit dem Datencenter, in dem der größte Teil Ihrer Daten gespeichert ist oder das Ihrem physischen Standort am nächsten ist. Informieren Sie sich über die [Azure-Regionen](https://azure.microsoft.com/global-infrastructure/regions/).
        * **Image**: Behalten Sie den Standardwert bei.
-       * **Size**: Diese Option sollte automatisch mit einer Größe ausgefüllt werden, die für allgemeine Workloads geeignet ist. Lesen Sie mehr zu [Linux-VM-Größen in Azure](../../virtual-machines/linux/sizes.md).
+       * **Size**: Diese Option sollte automatisch mit einer Größe ausgefüllt werden, die für allgemeine Workloads geeignet ist. Lesen Sie mehr zu [Linux-VM-Größen in Azure](../../virtual-machines/sizes.md).
        * **Authentifizierungstyp:** Wählen Sie für eine schnellere Einrichtung die Option „Kennwort“ aus. 
          
          > [!NOTE]
@@ -73,8 +73,6 @@ Es gibt drei Methoden für den Zugriff auf die DSVM-Instanz unter Ubuntu:
   * SSH für Terminalsitzungen
   * X2Go für grafische Sitzungen
   * JupyterHub und JupyterLab für Jupyter-Notebooks
-
-Sie können Azure Notebooks auch eine Data Science Virtual Machine zuordnen, um Jupyter-Notebooks auf der VM auszuführen und die Einschränkungen der kostenlosen Dienstebene zu umgehen. Weitere Informationen finden Sie unter [Verwalten und Konfigurieren von Projekten: Computeebene](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ### <a name="ssh"></a>SSH
 
@@ -121,12 +119,16 @@ Die Ubuntu-DSVM führt [JupyterHub](https://github.com/jupyterhub/jupyterhub), e
 
    1. Öffnen Sie auf Ihrem lokalen Computer einen Webbrowser, und navigieren Sie zu „https:\//IP-Ihrer-VM:8000“. Ersetzen Sie dabei „IP-Ihrer-VM“ durch die IP-Adresse, die Sie zuvor notiert haben.
    1. Ihr Browser verhindert wahrscheinlich das direkte Öffnen der Seite, und es wird eine Meldung mit dem Hinweis angezeigt, dass ein Zertifikatfehler vorliegt. Für die DSVM wird die Sicherheit anhand eines selbstsignierten Zertifikats erzielt. Bei den meisten Browsern können Sie nach dieser Warnung weiterklicken. In vielen Browsern wird aber während der gesamten Websitzung eine visuelle Warnung zum Zertifikat angezeigt.
+
+      >[!NOTE]
+      > Wenn die Fehlermeldung `ERR_EMPTY_RESPONSE` in Ihrem Browser angezeigt wird, stellen Sie sicher, dass Sie auf den Computer zugreifen, indem Sie explizit das *HTTPS*-Protokoll und nicht *HTTP* oder nur die Webadresse verwenden. Wenn Sie die Webadresse ohne `https://` in die Adresszeile eingeben, wird in den meisten Browsern der Standardwert `http` verwendet und dieser Fehler wird angezeigt.
+
    1. Geben Sie den Benutzernamen mit dem zugehörigen Kennwort ein, den Sie zum Erstellen des virtuellen Computers verwendet haben, und melden Sie sich an. 
 
       ![Jupyter-Anmeldung eingeben](./media/dsvm-ubuntu-intro/jupyter-login.png)
 
->[!NOTE]
-> Wenn Sie in dieser Phase einen 500-Fehler erhalten, haben Sie wahrscheinlich Großbuchstaben in Ihrem Benutzernamen verwendet. Dies ist eine bekannte Interaktion zwischen Jupyter Hub und dem von ihm verwendeten PAMAuthenticator. 
+      >[!NOTE]
+      > Wenn Sie in dieser Phase einen 500-Fehler erhalten, haben Sie wahrscheinlich Großbuchstaben in Ihrem Benutzernamen verwendet. Dies ist eine bekannte Interaktion zwischen Jupyter Hub und dem von ihm verwendeten PAMAuthenticator. Wenn ein Fehler mit dem Hinweis angezeigt wird, dass die Seite nicht erreichbar ist, müssen wahrscheinlich die Berechtigungen der Netzwerksicherheitsgruppe angepasst werden. Navigieren Sie im Azure-Portal zur Netzwerksicherheitsgruppen-Ressource in Ihrer Ressourcengruppe. Wenn Sie über das öffentliche Internet auf JupyterHub zugreifen möchten, muss Port 8000 geöffnet sein. (Die Abbildung zeigt, dass dieser virtuelle Computer für den Just-In-Time-Zugriff konfiguriert ist. Dies wird dringend empfohlen.) Informationen finden Sie unter [Sichern Ihrer Verwaltungsports mit Just-in-Time-Zugriff (JIT)](../../security-center/security-center-just-in-time.md). ![Konfiguration der Netzwerksicherheitsgruppe](./media/dsvm-ubuntu-intro/nsg-permissions.png)
 
    1. Durchsuchen Sie die zahlreichen verfügbaren Beispielnotebooks.
 
@@ -144,6 +146,6 @@ Informieren Sie sich weiter:
 
 * In der exemplarischen Vorgehensweise [Data Science mit einer Linux Data Science Virtual Machine in Azure](linux-dsvm-walkthrough.md) wird veranschaulicht, wie Sie mehrere allgemeine Data Science-Aufgaben mit der hier bereitgestellten Linux-DSVM ausführen. 
 * Entdecken Sie die unterschiedlichen Data Science-Tools der DSVM-Instanz, indem Sie die in diesem Artikel beschriebenen Tools ausprobieren. Sie können auch `dsvm-more-info` in der Shell auf dem virtuellen Computer ausführen, um eine grundlegende Einführung und Hinweise auf weitere Informationen zu den Tools auf der VM zu erhalten.  
-* Erfahren Sie, wie Sie mithilfe des [Team Data Science-Prozesses](https://aka.ms/tdsp) systematisch Analyselösungen erstellen.
+* Erfahren Sie, wie Sie mithilfe des [Team Data Science-Prozesses](../team-data-science-process/index.yml) systematisch Analyselösungen erstellen.
 * Besuchen Sie die [Azure AI Gallery](https://gallery.azure.ai/), um Beispiele zu Machine Learning und zur Datenanalyse zu erhalten, in denen Azure-KI-Dienste verwendet werden.
 * Gehen Sie anhand der entsprechenden [Referenzdokumentation](./reference-ubuntu-vm.md) für diesen virtuellen Computer vor.

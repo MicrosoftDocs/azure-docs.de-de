@@ -1,6 +1,6 @@
 ---
 title: Partitionieren von Tabellen
-description: Hier finden Sie Empfehlungen und Beispiele für die Verwendung von Tabellenpartitionen in einem Synapse SQL-Pool.
+description: Empfehlungen und Beispiele für die Verwendung von Tabellenpartitionen in einem dedizierten SQL-Pool
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,26 +11,26 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ed5c0a140c69e9042fc9b85589719a54b65e985e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f65c1d6fda09d7762a59fb5a932a72ad706a767a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88763132"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448024"
 ---
-# <a name="partitioning-tables-in-synapse-sql-pool"></a>Partitionieren von Tabellen in einem Synapse SQL-Pool
+# <a name="partitioning-tables-in-dedicated-sql-pool"></a>Partitionierungstabellen im dedizierten SQL-Pool
 
-Dieser Artikel enthält Empfehlungen und Beispiele für die Verwendung von Tabellenpartitionen in einem Synapse SQL-Pool.
+Empfehlungen und Beispiele für die Verwendung von Tabellenpartitionen in einem dedizierten SQL-Pool
 
 ## <a name="what-are-table-partitions"></a>Was sind Tabellenpartitionen?
 
-Durch Tabellenpartitionen können Sie Ihre Daten in kleinere Gruppen von Daten unterteilen. In den meisten Fällen werden Tabellenpartitionen in einer Datumsspalte erstellt. Das Partitionieren wird für alle Tabellentypen in einem Synapse SQL-Pool unterstützt, einschließlich der Typen gruppierter Columnstore, gruppierter Index und Heap. Außerdem wird die Partitionierung für alle Verteilungstypen unterstützt, z.B. Hash- oder Roundrobin-Verteilung.  
+Durch Tabellenpartitionen können Sie Ihre Daten in kleinere Gruppen von Daten unterteilen. In den meisten Fällen werden Tabellenpartitionen in einer Datumsspalte erstellt. Die Partitionierung wird für alle Tabellentypen in einem dedizierten SQL-Pool unterstützt, einschließlich der Typen gruppierter Columnstore, gruppierter Index und Heap. Außerdem wird die Partitionierung für alle Verteilungstypen unterstützt, z.B. Hash- oder Roundrobin-Verteilung.  
 
 Durch die Partitionierung können sich Vorteile für die Wartung und die Abfrageleistung ergeben. Ob sich Vorteile für beide oder nur einen dieser Punkte ergeben, hängt davon ab, wie Daten geladen werden und ob dieselbe Spalte für beide Zwecke genutzt werden kann. Die Partitionierung kann nämlich nur für eine Spalte durchgeführt werden.
 
 ### <a name="benefits-to-loads"></a>Vorteile für Lasten
 
-Der Hauptvorteil der Partitionierung in einem Synapse SQL-Pool ist die Verbesserung der Effizienz und Leistung beim Laden von Daten, indem Partitionen gelöscht, gewechselt und zusammengeführt werden. In den meisten Fällen werden Daten nach einer Datumsspalte partitioniert, die eng an die Reihenfolge gebunden ist, mit der die Daten in die Datenbank geladen werden. Einer der größten Vorteile bei der Verwendung von Partitionen zum Verwalten von Daten ist die Vermeidung der Transaktionsprotokollierung. Das schlichte Einfügen, Aktualisieren oder Löschen von Daten kann zwar der einfachste Ansatz sein, aber wenn Sie etwas Planung und Arbeit investieren, kann die Leistung durch die Verwendung der Partitionierung während des Ladevorgangs erheblich verbessert werden.
+Der Hauptvorteil der Partitionierung in einem dedizierten SQL-Pool ist die Verbesserung der Effizienz und Leistung beim Laden von Daten, indem Partitionen gelöscht, gewechselt und zusammengeführt werden. In den meisten Fällen werden Daten nach einer Datumsspalte partitioniert, die eng an die Reihenfolge gebunden ist, mit der die Daten in den SQL-Pool geladen werden. Einer der größten Vorteile bei der Verwendung von Partitionen zum Verwalten von Daten ist die Vermeidung der Transaktionsprotokollierung. Das schlichte Einfügen, Aktualisieren oder Löschen von Daten kann zwar der einfachste Ansatz sein, aber wenn Sie etwas Planung und Arbeit investieren, kann die Leistung durch die Verwendung der Partitionierung während des Ladevorgangs erheblich verbessert werden.
 
 Sie können den Partitionswechsel einsetzen, um einen Abschnitt einer Tabelle schnell zu entfernen oder auszutauschen.  So kann beispielsweise eine Umsatzfaktentabelle erstellt werden, die nur Daten für die letzten 36 Monate enthält. Am Monatsende wird jeweils der älteste Verkaufsdatenmonat aus der Tabelle gelöscht.  Sie können eine delete-Anweisung verwenden, um jeweils die Daten für den ältesten Monat zu löschen. 
 
@@ -48,17 +48,17 @@ Die Partitionierung kann zwar verwendet werden, um die Leistung in einigen Szena
 
 Es muss klar sein, wann sich der Einsatz der Partitionierung anbietet und wie viele Partitionen erstellt werden sollten, damit die Partitionierung hilfreich ist. Es gibt keine genaue Vorgabe, welche Anzahl von Partitionen zu hoch ist. Dies hängt von Ihren Daten und außerdem davon ab, wie viele Partitionen gleichzeitig geladen werden. Ein erfolgreiches Partitionierungsschema hat normalerweise Dutzende bis Hunderte von Partitionen, nicht Tausende.
 
-Beim Erstellen von Partitionierungen für **gruppierte Columnstore**-Tabellen ist es wichtig zu beachten, wie viele Zeilen zu jeder Partition gehören werden. Für eine optimale Komprimierung und Leistung von gruppierten Columnstore-Tabellen sind mindestens 1 Million Zeilen pro Verteilung und Partition erforderlich. Bereits vor der Erstellung von Partitionen teilt ein Synapse SQL-Pool jede Tabelle auf 60 verteilte Datenbanken auf. 
+Beim Erstellen von Partitionierungen für **gruppierte Columnstore**-Tabellen ist es wichtig zu beachten, wie viele Zeilen zu jeder Partition gehören werden. Für eine optimale Komprimierung und Leistung von gruppierten Columnstore-Tabellen sind mindestens 1 Million Zeilen pro Verteilung und Partition erforderlich. Bereits vor der Erstellung von Partitionen teilt ein dedizierter SQL-Pool jede Tabelle auf 60 verteilte Datenbanken auf. 
 
-Jegliche Partitionierungen, die einer Tabelle hinzugefügt werden, werden zusätzlich zu den im Hintergrund erstellten Verteilungen durchgeführt. Für dieses Beispiel bedeutet das Folgendes: Wenn die Umsatzfaktentabelle 36 Monatspartitionen enthält und ein Synapse SQL-Pool 60 Verteilungen umfasst, muss die Umsatzfaktentabelle mindestens 60 Millionen Zeilen pro Monat umfassen (oder 2,1 Milliarden Zeilen, wenn alle Monate aufgefüllt sind). Wenn eine Tabelle weniger Zeilen als das empfohlene Minimum an Zeilen pro Partition enthält, sollten Sie die Verwendung von weniger Partitionen erwägen, um die Anzahl von Zeilen pro Partition zu erhöhen. 
+Jegliche Partitionierungen, die einer Tabelle hinzugefügt werden, werden zusätzlich zu den im Hintergrund erstellten Verteilungen durchgeführt. Für dieses Beispiel bedeutet das Folgendes: Wenn die Umsatzfaktentabelle 36 Monatspartitionen enthält und ein dedizierter SQL-Pool 60 Verteilungen umfasst, muss die Umsatzfaktentabelle mindestens 60 Millionen Zeilen pro Monat umfassen (oder 2,1 Milliarden Zeilen, wenn alle Monate aufgefüllt sind). Wenn eine Tabelle weniger Zeilen als das empfohlene Minimum an Zeilen pro Partition enthält, sollten Sie die Verwendung von weniger Partitionen erwägen, um die Anzahl von Zeilen pro Partition zu erhöhen. 
 
 Weitere Informationen finden Sie im Artikel zur [Indizierung](sql-data-warehouse-tables-index.md), in dem Abfragen erläutert werden, die die Qualität von gruppierten Columnstore-Indizes bewerten können.
 
 ## <a name="syntax-differences-from-sql-server"></a>Syntaxunterschiede zu SQL Server
 
-Ein Synapse SQL-Pool bietet eine einfachere Möglichkeit zum Definieren von Partitionen als SQL Server. Partitionierungsfunktionen und -schemas werden in einem Synapse SQL-Pool nicht so wie in SQL Server verwendet. Stattdessen müssen Sie lediglich die partitionierte Spalte und die Grenzpunkte identifizieren. 
+Ein dedizierter SQL-Pool bietet eine einfachere Möglichkeit zum Definieren von Partitionen als SQL Server. Partitionierungsfunktionen und -schemas werden in einem dedizierten SQL-Pool nicht so wie in SQL Server verwendet. Stattdessen müssen Sie lediglich die partitionierte Spalte und die Grenzpunkte identifizieren. 
 
-Die Syntax der Partitionierung kann gegenüber SQL Server leicht variieren, aber die grundlegenden Konzepte sind identisch. SQL Server und ein Synapse SQL-Pool unterstützen eine Partitionsspalte pro Tabelle, und es kann sich um eine Bereichspartition handeln. Weitere Informationen zur Partitionierung finden Sie unter [Partitionierte Tabellen und Indizes](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Die Syntax der Partitionierung kann gegenüber SQL Server leicht variieren, aber die grundlegenden Konzepte sind identisch. SQL Server und ein dedizierter SQL-Pool unterstützen eine Partitionsspalte pro Tabelle, bei der es sich um eine Bereichspartition handeln kann. Weitere Informationen zur Partitionierung finden Sie unter [Partitionierte Tabellen und Indizes](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Im folgenden Beispiel wird mit der [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)-Anweisung die Tabelle „FactInternetSales“ nach der Spalte „OrderDateKey“ partitioniert:
 
@@ -88,12 +88,12 @@ WITH
 
 ## <a name="migrating-partitioning-from-sql-server"></a>Migrieren der Partitionierung von SQL Server
 
-Gehen Sie einfach wie folgt vor, um SQL Server-Partitionsdefinitionen zu einem Synapse SQL-Pool zu migrieren:
+Gehen Sie wie folgt vor, um SQL Server-Partitionsdefinitionen zu einem dedizierten SQL-Pool zu migrieren:
 
 - Entfernen Sie das SQL Server-[Partitionsschema](/sql/t-sql/statements/create-partition-scheme-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 - Fügen Sie die Definition der [Partitionsfunktion](/sql/t-sql/statements/create-partition-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) zu CREATE TABLE hinzu.
 
-Wenn Sie eine partitionierte Tabelle von einer SQL Server-Instanz migrieren, können Sie mit dem unten angegebenen SQL-Code die Anzahl von Zeilen in jeder Partition ermitteln. Beachten Sie Folgendes: Wenn für einen Synapse SQL-Pool die gleiche Partitionierungsgranularität verwendet wird, verringert sich die Anzahl von Zeilen pro Partition um den Faktor 60.  
+Wenn Sie eine partitionierte Tabelle von einer SQL Server-Instanz migrieren, können Sie mit dem unten angegebenen SQL-Code die Anzahl von Zeilen in jeder Partition ermitteln. Beachten Sie Folgendes: Wenn für einen dedizierten SQL-Pool die gleiche Partitionierungsgranularität verwendet wird, verringert sich die Anzahl von Zeilen pro Partition um den Faktor 60.  
 
 ```sql
 -- Partition information for a SQL Server Database
@@ -131,7 +131,7 @@ GROUP BY    s.[name]
 
 ## <a name="partition-switching"></a>Partitionswechsel
 
-Ein Synapse SQL-Pool unterstützt das Aufteilen, Zusammenführen und Wechseln von Partitionen. Jede dieser Funktionen wird mithilfe der [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)-Anweisung ausgeführt.
+Ein dedizierter SQL-Pool unterstützt das Aufteilen, Zusammenführen und Wechseln von Partitionen. Jede dieser Funktionen wird mithilfe der [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)-Anweisung ausgeführt.
 
 Für den Wechsel zweier Partitionen zwischen zwei Tabellen müssen Sie sicherstellen, dass die Partitionen an ihren jeweiligen Grenzen ausgerichtet sind und die Tabellendefinitionen übereinstimmen. Da keine Überprüfungseinschränkungen verfügbar sind, um den Bereich der Werte in einer Tabelle zu erzwingen, muss die Quelltabelle die gleichen Partitionsgrenzen enthalten wie die Zieltabelle. Ist dies nicht der Fall, tritt ein Fehler beim Partitionswechsel auf, da die Partitionsmetadaten nicht synchronisiert werden.
 
@@ -253,7 +253,7 @@ Das Laden von Daten in Partitionen mit Partitionswechsel ist eine praktische Mö
 
 Um die vorhandenen Daten in einer Partition zu löschen, wurde früher ein `ALTER TABLE`-Befehl benötigt, um die Daten auszutauschen.  Anschließend wurde ein weiterer `ALTER TABLE`-Befehl benötigt, um die neuen Daten einzulesen.  
 
-In einem Synapse SQL-Pool wird die `TRUNCATE_TARGET`-Option im Befehl `ALTER TABLE` unterstützt.  Mit `TRUNCATE_TARGET` überschreibt der `ALTER TABLE`-Befehl vorhandene Daten in der Partition mit neuen Daten.  Nachfolgend sehen Sie ein Beispiel, das mit `CTAS` eine neue Tabelle mit den vorhandenen Daten erstellt, neue Daten einfügt, dann alle Daten wieder in die Zieltabelle umschaltet und die vorhandenen Daten überschreibt.
+In einem dedizierten SQL-Pool wird die Option `TRUNCATE_TARGET` im Befehl `ALTER TABLE` unterstützt.  Mit `TRUNCATE_TARGET` überschreibt der `ALTER TABLE`-Befehl vorhandene Daten in der Partition mit neuen Daten.  Nachfolgend sehen Sie ein Beispiel, das mit `CTAS` eine neue Tabelle mit den vorhandenen Daten erstellt, neue Daten einfügt, dann alle Daten wieder in die Zieltabelle umschaltet und die vorhandenen Daten überschreibt.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]
@@ -355,7 +355,7 @@ Um ein **Rosten** der Tabellendefinition in Ihrem Quellcodeverwaltungssystem zu 
     DROP TABLE #partitions;
     ```
 
-Bei diesem Ansatz bleibt der Code in der Quellcodeverwaltung statisch, und die Partitionierungsgrenzwerte können sich mit der Zeit dynamisch mit der Datenbank entwickeln.
+Bei diesem Ansatz bleibt der Code in der Quellcodeverwaltung statisch, und die Partitionierungsgrenzwerte können sich im Laufe der Zeit mit dem SQL-Pool dynamisch entwickeln.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

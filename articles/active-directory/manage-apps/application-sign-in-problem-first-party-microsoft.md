@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8942a55d880132313e1cdac6bfc025e0b153b410
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57deed9d7fb178ba1cdc8d6e954d751752532de4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707950"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654404"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Probleme beim Anmelden bei Microsoft-Anwendungen
 
@@ -63,7 +63,7 @@ Im Folgenden werden einige allgemeine Probleme beschrieben, die auftreten könne
 
   * Stellen Sie sicher, dass das Konto des Benutzers für Anmeldungen **aktiviert** ist. [Überprüfen des Status eines Benutzerkontos](#problems-with-the-users-account)
 
-  * Stellen Sie sicher, dass **Kennwort des Benutzers nicht abgelaufen ist oder vergessen wurde**. [Zurücksetzen eines Benutzerkennworts](#reset-a-users-password) oder [Aktivieren von Self-Service-Kennwortzurücksetzung](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+  * Stellen Sie sicher, dass **Kennwort des Benutzers nicht abgelaufen ist oder vergessen wurde**. [Zurücksetzen eines Benutzerkennworts](#reset-a-users-password) oder [Aktivieren von Self-Service-Kennwortzurücksetzung](../authentication/tutorial-enable-sspr.md)
 
   * Stellen Sie sicher, dass Benutzerzugriff nicht durch **Multi-Factor Authentication** blockiert wird. [Überprüfen des Multi-Factor Authentication-Status eines Benutzers](#check-a-users-multi-factor-authentication-status) oder [Überprüfen der Kontaktinformationen für die Authentifizierung eines Benutzers](#check-a-users-authentication-contact-info)
 
@@ -179,9 +179,9 @@ Um das Kennwort eines Benutzers zurückzusetzen, führen Sie die folgenden Schri
 
 Um die Self-Service-Kennwortzurücksetzung zu aktivieren, führen Sie die folgenden Bereitstellungsschritte aus:
 
--   [Aktivieren von Benutzern für das Zurücksetzen ihrer Azure Active Directory-Kennwörter](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Aktivieren von Benutzern für das Zurücksetzen ihrer Azure Active Directory-Kennwörter](../authentication/tutorial-enable-sspr.md)
 
--   [Aktivieren von Benutzern für das Zurücksetzen oder Ändern ihrer lokalen Active Directory-Kennwörter](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Aktivieren von Benutzern für das Zurücksetzen oder Ändern ihrer lokalen Active Directory-Kennwörter](../authentication/tutorial-enable-sspr.md)
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>Überprüfen des Multi-Factor Authentication-Status eines Benutzers
 
@@ -508,26 +508,25 @@ Der Anwendungszugriff kann blockiert werden, wenn kein ordnungsgemäßer Berecht
 
 -   Für jede Anwendung, die für Open ID Connect aktiviert ist und Berechtigungen anfordert, wird beim Navigieren zum Anmeldebildschirm für die Anwendung eine Zustimmung auf Benutzerebene für den angemeldeten Benutzer bei dieser Anmeldung ausgeführt.
 
--   Wenn Sie dies programmgesteuert erledigen möchten, finden Sie weitere Informationen unter [Anfordern der Zustimmung einzelner Benutzer](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent).
+-   Wenn Sie dies programmgesteuert erledigen möchten, finden Sie weitere Informationen unter [Anfordern der Zustimmung einzelner Benutzer](../develop/v2-permissions-and-consent.md#requesting-individual-user-consent).
 
 ### <a name="perform-administrator-level-consent-operation-for-any-application"></a>Durchführen einer Zustimmung auf Administratorebene für alle Anwendungen
 
 -   Für **ausschließlich Anwendungen, die mit der ersten Version des Anwendungsmodells entwickelt wurden**, können Sie diese Zustimmung auf Administratorebene erzwingen, indem Sie am Ende der Anmelde-URL einer Anwendung die Zeichenfolge **?prompt=admin\_consent** anfügen.
 
--   Für **Anwendungen, die mit der zweiten Version des Anwendungsmodells entwickelt wurden**, können Sie diese Zustimmung auf Administratorebene erzwingen, indem Sie die Anweisungen im Abschnitt **Anfordern der Berechtigungen von einem Verzeichnisadministrator** von [Verwenden des Endpunkts für die Administratorzustimmung](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint) befolgen.
+-   Für **Anwendungen, die mit der zweiten Version des Anwendungsmodells entwickelt wurden**, können Sie diese Zustimmung auf Administratorebene erzwingen, indem Sie die Anweisungen im Abschnitt **Anfordern der Berechtigungen von einem Verzeichnisadministrator** von [Verwenden des Endpunkts für die Administratorzustimmung](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint) befolgen.
 
 ### <a name="perform-administrator-level-consent-for-a-single-tenant-application"></a>Durchführen einer Zustimmung auf Administratorebene für eine Anwendung mit einem Mandanten
 
 -   Für **Anwendungen mit einem Mandanten**, die Berechtigungen anfordern (z.B. Anwendungen, die Sie selbst entwickeln oder deren Besitzer in Ihrer Organisation Sie sind), können Sie eine **Zustimmung auf Administratorebene** im Namen aller Benutzer durchführen, indem Sie sich als globaler Administrator anmelden und oben im Bereich **Anwendungsregistrierung &gt; Alle Anwendungen &gt; App auswählen &gt; Erforderliche Berechtigungen** auf die Schaltfläche **Berechtigungen erteilen** klicken.
 
--   Für **Anwendungen, die mit der ersten oder zweiten Version des Anwendungsmodells entwickelt wurden**, können Sie diese Zustimmung auf Administratorebene erzwingen, indem Sie die Anweisungen im Abschnitt **Anfordern der Berechtigungen von einem Verzeichnisadministrator** von [Verwenden des Endpunkts für die Administratorzustimmung](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint) befolgen.
+-   Für **Anwendungen, die mit der ersten oder zweiten Version des Anwendungsmodells entwickelt wurden**, können Sie diese Zustimmung auf Administratorebene erzwingen, indem Sie die Anweisungen im Abschnitt **Anfordern der Berechtigungen von einem Verzeichnisadministrator** von [Verwenden des Endpunkts für die Administratorzustimmung](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint) befolgen.
 
 ### <a name="perform-administrator-level-consent-for-a-multi-tenant-application"></a>Durchführen einer Zustimmung auf Administratorebene für eine mehrinstanzenfähige Anwendung
 
 -   Für **mehrinstanzenfähige Anwendungen**, die Berechtigungen anfordern (z.B. von Drittanbietern oder von Microsoft entwickelte Anwendungen), können Sie eine **Zustimmung auf Administratorebene** durchführen. Melden Sie sich als globaler Administrator an, und klicken Sie auf die Schaltfläche **Berechtigungen erteilen** im Bereich **Unternehmensanwendungen &gt; Alle Anwendungen &gt; App auswählen &gt; Berechtigungen** (demnächst verfügbar).
 
--   Sie können Sie diese Zustimmung auf Administratorebene auch erzwingen, indem Sie die Anweisungen im Abschnitt **Anfordern der Berechtigungen von einem Verzeichnisadministrator** von [Verwenden des Endpunkts für die Administratorzustimmung](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint) befolgen.
+-   Sie können Sie diese Zustimmung auf Administratorebene auch erzwingen, indem Sie die Anweisungen im Abschnitt **Anfordern der Berechtigungen von einem Verzeichnisadministrator** von [Verwenden des Endpunkts für die Administratorzustimmung](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint) befolgen.
 
 ## <a name="next-steps"></a>Nächste Schritte
-[Verwenden des Endpunkts für die Administratorzustimmung](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)
-
+[Verwenden des Endpunkts für die Administratorzustimmung](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint)

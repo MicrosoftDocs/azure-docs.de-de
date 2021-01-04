@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 957cea854b9894b3149a0e292b8072b73875cae5
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 5175575bcd968ab9d9bb9db7e284eb332bc7f675
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127079"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542419"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Tutorial: Erstellen eines Power BI-Anbieterdashboards
 
@@ -139,27 +139,27 @@ Im nächsten Schritt analysieren Sie die Daten aus Ihrem Event Hub, um sie in di
 }
 ```
 
-2. Nachdem Sie die JSON-Nutzlasten überprüft haben, wechseln Sie wieder zum Logik-App-Designer und wählen **+ Neuer Schritt** aus. Suchen Sie nach **Variable initialisieren**, fügen Sie diesen Punkt als nächsten Schritt hinzu, und geben Sie die folgenden Parameter ein:
+2. Nachdem Sie die JSON-Nutzlasten überprüft haben, wechseln Sie wieder zum Logik-App-Designer und wählen **+ Neuer Schritt** aus. Suchen Sie nach **Variable initialisieren** , fügen Sie diesen Punkt als nächsten Schritt hinzu, und geben Sie die folgenden Parameter ein:
 
     |Parameter|Wert|
     |---|---|
     |Name|Schnittstellenname|
     |type|String|
 
-    Klicken Sie auf **Speichern**. 
+    Klicken Sie auf **Speichern** . 
 
 3. Fügen Sie eine weitere Variable namens **Körper** mit dem Typ **string** hinzu. Ihrer Logik-App werden die folgenden Aktionen hinzugefügt:
 
     >[!div class="mx-imgBorder"]
     >![Variablen initialisieren](media/initialize-string-variables.png)
     
-4. Wählen Sie **+ Neuer Schritt** aus, und fügen Sie eine Aktion **JSON analysieren** hinzu. Benennen Sie diese in **Eigenschaften analysieren** um. Wählen Sie als Inhalt **Eigenschaften** aus dem Event Hub aus. Klicken Sie unten auf **Beispielnutzlast zum Generieren eines Schemas verwenden**, und fügen Sie die Beispielnutzlast aus dem obigen Abschnitt „Eigenschaften“ ein.
+4. Wählen Sie **+ Neuer Schritt** aus, und fügen Sie eine Aktion **JSON analysieren** hinzu. Benennen Sie diese in **Eigenschaften analysieren** um. Wählen Sie als Inhalt **Eigenschaften** aus dem Event Hub aus. Klicken Sie unten auf **Beispielnutzlast zum Generieren eines Schemas verwenden** , und fügen Sie die Beispielnutzlast aus dem obigen Abschnitt „Eigenschaften“ ein.
 
 5. Wählen Sie als Nächstes die Aktion **Variable festlegen** aus, und aktualisieren Sie die Variable **Schnittstellenname** mit dem Wert für **iothub-interface-name** aus den analysierten JSON-Eigenschaften.
 
-6. Fügen Sie als nächste Aktion ein **Teiler**-Steuerelement hinzu, und wählen Sie die Variable **Schnittstellenname** als Parameter für „Ein“ aus. Dieses verwenden Sie als Trichter, um die Daten in das richtige Dataset zu leiten.
+6. Fügen Sie als nächste Aktion ein **Teiler** -Steuerelement hinzu, und wählen Sie die Variable **Schnittstellenname** als Parameter für „Ein“ aus. Dieses verwenden Sie als Trichter, um die Daten in das richtige Dataset zu leiten.
 
-7. Suchen Sie in Ihrer Azure IoT Central-Anwendung nach dem Schnittstellennamen für die Daten für „Smart Vitals Patch“ und „Smart Knee Brace“ aus der Ansicht **Gerätevorlagen**. Erstellen Sie zwei verschiedene Fälle für das **Schalter**-Steuerelement für jeden Schnittstellennamen, und benennen Sie das Steuerelement entsprechend. Sie können den Standardfall für die Verwendung des Steuerelements **Beenden** verwenden und auswählen, welcher Status angezeigt werden soll.
+7. Suchen Sie in Ihrer Azure IoT Central-Anwendung nach dem Schnittstellennamen für die Daten für „Smart Vitals Patch“ und „Smart Knee Brace“ aus der Ansicht **Gerätevorlagen** . Erstellen Sie zwei verschiedene Fälle für das **Schalter** -Steuerelement für jeden Schnittstellennamen, und benennen Sie das Steuerelement entsprechend. Sie können den Standardfall für die Verwendung des Steuerelements **Beenden** verwenden und auswählen, welcher Status angezeigt werden soll.
 
     >[!div class="mx-imgBorder"] 
     >![Teiler-Steuerelement](media/split-by-interface.png)
@@ -168,27 +168,27 @@ Im nächsten Schritt analysieren Sie die Daten aus Ihrem Event Hub, um sie in di
 
 9. Fügen Sie eine Aktion **Variable festlegen** hinzu, und aktualisieren Sie die Variable **Körper** mit den Werten für **Körper** aus dem analysierten JSON-Code in Schritt 7.
 
-10. Fügen Sie als nächste Aktion ein Steuerelement **Bedingung** hinzu, und legen Sie die Bedingung auf **Körper**, **enthält**, **HeartRate** fest. Damit wird sichergestellt, dass der richtige Datensatz aus „Smart Vitals Patch“ verwendet wird, bevor Sie das Power BI-Dataset auffüllen. Die Schritte 7–9 sehen folgendermaßen aus:
+10. Fügen Sie als nächste Aktion ein Steuerelement **Bedingung** hinzu, und legen Sie die Bedingung auf **Körper** , **enthält** , **HeartRate** fest. Damit wird sichergestellt, dass der richtige Datensatz aus „Smart Vitals Patch“ verwendet wird, bevor Sie das Power BI-Dataset auffüllen. Die Schritte 7–9 sehen folgendermaßen aus:
 
     >[!div class="mx-imgBorder"] 
     >![Zusätzliche Smart Vitals-Bedingung](media/smart-vitals-pbi.png)
 
 11. Fügen Sie für den Fall **TRUE** der Bedingung eine Aktion hinzu, die die Power BI-Funktion **Zeilen zu einem Dataset hinzufügen** aufruft. Zu diesem Zweck müssen Sie sich bei Power BI anmelden. Der Fall **FALSE** kann wieder das Steuerelement **Beenden** verwenden.
 
-12. Wählen Sie geeignete Werte für **Arbeitsbereich**, **Dataset** und **Tabelle** aus. Ordnen Sie die Parameter, die Sie beim Erstellen des Streamingdatasets in Power BI angegeben haben, den analysierten JSON-Werte zu, die aus Ihrem Event Hub gesendet werden. Die ausgefüllten Aktionen sollten wie folgt aussehen:
+12. Wählen Sie geeignete Werte für **Arbeitsbereich** , **Dataset** und **Tabelle** aus. Ordnen Sie die Parameter, die Sie beim Erstellen des Streamingdatasets in Power BI angegeben haben, den analysierten JSON-Werte zu, die aus Ihrem Event Hub gesendet werden. Die ausgefüllten Aktionen sollten wie folgt aussehen:
 
     >[!div class="mx-imgBorder"] 
     >![Hinzufügen von Zeilen zu Power BI](media/add-rows-yesenia.png)
 
-13. Fügen Sie für den Schalter-Fall **Smart Knee Brace** eine Aktion **JSON analysieren** ein, um den Inhalt zu analysieren, ähnlich wie in Schritt 7. Verwenden Sie **Zeilen zu einem Dataset hinzufügen**, um das Dataset für Teddy Silvers in Power BI zu aktualisieren.
+13. Fügen Sie für den Schalter-Fall **Smart Knee Brace** eine Aktion **JSON analysieren** ein, um den Inhalt zu analysieren, ähnlich wie in Schritt 7. Verwenden Sie **Zeilen zu einem Dataset hinzufügen** , um das Dataset für Teddy Silvers in Power BI zu aktualisieren.
 
     >[!div class="mx-imgBorder"] 
-    >![Zusätzliche Smart Vitals-Bedingung](media/knee-brace-pbi.png)
+    >![Der Screenshot zeigt, wie Zeilen zu einem Dataset hinzugefügt werden.](media/knee-brace-pbi.png)
 
-14. Klicken Sie auf **Speichern**, und führen Sie dann Ihre Logik-App aus.
+14. Klicken Sie auf **Speichern** , und führen Sie dann Ihre Logik-App aus.
 
 ## <a name="build-a-real-time-dashboard-for-patient-vitals"></a>Erstellen eines Echtzeitdashboards für die Vitalfunktionen von Patienten
-Wechseln Sie jetzt zurück zu Power BI, und klicken Sie auf **+ Erstellen**, um ein neues **Dashboard** zu erstellen. Benennen Sie das Dashboard, und klicken Sie auf **Erstellen**.
+Wechseln Sie jetzt zurück zu Power BI, und klicken Sie auf **+ Erstellen** , um ein neues **Dashboard** zu erstellen. Benennen Sie das Dashboard, und klicken Sie auf **Erstellen** .
 
 Klicken Sie auf die drei Auslassungspunkte in der Navigationsleiste oben, wählen Sie dann **+ Kachel hinzufügen** aus.
 
@@ -203,7 +203,7 @@ Falls Sie diese Anwendung nicht weiterverwenden möchten, löschen Sie Ihre Ress
 
 1. Im Azure-Portal können Sie die erstellten Event Hub- und Logic Apps-Ressourcen löschen.
 
-2. Wechseln Sie in Ihrer IoT Central-Anwendung zur Registerkarte „Verwaltung“, und klicken Sie auf **Löschen**.
+2. Wechseln Sie in Ihrer IoT Central-Anwendung zur Registerkarte „Verwaltung“, und klicken Sie auf **Löschen** .
 
 ## <a name="next-steps"></a>Nächste Schritte
 

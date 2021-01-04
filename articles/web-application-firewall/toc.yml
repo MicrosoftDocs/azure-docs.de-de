@@ -9,7 +9,7 @@
         - name: Web Application Firewall für Application Gateway
           href: ./ag/ag-overview.md
         - name: Neues
-          href: ./ag/whats-new.md
+          href: ./ag/ag-overview.md#whats-new
     - name: Front Door
       items:
         - name: Web Application Firewall für Azure Front Door
@@ -67,6 +67,8 @@
           href: ./ag/application-gateway-waf-faq.md
     - name: Front Door
       items:
+        - name: Optimierung
+          href: ./afds/waf-front-door-tuning.md
         - name: Benutzerdefinierte Regeln
           href: ./afds/waf-front-door-custom-rules.md
         - name: Ausschlusslisten
@@ -93,7 +95,7 @@
           items:
             - name: Azure PowerShell
               href: ./ag/tutorial-restrict-web-traffic-powershell.md
-            - name: Azure-Befehlszeilenschnittstelle
+            - name: Azure CLI
               href: ./ag/tutorial-restrict-web-traffic-cli.md
         - name: Richtlinien pro Website
           href: ./ag/per-site-policies.md
@@ -105,7 +107,7 @@
               href: ./ag/application-gateway-customize-waf-rules-portal.md
             - name: Azure PowerShell
               href: ./ag/application-gateway-customize-waf-rules-powershell.md
-            - name: Azure-Befehlszeilenschnittstelle
+            - name: Azure CLI
               href: ./ag/application-gateway-customize-waf-rules-cli.md
         - name: "Konfigurieren einer benutzerdefinierten WAF\_v2-Regel\_– PowerShell"
           href: ./ag/configure-waf-custom-rules.md
@@ -149,28 +151,28 @@
   items:
     - name: CRS-Regeln
       href: ./ag/application-gateway-crs-rulegroups-rules.md
-    - name: Azure-Befehlszeilenschnittstelle
+    - name: Azure CLI
       items:
         - name: Front Door
-          href: 'https://docs.microsoft.com/cli/azure/ext/front-door/network?view=azure-cli-latest'
+          href: /cli/azure/ext/front-door/network?view=azure-cli-latest
         - name: Application Gateway
-          href: 'https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest'
+          href: /cli/azure/network/application-gateway?view=azure-cli-latest
         - name: CDN
-          href: 'https://docs.microsoft.com/cli/azure/cdn/waf?view=azure-cli-latest'
+          href: /cli/azure/cdn/waf?view=azure-cli-latest
     - name: Azure PowerShell
       items:
         - name: Front Door
-          href: 'https://docs.microsoft.com/powershell/module/az.frontdoor/?view=azps-3.3.0'
+          href: /powershell/module/az.frontdoor/?view=azps-3.3.0
         - name: Application Gateway
-          href: 'https://docs.microsoft.com/powershell/module/az.network/?view=azps-3.3.0#application_gateway'
+          href: /powershell/module/az.network/?view=azps-3.3.0#application_gateway
         - name: CDN
           href: 'https://www.powershellgallery.com/packages/Az.Cdn/1.5.0-preview'
     - name: REST-API
       items:
         - name: Front Door
-          href: 'https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies'
+          href: /rest/api/frontdoorservice/webapplicationfirewall/policies
         - name: Application Gateway
-          href: 'https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview#waf-policy'
+          href: /rest/api/application-gateway
     - name: .NET
       href: /dotnet/api
     - name: Java

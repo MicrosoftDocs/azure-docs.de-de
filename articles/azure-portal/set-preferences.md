@@ -1,20 +1,15 @@
 ---
-title: Verwalten von Einstellungen und Voreinstellungen im Azure-Portal | Microsoft-Dokumentation
+title: Verwalten von Einstellungen und Voreinstellungen im Azure-Portal
 description: Sie können die Standardeinstellungen des Azure-Portals ändern, um sie an Ihre eigenen Vorlieben anzupassen. Zu den Einstellungen gehören das Timeout inaktiver Sitzungen, die Standardansicht, der Menümodus, der Kontrast, das Design, Benachrichtigungen sowie Sprache und regionale Formate.
-services: azure-portal
 keywords: Einstellungen, Timeout, Sprache, regional
-author: mgblythe
-ms.author: mblythe
 ms.date: 08/05/2020
 ms.topic: how-to
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 34750bcc2e9913b23daa3682d4fdea736f9c7a9a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 07dd3eb5cb132adf87852f29d867be772294d189
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367430"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745637"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Verwalten von Einstellungen und Voreinstellungen im Azure-Portal
 
@@ -33,7 +28,7 @@ Sie können das Abonnement ändern, das bei der Anmeldung beim Azure-Portal stan
 
 1. Wählen Sie die Abonnements aus, die beim Starten des Portals als Standardabonnements ausgewählt werden sollen. 
 
-    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Filtern Sie die Ressourcenliste nach dem Abonnement."::: 
+    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Wählen Sie die Abonnements aus, die beim Starten des Portals als Standardabonnements ausgewählt werden sollen."::: 
 
 
 ## <a name="choose-your-default-view"></a>Auswählen der Standardansicht 
@@ -50,7 +45,7 @@ Sie können die Seite ändern, die bei der Anmeldung beim Azure-Portal standardm
 
 Der Standardmodus für das Portalmenü steuert, wie viel Platz das Portalmenü auf der Seite einnimmt.
 
-![Screenshot mit Azure-Portaleinstellungen mit hervorgehobenen Designs](./media/set-preferences/menu-mode.png)
+![Screenshot der Festlegung des Standardmodus für das Portalmenü](./media/set-preferences/menu-mode.png)
 
 - Wenn sich das Portalmenü im **Flyoutmodus** befindet, wird es ausgeblendet, bis Sie es benötigen. Wählen Sie das Menüsymbol aus, um das Menü zu öffnen oder zu schließen.
 
@@ -108,7 +103,7 @@ Wenn Sie ein globaler Administrator sind und eine Einstellung für das Leerlauft
 
 1. Geben Sie als Nächstes die **Stunden** und die **Minuten** für die maximale Zeit ein, die sich ein Benutzer im Leerlauf befinden darf, bevor die Sitzung automatisch abgemeldet wird.
 
-1. Wählen Sie **Übernehmen** .
+1. Wählen Sie **Übernehmen**.
 
     ![Screenshot der Seite zum Festlegen des Inaktivitätstimeouts auf Verzeichnisebene](./media/set-preferences/configure.png)
 
@@ -136,7 +131,7 @@ Zum Exportieren Ihrer Portaleinstellungen wählen Sie **Alle Einstellungen expor
 
 ![Screenshot: Exportieren von Einstellungen](./media/set-preferences/useful-links-export-settings.png)
 
-Beim Exportieren von Einstellungen wird eine *JSON* -Datei erstellt, die Ihre Benutzereinstellungen enthält, z. B. Farbdesign, Favoriten und private Dashboards. Aufgrund der dynamischen Art der Benutzereinstellungen und des Risikos der Datenbeschädigung können Sie keine Einstellungen aus der *JSON* -Datei importieren.
+Beim Exportieren von Einstellungen wird eine *JSON*-Datei erstellt, die Ihre Benutzereinstellungen enthält, z. B. Farbdesign, Favoriten und private Dashboards. Aufgrund der dynamischen Art der Benutzereinstellungen und des Risikos der Datenbeschädigung können Sie keine Einstellungen aus der *JSON*-Datei importieren.
 
 ## <a name="delete-user-settings-and-dashboards"></a>Löschen von Benutzereinstellungen und Dashboards
 

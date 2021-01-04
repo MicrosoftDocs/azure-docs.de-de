@@ -1,5 +1,5 @@
 ---
-title: Konfigurieren der Workloadpriorität
+title: Konfigurieren der Workloadpriorität für dedizierte SQL-Pools
 description: Hier erfahren Sie, wie Sie die Priorität der Anforderungsebene in Azure Synapse Analytics festlegen.
 services: synapse-analytics
 author: ronortloff
@@ -11,20 +11,20 @@ ms.date: 05/15/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 83170f4090909e3edcc163312383773d088d8c57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 067551d198f717dd40995cb8bc3e1345e82f078f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212121"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461917"
 ---
-# <a name="configure-workload-importance-in-azure-synapse-analytics"></a>Konfigurieren der Workloadpriorität in Azure Synapse Analytics
+# <a name="configure-workload-importance-in-dedicated-sql-pool-for-azure-synapse-analytics"></a>Konfigurieren der Workloadpriorität in dedizierten SQL-Pools für Azure Synapse Analytics
 
-Durch Festlegen der Priorität in SQL Synapse für Azure Synapse können Sie die Zeitplanung von Abfragen beeinflussen. Abfragen mit höherer Priorität werden so geplant, dass sie vor Abfragen mit niedrigerer Priorität ausgeführt werden. Um Abfragen Priorität zuzuweisen, müssen Sie einen Workloadklassifizierer erstellen.
+Durch Festlegen der Priorität in dedizierten SQL-Pools für Azure Synapse können Sie die Zeitplanung von Abfragen beeinflussen. Abfragen mit höherer Priorität werden so geplant, dass sie vor Abfragen mit niedrigerer Priorität ausgeführt werden. Um Abfragen Priorität zuzuweisen, müssen Sie einen Workloadklassifizierer erstellen.
 
 ## <a name="create-a-workload-classifier-with-importance"></a>Erstellen eines Workloadklassifizierers mit Priorität
 
-Oft gibt es in einem Data Warehouse-Szenario Benutzer in einem ausgelasteten System, deren Abfragen schnell ausgeführt werden müssen.  Der Benutzer könnte eine Führungskraft im Unternehmen sein, die Berichte ausführen muss, oder ein Analyst, der eine Ad-hoc-Abfrage ausführt. Sie erstellen einen Workloadklassifizierer, sodass einer Abfrage eine Priorität zugewiesen wird.  Bei den nachstehenden Beispielen wird die Syntax [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) verwendet, um zwei Klassifizierer zu erstellen. `Membername` kann ein einzelner Benutzer oder eine Gruppe sein.  Für die Suche nach vorhandenen Data Warehouse-Benutzern führen Sie aus:
+Oft gibt es in einem Data Warehouse-Szenario Benutzer in einem ausgelasteten System, deren Abfragen schnell ausgeführt werden müssen.  Der Benutzer könnte eine Führungskraft im Unternehmen sein, die Berichte ausführen muss, oder ein Analyst, der eine Ad-hoc-Abfrage ausführt. Sie erstellen einen Workloadklassifizierer, sodass einer Abfrage eine Priorität zugewiesen wird.  Bei den nachstehenden Beispielen wird die Syntax [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) verwendet, um zwei Klassifizierer zu erstellen. `Membername` kann ein einzelner Benutzer oder eine Gruppe sein.  Sie können die vorhandenen Benutzer des dedizierten SQL-Pools wie folgt suchen:
 
 ```sql
 Select name from sys.sysusers

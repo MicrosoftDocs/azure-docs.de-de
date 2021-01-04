@@ -6,19 +6,19 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.subservice: alerts
-ms.openlocfilehash: 7f03858b2427b2a2069ebe2c9d06425e7a741e2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7c9c76816b5d1ee2eedfb7e54645e056906feef
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294358"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186625"
 ---
 # <a name="optimizing-log-alert-queries"></a>Optimieren von Protokollwarnungsabfragen
 In diesem Artikel wird beschrieben, wie Abfragen für [Protokollwarnungen](alerts-unified-log.md) zum Erzielen optimaler Leistung geschrieben und konvertiert werden. Optimierte Abfragen verringern die Latenz und die Auslastung durch Warnungen, die häufig ausgeführt werden.
 
 ## <a name="how-to-start-writing-an-alert-log-query"></a>Schreiben einer Warnungsprotokollabfrage
 
-Warnungsabfragen beginnen mit dem [Abfragen der Protokolldaten in Log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal), die auf das Problem hinweisen. Unter [Gespeicherte Abfragen in Azure Monitor Log Analytics](../log-query/saved-queries.md) können Sie sich anhand von Beispielen mit den Ermittlungsoptionen vertraut machen. Sie können auch [mit dem Schreiben einer eigenen Abfrage beginnen](../log-query/get-started-portal.md). 
+Warnungsabfragen beginnen mit dem [Abfragen der Protokolldaten in Log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal), die auf das Problem hinweisen. Unter [Gespeicherte Abfragen in Azure Monitor Log Analytics](../log-query/example-queries.md) können Sie sich anhand von Beispielen mit den Ermittlungsoptionen vertraut machen. Sie können auch [mit dem Schreiben einer eigenen Abfrage beginnen](../log-query/log-analytics-tutorial.md). 
 
 ### <a name="queries-that-indicate-the-issue-and-not-the-alert"></a>Abfragen, die auf das Problem und nicht die Warnung hinweisen
 

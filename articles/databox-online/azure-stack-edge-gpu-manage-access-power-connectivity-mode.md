@@ -6,18 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 11/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 99dd3da3f9e8434f9c859afd347bd19d10628083
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38dcb32b2993838f8c3f13334e0bc44e9146f113
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930590"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448595"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-gpu"></a>Verwalten des Zugriffs, der Energieeinstellungen und des Konnektivitätsmodus für Ihr Azure Stack Edge Pro-GPU-Gerät
 
 In diesem Artikel wird beschrieben, wie Sie den Zugriff, die Energieeinstellungen und den Konnektivitätsmodus für Ihr Azure Stack Edge Pro-GPU-Gerät verwalten. Diese Vorgänge werden über die lokale Webbenutzeroberfläche oder das Azure-Portal ausgeführt.
+
+Dieser Artikel bezieht sich auf Geräte vom Typ „Azure Stack Edge Pro-GPU“, „Azure Stack Edge Pro R“ und „Azure Stack Edge Mini R“.
+
 
 In diesem Artikel werden folgende Vorgehensweisen behandelt:
 
@@ -31,6 +34,8 @@ In diesem Artikel werden folgende Vorgehensweisen behandelt:
 ## <a name="manage-device-access"></a>Verwalten des Gerätezugriffs
 
 Der Zugriff auf Ihr Azure Stack Edge Pro-Gerät wird mithilfe eines Gerätekennworts gesteuert. Sie können das Kennwort über die lokale Webbenutzeroberfläche ändern. Das Gerätekennwort kann auch über das Azure-Portal zurückgesetzt werden.
+
+Der Zugriff auf die Daten auf den Gerätedatenträgern wird ebenfalls durch Schlüssel für die Verschlüsselung von ruhenden Daten gesteuert.
 
 ### <a name="change-device-password"></a>Ändern des Gerätekennworts
 
@@ -49,12 +54,46 @@ Beim Workflow zum Zurücksetzen muss der Benutzer das alte Kennwort nicht kennen
 
 1. Navigieren Sie im Azure-Portal zu **Übersicht > Administratorkennwort zurücksetzen**.
 
-    ![Kennwort zurücksetzen](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![Screenshot für das Gerät mit ausgewählter Option „Gerätekennwort zurücksetzen“](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
 
 
 2. Geben Sie das neue Kennwort ein, und bestätigen Sie es. Das angegebene Kennwort muss zwischen 8 und 16 Zeichen umfassen. Das Kennwort muss drei der folgenden Zeichen enthalten: Großbuchstaben, Kleinbuchstaben, Ziffern und Sonderzeichen. Klicken Sie auf **Zurücksetzen**.
 
-    ![Kennwort zurücksetzen](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![Zurücksetzen von Kennwort 2](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+
+### <a name="manage-access-to-device-data"></a>Verwalten des Zugriffs auf Gerätedaten
+
+Bei den Azure Stack Edge Pro R- und Azure Stack Edge Mini R-Geräten wird der Zugriff auf Gerätedaten mithilfe von Schlüsseln für die Verschlüsselung von ruhenden Daten für die Gerätelaufwerke gesteuert. Nachdem Sie das Gerät erfolgreich für die Verschlüsselung von ruhenden Daten konfiguriert haben, wird die Option für die Rotation von Schlüsseln für die Verschlüsselung von ruhenden Daten auf der lokalen Benutzeroberfläche des Geräts verfügbar. 
+
+Mit diesem Vorgang können Sie die Schlüssel für die BitLocker-Volumes `HcsData` und `HcsInternal` und für alle selbstverschlüsselnden Laufwerke auf Ihrem Gerät ändern.
+
+Führen Sie die folgenden Schritte aus, um die Schlüssel für die Verschlüsselung von ruhenden Daten zu rotieren.
+
+1. Navigieren Sie auf der lokalen Benutzeroberfläche des Geräts zur Seite **Erste Schritte**. Wählen Sie auf der Kachel **Sicherheit** die Option **Encryption-at-rest: Rotate keys** (Verschlüsselung von ruhenden Daten: Schlüssel rotieren) aus. Diese Option ist nur verfügbar, nachdem Sie die Schlüssel für die Verschlüsselung von ruhenden Daten erfolgreich konfiguriert haben.
+
+    ![Auf der Seite „Erste Schritte“ für die Verschlüsselung von ruhenden Daten „Rotate keys“ (Schlüssel rotieren) auswählen](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-1.png)
+
+1. Sie können Ihre eigenen BitLocker-Schlüssel verwenden oder die vom System generierten Schlüssel verwenden.  
+
+    Wenn Sie Ihren eigenen Schlüssel verwenden möchten, geben Sie eine Base-64-codierte Zeichenfolge mit einer Länge von 32 Zeichen ein. Die Eingabe ist mit der vergleichbar, die Sie bei der erstmaligen Konfiguration der Verschlüsselung von ruhenden Daten vornehmen.
+
+    ![Eigenen Schlüssel für die Verschlüsselung von ruhenden Daten verwenden](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-2.png)
+
+    Sie können auch einen vom System generierten Schlüssel verwenden.
+
+    ![Vom System generierten Schlüssel für die Verschlüsselung von ruhenden Daten verwenden](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-3.png)
+
+1. Wählen Sie **Übernehmen**. Die Schlüsselschutzvorrichtungen werden rotiert.
+
+    ![Neuen Schlüssel für die Verschlüsselung von ruhenden Daten anwenden](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-4.png)
+
+1. Wenn Sie aufgefordert werden, die Schlüsseldatei herunterzuladen und zu speichern, wählen Sie **Download and continue** (Herunterladen und fortfahren) aus. 
+
+    ![Option „Download and continue“ für Schlüsseldatei](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-5.png)
+
+    Speichern Sie die Schlüsseldatei `.json` an einem sicheren Ort. Diese Datei wird für eine potenzielle zukünftige Wiederherstellung des Geräts verwendet.
+
+    ![Screenshot des Dialogfelds „Gerätekennwort zurücksetzen“](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>Verwalten des Ressourcenzugriffs
 
@@ -69,7 +108,7 @@ Wenn Sie den Aktivierungsschlüssel für das Azure Stack Edge Pro-Gerät generie
 
 Sie müssen über `User`-Zugriff auf den Active Directory-Mandanten verfügen, da Sie die Aktion `Read all directory objects` ausführen können müssen. Gastbenutzer sind nicht zur Aktion `Read all directory objects` berechtigt. Für Gastbenutzer tritt bei Vorgängen wie dem Generieren eines Aktivierungsschlüssels, dem Erstellen einer Freigabe auf Ihrem Azure Stack Edge Pro-Gerät, dem Erstellen eines Benutzers, dem Konfigurieren der Edgecomputingrolle und dem Zurücksetzen des Gerätekennworts jeweils ein Fehler auf.
 
-Weitere Informationen dazu, wie Sie Benutzern Zugriff auf die Microsoft Graph-API gewähren, finden Sie unter [Referenz zu Microsoft Graph-Berechtigungen](https://docs.microsoft.com/graph/permissions-reference).
+Weitere Informationen dazu, wie Sie Benutzern Zugriff auf die Microsoft Graph-API gewähren, finden Sie unter [Referenz zu Microsoft Graph-Berechtigungen](/graph/permissions-reference).
 
 ### <a name="register-resource-providers"></a>Registrieren von Ressourcenanbietern
 

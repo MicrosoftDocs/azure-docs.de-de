@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 082f246437cdd99b844d1ed8010d8dc846fc4d47
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: f9b3be69ab57c0abf7523169303def899f325229
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341939"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789215"
 ---
 # <a name="security-alerts-schemas"></a>Schemas für Sicherheitswarnungen
 
@@ -25,7 +25,7 @@ Wenn für Ihr Abonnement Azure Defender aktiviert ist, erhalten Sie Sicherheitsw
 Sie können diese Sicherheitswarnungen auf der Seite **Bedrohungsschutz** von Azure Security Center oder mithilfe externer Tools anzeigen, wie z. B.:
 
 - [Azure Sentinel](../sentinel/index.yml): die cloudnative SIEM-Lösung von Microsoft. Der Sentinel-Connector erhält Warnungen von Azure Security Center und sendet diese an den [Log Analytics-Arbeitsbereich](../azure-monitor/learn/quick-create-workspace.md) für Azure Sentinel.
-- SIEM-Lösungen von Drittanbietern: Verwenden Sie die Tools von Security Center für den [fortlaufenden Export](continuous-export.md), um Daten an [Azure Event Hubs](../event-hubs/index.yml) zu senden. Integrieren Sie anschließend Ihre Event Hub-Daten in eine SIEM-Lösung eines Drittanbieters.
+- SIEMs von Drittanbietern: Senden von Daten an [Azure Event Hubs](../event-hubs/index.yml). Integrieren Sie anschließend Ihre Event Hub-Daten in eine SIEM-Lösung eines Drittanbieters. Weitere Informationen finden Sie unter [Streamen von Warnungen in eine SIEM-, SOAR- oder IT-Service-Management-Lösung](export-to-siem.md).
 - [Die REST-API](/rest/api/securitycenter/): Wenn Sie die REST-API für den Zugriff auf Warnungen verwenden, finden Sie weitere Informationen in der [Online-API-Dokumentation zu Warnungen](/rest/api/securitycenter/alerts).
 
 Wenn Sie programmgesteuerte Methoden verwenden, um die Warnungen zu verarbeiten, benötigen Sie das richtige Schema, um die für Sie relevanten Felder zu finden. Wenn Sie in einen Event Hub exportieren oder die Workflowautomatisierung mit generischen HTTP-Connectors auslösen möchten, verwenden Sie die Schemas, um die JSON-Objekte ordnungsgemäß zu analysieren.
@@ -46,8 +46,9 @@ Im Folgenden finden Sie das Schema der Warnungsereignisse, die übergeben werden
 - Azure Logic App-Instanzen, die in der Workflowautomatisierung von Security Center konfiguriert wurden
 - Azure Event Hub mithilfe des Security Center-Features für den fortlaufenden Export
 
-Weitere Informationen zur Workflowautomatisierungsfunktion finden Sie unter [Automatisieren von Reaktionen auf Warnungen und Empfehlungen](workflow-automation.md).
-Weitere Informationen zum fortlaufenden Export finden Sie unter [Exportieren von Warnungen und Empfehlungen](continuous-export.md).
+Weitere Informationen zum Feature Workflowautomatisierung finden Sie unter [Automatisieren von Reaktionen auf Security Center-Trigger](workflow-automation.md).
+
+Weitere Informationen zum fortlaufenden Export finden Sie unter [Fortlaufender Export von Security Center-Daten](continuous-export.md).
 
 [!INCLUDE [Workflow schema](../../includes/security-center-alerts-schema-workflow-automation.md)]
 
@@ -185,5 +186,5 @@ Weitere Informationen zu den Möglichkeiten, wie Sie auf Sicherheitswarnungen au
 
 - [Azure Sentinel](../sentinel/index.yml): die cloudnative SIEM-Lösung von Microsoft
 - [Azure Event Hubs](../event-hubs/index.yml): der vollständig verwaltete Microsoft-Dienst für die Datenerfassung in Echtzeit
-- Das [Feature für den fortlaufenden Export](continuous-export.md) von Security Center
+- [Fortlaufendes Exportieren von Security Center-Daten](continuous-export.md)
 - [Log Analytics-Arbeitsbereiche](../azure-monitor/learn/quick-create-workspace.md): Azure Monitor speichert die Protokolldaten in einem Log Analytics-Arbeitsbereich, einem Container, der Daten und Konfigurationsinformationen enthält.

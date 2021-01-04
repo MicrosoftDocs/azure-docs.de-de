@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: ca22def6bc152d03c3992ed7e94ac2b5ccf179e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27e7c899f0d22789c10541fc98a0d2c63a7843ec
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604477"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95533054"
 ---
 # <a name="modify-target-settings"></a>Ändern von Zieleinstellungen
 
@@ -41,8 +41,8 @@ In der folgenden Tabelle sind die Konfigurationseinstellungen zusammengefasst, d
 **VM-SKU** | Der [VM-Typ](https://azure.microsoft.com/pricing/details/virtual-machines/series/) (verfügbar in der Zielregion), der für die Ziel-VM verwendet wird.<br/><br/> Die ausgewählte Ziel-VM sollte nicht kleiner sein als die Quell-VM.
 **Netzwerkressourcen** | Optionen für virtuelle Netzwerke (Virtual Networks, VNETs)/Netzwerksicherheitsgruppen/Netzwerkschnittstellen:<br/><br/> – Erstellen einer neuen Ressource mit demselben Namen in der Zielregion<br/><br/> – Erstellen einer neuen Ressource mit einem anderen Namen in der Zielregion<br/><br/> – Verwenden einer vorhandene Netzwerkressource in der Zielregion<br/><br/> Wenn Sie eine neue Zielressource erstellen, werden dieser bis auf die von Ihnen geänderten Einstellungen dieselben Einstellungen wie der Quellressource zugewiesen.
 **Name der öffentlichen IP-Adresse** | Geben Sie den Namen an.
-**SKU der öffentlichen IP-Adresse** | Geben Sie die [SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) an.
-**Öffentliche IP-Adresszone** | Geben Sie die [Zone](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) für die öffentliche Standard-IP-Adressen an.<br/><br/> Wenn die Zone redundant sein soll, geben Sie **Zonenredundant** ein.
+**SKU der öffentlichen IP-Adresse** | Geben Sie die [SKU](../virtual-network/public-ip-addresses.md#sku) an.
+**Öffentliche IP-Adresszone** | Geben Sie die [Zone](../virtual-network/public-ip-addresses.md#standard) für die öffentliche Standard-IP-Adressen an.<br/><br/> Wenn die Zone redundant sein soll, geben Sie **Zonenredundant** ein.
 **Name des Lastenausgleichs** | Geben Sie den Namen an.
 **SKU des Lastenausgleichs** | „Basic“ oder „Standard“. Es wird empfohlen, „Standard“ zu verwenden.
 **Zone des Lastenausgleichs** | Geben Sie eine Zone für den Lastenausgleich an. <br/><br/> Wenn die Zone redundant sein soll, geben Sie **Zonenredundant** ein.

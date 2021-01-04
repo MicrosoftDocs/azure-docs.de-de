@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 42932d712d6c4a94cad28aec924b88fbc126662b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dec41a5e05d22891aae9d16280ebb6b0c8da3f20
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212788"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185112"
 ---
 # <a name="azure-cosmos-db-input-binding-for-azure-functions-2x-and-higher"></a>Azure Cosmos DB-Eingabebindung für Azure Functions 2.x und höher
 
@@ -20,7 +20,7 @@ Die Azure Cosmos DB-Eingabebindung verwendet die SQL-API, um mindestens ein Azur
 Informationen zu Setup- und Konfigurationsdetails finden Sie in der [Übersicht](./functions-bindings-cosmosdb-v2.md).
 
 > [!NOTE]
-> Wenn die Sammlung [partitioniert](../cosmos-db/partition-data.md#logical-partitions) ist, müssen Suchvorgänge auch den Partitionsschlüsselwert angeben.
+> Wenn die Sammlung [partitioniert](../cosmos-db/partitioning-overview.md#logical-partitions) ist, müssen Suchvorgänge auch den Partitionsschlüsselwert angeben.
 >
 
 <a id="example" name="example"></a>
@@ -212,7 +212,7 @@ Das folgende Beispiel zeigt eine [C#-Funktion](functions-dotnet-class-library.md
 Das Beispiel veranschaulicht die Verwendung eines Bindungsausdrucks im Parameter `SqlQuery`. Sie können Routendaten wie gezeigt an den Parameter `SqlQuery` übergeben. [Die Übergabe von Abfragezeichenfolgenwerten ist derzeit allerdings nicht möglich.](https://github.com/Azure/azure-functions-host/issues/2554#issuecomment-392084583)
 
 > [!NOTE]
-> Wenn Sie nur über die ID eine Abfrage ausführen, sollten Sie wie in den [vorherigen Beispielen](#http-trigger-look-up-id-from-query-string-c) einen Suchvorgang verwenden, da dadurch weniger [Anforderungseinheiten](../cosmos-db/request-units.md) verbraucht werden. Punktlesevorgänge (GET) sind [effizienter](../cosmos-db/optimize-cost-queries.md) als Abfragen über die ID.
+> Wenn Sie nur über die ID eine Abfrage ausführen, sollten Sie wie in den [vorherigen Beispielen](#http-trigger-look-up-id-from-query-string-c) einen Suchvorgang verwenden, da dadurch weniger [Anforderungseinheiten](../cosmos-db/request-units.md) verbraucht werden. Punktlesevorgänge (GET) sind [effizienter](../cosmos-db/optimize-cost-reads-writes.md) als Abfragen über die ID.
 >
 
 ```cs
@@ -1315,7 +1315,7 @@ public class DocByIdFromRoute {
 Das folgende Beispiel zeigt eine Java-Funktion, die ein einzelnes Dokument abruft. Die Funktion wird durch eine HTTP-Anforderung ausgelöst, die einen Routenparameter verwendet, um die zu suchende ID anzugeben. Diese ID wird verwendet, um ein Dokument aus der angegebenen Datenbank und Sammlung abzurufen, wobei das Resultset in ein ```ToDoItem[]``` konvertiert wird, da viele Dokumente zurückgegeben werden können, je nach den Abfragekriterien.
 
 > [!NOTE]
-> Wenn Sie nur über die ID eine Abfrage ausführen, sollten Sie wie in den [vorherigen Beispielen](#http-trigger-look-up-id-from-query-string---pojo-parameter-java) einen Suchvorgang verwenden, da dadurch weniger [Anforderungseinheiten](../cosmos-db/request-units.md) verbraucht werden. Punktlesevorgänge (GET) sind [effizienter](../cosmos-db/optimize-cost-queries.md) als Abfragen über die ID.
+> Wenn Sie nur über die ID eine Abfrage ausführen, sollten Sie wie in den [vorherigen Beispielen](#http-trigger-look-up-id-from-query-string---pojo-parameter-java) einen Suchvorgang verwenden, da dadurch weniger [Anforderungseinheiten](../cosmos-db/request-units.md) verbraucht werden. Punktlesevorgänge (GET) sind [effizienter](../cosmos-db/optimize-cost-reads-writes.md) als Abfragen über die ID.
 >
 
 ```java
@@ -1442,7 +1442,7 @@ Die folgende Tabelle gibt Aufschluss über die Bindungskonfigurationseigenschaft
 |**id**    | **Id** | Die ID des abzurufenden Dokuments. Diese Eigenschaft unterstützt [Bindungsausdrücke](./functions-bindings-expressions-patterns.md). Legen Sie nicht die beiden Eigenschaften `id` und **sqlQuery** fest. Wenn Sie keine der beiden festlegen, wird die gesamte Sammlung abgerufen. |
 |**sqlQuery**  |**SqlQuery**  | Eine SQL-Abfrage in Azure Cosmos DB zum Abrufen mehrerer Dokumente. Die Eigenschaft unterstützt Laufzeitbindungen, wie in diesem Beispiel: `SELECT * FROM c where c.departmentId = {departmentId}`. Legen Sie nicht die beiden Eigenschaften `id` und `sqlQuery` fest. Wenn Sie keine der beiden festlegen, wird die gesamte Sammlung abgerufen.|
 |**connectionStringSetting**     |**ConnectionStringSetting**|Der Name der App-Einstellung mit Ihrer Azure Cosmos DB-Verbindungszeichenfolge. |
-|**partitionKey**|**PartitionKey**|Gibt den Wert des Partitionsschlüssels für die Suche an. Kann den Bindungsparameter enthalten. Für Suchvorgänge in [partitionierten](../cosmos-db/partition-data.md#logical-partitions) Sammlungen ist dies erforderlich.|
+|**partitionKey**|**PartitionKey**|Gibt den Wert des Partitionsschlüssels für die Suche an. Kann den Bindungsparameter enthalten. Für Suchvorgänge in [partitionierten](../cosmos-db/partitioning-overview.md#logical-partitions) Sammlungen ist dies erforderlich.|
 |**preferredLocations**| **PreferredLocations**| (Optional) Definiert bevorzugte Standorte (Regionen) für georeplizierte Datenbankkonten im Azure Cosmos DB-Dienst. Werte sollten durch Trennzeichen getrennt sein. Beispiel: „USA, Osten,USA, Süden-Mitte,Europa, Norden“. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

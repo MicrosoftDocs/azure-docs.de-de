@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e42c889277f937a33e72eaf57819385166d6a409
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd90be6d93dc5ca399ac87daba0ca44fa7e88ff8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85202313"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532493"
 ---
 # <a name="verification-display-control"></a>Anzeigesteuerselemente zur Überprüfung
 
@@ -33,8 +33,6 @@ Das Anzeigesteuerelement zur Überprüfung umfasst zwei Schritte (Aktionen):
 1. Nachdem der Code gesendet wurde, liest der Benutzer die Nachricht, gibt den Überprüfungscode in dem bereitgestellten Anzeigecodeelement ein und wählt **Code überprüfen** aus. Durch Auswählen von **Code überprüfen** wird die **VerifyCode-Aktion** ausgeführt, um den der Adresse zugeordneten Code zu überprüfen. Wenn der Benutzer **Neuen Code senden** auswählt, wird die erste Aktion erneut ausgeführt.
 
     ![Beispielseite für „Code überprüfen“](media/display-control-verification/display-control-verification-email-action-02.png)
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="verificationcontrol-required-elements"></a>Erforderliche Elemente für VerificationControl
 

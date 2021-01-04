@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: bb2ac221169cea84205d087cbe0aadfd035d22db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49a4ab0315dad539a594a20e53eae9fd2890e551
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760511"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504967"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Behandeln von Problemen beim Aktivieren des Application Insights-Momentaufnahmedebuggers oder Anzeigen von Momentaufnahmen
 Wenn Sie den Application Insights-Momentaufnahmedebugger für Ihre Anwendung aktiviert haben, aber keine Momentaufnahmen für Ausnahmen angezeigt werden, können Sie diese Anweisungen zur Problembehandlung verwenden. Es kann viele verschiedene Gründe geben, warum keine Momentaufnahmen generiert werden. Sie können die Integritätsprüfung für Momentaufnahmen ausführen, um einige der möglichen Ursachen zu ermitteln.
@@ -57,19 +57,21 @@ Um die Einstellung zu überprüfen, öffnen Sie die Datei „web.config“, und 
 > Wenn „targetFramework“ 4.7 oder höher ist, bestimmt Windows die verfügbaren Protokolle. In Azure App Service ist TLS 1.2 verfügbar. Wenn Sie jedoch Ihren eigenen virtuellen Computer verwenden, müssen Sie möglicherweise TLS 1.2 im Betriebssystem aktivieren.
 
 ## <a name="preview-versions-of-net-core"></a>Vorschauversionen von .NET Core
-Wenn die Anwendung eine Vorschauversion von .NET Core verwendet und der Momentaufnahmedebugger über den [Application Insights-Bereich](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) im Portal aktiviert wurde, wird der Momentaufnahmedebugger möglicherweise nicht gestartet. Befolgen Sie zuerst die Anweisungen unter [Aktivieren des Momentaufnahmedebuggers für andere Umgebungen](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json), um ***zusätzlich*** zu der Aktivierung im [Application Insights-Bereich](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) das NuGet-Paket [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) in die Anwendung einzubinden.
+Wenn die Anwendung eine Vorschauversion von .NET Core verwendet und der Momentaufnahmedebugger über den [Application Insights-Bereich](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) im Portal aktiviert wurde, wird der Momentaufnahmedebugger möglicherweise nicht gestartet. Befolgen Sie zuerst die Anleitung unter [Aktivieren des Momentaufnahmedebuggers für andere Umgebungen](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json), um **zusätzlich** zur Aktivierung im [Application Insights-Bereich](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) das NuGet-Paket [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) in die Anwendung einzubinden.
 
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Upgraden auf die neueste Version des NuGet-Pakets
 
 Wenn der Momentaufnahmedebugger über den [Application Insights-Bereich im Portal](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) aktiviert wurde, sollte in Ihrer Anwendung bereits das aktuellste NuGet-Paket ausgeführt werden. Wurde der Momentaufnahmedebugger durch Einbinden des NuGet-Pakets [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) aktiviert, verwenden Sie den NuGet-Paket-Manager in Visual Studio, um sicherzustellen, dass Sie die neueste Version von „Microsoft.ApplicationInsights.SnapshotCollector“ verwenden.
 
+Informationen zu den neuesten Updates und Fehlerbehebungen [finden Sie in den Versionshinweisen](./snapshot-collector-release-notes.md).
+
 ## <a name="check-the-uploader-logs"></a>Überprüfen der Uploaderprotokolle
 
 Nachdem eine Momentaufnahme erstellt wurde, wird eine Minidumpdatei (DMP) auf dem Datenträger erstellt. Diese Minidumpdatei wird durch einen separaten Uploaderprozess erstellt und zusammen mit allen dazugehörigen PDB-Dateien in den Speicher des Application Insights-Momentaufnahmedebuggers hochgeladen. Nachdem die Minidumpdatei erfolgreich hochgeladen wurde, wird sie vom Datenträger gelöscht. Die Protokolldateien für den Uploaderprozess bleiben auf dem Datenträger erhalten. In einer App Service-Umgebung finden Sie diese Protokolle unter `D:\Home\LogFiles`. Verwenden Sie die Verwaltungswebsite von Kudu für App Service, um nach diesen Protokolldateien zu suchen.
 
 1. Öffnen Sie im Azure-Portal Ihre App Service-Anwendung.
-2. Klicken Sie auf **Erweiterte Tools**, oder suchen Sie nach **Kudu**.
+2. Klicken Sie auf _*Erweiterte Tools**, oder suchen Sie nach **Kudu**.
 3. Klicken Sie auf **Start**.
 4. Wählen Sie im Dropdown-Listenfeld **Debugging-Konsole** die Option **CMD** aus.
 5. Klicken Sie auf **LogFiles**.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.openlocfilehash: fe0f2b0efa3f089398493cf30012e34097e065ec
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 161348f7566ff64858d563f34ad8f3f4c7511adf
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91944276"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009159"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: Integration des einmaligen Anmeldens (Single Sign-On, SSO) von Azure Active Directory mit F5
 
@@ -26,7 +26,7 @@ In diesem Tutorial erfahren Sie, wie Sie F5 in Azure Active Directory (Azure AD
 * Ermöglichen Sie es Ihren Benutzern, sich mit ihren Azure AD-Konten automatisch bei F5 anzumelden.
 * Verwalten Sie Ihre Konten zentral im Azure-Portal.
 
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -59,7 +59,7 @@ Für die ersten Schritte benötigen Sie Folgendes:
 
 ## <a name="access-guided-configuration"></a>Zugriffsgesteuerte Konfiguration
 
-* Die zugriffsgesteuerte Konfiguration wird ab Version 13.1.0.8 von F5 TMOS unterstützt. Wenn in Ihrem BIG-IP-System eine Version vor 13.1.0.8 ausgeführt wird, lesen Sie den Abschnitt **Erweiterte Konfiguration** .
+* Die zugriffsgesteuerte Konfiguration wird ab Version 13.1.0.8 von F5 TMOS unterstützt. Wenn in Ihrem BIG-IP-System eine Version vor 13.1.0.8 ausgeführt wird, lesen Sie den Abschnitt **Erweiterte Konfiguration**.
 
 * Bei der zugriffsgesteuerten Konfiguration handelt es sich um eine völlig neue und optimierte Benutzererfahrung. Diese workflowbasierte Architektur bietet intuitive, eintrittsvariante Konfigurationsschritte, die auf die ausgewählte Topologie zugeschnitten sind.
 
@@ -115,14 +115,14 @@ Zum Konfigurieren der Integration von F5 in Azure AD müssen Sie F5 aus dem Kat
 
 1. Melden Sie sich mit einem Geschäfts-, Schul- oder Unikonto oder mit einem persönlichen Microsoft-Konto beim [Azure-Portal](https://portal.azure.com) an.
 1. Wählen Sie im linken Navigationsbereich den Dienst **Azure Active Directory** aus.
-1. Navigieren Sie zu **Unternehmensanwendungen** , und wählen Sie dann **Alle Anwendungen** aus.
+1. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie dann **Alle Anwendungen** aus.
 1. Wählen Sie zum Hinzufügen einer neuen Anwendung **Neue Anwendung** aus.
 1. Geben Sie im Abschnitt **Aus Katalog hinzufügen** den Suchbegriff **F5** in das Suchfeld ein.
 1. Wählen Sie im Ergebnisbereich **F5** aus, und fügen Sie dann die App hinzu. Warten Sie einige Sekunden, während die App Ihrem Mandanten hinzugefügt wird.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-f5"></a>Konfigurieren und Testen des einmaligen Anmeldens von Azure AD für F5
 
-Konfigurieren und testen Sie das einmalige Anmelden von Azure AD mit F5 mithilfe eines Testbenutzers mit dem Namen **B. Simon** . Damit einmaliges Anmelden funktioniert, muss eine Linkbeziehung zwischen einem Azure AD-Benutzer und dem entsprechenden Benutzer in F5 eingerichtet werden.
+Konfigurieren und testen Sie das einmalige Anmelden von Azure AD mit F5 mithilfe eines Testbenutzers mit dem Namen **B. Simon**. Damit einmaliges Anmelden funktioniert, muss eine Linkbeziehung zwischen einem Azure AD-Benutzer und dem entsprechenden Benutzer in F5 eingerichtet werden.
 
 Führen Sie zum Konfigurieren und Testen des einmaligen Anmeldens von Azure AD mit F5 die folgenden Schritte aus:
 
@@ -137,19 +137,19 @@ Führen Sie zum Konfigurieren und Testen des einmaligen Anmeldens von Azure AD 
 
 Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal zu aktivieren.
 
-1. Navigieren Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **F5** zum Abschnitt **Verwalten** , und wählen Sie **Einmaliges Anmelden** aus.
+1. Navigieren Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **F5** zum Abschnitt **Verwalten**, und wählen Sie **Einmaliges Anmelden** aus.
 1. Wählen Sie auf der Seite **SSO-Methode auswählen** die Methode **SAML** aus.
-1. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Bearbeitungs- bzw. Stiftsymbol für **Grundlegende SAML-Konfiguration** , um die Einstellungen zu bearbeiten.
+1. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Bearbeitungs- bzw. Stiftsymbol für **Grundlegende SAML-Konfiguration**, um die Einstellungen zu bearbeiten.
 
    ![Bearbeiten der SAML-Basiskonfiguration](common/edit-urls.png)
 
-1. Geben Sie im Abschnitt **Grundlegende SAML-Konfiguration** die Werte in die folgenden Felder ein, wenn Sie die Anwendung im **IDP** -initiierten Modus konfigurieren möchten:
+1. Geben Sie im Abschnitt **Grundlegende SAML-Konfiguration** die Werte in die folgenden Felder ein, wenn Sie die Anwendung im **IDP**-initiierten Modus konfigurieren möchten:
 
     a. Geben Sie im Textfeld **Bezeichner** eine URL im folgenden Format ein: `https://<YourCustomFQDN>.f5.com/`
 
     b. Geben Sie im Textfeld **Antwort-URL** eine URL im folgenden Format ein: `https://<YourCustomFQDN>.f5.com/`
 
-1. Klicken Sie auf **Zusätzliche URLs festlegen** , und führen Sie den folgenden Schritt aus, wenn Sie die Anwendung im **SP-initiierten Modus** konfigurieren möchten:
+1. Klicken Sie auf **Zusätzliche URLs festlegen**, und führen Sie den folgenden Schritt aus, wenn Sie die Anwendung im **SP-initiierten Modus** konfigurieren möchten:
 
     Geben Sie im Textfeld **Anmelde-URL** eine URL im folgenden Format ein: `https://<YourCustomFQDN>.f5.com/`
 
@@ -173,16 +173,16 @@ In diesem Abschnitt erstellen Sie im Azure-Portal einen Testbenutzer mit dem Nam
 1. Führen Sie unter den Eigenschaften für **Benutzer** die folgenden Schritte aus:
    1. Geben Sie im Feld **Name** die Zeichenfolge `B.Simon` ein.  
    1. Geben Sie im Feld **Benutzername** die Zeichenfolge username@companydomain.extension ein. Beispiel: `B.Simon@contoso.com`.
-   1. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen** , und notieren Sie sich den Wert aus dem Feld **Kennwort** .
-   1. Klicken Sie auf **Erstellen** .
+   1. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den Wert aus dem Feld **Kennwort**.
+   1. Klicken Sie auf **Erstellen**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Zuweisen des Azure AD-Testbenutzers
 
 In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anmeldens von Azure, indem Sie ihr Zugriff auf F5 gewähren.
 
-1. Wählen Sie im Azure-Portal **Unternehmensanwendungen**  > **Alle Anwendungen** aus.
+1. Wählen Sie im Azure-Portal **Unternehmensanwendungen** > **Alle Anwendungen** aus.
 1. Wählen Sie in der Anwendungsliste **F5** aus.
-1. Navigieren Sie auf der Übersichtsseite der App zum Abschnitt **Verwalten** , und wählen Sie **Benutzer und Gruppen** aus.
+1. Navigieren Sie auf der Übersichtsseite der App zum Abschnitt **Verwalten**, und wählen Sie **Benutzer und Gruppen** aus.
 
    ![Link „Benutzer und Gruppen“](common/users-groups-blade.png)
 
@@ -190,11 +190,11 @@ In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anm
 
     ![Link „Benutzer hinzufügen“](common/add-assign-user.png)
 
-1. Wählen Sie im Dialogfeld **Benutzer und Gruppen** in der Liste „Benutzer“ den Eintrag **B. Simon** aus, und klicken Sie dann unten auf dem Bildschirm auf die Schaltfläche **Auswählen** .
-1. Wenn Sie einen beliebigen Rollenwert in der SAML-Assertion erwarten, wählen Sie im Dialogfeld **Rolle auswählen** die entsprechende Rolle für den Benutzer in der Liste aus, und klicken Sie dann im unteren Bildschirmbereich auf die Schaltfläche **Auswählen** .
-1. Klicken Sie im Dialogfeld **Zuweisung hinzufügen** auf die Schaltfläche **Zuweisen** .
-1. Klicken Sie auf **Bedingter Zugriff** .
-1. Klicken Sie auf **Neue Richtlinie** .
+1. Wählen Sie im Dialogfeld **Benutzer und Gruppen** in der Liste „Benutzer“ den Eintrag **B. Simon** aus, und klicken Sie dann unten auf dem Bildschirm auf die Schaltfläche **Auswählen**.
+1. Wenn Sie einen beliebigen Rollenwert in der SAML-Assertion erwarten, wählen Sie im Dialogfeld **Rolle auswählen** die entsprechende Rolle für den Benutzer in der Liste aus, und klicken Sie dann im unteren Bildschirmbereich auf die Schaltfläche **Auswählen**.
+1. Klicken Sie im Dialogfeld **Zuweisung hinzufügen** auf die Schaltfläche **Zuweisen**.
+1. Klicken Sie auf **Bedingter Zugriff**.
+1. Klicken Sie auf **Neue Richtlinie**.
 1. Daraufhin wird Ihre F5-App als Ressource für eine Richtlinie für bedingten Zugriff angezeigt, und Sie können einen beliebigen bedingten Zugriff anwenden (beispielsweise eine mehrstufige Authentifizierung, eine gerätebasierte Zugriffssteuerung oder eine Identity Protection-Richtlinie).
 
 ## <a name="configure-f5-sso"></a>Konfigurieren des einmaligen Anmeldens für F5
@@ -211,11 +211,11 @@ In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anm
 
 1. Sie müssen das Metadatenzertifikat in F5 importieren. Es wird später bei der Einrichtung benötigt.
 
-1. Navigieren Sie zu **System > Certificate Management > Traffic Certificate Management > SSL Certificate List** (System > Zertifikatverwaltung > Zertifikatverwaltung für Datenverkehr > SSL-Zertifikatliste). Wählen Sie auf der rechten Seite **Import** (Importieren) aus. Geben Sie unter **Certificate Name** (Zertifikatname) einen Zertifikatnamen an. (Auf diesen wird später in der Konfiguration verwiesen.) Wählen Sie unter **Certificate Source** (Zertifikatquelle) die Option „Upload File“ (Datei hochladen) aus, und geben Sie das Zertifikat an, das Sie beim Konfigurieren des einmaligen Anmeldens mit SAML heruntergeladen haben. Klicken Sie auf **Importieren** .
+1. Navigieren Sie zu **System > Certificate Management > Traffic Certificate Management > SSL Certificate List** (System > Zertifikatverwaltung > Zertifikatverwaltung für Datenverkehr > SSL-Zertifikatliste). Wählen Sie auf der rechten Seite **Import** (Importieren) aus. Geben Sie unter **Certificate Name** (Zertifikatname) einen Zertifikatnamen an. (Auf diesen wird später in der Konfiguration verwiesen.) Wählen Sie unter **Certificate Source** (Zertifikatquelle) die Option „Upload File“ (Datei hochladen) aus, und geben Sie das Zertifikat an, das Sie beim Konfigurieren des einmaligen Anmeldens mit SAML heruntergeladen haben. Klicken Sie auf **Importieren**.
 
     ![Screenshot der Seite „S S L Certificate/Key Source“ (SSL-Zertifikat-/Schlüsselquelle) mit „Certificate Name“ (Zertifikatname) hervorgehoben und den ausgewählten Schaltflächen „Upload File“ (Datei hochladen) und „Import“ (Importieren)](./media/kerbf5-tutorial/configure01.png) 
 
-1. Darüber hinaus benötigen Sie das SSL-Zertifikat für den Anwendungshostnamen. Navigieren Sie zu **System > Certificate Management > Traffic Certificate Management > SSL Certificate List** (System > Zertifikatverwaltung > Zertifikatverwaltung für Datenverkehr > SSL-Zertifikatliste). Wählen Sie auf der rechten Seite **Import** (Importieren) aus. Der **Importtyp** lautet **PKCS 12 (IIS)** . Geben Sie unter **Key Name** (Schlüsselname) einen Schlüsselnamen und anschließend die PFX-Datei an. (Auf den Schlüsselnamen wird später in der Konfiguration verwiesen.) Geben Sie das **Kennwort** für die PFX-Datei an. Klicken Sie auf **Importieren** .
+1. Darüber hinaus benötigen Sie das SSL-Zertifikat für den Anwendungshostnamen. Navigieren Sie zu **System > Certificate Management > Traffic Certificate Management > SSL Certificate List** (System > Zertifikatverwaltung > Zertifikatverwaltung für Datenverkehr > SSL-Zertifikatliste). Wählen Sie auf der rechten Seite **Import** (Importieren) aus. Der **Importtyp** lautet **PKCS 12 (IIS)** . Geben Sie unter **Key Name** (Schlüsselname) einen Schlüsselnamen und anschließend die PFX-Datei an. (Auf den Schlüsselnamen wird später in der Konfiguration verwiesen.) Geben Sie das **Kennwort** für die PFX-Datei an. Klicken Sie auf **Importieren**.
 
     >[!NOTE]
     >Im vorliegenden Beispiel heißt unsere App `Kerbapp.superdemo.live`, wir verwenden ein Platzhalterzertifikat, und der Schlüsselname lautet `WildCard-SuperDemo.live`.
@@ -247,7 +247,7 @@ In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anm
  
     ![Screenshot der Seite „Pool Properties“ (Pooleigenschaften) mit hervorgehobenem Textfeld „IP Address/Node Name“ (IP-Adresse/Knotenname) und der ausgewählten Schaltfläche „Save & Next“ (Speichern und weiter)](./media/kerbf5-tutorial/configure08.png)
 
-1. Aktivieren Sie im Bildschirm mit den Einstellungen für einmaliges Anmelden das Kontrollkästchen **Enable Single Sign-On** (Einmaliges Anmelden aktivieren). Wählen Sie unter **Selected Single Sign-On Type** (Ausgewählter SSO-Typ) die Option **Kerberos** aus. Ersetzen Sie **session.saml.last.Identity** unter **Username Source** (Quelle des Benutzernamens) durch **session.saml.last.attr.name.Identity** . (Diese Variable wird unter Verwendung der Anspruchszuordnung in Azure AD festgelegt.) Wählen Sie **Show Advanced Setting** (Erweiterte Einstellung anzeigen) aus. Geben Sie unter **Kerberos Realm** (Kerberos-Bereich) den Domänennamen ein. Geben Sie unter **Account Name / Account Password** (Kontoname/Kontokennwort) das APM-Delegierungskonto und das zugehörige Kennwort an. Geben Sie im Feld **KDC** die IP-Adresse des Domänencontrollers an. Klicken Sie auf **Save & Next** (Speichern und weiter).
+1. Aktivieren Sie im Bildschirm mit den Einstellungen für einmaliges Anmelden das Kontrollkästchen **Enable Single Sign-On** (Einmaliges Anmelden aktivieren). Wählen Sie unter **Selected Single Sign-On Type** (Ausgewählter SSO-Typ) die Option **Kerberos** aus. Ersetzen Sie **session.saml.last.Identity** unter **Username Source** (Quelle des Benutzernamens) durch **session.saml.last.attr.name.Identity**. (Diese Variable wird unter Verwendung der Anspruchszuordnung in Azure AD festgelegt.) Wählen Sie **Show Advanced Setting** (Erweiterte Einstellung anzeigen) aus. Geben Sie unter **Kerberos Realm** (Kerberos-Bereich) den Domänennamen ein. Geben Sie unter **Account Name / Account Password** (Kontoname/Kontokennwort) das APM-Delegierungskonto und das zugehörige Kennwort an. Geben Sie im Feld **KDC** die IP-Adresse des Domänencontrollers an. Klicken Sie auf **Save & Next** (Speichern und weiter).
 
     ![Screenshot von „Single Sign-On Settings“ (Einstellungen für einmaliges Anmelden) mit hervorgehobenen Textfeldern und der ausgewählten Schaltfläche „Save & Next“ (Speichern und weiter)](./media/kerbf5-tutorial/configure09.png)   
 
@@ -279,7 +279,7 @@ Sie konfigurieren einen Active Directory-AAA-Server in Access Policy Manager (A
 
 1. Klicken Sie auf der Registerkarte „Main“ (Hauptmenü) auf **Access Policy > AAA Servers > Active Directory** (Zugriffsrichtlinie > AAA-Server > Active Directory). Der Bildschirm mit der Active Directory-Serverliste wird geöffnet.
 
-2. Klicken Sie auf **Erstellen** . Der Bildschirm mit den Eigenschaften für den neuen Server wird geöffnet.
+2. Klicken Sie auf **Erstellen**. Der Bildschirm mit den Eigenschaften für den neuen Server wird geöffnet.
 
 3. Geben Sie im Feld **Name** einen eindeutigen Namen für den Authentifizierungsserver ein.
 
@@ -339,7 +339,7 @@ Sie konfigurieren einen Active Directory-AAA-Server in Access Policy Manager (A
 
     ![Screenshot des Fensters „Edit S A M L I d P Connector“ (SAML-IdP-Connector bearbeiten) mit der Auswahl „S L O Service Settings“ (SLO-Diensteinstellungen)](./media/kerbf5-tutorial/configure24.png)
 
-1. Navigieren Sie zum Einrichten des SAML-Dienstanbieters zu **Access > Federation > SAML Service Provider > Local SP Services** (Zugriff > Verbund > SAML-Dienstanbieter > Lokale SP-Dienste), und klicken Sie auf **Create** (Erstellen). Geben Sie die folgenden Informationen an, und klicken Sie anschließend auf **OK** :
+1. Navigieren Sie zum Einrichten des SAML-Dienstanbieters zu **Access > Federation > SAML Service Provider > Local SP Services** (Zugriff > Verbund > SAML-Dienstanbieter > Lokale SP-Dienste), und klicken Sie auf **Create** (Erstellen). Geben Sie die folgenden Informationen an, und klicken Sie anschließend auf **OK**:
 
     * Name: KerbApp200SAML
     * Entity ID* (Entitäts-ID): https://kerb-app.com.cutestat.com
@@ -356,7 +356,7 @@ Sie konfigurieren einen Active Directory-AAA-Server in Access Policy Manager (A
 
      ![Screenshot der ausgewählten Schaltfläche „Bind/Unbind I d P Connectors“ (IdP-Connectors binden/Bindung der IdP-Connectors aufheben)](./media/kerbf5-tutorial/configure27.png)
 
-     c. Klicken Sie auf **Add New Row** (Neue Zeile hinzufügen), wählen Sie den im vorherigen Schritt erstellten **externen IdP-Connector** aus, und klicken Sie auf **Update** (Aktualisieren) und anschließend auf **OK** .
+     c. Klicken Sie auf **Add New Row** (Neue Zeile hinzufügen), wählen Sie den im vorherigen Schritt erstellten **externen IdP-Connector** aus, und klicken Sie auf **Update** (Aktualisieren) und anschließend auf **OK**.
 
      ![Screenshot des Fensters „Edit S A M L I d Ps that use this S P“ (SAML-IdPs bearbeiten, die diesen SP nutzen) mit der ausgewählten Schaltfläche „Add New Row“ (Neue Zeile hinzufügen)](./media/kerbf5-tutorial/configure28.png)
 
@@ -387,7 +387,7 @@ Sie konfigurieren einen Active Directory-AAA-Server in Access Policy Manager (A
 
         ![Screenshot der Seite „S S D/Auth Domains“ (SSD/Authentifizierungsdomänen) mit hervorgehobenem Textfeld „Domain Cookie“ (Domänencookie) und hervorgehobenem Dropdownfeld „S S O Configuration“ (SSO-Konfiguration) und ausgewählter Schaltfläche „Update“ (Aktualisieren)](./media/kerbf5-tutorial/configure31.png)
 
-1. Klicken Sie auf **Zugriffsrichtlinie** , und klicken Sie dann für das Profil „KerbApp200“ auf **Zugriffsrichtlinie bearbeiten** .
+1. Klicken Sie auf **Zugriffsrichtlinie**, und klicken Sie dann für das Profil „KerbApp200“ auf **Zugriffsrichtlinie bearbeiten**.
 
     ![Screenshot der Seite „Access Policy“ (Zugriffsrichtlinie) mit der ausgewählten Aktion „Edit Access Policy for Profile KerbApp200“ (Zugriffsrichtlinie für das Profil KerbApp200 bearbeiten)](./media/kerbf5-tutorial/configure32.png)
 
@@ -472,25 +472,24 @@ Sie konfigurieren einen Active Directory-AAA-Server in Access Policy Manager (A
 
 ### <a name="create-f5-test-user"></a>Erstellen eines F5-Testbenutzers
 
-In diesem Abschnitt erstellen Sie in F5 einen Benutzer namens B. Simon. Wenden Sie sich an das  [Supportteam für den F5-Client](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45), um die Benutzer auf der F5-Plattform hinzuzufügen. Benutzer müssen erstellt und aktiviert werden, damit Sie einmaliges Anmelden verwenden können. 
+In diesem Abschnitt erstellen Sie in F5 einen Benutzer namens B. Simon. Zum Hinzufügen der Benutzer auf der F5-Plattform wenden Sie sich an das [Supportteam für den F5-Client](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45). Benutzer müssen erstellt und aktiviert werden, damit Sie einmaliges Anmelden verwenden können. 
 
 ## <a name="test-sso"></a>Testen des einmaligen Anmeldens 
 
 In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich.
 
-Wenn Sie im Zugriffsbereich auf die Kachel „F5“ klicken, sollten Sie automatisch bei der F5-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Wenn Sie im Zugriffsbereich auf die Kachel „F5“ klicken, sollten Sie automatisch bei der F5-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Liste mit den Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste mit den Tutorials zur Integration von SaaS-Apps in Azure Active Directory](./tutorial-list.md)
 
-- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Was ist der bedingte Zugriff in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Was ist der bedingte Zugriff in Azure Active Directory?](../conditional-access/overview.md)
 
 - [F5 mit Azure AD ausprobieren](https://aad.portal.azure.com/)
 
 - [Konfigurieren des einmaligen Anmeldens von F5 für eine headerbasierte Anwendung](headerf5-tutorial.md)
 
 - [Konfigurieren des einmaligen Anmeldens von F5 für eine Advanced Kerberos-Anwendung](advance-kerbf5-tutorial.md)
-

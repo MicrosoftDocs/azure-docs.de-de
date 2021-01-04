@@ -1,16 +1,16 @@
 ---
-title: 'Classroom Labs: Konzepte – Azure Lab Services | Microsoft-Dokumentation'
+title: Konzepte für Labs – Azure Lab Services | Microsoft-Dokumentation
 description: Lernen Sie die grundlegenden Konzepte von Lab Services kennen, und erfahren Sie, wie der Dienst das Erstellen und Verwalten von Labs vereinfacht.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 38dd77df7a80ad252b553b6afa8b52d7fee753a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa3a8dad195b4b3cbf0786c8923c8b330d148898
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85443705"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435517"
 ---
-# <a name="classroom-labs-concepts"></a>Konzepte von Classroom-Labs
+# <a name="labs-concepts"></a>Konzepte für Labs
 
 Die folgende Liste enthält wichtige Lab Services-Konzepte und -Definitionen:
 
@@ -48,7 +48,7 @@ Typischerweise fungiert ein IT-Administrator der Cloudressourcen eines Unternehm
 
 ### <a name="educator"></a>Lehrer/Dozent
 
-Üblicherweise erstellen Benutzer (etwa eine Lehrkraft oder ein Onlinetrainer) Classroom-Labs unter einem Labkonto. Ein Lehrer/Dozent führt die folgenden Aufgaben aus:
+Üblicherweise erstellen Benutzer (etwa eine Lehrkraft oder ein Onlinetrainer) Labs unter einem Labkonto. Ein Lehrer/Dozent führt die folgenden Aufgaben aus:
 
 - Erstellen eines Classroom-Labs
 - Erstellen virtueller Computer im Lab

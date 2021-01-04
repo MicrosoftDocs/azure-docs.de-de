@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: MikeRayMSFT
   ms.author: mikeray
-  ms.date: 09/22/2020
-  ms.openlocfilehash: 3ef94bfc9d3870c4c91116fb2aaf26387999a8da
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.date: 12/16/2020
+  ms.openlocfilehash: a3f90834c3b4d68e96b02361643bf32786670e84
+  ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "90928787"
+  ms.lasthandoff: 12/18/2020
+  ms.locfileid: "97673910"
 landingContent:
 - title: Info
   linkLists:
@@ -61,3 +61,9 @@ landingContent:
       url: migrate-to-managed-instance.md
     - text: Restore
       url: restore-adventureworks-sample-db.md
+- title: Proof of Concept
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: Schnelleinstieg
+      url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: 466851ce04a047f3edabcf33b45dba9cab0db20e
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: cf64deb17bea508637debb5612231d355d523fbb
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132702"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95315582"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Übersicht über den Azure Monitor-Agent (Vorschauversion)
 Der Azure Monitor-Agent (AMA) sammelt Überwachungsdaten aus dem Gastbetriebssystem virtueller Computer und übermittelt sie an Azure Monitor. Dieser Artikel enthält eine Übersicht über den Azure Monitor-Agent sowie Informationen zur Installation und zur Konfiguration der Datensammlung.
@@ -54,7 +54,7 @@ Während der Public Preview-Phase des Azure Monitor-Agents gelten folgende Ein
 
 - Der Azure Monitor-Agent unterstützt keine Lösungen und Erkenntnisse wie Azure Monitor für VMs und Azure Security Center. Das einzige derzeit unterstützte Szenario ist die Sammlung von Daten unter Verwendung der von Ihnen konfigurierten Datensammlungsregeln. 
 - Datensammlungsregeln müssen in der gleichen Region erstellt werden, in der sich auch die als Ziel verwendeten Log Analytics-Arbeitsbereiche befinden.
-- Aktuell werden nur virtuelle Azure-Computer unterstützt. Lokale virtuelle Computer, VM-Skalierungsgruppen, Arc für Server, Azure Kubernetes Service und andere Computeressourcentypen werden derzeit nicht unterstützt.
+- Azure-VMs und Server mit Azure Arc-Unterstützung werden aktuell unterstützt. VM-Skalierungsgruppen, Azure Kubernetes Service und andere Computeressourcentypen werden derzeit nicht unterstützt.
 - Der virtuelle Computer benötigt Zugriff auf die folgenden HTTPS-Endpunkte:
   - *.ods.opinsights.azure.com
   - *.ingest.monitor.azure.com
@@ -94,50 +94,8 @@ Der Azure Monitor-Agent benötigt zwar keine Schlüssel, dafür aber eine [syst
 ## <a name="networking"></a>Netzwerk
 Der Azure Monitor-Agent unterstützt Azure-Diensttags (es sind sowohl AzureMonitor- als auch AzureResourceManager-Tags erforderlich), derzeit jedoch weder Azure Monitor Private Link-Bereiche noch direkte Proxys.
 
-## <a name="install-the-azure-monitor-agent"></a>Installieren des Azure Monitor-Agents:
-Der Azure Monitor-Agent wird als [Azure-VM-Erweiterung](../../virtual-machines/extensions/overview.md) mit den Details aus der folgenden Tabelle implementiert: 
-
-| Eigenschaft | Windows | Linux |
-|:---|:---|:---|
-| Herausgeber | Microsoft.Azure.Monitor  | Microsoft.Azure.Monitor |
-| type      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
-| TypeHandlerVersion  | 1.0 | 1.5 |
-
-Der Azure Monitor-Agent kann mithilfe einer beliebigen Installationsmethode für VM-Agents installiert werden. Hierzu zählen auch die im Anschluss angegebenen Methoden mit PowerShell oder über die Befehlszeilenschnittstelle. Alternativ können Sie wie unter [Konfigurieren der Datensammlung für den Azure Monitor-Agent (Vorschau)](data-collection-rule-azure-monitor-agent.md#create-using-the-azure-portal) beschrieben das Azure-Portal verwenden, um den Agent zu installieren und die Datensammlung auf virtuellen Computern in Ihrem Azure-Abonnement zu konfigurieren.
-
-### <a name="windows"></a>Windows
-
-# <a name="cli"></a>[BEFEHLSZEILENSCHNITTSTELLE (CLI)](#tab/CLI1)
-
-```azurecli
-az vm extension set --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --ids {resource ID of the VM}
-
-```
-
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell1)
-
-```powershell
-Set-AzVMExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus
-```
----
-
-
-### <a name="linux"></a>Linux
-
-# <a name="cli"></a>[BEFEHLSZEILENSCHNITTSTELLE (CLI)](#tab/CLI2)
-
-```azurecli
-az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --ids {resource ID of the VM}
-
-```
-
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell2)
-
-```powershell
-Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus
-```
----
 
 ## <a name="next-steps"></a>Nächste Schritte
 
+- [Installieren des Azure Monitor-Agents](azure-monitor-agent-install.md) auf Windows- und Linux-VMs
 - [Erstellen Sie eine Datensammlungsregel](data-collection-rule-azure-monitor-agent.md), um Daten des Agents zu sammeln und an Azure Monitor zu senden.

@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: c46d977b6ce4eaa62aefc6874ce2b855a4711670
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 56e9820c5e3a750a35b7271b86750df00eb4784e
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317511"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677056"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Problembehebung bei Azure AD-Konnektivitätsproblemen
 Dieser Artikel erklärt, wie die Konnektivität zwischen Azure AD Connect und Azure AD funktioniert und wie Konnektivitätsprobleme behoben werden können. Diese Probleme können insbesondere in einer Umgebung mit einem Proxyserver auftreten.
@@ -52,6 +52,14 @@ Die in der folgenden Tabelle aufgeführten URLs stellen die Grundvoraussetzungen
 | \*.windows.net |HTTPS/443 |Wird für die Anmeldung bei Azure AD verwendet. |
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Wird für MFA verwendet. |
 | \*.microsoftonline.com |HTTPS/443 |Wird zum Konfigurieren Ihres Azure AD-Verzeichnisses und zum Importieren/Exportieren von Daten verwendet. |
+| \*.crl3.digicert.com |HTTP/80 |Wird zum Überprüfen von Zertifikaten verwendet. |
+| \*.crl4.digicert.com |HTTP/80 |Wird zum Überprüfen von Zertifikaten verwendet. |
+| \*.ocsp.digicert.com |HTTP/80 |Wird zum Überprüfen von Zertifikaten verwendet. |
+| \*. www.d-trust.net |HTTP/80 |Wird zum Überprüfen von Zertifikaten verwendet. |
+| \*.root-c3-ca2-2009.ocsp.d-trust.net |HTTP/80 |Wird zum Überprüfen von Zertifikaten verwendet. |
+| \*.crl.microsoft.com |HTTP/80 |Wird zum Überprüfen von Zertifikaten verwendet. |
+| \*.oneocsp.microsoft.com |HTTP/80 |Wird zum Überprüfen von Zertifikaten verwendet. |
+| \*.ocsp.msocsp.com |HTTP/80 |Wird zum Überprüfen von Zertifikaten verwendet. |
 
 ## <a name="errors-in-the-wizard"></a>Fehler im Assistenten
 Der Installations-Assistent verwendet zwei verschiedene Sicherheitskontexte. Auf der Seite **Mit Azure AD verbinden** verwendet er den aktuell angemeldeten Benutzer. Auf der Seite **Konfigurieren** wechselt er zu dem [Konto, das den Dienst für das Synchronisierungsmodul ausführt](reference-connect-accounts-permissions.md#adsync-service-account). Wenn ein Problem vorliegt, tritt es wahrscheinlich bereits auf der Seite **Mit Azure AD verbinden** des Assistenten auf, da die Proxykonfiguration global ist.
@@ -117,26 +125,26 @@ Hier nun ein Auszug eines echten Proxyprotokolls und der Seite des Installations
 | --- | --- |
 | 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:32 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:32 |connect:// *bba800-anchor*.microsoftonline.com:443 |
 | 1/11/2016 8:32 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:33 |connect://provisioningapi.microsoftonline.com:443 |
-| 1/11/2016 8:33 |connect://*bwsc02-relay*.microsoftonline.com:443 |
+| 1/11/2016 8:33 |connect:// *bwsc02-relay*.microsoftonline.com:443 |
 
 **Konfigurieren**
 
 | Time | URL |
 | --- | --- |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:43 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect:// *bba800-anchor*.microsoftonline.com:443 |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |connect://*bba900-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect:// *bba900-anchor*.microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect:// *bba800-anchor*.microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:46 |connect://provisioningapi.microsoftonline.com:443 |
-| 1/11/2016 8:46 |connect://*bwsc02-relay*.microsoftonline.com:443 |
+| 1/11/2016 8:46 |connect:// *bwsc02-relay*.microsoftonline.com:443 |
 
 **Erste Synchronisierung**
 
@@ -144,8 +152,8 @@ Hier nun ein Auszug eines echten Proxyprotokolls und der Seite des Installations
 | --- | --- |
 | 1/11/2016 8:48 |connect://login.windows.net:443 |
 | 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:49 |connect://*bba900-anchor*.microsoftonline.com:443 |
-| 1/11/2016 8:49 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect:// *bba900-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect:// *bba800-anchor*.microsoftonline.com:443 |
 
 ## <a name="authentication-errors"></a>Authentifizierungsfehler
 Dieser Abschnitt deckt Fehler ab, die von ADAL (der von Azure AD Connect verwendeten Authentifizierungsbibliothek) und PowerShell zurückgegeben werden können. Die Fehlererläuterungen sollen Sie beim Verständnis der nächsten Schritte unterstützen.
@@ -186,7 +194,7 @@ Die Authentifizierung war erfolgreich, aber es liegt ein Authentifizierung bei A
 </div>
 
 ### <a name="azure-ad-global-admin-role-needed"></a>Globale Administratorrolle für Azure AD erforderlich
-Der Benutzer wurde erfolgreich authentifiziert. Dem Benutzer ist aber keine globale Administratorrolle zugewiesen. Auf diese Weise können Sie dem Benutzer [die globale Administratorrolle zuweisen](../users-groups-roles/directory-assign-admin-roles.md).
+Der Benutzer wurde erfolgreich authentifiziert. Dem Benutzer ist aber keine globale Administratorrolle zugewiesen. Auf diese Weise können Sie dem Benutzer [die globale Administratorrolle zuweisen](../roles/permissions-reference.md).
 
 <div id="privileged-identity-management">
 <!--

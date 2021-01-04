@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: f83ec4d09389d91c2dd427c9840885c0b829eafb
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1333a135f3e123757e268513f73e8329537e630b
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150307"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538203"
 ---
 # <a name="500xxx-internal-errors"></a>500xxx Interne Fehler
 
@@ -23,9 +23,9 @@ In diesem Artikel werden die Ursachen von **500xxx-internen Fehlern** und die L�
 
 Ihre Anforderung an IoT Hub schlägt mit einer Meldung fehl, die mit „500“ und/oder einer Art von „ServerError“ beginnt. Einige Möglichkeiten sind die folgenden:
 
-* **500001 ServerError**: Bei IoT Hub ist ein serverseitiges Problem aufgetreten.
+* **500001 ServerError** : Bei IoT Hub ist ein serverseitiges Problem aufgetreten.
 
-* **500008 GenericTimeout**: IoT Hub konnte die Verbindungsanforderung nicht vor dem Timeout abschließen.
+* **500008 GenericTimeout** : IoT Hub konnte die Verbindungsanforderung nicht vor dem Timeout abschließen.
 
 * **ServiceUnavailable (kein Fehlercode)** : Bei IoT Hub ist ein interner Fehler aufgetreten.
 
@@ -37,4 +37,4 @@ Für eine Fehlerantwort des Typs „500xxx“ gibt es eine Reihe von Gründen. I
 
 ## <a name="solution"></a>Lösung
 
-Geben Sie zum Beheben von 500xxx-Fehlern einen Wiederholungsversuch vom Gerät aus. Um [Wiederholungsversuche automatisch zu verwalten](./iot-hub-reliability-features-in-sdks.md#connection-and-retry), stellen Sie sicher, dass Sie die neueste Version des [Azure IoT SDKs](./iot-hub-devguide-sdks.md) verwenden. Die Best Practices für die Behandlung vorübergehender Fehler und Wiederholungsversuche finden Sie unter [Behandeln vorübergehender Fehler](/azure/architecture/best-practices/transient-faults).  Wenn das Problem weiterhin besteht, überprüfen Sie [Ressourcenintegrität](./iot-hub-monitor-resource-health.md#use-azure-resource-health) und [Azure-Status](https://status.azure.com/), um festzustellen, ob es bei IoT Hub ein bekanntes Problem gibt. Sie können auch das [Feature für manuelles Failover](./tutorial-manual-failover.md) verwenden. Wenn keine bekannten Probleme vorliegen und das Problem fortbesteht, [wenden Sie sich an den Support](https://azure.microsoft.com/support/options/), um weitere Unterstützung zu erhalten.
+Geben Sie zum Beheben von 500xxx-Fehlern einen Wiederholungsversuch vom Gerät aus. Um [Wiederholungsversuche automatisch zu verwalten](./iot-hub-reliability-features-in-sdks.md#connection-and-retry), stellen Sie sicher, dass Sie die neueste Version des [Azure IoT SDKs](./iot-hub-devguide-sdks.md) verwenden. Die Best Practices für die Behandlung vorübergehender Fehler und Wiederholungsversuche finden Sie unter [Behandeln vorübergehender Fehler](/azure/architecture/best-practices/transient-faults).  Wenn das Problem weiterhin besteht, überprüfen Sie [Ressourcenintegrität](./iot-hub-azure-service-health-integration.md#check-health-of-an-iot-hub-with-azure-resource-health) und [Azure-Status](https://status.azure.com/), um festzustellen, ob es bei IoT Hub ein bekanntes Problem gibt. Sie können auch das [Feature für manuelles Failover](./tutorial-manual-failover.md) verwenden. Wenn keine bekannten Probleme vorliegen und das Problem fortbesteht, [wenden Sie sich an den Support](https://azure.microsoft.com/support/options/), um weitere Unterstützung zu erhalten.

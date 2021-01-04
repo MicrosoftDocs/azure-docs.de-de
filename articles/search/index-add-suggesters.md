@@ -7,18 +7,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/21/2020
+ms.date: 11/24/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e439f7d2b0232a2e1c36517f24723e4e16f7e6bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4390291eb96c11b8fb7fdb48eb92abaf802b80c0
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537598"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030780"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Erstellen einer Vorschlagsfunktion zum Ermöglichen von AutoVervollständigen und vorgeschlagenen Ergebnissen in einer Abfrage
 
-In Azure Cognitive Search wird die Suche während der Eingabe über ein Konstrukt mit einer **Vorschlagsfunktion** ermöglicht, das einem [Suchindex](search-what-is-an-index.md) hinzugefügt wird. Eine Vorschlagsfunktion unterstützt zwei Umgebungen: *AutoVervollständigen* zum Vervollständigen einer partiellen Eingabe zu einem Gesamtbegriff für eine Abfrage und *Vorschläge*, die zum Durchklicken zu einer bestimmten Übereinstimmung einladen. AutoVervollständigen führt zu einer Abfrage. Vorschläge führen zu einem übereinstimmenden Dokument.
+In Azure Cognitive Search ermöglicht eine *Vorschlagsfunktion* die Suche während der Eingabe. Ein Vorschlag ist eine interne Datenstruktur, die aus einer Feldsammlung besteht. Die Felder werden einer zusätzlichen Tokenisierung unterzogen, wobei Präfixsequenzen zur Unterstützung von Übereinstimmungen bei Teilausdrücken generiert werden.
+
+Wenn eine Vorschlagsfunktion z. B. ein Feld „Stadt“ enthält, werden resultierende Präfixkombinationen von „Sea“, „Seat“, „seatt“ und „seattl“ für den Begriff „Seattle“ erstellt. Präfixe werden in invertierten Indizes gespeichert – eines für jedes Feld, das in der Feldsammlung der Vorschlagsfunktion angegeben ist.
+
+## <a name="typeahead-experiences-in-cognitive-search"></a>Vorschlagssuche in Cognitive Search
+
+Eine Vorschlagsfunktion unterstützt zwei Umgebungen: *AutoVervollständigen* zum Vervollständigen einer partiellen Eingabe zu einem Gesamtbegriff für eine Abfrage und *Vorschläge*, die einen direkten Aufruf eines bestimmten Ergebnisses ermöglichen. AutoVervollständigen führt zu einer Abfrage. Vorschläge führen zu einem übereinstimmenden Dokument.
 
 Der folgende Screenshot aus dem Beispiel [Erstellen Ihrer ersten App in C#](tutorial-csharp-type-ahead-and-suggestions.md) veranschaulicht beide Varianten. AutoVervollständigen erwartet einen potenziellen Begriff und ergänzt etwa „Zw“ mit „illing“. Vorschläge sind Minisuchergebnisse, bei denen ein Feld wie „Hotelname“ für ein entsprechendes Hotelsuchdokument aus dem Index steht. Für Vorschläge können Sie alle Felder bereitstellen, die beschreibende Informationen enthalten.
 
@@ -26,23 +32,23 @@ Der folgende Screenshot aus dem Beispiel [Erstellen Ihrer ersten App in C#](tuto
 
 Sie können diese Features einzeln oder zusammen verwenden. Um dieses Verhalten in der kognitiven Azure-Suche zu implementieren, gibt es eine Index- und eine Abfragekomponente. 
 
-+ Fügen Sie im Index eine Vorschlagsfunktion zu einem Index hinzu. Sie können das Portal, eine [REST-API](/rest/api/searchservice/create-index) oder das [.NET SDK](/dotnet/api/microsoft.azure.search.models.suggester) verwenden. Im weiteren Verlauf dieses Artikels geht es um die Erstellung einer Vorschlagsfunktion.
++ Fügen Sie eine Vorschlagsfunktion einer Suchindexdefinition hinzu. Im weiteren Verlauf dieses Artikels geht es um die Erstellung einer Vorschlagsfunktion.
 
-+ Rufen Sie in der Abfrageanforderung eine der [folgenden APIs](#how-to-use-a-suggester) auf.
++ Sie können eine Abfrage, die eine Vorschlagsfunktion unterstützt, mit einer der [unten aufgeführten APIs](#how-to-use-a-suggester) in Form einer Vorschlags- oder AutoVervollständigen-Anforderung aufrufen.
 
 Die Unterstützung der Suche während der Eingabe wird auf Feldebene für Zeichenfolgenfelder aktiviert. Sie können beide Verhaltensweisen für Eingabevorschläge in derselben Suchlösung implementieren, wenn Sie ein ähnliches Erlebnis wie im Screenshot wünschen. Beide Anforderungen zielen auf die *Dokumentensammlung* eines bestimmten Index ab, und die Antworten werden zurückgegeben, nachdem ein Benutzer eine Zeichenfolge aus mindestens 3 Zeichen eingegeben hat.
 
-## <a name="what-is-a-suggester"></a>Was ist eine Vorschlagsfunktion?
+## <a name="how-to-create-a-suggester"></a>Erstellen einer Vorschlagsfunktion
 
-Bei einer Vorschlagsfunktion handelt es sich um eine interne Datenstruktur, die das Verhalten einer Suche während der Eingabe unterstützt, indem Präfixe für die Übereinstimmungssuche bei partiellen Abfragen gespeichert werden. Ähnlich wie bei tokenisierten Begriffen werden Präfixe in invertierten Indizes gespeichert – eines für jedes Feld, das in der Feldsammlung der Vorschlagsfunktion angegeben ist.
-
-## <a name="define-a-suggester"></a>Definieren einer Vorschlagsfunktion
-
-Um eine Vorschlagsfunktion zu erstellen, fügen Sie sie zu einem [Indexschema](/rest/api/searchservice/create-index) hinzu, und [legen Sie jede Eigenschaft fest](#property-reference). Der beste Zeitpunkt zum Erstellen einer Vorschlagsfunktion ist bei der Definition des Felds, für das sie verwendet wird.
+Um eine Vorschlagsfunktion zu erstellen, fügen Sie sie einer [Indexdefinition](/rest/api/searchservice/create-index) hinzu. Eine Vorschlagsfunktion erhält einen Namen und eine Sammlung von Feldern, über die Typeahead aktiviert wird. [Legen Sie die einzelnen Eigenschaften fest](#property-reference). Der beste Zeitpunkt zum Erstellen einer Vorschlagsfunktion ist bei der Definition des Felds, für das sie verwendet wird.
 
 + Verwenden Sie nur Zeichenfolgenfelder.
 
++ Wenn das Zeichenfolgenfeld Teil eines komplexen Typs ist (z. B. ein Ort-Feld innerhalb einer Adresse), schließen Sie das übergeordnete Element in das Feld ein: `"Address/City"` (REST und C# und Python) oder `["Address"]["City"]` (JavaScript).
+
 + Verwenden Sie für das Feld das standardmäßige Lucene-Standardanalysetool (`"analyzer": null`) oder ein [Sprachanalysetool](index-add-language-analyzers.md) (z. B. `"analyzer": "en.Microsoft"`).
+
+Wenn Sie versuchen, eine Vorschlagsfunktion mithilfe bereits vorhandener Felder zu erstellen, wird dies von der API nicht zugelassen. Präfixe werden während der Indizierung erstellt, wenn partielle Begriffe in Kombinationen aus mehreren Zeichen zusammen mit ganzen Begriffen in Token umgewandelt werden. Wenn vorhandene Felder bereits tokenisiert sind, müssen Sie den Index neu erstellen, wenn Sie ihn zu einer Vorschlagsfunktion hinzufügen möchten. Weitere Informationen finden Sie unter [Neuerstellen eines Azure Cognitive Search-Indexes](search-howto-reindex.md).
 
 ### <a name="choose-fields"></a>Auswählen von Feldern
 
@@ -58,18 +64,22 @@ Um beide Anforderungen für die Suche während der Eingabe zu erfüllen, fügen 
 
 Durch die Auswahl eines Analysetools legen Sie fest, wie Felder in Token umgewandelt und anschließend mit einem Präfix versehen werden. Beispielsweise führt die Verwendung eines Sprachanalysetools für eine Zeichenfolge mit Bindestrichen wie „App-basiert“ zu den Tokenkombinationen „App“, „basiert“, „App-basiert“. Wenn Sie das Standard-Lucene-Analysetool verwenden, ist die Zeichenfolge mit dem Bindestrich nicht enthalten. 
 
-Berücksichtigen Sie bei der Auswertung von Analysetools auch die Verwendung der [API für die Textanalyse](/rest/api/searchservice/test-analyzer), um zu erkennen, wie Begriffe tokenisiert und anschließend mit Präfixen versehen werden. Beim Erstellen eines Indexes können Sie verschiedene Analysetools für eine Zeichenfolge ausprobieren, um sich die ausgegebenen Token anzusehen.
+Berücksichtigen Sie bei der Auswertung von Analysetools auch die Verwendung der [API für die Textanalyse](/rest/api/searchservice/test-analyzer), um zu erkennen, wie Begriffe verarbeitet werden. Beim Erstellen eines Indexes können Sie verschiedene Analysetools für eine Zeichenfolge ausprobieren, um sich die ausgegebenen Token anzusehen.
 
 Felder, die [benutzerdefinierte Analysetools](index-add-custom-analyzers.md) oder [vordefinierte Analysetools](index-add-custom-analyzers.md#predefined-analyzers-reference) verwenden (mit Ausnahme von Standard-Lucene) sind explizit nicht zulässig, um mangelhafte Ergebnisse zu vermeiden.
 
 > [!NOTE]
 > Wenn Sie Einschränkungen der Analysetools umgehen müssen, z. B. wenn Sie ein Schlüsselwort oder eine NGram-Analyse für bestimmte Abfrageszenarien benötigen, sollten Sie zwei separate Felder für denselben Inhalt verwenden. Eines der Felder kann so über Vorschlagsfunktionen verfügen, während das andere mit einer benutzerdefinierten Analysetoolkonfiguration eingerichtet wird.
 
-### <a name="when-to-create-a-suggester"></a>Wann wird eine Vorschlagsfunktion erstellt?
+## <a name="create-using-the-portal"></a>Erstellen über das Portal
 
-Der beste Zeitpunkt zum Erstellen einer Vorschlagsfunktion ist während der Erstellung der eigentlichen Felddefinition.
+Wenn Sie einen Index mit **Index hinzufügen** oder dem **Datenimport**-Assistenten erstellen, können Sie dabei eine Vorschlagsfunktion aktivieren:
 
-Wenn Sie versuchen, eine Vorschlagsfunktion mithilfe bereits vorhandener Felder zu erstellen, wird dies von der API nicht zugelassen. Präfixe werden während der Indizierung erstellt, wenn partielle Begriffe in Kombinationen aus mehreren Zeichen zusammen mit ganzen Begriffen in Token umgewandelt werden. Wenn vorhandene Felder bereits tokenisiert sind, müssen Sie den Index neu erstellen, wenn Sie ihn zu einer Vorschlagsfunktion hinzufügen möchten. Weitere Informationen finden Sie unter [Neuerstellen eines Azure Cognitive Search-Indexes](search-howto-reindex.md).
+1. Geben Sie in der Indexdefinition einen Namen für die Vorschlagsfunktion ein.
+
+1. Aktivieren Sie in den einzelnen Felddefinitionen für neue Felder das Kontrollkästchen in der Spalte „Vorschläge“. Nur Zeichenfolgenfelder verfügen über ein Kontrollkästchen. 
+
+Wie bereits erwähnt, wirkt sich die Auswahl des Analysetools auf die Tokenisierung und das Voranstellen von Präfixen aus. Beachten Sie beim Aktivieren der Vorschlagsfunktion die gesamte Felddefinition. 
 
 ## <a name="create-using-rest"></a>Erstellen mit der REST-API
 
@@ -111,24 +121,20 @@ Fügen Sie Vorschlagsfunktionen in der REST-API über [Index erstellen](/rest/ap
 
 ## <a name="create-using-net"></a>Erstellen mit .NET
 
-Definieren Sie in C# ein [Suggester-Objekt](/dotnet/api/microsoft.azure.search.models.suggester). `Suggesters` ist eine Sammlung, aber sie kann nur ein Element enthalten. 
+Definieren Sie in C# ein [SearchSuggester-Objekt](/dotnet/api/azure.search.documents.indexes.models.searchsuggester). `Suggesters` ist eine Sammlung für ein SearchIndex-Objekt, es akzeptiert aber nur ein Element. Fügen Sie eine Vorschlagsfunktion zur Indexdefinition hinzu.
 
 ```csharp
-private static void CreateHotelsIndex(SearchServiceClient serviceClient)
+private static void CreateIndex(string indexName, SearchIndexClient indexClient)
 {
-    var definition = new Index()
-    {
-        Name = "hotels-sample-index",
-        Fields = FieldBuilder.BuildForType<Hotel>(),
-        Suggesters = new List<Suggester>() {new Suggester()
-            {
-                Name = "sg",
-                SourceFields = new string[] { "HotelName", "Category" }
-            }}
-    };
+    FieldBuilder fieldBuilder = new FieldBuilder();
+    var searchFields = fieldBuilder.Build(typeof(Hotel));
 
-    serviceClient.Indexes.Create(definition);
+    var definition = new SearchIndex(indexName, searchFields);
 
+    var suggester = new SearchSuggester("sg", new[] { "HotelName", "Category", "Address/City", "Address/StateProvince" });
+    definition.Suggesters.Add(suggester);
+
+    indexClient.CreateOrUpdateIndex(definition);
 }
 ```
 
@@ -136,9 +142,9 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 |Eigenschaft      |BESCHREIBUNG      |
 |--------------|-----------------|
-|`name`        |Der Name der Vorschlagsfunktion.|
-|`searchMode`  |Die Strategie, mit der nach möglichen Ausdrücken gesucht wird. Aktuell wird nur der Modus `analyzingInfixMatching` unterstützt, der derzeit am Anfang eines Begriffs Übereinstimmungen findet.|
-|`sourceFields`|Eine Liste mit einem oder mehreren Feldern, die als Quelle für den Inhalt von Vorschlägen dienen. Felder müssen vom Typ `Edm.String` und `Collection(Edm.String)` sein. Wenn ein Analysetool für das Feld angegeben wird, muss es sich um ein benanntes Analysetool aus [dieser Liste](/dotnet/api/microsoft.azure.search.models.analyzername) (kein benutzerdefiniertes Analysetool) handeln.<p/> Folgende Vorgehensweise wird empfohlen: Geben Sie nur die Felder an, die sich für eine erwartete und angemessene Antwort eignen, sei es eine vollständige Zeichenfolge in einer Suchleiste oder eine Dropdownliste.<p/>Ein Hotelname ist ein guter Kandidat, weil er präzise ist. Ausführliche Felder wie Beschreibungen und Kommentare sind zu informationsreich. Sich wiederholende Felder wie Kategorien und Tags sind ebenso weniger effektiv. In den Beispielen schließen wir ohnehin „category“ ein, um zu zeigen, dass Sie mehrere Felder einbeziehen können. |
+|`name`        | Dies wird in der Definition der Vorschlagsfunktion angegeben, kann aber auch für eine AutoVervollständigen- oder Vorschlagsanforderung aufgerufen werden. |
+|`sourceFields`| In der Vorschlagsfunktionsdefinition angegeben. Es handelt sich dabei um eine Liste mit mindestens einem Feld, die als Quelle für den Inhalt von Vorschlägen dient. Felder müssen vom Typ `Edm.String` und `Collection(Edm.String)` sein. Wenn ein Analysetool für das Feld angegeben wird, muss es sich um ein benanntes lexikalisches Analysetool aus [dieser Liste](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) (kein benutzerdefiniertes Analysetool) handeln.<p/> Folgende Vorgehensweise wird empfohlen: Geben Sie nur die Felder an, die sich für eine erwartete und angemessene Antwort eignen, sei es eine vollständige Zeichenfolge in einer Suchleiste oder eine Dropdownliste.<p/>Ein Hotelname ist ein guter Kandidat, weil er präzise ist. Ausführliche Felder wie Beschreibungen und Kommentare sind zu informationsreich. Sich wiederholende Felder wie Kategorien und Tags sind ebenso weniger effektiv. In den Beispielen schließen wir ohnehin „category“ ein, um zu zeigen, dass Sie mehrere Felder einbeziehen können. |
+|`searchMode`  | Parameter nur für REST, wird aber auch im Portal angezeigt. Dieser Parameter ist im .NET SDK nicht verfügbar. Gibt die Strategie an, mit der nach möglichen Ausdrücken gesucht wird. Aktuell wird nur der Modus `analyzingInfixMatching` unterstützt, der derzeit am Anfang eines Begriffs Übereinstimmungen findet.|
 
 <a name="how-to-use-a-suggester"></a>
 
@@ -146,14 +152,14 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 Eine Vorschlagsfunktion wird in einer Abfrage verwendet. Nachdem Sie eine Vorschlagsfunktion erstellt haben, rufen Sie eine der folgenden APIs auf, um eine Umgebung für die Suche während der Eingabe bereitzustellen:
 
-+ [Vorschläge-REST-API](/rest/api/searchservice/suggestions) 
-+ [AutoVervollständigen-REST-API](/rest/api/searchservice/autocomplete) 
-+ [SuggestWithHttpMessagesAsync method](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?
-+ [AutocompleteWithHttpMessagesAsync-Methode](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync)
++ [Vorschläge-REST-API](/rest/api/searchservice/suggestions)
++ [AutoVervollständigen-REST-API](/rest/api/searchservice/autocomplete)
++ [SuggestAsync-Methode](/dotnet/api/azure.search.documents.searchclient.suggestasync)
++ [AutocompleteAsync-Methode](/dotnet/api/azure.search.documents.searchclient.autocompleteasync)
 
 In einer Suchanwendung sollte für Clientcode eine Bibliothek wie [jQuery UI Autocomplete](https://jqueryui.com/autocomplete/) verwendet werden, um die partielle Abfrage zu erfassen und die Übereinstimmung bereitzustellen. Weitere Informationen zu dieser Aufgabe finden Sie unter [Hinzufügen von AutoVervollständigen oder Vorschlägen zu Clientcode](search-autocomplete-tutorial.md).
 
-Die Verwendung der API wird im folgenden Aufruf der AutoVervollständigen-REST-API veranschaulicht. In diesem Beispiel ergeben sich zwei wichtige Erkenntnisse. Erstens: Wie bei allen Abfragen wird der Vorgang für die Dokumentensammlung eines Indexes ausgeführt. Die Abfrage enthält einen **Such**parameter, der in diesem Fall die partielle Abfrage bereitstellt. Zweitens: Sie müssen der Anforderung den Namen der Vorschlagsfunktion (**suggesterName**) hinzufügen. Wenn eine Vorschlagsfunktion nicht im Index definiert ist, tritt bei einem Aufruf von „AutoVervollständigen“ oder „Vorschläge“ ein Fehler auf.
+Die Verwendung der API wird im folgenden Aufruf der AutoVervollständigen-REST-API veranschaulicht. In diesem Beispiel ergeben sich zwei wichtige Erkenntnisse. Erstens: Wie bei allen Abfragen wird der Vorgang für die Dokumentensammlung eines Indexes ausgeführt. Die Abfrage enthält einen **Such** parameter, der in diesem Fall die partielle Abfrage bereitstellt. Zweitens: Sie müssen der Anforderung den Namen der Vorschlagsfunktion (**suggesterName**) hinzufügen. Wenn eine Vorschlagsfunktion nicht im Index definiert ist, tritt bei einem Aufruf von „AutoVervollständigen“ oder „Vorschläge“ ein Fehler auf.
 
 ```http
 POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
@@ -165,9 +171,7 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 
 ## <a name="sample-code"></a>Beispielcode
 
-+ Das Beispiel [Erstellen Ihrer ersten App in C# (Lektion 3 – Hinzufügen der Suche während der Eingabe)](tutorial-csharp-type-ahead-and-suggestions.md) veranschaulicht ein Vorschlagsfunktion-Konstrukt, vorgeschlagene Abfragen, AutoVervollständigen und Facettennavigation. Dieses Codebeispiel wird in einem Sandboxdienst für die kognitive Azure-Suche ausgeführt und verwendet einen vorinstallierten Hotelindex, sodass Sie zum Ausführen der Anwendung lediglich F5 drücken müssen. Es ist weder ein Abonnement noch eine Anmeldung erforderlich.
-
-+ [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) ist ein älteres Beispiel, das sowohl C#- als auch Java-Code enthält. Es veranschaulicht ebenfalls ein Vorschlagsfunktion-Konstrukt, vorgeschlagene Abfragen, AutoVervollständigen und Facettennavigation. In diesem Codebeispiel werden die Beispieldaten des gehosteten [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) verwendet. 
++ Das Beispiel [Erstellen Ihrer ersten App in C# (Lektion 3 – Hinzufügen der Suche während der Eingabe)](tutorial-csharp-type-ahead-and-suggestions.md) veranschaulicht vorgeschlagene Abfragen, AutoVervollständigen und Facettennavigation. Dieses Codebeispiel wird in einem Sandboxdienst für den Azure Cognitive Search-Dienst ausgeführt und verwendet einen vorinstallierten Hotelindex, für den eine Vorschlagsfunktion bereits erstellt wurde, sodass Sie zum Ausführen der Anwendung lediglich F5 drücken müssen. Es ist weder ein Abonnement noch eine Anmeldung erforderlich.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

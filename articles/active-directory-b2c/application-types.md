@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2f99c5b9362380690badce832c3dd540137d35ac
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 07897823a3ba3b83e240e8e8dc005ea13b036fce
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215403"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952045"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>In Active Directory B2C verwendbare Anwendungstypen
  
@@ -24,8 +24,8 @@ Azure Active Directory B2C (Azure AD B2C) unterstützt die Authentifizierung fü
 
 Jede Anwendung, die Azure AD B2C verwendet, muss über das [Azure-Portal](https://portal.azure.com/) in Ihrem [Azure AD B2C-Mandanten](tutorial-create-tenant.md) registriert werden. Während des Anwendungsregistrierungsprozesses werden Werte erfasst und zugewiesen, wie z.B.:
 
-* Eine **Anwendungs-ID** , die Ihre Anwendung eindeutig ausweist.
-* Ein **Antwort-URI** , der zum Umleiten von Antworten zurück an die Anwendung verwendet werden kann.
+* Eine **Anwendungs-ID**, die Ihre Anwendung eindeutig ausweist.
+* Ein **Antwort-URI**, der zum Umleiten von Antworten zurück an die Anwendung verwendet werden kann.
 
 Jede an Azure AD B2C gesendete Anforderung gibt einen **Benutzerflow** (eine integrierte Richtlinie) oder eine **benutzerdefinierte Richtlinie** an, die das Verhalten von Azure AD B2C steuert. Beide Richtlinientypen ermöglichen die Erstellung hochgradig anpassbarer Benutzerumgebungen.
 
@@ -91,7 +91,7 @@ Um diesen Fluss nutzen zu können, kann Ihre Anwendung eine Authentifizierungsbi
 ![Autorisierungsfluss für Single-Page-Webanwendungen](./media/tutorial-single-page-app/active-directory-oauth-code-spa.png)
 
 ### <a name="implicit-grant-flow"></a>Impliziter Gewährungsflow
-- [Impliziter OAuth 2.0-Fluss](implicit-flow-single-page-application.md). Einige Frameworks, z. B. [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), unterstützen nur den Fluss für die implizite Genehmigung. Der Fluss für die implizite Genehmigung ermöglicht der Anwendung das Abrufen von **ID-** und **Zugriffstoken** . Im Gegensatz zum Autorisierungscodefluss gibt der Fluss für die implizite Genehmigung kein **Aktualisierungstoken** zurück. 
+- [Impliziter OAuth 2.0-Fluss](implicit-flow-single-page-application.md). Einige Frameworks, z. B. [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), unterstützen nur den Fluss für die implizite Genehmigung. Der Fluss für die implizite Genehmigung ermöglicht der Anwendung das Abrufen von **ID-** und **Zugriffstoken**. Im Gegensatz zum Autorisierungscodefluss gibt der Fluss für die implizite Genehmigung kein **Aktualisierungstoken** zurück. 
 
 Dieser Authentifizierungsfluss umfasst keine Anwendungsszenarios, die plattformübergreifende JavaScript-Frameworks verwenden, z. B. Electron und React-Native. Diese Szenarien erfordern weitere Funktionen für die Interaktion mit den nativen Plattformen.
 
@@ -141,7 +141,7 @@ Anwendungen, die lang andauernde Prozesse enthalten oder ohne Benutzereingriff a
 
 Der Flow für die Gewährung von OAuth 2.0-Clientanmeldeinformationen wird derzeit nicht direkt vom Azure AD B2C-Authentifizierungsdienst unterstützt. Sie können den Clientanmeldeinformations-Flow jedoch mithilfe von Azure AD und Microsoft Identity Platform/Tokenendpunkt für eine Anwendung in Ihrem Azure AD B2C-Mandanten einrichten. Ein Azure AD B2C-Mandant teilt sich einige Funktionen mit Azure AD-Unternehmensmandanten.
 
-Informationen über das Einrichten des Clientanmeldeinformations-Flows finden Sie unter [Azure Active Directory v2.0 und der OAuth 2.0-Clientanmeldeinformations-Flow](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). Bei einer erfolgreichen Authentifizierung wird ein formatiertes Token empfangen, sodass es von Azure AD wie in [Azure AD-Tokenreferenz](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) beschrieben verwendet werden kann.
+Informationen über das Einrichten des Clientanmeldeinformations-Flows finden Sie unter [Azure Active Directory v2.0 und der OAuth 2.0-Clientanmeldeinformations-Flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). Bei einer erfolgreichen Authentifizierung wird ein formatiertes Token empfangen, sodass es von Azure AD wie in [Azure AD-Tokenreferenz](../active-directory/develop/id-tokens.md) beschrieben verwendet werden kann.
 
 Anweisungen zum Registrieren einer Verwaltungsanwendung finden Sie unter [Verwalten von Azure AD B2C mit Microsoft Graph](microsoft-graph-get-started.md).
 
@@ -155,7 +155,7 @@ Dieses Szenario der verketteten Web-API kann mithilfe der Berechtigung für Anme
 
 Azure AD B2C-Anwendungen dürfen nicht auf folgende Weise bearbeitet werden:
 
-- In anderen Portalen für die Anwendungsverwaltung, z.B. im  [Anwendungsregistrierungsportal](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
+- In anderen Portalen für die Anwendungsverwaltung, z.B. im [Anwendungsregistrierungsportal](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
 - Verwenden der Graph-API oder PowerShell
 
 Wenn Sie die Azure AD B2C-Anwendung außerhalb des Azure-Portals bearbeiten, entsteht eine fehlerhafte Anwendung, die nicht mehr mit Azure AD B2C verwendet werden kann. Löschen Sie die Anwendung, und erstellen Sie die Anwendung neu.

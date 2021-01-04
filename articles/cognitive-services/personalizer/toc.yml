@@ -12,7 +12,7 @@
 - name: Schnellstarts
   items:
     - name: Verwenden des SDK
-      href: sdk-learning-loop.md
+      href: ./quickstart-personalizer-sdk.md
 - name: Tutorials
   items:
     - name: Verwenden einer Web-App
@@ -88,23 +88,23 @@
         - name: .NET
           items:
             - name: Verweis
-              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet'
+              href: /dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet
             - name: NuGet-Paket
               href: 'https://go.microsoft.com/fwlink/?linkid=2092272'
         - name: Go
           items:
             - name: SDK
-              href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer'
+              href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview'
         - name: Node.js
           items:
             - name: Verweis
-              href: 'https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest'
+              href: /javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest
             - name: npm
               href: 'https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0'
         - name: Python
           items:
             - name: Verweis
-              href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python'
+              href: /python/api/overview/azure/cognitiveservices/personalizer?view=azure-python
             - name: Pypi-Paket
               href: 'https://pypi.org/project/azure-cognitiveservices-personalizer/'
 - name: Ressourcen
@@ -115,7 +115,7 @@
       href: troubleshooting.md
     - name: Regionale Verfügbarkeit
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-    - name: Kompatibilität
+    - name: Compliance
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Verschlüsselung
       href: personalizer-encryption-of-data-at-rest.md

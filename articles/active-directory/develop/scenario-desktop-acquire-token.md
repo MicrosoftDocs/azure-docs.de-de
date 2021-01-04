@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/18/2020
+ms.date: 11/04/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 26f0c18fee8fe56a9bc0fa163ef59dfe0977cad5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd341a4f6e2402ce934bdffd4f024e0ef569eec1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825340"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340916"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Desktop-App, die Web-APIs aufruft: Abrufen eines Token
 
@@ -183,7 +183,7 @@ Bei Android müssen Sie außerdem mit `.WithParentActivityOrWindow` die übergeo
 
 #### <a name="withparentactivityorwindow"></a>WithParentActivityOrWindow
 
-Die Benutzeroberfläche ist wichtig, da sie interaktiv ist. `AcquireTokenInteractive` hat einen speziellen optionalen Parameter, der für die unterstützenden Plattformen die übergeordnete Benutzeroberfläche angeben kann. Bei Verwendung in einer Desktopanwendung weist `.WithParentActivityOrWindow` je nach Plattform einen anderen Typ auf. Alternativ können Sie beim Erstellen eines Fensters auf den optionalen Parameter für das übergeordnete Fenster verzichten, wenn Sie nicht steuern möchten, wo das Anmeldedialogfeld auf dem Bildschirm angezeigt wird. Diese Vorgehensweise würde sich für befehlszeilenbasierte Anwendungen eignen und zum Weiterleiten von Aufrufen an andere Back-End-Dienste verwendet werden. Dabei werden keine Fenster für die Benutzerinteraktion benötigt. 
+Die Benutzeroberfläche ist wichtig, da sie interaktiv ist. `AcquireTokenInteractive` hat einen speziellen optionalen Parameter, der für die unterstützenden Plattformen die übergeordnete Benutzeroberfläche angeben kann. Bei Verwendung in einer Desktopanwendung weist `.WithParentActivityOrWindow` je nach Plattform einen anderen Typ auf. Alternativ können Sie beim Erstellen eines Fensters auf den optionalen Parameter für das übergeordnete Fenster verzichten, wenn Sie nicht steuern möchten, wo das Anmeldedialogfeld auf dem Bildschirm angezeigt wird. Diese Vorgehensweise würde sich für befehlszeilenbasierte Anwendungen eignen und zum Weiterleiten von Aufrufen an andere Back-End-Dienste verwendet werden. Dabei werden keine Fenster für die Benutzerinteraktion benötigt.
 
 ```csharp
 // net45
@@ -278,7 +278,7 @@ Das MSAL.NET-Team hat die Benutzeroberflächentests so umgeschrieben, dass Sie d
 
 ##### <a name="provide-a-great-experience-with-systemwebviewoptions"></a>Mehr Benutzerfreundlichkeit mit SystemWebViewOptions
 
-Von MSAL.NET 4.1 [`SystemWebViewOptions`](/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet) können Sie Folgendes angeben:
+Von MSAL.NET 4.1 [`SystemWebViewOptions`](/dotnet/api/microsoft.identity.client.systemwebviewoptions) können Sie Folgendes angeben:
 
 - URI, zu dem navigiert werden soll (`BrowserRedirectError`), oder das anzuzeigende HTML-Fragment (`HtmlMessageError`), wenn Anmelde- oder Einwilligungsfehler im Systemwebbrowser auftreten.
 - URI, zu dem navigiert werden soll (`BrowserRedirectSuccess`), oder das bei erfolgreicher Anmeldung oder Einwilligung anzuzeigende HTML-Fragment (`HtmlMessageSuccess`).
@@ -304,7 +304,7 @@ var result = app.AcquireTokenInteractive(scopes)
 
 #### <a name="other-optional-parameters"></a>Andere optionale Parameter
 
-Informationen zu allen anderen optionalen Parametern für `AcquireTokenInteractive` finden Sie unter [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods).
+Informationen zu allen anderen optionalen Parametern für `AcquireTokenInteractive` finden Sie unter [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder#methods).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -532,7 +532,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-Die Liste der möglichen Modifizierer für AcquireTokenByIntegratedWindowsAuthentication finden Sie unter [AcquireTokenByIntegratedWindowsAuthParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods).
+Die Liste der möglichen Modifizierer für AcquireTokenByIntegratedWindowsAuthentication finden Sie unter [AcquireTokenByIntegratedWindowsAuthParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyintegratedwindowsauthparameterbuilder#methods).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -832,7 +832,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-Weitere Informationen zu allen Modifizierern, die auf `AcquireTokenByUsernamePassword` angewendet werden können, finden Sie unter [AcquireTokenByUsernamePasswordParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods).
+Weitere Informationen zu allen Modifizierern, die auf `AcquireTokenByUsernamePassword` angewendet werden können, finden Sie unter [AcquireTokenByUsernamePasswordParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyusernamepasswordparameterbuilder#methods).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -954,7 +954,7 @@ Im folgenden Beispielcode wird der aktuelle Fall veranschaulicht. Außerdem erha
 ```csharp
 private const string ClientId = "<client_guid>";
 private const string Authority = "https://login.microsoftonline.com/contoso.com";
-private readonly string[] Scopes = new string[] { "user.read" };
+private readonly string[] scopes = new string[] { "user.read" };
 
 static async Task<AuthenticationResult> GetATokenForGraph()
 {
@@ -969,7 +969,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
     // All AcquireToken* methods store the tokens in the cache, so check the cache first
     try
     {
-        return await pca.AcquireTokenSilent(Scopes, accounts.FirstOrDefault())
+        return await pca.AcquireTokenSilent(scopes, accounts.FirstOrDefault())
             .ExecuteAsync();
     }
     catch (MsalUiRequiredException ex)
@@ -1388,7 +1388,10 @@ namespace CommonCacheMsalV3
 }
 ```
 
+## <a name="advanced-accessing-the-users-cached-tokens-in-background-apps-and-services"></a>(Erweitert) Zugreifen auf die zwischengespeicherten Token des Benutzers in Hintergrund-Apps und Diensten
+
+[!INCLUDE [advanced-token-caching](../../../includes/advanced-token-cache.md)]
+
 ## <a name="next-steps"></a>Nächste Schritte
 
-> [!div class="nextstepaction"]
-> [Aufrufen einer Web-API aus der Desktop-App](scenario-desktop-call-api.md)
+Fahren Sie mit dem nächsten Artikel in diesem Szenario fort: [Aufrufen einer Web-API von der Desktop-App](scenario-desktop-call-api.md).

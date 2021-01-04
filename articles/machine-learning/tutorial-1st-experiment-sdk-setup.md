@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Erste Schritte mit Jupyter Notebooks (Python)'
 titleSuffix: Azure Machine Learning
-description: Einrichtung für Jupyter Notebook-Tutorials. Erstellen Sie einen Azure Machine Learning-Arbeitsbereich, klonen Sie Jupyter Notebooks in den Arbeitsbereich, und erstellen Sie eine Compute-Instanz, in der Sie die Notebooks ausführen.
+description: Einrichtung für Jupyter Notebook-Tutorials. Erstellen Sie einen Arbeitsbereich, klonen Sie Notebooks in den Arbeitsbereich, und erstellen Sie eine Compute-Instanz, in der Sie die Notebooks ausführen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: df8e4c2728bd7487520164553d26dfd42e38b647
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebde8048c26364d77d95b9c7b34f9d1d7a4a20ee
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841845"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326263"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Tutorial: Machen Sie sich mit den ersten Schritten mit Azure Machine Learning in Jupyter Notebooks vertraut.
 
@@ -34,7 +34,9 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein kostenloses Konto erste
 
 Ein Azure Machine Learning-Arbeitsbereich ist eine grundlegende Cloudressource zum Experimentieren, Trainieren und Bereitstellen von Machine Learning-Modellen. Er verknüpft Ihr Azure-Abonnement und Ihre Ressourcengruppe mit einem einfach nutzbaren Objekt im Dienst.
 
-Sie erstellen einen Arbeitsbereich über das Azure-Portal, einer webbasierten Konsole zum Verwalten Ihrer Azure-Ressourcen.
+Springen Sie zu [Klonen eines Notebook-Ordners](#clone), wenn Sie bereits über einen Azure Machine Learning-Arbeitsbereich verfügen.  
+
+Es gibt viele [Möglichkeiten, einen Arbeitsbereich zu erstellen](how-to-manage-workspace.md).  In diesem Tutorial erstellen Sie einen Arbeitsbereich über das Azure-Portal, einer webbasierten Konsole zum Verwalten Ihrer Azure-Ressourcen.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
@@ -49,7 +51,7 @@ Azure Machine Learning enthält einen cloudbasierten Notebook-Server in Ihrem Ar
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
 
-### <a name="clone-a-notebook-folder"></a>Klonen eines Notebook-Ordners
+### <a name="clone-a-notebook-folder"></a><a name="clone"></a> Klonen eines Notebook-Ordners
 
 Sie führen die folgenden Schritte zum Einrichten und Ausführen des Experiments in Azure Machine Learning Studio aus. Diese konsolidierte Benutzeroberfläche umfasst Tools für maschinelles Lernen zur Durchführung von Data Science-Szenarien für Datenwissenschaftler aller Qualifikationsstufen.
 
@@ -78,9 +80,9 @@ Sie führen die folgenden Schritte zum Einrichten und Ausführen des Experiments
     > [!IMPORTANT]
     > Im Ordner **Beispiele** können Notebooks angezeigt, aber nicht ausgeführt werden. Öffnen Sie zum Ausführen eines Notebooks die geklonte Version des Notebooks unbedingt im Abschnitt **Benutzerdateien**.
     
-1. Wählen Sie die Datei **tutorial-1st-experiment-sdk-train.ipynb** im Ordner **tutorials/image-classification-mnist-data** aus.
+1. Wählen Sie die Datei **img-classification-part1-training.ipynb** im Ordner **tutorials/image-classification-mnist-data** aus.
 
-    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Screenshot: Klonen des Ordners „Tutorials“":::
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Screenshot: Öffnen des Ordners „Tutorials“":::
 
 1. Wählen Sie auf der oberen Leiste eine Computeinstanz aus, die zum Ausführen des Notebooks verwendet werden soll. Diese virtuellen Computer werden [mit allen Komponenten vorkonfiguriert, die Sie zum Ausführen von Azure Machine Learning benötigen](concept-compute-instance.md#contents).
 

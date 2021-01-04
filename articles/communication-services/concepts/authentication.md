@@ -9,18 +9,18 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 939c36cd62dab4362232aef0da8701b34a88c6ff
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 4d6e02852dcd2d30a764417a4b5e0e012a1d2ab5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202955"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571095"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Authentifizieren bei Azure Communication Services
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Dieser Artikel bietet Informationen zur Authentifizierung von Clients bei Azure Communication Services unter Verwendung von *Zugriffsschlüsseln* und *Benutzerzugriffstoken* . Jede Clientinteraktion mit Azure Communication Services muss authentifiziert werden.
+Dieser Artikel bietet Informationen zur Authentifizierung von Clients bei Azure Communication Services unter Verwendung von *Zugriffsschlüsseln* und *Benutzerzugriffstoken*. Jede Clientinteraktion mit Azure Communication Services muss authentifiziert werden.
 
 In der folgenden Tabelle werden die Authentifizierungsoptionen beschrieben, die von den Azure Communication Services-Clientbibliotheken unterstützt werden:
 
@@ -58,9 +58,9 @@ Wenn Sie keine Clientbibliothek verwenden, um HTTP-Anforderungen an die REST-API
     URLPathAndQuery + "\n"
     DateHeaderValue + ";" + HostHeaderValue + ";" + ContentHashHeaderValue
     ```
-1. Generieren Sie eine HMAC-256-Signatur der UTF-8-codierten Zeichenfolge, die Sie im vorherigen Schritt erstellt haben. Codieren Sie als Nächstes die Ergebnisse als Base64. Beachten Sie, dass Sie Ihren Speicherkontoschlüssel auch mit Base64 decodieren müssen. Verwenden Sie folgendes Format (das als Pseudocode gezeigt wird):
+1. Generieren Sie eine HMAC-256-Signatur der UTF-8-codierten Zeichenfolge, die Sie im vorherigen Schritt erstellt haben. Codieren Sie als Nächstes die Ergebnisse als Base64. Beachten Sie, dass Sie Ihren Zugriffsschlüssel auch mit Base64 decodieren müssen. Verwenden Sie folgendes Format (das als Pseudocode gezeigt wird):
     ```
-    Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_azure_storage_account_shared_key>)))
+    Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_access_key>)))
     ```
 1. Geben Sie den Autorisierungsheader wie folgt an:
     ```
@@ -72,11 +72,11 @@ Wenn Sie keine Clientbibliothek verwenden, um HTTP-Anforderungen an die REST-API
 
 Benutzerzugriffstoken ermöglichen die direkte Authentifizierung Ihrer Clientanwendungen bei Azure Communication Services. Hierzu müssen Sie einen vertrauenswürdigen Dienst einrichten, der die Anwendungsbenutzer authentifiziert und mit der Clientbibliothek „Administration“ Benutzerzugriffstoken ausstellt. Informieren Sie sich in der konzeptionellen Dokumentation zur [Client- und Serverarchitektur](./client-and-server-architecture.md), um mehr über unsere Überlegungen zur Architektur zu erfahren.
 
-Die `CommunicationClientCredential`-Klasse enthält die Logik zur Bereitstellung von Anmeldeinformationen mittels Benutzerzugriffstoken für die Clientbibliotheken und zur Verwaltung ihres Lebenszyklus.
+Die `CommunicationUserCredential`-Klasse enthält die Logik zur Bereitstellung von Anmeldeinformationen mittels Benutzerzugriffstoken für die Clientbibliotheken und zur Verwaltung ihres Lebenszyklus.
 
 ### <a name="initialize-the-client-libraries"></a>Initialisieren der Clientbibliotheken
 
-Zur Initialisierung der Clientbibliotheken von Azure Communication Services, die eine Authentifizierung per Benutzerzugriffstoken erfordern, erstellen Sie zunächst eine Instanz der `CommunicationClientCredential`-Klasse und verwenden diese dann zur Initialisierung eines API-Clients.
+Zur Initialisierung der Clientbibliotheken von Azure Communication Services, die eine Authentifizierung per Benutzerzugriffstoken erfordern, erstellen Sie zunächst eine Instanz der `CommunicationUserCredential`-Klasse und verwenden diese dann zur Initialisierung eines API-Clients.
 
 Die folgenden Ausschnitte zeigen, wie Sie die Clientbibliothek „Chat“ mit einem Benutzerzugriffstoken initialisieren können:
 

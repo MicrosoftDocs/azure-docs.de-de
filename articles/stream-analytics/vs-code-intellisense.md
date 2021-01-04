@@ -6,16 +6,16 @@ author: su-jie
 ms.author: sujie
 ms.date: 4/11/2020
 ms.topic: how-to
-ms.openlocfilehash: bd72866e3e3db21691fda6aaec864a76af7414a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 988b9d364f09a4c88bcaab1fe81ae80c8de5d4d9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903725"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491569"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>IntelliSense in Azure Stream Analytics-Tools für Visual Studio Code
 
-IntelliSense ist für die [Stream Analytics-Abfragesprache](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fstream-analytics%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fbread%2Ftoc.json) unter [Azure Stream Analytics-Tools für VS Code](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa&ssr=false#overview) verfügbar. IntelliSense ist eine hilfreiche Anwendung zur Codevervollständigung mit Funktionen wie: Auflisten von Elementen, Parameterinformationen, QuickInfo und Wort vervollständigen. IntelliSense-Funktionen werden manchmal auch anders bezeichnet, z. B. als „Codevervollständigung“, „Inhaltshilfe“ und „Codehinweis“.
+IntelliSense ist für die [Stream Analytics-Abfragesprache](/stream-analytics-query/stream-analytics-query-language-reference?bc=https%253a%2f%2fdocs.microsoft.com%2fazure%2fbread%2ftoc.json&toc=https%253a%2f%2fdocs.microsoft.com%2fazure%2fstream-analytics%2ftoc.json) unter [Azure Stream Analytics-Tools für VS Code](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa&ssr=false#overview) verfügbar. IntelliSense ist eine hilfreiche Anwendung zur Codevervollständigung mit Funktionen wie: Auflisten von Elementen, Parameterinformationen, QuickInfo und Wort vervollständigen. IntelliSense-Funktionen werden manchmal auch anders bezeichnet, z. B. als „Codevervollständigung“, „Inhaltshilfe“ und „Codehinweis“.
 
 ![IntelliSense-Demo](./media/vs-code-intellisense/intellisense.gif)
 

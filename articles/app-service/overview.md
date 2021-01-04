@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: 1b72224441741990a1fc94400dfe718ea9d1b0b3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e9c49d472f6cf0b9f0e5b3e2f7728417034059b1
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88961481"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007092"
 ---
 # <a name="app-service-overview"></a>App Service: Übersicht
 
@@ -44,7 +44,7 @@ Von App Service können Web-Apps für unterstützte Anwendungsstapel auch nativ 
 
 ### <a name="built-in-languages-and-frameworks"></a>Integrierte Sprachen und Frameworks
 
-Von App Service für Linux wird eine Reihe von sprachspezifischen integrierten Images unterstützt. Stellen Sie einfach Ihren Code bereit. Unterstützte Sprachen: Node.js, Java (JRE 8 und JRE 11), PHP, Python, .NET Core und Ruby. Führen Sie [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) aus, um die neuesten Sprachen und unterstützten Versionen anzuzeigen. Sollte die für Ihre Anwendung erforderliche Runtime in den integrierten Images nicht unterstützt werden, können Sie sie mit einem benutzerdefinierten Container bereitstellen.
+Von App Service für Linux wird eine Reihe von sprachspezifischen integrierten Images unterstützt. Stellen Sie einfach Ihren Code bereit. Unterstützte Sprachen: Node.js, Java (JRE 8 und JRE 11), PHP, Python, .NET Core und Ruby. Führen Sie [`az webapp list-runtimes --linux`](/cli/azure/webapp#az-webapp-list-runtimes) aus, um die neuesten Sprachen und unterstützten Versionen anzuzeigen. Sollte die für Ihre Anwendung erforderliche Runtime in den integrierten Images nicht unterstützt werden, können Sie sie mit einem benutzerdefinierten Container bereitstellen.
 
 ### <a name="limitations"></a>Einschränkungen
 

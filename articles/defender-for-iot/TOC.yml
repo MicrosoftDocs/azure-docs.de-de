@@ -57,8 +57,12 @@
       href: concept-security-alerts.md
     - name: Anpassbare Sicherheitswarnungen
       href: concept-customizable-security-alerts.md
-    - name: Sicherheitsempfehlungen
-      href: concept-recommendations.md
+    - name: Sicherheit
+      items:
+        - name: Sicherheitsempfehlungen
+          href: concept-recommendations.md
+        - name: Sicherheitsbaseline
+          href: security-baseline.md
     - name: Grundwert
       href: concept-baseline.md
     - name: Ereignisaggregation
@@ -118,11 +122,11 @@
 - name: Ressourcen
   items:
     - name: Ausbauen von Sicherheitskenntnissen mit Microsoft Learn
-      href: 'https://docs.microsoft.com/learn/browse/?term=securityS&terms=securityS'
+      href: /learn/browse/?term=securityS&terms=securityS
     - name: Dokumentation zu Azure Security Center
-      href: 'https://docs.microsoft.com/azure/security-center/'
+      href: ../security-center/index.yml
     - name: Dokumentation zur Azure-Sicherheit
-      href: 'https://docs.microsoft.com/azure/security/'
+      href: ../security/index.yml
     - name: Azure RTOS-Sicherheitsmodul in Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-rtos+azure-iot-security-module'
     - name: "Azure\_IoT-Blog zu Sicherheit, Datenschutz und Compliance"

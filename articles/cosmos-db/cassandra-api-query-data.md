@@ -8,14 +8,15 @@ ms.reviewer: sngun
 ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: e1e6f977d47d98e7c9f5300dc8165ee44a531499
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 693984ceaef1a71ebfbe4122c18a45a563c9c101
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91564866"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100430"
 ---
 # <a name="tutorial-query-data-from-a-cassandra-api-account-in-azure-cosmos-db"></a>Tutorial: Abfragen von Daten von einem Cassandra-API-Konto in Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Als Entwickler besitzen Sie möglicherweise Anwendungen, die Schlüssel/Wert-Paare verwenden. Sie können ein Cassandra-API-Konto in Azure Cosmos DB zum Speichern und Abfragen der Schlüssel-Wert-Daten verwenden. In diesem Tutorial wird das Abfragen von Benutzerdaten von einem Cassandra-API-Konto in Azure Cosmos DB mithilfe einer Java-Anwendung gezeigt. Die Java-Anwendung verwendet den [Java-Treiber](https://github.com/datastax/java-driver) und fragt Benutzerdaten wie Benutzer-ID, Benutzername und Benutzerort ab. 
 
@@ -102,7 +103,7 @@ Führen Sie zum Abfragen von Daten aus Ihrem Cassandra-API-Konto die folgenden S
    java -cp target/cosmosdb-cassandra-examples.jar com.azure.cosmosdb.cassandra.examples.UserProfile
    ```
 
-2. Öffnen Sie nun im Azure-Portal den **Daten-Explorer**, und vergewissern Sie sich, dass die Benutzertabelle gelöscht ist.
+2. Öffnen Sie nun im Azure-Portal den **Daten-Explorer** , und vergewissern Sie sich, dass die Benutzertabelle gelöscht ist.
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 

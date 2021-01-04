@@ -1,24 +1,24 @@
 ---
 title: Übersicht über zonenredundante Hochverfügbarkeit mit Azure Database for MySQL Flexible Server
 description: In diesem Artikel lernen Sie die Konzepte der zonenredundanten Hochverfügbarkeit mit Azure Database for MySQL Flexible Server kennen.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 9db5776a4d2395baf03a5ed7cf05db49de8d0321
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd7be998c49a710ee7652cf18c35bed743606ffd
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930336"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241183"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Hochverfügbarkeitskonzepte in Azure Database for MySQL Flexible Server (Vorschau)
 
 > [!IMPORTANT] 
 > Azure Database for MySQL – Flexible Server befindet sich aktuell in der öffentlichen Vorschau.
 
-Azure Database for MySQL Flexible Server (Vorschau) ermöglicht Ihnen die Konfiguration der Hochverfügbarkeit mit automatischem Failover mithilfe der Option für **zonenredundante** Hochverfügbarkeit. Wenn Flexible Server in einer zonenredundanten Konfiguration bereitgestellt wird, wird in einer anderen Verfügbarkeitszone automatisch ein Standbyreplikat bereitgestellt und verwaltet. Mithilfe der Speicherebenenreplikation werden die Daten mit dem Standbyserver in der sekundären Zonen **synchron repliziert**, um dafür zu sorgen, dass es bei einem Failover zu keinerlei Datenverlust kommt. Das Failover ist für die Clientanwendung vollständig transparent und benötigt keinerlei Benutzeraktionen. Der Standbyserver ist nicht für Lese- oder Schreibvorgänge verfügbar, fungiert jedoch als passive Reserve, um ein schnelles Failover zu ermöglichen. Die Dauer für Failover befindet sich in der Regel zwischen 60 und 120 Sekunden.
+Azure Database for MySQL Flexible Server (Vorschau) ermöglicht Ihnen die Konfiguration der Hochverfügbarkeit mit automatischem Failover mithilfe der Option für **zonenredundante** Hochverfügbarkeit. Wenn Flexible Server in einer zonenredundanten Konfiguration bereitgestellt wird, wird in einer anderen Verfügbarkeitszone automatisch ein Standbyreplikat bereitgestellt und verwaltet. Mithilfe der Speicherebenenreplikation werden die Daten mit dem Standbyserver in der sekundären Zonen **synchron repliziert** , um dafür zu sorgen, dass es bei einem Failover zu keinerlei Datenverlust kommt. Das Failover ist für die Clientanwendung vollständig transparent und benötigt keinerlei Benutzeraktionen. Der Standbyserver ist nicht für Lese- oder Schreibvorgänge verfügbar, fungiert jedoch als passive Reserve, um ein schnelles Failover zu ermöglichen. Die Dauer für Failover befindet sich in der Regel zwischen 60 und 120 Sekunden.
 
 Eine Konfiguration der zonenredundanten Hochverfügbarkeit ermöglicht ein automatisches Failover während geplanten Ereignissen wie von Benutzern ausgehende Vorgänge zum Skalieren von Computekapazitäten sowie ungeplanten Ereignissen wie Fehler der zugrunde liegenden Hardware und Software, Netzwerkausfälle oder sogar Ausfälle von Verfügbarkeitszonen.
 
@@ -100,5 +100,5 @@ Unten finden Sie einige Hinweise, die Sie beachten sollten, wenn Sie die zonenre
 ## <a name="next-steps"></a>Nächste Schritte
 
 -   Weitere Informationen zur [Geschäftskontinuität](./concepts-business-continuity.md)
--   Weitere Informationen zur  [zonenredundanten Hochverfügbarkeit](./concepts-high-availability.md)
+-   Weitere Informationen zur [zonenredundanten Hochverfügbarkeit](./concepts-high-availability.md)
 -   Weitere Informationen zu [Sicherung und Wiederherstellung](./concepts-backup-restore.md)

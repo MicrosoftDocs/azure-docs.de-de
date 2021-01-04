@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: a50f85e76f16f1e5ba8823adb1ea1aa02157fcee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e58137dd680ff9a2be2bd657f0969304b526873f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88032559"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913112"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Migrieren von lokalem HDFS-Speicher zu Azure Storage mit Azure Data Box
 
@@ -37,9 +37,9 @@ Sie benötigen Folgendes, um die Migration durchführen zu können:
 
 * Ein [Azure Data Box-Gerät](https://azure.microsoft.com/services/storage/databox/).
 
-  * [Bestellen Sie die Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered) oder [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-ordered). 
+  * [Bestellen Sie die Data Box](../../databox/data-box-deploy-ordered.md) oder [Data Box Heavy](../../databox/data-box-heavy-deploy-ordered.md). 
 
-  * Verkabeln und verbinden Sie die [Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) oder [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-set-up) mit einem lokalen Netzwerk.
+  * Verkabeln und verbinden Sie die [Data Box](../../databox/data-box-deploy-set-up.md) oder [Data Box Heavy](../../databox/data-box-heavy-deploy-set-up.md) mit einem lokalen Netzwerk.
 
 Wenn Sie bereit sind, können wir beginnen.
 
@@ -59,7 +59,7 @@ Führen Sie diese Schritte aus, um Daten über die REST-APIs des Blob-/Objektspe
 
 2. Kopieren Sie im Dialogfeld „Auf Speicherkonto zugreifen und Daten hochladen“ den **Blob-Dienstendpunkt** und den **Speicherkontoschlüssel**. Lassen Sie beim Blob-Dienstendpunkt den Teil `https://` und den nachgestellten Schrägstrich weg.
 
-    Der Endpunkt ist in diesem Fall: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`. Der Hostteil des verwendeten URI ist: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`. Ein Beispiel hierfür finden Sie in der Beschreibung der [Verbindungsherstellung mit REST per http](/azure/databox/data-box-deploy-copy-data-via-rest). 
+    Der Endpunkt ist in diesem Fall: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`. Der Hostteil des verwendeten URI ist: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`. Ein Beispiel hierfür finden Sie in der Beschreibung der [Verbindungsherstellung mit REST per http](../../databox/data-box-deploy-copy-data-via-rest.md). 
 
      ![Dialogfeld „Auf Speicherkonto zugreifen und Daten hochladen“](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 
@@ -161,7 +161,7 @@ Führen Sie diese Schritte aus, um Daten über die REST-APIs des Blob-/Objektspe
 
 Führen Sie diese Schritte aus, um das Data Box-Gerät vorzubereiten und an Microsoft zu senden.
 
-1. [Bereiten Sie den Versand der Data Box oder Data Box Heavy vor.](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest)
+1. [Bereiten Sie den Versand der Data Box oder Data Box Heavy vor.](../../databox/data-box-deploy-copy-data-via-rest.md)
 
 2. Laden Sie die BOM-Dateien herunter, nachdem die Vorbereitung des Geräts abgeschlossen ist. Sie verwenden diese BOM- bzw. Manifestdateien später, um sich zu vergewissern, dass die Daten in Azure hochgeladen wurden.
 
@@ -169,9 +169,9 @@ Führen Sie diese Schritte aus, um das Data Box-Gerät vorzubereiten und an Micr
 
 4. Planen Sie eine Abholung durch UPS.
 
-    * Die entsprechenden Informationen für Data Box-Geräte finden Sie unter [Zurücksenden der Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up).
+    * Die entsprechenden Informationen für Data Box-Geräte finden Sie unter [Zurücksenden der Azure Data Box](../../databox/data-box-deploy-picked-up.md).
 
-    * Die entsprechenden Informationen für Data Box Heavy-Geräte finden Sie unter [Zurücksenden von Azure Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-picked-up).
+    * Die entsprechenden Informationen für Data Box Heavy-Geräte finden Sie unter [Zurücksenden von Azure Data Box Heavy](../../databox/data-box-heavy-deploy-picked-up.md).
 
 5. Nachdem Ihr Gerät von Microsoft empfangen wurde, wird es mit dem Netzwerk des Rechenzentrums verbunden, und die Daten werden in das Speicherkonto hochgeladen, das Sie bei der Bestellung des Geräts angegeben haben. Überprüfen Sie anhand der BOM-Dateien, ob Ihre gesamten Daten in Azure hochgeladen wurden. 
 
@@ -184,11 +184,11 @@ Die Daten befinden sich bereits in Ihrem Azure Storage-Konto. Jetzt wenden Sie Z
 
 ### <a name="create-a-service-principal-for-your-azure-data-lake-storage-gen2-account"></a>Erstellen eines Dienstprinzipals für Ihr Azure Data Lake Storage Gen2-Konto
 
-Informationen, wie ein Dienstprinzipal erstellt wird, finden Sie unter [Gewusst wie: Erstellen einer Azure AD-Anwendung und eines Dienstprinzipals mit Ressourcenzugriff über das Portal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+Informationen, wie ein Dienstprinzipal erstellt wird, finden Sie unter [Gewusst wie: Erstellen einer Azure AD-Anwendung und eines Dienstprinzipals mit Ressourcenzugriff über das Portal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-* Achten Sie beim Ausführen der Schritte im Abschnitt [Zuweisen der Anwendung zu einer Rolle](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) des Artikels darauf, dem Dienstprinzipal die Rolle **Mitwirkender an Storage-Blobdaten** zuzuweisen.
+* Achten Sie beim Ausführen der Schritte im Abschnitt [Zuweisen der Anwendung zu einer Rolle](../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) des Artikels darauf, dem Dienstprinzipal die Rolle **Mitwirkender an Storage-Blobdaten** zuzuweisen.
 
-* Wenn Sie die im Abschnitt [Abrufen von Werten für die Anmeldung](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) des Artikels aufgeführten Schritte ausführen, speichern Sie die Werte für Anwendungs-ID und Clientgeheimnis in einer Textdatei. Sie benötigen sie in Kürze.
+* Wenn Sie die im Abschnitt [Abrufen von Werten für die Anmeldung](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) des Artikels aufgeführten Schritte ausführen, speichern Sie die Werte für Anwendungs-ID und Clientgeheimnis in einer Textdatei. Sie benötigen sie in Kürze.
 
 ### <a name="generate-a-list-of-copied-files-with-their-permissions"></a>Generieren einer Liste der kopierten Dateien mit deren Berechtigungen
 

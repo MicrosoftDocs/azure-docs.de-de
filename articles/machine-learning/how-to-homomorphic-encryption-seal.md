@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 21c57257f9ce5a33585f151d38c16736f94a166c
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 3509530994b07a16fb1f2780fffc6fd27cf8aa7c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998687"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325516"
 ---
 # <a name="how-to-deploy-an-encrypted-inferencing-web-service-preview"></a>Bereitstellen eines Webdiensts für verschlüsselte Rückschlüsse (Vorschauversion)
 
-Erfahren Sie, wie Sie ein Bildklassifizierungsmodell als Webdienst für verschlüsselte Rückschlüsse in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI) bereitstellen können. Der Webdienst ist ein Docker-Containerimage, das das Modell und die Bewertungslogik enthält.
+Erfahren Sie, wie Sie ein Bildklassifizierungsmodell als Webdienst für verschlüsselte Rückschlüsse in [Azure Container Instances](../container-instances/index.yml) (ACI) bereitstellen können. Der Webdienst ist ein Docker-Containerimage, das das Modell und die Bewertungslogik enthält.
 
 In diesem Leitfaden verwenden Sie Azure Machine Learning Service für Folgendes:
 
@@ -30,7 +30,7 @@ In diesem Leitfaden verwenden Sie Azure Machine Learning Service für Folgendes:
 > * Erstellen verschlüsselter Vorhersagen
 > * Bereinigen von Ressourcen
 
-ACI ist eine hervorragende Lösung für das Testen und Verstehen des Workflows für die Modellimplementierung. Für skalierbare Produktionsbereitstellungen sollten Sie Azure Kubernetes Service verwenden. Weitere Informationen finden Sie unter [Bereitstellen von Modellen mit dem Azure Machine Learning Service](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+ACI ist eine hervorragende Lösung für das Testen und Verstehen des Workflows für die Modellimplementierung. Für skalierbare Produktionsbereitstellungen sollten Sie Azure Kubernetes Service verwenden. Weitere Informationen finden Sie unter [Bereitstellen von Modellen mit dem Azure Machine Learning Service](./how-to-deploy-and-where.md).
 
 Die in diesem Beispiel verwendete Verschlüsselungsmethode ist die [homomorphe Verschlüsselung](https://github.com/Microsoft/SEAL#homomorphic-encryption). Die homomorphe Verschlüsselung ermöglicht es, Berechnungen mit verschlüsselten Daten durchzuführen, ohne Zugriff auf einen geheimen Schlüssel (Entschlüsselung) zu benötigen. Die Ergebnisse der Berechnungen sind verschlüsselt und können nur vom Besitzer des geheimen Schlüssels offengelegt werden. 
 

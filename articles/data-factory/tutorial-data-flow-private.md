@@ -1,25 +1,25 @@
 ---
 title: Transformieren von Daten mit einem von Azure Data Factory verwalteten Zuordnungsdatenfluss für virtuelle Netzwerke
 description: Dieses Tutorial enthält Schritt-für-Schritt-Anleitungen für die Verwendung von Azure Data Factory zum Transformieren von Daten mithilfe von Zuordnungsdatenflüssen.
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/19/2019
-ms.openlocfilehash: d752b747a0156bcef587f81ee421c55a6de81e17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a4b57f3813adfeee53891f733dd4d303dbbef8d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079471"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497128"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>Sicheres Transformieren von Daten mithilfe von Zuordnungsdatenflüssen
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Falls Sie noch nicht mit Azure Data Factory vertraut sind, ist es ratsam, den Artikel [Einführung in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) zu lesen.
+Falls Sie noch nicht mit Azure Data Factory vertraut sind, ist es ratsam, den Artikel [Einführung in Azure Data Factory](./introduction.md) zu lesen.
 
 In diesem Tutorial erstellen Sie auf der Benutzeroberfläche von Data Factory eine Pipeline, die Daten *aus einer Azure Data Lake Storage Gen2-Quelle in eine Data Lake Storage Gen2-Senke kopiert und transformiert (wobei beide den Zugriff nur auf ausgewählte Netzwerke erlauben)* , indem in einem von [Data Factory verwalteten virtuellen Netzwerk](managed-virtual-network-private-endpoint.md) der Zuordnungsdatenfluss verwendet wird. Sie können das Konfigurationsmuster in diesem Tutorial erweitern, wenn Sie Daten mithilfe des Zuordnungsdatenflusses transformieren.
 
@@ -35,9 +35,9 @@ In diesem Tutorial führen Sie die folgenden Schritte aus:
 
 ## <a name="prerequisites"></a>Voraussetzungen
 * **Azure-Abonnement**. Wenn Sie über kein Azure-Abonnement verfügen, können Sie ein [kostenloses Azure-Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
-* **Azure-Speicherkonto**. Sie verwenden Data Lake Storage als *Quell-* und *Senkendatenspeicher*. Wenn Sie kein Speicherkonto besitzen, finden Sie unter [Informationen zu Azure-Speicherkonten](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal) Schritte zum Erstellen eines solchen Kontos. *Stellen Sie sicher, dass das Speicherkonto nur den Zugriff aus ausgewählten Netzwerken zulässt.* 
+* **Azure-Speicherkonto**. Sie verwenden Data Lake Storage als *Quell-* und *Senkendatenspeicher*. Wenn Sie kein Speicherkonto besitzen, finden Sie unter [Informationen zu Azure-Speicherkonten](../storage/common/storage-account-create.md?tabs=azure-portal) Schritte zum Erstellen eines solchen Kontos. *Stellen Sie sicher, dass das Speicherkonto nur den Zugriff aus ausgewählten Netzwerken zulässt.* 
 
-Die Datei, die wir in diesem Tutorial transformieren, heißt „moviesDB.csv“, die auf dieser [GitHub-Inhaltswebsite](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv) zu finden ist. Zum Abrufen der Datei aus GitHub kopieren Sie den Inhalt in einen Text-Editor Ihrer Wahl und speichern ihn lokal als CSV-Datei. Wenn Sie die Datei in Ihr Speicherkonto hochladen möchten, finden Sie Informationen dazu unter [Hochladen von Blobs mit dem Azure-Portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). In den Beispielen wird auf einen Container mit dem Namen **sample-data** verwiesen.
+Die Datei, die wir in diesem Tutorial transformieren, heißt „moviesDB.csv“, die auf dieser [GitHub-Inhaltswebsite](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv) zu finden ist. Zum Abrufen der Datei aus GitHub kopieren Sie den Inhalt in einen Text-Editor Ihrer Wahl und speichern ihn lokal als CSV-Datei. Wenn Sie die Datei in Ihr Speicherkonto hochladen möchten, finden Sie Informationen dazu unter [Hochladen von Blobs mit dem Azure-Portal](../storage/blobs/storage-quickstart-blobs-portal.md). In den Beispielen wird auf einen Container mit dem Namen **sample-data** verwiesen.
 
 ## <a name="create-a-data-factory"></a>Erstellen einer Data Factory
 
@@ -88,7 +88,7 @@ In diesem Schritt erstellen Sie eine Pipeline mit einer Datenflussaktivität.
    ![Screenshot, der das Erstellen einer Pipeline zeigt.](./media/doc-common-process/get-started-page.png)
 
 1. Geben Sie im Bereich „Eigenschaften“ der Pipeline als ihren Namen **TransformMovies** ein.
-1. Legen Sie auf der oberen Leiste der Data Factory den Schieberegler **Datenfluss debuggen** auf „Ein“ fest. Der Debugmodus ermöglicht das interaktive Testen von Transformationslogik mit einem aktiven Spark-Cluster. Das Aufwärmen von Datenflussclustern dauert 5 bis 7 Minuten. Aktivieren Sie **Datenfluss debuggen** zuerst, wenn Sie beabsichtigen, eine Datenflussentwicklung zu planen. Weitere Informationen finden Sie unter [Debugmodus](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-debug-mode).
+1. Legen Sie auf der oberen Leiste der Data Factory den Schieberegler **Datenfluss debuggen** auf „Ein“ fest. Der Debugmodus ermöglicht das interaktive Testen von Transformationslogik mit einem aktiven Spark-Cluster. Das Aufwärmen von Datenflussclustern dauert 5 bis 7 Minuten. Aktivieren Sie **Datenfluss debuggen** zuerst, wenn Sie beabsichtigen, eine Datenflussentwicklung zu planen. Weitere Informationen finden Sie unter [Debugmodus](./concepts-data-flow-debug-mode.md).
 
     ![Screenshot, der den Schieberegler für „Datenfluss debuggen“ zeigt.](media/tutorial-data-flow-private/dataflow-debug.png)
 1. Klappen Sie im Bereich **Aktivitäten** das Element **Verschieben und transformieren** auf. Ziehen Sie die Aktivität **Datenfluss** per Drag & Drop aus dem Bereich auf die Canvas der Pipeline.
@@ -181,7 +181,7 @@ Wenn Sie beim Testen der vorhergehenden Verbindung nicht den Link ausgewählt ha
 1. Geben Sie der Filtertransformation den Namen **FilterYears**. Wählen Sie auf das Ausdrucksfeld neben **Filtern nach** aus, um den Ausdrucks-Generator zu öffnen. Hier geben Sie dann die Filterbedingung an.
 
     ![Screenshot, der FilterYears zeigt.](media/tutorial-data-flow-private/filter-years.png)
-1. Mit dem Datenfluss-Ausdrucks-Generator können Sie Ausdrücke interaktiv erstellen, die dann in verschiedenen Transformationen verwendet werden können. Ausdrücke können integrierte Funktionen, Spalten aus dem Eingabeschema und benutzerdefinierte Parameter enthalten. Weitere Informationen zum Erstellen von Ausdrücken finden Sie unter [Erstellen von Ausdrücken im Zuordnungsdatenfluss](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder).
+1. Mit dem Datenfluss-Ausdrucks-Generator können Sie Ausdrücke interaktiv erstellen, die dann in verschiedenen Transformationen verwendet werden können. Ausdrücke können integrierte Funktionen, Spalten aus dem Eingabeschema und benutzerdefinierte Parameter enthalten. Weitere Informationen zum Erstellen von Ausdrücken finden Sie unter [Erstellen von Ausdrücken im Zuordnungsdatenfluss](./concepts-data-flow-expression-builder.md).
 
     * In diesem Tutorial möchten Sie Filme des Genres „Komödie“ filtern, die von 1910 bis 2000 entstanden sind. Da die Jahresangabe derzeit eine Zeichenfolge ist, müssen Sie sie mithilfe der Funktion ```toInteger()``` in eine ganze Zahl konvertieren. Verwenden Sie die Operatoren „Größer oder gleich (>=)“ und „Kleiner oder gleich (<=)“ für einen Vergleich mit den Literalwerten für die Jahre 1910 und 2000. Verbinden Sie diese Ausdrücke mit dem Und-Operator (&&). Der Ausdruck sieht wie folgt aus:
 

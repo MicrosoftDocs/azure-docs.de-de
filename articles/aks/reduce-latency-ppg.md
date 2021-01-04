@@ -4,62 +4,30 @@ description: Hier erfahren Sie, wie Sie mithilfe von Näherungsplatzierungsgrupp
 services: container-service
 manager: gwallace
 ms.topic: article
-ms.date: 07/10/2020
-author: jluk
-ms.openlocfilehash: 5b3dc3803cfb89f4a74d082b5913e69df1d03a00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: fa81e293bc5e53a852bdb404f9e6d41c4297647b
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87986711"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349034"
 ---
-# <a name="reduce-latency-with-proximity-placement-groups-preview"></a>Verringern der Wartezeit mithilfe von Näherungsplatzierungsgruppen (Vorschauversion)
+# <a name="reduce-latency-with-proximity-placement-groups"></a>Verringern der Wartezeit mithilfe von Näherungsplatzierungsgruppen
 
 > [!Note]
 > Wenn Sie Näherungsplatzierungsgruppen mit AKS verwenden, betrifft die Colocation nur die Agent-Knoten. Die Wartezeit zwischen Knoten und die entsprechende Wartezeit zwischen gehosteten Pods werden verbessert. Die Colocation hat keine Auswirkung auf die Platzierung der Steuerungsebene eines Clusters.
 
 Wenn Sie Ihre Anwendung in Azure bereitstellen, führt die Verteilung von VM-Instanzen (Virtual Machine, virtueller Computer) auf Regionen oder Verfügbarkeitszonen zu Netzwerkwartezeit, die die Gesamtleistung Ihrer Anwendung beeinträchtigen kann. Eine Näherungsplatzierungsgruppe ist eine logische Gruppierung, die dazu dient, eine geringe physische Entfernung zwischen Azure-Computeressourcen sicherzustellen. Einige Anwendungsbereiche wie Spiele, technische Simulationen und Hochfrequenzhandel (High-Frequency Trading, HFT) erfordern geringe Wartezeiten und eine schnelle Aufgabenausführung. In solchen HPC-Szenarien (High Performance Computing) empfiehlt sich ggf. der Einsatz von [Näherungsplatzierungsgruppen](../virtual-machines/linux/co-location.md#proximity-placement-groups) (PPG) für die Knotenpools Ihres Clusters.
 
-## <a name="limitations"></a>Einschränkungen
+## <a name="before-you-begin"></a>Voraussetzungen
+
+Der Artikel setzt voraus, dass Sie mindestens Version 2.14 der Azure CLI ausführen. Führen Sie `az --version` aus, um die Version zu ermitteln. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sie bei Bedarf unter [Installieren der Azure CLI][azure-cli-install].
+
+### <a name="limitations"></a>Einschränkungen
 
 * Eine Näherungsplatzierungsgruppe kann höchstens einer Verfügbarkeitszone zugeordnet werden.
 * Ein Knotenpool muss Virtual Machine Scale Sets verwenden, um eine Näherungsplatzierungsgruppe zuzuordnen.
 * Ein Knotenpool kann eine Näherungsplatzierungsgruppe nur für die Erstellungszeit des Knotenpools zuordnen.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-## <a name="before-you-begin"></a>Voraussetzungen
-
-Die folgenden Ressourcen müssen installiert sein:
-
-- Die Erweiterung „aks-preview 0.4.53“
-
-### <a name="set-up-the-preview-feature-for-proximity-placement-groups"></a>Einrichten der Previewfunktion für Näherungsplatzierungsgruppen
-
-> [!IMPORTANT]
-> Wenn Sie Näherungsplatzierungsgruppen mit AKS-Knotenpools verwenden, betrifft die Colocation nur die Agent-Knoten. Die Wartezeit zwischen Knoten und die entsprechende Wartezeit zwischen gehosteten Pods werden verbessert. Die Colocation hat keine Auswirkung auf die Platzierung der Steuerungsebene eines Clusters.
-
-```azurecli-interactive
-# register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "ProximityPlacementGroupPreview"
-```
-
-Die Registrierung dauert ggf. einige Minuten. Verwenden Sie den folgenden Befehl, um zu überprüfen, ob die Funktion registriert ist:
-
-```azurecli-interactive
-# Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/ProximityPlacementGroupPreview')].{Name:name,State:properties.state}"
-```
-
-In der Vorschauphase benötigen Sie die CLI-Erweiterung *aks-preview*, um Näherungsplatzierungsgruppen verwenden zu können. Verwenden Sie den Befehl [az extension add][az-extension-add], und suchen Sie dann mit dem Befehl [az extension update][az-extension-update] nach verfügbaren Updates:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
 
 ## <a name="node-pools-and-proximity-placement-groups"></a>Knotenpools und Näherungsplatzierungsgruppen
 
@@ -97,7 +65,7 @@ Führen Sie den folgenden Befehl aus, und speichern Sie die zurückgegebene ID:
 az ppg create -n myPPG -g myResourceGroup -l centralus -t standard
 ```
 
-Die Ausgabe des Befehls enthält den für anstehende CLI-Befehle erforderlichen *ID-Wert*:
+Die Ausgabe des Befehls enthält den für anstehende CLI-Befehle erforderlichen *ID-Wert* :
 
 ```output
 {
@@ -115,7 +83,7 @@ Die Ausgabe des Befehls enthält den für anstehende CLI-Befehle erforderlichen 
 }
 ```
 
-Verwenden Sie im folgenden Befehl die Ressourcen-ID der Näherungsplatzierungsgruppe für den Wert *myPPGResourceID*:
+Verwenden Sie im folgenden Befehl die Ressourcen-ID der Näherungsplatzierungsgruppe für den Wert *myPPGResourceID* :
 
 ```azurecli-interactive
 # Create an AKS cluster that uses a proximity placement group for the initial system node pool only. The PPG has no effect on the cluster control plane.

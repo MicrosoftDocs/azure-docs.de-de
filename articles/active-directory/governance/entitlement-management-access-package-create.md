@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c1734af799ee473d6ba75fe2e8ab8429afa51d0
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: b2ce3b362d02e7acb0a11e6d93b8e94ca8e4d04e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318195"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903529"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Erstellen eines neuen Zugriffspakets in der Azure AD-Berechtigungsverwaltung
 
@@ -107,6 +107,9 @@ Auf der Registerkarte **Ressourcenrollen** wählen Sie die Ressourcen aus, die i
 
 1. Klicken Sie auf **Weiter**.
 
+>[!NOTE]
+>Sie können einem Katalog und einem Zugriffspaket dynamische Gruppen hinzufügen. Sie können jedoch nur die Rolle „Besitzer“ auswählen, wenn Sie in einem Zugriffspaket eine dynamische Gruppenressource verwalten.
+
 ## <a name="requests"></a>Requests
 
 Auf der Registerkarte **Anforderungen** erstellen Sie die erste Richtlinie, um anzugeben, wer das Zugriffspaket anfordern kann, und die Genehmigungseinstellungen festzulegen. Später können Sie weitere Anforderungsrichtlinien erstellen, um zusätzlichen Gruppen von Benutzern mit eigenen Genehmigungseinstellungen das Anfordern des Zugriffspakets zu ermöglichen.
@@ -125,7 +128,7 @@ Auf der Registerkarte **Bewerten + erstellen** können Sie Ihre Einstellungen ü
 
 1. Überprüfen der Einstellungen für das Zugriffspaket
 
-    ![Zugriffspaket – Richtlinie – Einstellung „Richtlinie aktivieren“](./media/entitlement-management-access-package-create/review-create.png)
+    ![Zugriffspaket – Einstellung „Richtlinie aktivieren“](./media/entitlement-management-access-package-create/review-create.png)
 
 1. Klicken Sie auf **Erstellen**, um das Zugriffspaket zu erstellen.
 

@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
-  ms.date: 10/10/2019
-  ms.openlocfilehash: 16db3ae780109aee0733aa401c03d6b258e2c5c0
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.date: 12/04/2020
+  ms.openlocfilehash: f25fff23bc371a172a8ddc992d3261705e647f25
+  ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "87079009"
+  ms.lasthandoff: 12/04/2020
+  ms.locfileid: "96608383"
 landingContent:
 - title: Informationen zu Azure Firewall Manager
   linkLists:
@@ -37,6 +37,8 @@ landingContent:
     links:
     - text: Was sind Sicherheitspartneranbieter?
       url: trusted-security-partners.md
+    - text: Schützen von virtuellen Hubs mithilfe von Check Point Cloudguard Connect
+      url: check-point-overview.md
   - linkListType: how-to-guide
     links:
     - text: Bereitstellen eines Sicherheitspartneranbieters

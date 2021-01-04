@@ -3,12 +3,12 @@ title: Sichern von SQL Server in Azure als eine DPM-Workload
 description: Eine Einführung in die Sicherung von SQL Server-Datenbanken mithilfe des Azure Backup-Diensts
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 8130990f86311221ae6d097137a66a6e9b81be73
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 592a51051a0d02a6c1d491db0fe559e2e62babb2
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218084"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327048"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Sichern von SQL Server in Azure als eine DPM-Workload
 
@@ -24,7 +24,7 @@ Zum Sichern und Wiederherstellen einer SQL Server-Datenbank in Azure führen Si
 
 >[!NOTE]
 >DPM 2019 UR2 unterstützt SQL Server-Failoverclusterinstanzen (FCI) unter Verwendung von freigegebenen Clustervolumes (CSV).<br><br>
->Der Schutz von [Failoverclusterinstanzen mit „Direkte Speicherplätze“ (SQL Server auf Azure-VMs)](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure) und [Failoverclusterinstanzen mit freigegebenen Azure-Datenträgern (SQL Server auf Azure-VMs)](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure) wird mit diesem Feature unterstützt. Der DPM-Server muss auf dem virtuellen Azure-Computer bereitgestellt werden, um die auf virtuellen Azure-Computern bereitgestellte SQL-FCI-Instanz schützen zu können. 
+>Der Schutz von [Failoverclusterinstanzen mit „Direkte Speicherplätze“ (SQL Server auf Azure-VMs)](../azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md) und [Failoverclusterinstanzen mit freigegebenen Azure-Datenträgern (SQL Server auf Azure-VMs)](../azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md) wird mit diesem Feature unterstützt. Der DPM-Server muss auf dem virtuellen Azure-Computer bereitgestellt werden, um die auf virtuellen Azure-Computern bereitgestellte SQL-FCI-Instanz schützen zu können. 
 
 ## <a name="prerequisites-and-limitations"></a>Voraussetzungen und Einschränkungen
 
@@ -72,10 +72,10 @@ Erstellen Sie als Erstes eine Sicherungsrichtlinie, um SQL Server-Datenbanken i
 
     ![Erstellen einer Schutzgruppe](./media/backup-azure-backup-sql/protection-group.png)
 1. Lesen Sie auf der Startseite den Leitfaden zum Erstellen einer Schutzgruppe. Wählen Sie **Weiter** aus.
-1. Wählen Sie **Server** .
+1. Wählen Sie **Server**.
 
     ![Auswählen des Schutzgruppentyps „Server“](./media/backup-azure-backup-sql/pg-servers.png)
-1. Erweitern Sie den virtuellen SQL Server-Computer, auf dem sich die zu sichernden Datenbanken befinden. Daraufhin werden die Datenquellen des Servers angezeigt, die gesichert werden können. Erweitern Sie **Alle SQL-Freigaben** , und wählen Sie die Datenbanken aus, die Sie sichern möchten. In diesem Beispiel werden die Datenbanken „ReportServer$MSDPM2012“ und „ReportServer$MSDPM2012TempDB“ ausgewählt. Wählen Sie **Weiter** aus.
+1. Erweitern Sie den virtuellen SQL Server-Computer, auf dem sich die zu sichernden Datenbanken befinden. Daraufhin werden die Datenquellen des Servers angezeigt, die gesichert werden können. Erweitern Sie **Alle SQL-Freigaben**, und wählen Sie die Datenbanken aus, die Sie sichern möchten. In diesem Beispiel werden die Datenbanken „ReportServer$MSDPM2012“ und „ReportServer$MSDPM2012TempDB“ ausgewählt. Wählen Sie **Weiter** aus.
 
     ![Auswählen einer SQL Server-Datenbank](./media/backup-azure-backup-sql/pg-databases.png)
 1. Benennen Sie die Schutzgruppe, und wählen Sie anschließend **Ich möchte Onlineschutz** aus.
@@ -174,7 +174,7 @@ Ein Wiederherstellungspunkt wird erstellt, wenn die erste Sicherung durchgeführ
 
 So stellen Sie eine geschützte Entität (beispielsweise eine SQL Server-Datenbank) aus Azure wieder her:
 
-1. Öffnen Sie die DPM-Serververwaltungskonsole. Navigieren Sie zum Arbeitsbereich **Wiederherstellung** , um die von DPM gesicherten Server anzuzeigen. Wählen Sie die Datenbank aus (in diesem Beispiel: ReportServer$MSDPM2012). Wählen Sie unter **Wiederherstellungszeit** einen Wert aus, die mit **Online** endet.
+1. Öffnen Sie die DPM-Serververwaltungskonsole. Navigieren Sie zum Arbeitsbereich **Wiederherstellung**, um die von DPM gesicherten Server anzuzeigen. Wählen Sie die Datenbank aus (in diesem Beispiel: ReportServer$MSDPM2012). Wählen Sie unter **Wiederherstellungszeit** einen Wert aus, die mit **Online** endet.
 
     ![Wählen Sie einen Wiederherstellungspunkt](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
 1. Klicken Sie mit der rechten Maustaste auf den Datenbanknamen, und wählen Sie **Wiederherstellen** aus.

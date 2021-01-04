@@ -11,27 +11,27 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4c6b57eaa2a68906053faade48dd0e63fbf0db7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 072db1d47abd95844075aeedfeddc4f8cf6bf936
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84464333"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835865"
 ---
-# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Anleitung: Konfigurieren der Registrierungsrichtlinie für die mehrstufige Authentifizierung in Azure
+# <a name="how-to-configure-the-azure-ad-multi-factor-authentication-registration-policy"></a>Anleitung: Konfigurieren der Registrierungsrichtlinie für Azure AD Multi-Factor Authentication
 
-Azure AD Identity Protection unterstützt Sie beim Verwalten des Rollouts der Registrierung für Multi-Factor Authentication (MFA): Es wird eine Richtlinie für bedingten Zugriff zur Anforderung der MFA-Registrierung konfiguriert – unabhängig davon, bei welcher App mit moderner Authentifizierung Sie sich anmelden möchten.
+Azure AD Identity Protection unterstützt Sie beim Verwalten des Rollouts der Registrierung für Azure AD Multi-Factor Authentication (MFA): Es wird eine Richtlinie für bedingten Zugriff zur Anforderung der MFA-Registrierung konfiguriert – unabhängig davon, bei welcher App mit moderner Authentifizierung Sie sich anmelden möchten.
 
-## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>Was ist die Registrierungsrichtlinie für die mehrstufige Authentifizierung in Azure (Azure Multi-Factor Authentication)?
+## <a name="what-is-the-azure-ad-multi-factor-authentication-registration-policy"></a>Was ist die Registrierungsrichtlinie für die mehrstufige Authentifizierung in Azure (Azure AD Multi-Factor Authentication)?
 
-Mit Azure Multi-Factor Authentication können Sie über die Verwendung eines Benutzernamens und Kennworts hinaus Ihre Identität verifizieren. Sie stellt eine zweite Sicherheitsebene für Benutzeranmeldungen dar. Damit Benutzer auf MFA-Aufforderungen reagieren können, müssen sie sich zuerst für die Azure Multi-Factor Authentication registrieren.
+Mit Azure AD Multi-Factor Authentication können Sie über die Verwendung eines Benutzernamens und Kennworts hinaus Ihre Identität verifizieren. Sie stellt eine zweite Sicherheitsebene für Benutzeranmeldungen dar. Damit Benutzer auf MFA-Aufforderungen reagieren können, müssen sie sich zuerst bei Azure AD Multi-Factor Authentication registrieren.
 
-Die obligatorische Verwendung von Azure Multi-Factor Authentication für Benutzeranmeldungen empfiehlt sich aus folgenden Gründen:
+Die obligatorische Verwendung von Azure AD Multi-Factor Authentication für Benutzeranmeldungen empfiehlt sich aus folgenden Gründen:
 
 - Sie bietet eine sichere Authentifizierung mit einer Auswahl von Überprüfungsoptionen.
 - Sie spielt eine wichtige Rolle bei der Vorbereitung Ihrer Organisation auf die Eigenwartung bei Risikoerkennungen in Identity Protection.
 
-Weitere Informationen zu Azure Multi-Factor Authentication finden Sie unter [Was ist Azure Multi-Factor Authentication?](../authentication/howto-mfa-getstarted.md)
+Weitere Informationen zu Azure AD Multi-Factor Authentication finden Sie unter [Was ist Azure AD Multi-Factor Authentication?](../authentication/howto-mfa-getstarted.md).
 
 ## <a name="policy-configuration"></a>Richtlinienkonfiguration
 
@@ -41,7 +41,7 @@ Weitere Informationen zu Azure Multi-Factor Authentication finden Sie unter [Was
       1. **Benutzer**: Wählen Sie **Alle Benutzer** oder **Einzelne Benutzer und Gruppen auswählen** aus, wenn Sie den Rollout einschränken.
          1. Optional können Sie Benutzer aus der Richtlinie ausschließen.
    1. Unter **Steuerelemente**
-      1. Vergewissern Sie sich, dass das Kontrollkästchen **Azure MFA-Registrierung anfordern** aktiviert ist, und wählen Sie **Auswählen** aus.
+      1. Vergewissern Sie sich, dass das Kontrollkästchen **Azure AD-MFA-Registrierung als erforderlich festlegen** aktiviert ist, und wählen Sie **Auswählen** aus.
    1. **Richtlinie erzwingen** - **Ein**
    1. **Speichern**
 
@@ -59,4 +59,4 @@ Eine Übersicht über die zugehörige Benutzeroberfläche finden Sie unter:
 
 - [Aktivieren der Self-Service-Kennwortzurücksetzung in Azure AD](../authentication/howto-sspr-deployment.md)
 
-- [Aktivieren von Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+- [Aktivieren von Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

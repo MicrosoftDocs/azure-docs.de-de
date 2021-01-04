@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 339273c091a1bcfc4f2de66ef2f79ea8cebbc49b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a015da77cb7c0ba54be1dd5e729a9ee8a848c9d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86026048"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321877"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Extrahieren von Stichproben aus Daten in Azure HDInsight Hive-Tabellen
 In diesem Artikel wird das Downsampling von in Azure HDInsight Hive-Tabellen gespeicherten Daten mithilfe von Hive-Abfragen beschrieben, um Daten auf eine für die Analyse besser verwaltbare Größe zu reduzieren. Dabei werden drei häufig verwendete Samplingmethoden behandelt:
@@ -28,7 +28,7 @@ In diesem Artikel wird das Downsampling von in Azure HDInsight Hive-Tabellen ges
 **Warum eine Datenstichprobe entnehmen?**
 Wenn das zu analysierende Dataset groß ist, sollten Sie in der Regel eine Komprimierung der Daten durchführen, um eine geringere aber immer noch repräsentative Größe zu erhalten. Downsampling erleichtert das Verständnis der Daten, das Durchsuchen und die Funktionsverarbeitung. Die Funktion besteht innerhalb des Team Data Science-Prozesses darin, schnell Prototypen der Funktionen zur Datenverarbeitung und Machine Learning-Modelle zu erstellen.
 
-Dieser Stichprobentask ist ein Schritt im [Team Data Science-Prozess (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Dieser Stichprobentask ist ein Schritt im [Team Data Science-Prozess (TDSP)](./index.yml).
 
 ## <a name="how-to-submit-hive-queries"></a>Gewusst wie: Übermitteln von Hive-Abfragen
 Hive-Abfragen können in der Hadoop-Befehlszeilenkonsole auf dem Hauptknoten des Hadoop-Clusters übermittelt werden.  Melden Sie sich beim Hauptknoten des Hadoop-Clusters an, öffnen Sie die Hadoop-Befehlszeilenkonsole, und übermitteln Sie die Hive-Abfragen von dort aus. Informationen zum Übermitteln von Hive-Abfragen in der Hadoop-Befehlszeilenkonsole finden Sie unter [Übermitteln von Hive-Abfragen](move-hive-tables.md#submit).
@@ -54,7 +54,7 @@ where samplekey<='${hiveconf:sampleRate}'
 Dabei gibt `<sample rate, 0-1>` den Anteil von Datensätzen an, den die Benutzer erfassen möchten.
 
 ## <a name="random-sampling-by-groups"></a><a name="group"></a> Zufällige Stichproben nach Gruppen
-Bei der Entnahme von Stichproben aus kategorischen Daten sollten Sie entweder alle Instanzen eines bestimmten Werts der kategorischen Variable ein- oder ausschließen. Diese Art von Sampling wird als „Stichprobe nach Gruppe“ bezeichnet. Wenn Sie beispielsweise die kategorische Variable „*State*“ haben, die als Werte „NY“, „MA“, „CA“, „NJ“, „PA“ usw. hat, möchten Sie natürlich, dass Datensätze der einzelnen Bundesstaaten immer zusammenbleiben, ob als Stichprobe oder auch sonst.
+Bei der Entnahme von Stichproben aus kategorischen Daten sollten Sie entweder alle Instanzen eines bestimmten Werts der kategorischen Variable ein- oder ausschließen. Diese Art von Sampling wird als „Stichprobe nach Gruppe“ bezeichnet. Wenn Sie beispielsweise die kategorische Variable „ *State* “ haben, die als Werte „NY“, „MA“, „CA“, „NJ“, „PA“ usw. hat, möchten Sie natürlich, dass Datensätze der einzelnen Bundesstaaten immer zusammenbleiben, ob als Stichprobe oder auch sonst.
 
 Dies ist eine Beispielabfrage für das Erstellen einer Stichprobe nach Gruppe:
 
@@ -105,4 +105,3 @@ where state_rank <= state_cnt*'${hiveconf:sampleRate}'
 ```
 
 Informationen zu komplexeren Methoden für das Extrahieren von Stichproben, die in Hive verfügbar sind, finden Sie unter [LanguageManual Sampling](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling)(in englischer Sprache).
-

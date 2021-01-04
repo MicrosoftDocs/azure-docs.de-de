@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, contperfq1
+ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: fc2f3202ac88e3ee6c24db21dd9072a13a8deef9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2630984d54134ca8fca94fdc1960265ba71935a6
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89442273"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031299"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Schnellstart: Konfigurieren einer Clientanwendung für den Zugriff auf eine Web-API
 
@@ -59,7 +59,7 @@ Nachdem Sie sowohl die Client-App als auch die Web-API registriert und die API d
 
 Nachdem Sie Ihrer API Berechtigungen hinzugefügt haben, sollten die ausgewählten Berechtigungen unter **Konfigurierte Berechtigungen** angezeigt werden. In der folgenden Abbildung sehen Sie beispielhaft, dass die delegierte Berechtigung *Employees.Read.All* zur Registrierung der Client-App hinzugefügt wurde.
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="Liniendiagramm mit einer Web-API mit verfügbar gemachten Bereichen auf der rechten Seite und einer Client-App auf der linken Seite mit diesen als Berechtigungen ausgewählten Bereichen":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="Der Bereich „Konfigurierte Berechtigungen“ im Azure-Portal mit der neu hinzugefügten Berechtigung":::
 
 Möglicherweise sehen Sie auch die Berechtigung *User.Read* für die Microsoft Graph-API. Diese Berechtigung wird automatisch hinzugefügt, wenn Sie eine App im Azure-Portal registrieren.
 
@@ -136,11 +136,11 @@ Sie können den vollständigen Satz der Berechtigungen einer API oder einzelne B
 
 Mithilfe der Schaltfläche **Administratoreinwilligung erteilen für {Mandant}** kann ein Administrator eine Administratoreinwilligung für die Berechtigungen erteilen, die für die Anwendung konfiguriert sind. Wenn Sie die Schaltfläche auswählen, wird ein Dialogfeld angezeigt, in dem Sie die Einwilligungsaktion bestätigen müssen.
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Liniendiagramm mit einer Web-API mit verfügbar gemachten Bereichen auf der rechten Seite und einer Client-App auf der linken Seite mit diesen als Berechtigungen ausgewählten Bereichen":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Hervorgehobene Schaltfläche „Administratoreinwilligung erteilen“ im Bereich „Konfigurierte Berechtigungen“ im Azure-Portal":::
 
 Nachdem Sie die Einwilligung erteilt haben, werden die Berechtigungen, für die eine Administratoreinwilligung erforderlich ist, als erteilt angezeigt:
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Liniendiagramm mit einer Web-API mit verfügbar gemachten Bereichen auf der rechten Seite und einer Client-App auf der linken Seite mit diesen als Berechtigungen ausgewählten Bereichen":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Tabelle „Konfigurierte Berechtigungen“ im Azure-Portal mit erteilter Administratoreinwilligung für die Berechtigung „Files.Read.All“":::
 
 Die Schaltfläche **Administratoreinwilligung erteilen** ist *deaktiviert*, wenn Sie kein Administrator sind oder für die Anwendung keine Berechtigungen konfiguriert wurden. Wenn Sie über Berechtigungen verfügen, die erteilt, aber noch nicht konfiguriert wurden, werden Sie nach dem Auswählen der Schaltfläche für die Administratoreinwilligung aufgefordert, zu entscheiden, wie mit diesen Berechtigungen verfahren werden soll. Sie können diese Berechtigungen den konfigurierten Berechtigungen hinzufügen oder entfernen.
 

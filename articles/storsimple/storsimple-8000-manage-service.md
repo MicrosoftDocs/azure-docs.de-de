@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 73373f788a4a87a36a800d69ffcdc646f4cd2084
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 66244bd8e24ff62be41df72f7a39c0ce0ed13135
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249551"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360698"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Bereitstellen des StorSimple-Geräte-Manager-Diensts für Geräte der StorSimple 8000-Serie
 
@@ -105,7 +105,7 @@ Führen Sie die folgenden Schritte durch, um den Dienstregistrierungsschlüssel 
 ### <a name="to-regenerate-the-service-registration-key"></a>So generieren Sie den Dienstregistrierungsschlüssel neu
 1. Wechseln Sie auf dem Blatt **StorSimple-Geräte-Manager** zu **Management &gt;** **Schlüssel**.
     
-    ![Blatt „Schlüssel“](./media/storsimple-8000-manage-service/regenregkey2.png)
+    ![Navigieren zum Blatt „Schlüssel“](./media/storsimple-8000-manage-service/regenregkey2.png)
 
 2. Klicken Sie auf dem Blatt **Schlüssel** auf **Neu generieren**.
 

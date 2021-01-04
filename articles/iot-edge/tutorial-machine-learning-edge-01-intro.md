@@ -8,18 +8,47 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 965c420fa29c4cf82517148c01e17d6d7dd6ea97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b23324a7226d4b3de4908bd78a8f19c799e59f06
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74106509"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932182"
 ---
 # <a name="tutorial-an-end-to-end-solution-using-azure-machine-learning-and-iot-edge"></a>Tutorial: End-to-End-Lösung mit Azure Machine Learning und IoT Edge
 
 Bei IoT-Anwendungen ist häufig die Nutzung der intelligenten Cloud sowie von Intelligent Edge wünschenswert. In diesem Tutorial erfahren Sie Schritt für Schritt, wie Sie ein Machine Learning-Modell mit Daten trainieren, die von IoT-Geräten in der Cloud gesammelt wurden, wie Sie dieses Modell in IoT Edge bereitstellen und wie Sie das Modell pflegen und regelmäßig optimieren.
 
 Dieses Tutorial ist in erster Linie als Einführung in die Verarbeitung von IoT-Daten mit maschinellem Lernen (insbesondere im Edgebereich) gedacht. Es werden zwar auch zahlreiche andere Aspekte eines allgemeinen Machine Learning-Workflows angesprochen, bei diesem Tutorial handelt es sich jedoch nicht um eine detaillierte Einführung in maschinelles Lernen. So versuchen wir hier beispielsweise nicht, ein stark optimiertes Modell für den Anwendungsfall zu erstellen, sondern führen lediglich die Schritte aus, die die Erstellung und Verwendung eines funktionsfähigen Modells für die IoT-Datenverarbeitung veranschaulichen.
+
+In diesem Abschnitt des Tutorials wird Folgendes behandelt:
+
+> [!div class="checklist"]
+>
+> * Die Voraussetzungen für die Ausführung der nachfolgenden Teile des Tutorials
+> * Die Zielgruppe des Tutorials
+> * Der Anwendungsfall, der im Tutorial simuliert wird
+> * Der gesamte Prozess, der im Tutorial ausgeführt wird, um den Anwendungsfall zu erfüllen
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>Voraussetzungen
+
+Für dieses Tutorial benötigen Sie Zugriff auf ein Azure-Abonnement, in dem Sie zum Erstellen von Ressourcen berechtigt sind. Für einige der in diesem Tutorial verwendeten Dienste fallen Azure-Gebühren an. Falls Sie noch kein Azure-Abonnement besitzen, können Sie für den Einstieg ggf. ein [kostenloses Azure-Konto](https://azure.microsoft.com/offers/ms-azr-0044p/) erstellen.
+
+Darüber hinaus benötigen Sie einen Computer mit einer PowerShell-Installation, auf dem Sie Skripts ausführen können, um einen virtuellen Computer als Entwicklungscomputer einzurichten.
+
+In diesem Dokument werden folgende Tools verwendet:
+
+* Eine Azure IoT Hub-Instanz für die Datenerfassung
+
+* Azure Notebooks als primäres Front-End für die Datenvorbereitung und die Machine Learning-Experimente. Die Ausführung von Python-Code in einem Notebook für eine Teilmenge der Beispieldaten ermöglicht eine schnelle iterative und interaktive Verarbeitung bei der Datenvorbereitung. Jupyter-Notebooks können auch zur Vorbereitung von Skripts für die skalierbare Ausführung in einem Compute-Back-End verwendet werden.
+
+* Azure Machine Learning als Back-End für skalierbares maschinelles Lernen sowie für die Generierung von Machine Learning-Images. Das Azure Machine Learning-Back-End wird mithilfe von Skripts gesteuert, die in Jupyter-Notebooks vorbereitet und getestet wurden.
+
+* Azure IoT Edge zum Anwenden eines Machine Learning-Images abseits der Cloud
+
+Selbstverständlich stehen auch noch andere Optionen zur Verfügung. In bestimmten Szenarien kann beispielsweise IoT Central als codelose Alternative verwendet werden, um erste Trainingsdaten von IoT-Geräten zu erfassen.
 
 ## <a name="target-audience-and-roles"></a>Zielgruppe und Rollen
 
@@ -30,7 +59,7 @@ Alternativ können Sie sich auch mit Kollegen aus verschiedenen Bereichen zusamm
 Als Orientierungshilfe für den oder die Leser ist bei allen Artikeln jeweils die Rolle des Benutzers angegeben. Folgende Rollen werden verwendet:
 
 * Cloudentwicklung (einschließlich eines Cloudentwicklers in einer DevOps-Kapazität)
-* Datenanalysen
+* Datenanalyse
 
 ## <a name="use-case-predictive-maintenance"></a>Anwendungsfall: Predictive Maintenance
 
@@ -40,9 +69,9 @@ Die in diesem Tutorial verwendeten Daten stammen aus dem [Turbofan Engine Degrad
 
 Aus der Infodatei:
 
-***Experimentelles Szenario***
+***Experimentelles Szenario** _
 
-*Die Datasets bestehen aus mehreren multivariaten Zeitreihen. Jedes Dataset ist außerdem in Trainings- und Testbereiche unterteilt. Die einzelnen Zeitreihen stammen jeweils von einem anderen Triebwerk. Das heißt: Die Daten stammen von einer Gruppe von Triebwerken gleichen Typs. Bei den einzelnen Triebwerken wird jeweils von einem unterschiedlich hohen Anfangsverschleiß sowie von unterschiedlichen Fertigungsschwankungen ausgegangen, die dem Benutzer nicht bekannt sind. Verschleiß und Schwankungen dieser Art sind normal und gelten nicht als Fehlerbedingung. Es gibt drei Betriebseinstellungen, die sich erheblich auf die Triebwerksleistung auswirken. Diese Einstellungen sind ebenfalls in den Daten enthalten. Darüber hinaus enthalten die Daten auch Sensorstörungen.*
+_Die Datasets bestehen aus mehreren multivariaten Zeitreihen. Jedes Dataset ist außerdem in Trainings- und Testbereiche unterteilt. Die einzelnen Zeitreihen stammen jeweils von einem anderen Triebwerk. Das heißt: Die Daten stammen von einer Gruppe von Triebwerken gleichen Typs. Bei den einzelnen Triebwerken wird jeweils von einem unterschiedlich hohen Anfangsverschleiß sowie von unterschiedlichen Fertigungsschwankungen ausgegangen, die dem Benutzer nicht bekannt sind. Verschleiß und Schwankungen dieser Art sind normal und gelten nicht als Fehlerbedingung. Es gibt drei Betriebseinstellungen, die sich erheblich auf die Triebwerksleistung auswirken. Diese Einstellungen sind ebenfalls in den Daten enthalten. Darüber hinaus enthalten die Daten Sensorstörungen.*
 
 *Zu Beginn der jeweiligen Zeitreihe funktioniert das Triebwerk noch ordnungsgemäß. Im Laufe der Zeit tritt jedoch ein Problem auf. Im Trainingssatz nimmt das Problem immer größere Ausmaße an, bis es schließlich zu einem Systemausfall kommt. Im Testsatz endet die Zeitreihe einige Zeit vor dem Systemausfall. Das Ziel des Wettbewerbs besteht darin, die Anzahl der verbleibenden Betriebszyklen bis zum Ausfall im Testsatz zu prognostizieren (also die Anzahl von Betriebszyklen ab dem letzten Zyklus, in denen das Triebwerk noch funktioniert). Für die Testdaten wurde außerdem ein Vektor mit echten RUL-Werten (Remaining Useful Life, Restnutzungsdauer) bereitgestellt.*
 
@@ -74,23 +103,9 @@ Die folgende Abbildung zeigt die allgemeinen Schritte, die in diesem Tutorial au
 
 1. **Pflegen und Optimieren des Modells:** Die Bereitstellung ist nicht der letzte Schritt für unser Modell. In vielen Fällen empfiehlt es sich, weiter Daten zu sammeln und in regelmäßigen Abständen in die Cloud hochzuladen. Mithilfe dieser Daten können wir unser Modell dann neu trainieren, optimieren und erneut in IoT Edge bereitstellen.
 
-## <a name="prerequisites"></a>Voraussetzungen
+## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-Für dieses Tutorial benötigen Sie Zugriff auf ein Azure-Abonnement, in dem Sie zum Erstellen von Ressourcen berechtigt sind. Für einige der in diesem Tutorial verwendeten Dienste fallen Azure-Gebühren an. Falls Sie noch kein Azure-Abonnement besitzen, können Sie für den Einstieg ggf. ein [kostenloses Azure-Konto](https://azure.microsoft.com/offers/ms-azr-0044p/) erstellen.
-
-Darüber hinaus benötigen Sie einen Computer mit einer PowerShell-Installation, auf dem Sie Skripts ausführen können, um einen virtuellen Computer als Entwicklungscomputer einzurichten.
-
-In diesem Dokument werden folgende Tools verwendet:
-
-* Eine Azure IoT Hub-Instanz für die Datenerfassung
-
-* Azure Notebooks als primäres Front-End für die Datenvorbereitung und die Machine Learning-Experimente. Die Ausführung von Python-Code in einem Notebook für eine Teilmenge der Beispieldaten ermöglicht eine schnelle iterative und interaktive Verarbeitung bei der Datenvorbereitung. Jupyter-Notebooks können auch zur Vorbereitung von Skripts für die skalierbare Ausführung in einem Compute-Back-End verwendet werden.
-
-* Azure Machine Learning als Back-End für skalierbares maschinelles Lernen sowie für die Generierung von Machine Learning-Images. Das Azure Machine Learning-Back-End wird mithilfe von Skripts gesteuert, die in Jupyter-Notebooks vorbereitet und getestet wurden.
-
-* Azure IoT Edge zum Anwenden eines Machine Learning-Images abseits der Cloud
-
-Selbstverständlich stehen auch noch andere Optionen zur Verfügung. In bestimmten Szenarien kann beispielsweise IoT Central als codelose Alternative verwendet werden, um erste Trainingsdaten von IoT-Geräten zu erfassen.
+Dieses Tutorial ist Teil einer Reihe, in der jeder Artikel auf den Schritten aufbaut, die jeweils im vorherigen Artikel ausgeführt wurden. Warten Sie mit dem Bereinigen von Ressourcen, bis Sie das letzte Tutorial abgeschlossen haben.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
@@ -106,4 +121,4 @@ Dieses Tutorial ist in folgende Abschnitte unterteilt:
 Im nächsten Artikel erfahren Sie, wie Sie einen Entwicklungscomputer einrichten und Azure-Ressourcen bereitstellen.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Einrichten einer Umgebung für maschinelles Lernen in IoT Edge](tutorial-machine-learning-edge-02-prepare-environment.md)
+> [Einrichten einer Umgebung für maschinelles Lernen in IoT Edge](tutorial-machine-learning-edge-02-prepare-environment.md)

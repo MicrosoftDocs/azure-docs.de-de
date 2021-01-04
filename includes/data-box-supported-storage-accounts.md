@@ -5,18 +5,18 @@ ms.subservice: pod
 ms.topic: include
 ms.date: 09/git14/2020
 ms.author: alkohli
-ms.openlocfilehash: 91f91b1260cc445f90c2608fc5259ad61acd37ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25c2ea04cd062554a975c63aae9b97846e646d68
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90533333"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028569"
 ---
-Im Folgenden finden Sie eine Liste der unterstützten Speicherkonten und Speichertypen für das Data Box-Gerät. Eine vollständige Liste aller verschiedenen Typen von Speicherkonten und ihren vollständigen Funktionen finden Sie unter [Speicherkontotypen](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
+Im Folgenden finden Sie eine Liste der unterstützten Speicherkonten und Speichertypen für das Data Box-Gerät. Eine vollständige Liste aller verschiedenen Typen von Speicherkonten und ihren vollständigen Funktionen finden Sie unter [Speicherkontotypen](../articles/storage/common/storage-account-overview.md#types-of-storage-accounts).
 
 Die folgende Tabelle zeigt die unterstützten Speicherkonten für Importaufträge.
 
-| **Speicherkonto/unterstützte Speichertypen** | **Blockblob** |**Seitenblob*** |**Azure Files** |**Hinweise**|
+| **Speicherkonto/unterstützte Speichertypen** | **Blockblob** |**Seitenblob** _ |_ *Azure-Dateien** |**Hinweise**|
 | --- | --- | -- | -- | -- |
 | Klassisch Standard | J | J | J |
 | Universell V1 Standard  | J | J | J | Es werden sowohl „heiße“ als auch „kalte“ Blobs unterstützt.|
@@ -29,7 +29,7 @@ Die folgende Tabelle zeigt die unterstützten Speicherkonten für Importaufträg
 
 Die folgende Tabelle zeigt die unterstützten Speicherkonten für Exportaufträge.
 
-| **Speicherkonto/unterstützte Speichertypen** | **Blockblob** |**Seitenblob*** |**Azure Files** |**Unterstützte Zugriffsebenen**|
+| **Speicherkonto/unterstützte Speichertypen** | **Blockblob** |**Seitenblob** _ |_ *Azure-Dateien** |**Unterstützte Zugriffsebenen**|
 | --- | --- | -- | -- | -- |
 | Klassisch Standard | J | J | J | |
 | Universell V1 Standard  | J | J | J | Heiße Ebene, kalte Ebene|
@@ -47,5 +47,3 @@ Die folgende Tabelle zeigt die unterstützten Speicherkonten für Exportaufträg
 > - In Seitenblobs hochgeladene Daten müssen einem ganzzahligen Vielfachen von 512 Byte entsprechen, z. B. VHDs.
 > - Es können maximal 80 TB exportiert werden.
 > - Dateiverlauf und Blobmomentaufnahmen werden nicht exportiert.
-
-

@@ -9,14 +9,14 @@ manager: dviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 12/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3528ff790f16b5ec759989966ab35b8bad6565a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84b973dfa016b069b18fda47a4336fe952f73b3c
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629453"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780857"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Gewähren von Datenzugriff für eine Umgebung
 
@@ -60,7 +60,7 @@ Führen Sie die folgenden Schritte aus, um einem Benutzerprinzipal Datenzugriff 
 
 ## <a name="provide-guest-access-from-another-azure-ad-tenant"></a>Bereitstellen von Gastzugriff über einen anderen Azure AD-Mandanten
 
-Die Rolle `Guest` ist keine Verwaltungsrolle. Es ist ein Begriff, der ein Konto bezeichnet, das von einem Mandanten zu einem anderem Mandanten eingeladen wird. Nachdem das Gastkonto in das Mandantenverzeichnis eingeladen wurde, kann darauf dieselbe Zugriffssteuerung angewendet werden wie auf jedes andere Konto. Sie können Verwaltungszugriff auf eine Azure Time Series Insights-Umgebung gewähren, indem Sie das Blatt „Zugriffssteuerung (IAM)“ verwenden. Oder Sie können den Zugriff auf die Daten in der Umgebung über das Blatt „Datenzugriffsrichtlinien“ gewähren. Weitere Informationen zum Mandantengastzugriff in Azure Active Directory (Azure AD) finden Sie unter [Hinzufügen von Azure Active Directory B2B-Zusammenarbeitsbenutzern über das Azure-Portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+Die Rolle `Guest` ist keine Verwaltungsrolle. Es ist ein Begriff, der ein Konto bezeichnet, das von einem Mandanten zu einem anderem Mandanten eingeladen wird. Nachdem das Gastkonto in das Mandantenverzeichnis eingeladen wurde, kann darauf dieselbe Zugriffssteuerung angewendet werden wie auf jedes andere Konto. Sie können Verwaltungszugriff auf eine Azure Time Series Insights-Umgebung gewähren, indem Sie das Blatt „Zugriffssteuerung (IAM)“ verwenden. Oder Sie können den Zugriff auf die Daten in der Umgebung über das Blatt „Datenzugriffsrichtlinien“ gewähren. Weitere Informationen zum Mandantengastzugriff in Azure Active Directory (Azure AD) finden Sie unter [Hinzufügen von Azure Active Directory B2B-Zusammenarbeitsbenutzern über das Azure-Portal](../active-directory/external-identities/add-users-administrator.md).
 
 Führen Sie die folgenden Schritte aus, um einem Azure AD-Benutzer über einen anderen Mandanten Gastzugriff auf die Azure Time Series Insights-Umgebung zu gewähren.
 
@@ -124,4 +124,4 @@ Führen Sie die folgenden Schritte aus, um einem Azure AD-Benutzer über einen 
 
 * Lesen Sie [Authentifizierung und Autorisierung](time-series-insights-authentication-and-authorization.md), um sich über die Schritte für die Azure Active Directory App-Registrierung zu informieren.
 
-* Anzeigen [Ihrer Umgebung im Azure Time Series Insights-Explorer](./time-series-insights-update-explorer.md).
+* Anzeigen [Ihrer Umgebung im Azure Time Series Insights-Explorer](./concepts-ux-panels.md).

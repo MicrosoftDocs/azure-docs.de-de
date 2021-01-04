@@ -1,17 +1,19 @@
 ---
-title: Überwachen von in beliebiger Umgebung ausgeführten Java-Anwendungen – Azure Monitor Application Insights
-description: Überwachen der Anwendungsleistung für Java-Anwendungen, die in einer beliebigen Umgebung ausgeführt werden, mit eigenständigem Java-Agent und ohne die App zu instrumentieren. Verteilte Ablaufverfolgung und Anwendungszuordnung.
+title: Hinzufügen des JVM-Arguments – Azure Monitor Application Insights Java
+description: Hinzufügen des JVM-Arguments für Azure Monitor Application Insights Java
 ms.topic: conceptual
 ms.date: 04/16/2020
+author: MS-jgol
 ms.custom: devx-track-java
-ms.openlocfilehash: b1a23c01fdf8a0145c26b709f36709a7b710103f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: jgol
+ms.openlocfilehash: e665bf734d2141081796f7810eed02eff3b5c5ad
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374302"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601100"
 ---
-# <a name="configuring-jvm-args-java-standalone-agent-for-azure-monitor-application-insights"></a>Konfigurieren eines eigenständigen Java-Agents für JVM-Argumente für Azure Monitor Application Insights
+# <a name="adding-the-jvm-arg-for-azure-monitor-application-insights-java"></a>Hinzufügen des JVM-Arguments für Azure Monitor Application Insights Java
 
 
 

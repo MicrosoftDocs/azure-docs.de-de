@@ -7,12 +7,13 @@ ms.topic: article
 author: emuench
 ms.author: mingshen
 ms.date: 10/15/2020
-ms.openlocfilehash: e5f1a70182d4b31a1bcd0a811be32bdfc55129d9
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: aeee13152364c31d82f674df784a27114035a041
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168437"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028545"
 ---
 # <a name="azure-consumption-commitment-benefit"></a>Vorteil eines Prepaidtarifs für den Azure-Verbrauch
 
@@ -42,7 +43,7 @@ Wenn Sie sich nicht sicher sind, ob Ihre Organisation einen entsprechenden Vertr
    > [!NOTE]
    > Wenn Sie nicht über diesen Filter verfügen, ist Ihre Organisation nicht berechtigt. Wenden Sie sich an Ihren Microsoft-Kundenbetreuer, wenn Sie der Meinung sind, dass hier ein Fehler vorliegt.
  
-3. Angebote erhalten ein Badge **Für Azure-Vorteil berechtigt** , um zusätzlich darauf hinzuweisen, dass die mit diesem Angebot verbundenen Softwareprodukte/IP-Kosten zusätzlich zu den Azure-Dienste, die Ihrer Organisation in Rechnung gestellt werden, zum Azure Consumption Commitment-Vorteil Ihrer Organisation beitragen.
+3. Angebote erhalten ein Badge **Für Azure-Vorteil berechtigt**, um zusätzlich darauf hinzuweisen, dass die mit diesem Angebot verbundenen Softwareprodukte/IP-Kosten zusätzlich zu den Azure-Dienste, die Ihrer Organisation in Rechnung gestellt werden, zum Azure Consumption Commitment-Vorteil Ihrer Organisation beitragen.
 
     :::image type="content" source="media/azure-benefit/azure-benefit-eligible-badge.png" alt-text="Badge „Für Azure-Vorteil berechtigt“.":::
 
@@ -56,4 +57,4 @@ Wenn Sie sich nicht sicher sind, ob Ihre Organisation einen entsprechenden Vertr
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Wenn Sie mehr darüber erfahren möchten, wie Ihre Organisation den Azure Marketplace nutzen kann, schließen Sie das folgende Microsoft Learn-Modul ab: [Vereinfachen der Beschaffung und Governance der Cloud mit dem Azure Marketplace](https://aka.ms/cm.marketplaceprocurement).
+- Wenn Sie mehr darüber erfahren möchten, wie Ihre Organisation den Azure Marketplace nutzen kann, schließen Sie das folgende Microsoft Learn-Modul ab: [Vereinfachen der Beschaffung und Governance der Cloud mit dem Azure Marketplace](/learn/modules/simplify-cloud-procurement-governance-azure-marketplace/).

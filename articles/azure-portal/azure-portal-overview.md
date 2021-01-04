@@ -1,20 +1,15 @@
 ---
-title: Übersicht über das Azure-Portal | Microsoft-Dokumentation
+title: Azure-Portal – Übersicht
 description: Das Azure-Portal ist eine grafische Benutzeroberfläche, über die Sie Azure-Dienste verwalten können. Erfahren Sie, wie Sie im Azure-Portal navigieren und Ressourcen suchen können.
-services: azure-portal
 keywords: Portal
-author: mgblythe
-ms.author: mblythe
 ms.date: 12/20/2019
 ms.topic: overview
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 24b249d1098788e518f5eda2d1b0d421d4e5e6bb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1e9cf1a9609b9d4f30e51094f1d0542335ead0e2
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072389"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745926"
 ---
 # <a name="azure-portal-overview"></a>Azure-Portal – Übersicht
 
@@ -42,7 +37,7 @@ Wenn Sie für das Portalmenü den angedockten Modus auswählen, wird es immer an
 
 Als neuer Abonnent von Azure-Diensten sehen Sie nach der [Anmeldung beim Portal](https://portal.azure.com) als Erstes die **Azure-Startseite**. Auf dieser Seite finden Sie Ressourcen, die Ihnen helfen, das Beste aus Ihrem Azure-Abonnement herauszuholen. Sie finden hier Links zu kostenlosen Onlinekursen, Dokumentation, den wichtigsten Diensten und nützlichen Websites, um auf dem Laufenden zu bleiben und Veränderungen für Ihr Unternehmen erfolgreich umzusetzen. Für einen schnellen und einfachen Zugriff auf die aktuellen Aufgaben zeigen wir Ihnen auch eine Liste Ihrer zuletzt verwendeten Ressourcen. Sie können diese Seite nicht anpassen, aber Sie können wählen, ob Sie die **Azure-Startseite** oder das **Azure-Dashboard** als Standardansicht sehen möchten. Bei der ersten Anmeldung wird oben auf der Seite eine Eingabeaufforderung zum Speichern Ihrer Einstellung angezeigt.
 
-![Screenshot mit Selektor für die Standardansicht](./media/azure-portal-overview/azure-portal-default-view.png)
+![Screenshot, der zeigt, wo Sie Ihre Einstellung speichern](./media/azure-portal-overview/azure-portal-default-view.png)
 
 Sowohl das Azure-Portalmenü als auch die Azure-Standardansicht können unter **Portaleinstellungen** geändert werden. Wenn Sie Ihre Auswahl ändern, wird die Änderung sofort übernommen.
 

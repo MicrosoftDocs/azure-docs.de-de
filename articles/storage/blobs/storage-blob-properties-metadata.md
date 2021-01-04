@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 19d20a208672667e5a4354fd1b7d185d0c00f8d9
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 984fb00e163a090534da1fb41850dcfef6c5d516
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91399124"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521528"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Verwalten von Blobeigenschaften und Metadaten mit .NET
 
@@ -126,7 +126,7 @@ Sie können Metadaten als ein oder mehrere Name-Wert-Paare für eine Blob- oder 
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadataasync)
 ---
 
-Name/Wert-Paare für Metadaten sind gültige HTTP-Header und sollten allen Einschränkungen für HTTP-Header entsprechen. Metadatennamen müssen gültige HTTP-Headernamen und gültige C#-Bezeichner sein, dürfen nur ASCII-Zeichen enthalten und sollten als „Keine Beachtung von Groß-/Kleinschreibung“ behandelt werden. Metadatenwerte [Base64-encode](https://docs.microsoft.com/dotnet/api/system.convert.tobase64string) oder [URL-encode](https://docs.microsoft.com/dotnet/api/system.web.httputility.urlencode), die Nicht-ASCII-Zeichen enthalten.
+Name/Wert-Paare für Metadaten sind gültige HTTP-Header und sollten allen Einschränkungen für HTTP-Header entsprechen. Metadatennamen müssen gültige HTTP-Headernamen und gültige C#-Bezeichner sein, dürfen nur ASCII-Zeichen enthalten und sollten als „Keine Beachtung von Groß-/Kleinschreibung“ behandelt werden. Metadatenwerte [Base64-encode](/dotnet/api/system.convert.tobase64string) oder [URL-encode](/dotnet/api/system.web.httputility.urlencode), die Nicht-ASCII-Zeichen enthalten.
 
 Der Name der Metadaten muss den Benennungskonventionen für C#-Bezeichner entsprechen. Metadatennamen behalten die Groß-/Kleinschreibung bei, mit der sie erstellt wurden. Beim Festlegen oder Lesen wird die Groß-/Kleinschreibung allerdings ignoriert. Wenn für eine Ressource mehrere Metadatenheader mit demselben Namen übermittelt werden, gibt Azure Blob Storage den HTTP-Fehlercode 400 („Ungültige Anforderung“) zurück.
 

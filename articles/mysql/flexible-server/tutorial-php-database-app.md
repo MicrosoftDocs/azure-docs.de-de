@@ -7,20 +7,20 @@ ms.service: mysql
 ms.topic: tutorial
 ms.devlang: php
 ms.date: 9/21/2020
-ms.custom: mvc
-ms.openlocfilehash: 1bad9a7da6f0604f910ce1095b734043be8cf3c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 426cf59c9fb9d88039231ed441b2ffc7246716c7
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90929620"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844436"
 ---
 # <a name="tutorial-build-a-php-laravel-and-mysql-flexible-server-preview-app-in-azure-app-service"></a>Tutorial: Erstellen einer PHP- (Laravel) und flexiblen MySQL – Flexible Server-App (Vorschau) in Azure App Service
 
 
 :::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="PHP-Web-App in Azure mit Flexible Server":::
 
-[Azure App Service](https://docs.microsoft.com/azure/app-service/overview) bietet einen hochgradig skalierbaren Webhostingdienst mit Self-Patching unter dem Linux-Betriebssystem. In diesem Tutorial wird gezeigt, wie Sie eine PHP-App in Azure erstellen und mit einer MySQL-Datenbank verbinden. Wenn Sie fertig sind, verfügen Sie über eine [Laravel](https://laravel.com/)-App, die in Azure App Service für Linux ausgeführt wird.
+[Azure App Service](../../app-service/overview.md) bietet einen hochgradig skalierbaren Webhostingdienst mit Self-Patching unter dem Linux-Betriebssystem. In diesem Tutorial wird gezeigt, wie Sie eine PHP-App in Azure erstellen und mit einer MySQL-Datenbank verbinden. Wenn Sie fertig sind, verfügen Sie über eine [Laravel](https://laravel.com/)-App, die in Azure App Service für Linux ausgeführt wird.
 
 In diesem Tutorial lernen Sie Folgendes:
 > [!div class="checklist"]
@@ -31,7 +31,7 @@ In diesem Tutorial lernen Sie Folgendes:
 > * Aktualisieren des Datenmodells und erneutes Bereitstellen der App
 > * Verwalten der App im Azure-Portal
 
-Wenn Sie kein [Azure-Abonnement](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing) besitzen, erstellen Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio), bevor Sie beginnen.
+Wenn Sie kein [Azure-Abonnement](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing) besitzen, erstellen Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio), bevor Sie beginnen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -134,12 +134,12 @@ php artisan serve
 
 Navigieren Sie in einem Browser zu `http://localhost:8000`. Fügen Sie auf der Seite einige Aufgaben hinzu.
 
-:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="PHP-Web-App in Azure mit Flexible Server":::
+:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="Erfolgreiche Verbindung zwischen PHP und MySQL":::
 
 Geben Sie zum Beenden von PHP im Terminal `Ctrl + C` ein.
 
 ## <a name="create-a-mysql-flexible-server-preview"></a>Erstellen einer MySQL – Flexible Server-Instanz (Vorschau)
-In diesem Schritt erstellen Sie eine MySQL-Datenbank im Dienst [Azure Database for MySQL – Flexible Server](/azure/mysql), der sich in der öffentlichen Vorschauphase befindet. Später konfigurieren Sie die PHP-Anwendung für eine Verbindung mit dieser Datenbank. Erstellen Sie in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) mit dem Befehl [`az flexible-server create`](/cli/azure/mysql/server#az-mysql-flexible-server-create) einen Server.
+In diesem Schritt erstellen Sie eine MySQL-Datenbank im Dienst [Azure Database for MySQL – Flexible Server](../index.yml), der sich in der öffentlichen Vorschauphase befindet. Später konfigurieren Sie die PHP-Anwendung für eine Verbindung mit dieser Datenbank. Erstellen Sie in [Azure Cloud Shell](../../cloud-shell/overview.md) mit dem Befehl [`az flexible-server create`](/cli/azure/mysql/server#az-mysql-flexible-server-create) einen Server.
 
 ```azurecli-interactive
 az mysql flexible-server create  --resource-group myResourceGroup --public-access <IP-Address>
@@ -257,7 +257,7 @@ Navigieren Sie zu `http://localhost:8000`. Wenn die Seite ohne Fehler geladen wi
 
 Fügen Sie auf der Seite einige Aufgaben hinzu.
 
-:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="PHP-Web-App in Azure mit Flexible Server":::
+:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="Erfolgreiche Verbindung zwischen PHP und Azure Database for MySQL":::
 
 Geben Sie zum Beenden von PHP im Terminal `Ctrl + C` ein.
 
@@ -280,7 +280,7 @@ In diesem Schritt stellen Sie die mit MySQL verbundene PHP-Anwendung in Azure Ap
 
 Für die Bereitstellung in einer Azure-Web-App über FTP oder ein lokales Git kann ein Bereitstellungsbenutzer verwendet werden. Nach der Konfiguration des Bereitstellungsbenutzers können Sie ihn für alle Azure-Bereitstellungen verwenden. Der Benutzername und das Kennwort für die Bereitstellung auf Kontoebene unterscheiden sich von den Anmeldeinformationen für Ihr Azure-Abonnement.
 
-Führen Sie zum Konfigurieren des Bereitstellungsbenutzers den Befehl [az webapp deployment user set](https://docs.microsoft.com/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) in Azure Cloud Shell aus. Ersetzen Sie _&lt;username>_ and _&lt;password>_ durch Ihren Benutzernamen und Ihr Kennwort für die Bereitstellung.
+Führen Sie zum Konfigurieren des Bereitstellungsbenutzers den Befehl [az webapp deployment user set](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) in Azure Cloud Shell aus. Ersetzen Sie _&lt;username>_ and _&lt;password>_ durch Ihren Benutzernamen und Ihr Kennwort für die Bereitstellung.
 
 Der Benutzername muss in Azure eindeutig sein und darf bei lokalen Git-Pushes nicht das Symbol „@“ enthalten.
 Das Kennwort muss mindestens acht Zeichen lang sein und zwei der folgenden drei Elemente enthalten: Buchstaben, Zahlen und Symbole.
@@ -293,7 +293,7 @@ In der JSON-Ausgabe wird das Kennwort als „null“ angezeigt. Bei der Meldung 
 
 ### <a name="create-an-app-service-plan"></a>Wie erstelle ich einen Plan?
 
-Erstellen Sie in der Cloud Shell mit dem Befehl [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az-appservice-plan-create) einen App Service-Plan in der Ressourcengruppe. Im folgenden Beispiel wird ein App Service-Plan mit dem Namen myAppServicePlan im Tarif Free (--sku F1) und in einem Linux-Container (--is-linux) erstellt.
+Erstellen Sie in der Cloud Shell mit dem Befehl [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) einen App Service-Plan in der Ressourcengruppe. Im folgenden Beispiel wird ein App Service-Plan mit dem Namen myAppServicePlan im Tarif Free (--sku F1) und in einem Linux-Container (--is-linux) erstellt.
 
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku F1 --is-linux
 
@@ -301,9 +301,9 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ### <a name="create-a-web-app"></a>Erstellen einer Web-App
 
-Erstellen Sie im App Service-Plan myAppServicePlan eine [Web-App](https://docs.microsoft.com/azure/app-service/overview#app-service-on-linux).
+Erstellen Sie im App Service-Plan myAppServicePlan eine [Web-App](../../app-service/overview.md#app-service-on-linux).
 
-In Cloud Shell können Sie den Befehl [az webapp create](https://docs.microsoft.com/cli/azure/webapp#az-webapp-create) verwenden. Ersetzen Sie im folgenden Beispiel _&lt;App-Name>_ durch einen global eindeutigen App-Namen (gültige Zeichen sind `a-z`, `0-9` und `-`). Die Runtime ist auf `PHP|7.0` festgelegt. Führen Sie zum Anzeigen aller unterstützten Runtimes den folgenden Befehl aus:[az webapp list-runtimes --linux](https://docs.microsoft.com/cli/azure/webapp#az-webapp-list-runtimes).
+In Cloud Shell können Sie den Befehl [az webapp create](/cli/azure/webapp#az-webapp-create) verwenden. Ersetzen Sie im folgenden Beispiel _&lt;App-Name>_ durch einen global eindeutigen App-Namen (gültige Zeichen sind `a-z`, `0-9` und `-`). Die Runtime ist auf `PHP|7.0` festgelegt. Führen Sie zum Anzeigen aller unterstützten Runtimes den folgenden Befehl aus:[az webapp list-runtimes --linux](/cli/azure/webapp#az-webapp-list-runtimes).
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.3" --deployment-local-git
@@ -377,7 +377,7 @@ az webapp config appsettings set --name <app-name> --resource-group myResourceGr
 
 Der [Lebenszyklus der Laravel-Anwendung](https://laravel.com/docs/5.4/lifecycle) beginnt im _öffentlichen_ Verzeichnis anstatt im Stammverzeichnis der Anwendung. Für das PHP-Docker-Image für App Service wird Apache verwendet, und das Anpassen des `DocumentRoot`-Elements für Laravel ist nicht möglich. Sie können aber `.htaccess` verwenden, um alle Anforderungen so umzuschreiben, dass sie nicht auf das Stammverzeichnis verweisen, sondern auf _/public_. Im Repositorystamm wurde bereits ein `.htaccess`-Element für diese Zwecke hinzugefügt. Hiermit ist Ihre Laravel-Anwendung bereit für die Bereitstellung.
 
-Weitere Informationen finden Sie unter [Ändern des Stammverzeichnisses der Website](https://docs.microsoft.com/azure/app-service/configure-language-php?pivots=platform-linux#change-site-root).
+Weitere Informationen finden Sie unter [Ändern des Stammverzeichnisses der Website](../../app-service/configure-language-php.md?pivots=platform-linux#change-site-root).
 
 ### <a name="push-to-azure-from-git"></a>Übertragen von Git an Azure mithilfe von Push
 
@@ -414,7 +414,7 @@ remote: Running deployment command...
 
 Browsen Sie zu `http://<app-name>.azurewebsites.net`, und fügen Sie der Liste einige Aufgaben hinzu.
 
-:::image type="content" source="media/tutorial-php-database-app/php-mysql-in-azure.png" alt-text="PHP-Web-App in Azure mit Flexible Server":::
+:::image type="content" source="media/tutorial-php-database-app/php-mysql-in-azure.png" alt-text="PHP-Web-App in Azure":::
 
 Glückwunsch! Sie führen eine datengesteuerte PHP-App in Azure App Service aus.
 
@@ -534,7 +534,7 @@ php artisan serve
 
 Navigieren Sie zu `http://localhost:8000`, um die Änderung des Aufgabenstatus anzuzeigen, und aktivieren Sie das Kontrollkästchen.
 
-:::image type="content" source="media/tutorial-php-database-app/complete-checkbox.png" alt-text="PHP-Web-App in Azure mit Flexible Server":::
+:::image type="content" source="media/tutorial-php-database-app/complete-checkbox.png" alt-text="Hinzugefügtes Kontrollkästchen in der Aufgabe":::
 
 Geben Sie zum Beenden von PHP im Terminal `Ctrl + C` ein.
 
@@ -556,7 +556,7 @@ git push azure master
 
 Wechseln Sie nach Abschluss des `git push`-Vorgangs zur Azure-App, und testen Sie die neuen Funktionen.
 
-:::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="PHP-Web-App in Azure mit Flexible Server":::
+:::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="Auf Azure veröffentlichte Änderungen an Modell und Datenbank":::
 
 Wenn Sie Aufgaben hinzugefügt haben, werden sie in der Datenbank beibehalten. Bei Updates des Datenschemas bleiben vorhandene Daten erhalten.
 
@@ -572,6 +572,6 @@ az group delete --name myResourceGroup
 ## <a name="next-steps"></a>Nächste Schritte
 
 > [!div class="nextstepaction"]
-> [Verwalten von Ressourcen im Azure-Portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal) <br/>
+> [Verwalten von Ressourcen im Azure-Portal](../../azure-resource-manager/management/manage-resources-portal.md) <br/>
 > [!div class="nextstepaction"]
 > [Verwalten Ihres Servers](how-to-manage-server-cli.md)

@@ -3,21 +3,19 @@ title: 'Tutorial: Erstellen einer App für die Überwachung von Solarpanels mit 
 description: 'Tutorial: Erfahren Sie, wie Sie eine Solarpanel-Anwendung mithilfe von Azure IoT Central-Anwendungsvorlagen erstellen.'
 author: op-ravi
 ms.author: omravi
-ms.date: 11/12/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 145aefbe5a31d71ae614826c63d285c37ac03571
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: d006bae8290c1f6ea564f9985727f4d6ff70bb04
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123924"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516753"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Tutorial: Erstellen und Durchlaufen der App-Vorlage für die Überwachung von Solarpanels 
-
-
 
 In diesem Tutorial werden die Schritte zum Erstellen der Anwendung für die Überwachung von Solarpanels erläutert, die ein Beispielgerätemodell mit simulierten Daten enthält. In diesem Lernprogramm lernen Sie Folgendes:
 
@@ -31,8 +29,8 @@ In diesem Tutorial werden die Schritte zum Erstellen der Anwendung für die Übe
 Falls Sie noch nicht über ein Abonnement verfügen, [erstellen Sie ein kostenloses Testkonto](https://azure.microsoft.com/free).
 
 ## <a name="prerequisites"></a>Voraussetzungen
-- Keine
-- Ein Azure-Abonnement wird empfohlen, ist aber für das Testen nicht erforderlich.
+* Keine
+* Ein Azure-Abonnement wird empfohlen, ist aber für das Testen nicht erforderlich.
 
 
 ## <a name="create-a-solar-panel-monitoring-app"></a>Erstellen einer App für die Überwachung von Solarelementen 
@@ -41,12 +39,12 @@ Sie können diese Anwendung in drei einfachen Schritten erstellen:
 
 1. Öffnen Sie die [Azure IoT Central-Startseite](https://apps.azureiotcentral.com), und klicken Sie auf **Erstellen**, um eine neue Anwendung zu erstellen. 
 
-2. Wählen Sie die Registerkarte **Energy** (Energie) aus, und klicken Sie auf der Anwendungskachel **Solar panel monitoring** (Überwachung von Solarpanels) auf **App erstellen**. 
+1. Wählen Sie die Registerkarte **Energy** (Energie) aus, und klicken Sie auf der Anwendungskachel **Solar panel monitoring** (Überwachung von Solarpanels) auf **App erstellen**. 
 
     > [!div class="mx-imgBorder"]
     > ![Erstellen einer App](media/tutorial-iot-central-solar-panel/solar-panel-build.png)
   
-3. Über **App erstellen** wird das Formular **Neue Anwendung** geöffnet. Geben Sie wie in der nachfolgenden Abbildung dargestellt die erforderlichen Details ein:
+1. Über **App erstellen** wird das Formular **Neue Anwendung** geöffnet. Geben Sie wie in der nachfolgenden Abbildung dargestellt die erforderlichen Details ein:
     * **Anwendungsname**: Geben Sie einen Namen für die IoT Central-Anwendung an. 
     * **URL**: Geben Sie eine IoT Central-URL an. Die Eindeutigkeit wird auf der Plattform überprüft.
     * **Kostenlose 7-Tage-Testversion**: Wenn Sie bereits über ein Azure-Abonnement verfügen, wird die Standardeinstellung empfohlen. Falls Sie noch nicht über ein Azure-Abonnement verfügen, beginnen Sie mit einer kostenlosen Testversion.
@@ -100,7 +98,7 @@ Klicken Sie auf die Registerkarte **Device templates** (Gerätevorlagen), um das
 Wenn Sie diese Anwendung nicht mehr verwenden möchten, können Sie sie mit den folgenden Schritten löschen:
 
 1. Öffnen Sie im linken Bereich die Registerkarte „Verwaltung“.
-2. Wählen Sie „Anwendungseinstellungen“ aus, und klicken Sie unten auf der Seite auf die Schaltfläche „Löschen“. 
+1. Wählen Sie „Anwendungseinstellungen“ aus, und klicken Sie unten auf der Seite auf die Schaltfläche „Löschen“. 
 
     > [!div class="mx-imgBorder"]
     > ![Löschen der Anwendung](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)

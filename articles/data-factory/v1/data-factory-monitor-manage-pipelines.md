@@ -3,20 +3,20 @@ title: Überwachen und Verwalten von Pipelines mit dem Azure-Portal und PowerShe
 description: Es wird beschrieben, wie Sie von Ihnen erstellte Azure Data Factorys und Pipelines mithilfe des Azure-Portals und Azure PowerShell überwachen und verwalten.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 44aadecfa80524345932c03abb51e8ebd040a902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a30c755bc19849ad3a821cbbc75b787a3b0bb98
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73666982"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495853"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Überwachen und Verwalten von Azure Data Factory-Pipelines mit dem Azure-Portal und PowerShell
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ In diesem Artikel wird das Überwachen, Verwalten und Debuggen Ihrer Pipelines m
 > Die Anwendung „Überwachung und Verwaltung“ bietet eine bessere Unterstützung der Überwachung und Verwaltung Ihrer Datenpipelines und der Problembehandlung. Unter [Überwachen und Verwalten von Azure Data Factory-Pipelines mit der neuen App „Überwachung und Verwaltung“](data-factory-monitor-manage-app.md) erfahren Sie mehr über die Anwendung. 
 
 > [!IMPORTANT]
-> Azure Data Factory Version 1 verwendet jetzt die neue [Azure Monitor-Warnungsinfrastruktur](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). Die alte Warnungsinfrastruktur ist veraltet. Folglich funktionieren Ihre für Data Factorys der Version 1 konfigurierten vorhandenen Warnungen nicht mehr. Ihre vorhandenen Warnungen für Data Factorys der Version 1 werden nicht automatisch migriert. Sie müssen diese Warnungen in der neuen Warnungsinfrastruktur neu erstellen. Melden Sie sich beim Azure-Portal an, und wählen Sie **Überwachen** zum Erstellen neuer Warnungen zu Metriken (z.B. fehlerhafte oder erfolgreiche Ausführungen) für Ihre Data Factorys der Version 1.
+> Azure Data Factory Version 1 verwendet jetzt die neue [Azure Monitor-Warnungsinfrastruktur](../../azure-monitor/platform/alerts-metric.md). Die alte Warnungsinfrastruktur ist veraltet. Folglich funktionieren Ihre für Data Factorys der Version 1 konfigurierten vorhandenen Warnungen nicht mehr. Ihre vorhandenen Warnungen für Data Factorys der Version 1 werden nicht automatisch migriert. Sie müssen diese Warnungen in der neuen Warnungsinfrastruktur neu erstellen. Melden Sie sich beim Azure-Portal an, und wählen Sie **Überwachen** zum Erstellen neuer Warnungen zu Metriken (z.B. fehlerhafte oder erfolgreiche Ausführungen) für Ihre Data Factorys der Version 1.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -288,7 +288,7 @@ Für den Fall, dass der Slice die Überprüfung aufgrund eines Richtlinienfehler
 ![Beheben von Fehlern und Überprüfen](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>Mithilfe von Azure PowerShell
-Sie können Ausführungen, bei denen Fehler aufgetreten sind, mit dem **Set-AzDataFactorySliceStatus**-Cmdlet wiederholen. Im Thema [Set-AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) finden Sie die Syntax und ausführliche Informationen zum Cmdlet.
+Sie können Ausführungen, bei denen Fehler aufgetreten sind, mit dem **Set-AzDataFactorySliceStatus**-Cmdlet wiederholen. Im Thema [Set-AzDataFactorySliceStatus](/powershell/module/az.datafactory/set-azdatafactoryslicestatus) finden Sie die Syntax und ausführliche Informationen zum Cmdlet.
 
 **Beispiel:**
 

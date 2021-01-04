@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: bdb021bc0247972fa29975c62bc9214e3b474e2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f76d2079b7ed5aacbf835540ea92febd034e2d0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992927"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782449"
 ---
 # <a name="monitoring-azure-sql-managed-instance-management-operations"></a>Überwachen der Verwaltungsvorgänge für Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -62,9 +62,9 @@ Die APIs lauten wie folgt:
 
 | Get-Help | Beschreibung |
 | --- | --- |
-|[Vorgänge verwalteter Instanzen – Abrufen](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/get)|Ruft einen Verwaltungsvorgang für eine verwaltete Instanz ab.|
-|[Vorgänge verwalteter Instanzen – Abbrechen](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/cancel)|Bricht den asynchronen Vorgang für die verwaltete Instanz ab.|
-|[Vorgänge verwalteter Instanzen – Auflisten nach verwalteter Instanz](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/listbymanagedinstance)|Ruft eine Liste der für die verwaltete Instanz ausgeführten Vorgänge ab.|
+|[Vorgänge verwalteter Instanzen – Abrufen](/rest/api/sql/managedinstanceoperations/get)|Ruft einen Verwaltungsvorgang für eine verwaltete Instanz ab.|
+|[Vorgänge verwalteter Instanzen – Abbrechen](/rest/api/sql/managedinstanceoperations/cancel)|Bricht den asynchronen Vorgang für die verwaltete Instanz ab.|
+|[Vorgänge verwalteter Instanzen – Auflisten nach verwalteter Instanz](/rest/api/sql/managedinstanceoperations/listbymanagedinstance)|Ruft eine Liste der für die verwaltete Instanz ausgeführten Vorgänge ab.|
 
 > [!NOTE]
 > Verwenden Sie API-Version 2020-02-02, um den Erstellungsvorgang für verwaltete Instanzen in der Liste der Vorgänge anzuzeigen. Dies ist die Standardversion, die im Azure-Portal und den neuesten PowerShell- und Azure CLI-Paketen verwendet wird.
@@ -73,7 +73,7 @@ Die APIs lauten wie folgt:
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Verwenden Sie im Azure-Portal die Managed Instance-Seite **Übersicht**, um Vorgänge für verwaltete Instanzen zu überwachen. 
+Verwenden Sie im Azure-Portal die Managed Instance-Seite **Übersicht** , um Vorgänge für verwaltete Instanzen zu überwachen. 
 
 Beispielsweise wird auf der Seite **Übersicht** zu Beginn des Erstellungsprozesses der **Erstellungsvorgang** angezeigt: 
 
@@ -98,7 +98,7 @@ $managementOperations = Get-AzSqlInstanceOperation `
     -ManagedInstanceName $managedInstance  -ResourceGroupName $resourceGroup
 ```
 
-Eine ausführliche Beschreibung der Befehle finden Sie unter [Get-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstanceoperation).
+Eine ausführliche Beschreibung der Befehle finden Sie unter [Get-AzSqlInstanceOperation](/powershell/module/az.sql/get-azsqlinstanceoperation).
 
 # <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
@@ -108,7 +108,7 @@ Mit „az sql mi op list“ wird eine Liste der für die verwaltete Instanz ausg
 az sql mi op list -g yourResourceGroupName --mi yourInstanceName 
 ```
 
-Eine ausführliche Beschreibung der Befehle finden Sie unter [az sql mi op](https://docs.microsoft.com/cli/azure/sql/mi/op).
+Eine ausführliche Beschreibung der Befehle finden Sie unter [az sql mi op](/cli/azure/sql/mi/op).
 
 ---
 

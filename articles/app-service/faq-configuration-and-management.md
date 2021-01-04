@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 5545acbfd6bb239b9518fbe352b819f300dafaf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb193637525722bf227241a614cd977fbf70c9ac
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962348"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074181"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Häufig gestellte Fragen zur Konfiguration und Verwaltung von Web-Apps in Azure
 
@@ -65,7 +65,9 @@ So richten Sie die Serverzeitzone für Ihre Web-App ein
     * Wert = *Die gewünschte Zeitzone*
 3. Wählen Sie **Speichern** aus.
 
-Akzeptierte Werte für App-Dienste unter Windows finden Sie im Artikel [Standardzeitzonen](/windows-hardware/manufacture/desktop/default-time-zones) in der Spalte **Zeitzone**. Legen Sie für App-Dienste, die unter Linux ausgeführt werden, den [Namen der TZ-Datenbank](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) als Zeitzonenwert fest. Dies ist ein Beispiel für den Namen der TZ-Datenbank: America/Adak.
+Informationen zu den App-Diensten, die unter Windows ausgeführt werden, finden Sie in der Ausgabe des Windows-Befehls `tzutil /L`. Verwenden Sie den Wert aus der zweiten Zeile jedes Eintrags. Beispiel: "Tonga Normalzeit". Einige dieser Werte werden auch im Artikel [Standardzeitzonen](/windows-hardware/manufacture/desktop/default-time-zones) in der Spalte **Zeitzone** aufgeführt.
+
+Legen Sie für die App-Dienste, die unter Linux ausgeführt werden, einen Wert aus der [IANA TZ-Datenbank](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) fest. Beispiel: „America/Adak“.
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Warum misslingen meine fortlaufend ausgeführten WebJobs mitunter?
 
@@ -183,7 +185,7 @@ Sie haben zwei Optionen zum Aufzeichnen einer F12-Ablaufverfolgung:
 ### <a name="f12-console-output"></a>F12-Konsolenausgabe
 
 1. Klicken Sie auf die Registerkarte **Konsole**.
-2. Für jede Registerkarte, die mehr als 0 Elemente enthält, klicken Sie auf die Registerkarte (**Fehler**, **Warnung** oder **Informationen**). Wenn die Registerkarte nicht ausgewählt ist, ist das Registerkartensymbol grau oder schwarz, sobald Sie den Cursor davon entfernen.
+2. Für jede Registerkarte, die mehr als 0 Elemente enthält, klicken Sie auf die Registerkarte ( **Fehler** , **Warnung** oder **Informationen** ). Wenn die Registerkarte nicht ausgewählt ist, ist das Registerkartensymbol grau oder schwarz, sobald Sie den Cursor davon entfernen.
 3. Klicken Sie im Meldungsabschnitt des Bereichs mit der rechten Maustaste, und wählen Sie dann **Alle kopieren** aus.
 4. Fügen Sie den kopierten Text in eine Datei ein, und speichern Sie dann die Datei.
 
@@ -282,11 +284,11 @@ Eine ausführliche Dokumentation der Authentifizierung und Autorisierung in App 
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>Wie leite ich die Standarddomäne „*.azurewebsites.net“ zur benutzerdefinierten Domäne meiner Azure-Web-App um?
 
-Beim Erstellen einer neuen Website mithilfe von Web-Apps in Azure wird Ihrer Website standardmäßig die Domäne „*Websitename*.azurewebsites.net“ zugewiesen. Wenn Sie Ihrer Website einen benutzerdefinierten Hostnamen hinzufügen und nicht möchten, dass Benutzer auf Ihre Standarddomäne „*.azurewebsites.net“ zugreifen, können Sie die Standard-URL umleiten. Informationen zum Umleiten des gesamten Datenverkehrs von der Standarddomäne Ihrer Website zu Ihrer benutzerdefinierten Domäne finden Sie unter [Redirect the default domain to your custom domain in Azure web apps](https://zainrizvi.io/blog/block-default-azure-websites-domain/) (Umleiten der Standarddomäne zu Ihrer benutzerdefinierten Domäne in Azure-Web-Apps).
+Beim Erstellen einer neuen Website mithilfe von Web-Apps in Azure wird Ihrer Website standardmäßig die Domäne „ *Websitename*.azurewebsites.net“ zugewiesen. Wenn Sie Ihrer Website einen benutzerdefinierten Hostnamen hinzufügen und nicht möchten, dass Benutzer auf Ihre Standarddomäne „*.azurewebsites.net“ zugreifen, können Sie die Standard-URL umleiten. Informationen zum Umleiten des gesamten Datenverkehrs von der Standarddomäne Ihrer Website zu Ihrer benutzerdefinierten Domäne finden Sie unter [Redirect the default domain to your custom domain in Azure web apps](https://zainrizvi.io/blog/block-default-azure-websites-domain/) (Umleiten der Standarddomäne zu Ihrer benutzerdefinierten Domäne in Azure-Web-Apps).
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>Wie erkenne ich, welche .NET-Version in App Service installiert ist?
 
-Die schnellste Methode, die Version von Microsoft .NET zu bestimmen, die in App Service installiert ist, bietet die Kudu-Konsole. Auf die Kudu-Konsole können Sie +über das Portal oder die URL Ihrer App Service-App zugreifen. Ausführliche Anweisungen finden Sie unter [How to determine the installed .NET version in Azure App Services](/archive/blogs/waws/how-to-determine-the-installed-net-version-in-azure-app-services) (Bestimmen der installierten Version von .NET in App Service).
+Die schnellste Methode, die Version von Microsoft .NET zu bestimmen, die in App Service installiert ist, bietet die Kudu-Konsole. Auf die Kudu-Konsole können Sie im Portal oder über die URL Ihrer App Service-App zugreifen. Ausführliche Anweisungen finden Sie unter [How to determine the installed .NET version in Azure App Services](/archive/blogs/waws/how-to-determine-the-installed-net-version-in-azure-app-services) (Bestimmen der installierten Version von .NET in App Service).
 
 ## <a name="why-isnt-autoscale-working-as-expected"></a>Warum funktioniert die automatische Skalierung nicht wie erwartet?
 

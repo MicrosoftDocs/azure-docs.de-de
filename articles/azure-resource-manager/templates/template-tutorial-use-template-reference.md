@@ -1,21 +1,21 @@
 ---
 title: Verwenden der Vorlagenreferenz
-description: Hier erfahren Sie, wie Sie die Referenz zu Azure Resource Manager-Vorlagen verwenden, um eine Vorlage zu erstellen.
+description: Hier erfahren Sie, wie Sie die Referenz zu Azure Resource Manager-Vorlagen (ARM-Vorlagen) verwenden, um eine Vorlage zu erstellen.
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 3709511fa8da0a40f4faf4ab2dac9505d69003ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dfd6311fab8d9c65fa7c82d2f707ac96549a32a9
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118510"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931417"
 ---
-# <a name="tutorial-utilize-the-resource-manager-template-reference"></a>Tutorial: Verwenden der Referenz zu Resource Manager-Vorlagen
+# <a name="tutorial-utilize-the-arm-template-reference"></a>Tutorial: Verwenden der Referenz für ARM-Vorlagen
 
-Hier erfahren Sie, wie Sie die Vorlagenschemainformationen ermitteln und basierend darauf ARM-Vorlagen (Azure Resource Manager) erstellen.
+Hier erfahren Sie, wie Sie die Vorlagenschemainformationen ermitteln und basierend darauf ARM-Vorlagen (Azure Resource Manager-Vorlagen) erstellen.
 
 In diesem Tutorial verwenden Sie eine Basisvorlage aus Azure-Schnellstartvorlagen. Sie nutzen die Referenzdokumentation für Vorlagen, um die Vorlage anzupassen.
 
@@ -36,7 +36,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 
 Damit Sie die Anweisungen in diesem Artikel ausführen können, benötigen Sie Folgendes:
 
-* Visual Studio Code mit der Erweiterung „Azure Resource Manager-Tools“. Weitere Informationen finden Sie unter [Schnellstart: Erstellen von Azure Resource Manager-Vorlagen mit Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code mit der Erweiterung „Azure Resource Manager-Tools“. Weitere Informationen finden Sie unter [Schnellstart: Erstellen von ARM-Vorlagen mit Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Öffnen einer Schnellstartvorlage
 

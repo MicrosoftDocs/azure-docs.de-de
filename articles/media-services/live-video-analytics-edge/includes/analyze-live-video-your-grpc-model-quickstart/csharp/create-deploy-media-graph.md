@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: df409af61556dfa113327302be9c1464e1427a14
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: ebefd5ccec321e8c3d580109c3b3c9dc8ba310c3
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91828792"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97532060"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Untersuchen und Bearbeiten der Beispieldateien
 
@@ -26,7 +26,7 @@ Als Teil der Voraussetzungen haben Sie den Beispielcode in einen Ordner herunter
 1. Bearbeiten Sie die Datei *operations.json*:
  
     * Ändern Sie den Link zur Graphtopologie:
-    * `"topologyUrl"` : `"https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/topology.json"`
+    * `"topologyUrl"` : `"https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/2.0/topology.json"`
     * Bearbeiten Sie unter GraphInstanceSet den Namen der Graphtopologie so, dass er mit dem Wert im vorherigen Link übereinstimmt:
     * `"topologyName"` : `"InferencingWithGrpcExtension"`
     * Bearbeiten Sie unter GraphTopologyDelete den Namen:
@@ -111,7 +111,7 @@ Als Teil der Voraussetzungen haben Sie den Beispielcode in einen Ordner herunter
 
 ### <a name="prepare-to-monitor-events"></a>Vorbereiten der Überwachung von Ereignissen
 
-1. Öffnen Sie in Visual Studio Code die Registerkarte **Erweiterungen** (oder drücken Sie STRG+UMSCHALT+X), und suchen Sie nach Azure IoT Hub.
+1. Öffnen Sie in Visual Studio Code die Registerkarte **Erweiterungen** (oder drücken Sie STRG + UMSCHALT + X), und suchen Sie nach Azure IoT Hub.
 1. Klicken Sie mit der rechten Maustaste, um das Kontextmenü zu öffnen, und wählen Sie **Erweiterungseinstellungen** aus.
 
     > [!div class="mx-imgBorder"]
@@ -119,7 +119,7 @@ Als Teil der Voraussetzungen haben Sie den Beispielcode in einen Ordner herunter
 1. Suchen Sie nach dem Kontrollkästchen „Show Verbose Message“ (Ausführliche Meldung anzeigen), und aktivieren Sie es.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Erweiterungseinstellungen":::
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Show Verbose Message (Ausführliche Meldung anzeigen)":::
 1. Klicken Sie mit der rechten Maustaste auf das Live Video Analytics-Gerät, und wählen Sie **Überwachung des integrierten Ereignisendpunkts starten** aus. Sie müssen diesen Schritt ausführen, um die IoT Hub-Ereignisse im **Ausgabefenster** von Visual Studio Code zu überwachen.
 
    ![Starten der Überwachung](../../../media/quickstarts/start-monitoring-built-event-endpoint-grpc.png)
@@ -133,7 +133,7 @@ Als Teil der Voraussetzungen haben Sie den Beispielcode in einen Ordner herunter
     -------------------------------Executing operation GraphTopologyList-----------------------  
     Request: GraphTopologyList  --------------------------------------------------
     {
-    "@apiVersion": "1.0"
+    "@apiVersion": "2.0"
     }
     ---------------  
     Response: GraphTopologyList - Status: 200  ---------------
@@ -152,7 +152,7 @@ Als Teil der Voraussetzungen haben Sie den Beispielcode in einen Ordner herunter
     
     ```
     {
-      "@apiVersion": "1.0",
+      "@apiVersion": "2.0",
       "name": "Sample-Graph-1",
       "properties": {
         "topologyName": "InferencingWithGrpcExtension",

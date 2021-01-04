@@ -1,5 +1,5 @@
 ---
-title: 'Metrics Monitor-REST-API: Schnellstart'
+title: 'Metrics Advisor-REST-API: Schnellstart'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mrbullwinkle
@@ -9,12 +9,12 @@ ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 09/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: 416f28f51a3ebe00e7227503f189898406229c8a
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 42ea166119d3cc405b3d73e184c44dbfd6708a97
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047459"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96231479"
 ---
 ## <a name="prerequisites"></a>Voraussetzungen
 

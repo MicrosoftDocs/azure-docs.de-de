@@ -3,21 +3,102 @@ title: Rechnungen für die Azure Enterprise-Registrierung
 description: In diesem Artikel wird erläutert, wie Sie Ihre Azure-Unternehmensrechnung verwalten und Aktionen dafür ausführen.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: fec013395af9aeb3d83f86ab47cc52b3fedd7a1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: contperfq1
+ms.openlocfilehash: 57ada2ca760ffff2124582c31fdd095d04d4375f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316136"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410952"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Rechnungen für die Azure Enterprise-Registrierung
 
 In diesem Artikel wird erläutert, wie Sie Ihre Azure Enterprise Agreement-Rechnung (Azure EA) verwalten und Aktionen dafür ausführen. Die Rechnung stellt Ihre Abrechnung dar. Überprüfen Sie die Richtigkeit. Machen Sie sich außerdem auch mit anderen Aufgaben vertraut, die ggf. zum Verwalten Ihrer Rechnung erforderlich sind.
+
+## <a name="view-usage-summary-and-download-reports"></a>Anzeigen der Verwendungszusammenfassung und Herunterladen von Berichten
+
+Unternehmensadministratoren können eine Zusammenfassung ihrer Nutzungsdaten, die in Anspruch genommene Azure-Vorauszahlung und die Gebühren für die zusätzliche Nutzung im Azure Enterprise Portal anzeigen. Die Gebühren werden auf der Übersichtsebene für alle Konten und Abonnements angezeigt.
+
+Laden Sie den Bericht mit den Nutzungsdetails herunter, um die ausführliche Nutzung für bestimmte Konten anzuzeigen:
+
+1. Melden Sie sich beim Azure Enterprise Portal an.
+1. Wählen Sie **Berichte** aus.
+1. Wählen Sie die Registerkarte **Nutzung herunterladen** aus.
+1. Klicken Sie in der Liste der Berichte für den monatlichen Bericht, den Sie abrufen möchten, auf **Herunterladen**.
+
+   > [!NOTE]
+   > Der Bericht mit den Nutzungsdetails enthält keine anwendbaren Steuern.
+   >
+   > Zwischen der Nutzung und der entsprechenden Angabe im Bericht gibt es unter Umständen eine Verzögerung von bis zu acht Stunden.
+
+So zeigen Sie die zusammengefassten Nutzungsberichte und -diagramme an:
+
+1. Melden Sie sich beim Azure Enterprise Portal an.
+
+1. Wählen Sie eine Laufzeit für die Vorauszahlung aus.
+
+   Um den Datumsbereich für die **Nutzungszusammenfassung** zu ändern, können Sie in der rechten oberen Ecke der Seite von **M** (monatlich) zu **C** (benutzerdefiniert) wechseln und dann das benutzerdefinierte Start- und Enddatum eingeben.
+
+   ![Erstellen und Anzeigen der Nutzungszusammenfassung und Herunterladen von Berichten in der benutzerdefinierten Ansicht](./media/ea-portal-enrollment-invoices/create-ea-view-usage-summary-and-download-reports-custom-view.png)
+1. Wählen Sie einen Zeitraum oder einen Monat im Diagramm aus, um weitere Details anzuzeigen.
+
+   - Das Diagramm zeigt die Nutzung im Vergleich zum Vormonat mit einer Aufschlüsselung der tatsächlichen Nutzung, der übermäßig berechneten Dienste, der getrennt berechneten Gebühren und der Azure Marketplace-Gebühren an.
+   - Für den ausgewählten Monat können Sie die Felder unterhalb des Diagramms verwenden, um nach Abteilungen, Konten und Abonnements zu filtern.
+   - Sie können zwischen **Gebühr nach Diensten** und **Gebühr nach Hierarchie** wechseln.
+   - Zeigen Sie Details zu den Kategorien **Azure-Dienst** , **Getrennt abgerechnete Gebühren** und **Azure Marketplace** an, indem Sie die entsprechenden Abschnitte erweitern.
+
+In diesem Video können Sie sich die Nutzungsanzeige ansehen:
+
+> [!VIDEO https://www.youtube.com/embed/Cv2IZ9QCn9E]
+
+### <a name="download-csv-reports"></a>Herunterladen von CSV-Berichten
+
+Unternehmensadministratoren verwenden die Seite „Download des monatlichen Berichts“, um die folgenden Berichte als CSV-Dateien herunterzuladen:
+
+- Saldo und Gebühren
+- Nutzungsdetails
+- Azure Marketplace-Gebühren
+- Preisblatt
+
+So laden Sie Berichte herunter:
+
+1. Wählen Sie im Azure Enterprise Portal **Berichte** aus.
+2. Klicken Sie oben auf der Seite auf **Nutzung herunterladen**.
+3. Wählen Sie neben dem Bericht des Monats **Herunterladen** aus.
+
+   > [!NOTE]
+   > Zwischen dem Nutzungsdatum und dem Zeitpunkt, zu dem die Nutzung in den Berichten angezeigt wird, gibt es unter Umständen eine Wartezeit von bis zu fünf Tagen.
+   >
+   > Wenn Sie die CSV-Dateien mit Safari in Excel herunterladen, treten möglicherweise Formatierungsfehler auf. Öffnen Sie die Datei in einem Text-Editor, um solche Fehler zu vermeiden.
+
+![Beispiel für die Seite „Nutzung herunterladen“](./media/ea-portal-enrollment-invoices/create-ea-download-csv-reports.png)
+
+Das folgende Video zeigt, wie Sie Nutzungsinformationen herunterladen:
+
+> [!VIDEO https://www.youtube.com/embed/eY797htT1qg]
+
+### <a name="advanced-report-download"></a>Herunterladen des erweiterten Berichts
+
+Über den Download erweiterter Berichte können Sie Berichte abrufen, die bestimmte Datumsbereiche oder Konten abdecken. Die Ausgabedatei liegt im CSV-Format vor, um große Datensatzgruppen zu unterstützen.
+
+1. Wählen Sie im Azure Enterprise Portal **Download erweiterter Berichte** aus.
+1. Wählen Sie einen geeigneten Datumsbereich und die entsprechenden Konten aus.
+1. Wählen Sie **Nutzungsdaten anfordern** aus.
+1. Wählen Sie die Schaltfläche **Aktualisieren** aus, bis der Status des Berichts auf **Herunterladen** aktualisiert wird.
+1. Laden Sie den Bericht herunter.
+
+### <a name="download-usage-reports-and-billing-information-for-a-prior-enrollment"></a>Herunterladen von Nutzungsberichten und Abrechnungsinformationen für eine vorherige Registrierung
+
+Sie können Nutzungsberichte und Abrechnungsinformationen für eine vorherige Registrierung herunterladen, nachdem eine Registrierungsübertragung durchgeführt wurde. Historische Berichte sind sowohl im Azure Enterprise Portal als auch in der Kostenverwaltung verfügbar.
+
+Das Azure Enterprise Portal filtert inaktive Registrierungen aus der Ansicht heraus. Sie müssen das Kontrollkästchen **Aktiv** deaktivieren, um inaktive übertragene Registrierungen anzuzeigen.  
+
+![Durch Deaktivieren des Kontrollkästchens kann der Benutzer inaktive Registrierungen anzeigen.](./media/ea-portal-enrollment-invoices/unchecked-active-box.png)
 
 ## <a name="change-a-po-number-for-an-upcoming-overage-invoice"></a>Ändern einer Auftragsnummer für eine bevorstehende Überschreitungsrechnung
 
@@ -61,20 +142,20 @@ Ihr Abrechnungsintervall hängt davon ab, wie Sie Ihre Vorauszahlungskäufe durc
 
 Wann Sie Ihre Überschreitungsrechnung erhalten, hängt vom Startdatum von Registrierung und Einrichtung ab:
 
-- **Direkte Registrierungen mit Startdatum vor dem 1. Mai 2018**:
+- **Direkte Registrierungen mit Startdatum vor dem 1. Mai 2018** :
   - Für direkte Enterprise Agreement-Kunden (EA) wird ein jährlicher Abrechnungszeitraum für Azure-Dienste eingerichtet, ausgenommen Azure Marketplace-Dienste. Ihr Abrechnungszeitraum basiert auf dem Jahrestag: dem Datum, an dem Ihre Vereinbarung wirksam wurde.
   - Wenn Sie 150 % Ihrer Azure EA-Vorauszahlung überschreiten, wird für Sie automatisch ein vierteljährlicher Abrechnungszeitraum eingerichtet, der auf Ihrem Jahrestag basiert. Außerdem erhalten Sie eine Rechnung für die Azure-Dienstüberschreitung.
   - Wenn Sie nicht 150 % Ihres Azure-Vorauszahlungsschwellenwerts überschreiten, verbleibt Ihre Registrierung in einem jährlichen Abrechnungszeitraum. Die Rechnung für die Überschreitung erhalten Sie am Ende des Vorauszahlungsjahres.
 
-- **Direkte Registrierungen mit Startdatum nach dem 1. Mai 2018**:
+- **Direkte Registrierungen mit Startdatum nach dem 1. Mai 2018** :
   - Ihr Azure-Verbrauch und separat abgerechnete Gebühren werden in einem monatlichen Abrechnungszeitraum abgerechnet.
   - Gebühren, die nicht durch ihre Azure-Vorauszahlung abgedeckt werden, sind als Überschreitungszahlung fällig.  
 
-- **Indirekte Registrierungen mit Startdatum vor dem 1. Mai 2018**:
+- **Indirekte Registrierungen mit Startdatum vor dem 1. Mai 2018** :
 
   Wenn Sie ein indirekter Enterprise Agreement-Kunde (EA) mit einem Startdatum vor dem 1. Mai 2018 sind, wird für Sie ein vierteljährlicher Abrechnungszeitraum eingerichtet. Vom Channelpartner(CP) erhalten Sie direkt eine Rechnung.  
 
-- **Indirekte Registrierungen mit Startdatum nach dem 1. Mai 2018**:
+- **Indirekte Registrierungen mit Startdatum nach dem 1. Mai 2018** :
 
   Für Sie gilt ein monatlicher Abrechnungszeitraum.  
 
@@ -88,9 +169,9 @@ Bei Überschreitung werden Ihnen die Nutzung oder Reservierungen in Rechnung ges
 
 Für jedes Element in der Rechnung wird Folgendes angezeigt:
 
-- **Erweiterter Betrag**: die Gesamtkosten
-- **Nutzung der Vorauszahlung**: der zum Abdecken der Gebühren verwendete Betrag Ihrer Vorauszahlung
-- **Nettobetrag**: die Gebühren, die ihre Vorauszahlung überschreiten
+- **Erweiterter Betrag** : die Gesamtkosten
+- **Nutzung der Vorauszahlung** : der zum Abdecken der Gebühren verwendete Betrag Ihrer Vorauszahlung
+- **Nettobetrag** : die Gebühren, die ihre Vorauszahlung überschreiten
 
 Die fälligen Steuern werden nur für den Nettobetrag berechnet, der Ihre Vorauszahlung überschreitet.
 
@@ -130,7 +211,7 @@ So zeigen Sie Gutschriften an:
 
 1. Wählen Sie im [Azure Enterprise Portal](https://ea.azure.com) den Abschnitt **Berichte** aus.
 1. Wählen Sie **Nutzungszusammenfassung** aus.
-1. Ändern Sie oben rechts die **M**-Ansicht in die **C**-Ansicht.
+1. Ändern Sie oben rechts die **M** -Ansicht in die **C** -Ansicht.
 1. Erweitern Sie das Anpassungsfeld in der Tabelle „Vorauszahlung für Azure-Dienst“.
 1. Es werden Gutschriften für Ihre Registrierung und eine kurze Erläuterung angezeigt. Beispiel: SLA-Gutschrift.
 

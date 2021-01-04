@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/12/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 13825422358fdddf6742353fbabaac0303b0c82e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d22ff5c863617a3feb2a08d4b1889d0a7c10cd3a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973443"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693397"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Tutorial: Optimieren der Indizierung mit der Push-API
 
@@ -73,7 +73,7 @@ Für API-Aufrufe benötigen Sie die Dienst-URL und einen Zugriffsschlüssel. Ein
 
 1. Rufen Sie unter **Einstellungen** > **Schlüssel** einen Administratorschlüssel ab, um Vollzugriff auf den Dienst zu erhalten. Es gibt zwei austauschbare Administratorschlüssel – diese wurden zum Zweck der Geschäftskontinuität bereitgestellt, falls Sie einen Rollover für einen Schlüssel durchführen müssen. Für Anforderungen zum Hinzufügen, Ändern und Löschen von Objekten können Sie den primären oder den sekundären Schlüssel verwenden.
 
-   ![Abrufen eines HTTP-Endpunkts und eines Zugriffsschlüssels](media/search-get-started-postman/get-url-key.png "Abrufen eines HTTP-Endpunkts und eines Zugriffsschlüssels")
+   ![Abrufen eines HTTP-Endpunkts und eines Zugriffsschlüssels](media/search-get-started-rest/get-url-key.png "Abrufen eines HTTP-Endpunkts und eines Zugriffsschlüssels")
 
 ## <a name="2---set-up-your-environment"></a>2\. Einrichten Ihrer Umgebung
 
@@ -162,7 +162,7 @@ Das Schema Ihres Index kann erhebliche Auswirkungen auf die Indizierungsgeschwin
 Von Azure Cognitive Search werden folgende APIs unterstützt, um einzelne oder mehrere Dokumente in einen Index zu laden:
 
 + [Hinzufügen, Aktualisieren oder Löschen von Dokumenten (REST-API)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [IndexDocumentsAction-Klasse](/dotnet/api/azure.search.documents.models.indexdocumentsaction?view=azure-dotnet) oder [IndexDocumentsBatch-Klasse](/dotnet/api/azure.search.documents.models.indexdocumentsbatch?view=azure-dotnet)
++ [IndexDocumentsAction-Klasse](/dotnet/api/azure.search.documents.models.indexdocumentsaction) oder [IndexDocumentsBatch-Klasse](/dotnet/api/azure.search.documents.models.indexdocumentsbatch)
 
 Wenn Sie Dokumente in Batches indizieren, verbessert sich die Indizierungsleistung erheblich. Diese Batches können bis zu 1.000 Dokumente oder bis zu etwa 16 MB pro Batch umfassen.
 

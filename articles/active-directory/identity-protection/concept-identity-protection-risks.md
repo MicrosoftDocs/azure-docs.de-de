@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 11/09/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bc7b0ce521522e677e0dc53809c8c33e0743f0d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f10d8a94be53780f732112c012600a7fb840642b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91327917"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180641"
 ---
 # <a name="what-is-risk"></a>Was bedeutet Risiko?
 
@@ -25,6 +25,9 @@ Risikoerkennungen in Azure AD Identity Protection umfassen alle identifizierten 
 Identity Protection bietet Organisationen Zugriff auf leistungsstarke Ressourcen, um diese verdächtigen Aktionen zu erkennen und schnell darauf zu reagieren. 
 
 ![Sicherheitsübersicht riskanter Benutzer und Anmeldungen](./media/concept-identity-protection-risks/identity-protection-security-overview.png)
+
+> [!NOTE]
+> Identity Protection generiert Risikoerkennungen nur, wenn die richtigen Anmeldeinformationen verwendet werden. Wenn bei der Anmeldung falsche Anmeldeinformationen verwendet werden, stellt dies kein Risiko durch eine Gefährdung der Anmeldeinformationen dar.
 
 ## <a name="risk-types-and-detection"></a>Risikotypen und Erkennung
 
@@ -71,9 +74,13 @@ Diese Risiken können in Echtzeit oder offline anhand interner und externer Thre
 
 ### <a name="risk-levels"></a>Risikostufen
 
-Mit Identity Protection werden Risiken in drei Stufen eingeteilt: niedrig, mittel und hoch. 
+Mit Identity Protection werden Risiken in drei Stufen eingeteilt: niedrig, mittel und hoch. Wenn Sie [benutzerdefinierte Richtlinien für den Identitätsschutz](./concept-identity-protection-policies.md#custom-conditional-access-policy) konfigurieren, können Sie diese auch so konfigurieren, dass sie auf der Ebene **Kein Risiko** ausgelöst werden. „Kein Risiko“ bedeutet, dass es keine aktiven Hinweise auf eine Kompromittierung der Identität des Benutzers gibt.
 
 Microsoft macht zwar keine spezifischen Angaben zur Berechnung von Risiken, mit den einzelnen Stufen wird jedoch jeweils eine höhere Zuverlässigkeit bei der Einschätzung erreicht, ob eine Kompromittierung des Benutzers oder der Anmeldung vorliegt. Beispielsweise sind einmalige ungewöhnliche Anmeldeeigenschaften eines Benutzers unter Umständen nicht so riskant wie kompromittierte Anmeldeinformationen eines anderen Benutzers.
+
+### <a name="password-hash-synchronization"></a>Kennworthashsynchronisierung
+
+Damit Risiken wie kompromittierte Anmeldeinformationen und Kennwortsprays erkannt werden können, müssen Kennworthashes vorhanden sein. Weitere Informationen zur Kennworthashsynchronisierung finden Sie unter [Implementieren der Kennworthashsynchronisierung mit der Azure AD Connect-Synchronisierung](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 ### <a name="leaked-credentials"></a>Kompromittierte Anmeldeinformationen
 

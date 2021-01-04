@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 91a2d08bf9eea2f5af0f6893712515cb2feeab8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6356089daed02270a14903639afee8001153b195
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890726"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447378"
 ---
 # <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Bereitstellen einer zustandslosen Kubernetes-Anwendung auf einem Azure Stack Edge Pro-GPU-Gerät mit kubectl
 
@@ -25,7 +25,7 @@ Bevor Sie einen Kubernetes-Cluster erstellen und das `kubectl`-Befehlszeilentool
 
 - Sie verfügen über Anmeldeinformationen für ein Azure Stack Edge Pro-Gerät mit einem Knoten.
 
-- Windows PowerShell 5.0 oder höher ist auf einem Windows-Clientsystem installiert, um auf das Azure Stack Edge Pro-Gerät zuzugreifen. Sie können auch einen anderen Client mit einem unterstützten Betriebssystem verwenden. In diesem Artikel wird die Vorgehensweise bei Verwendung eines Windows-Clients beschrieben. Informationen zum Herunterladen der neuesten Version von Windows PowerShell finden Sie unter [Installieren von Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+- Windows PowerShell 5.0 oder höher ist auf einem Windows-Clientsystem installiert, um auf das Azure Stack Edge Pro-Gerät zuzugreifen. Sie können auch einen anderen Client mit einem unterstützten Betriebssystem verwenden. In diesem Artikel wird die Vorgehensweise bei Verwendung eines Windows-Clients beschrieben. Informationen zum Herunterladen der neuesten Version von Windows PowerShell finden Sie unter [Installieren von Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
 
 - Compute ist auf dem Azure Stack Edge Pro-Gerät aktiviert. Wechseln Sie zur Seite **Compute** der lokalen Benutzeroberfläche des Geräts, um den Computevorgang zu aktivieren. Wählen Sie dann eine Netzwerkschnittstelle aus, die Sie für Compute aktivieren möchten. Wählen Sie **Aktivieren** aus. Das Aktivieren des Computevorgangs führt zur Erstellung eines virtuellen Switches auf Ihrem Gerät für diese Netzwerkschnittstelle. Weitere Informationen finden Sie unter [Aktivieren des Computingnetzwerks auf Ihrem Azure Stack Edge Pro-Gerät](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 

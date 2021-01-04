@@ -9,12 +9,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/07/2020
   ms.author: magoedte
-  ms.openlocfilehash: 845b1cac20e7dae35741027ebf2b709288c7dccc
-  ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+  ms.openlocfilehash: 3bdb85eea2f1227a566041badf11539923e7df44
+  ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/14/2020
-  ms.locfileid: "92016619"
+  ms.lasthandoff: 12/18/2020
+  ms.locfileid: "97672473"
 landingContent:
 - title: Verbinden von Computern mit Azure mithilfe von Servern mit Azure Arc-Aktivierung
   linkLists:
@@ -36,6 +36,12 @@ landingContent:
     links:
     - text: Bereitstellen von Server-Agents mit Arc-Unterstützung
       url: ./learn/quick-enable-hybrid-vm.md
+- title: Proof of Concept
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: Schnelleinstieg
+      url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/
 - title: Referenzarchitektur
   linkLists:
   - linkListType: architecture

@@ -9,6 +9,8 @@
       href: entitlement-management-overview.md
     - name: Worum handelt es sich bei Zugriffsüberprüfungen?
       href: access-reviews-overview.md
+    - name: Was ist Identity Lifecycle Management?
+      href: what-is-identity-lifecycle-management.md
 - name: Tutorials
   expanded: true
   items:
@@ -23,6 +25,16 @@
           href: entitlement-management-delegate.md
         - name: Anforderungsprozess und E-Mails
           href: entitlement-management-process.md
+    - name: Identity Lifecycle Management
+      items:
+        - name: Was bedeutet bereitstellen?
+          href: what-is-provisioning.md
+        - name: Worum handelt es sich bei der personalbasierten Bereitstellung?
+          href: what-is-hr-driven-provisioning.md
+        - name: Worum handelt es sich bei der App-Bereitstellung?
+          href: what-is-app-provisioning.md
+        - name: Worum handelt es sich bei der Bereitstellung zwischen Verzeichnissen?
+          href: what-is-inter-directory-provisioning.md
     - name: Zugriffsüberprüfungen
       items:
         - name: Verwalten des Gastzugriffs mit Überprüfungen
@@ -130,6 +142,6 @@
   expanded: true
   items:
     - name: 'Zugriffsüberprüfung: Graph-API'
-      href: /graph/api/resources/accessreviews-root?view=graph-rest-beta
+      href: /graph/api/resources/accessreviewsv2-root?view=graph-rest-beta
     - name: 'Berechtigungsverwaltung: Graph-API'
       href: /graph/api/resources/entitlementmanagement-root?view=graph-rest-beta

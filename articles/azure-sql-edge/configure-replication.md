@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: a748bf977e76357c710518e608c12ad19a8cd0be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b424ece9207328d87068160f78ebc78a3bd1a8d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888419"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395222"
 ---
 # <a name="configure-replication-to-azure-sql-edge"></a>Konfigurieren der Replikation in Azure SQL Edge 
 
@@ -24,8 +24,8 @@ Sie können eine Azure SQL Edge-Instanz als Pushabonnenten für eine unidirektio
   
 - Die Azure SQL Edge-Instanz muss ein Pushabonnent für einen Verleger sein.
 - Verleger und Verteiler können Folgendes sein:
-   - Eine lokal ausgeführte SQL Server-Instanz oder eine auf einer Azure-VM ausgeführte SQL Server-Instanz. Weitere Informationen finden Sie unter [Was ist SQL Server auf virtuellen Azure-Computern? (Windows)](https://docs.microsoft.com/azure/azure-sql/virtual-machines/). SQL Server-Instanzen müssen eine neuere Version als SQL Server 2016 verwenden.
-   - Eine verwaltete Azure SQL-Instanz. SQL Managed Instance kann Verleger-, Verteiler- und Abonnentendatenbanken hosten. Weitere Informationen finden Sie unter [Replikation mit einer verwalteten SQL-Datenbank-Instanz](https://docs.microsoft.com/azure/sql-database/replication-with-sql-database-managed-instance/).
+   - Eine lokal ausgeführte SQL Server-Instanz oder eine auf einer Azure-VM ausgeführte SQL Server-Instanz. Weitere Informationen finden Sie unter [Was ist SQL Server auf virtuellen Azure-Computern? (Windows)](../azure-sql/virtual-machines/index.yml). SQL Server-Instanzen müssen eine neuere Version als SQL Server 2016 verwenden.
+   - Eine verwaltete Azure SQL-Instanz. SQL Managed Instance kann Verleger-, Verteiler- und Abonnentendatenbanken hosten. Weitere Informationen finden Sie unter [Replikation mit einer verwalteten SQL-Datenbank-Instanz](/azure/sql-database/replication-with-sql-database-managed-instance/).
 
 - Die Verteilungsdatenbank und Replikations-Agents können nicht in einer Azure SQL Edge-Instanz platziert werden.  
 
@@ -36,7 +36,7 @@ Sie können eine Azure SQL Edge-Instanz als Pushabonnenten für eine unidirektio
 
 Bei der Konfiguration der Replikation ist es wichtig, die folgenden Anforderungen und bewährten Methoden zu verstehen:
 
-- Sie können die Replikation mithilfe von [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) konfigurieren. Sie können dazu auch Transact-SQL-Anweisungen auf dem Verleger entweder in SQL Server Management Studio oder [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio) ausführen.
+- Sie können die Replikation mithilfe von [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) konfigurieren. Sie können dazu auch Transact-SQL-Anweisungen auf dem Verleger entweder in SQL Server Management Studio oder [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) ausführen.
 - Um in eine Instanz von Azure SQL Edge zu replizieren, müssen Sie sich mit SQL Server-Authentifizierung anmelden.
 - Replizierte Tabellen müssen einen Primärschlüssel aufweisen.
 - Eine einzelne Veröffentlichung in SQL Server kann Azure SQL Edge und SQL Server-Abonnenten (lokal und SQL Server auf einer Azure-VM) unterstützen.  
@@ -82,15 +82,13 @@ Die folgenden Optionen werden für Azure SQL Edge-Abonnements nicht unterstützt
 
 Erstellen Sie eine Veröffentlichung und ein Pushabonnement. Weitere Informationen finden Sie unter
   
-- [Erstellen einer Veröffentlichung](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Erstellen Sie ein Pushabonnement](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/), indem Sie den Azure SQL Edge-Servernamen bzw. die IP-Adresse als Abonnenten (z. B. **myEdgeinstance,1433**) und einen Datenbanknamen für die Azure SQL Edge-Instanz als Zieldatenbank (z. B. **AdventureWorks**) verwenden.  
+- [Erstellen einer Veröffentlichung](/sql/relational-databases/replication/publish/create-a-publication)
+- [Erstellen Sie ein Pushabonnement](/sql/relational-databases/replication/create-a-push-subscription/), indem Sie den Azure SQL Edge-Servernamen bzw. die IP-Adresse als Abonnenten (z. B. **myEdgeinstance,1433** ) und einen Datenbanknamen für die Azure SQL Edge-Instanz als Zieldatenbank (z. B. **AdventureWorks** ) verwenden.  
 
 ## <a name="next-steps"></a>Nächste Schritte  
 
-- [Erstellen einer Veröffentlichung](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Erstellen eines Pushabonnements](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
-- [Replikationstypen](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
-- [Überwachen (Replikation)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
-- [Initialisieren eines Abonnements](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
-
-
+- [Erstellen einer Veröffentlichung](/sql/relational-databases/replication/publish/create-a-publication)
+- [Erstellen eines Pushabonnements](/sql/relational-databases/replication/create-a-push-subscription/)
+- [Replikationstypen](/sql/relational-databases/replication/types-of-replication)
+- [Überwachen (Replikation)](/sql/relational-databases/replication/monitor/monitoring-replication)
+- [Initialisieren eines Abonnements](/sql/relational-databases/replication/initialize-a-subscription)

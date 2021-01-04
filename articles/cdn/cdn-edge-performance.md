@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: dc1599fc0c2f8c55c709ab674c10dd53c8d8dc04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8119c56c26ed32db136064d93775d21a71f238f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887702"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778655"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analysieren der Leistung von Edgeknoten in Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -55,7 +55,7 @@ Dieses Dashboard besteht aus folgenden Elementen:
     ![Schaltfläche „Verwalten“ auf dem CDN-Profilblatt](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     Das CDN-Verwaltungsportal wird geöffnet.
-2. Zeigen Sie auf die Registerkarte **Analysen** und anschließend auf das Flyout **Edge Perfomance Analytics**.  Klicken Sie auf **Dashboard**.
+2. Zeigen Sie auf die Registerkarte **Analysen** und anschließend auf das Flyout **Edge Perfomance Analytics** .  Klicken Sie auf **Dashboard** .
    
     Das Edge Performance Analytics-Dashboard wird angezeigt.
 
@@ -143,7 +143,7 @@ Jeder Bericht in diesem Modul enthält ein Diagramm und Statistiken zu Bandbreit
     ![Schaltfläche „Verwalten“ auf dem CDN-Profilblatt](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     Das CDN-Verwaltungsportal wird geöffnet.
-2. Zeigen Sie auf die Registerkarte **Analysen** und anschließend auf das Flyout **Edge Perfomance Analytics**.  Klicken Sie auf **Großes HTTP-Objekt**.
+2. Zeigen Sie auf die Registerkarte **Analysen** und anschließend auf das Flyout **Edge Perfomance Analytics** .  Klicken Sie auf **Großes HTTP-Objekt** .
    
     Der Bildschirm mit Edge Performance Analytics-Berichten wird angezeigt.
 
@@ -186,6 +186,5 @@ Jeder Bericht in diesem Modul enthält ein Diagramm und Statistiken zu Bandbreit
 ## <a name="see-also"></a>Weitere Informationen
 * [Übersicht über das Azure CDN](cdn-overview.md)
 * [Echtzeitstatistiken in Microsoft Azure CDN](cdn-real-time-stats.md)
-* [Überschreiben des HTTP-Standardverhaltens mithilfe der Regel-Engine](cdn-rules-engine.md)
+* [Überschreiben des HTTP-Standardverhaltens mithilfe der Regel-Engine](./cdn-verizon-premium-rules-engine.md)
 * [Erweiterte HTTP-Berichte](cdn-advanced-http-reports.md)
-

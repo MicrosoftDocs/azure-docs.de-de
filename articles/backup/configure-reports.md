@@ -3,12 +3,12 @@ title: Konfigurieren von Azure Backup-Berichten
 description: Konfigurieren und Anzeigen von Berichten für Azure Backup mithilfe von Log Analytics und Azure-Arbeitsmappen
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 11893488c59781bb78cf913a30069e920c66bc71
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 2565fa1183635c10e45b247f723788b6fe371c14
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172463"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325246"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurieren von Azure Backup-Berichten
 
@@ -18,7 +18,7 @@ Eine häufige Anforderung an Sicherungsadministratoren besteht darin, basierend 
 - Überwachung von Sicherungen und Wiederherstellungen.
 - Identifizierung wichtiger Trends auf verschiedenen Granularitätsebenen.
 
-Heute bietet Azure Backup eine Berichterstellungslösung, bei der [Azure Monitor-Protokolle](../azure-monitor/log-query/get-started-portal.md) und [Azure-Arbeitsmappen](../azure-monitor/platform/workbooks-overview.md) verwendet werden. Mithilfe dieser Ressourcen erhalten Sie umfassende Einblicke in Ihre Sicherungen in Ihrem gesamten Sicherungsumfeld. In diesem Artikel wird das Konfigurieren und Anzeigen von Azure Backup-Berichten erläutert.
+Heute bietet Azure Backup eine Berichterstellungslösung, bei der [Azure Monitor-Protokolle](../azure-monitor/log-query/log-analytics-tutorial.md) und [Azure-Arbeitsmappen](../azure-monitor/platform/workbooks-overview.md) verwendet werden. Mithilfe dieser Ressourcen erhalten Sie umfassende Einblicke in Ihre Sicherungen in Ihrem gesamten Sicherungsumfeld. In diesem Artikel wird das Konfigurieren und Anzeigen von Azure Backup-Berichten erläutert.
 
 ## <a name="supported-scenarios"></a>Unterstützte Szenarios
 

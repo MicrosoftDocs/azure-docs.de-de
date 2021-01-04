@@ -3,14 +3,14 @@ title: Von Azure Automation verwendete DNS-Einträge in Azure-Rechenzentren | Mi
 description: In diesem Artikel finden Sie die DNS-Einträge, die von Azure Automation-Features benötigt werden, wenn die Kommunikation auf eine bestimmte Azure-Region beschränkt werden soll, in der dieses Automation-Konto gehostet wird.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/23/2020
+ms.date: 11/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: 17d0857a8979cfcc632ab8951fb255f97229a665
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4b8f48afc75c0a96937575bdad5bb884d0cb4d8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87117179"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183718"
 ---
 # <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>DNS-Einträge für von Azure Automation genutzte Azure-Regionen
 
@@ -89,6 +89,9 @@ Ersetzen Sie `<accountId>` im DNS-Datensatz durch die GUID für Ihre Automation-
 ![Seite für den Primärschlüssel des Automation-Kontos](./media/automation-region-dns-records/automation-account-keys.png)
 
 Kopieren Sie den Wert hinter *accounts/* aus dem Feld **URL** – `https://<GUID>.agentsvc.<region>.azure-automation.net/accounts/<GUID>`.
+
+> [!NOTE]
+> Alle Webhook- und Agentservice-DNS-Einträge wurden auf die DNS-Einträge im neuen Format aktualisiert, um Private Link zu unterstützen. Für JRDS-DNS-Einträge werden sowohl DNS-Einträge im alten als auch im neuen Format unterstützt. Wenn Sie Private Link nicht verwenden, werden die DNS-Einträge im alten Format angezeigt, während diejenigen, die Private Link verwenden, DNS-Einträge im neuen Format anzeigen.
 
 Es wird empfohlen, beim Definieren von [Ausnahmen](../automation-runbook-execution.md#exceptions) die aufgeführten Adressen zu verwenden. Eine Liste der IP-Adressen von Regionen anstelle von Regionsnamen erhalten Sie, wenn Sie die JSON-Datei aus dem Microsoft Download Center für die folgenden Cloudumgebungen herunterladen:
 

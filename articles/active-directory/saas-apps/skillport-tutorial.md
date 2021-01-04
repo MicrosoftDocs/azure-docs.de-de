@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: cceb0a98cc35a41d1d46b798c9caf08fae2e3748
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b49e3594754e8eed38e3b1ef44648bc065558b8
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543090"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608357"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Tutorial: Azure Active Directory-Integration mit Skillport
 
@@ -27,7 +27,7 @@ Die Integration von Skillport in Azure AD bietet die folgenden Vorteile:
 * Sie können Ihren Benutzern ermöglichen, sich mit ihren Azure AD-Konten automatisch bei Skillport anzumelden (einmaliges Anmelden; Single Sign-On, SSO).
 * Sie können Ihre Konten über das Azure-Portal an einem zentralen Ort verwalten.
 
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
@@ -101,23 +101,23 @@ Führen Sie die folgenden Schritte aus, um das einmalige Anmelden von Azure AD m
 
     ![SSO-Informationen zur Domäne und zu den URLs für Skillport](common/sp-identifier-reply.png)
 
-    a. Geben Sie im Textfeld **Anmelde-URL** die folgende URL ein:
+    1. Geben Sie im Textfeld **Anmelde-URL** die URL ein: .
 
-    Rechenzentrum in Europa: `https://adfs.skillport.eu`
+        Rechenzentrum in Europa: `https://adfs.skillport.eu`
 
-    Rechenzentrum in den USA:`https://sso.skillport.com`
+        Rechenzentrum in den USA:`https://sso.skillport.com`
 
-    b. Geben Sie im Feld **Bezeichner** die folgende URL ein:
+    1. Geben Sie im Feld **Bezeichner** die folgende URL ein: .
 
-    Rechenzentrum in Europa: `http://adfs.skillport.eu/adfs/services/trust`
+        Rechenzentrum in Europa: `http://adfs.skillport.eu/adfs/services/trust`
 
-    Rechenzentrum in den USA:`https://sso.skillport.com`
+        Rechenzentrum in den USA:`https://sso.skillport.com`
 
-    c. Geben Sie im Textfeld **Antwort-URL** die folgende URL ein:
+    1. Geben Sie im Textfeld **Antwort-URL** die folgende URL ein: .
 
-    Rechenzentrum in Europa: `https://adfs.skillport.eu/adfs/ls/`
+        Rechenzentrum in Europa: `https://adfs.skillport.eu/adfs/ls/`
 
-      Rechenzentrum in den USA:`https://sso.skillport.com/sp/ACS.saml2`
+        Rechenzentrum in den USA:`https://sso.skillport.com/sp/ACS.saml2`
 
 5. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** auf **Herunterladen**, um den Ihren Anforderungen entsprechenden **Verbundmetadaten-XML**-Code aus den verfügbaren Optionen herunterzuladen und auf Ihrem Computer zu speichern.
 
@@ -196,13 +196,12 @@ Um den Testbenutzer für Skillport zu erstellen, müssen Sie das [Skillport-Supp
 
 In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich.
 
-Wenn Sie im Zugriffsbereich auf die Kachel „Skillport“ klicken, sollten Sie automatisch bei der Skillport-Anwendung angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Wenn Sie im Zugriffsbereich auf die Kachel „Skillport“ klicken, sollten Sie automatisch bei der Skillport-Anwendung angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Weitere Ressourcen
 
-- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](./tutorial-list.md)
 
-- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Was ist bedingter Zugriff?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Was ist bedingter Zugriff?](../conditional-access/overview.md)

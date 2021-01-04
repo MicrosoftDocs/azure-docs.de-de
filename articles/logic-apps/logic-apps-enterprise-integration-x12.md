@@ -9,11 +9,11 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/29/2020
 ms.openlocfilehash: 61f3f2af61bc24f76d061de672a3eaacd54f7f0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87066126"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015195"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Austauschen von X12-Nachrichten für die B2B-Unternehmensintegration in Azure Logic Apps mit Enterprise Integration Pack
 
@@ -241,7 +241,7 @@ Wählen Sie für diesen Abschnitt ein [Schema](../logic-apps/logic-apps-enterpri
 | Eigenschaft | BESCHREIBUNG |
 |----------|-------------|
 | **Kontrollversionsnummer (ISA12)** | Die Version des X12-Standards. |
-| **Verwendungsindikator (ISA15)** | Der Kontext eines Austauschs, bei dem es sich um **Test**daten, **Information**sdaten oder **Produktion**sdaten handelt. |
+| **Verwendungsindikator (ISA15)** | Der Kontext eines Austauschs, bei dem es sich um **Test** daten, **Information** sdaten oder **Produktion** sdaten handelt. |
 | **Schema** | Das zu verwendende Schema für die Generierung der GS- und ST-Segmente für einen X12-codierten Austausch, der an die EDI-Sendepipeline gesendet wird. |
 | **GS1** | Optional. Wählen Sie den Funktionscode aus. |
 | **GS2** | Optional. Geben Sie den Anwendungsabsender an. |
@@ -375,7 +375,7 @@ Um diese Dokumentversionsnummern und Nachrichtentypen anzugeben, führen Sie die
    ]
    ```
 
-1. Deaktivieren Sie in den Nachrichteneinstellungen Ihrer Vereinbarung die EDI-Überprüfung, indem Sie das Kontrollkästchen **EDI-Überprüfung** entweder für jeden Nachrichtentyp oder für alle Nachrichtentypen deaktivieren, wenn Sie die **Standard**werte verwenden.
+1. Deaktivieren Sie in den Nachrichteneinstellungen Ihrer Vereinbarung die EDI-Überprüfung, indem Sie das Kontrollkästchen **EDI-Überprüfung** entweder für jeden Nachrichtentyp oder für alle Nachrichtentypen deaktivieren, wenn Sie die **Standard** werte verwenden.
 
    ![Überprüfung für alle Nachrichtentypen oder jeden Nachrichtentyp deaktivieren](./media/logic-apps-enterprise-integration-x12/x12-disable-validation.png) 
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.author: jeedes
-ms.openlocfilehash: bcda410e678e44916a4128d7ef097883e148ed79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc1317ffce7c958f092ad01feff473e123581439
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88551859"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521763"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-uniflow-online"></a>Tutorial: Integration des einmaligen Anmeldens (Single Sign-On, SSO) von Azure Active Directory mit uniFLOW Online
 
@@ -26,7 +26,7 @@ In diesem Tutorial erfahren Sie, wie Sie uniFLOW Online in Azure Active Directo
 * Ermöglichen Sie es Ihren Benutzern, sich mit ihren Azure AD-Konten bei uniFLOW Online anzumelden.
 * Verwalten Sie Ihre Konten zentral im Azure-Portal.
 
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -47,7 +47,7 @@ Zum Konfigurieren der Integration von uniFLOW Online in Azure AD müssen Sie u
 
 1. Melden Sie sich mit einem Geschäfts-, Schul- oder Unikonto oder mit einem persönlichen Microsoft-Konto beim [Azure-Portal](https://portal.azure.com) an.
 1. Wählen Sie im linken Navigationsbereich den Dienst **Azure Active Directory** aus.
-1. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie dann **Alle Anwendungen** aus.
+1. Navigieren Sie zu **Unternehmensanwendungen** , und wählen Sie dann **Alle Anwendungen** aus.
 1. Wählen Sie zum Hinzufügen einer neuen Anwendung **Neue Anwendung** aus.
 1. Geben Sie im Abschnitt **Aus Katalog hinzufügen** den Suchbegriff **uniFLOW Online** in das Suchfeld ein.
 1. Wählen Sie im Ergebnisbereich **uniFLOW Online** aus, und fügen Sie dann die App hinzu. Warten Sie einige Sekunden, während die App Ihrem Mandanten hinzugefügt wird.
@@ -68,9 +68,9 @@ Führen Sie zum Konfigurieren und Testen des einmaligen Anmeldens von Azure AD 
 
 Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal zu aktivieren.
 
-1. Navigieren Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **uniFLOW Online** zum Abschnitt **Verwalten**, und wählen Sie **Einmaliges Anmelden** aus.
+1. Navigieren Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **uniFLOW Online** zum Abschnitt **Verwalten** , und wählen Sie **Einmaliges Anmelden** aus.
 1. Wählen Sie auf der Seite **SSO-Methode auswählen** die Methode **SAML** aus.
-1. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Bearbeitungs- bzw. Stiftsymbol für **Grundlegende SAML-Konfiguration**, um die Einstellungen zu bearbeiten.
+1. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Bearbeitungs- bzw. Stiftsymbol für **Grundlegende SAML-Konfiguration** , um die Einstellungen zu bearbeiten.
 
    ![Bearbeiten der SAML-Basiskonfiguration](common/edit-urls.png)
 
@@ -122,16 +122,16 @@ In diesem Abschnitt erstellen Sie im Azure-Portal einen Testbenutzer mit dem Nam
 1. Führen Sie unter den Eigenschaften für **Benutzer** die folgenden Schritte aus:
    1. Geben Sie im Feld **Name** die Zeichenfolge `B.Simon` ein.  
    1. Geben Sie im Feld **Benutzername** die Zeichenfolge username@companydomain.extension ein. Beispiel: `B.Simon@contoso.com`.
-   1. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den Wert aus dem Feld **Kennwort**.
+   1. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen** , und notieren Sie sich den Wert aus dem Feld **Kennwort**.
    1. Klicken Sie auf **Erstellen**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Zuweisen des Azure AD-Testbenutzers
 
 In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anmeldens von Azure, indem Sie ihr Zugriff auf uniFLOW Online gewähren.
 
-1. Wählen Sie im Azure-Portal **Unternehmensanwendungen** > **Alle Anwendungen** aus.
+1. Wählen Sie im Azure-Portal **Unternehmensanwendungen**  > **Alle Anwendungen** aus.
 1. Wählen Sie in der Anwendungsliste **uniFLOW Online** aus.
-1. Navigieren Sie auf der Übersichtsseite der App zum Abschnitt **Verwalten**, und wählen Sie **Benutzer und Gruppen** aus.
+1. Navigieren Sie auf der Übersichtsseite der App zum Abschnitt **Verwalten** , und wählen Sie **Benutzer und Gruppen** aus.
 
    ![Link „Benutzer und Gruppen“](common/users-groups-blade.png)
 
@@ -144,7 +144,7 @@ In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anm
 1. Klicken Sie im Dialogfeld **Zuweisung hinzufügen** auf die Schaltfläche **Zuweisen**.
 
 > [!NOTE]
-> Wenn Sie ohne manuelle Zuweisung allen Benutzern den Zugriff auf die Anwendung ermöglichen möchten, navigieren Sie zum Abschnitt **Verwalten**, und wählen Sie **Eigenschaften** aus. Ändern Sie dann den Parameter **Benutzerzuweisung erforderlich** in **NEIN**.
+> Wenn Sie ohne manuelle Zuweisung allen Benutzern den Zugriff auf die Anwendung ermöglichen möchten, navigieren Sie zum Abschnitt **Verwalten** , und wählen Sie **Eigenschaften** aus. Ändern Sie dann den Parameter **Benutzerzuweisung erforderlich** in **NEIN**.
 
 ## <a name="configure-uniflow-online-sso"></a>Konfigurieren des einmaligen Anmeldens für uniFLOW Online
 
@@ -152,20 +152,19 @@ In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anm
 
 1. Wählen Sie im linken Navigationsbereich die Registerkarte **User** (Benutzer) aus.
 
-    ![uniFLOW Online-Konfiguration](./media/uniflow-online-tutorial/configure1.png)
+    ![Screenshot: uniFLOW Online-Website, auf der „User“ (Benutzer) ausgewählt ist](./media/uniflow-online-tutorial/configure1.png)
 
 1. Klicken Sie auf **Identitätsanbieter**.
 
-    ![uniFLOW Online-Konfiguration](./media/uniflow-online-tutorial/configure2.png)
+    ![Screenshot, auf dem „Identity Provider“ (Identitätsanbieter) ausgewählt ist](./media/uniflow-online-tutorial/configure2.png)
 
 1. Klicken Sie auf **Add identity provider** (Identitätsanbieter hinzufügen).
 
-    ![uniFLOW Online-Konfiguration](./media/uniflow-online-tutorial/configure3.png)
+    ![Screenshot, auf dem „Add identity provider“ (Identitätsanbieter hinzufügen) ausgewählt ist](./media/uniflow-online-tutorial/configure3.png)
 
 1. Führen Sie im Abschnitt **ADD IDENTITY PROVIDER** (IDENTITÄTSANBIETER HINZUFÜGEN) die folgenden Schritte aus:
 
-
-    ![uniFLOW Online-Konfiguration](./media/uniflow-online-tutorial/configure4.png)
+    ![Screenshot: Abschnitt „ADD IDENTITY PROVIDER“ (IDENTITÄTSANBIETER HINZUFÜGEN), in dem Sie die beschriebenen Werte eingeben können](./media/uniflow-online-tutorial/configure4.png)
 
     a. Geben Sie den Anzeigenamen ein, etwa *AzureAD SSO*.
 
@@ -177,7 +176,7 @@ In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anm
 
 1. Führen Sie auf der Registerkarte **General** (Allgemein) die folgenden Schritte aus:
 
-    ![uniFLOW Online-Konfiguration](./media/uniflow-online-tutorial/configure5.png)
+    ![Screenshot: Registerkarte „General“ (Allgemein), auf der Sie die beschriebenen Werte eingeben können](./media/uniflow-online-tutorial/configure5.png)
 
     a. Geben Sie den Anzeigenamen ein, etwa *AzureAD SSO*.
 
@@ -201,10 +200,10 @@ In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anm
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Liste mit den Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste mit den Tutorials zur Integration von SaaS-Apps in Azure Active Directory](./tutorial-list.md)
 
-- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Was ist der bedingte Zugriff in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Was ist der bedingte Zugriff in Azure Active Directory?](../conditional-access/overview.md)
 
 - [uniFLOW Online mit Azure AD ausprobieren](https://aad.portal.azure.com/)

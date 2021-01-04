@@ -10,16 +10,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: dpalled
-ms.openlocfilehash: c3948a5bdfce583384992fb87bf40e9e7251974d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0d02a6e3eb2aef4a02c90360b2016e64af579081
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91339384"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014729"
 ---
 # <a name="model-synchronization-between-azure-digital-twins-and-time-series-insights-gen2"></a>Modellsynchronisierung zwischen Azure Digital Twins und Time Series Insights Gen2
 
-In diesem Artikel werden bewährte Methoden und Tools erläutert, die verwendet werden, um das Objektmodell in Azure Digital Twins (ADT) in das Objektmodell in Azure Time Series Insights (TSI) zu übersetzen.  Dieser Artikel ist der zweite Teil einer zweiteiligen Tutorialreihe, die die Integration von Azure Digital Twins in Azure Time Series Insights erläutert. Die Integration von Azure Digital Twins in Time Series Insights ermöglicht die Archivierung und Nachverfolgung des Verlaufs von Telemetriedaten und berechneten Eigenschaften von Digital Twins. Diese Tutorialreihe richtet sich an Entwickler, die an der Integration von Time Series Insights in Azure Digital Twins arbeiten. In Teil 1 wird das [Erstellen einer Datenpipeline, die die eigentlichen Zeitreihendaten aus Azure Digital Twins in Time Series Insights einliest](https://docs.microsoft.com/azure/digital-twins/how-to-integrate-time-series-insights), erläutert, und in diesem zweiten Teil der Tutorialreihe wird die Objektmodellsynchronisierung zwischen Azure Digital Twins und Time Series Insights erläutert. In diesem Tutorial werden die bewährten Methoden zum Auswählen und Festlegen der Benennungskonvention für die Zeitreihen-ID (Time Series ID, TS ID) und das manuelle Einrichten von Hierarchien im Zeitreihenmodell (Time Series Model, TSM) erläutert.
+In diesem Artikel werden bewährte Methoden und Tools erläutert, die verwendet werden, um das Objektmodell in Azure Digital Twins (ADT) in das Objektmodell in Azure Time Series Insights (TSI) zu übersetzen.  Dieser Artikel ist der zweite Teil einer zweiteiligen Tutorialreihe, die die Integration von Azure Digital Twins in Azure Time Series Insights erläutert. Die Integration von Azure Digital Twins in Time Series Insights ermöglicht die Archivierung und Nachverfolgung des Verlaufs von Telemetriedaten und berechneten Eigenschaften von Digital Twins. Diese Tutorialreihe richtet sich an Entwickler, die an der Integration von Time Series Insights in Azure Digital Twins arbeiten. In Teil 1 wird das [Erstellen einer Datenpipeline, die die eigentlichen Zeitreihendaten aus Azure Digital Twins in Time Series Insights einliest](../digital-twins/how-to-integrate-time-series-insights.md), erläutert, und in diesem zweiten Teil der Tutorialreihe wird die Objektmodellsynchronisierung zwischen Azure Digital Twins und Time Series Insights erläutert. In diesem Tutorial werden die bewährten Methoden zum Auswählen und Festlegen der Benennungskonvention für die Zeitreihen-ID (Time Series ID, TS ID) und das manuelle Einrichten von Hierarchien im Zeitreihenmodell (Time Series Model, TSM) erläutert.
 
 ## <a name="choosing-a-time-series-id"></a>Auswählen einer Zeitreihen-ID
 
@@ -29,7 +29,7 @@ Die Zeitreihen-ID ist ein eindeutiger Bezeichner zur Identifizierung von Objekte
 
 ## <a name="contextualizing-time-series"></a>Kontextualisierung von Zeitreihen
 
-Die Kontextualisierung von Daten (größtenteils räumlicher Natur) in Time Series Insights wird durch Objekthierarchien erreicht, die auch für die einfache Navigation in Daten durch eine Strukturansicht im Time Series Insights-Explorer verwendet wird. Zeitreihentypen und -hierarchien werden mithilfe des Zeitreihenmodells (TSM) in Time Series Insights definiert. Typen im TSM helfen beim Definieren von Variablen, während Hierarchieebenen und Instanzfeldwerte verwendet werden, um die Strukturansicht im Time Series Insights-Explorer zu erstellen. Weitere Informationen zum TSM finden Sie in der [Onlinedokumentation zu Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/concepts-model-overview).
+Die Kontextualisierung von Daten (größtenteils räumlicher Natur) in Time Series Insights wird durch Objekthierarchien erreicht, die auch für die einfache Navigation in Daten durch eine Strukturansicht im Time Series Insights-Explorer verwendet wird. Zeitreihentypen und -hierarchien werden mithilfe des Zeitreihenmodells (TSM) in Time Series Insights definiert. Typen im TSM helfen beim Definieren von Variablen, während Hierarchieebenen und Instanzfeldwerte verwendet werden, um die Strukturansicht im Time Series Insights-Explorer zu erstellen. Weitere Informationen zum TSM finden Sie in der [Onlinedokumentation zu Time Series Insights](./concepts-model-overview.md).
 
 In Azure Digital Twins wird die Verbindung zwischen Objekten mithilfe von Zwillingsbeziehungen ausgedrückt. Zwillingsbeziehungen sind schlicht ein Diagramm verbundener Objekte. In Time Series Insight sind Beziehungen zwischen Objekten jedoch hierarchisch organisiert. Das heißt, dass die Beziehungen zwischen Objekten vom Typ „über-/untergeordnet“ sind, die mithilfe einer Baumstruktur dargestellt werden. Um Beziehungsinformationen von Azure Digital Twins in Time Series Insights-Hierarchien zu übersetzen, müssen wir relevante hierarchische Beziehungen aus Azure Digital Twins auswählen. Azure Digital Twins verwendet eine offene Standard, eine Modellierungssprache namens „Digital Twin Definition Language (DTDL)“. In DTDL werden Modelle mithilfe einer Variante von JSON namens „JSON-LD“ beschrieben. Die vollständigen Informationen zu der Spezifikation finden Sie in der [DTDL-Dokumentation](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
@@ -82,7 +82,7 @@ Der folgende Codeausschnitt zeigt, wie die Clientanwendung mithilfe von Azure Di
 
 > [!Note]
 >
-> In diesem Codeausschnittbeispiel wird vorausgesetzt, dass die Leser mit [Teil 01](https://docs.microsoft.com/azure/digital-twins/tutorial-end-to-end#set-up-the-sample-function-app) des Tutorials vertraut sind und dass diese Codeänderung in der Funktion „ProcessHubToDTEvents“ vorgenommen wurde.
+> In diesem Codeausschnittbeispiel wird vorausgesetzt, dass die Leser mit [Teil 01](../digital-twins/tutorial-end-to-end.md#set-up-the-sample-function-app) des Tutorials vertraut sind und dass diese Codeänderung in der Funktion „ProcessHubToDTEvents“ vorgenommen wurde.
 
 ```csharp
 if (propertyPath.Equals("/Flow"))
@@ -114,7 +114,7 @@ relationship for " + twinId);
 
 ## <a name="updating-instance-fields-using-apis"></a>Aktualisieren von Instanzfeldern mithilfe von APIs
 
-In diesem Abschnitt des Tutorials wird das Lauschen auf Modelländerungen in Azure Digital Twins erläutert, z. B. das Erstellen bzw. Löschen von Zwillingen oder das Ändern von Beziehungen zwischen Zwillingen und das programmgesteuerte Aktualisieren von Instanzfeldern und -hierarchien mithilfe von Time Series Insights-Modell-APIs. Diese Methode zum Aktualisieren des Time Series Insights-Modells wird in der Regel über Azure Functions erzielt. In Azure Digital Twins können Ereignisbenachrichtigungen wie das Hinzufügen oder Löschen von Zwillingen an Downstreamdienste weitergeleitet werden, z. B. Event Hubs, die wiederum an Azure Functions gesendet werden können. Weitere Informationen zum Routing und Filtern von Ereignissen werden [hier](https://docs.microsoft.com/azure/digital-twins/how-to-manage-routes-portal) erläutert.  In Rest dieses Abschnitts wird erläutert, wie Sie Time Series Insights-Modell-APIs in Azure Functions verwenden, um das Time Series Insights-Modell als Reaktion auf die Hinzufügung eines Zwillings (eine Art von Modelländerung) in Azure Digital Twins zu aktualisieren.
+In diesem Abschnitt des Tutorials wird das Lauschen auf Modelländerungen in Azure Digital Twins erläutert, z. B. das Erstellen bzw. Löschen von Zwillingen oder das Ändern von Beziehungen zwischen Zwillingen und das programmgesteuerte Aktualisieren von Instanzfeldern und -hierarchien mithilfe von Time Series Insights-Modell-APIs. Diese Methode zum Aktualisieren des Time Series Insights-Modells wird in der Regel über Azure Functions erzielt. In Azure Digital Twins können Ereignisbenachrichtigungen wie das Hinzufügen oder Löschen von Zwillingen an Downstreamdienste weitergeleitet werden, z. B. Event Hubs, die wiederum an Azure Functions gesendet werden können. Weitere Informationen zum Routing und Filtern von Ereignissen werden [hier](../digital-twins/how-to-manage-routes-portal.md) erläutert.  In Rest dieses Abschnitts wird erläutert, wie Sie Time Series Insights-Modell-APIs in Azure Functions verwenden, um das Time Series Insights-Modell als Reaktion auf die Hinzufügung eines Zwillings (eine Art von Modelländerung) in Azure Digital Twins zu aktualisieren.
 
 ### <a name="receiving-and-identifying-twin-addition-event-notification"></a>Empfangen und Identifizieren der Ereignisbenachrichtigung beim Hinzufügen eines Zwillings
 
@@ -227,4 +227,4 @@ private async Task<TimeSeriesInstance> AddHierarchyToInstanceAsync(TimeSeriesIns
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Als Drittes in der Reihe von Tutorials steht an, die Vorgehensweise zum Abfragen von Verlaufsdaten aus Azure Digital Twins mithilfe von Time Series Insights-APIs zu zeigen. Es handelt sich um einen in Arbeit befindlichen Abschnitt, der bei Fertigstellung aktualisiert wird. In der Zwischenzeit wird empfohlen, die [Dokumentation zur Time Series Insights-Datenabfrage-API](https://docs.microsoft.com/azure/time-series-insights/concepts-query-overview) zu lesen.
+Als Drittes in der Reihe von Tutorials steht an, die Vorgehensweise zum Abfragen von Verlaufsdaten aus Azure Digital Twins mithilfe von Time Series Insights-APIs zu zeigen. Es handelt sich um einen in Arbeit befindlichen Abschnitt, der bei Fertigstellung aktualisiert wird. In der Zwischenzeit wird empfohlen, die [Dokumentation zur Time Series Insights-Datenabfrage-API](./concepts-query-overview.md) zu lesen.

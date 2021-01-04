@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
-ms.date: 7/14/2020
-ms.openlocfilehash: 4c4455d62f32acb1cfebde8f5e4d97de5bda17c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/19/2020
+ms.openlocfilehash: a20c495553dfe9a16c34a2972575d21cc95eef44
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89463255"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95537134"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Onboardingleitfaden für das Microsoft Business Applications-ISV-Connect-Programm
 
@@ -25,7 +25,7 @@ Arbeiten Sie die folgenden Abschnitte dieses Artikels durch, um sich zu registri
 
 ## <a name="set-up-your-microsoft-partner-center-account"></a>Einrichten Ihres Microsoft Partner Center-Kontos
 
-Führen Sie die Schritte im folgenden Artikel aus, um Ihr Konto für das ISV Connect-Programm einzurichten und zu verwalten: [Erstellen eines Kontos im kommerziellen Marketplace in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account). Dieser Artikel enthält alle Schritte zum Erstellen eines neuen Kontos sowie Informationen zum Hinzufügen von neuen Herausgebern zum Programm „Kommerzieller Marketplace“.
+Führen Sie die Schritte im folgenden Artikel aus, um Ihr Konto für das ISV Connect-Programm einzurichten und zu verwalten: [Erstellen eines Kontos im kommerziellen Marketplace in Partner Center](./partner-center-portal/create-account.md). Dieser Artikel enthält alle Schritte zum Erstellen eines neuen Kontos sowie Informationen zum Hinzufügen von neuen Herausgebern zum Programm „Kommerzieller Marketplace“.
 
 > [!NOTE]
 > Für diesen Schritt ist die Rolle *Besitzer* oder *Verwalter* in Partner Center erforderlich.
@@ -38,7 +38,7 @@ Wenn Sie an diesem Programm teilnehmen möchten, müssen Sie den [Business Appl
 > Für diesen Schritt müssen Sie in Partner Center über eine Rolle vom Typ *Besitzer* oder *Manager* für Ihr Konto verfügen, um rechtliche Vereinbarungen unterzeichnen zu können.
 
 1. Melden Sie sich bei [Partner Center](https://partner.microsoft.com/dashboard) an.
-1. Wählen Sie **Einstellungen** (Zahnradsymbol) und anschließend **Entwicklereinstellungen** aus.
+1. Wählen Sie **Einstellungen** (Zahnradsymbol) > **Kontoeinstellungen** aus.
 1. Wählen Sie **Vereinbarungen** aus.
 1. Klicken Sie auf den Versionslink, und sehen Sie sich die Vereinbarung an.
 1. Wählen Sie **Accept Agreement** (Vereinbarung akzeptieren) aus, um der Vereinbarung zuzustimmen und sie zu akzeptieren.
@@ -51,11 +51,12 @@ Richten Sie die Abrechnungsinformationen für das Business Applications ISV Conn
 > Für diesen Schritt müssen Sie in Partner Center über eine Rolle vom Typ *Besitzer* oder *Manager* für Ihr Konto verfügen, um Abrechnungsinformationen aktualisieren zu können.
 
 1. Melden Sie sich bei [Partner Center](https://partner.microsoft.com/dashboard) an.
-1. Wählen Sie **Einstellungen** (Zahnradsymbol) und anschließend **Entwicklereinstellungen** aus.
-1. Wählen Sie unter **Konto** die Option **Abrechnungsprofil** aus.
-1. Überprüfen Sie die primären Kontakt- und Abrechnungsinformationen, die auf der Grundlage Ihrer juristischen Person aufgefüllt wurden, und nehmen Sie ggf. erforderliche Aktualisierungen vor.
+1. Wählen Sie **Einstellungen** (Zahnradsymbol) > **Kontoeinstellungen** aus.
+1. Wählen Sie unter **Organisationsprofil** die Option **Abrechnungsprofil** und anschließend die Registerkarte **Entwickler** aus.
+1. Überprüfen Sie die primären Kontakt- und Abrechnungsinformationen, die auf der Grundlage Ihrer juristischen Person aufgefüllt wurden.
+1. Wenn Sie Änderungen vornehmen möchten, wählen Sie **Aktualisieren** aus.
 1. Nehmen Sie ggf. Eingaben für die Steuernummer/USt-IdNr. vor.
-1. Klicken Sie auf **Speichern** , um Ihre Änderungen zu speichern.
+1. Wählen Sie zum Speichern der Änderungen **Aktualisieren** aus.
 
 > [!NOTE]
 > Sie können Ihr Abrechnungsprofil jederzeit aktualisieren. Die Optionen *Unternehmensname* und *Land/Region* der Abrechnungsadresse können später aber nicht mehr geändert werden.
@@ -66,11 +67,11 @@ Nachdem Sie die obigen Schritte ausgeführt haben, stehen Ihre vorhandenen Dynam
 
 Der letzte Schritt für die Registrierung beim Business Applications ISV Connect Program besteht darin, Ihre bereits vorhandenen Anwendungen zu veröffentlichen und zu zertifizieren. Verwenden Sie den folgenden Link, um Ihre Anwendung in AppSource zu veröffentlichen und zu zertifizieren:
 
-- [Für Dynamics 365 Customer Engagement](https://docs.microsoft.com/powerapps/developer/common-data-service/publish-app-appsource) 
-- [Für Dynamics 365 for Finance and Operations](https://docs.microsoft.com/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)
+- [Für Dynamics 365 Customer Engagement](/powerapps/developer/common-data-service/publish-app-appsource) 
+- [Für Dynamics 365 for Finance and Operations](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)
 
 > [!IMPORTANT]
-> Sie müssen Ihre Apps alle sechs Monate neu zertifizieren, damit ihr Livezustand in AppSource gewahrt bleibt. Weitere Informationen finden Sie unter [Zertifizierungsrichtlinien für den kommerziellen Marketplace](https://docs.microsoft.com/legal/marketplace/certification-policies).
+> Sie müssen Ihre Apps alle sechs Monate neu zertifizieren, damit ihr Livezustand in AppSource gewahrt bleibt. Weitere Informationen finden Sie unter [Zertifizierungsrichtlinien für den kommerziellen Marketplace](/legal/marketplace/certification-policies).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

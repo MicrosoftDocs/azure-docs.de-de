@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/15/2019
 ms.author: Zhchia
-ms.openlocfilehash: cf71246caef377fb607a9ca7a765ec9ca5999744
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c984beff630ef90ea33a13e2fef1bca0189c2314
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285929"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357937"
 ---
 # <a name="tutorial-configure-storegate-for-automatic-user-provisioning"></a>Tutorial: Konfigurieren von Storegate für die automatische Benutzerbereitstellung
 
@@ -53,7 +53,7 @@ Vor dem Konfigurieren und Aktivieren der automatischen Benutzerbereitstellung m�
 
 Bevor Sie Storegate die automatische Benutzerbereitstellung mit Azure AD konfigurieren, müssen Sie einige Bereitstellungsinformationen von Storegate abrufen.
 
-1. Melden Sie sich bei der [Storegate-Verwaltungskonsole](https://ws1.storegate.com/identity/core/login?signin=c71fb8fe18243c571da5b333d5437367) an und navigieren Sie zu den Einstellungen, indem Sie auf das Benutzersymbol in der oberen rechten Ecke klicken und **Kontoeinstellungen**auswählen.
+1. Melden Sie sich bei der [Storegate-Verwaltungskonsole](https://ws1.storegate.com/identity/core/login?signin=c71fb8fe18243c571da5b333d5437367) an und navigieren Sie zu den Einstellungen, indem Sie auf das Benutzersymbol in der oberen rechten Ecke klicken und **Kontoeinstellungen** auswählen.
 
     ![Storegate – SCIM hinzufügen](media/storegate-provisioning-tutorial/admin.png)
 
@@ -75,11 +75,11 @@ Bevor Sie Storegate für die automatische Benutzerbereitstellung mit Azure AD k
 
     ![Schaltfläche „Azure Active Directory“](common/select-azuread.png)
 
-2. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie die Option **Alle Anwendungen**.
+2. Navigieren Sie zu **Unternehmensanwendungen** , und wählen Sie die Option **Alle Anwendungen**.
 
     ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
 
-3. Klicken Sie oben im Bereich auf die Schaltfläche **Neue Anwendung**, um eine neue Anwendung hinzuzufügen.
+3. Klicken Sie oben im Bereich auf die Schaltfläche **Neue Anwendung** , um eine neue Anwendung hinzuzufügen.
 
     ![Schaltfläche „Neue Anwendung“](common/add-new-app.png)
 
@@ -91,7 +91,7 @@ Bevor Sie Storegate für die automatische Benutzerbereitstellung mit Azure AD k
 
     ![Storegate - OIDC hinzufügen](media/storegate-provisioning-tutorial/signup.png)
 
-6.  Melden Sie sich bei der [Storegate-Verwaltungskonsole](https://ws1.storegate.com/identity/core/login?signin=c71fb8fe18243c571da5b333d5437367) an und navigieren Sie zu den Einstellungen, indem Sie auf das Benutzersymbol in der oberen rechten Ecke klicken und **Kontoeinstellungen**auswählen.
+6.  Melden Sie sich bei der [Storegate-Verwaltungskonsole](https://ws1.storegate.com/identity/core/login?signin=c71fb8fe18243c571da5b333d5437367) an und navigieren Sie zu den Einstellungen, indem Sie auf das Benutzersymbol in der oberen rechten Ecke klicken und **Kontoeinstellungen** auswählen.
 
     ![Storegate-Anmeldung](media/storegate-provisioning-tutorial/admin.png)
 
@@ -136,7 +136,7 @@ In diesem Abschnitt werden die Schritte zum Konfigurieren des Azure AD-Bereitst
 
     ![Screenshot der Dropdownliste „Bereitstellungsmodus“ mit aufgerufener Option „Automatisch“](common/provisioning-automatic.png)
 
-5. Geben Sie im Abschnitt **Administratoranmeldeinformationen** im Feld **Mandanten-URL** die Zeichenfolge `https://dialpad.com/scim` ein. Geben Sie im Feld **Geheimes Token** den Wert ein, den Sie zuvor aus Storegate abgerufen und gespeichert haben. Klicken Sie auf **Verbindung testen**, um sicherzustellen, dass Azure AD eine Verbindung mit Storegate herstellen kann. Wenn die Verbindung nicht möglich ist, sollten Sie sicherstellen, dass Ihr Storegate-Konto über Administratorberechtigungen verfügt, und den Vorgang wiederholen.
+5. Geben Sie im Abschnitt **Administratoranmeldeinformationen** im Feld **Mandanten-URL** die Zeichenfolge `https://dialpad.com/scim` ein. Geben Sie im Feld **Geheimes Token** den Wert ein, den Sie zuvor aus Storegate abgerufen und gespeichert haben. Klicken Sie auf **Verbindung testen** , um sicherzustellen, dass Azure AD eine Verbindung mit Storegate herstellen kann. Wenn die Verbindung nicht möglich ist, sollten Sie sicherstellen, dass Ihr Storegate-Konto über Administratorberechtigungen verfügt, und den Vorgang wiederholen.
 
     ![Mandanten-URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -150,7 +150,7 @@ In diesem Abschnitt werden die Schritte zum Konfigurieren des Azure AD-Bereitst
 
     ![Benutzerzuordnungen in Storegate](media/storegate-provisioning-tutorial/usermappings.png)
 
-9. Überprüfen Sie im Abschnitt **Attributzuordnungen** die Benutzerattribute, die von Azure AD mit Storegate synchronisiert werden. Beachten Sie, dass die als **übereinstimmende** Eigenschaften ausgewählten Attribute für den Abgleich der Benutzerkonten in Storegate für Updatevorgänge verwendet werden. Wählen Sie die Schaltfläche **Speichern**, um alle Änderungen zu übernehmen.
+9. Überprüfen Sie im Abschnitt **Attributzuordnungen** die Benutzerattribute, die von Azure AD mit Storegate synchronisiert werden. Beachten Sie, dass die als **übereinstimmende** Eigenschaften ausgewählten Attribute für den Abgleich der Benutzerkonten in Storegate für Updatevorgänge verwendet werden. Wählen Sie die Schaltfläche **Speichern** , um alle Änderungen zu übernehmen.
 
     ![Storegate-Benutzerattribute](media/storegate-provisioning-tutorial/userattributes.png)
 

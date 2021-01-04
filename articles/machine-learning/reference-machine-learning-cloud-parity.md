@@ -1,7 +1,7 @@
 ---
 title: Parität zwischen öffentlichen und unabhängigen Regionen
 titleSuffix: Azure Machine Learning
-description: Einige Features von Azure Machine Learning (beispielsweise Features der öffentlichen Vorschau) stehen möglicherweise nur in öffentlichen Cloudregionen zur Verfügung. In diesem Artikel erfahren Sie, welche Features auch in den Regionen „Azure Government“, „Azure Deutschland“ und „Azure China 21Vianet“ verfügbar sind.
+description: In diesem Artikel wird die Featureparität zwischen der öffentlichen Cloud und Azure Government-, Azure Deutschland- und Azure China 21Vianet-Regionen aufgeführt.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4a6f09fdff82b8e86c7fe75018c5267dba3c1b4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0300dab1fa7d0ef0d20c4236cc452135b3ade20e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892970"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305757"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Sovereign Cloud-Parität für Azure Machine Learning
 
@@ -122,7 +122,7 @@ Unser Ziel besteht darin, größtmögliche Parität zwischen unserer öffentlich
 | Root- und SSH-Zugriff auf Computeressourcen                                          | YES | YES |  |
 | Gewährleisten der Sicherheit bereitgestellter Systeme (Instanzen, Endpunkte usw.) – einschließlich Endpunktschutz, Patches und Protokollierung |  PARTIAL|  PARTIAL |ACI hinter VNET und privatem Endpunkt derzeit nicht verfügbar |                                  
 | Steuern (Deaktivieren/Einschränken/Beschränken) der Nutzung der ACI-/AKS-Integration                    | PARTIAL| PARTIAL |ACI hinter VNET und privatem Endpunkt derzeit nicht verfügbar|
-| Rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC): Erstellung benutzerdefinierter Rollen                           | YES | YES |  |
+| Rollenbasierte Zugriffssteuerung in Azure (Azure RBAC): Erstellung benutzerdefinierter Rollen                           | YES | YES |  |
 | Steuern des Zugriffs auf die vom ML-Dienst verwendeten ACR-Images (von Azure bereitgestellt/verwaltet versus benutzerdefiniert)  |PARTIAL|  PARTIAL | ACR hinter privatem Endpunkt und VNET wird in Azure Government nicht unterstützt. |
 | **Allgemeine Verwendung des Machine Learning-Diensts** |  | | |
 | Möglichkeit zur Verwendung einer Entwicklungsumgebung, um ein Modell zu erstellen, zu trainieren, als Endpunkt zu hosten und über eine Web-App zu nutzen     | YES | YES |  |

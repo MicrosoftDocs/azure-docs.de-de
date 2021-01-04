@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 0896df301718c74e63a9e18c74615130fa80c952
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aca8c75f262e472cbc770c052b86d6e760ee449a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986260"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026470"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualisieren von Azure Network Watcher-NSG-Datenflussprotokollen mit Open-Source-Tools
 
@@ -41,7 +41,7 @@ Durch das Verbinden von NSG-Datenflussprotokollen mit dem Elastic Stack können 
 
 #### <a name="install-elasticsearch"></a>Installieren von Elasticsearch
 
-1. Elastic Stack ab Version 5.0 erfordert Java 8. Führen Sie den Befehl `java -version` aus, um Ihre Version zu überprüfen. Wenn Java nicht installiert ist, lesen Sie die Dokumentation zu den [von Azure unterstützten JDKs](https://aka.ms/azure-jdks).
+1. Elastic Stack ab Version 5.0 erfordert Java 8. Führen Sie den Befehl `java -version` aus, um Ihre Version zu überprüfen. Wenn Java nicht installiert ist, lesen Sie die Dokumentation zu den [von Azure unterstützten JDKs](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 2. Laden Sie das richtige Binärpaket für Ihr System herunter:
 
    ```bash
@@ -207,7 +207,7 @@ Laden Sie die [Dashboarddatei](https://aka.ms/networkwatchernsgflowlogdashboard)
 
 Navigieren Sie auf der Registerkarte **Management** (Verwaltung) von Kibana zu **Saved Objects** (Gespeicherte Objekte), und importieren Sie alle drei Dateien. Sie können dann auf der Registerkarte **Dashboard** das Beispieldashboard öffnen und laden.
 
-Sie können auch eigene Visualisierungen und Dashboards erstellen, die auf die für Sie relevanten Metriken zugeschnitten sind. Weitere Informationen zum Erstellen von Kibana-Visualisierungen finden Sie in der [offiziellen Dokumentation](https://www.elastic.co/guide/en/kibana/current/visualize.html) von Kibana.
+Sie können auch eigene Visualisierungen und Dashboards erstellen, die auf die für Sie relevanten Metriken zugeschnitten sind. Weitere Informationen zum Erstellen von Kibana-Visualisierungen finden Sie in der [offiziellen Dokumentation](https://www.tutorialspoint.com/kibana/kibana_create_visualization.htm) von Kibana.
 
 ### <a name="visualize-nsg-flow-logs"></a>Visualisieren von NSG-Datenflussprotokollen
 

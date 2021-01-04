@@ -1,5 +1,5 @@
 ---
-title: Neuerungen für Azure Key Vault
+title: Neuerungen bei Azure Key Vault
 description: Aktuelle Updates für Azure Key Vault
 services: key-vault
 author: msmbaldwin
@@ -9,16 +9,26 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: fac5fad51137cd08f2498db132768263a770430d
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: dbbde397ab235068ea90280da721e3e3dc38866a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203873"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792360"
 ---
 # <a name="whats-new-for-azure-key-vault"></a>Neuerungen bei Azure Key Vault
 
 Dies sind die Neuerungen bei Azure Key Vault. Neue Funktionen und Verbesserungen werden außerdem im [Key Vault-Kanal von Azure Updates](https://azure.microsoft.com/updates/?category=security&query=Key%20vault) angekündigt.
+
+## <a name="october-2020"></a>Oktober 2020
+
+> [!WARNING]
+> Diese Updates wirken sich potenziell auf Azure Key Vault-Implementierungen aus.
+
+Zur Unterstützung der [standardmäßigen Aktivierung des vorläufigen Löschens](#soft-delete-on-by-default) wurden zwei Änderungen an den Azure Key Vault PowerShell-Cmdlets vorgenommen:
+
+- Die Parameter „DisableSoftDelete“ und „EnableSoftDelete“ von [Update-AzKeyVault](/powershell/module/az.keyvault/update-azkeyvault) sind veraltet.
+- Die Ausgabe des Cmdlets [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret) verfügt nicht mehr über das Attribut `SecretValueText`.
 
 ## <a name="july-2020"></a>Juli 2020
 
@@ -27,75 +37,11 @@ Dies sind die Neuerungen bei Azure Key Vault. Neue Funktionen und Verbesserungen
 
 ### <a name="soft-delete-on-by-default"></a>Standardmäßig aktiviertes vorläufiges Löschen
 
-Ende 2020 **wird vorläufiges Löschen standardmäßig für alle Schlüsseltresore aktiviert** . Dies gilt sowohl für neue als auch für bereits vorhandene Schlüsseltresore. Ausführliche Informationen zu dieser Änderung, bei der es sich unter Umständen um einen Breaking Change handelt, sowie Schritte, mit denen Sie nach betroffenen Schlüsseltresoren suchen und sie vorab aktualisieren können, finden Sie im Artikel [Vorläufiges Löschen wird für alle Schlüsseltresore aktiviert](soft-delete-change.md). 
+Ende 2020 **wird vorläufiges Löschen standardmäßig für alle Schlüsseltresore aktiviert** . Dies gilt sowohl für neue als auch für bereits vorhandene Schlüsseltresore. Ausführliche Informationen zu dieser Änderung, bei der es sich unter Umständen um einen Breaking Change handelt, sowie Schritte, mit denen Sie nach betroffenen Schlüsseltresoren suchen und sie vorab aktualisieren können, finden Sie im Artikel [Vorläufiges Löschen wird für alle Schlüsseltresore aktiviert](soft-delete-change.md).
 
-### <a name="azure-tls-certificate-changes"></a>TLS-Zertifikatänderungen für Azure  
+### <a name="azure-tls-certificate-changes"></a>TLS-Zertifikatänderungen für Azure
 
-Microsoft aktualisiert Azure-Dienste für die Verwendung von TLS-Zertifikaten aus einer anderen Gruppe von Stammzertifizierungsstellen (Certificate Authorities, CAs). Diese Änderung wird vorgenommen, da die aktuellen Zertifikate der Zertifizierungsstellen [eine der grundlegenden Anforderungen des Zertifizierungsstellen-/Browserforums nicht erfüllen](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951).
-
-### <a name="when-will-this-change-happen"></a>Wann wird diese Änderung durchgeführt?
-
-- Für [Azure AD-Dienste](/azure/active-directory) (Azure Active Directory) wurde diese Umstellung am 7. Juli 2020 initiiert.
-- Alle neu erstellten TLS/SSL-Azure-Endpunkte enthalten aktualisierte Zertifikate, die mit den neuen Stammzertifizierungsstellen verkettet sind.
-- Bereits vorhandene Azure-Endpunkte werden ab dem 13. August 2020 nach und nach umgestellt.
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) und [DPS](/azure/iot-dps/) verbleiben in der Baltimore CyberTrust Root-Zertifizierungsstelle, die Zwischenzertifizierungsstellen ändern sich jedoch. Ausführliche Informationen finden Sie im Blogbeitrag zu den [TLS-Änderungen bei Azure IoT](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
-- [Azure Storage](/azure/storage) verbleibt in der Baltimore CyberTrust Root-Zertifizierungsstelle, die Zwischenzertifizierungsstellen ändern sich jedoch. Ausführliche Informationen finden Sie im Blogbeitrag zu den [TLS-Änderungen bei Azure Storage](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
-
-> [!IMPORTANT]
-> Kunden müssen ihre Anwendungen nach dieser Änderung ggf. aktualisieren, um Konnektivitätsfehler beim Herstellen einer Verbindung mit Azure-Diensten zu vermeiden.
-
-### <a name="what-is-changing"></a>Was ändert sich?
-
-Heutzutage sind die meisten der von Azure-Diensten verwendeten TLS-Zertifikate mit der folgenden Stammzertifizierungsstelle verkettet:
-
-| Allgemeiner Name der Zertifizierungsstelle | Fingerabdruck (SHA-1) |
-|--|--|
-| [Baltimore CyberTrust Root](https://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt) | d4de20d05e66fc53fe1a50882c78db2852cae474 |
-
-Von Azure-Diensten verwendete TLS-Zertifikate werden mit einer der folgenden Stammzertifizierungsstellen verkettet:
-
-| Allgemeiner Name der Zertifizierungsstelle | Fingerabdruck (SHA-1) |
-|--|--|
-| [DigiCert Global Root G2](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt) | df3c24f9bfd666761b268073fe06d1cc8d4f82a4 |
-| [DigiCert Global Root CA](https://cacerts.digicert.com/DigiCertGlobalRootCA.crt) | a8985d3a65e5e5c4b2d7d66d40c6dd2fb19c5436 |
-| [Baltimore CyberTrust Root](https://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt) | d4de20d05e66fc53fe1a50882c78db2852cae474 |
-| [D-TRUST Root Class 3 CA 2 2009](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt) | 58e8abb0361533fb80f79b1b6d29d3ff8d5f00f0 |
-| [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt) | 73a5e64a3bff8316ff0edccc618a906e4eae4d74 | 
-| [Microsoft EV ECC Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20EV%20ECC%20Root%20Certificate%20Authority%202017.crt) | 6b1937abfd64e1e40daf2262a27857c015d6228d |
-
-### <a name="when-can-i-retire-the-old-intermediate-thumbprint"></a>Wann kann ich den alten Zwischenfingerabdruck entfernen?
-
-Die aktuellen Zertifizierungsstellenzertifikate werden bis zum 15. Februar 2021 *nicht* widerrufen. Nach diesem Datum können Sie die alten Fingerabdrücke aus Ihrem Code entfernen.
-
-Sollte sich dieses Datum ändern, wird das neue Widerrufsdatum bekanntgegeben.
-
-### <a name="will-this-change-affect-me"></a>Betrifft mich diese Änderung? 
-
-Wir gehen davon aus, dass **die meisten Azure-Kunden nicht betroffen sein werden** .  Ihre Anwendung kann jedoch betroffen sein, wenn darin explizit eine Liste zulässiger Zertifizierungsstellen angegeben wird. Dies wird als Anheften von Zertifikaten bezeichnet.
-
-Im Anschluss finden Sie verschiedene Methoden, mit denen Sie ermitteln können, ob Ihre Anwendung betroffen ist:
-
-- Suchen Sie in Ihrem Quellcode nach dem Fingerabdruck, nach dem allgemeinen Namen und nach anderen Zertifikateigenschaften der Microsoft IT TLS-Zertifizierungsstellen, die [hier](https://www.microsoft.com/pki/mscorp/cps/default.htm) angegeben sind. Wird ein entsprechender Wert gefunden, ist Ihre Anwendung betroffen. Aktualisieren Sie in diesem Fall den Quellcode mit den neuen Zertifizierungsstellen, um das Problem zu beheben. Es empfiehlt sich grundsätzlich, sicherzustellen, dass Zertifizierungsstellen kurzfristig hinzugefügt oder bearbeitet werden können. Zertifizierungsstellenzertifikate müssen aufgrund von Branchenbestimmungen innerhalb von sieben Tagen ersetzt werden. Kunden, die das Anheften von Zertifikaten nutzen, müssen daher schnell reagieren.
-
-- Wenn Sie über eine Anwendung mit Azure-API- oder Azure-Dienstintegration verfügen und nicht sicher sind, ob sie das Anheften von Zertifikaten nutzt, wenden Sie sich den Hersteller der Anwendung.
-
-- Für unterschiedliche Betriebssysteme und Sprach-Runtimes, die mit Azure-Diensten kommunizieren, sind möglicherweise zusätzliche Schritte erforderlich, um eine ordnungsgemäße Zertifikatkette mit den neuen Stammzertifizierungsstellen einzurichten:
-    - **Linux:** Bei vielen Distributionen müssen die Zertifizierungsstellen zu „/etc/ssl/certs“ hinzugefügt werden. Spezifische Anweisungen finden Sie in der Dokumentation der Distribution.
-    - **Java:** Stellen Sie sicher, dass der Java-Schlüsselspeicher die oben aufgeführten Zertifizierungsstellen enthält.
-    - **Windows in nicht verbundenen Umgebungen:** Für Systeme, die in nicht verbundenen Umgebungen ausgeführt werden, müssen die neuen Stammzertifizierungsstellen dem Speicher für vertrauenswürdige Stammzertifizierungsstellen und die Zwischenzertifizierungsstellen dem Speicher für Zwischenzertifizierungsstellen hinzugefügt werden.
-    - **Android:** Überprüfen Sie die Dokumentation für Ihr Gerät und für Ihre Android-Version.
-    - **Andere Hardwaregeräte (insbesondere IoT):** Wenden Sie sich an den Hersteller des Geräts.
-
-- Wenn Sie über eine Umgebung mit Firewallregeln verfügen, die dazu führen, dass ausgehende Aufrufe nur für bestimmte CRL-Downloadorte (Certificate Revocation List, Zertifikatsperrliste) und/oder OCSP-Überprüfungsorte (Online Certificate Status-Protokoll) zugelassen werden. In diesem Fall müssen die folgenden CRL- und OCSP-URLs zugelassen werden:
-
-    - http://crl3&#46;digicert&#46;com
-    - http://crl4&#46;digicert&#46;com
-    - http://ocsp&#46;digicert&#46;com
-    - http://www&#46;d-trust&#46;net
-    - http://root-c3-ca2-2009&#46;ocsp&#46;d-trust&#46;net
-    - http://crl&#46;microsoft&#46;com
-    - http://oneocsp&#46;microsoft&#46;com
-    - http://ocsp&#46;msocsp&#46;com
+Microsoft aktualisiert Azure-Dienste für die Verwendung von TLS-Zertifikaten aus einer anderen Gruppe von Stammzertifizierungsstellen (Certificate Authorities, CAs). Diese Änderung wird vorgenommen, da die aktuellen Zertifizierungsstellenzertifikate eine der grundlegenden Anforderungen des Zertifizierungsstellen-/Browserforums nicht erfüllen.  Ausführliche Informationen finden Sie unter [TLS-Zertifikatänderungen für Azure](../../security/fundamentals/tls-certificate-changes.md).
 
 ## <a name="june-2020"></a>Juni 2020
 
@@ -112,7 +58,7 @@ Private Endpunkte sind jetzt als Vorschauversion erhältlich. Mit dem Azure Priv
 ## <a name="2019"></a>2019
 
 - Veröffentlichung der nächsten Generation von Azure Key Vault SDKs. Beispiele zur Verwendung finden Sie in den Schnellstartanleitungen zu Azure Key Vault-Geheimnissen für [Python](../secrets/quick-create-python.md), [.NET](../secrets/quick-create-net.md), [Java](../secrets/quick-create-java.md) und [Node.js](../secrets/quick-create-node.md)
-- Neue Azure-Richtlinien zum Verwalten von Key Vault-Zertifikaten. Mehr dazu erfahren Sie unter [Integrierte Azure Policy-Definitionen für Key Vault](../policy-samples.md).
+- Neue Azure-Richtlinien zum Verwalten von Key Vault-Zertifikaten. Mehr dazu erfahren Sie unter [Integrierte Azure Policy-Definitionen für Key Vault](../policy-reference.md).
 - Die Azure Key Vault-Erweiterung für virtuelle Computer ist jetzt allgemein verfügbar.  Informationen finden Sie unter [Key Vault-VM-Erweiterung für Linux](../../virtual-machines/extensions/key-vault-linux.md) und [Key Vault-VM-Erweiterung für Windows](../../virtual-machines/extensions/key-vault-windows.md).
 - Die ereignisgesteuerte Verwaltung von Geheimnissen für Azure Key Vault ist jetzt im Azure Event Grid verfügbar. Weitere Informationen finden Sie im [Event Grid-Schema für Ereignisse in Azure Key Vault](../../event-grid/event-schema-key-vault.md], und erfahren Sie mehr über das [Empfangen von und Antworten auf Schlüsseltresor-Benachrichtigungen mit Azure Event Grid](event-grid-tutorial.md).
 
@@ -120,7 +66,7 @@ Private Endpunkte sind jetzt als Vorschauversion erhältlich. Mit dem Azure Priv
 
 In diesem Jahr veröffentlichte neue Features und Integrationen:
 
-- Integration in Azure Functions. Ein Beispielszenario, in dem [Azure Functions](../../azure-functions/index.yml) für Schlüsseltresorvorgänge genutzt wird, finden Sie unter [Automate the rotation of a secret](../secrets/tutorial-rotation.md) (Automatisieren der Rotation von Geheimnissen). 
+- Integration in Azure Functions. Ein Beispielszenario, in dem [Azure Functions](../../azure-functions/index.yml) für Schlüsseltresorvorgänge genutzt wird, finden Sie unter [Automate the rotation of a secret](../secrets/tutorial-rotation.md) (Automatisieren der Rotation von Geheimnissen).
 - [Integration in Azure Databricks](/azure/databricks/scenarios/store-secrets-azure-key-vault). Hiermit unterstützt Azure Databricks jetzt zwei Typen von Geheimnisbereichen: Von Azure Key Vault unterstützte und von Databricks unterstützte. Weitere Informationen finden Sie unter [Erstellen eines von Azure Key Vault unterstützten Geheimnisbereichs](/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope)
 - [VNET-Dienstendpunkte für Azure Key Vault](overview-vnet-service-endpoints.md).
 
@@ -128,39 +74,39 @@ In diesem Jahr veröffentlichte neue Features und Integrationen:
 
 In diesem Jahr veröffentlichte neue Features:
 
-- Schlüssel für verwaltete Speicherkonten. Das hinzugefügte Feature „Speicherkontoschlüssel“ erleichtert die Integration in Azure Storage. Weitere Informationen finden Sie im Übersichtsthema [Azure Key Vault-Speicherkontoschlüssel](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-storage-keys).
-- Vorläufiges Löschen. Das Feature „Vorläufiges Löschen“ verbessert den Datenschutz Ihrer Schlüsseltresore und der Schlüsseltresorobjekte. Weitere Informationen finden Sie im Übersichtsthema [Übersicht über die Azure Key Vault-Funktion für vorläufiges Löschen](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).
+- Schlüssel für verwaltete Speicherkonten. Das hinzugefügte Feature „Speicherkontoschlüssel“ erleichtert die Integration in Azure Storage. Weitere Informationen finden Sie im Übersichtsthema [Azure Key Vault-Speicherkontoschlüssel](../secrets/overview-storage-keys.md).
+- Vorläufiges Löschen. Das Feature „Vorläufiges Löschen“ verbessert den Datenschutz Ihrer Schlüsseltresore und der Schlüsseltresorobjekte. Weitere Informationen finden Sie im Übersichtsthema [Übersicht über die Azure Key Vault-Funktion für vorläufiges Löschen](./soft-delete-overview.md).
 
 ## <a name="2015"></a>2015
 
 In diesem Jahr veröffentlichte neue Features:
 - Zertifikatverwaltung. Als Funktion der GA-Version 2015-06-01 am 26. September 2016 hinzugefügt.
 
-Die allgemein verfügbare Version 2015-06-01 wurde am 24. Juni 2015 angekündigt. Die folgenden Änderungen wurden in dieser Version vorgenommen: 
+Die allgemein verfügbare Version 2015-06-01 wurde am 24. Juni 2015 angekündigt. Die folgenden Änderungen wurden in dieser Version vorgenommen:
 - Löschen eines Schlüssels: Feld „use“ entfernt.
 - Abrufen von Informationen über einen Schlüssel: Feld „use“ entfernt.
 - Importieren eines Schlüssels in einen Tresor: Feld „use“ entfernt.
-- Wiederherstellen eines Schlüssels: Feld „use“ entfernt.     
-- Für RSA-Algorithmen „RSA_OAEP“ in „RSA-OAEP“ geändert. Siehe [Informationen zu Schlüsseln, Geheimnissen und Zertifikaten](about-keys-secrets-certificates.md).    
- 
-Die zweite Vorschauversion (Version 2015-02-01-preview) wurde am 20. April 2015 angekündigt. Weitere Informationen finden Sie im Blogbeitrag zum [REST-API-Update](https://docs.microsoft.com/archive/blogs/kv/rest-api-update). Die folgenden Aufgaben wurden aktualisiert:
- 
+- Wiederherstellen eines Schlüssels: Feld „use“ entfernt.
+- Für RSA-Algorithmen „RSA_OAEP“ in „RSA-OAEP“ geändert. Siehe [Informationen zu Schlüsseln, Geheimnissen und Zertifikaten](about-keys-secrets-certificates.md).
+
+Die zweite Vorschauversion (Version 2015-02-01-preview) wurde am 20. April 2015 angekündigt. Weitere Informationen finden Sie im Blogbeitrag zum [REST-API-Update](/archive/blogs/kv/rest-api-update). Die folgenden Aufgaben wurden aktualisiert:
+
 - Auflisten der Schlüssel in einem Tresor: Unterstützung für Paginierung wurde zum Vorgang hinzugefügt.
-- Auflisten der Versionen eines Schlüssels: Vorgang zum Auflisten der Versionen eines Schlüssels wurde hinzugefügt.  
+- Auflisten der Versionen eines Schlüssels: Vorgang zum Auflisten der Versionen eines Schlüssels wurde hinzugefügt.
 - Auflisten der Geheimnisse in einem Tresor: Unterstützung für Paginierung wurde hinzugefügt.
-- Auflisten der Versionen eines Geheimnisses: Vorgang zum Auflisten der Versionen eines Geheimnisses wurde hinzugefügt.  
-- Alle Vorgänge: Attributen wurden Zeitstempel der Erstellung/Aktualisierung hinzugefügt.  
+- Auflisten der Versionen eines Geheimnisses: Vorgang zum Auflisten der Versionen eines Geheimnisses wurde hinzugefügt.
+- Alle Vorgänge: Attributen wurden Zeitstempel der Erstellung/Aktualisierung hinzugefügt.
 - Erstellen eines Geheimnisses:Geheimnissen wurde ein Inhaltstyp hinzugefügt.
 - Erstellen eines Schlüssels: Tags wurden als optionale Informationen hinzugefügt.
 - Erstellen eines Geheimnisses: Tags wurden als optionale Informationen hinzugefügt.
 - Aktualisieren eines Schlüssels: Tags wurden als optionale Informationen hinzugefügt.
 - Aktualisieren eines Geheimnisses: Tags wurden als optionale Informationen hinzugefügt.
-- Maximale Größe für Geheimnisse wurde von 10.000 in 25.000 Bytes geändert. Siehe [Informationen zu Schlüsseln, Geheimnissen und Zertifikaten](about-keys-secrets-certificates.md).    
+- Maximale Größe für Geheimnisse wurde von 10.000 in 25.000 Bytes geändert. Siehe [Informationen zu Schlüsseln, Geheimnissen und Zertifikaten](about-keys-secrets-certificates.md).
 
 ## <a name="2014"></a>2014
- 
-Die erste Vorschauversion (Version 2014-12-08-preview) wurde am 8. Januar 2015 angekündigt.  
+
+Die erste Vorschauversion (Version 2014-12-08-preview) wurde am 8. Januar 2015 angekündigt.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Sollten Sie weitere Fragen haben, wenden Sie sich an den [Support](https://azure.microsoft.com/support/options/).  
+Sollten Sie weitere Fragen haben, wenden Sie sich an den [Support](https://azure.microsoft.com/support/options/).

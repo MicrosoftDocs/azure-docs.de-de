@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/20/2020
-ms.openlocfilehash: 5181ceb7d5959436b704202fd3179773c9654679
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: b70c08df25f3f5d572f88879f5073756de588d52
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220447"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636475"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Kopieren von Daten nach und aus Azure Table Storage mit Azure Data Factory
 
@@ -110,7 +110,7 @@ Sie können mithilfe des Kontoschlüssels einen mit Azure Storage verknüpften D
 
 Sie können einen mit Storage verknüpften Dienst auch mithilfe einer Shared Access Signature erstellen. Dies ermöglicht der Data Factory eingeschränkten/zeitgebundenen Zugriff auf alle bzw. bestimmte Ressourcen im Speicher.
 
-Shared Access Signatures bieten delegierten Zugriff auf Ressourcen in Ihrem Speicherkonto. Sie können diese verwenden, um einem Client für einen bestimmten Zeitraum spezielle eingeschränkte Berechtigungen für Objekte in Ihrem Speicherkonto zu gewähren. Sie müssen die Zugriffsschlüssel für Ihr Konto nicht freigeben. Die SAS ist ein URI, dessen Abfrageparameter alle erforderlichen Informationen für den authentifizierten Zugriff auf eine Speicherressource enthalten. Um mit der SAS auf Speicherressourcen zuzugreifen, muss der Client diese nur an den entsprechenden Konstruktor bzw. die entsprechende Methode übergeben. Weitere Informationen zu Shared Access Signatures finden Sie unter [Shared Access Signatures (SAS): Verstehen des Shared Access Signature-Modells](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Shared Access Signatures bieten delegierten Zugriff auf Ressourcen in Ihrem Speicherkonto. Sie können diese verwenden, um einem Client für einen bestimmten Zeitraum spezielle eingeschränkte Berechtigungen für Objekte in Ihrem Speicherkonto zu gewähren. Sie müssen die Zugriffsschlüssel für Ihr Konto nicht freigeben. Die SAS ist ein URI, dessen Abfrageparameter alle erforderlichen Informationen für den authentifizierten Zugriff auf eine Speicherressource enthalten. Um mit der SAS auf Speicherressourcen zuzugreifen, muss der Client diese nur an den entsprechenden Konstruktor bzw. die entsprechende Methode übergeben. Weitere Informationen zu Shared Access Signatures finden Sie unter [Shared Access Signatures (SAS): Verstehen des Shared Access Signature-Modells](../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
 > Data Factory unterstützt jetzt **SAS (Shared Access Signatures) für Dienste** sowie für **Konten** . Weitere Informationen zu SAS (Shared Access Signatures) finden Sie unter [Gewähren von eingeschränktem Zugriff auf Azure Storage-Ressourcen mithilfe von SAS (Shared Access Signature)](../storage/common/storage-sas-overview.md). 
@@ -236,13 +236,13 @@ Legen Sie zum Kopieren von Daten aus der Azure-Tabelle den Quelltyp in der Kopie
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 |:--- |:--- |:--- |
 | type | Die type-Eigenschaft der Quelle der Kopieraktivität muss auf **AzureTableSource** festgelegt werden. |Ja |
-| azureTableSourceQuery |Verwendet die benutzerdefinierte Table Storage-Abfrage zum Lesen von Daten.<br/>Bei der Quellabfrage handelt es sich um eine direkte Zuordnung von der Abfrageoption `$filter`, die von Azure Table Storage unterstützt wird. Weitere Informationen zur Syntax finden Sie in [diesem Dokument](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities#supported-query-options), und sehen Sie sich den folgenden [Abschnitt mit Beispielen für azureTableSourceQuery](#azuretablesourcequery-examples) an. |Nein |
+| azureTableSourceQuery |Verwendet die benutzerdefinierte Table Storage-Abfrage zum Lesen von Daten.<br/>Bei der Quellabfrage handelt es sich um eine direkte Zuordnung von der Abfrageoption `$filter`, die von Azure Table Storage unterstützt wird. Weitere Informationen zur Syntax finden Sie in [diesem Dokument](/rest/api/storageservices/querying-tables-and-entities#supported-query-options), und sehen Sie sich den folgenden [Abschnitt mit Beispielen für azureTableSourceQuery](#azuretablesourcequery-examples) an. |Nein |
 | azureTableSourceIgnoreTableNotFound |Gibt an, ob es zulässig ist, wenn die Ausnahme der Tabelle nicht vorhanden ist.<br/>Zulässige Werte sind **true** und **false** (Standard). |Nein |
 
 ### <a name="azuretablesourcequery-examples"></a>Beispiele für azureTableSourceQuery
 
 >[!NOTE]
->Beim Azure-Tabellenabfragevorgang tritt ein Timeout in 30 Sekunden auf, wie [vom Azure-Tabellendienst erzwungen](https://docs.microsoft.com/rest/api/storageservices/setting-timeouts-for-table-service-operations). Erfahren Sie im Artikel [Entwurf für Abfragen](../storage/tables/table-storage-design-for-query.md), wie Sie die Abfrage optimieren.
+>Beim Azure-Tabellenabfragevorgang tritt ein Timeout in 30 Sekunden auf, wie [vom Azure-Tabellendienst erzwungen](/rest/api/storageservices/setting-timeouts-for-table-service-operations). Erfahren Sie im Artikel [Entwurf für Abfragen](../storage/tables/table-storage-design-for-query.md), wie Sie die Abfrage optimieren.
 
 Wenn Sie in Azure Data Factory die Daten anhand einer Spalte vom Datentyp datetime filtern möchten, lesen Sie das folgende Beispiel:
 
@@ -268,7 +268,7 @@ Legen Sie zum Kopieren von Daten in die Azure-Tabelle den Senkentyp in der Kopie
 | azureTableDefaultPartitionKeyValue |Der standardmäßige Partitionsschlüsselwert, der von der Senke verwendet werden kann. |Nein |
 | azureTablePartitionKeyName |Geben Sie den Namen der Spalte an, deren Werte als Partitionsschlüssel verwendet werden. Wenn dieser nicht angegeben ist, wird „AzureTableDefaultPartitionKeyValue“ als Partitionsschlüssel verwendet. |Nein |
 | azureTableRowKeyName |Geben Sie den Namen der Spalte an, deren Werte als Zeilenschlüssel verwendet werden. Wenn nicht angegeben, verwenden Sie für jede Zeile eine GUID. |Nein |
-| azureTableInsertType |Der Modus zum Einfügen von Daten in Azure Table. Diese Eigenschaft steuert, ob die Werte von vorhandenen Zeilen in der Ausgabetabelle, deren Partitions- und Zeilenschlüssel übereinstimmen, ersetzt oder zusammengeführt werden. <br/><br/>Zulässige Werte sind **merge** (Standard) und **replace** . <br/><br> Diese Einstellung wird auf Zeilenebene, nicht auf Tabellenebene angewendet. Keine der Optionen löscht Zeilen in der Ausgabetabelle, die in der Eingabe nicht vorhanden sind. Informationen zur Funktionsweise der Einstellungen zum Zusammenführen und Ersetzen finden Sie unter [Insert Or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) (Entität einfügen oder zusammenführen) und [Insert Or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) (Entität einfügen oder ersetzen). |Nein |
+| azureTableInsertType |Der Modus zum Einfügen von Daten in Azure Table. Diese Eigenschaft steuert, ob die Werte von vorhandenen Zeilen in der Ausgabetabelle, deren Partitions- und Zeilenschlüssel übereinstimmen, ersetzt oder zusammengeführt werden. <br/><br/>Zulässige Werte sind **merge** (Standard) und **replace** . <br/><br> Diese Einstellung wird auf Zeilenebene, nicht auf Tabellenebene angewendet. Keine der Optionen löscht Zeilen in der Ausgabetabelle, die in der Eingabe nicht vorhanden sind. Informationen zur Funktionsweise der Einstellungen zum Zusammenführen und Ersetzen finden Sie unter [Insert Or Merge Entity](/rest/api/storageservices/Insert-Or-Merge-Entity) (Entität einfügen oder zusammenführen) und [Insert Or Replace Entity](/rest/api/storageservices/Insert-Or-Replace-Entity) (Entität einfügen oder ersetzen). |Nein |
 | writeBatchSize |Fügt Daten in Azure Table ein, wenn „writeBatchSize“ oder „writeBatchTimeout“ erreicht werden.<br/>Zulässige Werte sind Integer-Werte (Anzahl der Zeilen). |Nein (Standardwert ist 10.000) |
 | writeBatchTimeout |Fügt Daten in Azure Table ein, wenn „writeBatchSize“ oder „writeBatchTimeout“ erreicht werden.<br/>Zulässige Werte sind Timespan-Werte. Beispiel: 00:20:00 (20 Minuten). |Nein (Standardwert ist 90 Sekunden, der Standardtimeout des Speicherclients) |
 
@@ -331,7 +331,7 @@ Im folgenden Beispiel wird die Quellspalte „DivisionID“ der Zielspalte „Di
 
 Beim Kopieren von Daten aus und nach Azure Table werden die folgenden Zuordnungen von Azure Table-Datentypen zu Data Factory-Zwischendatentypen verwendet. Weitere Informationen dazu, wie die Kopieraktivität das Quellschema und den Datentyp zur Senke zuordnet, finden Sie unter [Schema- und Datentypzuordnungen](copy-activity-schema-and-type-mapping.md).
 
-Beim Verschieben von Daten von und nach Azure Table werden die folgenden [von Azure Table definierten Zuordnungen](https://msdn.microsoft.com/library/azure/dd179338.aspx) verwendet, um Azure Table-OData-Typen zu .NET-Typen und umgekehrt zuzuordnen.
+Beim Verschieben von Daten von und nach Azure Table werden die folgenden [von Azure Table definierten Zuordnungen](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) verwendet, um Azure Table-OData-Typen zu .NET-Typen und umgekehrt zuzuordnen.
 
 | Azure-Tabellendatentyp | Data Factory-Zwischendatentyp | Details |
 |:--- |:--- |:--- |

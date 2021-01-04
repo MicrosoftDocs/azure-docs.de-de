@@ -4,19 +4,21 @@ description: Erfahren Sie, wie Sie mithilfe des Änderungsfeedprozessors von Azu
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2da6fcb82b1ec14d6f57931709321871fa575d38
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 409b51682700a8b13b2840f171642bdcbee6f6d2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277038"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340225"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Änderungsfeedprozessor in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Der Änderungsfeedprozessor ist im [Azure Cosmos DB SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3) enthalten. Er vereinfacht das Lesen des Änderungsfeeds sowie die effektive Verteilung der Ereignisverarbeitung auf mehrere Consumer.
 
@@ -125,10 +127,10 @@ Der Änderungsfeedprozessor wird initialisiert und beginnt mit dem Lesen von Än
 
 Der Änderungsfeedprozessor kann auf allen Plattformen gehostet werden, die zeitintensive Prozesse oder Tasks unterstützen:
 
-* Eine fortlaufende [Azure WebJobs-Instanz](https://docs.microsoft.com/learn/modules/run-web-app-background-task-with-webjobs/)
-* Ein Prozess in einem [virtuellen Azure-Computer](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-virtual-machines)
-* Ein Hintergrundauftrag in [Azure Kubernetes Service](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-kubernetes-service)
-* Ein [gehosteter ASP.Net-Dienst](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services)
+* Eine fortlaufende [Azure WebJobs-Instanz](/learn/modules/run-web-app-background-task-with-webjobs/)
+* Ein Prozess in einem [virtuellen Azure-Computer](/azure/architecture/best-practices/background-jobs#azure-virtual-machines)
+* Ein Hintergrundauftrag in [Azure Kubernetes Service](/azure/architecture/best-practices/background-jobs#azure-kubernetes-service)
+* Ein [gehosteter ASP.Net-Dienst](/aspnet/core/fundamentals/host/hosted-services)
 
 Der Änderungsfeedprozessor kann zwar in kurzlebigen Umgebungen ausgeführt werden, da der Leasecontainer den Zustand beibehält, durch den Startzyklus dieser Umgebungen kommt es jedoch zu einer Verzögerung beim Empfangen der Benachrichtigungen (aufgrund des Mehraufwands beim Prozessorstart bei jedem Start der Umgebung).
 
@@ -147,4 +149,4 @@ In den folgenden Artikeln erfahren Sie mehr über den Änderungsfeedprozessor:
 * [Pullmodell für den Änderungsfeed](change-feed-pull-model.md)
 * [Migrieren von der Änderungsfeed-Verarbeitungsbibliothek](how-to-migrate-from-change-feed-library.md)
 * [Use the change feed estimator](how-to-use-change-feed-estimator.md) (Verwenden des Änderungsfeed-Estimators)
-* [Konfigurieren der Startzeit des Änderungsfeedprozessors](how-to-configure-change-feed-start-time.md)
+* [Konfigurieren der Startzeit des Änderungsfeedprozessors](#starting-time)

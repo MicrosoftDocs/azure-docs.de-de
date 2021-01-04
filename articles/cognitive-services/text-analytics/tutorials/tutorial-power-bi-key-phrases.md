@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 1a76c753cdf22d2c9b8b56893017cdc3cee9c8cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d987797c2c25f685a3c9250afeb17cec3ad3cb2e
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90527291"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369544"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integrieren von Power BI in die Textanalyse von Cognitive Services
 
@@ -47,7 +47,7 @@ In diesem Tutorial lernen Sie Folgendes:
 > [!NOTE]
 > Power BI kann Daten aus einer Vielzahl von Quellen verarbeiten, z.B. Facebook oder einer SQL-Datenbank. Weitere Informationen dazu finden Sie unter [Facebook-Integration](https://powerbi.microsoft.com/integrations/facebook/) und [SQL Server-Integration](https://powerbi.microsoft.com/integrations/sql-server/).
 
-Klicken Sie im Hauptfenster von Power BI Desktop auf das Menüband **Start**. Öffnen Sie in der Gruppe **Externe Daten** des Menübands das Dropdownmenü **Daten abrufen**, und klicken Sie auf **Text/CSV**.
+Klicken Sie im Hauptfenster von Power BI Desktop auf das Menüband **Start**. Öffnen Sie in der Gruppe **Externe Daten** des Menübands das Dropdownmenü **Daten abrufen** , und klicken Sie auf **Text/CSV**.
 
 ![[Die Schaltfläche „Daten abrufen“]](../media/tutorials/power-bi/get-data-button.png)
 
@@ -72,7 +72,7 @@ Klicken Sie in Power BI Desktop auf das Menüband **Start**. Klicken Sie in der 
 
 ![[Die Gruppe „Externe Daten“ im Menüband „Start“]](../media/tutorials/power-bi/edit-queries.png)
 
-Wählen Sie in der Liste `FabrikamComments`Abfragen**auf der linken Seite des Fensters die Option** aus, falls sie nicht bereits ausgewählt ist.
+Wählen Sie in der Liste `FabrikamComments`Abfragen **auf der linken Seite des Fensters die Option** aus, falls sie nicht bereits ausgewählt ist.
 
 Wählen Sie jetzt in der Tabelle die Spalten `subject` und `comment` aus. Möglicherweise müssen Sie einen horizontalen Bildlauf durchführen, um diese Spalten anzuzeigen. Klicken Sie zuerst auf die Spaltenüberschrift `subject`, halten Sie die STRG-Taste gedrückt, und klicken Sie dann auf die Spaltenüberschrift `comment`.
 
@@ -103,15 +103,15 @@ Die [Schlüsselbegriffs-API](https://westus.dev.cognitive.microsoft.com/docs/ser
 Nun sind Sie bereit zum Erstellen der benutzerdefinierte Funktion, die Power BI und die Textanalyse integriert. Die Funktion erhält den zu verarbeitenden Text als Parameter. Sie konvertiert Daten in das erforderliche und aus dem erforderlichen JSON-Format und stellt die HTTP-Anforderung an die Schlüsselbegriffs-API. Die Funktion analysiert dann die Antwort von der API und gibt eine Zeichenfolge zurück, die eine durch Trennzeichen getrennte Liste der extrahierten Schlüsselbegriffe enthält.
 
 > [!NOTE]
-> Benutzerdefinierte Power BI Desktop-Funktionen sind in der [Power Query-Formelsprache „M“](https://docs.microsoft.com/powerquery-m/power-query-m-reference) oder kurz „M“ geschrieben. M ist eine funktionale Programmiersprache, die auf [F#](https://docs.microsoft.com/dotnet/fsharp/) basiert. Sie müssen jedoch kein Programmierer sein, um dieses Tutorial abzuschließen; der erforderliche Code ist unten angegeben.
+> Benutzerdefinierte Power BI Desktop-Funktionen sind in der [Power Query-Formelsprache „M“](/powerquery-m/power-query-m-reference) oder kurz „M“ geschrieben. M ist eine funktionale Programmiersprache, die auf [F#](/dotnet/fsharp/) basiert. Sie müssen jedoch kein Programmierer sein, um dieses Tutorial abzuschließen; der erforderliche Code ist unten angegeben.
 
 Stellen Sie sicher, dass in Power BI Desktop nach wie vor das Fenster des Abfrage-Editors geöffnet ist. Klicken Sie anderenfalls auf das Menüband **Start** und in der Gruppe **Externe Daten** auf **Abfragen bearbeiten**.
 
-Öffnen Sie nun im Menüband **Start** in der Gruppe **Neue Abfrage** das Dropdownmenü **Neue Quelle**, und wählen Sie **Leere Abfrage** aus. 
+Öffnen Sie nun im Menüband **Start** in der Gruppe **Neue Abfrage** das Dropdownmenü **Neue Quelle** , und wählen Sie **Leere Abfrage** aus. 
 
 Der Abfrageliste wird eine neue Abfrage mit dem Standardnamen `Query1` hinzugefügt. Doppelklicken Sie auf diesen Eintrag, und nennen Sie ihn `KeyPhrases`.
 
-Öffnen Sie jetzt das Fenster **Erweiterter Editor**, indem Sie in der Gruppe **Abfrage** des Menübands **Start** auf „Erweiterter Editor“ klicken. Löschen Sie den Code, der sich bereits in diesem Fenster befindet, und fügen Sie den folgenden Code ein. 
+Öffnen Sie jetzt das Fenster **Erweiterter Editor** , indem Sie in der Gruppe **Abfrage** des Menübands **Start** auf „Erweiterter Editor“ klicken. Löschen Sie den Code, der sich bereits in diesem Fenster befindet, und fügen Sie den folgenden Code ein. 
 
 > [!NOTE]
 > Ersetzen Sie den unten angegebenen Beispielendpunkt (der `<your-custom-subdomain>` enthält) durch den für Ihre Textanalyseressource generierten Endpunkt. Sie finden diesen Endpunkt durch Anmeldung beim [Azure-Portal](https://azure.microsoft.com/features/azure-portal/), Auswählen Ihres Textanalyseabonnements und Auswählen von `Quick start`.
@@ -160,7 +160,7 @@ Nachdem Sie das Dialogfeld „Benutzerdefinierte Funktion aufrufen“ geschlosse
 
 ![[Banner zu Anmeldeinformationen]](../media/tutorials/power-bi/credentials-banner.png)
 
-Klicken Sie auf **Anmeldeinformationen bearbeiten**, stellen Sie sicher, dass `Anonymous` im Dialogfeld ausgewählt ist, und klicken Sie dann auf **Verbinden**. 
+Klicken Sie auf **Anmeldeinformationen bearbeiten** , stellen Sie sicher, dass `Anonymous` im Dialogfeld ausgewählt ist, und klicken Sie dann auf **Verbinden**. 
 
 > [!NOTE]
 > Sie wählen `Anonymous` aus, da der Textanalysedienst Sie über Ihren Zugriffsschlüssel authentifiziert, sodass Power BI für die HTTP-Anforderung selbst keine Anmeldeinformationen angeben muss.
@@ -174,14 +174,14 @@ Als Nächstes kann ein Banner angezeigt werden, der Sie auffordert, Informatione
 
 ![[Datenschutz-Banner]](../media/tutorials/power-bi/privacy-banner.png)
 
-Klicken Sie auf **Weiter**, und wählen Sie für jede Datenquelle im Dialogfeld `Public` aus. Klicken Sie anschließend auf **Speichern**.
+Klicken Sie auf **Weiter** , und wählen Sie für jede Datenquelle im Dialogfeld `Public` aus. Klicken Sie anschließend auf **Speichern**.
 
 ![[Festlegen des Datenschutzes der Datenquelle]](../media/tutorials/power-bi/privacy-dialog.png)
 
 ## <a name="create-the-word-cloud"></a>Erstellen der Wortwolke
 <a name="WordCloud"></a>
 
-Wenn Sie mit allen angezeigten Bannern fertig sind, klicken Sie auf dem Menüband „Start“ auf **Schließen und übernehmen**, um den Abfrage-Editor zu schließen.
+Wenn Sie mit allen angezeigten Bannern fertig sind, klicken Sie auf dem Menüband „Start“ auf **Schließen und übernehmen** , um den Abfrage-Editor zu schließen.
 
 Power BI Desktop braucht einen Moment, um die erforderlichen HTTP-Anforderungen zu stellen. Für jede Zeile in der Tabelle enthält die neue Spalte `keyphrases` die von der Schlüsselbegriffs-API im Text erkannten Schlüsselbegriffe. 
 
@@ -200,7 +200,7 @@ Klicken Sie zunächst im Visualisierungsbereich auf das Wortwolkensymbol.
 
 Im Arbeitsbereich wird ein neuer Bericht angezeigt. Ziehen Sie das Feld `keyphrases` aus den Bereich „Felder“ in das Feld „Kategorie“ im Visualisierungsbereich. Die Wortwolke wird innerhalb des Berichts angezeigt.
 
-Wechseln Sie nun zur Seite „Format“ des Visualisierungsbereichs. Aktivieren Sie in der Kategorie „Stoppwörter“ die Option **Standardstoppwörter**, um kurze häufige Wörter wie „von“ aus der Wolke auszuschließen. 
+Wechseln Sie nun zur Seite „Format“ des Visualisierungsbereichs. Aktivieren Sie in der Kategorie „Stoppwörter“ die Option **Standardstoppwörter** , um kurze häufige Wörter wie „von“ aus der Wolke auszuschließen. 
 
 ![[Aktivieren von Standardstoppwörtern]](../media/tutorials/power-bi/default-stop-words.png)
 
@@ -296,7 +296,7 @@ Erfahren Sie mehr über den Textanalysedienst, die Power Query-Formelsprache „
 > [Referenz zur Textanalyse-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0)
 
 > [!div class="nextstepaction"]
-> [Referenz zu Power Query M](https://docs.microsoft.com/powerquery-m/power-query-m-reference)
+> [Referenz zu Power Query M](/powerquery-m/power-query-m-reference)
 
 > [!div class="nextstepaction"]
 > [Power BI-Dokumentation](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)

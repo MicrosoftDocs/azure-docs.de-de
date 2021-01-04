@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Konfigurieren eines virtuellen Netzwerks für die Azure AD Domain Services | Microsoft-Dokumentation'
 description: In diesem Tutorial erfahren Sie, wie Sie über das Azure-Portal ein Azure-VNET-Subnetz oder das Netzwerkpeering für eine verwaltete Azure Active Directory Domain Services-Domäne erstellen und konfigurieren.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 33beb0767ef1f21d4fb3d08c9072d7c8479d2cb1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: ddb8f360304bdb41ae359f293af4d10b0afc6558
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967408"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618415"
 ---
 # <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Konfigurieren Sie virtuelle Netzwerke für eine verwaltete Azure Active Directory Domain Services-Domäne.
 

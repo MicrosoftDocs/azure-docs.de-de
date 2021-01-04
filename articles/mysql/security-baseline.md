@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 80a7067b1d8d5417a6a448ee8a3be563344e9a72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 477228f607f620f22ffab3a3435ebd850df0324a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420250"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492528"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Azure-Sicherheitsbaseline für Azure Database for MySQL
 
@@ -36,7 +36,7 @@ Sie können auch Ihren Azure Database for MySQL-Server mit Firewallregeln schüt
 
 - [Konfigurieren von Private Link für Azure Database for MySQL](howto-configure-privatelink-portal.md)
 
-- [Erstellen und Verwalten von VNET-Dienstendpunkten und VNET-Regeln in Azure Database for MySQL](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)
+- [Erstellen und Verwalten von VNET-Dienstendpunkten und VNET-Regeln in Azure Database for MySQL](../azure-sql/database/vnet-service-endpoint-rule-overview.md)
 
 - [Konfigurieren von Azure Database for MySQL-Firewallregeln](howto-manage-firewall-using-portal.md)
 
@@ -74,7 +74,7 @@ Aktivieren Sie DDoS Protection Standard in den virtuellen Netzwerken für Ihre A
 
 - [Konfigurieren von Advanced Threat Protection für Azure Database for MySQL](howto-database-threat-protection-portal.md)
 
-- [Konfigurieren von DDoS-Schutz](../virtual-network/manage-ddos-protection.md)
+- [Konfigurieren von DDoS-Schutz](../ddos-protection/manage-ddos-protection.md)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -134,7 +134,7 @@ Hinweis: Azure Database for MySQL verwendet das Diensttag „Microsoft.Sql“.
 
 - [Konfigurieren und Verwalten von Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy-Beispiele für Netzwerke](/azure/governance/policy/samples/)
+- [Azure Policy-Beispiele für Netzwerke](../governance/policy/samples/index.md)
 
 - [Erstellen einer Azure-Blaupause](../governance/blueprints/create-blueprint-portal.md)
 
@@ -150,7 +150,7 @@ Verwenden Sie eine der integrierten Azure Policy-Definitionen für das Tagging, 
 
 Sie können Azure PowerShell oder die Azure-Befehlszeilenschnittstelle verwenden, um Ressourcen basierend auf ihren Tags zu suchen oder Aktionen auszuführen.
 
-- [Erstellen und Verwenden von Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [Erstellen und Verwenden von Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -160,7 +160,7 @@ Sie können Azure PowerShell oder die Azure-Befehlszeilenschnittstelle verwenden
 
 **Leitfaden**: Verwenden Sie das Azure-Aktivitätsprotokoll zum Überwachen der Konfigurationen von Netzwerkressourcen und zum Erkennen von Änderungen bei Netzwerkressourcen, die sich auf Ihre Azure Database for MySQL-Instanzen beziehen. Erstellen Sie Warnungen in Azure Monitor, die bei Änderungen an wichtigen Netzwerkressourcen ausgelöst werden.
 
-- [Anzeigen und Abrufen von Azure-Aktivitätsprotokollereignissen](/azure/azure-monitor/platform/activity-log-view)
+- [Anzeigen und Abrufen von Azure-Aktivitätsprotokollereignissen](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Erstellen von Warnungen in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -202,7 +202,7 @@ Sie können Azure PowerShell oder die Azure-Befehlszeilenschnittstelle verwenden
 
 - [Konfigurieren von und Zugreifen auf Überwachungsprotokolle für Azure Database for MySQL](howto-configure-audit-logs-portal.md)
 
-- [Azure-Aktivitätsprotokoll](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Azure-Aktivitätsprotokoll](../azure-monitor/platform/activity-log.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -222,7 +222,7 @@ Sie können Azure PowerShell oder die Azure-Befehlszeilenschnittstelle verwenden
 
 - [Ändern des Datenaufbewahrungszeitraums](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Azure-Ressourcenprotokolle](/azure/azure-monitor/platform/resource-logs-collect-storage)
+- [Azure-Ressourcenprotokolle](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -234,7 +234,7 @@ Sie können Azure PowerShell oder die Azure-Befehlszeilenschnittstelle verwenden
 
 - [Durchführen des Onboardings für Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Tutorial: Erste Schritte mit Log Analytics-Abfragen](../azure-monitor/log-query/get-started-portal.md)
+- [Tutorial: Erste Schritte mit Log Analytics-Abfragen](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Ausführen benutzerdefinierter Abfragen in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -256,7 +256,7 @@ Außerdem können Sie Serverprotokolle und Diagnoseeinstellungen für MySQL akti
 
 - [Konfigurieren von und Zugreifen auf Überwachungsprotokolle für Azure Database for MySQL](howto-configure-audit-logs-portal.md)
 
-- [Azure-Aktivitätsprotokoll](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Azure-Aktivitätsprotokoll](../azure-monitor/platform/activity-log.md)
 
 - [Durchführen des Onboardings für Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -388,7 +388,7 @@ Verwenden Sie Azure AD-Risikoerkennungen, um Warnungen und Berichte zum Verhalte
 
 - [Bereitstellen von Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Azure Active Directory-Risikoerkennungen](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Azure Active Directory-Risikoerkennungen](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -408,7 +408,7 @@ Verwenden Sie Azure AD-Risikoerkennungen, um Warnungen und Berichte zum Verhalte
 
 **Leitfaden**: Verwenden Sie Azure Active Directory (AAD) als zentrales Authentifizierungs- und Autorisierungssystem. Azure AD schützt Daten durch eine starke Verschlüsselung für ruhende und übertragene Daten. Außerdem werden in Azure AD Salts und Hashs für Anmeldeinformationen verwendet und diese sicher gespeichert.
 
-Für die Anmeldung bei Azure Database for MySQL wird empfohlen, Azure AD zu verwenden und ein Azure AD-Token für das Herstellen einer Verbindung zu verwenden. Bei Verwenden eines Azure AD-Tokens werden verschiedene Methoden unterstützt, wie z. B. ein Azure AD-Benutzer, eine Azure AD-Gruppe oder eine Azure AD-Anwendung, die eine Verbindung mit der Datenbank herstellt. 
+Für die Anmeldung bei Azure Database for MySQL wird empfohlen, Azure AD zu verwenden und ein Azure AD-Token für das Herstellen einer Verbindung zu verwenden. Bei Verwenden eines Azure AD-Tokens werden verschiedene Methoden unterstützt, wie z. B. ein Azure AD-Benutzer, eine Azure AD-Gruppe oder eine Azure AD-Anwendung, die eine Verbindung mit der Datenbank herstellt.
 
 Azure AD-Anmeldeinformationen können auch für die Verwaltung auf Verwaltungsebene (z. B. Azure-Portal) zum Steuern von MySQL-Administratorkonten verwendet werden.
 
@@ -422,7 +422,7 @@ Azure AD-Anmeldeinformationen können auch für die Verwaltung auf Verwaltungseb
 
 **Leitfaden**: Überprüfen Sie die Azure Active Directory-Protokolle, um veraltete Konten zu ermitteln, die u. U. Azure Database for MySQL-Administratorrollen enthalten können. Verwenden Sie zusätzlich Azure-Identitätszugriffsüberprüfungen, um Gruppenmitgliedschaften, den Zugriff auf Unternehmensanwendungen, die für den Zugriff auf Azure Database for MySQL verwendet werden könnten, und Rollenzuweisungen effizient zu verwalten. Der Benutzerzugriff sollte regelmäßig überprüft werden (z. B. alle 90 Tage), um sicherzustellen, dass nur die gewünschten Benutzer weiterhin Zugriff haben.
 
-- [Grundlegendes zur Azure AD-Berichterstellung](/azure/active-directory/reports-monitoring/)
+- [Grundlegendes zur Azure AD-Berichterstellung](../active-directory/reports-monitoring/index.yml)
 
 - [Verwenden von Zugriffsüberprüfungen für Azure-Identitäten](../active-directory/governance/access-reviews-overview.md)
 
@@ -434,11 +434,11 @@ Azure AD-Anmeldeinformationen können auch für die Verwaltung auf Verwaltungseb
 
 **Leitfaden**: Aktivieren Sie die Diagnoseeinstellungen für Azure Database for MySQL und Azure Active Directory, und senden Sie alle Protokolle an einen Log Analytics-Arbeitsbereich. Konfigurieren Sie gewünschte Warnungen (z. B. fehlgeschlagene Authentifizierungsversuche) in Log Analytics.
 
-- [Konfigurieren von und Zugreifen auf Protokolle zu langsamen Abfragen für Azure Database for MySQL](/Azure/mysql/howto-configure-server-logs-in-portal)
+- [Konfigurieren von und Zugreifen auf Protokolle zu langsamen Abfragen für Azure Database for MySQL](./howto-configure-server-logs-in-portal.md)
 
-- [Konfigurieren von und Zugreifen auf Überwachungsprotokolle für Azure Database for MySQL](/Azure/mysql/howto-configure-audit-logs-portal)
+- [Konfigurieren von und Zugreifen auf Überwachungsprotokolle für Azure Database for MySQL](./howto-configure-audit-logs-portal.md)
 
-- [Integrieren von Azure-Aktivitätsprotokollen in Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Integrieren von Azure-Aktivitätsprotokollen in Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -456,7 +456,7 @@ Außerdem können Sie Protokolle zur weiteren Untersuchung in Azure Sentinel erf
 
 - [Was ist Azure Active Directory Identity Protection?](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Anzeigen riskanter Azure AD-Anmeldungen](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Anzeigen riskanter Azure AD-Anmeldungen](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Durchführen des Onboardings für Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -482,7 +482,7 @@ Außerdem können Sie Protokolle zur weiteren Untersuchung in Azure Sentinel erf
 
 **Leitfaden**: Verwenden Sie Tags, um die Nachverfolgung von Azure Database for MySQL-Instanzen oder ähnlichen Ressourcen, die vertrauliche Informationen speichern oder verarbeiten, zu unterstützen.
 
-- [Erstellen und Verwenden von Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [Erstellen und Verwenden von Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -492,13 +492,13 @@ Außerdem können Sie Protokolle zur weiteren Untersuchung in Azure Sentinel erf
 
 **Leitfaden**: Implementieren Sie separate Abonnements und/oder Verwaltungsgruppen für Entwicklungs-, Test- und Produktionsumgebungen. Verwenden Sie eine Kombination von Private Link, Dienstendpunkten und/oder MySQL-Firewallregeln, um den Netzwerkzugriff auf Ihre Azure Database for MySQL-Instanzen zu isolieren und einzuschränken.
 
-- [Erstellen zusätzlicher Azure-Abonnements](/azure/billing/billing-create-subscription)
+- [Erstellen zusätzlicher Azure-Abonnements](../cost-management-billing/manage/create-subscription.md)
 
-- [Erstellen von Verwaltungsgruppen](/azure/governance/management-groups/create)
+- [Erstellen von Verwaltungsgruppen](../governance/management-groups/create-management-group-portal.md)
 
 - [Konfigurieren von Private Link für Azure Database for MySQL](concepts-data-access-security-private-link.md)
 
-- [Erstellen und Verwalten von VNET-Dienstendpunkten und VNET-Regeln in Azure Database for MySQL](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)
+- [Erstellen und Verwalten von VNET-Dienstendpunkten und VNET-Regeln in Azure Database for MySQL](../azure-sql/database/vnet-service-endpoint-rule-overview.md)
 
 - [Konfigurieren von Azure Database for MySQL-Firewallregeln](concepts-firewall-rules.md)
 
@@ -544,7 +544,7 @@ Für die zugrundeliegende Plattform, die von Microsoft verwaltet wird, behandelt
 
 **Verantwortlichkeit**: Shared
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Verwenden der rollenbasierten Zugriffssteuerung zum Steuern des Zugriffs auf Ressourcen
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Verwenden von Azure RBAC zum Steuern des Zugriffs auf Ressourcen
 
 **Leitfaden**: Verwenden Sie die rollenbasierte Zugriffssteuerung von Azure (Azure RBAC), um den Zugriff auf die Azure Database for MySQL-Steuerungsebene (z. B. Azure-Portal) zu steuern. Verwenden Sie für den Zugriff auf die Datenebene (in der Datenbank selbst) SQL-Abfragen, um Benutzer zu erstellen und Benutzerberechtigungen zu konfigurieren. Azure RBAC wirkt sich nicht auf Benutzerberechtigungen in der Datenbank aus.
 
@@ -654,7 +654,7 @@ Microsoft führt die Verwaltung der Sicherheitsrisiken auf den zugrunde liegende
 
 - [Erstellen von Abfragen mit Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Anzeigen Ihrer Azure-Abonnements](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Anzeigen Ihrer Azure-Abonnements](/powershell/module/az.accounts/get-azsubscription)
 
 - [Grundlegendes zu Azure RBAC](../role-based-access-control/overview.md)
 
@@ -666,7 +666,7 @@ Microsoft führt die Verwaltung der Sicherheitsrisiken auf den zugrunde liegende
 
 **Leitfaden**: Wenden Sie Tags auf Ihre Azure Database for MySQL-Instanzen und andere zugehörige Ressourcen an, die Metadaten erzeugen, um sie logisch in einer Taxonomie zu organisieren.
 
-- [Erstellen und Verwenden von Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [Erstellen und Verwenden von Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -676,11 +676,11 @@ Microsoft führt die Verwaltung der Sicherheitsrisiken auf den zugrunde liegende
 
 **Leitfaden**: Verwenden Sie ggf. Tagging, Verwaltungsgruppen und separate Abonnements zum Organisieren und Nachverfolgen von Azure Database for MySQL-Instanzen und zugehörigen Ressourcen. Stimmen Sie den Bestand regelmäßig ab, und stellen Sie sicher, dass nicht autorisierte Ressourcen rechtzeitig aus dem Abonnement gelöscht werden.
 
-- [Erstellen zusätzlicher Azure-Abonnements](/azure/billing/billing-create-subscription)
+- [Erstellen zusätzlicher Azure-Abonnements](../cost-management-billing/manage/create-subscription.md)
 
-- [Erstellen von Verwaltungsgruppen](/azure/governance/management-groups/create)
+- [Erstellen von Verwaltungsgruppen](../governance/management-groups/create-management-group-portal.md)
 
-- [Erstellen und Verwenden von Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [Erstellen und Verwenden von Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -746,7 +746,7 @@ Verwenden Sie darüber hinaus Azure Resource Graph, um Ressourcen in Ihren Abonn
 
 - [Konfigurieren und Verwalten von Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Ablehnen eines bestimmten Ressourcentyps mit Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Ablehnen eines bestimmten Ressourcentyps mit Azure Policy](../governance/policy/samples/index.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -772,7 +772,7 @@ Verwenden Sie darüber hinaus Azure Resource Graph, um Ressourcen in Ihren Abonn
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12: Einschränken der Möglichkeiten der Benutzer, Skripte innerhalb von Computeressourcen auszuführen
 
-**Leitfaden**: Nicht zutreffend. Diese Empfehlung ist für Computeressourcen vorgesehen.
+**Anleitung:** Nicht zutreffend. Diese Empfehlung ist für Computeressourcen vorgesehen.
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -796,7 +796,7 @@ Verwenden Sie darüber hinaus Azure Resource Graph, um Ressourcen in Ihren Abonn
 
 Erzwingen einer SSL-Verbindung muss für MySQL-Datenbankserver aktiviert sein
 
-- [Anzeigen verfügbarer Azure Policy-Aliase](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Anzeigen verfügbarer Azure Policy-Aliase](/powershell/module/az.resources/get-azpolicyalias)
 
 - [Konfigurieren und Verwalten von Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -806,7 +806,7 @@ Erzwingen einer SSL-Verbindung muss für MySQL-Datenbankserver aktiviert sein
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2: Einrichten sicherer Betriebssystemkonfigurationen
 
-**Leitfaden**: Nicht zutreffend. Diese Empfehlung ist für Computeressourcen vorgesehen.
+**Anleitung:** Nicht zutreffend. Diese Empfehlung ist für Computeressourcen vorgesehen.
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -826,7 +826,7 @@ Erzwingen einer SSL-Verbindung muss für MySQL-Datenbankserver aktiviert sein
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4: Verwalten sicherer Betriebssystemkonfigurationen
 
-**Leitfaden**: Nicht zutreffend. Diese Empfehlung ist für Computeressourcen vorgesehen.
+**Anleitung:** Nicht zutreffend. Diese Empfehlung ist für Computeressourcen vorgesehen.
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -836,9 +836,9 @@ Erzwingen einer SSL-Verbindung muss für MySQL-Datenbankserver aktiviert sein
 
 **Leitfaden**: Nutzen Sie Azure Repos, um Code sicher zu speichern und zu verwalten, wenn Sie benutzerdefinierte Azure Policy-Definitionen für Azure Database for MySQL-Instanzen oder zugehörige Ressourcen verwenden.
 
-- [Speichern von Code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Speichern von Code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-- [Dokumentation zu Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Dokumentation zu Azure Repos](/azure/devops/repos/index?view=azure-devops&preserve-view=true)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -846,7 +846,7 @@ Erzwingen einer SSL-Verbindung muss für MySQL-Datenbankserver aktiviert sein
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: Sicheres Speichern von benutzerdefinierten Betriebssystemimages
 
-**Leitfaden**: Nicht zutreffend. Diese Empfehlung ist für Computeressourcen vorgesehen.
+**Anleitung:** Nicht zutreffend. Diese Empfehlung ist für Computeressourcen vorgesehen.
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -882,7 +882,7 @@ Erzwingen einer SSL-Verbindung muss für MySQL-Datenbankserver aktiviert sein
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: Implementieren der automatisierten Konfigurationsüberwachung für Betriebssysteme
 
-**Leitfaden**: Nicht zutreffend. Diese Empfehlung ist für Computeressourcen vorgesehen.
+**Anleitung:** Nicht zutreffend. Diese Empfehlung ist für Computeressourcen vorgesehen.
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -896,7 +896,7 @@ Erzwingen einer SSL-Verbindung muss für MySQL-Datenbankserver aktiviert sein
 
 - [Erstellen einer Key Vault-Instanz](../key-vault/general/quick-create-portal.md)
 
-- [Bereitstellen der Key Vault-Authentifizierung mit einer verwalteten Identität](/azure/key-vault/general/managed-identity)
+- [Bereitstellen der Key Vault-Authentifizierung mit einer verwalteten Identität](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -1096,7 +1096,7 @@ Kennzeichnen Sie außerdem die Abonnements (z. B. Produktion, Nicht-Produktion)
 
 **Leitfaden**: Befolgen Sie die Microsoft Rules of Engagement, um sicherzustellen, dass die Penetrationstests nicht gegen Microsoft-Richtlinien verstoßen: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
-- Weitere Informationen zur Microsoft-Strategie im Zusammenhang mit Red Team- und Livewebsite-Penetrationstests für von Microsoft verwaltete Cloudinfrastrukturen, Dienste und Anwendungen sowie zu deren Durchführung finden Sie [hier](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e).
+- [Weitere Informationen zur Microsoft-Strategie im Zusammenhang mit Red Team- und Livewebsite-Penetrationstests für von Microsoft verwaltete Cloudinfrastrukturen, Dienste und Anwendungen sowie zu deren Durchführung finden Sie unter diesem Link.](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -1104,5 +1104,5 @@ Kennzeichnen Sie außerdem die Abonnements (z. B. Produktion, Nicht-Produktion)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Lesen Sie den [Vergleichstest für die Azure-Sicherheit](/azure/security/benchmarks/overview).
-- Erfahren Sie mehr über [Azure-Sicherheitsbaselines](/azure/security/benchmarks/security-baselines-overview).
+- Lesen Sie den [Vergleichstest für die Azure-Sicherheit](../security/benchmarks/overview.md).
+- Erfahren Sie mehr über [Azure-Sicherheitsbaselines](../security/benchmarks/security-baselines-overview.md).

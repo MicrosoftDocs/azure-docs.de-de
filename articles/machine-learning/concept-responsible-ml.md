@@ -1,20 +1,20 @@
 ---
 title: Verantwortungsvolles maschinelles Lernen (ML) (Vorschauversion)
 titleSuffix: Azure Machine Learning
-description: In diesem Artikel erfahren Sie, was verantwortungsvolles maschinelles Lernen ist und wie es in Azure Machine Learning eingesetzt werden kann.
+description: Hier erfahren Sie, was verantwortungsvolles maschinelles Lernen ist und wie Sie es mit Azure Machine Learning verwenden, um Modelle zu analysieren, Daten zu schützen und den Modelllebenszyklus zu steuern.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 08/05/2020
-ms.openlocfilehash: 689b90fc1f45faad72640f47e5eebe936d2dc8b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/16/2020
+ms.openlocfilehash: ff85ed669fb7c3ac43e322eb747c537a30801920
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87829389"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701431"
 ---
 # <a name="what-is-responsible-machine-learning-preview"></a>Was ist verantwortungsvolles maschinelles Lernen? (Vorschauversion)
 
@@ -73,7 +73,7 @@ In herkömmlichen Cloudspeicher- und Computelösungen muss die Cloud über einen
 
 Die homomorphe Verschlüsselung ermöglicht es, Berechnungen mit verschlüsselten Daten durchzuführen, ohne Zugriff auf einen geheimen Schlüssel (Entschlüsselung) zu benötigen. Die Ergebnisse der Berechnungen sind verschlüsselt und können nur vom Besitzer des geheimen Schlüssels offengelegt werden. Dank der homomorphen Verschlüsselung erhalten Cloudanbieter zu keinem Zeitpunkt unverschlüsselten Zugriff auf die Daten, die bei ihnen gespeichert sind und mit denen sie Berechnungen ausführen. Berechnungen werden direkt mit den verschlüsselten Daten ausgeführt. Der Datenschutz basiert auf dieser hochmodernen Kryptografie, und der Datenbesitzer kontrolliert, welche Informationen freigegeben werden. Weitere Informationen zur homomorphen Verschlüsselung bei Microsoft finden Sie unter [Microsoft Research](https://www.microsoft.com/research/project/homomorphic-encryption/).
 
-Wenn Sie die homomorphe Verschlüsselung in Ihrer Azure Machine Learning-Instanz einführen möchten, verwenden Sie [encrypted-inference](https://pypi.org/project/encrypted-inference/)-Python-Bindungen für [Microsoft SEAL](https://github.com/microsoft/SEAL). Die Microsoft SEAL ist eine Bibliothek für homomorphe Verschlüsselung und ermöglicht Additionen und Multiplikationen mit verschlüsselten ganzen oder reellen Zahlen. Weitere Informationen zu Microsoft SEAL finden Sie im [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal) oder auf der [Microsoft Research-Projektseite](https://www.microsoft.com/research/project/microsoft-seal/).
+Wenn Sie die homomorphe Verschlüsselung in Ihrer Azure Machine Learning-Instanz einführen möchten, verwenden Sie [encrypted-inference](https://pypi.org/project/encrypted-inference/)-Python-Bindungen für [Microsoft SEAL](https://github.com/microsoft/SEAL). Die Microsoft SEAL ist eine Bibliothek für homomorphe Verschlüsselung und ermöglicht Additionen und Multiplikationen mit verschlüsselten ganzen oder reellen Zahlen. Weitere Informationen zu Microsoft SEAL finden Sie im [Azure Architecture Center](/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal) oder auf der [Microsoft Research-Projektseite](https://www.microsoft.com/research/project/microsoft-seal/).
 
 Das verlinkte Beispiel zeigt, [wie ein verschlüsselter rückschließender Webdienst in Azure Machine Learning bereitgestellt wird](how-to-homomorphic-encryption-seal.md).
 
@@ -96,5 +96,5 @@ Im folgenden Beispiel erfahren Sie, wie das Azure Machine Learning SDK zur Imple
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- Weitere Informationen zu den bewährten Methoden finden Sie im [Toolkit für verantwortungsvolle Innovationen](https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/).
+- Weitere Informationen zu den bewährten Methoden finden Sie im [Toolkit für verantwortungsvolle Innovationen](/azure/architecture/guide/responsible-innovation/).
 - Erfahren Sie mehr über die [ABOUT ML](https://www.partnershiponai.org/about-ml/)-Richtlinien zum Dokumentieren von Machine Learning-Systemen.

@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: wellsi
-ms.openlocfilehash: a2652bed6c8e7dec0a6fe8f9471793c3873646bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf0580c96f5bf78f0444b2bb39088f2a417fd658
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82781745"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025060"
 ---
 # <a name="how-to-configure-a-microphone-array"></a>Konfigurieren eines Mikrofonarrays
 
-In diesem Artikel erfahren Sie, wie Sie ein [Mikrofonarray](https://aka.ms/sdsdk-microphone) konfigurieren. Er umfasst die Einstellung des Arbeitswinkels und die Auswahl, welches Mikrofon für das Speech Devices SDK verwendet wird.
+In diesem Artikel erfahren Sie, wie Sie ein [Mikrofonarray](./speech-devices-sdk-microphone.md) konfigurieren. Er umfasst die Einstellung des Arbeitswinkels und die Auswahl, welches Mikrofon für das Speech Devices SDK verwendet wird.
 
-Das Speech Devices SDK funktioniert am besten mit einem Mikrofonarray, das nach [unseren Richtlinien](https://aka.ms/sdsdk-microphone) entwickelt wurde. Die Konfiguration des Mikrofonarrays kann über das Betriebssystem oder durch eine der folgenden Methoden bereitgestellt werden.
+Das Speech Devices SDK funktioniert am besten mit einem Mikrofonarray, das nach [unseren Richtlinien](./speech-devices-sdk-microphone.md) entwickelt wurde. Die Konfiguration des Mikrofonarrays kann über das Betriebssystem oder durch eine der folgenden Methoden bereitgestellt werden.
 
 Das Speech Devices SDK unterstützte Mikrofonarrays anfänglich durch Auswählen aus einem festen Satz von Konfigurationen.
 
@@ -49,7 +49,7 @@ Wenn ein Mikrofonarray mit `AudioConfig::FromMicrophoneInput` angegeben wird, da
 Der Microsoft Audio Stack im Speech Devices SDK unterstützt das Komprimieren von Daten nur für Abtastraten, die ein ganzzahliges Vielfaches von 16 KHz sind. Zusätzlich werden die folgenden Formate unterstützt: 32-Bit IEEE Little-Endian vom Typ „float“, 32-Bit Little-Endian vom Typ „signed int“, 24-Bit Little-Endian vom Typ „signed int“, 16-Bit Little-Endian vom Typ „signed int“ und 8-Bit vom Typ „signed int“.
 
 ## <a name="android"></a>Android
-Derzeit wird nur [Roobo v1](speech-devices-sdk-android-quickstart.md) vom Speech Devices SDK unterstützt. Das Verhalten ist dasselbe wie in früheren Versionen, außer dass jetzt die `MicArrayGeometryConfigFile`-Eigenschaft verwendet werden kann, um eine JSON-Datei mit einem Beamformingbereich anzugeben.
+Derzeit wird nur [Roobo v1](./speech-devices-sdk-quickstart.md?pivots=platform-android%253fpivots%253dplatform-android) vom Speech Devices SDK unterstützt. Das Verhalten ist dasselbe wie in früheren Versionen, außer dass jetzt die `MicArrayGeometryConfigFile`-Eigenschaft verwendet werden kann, um eine JSON-Datei mit einem Beamformingbereich anzugeben.
 
 ## <a name="microphone-array-configuration-json"></a>JSON-Konfiguration des Mikrofonarrays
 

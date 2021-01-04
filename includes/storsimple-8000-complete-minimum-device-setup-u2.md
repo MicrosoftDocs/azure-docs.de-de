@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: c44effe0bde3c7e880e53706fcb59d91a8605e7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 867cdc97ff91d5932230b733dee4d7660d499c39
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67178142"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027524"
 ---
 #### <a name="to-complete-the-minimum-storsimple-device-setup"></a>So führen Sie die mindestens erforderliche StorSimple-Gerätekonfiguration aus
 
@@ -30,7 +30,7 @@ ms.locfileid: "67178142"
 
        2. Geben Sie die festen IP-Adressen für Controller 0 und Controller 1 an. **Die festen IP-Adressen des Controllers müssen freie IP-Adressen in dem Subnetz sein, auf das die IP-Adresse des Geräts zugreifen kann.** Wenn die DATA 0-Schnittstelle für IPv4 konfiguriert wurde, müssen die festen IP-Adressen im IPv4-Format angegeben werden. Wenn Sie ein Präfix für die IPv6-Konfiguration angegeben haben, werden die festen IP-Adressen in diesen Feldern automatisch mit Daten aufgefüllt.
 
-            ![Netzwerkschnittstellen für die minimale Konfiguration von StorSimple-Geräten](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig2.png)
+            ![Netzwerkschnittstellen für die minimale Konfiguration von StorSimple-Geräten 2](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig2.png)
 
             Die festen IP-Adressen für den Controller werden für die Bereitstellung der Updates für das Gerät sowie für die Garbage Collection verwendet. Aus diesem Grund müssen die festen IP-Adressen routingfähig sein und eine Verbindung mit dem Internet herstellen können. Mit dem [Test-HcsmConnection][Test]-Cmdlet können Sie feststellen, ob die festen IP-Adressen Ihres Controllers routingfähig sind. Im folgenden Beispiel sind feste Controller-IP-Adressen dargestellt, die ins Internet weitergeleitet werden und auf die Microsoft Update-Server zugreifen können.
 
@@ -38,7 +38,7 @@ ms.locfileid: "67178142"
 
 1. Klicken Sie auf **OK**. Die Gerätekonfiguration wird gestartet. Wenn die Gerätekonfiguration abgeschlossen ist, erhalten Sie eine entsprechende Benachrichtigung. Der Gerätestatus ändert sich auf dem Blatt **Geräte** in **Online**.
 
-    ![Netzwerkschnittstellen für die minimale Konfiguration von StorSimple-Geräten](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig4.png)
+    ![Netzwerkschnittstellen für die minimale Konfiguration von StorSimple-Geräten 3](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig4.png)
 
 <!--Link reference-->
-[Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx
+[Test]: /previous-versions/windows/powershell-scripting/dn715782(v=wps.630)

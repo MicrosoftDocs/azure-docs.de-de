@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5e861182ee57a0b49d3e62a858fc97dbf0890ea3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48cde51ee9941f705aa848d121c419a8f0c9ad1a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399702"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013713"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Tutorial: Erstellen eines Mandantenmodells (Vorschau)
 
@@ -105,7 +105,7 @@ Wenn Ihre Mandantenmodellinstanz bereit ist, stellen Sie diese folgendermaßen b
 
 Nachdem Sie Ihr Modell bereitgestellt haben, können Sie es mit dem Speech SDK verwenden. In diesem Abschnitt verwenden Sie den Beispielcode, um den Speech-Dienst mithilfe der Azure Active Directory-Authentifizierung aufzurufen.
 
-Schauen wir uns den Code an, mit dem Sie das Speech SDK in C# aufrufen. In diesem Beispiel führen Sie die Spracherkennung mithilfe Ihres Mandantenmodells durch. Diese Anleitung setzt voraus, dass Ihre Plattform bereits eingerichtet ist. Hilfe bei der Einrichtung finden Sie unter [Schnellstart: Erkennen von Sprache, C# (.NET Core)](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
+Schauen wir uns den Code an, mit dem Sie das Speech SDK in C# aufrufen. In diesem Beispiel führen Sie die Spracherkennung mithilfe Ihres Mandantenmodells durch. Diese Anleitung setzt voraus, dass Ihre Plattform bereits eingerichtet ist. Hilfe bei der Einrichtung finden Sie unter [Schnellstart: Erkennen von Sprache, C# (.NET Core)](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore).
 
 Kopieren Sie diesen Code in Ihr Projekt:
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
-ms.openlocfilehash: c2738e1a6168440adee79ebaa599a313600153a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d87be085331c174b58e2a475e18efa54a78cfea
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546762"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895162"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Tutorial: Azure Active Directory-Integration mit SAP Cloud Platform
 
@@ -27,7 +27,7 @@ Die Integration von SAP Cloud Platform in Azure AD hat folgende Vorteile:
 * Sie können Benutzern ermöglichen, sich mit ihrem Azure AD-Konto automatisch bei SAP Cloud Platform anzumelden (Single Sign-On, SSO; einmaliges Anmelden).
 * Sie können Ihre Konten über das Azure-Portal an einem zentralen Ort verwalten.
 
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
@@ -37,7 +37,7 @@ Zum Konfigurieren der Azure AD-Integration mit SAP Cloud Platform benötigen Sie
 * Ein Azure AD-Abonnement Wenn Sie keine Azure AD-Umgebung besitzen, können Sie [hier](https://azure.microsoft.com/pricing/free-trial/) eine einmonatige Testversion anfordern.
 * SAP Cloud Platform-Abonnement, für das einmaliges Anmelden aktiviert ist
 
-Nach Abschluss dieses Tutorials können sich die SAP Cloud Platform zugewiesenen Azure AD-Benutzer wie unter [Einführung in den Zugriffsbereich](../user-help/active-directory-saas-access-panel-introduction.md) beschrieben mittels einmaliger Anmeldung bei der Anwendung anmelden.
+Nach Abschluss dieses Tutorials können sich die SAP Cloud Platform zugewiesenen Azure AD-Benutzer wie unter [Einführung in den Zugriffsbereich](../user-help/my-apps-portal-end-user-access.md) beschrieben mittels einmaliger Anmeldung bei der Anwendung anmelden.
 
 >[!IMPORTANT]
 >Sie müssen eine eigene Anwendung bereitstellen oder eine Anwendung unter Ihrem SAP Cloud Platform-Konto abonnieren, um das einmalige Anmelden testen zu können. In diesem Tutorial wird eine Anwendung auf dem Konto bereitgestellt.
@@ -47,7 +47,7 @@ Nach Abschluss dieses Tutorials können sich die SAP Cloud Platform zugewiesenen
 
 In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure AD in einer Testumgebung.
 
-* SAP Cloud Platform unterstützt **SP**-initiiertes einmaliges Anmelden.
+* SAP Cloud Platform unterstützt **SP** -initiiertes einmaliges Anmelden.
 
 ## <a name="adding-sap-cloud-platform-from-the-gallery"></a>Hinzufügen von SAP Cloud Platform über den Katalog
 
@@ -59,15 +59,15 @@ Zum Konfigurieren der Integration von SAP Cloud Platform in Azure AD müssen Sie
 
     ![Schaltfläche „Azure Active Directory“](common/select-azuread.png)
 
-2. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie die Option **Alle Anwendungen** aus.
+2. Navigieren Sie zu **Unternehmensanwendungen** , und wählen Sie die Option **Alle Anwendungen** aus.
 
     ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
 
-3. Klicken Sie oben im Dialogfeld auf die Schaltfläche **Neue Anwendung**, um eine neue Anwendung hinzuzufügen.
+3. Klicken Sie oben im Dialogfeld auf die Schaltfläche **Neue Anwendung** , um eine neue Anwendung hinzuzufügen.
 
     ![Schaltfläche „Neue Anwendung“](common/add-new-app.png)
 
-4. Geben Sie im Suchfeld **SAP Cloud Platform** ein, wählen Sie im Ergebnisbereich **SAP Cloud Platform** aus, und klicken Sie dann auf die Schaltfläche **Hinzufügen**, um die Anwendung hinzuzufügen.
+4. Geben Sie im Suchfeld **SAP Cloud Platform** ein, wählen Sie im Ergebnisbereich **SAP Cloud Platform** aus, und klicken Sie dann auf die Schaltfläche **Hinzufügen** , um die Anwendung hinzuzufügen.
 
      ![SAP Cloud Platform in der Ergebnisliste](common/search-new-app.png)
 
@@ -99,7 +99,7 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD bei SAP Clou
 
     ![Auswahlmodus für einmaliges Anmelden](common/select-saml-option.png)
 
-3. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Symbol **Bearbeiten**, um das Dialogfeld **Grundlegende SAML-Konfiguration** zu öffnen.
+3. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Symbol **Bearbeiten** , um das Dialogfeld **Grundlegende SAML-Konfiguration** zu öffnen.
 
     ![Bearbeiten der SAML-Basiskonfiguration](common/edit-urls.png)
 
@@ -107,7 +107,7 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD bei SAP Clou
 
     ![SSO-Informationen zur Domäne und zu den URLs für SAP Cloud Platform](common/sp-identifier-reply.png)
 
-    a. Geben Sie im Textfeld **Anmelde-URL** die URL ein, die von den Benutzern zur Anmeldung bei der **SAP Cloud Platform**-Anwendung verwendet wird. Dies ist die kontospezifische URL einer geschützten Ressource in der SAP Cloud Platform-Anwendung. Die URL basiert auf dem folgenden Muster: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
+    a. Geben Sie im Textfeld **Anmelde-URL** die URL ein, die von den Benutzern zur Anmeldung bei der **SAP Cloud Platform** -Anwendung verwendet wird. Dies ist die kontospezifische URL einer geschützten Ressource in der SAP Cloud Platform-Anwendung. Die URL basiert auf dem folgenden Muster: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
       
     >[!NOTE]
     >Dies ist die URL in Ihrer SAP Cloud Platform-Anwendung, die die Authentifizierung des Benutzers erfordert.
@@ -136,7 +136,7 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD bei SAP Clou
     > [!NOTE] 
     > Hierbei handelt es sich um Beispielwerte. Ersetzen Sie diese Werte durch die tatsächliche Anmelde-URL, den tatsächlichen Bezeichner und die tatsächliche Antwort-URL. Anmelde-URL und Bezeichner erhalten Sie vom [Supportteam für den SAP Cloud Plattform-Client](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/5dd739823b824b539eee47b7860a00be.html). Die Antwort-URL finden Sie im Abschnitt für die Verwaltung der Vertrauensstellung. Dies wird weiter unten im Tutorial erläutert.
     > 
-4. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** auf **Herunterladen**, um den Ihren Anforderungen entsprechenden **Verbundmetadaten-XML**-Code aus den verfügbaren Optionen herunterzuladen und auf Ihrem Computer zu speichern.
+4. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** auf **Herunterladen** , um den Ihren Anforderungen entsprechenden **Verbundmetadaten-XML** -Code aus den verfügbaren Optionen herunterzuladen und auf Ihrem Computer zu speichern.
 
     ![Downloadlink für das Zertifikat](common/metadataxml.png)
 
@@ -150,15 +150,15 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD bei SAP Clou
 
 3. Führen Sie im Abschnitt für die Verwaltung der Vertrauensstellung unter **Local Service Provider** (Lokaler Dienstanbieter) die folgenden Schritte aus:
 
-    ![Verwaltung von Vertrauensstellungen](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Verwaltung von Vertrauensstellungen")
+    ![Screenshot: Abschnitt für die Verwaltung der Vertrauensstellung, in dem die Registerkarte „Local Service Provider“ (Lokaler Dienstanbieter) ausgewählt ist und alle Textfelder hervorgehoben sind](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Verwaltung von Vertrauensstellungen")
    
     a. Klicken Sie auf **Bearbeiten**.
 
     b. Wählen Sie als **Konfigurationstyp** die Option **Benutzerdefiniert**.
 
-    c. Belassen Sie als **Name des lokalen Dienstanbieters**den Standardwert. Kopieren Sie diesen Wert, und fügen Sie ihn in der Azure AD-Konfiguration für SAP Cloud Plattform in das Feld **Bezeichner** ein.
+    c. Belassen Sie als **Name des lokalen Dienstanbieters** den Standardwert. Kopieren Sie diesen Wert, und fügen Sie ihn in der Azure AD-Konfiguration für SAP Cloud Plattform in das Feld **Bezeichner** ein.
 
-    d. Klicken Sie zum Generieren eines **Signaturschlüssels** und eines **Signaturzertifikat**-Schlüsselpaars auf **Schlüsselpaar generieren**.
+    d. Klicken Sie zum Generieren eines **Signaturschlüssels** und eines **Signaturzertifikat** -Schlüsselpaars auf **Schlüsselpaar generieren**.
 
     e. Wählen Sie als **Prinzipalweitergabe** die Option **Deaktiviert**.
 
@@ -174,23 +174,23 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD bei SAP Clou
 
     b. Öffnen Sie die heruntergeladene SAP Cloud Platform-Metadatendatei (XML-Datei), und navigieren Sie zum Tag **Ns3:AssertionConsumerService**.
  
-    c. Kopieren Sie den Wert des Attributs **Speicherort**, und fügen Sie ihn in der Azure AD-Konfiguration für SAP Cloud Plattform in das Textfeld **Antwort-URL** ein.
+    c. Kopieren Sie den Wert des Attributs **Speicherort** , und fügen Sie ihn in der Azure AD-Konfiguration für SAP Cloud Plattform in das Textfeld **Antwort-URL** ein.
 
-5. Klicken Sie auf die Registerkarte **Vertrauenswürdiger Identitätsanbieter**, und klicken Sie dann auf **Vertrauenswürdigen Identitätsanbieter hinzufügen**.
+5. Klicken Sie auf die Registerkarte **Vertrauenswürdiger Identitätsanbieter** , und klicken Sie dann auf **Vertrauenswürdigen Identitätsanbieter hinzufügen**.
    
-    ![Verwaltung von Vertrauensstellungen](./media/sap-hana-cloud-platform-tutorial/ic790802.png "Verwaltung von Vertrauensstellungen")
+    ![Screenshot: Seite für die Verwaltung der Vertrauensstellung, auf der die Registerkarte „Trusted Identity Provider“ (Vertrauenswürdiger Identitätsanbieter) ausgewählt ist](./media/sap-hana-cloud-platform-tutorial/ic790802.png "Verwaltung von Vertrauensstellungen")
    
     >[!NOTE]
     >Um die Liste der vertrauenswürdigen Identitätsanbieter verwalten zu können, müssen Sie den Konfigurationstyp „Benutzerdefinierte“ im Abschnitt „Lokale Dienstanbieter“ ausgewählt haben. Beim Standard-Konfigurationstyp haben Sie ein nicht-bearbeitbares und implizites Vertrauen gegenüber dem SAP ID-Dienst. Bei der Option „Keine“ haben Sie keine Vertrauenseinstellungen.
     > 
     > 
 
-6. Klicken Sie auf die Registerkarte **Allgemein** und dann auf **Durchsuchen**, um die heruntergeladene Metadatendatei hochzuladen.
+6. Klicken Sie auf die Registerkarte **Allgemein** und dann auf **Durchsuchen** , um die heruntergeladene Metadatendatei hochzuladen.
     
     ![Verwaltung von Vertrauensstellungen](./media/sap-hana-cloud-platform-tutorial/ic793932.png "Verwaltung von Vertrauensstellungen")
     
     >[!NOTE]
-    >Nach dem Hochladen der Metadatendatei werden die Werte für **URL für einmaliges Anmelden**, **URL für einmaliges Abmelden** und **Signaturzertifikat** automatisch ausgefüllt.
+    >Nach dem Hochladen der Metadatendatei werden die Werte für **URL für einmaliges Anmelden** , **URL für einmaliges Abmelden** und **Signaturzertifikat** automatisch ausgefüllt.
     > 
      
 7. Klicken Sie auf die Registerkarte **Attribute** .
@@ -199,7 +199,7 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD bei SAP Clou
     
     ![Attribute](./media/sap-hana-cloud-platform-tutorial/ic790804.png "Attributes") 
 
-    a. Klicken Sie auf **Assertion-Attribut hinzufügen**, und für Sie dann die folgenden Assertion-basierten Attribute hinzu:
+    a. Klicken Sie auf **Assertion-Attribut hinzufügen** , und für Sie dann die folgenden Assertion-basierten Attribute hinzu:
        
     | Assertion-Attribut | Prinzipal-Attribut |
     | --- | --- |
@@ -221,7 +221,7 @@ Als optionalen Schritt können Sie Assertion-Gruppen für Ihren Azure Active Dir
 
 Mithilfe von Gruppen für SAP Cloud Platform können Sie einzelne oder mehrere Benutzer dynamisch einzelnen oder mehreren Rollen in Ihren SAP Cloud Platform-Anwendungen zuweisen – definiert durch Werte von Attributen in der SAML 2.0-Assertion. 
 
-Beispiel: Wenn die Assertion das Attribut „*contract=temporary*“ enthält, kann es sein, dass Sie alle betroffenen Benutzer der Gruppe „*TEMPORÄR*“ hinzufügen möchten. Die Gruppe „*TEMPORÄR*“ enthält unter Umständen Rollen aus mindestens einer Anwendung, die unter Ihrem SAP Cloud Platform-Konto bereitgestellt wurde.
+Beispiel: Wenn die Assertion das Attribut „ *contract=temporary* “ enthält, kann es sein, dass Sie alle betroffenen Benutzer der Gruppe „ *TEMPORÄR* “ hinzufügen möchten. Die Gruppe „ *TEMPORÄR* “ enthält unter Umständen Rollen aus mindestens einer Anwendung, die unter Ihrem SAP Cloud Platform-Konto bereitgestellt wurde.
  
 Verwenden Sie Assertion-basierte Gruppen, wenn Sie Anwendungsrollen in Ihrem SAP Cloud Platform-Konto gleichzeitig viele Benutzer zuweisen möchten. Wenn Sie nur einen einzelnen Benutzer oder eine geringe Anzahl von Benutzern bestimmten Rollen zuweisen möchten, empfiehlt es sich, diese direkt im SAP Cloud Platform-Cockpit auf der Registerkarte **Autorisierungen** zuzuweisen.
 
@@ -229,7 +229,7 @@ Verwenden Sie Assertion-basierte Gruppen, wenn Sie Anwendungsrollen in Ihrem SAP
 
 Das Ziel dieses Abschnitts ist das Erstellen eines Testbenutzers namens Britta Simon im Azure-Portal.
 
-1. Wählen Sie im Azure-Portal im linken Bereich die Option **Azure Active Directory**, **Benutzer** und dann **Alle Benutzer** aus.
+1. Wählen Sie im Azure-Portal im linken Bereich die Option **Azure Active Directory** , **Benutzer** und dann **Alle Benutzer** aus.
 
     ![Links „Benutzer und Gruppen“ und „Alle Benutzer“](common/users.png)
 
@@ -246,7 +246,7 @@ Das Ziel dieses Abschnitts ist das Erstellen eines Testbenutzers namens Britta S
     b. Geben Sie im Feld **Benutzername** Folgendes ein: **brittasimon\@ihreunternehmensdomäne.erweiterung**.  
     Zum Beispiel, BrittaSimon@contoso.com
 
-    c. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den Wert, der im Feld „Kennwort“ angezeigt wird.
+    c. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen** , und notieren Sie sich den Wert, der im Feld „Kennwort“ angezeigt wird.
 
     d. Klicken Sie auf **Erstellen**.
 
@@ -266,7 +266,7 @@ In diesem Abschnitt ermöglichen Sie Britta Simon die Verwendung des einmaligen 
 
     ![Link „Benutzer und Gruppen“](common/users-groups-blade.png)
 
-4. Klicken Sie auf die Schaltfläche **Benutzer hinzufügen**, und wählen Sie dann im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
+4. Klicken Sie auf die Schaltfläche **Benutzer hinzufügen** , und wählen Sie dann im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
 
     ![Bereich „Zuweisung hinzufügen“](common/add-assign-user.png)
 
@@ -282,7 +282,7 @@ Um Azure AD-Benutzern die Anmeldung bei SAP Cloud Platform zu ermöglichen, müs
 
 **Führen Sie die folgenden Schritte aus, um einem Benutzer eine Rolle zuzuweisen:**
 
-1. Melden Sie sich bei Ihrem **SAP Cloud Platform**-Cockpit an.
+1. Melden Sie sich bei Ihrem **SAP Cloud Platform** -Cockpit an.
 
 2. Führen Sie Folgendes aus:
    
@@ -302,13 +302,12 @@ Um Azure AD-Benutzern die Anmeldung bei SAP Cloud Platform zu ermöglichen, müs
 
 In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich.
 
-Wenn Sie im Zugriffsbereich auf die Kachel „SAP Cloud Platform“ klicken, sollten Sie automatisch bei der SAP Cloud Platform-Anwendung angemeldet werden, für die Sie SSO eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Wenn Sie im Zugriffsbereich auf die Kachel „SAP Cloud Platform“ klicken, sollten Sie automatisch bei der SAP Cloud Platform-Anwendung angemeldet werden, für die Sie SSO eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Weitere Ressourcen
 
-- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](./tutorial-list.md)
 
-- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Was ist bedingter Zugriff?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Was ist bedingter Zugriff?](../conditional-access/overview.md)

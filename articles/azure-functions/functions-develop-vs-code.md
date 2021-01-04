@@ -4,12 +4,12 @@ description: In diesem Artikel erhalten Sie Informationen über das Entwickeln u
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: c851f5284b87f224932b027fd10ce720327639c2
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 573177615ff898326eb29649a7f766b5df34b587
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167898"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168429"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Entwickeln von Azure Functions mithilfe von Visual Studio Code
 
@@ -34,7 +34,7 @@ Die Erweiterung kann mit den folgenden Sprachen verwendet werden, die ab Version
 
 In diesem Artikel stehen Beispiele derzeit nur für JavaScript- (Node.js) und C#-Klassenbibliotheksfunktionen zur Verfügung.  
 
-Dieser Artikel erläutert detailliert, wie Sie die Azure Functions-Erweiterung verwenden, um Funktionen zu entwickeln und in Azure zu veröffentlichen. Bevor Sie diesen Artikel lesen, sollten Sie [Ihre erste Funktion mit Visual Studio Code erstellen](functions-create-first-function-vs-code.md).
+Dieser Artikel erläutert detailliert, wie Sie die Azure Functions-Erweiterung verwenden, um Funktionen zu entwickeln und in Azure zu veröffentlichen. Bevor Sie diesen Artikel lesen, sollten Sie [Ihre erste Funktion mit Visual Studio Code erstellen](./create-first-function-vs-code-csharp.md).
 
 > [!IMPORTANT]
 > Kombinieren Sie lokale Entwicklung und Portalentwicklung nicht in einer Funktions-App. Bei der Veröffentlichung aus einem lokalen Projekt in einer Funktions-App überschreibt der Bereitstellungsprozess alle Funktionen, die Sie im Portal entwickelt haben.
@@ -66,7 +66,7 @@ Mithilfe der Functions-Erweiterung können Sie zugleich mit Ihrer ersten Funktio
 
 1. Wählen Sie den Ordner für Ihr Funktions-App-Projekt und dann **wählen Sie eine Sprache für Ihr Funktions-App-Projekt** aus.
 
-1. Wenn Sie die Core Tools noch nicht installiert haben, werden Sie aufgefordert, **eine Version der zu installierenden Core Tools auszuwählen** . Wählen Sie Version 2.x oder höher aus. 
+1. Wenn Sie die Core Tools noch nicht installiert haben, werden Sie aufgefordert, **eine Version der zu installierenden Core Tools auszuwählen**. Wählen Sie Version 2.x oder höher aus. 
 
 1. Wählen Sie die Funktionsvorlage **HTTP-Trigger** aus. Sie können sich aber auch alternativ für **Vorerst überspringen** entscheiden, um ein Projekt ohne eine Funktion zu erstellen. Sie können später jederzeit [Ihrem Projekt eine Funktion hinzufügen](#add-a-function-to-your-project).
 
@@ -84,9 +84,9 @@ Mithilfe der Functions-Erweiterung können Sie zugleich mit Ihrer ersten Funktio
 
 Die Projektvorlage erstellt ein Projekt in Ihrer gewählten Sprache und installiert die erforderlichen Abhängigkeiten. Für jede Sprache weist das neue Projekt die folgenden Dateien auf:
 
-* **host.json** : Ermöglicht das Konfigurieren des Functions-Hosts. Diese Einstellungen gelten, wenn Sie Funktionen lokal ausführen und sie in Azure ausführen. Weitere Informationen finden Sie in der [host.json-Referenz](functions-host-json.md).
+* **host.json**: Ermöglicht das Konfigurieren des Functions-Hosts. Diese Einstellungen gelten, wenn Sie Funktionen lokal ausführen und sie in Azure ausführen. Weitere Informationen finden Sie in der [host.json-Referenz](functions-host-json.md).
 
-* **local.settings.json** : Behält Einstellungen beim lokalen Ausführen von Funktionen bei. Diese Einstellungen werden nur beim lokalen Ausführen von Funktionen verwendet. Weitere Informationen finden Sie unter [Datei für lokale Einstellungen](#local-settings-file).
+* **local.settings.json**: Behält Einstellungen beim lokalen Ausführen von Funktionen bei. Diese Einstellungen werden nur beim lokalen Ausführen von Funktionen verwendet. Weitere Informationen finden Sie unter [Datei für lokale Einstellungen](#local-settings-file).
 
     >[!IMPORTANT]
     >Da die Datei „local.settings.json“ Geheimnisse enthalten kann, müssen Sie sie aus der Quellcodeverwaltung Ihres Projekts ausschließen.
@@ -141,7 +141,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 
 ## <a name="add-a-function-to-your-project"></a>Hinzufügen einer Funktion zu Ihrem Projekt
 
-Sie können einem Projekt eine neue Funktion hinzufügen, indem Sie eine der vordefinierten Functions-Triggervorlagen verwenden. Um einen neuen Funktionstrigger hinzuzufügen, drücken Sie F1, um die Befehlspalette zu öffnen. Suchen Sie dann nach dem Befehl **Azure Functions: Funktion erstellen** . Befolgen Sie die Anweisungen, um Ihren Triggertyp auszuwählen und die erforderlichen Attribute des Triggers zu definieren. Wenn eine Zugriffstaste oder eine Verbindungszeichenfolge erforderlich ist, damit Ihr Trigger eine Verbindung mit einem Dienst herstellen kann, bereiten Sie dies vor, bevor Sie den Funktionstrigger erstellen.
+Sie können einem Projekt eine neue Funktion hinzufügen, indem Sie eine der vordefinierten Functions-Triggervorlagen verwenden. Um einen neuen Funktionstrigger hinzuzufügen, drücken Sie F1, um die Befehlspalette zu öffnen. Suchen Sie dann nach dem Befehl **Azure Functions: Funktion erstellen**. Befolgen Sie die Anweisungen, um Ihren Triggertyp auszuwählen und die erforderlichen Attribute des Triggers zu definieren. Wenn eine Zugriffstaste oder eine Verbindungszeichenfolge erforderlich ist, damit Ihr Trigger eine Verbindung mit einem Dienst herstellen kann, bereiten Sie dies vor, bevor Sie den Funktionstrigger erstellen.
 
 Die Ergebnisse dieser Aktion hängen von Ihrer Projektsprache ab:
 
@@ -233,7 +233,7 @@ Wenn Sie aus Visual Studio Code veröffentlichen, nutzen Sie die [ZIP Deploy](fu
 
 ### <a name="quick-function-app-create"></a>Schnelle Erstellung von Funktions-Apps
 
-Wenn Sie **+ Neue Funktions-App in Azure erstellen...** auswählen, generiert die Erweiterung automatisch Werte für die Azure-Ressourcen, die von ihrer Funktions-App benötigt werden. Diese Werte basieren auf dem von Ihnen ausgewählten Namen der Funktions-App. Ein Beispiel für die Verwendung von Standardwerten zum Veröffentlichen Ihres Projekts in einer neuen Funktions-App in Azure finden Sie im [Artikel zum Schnellstart für Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure).
+Wenn Sie **+ Neue Funktions-App in Azure erstellen...** auswählen, generiert die Erweiterung automatisch Werte für die Azure-Ressourcen, die von ihrer Funktions-App benötigt werden. Diese Werte basieren auf dem von Ihnen ausgewählten Namen der Funktions-App. Ein Beispiel für die Verwendung von Standardwerten zum Veröffentlichen Ihres Projekts in einer neuen Funktions-App in Azure finden Sie im [Artikel zum Schnellstart für Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure).
 
 Wenn Sie für die erstellten Ressourcen aussagekräftige Namen bereitstellen möchten, müssen Sie den erweiterten Erstellungspfad auswählen.
 
@@ -245,9 +245,9 @@ Mit den folgenden Schritten wird Ihr Projekt in einer neuen Funktions-App veröf
 
     ![Einstellungen für Funktions-Apps](./media/functions-develop-vs-code/function-app-publish-project.png)
 
-1. Wenn Sie nicht angemeldet sind, werden Sie aufgefordert, sich **bei Azure anzumelden** . Sie können auch ein **kostenloses Azure-Konto erstellen** . Nach der Anmeldung über den Browser wechseln Sie zurück zu Visual Studio Code.
+1. Wenn Sie nicht angemeldet sind, werden Sie aufgefordert, sich **bei Azure anzumelden**. Sie können auch ein **kostenloses Azure-Konto erstellen**. Nach der Anmeldung über den Browser wechseln Sie zurück zu Visual Studio Code.
 
-1. Wenn Sie mehrere Abonnements besitzen, **wählen Sie ein Abonnement für die Funktions-App aus** , und wählen Sie dann **+ Neue Funktions-App erstellen... _Erweitert_** aus. Diese Option _Erweitert_ ermöglicht Ihnen eine bessere Kontrolle über die Ressourcen, die Sie in Azure erstellen. 
+1. Wenn Sie mehrere Abonnements besitzen, **wählen Sie ein Abonnement für die Funktions-App aus**, und wählen Sie dann **+ Neue Funktions-App erstellen... _Erweitert_** aus. Diese Option _Erweitert_ ermöglicht Ihnen eine bessere Kontrolle über die Ressourcen, die Sie in Azure erstellen. 
 
 1. Geben Sie gemäß der Eingabeaufforderungen die folgenden Informationen ein:
 
@@ -276,7 +276,7 @@ Wenn Sie [Continuous Deployment](functions-continuous-deployment.md) einrichten,
 
 Um eine über HTTP ausgelöste Funktion aufzurufen, benötigen Sie die URL der Funktion, wenn sie in Ihrer Funktions-App bereitgestellt ist. Diese URL beinhaltet alle erforderlichen [Funktionstasten](functions-bindings-http-webhook-trigger.md#authorization-keys). Sie können die Erweiterung verwenden, um diese URLs für Ihre bereitgestellten Funktionen abzurufen.
 
-1. Drücken Sie die F1-Taste, um die Befehlspalette zu öffnen. Suchen Sie dann den Befehl **Azure Functions: Funktions-URL kopieren** , und führen Sie ihn aus.
+1. Drücken Sie die F1-Taste, um die Befehlspalette zu öffnen. Suchen Sie dann den Befehl **Azure Functions: Funktions-URL kopieren**, und führen Sie ihn aus.
 
 1. Folgen Sie den Aufforderungen, um Ihre Funktions-App in Azure und dann den spezifischen HTTP-Auslöser auszuwählen, den Sie aufrufen möchten.
 
@@ -311,11 +311,11 @@ In diesem Abschnitt wird die [Azure Storage-Erweiterung für Visual Studio Code]
 
 So legen Sie die Speicherkonto-Verbindungszeichenfolge fest:
 
-1. Öffnen Sie in Visual Studio den **Cloud-Explorer** , erweitern Sie **Speicherkonto** > **Ihr Speicherkonto** , wählen Sie **Eigenschaften** aus, und kopieren Sie dann den Wert von **Primäre Verbindungszeichenfolge** .
+1. Öffnen Sie in Visual Studio den **Cloud-Explorer**, erweitern Sie **Speicherkonto** > **Ihr Speicherkonto**, wählen Sie **Eigenschaften** aus, und kopieren Sie dann den Wert von **Primäre Verbindungszeichenfolge**.
 
 2. Öffnen Sie in Ihrem Projekt die Datei „local.settings.json“, und legen Sie den Wert des Schlüssels **AzureWebJobsStorage** auf die kopierte Verbindungszeichenfolge fest.
 
-3. Wiederholen Sie den vorherigen Schritt zum Hinzufügen von eindeutigen Schlüsseln zum **Values** -Array für alle anderen Verbindungen, die von Ihren Funktionen benötigt werden.
+3. Wiederholen Sie den vorherigen Schritt zum Hinzufügen von eindeutigen Schlüsseln zum **Values**-Array für alle anderen Verbindungen, die von Ihren Funktionen benötigt werden.
 
 Weitere Informationen finden Sie unter [Datei für lokale Einstellungen](#local-settings-file).
 
@@ -359,7 +359,7 @@ Sie können Einstellungen auch mit dem Befehl **Azure Functions: Lokale Einstell
 
 Wenn die lokale Datei verschlüsselt ist, wird sie entschlüsselt, veröffentlicht und erneut verschlüsselt. Wenn Einstellungen vorhanden sind, bei denen die Werte an den beiden Speicherorten einen Konflikt verursachen, werden Sie aufgefordert, die Vorgehensweise auszuwählen.
 
-Anzeigen der vorhandenen App-Einstellungen im Bereich **Azure: Functions** durch Aufklappen Ihres Abonnements, Ihrer Funktions-App und der **Anwendungseinstellungen** .
+Anzeigen der vorhandenen App-Einstellungen im Bereich **Azure: Functions** durch Aufklappen Ihres Abonnements, Ihrer Funktions-App und der **Anwendungseinstellungen**.
 
 ![Anzeigen der Einstellungen der Funktions-App in Visual Studio Code](./media/functions-develop-vs-code/view-app-settings.png)
 
@@ -398,7 +398,7 @@ Standardmäßig werden alle C#-Projekte als [C#-kompilierte Klassenbibliothekspr
 
 1. Wählen Sie **Datei** > **Einstellungen** > **Einstellungen** aus.
 
-1. Navigieren Sie zu **Benutzereinstellungen** > **Erweiterungen** > **Azure Functions** .
+1. Navigieren Sie zu **Benutzereinstellungen** > **Erweiterungen** > **Azure Functions**.
 
 1. Wählen Sie **C#Script** in **Azure-Funktion: Projektsprache** aus.
 

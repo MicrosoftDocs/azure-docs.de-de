@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: availability
 ms.date: 02/28/2020
 ms.reviewer: jushiman
-ms.custom: avverma
-ms.openlocfilehash: 45c316c1d1dd56f6d920423a725b2488df1a5032
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: ae508754775d4eb622d8e91ef58eb0d6e1c45692
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86527420"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94889013"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Automatische Instanzreparaturen für Azure-VM-Skalierungsgruppen
 
@@ -36,9 +36,9 @@ Vergewissern Sie sich vor dem Aktivieren der Richtlinie für automatische Instan
 
 Für Instanzen, die als „Fehlerhaft“ markiert sind, werden automatische Reparaturen durch die Skalierungsgruppe ausgelöst. Stellen Sie sicher, dass der Anwendungsendpunkt ordnungsgemäß konfiguriert ist, bevor Sie die Richtlinie für automatische Reparaturen aktivieren, um unbeabsichtigte Instanzreparaturen zu vermeiden, während der Endpunkt konfiguriert wird.
 
-**Aktivieren einer einzelnen Platzierungsgruppe**
+**Maximum number of instances in the scale set** (Maximale Anzahl von Instanzen in der Skalierungsgruppe)
 
-Dieses Feature ist derzeit nur für Skalierungsgruppen verfügbar, die als einzelne Platzierungsgruppe bereitgestellt werden. Die Eigenschaft *SinglePlacementGroup* muss auf *TRUE* festgelegt sein, damit Ihre Skalierungsgruppe das Feature für automatische Instanzreparaturen verwendet. Weitere Informationen zu [Platzierungsgruppen](./virtual-machine-scale-sets-placement-groups.md#placement-groups).
+Dieses Feature ist derzeit nur für Skalierungsgruppen mit maximal 200 Instanzen verfügbar. Die Skalierungsgruppe kann entweder als einzelne Platzierungsgruppe oder als mehrfache Platzierungsgruppe bereitgestellt werden. Die Anzahl der Instanzen kann jedoch nicht über 200 liegen, wenn automatische Instanzreparaturen für die Skalierungsgruppe aktiviert sind.
 
 **API-Version**
 
@@ -56,11 +56,11 @@ Dieses Feature wird für Service Fabric-Skalierungsgruppen zurzeit nicht unterst
 
 Das Feature für automatische Instannreparatur basiert auf der Integritätsüberwachung einzelner Instanzen in einer Skalierungsgruppe. VM-Instanzen in einer Skalierungsgruppe können so konfiguriert werden, dass der Integritätsstatus der Anwendung entweder mit der [Erweiterung für die Anwendungsintegrität](./virtual-machine-scale-sets-health-extension.md) oder mit [Lastenausgleichs-Integritätstests](../load-balancer/load-balancer-custom-probe-overview.md) ausgegeben wird. Wenn eine Instanz als fehlerhaft eingestuft wird, führt die Skalierungsgruppe eine Reparaturaktion aus, indem sie die fehlerhafte Instanz löscht und eine neue Instanz erstellt, um sie zu ersetzen. Das neueste VM-Skalierungsgruppenmodell wird verwendet, um die neue Instanz zu erstellen. Diese Funktion kann im VM-Skalierungsgruppenmodell mithilfe des *automaticRepairsPolicy*-Objekts aktiviert werden.
 
-### <a name="batching"></a>Batching
+### <a name="batching"></a>Batchverarbeitung
 
 Die automatischen Instanzreparaturvorgänge werden in Batches ausgeführt. Zu jedem Zeitpunkt werden nicht mehr als 5 % der Instanzen in der Skalierungsgruppe über die Richtlinie für automatische Reparaturen repariert. Dadurch wird verhindert, dass eine große Anzahl von Instanzen gleichzeitig gelöscht und neu erstellt wird, wenn diese gleichzeitig als fehlerhaft eingestuft werden.
 
-### <a name="grace-period"></a>Toleranzperiode
+### <a name="grace-period"></a>Karenzzeit
 
 Wenn eine Instanz aufgrund einer PUT-, PATCH- oder POST-Aktion, die für die Skalierungsgruppe ausgeführt wird (z. B. Reimaging, erneute Bereitstellung, Aktualisierung usw.), einen Statusänderungsvorgang durchläuft, wird jede Reparaturaktion für diese Instanz erst ausgeführt, nachdem die Toleranzperiode abgewartet wurde. Die Toleranzperiode ist die Zeitspanne, die es der Instanz ermöglicht, in einen fehlerfreien Zustand zurückzukehren. Die Toleranzperiode startet, nachdem die Statusänderung abgeschlossen wurde. Dadurch werden vorzeitige oder versehentliche Reparaturvorgänge vermieden. Die Toleranzperiode wird für alle neu erstellten Instanzen in der Skalierungsgruppe (einschließlich der als Ergebnis eines Reparaturvorgangs erstellten Instanz) eingehalten. Die Toleranzperiode wird im ISO 8601-Format in Minuten angegeben und kann mithilfe der Eigenschaft *automaticRepairsPolicy.gracePeriod* festgelegt werden. Die Toleranzperiode kann zwischen 30 Minuten und 90 Minuten betragen und weist einen Standardwert von 30 Minuten auf.
 
@@ -127,7 +127,7 @@ PUT or PATCH on '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupNa
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Die Funktion für automatische Instanzreparatur kann beim Erstellen einer neuen Skalierungsgruppe mithilfe des Cmdlets [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) aktiviert werden. Dieses Beispielskript führt Sie schrittweise durch die Erstellung einer Skalierungsgruppe und zugehöriger Ressourcen mithilfe der Konfigurationsdatei: [Erstellen Sie eine vollständige VM-Skalierungsgruppe](./scripts/powershell-sample-create-complete-scale-set.md). Sie können die Richtlinie für automatische Instanzreparaturen konfigurieren, indem Sie die Parameter *EnableAutomaticRepair* und *AutomaticRepairGracePeriod* dem Konfigurationsobjekt hinzufügen, um die Skalierungsgruppe zu erstellen. Das folgende Beispiel aktiviert das Feature mit einer Toleranzperiode von 30 Minuten.
+Die Funktion für automatische Instanzreparatur kann beim Erstellen einer neuen Skalierungsgruppe mithilfe des Cmdlets [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) aktiviert werden. Dieses Beispielskript führt Sie schrittweise durch die Erstellung einer Skalierungsgruppe und zugehöriger Ressourcen mithilfe der Konfigurationsdatei: [Erstellen einer vollständigen VM-Skalierungsgruppe](./scripts/powershell-sample-create-complete-scale-set.md). Sie können die Richtlinie für automatische Instanzreparaturen konfigurieren, indem Sie die Parameter *EnableAutomaticRepair* und *AutomaticRepairGracePeriod* dem Konfigurationsobjekt hinzufügen, um die Skalierungsgruppe zu erstellen. Das folgende Beispiel aktiviert das Feature mit einer Toleranzperiode von 30 Minuten.
 
 ```azurepowershell-interactive
 New-AzVmssConfig `

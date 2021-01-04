@@ -23,6 +23,10 @@
           href: tutorial-net-virtual-machine.md
         - name: Verwenden von Azure Key Vault mit einem virtuellen Windows in Python
           href: tutorial-python-virtual-machine.md
+    - name: Azure App Service
+      items:
+        - name: Verwenden von Azure Key Vault mit einer Web-App in .NET
+          href: tutorial-net-create-vault-azure-web-app.md
     - name: Azure Kubernetes Service
       items:
         - name: Integrieren von Azure Key Vault mit Kubernetes
@@ -31,12 +35,10 @@
       items:
         - name: Zugreifen auf Azure Blob Storage über Azure Databricks und Azure Key Vault
           href: integrate-databricks-blob-storage.md
-    - name: Herstellen einer Verbindung zwischen Key Vault und einer Web-App mit einer verwalteten Identität und .NET
-      href: tutorial-net-create-vault-azure-web-app.md
 - name: Beispiele
   items:
     - name: Codebeispiele für Key Vault
-      href: 'https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault'
+      href: /samples/browse/?expanded=azure&products=azure-key-vault
 - name: Konzepte
   items:
     - name: Grundlegende Konzepte
@@ -112,10 +114,6 @@
           href: developers-guide.md
         - name: Verwenden von Azure Resource Manager zum Bereitstellen von Key Vault
           href: vault-create-template.md
-        - name: Speichern von Web-App-Geheimnissen
-          href: /previous-versions/azure/key-vault/vs-secure-secret-appsettings?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
-        - name: Dienst-zu-Dienst-Authentifizierung per .NET
-          href: service-to-service-authentication.md
         - name: Verwenden des mit Key Vault verbundenen Diensts
           href: vs-key-vault-add-connected-service.md
     - name: Überwachen und Steuern
@@ -167,13 +165,13 @@
     - name: Azure CLI
       href: /cli/azure/keyvault
     - name: .NET
-      href: /dotnet/api/overview/azure/keyvault/management?view=azure-dotnet
+      href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
     - name: Java
       href: /java/api/overview/azure/keyvault?view=azure-java-stable
     - name: Node.js
-      href: 'https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest'
+      href: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
     - name: Python
-      href: /python/api/overview/azure/keyvault/management?view=azure-python
+      href: /python/api/overview/azure/key-vault-index?view=azure-python
     - name: REST
       href: /rest/api/keyvault
     - name: Resource Manager-Vorlage
@@ -199,6 +197,6 @@
     - name: Dienstupdates
       href: 'https://azure.microsoft.com/updates/?product=key-vault'
     - name: Blog
-      href: 'https://blogs.technet.com/b/kv/'
+      href: /archive/blogs/kv/
     - name: Produktfeedback
       href: 'https://feedback.azure.com/forums/906355-azure-key-vault'

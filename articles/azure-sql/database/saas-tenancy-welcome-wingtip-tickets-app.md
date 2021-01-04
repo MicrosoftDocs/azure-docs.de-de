@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 2c8c094efdfa9f46c6e6c42e34fd4010e43fa972
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2969ce6ceda0d1b71ec991b32f5b10acf9bfa12
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84039901"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780375"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Die Wingtip Tickets SaaS-Anwendung
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -84,12 +84,11 @@ Weitere Informationen finden Sie in den [Tutorials][docs-tutorials-for-wingtip-m
 
 <!-- WWWeb http references. -->
 
-[docs-tutorials-for-wingtip-sa]: https://aka.ms/wingtipticketssaas-sa
+[docs-tutorials-for-wingtip-sa]: ./saas-standaloneapp-get-started-deploy.md
 [github-code-for-wingtip-sa]: https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp
 
-[docs-tutorials-for-wingtip-dpt]: https://aka.ms/wingtipticketssaas-dpt
+[docs-tutorials-for-wingtip-dpt]: ./saas-dbpertenant-wingtip-app-overview.md
 [github-code-for-wingtip-dpt]: https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant
 
-[docs-tutorials-for-wingtip-mt]: https://aka.ms/wingtipticketssaas-mt
+[docs-tutorials-for-wingtip-mt]: ./saas-multitenantdb-get-started-deploy.md
 [github-code-for-wingtip-mt]: https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb
-

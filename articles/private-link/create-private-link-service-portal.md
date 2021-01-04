@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: allensu
-ms.openlocfilehash: 0d873401d377a03581a319769604f3d976f365be
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5b7bc8be89068f0d3cf6722c36ae7fd5cc560736
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87927237"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96012117"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Schnellstart: Erstellen eines Private Link-Diensts über das Azure-Portal
 
@@ -182,4 +182,4 @@ Wenn Sie den Private Link-Dienst nicht mehr benötigen, löschen Sie die Ressou
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In dieser Schnellstartanleitung haben Sie eine interne Azure Load Balancer-Instanz und einen Private Link-Dienst erstellt. Sie können sich auch darüber informieren, wie Sie [mit dem Azure-Portal einen privaten Endpunkt erstellen](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal).
+In dieser Schnellstartanleitung haben Sie eine interne Azure Load Balancer-Instanz und einen Private Link-Dienst erstellt. Sie können sich auch darüber informieren, wie Sie [mit dem Azure-Portal einen privaten Endpunkt erstellen](./create-private-endpoint-portal.md).

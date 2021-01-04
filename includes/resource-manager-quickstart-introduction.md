@@ -4,11 +4,11 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 02/26/2020
 ms.author: jgao
-ms.openlocfilehash: e584bb86cbe99c2b0f706c0c914455829f079dbc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bad82b8e03b445f0d8da7c46cd74737cec77aa9a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85249311"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027760"
 ---
-Eine [ARM-Vorlage](/azure/azure-resource-manager/templates/overview) ist eine JSON-Datei (JavaScript Object Notation), in der die Infrastruktur und die Konfiguration für Ihr Projekt definiert sind. Für die Vorlage wird deklarative Syntax verwendet. Hiermit können Sie angeben, was Sie bereitstellen möchten, ohne dass Sie die Folge der Programmierbefehle für die Erstellung schreiben müssen.
+Eine [ARM-Vorlage](../articles/azure-resource-manager/templates/overview.md) ist eine JSON-Datei (JavaScript Object Notation), in der die Infrastruktur und die Konfiguration für Ihr Projekt definiert sind. Die Vorlage verwendet eine deklarative Syntax. In deklarativer Syntax beschreiben Sie Ihre beabsichtigte Bereitstellung, ohne die Reihenfolge der Programmierbefehle zur Erstellung der Bereitstellung zu schreiben.

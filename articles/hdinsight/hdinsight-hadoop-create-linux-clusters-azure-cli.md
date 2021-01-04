@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 02/03/2020
-ms.openlocfilehash: 04def98108bf996a8f8cabe0ad36c022011aa533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d378151b72ab09e8b51467ce09ec9d43c517813
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86080699"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657957"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Erstellen von HDInsight-Clustern mit der Azure-Befehlszeilenschnittstelle
 
@@ -23,13 +23,9 @@ Anhand der Schritte in diesem Dokument werden Sie durch die Erstellung eines HDI
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Voraussetzungen
-
-Azure-Befehlszeilenschnittstelle. Die Schritte zum Installieren der Azure-Befehlszeilenschnittstelle finden Sie bei Bedarf unter [Installieren der Azure-Befehlszeilenschnittstelle](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="create-a-cluster"></a>Erstellen eines Clusters
 
@@ -42,7 +38,7 @@ Azure-Befehlszeilenschnittstelle. Die Schritte zum Installieren der Azure-Befehl
     # az account set --subscription "SUBSCRIPTIONID"
     ```
 
-2. Legen Sie Umgebungsvariablen fest. Die Verwendung von Variablen in diesem Artikel basiert auf Bash. Für andere Umgebungen sind geringfügige Variationen erforderlich. Eine vollständige Liste der möglichen Parameter für die Erstellung von Clustern finden Sie unter [az-hdinsight-create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create).
+2. Legen Sie Umgebungsvariablen fest. Die Verwendung von Variablen in diesem Artikel basiert auf Bash. Für andere Umgebungen sind geringfügige Variationen erforderlich. Eine vollständige Liste der möglichen Parameter für die Erstellung von Clustern finden Sie unter [az-hdinsight-create](/cli/azure/hdinsight#az-hdinsight-create).
 
     |Parameter | BESCHREIBUNG |
     |---|---|
@@ -68,7 +64,7 @@ Azure-Befehlszeilenschnittstelle. Die Schritte zum Installieren der Azure-Befehl
     export componentVersion=Hadoop=2.7
     ```
 
-3. [Erstellen Sie die Ressourcengruppe](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) mithilfe des folgenden Befehls:
+3. [Erstellen Sie die Ressourcengruppe](/cli/azure/group#az-group-create) mithilfe des folgenden Befehls:
 
     ```azurecli-interactive
     az group create \
@@ -78,7 +74,7 @@ Azure-Befehlszeilenschnittstelle. Die Schritte zum Installieren der Azure-Befehl
 
     Eine Liste der gültigen Orte können Sie mithilfe des Befehls `az account list-locations` erzeugen. Verwenden Sie anschließend einen der Orte aus dem Wert `name`.
 
-4. [Erstellen Sie ein Azure Storage-Konto](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) mithilfe des folgenden Befehls:
+4. [Erstellen Sie ein Azure Storage-Konto](/cli/azure/storage/account#az-storage-account-create) mithilfe des folgenden Befehls:
 
     ```azurecli-interactive
     # Note: kind BlobStorage is not available as the default storage account.
@@ -91,7 +87,7 @@ Azure-Befehlszeilenschnittstelle. Die Schritte zum Installieren der Azure-Befehl
         --sku Standard_LRS
     ```
 
-5. [Extrahieren Sie den Primärschlüssel aus dem Azure Storage-Konto](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list), und speichern Sie ihn in einer Variablen, indem Sie den folgenden Befehl eingeben:
+5. [Extrahieren Sie den Primärschlüssel aus dem Azure Storage-Konto](/cli/azure/storage/account/keys#az-storage-account-keys-list), und speichern Sie ihn in einer Variablen, indem Sie den folgenden Befehl eingeben:
 
     ```azurecli-interactive
     export AZURE_STORAGE_KEY=$(az storage account keys list \
@@ -100,7 +96,7 @@ Azure-Befehlszeilenschnittstelle. Die Schritte zum Installieren der Azure-Befehl
         --query [0].value -o tsv)
     ```
 
-6. [Erstellen Sie einen Azure Storage-Container](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) mithilfe des folgenden Befehls:
+6. [Erstellen Sie einen Azure Storage-Container](/cli/azure/storage/container#az-storage-container-create) mithilfe des folgenden Befehls:
 
     ```azurecli-interactive
     az storage container create \
@@ -109,7 +105,7 @@ Azure-Befehlszeilenschnittstelle. Die Schritte zum Installieren der Azure-Befehl
         --account-name $AZURE_STORAGE_ACCOUNT
     ```
 
-7. [Erstellen Sie den HDInsight-Cluster](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) mithilfe des folgenden Befehls:
+7. [Erstellen Sie den HDInsight-Cluster](/cli/azure/hdinsight#az-hdinsight-create) mithilfe des folgenden Befehls:
 
     ```azurecli-interactive
     az hdinsight create \

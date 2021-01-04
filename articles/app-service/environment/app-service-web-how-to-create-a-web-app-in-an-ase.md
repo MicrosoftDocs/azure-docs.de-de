@@ -8,11 +8,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: d0ac8e0cf187d1a6a329f2c7332c9ec37018d4cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962518"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005230"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Erstellen einer Web-App in einer App Service-Umgebung v1
 
@@ -76,7 +76,7 @@ Die folgenden Schritte zeigen, wie Sie einen App Service-Plan während der Erste
     ![Screenshot, der die ASE-Systemdetails nach Auswahl der ASE in der Standortauswahl zeigt.][3]
 
 ### <a name="selecting-a-worker-pool"></a>Auswählen eines Workerpools
-In Azure App Service und außerhalb einer App Service-Umgebung sind bei der Auswahl eines dedizierten Tarifplans üblicherweise drei Computegrößen verfügbar.  Auf ähnliche Weise können Sie für eine ASE bis zu drei Workerpools und die Computegröße angeben, die für den jeweiligen Workerpool verwendet wird.  Für Mandanten der ASE bedeutet dies, dass anstelle der Auswahl eines Tarifplans mit Computegröße für Ihren App Service-Plan ein sogenannter *Workerpool*ausgewählt wird.  
+In Azure App Service und außerhalb einer App Service-Umgebung sind bei der Auswahl eines dedizierten Tarifplans üblicherweise drei Computegrößen verfügbar.  Auf ähnliche Weise können Sie für eine ASE bis zu drei Workerpools und die Computegröße angeben, die für den jeweiligen Workerpool verwendet wird.  Für Mandanten der ASE bedeutet dies, dass anstelle der Auswahl eines Tarifplans mit Computegröße für Ihren App Service-Plan ein sogenannter *Workerpool* ausgewählt wird.  
 
 Auf der Benutzeroberfläche zur Auswahl des Workerpools wird unterhalb des Namens die Computegröße angezeigt, die für diesen Workerpool verwendet wird.  Die verfügbare Größe entspricht der Anzahl von Serverinstanzen, die zur Verwendung in diesem Pools verfügbar sind.  Möglicherweise verfügt der Pool insgesamt über mehr Instanzen als diese Anzahl, der hier angezeigte Wert bezieht sich jedoch lediglich auf die Anzahl von Instanzen, die gegenwärtig nicht verwendet werden.  Informationen zum Hinzufügen von Computeressourcen zu Ihrer App Service-Umgebung finden Sie unter [Konfigurieren der App Service-Umgebung](app-service-web-configure-an-app-service-environment.md).
 

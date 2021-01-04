@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: pafarley
 ms.openlocfilehash: 874d76bebdfd3bd0daba1f83cb1f06c093f192ec
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89411726"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021279"
 ---
 ## <a name="get-the-training-and-prediction-keys"></a>Abrufen der Trainings- und Vorhersageschlüssel
 

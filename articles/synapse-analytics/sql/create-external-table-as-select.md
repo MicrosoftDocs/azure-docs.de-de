@@ -1,6 +1,6 @@
 ---
-title: Speichern von Abfrageergebnissen im Speicher
-description: In diesem Artikel erfahren Sie, wie Abfrageergebnisse mithilfe von SQL On-Demand (Vorschauversion) im Speicher gespeichert werden.
+title: Speichern der Abfrageergebnisse aus einem serverlosen SQL-Pool
+description: In diesem Artikel erfahren Sie, wie Abfrageergebnisse mithilfe eines serverlosen SQL-Pools im Speicher gespeichert werden.
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0e5fda5e7a5caf72df3d4c80e37a684232ca5541
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dd989d5925da864728e944e84962086c0cfb08ea
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289360"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462318"
 ---
-# <a name="store-query-results-to-storage-using-sql-on-demand-preview-using-azure-synapse-analytics"></a>Speichern von Abfrageergebnissen im Speicher mithilfe von SQL On-Demand (Vorschauversion) und Azure Synapse Analytics
+# <a name="store-query-results-to-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Speichern von Abfrageergebnissen im Speicher mithilfe eines serverlosen SQL-Pools in Azure Synapse Analytics
 
-In diesem Artikel erfahren Sie, wie Abfrageergebnisse mithilfe von SQL On-Demand (Vorschauversion) im Speicher gespeichert werden.
+In diesem Artikel erfahren Sie, wie Abfrageergebnisse mithilfe eines serverlosen SQL-Pools im Speicher gespeichert werden.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 

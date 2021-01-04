@@ -38,6 +38,10 @@
           items:
             - name: Python
               href: quickstarts/python-business-cards.md
+        - name: Verwenden eines vorgefertigten Rechnungsmodells
+          items:
+            - name: Python
+              href: quickstarts/python-invoices.md
         - name: Abrufen von Textlayoutinformationen
           items:
             - name: Python
@@ -45,15 +49,19 @@
 - name: Tutorials
   items:
     - name: Verwenden der Formularerkennung mit Cognitive Search
-      href: 'https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form'
+      href: ../../search/cognitive-search-custom-skill-form.md
     - name: Verwenden der Formularerkennung mit AI Builder
       href: tutorial-ai-builder.md
 - name: Konzepte
   items:
+    - name: Layoutextraktion
+      href: concept-layout.md
     - name: Receipts
       href: concept-receipts.md
     - name: Visitenkarten
       href: concept-business-cards.md
+    - name: Invoices
+      href: concept-invoices.md
 - name: Anleitungen
   items:
     - name: Erstellen eines Trainingsdatasets
@@ -70,30 +78,32 @@
           displayName: 'docker, container, run, billing, apikey, logging'
         - name: Verwenden von Containerinstanzen
           href: deploy-form-recognizer-on-container-instances.md
+        - name: "Dokumentation zu Cognitive\_Services-Containern"
+          href: ../containers/index.yml
     - name: Sichern und Wiederherstellen von Modellen
       href: disaster-recovery.md
 - name: Verweis
   items:
     - name: Formularerkennungs-API Version 2.1 (Vorschau)
-      href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync'
+      href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync'
     - name: Formularerkennungs-API Version 2.0
       href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm'
     - name: SDKs
       items:
         - name: .NET
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme'
+          href: /dotnet/api/overview/azure/ai.formrecognizer-readme
         - name: Python
-          href: 'https://docs.microsoft.com/en-us/python/api/azure-ai-formrecognizer/?view=azure-python'
+          href: /python/api/azure-ai-formrecognizer/?view=azure-python
         - name: Java
-          href: 'https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme'
+          href: /java/api/overview/azure/ai-formrecognizer-readme
         - name: JavaScript
-          href: 'https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme'
+          href: /javascript/api/overview/azure/ai-form-recognizer-readme
 - name: Ressourcen
   items:
     - name: Support- und Hilfeoptionen
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
     - name: Preise und Einschränkungen
-      href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/form-recognizer/'
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/'
     - name: UserVoice
       href: 'https://go.microsoft.com/fwlink/?linkid=2090535'
     - name: Stack Overflow
@@ -104,7 +114,7 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=2087185'
     - name: Sprachunterstützung
       href: language-support.md
-    - name: Kompatibilität
+    - name: Compliance
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Verschlüsselung
       href: form-recognizer-encryption-of-data-at-rest.md

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3278a1522fe3967dd1de5551e90732e63b7666f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a70b10f7d22c9cc04427bdfbb44243fad457ba0
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88931555"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913482"
 ---
 # <a name="specify-a-face-detection-model"></a>Angeben eines Gesichtserkennungsmodells
 
@@ -57,7 +57,7 @@ var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, rec
 
 ## <a name="add-face-to-person-with-specified-model"></a>Hinzufügen eines Gesichts zu einem Person-Objekt mit einem angegebenen Modell
 
-Der Gesichtserkennungsdienst kann Gesichtsdaten aus einem Bild extrahieren und über die API [PersonGroup Person – Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) einem **Person**-Objekt zuordnen. In diesem API-Aufruf können Sie das Erkennungsmodell auf die gleiche Weise wie bei [Face – Detect] angeben.
+Der Gesichtserkennungsdienst kann Gesichtsdaten aus einem Bild extrahieren und über die API [PersonGroup Person – Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) einem **Person** -Objekt zuordnen. In diesem API-Aufruf können Sie das Erkennungsmodell auf die gleiche Weise wie bei [Face – Detect] angeben.
 
 Nachfolgend ist ein Codebeispiel für die .NET-Clientbibliothek aufgeführt.
 
@@ -72,14 +72,14 @@ string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_02");
 ```
 
-Mit diesem Code wird ein **PersonGroup**-Objekt mit der ID `mypersongroupid` erstellt. Anschließend wird dem Objekt ein **Person**-Objekt hinzugefügt. Danach wird diesem **Person**-Objekt unter Verwendung des Modells `detection_02` ein Gesicht hinzugefügt. Wenn Sie den *detectionModel*-Parameter nicht angeben, verwendet die API das Standardmodell `detection_01`.
+Mit diesem Code wird ein **PersonGroup** -Objekt mit der ID `mypersongroupid` erstellt. Anschließend wird dem Objekt ein **Person** -Objekt hinzugefügt. Danach wird diesem **Person** -Objekt unter Verwendung des Modells `detection_02` ein Gesicht hinzugefügt. Wenn Sie den *detectionModel* -Parameter nicht angeben, verwendet die API das Standardmodell `detection_01`.
 
 > [!NOTE]
-> Sie müssen nicht dasselbe Erkennungsmodell für alle Gesichter in einem **Person**-Objekt verwenden. Es ist auch nicht erforderlich, dasselbe Erkennungsmodell bei der Erkennung neuer Gesichter zu verwenden, um diese mit einem **Person**-Objekt zu vergleichen (beispielsweise in der API [Face - Identify]).
+> Sie müssen nicht dasselbe Erkennungsmodell für alle Gesichter in einem **Person** -Objekt verwenden. Es ist auch nicht erforderlich, dasselbe Erkennungsmodell bei der Erkennung neuer Gesichter zu verwenden, um diese mit einem **Person** -Objekt zu vergleichen (beispielsweise in der API [Face - Identify]).
 
 ## <a name="add-face-to-facelist-with-specified-model"></a>Hinzufügen eines Gesichts zu einem FaceList-Objekt mit einem angegebenen Modell
 
-Sie können auch ein Erkennungsmodell angeben, wenn Sie ein Gesicht einem vorhandenen **FaceList**-Objekt hinzufügen. Nachfolgend ist ein Codebeispiel für die .NET-Clientbibliothek aufgeführt.
+Sie können auch ein Erkennungsmodell angeben, wenn Sie ein Gesicht einem vorhandenen **FaceList** -Objekt hinzufügen. Nachfolgend ist ein Codebeispiel für die .NET-Clientbibliothek aufgeführt.
 
 ```csharp
 await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_03");
@@ -88,10 +88,10 @@ string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_02");
 ```
 
-Mit diesem Code wird ein **FaceList**-Objekt namens `My face collection` erstellt. Anschließend wird dem Objekt mit dem Modell `detection_02` ein Gesicht hinzugefügt. Wenn Sie den *detectionModel*-Parameter nicht angeben, verwendet die API das Standardmodell `detection_01`.
+Mit diesem Code wird ein **FaceList** -Objekt namens `My face collection` erstellt. Anschließend wird dem Objekt mit dem Modell `detection_02` ein Gesicht hinzugefügt. Wenn Sie den *detectionModel* -Parameter nicht angeben, verwendet die API das Standardmodell `detection_01`.
 
 > [!NOTE]
-> Sie müssen nicht dasselbe Erkennungsmodell für alle Gesichter in einem **FaceList**-Objekt verwenden. Es ist auch nicht erforderlich, dasselbe Erkennungsmodell bei der Erkennung neuer Gesichter zu verwenden, um diese mit einem **FaceList**-Objekt zu vergleichen.
+> Sie müssen nicht dasselbe Erkennungsmodell für alle Gesichter in einem **FaceList** -Objekt verwenden. Es ist auch nicht erforderlich, dasselbe Erkennungsmodell bei der Erkennung neuer Gesichter zu verwenden, um diese mit einem **FaceList** -Objekt zu vergleichen.
 
 ## <a name="evaluate-different-models"></a>Auswerten unterschiedlicher Modelle
 
@@ -110,9 +110,9 @@ Am besten lässt sich die Leistungsfähigkeit der Modelle `detection_01` und `de
 
 In diesem Artikel haben Sie gelernt, wie Sie das Erkennungsmodell angeben, das für verschiedene Gesichtserkennungs-APIs verwendet werden soll. Als nächstes befolgen Sie einen Schnellstart zu den ersten Schritten mit der Gesichtserkennung.
 
-* [.NET SDK zur Gesichtserkennung](../Quickstarts/csharp-sdk.md)
-* [Python SDK zur Gesichtserkennung](../Quickstarts/python-sdk.md)
-* [Go SDK zur Gesichtserkennung](../Quickstarts/go-sdk.md)
+* [.NET SDK zur Gesichtserkennung](../quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
+* [Python SDK zur Gesichtserkennung](../quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)
+* [Go SDK zur Gesichtserkennung](../quickstarts/client-libraries.md?pivots=programming-language-go%253fpivots%253dprogramming-language-go)
 
 [Face – Detect]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
 [Face - Find Similar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237

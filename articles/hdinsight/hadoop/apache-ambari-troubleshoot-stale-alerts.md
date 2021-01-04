@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: f9dfcb930e3fe4f862f9f51ff00270d0eb0c66ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9564e149055dcabf205694b3cf6c3ddc03163037
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77539109"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533834"
 ---
 # <a name="scenario-apache-ambari-stale-alerts-in-azure-hdinsight"></a>Szenario: Veraltete Apache Ambari-Warnungen in Azure HDInsight
 
@@ -84,6 +84,6 @@ Falls Ihr Problem hier nicht erwähnt wurde oder Sie es nicht lösen konnten, be
 
 * Nutzen Sie [@AzureSupport](https://twitter.com/azuresupport) auf Twitter. das offizielle Microsoft Azure-Konto zur Verbesserung der Benutzerfreundlichkeit. Hierüber hat die Azure-Community Zugriff auf die richtigen Ressourcen: Antworten, Support und Experten.
 
-* Sollten Sie weitere Unterstützung benötigen, senden Sie eine Supportanfrage über das [Azure-Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Wählen Sie hierzu im Menü des Portals die Hilfeoption ( **?** ) aus, oder öffnen Sie den Bereich **Hilfe und Support**. Weitere Informationen finden Sie unter [Gewusst wie: Erstellen einer Azure-Supportanfrage](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). 
+* Sollten Sie weitere Unterstützung benötigen, senden Sie eine Supportanfrage über das [Azure-Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Wählen Sie hierzu im Menü des Portals die Hilfeoption ( **?** ) aus, oder öffnen Sie den Bereich **Hilfe und Support** . Weitere Informationen finden Sie unter [Gewusst wie: Erstellen einer Azure-Supportanfrage](../../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
   Support für die Abonnementverwaltung und Abrechnung ist in Ihrem Microsoft Azure-Abonnement inbegriffen. Technischer Support ist über die [Azure-Supportpläne](https://azure.microsoft.com/support/plans/) verfügbar.

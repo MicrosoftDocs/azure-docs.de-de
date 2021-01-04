@@ -9,19 +9,19 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 41ad20de6b7a800ff1f97a7ff371c8e0012fed27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4146f11804dd11f7dd0f5536bc040cb30e25b03
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88166976"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902730"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Unterstützung für Network File System 3.0 (NFS) in Azure Blob Storage (Vorschau)
 
 Blob Storage unterstützt jetzt das NFS 3.0-Protokoll (Network File System). Diese Unterstützung ermöglicht es Windows- und Linux-Clients, einen Container in Blob Storage von einem virtuellen Azure-Computer (VM) oder einem lokalen Computer einzubinden. 
 
 > [!NOTE]
-> Die NFS 3.0-Protokollunterstützung in Azure Blob Storage befindet sich in der öffentlichen Vorschau und ist in den folgenden Regionen verfügbar: USA, Osten; USA, Mitte; USA, Westen-Mitte; Australien, Südosten; Europa, Norden; Vereinigtes Königreich, Westen; Südkorea, Mitte; Südkorea, Süden; Kanada, Mitte.
+> Die Unterstützung für das NFS 3.0-Protokoll in Azure Blob Storage befindet in der öffentlichen Vorschau. Das Protokoll unterstützt GPV2-Speicherkonten mit der Leistungsstufe „Standard“ in den folgenden Regionen: „Australien, Osten“, „Südkorea, Mitte“ und „USA, Süden-Mitte“. Die Vorschau unterstützt auch Blockblobs mit der Leistungsstufe „Premium“ in allen öffentlichen Regionen.
 
 ## <a name="general-workflow-mounting-a-storage-account-container"></a>Allgemeiner Workflow: Einbinden eines Speicherkontocontainers
 
@@ -64,13 +64,13 @@ Ein Client kann über einen öffentlichen oder einen [privaten Endpunkt](../comm
 
   Sie müssen Ihr Speicherkonto so konfigurieren, dass es den Zugriff auf dieses Peer-VNet zulässt. Weitere Informationen finden Sie unter [Gewähren des Zugriffs aus einem virtuellen Netzwerk](../common/storage-network-security.md#grant-access-from-a-virtual-network).
 
-- Ein lokales Netzwerk, das mit Ihrem primären VNet über ein [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) oder ein [ExpressRoute-Gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) verbunden ist. 
+- Ein lokales Netzwerk, das mit Ihrem primären VNet über ein [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) oder ein [ExpressRoute-Gateway](../../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) verbunden ist. 
 
   Weitere Informationen finden Sie unter [Konfigurieren des Zugriffs aus lokalen Netzwerken](../common/storage-network-security.md#configuring-access-from-on-premises-networks).
 
 - Ein lokales Netzwerk, das mit einem Peer-Netzwerk verbunden ist.
 
-  Dies kann mithilfe eines [VPN Gateways](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) oder eines [ExpressRoute-Gateways](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) zusammen mit [Gatewaytransit](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vnet-peering#gateway-transit) erfolgen. 
+  Dies kann mithilfe eines [VPN Gateways](../../vpn-gateway/vpn-gateway-about-vpngateways.md) oder eines [ExpressRoute-Gateways](../../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) zusammen mit [Gatewaytransit](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering#gateway-transit) erfolgen. 
 
 > [!IMPORTANT]
 > Wenn Sie eine Verbindung aus einem lokalen Netzwerk heraus herstellen, stellen Sie sicher, dass Ihr Client die ausgehende Kommunikation über die Ports 111 und 2048 zulässt. Das NFS 3.0-Protokoll verwendet diese Ports.
@@ -114,8 +114,3 @@ Für eine Transaktion fallen während der Vorschauphase keine Kosten an. Die Pre
 ## <a name="next-steps"></a>Nächste Schritte
 
 Informationen zu den ersten Schritten finden Sie unter [Einbinden von Blob-Speicher mithilfe des NFS 3.0-Protokolls (Network File System) (Vorschau)](network-file-system-protocol-support-how-to.md).
-
-
-
-
-

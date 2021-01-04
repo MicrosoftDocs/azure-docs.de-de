@@ -7,12 +7,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: 6a272294ca602e3f482156a7334084bf041f683e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1570bd9dfa62caa749d5a3983b93c2555be058ec
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307550"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348728"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Einrichten der Notfallwiederherstellung für virtuelle Azure-Computer über Azure PowerShell
 
@@ -249,6 +249,15 @@ Write-Output $TempASRJob.State
 $RecoveryProtContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $RecoveryFabric -Name "A2AWestUSProtectionContainer"
 ```
 
+#### <a name="fabric-and-container-creation-when-enabling-zone-to-zone-replication"></a>Fabric- und Containererstellung beim Aktivieren der Replikation zwischen Zonen
+
+Beim Aktivieren der Replikation zwischen Zonen wird nur ein Fabric erstellt. Es werden jedoch zwei Container erstellt. Verwenden Sie für die Region „Europa, Westen“ die folgenden Befehle, um den primären Container und den Schutzcontainer abzurufen:
+
+```azurepowershell
+$primaryProtectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabric -Name "asr-a2a-default-westeurope-container"
+$recoveryPprotectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabric -Name "asr-a2a-default-westeurope-t-container"
+```
+
 ### <a name="create-a-replication-policy"></a>Erstellen einer Replikationsrichtlinie
 
 ```azurepowershell
@@ -287,6 +296,14 @@ Write-Output $TempASRJob.State
 $EusToWusPCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $PrimaryProtContainer -Name "A2APrimaryToRecovery"
 ```
 
+#### <a name="protection-container-mapping-creation-when-enabling-zone-to-zone-replication"></a>Erstellen der Schutzcontainerzuordnung beim Aktivieren der Replikation zwischen Zonen
+
+Verwenden Sie beim Aktivieren der Replikation zwischen Zonen den folgenden Befehl, um die Schutzcontainerzuordnung zu erstellen. Wenn die Region „Europa, Westen“ ist, lautet der Befehl:
+
+```azurepowershell
+$protContainerMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $PrimprotectionContainer -Name "westeurope-westeurope-24-hour-retention-policy-s"
+```
+
 ### <a name="create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover"></a>Erstellen einer Schutzcontainerzuordnung für Failbacks (umgekehrte Replikation nach einem Failover)
 
 Wenn ein virtueller Computer nach dem Failover wieder in die ursprüngliche Azure-Region zurückgeführt werden kann, führen Sie ein Failback aus. Bei einem Failback wird eine umgekehrte Replikation des virtuellen Computers, für den ein Failover erfolgte, aus der Failoverregion in die ursprüngliche Region ausgeführt. Bei einer umgekehrten Replikation werden die Rollen der ursprünglichen Region und der Wiederherstellungsregion getauscht. Die ursprüngliche Region wird nun zur neuen Wiederherstellungsregion, und die bisherige Wiederherstellungsregion wird nun zur primären Region. Die Schutzcontainerzuordnung für eine umgekehrte Replikation entspricht den getauschten Rollen der ursprünglichen Region und der Wiederherstellungsregion.
@@ -316,7 +333,7 @@ Ein Cachespeicherkonto ist ein Standard-Speicherkonto in derselben Azure-Region 
 $EastUSCacheStorageAccount = New-AzStorageAccount -Name "a2acachestorage" -ResourceGroupName "A2AdemoRG" -Location 'East US' -SkuName Standard_LRS -Kind Storage
 ```
 
-Bei virtuellen Computern, **die keine verwalteten Datenträger verwenden**, ist das Zielspeicherkonto das Speicherkonto in der Wiederherstellungsregion, in der Datenträger des virtuellen Computers repliziert werden. Das Zielspeicherkonto kann entweder ein Standard-Speicherkonto oder ein Premium-Speicherkonto sein. Wählen Sie die Art des erforderlichen Speicherkontos auf Grundlage der Datenänderungsrate (E/A-Schreibrate) für die Datenträger und der von Azure Site Recovery unterstützten Änderungsgrenzwerte für den Speichertyp aus.
+Bei virtuellen Computern, **die keine verwalteten Datenträger verwenden** , ist das Zielspeicherkonto das Speicherkonto in der Wiederherstellungsregion, in der Datenträger des virtuellen Computers repliziert werden. Das Zielspeicherkonto kann entweder ein Standard-Speicherkonto oder ein Premium-Speicherkonto sein. Wählen Sie die Art des erforderlichen Speicherkontos auf Grundlage der Datenänderungsrate (E/A-Schreibrate) für die Datenträger und der von Azure Site Recovery unterstützten Änderungsgrenzwerte für den Speichertyp aus.
 
 ```azurepowershell
 #Create Target storage account in the recovery region. In this case a Standard Storage account

@@ -13,7 +13,7 @@
       href: quickstart-powershell.md
 - name: Tutorials
   items:
-    - name: Erstellen und Signieren einer Nachweisrichtlinie
+    - name: Erstellen einer Nachweisrichtlinie
       href: author-sign-policy.md
     - name: Codebeispiele für den SGX-Nachweis
       href: /samples/browse/?expanded=azure&terms=attestation
@@ -35,17 +35,25 @@
           href: claim-sets.md
     - name: Workflow
       href: workflow.md
-- name: References
+    - name: Anzeigen von Überwachungsprotokollen
+      href: audit-logs.md
+- name: Referenzen
   items:
+    - name: Regionale Verfügbarkeit
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation'
     - name: Häufig gestellte Fragen
       href: faq.md
     - name: REST
       href: /rest/api/attestation/
     - name: Azure PowerShell
-      href: /powershell/module/az.attestation/?view=azps-4.3.0#attestation
+      href: /powershell/module/az.attestation/?view=azps-5.0.0#attestation
+    - name: Azure CLI
+      href: /cli/azure/ext/attestation/attestation?view=azure-cli-latest
     - name: Azure-DCAP-Bibliothek für Windows
       href: 'https://www.nuget.org/packages/Microsoft.Azure.DCAP/'
     - name: Azure-DCAP-Bibliothek für Linux
       href: 'https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/'
+    - name: Behandeln von Problemen
+      href: troubleshoot-guide.md
     - name: VBS-Nachweisprotokoll
       href: virtualization-based-security-protocol.md

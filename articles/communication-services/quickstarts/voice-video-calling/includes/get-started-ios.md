@@ -6,12 +6,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 63b74675a9b0d3480c90c7414e82658705796e7c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5f604847faf01d1b267e6cbb73481d57ef397bd9
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92438793"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95556897"
 ---
 In diesem Schnellstart erfahren Sie, wie Sie einen Anruf mithilfe der Clientbibliothek für Telefonie von Azure Communication Services für iOS beginnen.
 
@@ -32,22 +32,23 @@ Erstellen Sie in Xcode ein neues iOS-Projekt, und wählen Sie die Vorlage **Sing
 
 :::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Screenshot des Fensters „Neues Projekt“ in Xcode":::
 
-### <a name="install-the-package"></a>Installieren des Pakets
+### <a name="install-the-package-and-dependencies-with-cocoapods"></a>Installieren des Pakets und der Abhängigkeiten mit CocoaPods
 
-Fügen Sie Ihrem Projekt die Clientbibliothek für Telefonie von Azure Communication Services und ihre Abhängigkeiten (AzureCore.framework und AzureCommunication.framework) hinzu.
+1. Erstellen Sie wie folgt eine Podfile für die Anwendung:
 
-> [!NOTE]
-> Mit der Veröffentlichung des AzureCommunicationCalling-SDK steht Ihnen das Bash-Skript `BuildAzurePackages.sh` zur Verfügung. Das Skript gibt bei der Ausführung von `sh ./BuildAzurePackages.sh` den Pfad zu den generierten Frameworkpaketen an, die im nächsten Schritt in die Beispiel-App importiert werden müssen. Beachten Sie, dass Sie Xcode-Befehlszeilentools einrichten müssen, falls dies vor der Ausführung des Skripts noch nicht geschehen ist: Starten Sie Xcode, und wählen Sie „Preferences“ (Einstellungen) -> „Locations“ (Speicherorte) aus. Wählen Sie Ihre Xcode-Version für die Befehlszeilentools aus. Das **BuildAzurePackages.sh-Skript funktioniert nur mit Xcode 11.5 und höher**
+   ```
+   platform :ios, '13.0'
+   use_frameworks!
 
-1. Führen Sie einen [Download](https://github.com/Azure/Communication/releases) der Azure Communication Services-Clientbibliothek „Calling“ für iOS aus.
-2. Klicken Sie in Xcode auf Ihre Projektdatei, und wählen Sie das Buildziel aus, um den Editor für Projekteinstellungen zu öffnen.
-3. Scrollen Sie unter der Registerkarte **General** (Allgemein) zum Abschnitt **Frameworks, Libraries, and Embedded Content** (Frameworks, Bibliotheken und eingebetteten Inhalte), und klicken Sie auf das Symbol **+** .
-4. Verwenden Sie links unten im Dialogfeld die Dropdownliste, wählen Sie **Add Files** aus, und navigieren Sie zum Verzeichnis **AzureCommunicationCalling.framework** des dekomprimierten Clientbibliothekspakets.
-    1. Wiederholen Sie den letzten Schritt zum Hinzufügen von **AzureCore.framework** und **AzureCommunication.framework** .
-5. Öffnen Sie im Editor für Projekteinstellungen die Registerkarte **Build Settings** (Buildeinstellungen), und scrollen Sie zum Abschnitt **Search Paths** (Suchpfade). Fügen Sie dem Verzeichnis mit **AzureCommunicationCalling.framework** den neuen Eintrag **Framework Search Paths** (Frameworksuchpfade) hinzu.
-    1. Fügen Sie einen weiteren Frameworksuchpfade-Eintrag hinzu, der auf den Ordner mit den Abhängigkeiten zeigt.
+   target 'AzureCommunicationCallingSample' do
+     pod 'AzureCommunicationCalling', '~> 1.0.0-beta.5'
+     pod 'AzureCommunication', '~> 1.0.0-beta.5'
+     pod 'AzureCore', '~> 1.0.0-beta.5'
+   end
+   ```
 
-:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Screenshot des Fensters „Neues Projekt“ in Xcode":::
+2. Führen Sie `pod install` aus.
+3. Öffnen Sie `.xcworkspace` mit Xcode.
 
 ### <a name="request-access-to-the-microphone"></a>Anfordern des Zugriffs auf das Mikrofon
 
@@ -74,9 +75,9 @@ Ersetzen Sie die Implementierung der `ContentView`-Struktur durch einige einfach
 ```swift
 struct ContentView: View {
     @State var callee: String = ""
-    @State var callClient: ACSCallClient?
-    @State var callAgent: ACSCallAgent?
-    @State var call: ACSCall?
+    @State var callClient: CallClient?
+    @State var callAgent: CallAgent?
+    @State var call: Call?
 
     var body: some View {
         NavigationView {
@@ -114,7 +115,7 @@ struct ContentView: View {
 
 ## <a name="object-model"></a>Objektmodell
 
-Die folgenden Klassen und Schnittstellen verarbeiten einige der wichtigsten Features der Clientbibliothek für Telefonie von Azure Communication Services:
+Die folgenden Klassen und Schnittstellen befassen sich mit einigen der wichtigsten Features der Azure Communication Services-Clientbibliothek „Calling“:
 
 | Name                                  | Beschreibung                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
@@ -136,7 +137,7 @@ do {
     return
 }
 
-self.callClient = ACSCallClient()
+self.callClient = CallClient()
 
 // Creates the call agent
 self.callClient?.createCallAgent(userCredential) { (agent, error) in
@@ -165,13 +166,13 @@ func startCall()
         if granted {
             // start call logic
             let callees:[CommunicationIdentifier] = [CommunicationUser(identifier: self.callee)]
-            self.call = self.callAgent?.call(callees, options: ACSStartCallOptions())
+            self.call = self.callAgent?.call(callees, options: StartCallOptions())
         }
     }
 }
 ```
 
-Sie können auch die Eigenschaften in `ACSStartCallOptions` verwenden, um die Anfangsoptionen für den Anruf festzulegen (d. h. Sie können den Anruf mit stummgeschaltetem Mikrofon beginnen).
+Sie können auch die Eigenschaften in `StartCallOptions` verwenden, um die Anfangsoptionen für den Anruf festzulegen (d. h. Sie können den Anruf mit stummgeschaltetem Mikrofon beginnen).
 
 ## <a name="end-a-call"></a>Beenden eines Anrufs
 
@@ -180,7 +181,7 @@ Implementieren Sie die Methode `endCall`, um den aktuellen Anruf zu beenden, wen
 ```swift
 func endCall()
 {    
-    self.call!.hangup(ACSHangupOptions()) { (error) in
+    self.call!.hangup(HangupOptions()) { (error) in
         if (error != nil) {
             print("ERROR: It was not possible to hangup the call.")
         }
@@ -192,7 +193,7 @@ func endCall()
 
 Sie können Ihre App auf dem iOS-Simulator erstellen und ausführen, indem Sie **Product** (Produkt)  > **Run** (Ausführen) auswählen oder die Tastenkombination (&#8984;-R) verwenden.
 
-:::image type="content" source="../media/ios/quick-start-make-call.png" alt-text="Screenshot des Fensters „Neues Projekt“ in Xcode":::
+:::image type="content" source="../media/ios/quick-start-make-call.png" alt-text="Ergebnis der Schnellstart-App":::
 
 Sie können einen ausgehenden VoIP-Anruf tätigen, indem Sie eine Benutzer-ID im Textfeld eingeben und auf die Schaltfläche **StartCall** (Anruf beginnen) tippen. Wenn Sie `8:echo123` anrufen, werden Sie mit einem Echobot verbunden. Dies eignet sich hervorragend für die ersten Schritte und zum Überprüfen, ob Ihre Audiogeräte funktionieren. 
 

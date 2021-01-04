@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: b6d6838779d4f219a8ce10b2cf3ae6cd620762a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9763a0ac3cba15dcfd66b8fad83230e2b0eb356b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317853"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491671"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Benutzerdefinierte Blobausgabepartitionierung in Azure Stream Analytics
 
@@ -25,7 +25,7 @@ Durch Verwendung eines benutzerdefinierten Felds oder von Eingabeattributen ist 
 
 ### <a name="partition-key-options"></a>Optionen für den Partitionsschlüssel
 
-Der für die Partitionierung von Eingabedaten verwendete Partitionsschlüssel oder Spaltenname kann alphanumerische Zeichen mit Bindestrichen, Unterstrichen und Leerzeichen enthalten. Es ist nicht möglich, geschachtelte Felder als Partitionsschlüssel zu verwenden, es sei denn, sie werden in Verbindung mit Aliasen verwendet. Der Partitionsschlüssel muss NVARCHAR(MAX) sein.
+Der für die Partitionierung von Eingabedaten verwendete Partitionsschlüssel oder Spaltenname kann alphanumerische Zeichen mit Bindestrichen, Unterstrichen und Leerzeichen enthalten. Es ist nicht möglich, geschachtelte Felder als Partitionsschlüssel zu verwenden, es sei denn, sie werden in Verbindung mit Aliasen verwendet. Der Partitionsschlüssel muss einen der Typen NVARCHAR(MAX), BIGINT, FLOAT oder BIT (Kompatibilitätsgrad 1.2 oder höher) aufweisen. Weitere Informationen finden Sie unter [Azure Stream Analytics-Datentypen](/stream-analytics-query/data-types-azure-stream-analytics).
 
 ### <a name="example"></a>Beispiel
 
@@ -62,6 +62,8 @@ Beachten Sie, dass jeder Datensatz im Blob die Spalte **client_id** enthält, di
 2. Bei Partitionsschlüsseln wird die Groß-/Kleinschreibung nicht beachtet, sodass Partitionsschlüssel wie „John“ und „john“ identisch sind. Außerdem können Ausdrücke nicht als Partitionsschlüssel verwendet werden. Beispielsweise kann **{columnA + columnB}** nicht verwendet werden.  
 
 3. Wenn ein Eingabestream aus Datensätzen mit einer Kardinalität des Partitionsschlüssels unter 8.000 besteht, werden die Datensätze an vorhandene Blobs angefügt und neue Blobs nur bei Bedarf erstellt. Wenn die Kardinalität über 8.000 liegt, gibt es keine Garantie dafür, dass Daten in vorhandene Blobs geschrieben und neue Blobs nicht für eine beliebige Anzahl von Datensätzen mit dem gleichen Partitionsschlüssel erstellt werden.
+
+4. Wenn die Blobausgabe [als unveränderlich konfiguriert](../storage/blobs/storage-blob-immutable-storage.md) ist, erstellt Stream Analytics bei jedem Senden von Daten ein neues Blob.
 
 ## <a name="custom-datetime-path-patterns"></a>Benutzerdefinierte DateTime-Pfadmuster
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: alkohli
 ms.openlocfilehash: d2c7f729f4accf7c9ca212c6e4b4b5d565c3114c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563776"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021536"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box-heavy"></a>Sicheres Installieren und Betreiben von Azure Data Box Heavy
 

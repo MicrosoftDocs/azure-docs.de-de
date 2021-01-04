@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 5306439184561e8dec8303a7b149f51d6c2f6e08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75551861"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018901"
 ---
 # <a name="availability-of-service-fabric-services"></a>Verfügbarkeit der Service Fabric-Dienste
 Dieser Artikel bietet eine Übersicht darüber, wie Azure Service Fabric die Verfügbarkeit eines Diensts aufrechterhält.

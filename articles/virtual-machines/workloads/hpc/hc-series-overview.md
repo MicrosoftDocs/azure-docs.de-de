@@ -3,16 +3,17 @@ title: Übersicht über virtuelle Computer der HC-Serie – Azure Virtual Machi
 description: Hier finden Sie Informationen zur Unterstützung der Vorschauversion für die VM-Größe der HC-Serie in Azure.
 author: vermagit
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 97e0ae9ea4914cda5d92f5180199a740c02ecdf4
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 672175d5bb92c8ab6dc347ece5ad6b14d8232ef4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994371"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024077"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Übersicht über virtuelle Computer der HC-Serie
 

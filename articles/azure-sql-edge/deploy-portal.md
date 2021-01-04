@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: f90d84b5897175dbda0a24591893c4e41a06822a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5d7d232ada814d5d3c30e7b012c6289f847d641f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973579"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395086"
 ---
 # <a name="deploy-azure-sql-edge"></a>Bereitstellen von Azure SQL Edge 
 
@@ -52,7 +52,7 @@ Azure Marketplace ist ein Onlinemarktplatz für Anwendungen und Dienste, in dem 
 
 4. Klicken Sie auf der Seite **Module für Gerät festlegen:** auf das Azure SQL Edge-Modul unter **IoT Edge-Module**. Der Standardmodulname ist auf *AzureSQLEdge* festgelegt. 
 
-5. Geben Sie im Abschnitt *Moduleinstellungen* des Blatts **IoT Edge-Modul aktualisieren** die gewünschten Werte für den *IoT Edge-Modulnamen*, die *Neustartrichtlinie* und den *Gewünschten Status* an. 
+5. Geben Sie im Abschnitt *Moduleinstellungen* des Blatts **IoT Edge-Modul aktualisieren** die gewünschten Werte für den *IoT Edge-Modulnamen* , die *Neustartrichtlinie* und den *Gewünschten Status* an. 
 
    > [!IMPORTANT]    
    > Ändern oder aktualisieren Sie nicht die Einstellungen des **Image-URI** für das Modul.
@@ -66,7 +66,7 @@ Azure Marketplace ist ein Onlinemarktplatz für Anwendungen und Dienste, in dem 
    | MSSQL_COLLATION | Ändern Sie den Standardwert, um die Standardsortierung für SQL Edge festzulegen. Diese Einstellung setzt die Standardzuordnung der Sprach-ID (LCID) für die Sortierung außer Kraft. |
 
    > [!IMPORTANT]    
-   > Ändern oder aktualisieren Sie die **ACCEPT_EULA**-Umgebungsvariable für das Modul nicht.
+   > Ändern oder aktualisieren Sie die **ACCEPT_EULA** -Umgebungsvariable für das Modul nicht.
 
 7. Aktualisieren Sie die folgenden Optionen im Abschnitt *Containererstellungsoptionen* des Blatts **IoT Edge-Modul aktualisieren** nach Bedarf. 
    - **Hostport:** Ordnen Sie den angegebenen Hostport Port 1433 (SQL-Standardport) im Container zu.
@@ -142,7 +142,7 @@ Die folgenden Abschnitte führen Sie durch die Verwendung von **sqlcmd** und Tra
 
 Mit den folgenden Schritten wird eine neue Datenbank mit dem Namen `TestDB` erstellt.
 
-1. Fügen Sie aus der **sqlcmd**-Eingabeaufforderung den folgenden Transact-SQL-Befehl zur Erstellung einer Testdatenbank ein:
+1. Fügen Sie aus der **sqlcmd** -Eingabeaufforderung den folgenden Transact-SQL-Befehl zur Erstellung einer Testdatenbank ein:
 
    ```sql
    CREATE DATABASE TestDB
@@ -160,7 +160,7 @@ Mit den folgenden Schritten wird eine neue Datenbank mit dem Namen `TestDB` erst
 
 Erstellen Sie als Nächstes eine neue Tabelle, `Inventory`, und fügen Sie zwei neue Zeilen ein.
 
-1. Wechseln Sie den Kontext aus der **sqlcmd**-Eingabeaufforderung zur neuen `TestDB`-Datenbank:
+1. Wechseln Sie den Kontext aus der **sqlcmd** -Eingabeaufforderung zur neuen `TestDB`-Datenbank:
 
    ```sql
    USE TestDB
@@ -188,7 +188,7 @@ Erstellen Sie als Nächstes eine neue Tabelle, `Inventory`, und fügen Sie zwei 
 
 Führen Sie nun eine Abfrage zum Zurückgeben von Daten aus der `Inventory`-Tabelle aus.
 
-1. Geben Sie aus der **sqlcmd**-Eingabeaufforderung eine Abfrage ein, die Reihen aus der `Inventory`-Tabelle zurückgibt, bei denen die Menge größer als 152 ist:
+1. Geben Sie aus der **sqlcmd** -Eingabeaufforderung eine Abfrage ein, die Reihen aus der `Inventory`-Tabelle zurückgibt, bei denen die Menge größer als 152 ist:
 
    ```sql
    SELECT * FROM Inventory WHERE quantity > 152;
@@ -202,7 +202,7 @@ Führen Sie nun eine Abfrage zum Zurückgeben von Daten aus der `Inventory`-Tabe
 
 ### <a name="exit-the-sqlcmd-command-prompt"></a>Beenden der sqlcmd-Eingabeaufforderung
 
-1. Zum Beenden der **sqlcmd**-Sitzung, geben Sie `QUIT` ein:
+1. Zum Beenden der **sqlcmd** -Sitzung, geben Sie `QUIT` ein:
 
    ```sql
    QUIT
@@ -212,7 +212,7 @@ Führen Sie nun eine Abfrage zum Zurückgeben von Daten aus der `Inventory`-Tabe
 
 ## <a name="connect-from-outside-the-container"></a> Herstellen einer Verbindung von außerhalb des Containers
 
-Sie können über jedes externe Linux-, Windows- oder macOS-Tool, das SQL-Verbindungen unterstützt, eine Verbindung mit der SQL Edge-Instanz herstellen und SQL-Abfragen durchführen. Weitere Informationen zum Herstellen einer Verbindung mit einem SQL Edge-Container von außerhalb finden Sie unter [Herstellen einer Verbindung mit und Abfragen von Azure SQL Edge (Vorschau)](https://docs.microsoft.com/azure/azure-sql-edge/connect).
+Sie können über jedes externe Linux-, Windows- oder macOS-Tool, das SQL-Verbindungen unterstützt, eine Verbindung mit der SQL Edge-Instanz herstellen und SQL-Abfragen durchführen. Weitere Informationen zum Herstellen einer Verbindung mit einem SQL Edge-Container von außerhalb finden Sie unter [Herstellen einer Verbindung mit und Abfragen von Azure SQL Edge (Vorschau)](./connect.md).
 
 In diesem Schnellstart haben Sie ein SQL Edge-Modul auf einem IoT Edge-Gerät bereitgestellt. 
 

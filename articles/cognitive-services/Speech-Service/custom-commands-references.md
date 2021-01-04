@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 83725a3839d36fc753bb43803e67acaca7571a6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98510132b2341736664dfafa52e9567df95652be
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85851842"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561096"
 ---
 # <a name="custom-commands-concepts-and-definitions"></a>Konzepte und Definitionen für benutzerdefinierte Befehle
 
@@ -49,15 +49,17 @@ Mithilfe dieses Kontrollkästchens wird angegeben, ob der Bereich dieses Paramet
 ### <a name="required"></a>Erforderlich
 Mithilfe dieses Kontrollkästchens wird angegeben, ob ein Wert für diesen Parameter zur Befehlserfüllung oder -vervollständigung erforderlich ist. Ist ein Parameter als erforderlich markiert, müssen Antworten konfiguriert werden, in denen der Benutzer zur Angabe eines Werts aufgefordert wird.
 
+Wenn Sie einen **erforderlichen Parameter** so konfiguriert haben, dass er einen **Standardwert** aufweist, beachten Sie, das System dennoch explizit nach dem Wert des Parameters fragt.
+
 ### <a name="type"></a>Typ
 Von benutzerdefinierten Befehlen werden folgende Parametertypen unterstützt:
 
 * Datum/Uhrzeit
 * Geografie
-* Zahl
-* Zeichenfolge
+* Number
+* String
 
-Von diesen Parametertypen wird jeweils die Konfiguration von Standardwerten unterstützt, die Sie über das Azure-Portal konfigurieren können.
+Alle diese Parametertypen unterstützen mit Ausnahme der Geografie die Konfiguration von Standardwerten, die Sie über das Portal konfigurieren können.
 
 ### <a name="configuration"></a>Konfiguration
 Konfiguration ist eine Parametereigenschaft, die nur für den Zeichenfolgentyp definiert ist. Die folgenden Werte werden unterstützt:
@@ -72,7 +74,7 @@ Konfiguration ist eine Parametereigenschaft, die nur für den Zeichenfolgentyp d
 Validierungen sind Konstrukte für bestimmte Parametertypen, mit denen Sie Einschränkungen für den Wert eines Parameters konfigurieren können. Aktuell werden von benutzerdefinierten Befehlen Validierungen für die folgenden Parametertypen unterstützt:
 
 * Datum/Uhrzeit
-* Zahl
+* Number
 
 ## <a name="rules-configuration"></a>Konfiguration von Regeln
 Eine Regel in benutzerdefinierten Befehlen wird durch einen Satz von *Bedingungen* definiert, durch die eine Reihe von *Aktionen* ausgeführt wird, wenn sie erfüllt wurden. Mithilfe von Regeln können Sie außerdem den *Status nach der Ausführung* sowie die *Erwartungen* für die nächste Runde konfigurieren.
@@ -113,9 +115,12 @@ Erwartungen werden verwendet, um Hinweise für die Verarbeitung der nächsten Be
 ### <a name="post-execution-state"></a>Status nach der Ausführung
 Der Status nach der Ausführung ist der Dialogzustand nach der Verarbeitung der aktuellen Eingabe (Äußerung oder Aktivität). Folgende Typen sind verfügbar:
 
-* **Befehl abgeschlossen**: Der Befehl wird abgeschlossen, und es werden keine weiteren Regeln des Befehls verarbeitet.
+* **Aktuellen Zustand beibehalten**: Nur den aktuellen Zustand beibehalten.
+* **Befehl ausführen**: Der Befehl wird abgeschlossen, und es werden keine weiteren Regeln des Befehls verarbeitet.
 * **Vervollständigungsregeln ausführen**: Alle gültigen Vervollständigungsregeln werden ausgeführt.
 * **Auf Benutzereingabe warten**: Es wird auf die nächste Benutzereingabe gewartet.
+
+
 
 ## <a name="next-steps"></a>Nächste Schritte
 

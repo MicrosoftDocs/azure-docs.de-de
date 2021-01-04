@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: a487e6989792c63aaf5baf9ddb3875df549561a4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f221237bee441ec78d726dabf476d1085a27071d
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143981"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095303"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Verwenden von kundenseitig verwalteten Speicherkonten in Azure Monitor Log Analytics
 
@@ -22,7 +22,7 @@ Log Analytics verwendet Azure Storage für eine Vielzahl von Szenarios. Dies wir
 
 ## <a name="ingesting-azure-diagnostics-extension-logs-wadlad"></a>Erfassen von Azure-Diagnose-Erweiterungsprotokollen (WAD/LAD)
 Die Erweiterungs-Agents für die Azure-Diagnose (auch WAD für Windows-Agents und LAD für Linux-Agents) erfassen verschiedene Betriebssystemprotokolle und speichern sie in einem kundenseitig verwalteten Speicherkonto. Anschließend können Sie diese Protokolle in Log Analytics importieren, um sie zu überprüfen und zu analysieren.
-So erfassen Sie Azure-Diagnose-Erweiterungsprotokolle in Ihrem Speicherkonto: Verbinden Sie das Speicherkonto als Speicherdatenquelle über das [Azure-Portal](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) oder durch Aufrufen der [Storage Insights-API](/rest/api/loganalytics/connectedsources/storage%20insights/createorupdate) mit Ihrem Log Analytics-Arbeitsbereich.
+So erfassen Sie Azure-Diagnose-Erweiterungsprotokolle in Ihrem Speicherkonto: Verbinden Sie das Speicherkonto als Speicherdatenquelle über das [Azure-Portal](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) oder durch Aufrufen der [Storage Insights-API](/rest/api/loganalytics/storage%20insights/createorupdate) mit Ihrem Log Analytics-Arbeitsbereich.
 
 Unterstützte Datentypen:
 * syslog
@@ -64,7 +64,7 @@ Azure Storage verschlüsselt alle ruhenden Daten in einem Speicherkonto. Standar
 Das Speicherkonto und der Schlüsseltresor müssen sich in derselben Region befinden, dürfen aber zu verschiedenen Abonnements gehören. Weitere Informationen zur Azure Storage-Verschlüsselung und -Schlüsselverwaltung finden Sie unter [Azure Storage-Verschlüsselung für ruhende Daten](../../storage/common/storage-service-encryption.md).
 
 ##### <a name="apply-cmk-to-your-storage-accounts"></a>Anwenden von CMKs auf Ihre Speicherkonten
-Verwenden Sie das [Azure-Portal](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json), [PowerShell](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) oder die [CLI](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json), um Ihr Azure Storage-Konto für die Verwendung von kundenseitig verwalteten Schlüsseln mit Azure Key Vault zu konfigurieren. 
+Verwenden Sie das [Azure-Portal](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [PowerShell](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) oder die [CLI](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), um Ihr Azure Storage-Konto für die Verwendung von kundenseitig verwalteten Schlüsseln mit Azure Key Vault zu konfigurieren. 
 
 ## <a name="managing-linked-storage-accounts"></a>Verwalten von verknüpften Speicherkonten
 

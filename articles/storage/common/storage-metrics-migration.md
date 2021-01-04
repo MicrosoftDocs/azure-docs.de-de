@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: c6a5f69a5a32ed1279b367c93b5246eb77ef0208
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 4a4624a94a27f00201c55a320f1745783b06d169
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91802836"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781922"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Wechseln zu Metriken in Azure Monitor
 
@@ -30,12 +30,12 @@ Für den Übergang zu Metriken in Azure Monitor wird folgende Vorgehensweise emp
 
 3. Ermitteln Sie, [welche Metriken in Azure Monitor](#metrics-mapping-between-old-metrics-and-new-metrics) die gleichen Daten wie die derzeit verwendeten Metriken bereitstellen. 
    
-4. Erstellen Sie [Diagramme](https://docs.microsoft.com/learn/modules/gather-metrics-blob-storage/2-viewing-blob-metrics-in-azure-portal) oder [Dashboards](https://docs.microsoft.com/learn/modules/gather-metrics-blob-storage/4-using-dashboards-in-the-azure-portal), um die Metrikdaten anzuzeigen.
+4. Erstellen Sie [Diagramme](/learn/modules/gather-metrics-blob-storage/2-viewing-blob-metrics-in-azure-portal) oder [Dashboards](/learn/modules/gather-metrics-blob-storage/4-using-dashboards-in-the-azure-portal), um die Metrikdaten anzuzeigen.
 
    > [!NOTE]
    > Metriken in Azure Monitor sind standardmäßig aktiviert. Sie müssen also nichts tun, um die Erfassung von Metriken zu starten. Sie müssen jedoch Diagramme oder Dashboards erstellen, um diese Metriken anzuzeigen. 
  
-5. Wenn Sie Warnungsregeln erstellt haben, die auf klassischen Speichermetriken basieren, [erstellen Sie Warnungsregeln](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview), die auf Metriken in Azure Monitor basieren. 
+5. Wenn Sie Warnungsregeln erstellt haben, die auf klassischen Speichermetriken basieren, [erstellen Sie Warnungsregeln](../../azure-monitor/platform/alerts-overview.md), die auf Metriken in Azure Monitor basieren. 
 
 6. Nachdem alle Ihre Metriken in Azure Monitor angezeigt werden, können Sie die klassische Protokollierung deaktivieren. 
 
@@ -53,7 +53,7 @@ Mit Blick auf die unterstützten Metriken bieten klassische Metriken nur Werte z
 
 Wenn die Aktivität in Ihrem Konto keine Metrik auslöst, wird bei klassischen Metriken für diese Metrik der Wert null (0) angezeigt. Bei den Metriken in Azure Monitor werden diese Daten vollständig ausgelassen. Dies führt zu übersichtlicheren Berichten. Wenn beispielsweise bei klassischen Metriken keine Timeoutfehler auf dem Server gemeldet werden, wird der Wert `ServerTimeoutError` in der Metrikentabelle auf „0“ festgelegt. Azure Monitor gibt keine Daten zurück, wenn Sie den Wert der Metrik `Transactions` mit einer Dimension `ResponseType` abfragen, die `ServerTimeoutError` entspricht. 
 
-Weitere Informationen zu Metriken in Azure Monitor finden Sie unter [Metriken in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Weitere Informationen zu Metriken in Azure Monitor finden Sie unter [Metriken in Azure Monitor](../../azure-monitor/platform/data-platform-metrics.md).
 
 <a id="metrics-mapping-between-old-metrics-and-new-metrics"></a>
 
@@ -70,7 +70,7 @@ Weitere Informationen zu Metriken in Azure Monitor finden Sie unter [Metriken in
 | `ContainerCount`      | `ContainerCount` |
 
 > [!NOTE]
-> Es gibt auch mehrere neue Kapazitätsmetriken, die als klassische Metriken nicht zur Verfügung standen. Eine vollständige Liste finden Sie unter [Metriken](../common/monitor-storage-reference.md#metrics).
+> Es gibt auch mehrere neue Kapazitätsmetriken, die als klassische Metriken nicht zur Verfügung standen. Eine vollständige Liste finden Sie unter [Metriken](../blobs/monitor-blob-storage-reference.md#metrics).
 
 **Transaktionsmetriken**
 
@@ -117,5 +117,4 @@ Weitere Informationen zu Metriken in Azure Monitor finden Sie unter [Metriken in
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
-
+* [Azure Monitor](../../azure-monitor/overview.md)

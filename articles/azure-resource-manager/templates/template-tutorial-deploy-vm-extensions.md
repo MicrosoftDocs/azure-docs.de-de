@@ -1,21 +1,21 @@
 ---
 title: Bereitstellen von VM-Erweiterungen mit einer Vorlage
-description: Hier erfahren Sie, wie Sie Azure-VM-Erweiterungen mithilfe von Azure Resource Manager-Vorlagen bereitstellen.
+description: Hier erfahren Sie, wie Sie VM-Erweiterungen mithilfe von Azure Resource Manager-Vorlagen (ARM-Vorlagen) bereitstellen.
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f82e0eb45f4bc7c3260554b1b1120025029336bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49bc1a77e2e25cb069a89812603ff562b8a4c1cd
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89073641"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931451"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Tutorial: Bereitstellen von VM-Erweiterungen mit ARM-Vorlagen
 
-Hier erfahren Sie, wie Sie [Azure-VM-Erweiterungen](../../virtual-machines/extensions/features-windows.md) verwenden, um nach der Bereitstellung Konfigurations- und Automatisierungsaufgaben für virtuelle Azure-Computer auszuführen. Für die Verwendung mit virtuellen Azure-Computern stehen viele verschiedene VM-Erweiterungen zur Verfügung. In diesem Tutorial stellen Sie eine benutzerdefinierte Skripterweiterung über eine ARM-Vorlage (Azure Resource Manager) bereit, um ein PowerShell-Skript auf einem virtuellen Windows-Computer auszuführen.  Das Skript installiert einen Webserver auf dem virtuellen Computer.
+Hier erfahren Sie, wie Sie [Azure-VM-Erweiterungen](../../virtual-machines/extensions/features-windows.md) verwenden, um nach der Bereitstellung Konfigurations- und Automatisierungsaufgaben für virtuelle Azure-Computer auszuführen. Für die Verwendung mit virtuellen Azure-Computern stehen viele verschiedene VM-Erweiterungen zur Verfügung. In diesem Tutorial stellen Sie eine benutzerdefinierte Skripterweiterung über eine Azure Resource Manager-Vorlage (ARM-Vorlage) bereit, um ein PowerShell-Skript auf einem virtuellen Windows-Computer auszuführen. Das Skript installiert einen Webserver auf dem virtuellen Computer.
 
 Dieses Tutorial enthält die folgenden Aufgaben:
 
@@ -31,7 +31,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 
 Damit Sie die Anweisungen in diesem Artikel ausführen können, benötigen Sie Folgendes:
 
-* Visual Studio Code mit der Erweiterung „Azure Resource Manager-Tools“. Weitere Informationen finden Sie unter [Schnellstart: Erstellen von Azure Resource Manager-Vorlagen mit Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code mit der Erweiterung „Azure Resource Manager-Tools“. Weitere Informationen finden Sie unter [Schnellstart: Erstellen von ARM-Vorlagen mit Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * Verwenden Sie aus Sicherheitsgründen ein generiertes Kennwort für das Administratorkonto des virtuellen Computers. Hier sehen Sie ein Beispiel für die Kennwortgenerierung:
 
     ```console

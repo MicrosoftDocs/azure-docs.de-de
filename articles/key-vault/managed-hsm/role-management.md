@@ -8,12 +8,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 370be4501a113403a9b1db14571f5a021ac15517
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 78d4d9a8b5023731530c5e348f5c9ba72815d410
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149106"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445641"
 ---
 # <a name="managed-hsm-role-management"></a>Rollenverwaltung für verwaltetes HSM
 
@@ -82,13 +82,13 @@ Alle Rollenzuweisungen auf der HSM-Ebene für einen bestimmten Benutzer ( **user
 az keyvault role assignment list --hsm-name ContosoMHSM --assignee user@contoso.com
 ```
 
-Alle Rollenzuweisungen für einen bestimmten Benutzer ( **user2@contoso.com** ) und einen bestimmten Schlüssel ( **myrsakey** ).
+Alle Rollenzuweisungen für einen bestimmten Benutzer ( **user2@contoso.com** ) und einen bestimmten Schlüssel (**myrsakey**).
 
 ```azurecli-interactive
 az keyvault role assignment list --hsm-name ContosoMHSM --assignee user2@contoso.com --scope /keys/myrsakey
 ```
 
-Eine bestimmte Rollenzuweisung für die Rolle **Managed HSM Crypto Officer** (Kryptoverantwortlicher für verwaltete HSMs), einen bestimmten Benutzer ( **user2@contoso.com** ) und einen bestimmten Schlüssel ( **myrsakey** ):
+Eine bestimmte Rollenzuweisung für die Rolle **Managed HSM Crypto Officer** (Kryptoverantwortlicher für verwaltete HSMs), einen bestimmten Benutzer ( **user2@contoso.com** ) und einen bestimmten Schlüssel (**myrsakey**):
 
 
 ```azurecli-interactive
@@ -113,7 +113,7 @@ az keyvault role definition list --hsm-name ContosoMHSM
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Sehen Sie sich eine Übersicht über die [rollenbasierte Zugriffssteuerung in Azure (Role-Based Access Control, RBAC)](../../role-based-access-control/overview.md) an.
+- Sehen Sie sich eine Übersicht über die [rollenbasierte Zugriffssteuerung in Azure (Azure Role-Based Access Control, Azure RBAC)](../../role-based-access-control/overview.md) an.
 - Sehen Sie sich ein Tutorial zur [Rollenverwaltung für verwaltetes HSM](role-management.md) an.
 - Informieren Sie sich ausführlicher über das [Zugriffssteuerungsmodell für verwaltete HSMs](access-control.md).
 - Sehen Sie sich alle [integrierten Rollen der lokalen RBAC für verwaltete HSMs](built-in-roles.md) an.

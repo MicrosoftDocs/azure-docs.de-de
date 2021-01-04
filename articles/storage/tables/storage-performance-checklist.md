@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d3f7d5f496634f10b48e7509c21cd634fd92d3c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 71b1f3cfa1df86b417c468d56f67cd7fe8d71d73
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89458331"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004703"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Checkliste zu Leistung und Skalierbarkeit für Table Storage
 
@@ -153,7 +153,7 @@ Legen Sie das Verbindungslimit fest, bevor Sie Verbindungen öffnen.
 
 Für andere Programmiersprachen erfahren Sie das Verbindungslimit aus der zugehörigen Dokumentation.  
 
-Weitere Informationen finden Sie im Blogbeitrag [Webdienste: Gleichzeitige Verbindungen](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Weitere Informationen finden Sie im Blogbeitrag [Webdienste: Gleichzeitige Verbindungen](/archive/blogs/darrenj/web-services-concurrent-connections).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Erhöhen der Mindestanzahl von Threads
 
@@ -171,7 +171,7 @@ Parallelität kann großartig für die Leistung sein. Bei der Verwendung von une
 
 ## <a name="client-libraries-and-tools"></a>Clientbibliotheken und -tools
 
-Verwenden Sie für optimale Leistung immer die aktuellen Clientbibliotheken und -tools von Microsoft. Azure Storage-Clientbibliotheken sind für viele Programmiersprachen verfügbar. Azure Storage unterstützt auch PowerShell und die Azure-Befehlszeilenschnittstelle (Azure CLI). Microsoft entwickelt diese Clientbibliotheken und -tools aktiv im Hinblick auf die Leistung, hält sie auf dem aktuellen Stand der Dienstversionen und stellt sicher, dass sie viele der bewährten Methoden für die Leistung intern umsetzen. Weitere Informationen finden Sie in der [Azure Storage-Referenzdokumentation](/azure/storage/#reference).
+Verwenden Sie für optimale Leistung immer die aktuellen Clientbibliotheken und -tools von Microsoft. Azure Storage-Clientbibliotheken sind für viele Programmiersprachen verfügbar. Azure Storage unterstützt auch PowerShell und die Azure-Befehlszeilenschnittstelle (Azure CLI). Microsoft entwickelt diese Clientbibliotheken und -tools aktiv im Hinblick auf die Leistung, hält sie auf dem aktuellen Stand der Dienstversionen und stellt sicher, dass sie viele der bewährten Methoden für die Leistung intern umsetzen.
 
 ## <a name="handle-service-errors"></a>Behandeln von Dienstfehlern
 
@@ -197,7 +197,7 @@ In diesem Abschnitt finden Sie verschiedene Schnellkonfigurationseinstellungen, 
 
 Ab Speicherdienstversion 2013-08-15 unterstützt der Tabellenspeicherdienst die Verwendung von JSON anstelle des XML-basierten AtomPub-Formats für die Übertragung von Tabellendaten. Die Verwendung von JSON kann die Nutzlast um bis zu 75 % verringern und die Anwendungsleistung deutlich verbessern.
 
-Weitere Informationen finden Sie im Eintrag [Microsoft Azure-Tabellen: Einführung in JSON](https://docs.microsoft.com/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json) und [Nutzlastformat für Tabellenspeicherdienstvorgänge](https://msdn.microsoft.com/library/azure/dn535600.aspx).
+Weitere Informationen finden Sie im Eintrag [Microsoft Azure-Tabellen: Einführung in JSON](/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json) und [Nutzlastformat für Tabellenspeicherdienstvorgänge](/rest/api/storageservices/Payload-Format-for-Table-Service-Operations).
 
 ### <a name="disable-nagle"></a>Deaktivieren des Nagle-Algorithmus
 

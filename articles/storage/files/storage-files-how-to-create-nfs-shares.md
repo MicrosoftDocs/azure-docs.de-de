@@ -4,16 +4,16 @@ description: In diesem Artikel erfahren Sie, wie Sie eine Azure-Dateifreigabe er
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: references_regions
-ms.openlocfilehash: d5b394833dbc920612f521b01f4da88af6c3e015
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 3cf22ee22c35b850aff33290a59a7043bb57c984
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220746"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620942"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Erstellen einer NFS-Freigabe
 
@@ -38,7 +38,7 @@ Azure-Dateifreigaben sind vollständig verwaltete Dateifreigaben, die in der Clo
     - [Konfigurieren eines P2S-VPN (Point-to-Site) unter Linux zur Verwendung mit Azure Files](storage-files-configure-p2s-vpn-linux.md)
     - [Konfigurieren eines Site-to-Site-VPN zur Verwendung mit Azure Files](storage-files-configure-s2s-vpn.md)
     - Konfigurieren von [ExpressRoute](../../expressroute/expressroute-introduction.md)
-- Falls Sie die Azure CLI verwenden möchten, [installieren Sie die neueste Version](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Falls Sie die Azure CLI verwenden möchten, [installieren Sie die neueste Version](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="register-the-nfs-41-protocol"></a>Registrieren des NFS 4.1-Protokolls
 
@@ -64,7 +64,7 @@ az feature register --name AllowNfsFileShares \
 az provider register --namespace Microsoft.Storage
 ```
 
-## <a name="verify-that-the-feature-is-registered"></a>Überprüfen, ob das Feature registriert ist
+## <a name="verify-feature-registration"></a>Überprüfen der Featureregistrierung
 
 Die Registrierungsgenehmigung kann bis zu einer Stunde dauern. Verwenden Sie die folgenden Befehle, um zu überprüfen, ob die Registrierung abgeschlossen wurde:
 
@@ -80,6 +80,34 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNfs
 az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscription <yourSubscriptionIDHere>
 ```
 
+## <a name="verify-storage-account-kind"></a>Überprüfen des Speicherkontotyps
+
+Derzeit können nur File Storage-Konten NFS-Freigaben erstellen. 
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Um den Typ Ihres Speicherkontos zu überprüfen, navigieren Sie im Azure-Portal zu ihm. Wählen Sie dann für Ihr Speicherkonto die Option **Eigenschaften** aus. Überprüfen Sie auf dem Blatt „Eigenschaften“ den Wert unter **Kontoart**. Der Wert sollte **FileStorage** lauten.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+Mit dem folgenden Befehl können Sie überprüfen, ob Sie über ein File Storage-Konto verfügen:
+
+```azurepowershell
+$accountKind=Get-AzStorageAccount -ResourceGroupName "yourResourceGroup" -Name "yourStorageAccountName"
+$accountKind.Kind
+```
+
+Die Ausgabe sollte **FileStorage** lauten. Andernfalls weist Ihr Speicherkonto den falschen Typ auf. Informationen zum Erstellen eines **File Storage**-Kontos finden Sie unter [Erstellen einer Azure-Premium-Dateifreigabe](storage-how-to-create-premium-fileshare.md).
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+Mit dem folgenden Befehl können Sie überprüfen, ob Sie über ein File Storage-Konto verfügen:
+
+```azurecli
+az storage account show -g yourResourceGroup -n yourStorageAccountName
+```
+
+Die Ausgabe sollte **"kind": "File Storage"** enthalten. Wenn dies nicht der Fall ist, weist Ihr Speicherkonto den falschen Typ auf. Informationen zum Erstellen eines **File Storage**-Kontos finden Sie unter [Erstellen einer Azure-Premium-Dateifreigabe](storage-how-to-create-premium-fileshare.md).
+
+---
 ## <a name="create-an-nfs-share"></a>Erstellen einer NFS-Freigabe
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
@@ -110,7 +138,7 @@ Nachdem Sie nun ein FileStorage-Konto erstellt und das Netzwerk konfiguriert hab
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   Informationen zum Aktualisieren der PowerShell-Version finden Sie unter [Aktualisieren einer vorhandenen Windows PowerShell-Version](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
+   Informationen zum Aktualisieren der PowerShell-Version finden Sie unter [Aktualisieren einer vorhandenen Windows PowerShell-Version](/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
     
 1. Installieren Sie die aktuelle Version des PowerShellGet-Moduls.
 
@@ -126,7 +154,7 @@ Nachdem Sie nun ein FileStorage-Konto erstellt und das Netzwerk konfiguriert hab
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
    ```
 
-   Weitere Informationen zum Installieren von PowerShell-Modulen finden Sie unter [Installieren des Azure PowerShell-Moduls](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0).
+   Weitere Informationen zum Installieren von PowerShell-Modulen finden Sie unter [Installieren des Azure PowerShell-Moduls](/powershell/azure/install-az-ps?view=azps-3.0.0).
    
 1. Im Azure PowerShell-Modul verwenden Sie das Cmdlet [New-AzRmStorageShare](/powershell/module/az.storage/new-azrmstorageshare) zum Erstellen einer Premium-Dateifreigabe.
 
@@ -152,10 +180,9 @@ In der Azure CLI verwenden Sie den Befehl [az storage share create](/cli/azure/s
 
 ```azurecli-interactive
 az storage share-rm create \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
+    --storage-account $STORAGEACCT \
     --enabled-protocol NFS \
-    --root-access RootSquash \
+    --root-squash RootSquash \
     --name "myshare" 
 ```
 ---

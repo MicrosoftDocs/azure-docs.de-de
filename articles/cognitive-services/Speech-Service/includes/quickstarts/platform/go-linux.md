@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: gelecaro
-ms.openlocfilehash: 29433e7ecaa4135c790f7cafb36d56c4c07ac684
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: f674edd15b86f49d60450a53f5df5852b32f95a4
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096996"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906431"
 ---
 In diesem Leitfaden erfahren Sie, wie Sie das [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) für Linux installieren.
 
@@ -17,7 +17,7 @@ In diesem Leitfaden erfahren Sie, wie Sie das [Speech SDK](~/articles/cognitive
 
 ## <a name="system-requirements"></a>Systemanforderungen
 
-Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8)
+Linux: Zeigen Sie die Liste mit den [unterstützten Linux-Distributionen und Zielarchitekturen](~/articles/cognitive-services/speech-service/speech-sdk.md) an.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -28,21 +28,16 @@ Für diese Schnellstartanleitung benötigen Sie Folgendes:
 
 * Für unterstützte Linux-Plattformen müssen bestimmte Bibliotheken installiert sein (`libssl` für die Unterstützung von Secure Sockets Layer und `libasound2` für Audiounterstützung). Im Anschluss finden Sie die Befehle für die Installation der richtigen Versionen dieser Bibliotheken für Ihre Distribution.
 
-   * Auf Ubuntu:
+   * Unter Ubuntu/Debian:
 
      ```sh
      sudo apt-get update
      sudo apt-get install build-essential libssl1.0.0 libasound2 wget
      ```
 
-   * Unter Debian 9:
+     Wenn libssl1.0.0 nicht verfügbar ist, sollten Sie stattdessen libssl1.0.x (wobei x größer als 0 ist) oder libssl1.1 installieren.
 
-     ```sh
-     sudo apt-get update
-     sudo apt-get install build-essential libssl1.0.2 libasound2 wget
-     ```
-
-   * Unter RHEL/CentOS 8:
+   * Unter RHEL/CentOS:
 
      ```sh
      sudo yum update
@@ -51,24 +46,27 @@ Für diese Schnellstartanleitung benötigen Sie Folgendes:
      ```
 
 > [!NOTE]
-> Befolgen Sie unter RHEL/CentOS 8 die Anweisungen zum [Konfigurieren von OpenSSL für Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> - Befolgen Sie in RHEL/CentOS 7 die Anweisungen zum [Konfigurieren von RHEL/CentOS 7 für das Speech SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+> - Befolgen Sie unter RHEL/CentOS 8 die Anweisungen zum [Konfigurieren von OpenSSL für Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 [!INCLUDE [linux-install-sdk](linux-install-sdk.md)]
 
 
 ## <a name="configure-go-environment"></a>Konfigurieren der Go-Umgebung
 
+Führen Sie die folgenden Schritte aus, um Ihre Go-Umgebung für die Suche nach dem Speech SDK einzurichten. Ersetzen Sie in beiden Schritten `<architecture>` durch die Prozessorarchitektur Ihrer CPU. Mögliche Werte sind `x86`, `x64`, `arm32` und `arm64`.
+
 1. Da für die Bindungen `cgo` verwendet wird, müssen Sie die Umgebungsvariablen festlegen, damit das SDK von Go gefunden werden kann:
 
    ```sh
    export CGO_CFLAGS="-I$SPEECHSDK_ROOT/include/c_api"
-   export CGO_LDFLAGS="-L$SPEECHSDK_ROOT/lib -lMicrosoft.CognitiveServices.Speech.core"
+   export CGO_LDFLAGS="-L$SPEECHSDK_ROOT/lib/<architecture> -lMicrosoft.CognitiveServices.Speech.core"
    ```
 
-1. Damit Anwendungen mit dem SDK ausgeführt werden können, müssen wir dem Betriebssystem außerdem mitteilen, wo sich die Bibliotheken (libs) befinden:
+1. Damit Anwendungen mit dem SDK ausgeführt werden können, muss dem Betriebssystem mitgeteilt werden, wo sich die Bibliotheken befinden:
 
    ```sh
-   export LD_LIBRARY_PATH="$SPEECHSDK_ROOT/lib/<arch>:$LD_LIBRARY_PATH"
+   export LD_LIBRARY_PATH="$SPEECHSDK_ROOT/lib/<architecture>:$LD_LIBRARY_PATH"
    ```
 
 ## <a name="next-steps"></a>Nächste Schritte

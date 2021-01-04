@@ -7,19 +7,19 @@ ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 67bcd6fbf04cb92deaae034d289990dfec309fe6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c2eb4225cb014b3251d12470e4e9827150a5cf2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91280010"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123352"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Analysieren von JSON- und AVRO-Daten in Azure Stream Analytics
 
 Azure Stream Analytics unterstützt die Verarbeitung von Ereignissen in den Datenformaten CSV, JSON und AVRO. Sowohl JSON- als auch AVRO-Daten können strukturiert sein und komplexe Typen enthalten, z. B. geschachtelte Objekte (Datensätze) und Arrays. 
 
 >[!NOTE]
->Von Event Hub Capture erstellte AVRO-Dateien verwenden ein bestimmtes Format, bei dem Sie die Funktion *benutzerdefinierter Deserialisierer* verwenden müssen. Weitere Informationen finden Sie unter [Lesen von Eingabe in beliebigen Formaten mithilfe benutzerdefinierter .NET-Deserialisierer](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples).
+>Von Event Hub Capture erstellte AVRO-Dateien verwenden ein bestimmtes Format, bei dem Sie die Funktion *benutzerdefinierter Deserialisierer* verwenden müssen. Weitere Informationen finden Sie unter [Lesen von Eingabe in beliebigen Formaten mithilfe benutzerdefinierter .NET-Deserialisierer](./custom-deserializer-examples.md).
 >
 >Die AVRO-Deserialisierung von Stream Analytics unterstützt den Typ Zuordnung nicht. Stream Analytics kann Erfassungs-Blobs von EventHub nicht lesen, da die EventHub-Erfassung Zuordnung verwendet.
 
@@ -89,9 +89,9 @@ Es wird folgendes Ergebnis ausgegeben:
 
 ### <a name="access-nested-fields-when-property-name-is-a-variable"></a>Zugreifen auf geschachtelte Felder, wenn der Eigenschaftenname eine Variable ist
 
-Verwenden Sie die Funktion [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics), wenn der Eigenschaftenname eine Variable ist. Dies ermöglicht die Erstellung dynamischer Abfragen, ohne Eigenschaftsnamen hart codieren zu müssen.
+Verwenden Sie die Funktion [GetRecordPropertyValue](/stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics), wenn der Eigenschaftenname eine Variable ist. Dies ermöglicht die Erstellung dynamischer Abfragen, ohne Eigenschaftsnamen hart codieren zu müssen.
 
-Stellen Sie sich z. B. einmal vor, dass der Beispieldatenstrom **mit Referenzdaten verknüpft werden muss**, die Schwellenwerte für jeden Gerätesensor enthalten. Nachfolgend finden Sie einen Ausschnitt aus solchen Referenzdaten.
+Stellen Sie sich z. B. einmal vor, dass der Beispieldatenstrom **mit Referenzdaten verknüpft werden muss** , die Schwellenwerte für jeden Gerätesensor enthalten. Nachfolgend finden Sie einen Ausschnitt aus solchen Referenzdaten.
 
 ```json
 {
@@ -131,7 +131,7 @@ Es wird folgendes Ergebnis ausgegeben:
 
 ### <a name="convert-record-fields-into-separate-events"></a>Konvertieren von Eintragsfeldern in separate Ereignisse
 
-Um Datensatzfelder in separate Ereignisse zu konvertieren, verwenden Sie den [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics)-Operator zusammen mit der [GetRecordProperties](https://docs.microsoft.com/stream-analytics-query/getrecordproperties-azure-stream-analytics)-Funktion.
+Um Datensatzfelder in separate Ereignisse zu konvertieren, verwenden Sie den [APPLY](/stream-analytics-query/apply-azure-stream-analytics)-Operator zusammen mit der [GetRecordProperties](/stream-analytics-query/getrecordproperties-azure-stream-analytics)-Funktion.
 
 Mit den ursprünglichen Beispieldaten könnte die folgende Abfrage verwendet werden, um Eigenschaften in verschiedene Ereignisse zu extrahieren.
 
@@ -154,7 +154,7 @@ Es wird folgendes Ergebnis ausgegeben:
 |12345|CustomSensor02|99|
 |12345|SensorMetadata|[object Object]|
 
-Wenn Sie [WITH](https://docs.microsoft.com/stream-analytics-query/with-azure-stream-analytics) verwenden, ist es dann möglich, diese Ereignisse an verschiedene Ziele weiterzuleiten:
+Wenn Sie [WITH](/stream-analytics-query/with-azure-stream-analytics) verwenden, ist es dann möglich, diese Ereignisse an verschiedene Ziele weiterzuleiten:
 
 ```SQL
 WITH Stage0 AS
@@ -205,9 +205,9 @@ Sie können dann in Ihrer Stream Analytics-Abfrage wie nachfolgend gezeigt eine
 
 ## <a name="array-data-types"></a>Arraydatentypen
 
-Arraydatentypen sind eine geordnete Sammlung von Werten. Im Folgenden werden einige typische Vorgänge mit Arraywerten beschrieben. In diesen Beispielen werden die Funktionen [GetArrayElement](https://docs.microsoft.com/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics), [GetArrayLength](https://docs.microsoft.com/stream-analytics-query/getarraylength-azure-stream-analytics) und der [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics)-Operator verwendet.
+Arraydatentypen sind eine geordnete Sammlung von Werten. Im Folgenden werden einige typische Vorgänge mit Arraywerten beschrieben. In diesen Beispielen werden die Funktionen [GetArrayElement](/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements](/stream-analytics-query/getarrayelements-azure-stream-analytics), [GetArrayLength](/stream-analytics-query/getarraylength-azure-stream-analytics) und der [APPLY](/stream-analytics-query/apply-azure-stream-analytics)-Operator verwendet.
 
-Hier ist ein Beispiel für ein einzelnes Ereignis. Sowohl `CustomSensor03` als auch `SensorMetadata` sind vom Typ **Array**:
+Hier ist ein Beispiel für ein einzelnes Ereignis. Sowohl `CustomSensor03` als auch `SensorMetadata` sind vom Typ **Array** :
 
 ```json
 {
@@ -265,7 +265,7 @@ Es wird folgendes Ergebnis ausgegeben:
 
 ### <a name="convert-array-elements-into-separate-events"></a>Konvertieren von Arrayelementen in separate Ereignisse
 
-Wählen Sie alle Arrayelemente als einzelne Ereignisse aus. Der [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics)-Operator extrahiert zusammen mit der integrierten [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics)-Funktion alle Elemente des Arrays als einzelne Ereignisse:
+Wählen Sie alle Arrayelemente als einzelne Ereignisse aus. Der [APPLY](/stream-analytics-query/apply-azure-stream-analytics)-Operator extrahiert zusammen mit der integrierten [GetArrayElements](/stream-analytics-query/getarrayelements-azure-stream-analytics)-Funktion alle Elemente des Arrays als einzelne Ereignisse:
 
 ```SQL
 SELECT
@@ -301,7 +301,7 @@ Es wird folgendes Ergebnis ausgegeben:
 |12345|Hersteller|ABC|
 |12345|Version|1.2.45|
 
-Wenn die extrahierten Felder in Spalten angezeigt werden müssen, können Sie das Dastaset mithilfe der [WITH](https://docs.microsoft.com/stream-analytics-query/with-azure-stream-analytics)-Syntax zusätzlich zum [JOIN](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics)-Vorgang pivotieren. Diese Verknüpfung erfordert eine [Zeitbegrenzungs](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics#BKMK_DateDiff)-Bedingung, die eine Duplizierung verhindert:
+Wenn die extrahierten Felder in Spalten angezeigt werden müssen, können Sie das Dastaset mithilfe der [WITH](/stream-analytics-query/with-azure-stream-analytics)-Syntax zusätzlich zum [JOIN](/stream-analytics-query/join-azure-stream-analytics)-Vorgang pivotieren. Diese Verknüpfung erfordert eine [Zeitbegrenzungs](/stream-analytics-query/join-azure-stream-analytics#BKMK_DateDiff)-Bedingung, die eine Duplizierung verhindert:
 
 ```SQL
 WITH DynamicCTE AS (
@@ -330,4 +330,4 @@ Es wird folgendes Ergebnis ausgegeben:
 |12345|47|122|1.2.45|ABC|
 
 ## <a name="see-also"></a>Weitere Informationen
-[Datentypen in Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)
+[Datentypen in Azure Stream Analytics](/stream-analytics-query/data-types-azure-stream-analytics)

@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: eb9e8caff81e86b7db732c970eee1e1a08be5241
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 302c5d6e8e523a11b8773f10bb6089e3bea09bdd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491103"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006847"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-sql-api"></a>Erstellen eines Containers in Azure Cosmos DB mithilfe der SQL-API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In diesem Artikel werden die verschiedenen Möglichkeiten beim Erstellen eines Containers in Azure Cosmos DB mithilfe der SQL-API erläutert. Es wird gezeigt, wie Sie einen Container über das Azure-Portal, die Azure CLI, PowerShell oder unterstützte SDKs erstellen. In diesem Artikel erfahren Sie, wie Sie einen Container erstellen, den Partitionsschlüssel angeben und den Durchsatz bereitstellen.
 
@@ -30,13 +31,13 @@ In diesem Artikel werden die verschiedenen Möglichkeiten beim Erstellen eines C
 
 1. [Erstellen Sie ein neues Azure Cosmos-Konto](create-sql-api-dotnet.md#create-account), oder wählen Sie ein bereits vorhandenes Konto aus.
 
-1. Öffnen Sie den Bereich **Daten-Explorer** , und wählen Sie **Neuer Container** aus. Geben Sie anschließend die folgenden Details an:
+1. Öffnen Sie den Bereich **Daten-Explorer**, und wählen Sie **Neuer Container** aus. Geben Sie anschließend die folgenden Details an:
 
    * Geben Sie an, ob Sie eine neue Datenbank erstellen oder eine vorhandene Datenbank verwenden.
    * Geben Sie eine Container-ID ein.
    * Geben Sie einen Partitionsschlüssel ein.
    * Geben Sie den bereitzustellenden Durchsatz an (etwa 1.000 RUs).
-   * Klicken Sie auf **OK** .
+   * Klicken Sie auf **OK**.
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-sql.png" alt-text="Screenshot des Bereichs „Daten-Explorer“ mit hervorgehobener Option „Neuer Container“":::
 

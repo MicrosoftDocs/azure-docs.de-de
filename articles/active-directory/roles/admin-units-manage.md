@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b47ea3cc55be26521dfa6e2b3230b477f82f442
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bbe76d21d948525421790f574830da7b3a163216
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373837"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395392"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Verwalten von Verwaltungseinheiten in Azure Active Directory
 
@@ -29,26 +29,32 @@ Um eine präzisere administrative Steuerung in Azure Active Directory (Azure AD
 
 1. Um Abfragen aus den folgenden Anweisungen über den [Graph-Tester](https://aka.ms/ge) auszuführen, gehen Sie folgendermaßen vor:
 
-    a. Wechseln Sie im Azure-Portal zu Azure AD. Wählen Sie in der Liste der Anwendungen **Graph-Tester** und dann **Administratoreinwilligung für Graph-Tester erteilen** aus.
+    a. Wechseln Sie im Azure-Portal zu Azure AD. 
+    
+    b. Wählen Sie in der Anwendungsliste **Graph-Tester** aus.
+    
+    c. Wählen Sie im Bereich **Berechtigungen** die Option **Grant admin consent for Graph explorer** (Administratoreinwilligung für Graph-Tester erteilen) aus.
 
-    ![Screenshot mit Link zu „Administratoreinwilligung erteilen“](./media/admin-units-manage/select-graph-explorer.png)
+    ![Screenshot: Link „Grant admin consent for Graph explorer“ (Administratoreinwilligung für Graph-Tester erteilen)](./media/admin-units-manage/select-graph-explorer.png)
 
 
 1. Verwenden Sie die Vorschauversion von Azure AD PowerShell.
 
 ## <a name="add-an-administrative-unit"></a>Hinzufügen einer Verwaltungseinheit
 
+Sie können eine Verwaltungseinheit entweder über das Azure-Portal oder mithilfe von PowerShell hinzufügen.
+
 ### <a name="use-the-azure-portal"></a>Verwenden des Azure-Portals
 
-1. Wechseln Sie im Azure-Portal zu Azure AD, und wählen Sie im Bereich links **Verwaltungseinheiten** aus.
+1. Wechseln Sie im Azure-Portal zu Azure AD. Anschließend können Sie im linken Bereich **Verwaltungseinheiten** auswählen.
 
-    ![Screenshot: Link zu „Verwaltungseinheiten“ in Azure AD](./media/admin-units-manage/nav-to-admin-units.png)
+    ![Screenshot: Link „Verwaltungseinheiten“ in Azure AD](./media/admin-units-manage/nav-to-admin-units.png)
 
-1. Wählen Sie **Hinzufügen** aus, und geben Sie den Namen der Verwaltungseinheit ein. Fügen Sie optional eine Beschreibung der Verwaltungseinheit hinzu.
+1. Wählen Sie oben im Bereich die Schaltfläche **Hinzufügen** aus, und geben Sie dann im Feld **Name** den Namen der Verwaltungseinheit ein. Fügen Sie optional eine Beschreibung der Verwaltungseinheit hinzu.
 
-    ![Screenshot der Schaltfläche „Hinzufügen“ und des Textfelds zum Eingeben des Namens der Verwaltungseinheit](./media/admin-units-manage/add-new-admin-unit.png)
+    ![Screenshot: Schaltfläche „Hinzufügen“ und Feld „Name“ zum Eingeben des Namens der Verwaltungseinheit](./media/admin-units-manage/add-new-admin-unit.png)
 
-1. Wählen Sie **Hinzufügen** aus, um die Verwaltungseinheit abzuschließen.
+1. Wählen Sie die blaue Schaltfläche **Hinzufügen** aus, um die Verwaltungseinheit abzuschließen.
 
 ### <a name="use-powershell"></a>Verwenden von PowerShell
 
@@ -79,11 +85,11 @@ In Azure AD können Sie eine Verwaltungseinheit entfernen, die nicht mehr als B
 
 ### <a name="use-the-azure-portal"></a>Verwenden des Azure-Portals
 
-1. Wechseln Sie im Azure-Portal zu **Azure AD** > **Verwaltungseinheiten** . 
+1. Navigieren Sie im Azure-Portal zu **Azure AD** , und wählen Sie **Verwaltungseinheiten** aus. 
 1. Wählen Sie die zu löschende Verwaltungseinheit und dann **Löschen** aus. 
 1. Klicken Sie auf **Ja** , um zu bestätigen, dass Sie die Verwaltungseinheit löschen möchten. Die Verwaltungseinheit wird gelöscht.
 
-![Screenshot der Schaltfläche „Löschen“ und des Bestätigungsfensters für eine Verwaltungseinheit](./media/admin-units-manage/select-admin-unit-to-delete.png)
+![Screenshot: Schaltfläche „Löschen“ und Bestätigungsfenster für eine Verwaltungseinheit](./media/admin-units-manage/select-admin-unit-to-delete.png)
 
 ### <a name="use-powershell"></a>Verwenden von PowerShell
 

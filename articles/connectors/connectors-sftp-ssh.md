@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 10/02/2020
+ms.date: 11/03/2020
 tags: connectors
-ms.openlocfilehash: cb851734dc8f71347168e7ac16ac0752845dda7b
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 31714eee2e79481bbc8afb47718ed38e178d5b82
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91823615"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324247"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Überwachen, Erstellen und Verwalten von SFTP-Dateien mithilfe von SSH und Azure Logic Apps
 
@@ -41,6 +41,8 @@ Weitere Unterschiede zwischen dem SFTP-SSH-Connector und dem SFTP-Connector find
 
 ## <a name="limits"></a>Einschränkungen
 
+* Der SFTP-SSH-Connector unterstützt die Authentifizierung entweder mit einem privaten Schlüssel oder mit einem Kennwort, aber nicht beides.
+
 * SFTP-SSH-Aktionen, die [Blockerstellung](../logic-apps/logic-apps-handle-large-messages.md) unterstützen, können Dateien bis zu einer Größe von 1 GB verarbeiten, während SFTP-SSH-Aktionen, die keine Blockerstellung unterstützen, Dateien bis zu einer Größe von 50 MB verarbeiten können. Obgleich die Standardblockgröße 15 MB beträgt, kann sich diese Größe dynamisch ändern, beginnend mit 5 MB und allmählich ansteigend auf den Maximalwert von 50 MB, basierend auf Faktoren wie Netzwerkwartezeiten, Serverreaktionszeiten usw.
 
   > [!NOTE]
@@ -52,7 +54,7 @@ Weitere Unterschiede zwischen dem SFTP-SSH-Connector und dem SFTP-Connector find
 
   | Aktion | Unterstützung für Blockerstellung | Unterstützung für die Außerkraftsetzung der Blockgröße |
   |--------|------------------|-----------------------------|
-  | **Datei kopieren** | Nein | Nicht zutreffend |
+  | **Datei kopieren** | Nein | Nicht verfügbar |
   | **Datei erstellen** | Ja | Ja |
   | **Ordner erstellen** | Nicht verfügbar | Nicht verfügbar |
   | **Datei löschen** | Nicht verfügbar | Nicht verfügbar |
@@ -84,7 +86,7 @@ Hier sind weitere wesentliche Unterschiede zwischen dem SFTP-SSH-Connector und d
 
 * Er stellt die Aktion **Datei umbenennen** bereit, wodurch eine Datei auf dem SFTP-Server umbenannt wird.
 
-* Er speichert die Verbindung zum SFTP-Server *für bis zu 1 Stunde*, wodurch die Leistung verbessert und die Anzahl der Verbindungsversuche auf dem Server reduziert wird. Um die Dauer für dieses Verhalten beim Zwischenspeichern festzulegen, bearbeiten Sie die Eigenschaft [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) in der SSH-Konfiguration auf Ihrem SFTP-Server.
+* Er speichert die Verbindung zum SFTP-Server *für bis zu 1 Stunde* , wodurch die Leistung verbessert und die Anzahl der Verbindungsversuche auf dem Server reduziert wird. Um die Dauer für dieses Verhalten beim Zwischenspeichern festzulegen, bearbeiten Sie die Eigenschaft [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) in der SSH-Konfiguration auf Ihrem SFTP-Server.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -96,16 +98,16 @@ Hier sind weitere wesentliche Unterschiede zwischen dem SFTP-SSH-Connector und d
   >
   > Der SFTP-SSH-Connector unterstützt *nur* diese privaten Schlüssel, Formate, Algorithmen und Fingerabdrücke:
   >
-  > * **Formate für private Schlüssel**: Die Schlüssel „RSA“ (Rivest Shamir-Adleman) und „DSA“ (Digital Signature Algorithm) und OpenSSH- und ssh.com-Formate. Wenn Ihr privater Schlüssel im PuTTY-Dateiformat (PPK) vorliegt, [konvertieren Sie den Schlüssel zuerst in das OpenSSH-Dateiformat (PEM)](#convert-to-openssh).
+  > * **Formate für private Schlüssel** : Die Schlüssel „RSA“ (Rivest Shamir-Adleman) und „DSA“ (Digital Signature Algorithm) und OpenSSH- und ssh.com-Formate. Wenn Ihr privater Schlüssel im PuTTY-Dateiformat (PPK) vorliegt, [konvertieren Sie den Schlüssel zuerst in das OpenSSH-Dateiformat (PEM)](#convert-to-openssh).
   >
-  > * **Verschlüsselungsalgorithmen**: DES-EDE3-CBC, DES EDE3 CFB, DES-CBC, AES-128-CBC, AES-192-CBC und AES-256-CBC
+  > * **Verschlüsselungsalgorithmen** : DES-EDE3-CBC, DES EDE3 CFB, DES-CBC, AES-128-CBC, AES-192-CBC und AES-256-CBC
   >
-  > * **Fingerabdruck**: MD5
+  > * **Fingerabdruck** : MD5
   >
-  > Nach dem Hinzufügen des SFTP-SSH-Triggers oder der gewünschten Aktion zu Ihrer Logik-App müssen Sie Verbindungsinformationen für Ihren SFTP-Server bereitstellen. Wenn Sie Ihren privaten SSH-Schlüssel für diese Verbindung angeben, ***geben Sie den Schlüssel nicht manuell ein, oder bearbeiten Sie ihn manuell***, was zum Fehlschlagen der Verbindung führen könnte. Stellen Sie stattdessen sicher, dass Sie ***den Schlüssel aus Ihrer Datei für private SSH-Schlüssel kopieren*** und diesen Schlüssel in die Verbindungsdetails ***einfügen***. 
+  > Nach dem Hinzufügen des SFTP-SSH-Triggers oder der gewünschten Aktion zu Ihrer Logik-App müssen Sie Verbindungsinformationen für Ihren SFTP-Server bereitstellen. Wenn Sie Ihren privaten SSH-Schlüssel für diese Verbindung angeben, * *_geben Sie den Schlüssel nicht manuell ein, oder bearbeiten Sie ihn manuell_* _, da dies zu einem Fehler bei der Verbindung führen könnte. Stellen Sie stattdessen sicher, dass Sie _*_den Schlüssel aus Ihrer Datei für private SSH-Schlüssel kopieren_*_ und diesen Schlüssel in die Verbindungsdetails _*_einfügen_*_. 
   > Weitere Informationen finden Sie im Abschnitt [Herstellen einer Verbindung zu SFTP mit SSH](#connect) weiter unten in diesem Artikel.
 
-* Grundlegende Kenntnisse über die [Erstellung von Logik-Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+_ Grundlegende Kenntnisse zum [Erstellen von Logik-Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * Die Logik-App, in der Sie auf Ihr SFTP-Konto zugreifen möchten. Um mit einem SFTP-SSH-Trigger zu beginnen, [erstellen Sie eine leere Logik-App](../logic-apps/quickstart-create-first-logic-app-workflow.md). Um eine SFTP-SSH-Aktion zu verwenden, starten Sie Ihre Logik-App mit einem anderen Trigger, z.B. dem **Wiederholungstrigger**.
 
@@ -197,9 +199,9 @@ Zum Erstellen einer Datei auf Ihrem SFTP-Server können Sie die SFTP-SSH-Aktion 
 
    1. Klicken Sie auf **Bearbeiten** > **Kopieren**.
 
-   1. Fügen Sie in den von Ihnen hinzugefügten SFTP-SSH-Trigger oder die von Ihnen hinzugefügte Aktion den kopierter Schlüssel *complete* in die Eigenschaft **SSH private key** ein, die mehrere Zeilen unterstützt.  Stellen Sie sicher, dass Sie den Schlüssel ***einfügen***. ***Sie dürfen ihn nicht manuell eingeben oder bearbeiten***.
+   1. Fügen Sie in den von Ihnen hinzugefügten SFTP-SSH-Trigger oder die von Ihnen hinzugefügte Aktion den kopierter Schlüssel *complete* in die Eigenschaft **SSH private key** ein, die mehrere Zeilen unterstützt.  **_Stellen Sie sicher, dass Sie den Schlüssel einfügen._* _ _*_Sie dürfen den Schlüssel nicht manuell eingeben oder bearbeiten._*_
 
-1. Wenn Sie die Verbindungsdetails eingegeben haben, wählen Sie **Erstellen** aus.
+1. Wenn Sie die Verbindungsdetails eingegeben haben, wählen Sie _*Erstellen** aus.
 
 1. Geben Sie jetzt die erforderlichen Details für Ihren ausgewählten Trigger oder Ihre ausgewählte Aktion an, und fahren Sie mit dem Erstellen Ihres Logik-App-Workflows fort.
 
@@ -217,7 +219,7 @@ Um das adaptive Standardverhalten außer Kraft zu setzen, bei dem Blöcke verwen
 
    ![Angeben der stattdessen zu verwendenden Blockgröße](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
 
-1. Klicken Sie auf **Fertig**, wenn Sie fertig sind.
+1. Klicken Sie auf **Fertig** , wenn Sie fertig sind.
 
 ## <a name="examples"></a>Beispiele
 
@@ -227,7 +229,7 @@ Um das adaptive Standardverhalten außer Kraft zu setzen, bei dem Blöcke verwen
 
 Dieser Trigger startet einen Logik-App-Workflow, wenn auf einem SFTP-Server eine Datei hinzugefügt oder geändert wird. Sie können beispielsweise eine Bedingung hinzufügen, die den Inhalt der Datei überprüft und den Inhalt basierend darauf abruft, ob er eine bestimmte Bedingung erfüllt. Sie können dann eine Aktion hinzufügen, die den Inhalt der Datei abruft und in einem Ordner auf dem SFTP-Server ablegt.
 
-**Beispiel für Unternehmen**: Sie können mit diesem Trigger beispielsweise einen SFTP-Ordner auf neue Dateien überwachen, die Kundenbestellungen darstellen. Anschließend können Sie eine SFTP-Aktion wie etwa **Dateiinhalt abrufen** verwenden, um den Inhalt einer Bestellung zur weiteren Verarbeitung abzurufen und in einer Bestelldatenbank zu speichern.
+**Beispiel für Unternehmen** : Sie können mit diesem Trigger beispielsweise einen SFTP-Ordner auf neue Dateien überwachen, die Kundenbestellungen darstellen. Anschließend können Sie eine SFTP-Aktion wie etwa **Dateiinhalt abrufen** verwenden, um den Inhalt einer Bestellung zur weiteren Verarbeitung abzurufen und in einer Bestelldatenbank zu speichern.
 
 <a name="get-content"></a>
 
@@ -249,25 +251,27 @@ Dieser Fehler kann auftreten, wenn Ihre Logik-App über die SFTP-SSH-Aktion **Da
 
 Wenn Sie das Verschieden der Datei nicht vermeiden oder verzögern können, können Sie das Lesen der Dateimetadaten nach der Dateierstellung überspringen, indem Sie die folgenden Schritte ausführen:
 
-1. Öffnen Sie in der Aktion **Datei erstellen** die Liste **Neuen Parameter hinzufügen**, wählen Sie die Eigenschaft **Alle Dateimetadaten abrufen** aus, und legen Sie den Wert auf **Nein** fest.
+1. Öffnen Sie in der Aktion **Datei erstellen** die Liste **Neuen Parameter hinzufügen** , wählen Sie die Eigenschaft **Alle Dateimetadaten abrufen** aus, und legen Sie den Wert auf **Nein** fest.
 
 1. Wenn Sie diese Dateimetadaten zu einem späteren Zeitpunkt benötigen, können Sie die Aktion **Dateimetadaten abrufen** verwenden.
 
+<a name="connection-attempt-failed"></a>
+
 ### <a name="504-error-a-connection-attempt-failed-because-the-connected-party-did-not-properly-respond-after-a-period-of-time-or-established-connection-failed-because-connected-host-has-failed-to-respond-or-request-to-the-sftp-server-has-taken-more-than-000030-seconds"></a>Fehler 504: „Ein Verbindungsversuch ist fehlgeschlagen, da die Gegenstelle nach einer bestimmten Zeitspanne nicht ordnungsgemäß reagiert hat, oder die hergestellte Verbindung fehlerhaft war, da der verbundene Host nicht reagiert hat“ oder „Die Anforderung an den SFTP-Server dauerte länger als '00:00:30' Sekunden“.
 
-Dieser Fehler kann auftreten, wenn die Logik-App nicht in der Lage ist, erfolgreich eine Verbindung herzustellen. Es kann eine Reihe verschiedener Ursachen geben, und wir empfehlen, das Problem anhand der folgenden Aspekte zu beheben. 
+Dieser Fehler kann auftreten, wenn Ihre Logik-App nicht in der Lage ist, erfolgreich eine Verbindung mit dem SFTP-Server herzustellen. Es gibt verschiedene mögliche Ursachen für dieses Problem. Probieren Sie daher die folgenden Optionen für die Problembehandlung aus:
 
-1. Das Verbindungstimeout beträgt 20 Sekunden. Stellen Sie sicher, dass der SFTP-Server eine gute Leistung aufweist und zwischengeschaltete Geräte wie eine Firewall keinen großen Mehraufwand verursachen. 
+* Das Verbindungstimeout beträgt 20 Sekunden. Überprüfen Sie, ob die Leistung Ihres SFTP-Servers ausreicht und zwischengeschaltete Geräte (z. B. Firewalls) keinen Overhead erzeugen. 
 
-2. Wenn eine Firewall beteiligt ist, stellen Sie sicher, dass die **verwalteten Connector-IP**-Adressen der genehmigten Liste hinzugefügt werden. Diese IP-Adressen für Ihre Logik-App-Region finden Sie [**hier**] (https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#multi-tenant-azure---outbound-ip-addresses)
+* Wenn Sie eine Firewall eingerichtet haben, müssen Sie die **IP-Adresse des verwalteten Connectors** der Positivliste hinzufügen. Informationen zum Ermitteln der IP-Adressen für die Region Ihrer Logik-App finden Sie unter [Grenzwerte und Konfiguration für Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#multi-tenant-azure---outbound-ip-addresses).
 
-3. Wenn es sich um ein vorübergehendes Problem handelt, testen Sie die Wiederholungseinstellung, um festzustellen, ob eine höhere Wiederholungsanzahl als die Standardeinstellung 4 möglicherweise hilfreich ist.
+* Wenn dieser Fehler nur zeitweilig auftritt, ändern Sie die Einstellung für die **Wiederholungsrichtlinie** in der SFTP-SSH-Aktion in eine Wiederholungsanzahl, die höher als die standardmäßigen vier Wiederholungsversuche ist.
 
-4. Überprüfen Sie, ob der SFTP-Server die Anzahl der Verbindungen von jeder IP-Adresse begrenzt. Wenn dies der Fall ist, müssen Sie möglicherweise die Anzahl der parallelen Logik-App-Instanzen begrenzen. 
+* Überprüfen Sie, ob der SFTP-Server die Anzahl der Verbindungen von jeder IP-Adresse begrenzt. Wenn ein Grenzwert gilt, müssen Sie möglicherweise die Anzahl der parallelen Logik-App-Instanzen begrenzen.
 
-5. Erhöhen Sie die [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval)-Eigenschaft in der SSH-Konfiguration auf dem SFTP-Server auf etwa eine Stunde, um die Kosten für die Verbindungsherstellung zu verringern.
+* Erhöhen Sie die [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval)-Eigenschaft in der SSH-Konfiguration auf dem SFTP-Server auf etwa eine Stunde, um den Aufwand für die Verbindungsherstellung zu verringern.
 
-6. Sie können das SFTP-Serverprotokoll überprüfen, um festzustellen, ob die Anforderung von der Logik-App den SFTP-Server erreicht hat. Sie können auch eine Netzwerkablaufverfolgung für Ihre Firewall und ihren SFTP-Server durchführen, um das Konnektivitätsproblem weiter zu untersuchen.
+* Sie können im SFTP-Serverprotokoll überprüfen, ob die Anforderung von der Logik-App den SFTP-Server erreicht hat. Wenn Sie weitere Informationen zum Konnektivitätsproblem benötigen, können Sie auch eine Netzwerkablaufverfolgung in Ihrer Firewall und auf dem SFTP-Server ausführen.
 
 ## <a name="connector-reference"></a>Connector-Referenz
 

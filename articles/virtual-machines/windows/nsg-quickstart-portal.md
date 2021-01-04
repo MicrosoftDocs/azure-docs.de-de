@@ -1,18 +1,18 @@
 ---
 title: Öffnen von Ports für einen virtuellen Computer mithilfe des Azure-Portals
-description: Erfahren Sie, wie Sie über das Azure-Portal für Ihre Windows-VM einen Port öffnen bzw. einen Endpunkt erstellen
+description: Hier erfahren Sie, wie Sie mithilfe des Azure-Portals für Ihre VM einen Port öffnen bzw. einen Endpunkt erstellen.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/27/2020
 ms.author: cynthn
-ms.openlocfilehash: 06f682bc697f93d436e2cd71b161c01e1360944a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1c3c39dd8c907f780876f97f9703857653d4e359
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973987"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92777757"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Öffnen von Ports zu einem virtuellen Computer mit dem Azure-Portal
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -23,7 +23,7 @@ Melden Sie sich unter https://portal.azure.com beim Azure-Portal an.
 
 ## <a name="create-a-network-security-group"></a>Erstellen einer Netzwerksicherheitsgruppe
 
-1. Suchen Sie nach der Ressourcengruppe für den virtuellen Computer, und wählen Sie diese aus. Wählen Sie **Hinzufügen** aus, suchen Sie dann nach **Netzwerksicherheitsgruppe**, und wählen Sie diese Option aus.
+1. Suchen Sie nach der Ressourcengruppe für den virtuellen Computer, und wählen Sie diese aus. Wählen Sie **Hinzufügen** aus, suchen Sie dann nach **Netzwerksicherheitsgruppe** , und wählen Sie diese Option aus.
 
 1. Klicken Sie auf **Erstellen**.
 
@@ -47,7 +47,7 @@ Melden Sie sich unter https://portal.azure.com beim Azure-Portal an.
 
 1. Wechseln Sie auf der Seite **Eingehende Sicherheitsregel hinzufügen** oben auf der Seite von **Grundlegend** zu **Erweitert**. 
 
-1. Wählen Sie im Dropdownmenü einen allgemeinen **Dienst**, z.B. **HTTP**, aus. Sie können auch **Benutzerdefiniert** auswählen, wenn Sie einen bestimmten zu verwendenden Port angeben möchten. 
+1. Wählen Sie im Dropdownmenü einen allgemeinen **Dienst** , z.B. **HTTP** , aus. Sie können auch **Benutzerdefiniert** auswählen, wenn Sie einen bestimmten zu verwendenden Port angeben möchten. 
 
 1. Ändern Sie optional die **Priorität** oder den **Namen**. Die Priorität wirkt sich auf die Reihenfolge aus, in der Regeln angewendet werden: je niedriger der numerische Wert, desto früher wird die Regel angewendet.
 
@@ -63,7 +63,7 @@ Im letzten Schritt muss die Netzwerksicherheitsgruppe einem Subnetz oder einer b
 
     ![Zuordnen einer Netzwerksicherheitsgruppe zu einem virtuellen Netzwerk](./media/nsg-quickstart-portal/select-vnet-subnet.png)
 
-1. Wählen Sie **OK**, wenn der Vorgang abgeschlossen ist.
+1. Wählen Sie **OK** , wenn der Vorgang abgeschlossen ist.
 
 ## <a name="additional-information"></a>Zusätzliche Informationen
 

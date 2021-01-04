@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 6543b629af8d67658afe61ef81e22eb7355e1de7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b49faabb1c61a10418bfce3ae2e8187429981ad
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91772803"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186081"
 ---
 # <a name="azure-activity-log"></a>Azure-Aktivitätsprotokoll
 Das Aktivitätsprotokoll ist ein [Plattformprotokoll](platform-logs-overview.md) in Azure, das einen Einblick in Ereignisse auf Abonnementebene ermöglicht. Dies sind beispielsweise Informationen wie das Ändern einer Ressource oder das Starten eines virtuellen Computers. Sie können das Aktivitätsprotokoll im Azure-Portal anzeigen oder Einträge mit PowerShell und der CLI abrufen. Um zusätzliche Funktionen zu erhalten, sollten Sie eine Diagnoseeinstellung erstellen, mit der das Aktivitätsprotokoll an [Azure Monitor-Protokolle](data-platform-logs.md) gesendet wird, an Azure Event Hubs außerhalb von Azure weitergeleitet oder für die Archivierung an Azure Storage gesendet wird. In diesem Artikel wird ausführlich beschrieben, wie das Aktivitätsprotokoll angezeigt und an verschiedene Ziele gesendet wird.
@@ -60,7 +60,7 @@ Sie können auch mithilfe der folgenden Methoden auf Aktivitätsprotokollereigni
 
 [Erstellen Sie eine Diagnoseeinstellung](diagnostic-settings.md), um das Aktivitätsprotokoll an einen Log Analytics-Arbeitsbereich zu senden. Sie können das Aktivitätsprotokoll von einem einzelnen Abonnement an bis zu fünf Arbeitsbereiche senden. Für eine mandantenübergreifende Erfassung von Protokollen ist [Azure Lighthouse](../../lighthouse/index.yml) erforderlich.
 
-Aktivitätsprotokolldaten in einem Log Analytics-Arbeitsbereich werden in der Tabelle *AzureActivity* gespeichert. Diese können Sie mit einer [Protokollabfrage](../log-query/log-query-overview.md) in [Log Analytics](../log-query/get-started-portal.md) abrufen. Die Struktur dieser Tabelle ist je nach [Kategorie des Protokolleintrags](activity-log-schema.md) verschieden. Eine Beschreibung der Tabelleneigenschaften finden Sie in der [Azure Monitor-Datenreferenz](/azure/azure-monitor/reference/tables/azureactivity).
+Aktivitätsprotokolldaten in einem Log Analytics-Arbeitsbereich werden in der Tabelle *AzureActivity* gespeichert. Diese können Sie mit einer [Protokollabfrage](../log-query/log-query-overview.md) in [Log Analytics](../log-query/log-analytics-tutorial.md) abrufen. Die Struktur dieser Tabelle ist je nach [Kategorie des Protokolleintrags](activity-log-schema.md) verschieden. Eine Beschreibung der Tabelleneigenschaften finden Sie in der [Azure Monitor-Datenreferenz](/azure/azure-monitor/reference/tables/azureactivity).
 
 Verwenden Sie z. B. die folgende Abfrage, um die Anzahl der Aktivitätsprotokoll-Datensätze für jede Kategorie anzuzeigen.
 

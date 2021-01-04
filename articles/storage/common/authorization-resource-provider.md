@@ -9,16 +9,16 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e71e56b9da06bfd8f3be24481efd619b788a8839
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: fcf3e9228c8e651efb8f97067f7ba9eead5959db
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91822278"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789674"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Verwenden des Azure Storage-Ressourcenanbieters für den Zugriff auf Verwaltungsressourcen
 
-Azure Resource Manager ist der Bereitstellungs- und Verwaltungsdienst für Azure. Der Azure Storage-Ressourcenanbieter ist ein Dienst, der auf Azure Resource Manager basiert und Zugriff auf Verwaltungsressourcen für Azure Storage bietet. Mit dem Azure Storage-Ressourcenanbieter können Sie Ressourcen wie Speicherkonten, private Endpunkte und Kontozugriffsschlüssel erstellen, aktualisieren, verwalten und löschen. Weitere Informationen zu Azure Resource Manager finden Sie unter [Übersicht über den Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview).
+Azure Resource Manager ist der Bereitstellungs- und Verwaltungsdienst für Azure. Der Azure Storage-Ressourcenanbieter ist ein Dienst, der auf Azure Resource Manager basiert und Zugriff auf Verwaltungsressourcen für Azure Storage bietet. Mit dem Azure Storage-Ressourcenanbieter können Sie Ressourcen wie Speicherkonten, private Endpunkte und Kontozugriffsschlüssel erstellen, aktualisieren, verwalten und löschen. Weitere Informationen zu Azure Resource Manager finden Sie unter [Übersicht über den Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 
 Mit dem Azure Storage-Ressourcenanbieter können Sie Aktionen wie das Erstellen oder Löschen eines Speicherkontos oder das Abrufen einer Liste von Speicherkonten in einem Abonnement ausführen. Verwenden Sie Azure Active Directory (Azure AD) zum Autorisieren von Anforderungen an den Azure Storage-Ressourcenanbieter. In diesem Artikel wird beschrieben, wie Berechtigungen für Verwaltungsressourcen zugewiesen werden. Außerdem wird auf Beispiele verwiesen, die veranschaulichen, wie Anforderungen an den Azure Storage-Ressourcenanbieter gestellt werden.
 
@@ -32,9 +32,9 @@ Azure Storage unterstützt die Verwendung von Azure AD zum Autorisieren von Anfo
 
 ## <a name="assign-management-permissions-with-azure-role-based-access-control-azure-rbac"></a>Zuweisen von Verwaltungsberechtigungen mit der rollenbasierten Zugriffskontrolle von Azure (Azure RBAC)
 
-Jedes Azure-Abonnement verfügt über ein zugeordnetes Azure Active Directory, mit dem Benutzer, Gruppen und Anwendungen verwaltet werden. Ein Benutzer, eine Gruppe oder eine Anwendung wird im Kontext der [Microsoft Identity Platform](/azure/active-directory/develop/) auch als Sicherheitsprinzipal bezeichnet. Sie können einem Sicherheitsprinzipal, der in Active Directory definiert ist, Zugriff auf Ressourcen in einem Abonnement gewähren, indem Sie die rollenbasierte Zugriffssteuerung von Azure (Azure Role-Based Access Control, Azure RBAC) verwenden.
+Jedes Azure-Abonnement verfügt über ein zugeordnetes Azure Active Directory, mit dem Benutzer, Gruppen und Anwendungen verwaltet werden. Ein Benutzer, eine Gruppe oder eine Anwendung wird im Kontext der [Microsoft Identity Platform](../../active-directory/develop/index.yml) auch als Sicherheitsprinzipal bezeichnet. Sie können einem Sicherheitsprinzipal, der in Active Directory definiert ist, Zugriff auf Ressourcen in einem Abonnement gewähren, indem Sie die rollenbasierte Zugriffssteuerung von Azure (Azure Role-Based Access Control, Azure RBAC) verwenden.
 
-Wenn Sie einem Sicherheitsprinzipal eine Azure-Rolle zuweisen, geben Sie auch den Bereich an, in dem die von der Rolle gewährten Berechtigungen gültig sind. Bei Verwaltungsvorgängen können Sie eine Rolle auf Ebene des Abonnements, der Ressourcengruppe oder des Speicherkontos zuweisen. Sie können einem Sicherheitsprinzipal eine Azure-Rolle über das [Azure-Portal](https://portal.azure.com/), die [Azure CLI-Tools](../../cli-install-nodejs.md), [PowerShell](/powershell/azure/) oder die [REST-API des Azure Storage-Ressourcenanbieters](/rest/api/storagerp) zuweisen.
+Wenn Sie einem Sicherheitsprinzipal eine Azure-Rolle zuweisen, geben Sie auch den Bereich an, in dem die von der Rolle gewährten Berechtigungen gültig sind. Bei Verwaltungsvorgängen können Sie eine Rolle auf Ebene des Abonnements, der Ressourcengruppe oder des Speicherkontos zuweisen. Sie können einem Sicherheitsprinzipal eine Azure-Rolle über das [Azure-Portal](https://portal.azure.com/), die [Azure CLI-Tools](/cli/azure/install-classic-cli), [PowerShell](/powershell/azure/) oder die [REST-API des Azure Storage-Ressourcenanbieters](/rest/api/storagerp) zuweisen.
 
 Weitere Informationen finden Sie unter [Was ist die rollenbasierte Zugriffssteuerung von Azure (Azure Role-Based Access Control, Azure RBAC)?](../../role-based-access-control/overview.md) und unter [Administratorrollen für klassische Abonnements, Azure-Rollen und Azure AD-Administratorrollen](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
@@ -76,6 +76,6 @@ Weitere Informationen zu Azure-Bereitstellungsmodellen finden Sie unter [Resourc
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Übersicht über den Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
+- [Übersicht über den Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 - [Was ist die rollenbasierte Zugriffssteuerung in Azure (Azure Role-Based Access Control, Azure RBAC)?](../../role-based-access-control/overview.md)
 - [Skalierbarkeitsziele für den Azure Storage-Ressourcenanbieter](scalability-targets-resource-provider.md)

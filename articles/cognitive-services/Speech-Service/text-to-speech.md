@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: Sprachsynthese
-ms.openlocfilehash: 5d60279a2e3cb6aa7226f518783d53a1a38ddaa8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af0c9338cb9661402c3a76bab55f34b01304c7b6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357453"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024516"
 ---
 # <a name="what-is-text-to-speech"></a>Was ist Text-zu-Sprache?
 
@@ -31,7 +31,7 @@ In dieser Übersicht erfahren Sie mehr über die Vorteile und Funktionen des Spr
 
 ## <a name="core-features"></a>Wichtige Funktionen
 
-* Sprachsynthese: Verwenden Sie das [Speech SDK](quickstarts/text-to-speech-audio-file.md) oder die [REST-API](rest-text-to-speech.md), um mithilfe von Standard-, neuronalen oder benutzerdefinierten Stimmen Text in Sprache zu konvertieren.
+* Sprachsynthese: Verwenden Sie das [Speech SDK](./get-started-text-to-speech.md) oder die [REST-API](rest-text-to-speech.md), um mithilfe von Standard-, neuronalen oder benutzerdefinierten Stimmen Text in Sprache zu konvertieren.
 
 * Asynchrone Synthese von langen Audioclips: Verwenden Sie die [API für lange Audioinhalte-](long-audio-api.md), um Text-to-Speech-Dateien von mehr als 10 Minuten Länge (z. B. Audiobücher oder Vorlesungen) asynchron zu synthetisieren. Anders als bei der Synthese mithilfe des Speech SDK oder der Sprache-zu-Text-REST API werden keine Antworten in Echtzeit zurückgegeben. Es wird davon ausgegangen, dass Anforderungen asynchron gesendet werden, Antworten abgerufen werden und dass das synthetisierte Audiosignal heruntergeladen wird, wenn es durch den Dienst zur Verfügung gestellt wird. Es werden nur benutzerdefinierte neuronale Stimmen unterstützt.
 

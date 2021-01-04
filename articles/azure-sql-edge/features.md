@@ -9,18 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: 646ce94587a9aa1bb8fd20a28b84658994b25cf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19dcbbf102a1d8d21f1b14780ea33816a1677c55
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886537"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392026"
 ---
 # <a name="supported-features-of-azure-sql-edge"></a>Unterstützte Features von Azure SQL Edge 
 
 Azure SQL Edge basiert auf der neuesten Version der SQL-Datenbank-Engine. Die Software unterstützt eine Teilmenge der in SQL Server 2019 unter Linux unterstützten Features sowie einige Features, die derzeit in SQL Server 2019 unter Linux (oder in SQL Server unter Windows) nicht unterstützt werden oder verfügbar sind.
 
-Eine vollständige Liste der Funktionen, die in SQL Server für Linux unterstützt werden, finden Sie unter [Editionen und unterstützte Funktionen von SQL Server 2019 unter Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-editions-and-components-2019). Informationen zu den Editionen und unterstützten Features von SQL Server unter Windows finden Sie unter [Editionen und unterstützte Features von SQL Server 2019 (15.x)](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15).
+Eine vollständige Liste der Funktionen, die in SQL Server für Linux unterstützt werden, finden Sie unter [Editionen und unterstützte Funktionen von SQL Server 2019 unter Linux](/sql/linux/sql-server-linux-editions-and-components-2019). Informationen zu den Editionen und unterstützten Features von SQL Server unter Windows finden Sie unter [Editionen und unterstützte Features von SQL Server 2019 (15.x)](/sql/sql-server/editions-and-components-of-sql-server-version-15).
 
 ## <a name="azure-sql-edge-editions"></a>Azure SQL Edge-Editionen
 

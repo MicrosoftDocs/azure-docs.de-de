@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6b57428aeba702dc8cf06ec4ae7984854a94ac7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7265195f9614928a2150a56a780ea7b36bc2e266
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449182"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030865"
 ---
 # <a name="container-security-in-security-center"></a>Containersicherheit in Security Center
 
@@ -78,11 +78,11 @@ Ausführliche Informationen zu den möglichen relevanten Security Center-Empfehl
 
 ###  <a name="workload-protection-best-practices-using-kubernetes-admission-control"></a>Bewährte Methoden zum Schutz von Workloads mithilfe der Kubernetes-Zugangssteuerung
 
-Installieren Sie das **Azure Policy-Add-On für Kubernetes**, um Empfehlungen zum Schutz der Workloads Ihrer Kubernetes-Container zu erhalten.
+Installieren Sie das **Azure Policy-Add-On für Kubernetes**, um verschiedene Empfehlungen zum Schutz der Workloads Ihrer Kubernetes-Container zu erhalten. Dieses Add-On kann auch automatisch bereitgestellt werden, wie unter [Aktivieren der automatischen Bereitstellung von Erweiterungen](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions) erläutert. Wenn die automatische Bereitstellung für das Add-On auf „Ein“ festgelegt ist, wird die Erweiterung standardmäßig in allen vorhandenen und zukünftigen Clustern aktiviert (sofern diese die Add-On-Installationsanforderungen erfüllen).
 
 Wie auf [dieser Azure Policy-Seite für Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md) erläutert, erweitert das Add-On den Open-Source-Webhook für den Zugangscontroller [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) für den  [Open Policy-Agent](https://www.openpolicyagent.org/). Kubernetes-Zugangscontroller sind Plug-Ins, die die Art der Verwendung Ihrer Cluster erzwingen. Das Add-On registriert sich als Webhook bei der Kubernetes-Zugangssteuerung und ermöglicht das zentrale, konsistente Anwenden von Skalierungs- und Sicherheitsvorkehrungen in Ihren Clustern. 
 
-Wenn Sie das Add-On in Ihrem AKS-Cluster installiert haben, wird jede Anforderung an den Kubernetes-API-Server anhand der vordefinierten bewährten Methoden überwacht, bevor sie im Cluster persistent gespeichert wird. Anschließend können Sie das **Erzwingen** der bewährten Methoden konfigurieren und auf zukünftige Workloads anwenden. 
+Mit dem Add-On in Ihrem AKS-Cluster wird jede Anforderung an den Kubernetes-API-Server anhand der vordefinierten bewährten Methoden überwacht, bevor sie im Cluster persistent gespeichert wird. Anschließend können Sie das **Erzwingen** der bewährten Methoden konfigurieren und auf zukünftige Workloads anwenden. 
 
 Beispielsweise können Sie vorschreiben, dass keine privilegierten Container erstellt werden sollen und dass zukünftige Anforderungen für diese Aktion blockiert werden sollen.
 

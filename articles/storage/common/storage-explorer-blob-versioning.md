@@ -7,22 +7,22 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: chuye
-ms.openlocfilehash: d318983cec1365b71d14731395e71528621659d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e20733cb4b93fcfac7606895746645727f12d6c8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051868"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783826"
 ---
 # <a name="azure-storage-explorer-blob-versioning-guide"></a>Azure Storage-Explorer – Leitfaden zur Blobversionsverwaltung
 
-Microsoft Azure Storage-Explorer ermöglicht einfachen Zugriff und Verwaltung von Blobversionen. Dieser Leitfaden soll Ihnen helfen zu verstehen, wie die Blobversionsverwaltung in Storage-Explorer funktioniert. Bevor Sie den Vorgang fortsetzen, sollten Sie mehr über [Blobversionsverwaltung](https://docs.microsoft.com/azure/storage/blobs/versioning-overview) erfahren.
+Microsoft Azure Storage-Explorer ermöglicht einfachen Zugriff und Verwaltung von Blobversionen. Dieser Leitfaden soll Ihnen helfen zu verstehen, wie die Blobversionsverwaltung in Storage-Explorer funktioniert. Bevor Sie den Vorgang fortsetzen, sollten Sie mehr über [Blobversionsverwaltung](../blobs/versioning-overview.md) erfahren.
 
 ## <a name="terminology"></a>Begriff
 
 Dieser Abschnitt enthält einige Definitionen, die Ihnen helfen sollen, die Verwendung bestimmter Begriffe in diesem Artikel zu verstehen.
 
-- Vorläufiges Löschen: Ein alternatives Feature zum automatischen Datenschutz. Weitere Informationen zum vorläufigen Löschen finden Sie [hier](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview).
+- Vorläufiges Löschen: Ein alternatives Feature zum automatischen Datenschutz. Weitere Informationen zum vorläufigen Löschen finden Sie [hier](../blobs/soft-delete-blob-overview.md).
 - Aktives Blob: Ein Blob oder eine Blobversion wird im aktiven Zustand erstellt. Sie können nur mit Blobs oder Blobversionen im aktiven Status arbeiten.
 - Vorläufig gelöschtes Blob: Ein Blob oder eine Blobversion, das bzw. die als „vorläufig gelöscht“ gekennzeichnet wurde. Vorläufig gelöschte Blobs werden nur während ihres Aufbewahrungszeitraums beibehalten.
 - Blobversion: Ein Blob, das bei aktivierter Blobversionsverwaltung erstellt wurde. Jeder Blobversion wird eine Versions-ID zugeordnet.
@@ -117,5 +117,5 @@ Jede Blobversion hat eine eigene Zugriffsebene. Wenn Sie die Zugriffsebene von B
 
 ## <a name="see-also"></a>Weitere Informationen
 
-* [Blobversionsverwaltung](https://docs.microsoft.com/azure/storage/blobs/versioning-overview)
-* [Vorläufiges Löschen für Blobs](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview)
+* [Blobversionsverwaltung](../blobs/versioning-overview.md)
+* [Vorläufiges Löschen für Blobs](../blobs/soft-delete-blob-overview.md)

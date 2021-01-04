@@ -7,14 +7,14 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 12/03/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: d93ced4b45befec207494909de61d30a98d2a67e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: eddab12e8ecf2e4757998bbd1e6e07c4c4d85f3c
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "91333731"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573861"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Sammeln von Telemetriedaten für „Datenverkehrsanalyse durchsuchen“
 
@@ -29,7 +29,7 @@ Dieses Muster ist abhängig von [Application Insights](../azure-monitor/app/app-
 
 Wenn Sie nützliche Metriken für „Datenverkehrsanalyse durchsuchen“ erhalten möchten, ist es erforderlich, einige Signale von den Benutzern Ihrer Suchanwendung zu protokollieren. Diese Signale kennzeichnen Inhalte, die Benutzer interessieren und die sie für relevant halten. Bei „Datenverkehrsanalyse durchsuchen“ umfassen sie Folgendes:
 
-+ Vom Benutzer generierte Suchereignisse: Nur Suchabfragen, die von einem Benutzer initiiert wurden, sind interessant. Suchabfragen, die dem Auffüllen von Facets, zusätzlichem Inhalt oder internen Informationen dienen, sind nicht wichtig und verzerren und beeinflussen Ihre Ergebnisse.
++ Vom Benutzer generierte Suchereignisse: Nur Suchabfragen, die von einem Benutzer initiiert wurden, sind interessant. Andere Suchanforderungen, z. B. die zum Auffüllen von Facetten oder zum Abrufen interner Informationen verwendeten, sind nicht von Bedeutung. Stellen Sie sicher, dass Sie nur vom Benutzer initiierte Ereignisse instrumentieren, um Schiefe oder Verzerrungen in Ihren Ergebnissen zu vermeiden.
 
 + Vom Benutzer generierte Klickereignisse: Auf einer Seite „Suchergebnisse“ bedeutet ein Klickereignis generell, dass ein Dokument ein relevantes Ergebnis für eine bestimmte Suchabfrage ist.
 
@@ -37,7 +37,7 @@ Durch das Verknüpfen von Such- und Klickereignissen mit einer Korrelations-ID k
 
 ## <a name="add-search-traffic-analytics"></a>Hinzufügen von „Datenverkehrsanalyse durchsuchen“
 
-Auf der Seite des [Portals](https://portal.azure.com) für Ihren Dienst von Azure Cognitive Search enthält die Seite „Datenverkehrsanalyse durchsuchen“ einen Spickzettel, anhand dessen Sie diesem Telemetriemuster folgen können. Auf dieser Seite können Sie eine Application Insights-Ressource auswählen oder erstellen, den Instrumentierungsschlüssel abrufen, Ausschnitte kopieren, die Sie für Ihre Lösung anpassen können, und einen Power BI-Bericht herunterladen, der über dem im Muster wiedergegebenen Schema erstellt wurde.
+Öffnen Sie auf der Seite des [Portals](https://portal.azure.com) für Ihren Azure Cognitive Search-Dienst die Seite „Datenverkehrsanalyse durchsuchen“, um auf einen Spickzettel zuzugreifen, anhand dessen Sie diesem Telemetriemuster folgen können. Auf dieser Seite können Sie eine Application Insights-Ressource auswählen oder erstellen, den Instrumentierungsschlüssel abrufen, Ausschnitte kopieren, die Sie für Ihre Lösung anpassen können, und einen Power BI-Bericht herunterladen, der über dem im Muster wiedergegebenen Schema erstellt wurde.
 
 ![Seite „Datenverkehrsanalyse durchsuchen“ im Portal](media/search-traffic-analytics/azuresearch-trafficanalytics.png "Seite „Datenverkehrsanalyse durchsuchen“ im Portal")
 
@@ -51,9 +51,9 @@ Eine Verknüpfung, die bei einigen Visual Studio-Projekttypen funktioniert, wird
 
 1. Öffnen Sie bei der Visual Studio- und ASP.NET-Entwicklung Ihre Lösung, und wählen Sie **Projekt** > **Application Insights-Telemetrie hinzufügen** aus.
 
-1. Klicken Sie auf **Erste Schritte** .
+1. Klicken Sie auf **Erste Schritte**.
 
-1. Registrieren Sie Ihre App durch Angabe eines Microsoft-Kontos, eines Azure-Abonnements und einer Application Insights-Ressource (standardmäßig eine neue Ressource). Klicken Sie auf **Registrieren** .
+1. Registrieren Sie Ihre App durch Angabe eines Microsoft-Kontos, eines Azure-Abonnements und einer Application Insights-Ressource (standardmäßig eine neue Ressource). Klicken Sie auf **Registrieren**.
 
 Jetzt ist Ihre Anwendung für die Anwendungsüberwachung eingerichtet. Dies bedeutet, dass alle Ladevorgänge der Seite mit Standardmetriken nachverfolgt werden. Weitere Informationen zu den vorherigen Schritten finden Sie unter [Aktivieren der serverseitigen Telemetrie für Application Insights](../azure-monitor/app/asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio).
 
@@ -61,7 +61,7 @@ Jetzt ist Ihre Anwendung für die Anwendungsüberwachung eingerichtet. Dies bede
 
 In diesem Schritt instrumentieren Sie Ihre eigene Suchanwendung mit der Application Insights-Ressource, die Sie im vorherigen Schritt erstellt haben. Dieser Prozess besteht aus vier Schritten, und er beginnt mit dem Erstellen eines Telemetrieclients.
 
-### <a name="step-1-create-a-telemetry-client"></a>Schritt 1: Erstellen eines Telemetrieclients
+### <a name="step-1-create-a-telemetry-client"></a>Schritt 1: Erstellen eines Telemetrieclients
 
 Erstellen Sie ein Objekt, das Ereignisse an Application Insights sendet. Sie können Ihrem serverseitigen Anwendungscode oder clientseitigen Code, der in einem Browser ausgeführt wird, Instrumentierung hinzufügen. Dieser Code wird hier in Form von C# -und JavaScript-Varianten dargestellt. (Informationen zu weiteren Sprachen finden Sie in der vollständigen Liste der [unterstützten Plattformen und Frameworks](../azure-monitor/app/platforms.md).) Wählen Sie den Ansatz aus, mit dem Sie die gewünschte Informationstiefe erhalten.
 
@@ -71,7 +71,7 @@ Auf dem Client haben Sie möglicherweise zusätzlichen Code, der Abfrageeingaben
 
 **Verwenden von C#**
 
-Bei C# ist der Wert für **InstrumentationKey** in ihrer Anwendungskonfiguration zu finden, z. B. „appsettings.json“, wenn Ihr Projekt ASP.NET ist. Wenn Sie nicht genau wissen, wo sich der Speicherort für den Schlüssel befindet, lesen Sie die Registrierungsanweisungen.
+Bei C# sollte der Wert für **InstrumentationKey** in ihrer Anwendungskonfiguration zu finden sein, z. B. „appsettings.json“, wenn Ihr Projekt ASP.NET ist. Wenn Sie nicht genau wissen, wo sich der Speicherort für den Schlüssel befindet, lesen Sie die Registrierungsanweisungen.
 
 ```csharp
 private static TelemetryClient _telemetryClient;
@@ -98,9 +98,26 @@ window.appInsights=appInsights;
 
 Um Suchanforderungen mit Klicks zu korrelieren, ist eine Korrelations-ID erforderlich, die diese zwei unterschiedlichen Ereignisse miteinander in Beziehung setzt. Azure Cognitive Search bietet Ihnen eine Such-ID, wenn Sie sie mit einem HTTP-Header anfordern.
 
-Die Such-ID ermöglicht die Korrelation der Metriken, die von Azure Cognitive Search für die Anforderung selbst ausgegeben werden, mit den benutzerdefinierten Metriken, die Sie in Application Insights protokollieren.  
+Die Such-ID ermöglicht die Korrelation der Metriken, die von Azure Cognitive Search für die Anforderung selbst ausgegeben werden, mit den benutzerdefinierten Metriken, die Sie in Application Insights protokollieren.
 
-**Verwenden von C#**
+**Verwenden von C# (neueres v11 SDK)**
+
+```csharp
+// This sample uses the .NET SDK https://www.nuget.org/packages/Azure.Search.Documents
+
+var client = new SearchClient(<SearchServiceName>, <IndexName>, new AzureKeyCredentials(<QueryKey>)
+
+// Use HTTP headers so that you can get the search ID from the response
+var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
+var response = await client.searchasync(searchText: searchText, searchOptions: options, customHeaders: headers);
+string searchId = string.Empty;
+if (response.Response.Headers.TryGetValues("x-ms-azs-searchid", out IEnumerable<string> headerValues))
+{
+    searchId = headerValues.FirstOrDefault();
+}
+```
+
+**Verwenden von C# (älteres v10 SDK)**
 
 ```csharp
 // This sample uses the .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search
@@ -129,12 +146,12 @@ var searchId = request.getResponseHeader('x-ms-azs-searchid');
 
 Jede Suchanforderung eines Benutzers sollten Sie in einem benutzerdefinierten Application Insights-Ereignis mit dem nachstehenden Schema als Suchereignis protokollieren. Denken Sie daran, nur benutzergenerierte Suchabfragen zu protokollieren.
 
-+ **SearchServiceName** : (String) Suchdienstname
-+ **SearchId** : (GUID) eindeutiger Bezeichner der Suchabfrage (in der Suchantwort enthalten)
-+ **IndexName** : (String) abzufragender Suchdienstindex
-+ **QueryTerms** : (String) vom Benutzer eingegebene Suchbegriffe
-+ **ResultCount** : (Int) Anzahl der zurückgegebenen Dokumente (in der Suchantwort enthalten)
-+ **ScoringProfile** : (String) Name des verwendeten Bewertungsprofils, falls vorhanden
++ **SearchServiceName**: (String) Suchdienstname
++ **SearchId**: (GUID) eindeutiger Bezeichner der Suchabfrage (in der Suchantwort enthalten)
++ **IndexName**: (String) abzufragender Suchdienstindex
++ **QueryTerms**: (String) vom Benutzer eingegebene Suchbegriffe
++ **ResultCount**: (Int) Anzahl der zurückgegebenen Dokumente (in der Suchantwort enthalten)
++ **ScoringProfile**: (String) Name des verwendeten Bewertungsprofils, falls vorhanden
 
 > [!NOTE]
 > Fordern Sie die Anzahl der vom Benutzer generierten Abfragen an, indem Sie Ihrer Suchabfrage „$count=true“ hinzufügen. Weitere Informationen finden Sie unter [Durchsuchen von Dokumenten (REST).](/rest/api/searchservice/search-documents#counttrue--false)
@@ -172,10 +189,10 @@ appInsights.trackEvent("Search", {
 
 Jedes Mal, wenn ein Benutzer auf ein Dokument klickt, ist dies ein Signal, dass für Suchanalysezwecke protokolliert werden muss. Verwenden Sie benutzerdefinierte Application Insights-Ereignisse, um diese Ereignisse mit dem folgenden Schema zu protokollieren:
 
-+ **ServiceName** : (String) Suchdienstname
-+ **SearchId** : (GUID) eindeutiger Bezeichner der zugehörigen Suchabfrage
-+ **DocId** : (String) Dokumentbezeichner
-+ **Position** : (Int) Rang des Dokuments auf der Seite „Suchergebnisse“
++ **ServiceName**: (String) Suchdienstname
++ **SearchId**: (GUID) eindeutiger Bezeichner der zugehörigen Suchabfrage
++ **DocId**: (String) Dokumentbezeichner
++ **Position**: (Int) Rang des Dokuments auf der Seite „Suchergebnisse“
 
 > [!NOTE]
 > Die Position bezieht sich auf die Hauptreihenfolge in der Anwendung. Sie können diese Zahl frei festlegen, solange sie immer identisch ist, um den Vergleich zu ermöglichen.
@@ -209,19 +226,19 @@ appInsights.trackEvent("Click", {
 
 Nachdem Sie Ihre App instrumentiert und sichergestellt haben, dass die Anwendung ordnungsgemäß mit Application Insights verbunden ist, laden Sie eine vordefinierte Berichtsvorlage herunter, um Daten in Power BI Desktop zu analysieren. Der Bericht enthält vordefinierte Diagramme und Tabellen, die nützlich für die Analyse der zusätzlichen Daten sind, die für die Analyse des Suchdatenverkehrs erfasst wurden.
 
-1. Klicken Sie im linken Navigationsbereich des Azure Cognitive Search-Dashboards unter **Einstellungen** auf **Datenverkehrsanalyse durchsuchen** .
+1. Klicken Sie im linken Navigationsbereich des Azure Cognitive Search-Dashboards unter **Einstellungen** auf **Datenverkehrsanalyse durchsuchen**.
 
-1. Klicken Sie auf der Seite **Datenverkehrsanalyse durchsuchen** in Schritt 3 auf **Power BI Desktop abrufen** , um Power BI zu installieren.
+1. Klicken Sie auf der Seite **Datenverkehrsanalyse durchsuchen** in Schritt 3 auf **Power BI Desktop abrufen**, um Power BI zu installieren.
 
    ![Abrufen von Power BI-Berichten](./media/search-traffic-analytics/get-use-power-bi.png "Abrufen von Power BI-Berichten")
 
-1. Klicken Sie auf derselben Seite auf **Power BI-Bericht herunterladen** .
+1. Klicken Sie auf derselben Seite auf **Power BI-Bericht herunterladen**.
 
 1. Der Bericht wird in Power BI Desktop geöffnet, und Sie werden aufgefordert, eine Verbindung mit Application Insights herzustellen und Anmeldeinformationen anzugeben. Sie finden Verbindungsinformationen auf den Seiten des Microsoft Azure-Portals für Ihre Application Insights-Ressource. Geben Sie für Anmeldeinformationen denselben Benutzernamen und dasselbe Kennwort wie für die Anmeldung beim Portal an.
 
    ![Herstellen einer Verbindung zu Application Insights](./media/search-traffic-analytics/connect-to-app-insights.png "Herstellen einer Verbindung zu Application Insights")
 
-1. Klicken Sie auf **Laden** .
+1. Klicken Sie auf **Laden**.
 
 Der Bericht enthält Diagramme und Tabellen, mit denen Sie fundiertere Entscheidungen treffen können, um Leistung und Relevanz der Suche zu verbessern.
 

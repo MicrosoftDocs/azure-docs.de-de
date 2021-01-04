@@ -7,17 +7,17 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: contperfq1
-ms.openlocfilehash: f64e3459863cc7b7ffddfae824f9c4012802a457
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperf-fy21q1, devx-track-azurecli
+ms.openlocfilehash: deed7c3dce2d7da1940a8a4871efac7453e2cf60
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500316"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033679"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Aktivieren der Azure Active Directory Domain Services-Authentifizierung über Azure Files
 
-[Azure Files](storage-files-introduction.md) unterstützt die identitätsbasierte Authentifizierung über SMB (Server Message Block) über zwei Arten von Domänendiensten: lokale Active Directory Domain Services (AD DS) und Azure Active Directory Domain Services (Azure AD DS). Es wird dringend empfohlen, den Abschnitt [Funktionsweise](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview#how-it-works) zu überprüfen, um den richtigen Domänendienst für die Authentifizierung auszuwählen. Die Einrichtung unterscheidet sich abhängig von dem von Ihnen gewählten Domänendienst. In diesem Artikel wird das Aktivieren und Konfigurieren von Azure AD DS für die Authentifizierung mit Azure-Dateifreigaben erläutert.
+[Azure Files](storage-files-introduction.md) unterstützt die identitätsbasierte Authentifizierung über SMB (Server Message Block) über zwei Arten von Domänendiensten: lokale Active Directory Domain Services (AD DS) und Azure Active Directory Domain Services (Azure AD DS). Es wird dringend empfohlen, den Abschnitt [Funktionsweise](./storage-files-active-directory-overview.md#how-it-works) zu überprüfen, um den richtigen Domänendienst für die Authentifizierung auszuwählen. Die Einrichtung unterscheidet sich abhängig von dem von Ihnen gewählten Domänendienst. In diesem Artikel wird das Aktivieren und Konfigurieren von Azure AD DS für die Authentifizierung mit Azure-Dateifreigaben erläutert.
 
 Wenn Sie noch nicht mit Azure-Dateifreigaben vertraut sind, empfiehlt es sich, unsere [Planhinweisliste](storage-files-planning.md) zu lesen, bevor Sie die folgende Artikelreihe lesen.
 
@@ -33,7 +33,7 @@ Bevor Sie Azure AD über SMB für Azure-Dateifreigaben aktivieren, sollten Sie s
 
     Sie können einen neuen oder vorhandenen Mandanten für die Azure AD-Authentifizierung über SMB verwenden. Der Mandant und die Dateifreigabe, auf die Sie zugreifen möchten, müssen dem gleichen Abonnement zugeordnet sein.
 
-    Zum Erstellen eines neuen Azure AD-Mandanten können Sie [einen Azure AD-Mandanten und ein Azure AD-Abonnement hinzufügen](https://docs.microsoft.com/windows/client-management/mdm/add-an-azure-ad-tenant-and-azure-ad-subscription). Wenn Sie über einen vorhandenen Azure AD-Mandanten verfügen, aber einen neuen Mandanten für die Verwendung mit Azure-Dateifreigaben erstellen möchten, finden Sie weitere Informationen unter [Erstellen eines Azure Active Directory-Mandanten](https://docs.microsoft.com/rest/api/datacatalog/create-an-azure-active-directory-tenant).
+    Zum Erstellen eines neuen Azure AD-Mandanten können Sie [einen Azure AD-Mandanten und ein Azure AD-Abonnement hinzufügen](/windows/client-management/mdm/add-an-azure-ad-tenant-and-azure-ad-subscription). Wenn Sie über einen vorhandenen Azure AD-Mandanten verfügen, aber einen neuen Mandanten für die Verwendung mit Azure-Dateifreigaben erstellen möchten, finden Sie weitere Informationen unter [Erstellen eines Azure Active Directory-Mandanten](/rest/api/datacatalog/create-an-azure-active-directory-tenant).
 
 1.  **Aktivieren Sie Azure AD Domain Services auf dem Azure AD-Mandanten.**
 
@@ -97,9 +97,9 @@ In der folgenden Abbildung ist dargestellt, wie Sie die Azure AD DS-Authentifiz
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Um die Azure AD DS-Authentifizierung über SMB mit Azure PowerShell zu aktivieren, installieren Sie das neueste Az-Modul (2.4 oder höher) oder das Az.Storage-Modul (1.5 oder höher). Weitere Informationen zum Installieren von PowerShell finden Sie unter [Installieren von Azure PowerShell unter Windows mit PowerShellGet](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+Um die Azure AD DS-Authentifizierung über SMB mit Azure PowerShell zu aktivieren, installieren Sie das neueste Az-Modul (2.4 oder höher) oder das Az.Storage-Modul (1.5 oder höher). Weitere Informationen zum Installieren von PowerShell finden Sie unter [Installieren von Azure PowerShell unter Windows mit PowerShellGet](/powershell/azure/install-Az-ps).
 
-Rufen Sie zum Erstellen eines neuen Speicherkontos [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0) auf, und legen Sie dann den Parameter **EnableAzureActiveDirectoryDomainServicesForFile** auf **true** fest. Denken Sie im folgenden Beispiel daran, die Platzhalterwerte durch Ihre eigenen Werte zu ersetzen. (Wenn Sie das vorherige Vorschaumodul verwendet haben, lautet der Parameter für die Funktionsaktivierung **EnableAzureFilesAadIntegrationForSMB**.)
+Rufen Sie zum Erstellen eines neuen Speicherkontos [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0) auf, und legen Sie dann den Parameter **EnableAzureActiveDirectoryDomainServicesForFile** auf **true** fest. Denken Sie im folgenden Beispiel daran, die Platzhalterwerte durch Ihre eigenen Werte zu ersetzen. (Wenn Sie das vorherige Vorschaumodul verwendet haben, lautet der Parameter für die Funktionsaktivierung **EnableAzureFilesAadIntegrationForSMB**.)
 
 ```powershell
 # Create a new storage account
@@ -123,9 +123,9 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 # <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
-Wenn Sie die Azure AD-Authentifizierung über SMB mithilfe der Azure-Befehlszeilenschnittstelle aktivieren möchten, installieren Sie die neueste Version der Befehlszeilenschnittstelle (Version 2.0.70 oder höher). Weitere Informationen zum Installieren der Azure-Befehlszeilenschnittstelle finden Sie unter [Installieren der Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Wenn Sie die Azure AD-Authentifizierung über SMB mithilfe der Azure-Befehlszeilenschnittstelle aktivieren möchten, installieren Sie die neueste Version der Befehlszeilenschnittstelle (Version 2.0.70 oder höher). Weitere Informationen zum Installieren der Azure-Befehlszeilenschnittstelle finden Sie unter [Installieren der Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-Rufen Sie zum Erstellen eines neuen Speicherkontos [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) auf, und legen Sie die Eigenschaft `--enable-files-aadds` auf **true** fest. Denken Sie im folgenden Beispiel daran, die Platzhalterwerte durch Ihre eigenen Werte zu ersetzen. (Wenn Sie das vorherige Vorschaumodul verwendet haben, lautet der Parameter für die Featureaktivierung **file-aad**.)
+Rufen Sie zum Erstellen eines neuen Speicherkontos [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) auf, und legen Sie die Eigenschaft `--enable-files-aadds` auf **true** fest. Denken Sie im folgenden Beispiel daran, die Platzhalterwerte durch Ihre eigenen Werte zu ersetzen. (Wenn Sie das vorherige Vorschaumodul verwendet haben, lautet der Parameter für die Featureaktivierung **file-aad**.)
 
 ```azurecli-interactive
 # Create a new storage account

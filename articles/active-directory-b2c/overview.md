@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7126cd38a9d0f9ed0079a73e1235cb08a99bcbcf
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 29b34041042f00d72b8a9fe86e31bd80f8c77dc2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396534"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953949"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Was ist Azure Active Directory B2C?
 
@@ -79,7 +79,7 @@ Woodgrove Groceries bietet abhängig von der Beziehung der Kunden zu dem Geschä
 
 * **Einzelkunden** können sich mit persönlichen Konten registrieren oder anmelden, z. B. mit einem sozialen Netzwerk als Identitätsanbieter oder einer E-Mail-Adresse und einem Kennwort.
 * **Geschäftskunden** können sich mit ihren Unternehmensanmeldeinformationen registrieren oder anmelden.
-* **Partner** und Lieferanten sind Personen, die das Lebensmittelgeschäft mit Produkten für den Verkauf beliefern. Die Partneridentität wird von [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) bereitgestellt.
+* **Partner** und Lieferanten sind Personen, die das Lebensmittelgeschäft mit Produkten für den Verkauf beliefern. Die Partneridentität wird von [Azure Active Directory B2B](../active-directory/external-identities/what-is-b2b.md) bereitgestellt.
 
 ![Anmeldeseiten für Einzelkunden (B2C), Geschäftskunden (B2C) und Partner (B2B)](./media/overview/woodgrove-overview.png)
 
@@ -111,7 +111,7 @@ Mit dieser Richtlinie wird dem Benutzer die Möglichkeit geboten, für die Regis
 
 Für den Link **Sign in with your supplier account** (Mit Ihrem Lieferantenkonto anmelden) wird die Zusammenarbeitsfunktion von Azure Active Directory B2B verwendet. Bei Azure AD B2B handelt es sich um eine Gruppe von Features in Azure Active Directory zum Verwalten von Partneridentitäten. Mit diesen Identitäten kann über Azure Active Directory ein Verbund für den Zugriff auf Anwendungen gebildet werden, die durch Azure AD B2C geschützt werden.
 
-Weitere Informationen zu Azure AD B2B finden Sie unter [Was ist der Gastzugriff in Azure Active Directory-B2B?](../active-directory/b2b/what-is-b2b.md).
+Weitere Informationen zu Azure AD B2B finden Sie unter [Was ist der Gastzugriff in Azure Active Directory-B2B?](../active-directory/external-identities/what-is-b2b.md).
 
 <!-- UNCOMMENT WHEN REPO IS UPDATED WITH LATEST DEMO CODE
 ### Sample code

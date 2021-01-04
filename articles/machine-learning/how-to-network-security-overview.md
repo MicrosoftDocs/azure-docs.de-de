@@ -10,13 +10,13 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: 7ec62e4a6a864ca37011014341a2d059615873d5
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
+ms.openlocfilehash: dd24c4f20fa3a56d25ef142947268b2d2b75474a
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131937"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029599"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Übersicht zu Isolation und Datenschutz bei virtuellen Netzwerken
 
@@ -31,10 +31,10 @@ Hier sind die übrigen Artikel der Reihe:
 ## <a name="prerequisites"></a>Voraussetzungen
 
 In diesem Artikel wird vorausgesetzt, dass Sie mit den folgenden Themen vertraut sind:
-+ [Virtuelle Azure-Netzwerke](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
-+ [IP-Netzwerke](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
++ [Virtuelle Azure-Netzwerke](../virtual-network/virtual-networks-overview.md)
++ [IP-Netzwerke](../virtual-network/public-ip-addresses.md)
 + [Azure Private Link](how-to-configure-private-link.md)
-+ [Netzwerksicherheitsgruppen (NSGs)](../virtual-network/security-overview.md):
++ [Netzwerksicherheitsgruppen (NSGs)](../virtual-network/network-security-groups-overview.md):
 + [Netzwerkfirewalls](../firewall/overview.md)
 
 ## <a name="example-scenario"></a>Beispielszenario
@@ -145,10 +145,11 @@ Wenn sich Ihr Speicher in einem VNet befindet, müssen Sie zunächst zusätzlich
 
 * Vorschau der Daten im Studio.
 * Visualisieren von Daten im Designer.
+* Bereitstellen eines Modells im Designer.
 * Senden eines AutoML-Experiments.
 * Starten eines Beschriftungsprojekts.
 
-Informationen zur Aktivierung der vollen Studio-Funktionalität innerhalb eines VNets finden Sie unter [Verwenden von Azure Machine Learning Studio in einem virtuellen Azure-Netzwerk](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). Das Studio unterstützt Speicherkonten entweder unter Verwendung von Dienstendpunkten oder privaten Endpunkten.
+Informationen zur Aktivierung der vollen Studio-Funktionalität innerhalb eines VNets finden Sie unter [Verwenden von Azure Machine Learning Studio in einem virtuellen Azure-Netzwerk](how-to-enable-studio-virtual-network.md#configure-data-access-in-the-studio). Das Studio unterstützt Speicherkonten entweder unter Verwendung von Dienstendpunkten oder privaten Endpunkten.
 
 ### <a name="limitations"></a>Einschränkungen
 - [Von der ML-gestützten Datenbeschriftung](how-to-create-labeling-projects.md#use-ml-assisted-labeling) werden keine Standardspeicherkonten unterstützt, die hinter einem virtuellen Netzwerk gesichert sind. Sie müssen ein nicht standardmäßiges Speicherkonto für die ML-unterstützte Datenbeschriftung verwenden. Beachten Sie, dass das nicht standardmäßige Speicherkonto hinter dem virtuellen Netzwerk gesichert werden kann. 
@@ -172,4 +173,4 @@ Dieser Artikel ist der erste Teil einer vierteiligen Serie zu virtuellen Netzwer
 * [Teil 2: Virtuelle Netzwerke im Überblick](how-to-secure-workspace-vnet.md)
 * [Teil 3: Schützen der Trainingsumgebung](how-to-secure-training-vnet.md)
 * [Teil 4: Schützen der Rückschlussumgebung](how-to-secure-inferencing-vnet.md)
-* [Teil 5: Aktivieren der Studio-Funktionalität](how-to-enable-studio-virtual-network.md)
+* [Teil 5: Verwenden von Studio in einem virtuellen Netzwerk](how-to-enable-studio-virtual-network.md)

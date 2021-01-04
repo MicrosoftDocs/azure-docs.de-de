@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96485dabd8cfb2ea9e3fb907940fccb05b5baee3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab425d0232310bd80d41c4028229c9da324a2bc9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89659335"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168235"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Überlegungen zum Entwurf der Azure Active Directory-Hybrid-Identität – Nächste Schritte
 Nachdem Sie die Anforderungen definiert und alle Optionen für Ihre Lösung zur Verwaltung mobiler Geräte (Mobile Device Management, MDM) untersucht haben, können Sie die nächsten Schritte zur Bereitstellung der unterstützenden Infrastruktur ausführen, die für Sie und Ihr Unternehmen geeignet ist.
@@ -31,7 +31,7 @@ Informationen zur konzeptuellen und verfahrensorientierten Planung, Bereitstellu
 
 * [Microsoft System Center](/previous-versions/system-center/developer/cc817313(v=msdn.10)) -Lösungen können beim Sammeln und Zusammenfassen von Wissen zu Infrastruktur, Richtlinien, Prozessen und bewährten Methoden hilfreich sein, damit Ihr IT-Personal verwaltbare Systeme erstellen und Vorgänge automatisieren kann.
 * [Microsoft Intune](/mem/intune/) ist ein cloudbasierter Geräteverwaltungsdienst, der Sie beim Verwalten Ihrer Computer und mobilen Geräte und beim Schützen der Unternehmensinformationen unterstützt.
-* [MDM für Microsoft 365](https://technet.microsoft.com/library/ms.o365.cc.devicepolicy.aspx) ermöglicht Ihnen das Verwalten und Schützen mobiler Geräte, wenn diese mit Ihrem Microsoft 365-Unternehmen verbunden sind. Sie können MDM für Microsoft 365 nutzen, um Sicherheitsrichtlinien und Zugriffsregeln für Geräte festzulegen und die Daten mobiler Geräte zu löschen, falls sie verloren gehen oder gestohlen werden.
+* [MDM für Microsoft 365](/microsoft-365/admin/basic-mobility-security/overview) ermöglicht Ihnen das Verwalten und Schützen mobiler Geräte, wenn diese mit Ihrem Microsoft 365-Unternehmen verbunden sind. Sie können MDM für Microsoft 365 nutzen, um Sicherheitsrichtlinien und Zugriffsregeln für Geräte festzulegen und die Daten mobiler Geräte zu löschen, falls sie verloren gehen oder gestohlen werden.
 
 ## <a name="hybrid-identity-resources"></a>Ressourcen zur Hybrid-Identität
 Indem Sie die folgenden Ressourcen im Auge behalten, erhalten Sie aktuelle Neuigkeiten und Updates zu Lösungen für die Verwaltung mobiler Geräte:

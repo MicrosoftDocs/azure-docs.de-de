@@ -3,21 +3,19 @@ title: 'Tutorial: Erstellen einer Analyse-App für intelligente Zähler mit IoT 
 description: 'Tutorial: Erfahren Sie, wie Sie eine Überwachungsanwendung für intelligente Zähler mithilfe von Azure IoT Central-Anwendungsvorlagen erstellen.'
 author: op-ravi
 ms.author: omravi
-ms.date: 11/12/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: af4940ae6b0dc001667602b8729faaa3a10d19da
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: a95f1befcdc9b59293eb97330ba7ceae3034a74b
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127130"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516771"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Tutorial: Erstellen und Durchlaufen der App-Vorlage für die intelligente Zählerüberwachung 
-
-
 
 In diesem Tutorial werden die Schritte zum Erstellen der Überwachungsanwendung für intelligente Zähler erläutert, die ein Beispielgerätemodell mit simulierten Daten enthält. In diesem Lernprogramm lernen Sie Folgendes:
 
@@ -38,14 +36,13 @@ Falls Sie noch nicht über ein Abonnement verfügen, [erstellen Sie ein kostenlo
 Sie können diese Anwendung in drei einfachen Schritten erstellen:
 
 1. Öffnen Sie die [Azure IoT Central-Startseite](https://apps.azureiotcentral.com), und klicken Sie auf **Erstellen**, um eine neue Anwendung zu erstellen. 
-
-2. Wählen Sie die Registerkarte **Energie** aus, und klicken Sie auf der Anwendungskachel **Überwachung eines intelligenten Zählers** auf **App erstellen**.
+1. Wählen Sie die Registerkarte **Energie** aus, und klicken Sie auf der Anwendungskachel **Überwachung eines intelligenten Zählers** auf **App erstellen**.
 
     > [!div class="mx-imgBorder"]
     > ![Erstellen einer App](media/tutorial-iot-central-smart-meter/smart-meter-build.png)
     
 
-3. Über **App erstellen** wird das Formular **Neue Anwendung** geöffnet. Geben Sie wie in der nachfolgenden Abbildung dargestellt die erforderlichen Details ein:
+1. Über **App erstellen** wird das Formular **Neue Anwendung** geöffnet. Geben Sie wie in der nachfolgenden Abbildung dargestellt die erforderlichen Details ein:
     * **Anwendungsname**: Geben Sie einen Namen für die IoT Central-Anwendung an. 
     * **URL**: Geben Sie eine IoT Central-URL an. Die Eindeutigkeit wird auf der Plattform überprüft.
     * **Kostenlose 7-Tage-Testversion**: Wenn Sie bereits über ein Azure-Abonnement verfügen, wird die Standardeinstellung empfohlen. Falls Sie noch nicht über ein Azure-Abonnement verfügen, beginnen Sie mit einer kostenlosen Testversion.
@@ -55,7 +52,6 @@ Sie können diese Anwendung in drei einfachen Schritten erstellen:
         ![Formular „Neue Anwendung“](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
 
         ![Formular „Neue Anwendung“: Abrechnungsinformationen](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app-billinginfo.png)
-
 
 ### <a name="verify-the-application-and-simulated-data"></a>Überprüfen der Anwendung und der simulierten Daten
 
@@ -99,7 +95,7 @@ Klicken Sie auf die Registerkarte **Gerätevorlagen**, um das Gerätemodell für
 Wenn Sie diese Anwendung nicht mehr verwenden möchten, können Sie sie mit den folgenden Schritten löschen:
 
 1. Öffnen Sie im linken Bereich die Registerkarte „Verwaltung“.
-2. Wählen Sie „Anwendungseinstellungen“ aus, und klicken Sie unten auf der Seite auf die Schaltfläche „Löschen“. 
+1. Wählen Sie „Anwendungseinstellungen“ aus, und klicken Sie unten auf der Seite auf die Schaltfläche „Löschen“. 
 
     > [!div class="mx-imgBorder"]
     > ![Löschen der Anwendung](media/tutorial-iot-central-smart-meter/smart-meter-delete-app.png)

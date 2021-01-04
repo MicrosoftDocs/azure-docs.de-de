@@ -1,19 +1,19 @@
 ---
 title: 'Schnellstart: Erstellen eines Servers – Azure PowerShell: Azure Database for MySQL'
 description: In dieser Schnellstartanleitung wird die Verwendung von PowerShell zum Erstellen eines Azure Database for MySQL-Servers in einer Azure-Ressourcengruppe beschrieben.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 04/28/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 65ac6b3252b134fa6774c075ebc7d5f2c428a809
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d12d447acb3b6bf2b6f84e9768e9f063a9a36b03
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545122"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542302"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-powershell"></a>Schnellstart: Erstellen eines Azure Database for MySQL-Servers mit PowerShell
 
@@ -70,7 +70,7 @@ Die folgende Tabelle enthält eine Liste mit den häufig verwendeten Parametern 
 | SslEnforcement             | Aktiviert          | Gibt an, ob SSL für diesen Server aktiviert werden soll. Zulässige Werte: „Aktiviert“, „Deaktiviert“                                                                                                                                                                                                                                                 |
 | StorageInMb                | 51.200            | Die Speicherkapazität des Servers (Einheit: MB). Für „Valid StorageInMb“ gilt ein Mindestwert von 5.120 MB, der in Schritten von jeweils 1.024 MB erhöht werden kann. Weitere Informationen zu Grenzwerten für die Speichergröße finden Sie unter [Azure Database for MySQL – Tarife](./concepts-pricing-tiers.md).                                                                               |
 | Version                    | 5.7              | Die MySQL-Hauptversion.                                                                                                                                                                                                                                                                                                                 |
-| AdministratorUserName      | myadmin          | Der Benutzername für die Administratoranmeldung. Dieser darf nicht **azure_superuser** , **admin** , **administrator** , **root** , **guest** oder **public** lauten.                                                                                                                                                                                            |
+| AdministratorUserName      | myadmin          | Der Benutzername für die Administratoranmeldung. Dieser darf nicht **azure_superuser**, **admin**, **administrator**, **root**, **guest** oder **public** lauten.                                                                                                                                                                                            |
 | AdministratorLoginPassword | `<securestring>` | Das Kennwort des Administratorbenutzers in Form einer sicheren Zeichenfolge. Es muss zwischen acht und 128 Zeichen lang sein. Das Kennwort muss Zeichen aus drei der folgenden Kategorien enthalten: Englische Großbuchstaben, englische Kleinbuchstaben, Zahlen und nicht alphanumerische Zeichen.                                       |
 
 Für den Parameterwert **Sku** wird das Format **Tarif\_Computegeneration\_V-Kerne** verwendet. Dies ist in den folgenden Beispielen dargestellt.
@@ -81,7 +81,7 @@ Für den Parameterwert **Sku** wird das Format **Tarif\_Computegeneration\_V-Ker
 
 Informationen zu den gültigen Werten für **Sku** nach Region und für Tarife finden Sie unter [Azure Database for MySQL – Tarife](./concepts-pricing-tiers.md).
 
-Im folgenden Beispiel wird ein MySQL-Server in der Region **USA, Westen** mit dem Namen **mydemoserver** in der Ressourcengruppe **myresourcegroup** erstellt. Der Benutzername für den Serveradministrator lautet **myadmin** . Es handelt sich um einen Gen 5-Server im Tarif „Universell“ mit zwei V-Kernen und Aktivierung von georedundanten Sicherungen. Notieren Sie sich das Kennwort, das in der ersten Zeile des Beispiels verwendet wird, da dies das Kennwort für das Administratorkonto des MySQL-Servers ist.
+Im folgenden Beispiel wird ein MySQL-Server in der Region **USA, Westen** mit dem Namen **mydemoserver** in der Ressourcengruppe **myresourcegroup** erstellt. Der Benutzername für den Serveradministrator lautet **myadmin**. Es handelt sich um einen Gen 5-Server im Tarif „Universell“ mit zwei V-Kernen und Aktivierung von georedundanten Sicherungen. Notieren Sie sich das Kennwort, das in der ersten Zeile des Beispiels verwendet wird, da dies das Kennwort für das Administratorkonto des MySQL-Servers ist.
 
 > [!TIP]
 > Ein Servername wird einem DNS-Namen zugeordnet und muss in Azure global eindeutig sein.
@@ -124,7 +124,7 @@ Update-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup -SslE
 
 ## <a name="get-the-connection-information"></a>Abrufen der Verbindungsinformationen
 
-Zum Herstellen einer Verbindung zum Server müssen Sie Hostinformationen und Anmeldeinformationen für den Zugriff angeben. Verwenden Sie das folgende Beispiel, um die Verbindungsinformationen zu ermitteln. Notieren Sie sich die Werte für **FullyQualifiedDomainName** und **AdministratorLogin** .
+Zum Herstellen einer Verbindung zum Server müssen Sie Hostinformationen und Anmeldeinformationen für den Zugriff angeben. Verwenden Sie das folgende Beispiel, um die Verbindungsinformationen zu ermitteln. Notieren Sie sich die Werte für **FullyQualifiedDomainName** und **AdministratorLogin**.
 
 ```azurepowershell-interactive
 Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
@@ -212,7 +212,7 @@ Zusätzliche Befehle finden Sie unter [MySQL 5.7-Referenzhandbuch – Kapitel 4.
     | Username          | myadmin@mydemoserver                    | Der zuvor notierte Benutzername für den Serveradministrator.                |
     | Kennwort          | *************                           | Verwenden Sie das Kennwort des Administratorkontos, das Sie zuvor konfiguriert haben.      |
 
-1. Klicken Sie auf die Schaltfläche **Verbindung testen** , um zu testen, ob die Parameter richtig konfiguriert sind.
+1. Klicken Sie auf die Schaltfläche **Verbindung testen**, um zu testen, ob die Parameter richtig konfiguriert sind.
 
 1. Wählen Sie die Verbindung aus, die für die Verbindungsherstellung mit dem Server verwendet werden soll.
 

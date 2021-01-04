@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: a866a225da87c22a3a276a5d59b8e86f1f955cae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34eeeed2b3c44336cd4aa1219d54b1811c6988f5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856193"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952317"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Vergleich der Speicheroptionen für die Verwendung mit Azure HDInsight-Clustern
 
@@ -36,6 +36,8 @@ Die folgende Tabelle enthält die Azure Storage-Dienste, die mit den unterschied
 |Azure Storage| Allgemein v1 | Object | Blob | Standard | – | All | All |
 |Azure Storage| Blob Storage** | Object | Blockblob | Standard | Heiß, Kalt, Archiv | All | All |
 |Azure Data Lake Storage Gen1| – | Hierarchisch (Dateisystem) | – | – | – | Nur 3.6 | Alle mit Ausnahme von HBase |
+|Azure Storage| Blockblob| Object | Blockblob | Premium | –| 3.6 und höher | Nur HBase mit beschleunigten Schreibvorgängen|
+|Azure Data Lake Storage Gen2| Blockblob| Hierarchisch (Dateisystem) | Blockblob | Premium | –| 3.6 und höher | Nur HBase mit beschleunigten Schreibvorgängen|
 
 **Für HDInsight-Cluster können nur sekundäre Speicherkonten den Typ „BlobStorage“ aufweisen, und der Seitenblob ist keine unterstützte Speicheroption.
 

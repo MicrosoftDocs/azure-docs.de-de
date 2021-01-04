@@ -6,13 +6,13 @@ ms.date: 10/16/2020
 author: gitralf
 ms.author: ralfwi
 ms.service: germany
-ms.custom: bfdocs
-ms.openlocfilehash: 7f9320d05239fbb0201582abecf44d52bc5c820a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.custom: bfdocs, devx-track-azurecli
+ms.openlocfilehash: b5fb2f9b55fbe949e2c171ee7bea989c1741ab5d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123364"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018607"
 ---
 # <a name="connect-to-azure-germany-by-using-azure-cli"></a>Herstellen einer Verbindung mit Azure Deutschland über die Azure CLI
 
@@ -21,7 +21,7 @@ ms.locfileid: "92123364"
 Um die Azure-Befehlszeilenschnittstelle (Azure CLI) zu verwenden, müssen Sie eine Verbindung mit Azure Deutschland anstelle der globalen Azure-Umgebung herstellen. Sie können darüber die Azure-Befehlszeilenschnittstelle z. B. zum Verwalten eines umfangreichen Abonnements über Skripts oder für den Zugriff auf Features verwenden, die derzeit im Azure-Portal nicht verfügbar sind. Wenn Sie die Azure-Befehlszeilenschnittstelle bereits in der globalen Azure-Umgebung verwendet haben, ist das Vorgehen größtenteils identisch.  
 
 ## <a name="azure-cli"></a>Azure CLI
-Es gibt mehrere Möglichkeiten zum [Installieren der Azure-Befehlszeilenschnittstelle](https://docs.microsoft.com/cli/azure/install-az-cli2).  
+Es gibt mehrere Möglichkeiten zum [Installieren der Azure-Befehlszeilenschnittstelle](/cli/azure/install-az-cli2).  
 
 Zum Herstellen einer Verbindung mit Azure Deutschland müssen Sie die richtige Cloudumgebung festlegen:
 
@@ -46,9 +46,9 @@ az cloud list --output table
 ```
 
 ## <a name="azure-classic-cli"></a>Klassische Azure-Befehlszeilenschnittstelle
-Es gibt mehrere Möglichkeiten zum [Installieren der klassischen Azure-Befehlszeilenschnittstelle](../xplat-cli-install.md). Wenn Node.js bereits installiert ist, ist die Installation des npm-Pakets die einfachste Möglichkeit.
+Es gibt mehrere Möglichkeiten zum [Installieren der klassischen Azure-Befehlszeilenschnittstelle](/cli/azure/install-azure-cli). Wenn Node.js bereits installiert ist, ist die Installation des npm-Pakets die einfachste Möglichkeit.
 
-Um CLI aus einem npm-Paket zu installieren, müssen Sie die aktuellen Versionen von [Node.js und npm](https://nodejs.org/en/download/package-manager/) herunterladen und installieren. Führen Sie anschließend zum Installieren des **Azure CLI** -Pakets **npm install** aus:
+Um CLI aus einem npm-Paket zu installieren, müssen Sie die aktuellen Versionen von [Node.js und npm](https://nodejs.org/en/download/package-manager/) herunterladen und installieren. Führen Sie anschließend zum Installieren des **Azure CLI**-Pakets **npm install** aus:
 
 ```bash
 npm install -g azure-cli
@@ -82,7 +82,3 @@ Weitere Informationen zum Herstellen der Verbindung mit Azure Deutschland finden
 * [Herstellen einer Verbindung mit Azure Deutschland über PowerShell](./germany-get-started-connect-with-ps.md)
 * [Herstellen einer Verbindung mit Azure Deutschland über Visual Studio](./germany-get-started-connect-with-vs.md)
 * [Herstellen einer Verbindung mit Azure Deutschland über das Azure-Portal](./germany-get-started-connect-with-portal.md)
-
-
-
-

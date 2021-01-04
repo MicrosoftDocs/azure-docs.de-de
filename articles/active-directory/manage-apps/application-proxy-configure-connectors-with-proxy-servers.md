@@ -11,12 +11,13 @@ ms.topic: how-to
 ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 4c50e881fd6b7dda5c609a4ac6492d77fff1b537
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 808357b95f4de904ead0741d848480d548a2e26a
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208004"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030075"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Verwenden von vorhandenen lokalen Proxyservern
 
@@ -110,18 +111,19 @@ Auf dem Proxy für ausgehenden Datenverkehr sind vier Aspekte zu beachten:
 
 Lassen Sie den Zugriff auf die folgenden URLs zu:
 
-| URL | Wie diese verwendet wird |
-| --- | --- |
-| \*.msappproxy.net<br>\*.servicebus.windows.net | Kommunikation zwischen dem Connector und dem Anwendungsproxy-Clouddienst |
-| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>www.d-trust.net<br>root-c3-ca2-2009.ocsp.d-trust.net<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | Der Connector verwendet diese URLs, um Zertifikate zu überprüfen. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*.microsoftonline.com<br>* .microsoftonline-p.com<br>*.msauth.net<br>* .msauthimages.net<br>*.msecnd.net<br>* .msftauth.net<br>*.msftauthimages.net<br>* .phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com:80 | Der Connector verwendet diese URLs während der Registrierung. |
+| URL | Port |  Wie diese verwendet wird |
+| --- | --- | --- |
+| &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | Kommunikation zwischen dem Connector und dem Anwendungsproxy-Clouddienst |
+| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP | Der Connector verwendet diese URLs, um Zertifikate zu überprüfen. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS | Der Connector verwendet diese URLs während der Registrierung. |
+| ctldl.windowsupdate.com | 80/HTTP | Der Connector verwendet diese URL während der Registrierung. |
 
 Wenn für Ihre Firewall oder Ihren Proxy die Konfiguration von DNS-Zulassungslisten möglich ist, können Sie Verbindungen mit „\*.msappproxy.net“ und „\*.servicebus.windows.net“ zulassen.
 
 Wenn Sie die Konnektivität nicht über den FQDN zulassen können und stattdessen IP-Adressbereiche angeben müssen, verwenden Sie diese Optionen:
 
 * Lassen Sie für den Connector den ausgehenden Zugriff für alle Ziele zu.
-* Lassen Sie für den Connector den ausgehenden Zugriff auf alle IP-Bereiche des Azure-Rechenzentrums zu. Die Schwierigkeit besteht bei der Verwendung der Liste mit den IP-Bereichen für Azure-Datencenter darin, dass sie wöchentlich aktualisiert wird. Sie müssen einen Prozess implementieren, mit dem sichergestellt wird, dass Ihre Zugriffsregeln entsprechend aktualisiert werden. Wenn nur ein Teil der IP-Adressen verfügbar sind, funktioniert Ihre Konfiguration möglicherweise nicht. Zum Herunterladen der neuesten IP-Adressbereiche des Azure-Rechenzentrums navigieren Sie zu [https://download.microsoft.com](https://download.microsoft.com), und suchen Sie nach „Azure-IP-Adressbereiche und Diensttags“. Wählen Sie dann die relevante Cloud aus. So finden Sie beispielsweise die IP-Adressbereiche für die öffentliche Cloud mit „Azure IP-Adressbereiche und -Diensttags – Öffentliche Cloud“. Die US Government-Cloud finden Sie durch Suchen nach „Azure IP-Adressbereichen und Diensttags – US Goverment Cloud“.
+* Lassen Sie für den Connector den ausgehenden Zugriff auf alle IP-Bereiche des Azure-Rechenzentrums zu. Die Schwierigkeit besteht bei der Verwendung der Liste mit den IP-Bereichen für Azure-Datencenter darin, dass sie wöchentlich aktualisiert wird. Sie müssen einen Prozess implementieren, mit dem sichergestellt wird, dass Ihre Zugriffsregeln entsprechend aktualisiert werden. Wenn nur ein Teil der IP-Adressen verfügbar sind, funktioniert Ihre Konfiguration möglicherweise nicht. Zum Herunterladen der neuesten IP-Adressbereiche des Azure-Rechenzentrums navigieren Sie zu [https://download.microsoft.com](https://download.microsoft.com), und suchen Sie nach „Azure-IP-Adressbereiche und Diensttags“. Wählen Sie dann die relevante Cloud aus. So finden Sie beispielsweise die IP-Adressbereiche für die öffentliche Cloud mit „Azure IP-Adressbereiche und -Diensttags – Öffentliche Cloud“. Die US Government-Cloud finden Sie, indem Sie nach „Azure IP-Adressbereiche und -Diensttags – US Goverment Cloud“ suchen.
 
 #### <a name="proxy-authentication"></a>Proxyauthentifizierung
 
@@ -166,6 +168,9 @@ Die beste Möglichkeit zur Identifizierung und Behebung von Problemen mit der Co
 
 Sie können ein Überwachungstool Ihrer Wahl verwenden. Für diesen Artikel haben wir Microsoft Message Analyzer genutzt.
 
+> [!NOTE]
+> [Microsoft Message Analyzer (MMA) wurde eingestellt](https://docs.microsoft.com/openspecs/blog/ms-winintbloglp/dd98b93c-0a75-4eb0-b92e-e760c502394f), und die zugehörigen Downloadpakete wurden am 25. November 2019 aus den Microsoft.com-Sites entfernt.  Zurzeit entwickelt Microsoft keinen Ersatz für Microsoft Message Analyzer.  Wenn Sie eine ähnliche Funktionalität benötigen, verwenden Sie ein Drittanbieter-Tool wie Wireshark für die Netzwerkprotokollanalyse.
+
 Die folgenden Beispiele beziehen sich speziell auf Message Analyzer. Die Prinzipien können aber auf alle Analysetools angewendet werden.
 
 ### <a name="take-a-capture-of-connector-traffic"></a>Durchführen einer Erfassung des Connectordatenverkehrs
@@ -206,4 +211,4 @@ Wenn andere Antwortcodes angezeigt werden, z.B. 407 oder 502, weist dies darauf 
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Grundlegendes zu Azure AD-Anwendungsproxyconnectors](application-proxy-connectors.md)
-* Wenn Probleme mit der Connectorkonnektivität bestehen, stellen Sie Ihre Frage auf der [Microsoft F&A-Seite für Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html), oder erstellen Sie ein Ticket für unser Supportteam.
+* Wenn Probleme mit der Connectorkonnektivität bestehen, stellen Sie Ihre Frage auf der [Microsoft F&A-Seite für Azure Active Directory](/answers/topics/azure-active-directory.html), oder erstellen Sie ein Ticket für unser Supportteam.

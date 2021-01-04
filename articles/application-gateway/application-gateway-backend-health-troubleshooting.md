@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 531a7fd8547130b4897f3dad0900e1c27fb7fe9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8acf1b025a5943773821c8ab78de6288eb6bec2
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132040"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397897"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Behandeln von Problemen mit der Back-End-Integrität in Application Gateway
 ==================================================
@@ -24,7 +24,7 @@ Standardmäßig testet Application Gateway Back-End-Server, um deren Integrität
 
 ### <a name="how-to-check-backend-health"></a>Überprüfen der Back-End-Integrität
 
-Zum Überprüfen der Integrität des Back-End-Pools können Sie die Seite **Back-End-Integrität** im Azure-Portal verwenden. Sie können auch [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhealth?view=azps-2.6.0), die [CLI](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-show-backend-health) oder die [REST-API](https://docs.microsoft.com/rest/api/application-gateway/applicationgateways/backendhealth) verwenden.
+Zum Überprüfen der Integrität des Back-End-Pools können Sie die Seite **Back-End-Integrität** im Azure-Portal verwenden. Sie können auch [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth?view=azps-2.6.0), die [CLI](/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-show-backend-health) oder die [REST-API](/rest/api/application-gateway/applicationgateways/backendhealth) verwenden.
 
 Der Status, der von einer dieser Methoden abgerufen wird, kann einer der folgenden sein:
 
@@ -91,7 +91,7 @@ Die in der Spalte **Details** angezeigte Meldung bietet ausführlichere Einblick
 
 **Ursache:** Nachdem Application Gateway eine HTTP(S)-Testanforderung an den Back-End-Server gesendet hat, wird für einen konfigurierten Zeitraum auf eine Antwort vom Back-End-Server gewartet. Wenn der Back-End-Server nicht innerhalb des konfigurierten Zeitraums (Timeoutwerts) antwortet, wird er als fehlerhaft gekennzeichnet, bis er erneut innerhalb des konfigurierten Timeoutzeitraums antwortet.
 
-**Lösung:** Überprüfen Sie, warum der Back-End-Server bzw. die Back-End-Anwendung nicht innerhalb des konfigurierten Timeoutzeitraums antwortet, und überprüfen Sie ebenfalls die Anwendungsabhängigkeiten. Überprüfen Sie beispielsweise, ob in der Datenbank Probleme vorliegen, die möglicherweise eine Verzögerung der Reaktion auslösen können. Wenn Sie das Verhalten der Anwendung kennen und diese nur nach dem Timeoutwert antworten sollte, erhöhen Sie den Timeoutwert in den benutzerdefinierten Testeinstellungen. Sie müssen über einen benutzerdefinierten Test verfügen, um den Wert des Timeouts zu ändern. Informationen zum Konfigurieren eines benutzerdefinierten Tests finden Sie [auf der Dokumentationsseite](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal).
+**Lösung:** Überprüfen Sie, warum der Back-End-Server bzw. die Back-End-Anwendung nicht innerhalb des konfigurierten Timeoutzeitraums antwortet, und überprüfen Sie ebenfalls die Anwendungsabhängigkeiten. Überprüfen Sie beispielsweise, ob in der Datenbank Probleme vorliegen, die möglicherweise eine Verzögerung der Reaktion auslösen können. Wenn Sie das Verhalten der Anwendung kennen und diese nur nach dem Timeoutwert antworten sollte, erhöhen Sie den Timeoutwert in den benutzerdefinierten Testeinstellungen. Sie müssen über einen benutzerdefinierten Test verfügen, um den Wert des Timeouts zu ändern. Informationen zum Konfigurieren eines benutzerdefinierten Tests finden Sie [auf der Dokumentationsseite](./application-gateway-create-probe-portal.md).
 
 Um den Wert des Timeouts zu erhöhen, führen Sie die folgenden Schritte aus:
 
@@ -105,7 +105,7 @@ Um den Wert des Timeouts zu erhöhen, führen Sie die folgenden Schritte aus:
 
 #### <a name="dns-resolution-error"></a>Fehler bei der DNS-Auflösung
 
-**Nachricht:** Application gateway could not create a probe for this backend. (Application Gateway konnte keinen Test für dieses Back-End erstellen.) This usually happens when the FQDN of the backend has not been entered correctly. (Dies ist normalerweise der Fall, wenn der FQDN des Back-Ends nicht ordnungsgemäß eingegeben wurde.) 
+**Nachricht:** Application gateway could not create a probe for this backend. (Application Gateway konnte keinen Test für dieses Back-End erstellen.) This usually happens when the FQDN of the backend has not been entered correctly. (Dies ist normalerweise der Fall, wenn der FQDN des Back-Ends nicht ordnungsgemäß eingegeben wurde.) 
 
 **Ursache:** Wenn der Back-End-Pool den Typ „IP-Adresse/FQDN“ oder „App Service“ aufweist, löst Application Gateway in die IP-Adresse des über das DNS (Domain Name System) eingegebenen FQDN (benutzerdefiniert oder Azure-Standard) auf und versucht, eine Verbindung mit dem Server an dem TCP-Port herzustellen, der in den HTTP-Einstellungen angegeben ist. Wenn aber diese Meldung angezeigt wird, deutet dies darauf hin, dass Application Gateway die IP-Adresse des eingegebenen FQDN nicht erfolgreich auflösen konnte.
 
@@ -119,7 +119,7 @@ Um den Wert des Timeouts zu erhöhen, führen Sie die folgenden Schritte aus:
 
 1.  Wenn Sie eine Azure-DNS-Standardadresse verwenden, überprüfen Sie bei Ihrer Domänennamen-Registrierungsstelle, ob eine ordnungsgemäße Zuordnung eines A-Eintrags oder CNAME-Eintrags vorgenommen wurde.
 
-1.  Wenn die Domäne privat oder intern ist, versuchen Sie, Sie von einem virtuellen Computer aus im selben virtuellen Netzwerk aufzulösen. Wenn Sie sie auflösen können, starten Sie Application Gateway neu, und überprüfen Sie es noch mal. Um Application Gateway neu zu starten, müssen Sie die in diesen verlinkten Ressourcen beschriebenen PowerShell-Befehle zum [Beenden (stop)](https://docs.microsoft.com/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0) und [Starten (start)](https://docs.microsoft.com/powershell/module/azurerm.network/start-azurermapplicationgateway?view=azurermps-6.13.0) verwenden.
+1.  Wenn die Domäne privat oder intern ist, versuchen Sie, Sie von einem virtuellen Computer aus im selben virtuellen Netzwerk aufzulösen. Wenn Sie sie auflösen können, starten Sie Application Gateway neu, und überprüfen Sie es noch mal. Um Application Gateway neu zu starten, müssen Sie die in diesen verlinkten Ressourcen beschriebenen PowerShell-Befehle zum [Beenden (stop)](/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0) und [Starten (start)](/powershell/module/azurerm.network/start-azurermapplicationgateway?view=azurermps-6.13.0) verwenden.
 
 #### <a name="tcp-connect-error"></a>TCP-Verbindungsfehler
 
@@ -138,7 +138,7 @@ Also check whether any NSG/UDR/Firewall is blocking access to the Ip and port of
 
 1.  Wenn Sie auch von Ihrem lokalen Computer aus keine Verbindung über den Port herstellen können:
 
-    a.  Überprüfen Sie die Einstellungen der Netzwerksicherheitsgruppe (NSG) für den Netzwerkadapter und das Subnetz des Back-End-Servers, und ob eingehende Verbindungen an den konfigurierten Port zulässig sind. Wenn sie nicht zulässig sind, erstellen Sie eine neue Regel, um die Verbindungen zuzulassen. Informationen zum Erstellen von NSG-Regeln finden Sie auf der [entsprechenden Seite der Dokumentation](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic#create-security-rules).
+    a.  Überprüfen Sie die Einstellungen der Netzwerksicherheitsgruppe (NSG) für den Netzwerkadapter und das Subnetz des Back-End-Servers, und ob eingehende Verbindungen an den konfigurierten Port zulässig sind. Wenn sie nicht zulässig sind, erstellen Sie eine neue Regel, um die Verbindungen zuzulassen. Informationen zum Erstellen von NSG-Regeln finden Sie auf der [entsprechenden Seite der Dokumentation](../virtual-network/tutorial-filter-network-traffic.md#create-security-rules).
 
     b.  Überprüfen Sie, ob die NSG-Einstellungen des Application Gateway-Subnetzes ausgehenden öffentlichen und privaten Datenverkehr zulassen, damit eine Verbindung hergestellt werden kann. Überprüfen Sie die Dokumentseite, die in Schritt 3a bereitgestellt wird, um weitere Informationen zum Erstellen von NSG-Regeln zu erhalten.
     ```azurepowershell
@@ -185,7 +185,7 @@ Also check whether any NSG/UDR/Firewall is blocking access to the Ip and port of
 
 Oder, wenn Sie der Ansicht sind, dass die Antwort legitim ist und Sie möchten, dass Application Gateway andere Statuscodes als fehlerfrei akzeptiert, können Sie einen benutzerdefinierten Test erstellen. Dieser Ansatz ist in Situationen hilfreich, in denen die Back-End-Website Authentifizierung benötigt. Da die Testanforderungen keine Benutzeranmeldeinformationen enthalten, schlagen sie fehl, und vom Back-End-Server wird ein HTTP 401-Statuscode zurückgegeben.
 
-Um einen benutzerdefinierten Test zu erstellen, führen Sie die [diese Schritte](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal) aus.
+Um einen benutzerdefinierten Test zu erstellen, führen Sie die [diese Schritte](./application-gateway-create-probe-portal.md) aus.
 
 #### <a name="http-response-body-mismatch"></a>Konflikt im HTTP-Antworttext
 
@@ -201,7 +201,7 @@ Um einen benutzerdefinierten Test zu erstellen, führen Sie die [diese Schritte]
 
 1.  Wenn dies nicht der Fall ist, ändern Sie die Testkonfiguration in den richtigen Zeichenfolgenwert, der akzeptiert werden soll.
 
-Weitere Informationen zum [Testabgleich von Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching).
+Weitere Informationen zum [Testabgleich von Application Gateway](./application-gateway-probe-overview.md#probe-matching).
 
 >[!NOTE]
 > Bei Fehlermeldungen im Zusammenhang mit TLS finden Sie weitere Informationen zum SNI-Verhalten und zu den Unterschieden zwischen der v1-SKU und der v2-SKU auf der Seite mit der [Übersicht über TLS](ssl-overview.md).
@@ -218,9 +218,9 @@ Damit ein TLS/SSL-Zertifikat als vertrauenswürdig eingestuft wird, muss dieses 
 
 1.  Melden Sie sich bei dem Computer an, auf dem Ihre Anwendung gehostet wird.
 
-1.  Drücken Sie WIN+R, oder klicken Sie mit der rechten Maustaste auf die Schaltfläche **Start**, und wählen Sie dann **Ausführen** aus.
+1.  Drücken Sie WIN+R, oder klicken Sie mit der rechten Maustaste auf die Schaltfläche **Start** , und wählen Sie dann **Ausführen** aus.
 
-1.  Geben Sie `certmgr.msc` ein, und drücken Sie dann die EINGABETASTE. Sie können auch im **Start**menü nach dem Zertifikat-Manager suchen.
+1.  Geben Sie `certmgr.msc` ein, und drücken Sie dann die EINGABETASTE. Sie können auch im **Start** menü nach dem Zertifikat-Manager suchen.
 
 1.  Suchen Sie das Zertifikat, in der Regel in `\Certificates - Current User\\Personal\\Certificates\`, und öffnen Sie es.
 
@@ -230,7 +230,7 @@ Damit ein TLS/SSL-Zertifikat als vertrauenswürdig eingestuft wird, muss dieses 
 
 1.  Wählen Sie auf der Registerkarte **Details** die Option **In Datei kopieren** aus, und speichern Sie die Datei im Base-64-codierten X.509-Format (CER-Format).
 
-1.  Öffnen Sie die HTTP-**Einstellungen** von Application Gateway im Azure-Portal.
+1.  Öffnen Sie die HTTP- **Einstellungen** von Application Gateway im Azure-Portal.
 
 1. Öffnen Sie die HTTP-Einstellungen, wählen Sie **Zertifikat hinzufügen** aus, und suchen Sie die Zertifikatdatei, die Sie gerade gespeichert haben.
 
@@ -238,7 +238,7 @@ Damit ein TLS/SSL-Zertifikat als vertrauenswürdig eingestuft wird, muss dieses 
 
 Alternativ können Sie das Stammzertifikat von einem Clientcomputer exportieren, indem Sie mit einem Browser (unter Umgehung von Application Gateway) direkt auf den Server zugreifen, um das Stammzertifikat aus dem Browser zu exportieren.
 
-Weitere Informationen zum Extrahieren und Hochladen vertrauenswürdiger Stammzertifikate in Application Gateway finden Sie unter [Exportieren eines 0vertrauenswürdigen Stammzertifikats (für v2-SKU)](https://docs.microsoft.com/azure/application-gateway/certificates-for-backend-authentication#export-trusted-root-certificate-for-v2-sku).
+Weitere Informationen zum Extrahieren und Hochladen vertrauenswürdiger Stammzertifikate in Application Gateway finden Sie unter [Exportieren eines 0vertrauenswürdigen Stammzertifikats (für v2-SKU)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
 
 #### <a name="trusted-root-certificate-mismatch"></a>Konflikt eines vertrauenswürdigen Stammzertifikats
 
@@ -253,7 +253,7 @@ Das Zertifikat, das in die HTTP-Einstellungen von Application Gateway hochgelade
 
 Führen Sie die Schritte 1 bis 11 aus der vorangehenden Methode aus, um das richtige vertrauenswürdige Stammzertifikat in Application Gateway hochzuladen.
 
-Weitere Informationen zum Extrahieren und Hochladen vertrauenswürdiger Stammzertifikate in Application Gateway finden Sie unter [Exportieren eines 0vertrauenswürdigen Stammzertifikats (für v2-SKU)](https://docs.microsoft.com/azure/application-gateway/certificates-for-backend-authentication#export-trusted-root-certificate-for-v2-sku).
+Weitere Informationen zum Extrahieren und Hochladen vertrauenswürdiger Stammzertifikate in Application Gateway finden Sie unter [Exportieren eines 0vertrauenswürdigen Stammzertifikats (für v2-SKU)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
 > [!NOTE]
 > Dieser Fehler kann auch auftreten, wenn der Back-End-Server nicht die gesamte Kette des Zertifikats (einschließlich Root -> Intermediate (sofern zutreffend) -> Leaf) im Rahmen des TLS-Handshakes austauscht. Um dies zu überprüfen, können Sie OpenSSL-Befehle von jedem beliebigen Client aus verwenden und mithilfe der konfigurierten Einstellungen im Application Gateway-Test eine Verbindung mit dem Back-End-Server herstellen.
 
@@ -302,9 +302,9 @@ Windows:
 
 1.  Melden Sie sich bei dem Computer an, auf dem Ihre Anwendung gehostet wird.
 
-1.  Drücken Sie WIN+R, oder klicken Sie mit der rechten Maustaste auf die Schaltfläche **Start**, und wählen Sie **Ausführen** aus.
+1.  Drücken Sie WIN+R, oder klicken Sie mit der rechten Maustaste auf die Schaltfläche **Start** , und wählen Sie **Ausführen** aus.
 
-1.  Geben Sie **certmgr.msc** ein, und drücken Sie die EINGABETASTE. Sie können auch im **Start**menü nach dem Zertifikat-Manager suchen.
+1.  Geben Sie **certmgr.msc** ein, und drücken Sie die EINGABETASTE. Sie können auch im **Start** menü nach dem Zertifikat-Manager suchen.
 
 1.  Suchen Sie das Zertifikat (in der Regel in `\Certificates - Current User\\Personal\\Certificates`), und öffnen Sie es.
 
@@ -371,7 +371,7 @@ Dieses Verhalten kann aus einem oder mehreren der folgenden Gründe auftreten:
 
     e.  Fügen Sie im Abschnitt **Eingehende Regeln** eine Regel für eingehenden Datenverkehr hinzu, um den Zielportbereich 65503 bis 65534 für die v1-SKU oder 65200 bis 65535 für die v2-SKU mit der **Quelle** gleich **Beliebig** oder **Internet** zuzulassen.
 
-    f.  Wählen Sie **Speichern** aus, und überprüfen Sie, ob Sie die Integrität des Back-Ends als „Fehlerfrei“ anzeigen können. Alternativ dazu können Sie hierzu auch die [PowerShell/CLI](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) verwenden.
+    f.  Wählen Sie **Speichern** aus, und überprüfen Sie, ob Sie die Integrität des Back-Ends als „Fehlerfrei“ anzeigen können. Alternativ dazu können Sie hierzu auch die [PowerShell/CLI](../virtual-network/manage-network-security-group.md) verwenden.
 
 1.  Überprüfen Sie, ob Ihre UDR über eine Standardroute (0.0.0.0/0) verfügt, wobei der nächste Hop nicht auf **Internet** festgelegt ist:
     
@@ -381,7 +381,7 @@ Dieses Verhalten kann aus einem oder mehreren der folgenden Gründe auftreten:
 
     c.  Überprüfen Sie, ob es Standardrouten (0.0.0.0/0) gibt, wobei der nächste Hop nicht auf **Internet** festgelegt ist. Wenn die Einstellung entweder **Virtuelles Gerät** oder **Virtual Network Gateway** ist, müssen Sie sicherstellen, dass Ihr virtuelles Gerät oder das lokale Gerät das Paket ordnungsgemäß zurück an das Internetziel weiterleiten kann, ohne das Paket zu ändern.
 
-    d.  Andernfalls ändern Sie den nächsten Hop in **Internet**, wählen Sie **Speichern** aus, und überprüfen Sie die Back-End-Integrität.
+    d.  Andernfalls ändern Sie den nächsten Hop in **Internet** , wählen Sie **Speichern** aus, und überprüfen Sie die Back-End-Integrität.
 
 1.  Von einer ExpressRoute-/VPN-Verbindung in einem virtuellen Netzwerk über BGP angekündigte Standardroute:
 
@@ -393,9 +393,9 @@ Dieses Verhalten kann aus einem oder mehreren der folgenden Gründe auftreten:
 
 1.  Wenn ein benutzerdefinierter DNS-Server im virtuellen Netzwerk konfiguriert ist, überprüfen Sie, ob der (oder die) Server öffentliche Domänen auflösen kann (können). Die Auflösung öffentlicher Domänennamen ist möglicherweise in Szenarien erforderlich, in denen Application Gateway beispielsweise externe Domänen wie OCSP-Server erreichen oder den Sperrstatus des Zertifikats überprüfen muss.
 
-1.  Um zu überprüfen, ob Application Gateway fehlerfrei ist und ausgeführt wird, wechseln Sie im Portal zur Option **Ressourcenintegrität**, und überprüfen Sie, ob der Zustand **Fehlerfrei** lautet. Wenn Sie den Zustand **Fehlerhaft** oder [Beeinträchtigt](https://azure.microsoft.com/support/options/) sehen, **wenden Sie sich an den Support**.
+1.  Um zu überprüfen, ob Application Gateway fehlerfrei ist und ausgeführt wird, wechseln Sie im Portal zur Option **Ressourcenintegrität** , und überprüfen Sie, ob der Zustand **Fehlerfrei** lautet. Wenn Sie den Zustand **Fehlerhaft** oder [Beeinträchtigt](https://azure.microsoft.com/support/options/) sehen, **wenden Sie sich an den Support**.
 
 <a name="next-steps"></a>Nächste Schritte
 ----------
 
-Weitere Informationen zu [Diagnose und Protokollen in Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
+Weitere Informationen zu [Diagnose und Protokollen in Application Gateway](./application-gateway-diagnostics.md).

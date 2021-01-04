@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: faa98f1c52cfe2dd0e19f085f4d33dedb6f01851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac2690a5f18bb58c29b433f4a07e52096bbd268b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934887"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701584"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Fuzzysuche zum Korrigieren von Rechtschreibfehlern und Tippfehlern
 
@@ -73,7 +73,7 @@ In Azure Cognitive Search können neben Begriff und Distanz (maximal 2) keine z
 
 ## <a name="testing-fuzzy-search"></a>Testen der Fuzzysuche
 
-Für einfache Tests empfehlen wir [Suchexplorer](search-explorer.md) oder [Postman](search-get-started-postman.md) für die Iteration über einen Abfrageausdruck. Beide Tools sind interaktiv, d. h. Sie können schnell die verschiedenen Varianten eines Begriffs durchlaufen und die zurückgegebenen Antworten auswerten.
+Für einfache Tests empfehlen wir [Suchexplorer](search-explorer.md) oder [Postman](search-get-started-rest.md) für die Iteration über einen Abfrageausdruck. Beide Tools sind interaktiv, d. h. Sie können schnell die verschiedenen Varianten eines Begriffs durchlaufen und die zurückgegebenen Antworten auswerten.
 
 Wenn die Ergebnisse nicht eindeutig sind, können Sie mithilfe der [Trefferhervorhebung](search-pagination-page-layout.md#hit-highlighting) die Übereinstimmung in der Antwort identifizieren. 
 

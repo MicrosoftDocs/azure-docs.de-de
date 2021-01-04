@@ -1,7 +1,7 @@
 ---
 title: Ausführen eines Python-Skripts im Designer
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Sie Python in Azure Machine Learning-Designer zur Datentransformation verwenden können.
+description: Erfahren Sie, wie Sie das Modell „Ausführen von Python-Skripts“ in Azure Machine Learning-Designer verwenden, um in Python geschriebene benutzerdefinierte Vorgänge auszuführen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: keli19
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer, devx-track-python
-ms.openlocfilehash: 6a393cf2c0787a2bc2111581126cbc261d85f1f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcc28d98efbc82079586de8cfbecd35effc93d6e
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897734"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556232"
 ---
 # <a name="run-python-code-in-azure-machine-learning-designer"></a>Ausführen von Python-Code in Azure Machine Learning-Designer
 

@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 0621e0ecfbb91d151e3cc78d3b345ab92133695c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8121ceb68bdea9332316a9508bf6f4731e05b0ba
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310372"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890784"
 ---
 # <a name="interact-with-the-map"></a>Interaktion mit der Karte
 
-In diesem Artikel wird die Verwendung der [Klasse von Kartenereignissen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events) gezeigt. Die Eigenschaft hebt Ereignisse auf der Karte und auf verschiedenen Ebenen der Karte hervor. Sie können auch Ereignisse hervorheben, wenn Sie mit einem HTML-Marker interagieren.
+In diesem Artikel wird die Verwendung der [Klasse von Kartenereignissen](/javascript/api/azure-maps-control/atlas.map#events) gezeigt. Die Eigenschaft hebt Ereignisse auf der Karte und auf verschiedenen Ebenen der Karte hervor. Sie können auch Ereignisse hervorheben, wenn Sie mit einem HTML-Marker interagieren.
 
 ## <a name="interact-with-the-map"></a>Interaktion mit der Karte
 
@@ -117,4 +117,4 @@ Die folgenden Artikel enthalten vollständige Codebeispiele:
 > [Verwenden des Moduls „Dienste“ von Azure Maps](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
-> [Codebeispiele](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Codebeispiele](/samples/browse/?products=azure-maps)

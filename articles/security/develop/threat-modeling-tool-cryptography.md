@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7de0cad91e01187a1ed84257c9e3a7cd8106951a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7af115d8f1244253e461f796c5665609d3b84b21
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87539950"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517443"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Sicherheitsrahmen: Kryptografie | Gegenmaßnahmen 
 
@@ -119,7 +119,7 @@ ms.locfileid: "87539950"
 | **SDL-Phase**               | Entwickeln |  
 | **Zutreffende Technologien** | Allgemein |
 | **Attribute**              | –  |
-| **Referenzen**              | [Auswählen eines Verschlüsselungsalgorithmus](https://technet.microsoft.com/library/ms345262(v=sql.130).aspx) |
+| **Referenzen**              | [Auswählen eines Verschlüsselungsalgorithmus](/sql/relational-databases/security/encryption/choose-an-encryption-algorithm) |
 | **Schritte** | Mit Verschlüsselungsalgorithmen werden Datentransformationen definiert, die von unbefugten Benutzern nicht leicht umgekehrt werden können. In SQL Server können Administratoren und Entwickler zwischen mehreren Algorithmen wählen, z.B. DES, Triple DES, TRIPLE_DES_3KEY, RC2, RC4, 128-Bit RC4, DESX, 128-Bit AES, 192-Bit AES und 256-Bit AES. |
 
 ## <a name="ssis-packages-should-be-encrypted-and-digitally-signed"></a><a id="ssis-signed"></a>SSIS-Pakete sollten verschlüsselt und digital signiert werden
@@ -130,7 +130,7 @@ ms.locfileid: "87539950"
 | **SDL-Phase**               | Entwickeln |  
 | **Zutreffende Technologien** | Allgemein |
 | **Attribute**              | –  |
-| **Referenzen**              | [Identifizieren der Quelle von Paketen mit digitalen Signaturen](https://msdn.microsoft.com/library/ms141174.aspx), [Mindern von Bedrohungen und Sicherheitsrisiken (Integration Services)](https://msdn.microsoft.com/library/bb522559.aspx) |
+| **Referenzen**              | [Identifizieren der Quelle von Paketen mit digitalen Signaturen](/sql/integration-services/security/identify-the-source-of-packages-with-digital-signatures), [Mindern von Bedrohungen und Sicherheitsrisiken (Integration Services)](/sql/integration-services/security/security-overview-integration-services) |
 | **Schritte** | Die Quelle eines Pakets ist die Einzelperson oder die Organisation, die das Paket erstellt hat. Das Ausführen eines Pakets von einer unbekannten oder nicht vertrauenswürdigen Quelle kann riskant sein. Sie sollten digitale Signaturen verwenden, um die unbefugte Manipulation von SSIS-Paketen zu verhindern. Außerdem müssen SSIS-Pakete verschlüsselt werden, um die Vertraulichkeit der Pakete beim Speichern und Übertragen sicherzustellen. |
 
 ## <a name="add-digital-signature-to-critical-database-securables"></a><a id="securables-db"></a>Hinzufügen einer digitalen Signatur zu kritischen sicherungsfähigen Elementen von Datenbanken
@@ -141,7 +141,7 @@ ms.locfileid: "87539950"
 | **SDL-Phase**               | Entwickeln |  
 | **Zutreffende Technologien** | Allgemein |
 | **Attribute**              | –  |
-| **Referenzen**              | [ADD SIGNATURE (Transact-SQL)](https://msdn.microsoft.com/library/ms181700) |
+| **Referenzen**              | [ADD SIGNATURE (Transact-SQL)](/sql/t-sql/statements/add-signature-transact-sql) |
 | **Schritte** | In Fällen, in denen die Integrität eines kritischen sicherungsfähigen Elements von Datenbanken überprüft werden muss, müssen digitale Signaturen verwendet werden. Sicherungsfähige Elemente von Datenbanken, z.B. gespeicherte Prozedur, Funktion, Assembly oder Trigger, können digital signiert werden. Unten ist ein Beispiel dafür angegeben, wann dies hilfreich ist: Angenommen, ein unabhängiger Softwarehersteller (Independent Software Vendor, ISV) leistet Support für eine Software, die an einen Kunden geliefert wurde. Vor der Supportleistung möchte der ISV sicherstellen, dass ein sicherungsfähiges Element der Datenbank in der Software nicht versehentlich oder in böser Absicht bewusst manipuliert wurde. Wenn das sicherungsfähige Element digital signiert ist, kann der ISV die digitale Signatur prüfen und die Integrität bestätigen.| 
 
 ## <a name="use-sql-server-ekm-to-protect-encryption-keys"></a><a id="ekm-keys"></a>Verwenden der erweiterbaren Schlüsselverwaltung von SQL Server zum Schützen von Verschlüsselungsschlüsseln
@@ -152,7 +152,7 @@ ms.locfileid: "87539950"
 | **SDL-Phase**               | Entwickeln |  
 | **Zutreffende Technologien** | Allgemein |
 | **Attribute**              | –  |
-| **Referenzen**              | [Erweiterbare Schlüsselverwaltung (Extensible Key Management, EKM)](https://msdn.microsoft.com/library/bb895340), [Erweiterbare Schlüsselverwaltung mit Azure Key Vault (SQL Server)](https://msdn.microsoft.com/library/dn198405) |
+| **Referenzen**              | [Erweiterbare Schlüsselverwaltung (Extensible Key Management, EKM)](/sql/relational-databases/security/encryption/extensible-key-management-ekm), [Erweiterbare Schlüsselverwaltung mit Azure Key Vault (SQL Server)](/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server) |
 | **Schritte** | Mit der erweiterbaren Schlüsselverwaltung (Extensible Key Management, EKM) von SQL Server können die Verschlüsselungsschlüssel, mit denen die Datenbankdateien geschützt werden, auf einem externen Gerät gespeichert werden. Beispiele hierfür sind eine Smartcard, ein USB-Gerät oder ein EKM/HSM-Modul. Hiermit wird auch der Schutz von Daten durch Datenbankadministratoren ermöglicht (mit Ausnahme von Mitgliedern der sysadmin-Gruppe). Daten können mit Verschlüsselungsschlüsseln verschlüsselt werden, auf die nur der Datenbankbenutzer auf dem externen EKM/HSM-Modul Zugriff hat. |
 
 ## <a name="use-alwaysencrypted-feature-if-encryption-keys-should-not-be-revealed-to-database-engine"></a><a id="keys-engine"></a>Verwenden des Features AlwaysEncrypted, wenn Verschlüsselungsschlüssel für das Datenbankmodul nicht offengelegt werden sollen
@@ -163,7 +163,7 @@ ms.locfileid: "87539950"
 | **SDL-Phase**               | Entwickeln |  
 | **Zutreffende Technologien** | SQL Azure, lokal |
 | **Attribute**              | SQL-Version: V12, MsSQL2016 |
-| **Referenzen**              | [„Immer verschlüsselt“ (Datenbank-Engine)](https://msdn.microsoft.com/library/mt163865) |
+| **Referenzen**              | [„Immer verschlüsselt“ (Datenbank-Engine)](/sql/relational-databases/security/encryption/always-encrypted-database-engine) |
 | **Schritte** | Always Encrypted ist ein Feature zum Schützen von vertraulichen Daten, z.B. Kreditkartennummern oder nationalen Identifikationsnummern (z.B. Sozialversicherungsnummer), die in Azure SQL-Datenbank oder SQL Server-Datenbanken gespeichert sind. Mit Always Encrypted können Kunden vertrauliche Daten in Clientanwendungen verschlüsseln, ohne die Verschlüsselungsschlüssel für das Datenbankmodul (SQL-Datenbank oder SQL Server) jemals offenzulegen. Zu diesem Zweck ermöglicht Always Encrypted eine Trennung zwischen den Besitzern der Daten (die diese anzeigen dürfen) und den Personen, die die Daten verwalten (aber ansonsten keinen Zugriff haben). |
 
 ## <a name="store-cryptographic-keys-securely-on-iot-device"></a><a id="keys-iot"></a>Sicheres Speichern von kryptografischen Schlüsseln auf dem IoT-Gerät
@@ -174,7 +174,7 @@ ms.locfileid: "87539950"
 | **SDL-Phase**               | Entwickeln |  
 | **Zutreffende Technologien** | Allgemein |
 | **Attribute**              | Gerätebetriebssystem: Windows IoT Core, Gerätekonnektivität: Azure IoT-Geräte-SDKs |
-| **Referenzen**              | [TPM on Windows IoT Core](https://developer.microsoft.com/windows/iot/docs/tpm) (TPM unter Windows IoT Core), [Set up TPM on Windows IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/setuptpm) (Einrichten von TPM unter Windows IoT Core), [Azure IoT Device SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) (Azure IoT-Geräte-SDK – TPM) |
+| **Referenzen**              | [TPM on Windows IoT Core](/windows/iot-core/secure-your-device/TPM) (TPM unter Windows IoT Core), [Set up TPM on Windows IoT Core](/windows/iot-core/secure-your-device/setuptpm) (Einrichten von TPM unter Windows IoT Core), [Azure IoT Device SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) (Azure IoT-Geräte-SDK – TPM) |
 | **Schritte** | Legen Sie private symmetrische oder Zertifikatschlüssel sicher in einem per Hardware geschützten Speicher ab, z.B. TPM oder Smartcardchips. Windows 10 IoT Core unterstützt die Verwendung eines TPM, und Sie können mehrere kompatible TPMs nutzen: https://docs.microsoft.com/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm. Es wird empfohlen, ein Firmware-TPM oder diskretes TPM zu verwenden. Ein Software-TPM sollte nur zu Entwicklungs- und Testzwecken eingesetzt werden. Nachdem ein TPM verfügbar ist und die Schlüssel darin bereitgestellt wurden, sollte der Code zum Generieren des Tokens geschrieben werden, ohne dass darin enthaltene sensible Informationen hartcodiert werden. | 
 
 ### <a name="example"></a>Beispiel

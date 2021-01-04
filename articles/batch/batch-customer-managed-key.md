@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: 35780f915247e88a5de093594b653ddcebdfb06b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 404103caf376b792d363996664a69f655d5bd202
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89008878"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326011"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Konfigurieren von kundenseitig verwalteten Schlüsseln für Ihr Azure Batch-Konto mit Azure Key Vault und Verwaltete Identität
 
@@ -144,11 +144,10 @@ az batch account set \
   * **Werden kundenseitig verwaltete Schlüssel für vorhandene Batch-Konten unterstützt?** Nein. Kundenseitig verwaltete Schlüssel werden nur für neue Batch-Konten unterstützt.
   * **Kann ich RSA-Schlüsselgrößen über 2048 Bits auswählen?** Ja, die RSA-Schlüsselgrößen `3072` und `4096` werden ebenfalls unterstützt.
   * **Welche Vorgänge sind nach dem Sperren/Widerrufen eines kundenseitig verwalteten Schlüssels verfügbar?** Wenn Batch den Zugriff auf den kundenseitig verwalteten Schlüssel verliert, ist der einzige zulässige Vorgang das Löschen des Kontos.
-  * **Wie kann ich den Zugriff auf mein Batch-Konto wiederherstellen, wenn ich den Key Vault-Schlüssel versehentlich lösche?** Da Löschschutz und vorläufiges Löschen aktiviert sind, können Sie die vorhandenen Schlüssel wiederherstellen. Weitere Informationen finden Sie unter [Wiederherstellen einer Azure Key Vault-Instanz](../key-vault/general/soft-delete-cli.md#recovering-a-key-vault).
+  * **Wie kann ich den Zugriff auf mein Batch-Konto wiederherstellen, wenn ich den Key Vault-Schlüssel versehentlich lösche?** Da Löschschutz und vorläufiges Löschen aktiviert sind, können Sie die vorhandenen Schlüssel wiederherstellen. Weitere Informationen finden Sie unter [Wiederherstellen einer Azure Key Vault-Instanz](../key-vault/general/key-vault-recovery.md).
   * **Kann ich kundenseitig verwaltete Schlüssel deaktivieren?** Sie können jederzeit den Verschlüsselungstyp des Batch-Kontos auf „Von Microsoft verwalteter Schlüssel“ zurücksetzen. Anschließend können Sie den Schlüssel löschen oder ändern.
   * **Wie kann ich meine Schlüssel rotieren?** Kundenseitig verwaltete Schlüssel werden nicht automatisch rotiert. Zum Rotieren des Schlüssels müssen Sie den Schlüsselbezeichner aktualisieren, dem das Konto zugeordnet ist.
   * **Wie lange dauert es nach dem Wiederherstellen des Zugriffs, bis das Batch-Konto wieder funktioniert?** Nach dem Wiederherstellen des Zugriffs kann es bis zu 10 Minuten dauern, bis das Konto wieder zugänglich ist.
   * **Was geschieht mit meinen Ressourcen, während das Batch-Konto nicht verfügbar ist?** Alle Pools, die ausgeführt werden, wenn der Batch-Zugriff auf kundenseitig verwaltete Schlüssel verloren geht, werden weiterhin ausgeführt. Die Knoten werden jedoch in den Zustand „Nicht verfügbar“ versetzt, und die Ausführung von Tasks wird beendet (und sie werden erneut in die Warteschlange gestellt). Sobald der Zugriff wieder hergestellt wurde, werden die Knoten wieder verfügbar, und die Tasks werden neu gestartet.
   * **Gilt dieser Verschlüsselungsmechanismus für VM-Datenträger in einem Batch-Pool?** Nein. Bei mit der Clouddienstkonfiguration erstellten Pools wird keine Verschlüsselung auf das Betriebssystem und den temporären Datenträger angewendet. Bei mit der VM-Konfiguration erstellten Pools werden das Betriebssystem und die angegebenen Datenträger standardmäßig mit einem von der Microsoft-Plattform verwalteten Schlüssel verschlüsselt. Derzeit können Sie keinen eigenen Schlüssel für diese Datenträger angeben. Um den temporären Datenträger von VMs für einen Batch-Pool mit einem von der Microsoft-Plattform verwalteten Schlüssel zu verschlüsseln, müssen Sie die Eigenschaft [diskEncryptionConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) im Pool der [Konfiguration der virtuellen Maschine](/rest/api/batchservice/pool/add#virtualmachineconfiguration) aktivieren. Für höchst vertrauliche Daten empfehlen wir, die Verschlüsselung temporärer Datenträger zu aktivieren und das Speichern von vertraulichen Daten auf Betriebssystemdatenträgern und Datenträgern für Daten zu vermeiden. Weitere Informationen finden Sie unter [Erstellen eines Pools mit aktivierter Datenträgerverschlüsselung](./disk-encryption.md).
   * **Ist die vom System zugewiesene verwaltete Identität für das Batch-Konto auf den Computeknoten verfügbar?** Nein. Diese verwaltete Identität wird zurzeit nur für den Zugriff auf Azure Key Vault für den kundenseitig verwalteten Schlüssel verwendet.
-  

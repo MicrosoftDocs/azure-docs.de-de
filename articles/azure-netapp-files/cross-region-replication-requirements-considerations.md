@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/16/2020
 ms.author: b-juche
-ms.openlocfilehash: f2a50872fdb71419a0c3f068712ec67523a098e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b664dcd1cb12808960ffacf91c6d02d58632c4e
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708343"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95243136"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>Regionsübergreifende Replikation: Anforderungen und Überlegungen 
 
@@ -38,12 +38,14 @@ Beachten Sie die folgenden Anforderungen und Überlegungen zur [Verwendung der r
 * Das Konfigurieren der Volumereplikation für Quellvolumes, die aus einer Momentaufnahme erstellt wurden, wird derzeit nicht unterstützt.
 * Nachdem Sie die regionsübergreifende Replikation eingerichtet haben, erstellt der Replikationsprozess *Snapmirror-Momentaufnahmen*, um Verweise zwischen dem Quellvolume und dem Zielvolume bereitzustellen. Snapmirror-Momentaufnahmen werden automatisch zyklisch durchlaufen, wenn für jede inkrementelle Übertragung eine neue erstellt wird. Sie können Snapmirror-Momentaufnahmen erst löschen, nachdem die Replikationsbeziehung und das Volume gelöscht wurden. 
 * Sie können manuelle Momentaufnahmen auf dem Quellvolume einer Replikationsbeziehung löschen, wenn die Replikationsbeziehung aktiv oder unterbrochen ist, und auch nachdem die Replikationsbeziehung gelöscht wurde. Sie können manuelle Momentaufnahmen für das Zielvolume erst löschen, wenn die Replikationsbeziehung unterbrochen wurde.
+* Sie können nicht auf eine Momentaufnahme zurücksetzen, die vor dem Erstellen des Zielvolumes der Replikation erstellt wurde.
 
 ## <a name="next-steps"></a>Nächste Schritte
-* [Erstellen eines Replikationspeerings](cross-region-replication-create-peering.md)
+* [Erstellen der Volumereplikation](cross-region-replication-create-peering.md)
 * [Anzeigen des Integritätsstatus der Replikationsbeziehung](cross-region-replication-display-health-status.md)
 * [Verwalten der Notfallwiederherstellung](cross-region-replication-manage-disaster-recovery.md)
 * [Metriken für die Volumereplikation](azure-netapp-files-metrics.md#replication)
+* [Löschen von Volumereplikationen oder Volumes](cross-region-replication-delete.md)
 * [Problembehandlung für die regionsübergreifende Replikation](troubleshoot-cross-region-replication.md)
 
 

@@ -1,34 +1,26 @@
 ---
-title: 'Tutorial: Analysieren von Azure Open Datasets in Azure Synapse Studio (Vorschauversion) mithilfe von SQL On-Demand (Vorschauversion)'
-description: In diesem Tutorial wird gezeigt, wie Sie ganz einfach eine explorative Datenanalyse durchführen. Dabei werden mithilfe von SQL On-Demand (Vorschauversion) verschiedene Azure Open Datasets miteinander kombiniert und die Ergebnisse in Azure Synapse Studio visualisiert.
+title: 'Tutorial: Analysieren von Azure Open Datasets in Azure Synapse Studio mithilfe eines serverlosen SQL-Pools'
+description: In diesem Tutorial wird gezeigt, wie Sie ganz einfach eine explorative Datenanalyse durchführen. Dabei werden mithilfe eines serverlosen SQL-Pools verschiedene Azure Open Datasets-Instanzen miteinander kombiniert und die Ergebnisse in Azure Synapse Studio visualisiert.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
-ms.date: 04/15/2020
-ms.author: v-stazar
+ms.date: 11/20/2020
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0471bd594dcf1b0654d6b4c496e5d39ade2739fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b2d4953b3a42c5d66fca4a67b4a6d0f13700a35
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539519"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459124"
 ---
-# <a name="tutorial-use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Tutorial: Analysieren von Azure Open Datasets und Visualisieren der Ergebnisse in Azure Synapse Studio mithilfe von SQL On-Demand
+# <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool"></a>Tutorial: Untersuchen und Analysieren von Data Lakes mit einem serverlosen SQL-Pool
 
-In diesem Tutorial erfahren Sie, wie Sie eine explorative Datenanalyse durchführen, indem Sie mithilfe von SQL On-Demand verschiedene Azure Open Datasets miteinander kombinieren und die Ergebnisse anschließend in Azure Synapse Studio visualisieren.
+In diesem Tutorial erfahren Sie, wie Sie eine explorative Datenanalyse durchführen. Sie kombinieren verschiedene Azure Open Datasets-Instanzen über einen serverlosen SQL-Pools. Anschließend visualisieren Sie die Ergebnisse in Synapse Studio für Synapse Analytics.
 
-Hierzu analysieren Sie speziell das [Dataset für Taxifahren in New York City (NYC)](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). Dieses enthält Folgendes:
-
-- Datum/Uhrzeit für Abholung und Ankunft
-- Start- und Zielort 
-- Fahrtentfernungen
-- Einzelkosten
-- Tarifarten
-- Zahlungsarten 
-- Vom Fahrer gemeldete Fahrgastzahlen
+Die OPENROWSET(BULK...)-Funktion ermöglicht den Zugriff auf Dateien in Azure Storage. Die [OPENROWSET](develop-openrowset.md)-Funktion liest den Inhalt einer Remotedatenquelle (z. B. eine Datei) und gibt den Inhalt als eine Reihe von Zeilen zurück.
 
 ## <a name="automatic-schema-inference"></a>Automatischer Schemarückschluss
 
@@ -44,9 +36,15 @@ SELECT TOP 100 * FROM
     ) AS [nyc]
 ```
 
-Der folgende Ausschnitt zeigt das Ergebnis für die NYC-Taxidaten:
+Das [Taxi-Dataset für New York City (NYC)](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) umfasst:
 
-![Ergebnisausschnitt für die NYC-Taxidaten](./media/tutorial-data-analyst/1.png)
+- Datum/Uhrzeit für Abholung und Ankunft
+- Start- und Zielort 
+- Fahrtentfernungen
+- Einzelkosten
+- Tarifarten
+- Zahlungsarten 
+- Vom Fahrer gemeldete Fahrgastzahlen
 
 Analog dazu können Sie mithilfe der folgenden Abfrage das Dataset für gesetzliche Feiertage abfragen:
 
@@ -57,10 +55,6 @@ SELECT TOP 100 * FROM
         FORMAT='PARQUET'
     ) AS [holidays]
 ```
-
-Der folgende Ausschnitt zeigt das Ergebnis für das Dataset mit den gesetzlichen Feiertagen:
-
-![Ergebnisausschnitt für das Dataset mit den gesetzlichen Feiertagen](./media/tutorial-data-analyst/2.png)
 
 Und schließlich können Sie mithilfe der folgenden Abfrage das Dataset mit den Wetterdaten abfragen:
 
@@ -74,11 +68,10 @@ FROM
     ) AS [weather]
 ```
 
-Der folgende Ausschnitt zeigt das Ergebnis für das Dataset mit den Wetterdaten:
-
-![Ergebnisausschnitt für das Dataset mit den Wetterdaten](./media/tutorial-data-analyst/3.png)
-
-Weitere Informationen zur Bedeutung der einzelnen Spalten finden Sie in den Beschreibungen der Datasets für [NYC-Taxis](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/), [gesetzliche Feiertage](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/) und [Wetterdaten](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/).
+Weitere Informationen zur Bedeutung der einzelnen Spalten finden Sie in den Beschreibungen der Datasets: 
+- [NYC Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/)
+- [Gesetzliche Feiertage](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/)
+- [Wetterdaten](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/)
 
 ## <a name="time-series-seasonality-and-outlier-analysis"></a>Zeitreihen, Saisonalität und Ausreißeranalyse
 
@@ -100,13 +93,13 @@ ORDER BY 1 ASC
 
 Der folgende Ausschnitt zeigt das Ergebnis für die jährliche Anzahl von Taxifahrten:
 
-![Ergebnisausschnitt für die jährliche Anzahl von Taxifahrten](./media/tutorial-data-analyst/4.png)
+![Ergebnisausschnitt für die jährliche Anzahl von Taxifahrten](./media/tutorial-data-analyst/yearly-taxi-rides.png)
 
 Die Daten können in Synapse Studio visualisiert werden. Wechseln Sie hierzu von der **Tabellenansicht** zur **Diagrammansicht**. Sie können zwischen verschiedenen Diagrammtypen (**Flächendiagramm**, **Balkendiagramm**, **Säulendiagramm**, **Liniendiagramm**, **Kreisdiagramm** oder **Punktdiagramm**) wählen. Erstellen Sie in diesem Fall ein **Säulendiagramm**, und legen Sie die **Kategoriespalte** auf **current_year** fest:
 
-![Säulendiagramm mit Fahrten pro Jahr](./media/tutorial-data-analyst/5.png)
+![Säulendiagramm mit Fahrten pro Jahr](./media/tutorial-data-analyst/column-chart-rides-year.png)
 
-In dieser Visualisierung ist ganz eindeutig ein rückläufiger Trend bei den Fahrten erkennbar. Dieser Rückgang ist vermutlich auf die zunehmende Beliebtheit von Carsharing-Unternehmen zurückzuführen.
+In dieser Visualisierung können sehen, dass die Anzahl der Fahrten im Lauf der Jahre zurückgegangen ist. Dieser Rückgang ist vermutlich auf die zunehmende Beliebtheit von Carsharing-Unternehmen zurückzuführen.
 
 > [!NOTE]
 > Zum Zeitpunkt der Erstellung dieses Tutorials liegen für 2019 nur unvollständige Daten vor. Dies hat einen signifikanten Rückgang bei der Anzahl von Fahrten für dieses Jahr zur Folge.
@@ -129,15 +122,15 @@ ORDER BY 1 ASC
 
 Der folgende Ausschnitt zeigt das Ergebnis für diese Abfrage:
 
-![Ergebnisausschnitt für die tägliche Anzahl von Fahrten im Jahr 2016](./media/tutorial-data-analyst/6.png)
+![Ergebnisausschnitt für die tägliche Anzahl von Fahrten im Jahr 2016](./media/tutorial-data-analyst/daily-rides.png)
 
 Auch diese Daten können ganz einfach in einem **Säulendiagramm** visualisiert werden, indem die **Kategoriespalte** auf **current_day** und die **Legendenspalte (Reihen)** auf **rides_per_day** festgelegt wird.
 
-![Säulendiagramm mit täglicher Anzahl von Fahrten im Jahr 2016](./media/tutorial-data-analyst/7.png)
+![Säulendiagramm mit täglicher Anzahl von Fahrten im Jahr 2016](./media/tutorial-data-analyst/column-chart-daily-rides.png)
 
 Im ausgegebenen Diagramm ist zu sehen, dass es ein wöchentliches Muster gibt, wobei der jeweilige Samstag der Spitzentag ist. In den Sommermonaten werden urlaubsbedingt weniger Taxifahrten durchgeführt. Sie können außerdem einige signifikante Einbrüche bei der Anzahl von Taxifahrten sehen, ohne dass ein klares Muster für den Zeitpunkt und den Grund dieser Rückgänge erkennbar wäre.
 
-Daher untersuchen wir als Nächstes, ob diese Einbrüche mit gesetzlichen Feiertagen zusammenhängen, indem wir das Dataset der NYC-Taxifahrten mit dem Dataset der gesetzlichen Feiertage verknüpfen:
+Daher soll im nächsten Schritt geprüft werden, ob die Einbrüche mit gesetzlichen Feiertagen korrelieren. Um sehen zu können, ob es eine Korrelation gibt, wird das Dataset der NYC-Taxifahrten mit dem Dataset der gesetzlichen Feiertage verknüpft:
 
 ```sql
 WITH taxi_rides AS
@@ -172,11 +165,11 @@ LEFT OUTER JOIN public_holidays p on t.current_day = p.date
 ORDER BY current_day ASC
 ```
 
-![Ergebnisvisualisierung für die Datasets der NYC-Taxifahrten und der gesetzlichen Feiertage](./media/tutorial-data-analyst/8.png)
+![Ergebnisvisualisierung für die Datasets der NYC-Taxifahrten und der gesetzlichen Feiertage](./media/tutorial-data-analyst/rides-public-holidays.png)
 
 Diesmal soll die Anzahl von Taxifahrten während der öffentlichen Feiertage hervorgehoben werden. Hierzu werden **none** für die **Kategoriespalte** sowie **rides_per_day** und **holiday** als **Legendenspalten (Reihe)** ausgewählt.
 
-![Diagramm zur Anzahl von Taxifahrten während gesetzlicher Feiertage](./media/tutorial-data-analyst/9.png)
+![Diagramm zur Anzahl von Taxifahrten während gesetzlicher Feiertage](./media/tutorial-data-analyst/plot-chart-public-holidays.png)
 
 Wie Sie dem Diagramm entnehmen können, ist die Anzahl von Taxifahrten an gesetzlichen Feiertagen geringer. Es gibt jedoch immer noch einen deutlichen Einbruch am 23. Januar, der dadurch nicht zu erklären ist. Daher fragen wir als Nächstes das Dataset mit den Wetterdaten ab, um das Wetter in NYC an diesem Tag zu überprüfen:
 
@@ -205,7 +198,7 @@ FROM
 WHERE countryorregion = 'US' AND CAST([datetime] AS DATE) = '2016-01-23' AND stationname = 'JOHN F KENNEDY INTERNATIONAL AIRPORT'
 ```
 
-![Ergebnisvisualisierung für das Dataset mit den Wetterdaten](./media/tutorial-data-analyst/10.png)
+![Ergebnisvisualisierung für das Dataset mit den Wetterdaten](./media/tutorial-data-analyst/weather-data-set-visualization.png)
 
 Die Ergebnisse der Abfrage zeigen, dass der Einbruch bei der Anzahl von Taxifahren auf Folgendes zurückzuführen ist:
 
@@ -213,9 +206,11 @@ Die Ergebnisse der Abfrage zeigen, dass der Einbruch bei der Anzahl von Taxifahr
 - Es war kalt (Temperatur unter Null Grad Celsius).
 - Es war windig (~ 10 m/s).
 
-In diesem Tutorial haben Sie gelernt, wie Datenanalysten schnell eine explorative Datenanalyse durchführen, mithilfe von SQL On-Demand verschiedene Datasets miteinander kombinieren und die Ergebnisse mithilfe von Azure Synapse Studio visualisieren können.
+In diesem Tutorial haben Sie gelernt, wie Datenanalysten schnell eine explorative Datenanalyse durchführen, mithilfe eines serverlosen SQL-Pools verschiedene Datasets miteinander kombinieren und die Ergebnisse mithilfe von Azure Synapse Studio visualisieren können.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Im Artikel [Tutorial: Verbinden von SQL On-Demand mit Power BI Desktop und Erstellen eines Berichts](tutorial-connect-power-bi-desktop.md) erfahren Sie, wie Sie SQL On-Demand mit Power BI Desktop verbinden und Berichte erstellen.
+Im Tutorial [Verwenden eines serverlosen SQL-Pools mit Power BI Desktop und Erstellen eines Berichts](tutorial-connect-power-bi-desktop.md) erfahren Sie, wie Sie einen serverlosen SQL-Pool mit Power BI Desktop verbinden und Berichte erstellen.
+
+Informationen dazu, wie externe Tabellen in einem serverlosen SQL-Pool verwendet werden, finden Sie unter [Verwenden externer Tabellen mit Synapse SQL](develop-tables-external-tables.md?tabs=sql-pool).
  

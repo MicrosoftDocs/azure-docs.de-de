@@ -1,17 +1,17 @@
 ---
-title: Classroom-Labs in Azure Lab Services – Häufig gestellte Fragen | Microsoft-Dokumentation
-description: Dieser Artikel bietet Antworten auf häufig gestellte Fragen (FAQ) zu Classroom-Labs in Azure Lab Services.
+title: Labs in Azure Lab Services – Häufig gestellte Fragen | Microsoft-Dokumentation
+description: Dieser Artikel bietet Antworten auf häufig gestellte Fragen (FAQ) zu Labs in Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ca35d70bc1106e46df4e3c68889b03679fd54b86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 757af8f30e9a71a3889d9f625c87a002af2e1302
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85443297"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437183"
 ---
-# <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Classroom-Labs in Azure Lab Services: Häufig gestellte Fragen (FAQ)
-Hier erhalten Sie Antworten auf einige der am häufigsten gestellten Fragen zu Classroom-Labs in Azure Lab Services. 
+# <a name="labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Labs in Azure Lab Services: Häufig gestellte Fragen (FAQ)
+Hier erhalten Sie Antworten auf einige der am häufigsten gestellten Fragen zu Labs in Azure Lab Services. 
 
 ## <a name="quotas"></a>Kontingente
 
@@ -29,13 +29,14 @@ Nein. Nicht alle VMs. Nur die VMs, die Benutzern nach einem Zeitplan zugewiesen 
 ## <a name="lab-accounts"></a>Labkonten
 
 ### <a name="why-am-i-not-able-to-create-a-lab-because-of-unavailability-of-the-address-range"></a>Warum kann ich wegen der Nichtverfügbarkeit des Adressbereichs kein Lab erstellen? 
-Classroom-Labs können Lab-VMs in einem IP-Adressbereich erstellen, den Sie beim Erstellen Ihres Labkontos im Azure-Portal angeben. Wenn ein Adressbereich angegeben ist, werden jedem Lab, das danach erstellt wird, 512 IP-Adressen für Lab-VMs zugewiesen. Der Adressbereich für das Labkonto muss groß genug sein, um alle Labs aufnehmen zu können, die Sie unter dem Labkonto erstellen möchten. 
+
+Labs können Lab-VMs in einem IP-Adressbereich erstellen, den Sie beim Erstellen Ihres Labkontos im Azure-Portal angeben. Wenn ein Adressbereich angegeben ist, werden jedem Lab, das danach erstellt wird, 512 IP-Adressen für Lab-VMs zugewiesen. Der Adressbereich für das Labkonto muss groß genug sein, um alle Labs aufnehmen zu können, die Sie unter dem Labkonto erstellen möchten. 
 
 Wenn Sie beispielsweise den Block „/19 - 10.0.0.0/19“ verwenden, umfasst dieser Adressbereich 8192 IP-Adressen und 16 Labs (8192:512 = 16 Labs). In diesem Fall schlägt die Erstellung des 17. Labs fehl.
 
 ### <a name="what-port-ranges-should-i-open-on-my-organizations-firewall-setting-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Welche Portbereiche sollte ich in der Firewalleinstellung meiner Organisation öffnen, um über RDP/SSH eine Verbindung mit virtuellen Labcomputern herzustellen?
 
-Die Ports lauten: 49152–65535. Classroom-Labs befinden sich hinter einem Lastenausgleichsmodul. Jedes Lab verfügt über eine einzige öffentliche IP-Adresse, und jeder virtuelle Computer im Lab verfügt über einen eindeutigen Port. 
+Die Ports lauten: 49152–65535. Labs befinden sich hinter einem Lastenausgleichsmodul. Jedes Lab verfügt über eine einzige öffentliche IP-Adresse, und jeder virtuelle Computer im Lab verfügt über einen eindeutigen Port. 
 
 Sie können die private IP-Adresse jedes virtuellen Computers auf der Registerkarte **Virtueller Computerpool** der Startseite für das jeweilige Lab im Azure-Portal anzeigen. Wenn Sie ein Lab erneut veröffentlichen, ändert sich die öffentliche IP-Adresse des Labs nicht, aber die private IP-Adresse und die Portnummer aller einzelnen virtuellen Computer im Lab können sich ändern. Weitere Informationen finden Sie im folgenden Artikel: [Firewalleinstellungen für Azure Lab Services](how-to-configure-firewall-settings.md).
 

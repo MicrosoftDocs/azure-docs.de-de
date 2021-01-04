@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 10476544e513b52567eb0ca0182039f2c5f482c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd0f389615c95ef9b9bc8280b6486740ddba4fb4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441628"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456828"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Wiederholbare Kopiervorgänge in Azure Data Factory
 
@@ -104,7 +104,7 @@ Die Kopieraktivität hat das Bereinigungsskript ausgeführt, um die dem Slice en
 
 ### <a name="mechanism-2-using-sliceidentifiercolumnname"></a>Verfahren 2: mithilfe von sliceIdentifierColumnName
 > [!IMPORTANT]
-> Aktuell wird sliceIdentifierColumnName für Azure Synapse Analytics (ehemals SQL Data Warehouse) nicht unterstützt. 
+> sliceIdentifierColumnName wird für Azure Synapse Analytics derzeit nicht unterstützt. 
 
 Das zweite Verfahren zum Erreichen von Wiederholbarkeit besteht in der Verwendung einer dedizierten Spalte (sliceIdentifierColumnName) in der Zieltabelle. Diese Spalte wird von Azure Data Factory verwendet, um sicherzustellen, dass Quell- und Zielserver synchron bleiben. Dieser Ansatz funktioniert, wenn das Schema der SQL-Zieltabelle flexibel geändert oder definiert werden kann. 
 

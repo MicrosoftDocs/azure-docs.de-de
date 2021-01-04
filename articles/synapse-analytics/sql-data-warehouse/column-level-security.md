@@ -1,5 +1,5 @@
 ---
-title: Was ist die Sicherheit auf Spaltenebene für Azure Synapse?
+title: Sicherheit auf Spaltenebene für dedizierte SQL-Pools
 description: Mithilfe der Sicherheit auf Spaltenebene können Kunden den Zugriff auf Spalten in Datenbanktabellen basierend auf dem Ausführungskontext oder der Gruppenmitgliedschaft des Benutzers steuern und somit den Entwurf und die Programmierung der Sicherheit in Ihrer Anwendung vereinfachen. Dies ermöglicht das Implementieren von Einschränkungen beim Spaltenzugriff.
 services: synapse-analytics
 author: julieMSFT
@@ -12,19 +12,19 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: f8bb40f9c80a0785c81c7aeacf783553bf73aa90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 817a912dabfc5365eabe8e0dabd7e0b40e40c525
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259882"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462503"
 ---
 # <a name="column-level-security"></a>Sicherheit auf Spaltenebene
 
-Mit der Sicherheit auf Spaltenebene können Kunden den Zugriff auf Tabellenspalten basierend auf dem Ausführungskontext oder der Gruppenmitgliedschaft des Benutzers steuern.
+Mit Sicherheit auf Spaltenebene können Kunden den Zugriff auf Tabellenspalten basierend auf dem Ausführungskontext oder der Gruppenmitgliedschaft des Benutzers steuern.
 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
-Nach der Bereitstellung dieses Videos wurde auch die [Sicherheit auf Zeilenebene](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) in Azure Synapse verfügbar gemacht.
+Nach der Bereitstellung dieses Videos wurde auch die [Sicherheit auf Zeilenebene](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) für dedizierte SQL-Pools in Azure Synapse eingeführt.
 
 Sicherheit auf Spaltenebene vereinfacht das Entwerfen und Programmieren der Sicherheit in Ihrer Anwendung, indem Sie den Spaltenzugriff einschränken können, um vertrauliche Daten zu schützen. Zum Beispiel können Sie so sicherstellen, dass bestimmte Benutzer nur auf bestimmte Spalten einer Tabelle zugreifen können, die für ihre Abteilung relevant sind. Die Datenbeschränkungszugriffslogik befindet sich auf der Datenbankebene, statt fern der Daten auf einer anderen Anwendungsebene. Die Datenbank wendet die Zugriffsbeschränkungen jedes Mal an, wenn ein Datenzugriff von einer beliebigen Ebene aus versucht wird. Dadurch bietet Ihr gesamtes Sicherheitssystem eine geringere Angriffsfläche und ist zuverlässiger und robuster. Darüber hinaus entfällt dank Sicherheit auf Spaltenebene die Notwendigkeit, Sichten zum Herausfiltern von Spalten einzuführen, um den Benutzern Zugriffsbeschränkungen aufzuerlegen.
 
@@ -85,5 +85,5 @@ SELECT * FROM Membership;
 
 Im Folgenden finden Sie einige Beispiele für aktuelle Anwendungsfälle der Sicherheit auf Spaltenebene:
 
-- Ein Finanzdienstleistungsunternehmen erlaubt Kundenbetreuern nur den Zugriff auf Sozialversicherungsnummern (SSN), Telefonnummern und andere personenbezogene Daten (PII).
+- Ein Finanzdienstleistungsunternehmen erlaubt nur Kundenbetreuern den Zugriff auf Sozialversicherungsnummern (SSN), Telefonnummern und andere personenbezogene Daten (PII).
 - Ein Gesundheitsdienstleister erlaubt nur Ärzten und Krankenschwestern den Zugriff auf vertrauliche Krankenakten, Mitglieder der Abrechnungsabteilung können diese Daten jedoch nicht einsehen.

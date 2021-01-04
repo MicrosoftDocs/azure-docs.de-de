@@ -5,16 +5,18 @@ description: Lernen Sie die Datenmodellierung in NoSQL-Datenbanken sowie die Unt
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: ae0bf6836fd08e20d97f1cfd85627b25e31bf380
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: a141177846def9c94216684c1083d0d336eeda1e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278416"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333238"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Datenmodellierung in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Obwohl schemafreie Datenbanken wie Azure Cosmos DB das Speichern und Abfragen unstrukturierter und teilstrukturierter Daten sehr erleichtern, sollten Sie etwas Zeit in die Überlegung investieren, wie Ihr Datenmodell den Dienst im Hinblick auf Leistung, Skalierbarkeit und niedrigste Kosten optimal nutzen kann.
 
@@ -29,7 +31,7 @@ Nach dem Lesen dieses Artikels können Sie die folgenden Fragen beantworten:
 
 ## <a name="embedding-data"></a>Einbetten von Daten
 
-Versuchen Sie beim ersten Modellieren von Daten in Azure Cosmos DB Ihre Entitäten als **eigenständige Elemente**, dargestellt als JSON-Dokumente, zu behandeln.
+Versuchen Sie beim ersten Modellieren von Daten in Azure Cosmos DB Ihre Entitäten als **eigenständige Elemente** , dargestellt als JSON-Dokumente, zu behandeln.
 
 Zum Vergleich betrachten wir zunächst die Datenmodellierung in einer relationalen Datenbank. Das folgende Beispiel zeigt, wie eine Person in einer relationalen Datenbank gespeichert werden kann.
 
@@ -72,7 +74,7 @@ Sehen Sie sich jetzt an, wie Sie die gleichen Daten als eigenständige Entität 
 }
 ```
 
-Mit dem oben stehenden Ansatz haben wir den Personendatensatz **denormalisiert**, indem wir alle Informationen im Zusammenhang mit dieser Person, etwa ihre Kontaktdaten und Adressen, in ein *einzelnes JSON-Dokument* **eingebettet** haben.
+Mit dem oben stehenden Ansatz haben wir den Personendatensatz **denormalisiert** , indem wir alle Informationen im Zusammenhang mit dieser Person, etwa ihre Kontaktdaten und Adressen, in ein *einzelnes JSON-Dokument* **eingebettet** haben.
 Da wir nicht auf ein festes Schema beschränkt sind, haben wir darüber hinaus die Flexibilität, z. B. Kontaktdetails in vollständig verschiedenen Formen zu haben.
 
 Das Abrufen eines vollständigen Personendatensatzes aus der Datenbank besteht jetzt aus einem **einzelnen Lesevorgang** eines einzelnen Containers und für ein einzelnes Element. Das Aktualisieren eines Personendatensatzes zusammen mit den Kontaktinformationen und Adressen ist auch ein **einzelner Schreibvorgang** in einem einzelnen Element.
@@ -83,7 +85,7 @@ Durch das Denormalisieren von Daten muss Ihre Anwendung u. U. weniger Abfragen 
 
 Verwenden Sie in der Regel eingebettete Datenmodelle in den folgenden Fällen:
 
-* Zwischen Entitäten gibt es **contained**-Beziehungen.
+* Zwischen Entitäten gibt es **contained** -Beziehungen.
 * Zwischen Entitäten gibt es **eins-zu-viele** -Beziehungen.
 * Es gibt eingebettete Daten, die sich **selten ändern**.
 * Es gibt eingebettete Daten, die nicht **grenzenlos** wachsen.
@@ -242,7 +244,7 @@ Verwenden Sie in der Regel normalisierte Datenmodelle in den folgenden Fällen:
 * Zur Darstellung von **1:n** -Beziehungen.
 * Zur Darstellung von **m:n** -Beziehungen.
 * Wenn sich zugehörige Daten **häufig ändern**.
-* Wenn referenzierte Daten möglicherweise **unbegrenzt**sind.
+* Wenn referenzierte Daten möglicherweise **unbegrenzt** sind.
 
 > [!NOTE]
 > Wenn eine Normalisierung in der Regel eine bessere **Schreibleistung** bietet.
@@ -299,7 +301,7 @@ Im Beispiel oben haben wir die unbegrenzte Auflistung im Verlegerdokument gelös
 In einer relationalen Datenbank *m:n* -Beziehungen häufig mit Verknüpfungstabellen modelliert, bei denen einfach Datensätze aus anderen Tabellen miteinander verknüpft werden.
 
 
-:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Relationales Datenbankmodell" border="false":::
+:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Verknüpfen von Tabellen" border="false":::
 
 Möglicherweise sind Sie versucht, dasselbe mit Dokumenten zu replizieren, wobei jedoch ein Datenmodell entsteht, das etwa folgendermaßen aussieht.
 
@@ -400,7 +402,7 @@ Wenn Sie das Buchdokument betrachten, sehen Sie ein paar interessante Felder, we
 
 Sicherlich müssten wir, wenn sich der Name des Autors ändert oder das Foto aktualisiert werden soll, jedes jemals von ihm veröffentlichte Buch aktualisieren. Bei unserer Anwendung ist dies jedoch eine akzeptable Entwurfsentscheidung, da wir von der Annahme ausgehen, dass Autoren ihre Namen nicht sehr häufig ändern.  
 
-Im Beispiel gibt es **vorab berechnete Aggregatwerte**, um die aufwändige Verarbeitung eines Lesevorgangs zu vermeiden. Im Beispiel werden einige der im Autorendokument eingebetteten Daten zur Laufzeit berechnet. Jedes Mal, wenn ein neues Buch veröffentlicht wird, wird ein Buchdokument erstellt, **und** das Feld „CountOfBooks“ wird auf einen berechneten Wert festgelegt, basierend auf der Anzahl der Buchdokumente, die für einen bestimmten Autor vorhanden sind. Diese Optimierung wäre in schreibintensiven Systemen gut, in denen wir uns Berechnungen für Schreibvorgänge leisten können, um Lesevorgänge zu optimieren.
+Im Beispiel gibt es **vorab berechnete Aggregatwerte** , um die aufwändige Verarbeitung eines Lesevorgangs zu vermeiden. Im Beispiel werden einige der im Autorendokument eingebetteten Daten zur Laufzeit berechnet. Jedes Mal, wenn ein neues Buch veröffentlicht wird, wird ein Buchdokument erstellt, **und** das Feld „CountOfBooks“ wird auf einen berechneten Wert festgelegt, basierend auf der Anzahl der Buchdokumente, die für einen bestimmten Autor vorhanden sind. Diese Optimierung wäre in schreibintensiven Systemen gut, in denen wir uns Berechnungen für Schreibvorgänge leisten können, um Lesevorgänge zu optimieren.
 
 Die Möglichkeit über ein Modell mit vorab berechneten Felder zu verfügen, wird dank der Unterstützung von **Transaktionen mit mehreren Dokumenten** durch Azure Cosmos DB ermöglicht. Viele NoSQL-Speicher können keine Transaktionen über Dokumente hinweg durchführen und bevorzugen aufgrund dieser Einschränkung Entwurfsentscheidungen, wie z. B. "Immer alles einbetten". Mit Azure Cosmos DB können Sie serverseitige Trigger oder gespeicherte Prozeduren verwenden, mit denen Bücher eingefügt und Autoren in einer einzigen ACID-Transaktion aktualisiert werden. Sie **müssen** nicht alles in ein Dokument einbetten, nur um sicherzustellen, dass Ihre Daten konsistent bleiben.
 

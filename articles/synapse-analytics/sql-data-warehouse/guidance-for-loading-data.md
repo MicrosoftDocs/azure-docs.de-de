@@ -1,30 +1,30 @@
 ---
-title: Bewährte Methoden für das Laden von Daten mit einem Synapse SQL-Pool
-description: Dieser Artikel enthält Empfehlungen und Leistungsoptimierungen für das Laden von Daten mit einem Synapse SQL-Pool.
+title: Bewährte Methoden zum Laden von Daten für dedizierte SQL-Pools
+description: Empfehlungen und Leistungsoptimierungen für das Laden von Daten mithilfe von dedizierten SQL-Pools in Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 02/04/2020
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 34a536ea535fa222340bd004253ee54b9c13bea9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39625914f179dfc8d5511b9a3d386cc8332b7efa
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441220"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456303"
 ---
-# <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Bewährte Methoden für das Laden von Daten mit einem Synapse SQL-Pool
+# <a name="best-practices-for-loading-data-using-dedicated-sql-pools-in-azure-synapse-analytics"></a>Bewährte Methoden für das Laden von Daten mithilfe von dedizierten SQL-Pools in Azure Synapse Analytics
 
-Dieser Artikel enthält Empfehlungen und Leistungsoptimierungen für das Laden von Daten mit einem SQL-Pool.
+Dieser Artikel enthält Empfehlungen und Leistungsoptimierungen für das Laden von Daten mithilfe eines dedizierten SQL-Pools.
 
 ## <a name="preparing-data-in-azure-storage"></a>Vorbereiten von Daten in Azure Storage
 
-Zur Minimierung der Latenz sollten sich Speicherebene und SQL-Pool am gleichen Ort befinden.
+Zur Minimierung der Latenz sollten sich Ihre Speicherebene und Ihr dedizierter SQL-Pool an demselben Ort befinden.
 
 Beim Exportieren von Daten in ein ORC-Dateiformat erhalten Sie unter Umständen Java-Fehler vom Typ „Nicht genügend Speicherplatz“, falls umfangreiche Textspalten vorhanden sind. Diese Einschränkung können Sie umgehen, indem Sie nur eine Teilmenge der Spalten exportieren.
 
@@ -34,7 +34,7 @@ Teilen Sie große komprimierte Dateien in kleinere komprimierte Dateien.
 
 ## <a name="running-loads-with-enough-compute"></a>Ausführen von Ladevorgängen mit ausreichender Compute-Kapazität
 
-Führen Sie immer nur einen einzelnen Ladeauftrag aus, um die bestmögliche Ladegeschwindigkeit zu erzielen. Sollte das nicht möglich sein, führen Sie eine möglichst geringe Anzahl von Ladevorgängen gleichzeitig aus. Wenn ein umfangreicher Ladeauftrag ansteht, empfiehlt es sich unter Umständen, Ihren SQL-Pool Data Warehouse vor dem Laden zentral hochzuskalieren.
+Führen Sie immer nur einen einzelnen Ladeauftrag aus, um die bestmögliche Ladegeschwindigkeit zu erzielen. Sollte das nicht möglich sein, führen Sie eine möglichst geringe Anzahl von Ladevorgängen gleichzeitig aus. Wenn Sie einen umfangreichen Ladeauftrag erwarten, empfiehlt es sich unter Umständen, Ihren dedizierten SQL-Pool vor dem Laden zentral hochzuskalieren.
 
 Erstellen Sie „Ladebenutzer“, die für das Ausführen von Ladevorgängen vorgesehen sind, um Ladevorgänge mit den geeigneten Computeressourcen durchzuführen. Klassifizieren Sie jeden Ladebenutzer mit einer bestimmten Arbeitsauslastungsgruppe. Melden Sie sich zum Ausführen eines Ladevorgangs als ein Ladebenutzer an, und führen Sie den Ladevorgang aus. Der Ladevorgang wird mit der Arbeitsauslastungsgruppe des Benutzers ausgeführt.  
 
@@ -47,10 +47,10 @@ In diesem Beispiel wird ein für eine bestimmte Arbeitsauslastungsgruppe klassif
    CREATE LOGIN loader WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-Stellen Sie eine Verbindung mit dem SQL-Pool her, und erstellen Sie einen Benutzer. Beim folgenden Code wird vorausgesetzt, dass Sie über eine Verbindung mit der Datenbank „mySampleDataWarehouse“ verfügen. Es wird gezeigt, wie ein Benutzer namens „loader“ erstellt wird, und er erhält Berechtigungen zum Erstellen von Tabellen und Laden mithilfe der [COPY-Anweisung](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Anschließend wird der Benutzer für die Arbeitsauslastungsgruppe DataLoads mit maximalen Ressourcen klassifiziert. 
+Stellen Sie eine Verbindung mit dem dedizierten SQL-Pool her, und erstellen Sie einen Benutzer. Beim folgenden Code wird vorausgesetzt, dass Sie über eine Verbindung mit der Datenbank „mySampleDataWarehouse“ verfügen. Es wird gezeigt, wie ein Benutzer namens „loader“ erstellt wird, und er erhält Berechtigungen zum Erstellen von Tabellen und Laden mithilfe der [COPY-Anweisung](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Anschließend wird der Benutzer für die Arbeitsauslastungsgruppe DataLoads mit maximalen Ressourcen klassifiziert. 
 
 ```sql
-   -- Connect to the SQL pool
+   -- Connect to the dedicated SQL pool
    CREATE USER loader FOR LOGIN loader;
    GRANT ADMINISTER DATABASE BULK OPERATIONS TO loader;
    GRANT INSERT ON <yourtablename> TO loader;
@@ -76,7 +76,7 @@ Um einen Ladevorgang mit Ressourcen für die Arbeitsauslastungsgruppe auszuführ
 
 ## <a name="allowing-multiple-users-to-load-polybase"></a>Ermöglichen von Ladevorgängen für mehrere Benutzer (PolyBase)
 
-Oftmals müssen mehrere Benutzer in der Lage sein, Daten in einen SQL-Pool zu laden. Das Laden mit [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (PolyBase) setzt CONTROL-Berechtigungen der Datenbank voraus.  Die CONTROL-Berechtigung erteilt Steuerungszugriff auf alle Schemas.
+Oftmals müssen mehrere Benutzer in der Lage sein, Daten in einen dedizierten SQL-Pool zu laden. Das Laden mit [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (PolyBase) setzt CONTROL-Berechtigungen der Datenbank voraus.  Die CONTROL-Berechtigung erteilt Steuerungszugriff auf alle Schemas.
 
 Unter Umständen sollen aber nicht alle Benutzer, die Daten laden, über Steuerungszugriff auf alle Schemas verfügen. Berechtigungen können mithilfe der DENY CONTROL-Anweisung eingeschränkt werden.
 
@@ -91,9 +91,9 @@ Benutzer_A und Benutzer_B sind für das Schema der anderen Abteilung jetzt gespe
 
 ## <a name="loading-to-a-staging-table"></a>Laden in eine Stagingtabelle
 
-Laden Sie Daten in eine Stagingtabelle, um beim Verschieben von Daten in eine SQL-Pooltabelle die bestmögliche Ladegeschwindigkeit zu erzielen.  Definieren Sie die Stagingtabelle als Heap, und verwenden Sie Roundrobin als Verteilungsoption.
+Laden Sie Daten in eine Stagingtabelle, um beim Verschieben von Daten in eine Tabelle des dedizierten SQL-Pools die bestmögliche Ladegeschwindigkeit zu erzielen.  Definieren Sie die Stagingtabelle als Heap, und verwenden Sie Roundrobin als Verteilungsoption.
 
-Beachten Sie, dass das Laden üblicherweise ein zweistufiger Prozess ist, bei dem die Daten zunächst in eine Stagingtabelle geladen und anschließend in eine Produktionstabelle eines SQL-Pools eingefügt werden. Wenn die Produktionstabelle eine Hashverteilung verwendet, ist das Laden und Einfügen unter Umständen insgesamt schneller, wenn Sie die Stagingtabelle mit der Hashverteilung definieren.
+Beachten Sie, dass das Laden normalerweise ein zweistufiger Prozess ist, bei dem die Daten zunächst in eine Stagingtabelle geladen und anschließend in eine Produktionstabelle des dedizierten SQL-Pools eingefügt werden. Wenn die Produktionstabelle eine Hashverteilung verwendet, ist das Laden und Einfügen unter Umständen insgesamt schneller, wenn Sie die Stagingtabelle mit der Hashverteilung definieren.
 
 Das Laden in die Stagingtabelle dauert zwar länger, der zweite Schritt (also das Einfügen der Zeilen in die Produktionstabelle) kommt jedoch ohne verteilungsübergreifende Datenverschiebung aus.
 
@@ -111,7 +111,7 @@ Wenn der Arbeitsspeicher knapp ist, können für den Columnstore-Index unter Ums
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Vergrößern von Batches bei Verwendung der SqLBulkCopy-API oder von bcp
 
-Beim Laden mit der COPY-Anweisung wird der höchste Durchsatz für einen SQL-Pool erzielt. Falls Sie zum Laden nicht die COPY-Anweisung verwenden können, sondern die [SqLBulkCopy-API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) oder [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) nutzen müssen, sollten Sie für einen höheren Durchsatz den Batch vergrößern.
+Beim Laden mit der COPY-Anweisung wird der höchste Durchsatz für dedizierte SQL-Pools erzielt. Falls Sie zum Laden nicht die COPY-Anweisung verwenden können, sondern die [SqLBulkCopy-API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) oder [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) nutzen müssen, sollten Sie für einen höheren Durchsatz den Batch vergrößern.
 
 > [!TIP]
 > Eine Batchgröße zwischen 100.000 und einer Million Zeilen ist der empfohlene Ausgangswert zum Ermitteln der optimalen Batchkapazität.

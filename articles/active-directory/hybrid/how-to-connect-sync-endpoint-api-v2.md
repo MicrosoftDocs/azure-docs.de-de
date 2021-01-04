@@ -1,5 +1,5 @@
 ---
-title: Synchronisierungsendpunkt V2 für Azure AD Connect – öffentliche Vorschau | Microsoft-Dokumentation
+title: Azure AD Connect-Synchronisierungsendpunkt V2 | Microsoft-Dokumentation
 description: In diesem Dokument werden Aktualisierungen der Synchronisierungsendpunkt-API V2 für Azure AD Connect behandelt.
 services: active-directory
 author: billmath
@@ -8,38 +8,28 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/20/2020
+ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 779b29c8d31dffa495926a7f2ca5e1f77870078c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 07acd71eb1a77592c82b80aa574d79b98c48f60e
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319910"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608298"
 ---
-# <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>Synchronisierungsendpunkt-API V2 für Azure AD Connect (öffentliche Vorschau) 
+# <a name="azure-ad-connect-sync-v2-endpoint-api"></a>Azure AD Connect-Synchronisierung: V2-Endpunkt-API 
 Microsoft hat einen neuen Endpunkt (API) für Azure AD Connect bereitgestellt, mit dem die Leistung der Synchronisierungsdienstvorgänge für Azure Active Directory verbessert wird. Wenn Sie den neuen V2-Endpunkt verwenden, treten beim Exportieren aus und Importieren in Azure AD spürbare Leistungssteigerungen auf. Dieser neue Endpunkt unterstützt Folgendes:
     
- -  Synchronisieren von Gruppen mit bis zu 250.000 Mitgliedern
+ - Synchronisieren von Gruppen mit bis zu 250.000 Mitgliedern
  - Leistungssteigerungen beim Exportieren aus und Importieren in Azure AD
  
 > [!NOTE]
 > Der neue Endpunkt verfügt derzeit nicht über eine konfigurierte Beschränkung der Gruppengröße für Microsoft 365-Gruppen, die zurückgeschrieben werden. Dies hat möglicherweise Auswirkungen auf Ihr Active Directory und Synchronisierungszykluslatenzen. Es wird empfohlen, die Gruppengröße inkrementell zu erhöhen.  
 
-
 ## <a name="pre-requisites"></a>Voraussetzungen  
 Um den neuen V2-Endpunkt verwenden zu können, müssen Sie [Azure AD Connect Version 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) oder höher verwenden und die unten angegebenen Bereitstellungsschritte ausführen, um den V2-Endpunkt für Ihren Azure AD Connect-Server zu aktivieren.   
-
->[!NOTE]
->Diese öffentliche Vorschau ist derzeit nur in der globalen Azure-Cloud und nicht für [nationale Clouds](../develop/authentication-national-cloud.md) verfügbar.
-
-### <a name="public-preview-limitations"></a>Einschränkungen der öffentlichen Vorschauversion  
-Obwohl dieses Release umfangreiche Tests durchlaufen hat, treten möglicherweise Probleme auf. Eines der Ziele dieser öffentlichen Vorschauversion besteht darin, derartige Probleme zu ermitteln und zu beheben.  
-
->[!IMPORTANT]
-> Obwohl Unterstützung für diese öffentliche Vorschauversion bereitgestellt wird, ist Microsoft möglicherweise nicht immer in der Lage, alle Probleme sofort zu beheben, die ggf. auftreten. Aus diesem Grund wird empfohlen, dass Sie nach bestem Wissen und Gewissen handeln, bevor Sie diese Version in Ihrer Produktionsumgebung bereitstellen. 
 
 ## <a name="deployment-guidance"></a>Hinweise zur Bereitstellung 
 Sie müssen [Azure AD Connect Version 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) oder höher bereitstellen, um den V2-Endpunkt zu verwenden. Verwenden Sie den bereitgestellten Link zum Herunterladen. 
@@ -123,7 +113,7 @@ Die folgenden Schritte können verwendet werden, um die Mitgliedschaftsbeschrän
 
 7. Legen Sie im Popupfenster auf der Seite **Beschreibung** die Rangfolge auf einen verfügbaren Wert zwischen 1 und 99 fest. ![Screenshot des Fensters „Ausgehende Synchronisierungsregel bearbeiten“ mit hervorgehobener Option „Rangfolge“](media/how-to-connect-sync-endpoint-api-v2/endpoint4.png)
 
-8. Aktualisieren Sie auf der Seite **Transformationen** den Wert für **Quelle** für die **Mitglieder**transformationn und ersetzen Sie „50.000“ durch einen Wert zwischen 50.001 und 250.000. Diese Ersetzung erhöht die maximale Mitgliederzahl der Gruppen, die mit Azure AD synchronisiert werden. Es empfiehlt sich, mit einer Zahl von 100.000 zu beginnen, um zu verstehen, welche Auswirkungen die Synchronisierung großer Gruppen auf Ihre Synchronisierungsleistung hat. 
+8. Aktualisieren Sie auf der Seite **Transformationen** den Wert für **Quelle** für die **Mitglieder** transformationn und ersetzen Sie „50.000“ durch einen Wert zwischen 50.001 und 250.000. Diese Ersetzung erhöht die maximale Mitgliederzahl der Gruppen, die mit Azure AD synchronisiert werden. Es empfiehlt sich, mit einer Zahl von 100.000 zu beginnen, um zu verstehen, welche Auswirkungen die Synchronisierung großer Gruppen auf Ihre Synchronisierungsleistung hat. 
  
  **Beispiel** 
  
@@ -184,17 +174,9 @@ Wenn Sie den V2-Endpunkt aktiviert haben und ein Rollback ausführen müssen, f�
 > Wenn Sie vom V2- zum V1-Endpunkt zurückwechseln, werden Gruppen, die mit mehr als 50.000 Mitgliedern synchronisiert werden, nach der Ausführung einer vollständigen Synchronisierung gelöscht. Dies gilt sowohl für AD-Gruppen, die in Azure AD bereitgestellt werden, als auch für vereinheitlichte Microsoft 365-Gruppen, die in AD bereitgestellt werden. 
 
 ## <a name="frequently-asked-questions"></a>Häufig gestellte Fragen  
-**F: Kann ein Kunde dieses Feature in der Produktionsumgebung verwenden?**   
-</br>Ja, dieses Feature kann mit dem oben erwähnten Vorbehalt in Produktionsumgebungen verwendet werden.
  
-**F: Wen kann der Kunde kontaktieren, wenn etwas nicht funktioniert?**   
-</br>Wenn Sie Unterstützung bei der Verwendung dieser Funktion benötigen, sollten Sie eine Supportanfrage öffnen. 
- 
-**F: Kann ich häufig Aktualisierungen der öffentlichen Vorschau erwarten?**   
-</br>Während einer öffentlichen Vorschau sind laufende Änderungen nur eingeschränkt möglich. Sie sollten dieses Risiko einschätzen, wenn Sie Funktionen der öffentlichen Vorschau in der Produktionsumgebung einsetzen.  
- 
-**F: Wie viel Zeit bis zum nächsten Meilenstein?**   
-</br>Funktionen für die öffentliche Vorschau können zurückgezogen und möglicherweise umgestaltet werden, bevor weitere Meilensteine erreicht werden.  
+**Wann wird der neue Endpunkt zum Standard für Upgrades und Neuinstallationen?**   
+</br>Wir planen ein neues Release von AAD Connect, das im Januar 2021 zum Download veröffentlicht werden soll. Dieses Release verwendet standardmäßig den V2-Endpunkt und ermöglicht die Synchronisierung von Gruppen mit mehr als 50.000 Mitgliedern ohne zusätzliche Konfigurationen. Anschließend wird das Release dann für das automatische Upgrade auf geeignete Server veröffentlicht.
  
 ## <a name="next-steps"></a>Nächste Schritte
 

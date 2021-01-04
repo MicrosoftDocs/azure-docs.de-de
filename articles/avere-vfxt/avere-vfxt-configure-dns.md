@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.openlocfilehash: 81b53904f85e2ac936195b1e39d7586fd1d47524
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76153784"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009023"
 ---
 # <a name="avere-cluster-dns-configuration"></a>DNS-Konfiguration des Avere-Clusters
 

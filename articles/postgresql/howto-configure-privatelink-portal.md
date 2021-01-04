@@ -1,17 +1,17 @@
 ---
 title: Private Link – Azure-Portal – Azure Database for PostgreSQL – Einzelserver
 description: Erfahren Sie, wie Sie einen privaten Link für die Azure Database for PostgreSQL konfigurieren können – Einzelserver des Azure-Portals
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 4da1c1e142c5d70bea342fd9513061710228e61d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 23b9774f28f915596abafbd8c1f6c38fc4f55748
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489930"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995283"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Erstellen und Verwalten von Private Link for Azure Database for PostgreSQL – Einzelserver im Portal
 
@@ -61,37 +61,37 @@ In diesem Abschnitt erstellen Sie ein virtuelles Netzwerk und das Subnetz zum Ho
     | **INSTANZDETAILS** |  |
     | Name des virtuellen Computers | Geben Sie *myVm* ein. |
     | Region | Wählen Sie **Europa, Westen** aus. |
-    | Verfügbarkeitsoptionen | Übernehmen Sie den Standardwert **Keine Infrastrukturredundanz erforderlich** . |
+    | Verfügbarkeitsoptionen | Übernehmen Sie den Standardwert **Keine Infrastrukturredundanz erforderlich**. |
     | Image | Wählen Sie **Windows Server 2019 Datacenter** aus. |
-    | Size | Übernehmen Sie den Standardwert **Standard DS1 v2** . |
+    | Size | Übernehmen Sie den Standardwert **Standard DS1 v2**. |
     | **ADMINISTRATORKONTO** |  |
     | Username | Geben Sie einen Benutzernamen Ihrer Wahl ein. |
     | Kennwort | Geben Sie das gewünschte Kennwort ein. Das Kennwort muss mindestens zwölf Zeichen lang sein und die [definierten Anforderungen an die Komplexität](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) erfüllen.|
     | Kennwort bestätigen | Geben Sie das Kennwort erneut ein. |
     | **REGELN FÜR EINGEHENDE PORTS** |  |
-    | Öffentliche Eingangsports | Übernehmen Sie den Standardwert **Keine** . |
+    | Öffentliche Eingangsports | Übernehmen Sie den Standardwert **Keine**. |
     | **SPAREN SIE GELD** |  |
-    | Windows-Lizenz bereits vorhanden? | Übernehmen Sie den Standardwert **Nein** . |
+    | Windows-Lizenz bereits vorhanden? | Übernehmen Sie den Standardwert **Nein**. |
     |||
 
-1. Klicken Sie auf **Weiter: Datenträger** .
+1. Klicken Sie auf **Weiter: Datenträger**.
 
-1. Übernehmen Sie unter **Virtuellen Computer erstellen – Datenträger** die Standardwerte, und wählen Sie **Weiter: Netzwerk** .
+1. Übernehmen Sie unter **Virtuellen Computer erstellen – Datenträger** die Standardwerte, und wählen Sie **Weiter: Netzwerk**.
 
 1. Wählen Sie in **Virtuellen Computer erstellen – Netzwerk** diese Informationen aus:
 
     | Einstellung | Wert |
     | ------- | ----- |
-    | Virtuelles Netzwerk | Übernehmen Sie den Standardwert **MyVirtualNetwork** .  |
-    | Adressraum | Übernehmen Sie den Standardwert **10.1.0.0/24** .|
+    | Virtuelles Netzwerk | Übernehmen Sie den Standardwert **MyVirtualNetwork**.  |
+    | Adressraum | Übernehmen Sie den Standardwert **10.1.0.0/24**.|
     | Subnet | Übernehmen Sie den Standardwert **mySubnet (10.1.0.0/24)** .|
-    | Öffentliche IP-Adresse | Übernehmen Sie den Standardwert **(neu) myVm-ip** . |
+    | Öffentliche IP-Adresse | Übernehmen Sie den Standardwert **(neu) myVm-ip**. |
     | Öffentliche Eingangsports | Wählen Sie **Ausgewählte Ports zulassen** aus. |
     | Eingangsports auswählen | Wählen Sie **HTTP** und **RDP** aus.|
     |||
 
 
-1. Klicken Sie auf **Überprüfen + erstellen** . Sie werden zur Seite **Überprüfen und erstellen** weitergeleitet, auf der Azure Ihre Konfiguration überprüft.
+1. Klicken Sie auf **Überprüfen + erstellen**. Sie werden zur Seite **Überprüfen und erstellen** weitergeleitet, auf der Azure Ihre Konfiguration überprüft.
 
 1. Wenn die Meldung **Überprüfung erfolgreich** angezeigt wird, wählen Sie **Erstellen** aus.
 
@@ -121,8 +121,8 @@ In diesem Abschnitt erstellen Sie einen Azure Database for PostgreSQL-Server in 
     | Compute + Speicher| Wählen Sie den für den Server erforderlichen Tarif basierend auf der Workload aus. |
     |||
  
-7. Klicken Sie auf **OK** . 
-8. Klicken Sie auf **Überprüfen + erstellen** . Sie werden zur Seite **Überprüfen und erstellen** weitergeleitet, auf der Azure Ihre Konfiguration überprüft. 
+7. Klicken Sie auf **OK**. 
+8. Klicken Sie auf **Überprüfen + erstellen**. Sie werden zur Seite **Überprüfen und erstellen** weitergeleitet, auf der Azure Ihre Konfiguration überprüft. 
 9. Wenn die Meldung „Überprüfung erfolgreich“ angezeigt wird, wählen Sie **Erstellen** aus. 
 10. Wenn die Meldung „Überprüfung erfolgreich“ angezeigt wird, wählen Sie „Erstellen“ aus. 
 
@@ -173,10 +173,10 @@ In diesem Abschnitt erstellen Sie einen PostgreSQL-Server und fügen diesem eine
     > [!Note] 
     > Verwenden Sie die vordefinierte private DNS-Zone für Ihren Dienst, oder geben Sie Ihren bevorzugten DNS-Zonennamen an. Ausführliche Informationen finden Sie unter [DNS-Zonenkonfiguration für Azure-Dienste](../private-link/private-endpoint-dns.md).
 
-1. Klicken Sie auf **Überprüfen + erstellen** . Sie werden zur Seite **Überprüfen und erstellen** weitergeleitet, auf der Azure Ihre Konfiguration überprüft. 
+1. Klicken Sie auf **Überprüfen + erstellen**. Sie werden zur Seite **Überprüfen und erstellen** weitergeleitet, auf der Azure Ihre Konfiguration überprüft. 
 2. Wenn die Meldung **Überprüfung erfolgreich** angezeigt wird, wählen Sie **Erstellen** aus. 
 
-    :::image type="content" source="media/concepts-data-access-and-security-private-link/show-postgres-private-link.png" alt-text="Übersicht über Private Link":::
+    :::image type="content" source="media/concepts-data-access-and-security-private-link/show-postgres-private-link.png" alt-text="Erstellter Private Link":::
 
     > [!NOTE] 
     > Der FQDN in der DNS-Einstellung des Kunden wird nicht in die konfigurierte private IP-Adresse aufgelöst. Sie müssen eine DNS-Zone für den konfigurierten FQDN einrichten, wie [hier](../dns/dns-operations-recordsets-portal.md) gezeigt.
@@ -190,9 +190,9 @@ Stellen Sie nach der Erstellung von **myVm** über das Internet eine Verbindung 
 
 1. Wählen Sie die Schaltfläche **Verbinden** aus. Nach dem Auswählen der Schaltfläche **Verbinden** wird **Verbindung mit virtuellem Computer herstellen** geöffnet.
 
-1. Wählen Sie **RDP-Datei herunterladen** aus. Azure erstellt eine Remotedesktopprotokoll-Datei ( *RDP* ) und lädt sie auf Ihren Computer herunter.
+1. Wählen Sie **RDP-Datei herunterladen** aus. Azure erstellt eine Remotedesktopprotokoll-Datei (*RDP*) und lädt sie auf Ihren Computer herunter.
 
-1. Öffnen Sie die Datei *downloaded.rdp* .
+1. Öffnen Sie die Datei *downloaded.rdp*.
 
     1. Wenn Sie dazu aufgefordert werden, wählen Sie **Verbinden** aus.
 
@@ -201,7 +201,7 @@ Stellen Sie nach der Erstellung von **myVm** über das Internet eine Verbindung 
         > [!NOTE]
         > Unter Umständen müssen Sie **Weitere Optionen** > **Anderes Konto verwenden** auswählen, um die Anmeldeinformationen anzugeben, die Sie beim Erstellen des virtuellen Computers eingegeben haben.
 
-1. Klicken Sie auf **OK** .
+1. Klicken Sie auf **OK**.
 
 1. Während des Anmeldevorgangs wird unter Umständen eine Zertifikatwarnung angezeigt. Wenn Sie eine Zertifikatwarnung erhalten, wählen Sie **Ja** oder **Weiter** aus.
 
@@ -222,7 +222,7 @@ Stellen Sie nach der Erstellung von **myVm** über das Internet eine Verbindung 
     Address:  10.1.3.4
     ```
 
-3. Testen Sie die Verbindung über den privaten Link für den PostgreSQL-Server mit einem beliebigen verfügbaren Client. Im folgenden Beispiel wird für diesen Vorgang [Azure Data Studio](/sql/azure-data-studio/download?view=sql-server-ver15) verwendet.
+3. Testen Sie die Verbindung über den privaten Link für den PostgreSQL-Server mit einem beliebigen verfügbaren Client. Im folgenden Beispiel wird für diesen Vorgang [Azure Data Studio](/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true) verwendet.
 
 4. Geben Sie in **Neue Verbindung** die folgenden Informationen ein, oder wählen Sie sie aus:
 
@@ -247,7 +247,7 @@ Stellen Sie nach der Erstellung von **myVm** über das Internet eine Verbindung 
 Wenn Sie den privaten Endpunkt, den PostgreSQL-Server und den virtuellen Computer nicht mehr benötigen, löschen Sie die Ressourcengruppe und alle darin enthaltenen Ressourcen:
 
 1. Geben Sie oben im Portal die Zeichenfolge *myResourceGroup* ins Feld **Suchen** ein, und wählen Sie in den Suchergebnissen  *myResourceGroup* aus.
-2. Wählen Sie die Option **Ressourcengruppe löschen** .
+2. Wählen Sie die Option **Ressourcengruppe löschen**.
 3. Geben Sie „myResourceGroup“ für **RESSOURCENGRUPPENNAMEN EINGEBEN** ein, und wählen Sie **Löschen** aus.
 
 ## <a name="next-steps"></a>Nächste Schritte

@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 07/10/2020
-ms.openlocfilehash: 08d1d393b4ba52e6feeb36c0538f2664e1407d38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/05/2020
+ms.openlocfilehash: 9fdef187e9bdf77b29c548f767a4b4edfeb62f44
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708287"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422177"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Erstellen und Verwalten von Lesereplikaten in Azure Database for PostgreSQL – Einzelserver über das Azure-Portal
 
@@ -23,15 +23,17 @@ Ein [Azure Database for PostgreSQL-Server](quickstart-create-server-database-por
 
 ## <a name="azure-replication-support"></a>Azure-Replikationsunterstützung
 
-[Lesereplikate](concepts-read-replicas.md) und [logische Decodierung](concepts-logical.md) sind beide vom Write-Ahead-Protokoll (WAL) von Postgres abhängig. Diese beiden Features erfordern unterschiedliche Ebenen der Protokollierung durch Postgres. Die logische Decodierung erfordert einen höheren Grad an Protokollierung als Lesereplikate.
+[Lesereplikate](concepts-read-replicas.md) und [logische Decodierung](concepts-logical.md) sind beide vom Write-Ahead-Protokoll (WAL) von Postgres abhängig. Diese beiden Features erfordern unterschiedliche Ebenen der Protokollierung durch Postgres. Die logische Decodierung erfordert einen höheren Protokolliergrad als Lesereplikate.
 
-Um den richtigen Grad an Protokollierung zu konfigurieren, verwenden Sie den Parameter zur Unterstützung der Azure-Replikation. Für die Unterstützung der Azure-Replikation gibt es drei Einstellungsoptionen:
+Um den richtigen Protokolliergrad zu konfigurieren, verwenden Sie den Parameter für die Unterstützung der Azure-Replikation. Für die Unterstützung der Azure-Replikation gibt es drei Einstellungsoptionen:
 
-* **Off**: Legt die wenigsten Informationen im Write-Ahead-Protokoll ab. Diese Einstellung ist für die meisten Azure Database for PostgreSQL-Server nicht verfügbar.  
-* **Replica**: Ausführlichere Informationen als bei **„Off“** . Dies ist der erforderlich Mindestgrad an Protokollierung, damit [Lesereplikate](concepts-read-replicas.md) funktionieren. Dies ist die Standardeinstellung auf den meisten Servern.
-* **Logical**: Noch ausführlichere Informationen als bei **Replica**. Dies ist der erforderlich Mindestgrad an Protokollierung, damit die logische Decodierung funktioniert. Lesereplikate funktionieren auch bei dieser Einstellung.
+* **Off**: Speichert am wenigsten Informationen im Write-Ahead-Protokoll. Diese Einstellung ist auf den meisten Azure Database for PostgreSQL-Servern nicht verfügbar.  
+* **Replica**: Ausführlichere Informationen als bei **Off**. Dies ist der mindestens erforderliche Protokolliergrad, damit [Lesereplikate](concepts-read-replicas.md) funktionieren. Auf den meisten Servern ist dies die Standardeinstellung.
+* **Logical**: Noch ausführlichere Informationen als bei **Replica**. Dies ist der mindestens erforderliche Protokolliergrad, damit die logische Decodierung funktioniert. Lesereplikate funktionieren bei dieser Einstellung ebenfalls.
 
-Der Server muss nach einer Änderung dieses Parameters neu gestartet werden. Intern legt dieser Parameter die Postgres-Parameter `wal_level`, `max_replication_slots` und `max_wal_senders` fest.
+
+> [!NOTE]
+> Beim Bereitstellen von Lesereplikaten für persistente, sehr schreibintensive primäre Workloads kann sich die Replikation immer weiter verzögern, sodass der Stand des primären Servers möglicherweise gar nicht mehr erreicht wird. Dadurch kann auch die Speicherauslastung auf dem primären Server ansteigen, weil die WAL-Dateien erst gelöscht werden, wenn sie im Replikat empfangen wurden.
 
 ## <a name="prepare-the-primary-server"></a>Vorbereiten des primären Servers
 
@@ -45,11 +47,11 @@ Der Server muss nach einer Änderung dieses Parameters neu gestartet werden. Int
 
 4. Starten Sie den Server neu, um die Änderung zu übernehmen, indem Sie **Ja** auswählen.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/confirm-restart.png" alt-text="Azure Database for PostgreSQL – Replikation – Replikat festlegen und speichern":::
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-restart.png" alt-text="Azure Database for PostgreSQL – Replikation – Neustart bestätigen":::
 
 5. Sie erhalten zwei Azure-Portalbenachrichtigungen, sobald der Vorgang abgeschlossen ist. Es gibt eine Benachrichtigung zur Aktualisierung des Serverparameters. Eine weitere Benachrichtigung bezieht sich auf den Neustart des Servers, der unmittelbar erfolgt.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/success-notifications.png" alt-text="Azure Database for PostgreSQL – Replikation – Replikat festlegen und speichern":::
+   :::image type="content" source="./media/howto-read-replicas-portal/success-notifications.png" alt-text="Erfolgsbenachrichtigungen":::
 
 6. Aktualisieren Sie die Azure-Portalseite zum Aktualisieren der Replikationssymbolleiste. Sie können jetzt schreibgeschützte Replikate für diesen Server erstellen.
    
@@ -63,15 +65,15 @@ Führen Sie die folgenden Schritte aus, um ein Lesereplikat zu erstellen:
 
 3. Wählen Sie **Replikat hinzufügen**.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/add-replica.png" alt-text="Azure Database for PostgreSQL – Replikation – Replikat festlegen und speichern":::
+   :::image type="content" source="./media/howto-read-replicas-portal/add-replica.png" alt-text="Hinzufügen eines Replikats":::
 
 4. Geben Sie einen Namen für das Lesereplikat ein. 
 
-    :::image type="content" source="./media/howto-read-replicas-portal/name-replica.png" alt-text="Azure Database for PostgreSQL – Replikation – Replikat festlegen und speichern":::
+    :::image type="content" source="./media/howto-read-replicas-portal/name-replica.png" alt-text="Benennen des Replikats":::
 
 5. Wählen Sie einen Standort für das Replikat aus. Der Standardstandort ist mit dem des primären Servers identisch.
 
-    :::image type="content" source="./media/howto-read-replicas-portal/location-replica.png" alt-text="Azure Database for PostgreSQL – Replikation – Replikat festlegen und speichern":::
+    :::image type="content" source="./media/howto-read-replicas-portal/location-replica.png" alt-text="Standort auswählen":::
 
    > [!NOTE]
    > Weitere Informationen zu den Regionen, in denen Sie ein Replikat erstellen können, finden Sie im [Konzeptartikel zu Lesereplikaten](concepts-read-replicas.md). 
@@ -80,7 +82,7 @@ Führen Sie die folgenden Schritte aus, um ein Lesereplikat zu erstellen:
 
 Nach der Erstellung des Lesereplikats kann dieses im Fenster **Replikation** angezeigt werden:
 
-:::image type="content" source="./media/howto-read-replicas-portal/list-replica.png" alt-text="Azure Database for PostgreSQL – Replikation – Replikat festlegen und speichern":::
+:::image type="content" source="./media/howto-read-replicas-portal/list-replica.png" alt-text="Anzeigen des neuen Replikats im Fenster „Replikation“":::
  
 
 > [!IMPORTANT]
@@ -102,15 +104,15 @@ Führen Sie die folgenden Schritte aus, um die Replikation zwischen einem primä
 
 3. Wählen Sie den Replikatserver aus, für den Sie die Replikation beenden möchten.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/select-replica.png" alt-text="Azure Database for PostgreSQL – Replikation – Replikat festlegen und speichern":::
+   :::image type="content" source="./media/howto-read-replicas-portal/select-replica.png" alt-text="Auswählen des Replikats":::
  
 4. Wählen Sie **Replikation beenden** aus.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/select-stop-replication.png" alt-text="Azure Database for PostgreSQL – Replikation – Replikat festlegen und speichern":::
+   :::image type="content" source="./media/howto-read-replicas-portal/select-stop-replication.png" alt-text="Auswählen von „Replikation beenden“":::
  
 5. Wählen Sie **OK**, um die Replikation zu beenden.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/confirm-stop-replication.png" alt-text="Azure Database for PostgreSQL – Replikation – Replikat festlegen und speichern":::
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-stop-replication.png" alt-text="Bestätigen der Beendigung der Replikation":::
  
 
 ## <a name="delete-a-primary-server"></a>Löschen eines primären Servers
@@ -125,11 +127,11 @@ Um einen Server über das Azure-Portal zu löschen, gehen Sie folgendermaßen vo
 
 2. Öffnen Sie die Seite **Übersicht** für den Server. Klicken Sie auf **Löschen**.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/delete-server.png" alt-text="Azure Database for PostgreSQL – Replikation – Replikat festlegen und speichern":::
+   :::image type="content" source="./media/howto-read-replicas-portal/delete-server.png" alt-text="Auswählen des Löschvorgangs für den primären Server auf der Übersichtsseite des Servers":::
  
 3. Geben Sie den Namen des zu löschenden primären Servers ein. Wählen Sie **Löschen** aus, um das Löschen des primären Servers zu bestätigen.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/confirm-delete.png" alt-text="Azure Database for PostgreSQL – Replikation – Replikat festlegen und speichern":::
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-delete.png" alt-text="Bestätigen des Löschvorgangs für den primären Server":::
  
 
 ## <a name="delete-a-replica"></a>Löschen eines Replikats
@@ -137,7 +139,7 @@ Sie können ein Lesereplikat auf ähnliche Weise löschen wie einen primären Se
 
 - Öffnen Sie im Azure-Portal die Seite **Übersicht** für das Lesereplikat. Klicken Sie auf **Löschen**.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/delete-replica.png" alt-text="Azure Database for PostgreSQL – Replikation – Replikat festlegen und speichern":::
+   :::image type="content" source="./media/howto-read-replicas-portal/delete-replica.png" alt-text="Auswählen des Löschvorgangs für das Replikat auf der Übersichtsseite des Replikats":::
  
 Sie können das Lesereplikat auch über das Fenster **Replikation** löschen, indem Sie folgendermaßen vorgehen:
 
@@ -147,15 +149,15 @@ Sie können das Lesereplikat auch über das Fenster **Replikation** löschen, in
 
 3. Wählen Sie das zu löschende Lesereplikat aus.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/select-replica.png" alt-text="Azure Database for PostgreSQL – Replikation – Replikat festlegen und speichern":::
+   :::image type="content" source="./media/howto-read-replicas-portal/select-replica.png" alt-text="Auswahl des zu löschenden Lesereplikats":::
  
 4. Wählen Sie **Replikat löschen** aus.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/select-delete-replica.png" alt-text="Azure Database for PostgreSQL – Replikation – Replikat festlegen und speichern":::
+   :::image type="content" source="./media/howto-read-replicas-portal/select-delete-replica.png" alt-text="Auswahl von „Replikat löschen“":::
  
 5. Geben Sie den Namen des zu löschenden Replikats ein. Wählen Sie **Löschen**, um das Löschen des Replikats zu bestätigen.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/confirm-delete-replica.png" alt-text="Azure Database for PostgreSQL – Replikation – Replikat festlegen und speichern":::
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-delete-replica.png" alt-text="Bestätigen des Löschvorgangs für das Replikat":::
  
 
 ## <a name="monitor-a-replica"></a>Überwachen eines Replikats
@@ -168,7 +170,7 @@ Die Metrik **Maximale Verzögerung zwischen Replikaten** zeigt die Verzögerung 
 
 2.  Klicken Sie auf **Metriken**. Wählen Sie im Fenster **Metriken** die Option **Maximale Verzögerung zwischen Replikaten** aus.
 
-    :::image type="content" source="./media/howto-read-replicas-portal/select-max-lag.png" alt-text="Azure Database for PostgreSQL – Replikation – Replikat festlegen und speichern":::
+    :::image type="content" source="./media/howto-read-replicas-portal/select-max-lag.png" alt-text="Überwachen der maximalen Verzögerung zwischen Replikaten":::
  
 3.  Wählen Sie für Ihre **Aggregation** den Wert **Max** aus.
 
@@ -180,7 +182,7 @@ Die Metrik **Replikatverzögerung** zeigt die Zeit seit der letzten wiedergegebe
 
 2. Klicken Sie auf **Metriken**. Wählen Sie im Fenster **Metriken** die Option **Replikatverzögerung** aus.
 
-   :::image type="content" source="./media/howto-read-replicas-portal/select-replica-lag.png" alt-text="Azure Database for PostgreSQL – Replikation – Replikat festlegen und speichern":::
+   :::image type="content" source="./media/howto-read-replicas-portal/select-replica-lag.png" alt-text="Überwachen der Replikatverzögerung":::
  
 3. Wählen Sie für Ihre **Aggregation** den Wert **Max** aus. 
  

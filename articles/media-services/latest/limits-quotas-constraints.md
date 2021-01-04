@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: b1836b1d0dc69a2a0b186a54974895eb0d8cd91a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6ca7a444f2a3d4babe220548edb10bd37784be7
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265489"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678108"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # <a name="azure-media-services-quotas-and-limits"></a>Azure Media Services-Kontingente und -Grenzwerte
@@ -32,7 +32,7 @@ In diesem Artikel sind einige der gängigsten Limits in Microsoft Azure Media Se
 
 | Resource | Standardlimit |
 | --- | --- |
-| [Media Services-Konten](media-services-account-concept.md) in einem einzelnen Abonnement | 25 (feststehend) |
+| [Media Services-Konten](media-services-account-concept.md) in einem einzelnen Abonnement | 100 (feststehend) |
 
 ## <a name="asset-limits"></a>Medienobjektlimits
 
@@ -90,7 +90,7 @@ Alle Auftragsdatensätze in Ihrem Konto, die älter als 90 Tage sind, werden aut
 
 | Resource | Standardlimit |
 | --- | --- |
-| [Streamingendpunkte](streaming-endpoint-concept.md) (angehalten oder ausgeführt) pro Media Services-Konto|2 |
+| [Streamingendpunkte](streaming-endpoint-concept.md) (angehalten oder ausgeführt) pro Media Services-Konto | 2 |
 | Premium-Streamingeinheiten | 10 |
 | [Dynamische Manifestfilter](filters-dynamic-manifest-overview.md)|100|
 | [Streamingrichtlinien](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
@@ -102,9 +102,9 @@ Alle Auftragsdatensätze in Ihrem Konto, die älter als 90 Tage sind, werden aut
 
 ## <a name="protection-limits"></a>Schutzlimits
 
-| Resource | Standardlimit | 
-| --- | --- | 
-| Optionen pro [Richtlinie für den Inhaltsschlüssel](content-key-policy-concept.md) |30 | 
+| Resource | Standardlimit |
+| --- | --- |
+| Optionen pro [Richtlinie für den Inhaltsschlüssel](content-key-policy-concept.md) |30 |
 | Lizenzen pro Monat für jeden der DRM-Typen für den Media Services-Schlüsselbereitstellungsdienst pro Konto|1\.000.000|
 
 ## <a name="support-ticket"></a>Supportticket

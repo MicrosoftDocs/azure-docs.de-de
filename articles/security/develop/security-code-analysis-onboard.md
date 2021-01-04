@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 5366da1048e7c6d9612ad8b6b1f1694068bb35fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fe13c418452a7a88dcd97939d6e853039f3fb64
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543026"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517069"
 ---
 # <a name="onboarding-and-installing"></a>Onboarding und Installation
 
@@ -90,7 +90,7 @@ Nach der Installation der Erweiterung werden die Buildtasks für die sichere Ent
 > - Aktivieren Sie bei Buildtasks für die sichere Entwicklung immer **Bei Fehler fortsetzen**. Selbst wenn bei einem Tool Fehler auftreten, können die anderen ausgeführt werden. Zwischen den Tools bestehen keine Abhängigkeiten.
 > - Buildtasks der Microsoft-Sicherheitscodeanalyse verursachen nur einen Fehler, wenn ein Tool nicht erfolgreich ausgeführt werden kann. Sie werden allerdings selbst dann erfolgreich ausgeführt, wenn ein Tool Probleme im Code identifiziert. Mit dem Nachanalyse-Buildtask können Sie den Build so konfigurieren, dass er unterbrochen wird, wenn ein Tool Probleme im Code identifiziert.
 > - Einige Azure DevOps-Buildtasks werden nicht unterstützt, wenn sie über eine Releasepipeline ausgeführt werden. Genauer gesagt werden Tasks, durch die Artefakte über eine Releasepipeline veröffentlicht werden, von Azure DevOps nicht unterstützt.
-> - Eine Liste der vordefinierten Variablen in Azure DevOps Team Build, die Sie als Parameter angeben können, finden Sie unter [Azure DevOps-Buildvariablen](https://docs.microsoft.com/azure/devops/pipelines/build/variables?tabs=batch&view=vsts).
+> - Eine Liste der vordefinierten Variablen in Azure DevOps Team Build, die Sie als Parameter angeben können, finden Sie unter [Azure DevOps-Buildvariablen](/azure/devops/pipelines/build/variables?tabs=batch&view=vsts).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

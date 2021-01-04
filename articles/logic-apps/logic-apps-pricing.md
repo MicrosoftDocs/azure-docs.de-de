@@ -7,13 +7,13 @@ author: jonfancey
 ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.openlocfilehash: a5511d7cd4b5bb0f3fe901a735535f8db9036ee7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/29/2020
+ms.openlocfilehash: 486930776b4b4b6d852102be723ac1047ebd5e0a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078165"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098483"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Preismodell für Azure Logic Apps
 
@@ -85,13 +85,13 @@ Azure Logic Apps-Connectors ermöglichen Ihren Logik-Apps Zugriff auf Apps, Dien
 
 Ein Trigger ist immer der erste Schritt in einem Logik-App-Workflow und stellt eine spezielle Aktion dar, die eine Logik-App-Instanz erstellt und ausführt, wenn bestimmte Kriterien erfüllt sind oder ein bestimmtes Ereignis auftritt. Trigger agieren auf verschiedene Weise, wovon abhängt, wie die Logik-App nutzungsbezogen abgerechnet wird. Nachfolgend sind die verschiedenen Triggerarten aufgelistet, die es in Azure Logic Apps gibt:
 
-* **Wiederholungstrigger**: Sie können diesen generischen Trigger, der für keinen Dienst und kein System spezifisch ist, verwenden, um einen beliebigen Logik-App-Workflow zu starten und eine Logik-App-Instanz zu erstellen, die auf Grundlage des im Trigger eingerichteten Wiederholungsintervalls ausgeführt wird. Sie können beispielsweise einen Wiederholungstrigger einrichten, der alle drei Tage oder nach einem komplexeren Zeitplan ausgeführt wird.
+* **Wiederholungstrigger** : Sie können diesen generischen Trigger, der für keinen Dienst und kein System spezifisch ist, verwenden, um einen beliebigen Logik-App-Workflow zu starten und eine Logik-App-Instanz zu erstellen, die auf Grundlage des im Trigger eingerichteten Wiederholungsintervalls ausgeführt wird. Sie können beispielsweise einen Wiederholungstrigger einrichten, der alle drei Tage oder nach einem komplexeren Zeitplan ausgeführt wird.
 
-* **Abfragetrigger**: Sie können diesen stärker spezialisierten Wiederholungstrigger verwenden, der normalerweise dem verwalteten Connector für einen bestimmten Dienst oder ein bestimmtes System zugeordnet ist, um auf Ereignisse oder Meldungen zu überprüfen, die die Kriterien für das Erstellen und Ausführen der Logik-App-Instanz auf Grundlage des im Trigger eingerichteten Wiederholungsintervalls erfüllen. Auch wenn keine Logik-App-Instanz erstellt wird, z. B. wenn Trigger übersprungen werden, zählt der Logic Apps-Dienst jede Abrufanforderung als Ausführung. Um das Abrufintervall festzulegen, richten Sie den Trigger über den Logik-App-Designer ein.
+* **Abfragetrigger** : Sie können diesen stärker spezialisierten Wiederholungstrigger verwenden, der normalerweise dem verwalteten Connector für einen bestimmten Dienst oder ein bestimmtes System zugeordnet ist, um auf Ereignisse oder Meldungen zu überprüfen, die die Kriterien für das Erstellen und Ausführen der Logik-App-Instanz auf Grundlage des im Trigger eingerichteten Wiederholungsintervalls erfüllen. Auch wenn keine Logik-App-Instanz erstellt wird, z. B. wenn Trigger übersprungen werden, zählt der Logic Apps-Dienst jede Abrufanforderung als Ausführung. Um das Abrufintervall festzulegen, richten Sie den Trigger über den Logik-App-Designer ein.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* **Webhooktrigger**: Anstatt einen Abfragetrigger zu verwenden, können Sie einen Webhooktrigger verwenden, um zu warten, bis der Client eine Anforderung an Ihre Logik-App an einer bestimmten Endpunkt-URL sendet. Jede Anforderung, die an den Webhookendpunkt gesendet wird, zählt als eine Aktionsausführung. Sowohl beim Anforderungstrigger als auch beim HTTP-Webhooktrigger handelt es sich beispielsweise um generische Webhooktrigger. Einige Connectors für Dienste oder Systeme verfügen ebenfalls über Webhooktrigger.
+* **Webhooktrigger** : Anstatt einen Abfragetrigger zu verwenden, können Sie einen Webhooktrigger verwenden, um zu warten, bis der Client eine Anforderung an Ihre Logik-App an einer bestimmten Endpunkt-URL sendet. Jede Anforderung, die an den Webhookendpunkt gesendet wird, zählt als eine Aktionsausführung. Sowohl beim Anforderungstrigger als auch beim HTTP-Webhooktrigger handelt es sich beispielsweise um generische Webhooktrigger. Einige Connectors für Dienste oder Systeme verfügen ebenfalls über Webhooktrigger.
 
 <a name="actions"></a>
 
@@ -118,15 +118,15 @@ Ein [festes Preismodell](https://azure.microsoft.com/pricing/details/logic-apps)
 
 Für Azure Logic Apps werden Integrationskonten vom Typ „Free“, „Basic“ und „Standard“ angeboten. Die Tarife „Basic“ und „Standard“ werden über die Vereinbarung zum Servicelevel (SLA) für Logic Apps unterstützt. Der Tarif „Free“ verfügt nicht über eine SLA-Unterstützung, und es gelten Einschränkungen für die Regionsverfügbarkeit, den Durchsatz und die Nutzung. Mit Ausnahme von Integrationskonten im Free-Tarif kann jede Azure-Region über mehr als ein Integrationskonto verfügen. Eine Preisübersicht finden Sie unter [Logic Apps – Preise](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-Wenn Sie eine [*Integrationsdienstumgebung* (Integration Service Environment, ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) verwenden ([Premium oder Developer](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)), kann diese insgesamt fünf Integrationskonten aufweisen. Weitere Informationen zum festen Preismodell für eine ISE finden Sie im obigen Abschnitt [Feststehendes Preismodell](#fixed-pricing) dieses Themas. Eine Preisübersicht finden Sie unter [Logic Apps – Preise](https://azure.microsoft.com/pricing/details/logic-apps).
+Wenn Sie eine [*Integrationsdienstumgebung* (Integration Service Environment, ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) verwenden ( [Premium oder Developer](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)), kann diese insgesamt fünf Integrationskonten aufweisen. Weitere Informationen zum festen Preismodell für eine ISE finden Sie im obigen Abschnitt [Feststehendes Preismodell](#fixed-pricing) dieses Themas. Eine Preisübersicht finden Sie unter [Logic Apps – Preise](https://azure.microsoft.com/pricing/details/logic-apps).
 
 Sehen Sie sich diese Beschreibungen von Anwendungsfällen an, um die Entscheidung zwischen Integrationskonten vom Typ „Free“, „Basic“ oder „Standard“ treffen zu können:
 
 * **Free:** Ein Konto zum Ausprobieren von Testszenarien. Nicht für Produktionsszenarien geeignet. Diese Dienstebene ist nur für öffentliche Regionen in Azure verfügbar, z. B. „USA, Westen“ oder „Asien, Südosten“, aber nicht für [Azure China 21ViaNet](/azure/china/overview-operations) oder [Azure Government](../azure-government/documentation-government-welcome.md).
 
-* **Basic**: Verwenden Sie ein Konto dieses Typs, wenn Sie nur die Behandlung von Nachrichten nutzen oder als Partner für ein kleines Unternehmen fungieren möchten, das eine Handelspartnerbeziehung mit einem größeren Unternehmen eingegangen ist.
+* **Basic** : Verwenden Sie ein Konto dieses Typs, wenn Sie nur die Behandlung von Nachrichten nutzen oder als Partner für ein kleines Unternehmen fungieren möchten, das eine Handelspartnerbeziehung mit einem größeren Unternehmen eingegangen ist.
 
-* **Standard**: Kontotyp für komplexere B2B-Beziehungen und eine höhere Anzahl von Entitäten, die Sie verwalten müssen.
+* **Standard** : Kontotyp für komplexere B2B-Beziehungen und eine höhere Anzahl von Entitäten, die Sie verwalten müssen.
 
 <a name="data-retention"></a>
 
@@ -137,6 +137,7 @@ Mit Ausnahme von Logik-Apps, die in einer ISE (Integration Service Environment) 
 Für die Überwachung der Speichernutzung Ihrer Logik-App haben Sie folgende Möglichkeiten:
 
 * Anzeigen der Speichereinheiten in GB, die Ihre Logik-App monatlich verwendet
+
 * Anzeigen der Größen der Eingaben und Ausgaben für eine bestimmte Aktion im Ausführungsverlauf Ihrer Logik-App
 
 <a name="storage-consumption"></a>
@@ -150,6 +151,9 @@ Für die Überwachung der Speichernutzung Ihrer Logik-App haben Sie folgende Mö
 1. Wählen Sie im rechten Bereich unter **Diagrammtitel** in der Liste **Metrik** die Option **Nutzungsabrechnung für Ausführungen mit Speicherverbrauch** aus.
 
    Mit dieser Metrik erhalten Sie die Anzahl der Speichernutzungseinheiten in GB pro Monat, die in Rechnung gestellt werden.
+
+   > [!NOTE]
+   > Ausführungen, die im Speicher weniger als 500 MB belegen, werden in der Überwachungsansicht möglicherweise nicht angezeigt, sie werden jedoch trotzdem in Rechnung gestellt.
 
 <a name="input-output-sizes"></a>
 
@@ -165,7 +169,10 @@ Für die Überwachung der Speichernutzung Ihrer Logik-App haben Sie folgende Mö
 
 1. Wählen Sie im Bereich **Details zur Logik-App-Ausführung** in der Aktionentabelle, in der der Status und die Dauer jeder Aktion aufgeführt sind, die Aktion aus, die Sie anzeigen möchten.
 
-1. Suchen Sie im Bereich **Logik-App-Aktion** nach den Größen für die Eingaben und Ausgaben dieser Aktion. Diese Werte werden unter **Eingabelink** bzw. **Ausgabelink** angezeigt.
+1. Suchen Sie im Bereich **Logik-App-Aktion** die Größe der Eingaben und Ausgaben dieser Aktion. Suchen Sie unter **Eingabelink** und **Ausgabelink** die Links zu diesen Ein- und Ausgaben.
+
+   > [!NOTE]
+   > Bei Schleifen werden nur für die Aktionen der obersten Ebene Ein- und Ausgaben angezeigt. Für Aktionen innerhalb von geschachtelten Schleifen wird für die Ein- und Ausgaben die Größe 0 (null) angezeigt, und es werden keine Links bereitgestellt.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

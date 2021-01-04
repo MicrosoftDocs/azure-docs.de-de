@@ -10,12 +10,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: avgupta
-ms.openlocfilehash: 725beb50e55852e35ee4434539ff158f082059df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee262c0eb2431085e71d8ee0035bcdab9833d1cf
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121939"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565771"
 ---
 # <a name="leverage-content-type-to-store-json-key-values-in-app-configuration"></a>Verwenden des Inhaltstyps zum Speichern von JSON-Schlüssel-Wert-Paaren in App Configuration
 
@@ -63,13 +63,11 @@ In diesem Tutorial lernen Sie Folgendes:
 > * Verwenden von JSON-Schlüssel-Wert-Paaren in Ihren Anwendungen.
 
 
-## <a name="prerequisites"></a>Voraussetzungen
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- Azure-Abonnement – [Erstellen eines kostenlosen Kontos](https://azure.microsoft.com/free/)
-- Aktuelle Version der Azure CLI (2.10.0 oder höher). Führen Sie `az --version` aus, um die Version zu finden. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sie bei Bedarf unter [Installieren der Azure CLI](/cli/azure/install-azure-cli). Falls Sie die Azure CLI verwenden, müssen Sie sich erst mithilfe von `az login` anmelden. Sie können optional Azure Cloud Shell verwenden.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
+- Für dieses Tutorial ist mindestens Version 2.10.0 der Azure CLI erforderlich. Bei Verwendung von Azure Cloud Shell ist die aktuelle Version bereits installiert.
 
 ## <a name="create-an-app-configuration-store"></a>Erstellen eines App Configuration-Speichers
 

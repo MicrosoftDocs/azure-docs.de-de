@@ -1,15 +1,15 @@
 ---
 title: Exportieren von Azure Policy-Ressourcen
 description: Erfahren Sie, wie Sie Azure Policy-Ressourcen wie Richtliniendefinitionen und Richtlinienzuweisungen nach GitHub exportieren.
-ms.date: 09/30/2020
+ms.date: 10/29/2020
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 691e0a026c5f4f1a0a68c744ee81b1da8da9e70b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 923b063244f6f47def1c3e6a63d6e4d6b3b88083
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777087"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919564"
 ---
 # <a name="export-azure-policy-resources"></a>Exportieren von Azure Policy-Ressourcen
 
@@ -63,9 +63,9 @@ Die Azure Policy-Ressourcen werden in die folgende Struktur innerhalb des ausgew
 
 Azure Policy-Definitionen, Initiativen und Zuweisungen können jeweils im JSON-Code mit [Azure CLI](/cli/azure/install-azure-cli) exportiert werden. Jeder dieser Befehle verwendet einen **name**-Parameter, um anzugeben, für welches Objekt der JSON-Code verwendet werden soll. Die **name**-Eigenschaft ist oft eine _GUID_ und nicht der **displayName** des Objekts.
 
-- Definition – [az policy definition show](/cli/azure/policy/definition#az-policy-definition-show)
-- Initiative – [az policy set-definition show](/cli/azure/policy/set-definition#az-policy-set-definition-show)
-- Zuweisung – [az policy assignment show](/cli/azure/policy/assignment#az-policy-assignment-show)
+- Definition – [az policy definition show](/cli/azure/policy/definition#az_policy_definition_show)
+- Initiative – [az policy set-definition show](/cli/azure/policy/set-definition#az_policy_set_definition_show)
+- Zuweisung – [az policy assignment show](/cli/azure/policy/assignment#az_policy_assignment_show)
 
 Im Folgenden finden Sie ein Beispiel für das Abrufen des JSON-Codes für eine Richtliniendefinition, wobei **name** den Wert _VirtualMachineStorage_ hat:
 
@@ -84,7 +84,7 @@ Azure Policy-Definitionen, Initiativen und Zuweisungen können jeweils im JSON-C
 Im Folgenden finden Sie ein Beispiel für das Abrufen des JSON-Codes für eine Richtliniendefinition, wobei **Name** den Wert _VirtualMachineStorage_ hat:
 
 ```azurepowershell-interactive
-Get-AzPolicyDefinition -Name 'VirtualMachineStorage'
+Get-AzPolicyDefinition -Name 'VirtualMachineStorage' | ConvertTo-Json -Depth 10
 ```
 
 ## <a name="next-steps"></a>Nächste Schritte

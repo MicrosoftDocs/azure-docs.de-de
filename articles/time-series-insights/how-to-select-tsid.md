@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: fb409673e028375812551ec146b43c27e3755d2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3f6f6a5ac1068f2eabca351e85376b8e16d1058
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91595521"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016750"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Bewährte Methoden für die Auswahl einer Time Series-ID
 
@@ -32,11 +32,11 @@ Die Auswahl einer geeigneten Time Series-ID ist entscheidend. Das Auswählen ein
 > * Sie sind *unveränderliche* Eigenschaften: Nach dem Erstellen können sie nicht mehr geändert werden.
 
 > [!TIP]
-> Wenn es sich bei Ihrer Ereignisquelle um einen IoT-Hub handelt, lautet Ihre Zeitreihen-ID wahrscheinlich ***iothub-connection-device-id***.
+> Wenn es sich bei Ihrer Ereignisquelle um einen IoT-Hub handelt, lautet Ihre Zeitreihen-ID wahrscheinlich ***iothub-connection-device-id** _.
 
 Zu den wichtigsten bewährten Methoden gehören:
 
-* Wählen Sie einen Partitionsschlüssel mit vielen unterschiedlichen Werten (z. B. Hunderten oder Tausenden) aus. In vielen Fällen kann dies die Geräte-ID, die Sensor-ID oder die Tag-ID in Ihrem JSON sein.
+_ Wählen Sie einen Partitionsschlüssel mit vielen unterschiedlichen Werten (z. B. Hunderten oder Tausenden) aus. In vielen Fällen kann dies die Geräte-ID, die Sensor-ID oder die Tag-ID in Ihrem JSON sein.
 * Die Time Series-ID sollte auf Blattknotenebene Ihres [Zeitreihenmodells](./concepts-model-overview.md) eindeutig sein.
 * Das Zeichenlimit für die Zeichenfolge des Eigenschaftsnamens der Time Series-ID ist 128. Für den Eigenschaftswert der Time Series-ID ist das Zeichenlimit 1.024.
 * Wenn ein eindeutiger Eigenschaftswert für die Time Series-ID fehlt, wird er als Nullwert behandelt und folgt derselben Regel der Eindeutigkeitseinschränkung.
@@ -86,4 +86,4 @@ Im Azure-Portal können Sie diesen zusammengesetzten Schlüssel dann folgenderma
 
 * Lesen Sie die [JSON-Vereinfachungs- und -Escaperegeln](./concepts-json-flattening-escaping-rules.md), um zu verstehen, wie Ereignisse gespeichert werden.
 
-* Planen Sie Ihre [Azure Time Series Insights Gen2-Umgebung](./time-series-insights-update-plan.md).
+* Planen Sie Ihre [Azure Time Series Insights Gen2-Umgebung](./how-to-plan-your-environment.md).

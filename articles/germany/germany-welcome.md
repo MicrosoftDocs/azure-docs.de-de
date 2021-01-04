@@ -7,12 +7,12 @@ author: gitralf
 ms.author: ralfwi
 ms.service: germany
 ms.custom: bfdocs
-ms.openlocfilehash: 39f41fe4b5d44c7e21a9d1a0fcd5fe265dee990d
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 394e804faa0d6f6036a025cb4cad0119af5c3837
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127055"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018436"
 ---
 # <a name="welcome-to-azure-germany"></a>Willkommen bei Azure Deutschland
 
@@ -44,13 +44,10 @@ Bei den meisten der derzeit verfügbaren technischen Inhalte wird davon ausgegan
 * Informationen zur Abgrenzung von Azure Deutschland sowie Anleitungen und bewährte Methoden zu den durch Kunden regulierten und/oder gesteuerten Daten finden Sie in der technischen Dienstdokumentation zu Azure Deutschland auf dieser Website.
 
 ## <a name="next-steps"></a>Nächste Schritte
-Abonnieren Sie den [Azure Deutschland-Blog](https://blogs.msdn.microsoft.com/azuregermany/), um weitere Informationen und Updates zu erhalten.
+Abonnieren Sie den [Azure Deutschland-Blog](/archive/blogs/azuregermany/), um weitere Informationen und Updates zu erhalten.
 
 Wenn Sie mehr über Azure Deutschland erfahren möchten, verwenden Sie die folgenden Links:
 
 * [Registrieren Sie sich für eine Testversion](https://azure.microsoft.com/free/germany/)
 * [Anmelden](https://portal.microsoftazure.de/) (wenn Sie bereits ein Azure Deutschland-Konto besitzen)
-* [Erwerben von und Zugreifen auf Azure Deutschland](https://azure.microsoft.com/overview/clouds/germany/) 
-
-
-
+* [Erwerben von und Zugreifen auf Azure Deutschland](https://azure.microsoft.com/overview/clouds/germany/)

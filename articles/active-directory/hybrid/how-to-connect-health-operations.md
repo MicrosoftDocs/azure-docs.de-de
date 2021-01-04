@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a83d1a4bdc2496f874a963b8858192273260cc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91b7bd6d05ee0b992ee166b9acb13aff2e605a2c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89276268"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961004"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health-Vorgänge
 In diesem Thema werden die verschiedenen Vorgänge beschrieben, die Sie mit Azure Active Directory (Azure AD) Connect Health durchführen können.
@@ -137,7 +137,7 @@ Um einem Benutzer Zugriff auf der Ebene *Alle Dienstinstanzen* innerhalb von Azu
 3. Wählen Sie im Bereich **Rolle auswählen** eine Rolle aus (z.B. **Besitzer**).<br>
    ![Screenshot: Azure AD Connect Health und Konfigurationsmenü von Azure RBAC](./media/how-to-connect-health-operations/RBAC_add.png)
 4. Geben Sie den Namen oder die Kennung des entsprechenden Benutzers oder der Gruppe ein. Sie können einen oder mehrere Benutzer oder Gruppen gleichzeitig auswählen. Klicken Sie auf **Auswählen**.
-   ![Screenshot: Azure AD Connect Health und Rollenliste von Azure RBAC](./media/how-to-connect-health-operations/RBAC_select_users.png)
+   ![Screenshot: Azure AD Connect Health und Rollenliste von Azure](./media/how-to-connect-health-operations/RBAC_select_users.png)
 5. Klicken Sie auf **OK**.<br>
 6. Nach Abschluss der Rollenzuweisung werden die Benutzer und Gruppen in der Liste angezeigt.<br>
    ![Screenshot: Azure AD Connect Health und Azure RBAC mit hervorgehobenen neuen Benutzern](./media/how-to-connect-health-operations/RBAC_user_list.png)

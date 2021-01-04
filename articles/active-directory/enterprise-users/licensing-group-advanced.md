@@ -7,20 +7,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 08/13/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56f16dea1f81f7f6a35409d8481550fd000864b1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 72a28aebe71809f3e47f9cc6936366cd027a32bb
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373258"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546674"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Szenarien, Einschränkungen und bekannte Probleme mit der Verwendung von Gruppen zum Verwalten der Lizenzierung in Azure Active Directory
 
@@ -76,7 +76,7 @@ Ein Benutzer kann Mitglied mehrerer Gruppen mit Lizenzen sein. Folgende Punkte s
 
   Ergebnis: Für den Benutzer sind sieben der zwölf Dienste im Produkt aktiviert, und es wird nur eine Lizenz dafür genutzt.
 
-- Bei Auswahl der *E3* -Lizenz werden weitere Details angezeigt, einschließlich der Informationen dazu, welche Dienste für den Benutzer durch die Gruppenlizenzzuweisung aktiviert wurden.
+- Bei Auswahl der *E3*-Lizenz werden weitere Details angezeigt, einschließlich der Informationen dazu, welche Dienste für den Benutzer durch die Gruppenlizenzzuweisung aktiviert wurden.
 
 ## <a name="direct-licenses-coexist-with-group-licenses"></a>Gleichzeitig bestehende direkte Lizenzen und Gruppenlizenzen
 
@@ -86,7 +86,7 @@ Es ist aber möglich, dem Benutzer zusätzlich zur geerbten Lizenz die gleiche P
 
 Direkt zugewiesene Lizenzen können entfernt werden und wirken sich nicht auf geerbte Lizenzen aus. Angenommen, ein Benutzer erbt eine Office 365 Enterprise E3-Lizenz von einer Gruppe.
 
-Zuerst erbt der Benutzer die Lizenz nur von der *Basic E3-Dienste* -Gruppe, sodass sich vier Dienstpläne ergeben.
+Zuerst erbt der Benutzer die Lizenz nur von der *Basic E3-Dienste*-Gruppe, sodass sich vier Dienstpläne ergeben.
 
 1. Wählen Sie **Zuweisen** aus, um dem Benutzer eine E3-Lizenz direkt zuzuweisen. In diesem Fall deaktivieren Sie alle Dienstpläne mit Ausnahme von Yammer Enterprise.
 
@@ -110,9 +110,9 @@ Hier ist ein Beispiel dafür angegeben, wie dieser Prozess aussehen kann:
 
 2. Sie haben eine Benachrichtigung von Microsoft erhalten, dass das E5-Produkt um den neuen Dienst *Microsoft Stream* erweitert wird. Wenn der Dienst in Ihrer Organisation verfügbar ist, können Sie Folgendes ausführen:
 
-3. Navigieren Sie zum Blatt [**Azure Active Directory > Lizenzen > Alle Produkte**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products), und wählen Sie *Office 365 Enterprise E5* und dann **Lizenzierte Gruppen** , um eine Liste mit allen Gruppen mit diesem Produkt anzuzeigen.
+3. Navigieren Sie zum Blatt [**Azure Active Directory > Lizenzen > Alle Produkte**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products), und wählen Sie *Office 365 Enterprise E5* und dann **Lizenzierte Gruppen**, um eine Liste mit allen Gruppen mit diesem Produkt anzuzeigen.
 
-4. Klicken Sie auf die Gruppe, die Sie überprüfen möchten (hier *O365 E5 – Exchange only* ). Die Registerkarte **Lizenzen** wird geöffnet. Wenn Sie auf die E5-Lizenz klicken, wird ein Blatt geöffnet, auf dem alle aktivierten Dienste aufgeführt sind.
+4. Klicken Sie auf die Gruppe, die Sie überprüfen möchten (hier *O365 E5 – Exchange only*). Die Registerkarte **Lizenzen** wird geöffnet. Wenn Sie auf die E5-Lizenz klicken, wird ein Blatt geöffnet, auf dem alle aktivierten Dienste aufgeführt sind.
    > [!NOTE]
    > Der Dienst *Microsoft Stream* wurde dieser Gruppe zusätzlich zum Dienst *Exchange Online* automatisch hinzugefügt und aktiviert:
 
@@ -148,7 +148,7 @@ Sie können [Azure AD-Überwachungsprotokolle](../reports-monitoring/concept-aud
 
 ### <a name="find-out-who-modified-a-group-license"></a>Ermitteln, wer eine Gruppenlizenz geändert hat
 
-1. Legen Sie den Filter **Aktivität** auf *Set group license* (Gruppenlizenz festlegen) fest, und klicken Sie auf **Übernehmen** .
+1. Legen Sie den Filter **Aktivität** auf *Set group license* (Gruppenlizenz festlegen) fest, und klicken Sie auf **Übernehmen**.
 2. Die Ergebnisse enthalten alle Fälle von Lizenzen, die für Gruppen festgelegt oder geändert werden.
    >[!TIP]
    > Sie können auch den Namen der Gruppe im Filter *Ziel* eingeben, um die Ergebnisse einzugrenzen.

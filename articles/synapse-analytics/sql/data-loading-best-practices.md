@@ -1,6 +1,6 @@
 ---
 title: Bewährte Methoden für das Laden von Daten
-description: Dieser Artikel enthält Empfehlungen und Leistungsoptimierungen für das Laden von Daten in Synapse SQL.
+description: Empfehlungen und Leistungsoptimierungen für das Laden von Daten in einen dedizierten SQL-Pool in Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,20 +11,20 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4c07ad2aaf6c682dc370e3223dba1f199242ca2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e706f12a251cd38c3525a48553743606ed199b6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289230"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024026"
 ---
-# <a name="best-practices-for-loading-data-for-data-warehousing"></a>Bewährte Methoden zum Laden von Daten für Data Warehousing
+# <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-azure-synapse-analytics"></a>Bewährte Methoden für das Laden von Daten in einen dedizierten SQL-Pool in Azure Synapse Analytics
 
 Dieser Artikel finden Sie Empfehlungen und Leistungsoptimierungen für das Laden von Daten.
 
 ## <a name="prepare-data-in-azure-storage"></a>Vorbereiten von Daten in Azure Storage
 
-Zur Minimierung der Wartezeit sollten sich Speicherebene und Data Warehouse am gleichen Ort befinden.
+Zur Minimierung der Latenz sollten sich Ihre Speicherebene und Ihr dedizierter SQL-Pool an demselben Ort befinden.
 
 Beim Exportieren von Daten in ein ORC-Dateiformat erhalten Sie unter Umständen Java-Fehler vom Typ „Nicht genügend Speicherplatz“, falls umfangreiche Textspalten vorhanden sind. Diese Einschränkung können Sie umgehen, indem Sie nur eine Teilmenge der Spalten exportieren.
 
@@ -36,7 +36,7 @@ Teilen Sie große komprimierte Dateien in kleinere komprimierte Dateien.
 
 ## <a name="run-loads-with-enough-compute"></a>Ausführen von Ladevorgängen mit ausreichender Computekapazität
 
-Führen Sie immer nur einen einzelnen Ladeauftrag aus, um die bestmögliche Ladegeschwindigkeit zu erzielen. Sollte das nicht möglich sein, führen Sie eine möglichst geringe Anzahl von Ladevorgängen gleichzeitig aus. Wenn ein umfangreicher Ladeauftrag ansteht, empfiehlt es sich unter Umständen, Ihren SQL-Pool Data Warehouse vor dem Laden zentral hochzuskalieren.
+Führen Sie immer nur einen einzelnen Ladeauftrag aus, um die bestmögliche Ladegeschwindigkeit zu erzielen. Sollte das nicht möglich sein, führen Sie eine möglichst geringe Anzahl von Ladevorgängen gleichzeitig aus. Wenn Sie einen umfangreichen Ladeauftrag erwarten, empfiehlt es sich unter Umständen, Ihren dedizierten SQL-Pool vor dem Laden zentral hochzuskalieren.
 
 Erstellen Sie „Ladebenutzer“, die für das Ausführen von Ladevorgängen vorgesehen sind, um Ladevorgänge mit den geeigneten Computeressourcen durchzuführen. Weisen Sie jedem Ladebenutzer eine bestimmte Ressourcenklasse oder Arbeitsauslastungsgruppe zu. Melden Sie sich zum Ausführen eines Ladevorgangs als ein Ladebenutzer an, und führen Sie den Ladevorgang aus. Der Ladevorgang wird mit der Ressourcenklasse des Benutzers ausgeführt.  Diese Methode ist einfacher als der Versuch, die Ressourcenklasse eines Benutzers zu ändern, um die jeweilige Ressourcenklassenanforderung zu erfüllen.
 

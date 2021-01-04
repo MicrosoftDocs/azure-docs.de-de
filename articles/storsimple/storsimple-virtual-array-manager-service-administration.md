@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/1/2016
 ms.author: alkohli
-ms.openlocfilehash: d7c7cf335336cc552adaf5d9490bc58d64b0cdc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2395e3c6f2026bc1024de38122bc20959fdcf9b7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515438"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967090"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>Verwalten des StorSimple Virtual Array mithilfe des StorSimple Geräte-Manager-Diensts
 ![Setup-Prozessablauf](./media/storsimple-virtual-array-manager-service-administration/manage4.png)
@@ -34,7 +34,7 @@ In diesem Artikel lernen Sie Folgendes:
 * Verwalten Ihres StorSimple Virtual Array über den StorSimple-Geräte-Manager-Dienst
 
 > [!NOTE]
-> Die Verwaltungsoptionen, die für das Gerät der StorSimple 8000er Serie verfügbar sind, finden Sie unter [Verwalten Ihres StorSimple-Geräts mithilfe des StorSimple Manager-Diensts](storsimple-manager-service-administration.md).
+> Die Verwaltungsoptionen, die für das Gerät der StorSimple 8000er Serie verfügbar sind, finden Sie unter [Verwalten Ihres StorSimple-Geräts mithilfe des StorSimple Manager-Diensts](./storsimple-8000-manager-service-administration.md).
 > 
 > 
 
@@ -78,4 +78,3 @@ Klicken Sie auf die Verfahren in der Tabelle, um weitere Informationen zu den ei
 
 ## <a name="next-steps"></a>Nächste Schritte
 Informationen zur Webbenutzeroberfläche und ihrer Verwendung finden Sie unter [Verwalten des StorSimple Virtual Arrays über die StorSimple-Webbenutzeroberfläche](storsimple-ova-web-ui-admin.md).
-

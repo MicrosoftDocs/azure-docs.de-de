@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 08/13/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c1b51792c86cfce15fa718040dfcbcc13997ee26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87ea77540e5fcaac0c4231403473d25ebae46aac
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85384956"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840252"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Beheben von Problemen mit benutzerdefinierten Azure AD B2C-Richtlinien und dem Framework für die Identitätsfunktion
 
@@ -64,7 +64,7 @@ Beispiele für häufige Validierungsfehler:
 
 * Verwenden Sie [Fiddler](https://www.telerik.com/fiddler), um den Austausch von Nachrichten zwischen Ihrem Clientbrowser und Azure AD B2C nachzuverfolgen. So erhalten Sie Hinweise dazu, an welcher Stelle für Ihre User Journey in den Orchestrierungsschritten ein Fehler auftritt.
 
-* Verwenden Sie im **Entwicklungsmodus** die Anwendung [Application Insights](troubleshoot-with-application-insights.md), um die Aktivität Ihrer User Journey für Identity Experience Framework nachzuverfolgen. Im **Entwicklungsmodus** können Sie den Austausch von Ansprüchen zwischen dem Identity Experience Framework und den unterschiedlichen Anspruchsanbietern verfolgen, die anhand von technischen Profilen definiert werden, z. B. Identitätsanbieter, API-basierte Dienste, Azure AD B2C-Benutzerverzeichnis und andere Dienste wie Azure Multi-Factor Authentication.
+* Verwenden Sie im **Entwicklungsmodus** die Anwendung [Application Insights](troubleshoot-with-application-insights.md), um die Aktivität Ihrer User Journey für Identity Experience Framework nachzuverfolgen. Im **Entwicklungsmodus** können Sie den Austausch von Ansprüchen zwischen Identity Experience Framework und den unterschiedlichen Anspruchsanbietern verfolgen, die anhand von technischen Profilen definiert werden, z. B. Identitätsanbieter, API-basierte Dienste, Azure AD B2C-Benutzerverzeichnis und andere Dienste wie Azure AD Multi-Factor Authentication.
 
 ## <a name="recommended-practices"></a>Empfohlene Vorgehensweisen
 

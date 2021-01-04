@@ -4,11 +4,11 @@ description: Steuerungszuordnung des SWIFT CSP-CSCF v2020-Blaupausenbeispiels Je
 ms.date: 08/18/2020
 ms.topic: sample
 ms.openlocfilehash: 5aa4ee556c4ec7348566f45592b5e9fbf00eaf20
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932191"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009397"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Steuerungszuordnung des SWIFT CSP-CSCF v2020-Blaupausenbeispiels
 

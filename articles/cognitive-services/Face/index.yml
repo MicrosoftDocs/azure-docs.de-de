@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 9/01/2020
-  ms.openlocfilehash: f2f38fae9a9f1fe92fcd539dbfaf72b601ce3b41
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: 4ec184d713ac6fffbfa83072c733444ebf9130f6
+  ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92369997"
+  ms.lasthandoff: 12/16/2020
+  ms.locfileid: "97560625"
 landingContent:
 - title: Informationen zum Gesichtserkennungsdienst
   linkLists:
@@ -24,6 +24,10 @@ landingContent:
     links:
     - text: Was ist der Gesichtserkennungsdienst?
       url: Overview.md
+  - linkListType: whats-new
+    links:
+    - text: Neuerungen im Gesichtserkennungsdienst
+      url: releasenotes.md
 - title: Erkennen von Gesichtern
   linkLists:
   - linkListType: concept
@@ -51,11 +55,11 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Verwenden des .NET SDK
-      url: quickstarts/csharp-sdk.md
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp
     - text: Verwenden des Python SDK
-      url: quickstarts/python-sdk.md
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python
     - text: Verwenden des Go SDK
-      url: quickstarts/go-sdk.md
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-go%253fpivots%253dprogramming-language-go
   - linkListType: how-to-guide
     links:
     - text: Angeben eines Gesichtserkennungsmodells
@@ -91,21 +95,19 @@ landingContent:
     - text: Gesichtserkennungs-API v1.0
       url: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236
     - text: .NET SDK
-      url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
+      url: /dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
     - text: Python SDK
-      url: https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python
+      url: /python/api/azure-cognitiveservices-vision-face/?view=azure-python
     - text: Java-SDK
-      url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
+      url: /java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
     - text: Node.js SDK
-      url: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face
+      url: /javascript/api/@azure/cognitiveservices-face
     - text: Go SDK
       url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
-    - text: iOS SDK
-      url: https://github.com/Microsoft/Cognitive-Face-iOS
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+      url: /powershell/module/az.cognitiveservices/#cognitive_services
     - text: Azure-Befehlszeilenschnittstelle (CLI)
-      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+      url: /cli/azure/cognitiveservices?view=azure-cli-latest
 - title: Hilfe und Feedback
   linkLists:
   - linkListType: reference

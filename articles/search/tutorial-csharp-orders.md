@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/02/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5fe8bf70374a2eec639a0a9365f7d227cf259d06
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 5a55a330f6f4fefb86f2c056cd0ca3b2ba5f4b29
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91667247"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499593"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>Tutorial: Sortieren von Suchergebnissen mithilfe des .NET SDK
 
@@ -965,7 +965,7 @@ Betrachten wir drei Beispiele für Bewertungsprofile und überlegen uns, wie sic
 
 ### <a name="resources"></a>Ressourcen
 
-Weitere Informationen finden Sie unter [Hinzufügen von Bewertungsprofilen zu einem Azure Cognitive Search-Index](/azure/search/index-add-scoring-profiles).
+Weitere Informationen finden Sie unter [Hinzufügen von Bewertungsprofilen zu einem Azure Cognitive Search-Index](./index-add-scoring-profiles.md).
 
 ## <a name="takeaways"></a>Wesentliche Punkte
 

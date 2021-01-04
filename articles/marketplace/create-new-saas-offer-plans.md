@@ -8,19 +8,19 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 63629f32c97611fa8bc57ecdac968552375125f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 238ef9ec80b01470e28535d0eb42dbb3a377b005
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380468"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746436"
 ---
 # <a name="how-to-create-plans-for-your-saas-offer"></a>Erstellen von Plänen für Ihr SaaS-Angebot
 
 Angebote, die über den kommerziellen Marketplace von Microsoft verkauft werden, müssen mindestens einen Plan aufweisen. Sie können eine Vielzahl von Plänen mit unterschiedlichen Optionen im gleichen Angebot erstellen. Diese Pläne (auch als SKUs bezeichnet) können sich in Bezug auf Version, Monetarisierung und Dienstebenen unterscheiden. Ausführliche Anleitungen zu Plänen finden Sie unter [Pläne und Preise für Angebote im kommerziellen Marketplace](plans-pricing.md).
 
 > [!NOTE]
-> Wenn Sie Transaktionen unabhängig verarbeiten, wird diese Option nicht angezeigt. In diesem Fall können Sie mit [Vermarkten Ihres SaaS-Angebots](create-new-saas-offer-marketing.md) fortfahren.
+> Wenn Sie Transaktionen unabhängig verarbeiten, wird diese Option nicht angezeigt. In diesem Fall können Sie mit [Verkaufen Ihres SaaS-Angebots](create-new-saas-offer-marketing.md) fortfahren.
 
 ## <a name="create-a-plan"></a>Erstellen von Plänen
 
@@ -152,5 +152,5 @@ Die Aktionen, die in der Spalte **Aktion** der Registerkarte **Planübersicht** 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Vermarkten Ihres SaaS-Angebots](create-new-saas-offer-marketing.md) mit den Programmen **Co-Selling mit Microsoft** und **Verkaufen über CSPs**
+- Erfahren Sie, wie Sie die Programme **Co-Selling mit Microsoft** und **Verkaufen über CSPs** zum [Verkaufen Ihres SaaS-Angebots](create-new-saas-offer-marketing.md) nutzen.
 - [Testen und Veröffentlichen eines SaaS-Angebots im kommerziellen Marketplace](test-publish-saas-offer.md)

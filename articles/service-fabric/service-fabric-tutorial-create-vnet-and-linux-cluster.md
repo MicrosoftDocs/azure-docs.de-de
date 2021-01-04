@@ -3,13 +3,13 @@ title: Erstellen eines Service Fabric-Clusters unter Linux in Azure
 description: Hier erfahren Sie, wie Sie mithilfe der Azure CLI einen Service Fabric-Linux-Cluster in einem vorhandenen virtuellen Azure-Netzwerk bereitstellen.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.custom: mvc
-ms.openlocfilehash: c4b71328ce59284f8870407c9492d24afe9acd8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 52eba2e5780b1a66f3884a764631908335372273
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88586919"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738951"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Bereitstellen eines Service Fabric-Linux-Clusters in einem virtuellen Azure-Netzwerk
 
@@ -43,10 +43,10 @@ Für Ubuntu 18.04 LTS:
 
 Für Ubuntu 18.04 LTS umfasst der Unterschied zwischen den beiden Vorlagen Folgendes: 
 * Attribut **vmImageSku** ist auf „18.04-LTS“ festgelegt
-* **typeHandlerVersion**-Element jedes Knotens ist auf 1.1 festgelegt
+* **typeHandlerVersion** -Element jedes Knotens ist auf 1.1 festgelegt
 * Für die Ressource „Microsoft.ServiceFabric/clusters“:
    - **apiVersion** ist auf „2019-03-01“ oder höher festgelegt
-   - **vmImage**-Eigenschaft ist auf „Ubuntu18_04“ festgelegt
+   - **vmImage** -Eigenschaft ist auf „Ubuntu18_04“ festgelegt
 
 Diese Vorlage stellt einen sicheren Cluster mit sieben virtuellen Computern und drei Knotentypen in einem virtuellen Netzwerk bereit.  Weitere Beispielvorlagen finden Sie auf [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Die Datei [AzureDeploy.json][template] stellt verschiedene Ressourcen bereit, einschließlich der folgenden.
 
@@ -84,7 +84,7 @@ Wenn keine anderen Anwendungsports benötigt werden, müssen Sie die Ressource �
 
 ## <a name="set-template-parameters"></a>Festlegen von Vorlagenparametern
 
-In der **AzureDeploy.Parameters**-Datei werden viele Werte deklariert, die zum Bereitstellen des Clusters und der zugehörigen Ressourcen verwendet werden. Hier sind einige Parameter angegeben, die Sie für Ihre Bereitstellung ggf. ändern müssen:
+In der **AzureDeploy.Parameters** -Datei werden viele Werte deklariert, die zum Bereitstellen des Clusters und der zugehörigen Ressourcen verwendet werden. Hier sind einige Parameter angegeben, die Sie für Ihre Bereitstellung ggf. ändern müssen:
 
 |Parameter|Beispielwert|Notizen|
 |---|---||
@@ -152,7 +152,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 
 ## <a name="connect-to-the-secure-cluster"></a>Herstellen einer Verbindung mit dem sicheren Cluster
 
-Stellen Sie mit dem Service Fabric-CLI-Befehl `sfctl cluster select` unter Verwendung Ihres Schlüssels eine Verbindung mit dem Cluster her.  Verwenden Sie für ein selbstsigniertes Zertifikat nur die Option **--no-verify**.
+Stellen Sie mit dem Service Fabric-CLI-Befehl `sfctl cluster select` unter Verwendung Ihres Schlüssels eine Verbindung mit dem Cluster her.  Verwenden Sie für ein selbstsigniertes Zertifikat nur die Option **--no-verify** .
 
 ```console
 sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 \

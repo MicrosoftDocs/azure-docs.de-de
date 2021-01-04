@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 0c37c8f108e9bcbb827c05242d8863994dfc64cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a668024db126c82f96756555aba513b77f7d7366
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89177090"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422959"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Lokales Debuggen von PowerShell Azure Functions
 
@@ -38,7 +38,7 @@ PSFunctionApp
  | - profile.ps1
 ```
 
-Diese Funktions-App ähnelt derjenigen, die Sie erhalten, wenn die [Schnellstartanleitung zu PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell) durcharbeiten.
+Diese Funktions-App ähnelt derjenigen, die Sie erhalten, wenn die [Schnellstartanleitung zu PowerShell](./create-first-function-vs-code-powershell.md) durcharbeiten.
 
 Der Funktionscode in `run.ps1` ähnelt dem folgenden Skript:
 
@@ -95,10 +95,10 @@ Mit eingefügtem `Wait-Debugger` können Sie nun die Funktionen entweder mit Vis
 Um PowerShell-Funktionen in Visual Studio Code zu debuggen, müssen folgende Komponenten installiert sein:
 
 * [PowerShell-Erweiterung für Visual Studio Code](/powershell/scripting/components/vscode/using-vscode)
-* [Azure Functions-Erweiterung für Visual Studio Code](functions-create-first-function-vs-code.md)
+* [Azure Functions-Erweiterung für Visual Studio Code](./create-first-function-cli-powershell.md)
 * [PowerShell Core 6.2 oder höher](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-Laden Sie nach der Installation dieser Abhängigkeiten ein vorhandenes Projekt für PowerShell-Funktionen, oder [Erstellen Sie Ihr erstes Projekt für PowerShell-Funktionen](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell).
+Laden Sie nach der Installation dieser Abhängigkeiten ein vorhandenes Projekt für PowerShell-Funktionen, oder [Erstellen Sie Ihr erstes Projekt für PowerShell-Funktionen](./create-first-function-vs-code-powershell.md).
 
 >[!NOTE]
 > Sollte Ihr Projekt nicht die erforderlichen Konfigurationsdateien enthalten, werden Sie aufgefordert, sie ihm hinzuzufügen.

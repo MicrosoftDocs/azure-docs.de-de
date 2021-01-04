@@ -4,15 +4,15 @@ description: Standardvertrag für den Azure Marketplace und AppSource in Partner
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 05/20/2020
-ms.openlocfilehash: 3079cb18f7bc88d691081a7970f5833e8b8d6887
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 20a257bde6022249fd7b2ab875b94f356234b490
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078186"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488875"
 ---
 # <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Standardvertrag für den kommerziellen Microsoft-Marketplace
 

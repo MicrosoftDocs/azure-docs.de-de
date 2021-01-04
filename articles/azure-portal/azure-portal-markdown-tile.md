@@ -1,21 +1,15 @@
 ---
 title: Verwenden einer benutzerdefinierten Markdown-Kachel in Azure-Dashboards
 description: Erfahren Sie, wie Sie einem Azure-Dashboard eine Markdown-Kachel zum Anzeigen von statischen Inhalten hinzufügen.
-services: azure-portal
-keywords: ''
-author: mgblythe
-ms.author: mblythe
 ms.date: 01/08/2020
 ms.topic: how-to
 ms.custom: devx-track-js
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 5ca225f136b0c3a6fc8b47d00ff64064fe17d4ee
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 5121142ecf568aa1ac9a7ec19f7211c6f9a6253f
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281762"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745756"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Verwenden einer Markdown-Kachel in Azure-Dashboards zum Anzeigen von benutzerdefinierten Inhalten
 
@@ -31,13 +25,13 @@ Sie können in Ihren Azure-Dashboards eine Markdown-Kachel hinzufügen, um benut
 
    ![Screenshot: Bearbeitungsansicht des Dashboards](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
-1. Suchen Sie im **Kachelkatalog** die Kachel mit der Bezeichnung **Markdown** , und wählen Sie **Hinzufügen** aus. Die Kachel wird dem Dashboard hinzugefügt, und der Bereich **Markdown bearbeiten** wird geöffnet.
+1. Suchen Sie im **Kachelkatalog** die Kachel mit der Bezeichnung **Markdown**, und wählen Sie **Hinzufügen** aus. Die Kachel wird dem Dashboard hinzugefügt, und der Bereich **Markdown bearbeiten** wird geöffnet.
 
 1. Geben Sie Werte für **Titel** und **Untertitel** ein, die auf der Kachel angezeigt werden, nachdem Sie in ein anderes Feld gewechselt sind.
 
    ![Screenshot: Ergebnisse der Eingabe von Titel und Untertitel](./media/azure-portal-markdown-tile/azure-portal-dashboard-enter-title.png)
 
-1. Wählen Sie eine der Optionen zum Einschließen von Markdowninhalt aus: **Inlinebearbeitung** oder **Inhalt über URL einfügen** .
+1. Wählen Sie eine der Optionen zum Einschließen von Markdowninhalt aus: **Inlinebearbeitung** oder **Inhalt über URL einfügen**.
 
    - Wählen Sie **Inlinebearbeitung**  aus, wenn Sie Markdown direkt eingeben möchten.
 
@@ -48,7 +42,7 @@ Sie können in Ihren Azure-Dashboards eine Markdown-Kachel hinzufügen, um benut
       ![Screenshot: Eingabe einer URL](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-url.png)
 
       > [!NOTE]
-      > Um zusätzliche Sicherheit zu erreichen, können Sie eine Markdowndatei erstellen und in einem [Azure-Speicherkontoblob speichern, in dem Verschlüsselung aktiviert ist](../storage/common/storage-service-encryption.md), und dann mithilfe der URL-Option auf die Datei verweisen. Der Markdowninhalt wird mithilfe der Verschlüsselungsoptionen des Speicherkontos verschlüsselt. Nur Benutzer mit Berechtigungen für die Datei können den Markdowninhalt auf dem Dashboard anzeigen. Legen Sie eine Regel für die Ressourcenfreigabe zwischen verschiedenen Ursprüngen (Cross-Origin Resource Sharing, CORS) für das Speicherkonto fest, damit das Azure-Portal ( _https://portal.azure.com/_ ) auf die Markdowndatei im Blob zugreifen kann.
+      > Um zusätzliche Sicherheit zu erreichen, können Sie eine Markdowndatei erstellen und in einem [Azure-Speicherkontoblob speichern, in dem Verschlüsselung aktiviert ist](../storage/common/storage-service-encryption.md), und dann mithilfe der URL-Option auf die Datei verweisen. Der Markdowninhalt wird mithilfe der Verschlüsselungsoptionen des Speicherkontos verschlüsselt. Nur Benutzer mit Berechtigungen für die Datei können den Markdowninhalt auf dem Dashboard anzeigen. Möglicherweise müssen Sie eine [Regel für die Ressourcenfreigabe zwischen verschiedenen Ursprüngen (Cross-Origin Resource Sharing, CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) für das Speicherkonto festlegen, damit das Azure-Portal ( _https://portal.azure.com/_ ) auf die Markdowndatei im Blob zugreifen kann.
 
 1. Wählen Sie **Fertig** aus, um den Bereich **Markdown bearbeiten** zu schließen. Der Inhalt wird auf der Markdown-Kachel angezeigt, deren Größe dann durch Ziehen des Ziehpunkts in der rechten unteren Ecke geändert werden kann.
 

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 67e1f1dff43939ce7ef279db57bee4b18bd12dc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45393f116149f6cf16763d2d7033f8425df235bf
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213956"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998834"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Azure Blob Storage-Trigger für Azure Functions
 
@@ -20,6 +20,16 @@ Der Blobspeichertrigger startet eine Funktion, wenn ein neues oder aktualisierte
 Der Azure Blob Storage-Trigger erfordert ein universelles Speicherkonto. V2-Speicherkonten mit [hierarchischen Namespaces](../storage/blobs/data-lake-storage-namespace.md) werden ebenfalls unterstützt. Um ein Blobkonto zu verwenden, oder wenn Ihre Anwendung spezielle Anforderungen hat, überprüfen Sie die Alternativen zur Verwendung dieses Triggers.
 
 Informationen zu Setup- und Konfigurationsdetails finden Sie in der [Übersicht](./functions-bindings-storage-blob.md).
+
+## <a name="polling"></a>Abruf
+
+Der Abruf funktioniert als Kombination aus dem Überprüfen von Protokollen und dem Ausführen regelmäßiger Containerscans. Blobs werden jeweils in Gruppen von 10.000 gescannt, wobei zwischen den Intervallen ein Fortsetzungstoken verwendet wird.
+
+> [!WARNING]
+> Außerdem erfolgt das [Erstellen von Storage-Protokollen auf bestmögliche Weise](/rest/api/storageservices/About-Storage-Analytics-Logging). Es gibt keine Garantie, dass alle Ereignisse erfasst werden. Unter bestimmten Umständen können Protokolle fehlen.
+> 
+> Wenn eine schnellere oder zuverlässigere Blobverarbeitung erforderlich ist, sollten Sie beim Erstellen des Blobs eine [Warteschlangennachricht](../storage/queues/storage-dotnet-how-to-use-queues.md) erstellen. Verwenden Sie dann einen [Warteschlangentrigger](functions-bindings-storage-queue.md) anstelle eines Blobtriggers für die Verarbeitung des Blobs. Eine andere Möglichkeit ist die Verwendung von Event Grid. Weitere Informationen finden Sie im Tutorial [Automatisieren der Größenänderung von hochgeladenen Bildern mit Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
+>
 
 ## <a name="alternatives"></a>Alternativen
 
@@ -413,16 +423,6 @@ Der Blobtrigger verwendet intern eine Warteschlange, sodass die maximal zulässi
 [Der Verbrauchstarif](functions-scale.md#how-the-consumption-and-premium-plans-work) beschränkt den Arbeitsspeicher einer Funktions-App auf einer VM auf 1,5 GB. Der Arbeitsspeicher wird von jeder parallel ausgeführten Funktionsinstanz und durch die Functions-Runtime selbst verwendet. Wenn eine durch einen Blob ausgelöste Funktion das gesamte Blob in den Arbeitsspeicher lädt, entspricht der maximal von dieser Funktion verwendete Arbeitsspeicher nur für Blobs dem 24 * der maximalen Blobgröße. Beispiel: Eine Funktions-App, die drei Funktionen mit Blobtrigger umfasst und die Standardeinstellungen verwendet, weist pro VM eine maximale Nebenläufigkeit von 3 * 24 = 72 Funktionsaufrufen auf.
 
 JavaScript- und Java-Funktionen laden das gesamte Blob in den Arbeitsspeicher, C#-Funktionen zeigen dieses Verhalten bei einer Bindung an `string` oder `Byte[]`.
-
-## <a name="polling"></a>Abruf
-
-Der Abruf funktioniert als Kombination aus dem Überprüfen von Protokollen und dem Ausführen regelmäßiger Containerscans. Blobs werden jeweils in Gruppen von 10.000 gescannt, wobei zwischen den Intervallen ein Fortsetzungstoken verwendet wird.
-
-> [!WARNING]
-> Außerdem erfolgt das [Erstellen von Storage-Protokollen auf bestmögliche Weise](/rest/api/storageservices/About-Storage-Analytics-Logging). Es gibt keine Garantie, dass alle Ereignisse erfasst werden. Unter bestimmten Umständen können Protokolle fehlen.
-> 
-> Wenn eine schnellere oder zuverlässigere Blobverarbeitung erforderlich ist, sollten Sie beim Erstellen des Blobs eine [Warteschlangennachricht](../storage/queues/storage-dotnet-how-to-use-queues.md) erstellen. Verwenden Sie dann einen [Warteschlangentrigger](functions-bindings-storage-queue.md) anstelle eines Blobtriggers für die Verarbeitung des Blobs. Eine andere Möglichkeit ist die Verwendung von Event Grid. Weitere Informationen finden Sie im Tutorial [Automatisieren der Größenänderung von hochgeladenen Bildern mit Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
->
 
 ## <a name="next-steps"></a>Nächste Schritte
 

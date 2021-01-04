@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 7c506d66c101c2770cffb8cc8d105b2f841c539a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 43625a80df76ff35b8bb1804df5f5fd1524326c5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279480"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097531"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Onlinesicherung und bedarfsgesteuerte Wiederherstellung in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB erstellt in regelmäßigen Abständen automatisch Sicherungen Ihrer Daten. Die automatischen Sicherungen erfolgen ohne Beeinträchtigung der Leistung oder Verfügbarkeit des Datenbankbetriebs. Alle Sicherungskopien werden in einem Speicherdienst getrennt gespeichert, und diese Sicherungen werden zum besseren Schutz vor regionalen Ausfällen global repliziert. Automatische Sicherungen sind in Situationen hilfreich, in denen Sie versehentlich Ihr Azure Cosmos-Konto, die Datenbank oder einen Container löschen oder aktualisieren und später eine Datenwiederherstellung durchführen möchten.
 
@@ -43,7 +44,7 @@ Wenn Sie Ihre Daten versehentlich gelöscht oder beschädigt haben, stellen Sie 
 Gehen Sie anhand der folgenden Schritte vor, um die Standardsicherungsoptionen für ein vorhandenes Azure Cosmos-Konto zu ändern:
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.
-1. Navigieren Sie zu Ihrem Azure Cosmos-Konto, und öffnen Sie den Bereich **Sichern und Wiederherstellen** . Aktualisieren Sie das Sicherungsintervall und den Aufbewahrungszeitraum für Sicherungen nach Bedarf.
+1. Navigieren Sie zu Ihrem Azure Cosmos-Konto, und öffnen Sie den Bereich **Sichern und Wiederherstellen**. Aktualisieren Sie das Sicherungsintervall und den Aufbewahrungszeitraum für Sicherungen nach Bedarf.
 
    * **Sicherungsintervall:** das Intervall, in dem Azure Cosmos DB versucht, eine Sicherung der Daten zu erstellen. Die Sicherung nimmt immer eine gewisse Zeit in Anspruch und kann in einigen Fällen aufgrund von Downstreamabhängigkeiten möglicherweise zu einem Fehler führen. Azure Cosmos DB versucht, eine Sicherung im konfigurierten Intervall zu erstellen, es kann jedoch nicht garantiert werden, dass die Sicherung innerhalb dieses Zeitintervalls abgeschlossen wird. Sie können diesen Wert in Stunden oder Minuten konfigurieren. Das Sicherungsintervall darf nicht kürzer als 1 Stunde und nicht länger als 24 Stunden sein. Wenn Sie dieses Intervall ändern, wird das neue Intervall ab dem Zeitpunkt wirksam, zu dem die letzte Sicherung erstellt wurde.
 
@@ -51,11 +52,11 @@ Gehen Sie anhand der folgenden Schritte vor, um die Standardsicherungsoptionen f
 
    * **Aufbewahrte Kopien der Daten:** Standardmäßig werden zwei Sicherungskopien Ihrer Daten kostenlos angeboten. Wenn Sie mehr als zwei Kopien benötigen, fallen zusätzliche Gebühr an. Im Abschnitt „Speichernutzung“ auf der Seite [Preise](https://azure.microsoft.com/pricing/details/cosmos-db/) finden Sie den genauen Preis für zusätzliche Kopien.
 
-   :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="Regelmäßige vollständige Sicherungen aller Cosmos DB-Entitäten in georedundantem Azure Storage" border="true":::
+   :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="Konfigurieren des Sicherungsintervalls und des Aufbewahrungszeitraums für ein vorhandenes Azure Cosmos-Konto" border="true":::
 
 Wenn Sie während der Kontoerstellung Sicherungsoptionen konfigurieren, können Sie die **Sicherungsrichtlinie** konfigurieren, die **regelmäßig** oder **fortlaufend** sein kann. Bei einer Richtlinie für regelmäßige Sicherungen können Sie das Sicherungsintervall und den Aufbewahrungszeitraum für Sicherungen konfigurieren. Die Richtlinie für fortlaufende Sicherungen ist zurzeit nur bei der Registrierung verfügbar. Das Team von Azure Cosmos DB bewertet Ihre Workload und genehmigt Ihre Anforderung.
 
-:::image type="content" source="./media/online-backup-and-restore/configure-periodic-continuous-backup-policy.png" alt-text="Regelmäßige vollständige Sicherungen aller Cosmos DB-Entitäten in georedundantem Azure Storage" border="true":::
+:::image type="content" source="./media/online-backup-and-restore/configure-periodic-continuous-backup-policy.png" alt-text="Konfigurieren von Richtlinien für regelmäßige oder fortlaufende Sicherungen für neue Azure Cosmos-Konten" border="true":::
 
 ## <a name="request-data-restore-from-a-backup"></a>Anfordern der Datenwiederherstellung aus einer Sicherung
 
@@ -80,7 +81,7 @@ Zusätzlich zum Namen des Azure Cosmos-Kontos, den Datenbanknamen und den Contai
 
 Der folgende Screenshot veranschaulicht das Erstellen einer Supportanfrage für einen Container (Sammlung/Graph/Tabelle) zum Wiederherstellen von Daten mithilfe des Azure-Portals. Geben Sie zusätzliche Details wie z.B. den Datentyp, den Zweck der Wiederherstellung und den Zeitpunkt der Datenlöschung an, damit wir die Anforderung priorisieren können.
 
-:::image type="content" source="./media/online-backup-and-restore/backup-support-request-portal.png" alt-text="Regelmäßige vollständige Sicherungen aller Cosmos DB-Entitäten in georedundantem Azure Storage":::
+:::image type="content" source="./media/online-backup-and-restore/backup-support-request-portal.png" alt-text="Erstellen einer Supportanforderung mithilfe des Azure-Portals":::
 
 ## <a name="considerations-for-restoring-the-data-from-a-backup"></a>Überlegungen zum Wiederherstellen der Daten aus einer Sicherung
 

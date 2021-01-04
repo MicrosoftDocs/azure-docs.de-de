@@ -16,12 +16,12 @@ ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d32728c1f388e9013b922d1f60d30e65d350bbc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f5aaf4bbff4c093872228d647d3850667fb9777
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642434"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656406"
 ---
 # <a name="application-management-best-practices"></a>Bewährte Methoden für die Anwendungsverwaltung
 
@@ -30,7 +30,7 @@ Dieser Artikel enthält Empfehlungen und bewährte Methoden für das Verwalten v
 ## <a name="cloud-app-and-single-sign-on-recommendations"></a>Empfehlungen für Cloud-Apps und einmaliges Anmelden
 | Empfehlung | Kommentare |
 | --- | --- |
-| Durchsuchen des Azure AD-Anwendungskatalogs nach Apps  | Azure AD enthält einen Katalog mit Tausenden von vorab integrierten Anwendungen mit Enterprise Single Sign-On (Einmaliges Anmelden für Unternehmen (SSO)). App-spezifische Einrichtungsanleitungen finden Sie in der [Liste der Tutorials für SaaS-Anwendungen](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/).  | 
+| Durchsuchen des Azure AD-Anwendungskatalogs nach Apps  | Azure AD enthält einen Katalog mit Tausenden von vorab integrierten Anwendungen mit Enterprise Single Sign-On (Einmaliges Anmelden für Unternehmen (SSO)). App-spezifische Einrichtungsanleitungen finden Sie in der [Liste der Tutorials für SaaS-Anwendungen](../saas-apps/tutorial-list.md).  | 
 | Verwenden von SAML-basiertem Verbund-SSO  | Verwenden Sie SAML-basiertes Verbund-SSO mit Azure AD anstelle von kennwortbasiertem SSO und ADFS, wenn eine Anwendung dies unterstützt.  | 
 | Verwenden von SHA-256 für die Zertifikatsignatur  | Azure AD verwendet standardmäßig den Algorithmus SHA-256 zum Signieren der SAML-Antwort. Verwenden Sie SHA-256, sofern die Anwendung nicht SHA-1 erfordert. (Weitere Informationen finden Sie unter [Optionen für die Zertifikatsignatur](certificate-signing-options.md) und [Problem bei der Anwendungsanmeldung](application-sign-in-problem-application-error.md).)  | 
 | Erfordern der Benutzerzuweisung  | Standardmäßig können Benutzer auf Ihre Unternehmensanwendungen zugreifen, ohne diesen zugewiesen zu sein. Falls die Anwendung jedoch Rollen verfügbar macht oder Sie möchten, dass die Anwendung unter „Meine Apps“ für einen Benutzer angezeigt wird, müssen Sie Benutzerzuweisungen erforderlich machen. (Weitere Informationen finden Sie im [Entwicklerleitfaden zum Integrieren von Anwendungen](developer-guidance-for-integrating-applications.md).)  | 
@@ -41,7 +41,7 @@ Dieser Artikel enthält Empfehlungen und bewährte Methoden für das Verwalten v
 ## <a name="provisioning-recommendations"></a>Bereitstellungsempfehlungen
 | Empfehlung | Kommentare |
 | --- | --- |
-| Verwenden von Tutorials zum Einrichten der Bereitstellung mit Cloud-Apps | In der [Liste der Tutorials für SaaS-Anwendungen](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) finden Sie eine Schritt-für-Schritt-Anleitung zum Konfigurieren der Bereitstellung für die Katalog-App, die Sie hinzufügen möchten. |
+| Verwenden von Tutorials zum Einrichten der Bereitstellung mit Cloud-Apps | In der [Liste der Tutorials für SaaS-Anwendungen](../saas-apps/tutorial-list.md) finden Sie eine Schritt-für-Schritt-Anleitung zum Konfigurieren der Bereitstellung für die Katalog-App, die Sie hinzufügen möchten. |
 | Verwenden von Bereitstellungsprotokollen (Vorschau) zum Überwachen des Status | Die [Bereitstellungsprotokolle](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) bieten Details zu allen vom Bereitstellungsdienst ausgeführten Aktionen, einschließlich des Status der Bereitstellung für einzelne Benutzer. |
 | Zuweisen einer Verteilergruppe zur Bereitstellungsbenachrichtigungs-E-Mail | Weisen Sie der Einstellung für Benachrichtigungs-E-Mails eine Verteilergruppe zu, um die Sichtbarkeit der vom Bereitstellungsdienst gesendeten kritischen Warnungen zu erhöhen. |
 

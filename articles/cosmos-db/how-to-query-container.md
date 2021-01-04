@@ -3,17 +3,19 @@ title: Abfragen von Containern in Azure Cosmos DB
 description: Hier erfahren Sie, wie Sie Abfragen innerhalb einer Partition und partitionsübergreifende Abfragen für Container in Azure Cosmos DB ausführen.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: e948031d3d1d03890bfcfccd65424a15e6e314cd
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0f08ca84597b08b9a236b7bfb0fc9c849423a752
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276108"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335890"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Abfragen eines Azure Cosmos-Containers
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In diesem Artikel erfahren Sie, wie Sie einen Container (Sammlung, Diagramm oder Tabelle) in Azure Cosmos DB abfragen. Insbesondere wird erläutert, wie Abfragen innerhalb einer Partition und partitionsübergreifende Abfragen in Azure Cosmos DB funktionieren.
 
@@ -57,9 +59,9 @@ Azure Cosmos DB SDKs ab Version 1.9.0 unterstützen Optionen für die Ausführun
 
 Sie können die parallele Ausführung von Abfragen verwalten, indem Sie die folgenden Parameter optimieren:
 
-- **MaxConcurrency**: Legt die maximale Anzahl gleichzeitiger Verbindungen mit den Partitionen des Containers fest. Wenn Sie diese Eigenschaft auf `-1` festlegen, verwaltet das SDK den Grad der Parallelität. Wenn  `MaxConcurrency` auf `0` festgelegt ist, gibt es eine einzelne Netzwerkverbindung mit den Partitionen des Containers.
+- **MaxConcurrency** : Legt die maximale Anzahl gleichzeitiger Verbindungen mit den Partitionen des Containers fest. Wenn Sie diese Eigenschaft auf `-1` festlegen, verwaltet das SDK den Grad der Parallelität. Wenn  `MaxConcurrency` auf `0` festgelegt ist, gibt es eine einzelne Netzwerkverbindung mit den Partitionen des Containers.
 
-- **MaxBufferedItemCount**: Steuert das Verhältnis zwischen Abfragewartezeit und clientseitiger Arbeitsspeichernutzung. Wird diese Option weggelassen oder auf „-1“ festgelegt, verwaltet das SDK die Anzahl von Elementen, die während der Ausführung paralleler Abfragen gepuffert werden.
+- **MaxBufferedItemCount** : Steuert das Verhältnis zwischen Abfragewartezeit und clientseitiger Arbeitsspeichernutzung. Wird diese Option weggelassen oder auf „-1“ festgelegt, verwaltet das SDK die Anzahl von Elementen, die während der Ausführung paralleler Abfragen gepuffert werden.
 
 Aufgrund der Fähigkeit von Azure Cosmos DB, partitionsübergreifende Abfragen zu parallelisieren, wird die Abfragelatenz im Allgemeinen gut skaliert, da das System [physische Partitionen](partitioning-overview.md#physical-partitions) hinzufügt. Die RU-Rechnungstellung steigt jedoch erheblich, wenn die Gesamtzahl der physischen Partitionen zunimmt.
 

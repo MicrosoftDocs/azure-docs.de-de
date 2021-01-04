@@ -10,20 +10,20 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.openlocfilehash: 1cb0c5094d49eac5a1c8f63406a28d2927d8fa94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5604e42c2c27463e10c136ccd18c3c21846fc5a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79477322"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309142"
 ---
 # <a name="store-access-credentials-securely-on-an-azure-data-science-virtual-machine"></a>Sicheres Speichern von Zugriffsanmeldeinformationen in einer Azure Data Science Virtual Machine-Instanz
 
 Üblicherweise enthält der Code in Cloudanwendungen Anmeldeinformationen für die Authentifizierung bei Clouddiensten. Das Verwalten und Schützen dieser Anmeldeinformationen ist eine bekannte Herausforderung beim Erstellen von Cloudanwendungen. Im Idealfall werden Anmeldeinformationen nie auf Entwicklerarbeitsstationen angezeigt oder in die Quellcodeverwaltung eingecheckt.
 
-Die [verwalteten Identitäten für Azure-Ressourcen](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) vereinfachen die Lösung dieses Problems, indem für Azure-Dienste eine automatisch verwaltete Identität in Azure Active Directory (Azure AD) bereitgestellt wird. Sie können diese Identität für die Authentifizierung bei jedem Dienst verwenden, der die Azure AD-Authentifizierung unterstützt. Hierfür müssen keine Anmeldeinformationen im Code enthalten sein.
+Die [verwalteten Identitäten für Azure-Ressourcen](../../active-directory/managed-identities-azure-resources/overview.md) vereinfachen die Lösung dieses Problems, indem für Azure-Dienste eine automatisch verwaltete Identität in Azure Active Directory (Azure AD) bereitgestellt wird. Sie können diese Identität für die Authentifizierung bei jedem Dienst verwenden, der die Azure AD-Authentifizierung unterstützt. Hierfür müssen keine Anmeldeinformationen im Code enthalten sein.
 
-Eine Möglichkeit zum Schützen der Anmeldeinformationen ist, Windows Installer (MSI) in Kombination mit [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/), einem verwalteten Azure-Dienst zum sicheren Speichern von Geheimnissen und kryptografischen Schlüsseln, zu verwenden. Sie können mit der verwalteten Identität auf einen Schlüsseltresor zugreifen und dann die autorisierten Geheimnisse und kryptografischen Schlüssel aus dem Schlüsseltresor abrufen.
+Eine Möglichkeit zum Schützen der Anmeldeinformationen ist, Windows Installer (MSI) in Kombination mit [Azure Key Vault](../../key-vault/index.yml), einem verwalteten Azure-Dienst zum sicheren Speichern von Geheimnissen und kryptografischen Schlüsseln, zu verwenden. Sie können mit der verwalteten Identität auf einen Schlüsseltresor zugreifen und dann die autorisierten Geheimnisse und kryptografischen Schlüssel aus dem Schlüsseltresor abrufen.
 
 Die Dokumentation zu den verwalteten Identitäten für Azure-Ressourcen und Key Vault bietet eine umfassende Quelle für ausführliche Informationen zu diesen Diensten. Der Rest dieses Artikels beschreibt die grundlegende Verwendung von MSI und Key Vault auf dem virtuellen Computer für Data Science (Data Science Virtual Machine, DSVM) für den Zugriff auf Azure-Ressourcen. 
 

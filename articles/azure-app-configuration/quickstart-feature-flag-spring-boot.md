@@ -1,18 +1,18 @@
 ---
 title: Schnellstartanleitung zum Hinzufügen von Featureflags zu Spring Boot mit Azure App Configuration
 description: Hier erfahren Sie, wie Sie Spring Boot-Apps Featureflags hinzufügen und diese in Azure App Configuration verwalten.
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 04/18/2020
-ms.author: lcozzens
+ms.date: 08/06/2020
+ms.author: alkemper
 ms.custom: devx-track-java
-ms.openlocfilehash: 9a804bd40635cd039a2c099f98351b2487c554d3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: e931b974fc48d07237b2698e7782c48be20745d9
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075534"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930710"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Schnellstart: Hinzufügen von Featureflags zu einer Spring Boot-App
 
@@ -286,7 +286,7 @@ Verwenden Sie [Spring Initializr](https://start.spring.io/), um ein neues Spring
 
 1. Öffnen Sie ein neues Browserfenster, und navigieren Sie zur URL `http://localhost:8080/welcome`.
 
-    ![Schnellstartanleitung: Lokales Starten der App](./media/quickstarts/spring-boot-feature-flag-local-before.png)
+    ![Screenshot: Browserfenster mit einer Begrüßungsnachricht](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 
 1. Wählen Sie im App Configuration-Portal **Feature-Manager** aus, und ändern Sie den Status des **Beta**-Schlüssels in **Ein**:
 
@@ -296,7 +296,7 @@ Verwenden Sie [Spring Initializr](https://start.spring.io/), um ein neues Spring
 
 1. Aktualisieren Sie die Browserseite, um die neuen Konfigurationseinstellungen anzuzeigen.
 
-    ![Schnellstartanleitung: Lokales Starten der App](./media/quickstarts/spring-boot-feature-flag-local-after.png)
+    ![Screenshot: Browserfenster mit einer Begrüßungsnachricht und einem hervorgehobenen Betalink](./media/quickstarts/spring-boot-feature-flag-local-after.png)
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 

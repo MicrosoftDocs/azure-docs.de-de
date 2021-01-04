@@ -2,7 +2,7 @@
 title: Funktionsweise der Synchronisierung in Azure AD Domain Services | Microsoft-Dokumentation
 description: Funktionsweise des Synchronisierungsvorgangs für Objekte und Anmeldeinformationen aus einem Azure AD-Mandanten oder einer lokalen Active Directory Domain Services-Umgebung mit einer verwalteten Azure Active Directory Domain Services-Domäne.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory
@@ -10,19 +10,21 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 683a6c9f31947355a5415a5b8b57b621f717af91
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 41ba337765b4a0a93be52f08ae6656707cf7aa73
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967663"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618806"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-active-directory-domain-services-managed-domain"></a>Synchronisieren von Objekten und Anmeldeinformationen in einer verwalteten Azure Active Directory Domain Services-Domäne
 
 Objekte und Anmeldeinformationen in einer verwalteten Azure Active Directory Domain Services-Domäne (Azure AD DS) können lokal innerhalb der Domäne erstellt oder über einen Azure Active Directory-Mandanten (Azure AD) synchronisiert werden. Bei der ersten Bereitstellung von Azure AD DS wird eine automatische unidirektionale Synchronisierung konfiguriert und gestartet, um die Objekte aus Azure AD zu replizieren. Diese unidirektionale Synchronisierung wird weiterhin im Hintergrund ausgeführt, um die verwaltete Azure AD DS-Domäne mit allen Änderungen aus Azure AD auf dem neuesten Stand zu halten. Es findet keine Synchronisierung von Azure AD DS zurück zu Azure AD statt.
 
 In einer Hybridumgebung können Objekte und Anmeldeinformationen aus einer lokalen AD DS-Domäne mithilfe von Azure AD Connect mit Azure AD synchronisiert werden. Nachdem diese Objekte und Anmeldeinformationen erfolgreich mit Azure AD synchronisiert wurden, werden sie mithilfe der automatischen Hintergrundsynchronisierung über die verwaltete Domäne in Anwendungen zur Verfügung gestellt.
+
+Wenn lokale Instanzen von AD DS und Azure AD per AD FS für die Verbundauthentifizierung konfiguriert wurden, ist in Azure DS kein (aktueller/gültiger) Kennworthash vorhanden. Azure AD-Benutzerkonten, die vor der Implementierung der Verbundauthentifizierung erstellt wurden, verfügen unter Umständen über einen alten Kennworthash. Dieser entspricht jedoch wahrscheinlich keinem Hash ihres lokalen Kennworts. Die Anmeldeinformationen des Benutzers können daher nicht von Azure AD DS validiert werden.
 
 In der folgenden Abbildung ist die Funktionsweise der Synchronisierung zwischen Azure AD DS, Azure AD und einer optionalen lokalen AD DS-Umgebung dargestellt:
 

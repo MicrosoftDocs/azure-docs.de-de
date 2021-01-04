@@ -5,18 +5,19 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 11/06/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: c8816d4db6ee054df574263f90522f08f7dcd058
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e920af85c511387e66bcafcb6a140844d25f204c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282373"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369289"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Verwalten der Indizierung in der Azure Cosmos DB-API für MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Die Azure Cosmos DB-API für MongoDB nutzt die Kernfunktionen für automatische Indexverwaltung von Azure Cosmos DB. Dieser Artikel konzentriert sich auf das Hinzufügen von Indizes mithilfe der Azure Cosmos DB-API für MongoDB. Sie können auch den Artikel [Indizierung in Azure Cosmos DB: Übersicht](index-overview.md) lesen, der für alle APIs relevant ist.
 
@@ -40,7 +41,10 @@ Bei einer Abfrage werden mehrere Einzelfeldindizes verwendet, soweit verfügbar.
 
 ### <a name="compound-indexes-mongodb-server-version-36"></a>Zusammengesetzte Indizes (MongoDB-Serverversion 3.6)
 
-Die Azure Cosmos DB-API für MongoDB unterstützt zusammengesetzte Indizes für Konten, die Version 3.6 des Wire-Protokolls verwenden. Sie können bis zu acht Felder in einen zusammengesetzten Index einschließen. **Anders als in MongoDB sollten Sie nur dann einen zusammengesetzten Index erstellen, wenn die Abfrage über mehrere Felder gleichzeitig effizient sortiert werden muss.** Für Abfragen mit mehreren Filtern, die nicht sortiert werden müssen, sollten Sie anstelle eines einzelnen zusammengesetzten Indexes mehrere Einzelfeldindizes erstellen.
+Die Azure Cosmos DB-API für MongoDB unterstützt zusammengesetzte Indizes für Konten, die Version 3.6 des Wire-Protokolls verwenden. Sie können bis zu acht Felder in einen zusammengesetzten Index einschließen. Anders als in MongoDB sollten Sie nur dann einen zusammengesetzten Index erstellen, wenn die Abfrage über mehrere Felder gleichzeitig effizient sortiert werden muss. Für Abfragen mit mehreren Filtern, die nicht sortiert werden müssen, sollten Sie anstelle eines einzelnen zusammengesetzten Indexes mehrere Einzelfeldindizes erstellen. 
+
+> [!NOTE]
+> Für geschachtelte Eigenschaften oder Arrays können Sie keine zusammengesetzten Indizes erstellen.
 
 Der folgende Befehl erstellt einen zusammengesetzten Index für die Felder `name` und `age`:
 
@@ -59,7 +63,7 @@ Allerdings muss die Reihenfolge der Pfade im zusammengesetzten Index exakt mit d
 `db.coll.find().sort({age:1,name:1})`
 
 > [!NOTE]
-> Für geschachtelte Eigenschaften oder Arrays können Sie keine zusammengesetzten Indizes erstellen.
+> Zusammengesetzte Indizes werden nur in Abfragen verwendet, mit denen Ergebnisse sortiert werden. Für Abfragen mit mehreren Filtern, die nicht sortiert werden müssen, sollten Sie mehrere Einzelfeldindizes erstellen.
 
 ### <a name="multikey-indexes"></a>Indizes mit mehreren Schlüsseln
 
@@ -75,7 +79,7 @@ Hier sehen Sie ein Beispiel für das Erstellen eines räumlichen Indexes für da
 
 ### <a name="text-indexes"></a>Textindizes
 
-Derzeit unterstützt die Azure Cosmos DB-API für MongoDB Textindizes noch nicht. Bei Textsuchabfragen für Zeichenfolgen sollten Sie die [Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb)-Integration mit Azure Cosmos DB verwenden.
+Derzeit unterstützt die Azure Cosmos DB-API für MongoDB Textindizes noch nicht. Bei Textsuchabfragen für Zeichenfolgen sollten Sie die [Azure Cognitive Search](../search/search-howto-index-cosmosdb.md)-Integration mit Azure Cosmos DB verwenden. 
 
 ## <a name="wildcard-indexes"></a>Platzhalterindizes
 
@@ -131,7 +135,10 @@ So erstellen Sie einen Platzhalterindex für alle Felder:
 
 `db.coll.createIndex( { "$**" : 1 } )`
 
-Zu Beginn der Entwicklung kann es hilfreich sein, einen Platzhalterindex für alle Felder zu erstellen. Wenn nach und nach mehr Eigenschaften in einem Dokument indiziert werden, erhöht sich die RU-Gebühr (Request Unit, Anforderungseinheit) für das Schreiben und Aktualisieren des Dokuments. Bei schreibintensiven Workloads empfiehlt es sich daher, Pfade einzeln zu indizieren, anstatt Platzhalterindizes zu verwenden.
+> [!NOTE]
+> Wenn Sie gerade mit der Entwicklung beginnen, wird **dringend** empfohlen, mit einem Platzhalterindex für alle Felder zu beginnen. Dies kann sowohl die Entwicklung als auch die Optimierung von Abfragen vereinfachen.
+
+Dokumente mit vielen Feldern können eine hohe Gebühr für Anforderungseinheiten (Request Unit, RU) für Schreibvorgänge und Updates aufweisen. Bei schreibintensiven Workloads empfiehlt es sich daher, Pfade einzeln zu indizieren, anstatt Platzhalterindizes zu verwenden.
 
 ### <a name="limitations"></a>Einschränkungen
 
@@ -204,7 +211,7 @@ globaldb:PRIMARY> db.runCommand({shardCollection: db.coll._fullName, key: { univ
         "ok" : 1,
         "collectionsharded" : "test.coll"
 }
-globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1, "university" : 1 }, {unique:true})
+globaldb:PRIMARY> db.coll.createIndex( { "university" : 1, "student_id" : 1 }, {unique:true});
 {
         "_t" : "CreateIndexesResponse",
         "ok" : 1,
@@ -320,7 +327,7 @@ Die Details zum Indizierungsfortschritt zeigen den Fortschritt des aktuellen Ind
 
 ## <a name="background-index-updates"></a>Indexaktualisierungen im Hintergrund
 
-Unabhängig von dem für die **Hintergrund** -Indexeigenschaft angegebenen Wert werden Indexaktualisierungen immer im Hintergrund durchgeführt. Da Indexaktualisierungen Anforderungseinheiten (Request Units, RUs) mit einer niedrigeren Priorität als andere Datenbankvorgänge nutzen, führen Indexänderungen nicht zu Ausfallzeiten bei Schreib-, Update- oder Löschvorgängen.
+Unabhängig von dem für die **Hintergrund**-Indexeigenschaft angegebenen Wert werden Indexaktualisierungen immer im Hintergrund durchgeführt. Da Indexaktualisierungen Anforderungseinheiten (Request Units, RUs) mit einer niedrigeren Priorität als andere Datenbankvorgänge nutzen, führen Indexänderungen nicht zu Ausfallzeiten bei Schreib-, Update- oder Löschvorgängen.
 
 Das Hinzufügen eines neuen Indexes hat keine Auswirkung auf die Leseverfügbarkeit. Abfragen verwenden neue Indizes erst dann, wenn die Indextransformation abgeschlossen ist. Während der Indextransformation werden von der Abfrage-Engine weiterhin vorhandene Indizes verwendet, sodass Sie während der Indextransformation eine ähnliche Leseleistung beobachten werden wie vor dem Einleiten der Indexänderung. Beim Hinzufügen neuer Indizes besteht auch kein Risiko, unvollständige oder inkonsistente Abfrageergebnisse zu erhalten.
 
@@ -329,13 +336,58 @@ Wenn Indizes entfernt und sofort Abfragen ausgeführt werden, die nach den gelö
 > [!NOTE]
 > Sie können [den Indizierungsfortschritt nachverfolgen](#track-index-progress).
 
+## <a name="reindex-command"></a>ReIndex-Befehl
+
+Mit dem `reIndex`-Befehl werden alle Indizes in einer Sammlung neu erstellt. Dies ist in den meisten Fällen nicht erforderlich. In einigen seltenen Fällen kann sich die Abfrageleistung jedoch verbessern, nachdem der `reIndex`-Befehl ausgeführt wurde.
+
+Verwenden Sie für die Ausführung des `reIndex`-Befehls die folgende Syntax:
+
+`db.runCommand({ reIndex: <collection> })`
+
+Mithilfe der folgenden Syntax können Sie überprüfen, ob Sie den `reIndex`-Befehl ausführen müssen:
+
+`db.runCommand({"customAction":"GetCollection",collection:<collection>, showIndexes:true})`
+
+Beispielausgabe:
+
+```
+{
+        "database" : "myDB",
+        "collection" : "myCollection",
+        "provisionedThroughput" : 400,
+        "indexes" : [
+                {
+                        "v" : 1,
+                        "key" : {
+                                "_id" : 1
+                        },
+                        "name" : "_id_",
+                        "ns" : "myDB.myCollection",
+                        "requiresReIndex" : true
+                },
+                {
+                        "v" : 1,
+                        "key" : {
+                                "b.$**" : 1
+                        },
+                        "name" : "b.$**_1",
+                        "ns" : "myDB.myCollection",
+                        "requiresReIndex" : true
+                }
+        ],
+        "ok" : 1
+}
+```
+
+Wenn `reIndex` erforderlich ist, ist **requiresReIndex** TRUE. Wenn `reIndex` nicht erforderlich ist, wird diese Eigenschaft ausgelassen.
+
 ## <a name="migrate-collections-with-indexes"></a>Migrieren von Sammlungen mit Indizes
 
 Derzeit ist die Erstellung von eindeutigen Indizes nur möglich, wenn die Sammlung keine Dokumente enthält. Bei gängigen MongoDB-Migrationstools wird versucht, die eindeutigen Indizes nach dem Importieren der Daten zu erstellen. Um dieses Problem zu umgehen, können Sie die entsprechenden Sammlungen und eindeutigen Indizes manuell erstellen, damit das Migrationstool dies nicht versucht. (Sie können dieses Verhalten für ```mongorestore``` erzielen, indem Sie das `--noIndexRestore`-Flag an der Befehlszeile verwenden.)
 
 ## <a name="indexing-for-mongodb-version-32"></a>Indizierung für MongoDB-Version 3.2
 
-Bei Azure Cosmos-Konten, die mit Version 3.2 des MongoDB-Wire-Protokolls kompatibel sind, weichen die verfügbaren Indizierungsfeatures und Standardwerte ab. Sie können [die Version Ihres Kontos überprüfen](mongodb-feature-support-36.md#protocol-support). Sie können ein Upgrade auf die Version 3.6 durchführen, indem Sie eine [Supportanfrage](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) einreichen.
+Bei Azure Cosmos-Konten, die mit Version 3.2 des MongoDB-Wire-Protokolls kompatibel sind, weichen die verfügbaren Indizierungsfeatures und Standardwerte ab. Sie können [die Version Ihres Kontos überprüfen](mongodb-feature-support-36.md#protocol-support) und [eine Upgrade auf Version 3.6 durchführen](mongodb-version-upgrade.md).
 
 Wenn Sie Version 3.2 verwenden, beachten Sie die in diesem Abschnitt erläuterten wichtigen Unterschiede zu Version 3.6.
 
@@ -352,11 +404,11 @@ Nachdem Sie die Standardindizes gelöscht haben, können Sie zusätzliche Indize
 
 ### <a name="compound-indexes-version-32"></a>Zusammengesetzte Indizes (Version 3.2)
 
-Zusammengesetzte Indizes enthalten Verweise auf mehrere Felder eines Dokuments. Wenn Sie einen zusammengesetzten Index erstellen möchten, führen Sie ein Upgrade auf Version 3.6 durch, indem Sie eine [Supportanfrage](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) erstellen.
+Zusammengesetzte Indizes enthalten Verweise auf mehrere Felder eines Dokuments. Wenn Sie einen zusammengesetzten Index erstellen möchten, [führen Sie ein Upgrade auf Version 3.6 durch](mongodb-version-upgrade.md).
 
 ### <a name="wildcard-indexes-version-32"></a>Platzhalterindizes (Version 3.2)
 
-Wenn Sie einen Platzhalterindex erstellen möchten, erstellen Sie eine [Supportanfrage](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), um ein Upgrade auf die Version 3.6 durchzuführen.
+Wenn Sie einen Platzhalterindex erstellen möchten, [führen Sie ein Upgrade auf Version 3.6 durch](mongodb-version-upgrade.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -4,15 +4,15 @@ description: Erhalten Sie Antworten auf häufig gestellte Fragen zu Azure Market
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 09/11/2020
-ms.openlocfilehash: a706ced5c65b9de3cb3bfdb623d810bb1ea43623
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 584e1e943f215aa4a69368fb71cb3053b1444a01
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91707981"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660218"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Häufig gestellte Fragen zum kommerziellen Marketplace von Microsoft
 
@@ -46,7 +46,7 @@ Weitere Informationen finden Sie im [Hub für den kommerziellen Microsoft-Market
 
 ### <a name="is-there-a-listing-fee-for-the-microsoft-commercial-marketplace"></a>Gibt es eine Gebühr für die Auflistung im kommerziellen Microsoft-Marketplace?
 
-Nein, es fallen keine Kosten für die Veröffentlichung von Angeboten in unserem kommerziellen Marketplace an. Wir behalten einen geringen Prozentsatz des Umsatzes als Transaktionsgebühr ein und investieren ihn in das Marketplace-Prämienprogramm, in die Plattforminnovation und den Betrieb des kommerziellen Marketplace. Diese Transaktionsgebühr wird für [Azure-IP-Co-Selling](https://docs.microsoft.com/azure/marketplace/marketplace-co-sell)-Incentive-Angebote und für kostenpflichtige SaaS-Angebote in AppSource reduziert, die einer Microsoft Teams-App oder mindestens zwei Microsoft 365-Add-Ins (Excel, PowerPoint, Word, Outlook und SharePoint) zugeordnet sind.
+Nein, es fallen keine Kosten für die Veröffentlichung von Angeboten in unserem kommerziellen Marketplace an. Wir behalten einen geringen Prozentsatz des Umsatzes als Transaktionsgebühr ein und investieren ihn in das Marketplace-Prämienprogramm, in die Plattforminnovation und den Betrieb des kommerziellen Marketplace. Diese Transaktionsgebühr wird für [Azure-IP-Co-Selling](./marketplace-co-sell.md)-Incentive-Angebote und für kostenpflichtige SaaS-Angebote in AppSource reduziert, die einer Microsoft Teams-App oder mindestens zwei Microsoft 365-Add-Ins (Excel, PowerPoint, Word, Outlook und SharePoint) zugeordnet sind.
 
 ### <a name="how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace"></a>Wie registriere ich mich als Herausgeber im kommerziellen Microsoft-Marketplace?
 
@@ -87,7 +87,7 @@ Der kommerzielle Marketplace funktioniert nach einem Agenturmodell. Der Kunde un
 
 Als Herausgeber legen Sie die Nutzungsbedingungen für Ihre Softwarelösung fest, die von Kunden im Rahmen der Kaufabwicklung akzeptiert werden müssen. Um dies zu vereinfachen und zu beschleunigen, stellen wir einen Standardvertrag bereit, den Sie in Ihre Geschäftsbedingungen aufnehmen können. Auf diese Weise können Kunden den Standardvertrag einmal prüfen, die Genehmigung der Rechts- und Einkaufsteams einholen und sich dann auf die jeweiligen Zusatzvereinbarungen für ein Angebot konzentrieren.
 
-Sie können Änderungen vornehmen, die für alle Kunden gelten, oder die Bedingungen speziell auf bestimmte Kunden abstimmen. Sie können Ihre Geschäftsbedingungen auch vollständig anpassen. Diese können in ein Textfeld eingegeben oder auf einer Website gehostet werden, die als Webadresse angezeigt wird.
+Sie können Änderungen vornehmen, die für alle Kunden gelten, oder die Bedingungen speziell auf bestimmte Kunden abstimmen. Sie können Ihre Geschäftsbedingungen auch vollständig anpassen und sie in ein Textfeld in Partner Center eingeben.
 
 Weitere Informationen finden Sie unter [Standardvertrag für den kommerziellen Microsoft-Marketplace](standard-contract.md).
 
@@ -106,7 +106,7 @@ Es gibt vier relevante Rollen, die den Zugriff auf das Partner Center steuern.
 
 Zum Erstellen neuer Benutzerkonten oder zum Einladen von Gastkonten im zugrunde liegenden Verzeichnis sind *globale Administratorberechtigungen* für Azure Active Directory (Azure AD) erforderlich. Partner Center wendet Azure AD auf das Identitätsmodell an, und die Azure AD-Instanz einer Organisation wird häufig von IT- oder Sicherheitsteams der Organisation verwaltet und gesteuert.
 
-Weitere Informationen finden Sie unter [Zuweisen von Rollen und Berechtigungen zu Benutzern](https://docs.microsoft.com/partner-center/permissions-overview).
+Weitere Informationen finden Sie unter [Zuweisen von Rollen und Berechtigungen zu Benutzern](/partner-center/permissions-overview).
 
 ### <a name="do-customers-need-a-subscription-for-microsoft-azure-cloud-services"></a>Brauchen Kunden ein Abonnement für Microsoft Azure Cloud Services?
 
@@ -303,7 +303,7 @@ Weitere Informationen finden Sie unter [Einrichten von Auszahlungskonten und Ste
 
 ### <a name="are-returns-and-refunds-supported-with-the-commercial-marketplace"></a>Werden Rückgaben und Rückerstattungen im kommerziellen Marketplace unterstützt?
 
-Um Rückerstattungen zu erhalten, können Kunden Abonnements innerhalb eines festgelegten Zeitraums kündigen. Bei monatlichen Abonnements beträgt die Frist 24 Stunden und bei Jahresabonnements 14 Tage. Angebote, die nach Verbrauch abgerechnet werden, sind nach Verwendung der Lösung nicht erstattungsfähig.
+Kunden können unter bestimmten Bedingungen und für bestimmte Gebühren Rückerstattungen erhalten. Rückerstattungen von wiederkehrenden, monatlich abgerechneten Gebühren müssen innerhalb von 24 Stunden nach dem Kauf oder einer Verlängerung beantragt werden. Auf dieselbe Weise müssen Rückerstattungen von wiederkehrenden, jährlich abgerechneten Gebühren innerhalb von 14 Tagen nach dem Kauf oder einer Verlängerung beantragt werden. Diese Art der Rückerstattung gilt nicht für Nutzungsgebühren (die sich aus Angeboten für virtuelle Computer oder einer getakteten Abrechnung ergeben).
 
 ## <a name="resources"></a>Ressourcen
 

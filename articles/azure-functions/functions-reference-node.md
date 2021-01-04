@@ -3,14 +3,14 @@ title: JavaScript-Entwicklerreferenz für Azure Functions
 description: Erfahren Sie, wie Sie mithilfe von JavaScript Funktionen entwickeln können.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 11/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 86a512ea0e07f5eb2ce00ff27427139c5221d229
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 21ab58095fa919e6302251c16e474b02f1445993
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164821"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301995"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>JavaScript-Entwicklerhandbuch für Azure Functions
 
@@ -20,7 +20,7 @@ Wenn Sie noch nicht mit Azure Functions vertraut sind, sollten Sie als Express.j
 
 | Erste Schritte | Konzepte| Geführte Tutorials |
 | -- | -- | -- | 
-| <ul><li>[Node.js-Funktion unter Verwendung von Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)</li><li>[Node.js-Funktion mit Terminal/Eingabeaufforderung](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)</li></ul> | <ul><li>[Entwicklerhandbuch](functions-reference.md)</li><li>[Hostingoptionen](functions-scale.md)</li><li>[TypeScript-Funktionen](#typescript)</li><li>[Überlegungen&nbsp; zur Leistung](functions-best-practices.md)</li></ul> | <ul><li>[Erstellen serverloser Anwendungen](/learn/paths/create-serverless-applications/)</li><li>[Umgestalten von Node js- und Express-APIs auf serverlose APIs](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[Node.js-Funktion unter Verwendung von Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[Node.js-Funktion mit Terminal/Eingabeaufforderung](./create-first-function-cli-java.md)</li></ul> | <ul><li>[Entwicklerhandbuch](functions-reference.md)</li><li>[Hostingoptionen](functions-scale.md)</li><li>[TypeScript-Funktionen](#typescript)</li><li>[Überlegungen&nbsp; zur Leistung](functions-best-practices.md)</li></ul> | <ul><li>[Erstellen serverloser Anwendungen](/learn/paths/create-serverless-applications/)</li><li>[Umgestalten von Node js- und Express-APIs auf serverlose APIs](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 ## <a name="javascript-function-basics"></a>JavaScript-Funktionsgrundlagen
 
@@ -270,7 +270,7 @@ context.done([err],[propertyBag])
 
 Gibt für die Runtime an, dass der Code abgeschlossen wurde. Wenn die Funktion die [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function)-Deklaration verwendet, muss `context.done()` nicht verwendet werden. Der Rückruf `context.done` wird implizit aufgerufen. Asynchrone Funktionen sind in Node 8 oder einer höheren Version verfügbar, für die Version 2.x der Functions-Runtime erforderlich ist.
 
-Wenn Ihre Funktion keine asynchrone Funktion ist, **müssen Sie `context.done` aufrufen** , um der Laufzeit mitzuteilen, dass Ihre Funktion vollständig ist. Wenn diese Methode fehlt, tritt bei der Ausführung ein Timeout auf.
+Wenn Ihre Funktion keine asynchrone Funktion ist, **müssen Sie `context.done` aufrufen**, um der Laufzeit mitzuteilen, dass Ihre Funktion vollständig ist. Wenn diese Methode fehlt, tritt bei der Ausführung ein Timeout auf.
 
 Mit der `context.done`-Methode können Sie sowohl einen benutzerdefinierten Fehler an die Laufzeit als auch ein JSON-Objekt mit Ausgabebindungsdaten zurückgeben. Eigenschaften, die an `context.done` übergeben werden, überschreiben alles, was für das `context.bindings`-Objekt festgelegt wurde.
 
@@ -294,7 +294,7 @@ Ermöglicht das Schreiben in die Streamingfunktionsprotokolle auf Standard-Ablau
 
 ## <a name="write-trace-output-to-logs"></a>Schreiben der Ausgabe der Ablaufverfolgung in Protokolle
 
-In Functions werden die Methoden vom Typ `context.log` verwendet, um die Ausgabe der Ablaufverfolgung in die Protokolle und in die Konsole zu schreiben. Wenn Sie `context.log()` aufrufen, wird Ihre Meldung auf der Standard-Ablaufverfolgungsebene ( _info_ ) in die Konsole geschrieben. Die Integration von Functions und Azure Application Insights ermöglicht eine bessere Erfassung Ihrer Funktions-App-Protokolle. Application Insights ist eine Komponente von Azure Monitor und bietet Funktionen für die Erfassung, das visuelle Rendering und die Analyse von Anwendungstelemetriedaten sowie Ihrer Ausgaben der Ablaufverfolgung. Weitere Informationen finden Sie unter [Überwachen von Azure Functions](functions-monitoring.md).
+In Functions werden die Methoden vom Typ `context.log` verwendet, um die Ausgabe der Ablaufverfolgung in die Protokolle und in die Konsole zu schreiben. Wenn Sie `context.log()` aufrufen, wird Ihre Meldung auf der Standard-Ablaufverfolgungsebene (_info_) in die Konsole geschrieben. Die Integration von Functions und Azure Application Insights ermöglicht eine bessere Erfassung Ihrer Funktions-App-Protokolle. Application Insights ist eine Komponente von Azure Monitor und bietet Funktionen für die Erfassung, das visuelle Rendering und die Analyse von Anwendungstelemetriedaten sowie Ihrer Ausgaben der Ablaufverfolgung. Weitere Informationen finden Sie unter [Überwachen von Azure Functions](functions-monitoring.md).
 
 Im folgenden Beispiel wird ein Protokoll auf der Ablaufverfolgungsebene „info“ geschrieben (einschließlich der Aufruf-ID):
 
@@ -325,10 +325,10 @@ Neben der Standardebene stehen auch folgende Protokollierungsmethoden zur Verfü
 
 | Methode                 | BESCHREIBUNG                                |
 | ---------------------- | ------------------------------------------ |
-| **error( _message_ )**   | Schreibt ein Ereignis auf Fehlerebene in die Protokolle.   |
-| **warn( _message_ )**    | Schreibt ein Ereignis auf Warnungsebene in die Protokolle. |
-| **info( _message_ )**    | Schreibt in Protokollierung auf Informationsebene oder niedriger.    |
-| **verbose( _message_ )** | Schreibt in Protokollierung auf ausführlicher Ebene.           |
+| **error(_message_)**   | Schreibt ein Ereignis auf Fehlerebene in die Protokolle.   |
+| **warn(_message_)**    | Schreibt ein Ereignis auf Warnungsebene in die Protokolle. |
+| **info(_message_)**    | Schreibt in Protokollierung auf Informationsebene oder niedriger.    |
+| **verbose(_message_)** | Schreibt in Protokollierung auf ausführlicher Ebene.           |
 
 Im folgenden Beispiel wird das gleiche Protokoll auf der Ablaufverfolgungsebene „warning“ geschrieben (anstatt auf der Ebene „info“):
 
@@ -358,7 +358,7 @@ Verwenden Sie die Eigenschaft `tracing.consoleLevel` in der Datei „host.json�
 }  
 ```
 
-Die Werte von **consoleLevel** entsprechen den Namen der `context.log`-Methoden. Um die gesamte Ablaufverfolgungsprotokollierung in der Konsole zu deaktivieren, setzen Sie **consoleLevel** auf _off_ . Weitere Informationen finden Sie in der [host.json-Referenz für Azure Functions 1.x](functions-host-json-v1.md).
+Die Werte von **consoleLevel** entsprechen den Namen der `context.log`-Methoden. Um die gesamte Ablaufverfolgungsprotokollierung in der Konsole zu deaktivieren, setzen Sie **consoleLevel** auf _off_. Weitere Informationen finden Sie in der [host.json-Referenz für Azure Functions 1.x](functions-host-json-v1.md).
 
 ---
 
@@ -508,12 +508,20 @@ Die folgende Tabelle zeigt die aktuell von den jeweiligen Hauptversionen der Fun
 | Functions-Version | Node-Version (Windows) | Node-Version (Linux) |
 |---|---| --- |
 | 1.x | 6.11.2 (durch die Laufzeit gesperrt) | – |
-| 2.x  | ~8<br/>~10 (empfohlen)<br/>~12<sup>*</sup> | ~8 (empfohlen)<br/>~10  |
-| 3.x | ~10<br/>~12 (empfohlen)  | ~10<br/>~12 (empfohlen) |
+| 2.x  | `~8`<br/>`~10` (empfohlen)<br/>`~12` | `node|8`<br/>`node|10` (empfohlen)  |
+| 3.x | `~10`<br/>`~12` (empfohlen)<br/>`~14` (Vorschau)  | `node|10`<br/>`node|12` (empfohlen)<br/>`node|14` (Vorschau) |
 
-<sup>*</sup>Node ~12 ist zurzeit in Version 2.x der Functions Runtime zulässig. Um die bestmögliche Leistung zu erzielen, empfehlen wir jedoch die Verwendung der Functions Runtime, Version 3. x, mit Node ~12. 
+Die aktuell von der Laufzeit verwendete Version ermitteln Sie, indem Sie `process.version` aus einer beliebigen Funktion protokollieren.
 
-Sie können die aktuelle Version anzeigen, die die Laufzeit verwendet, indem Sie die oben gezeigte App-Einstellung überprüfen oder `process.version` aus einer beliebigen Funktion ausgeben. Legen Sie die Zielversion in Azure fest, indem Sie die [App-Einstellung](functions-how-to-use-azure-function-app-settings.md#settings) „WEBSITE_NODE_DEFAULT_VERSION“ auf eine unterstützte LTS-Version wie `~10` festlegen.
+### <a name="setting-the-node-version"></a>Festlegen der Node-Version
+
+Legen Sie für Windows-Funktions-Apps die Zielversion in Azure fest, indem Sie die [App-Einstellung](functions-how-to-use-azure-function-app-settings.md#settings) `WEBSITE_NODE_DEFAULT_VERSION` auf eine unterstützte LTS-Version wie `~12` festlegen.
+
+Führen Sie für Linux-Funktions-Apps den folgenden Azure CLI-Befehl aus, um die Node-Version zu aktualisieren.
+
+```bash
+az functionapp config set --linux-fx-version "node|12" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
+```
 
 ## <a name="dependency-management"></a>Verwaltung von Abhängigkeiten
 Um Communitybibliotheken in Ihrem JavaScript-Code zu verwenden (wie im folgenden Beispiel gezeigt), müssen Sie sicherstellen, dass alle Abhängigkeiten für Ihre Funktions-App in Azure installiert sind.
@@ -545,9 +553,9 @@ Es gibt zwei Möglichkeiten zum Installieren von Paketen für Ihre Funktions-App
 ### <a name="using-kudu"></a>Verwenden von Kudu
 1. Gehe zu `https://<function_app_name>.scm.azurewebsites.net`.
 
-2. Klicken Sie auf **Debugkonsole** > **CMD** .
+2. Klicken Sie auf **Debugkonsole** > **CMD**.
 
-3. Gehen Sie zu `D:\home\site\wwwroot`, und ziehen Sie dann die Datei „package.json“ auf den **wwwroot** -Ordner in der oberen Hälfte der Seite.  
+3. Gehen Sie zu `D:\home\site\wwwroot`, und ziehen Sie dann die Datei „package.json“ auf den **wwwroot**-Ordner in der oberen Hälfte der Seite.  
     Es gibt auch andere Möglichkeiten, Dateien in Ihre Funktionen-App hochzuladen. Weitere Informationen finden Sie unter [Aktualisieren von Funktionen-App-Dateien](functions-reference.md#fileupdate). 
 
 4. Sobald die Datei „package.json“ hochgeladen ist, führen Sie den `npm install`-Befehl in der **Kudu-Remoteausführungskonsole** aus.  
@@ -555,21 +563,42 @@ Es gibt zwei Möglichkeiten zum Installieren von Paketen für Ihre Funktions-App
 
 ## <a name="environment-variables"></a>Umgebungsvariablen
 
-In Functions werden [App-Einstellungen](functions-app-settings.md), z.B. Dienstverbindungszeichenfolgen, während der Ausführung als Umgebungsvariablen verfügbar gemacht. Sie können über `process.env` auf diese Einstellungen zugreifen, wie hier in den zweiten und dritten Aufrufen von `context.log()` gezeigt, in denen die Umgebungsvariablen `AzureWebJobsStorage` und `WEBSITE_SITE_NAME` protokolliert werden:
+Fügen Sie einer Funktionsanwendung in Ihrer lokalen und in der Cloudumgebung Ihre eigenen Umgebungsvariablen hinzu, z. B. Betriebsgeheimnisse (Verbindungszeichenfolgen, Schlüssel und Endpunkte) oder Umgebungseinstellungen (z. B. Profilerstellungsvariablen). Greifen Sie mithilfe von `process.env` in Ihrem Funktionscode auf diese Einstellungen zu.
+
+### <a name="in-local-development-environment"></a>In der lokalen Entwicklungsumgebung
+
+Wenn das Funktionsprojekt lokal ausgeführt wird, enthält es eine [`local.settings.json`-Datei](/azure/azure-functions/functions-run-local), in der Sie die Umgebungsvariablen im `Values`-Objekt speichern. 
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "translatorTextEndPoint": "https://api.cognitive.microsofttranslator.com/",
+    "translatorTextKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "languageWorkers__node__arguments": "--prof"
+  }
+}
+```
+
+### <a name="in-azure-cloud-environment"></a>In der Azure-Cloudumgebung
+
+Wenn die Ausführung in Azure erfolgt, können Sie mithilfe der Funktions-App [Anwendungseinstellungen](functions-app-settings.md) festlegen, z. B. Dienstverbindungszeichenfolgen. Diese Einstellungen werden während der Ausführung als Umgebungsvariablen bereitgestellt. 
+
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+### <a name="access-environment-variables-in-code"></a>Zugreifen auf Umgebungsvariablen im Code
+
+Greifen Sie auf Anwendungseinstellungen als Umgebungsvariablen mit `process.env` zu, wie hier in den zweiten und dritten Aufrufen von `context.log()` gezeigt, in denen die Umgebungsvariablen `AzureWebJobsStorage` und `WEBSITE_SITE_NAME` protokolliert werden:
 
 ```javascript
 module.exports = async function (context, myTimer) {
-    var timeStamp = new Date().toISOString();
 
-    context.log('Node.js timer trigger function ran!', timeStamp);
     context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
     context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
 };
 ```
-
-[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
-
-Wenn App-Einstellungen lokal ausgeführt werden, werden sie über die Projektdatei [local.settings.json](functions-run-local.md#local-settings-file) gelesen.
 
 ## <a name="configure-function-entry-point"></a>Konfigurieren des Funktionseinstiegspunkts
 
@@ -651,7 +680,7 @@ In Version 1.x funktioniert die Einstellung `languageWorkers:node:arguments` nic
 
 ## <a name="typescript"></a>TypeScript
 
-Wenn Sie Version 2.x der Azure Functions-Runtime als Ziel verwenden, können Sie mit der [Azure Functions-Erweiterung für Visual Studio Code](functions-create-first-function-vs-code.md) und den [Azure Functions Core Tools](functions-run-local.md) Funktions-Apps mit Vorlagen erstellen, die Funktions-App-Projekte in TypeScript unterstützen. Diese Vorlage generiert `package.json`- und `tsconfig.json`-Projektdateien, mit denen Sie JavaScript-Funktionen aus TypeScript-Code leichter mithilfe dieser Tools transpilieren, ausführen und veröffentlichen können.
+Wenn Sie Version 2.x der Azure Functions-Runtime als Ziel verwenden, können Sie mit der [Azure Functions-Erweiterung für Visual Studio Code](./create-first-function-cli-typescript.md) und den [Azure Functions Core Tools](functions-run-local.md) Funktions-Apps mit Vorlagen erstellen, die Funktions-App-Projekte in TypeScript unterstützen. Diese Vorlage generiert `package.json`- und `tsconfig.json`-Projektdateien, mit denen Sie JavaScript-Funktionen aus TypeScript-Code leichter mithilfe dieser Tools transpilieren, ausführen und veröffentlichen können.
 
 Die generierte `.funcignore`-Datei wird verwendet, um anzugeben, welche Dateien ausgeschlossen werden sollen, wenn ein Projekt in Azure veröffentlicht wird.  
 

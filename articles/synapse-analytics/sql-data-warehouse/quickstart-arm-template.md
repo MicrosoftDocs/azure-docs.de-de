@@ -1,5 +1,5 @@
 ---
-title: Erstellen eines SQL-Pools unter Verwendung einer Azure Resource Manager-Vorlage
+title: Erstellen eines dedizierten SQL-Pools (vormals SQL DW) mithilfe einer Azure Resource Manager-Vorlage
 description: Hier erfahren Sie, wie Sie mithilfe einer Azure Resource Manager-Vorlage einen Azure Synapse Analytics SQL-Pool erstellen.
 services: azure-resource-manager
 author: julieMSFT
@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 06/09/2020
-ms.openlocfilehash: 29d4e4d696b34aa493714c870ebb466f491c47fe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 70adb7409c44a79345a192df173a1a073cc9b7dd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88641873"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460731"
 ---
-# <a name="quickstart-create-an-azure-synapse-analytics-sql-pool-by-using-an-arm-template"></a>Schnellstart: Erstellen eines Azure Synapse Analytics SQL-Pools mithilfe einer ARM-Vorlage
+# <a name="quickstart-create-an-azure-synapse-analytics-dedicated-sql-pool-formerly-sql-dw-by-using-an-arm-template"></a>Schnellstart: Erstellen eines dedizierten Azure Synapse Analytics-SQL-Pools (vormals SQL DW) mithilfe einer ARM-Vorlage
 
-Mit dieser Azure Resource Manager-Vorlage (ARM-Vorlage) wird ein Azure Synapse Analytics-SQL-Pool mit aktivierter Transparent Data Encryption erstellt. Ein Synapse SQL-Pool bezieht sich auf die Data Warehousing-Features für Unternehmen, die in Azure Synapse allgemein zur Verfügung stehen.
+Mit dieser Azure Resource Manager-Vorlage (ARM-Vorlage) wird ein dedizierter SQL-Pool (vormals SQL DW) mit aktivierter Transparent Data Encryption erstellt. Ein dedizierter SQL-Pool (früher SQL DW) bezieht sich auf die Data Warehousing-Features für Unternehmen, die in Azure Synapse allgemein zur Verfügung stehen.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -41,7 +41,7 @@ Die Vorlage definiert eine Ressource:
 
 ## <a name="deploy-the-template"></a>Bereitstellen der Vorlage
 
-1. Wählen Sie das folgende Image aus, um sich bei Azure anzumelden und die Vorlage zu öffnen. Mit dieser Vorlage wird ein Synapse SQL-Pool erstellt.
+1. Wählen Sie das folgende Image aus, um sich bei Azure anzumelden und die Vorlage zu öffnen. Mit dieser Vorlage wird ein dedizierter SQL-Pool (vormals SQL DW) erstellt.
    
    [![In Azure bereitstellen](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create%2Fazuredeploy.json)
 
@@ -53,7 +53,7 @@ Die Vorlage definiert eine Ressource:
    * **SQL Server-Name**: Übernehmen Sie den Standardnamen, oder geben Sie einen Namen für als SQL Server-Namen ein.
    * **SQL-Administratoranmeldung**: Geben Sie den Benutzernamen des Administrators für den SQL Server ein.
    * **SQL-Administratorkennwort**: Geben Sie das Administratorkennwort für den SQL Server ein.
-   * **Data Warehouse-Name**: Geben Sie einen SQL-Poolnamen ein.
+   * **Data Warehouse-Name**: Geben Sie den Namen eines dedizierten SQL-Pools ein.
    * **Transparent Data Encryption**: Akzeptieren Sie die Standardeinstellung „Aktiviert“. 
    * **Servicelevelziel**: Akzeptieren Sie den Standardwert „DW400c“.
    * **Standort**: Akzeptieren Sie den Standardstandort der Ressourcengruppe.
@@ -67,7 +67,7 @@ Sie können entweder das Azure-Portal nutzen, um die bereitgestellten Ressourcen
 # <a name="cli"></a>[BEFEHLSZEILENSCHNITTSTELLE (CLI)](#tab/CLI)
 
 ```azurecli-interactive
-echo "Enter the resource group where your Synapse SQL pool exists:" &&
+echo "Enter the resource group where your dedicated SQL pool (formerly SQL DW) exists:" &&
 read resourcegroupName &&
 az resource list --resource-group $resourcegroupName 
 ```
@@ -75,7 +75,7 @@ az resource list --resource-group $resourcegroupName
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the resource group name where your SQL pool account exists"
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name where your dedicated SQL pool (formerly SQL DW) account exists"
 (Get-AzResource -ResourceType "Microsoft.Sql/servers/databases" -ResourceGroupName $resourceGroupName).Name
  Write-Host "Press [ENTER] to continue..."
 ```
@@ -107,7 +107,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In dieser Schnellstartanleitung haben Sie mit einer ARM-Vorlage einen Azure Synapse Analytics-SQL-Pool erstellt und die Bereitstellung überprüft. Weitere Informationen zu Azure Synapse Analytics und Azure Resource Manager finden Sie in den folgenden Artikeln.
+In dieser Schnellstartanleitung haben Sie mithilfe einer ARM-Vorlage einen dedizierten SQL-Pool (vormals SQL DW) erstellt und die Bereitstellung überprüft. Weitere Informationen zu Azure Synapse Analytics und Azure Resource Manager finden Sie in den folgenden Artikeln:
 
 - Lesen Sie [Eine Übersicht über Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 - Lesen Sie weitere Informationen zu [Azure Resource Manager](../../azure-resource-manager/management/overview.md).

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/30/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.date: 11/24/2020
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b88b2ca0a420295a7a53608f02923e72045e1c44
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 04a46a691b2f629b64cfe09c22813b05c593af1c
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964739"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743461"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Aktivieren der kennwortlosen Anmeldung mit Sicherheitsschlüsseln bei Windows 10-Geräten mit Azure Active Directory (Vorschauversion)
 
@@ -29,7 +29,7 @@ In diesem Dokument liegt der Schwerpunkt auf der Aktivierung der auf FIDO2-Siche
 
 | Gerätetyp | In Azure AD eingebunden | Hybrid in Azure AD eingebunden |
 | --- | --- | --- |
-| [Azure Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
+| [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
 | [Kombinierte Registrierung von Sicherheitsinformationen (Vorschauversion)](concept-registration-mfa-sspr-combined.md) | X | X |
 | Kompatible [FIDO2-Sicherheitsschlüssel](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
 | WebAuthN erfordert Windows 10, Version 1903 oder höher | X | X |
@@ -134,7 +134,7 @@ Für **in Azure AD Hybrid eingebundene Geräte** können Organisationen die folg
 - Wenn Sie diese Richtlinie auf **Aktiviert** festlegen, können Benutzer sich mit Sicherheitsschlüsseln anmelden.
 - Das Festlegen dieser Richtlinie auf **Deaktiviert** oder **Nicht konfiguriert** verhindert, dass Benutzer sich mit Sicherheitsschlüsseln anmelden.
 
-Diese Gruppenrichtlinieneinstellung erfordert eine aktualisierte Version der `credentialprovider.admx`-Gruppenrichtlinienvorlage. Diese neue Vorlage ist mit der nächsten Version von Windows Server und mit Windows 10 20h1 verfügbar. Diese Einstellung kann mit einem Gerät verwaltet werden, auf dem eine dieser neueren Versionen von Windows ausgeführt wird, oder zentral anhand der Anleitung im Supportthema [Erstellen und Verwalten des zentralen Speichers für administrative Vorlagendateien für Gruppenrichtlinien in Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
+Diese Gruppenrichtlinieneinstellung erfordert eine aktualisierte Version der `CredentialProviders.admx`-Gruppenrichtlinienvorlage. Diese neue Vorlage ist mit der nächsten Version von Windows Server und mit Windows 10 20h1 verfügbar. Diese Einstellung kann mit einem Gerät verwaltet werden, auf dem eine dieser neueren Versionen von Windows ausgeführt wird, oder zentral anhand der Anleitung im Supportthema [Erstellen und Verwalten des zentralen Speichers für administrative Vorlagendateien für Gruppenrichtlinien in Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
 
 ## <a name="sign-in-with-fido2-security-key"></a>Anmelden mit dem FIDO2-Sicherheitsschlüssel
 
@@ -164,4 +164,4 @@ Wenn Sie Feedback geben möchten oder Probleme beim Anzeigen der Vorschau dieses
 
 [Erfahren Sie mehr über die Geräteregistrierung](../devices/overview.md)
 
-[Erfahren Sie mehr über Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Erfahren Sie mehr über Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

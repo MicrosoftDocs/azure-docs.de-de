@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: gelecaro
 ms.openlocfilehash: 785008633318ee6670170d66cba96bd5853f9ed9
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097149"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188307"
 ---
 ## <a name="install-speech-sdk"></a>Installieren des Speech SDK
 

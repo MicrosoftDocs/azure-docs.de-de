@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d02bc8d97b65f4ea2c2585201654899a63d3229b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aadb75d7257470cf4288c6123263f3d2dfe14d21
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201360"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781718"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Das **ClaimsSchema**-Element definiert die Anspruchstypen, auf die als Teil der Richtlinie verwiesen werden kann. Im Anspruchsschema deklarieren Sie Ihre Ansprüche. Bei einem Anspruch kann es sich u.a. um einen Vornamen, Nachnamen, Anzeigenamen, eine Telefonnummer handeln. Das ClaimsSchema-Element enthält eine Liste von **ClaimType**-Elementen. Das **ClaimType**-Element enthält das **Id**-Attribut, bei dem es sich um den Anspruchsnamen handelt.
+Das **ClaimsSchema** -Element definiert die Anspruchstypen, auf die als Teil der Richtlinie verwiesen werden kann. Im Anspruchsschema deklarieren Sie Ihre Ansprüche. Bei einem Anspruch kann es sich u.a. um einen Vornamen, Nachnamen, Anzeigenamen, eine Telefonnummer handeln. Das ClaimsSchema-Element enthält eine Liste von **ClaimType** -Elementen. Das **ClaimType** -Element enthält das **Id** -Attribut, bei dem es sich um den Anspruchsnamen handelt.
 
 ```xml
 <BuildingBlocks>
@@ -40,13 +40,13 @@ Das **ClaimsSchema**-Element definiert die Anspruchstypen, auf die als Teil der 
 
 ## <a name="claimtype"></a>ClaimType
 
-Das **ClaimType**-Element enthält die folgenden Attribute:
+Das **ClaimType** -Element enthält die folgenden Attribute:
 
 | attribute | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
 | Id | Ja | Ein Bezeichner, der für den Anspruchsnamen verwendet wird. Andere Elemente können diesen Bezeichner in der Richtlinie verwenden. |
 
-Das **ClaimType**-Element enthält die folgenden Elemente:
+Das **ClaimType** -Element enthält die folgenden Elemente:
 
 | Element | Vorkommen | BESCHREIBUNG |
 | ------- | ----------- | ----------- |
@@ -58,7 +58,7 @@ Das **ClaimType**-Element enthält die folgenden Elemente:
 | UserInputType | 0:1 | Der Typ des Eingabesteuerelements, der dem Benutzer zur Verfügung stehen sollte, wenn die Anspruchsdaten für den Anspruchstypen manuell eingegeben werden. Weitere Informationen hierzu finden Sie weiter unten in den Definitionen der Benutzereingabetypen. |
 | AdminHelpText | 0:1 | Eine Beschreibung des Anspruchstyps, der Administratoren helfen kann, dessen Zweck zu verstehen. |
 | Einschränkung | 0:1 | Die Werteinschränkungen für diesen Anspruch, z.B. ein regulärer Ausdruck (RegEx) oder eine Liste der zulässigen Werte. Der Wert kann [lokalisiert](localization.md) sein. |
-PredicateValidationReference| 0:1 | Ein Verweis auf ein **PredicateValidationsInput**-Element. Die **PredicateValidationReference**-Elemente ermöglichen Ihnen einen Überprüfungsprozess, mithilfe dessen Sie sicherstellen können, dass nur ordnungsgemäß formatierte Daten eingegeben werden. Weitere Informationen finden Sie im Artikel zu [Prädikaten](predicates.md). |
+PredicateValidationReference| 0:1 | Ein Verweis auf ein **PredicateValidationsInput** -Element. Die **PredicateValidationReference** -Elemente ermöglichen Ihnen einen Überprüfungsprozess, mithilfe dessen Sie sicherstellen können, dass nur ordnungsgemäß formatierte Daten eingegeben werden. Weitere Informationen finden Sie im Artikel zu [Prädikaten](predicates.md). |
 
 
 
@@ -88,7 +88,7 @@ Die **DefaultPartnerClaimTypes** können das folgende Element enthalten:
 | ------- | ----------- | ----------- |
 | Protocol | 1:n | Liste von Protokollen mit deren Standardnamen für den Partneranspruchstyp. |
 
-Das **Protocol**-Element enthält die folgenden Attribute:
+Das **Protocol** -Element enthält die folgenden Attribute:
 
 | attribute | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
@@ -123,14 +123,14 @@ Infolgedessen gibt das von Azure AD B2C ausgestellte JWT-Token `family_name` ans
 
 ### <a name="mask"></a>Mask
 
-Das **Mask**-Element enthält die folgenden Attribute:
+Das **Mask** -Element enthält die folgenden Attribute:
 
 | attribute | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
 | `Type` | Ja | Der Typ der Anspruchsmaske. Mögliche Werte: `Simple` oder `Regex`. Der Wert `Simple` gibt an, dass auf den vorderen Teil eines Zeichenfolgenanspruchs eine einfache Textmaske angewandt wird. Der Wert `Regex` gibt an, dass ein regulärer Ausdruck auf den Zeichenfolgenausdruck als Ganzes angewandt wird.  Wenn der Wert `Regex` angegeben wird, muss mit dem zu verwendenden regulären Ausdruck auch ein optionales Attribut definiert werden. |
 | `Regex` | Nein | Wenn **`Type`** auf `Regex` festgelegt wird, geben Sie den zu verwendenden regulären Ausdruck an.
 
-Im folgenden Beispiel wird ein **PhoneNumber**-Anspruch mit der Maske `Simple` konfiguriert:
+Im folgenden Beispiel wird ein **PhoneNumber** -Anspruch mit der Maske `Simple` konfiguriert:
 
 ```xml
 <ClaimType Id="PhoneNumber">
@@ -145,7 +145,7 @@ Das Identity Experience Framework rendert die Telefonnummer, wobei die ersten se
 
 ![Telefonnummeranspruch im Browser mit den ersten sechs Ziffern als X](./media/claimsschema/mask.png)
 
-Im folgenden Beispiel wird ein **AlternateEmail**-Anspruch mit der Maske `Regex` konfiguriert:
+Im folgenden Beispiel wird ein **AlternateEmail** -Anspruch mit der Maske `Regex` konfiguriert:
 
 ```xml
 <ClaimType Id="AlternateEmail">
@@ -163,13 +163,13 @@ Das Identity Experience Framework rendert nur den ersten Buchstaben der E-Mail-A
 
 ### <a name="restriction"></a>Einschränkung
 
-Das **Restriction**-Element enthält möglicherweise das folgende Attribut:
+Das **Restriction** -Element enthält möglicherweise das folgende Attribut:
 
 | attribute | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
 | MergeBehavior | Nein | Die Methode, die zum Zusammenführen von Enumerationswerten mit einem Anspruchstyp in einer übergeordneten Richtlinie mit dem gleichen Bezeichner verwendet wird. Verwenden Sie dieses Attribut, wenn Sie einen Anspruch überschreiben, der in der Basisrichtlinie angegeben ist. Mögliche Werte: `Append`, `Prepend` oder `ReplaceAll`. Beim Wert `Append` handelt es sich um eine Sammlung von Daten, die an das Ende der in der übergeordneten Richtlinie angegebenen Sammlung angefügt werden soll. Beim Wert `Prepend` handelt es sich um eine Sammlung von Daten, die vor der in der übergeordneten Richtlinie angegebenen Sammlung hinzugefügt werden soll. Beim Wert `ReplaceAll` handelt es sich um eine Sammlung von in der übergeordneten Richtlinie angegebenen Daten, die ignoriert werden sollen. |
 
-Das **Restriction**-Element enthält die folgenden Elemente:
+Das **Restriction** -Element enthält die folgenden Elemente:
 
 | Element | Vorkommen | BESCHREIBUNG |
 | ------- | ----------- | ----------- |
@@ -178,9 +178,9 @@ Das **Restriction**-Element enthält die folgenden Elemente:
 
 #### <a name="enumeration"></a>Enumeration
 
-Das **Enumeration**-Element definiert die auf der Benutzeroberfläche verfügbaren Optionen, die der Benutzer für einen Anspruch auswählen kann, z. B. einen Wert in einem `CheckboxMultiSelect`-, `DropdownSingleSelect`- oder `RadioSingleSelect`-Element. Alternativ können Sie verfügbare Optionen mit dem [LocalizedCollections](localization.md#localizedcollections)-Element definieren und lokalisieren. Um nach einem Element aus einer **Enumeration**-Anspruchssammlung zu suchen, verwenden Sie die Anspruchstransformation [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection).
+Das **Enumeration** -Element definiert die auf der Benutzeroberfläche verfügbaren Optionen, die der Benutzer für einen Anspruch auswählen kann, z. B. einen Wert in einem `CheckboxMultiSelect`-, `DropdownSingleSelect`- oder `RadioSingleSelect`-Element. Alternativ können Sie verfügbare Optionen mit dem [LocalizedCollections](localization.md#localizedcollections)-Element definieren und lokalisieren. Um nach einem Element aus einer **Enumeration** -Anspruchssammlung zu suchen, verwenden Sie die Anspruchstransformation [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection).
 
-Das **Enumeration**-Element enthält die folgenden Attribute:
+Das **Enumeration** -Element enthält die folgenden Attribute:
 
 | attribute | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
@@ -188,7 +188,7 @@ Das **Enumeration**-Element enthält die folgenden Attribute:
 |Wert | Ja | Der Wert des Anspruchs, der der Auswahl dieser Option zugeordnet ist. |
 | SelectByDefault | Nein | Gibt an, ob diese Option auf der Benutzeroberfläche standardmäßig ausgewählt werden soll. Mögliche Werte: „True“ oder „False“. |
 
-Im folgenden Beispiel wird ein **city**-Dropdownlistenanspruch mit dem Standardwert `New York` konfiguriert:
+Im folgenden Beispiel wird ein **city** -Dropdownlistenanspruch mit dem Standardwert `New York` konfiguriert:
 
 ```xml
 <ClaimType Id="city">
@@ -209,14 +209,14 @@ Im folgenden Beispiel wird ein **city**-Dropdownlistenanspruch mit dem Standardw
 
 ### <a name="pattern"></a>Muster
 
-Das **Pattern**-Element kann die folgenden Attribute enthalten:
+Das **Pattern** -Element kann die folgenden Attribute enthalten:
 
 | attribute | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
 | RegularExpression | Ja | Der reguläre Ausdruck, mit dem Ansprüche dieses Typs übereinstimmen müssen, damit sie gültig sind. |
 | HelpText | Nein | Eine Fehlermeldung für Benutzer, wenn die Überprüfung des regulären Ausdrucks einen Fehler ergibt. |
 
-Im folgenden Beispiel wird ein **email**-Anspruch mit Eingabeüberprüfung mit regulärem Ausdruck und Hilfetext konfiguriert:
+Im folgenden Beispiel wird ein **email** -Anspruch mit Eingabeüberprüfung mit regulärem Ausdruck und Hilfetext konfiguriert:
 
 ```xml
 <ClaimType Id="email">
@@ -228,7 +228,7 @@ Im folgenden Beispiel wird ein **email**-Anspruch mit Eingabeüberprüfung mit r
   <UserHelpText>Email address that can be used to contact you.</UserHelpText>
   <UserInputType>TextBox</UserInputType>
   <Restriction>
-    <Pattern RegularExpression="^[a-zA-Z0-9.!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" HelpText="Please enter a valid email address." />
+    <Pattern RegularExpression="^[a-zA-Z0-9.+!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" HelpText="Please enter a valid email address." />
     </Restriction>
  </ClaimType>
 ```
@@ -239,7 +239,7 @@ Das Identity Experience Framework rendert den E-Mail-Adressenanspruch mit Eingab
 
 ### <a name="userinputtype"></a>UserInputType
 
-Azure AD B2C unterstützt eine Vielzahl von Benutzereingabetypen wie ein Textfeld, Kennwort und eine Dropdownliste, die bei der manuellen Eingabe von Anspruchsdaten für den Anspruchstyp verwendet werden können. Sie müssen **UserInputType** angeben, wenn Sie mit einem [selbstbestätigten technischen Profil ](self-asserted-technical-profile.md) und [Anzeigesteuerelementen](display-controls.md) Informationen vom Benutzer sammeln.
+Azure AD B2C unterstützt eine Vielzahl von Benutzereingabetypen wie ein Textfeld, Kennwort und eine Dropdownliste, die bei der manuellen Eingabe von Anspruchsdaten für den Anspruchstyp verwendet werden können. Sie müssen **UserInputType** angeben, wenn Sie mit einem [selbstbestätigten technischen Profil](self-asserted-technical-profile.md) und [Anzeigesteuerelementen](display-controls.md) Informationen vom Benutzer sammeln.
 
 Das Element **UserInputType** verfügt über folgende Benutzereingabetypen:
 
@@ -284,7 +284,7 @@ Der Benutzereingabetyp **EmailBox** wird für die Bereitstellung eines einfachen
   <UserHelpText>Email address that can be used to contact you.</UserHelpText>
   <UserInputType>EmailBox</UserInputType>
   <Restriction>
-    <Pattern RegularExpression="^[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$" HelpText="Please enter a valid email address." />
+    <Pattern RegularExpression="^[a-zA-Z0-9.+!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$" HelpText="Please enter a valid email address." />
   </Restriction>
 </ClaimType>
 ```

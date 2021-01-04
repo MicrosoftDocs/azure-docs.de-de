@@ -9,15 +9,16 @@ metadata:
   ms.custom: sqldbrb=2
   ms.topic: landing-page
   ms.collection: performance
-  author: stevestein
-  ms.author: sstein
+  author: WilliamDAssafMSFT
+  ms.author: wiassaf
+  ms.reviewer: sstein
   ms.date: 03/10/2020
-  ms.openlocfilehash: 26a47465085e3cd013cf5b6dc0a937345690cec1
-  ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+  ms.openlocfilehash: c5e6be0781b6c65e4c45c7f0cee5689db890ac33
+  ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/28/2020
-  ms.locfileid: "92790286"
+  ms.lasthandoff: 12/02/2020
+  ms.locfileid: "96490464"
 landingContent:
 - title: Erste Schritte bei der Überwachung und Leistungsoptimierung
   linkLists:

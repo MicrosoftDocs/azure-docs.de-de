@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5c49a46dfcd97f5feb43b0b910476ef3ad6f402a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99c7f4ab92e4cce3937a933fec97008c281a0eae
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742246"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018289"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Sichern von Freigaben oder Volumes in Ihrem StorSimple Virtual Array
 
@@ -28,7 +28,7 @@ ms.locfileid: "91742246"
 
 Das StorSimple Virtual Array ist ein lokales virtuelles Cloudspeichergerät, das als Dateiserver oder iSCSI-Server konfiguriert werden kann. Das Virtual Array ermöglicht dem Benutzer, geplante und manuelle Sicherungen aller Freigaben oder Volumes auf dem Gerät zu erstellen. Wenn als Dateiserver konfiguriert ist, ermöglicht es auch die Wiederherstellung auf Elementebene. In diesem Tutorial wird beschrieben, wie geplante und manuelle Sicherungen erstellt werden können, und die Wiederherstellung auf Elementebene durchgeführt werden kann, um eine gelöschte Datei auf Ihrem virtuellen Array wiederherzustellen.
 
-Dieses Tutorial gilt nur für StorSimple Virtual Array. Informationen zur 8000-Serie finden Sie unter [Erstellen eines Backups für Geräte der 8000-Serie](storsimple-manage-backup-policies-u2.md)
+Dieses Tutorial gilt nur für StorSimple Virtual Array. Informationen zur 8000-Serie finden Sie unter [Erstellen eines Backups für Geräte der 8000-Serie](./storsimple-8000-manage-backup-policies-u2.md)
 
 ## <a name="back-up-shares-and-volumes"></a>Sichern von Freigaben und Volumes
 
@@ -95,7 +95,7 @@ Führen Sie die folgenden Schritte im Azure-Portal aus, um vorhandene Sicherunge
 
 #### <a name="to-view-existing-backups"></a>So zeigen Sie vorhandene Sicherungen an
 
-1. Wechseln Sie auf das Blatt**Geräte**. Wählen Sie Ihr Gerät aus, und klicken Sie darauf. Gehen Sie auf dem Blatt **Einstellungen** zu **Verwaltung > Sicherungskatalog**.
+1. Wechseln Sie auf das Blatt **Geräte**. Wählen Sie Ihr Gerät aus, und klicken Sie darauf. Gehen Sie auf dem Blatt **Einstellungen** zu **Verwaltung > Sicherungskatalog**.
    
     ![Navigieren zum Sicherungskatalog](./media/storsimple-virtual-array-backup/viewbackups1.png)
 2. Geben Sie die folgenden Kriterien an, die für die Filterung verwendet werden sollen:
@@ -115,4 +115,3 @@ Führen Sie die folgenden Schritte im Azure-Portal aus, um vorhandene Sicherunge
 ## <a name="next-steps"></a>Nächste Schritte
 
 Erfahren Sie, wie Sie [StorSimple Virtual Array verwalten](storsimple-ova-web-ui-admin.md).
-

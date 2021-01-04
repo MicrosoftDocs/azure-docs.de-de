@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
 ms.author: matjazl
-ms.openlocfilehash: c62593251cb0e19c91d1c4877d1b33fe407ebd06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 096e4e3ecbcedaec674e074a2baccbb336e03c94
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87847005"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95524197"
 ---
 # <a name="configure-local-rbac-for-fhir"></a>Konfigurieren der lokalen RBAC für FHIR 
 
@@ -23,7 +23,7 @@ In diesem Artikel wird erläutert, wie Sie die Azure API for FHIR so konfigurier
 
 ## <a name="add-service-principal"></a>Dienstprinzipal hinzufügen
 
-Mit der lokalen RBAC können Sie einen externen Azure Active Directory-Mandanten mit Ihrem FHIR-Server verwenden. Damit das RBAC-System Gruppenmitgliedschaften in diesem Mandanten überprüfen kann, muss die Azure API for FHIR im Mandanten über einen Dienstprinzipal verfügen. Dieser Dienstprinzipal wird automatisch in Mandanten erstellt, die an Abonnements gebunden sind, die die Azure API for FHIR bereitgestellt haben. Falls Ihr Mandant an kein Abonnement gebunden ist, muss ein Mandantenadministrator diesen Dienstprinzipal mit einem der folgenden Befehle erstellen:
+Mit der lokalen RBAC können Sie einen externen Azure Active Directory-Mandanten mit Ihrem FHIR-Server verwenden. Damit das lokale RBAC-System Gruppenmitgliedschaften in diesem Mandanten überprüfen kann, muss die Azure API for FHIR im Mandanten über einen Dienstprinzipal verfügen. Dieser Dienstprinzipal wird automatisch in Mandanten erstellt, die an Abonnements gebunden sind, die die Azure API for FHIR bereitgestellt haben. Falls Ihr Mandant an kein Abonnement gebunden ist, muss ein Mandantenadministrator diesen Dienstprinzipal mit einem der folgenden Befehle erstellen:
 
 Verwendung des `Az`-PowerShell-Moduls:
 

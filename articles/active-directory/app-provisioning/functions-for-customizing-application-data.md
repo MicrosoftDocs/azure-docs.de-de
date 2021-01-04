@@ -10,12 +10,13 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 02/05/2020
 ms.author: kenwith
-ms.openlocfilehash: 14e3b23b4246f26e1ac59e0b12b043341546d0a0
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: fe18513bbfc69fb63f8b1b248b7cf02ad55b467d
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018242"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027372"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-ad"></a>Referenz zum Schreiben von Ausdrücken für Attributzuordnungen in Azure AD
 
@@ -441,7 +442,7 @@ Gibt „Joh“ zurück.
 ### <a name="replace"></a>Replace
 **Funktion:** Replace(Quelle, AlterWert, RegexMuster, RegexGruppenname, Ersatzwert, Ersatzattributname, Vorlage)
 
-**Beschreibung:** Ersetzt Werte in einer Zeichenfolge. Sie funktioniert unterschiedlich, je nachdem, welche Parameter angegeben werden:
+**Beschreibung:** Hiermit werden Werte in einer Zeichenfolge unter Beachtung der Groß-/Kleinschreibung ersetzt. Die Funktion weist ein anderes Verhalten auf, je nachdem, welche Parameter angegeben werden:
 
 * Bei Angabe von **AlterWert** und **Ersatzwert**:
   
@@ -466,7 +467,7 @@ Gibt „Joh“ zurück.
 | --- | --- | --- | --- |
 | **Quelle** |Erforderlich |String |Normalerweise der Name des Attributs aus dem Objekt **Quelle**. |
 | **AlterWert** |Optional |String |Wert, der in **Quelle** oder **Vorlage** ersetzt werden soll. |
-| **RegexMuster** |Optional |String |Regex-Muster für den Wert, der in der **Quelle**ersetzt wird. Oder, bei Verwendung von **Ersatzeigenschaftsname**, das Muster, das zum Extrahieren des Werts aus **Ersatzeigenschaftsname** verwendet wird. |
+| **RegexMuster** |Optional |String |Regex-Muster für den Wert, der in der **Quelle** ersetzt wird. Oder, bei Verwendung von **Ersatzeigenschaftsname**, das Muster, das zum Extrahieren des Werts aus **Ersatzeigenschaftsname** verwendet wird. |
 | **RegexGruppenname** |Optional |String |Name der Gruppe im **RegexMuster**. Nur bei Verwendung von **Ersatzeigenschaftsname** wird der Wert dieser Gruppe als **Ersatzwert** aus **Ersatzeigenschaftsname** extrahiert. |
 | **Ersatzwert** |Optional |String |Neuer Wert, durch den der alte Wert ersetzt wird. |
 | **Ersatzattributname** |Optional |String |Name des Attributs, das als Ersatzwert verwendet werden soll. |
@@ -651,7 +652,7 @@ Sie müssen eine durch Trennzeichen getrennte Liste von Zeichenfolgen in ein Arr
 
 **Beispieleingabe/-ausgabe:** 
 
-* **EINGABE:** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
+* **EINGABE:** (extensionAttribute5): "PermissionSetOne, PermissionSetTwo"
 * **AUSGABE:** ["PermissionSetOne", "PermissionSetTwo"]
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Ausgabedatum eines Datums als Zeichenfolge in einem bestimmten Format

@@ -2,20 +2,20 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: matthewrobertson
-manager: nimag
+author: tomaschladek
+manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
-ms.author: marobert
-ms.openlocfilehash: 77b1e9ab245f668ab81741451a5e032f37bc3625
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: tchladek
+ms.openlocfilehash: a64d26ad11911e2cb9dcdec027b3ab3e4d22984b
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944593"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96584626"
 ---
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -30,7 +30,7 @@ ms.locfileid: "90944593"
 Öffnen Sie Ihr Terminal- oder Befehlsfenster, erstellen Sie ein neues Verzeichnis für Ihre App, und navigieren Sie zu diesem Verzeichnis.
 
 ```console
-mkdir user-tokens-quickstart && cd user-tokens-quickstart
+mkdir access-tokens-quickstart && cd access-tokens-quickstart
 ```
 
 Führen Sie `npm init -y` aus, um die Datei **package.json** mit den Standardeinstellungen zu erstellen.
@@ -65,7 +65,7 @@ Verwenden Sie zum Einstieg den folgenden Code:
 const { CommunicationIdentityClient } = require('@azure/communication-administration');
 
 const main = async () => {
-  console.log("Azure Communication Services - User Access Tokens Quickstart")
+  console.log("Azure Communication Services - Access Tokens Quickstart")
 
   // Quickstart code goes here
 };
@@ -76,9 +76,7 @@ main().catch((error) => {
 })
 ```
 
-1. Speichern Sie die neue Datei im Verzeichnis *user-tokens-quickstart* als **issue-token.js**.
-
-[!INCLUDE [User Access Tokens Object Model](user-access-tokens-object-model.md)]
+1. Speichern Sie die neue Datei als **issue-access-token.js** im Verzeichnis *access-tokens-quickstart*.
 
 ## <a name="authenticate-the-client"></a>Authentifizieren des Clients
 
@@ -91,55 +89,66 @@ Fügen Sie der `main`-Methode folgenden Code hinzu:
 // from an environment variable.
 const connectionString = process.env['COMMUNICATION_SERVICES_CONNECTION_STRING'];
 
-// Instantiate the user token client
+// Instantiate the identity client
 const identityClient = new CommunicationIdentityClient(connectionString);
 ```
 
-## <a name="create-a-user"></a>Erstellen eines Benutzers
+## <a name="create-an-identity"></a>Erstellen einer Identität
 
-Von Azure Communication Services wird ein einfaches Identitätsverzeichnis gepflegt. Verwenden Sie die Methode `createUser`, um in dem Verzeichnis einen neuen Eintrag mit einer eindeutigen `Id` zu erstellen. Es empfiehlt sich, eine Zuordnung zwischen den Benutzern Ihrer Anwendung und den von Communication Services generierten Identitäten zu pflegen (etwa durch Speichern in der Datenbank Ihres Anwendungsservers).
+Von Azure Communication Services wird ein einfaches Identitätsverzeichnis gepflegt. Verwenden Sie die Methode `createUser`, um in dem Verzeichnis einen neuen Eintrag mit einer eindeutigen `Id` zu erstellen. Speichern Sie die empfangene Identität mit einer Zuordnung zu den Benutzern Ihrer Anwendung. Beispielsweise, indem Sie sie in der Datenbank des Anwendungsservers speichern. Die Identität ist später erforderlich, um Zugriffstoken auszustellen.
 
 ```javascript
-let userResponse = await identityClient.createUser();
-console.log(`\nCreated a user with ID: ${userResponse.communicationUserId}`);
+let identityResponse = await identityClient.createUser();
+console.log(`\nCreated an identity with ID: ${identityResponse.communicationUserId}`);
 ```
 
-## <a name="issue-user-access-tokens"></a>Ausstellen von Benutzerzugriffstoken
+## <a name="issue-access-tokens"></a>Ausstellen von Zugriffstoken
 
-Verwenden Sie die Methode `issueToken`, um ein Zugriffstoken für einen Communication Services-Benutzer auszustellen. Ohne Angabe des optionalen Parameters `user` wird ein neuer Benutzer erstellt und mit dem Token zurückgegeben.
+Verwenden Sie die Methode `issueToken`, um ein Zugriffstoken für eine bereits vorhandene Communication Services-Identität auszustellen. Der Parameter `scopes` definiert einen Satz primitiver Elemente, die dieses Zugriffstoken autorisieren. Weitere Informationen finden Sie in der [Liste der unterstützten Aktionen](../../concepts/authentication.md). Eine neue Instanz des Parameters `communicationUser` kann basierend auf der Zeichenfolgendarstellung der Azure Communication Service-Identität generiert werden.
 
 ```javascript
-// Issue an access token with the "voip" scope for a new user
-let tokenResponse = await identityClient.issueToken(userResponse, ["voip"]);
+// Issue an access token with the "voip" scope for an identity
+let tokenResponse = await identityClient.issueToken(identityResponse, ["voip"]);
 const { token, expiresOn } = tokenResponse;
-console.log(`\nIssued a token with 'voip' scope that expires at ${expiresOn}:`);
+console.log(`\nIssued an access token with 'voip' scope that expires at ${expiresOn}:`);
 console.log(token);
 ```
 
-Benutzerzugriffstoken sind kurzlebige Anmeldeinformationen, die neu ausgestellt werden müssen, um Dienstunterbrechungen für Ihre Benutzer zu vermeiden. Die Antworteigenschaft `expiresOn` gibt die Lebensdauer des Tokens an.
+Zugriffstoken sind kurzlebige Anmeldeinformationen, die erneut ausgestellt werden müssen. Wenn dies nicht der Fall ist, kann die Benutzerumgebung Ihrer Anwendung unterbrochen werden. Die Antworteigenschaft `expiresOn` gibt die Lebensdauer des Zugriffstokens an.
 
-## <a name="revoke-user-access-tokens"></a>Widerrufen von Benutzerzugriffstoken
 
-Manchmal müssen Benutzerzugriffstoken ggf. explizit widerrufen werden – etwa, wenn ein Benutzer das Kennwort ändert, mit dem er sich bei Ihrem Dienst authentifiziert. Verwenden Sie die Methode `revokeTokens`, um alle Zugriffstoken eines Benutzers ungültig zu machen.
+## <a name="refresh-access-tokens"></a>Zugriffstoken für die Aktualisierung
 
-```javascript  
-await identityClient.revokeTokens(userResponse);
-console.log(`\nSuccessfully revoked all tokens for user with Id: ${userResponse.communicationUserId}`);
-```
-
-## <a name="delete-a-user"></a>Löschen eines Benutzers
-
-Wird ein Benutzer gelöscht, werden alle aktiven Token widerrufen, und für die Identitäten können keine weiteren Token mehr ausgestellt werden. Außerdem werden alle gespeicherten Inhalte entfernt, die dem Benutzer zugeordnet sind.
+Das Aktualisieren von Zugriffstoken ist genau so einfach wie das Aufrufen von `issueToken` mit der gleichen Identität, die zum Ausstellen der Token verwendet wurde. Außerdem müssen Sie die `scopes`-Elemente der aktualisierten Token angeben. 
 
 ```javascript
-await identityClient.deleteUser(userResponse);
-console.log(`\nDeleted the user with Id: ${userResponse.communicationUserId}`);
+// // Value of identityResponse represents the Azure Communication Services identity stored during identity creation and then used to issue the tokens being refreshed
+let refreshedTokenResponse = await identityClient.issueToken(identityResponse, ["voip"]);
+```
+
+
+## <a name="revoke-access-tokens"></a>Widerrufen von Zugriffstoken
+
+In einigen Fällen können Sie Zugriffstoken explizit widerrufen. Beispielsweise dann, wenn der Benutzer einer Anwendung das Kennwort ändert, das für die Authentifizierung beim Dienst verwendet wird. Die Methode `revokeTokens` erklärt alle aktiven Zugriffstoken für ungültig, die für die Identität ausgestellt wurden.
+
+```javascript  
+await identityClient.revokeTokens(identityResponse);
+console.log(`\nSuccessfully revoked all access tokens for identity with ID: ${identityResponse.communicationUserId}`);
+```
+
+## <a name="delete-an-identity"></a>Löschen einer Identität
+
+Wird eine Identität gelöscht, werden alle aktiven Zugriffstoken widerrufen, und für die Identität können keine Zugriffstoken mehr ausgestellt werden. Außerdem werden alle gespeicherten Inhalte entfernt, die der Identität zugeordnet sind.
+
+```javascript
+await identityClient.deleteUser(identityResponse);
+console.log(`\nDeleted the identity with ID: ${identityResponse.communicationUserId}`);
 ```
 
 ## <a name="run-the-code"></a>Ausführen des Codes
 
-Navigieren Sie an einer Konsoleneingabeaufforderung zum Verzeichnis mit der Datei *issue-token.js*, und führen Sie anschließend den folgenden Befehl vom Typ `node` aus, um die App auszuführen:
+Navigieren Sie an einer Konsoleneingabeaufforderung zum Verzeichnis mit der Datei *issue-access-token.js*, und führen Sie anschließend den folgenden Befehl vom Typ `node` aus, um die App auszuführen.
 
 ```console
-node ./issue-token.js
+node ./issue-access-token.js
 ```

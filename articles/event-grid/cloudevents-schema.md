@@ -2,14 +2,14 @@
 title: Verwenden von Azure Event Grid mit Ereignissen im CloudEvents-Schema
 description: Beschreibt die Verwendung des CloudEvents-Schemas für Ereignisse in Azure Event Grid. Der Dienst unterstützt Ereignisse in der JSON-Implementierung von Cloudereignissen.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 4e8f4c62221e5782ad04695fba172c0aefb62454
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/10/2020
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: e13c3635da7e7a86f4fa2d31215303152167741c
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324194"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109248"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Verwenden des CloudEvents 1.0-Schemas mit Event Grid
 Zusätzlich zu seinem [Standardereignisschema](event-schema.md) unterstützt Azure Event Grid nativ Ereignisse in der [JSON-Implementierung von CloudEvents 1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) und in der [HTTP-Bindung](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) ist eine [offene Spezifikation](https://github.com/cloudevents/spec/blob/v1.0/spec.md) zur Beschreibung von Ereignisdaten.
@@ -20,11 +20,6 @@ CloudEvents wird von mehreren [Partnern](https://github.com/cloudevents/spec/blo
 
 Dieser Artikel beschreibt den Einsatz des CloudEvents-Schemas mit Event Grid.
 
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
-
-## <a name="install-preview-feature"></a>Installieren des Vorschaufeatures
-
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="cloudevent-schema"></a>CloudEvents-Schema
 
@@ -62,16 +57,20 @@ Die im CloudEvents- und Event Grid-Schema übermittelten Headerwerte für Ereign
 
 ## <a name="configure-event-grid-for-cloudevents"></a>Konfigurieren von Event Grid für CloudEvents
 
-Sie können Event Grid für die Eingabe und Ausgabe von Ereignissen im CloudEvents-Schema verwenden. Sie können CloudEvents für Systemereignisse wie Blob Storage-Ereignisse und IoT Hub-Ereignisse sowie benutzerdefinierte Ereignisse verwenden. Diese Ereignisse können auch bei der Übertragung hin und her transformiert werden.
+Sie können Event Grid für die Eingabe und Ausgabe von Ereignissen im CloudEvents-Schema verwenden. In der folgenden Tabelle sind die möglichen Transformationen beschrieben:
+
+ Event Grid-Ressource | Eingabeschema       | Schema für Bereitstellung
+|---------------------|-------------------|---------------------
+| Systemthemen       | Event Grid-Schema | Event Grid-Schema oder CloudEvent-Schema
+| Benutzerthemen/-domänen | Event Grid-Schema | Event Grid-Schema
+| Benutzerthemen/-domänen | CloudEvent-Schema | CloudEvent-Schema
+| Benutzerthemen/-domänen | Benutzerdefiniertes Schema     | Benutzerdefiniertes Schema ODER Event Grid-Schema ODER CloudEvent-Schema
+| PartnerTopics       | CloudEvent-Schema | CloudEvent-Schema
 
 
-| Eingabeschema       | Ausgabeschema
-|--------------------|---------------------
-| CloudEvents-Format | CloudEvents-Format
-| Event Grid-Format  | CloudEvents-Format
-| Event Grid-Format  | Event Grid-Format
+Für alle Ereignisschemas setzt Event Grid beim Veröffentlichen in einem Event Grid-Thema und Erstellen eines Ereignisabonnements eine Überprüfung voraus.
 
-Für alle Ereignisschemas setzt Event Grid beim Veröffentlichen in einem Event Grid-Thema und Erstellen eines Ereignisabonnements eine Überprüfung voraus. Weitere Informationen finden Sie unter [Event Grid – Sicherheit und Authentifizierung](security-authentication.md).
+Weitere Informationen finden Sie unter [Event Grid – Sicherheit und Authentifizierung](security-authentication.md).
 
 ### <a name="input-schema"></a>Eingabeschema
 
@@ -80,10 +79,6 @@ Das Eingabeschema für ein benutzerdefiniertes Thema wird beim Erstellen des ben
 Verwenden Sie für die Azure-Befehlszeilenschnittstelle den folgenden Befehl:
 
 ```azurecli-interactive
-# If you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid topic create \
   --name <topic_name> \
   -l westcentralus \
@@ -94,11 +89,7 @@ az eventgrid topic create \
 Verwenden Sie für PowerShell Folgendes:
 
 ```azurepowershell-interactive
-# If you have not already installed the module, do it now.
-# This module is required for preview features.
-Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
-
-New-AzureRmEventGridTopic `
+New-AzEventGridTopic `
   -ResourceGroupName gridResourceGroup `
   -Location westcentralus `
   -Name <topic_name> `
@@ -123,9 +114,9 @@ az eventgrid event-subscription create \
 
 Verwenden Sie für PowerShell Folgendes:
 ```azurepowershell-interactive
-$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Id
+$topicid = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Id
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName <event_subscription_name> `
   -Endpoint <endpoint_URL> `
@@ -153,15 +144,15 @@ Mit dem folgenden C#-Beispielcode für einen HTTP-Trigger wird das Verhalten ein
 
 ```csharp
 [FunctionName("HttpTrigger")]
-public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", "options", Route = null)]HttpRequestMessage req, ILogger log)
+public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "post", "options", Route = null)]HttpRequestMessage req, ILogger log)
 {
     log.LogInformation("C# HTTP trigger function processed a request.");
-    if (req.Method == "OPTIONS")
+    if (req.Method == HttpMethod.Options)
     {
         // If the request is for subscription validation, send back the validation code
         
         var response = req.CreateResponse(HttpStatusCode.OK);
-        response.Add("Webhook-Allowed-Origin", "eventgrid.azure.net");
+        response.Headers.Add("Webhook-Allowed-Origin", "eventgrid.azure.net");
 
         return response;
     }

@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: cc09912bb0c9ab553d180ff5cc06fc52c4c5cc0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c578febf088148e9e0496d87b715c953c5bd9d36
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261047"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348371"
 ---
 # <a name="service-bus-topics-output-from-azure-stream-analytics"></a>Ausgabe von Service Bus-Themen für Azure Stream Analytics
 
-Service Bus-Warteschlangen bieten eine 1:1-Kommunikationsmethode vom Sender zum Empfänger. [Service Bus-Themen](https://msdn.microsoft.com/library/azure/hh367516.aspx) bieten eine 1:N-Kommunikationsmethode.
+Service Bus-Warteschlangen bieten eine 1:1-Kommunikationsmethode vom Sender zum Empfänger. [Service Bus-Themen](/previous-versions/azure/hh367516(v=azure.100)) bieten eine 1:N-Kommunikationsmethode.
 
 Die folgende Tabelle enthält die Eigenschaftennamen und die entsprechenden Beschreibungen zum Erstellen einer Service Bus-Themenausgabe.
 
@@ -61,11 +61,11 @@ Im folgenden Beispiel werden die Felder `DeviceId` und `DeviceStatus` zu den Met
 
 Die folgende Abbildung zeigt die erwarteten Eigenschaften der Ausgabemeldung, die in EventHub mit dem [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) überprüft wurden.
 
-:::image type="content" source="media/service-bus-topics-output/custom-properties.png" alt-text="Eigenschaftenspalten":::
+:::image type="content" source="media/service-bus-topics-output/custom-properties.png" alt-text="Benutzerdefinierte Ereigniseigenschaften":::
 
 ## <a name="system-properties"></a>Systemeigenschaften
 
-Sie können Abfragespalten als [Systemeigenschaften](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) an Ihre ausgehenden Service Bus-Warteschlangen- oder Themenmeldungen anfügen. Diese Spalten werden nicht in die Nutzlast eingefügt. Stattdessen wird die entsprechende BrokeredMessage-[Systemeigenschaft](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) mit den Werten der Abfragespalte aufgefüllt.
+Sie können Abfragespalten als [Systemeigenschaften](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true#properties) an Ihre ausgehenden Service Bus-Warteschlangen- oder Themenmeldungen anfügen. Diese Spalten werden nicht in die Nutzlast eingefügt. Stattdessen wird die entsprechende BrokeredMessage-[Systemeigenschaft](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true#properties) mit den Werten der Abfragespalte aufgefüllt.
 Diese Systemeigenschaften werden unterstützt: `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`.
 
 Zeichenfolgenwerte dieser Spalten werden als entsprechender Systemeigenschaftswert-Typ analysiert, und alle Analysefehler werden als Datenfehler behandelt.

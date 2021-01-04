@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 08/13/2020
   ms.author: mbullwin
-  ms.openlocfilehash: 2ec53d6925d083f3fef8203d8289f9dc69d1bd96
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: 62b24a855fca9e12ecd6770f78ef8b4dacc719dd
+  ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92372037"
+  ms.lasthandoff: 11/10/2020
+  ms.locfileid: "94445352"
 landingContent:
 - title: Informationen zu Metrics Advisor
   linkLists:
@@ -28,12 +28,10 @@ landingContent:
       url: overview.md
   - linkListType: quickstart
     links:
-    - text: Erkunden der Demowebsite
-      url: quickstarts/explore-demo.md
     - text: Überwachen Ihrer ersten Metrik im Web
       url: quickstarts/web-portal.md
-    - text: Verwenden der REST-APIs zum Anpassen Ihrer Lösung
-      url: quickstarts/rest-api.md
+    - text: Verwenden der REST-API oder Clientbibliotheken
+      url: quickstarts/rest-api-and-client-library.md
 - title: Anleitungen
   linkLists:
   - linkListType: how-to-guide
@@ -63,9 +61,9 @@ landingContent:
     - text: Metrics Advisor-API
       url: https://go.microsoft.com/fwlink/?linkid=2141634
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices
+      url: /powershell/module/az.cognitiveservices
     - text: Azure CLI
-      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+      url: /cli/azure/cognitiveservices?view=azure-cli-latest
 - title: Hilfe und Feedback
   linkLists:
   - linkListType: reference

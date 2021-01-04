@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: fd79568944d81e267a45287104bd0fa9698df2fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a96a7116c83bf9ea2c3798c335c6cefcbdbc36d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89648692"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659487"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>Verwaltung von HDInsight-Clustern – Bewährte Methoden
 
@@ -26,12 +26,12 @@ Informieren Sie sich über bewährte Methoden für die Verwaltung von HDInsight-
 | Azure Data Factory | [Erstellen bedarfsgesteuerter Apache Hadoop-Cluster in HDInsight mit Azure Data Factory](./hdinsight-hadoop-create-linux-clusters-adf.md) |
 | Benutzerdefinierte Resource Manager-Vorlage | [Erstellen von Apache Hadoop-Clustern in HDInsight mit Resource Manager-Vorlagen](./hdinsight-hadoop-create-linux-clusters-arm-templates.md) |
 | Schnellstartvorlagen | [HDInsight-Schnellstartvorlagen](https://azure.microsoft.com/resources/templates/?term=hdinsight) |
-| Azure-Beispiele | [HDInsight – Azure-Beispiele](https://docs.microsoft.com/samples/browse/?products=azure-hdinsight) |
+| Azure-Beispiele | [HDInsight – Azure-Beispiele](/samples/browse/?products=azure-hdinsight) |
 | Azure-Portal | [Erstellen von Linux-basierten Clustern in HDInsight über das Azure-Portal](./spark/apache-spark-intellij-tool-plugin.md) |
 | Azure-Befehlszeilenschnittstelle | [Erstellen von HDInsight-Clustern mit der Azure-Befehlszeilenschnittstelle](./hdinsight-hadoop-create-linux-clusters-azure-cli.md) |
 | Azure PowerShell | [Erstellen von Linux-basierten Clustern in HDInsight mit Azure PowerShell](./hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |
 | cURL | [Erstellen von Apache Hadoop-Clustern mithilfe der Azure-REST-API](./hdinsight-hadoop-create-linux-clusters-curl-rest.md) |
-| SDKs (.NET, Python, Java) | [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet), [Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python), [Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable), [Go](https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview) |
+| SDKs (.NET, Python, Java) | [.NET](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true), [Python](/python/api/overview/azure/hdinsight?preserve-view=true&view=azure-python), [Java](/java/api/overview/azure/hdinsight?preserve-view=true&view=azure-java-stable), [Go](./hdinsight-go-sdk-overview.md) |
 
 > [!Note]
 > Wenn Sie einen Cluster erstellen und den Clusternamen eines zuvor erstellten Clusters wiederverwenden, warten Sie, bis der vorherige Cluster vollständig gelöscht ist, bevor Sie den neuen Cluster erstellen.
@@ -49,7 +49,7 @@ Informieren Sie sich über bewährte Methoden für die Verwaltung von HDInsight-
 
 | Fehler | Weitere Informationen |
 |---|---|
-| Kein Kontingent | Es gibt Kontingente für die Anzahl von Clustern, die Sie in Ihrem Abonnement in jeder Region erstellen können. Weitere Informationen finden Sie unter [Kapazitätsplanung: Kontingente](./hdinsight-capacity-planning.md). |
+| Kein Kontingent | Es gibt Kontingente für die Anzahl von Kernen, die Sie in Ihrem Abonnement in jeder Region erstellen können. Weitere Informationen finden Sie unter [Kapazitätsplanung: Kontingente](./hdinsight-capacity-planning.md). |
 | Keine weiteren IP-Adressen verfügbar | Jedes VNet verfügt über eine begrenzte Anzahl von IP-Adressen. Wenn Sie einen HDInsight-Cluster erstellen, verwendet jeder Knoten (einschließlich ZooKeeper- und Gatewayknoten) einige dieser zugewiesenen IP-Adressen. Wenn alle IP-Adressen verwendet werden, tritt dieser Fehler auf.  |
 | Regeln für Netzwerksicherheitsgruppen (NSG) verhindern die Kommunikation mit HDInsight-Ressourcenanbietern | Wenn Sie NSGs oder benutzerdefinierte Routen (UDRs) verwenden, um den beim HDInsight-Cluster eingehenden Datenverkehr zu steuern, müssen Sie sicherstellen, dass der Cluster mit wichtigen Integritäts- und Verwaltungsdiensten von Azure kommunizieren kann. Weitere Informationen finden Sie unter [NSG-Diensttags (Netzwerksicherheitsgruppen) für Azure HDInsight](./hdinsight-service-tags.md). |
 | Wiederverwendung des Clusternamens | Wenn Sie einen zuvor bereits verwendeten Clusternamen nutzen, müssen Sie einige Minuten warten, bevor Sie den Cluster neu erstellen. Andernfalls wird die Meldung angezeigt, dass die Ressource bereits vorhanden ist. |
@@ -62,7 +62,7 @@ Informieren Sie sich über bewährte Methoden für die Verwaltung von HDInsight-
 | Manuelle Skalierung | [Skalieren von Azure HDInsight-Clustern](./hdinsight-scaling-best-practices.md) |
 | Überwachung mit Ambari| [Überwachen der Clusterleistung in Azure HDInsight](./hdinsight-key-scenarios-to-monitor.md) |
 | Überwachen mit Azure Monitor-Protokollen | [Verwenden von Azure Monitor-Protokollen zum Überwachen von HDInsight-Clustern](./hdinsight-hadoop-oms-log-analytics-tutorial.md) |
-| Dienstprobleme, geplante Wartung, Integritäts- und Sicherheitsempfehlungen | [Abonnieren von abonnementspezifischen Service Health-Warnungen](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal) |
+| Dienstprobleme, geplante Wartung, Integritäts- und Sicherheitsempfehlungen | [Abonnieren von abonnementspezifischen Service Health-Warnungen](../service-health/alerts-activity-log-service-notifications-portal.md) |
 
 
 ## <a name="how-do-i-check-on-deleted-hdinsight-clusters"></a>Wie erhalte ich Informationen zu gelöschten HDInsight-Clustern?

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffb1d5eb756c7bc316a6d8e1de30a95eb1ac5194
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f76f4a3e5fc87420c242c693e3c48a91244641e0
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287048"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560032"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Hinzufügen eines Benutzerflows für die Self-Service-Registrierung zu einer App (Vorschau)
 > [!NOTE]
@@ -53,7 +53,7 @@ Bevor Sie Ihren Anwendungen einen Benutzerflow für die Self-Service-Registrieru
 4. Legen Sie den Umschalter **Self-Service-Registrierung von Gästen über Benutzerflows aktivieren (Vorschau)** auf **Ja** fest.
 
    ![Aktivieren der Self-Service-Registrierung für Gäste](media/self-service-sign-up-user-flow/enable-self-service-sign-up.png)
-
+5. Wählen Sie **Speichern** aus.
 ## <a name="create-the-user-flow-for-self-service-sign-up"></a>Erstellen des Benutzerflows für die Self-Service-Registrierung
 
 Als Nächstes erstellen Sie den Benutzerflow für die Self-Service-Registrierung und fügen ihn einer Anwendung hinzu.
@@ -95,7 +95,7 @@ Nun können Sie dem Benutzerflow Anwendungen zuordnen.
 4. Wählen Sie unter **Self-Service-Registrierung** die Option **Benutzerflows (Vorschau)** aus.
 5. Wählen Sie in der Liste den Benutzerflow für die Self-Service-Registrierung aus.
 6. Wählen Sie im Menü auf der linken Seite unter **Verwenden** die Option **Anwendungen** aus.
-7. Wählen Sie **Anwendung hinzufügen**aus.
+7. Wählen Sie **Anwendung hinzufügen** aus.
 
    ![Zuweisen einer Anwendung zum Benutzerflow](media/self-service-sign-up-user-flow/assign-app-to-user-flow.png)
 

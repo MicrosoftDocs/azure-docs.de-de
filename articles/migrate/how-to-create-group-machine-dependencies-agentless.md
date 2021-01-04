@@ -1,14 +1,17 @@
 ---
 title: Einrichten der Abhängigkeitsanalyse ohne Agent in der Azure Migrate-Serverbewertung
 description: Hier erfahren Sie, wie Sie die Abhängigkeitsanalyse ohne Agent in der Azure Migrate-Serverbewertung einrichten.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 57e5add810cf4fac232bce08fc7ca96df0a7c3a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d84c85326c6f5d87189a2c24a3b13654f157cb05
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667468"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754282"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analysieren von Computerabhängigkeiten (ohne Agent)
 
@@ -25,13 +28,13 @@ In diesem Artikel wird das Einrichten der Abhängigkeitsanalyse ohne Agent in de
 
 - In der Abhängigkeitsanalyseansicht können Sie zurzeit keine Server zu einer Gruppe hinzufügen oder daraus entfernen.
 - Eine Abhängigkeitszuordnung für eine Gruppe von Servern ist derzeit nicht verfügbar.
-- Die Sammlung von Abhängigkeitsdaten kann gleichzeitig für 1.000 Server eingerichtet werden. Sie können eine höhere Anzahl von Servern analysieren, indem Sie eine Reihe von Batches mit jeweils 1.000 Servern erstellen.
+- In einem Azure Migrate-Projekt kann die Sammlung von Abhängigkeitsdaten gleichzeitig für 1.000 Server eingerichtet werden. Sie können eine höhere Anzahl von Servern analysieren, indem Sie eine Reihe von Batches mit jeweils 1.000 Servern erstellen.
 
 ## <a name="before-you-start"></a>Vorbereitung
 
 - [Lesen](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) Sie die Informationen zu unterstützten Betriebssystemen und erforderlichen Berechtigungen.
 - Stellen Sie Folgendes sicher:
-    - Sie verfügen über ein Azure Migrate-Projekt. Wenn dies nicht der Fall ist, [erstellen](how-to-add-tool-first-time.md) Sie jetzt ein entsprechendes Projekt.
+    - Sie verfügen über ein Azure Migrate-Projekt. Wenn dies nicht der Fall ist, [erstellen](./create-manage-projects.md) Sie jetzt ein entsprechendes Projekt.
     - Vergewissern Sie sich, dass Sie das Azure Migrate-Serverbewertungstool zum Projekt [hinzugefügt](how-to-assess.md) haben.
     - Richten Sie eine [Azure Migrate-Appliance](migrate-appliance.md) ein, um lokale Computer zu ermitteln. [Richten Sie eine Appliance für VMware-VMs ein](how-to-set-up-appliance-vmware.md). Die Appliance ermittelt lokale Computer und sendet Metadaten und Leistungsdaten an die Azure Migrate-Serverbewertung.
 - Überprüfen Sie, ob auf jeder VM, die Sie analysieren möchten, VMware Tools (höhere Version als 10.2) installiert ist.

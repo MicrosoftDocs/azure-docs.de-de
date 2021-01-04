@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 11/30/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 83d7ed6c937d515520058819636bc23c8de173fd
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: bfe8af8c30bbc2bc66c363fbd85f6764a48c28a1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015275"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488067"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Veröffentlichen des Remotedesktops per Azure AD-Anwendungsproxy
 
@@ -28,7 +28,7 @@ Dieser Artikel richtet sich an folgende Zielgruppe:
 
 ## <a name="how-application-proxy-fits-in-the-standard-rds-deployment"></a>Informationen zur Rolle des Anwendungsproxys bei standardmäßigen RDS-Bereitstellungen
 
-Eine standardmäßige RDS-Bereitstellung umfasst verschiedene Remotedesktop-Rollendienste, die auf Windows Server ausgeführt werden. Die [Architektur der Remotedesktopdienste](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) bietet mehrere Bereitstellungsoptionen. Im Gegensatz zu den RDS-Bereitstellungsoptionen weist die [RDS-Bereitstellung mit Azure AD-Anwendungsproxy](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) (in der folgenden Abbildung dargestellt) über eine permanente ausgehende Verbindung von dem Server auf, auf dem der Connectordienst ausgeführt wird. Bei anderen Bereitstellungen werden eingehende Verbindungen durch einen Lastenausgleich offen gelassen.
+Eine standardmäßige RDS-Bereitstellung umfasst verschiedene Remotedesktop-Rollendienste, die auf Windows Server ausgeführt werden. Die [Architektur der Remotedesktopdienste](/windows-server/remote/remote-desktop-services/Desktop-hosting-logical-architecture) bietet mehrere Bereitstellungsoptionen. Im Gegensatz zu den RDS-Bereitstellungsoptionen weist die [RDS-Bereitstellung mit Azure AD-Anwendungsproxy](/windows-server/remote/remote-desktop-services/Desktop-hosting-logical-architecture) (in der folgenden Abbildung dargestellt) über eine permanente ausgehende Verbindung von dem Server auf, auf dem der Connectordienst ausgeführt wird. Bei anderen Bereitstellungen werden eingehende Verbindungen durch einen Lastenausgleich offen gelassen.
 
 ![Der Anwendungsproxy befindet sich zwischen der RDS-VM und dem öffentlichen Internet.](./media/application-proxy-integrate-with-remote-desktop-services/rds-with-app-proxy.png)
 
@@ -37,13 +37,13 @@ Bei einer RDS-Bereitstellung werden die Rollen „RD-Web“ und „RD-Gateway“
 - RD-Gateway kommt ins Spiel, sobald ein Benutzer die RDP-Verbindung startet. Das RD-Gateway verarbeitet den verschlüsselten RDP-Datenverkehr, der über das Internet eingeht, und übersetzt diesen auf dem lokalen Server, mit dem der Benutzer eine Verbindung herstellt. In diesem Szenario stammt der im RD-Gateway eingehende Datenverkehr vom Azure AD-Anwendungsproxy.
 
 >[!TIP]
->Wenn Sie RDS zum ersten Mal bereitstellen oder weitere Informationen wünschen, bevor Sie beginnen, lesen Sie den Abschnitt [Nahtlose Bereitstellung von RDS mit Azure Resource Manager und dem Azure Marketplace](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure).
+>Wenn Sie RDS zum ersten Mal bereitstellen oder weitere Informationen wünschen, bevor Sie beginnen, lesen Sie den Abschnitt [Nahtlose Bereitstellung von RDS mit Azure Resource Manager und dem Azure Marketplace](/windows-server/remote/remote-desktop-services/rds-in-azure).
 
 ## <a name="requirements"></a>Requirements (Anforderungen)
 
 - Die RD-Web- und RD-Gateway-Endpunkte müssen sich auf demselben Computer befinden und ein gemeinsames Stamm verwenden. RD-Web und RD-Gateway werden auf dem Anwendungsproxy als einzelne Anwendung veröffentlicht, damit Sie über die Möglichkeit für einmaliges Anmelden zwischen den beiden Anwendungen verfügen.
 
-- Sie sollten bereits [RDS bereitgestellt](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) und das [Anwendungsproxy aktiviert](application-proxy-add-on-premises-application.md) haben.
+- Sie sollten bereits [RDS bereitgestellt](/windows-server/remote/remote-desktop-services/rds-in-azure) und das [Anwendungsproxy aktiviert](application-proxy-add-on-premises-application.md) haben.
 
 - Ihre Endbenutzer müssen einen kompatiblen Browser verwenden, um eine Verbindung mit Web Access für Remotedesktop oder dem Remotedesktop-Webclient herzustellen. Weitere Informationen finden Sie unter [Unterstützung für andere Clientkonfigurationen](#support-for-other-client-configurations).
 
@@ -51,7 +51,7 @@ Bei einer RDS-Bereitstellung werden die Rollen „RD-Web“ und „RD-Gateway“
 
 - Wenn Sie Web Access für Remotedesktop mit dem Internet Explorer verwenden, müssen Sie das RDS-ActiveX-Add-On aktivieren.
 
-- Wenn Sie den Remotedesktop-Webclient verwenden, müssen Sie [mindestens die Connectorversion 1.5.1975](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-release-version-history) für den Anwendungsproxy verwenden.
+- Wenn Sie den Remotedesktop-Webclient verwenden, müssen Sie [mindestens die Connectorversion 1.5.1975](./application-proxy-release-version-history.md) für den Anwendungsproxy verwenden.
 
 - Für den Azure AD-Vorauthentifizierungsfluss können Benutzer nur Verbindungen mit Ressourcen herstellen, die im Bereich **RemoteApp und Desktops** für sie veröffentlicht wurden. Benutzer können nicht mit dem Bereich **Verbindung mit einem Remote-PC herstellen** eine Verbindung mit einem Desktop herstellen.
 
@@ -74,19 +74,19 @@ Führen Sie nach der Einrichtung von RDS und des Azure AD-Anwendungsproxys für 
 
 4. Wählen Sie **Azure Active Directory** und dann **App-Registrierungen** aus. Wählen Sie Ihre App in der Liste aus.
 5. Wählen Sie unter **Verwalten** die Option **Branding** aus.
-6. Aktualisieren Sie das Feld **URL der Startseite** , um auf Ihren RD-Web-Endpunkt zu verweisen (z.B. `https://\<rdhost\>.com/RDWeb`).
+6. Aktualisieren Sie das Feld **URL der Startseite**, um auf Ihren RD-Web-Endpunkt zu verweisen (z.B. `https://\<rdhost\>.com/RDWeb`).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Weiterleiten des RDS-Datenverkehrs an den Anwendungsproxy
 
 Stellen Sie eine Verbindung mit der RDS-Bereitstellung als Administrator her und ändern Sie den Remotedesktop-Gatewayservernamen für die Bereitstellung. Durch diese Konfiguration wird sichergestellt, dass Verbindungen über den Azure AD-Anwendungsproxydienst hergestellt werden.
 
 1. Stellen Sie eine Verbindung zum RDS-Server her, auf dem die Rolle „Remotedesktop-Verbindungsbroker“ ausgeführt wird.
-2. Starten Sie den **Server-Manager** .
-3. Wählen Sie im Bereich auf der linken Seite **Remotedesktopdienste** .
-4. Wählen Sie **Übersicht** .
-5. Klicken Sie im Abschnitt „Bereitstellungsübersicht“ auf das Dropdownmenü und wählen Sie **Bereitstellungseigenschaften bearbeiten** .
+2. Starten Sie den **Server-Manager**.
+3. Wählen Sie im Bereich auf der linken Seite **Remotedesktopdienste**.
+4. Wählen Sie **Übersicht**.
+5. Klicken Sie im Abschnitt „Bereitstellungsübersicht“ auf das Dropdownmenü und wählen Sie **Bereitstellungseigenschaften bearbeiten**.
 6. Ändern Sie auf der Registerkarte „RD-Gateway“ das Feld **Servername** in die externe URL, die Sie für den RD-Hostendpunkt im Anwendungsproxy festgelegt haben.
-7. Ändern Sie das Feld **Anmeldemethode** in **Kennwortauthentifizierung** .
+7. Ändern Sie das Feld **Anmeldemethode** in **Kennwortauthentifizierung**.
 
    ![Bildschirm „Bereitstellungseigenschaften“ in RDS](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
 
@@ -111,7 +111,7 @@ Stellen Sie eine Verbindung mit der RDS-Bereitstellung als Administrator her und
 Nachdem Sie nun den Remotedesktop konfiguriert haben, fungiert der Azure AD-Anwendungsproxy als RDS-Komponente mit Internetzugriff. Sie können die anderen Endpunkte mit öffentlichem Internetzugriff auf Ihren RD-Web- und RD-Gateway-Computern entfernen.
 
 ### <a name="enable-the-rd-web-client"></a>Aktivieren des Remotedesktop-Webclients
-Wenn Sie es Benutzern ermöglichen möchten, auch den Remotedesktop-Webclient zu nutzen, befolgen Sie die Schritte unter [Einrichten des Remotedesktop-Webclients für Ihre Benutzer](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client-admin).
+Wenn Sie es Benutzern ermöglichen möchten, auch den Remotedesktop-Webclient zu nutzen, befolgen Sie die Schritte unter [Einrichten des Remotedesktop-Webclients für Ihre Benutzer](/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client-admin).
 
 Der Remotedesktop-Web-Client ermöglicht es Benutzern, über einen mit HTML5 kompatiblen Webbrowser wie Microsoft Edge, Internet Explorer 11, Google Chrome, Safari oder Mozilla Firefox (mindesten Version 55.0) auf die Remotedesktopinfrastruktur Ihrer Organisation zuzugreifen.
 
@@ -130,9 +130,11 @@ Die in diesem Artikel erläuterte Konfiguration dient dem Zugriff auf RDS über 
 
 | Authentifizierungsmethode | Unterstützte Clientkonfiguration |
 | --------------------- | ------------------------------ |
-| Vorauthentifizierung    | Web Access für Remotedesktop: Windows 7/10 mit Internet Explorer oder [Microsoft Edge Chromium IE-Modus](https://docs.microsoft.com/deployedge/edge-ie-mode) + RDS-ActiveX-Add-On |
+| Vorauthentifizierung    | Web Access für Remotedesktop: Windows 7/10 mit Internet Explorer* oder [Edge Chromium IE-Modus](/deployedge/edge-ie-mode) + RDS-ActiveX-Add-On |
 | Vorauthentifizierung    | Remotedesktop-Webclient: HTML5-kompatibler Webbrowser, z. B. Microsoft Edge, Internet Explorer 11, Google Chrome, Safari oder Mozilla Firefox (mindestens Version 55.0) |
 | Passthrough | Alle anderen Betriebssysteme, die die Microsoft-Remotedesktopanwendung unterstützen |
+
+*Der Edge Chromium IE-Modus ist erforderlich, wenn das Portal „Meine Apps“ zum Zugreifen auf die Remotedesktop-App verwendet wird.  
 
 Der Vorauthentifizierungsflow bietet weitere Vorteile im Hinblick auf Sicherheit als die der Passthroughflow. Mit der Vorauthentifizierung können Sie Authentifizierungsfeatures von Azure AD nutzen, z.B. das einmalige Anmelden, den bedingten Zugriff und die zweistufige Überprüfung für Ihre lokalen Ressourcen. Sie stellen Sie sicher, dass nur authentifizierter Datenverkehr Ihr Netzwerk erreicht.
 

@@ -7,17 +7,18 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 1a2c4364337083be005c550a8859079cd3bb1218
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 5a2540aeb36cfcb2048ec994bbb486badc8a68d1
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167949"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358808"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Bewährte Methoden für die Clusterkonfiguration (SQL Server auf Azure-VMS)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,6 +31,10 @@ Dieser Artikel enthält bewährte Methoden für die Clusterkonfiguration für [F
 ## <a name="networking"></a>Netzwerk
 
 Verwenden Sie eine einzelne NIC pro Server (Clusterknoten) und ein einzelnes Subnetz. Azure-Netzwerktechnologie bietet physische Redundanz, die zusätzliche Netzwerkkarten und Subnetze in einem Azure-VM-Gastcluster überflüssig macht. Der Clusterüberprüfungsbericht weist Sie darauf hin, dass die Knoten nur in einem einzigen Netzwerk erreichbar sind. Diese Warnung kann für Azure-VM-Gastfailovercluster ignoriert werden.
+
+### <a name="tuning-failover-cluster-network-thresholds"></a>Optimieren von Failovercluster-Netzwerkschwellenwerten
+
+Wenn Sie Windows-Failoverclusterknoten auf Azure-VMs mit SQL Server Always On ausführen, wird empfohlen, die Clustereinstellung in einen weniger strengen Überwachungsstatus zu ändern.  Dadurch wird der Cluster deutlich stabiler und zuverlässiger.  Weitere Informationen hierzu finden Sie unter [IaaS mit SQL Always On: Optimieren der Failovercluster-Netzwerkschwellenwerte](/windows-server/troubleshoot/iaas-sql-failover-cluster).
 
 ## <a name="quorum"></a>Quorum
 
@@ -56,7 +61,7 @@ Konfigurieren Sie einen freigegebenen Azure-Datenträger als Datenträgerzeuge.
 Informationen zu den ersten Schritten finden Sie unter [Konfigurieren eines Datenträgerzeugen](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**Unterstütztes Betriebssystem** : All   
+**Unterstütztes Betriebssystem**: All   
 
 
 ### <a name="cloud-witness"></a>Cloudzeuge
@@ -66,7 +71,7 @@ Ein Cloudzeuge ist ein Quorumzeugentyp für Failovercluster, der Microsoft Azure
 Informationen zu den ersten Schritten finden Sie unter [Konfigurieren eines Cloudzeugen](/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp).
 
 
-**Unterstütztes Betriebssystem** : Windows Server 2016 oder höher   
+**Unterstütztes Betriebssystem**: Windows Server 2016 oder höher   
 
 
 ### <a name="file-share-witness"></a>Dateifreigabenzeuge
@@ -78,7 +83,7 @@ Wenn Sie eine Azure-Dateifreigabe verwenden möchten, können Sie diese mit dem 
 Informationen zu den ersten Schritten finden Sie unter [Konfigurieren eines Dateifreigabenzeugen](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**Unterstütztes Betriebssystem** : Windows Server 2012 und höher   
+**Unterstütztes Betriebssystem**: Windows Server 2012 und höher   
 
 ## <a name="connectivity"></a>Konnektivität
 
@@ -104,9 +109,9 @@ Bei Verwendung des Lastenausgleichs kommt es zu einer geringfügigen Failoverver
 
 Informieren Sie sich zunächst darüber, wie Sie Azure Load Balancer für eine [Failoverclusterinstanz](failover-cluster-instance-vnn-azure-load-balancer-configure.md) oder für eine [Verfügbarkeitsgruppe](availability-group-vnn-azure-load-balancer-configure.md) konfigurieren.
 
-**Unterstütztes Betriebssystem** : All   
-**Unterstützte SQL-Version** : All   
-**Unterstützte HADR-Lösung** : Failoverclusterinstanz und Verfügbarkeitsgruppe   
+**Unterstütztes Betriebssystem**: All   
+**Unterstützte SQL-Version**: All   
+**Unterstützte HADR-Lösung**: Failoverclusterinstanz und Verfügbarkeitsgruppe   
 
 
 ### <a name="distributed-network-name-dnn"></a>Name des verteilten Netzwerks (Distributed Network Name, DNN)
@@ -124,9 +129,9 @@ Bei Verwendung des DNN funktionieren die meisten SQL Server-Features transparen
 
 Informieren Sie sich zunächst darüber, wie Sie eine DNN-Ressource für eine [Failoverclusterinstanz](failover-cluster-instance-distributed-network-name-dnn-configure.md) oder für eine [Verfügbarkeitsgruppe](availability-group-distributed-network-name-dnn-listener-configure.md) konfigurieren.
 
-**Unterstütztes Betriebssystem** : Windows Server 2016 oder höher   
-**Unterstützte SQL-Version** : SQL Server 2019 CU2 (FCI) und SQL Server 2019 CU8 (Verfügbarkeitsgruppe)   
-**Unterstützte HADR-Lösung** : Failoverclusterinstanz und Verfügbarkeitsgruppe   
+**Unterstütztes Betriebssystem**: Windows Server 2016 oder höher   
+**Unterstützte SQL-Version**: SQL Server 2019 CU2 (FCI) und SQL Server 2019 CU8 (Verfügbarkeitsgruppe)   
+**Unterstützte HADR-Lösung**: Failoverclusterinstanz und Verfügbarkeitsgruppe   
 
 
 ## <a name="limitations"></a>Einschränkungen
@@ -135,7 +140,7 @@ Beachten Sie die folgenden Einschränkungen, wenn Sie mit FCIs oder Verfügbarke
 
 ### <a name="msdtc"></a>MSDTC 
 
-Azure Virtual Machines unterstützt Microsoft Distributed Transaction Coordinator (MSDTC) unter Windows Server 2019 mit Speicher auf freigegebenen Clustervolumes (CSV) und mit [Azure Load Balancer Standard](../../../load-balancer/load-balancer-standard-overview.md) oder auf SQL Server-VMs, die freigegebene Azure-Datenträger verwenden. 
+Azure Virtual Machines unterstützt Microsoft Distributed Transaction Coordinator (MSDTC) unter Windows Server 2019 mit Speicher auf freigegebenen Clustervolumes (CSV) und mit [Azure Load Balancer Standard](../../../load-balancer/load-balancer-overview.md) oder auf SQL Server-VMs, die freigegebene Azure-Datenträger verwenden. 
 
 In Azure Virtual Machines wird MSDTC unter Windows Server 2016 und früheren Versionen mit freigegebenen Clustervolumes aus den folgenden Gründen nicht unterstützt:
 
@@ -145,5 +150,4 @@ In Azure Virtual Machines wird MSDTC unter Windows Server 2016 und früheren Ve
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Nachdem Sie die geeigneten bewährten Methoden für Ihre Lösung ermittelt haben, können Sie [Ihren virtuellen SQL Server-Computer für eine FCI vorbereiten](failover-cluster-instance-prepare-vm.md) oder Ihre Verfügbarkeitsgruppe über das [Azure-Portal](availability-group-azure-portal-configure.md), per [Azure-Befehlszeilenschnittstelle/PowerShell](availability-group-az-cli-configure.md) oder mithilfe von [Azure-Schnellstartvorlagen](availability-group-quickstart-template-configure.md) erstellen. 
-
+Nachdem Sie die geeigneten bewährten Methoden für Ihre Lösung ermittelt haben, können Sie [Ihren virtuellen SQL Server-Computer für eine FCI vorbereiten](failover-cluster-instance-prepare-vm.md) oder Ihre Verfügbarkeitsgruppe über das [Azure-Portal](availability-group-azure-portal-configure.md), per [Azure-Befehlszeilenschnittstelle/PowerShell](./availability-group-az-commandline-configure.md) oder mithilfe von [Azure-Schnellstartvorlagen](availability-group-quickstart-template-configure.md) erstellen.

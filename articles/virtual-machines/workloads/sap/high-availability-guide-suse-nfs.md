@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/26/2020
+ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: d522d66642abf55e478cea7579e36bdc64a8cf79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b0504f5e4199ee3cd8e86660b866fddf2568485
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87085162"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608570"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Hochverfügbarkeit für NFS auf Azure-VMs unter SUSE Linux Enterprise Server
 
@@ -52,6 +53,10 @@ ms.locfileid: "87085162"
 
 In diesem Artikel werden das Bereitstellen und Konfigurieren der virtuellen Computer, das Installieren des Clusterframeworks und das Installieren eines hochverfügbaren NFS-Servers, auf dem die freigegebenen Daten eines hochverfügbaren SAP-Systems gespeichert werden können, beschrieben.
 In dieser Anleitung wird beschrieben, wie ein hochverfügbarer NFS-Server eingerichtet wird, der von zwei SAP-Systemen verwendet wird: NW1 und NW2. Bezüglich der Namen der Ressourcen (z. B. virtuelle Computer, virtuelle Netzwerke) im Beispiel wird davon ausgegangen, dass Sie die [SAP-Dateiservervorlage][template-file-server] mit dem Ressourcenpräfix **prod** verwendet haben.
+
+
+> [!NOTE]
+> Dieser Artikel enthält Verweise auf die Begriffe *Slave* und *Master*, die von Microsoft nicht mehr verwendet werden. Sobald die Begriffe aus der Software entfernt wurden, werden sie auch aus diesem Artikel gelöscht.
 
 Lesen Sie zuerst die folgenden SAP Notes und Dokumente:
 
@@ -158,7 +163,7 @@ Sie müssen zunächst die virtuellen Computer für diesen NFS-Cluster erstellen.
          1. Port 61000 für NW1
             1. Öffnen Sie den Lastenausgleich, wählen Sie Integritätstests aus, und klicken Sie auf „Hinzufügen“.
             1. Geben Sie den Namen des neuen Integritätstests ein (z.B. **nw1-hp**).
-            1. Wählen Sie TCP als Protokoll und Port 610**00** aus, und behalten Sie „Intervall 5“ und „Fehlerschwellenwert 2“ bei.
+            1. Wählen Sie TCP als Protokoll und Port 610 **00** aus, und behalten Sie „Intervall 5“ und „Fehlerschwellenwert 2“ bei.
             1. OK klicken
          1. Port 61001 für NW2
             * Wiederholen Sie die oben genannten Schritte, um einen Integritätstest für NW2 zu erstellen.
@@ -192,7 +197,7 @@ Sie müssen zunächst die virtuellen Computer für diesen NFS-Cluster erstellen.
          1. Port 61000 für NW1
             1. Öffnen Sie den Lastenausgleich, wählen Sie Integritätstests aus, und klicken Sie auf „Hinzufügen“.
             1. Geben Sie den Namen des neuen Integritätstests ein (z.B. **nw1-hp**).
-            1. Wählen Sie TCP als Protokoll und Port 610**00** aus, und behalten Sie „Intervall 5“ und „Fehlerschwellenwert 2“ bei.
+            1. Wählen Sie TCP als Protokoll und Port 610 **00** aus, und behalten Sie „Intervall 5“ und „Fehlerschwellenwert 2“ bei.
             1. OK klicken
          1. Port 61001 für NW2
             * Wiederholen Sie die oben genannten Schritte, um einen Integritätstest für NW2 zu erstellen.
@@ -211,6 +216,9 @@ Sie müssen zunächst die virtuellen Computer für diesen NFS-Cluster erstellen.
             * Wiederholen Sie die oben genannten Schritte für Port 2049 und TCP für NW2.
          1. 2049 UDP für NW2
             * Wiederholen Sie die oben genannten Schritte für Port 2049 und UDP für NW2.
+
+> [!IMPORTANT]
+> Floating IP-Adressen werden für sekundäre NIC-IP-Konfigurationen in Szenarien mit Lastenausgleich nicht unterstützt. Weitere Informationen finden Sie unter [Azure Load Balancer – Einschränkungen](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Wenn Sie zusätzliche IP-Adressen für die VM benötigen, stellen Sie eine zweite NIC bereit.  
 
 > [!Note]
 > Wenn virtuelle Computer ohne öffentliche IP-Adressen im Back-End-Pool einer internen Azure Load Balancer Standard-Instanz (ohne öffentliche IP-Adresse) platziert werden, liegt keine ausgehende Internetverbindung vor, sofern nicht in einer zusätzlichen Konfiguration das Routing an öffentliche Endpunkte zugelassen wird. Ausführliche Informationen zum Erreichen ausgehender Konnektivität finden Sie unter [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md) (Konnektivität mit öffentlichen Endpunkten für virtuelle Computer mithilfe von Azure Load Balancer Standard in SAP-Szenarien mit Hochverfügbarkeit).  

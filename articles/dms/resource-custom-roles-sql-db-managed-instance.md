@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: e950e34a1965e309d226c42bf4b3128cbe3bf3c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dad02735228bb639981bf3f053a74f29d1944e5a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291502"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961480"
 ---
 # <a name="custom-roles-for-sql-server-to-azure-sql-managed-instance-online-migrations"></a>Benutzerdefinierte Rollen für Onlinemigrationsvorgänge von SQL Server zu verwalteten Azure SQL-Instanzen
 
@@ -32,7 +32,7 @@ Derzeit wird empfohlen, mindestens zwei benutzerdefinierte Rollen für die App-I
 > [!NOTE]
 > Die Anforderung für die letzte benutzerdefinierte Rolle kann zu einem bestimmten Zeitpunkt nicht mehr nötig sein, da neuer Code für die verwaltete SQL-Instanz in Azure bereitgestellt wird.
 
-**Benutzerdefinierte Rolle für die App-ID:** Diese Rolle ist für die Migration von Azure Database Migration Service auf *Ressourcenebene* oder *Ressourcengruppenebene* erforderlich. (Weitere Informationen zur App-ID finden Sie im Artikel [Erstellen einer Azure AD-Anwendung und eines Dienstprinzipals mit Ressourcenzugriff über das Portal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).)
+**Benutzerdefinierte Rolle für die App-ID:** Diese Rolle ist für die Migration von Azure Database Migration Service auf *Ressourcenebene* oder *Ressourcengruppenebene* erforderlich. (Weitere Informationen zur App-ID finden Sie im Artikel [Erstellen einer Azure AD-Anwendung und eines Dienstprinzipals mit Ressourcenzugriff über das Portal](../active-directory/develop/howto-create-service-principal-portal.md).)
 
 ```json
 {
@@ -83,7 +83,7 @@ Derzeit wird empfohlen, mindestens zwei benutzerdefinierte Rollen für die App-I
 
 Der JSON-Code oben muss in drei Textdateien gespeichert werden. Sie können die Rollen mithilfe der PowerShell-Cmdlets AzureRM oder Az oder über die Azure-Befehlszeilenschnittstelle unter Verwendung von **New-AzureRmRoleDefinition (AzureRM)** bzw. **New-AzRoleDefinition (Az)** erstellen.
 
-Weitere Informationen finden Sie im Artikel [Benutzerdefinierte Azure-Rollen](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+Weitere Informationen finden Sie im Artikel [Benutzerdefinierte Azure-Rollen](../role-based-access-control/custom-roles.md).
 
 Nach dem Erstellen dieser benutzerdefinierten Rollen müssen Sie den Benutzern und App-IDs für die entsprechenden Ressourcen oder Ressourcengruppen Rollenzuweisungen hinzufügen:
 

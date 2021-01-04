@@ -1,17 +1,15 @@
 ---
 title: Erstellen eines akteurbasierten Diensts in Azure Service Fabric
 description: Erfahren Sie, wie Sie Ihren ersten akteurbasierten Dienst in C# mithilfe von Service Fabric Reliable Actors erstellen, debuggen und bereitstellen.
-author: vturecek
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f775608c6c349c93a43ef4aef26ad50707cd39b7
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 225ccb67153a33ed47af68ebb1549dce37426278
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743759"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573460"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Erste Schritte mit Reliable Actors
 > [!div class="op_single_selector"]

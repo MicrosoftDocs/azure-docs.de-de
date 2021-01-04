@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: b5a3ec1d6e33c08b460088c9aeb4fd18f6bf29ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 410b73d3f9011f9384fafa18394d9318e3eafa67
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88864901"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504490"
 ---
 ## <a name="authentication"></a>Authentication
 
@@ -151,7 +151,7 @@ def get_token(subscription_key):
 
 Das Zugriffstoken sollte als `Authorization: Bearer <TOKEN>`-Header an den Dienst gesendet werden. Jedes Zugriffstoken ist 10 Minuten lang gültig. Sie können jederzeit ein neues Token abrufen, allerdings wird empfohlen, das gleiche Token 9 Minuten lang zu verwenden, um den Datenverkehr und die Wartezeit zu minimieren.
 
-Hier ist eine Beispiel-HTTP-Anforderung an die Text-to-Speech-REST-API:
+Hier finden Sie eine HTTP-Beispielanforderung von kurzem Audiomaterial an die Sprache-in-Text-REST-API:
 
 ```http
 POST /cognitiveservices/v1 HTTP/1.1

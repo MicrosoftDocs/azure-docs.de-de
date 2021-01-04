@@ -1,18 +1,18 @@
 ---
 title: Verwenden von Azure Defender für Containerregistrierungen
-description: Erfahren Sie etwas über die Verwendung von Azure Defender für Containerregistrierungen zum Überprüfen von Images in Ihren Registrierungen.
+description: Hier erfahren Sie etwas über die Verwendung von Azure Defender für Containerregistrierungen zum Überprüfen von Linux-Images in Ihren von Linux gehosteten Registrierungen.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 57e8b6f47c4166c4f8b9f5de0f3e03a7d757e100
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: a5d66e43485ec66b6297ef11ed382e8fb82b7cb3
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342075"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96014572"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Verwenden von Azure Defender für Containerregistrierungen zum Überprüfen Ihrer Images auf Sicherheitsrisiken
 
@@ -22,28 +22,17 @@ Wenn **Azure Defender für Containerregistrierungen** aktiviert ist, wird jedes 
 
 Wenn der Scanner Sicherheitsrisiken an Security Center meldet, stellt Security Center die Ergebnisse und zugehörigen Informationen als Empfehlungen dar. Darüber hinaus enthalten die Ergebnisse zugehörige Informationen, etwa Problembehandlungsschritte, relevante CVEs, CVSS-Bewertungen und mehr. Sie können die ermittelten Sicherheitsrisiken für ein oder mehrere Abonnements oder für eine bestimmte Registrierung anzeigen.
 
-## <a name="availability"></a>Verfügbarkeit
-
-|Aspekt|Details|
-|----|:----|
-|Status des Release:|Allgemein verfügbar (Generally Available, GA)|
-|Preise:|**Azure Defender für Containerregistrierungen** wird gemäß den Angaben in der [Preisübersicht](security-center-pricing.md) abgerechnet.|
-|Unterstützte Registrierungen und Images:|![Ja](./media/icons/yes-icon.png) Von Linux gehostete ACR-Registrierungen, die über das öffentliche Internet zugänglich sind und den Shellzugriff ermöglichen.<br>![Nein](./media/icons/no-icon.png) Von Windows gehostete ACR-Registrierungen.<br>![Nein](./media/icons/no-icon.png) „Private“ Registrierungen – Security Center erfordert, dass Ihre Registrierungen über das öffentliche Internet zugänglich sind. Security Center kann derzeit keine Verbindung mit Registrierungen herstellen oder diese überprüfen, deren Zugriff durch eine Firewall, einen Dienstendpunkt oder private Endpunkte wie Azure Private Link beschränkt ist.<br>![No](./media/icons/no-icon.png) Extrem minimalistische Images wie [Docker-Scratch](https://hub.docker.com/_/scratch/)-Images oder Images ohne Distribution, die nur eine Anwendung und deren Laufzeitabhängigkeiten ohne Paket-Manager, Shell oder Betriebssystem enthalten.|
-|Erforderliche Rollen und Berechtigungen:|**Sicherheitsleseberechtigter** und [Azure Container Registry-Leser](../container-registry/container-registry-roles.md)|
-|Clouds:|![Ja](./media/icons/yes-icon.png) Kommerzielle Clouds<br>![Nein](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, andere Gov)|
-|||
+[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
 
 
 ## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>Identifizieren von Sicherheitsrisiken in Images in Azure-Containerregistrierungen 
 
-1. So aktivieren Sie Sicherheitsrisikoscans von Images in Ihrer auf Azure Resource Manager basierenden Azure Container Registry
+So aktivieren Sie Sicherheitsrisikoscans von Images in Ihrer auf Azure Resource Manager basierenden Azure Container Registry
 
-    1. Aktivieren Sie **Azure Defender für Containerregistrierungen** für Ihr Abonnement.
+1. Aktivieren Sie **Azure Defender für Containerregistrierungen** für Ihr Abonnement. Security Center ist jetzt bereit, Images in Ihren Registrierungen zu überprüfen.
 
-        Security Center ist jetzt bereit, Images in Ihren Registrierungen zu überprüfen.
-
-        >[!NOTE]
-        > Dieses Feature wird pro Image abgerechnet.
+    >[!NOTE]
+    > Dieses Feature wird pro Image abgerechnet.
 
 1. Imagescans werden für jeden Push- oder Importvorgang und für den Fall ausgelöst, dass das Image innerhalb der letzten 30 Tage gepullt wurde. 
 
@@ -115,6 +104,9 @@ Wenn der Scanner Sicherheitsrisiken an Security Center meldet, stellt Security C
 
 ## <a name="disable-specific-findings-preview"></a>Deaktivieren bestimmter Ergebnisse (Vorschau)
 
+> [!NOTE]
+> [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]
+
 Wenn in Ihrer Organisation eine Suche ignoriert werden muss, anstatt sie zu beheben, können Sie sie optional deaktivieren. Deaktivierte Ergebnisse haben keine Auswirkung auf Ihre Sicherheitsbewertung und erzeugen kein unerwünschtes Rauschen.
 
 Wenn eine Suche mit den in Ihren Deaktivierungsregeln definierten Kriterien übereinstimmt, wird sie nicht in der Liste der Ergebnisse angezeigt. Zu den typischen Szenarien gehören:
@@ -150,7 +142,7 @@ So erstellen Sie eine Regel:
 1. So können Sie eine Regel anzeigen, überschreiben oder löschen 
     1. Wählen Sie **Regel deaktivieren** aus.
     1. In der Bereichsliste werden Abonnements mit aktiven Regeln als **Rule applied** (Angewandte Regel) angezeigt.
-        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Erstellen einer Deaktivierungsregel für VA-Ergebnisse in der Registrierung":::
+        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Ändern oder Löschen einer vorhandenen Regel":::
     1. Um die Regel anzuzeigen oder zu löschen, wählen Sie das Menü mit den Auslassungspunkten („...“) aus.
 
 

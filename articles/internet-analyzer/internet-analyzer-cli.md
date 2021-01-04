@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: e5a7984cd868e7fbac08ec80f92fe28ad13d84e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23a76e4007965c263671554bbcd937dbf3b4b0a6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308094"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676218"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Erstellen eines Internet Analyzer-Tests mithilfe der Befehlszeilenschnittstelle (Vorschau)
 
@@ -37,7 +37,7 @@ Die Internet Analyzer-Befehlszeilenschnittstelle macht die folgenden Ressourcent
 
 ## <a name="profile-and-test-creation"></a>Profil- und Testerstellung
 1. Befolgen Sie die Anweisungen im Abschnitt **Wie nehme ich an der Vorschauversion teil?** der [häufig gestellten Fragen zu Azure Internet Analyzer](internet-analyzer-faq.md), um Zugriff auf die Vorschauversion von Internet Analyzer zu erhalten.
-2. [Installieren Sie die Azure-Befehlszeilenschnittstelle](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+2. [Installieren Sie die Azure-Befehlszeilenschnittstelle](/cli/azure/install-azure-cli?view=azure-cli-latest).
 3. Führen Sie den Befehl `login` aus, um eine CLI-Sitzung zu starten:
     ```azurecli-interactive
     az login
@@ -50,9 +50,9 @@ Die Internet Analyzer-Befehlszeilenschnittstelle macht die folgenden Ressourcent
 
 5. Wählen Sie die Abonnement-ID aus, der Zugriff auf die öffentliche Vorschau von Internet Analyzer gewährt wurde.
 
-    Nach der Anmeldung sehen Sie eine Liste der mit Ihrem Azure-Konto verknüpften Abonnements. Die Abonnementinformationen mit `isDefault: true` ist das momentan aktivierte Abonnement nach der Anmeldung. Zur Auswahl eines anderen Abonnements verwenden Sie den Befehl [az account set](https://docs.microsoft.com/cli/azure/account#az-account-set) mit der ID des Abonnements, zu dem Sie wechseln möchten. Weitere Informationen zur Abonnementauswahl finden Sie unter [Verwenden mehrerer Azure-Abonnements](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
+    Nach der Anmeldung sehen Sie eine Liste der mit Ihrem Azure-Konto verknüpften Abonnements. Die Abonnementinformationen mit `isDefault: true` ist das momentan aktivierte Abonnement nach der Anmeldung. Zur Auswahl eines anderen Abonnements verwenden Sie den Befehl [az account set](/cli/azure/account#az-account-set) mit der ID des Abonnements, zu dem Sie wechseln möchten. Weitere Informationen zur Abonnementauswahl finden Sie unter [Verwenden mehrerer Azure-Abonnements](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
 
-    Es gibt auch Wege, wie Sie sich nicht interaktiv anmelden können. Diese werden unter [Anmelden mit der Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) ausführlich beschrieben.
+    Es gibt auch Wege, wie Sie sich nicht interaktiv anmelden können. Diese werden unter [Anmelden mit der Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) ausführlich beschrieben.
 
 6. **[Optional]** Erstellen Sie eine neue Azure-Ressourcengruppe:
     ```azurecli-interactive
@@ -113,7 +113,7 @@ Die Internet Analyzer-Befehlszeilenschnittstelle macht die folgenden Ressourcent
     ]
     ````
 
-12. Damit mit dem Generieren von Messungen begonnen werden kann, muss die JavaScript-Datei, auf die mit dem **scriptFileUri**-Element des Tests verwiesen wird, in Ihre Webanwendung eingebettet werden. Genaue Anweisungen finden Sie auf der Seite [Einbetten des Internet Analyzer-Clients](internet-analyzer-embed-client.md).
+12. Damit mit dem Generieren von Messungen begonnen werden kann, muss die JavaScript-Datei, auf die mit dem **scriptFileUri** -Element des Tests verwiesen wird, in Ihre Webanwendung eingebettet werden. Genaue Anweisungen finden Sie auf der Seite [Einbetten des Internet Analyzer-Clients](internet-analyzer-embed-client.md).
 
 13. Der Fortschritt des Tests kann anhand seines Statuswerts nachverfolgt werden:
     ```azurecli-interactive
@@ -132,6 +132,6 @@ Die Internet Analyzer-Befehlszeilenschnittstelle macht die folgenden Ressourcent
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Eine vollständige Liste der unterstützten Befehle sowie Anwendungsbeispiele finden Sie in der [Referenz zur Befehlszeilenschnittstelle für Internet Analyzer](https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest).
+* Eine vollständige Liste der unterstützten Befehle sowie Anwendungsbeispiele finden Sie in der [Referenz zur Befehlszeilenschnittstelle für Internet Analyzer](/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest).
 * Lesen Sie die [häufig gestellten Fragen zu Internet Analyzer](internet-analyzer-faq.md).
-* Informieren Sie sich ausführlicher über das Einbetten des [Internet Analyzer-Clients](internet-analyzer-embed-client.md) und das Erstellen eines [benutzerdefinierten Endpunkts](internet-analyzer-custom-endpoint.md). 
+* Informieren Sie sich ausführlicher über das Einbetten des [Internet Analyzer-Clients](internet-analyzer-embed-client.md) und das Erstellen eines [benutzerdefinierten Endpunkts](internet-analyzer-custom-endpoint.md).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ed13111584e7e9621ec2ccde16efb3cdf2eef50c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 64bd9e4a4cf78d2628e946af30c2d290ff002cf7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016177"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081143"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installieren und Konfigurieren eines lokalen Datengateways
 
@@ -73,7 +73,7 @@ Um eine Gatewayressource in Azure zu erstellen, müssen Sie die lokale Instanz r
 
 1.  Wählen Sie **Ein neues Gateway auf diesem Computer registrieren** aus.
 
-    ![Register](media/analysis-services-gateway-install/aas-gateway-register-new.png)
+    ![Screenshot: Hervorgehobene Option „Ein neues Gateway auf diesem Computer registrieren“](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
 2. Geben Sie einen Namen und Wiederherstellungsschlüssel für Ihr Gateway ein. Standardmäßig verwendet das Gateway die Standardregion Ihres Abonnements. Wenn Sie eine andere Region auswählen müssen, wählen Sie **Region ändern** aus.
 
@@ -87,25 +87,25 @@ Um eine Gatewayressource in Azure zu erstellen, müssen Sie die lokale Instanz r
 
 Nachdem Sie Ihr Gateway registriert und installiert haben, müssen Sie in Azure eine Gatewayressource erstellen. Melden Sie sich bei Azure mit dem Konto an, das Sie beim Registrieren des Gateways verwendet haben.
 
-1. Klicken Sie im Azure-Portal auf **Ressource erstellen**, suchen Sie nach **Lokales Datengateway**, und klicken Sie dann auf **Erstellen**.
+1. Klicken Sie im Azure-Portal auf **Ressource erstellen** , suchen Sie nach **Lokales Datengateway** , und klicken Sie dann auf **Erstellen**.
 
    ![Erstellen einer Gatewayressource](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
 
 2. Geben Sie in **Verbindungsgateway erstellen** diese Einstellungen ein:
 
-   * **Name**: Geben Sie einen Namen für die Gatewayressource ein. 
+   * **Name** : Geben Sie einen Namen für die Gatewayressource ein. 
 
-   * **Abonnement**: Wählen Sie das Azure-Abonnement aus, das Sie der Gatewayressource zuordnen möchten. 
+   * **Abonnement** : Wählen Sie das Azure-Abonnement aus, das Sie der Gatewayressource zuordnen möchten. 
    
      Das standardmäßige Abonnement basiert auf dem Azure-Konto, das Sie zum Anmelden verwendet haben.
 
-   * **Ressourcengruppe**: Erstellen Sie eine Ressourcengruppe, oder wählen Sie eine vorhandene Ressourcengruppe aus.
+   * **Ressourcengruppe** : Erstellen Sie eine Ressourcengruppe, oder wählen Sie eine vorhandene Ressourcengruppe aus.
 
-   * **Standort**: Wählen Sie die Region aus, in der Sie Ihr Gateway registriert haben.
+   * **Standort** : Wählen Sie die Region aus, in der Sie Ihr Gateway registriert haben.
 
    * **Installationsname:** Wenn Ihre Gatewayinstallation nicht bereits ausgewählt ist, wählen Sie das Gateway aus, das Sie auf Ihrem Computer installiert und registriert haben. 
 
-     Klicken Sie auf **Erstellen**, wenn Sie fertig sind.
+     Klicken Sie auf **Erstellen** , wenn Sie fertig sind.
 
 ## <a name="connect-gateway-resource-to-server"></a>Verbinden der Gatewayressource mit dem Server
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: e20183356655668750cb1450338d4c8af1ee2d8c
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 4cab1765a387bbae61c9c242a8e7a1ca881ea1f5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951705"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966648"
 ---
 # <a name="tutorial-use-custom-allocation-policies-with-device-provisioning-service-dps"></a>Tutorial: Verwenden von benutzerdefinierten Zuweisungsrichtlinien bei Device Provisioning Service (DPS)
 
@@ -46,7 +46,7 @@ In diesem Tutorial führen Sie die folgenden Schritte aus:
 
 * Die neueste Version von [Git](https://git-scm.com/download/) ist installiert.
 
-* Bei einer Windows-Entwicklungsumgebung ist [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 mit aktivierter Workload [„Desktopentwicklung mit C++“](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) erforderlich. Visual Studio 2015 und Visual Studio 2017 werden ebenfalls unterstützt.
+* Bei einer Windows-Entwicklungsumgebung ist [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 mit aktivierter Workload [„Desktopentwicklung mit C++“](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) erforderlich. Visual Studio 2015 und Visual Studio 2017 werden ebenfalls unterstützt.
 
 * Informationen zu Linux oder macOS finden Sie in der Dokumentation zu [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) im entsprechenden Abschnitt unter [Vorbereiten Ihrer Entwicklungsumgebung](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md).
 
@@ -296,7 +296,7 @@ In diesem Abschnitt wird eine Windows-Arbeitsstation vorausgesetzt. Ein Beispiel
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
 
-    Wenn `cmake` Ihren C++-Compiler nicht findet, treten beim Ausführen des Befehls unter Umständen Buildfehler auf. Führen Sie den Befehl in diesem Fall an der [Visual Studio-Eingabeaufforderung](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs) aus.
+    Wenn `cmake` Ihren C++-Compiler nicht findet, treten beim Ausführen des Befehls unter Umständen Buildfehler auf. Führen Sie den Befehl in diesem Fall an der [Visual Studio-Eingabeaufforderung](/dotnet/framework/tools/developer-command-prompt-for-vs) aus.
 
     Nach erfolgreicher Erstellung ähneln die letzten Ausgabezeilen der folgenden Ausgabe:
 
@@ -347,7 +347,7 @@ Dieser Beispielcode simuliert eine Gerätestartsequenz, von der die Bereitstellu
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Suchen Sie in der Funktion `main()` den Aufruf von `Prov_Device_Register_Device()`. Fügen Sie direkt vor diesem Aufruf die folgenden Codezeilen hinzu, die [`Prov_Device_Set_Provisioning_Payload()`](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/prov-device-client-h/prov-device-set-provisioning-payload) verwenden, um während der Bereitstellung eine benutzerdefinierte JSON-Nutzlast zu übergeben. Damit können weitere Informationen für Ihre benutzerdefinierten Zuordnungsfunktionen bereitgestellt werden. Darüber hinaus kann damit der Gerätetyp übergeben werden, anstatt die Registrierungs-ID zu überprüfen.
+6. Suchen Sie in der Funktion `main()` den Aufruf von `Prov_Device_Register_Device()`. Fügen Sie direkt vor diesem Aufruf die folgenden Codezeilen hinzu, die [`Prov_Device_Set_Provisioning_Payload()`](/azure/iot-hub/iot-c-sdk-ref/prov-device-client-h/prov-device-set-provisioning-payload) verwenden, um während der Bereitstellung eine benutzerdefinierte JSON-Nutzlast zu übergeben. Damit können weitere Informationen für Ihre benutzerdefinierten Zuordnungsfunktionen bereitgestellt werden. Darüber hinaus kann damit der Gerätetyp übergeben werden, anstatt die Registrierungs-ID zu überprüfen.
 
     ```c
     // An example custom payload

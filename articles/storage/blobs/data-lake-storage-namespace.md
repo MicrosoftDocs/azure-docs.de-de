@@ -8,12 +8,12 @@ ms.date: 02/11/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 6ce94590a1d0de6941c27d972bdd1c4194080e95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26062d73ae4c61af77b15dd2cac0541f2a988d11
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77153076"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912993"
 ---
 # <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Hierarchischer Namespace für Azure Data Lake Storage Gen2
 
@@ -47,4 +47,4 @@ Informationen zum Analysieren der Unterschiede bei Datenspeicherpreisen, Transak
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Erstellen eines Speicherkontos](./data-lake-storage-quickstart-create-account.md)
+- [Erstellen eines Speicherkontos](../common/storage-account-create.md)

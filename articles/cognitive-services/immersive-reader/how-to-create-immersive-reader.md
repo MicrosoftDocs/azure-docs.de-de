@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 9dcbfa8234aea2c558df107fc919dc74f7b4f39a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b012da0b2aea4a50002e9adbc0876396ddd4b5e7
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324500"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368728"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Erstellen einer Plastischer Reader-Ressource und Konfigurieren der Azure Active Directory-Authentifizierung
 
@@ -29,7 +29,7 @@ Das Skript ist flexibel ausgelegt. Zuerst wird nach vorhandenen Plastischer Read
 
 ## <a name="set-up-powershell-environment"></a>Einrichten der PowerShell-Umgebung
 
-1. Öffnen Sie als Erstes die [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Stellen Sie in der Dropdownliste oben links oder durch Eingabe von `pwsh` sicher, dass Cloud Shell auf PowerShell festgelegt ist.
+1. Öffnen Sie als Erstes die [Azure Cloud Shell](../../cloud-shell/overview.md). Stellen Sie in der Dropdownliste oben links oder durch Eingabe von `pwsh` sicher, dass Cloud Shell auf PowerShell festgelegt ist.
 
 1. Kopieren Sie den folgenden Codeausschnitt, und fügen Sie ihn in die Shell ein.
 
@@ -196,7 +196,3 @@ Das Skript ist flexibel ausgelegt. Zuerst wird nach vorhandenen Plastischer Read
 * Sehen Sie sich das [iOS-Tutorial](./tutorial-ios.md) an, um zu erfahren, welche weiteren Möglichkeiten das SDK für den plastischen Reader in Verbindung mit Swift für iOS bietet.
 * Sehen Sie sich das [Python-Tutorial](./tutorial-python.md) an, um zu erfahren, welche weiteren Möglichkeiten das SDK für den plastischen Reader in Verbindung mit Python bietet.
 * Machen Sie sich mit dem [SDK für Plastischer Reader](https://github.com/microsoft/immersive-reader-sdk) und der [zugehörigen Referenz](./reference.md) vertraut.
-
-
-
-

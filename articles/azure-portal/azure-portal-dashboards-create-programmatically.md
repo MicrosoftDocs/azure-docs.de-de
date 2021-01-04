@@ -1,23 +1,14 @@
 ---
 title: Programmgesteuertes Erstellen von Azure-Dashboards
 description: Verwenden eines Dashboards im Azure-Portal als Vorlage, um Azure-Dashboards programmgesteuert zu erstellen. Der Artikel enthält eine JSON-Referenz.
-services: azure-portal
-documentationcenter: ''
-author: adamabmsft
-manager: mtillman
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 03/23/2020
-ms.author: mblythe
-ms.openlocfilehash: 7f52bd94a0286ea50d09ab7c77dce339e8a3ebf3
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.date: 12/4/2020
+ms.openlocfilehash: e69d3f3cea0ff63f94e797047eb10b9583678b1b
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089365"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745807"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Programmgesteuertes Erstellen von Azure-Dashboards
 
@@ -658,3 +649,49 @@ In diesem Beispiel wird ein Dashboard bereitgestellt. Über die Vorlagensprache 
 ```
 
 Da Sie sich nun ein Beispiel für die Verwendung einer parametrisierten Vorlage zum Bereitstellen eines Dashboards angesehen haben, können Sie versuchen, die Vorlage mithilfe der [Azure Resource Manager-REST-APIs](/rest/api/), über die [Azure-Befehlszeilenschnittstelle](/cli/azure) oder mithilfe von [Azure PowerShell-Befehlen](/powershell/azure/get-started-azureps) bereitzustellen.
+
+## <a name="programmatically-create-a-dashboard-by-using-azure-cli"></a>Programmgesteuertes Erstellen eines Dashboards mit der Azure-Befehlszeilenschnittstelle
+
+Bereiten Sie die Umgebung für die Azure CLI vor.
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- In diesen Beispielen wird das Dashboard [portal-dashboard-template-testvm.json](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json) verwendet. Ersetzen Sie den Inhalt in spitzen Klammern durch Ihre Werte.
+
+Führen Sie den Befehl [az portal dashboard create](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) aus, um ein Dashboard zu erstellen:
+
+```azurecli
+az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
+   --input-path portal-dashboard-template-testvm.json --location centralus
+```
+
+Mit dem Befehl [az portal dashboard update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update) können Sie ein Dashboard aktualisieren:
+
+```azurecli
+az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
+--input-path portal-dashboard-template-testvm.json --location centralus
+```
+
+Durch Ausführen des Befehls [az portal dashboard show](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show) können Sie die Details eines Dashboards anzeigen:
+
+```azurecli
+az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
+```
+
+Wenn Sie alle Dashboards für das aktuelle Abonnement anzeigen möchten, verwenden Sie den Befehl [az portal dashboard list](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list):
+
+```azurecli
+az portal dashboard list
+```
+
+Sie können auch alle Dashboards für eine Ressourcengruppe anzeigen:
+
+```azurecli
+az portal dashboard list --resource-group myResourceGroup
+```
+
+## <a name="next-steps"></a>Nächste Schritte
+
+Weitere Informationen zu Desktops finden Sie unter [Verwalten von Einstellungen und Voreinstellungen im Azure-Portal](set-preferences.md).
+
+Weitere Informationen zur Azure CLI-Unterstützung für Dashboards finden Sie unter [az portal dashboard](/cli/azure/ext/portal/portal/dashboard).

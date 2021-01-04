@@ -3,8 +3,8 @@ title: Verarbeiten umfangreicher Datasets mit Azure Data Factory und Azure Batch
 description: Beschreibt, wie Sie große Datenmengen in einer Azure Data Factory-Pipeline verarbeiten, indem Sie die Parallelverarbeitungsfunktion von Azure Batch nutzen.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d0e608e1afae77afd44d7351b7c3f1f269bd8a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 365de79db450eda897621ccde3b92478ed93ecc3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88998075"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496159"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Verarbeiten umfangreicher Datasets mit Azure Data Factory und Azure Batch
 > [!NOTE]
@@ -42,7 +42,7 @@ Mit dem Batch-Dienst definieren Sie Azure-Computeressourcen, um Ihre Anwendungen
 * [Grundlegendes zu Azure Batch](../../azure-sql/database/sql-database-paas-overview.md)
 * [Übersicht über Azure Batch-Features](../../batch/batch-service-workflow-features.md)
 
-Weitere Informationen zu Batch finden Sie auch in der [Batch-Dokumentation](https://docs.microsoft.com/azure/batch/).
+Weitere Informationen zu Batch finden Sie auch in der [Batch-Dokumentation](../../batch/index.yml).
 
 ## <a name="why-azure-data-factory"></a>Gründe für die Verwendung von Azure Data Factory
 Data Factory ist ein cloudbasierter Daten-Integrationsdienst, der das Verschieben und Transformieren von Daten organisiert und automatisiert. Mit Data Factory können Sie verwaltete Datenpipelines erstellen, die Daten aus lokalen und Clouddatenspeichern in einen zentralen Datenspeicher verschieben. Ein Beispiel ist Azure Blob Storage. Mit Data Factory können Sie Daten verarbeiten bzw. transformieren, indem Sie Dienste wie Azure HDInsight und Azure Machine Learning nutzen. Sie können Datenpipelines auch so planen, dass sie gemäß einem Zeitplan ausgeführt werden (z.B. stündlich, täglich und wöchentlich). Sie können die Pipelines auf einen Blick überwachen und verwalten, um Probleme zu erkennen und Maßnahmen zu ergreifen.
@@ -52,7 +52,7 @@ Data Factory ist ein cloudbasierter Daten-Integrationsdienst, der das Verschiebe
 * [Einführung in Data Factory](data-factory-introduction.md)
 * [Erstellen der ersten Datenpipeline](data-factory-build-your-first-pipeline.md)   
 
-Weitere Informationen zu Data Factory finden Sie auch in der [Data Factory-Dokumentation](https://docs.microsoft.com/rest/api/datafactory/v1/data-factory-data-factory).
+Weitere Informationen zu Data Factory finden Sie auch in der [Data Factory-Dokumentation](/rest/api/datafactory/v1/data-factory-data-factory).
 
 ## <a name="data-factory-and-batch-together"></a>Gemeinsame Verwendung von Data Factory und Batch
 Data Factory umfasst integrierte Aktivitäten. Beispiel: Die Kopieraktivität dient beispielsweise zum Kopieren bzw. Verschieben von Daten aus einem Quell- in einen Zieldatenspeicher. Die Hive-Aktivität wird zum Verarbeiten von Daten mithilfe von Hadoop-Clustern (HDInsight) in Azure verwendet. Eine Liste mit unterstützten Transformationsaktivitäten finden Sie unter [Transformieren von Data in Azure Data Factory](data-factory-data-transformation-activities.md).
@@ -95,7 +95,7 @@ Wenn Sie über kein Azure-Abonnement verfügen, können Sie schnell ein kostenlo
 Sie nutzen ein Speicherkonto zum Speichern der Daten in diesem Tutorial. Falls Sie kein Speicherkonto haben, lesen Sie [Erstellen eines Speicherkontos](../../storage/common/storage-account-create.md). Die Beispiellösung verwendet Blob-Speicher.
 
 #### <a name="azure-batch-account"></a>Azure Batch-Konto
-Erstellen Sie im [Azure-Portal](https://portal.azure.com/) ein Batch-Konto. Weitere Informationen finden Sie unter [Erstellen und Verwalten eines Batch-Kontos](../../batch/batch-account-create-portal.md). Notieren Sie den Namen und Kontoschlüssel des Batch-Kontos. Sie können auch das Cmdlet [New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) verwenden, um ein Batch-Konto zu erstellen. Unter [Verwalten von Batch-Ressourcen mit PowerShell-Cmdlets](../../batch/batch-powershell-cmdlets-get-started.md) erfahren Sie weitere Einzelheiten zur Verwendung dieses Cmdlets.
+Erstellen Sie im [Azure-Portal](https://portal.azure.com/) ein Batch-Konto. Weitere Informationen finden Sie unter [Erstellen und Verwalten eines Batch-Kontos](../../batch/batch-account-create-portal.md). Notieren Sie den Namen und Kontoschlüssel des Batch-Kontos. Sie können auch das Cmdlet [New-AzBatchAccount](/powershell/module/az.batch/new-azbatchaccount) verwenden, um ein Batch-Konto zu erstellen. Unter [Verwalten von Batch-Ressourcen mit PowerShell-Cmdlets](../../batch/batch-powershell-cmdlets-get-started.md) erfahren Sie weitere Einzelheiten zur Verwendung dieses Cmdlets.
 
 Die Beispiellösung verwendet Batch (indirekt über eine Data Factory-Pipeline) zum parallelen Verarbeiten von Daten in einem Computeknotenpool (einer verwalteten Sammlung von VMs).
 
@@ -114,7 +114,7 @@ Erstellen Sie einen Batch-Pool mit mindestens zwei Computeknoten.
 
    b. Geben Sie **Windows Server 2012 R2** für die Einstellung **Betriebssystemfamilie** ein.
 
-   c. Wählen Sie einen **Knotentarif**aus.
+   c. Wählen Sie einen **Knotentarif** aus.
 
    d. Geben Sie **2** als Wert für die Einstellung **Zuordnung für Ziel** ein.
 
@@ -408,7 +408,7 @@ Die Methode verfügt über einige wichtige Komponenten, die Sie kennen müssen:
 #### <a name="execute-method"></a>Execute-Methode
 Dieser Abschnitt enthält weitere Details und Hinweise zum Code in der „Execute“-Methode.
 
-1. Die Elemente zum Durchlaufen der Eingabesammlung finden Sie unter dem Namespace [Microsoft.WindowsAzure.Storage.Blob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob) . Zum Durchlaufen der Blobsammlung müssen Sie die **BlobContinuationToken**-Klasse verwenden. Im Wesentlichen müssen Sie eine do-while-Schleife mit dem Token als Mechanismus zum Beenden der Schleife verwenden. Weitere Informationen finden Sie unter [Verwenden von Blob Storage in .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md). Eine einfache Schleife ist hier dargestellt:
+1. Die Elemente zum Durchlaufen der Eingabesammlung finden Sie unter dem Namespace [Microsoft.WindowsAzure.Storage.Blob](/java/api/com.microsoft.azure.storage.blob) . Zum Durchlaufen der Blobsammlung müssen Sie die **BlobContinuationToken**-Klasse verwenden. Im Wesentlichen müssen Sie eine do-while-Schleife mit dem Token als Mechanismus zum Beenden der Schleife verwenden. Weitere Informationen finden Sie unter [Verwenden von Blob Storage in .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md). Eine einfache Schleife ist hier dargestellt:
 
     ```csharp
     // Initialize the continuation token.
@@ -431,7 +431,7 @@ Dieser Abschnitt enthält weitere Details und Hinweise zum Code in der „Execut
     } while (continuationToken != null);
 
     ```
-   Weitere Informationen finden Sie in der Dokumentation für die [ListBlobsSegmented](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented)-Methode.
+   Weitere Informationen finden Sie in der Dokumentation für die [ListBlobsSegmented](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented)-Methode.
 
 1. Der Code für die Verwendung durch den Satz von Blobs geht logischerweise in die do-while-Schleife ein. In der **Execute**-Methode übergibt die do-while-Schleife die Liste der Blobs an eine Methode namens **Calculate**. Die Methode gibt eine Zeichenfolgenvariable mit dem Namen **output** zurück, die das Ergebnis des Durchlaufens aller Blobs im Segment ist.
 
@@ -668,21 +668,21 @@ In diesem Schritt erstellen Sie Datasets zur Darstellung von Eingabe- und Ausgab
 
     | **Slice** | **Startzeit**          |
     |-----------|-------------------------|
-    | 1         | 2015-11-16T**00**:00:00 |
-    | 2         | 2015-11-16T**01**:00:00 |
-    | 3         | 2015-11-16T**02**:00:00 |
-    | 4         | 2015-11-16T**03**:00:00 |
-    | 5         | 2015-11-16T**04**:00:00 |
+    | 1         | 2015-11-16T **00**:00:00 |
+    | 2         | 2015-11-16T **01**:00:00 |
+    | 3         | 2015-11-16T **02**:00:00 |
+    | 4         | 2015-11-16T **03**:00:00 |
+    | 5         | 2015-11-16T **04**:00:00 |
 
     Der **folderPath** wird mit dem Jahr, Monat, Tag und der Uhrzeit der Slice-Startzeit berechnet (**SliceStart**). Hier erfahren Sie, wie ein Eingabeordner einem Slice zugeordnet wird.
 
     | **Slice** | **Startzeit**          | **Eingabeordner**  |
     |-----------|-------------------------|-------------------|
-    | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00** |
-    | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01** |
-    | 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02** |
-    | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03** |
-    | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04** |
+    | 1         | 2015-11-16T **00**:00:00 | 2015-11-16-**00** |
+    | 2         | 2015-11-16T **01**:00:00 | 2015-11-16-**01** |
+    | 3         | 2015-11-16T **02**:00:00 | 2015-11-16-**02** |
+    | 4         | 2015-11-16T **03**:00:00 | 2015-11-16-**03** |
+    | 5         | 2015-11-16T **04**:00:00 | 2015-11-16-**04** |
 
 1. Klicken Sie auf der Symbolleiste auf **Bereitstellen**, um die Tabelle **InputDataset** zu erstellen und bereitzustellen.
 
@@ -725,11 +725,11 @@ In diesem Schritt erstellen Sie ein weiteres Dataset des Typs „AzureBlob“, u
 
     | **Slice** | **Startzeit**          | **Ausgabedatei**       |
     |-----------|-------------------------|-----------------------|
-    | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00.txt** |
-    | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01.txt** |
-    | 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02.txt** |
-    | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03.txt** |
-    | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04.txt** |
+    | 1         | 2015-11-16T **00**:00:00 | 2015-11-16-**00.txt** |
+    | 2         | 2015-11-16T **01**:00:00 | 2015-11-16-**01.txt** |
+    | 3         | 2015-11-16T **02**:00:00 | 2015-11-16-**02.txt** |
+    | 4         | 2015-11-16T **03**:00:00 | 2015-11-16-**03.txt** |
+    | 5         | 2015-11-16T **04**:00:00 | 2015-11-16-**04.txt** |
 
     Denken Sie daran, dass alle Dateien in einem Eingabeordner (z. B.: 2015-11-16-00) zu einem Slice mit der Startzeit 2015-11-16-00 gehören. Wenn dieser Slice verarbeitet wird, durchsucht die benutzerdefinierte Aktivität jede Datei und erzeugt eine Zeile in der Ausgabedatei mit der Anzahl der Vorkommen des Suchbegriffs „Microsoft“. Wenn drei Dateien im Ordner „2015-11-16-00“ vorhanden sind, werden in der Ausgabedatei „2015-11-16-00.txt“ drei Zeilen erstellt.
 
@@ -885,7 +885,7 @@ Das Debuggen umfasst einige grundlegende Verfahren.
 
    ![Eingabeordnerstruktur](./media/data-factory-data-processing-using-batch/image3.png)
 
-1. Verwenden Sie in der **Execute-Method**e der benutzerdefinierten Aktivität das **IActivityLogger-Objekt**, um Informationen zu protokollieren, die beim Behandeln von Problemen hilfreich sind. Die protokollierten Nachrichten werden in der Datei \_user_0.log angezeigt.
+1. Verwenden Sie in der **Execute-Method** e der benutzerdefinierten Aktivität das **IActivityLogger-Objekt**, um Informationen zu protokollieren, die beim Behandeln von Problemen hilfreich sind. Die protokollierten Nachrichten werden in der Datei \_user_0.log angezeigt.
 
    Klicken Sie auf dem Blatt **OutputDataset** auf den Slice, um das Blatt **Datenslice** für diesen Slice anzuzeigen. Unter **Aktivitätsausführungen** sollte genau eine Aktivitätsausführung für den Slice angezeigt werden. Wenn Sie auf der Befehlsleiste auf **Ausführen** klicken, können Sie für den gleichen Slice eine weitere Aktivität ausführen.
 
@@ -953,7 +953,7 @@ Sie können dieses Beispiel erweitern, um mehr über Data Factory- und Batch-Fun
 
    Weitere Informationen finden Sie unter [Automatisches Skalieren von Computeknoten in einem Batch-Pool](../../batch/batch-automatic-scaling.md).
 
-   Wenn der Pool die Standardeinstellung für [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx) verwendet, kann es 15 bis 30 Minuten dauern, bis der Batch-Dienst den virtuellen Computer vorbereitet hat und die benutzerdefinierte Aktivität ausgeführt wird. Wenn der Pool eine andere Einstellung für „autoScaleEvaluationInterval“ nutzt, kann der Batch-Dienst „autoScaleEvaluationInterval“ plus 10 Minuten verwenden.
+   Wenn der Pool die Standardeinstellung für [autoScaleEvaluationInterval](/rest/api/batchservice/pool/enableautoscale) verwendet, kann es 15 bis 30 Minuten dauern, bis der Batch-Dienst den virtuellen Computer vorbereitet hat und die benutzerdefinierte Aktivität ausgeführt wird. Wenn der Pool eine andere Einstellung für „autoScaleEvaluationInterval“ nutzt, kann der Batch-Dienst „autoScaleEvaluationInterval“ plus 10 Minuten verwenden.
 
 1. In der Beispiellösung der **Execute**-Methode ruft die **Calculate** -Methode auf, die einen Eingabedatenslice verarbeiten, um einen Ausgabedatenslice zu erzeugen. Sie können eine eigene Methode erstellen, um Eingabedaten zu verarbeiten und den Aufruf der **Calculate**-Methode in der **Execute**-Methode durch einen Aufruf Ihrer Methode zu ersetzen.
 
@@ -961,7 +961,7 @@ Sie können dieses Beispiel erweitern, um mehr über Data Factory- und Batch-Fun
 Nachdem Sie Daten verarbeitet haben, können Sie sie mit Onlinetools wie Power BI nutzen. Hier erfahren Sie mehr über Power BI und die Verwendung in Azure:
 
 * [Untersuchen eines Datasets in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
-* [Erste Schritte mit Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-getting-started)
+* [Erste Schritte mit Power BI Desktop](/power-bi/fundamentals/desktop-getting-started)
 * [Aktualisieren von Daten in Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
 * [Azure und Power BI: Grundlegende Übersicht](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
@@ -979,4 +979,4 @@ Nachdem Sie Daten verarbeitet haben, können Sie sie mit Onlinetools wie Power B
   * [Erste Schritte mit der Batch-Clientbibliothek für .NET](../../batch/quick-run-dotnet.md)
 
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
-[batch-explorer-walkthrough]: https://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
+[batch-explorer-walkthrough]: /archive/blogs/windowshpc/azure-batch-explorer-sample-walkthrough

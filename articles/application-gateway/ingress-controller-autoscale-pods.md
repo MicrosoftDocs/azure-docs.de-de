@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 5e0533a44db269229b2f26fa8d2f2b4f84f4d0b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8f015085baa8fffa6f208e9d8dd749e397c76c3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85125462"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397432"
 ---
 # <a name="autoscale-your-aks-pods-using-application-gateway-metrics-beta"></a>Automatische Skalierung Ihrer AKS-Pods mit Application Gateway-Metriken (Betaversion)
 
@@ -23,7 +23,7 @@ Im folgenden Tutorial wird erläutert, wie Sie die `AvgRequestCountPerHealthyHos
 Wir werden die folgenden beiden Komponenten verwenden:
 
 * [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter): Wir werden den Metrikadapter verwenden, um Application Gateway-Metriken über den Metrikserver verfügbar zu machen. Der Azure Kubernetes Metric Adapter ist ein Open-Source-Projekt unter Azure, ähnlich dem Application Gateway-Eingangscontroller. 
-* [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler): Wir werden mit HPA die Application Gateway-Metriken verwenden und eine Bereitstellung zur Skalierung anstreben.
+* [`Horizontal Pod Autoscaler`](../aks/concepts-scale.md#horizontal-pod-autoscaler): Wir werden mit HPA die Application Gateway-Metriken verwenden und eine Bereitstellung zur Skalierung anstreben.
 
 ## <a name="setting-up-azure-kubernetes-metric-adapter"></a>Einrichten des Azure Kubernetes Metric Adapters
 
@@ -92,7 +92,7 @@ kubectl get --raw "/apis/external.metrics.k8s.io/v1beta1/namespaces/default/appg
 
 ## <a name="using-the-new-metric-to-scale-up-the-deployment"></a>Verwendung der neuen Metrik zum Hochskalieren der Bereitstellung
 
-Nachdem wir in der Lage sind, `appgw-request-count-metric` über den Metrikserver verfügbar zu machen, sind wir bereit, unsere Zielbereitstellung mit [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) hochzuskalieren.
+Nachdem wir in der Lage sind, `appgw-request-count-metric` über den Metrikserver verfügbar zu machen, sind wir bereit, unsere Zielbereitstellung mit [`Horizontal Pod Autoscaler`](../aks/concepts-scale.md#horizontal-pod-autoscaler) hochzuskalieren.
 
 Im folgenden Beispiel wird eine Beispielbereitstellung von `aspnet` als Ziel verwendet. Die Pods werden hochskaliert, wenn `appgw-request-count-metric` &gt; 200 pro Pod bis zu einem Maximum von `10` Pods.
 

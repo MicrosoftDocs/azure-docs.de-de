@@ -9,12 +9,12 @@ ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, amqp, devx-track-csharp
-ms.openlocfilehash: e1e34bacb905bf48fc5f7cd44e66cf4a4326de91
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 46d3a9e961be0717aba75c1f5845b97b52092510
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044648"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931961"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Entwickeln eines C#-IoT Edge-Moduls für Windows-Geräte
 
@@ -33,7 +33,7 @@ Das IoT Edge-Modul, das Sie in diesem Tutorial erstellen, filtert die von Ihrem 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="solution-scope"></a>Projektmappenbereich
+## <a name="prerequisites"></a>Voraussetzungen
 
 In diesem Tutorial erfahren Sie, wie Sie ein Modul in **C#** mit **Visual Studio 2019** entwickeln und auf einem **Windows-Gerät** bereitstellen. Wenn Sie Module für Linux-Geräte entwickeln, lesen Sie stattdessen [Entwickeln eines C#-IoT Edge-Moduls für Linux-Geräte](tutorial-csharp-module.md).
 
@@ -43,8 +43,6 @@ Informieren Sie sich anhand der nachstehenden Tabelle über Ihre Optionen zum En
 | -- | ------------------ | ------------------ |
 | **Windows AMD64-Entwicklung** | ![Entwickeln von C#-Modulen für WinAMD64 in VS Code](./media/tutorial-c-module/green-check.png) | ![Entwickeln von C#-Modulen für WinAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Windows AMD64-Debugging** |   | ![Debuggen von C#-Modulen für WinAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
-
-## <a name="prerequisites"></a>Voraussetzungen
 
 Bevor Sie mit diesem Tutorial beginnen, sollten Sie das vorhergehende Tutorial durchgearbeitet haben, um Ihre Entwicklungsumgebung einzurichten: [Tutorial: Develop IoT Edge modules for Windows devices](tutorial-develop-for-windows.md) (Tutorial: Entwickeln von IoT Edge-Modulen für Windows-Geräte). Nach Abschluss dieses Tutorials sollten Sie bereits über die folgenden Komponenten verfügen:
 

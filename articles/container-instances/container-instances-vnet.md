@@ -3,13 +3,13 @@ title: Bereitstellen einer Containergruppe in einem virtuellen Azure-Netzwerk
 description: Erfahren Sie, wie Sie eine Containergruppe in einem neuen oder vorhandenen virtuellen Azure-Netzwerk mithilfe der Azure-Befehlszeilenschnittstelle (CLI) bereitstellen.
 ms.topic: article
 ms.date: 07/02/2020
-ms.custom: devx-track-js
-ms.openlocfilehash: e5a31742956c2ba9bd15026f7667c971c20694a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 02cf514e6c19387e3a9e2f1c78b65f346fff764e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91303007"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746900"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Bereitstellen von Containerinstanzen in einem virtuellen Azure-Netzwerk
 
@@ -40,7 +40,7 @@ Nachdem Sie Ihre erste Containergruppe mit dieser Methode bereitgestellt haben, 
 
 ### <a name="example"></a>Beispiel
 
-Der folgende Befehl [az container create][az-container-create] gibt Einstellungen für ein neues virtuelles Netzwerk und Subnetz an. Geben Sie den Namen einer Ressourcengruppe an, die in einer Region erstellt wurde, in der Containergruppenbereitstellungen in einem virtuellen Netzwerk [verfügbar](container-instances-region-availability.md#availability---virtual-network-deployment) sind. Dieser Befehl stellt den öffentlichen Microsoft-Container [aci-helloworld][aci-helloworld] bereit, der einen kleinen Node.js-Webserver ausführt. Dieser verarbeitet Anforderungen von einer statischen Webseite. Im nächsten Abschnitt stellen Sie eine zweite Containergruppe im gleichen Subnetz bereit und testen die Kommunikation zwischen den beiden Containerinstanzen.
+Der folgende Befehl [az container create][az-container-create] gibt Einstellungen für ein neues virtuelles Netzwerk und Subnetz an. Geben Sie den Namen einer Ressourcengruppe an, die in einer Region erstellt wurde, in der Containergruppenbereitstellungen in einem virtuellen Netzwerk [verfügbar](container-instances-region-availability.md) sind. Dieser Befehl stellt den öffentlichen Microsoft-Container [aci-helloworld][aci-helloworld] bereit, der einen kleinen Node.js-Webserver ausführt. Dieser verarbeitet Anforderungen von einer statischen Webseite. Im nächsten Abschnitt stellen Sie eine zweite Containergruppe im gleichen Subnetz bereit und testen die Kommunikation zwischen den beiden Containerinstanzen.
 
 ```azurecli
 az container create \
@@ -69,7 +69,7 @@ Um eine Containergruppe in einem vorhandenen virtuellen Netzwerk bereitzustellen
 
 Im folgenden Beispiel wird eine zweite Containergruppe im selben zuvor erstellten Subnetz bereitgestellt und die Kommunikation zwischen den beiden Containerinstanzen überprüft.
 
-Rufen Sie zuerst die IP-Adresse der ersten Containergruppe ab, die Sie bereitgestellt haben, d.h. von *appcontainer*:
+Rufen Sie zuerst die IP-Adresse der ersten Containergruppe ab, die Sie bereitgestellt haben, d.h. von *appcontainer* :
 
 ```azurecli
 az container show --resource-group myResourceGroup \
@@ -204,7 +204,7 @@ Für diese Funktion sind zurzeit mehrere zusätzliche Befehle notwendig, um die 
 Legen Sie vor der Ausführung des Skripts die Variable `RES_GROUP` auf den Namen der Ressourcengruppe fest, die das virtuelle Netzwerk und Subnetz enthält, die gelöscht werden sollen. Aktualisieren Sie den Namen des virtuellen Netzwerks, wenn Sie nicht den zuvor vorgeschlagenen Namen `aci-vnet` verwendet haben. Das Skript ist für die Bash-Shell formatiert. Wenn Sie eine andere Shell, wie PowerShell oder Eingabeaufforderung bevorzugen, müssen Sie die Variablenzuweisung und die Zugriffsmethoden entsprechend anpassen.
 
 > [!WARNING]
-> Dieses Skript löscht Ressourcen! Es löscht das virtuelle Netzwerk und alle darin enthaltenen Subnetze. Vergewissern Sie sich daher vor der Ausführung dieses Skripts unbedingt, dass Sie die Ressourcen im virtuellen Netzwerk *tatsächlich* nicht mehr benötigen, einschließlich der darin enthaltenen Subnetze. Einmal gelöscht, **können diese Ressourcen nicht mehr wiederhergestellt werden**.
+> Dieses Skript löscht Ressourcen! Es löscht das virtuelle Netzwerk und alle darin enthaltenen Subnetze. Vergewissern Sie sich daher vor der Ausführung dieses Skripts unbedingt, dass Sie die Ressourcen im virtuellen Netzwerk *tatsächlich* nicht mehr benötigen, einschließlich der darin enthaltenen Subnetze. Einmal gelöscht, **können diese Ressourcen nicht mehr wiederhergestellt werden** .
 
 ```azurecli
 # Replace <my-resource-group> with the name of your resource group

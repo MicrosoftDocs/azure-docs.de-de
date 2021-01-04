@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 754a47b3692847957de7f3d666f4dc09dc309d25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6684c4269f14b91ded651dadff3f0a2e0878a4f2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91024850"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025619"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>Wird die benutzerdefinierte IPsec-/IKE-Richtlinie von allen Azure VPN Gateway-SKUs unterstützt?
 Eine benutzerdefinierte IPsec-/IKE-Richtlinie wird auf allen Azure-SKUs außer der SKU „Basic“ unterstützt.
 
 ### <a name="how-many-policies-can-i-specify-on-a-connection"></a>Wie viele Richtlinien kann ich für eine Verbindung angeben?
-Pro Verbindung kann jeweils nur ***eine*** Richtlinienkombination angegeben werden.
+Pro Verbindung kann jeweils nur ***eine** _ Richtlinienkombination angegeben werden.
 
 ### <a name="can-i-specify-a-partial-policy-on-a-connection-for-example-only-ike-algorithms-but-not-ipsec"></a>Kann ich eine partielle Richtlinie für eine Verbindung angeben? (Beispielsweise nur IKE-Algorithmen, aber kein IPsec.)
 Nein. Sie müssen alle Algorithmen und Parameter für IKE (Hauptmodus) und IPsec (Schnellmodus) angeben. Partielle Richtlinien sind nicht zulässig.
@@ -27,7 +27,7 @@ Nein. Sie müssen alle Algorithmen und Parameter für IKE (Hauptmodus) und IPsec
 ### <a name="what-are-the-algorithms-and-key-strengths-supported-in-the-custom-policy"></a>Welche Algorithmen und Schlüsselstärken werden in der benutzerdefinierten Richtlinie unterstützt?
 Die folgende Tabelle gibt Aufschluss über die unterstützten Kryptografiealgorithmen und Schlüsselstärken, die von den Kunden konfiguriert werden können. Für jedes Feld muss eine Option ausgewählt werden.
 
-| **IPsec/IKEv2**  | **Optionen**                                                                   |
+| _ *IPsec/IKEv2**  | **Optionen**                                                                   |
 | ---              | ---                                                                           |
 | IKEv2-Verschlüsselung | AES256, AES192, AES128, DES3, DES                                             |
 | IKEv2-Integrität  | SHA384, SHA256, SHA1, MD5                                                     |
@@ -107,7 +107,7 @@ Das DPD-Timeout ist standardmäßig auf 45 Sekunden festgelegt. Sie können fü
 Nein. IPsec-/IKE-Richtlinien können nur für S2S-VPN- und VNET-zu-VNET-Verbindungen über Azure-VPN-Gateways verwendet werden.
 
 ### <a name="how-do-i-create-connections-with-ikev1-or-ikev2-protocol-type"></a>Wie kann ich Verbindungen mit dem IKEv1- oder IKEv2-Protokolltyp erstellen?
-IKEv1-Verbindungen können für alle SKUs vom Typ „RouteBased VPN“, mit Ausnahme der SKU „Basic“, „Standard“ und anderen [Legacy-SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-skus-legacy#gwsku) erstellt werden. Sie können beim Erstellen von Verbindungen IKEv1 oder IKEv2 als Verbindungsprotokolltyp angeben. Wenn Sie keinen Verbindungsprotokolltyp angeben, wird IKEv2 als Standardoption verwendet, sofern dies zutreffend ist. Weitere Informationen finden Sie in der Dokumentation zum [PowerShell-Cmdlet](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?). Informationen zu den SKU-Typen und zur IKEv1/IKEv2-Unterstützung finden Sie unter [Herstellen einer Verbindung zwischen Azure-VPN-Gateways und mehreren lokalen richtlinienbasierten VPN-Geräten mit PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
+IKEv1-Verbindungen können für alle SKUs vom Typ „RouteBased VPN“, mit Ausnahme der SKU „Basic“, „Standard“ und anderen [Legacy-SKUs](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#gwsku) erstellt werden. Sie können beim Erstellen von Verbindungen IKEv1 oder IKEv2 als Verbindungsprotokolltyp angeben. Wenn Sie keinen Verbindungsprotokolltyp angeben, wird IKEv2 als Standardoption verwendet, sofern dies zutreffend ist. Weitere Informationen finden Sie in der Dokumentation zum [PowerShell-Cmdlet](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection). Informationen zu den SKU-Typen und zur IKEv1/IKEv2-Unterstützung finden Sie unter [Herstellen einer Verbindung zwischen Azure-VPN-Gateways und mehreren lokalen richtlinienbasierten VPN-Geräten mit PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
 ### <a name="is-transit-between-between-ikev1-and-ikev2-connections-allowed"></a>Ist die Übertragung zwischen IKEv1- und IKEv2-Verbindungen zulässig?
 Ja. Die Übertragung zwischen IKEv1- und IKEv2-Verbindungen wird unterstützt.

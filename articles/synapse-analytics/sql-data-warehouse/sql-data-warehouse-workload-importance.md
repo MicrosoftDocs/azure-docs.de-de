@@ -1,6 +1,6 @@
 ---
 title: Workloadpriorität
-description: Leitfaden zum Festlegen der Priorität für Synapse SQL-Poolabfragen in Azure Synapse Analytics.
+description: Leitfaden zum Festlegen der Priorität für Abfragen eines dedizierten SQL-Pools in Azure Synapse Analytics
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 1b2c71d7bf9e796af77e9a2a4a3a31152f2ca884
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07c781672874bff306c9d25a464ec66414ebc9f1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212342"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322120"
 ---
 # <a name="azure-synapse-analytics-workload-importance"></a>Azure Synapse Analytics-Workloadpriorität
 
-In diesem Artikel wird erläutert, wie sich die Workloadpriorität auf die Ausführungsreihenfolge von Synapse SQL-Poolanforderungen in Azure Synapse auswirken kann.
+In diesem Artikel wird erläutert, wie sich die Workloadpriorität auf die Ausführungsreihenfolge von Anforderungen eines dedizierten SQL-Pools in Azure Synapse auswirken kann.
 
 ## <a name="importance"></a>Wichtigkeit
 
@@ -38,7 +38,7 @@ Neben dem oben beschriebenen herkömmlichen Prioritätsszenario mit Vertriebs- u
 
 ### <a name="locking"></a>Sperren
 
-Der Zugriff auf Sperren für Lese- und Schreibaktivitäten ist ein Bereich, in dem natürliche Konflikte entstehen. Aktivitäten wie [Partitionswechsel](sql-data-warehouse-tables-partition.md) oder [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) erfordern Sperren mit erhöhten Rechten.  Ohne Workloadpriorität optimiert der Synapse SQL-Pool in Azure Synapse den Durchsatz. Die Optimierung des Durchsatzes bedeutet, dass Anforderungen in der Warteschlange Anforderungen mit höheren Sperranforderungen umgehen können, die vorher in die Anforderungswarteschlange aufgenommen wurden, wenn ausgeführte Anforderungen und Anforderungen in der Warteschlange die gleichen Sperranforderungen und Ressourcen aufweisen. Sobald die Workloadpriorität für Anforderungen mit höheren Sperranforderungen angewendet wurde, werden Anforderungen mit höherer Priorität vor Anforderungen mit niedriger Priorität ausgeführt.
+Der Zugriff auf Sperren für Lese- und Schreibaktivitäten ist ein Bereich, in dem natürliche Konflikte entstehen. Aktivitäten wie [Partitionswechsel](sql-data-warehouse-tables-partition.md) oder [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) erfordern Sperren mit erhöhten Rechten.  Ohne Workloadpriorität optimiert der dedizierte SQL-Pool in Azure Synapse den Durchsatz. Die Optimierung des Durchsatzes bedeutet, dass Anforderungen in der Warteschlange Anforderungen mit höheren Sperranforderungen umgehen können, die vorher in die Anforderungswarteschlange aufgenommen wurden, wenn ausgeführte Anforderungen und Anforderungen in der Warteschlange die gleichen Sperranforderungen und Ressourcen aufweisen. Sobald die Workloadpriorität für Anforderungen mit höheren Sperranforderungen angewendet wurde, werden Anforderungen mit höherer Priorität vor Anforderungen mit niedriger Priorität ausgeführt.
 
 Betrachten Sie das folgenden Beispiel:
 
@@ -50,7 +50,7 @@ Wenn die Abfragen „Q2“ und „Q3“ dieselbe Priorität aufweisen und „Q1�
 
 ### <a name="non-uniform-requests"></a>Nicht einheitliche Anforderungen
 
-Die Priorität ist auch zum Erfüllen von Abfrageanforderungen in Szenarios nützlich, in denen Anforderungen mit verschiedenen Ressourcenklassen übermittelt werden.  Wie bereits erwähnt, optimiert der Synapse SQL-Pool in Azure Synapse den Durchsatz bei gleicher Priorität. Wenn Anforderungen mit gemischten Größen (z. B. „smallrc“ oder „mediumrc“) in die Warteschlange eingereiht werden, wählt der Synapse SQL-Pool die erste eingegangene Anforderung aus, die von den verfügbaren Ressourcen abgedeckt werden kann. Wenn die Workloadpriorität angewendet wird, wird als Nächstes die Anforderung mit der höchsten Priorität geplant.
+Die Priorität ist auch zum Erfüllen von Abfrageanforderungen in Szenarios nützlich, in denen Anforderungen mit verschiedenen Ressourcenklassen übermittelt werden.  Wie bereits erwähnt, optimiert der dedizierte SQL-Pool in Azure Synapse bei gleicher Priorität den Durchsatz. Wenn Anforderungen mit gemischten Größen (z. B. „smallrc“ oder „mediumrc“) in die Warteschlange eingereiht werden, wählt der dedizierte SQL-Pool die erste eingegangene Anforderung aus, die von den verfügbaren Ressourcen abgedeckt werden kann. Wenn die Workloadpriorität angewendet wird, wird als Nächstes die Anforderung mit der höchsten Priorität geplant.
   
 Betrachten Sie das folgende Beispiel für DW500c:
 

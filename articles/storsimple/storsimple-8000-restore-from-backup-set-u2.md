@@ -10,12 +10,12 @@ ms.devlang: NA
 ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: e9033caf903967432b713afa00a509bd2d966d8b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ff70df225b5ed27960c96889d409d7005f0fbcc4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972015"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950728"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Wiederherstellen eines StorSimple-Volumes aus einem Sicherungssatz
 
@@ -63,7 +63,7 @@ In Update 4 können Windows PowerShell-Cmdlets zum Abfragen der ausgeführten Ak
 
 * `Set-HcsRehydrationJob`: Mit diesem Cmdlet können Sie den Aktivierungsauftrag unterbrechen, beenden und wiederaufnehmen, wenn die Aktivierung ausgeführt wird.
 
-Weitere Informationen zu den Cmdlets für die Aktivierung finden Sie in der [Cmdlet-Referenz für Windows PowerShell für StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
+Weitere Informationen zu den Cmdlets für die Aktivierung finden Sie in der [Cmdlet-Referenz für Windows PowerShell für StorSimple](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps).
 
 Bei der automatischen Aktivierung wird normalerweise eine höhere vorübergehende Leseleistung erwartet. Die tatsächlichen Optimierungen hängen von verschiedenen Faktoren wie dem Zugriffsmuster, der Datenänderungsrate und dem Datentyp ab. 
 
@@ -137,4 +137,3 @@ Um den Wiederherstellungsvorgang erfolgreich abzuschließen, schalten Sie das Vo
 ## <a name="next-steps"></a>Nächste Schritte
 * Erfahren Sie, wie Sie [StorSimple-Volumes verwalten](storsimple-8000-manage-volumes-u2.md).
 * Erfahren Sie, wie Sie [Ihr StorSimple-Gerät mithilfe des StorSimple-Geräte-Manager-Diensts verwalten](storsimple-8000-manager-service-administration.md).
-

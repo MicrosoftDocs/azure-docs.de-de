@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: e993e3086ac63a6e9d5b8372327e35016b36239f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2d7c9e39cb3eb14a2c2c6a7b13e37f3a526184b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285161"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889798"
 ---
 # <a name="change-the-style-of-the-map"></a>Ändern des Kartenstils
 
-Das Kartensteuerelement unterstützt verschiedene [Stiloptionen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions) und [Basiskartenstile](supported-map-styles.md) für Karten. Alle Stile können festgelegt werden, wenn das Kartensteuerelement initialisiert wird. Alternativ können Sie auch Stile festlegen, indem Sie die `setStyle`-Funktion des Kartensteuerelements verwenden. In diesem Artikel wird gezeigt, wie diese Stiloptionen verwendet werden, um die Kartendarstellung anzupassen. Außerdem erfahren Sie, wie Sie das Stilauswahl-Steuerelement in Ihrer Karte implementieren. Das Stilauswahl-Steuerelement ermöglicht dem Benutzer das Umschalten zwischen verschiedenen Basisstilen.
+Das Kartensteuerelement unterstützt verschiedene [Stiloptionen](/javascript/api/azure-maps-control/atlas.styleoptions) und [Basiskartenstile](supported-map-styles.md) für Karten. Alle Stile können festgelegt werden, wenn das Kartensteuerelement initialisiert wird. Alternativ können Sie auch Stile festlegen, indem Sie die `setStyle`-Funktion des Kartensteuerelements verwenden. In diesem Artikel wird gezeigt, wie diese Stiloptionen verwendet werden, um die Kartendarstellung anzupassen. Außerdem erfahren Sie, wie Sie das Stilauswahl-Steuerelement in Ihrer Karte implementieren. Das Stilauswahl-Steuerelement ermöglicht dem Benutzer das Umschalten zwischen verschiedenen Basisstilen.
 
 ## <a name="set-map-style-options"></a>Festlegen von Kartenstiloptionen
 
-Stiloptionen können während der Initialisierung des Websteuerelements festgelegt werden. Alternativ können Sie auch Stiloptionen aktualisieren, indem Sie die `setStyle`-Funktion des Kartensteuerelements aufrufen. Alle verfügbaren Stiloptionen können Sie unter [Stiloptionen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions) anzeigen.
+Stiloptionen können während der Initialisierung des Websteuerelements festgelegt werden. Alternativ können Sie auch Stiloptionen aktualisieren, indem Sie die `setStyle`-Funktion des Kartensteuerelements aufrufen. Alle verfügbaren Stiloptionen können Sie unter [Stiloptionen](/javascript/api/azure-maps-control/atlas.styleoptions) anzeigen.
 
 ```javascript
 //Set the style options when creating the map.
@@ -82,7 +82,7 @@ Der Kartenbasisstil kann mithilfe der `setStyle`-Funktion und durch Festlegen de
 map.setStyle({ style: 'satellite' });
 ```
 
-Im folgenden Code wird nach dem Laden einer Karteninstanz der Kartenstil mithilfe der Funktion [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#setstyle-styleoptions-) von `grayscale_dark` auf `satellite` aktualisiert.
+Im folgenden Code wird nach dem Laden einer Karteninstanz der Kartenstil mithilfe der Funktion [setStyle](/javascript/api/azure-maps-control/atlas.map#setstyle-styleoptions-) von `grayscale_dark` auf `satellite` aktualisiert.
 
 <br/>
 
@@ -93,7 +93,7 @@ Im folgenden Code wird nach dem Laden einer Karteninstanz der Kartenstil mithilf
 
 Das Stilauswahl-Steuerelement bietet eine komfortable Schaltfläche mit Flyoutbereich, die vom Endbenutzer verwendet werden kann, um zwischen Basisstilen zu wechseln.
 
-Die Stilauswahl weist zwei verschiedene Layoutoptionen auf: `icon` und `list`. Außerdem gestattet Ihnen die Stilauswahl, zwei unterschiedliche `style`-Optionen für das Stilauswahl-Steuerelement auszuwählen: `light` und `dark`. In diesem Beispiel verwendet die Stilauswahl das `icon`-Layout und zeigt eine Auswahlliste der Kartenbasisstile in Form von Symbolen an. Das Stilauswahl-Steuerelement umfasst den folgenden Basissatz an Stilen: `["road", "grayscale_light", "grayscale_dark", "night", "road_shaded_relief"]`. Weitere Informationen zu den Optionen des Stilauswahl-Steuerelements finden Sie unter [Stilsteuerelement-Optionen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.stylecontroloptions).
+Die Stilauswahl weist zwei verschiedene Layoutoptionen auf: `icon` und `list`. Außerdem gestattet Ihnen die Stilauswahl, zwei unterschiedliche `style`-Optionen für das Stilauswahl-Steuerelement auszuwählen: `light` und `dark`. In diesem Beispiel verwendet die Stilauswahl das `icon`-Layout und zeigt eine Auswahlliste der Kartenbasisstile in Form von Symbolen an. Das Stilauswahl-Steuerelement umfasst den folgenden Basissatz an Stilen: `["road", "grayscale_light", "grayscale_dark", "night", "road_shaded_relief"]`. Weitere Informationen zu den Optionen des Stilauswahl-Steuerelements finden Sie unter [Stilsteuerelement-Optionen](/javascript/api/azure-maps-control/atlas.stylecontroloptions).
 
 Das folgende Bild zeigt das im `icon`-Layout angezeigte Stilauswahl-Steuerelement.
 
@@ -118,16 +118,16 @@ Im folgenden Code wird gezeigt, wie Sie die standardmäßige Liste der Basisstil
 Weitere Informationen zu den in diesem Artikel verwendeten Klassen und Methoden:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Map](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [StyleOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions)
+> [StyleOptions](/javascript/api/azure-maps-control/atlas.styleoptions)
 
 > [!div class="nextstepaction"]
-> [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol)
+> [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol)
 
 > [!div class="nextstepaction"]
-> [StyleControlOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.stylecontroloptions)
+> [StyleControlOptions](/javascript/api/azure-maps-control/atlas.stylecontroloptions)
 
 Fügen Sie Ihren Karten Steuerelemente hinzu:
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c2d69d21eb46d502a45c9df1dfaaa947d26ef7c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a2b2344bbb110cd4b35cc1f6428f61e48552b01
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79225510"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563006"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Konfigurieren von DNS für die Namensauflösung für den vCenter-Zugriff in der privaten Cloud über lokale Arbeitsstationen
 
@@ -45,6 +45,9 @@ Welche Datei und welche Parameter konfiguriert werden müssen, hängt vom jeweil
 
 Bearbeiten Sie z. B für die BIND-Standardserverkonfiguration die Datei „/etc/named.conf“ auf Ihrem DNS-Server, und fügen Sie die folgenden Zoneninformationen hinzu.
 
+> [!NOTE]
+>Dieser Artikel enthält Verweise auf den Begriff Slave, einen Begriff, den Microsoft nicht mehr verwendet. Sobald der Begriff aus der Software entfernt wird, wird er auch aus diesem Artikel entfernt.
+
 ```
 zone "az.cloudsimple.io"
 {
@@ -58,19 +61,19 @@ zone "az.cloudsimple.io"
 
 1. Klicken Sie mit der rechten Maustaste auf den DNS-Server, und wählen Sie dann **New Zone** (Neue Zone) aus. 
   
-    ![Neue Zone](media/DNS01.png)
+    ![Screenshot, auf dem die Option „New Zone“ (Neue Zone) hervorgehoben ist](media/DNS01.png)
 2. Wählen Sie **Stub Zone** (Stubzone) aus, und klicken Sie dann auf **Next** (Weiter).
 
-    ![Neue Zone](media/DNS02.png)
+    ![Screenshot, auf dem die Option „Stub Zone“ (Stubzone) hervorgehoben ist](media/DNS02.png)
 3. Wählen Sie abhängig von Ihrer Umgebung die entsprechende Option aus, und klicken Sie dann auf **Next** (Weiter).
 
-    ![Neue Zone](media/DNS03.png)
+    ![Screenshot: Optionen für die Zonendatenreplikation](media/DNS03.png)
 4. Wählen Sie **Forward lookup zone** (Forward-Lookupzone) aus, und klicken Sie dann auf **Next** (Weiter).
 
-    ![Neue Zone](media/DNS01.png)
+    ![Screenshot, auf dem die Option „Forward lookup zone“ (Forward-Lookupzone) hervorgehoben ist](media/DNS01.png)
 5. Geben Sie den Zonennamen ein, und klicken Sie auf **Next** (Weiter).
 
-    ![Neue Zone](media/DNS05.png)
+    ![Screenshot, der zeigt, wo Sie den Zonennamen eingeben](media/DNS05.png)
 6. Geben Sie die IP-Adressen der DNS-Server für die private Cloud ein, die Sie aus dem CloudSimple-Portal abgerufen haben.
 
     ![Neue Zone](media/DNS06.png)

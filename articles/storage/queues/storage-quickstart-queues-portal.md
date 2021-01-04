@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: dineshm
-ms.openlocfilehash: 11c6cdff852a0695d4b2071f1d0a60c05dba2410
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0ee3d9c26d6972da9e528660d034432ce696aa45
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88213498"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347198"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Schnellstart: Erstellen einer Warteschlange und Hinzufügen einer Nachricht mit dem Azure-Portal
 
@@ -28,10 +28,10 @@ In dieser Schnellstartanleitung erfahren Sie, wie Sie mit dem [Azure-Portal](htt
 Führen Sie die folgenden Schritte aus, um eine Warteschlange im Azure-Portal zu erstellen:
 
 1. Navigieren Sie im Azure-Portal zu Ihrem neuen Speicherkonto.
-2. Scrollen Sie im linken Menü für das Speicherkonto zum Abschnitt **Warteschlangendienst**, und wählen Sie **Warteschlangen** aus.
+2. Scrollen Sie im linken Menü für das Speicherkonto zum Abschnitt **Warteschlangendienst** , und wählen Sie **Warteschlangen** aus.
 3. Wählen Sie die Schaltfläche **+ Warteschlange**.
 4. Geben Sie einen Namen für die neue Warteschlange ein. Der Warteschlangenname muss klein geschrieben werden, mit einem Buchstaben oder einer Zahl beginnen und darf nur Buchstaben, Zahlen und Bindestriche (-) enthalten.
-6. Wählen Sie **OK**, um die Warteschlange zu erstellen.
+6. Wählen Sie **OK** , um die Warteschlange zu erstellen.
 
     ![Screenshot: Erstellen einer Warteschlange über das Azure-Portal](media/storage-quickstart-queues-portal/create-queue.png)
 
@@ -40,10 +40,10 @@ Führen Sie die folgenden Schritte aus, um eine Warteschlange im Azure-Portal zu
 Fügen Sie als Nächstes der neuen Warteschlange eine Nachricht hinzu. Eine Nachricht kann bis zu 64 KB groß sein.
 
 1. Wählen Sie die neue Warteschlange aus der Liste der Warteschlangen im Speicherkonto aus.
-1. Wählen Sie die Schaltfläche **+ Nachricht hinzufügen**, um der Warteschlange eine Nachricht hinzuzufügen. Geben Sie eine Nachricht ins Feld **Nachrichtentext** ein.
+1. Wählen Sie die Schaltfläche **+ Nachricht hinzufügen** , um der Warteschlange eine Nachricht hinzuzufügen. Geben Sie eine Nachricht ins Feld **Nachrichtentext** ein.
 1. Geben Sie an, wann die Nachricht abläuft. Gültige Werte, die in das Feld **Läuft ab in** eingegeben werden können, liegen zwischen einer Sekunde und sieben Tagen. Wählen Sie **Nachricht läuft nie ab** aus, um anzugeben, dass eine Nachricht in der Warteschlange verbleibt, bis sie explizit entfernt wird.
 1. Geben Sie an, ob die Nachricht als Base64 codiert werden soll. Die Codierung von binären Daten wird empfohlen.
-1. Wählen Sie die Schaltfläche **OK**, um die Nachricht hinzuzufügen.
+1. Wählen Sie die Schaltfläche **OK** , um die Nachricht hinzuzufügen.
 
     ![Screenshot: Hinzufügen einer Nachricht zu einer Warteschlange](media/storage-quickstart-queues-portal/add-message.png)
 
@@ -55,9 +55,9 @@ Nachdem Sie eine Nachricht hinzugefügt haben, wird im Azure-Portal eine Liste a
 
 ## <a name="dequeue-a-message"></a>Entfernen einer Nachricht aus der Warteschlange
 
-Sie können über das Azure-Portal eine Nachricht vom Anfang der Warteschlange entfernen. Wenn Sie eine Nachricht aus der Warteschlange entfernen, wird die Nachricht gelöscht. 
+Sie können über das Azure-Portal eine Nachricht vom Anfang der Warteschlange entfernen. Wenn Sie eine Nachricht aus der Warteschlange entfernen, wird die Nachricht gelöscht.
 
-Beim Entfernen aus der Warteschlange wird immer die älteste Nachricht in der Warteschlange gelöscht. 
+Beim Entfernen aus der Warteschlange wird immer die älteste Nachricht in der Warteschlange gelöscht.
 
 ![Screenshot: Entfernen einer Nachricht aus der Warteschlange über das Portal](media/storage-quickstart-queues-portal/dequeue-message.png)
 

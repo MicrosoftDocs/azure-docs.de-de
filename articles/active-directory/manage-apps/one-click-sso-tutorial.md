@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c7e72718e13106b9d895921a2335f1525a7b88c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe4e981782878ce4f86dd7dcb8ae635a60b2405a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763124"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658705"
 ---
 # <a name="one-click-app-configuration-of-single-sign-on"></a>1-Klick-App-Konfiguration für einmaliges Anmelden
 
@@ -40,7 +40,7 @@ Das Feature „1-Klick-SSO“ wurde entwickelt, um einmaliges Anmelden für Azur
 ## <a name="prerequisites"></a>Voraussetzungen
 
 - Aktives Abonnement der Anwendung, die Sie mit SSO konfigurieren möchten. Außerdem benötigen Sie Administratoranmeldeinformationen.
-- Die **Erweiterung zur sicheren Anmeldung bei „Meine Apps“** von Microsoft, die im Browser installiert ist. Weitere Informationen finden Sie unter [Zugreifen auf und Verwenden von Apps im Portal „Meine Apps“](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+- Die **Erweiterung zur sicheren Anmeldung bei „Meine Apps“** von Microsoft, die im Browser installiert ist. Weitere Informationen finden Sie unter [Zugreifen auf und Verwenden von Apps im Portal „Meine Apps“](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="one-click-sso-configuration-steps"></a>Schritte der 1-Klick-SSO-Konfiguration
 
@@ -48,7 +48,7 @@ Das Feature „1-Klick-SSO“ wurde entwickelt, um einmaliges Anmelden für Azur
 
 2. Wählen Sie **Einmaliges Anmelden**.
 
-3. Wählen Sie **Einmaliges Anmelden aktivieren**aus.
+3. Wählen Sie **Einmaliges Anmelden aktivieren** aus.
 
 4. Geben Sie im Abschnitt **Grundlegende SAML-Konfiguration** die erforderlichen Konfigurationswerte ein.
 
@@ -84,6 +84,5 @@ Das Feature „1-Klick-SSO“ wurde entwickelt, um einmaliges Anmelden für Azur
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
-* [Was ist die Browsererweiterung zur sicheren Anmeldung bei „Meine Apps“?](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)
- 
+* [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](../saas-apps/tutorial-list.md)
+* [Was ist die Browsererweiterung zur sicheren Anmeldung bei „Meine Apps“?](../user-help/my-apps-portal-end-user-access.md)

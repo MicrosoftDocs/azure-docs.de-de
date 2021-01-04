@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
-ms.openlocfilehash: d043386f7d0a4713c605f87a9f7bc9f65183029b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9cfc48e3fdb96ba5b63b28288a801095f7b36f43
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88517103"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589830"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Tutorial: Azure Active Directory-Integration mit SpringCM
 
@@ -27,7 +27,7 @@ Die Integration von SpringCM in Azure AD bietet die folgenden Vorteile:
 * Sie können es Benutzern ermöglichen, dass sie mit ihren Azure AD-Konten automatisch bei SpringCM angemeldet werden (einmaliges Anmelden; Single Sign-On, SSO).
 * Sie können Ihre Konten über das Azure-Portal an einem zentralen Ort verwalten.
 
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
@@ -125,19 +125,19 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit SpringCM
 1. Melden Sie sich in einem anderen Webbrowserfenster bei der **SpringCM** -Unternehmenswebsite als Administrator an.
 
 1. Klicken Sie im Menü oben auf **GEHE ZU**, anschließend auf **Voreinstellungen** und dann im Abschnitt **Kontovoreinstellungen** auf **SAML-SSO**.
-   
+
     ![SAML-SSO](./media/spring-cm-tutorial/ic797051.png "SAML SSO")
 
 1. Führen Sie im Abschnitt „Identitätsanbieterkonfiguration“ die folgenden Schritte aus:
-   
+
     ![Identitätsanbieterkonfiguration](./media/spring-cm-tutorial/ic797052.png "Identitätsanbieterkonfiguration")
-    
+
     a. Zum Hochladen Ihres heruntergeladenen Azure Active Directory-Zertifikats klicken Sie auf **Ausstellerzertifikat auswählen** oder auf **Ausstellerzertifikat ändern**.
-    
+
     b. Fügen Sie in das Textfeld **Issuer** (Aussteller) den **Azure AD-Bezeichner** ein, den Sie aus dem Azure-Portal kopiert haben.
-    
+
     c. Fügen Sie im Feld **Vom Dienstanbieter initiierter Endpunkt** den Wert der **Anmelde-URL** ein, den Sie aus dem Azure-Portal kopiert haben.
-            
+
     d. Wählen Sie für **SAML Enabled** (SAML aktiviert) die Option **Enable** (Aktivieren) aus.
 
     e. Klicken Sie auf **Speichern**.
@@ -159,7 +159,7 @@ Das Ziel dieses Abschnitts ist das Erstellen eines Testbenutzers namens Britta S
     ![Dialogfeld „Benutzer“](common/user-properties.png)
 
     a. Geben Sie im Feld **Name** den Namen **BrittaSimon** ein.
-  
+
     b. Geben Sie im Feld **Benutzername** den Namen `brittasimon@yourcompanydomain.extension` ein. Zum Beispiel, BrittaSimon@contoso.com
 
     c. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den Wert, der im Feld „Kennwort“ angezeigt wird.
@@ -204,18 +204,18 @@ Damit sich Azure Active Directory-Benutzer bei SpringCM anmelden können, müsse
 1. Melden Sie sich an der **SpringCM**-Unternehmenswebsite als Administrator an.
 
 1. Klicken Sie auf **GOTO** (GEHE ZU) und dann auf **ADDRESS BOOK** (ADRESSBUCH).
-   
+
     ![Benutzer erstellen](./media/spring-cm-tutorial/ic797054.png "Benutzer erstellen")
 
 1. Klicken Sie auf **Benutzer erstellen**.
 
-1. Wählen Sie eine **Benutzerrolle**aus.
+1. Wählen Sie eine **Benutzerrolle** aus.
 
 1. Wählen Sie **Aktivierungs-E-Mail senden**.
 
 1. Geben Sie die erforderlichen Angaben zu Vorname, Nachname und E-Mail-Adresse eines gültigen Azure Active Directory-Kontos, das Sie bereitstellen möchten, in die entsprechenden Textfelder ein.
 
-1. Fügen Sie den Benutzer zu einer **Sicherheitsgruppe**hinzu.
+1. Fügen Sie den Benutzer zu einer **Sicherheitsgruppe** hinzu.
 
 1. Klicken Sie auf **Speichern**.
 
@@ -226,13 +226,12 @@ Damit sich Azure Active Directory-Benutzer bei SpringCM anmelden können, müsse
 
 In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich.
 
-Wenn Sie im Zugriffsbereich auf die Kachel „SpringCM“ klicken, sollten Sie automatisch bei der SpringCM-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Wenn Sie im Zugriffsbereich auf die Kachel „SpringCM“ klicken, sollten Sie automatisch bei der SpringCM-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](./tutorial-list.md)
 
-- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Was ist bedingter Zugriff?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Was ist bedingter Zugriff?](../conditional-access/overview.md)

@@ -1,17 +1,17 @@
 ---
 title: Konfigurieren von Node.js-Apps
 description: Erfahren Sie, wie Sie eine Node.js-App in den nativen Windows-Instanzen oder in einem vordefinierten Linux-Container in Azure App Service konfigurieren. In diesem Artikel werden die gängigsten Konfigurationsaufgaben vorgestellt.
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 48b111966d58af80b6c34fa17231034f4f0cc213
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bdf637ab773e90a5eac42bcaa443cf6741db636
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311834"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696012"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Konfigurieren einer Node.js-App für Azure App Service
 
@@ -84,6 +84,36 @@ Diese Einstellung legt die zu verwendende Version von Node.js fest, sowohl zur L
 > Sie sollten die Node.js-Version in der `package.json` des Projekts festlegen. Die Bereitstellungs-Engine wird in einem separaten Container ausgeführt, der alle unterstützten Node.js-Versionen enthält.
 
 ::: zone-end
+
+## <a name="get-port-number"></a>Abrufen der Portnummer
+
+Ihre Node.js-App muss am richtigen Port lauschen, um eingehende Anforderungen empfangen zu können.
+
+::: zone pivot="platform-windows"  
+
+In App Service unter Windows werden Node.js-Apps mit [IISNode](https://github.com/Azure/iisnode) gehostet, und Ihre Node.js-App sollte an dem Port lauschen, der in der Variablen `process.env.PORT` angegeben ist. Im folgenden Beispiel wird veranschaulicht, wie Sie hierbei für eine einfache Express-App vorgehen:
+
+::: zone-end
+
+::: zone pivot="platform-linux"  
+
+App Service legt die Umgebungsvariable `PORT` im Node.js-Container fest und leitet die eingehenden Anforderungen unter dieser Portnummer an Ihren Container weiter. Um die Anforderungen erhalten zu können, sollte Ihre App mit `process.env.PORT` an diesem Port lauschen. Im folgenden Beispiel wird veranschaulicht, wie Sie hierbei für eine einfache Express-App vorgehen:
+
+::: zone-end
+
+```javascript
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
+```
 
 ::: zone pivot="platform-linux"
 

@@ -11,16 +11,21 @@ ms.topic: tutorial
 ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 5d455751dcabd67213566d605e83fda297e187d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cef39b940f0d61fc60ea10156acfd781289157de
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316680"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591970"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Tutorial: Extrahieren von Bilddetails mit der Bing-Bildersuche-API und C#
 
-Die Bing-Bildersuche-API stellt mehrere [Endpunkte](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-endpoint) zur Verfügung. Der `/details`-Endpunkt akzeptiert eine POST-Anforderung mit einem Bild und kann zahlreiche Bilddetails zurückgegeben. Diese C#-Anwendung sendet ein Bild über diese API und zeigt die von Bing zurückgegebenen Details an, die JSON-Objekte sind, wie beispielsweise:
+> [!WARNING]
+> Die APIs der Bing-Suche werden von Cognitive Services auf Bing-Suchdienste umgestellt. Ab dem **30. Oktober 2020** müssen alle neuen Instanzen der Bing-Suche mit dem [hier](/bing/search-apis/bing-web-search/create-bing-search-service-resource) dokumentierten Prozess bereitgestellt werden.
+> APIs der Bing-Suche, die mit Cognitive Services bereitgestellt wurden, werden noch drei Jahre lang bzw. bis zum Ablauf Ihres Enterprise Agreement unterstützt (je nachdem, was zuerst eintritt).
+> Eine Anleitung zur Migration finden Sie unter [Erstellen einer Ressource für die Bing-Suche über Azure Marketplace](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
+Die Bing-Bildersuche-API stellt mehrere [Endpunkte](./image-search-endpoint.md) zur Verfügung. Der `/details`-Endpunkt akzeptiert eine POST-Anforderung mit einem Bild und kann zahlreiche Bilddetails zurückgegeben. Diese C#-Anwendung sendet ein Bild über diese API und zeigt die von Bing zurückgegebenen Details an, die JSON-Objekte sind, wie beispielsweise:
 
 ![[JSON-Ergebnisse]](media/cognitive-services-bing-images-api/jsonResult.jpg)
 

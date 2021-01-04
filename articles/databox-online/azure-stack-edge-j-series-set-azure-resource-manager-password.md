@@ -1,6 +1,6 @@
 ---
 title: Festlegen eines Azure Resource Manager-Kennworts auf Ihrem Azure Stack Edge Pro-GPU-Gerät
-description: In diesem Artikel wird beschrieben, wie Sie über Azure PowerShell eine Verbindung mit der Azure Resource Manager-Instanz herstellen, die auf Ihrem Azure Stack Edge Pro-GPU-Gerät ausgeführt wird.
+description: In diesem Artikel wird beschrieben, wie Sie über Azure PowerShell das Azure Resource Manager-Kennwort auf Ihrem Azure Stack Edge Pro-GPU-Gerät festlegen.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: df5fea8101834dae089ab97354c438363321a707
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 915146cd17b90272daea4ce57f5243baf1d49cb3
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904495"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578789"
 ---
 # <a name="set-azure-resource-manager-password-on-azure-stack-edge-pro-gpu-device"></a>Festlegen eines Azure Resource Manager-Kennworts auf einem Azure Stack Edge Pro-GPU-Gerät
 

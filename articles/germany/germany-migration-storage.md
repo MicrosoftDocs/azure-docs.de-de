@@ -7,12 +7,12 @@ author: gitralf
 ms.author: ralfwi
 ms.service: germany
 ms.custom: bfmigrate
-ms.openlocfilehash: 53b72a0b0f0d6f2db4e6d3bd8d3bbcb6274b7176
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 8d856ef2301917e229a3d40ebb63b10ac90a07c6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124595"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96006533"
 ---
 # <a name="migrate-storage-resources-to-global-azure"></a>Migrieren von Speicherressourcen zu Azure weltweit
 
@@ -28,7 +28,7 @@ AzCopy ist ein kostenloses Tool, mit dem Sie Blobs, Dateien und Tabellen kopiere
 
 Wenn Sie keine verwalteten Datenträger für Ihren virtuellen Quellcomputer nutzen, verwenden Sie AzCopy, um die VHD-Dateien in die Zielumgebung zu kopieren. Andernfalls müssen Sie einige Schritte vorab ausführen. Weitere Informationen finden Sie unter [Empfehlungen für verwaltete Datenträger](#managed-disks).
 
-Im folgenden Beispiel wird die Arbeitsweise von AzCopy veranschaulicht. Eine vollständige Referenz finden Sie in der [AzCopy-Dokumentation](../storage/common/storage-use-azcopy.md).
+Im folgenden Beispiel wird die Arbeitsweise von AzCopy veranschaulicht. Eine vollständige Referenz finden Sie in der [AzCopy-Dokumentation](../storage/common/storage-use-azcopy-v10.md).
 
 AzCopy verwendet die Begriffe **Source** und **Dest**, ausgedrückt als URIs. URIs für Azure Deutschland weisen immer das folgende Format auf:
 
@@ -72,7 +72,7 @@ Um eine konsistente Kopie der VHD zu erhalten, fahren Sie den virtuellen Compute
 
 Weitere Informationen finden Sie unter:
 
-- Lesen Sie die [AZCopy-Dokumentation](../storage/common/storage-use-azcopy.md).
+- Lesen Sie die [AZCopy-Dokumentation](../storage/common/storage-use-azcopy-v10.md).
 - Erfahren Sie, wie Sie [einen virtuellen Computer aus wiederhergestellten Datenträgern erstellen](../backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
 ## <a name="managed-disks"></a>Managed Disks
@@ -145,13 +145,13 @@ Als Erstes installieren Sie den [Azure Storage-Explorer](https://azure.microsoft
 
 Sie können den Storage-Explorer verwenden, um Tabellen vom Azure Storage-Quellkonto zu kopieren. 
 
-Verbinden Sie den Storage-Explorer mit Ihren Quelltabellenressourcen in Microsoft Azure Deutschland. Sie können sich [anmelden, um auf Ressourcen in Ihrem Abonnement zuzugreifen](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure) oder [bestimmte Storage-Ressourcen anfügen](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#attach-a-specific-resource). 
+Verbinden Sie den Storage-Explorer mit Ihren Quelltabellenressourcen in Microsoft Azure Deutschland. Sie können sich [anmelden, um auf Ressourcen in Ihrem Abonnement zuzugreifen](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) oder [bestimmte Storage-Ressourcen anfügen](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-a-specific-resource). 
 
 ### <a name="connect-to-target"></a>Mit Ziel verbinden
 
 Sie können den Storage-Explorer verwenden, um Tabellen in das Azure Storage-Zielkonto einzufügen.
 
-Verbinden Sie den Storage-Explorer mit Ihrem Microsoft Azure-Abonnement oder Ihrer Azure Storage-Instanz. Sie können sich [anmelden, um auf Ressourcen in Ihrem Abonnement zuzugreifen](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure) oder [bestimmte Storage-Ressourcen anfügen](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#attach-a-specific-resource). 
+Verbinden Sie den Storage-Explorer mit Ihrem Microsoft Azure-Abonnement oder Ihrer Azure Storage-Instanz. Sie können sich [anmelden, um auf Ressourcen in Ihrem Abonnement zuzugreifen](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) oder [bestimmte Storage-Ressourcen anfügen](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-a-specific-resource). 
 
 
 ### <a name="migrate-tables"></a>Migrieren von Tabellen
@@ -185,7 +185,7 @@ https://<storageaccountname>.blob.core.windows.net/<filesharename>
 ```
 Sie benötigen das SAS-Speicherkontotoken, um auf das Azure Storage-Konto zugreifen zu können. 
 
-Der folgende Beispielbefehl kopiert alle Dateifreigaben, Verzeichnisse und Dateien aus einem Speicherkonto in Azure Deutschland in ein Zielspeicherkonto für Azure weltweit. Eine vollständige Referenz finden Sie in der [AzCopy-Dokumentation](../storage/common/storage-use-azcopy.md).
+Der folgende Beispielbefehl kopiert alle Dateifreigaben, Verzeichnisse und Dateien aus einem Speicherkonto in Azure Deutschland in ein Zielspeicherkonto für Azure weltweit. Eine vollständige Referenz finden Sie in der [AzCopy-Dokumentation](../storage/common/storage-use-azcopy-v10.md).
 
 URI-Teil | Beispielwert
 -------- | --------------
@@ -198,7 +198,7 @@ Zieldateifreigabe | `targetfileshare`
 azcopy copy "https://migratetest.blob.core.cloudapi.de/sourcefileshare?<SAS-token>" "https://migratetarget.blob.core.windows.net/targetfileshare?<SAS-token>" --recursive=true
 ```
 
-Weitere Informationen zu AzCopy finden Sie in der [AzCopy-Dokumentation](../storage/common/storage-use-azcopy.md) sowie unter [Übertragen von Daten mit AzCopy und Dateispeicher](../storage/common/storage-use-azcopy-files.md#copy-files-between-storage-accounts).
+Weitere Informationen zu AzCopy finden Sie in der [AzCopy-Dokumentation](../storage/common/storage-use-azcopy-v10.md) sowie unter [Übertragen von Daten mit AzCopy und Dateispeicher](../storage/common/storage-use-azcopy-files.md#copy-files-between-storage-accounts).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
@@ -215,4 +215,3 @@ Erfahren Sie mehr über Tools, Techniken und Empfehlungen zum Migrieren von Ress
 - [Security](./germany-migration-security.md)
 - [Verwaltungstools](./germany-migration-management-tools.md)
 - [Medien](./germany-migration-media.md)
-

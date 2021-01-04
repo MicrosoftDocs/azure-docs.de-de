@@ -6,12 +6,12 @@ ms.date: 09/09/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 310637ce099aca7b8b9057a674d6b2094b008a87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba1797da5a78eeebd25f5df1b6e37eb92470f584
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613610"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106919"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutorial: Verwenden einer exportieren Vorlage aus dem Azure-Portal
 
@@ -62,12 +62,12 @@ Diese Vorlage eignet sich gut für die Bereitstellung von Speicherkonten, Sie so
 
    Die Funktion zum Exportieren von Vorlagen erfasst den aktuellen Zustand einer Ressource und generiert eine Vorlage für deren Bereitstellung. Das Exportieren einer Vorlage kann hilfreich sein, um schnell den JSON-Code zu erhalten, den Sie benötigen, um eine Ressource bereitzustellen.
 
-1. Sehen Sie sich die Definition **Microsoft.Web/serverfarms** und die Parameterdefinition in der exportierten Vorlage an. Diese Abschnitte müssen nicht kopiert werden. Sie können diese exportierte Vorlage einfach als Beispiel dafür verwenden, wie Sie diese Ressource Ihrer Vorlage hinzufügen möchten.
+1. Sehen Sie sich die Definition `Microsoft.Web/serverfarms` und die Parameterdefinition in der exportierten Vorlage an. Diese Abschnitte müssen nicht kopiert werden. Sie können diese exportierte Vorlage einfach als Beispiel dafür verwenden, wie Sie diese Ressource Ihrer Vorlage hinzufügen möchten.
 
     ![Exportieren einer Resource Manager-Vorlage aus dem Portal: exportierte Vorlage](./media/template-tutorial-export-template/resource-manager-template-exported-template.png)
 
 > [!IMPORTANT]
-> In der Regel ist die exportierte Vorlage ausführlicher als bei der Erstellung einer Vorlage. Beispielsweise verfügt das SKU-Objekt in der exportierten Vorlage über fünf Eigenschaften. Diese Vorlage funktioniert, aber Sie könnten einfach die **name**-Eigenschaft verwenden. Sie können mit der exportierten Vorlage beginnen und Sie dann wie gewünscht ändern, um Sie an Ihre Anforderungen anzupassen.
+> In der Regel ist die exportierte Vorlage ausführlicher als bei der Erstellung einer Vorlage. Beispielsweise verfügt das SKU-Objekt in der exportierten Vorlage über fünf Eigenschaften. Diese Vorlage funktioniert, aber Sie könnten einfach die `name`-Eigenschaft verwenden. Sie können mit der exportierten Vorlage beginnen und Sie dann wie gewünscht ändern, um Sie an Ihre Anforderungen anzupassen.
 
 ## <a name="revise-existing-template"></a>Überarbeiten der vorhandenen Vorlage
 
@@ -83,7 +83,7 @@ Kopieren Sie die gesamte Datei, und ersetzen Sie Ihre Vorlage durch den Inhalt d
 
 Zum Bereitstellen einer Vorlage verwenden Sie entweder die Azure CLI oder Azure PowerShell.
 
-Falls Sie die Ressourcengruppe noch nicht erstellt haben, folgen Sie den Anweisungen unter [Erstellen einer Ressourcengruppe](template-tutorial-create-first-template.md#create-resource-group). Dieses Beispiel setzt voraus, dass Sie die Variable **templateFile** wie im [ersten Tutorial](template-tutorial-create-first-template.md#deploy-template) beschrieben auf den Pfad zur Vorlagendatei festgelegt haben.
+Falls Sie die Ressourcengruppe noch nicht erstellt haben, folgen Sie den Anweisungen unter [Erstellen einer Ressourcengruppe](template-tutorial-create-first-template.md#create-resource-group). Dieses Beispiel setzt voraus, dass Sie die Variable `templateFile` wie im [ersten Tutorial](template-tutorial-create-first-template.md#deploy-template) beschrieben auf den Pfad zur Vorlagendatei festgelegt haben.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -111,7 +111,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Wenn bei der Bereitstellung ein Fehler aufgetreten ist, verwenden Sie den Schalter **verbose**, um Informationen zu den erstellten Ressourcen abzurufen. Verwenden Sie den Schalter **debug**, um weitere Informationen zum Debuggen zu erhalten.
+> Wenn bei der Bereitstellung ein Fehler aufgetreten ist, verwenden Sie den Schalter `verbose`, um Informationen zu den erstellten Ressourcen abzurufen. Verwenden Sie den Schalter `debug`, um weitere Informationen zum Debuggen zu erhalten.
 
 ## <a name="verify-deployment"></a>Überprüfen der Bereitstellung
 

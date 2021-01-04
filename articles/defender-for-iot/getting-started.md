@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: e3de253ee6f45f9296d6b09189fe4bc488be36ad
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 6aa525fd7f2d82194baa2e2a0c910cb71509c2d5
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090062"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340015"
 ---
 # <a name="getting-started-with-azure-defender-for-iot"></a>Erste Schritte mit Azure Defender für IoT
 
@@ -30,9 +30,9 @@ Führen Sie die folgenden Schritte aus, um Azure Defender für IoT einzurichten 
 
 ## <a name="1-set-up-azure"></a>1. Einrichten von Azure
 
-- Richten Sie ein Azure-Konto ein. Weitere Informationen finden Sie unter [Erstellen eines Azure-Kontos](https://docs.microsoft.com/learn/modules/create-an-azure-account/).
+- Richten Sie ein Azure-Konto ein. Weitere Informationen finden Sie unter [Erstellen eines Azure-Kontos](/learn/modules/create-an-azure-account/).
 
-- Firewall oder Proxy: Wenn Sie eine Firewall oder ein ähnliches zwischengeschaltetes Netzwerkgerät haben, das nur bestimmte Verbindungen zulässt, überprüfen Sie, ob „*.azure-devices.net:443“ für die Firewall oder den Proxy geöffnet ist. Wenn keine Platzhalter unterstützt werden oder Sie mehr Kontrolle wünschen, sollte der spezifische IoT Hub-FQDN in der Firewall bzw. dem Proxy geöffnet werden. Weitere Informationen finden Sie unter [Referenz: IoT Hub-Endpunkte](/azure/iot-hub/iot-hub-devguide-endpoints).
+- Firewall oder Proxy: Wenn Sie eine Firewall oder ein ähnliches zwischengeschaltetes Netzwerkgerät haben, das nur bestimmte Verbindungen zulässt, überprüfen Sie, ob „*.azure-devices.net:443“ für die Firewall oder den Proxy geöffnet ist. Wenn keine Platzhalter unterstützt werden oder Sie mehr Kontrolle wünschen, sollte der spezifische IoT Hub-FQDN in der Firewall bzw. dem Proxy geöffnet werden. Weitere Informationen finden Sie unter [Referenz: IoT Hub-Endpunkte](../iot-hub/iot-hub-devguide-endpoints.md).
 
 ## <a name="2-deploy-hardware-software-and-onboard-to-sensor"></a>2. Bereitstellen von Hardware und Software sowie Onboarding auf dem Sensor
 

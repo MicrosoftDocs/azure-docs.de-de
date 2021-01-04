@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 10/26/2020
 ms.author: banders
-ms.custom: contperfq1
-ms.openlocfilehash: be3de838e340400da09ad261d82328f6793aed2e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 776c207387ee55b998615131baf77e6c13655b49
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297724"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033936"
 ---
 # <a name="change-contact-information-for-an-azure-billing-account"></a>Ändern der Kontaktinformationen für ein Azure-Abrechnungskonto
 
@@ -31,7 +31,7 @@ Wenn Sie Ihre Azure Active Directory-Benutzerprofilinformationen aktualisieren m
 
 ## <a name="update-an-mosp-billing-account-address"></a>Aktualisieren einer Adresse für ein MOSP-Abrechnungskonto
 
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) mit der E-Mail-Adresse an, die über die Berechtigung „Kontoadministrator“ für das Konto verfügt.
+1. Melden Sie sich beim Azure-Portal mit der E-Mail-Adresse an, die über die Berechtigung „Kontoadministrator“ für das Konto verfügt.
 1. Suchen Sie nach **Kostenverwaltung + Abrechnung**.  
     ![Screenshot: Suche im Azure-Portal nach „Kostenverwaltung + Abrechnung“](./media/change-azure-account-profile/search-cmb.png)
 1. Wählen Sie auf der linken Seite die Option **Eigenschaften** aus.  
@@ -41,7 +41,7 @@ Wenn Sie Ihre Azure Active Directory-Benutzerprofilinformationen aktualisieren m
 
 ## <a name="update-an-mca-billing-account-sold-to-address"></a>Aktualisieren einer Käuferadresse eines MCA-Abrechnungskontos
 
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) mit der E-Mail-Adresse an, die über die Rolle „Besitzer“ oder „Mitwirkender“ für das Abrechnungskonto für eine Microsoft-Kundenvereinbarung verfügt.
+1. Melden Sie sich beim Azure-Portal mit der E-Mail-Adresse an, die über die Rolle „Besitzer“ oder „Mitwirkender“ für das Abrechnungskonto für eine Microsoft-Kundenvereinbarung verfügt.
 1. Suchen Sie nach **Kostenverwaltung + Abrechnung**.  
     ![Screenshot: Suche im Azure-Portal](./media/change-azure-account-profile/search-cmb.png)
 1. Wählen Sie auf der linken Seite die Option **Eigenschaften** aus, und wählen Sie dann **Käufer aktualisieren** aus.  
@@ -54,7 +54,7 @@ Wenn Sie Ihre Azure Active Directory-Benutzerprofilinformationen aktualisieren m
 
 ## <a name="update-an-mca-billing-account-address"></a>Aktualisieren einer Adresse eines MCA-Abrechnungskontos
 
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) mit der E-Mail-Adresse an, die über die Rolle „Besitzer“ oder „Mitwirkender“ für ein Abrechnungskonto oder ein Abrechnungsprofil für eine Microsoft-Kundenvereinbarung verfügt.
+1. Melden Sie sich beim Azure-Portal mit der E-Mail-Adresse an, die über die Rolle „Besitzer“ oder „Mitwirkender“ für ein Abrechnungskonto oder ein Abrechnungsprofil für eine Microsoft-Kundenvereinbarung verfügt.
 1. Suchen Sie nach **Kostenverwaltung + Abrechnung**.  
 1. Wählen Sie auf der linken Seite die Option **Abrechnungsprofile** aus.
 1. Wählen Sie ein Abrechnungsprofil aus, um die Rechnungsadresse zu aktualisieren.  
@@ -67,7 +67,7 @@ Wenn Sie Ihre Azure Active Directory-Benutzerprofilinformationen aktualisieren m
 
 ## <a name="service-and-marketing-emails"></a>Dienst- und Marketing-E-Mails
 
-Sie werden im [Azure-Portal](https://portal.azure.com) aufgefordert, Ihre E-Mail-Adresse alle 90 Tage zu überprüfen oder zu aktualisieren. Microsoft sendet an diese E-Mail-Adresse E-Mails mit auf das Azure-Konto bezogenen Informationen mit folgenden Inhalten:
+Sie werden im Azure-Portal aufgefordert, Ihre E-Mail-Adresse alle 90 Tage zu überprüfen oder zu aktualisieren. Microsoft sendet an diese E-Mail-Adresse E-Mails mit auf das Azure-Konto bezogenen Informationen mit folgenden Inhalten:
 
 - Dienstbenachrichtigungen
 - Sicherheitswarnungen
@@ -86,7 +86,7 @@ Sie können Ihre Kontakt-E-Mail-Adresse mithilfe einer der folgenden Methoden ä
 
 1. Wenn Sie ein Kontoadministrator für ein MOSP-Konto sind, folgen Sie den Anweisungen unter [Aktualisieren einer Adresse für ein MOSP-Abrechnungskonto](#update-an-mosp-billing-account-address), und wählen Sie im letzten Schritt die Option **Kontaktinformationen aktualisieren** aus. Geben Sie anschließend die neue E-Mail-Adresse ein.
 1. Wechseln Sie im Azure-Portal zum Bereich [Kontaktinformationen](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade), und geben Sie die neue E-Mail-Adresse ein. 
-1. Wählen Sie im [Azure-Portal](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) das Symbol mit Ihren Initialen oder Ihrem Bild aus. Wählen Sie dann das Kontextmenü ( **...** ) aus. Wählen Sie als Nächstes im Menü die Option **Meine Kontaktinformationen** aus, und geben Sie die neue E-Mail-Adresse ein.
+1. Wählen Sie im Azure-Portal das Symbol mit Ihren Initialen oder Ihrem Bild aus. Wählen Sie dann das Kontextmenü ( **...** ) aus. Wählen Sie als Nächstes im Menü die Option **Meine Kontaktinformationen** aus, und geben Sie die neue E-Mail-Adresse ein.
 
 ![Beispiel für die Aktualisierung einer E-Mail-Adresse in Azure](./media/change-azure-account-profile/azure-contact-information.png)
 
@@ -102,7 +102,7 @@ Wenn Sie Marketinginformationen deaktivieren, erhalten Sie weiterhin auf Ihr Kon
 
 ## <a name="update-the-email-address-that-you-sign-in-with"></a>Aktualisieren der E-Mail-Adresse, mit der Sie sich anmelden
 
-Sie können die für den Zugriff auf Ihr Konto verwendete E-Mail-Adresse nicht aktualisieren. Wenn Sie jedoch über ein Abrechnungskonto für ein MOSP verfügen, können Sie sich mit der neuen E-Mail-Adresse für ein weiteres Konto registrieren und den Besitz Ihrer Abonnements auf das nächste Konto übertragen. Wenn Sie über ein MCA-Abrechnungskonto verfügen, [können Sie der neuen E-Mail-Adresse Berechtigungen für Ihr Konto erteilen](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+Sie können die für den Zugriff auf Ihr Konto verwendete E-Mail-Adresse nicht aktualisieren. Wenn Sie jedoch über ein Abrechnungskonto für ein MOSP verfügen, können Sie sich mit der neuen E-Mail-Adresse für ein weiteres Konto registrieren und den Besitz Ihrer Abonnements auf das nächste Konto übertragen. Wenn Sie über ein MCA-Abrechnungskonto verfügen, können Sie der neuen E-Mail-Adresse Berechtigungen für Ihr Konto erteilen.
 
 ## <a name="update-your-credit-card"></a>Aktualisieren Ihrer Kreditkartendetails
 
@@ -114,7 +114,7 @@ Das Ändern des Lands oder der Region für ein vorhandenes Konto wird nicht unte
 
 ## <a name="change-the-subscription-name"></a>Ändern des Abonnementnamens
 
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an, und wählen Sie auf der linken Seite **Abonnement** und dann das Abonnement aus, das Sie umbenennen möchten.
+1. Melden Sie sich beim Azure-Portal an, und wählen Sie auf der linken Seite **Abonnement** und dann das Abonnement aus, das Sie umbenennen möchten.
 1. Wählen Sie **Übersicht** und dann auf der Befehlsleiste **Umbenennen** aus.  
     ![Beispiel für das Umbenennen eines Azure-Abonnements](./media/change-azure-account-profile/rename-sub.png)
 1. Wählen Sie nach dem Ändern des Namens die Option **Speichern** aus.

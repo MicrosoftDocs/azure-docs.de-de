@@ -1,6 +1,6 @@
 ---
 title: Importieren einer API-App als API mit dem Azure-Portal | Microsoft-Dokumentation
-description: Dieses Tutorial veranschaulicht, wie Sie API Management (APIM) verwenden, um API-Apps als API zu importieren.
+description: Dieser Artikel veranschaulicht, wie Sie API Management (APIM) verwenden, um API-Apps als API zu importieren.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -9,15 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 007598046ae64b390d44e61438b69bd26024b1c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41209233ec59f578db4ff7fd344bb96aefeb975e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626886"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994739"
 ---
 # <a name="import-an-api-app-as-an-api"></a>Importieren einer API-App als API
 

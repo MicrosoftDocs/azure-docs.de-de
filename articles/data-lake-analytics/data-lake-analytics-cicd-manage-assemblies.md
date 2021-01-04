@@ -7,11 +7,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 10/30/2018
 ms.openlocfilehash: e88616f45c69d33234aa35333e0d82ad8cc59bb6
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219359"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015280"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>Best Practices für die Verwaltung von U-SQL-Assemblys in einer CI/CD-Pipeline
 
@@ -31,13 +31,13 @@ Ein U-SQL-Datenbankprojekt kann auf ein Klassenbibliothekprojekt (für U-SQL-Anw
 
 Führen Sie diese Schritte aus, um Projekte zu erstellen und Verweise hinzuzufügen.
 
-1. Erstellen Sie ein Klassenbibliothekprojekt (für U-SQL-Anwendungen), indem Sie **Datei** > **Neu** > **Projekt** auswählen. Das Projekt befindet sich unter dem Knoten **Azure Data Lake > U-SQL** .
+1. Erstellen Sie ein Klassenbibliothekprojekt (für U-SQL-Anwendungen), indem Sie **Datei** > **Neu** > **Projekt** auswählen. Das Projekt befindet sich unter dem Knoten **Azure Data Lake > U-SQL**.
 
    ![Data Lake Tools für Visual Studio: Erstellen eines C#-Klassenbibliothekprojekts](./media/data-lake-analytics-cicd-manage-assemblies/create-c-sharp-class-library-project.png)
 
 1. Fügen Sie Ihren benutzerdefinierten C#-Code in das Klassenbibliothekprojekt (für U-SQL-Anwendungen) ein.
 
-1. Erstellen Sie ein U-SQL-Projekt, indem Sie **Datei** > **Neu** > **Projekt** auswählen. Das Projekt befindet sich unter dem Knoten **Azure Data Lake** > **U-SQL** .
+1. Erstellen Sie ein U-SQL-Projekt, indem Sie **Datei** > **Neu** > **Projekt** auswählen. Das Projekt befindet sich unter dem Knoten **Azure Data Lake** > **U-SQL**.
 
    ![Data Lake Tools für Visual Studio: Erstellen eines U-SQL-Datenbankprojekts](media/data-lake-analytics-cicd-manage-assemblies/create-u-sql-database-project.png)
 
@@ -81,7 +81,7 @@ Sie können eine U-SQL-Datenbank mithilfe eines U-SQL-Datenbankprojekts oder ein
 
 1. Geben Sie unter **Datenbankname** einen Namen ein, um eine Datenbank zu erstellen. Wenn bereits eine Datenbank mit demselben Namen im Azure Data Lake Analytics-Zielkonto vorhanden ist, werden alle im Datenbankprojekt definierten Objekte erstellt, ohne dass die Datenbank neu erstellt wird.
 
-1. Klicken Sie auf **Senden** , um die U-SQL-Datenbank bereitzustellen. Alle Ressourcen wie z.B. Assemblys und zusätzliche Dateien werden hochgeladen. Ein U-SQL-Auftrag, der alle DDL-Anweisungen enthält, wird übermittelt.
+1. Klicken Sie auf **Senden**, um die U-SQL-Datenbank bereitzustellen. Alle Ressourcen wie z.B. Assemblys und zusätzliche Dateien werden hochgeladen. Ein U-SQL-Auftrag, der alle DDL-Anweisungen enthält, wird übermittelt.
 
    ![Data Lake Tools für Visual Studio: Bereitstellen eines U-SQL-Datenbankprojekts](./media/data-lake-analytics-cicd-manage-assemblies/data-lake-tools-deploy-usql-database-project.png)
 

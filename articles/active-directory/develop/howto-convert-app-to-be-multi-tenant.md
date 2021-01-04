@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 03/17/2020
+ms.date: 10/27/2020
 ms.author: ryanwi
-ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
+ms.reviewer: marsma, jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 3578562839069eb4b9c99b16d938efe48821fcec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22d6cacc36363b17f9bc32d354982eb71974b31d
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631306"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779752"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Gewusst wie: Anmelden von Azure Active Directory-Benutzern mit dem mehrinstanzenfähigen Anwendungsmuster
 
@@ -29,7 +29,7 @@ Wenn Sie eine Anwendung besitzen, die mit einem eigenen Kontosystem ausgestattet
 > [!NOTE]
 > In diesem Artikel wird davon ausgegangen, dass Sie mit der Erstellung einer Anwendung für einen Mandanten für Azure AD bereits vertraut sind. Falls nicht, beginnen Sie mit einer der Schnellstartanleitungen, die auf der [Startseite des Entwicklerhandbuchs][AAD-Dev-Guide] verfügbar sind.
 
-Sie müssen vier einfache Schritte zum Konvertieren der Anwendung in eine mehrinstanzenfähige Azure AD-App ausführen:
+Sie müssen vier Schritte zum Konvertieren der Anwendung in eine mehrinstanzenfähige Azure AD-App ausführen:
 
 1. [Aktualisieren der Anwendungsregistrierung, sodass sie mehrinstanzenfähig ist](#update-registration-to-be-multi-tenant)
 2. [Aktualisieren des Codes zum Senden von Anforderungen an den Endpunkt „/common“](#update-your-code-to-send-requests-to-common)
@@ -42,16 +42,13 @@ Betrachten wir jeden Schritt im Detail. Sie können auch direkt zum Beispiel [Er
 
 Standardmäßig gelten Web-App-/API-Registrierungen in Azure AD für einen einzelnen Mandanten. Sie können Ihre Registrierung mehrinstanzenfähig machen, indem Sie im [Azure-Portal][AZURE-portal] im Bereich **Authentifizierung** Ihrer Anwendungsregistrierung den Schalter **Unterstützte Kontotypen** auf **Konten in einem beliebigen Organisationsverzeichnis** festlegen.
 
-Damit eine Anwendung mehrinstanzenfähig sein kann, muss der App-ID-URI der Anwendung in Azure AD global eindeutig sein. Der App-ID-URI ist eine der Methoden, mit der eine Anwendung in Protokollmeldungen identifiziert wird. Bei einer Anwendung mit einem einzigen Mandanten muss der App-ID-URI nur in diesem Mandanten eindeutig sein. Bei einer mehrinstanzenfähigen Anwendung muss er global eindeutig sein, damit Azure AD die Anwendung in allen Mandanten finden kann. Globale Eindeutigkeit wird durch die Anforderung erzwungen, dass der App-ID-URI einen Hostnamen aufweisen muss, der mit einer überprüften Domäne des Azure AD-Mandanten übereinstimmt.
+Damit eine Anwendung mehrinstanzenfähig sein kann, muss der App-ID-URI der Anwendung in Azure AD global eindeutig sein. Der App-ID-URI ist eine der Methoden, mit der eine Anwendung in Protokollmeldungen identifiziert wird. Bei einer Anwendung mit einem einzelnen Mandanten muss der App-ID-URI nur in diesem Mandanten eindeutig sein. Bei einer mehrinstanzenfähigen Anwendung muss er global eindeutig sein, damit Azure AD die Anwendung in allen Mandanten finden kann. Globale Eindeutigkeit wird durch die Anforderung erzwungen, dass der App-ID-URI einen Hostnamen aufweisen muss, der mit einer überprüften Domäne des Azure AD-Mandanten übereinstimmt.
 
 Standardmäßig verfügen Apps, die über das Azure-Portal erstellt werden, über einen global eindeutigen App-ID-URI, der bei der Erstellung der App festgelegt wird. Sie können diesen Wert aber ändern. Wenn der Name Ihres Mandanten beispielsweise „contoso.onmicrosoft.com“ lautet, wäre `https://contoso.onmicrosoft.com/myapp`ein gültiger App-ID-URI. Enthält Ihr Mandant die überprüfte Domäne `contoso.com`, wäre auch ein gültiger App-ID-URI `https://contoso.com/myapp`. Wenn der App-ID-URI nicht diesem Muster folgt, schlägt das Festlegen einer Anwendung als mehrinstanzenfähig fehl.
 
-> [!NOTE]
-> Native Clientregistrierungen und [Microsoft Identity Platform-Anwendungen](./v2-overview.md) sind standardmäßig mehrinstanzenfähig. Sie müssen keine Maßnahmen ergreifen, um diese Anwendungsregistrierungen mehrinstanzenfähig zu machen.
-
 ## <a name="update-your-code-to-send-requests-to-common"></a>Aktualisieren des Codes zum Senden von Anforderungen an „/common“
 
-Bei einer Anwendung mit einem einzigen Mandanten werden Anmeldeanforderungen an den Anmeldeendpunkt des Mandanten gesendet. Für „contoso.onmicrosoft.com“ würde der Endpunkt beispielsweise wie folgt lauten: `https://login.microsoftonline.com/contoso.onmicrosoft.com`. Mit Anforderungen, die an den Endpunkt eines Mandanten gesendet werden, können Benutzer (oder Gäste) in diesem Mandanten für Anwendungen dieses Mandanten angemeldet werden.
+Bei einer Anwendung mit einem einzelnen Mandanten werden Anmeldeanforderungen an den Anmeldeendpunkt des Mandanten gesendet. Für „contoso.onmicrosoft.com“ würde der Endpunkt beispielsweise wie folgt lauten: `https://login.microsoftonline.com/contoso.onmicrosoft.com`. Mit Anforderungen, die an den Endpunkt eines Mandanten gesendet werden, können Benutzer (oder Gäste) in diesem Mandanten für Anwendungen dieses Mandanten angemeldet werden.
 
 Bei einer mehrinstanzenfähigen Anwendung weiß die Anwendung zunächst nicht, von welchem Mandanten der Benutzer stammt. Deshalb können Sie keine Anforderungen an den Endpunkt eines Mandanten senden. Stattdessen werden Anforderungen an einen Endpunkt gesendet, der sie per Multiplexverfahren an alle Azure AD-Mandanten verteilt: `https://login.microsoftonline.com/common`
 
@@ -67,34 +64,36 @@ Die Anmeldeantwort an die Anwendung enthält dann ein Token, das den Benutzer da
 Webanwendungen und Web-APIs empfangen und überprüfen Token von Microsoft Identity Platform.
 
 > [!NOTE]
-> Wenn native Clientanwendungen Token von Microsoft Identity Platform anfordern und empfangen, werden diese zur Überprüfung an APIs weitergeleitet. Native Anwendungen überprüfen Token nicht und müssen sie als nicht transparent behandeln.
+> Wenn native Clientanwendungen Token von Microsoft Identity Platform anfordern und empfangen, werden diese zur Überprüfung an APIs weitergeleitet. Native Anwendungen überprüfen Zugriffstoken nicht und müssen sie als nicht transparent behandeln.
 
 Sehen wir uns an, wie eine Anwendung Token überprüft, die sie von Microsoft Identity Platform erhält. Eine Anwendung mit einem einzigen Mandanten verwendet normalerweise einen Endpunktwert wie den folgenden:
 
 ```http
-    https://login.microsoftonline.com/contoso.onmicrosoft.com
+https://login.microsoftonline.com/contoso.onmicrosoft.com
 ```
 
 Hieraus wird eine Metadaten-URL (in diesem Fall OpenID Connect) wie die folgende erstellt:
 
 ```http
-    https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
+https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
 ```
 
-Damit können zwei wichtige Informationen heruntergeladen werden, die zum Überprüfen von Token verwendet werden: die Signaturschlüssel und der Ausstellerwert des Mandanten. Jeder Azure AD-Mandant weist einen eindeutigen Ausstellerwert in folgender Form auf:
+Damit können zwei wichtige Informationen heruntergeladen werden, die zum Überprüfen von Token verwendet werden: die Signaturschlüssel und der Ausstellerwert des Mandanten.
+
+Jeder Azure AD-Mandant weist einen eindeutigen Ausstellerwert in folgender Form auf:
 
 ```http
-    https://sts.windows.net/31537af4-6d77-4bb9-a681-d2394888ea26/
+https://sts.windows.net/31537af4-6d77-4bb9-a681-d2394888ea26/
 ```
 
 Dabei ist der GUID-Wert die nicht änderbare Version der Mandanten-ID des Mandanten. Wenn Sie den vorhergehenden Metadatenlink für `contoso.onmicrosoft.com` wählen, können Sie diesen Ausstellerwert im Dokument sehen.
 
-Wenn eine Anwendung mit einem einzigen Mandanten ein Token überprüft, wird die Signatur des Tokens anhand der Signaturschlüssel aus dem Metadatendokument geprüft. Hierdurch kann sichergestellt werden, dass der Ausstellerwert im Token dem Wert im Metadatendokument entspricht.
+Wenn eine Anwendung mit einem einzelnen Mandanten ein Token überprüft, wird die Signatur des Tokens anhand der Signaturschlüssel aus dem Metadatendokument geprüft. Hierdurch kann sichergestellt werden, dass der Ausstellerwert im Token dem Wert im Metadatendokument entspricht.
 
 Da der Endpunkt „/common“ keinem Mandanten entspricht und kein Aussteller ist, hat der Ausstellerwert in den Metadaten für „/common“ eine Vorlagen-URL anstatt eines tatsächlichen Werts:
 
 ```http
-    https://sts.windows.net/{tenantid}/
+https://sts.windows.net/{tenantid}/
 ```
 
 Aus diesem Grund kann eine mehrinstanzenfähige Anwendung keine Token überprüfen, indem einfach der Ausstellerwert in den Metadaten mit dem `issuer` -Wert im Token abgeglichen wird. Eine mehrinstanzenfähige Anwendung benötigt Logik, um basierend auf der Mandanten-ID im Ausstellerwert zu entscheiden, welche Ausstellerwerte zulässig sind.
@@ -105,7 +104,7 @@ In den [Beispielen für Mehrinstanzenfähigkeit][AAD-Samples-MT] ist die Überpr
 
 ## <a name="understand-user-and-admin-consent"></a>Grundlegendes zur Benutzer- und Administratoreinwilligung
 
-Damit sich ein Benutzer bei einer Anwendung in Azure AD anmelden kann, muss die Anwendung im Mandanten des Benutzers dargestellt werden. Dies ermöglicht es der Organisation beispielsweise, eindeutige Richtlinien anzuwenden, wenn sich Benutzer ihres Mandanten bei der Anwendung anmelden. Bei einer Anwendung mit einem einzigen Mandanten ist diese Registrierung einfach. Es handelt sich um die Registrierung, die erfolgt, wenn Sie die Anwendung im [Azure-Portal][AZURE-portal] registrieren.
+Damit sich ein Benutzer bei einer Anwendung in Azure AD anmelden kann, muss die Anwendung im Mandanten des Benutzers dargestellt werden. Dies ermöglicht es der Organisation beispielsweise, eindeutige Richtlinien anzuwenden, wenn sich Benutzer ihres Mandanten bei der Anwendung anmelden. Bei einer Anwendung mit einem einzelnen Mandanten ist diese Registrierung einfacher. Es handelt sich um die Registrierung, die erfolgt, wenn Sie die Anwendung im [Azure-Portal][AZURE-portal] registrieren.
 
 Bei einer mehrinstanzenfähigen Anwendung erfolgt die erste Registrierung für die Anwendung in dem Azure AD-Mandanten, der vom Entwickler verwendet wurde. Wenn sich ein Benutzer von einem anderen Mandanten zum ersten Mal bei der Anwendung anmeldet, fordert Azure AD ihn auf, den von der Anwendung angeforderten Berechtigungen zuzustimmen. Wenn er zustimmt, wird eine Darstellung der Anwendung, die als *Dienstprinzipal* bezeichnet wird, im Mandanten des Benutzers erstellt, und die Anmeldung kann fortgesetzt werden. Im Verzeichnis, das die Zustimmung des Benutzers zur Anwendung erfasst, wird auch eine Delegierung erstellt. Ausführliche Informationen zu Anwendungsobjekten und Dienstprinzipalobjekten der Anwendung und deren Beziehungen zueinander finden Sie unter [Anwendungsobjekte und Dienstprinzipalobjekte][AAD-App-SP-Objects].
 
@@ -117,6 +116,8 @@ Dieser Zustimmungsprozess wird durch die von der Anwendung angeforderten Berecht
 * Eine nur für die App geltende Berechtigung wird der Identität der Anwendung direkt gewährt. Beispielsweise können Sie einer Anwendung die nur für die App geltende Berechtigung zum Lesen der Liste der Benutzer in einem Mandanten erteilen, unabhängig davon, wer sich bei der Anwendung angemeldet hat.
 
 Einigen Berechtigungen kann ein regulärer Benutzer zustimmen, während andere die Zustimmung eines Mandantenadministrators erfordern.
+
+Weitere Informationen zur Benutzer- und Administratoreinwilligung finden Sie unter [Konfigurieren des Workflows für die Administratoreinwilligung](../manage-apps/configure-admin-consent-workflow.md).
 
 ### <a name="admin-consent"></a>Administratorzustimmung
 
@@ -132,9 +133,6 @@ Der Parameter `prompt=admin_consent` kann auch von Anwendungen verwendet werden,
 
 Wenn für eine Anwendung die Zustimmung des Administrators erforderlich ist und sich ein Administrator anmeldet, ohne dass der Parameter `prompt=admin_consent` gesendet wird, gilt die erfolgreiche Zustimmung des Administrators **nur für sein Benutzerkonto**. Reguläre Benutzer können sich weiterhin nicht anmelden und der Anwendung nicht zustimmen. Diese Funktion ist sinnvoll, wenn Sie dem Mandantenadministrator die Möglichkeit geben möchten, Ihre Anwendung zu untersuchen, bevor Sie anderen Benutzern Zugriff gewähren.
 
-> [!NOTE]
-> Für einige Anwendungen wird eine Oberfläche verwendet, auf der reguläre Benutzer zunächst zustimmen können. Später kann die Anwendung den Administrator einbeziehen und Berechtigungen anfordern, für die die Zustimmung des Administrators erforderlich ist. Es gibt derzeit keine Möglichkeit, dies mit einer v1.0-Anwendungsregistrierung in Azure AD zu erreichen. Die Verwendung des Microsoft Identity Platform-Endpunkts (v2.0) ermöglicht es aber, dass Anwendungen Berechtigungen nicht während der Registrierung anfordern, sondern zur Laufzeit, um dieses Szenario zu erzielen. Weitere Informationen finden Sie unter [Microsoft Identity Platform-Endpunkt][AAD-V2-Dev-Guide].
-
 ### <a name="consent-and-multi-tier-applications"></a>Zustimmung und Anwendungen mit mehreren Ebenen
 
 Ihre Anwendung weist möglicherweise mehrere Ebenen auf, die in Azure AD jeweils durch eine eigene Registrierung dargestellt werden. Beispielsweise eine native Anwendung, die eine Web-API aufruft, oder eine Webanwendung, die eine Web-API aufruft. In beiden Fällen fordert der Client (native App oder Web-App) Berechtigungen an, um die Ressource (Web-API) aufzurufen. Damit dem Client erfolgreich die Zustimmung im Mandanten eines Kunden erteilt werden kann, müssen alle Ressourcen, für die Berechtigungen angefordert werden, bereits im Mandanten des Kunden vorhanden sein. Wenn diese Bedingung nicht erfüllt ist, gibt Azure AD einen Fehler zurück, der besagt, dass die Ressource zuerst hinzugefügt werden muss.
@@ -143,8 +141,8 @@ Ihre Anwendung weist möglicherweise mehrere Ebenen auf, die in Azure AD jeweils
 
 Dies kann ein Problem sein, wenn die logische Anwendung aus zwei oder mehr Anwendungsregistrierungen besteht, z.B. separate Clients und Ressourcen. Wie sorgen Sie zuerst dafür, dass die Ressource im Mandanten des Kunden vorhanden ist? Azure AD behandelt diesen Fall, indem der Client und die Ressource, der zugestimmt werden soll, in einem einzigen Schritt aktiviert werden. Der Benutzer sieht die Gesamtsumme der Berechtigungen, die sowohl vom Client als auch von der Ressource auf der Seite „Zustimmung“ angefordert werden. Um dieses Verhalten zu ermöglichen, muss die Anwendungsregistrierung der Ressource die App-ID des Clients als `knownClientApplications` im [Anwendungsmanifest][AAD-App-Manifest] enthalten. Beispiel:
 
-```aad-app-manifest
-    knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
+```json
+"knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 ```
 
 Dies wird in einem Beispiel eines nativen Clients mit mehreren Ebenen, der eine Web-API aufruft, im Abschnitt [Verwandte Inhalte](#related-content) am Ende dieses Artikels veranschaulicht. Die folgende Abbildung zeigt eine Übersicht über die Zustimmung für eine Mehrparteien-App, die in einem einzigen Mandanten registriert wurde.
@@ -177,7 +175,7 @@ Wenn ein Administrator einer Anwendung für alle Benutzer in einem Mandanten sei
 
 ## <a name="multi-tenant-applications-and-caching-access-tokens"></a>Mehrinstanzenfähige Anwendungen und Zwischenspeichern von Zugriffstoken
 
-Mehrinstanzenfähige Anwendungen können auch Zugriffstoken abrufen, um APIs aufzurufen, die von Azure AD geschützt sind. Ein häufiger Fehler bei der Verwendung von Active Directory Authentication Library (ADAL) mit einer mehrinstanzenfähigen Anwendung ist, zuerst ein Token für einen Benutzer mithilfe von „/common“ anzufordern, eine Antwort zu erhalten und dann ein weiteres Token für denselben Benutzer ebenfalls mit „/common“ anzufordern. Da die Antwort von Azure AD von einem Mandanten stammt (und nicht von „/common“), speichert ADAL das Token als Token vom Mandanten zwischen. Beim nachfolgenden Aufruf von „/common“ zum Abrufen eines Zugriffstokens für den Benutzer wird der Cacheeintrag übersehen, und der Benutzer wird aufgefordert, sich erneut anzumelden. Um zu vermeiden, dass Cacheeinträge übersehen werden, stellen Sie sicher, dass nachfolgende Aufrufe für einen bereits angemeldeten Benutzer dem Endpunkt des Mandanten gelten.
+Mehrinstanzenfähige Anwendungen können auch Zugriffstoken abrufen, um APIs aufzurufen, die von Azure AD geschützt sind. Ein häufiger Fehler bei der Verwendung der Microsoft-Authentifizierungsbibliothek (Microsoft Authentication Library, MSAL) mit einer mehrinstanzenfähigen Anwendung ist, zuerst ein Token für einen Benutzer mithilfe von „/common“ anzufordern, eine Antwort zu erhalten und dann ein weiteres Token für denselben Benutzer ebenfalls mit „/common“ anzufordern. Da die Antwort von Azure AD von einem Mandanten stammt (und nicht von „/common“), speichert MSAL das Token als Token vom Mandanten zwischen. Beim nachfolgenden Aufruf von „/common“ zum Abrufen eines Zugriffstokens für den Benutzer wird der Cacheeintrag übersehen, und der Benutzer wird aufgefordert, sich erneut anzumelden. Um zu vermeiden, dass Cacheeinträge übersehen werden, stellen Sie sicher, dass nachfolgende Aufrufe für einen bereits angemeldeten Benutzer dem Endpunkt des Mandanten gelten.
 
 ## <a name="related-content"></a>Verwandte Inhalte
 
@@ -190,7 +188,9 @@ Mehrinstanzenfähige Anwendungen können auch Zugriffstoken abrufen, um APIs auf
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In diesem Artikel haben Sie gelernt, wie Sie eine Anwendung erstellen, die einen Benutzer über einen beliebigen Azure AD-Mandanten anmelden kann. Nach der Aktivierung der einmaligen Anmeldung (SSO) zwischen Ihrer App und Azure AD können Sie auch Ihre Anwendung aktualisieren, um auf von Microsoft-Ressourcen bereitgestellte APIs wie Microsoft 365 zuzugreifen. Auf diese Weise können Sie in Ihrer Anwendung für ein personalisiertes Benutzererlebnis sorgen, um den Benutzern beispielsweise Kontextinformationen anzuzeigen, z.B. ihr Profilfoto oder ihren nächsten Kalendertermin. Weitere Informationen zu API-Aufrufen von Azure AD und Microsoft 365-Diensten wie Exchange, SharePoint, OneDrive, OneNote usw. finden Sie unter [Microsoft Graph-API][MSFT-Graph-overview].
+In diesem Artikel haben Sie gelernt, wie Sie eine Anwendung erstellen, die einen Benutzer über einen beliebigen Azure AD-Mandanten anmelden kann. Nach der Aktivierung der einmaligen Anmeldung (SSO) zwischen Ihrer App und Azure AD können Sie auch Ihre Anwendung aktualisieren, um auf von Microsoft-Ressourcen bereitgestellte APIs wie Microsoft 365 zuzugreifen. Auf diese Weise können Sie in Ihrer Anwendung für ein personalisiertes Benutzererlebnis sorgen, um den Benutzern beispielsweise Kontextinformationen anzuzeigen, z.B. ihr Profilfoto oder ihren nächsten Kalendertermin.
+
+Weitere Informationen zu API-Aufrufen von Azure AD und Microsoft 365-Diensten wie Exchange, SharePoint, OneDrive, OneNote usw. finden Sie unter [Microsoft Graph-API][MSFT-Graph-overview].
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com

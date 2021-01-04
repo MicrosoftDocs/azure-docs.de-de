@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3e1d76c5ef1f003fe9e01b866343ef7de7ab4166
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 7c9e3344ed819f607feeab88ac43a9dc286a61e0
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92214922"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109095"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>Neue Benutzeroberfläche für App-Registrierungen in Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ Bisher mussten Sie Ihre kundenseitigen Azure AD B2C-Anwendungen mithilfe der Leg
 
 Mit der neuen Benutzeroberfläche können alle App-Registrierungen bei Azure AD B2C und Azure AD von einem Ort aus konsistent verwaltet werden. Ob Sie nun eine kundenseitige App erstellen oder eine App mit Microsoft Graph-Berechtigungen für die Verwaltung von Ressourcen verwalten möchten – Sie müssen sich nur mit dieser einen Benutzeroberfläche vertraut machen.
 
-Navigieren Sie im Azure-Portal von einem Azure AD B2C-Mandanten des **Azure AD B2C** - oder **Azure Active Directory** -Diensts aus zu **App-Registrierungen** , um zur neuen Benutzeroberfläche zu gelangen.
+Navigieren Sie im Azure-Portal von einem Azure AD B2C-Mandanten des **Azure AD B2C**- oder **Azure Active Directory**-Diensts aus zu **App-Registrierungen**, um zur neuen Benutzeroberfläche zu gelangen.
 
 Die Azure AD B2C-Benutzeroberfläche für App-Registrierungen basiert auf der allgemeinen [Oberfläche für App-Registrierungen](https://developer.microsoft.com/identity/blogs/new-app-registrations-experience-is-now-generally-available/) bei einem beliebigen Azure AD-Mandanten, ist jedoch an die Anforderungen von Azure AD B2C-Mandanten angepasst.
 
@@ -35,11 +35,11 @@ Die Azure AD B2C-Benutzeroberfläche für App-Registrierungen basiert auf der al
 - Ihre Anwendungen und die zugehörigen Konfigurationen finden Sie unverändert in der neuen Umgebung. Sie müssen die Anwendungen nicht erneut registrieren, und die Benutzer Ihrer Anwendungen müssen sich nicht erneut anmelden.
 
 > [!NOTE]
-> Wenn Sie alle bisher erstellten Anwendungen anzeigen möchten, navigieren Sie zum Blatt **App-Registrierungen** , und wählen Sie die Registerkarte **Alle Anwendungen** aus. Hier werden alle Apps angezeigt, die Sie über die Legacyoberfläche, die neue Oberfläche sowie im Azure AD-Dienst erstellt haben.
+> Wenn Sie alle bisher erstellten Anwendungen anzeigen möchten, navigieren Sie zum Blatt **App-Registrierungen**, und wählen Sie die Registerkarte **Alle Anwendungen** aus. Hier werden alle Apps angezeigt, die Sie über die Legacyoberfläche, die neue Oberfläche sowie im Azure AD-Dienst erstellt haben.
 
 ## <a name="key-new-features"></a>Wichtige neue Funktionen
 
--   In einer **einheitlichen App-Liste** werden alle Anwendungen, die sich bei Azure AD B2C und Azure AD authentifizieren, an einem zentralen Ort angezeigt. Außerdem können Sie Funktionen nutzen, die bereits für Azure AD-Anwendungen verfügbar sind, wie etwa die Datumsangabe **Erstellt am** , der Status **Zertifikate und Geheimnisse** , die Suchleiste und vieles mehr.
+-   In einer **einheitlichen App-Liste** werden alle Anwendungen, die sich bei Azure AD B2C und Azure AD authentifizieren, an einem zentralen Ort angezeigt. Außerdem können Sie Funktionen nutzen, die bereits für Azure AD-Anwendungen verfügbar sind, wie etwa die Datumsangabe **Erstellt am**, der Status **Zertifikate und Geheimnisse**, die Suchleiste und vieles mehr.
 
 -   Über die **kombinierte App-Registrierung** können Sie auf schnelle Weise eine App registrieren – unabhängig davon, ob es sich um eine kundenseitige App oder eine App für den Zugriff auf Microsoft Graph handelt.
 
@@ -57,13 +57,13 @@ In der neuen Benutzeroberfläche können Sie aus den folgenden Optionen einen un
 - Konten in einem beliebigen Organisationsverzeichnis (beliebiges Azure AD-Verzeichnis – mehrinstanzenfähig)
 - Konten in einem beliebigen Identitätsanbieter oder Organisationsverzeichnis (zum Authentifizieren von Benutzern mit Benutzerabläufen)
 
-Weitere Informationen zu den unterschiedlichen Kontotypen finden Sie in der Benutzeroberfläche für die Erstellung unter **Hilfe bei der Auswahl** .
+Weitere Informationen zu den unterschiedlichen Kontotypen finden Sie in der Benutzeroberfläche für die Erstellung unter **Hilfe bei der Auswahl**.
 
 In der Legacyoberfläche wurden alle Apps als kundenseitige Anwendungen erstellt. Bei diesen Apps wird der Kontotyp auf **-Konten in einem beliebigen Identitätsanbieter oder Organisationsverzeichnis festgelegt (zum Authentifizieren von Benutzern mit Benutzerabläufen)** .
 > [!NOTE]
 > Diese Option ist erforderlich, um Azure AD B2C-Benutzerflows für die Authentifizierung von Benutzern bei dieser Anwendung ausführen zu können. Informationen zur Registrierung einer Anwendung für die Verwendung mit Benutzerflows finden Sie [hier](tutorial-register-applications.md).
 
-Über diese Option können Sie auch Azure AD B2C als SAML-Dienstanbieter verwenden. [Weitere Informationen](identity-provider-adfs2016-custom.md)
+Über diese Option können Sie auch Azure AD B2C als SAML-Dienstanbieter verwenden. [Weitere Informationen](identity-provider-adfs.md)
 
 ## <a name="applications-for-devops-scenarios"></a>Anwendungen für DevOps-Szenarios
 Mit den anderen Kontotypen können Sie eine App erstellen, mit der Sie DevOps-Szenarios, wie z. B. das Hochladen von Identity Experience Framework-Richtlinien oder das Bereitstellen von Benutzern mithilfe von Microsoft Graph, verwalten können. Informationen zum Registrieren einer Microsoft Graph-Anwendung zur Verwaltung von Azure AD B2C-Ressourcen finden Sie [hier](microsoft-graph-get-started.md).
@@ -91,15 +91,15 @@ Die Plattformen für **iOS/macOS** und **Android** sind vom Typ „Öffentlicher
 
 ## <a name="application-certificates--secrets"></a>Anwendungszertifikate und -geheimnisse
 
-In der neuen Benutzerfläche werden Zertifikate und Geheimnisse nicht mehr über das Blatt **Schlüssel** , sondern über **Zertifikate und Geheimnisse** verwaltet. Anwendungen können über Zertifikate und Geheimnisse vom Authentifizierungsdienst identifiziert werden, wenn sie Token (über ein HTTPS-Schema) an einem über das Web aufrufbaren Speicherort erhalten. Es wird empfohlen, für die Authentifizierung bei Azure AD in Szenarios mit Clientanmeldeinformationen anstelle eines Clientgeheimnisses ein Zertifikat zu verwenden. Für die Authentifizierung bei Azure AD B2C können keine Zertifikate verwendet werden.
+In der neuen Benutzerfläche werden Zertifikate und Geheimnisse nicht mehr über das Blatt **Schlüssel**, sondern über **Zertifikate und Geheimnisse** verwaltet. Anwendungen können über Zertifikate und Geheimnisse vom Authentifizierungsdienst identifiziert werden, wenn sie Token (über ein HTTPS-Schema) an einem über das Web aufrufbaren Speicherort erhalten. Es wird empfohlen, für die Authentifizierung bei Azure AD in Szenarios mit Clientanmeldeinformationen anstelle eines Clientgeheimnisses ein Zertifikat zu verwenden. Für die Authentifizierung bei Azure AD B2C können keine Zertifikate verwendet werden.
 
 
 ## <a name="features-not-applicable-in-azure-ad-b2c-tenants"></a>Nicht für Azure AD B2C-Mandanten geltende Features
 Die folgenden Azure AD-Features für die App-Registrierung gelten nicht für Azure AD B2C-Mandanten oder sind für diese Mandanten nicht verfügbar:
 - **Rollen und Administratoren** – Für Azure AD B2C zurzeit nicht verfügbar.
-- **Branding** : Die Anpassung der Benutzeroberfläche wird über die Benutzeroberfläche **Unternehmensbranding** oder als Teil eines Benutzerflows konfiguriert. Informationen zum Anpassen der Benutzeroberfläche in Azure Active Directory B2C finden Sie [hier](customize-ui-overview.md).
-- **Überprüfung der Herausgeberdomäne** : Ihre App ist in der Domäne *.onmicrosoft.com* registriert, die keine überprüfte Domäne darstellt. Außerdem wird die Herausgeberdomäne hauptsächlich zum Erteilen von Benutzereinwilligungen verwendet, die für die Benutzerauthentifizierung bei Azure AD B2C-Apps nicht gelten. Weitere Informationen zur Herausgeberdomäne finden Sie [hier](https://docs.microsoft.com/azure/active-directory/develop/howto-configure-publisher-domain).
-- **Tokenkonfiguration** : Token werden als Teil eines Benutzerflows und nicht für Apps konfiguriert.
+- **Branding**: Die Anpassung der Benutzeroberfläche wird über die Benutzeroberfläche **Unternehmensbranding** oder als Teil eines Benutzerflows konfiguriert. Informationen zum Anpassen der Benutzeroberfläche in Azure Active Directory B2C finden Sie [hier](customize-ui-with-html.md).
+- **Überprüfung der Herausgeberdomäne**: Ihre App ist in der Domäne *.onmicrosoft.com* registriert, die keine überprüfte Domäne darstellt. Außerdem wird die Herausgeberdomäne hauptsächlich zum Erteilen von Benutzereinwilligungen verwendet, die für die Benutzerauthentifizierung bei Azure AD B2C-Apps nicht gelten. Weitere Informationen zur Herausgeberdomäne finden Sie [hier](../active-directory/develop/howto-configure-publisher-domain.md).
+- **Tokenkonfiguration**: Token werden als Teil eines Benutzerflows und nicht für Apps konfiguriert.
 - Die Funktion **Schnellstarts** ist derzeit für Azure AD B2C-Mandanten nicht verfügbar.
 <!-- - The **Integration assistant** blade is currently not available for Azure AD B2C tenants. -->
 
@@ -116,5 +116,5 @@ Informationen zu den ersten Schritten mit der neuen Benutzeroberfläche für App
 * [Hinzufügen einer Web-API-Anwendung zu Ihrem Azure Active Directory B2C-Mandanten](add-web-api-application.md)
 * [Hinzufügen einer nativen Clientanwendung zu Ihrem Active Directory B2C-Mandanten](add-native-application.md)
 * [Registrieren einer Microsoft Graph-Anwendung zur Verwaltung von Azure AD B2C-Ressourcen](microsoft-graph-get-started.md)
-* [Verwenden von Azure AD B2C als SAML-Dienstanbieter](identity-provider-adfs2016-custom.md)
+* [Verwenden von Azure AD B2C als SAML-Dienstanbieter](identity-provider-adfs.md)
 * [In Active Directory B2C verwendbare Anwendungstypen](application-types.md)

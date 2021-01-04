@@ -4,19 +4,19 @@ description: Verwenden Sie ein Azure CLI-Beispielskript zum Überwachen und Skal
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: juliemsft
-ms.author: jrasnick
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: c4df9ecc025bbffb63730273be06f54cf46f613c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a72bea08052e5cd17502a21a98b41cb5582a3b9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319395"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493626"
 ---
 # <a name="use-the-azure-cli-to-monitor-and-scale-a-single-database-in-azure-sql-database"></a>Verwenden von Azure CLI zum Überwachen und Skalieren einer einzelnen Datenbank in Azure SQL-Datenbank
 

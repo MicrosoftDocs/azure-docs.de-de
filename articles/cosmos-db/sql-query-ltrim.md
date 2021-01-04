@@ -3,18 +3,21 @@ title: LTRIM in der Abfragesprache für Azure Cosmos DB
 description: Hier erfahren Sie mehr über die SQL-Systemfunktion LTRIM in Azure Cosmos DB, die einen Zeichenfolgenausdruck zurückgibt, nachdem vorangestellte Leerzeichen entfernt wurden.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 08c069de70684a8562e86963ddb2e84ee889e7cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dec9bed0cae503825397920ef8e305c125f43154
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78302252"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335584"
 ---
 # <a name="ltrim-azure-cosmos-db"></a>LTRIM (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Gibt einen Zeichenfolgenausdruck zurück, nachdem vorangestellte Leerzeichen entfernt wurden.  
   
 ## <a name="syntax"></a>Syntax

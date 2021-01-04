@@ -1,20 +1,20 @@
 ---
 title: 'Bereitstellen einer Vorlage: IntelliJ IDEA'
-description: Hier erfahren Sie, wie Sie über IntelliJ IDEA Ihre erste Azure Resource Manager-Vorlage erstellen und bereitstellen.
+description: Hier erfahren Sie, wie Sie über IntelliJ IDEA Ihre erste Azure Resource Manager-Vorlage (ARM-Vorlage) erstellen und bereitstellen.
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
 ms.custom: devx-track-java
-ms.openlocfilehash: 6a596eff70bfc20b5a6752ef47398bd14d527c97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0e007fe8930b30cee1c95159d7e964e3792449f
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90973335"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905960"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Erstellen und Bereitstellen von Resource Manager-Vorlagen über IntelliJ IDEA
 
-Hier erfahren Sie, wie Sie mithilfe von IntelliJ IDEA eine Resource Manager-Vorlage in Azure (ARM) bereitstellen und die Vorlage direkt in der IDE bearbeiten und aktualisieren. Resource Manager-Vorlagen sind JSON-Dateien, mit denen die Ressourcen definiert werden, die Sie für Ihre Lösung bereitstellen müssen. Weitere Informationen zu den Konzepten der Bereitstellung und Verwaltung Ihrer Azure-Lösungen finden Sie unter [Übersicht über Azure Resource Manager-Vorlagen](overview.md).
+Hier erfahren Sie, wie Sie mithilfe von IntelliJ IDEA eine Azure Resource Manager-Vorlage (ARM-Vorlage) in Azure bereitstellen und die Vorlage direkt in der IDE bearbeiten und aktualisieren. Resource Manager-Vorlagen sind JSON-Dateien, mit denen die Ressourcen definiert werden, die Sie für Ihre Lösung bereitstellen müssen. Weitere Informationen zu den Konzepten der Bereitstellung und Verwaltung Ihrer Azure-Lösungen finden Sie unter [Übersicht der Vorlagenbereitstellung](overview.md).
 
 ![Diagramm: Resource Manager-Vorlage über Portal](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 

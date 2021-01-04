@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: v-demjoh
 keywords: Absichtserkennung
-ms.openlocfilehash: 0d718459e0fd0ea410232d3a165b560aa8c59cd1
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 215b25e440b8cad76e0656e47d32b184edf4ac66
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174621"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018700"
 ---
 # <a name="what-is-intent-recognition"></a>Was ist die Absichtserkennung?
 
@@ -29,7 +29,7 @@ Mithilfe der Absichtserkennung können Ihre Anwendungen, Tools und Geräte besti
 
 * LUIS ist in Speech Service integriert, um Absichten aus Sprache zu erkennen. Ein Speech Service-Abonnement ist nicht erforderlich, nur LUIS.
 * Sprechabsichtserkennung ist in das SDK integriert. Sie können einen LUIS-Schlüssel mit dem Speech-Dienst verwenden.
-* Die Absichtserkennung durch das Speech SDK wird [für einen Teil der von LUIS unterstützten Regionen angeboten](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#intent-recognition).
+* Die Absichtserkennung durch das Speech SDK wird [für einen Teil der von LUIS unterstützten Regionen angeboten](./regions.md#intent-recognition).
 
 ## <a name="get-started"></a>Erste Schritte
 
@@ -39,8 +39,8 @@ Verwenden Sie den [Schnellstart](quickstarts/intent-recognition.md), um mit der 
 
 Beispielcode für Absichtserkennung:
 
-* [Schnellstart: Verwenden der vordefinierten Home Automation-App](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app)
-* [Erkennen von Absichten anhand von gesprochener Sprache mit dem Speech SDK für C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp)
+* [Schnellstart: Verwenden der vordefinierten Home Automation-App](../luis/luis-get-started-create-app.md)
+* [Erkennen von Absichten anhand von gesprochener Sprache mit dem Speech SDK für C#](./how-to-recognize-intents-from-speech-csharp.md)
 * [Absichtserkennung und andere Speech-Dienste mit Unity in C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/unity/speechrecognizer)
 * [Erkennen von Absichten mit dem Speech SDK für Python](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/console)
 * [Absichtserkennung und andere Speech-Dienste mit dem Speech SDK für C++ unter Windows](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/windows/console)
@@ -49,7 +49,7 @@ Beispielcode für Absichtserkennung:
 
 ## <a name="reference-docs"></a>Referenz
 
-* [Speech SDK](speech-sdk-reference.md)
+* [Speech SDK](./speech-sdk.md)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

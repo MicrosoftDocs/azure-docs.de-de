@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: 89e9faeb3c67d0fd0c57adea3a3f69ec5438e3a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5747de399e7ae0cfe99ba013f8da376be0ba1b2a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73044648"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993634"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Tutorial: Konfigurieren von Apache HBase-Richtlinien in HDInsight mit dem Enterprise-Sicherheitspaket
 
@@ -45,7 +45,7 @@ In diesem Tutorial lernen Sie Folgendes:
 
 ## <a name="create-domain-users"></a>Erstellen von Domänenbenutzern
 
-Informationen zum Erstellen der Domänenbenutzer **sales_user1** und **marketing_user1** finden Sie unter [Konfigurieren eines HDInsight-Clusters mit Enterprise-Sicherheitspaket (Enterprise Security Package, ESP) mithilfe von Azure Active Directory Domain Services](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds). In einem Produktionsszenario stammen Domänenbenutzer aus Ihrem Active Directory-Mandanten.
+Informationen zum Erstellen der Domänenbenutzer **sales_user1** und **marketing_user1** finden Sie unter [Konfigurieren eines HDInsight-Clusters mit Enterprise-Sicherheitspaket (Enterprise Security Package, ESP) mithilfe von Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md). In einem Produktionsszenario stammen Domänenbenutzer aus Ihrem Active Directory-Mandanten.
 
 ## <a name="create-hbase-tables-and-import-sample-data"></a>Erstellen von HBase-Tabellen und Importieren von Beispieldaten
 

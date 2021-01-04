@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e907a3ec2e2521524cdf23e1403ae38a19275aa6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c7c002b57f2220ac0a9fba43a8081b2a4ed800e7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071318"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081058"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Kapazität einer Azure API Management-Instanz
 
@@ -42,7 +42,7 @@ Damit Sie den Schritten in diesem Artikel folgen können, benötigen Sie folgend
 
 ## <a name="what-is-capacity"></a>Was bedeutet Kapazität?
 
-![Kapazitätsmetrik](./media/api-management-capacity/capacity-ingredients.png)
+![Diagramm zur Erläuterung der Kapazitätsmetrik](./media/api-management-capacity/capacity-ingredients.png)
 
 Die **Kapazität** ist ein Indikator für die Auslastung einer API Management-Instanz. Sie spiegelt die Ressourcenverwendung (CPU, Speicher) und die Länge von Netzwerkwarteschlangen wider. Die CPU- und Speicherauslastung zeigt die Ressourcenverwendung von:
 

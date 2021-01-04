@@ -1,22 +1,22 @@
 ---
-title: Problembehandlung der Synapse Studio-Konnektivität (Vorschauversion) mit PowerShell
+title: Beheben von Synapse Studio-Konnektivitätsproblemen
 description: Problembehandlung bei der Azure Synapse Studio-Konnektivität mit PowerShell
-author: julieMSFT
+author: saveenr
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.author: jrasnick
+ms.date: 10/30/2020
+ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7cf9f18701317482284a3f1fa4b69a2c2927f64a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f0dc73877d7742d4fc6a0c5b9bcf0529d475e0a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287711"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445268"
 ---
-# <a name="diagnose-azure-synapse-studio-preview-connectivity-issues-with-powershell-script"></a>Diagnose von Konnektivitätsproblemen zwischen Azure Synapse Studio (Vorschauversion) mit PowerShell-Skript
+# <a name="troubleshoot-synapse-studio-connectivity-with-powershell"></a>Beheben von Synapse Studio-Konnektivitätsproblemen mit PowerShell
 
-Azure Synapse Studio (Vorschauversion) hängt von einer Reihe von ordnungsgemäß funktionierenden Web-API-Endpunkten ab. Dieser Leitfaden wird Ihnen helfen, die Ursachen von Konnektivitätsproblemen in folgenden Situationen zu erkennen:
+Azure Synapse Studio hängt von einer Reihe von ordnungsgemäß funktionierenden Web-API-Endpunkten ab. Dieser Leitfaden wird Ihnen helfen, die Ursachen von Konnektivitätsproblemen in folgenden Situationen zu erkennen:
 - Konfigurieren des lokalen Netzwerks (z. B. Netzwerk hinter einer Unternehmensfirewall) für den Zugriff auf Azure Synapse Studio.
 - Auftreten von Konnektivitätsproblemen mit Azure Synapse Studio.
 

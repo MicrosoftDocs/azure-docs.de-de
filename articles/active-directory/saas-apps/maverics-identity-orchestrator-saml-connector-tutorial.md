@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: jeedes
-ms.openlocfilehash: a9d5988f25b833480c4809ba116c48022566b7a0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a4bfe2b87f3f2242189a78d9a31a89d82720fd37
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458182"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862070"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-with-maverics-identity-orchestrator-saml-connector"></a>Tutorial: Integration des einmaligen Anmeldens von Azure AD mit Maverics Identity Orchestrator SAML Connector
 
@@ -115,15 +115,15 @@ includeFiles:
   - connector/siteminder.yaml
   ```
 
-In diesem Tutorial wird nur eine einzige *maverics.yaml* -Konfigurationsdatei verwendet.
+In diesem Tutorial wird nur eine einzige *maverics.yaml*-Konfigurationsdatei verwendet.
 
 ## <a name="use-azure-key-vault-as-your-secrets-provider"></a>Verwenden von Azure Key Vault als Geheimnisanbieter
 
 ### <a name="manage-secrets"></a>Verwalten von Geheimnissen
 
-Zum Laden von Geheimnissen lässt sich Maverics in verschiedene Lösungen zur Geheimnisverwaltung integrieren. Derzeit sind folgende Integrationsmethoden verfügbar: Datei, HashiCorp Vault und Azure Key Vault. Ohne Angabe einer Geheimnisverwaltungslösung lädt Maverics Geheimnisse standardmäßig im Klartext aus der *maverics.yaml* -Datei.
+Zum Laden von Geheimnissen lässt sich Maverics in verschiedene Lösungen zur Geheimnisverwaltung integrieren. Derzeit sind folgende Integrationsmethoden verfügbar: Datei, HashiCorp Vault und Azure Key Vault. Ohne Angabe einer Geheimnisverwaltungslösung lädt Maverics Geheimnisse standardmäßig im Klartext aus der *maverics.yaml*-Datei.
 
-Wenn Sie einen Wert in einer *maverics.yaml* -Konfigurationsdatei als Geheimnis deklarieren möchten, umschließen Sie ihn mit spitzen Klammern:
+Wenn Sie einen Wert in einer *maverics.yaml*-Konfigurationsdatei als Geheimnis deklarieren möchten, umschließen Sie ihn mit spitzen Klammern:
 
   ```yaml
   connectors:
@@ -158,14 +158,14 @@ Sie können eine Azure Key Vault-Instanz über das Azure-Portal oder die Azure C
 
 **Verwenden des Azure-Portals**
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
-1. [Erstellen Sie eine neue Key Vault-Instanz](../../key-vault/secrets/quick-create-portal.md#create-a-vault).
+1. [Erstellen Sie eine neue Key Vault-Instanz](../../key-vault/general/quick-create-portal.md).
 1. [Fügen Sie der Key Vault-Instanz Geheimnisse hinzu](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
 1. [Registrieren Sie eine Anwendung bei Azure AD](../develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 1. [Autorisieren Sie eine Anwendung für die Verwendung eines Geheimnisses](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
 
 **Verwenden der Azure-CLI**
 
-1. Öffnen Sie die [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), und geben Sie folgenden Befehl ein:
+1. Öffnen Sie die [Azure CLI](/cli/azure/install-azure-cli), und geben Sie folgenden Befehl ein:
 
     ```shell
     az login
@@ -201,13 +201,13 @@ Sie können eine Azure Key Vault-Instanz über das Azure-Portal oder die Azure C
 
 ## <a name="configure-your-application-in-azure-ad-for-saml-based-sso"></a>Konfigurieren Ihrer Anwendung in Azure AD für SAML-basiertes einmaliges Anmelden
 
-1. Wechseln Sie in Ihrem Azure AD-Mandanten zu **Unternehmensanwendungen** , suchen Sie nach **Maverics Identity Orchestrator SAML Connector** , und wählen Sie den Eintrag aus.
+1. Wechseln Sie in Ihrem Azure AD-Mandanten zu **Unternehmensanwendungen**, suchen Sie nach **Maverics Identity Orchestrator SAML Connector**, und wählen Sie den Eintrag aus.
 
 1. Legen Sie im Bereich **Eigenschaften** für den Maverics Identity Orchestrator SAML Connector die Option **Benutzerzuweisung erforderlich?** auf **Nein** fest, damit die Anwendung für neu migrierte Benutzer verwendet werden kann.
 
 1. Wählen Sie im Bereich **Übersicht** für den Maverics Identity Orchestrator SAML Connector die Option **Einmaliges Anmelden einrichten** und danach **SAML** aus.
 
-1. Bearbeiten Sie im Bereich **SAML-basiertes einmaliges Anmelden** für den Maverics Identity Orchestrator SAML Connector die **grundlegende SAML-Konfiguration** , indem Sie auf die Schaltfläche **Bearbeiten** (Bleistiftsymbol) klicken.
+1. Bearbeiten Sie im Bereich **SAML-basiertes einmaliges Anmelden** für den Maverics Identity Orchestrator SAML Connector die **grundlegende SAML-Konfiguration**, indem Sie auf die Schaltfläche **Bearbeiten** (Bleistiftsymbol) klicken.
 
    ![Screenshot der Bearbeitungsschaltfläche für die grundlegende SAML-Konfiguration](common/edit-urls.png)
 
@@ -219,7 +219,7 @@ Sie können eine Azure Key Vault-Instanz über das Azure-Portal oder die Azure C
 
 1. Wählen Sie **Speichern** aus.
 
-1. Klicken Sie im Abschnitt **SAML-Signaturzertifikat** auf die Schaltfläche **Kopieren** , um die **App-Verbundmetadaten-URL** zu kopieren. Speichern Sie die URL auf Ihrem Computer.
+1. Klicken Sie im Abschnitt **SAML-Signaturzertifikat** auf die Schaltfläche **Kopieren**, um die **App-Verbundmetadaten-URL** zu kopieren. Speichern Sie die URL auf Ihrem Computer.
 
     ![Screenshot: „SAML-Signaturzertifikat“ mit hervorgehobener Kopierschaltfläche](common/copy-metadataurl.png)
 
@@ -279,7 +279,7 @@ Gehen Sie wie hier beschrieben vor, um Benutzer nach und nach von einem Produkt 
 
 1. Wechseln Sie in Ihrem Azure AD-Mandanten zu `App registrations`, und wählen Sie die Anwendung **Maverics Identity Orchestrator SAML Connector** aus.
 
-1. Wählen Sie im Bereich **Maverics Identity Orchestrator SAML Connector | Zertifikate und Geheimnisse** die Option `New client secret` und anschließend eine Ablaufoption aus. Klicken Sie auf die Schaltfläche **Kopieren** , um das Geheimnis zu kopieren, und speichern Sie es auf Ihrem Computer.
+1. Wählen Sie im Bereich **Maverics Identity Orchestrator SAML Connector | Zertifikate und Geheimnisse** die Option `New client secret` und anschließend eine Ablaufoption aus. Klicken Sie auf die Schaltfläche **Kopieren**, um das Geheimnis zu kopieren, und speichern Sie es auf Ihrem Computer.
 
 1. Wählen Sie im Bereich **Maverics Identity Orchestrator SAML Connector | API-Berechtigungen** die Option **Berechtigung hinzufügen** aus. Anschließend wählen Sie im Bereich **API-Berechtigungen anfordern** die Optionen **Microsoft Graph** und **Anwendungsberechtigungen** aus. 
 
@@ -388,7 +388,7 @@ Für diesen Workflow gilt Folgendes:
 
 Gehen Sie zum Konfigurieren des Migrationsworkflows folgendermaßen vor:
 
-1. Geben Sie dem Workflow einen Namen (beispielsweise **Migration von SiteMinder zu Azure AD** ).
+1. Geben Sie dem Workflow einen Namen (beispielsweise **Migration von SiteMinder zu Azure AD**).
 1. Geben Sie den Endpunkt (`endpoint`) an. Hierbei handelt es sich um einen HTTP-Pfad, über den der Workflow verfügbar gemacht wird. Hier werden als Antwort auf Anforderungen entsprechende Aktionen (`actions`) des Workflows ausgelöst. Der Endpunkt (`endpoint`) entspricht in der Regel der App, die per Proxy weitergeleitet wird (beispielsweise `/my_app`). Der Wert muss sowohl den vorangestellten als auch den nachgestellten Schrägstrich enthalten.
 1. Fügen Sie dem Workflow die passenden Aktionen (`actions`) hinzu.
 
@@ -418,7 +418,7 @@ Gehen Sie zum Konfigurieren des Migrationsworkflows folgendermaßen vor:
 
 1. Navigieren Sie zu der Anmelde-URL mit Proxyweiterleitung: `http://host.company.com/my_app`.
 1. Geben Sie die Benutzeranmeldeinformationen an, die für die Anmeldung bei der Anwendung verwendet werden, während diese durch SiteMinder geschützt ist.
-4. Wechseln Sie zu **Start** > **Benutzer | Alle Benutzer** , und vergewissern Sie sich, dass der Benutzer im Azure AD-Mandanten erstellt wurde.  
+4. Wechseln Sie zu **Start** > **Benutzer | Alle Benutzer**, und vergewissern Sie sich, dass der Benutzer im Azure AD-Mandanten erstellt wurde.  
 
 ### <a name="configure-the-session-abstraction-workflow"></a>Konfigurieren des Workflows für die Sitzungsabstraktion
 
@@ -428,7 +428,7 @@ Der Azure-Connector verwendet die Methode `login`, um den Benutzer zur Anmelde-U
 
 Nach der Authentifizierung wird das erstellte Sitzungstoken an Maverics übergeben. Anschließend wird die Methode `emulate` des SiteMinder-Connectors verwendet, um die cookie- oder headerbasierte Sitzung zu emulieren und die Anforderung mit allen zusätzlichen Attributen zu versehen, die für die Anwendung erforderlich sind.
 
-1. Geben Sie dem Workflow einen Namen (beispielsweise **SiteMinder-Sitzungsabstraktion** ).
+1. Geben Sie dem Workflow einen Namen (beispielsweise **SiteMinder-Sitzungsabstraktion**).
 1. Geben Sie den Endpunkt (`endpoint`) an, der der App mit Proxyweiterleitung entspricht. Der Wert muss sowohl den vorangestellten als auch den nachgestellten Schrägstrich enthalten (Beispiel: `/my_app/`).
 1. Fügen Sie dem Workflow die passenden Aktionen (`actions`) hinzu.
 

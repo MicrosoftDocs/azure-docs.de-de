@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 tags: connectors
 ms.openlocfilehash: f4cad2b658547d56d00efdd5e1496110f8e4a5e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284012"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999575"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Erstellen, Überwachen und Verwalten von FTP-Dateien mithilfe von Azure Logic Apps
 
@@ -69,7 +69,7 @@ Wenn ein Trigger eine neue Datei findet, überprüft er, ob die neue Datei volls
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an, und öffnen Sie Ihre Logik-App im Logik-App-Designer.
 
-1. Geben Sie für leere Logik-Apps im Suchfeld `ftp` als Filter ein. Wählen Sie in der **Trigger**liste den gewünschten Trigger aus.
+1. Geben Sie für leere Logik-Apps im Suchfeld `ftp` als Filter ein. Wählen Sie in der **Trigger** liste den gewünschten Trigger aus.
 
    Oder
 

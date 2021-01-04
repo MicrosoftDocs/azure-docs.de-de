@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9510bd564ced2f458a9a78ff23200bb32358c3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb889298a09c30a629c69442ebf31bc735af31d1
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268535"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173123"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Roaming von Einstellungen und Daten – Häufig gestellte Fragen
 
@@ -85,7 +85,7 @@ Wenn sich mehrere Azure AD-Konten von verschiedenen Azure AD-Mandanten auf demse
 
 Roaming kann nur für universelle Windows-Apps verwendet werden. Das Roaming für eine bereits vorhandene Windows-Desktopanwendung kann auf zwei Arten aktiviert werden:
 
-* Mithilfe der [Desktop-Brücke](https://aka.ms/desktopbridge) können Sie bereits vorhandene Windows-Desktop-Apps zur universellen Windows-Plattform migrieren. Anschließend sind nur minimale Codeänderungen erforderlich, um das Roaming von Azure AD-App-Daten zu nutzen. Die Desktop-Brücke versieht Ihre Apps mit einer App-Identität. Diese wird benötigt, um das App-Datenroaming für bereits vorhandene Desktop-Apps zu ermöglichen.
+* Mithilfe der [Desktop-Brücke](/windows/msix/desktop/source-code-overview) können Sie bereits vorhandene Windows-Desktop-Apps zur universellen Windows-Plattform migrieren. Anschließend sind nur minimale Codeänderungen erforderlich, um das Roaming von Azure AD-App-Daten zu nutzen. Die Desktop-Brücke versieht Ihre Apps mit einer App-Identität. Diese wird benötigt, um das App-Datenroaming für bereits vorhandene Desktop-Apps zu ermöglichen.
 * [User Experience Virtualization (UE-V)](/previous-versions//dn458947(v=vs.85)) können Sie eine Vorlage mit benutzerdefinierten Einstellungen für bereits vorhandene Windows-Desktop-Apps erstellen und das Roaming für Win32-Apps ermöglichen. Bei dieser Option sind keinerlei Änderungen am App-Code erforderlich. UE-V ist auf lokales Active Directory-Roaming für Kunden beschränkt, die das Microsoft Desktop Optimization Pack erworben haben.
 
 Administratoren können UE-V so konfigurieren, dass das Roaming nur für Daten von Windows-Desktop-Apps stattfindet, indem sie mithilfe von [UE-V-Gruppenrichtlinien](/microsoft-desktop-optimization-pack/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2) das Roaming von Windows-Betriebssystemeinstellungen und von Daten universeller Apps deaktivieren. Dies betrifft folgende Einstellungen und Daten:

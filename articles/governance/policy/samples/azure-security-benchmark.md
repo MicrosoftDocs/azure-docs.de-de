@@ -1,23 +1,23 @@
 ---
 title: Details der Einhaltung gesetzlicher Bestimmungen für Azure-Sicherheitsvergleichstest
 description: Details zur integrierten Initiative zur Einhaltung der gesetzlichen Bestimmungen gemäß Azure-Sicherheitsvergleichstest. Jede Steuerung wird mindestens einer Azure Policy-Definition zugeordnet, die Sie bei der Bewertung unterstützt.
-ms.date: 10/20/2020
+ms.date: 11/20/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: c4f009b24889f3c855e9cb612fed7bdc1342e313
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 1ed21d0f33df96638ad13db687b80faf5ac855a0
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311460"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94986996"
 ---
 # <a name="details-of-the-azure-security-benchmark-regulatory-compliance-built-in-initiative"></a>Details zur integrierten Initiative zur Einhaltung der gesetzlichen Bestimmungen gemäß Azure-Sicherheitsvergleichstest.
 
 Der folgende Artikel enthält Details dazu, wie die integrierte Azure Policy-Initiative zur Einhaltung gesetzlicher Bestimmungen den **Compliancebereichen** und **Steuerungen** im Azure-Sicherheitsvergleichstest entspricht.
 Weitere Informationen zu diesem Konformitätsstandard finden Sie unter [Azure-Sicherheitsvergleichstest](../../../security/benchmarks/overview.md). Grundlegendes zum _Besitzer_ finden Sie unter [Azure Policy-Richtliniendefinition](../concepts/definition-structure.md#type) und [Gemeinsame Verantwortung in der Cloud](../../../security/fundamentals/shared-responsibility.md).
 
-Es gibt die folgenden Zuordnungen zu den Steuerungen im **Vergleichstest für die Azure-Sicherheit** . Über den rechten Navigationsbereich können Sie direkt zu einem bestimmten **Steuerungsbereich** springen. Viele der Steuerungen werden über die Definition einer [Azure Policy](../overview.md)-Initiative implementiert. Zum Anzeigen der vollständigen Initiativendefinition öffnen Sie **Policy** im Azure-Portal und wählen dann die Seite **Definitionen** aus.
-Suchen Sie anschließend die integrierte Initiativendefinition zur Einhaltung der gesetzlichen Bestimmungen gemäß **Azure-Sicherheitsvergleichstest** .
+Es gibt die folgenden Zuordnungen zu den Steuerungen im **Vergleichstest für die Azure-Sicherheit**. Über den rechten Navigationsbereich können Sie direkt zu einem bestimmten **Steuerungsbereich** springen. Viele der Steuerungen werden über die Definition einer [Azure Policy](../overview.md)-Initiative implementiert. Zum Anzeigen der vollständigen Initiativendefinition öffnen Sie **Policy** im Azure-Portal und wählen dann die Seite **Definitionen** aus.
+Suchen Sie anschließend die integrierte Initiativendefinition zur Einhaltung der gesetzlichen Bestimmungen gemäß **Azure-Sicherheitsvergleichstest**.
 
 Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen Azure-Sicherheitsvergleichstest](../../blueprints/samples/azure-security-benchmark.md) bereitgestellt.
 
@@ -29,11 +29,11 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>Schützen von Ressourcen mithilfe von Netzwerksicherheitsgruppen oder Azure Firewall in Virtual Network
 
-**ID:** Azure-Sicherheitsvergleichstest 1.1 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 1.1 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Auf VMs mit Internetausrichtung müssen Empfehlungen zur adaptiven Netzwerkhärtung angewendet werden.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F08e6af2d-db70-460a-bfe9-d5bd474ba9d6) |Azure Security Center analysiert die Datenverkehrsmuster von virtuellen Computern mit Internetzugriff und stellt Empfehlungen zu NSG-Regeln (Netzwerksicherheitsgruppe) bereit, um die potenzielle Angriffsfläche zu verringern. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AdaptiveNetworkHardenings_Audit.json) |
+|[Auf virtuelle Computer mit Internetzugang müssen Empfehlungen zur adaptiven Netzwerkhärtung angewendet werden](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F08e6af2d-db70-460a-bfe9-d5bd474ba9d6) |Azure Security Center analysiert die Datenverkehrsmuster von virtuellen Computern mit Internetzugriff und stellt Empfehlungen zu NSG-Regeln (Netzwerksicherheitsgruppe) bereit, um die potenzielle Angriffsfläche zu verringern. |AuditIfNotExists, Disabled |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AdaptiveNetworkHardenings_Audit.json) |
 |[Gesamten Internetdatenverkehr über Ihre bereitgestellte Azure Firewall-Instanz leiten](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc5e4038-4584-4632-8c85-c0448d374b2c) |Azure Security Center hat festgestellt, dass einige Ihrer Subnetze nicht durch eine Firewall der nächsten Generation geschützt werden. Schützen Ihrer Subnetze vor möglichen Bedrohungen durch Einschränken des Zugriffs auf die Subnetze mit Azure Firewall oder einer unterstützten Firewall der nächsten Generation |AuditIfNotExists, Disabled |[3.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ASC_All_Internet_traffic_should_be_routed_via_Azure_Firewall.json) |
 |[App Service sollte einen VNET-Dienstendpunkt verwenden](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d21331d-a4c2-4def-a9ad-ee4e1e023beb) |Diese Richtlinie überwacht alle App Service-Instanzen, die nicht für die Verwendung eines VNET-Dienstendpunkts konfiguriert sind. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_AppService_AuditIfNotExists.json) |
 |[In Kubernetes Services müssen autorisierte IP-Adressbereiche definiert werden.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0e246bcf-5f6f-4f87-bc6f-775d4712c7ea) |Hiermit schränken Sie den Zugriff auf die Kubernetes Service-Verwaltungs-API ein, indem Sie den API-Zugriff nur auf IP-Adressen in bestimmten Bereichen gewähren. Es wird empfohlen, den Zugriff auf autorisierte IP-Adressbereiche einzuschränken, um sicherzustellen, dass nur Anwendungen aus zugelassenen Netzwerken auf den Cluster zugreifen können. |Audit, Disabled |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableIpRanges_KubernetesService_Audit.json) |
@@ -58,7 +58,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>Überwachen und Protokollieren der Konfiguration und des Datenverkehrs von VNETs, Subnetzen und Netzwerkkarten (NICs)
 
-**ID:** Azure-Sicherheitsvergleichstest 1.2 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 1.2 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -66,7 +66,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="protect-critical-web-applications"></a>Schützen kritischer Webanwendungen
 
-**ID:** Azure-Sicherheitsvergleichstest 1.3 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 1.3 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -80,18 +80,18 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="deny-communications-with-known-malicious-ip-addresses"></a>Ablehnen der Kommunikation mit bekannten bösartigen IP-Adressen
 
-**ID:** Azure-Sicherheitsvergleichstest 1.4 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 1.4 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Auf VMs mit Internetausrichtung müssen Empfehlungen zur adaptiven Netzwerkhärtung angewendet werden.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F08e6af2d-db70-460a-bfe9-d5bd474ba9d6) |Azure Security Center analysiert die Datenverkehrsmuster von virtuellen Computern mit Internetzugriff und stellt Empfehlungen zu NSG-Regeln (Netzwerksicherheitsgruppe) bereit, um die potenzielle Angriffsfläche zu verringern. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AdaptiveNetworkHardenings_Audit.json) |
+|[Auf virtuelle Computer mit Internetzugang müssen Empfehlungen zur adaptiven Netzwerkhärtung angewendet werden](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F08e6af2d-db70-460a-bfe9-d5bd474ba9d6) |Azure Security Center analysiert die Datenverkehrsmuster von virtuellen Computern mit Internetzugriff und stellt Empfehlungen zu NSG-Regeln (Netzwerksicherheitsgruppe) bereit, um die potenzielle Angriffsfläche zu verringern. |AuditIfNotExists, Disabled |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AdaptiveNetworkHardenings_Audit.json) |
 |[Gesamten Internetdatenverkehr über Ihre bereitgestellte Azure Firewall-Instanz leiten](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc5e4038-4584-4632-8c85-c0448d374b2c) |Azure Security Center hat festgestellt, dass einige Ihrer Subnetze nicht durch eine Firewall der nächsten Generation geschützt werden. Schützen Ihrer Subnetze vor möglichen Bedrohungen durch Einschränken des Zugriffs auf die Subnetze mit Azure Firewall oder einer unterstützten Firewall der nächsten Generation |AuditIfNotExists, Disabled |[3.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ASC_All_Internet_traffic_should_be_routed_via_Azure_Firewall.json) |
 |[Azure DDoS Protection Standard muss aktiviert sein.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa7aca53f-2ed4-4466-a25e-0b45ade68efd) |DDoS Protection Standard sollte für alle virtuellen Netzwerke mit einem Subnetz aktiviert werden, das Teil eines Application Gateways mit einer öffentlichen IP-Adresse ist. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableDDoSProtection_Audit.json) |
 |[Verwaltungsports von virtuellen Computern sollten mit Just-In-Time-Netzwerkzugriffssteuerung geschützt werden](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb0f33259-77d7-4c9e-aac6-3aabcfae693c) |Hiermit wird der mögliche Just-In-Time-Netzwerkzugriff über Azure Security Center in Form von Empfehlungen überwacht. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_JITNetworkAccess_Audit.json) |
 
 ### <a name="record-network-packets-and-flow-logs"></a>Aufzeichnen von Netzwerkpaketen und Flussprotokollen
 
-**ID:** Azure-Sicherheitsvergleichstest 1.5 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 1.5 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -99,7 +99,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>Verwenden automatisierter Tools zum Überwachen von Netzwerkressourcenkonfigurationen und Erkennen von Änderungen
 
-**ID:** Azure-Sicherheitsvergleichstest 1.11 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 1.11 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -115,7 +115,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="configure-central-security-log-management"></a>Konfigurieren der zentralen Sicherheitsprotokollverwaltung
 
-**ID:** Azure-Sicherheitsvergleichstest 2.2 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 2.2 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -128,7 +128,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="enable-audit-logging-for-azure-resources"></a>Aktivieren der Überwachungsprotokollierung für Azure-Ressourcen
 
-**ID:** Azure-Sicherheitsvergleichstest 2.3 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 2.3 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -150,7 +150,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="collect-security-logs-from-operating-systems"></a>Erfassen von Sicherheitsprotokollen von Betriebssystemen
 
-**ID:** Azure-Sicherheitsvergleichstest 2.4 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 2.4 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -161,7 +161,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="configure-security-log-storage-retention"></a>Konfigurieren der Sicherheitsprotokoll-Aufbewahrungsdauer im Speicher
 
-**ID:** Azure-Sicherheitsvergleichstest 2.5 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 2.5 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -169,7 +169,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="enable-alerts-for-anomalous-activity"></a>Aktivieren von Warnungen für anormale Aktivitäten
 
-**ID:** Azure-Sicherheitsvergleichstest 2.7 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 2.7 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -178,7 +178,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="centralize-anti-malware-logging"></a>Zentralisieren der Antischadsoftwareprotokollierung
 
-**ID:** Azure-Sicherheitsvergleichstest 2.8 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 2.8 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -190,7 +190,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="maintain-an-inventory-of-administrative-accounts"></a>Verwalten eines Bestands von Administratorkonten
 
-**ID:** Azure-Sicherheitsvergleichstest 3.1 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 3.1 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -201,7 +201,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="use-dedicated-administrative-accounts"></a>Verwenden dedizierter Administratorkonten
 
-**ID:** Azure-Sicherheitsvergleichstest 3.3 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 3.3 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -213,7 +213,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>Verwenden der mehrstufigen Authentifizierung für den gesamten Azure Active Directory-basierten Zugriff
 
-**ID:** Azure-Sicherheitsvergleichstest 3.5 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 3.5 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -223,7 +223,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="use-azure-active-directory"></a>Verwenden von Azure Active Directory
 
-**ID:** Azure-Sicherheitsvergleichstest 3.9 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 3.9 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -232,7 +232,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="regularly-review-and-reconcile-user-access"></a>Regelmäßiges Überprüfen und Abstimmen des Benutzerzugriffs
 
-**ID:** Azure-Sicherheitsvergleichstest 3.10 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 3.10 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -246,7 +246,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="maintain-an-inventory-of-sensitive-information"></a>Verwalten eines Bestands an vertraulichen Informationen
 
-**ID:** Azure-Sicherheitsvergleichstest 4.1 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 4.1 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -254,7 +254,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="encrypt-all-sensitive-information-in-transit"></a>Verschlüsseln aller vertraulichen Informationen während der Übertragung
 
-**ID:** Azure-Sicherheitsvergleichstest 4.4 **Besitz** : Shared
+**ID:** Azure-Sicherheitsvergleichstest 4.4 **Besitz**: Shared
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -274,7 +274,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="use-an-active-discovery-tool-to-identify-sensitive-data"></a>Verwenden eines aktiven Ermittlungstools zur Bestimmung vertraulicher Daten
 
-**ID:** Azure-Sicherheitsvergleichstest 4.5 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 4.5 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -284,7 +284,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="use-azure-rbac-to-control-access-to-resources"></a>Verwenden von Azure RBAC zum Steuern des Zugriffs auf Ressourcen
 
-**ID:** Azure-Sicherheitsvergleichstest 4.6 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 4.6 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -293,7 +293,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="encrypt-sensitive-information-at-rest"></a>Verschlüsseln vertraulicher, ruhender Informationen
 
-**ID:** Azure-Sicherheitsvergleichstest 4.8 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 4.8 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -307,7 +307,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="log-and-alert-on-changes-to-critical-azure-resources"></a>Protokollieren und Warnen bei Änderungen an wichtigen Azure-Ressourcen
 
-**ID:** Azure-Sicherheitsvergleichstest 4.9 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 4.9 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -317,7 +317,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="run-automated-vulnerability-scanning-tools"></a>Ausführen automatisierter Scan-Tools für Sicherheitsrisiken
 
-**ID:** Azure-Sicherheitsvergleichstest 5.1 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 5.1 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -327,7 +327,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="deploy-automated-operating-system-patch-management-solution"></a>Bereitstellen der automatisierten Lösung für die Patchverwaltung von Betriebssystemen
 
-**ID:** Azure-Sicherheitsvergleichstest 5.2 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 5.2 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -336,7 +336,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="deploy-automated-third-party-software-patch-management-solution"></a>Bereitstellen der automatisierten Lösung für die Patchverwaltung von Drittanbietersoftware
 
-**ID:** Azure-Sicherheitsvergleichstest 5.3 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 5.3 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -352,21 +352,21 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>Verwenden eines Risikobewertungsprozesses, um die Behebung von erkannten Sicherheitsrisiken zu priorisieren
 
-**ID:** Azure-Sicherheitsvergleichstest 5.5 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 5.5 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Sicherheitsrisiken in Containersicherheitskonfigurationen sollten behoben werden](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8cbc669-f12d-49eb-93e7-9273119e9933) |Hiermit werden Sicherheitsrisiken in der Sicherheitskonfiguration von Computern überwacht, auf denen Docker installiert ist, und es werden Empfehlungen in Azure Security Center angezeigt. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ContainerBenchmark_Audit.json) |
 |[Sicherheitsrisiken in der Sicherheitskonfiguration für Ihre Computer sollten beseitigt werden](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15) |Hiermit werden Server, die nicht der konfigurierten Baseline entsprechen, über Azure Security Center in Form von Empfehlungen überwacht. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OSVulnerabilities_Audit.json) |
 |[Sicherheitsrisiken in der Sicherheitskonfiguration von VM-Skalierungsgruppen sollten beseitigt werden](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3c735d8a-a4ba-4a3a-b7cf-db7754cf57f4) |Hiermit überwachen Sie die Betriebssystem-Sicherheitsrisiken für Ihre VM-Skalierungsgruppen, um sie vor Angriffen zu schützen. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VmssOSVulnerabilities_Audit.json) |
-|[Sicherheitsrisiken in SQL-Datenbanken sollten beseitigt werden](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Überprüfungsergebnisse der Sicherheitsrisikobewertung und Empfehlungen zum Beheben von Sicherheitsrisiken in der Datenbank überwachen. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
+|[Sicherheitsrisiken in SQL-Datenbanken sollten beseitigt werden](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Überprüfungsergebnisse der Sicherheitsrisikobewertung und Empfehlungen zum Beheben von Sicherheitsrisiken in der Datenbank überwachen. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
 |[Sicherheitsrisiken sollten durch eine Lösung zur Sicherheitsrisikobewertung beseitigt werden](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F760a85ff-6162-42b3-8d70-698e268f648c) |Überwacht Sicherheitsrisiken, die von der Lösung zur Sicherheitsrisikobewertung erkannt werden, und virtuelle Computer ohne eine Lösung zur Sicherheitsrisikobewertung im Azure Security Center in Form von Empfehlungen. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VMVulnerabilities_Audit.json) |
 
 ## <a name="inventory-and-asset-management"></a>Bestands- und Ressourcenverwaltung
 
 ### <a name="use-only-approved-applications"></a>Ausschließliche Verwendung genehmigter Anwendungen
 
-**ID:** Azure-Sicherheitsvergleichstest 6.8 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 6.8 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -374,7 +374,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="use-only-approved-azure-services"></a>Ausschließliche Verwendung genehmigter Azure-Dienste
 
-**ID:** Azure-Sicherheitsvergleichstest 6.9 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 6.9 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -383,7 +383,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="implement-approved-application-list"></a>Implementieren einer Liste genehmigter Anwendungen
 
-**ID:** Azure-Sicherheitsvergleichstest 6.10 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 6.10 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -393,7 +393,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="maintain-secure-operating-system-configurations"></a>Verwalten sicherer Betriebssystemkonfigurationen
 
-**ID:** Azure-Sicherheitsvergleichstest 7.4 **Besitz** : Shared
+**ID:** Azure-Sicherheitsvergleichstest 7.4 **Besitz**: Shared
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -403,7 +403,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="implement-automated-configuration-monitoring-for-operating-systems"></a>Implementieren der automatisierten Konfigurationsüberwachung für Betriebssysteme
 
-**ID:** Azure-Sicherheitsvergleichstest 7.10 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 7.10 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -413,15 +413,15 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="manage-azure-secrets-securely"></a>Sicheres Verwalten von Azure-Geheimnissen
 
-**ID:** Azure-Sicherheitsvergleichstest 7.11 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 7.11 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Key Vault-Objekte müssen wiederherstellbar sein](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Diese Richtlinie überwacht, ob Schlüsseltresorobjekte wiederherstellbar sind. Das Feature „Vorläufiges Löschen“ unterstützt Sie dabei, Ressourcen für eine bestimmte Aufbewahrungsdauer (90 Tage) selbst nach einem DELETE-Vorgang beizubehalten, während das Objekt als gelöscht dargestellt wird. Wenn der Löschschutz aktiviert ist, kann ein Tresor oder ein Objekt im gelöschten Zustand erst nach Ablauf des Aufbewahrungszeitraums von 90 Tagen endgültig gelöscht werden. Diese Tresore und Objekte können weiterhin wiederhergestellt werden, sodass die Kunden sicher sein können, dass die Aufbewahrungsrichtlinie eingehalten wird. |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+|[Für den Schlüsseltresor muss der Löschschutz aktiviert sein](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Das böswillige Löschen eines Schlüsseltresors kann zu dauerhaftem Datenverlust führen. Ein böswilliger Insider in Ihrer Organisation kann möglicherweise die Berechtigung zum Löschen und endgültigen Löschen von Schlüsseltresoren erhalten. Der Löschschutz schützt Sie vor Insiderangriffen, indem ein verbindlicher Aufbewahrungszeitraum für vorläufig gelöschte Schlüsseltresore durchgesetzt wird. Niemand innerhalb Ihrer Organisation oder von Microsoft kann Ihre Schlüsseltresore während des Aufbewahrungszeitraums für vorläufiges Löschen löschen. |Audit, Deny, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
 ### <a name="manage-identities-securely-and-automatically"></a>Sicheres und automatisches Verwalten von Identitäten 
 
-**ID:** Azure-Sicherheitsvergleichstest 7.12 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 7.12 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -433,7 +433,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="use-centrally-managed-anti-malware-software"></a>Verwenden einer zentral verwalteten Antischadsoftware
 
-**ID:** Azure-Sicherheitsvergleichstest 8.1 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 8.1 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -442,7 +442,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="ensure-anti-malware-software-and-signatures-are-updated"></a>Sicherstellen der Aktualisierung von Antischadsoftware und Signaturen
 
-**ID:** Azure-Sicherheitsvergleichstest 8.3 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 8.3 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -452,7 +452,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="ensure-regular-automated-back-ups"></a>Sicherstellen regelmäßiger automatisierter Sicherungen
 
-**ID:** Azure-Sicherheitsvergleichstest 9.1 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 9.1 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -464,7 +464,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>Durchführen vollständiger Systemsicherungen und Sichern aller von Kunden verwalteten Schlüssel
 
-**ID:** Azure-Sicherheitsvergleichstest 9.2 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 9.2 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -476,17 +476,17 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für einen A
 
 ### <a name="ensure-protection-of-backups-and-customer-managed-keys"></a>Sicherstellen des Schutzes von Sicherungen und von kundenseitig verwalteten Schlüsseln
 
-**ID:** Azure-Sicherheitsvergleichstest 9.4 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 9.4 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Key Vault-Objekte müssen wiederherstellbar sein](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Diese Richtlinie überwacht, ob Schlüsseltresorobjekte wiederherstellbar sind. Das Feature „Vorläufiges Löschen“ unterstützt Sie dabei, Ressourcen für eine bestimmte Aufbewahrungsdauer (90 Tage) selbst nach einem DELETE-Vorgang beizubehalten, während das Objekt als gelöscht dargestellt wird. Wenn der Löschschutz aktiviert ist, kann ein Tresor oder ein Objekt im gelöschten Zustand erst nach Ablauf des Aufbewahrungszeitraums von 90 Tagen endgültig gelöscht werden. Diese Tresore und Objekte können weiterhin wiederhergestellt werden, sodass die Kunden sicher sein können, dass die Aufbewahrungsrichtlinie eingehalten wird. |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+|[Für den Schlüsseltresor muss der Löschschutz aktiviert sein](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Das böswillige Löschen eines Schlüsseltresors kann zu dauerhaftem Datenverlust führen. Ein böswilliger Insider in Ihrer Organisation kann möglicherweise die Berechtigung zum Löschen und endgültigen Löschen von Schlüsseltresoren erhalten. Der Löschschutz schützt Sie vor Insiderangriffen, indem ein verbindlicher Aufbewahrungszeitraum für vorläufig gelöschte Schlüsseltresore durchgesetzt wird. Niemand innerhalb Ihrer Organisation oder von Microsoft kann Ihre Schlüsseltresore während des Aufbewahrungszeitraums für vorläufiges Löschen löschen. |Audit, Deny, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
 ## <a name="incident-response"></a>Reaktion auf Vorfälle
 
 ### <a name="provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>Angeben von Kontaktdaten für Sicherheitsvorfälle und Konfigurieren von Warnungsbenachrichtigungen für Sicherheitsvorfälle
 
-**ID:** Azure-Sicherheitsvergleichstest 10.4 **Besitz** : Kunde
+**ID:** Azure-Sicherheitsvergleichstest 10.4 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|

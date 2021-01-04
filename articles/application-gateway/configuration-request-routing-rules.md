@@ -7,22 +7,22 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: 20a665eefbb73f062f1f036e17b16da891a43eef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 047ce9b33836e2c23a37b1383942323d7c382485
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89652709"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397534"
 ---
 # <a name="application-gateway-request-routing-rules"></a>Routingregeln für Application Gateway-Anforderungen
 
-Wenn Sie im Azure-Portal ein Anwendungsgateway erstellen, wird dabei eine Standardregel (*rule1*) erstellt. Mit dieser Regel wird der Standardlistener (*appGatewayHttpListener*) an den Standard-Back-End-Pool (*appGatewayBackendPool*) und die Back-End-HTTP-Standardeinstellungen ( *appGatewayBackendHttpSettings*) gebunden. Nachdem Sie das Gateway erstellt haben, können Sie die Einstellungen der Standardregel bearbeiten oder neue Regeln erstellen.
+Wenn Sie im Azure-Portal ein Anwendungsgateway erstellen, wird dabei eine Standardregel ( *rule1* ) erstellt. Mit dieser Regel wird der Standardlistener ( *appGatewayHttpListener* ) an den Standard-Back-End-Pool ( *appGatewayBackendPool* ) und die Back-End-HTTP-Standardeinstellungen ( *appGatewayBackendHttpSettings* ) gebunden. Nachdem Sie das Gateway erstellt haben, können Sie die Einstellungen der Standardregel bearbeiten oder neue Regeln erstellen.
 
 ## <a name="rule-type"></a>Regeltyp
 
-Wenn Sie eine Regel erstellen, wählen Sie zwischen [*grundlegend* und *pfadbasiert*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules) aus.
+Wenn Sie eine Regel erstellen, wählen Sie zwischen [*grundlegend* und *pfadbasiert*](./application-gateway-components.md#request-routing-rules) aus.
 
-- Wählen Sie „grundlegend“ aus, wenn Sie alle an den zugeordneten Listener gerichteten Anforderungen (z.B. *blog<i></i>.contoso.com/\*)* an einen einzelnen Back-End-Pool weiterleiten möchten.
+- Wählen Sie „grundlegend“ aus, wenn Sie alle an den zugeordneten Listener gerichteten Anforderungen (z.B. *blog <i></i>.contoso.com/\*)* an einen einzelnen Back-End-Pool weiterleiten möchten.
 - Wählen Sie „pfadbasiert“ aus, wenn Sie Anforderungen von bestimmten URL-Pfaden an bestimmte Back-End-Pools weiterleiten möchten. Das Pfadmuster wird nur auf den Pfad der URL angewendet, nicht auf ihre Abfrageparameter.
 
 ### <a name="order-of-processing-rules"></a>Verarbeitungsreihenfolge von Regeln
@@ -31,7 +31,7 @@ Für die v1- und v2-SKU wird die Musterzuordnung eingehender Anforderungen in de
 
 ## <a name="associated-listener"></a>Zugeordneter Listener
 
-Ordnen Sie der Regel einen Listener zu, damit die *Anforderungsroutingregel*, die dem Listener zugeordnet ist, ausgewertet wird, um den Back-End-Pool zu bestimmen, an den die Anforderung weitergeleitet werden soll.
+Ordnen Sie der Regel einen Listener zu, damit die *Anforderungsroutingregel* , die dem Listener zugeordnet ist, ausgewertet wird, um den Back-End-Pool zu bestimmen, an den die Anforderung weitergeleitet werden soll.
 
 ## <a name="associated-back-end-pool"></a>Zugeordneter Back-End-Pool
 

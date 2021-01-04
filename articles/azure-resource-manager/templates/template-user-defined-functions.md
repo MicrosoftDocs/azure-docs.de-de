@@ -1,20 +1,20 @@
 ---
 title: Benutzerdefinierte Funktionen in Vorlagen
-description: Beschreibt, wie benutzerdefinierte Funktionen in einer Azure Resource Manager-Vorlage definiert und verwendet werden.
+description: Beschreibt, wie benutzerdefinierte Funktionen in einer Azure Resource Manager-Vorlage (ARM-Vorlage) definiert und verwendet werden.
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 69f4e98d389cc8dbe5cd3f4b628189676c501106
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12199aca788438e4558ed2c607b866f0dc723e2a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84672934"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436962"
 ---
-# <a name="user-defined-functions-in-azure-resource-manager-template"></a>Benutzerdefinierte Funktionen in einer Azure Resource Manager-Vorlage
+# <a name="user-defined-functions-in-arm-template"></a>Benutzerdefinierte Funktionen in ARM-Vorlagen
 
 In Ihrer Vorlage können Sie Ihre eigenen Funktionen erstellen. Diese Funktionen stehen dann zur Verwendung in der Vorlage zur Verfügung. Benutzerdefinierte Funktionen sind von den [standardmäßigen Vorlagenfunktionen](template-functions.md) getrennt, die automatisch in der Vorlage verfügbar sind. Erstellen Sie eigene Funktionen, wenn Sie über komplizierte Ausdrücke verfügen, die in Ihrer Vorlage wiederholt verwendet werden.
 
-Dieser Artikel beschreibt, wie benutzerdefinierte Funktionen in einer Azure Resource Manager-Vorlage hinzugefügt werden.
+Dieser Artikel beschreibt, wie benutzerdefinierte Funktionen in einer Azure Resource Manager-Vorlage (ARM-Vorlage) hinzugefügt werden.
 
 ## <a name="define-the-function"></a>Definieren der Funktion
 
@@ -103,8 +103,7 @@ Beim Definieren einer benutzerdefinierten Funktion gelten einige Einschränkunge
 * Die Funktion kann nicht die [reference](template-functions-resource.md#reference)-Funktion oder eine der [list](template-functions-resource.md#list)-Funktionen verwenden.
 * Für die Parameter der Funktion können keine Standardwerte verwendet werden.
 
-
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Weitere Informationen zu den verfügbaren Eigenschaften für benutzerdefinierte Funktionen finden Sie unter [Verstehen der Struktur und Syntax von Azure Resource Manager-Vorlagen](template-syntax.md).
-* Unter [Vorlagenfunktionen in Azure Resource Manager](template-functions.md) finden Sie eine Liste der verfügbaren Vorlagenfunktionen.
+* Weitere Informationen zu den verfügbaren Eigenschaften für benutzerdefinierte Funktionen finden Sie unter [Verstehen der Struktur und Syntax von ARM-Vorlagen](template-syntax.md).
+* Eine Liste der verfügbaren Funktionen in einer Vorlage finden Sie unter [Funktionen von ARM-Vorlagen](template-functions.md).

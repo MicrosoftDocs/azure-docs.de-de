@@ -2,14 +2,14 @@
 title: Ressourcenanbieter und Ressourcentypen
 description: Hier werden die Ressourcenanbieter beschrieben, die Azure Resource Manager unterstützen. Sie erfahren mehr über die Schemas, verfügbaren API-Versionen und die Regionen, in denen die Ressourcen gehostet werden können.
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 12/04/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8b1a9e6d539d37fb26d8fb0e3a541415dd574e9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d114fdfae12dd9ee96a23e4dafc3847c6429d0c
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89278869"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745115"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure-Ressourcenanbieter und -typen
 
@@ -32,9 +32,12 @@ Eine Liste, die Ressourcenanbieter zu Azure-Diensten zuordnet, finden Sie unter 
 
 ## <a name="register-resource-provider"></a>Registrieren des Ressourcenanbieters
 
-Vor der Verwendung eines Ressourcenanbieters müssen Sie den Ressourcenanbieter für Ihr Azure-Abonnement registrieren. Dadurch wird Ihr Abonnement für die Verwendung mit dem Ressourcenanbieter konfiguriert. Der Gültigkeitsbereich der Registrierung ist immer das Abonnement. Viele Ressourcenanbieter werden standardmäßig automatisch registriert. Einige Ressourcenanbieter müssen Sie jedoch unter Umständen manuell registrieren.
+Bevor Sie einen Ressourcenanbieter verwenden können, müssen Sie Ihr Azure-Abonnement bei diesem registrieren. Durch die Registrierung wird Ihr Abonnement für die Verwendung mit dem Ressourcenanbieter konfiguriert. Einige Ressourcenanbieter sind standardmäßig registriert. Andere werden bei bestimmten Aktionen automatisch registriert. Wenn Sie beispielsweise über das Portal eine Ressource erstellen, wird der Ressourcenanbieter in der Regel für Sie registriert. In anderen Szenarien müssen Sie den Ressourcenanbieter unter Umständen manuell registrieren. Eine Liste der standardmäßig registrierten Anbieter von Azure-Ressourcen finden Sie unter [Ressourcenanbieter für Azure-Dienste](azure-services-resource-providers.md).
 
 In diesem Artikel erfahren Sie, wie Sie den Registrierungsstatus eines Ressourcenanbieters überprüfen und den Ressourcenanbieter bei Bedarf registrieren. Sie benötigen Berechtigungen zum Ausführen des `/register/action`-Vorgangs für den Ressourcenanbieter. Die Berechtigung ist in den Rollen „Mitwirkender“ und „Besitzer“ enthalten.
+
+> [!IMPORTANT]
+> Registrieren Sie einen Ressourcenanbieter nur dann, wenn Sie ihn nutzen möchten. Der Registrierungsschritt ermöglicht Ihnen, die geringstmöglichen Berechtigungen innerhalb Ihres Abonnements beizubehalten. Ein böswilliger Benutzer kann nicht registrierte Ressourcenanbieter nicht verwenden.
 
 Ihr Anwendungscode sollte die Erstellung von Ressourcen für einen Ressourcenanbieter nicht blockieren, der sich im Status **Wird registriert** befindet. Wenn Sie den Ressourcenanbieter registrieren, wird der Vorgang für jede unterstützte Region einzeln ausgeführt. Um Ressourcen in einer Region zu erstellen, muss die Registrierung nur in dieser Region abgeschlossen werden. Indem Sie den Ressourcenanbieter im Status „Wird registriert“ nicht blockieren, kann die Anwendung viel früher fortfahren und muss nicht auf den Abschluss aller Regionen warten.
 
@@ -42,20 +45,28 @@ Sie können die Registrierung eines Ressourcenanbieters nicht aufheben, wenn in 
 
 ## <a name="azure-portal"></a>Azure-Portal
 
+### <a name="register-resource-provider"></a>Registrieren des Ressourcenanbieters
+
 So zeigen Sie alle Ressourcenanbieter und den Registrierungsstatus für Ihr Abonnement an
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
-2. Wählen Sie im Menü des Azure-Portals die Option **Alle Dienste** aus.
+1. Suchen Sie im Menü im Azure-Portal nach **Abonnements**. Wählen Sie es aus den verfügbaren Optionen aus.
 
-    ![„Abonnements“ auswählen](./media/resource-providers-and-types/select-all-services.png)
+   :::image type="content" source="./media/resource-providers-and-types/search-subscriptions.png" alt-text="Suchen von Abonnements":::
 
-3. Geben Sie im Feld **Alle Dienste****Abonnement** ein, und wählen Sie dann **Abonnements** aus.
-4. Wählen Sie das Abonnement aus der Abonnentenliste aus, um es anzuzeigen.
-5. Wählen Sie **Ressourcenanbieter** aus, und sehen Sie sich die Liste mit den verfügbaren Ressourcenanbietern an.
+1. Wählen Sie das Abonnement aus, das Sie anzeigen möchten.
 
-    ![Ressourcenanbieter anzeigen](./media/resource-providers-and-types/show-resource-providers.png)
+   :::image type="content" source="./media/resource-providers-and-types/select-subscription.png" alt-text="„Abonnements“ auswählen":::
 
-6. Wählen Sie **Registrieren** aus, um einen Ressourcenanbieter zu registrieren. Im vorherigen Screenshot ist der Link **Registrieren** für **Microsoft.Blueprint** hervorgehoben.
+1. Wählen Sie im linken Menü unter **Einstellungen** die Option **Ressourcenanbieter** aus.
+
+   :::image type="content" source="./media/resource-providers-and-types/select-resource-providers.png" alt-text="Auswählen des Ressourcenanbieters":::
+
+6. Suchen Sie den Ressourcenanbieter, den Sie registrieren möchten, und wählen Sie **Registrieren** aus. Um die geringstmöglichen Berechtigungen innerhalb Ihres Abonnements beizubehalten, registrieren Sie nur die Ressourcenanbieter, die Sie bereit sind zu verwenden.
+
+   :::image type="content" source="./media/resource-providers-and-types/register-resource-provider.png" alt-text="Registrieren von Ressourcenanbietern":::
+
+### <a name="view-resource-provider"></a>Anzeigen des Ressourcenanbieters
 
 So zeigen Sie Informationen für einen bestimmten Ressourcenanbieter an
 
@@ -83,8 +94,6 @@ So zeigen Sie Informationen für einen bestimmten Ressourcenanbieter an
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 Verwenden Sie Folgendes, um alle Ressourcenanbieter in Azure und den Registrierungsstatus für Ihr Abonnement anzuzeigen:
 
 ```azurepowershell-interactive
@@ -103,7 +112,13 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Verwenden Sie zum Registrieren eines Ressourcenanbieters Folgendes:
+Verwenden Sie zum Anzeigen aller für Ihr Abonnement registrierten Ressourcenanbieter Folgendes:
+
+```azurepowershell-interactive
+ Get-AzResourceProvider -ListAvailable | Where-Object RegistrationState -eq "Registered" | Select-Object ProviderNamespace, RegistrationState | Sort-Object ProviderNamespace
+```
+
+Um die geringstmöglichen Berechtigungen innerhalb Ihres Abonnements beizubehalten, registrieren Sie nur die Ressourcenanbieter, die Sie bereit sind zu verwenden. Verwenden Sie zum Registrieren eines Ressourcenanbieters Folgendes:
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -190,7 +205,7 @@ West US
 
 Verwenden Sie Folgendes, um alle Ressourcenanbieter in Azure und den Registrierungsstatus für Ihr Abonnement anzuzeigen:
 
-```azurecli
+```azurecli-interactive
 az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
 ```
 
@@ -206,9 +221,15 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Verwenden Sie zum Registrieren eines Ressourcenanbieters Folgendes:
+Verwenden Sie zum Anzeigen aller für Ihr Abonnement registrierten Ressourcenanbieter Folgendes:
 
-```azurecli
+```azurecli-interactive
+az provider list --query "sort_by([?registrationState=='Registered'].{Provider:namespace, Status:registrationState}, &Provider)" --out table
+```
+
+Um die geringstmöglichen Berechtigungen innerhalb Ihres Abonnements beizubehalten, registrieren Sie nur die Ressourcenanbieter, die Sie bereit sind zu verwenden. Verwenden Sie zum Registrieren eines Ressourcenanbieters Folgendes:
+
+```azurecli-interactive
 az provider register --namespace Microsoft.Batch
 ```
 
@@ -216,7 +237,7 @@ Daraufhin wird eine Meldung mit dem Hinweis zurückgegeben, dass die Registrieru
 
 Verwenden Sie Folgendes, um Informationen für einen bestimmten Ressourcenanbieter anzuzeigen:
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch
 ```
 
@@ -235,7 +256,7 @@ Die Rückgabe sieht in etwa wie folgt aus:
 
 Verwenden Sie Folgendes, um die Ressourcentypen für einen Ressourcenanbieter anzuzeigen:
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[*].resourceType" --out table
 ```
 
@@ -254,7 +275,7 @@ Die API-Version entspricht einer Version von REST-API-Vorgängen, die vom Ressou
 
 Verwenden Sie Folgendes, um die verfügbaren API-Versionen für einen Ressourcentyp abzurufen:
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].apiVersions | [0]" --out table
 ```
 
@@ -274,7 +295,7 @@ Der Ressourcen-Manager wird in allen Regionen unterstützt, aber die Ressourcen,
 
 Verwenden Sie Folgendes, um die unterstützten Standorte für einen Ressourcentyp abzurufen:
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].locations | [0]" --out table
 ```
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: f9b73e0919d660947edd0417f7379b3f6e6140c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d5ce3cde8c86d66bec025c778318a192ef60b73
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88245851"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560842"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Lösungen auf virtuellen Azure-Computern
 
@@ -29,7 +29,7 @@ Beginnen Sie mit der Bereitstellung einer VM der DCsv2-Serie über den kommerzie
 
 ### <a name="current-available-sizes-and-regions"></a>Aktuelle verfügbare Größen und Regionen
 
-Um eine Liste aller allgemein verfügbaren Größen für Confidential Computing-VMs in verfügbaren Regionen und Verfügbarkeitszonen zu erhalten, führen Sie in der [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) den folgenden Befehl aus:
+Um eine Liste aller allgemein verfügbaren Größen für Confidential Computing-VMs in verfügbaren Regionen und Verfügbarkeitszonen zu erhalten, führen Sie in der [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest) den folgenden Befehl aus:
 
 ```azurecli-interactive
 az vm list-skus `
@@ -47,7 +47,7 @@ az vm list-skus `
     --query "[?family=='standardDCSv2Family']"
 ```
 ### <a name="dedicated-host-requirements"></a>Anforderungen an dedizierte Hosts
-Beim Bereitstellen einer VM der Größe **Standard_DC8_v2** in der VM-Familie der DCSv2-Serie wird der komplette Host belegt, und eine Freigabe für andere Mandanten oder Abonnements ist nicht möglich. Diese VM-SKU-Familie bietet die Isolation, die Sie u. U. benötigen, um gesetzliche Vorgaben in Bezug auf Compliance und Sicherheit zu erfüllen, die in der Regel durch einen dedizierten Hostdienst erfüllt werden. Bei Auswahl einer **Standard_DC8_v2**-SKU weist der physische Hostserver alle verfügbaren Hardwareressourcen einschließlich des EPC-Speichers ausschließlich Ihrer VM zu. Beachten Sie, dass diese Funktionalität auf den Infrastrukturentwurf zurückgeht und alle Features von **Standard_DC8_v2** unterstützt werden. Diese Bereitstellung ist nicht identisch mit dem Dienst [Azure Dedicated Host](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts), der von anderen Azure VM-Familien bereitgestellt wird.
+Beim Bereitstellen einer VM der Größe **Standard_DC8_v2** in der VM-Familie der DCSv2-Serie wird der komplette Host belegt, und eine Freigabe für andere Mandanten oder Abonnements ist nicht möglich. Diese VM-SKU-Familie bietet die Isolation, die Sie u. U. benötigen, um gesetzliche Vorgaben in Bezug auf Compliance und Sicherheit zu erfüllen, die in der Regel durch einen dedizierten Hostdienst erfüllt werden. Bei Auswahl einer **Standard_DC8_v2**-SKU weist der physische Hostserver alle verfügbaren Hardwareressourcen einschließlich des EPC-Speichers ausschließlich Ihrer VM zu. Beachten Sie, dass diese Funktionalität auf den Infrastrukturentwurf zurückgeht und alle Features von **Standard_DC8_v2** unterstützt werden. Diese Bereitstellung ist nicht identisch mit dem Dienst [Azure Dedicated Host](../virtual-machines/dedicated-hosts.md), der von anderen Azure VM-Familien bereitgestellt wird.
 
 
 ## <a name="deployment-considerations"></a>Überlegungen zur Bereitstellung
@@ -59,14 +59,14 @@ Folgen Sie einem Tutorial zum Schnellstart, um eine VM der DCsv2-Serie in wenige
 - **Preise und regionale Verfügbarkeit**: Die Preise für VMs der DCsv2-Serie finden Sie auf der [Seite mit der Preisübersicht für virtuelle Computer](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). Informationen zur Verfügbarkeit in den Azure-Regionen finden Sie unter [Verfügbare Produkte nach Region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) .
 
 
-- **Kontingent Speicherkerne:** Es kann sein, dass Sie das Kontingent für die Speicherkerne in Ihrem Azure-Abonnement anpassen müssen, indem Sie den Standardwert erhöhen. Möglicherweise ist bei Ihrem Abonnement auch die Anzahl von Kernen beschränkt, die in bestimmten VM-Größenkategorien, einschließlich der DCsv2-Serie, bereitgestellt werden können. In diesem Fall können Sie kostenlos [eine Anfrage an den Onlinekundensupport richten](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) und eine Erhöhung des Kontingents anfordern. Beachten Sie, dass Standardgrenzwerte unter Umständen je nach Abonnementkategorie variieren.
+- **Kontingent Speicherkerne:** Es kann sein, dass Sie das Kontingent für die Speicherkerne in Ihrem Azure-Abonnement anpassen müssen, indem Sie den Standardwert erhöhen. Möglicherweise ist bei Ihrem Abonnement auch die Anzahl von Kernen beschränkt, die in bestimmten VM-Größenkategorien, einschließlich der DCsv2-Serie, bereitgestellt werden können. In diesem Fall können Sie kostenlos [eine Anfrage an den Onlinekundensupport richten](../azure-portal/supportability/per-vm-quota-requests.md) und eine Erhöhung des Kontingents anfordern. Beachten Sie, dass Standardgrenzwerte unter Umständen je nach Abonnementkategorie variieren.
 
   > [!NOTE]
   > Wenn Sie einen umfangreichen Kapazitätsbedarf haben, wenden Sie sich an den Azure-Support. Azure-Kontingente sind Angebotsbeschränkungen, keine Kapazitätsgarantien. Unabhängig von Ihrem Kontingent werden nur die tatsächlich verwendeten Kerne in Rechnung gestellt.
   
 - **Größenänderung:** Aufgrund ihrer speziellen Hardware können Sie die Größe von Confidential Computing-Instanzen nur innerhalb der gleichen Größenfamilie anpassen. So können Sie beispielsweise die Größe einer VM der DCsv2-Serie nur in eine andere Größe der DCsv2-Serie ändern. Eine Änderung von einer Nicht-Confidential Computing-Größe in eine Confidential Computing-Größe wird nicht unterstützt.  
 
-- **Image**: Um Unterstützung für Intel Software Guard Extension (Intel SGX) auf Confidential Computing-Instanzen zu bieten, müssen alle Bereitstellungen auf Images der Generation 2 erfolgen. Azure Confidential Computing unterstützt Workloads, die unter Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2 und Windows Server 2019 Gen 2 und Windows Server 2016 Gen 2 ausgeführt werden. Weitere Informationen zu unterstützten und nicht unterstützten Szenarien finden Sie unter [Unterstützung für VMs der Generation 2 in Azure](../virtual-machines/linux/generation-2.md). 
+- **Image**: Um Unterstützung für Intel Software Guard Extension (Intel SGX) auf Confidential Computing-Instanzen zu bieten, müssen alle Bereitstellungen auf Images der Generation 2 erfolgen. Azure Confidential Computing unterstützt Workloads, die unter Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2 und Windows Server 2019 Gen 2 und Windows Server 2016 Gen 2 ausgeführt werden. Weitere Informationen zu unterstützten und nicht unterstützten Szenarien finden Sie unter [Unterstützung für VMs der Generation 2 in Azure](../virtual-machines/generation-2.md). 
 
 - **Speicher**: Datenträger für Azure Confidential Computing-VMs und kurzlebige Betriebssystemdatenträger befinden sich auf NVMe-Datenträgern. Instanzen unterstützen ausschließlich SSD Premium- und SSD Standard- und keine SSD Ultra- oder HDD Standard-Datenträger. Die VM-Größe **DC8_v2** unterstützt nicht Storage Premium. 
 
@@ -76,7 +76,7 @@ Folgen Sie einem Tutorial zum Schnellstart, um eine VM der DCsv2-Serie in wenige
 
 Wenn Sie VMs in Azure nutzen, müssen Sie eine Lösung für Hochverfügbarkeit und Notfallwiederherstellung implementieren, um Ausfallzeiten zu vermeiden. 
 
-Azure Confidential Computing unterstützt derzeit keine Zonenredundanz über Verfügbarkeitszonen. Um für Confidential Computing maximale Verfügbarkeit und Redundanz zu erreichen, verwenden Sie [Verfügbarkeitsgruppen](../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). Aufgrund von Hardwarebeschränkungen können Verfügbarkeitsgruppen für Confidential Computing-Instanzen nur maximal 10 Updatedomänen haben. 
+Azure Confidential Computing unterstützt derzeit keine Zonenredundanz über Verfügbarkeitszonen. Um für Confidential Computing maximale Verfügbarkeit und Redundanz zu erreichen, verwenden Sie [Verfügbarkeitsgruppen](../virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). Aufgrund von Hardwarebeschränkungen können Verfügbarkeitsgruppen für Confidential Computing-Instanzen nur maximal 10 Updatedomänen haben. 
 
 ## <a name="deployment-with-azure-resource-manager-arm-template"></a>Bereitstellung mit ARM-Vorlage (Azure Resource Manager)
 

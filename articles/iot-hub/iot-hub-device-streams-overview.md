@@ -11,16 +11,17 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: 8194f520abf5c8d4e47fa279f6cf82013024e9ec
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+- devx-track-azurecli
+ms.openlocfilehash: bdd9d5fd878094326331e60fc1a639eef08b7ea3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152158"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792462"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT Hub-Gerätestreams (Vorschau)
 
-Azure IoT Hub-*Gerätestreams* vereinfachen das Erstellen sicherer bidirektionaler TCP-Tunnel für eine Vielzahl von Szenarios mit Kommunikation zwischen Cloud und Gerät. Ein Gerätestream wird durch einen IoT Hub-*Streamingendpunkt* vermittelt, der als Proxy zwischen Ihrem Gerät und den Dienstendpunkten fungiert. Dieses Setup ist im folgenden Diagramm dargestellt. Es eignet sich besonders, wenn die Geräte sich hinter einer Netzwerkfirewall oder in einem privaten Netzwerk befinden. So erfüllen IoT Hub-Gerätestreams die Kundenanforderung, IoT-Geräte firewallfreundlich zu erreichen, ohne Eingangs- und Ausgangsports der Netzwerkfirewall weit zu öffnen.
+Azure IoT Hub- *Gerätestreams* vereinfachen das Erstellen sicherer bidirektionaler TCP-Tunnel für eine Vielzahl von Szenarios mit Kommunikation zwischen Cloud und Gerät. Ein Gerätestream wird durch einen IoT Hub- *Streamingendpunkt* vermittelt, der als Proxy zwischen Ihrem Gerät und den Dienstendpunkten fungiert. Dieses Setup ist im folgenden Diagramm dargestellt. Es eignet sich besonders, wenn die Geräte sich hinter einer Netzwerkfirewall oder in einem privaten Netzwerk befinden. So erfüllen IoT Hub-Gerätestreams die Kundenanforderung, IoT-Geräte firewallfreundlich zu erreichen, ohne Eingangs- und Ausgangsports der Netzwerkfirewall weit zu öffnen.
 
 ![„Übersicht über IoT Hub-Gerätestreams“](./media/iot-hub-device-streams-overview/iot-hub-device-streams-overview.png )
 
@@ -56,7 +57,7 @@ Die programmgesteuerte Erstellung eines Gerätestreams mit dem SDK umfasst die f
 
 1. Die Geräteanwendung registriert einen Rückruf, um im Voraus benachrichtigt zu werden, wenn ein neuer Gerätestream zum Gerät initiiert wird. Dieser Schritt findet in der Regel statt, wenn das Gerät gestartet wird und eine Verbindung mit der IoT Hub-Instanz herstellt.
 
-2. Das dienstseitige Programm initiiert bei Bedarf einen Gerätestream durch Bereitstellen der Geräte-ID (_nicht_ der IP-Adresse).
+2. Das dienstseitige Programm initiiert bei Bedarf einen Gerätestream durch Bereitstellen der Geräte-ID ( _nicht_ der IP-Adresse).
 
 3. IoT Hub benachrichtigt das dienstseitige Programm durch Aufrufen des in Schritt 1 registrierten Rückrufs. Das Gerät kann die Anforderung der Streaminitiierung annehmen oder ablehnen. Diese Logik kann speziell auf Ihr Anwendungsszenario zugeschnitten sein. Wenn die Streamanforderung vom Gerät abgelehnt wird, informiert IoT Hub den Dienst entsprechend. Andernfalls folgen die unten aufgeführten Schritte.
 
@@ -82,7 +83,7 @@ Ein eingerichteter Stream wird beendet, wenn eine der TCP-Verbindungen mit dem G
 
 ## <a name="connectivity-requirements"></a>Konnektivitätsanforderungen
 
-Sowohl die Geräte- als auch die Dienstseite eines Gerätestreams muss dazu in der Lage sein, TLS-fähige Verbindungen mit IoT Hub und dem zugehörigen Streamingendpunkt herzustellen. Hierfür ist eine ausgehende Konnektivität über Port 443 mit diesen Endpunkten erforderlich. Den diesen Endpunkten zugeordneten Hostnamen finden Sie auf der IoT Hub-Registerkarte *Übersicht*, wie in der folgenden Abbildung gezeigt:
+Sowohl die Geräte- als auch die Dienstseite eines Gerätestreams muss dazu in der Lage sein, TLS-fähige Verbindungen mit IoT Hub und dem zugehörigen Streamingendpunkt herzustellen. Hierfür ist eine ausgehende Konnektivität über Port 443 mit diesen Endpunkten erforderlich. Den diesen Endpunkten zugeordneten Hostnamen finden Sie auf der IoT Hub-Registerkarte *Übersicht* , wie in der folgenden Abbildung gezeigt:
 
 ![„Gerätestreamingendpunkte“](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
 
@@ -103,7 +104,7 @@ Die Ausgabe ist ein JSON-Objekt aller Endpunkte, mit denen das Gerät und der Di
 ```
 
 > [!NOTE]
-> Stellen Sie sicher, dass mindestens Version 2.0.57 der Azure-Befehlszeilenschnittstelle installiert ist. Sie können die neueste Version über die Seite [Azure CLI installieren](/cli/azure/install-azure-cli?view=azure-cli-latest) herunterladen.
+> Stellen Sie sicher, dass mindestens Version 2.0.57 der Azure-Befehlszeilenschnittstelle installiert ist. Sie können die neueste Version über die Seite [Azure CLI installieren](/cli/azure/install-azure-cli) herunterladen.
 >
 
 ## <a name="allow-outbound-connectivity-to-the-device-streaming-endpoints"></a>Erlauben ausgehender Konnektivität zu den Gerätestreamingendpunkten
@@ -119,28 +120,28 @@ az iot hub devicestream show --name <YourIoTHubName>
 ```
 
 > [!NOTE]
-> Stellen Sie sicher, dass mindestens Version 2.0.57 der Azure-Befehlszeilenschnittstelle installiert ist. Sie können die neueste Version über die Seite [Azure CLI installieren](/cli/azure/install-azure-cli?view=azure-cli-latest) herunterladen.
+> Stellen Sie sicher, dass mindestens Version 2.0.57 der Azure-Befehlszeilenschnittstelle installiert ist. Sie können die neueste Version über die Seite [Azure CLI installieren](/cli/azure/install-azure-cli) herunterladen.
 >
 
-## <a name="troubleshoot-via-device-streams-activity-logs"></a>Problembehandlung über Aktivitätsprotokolle für Gerätestreams
+## <a name="troubleshoot-via-device-streams-resource-logs"></a>Problembehandlung über Ressourcenprotokolle für Gerätestreams
 
-Sie können Azure Monitor-Protokolle zum Erfassen des Aktivitätsprotokolls für Gerätestreams in Ihrer IoT Hub-Instanz einrichten. Dies kann zur Problembehandlung sehr hilfreich sein.
+Sie können Azure Monitor so einrichten, dass die von Ihrem IoT Hub ausgegebenen [Ressourcenprotokolle für Gerätestreams](monitor-iot-hub-reference.md#device-streams-preview) erfasst werden. Dies kann zur Problembehandlung sehr hilfreich sein.
 
-Führen Sie die folgenden Schritte aus, um Azure Monitor-Protokolle für die Gerätestreamaktivitäten Ihrer IoT Hub-Instanz zu konfigurieren:
+Führen Sie die folgenden Schritte aus, um eine Diagnoseeinstellung zum Senden von Gerätestreamprotokollen für Ihren IoT Hub an Azure Monitor-Protokolle zu erstellen:
 
-1. Navigieren Sie in Ihrer IoT Hub-Instanz zur Registerkarte *Diagnoseeinstellungen*, und klicken Sie auf den Link *Diagnose aktivieren*.
+1. Navigieren Sie im Azure-Portal zu Ihrem IoT-Hub. Wählen Sie im linken Bereich unter **Überwachung** die Option **Diagnoseeinstellungen** aus. Wählen Sie dann **Diagnoseeinstellung hinzufügen** aus.
 
-   ![„Aktivieren von Diagnoseprotokollen“](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings-pane.png)
+2. Geben Sie einen Namen für Ihre Diagnoseeinstellung an, und wählen Sie aus der Liste der Protokolle das Protokoll **DeviceStreams** aus. Wählen Sie dann **An Log Analytics senden** aus. Sie werden durch die Auswahl eines vorhandenen Log Analytics-Arbeitsbereichs oder die Erstellung eines neuen Bereichs geführt.
 
-2. Geben Sie einen Namen für Ihre Diagnoseeinstellungen ein, und wählen Sie die Option *An Log Analytics senden* aus. Sie werden durch die Auswahl einer vorhandenen Log Analytics-Arbeitsbereichsressource oder durch die Erstellung einer neuen Ressource geführt. Aktivieren Sie außerdem den Eintrag *DeviceStreams* in der Liste.
+    :::image type="content" source="media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png" alt-text="Aktivieren von Gerätestreamprotokollen":::
 
-    ![„Aktivieren von Gerätestreamprotokollen“](./media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png)
-
-3. Sie können jetzt im IoT Hub-Verwaltungsportal auf der Registerkarte *Protokolle* auf Ihre Gerätestreamprotokolle zugreifen. Gerätestream-Aktivitätsprotokolle werden in der Tabelle `AzureDiagnostics` aufgeführt mit `Category=DeviceStreams`.
+3. Nachdem Sie eine Diagnoseeinstellung zum Senden Ihrer Gerätestreamprotokolle an einen Log Analytics-Arbeitsbereich erstellt haben, können Sie auf die Protokolle zugreifen, indem Sie im Azure-Portal im linken Bereich Ihres IoT-Hubs unter **Überwachung** die Option **Protokolle** auswählen. Gerätestreamprotokolle werden in der Tabelle `AzureDiagnostics` mit `Category=DeviceStreams` aufgeführt. Beachten Sie, dass es mehrere Minuten dauern kann, bis die Protokolle in der Tabelle angezeigt werden.
 
    Wie unten dargestellt, werden auch die Identität des Zielgeräts und das Ergebnis des Vorgangs in den Protokollen angegeben.
 
    ![„Zugriff auf Gerätestreamprotokolle“](./media/iot-hub-device-streams-overview/device-streams-view-logs.png)
+
+Weitere Informationen zur Verwendung von Azure Monitor bei IoT Hub finden Sie unter [Überwachen von IoT Hub](monitor-iot-hub.md). Informationen zu allen Ressourcenprotokollen, Metriken und Tabellen, die für IoT Hub zur Verfügung stehen, finden Sie in der [Referenz zu Azure IoT Hub-Überwachungsdaten](monitor-iot-hub-reference.md).
 
 ## <a name="regional-availability"></a>Regionale Verfügbarkeit
 
@@ -182,7 +183,7 @@ Das Beispiel mit lokalem Proxy zeigt eine Möglichkeit zum Aktivieren eines Tunn
 
 Dieser Abschnitt beschreibt die Verwendung von Gerätestreams, um für Benutzer das Herstellen einer SSH-Verbindung mit einem Gerät über Gerätestreams zu ermöglichen. (Die Situation ist für RDP oder andere Client-/Server-Anwendungen ähnlich, da dort der entsprechende Port des Protokolls verwendet wird.)
 
-Das Setup nutzt zwei Programme für *lokale Proxys*, die in der folgenden Abbildung dargestellt sind: *Lokaler Geräteproxy* und *Lokaler Dienstproxy*. Die lokalen Proxyprogramme sind für die Durchführung des [Handshakes zur Gerätestreaminitiierung](#device-stream-creation-flow) mit IoT Hub sowie für die Interaktion mit dem SSH-Client und dem SSH-Daemon über reguläre Client-/Server-Sockets zuständig.
+Das Setup nutzt zwei Programme für *lokale Proxys* , die in der folgenden Abbildung dargestellt sind: *Lokaler Geräteproxy* und *Lokaler Dienstproxy*. Die lokalen Proxyprogramme sind für die Durchführung des [Handshakes zur Gerätestreaminitiierung](#device-stream-creation-flow) mit IoT Hub sowie für die Interaktion mit dem SSH-Client und dem SSH-Daemon über reguläre Client-/Server-Sockets zuständig.
 
 ![„Gerätestream-Proxysetup für SSH/RDP“](./media/iot-hub-device-streams-overview/iot-hub-device-streams-ssh.png)
 

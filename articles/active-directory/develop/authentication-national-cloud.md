@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: negoe
-ms.reviewer: negoe,celested
+ms.reviewer: marsma, negoe,celested
 ms.custom: aaddev,references_regions
-ms.openlocfilehash: d27498748f03fb101d165351ec80c77d57f78f1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da1ea6462d22242d23629bcec192d7760314dfed
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88141498"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444813"
 ---
 # <a name="national-clouds"></a>Nationale Clouds
 
@@ -60,8 +60,8 @@ Die folgende Tabelle enthält die Basis-URLs für die Azure AD-Endpunkte, die zu
 
 Anforderungen an die Autorisierungs- oder Tokenendpunkte von Azure AD können mit der entsprechenden regionsspezifischen Basis-URL generiert werden. Z.B. für Azure Deutschland:
 
-  - Der allgemeine Autorisierungsendpunkt ist `https://login.microsoftonline.de/common/oauth2/v2.0/authorize`.
-  - Der allgemeine Tokenendpunkt ist `https://login.microsoftonline.de/common/oauth2/v2.0/token`.
+- Der allgemeine Autorisierungsendpunkt ist `https://login.microsoftonline.de/common/oauth2/v2.0/authorize`.
+- Der allgemeine Tokenendpunkt ist `https://login.microsoftonline.de/common/oauth2/v2.0/token`.
 
 Ersetzen Sie bei Anwendungen mit einem Mandanten in den oben genannten URLs „common“ durch die ID oder den Namen Ihres Mandanten. z. B. `https://login.microsoftonline.de/contoso.com`.
 
@@ -76,9 +76,10 @@ Wie Sie eine Anwendung mit Microsoft Identity Platform erstellen können, erfahr
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen:
+Erfahren Sie, wie Sie [Microsoft Authentication Library (MSAL) in einer nationalen Cloudumgebung](msal-national-cloud.md) verwenden.
+
+Dokumentation zur nationalen Cloud:
 
 - [Azure Government](../../azure-government/index.yml)
 - [Azure China 21Vianet](/azure/china/)
 - [Azure Deutschland](../../germany/index.yml)
-- [Azure AD-Authentifizierungsgrundlagen](./authentication-vs-authorization.md)

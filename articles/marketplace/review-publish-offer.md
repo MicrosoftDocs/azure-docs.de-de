@@ -7,13 +7,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 08/12/2020
-ms.openlocfilehash: 47d82982bbb7546b53dd4754c49bd22fe958d5ef
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 10/27/2020
+ms.openlocfilehash: b038834df3889a8b4b7f4a749568635e99f8408e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976446"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188750"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Überprüfen und Veröffentlichen eines Angebots im kommerziellen Marketplace
 
@@ -38,9 +38,9 @@ Sie können den Status Ihres Angebots im [Partner Center](https://partner.micros
 
 Wenn Sie bereit sind, ein Angebot für die Veröffentlichung zu übermitteln, wählen Sie oben rechts im Portal **Überprüfen und veröffentlichen** aus. Auf der Seite **Überprüfen und veröffentlichen** wird der Status jeder Seite für Ihr Angebot angezeigt. Folgende Werte sind möglich:
 
-   - **Nicht gestartet** : Die Seite ist unvollständig.
-   - **Unvollständig** : Auf der Seite fehlen erforderliche Informationen, oder sie enthält Fehler, die korrigiert werden müssen. Sie müssen zur Seite zurückkehren und diese aktualisieren.
-   - **Abgeschlossen** : Die Seite ist vollständig. Alle erforderlichen Daten wurden angegeben, und es liegen keine Fehler vor.
+   - **Nicht gestartet**: Die Seite ist unvollständig.
+   - **Unvollständig**: Auf der Seite fehlen erforderliche Informationen, oder sie enthält Fehler, die korrigiert werden müssen. Sie müssen zur Seite zurückkehren und diese aktualisieren.
+   - **Abgeschlossen**: Die Seite ist vollständig. Alle erforderlichen Daten wurden angegeben, und es liegen keine Fehler vor.
 
 Wenn eine der Seiten einen anderen Status als **Abgeschlossen** aufweist, müssen Sie das Problem auf dieser Seite beheben und dann zur Seite **Überprüfen und veröffentlichen** zurückkehren, um sich zu vergewissern, dass der Status nun **Abgeschlossen** lautet. Einige Angebotstypen müssen getestet werden. In diesem Fall wird ein Feld **Hinweise zur Zertifizierung** angezeigt, in dem Sie Testanweisungen für das Zertifizierungsteam und ergänzende Hinweise angeben müssen, die das Verständnis Ihrer App erleichtern.
 
@@ -77,7 +77,7 @@ Der erste Schritt im Veröffentlichungsprozess sieht eine Reihe automatisierter 
 
 ## <a name="certification-phase"></a>Phase „Zertifizierung“
 
-Vor der Veröffentlichung müssen Angebote, die an den kommerziellen Marketplace übermittelt werden, zertifiziert werden. Angebote werden strengen Tests unterzogen, die teils automatisch und teils manuell erfolgen. Weitere Informationen finden Sie in den [Zertifizierungsrichtlinien für den kommerziellen Marketplace](https://aka.ms/commercial-marketplace-certification-policies).
+Vor der Veröffentlichung müssen Angebote, die an den kommerziellen Marketplace übermittelt werden, zertifiziert werden. Angebote werden strengen Tests unterzogen, die teils automatisch und teils manuell erfolgen. Weitere Informationen finden Sie in den [Zertifizierungsrichtlinien für den kommerziellen Marketplace](/legal/marketplace/certification-policies).
 
 ### <a name="types-of-validation-that-take-place-during-certification"></a>Typen der während der Zertifizierung erfolgenden Validierung
 
@@ -100,7 +100,7 @@ Die bei der Erstellung Ihres Angebots eingegebenen Informationen werden auf Qual
 - Qualitativ hochwertige Screenshots und Videos
 - Erläuterung, wie das Angebot Microsoft-Plattformen und -Tools nutzt
 
-Erfahren Sie im Artikel zu den [allgemeinen Richtlinien für die Listung](https://aka.ms/commercial-marketplace-certification-policies#100-general) mehr zu den Kriterien für die Validierung von Inhalten.
+Erfahren Sie im Artikel zu den [allgemeinen Richtlinien für die Listung](/legal/marketplace/certification-policies#100-general) mehr zu den Kriterien für die Validierung von Inhalten.
 
 #### <a name="technical-validation"></a>Technische Validierung
 
@@ -126,6 +126,19 @@ Während der Phase „Erstellung einer Vorschau“ erstellen wir eine Version Ih
 > [!NOTE]
 > Die Vorschauzielgruppe sollte nicht dazu dienen, um Personen außerhalb Ihres Unternehmens Einblick in ein Angebot zu geben. Verwenden Sie stattdessen die Option „Privates Angebot“. An diesem Punkt wurde ihr Angebot noch nicht vollständig getestet und überprüft und ist nicht für die externe Verteilung bereit.
 
+## <a name="cancel-publishing"></a>Stornieren der Veröffentlichung
+
+So stornieren Sie ein Angebot mit dem Status **Publish in progress** (Veröffentlichung in Bearbeitung)
+
+1. Wählen Sie den Angebotsnamen aus, um die Seite **Offer overview** (Angebotsübersicht) zu öffnen.
+1. Klicken Sie rechts oben auf der Seite auf **Cancel publish** (Veröffentlichen abbrechen).
+1. Bestätigen Sie, dass Sie die Veröffentlichung des Angebots stornieren möchten.
+
+Wenn Sie das Angebot zu einem späteren Zeitpunkt veröffentlichen möchten, müssen Sie den Veröffentlichungsprozess neu starten.
+
+> [!NOTE]
+> Sie können die Veröffentlichung eines Angebots nur dann verhindern, wenn das Angebot noch nicht durch den Herausgeber freigegeben wurde. Nach Auswahl von **Live schalten** kann die Veröffentlichung nicht mehr abgebrochen werden.
+
 ## <a name="publisher-sign-off-phase"></a>Phase „Einholen der Genehmigung des Herausgebers“
 
 Wenn das Angebot für Ihre Prüfung und Genehmigung bereit ist, senden wir Ihnen eine E-Mail mit der Bitte, Ihre Angebotsvorschau zu prüfen und zu genehmigen. Sie können auch die Seite **Angebotsübersicht** in Ihrem Browser aktualisieren, um festzustellen, ob Ihr Angebot die Phase „Einholen der Genehmigung des Herausgebers“ erreicht hat. Wenn dies der Fall ist, sind die Schaltfläche **Live schalten** und Vorschaulinks verfügbar.
@@ -143,7 +156,7 @@ Auf der Seite **Angebotsübersicht** werden unter der Schaltfläche **Live schal
 
 Nachdem Sie Ihre Vorschau genehmigt haben, wählen Sie **Live schalten** aus, um Ihr Angebot live im kommerziellen Marketplace zu veröffentlichen. 
 
-Wenn Sie nach der Vorschauphase Änderungen am Angebot vornehmen möchten, können Sie es bearbeiten und die Veröffentlichungsanforderung erneut übermitteln. Wenn Ihr Angebot bereits live geschaltet und im Marketplace für die Öffentlichkeit verfügbar ist, werden alle von Ihnen vorgenommenen Aktualisierungen erst dann live geschaltet, wenn Sie *Live schalten* auswählen. Weitere Informationen finden Sie unter [Aktualisieren eines bestehenden Angebots im kommerziellen Marketplace](./partner-center-portal/update-existing-offer.md).
+Wenn Sie nach der Vorschauphase Änderungen am Angebot vornehmen möchten, können Sie es bearbeiten und die Veröffentlichungsanforderung erneut übermitteln. Wenn Ihr Angebot bereits live geschaltet und im Marketplace für die Öffentlichkeit verfügbar ist, werden alle von Ihnen vorgenommenen Aktualisierungen erst dann live geschaltet, wenn Sie *Live schalten* auswählen. Weitere Informationen finden Sie unter [Aktualisieren eines bestehenden Angebots im kommerziellen Marketplace](partner-center-portal/update-existing-offer.md).
 
 ## <a name="publish-phase"></a>Phase „Veröffentlichung“
 
@@ -185,17 +198,17 @@ Zum Anzeigen des Verlaufs Ihres Angebots gehen Sie folgendermaßen vor:
 |Ereignis    |Beschreibung    |
 |---------|---------------|
 |Angebot erstellt    |Das Angebot wurde im Partner Center erstellt. Ein Benutzer hat den Angebotstyp, die Angebots-ID und den Angebotsalias in **Kommerzieller Marketplace** > **Übersicht** ausgewählt.    |
-|Plan erstellt: *Planname*    |Ein Benutzer hat einen neuen Plan erstellt, indem er die Plan-ID und den Plannamen auf der Registerkarte **Planübersicht** eingegeben hat.</br>*Dieses Ereignis trifft nur für Angebotstypen zu, die Pläne unterstützen* .    |
-|Plan gelöscht    |Ein Benutzer hat einen nicht veröffentlichten Planentwurf gelöscht, indem er auf der Seite **Planübersicht** die Option **Entwurf löschen** ausgewählt hat.</br>*Dieses Ereignis trifft nur für Angebotstypen zu, die Pläne unterstützen* .    |
-|Einstellung des Verkaufs für den Plan initiiert: *Planname*    |Ein Benutzer hat die Einstellung des Verkaufs für den Plan initiiert, indem er auf der Seite **Planübersicht** die Option **Verkauf beenden** ausgewählt hat.</br>*Dieses Ereignis trifft nur für Angebotstypen zu, die Pläne unterstützen* .    |
-|Einstellung des Verkaufs für den Plan rückgängig gemacht: *Planname*    |Ein Benutzer hat die Einstellung des Verkaufs für den Plan abgebrochen, indem er auf der Seite **Planübersicht** die Option **Verkaufsstopp rückgängig machen** ausgewählt hat.</br>*Dieses Ereignis trifft nur für Angebotstypen zu, die Pläne unterstützen* .    |
+|Plan erstellt: *Planname*    |Ein Benutzer hat einen neuen Plan erstellt, indem er die Plan-ID und den Plannamen auf der Registerkarte **Planübersicht** eingegeben hat.</br>*Dieses Ereignis trifft nur für Angebotstypen zu, die Pläne unterstützen*.    |
+|Plan gelöscht    |Ein Benutzer hat einen nicht veröffentlichten Planentwurf gelöscht, indem er auf der Seite **Planübersicht** die Option **Entwurf löschen** ausgewählt hat.</br>*Dieses Ereignis trifft nur für Angebotstypen zu, die Pläne unterstützen*.    |
+|Einstellung des Verkaufs für den Plan initiiert: *Planname*    |Ein Benutzer hat die Einstellung des Verkaufs für den Plan initiiert, indem er auf der Seite **Planübersicht** die Option **Verkauf beenden** ausgewählt hat.</br>*Dieses Ereignis trifft nur für Angebotstypen zu, die Pläne unterstützen*.    |
+|Einstellung des Verkaufs für den Plan rückgängig gemacht: *Planname*    |Ein Benutzer hat die Einstellung des Verkaufs für den Plan abgebrochen, indem er auf der Seite **Planübersicht** die Option **Verkaufsstopp rückgängig machen** ausgewählt hat.</br>*Dieses Ereignis trifft nur für Angebotstypen zu, die Pläne unterstützen*.    |
 |Angebot für die Vorschau übermittelt    |Ein Benutzer hat das Angebot für die Vorschau übermittelt, indem er auf der Seite **Überprüfen und veröffentlichen** die Option **Veröffentlichen** ausgewählt hat.    |
-|Abbruch der Übermittlung für die Vorschau initiiert    |Ein Benutzer hat einen Abbruch der Angebotsveröffentlichung für die Vorschau angefordert, indem er nach der Übermittlung für die Vorschau auf der Seite **Angebotsübersicht** die Option **Veröffentlichung abbrechen** ausgewählt hat.</br>*Dieses Ereignis wird angezeigt, während die Abbruchanforderung verarbeitet wird* .    |
-|Übermittlung für die Vorschau abgebrochen    |Ein Benutzer hat die Angebotsveröffentlichung für die Vorschau abgebrochen, indem er nach der Übermittlung für die Vorschau auf der Seite **Angebotsübersicht** die Option **Veröffentlichung abbrechen** ausgewählt hat.</br>*Dieses Ereignis wird angezeigt, nachdem die Abbruchanforderung erfolgreich verarbeitet wurde* .    |
+|Abbruch der Übermittlung für die Vorschau initiiert    |Ein Benutzer hat einen Abbruch der Angebotsveröffentlichung für die Vorschau angefordert, indem er nach der Übermittlung für die Vorschau auf der Seite **Angebotsübersicht** die Option **Veröffentlichung abbrechen** ausgewählt hat.</br>*Dieses Ereignis wird angezeigt, während die Abbruchanforderung verarbeitet wird*.    |
+|Übermittlung für die Vorschau abgebrochen    |Ein Benutzer hat die Angebotsveröffentlichung für die Vorschau abgebrochen, indem er nach der Übermittlung für die Vorschau auf der Seite **Angebotsübersicht** die Option **Veröffentlichung abbrechen** ausgewählt hat.</br>*Dieses Ereignis wird angezeigt, nachdem die Abbruchanforderung erfolgreich verarbeitet wurde*.    |
 |Liveschaltung freigegeben    |Ein Benutzer hat das Angebot im kommerziellen Marketplace veröffentlicht, indem er auf der Seite **Angebotsübersicht** die Option **Live schalten** ausgewählt hat.    |
-|Abbruch der Veröffentlichung im Marketplace initiiert    |Ein Benutzer hat einen Abbruch der Angebotsveröffentlichung angefordert, indem er nach Freigabe der Liveschaltung auf der Seite **Angebotsübersicht** die Option **Veröffentlichung abbrechen** ausgewählt hat.</br>*Dieses Ereignis wird angezeigt, während die Abbruchanforderung verarbeitet wird* .    |
-|Veröffentlichung im kommerziellen Marketplace abgebrochen    |Ein Benutzer hat die Angebotsveröffentlichung abgebrochen, indem er nach Freigabe der Liveschaltung auf der Seite **Angebotsübersicht** die Option **Veröffentlichung abbrechen** ausgewählt hat.</br>*Dieses Ereignis wird angezeigt, nachdem die Abbruchanforderung erfolgreich verarbeitet wurde* .    |
-|Private Zielgruppe synchronisiert    |Ein Benutzer hat die private Zielgruppe aktualisiert und synchronisiert, indem er auf der Seite **Planübersicht** oder der Seite **Preise und Verfügbarkeit des Plans** die Option **Private Zielgruppe synchronisieren** ausgewählt hat.</br>*Dieses Ereignis trifft nur für Angebotstypen zu, die private Pläne unterstützen* .    |
+|Abbruch der Veröffentlichung im Marketplace initiiert    |Ein Benutzer hat einen Abbruch der Angebotsveröffentlichung angefordert, indem er nach Freigabe der Liveschaltung auf der Seite **Angebotsübersicht** die Option **Veröffentlichung abbrechen** ausgewählt hat.</br>*Dieses Ereignis wird angezeigt, während die Abbruchanforderung verarbeitet wird*.    |
+|Veröffentlichung im kommerziellen Marketplace abgebrochen    |Ein Benutzer hat die Angebotsveröffentlichung abgebrochen, indem er nach Freigabe der Liveschaltung auf der Seite **Angebotsübersicht** die Option **Veröffentlichung abbrechen** ausgewählt hat.</br>*Dieses Ereignis wird angezeigt, nachdem die Abbruchanforderung erfolgreich verarbeitet wurde*.    |
+|Private Zielgruppe synchronisiert    |Ein Benutzer hat die private Zielgruppe aktualisiert und synchronisiert, indem er auf der Seite **Planübersicht** oder der Seite **Preise und Verfügbarkeit des Plans** die Option **Private Zielgruppe synchronisieren** ausgewählt hat.</br>*Dieses Ereignis trifft nur für Angebotstypen zu, die private Pläne unterstützen*.    |
 |Verkauf des Angebots eingestellt    |Ein Benutzer hat den Verkauf des Angebots eingestellt, indem er auf der Seite **Angebotsübersicht** die Option **Verkauf beenden** ausgewählt hat.    |
 
 > [!NOTE]

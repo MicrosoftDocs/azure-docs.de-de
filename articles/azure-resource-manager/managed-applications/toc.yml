@@ -17,7 +17,7 @@
       href: tutorial-create-managed-app-with-custom-provider.md
 - name: Beispiele
   items:
-    - name: Azure CLI
+    - name: Azure-Befehlszeilenschnittstelle
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
@@ -31,6 +31,10 @@
       href: concepts-built-in-policy.md
     - name: Rollendefinitionsartefakt
       href: concepts-custom-role-definition.md
+    - name: Sicherheit
+      items:
+        - name: Sicherheitsbaseline
+          href: security-baseline.md
 - name: Anleitungen
   items:
     - name: Herausgeber
@@ -40,7 +44,7 @@
         - name: Testen einer Portalschnittstelle
           href: test-createuidefinition.md
         - name: Erstellen eines Azure-Anwendungsangebots
-          href: ../../marketplace/partner-center-portal/create-new-azure-apps-offer.md?toc=/azure/azure-resource-manager/managed-applications/toc.json
+          href: ../../marketplace/create-new-azure-apps-offer.md?toc=/azure/azure-resource-manager/managed-applications/toc.json
         - name: Anfordern des Just-In-Time-Zugriffs
           href: request-just-in-time-access.md
         - name: Verwenden eines vorhandenen virtuellen Netzwerks
@@ -71,7 +75,7 @@
           href: reference-main-template-artifact.md
         - name: Anzeigen der Definition
           href: reference-view-definition-artifact.md
-    - name: Azure CLI
+    - name: Azure-Befehlszeilenschnittstelle
       href: /cli/azure/managedapp
     - name: PowerShell
       href: /powershell/module/az.resources

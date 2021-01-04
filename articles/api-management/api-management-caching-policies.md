@@ -11,17 +11,20 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: cc258a0e790559cb343bfbf2eda0787962e2063e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 4db42d8fa8c676b20b236577ce6646b909df7c3a
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071267"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638885"
 ---
 # <a name="api-management-caching-policies"></a>Cacherichtlinien für API Management
 Dieses Thema enthält eine Referenz für die folgenden API Management-Richtlinien. Weitere Informationen zum Hinzufügen und Konfigurieren von Richtlinien finden Sie unter [Richtlinien in API Management](./api-management-policies.md).
+
+> [!IMPORTANT]
+> Der integrierte Cache ist flüchtig und wird von allen Einheiten in derselben Region desselben API Management-Diensts gemeinsam genutzt.
 
 ## <a name="caching-policies"></a><a name="CachingPolicies"></a> Cacherichtlinien
 
@@ -283,7 +286,7 @@ Diese Richtlinie kann in den folgenden [Abschnitten](./api-management-howto-poli
 - **Richtlinienabschnitte:** inbound, outbound, backend, on-error
 - **Richtlinienbereiche:** alle Bereiche
 
-### <a name="remove-value-from-cache"></a><a name="RemoveCacheByKey"></a> Wert aus Cache entfernen
+## <a name="remove-value-from-cache"></a><a name="RemoveCacheByKey"></a> Wert aus Cache entfernen
 `cache-remove-value` löscht ein zwischengespeichertes Element, das über seinen Schlüssel identifiziert wird. Der Schlüssel kann einen beliebigen Zeichenfolgenwert aufweisen und wird in der Regel über einen Richtlinienausdruck angegeben.
 
 #### <a name="policy-statement"></a>Richtlinienanweisung

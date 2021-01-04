@@ -3,14 +3,14 @@ title: Verwalten von Variablen in Azure Automation
 description: In diesem Artikel erfahren Sie, wie Sie Variablen in Runbooks und DSC-Konfigurationen verwenden.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 10/05/2020
+ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4749fcb6698ff1716f2cae257cc0efad458bf9a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5be0d45843eed8c7c0d7d9b6dc4655de01e914c3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766194"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461451"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Verwalten von Variablen in Azure Automation
 
@@ -26,10 +26,10 @@ Automatisierungsvariablen sind in folgenden Szenarien hilfreich:
 
 Azure Automation speichert Variablen persistent und macht sie auch dann verfügbar, wenn die Ausführung eines Runbooks oder einer DSC-Konfiguration zu einem Fehler führt. Durch dieses Verhalten kann ein Runbook oder eine DSC-Konfiguration einen Wert festlegen, der dann bei der nächsten Ausführung von einem anderen Runbook bzw. vom selben Runbook oder derselben DSC-Konfiguration genutzt werden kann.
 
-Azure Automation speichert jede verschlüsselte Variable sicher. Beim Erstellen einer Variablen können Sie die Verschlüsselung und den Speicher durch Azure Automation als sichere Ressource angeben. Nachdem Sie die Variable erstellt haben, können Sie ihren Verschlüsselungsstatus nicht ändern, ohne die Variable neu erstellen zu müssen. Eine Azure Security Center-Empfehlung ist, alle Azure Automation-Variablen wie unter [Automation-Kontovariablen sollten verschlüsselt werden](../../security-center/recommendations-reference.md#recs-computeapp) beschrieben zu verschlüsseln.
+Azure Automation speichert jede verschlüsselte Variable sicher. Beim Erstellen einer Variablen können Sie die Verschlüsselung und den Speicher durch Azure Automation als sichere Ressource angeben. Nachdem Sie die Variable erstellt haben, können Sie ihren Verschlüsselungsstatus nicht ändern, ohne die Variable neu erstellen zu müssen. Wenn Sie über Automation-Kontovariablen verfügen, in denen vertrauliche Daten gespeichert werden und die noch nicht verschlüsselt sind, müssen Sie sie löschen und als verschlüsselte Variablen neu erstellen. Eine Azure Security Center-Empfehlung ist, alle Azure Automation-Variablen wie unter [Automation-Kontovariablen sollten verschlüsselt werden](../../security-center/recommendations-reference.md#recs-computeapp) beschrieben zu verschlüsseln. Wenn Sie über unverschlüsselte Variablen verfügen, die aus dieser Sicherheitsempfehlung ausgeschlossen werden sollen, erfahren Sie unter [Ausschließen einer Ressource aus Empfehlungen und der Sicherheitsbewertung](../../security-center/exempt-resource.md), wie Sie eine Ausnahmeregel erstellen.
 
 >[!NOTE]
->Zu den sicheren Objekten in Azure Automation gehören Anmeldeinformationen, Zertifikate, Verbindungen und verschlüsselte Variablen. Diese Objekte werden mithilfe eines eindeutigen Schlüssels verschlüsselt und in Azure Automation gespeichert, der für jedes Automation-Konto generiert wird. Azure Automation speichert den Schlüssel im vom System verwalteten Schlüsseltresor. Vor dem Speichern einer sicheren Ressource lädt Azure Automation den Schlüssel aus dem Schlüsseltresor und verwendet ihn dann zum Verschlüsseln der Ressource. 
+>Zu den sicheren Objekten in Azure Automation gehören Anmeldeinformationen, Zertifikate, Verbindungen und verschlüsselte Variablen. Diese Objekte werden mithilfe eines eindeutigen Schlüssels verschlüsselt und in Azure Automation gespeichert, der für jedes Automation-Konto generiert wird. Azure Automation speichert den Schlüssel im vom System verwalteten Schlüsseltresor. Vor dem Speichern einer sicheren Ressource lädt Azure Automation den Schlüssel aus dem Schlüsseltresor und verwendet ihn dann zum Verschlüsseln der Ressource.
 
 ## <a name="variable-types"></a>Variablentypen
 

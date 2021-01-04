@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c003145acd423fd96dd0ac6c054884024c2ce4a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac6055029b8fc7bbba11a8e3b789df3b6b1622e2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75864229"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322747"
 ---
 # <a name="team-data-science-process-project-planning"></a>Projektplanung für einen Team Data Science-Prozess
 
@@ -30,7 +30,7 @@ Der Lebenszyklus beschreibt die wichtigsten Phasen, die Projekte typischerweise,
 - Bereitstellung
 - Kundenakzeptanz
 
-Beschreibungen zu den einzelnen Phasen finden Sie unter [Lebenszyklus des Team Data Science-Prozesses](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle).
+Beschreibungen zu den einzelnen Phasen finden Sie unter [Lebenszyklus des Team Data Science-Prozesses](./lifecycle.md).
 
  
 ## <a name="microsoft-project-template"></a>Microsoft Project-Vorlage
@@ -60,5 +60,4 @@ Verwenden Sie dieses [Projektvorlagenrepository](https://github.com/Azure/Azure-
 
 [Agile Entwicklung von Data Science-Projekten:](agile-development.md) Dieses Dokument beschreibt, wie ein Data Science-Projekt auf systematische Weise mit Versionskontrolle und Kollaboration über den Team Data Science-Prozess ausgeführt werden kann.
 
-Exemplarische Vorgehensweisen, in denen sämtliche Schritte im Prozess für **bestimmte Szenarien** gezeigt werden, sind ebenfalls verfügbar. Sie sind im Artikel [Exemplarische Vorgehensweisen](walkthroughs.md) aufgeführt und mit Miniaturansichtsbeschreibungen verlinkt. Sie zeigen, wie Cloud- und lokale Tools und Dienste in einem Workflow oder einer Pipeline zum Erstellen einer intelligenten Anwendung kombiniert werden. 
-
+Exemplarische Vorgehensweisen, in denen sämtliche Schritte im Prozess für **bestimmte Szenarien** gezeigt werden, sind ebenfalls verfügbar. Sie sind im Artikel [Exemplarische Vorgehensweisen](walkthroughs.md) aufgeführt und mit Miniaturansichtsbeschreibungen verlinkt. Sie zeigen, wie Cloud- und lokale Tools und Dienste in einem Workflow oder einer Pipeline zum Erstellen einer intelligenten Anwendung kombiniert werden.

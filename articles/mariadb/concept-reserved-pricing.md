@@ -1,17 +1,17 @@
 ---
 title: Vorauszahlung für Compute mit reservierter Kapazität (Azure Database for MariaDB)
 description: Vorauszahlung für Azure Database for MariaDB-Computeressourcen mit reservierter Kapazität
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: b91ccb9f11740599ecf060c98f9fcc7a26d5b363
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c28abc882635f7cd0815952fe0ae183bef7138d2
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427805"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241615"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>Vorauszahlung für Azure Database for MariaDB-Computeressourcen mit reservierter Kapazität
 
@@ -38,7 +38,7 @@ Nehmen Sie beispielsweise an, Sie führen eine universelle Gen5-MariaDB-Datenban
 ## <a name="buy-azure-database-for-mariadb-reserved-capacity"></a>Reservierte Kapazität für Azure Database for MariaDB kaufen
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.
-2. Klicken Sie auf **Alle Dienste** > **Reservierungen** .
+2. Klicken Sie auf **Alle Dienste** > **Reservierungen**.
 3.  Wählen Sie **Hinzufügen** und dann im Bereich „Reservierungen erwerben“ **Azure Database for MariaDB** aus, um eine neue Reservierung für Ihre MariaDB-Datenbanken zu erwerben.
 4.  Füllen Sie die Pflichtfelder aus. Bei vorhandenen oder neuen Datenbanken, die den von Ihnen ausgewählten Attributen entsprechen, wird der Rabatt auf reservierte Kapazitäten angewendet. Die tatsächliche Anzahl der Azure Database for MariaDB-Server, die den Rabatt erhalten, hängt vom ausgewählten Bereich und der ausgewählten Menge ab.
 

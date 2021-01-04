@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/21/2020
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: 2ca0301f7ce9e343c98283a42a77eb068330389e
-  ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+  ms.openlocfilehash: 61ce8f178bbdf8bf6cbb981933bed290a20fe04e
+  ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/23/2020
-  ms.locfileid: "92489454"
+  ms.lasthandoff: 12/07/2020
+  ms.locfileid: "96749095"
 landingContent:
 - title: Informationen zu Azure Database for PostgreSQL
   linkLists:
@@ -150,6 +150,6 @@ landingContent:
   - linkListType: reference
     links:
     - text: Azure CLI-Entwicklerreferenz
-      url: /rest/api/postgresql/
-    - text: REST-API-Entwicklerreferenz
       url: /cli/azure/postgres
+    - text: REST-API-Entwicklerreferenz
+      url: /rest/api/postgresql/

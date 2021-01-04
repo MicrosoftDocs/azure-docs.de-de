@@ -10,12 +10,12 @@ ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 7a216b9e430c10f42d48df01746e111355cf91b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0da970724a5d6f0ad42ba64939f316ec1ada855b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513289"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905552"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Verwenden privater Endpunkte für Azure Storage
 
@@ -52,12 +52,13 @@ Beim Erstellen des privaten Endpunkts müssen Sie das Speicherkonto und den Spei
 
 > [!TIP]
 > Erstellen Sie einen separaten privaten Endpunkt für die sekundäre Instanz des Speicherdiensts, um die Leseleistung für RA-GRS-Konten zu verbessern.
+> Erstellen Sie unbedingt ein Speicherkonto (Standard oder Premium) vom Typ „Universell v2 (GPv2)“.
 
 Für Lesezugriff auf die sekundäre Region mit einem Speicherkonto, das für georedundanten Speicher konfiguriert ist, benötigen Sie separate private Endpunkte sowohl für die primäre als auch die sekundäre Instanz des Diensts. Sie müssen für ein **Failover** keinen privaten Endpunkt für die sekundäre Instanz erstellen. Der private Endpunkt stellt nach einem Failover automatisch eine Verbindung mit der neuen primären Instanz her. Weitere Informationen zu den Speicherredundanzoptionen finden Sie unter [Azure Storage-Redundanz](storage-redundancy.md).
 
 Ausführlichere Informationen zum Erstellen eines privaten Endpunkts für das Speicherkonto finden Sie in den folgenden Artikeln:
 
-- [Herstellen einer privaten Verbindung mit einem Speicherkonto über die Benutzeroberfläche für Speicherkonten im Azure-Portal](../../private-link/create-private-endpoint-storage-portal.md)
+- [Herstellen einer privaten Verbindung mit einem Speicherkonto über die Benutzeroberfläche für Speicherkonten im Azure-Portal](../../private-link/tutorial-private-endpoint-storage-portal.md)
 - [Erstellen eines privaten Endpunkts über das Private Link Center im Azure-Portal](../../private-link/create-private-endpoint-portal.md)
 - [Erstellen eines privaten Endpunkts mit Azure CLI](../../private-link/create-private-endpoint-cli.md)
 - [Erstellen eines privaten Endpunkts mit Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
@@ -114,8 +115,8 @@ Die empfohlenen DNS-Zonennamen für private Endpunkte für die Speicherdienste l
 
 Weitere Informationen zum Konfigurieren des eigenen DNS-Servers für die Unterstützung privater Endpunkte finden Sie in den folgenden Artikeln:
 
-- [Namensauflösung für Ressourcen in virtuellen Azure-Netzwerken](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [DNS-Konfiguration für private Endpunkte](/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Namensauflösung für Ressourcen in virtuellen Azure-Netzwerken](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+- [DNS-Konfiguration für private Endpunkte](../../private-link/private-endpoint-overview.md#dns-configuration)
 
 ## <a name="pricing"></a>Preise
 
@@ -125,10 +126,6 @@ Ausführliche Preisinformationen finden Sie unter [Azure Private Link – Preise
 
 Beachten Sie die folgenden bekannten Probleme im Zusammenhang mit privaten Endpunkten für Azure Storage:
 
-### <a name="copy-blob-support"></a>Unterstützung für „Copy Blob“
-
-Wenn das Speicherkonto durch eine Firewall geschützt ist und über private Endpunkte auf das Konto zugegriffen wird, kann dieses Konto nicht als Quelle für einen Blobkopiervorgang ([Copy Blob](/rest/api/storageservices/copy-blob)) verwendet werden.
-
 ### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>Einschränkungen beim Speicherzugriff für Clients in VNETs mit privaten Endpunkten
 
 Für Clients in VNETs mit vorhandenen privaten Endpunkten bestehen Einschränkungen beim Zugriff auf andere Speicherkonten mit privaten Endpunkten. Angenommen, das VNET N1 verfügt über einen privaten Endpunkt für das Speicherkonto A1 für Blobspeicher. Wenn nun das Speicherkonto A2 über einen privaten Endpunkt im VNET N2 für Blobspeicher verfügt, müssen Clients im VNET N1 auch auf Blobspeicher im Konto A2 über einen privaten Endpunkt zugreifen. Hat das Speicherkonto A2 keine privaten Endpunkte für Blobspeicher, können Clients im VNET N1 ohne privaten Endpunkt auf Blobspeicher in diesem Konto zugreifen.
@@ -137,7 +134,7 @@ Diese Einschränkung ist die Folge der DNS-Änderungen, die vorgenommen werden, 
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Netzwerksicherheitsgruppen-Regeln für Subnetze mit privaten Endpunkten
 
-Derzeit können keine [Netzwerksicherheitsgruppen](../../virtual-network/security-overview.md)-Regeln und benutzerdefinierten Routen für private Endpunkte konfiguriert werden. Netzwerksicherheitsgruppenregeln, die auf das Subnetz angewendet werden, das den privaten Endpunkt hostet, werden nicht auf den privaten Endpunkt, sondern nur auf andere Endpunkte (z. B. NIC) angewendet. Eine eingeschränkte Umgehung dieses Problems ist das Implementieren Ihrer Zugriffsregeln für private Endpunkte in den Quellsubnetzen, obwohl dieser Ansatz möglicherweise einen höheren Verwaltungsaufwand erfordert.
+Derzeit können keine [Netzwerksicherheitsgruppen](../../virtual-network/network-security-groups-overview.md)-Regeln und benutzerdefinierten Routen für private Endpunkte konfiguriert werden. Netzwerksicherheitsgruppenregeln, die auf das Subnetz angewendet werden, das den privaten Endpunkt hostet, werden nicht auf den privaten Endpunkt, sondern nur auf andere Endpunkte (z. B. NIC) angewendet. Eine eingeschränkte Umgehung dieses Problems ist das Implementieren Ihrer Zugriffsregeln für private Endpunkte in den Quellsubnetzen, obwohl dieser Ansatz möglicherweise einen höheren Verwaltungsaufwand erfordert.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

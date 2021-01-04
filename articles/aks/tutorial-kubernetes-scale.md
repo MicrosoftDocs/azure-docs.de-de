@@ -4,13 +4,13 @@ description: In diesem Azure Kubernetes Service-Tutorial (AKS) erfahren Sie, wie
 services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.custom: mvc
-ms.openlocfilehash: a9a8a73e2208f7efe01f43fa87e196ffd8c64f14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: e700934a965f836456458cb33dc46125bef4ab72
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576301"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746998"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Skalieren von Anwendungen in Azure Kubernetes Service (AKS)
 
@@ -74,7 +74,7 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query kuberne
 ```
 
 > [!NOTE]
-> Hat Ihr AKS-Cluster eine ältere Version als *1.10*, wird der Metrikserver nicht automatisch installiert. Installationsmanifeste für Metrikserver sind als Ressource vom Typ `components.yaml` in Metrikserverversionen verfügbar. Das bedeutet, dass sie über eine URL installiert werden können. Weitere Informationen zu diesen YAML-Definitionen finden Sie in der Infodatei im Abschnitt [Bereitstellung][metrics-server-github].
+> Hat Ihr AKS-Cluster eine ältere Version als *1.10* , wird der Metrikserver nicht automatisch installiert. Installationsmanifeste für Metrikserver sind als Ressource vom Typ `components.yaml` in Metrikserverversionen verfügbar. Das bedeutet, dass sie über eine URL installiert werden können. Weitere Informationen zu diesen YAML-Definitionen finden Sie in der Infodatei im Abschnitt [Bereitstellung][metrics-server-github].
 > 
 > Beispielinstallation:
 > ```console
@@ -91,7 +91,7 @@ resources:
      cpu: 500m
 ```
 
-Das folgende Beispiel verwendet den Befehl [kubectl autoscale][kubectl-autoscale], um die Anzahl von Pods in der Bereitstellung *azure-vote-front* automatisch zu skalieren. Wenn die durchschnittliche CPU-Auslastung aller Pods 50 % der angeforderten Nutzung überschreitet, erhöht die Autoskalierung die Pods auf maximal *10* Instanzen. Mindestens *3* Instanzen werden dann für die Bereitstellung festgelegt:
+Das folgende Beispiel verwendet den Befehl [kubectl autoscale][kubectl-autoscale], um die Anzahl von Pods in der Bereitstellung *azure-vote-front* automatisch zu skalieren. Wenn die durchschnittliche CPU-Auslastung aller Pods 50 % der angeforderten Nutzung überschreitet, erhöht die Autoskalierung die Pods auf maximal *10*  Instanzen. Mindestens *3* Instanzen werden dann für die Bereitstellung festgelegt:
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10

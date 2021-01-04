@@ -3,12 +3,12 @@ title: Konfigurieren von Azure Red Hat OpenShift, Version 3.x mit Azure Monitor
 description: In diesem Artikel wird beschrieben, wie Sie die Überwachung eines in Azure Red Hat OpenShift, Version 3 und höher gehosteten Kubernetes-Clusters mit Azure Monitor konfigurieren können.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 1186056559d6497b2b48cb3533a0967d6d61f38e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2cd39c13ce7d67b2bfcfaca0a6f627e19d289783
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216367"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186914"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Konfigurieren von Azure Red Hat OpenShift, Version 3 mit Azure Monitor für Container
 
@@ -18,7 +18,7 @@ ms.locfileid: "92216367"
 > Ab Oktober 2020 können Sie keine neuen 3.11-Cluster mehr erstellen.
 > Vorhandene 3.11-Cluster werden bis zum Juni 2022 weiter betrieben, jedoch nach diesem Datum nicht mehr unterstützt.
 >
-> Führen Sie die Schritte in diesem Leitfaden aus, um [einen Azure Red Hat OpenShift 4-Cluster zu erstellen](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster).
+> Führen Sie die Schritte in diesem Leitfaden aus, um [einen Azure Red Hat OpenShift 4-Cluster zu erstellen](../../openshift/tutorial-create-cluster.md).
 > Wenn Sie spezielle Fragen haben, [kontaktieren Sie uns](mailto:aro-feedback@microsoft.com).
 
 Azure Monitor für Container bietet umfassende Überwachungsfunktionen für Azure Kubernetes Service- (AKS) und AKS-Engine-Cluster. In diesem Artikel wird beschrieben, wie Sie die Überwachung von auf [Azure Red Hat OpenShift,](../../openshift/intro-openshift.md) Version 3 und der aktuell unterstützten Unterversion gehosteten Kubernetes-Clustern aktivieren, um eine ähnliche Überwachung zu erreichen.
@@ -67,7 +67,7 @@ Azure Monitor für Container unterstützt wie im Artikel [Übersicht](container-
     Microsoft Azure                       AzureCloud   0fb60ef2-03cc-4290-b595-e71108e8f4ce  Enabled  True
     ```
 
-1. Kopieren Sie den Wert für **SubscriptionId** .
+1. Kopieren Sie den Wert für **SubscriptionId**.
 
 1. Wechseln Sie durch Ausführen des folgenden Befehls zu dem Abonnement, das den Log Analytics-Arbeitsbereich hostet:
 
@@ -81,7 +81,7 @@ Azure Monitor für Container unterstützt wie im Artikel [Übersicht](container-
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-1. Suchen Sie in der Ausgabe nach dem Namen des Arbeitsbereichs, und kopieren Sie dann die vollständige Ressourcen-ID dieses Log Analytics-Arbeitsbereichs unter dem Feld **ID** .
+1. Suchen Sie in der Ausgabe nach dem Namen des Arbeitsbereichs, und kopieren Sie dann die vollständige Ressourcen-ID dieses Log Analytics-Arbeitsbereichs unter dem Feld **ID**.
 
 ## <a name="enable-for-a-new-cluster-using-an-azure-resource-manager-template"></a>Aktivieren eines neuen Clusters mithilfe einer Azure Resource Manager-Vorlage
 
@@ -137,7 +137,7 @@ Wenn Sie die Azure CLI verwenden möchten, müssen Sie sie zuerst installieren u
     az group create -g <clusterResourceGroup> -l <location>
     ```
 
-4. Bearbeiten Sie die JSON-Parameterdatei **newClusterWithMonitoringParam.json** , und aktualisieren Sie die folgenden Werte:
+4. Bearbeiten Sie die JSON-Parameterdatei **newClusterWithMonitoringParam.json**, und aktualisieren Sie die folgenden Werte:
 
     - *location*
     - *clusterName*
@@ -170,11 +170,11 @@ Führen Sie die folgenden Schritte aus, um die Überwachung eines in Azure berei
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-2. Klicken Sie im Azure-Portalmenü oder auf der Homepage auf **Azure Monitor** . Wählen Sie im Abschnitt **Insights** die Option **Container** aus.
+2. Klicken Sie im Azure-Portalmenü oder auf der Homepage auf **Azure Monitor**. Wählen Sie im Abschnitt **Insights** die Option **Container** aus.
 
 3. Wählen Sie auf der Seite **Überwachung – Container** die Option **Nicht überwachte Cluster** aus.
 
-4. Suchen Sie in der Liste der nicht überwachten Cluster den Cluster, und klicken Sie auf **Aktivieren** . Sie können die Ergebnisse in der Liste ermitteln, indem Sie in der Spalte **CLUSTERTYP** nach dem Wert **ARO** suchen.
+4. Suchen Sie in der Liste der nicht überwachten Cluster den Cluster, und klicken Sie auf **Aktivieren**. Sie können die Ergebnisse in der Liste ermitteln, indem Sie in der Spalte **CLUSTERTYP** nach dem Wert **ARO** suchen.
 
 5. Wenn Sie im selben Abonnement wie der Cluster über einen Log Analytics-Arbeitsbereich verfügen, wählen Sie ihn auf der Seite **Onboarding zu Azure Monitor für Container** aus der Dropdownliste aus.  
     Die Liste wählt vorab den Standardarbeitsbereich und den Speicherort, in dem der Cluster im Abonnement bereitgestellt wird.
@@ -230,7 +230,7 @@ Wenn Sie die Azure CLI verwenden möchten, müssen Sie sie zuerst installieren u
     az openshift show -g <clusterResourceGroup> -n <clusterName>
     ```
 
-5. Bearbeiten Sie die JSON-Parameterdatei **existingClusterParam.json** , und aktualisieren Sie die Werte *aroResourceId* und *aroResourceLocation* . Der Wert für **workspaceResourceId** ist die vollständige Ressourcen-ID Ihres Log Analytics-Arbeitsbereichs, darunter der Name des Arbeitsbereichs.
+5. Bearbeiten Sie die JSON-Parameterdatei **existingClusterParam.json**, und aktualisieren Sie die Werte *aroResourceId* und *aroResourceLocation*. Der Wert für **workspaceResourceId** ist die vollständige Ressourcen-ID Ihres Log Analytics-Arbeitsbereichs, darunter der Name des Arbeitsbereichs.
 
 6. Führen Sie zum Bereitstellen mit Azure CLI die folgenden Befehle aus:
 

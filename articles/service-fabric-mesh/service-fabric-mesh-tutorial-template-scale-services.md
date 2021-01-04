@@ -5,13 +5,13 @@ author: georgewallace
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
-ms.custom: mvc, devcenter
-ms.openlocfilehash: aad0da53dc667039a62d2115c1afe4e2c6662bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devcenter, devx-track-azurecli
+ms.openlocfilehash: df28083a0522178b7327d9f6d24029d303e417a1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840165"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747875"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Tutorial: Skalieren einer in Service Fabric Mesh ausgeführten Anwendung
 
@@ -56,7 +56,7 @@ Um die Anzahl der ausgeführten Replikate für den ToDoService-Dienst anzuzeigen
 az mesh service show --resource-group myResourceGroup --name ToDoService --app-name todolistapp --query "replicaCount"
 ```
 
-In der Bereitstellungsvorlage für die Anwendungsressource weist jeder Dienst eine Eigenschaft *replicaCount* auf, mit der Sie festlegen können, wie oft der Dienst bereitgestellt werden soll. Eine Anwendung kann aus mehreren zusammen bereitgestellten und verwalteten Diensten bestehen, wobei jeder Dienst eine eindeutige *replicaCount*-Zahl aufweist. Um die Anzahl von Dienstreplikaten zu skalieren, ändern Sie für jeden Dienst, der skaliert werden soll, den *replicaCount*-Wert in der Bereitstellungsvorlage oder in der Parameterdatei.  Führen Sie anschließend ein Upgrade der Anwendung durch.
+In der Bereitstellungsvorlage für die Anwendungsressource weist jeder Dienst eine Eigenschaft *replicaCount* auf, mit der Sie festlegen können, wie oft der Dienst bereitgestellt werden soll. Eine Anwendung kann aus mehreren zusammen bereitgestellten und verwalteten Diensten bestehen, wobei jeder Dienst eine eindeutige *replicaCount* -Zahl aufweist. Um die Anzahl von Dienstreplikaten zu skalieren, ändern Sie für jeden Dienst, der skaliert werden soll, den *replicaCount* -Wert in der Bereitstellungsvorlage oder in der Parameterdatei.  Führen Sie anschließend ein Upgrade der Anwendung durch.
 
 ### <a name="modify-the-deployment-template-parameters"></a>Ändern der Bereitstellungsvorlagenparameter
 
@@ -88,7 +88,7 @@ Speichern Sie Ihre Änderungen an der Parameterdatei.  Die Parameter *frontEndRe
     }
 ```
 
-Die Eigenschaft *replicaCount* des WebFrontEnd-Diensts verweist auf den Parameter *frontEndReplicaCount*, und die Eigenschaft *replicaCount* des ToDoService-Diensts verweist auf den Parameter *serviceReplicaCount*:
+Die Eigenschaft *replicaCount* des WebFrontEnd-Diensts verweist auf den Parameter *frontEndReplicaCount* , und die Eigenschaft *replicaCount* des ToDoService-Diensts verweist auf den Parameter *serviceReplicaCount* :
 
 ```json
     "services": [

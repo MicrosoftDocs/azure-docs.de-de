@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 12/02/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 3d843440adc61b315616a05f223c5a13ebe271ed
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: f12a899d3b6daa3b233e6a799871afca1e24d046
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930831"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533745"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Verhindern von anonymem öffentlichem Lesezugriff auf Container und Blobs
 
@@ -59,7 +59,7 @@ Gehen Sie wie folgt vor, um eine Metrik zur Nachverfolgung anonymer Anforderunge
 
 Nachdem Sie die Metrik konfiguriert haben, werden nach und nach anonyme Anforderungen im Diagramm angezeigt. Die folgende Abbildung zeigt aggregierte anonyme Anforderungen der letzten 30 Minuten:
 
-:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Screenshot: Konfigurieren einer Metrik zum Summieren von Blobtransaktionen":::
+:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Screenshot: Aggregierte anonyme Anforderungen für Blobspeicher":::
 
 Sie können auch eine Warnungsregel konfigurieren, um benachrichtigt zu werden, wenn eine bestimmte Anzahl anonymer Anforderungen an Ihr Speicherkonto gerichtet wird. Weitere Informationen finden Sie unter [Erstellen, Anzeigen und Verwalten von Metrikwarnungen mit Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
@@ -67,9 +67,9 @@ Sie können auch eine Warnungsregel konfigurieren, um benachrichtigt zu werden, 
 
 In Azure Storage-Protokollen werden Details zu Anforderungen für das Speicherkonto erfasst. Hierzu zählt auch die Information, wie eine Anforderung autorisiert wurde. Sie können die Protokolle analysieren, um zu ermitteln, von welchen Containern anonyme Anforderungen empfangen werden.
 
-Wenn Sie Anforderungen für Ihr Azure Storage-Konto protokollieren möchten, um anonyme Anforderungen zu untersuchen, können Sie die Azure Storage-Protokollierung in Azure Monitor (Vorschauversion) verwenden. Weitere Informationen finden Sie unter [Überwachen von Azure Storage](../common/monitor-storage.md).
+Wenn Sie Anforderungen für Ihr Azure Storage-Konto protokollieren möchten, um anonyme Anforderungen zu untersuchen, können Sie die Azure Storage-Protokollierung in Azure Monitor (Vorschauversion) verwenden. Weitere Informationen finden Sie unter [Überwachen von Azure Storage](./monitor-blob-storage.md).
 
-Die Azure Storage-Protokollierung in Azure Monitor unterstützt die Verwendung von Protokollabfragen für die Analyse von Protokolldaten. Für die Abfrage von Protokollen können Sie einen Azure Log Analytics-Arbeitsbereich verwenden. Weitere Informationen zu Protokollabfragen finden Sie unter [Tutorial: Erste Schritte mit Log Analytics-Abfragen](../../azure-monitor/log-query/get-started-portal.md).
+Die Azure Storage-Protokollierung in Azure Monitor unterstützt die Verwendung von Protokollabfragen für die Analyse von Protokolldaten. Für die Abfrage von Protokollen können Sie einen Azure Log Analytics-Arbeitsbereich verwenden. Weitere Informationen zu Protokollabfragen finden Sie unter [Tutorial: Erste Schritte mit Log Analytics-Abfragen](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
 > [!NOTE]
 > Die Vorschauversion der Azure Storage-Protokollierung in Azure Monitor wird nur in der öffentlichen Azure-Cloud unterstützt. Government-Clouds unterstützten die Protokollierung für Azure Storage mit Azure Monitor nicht.
@@ -88,11 +88,11 @@ Wenn Sie Azure Storage-Daten mit Azure Monitor protokollieren und mit Azure Log 
 1. Wählen Sie unter **Kategoriedetails** im Abschnitt **Protokoll** aus, welche Arten von Anforderungen protokolliert werden sollen. Da es sich bei anonymen Anforderungen um Leseanforderungen handelt, wählen Sie **StorageRead** aus, um anonyme Anforderungen zu erfassen.
 1. Wählen Sie unter **Zieldetails** die Option **An Log Analytics senden** aus. Wählen Sie Ihr Abonnement und den zuvor erstellten Log Analytics-Arbeitsbereich aus, wie in der folgenden Abbildung zu sehen:
 
-    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot: Konfigurieren einer Metrik zum Summieren von Blobtransaktionen":::
+    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot: Erstellen einer Diagnoseeinstellung für die Protokollierung von Anforderungen":::
 
 Nachdem Sie die Diagnoseeinstellung erstellt haben, werden Anforderungen für das Speicherkonto gemäß dieser Einstellung protokolliert. Weitere Informationen finden Sie unter [Erstellen von Diagnoseeinstellungen zum Senden von Plattformprotokollen und Metriken an verschiedene Ziele](../../azure-monitor/platform/diagnostic-settings.md).
 
-Eine Referenz der Felder, die in Azure Storage-Protokollen in Azure Monitor verfügbar sind, finden Sie unter [Ressourcenprotokolle (Vorschau)](../common/monitor-storage-reference.md#resource-logs-preview).
+Eine Referenz der Felder, die in Azure Storage-Protokollen in Azure Monitor verfügbar sind, finden Sie unter [Ressourcenprotokolle (Vorschau)](./monitor-blob-storage-reference.md#resource-logs-preview).
 
 #### <a name="query-logs-for-anonymous-requests"></a>Abfragen anonymer Anforderungen in Protokollen
 
@@ -164,7 +164,9 @@ New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
 
 ### <a name="check-the-public-access-setting-for-multiple-accounts"></a>Überprüfen der Einstellung für den öffentlichen Zugriff für mehrere Konten
 
-Wenn Sie die Einstellung für den öffentlichen Zugriff für eine Gruppe von Speicherkonten mit optimaler Leistung überprüfen möchten, können Sie den Azure Resource Graph-Explorer im Azure-Portal verwenden. Weitere Informationen zur Verwendung des Resource Graph-Explorers finden Sie unter [Schnellstart: Ausführen Ihrer ersten Resource Graph-Abfrage mithilfe des Azure Resource Graph-Explorers](/azure/governance/resource-graph/first-query-portal).
+Wenn Sie die Einstellung für den öffentlichen Zugriff für eine Gruppe von Speicherkonten mit optimaler Leistung überprüfen möchten, können Sie den Azure Resource Graph-Explorer im Azure-Portal verwenden. Weitere Informationen zur Verwendung des Resource Graph-Explorers finden Sie unter [Schnellstart: Ausführen Ihrer ersten Resource Graph-Abfrage mithilfe des Azure Resource Graph-Explorers](../../governance/resource-graph/first-query-portal.md).
+
+Die Eigenschaft **AllowBlobPublicAccess** wird nicht standardmäßig für ein Speicherkonto festgelegt und gibt erst dann einen Wert zurück, wenn Sie sie explizit festgelegt haben. Das Speicherkonto gestattet den öffentlichen Zugriff, wenn der Eigenschaftswert entweder **NULL** oder **true** ist.
 
 Wenn Sie die folgende Abfrage im Resource Graph-Explorer ausführen, wird eine Liste der Speicherkonten zurückgegeben und für jedes Konto die Einstellung für den öffentlichen Zugriff angezeigt:
 
@@ -174,6 +176,10 @@ resources
 | extend allowBlobPublicAccess = parse_json(properties).allowBlobPublicAccess
 | project subscriptionId, resourceGroup, name, allowBlobPublicAccess
 ```
+
+Die folgende Abbildung zeigt die Ergebnisse einer abonnementweiten Abfrage. Beachten Sie, dass bei Speicherkonten, für die die Eigenschaft **AllowBlobPublicAccess** explizit festgelegt wurde, in den Ergebnissen **true** oder **false** angegeben wird. Wurde die Eigenschaft **AllowBlobPublicAccess** für ein Speicherkonto nicht festgelegt, wird in den Abfrageergebnissen ein Leer- oder Nullwert angegeben.
+
+:::image type="content" source="media/anonymous-read-access-prevent/check-public-access-setting-accounts.png" alt-text="Screenshot: Abfrageergebnisse für die Einstellung für öffentlichen Zugriff für Speicherkonten":::
 
 ## <a name="use-azure-policy-to-audit-for-compliance"></a>Verwenden von Azure Policy zur Überwachung der Konformität
 
@@ -244,7 +250,7 @@ Führen Sie die folgenden Schritte aus, um den Konformitätsbericht im Azure-Por
 1. Filtern Sie die Ergebnisse nach dem Namen der Richtlinienzuweisung, die Sie im vorherigen Schritt erstellt haben. Der Bericht zeigt, wie viele Ressourcen nicht mit der Richtlinie konform sind.
 1. Sie können einen Drilldown in den Bericht ausführen, um weitere Details anzuzeigen, einschließlich einer Liste von Speicherkonten, die nicht konform sind.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Screenshot: Konfigurieren einer Metrik zum Summieren von Blobtransaktionen":::
+    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Screenshot mit Konformitätsbericht für Überwachungsrichtlinien für den öffentlichen Blobzugriff":::
 
 ## <a name="use-azure-policy-to-enforce-authorized-access"></a>Erzwingen des autorisierten Zugriffs mit Azure Policy
 
@@ -280,7 +286,7 @@ Nachdem Sie die Richtlinie mit der Auswirkung „Deny“ erstellt und einem Bere
 
 Die folgende Abbildung zeigt den Fehler, der beim Erstellen eines Speicherkontos auftritt, das den öffentlichen Zugriff erlaubt (die Standardeinstellung für ein neues Konto), wenn eine Richtlinie mit der Auswirkung „Deny“ erfordert, dass der öffentliche Zugriff nicht gestattet wird.
 
-:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Screenshot: Konfigurieren einer Metrik zum Summieren von Blobtransaktionen":::
+:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Screenshot mit dem Fehler, der beim Erstellen eines Speicherkontos bei einem Verstoß gegen die Richtlinie auftritt":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 

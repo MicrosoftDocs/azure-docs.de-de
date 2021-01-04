@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.custom: cog-serv-seo-aug-2020
 ms.author: pafarley
-ms.openlocfilehash: bea422514b109f446ee30633b0074730f9b89af0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 324f89d2de56666242ed4f6231eff0855ec561b3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332562"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356476"
 ---
 Hier erhalten Sie Informationen zu den ersten Schritten mit der Azure Content Moderator-Clientbibliothek für Python. Führen Sie die nachfolgenden Schritte zum Installieren des PiPy-Pakets aus, und testen Sie den Beispielcode für grundlegende Aufgaben. 
 
@@ -24,47 +24,50 @@ Content Moderator ist ein KI-Dienst für die Behandlung potenziell anstößiger,
 
 Führen Sie mit der Content Moderator-Clientbibliothek für Python die folgenden Aktionen aus:
 
-* [Moderieren von Text](#moderate-text)
-* [Verwenden einer benutzerdefinierten Begriffsliste](#use-a-custom-terms-list)
-* [Moderieren von Bildern](#moderate-images)
-* [Verwenden einer benutzerdefinierten Bildliste](#use-a-custom-image-list)
-* [Erstellen einer Überprüfung](#create-a-review)
+* Moderieren von Text
+* Verwenden einer benutzerdefinierten Begriffsliste
+* Moderieren von Bildern
+* Verwenden einer benutzerdefinierten Bildliste
+* Erstellen einer Überprüfung
 
-[Referenzdokumentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python) | [Quellcode der Bibliothek](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-contentmoderator) | [Paket (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/) | [Beispiele](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[Referenzdokumentation](/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python) | [Quellcode der Bibliothek](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-contentmoderator) | [Paket (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/) | [Beispiele](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 * Azure-Abonnement – [Erstellen eines kostenlosen Kontos](https://azure.microsoft.com/free/cognitive-services/)
 * [Python 3.x](https://www.python.org/)
+* Wenn Sie über ein Azure-Abonnement verfügen, können Sie im Azure-Portal <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator"  title="Erstellen einer Content Moderator-Ressource"  target="_blank">eine Content Moderator-Ressource erstellen <span class="docon docon-navigate-external x-hidden-focus"></span></a>, um Ihren Schlüssel und Endpunkt abzurufen. Warten Sie ihre Bereitstellung ab, und klicken Sie auf die Schaltfläche **Zu Ressource wechseln**.
+    * Sie benötigen den Schlüssel und Endpunkt der von Ihnen erstellten Ressource, um für Ihre Anwendung eine Verbindung mit Content Moderator herzustellen. Der Schlüssel und der Endpunkt werden weiter unten in der Schnellstartanleitung in den Code eingefügt.
+    * Sie können den kostenlosen Tarif (`F0`) verwenden, um den Dienst zu testen, und später für die Produktion auf einen kostenpflichtigen Tarif upgraden.
 
-## <a name="create-a-content-moderator-resource"></a>Erstellen einer Content Moderator-Ressource
 
-Azure Cognitive Services werden von Azure-Ressourcen dargestellt, die Sie abonnieren. Erstellen Sie mithilfe des [Azure-Portals](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) oder der [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) auf Ihrem lokalen Computer eine Ressource für Content Moderator. Sie können außerdem:
+## <a name="setting-up"></a>Einrichten
 
-* Zeigen Sie Ihre Ressource im [Azure-Portal](https://portal.azure.com/) an.
+### <a name="install-the-client-library"></a>Installieren der Clientbibliothek
 
-Nachdem Sie einen Schlüssel für Ihre Ressource erhalten haben, [erstellen Sie Umgebungsvariablen](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) für den Schlüssel und eine Endpunkt-URL mit den Namen `CONTENT_MODERATOR_SUBSCRIPTION_KEY` bzw. `CONTENT_MODERATOR_ENDPOINT`.
- 
-## <a name="create-a-new-python-script"></a>Erstellen eines neuen Python-Skripts
+Nach der Installation von Python können Sie die Content Moderator-Clientbibliothek mit dem folgenden Befehl installieren:
+
+```console
+pip install --upgrade azure-cognitiveservices-vision-contentmoderator
+```
+
+### <a name="create-a-new-python-application"></a>Erstellen einer neuen Python-Anwendung
 
 Erstellen Sie ein neues Python-Skript, und öffnen Sie es in Ihrem bevorzugten Editor oder Ihrer bevorzugten IDE. Fügen Sie dann am Anfang der Datei die folgenden `import`-Anweisungen hinzu:
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_imports)]
 
-Erstellen Sie als Nächstes Variablen für den Endpunktstandort der Ressource und den Schlüssel als Umgebungsvariable. 
+> [!TIP]
+> Möchten Sie sich sofort die gesamte Codedatei für die Schnellstartanleitung ansehen? Die Datei steht [auf GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ContentModerator/ContentModeratorQuickstart.py) zur Verfügung. Dort finden Sie die Codebeispiele aus dieser Schnellstartanleitung.
+
+Erstellen Sie als Nächstes Variablen für den Endpunktstandort und den Schlüssel der Ressource.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_vars)]
 
-> [!NOTE]
-> Wenn Sie die Umgebungsvariablen nach dem Start der Anwendung erstellt haben, müssen der Editor, die IDE oder die Shell, in dem bzw. der sie ausgeführt wird, geschlossen und erneut geöffnet werden, damit der Zugriff auf die Variable möglich ist.
-
-## <a name="install-the-client-library"></a>Installieren der Clientbibliothek
-
-Sie können die Content Moderator-Clientbibliothek mit dem folgenden Befehl installieren:
-
-```console
-pip install --upgrade azure-cognitiveservices-vision-contentmoderator
-```
+> [!IMPORTANT]
+> Öffnen Sie das Azure-Portal. Wenn die im Abschnitt **Voraussetzungen** erstellte Content Moderator-Ressource erfolgreich bereitgestellt wurde, klicken Sie unter **Nächste Schritte** auf die Schaltfläche **Zu Ressource wechseln**. Schlüssel und Endpunkt finden Sie auf der Seite mit dem **Schlüssel und dem Endpunkt** der Ressource unter **Ressourcenverwaltung**. 
+>
+> Denken Sie daran, den Schlüssel aus Ihrem Code zu entfernen, wenn Sie fertig sind, und ihn niemals zu veröffentlichen. In der Produktionsumgebung sollten Sie eine sichere Methode zum Speichern Ihrer Anmeldeinformationen sowie zum Zugriff darauf verwenden. Beispielsweise [Azure Key Vault](../../../../key-vault/general/overview.md).
 
 ## <a name="object-model"></a>Objektmodell
 
@@ -72,10 +75,10 @@ Mit den folgenden Klassen werden einige Hauptfunktionen der Content Moderator-C
 
 |Name|BESCHREIBUNG|
 |---|---|
-|[ContentModeratorClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python)|Diese Klasse wird für alle Content Moderator-Funktionen benötigt. Sie instanziieren sie mit Ihren Abonnementinformationen und verwenden sie zum Generieren von Instanzen anderer Klassen.|
-|[ImageModerationOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.imagemoderationoperations?view=azure-python)|Diese Klasse stellt die Funktionalität zum Analysieren von Bildern auf nicht jugendfreie Inhalte, persönliche Informationen oder menschliche Gesichter bereit.|
-|[TextModerationOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)|Diese Klasse stellt die Funktionalität zum Analysieren von Text auf Sprache, Obszönitäten, Fehler und persönliche Informationen bereit.|
-[ReviewsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations?view=azure-python)|Diese Klasse stellt die Funktionalität der Überprüfungs-APIs bereit, einschließlich der Methoden zum Erstellen von Aufträgen, benutzerdefinierten Workflows und Überprüfungen durch Personen.|
+|[ContentModeratorClient](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python)|Diese Klasse wird für alle Content Moderator-Funktionen benötigt. Sie instanziieren sie mit Ihren Abonnementinformationen und verwenden sie zum Generieren von Instanzen anderer Klassen.|
+|[ImageModerationOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.imagemoderationoperations?view=azure-python)|Diese Klasse stellt die Funktionalität zum Analysieren von Bildern auf nicht jugendfreie Inhalte, persönliche Informationen oder menschliche Gesichter bereit.|
+|[TextModerationOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)|Diese Klasse stellt die Funktionalität zum Analysieren von Text auf Sprache, Obszönitäten, Fehler und persönliche Informationen bereit.|
+[ReviewsOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations?view=azure-python)|Diese Klasse stellt die Funktionalität der Überprüfungs-APIs bereit, einschließlich der Methoden zum Erstellen von Aufträgen, benutzerdefinierten Workflows und Überprüfungen durch Personen.|
 
 ## <a name="code-examples"></a>Codebeispiele
 
@@ -90,10 +93,7 @@ Diese Codeausschnitte veranschaulichen, wie die folgenden Aufgaben mit der Conte
 
 ## <a name="authenticate-the-client"></a>Authentifizieren des Clients
 
-> [!NOTE]
-> In dieser Schnellstartanleitung wird vorausgesetzt, dass Sie für den Content Moderator-Schlüssel sowie für den Endpunkt [eine Umgebungsvariable erstellt haben](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication).
-
-Instanziieren Sie einen Client mit Ihrem Endpunkt und Schlüssel. Erstellen Sie ein [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python)-Objekt mit Ihrem Schlüssel, und verwenden Sie es mit Ihrem Endpunkt, um ein [ContentModeratorClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python)-Objekt zu erstellen.
+Instanziieren Sie einen Client mit Ihrem Endpunkt und Schlüssel. Erstellen Sie ein [CognitiveServicesCredentials](/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python)-Objekt mit Ihrem Schlüssel, und verwenden Sie es mit Ihrem Endpunkt, um ein [ContentModeratorClient](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python)-Objekt zu erstellen.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_client)]
 
@@ -116,7 +116,7 @@ Fügen Sie anschließend Ihrem Python-Skript den folgenden Code hinzu:
 
 ## <a name="use-a-custom-terms-list"></a>Verwenden einer benutzerdefinierten Begriffsliste
 
-Der folgende Code veranschaulicht, wie Sie eine Liste mit benutzerdefinierten Begriffen für die Textmoderation verwalten. Sie können mit der Klasse [ListManagementTermListsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.listmanagementtermlistsoperations?view=azure-python) eine Begriffsliste erstellen, die einzelnen Begriffe verwalten und anderen Text anhand der Liste überprüfen.
+Der folgende Code veranschaulicht, wie Sie eine Liste mit benutzerdefinierten Begriffen für die Textmoderation verwalten. Sie können mit der Klasse [ListManagementTermListsOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.listmanagementtermlistsoperations?view=azure-python) eine Begriffsliste erstellen, die einzelnen Begriffe verwalten und anderen Text anhand der Liste überprüfen.
 
 ### <a name="get-sample-text"></a>Abrufen von Beispieltext
 
@@ -186,7 +186,7 @@ Löschen Sie eine benutzerdefinierte Begriffsliste mithilfe des folgenden Codes:
 
 ## <a name="moderate-images"></a>Moderieren von Bildern
 
-Der folgende Code verwendet einen Content Moderator-Client und ein [ImageModerationOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.imagemoderationoperations?view=azure-python)-Objekt, um Bilder auf nicht jugendfreie und freizügige Inhalte zu analysieren.
+Der folgende Code verwendet einen Content Moderator-Client und ein [ImageModerationOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.imagemoderationoperations?view=azure-python)-Objekt, um Bilder auf nicht jugendfreie und freizügige Inhalte zu analysieren.
 
 ### <a name="get-sample-images"></a>Abrufen von Beispielbildern
 
@@ -218,7 +218,7 @@ Der folgende Code überprüft das Bild auf menschliche Gesichter und gibt die Er
 
 ## <a name="use-a-custom-image-list"></a>Verwenden einer benutzerdefinierten Bildliste
 
-Der folgende Code veranschaulicht, wie Sie eine benutzerdefinierte Liste mit Bildern für die Bildmoderation verwalten. Dies ist ein nützliches Feature, wenn Ihre Plattform häufig die gleichen Bilder empfängt, die Sie herausfiltern möchten. Durch das Führen einer Liste mit diesen bestimmten Bildern können Sie die Leistung steigern. Mit der [ListManagementImageListsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.listmanagementimagelistsoperations?view=azure-python)-Klasse können Sie eine Bildliste erstellen, die einzelnen Bilder in der Liste verwalten und andere Bilder damit vergleichen.
+Der folgende Code veranschaulicht, wie Sie eine benutzerdefinierte Liste mit Bildern für die Bildmoderation verwalten. Dies ist ein nützliches Feature, wenn Ihre Plattform häufig die gleichen Bilder empfängt, die Sie herausfiltern möchten. Durch das Führen einer Liste mit diesen bestimmten Bildern können Sie die Leistung steigern. Mit der [ListManagementImageListsOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.listmanagementimagelistsoperations?view=azure-python)-Klasse können Sie eine Bildliste erstellen, die einzelnen Bilder in der Liste verwalten und andere Bilder damit vergleichen.
 
 Erstellen Sie die folgenden Textvariablen zum Speichern der Bild-URLs, die Sie in diesem Szenario verwenden.
 
@@ -296,7 +296,7 @@ Verwenden Sie den folgenden Code, um eine bestimmte Bildliste zu löschen:
 
 Mithilfe der Content Moderator-Clientbibliothek für Python können Sie Inhalte in das [Überprüfungstool](https://contentmoderator.cognitive.microsoft.com) eingeben, damit sie von menschlichen Moderatoren überprüft werden können. Weitere Informationen zum Überprüfungstool finden Sie im [konzeptionellen Leitfaden zum Überprüfungstool](../../review-tool-user-guide/human-in-the-loop.md).
 
-Der folgende Code verwendet nach dem Eingang menschlicher Eingaben über das Webportal des Überprüfungstools die Klasse [ReviewsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations?view=azure-python), um eine Überprüfung zu erstellen, ihre ID abzurufen und ihre Details zu überprüfen.
+Der folgende Code verwendet nach dem Eingang menschlicher Eingaben über das Webportal des Überprüfungstools die Klasse [ReviewsOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations?view=azure-python), um eine Überprüfung zu erstellen, ihre ID abzurufen und ihre Details zu überprüfen.
 
 ### <a name="get-review-credentials"></a>Abrufen von Anmeldeinformationen für die Überprüfung
 
@@ -311,7 +311,7 @@ Fügen Sie den folgenden Code hinzu, um eine Überprüfung für die angegebene B
 
 ### <a name="get-review-details"></a>Abrufen von Bewertungsdetails
 
-Verwenden Sie den folgenden Code, um die Details einer bestimmten Überprüfung zu überprüfen. Nachdem Sie die Überprüfung erstellt haben, können Sie selbst das Überprüfungstool aufrufen und mit dem Inhalt interagieren. Weitere Informationen hierzu finden Sie unter [Erstellen von Überprüfungen durch Personen](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/review-moderated-images). Wenn Sie fertig sind, können Sie diesen Code erneut ausführen. Die Ergebnisse des Überprüfungsvorgangs werden abrufen.
+Verwenden Sie den folgenden Code, um die Details einer bestimmten Überprüfung zu überprüfen. Nachdem Sie die Überprüfung erstellt haben, können Sie selbst das Überprüfungstool aufrufen und mit dem Inhalt interagieren. Weitere Informationen hierzu finden Sie unter [Erstellen von Überprüfungen durch Personen](../../review-tool-user-guide/review-moderated-images.md). Wenn Sie fertig sind, können Sie diesen Code erneut ausführen. Die Ergebnisse des Überprüfungsvorgangs werden abrufen.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_imagereview_getdetails)]
 
@@ -351,7 +351,7 @@ Wenn Sie ein Cognitive Services-Abonnement bereinigen und entfernen möchten, k�
 In dieser Schnellstartanleitung haben Sie gelernt, wie Sie die Content Moderator-Python-Bibliothek zum Ausführen von Moderationsaufgaben verwenden. Im Anschluss können Sie sich im konzeptionellen Leitfaden ausführlicher über die Moderation von Bildern oder anderen Medien informieren.
 
 > [!div class="nextstepaction"]
->[Lernen von Bildmoderationskonzepten](https://docs.microsoft.com/azure/cognitive-services/content-moderator/image-moderation-api)
+>[Lernen von Bildmoderationskonzepten](../../image-moderation-api.md)
 
 * [Was ist Azure Content Moderator?](../../overview.md)
 * Den Quellcode für dieses Beispiel finden Sie auf [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ContentModerator/ContentModeratorQuickstart.py).

@@ -10,16 +10,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/14/2018
+ms.date: 11/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5f8b87684847089a05341a5a68f6ad3e2ac86b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce2525927b38a2d3300d15b7d34324f5ff59e4e5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85355861"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457416"
 ---
 # <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>Behandeln von Problemen mit der Konnektivität zwischen SQL und Azure AD Connect
 Dieser Artikel erklärt, wie Probleme mit der Konnektivität zwischen Azure AD Connect und SQL Server behoben werden können. 
@@ -29,10 +29,12 @@ Der folgende Screenshot zeigt einen typischen Fehler, wenn der SQL Server nicht 
 ![SQL-Fehler](./media/tshoot-connect-tshoot-sql-connectivity/sql1.png)
 
 ## <a name="troubleshooting-steps"></a>Schritte zur Problembehandlung
-Öffnen Sie ein PowerShell-Fenster, und importieren Sie das ADSyncTools PowerShell-Modul.
+Öffnen eines PowerShell-Fensters und Importieren des Powershell-Moduls „ADSyncTools“
 
 ``` powershell
-Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools.psm1" 
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools"
 ```
 
 >[!NOTE]
@@ -40,13 +42,13 @@ Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\A
 Installieren Sie alternativ [PackageManagement PowerShell-Module (Vorschauversion) – März 2016 für PowerShell 3.0/4.0](/powershell/module/PackageManagement). 
 
 - **Alle Befehle anzeigen**: `Get-Command -Module AdSyncTools` 
-- **PowerShell-Funktion ausführen**: `Connect-ADSyncDatabase` mit den folgenden Parametern
+- **Ausführen der PowerShell-Funktion** „`Connect-ADSyncDatabase`“ mit den folgenden Parametern
     - Server: Der SQL Server-Name.
     - Instance: (Optional) Der Name der SQL Server-Instanz und optional die Nummer des zu verwendenden Ports. Geben Sie diesen Parameter nicht an, um die Standardinstanz zu verwenden.
-    - UserName: (Optional) Das Benutzerkonto, mit dem eine Verbindung hergestellt werden soll. Wenn dieser Parameter leer gelassen wird, wird der derzeit angemeldete Benutzer verwendet. Wenn Sie eine Verbindung mit einer SQL Server-Remoteinstanz herstellen, sollte diese das benutzerdefinierte Dienstkonto sein, das Sie für die Konnektivität zwischen Azure AD Connect und SQL erstellt haben. Azure AD Connect verwendet das Azure AD Connect-Synchronisierungsdienstkonto für die Authentifizierung bei einer SQL Server-Remoteinstanz.
+    - UserName: (Optional) Das Benutzerkonto, mit dem eine Verbindung hergestellt werden soll. Wenn dieser Parameter leer gelassen wird, wird der derzeit angemeldete Benutzer verwendet. Wenn Sie eine Verbindung mit einer SQL Server-Remoteinstanz herstellen, sollte diese das benutzerdefinierte Dienstkonto verwenden, das Sie für die Konnektivität zwischen Azure AD Connect und SQL erstellt haben. Azure AD Connect verwendet das Azure AD Connect-Synchronisierungsdienstkonto für die Authentifizierung bei einer SQL Server-Remoteinstanz.
     - Password: (Optional) Kennwort für den angegebenen Benutzernamen.
 
-Diese PowerShell-Funktion versucht, mit den übergebenen Anmeldeinformationen eine Bindung mit dem angegebenen SQL Server und der Instanz herzustellen ODER die Anmeldeinformationen des aktuellen Benutzers zu verwenden. Wenn der SQL Server nicht gefunden werden kann, stellt das Skript eine Verbindung mit dem SQL-Browser-Dienst her, um aktivierte Protokolle und Ports zu ermitteln.
+Diese PowerShell-Funktion versucht, mit den übergebenen Anmeldeinformationen eine Bindung mit dem angegebenen SQL-Server und der Instanz herzustellen ODER die Anmeldeinformationen des aktuellen Benutzers zu verwenden. Wenn der SQL Server nicht gefunden werden kann, stellt das Skript eine Verbindung mit dem SQL-Browser-Dienst her, um aktivierte Protokolle und Ports zu ermitteln.
 
 Beispiel für die ausschließliche Verwendung eines Servernamens:
 ```

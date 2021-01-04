@@ -7,12 +7,12 @@ author: gitralf
 ms.author: ralfwi
 ms.service: germany
 ms.custom: bfdocs
-ms.openlocfilehash: 0034181f13a4da7ca711e0c737ee4213e21984dd
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: f9cadc3acc1908edc5371b2ad2c7559fd0542be5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122286"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96023815"
 ---
 # <a name="connect-to-azure-germany-by-using-powershell"></a>Herstellen einer Verbindung mit Azure Deutschland über PowerShell
 
@@ -35,7 +35,7 @@ Wenn Sie PowerShell starten, müssen Sie durch Angeben eines Umgebungsparameters
 | Befehle für [Azure (klassisches Bereitstellungsmodell)](/powershell/azure) |`Add-AzureAccount -Environment AzureGermanCloud` |
 | Befehle für [Azure (Resource Manager-Bereitstellungsmodell)](/powershell/azure) |`Connect-AzAccount -EnvironmentName AzureGermanCloud` |
 | Befehle für [Azure Active Directory (klassisches Bereitstellungsmodell)](/previous-versions/azure/jj151815(v=azure.100)) |`Connect-MsolService -AzureEnvironment AzureGermanyCloud` |
-| Befehle für [Azure Active Directory (Resource Manager-Bereitstellungsmodell)](/azure/azure-resource-manager/management/deployment-models) |`Connect-AzureAD -AzureEnvironmentName AzureGermanyCloud` |
+| Befehle für [Azure Active Directory (Resource Manager-Bereitstellungsmodell)](../azure-resource-manager/management/deployment-models.md) |`Connect-AzureAD -AzureEnvironmentName AzureGermanyCloud` |
 
 Sie können auch die Option `Environment` verwenden, wenn Sie eine Verbindung mit einem Speicherkonto über `New-AzStorageContext` herstellen, und `AzureGermanCloud` angeben.
 
@@ -74,7 +74,3 @@ Weitere Informationen zum Herstellen der Verbindung mit Azure Deutschland finden
 * [Herstellen einer Verbindung mit Azure Deutschland über die Azure CLI](./germany-get-started-connect-with-cli.md)
 * [Herstellen einer Verbindung mit Azure Deutschland über Visual Studio](./germany-get-started-connect-with-vs.md)
 * [Herstellen einer Verbindung mit Azure Deutschland über das Azure-Portal](./germany-get-started-connect-with-portal.md)
-
-
-
-

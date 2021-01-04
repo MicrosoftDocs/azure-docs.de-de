@@ -1,6 +1,6 @@
 ---
 title: 'Schnellstart: Konfigurieren der Workloadisolation – Portal'
-description: Verwenden Sie das Azure-Portal zum Konfigurieren der Workloadisolation.
+description: Verwenden Sie das Azure-Portal zum Konfigurieren der Workloadisolation für einen dedizierten SQL-Pool.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 05/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 30862a0c16995e143df72f2a243419819941f54e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 302249b7d8490e43b841116c52500e686626433d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85213039"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460626"
 ---
-# <a name="quickstart-configure-synapse-sql-pool-workload-isolation-using-a-workload-group-in-the-azure-portal"></a>Schnellstart: Konfigurieren der Workloadisolation eines Synapse SQL-Pools mithilfe einer Arbeitsauslastungsgruppe im Azure-Portal
+# <a name="quickstart-configure-dedicated-sql-pool-workload-isolation-using-a-workload-group-in-the-azure-portal"></a>Schnellstart: Konfigurieren der Workloadisolation eines dedizierten SQL-Pools mithilfe einer Arbeitsauslastungsgruppe im Azure-Portal
 
 In dieser Schnellstartanleitung konfigurieren Sie die [Workloadisolation](sql-data-warehouse-workload-isolation.md), indem Sie eine Arbeitsauslastungsgruppe für das Reservieren von Ressourcen erstellen.  Für dieses Tutorial erstellen Sie die Arbeitsauslastungsgruppe `DataLoads` zum Laden von Daten. Die Arbeitsauslastungsgruppe reserviert 20 Prozent der Systemressourcen.  Bei einer Isolation von 20 Prozent für Datenladevorgänge sind Ressourcen garantiert, die die Einhaltung von SLAs ermöglichen.  Nach der Erstellung der Arbeitsauslastungsgruppe [erstellen Sie einen Workloadklassifizierer](quickstart-create-a-workload-classifier-portal.md), um dieser Arbeitsauslastungsgruppe Abfragen hinzuzufügen.
 
@@ -31,24 +31,24 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.
 
 > [!NOTE]
-> Das Erstellen einer SQL-Poolinstanz in Azure Synapse Analytics führt möglicherweise zu einem neuen abrechenbaren Dienst.  Weitere Informationen finden Sie unter [Azure Synapse Analytics – Preise](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Das Erstellen einer Instanz des dedizierten SQL-Pools in Azure Synapse Analytics führt möglicherweise zu einem neuen abrechenbaren Dienst.  Weitere Informationen finden Sie unter [Azure Synapse Analytics – Preise](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-In dieser Schnellstartanleitung wird vorausgesetzt, dass Sie bereits über eine SQL-Poolinstanz in Azure Synapse SQL und über CONTROL DATABASE-Berechtigungen verfügen. Wenn Sie ein Data Warehouse erstellen müssen, verwenden Sie die Anweisungen unter [Erstellen und Verbinden – Portal](create-data-warehouse-portal.md), um ein Data Warehouse namens **mySampleDataWarehouse** zu erstellen.
+In dieser Schnellstartanleitung wird vorausgesetzt, dass Sie bereits über eine Instanz des dedizierten SQL-Pools in Synapse SQL und über CONTROL DATABASE-Berechtigungen verfügen. Wenn Sie eine Instanz erstellen müssen, erstellen Sie anhand der Informationen unter [Schnellstart: Erstellen eines dedizierten SQL-Pools (Vorschau) über das Azure-Portal](../quickstart-create-sql-pool-portal.md) ein Data Warehouse mit dem Namen **mySampleDataWarehouse**.
 
 >[!IMPORTANT] 
->Der SQL-Pool muss online sein, damit die Workloadverwaltung konfiguriert werden kann. 
+>Der dedizierte SQL-Pool muss online sein, damit die Workloadverwaltung konfiguriert werden kann. 
 
 ## <a name="configure-workload-isolation"></a>Konfigurieren der Workloadisolation
-Durch die Erstellung von Arbeitsauslastungsgruppen können SQL-Poolressourcen isoliert und für bestimmte Workloads reserviert werden.  Ausführlichere Informationen dazu, wie Sie mithilfe von Arbeitsauslastungsgruppen Workloads verwalten können, finden Sie in der Dokumentation zur [Workloadisolation](sql-data-warehouse-workload-isolation.md)  Anhand der Informationen unter [Schnellstart: Erstellen und Abfragen eines Synapse-SQL-Pools mit dem Azure-Portal](create-data-warehouse-portal.md) wurde **mySampleDataWarehouse** erstellt und mit 400 DWUs initialisiert. Mit den folgenden Schritten erstellen Sie eine Arbeitsauslastungsgruppe in **mySampleDataWarehouse**.
+
+Durch die Erstellung von Arbeitsauslastungsgruppen können dedizierte SQL-Poolressourcen isoliert und für bestimmte Workloads reserviert werden.  Ausführlichere Informationen dazu, wie Sie mithilfe von Arbeitsauslastungsgruppen Workloads verwalten können, finden Sie in der Dokumentation zur [Workloadisolation](sql-data-warehouse-workload-isolation.md)  Anhand der Informationen unter [Schnellstart: Erstellen und Abfragen eines Synapse-SQL-Pools mit dem Azure-Portal](create-data-warehouse-portal.md) wurde **mySampleDataWarehouse** erstellt und mit DW100c initialisiert. Mit den folgenden Schritten erstellen Sie eine Arbeitsauslastungsgruppe in **mySampleDataWarehouse**.
 
 So erstellen Sie eine Arbeitsauslastungsgruppe mit einer Isolation von 20 Prozent:
-1.  Klicken Sie auf der linken Seite des Azure-Portals auf **Azure Synapse Analytics (vormals SQL DW)** .
-2.  Wählen Sie auf der Seite **Azure Synapse Analytics (vormals SQL DW)** die Option **mySampleDataWarehouse** aus. Der SQL-Pool wird geöffnet.
-3.  Klicken Sie auf **Workloadverwaltung**.
-4.  Klicken Sie auf **Neue Arbeitsauslastungsgruppe**.
-5.  Klicken Sie auf **Benutzerdefiniert**.
+1.  Navigieren Sie zur Seite des dedizierten SQL-Pools **mySampleDataWarehouse**.
+1.  Wählen Sie **Workloadverwaltung** aus.
+1.  Wählen Sie **Neue Arbeitsauslastungsgruppe** aus.
+1.  Wählen Sie **Benutzerdefiniert** aus.
 
     ![Klicken auf „Benutzerdefiniert“](./media/quickstart-configure-workload-isolation-portal/create-wg.png)
 
@@ -56,7 +56,7 @@ So erstellen Sie eine Arbeitsauslastungsgruppe mit einer Isolation von 20 Proze
 7.  Geben Sie `20` unter **Prozentuale Mindestmenge für Ressourcen** ein.
 8.  Geben Sie `5` unter **Prozentuale Mindestmenge für Ressourcen pro Anforderung** ein.
 9.  Geben Sie `100` unter **Ressourcenbegrenzung (%)** ein.
-10.   Klicken Sie auf **Speichern**.
+10. Wählen Sie **Speichern** aus.
 
    ![Klicken Sie auf Speichern.](./media/quickstart-configure-workload-isolation-portal/configure-wg.png)
 
@@ -83,17 +83,13 @@ Ihnen werden Gebühren für Ihre Data Warehouse-Einheiten und die in Ihrem Data 
 
 Führen Sie die folgenden Schritte aus, um Ressourcen zu bereinigen.
 
-1. Melden Sie sich am [Azure-Portal](https://portal.azure.com) an, und wählen Sie Ihre Data Warehouse-Instanz aus.
+1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an, und wählen Sie Ihren dedizierten SQL-Pool aus.
 
     ![Bereinigen von Ressourcen](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Wählen Sie zum Anhalten von Computeressourcen die Schaltfläche **Anhalten**. Wenn das Data Warehouse angehalten ist, wird die Schaltfläche **Starten** angezeigt.  Wählen Sie zum Fortsetzen der Computeressourcen die Option **Starten**.
 
 3. Wählen Sie **Löschen**, wenn Sie die Data Warehouse-Instanz entfernen möchten, damit keine Gebühren für Compute- oder Speicherressourcen anfallen.
-
-4. Wählen Sie zum Entfernen des von Ihnen erstellten SQL-Servers die Option **sqlpoolservername.database.windows.net** (siehe Abbildung oben) und dann **Löschen** aus.  Seien Sie bei diesem Löschvorgang vorsichtig, da beim Löschen des Servers auch alle Datenbanken gelöscht werden, die dem Server zugewiesen sind.
-
-5. Wählen Sie zum Entfernen der Ressourcengruppe die Option **myResourceGroup** und dann **Ressourcengruppe löschen**.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

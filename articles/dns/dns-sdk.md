@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: rohink
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 92509ff96af0ed2a7d77799edca8447ff6839ab6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e116096afbd01af4914be49d5675881724d5069
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019656"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015059"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Erstellen von DNS-Zonen und -Ressourceneintragssätzen mithilfe des .NET SDK
 
@@ -43,7 +43,7 @@ Normalerweise wird der programmgesteuerte Zugriff auf Azure-Ressourcen über ein
 
 Zum Verwenden des Azure DNS .NET SDK müssen Sie das NuGet-Paket **Azure DNS Management Library** und andere erforderliche Azure-Pakete installieren.
 
-1. Öffnen Sie in **Visual Studio**ein vorhandenes oder neues Projekt.
+1. Öffnen Sie in **Visual Studio** ein vorhandenes oder neues Projekt.
 2. Navigieren Sie zu **Extras** **>** **NuGet-Paket-Manager** **>** **NuGet-Pakete für Projektmappe verwalten**.
 3. Klicken Sie auf **Durchsuchen**, aktivieren Sie das Kontrollkästchen **Vorabversion einbeziehen**, und geben Sie im Suchfeld den Text **Microsoft.Azure.Management.Dns** ein.
 4. Wählen Sie das Paket aus, und klicken Sie auf **Installieren** , um es dem Visual Studio-Projekt hinzuzufügen.
@@ -79,7 +79,7 @@ Für die eigentliche Erstellung oder Aktualisierung der Zone in Azure DNS wird d
 > [!NOTE]
 > DnsManagementClient unterstützt drei Betriebsmodi: synchron („CreateOrUpdate“), asynchron („CreateOrUpdateAsync“) oder asynchron mit Zugriff auf die HTTP-Antwort („CreateOrUpdateWithHttpMessagesAsync“).  Sie können je nach Ihren Anwendungsanforderungen einen beliebigen Modus auswählen.
 
-Azure DNS unterstützt die optimistische Parallelität, die [Etags](dns-getstarted-create-dnszone.md)genannt wird. In diesem Beispiel wird Azure DNS durch die Angabe von „*“ für den „If-None-Match“-Header angewiesen, eine DNS-Zone zu erstellen, falls diese noch nicht vorhanden ist.  Der Aufruf schlägt fehl, wenn in der jeweiligen Ressourcengruppe bereits eine Zone mit dem angegebenen Namen vorhanden ist.
+Azure DNS unterstützt die optimistische Parallelität, die [Etags](./dns-getstarted-powershell.md)genannt wird. In diesem Beispiel wird Azure DNS durch die Angabe von „*“ für den „If-None-Match“-Header angewiesen, eine DNS-Zone zu erstellen, falls diese noch nicht vorhanden ist.  Der Aufruf schlägt fehl, wenn in der jeweiligen Ressourcengruppe bereits eine Zone mit dem angegebenen Namen vorhanden ist.
 
 ```cs
 // Create zone parameters

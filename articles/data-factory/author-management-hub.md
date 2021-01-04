@@ -5,16 +5,16 @@ services: data-factory
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.date: 06/02/2020
-ms.openlocfilehash: df5a13b3d7c3fea98cd571a241b9d25e36ffeea6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa1246a65dc6971107abe35f4a418b0bbb05641b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570637"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486129"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Verwaltungshub in Azure Data Factory
 

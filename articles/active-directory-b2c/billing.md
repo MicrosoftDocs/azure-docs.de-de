@@ -11,16 +11,16 @@ ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 416e2c767b5afd40fea38e6f75fcd3f01440b49a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edff5354d0565bd32cd0332b4aa0f215c2980d73
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89255340"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949784"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Abrechnungsmodell für Azure Active Directory B2C
 
-Die Preisgestaltung für Azure Active Directory B2C (Azure AD B2C) basiert auf den monatlich aktiven Benutzern (MAU), d. h. die Anzahl eindeutiger Benutzer mit Authentifizierungsaktivität innerhalb eines Kalendermonats. Dieses Abrechnungsmodell gilt sowohl für Azure AD B2C-Mandanten als auch für die [Zusammenarbeit mit Azure AD-Gastbenutzern (B2B)](https://docs.microsoft.com/azure/active-directory/external-identities/external-identities-pricing). Das MAU-Abrechnungsmodell hilft Ihnen, Ihre Kosten zu senken, da es einen kostenlosen Tarif sowie eine flexible, vorhersehbare Preisgestaltung bietet. In diesem Artikel finden Sie Informationen zur MAU-Abrechnung, zum Verknüpfen Ihrer Azure AD B2C-Mandanten mit einem Abonnement und zum Ändern Ihres Tarifs.
+Die Preisgestaltung für Azure Active Directory B2C (Azure AD B2C) basiert auf den monatlich aktiven Benutzern (MAU), d. h. die Anzahl eindeutiger Benutzer mit Authentifizierungsaktivität innerhalb eines Kalendermonats. Dieses Abrechnungsmodell gilt sowohl für Azure AD B2C-Mandanten als auch für die [Zusammenarbeit mit Azure AD-Gastbenutzern (B2B)](../active-directory/external-identities/external-identities-pricing.md). Das MAU-Abrechnungsmodell hilft Ihnen, Ihre Kosten zu senken, da es einen kostenlosen Tarif sowie eine flexible, vorhersehbare Preisgestaltung bietet. In diesem Artikel finden Sie Informationen zur MAU-Abrechnung, zum Verknüpfen Ihrer Azure AD B2C-Mandanten mit einem Abonnement und zum Ändern Ihres Tarifs.
 
 > [!IMPORTANT]
 > Dieser Artikel enthält keine Preisinformationen. Die aktuellen Informationen zur Nutzungsabrechnung und zu den Preisen finden Sie unter [Azure Active Directory B2C – Preise](https://azure.microsoft.com/pricing/details/active-directory-b2c/).

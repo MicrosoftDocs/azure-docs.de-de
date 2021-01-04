@@ -5,12 +5,12 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Hier finden Sie Antworten auf einige der häufig gestellten Fragen zu Azure Dev Spaces.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Container, Helm, Service Mesh, Service Mesh-Routing, kubectl, k8s '
-ms.openlocfilehash: 9870ba52424f6f59cc908e4d70bf1560f7d69165
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e83bed86714e4b92c63f4e7b7eb55df7a2a7eaff
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970298"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548833"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Häufig gestellte Fragen zu Azure Dev Spaces
 
@@ -20,7 +20,7 @@ Im Folgenden werden einige der häufig gestellten Fragen zu Azure Dev Spaces bea
 
 ## <a name="what-versions-of-kubernetes-are-supported-for-azure-dev-spaces"></a>Welche Versionen von Kubernetes werden für Azure Dev Spaces unterstützt?
 
-Azure Dev Spaces unterstützt alle [derzeit in AKS unterstützten Versionen mit allgemeiner Verfügbarkeit (General Availability, GA) von Kubernetes][aks-supported-k8s].
+Von Azure Dev Spaces werden [derzeit unterstützte Versionen mit allgemeiner Verfügbarkeit (General Availability, GA) von Kubernetes in AKS bis 1.18][aks-supported-k8s] unterstützt. Ab 1.19 wird von Kubernetes in AKS ContainerD als Containerruntime verwendet. Dies funktioniert nicht mit Azure Dev Spaces.
 
 ## <a name="which-azure-regions-currently-provide-azure-dev-spaces"></a>In welchen Azure-Regionen wird Azure Dev Spaces derzeit zur Verfügung gestellt?
 
@@ -72,9 +72,9 @@ Ja. Sie können Azure Dev Spaces in AKS-Clustern mit [vom API-Server autorisiert
 
 Ja. Sie können Azure Dev Spaces in AKS-Clustern mit [eingeschränktem ausgehenden Datenverkehr für Clusterknoten][aks-restrict-egress-traffic] verwenden, wenn die korrekten FQDNs zugelassen wurden. Weitere Informationen zur Verwendung eines AKS-Clusters mit eingeschränktem ausgehenden Datenverkehr für Clusterknoten, die für Azure Dev Spaces aktiviert sind, finden Sie [hier](configure-networking.md#ingress-and-egress-network-traffic-requirements).
 
-## <a name="can-i-use-azure-dev-spaces-on-rbac-enabled-aks-clusters"></a>Kann ich Azure Dev Spaces für RBAC-aktivierte AKS-Cluster verwenden?
+## <a name="can-i-use-azure-dev-spaces-on-kubernetes-rbac-enabled-aks-clusters"></a>Kann ich Azure Dev Spaces für Kubernetes RBAC-fähige AKS-Cluster verwenden?
 
-Ja, Sie können Azure Dev Spaces für AKS-Cluster mit oder ohne RBAC-Aktivierung verwenden.
+Ja. Sie können Azure Dev Spaces für AKS-Cluster mit oder ohne Aktivierung der rollenbasierten Zugriffssteuerung für Kubernetes (Kubernetes Role-Based Access Control, Kubernetes RBAC) verwenden.
 
 ## <a name="what-happens-when-i-enable-ingress-for-project-in-visual-studio"></a>Was geschieht, wenn ich eingehenden Datenverkehr für das Projekt in Visual Studio aktiviere?
 

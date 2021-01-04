@@ -1,37 +1,37 @@
 ---
-title: Konfigurieren von Azure Multi-Factor Authentication – Azure Active Directory
-description: In diesem Artikel erfahren Sie, wie Sie Einstellungen für Azure Multi-Factor Authentication im Azure-Portal konfigurieren.
+title: Konfigurieren von Azure AD Multi-Factor Authentication – Azure Active Directory
+description: Hier erfahren Sie, wie Sie Einstellungen für Azure AD Multi-Factor Authentication im Azure-Portal konfigurieren.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 06/05/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
-ms.openlocfilehash: 17fbba605f6f20fa384d59a8c89ee536a9b121bf
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: contperf-fy20q4
+ms.openlocfilehash: 209125a5cc8d86c1af07966d52681aa91ea7dc19
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964434"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97026998"
 ---
-# <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurieren von Azure Multi-Factor Authentication-Einstellungen
+# <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Konfigurieren von Azure AD Multi-Factor Authentication-Einstellungen
 
-Zum Anpassen der Endbenutzerfunktionen für Azure Multi-Factor Authentication können Sie Optionen für Einstellungen wie die Schwellenwerte für die Kontosperrung oder Betrugswarnungen und -benachrichtigungen konfigurieren. Einige Einstellungen befinden sich direkt im Azure-Portal für Azure Active Directory, während sich einige andere Einstellungen in einem separaten Portal für Azure Multi-Factor Authentication (Azure MFA) befinden.
+Zum Anpassen der Endbenutzerumgebung für Azure AD Multi-Factor Authentication können Sie Optionen für Einstellungen wie die Schwellenwerte für die Kontosperrung oder Betrugswarnungen und -benachrichtigungen konfigurieren. Einige Einstellungen befinden sich direkt im Azure-Portal für Azure Active Directory (Azure AD), während sich einige andere Einstellungen in einem separaten Portal für Azure AD Multi-Factor Authentication befinden.
 
-Die folgenden Azure MFA-Einstellungen sind im Azure-Portal verfügbar:
+Die folgenden Azure AD Multi-Factor Authentication-Einstellungen sind im Azure-Portal verfügbar:
 
 | Funktion | BESCHREIBUNG |
 | ------- | ----------- |
-| [Kontosperrung](#account-lockout) | Hiermit werden Konten vorübergehend für die Verwendung von Azure MFA gesperrt, wenn zu viele aufeinanderfolgende Authentifizierungsversuche abgelehnt werden. Dieses Feature wird nur auf Benutzer angewendet, die zur Authentifizierung eine PIN eingeben. (MFA-Server) |
-| [Benutzer sperren/zulassen](#block-and-unblock-users) | Hiermit werden spezifische Benutzer daran gehindert, Azure MFA-Anforderungen zu empfangen. Authentifizierungsversuche für gesperrte Benutzer werden automatisch abgelehnt. Benutzer bleiben ab dem Zeitpunkt der Sperrung 90 Tage lang gesperrt, es sei denn, sie werden manuell entsperrt. |
+| [Kontosperrung](#account-lockout) | Hiermit wird bei Konten die Verwendung von Azure AD Multi-Factor Authentication vorübergehend gesperrt, wenn zu viele aufeinanderfolgende Authentifizierungsversuche abgelehnt wurden. Dieses Feature wird nur auf Benutzer angewendet, die zur Authentifizierung eine PIN eingeben. (MFA-Server) |
+| [Benutzer sperren/zulassen](#block-and-unblock-users) | Hiermit werden bestimmte Benutzer daran gehindert, Azure AD Multi-Factor Authentication-Anforderungen zu empfangen. Authentifizierungsversuche für gesperrte Benutzer werden automatisch abgelehnt. Benutzer bleiben ab dem Zeitpunkt der Sperrung 90 Tage lang gesperrt, es sei denn, sie werden manuell entsperrt. |
 | [Betrugswarnung](#fraud-alert) | Hiermit können Einstellungen konfiguriert werden, die es Benutzern ermöglichen, betrügerische Identitätsprüfungsanforderungen zu melden. |
 | [Benachrichtigungen](#notifications) | Aktivieren Sie Benachrichtigungen für Ereignisse vom MFA-Server. |
-| [OATH-Token](concept-authentication-oath-tokens.md) | Wird in Cloud-basierten Azure MFA-Umgebungen verwendet, um OATH-Token für Benutzer zu verwalten. |
+| [OATH-Token](concept-authentication-oath-tokens.md) | Wird in cloudbasierten Azure AD Multi-Factor Authentication-Umgebungen (Azure AD MFA) verwendet, um OATH-Token für Benutzer zu verwalten. |
 | [Einstellungen für Telefonanruf](#phone-call-settings) | Konfigurieren Sie Einstellungen für Telefonanrufe und Ansagen für Cloud- und lokale Umgebungen. |
 | Anbieter | Hier werden alle vorhandenen Authentifizierungsanbieter angezeigt, die Sie möglicherweise mit Ihrem Konto verknüpft haben. Neue Authentifizierungsanbieter können ab 1. September 2018 nicht mehr erstellt werden. |
 
@@ -57,7 +57,7 @@ Nehmen Sie die Einstellungen vor, um die Kontosperreinstellungen zu konfiguriere
 
 ## <a name="block-and-unblock-users"></a>Benutzer sperren/zulassen
 
-Wenn das Gerät eines Benutzers verloren geht oder gestohlen wird, können Sie Azure MFA-Versuche für das zugehörige Konto blockieren. Sämtliche Azure MFA-Versuche für gesperrte Benutzer werden automatisch abgelehnt. Benutzer bleiben ab dem Zeitpunkt der Sperrung 90 Tage lang gesperrt.
+Wenn das Gerät eines Benutzers verloren geht oder gestohlen wird, können Sie Azure AD MFA-Versuche für das zugeordnete Konto blockieren. Sämtliche Azure AD MFA-Versuche für gesperrte Benutzer werden automatisch abgelehnt. Benutzer bleiben ab dem Zeitpunkt der Sperrung 90 Tage lang gesperrt.
 
 ### <a name="block-a-user"></a>Sperren eines Benutzers
 
@@ -85,7 +85,7 @@ Mithilfe des Features für Betrugswarnungen können Benutzer betrügerische Vers
 
 Die folgenden Konfigurationsoptionen stehen für Warnungen zur Verfügung:
 
-* **Benutzer, die Betrugsversuche melden, automatisch blockieren:** Wenn ein Benutzer einen Betrug meldet, werden Azure MFA-Versuche für das Benutzerkonto 90 Tage lang oder so lange blockiert, bis ein Administrator die Sperre für das Konto aufhebt. Ein Administrator kann anhand des Anmeldeberichts Anmeldungen überprüfen und entsprechende Maßnahmen ergreifen, um weiterem Betrug vorzubeugen. Ein Administrator kann dann die Sperre für das Konto des Benutzers [aufheben](#unblock-a-user).
+* **Benutzer, die Betrugsversuche melden, automatisch blockieren:** Wenn ein Benutzer einen Betrug meldet, werden Azure AD MFA-Versuche für das Benutzerkonto 90 Tage lang oder so lange blockiert, bis ein Administrator die Sperre für das Konto aufhebt. Ein Administrator kann anhand des Anmeldeberichts Anmeldungen überprüfen und entsprechende Maßnahmen ergreifen, um weiterem Betrug vorzubeugen. Ein Administrator kann dann die Sperre für das Konto des Benutzers [aufheben](#unblock-a-user).
 * **Code zum Melden von Betrugsversuchen während der Begrüßung**: Wenn Benutzer einen Telefonanruf zur Ausführung der mehrstufigen Authentifizierung empfangen, drücken sie normalerweise die **#** -Taste, um ihre Anmeldung zu bestätigen. Wenn sie einen Betrug melden möchten, geben sie vor dem Drücken der **#** -Taste einen Code ein. Dieser Code ist standardmäßig **0**, Sie können ihn jedoch anpassen.
 
    > [!NOTE]
@@ -156,7 +156,7 @@ Wenn Sie in den USA nicht die MFA-Anrufer-ID konfiguriert haben, stammen Anrufe 
 * *+1 (877) 668 6536*
 
 > [!NOTE]
-> Wenn Anrufe im Rahmen von Azure Multi-Factor Authentication über das öffentliche Telefonnetz erfolgen, werden sie manchmal über einen Netzbetreiber geroutet, der Anrufer-IDs nicht unterstützt. Aus diesem Grund gibt es keine Garantie für die Anrufer-ID, auch wenn Azure Multi-Factor Authentication sie immer sendet. Dies gilt sowohl für Telefonanrufe als auch für SMS-Nachrichten, die von Azure Multi-Factor Authentication bereitgestellt werden. Wenn Sie überprüfen müssen, ob eine Textnachricht von Azure Multi-Factor Authentication stammt, lesen Sie [Welche SMS-Kurzcodes werden für das Senden von Nachrichten verwendet?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
+> Wenn Anrufe im Rahmen von Azure AD Multi-Factor Authentication über das öffentliche Telefonnetz erfolgen, werden sie manchmal über einen Netzbetreiber geroutet, der Anrufer-IDs nicht unterstützt. Aus diesem Grund gibt es keine Garantie für die Anrufer-ID, auch wenn Azure AD Multi-Factor Authentication sie immer sendet. Dies gilt sowohl für Telefonanrufe als auch für SMS-Nachrichten, die von Azure AD Multi-Factor Authentication bereitgestellt werden. Wenn Sie überprüfen müssen, ob eine Textnachricht von Azure AD Multi-Factor Authentication stammt, lesen Sie [Welche SMS-Kurzcodes werden für das Senden von Nachrichten verwendet?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
 
 Führen Sie die folgenden Schritte aus, um Ihre eigene Anrufer-ID-Nummer zu konfigurieren:
 
@@ -166,7 +166,7 @@ Führen Sie die folgenden Schritte aus, um Ihre eigene Anrufer-ID-Nummer zu konf
 
 ### <a name="custom-voice-messages"></a>Benutzerdefinierte Sprachnachrichten
 
-Mit dem Feature für benutzerdefinierte Sprachnachrichten können Sie Ihre eigenen Aufzeichnungen oder Begrüßungen für Azure MFA verwenden. Diese Nachrichten können zusätzlich zu den Standardaufzeichnungen von Microsoft verwendet werden oder diese ersetzen.
+Mit dem Feature für benutzerdefinierte Sprachnachrichten können Sie Ihre eigenen Aufzeichnungen oder Begrüßungen für Azure AD MFA verwenden. Diese Nachrichten können zusätzlich zu den Standardaufzeichnungen von Microsoft verwendet werden oder diese ersetzen.
 
 Bevor Sie beginnen, sollten Sie die folgenden Einschränkungen beachten:
 
@@ -227,16 +227,16 @@ Führen Sie die folgenden Schritte aus, um Ihre eigenen benutzerdefinierten Nach
 
 ## <a name="mfa-service-settings"></a>MFA-Diensteinstellungen
 
-Einstellungen für App-Kennwörter, vertrauenswürdige IPs, Überprüfungsoptionen und das Speichern von Multi-Factor Authentication für die Azure Multi-Factor Authentication finden Sie in den Diensteinstellungen. Dabei handelt es sich um ein Legacyportal, das nicht Teil des herkömmlichen Azure AD-Portals ist.
+Einstellungen für App-Kennwörter, vertrauenswürdige IPs, Überprüfungsoptionen und das Speichern von Multi-Factor Authentication für Azure AD Multi-Factor Authentication finden Sie in den Diensteinstellungen. Dabei handelt es sich um ein Legacyportal, das nicht Teil des herkömmlichen Azure AD-Portals ist.
 
 Auf die Diensteinstellungen kann über das Azure-Portal zugegriffen werden, indem Sie zu **Azure Active Directory** > **Sicherheit** > **MFA** > **Erste Schritte** > **Konfigurieren** > **Zusätzliche Cloud-basierte MFA-Einstellungen** navigieren. Ein neues Fenster oder eine neue Registerkarte wird mit zusätzlichen *Diensteinstellungen* geöffnet.
 
 ## <a name="trusted-ips"></a>Vertrauenswürdige IP-Adressen
 
-Das Feature _Vertrauenswürdige IPs_ von Azure MFA umgeht MFA-Eingabeaufforderungen für Benutzer, die sich über einen definierten IP-Adressbereich anmelden. Sie können vertrauenswürdige IP-Adressbereiche für Ihre lokalen Umgebungen festlegen, damit Benutzer, die sich an diesen Standorten befinden, keine Azure MFA-Eingabeaufforderung erhalten.
+Das Feature _Vertrauenswürdige IPs_ von Azure AD MFA umgeht MFA-Eingabeaufforderungen für Benutzer, die sich über einen definierten IP-Adressbereich anmelden. Sie können vertrauenswürdige IP-Adressbereiche für Ihre lokalen Umgebungen festlegen, damit Benutzer, die sich an diesen Standorten befinden, keine Azure AD MFA-Eingabeaufforderung erhalten.
 
 > [!NOTE]
-> Private IP-Adressbereiche können nur als vertrauenswürdige IPs festgelegt werden, wenn Sie MFA-Server verwenden. Für cloudbasierte Azure MFA können Sie nur öffentliche IP-Adressbereiche verwenden.
+> Private IP-Adressbereiche können nur als vertrauenswürdige IPs festgelegt werden, wenn Sie MFA-Server verwenden. Für cloudbasierte Azure AD MFA können Sie nur öffentliche IP-Adressbereiche verwenden.
 >
 > IPv6-Bereiche werden nur in der Schnittstelle [Benannter Standort (Vorschau)](../conditional-access/location-condition.md#preview-features) unterstützt.
 
@@ -291,7 +291,7 @@ Führen Sie die folgenden Schritte aus, um vertrauenswürdige IP-Adressen mit Ri
 
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>Aktivieren des Features „Vertrauenswürdige IPs“ mit Diensteinstellungen
 
-Wenn Sie keine Richtlinien für bedingten Zugriff verwenden möchten, um vertrauenswürdige IP-Adressen zu ermöglichen, können Sie die *Diensteinstellungen* für Azure MFA konfigurieren, indem Sie die folgenden Schritte ausführen:
+Wenn Sie keine Richtlinien für bedingten Zugriff verwenden möchten, um vertrauenswürdige IP-Adressen zu ermöglichen, können Sie die *Diensteinstellungen* für Azure AD MFA mit den folgenden Schritten konfigurieren:
 
 1. Klicken Sie im Azure-Portal auf **Azure Active Directory**, und wählen Sie dann **Benutzer** aus.
 1. Wählen Sie **Multi-Factor Authentication** aus.
@@ -311,7 +311,7 @@ Wenn Sie keine Richtlinien für bedingten Zugriff verwenden möchten, um vertrau
 
 ## <a name="verification-methods"></a>Überprüfungsmethoden
 
-Sie können im Diensteinstellungsportal auswählen, welche Überprüfungsmethoden für Ihre Benutzer verfügbar sind. Wenn Ihre Benutzer ihre Konten für Azure Multi-Factor Authentication registrieren, wählen sie ihre bevorzugte Überprüfungsmethode aus den Optionen aus, die Sie aktiviert haben. Anleitungen zum Benutzerregistrierungsprozess finden Sie unter [Einrichten meines Kontos für die mehrstufige Authentifizierung](../user-help/multi-factor-authentication-end-user-first-time.md).
+Sie können im Diensteinstellungsportal auswählen, welche Überprüfungsmethoden für Ihre Benutzer verfügbar sind. Wenn Ihre Benutzer ihre Konten für Azure AD Multi-Factor Authentication registrieren, wählen sie ihre bevorzugte Überprüfungsmethode aus den von Ihnen aktivierten Optionen aus. Anleitungen zum Benutzerregistrierungsprozess finden Sie unter [Einrichten meines Kontos für die mehrstufige Authentifizierung](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 Die folgenden Überprüfungsmethoden stehen zur Auswahl:
 
@@ -376,4 +376,4 @@ Nachdem Sie das Feature „Multi-Factor Authentication speichern“ aktiviert ha
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen über die verfügbaren Methoden in Azure MFA finden Sie unter [Welche Authentifizierungs- und Prüfmethoden stehen in Azure Active Directory zur Verfügung?](concept-authentication-methods.md)
+Weitere Informationen über die verfügbaren Methoden in Azure AD Multi-Factor Authentication finden Sie unter [Welche Authentifizierungs- und Prüfmethoden stehen in Azure Active Directory zur Verfügung?](concept-authentication-methods.md).

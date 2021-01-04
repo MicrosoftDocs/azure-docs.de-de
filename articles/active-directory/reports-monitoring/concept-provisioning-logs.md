@@ -17,12 +17,12 @@ ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 675c98e00b7458f326c95741529f7ce41a91dc18
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2408db2d91740350405f11e2a1250ab9b3a4fe31
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319721"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181202"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Bereitstellungsberichte im Azure Active Directory-Portal (Vorschau)
 
@@ -211,7 +211,7 @@ Die Registerkarte **Zusammenfassung** bietet eine Übersicht über die Vorgänge
 
 ## <a name="what-you-should-know"></a>Wichtige Informationen
 
-- Im Azure-Portal werden gemeldete Bereitstellungsdaten 30 Tage gespeichert, wenn Sie eine Premium-Edition haben, und 7 Tage, wenn Sie eine kostenlose Edition haben. Die Bereitstellungsprotokolle können in [Log Analytics](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) für die Aufbewahrung über 30 Tage hinaus veröffentlicht werden. 
+- Im Azure-Portal werden gemeldete Bereitstellungsdaten 30 Tage gespeichert, wenn Sie eine Premium-Edition haben, und 7 Tage, wenn Sie eine kostenlose Edition haben. Die Bereitstellungsprotokolle können in [Log Analytics](../app-provisioning/application-provisioning-log-analytics.md) für die Aufbewahrung über 30 Tage hinaus veröffentlicht werden. 
 
 - Sie können das Attribut „Änderungs-ID“ als eindeutigen Bezeichner verwenden. Dies ist beispielsweise bei der Kommunikation mit dem Produktsupport hilfreich.
 

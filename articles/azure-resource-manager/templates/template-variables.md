@@ -1,20 +1,22 @@
 ---
 title: Variablen in Vorlagen
-description: Beschreibt, wie Variablen in einer Azure Resource Manager-Vorlage definiert werden.
+description: Beschreibt, wie Variablen in einer Azure Resource Manager-Vorlage (ARM-Vorlage) definiert werden.
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: cf135959d30702ea58b7a1d4fdd82625a39245d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: 5d9b58d63e96656c45d3494d24099bbeadc46b11
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75476164"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353458"
 ---
-# <a name="variables-in-azure-resource-manager-template"></a>Variablen in einer Azure Resource Manager-Vorlage
+# <a name="variables-in-arm-template"></a>Variablen in ARM-Vorlagen
 
-Dieser Artikel beschreibt, wie Sie Variablen in Ihrer Azure Resource Manager-Vorlage definieren und verwenden. Mit Variablen vereinfachen Sie Ihre Vorlage. Anstatt komplizierte Ausdrücke innerhalb der Vorlage zu wiederholen, definieren Sie eine Variable, die den komplizierten Ausdruck enthält. Anschließend verweisen Sie in der gesamten Vorlage auf diese Variable.
+Dieser Artikel beschreibt, wie Sie Variablen in Ihrer Azure Resource Manager-Vorlage (ARM-Vorlage) definieren und verwenden. Mit Variablen vereinfachen Sie Ihre Vorlage. Anstatt komplizierte Ausdrücke innerhalb der Vorlage zu wiederholen, definieren Sie eine Variable, die den komplizierten Ausdruck enthält. Anschließend verweisen Sie in der gesamten Vorlage auf diese Variable.
 
 Resource Manager löst Variablen vor Beginn der Bereitstellungsvorgänge auf. Jedes Vorkommen der Variablen in der Vorlage wird von Resource Manager durch den aufgelösten Wert ersetzt.
+
+Das Format der einzelnen Variablen muss jeweils einem der [Datentypen](template-syntax.md#data-types) entsprechen.
 
 ## <a name="define-variable"></a>Definieren einer Variablen
 
@@ -93,5 +95,5 @@ In den folgenden Beispielen werden Szenarien für die Verwendung von Variablen v
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Weitere Informationen zu den verfügbaren Eigenschaften für Variablen finden Sie unter [Verstehen der Struktur und Syntax von Azure Resource Manager-Vorlagen](template-syntax.md).
+* Weitere Informationen zu den verfügbaren Eigenschaften für Variablen finden Sie unter [Verstehen der Struktur und Syntax von ARM-Vorlagen](template-syntax.md).
 * Empfehlungen zum Erstellen von Variablen finden Sie unter [Bewährte Methoden: Variablen](template-best-practices.md#variables).

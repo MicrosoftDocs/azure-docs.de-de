@@ -9,13 +9,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 02/26/2020
 ms.reviewer: avverma
-ms.custom: avverma
-ms.openlocfilehash: 479bbfaf8468329cd515799e5822497df2bb4c1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: 9ca6310705d54d563aae746ab2dbfe6cb412e6a9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83125161"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747807"
 ---
 # <a name="use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Verwenden benutzerdefinierter Richtlinien für horizontales Herunterskalieren mit Azure-VM-Skalierungsgruppen
 
@@ -57,10 +57,10 @@ Eine Richtlinie zum horizontalen Herunterskalieren kann auf folgende Weise für 
  
 In den folgenden Schritten wird die Richtlinie zum horizontalen Herunterskalieren beim Erstellen einer neuen Skalierungsgruppe definiert. 
  
-1. Navigieren Sie zu **VM-Skalierungsgruppen**.
+1. Navigieren Sie zu **VM-Skalierungsgruppen** .
 1. Wählen Sie **+ Hinzufügen** aus, um eine neue Skalierungsgruppe zu erstellen.
-1. Navigieren Sie zur Registerkarte **Skalierung**. 
-1. Suchen Sie den Abschnitt **Richtlinie für horizontales Herunterskalieren**.
+1. Navigieren Sie zur Registerkarte **Skalierung** . 
+1. Suchen Sie den Abschnitt **Richtlinie für horizontales Herunterskalieren** .
 1. Wählen Sie eine Richtlinie zum horizontalen Herunterskalieren aus der Dropdownliste aus.
 1. Wenn Sie die Erstellung der neuen Skalierungsgruppe abgeschlossen haben, wählen Sie die Schaltfläche **Überprüfen und erstellen** aus.
 
@@ -211,12 +211,12 @@ Die folgenden Beispiele veranschaulichen, wie eine VM-Skalierungsgruppe VMs zum 
 | Ereignis                 | Instanz-IDs in Zone 1  | Instanz-IDs in Zone 2  | Instanz-IDs in Zone 3  | Auswahl für horizontales Herunterskalieren                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | Initial               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
-| Horizontales Herunterskalieren              | 3, 4, 5, 10            | ***2***, 6, 9, 11      | 1, 7, 8                | Auswahl zwischen Zone 1 und 2, auch wenn Zone 3 über die älteste VM verfügt. Löschen von VM2 in Zone 2, da es sich um die älteste VM in dieser Zone handelt.   |
-| Horizontales Herunterskalieren              | ***3***, 4, 5, 10      | 6, 9, 11               | 1, 7, 8                | Auswahl von Zone 1, obwohl Zone 3 über die älteste VM verfügt. Löschen von VM3 in Zone 1, da es sich um die älteste VM in dieser Zone handelt.                  |
-| Horizontales Herunterskalieren              | 4, 5, 10               | 6, 9, 11               | ***1***, 7, 8          | Zonen sind ausgeglichen. Löschen von VM1 in Zone 3, da es sich um die älteste VM in der Skalierungsgruppe handelt.                                               |
-| Horizontales Herunterskalieren              | ***4***, 5, 10         | 6, 9, 11               | 7, 8                   | Auswahl zwischen Zone 1 und 2. Löschen von VM4 in Zone 1, da es sich um die älteste VM in den beiden Zonen handelt.                              |
-| Horizontales Herunterskalieren              | 5, 10                  | ***6***, 9, 11         | 7, 8                   | Auswahl von Zone 2, obwohl Zone 1 über die älteste VM verfügt. Löschen von VM6 in Zone 1, da es sich um die älteste VM in dieser Zone handelt.                    |
-| Horizontales Herunterskalieren              | ***5***, 10            | 9, 11                  | 7, 8                   | Zonen sind ausgeglichen. Löschen von VM5 in Zone 1, da es sich um die älteste VM in der Skalierungsgruppe handelt.                                                |
+| Horizontales Herunterskalieren              | 3, 4, 5, 10            | **_2_* _, 6, 9, 11      | 1, 7, 8                | Auswahl zwischen Zone 1 und 2, auch wenn Zone 3 über die älteste VM verfügt. Löschen von VM2 in Zone 2, da es sich um die älteste VM in dieser Zone handelt.   |
+| Horizontales Herunterskalieren              | _*_3_*_ , 4, 5, 10      | 6, 9, 11               | 1, 7, 8                | Auswahl von Zone 1, obwohl Zone 3 über die älteste VM verfügt. Löschen von VM3 in Zone 1, da es sich um die älteste VM in dieser Zone handelt.                  |
+| Horizontales Herunterskalieren              | 4, 5, 10               | 6, 9, 11               | _*_1_*_ , 7, 8          | Zonen sind ausgeglichen. Löschen von VM1 in Zone 3, da es sich um die älteste VM in der Skalierungsgruppe handelt.                                               |
+| Horizontales Herunterskalieren              | _*_4_*_ , 5, 10         | 6, 9, 11               | 7, 8                   | Auswahl zwischen Zone 1 und 2. Löschen von VM4 in Zone 1, da es sich um die älteste VM in den beiden Zonen handelt.                              |
+| Horizontales Herunterskalieren              | 5, 10                  | _*_6_*_ , 9, 11         | 7, 8                   | Auswahl von Zone 2, obwohl Zone 1 über die älteste VM verfügt. Löschen von VM6 in Zone 1, da es sich um die älteste VM in dieser Zone handelt.                    |
+| Horizontales Herunterskalieren              | _*_5_*_ , 10            | 9, 11                  | 7, 8                   | Zonen sind ausgeglichen. Löschen von VM5 in Zone 1, da es sich um die älteste VM in der Skalierungsgruppe handelt.                                                |
 
 Für nicht zonale VM-Skalierungsgruppen wählt die Richtlinie den ältesten virtuellen Computer in der Skalierungsgruppe zum Löschen aus. Jede „geschützte“ VM wird beim Löschen übersprungen.
 
@@ -225,12 +225,12 @@ Für nicht zonale VM-Skalierungsgruppen wählt die Richtlinie den ältesten virt
 | Ereignis                 | Instanz-IDs in Zone 1  | Instanz-IDs in Zone 2  | Instanz-IDs in Zone 3  | Auswahl für horizontales Herunterskalieren                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | Initial               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
-| Horizontales Herunterskalieren              | 3, 4, 5, 10            | 2, 6, 9, ***11***      | 1, 7, 8                | Auswahl zwischen Zone 1 und 2. Löschen von VM11 aus Zone 2, da es sich um die neueste VM in den beiden Zonen handelt.                                |
-| Horizontales Herunterskalieren              | 3, 4, 5, ***10***      | 2, 6, 9                | 1, 7, 8                | Auswahl von Zone 1, da sie mehr VMS als die anderen beiden Zonen aufweist. Löschen von VM10 in Zone 1, da es sich um die neueste VM in dieser Zone handelt.          |
-| Horizontales Herunterskalieren              | 3, 4, 5                | 2, 6, ***9***          | 1, 7, 8                | Zonen sind ausgeglichen. Löschen von VM9 in Zone 2, da es sich um die neueste VM in der Skalierungsgruppe handelt.                                                |
-| Horizontales Herunterskalieren              | 3, 4, 5                | 2, 6                   | 1, 7, ***8***          | Auswahl zwischen Zone 1 und 3. Löschen von VM8 in Zone 3, da es sich um die neueste VM in dieser Zone handelt.                                      |
-| Horizontales Herunterskalieren              | 3, 4, ***5***          | 2, 6                   | 1, 7                   | Auswahl von Zone 1, obwohl Zone 3 über den neuesten virtuellen Computer verfügt. Löschen von VM5 in Zone 1, da es sich um die neueste VM in dieser Zone handelt.                    |
-| Horizontales Herunterskalieren              | 3, 4                   | 2, 6                   | 1, ***7***             | Zonen sind ausgeglichen. Löschen von VM7 in Zone 3, da es sich um die neueste VM in der Skalierungsgruppe handelt.                                                |
+| Horizontales Herunterskalieren              | 3, 4, 5, 10            | 2, 6, 9, _*_11_*_      | 1, 7, 8                | Auswahl zwischen Zone 1 und 2. Löschen von VM11 aus Zone 2, da es sich um die neueste VM in den beiden Zonen handelt.                                |
+| Horizontales Herunterskalieren              | 3, 4, 5, _*_10_*_      | 2, 6, 9                | 1, 7, 8                | Auswahl von Zone 1, da sie mehr VMS als die anderen beiden Zonen aufweist. Löschen von VM10 in Zone 1, da es sich um die neueste VM in dieser Zone handelt.          |
+| Horizontales Herunterskalieren              | 3, 4, 5                | 2, 6, _*_9_*_          | 1, 7, 8                | Zonen sind ausgeglichen. Löschen von VM9 in Zone 2, da es sich um die neueste VM in der Skalierungsgruppe handelt.                                                |
+| Horizontales Herunterskalieren              | 3, 4, 5                | 2, 6                   | 1, 7, _*_8_*_          | Auswahl zwischen Zone 1 und 3. Löschen von VM8 in Zone 3, da es sich um die neueste VM in dieser Zone handelt.                                      |
+| Horizontales Herunterskalieren              | 3, 4, _*_5_*_          | 2, 6                   | 1, 7                   | Auswahl von Zone 1, obwohl Zone 3 über den neuesten virtuellen Computer verfügt. Löschen von VM5 in Zone 1, da es sich um die neueste VM in dieser Zone handelt.                    |
+| Horizontales Herunterskalieren              | 3, 4                   | 2, 6                   | 1, _ *_7_**             | Zonen sind ausgeglichen. Löschen von VM7 in Zone 3, da es sich um die neueste VM in der Skalierungsgruppe handelt.                                                |
 
 Für nicht zonale VM-Skalierungsgruppen wählt die Richtlinie den neuesten virtuellen Computer in der Skalierungsgruppe zum Löschen aus. Jede „geschützte“ VM wird beim Löschen übersprungen. 
 

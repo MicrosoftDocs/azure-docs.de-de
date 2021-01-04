@@ -9,35 +9,35 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d53e0cb92ead0d60ae335e95903cd69ae2700140
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 8e7a725b78fa828ce1286e212ee7de0205968156
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142818"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536078"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importieren und Exportieren von IoT Hub-Geräteidentitäten per Massenvorgang
 
 Jeder IoT Hub verfügt über eine Identitätsregistrierung, die Sie zum Erstellen von gerätebasierten Ressourcen im Dienst verwenden können. Außerdem wird mit der Identitätsregistrierung der Zugriff auf geräteseitige Endpunkte ermöglicht. In diesem Artikel wird das massenhafte Importieren und Exportieren von Geräteidentitäten in und aus einer Identitätsregistrierung beschrieben. Wenn Sie in C# ein funktionierendes Beispiel sehen und erfahren möchten, wie Sie diese Funktion beim Klonen eines Hubs in eine andere Region verwenden können, lesen Sie [Klonen einer IoT Hub-Instanz](iot-hub-how-to-clone.md).
 
 > [!NOTE]
-> IoT Hub hat vor kurzem Unterstützung für virtuelle Netzwerke in einer begrenzten Anzahl von Regionen hinzugefügt. Diese Funktion sichert Import- und Exportvorgänge und macht Hauptschlüssel zur Authentifizierung überflüssig.  Anfänglich ist die Unterstützung virtueller Netzwerke nur in den folgenden Regionen verfügbar: *WestUS2*, *EastUS* und *SouthCentralUS*. Weitere Informationen zur Unterstützung virtueller Netzwerke und den API-Aufrufen zu deren Implementierung finden Sie unter [IoT Hub-Unterstützung für virtuelle Netzwerke](virtual-network-support.md).
+> IoT Hub hat vor kurzem Unterstützung für virtuelle Netzwerke in einer begrenzten Anzahl von Regionen hinzugefügt. Diese Funktion sichert Import- und Exportvorgänge und macht Hauptschlüssel zur Authentifizierung überflüssig.  Anfänglich ist die Unterstützung virtueller Netzwerke nur in den folgenden Regionen verfügbar: *WestUS2* , *EastUS* und *SouthCentralUS* . Weitere Informationen zur Unterstützung virtueller Netzwerke und den API-Aufrufen zu deren Implementierung finden Sie unter [IoT Hub-Unterstützung für virtuelle Netzwerke](virtual-network-support.md).
 
-Import- und Exportvorgänge erfolgen im Kontext von *Aufträgen*, die Ihnen das Anwenden von Massendienstvorgängen auf einen IoT Hub ermöglichen.
+Import- und Exportvorgänge erfolgen im Kontext von *Aufträgen* , die Ihnen das Anwenden von Massendienstvorgängen auf einen IoT Hub ermöglichen.
 
-Die **RegistryManager**-Klasse enthält die Methoden **ExportDevicesAsync** und **ImportDevicesAsync**, die das **Job**-Framework verwenden. Diese Methoden ermöglichen das Exportieren, Importieren und Synchronisieren der gesamten IoT Hub-Identitätsregistrierung.
+Die **RegistryManager** -Klasse enthält die Methoden **ExportDevicesAsync** und **ImportDevicesAsync** , die das **Job** -Framework verwenden. Diese Methoden ermöglichen das Exportieren, Importieren und Synchronisieren der gesamten IoT Hub-Identitätsregistrierung.
 
-In diesem Thema wird die Verwendung der Klasse **RegistryManager** und des **Job**-Systems zum Ausführen von Massenimport- und -exportvorgängen von Geräten in die bzw. aus der Identitätsregistrierung eines IoT-Hubs erörtert. Ferner können Sie den Azure IoT Hub Device Provisioning-Dienst auch dazu verwenden, eine Just-in-Time-Bereitstellung auf einem oder mehreren IoT-Hubs zu ermöglichen, die keinen menschlichen Eingriff erfordert. Weitere Informationen finden Sie in der [Dokumentation zum Bereitstellungsdienst](../iot-dps/index.yml).
+In diesem Thema wird die Verwendung der Klasse **RegistryManager** und des **Job** -Systems zum Ausführen von Massenimport- und -exportvorgängen von Geräten in die bzw. aus der Identitätsregistrierung eines IoT-Hubs erörtert. Ferner können Sie den Azure IoT Hub Device Provisioning-Dienst auch dazu verwenden, eine Just-in-Time-Bereitstellung auf einem oder mehreren IoT-Hubs zu ermöglichen, die keinen menschlichen Eingriff erfordert. Weitere Informationen finden Sie in der [Dokumentation zum Bereitstellungsdienst](../iot-dps/index.yml).
 
 ## <a name="what-are-jobs"></a>Was sind Aufträge?
 
-Identitätsregistrierungsvorgänge verwenden das **Job**-System, wenn der Vorgang:
+Identitätsregistrierungsvorgänge verwenden das **Job** -System, wenn der Vorgang:
 
 * eine potenziell lange Ausführungsdauer im Vergleich mit standardmäßigen Laufzeitvorgängen hat.
 
 * eine große Menge von Daten an den Benutzer zurückgibt.
 
-Stattdessen erstellt der Vorgang asynchron einen **Auftrag** für diesen IoT Hub, anstatt eines einzelnen API-Aufrufs, mit dem auf das Ergebnis des Vorgangs gewartet bzw. mit dem der Vorgang blockiert wird. Für den Vorgang wird dann sofort ein **JobProperties**-Objekt zurückgegeben.
+Stattdessen erstellt der Vorgang asynchron einen **Auftrag** für diesen IoT Hub, anstatt eines einzelnen API-Aufrufs, mit dem auf das Ergebnis des Vorgangs gewartet bzw. mit dem der Vorgang blockiert wird. Für den Vorgang wird dann sofort ein **JobProperties** -Objekt zurückgegeben.
 
 Der folgende C#-Codeausschnitt zeigt, wie ein Exportauftrag erstellt wird:
 
@@ -48,9 +48,9 @@ JobProperties exportJob = await
 ```
 
 > [!NOTE]
-> Um die **RegistryManager**-Klasse in Ihrem C#-Code zu verwenden, fügen Sie das **Microsoft.Azure.Devices**-NuGet-Paket Ihrem Projekt hinzu. Die **RegistryManager**-Klasse befindet sich im **Microsoft.Azure.Devices**-Namespace.
+> Um die **RegistryManager** -Klasse in Ihrem C#-Code zu verwenden, fügen Sie das **Microsoft.Azure.Devices** -NuGet-Paket Ihrem Projekt hinzu. Die **RegistryManager** -Klasse befindet sich im **Microsoft.Azure.Devices** -Namespace.
 
-Sie können die **RegistryManager**-Klasse verwenden, um den Status des **Auftrags** unter Verwendung der zurückgegebenen **JobProperties**-Metadaten abzufragen. Verwenden Sie zum Erstellen einer Instanz der **RegistryManager**-Klasse die **CreateFromConnectionString**-Methode.
+Sie können die **RegistryManager** -Klasse verwenden, um den Status des **Auftrags** unter Verwendung der zurückgegebenen **JobProperties** -Metadaten abzufragen. Verwenden Sie zum Erstellen einer Instanz der **RegistryManager** -Klasse die **CreateFromConnectionString** -Methode.
 
 ```csharp
 RegistryManager registryManager =
@@ -61,7 +61,7 @@ So finden Sie die Verbindungszeichenfolge Ihres IoT-Hubs im Azure-Portal
 
 - Navigieren Sie zu Ihrem IoT Hub.
 
-- Klicken Sie auf **Freigegebene Zugriffsrichtlinien**.
+- Klicken Sie auf **Freigegebene Zugriffsrichtlinien** .
 
 - Wählen Sie eine Richtlinie aus. Berücksichtigen Sie dabei die benötigten Berechtigungen.
 
@@ -102,7 +102,7 @@ Mit dieser Methode können Sie zuverlässige Sicherungen Ihrer Geräte-Informati
 
 Die **ExportDevicesAsync** -Methode erfordert zwei Parameter:
 
-* Eine *Zeichenfolge*, die einen URI eines Blobcontainers enthält. Dieser URI muss ein SAS-Token enthalten, das Schreibzugriff auf den Container gewährt. Der Auftrag erstellt zum Speichern der serialisierten Exportgerätedaten ein Blockblob in diesem Container. Das SAS-Token muss diese Berechtigungen enthalten:
+* Eine *Zeichenfolge* , die einen URI eines Blobcontainers enthält. Dieser URI muss ein SAS-Token enthalten, das Schreibzugriff auf den Container gewährt. Der Auftrag erstellt zum Speichern der serialisierten Exportgerätedaten ein Blockblob in diesem Container. Das SAS-Token muss diese Berechtigungen enthalten:
 
    ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
@@ -134,7 +134,7 @@ while(true)
 }
 ```
 
-Der Auftrag speichert seine Ausgabe im angegebenen Blobcontainer als Blockblob mit dem Namen **devices.txt**. Die Ausgabedaten bestehen aus serialisierten JSON-Gerätedaten mit einem Gerät pro Zeile.
+Der Auftrag speichert seine Ausgabe im angegebenen Blobcontainer als Blockblob mit dem Namen **devices.txt** . Die Ausgabedaten bestehen aus serialisierten JSON-Gerätedaten mit einem Gerät pro Zeile.
 
 Das folgende Beispiel zeigt die Ausgabedaten:
 
@@ -211,22 +211,22 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
 
 ## <a name="import-devices"></a>Importieren von Geräten
 
-Die **ImportDevicesAsync**-Methode in der **RegistryManager**-Klasse ermöglicht Ihnen das Anwenden von Massenvorgängen (Import/Synchronisierung) auf eine IoT Hub-Identitätsregistrierung. Wie die **ExportDevicesAsync**-Methode auch, wird für die **ImportDevicesAsync**-Methode das **Job**-Framework verwendet.
+Die **ImportDevicesAsync** -Methode in der **RegistryManager** -Klasse ermöglicht Ihnen das Anwenden von Massenvorgängen (Import/Synchronisierung) auf eine IoT Hub-Identitätsregistrierung. Wie die **ExportDevicesAsync** -Methode auch, wird für die **ImportDevicesAsync** -Methode das **Job** -Framework verwendet.
 
-Nutzen Sie die **ImportDevicesAsync**-Methode umsichtig, damit mit ihr nicht nur neue Geräte in der Identitätsregistrierung bereitgestellt, sondern auch vorhandene Geräte aktualisiert und gelöscht werden können.
+Nutzen Sie die **ImportDevicesAsync** -Methode umsichtig, damit mit ihr nicht nur neue Geräte in der Identitätsregistrierung bereitgestellt, sondern auch vorhandene Geräte aktualisiert und gelöscht werden können.
 
 > [!WARNING]
-> Ein Importvorgang kann nicht rückgängig gemacht werden. Sichern Sie vor dem Verwenden der **ExportDevicesAsync**-Methode stets Ihre vorhandenen Daten in einem anderen Blobcontainer, bevor Sie Massenänderungen an Ihrer Identitätsregistrierung vornehmen.
+> Ein Importvorgang kann nicht rückgängig gemacht werden. Sichern Sie vor dem Verwenden der **ExportDevicesAsync** -Methode stets Ihre vorhandenen Daten in einem anderen Blobcontainer, bevor Sie Massenänderungen an Ihrer Identitätsregistrierung vornehmen.
 
 Die **ImportDevicesAsync** -Methode erfordert zwei Parameter:
 
-* Eine *Zeichenfolge*, die einen URI eines [Azure Storage](../storage/index.yml)-Blobcontainers als *Eingabe* in den Auftrag enthält. Dieser URI muss ein SAS-Token enthalten, das Lesezugriff auf den Container gewährt. Dieser Container muss ein Blob mit dem Namen **devices.txt** enthalten, das die serialisierten Gerätedaten enthält, die in Ihre Identitätsregistrierung importiert werden sollen. Die importierten Daten müssen Geräteinformationen im gleichen JSON-Format enthalten, das vom **ExportImportDevice**-Auftrag verwendet wird, wenn er das Blob **devices.txt** erstellt. Das SAS-Token muss diese Berechtigungen enthalten:
+* Eine *Zeichenfolge* , die einen URI eines [Azure Storage](../storage/index.yml)-Blobcontainers als *Eingabe* in den Auftrag enthält. Dieser URI muss ein SAS-Token enthalten, das Lesezugriff auf den Container gewährt. Dieser Container muss ein Blob mit dem Namen **devices.txt** enthalten, das die serialisierten Gerätedaten enthält, die in Ihre Identitätsregistrierung importiert werden sollen. Die importierten Daten müssen Geräteinformationen im gleichen JSON-Format enthalten, das vom **ExportImportDevice** -Auftrag verwendet wird, wenn er das Blob **devices.txt** erstellt. Das SAS-Token muss diese Berechtigungen enthalten:
 
    ```csharp
    SharedAccessBlobPermissions.Read
    ```
 
-* Eine *Zeichenfolge*, die einen URI eines [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)-Blobcontainers als *Ausgabe* aus dem Auftrag enthält. Der Auftrag erstellt in diesem Container ein Blockblob zum Speichern von Fehlerinformationen aus dem abgeschlossenen **Importauftrag**. Das SAS-Token muss diese Berechtigungen enthalten:
+* Eine *Zeichenfolge* , die einen URI eines [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)-Blobcontainers als *Ausgabe* aus dem Auftrag enthält. Der Auftrag erstellt in diesem Container ein Blockblob zum Speichern von Fehlerinformationen aus dem abgeschlossenen **Importauftrag** . Das SAS-Token muss diese Berechtigungen enthalten:
 
    ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
@@ -243,7 +243,7 @@ JobProperties importJob =
    await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 ```
 
-Diese Methode kann auch verwendet werden, um die Daten für den Gerätezwilling zu importieren. Das Format für die Dateneingabe entspricht dem Format wie im Abschnitt für **ExportDevicesAsync**. Auf diese Weise können Sie die exportierten Daten erneut importieren. **$metadata** ist optional.
+Diese Methode kann auch verwendet werden, um die Daten für den Gerätezwilling zu importieren. Das Format für die Dateneingabe entspricht dem Format wie im Abschnitt für **ExportDevicesAsync** . Auf diese Weise können Sie die exportierten Daten erneut importieren. **$metadata** ist optional.
 
 ## <a name="import-behavior"></a>Importverhalten
 
@@ -260,20 +260,20 @@ Sie können eine beliebige Kombination der obigen Vorgänge innerhalb eines einz
 
 Wenn die Importdatei Zwillingsmetadaten enthält, dann überschreiben diese Metadaten die vorhandenen Zwillingsmetadaten. Wenn die Importdatei keine Zwillingsmetadaten enthält, werden nur die `lastUpdateTime`-Metadaten mit der aktuellen Uhrzeit aktualisiert.
 
-Verwenden Sie die optionale **importMode**-Eigenschaft in den Importserialisierungsdaten für jedes Gerät, um den Importprozess gerätebezogen zu steuern. Die **importMode** -Eigenschaft hat die folgenden Optionen:
+Verwenden Sie die optionale **importMode** -Eigenschaft in den Importserialisierungsdaten für jedes Gerät, um den Importprozess gerätebezogen zu steuern. Die **importMode** -Eigenschaft hat die folgenden Optionen:
 
 | importMode | BESCHREIBUNG |
 | --- | --- |
-| **createOrUpdate** |Wenn ein Gerät mit der angegebenen **ID**nicht vorhanden ist, wird es neu registriert. <br/>Wenn das Gerät bereits vorhanden ist, werden vorhandene Informationen mit den bereitgestellten Eingabedaten ohne Berücksichtigung des **ETag** -Werts überschrieben. <br> Der Benutzer kann optional Zwillingsdaten mit den Gerätedaten angeben. Das ETag des Zwillings wird, sofern angegeben, unabhängig vom Geräte-ETag verarbeitet. Wenn ein Konflikt mit dem ETag des vorhandenen Zwillings vorliegt, wird ein Fehler in die Protokolldatei geschrieben. |
-| **erstellen** |Wenn ein Gerät mit der angegebenen **ID**nicht vorhanden ist, wird es neu registriert. <br/>Wenn das Gerät bereits vorhanden ist, wird ein Fehler in die Protokolldatei geschrieben. <br> Der Benutzer kann optional Zwillingsdaten mit den Gerätedaten angeben. Das ETag des Zwillings wird, sofern angegeben, unabhängig vom Geräte-ETag verarbeitet. Wenn ein Konflikt mit dem ETag des vorhandenen Zwillings vorliegt, wird ein Fehler in die Protokolldatei geschrieben. |
-| **update** |Wenn ein Gerät mit der angegebenen **ID** bereits vorhanden ist, werden vorhandene Informationen mit den bereitgestellten Eingabedaten ohne Berücksichtigung des **ETag**-Werts überschrieben. <br/>Wenn das Gerät nicht vorhanden ist, wird ein Fehler in die Protokolldatei geschrieben. |
+| **createOrUpdate** |Wenn ein Gerät mit der angegebenen **ID** nicht vorhanden ist, wird es neu registriert. <br/>Wenn das Gerät bereits vorhanden ist, werden vorhandene Informationen mit den bereitgestellten Eingabedaten ohne Berücksichtigung des **ETag** -Werts überschrieben. <br> Der Benutzer kann optional Zwillingsdaten mit den Gerätedaten angeben. Das ETag des Zwillings wird, sofern angegeben, unabhängig vom Geräte-ETag verarbeitet. Wenn ein Konflikt mit dem ETag des vorhandenen Zwillings vorliegt, wird ein Fehler in die Protokolldatei geschrieben. |
+| **erstellen** |Wenn ein Gerät mit der angegebenen **ID** nicht vorhanden ist, wird es neu registriert. <br/>Wenn das Gerät bereits vorhanden ist, wird ein Fehler in die Protokolldatei geschrieben. <br> Der Benutzer kann optional Zwillingsdaten mit den Gerätedaten angeben. Das ETag des Zwillings wird, sofern angegeben, unabhängig vom Geräte-ETag verarbeitet. Wenn ein Konflikt mit dem ETag des vorhandenen Zwillings vorliegt, wird ein Fehler in die Protokolldatei geschrieben. |
+| **update** |Wenn ein Gerät mit der angegebenen **ID** bereits vorhanden ist, werden vorhandene Informationen mit den bereitgestellten Eingabedaten ohne Berücksichtigung des **ETag** -Werts überschrieben. <br/>Wenn das Gerät nicht vorhanden ist, wird ein Fehler in die Protokolldatei geschrieben. |
 | **updateIfMatchETag** |Wenn ein Gerät mit der angegebenen **ID** bereits vorhanden ist, werden vorhandene Informationen mit den bereitgestellten Eingabedaten nur überschrieben, wenn es eine Übereinstimmung mit einem **ETag** gibt. <br/>Wenn das Gerät nicht vorhanden ist, wird ein Fehler in die Protokolldatei geschrieben. <br/>Wenn es keine Übereinstimmung mit einem **ETag** gibt, wird ein Fehler in die Protokolldatei geschrieben. |
-| **createOrUpdateIfMatchETag** |Wenn ein Gerät mit der angegebenen **ID**nicht vorhanden ist, wird es neu registriert. <br/>Wenn das Gerät bereits vorhanden ist, werden vorhandene Informationen mit den bereitgestellten Eingabedaten nur überschrieben, wenn es eine Übereinstimmung mit einem **ETag** gibt. <br/>Wenn es keine Übereinstimmung mit einem **ETag** gibt, wird ein Fehler in die Protokolldatei geschrieben. <br> Der Benutzer kann optional Zwillingsdaten mit den Gerätedaten angeben. Das ETag des Zwillings wird, sofern angegeben, unabhängig vom Geräte-ETag verarbeitet. Wenn ein Konflikt mit dem ETag des vorhandenen Zwillings vorliegt, wird ein Fehler in die Protokolldatei geschrieben. |
-| **delete** |Wenn ein Gerät mit der angegebenen **ID** bereits vorhanden ist, wird es ohne Berücksichtigung des **ETag**-Werts gelöscht. <br/>Wenn das Gerät nicht vorhanden ist, wird ein Fehler in die Protokolldatei geschrieben. |
+| **createOrUpdateIfMatchETag** |Wenn ein Gerät mit der angegebenen **ID** nicht vorhanden ist, wird es neu registriert. <br/>Wenn das Gerät bereits vorhanden ist, werden vorhandene Informationen mit den bereitgestellten Eingabedaten nur überschrieben, wenn es eine Übereinstimmung mit einem **ETag** gibt. <br/>Wenn es keine Übereinstimmung mit einem **ETag** gibt, wird ein Fehler in die Protokolldatei geschrieben. <br> Der Benutzer kann optional Zwillingsdaten mit den Gerätedaten angeben. Das ETag des Zwillings wird, sofern angegeben, unabhängig vom Geräte-ETag verarbeitet. Wenn ein Konflikt mit dem ETag des vorhandenen Zwillings vorliegt, wird ein Fehler in die Protokolldatei geschrieben. |
+| **delete** |Wenn ein Gerät mit der angegebenen **ID** bereits vorhanden ist, wird es ohne Berücksichtigung des **ETag** -Werts gelöscht. <br/>Wenn das Gerät nicht vorhanden ist, wird ein Fehler in die Protokolldatei geschrieben. |
 | **deleteIfMatchETag** |Wenn ein Gerät mit der angegebenen **ID** bereits vorhanden ist, wird es nur gelöscht, wenn es eine Übereinstimmung mit einem **ETag** gibt. Wenn das Gerät nicht vorhanden ist, wird ein Fehler in die Protokolldatei geschrieben. <br/>Wenn es keine Übereinstimmung mit einem ETag gibt, wird ein Fehler in die Protokolldatei geschrieben. |
 
 > [!NOTE]
-> Wenn die Serialisierungsdaten nicht explizit ein **importMode**-Flag für ein Gerät definieren, wird standardmäßig **createOrUpdate** während des Importvorgangs gewählt.
+> Wenn die Serialisierungsdaten nicht explizit ein **importMode** -Flag für ein Gerät definieren, wird standardmäßig **createOrUpdate** während des Importvorgangs gewählt.
 
 ## <a name="import-devices-example--bulk-device-provisioning"></a>Beispiel für das Importieren von Geräten – Massengerätebereitstellung
 
@@ -432,8 +432,7 @@ Dem Artikel zum Thema „Klonen“ ist ein funktionierendes Beispiel zugeordnet,
 
 Weitere Informationen zum Verwalten von Azure IoT Hub finden Sie in den folgenden Artikeln:
 
-* [IoT Hub-Metriken](iot-hub-metrics.md)
-* [IoT Hub-Protokolle](iot-hub-monitor-resource-health.md)
+* [Überwachen von IoT Hub](monitor-iot-hub.md)
 
 Weitere Informationen zu den Funktionen von IoT Hub finden Sie unter:
 

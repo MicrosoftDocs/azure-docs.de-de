@@ -2,13 +2,13 @@
 title: 'Azure Event Hubs: Ausnahmen (Legacy)'
 description: Dieser Artikel stellt eine Liste von Azure Event Hubs-Messagingausnahmen und vorgeschlagenen Aktionen zur Verfügung.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 5a7ca32893a106cd59df548ae3118665acaea654
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 11/02/2020
+ms.openlocfilehash: 357a87c53023962dd9195a616bd9ce9e01c55bf9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318482"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340966"
 ---
 # <a name="event-hubs-messaging-exceptions---net-legacy"></a>Event Hubs-Messagingausnahmen: .NET (Legacy)
 In diesem Abschnitt werden die von .NET Framework-APIs generierten .NET-Ausnahmen aufgelistet. 
@@ -70,7 +70,7 @@ In der folgenden Tabelle werden die Typen von Messagingausnahmen, ihre Ursachen 
 | [Microsoft.ServiceBus.Messaging MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception) <br /><br/> [Microsoft.Azure.EventHubs MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception) | Die dem Vorgang zugeordnete Entität ist nicht vorhanden oder wurde gelöscht. | Stellen Sie sicher, dass die Entität vorhanden ist. | Eine Wiederholung hilft nicht. |
 | [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) | Der Client kann keine Verbindung mit Event Hub herstellen. |Stellen Sie sicher, dass der angegebene Hostname richtig und der Host erreichbar ist. | Eine Wiederholung kann helfen, wenn zeitweilige Verbindungsprobleme vorliegen. |
 | [Microsoft.ServiceBus.Messaging ServerBusyException ](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) <br /> <br/>[Microsoft.Azure.EventHubs ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) | Der Dienst kann die Anforderung derzeit nicht verarbeiten. | Der Client kann eine gewisse Zeit warten und dann den Vorgang wiederholen. <br /> Siehe [ServerBusyException](#serverbusyexception). | Der Client kann den Vorgang nach einer gewissen Zeitspanne wiederholen. Wenn die Wiederholung zu einer anderen Ausnahme führt, überprüfen Sie das Wiederholungsverhalten dieser Ausnahme. |
-| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) | Eine allgemeine Messagingausnahme, die in folgenden Fällen ausgelöst werden kann: Es wird versucht, ein [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient)-Element mit einem Namen oder einem Pfad zu erstellen, der zu einem anderen Entitätstyp gehört (z.B. zu einem Thema). Es wird versucht, eine Nachricht zu senden, die größer als 1 MB ist. Der Server oder der Dienst hat beim Verarbeiten der Anforderung einen Fehler festgestellt. Sehen Sie sich die Details in der Ausnahmemeldung an. Dies ist meist eine vorübergehende Ausnahme. | Überprüfen Sie den Code, und stellen Sie sicher, dass nur serialisierbare Objekte für den Nachrichtentext verwendet werden (oder verwenden Sie ein benutzerdefiniertes Serialisierungsprogramm). Überprüfen Sie die Dokumentation für die unterstützten Werttypen der Eigenschaften, und verwenden Sie nur unterstützte Typen. Überprüfen Sie die [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) -Eigenschaft. Wenn sie den Wert **True**aufweist, können Sie versuchen, den Vorgang zu wiederholen. | Das Verhalten einer Wiederholung ist nicht definiert, u. U. hilft sie nicht. |
+| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) | Eine allgemeine Messagingausnahme, die in folgenden Fällen ausgelöst werden kann: Es wird versucht, ein [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient)-Element mit einem Namen oder einem Pfad zu erstellen, der zu einem anderen Entitätstyp gehört (z.B. zu einem Thema). Es wird versucht, eine Nachricht zu senden, die größer als 1 MB ist. Der Server oder der Dienst hat beim Verarbeiten der Anforderung einen Fehler festgestellt. Sehen Sie sich die Details in der Ausnahmemeldung an. Dies ist meist eine vorübergehende Ausnahme. | Überprüfen Sie den Code, und stellen Sie sicher, dass nur serialisierbare Objekte für den Nachrichtentext verwendet werden (oder verwenden Sie ein benutzerdefiniertes Serialisierungsprogramm). Überprüfen Sie die Dokumentation für die unterstützten Werttypen der Eigenschaften, und verwenden Sie nur unterstützte Typen. Überprüfen Sie die [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) -Eigenschaft. Wenn sie den Wert **True** aufweist, können Sie versuchen, den Vorgang zu wiederholen. | Das Verhalten einer Wiederholung ist nicht definiert, u. U. hilft sie nicht. |
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) | Es wurde versucht, eine Entität mit einem Namen zu erstellen, der bereits von einer anderen Entität in diesem Dienstnamespace verwendet wird. | Löschen Sie die vorhandene Entität, oder wählen Sie einen anderen Namen für die zu erstellende Entität. | Eine Wiederholung hilft nicht. |
 | [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) | Die Messagingentität hat die maximal zulässige Größe erreicht. Diese Ausnahme kann auftreten, wenn bereits die maximale Anzahl von fünf Empfängern für eine bestimmte Consumergruppe geöffnet wurde. | Schaffen Sie Platz in der Entität, indem Sie Nachrichten aus der Entität oder ihren Unterwarteschlangen empfangen. <br /> Siehe [QuotaExceededException](#quotaexceededexception) | Eine Wiederholung kann helfen, wenn in der Zwischenzeit Nachrichten entfernt wurden. |
 | [MessagingEntityDisabledException](/dotnet/api/microsoft.servicebus.messaging.messagingentitydisabledexception) | Es wurde ein Laufzeitvorgang für eine deaktivierte Entität angefordert. |Aktivieren Sie die Entität. | Eine Wiederholung kann helfen, wenn die Entität in der Zwischenzeit aktiviert wurde. |
@@ -111,7 +111,19 @@ Dieser Fehler kann aus zwei Gründen auftreten:
 
 - Der Event Hubs-Namespace enthält nicht genügend Durchsatzeinheiten (Sie können die Angabe im [Azure-Portal](https://portal.azure.com) im Fenster des Event Hubs-Namespace auf dem Bildschirm **Metriken** überprüfen). Im Portal werden aggregierte Informationen für einen Zeitraum von einer Minute angezeigt. Wir messen den Durchsatz jedoch in Echtzeit, daher handelt es sich nur um eine Schätzung.
 
-    **Lösung:** Die Erhöhung der Durchsatzeinheiten für den Namespace kann helfen. Diesen Vorgang können Sie im Portal im Fenster **Skalieren** des Bildschirms mit dem Event Hubs-Namespace ausführen. Sie können auch die [automatische Vergrößerung](event-hubs-auto-inflate.md) verwenden.
+    **Lösung:** Die Erhöhung der Durchsatzeinheiten für den Namespace kann helfen. 
+
+    Sie können Durchsatzeinheiten auf der Seite **Skalierung** oder **Übersicht** Ihres **Event Hubs-Namespace** im Azure-Portal konfigurieren. Sie können auch [Automatische Vergrößerung](event-hubs-auto-inflate.md) verwenden,um automatisch durch Erhöhung der Anzahl von Durchsatzeinheiten zentral hochzuskalieren, um den Nutzungsanforderungen gerecht zu werden.
+
+    Durchsatzeinheiten (Throughput Units, TUs) werden auf alle Event Hubs in einem Event Hubs-Namespace angewendet. Das bedeutet, dass Sie TUs auf Namespaceebene erwerben und diese auf die Event Hubs unter dem Namespace aufgeteilt werden. Durch jede TU erhält der Namespace die Berechtigung für folgende Funktionen:
+
+    - Eingangsereignisse bis zu 1 MB pro Sekunde (Ereignisse, die an einen Event Hub gesendet werden), aber nicht mehr als 1000 Eingangsereignisse, Verwaltungsvorgänge oder Steuer-API-Aufrufe pro Sekunde
+    - Ausgangsereignisse (Ereignisse, die von einem Event Hub genutzt werden) mit bis zu 2 MB pro Sekunde, aber maximal 4096 Ausgangsereignissen
+    - Bis zu 84 GB Ereignisspeicher (ausreichend für die Standardaufbewahrungsdauer im 24-Stunden-Format)
+    
+    Wechseln Sie auf der Seite **Übersicht** im Abschnitt **Metriken anzeigen** zur Registerkarte **Durchsatz**. Wählen Sie das Diagramm aus, um es in einem größeren Fenster mit 1-Minuten-Intervallen auf der X-Achse zu öffnen. Sehen Sie sich die Spitzenwerte an, und teilen Sie sie durch 60, um eingehende Bytes/Sekunde oder ausgehende Bytes/Sekunde zu erhalten. Verwenden Sie einen ähnlichen Ansatz, um die Anzahl von Anforderungen pro Sekunde zu Spitzenzeiten auf der Registerkarte **Anforderungen** zu berechnen. 
+
+    Wenn Sie Werte sehen, die höher sind als die Anzahl von Durchsatzeinheiten * Grenzwerte (1 MB pro Sekunde für eingehenden Datenverkehr oder 1.000 Anforderungen für eingehende Anforderungen/Sekunde, 2 MB pro Sekunde für ausgehenden Datenverkehr), erhöhen Sie die Anzahl der Durchsatzeinheiten, indem Sie die Seite **Skalierung** (im linken Menü) eines Event Hubs-Namespace verwenden, um manuell hochzuskalieren, oder verwenden Sie das Feature [Automatische Vergrößerung](event-hubs-auto-inflate.md) von Event Hubs. Beachten Sie, dass die automatische Vergrößerung nur auf bis zu 20 Durchsatzeinheiten vergrößern kann. Wenn Sie den Wert auf genau 40 TUs erhöhen möchten, übermitteln Sie eine [Supportanfrage](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ### <a name="error-code-50001"></a>Fehlercode 50001
 

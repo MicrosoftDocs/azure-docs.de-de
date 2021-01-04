@@ -5,13 +5,13 @@ author: georgewallace
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
-ms.custom: mvc, devcenter
-ms.openlocfilehash: cc4912545bedb650268b3d8e4a3e9820b70b5fe2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devcenter, devx-track-azurecli
+ms.openlocfilehash: 54ac7b27ada62a969dd40428fd9a753bb5a99530
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842528"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499831"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Bereitstellen einer Anwendung in Service Fabric Mesh mithilfe einer Vorlage
 
@@ -103,6 +103,11 @@ Wenn die Registrierung erstellt wird, sieht die Ausgabe etwa wie folgt aus:
 In diesem Tutorial wird die Aufgabenlistenanwendung als Beispiel verwendet.  Die Containerimages für die Dienste [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) und [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) befinden sich in Docker Hub. Informationen zum Erstellen der Anwendung in Visual Studio finden Sie unter [Tutorial: Erstellen, Debuggen, Bereitstellen und Aktualisieren einer Service Fabric Mesh-App mit mehreren Diensten](service-fabric-mesh-tutorial-create-dotnetcore.md). In Service Fabric Mesh können Windows-oder Linux-Docker-Container ausgeführt werden.  Wählen Sie bei der Verwendung von Linux-Containern in Docker die Option **Switch to Linux containers** (Zu Linux-Containern wechseln) aus.  Wählen Sie bei der Verwendung von Windows-Containern in Docker die Option **Switch to Windows containers** (Zu Windows-Containern wechseln) aus.
 
 Um ein Image per Push an eine ACR-Instanz übertragen zu können, benötigen Sie zunächst ein Containerimage. Falls Sie noch keine lokalen Containerimages besitzen, rufen Sie mithilfe des Befehls [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) die Images [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) und [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) per Pull aus Docker Hub ab.
+
+>[!NOTE]
+> Ab dem 2. November 2020 [gelten die Grenzwerte für die Downloadrate](https://docs.docker.com/docker-hub/download-rate-limit/) für anonyme und authentifizierte Anforderungen an Docker Hub von Docker-Konten im Plan „Free“. Diese Grenzwerte werden durch die IP-Adresse erzwungen. 
+> 
+> Diese Befehle nutzen öffentliche Images aus Docker Hub. Beachten Sie, dass möglicherweise Ratenbeschränkungen gelten. Ausführlichere Informationen finden Sie unter [Authentifizieren mit Docker Hub](../container-registry/buffer-gate-public-content.md#authenticate-with-docker-hub).
 
 Abrufen der Windows-Images:
 
@@ -336,7 +341,7 @@ Erstellen Sie die Anwendung und die zugehörigen Ressourcen mit dem folgenden Be
 
 Aktualisieren Sie in der Parameterdatei die folgenden Parameterwerte:
 
-|Parameter|value|
+|Parameter|Wert|
 |---|---|
 |location|Die Region für die Bereitstellung der Anwendung.  Beispiel: eastus|
 |registryPassword|Das Kennwort, das Sie zuvor unter [Abrufen von Anmeldeinformationen für die Registrierung](#retrieve-credentials-for-the-registry) abgerufen haben. Dieser Parameter in der Vorlage ist eine sichere Zeichenfolge und wird nicht im Bereitstellungsstatus oder in den `az mesh service show`-Befehlen angezeigt.|

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a529875536c2feafe05695e5d20daed0873a95e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0503e0bf2fe152296ca6890e14503d05bd3bbeef
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934445"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024771"
 ---
 # <a name="implementing-voice-assistants-on-windows"></a>Implementieren von Sprachassistenten unter Windows
 
@@ -30,15 +30,15 @@ Nachdem Sie die [Umgebung eingerichtet](how-to-windows-voice-assistants-get-star
 
 #### <a name="ensure-that-the-microphone-is-available-and-accessible-then-monitor-its-state"></a>Sicherstellen der Verfügbarkeit und Zugänglichkeit des Mikrofons und Überwachen des Status
 
-Bei MVA muss ein Mikrofon vorhanden und zugänglich sein, damit eine Sprachaktivierung erkannt werden kann. Verwenden Sie die Klassen [AppCapability](https://docs.microsoft.com/uwp/api/windows.security.authorization.appcapabilityaccess.appcapability?view=winrt-18362), [DeviceWatcher](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher?view=winrt-18362) und [MediaCapture](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture?view=winrt-18362), um den Datenschutz in Bezug auf den Zugriff auf das Mikrofon, das Vorhandensein des Geräts und den Gerätestatus (z. B. Lautstärke und Stummschaltung) zu überprüfen.
+Bei MVA muss ein Mikrofon vorhanden und zugänglich sein, damit eine Sprachaktivierung erkannt werden kann. Verwenden Sie die Klassen [AppCapability](/uwp/api/windows.security.authorization.appcapabilityaccess.appcapability?view=winrt-18362), [DeviceWatcher](/uwp/api/windows.devices.enumeration.devicewatcher?view=winrt-18362) und [MediaCapture](/uwp/api/windows.media.capture.mediacapture?view=winrt-18362), um den Datenschutz in Bezug auf den Zugriff auf das Mikrofon, das Vorhandensein des Geräts und den Gerätestatus (z. B. Lautstärke und Stummschaltung) zu überprüfen.
 
 ### <a name="register-the-application-with-the-background-service"></a>Registrieren der Anwendung beim Hintergrunddienst
 
-Damit MVA die Anwendung im Hintergrund starten kann, muss sie beim Hintergrunddienst registriert sein. Einen vollständigen Leitfaden zur Registrierung beim Hintergrunddienst finden Sie [hier](https://docs.microsoft.com/windows/uwp/launch-resume/register-a-background-task).
+Damit MVA die Anwendung im Hintergrund starten kann, muss sie beim Hintergrunddienst registriert sein. Einen vollständigen Leitfaden zur Registrierung beim Hintergrunddienst finden Sie [hier](/windows/uwp/launch-resume/register-a-background-task).
 
 ### <a name="unlock-the-limited-access-feature"></a>Entsperren des Features für eingeschränkten Zugriff
 
-Verwenden Sie den von Microsoft bereitgestellten Schlüssel für das Feature für eingeschränkten Zugriff, um die Funktion für den Sprachassistenten zu entsperren. Nutzen Sie hierfür die [LimitedAccessFeature](https://docs.microsoft.com/uwp/api/windows.applicationmodel.limitedaccessfeatures?view=winrt-18362)-Klasse aus dem Windows SDK.
+Verwenden Sie den von Microsoft bereitgestellten Schlüssel für das Feature für eingeschränkten Zugriff, um die Funktion für den Sprachassistenten zu entsperren. Nutzen Sie hierfür die [LimitedAccessFeature](/uwp/api/windows.applicationmodel.limitedaccessfeatures?view=winrt-18362)-Klasse aus dem Windows SDK.
 
 ### <a name="register-the-keyword-for-the-application"></a>Registrieren des Schlüsselworts für die Anwendung
 
@@ -86,7 +86,7 @@ Nachdem eine Sprach-Agent-Anwendung per Sprache aktiviert wurde, wird im nächst
 
 ### <a name="retrieve-activation-audio"></a>Abrufen der Audiodaten für die Aktivierung
 
-Erstellen Sie ein [AudioGraph](https://docs.microsoft.com/uwp/api/windows.media.audio.audiograph)-Element, und übergeben Sie es an das `CreateAudioDeviceInputNodeAsync`-Element von `ConversationalAgentSession`. Der Audiopuffer des Graphen wird geladen, und die Audiodaten *beginnen ca. drei Sekunden vor der Erkennung des Schlüsselworts*. Dieser Vorabzeitraum wird für die Audiodaten verwendet, um unterschiedliche Schlüsselwortlängen und Sprechgeschwindigkeiten abzudecken. Verarbeiten Sie anschließend das [QuantumStarted](https://docs.microsoft.com/uwp/api/windows.media.audio.audiograph.quantumstarted?view=winrt-18362)-Ereignis des Audiographen, um die Audiodaten abzurufen.
+Erstellen Sie ein [AudioGraph](/uwp/api/windows.media.audio.audiograph)-Element, und übergeben Sie es an das `CreateAudioDeviceInputNodeAsync`-Element von `ConversationalAgentSession`. Der Audiopuffer des Graphen wird geladen, und die Audiodaten *beginnen ca. drei Sekunden vor der Erkennung des Schlüsselworts*. Dieser Vorabzeitraum wird für die Audiodaten verwendet, um unterschiedliche Schlüsselwortlängen und Sprechgeschwindigkeiten abzudecken. Verarbeiten Sie anschließend das [QuantumStarted](/uwp/api/windows.media.audio.audiograph.quantumstarted?view=winrt-18362)-Ereignis des Audiographen, um die Audiodaten abzurufen.
 
 ```csharp
 var inputNode = await agentSession.CreateAudioDeviceInputNodeAsync(audioGraph);
@@ -118,7 +118,7 @@ Mit den folgenden Schritten wird für einen Sprachassistenten unter Windows die 
 
 Informationen zum Entwerfen der Anzeige oberhalb des Sperrbildschirms finden Sie im [Leitfaden zu den bewährten Methoden](windows-voice-assistants-best-practices.md).
 
-Wenn eine App eine Ansicht oberhalb des Sperrbildschirms anzeigt, wird dies als „Kioskmodus“ bezeichnet. Weitere Informationen zur Implementierung einer App mit Kioskmodus finden Sie in der [Dokumentation zum Kioskmodus](https://docs.microsoft.com/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access).
+Wenn eine App eine Ansicht oberhalb des Sperrbildschirms anzeigt, wird dies als „Kioskmodus“ bezeichnet. Weitere Informationen zur Implementierung einer App mit Kioskmodus finden Sie in der [Dokumentation zum Kioskmodus](/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access).
 
 ### <a name="transitioning-above-lock"></a>Übergang zur Anzeige oberhalb des Sperrbildschirms
 
@@ -149,7 +149,7 @@ Der Anwendungseintrag auf der Seite mit den Datenschutzeinstellungen für die Sp
 Verwenden Sie die `WindowService.CloseWindow()`-API, um die Anwendung richtig programmgesteuert zu schließen, während sie oberhalb oder unterhalb des Sperrbildschirms angezeigt wird. Hierdurch werden alle UWP-Lebenszyklusmethoden ausgelöst, z. B. OnSuspend, damit die Anwendung das `ConversationalAgentSession`-Objekt vor dem Schließen verwerfen kann.
 
 > [!NOTE]
-> Die Anwendung kann geschlossen werden, ohne dass die [unterhalb des Sperrbildschirms angezeigte Instanz](https://docs.microsoft.com/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access#add-a-way-out-of-assigned-access-) geschlossen wird. In diesem Fall muss die Anzeige oberhalb des Sperrbildschirms „bereinigt“ werden. Hierbei wird sichergestellt, dass nach dem Entsperren des Bildschirms keine Ereignishandler oder Aufgaben vorhanden sind, die versuchen, die oberhalb des Sperrbildschirms angezeigte Ansicht zu manipulieren.
+> Die Anwendung kann geschlossen werden, ohne dass die [unterhalb des Sperrbildschirms angezeigte Instanz](/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access#add-a-way-out-of-assigned-access-) geschlossen wird. In diesem Fall muss die Anzeige oberhalb des Sperrbildschirms „bereinigt“ werden. Hierbei wird sichergestellt, dass nach dem Entsperren des Bildschirms keine Ereignishandler oder Aufgaben vorhanden sind, die versuchen, die oberhalb des Sperrbildschirms angezeigte Ansicht zu manipulieren.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

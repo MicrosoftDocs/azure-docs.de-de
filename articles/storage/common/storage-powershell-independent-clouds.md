@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b610a5537d110a4046bd42ac86f5c938aeafe953
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e924a5f6c765b5b964fe3b1492393b063d9d23b4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89072951"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783571"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Verwalten von Speicher in den unabhängigen Azure-Clouds mithilfe von PowerShell
 
@@ -51,7 +51,7 @@ Melden Sie sich bei dem Konto an, mit dem Sie Zugriff auf die Cloud haben, mit d
 Connect-AzAccount –Environment AzureUSGovernment
 ```
 
-Verwenden Sie zum Zugreifen auf die China-Cloud die Umgebung **AzureChinaCloud**. Verwenden Sie den Zugriff auf die Deutschland-Cloud **AzureGermanCloud**.
+Verwenden Sie zum Zugreifen auf die China-Cloud die Umgebung **AzureChinaCloud** . Verwenden Sie den Zugriff auf die Deutschland-Cloud **AzureGermanCloud** .
 
 Falls Sie nun die Liste der Standorte benötigen, um ein Speicherkonto oder eine andere Ressource zu erstellen, können Sie mit [Get-AzLocation](/powershell/module/az.resources/get-azlocation) die für die ausgewählte Cloud verfügbaren Standorte abfragen.
 
@@ -69,11 +69,11 @@ Die folgende Tabelle enthält die für die Deutschland-Cloud zurückgegebenen St
 
 ## <a name="endpoint-suffix"></a>Endpunktsuffix
 
-Das Endpunktsuffix der einzelnen Umgebungen unterscheidet sich vom Azure Public-Endpunkt. Das Blobendpunktsuffix für Azure Public lautet **blob.core.windows.net**. Für die Government-Cloud lautet das Blobendpunktsuffix **blob.core.usgovcloudapi.net**.
+Das Endpunktsuffix der einzelnen Umgebungen unterscheidet sich vom Azure Public-Endpunkt. Das Blobendpunktsuffix für Azure Public lautet **blob.core.windows.net** . Für die Government-Cloud lautet das Blobendpunktsuffix **blob.core.usgovcloudapi.net** .
 
 ### <a name="get-endpoint-using-get-azenvironment"></a>Abrufen des Endpunkts mit „Get-AzEnvironment“
 
-Rufen Sie das Endpunktsuffix mit [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment) ab. Beim Endpunkt handelt es sich um die *StorageEndpointSuffix*-Eigenschaft der Umgebung.
+Rufen Sie das Endpunktsuffix mit [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment) ab. Beim Endpunkt handelt es sich um die *StorageEndpointSuffix* -Eigenschaft der Umgebung.
 
 Die folgenden Codeausschnitte zeigen das Abrufen des Endpunktsuffix. Alle diese Befehle geben Ergebnisse wie „core.cloudapp.net“ oder „core.cloudapi.de“ zurück. Fügen Sie das Suffix an den Speicherdienst an, um auf den entsprechenden Dienst zuzugreifen. Beispiel: „queue.core.cloudapi.de“ greift auf den Warteschlangendienst in der Deutschland-Cloud zu.
 
@@ -92,7 +92,7 @@ Mit diesem Befehl werden die folgenden Ergebnisse zurückgegeben:
 | AzureGermanCloud | core.cloudapi.de|
 | AzureUSGovernment | core.usgovcloudapi.net |
 
-Um alle Eigenschaften für die angegebene Umgebung abzurufen, rufen Sie **Get-AzEnvironment** auf, und geben Sie den Cloudnamen an. Dieser Codeausschnitt gibt eine Liste mit Eigenschaften zurück. Suchen Sie in der Liste nach **StorageEndpointSuffix**. Das folgende Beispiel gilt für die Deutschland-Cloud.
+Um alle Eigenschaften für die angegebene Umgebung abzurufen, rufen Sie **Get-AzEnvironment** auf, und geben Sie den Cloudnamen an. Dieser Codeausschnitt gibt eine Liste mit Eigenschaften zurück. Suchen Sie in der Liste nach **StorageEndpointSuffix** . Das folgende Beispiel gilt für die Deutschland-Cloud.
 
 ```powershell
 Get-AzEnvironment -Name AzureGermanCloud
@@ -167,7 +167,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Speichern von Benutzeranmeldungen zwischen PowerShell-Sitzungen](/powershell/azure/context-persistence)
-* [Azure Government-Speicher](../../azure-government/documentation-government-services-storage.md)
+* [Azure Government-Speicher](../../azure-government/compare-azure-government-global-azure.md)
 * [Microsoft Azure Government-Entwicklerhandbuch](../../azure-government/documentation-government-developer-guide.md)
 * [Entwicklerhinweise zu Azure China 21Vianet-Anwendungen](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 * [Azure Deutschland-Dokumentation](../../germany/germany-welcome.md)

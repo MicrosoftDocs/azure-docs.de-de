@@ -1,5 +1,5 @@
 ---
-title: Erstellen von Replikationspeering für Azure NetApp Files | Microsoft-Dokumentation
+title: Erstellen der Volumereplikation für Azure NetApp Files | Microsoft-Dokumentation
 description: Beschreibt das Erstellen von Volumereplikationspeering für Azure NetApp Files, um regionsübergreifende Replikation einzurichten.
 services: azure-netapp-files
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: b-juche
-ms.openlocfilehash: df70f8a37a7223119068afd323583ea6126ca542
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 412724a072bfc03a67bf1005173702f757c6fdf4
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708384"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95249936"
 ---
-# <a name="create-replication-peering-for-azure-netapp-files"></a>Erstellen von Replikationspeering für Azure NetApp Files
+# <a name="create-volume-replication-for-azure-netapp-files"></a>Erstellen der Volumereplikation für Azure NetApp Files
 
 > [!IMPORTANT]
 > Das Features für die regionsübergreifende Replikation befindet sich derzeit in der öffentlichen Vorschauversion. Sie müssen eine Wartelistenanforderung für den Zugriff auf das Feature über die [Seite für Wartelistenanforderungen für die regionsübergreifende Replikation von Azure NetApp Files-Volumes](https://aka.ms/anfcrrpreviewsignup) übermitteln. Warten Sie auf eine offizielle Bestätigungs-E-Mail des Azure NetApp Files-Teams, bevor Sie das Feature für die regionsübergreifende Replikation verwenden.
@@ -113,5 +113,6 @@ Um die Replikation zu autorisieren, müssen Sie die Ressourcen-ID des Replikatio
 * [Anzeigen des Integritätsstatus der Replikationsbeziehung](cross-region-replication-display-health-status.md)
 * [Metriken für die Volumereplikation](azure-netapp-files-metrics.md#replication)
 * [Verwalten der Notfallwiederherstellung](cross-region-replication-manage-disaster-recovery.md)
+* [Löschen von Volumereplikationen oder Volumes](cross-region-replication-delete.md)
 * [Problembehandlung für die regionsübergreifende Replikation](troubleshoot-cross-region-replication.md)
 

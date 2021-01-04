@@ -2,15 +2,15 @@
 title: Tutorial – Planen eines ACR Tasks
 description: In diesem Tutorial erfahren Sie, wie Sie einen Azure Container Registry Task nach einem definierten Zeitplan auszuführen, indem Sie einen oder mehrere Zeitgebertrigger festlegen.
 ms.topic: article
-ms.date: 06/27/2019
-ms.openlocfilehash: 3202b5d8c426165d81129f1affa69b3a3d515ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: 13a4ccac4ea97538583c1c063a6dc61e4d25686a
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78402881"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030610"
 ---
-# <a name="run-an-acr-task-on-a-defined-schedule"></a>Ausführen eines ACR Tasks nach einem definierten Zeitplan
+# <a name="tutorial-run-an-acr-task-on-a-defined-schedule"></a>Tutorial: Ausführen eines ACR Tasks nach einem definierten Zeitplan
 
 Dieses Tutorial zeigt Ihnen, wie Sie einen [ACR Task](container-registry-tasks-overview.md) nach einem Zeitplan ausführen. Planen Sie einen Task, indem Sie einen oder mehrere *Zeitgebertrigger* einrichten. Zeitgebertrigger können allein oder in Kombination mit anderen Tasktriggern verwendet werden.
 
@@ -25,8 +25,7 @@ Das Planen eines Tasks ist für Szenarien wie die folgenden nützlich:
 * Ausführen einer Containerworkload für geplante Wartungsarbeiten. Führen Sie beispielsweise eine containerisierte Anwendung aus, um nicht benötigte Images aus Ihrer Registrierung zu entfernen.
 * Führen Sie während des Arbeitstages im Rahmen Ihrer Liveüberwachung eine Reihe von Tests an einem Produktionsimage durch.
 
-Sie können Azure Cloud Shell oder eine lokale Installation der Azure CLI verwenden, um die Beispiele in diesem Artikel auszuführen. Wenn Sie es lokal verwenden möchten, ist die Version 2.0.68 oder höher erforderlich. Führen Sie `az --version` aus, um die Version zu ermitteln. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sie bei Bedarf unter [Installieren der Azure CLI][azure-cli-install].
-
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="about-scheduling-a-task"></a>Informationen zum Planen eines Tasks
 
@@ -37,19 +36,29 @@ Sie können Azure Cloud Shell oder eine lokale Installation der Azure CLI verwen
     * Geben Sie beim Erstellen des Tasks mehrere Zeitgebertrigger an, oder fügen Sie sie später hinzu.
     * Benennen Sie optional die Trigger zur einfacheren Verwaltung, oder ACR Tasks stellt standardmäßig Triggernamen bereit.
     * Wenn sich Zeitgeberzeitpläne bei einer Zeit überschneiden, löst ACR Tasks den Task zum geplanten Zeitpunkt für den jeweiligen Zeitgeber aus.
-* **Andere Task-Trigger** – In einem per Zeitgeber ausgelösten Task können Sie auch Trigger aktivieren, die auf [Quellcode-Commit](container-registry-tutorial-build-task.md) oder [Basisimage-Updates](container-registry-tutorial-base-image-update.md) basieren. Wie andere ACR Tasks auch, können Sie einen geplanten Task auch [manuell auslösen][az-acr-task-run].
+* **Andere Task-Trigger** – In einem per Zeitgeber ausgelösten Task können Sie auch Trigger aktivieren, die auf [Quellcode-Commit](container-registry-tutorial-build-task.md) oder [Basisimage-Updates](container-registry-tutorial-base-image-update.md) basieren. Wie andere ACR-Tasks auch, können Sie einen geplanten Task auch [manuell ausführen][az-acr-task-run].
 
 ## <a name="create-a-task-with-a-timer-trigger"></a>Erstellen eines Tasks mit einem Zeitgebertrigger
 
+### <a name="task-command"></a>Aufgabenbefehl
+
+Füllen Sie zunächst die folgenden Shell-Umgebungsvariablen mit geeigneten Werten für Ihre Umgebung auf. Dieser Schritt ist zwar nicht zwingend erforderlich, vereinfacht aber das Ausführen der mehrzeiligen Azure CLI-Befehle in diesem Tutorial. Wenn Sie die Umgebungsvariable nicht angeben, müssen Sie später jedes Mal die einzelnen Werte manuell ersetzen, wenn sie in einem der Beispielbefehle vorkommt.
+
+[![Start einbetten](https://shell.azure.com/images/launchcloudshell.png "Starten von Azure Cloud Shell")](https://shell.azure.com)
+
+```console
+ACR_NAME=<registry-name>        # The name of your Azure container registry
+```
+
 Wenn Sie einen Task mit dem Befehl [az acr task create][az-acr-task-create] erstellen, können Sie optional einen Zeitgebertrigger hinzufügen. Fügen Sie den `--schedule`-Parameter hinzu,m und übergeben Sie einen Cron-Ausdruck für den Zeitgeber.
 
-Als einfaches Beispiel löst der folgende Befehl die tägliche Ausführung des `hello-world`-Images vom Docker Hub um 21:00 UTC aus. Der Task läuft ohne Quellcodekontext.
+Als einfaches Beispiel löst der folgende Task die tägliche Ausführung des `hello-world`-Images aus der Microsoft Container Registry um 21:00 Uhr (UTC) aus. Der Task läuft ohne Quellcodekontext.
 
 ```azurecli
 az acr task create \
-  --name mytask \
-  --registry myregistry \
-  --cmd hello-world \
+  --name timertask \
+  --registry $ACR_NAME \
+  --cmd mcr.microsoft.com/hello-world \
   --schedule "0 21 * * *" \
   --context /dev/null
 ```
@@ -57,30 +66,32 @@ az acr task create \
 Führen Sie den Befehl [az acr task show][az-acr-task-show] aus, um zu sehen, ob der Timertrigger konfiguriert ist. Standardmäßig ist auch der Trigger für die Aktualisierung des Basisimages aktiviert.
 
 ```azurecli
-az acr task show --name mytask --registry registry --output table
+az acr task show --name timertask --registry $ACR_NAME --output table
 ```
 
 ```output
 NAME      PLATFORM    STATUS    SOURCE REPOSITORY       TRIGGERS
 --------  ----------  --------  -------------------     -----------------
-mytask    linux       Enabled                           BASE_IMAGE, TIMER
+timertask linux       Enabled                           BASE_IMAGE, TIMER
 ```
+
+## <a name="trigger-the-task"></a>Auslösen des Tasks
 
 Lösen Sie den Task manuell mit [az acr task run][az-acr-task-run] aus, um sicherzustellen, dass er richtig eingerichtet ist:
 
 ```azurecli
-az acr task run --name mytask --registry myregistry
+az acr task run --name timertask --registry $ACR_NAME
 ```
 
-Wenn der Container erfolgreich ausgeführt wird, ist die Ausgabe ähnlich wie folgt:
+Wenn der Container erfolgreich ausgeführt wird, ähnelt die Ausgabe der folgenden. Die Ausgabe ist zusammengefasst, um die wichtigsten Schritte darzustellen.
 
 ```output
 Queued a run with ID: cf2a
 Waiting for an agent...
-2019/06/28 21:03:36 Using acb_vol_2ca23c46-a9ac-4224-b0c6-9fde44eb42d2 as the home volume
-2019/06/28 21:03:36 Creating Docker network: acb_default_network, driver: 'bridge'
+2020/11/20 21:03:36 Using acb_vol_2ca23c46-a9ac-4224-b0c6-9fde44eb42d2 as the home volume
+2020/11/20 21:03:36 Creating Docker network: acb_default_network, driver: 'bridge'
 [...]
-2019/06/28 21:03:38 Launching container with name: acb_step_0
+2020/11/20 21:03:38 Launching container with name: acb_step_0
 
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
@@ -90,17 +101,16 @@ This message shows that your installation appears to be working correctly.
 Führen Sie nach der geplanten Zeit den Befehl [az acr task list-runs][az-acr-task-list-runs] aus, um sicherzustellen, dass der Zeitgeber den Task wie erwartet ausgelöst hat:
 
 ```azurecli
-az acr task list-runs --name mytask --registry myregistry --output table
+az acr task list-runs --name timertask --registry $ACR_NAME --output table
 ```
 
 Wenn der Zeitgeber erfolgreich ist, lautet die Ausgabe wie folgt:
 
 ```output
-RUN ID    TASK     PLATFORM    STATUS     TRIGGER    STARTED               DURATION
---------  -------- ----------  ---------  ---------  --------------------  ----------
-[...]
-cf2b      mytask   linux       Succeeded  Timer      2019-06-28T21:00:23Z  00:00:06
-cf2a      mytask   linux       Succeeded  Manual     2019-06-28T20:53:23Z  00:00:06
+RUN ID    TASK       PLATFORM    STATUS     TRIGGER    STARTED               DURATION
+--------  ---------  ----------  ---------  ---------  --------------------  ----------
+ca15      timertask  linux       Succeeded  Timer      2020-11-20T21:00:23Z  00:00:06
+ca14      timertask  linux       Succeeded  Manual     2020-11-20T20:53:35Z  00:00:06
 ```
 
 ## <a name="manage-timer-triggers"></a>Verwalten von Zeitgebertriggern
@@ -109,12 +119,12 @@ Verwenden Sie die [az acr task timer][az-acr-task-timer]-Befehle, um die Zeitgeb
 
 ### <a name="add-or-update-a-timer-trigger"></a>Hinzufügen oder Aktualisieren eines Zeitgebertriggers
 
-Nachdem ein Task erstellt wurde, fügen Sie optional einen Zeitgebertrigger hinzu, indem Sie den Befehl [az acr task timer add][az-acr-task-timer-add] verwenden. Im folgenden Beispiel wird ein Zeitgebertriggername *timer2* zu dem zuvor erstellten *mytask* hinzugefügt. Dieser Zeitgeber löst den Task jeden Tag um 10:30 UTC aus.
+Nachdem ein Task erstellt wurde, fügen Sie optional einen Zeitgebertrigger hinzu, indem Sie den Befehl [az acr task timer add][az-acr-task-timer-add] verwenden. Im folgenden Beispiel wird dem zuvor erstellten *timertask* der Zeitgebertriggername *timer2* hinzugefügt. Dieser Zeitgeber löst den Task jeden Tag um 10:30 UTC aus.
 
 ```azurecli
 az acr task timer add \
-  --name mytask \
-  --registry myregistry \
+  --name timertask \
+  --registry $ACR_NAME \
   --timer-name timer2 \
   --schedule "30 10 * * *"
 ```
@@ -123,8 +133,8 @@ Aktualisieren Sie den Zeitplan eines vorhandenen Triggers, oder ändern Sie sein
 
 ```azurecli
 az acr task timer update \
-  --name mytask \
-  --registry myregistry \
+  --name timertask \
+  --registry $ACR_NAME \
   --timer-name timer2 \
   --schedule "30 11 * * *"
 ```
@@ -134,7 +144,7 @@ az acr task timer update \
 Der Befehl [az acr task timer list][az-acr-task-timer-list] zeigt die für einen Task eingerichteten Zeitgebertrigger an:
 
 ```azurecli
-az acr task timer list --name mytask --registry myregistry
+az acr task timer list --name timertask --registry $ACR_NAME
 ```
 
 Beispielausgabe:
@@ -156,12 +166,12 @@ Beispielausgabe:
 
 ### <a name="remove-a-timer-trigger"></a>Entfernen eines Zeitgebertriggers
 
-Verwenden Sie den Befehl [az acr task timer remove][az-acr-task-timer-remove], um einen Zeitgebertrigger aus einem Task zu entfernen. Das folgende Beispiel entfernt den Trigger *timer2* aus *mytask*:
+Verwenden Sie den Befehl [az acr task timer remove][az-acr-task-timer-remove], um einen Zeitgebertrigger aus einem Task zu entfernen. Das folgende Beispiel entfernt den Trigger *timer2* aus *timertask*:
 
 ```azurecli
 az acr task timer remove \
-  --name mytask \
-  --registry myregistry \
+  --name timertask \
+  --registry $ACR_NAME \
   --timer-name timer2
 ```
 

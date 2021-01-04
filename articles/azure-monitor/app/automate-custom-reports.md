@@ -4,12 +4,12 @@ description: Automatisieren von benutzerdefinierten täglichen, wöchentlichen o
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: f35b7cbde7b719a91b23b19481ab704c445485cb
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: d465666ce5d631a234644d1adc85afcf6e3c1e27
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827741"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010604"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatisieren von benutzerdefinierten Berichten mit Azure Application Insights-Daten
 
@@ -31,7 +31,7 @@ Jedes Unternehmen stellt einzigartige Berichterstellungsanforderungen wie etwa F
 
 [Application Insights-Daten können programmgesteuert abgefragt werden](https://dev.applicationinsights.io/), um benutzerdefinierte Berichte nach einem Zeitplan zu generieren. Die folgenden Optionen ermöglichen Ihnen einen schnellen Einstieg:
 
-* [Berichte mit Microsoft Flow automatisieren](../platform/logicapp-flow-connector.md)
+* [Berichte mit Power Automate automatisieren](../platform/logicapp-flow-connector.md)
 * [Berichte mit Logic Apps automatisieren](automate-with-logic-apps.md)
 * Verwenden Sie im Überwachungsszenario die [Azure-Funktionsvorlage](../../azure-functions/functions-create-first-azure-function.md) für „geplante Application Insights-Zusammenfassungen“. Bei dieser Funktion werden E-Mails über SendGrid übermittelt. 
 

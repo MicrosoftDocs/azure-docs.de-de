@@ -6,15 +6,15 @@ services: virtual-wan
 author: reyandap
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 12/08/2020
 ms.author: reyandap
 ms.custom: references_pricing
-ms.openlocfilehash: b4025990a1a62351d3971d788558dea8ecb390ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ced9bb33be341d35904967092414676a6ffe3ac
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327956"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905535"
 ---
 # <a name="about-virtual-wan-pricing"></a>Informationen zu den Preisen von Virtual WAN
 
@@ -38,7 +38,7 @@ Eine **Skalierungseinheit** stellt die Einheit für die aggregierte Kapazität v
 
 ### <a name="what-is-a-connection-unit"></a><a name="connection-unit"></a>Was ist eine Verbindungseinheit?
 
-Eine **Verbindungseinheit** gilt für beliebige lokale/Nicht-Microsoft-Endpunkte, die eine Verbindung mit Azure-Gateways herstellen. Für Site-to-Site-VPN impliziert dies Branches. Für Benutzer-VPN (Point-to-Site) impliziert dies Remotebenutzer. Für ExpressRoute impliziert dies Verbindungen von ExpressRoute-Leitungen.<br>Beispiel:
+Eine **Verbindungseinheit** gilt für beliebige lokale/Nicht-Microsoft-Endpunkte, die eine Verbindung mit Azure-Gateways herstellen. Bei einem Site-to-Site-VPN impliziert dieser Wert Verzweigungen. Bei einem Benutzer-VPN (Point-to-Site) impliziert dieser Wert Remotebenutzer. Bei ExpressRoute impliziert dieser Wert Verbindungen von ExpressRoute-Leitungen.<br>Beispiel:
 
 * Eine Branchverbindung mit einem Azure-VPN in einem virtuellen Hub kostet 0,05 USD/Stunde. 100 Branchverbindungen mit einem virtuellen Azure-Hub kosten demnach 0,05 USD × 100/Stunde.
 
@@ -50,32 +50,7 @@ Eine **Verbindungseinheit** gilt für beliebige lokale/Nicht-Microsoft-Endpunkte
 
 * In Azure eingehender Datenverkehr wird nicht berechnet. Von Azure ausgehender Datenverkehr (über VPN-, ExpressRoute- oder Point-to-Site-Benutzer-VPN-Verbindungen) unterliegt den [Standardgebühren für Azure-Datenübertragungen](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-* Bei Datenübertragungen zwischen einem Virtual WAN-Hub und einem Virtual Remote-WAN-Remotehub oder -VNET in einer anderen Region als der Quellhub fallen Datenübertragungsgebühren für den Datenverkehr an, der vom Hub ausgeht. Beispiel: Ausgehender Datenverkehr von einem Hub in „USA, Osten“ an einen Hub in „USA, Westen“ wird mit 0,02 USD/GB in Rechnung gestellt. Es fallen keine Kosten für den eingehenden Datenverkehr am Hub in „USA, Westen“ an. Die Gebühren sind in den nachstehenden Tabellen aufgeführt.
-
-In den nachstehenden Tabellen werden die folgenden Abkürzungen verwendet: NAM: Nordamerika, EU: Europa, MEA: Naher Osten/Afrika, OC Ozeanien („Australien, Mitte“ und „Australien, Mitte 2“), LATAM: Lateinamerika 
-
-**Preise innerhalb eines Kontinents (*)**
-
-| Innerhalb eines Kontinents| Preis (USD/GB):|
-|---|---|
-| NAM zu NAM|0,02 $ |
-| EU zu EU |0,02 $ |
-| Asien zu Asien (außer China)|0,10 USD |
-| MEA zu MEA|0,16 USD |
-| LATAM zu LATAM |0,16 USD |
-| OC zu OC|0,12 USD |
-
-**Preise zwischen Kontinenten (*)**
-
-| Zwischen Kontinenten| Preis (USD/GB):|
-|---|---|
-| Von NAM zu EU oder EU zu NAM |0,07 USD |
-| Von LATAM zu einem beliebigen Standort |0,17 USD |
-| Von MEA zu einem beliebigen Standort |0,17 USD |
-| Von Ozeanien zu einem beliebigen Standort |0,12 USD |
-| Von Asien (außer China) zu einem beliebigen Standort |0,12 USD |
-
-(*) Einige Gebühren können ab dem 1. August 2020 anfallen.
+* Bei Datenübertragungen zwischen einem Virtual WAN-Hub und einem Virtual Remote-WAN-Remotehub oder -VNET in einer anderen Region als der Quellhub fallen Datenübertragungsgebühren für den Datenverkehr an, der vom Hub ausgeht. Beispiel: Ausgehender Datenverkehr von einem Hub in „USA, Osten“ an einen Hub in „USA, Westen“ wird mit 0,02 USD/GB in Rechnung gestellt. Es fallen keine Kosten für den eingehenden Datenverkehr am Hub in „USA, Westen“ an. Für den gesamten Datenverkehr zwischen den Hubs fallen Gebühren für die regionsübergreifende Datenübertragung (bzw. die Datenübertragung innerhalb eines Kontinents oder die interkontinentale Übertragung) an. Weitere Informationen erhalten Sie in der [Preisübersicht für Azure-Datenübertragungen](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
 ### <a name="what-is-the-difference-between-a-standard-hub-fee-and-a-standard-hub-processing-fee"></a><a name="fee"></a>Worin besteht der Unterschied zwischen einer Standard-Hubgebühr und einer Standard-Hubverarbeitungsgebühr?
 

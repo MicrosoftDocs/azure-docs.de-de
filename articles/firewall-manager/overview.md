@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 09/30/2020
+ms.date: 11/23/2020
 ms.author: victorh
-ms.openlocfilehash: 00a84fbf694a58128712abf806ff12df96f0e5e9
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 84ecea7764ddf48d68c983eaa5bccbac5f332d9b
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91596677"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95489693"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Was ist Azure Firewall Manager?
 
@@ -89,7 +89,8 @@ Für Azure Firewall Manager sind die folgenden Probleme bekannt:
 |Für Anwendungsregeln tritt auf einem geschützten Hub ein Fehler auf, wenn ein benutzerdefiniertes DNS (Vorschau) konfiguriert ist.|Benutzerdefiniertes DNS (Vorschau) funktioniert nicht in Bereitstellungen von geschützten Hubs und virtuellen Hubnetzwerkbereitstellungen, bei denen die Tunnelerzwingung aktiviert ist.|Wir arbeiten derzeit an der Fehlerbehebung.|
 |DDoS Protection Standard wird bei geschützten virtuellen Hubs nicht unterstützt.|DDoS Protection Standard ist nicht in vWANs integriert.|Wird untersucht|
 |Aktivitätsprotokolle werden nicht vollständig unterstützt.|Firewallrichtlinie unterstützt derzeit keine Aktivitätsprotokolle.|Wird untersucht|
-|Konfigurieren von privaten SNAT-IP-Adressbereichen|[Einstellungen für den privaten IP-Bereich](../firewall/snat-private-range.md) werden ignoriert, wenn eine Azure Firewall-Richtlinie konfiguriert ist. Es wird das Azure Firewall-Standardverhalten verwendet, d. h., es erfolgt keine SNAT bei Netzwerkregeln, wenn sich die Ziel-IP-Adresse in einem privaten IP-Adressbereich gemäß [IANA RFC 1918](https://tools.ietf.org/html/rfc1918) befindet.|Wird untersucht
+|Konfigurieren von privaten SNAT-IP-Adressbereichen|[Einstellungen für den privaten IP-Bereich](../firewall/snat-private-range.md) werden ignoriert, wenn eine Azure Firewall-Richtlinie konfiguriert ist. Es wird das Azure Firewall-Standardverhalten verwendet, d. h., es erfolgt keine SNAT bei Netzwerkregeln, wenn sich die Ziel-IP-Adresse in einem privaten IP-Adressbereich gemäß [IANA RFC 1918](https://tools.ietf.org/html/rfc1918) befindet.|Wird untersucht|
+|Bei der Migration der Firewall zur Verwendung der Firewallrichtlinie werden einige Firewalleinstellungen nicht migriert.|Bei der Migration zur Azure-Firewallrichtlinie werden Verfügbarkeitszonen und private SNAT-Adressen nicht migriert.|Wird untersucht| 
 
 ## <a name="next-steps"></a>Nächste Schritte
 

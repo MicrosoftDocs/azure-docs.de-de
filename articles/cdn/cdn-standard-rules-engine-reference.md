@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: b272426f865636640e0a2fafde46cbebbe6eb363
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1a0f4456f38939632026645500dd48acbf7dbc88
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91327492"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242207"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Referenz zur Standardregel-Engine für Azure CDN
 
@@ -36,6 +36,9 @@ Jede Regel kann bis zu zehn Übereinstimmungsbedingungen und fünf Aktionen aufw
 
 Dieser Grenzwert schließt eine *globale Standardregel* mit ein. Die globale Regel verfügt über keine Übereinstimmungsbedingungen. Die in einer globalen Regel definierten Aktionen werden immer ausgelöst.
 
+   > [!IMPORTANT]
+   > Die Reihenfolge, in der mehrere Regeln aufgelistet sind, beeinflusst die Verarbeitung der Regeln. Die in einer Regel angegebenen Aktionen werden möglicherweise durch eine nachfolgende Regel überschrieben.
+
 ## <a name="limits-and-pricing"></a>Limits und Preise 
 
 Jeder Azure CDN-Endpunkt kann bis zu 25 Regeln enthalten. Jede Regel kann bis zu zehn Übereinstimmungsbedingungen und fünf Aktionen aufweisen. Die Preise für die Regel-Engine folgen den folgenden Dimensionen: 
@@ -53,7 +56,7 @@ Wie Sonderzeichen in einer Regel behandelt werden, hängt davon ab, wie verschie
 
 ### <a name="literal-values"></a>Literalwerte
 
-Text, der als Literalwert interpretiert wird, behandelt alle Sonderzeichen (*mit Ausnahme des Zeichens „%“* ) als Teil des Werts, für den eine Übereinstimmung in der Regel gesucht wird. Eine literale Übereinstimmungsbedingung, die auf `'*'` festgelegt ist, wird nur erfüllt, wenn der exakte Wert `'*'` ermittelt wird.
+Text, der als Literalwert interpretiert wird, behandelt alle Sonderzeichen ( *mit Ausnahme des Zeichens „%“* ) als Teil des Werts, für den eine Übereinstimmung in der Regel gesucht wird. Eine literale Übereinstimmungsbedingung, die auf `'*'` festgelegt ist, wird nur erfüllt, wenn der exakte Wert `'*'` ermittelt wird.
 
 Ein Prozentzeichen wird zum Angeben der URL-Codierung verwendet (z. B. `%20`).
 

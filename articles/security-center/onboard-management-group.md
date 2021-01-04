@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: memildin
-ms.openlocfilehash: ce0858f61ca1fe3b81c3d0c8a3c97954827def80
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 4ecd436b548c29c520a7538970d4d703cc8488d2
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950617"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027566"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>Aktivieren von Security Center in allen Abonnements einer Verwaltungsgruppe
 
@@ -25,20 +25,20 @@ Sie können Azure Policy verwenden, um Azure Security Center in allen Azure-Abon
 
 Führen Sie das Onboarding einer Verwaltungsgruppe und aller zugehörigen Abonnements wie folgt durch:
 
-1. Öffnen Sie Azure Policy als Benutzer mit Berechtigungen vom Typ **Sicherheitsadministrator**, und suchen Sie nach der Definition **Azure Security Center für Ihr Abonnement aktivieren**.
+1. Öffnen Sie Azure Policy als Benutzer mit Berechtigungen vom Typ **Sicherheitsadministrator** , und suchen Sie nach der Definition **Azure Security Center für Ihr Abonnement aktivieren**.
 
     :::image type="content" source="./media/security-center-get-started/enable-security-center-policy.png" alt-text="Azure Policy-Definition „Azure Security Center für Ihr Abonnement aktivieren“":::
 
 1. Wählen Sie die Option **Zuweisen** aus, und stellen Sie sicher, dass Sie den Bereich auf die Ebene der Verwaltungsgruppe festlegen.
 
-    :::image type="content" source="./media/security-center-get-started/assign-policy.png" alt-text="Azure Policy-Definition „Azure Security Center für Ihr Abonnement aktivieren“":::
+    :::image type="content" source="./media/security-center-get-started/assign-policy.png" alt-text="Zuweisen der Definition „Azure Security Center für Ihr Abonnement aktivieren“":::
 
     > [!TIP]
     > Mit Ausnahme des Bereichs sind keine weiteren Parameter erforderlich.
 
 1. Wählen Sie **Korrekturtask erstellen** aus, um sicherzustellen, dass alle vorhandenen Abonnements, für die Security Center nicht aktiviert ist, das Onboarding durchgeführt wird.
 
-    :::image type="content" source="./media/security-center-get-started/remediation-task.png" alt-text="Azure Policy-Definition „Azure Security Center für Ihr Abonnement aktivieren“":::
+    :::image type="content" source="./media/security-center-get-started/remediation-task.png" alt-text="Erstellen eines Korrekturtasks für die Azure Policy-Definition „Azure Security Center für Ihr Abonnement aktivieren“":::
 
 1. Wenn die Definition zugewiesen wird, bewirkt sie Folgendes:
 
@@ -55,7 +55,7 @@ Führen Sie das Onboarding einer Verwaltungsgruppe und aller zugehörigen Abonne
 
 Es gibt verschiedene Möglichkeiten, wie Sie die Azure Policy-Definition ändern können: 
 
-- **Abweichendes Definieren von Konformität**: Mit der bereitgestellten Richtlinie werden alle Abonnements der Verwaltungsgruppe, die noch nicht bei Security Center registriert sind, als „nicht konform“ klassifiziert. Sie können auch angeben, dass dies für alle Abonnements ohne Azure Defender gelten soll.
+- **Abweichendes Definieren von Konformität** : Mit der bereitgestellten Richtlinie werden alle Abonnements der Verwaltungsgruppe, die noch nicht bei Security Center registriert sind, als „nicht konform“ klassifiziert. Sie können auch angeben, dass dies für alle Abonnements ohne Azure Defender gelten soll.
 
     Mit der bereitgestellten Definition werden *beide* unten angegebenen Preiseinstellungen als konform festgelegt. Dies bedeutet, dass ein Abonnement, das auf „Standard“ oder „Free“ festgelegt ist, konform ist.
 
@@ -88,7 +88,7 @@ Es gibt verschiedene Möglichkeiten, wie Sie die Azure Policy-Definition ändern
     },
     ```
 
-- **Definieren von einigen Azure Defender-Plänen zum Anwenden beim Aktivieren von Security Center**: Mit der bereitgestellten Richtlinie wird Security Center ohne die optionalen Azure Defender-Pläne aktiviert. Sie können einen oder mehrere davon aktivieren.
+- **Definieren von einigen Azure Defender-Plänen zum Anwenden beim Aktivieren von Security Center** : Mit der bereitgestellten Richtlinie wird Security Center ohne die optionalen Azure Defender-Pläne aktiviert. Sie können einen oder mehrere davon aktivieren.
 
     Im Abschnitt `deployment` der bereitgestellten Definition wird der Parameter `pricingTier` verwendet. Standardmäßig ist er auf `free` festgelegt, aber Sie können dies ändern. 
 

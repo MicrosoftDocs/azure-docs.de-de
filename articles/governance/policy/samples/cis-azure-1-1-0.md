@@ -1,23 +1,23 @@
 ---
 title: Details der Einhaltung gesetzlicher Bestimmungen für CIS Microsoft Azure Foundations Benchmark
 description: Details zur integrierten Initiative zur Einhaltung der gesetzlichen Bestimmungen gemäß CIS Microsoft Azure Foundations Benchmark. Jede Steuerung wird mindestens einer Azure Policy-Definition zugeordnet, die Sie bei der Bewertung unterstützt.
-ms.date: 10/20/2020
+ms.date: 11/20/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 06b74daff584c9df35d4c762c3115b95e4ed3179
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2ed1a40ba7589d25864cd5bdd90526635f189d6d
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320585"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94991314"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>Details zur integrierten Initiative zur Einhaltung der gesetzlichen Bestimmungen gemäß CIS Microsoft Azure Foundations Benchmark
 
 Der folgende Artikel enthält Details dazu, wie die integrierte Azure Policy-Initiative zur Einhaltung gesetzlicher Bestimmungen den **Compliancebereichen** und **Steuerungen** in CIS Microsoft Azure Foundations Benchmark entspricht.
 Weitere Informationen zu diesem Konformitätsstandard finden Sie unter [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/). Grundlegendes zum _Besitzer_ finden Sie unter [Azure Policy-Richtliniendefinition](../concepts/definition-structure.md#type) und [Gemeinsame Verantwortung in der Cloud](../../../security/fundamentals/shared-responsibility.md).
 
-Die folgenden Zuordnungen gelten für die Steuerelemente für **CIS Microsoft Azure Foundations Benchmark** . Über den rechten Navigationsbereich können Sie direkt zu einem bestimmten **Steuerungsbereich** springen. Viele der Steuerungen werden über die Definition einer [Azure Policy](../overview.md)-Initiative implementiert. Zum Anzeigen der vollständigen Initiativendefinition öffnen Sie **Policy** im Azure-Portal und wählen dann die Seite **Definitionen** aus.
-Suchen Sie anschließend die integrierte Initiativendefinition zur Einhaltung der gesetzlichen Bestimmungen gemäß **CIS Microsoft Azure Foundations Benchmark 1.1.0** , und wählen Sie sie aus.
+Die folgenden Zuordnungen gelten für die Steuerelemente für **CIS Microsoft Azure Foundations Benchmark**. Über den rechten Navigationsbereich können Sie direkt zu einem bestimmten **Steuerungsbereich** springen. Viele der Steuerungen werden über die Definition einer [Azure Policy](../overview.md)-Initiative implementiert. Zum Anzeigen der vollständigen Initiativendefinition öffnen Sie **Policy** im Azure-Portal und wählen dann die Seite **Definitionen** aus.
+Suchen Sie anschließend die integrierte Initiativendefinition zur Einhaltung der gesetzlichen Bestimmungen gemäß **CIS Microsoft Azure Foundations Benchmark 1.1.0**, und wählen Sie sie aus.
 
 Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Microsoft Azure Foundations Benchmark](../../blueprints/samples/cis-azure-1-1-0.md) bereitgestellt.
 
@@ -29,7 +29,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-multi-factor-authentication-is-enabled-for-all-privileged-users"></a>Sicherstellen, dass die mehrstufige Authentifizierung für alle privilegierten Benutzer aktiviert ist
 
-**ID:** CIS Azure 1.1 **Besitz** : Kunde
+**ID:** CIS Azure 1.1 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -38,7 +38,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-multi-factor-authentication-is-enabled-for-all-non-privileged-users"></a>Sicherstellen, dass die mehrstufige Authentifizierung für alle nicht privilegierten Benutzer aktiviert ist
 
-**ID:** CIS Azure 1.2 **Besitz** : Kunde
+**ID:** CIS Azure 1.2 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -46,7 +46,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-there-are-no-guest-users"></a>Sicherstellen, dass keine Gastbenutzer vorhanden sind
 
-**ID:** CIS Azure 1.3 **Besitz** : Kunde
+**ID:** CIS Azure 1.3 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -56,7 +56,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-no-custom-subscription-owner-roles-are-created"></a>Sicherstellen, dass keine benutzerdefinierten Abonnementbesitzerrollen erstellt werden
 
-**ID:** CIS Azure 1.23 **Besitz** : Kunde
+**ID:** CIS Azure 1.23 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -66,7 +66,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>Sicherstellen, dass „Automatische Bereitstellung des Überwachungs-Agents“ auf „Ein“ festgelegt ist
 
-**ID:** CIS Azure 2.2 **Besitz** : Kunde
+**ID:** CIS Azure 2.2 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -74,7 +74,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-asc-default-policy-setting-monitor-system-updates-is-not-disabled"></a>Sicherstellen, dass die ASC-Standardrichtlinieneinstellung „Systemupdates überwachen“ nicht deaktiviert ist
 
-**ID:** CIS Azure 2.3 **Besitz** : Kunde
+**ID:** CIS Azure 2.3 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -82,7 +82,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-asc-default-policy-setting-monitor-os-vulnerabilities-is-not-disabled"></a>Sicherstellen, dass die ASC-Standardrichtlinieneinstellung „Betriebssystem-Sicherheitsrisiken überwachen“ nicht deaktiviert ist
 
-**ID:** CIS Azure 2.4 **Besitz** : Kunde
+**ID:** CIS Azure 2.4 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -90,7 +90,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-asc-default-policy-setting-monitor-endpoint-protection-is-not-disabled"></a>Sicherstellen, dass die ASC-Standardrichtlinieneinstellung „Endpoint Protection überwachen“ nicht deaktiviert ist
 
-**ID:** CIS Azure 2.5 **Besitz** : Kunde
+**ID:** CIS Azure 2.5 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -98,7 +98,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-asc-default-policy-setting-monitor-disk-encryption-is-not-disabled"></a>Sicherstellen, dass die ASC-Standardrichtlinieneinstellung „Datenträgerverschlüsselung überwachen“ nicht deaktiviert ist
 
-**ID:** CIS Azure 2.6 **Besitz** : Kunde
+**ID:** CIS Azure 2.6 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -106,15 +106,15 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-asc-default-policy-setting-monitor-network-security-groups-is-not-disabled"></a>Sicherstellen, dass die ASC-Standardrichtlinieneinstellung „Netzwerksicherheitsgruppen überwachen“ nicht deaktiviert ist
 
-**ID:** CIS Azure 2.7 **Besitz** : Kunde
+**ID:** CIS Azure 2.7 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Auf VMs mit Internetausrichtung müssen Empfehlungen zur adaptiven Netzwerkhärtung angewendet werden.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F08e6af2d-db70-460a-bfe9-d5bd474ba9d6) |Azure Security Center analysiert die Datenverkehrsmuster von virtuellen Computern mit Internetzugriff und stellt Empfehlungen zu NSG-Regeln (Netzwerksicherheitsgruppe) bereit, um die potenzielle Angriffsfläche zu verringern. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AdaptiveNetworkHardenings_Audit.json) |
+|[Auf virtuelle Computer mit Internetzugang müssen Empfehlungen zur adaptiven Netzwerkhärtung angewendet werden.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F08e6af2d-db70-460a-bfe9-d5bd474ba9d6) |Azure Security Center analysiert die Datenverkehrsmuster von virtuellen Computern mit Internetzugriff und stellt Empfehlungen zu NSG-Regeln (Netzwerksicherheitsgruppe) bereit, um die potenzielle Angriffsfläche zu verringern. |AuditIfNotExists, Disabled |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AdaptiveNetworkHardenings_Audit.json) |
 
 ### <a name="ensure-asc-default-policy-setting-enable-next-generation-firewallngfw-monitoring-is-not-disabled"></a>Sicherstellen, dass die ASC-Standardrichtlinieneinstellung „Next Generation Firewall-Überwachung aktivieren“ nicht deaktiviert ist
 
-**ID:** CIS Azure 2.9 **Besitz** : Kunde
+**ID:** CIS Azure 2.9 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -123,7 +123,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-asc-default-policy-setting-monitor-vulnerability-assessment-is-not-disabled"></a>Sicherstellen, dass die ASC-Standardrichtlinieneinstellung „Sicherheitsrisikobewertung überwachen“ nicht deaktiviert ist
 
-**ID:** CIS Azure 2.10 **Besitz** : Kunde
+**ID:** CIS Azure 2.10 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -131,7 +131,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-asc-default-policy-setting-monitor-jit-network-access-is-not-disabled"></a>Sicherstellen, dass die ASC-Standardrichtlinieneinstellung „JIT-Netzwerkzugriff überwachen“ nicht deaktiviert ist
 
-**ID:** CIS Azure 2.12 **Besitz** : Kunde
+**ID:** CIS Azure 2.12 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -139,7 +139,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-asc-default-policy-setting-monitor-adaptive-application-whitelisting-is-not-disabled"></a>Sicherstellen, dass die ASC-Standardrichtlinieneinstellung „Monitor Adaptive Application Whitelisting“ (Whitelist für adaptive Anwendungssteuerung überwachen) nicht deaktiviert ist
 
-**ID:** CIS Azure 2.13 **Besitz** : Kunde
+**ID:** CIS Azure 2.13 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -147,7 +147,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-asc-default-policy-setting-monitor-sql-auditing-is-not-disabled"></a>Sicherstellen, dass die ASC-Standardrichtlinieneinstellung „SQL-Überwachung überwachen“ nicht deaktiviert ist
 
-**ID:** CIS Azure 2.14 **Besitz** : Kunde
+**ID:** CIS Azure 2.14 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -155,7 +155,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-asc-default-policy-setting-monitor-sql-encryption-is-not-disabled"></a>Sicherstellen, dass die ASC-Standardrichtlinieneinstellung „SQL-Verschlüsselung überwachen“ nicht deaktiviert ist
 
-**ID:** CIS Azure 2.15 **Besitz** : Kunde
+**ID:** CIS Azure 2.15 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -163,7 +163,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-security-contact-emails-is-set"></a>Sicherstellen, dass „E-Mail-Adressen für Sicherheitskontakt“ festgelegt ist
 
-**ID:** CIS Azure 2.16 **Besitz** : Kunde
+**ID:** CIS Azure 2.16 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -171,7 +171,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-security-contact-phone-number-is-set"></a>Sicherstellen, dass für den Sicherheitskontakt die „Telefonnummer“ festgelegt ist
 
-**ID:** CIS Azure 2.17 **Besitz** : Kunde
+**ID:** CIS Azure 2.17 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -179,7 +179,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-send-email-notification-for-high-severity-alerts-is-set-to-on"></a>Sicherstellen, dass „E-Mail-Benachrichtigung für Warnungen mit hohem Schweregrad senden“ auf „Ein“ festgelegt ist
 
-**ID:** CIS Azure 2.18 **Besitz** : Kunde
+**ID:** CIS Azure 2.18 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -187,7 +187,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-send-email-also-to-subscription-owners-is-set-to-on"></a>Sicherstellen, dass „E-Mails auch an Abonnementbesitzer senden“ auf „Ein“ festgelegt ist
 
-**ID:** CIS Azure 2.19 **Besitz** : Kunde
+**ID:** CIS Azure 2.19 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -197,7 +197,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-secure-transfer-required-is-set-to-enabled"></a>Sicherstellen, dass „Sichere Übertragung erforderlich“ aktiviert ist
 
-**ID:** CIS Azure 3.1 **Besitz** : Kunde
+**ID:** CIS Azure 3.1 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -205,7 +205,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-default-network-access-rule-for-storage-accounts-is-set-to-deny"></a>Sicherstellen, dass die Standard-Netzwerkzugriffsregel für Speicherkonten auf „Verweigern“ festgelegt ist
 
-**ID:** CIS Azure 3.7 **Besitz** : Kunde
+**ID:** CIS Azure 3.7 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -213,7 +213,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-trusted-microsoft-services-is-enabled-for-storage-account-access"></a>Sicherstellen, dass „Vertrauenswürdige Microsoft-Dienste“ für den Speicherkontozugriff aktiviert ist
 
-**ID:** CIS Azure 3.8 **Besitz** : Kunde
+**ID:** CIS Azure 3.8 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -223,7 +223,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-auditing-is-set-to-on"></a>Sicherstellen, dass „Überwachung“ auf „Ein“ festgelegt ist
 
-**ID:** CIS Azure 4.1 **Besitz** : Kunde
+**ID:** CIS Azure 4.1 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -231,7 +231,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-auditactiongroups-in-auditing-policy-for-a-sql-server-is-set-properly"></a>Sicherstellen, dass „AuditActionGroups“ in der Überwachungsrichtlinie für eine SQL Server-Instanz ordnungsgemäß festgelegt ist
 
-**ID:** CIS Azure 4.2 **Besitz** : Kunde
+**ID:** CIS Azure 4.2 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -239,7 +239,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-auditing-retention-is-greater-than-90-days"></a>Sicherstellen, dass die Aufbewahrungsdauer für die Überwachung auf über 90 Tage festgelegt ist
 
-**ID:** CIS Azure 4.3 **Besitz** : Kunde
+**ID:** CIS Azure 4.3 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -247,7 +247,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-advanced-data-security-on-a-sql-server-is-set-to-on"></a>Sicherstellen, dass „Advanced Data Security“ für eine SQL Server-Instanz auf „Ein“ festgelegt ist
 
-**ID:** CIS Azure 4.4 **Besitz** : Kunde
+**ID:** CIS Azure 4.4 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -256,7 +256,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-azure-active-directory-admin-is-configured"></a>Sicherstellen, dass der Azure Active Directory-Administrator konfiguriert ist
 
-**ID:** CIS Azure 4.8 **Besitz** : Kunde
+**ID:** CIS Azure 4.8 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -264,7 +264,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-data-encryption-is-set-to-on-on-a-sql-database"></a>Sicherstellen, dass „Datenverschlüsselung“ für eine SQL-Datenbank auf „Ein“ festgelegt ist
 
-**ID:** CIS Azure 4.9 **Besitz** : Kunde
+**ID:** CIS Azure 4.9 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -272,7 +272,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-sql-servers-tde-protector-is-encrypted-with-byok-use-your-own-key"></a>Sicherstellen, dass die TDE-Schutzvorrichtung der SQL Server-Instanz mit BYOK (also unter Verwendung eines eigenen Schlüssels) verschlüsselt ist
 
-**ID:** CIS Azure 4.10 **Besitz** : Kunde
+**ID:** CIS Azure 4.10 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -281,7 +281,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>Sicherstellen, dass „SSL-Verbindung erzwingen“ für den MySQL-Datenbankserver auf „AKTIVIERT“ festgelegt ist
 
-**ID:** CIS Azure 4.11 **Besitz** : Kunde
+**ID:** CIS Azure 4.11 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -289,7 +289,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-server-parameter-log_checkpoints-is-set-to-on-for-postgresql-database-server"></a>Sicherstellen, dass der Serverparameter „log_checkpoints“ für den PostgreSQL-Datenbankserver auf „EIN“ festgelegt ist
 
-**ID:** CIS Azure 4.12 **Besitz** : Kunde
+**ID:** CIS Azure 4.12 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -297,7 +297,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>Sicherstellen, dass „SSL-Verbindung erzwingen“ für den PostgreSQL-Datenbankserver auf „AKTIVIERT“ festgelegt ist
 
-**ID:** CIS Azure 4.13 **Besitz** : Kunde
+**ID:** CIS Azure 4.13 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -305,7 +305,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-server-parameter-log_connections-is-set-to-on-for-postgresql-database-server"></a>Sicherstellen, dass der Serverparameter „log_connections“ für den PostgreSQL-Datenbankserver auf „EIN“ festgelegt ist
 
-**ID:** CIS Azure 4.14 **Besitz** : Kunde
+**ID:** CIS Azure 4.14 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -313,7 +313,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-server-parameter-log_disconnections-is-set-to-on-for-postgresql-database-server"></a>Sicherstellen, dass der Serverparameter „log_disconnections“ für den PostgreSQL-Datenbankserver auf „EIN“ festgelegt ist
 
-**ID:** CIS Azure 4.15 **Besitz** : Kunde
+**ID:** CIS Azure 4.15 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -321,7 +321,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-server-parameter-connection_throttling-is-set-to-on-for-postgresql-database-server"></a>Sicherstellen, dass der Serverparameter „connection_throttling“ für den PostgreSQL-Datenbankserver auf „EIN“ festgelegt ist
 
-**ID:** CIS Azure 4.17 **Besitz** : Kunde
+**ID:** CIS Azure 4.17 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -331,7 +331,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-a-log-profile-exists"></a>Sicherstellen, dass ein Protokollprofil vorhanden ist
 
-**ID:** CIS Azure 5.1.1 **Besitz** : Kunde
+**ID:** CIS Azure 5.1.1 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -339,7 +339,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-activity-log-retention-is-set-365-days-or-greater"></a>Sicherstellen, dass die Speicherdauer für Aktivitätsprotokolle auf mindestens 365 Tage festgelegt ist
 
-**ID:** CIS Azure 5.1.2 **Besitz** : Kunde
+**ID:** CIS Azure 5.1.2 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -347,7 +347,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-audit-profile-captures-all-the-activities"></a>Sicherstellen, dass mit dem Überwachungsprofil alle Aktivitäten erfasst werden
 
-**ID:** CIS Azure 5.1.3 **Besitz** : Kunde
+**ID:** CIS Azure 5.1.3 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -355,7 +355,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-the-log-profile-captures-activity-logs-for-all-regions-including-global"></a>Sicherstellen, dass mit dem Protokollprofil die Aktivitätsprotokolle für alle Regionen erfasst werden (einschließlich global)
 
-**ID:** CIS Azure 5.1.4 **Besitz** : Kunde
+**ID:** CIS Azure 5.1.4 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -363,7 +363,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-the-storage-account-containing-the-container-with-activity-logs-is-encrypted-with-byok-use-your-own-key"></a>Sicherstellen, dass das Speicherkonto, das den Container mit Aktivitätsprotokollen enthält, per BYOK (Bring Your Own Key) verschlüsselt ist
 
-**ID:** CIS Azure 5.1.6 **Besitz** : Kunde
+**ID:** CIS Azure 5.1.6 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -371,7 +371,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-logging-for-azure-keyvault-is-enabled"></a>Sicherstellen, dass die Protokollierung für Azure Key Vault aktiviert ist
 
-**ID:** CIS Azure 5.1.7 **Besitz** : Kunde
+**ID:** CIS Azure 5.1.7 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -379,15 +379,15 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-policy-assignment"></a>Sicherstellen, dass eine Aktivitätsprotokollwarnung für „Richtlinienzuweisung erstellen“ vorhanden ist
 
-**ID:** CIS Azure 5.2.1 **Besitz** : Kunde
+**ID:** CIS Azure 5.2.1 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Für bestimmte Richtlinienvorgänge muss eine Aktivitätsprotokollwarnung vorliegen](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc5447c04-a4d7-4ba8-a263-c9ee321a6858) |Diese Richtlinie überwacht bestimmte Richtlinienvorgänge ohne Konfiguration von Aktivitätsprotokollwarnungen. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_PolicyOperations_Audit.json) |
+|[Für bestimmte Richtlinienvorgänge muss eine Aktivitätsprotokollwarnung vorliegen](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc5447c04-a4d7-4ba8-a263-c9ee321a6858) |Diese Richtlinie überwacht bestimmte Richtlinienvorgänge ohne Konfiguration von Aktivitätsprotokollwarnungen. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_PolicyOperations_Audit.json) |
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group"></a>Sicherstellen, dass eine Aktivitätsprotokollwarnung für „Netzwerksicherheitsgruppe erstellen oder aktualisieren“ vorhanden ist
 
-**ID:** CIS Azure 5.2.2 **Besitz** : Kunde
+**ID:** CIS Azure 5.2.2 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -395,7 +395,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-activity-log-alert-exists-for-delete-network-security-group"></a>Sicherstellen, dass eine Aktivitätsprotokollwarnung für „Netzwerksicherheitsgruppe löschen“ vorhanden ist
 
-**ID:** CIS Azure 5.2.3 **Besitz** : Kunde
+**ID:** CIS Azure 5.2.3 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -403,7 +403,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group-rule"></a>Sicherstellen, dass eine Aktivitätsprotokollwarnung für die Regel „Netzwerksicherheitsgruppe erstellen oder aktualisieren“ vorhanden ist
 
-**ID:** CIS Azure 5.2.4 **Besitz** : Kunde
+**ID:** CIS Azure 5.2.4 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -411,7 +411,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-activity-log-alert-exists-for-the-delete-network-security-group-rule"></a>Sicherstellen, dass eine Aktivitätsprotokollwarnung für die Regel „Netzwerksicherheitsgruppe löschen“ vorhanden ist
 
-**ID:** CIS Azure 5.2.5 **Besitz** : Kunde
+**ID:** CIS Azure 5.2.5 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -419,7 +419,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-security-solution"></a>Sicherstellen, dass eine Aktivitätsprotokollwarnung für „Sicherheitslösung erstellen oder aktualisieren“ vorhanden ist
 
-**ID:** CIS Azure 5.2.6 **Besitz** : Kunde
+**ID:** CIS Azure 5.2.6 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -427,7 +427,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-activity-log-alert-exists-for-delete-security-solution"></a>Sicherstellen, dass eine Aktivitätsprotokollwarnung für „Sicherheitslösung löschen“ vorhanden ist
 
-**ID:** CIS Azure 5.2.7 **Besitz** : Kunde
+**ID:** CIS Azure 5.2.7 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -435,7 +435,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-or-delete-sql-server-firewall-rule"></a>Sicherstellen, dass eine Aktivitätsprotokollwarnung für „SQL Server-Firewallregel erstellen oder aktualisieren bzw. löschen“ vorhanden ist
 
-**ID:** CIS Azure 5.2.8 **Besitz** : Kunde
+**ID:** CIS Azure 5.2.8 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -443,7 +443,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-activity-log-alert-exists-for-update-security-policy"></a>Sicherstellen, dass eine Aktivitätsprotokollwarnung für „Sicherheitsrichtlinie aktualisieren“ vorhanden ist
 
-**ID:** CIS Azure 5.2.9 **Besitz** : Kunde
+**ID:** CIS Azure 5.2.9 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -453,7 +453,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-rdp-access-is-restricted-from-the-internet"></a>Sicherstellen, dass der RDP-Zugriff aus dem Internet eingeschränkt ist
 
-**ID:** CIS Azure 6.1 **Besitz** : Kunde
+**ID:** CIS Azure 6.1 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -461,7 +461,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-ssh-access-is-restricted-from-the-internet"></a>Sicherstellen, dass der SSH-Zugriff aus dem Internet eingeschränkt ist
 
-**ID:** CIS Azure 6.2 **Besitz** : Kunde
+**ID:** CIS Azure 6.2 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -469,7 +469,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-network-watcher-is-enabled"></a>Sicherstellen, dass Network Watcher aktiviert ist
 
-**ID:** CIS Azure 6.5 **Besitz** : Kunde
+**ID:** CIS Azure 6.5 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -479,7 +479,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-os-disk-are-encrypted"></a>Sicherstellen, dass der Betriebssystem-Datenträger verschlüsselt ist
 
-**ID:** CIS Azure 7.1 **Besitz** : Kunde
+**ID:** CIS Azure 7.1 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -487,7 +487,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-data-disks-are-encrypted"></a>Sicherstellen, dass reguläre Datenträger verschlüsselt sind
 
-**ID:** CIS Azure 7.2 **Besitz** : Kunde
+**ID:** CIS Azure 7.2 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -495,7 +495,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-unattached-disks-are-encrypted"></a>Sicherstellen, dass „nicht angefügte Datenträger“ verschlüsselt sind
 
-**ID:** CIS Azure 7.3 **Besitz** : Kunde
+**ID:** CIS Azure 7.3 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -503,7 +503,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-only-approved-extensions-are-installed"></a>Sicherstellen, dass nur genehmigte Erweiterungen installiert werden
 
-**ID:** CIS Azure 7.4 **Besitz** : Kunde
+**ID:** CIS Azure 7.4 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -511,7 +511,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-the-latest-os-patches-for-all-virtual-machines-are-applied"></a>Sicherstellen, dass die neuesten Betriebssystempatches für alle virtuellen Computer angewendet werden
 
-**ID:** CIS Azure 7.5 **Besitz** : Kunde
+**ID:** CIS Azure 7.5 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -519,7 +519,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-the-endpoint-protection-for-all-virtual-machines-is-installed"></a>Sicherstellen, dass Endpoint Protection für alle virtuellen Computer installiert ist
 
-**ID:** CIS Azure 7.6 **Besitz** : Kunde
+**ID:** CIS Azure 7.6 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -529,15 +529,15 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-the-key-vault-is-recoverable"></a>Sicherstellen, dass der Schlüsseltresor wiederhergestellt werden kann
 
-**ID:** CIS Azure 8.4 **Besitz** : Kunde
+**ID:** CIS Azure 8.4 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Key Vault-Objekte müssen wiederherstellbar sein](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Diese Richtlinie überwacht, ob Schlüsseltresorobjekte wiederherstellbar sind. Das Feature „Vorläufiges Löschen“ unterstützt Sie dabei, Ressourcen für eine bestimmte Aufbewahrungsdauer (90 Tage) selbst nach einem DELETE-Vorgang beizubehalten, während das Objekt als gelöscht dargestellt wird. Wenn der Löschschutz aktiviert ist, kann ein Tresor oder ein Objekt im gelöschten Zustand erst nach Ablauf des Aufbewahrungszeitraums von 90 Tagen endgültig gelöscht werden. Diese Tresore und Objekte können weiterhin wiederhergestellt werden, sodass die Kunden sicher sein können, dass die Aufbewahrungsrichtlinie eingehalten wird. |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+|[Für den Schlüsseltresor muss der Löschschutz aktiviert sein](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Das böswillige Löschen eines Schlüsseltresors kann zu dauerhaftem Datenverlust führen. Ein böswilliger Insider in Ihrer Organisation kann möglicherweise die Berechtigung zum Löschen und endgültigen Löschen von Schlüsseltresoren erhalten. Der Löschschutz schützt Sie vor Insiderangriffen, indem ein verbindlicher Aufbewahrungszeitraum für vorläufig gelöschte Schlüsseltresore durchgesetzt wird. Niemand innerhalb Ihrer Organisation oder von Microsoft kann Ihre Schlüsseltresore während des Aufbewahrungszeitraums für vorläufiges Löschen löschen. |Audit, Deny, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
 ### <a name="enable-role-based-access-control-rbac-within-azure-kubernetes-services"></a>Aktivieren der rollenbasierten Zugriffssteuerung (Role-Based Access Control, RBAC) in Azure Kubernetes Service
 
-**ID:** CIS Azure 8.5 **Besitz** : Kunde
+**ID:** CIS Azure 8.5 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -547,7 +547,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-app-service-authentication-is-set-on-azure-app-service"></a>Sicherstellen, dass die App Service-Authentifizierung für Azure App Service festgelegt ist
 
-**ID:** CIS Azure 9.1 **Besitz** : Kunde
+**ID:** CIS Azure 9.1 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -557,7 +557,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-web-app-redirects-all-http-traffic-to-https-in-azure-app-service"></a>Sicherstellen, dass die Web-App den gesamten HTTP-Datenverkehr in Azure App Service an HTTPS umleitet
 
-**ID:** CIS Azure 9.2 **Besitz** : Kunde
+**ID:** CIS Azure 9.2 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -565,7 +565,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-web-app-is-using-the-latest-version-of-tls-encryption"></a>Sicherstellen, dass die Web-App die neueste Version der TLS-Verschlüsselung verwendet
 
-**ID:** CIS Azure 9.3 **Besitz** : Kunde
+**ID:** CIS Azure 9.3 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -575,7 +575,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-the-web-app-has-client-certificates-incoming-client-certificates-set-to-on"></a>Sicherstellen, dass „Clientzertifikate (eingehende Clientzertifikate)“ für die Web-App auf „Ein“ festgelegt ist
 
-**ID:** CIS Azure 9.4 **Besitz** : Kunde
+**ID:** CIS Azure 9.4 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -585,7 +585,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-register-with-azure-active-directory-is-enabled-on-app-service"></a>Sicherstellen, dass „Registrierung bei Azure Active Directory“ für App Service aktiviert ist
 
-**ID:** CIS Azure 9.5 **Besitz** : Kunde
+**ID:** CIS Azure 9.5 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -595,7 +595,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-php-version-is-the-latest-if-used-to-run-the-web-app"></a>Sicherstellen, dass die neueste „PHP-Version“ angegeben ist, wenn sie zum Ausführen der Web-App verwendet wird
 
-**ID:** CIS Azure 9.7 **Besitz** : Kunde
+**ID:** CIS Azure 9.7 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -604,7 +604,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-python-version-is-the-latest-if-used-to-run-the-web-app"></a>Sicherstellen, dass die neueste „Python-Version“ angegeben ist, wenn sie zum Ausführen der Web-App verwendet wird
 
-**ID:** CIS Azure 9.8 **Besitz** : Kunde
+**ID:** CIS Azure 9.8 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -614,7 +614,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-java-version-is-the-latest-if-used-to-run-the-web-app"></a>Sicherstellen, dass die neueste „Java-Version“ angegeben ist, wenn sie zum Ausführen der Web-App verwendet wird
 
-**ID:** CIS Azure 9.9 **Besitz** : Kunde
+**ID:** CIS Azure 9.9 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -624,7 +624,7 @@ Diese integrierte Initiative wird als Teil des [Blaupausenbeispiels für CIS Mic
 
 ### <a name="ensure-that-http-version-is-the-latest-if-used-to-run-the-web-app"></a>Sicherstellen, dass die neueste „HTTP-Version“ angegeben ist, wenn sie zum Ausführen der Web-App verwendet wird
 
-**ID:** CIS Azure 9.10 **Besitz** : Kunde
+**ID:** CIS Azure 9.10 **Besitz**: Kunde
 
 |Name<br /><sub>(Azure-Portal)</sub> |Beschreibung |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|

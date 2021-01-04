@@ -8,21 +8,21 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 11/10/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 85d392323b24df3cede196d2c68f05c9522b2293
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cdba4ce36322f9c3fb0f898cb7eb1d1185ed1dc6
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458296"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636944"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Verwenden der Video Indexer-API
 
 In Video Indexer ist unterschiedliche KI-Technologie (Künstliche Intelligenz) für Audio- und Videodaten zusammengefasst, und der Dienst wird von Microsoft als integrierter Dienst angeboten, um die Entwicklung zu vereinfachen. Die APIs sind so konzipiert, dass sich Entwickler auf die Nutzung der KI-Technologie für Medien konzentrieren können, ohne sich um Dinge wie die Skalierung, globale Reichweite, Verfügbarkeit und Zuverlässigkeit von Cloudplattformen kümmern zu müssen. Sie können die API verwenden, um Ihre Dateien hochzuladen, ausführliche Videoinformationen zu erhalten, URLs von einbettbaren Erkenntnisse- und Player-Widgets abzurufen, usw.
 
-Beim Erstellen eines Video Indexer-Kontos können Sie ein kostenloses Testkonto (mit einer bestimmten Anzahl von kostenlosen Indizierungsminuten) oder eine kostenpflichtige Option wählen (ohne Einschränkung durch eine Kontingentvorgabe). Bei einer kostenlosen Testversion stellt Video Indexer bis zu 600 Minuten an kostenloser Indizierungszeit für Websitebenutzer und bis zu 2400 Minuten an kostenloser Indizierungszeit für API-Benutzer bereit. Bei einer kostenpflichtigen Option erstellen Sie ein Video Indexer-Konto, [das mit Ihrem Azure-Abonnement und einem Azure Media Services-Konto verbunden ist](connect-to-azure.md). Die Indizierungszeit wird minutenweise abgerechnet. Außerdem fallen Gebühren für das Azure Media Services-Konto an.
+Beim Erstellen eines Video Indexer-Kontos können Sie ein kostenloses Testkonto (mit einer bestimmten Anzahl von kostenlosen Indizierungsminuten) oder eine kostenpflichtige Option wählen (ohne Einschränkung durch eine Kontingentvorgabe). Bei einer kostenlosen Testversion stellt Video Indexer bis zu 600 Minuten an kostenloser Indizierungszeit für Websitebenutzer und bis zu 2400 Minuten an kostenloser Indizierungszeit für API-Benutzer bereit. Bei einer kostenpflichtigen Option erstellen Sie ein Video Indexer-Konto, [das mit Ihrem Azure-Abonnement und einem Azure Media Services-Konto verbunden ist](connect-to-azure.md). Sie bezahlen pro Minute Indizierungszeit. Weitere Informationen finden Sie unter [Media Services – Preise](https://azure.microsoft.com/pricing/details/media-services/).
 
 In diesem Artikel wird veranschaulicht, wie Entwickler die [Video Indexer-API](https://api-portal.videoindexer.ai/) nutzen können.
 
@@ -103,9 +103,9 @@ Der Parameter für die Konto-ID (Account ID) ist in allen API-Aufrufen für Vorg
 
 In diesem Abschnitt sind einige Empfehlungen für die Verwendung der Video Indexer-API aufgeführt.
 
-- Wenn Sie planen, ein Video hochzuladen, wird empfohlen, die Datei in einem öffentlichen Netzwerkspeicherort abzulegen (z. B. OneDrive). Rufen Sie den Link zum Video ab, und geben Sie die URL als Parameter für den Dateiupload an.
+- Wenn Sie planen, ein Video hochzuladen, sollten Sie die Datei an einem öffentlichen Netzwerkspeicherort ablegen (z. B.in einem Azure Blob Storage-Konto). Rufen Sie den Link zum Video ab, und geben Sie die URL als Parameter für den Dateiupload an.
 
-    Die für Video Indexer angegebene URL muss auf eine Mediendatei (Audio oder Video) verweisen. Einige der Links, die von OneDrive generiert werden, sind für eine HTML-Seite bestimmt, die die Datei enthält. Eine einfache Möglichkeit zum Überprüfen der URL besteht darin, sie in einen Browser einzufügen: Wenn der Download der Datei beginnt, ist die URL mit hoher Wahrscheinlichkeit korrekt. Falls im Browser eine Visualisierung gerendert wird, handelt es sich wahrscheinlich nicht um einen Link zu einer Datei, sondern zu einer HTML-Seite.
+    Die für Video Indexer angegebene URL muss auf eine Mediendatei (Audio oder Video) verweisen. Eine einfache Möglichkeit zum Überprüfen der URL (oder SAS-URL) besteht darin, sie in einen Browser einzufügen: Wenn die Datei geöffnet wird bzw. der Download der Datei beginnt, ist die URL mit hoher Wahrscheinlichkeit korrekt. Falls im Browser eine Visualisierung gerendert wird, handelt es sich wahrscheinlich nicht um einen Link zu einer Datei, sondern zu einer HTML-Seite.
 
 - Wenn Sie die API aufrufen, mit der Videoinformationen für das angegebene Video abgerufen werden, erhalten Sie eine ausführliche JSON-Ausgabe als Inhalt der Antwort. [Lesen Sie die Details zum zurückgegebenen JSON-Code in diesem Thema](video-indexer-output-json-v2.md).
 
@@ -206,6 +206,10 @@ Debug.WriteLine("Player Widget url:");
 Debug.WriteLine(playerWidgetLink);
 
 ```
+
+## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+
+Nachdem Sie dieses Tutorial abgeschlossen haben, löschen Sie Ressourcen, die Sie nicht verwenden möchten.
 
 ## <a name="see-also"></a>Weitere Informationen
 

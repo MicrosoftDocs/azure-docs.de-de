@@ -1,6 +1,6 @@
 ---
-title: T-SQL-Anweisungen
-description: Links zur Dokumentation für die in Synapse SQL-Pools unterstützten T-SQL-Anweisungen.
+title: T-SQL-Anweisungen im dedizierten SQL-Pool
+description: Links zur Dokumentation für T-SQL-Anweisungen, die für einen dedizierten SQL-Pool in Azure Synapse Analytics unterstützt werden.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 05/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 7a52049dc08b0a8170acc4d15860db69aea44a2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 390907eaf529df3f9adfd481e96ff166be543d01
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86276446"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324622"
 ---
-# <a name="t-sql-statements-supported-in-synapse-sql-pool"></a>In Synapse SQL-Pools unterstützte T-SQL-Anweisungen
+# <a name="t-sql-statements-supported-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>T-SQL-Anweisungen, die vom dedizierten SQL-Pool in Azure Synapse Analytics unterstützt werden 
 
-Links zur Dokumentation für die in Synapse SQL-Pools unterstützten T-SQL-Anweisungen.
+Links zur Dokumentation für im dedizierten SQL-Pool unterstützte T-SQL-Anweisungen.
 
 ## <a name="data-definition-language-ddl-statements"></a>Anweisungen der Data Definition Language (DDL)
 
@@ -131,4 +131,4 @@ Links zur Dokumentation für die in Synapse SQL-Pools unterstützten T-SQL-Anwei
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Referenzinformationen finden Sie unter [T-SQL-Sprachelemente in Synapse SQL-Pools](sql-data-warehouse-reference-tsql-language-elements.md) und [Systemsichten in Synapse SQL-Pools](../sql/reference-tsql-system-views.md).
+Weitere Referenzinformationen finden Sie unter [T-SQL-Sprachelemente im dedizierten SQL-Pool](sql-data-warehouse-reference-tsql-language-elements.md) und [Systemsichten im dedizierten SQL-Pool](../sql/reference-tsql-system-views.md).

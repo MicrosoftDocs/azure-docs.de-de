@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 089476980ff3e8b2d3b72cb2d229934cf7850c03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b96e568b57c34fec1c93727aabe8e739a2a45cd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899244"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448654"
 ---
 # <a name="kubernetes-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes auf Ihrem Azure Stack Edge Pro-GPU-Gerät
 
@@ -67,7 +67,7 @@ Sobald neue Kubernetes-Versionen verfügbar sind, kann Ihr Cluster über die Sta
 
 ## <a name="access-monitoring"></a>Zugriff und Überwachung
 
-Der Kubernetes-Cluster auf Ihrem Azure Stack Edge Pro-Gerät erlaubt die rollenbasierte Zugriffssteuerung (RBAC). Weitere Informationen finden Sie unter [Rollenbasierte Zugriffssteuerung für Kubernetes-Cluster auf Ihrem Azure Stack Edge Pro-Gerät](azure-stack-edge-gpu-kubernetes-rbac.md).
+Der Kubernetes-Cluster auf Ihrem Azure Stack Edge Pro-Gerät erlaubt die rollenbasierte Kubernetes-Zugriffssteuerung (Kubernetes RBAC). Weitere Informationen finden Sie unter [Rollenbasierte Zugriffssteuerung in Kubernetes auf einem Azure Stack Edge Pro-GPU-Gerät](azure-stack-edge-gpu-kubernetes-rbac.md).
 
 Zudem können Sie die Integrität Ihres Clusters und Ihrer Ressourcen über das Kubernetes-Dashboard überwachen. Darüber hinaus sind Containerprotokolle verfügbar. Weitere Informationen finden Sie unter [Überwachen der Integrität des Kubernetes-Clusters auf Ihrem Azure Stack Edge Pro-Gerät über das Kubernetes-Dashboard](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
 
@@ -106,7 +106,7 @@ Weitere Informationen zur Bereitstellung von Anwendungen in Ihrem Kubernetes-Clu
 
 ### <a name="kubernetes-and-azure-arc"></a>Kubernetes und Azure Arc
 
-Azure Arc ist ein Hybridverwaltungstool, mit dem Sie Anwendungen in Ihren Kubernetes-Clustern bereitstellen können. Darüber hinaus ermöglicht Azure Arc die Verwendung von Azure Monitor für Container, um Ihre Cluster anzuzeigen und zu überwachen. Weitere Informationen finden Sie unter [Was ist Kubernetes mit Azure Arc-Unterstützung?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview). Informationen zu den Preisen von Azure Arc finden Sie unter [Azure Arc-Preise](https://azure.microsoft.com/services/azure-arc/#pricing).
+Azure Arc ist ein Hybridverwaltungstool, mit dem Sie Anwendungen in Ihren Kubernetes-Clustern bereitstellen können. Darüber hinaus ermöglicht Azure Arc die Verwendung von Azure Monitor für Container, um Ihre Cluster anzuzeigen und zu überwachen. Weitere Informationen finden Sie unter [Was ist Kubernetes mit Azure Arc-Unterstützung?](../azure-arc/kubernetes/overview.md). Informationen zu den Preisen von Azure Arc finden Sie unter [Azure Arc-Preise](https://azure.microsoft.com/services/azure-arc/#pricing).
 
 
 ## <a name="next-steps"></a>Nächste Schritte

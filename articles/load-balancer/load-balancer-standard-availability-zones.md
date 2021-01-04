@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 541aa7da3e804931c1793e455bcbfca83c809dae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fca6b40f4bd871041d14d119eb44e8366d8562ee
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669185"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700459"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Standard und Verfügbarkeitszonen
 
@@ -151,11 +151,11 @@ Ihre Ressourcen in Zonen, die nicht von einem Fehler betroffen sind, sind verfü
   - Versteht Ihr Dienst den Ausfall einer Zone, und wie nehmen Sie die Wiederherstellung vor, wenn der Status verloren geht?
   - Kann Ihre Anwendung sicher konvergieren, wenn eine Zone zurückkehrt?
 
-Informationen zur Verbesserung der Resilienz Ihrer Anwendung in Ausfallszenarien finden Sie unter [Cloudentwurfsmuster](https://docs.microsoft.com/azure/architecture/patterns/).
+Informationen zur Verbesserung der Resilienz Ihrer Anwendung in Ausfallszenarien finden Sie unter [Cloudentwurfsmuster](/azure/architecture/patterns/).
 
 ## <a name="next-steps"></a>Nächste Schritte
 - Weitere Informationen zu [Verfügbarkeitszonen](../availability-zones/az-overview.md)
-- Weitere Informationen zum [Load Balancer Standard](load-balancer-standard-overview.md).
-- Erfahren Sie mehr über den [Lastenausgleich für VMs innerhalb einer Zone mit einem Standard-Lastenausgleich und einem zonenredundanten Front-End](load-balancer-standard-public-zonal-cli.md).
-- Erfahren Sie mehr über den [zonenübergreifenden Lastenausgleich für VMs mit einem Standard-Lastenausgleich und einem zonenredundanten Front-End](load-balancer-standard-public-zone-redundant-cli.md).
-- Machen Sie sich mit [Cloudentwurfsmustern](https://docs.microsoft.com/azure/architecture/patterns/) vertraut, um die Resilienz Ihrer Anwendung in Ausfallszenarien zu verbessern.
+- Weitere Informationen zum [Load Balancer Standard](./load-balancer-overview.md).
+- Erfahren Sie mehr über den [Lastenausgleich für VMs innerhalb einer Zone mit einem Standard-Lastenausgleich und einem zonenredundanten Front-End](./quickstart-load-balancer-standard-public-cli.md).
+- Erfahren Sie mehr über den [zonenübergreifenden Lastenausgleich für VMs mit einem Standard-Lastenausgleich und einem zonenredundanten Front-End](./quickstart-load-balancer-standard-public-cli.md).
+- Machen Sie sich mit [Cloudentwurfsmustern](/azure/architecture/patterns/) vertraut, um die Resilienz Ihrer Anwendung in Ausfallszenarien zu verbessern.

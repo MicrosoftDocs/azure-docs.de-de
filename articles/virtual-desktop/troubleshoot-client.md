@@ -33,7 +33,7 @@ Wenn Sie eine frühere Version des Remotedesktopclients verwenden, empfehlen wir
 
 Testen Sie zunächst Ihre Internetverbindung, indem Sie eine andere Website in Ihrem Browser öffnen, z. B. [www.bing.com](https://www.bing.com).
 
-Bestätigen Sie mit **nslookup** , dass das DNS den FQDN auflösen kann:
+Bestätigen Sie mit **nslookup**, dass das DNS den FQDN auflösen kann:
 
 ```cmd
 nslookup rdweb.wvd.microsoft.com
@@ -94,9 +94,9 @@ Wenn der Windows-Clientfeed keine Apps für Windows Virtual Desktop (klassisch) 
 Wenn Sie die App-ID „9cdead84-a844-4324-93f2-b2e6bb768d07“ nicht in der Liste finden, müssen Sie den Windows Virtual Desktop-Ressourcenanbieter registrieren. So registrieren Sie den Ressourcenanbieter:
 
 1. Melden Sie sich beim Azure-Portal an.
-2. Wechseln Sie zu **Abonnements** , und wählen Sie Ihr Abonnement aus.
+2. Wechseln Sie zu **Abonnements**, und wählen Sie Ihr Abonnement aus.
 3. Wählen Sie im Menü links auf der Seite die Option **Ressourcenanbieter** aus.
-4. Suchen Sie nach **Microsoft.DesktopVirtualization** , wählen Sie die Option aus, und wählen Sie dann **Erneut registrieren** aus.
+4. Suchen Sie nach **Microsoft.DesktopVirtualization**, wählen Sie die Option aus, und wählen Sie dann **Erneut registrieren** aus.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

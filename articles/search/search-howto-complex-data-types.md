@@ -8,13 +8,13 @@ ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/07/2020
-ms.openlocfilehash: ee1c0957761fc1c8b9ca80477defae8cef044827
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.date: 11/27/2020
+ms.openlocfilehash: b0b2dd9904682121c83b22b9029097e7ee57fb11
+ms.sourcegitcommit: 6b16e7cc62b29968ad9f3a58f1ea5f0baa568f02
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824473"
+ms.lasthandoff: 11/28/2020
+ms.locfileid: "96303751"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Modellieren komplexer Datentypen in der kognitiven Azure-Suche
 
@@ -63,8 +63,6 @@ Das folgende JSON-Dokument besteht aus einfachen und komplexen Feldern. Komplexe
 }
 ```
 
-<a name="indexing-complex-types></a>
-
 ## <a name="indexing-complex-types"></a>Indizieren von komplexen Typen
 
 Für eine Indizierung dürfen maximal 3000 Elemente über alle komplexen Sammlungen hinweg in einem einzelnen Dokument vorhanden sein. Ein Element einer komplexen Sammlung ist ein Member dieser Sammlung, sodass im Fall von Räumen (die einzige komplexe Sammlung im Hotel-Beispiel) jeder Raum ein Element ist. Im obigen Beispiel würde das Hotel-Dokument 500 Raumelemente enthalten, wenn das „Secret Point Motel“ 500 Zimmer hätte. Bei verschachtelten komplexen Sammlungen wird jedes untergeordnete Element ebenfalls gezählt, zusätzlich zu dem äußeren (übergeordneten) Element.
@@ -73,7 +71,7 @@ Diese Einschränkung gilt nur für komplexe Sammlungen, nicht für komplexe Type
 
 ## <a name="creating-complex-fields"></a>Erstellen komplexer Felder
 
-Wie jede Indexdefinition können Sie ein Schema, das komplexe Typen enthält, im Portal, mit der [REST-API](/rest/api/searchservice/create-index) oder mit dem [.NET SDK](/dotnet/api/microsoft.azure.search.models.index) erstellen. 
+Wie jede Indexdefinition können Sie ein Schema, das komplexe Typen enthält, im Portal, mit der [REST-API](/rest/api/searchservice/create-index) oder mit dem [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindex) erstellen. 
 
 Im folgenden Beispiel ist ein JSON-Indexschema mit einfachen Feldern, Sammlungen und komplexen Typen dargestellt. Beachten Sie, dass in einem komplexen Typ jedes Unterfeld einen Typ enthält und Attribute enthalten kann, so wie das auch bei übergeordneten Feldern der Fall ist. Das Schema entspricht den Beispieldaten oben. `Address` ist ein komplexes Feld, das keine Sammlung ist (ein Hotel weist eine Adresse auf). `Rooms` ist ein komplexes Sammlungsfeld (ein Hotel hat viele Zimmer).
 

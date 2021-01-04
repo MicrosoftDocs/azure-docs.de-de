@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 653110b953b6947254d5063a9e389505d45ea4cb
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e5793d21f27128162095e2d86e13006c5b6e7b7c
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149029"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007992"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Konfigurieren von Anmeldeinformationen für die Azure App Service-Bereitstellung
 [Azure App Service](./overview.md) unterstützt zwei Arten von Anmeldeinformationen für [lokale Git-Bereitstellungen](deploy-local-git.md) und [FTP/S-Bereitstellungen](deploy-ftp.md). Diese Anmeldeinformationen sind nicht identisch mit den Anmeldeinformationen Ihres Azure-Abonnements.
@@ -23,7 +23,7 @@ Sie können die Anmeldeinformationen auf Benutzerebene auf der [Ressourcenseite]
 
 ### <a name="in-the-cloud-shell"></a>In der Cloud Shell
 
-Führen Sie zum Konfigurieren des Bereitstellungsbenutzers in der [Cloud Shell](https://shell.azure.com) den Befehl [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) aus. Ersetzen Sie \<username> und \<password> durch Ihren Benutzernamen und Ihr Kennwort für die Bereitstellung. 
+Führen Sie zum Konfigurieren des Bereitstellungsbenutzers in der [Cloud Shell](https://shell.azure.com) den Befehl [az webapp deployment user set](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) aus. Ersetzen Sie \<username> und \<password> durch Ihren Benutzernamen und Ihr Kennwort für die Bereitstellung. 
 
 - Der Benutzername muss in Azure eindeutig sein und darf bei lokalen Git-Pushes nicht das Symbol „@“ enthalten. 
 - Das Kennwort muss mindestens acht Zeichen lang sein und zwei der folgenden drei Elemente enthalten: Buchstaben, Zahlen und Symbole. 
@@ -96,7 +96,7 @@ Führen Sie den folgenden CLI-Befehl aus, um Standardauthentifizierungszugriff a
 az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
 ```
 
-Um zu bestätigen, dass die Anmeldeinformationen für das Veröffentlichungsprofil für WebDeploy blockiert werden, versuchen Sie, eine [Web-App mit Visual Studio 2019 zu veröffentlichen](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Um zu bestätigen, dass die Anmeldeinformationen für das Veröffentlichungsprofil für WebDeploy blockiert werden, versuchen Sie, eine [Web-App mit Visual Studio 2019 zu veröffentlichen](/visualstudio/deployment/quickstart-deploy-to-azure).
 
 ### <a name="disable-access-to-the-api"></a>Deaktivieren des Zugriffs auf die API
 

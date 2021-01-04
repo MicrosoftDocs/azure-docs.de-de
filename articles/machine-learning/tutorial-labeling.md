@@ -10,12 +10,13 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 9e24a652bb4e577ff9b604b6b4f5284883723ee5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: data4ml
+ms.openlocfilehash: 5aec3d6bb2afeadda64ac19563f8334a6aef3b77
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906720"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347505"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutorial: Erstellen eines Beschriftungsprojekts für mehrklassige Bildklassifizierung 
 
@@ -42,7 +43,7 @@ In diesem Tutorial verwenden Sie Bilder von Katzen und Hunden.  Da jedes Bild en
 
 Ein Azure Machine Learning-Arbeitsbereich ist eine grundlegende Cloudressource zum Experimentieren, Trainieren und Bereitstellen von Machine Learning-Modellen. Er verknüpft Ihr Azure-Abonnement und Ihre Ressourcengruppe mit einem einfach nutzbaren Objekt im Dienst.
 
-Sie erstellen einen Arbeitsbereich über das Azure-Portal, einer webbasierten Konsole zum Verwalten Ihrer Azure-Ressourcen.
+Es gibt viele [Möglichkeiten, einen Arbeitsbereich zu erstellen](how-to-manage-workspace.md). In diesem Tutorial erstellen Sie einen Arbeitsbereich über das Azure-Portal, einer webbasierten Konsole zum Verwalten Ihrer Azure-Ressourcen.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
@@ -102,7 +103,7 @@ Da Sie nun Zugriff auf die Daten haben, die Sie beschriften lassen möchten, ers
 
 1. Verwenden Sie die folgende Eingabe für das Formular **Dataset aus Datenspeicher erstellen**:
 
-    1. Fügen Sie auf dem Formular **Grundlegende Infos** einen Namen hinzu. Hier verwenden wir **images-for-tutorial**.  Fügen Sie nach Wunsch eine Beschreibung hinzu.  Wählen Sie **Weiter**aus.
+    1. Fügen Sie auf dem Formular **Grundlegende Infos** einen Namen hinzu. Hier verwenden wir **images-for-tutorial**.  Fügen Sie nach Wunsch eine Beschreibung hinzu.  Wählen Sie **Weiter** aus.
     1. Verwenden Sie im Formular **Datenspeicherauswahl** die Dropdownliste, um Ihren **zuvor erstellten Datenspeicher** auszuwählen, z. B. **tutorial_images (Azure Blob Storage)** .
     1. Wählen Sie als Nächstes weiterhin im Formular **Datenspeicherauswahl** die Option **Durchsuchen** und dann **MultiClass - DogsCats** aus.  Wählen Sie **Speichern** aus, um **/MultiClass - DogsCats** als Pfad zu verwenden.
     1. Wählen Sie **Weiter** aus, um Details zu bestätigen, und dann **Erstellen**, um das Dataset zu erstellen.

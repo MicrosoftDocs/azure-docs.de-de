@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 8/12/2020
 ms.author: sngun
 ms.openlocfilehash: 42d1e0f056457ba54e0102a4d23f42a81ebea08d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 11/29/2020
 ms.locfileid: "90068733"
 ---
 **Wie werde ich über die Einstellung eines SDK benachrichtigt?**

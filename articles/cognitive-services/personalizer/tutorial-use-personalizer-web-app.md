@@ -6,12 +6,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e06d191573219df44631f6ffaee86f895166de57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c004887e3883ae711974b544510dff16a98d4ef9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777257"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363917"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Tutorial: Hinzufügen einer Personalisierung zu einer .NET-Web-App
 
@@ -158,7 +158,7 @@ Die Web-App verwendet die Personalisierung, um in der Liste der zur Wahl stehend
 * **Aktionen** mit ihren Features wie `taste` und `spiceLevel`
 * **Kontextfeatures** wie `time` am Tag, `taste`-Präferenz des Benutzers und die Benutzer-Agentinformationen des Browsers sowie Kontextfeatures
 * **Auszuschließende Aktionen** wie z. B. Saft
-* **Ereignis-ID**, die sich für jeden Aufruf der Rangfolge-API unterscheidet
+* **Ereignis-ID** , die sich für jeden Aufruf der Rangfolge-API unterscheidet
 
 ## <a name="personalizer-model-features-in-a-web-app"></a>Features von Personalisierungsmodellen in einer Web-App
 
@@ -187,7 +187,7 @@ Diese App verwendet die HTTP-Anforderungsfeatures vom Browser. Diese beginnen be
 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/530.99 (KHTML, like Gecko) Chrome/80.0.3900.140 Safari/537.36
 ```
 
-Die **HttpRequestFeatures**-Klassenbibliothek generalisiert diese Zeichenfolge zu einem **userAgentInfo**-Objekt mit einzelnen Werten. Alle Werte, die zu spezifisch sind, werden auf eine leere Zeichenfolge festgelegt. Wenn die Kontextfeatures für die Anforderung gesendet werden, weisen sie das folgende JSON-Format auf:
+Die **HttpRequestFeatures** -Klassenbibliothek generalisiert diese Zeichenfolge zu einem **userAgentInfo** -Objekt mit einzelnen Werten. Alle Werte, die zu spezifisch sind, werden auf eine leere Zeichenfolge festgelegt. Wenn die Kontextfeatures für die Anforderung gesendet werden, weisen sie das folgende JSON-Format auf:
 
 ```JSON
 {
@@ -216,7 +216,7 @@ Installieren Sie folgende Software:
 
 * [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.1): Der Back-End-Beispielserver verwendet .NET Core.
 * [Node.js](https://nodejs.org/): Der Client/das Front-End hängt von dieser Anwendung ab
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) oder [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/): Verwenden Sie entweder die Entwicklerumgebung von Visual Studio 2019 oder .NET Core CLI, um die App zu erstellen und auszuführen
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) oder [.NET Core CLI](/dotnet/core/tools/): Verwenden Sie entweder die Entwicklerumgebung von Visual Studio 2019 oder .NET Core CLI, um die App zu erstellen und auszuführen
 
 ### <a name="set-up-the-sample"></a>Einrichten des Beispiels
 1. Klonen Sie das Beispielrepository der Azure-Personalisierung.
@@ -225,7 +225,7 @@ Installieren Sie folgende Software:
     git clone https://github.com/Azure-Samples/cognitive-services-personalizer-samples.git
     ```
 
-1. Navigieren Sie zu _samples/HttpRequestFeatures_, um die Projektmappe `HttpRequestFeaturesExample.sln` zu öffnen.
+1. Navigieren Sie zu _samples/HttpRequestFeatures_ , um die Projektmappe `HttpRequestFeaturesExample.sln` zu öffnen.
 
     Erlauben Sie Visual Studio auf Anforderung, das .NET-Paket für die Personalisierung zu aktualisieren.
 
@@ -235,7 +235,7 @@ Installieren Sie folgende Software:
 
 1. Suchen Sie im Azure-Portal auf der Registerkarte **Schlüssel und Endpunkte** den `Endpoint` und wahlweise `Key1` oder `Key2` (beide funktionieren). Diese stellen Ihren `PersonalizerServiceEndpoint` und Ihren `PersonalizerApiKey` dar.
 1. Setzen Sie den `PersonalizerServiceEndpoint` in **appsettings.json** ein.
-1. Konfigurieren Sie auf eine der folgenden Weisen den `PersonalizerApiKey` als ein [App-Geheimnis](https://docs.microsoft.com/aspnet/core/security/app-secrets):
+1. Konfigurieren Sie auf eine der folgenden Weisen den `PersonalizerApiKey` als ein [App-Geheimnis](/aspnet/core/security/app-secrets):
 
     * Wenn Sie die .NET Core CLI verwenden, können Sie den Befehl `dotnet user-secrets set "PersonalizerApiKey" "<API Key>"` verwenden.
     * Wenn Sie Visual Studio verwenden, können Sie mit der rechten Maustaste auf das Projekt klicken und die Menüoption **Geheime Benutzerschlüssel verwalten** verwenden, um die Schlüssel für die Personalisierung zu konfigurieren. Dadurch öffnet Visual Studio eine `secrets.json`-Datei, in der Sie die Schlüssel wie hier gezeigt hinzufügen können:
@@ -275,9 +275,9 @@ Erstellen Sie HttpRequestFeaturesExample mit einer der folgenden Methoden, und f
 
 ## <a name="understand-the-sample-web-app"></a>Verstehen der Beispiel-Web-App
 
-Die Beispiel-Web-App verfügt über einen **C# .NET**-Server, der das Sammeln von Features und das Senden und Empfangen von HTTP-Aufrufen an Ihren Personalisierungsendpunkt verwaltet.
+Die Beispiel-Web-App verfügt über einen **C# .NET** -Server, der das Sammeln von Features und das Senden und Empfangen von HTTP-Aufrufen an Ihren Personalisierungsendpunkt verwaltet.
 
-Die Beispiel-Web-App verwendet eine **Knockout-Front-End-Clientanwendung**, um Features zu erfassen und Aktionen der Benutzeroberfläche wie das Klicken auf Schaltflächen zu verarbeiten sowie Daten an den .NET-Server zu senden.
+Die Beispiel-Web-App verwendet eine **Knockout-Front-End-Clientanwendung** , um Features zu erfassen und Aktionen der Benutzeroberfläche wie das Klicken auf Schaltflächen zu verarbeiten sowie Daten an den .NET-Server zu senden.
 
 In den folgenden Abschnitten werden die Teile von Server und Client erläutert, die ein Entwickler verstehen muss, um die Personalisierung zu verwenden.
 
@@ -294,7 +294,7 @@ Hier handelt es sich um eine typische .NET-Web-App mit einer Clientanwendung, ei
 
 ### <a name="create-personalizer-client"></a>Erstellen eines Personalisierungsclients
 
-In der **Startup.cs**-Datei des Servers werden Endpunkt und Schlüssel der Personalisierung verwendet, um den Personalisierungsclient zu erstellen. Die Clientanwendung braucht nicht mit der Personalisierung in dieser App zu kommunizieren, sie kann sich stattdessen darauf verlassen, dass der Server die SDK-Aufrufe vornimmt.
+In der **Startup.cs** -Datei des Servers werden Endpunkt und Schlüssel der Personalisierung verwendet, um den Personalisierungsclient zu erstellen. Die Clientanwendung braucht nicht mit der Personalisierung in dieser App zu kommunizieren, sie kann sich stattdessen darauf verlassen, dass der Server die SDK-Aufrufe vornimmt.
 
 Der .NET-Startcode des Webservers lautet:
 
@@ -340,7 +340,7 @@ namespace HttpRequestFeaturesExample
 
 ### <a name="select-best-action"></a>Auswählen der besten Aktion
 
-In der Datei **PersonalizerController.cs** des Servers fasst die **GenerateRank**-Server-API die Vorbereitung für den Aufruf der Rangfolge-API zusammen.
+In der Datei **PersonalizerController.cs** des Servers fasst die **GenerateRank** -Server-API die Vorbereitung für den Aufruf der Rangfolge-API zusammen.
 
 * Erstellen einer neuen `eventId` für den Aufruf der Rangfolge-API
 * Abrufen der Liste der Aktionen

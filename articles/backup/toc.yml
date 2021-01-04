@@ -4,6 +4,8 @@
   items:
     - name: Übersicht zu Azure Backup
       href: backup-overview.md
+    - name: Neuerungen in Azure Backup
+      href: whats-new.md
     - name: Preise
       href: 'https://azure.microsoft.com/pricing/details/backup/'
 - name: Schnellstarts
@@ -64,6 +66,8 @@
           href: sap-hana-backup-support-matrix.md
         - name: Supportmatrix für Sicherungen von Azure-Dateifreigaben
           href: azure-file-share-support-matrix.md
+        - name: Active Directory-Domänencontroller
+          href: active-directory-backup-restore.md
         - name: Unterstützte VM-SKUs für Azure Policy
           href: backup-azure-policy-supported-skus.md
     - name: Häufig gestellte Fragen (FAQ)
@@ -158,6 +162,8 @@
           items:
             - name: Verwalten von Azure-VM-Sicherungen
               href: backup-azure-manage-vms.md
+            - name: Verwalten von Wiederherstellungspunkten
+              href: manage-recovery-points.md
     - name: Sicherung einer SQL Server-Datenbank auf einem virtuellen Azure-Computer
       items:
         - name: Übersicht
@@ -406,6 +412,8 @@
           href: backup-encryption.md
         - name: Verschlüsselung mithilfe kundenseitig verwalteter Schlüssel
           href: encryption-at-rest-with-cmk.md
+        - name: Transport Layer Security
+          href: transport-layer-security.md
         - name: Sicherheitskontrollen von Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
@@ -415,6 +423,8 @@
       items:
         - name: Azure VM
           href: backup-azure-vms-troubleshoot.md
+        - name: Azure VM-Dateiwiederherstellung
+          href: backup-azure-vm-file-recovery-troubleshoot.md
         - name: Timeout bei Azure Backup-Agent oder VM-Erweiterung
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
         - name: Azure Backup-Agent

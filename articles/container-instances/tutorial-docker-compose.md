@@ -2,14 +2,14 @@
 title: 'Tutorial: Verwenden von Docker Compose zum Bereitstellen einer Gruppe mit mehreren Containern'
 description: Verwenden Sie Docker Compose, um eine Anwendung mit mehreren Containern zu erstellen und auszuführen, und rufen Sie die Anwendung dann in Azure Container Instances auf.
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.date: 10/28/2020
 ms.custom: ''
-ms.openlocfilehash: 1e8a5cd856358a0dc3e9c356cb3a55f75db29c86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a71ff438feaef555a85c33d818c287c64621d40d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708271"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913839"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-docker-compose"></a>Tutorial: Bereitstellen einer Gruppe mit mehreren Containern mithilfe von Docker Compose 
 
@@ -35,9 +35,9 @@ In diesem Artikel führen Sie folgende Schritte aus:
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* **Azure CLI**: Auf Ihrem lokalen Computer muss die Azure CLI installiert sein. Empfohlen wird mindestens die Version 2.10.1. Führen Sie `az --version` aus, um die Version zu ermitteln. Installations- und Upgradeinformationen finden Sie bei Bedarf unter [Installieren von Azure CLI](/cli/azure/install-azure-cli).
+* **Azure CLI** : Auf Ihrem lokalen Computer muss die Azure CLI installiert sein. Empfohlen wird mindestens die Version 2.10.1. Führen Sie `az --version` aus, um die Version zu ermitteln. Installations- und Upgradeinformationen finden Sie bei Bedarf unter [Installieren von Azure CLI](/cli/azure/install-azure-cli).
 
-* **Docker Desktop**: Sie müssen Docker Desktop, Version 2.3.0.5 oder höher, verwenden, verfügbar für [Windows](https://desktop.docker.com/win/edge/Docker%20Desktop%20Installer.exe) oder [macOS](https://desktop.docker.com/mac/edge/Docker.dmg). Oder installieren Sie die [Docker ACI-Integrations-CLI für Linux](https://docs.docker.com/engine/context/aci-integration/#install-the-docker-aci-integration-cli-on-linux).
+* **Docker Desktop** : Sie müssen Docker Desktop, Version 2.3.0.5 oder höher, verwenden, verfügbar für [Windows](https://desktop.docker.com/win/edge/Docker%20Desktop%20Installer.exe) oder [macOS](https://desktop.docker.com/mac/edge/Docker.dmg). Oder installieren Sie die [Docker ACI-Integrations-CLI für Linux](https://docs.docker.com/engine/context/aci-integration/#install-the-docker-aci-integration-cli-on-linux).
 
 [!INCLUDE [container-instances-create-registry](../../includes/container-instances-create-registry.md)]
 
@@ -67,14 +67,16 @@ Im Verzeichnis befinden sich der Anwendungsquellcode und eine vorab erstellte Do
 version: '3'
 services:
   azure-vote-back:
-    image: redis
+    image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
     container_name: azure-vote-back
+    environment:
+      ALLOW_EMPTY_PASSWORD: "yes"
     ports:
         - "6379:6379"
 
   azure-vote-front:
     build: ./azure-vote
-    image: azure-vote-front
+    image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
     container_name: azure-vote-front
     environment:
       REDIS: azure-vote-back
@@ -93,8 +95,10 @@ Die aktualisierte Datei sollte in etwa wie folgt aussehen:
 version: '3'
 services:
   azure-vote-back:
-    image: redis
+    image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
     container_name: azure-vote-back
+    environment:
+      ALLOW_EMPTY_PASSWORD: "yes"
     ports:
         - "6379:6379"
 
@@ -128,7 +132,7 @@ $ docker images
 
 REPOSITORY                                TAG        IMAGE ID            CREATED             SIZE
 myregistry.azurecr.io/azure-vote-front    latest     9cc914e25834        40 seconds ago      944MB
-redis                                     latest     a1b99da73d05        7 days ago          104MB
+mcr.microsoft.com/oss/bitnami/redis       6.0.8      3a54a920bb6c        4 weeks ago          103MB
 tiangolo/uwsgi-nginx-flask                python3.6  788ca94b2313        9 months ago        9444MB
 ```
 
@@ -137,9 +141,9 @@ Führen Sie den Befehl [docker ps](https://docs.docker.com/engine/reference/comm
 ```
 $ docker ps
 
-CONTAINER ID        IMAGE                                   COMMAND                  CREATED             STATUS              PORTS                           NAMES
-82411933e8f9        myregistry.azurecr.io/azure-vote-front  "/entrypoint.sh /sta…"   57 seconds ago      Up 30 seconds       443/tcp, 0.0.0.0:80->80/tcp   azure-vote-front
-b68fed4b66b6        redis                                   "docker-entrypoint.s…"   57 seconds ago      Up 30 seconds       0.0.0.0:6379->6379/tcp          azure-vote-back
+CONTAINER ID        IMAGE                                      COMMAND                  CREATED             STATUS              PORTS                           NAMES
+82411933e8f9        myregistry.azurecr.io/azure-vote-front     "/entrypoint.sh /sta…"   57 seconds ago      Up 30 seconds       443/tcp, 0.0.0.0:80->80/tcp   azure-vote-front
+b62b47a7d313        mcr.microsoft.com/oss/bitnami/redis:6.0.8  "/opt/bitnami/script…"   57 seconds ago      Up 30 seconds       0.0.0.0:6379->6379/tcp          azure-vote-back
 ```
 
 Zum Anzeigen der ausgeführten Anwendungen geben Sie `http://localhost:80` in einem lokalen Webbrowser ein. Die Beispielanwendung wird wie im folgenden Beispiel geladen:
@@ -205,9 +209,9 @@ docker ps
 Beispielausgabe:
 
 ```
-CONTAINER ID                           IMAGE                                    COMMAND             STATUS              PORTS
-azurevotingappredis_azure-vote-back    redis                                                        Running             52.179.23.131:6379->6379/tcp
-azurevotingappredis_azure-vote-front   myregistry.azurecr.io/azure-vote-front                       Running             52.179.23.131:80->80/tcp
+CONTAINER ID                           IMAGE                                         COMMAND             STATUS              PORTS
+azurevotingappredis_azure-vote-back    mcr.microsoft.com/oss/bitnami/redis:6.0.8                         Running             52.179.23.131:6379->6379/tcp
+azurevotingappredis_azure-vote-front   myregistry.azurecr.io/azure-vote-front                            Running             52.179.23.131:80->80/tcp
 ```
 
 Zum Anzeigen der ausgeführten Anwendung in der Cloud geben Sie die angezeigte IP-Adresse in einem lokalen Webbrowser ein. Geben Sie für dieses Beispiel `52.179.23.131` ein. Die Beispielanwendung wird wie im folgenden Beispiel geladen:

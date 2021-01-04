@@ -1,30 +1,42 @@
 ---
 title: Benutzeroberflächenelement ServicePrincipalSelector
-description: Hier wird das Benutzeroberflächenelement Microsoft.Common.ServicePrincipalSelector für das Azure-Portal beschrieben. Es enthält eine Dropdownliste zum Auswählen eines Anwendungsbezeichners und ein Textfeld zum Eingeben eines Kennworts oder Zertifikatfingerabdrucks.
+description: Hier wird das Benutzeroberflächenelement Microsoft.Common.ServicePrincipalSelector für das Azure-Portal beschrieben. Es enthält ein Steuerelement zum Auswählen einer Anwendung und ein Textfeld zum Eingeben eines Kennworts oder Zertifikatfingerabdrucks.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 11/17/2020
 ms.author: tomfitz
-ms.openlocfilehash: 73b242754bfae53b6df5abd9c2c8dee33b973dad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fdbbad467d8c762db485fc7935e9cef78313fd0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575995"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184449"
 ---
 # <a name="microsoftcommonserviceprincipalselector-ui-element"></a>Benutzeroberflächenelement Microsoft.Common.ServicePrincipalSelector
 
-Ein Steuerelement, mit dem Benutzer einen vorhandenen Dienstprinzipal auswählen oder einen neuen registrieren können. Wenn Sie **Neu erstellen** auswählen, durchlaufen Sie die Schritte zum Registrieren einer neuen Anwendung. Wenn Sie eine vorhandene Anwendung auswählen, stellt das Steuerelement ein Textfeld zum Eingeben eines Kennworts oder Zertifikatfingerabdrucks bereit.
+Ein Steuerelement, mit dem Benutzer einen vorhandenen [Dienstprinzipal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) auswählen oder eine neue Anwendung registrieren können. Wenn Sie **Neu erstellen** auswählen, durchlaufen Sie die Schritte zum Registrieren einer neuen Anwendung. Wenn Sie eine vorhandene Anwendung auswählen, stellt das Steuerelement ein Textfeld zum Eingeben eines Kennworts oder Zertifikatfingerabdrucks bereit.
 
-## <a name="ui-sample"></a>Benutzeroberflächenbeispiel
+## <a name="ui-samples"></a>Benutzeroberflächenbeispiele
 
-Die Standardansicht wird durch die Werte in der `defaultValue`-Eigenschaft bestimmt. Wenn die `principalId`-Eigenschaft einen gültigen Globally Unique Identifier (GUID) enthält, sucht das Steuerelement nach der Objekt-ID der Anwendung. Der Standardwert ist gültig, wenn der Benutzer keine Auswahl in der Dropdownliste trifft.
+Sie können eine Standardanwendung verwenden, eine neue Anwendung erstellen oder eine vorhandene Anwendung verwenden.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-initial.png" alt-text="Microsoft.Common.ServicePrincipalSelector – anfängliche Ansicht":::
+### <a name="use-default-application-or-create-new"></a>Verwenden der Standardanwendung oder Erstellen einer neuen Anwendung
 
-Wenn Sie in der Dropdownliste **Neu erstellen** oder einen vorhandenen Anwendungsbezeichner auswählen, wird der **Authentifizierungstyp** zur Eingabe eines Kennworts oder Zertifikatsfingerabdrucks in das Textfeld angezeigt.
+Die Standardansicht wird durch die Werte in der `defaultValue`-Eigenschaft festgelegt, und der **Dienstprinzipaltyp** ist auf **Neu erstellen** festgelegt. Wenn die `principalId`-Eigenschaft einen gültigen Globally Unique Identifier (GUID) enthält, sucht das Steuerelement nach der `objectId` der Anwendung. Der Standardwert ist gültig, wenn der Benutzer keine Auswahl im Steuerelement trifft.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-selection.png" alt-text="Microsoft.Common.ServicePrincipalSelector – anfängliche Ansicht":::
+Wenn Sie eine neue Anwendung registrieren möchten, wählen Sie **Auswahl ändern** aus. Das Dialogfeld **Anwendung registrieren** wird angezeigt. Geben Sie einen **Namen** und **unterstützten Kontotyp** ein, und wählen Sie die Schaltfläche **Registrieren** aus.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-default.png" alt-text="Microsoft.Common.ServicePrincipalSelectoder anfängliche Ansicht.":::
+
+Nachdem Sie eine neue Anwendung registriert haben, verwenden Sie **Authentifizierungstyp**, um ein Kennwort oder einen Zertifikatfingerabdruck einzugeben.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-authenticate.png" alt-text="Microsoft.Common.ServicePrincipalSelectoder Authentifizierung.":::
+
+### <a name="use-existing-application"></a>Verwenden einer vorhandenen Anwendung
+
+Um eine vorhandene Anwendung zu verwenden, wählen Sie **Vorhandene auswählen** und dann **Auswahl treffen** aus. Verwenden Sie das Dialogfeld **Anwendung auswählen**, um nach dem Namen der Anwendung zu suchen. Wählen Sie in den Ergebnissen die gewünschte Anwendung aus, und klicken Sie dann auf die Schaltfläche **Auswählen**. Nachdem Sie eine Anwendung ausgewählt haben, wird **Authentifizierungstyp** im Steuerelement angezeigt. Dort können Sie ein Kennwort oder einen Zertifikatfingerabdruck eingeben.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-existing.png" alt-text="Microsoft.Common.ServicePrincipalSelectoder vorhandene Anwendung auswählen.":::
 
 ## <a name="schema"></a>Schema
 
@@ -33,14 +45,12 @@ Wenn Sie in der Dropdownliste **Neu erstellen** oder einen vorhandenen Anwendung
   "name": "ServicePrincipal",
   "type": "Microsoft.Common.ServicePrincipalSelector",
   "label": {
-    "principalId": "App Id",
     "password": "Password",
     "certificateThumbprint": "Certificate thumbprint",
     "authenticationType": "Authentication Type",
     "sectionHeader": "Service Principal"
   },
   "toolTip": {
-    "principalId": "App Id",
     "password": "Password",
     "certificateThumbprint": "Certificate thumbprint",
     "authenticationType": "Authentication Type"
@@ -63,13 +73,13 @@ Wenn Sie in der Dropdownliste **Neu erstellen** oder einen vorhandenen Anwendung
 
 ## <a name="remarks"></a>Bemerkungen
 
-- Die erforderlichen Eigenschaften sind:
+- Die erforderlichen Eigenschaften lauten wie folgt:
   - `name`
   - `type`
   - `label`
   - `defaultValue`: Gibt die Standardwerte `principalId` und `name` an.
 
-- Die optionalen Eigenschaften sind:
+- Die optionalen Eigenschaften lauten wie folgt:
   - `toolTip`: Fügt jeder Bezeichnung eine QuickInfo `infoBalloon` an.
   - `visible`: Ausblenden oder Anzeigen des Steuerelements.
   - `options`: Gibt an, ob die Zertifikatsfingerabdruck-Option zur Verfügung gestellt werden soll.
@@ -95,14 +105,12 @@ Das Folgende ist ein Beispiel für das `Microsoft.Common.ServicePrincipalSelecto
             "name": "ServicePrincipal",
             "type": "Microsoft.Common.ServicePrincipalSelector",
             "label": {
-              "principalId": "App Id",
               "password": "Password",
               "certificateThumbprint": "Certificate thumbprint",
               "authenticationType": "Authentication Type",
               "sectionHeader": "Service Principal"
             },
             "toolTip": {
-              "principalId": "App Id",
               "password": "Password",
               "certificateThumbprint": "Certificate thumbprint",
               "authenticationType": "Authentication Type"
@@ -138,9 +146,9 @@ Das Folgende ist ein Beispiel für das `Microsoft.Common.ServicePrincipalSelecto
 
 ## <a name="example-output"></a>Beispielausgabe
 
-Die `appId` ist die ID der Anwendungsregistrierung, die Sie ausgewählt oder erstellt haben. Die `objectId` ist ein Array von „objectIds“ für die Dienstprinzipale, die für die ausgewählte Anwendungsregistrierung konfiguriert sind.
+Die `appId` ist die ID der Anwendungsregistrierung, die Sie ausgewählt oder erstellt haben. Die `objectId` ist ein Array von Objekt-IDs für die Dienstprinzipale, die für die ausgewählte Anwendungsregistrierung konfiguriert sind.
 
-Wenn in der Dropdownliste keine Auswahl getroffen wird, ist **new** der `newOrExisting`-Eigenschaftswert:
+Wenn im Steuerelement keine Auswahl getroffen wird, lautet der `newOrExisting`-Eigenschaftswert **new**:
 
 ```json
 {
@@ -165,7 +173,7 @@ Wenn in der Dropdownliste keine Auswahl getroffen wird, ist **new** der `newOrEx
 }
 ```
 
-Wenn **Neu erstellen** oder ein vorhandener Anwendungsbezeichner in der Dropdownliste ausgewählt wird, ist **existing** der `newOrExisting`-Eigenschaftswert:
+Wenn **Neu erstellen** oder eine vorhandene Anwendung im Steuerelement ausgewählt wird, lautet der `newOrExisting`-Eigenschaftswert **existing**:
 
 ```json
 {

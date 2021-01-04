@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 11/13/2020
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 54014a0d76130b82788a1ae432e42baec28df2c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: acb2ebb0d7ce70c6b5963a8a6c3e392091e4bb1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87448338"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010060"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Speichern unternehmenskritischer Blobdaten mit unveränderlichem Speicher
 
@@ -76,7 +76,7 @@ Für Aufbewahrungsrichtlinien gelten folgende Grenzwerte:
 
 ### <a name="allow-protected-append-blobs-writes"></a>Zulassen von Schreibvorgängen in geschützten Anfügeblobs
 
-Anfügeblobs bestehen aus Datenblöcken und sind für Vorgänge zum Anfügen von Daten optimiert, die in Überprüfungs- und Protokollierungsszenarien erforderlich sind. Bei Anfügeblobs können neue Blöcke entwurfsbedingt nur am Ende des Blobs hinzugefügt werden. Unabhängig von der Unveränderlichkeit ist das Ändern oder Löschen vorhandener Blöcke in einem Anfügeblob grundsätzlich nicht zulässig. Weitere Informationen zu Anfügeblobs finden Sie unter [Informationen zu Anfügeblobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
+Anfügeblobs bestehen aus Datenblöcken und sind für Vorgänge zum Anfügen von Daten optimiert, die in Überprüfungs- und Protokollierungsszenarien erforderlich sind. Bei Anfügeblobs können neue Blöcke entwurfsbedingt nur am Ende des Blobs hinzugefügt werden. Unabhängig von der Unveränderlichkeit ist das Ändern oder Löschen vorhandener Blöcke in einem Anfügeblob grundsätzlich nicht zulässig. Weitere Informationen zu Anfügeblobs finden Sie unter [Informationen zu Anfügeblobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
 
 Nur zeitbasierte Aufbewahrungsrichtlinien enthalten eine `allowProtectedAppendWrites`-Einstellung, über die das Schreiben neuer Blöcke in ein Anfügeblob ermöglicht wird und gleichzeitig der Unveränderlichkeitsschutz und die Konformität aufrechterhalten werden. Wenn diese Einstellung aktiviert ist, können Sie ein Anfügeblob direkt in dem durch Richtlinien geschützten Container erstellen und über die *AppendBlock*-API weitere neue Datenblöcke am Ende von vorhandenen Anfügeblobs hinzufügen. Es können nur neue Blöcke hinzugefügt werden. Vorhandene Blöcke können nicht geändert oder gelöscht werden. Der Unveränderlichkeitsschutz für die Aufbewahrungszeit gilt weiterhin und verhindert die Löschung des Anfügeblobs bis der geltende Aufbewahrungszeitraum abgelaufen ist. Die Aktivierung dieser Einstellung wirkt sich nicht auf das Unveränderlichkeitsverhalten von Blockblobs oder Seitenblobs aus.
 
@@ -102,17 +102,21 @@ Im Zusammenhang mit der Aufbewahrung für juristische Zwecke gelten folgende Gre
 - Für einen Container werden höchstens zehn Richtlinien-Überwachungsprotokolle für die gesetzliche Aufbewahrungspflicht für die Dauer der Richtlinie aufbewahrt.
 
 ## <a name="scenarios"></a>Szenarien
-Die folgende Tabelle gibt Aufschluss über die Arten von Blobspeichervorgängen, die für die verschiedenen Unveränderlichkeitsszenarien deaktiviert sind. Weitere Informationen finden Sie in der Dokumentation [Blob-Dienst-REST-API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api).
 
-|Szenario  |Blobzustand  |Verweigerte Blobvorgänge  |Container- und Kontoschutz
-|---------|---------|---------|---------|
-|Effektiver Aufbewahrungszeitraum für das Blob ist noch nicht abgelaufen bzw. ein Zeitraum für die gesetzliche Aufbewahrungspflicht wurde festgelegt     |Unveränderlich: Lösch- und Schreibschutz         | Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Delete Container, Delete Blob, Set Blob Metadata, Put Page, Set Blob Properties, Snapshot Blob, Incremental Copy Blob, Append Block<sup>2</sup>         |Containerlöschung verweigert, Speicherkontenlöschung verweigert         |
-|Effektiver Aufbewahrungszeitraum für das Blob ist abgelaufen, und kein Zeitraum zur Aufbewahrung für juristische Zwecke ist festgelegt    |Nur Schreibschutz (Löschvorgänge sind zulässig)         |Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Set Blob Metadata, Put Page, Set Blob Properties, Snapshot Blob, Incremental Copy Blob, Append Block<sup>2</sup>         |Die Löschung von Containern wird verweigert, wenn mindestens ein Blob im geschützten Container vorhanden ist. Die Löschung von Speicherkonten wird nur bei *gesperrten* zeitbasierten Richtlinien verweigert.         |
-|Keine WORM-Richtlinie angewandt (keine zeitbasierte Aufbewahrung und kein Tag für die Aufbewahrung für juristische Zwecke)     |Veränderlich         |Keine         |Keine         |
+Die folgende Tabelle gibt Aufschluss über die Arten von Blobspeichervorgängen, die für die verschiedenen Unveränderlichkeitsszenarien deaktiviert sind. Weitere Informationen finden Sie in der Dokumentation [Blob-Dienst-REST-API](/rest/api/storageservices/blob-service-rest-api).
+
+| Szenario | Blobzustand | Verweigerte Blobvorgänge | Container- und Kontoschutz |
+|--|--|--|--|
+| Effektiver Aufbewahrungszeitraum für das Blob ist noch nicht abgelaufen bzw. ein Zeitraum für die gesetzliche Aufbewahrungspflicht wurde festgelegt | Unveränderlich: Lösch- und Schreibschutz | Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Delete Container, Delete Blob, Set Blob Metadata, Put Page, Set Blob Properties, Snapshot Blob, Incremental Copy Blob, Append Block<sup>2</sup> | Containerlöschung verweigert, Speicherkontenlöschung verweigert |
+| Effektiver Aufbewahrungszeitraum für das Blob ist abgelaufen, und kein Zeitraum zur Aufbewahrung für juristische Zwecke ist festgelegt | Nur Schreibschutz (Löschvorgänge sind zulässig) | Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Set Blob Metadata, Put Page, Set Blob Properties, Snapshot Blob, Incremental Copy Blob, Append Block<sup>2</sup> | Die Löschung von Containern wird verweigert, wenn mindestens ein Blob im geschützten Container vorhanden ist. Die Löschung von Speicherkonten wird nur bei *gesperrten* zeitbasierten Richtlinien verweigert. |
+| Keine WORM-Richtlinie angewandt (keine zeitbasierte Aufbewahrung und kein Tag für die Aufbewahrung für juristische Zwecke) | Veränderlich | Keine | Keine |
 
 <sup>1</sup> Der Blob-Dienst lässt diese Vorgänge zu, um einmalig ein neues Blob zu erstellen. Alle nachfolgenden Überschreibungsvorgänge in einem vorhandenen Blobpfad eines unveränderlichen Containers sind nicht zulässig.
 
 <sup>2</sup> „Append Block“ ist nur bei zeitbasierten Aufbewahrungsrichtlinien mit aktivierter `allowProtectedAppendWrites`-Eigenschaft zulässig. Weitere Informationen finden Sie im Abschnitt [Zulassen von Schreibvorgängen in geschützten Anfügeblobs](#allow-protected-append-blobs-writes).
+
+> [!IMPORTANT]
+> Einige Workloads, z. B. [SQL Server-Sicherung über URLs](/sql/relational-databases/backup-restore/sql-server-backup-to-url), erstellen ein Blob und fügen es dann hinzu. Wenn für den Container eine aktive zeitbasierte Aufbewahrungsrichtlinie oder eine gesetzliche Aufbewahrungspflicht gilt, wird dieses Muster nicht erfolgreich ausgeführt.
 
 ## <a name="pricing"></a>Preise
 
@@ -166,11 +170,11 @@ Ja. Wenn eine zeitbasierte Aufbewahrungsrichtlinie erstellt wird, befindet sie s
 
 **Kann ich neben Richtlinien für unveränderliche Blobs das vorläufige Löschen verwenden?**
 
-Ja, wenn das vorläufige Löschen in Ihren Konformitätsanforderungen aktiviert werden kann. Das [vorläufige Löschen für Azure-Blobspeicher](storage-blob-soft-delete.md) gilt für alle Container eines Speicherkontos, unabhängig von einer Richtlinie für die gesetzliche Aufbewahrungspflicht oder eine zeitbasierte Aufbewahrungsrichtlinie. Wir empfehlen Ihnen, das vorläufige Löschen als zusätzlichen Schutz zu verwenden, bevor Richtlinien für den unveränderlichen WORM-Zustand angewendet und bestätigt werden.
+Ja, wenn das vorläufige Löschen in Ihren Konformitätsanforderungen aktiviert werden kann. Das [vorläufige Löschen für Azure-Blobspeicher](./soft-delete-blob-overview.md) gilt für alle Container eines Speicherkontos, unabhängig von einer Richtlinie für die gesetzliche Aufbewahrungspflicht oder eine zeitbasierte Aufbewahrungsrichtlinie. Wir empfehlen Ihnen, das vorläufige Löschen als zusätzlichen Schutz zu verwenden, bevor Richtlinien für den unveränderlichen WORM-Zustand angewendet und bestätigt werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Festlegen und Verwalten von Unveränderlichkeitsrichtlinien für Blobspeicher](storage-blob-immutability-policies-manage.md)
 - [Festlegen von Regeln zum automatischen Einstufen und Löschen von Blobdaten über die Lebenszyklusverwaltung](storage-lifecycle-management-concepts.md)
-- [Vorläufiges Löschen für Azure Storage-Blobs](../blobs/storage-blob-soft-delete.md)
+- [Vorläufiges Löschen für Azure Storage-Blobs](./soft-delete-blob-overview.md)
 - [Schützen von Abonnements, Ressourcengruppen und Ressourcen mit Azure Resource Manager-Sperren](../../azure-resource-manager/management/lock-resources.md).

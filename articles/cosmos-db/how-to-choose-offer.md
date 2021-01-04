@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: dech
-ms.openlocfilehash: 0365238fd70e2e098e5a228ee71d5b9e0e584c71
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d8a6471d53ad4b2428504f9c53cbec6bc1967c49
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279824"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089637"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Auswählen zwischen standardmäßig (manuell) bereitgestelltem und automatisch skaliertem Durchsatz 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB unterstützt zwei Arten oder Angebote von bereitgestelltem Durchsatz: den standardmäßig (manuell) bereitgestellten und den automatisch skalierten Durchsatz. Beide Durchsatztypen eignen sich für unternehmenskritische Workloads, die eine hohe Leistung und Skalierung erfordern und hinsichtlich des Durchsatzes, der Verfügbarkeit, der Latenz und der Konsistenz denselben Azure Cosmos DB-SLAs unterliegen.
 
@@ -83,7 +84,7 @@ Nun wird der bisherige Verlauf analysiert. Angenommen, die Auslastung entspricht
 
 Beachten Sie, dass bei einer Nutzung von 6 % in Stunde 1 für die automatische Skalierung 10 % der maximalen Anzahl von RU/s (der Mindestwert pro Stunde) in Rechnung gestellt werden. Obwohl die Kosten für die automatische Skalierung in bestimmten Stunden höher als für den manuell bereitgestellten Durchsatz sein können, ist die automatische Skalierung insgesamt günstiger, solange die durchschnittliche Auslastung in allen Stunden weniger als 66 % beträgt.
 
-|  | Auslastung |Abgerechnete RU/s bei automatischer Skalierung  |Option 1: Manuelle Bereitstellung von 30.000 RU/s  | Option 2: Automatische Skalierung zwischen 3000 und 30,000 RU/s |
+|Zeitraum  | Auslastung |Abgerechnete RU/s bei automatischer Skalierung  |Option 1: Manuelle Bereitstellung von 30.000 RU/s  | Option 2: Automatische Skalierung zwischen 3000 und 30,000 RU/s |
 |---------|---------|---------|---------|---------|
 |Stunde 1  | 6 %  |     3000  |  30.000 x 0,008 / 100 = 2,40 USD        |   3000 x 0,012 / 100 = 0,36 USD      |
 |Stunde 2  | 100 %  |     30.000    |  30.000 x 0,008 / 100 = 2,40 USD       |  30.000 x 0,012 / 100 = 3,60 USD      |
@@ -94,7 +95,7 @@ Beachten Sie, dass bei einer Nutzung von 6 % in Stunde 1 für die automatische
 
 Diese Workload weist einen stetigen Datenverkehr mit einem normalisierten RU-Verbrauch zwischen 72 und 100 % auf. Wenn 30.000 RU/s bereitgestellt werden, bedeutet das einen Verbrauch zwischen 21.600 und 30.000 RU/s.
 
-:::image type="content" source="media/how-to-choose-offer/steady_workload_use_manual_throughput.png" alt-text="Workload mit variablem Datenverkehr – normalisierter RU-Verbrauch zwischen 6 und 100 % für alle Stunden":::
+:::image type="content" source="media/how-to-choose-offer/steady_workload_use_manual_throughput.png" alt-text="Workload mit stetigem Datenverkehr – normalisierter RU-Verbrauch zwischen 72 und 100 % für alle Stunden":::
 
 Vergleichen Sie nun die Kosten für die manuelle Bereitstellung eines Durchsatzes von 30.000 RU/s mit der Festlegung von maximal 30.000 RU/s für die automatische Skalierung (Skalierung zwischen 3000 und 30.000 RU/s).
 
@@ -102,7 +103,7 @@ Angenommen, der Auslastungsverlauf entspricht der folgenden Tabelle. Die durchsc
 
 Im Allgemeinen gilt: Wenn die durchschnittliche Auslastung in allen 730 Stunden in einem Monat höher als 66 % ist, wird durch die manuelle Bereitstellung eine Ersparnis erzielt. 
 
-|  | Auslastung |Abgerechnete RU/s bei automatischer Skalierung  |Option 1: Manuelle Bereitstellung von 30.000 RU/s  | Option 2: Automatische Skalierung zwischen 3000 und 30,000 RU/s |
+| Zeitraum | Auslastung |Abgerechnete RU/s bei automatischer Skalierung  |Option 1: Manuelle Bereitstellung von 30.000 RU/s  | Option 2: Automatische Skalierung zwischen 3000 und 30,000 RU/s |
 |---------|---------|---------|---------|---------|
 |Stunde 1  | 72 %  |     21.600   |  30.000 x 0,008 / 100 = 2,40 USD        |   21.600 x 0,012 / 100 = 2,59 USD      |
 |Stunde 2  | 93%  |     28.000    |  30.000 x 0,008 / 100 = 2,40 USD       |  28.000 x 0,012 / 100 = 3,36 USD       |
@@ -118,18 +119,18 @@ Bei der automatischen Skalierung wird die höchste Anzahl von RU/s abgerechnet, 
 Wenn Sie den Durchschnittswert der höchsten Auslastung in allen Stunden berechnen möchten, gehen Sie folgendermaßen vor:
 1. Legen Sie die **Aggregation** für die Metrik „Normalisierter RU-Verbrauch“ auf **Max** fest.
 1. Legen Sie die **Zeitgranularität** auf 1 Stunde fest.
-1. Navigieren Sie zu **Diagrammoptionen** .
+1. Navigieren Sie zu **Diagrammoptionen**.
 1. Wählen Sie die Option „Balkendiagramm“ aus. 
 1. Wählen Sie unter **Freigabe** die Option **In Excel herunterladen** aus. Berechnen Sie anhand der generierten Kalkulationstabelle die durchschnittliche Auslastung in allen Stunden. 
 
-:::image type="content" source="media/how-to-choose-offer/variable-workload-highest-util-by-hour.png" alt-text="Workload mit variablem Datenverkehr – normalisierter RU-Verbrauch zwischen 6 und 100 % für alle Stunden":::
+:::image type="content" source="media/how-to-choose-offer/variable-workload-highest-util-by-hour.png" alt-text="Anzeigen des normalisierten RU-Verbrauchs nach Stunde: 1) Zeitgranularität auf 1 Stunde festlegen, 2) Diagrammeinstellungen bearbeiten, 3) Option „Balkendiagramm“ auswählen, 4) Unter „Freigabe“ die Option „In Excel herunterladen“ auswählen, um den Durchschnitt in allen Stunden zu berechnen":::
 
 ## <a name="measure-and-monitor-your-usage"></a>Messen und Überwachen der Auslastung
 Nachdem Sie einen Durchsatztyp festgelegt haben, sollten Sie Ihre Anwendung im Zeitverlauf überwachen und bei Bedarf Anpassungen vornehmen. 
 
 Wenn Sie die Autoskalierung verwenden, können Sie sich mit Azure Monitor die bereitgestellte maximale Anzahl von RU/s ( **Autoscale Max Throughput** [Maximaler Durchsatz bei Autoskalierung]) sowie die RU/s anzeigen lassen, auf die das System zurzeit skaliert ist ( **Provisioned Throughput** [Bereitgestellter Durchsatz]). Nachstehend finden Sie ein Beispiel für eine variable oder nicht vorhersehbare Workload mit automatisch skaliertem Durchsatz. Beachten Sie, dass das System die RU/s auf den Mindestwert von 10 % der maximalen RU/s skaliert (in diesem Fall 5.000 RU/s bzw. 50.000 RU/s), wenn kein Datenverkehr vorhanden ist. 
 
-:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Workload mit variablem Datenverkehr – normalisierter RU-Verbrauch zwischen 6 und 100 % für alle Stunden":::
+:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Beispiel einer Workload mit automatischer Skalierung: maximal 50.000 RU/s für automatische Skalierung, Durchsatz zwischen 5000 und 50.000 RU/s":::
 
 > [!NOTE]
 > Wenn Sie den standardmäßig (manuell) bereitgestellten Durchsatz verwenden, bezieht sich die Metrik **Provisioned Throughput** (Bereitgestellte Durchsatz) auf den Wert, den Sie als Benutzer festgelegt haben. Bei Verwendung des automatisch skalierten Durchsatzes bezieht sich diese Metrik auf die Anzahl von RU/s, auf die das System zurzeit skaliert ist.

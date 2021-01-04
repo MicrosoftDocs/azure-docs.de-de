@@ -1,17 +1,17 @@
 ---
-title: Übersicht über die Geschäftskontinuität mit Azure Database for MySQL Flexible Server
+title: 'Übersicht über Geschäftskontinuität: Azure Database for MySQL: Flexible Server'
 description: Erfahren Sie mehr über die Konzepte der Geschäftskontinuität mit Azure Database for MySQL Flexible Server
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 0c1afaa7d2d7971b2570914aa7c69fa7c666ae46
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c29e952e22aaccf31c10de8f6e16d240b4660a23
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107843"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240714"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql---flexible-server-preview"></a>Übersicht über die Geschäftskontinuität mit Azure Database for MySQL – Flexible Server (Vorschau)
 
@@ -21,7 +21,6 @@ ms.locfileid: "92107843"
 Azure Database for MySQL Flexible Server ermöglicht Funktionen für die Geschäftskontinuität, die Ihre Datenbanken im Falle eines geplanten und ungeplanten Ausfalls schützen. Features wie automatische Sicherungen und Hochverfügbarkeit adressieren verschiedene Ebenen des Fehlerschutzes mit unterschiedlichen Wiederherstellungszeiten und Datenverlusten. Wenn Sie Ihre Anwendung zum Schutz vor Fehlern gestalten, sollten Sie für jede Anwendung das Recovery Time Objective (RTO) und das Recovery Point Objective (RPO) berücksichtigen. RTO ist die Downtimetoleranz und RPO die Datenverlusttoleranz nach einer Unterbrechung des Datenbankdiensts.
 
 Die nachstehende Tabelle veranschaulicht die Features, die Flexible Server bietet.
-
 
 | **Feature** | **Beschreibung** | **Einschränkungen** |
 | ---------- | ----------- | ------------ |
@@ -34,17 +33,18 @@ Die nachstehende Tabelle veranschaulicht die Features, die Flexible Server biete
 > Während des Vorschauzeitraums werden weder Uptime noch RTO und RPO SLAs angeboten. Die Angaben auf dieser Seite dienen nur zu Ihrer Information und zu Planungszwecken.
 
 ## <a name="planned-downtime-mitigation"></a>Minimierung von geplanter Downtime
+
 Hier folgen einige geplante Wartungsszenarien, die zu Downtime führen:
 
 | **Szenario** | **Process**|
 | :------------ | :----------- |
 | **Computeskalierung (Benutzer)**| Wenn Sie einen Computeskalierungsvorgang durchführen, wird mithilfe der skalierten Computekonfiguration ein neuer flexibler Server bereitgestellt. Auf dem vorhandenen Datenbankserver können aktive Prüfpunkte abgeschlossen werden, Clientverbindungen werden entladen, alle Transaktionen ohne Commit werden abgebrochen, und anschließend wird der Server heruntergefahren. Der Speicher wird dann an den neuen Server angefügt und die Datenbank gestartet, die bei Bedarf eine Wiederherstellung durchführt, bevor sie Clientverbindungen akzeptiert. |
-| **Bereitstellung neuer Software (Azure)** | Der Rollout neuer Features oder die Behebung von Fehlern erfolgt automatisch als Teil der geplanten Wartungsarbeiten des Diensts, und Sie können planen, wann diese Aktivitäten stattfinden sollen. Weitere Informationen finden Sie in der [Dokumentation](https://aka.ms/servicehealthpm) und im [Portal](https://aka.ms/servicehealthpm). |
-| **Upgrades auf Nebenversionen (Azure)** | Azure Database for MySQL patcht Datenbankserver automatisch auf die von Azure festgelegte Nebenversion. Dies erfolgt im Rahmen der geplanten Wartung des Diensts. Dabei kommt es zu einer kurzen Downtime von ein paar Sekunden. Danach wird der Datenbankserver automatisch mit der neuen Nebenversion neu gestartet. Weitere Informationen finden Sie in der [Dokumentation](https://docs.microsoft.com/azure/mysql/concepts-monitoring#planned-maintenance-notification) und im [Portal](https://aka.ms/servicehealthpm).|
+| **Bereitstellung neuer Software (Azure)** | Die Einführung neuer Features oder Behebung von Fehlern erfolgt automatisch als Teil der geplanten Wartungsarbeiten des Diensts, und Sie können planen, wann diese Aktivitäten stattfinden sollen. Weitere Informationen finden Sie in der [Dokumentation](https://aka.ms/servicehealthpm) und im [Portal](https://aka.ms/servicehealthpm). |
+| **Upgrades auf Nebenversionen (Azure)** | Azure Database for MySQL patcht Datenbankserver automatisch auf die von Azure festgelegte Nebenversion. Dies erfolgt im Rahmen der geplanten Wartung des Diensts. Dabei kommt es zu einer kurzen Downtime von ein paar Sekunden. Danach wird der Datenbankserver automatisch mit der neuen Nebenversion neu gestartet. Weitere Informationen finden Sie in der [Dokumentation](../concepts-monitoring.md#planned-maintenance-notification) und im [Portal](https://aka.ms/servicehealthpm).|
 
 Wenn der flexible Server mit **zonenredundanter Hochverfügbarkeit** konfiguriert ist, führt der flexible Server Vorgänge zuerst auf dem Standbyserver und dann auf dem primären Server ohne Failover durch. Weitere Informationen finden Sie unter [Konzepte: Hochverfügbarkeit](./concepts-high-availability.md).
 
-##  <a name="unplanned-downtime-mitigation"></a>Minimierung von ungeplanter Downtime
+## <a name="unplanned-downtime-mitigation"></a>Minimierung von ungeplanter Downtime
 
 Ungeplante Downtimes können aufgrund von unvorhergesehenen Fehlern auftreten, darunter Fehler in der zugrunde liegenden Hardware, Netzwerkprobleme und Softwarefehler. Wenn der Datenbankserver unerwartet ausfällt, wird das Standbyreplikat aktiviert, sofern er mit Hochverfügbarkeit konfiguriert ist. Wenn dies nicht der Fall ist, wird automatisch ein neuer Datenbankserver bereitgestellt. Ungeplante Downtime lässt sich zwar nicht vollständig vermeiden, wird aber vom flexiblen Server durch automatisches Ausführen von Wiederherstellungsvorgängen sowohl auf Ebene der Datenbankserver als auch des Speichers minimiert, ohne dass ein Eingreifen durch einen Benutzer erforderlich ist.
 
@@ -60,12 +60,10 @@ Im Folgenden finden Sie einige ungeplante Fehlerszenarien und den Wiederherstell
 | **Verfügbarkeitszonenfehler** | Es ist zwar ein seltenes Ereignis, aber wenn Sie eine Wiederherstellung nach einem Ausfall auf Zonenebene durchführen möchten, können Sie mithilfe der Sicherung und der Auswahl eines benutzerdefinierten Wiederherstellungspunkts eine Zeitpunktwiederherstellung durchführen, um auf die neuesten Daten zuzugreifen. Ein neuer flexibler Server wird in einer anderen Zone bereitgestellt. Die für die Wiederherstellung benötigte Zeit hängt von der vorherigen Sicherung und der Anzahl der wiederherzustellenden Transaktionsprotokolle ab. | Der flexible Server führt ein automatisches Failover auf den Standbystandort durch. Weitere Informationen finden Sie auf der Seite [Hochverfügbarkeitskonzepte](./concepts-high-availability.md). |
 | **Regionsausfall** | Regionsübergreifende Features zur Replikat- und Geowiederherstellung werden in der Vorschau noch nicht unterstützt. | |
 
-
 > [!IMPORTANT]
-> Gelöschte Server **können nicht** wiederhergestellt werden. Wenn Sie den Server löschen, werden auch alle Datenbanken gelöscht, die zum Server gehören, und können nicht wiederhergestellt werden. Verwenden Sie die [Azure-Ressourcensperre](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources), um einer versehentlichen Löschung Ihres Servers vorzubeugen.
-
+> Gelöschte Server **können nicht** wiederhergestellt werden. Wenn Sie den Server löschen, werden auch alle Datenbanken gelöscht, die zum Server gehören, und können nicht wiederhergestellt werden. Verwenden Sie die [Azure-Ressourcensperre](../../azure-resource-manager/management/lock-resources.md), um einer versehentlichen Löschung Ihres Servers vorzubeugen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
--   Weitere Informationen zur  [zonenredundanten Hochverfügbarkeit](./concepts-high-availability.md)
--   Weitere Informationen zu [Sicherung und Wiederherstellung](./concepts-backup-restore.md)
+- Erfahren Sie mehr zur [zonenredundanten Hochverfügbarkeit](./concepts-high-availability.md)
+- Weitere Informationen zu [Sicherung und Wiederherstellung](./concepts-backup-restore.md)

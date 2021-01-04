@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: cd1dc953c35233010250bf7f959c94d1de50fe4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f214b0b0751f44ea1357f569fd814a7621af61ab
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319791"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397619"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>Konfigurieren der Application Gateway-Infrastruktur
 
@@ -41,29 +41,29 @@ Die Application Gateway-SKU (Standard_v2 oder WAF_v2) kann bis zu 125 Instanzen
 
 Netzwerksicherheitsgruppen (NSG) werden im Application Gateway-Subnetz unterstützt. Es gelten jedoch einige Einschränkungen:
 
-- Sie müssen eingehenden Internetdatenverkehr über die TCP-Ports 65503–65534 (für die Application Gateway v1-SKU) und über die TCP-Ports 65200–65535 (für die v2-SKU) mit dem Zielsubnetz **Beliebig** und der Quelle **GatewayManager**-Diensttag zulassen. Dieser Portbereich ist für die Kommunikation mit der Azure-Infrastruktur erforderlich. Diese Ports werden von Azure-Zertifikaten geschützt (gesperrt). Externe Entitäten, einschließlich der Kunden dieses Gateways, können nicht auf diesen Endpunkten kommunizieren.
+- Sie müssen eingehenden Internetdatenverkehr über die TCP-Ports 65503–65534 (für die Application Gateway v1-SKU) und über die TCP-Ports 65200–65535 (für die v2-SKU) mit dem Zielsubnetz **Beliebig** und der Quelle **GatewayManager** -Diensttag zulassen. Dieser Portbereich ist für die Kommunikation mit der Azure-Infrastruktur erforderlich. Diese Ports werden von Azure-Zertifikaten geschützt (gesperrt). Externe Entitäten, einschließlich der Kunden dieses Gateways, können nicht auf diesen Endpunkten kommunizieren.
 
 - Die ausgehende Internetverbindung kann nicht blockiert sein. Standardausgangsregeln in der NSG ermöglichen Internetkonnektivität. Wir empfehlen Folgendes:
 
   - Entfernen Sie die Standardausgangsregeln nicht.
   - Erstellen Sie keine anderen Ausgangsregeln, die ausgehende Konnektivität verweigern.
 
-- Datenverkehr vom **AzureLoadBalancer**-Tag mit dem Zielsubnetz als **Beliebig** muss zulässig sein.
+- Datenverkehr vom **AzureLoadBalancer** -Tag mit dem Zielsubnetz als **Beliebig** muss zulässig sein.
 
 ### <a name="allow-access-to-a-few-source-ips"></a>Erlauben des Zugriffs auf einige Quell-IP-Adressen
 
 Verwenden Sie für dieses Szenario Netzwerksicherheitsgruppen im Application Gateway-Subnetz. Legen Sie die folgenden Einschränkungen für das Subnetz in dieser Priorität fest:
 
 1. Erlauben Sie eingehenden Datenverkehr aus einer Quell-IP oder einem IP-Adressbereich mit dem Ziel des gesamten Application Gateway-Subnetzadressbereichs und dem Zielport als eingehenden Zugriffsport, z. B. Port 80 für den HTTP-Zugriff.
-2. Erlauben Sie eingehende Anforderungen von der Quelle **GatewayManager**-Diensttag und dem Ziel **Beliebig** sowie den Zielports 65503-65534 für die Application Gateway v1-SKU und den Ports 65200-65535 für v2-SKU für die [Kommunikation des Back-End-Integritätsstatus](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Dieser Portbereich ist für die Kommunikation mit der Azure-Infrastruktur erforderlich. Diese Ports werden von Azure-Zertifikaten geschützt (gesperrt). Ohne entsprechende Zertifikate können externe Entitäten keine Änderungen an diesen Endpunkten vornehmen.
-3. Lassen Sie eingehende Azure Load Balancer-Tests (*AzureLoadBalancer-Tag*) und eingehenden virtuellen Netzwerkdatenverkehr (*VirtualNetwork*-Tag) für die [Netzwerksicherheitsgruppe](https://docs.microsoft.com/azure/virtual-network/security-overview) zu.
+2. Erlauben Sie eingehende Anforderungen von der Quelle **GatewayManager** -Diensttag und dem Ziel **Beliebig** sowie den Zielports 65503-65534 für die Application Gateway v1-SKU und den Ports 65200-65535 für v2-SKU für die [Kommunikation des Back-End-Integritätsstatus](./application-gateway-diagnostics.md). Dieser Portbereich ist für die Kommunikation mit der Azure-Infrastruktur erforderlich. Diese Ports werden von Azure-Zertifikaten geschützt (gesperrt). Ohne entsprechende Zertifikate können externe Entitäten keine Änderungen an diesen Endpunkten vornehmen.
+3. Lassen Sie eingehende Azure Load Balancer-Tests ( *AzureLoadBalancer-Tag* ) und eingehenden virtuellen Netzwerkdatenverkehr ( *VirtualNetwork* -Tag) für die [Netzwerksicherheitsgruppe](../virtual-network/network-security-groups-overview.md) zu.
 4. Blockieren Sie den gesamten übrigen eingehenden Datenverkehr mit einer Alle-verweigern-Regel.
 5. Zulassen von ausgehendem Datenverkehr an das Internet für alle Ziele.
 
 ## <a name="supported-user-defined-routes"></a>Unterstützte benutzerdefinierte Routen 
 
 > [!IMPORTANT]
-> Das Verwenden benutzerdefinierter Routen im Application Gateway-Subnetz kann dazu führen, dass der Integritätsstatus in der [Ansicht der Back-End-Integrität](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) als **Unbekannt** angezeigt wird. Außerdem können bei der Generierung von Application Gateway-Protokollen und -Metriken Fehler auftreten. Sie sollten keine benutzerdefinierten Routen im Application Gateway-Subnetz verwenden, damit Sie die Back-End-Integrität, Protokolle und Metriken anzeigen können.
+> Das Verwenden benutzerdefinierter Routen im Application Gateway-Subnetz kann dazu führen, dass der Integritätsstatus in der [Ansicht der Back-End-Integrität](./application-gateway-diagnostics.md#back-end-health) als **Unbekannt** angezeigt wird. Außerdem können bei der Generierung von Application Gateway-Protokollen und -Metriken Fehler auftreten. Sie sollten keine benutzerdefinierten Routen im Application Gateway-Subnetz verwenden, damit Sie die Back-End-Integrität, Protokolle und Metriken anzeigen können.
 
 - **v1**
 
@@ -78,7 +78,7 @@ Verwenden Sie für dieses Szenario Netzwerksicherheitsgruppen im Application Gat
    > Eine fehlerhafte Konfiguration der Routingtabelle kann zu asymmetrischer Routenplanung in Application Gateway v2 führen. Stellen Sie sicher, dass der gesamte Datenverkehr der Verwaltungs-/Steuerungsebene direkt an das Internet und nicht über ein virtuelles Gerät gesendet wird. Dies kann sich auch auf die Protokollierung und Metriken auswirken.
 
 
-  **Szenario 1**: Benutzerdefinierte Routen zum Deaktivieren der BGP-Routenverteilung (Border Gateway Protocol) an das Application Gateway-Subnetz
+  **Szenario 1** : Benutzerdefinierte Routen zum Deaktivieren der BGP-Routenverteilung (Border Gateway Protocol) an das Application Gateway-Subnetz
 
    Manchmal wird die Standardgatewayroute (0.0.0.0/0) per ExpressRoute oder VPN-Gateways angekündigt, die dem virtuellen Application Gateway-Netzwerk zugeordnet sind. Dies unterbricht den Datenverkehr der Verwaltungsebene, da er einen direkten Pfad zum Internet erfordert. In solchen Szenarios kann eine benutzerdefinierte Route zum Deaktivieren der BGP-Routenverteilung verwendet werden. 
 
@@ -90,7 +90,7 @@ Verwenden Sie für dieses Szenario Netzwerksicherheitsgruppen im Application Gat
 
    Das Aktivieren der benutzerdefinierten Route für dieses Szenario sollte keine vorhandenen Setups unterbrechen.
 
-  **Szenario 2**: Benutzerdefinierte Route zum Weiterleiten von Datenverkehr an 0.0.0.0/0 an das Internet
+  **Szenario 2** : Benutzerdefinierte Route zum Weiterleiten von Datenverkehr an 0.0.0.0/0 an das Internet
 
    Sie können eine benutzerdefinierte Route erstellen, um Datenverkehr an 0.0.0.0/0 direkt an das Internet zu übermitteln. 
 
@@ -109,7 +109,7 @@ Verwenden Sie für dieses Szenario Netzwerksicherheitsgruppen im Application Gat
     
   **Nicht unterstützte v2-Szenarios**
 
-  **Szenario 1**: Benutzerdefinierte Route für virtuelle Geräte
+  **Szenario 1** : Benutzerdefinierte Route für virtuelle Geräte
 
   Szenarios, in denen Datenverkehr an 0.0.0.0/0 über ein virtuelles Gerät, ein virtuelles Hub-/Spoke-Netzwerk oder lokal (Tunnelerzwingung) umgeleitet werden muss, werden in V2 nicht unterstützt.
 

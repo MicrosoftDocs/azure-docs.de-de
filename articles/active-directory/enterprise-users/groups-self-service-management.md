@@ -4,23 +4,23 @@ description: Es wird beschrieben, wie Sie Sicherheitsgruppen oder Microsoft 365
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 08/13/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4651d15fb765182c788733c0542480805387871
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c6b2b8e3374c362f937aa5cfe106e8da9f9aa39f
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373266"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548000"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Einrichten der Self-Service-Gruppenverwaltung in Azure Active Directory 
 
@@ -44,15 +44,15 @@ Erstellte Gruppen in | Standardverhalten von Sicherheitsgruppen | Standardverhal
 ## <a name="make-a-group-available-for-user-self-service"></a>Einrichten einer Gruppe für Self-Service durch Benutzer
 
 1. Melden Sie sich beim [Azure AD Admin Center](https://aad.portal.azure.com) mit dem Konto eines globalen Administrators für das Verzeichnis an.
-1. Klicken Sie auf **Gruppen** und anschließend auf **Allgemeine Einstellungen** .
+1. Klicken Sie auf **Gruppen** und anschließend auf **Allgemeine Einstellungen**.
 1. Legen Sie **Besitzer können Anforderungen für eine Gruppenmitgliedschaft im Zugriffspanel verwalten** auf **Ja** fest.
 1. Legen Sie **Zugriff auf Gruppen im Zugriffspanel beschränken** auf **Nein** fest.
 1. Folgendes geschieht, wenn Sie **Benutzer können Microsoft 365-Gruppen in Azure-Portalen erstellen** oder **Benutzer können Microsoft 365-Gruppen in Azure-Portalen erstellen** festlegen auf
 
-    - **Ja** : Alle Benutzer in Ihrer Azure AD-Organisation können neue Sicherheitsgruppen erstellen und Mitglieder zu diesen Gruppen hinzufügen. Diese neuen Gruppen werden auch für alle Benutzer im Zugriffsbereich angezeigt. Wenn die Richtlinieneinstellung der Gruppe dies zulässt, können andere Benutzer Anforderungen in Bezug auf den Beitritt zu diesen Gruppen erstellen.
-    - **Nein** : Benutzer können keine Gruppen erstellen und keine vorhandenen Gruppen ändern, deren Besitzer sie sind. Sie können aber trotzdem die Mitgliedschaften dieser Gruppen verwalten und Anforderungen anderer Benutzer zum Beitreten zu diesen Gruppen genehmigen.
+    - **Ja**: Alle Benutzer in Ihrer Azure AD-Organisation können neue Sicherheitsgruppen erstellen und Mitglieder zu diesen Gruppen hinzufügen. Diese neuen Gruppen werden auch für alle Benutzer im Zugriffsbereich angezeigt. Wenn die Richtlinieneinstellung der Gruppe dies zulässt, können andere Benutzer Anforderungen in Bezug auf den Beitritt zu diesen Gruppen erstellen.
+    - **Nein**: Benutzer können keine Gruppen erstellen und keine vorhandenen Gruppen ändern, deren Besitzer sie sind. Sie können aber trotzdem die Mitgliedschaften dieser Gruppen verwalten und Anforderungen anderer Benutzer zum Beitreten zu diesen Gruppen genehmigen.
 
-Sie können auch **Besitzer, die in Azure-Portalen Mitglieder als Gruppenbesitzer zuweisen können** verwenden, um eine **detailliertere Zugriffssteuerung** über die Gruppenverwaltung nach dem Self-Service-Prinzip für Ihre Benutzer zu erreichen.
+Sie können auch **Besitzer, die im Azure-Portal Mitglieder als Gruppenbesitzer zuweisen können**, verwenden, um eine detailliertere Zugriffssteuerung über die Gruppenverwaltung nach dem Self-Service-Prinzip für Ihre Benutzer zu erreichen.
 
 Wenn Benutzer Gruppen erstellen können, dürfen alle Benutzer in Ihrer Organisation neue Gruppen erstellen und können dann als Standardbesitzer Mitglieder diesen Gruppen hinzufügen. Sie können keine Personen angeben, die ihre eigenen Gruppen erstellen können. Sie können lediglich Personen angeben, die ein anderes Gruppenmitglied als Gruppenbesitzer festlegen.
 

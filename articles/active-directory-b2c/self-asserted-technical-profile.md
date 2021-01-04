@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/15/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 817267414555ea0641e8fb8a8392976a4789c780
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 14195ad4638c724cf0c8dd46945a0da79ec0e4ec
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096214"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509699"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definieren eines selbstbestätigten technischen Profils in einer benutzerdefinierten Richtlinie in Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Alle Interaktionen in Azure Active Directory B2C (Azure AD B2C), bei denen vom B
 
 ## <a name="protocol"></a>Protocol
 
-Das **Name** -Attribut des **Protocol** -Elements muss auf `Proprietary` festgelegt werden. Das **handler** -Attribut muss den vollqualifizierten Namen der Protokollhandlerassembly als selbstbestätigt enthalten, die von Azure AD B2C verwendet wird: `Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
+Das **Name**-Attribut des **Protocol**-Elements muss auf `Proprietary` festgelegt werden. Das **handler**-Attribut muss den vollqualifizierten Namen der Protokollhandlerassembly als selbstbestätigt enthalten, die von Azure AD B2C verwendet wird: `Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
 Das folgende Beispiel zeigt ein selbstbestätigtes technisches Profil für eine Registrierung per E-Mail:
 
@@ -55,11 +55,11 @@ In einem selbstbestätigten technischen Profil können Sie die Elemente **InputC
 
 Diese Funktion „Anzeigeansprüche“ steht derzeit als **Vorschau** zur Verfügung.
 
-Das **DisplayClaims** -Element enthält eine Liste mit anzuzeigenden Ansprüchen zum Erfassen von Daten vom Benutzer. Um Anzeigeansprüche vorab mit Werten aufzufüllen, verwenden Sie die zuvor beschriebenen Eingabeansprüche. Das Element kann darüber hinaus auch einen Standardwert enthalten.
+Das **DisplayClaims**-Element enthält eine Liste mit anzuzeigenden Ansprüchen zum Erfassen von Daten vom Benutzer. Um Anzeigeansprüche vorab mit Werten aufzufüllen, verwenden Sie die zuvor beschriebenen Eingabeansprüche. Das Element kann darüber hinaus auch einen Standardwert enthalten.
 
-Die Reihenfolge der Ansprüche in **DisplayClaims** bestimmt die Reihenfolge, in der Azure AD B2C die Ansprüche auf dem Bildschirm rendert. Um den Benutzer zur Eingabe eines Werts für einen bestimmten Anspruch zu zwingen, legen Sie das Attribut **Required** des **DisplayClaim** -Elements auf `true` fest.
+Die Reihenfolge der Ansprüche in **DisplayClaims** bestimmt die Reihenfolge, in der Azure AD B2C die Ansprüche auf dem Bildschirm rendert. Um den Benutzer zur Eingabe eines Werts für einen bestimmten Anspruch zu zwingen, legen Sie das Attribut **Required** des **DisplayClaim**-Elements auf `true` fest.
 
-Das **ClaimType** -Element in der **DisplayClaims** -Sammlung muss das **UserInputType** -Element auf einen von Azure AD B2C unterstützten Benutzereingabetyp festlegen. Zum Beispiel: `TextBox` oder `DropdownSingleSelect`.
+Das **ClaimType**-Element in der **DisplayClaims**-Sammlung muss das **UserInputType**-Element auf einen von Azure AD B2C unterstützten Benutzereingabetyp festlegen. Zum Beispiel: `TextBox` oder `DropdownSingleSelect`.
 
 ### <a name="add-a-reference-to-a-displaycontrol"></a>Hinzufügen eines Verweises auf ein DisplayControl-Element
 
@@ -89,7 +89,7 @@ Wie bereits erwähnt, kann ein Anzeigeanspruch mit einem Verweis auf ein Anzeige
 
 ### <a name="combine-usage-of-display-claims-and-output-claims-carefully"></a>Kombinieren Sie die Verwendung von Anzeigeansprüchen und Ausgabeansprüchen sorgfältig
 
-Wenn Sie mindestens ein **DisplayClaim** -Element in einem selbstbestätigten technischen Profil angeben, müssen Sie einen DisplayClaim für *jeden* Anspruch verwenden, der auf dem Bildschirm angezeigt und vom Benutzer erfasst werden soll. Von einem selbstbestätigten technischen Profil, das mindestens einen Anzeigeanspruch enthält, werden keine Ausgabeansprüche angezeigt.
+Wenn Sie mindestens ein **DisplayClaim**-Element in einem selbstbestätigten technischen Profil angeben, müssen Sie einen DisplayClaim für *jeden* Anspruch verwenden, der auf dem Bildschirm angezeigt und vom Benutzer erfasst werden soll. Von einem selbstbestätigten technischen Profil, das mindestens einen Anzeigeanspruch enthält, werden keine Ausgabeansprüche angezeigt.
 
 Sehen Sie sich das folgende Beispiel an, in dem ein `age`-Anspruch als **Ausgabe** anspruch in einer Basisrichtlinie definiert wird. Bevor dem selbstbestätigten technischen Profil Anzeigeansprüche hinzugefügt werden, wird der `age`-Anspruch auf dem Bildschirm für die Datensammlung angezeigt, die vom Benutzer erfasst wurde:
 
@@ -114,18 +114,18 @@ Wenn eine Blattrichtlinie, die diese Basis nachfolgend erbt, `officeNumber` als 
 </TechnicalProfile>
 ```
 
-Der `age`-Anspruch in der Basisrichtlinie wird dem Benutzer nicht mehr auf dem Bildschirm angezeigt. Er wird praktisch „ausgeblendet“. Zum Anzeigen des `age`-Anspruchs und zum Erfassen des Alterswerts vom Benutzer müssen Sie ein `age` **DisplayClaim** -Element hinzufügen.
+Der `age`-Anspruch in der Basisrichtlinie wird dem Benutzer nicht mehr auf dem Bildschirm angezeigt. Er wird praktisch „ausgeblendet“. Zum Anzeigen des `age`-Anspruchs und zum Erfassen des Alterswerts vom Benutzer müssen Sie ein `age` **DisplayClaim**-Element hinzufügen.
 
 ## <a name="output-claims"></a>Ausgabeansprüche
 
-Das **OutputClaims** -Element enthält eine Liste mit an den nächsten Orchestrierungsschritt zurückzugebenden Ansprüchen. Das **DefaultValue** -Attribut wird erst wirksam, wenn der Anspruch noch nie festgelegt wurde. Wenn er in einem vorherigen Orchestrierungsschritt festgelegt wurde, wird der Standardwert selbst dann nicht wirksam, wenn der Benutzer den Wert leer lässt. Um die Verwendung eines Standardwerts zu erzwingen, legen Sie das Attribut **AlwaysUseDefaultValue** auf `true` fest.
+Das **OutputClaims**-Element enthält eine Liste mit an den nächsten Orchestrierungsschritt zurückzugebenden Ansprüchen. Das **DefaultValue**-Attribut wird erst wirksam, wenn der Anspruch noch nie festgelegt wurde. Wenn er in einem vorherigen Orchestrierungsschritt festgelegt wurde, wird der Standardwert selbst dann nicht wirksam, wenn der Benutzer den Wert leer lässt. Um die Verwendung eines Standardwerts zu erzwingen, legen Sie das Attribut **AlwaysUseDefaultValue** auf `true` fest.
 
 Aus Sicherheitsgründen ist ein Kennwortanspruchswert (`UserInputType` auf `Password`festgelegt) nur für die technischen Validierungsprofile des selbstbestätigten technischen Profils verfügbar. Der Kennwortanspruch kann in den nächsten Orchestrierungsschritten nicht verwendet werden. 
 
 > [!NOTE]
-> In früheren Versionen von Identity Experience Framework (IEF) wurden Ausgabeansprüche verwendet, um Daten vom Benutzer zu erfassen. Verwenden Sie zum Erfassen von Daten vom Benutzer stattdessen eine **DisplayClaims** -Sammlung.
+> In früheren Versionen von Identity Experience Framework (IEF) wurden Ausgabeansprüche verwendet, um Daten vom Benutzer zu erfassen. Verwenden Sie zum Erfassen von Daten vom Benutzer stattdessen eine **DisplayClaims**-Sammlung.
 
-Das **OutputClaimsTransformations** -Element darf eine Sammlung von **OutputClaimsTransformation** -Elementen, die zum Ändern der Ausgabeansprüche oder zum Generieren neuer verwendet werden, enthalten.
+Das **OutputClaimsTransformations**-Element darf eine Sammlung von **OutputClaimsTransformation**-Elementen, die zum Ändern der Ausgabeansprüche oder zum Generieren neuer verwendet werden, enthalten.
 
 ### <a name="when-you-should-use-output-claims"></a>Unter welchen Umständen Ausgabeansprüche verwendet werden sollten
 
@@ -133,10 +133,10 @@ In einem selbstbestätigten technischen Profil gibt die Sammlung der Ausgabeansp
 
 Verwenden Sie die Ausgabeansprüche in folgenden Fällen:
 
-- **Ansprüche werden von der Ausgabeanspruchstransformation ausgegeben** .
-- **Festlegen eines Standardwerts in einem Ausgabeanspruch** : Ohne Daten vom Benutzer zu erfassen oder die Daten aus dem technischen Validierungsprofil zurückgeben. Das selbstbestätigte technische Profil `LocalAccountSignUpWithLogonEmail` legt den Anspruch **executed-SelfAsserted-Input** auf `true` fest.
-- **Ein technisches Validierungsprofil gibt die Ausgabeansprüche zurück** : Ihr technisches Profil ruft möglicherweise ein technisches Validierungsprofil auf, das einige Ansprüche zurückgibt. Sie sollten die Ansprüche sammeln und an die nächsten Orchestrierungsschritte in der User Journey zurückzugeben. Bei der Anmeldung mit einem lokalen Konto ruft beispielsweise das selbstbestätigte technische Profil mit dem Namen `SelfAsserted-LocalAccountSignin-Email` das technische Validierungsprofil mit dem Namen `login-NonInteractive` auf. Dieses technische Profil überprüft die Anmeldeinformationen des Benutzers und gibt das Benutzerprofil zurück. Beispiele: „userPrincipalName“, „displayName“, „givenName“ und „surName“.
-- **Ein Anzeigesteuerelement gibt die Ausgabeansprüche zurück** : Ihr technisches Profil weist möglicherweise einen Verweis auf ein [Anzeigesteuerelement](display-controls.md) auf. Das Anzeigesteuerelement gibt einige Ansprüche zurück, beispielsweise die überprüfte E-Mail-Adresse. Sie sollten die Ansprüche sammeln und an die nächsten Orchestrierungsschritte in der User Journey zurückzugeben. Diese Funktion „Anzeigesteuerelement“ steht derzeit als **Vorschau** zur Verfügung.
+- **Ansprüche werden von der Ausgabeanspruchstransformation ausgegeben**.
+- **Festlegen eines Standardwerts in einem Ausgabeanspruch**: Ohne Daten vom Benutzer zu erfassen oder die Daten aus dem technischen Validierungsprofil zurückgeben. Das selbstbestätigte technische Profil `LocalAccountSignUpWithLogonEmail` legt den Anspruch **executed-SelfAsserted-Input** auf `true` fest.
+- **Ein technisches Validierungsprofil gibt die Ausgabeansprüche zurück**: Ihr technisches Profil ruft möglicherweise ein technisches Validierungsprofil auf, das einige Ansprüche zurückgibt. Sie sollten die Ansprüche sammeln und an die nächsten Orchestrierungsschritte in der User Journey zurückzugeben. Bei der Anmeldung mit einem lokalen Konto ruft beispielsweise das selbstbestätigte technische Profil mit dem Namen `SelfAsserted-LocalAccountSignin-Email` das technische Validierungsprofil mit dem Namen `login-NonInteractive` auf. Dieses technische Profil überprüft die Anmeldeinformationen des Benutzers und gibt das Benutzerprofil zurück. Beispiele: „userPrincipalName“, „displayName“, „givenName“ und „surName“.
+- **Ein Anzeigesteuerelement gibt die Ausgabeansprüche zurück**: Ihr technisches Profil weist möglicherweise einen Verweis auf ein [Anzeigesteuerelement](display-controls.md) auf. Das Anzeigesteuerelement gibt einige Ansprüche zurück, beispielsweise die überprüfte E-Mail-Adresse. Sie sollten die Ansprüche sammeln und an die nächsten Orchestrierungsschritte in der User Journey zurückzugeben. Diese Funktion „Anzeigesteuerelement“ steht derzeit als **Vorschau** zur Verfügung.
 
 Im folgenden Beispiel wird die Verwendung eines selbstbestätigten technischen Profils veranschaulicht, das sowohl Anzeigeansprüche als auch Ausgabeansprüche verwendet.
 
@@ -175,6 +175,14 @@ Im folgenden Beispiel wird die Verwendung eines selbstbestätigten technischen P
 </TechnicalProfile>
 ```
 
+### <a name="output-claims-sign-up-or-sign-in-page"></a>Ausgabeansprüche für eine Registrierungs- oder Anmeldeseite
+
+Bei einer kombinierten Registrierungs- und Anmeldeseite müssen Sie Folgendes beachten, wenn Sie ein [DataUri](contentdefinitions.md#datauri)-Element für die Inhaltsdefinition verwenden, das den Seitentyp `unifiedssp` oder `unifiedssd` festlegt:
+
+- Nur die Ansprüche für den Benutzernamen und das Kennwort werden gerendert.
+- Bei den ersten zwei Ausgabeansprüchen muss es sich um den Benutzernamen und das Kennwort handeln (in dieser Reihenfolge). 
+- Alle anderen Ansprüche werden nicht gerendert. Für diese Ansprüche müssen Sie entweder `defaultValue` festlegen oder ein technisches Profil für die Validierung des Anspruchsformulars aufrufen. 
+
 ## <a name="persist-claims"></a>Beibehalten von Ansprüchen
 
 Das PersistedClaims-Element wird nicht verwendet. Das selbstbestätigte technische Profil speichert die Daten nicht in Azure AD B2C. Stattdessen wird ein technisches Validierungsprofil aufgerufen, das für die Beibehaltung der Daten verantwortlich ist. So verwendet beispielsweise die Registrierungsrichtlinie das selbstbestätigte technische Profil `LocalAccountSignUpWithLogonEmail`, um das neue Benutzerprofil zu erfassen. Das technische Profil `LocalAccountSignUpWithLogonEmail` ruft das technische Validierungsprofil auf, um das Konto in Azure AD B2C zu erstellen.
@@ -201,9 +209,9 @@ Mit Ihrer Geschäftslogik können Sie durch eine weitere Integration in die Bran
 | setting.showContinueButton | Nein | Zeigt die Schaltfläche „Weiter“ an. Mögliche Werte: `true` (Standard) oder `false` |
 | setting.showSignupLink <sup>2</sup>| Nein | Zeigt die Schaltfläche „Registrieren“ an. Mögliche Werte: `true` (Standard) oder `false` |
 | setting.forgotPasswordLinkLocation <sup>2</sup>| Nein| Zeigt den Link „Kennwort vergessen“ an. Mögliche Werte: `AfterInput` (Standard) Der Link wird unten auf der Seite angezeigt, oder `None` entfernt den Link „Kennwort vergessen“.|
-| setting.enableRememberMe <sup>2</sup>| Nein| Zeigt das Kontrollkästchen [Angemeldet bleiben](custom-policy-keep-me-signed-in.md) an. Mögliche Werte: `true` oder `false` (Standardwert). |
+| setting.enableRememberMe <sup>2</sup>| Nein| Zeigt das Kontrollkästchen [Angemeldet bleiben](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) an. Mögliche Werte sind `true` oder `false` (Standardwert). |
 | setting.inputVerificationDelayTimeInMilliseconds <sup>3</sup>| Nein| Verbessert die Benutzererfahrung, indem gewartet wird, bis der Benutzer die Eingabe beendet hat. Dann wird der Wert überprüft. Der Standardwert ist 2.000 Millisekunden. |
-| IncludeClaimResolvingInClaimsHandling  | Nein | Gibt bei Eingabe- und Ausgabeansprüchen an, ob die [Anspruchsauflösung](claim-resolver-overview.md) im technischen Profil enthalten ist. Mögliche Werte sind `true` oder `false` (Standardwert). Wenn Sie im technischen Profil eine Anspruchsauflösung verwenden möchten, legen Sie für diese Einstellung den Wert `true` fest. |
+| IncludeClaimResolvingInClaimsHandling  | Nein | Gibt bei Eingabe- und Ausgabeansprüchen an, ob die [Anspruchsauflösung](claim-resolver-overview.md) im technischen Profil enthalten ist. Mögliche Werte sind `true` oder `false` (Standardwert). Wenn Sie im technischen Profil eine Anspruchsauflösung verwenden möchten, legen Sie für diese Einstellung den Wert `true` fest. |
 
 Hinweise:
 1. Verfügbar für die Inhaltsdefinition: [DataUri](contentdefinitions.md#datauri), Typ `unifiedssp` oder `unifiedssd`.

@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 06/30/2020
+ms.date: 12/01/2020
 ms.author: victorh
-ms.openlocfilehash: 3323f73c137905fbe677c68d3830d7f609fa0172
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 906687e08c9f31890a9ecec9154079e704512832
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85611576"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485721"
 ---
 # <a name="deploy-a-security-partner-provider"></a>Bereitstellen eines Sicherheitspartneranbieters
 
@@ -21,7 +21,11 @@ Mit *Sicherheitspartneranbietern* in Azure Firewall Manager können Sie Ihre ver
 Weitere Informationen zu unterstützten Szenarien und Best Practices finden Sie unter [Was sind vertrauenswürdige Sicherheitspartner (Vorschau)?](trusted-security-partners.md).
 
 
-Integrierte SECaaS-Drittanbieterpartner (Security-as-a-Service) sind jetzt in allen Regionen mit öffentlichen Azure-Clouds verfügbar. **Zscaler**-Integration ist ab dem 3. Juli 2020 allgemein verfügbar. **Check Point** ist ein unterstützter SECaaS-Partner und ab dem 3. Juli 2020 in der Vorschau verfügbar. **iboss**-Integration ist ab dem 31. Juli 2020 allgemein verfügbar.
+Integrierte SECaaS-Drittanbieterpartner (Security-as-a-Service) sind jetzt verfügbar: 
+
+- **Zscaler**
+- **[Check Point](check-point-overview.md)**
+- **iboss**
 
 ## <a name="deploy-a-third-party-security-provider-in-a-new-hub"></a>Bereitstellen eines Drittanbieters für die Sicherheit in einem neuen Hub
 
@@ -81,8 +85,8 @@ Um Tunnel zum VPN-Gateway Ihres virtuellen Hubs einzurichten, benötigen Drittan
 1. Befolgen Sie die Anweisungen Ihres Partners, um das Setup abzuschließen. Dies umfasst das Übermitteln von AAD-Informationen zum Erkennen des Hubs und Herstellen einer Verbindung mit ihm, zum Aktualisieren der Richtlinien für ausgehenden Datenverkehr und zum Überprüfen von Konnektivitätsstatus und Protokollen.
 
    - [Zscaler: Konfigurieren einer Microsoft Azure Virtual WAN-Integration](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration).
-   - [Check Point (Vorschau): Konfigurieren einer Microsoft Azure Virtual WAN-Integration](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/CloudGuard-Connect-Azure-Virtual-WAN/Default.htm).
-   - [iboss (Vorschau): Konfigurieren einer Microsoft Azure Virtual WAN-Integration](https://www.iboss.com/blog/securing-microsoft-azure-with-iboss-saas-network-security). 
+   - [Check Point: Konfigurieren einer Microsoft Azure Virtual WAN-Integration](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/CloudGuard-Connect-Azure-Virtual-WAN/Default.htm).
+   - [iboss: Konfigurieren einer Microsoft Azure Virtual WAN-Integration](https://www.iboss.com/blog/securing-microsoft-azure-with-iboss-saas-network-security). 
    
 2. Im Azure Virtual WAN-Portal in Azure können Sie den Status der Tunnelerstellung anzeigen. Sobald die Tunnel sowohl im Azure-Portal als auch im Partnerportal **verbunden** anzeigen, fahren Sie mit den nächsten Schritten fort, um Routen einzurichten, mit denen ausgewählt wird, welche Zweigstellen und VNETs Internetdatenverkehr an den Partner senden sollen.
 

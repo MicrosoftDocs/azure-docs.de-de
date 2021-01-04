@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 08/12/2019
+ms.date: 10/22/2020
 ms.author: sudbalas
-ms.openlocfilehash: a1c07432dcf90759662e8f4aaedc760abd18157c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c55c87cd8ab1b2cd1dbaf2c877eb341744d822ef
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88585932"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287471"
 ---
 # <a name="azure-key-vault-backup"></a>Sicherung in Azure Key Vault
 
@@ -25,11 +25,14 @@ In diesem Dokument erfahren Sie, wie Sie in Ihrem Schlüsseltresor gespeicherte 
 
 Azure Key Vault stellt automatisch Features zur Gewährleistung der Verfügbarkeit und zur Vermeidung von Datenverlusten zur Verfügung. Sichern Sie Geheimnisse nur dann, wenn eine wichtige geschäftliche Begründung vorliegt. Das Sichern von Geheimnissen in Ihrem Schlüsseltresor kann betriebliche Herausforderungen mit sich bringen, etwa im Zusammenhang mit der Verwaltung von mehreren Protokoll-, Berechtigungs- und Sicherungssätzen beim Ablauf oder bei der Rotation von Geheimnissen.
 
-Key Vault gewährleistet die Verfügbarkeit in Notfallszenarien und führt automatisch ein Failover von Anforderungen auf ein Regionspaar aus, ohne dass ein Eingreifen des Benutzers erforderlich ist. Weitere Informationen finden Sie unter [Azure Key Vault: Verfügbarkeit und Redundanz](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance).
+Key Vault gewährleistet die Verfügbarkeit in Notfallszenarien und führt automatisch ein Failover von Anforderungen auf ein Regionspaar aus, ohne dass ein Eingreifen des Benutzers erforderlich ist. Weitere Informationen finden Sie unter [Azure Key Vault: Verfügbarkeit und Redundanz](./disaster-recovery-guidance.md).
 
-Wenn Sie Ihre Geheimnisse vor versehentlichem oder böswilligem Löschen schützen möchten, konfigurieren Sie für Ihren Schlüsseltresor die Funktionen zum Schutz vor vorläufigem und endgültigem Löschen. Weitere Informationen finden Sie unter [Übersicht über die Azure Key Vault-Funktion für vorläufiges Löschen](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview).
+Wenn Sie Ihre Geheimnisse vor versehentlichem oder böswilligem Löschen schützen möchten, konfigurieren Sie für Ihren Schlüsseltresor die Funktionen zum Schutz vor vorläufigem und endgültigem Löschen. Weitere Informationen finden Sie unter [Übersicht über die Azure Key Vault-Funktion für vorläufiges Löschen](./soft-delete-overview.md).
 
 ## <a name="limitations"></a>Einschränkungen
+
+> [!IMPORTANT]
+> Key Vault unterstützt nicht die Möglichkeit, mehr als 500 frühere Versionen eines Schlüssels, Geheimnisses oder Zertifikatobjekts zu sichern. Der Versuch, einen Schlüssel, ein Geheimnis oder ein Zertifikatobjekt zu sichern, kann zu einem Fehler führen. Es ist nicht möglich, frühere Versionen eines Schlüssels, Geheimnisses oder Zertifikats zu löschen.
 
 Key Vault unterstützt derzeit keine Methode zum Sichern eines gesamten Schlüsseltresors in einem einzigen Vorgang. Versuche, die in diesem Dokument aufgeführten Befehle zum Ausführen einer automatisierten Sicherung eines Schlüsseltresors zu verwenden, können zu Fehlern führen und werden von Microsoft oder dem Azure Key Vault-Team nicht unterstützt. 
 
@@ -120,4 +123,4 @@ az keyvault secret restore --file {File Path} --vault-name {Key Vault Name} --su
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Aktivieren Sie die [Protokollierung und Überwachung](https://docs.microsoft.com/azure/key-vault/general/logging) für Ihre Key Vault-Instanz.
+Aktivieren Sie die [Protokollierung und Überwachung](./logging.md) für Ihre Key Vault-Instanz.

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 09/14/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f99d57e084a6a765b8598ba7f8eebbd7ddb34d74
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8ac8cf172a13e7198233170634ee4a3954793cd2
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964637"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743427"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Aktivieren der kennwortlosen Anmeldung mit Sicherheitsschlüsseln (Vorschauversion)
 
@@ -29,7 +29,7 @@ In diesem Dokument liegt der Schwerpunkt auf der Aktivierung der auf Sicherheits
 
 ## <a name="requirements"></a>Requirements (Anforderungen)
 
-- [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+- [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md)
 - Aktivieren der [kombinierten Registrierung von Sicherheitsinformationen (Vorschauversion)](concept-registration-mfa-sspr-combined.md)
 - Kompatible [FIDO2-Sicherheitsschlüssel](concept-authentication-passwordless.md#fido2-security-keys)
 - WebAuthN erfordert Windows 10, Version 1903 oder höher**
@@ -38,9 +38,9 @@ Um Sicherheitsschlüssel für die Anmeldung bei Web-Apps und-Diensten verwenden 
 
 ## <a name="prepare-devices-for-preview"></a>Vorbereiten von Geräten für die Vorschauversion
 
-Auf in Azure AD eingebundenen Geräten, die Sie für Pilotversuche verwenden, muss mindestens Windows 10, Version 1909, ausgeführt werden. Hierfür eignet sich besonders Windows 10 (Version 1903 oder höher).
+Für in Azure AD eingebundene Geräte eignet sich besonders Windows 10, Version 1903 oder höher.
 
-Auf in Azure AD Hybrid eingebundenen Geräte muss Windows 10, Version 2004 oder höher, ausgeführt werden.
+Auf hybrid in Azure AD eingebundenen Geräten muss Windows 10, Version 2004 oder höher, ausgeführt werden.
 
 ## <a name="enable-passwordless-authentication-method"></a>Aktivieren von Methoden zur kennwortlosen Authentifizierung
 
@@ -62,8 +62,8 @@ Die Registrierungsfunktionen für Methoden zur kennwortlosen Authentifizierung s
 1. Navigieren Sie zu [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
 1. Melden Sie sich an, falls Sie dies noch nicht getan haben.
 1. Klicken Sie auf **Sicherheitsinformation**.
-   1. Wenn der Benutzer bereits mindestens eine mehrstufige Authentifizierungsmethode registriert hat, kann er sofort einen FIDO2-Sicherheitsschlüssel registrieren.
-   1. Wenn der Benutzer keine mehrstufige Authentifizierungsmethode registriert hat, muss er eine hinzufügen.
+   1. Wenn der Benutzer bereits mindestens eine Azure AD Multi-Factor Authentication-Methode registriert hat, kann er sofort einen FIDO2-Sicherheitsschlüssel registrieren.
+   1. Wenn der Benutzer keine Azure AD Multi-Factor Authentication-Methode registriert hat, muss er eine solche hinzufügen.
 1. Fügen Sie einen FIDO2-Sicherheitsschlüssel hinzu, indem Sie auf **Methode hinzufügen** klicken und dann **Sicherheitsschlüssel** auswählen.
 1. Wählen Sie **USB-Gerät** oder **NFC-Gerät** aus.
 1. Halten Sie Ihren Schlüssel bereit, und wählen Sie **Weiter** aus.
@@ -105,4 +105,4 @@ Wir arbeiten derzeit an der Unterstützung eines Features, das eine Änderung de
 
 [Erfahren Sie mehr über die Geräteregistrierung](../devices/overview.md)
 
-[Erfahren Sie mehr über Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Erfahren Sie mehr über Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

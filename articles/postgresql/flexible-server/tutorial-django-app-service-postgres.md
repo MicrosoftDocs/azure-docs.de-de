@@ -34,7 +34,7 @@ Sie müssen sich mithilfe des Befehls [az login](/cli/azure/authenticate-azure-c
 az login
 ```
 
-Wenn Sie über mehrere Abonnements verfügen, wählen Sie das entsprechende Abonnement aus, in dem die Ressource fakturiert sein sollte. Wählen Sie mithilfe des Befehls [az account set](/cli/azure/account) die Abonnement-ID unter Ihrem Konto aus. Ersetzen Sie den Platzhalter für die Abonnement-ID durch die **subscription ID** -Eigenschaft der Ausgabe von **az login** für Ihr Abonnement.
+Wenn Sie über mehrere Abonnements verfügen, wählen Sie das entsprechende Abonnement aus, in dem die Ressource fakturiert sein sollte. Wählen Sie mithilfe des Befehls [az account set](/cli/azure/account) die Abonnement-ID unter Ihrem Konto aus. Ersetzen Sie den Platzhalter für die Abonnement-ID durch die **subscription ID**-Eigenschaft der Ausgabe von **az login** für Ihr Abonnement.
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -59,9 +59,9 @@ cd djangoapp
 
 Besuchen Sie [https://github.com/Azure-Samples/djangoapp](https://github.com/Azure-Samples/djangoapp), wählen Sie **Code** aus, und wählen Sie anschließend die Option **Download ZIP** (ZIP herunterladen) aus.
 
-Entpacken Sie die ZIP-Datei in einem Ordner namens *djangoapp* .
+Entpacken Sie die ZIP-Datei in einem Ordner namens *djangoapp*.
 
-Öffnen Sie dann ein Terminalfenster im Ordner *djangoapp* .
+Öffnen Sie dann ein Terminalfenster im Ordner *djangoapp*.
 
 ---
 
@@ -69,7 +69,7 @@ Das Beispiel „djangoapp“ enthält die datengesteuerte Django-Umfrage-App, di
 
 Das Beispiel wird außerdem für die Ausführung in einer Produktionsumgebung wie App Service angepasst:
 
-- Die Produktionseinstellungen befinden sich in der Datei *azuresite/production.py* . Die Entwicklungsdetails befinden sich in *azuresite/settings.py* .
+- Die Produktionseinstellungen befinden sich in der Datei *azuresite/production.py*. Die Entwicklungsdetails befinden sich in *azuresite/settings.py*.
 - Von der App werden Produktionseinstellungen verwendet, wenn die Umgebungsvariable `DJANGO_ENV` auf „production“ festgelegt ist. Diese Umgebungsvariable wird später in diesem Tutorial zusammen mit anderen Umgebungsvariablen für die PostgreSQL-Datenbankkonfiguration erstellt.
 
 Diese Änderungen gelten nicht speziell für App Service, sondern ermöglichen die Ausführung von Django in einer beliebigen Produktionsumgebung. Weitere Informationen finden Sie in der [Bereitstellungsprüfliste für Django](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/).
@@ -88,7 +88,7 @@ Durch diesen Befehl werden folgende Aktionen ausgeführt, was einige Minuten dau
 
 - Erstellen Sie die Ressourcengruppe, wenn sie noch nicht vorhanden ist.
 - Generiert einen Servernamen, wenn er nicht angegeben ist.
-- Erstellen Sie ein neues virtuelles Netzwerk für Ihre neue PostgreSQL-Serverinstanz. **Notieren Sie sich den Namen des virtuellen Netzwerks und des Subnetzes** , die für Ihre Serverinstanz erstellt wurden, da Sie die Web-App dem gleichen virtuellen Netzwerk hinzufügen müssen.
+- Erstellen Sie ein neues virtuelles Netzwerk für Ihre neue PostgreSQL-Serverinstanz. **Notieren Sie sich den Namen des virtuellen Netzwerks und des Subnetzes**, die für Ihre Serverinstanz erstellt wurden, da Sie die Web-App dem gleichen virtuellen Netzwerk hinzufügen müssen.
 - Erstellt einen Administratorbenutzernamen und ein Kennwort für Ihren Server, sofern nicht angegeben. **Notieren Sie sich den Benutzernamen und das Kennwort** zur Verwendung in den nächsten Schritten.
 - Erstellen Sie eine Datenbank ```postgres```, die für die Entwicklung verwendet werden kann. Sie können [**psql** ausführen, um eine Verbindung mit der Datenbank herzustellen](quickstart-create-server-portal.md#connect-to-the-postgresql-database-using-psql), um eine andere Datenbank zu erstellen.
 
@@ -155,13 +155,13 @@ Durch Django-Datenbankmigrationen wird sichergestellt, dass das Schema in der Po
     python manage.py createsuperuser
     ```
 
-1. Durch den Befehl `createsuperuser` werden Sie zur Eingabe von Superuser-Anmeldeinformationen aufgefordert. Verwenden Sie für dieses Tutorial den Standardbenutzernamen `root`, drücken Sie für die E-Mail-Adresse die **EINGABETASTE** , um sie leer zu lassen, und geben Sie `postgres1` als Kennwort ein.
+1. Durch den Befehl `createsuperuser` werden Sie zur Eingabe von Superuser-Anmeldeinformationen aufgefordert. Verwenden Sie für dieses Tutorial den Standardbenutzernamen `root`, drücken Sie für die E-Mail-Adresse die **EINGABETASTE**, um sie leer zu lassen, und geben Sie `postgres1` als Kennwort ein.
 
 ### <a name="create-a-poll-question-in-the-app"></a>Erstellen einer Frage für die Umfrage in der App
 
-1. Öffnen Sie in einem Browser die URL *http:\//\<app-name>.azurewebsites.net* . In der App sollte „No polls are available“ (Keine Umfragen verfügbar) angezeigt werden, da die Datenbank noch keine spezifischen Umfragen enthält.
+1. Öffnen Sie in einem Browser die URL *http:\//\<app-name>.azurewebsites.net*. In der App sollte „No polls are available“ (Keine Umfragen verfügbar) angezeigt werden, da die Datenbank noch keine spezifischen Umfragen enthält.
 
-1. Navigieren Sie zu *http:\//\<app-name>.azurewebsites.net/admin* . Melden Sie sich unter Verwendung der Superuser-Anmeldeinformationen aus dem vorherigen Abschnitt an (`root` und `postgres1`). Wählen Sie unter **Polls** (Umfragen) neben **Questions** (Fragen) die Option **Add** (Hinzufügen) aus, und erstellen Sie eine Frage für eine Umfrage mit mehreren Auswahlmöglichkeiten.
+1. Navigieren Sie zu *http:\//\<app-name>.azurewebsites.net/admin*. Melden Sie sich unter Verwendung der Superuser-Anmeldeinformationen aus dem vorherigen Abschnitt an (`root` und `postgres1`). Wählen Sie unter **Polls** (Umfragen) neben **Questions** (Fragen) die Option **Add** (Hinzufügen) aus, und erstellen Sie eine Frage für eine Umfrage mit mehreren Auswahlmöglichkeiten.
 
 1. Navigieren Sie wieder zu *http:\//\<app-name>.azurewebsites.net/* , und vergewissern Sie sich, dass die Fragen nun angezeigt werden. Beantworten Sie Fragen nach Belieben, um Daten in der Datenbank zu generieren.
 
@@ -198,13 +198,13 @@ Nachdem die Web-App vollständig geladen wurde, wird vom Django-Entwicklungsserv
 
 Testen Sie die App lokal:
 
-1. Navigieren Sie in einem Browser zu *http:\//localhost:8000* . Daraufhin sollte die Meldung „No polls are available“ (Keine Umfragen verfügbar) angezeigt werden.
+1. Navigieren Sie in einem Browser zu *http:\//localhost:8000*. Daraufhin sollte die Meldung „No polls are available“ (Keine Umfragen verfügbar) angezeigt werden.
 
-1. Navigieren Sie zu *http:\//localhost:8000/admin* , und melden Sie sich unter Verwendung des zuvor erstellten Administratorbenutzers an. Wählen Sie erneut unter **Polls** (Umfragen) neben **Questions** (Fragen) die Option **Add** (Hinzufügen) aus, und erstellen Sie eine Frage für eine Umfrage mit mehreren Auswahlmöglichkeiten.
+1. Navigieren Sie zu *http:\//localhost:8000/admin*, und melden Sie sich unter Verwendung des zuvor erstellten Administratorbenutzers an. Wählen Sie erneut unter **Polls** (Umfragen) neben **Questions** (Fragen) die Option **Add** (Hinzufügen) aus, und erstellen Sie eine Frage für eine Umfrage mit mehreren Auswahlmöglichkeiten.
 
-1. Navigieren Sie erneut zu *http:\//localhost:8000* , und beantworten Sie die Frage, um die App zu testen.
+1. Navigieren Sie erneut zu *http:\//localhost:8000*, und beantworten Sie die Frage, um die App zu testen.
 
-1. Drücken Sie **STRG**+**C** , um den Django-Server zu beenden.
+1. Drücken Sie **STRG**+**C**, um den Django-Server zu beenden.
 
 Bei lokaler Ausführung wird von der App eine lokale SQLite3-Datenbank verwendet, und Ihre Produktionsdatenbank wird nicht beeinträchtigt. Auf Wunsch kann auch eine lokale PostgreSQL-Datenbank erstellt werden, um die Produktionsumgebung besser zu simulieren.
 
@@ -226,9 +226,9 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-Führen Sie den Entwicklungsserver erneut mit `python manage.py runserver` aus, und testen Sie die App unter *http:\//localhost:8000/admin* :
+Führen Sie den Entwicklungsserver erneut mit `python manage.py runserver` aus, und testen Sie die App unter *http:\//localhost:8000/admin*:
 
-Beenden Sie den Django-Webserver erneut durch Drücken von **STRG**+**C** .
+Beenden Sie den Django-Webserver erneut durch Drücken von **STRG**+**C**.
 
 
 ### <a name="redeploy-the-code-to-azure"></a>Erneutes Bereitstellen des Codes in Azure
@@ -260,7 +260,7 @@ python manage.py migrate
 
 ### <a name="review-app-in-production"></a>Überprüfen der App in der Produktion
 
-Navigieren Sie zu *http:\//\<app-name>.azurewebsites.net* , und testen Sie die App erneut in der Produktionsumgebung. (Da Sie lediglich die Länge eines Datenbankfelds geändert haben, macht sich die Änderung nur bemerkbar, wenn Sie versuchen, bei der Frageerstellung eine längere Antwort einzugeben.)
+Navigieren Sie zu *http:\//\<app-name>.azurewebsites.net*, und testen Sie die App erneut in der Produktionsumgebung. (Da Sie lediglich die Länge eines Datenbankfelds geändert haben, macht sich die Änderung nur bemerkbar, wenn Sie versuchen, bei der Frageerstellung eine längere Antwort einzugeben.)
 
 > [!TIP]
 > Sie können mit [django-storages](https://django-storages.readthedocs.io/en/latest/backends/azure.html) statische und Medienobjekte in Azure Storage speichern. Sie können mit Azure CDN GZIP auf statische Dateien anwenden.
@@ -270,11 +270,11 @@ Navigieren Sie zu *http:\//\<app-name>.azurewebsites.net* , und testen Sie die A
 
 Suchen Sie im [Azure-Portal](https://portal.azure.com) nach dem App-Namen, und wählen Sie die App in den Ergebnissen aus.
 
-:::image type="content" source="./media/tutorial-django-app-service-postgres/navigate-to-django-app-in-app-services-in-the-azure-portal.png" alt-text="Beispielausgabe des Django-Entwicklungsservers":::
+:::image type="content" source="./media/tutorial-django-app-service-postgres/navigate-to-django-app-in-app-services-in-the-azure-portal.png" alt-text="Navigieren zur Python-Django-App im Azure-Portal":::
 
 Standardmäßig wird im Portal die Seite **Übersicht** mit einer allgemeinen Leistungsansicht für Ihre App angezeigt. Hier können Sie auch einfache Verwaltungsaufgaben durchführen, z. B. Durchsuchen, Beenden, Neustarten und Löschen. Die Registerkarten links auf der Seite zeigen die verschiedenen Konfigurationsseiten, die Sie öffnen können.
 
-:::image type="content" source="./media/tutorial-django-app-service-postgres/manage-django-app-in-app-services-in-the-azure-portal.png" alt-text="Beispielausgabe des Django-Entwicklungsservers":::
+:::image type="content" source="./media/tutorial-django-app-service-postgres/manage-django-app-in-app-services-in-the-azure-portal.png" alt-text="Verwalten der Python-Django-App auf der Seite „Übersicht“ im Azure-Portal":::
 
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen

@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
 ms.openlocfilehash: 8e60ac5065c2f9543a641daf4f62299c00c61fc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260195"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000656"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Verwenden von Systemintegritätsberichten für die Problembehandlung
 Azure Service Fabric-Komponenten erstellen direkt Integritätsberichte für alle Entitäten im Cluster. Im [Integritätsspeicher](service-fabric-health-introduction.md#health-store) werden Entitäten basierend auf den Systemberichten erstellt und gelöscht. Darüber hinaus werden sie in einer Hierarchie organisiert, in der Interaktionen zwischen den Entitäten erfasst werden.
@@ -389,7 +389,7 @@ In einem wie in dem Beispiel gezeigten Fall sind weitere Untersuchungen erforder
 * **Property:** Beginnt mit **ReplicaConstraintViolation**.
 
 ## <a name="replica-system-health-reports"></a>Systemintegritätsberichte für Replikate
-**System.RA**steht für die Reconfiguration Agent-Komponente und ist die Autorität für den Replikatzustand.
+**System.RA** steht für die Reconfiguration Agent-Komponente und ist die Autorität für den Replikatzustand.
 
 ### <a name="state"></a>State
 System.RA gibt „OK“ aus, wenn das Replikat erstellt wurde.

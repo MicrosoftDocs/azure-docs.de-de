@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
-ms.openlocfilehash: 2a986afa1916d179834c516a26f76a2789f82452
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc400922115f348090677661cd1b30434be19b72
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87511886"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910473"
 ---
 # <a name="monitor-azure-data-share"></a>Überwachen von Azure Data Share  
 
@@ -42,7 +42,7 @@ Zeigen Sie den Status Ihrer Freigabeabonnements an, indem Sie zu „Gesendete Fr
 
 Auf der Registerkarte **Verlauf** einer Freigabe können Sie anzeigen, wann Daten vom Datenanbieter in den Datenspeicher des Datenconsumers kopiert werden. Sie können die Häufigkeit, Dauer und den Status jeder Momentaufnahme überwachen. 
 
-![Momentaufnahmeverlauf](./media/sent-shares.png "Momentaufnahmeverlauf") 
+![Screenshot von „Gesendete Freigaben“ im Azure-Portal.](./media/sent-shares.png "Momentaufnahmeverlauf") 
 
 Sie können weitere Details zu jeder Momentaufnahmeausführung anzeigen, indem Sie auf das Startdatum der Ausführung klicken. Klicken Sie dann auf den Status für jedes Dataset, um die Menge der übertragenen Daten, die Anzahl der kopierten Dateien/Datensätze, die Dauer der Momentaufnahme, die Anzahl der verwendeten virtuellen Kerne (vCores) und ggf. eine Fehlermeldung anzuzeigen. 
 
@@ -52,7 +52,7 @@ Der Momentaufnahmeverlauf wird bis zu 30 Tage angezeigt. Wenn Sie den Verlauf vo
 
 Sie können Diagnoseeinstellungen konfigurieren, um Protokolldaten oder Ereignisse zu speichern. Navigieren Sie zu „Überwachung -> Diagnoseeinstellungen“, und wählen Sie **Diagnoseeinstellung hinzufügen** aus. Wählen Sie die Protokolldaten oder Ereignisse aus, an denen Sie interessiert sind, und wo Sie sie speichern bzw. wohin Sie sie senden möchten. 
 
-![Momentaufnahmeverlauf](./media/diagnostic-settings.png "Diagnoseeinstellungen") 
+![Screenshot der Seite „Diagnoseeinstellungen“ im Azure-Portal.](./media/diagnostic-settings.png "Diagnoseeinstellungen") 
 
 ## <a name="next-steps"></a>Nächste Schritte 
 

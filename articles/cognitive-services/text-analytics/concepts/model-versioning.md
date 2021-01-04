@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: d53c1c137e8359e3379e2403cf655c1f1dc592f5
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 7ab2e037cc7593431a668a216fcc152c0511c410
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016398"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965084"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>Versionsverwaltung der Modelle in der Textanalyse-API
 
@@ -23,7 +23,7 @@ Mit Version 3 der Textanalyse-API können Sie die für Ihre Daten verwendete Mo
 
 ## <a name="available-versions"></a>Verfügbare Versionen
 
-Ermitteln Sie anhand der Tabelle unten, welche Modellversionen von den einzelnen Endpunkten unterstützt werden.
+Ermitteln Sie anhand der Tabelle unten, welche Modellversionen von den einzelnen gehosteten Endpunkten unterstützt werden.
 
 
 | Endpunkt                        | Unterstützte Versionen                                     | Aktuelle Version |
@@ -33,6 +33,7 @@ Ermitteln Sie anhand der Tabelle unten, welche Modellversionen von den einzelnen
 | `/entities/linking`             | `2019-10-01`, `2020-02-01`                             | `2020-02-01`   |
 | `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01`,              | `2020-04-01`   |
 | `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`  | `2020-07-01`   |
+| `/entities/health`              | `2020-09-03`                           | `2020-09-03`   |
 | `/keyphrases`                   | `2019-10-01`, `2020-07-01`                             | `2020-07-01`   |
 
 

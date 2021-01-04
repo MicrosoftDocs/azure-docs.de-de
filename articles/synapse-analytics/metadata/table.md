@@ -1,6 +1,6 @@
 ---
 title: Tabellen mit gemeinsam genutzten Metadaten
-description: Azure Synapse Analytics bietet ein Modell mit gemeinsam genutzten Metadaten, das es ermöglicht, über die zugehörige SQL On-Demand-Engine (Vorschauversion) und die SQL-Pool-Engine auf eine in Apache Spark erstellte Tabelle zuzugreifen, ohne dass die Daten dupliziert werden.
+description: Azure Synapse Analytics bietet ein Modell mit gemeinsam genutzten Metadaten, das es ermöglicht, über einen serverlosen SQL-Pool und einen dedizierten SQL-Pool auf eine in einem serverlosen Apache Spark-Pool erstellte Tabelle zuzugreifen, ohne die Daten zu duplizieren.
 services: sql-data-warehouse
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,30 +10,29 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6b9835cf5de28fbd515a214554f723d99e8e8fe4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9ee18edd563d94a85dedf48b7a4d6df394c09707
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91260730"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461381"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Azure Synapse Analytics: Gemeinsam genutzte Metadatentabellen
 
-[!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Azure Synapse Analytics ermöglicht den verschiedenen Berechnungsengines von Arbeitsbereichen die gemeinsame Nutzung von Datenbanken und Parquet-basierten Tabellen zwischen Apache Spark-Pools (Vorschauversion) und der SQL On-Demand-Engine (Vorschauversion).
+Azure Synapse Analytics ermöglicht den verschiedenen Berechnungsengines von Arbeitsbereichen die gemeinsame Nutzung von Datenbanken und Parquet-basierten Tabellen zwischen Apache Spark-Pools und einem serverlosen SQL-Pool.
 
 Nach der Erstellung einer Datenbank durch einen Spark-Auftrag können darin Tabellen mit Spark erstellt werden, die Parquet als Speicherformat verwenden. Diese Tabellen stehen umgehend für Abfragen von beliebigen Spark-Pools des Azure Synapse-Arbeitsbereichs zur Verfügung. Darüber hinaus können sie von einem beliebigen Spark-Auftrag verwendet werden (entsprechende Berechtigungen vorausgesetzt).
 
-Die von Spark erstellten, verwalteten und externen Tabellen werden auch als externe Tabellen mit demselben Namen in der entsprechenden synchronisierten Datenbank in SQL On-Demand verfügbar gemacht. Unter [Verfügbarmachen einer Spark-Tabelle in SQL](#expose-a-spark-table-in-sql) finden Sie weitere Details zur Tabellensynchronisierung.
+Die von Spark erstellten, verwalteten und externen Tabellen werden auch als externe Tabellen mit demselben Namen in der entsprechenden synchronisierten Datenbank im serverlosen SQL-Pool verfügbar gemacht. Unter [Verfügbarmachen einer Spark-Tabelle in SQL](#expose-a-spark-table-in-sql) finden Sie weitere Details zur Tabellensynchronisierung.
 
-Da die Tabellen asynchron mit SQL On-Demand synchronisiert werden, kommt es zu einer Verzögerung bei der Anzeige.
+Da die Tabellen asynchron mit dem serverlosen SQL-Pool synchronisiert werden, kommt es zu einer Verzögerung bei der Anzeige.
 
 ## <a name="manage-a-spark-created-table"></a>Verwalten einer von Spark erstellten Tabelle
 
-Verwalten Sie von Spark erstellte Datenbanken mithilfe von Spark. Löschen Sie sie beispielsweise über einen Spark-Poolauftrag, und erstellen Sie Tabellen in der Datenbank über Spark.
+Verwalten Sie von Spark erstellte Datenbanken mithilfe von Spark. Löschen Sie sie beispielsweise über einen Auftrag für serverlose Apache Spark-Pools, und erstellen Sie Tabellen in der Datenbank über Spark.
 
-Wenn Sie Objekte in einer solchen Datenbank über SQL On-Demand erstellen oder versuchen, die Datenbank zu löschen, ist der Vorgang zwar erfolgreich, die ursprüngliche Spark-Datenbank wird jedoch nicht geändert.
+Wenn Sie Objekte in einer solchen Datenbank über einen serverlosen SQL-Pool erstellen oder versuchen, die Datenbank zu löschen, ist der Vorgang zwar erfolgreich, die ursprüngliche Spark-Datenbank wird jedoch nicht geändert.
 
 ## <a name="expose-a-spark-table-in-sql"></a>Verfügbarmachen einer Spark-Tabelle in SQL
 
@@ -74,12 +73,12 @@ Spark-Tabellen bieten andere Datentypen als die SQL-Engines von Synapse. In der 
 | `decimal`      | `decimal`        |<!-- need precision and scale-->|
 | `timestamp` |    `datetime2`      |<!-- need precision and scale-->|
 | `date`      | `date`           ||
-| `string`    |    `varchar(max)`   | Mit Sortierung (`Latin1_General_CP1_CI_AS_UTF8`) |
+| `string`    |    `varchar(max)`   | Mit Sortierung (`Latin1_General_100_BIN2_UTF8`) |
 | `binary`    |    `varbinary(max)` ||
 | `boolean`   |    `bit`            ||
-| `array`     |    `varchar(max)`   | Wird in JSON mit Sortierung (`Latin1_General_CP1_CI_AS_UTF8`) serialisiert |
-| `map`       |    `varchar(max)`   | Wird in JSON mit Sortierung (`Latin1_General_CP1_CI_AS_UTF8`) serialisiert |
-| `struct`    |    `varchar(max)`   | Wird in JSON mit Sortierung (`Latin1_General_CP1_CI_AS_UTF8`) serialisiert |
+| `array`     |    `varchar(max)`   | Wird in JSON mit Sortierung (`Latin1_General_100_BIN2_UTF8`) serialisiert |
+| `map`       |    `varchar(max)`   | Wird in JSON mit Sortierung (`Latin1_General_100_BIN2_UTF8`) serialisiert |
+| `struct`    |    `varchar(max)`   | Wird in JSON mit Sortierung (`Latin1_General_100_BIN2_UTF8`) serialisiert |
 
 <!-- TODO: Add precision and scale to the types mentioned above -->
 
@@ -95,9 +94,9 @@ Weitere Informationen zum Festlegen von Berechtigungen für die Ordner und Datei
 
 ## <a name="examples"></a>Beispiele
 
-### <a name="create-a-managed-table-backed-by-parquet-in-spark-and-query-from-sql-on-demand"></a>Erstellen einer verwalteten, Parquet-basierten Tabelle in Spark und Ausführen von Abfragen über SQL On-Demand
+### <a name="create-a-managed-table-backed-by-parquet-in-spark-and-query-from-serverless-sql-pool"></a>Erstellen einer verwalteten Parquet-basierten Tabelle in Spark und Ausführen von Abfragen über einen serverlosen SQL-Pool
 
-In diesem Szenario verfügen Sie über eine Spark-Datenbank namens `mytestdb`. Weitere Informationen finden Sie unter [Erstellen einer Spark-Datenbank und Herstellen einer Verbindung mit SQL On-Demand](database.md#create-and-connect-to-spark-database-with-sql-on-demand).
+In diesem Szenario verfügen Sie über eine Spark-Datenbank namens `mytestdb`. Informationen finden Sie unter [Erstellen einer Spark-Datenbank mit einem serverlosen SQL-Pool und Herstellen einer Verbindung mit dieser Datenbank](database.md#create-and-connect-to-spark-database-with-serverless-sql-pool).
 
 Führen Sie den folgenden Befehl aus, um mit SparkSQL eine verwaltete Spark-Tabelle zu erstellen:
 
@@ -105,7 +104,7 @@ Führen Sie den folgenden Befehl aus, um mit SparkSQL eine verwaltete Spark-Tabe
     CREATE TABLE mytestdb.myParquetTable(id int, name string, birthdate date) USING Parquet
 ```
 
-Mit diesem Befehl wird die Tabelle `myParquetTable` in der Datenbank `mytestdb` erstellt. Nach einer kurzen Verzögerung wird die Tabelle in SQL On-Demand angezeigt. Führen Sie beispielsweise die folgende Anweisung über SQL On-Demand aus:
+Mit diesem Befehl wird die Tabelle `myParquetTable` in der Datenbank `mytestdb` erstellt. Nach einer kurzen Verzögerung wird die Tabelle aus dem serverlosen SQL-Pool angezeigt. Führen Sie beispielsweise die folgende Anweisung über den serverlosen SQL-Pool aus:
 
 ```sql
     USE mytestdb;
@@ -140,7 +139,7 @@ var df = spark.CreateDataFrame(data, schema);
 df.Write().Mode(SaveMode.Append).InsertInto("mytestdb.myParquetTable");
 ```
 
-Nun können die Daten wie folgt über SQL On-Demand gelesen werden:
+Nun können Sie die Daten wie folgt aus dem serverlosen SQL-Pool lesen:
 
 ```sql
 SELECT * FROM mytestdb.dbo.myParquetTable WHERE name = 'Alice';
@@ -154,7 +153,7 @@ id | name | birthdate
 1 | Alice | 2010-01-01
 ```
 
-### <a name="create-an-external-table-backed-by-parquet-in-spark-and-query-from-sql-on-demand"></a>Erstellen einer externen, Parquet-basierten Tabelle in Spark und Ausführen von Abfragen über SQL On-Demand
+### <a name="create-an-external-table-backed-by-parquet-in-spark-and-query-from-serverless-sql-pool"></a>Erstellen einer Parquet-basierten externen Tabelle in Spark und Ausführen von Abfragen über den serverlosen SQL-Pool
 
 In diesem Beispiel wird eine externe Spark-Tabelle auf der Grundlage der Parquet-Datendateien erstellt, die im vorherigen Beispiel für die verwaltete Tabelle erstellt wurden.
 
@@ -168,7 +167,7 @@ CREATE TABLE mytestdb.myExternalParquetTable
 
 Ersetzen Sie den Platzhalter `<fs>` durch den Namen des Standarddateisystems für den Arbeitsbereich und den Platzhalter `<synapse_ws>` durch den Namen des für dieses Beispiel verwendeten Synapse-Arbeitsbereichs.
 
-Im vorherigen Beispiel wurde die Tabelle `myExtneralParquetTable` in der Datenbank `mytestdb` erstellt. Nach einer kurzen Verzögerung wird die Tabelle in SQL On-Demand angezeigt. Führen Sie beispielsweise die folgende Anweisung über SQL On-Demand aus:
+Im vorherigen Beispiel wurde die Tabelle `myExtneralParquetTable` in der Datenbank `mytestdb` erstellt. Nach einer kurzen Verzögerung wird die Tabelle aus dem serverlosen SQL-Pool angezeigt. Führen Sie beispielsweise die folgende Anweisung über den serverlosen SQL-Pool aus:
 
 ```sql
 USE mytestdb;
@@ -177,7 +176,7 @@ SELECT * FROM sys.tables;
 
 Vergewissern Sie sich, dass `myExternalParquetTable` in den Ergebnissen enthalten ist.
 
-Nun können die Daten wie folgt über SQL On-Demand gelesen werden:
+Nun können Sie die Daten wie folgt aus dem serverlosen SQL-Pool lesen:
 
 ```sql
 SELECT * FROM mytestdb.dbo.myExternalParquetTable WHERE name = 'Alice';

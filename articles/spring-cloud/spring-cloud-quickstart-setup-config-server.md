@@ -6,14 +6,14 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/08/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 2f6051277f1ddb89e67ce8013c78571a2a7314b7
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 7400aeeba80ce168a9dea0d81e1ad0f2fbe24c95
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089127"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750842"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>Schnellstart: Einrichten des Azure Spring Cloud-Konfigurationsservers
 
@@ -57,9 +57,19 @@ Im folgenden Verfahren wird der Konfigurationsserver mithilfe des Azure-Portals 
 
 2. Geben Sie im Abschnitt **Standardrepository** für **URI** den Wert „https://github.com/Azure-Samples/piggymetrics-config“ ein.
 
-3. Wählen Sie **Übernehmen** aus, um die Änderungen zu speichern.
+3. Klicken Sie auf **Überprüfen**.
 
-    ![Screenshot des ASC-Portals](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+    ![Navigieren zum Konfigurationsserver](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+
+4. Klicken Sie nach Abschluss der Überprüfung auf **Anwenden**, um die Änderungen zu speichern.
+
+    ![Überprüfen des Konfigurationsservers](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
+
+5. Die Aktualisierung der Konfiguration kann einige Minuten dauern.
+ 
+    ![Aktualisieren des Konfigurationsservers](media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
+
+6. Sie sollten eine Benachrichtigung erhalten, wenn die Konfiguration abgeschlossen ist.
 
 #### <a name="cli"></a>[BEFEHLSZEILENSCHNITTSTELLE (CLI)](#tab/Azure-CLI)
 
@@ -70,13 +80,40 @@ Richten Sie den Konfigurationsserver mit dem Speicherort des Git-Repositorys fü
 ```azurecli
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/piggymetrics-config
 ```
-
 ---
 ::: zone-end
 
+> [!TIP]
+> Bei Verwendung eines privaten Repositorys für den Konfigurationsserver finden Sie weitere Informationen im [Tutorial zum Einrichten der Authentifizierung](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-config-server).
+
+## <a name="troubleshooting-of-azure-spring-cloud-config-server"></a>Problembehandlung beim Azure Spring Cloud-Konfigurationsserver
+
+Im folgenden Verfahren wird erläutert, wie die Konfigurationsservereinstellungen behoben werden.
+
+1. Wechseln Sie im Azure-Portal auf die Dienstseite **Übersicht**, und wählen Sie **Protokolle** aus. 
+1. Wählen Sie **Abfragen** aus, und **zeigen Sie die Anwendungsprotokolle an, die die Begriffe „Fehler“ oder „Ausnahme“ enthalten**. 
+1. Klicken Sie auf **Ausführen**. 
+1. Wenn Sie in den Protokollen den Fehler **java.lang.illegalStateException** finden, deutet dies darauf hin, dass der Spring Cloud-Dienst keine Eigenschaften vom Konfigurationsserver finden kann.
+
+    [ ![Über das ASC-Portal ausgeführte Abfrage](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png)
+
+1. Wechseln Sie zur Dienstseite **Übersicht**.
+1. Wählen Sie **Probleme diagnostizieren und beheben** aus. 
+1. Wählen Sie die Erkennung **Konfigurationsserver** aus.
+
+    [ ![Problemdiagnose über das ASC-Portal](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png)
+
+3. Klicken Sie auf **Integritätsüberprüfung des Konfigurationsservers**.
+
+    [ ![ASC-Portal-Genie](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png)
+
+4. Klicken Sie auf **Konfigurationsserverstatus**, um weitere Details der Erkennung anzuzeigen.
+
+    [ ![Integritätsstatus des ASC-Portals](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)
+
 ## <a name="next-steps"></a>Nächste Schritte
 
-In dieser Schnellstartanleitung haben Sie Azure-Ressourcen erstellt, für die weiterhin Gebühren anfallen, falls sie in Ihrem Abonnement verbleiben. Wenn Sie nicht mit der nächsten Schnellstartanleitung fortfahren möchten, lesen Sie [Bereinigen von Ressourcen](spring-cloud-quickstart-logs-metrics-tracing.md#clean-up-resources). Fahren Sie andernfalls mit der nächsten Schnellstartanleitung fort:
+In dieser Schnellstartanleitung haben Sie Azure-Ressourcen erstellt, für die weiterhin Gebühren anfallen, falls sie in Ihrem Abonnement verbleiben. Wenn Sie nicht mit der nächsten Schnellstartanleitung fortfahren möchten, lesen Sie die Informationen unter [Bereinigen von Ressourcen](spring-cloud-quickstart-logs-metrics-tracing.md#clean-up-resources). Fahren Sie andernfalls mit der nächsten Schnellstartanleitung fort:
 
 > [!div class="nextstepaction"]
 > [Erstellen und Bereitstellen von Apps](spring-cloud-quickstart-deploy-apps.md)

@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: duau
 ms.openlocfilehash: b1901ddce2eb9c8ff5ec9ac90a56379e74c11aa6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401366"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994892"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Weiterleiten von Datenverkehr an bestimmte Endpunkte mit dem Traffic Manager basierend auf einem Benutzersubnetz
 
@@ -64,7 +64,7 @@ In diesem Abschnitt erstellen Sie die beiden VMs *myEndpointVMEastUS* und *myEnd
     |Einstellung|value|
     |---|---|
     |Virtuelles Netzwerk| Wählen Sie **Virtuelles Netzwerk** in **Virtuelles Netzwerk erstellen** aus, und geben Sie *myVNet1* für **Name** und *mySubnet* für das Subnetz ein.|
-    |Netzwerksicherheitsgruppen (NSG)|Wählen Sie **Standard** aus, und wählen Sie in der Dropdownliste**Öffentliche Eingangsports hinzufügen** die Optionen **HTTP** und **RDP** aus. |
+    |Netzwerksicherheitsgruppen (NSG)|Wählen Sie **Standard** aus, und wählen Sie in der Dropdownliste **Öffentliche Eingangsports hinzufügen** die Optionen **HTTP** und **RDP** aus. |
     |Startdiagnose|Wählen Sie **Deaktiviert** aus.|
     |||
 
@@ -149,7 +149,7 @@ In diesem Abschnitt erstellen Sie je einen virtuellen Computer (*mVMEastUS* und 
     |Einstellung|value|
     |---|---|
     |Virtuelles Netzwerk| Wählen Sie **Virtuelles Netzwerk** unter **Virtuelles Netzwerk erstellen** aus, und geben Sie *myVNet3* für **Name** und *mySubnet3* für das Subnetz ein.|
-    |Netzwerksicherheitsgruppen (NSG)|Wählen Sie **Standard** aus, und wählen Sie in der Dropdownliste**Öffentliche Eingangsports hinzufügen** die Optionen **HTTP** und **RDP** aus. |
+    |Netzwerksicherheitsgruppen (NSG)|Wählen Sie **Standard** aus, und wählen Sie in der Dropdownliste **Öffentliche Eingangsports hinzufügen** die Optionen **HTTP** und **RDP** aus. |
     |Startdiagnose|Wählen Sie **Deaktiviert** aus.|
     |||
 

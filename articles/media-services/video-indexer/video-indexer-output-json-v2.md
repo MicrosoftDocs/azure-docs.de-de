@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 11/16/2020
 ms.author: juliako
-ms.openlocfilehash: 6eecaaff836d3253d382fdf0280f9a15c3a7b00b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf48f873127a12c3cabb28da33d34cedcda2793b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050861"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831565"
 ---
 # <a name="examine-the-video-indexer-output"></a>Überprüfen der Video Indexer-Ausgabe
 
@@ -187,6 +187,7 @@ Ein Gesicht kann eine ID, einen Namen, eine Miniaturansicht, andere Metadaten un
 |textualContentModeration|Die Erkenntnis [textualContentModeration](#textualcontentmoderation).|
 |emotions| Die Erkenntnis [emotions](#emotions).|
 |topics|Die Erkenntnis [topics](#topics).|
+|speakers|Die Erkenntnis [speakers](#speakers).|
 
 Beispiel:
 
@@ -222,36 +223,45 @@ instances|Eine Liste mit Zeitbereichen dieses Blocks.|
 |---|---|
 |id|Die Zeilen-ID.|
 |text|Das Transkript selbst.|
+|confidence|Die Konfidenz der Transkriptionsgenauigkeit.|
+|speakerId|Die ID des Sprechers.|
 |language|Die Sprache des Transkripts. Vorgesehen zur Unterstützung von Transkripts, bei denen jede Zeile eine andere Sprache enthalten kann.|
 |instances|Eine Liste der Zeitbereiche, in denen diese Zeile angezeigt wurde. Wenn die Instanz „transcript“ lautet, ist nur eine Instanz vorhanden.|
 
 Beispiel:
 
 ```json
-"transcript": [
+"transcript":[
 {
-    "id": 0,
-    "text": "Hi I'm Doug from office.",
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
-    }
-    ]
+  "id":1,
+  "text":"Well, good morning everyone and welcome to",
+  "confidence":0.8839,
+  "speakerId":1,
+  "language":"en-US",
+  "instances":[
+     {
+    "adjustedStart":"0:00:10.21",
+    "adjustedEnd":"0:00:12.81",
+    "start":"0:00:10.21",
+    "end":"0:00:12.81"
+     }
+  ]
 },
 {
-    "id": 1,
-    "text": "I have a guest. It's Michelle.",
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:02.7200000",
-        "end": "00:00:03.9600000"
-    }
-    ]
-}
-] 
+  "id":2,
+  "text":"ignite 2016. Your mission at Microsoft is to empower every",
+  "confidence":0.8944,
+  "speakerId":2,
+  "language":"en-US",
+  "instances":[
+     {
+    "adjustedStart":"0:00:12.81",
+    "adjustedEnd":"0:00:17.03",
+    "start":"0:00:12.81",
+    "end":"0:00:17.03"
+     }
+  ]
+},
 ```
 
 #### <a name="ocr"></a>ocr
@@ -827,6 +837,42 @@ Video Indexer zieht in den Transkripten einen Rückschluss auf Hauptthemen. Fall
 . . .
 ```
 
+#### <a name="speakers"></a>speakers
+
+|Name|BESCHREIBUNG|
+|---|---|
+|id|Die Sprecher-ID.|
+|name|Der Name des Sprechers in der Form „Speaker # *<number>* “ (Sprecher Nr. <Nummer>), z. B.: „Speaker #1“.|
+|instances |Eine Liste der Zeitbereiche, in denen dieser Sprecher vorgekommen ist.|
+
+```json
+"speakers":[
+{
+  "id":1,
+  "name":"Speaker #1",
+  "instances":[
+     {
+    "adjustedStart":"0:00:10.21",
+    "adjustedEnd":"0:00:12.81",
+    "start":"0:00:10.21",
+    "end":"0:00:12.81"
+     }
+  ]
+},
+{
+  "id":2,
+  "name":"Speaker #2",
+  "instances":[
+     {
+    "adjustedStart":"0:00:12.81",
+    "adjustedEnd":"0:00:17.03",
+    "start":"0:00:12.81",
+    "end":"0:00:17.03"
+     }
+  ]
+},
+` ` `
+```
 ## <a name="next-steps"></a>Nächste Schritte
 
 [Entwicklerportal für Video Indexer](https://api-portal.videoindexer.ai)

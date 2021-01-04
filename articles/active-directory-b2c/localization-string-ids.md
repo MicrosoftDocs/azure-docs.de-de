@@ -7,57 +7,68 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/15/2020
+ms.date: 11/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f75fbf286741fcc122332574332a30ad7fa23644
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 4fa0f4d87567bd77faacfd2373dba0d2b8996446
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096197"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873368"
 ---
 # <a name="localization-string-ids"></a>Lokalisierungszeichenfolgen-IDs
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Mithilfe des **Localization** -Elements können Sie mehrere Gebietsschemas oder Sprachen in der Richtlinie für die User Journeys unterstützen. Dieser Artikel enthält die Liste mit Lokalisierungs-IDs, die Sie in Ihrer Richtlinie verwenden können. Informationen zur Benutzeroberflächenlokalisierung finden Sie unter [Lokalisierung](localization.md).
+Mithilfe des **Localization**-Elements können Sie mehrere Gebietsschemas oder Sprachen in der Richtlinie für die User Journeys unterstützen. Dieser Artikel enthält die Liste mit Lokalisierungs-IDs, die Sie in Ihrer Richtlinie verwenden können. Informationen zur Benutzeroberflächenlokalisierung finden Sie unter [Lokalisierung](localization.md).
 
 ## <a name="sign-up-or-sign-in-page-elements"></a>Elemente auf der Anmelde- oder Registrierungsseite
 
 Die folgenden IDs werden für eine Inhaltsdefinition mit der ID `api.signuporsignin` und einem [selbstbestätigten technischen Profil](self-asserted-technical-profile.md) verwendet.
 
-| id | Standardwert |
-| -- | ------------- |
-| **local_intro_email** | Melden Sie sich mit Ihrem vorhandenen Konto an. |
-| **logonIdentifier_email** | E-Mail-Adresse |
-| **requiredField_email** | Geben Sie Ihre E-Mail-Adresse ein. |
-| **invalid_email** | Geben Sie eine gültige E-Mail-Adresse ein. |
-| **email_pattern** | ^[a-zA-Z0-9.!#$%&'' *+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)* $ |
-| **local_intro_username** | Melden Sie sich mit Ihrem Benutzernamen an. |
-| **logonIdentifier_username** | Username |
-| **requiredField_username** | Geben Sie Ihren Benutzernamen ein. |
-| **password** | Kennwort |
-| **requiredField_password** | Geben Sie Ihr Kennwort ein. |
-| **invalid_password** | Das eingegebene Kennwort entspricht nicht dem erwarteten Format. |
-| **forgotpassword_link** | Forgot your password? (Kennwort vergessen?) |
-| **createaccount_intro** | Sie haben kein Konto? |
-| **createaccount_link** | Jetzt anmelden |
-| **divider_title** | oder |
-| **cancel_message** | Der Benutzer hat sein Kennwort vergessen. |
-| **button_signin** | Anmelden |
-| **social_intro** | Melden Sie sich mit Ihrem Konto für ein soziales Netzwerk an. |
-  **remember_me** |Angemeldet bleiben. |
-| **unknown_error** | Wir können Sie nicht anmelden. Versuchen Sie es später noch mal. |
+| id | Standardwert | Seitenlayoutversion |
+| -- | ------------- | ------ |
+| **forgotpassword_link** | Forgot your password? (Kennwort vergessen?) | `All` |
+| **createaccount_intro** | Sie haben kein Konto? | `All` |
+| **button_signin** | Anmelden | `All` |
+| **social_intro** | Melden Sie sich mit Ihrem Konto für ein soziales Netzwerk an. | `All` |
+| **remember_me** |Angemeldet bleiben. | `All` |
+| **unknown_error** | Wir können Sie nicht anmelden. Versuchen Sie es später noch mal. | `All` |
+| **divider_title** | oder | `All` |
+| **local_intro_email** | Melden Sie sich mit Ihrem vorhandenen Konto an. | `< 2.0.0` |
+| **logonIdentifier_email** | E-Mail-Adresse | `< 2.0.0` |
+| **requiredField_email** | Geben Sie Ihre E-Mail-Adresse ein. | `< 2.0.0` |
+| **invalid_email** | Geben Sie eine gültige E-Mail-Adresse ein. | `< 2.0.0` |
+| **email_pattern** | ^[a-zA-Z0-9.!#$%&''\*+/=?^\_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)\*$ | `< 2.0.0` |
+| **local_intro_username** | Melden Sie sich mit Ihrem Benutzernamen an. | `< 2.0.0` |
+| **logonIdentifier_username** | Username | `< 2.0.0` |
+| **requiredField_username** | Geben Sie Ihren Benutzernamen ein. | `< 2.0.0` |
+| **password** | Kennwort | `< 2.0.0` |
+| **requiredField_password** | Geben Sie Ihr Kennwort ein. | `< 2.0.0` |
+| **createaccount_link** | Jetzt anmelden | `< 2.0.0` |
+| **cancel_message** | Der Benutzer hat sein Kennwort vergessen. | `< 2.0.0` |
+| **invalid_password** | Das eingegebene Kennwort entspricht nicht dem erwarteten Format. | `< 2.0.0` |
+| **createaccount_one_link** | Jetzt anmelden | `>= 2.0.0` |
+| **createaccount_two_links** | Registrieren mit {0} oder {1} | `>= 2.0.0` |
+| **createaccount_three_links** | Registrieren mit {0}, {1} oder {2} | `>= 2.0.0` |
+| **local_intro_generic** | Anmelden mit Ihrer {0} | `>= 2.1.0` |
+| **requiredField_generic** | Geben Sie Ihre {0} ein. | `>= 2.1.0` |
+| **invalid_generic** | Geben Sie einen gültigen Wert für {0} ein. | `>= 2.1.1` |
+| **heading** | Anmelden | `>= 2.1.1` |
+
+
+> [!NOTE]
+> * Platzhalter wie {0} werden automatisch mit dem `DisplayName`-Wert von `ClaimType` aufgefüllt. 
+> * Weitere Informationen zum Lokalisieren von `ClaimType` finden Sie unter [Beispiel für Registrierung oder Anmeldung](#signupsigninexample).
 
 Die folgenden Beispiele zeigen die Verwendung einiger Benutzeroberflächenelemente auf der Anmelde- oder Registrierungsseite:
 
-![UX-Elemente auf der Anmelde- oder Registrierungsseite](./media/localization-string-ids/localization-susi.png)
-
+:::image type="content" source="./media/localization-string-ids/localization-susi-2.png" alt-text="Screenshot, der Benutzeroberflächenelemente der Registrierungs- oder Anmeldeseite anzeigt.":::
 
 ### <a name="sign-up-or-sign-in-identity-providers"></a>Identitätsanbieter für Registrierung und Anmeldung
 
-Die ID der Identitätsanbieter wird im **ClaimsExchange** -Element der User Journey konfiguriert. Um den Titel des Identitätsanbieters zu lokalisieren, wird **ElementType** auf `ClaimsProvider` festgelegt, während für **StringId** die ID von `ClaimsExchange` festgelegt wird.
+Die ID der Identitätsanbieter wird im **ClaimsExchange**-Element der User Journey konfiguriert. Um den Titel des Identitätsanbieters zu lokalisieren, wird **ElementType** auf `ClaimsProvider` festgelegt, während für **StringId** die ID von `ClaimsExchange` festgelegt wird.
 
 ```xml
 <OrchestrationStep Order="2" Type="ClaimsExchange">
@@ -87,6 +98,7 @@ Im folgenden Beispiel wird der Facebook-Identitätsanbieter in Arabisch lokalisi
 | id | Standardwert |
 | -- | ------------- |
 | **UserMessageIfInvalidPassword** | Ihr Kennwort ist falsch. |
+| **UserMessageIfPasswordExpired**| Ihre Kennwort ist abgelaufen.|
 | **UserMessageIfClaimsPrincipalDoesNotExist** | Wir können Ihr Konto nicht finden. |
 | **UserMessageIfOldPasswordUsed** | Sie verwenden offenbar ein altes Kennwort. |
 | **DefaultMessage** | Ungültiger Benutzername oder ungültiges Kennwort. |
@@ -94,34 +106,31 @@ Im folgenden Beispiel wird der Facebook-Identitätsanbieter in Arabisch lokalisi
 | **UserMessageIfUserAccountLocked** | Ihr Konto wurde vorübergehend gesperrt, um eine unbefugte Nutzung zu verhindern. Versuchen Sie es später noch einmal. |
 | **AADRequestsThrottled** | Derzeit sind zu viele Anforderungen vorhanden. Warten Sie einige Zeit, und versuchen Sie es erneut. |
 
+<a name="signupsigninexample"></a>
 ### <a name="sign-up-or-sign-in-example"></a>Beispiel für Registrierung oder Anmeldung
 
 ```xml
 <LocalizedResources Id="api.signuporsignin.en">
   <LocalizedStrings>
-    <LocalizedString ElementType="UxElement" StringId="logonIdentifier_email">Email Address</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="requiredField_email">Please enter your email</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="logonIdentifier_username">Username</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="password">Password</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="createaccount_link">Sign up now</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="requiredField_username">Please enter your user name</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="createaccount_intro">Don't have an account?</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="forgotpassword_link">Forgot your password?</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="divider_title">OR</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="cancel_message">The user has forgotten their password</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="button_signin">Sign in</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email Address</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="heading">Sign in</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="social_intro">Sign in with your social account</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="local_intro_generic">Sign in with your {0}</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="requiredField_password">Please enter your password</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="invalid_password">The password you entered is not in the expected format.</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="local_intro_username">Sign in with your user name</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="local_intro_email">Sign in with your existing account</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="invalid_email">Please enter a valid email address</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="requiredField_generic">Please enter your {0}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="invalid_generic">Please enter a valid {0}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="createaccount_one_link">Sign up now</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="createaccount_two_links">Sign up with {0} or {1}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="createaccount_three_links">Sign up with {0}, {1}, or {2}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="forgotpassword_link">Forgot your password?</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="button_signin">Sign in</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="divider_title">OR</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="unknown_error">We are having trouble signing you in. Please try again later.</LocalizedString>
     <!-- Uncomment the remember_me only if the keep me signed in is activated. 
     <LocalizedString ElementType="UxElement" StringId="remember_me">Keep me signed in</LocalizedString> -->
-    <LocalizedString ElementType="UxElement" StringId="email_pattern">^[a-zA-Z0-9.!#$%&amp;’'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$</LocalizedString>
     <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Your password is incorrect.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfPasswordExpired">Your password has expired.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">We can't seem to find your account.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Looks like you used an old password.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="DefaultMessage">Invalid username or password.</LocalizedString>
@@ -431,9 +440,9 @@ Im Folgenden finden Sie die IDs für Fehlermeldungen für das [technische Profil
 </LocalizedResources>
 ```
 
-## <a name="azure-mfa-error-messages"></a>Azure MFA-Fehlermeldungen
+## <a name="azure-ad-mfa-error-messages"></a>Azure AD MFA-Fehlermeldungen
 
-Im Folgenden finden Sie die IDs für Fehlermeldungen für ein [technisches Profil mit Azure MFA](multi-factor-auth-technical-profile.md):
+Im Folgenden finden Sie die IDs für Fehlermeldungen für ein [technisches Profil mit Azure AD MFA](multi-factor-auth-technical-profile.md):
 
 | id | Standardwert |
 | -- | ------------- |
@@ -444,7 +453,7 @@ Im Folgenden finden Sie die IDs für Fehlermeldungen für ein [technisches Profi
 |UserMessageIfThrottled | Ihre Anforderung wurde gedrosselt, versuchen Sie es später erneut.|
 |UserMessageIfWrongCodeEntered|Falscher Code wurde eingegeben, versuchen Sie es erneut.|
 
-### <a name="azure-mfa-example"></a>Beispiel für Azure MFA
+### <a name="azure-ad-mfa-example"></a>Beispiel für Azure AD MFA
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">

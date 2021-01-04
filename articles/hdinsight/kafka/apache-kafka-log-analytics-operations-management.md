@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/17/2020
-ms.openlocfilehash: 593d6861ee5913fffb25bfdea4829e1b1ce6ddc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5128ac7608dfce08471f7a7f97ed28a7971e62b2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087400"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534446"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analysieren von Protokollen für Apache Kafka in HDInsight
 
@@ -104,7 +104,7 @@ Die Schritte zum Aktivieren von Azure Monitor-Protokollen für HDInsight sind f�
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zu Azure Monitor finden Sie unter [Azure Monitor – Übersicht](../../log-analytics/log-analytics-get-started.md) und [Abfragen von Azure Monitor-Protokollen zum Überwachen von HDInsight-Clustern](../hdinsight-hadoop-oms-log-analytics-use-queries.md).
+Weitere Informationen zu Azure Monitor finden Sie unter [Azure Monitor – Übersicht](../../azure-monitor/overview.md) und [Abfragen von Azure Monitor-Protokollen zum Überwachen von HDInsight-Clustern](../hdinsight-hadoop-oms-log-analytics-use-queries.md).
 
 Weitere Informationen zum Arbeiten mit Apache Kafka finden Sie in den folgenden Dokumenten:
 

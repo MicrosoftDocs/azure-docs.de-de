@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 53a41c3921ee92b1ec79edf95999c97f80cbce45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77a2a32b9a6358c39a14cfe37eeb44f7cb90af0a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462359"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841987"
 ---
 # <a name="securing-paas-deployments"></a>Schützen von PaaS-Bereitstellungen
 
@@ -31,7 +31,7 @@ Dieser Artikel beschäftigt sich mit Folgendem:
 - Verlagerung des Sicherheitsfokus von netzwerkorientierter zu identitätsorientierter Bereichssicherheit
 - Implementierung allgemeiner Sicherheitsempfehlungen für PaaS
 
-[Entwickeln sicherer Anwendungen in Azure](abstract-develop-secure-apps.md) ist ein allgemeiner Leitfaden und behandelt die Sicherheitsfragen und Steuerelemente, die Sie beim Entwickeln von Anwendungen für die Cloud in den einzelnen Phasen des Softwareentwicklungszyklus berücksichtigen sollten.
+[Entwickeln sicherer Anwendungen in Azure](https://azure.microsoft.com/resources/develop-secure-applications-on-azure/) ist ein allgemeiner Leitfaden und behandelt die Sicherheitsfragen und Steuerelemente, die Sie beim Entwickeln von Anwendungen für die Cloud in den einzelnen Phasen des Softwareentwicklungszyklus berücksichtigen sollten.
 
 ## <a name="cloud-security-advantages"></a>Sicherheitsvorteile der Cloud
 Es ist wichtig, die [Aufteilung der Zuständigkeiten](shared-responsibility.md) zwischen Ihnen und Microsoft zu verstehen. In einer lokalen Umgebung sind Sie für den gesamten Stapel zuständig. Bei einem Wechsel in die Cloud wird dagegen ein Teil der Zuständigkeit auf Microsoft übertragen.
@@ -80,21 +80,21 @@ Mit der nachfolgenden bewährten Methode können Sie den identitätsorientierten
 **Detail**: Noch schlimmer als der Verlust von Schlüsseln und Anmeldeinformationen ist es, wenn nicht autorisierte Personen an Ihre Schlüssel und Anmeldeinformationen gelangen. Angreifer können mithilfe von Bottechnologien Coderepositorys wie GitHub nach darin gespeicherten Schlüsseln und Geheimnissen durchsuchen. Speichern Sie daher keine Schlüssel oder Geheimnisse in diesen öffentlichen Coderepositorys.
 
 **Bewährte Methode**: Schützen Sie Ihre VM-Verwaltungsschnittstellen in hybriden PaaS- und IaaS-Diensten mithilfe einer Verwaltungsschnittstelle, über die Sie diese virtuellen Computer remote verwalten können.   
-**Detail**: Sie können Remoteverwaltungsprotokolle wie [SSH](https://en.wikipedia.org/wiki/Secure_Shell), [RDP](https://support.microsoft.com/kb/186607) und [PowerShell-Remoting](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting) verwenden. Im Allgemeinen empfiehlt es sich, über das Internet keinen direkten Remotezugriff auf virtuelle Computer zu ermöglichen.
+**Detail**: Sie können Remoteverwaltungsprotokolle wie [SSH](https://en.wikipedia.org/wiki/Secure_Shell), [RDP](https://support.microsoft.com/kb/186607) und [PowerShell-Remoting](/powershell/module/microsoft.powershell.core/enable-psremoting) verwenden. Im Allgemeinen empfiehlt es sich, über das Internet keinen direkten Remotezugriff auf virtuelle Computer zu ermöglichen.
 
-Verwenden Sie nach Möglichkeit alternative Konzepte wie die Verwendung von virtuellen privaten Netzwerken in einem Azure Virtual Network. Sollten keine Alternativen verfügbar sein, verwenden Sie unbedingt komplexe Passphrasen und eine zweistufige Authentifizierung (beispielsweise [Azure Multi-Factor Authentication](/azure/active-directory/authentication/multi-factor-authentication)).
+Verwenden Sie nach Möglichkeit alternative Konzepte wie die Verwendung von virtuellen privaten Netzwerken in einem Azure Virtual Network. Sollten keine Alternativen verfügbar sein, verwenden Sie unbedingt komplexe Passphrasen und eine zweistufige Authentifizierung (beispielsweise [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)).
 
 **Bewährte Methode**: Verwenden Sie sichere Authentifizierungs- und Autorisierungsplattformen.   
 **Detail**: Verwenden Sie Verbundidentitäten in Azure AD anstelle von benutzerdefinierten Benutzerspeichern. Bei Verbundidentitäten profitieren Sie von einem plattformbasierten Konzept und delegieren die Verwaltung autorisierter Identitäten an Ihre Partner. Das Verbundidentitätskonzept ist besonders wichtig, wenn Mitarbeiter gekündigt werden und diese Information in mehreren Identitäts- und Autorisierungssystemen berücksichtigt werden müssen.
 
 Verwenden Sie von der Plattform bereitgestellte Authentifizierungs- und Autorisierungsmechanismen anstelle von benutzerdefiniertem Code. Der Grund: Bei der Entwicklung von benutzerdefiniertem Authentifizierungscode können Ihnen unter Umständen Fehler unterlaufen. Die meisten Ihrer Entwickler sind keine Sicherheitsexperten und deshalb wahrscheinlich nicht mit den Feinheiten und neuesten Entwicklungen im Authentifizierungs- und Autorisierungsbereich vertraut. Die Sicherheit von kommerziellem Code (etwa von Microsoft) wird häufig intensiv geprüft.
 
-Verwenden Sie eine zweistufige Authentifizierung. Die zweistufige Authentifizierung ist der aktuelle Standard für die Authentifizierung und Autorisierung, da sie die Sicherheitsprobleme eliminiert, die für Authentifizierungsmethoden mit Benutzername und Kennwort typisch sind. Der Zugriff auf Azure-Verwaltungsschnittstellen (Portal/Remote-PowerShell) und auf kundenorientierte Dienste sollte für die Verwendung von [Azure Multi-Factor Authentication](/azure/active-directory/authentication/multi-factor-authentication) konzipiert und konfiguriert sein.
+Verwenden Sie eine zweistufige Authentifizierung. Die zweistufige Authentifizierung ist der aktuelle Standard für die Authentifizierung und Autorisierung, da sie die Sicherheitsprobleme eliminiert, die für Authentifizierungsmethoden mit Benutzername und Kennwort typisch sind. Der Zugriff auf Azure-Verwaltungsschnittstellen (Portal/Remote-PowerShell) und auf kundenorientierte Dienste sollte für die Verwendung von [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) konzipiert und konfiguriert sein.
 
 Verwenden Sie standardmäßige Authentifizierungsprotokolle wie OAuth2 und Kerberos. Diese Protokolle wurden umfassend überprüft und sind wahrscheinlich Teil Ihrer Plattformbibliotheken für die Authentifizierung und Autorisierung.
 
 ## <a name="use-threat-modeling-during-application-design"></a>Verwenden von Bedrohungsmodellen beim Anwendungsentwurf
-Der Microsoft [Security Development Lifecycle](https://www.microsoft.com/en-us/sdl) gibt an, dass sich Teams während der Entwurfsphase auf einen Prozess einlassen sollten, der als Bedrohungsmodellierung bezeichnet wird. Zur Unterstützung dieses Prozesses hat Microsoft das [SDL Threat Modeling Tool](/azure/security/azure-security-threat-modeling-tool) erstellt. Durch Modellieren des Anwendungsentwurfs und Aufzählen von [STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)-Bedrohungen für alle Vertrauensstellungsgrenzen können Entwurfsfehler frühzeitig abgefangen werden.
+Der Microsoft [Security Development Lifecycle](https://www.microsoft.com/en-us/sdl) gibt an, dass sich Teams während der Entwurfsphase auf einen Prozess einlassen sollten, der als Bedrohungsmodellierung bezeichnet wird. Zur Unterstützung dieses Prozesses hat Microsoft das [SDL Threat Modeling Tool](../develop/threat-modeling-tool.md) erstellt. Durch Modellieren des Anwendungsentwurfs und Aufzählen von [STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)-Bedrohungen für alle Vertrauensstellungsgrenzen können Entwurfsfehler frühzeitig abgefangen werden.
 
 In der folgende Tabelle sind die STRIDE-Bedrohungen sowie einige Beispiele für vorbeugende Maßnahmen aufgeführt, bei denen Azure-Funktionen verwendet werden. Diese vorbeugenden Maßnahmen funktionieren nicht in allen Situationen.
 
@@ -105,37 +105,37 @@ In der folgende Tabelle sind die STRIDE-Bedrohungen sowie einige Beispiele für 
 | Nichtanerkennung | Unleugbarkeit | Aktivieren Sie die [Überwachung und Diagnose](/azure/architecture/best-practices/monitoring) von Azure. |
 | Veröffentlichung von Informationen | Vertraulichkeit | Verschlüsseln Sie vertrauliche ruhende Daten mithilfe von [Dienstzertifikaten](/rest/api/appservice/certificates). |
 | Denial of Service | Verfügbarkeit | Überwachen Sie Leistungsmetriken auf potenzielle Denial-of-Service-Angriffe. Implementieren Sie Verbindungsfilter. |
-| Rechteerweiterungen | Authorization | Verwenden Sie [Privileged Identity Management](/azure/active-directory/privileged-identity-management/subscription-requirements). |
+| Rechteerweiterungen | Authorization | Verwenden Sie [Privileged Identity Management](../../active-directory/privileged-identity-management/subscription-requirements.md). |
 
 ## <a name="develop-on-azure-app-service"></a>Entwickeln unter Azure App Service
-[Azure App Service](/azure/app-service/overview) ist ein PaaS-Angebot, mit dem Sie webbasierte und mobile Apps für beliebige Plattformen oder Geräte erstellen und eine Verbindung mit Daten herstellen können, die in der Cloud oder lokal gespeichert sind. App Service umfasst die Webfunktionen und mobilen Funktionen, die wir vorher separat als Azure Websites und Azure Mobile Services bereitgestellt haben. Außerdem sind neue Funktionen zum Automatisieren von Geschäftsprozessen und Hosten von Cloud-APIs enthalten. Als einzelner integrierter Dienst stellt App Service einen umfangreichen Satz von Funktionen für mobile, Web- und Integrationsszenarien bereit.
+[Azure App Service](../../app-service/overview.md) ist ein PaaS-Angebot, mit dem Sie webbasierte und mobile Apps für beliebige Plattformen oder Geräte erstellen und eine Verbindung mit Daten herstellen können, die in der Cloud oder lokal gespeichert sind. App Service umfasst die Webfunktionen und mobilen Funktionen, die wir vorher separat als Azure Websites und Azure Mobile Services bereitgestellt haben. Außerdem sind neue Funktionen zum Automatisieren von Geschäftsprozessen und Hosten von Cloud-APIs enthalten. Als einzelner integrierter Dienst stellt App Service einen umfangreichen Satz von Funktionen für mobile, Web- und Integrationsszenarien bereit.
 
 Folgende Methoden haben sich bei der Verwendung von App Service bewährt.
 
-**Bewährte Methode**: [Authentifizieren über Azure Active Directory](/azure/app-service/overview-authentication-authorization).   
+**Bewährte Methode**: [Authentifizieren über Azure Active Directory](../../app-service/overview-authentication-authorization.md).   
 **Detail**: App Service bietet einen OAuth 2.0-Dienst für Ihren Identitätsanbieter. In OAuth 2.0 liegt der Schwerpunkt auf der Vereinfachung der Cliententwicklung. Gleichzeitig werden bestimmte Autorisierungsabläufe für Webanwendungen, Desktopanwendungen und Mobiltelefone bereitgestellt. Azure AD verwendet OAuth 2.0, um Ihnen die Autorisierung des Zugriffs auf mobile und Webanwendungen zu ermöglichen.
 
 **Bewährte Methode**: Schränken Sie den Zugriff auf Grundlage der Sicherheitsprinzipien „Need-to-know“ und „geringste Rechte“ ein.   
-**Detail**: Das Einschränken des Zugriffs ist für Organisationen zwingend erforderlich, die Sicherheitsrichtlinien für den Datenzugriff durchsetzen möchten. Sie können die rollenbasierte Zugriffssteuerung (RBAC) verwenden, um Benutzern, Gruppen und Anwendungen Berechtigungen für einen bestimmten Bereich zu erteilen. Weitere Informationen zum Gewähren des Zugriffs auf Anwendungen für Benutzer finden Sie unter [Erste Schritte mit der Zugriffsverwaltung](/azure/role-based-access-control/overview).
+**Detail**: Das Einschränken des Zugriffs ist für Organisationen zwingend erforderlich, die Sicherheitsrichtlinien für den Datenzugriff durchsetzen möchten. Sie können Azure RBAC verwenden, um Benutzern, Gruppen und Anwendungen Berechtigungen für einen bestimmten Bereich zu erteilen. Weitere Informationen zum Gewähren des Zugriffs auf Anwendungen für Benutzer finden Sie unter [Erste Schritte mit der Zugriffsverwaltung](../../role-based-access-control/overview.md).
 
 **Bewährte Methode**: Schützen Sie Ihre Schlüssel.   
-**Detail**: Azure Key Vault unterstützt Sie dabei, kryptografische Schlüssel und Geheimnisse zu schützen, die von Cloudanwendungen und -diensten verwendet werden. Mit Key Vault können Sie Schlüssel und Geheimnisse (beispielsweise Authentifizierungsschlüssel, Schlüssel für Speicherkonten, Datenverschlüsselungsschlüssel, PFX-Dateien und Kennwörter) verschlüsseln, indem Sie Schlüssel verwenden, die durch Hardwaresicherheitsmodule (HSMs) geschützt werden. Zur Steigerung der Sicherheit können Sie Schlüssel in HSMs importieren oder in diesen generieren. Weitere Informationen finden Sie unter [Azure Key Vault](/azure/key-vault/key-vault-overview). Sie können auch Key Vault zum Verwalten Ihrer TLS-Zertifikate mit der automatischen Verlängerung verwenden.
+**Detail**: Azure Key Vault unterstützt Sie dabei, kryptografische Schlüssel und Geheimnisse zu schützen, die von Cloudanwendungen und -diensten verwendet werden. Mit Key Vault können Sie Schlüssel und Geheimnisse (beispielsweise Authentifizierungsschlüssel, Schlüssel für Speicherkonten, Datenverschlüsselungsschlüssel, PFX-Dateien und Kennwörter) verschlüsseln, indem Sie Schlüssel verwenden, die durch Hardwaresicherheitsmodule (HSMs) geschützt werden. Zur Steigerung der Sicherheit können Sie Schlüssel in HSMs importieren oder in diesen generieren. Weitere Informationen finden Sie unter [Azure Key Vault](../../key-vault/general/overview.md). Sie können auch Key Vault zum Verwalten Ihrer TLS-Zertifikate mit der automatischen Verlängerung verwenden.
 
 **Bewährte Methode**: Schränken Sie eingehende Quell-IP-Adressen ein.   
-**Detail**: Die [App Service-Umgebung](/azure/app-service/environment/intro) verfügt über ein Feature zur Integration virtueller Netzwerke, mit dem Sie eingehende Quell-IP-Adressen über Netzwerksicherheitsgruppen einschränken können. Mit virtuellen Netzwerken können Sie Azure-Ressourcen in einem Netzwerk platzieren, das nicht über das Internet geroutet werden kann, und zu dem Sie den Zugang kontrollieren. Weitere Informationen hierzu finden Sie unter [Integrieren Ihrer App in ein Azure Virtual Network](/azure/app-service/web-sites-integrate-with-vnet).
+**Detail**: Die [App Service-Umgebung](../../app-service/environment/intro.md) verfügt über ein Feature zur Integration virtueller Netzwerke, mit dem Sie eingehende Quell-IP-Adressen über Netzwerksicherheitsgruppen einschränken können. Mit virtuellen Netzwerken können Sie Azure-Ressourcen in einem Netzwerk platzieren, das nicht über das Internet geroutet werden kann, und zu dem Sie den Zugang kontrollieren. Weitere Informationen hierzu finden Sie unter [Integrieren Ihrer App in ein Azure Virtual Network](../../app-service/web-sites-integrate-with-vnet.md).
 
 **Bewährte Methode**: Überwachen Sie den Sicherheitsstatus Ihrer App Service-Umgebungen.   
-**Detail**: Verwenden Sie Azure Security Center, um Ihre App Service-Umgebungen zu überwachen. Werden potenzielle Sicherheitslücken erkannt, erstellt Security Center [Empfehlungen](../../security-center/security-center-virtual-machine-protection.md), die Sie beim Konfigurieren der erforderlichen Steuerelemente unterstützen.
+**Detail**: Verwenden Sie Azure Security Center, um Ihre App Service-Umgebungen zu überwachen. Werden potenzielle Sicherheitslücken erkannt, erstellt Security Center [Empfehlungen](../../security-center/asset-inventory.md), die Sie beim Konfigurieren der erforderlichen Steuerelemente unterstützen.
 
 > [!NOTE]
-> Die Überwachung von App Service ist als Vorschauversion und im [Standard-Tarif](/azure/security-center/security-center-pricing) von Security Center verfügbar.
+> Die Überwachung von App Service ist als Vorschauversion und im [Standard-Tarif](../../security-center/security-center-pricing.md) von Security Center verfügbar.
 >
 >
 
 ## <a name="install-a-web-application-firewall"></a>Installieren einer Web Application Firewall
 Webanwendungen sind zunehmend Ziele böswilliger Angriffe, die allgemein bekannte Sicherheitslücken ausnutzen. Zu diesen Sicherheitslücken (Exploits) gehören üblicherweise Angriffe durch Einschleusung von SQL-Befehlen oder Angriffe durch websiteübergreifende Skripts, um nur einige zu nennen. Die Verhinderung solcher Angriffe im Anwendungscode ist oft schwierig und erfordert strenge Wartung, Patching und Überwachung auf vielen Ebenen der Anwendungstopologie. Eine zentrale Web Application Firewall vereinfacht die Sicherheitsverwaltung erheblich und bietet Anwendungsadministratoren einen besseren Schutz vor Bedrohungen und Angriffen. Mit einer WAF-Lösung können Sie ebenfalls schneller auf ein Sicherheitsrisiko reagieren, da eine bekannte Schwachstelle an einem zentralen Ort gepatcht wird, statt jede einzelne Webanwendung separat zu sichern. Vorhandene Anwendungsgateways lassen sich problemlos in ein Anwendungsgateway mit Web Application Firewall konvertieren.
 
-[Web Application Firewall (WAF)](/azure/frontdoor/waf-overview) ist ein Feature von Application Gateway, das zentralisierten Schutz Ihrer Webanwendungen vor allgemeinen Exploits und Sicherheitsrisiken bietet. Die WAF basiert auf den Regeln der [OWASP-Kernregelsätze (Open Web Application Security Project)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) der Version 3.0 oder 2.2.9.
+[Web Application Firewall (WAF)](../../web-application-firewall/afds/afds-overview.md) ist ein Feature von Application Gateway, das zentralisierten Schutz Ihrer Webanwendungen vor allgemeinen Exploits und Sicherheitsrisiken bietet. Die WAF basiert auf den Regeln der [OWASP-Kernregelsätze (Open Web Application Security Project)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) der Version 3.0 oder 2.2.9.
 
 ## <a name="monitor-the-performance-of-your-applications"></a>Überwachen der Leistung Ihrer Anwendungen
 Überwachung ist das Erfassen und Analysieren von Daten, um die Leistung, Integrität und Verfügbarkeit Ihrer Anwendung zu bestimmen. Eine effektive Überwachungsstrategie hilft Ihnen, den detaillierten Einsatz der verschiedenen Komponenten Ihrer Anwendung zu verstehen. Sie hilft Ihnen, die Betriebszeit zu erhöhen, da Sie über kritische Probleme benachrichtigt werden und diese beheben können, bevor sie auftreten. Außerdem können Sie Anomalien erkennen, die möglicherweise sicherheitsrelevant sind.
@@ -160,10 +160,10 @@ In diesem Artikel standen die Sicherheitsvorteile einer Azure-PaaS-Bereitstellun
 - Azure-Servicebus
 - Web Application Firewalls
 
-Der Artikel [Entwickeln sicherer Anwendungen in Azure](abstract-develop-secure-apps.md) behandelt die Sicherheitsfragen und Steuerelemente, die Sie beim Entwickeln von Anwendungen für die Cloud in den einzelnen Phasen des Softwareentwicklungszyklus berücksichtigen sollten.
+Der Artikel [Entwickeln sicherer Anwendungen in Azure](https://azure.microsoft.com/resources/develop-secure-applications-on-azure/) behandelt die Sicherheitsfragen und Steuerelemente, die Sie beim Entwickeln von Anwendungen für die Cloud in den einzelnen Phasen des Softwareentwicklungszyklus berücksichtigen sollten.
 
 Weitere bewährte Methoden für die Sicherheit, die Sie beim Entwerfen, Bereitstellen und Verwalten Ihrer Cloudlösungen mithilfe von Azure verwenden können, finden Sie unter [Sicherheit in Azure: bewährte Methoden und Muster](best-practices-and-patterns.md).
 
 Die folgenden Ressourcen enthalten allgemeinere Informationen zur Sicherheit in Azure und verwandten Microsoft-Diensten:
-* [Blog des Azure-Sicherheitsteams](https://blogs.msdn.microsoft.com/azuresecurity/): Hier finden Sie Informationen über den aktuellen Stand der Azure-Sicherheit.
+* [Blog des Azure-Sicherheitsteams](/archive/blogs/azuresecurity/): Hier finden Sie Informationen über den aktuellen Stand der Azure-Sicherheit.
 * [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx): Hier können Sie Microsoft-Sicherheitsrisiken, z.B. Probleme mit Azure, melden oder eine E-Mail an secure@microsoft.com schreiben.

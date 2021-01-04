@@ -8,12 +8,12 @@ metadata:
   author: rboucher
   ms.author: robb
   ms.date: 10/08/2019
-  ms.openlocfilehash: 16b17dcebf305059b9a0710798e1ea0a9b6f51a6
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 3fe4dd31fa6132401b09ac80d0c2cbf62b8b83e1
+  ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "86249154"
+  ms.lasthandoff: 12/09/2020
+  ms.locfileid: "96905620"
 landingContent:
 - title: Informationen zu Azure Monitor
   linkLists:
@@ -42,7 +42,7 @@ landingContent:
     - text: Überwachen und Senden von Warnungen zu Metriken
       url: platform/alerts-metric.md
     - text: Analysieren von Protokollen
-      url: log-query/get-started-portal.md
+      url: ./log-query/log-analytics-tutorial.md
     - text: Azure-VMs in Log Analytics
       url: learn/quick-collect-azurevm.md
     - text: Linux-VMs in Log Analytics
@@ -56,9 +56,9 @@ landingContent:
   - linkListType: get-started
     links:
     - text: .NET
-      url: learn/quick-monitor-portal.md
+      url: app/asp-net.md
     - text: .NET Core
-      url: learn/dotnetcore-quick-start.md
+      url: app/asp-net-core.md
     - text: Node.js
       url: learn/nodejs-quick-start.md
     - text: Mobile

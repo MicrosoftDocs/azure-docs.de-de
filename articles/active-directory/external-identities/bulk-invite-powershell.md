@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89e24d9ff76184c36aee5c14f15f9713b30f6f1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e047f11cc243ab1a36a8c61dd1b229d9e115115
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87906956"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892484"
 ---
 # <a name="tutorial-use-powershell-to-bulk-invite-azure-ad-b2b-collaboration-users"></a>Tutorial: Masseneinladen von Benutzern für die Azure AD B2B-Zusammenarbeit mithilfe von PowerShell
 
@@ -63,7 +63,7 @@ Führen Sie je nach Ausgabe einen der folgenden Schritte aus:
    Install-Module AzureADPreview
    ```
 
-Möglicherweise erscheint ein Hinweis, dass Sie das Modul aus einem nicht vertrauenswürdigen Repository installieren. Das passiert, wenn Sie das PSGallery-Repository nicht zuvor als vertrauenswürdiges Repository festgelegt haben. Drücken Sie **Y**, um das Modul zu installieren.
+Möglicherweise erscheint ein Hinweis, dass Sie das Modul aus einem nicht vertrauenswürdigen Repository installieren. Das passiert, wenn Sie das PSGallery-Repository nicht zuvor als vertrauenswürdiges Repository festgelegt haben. Drücken Sie **Y** , um das Modul zu installieren.
 
 ### <a name="get-test-email-accounts"></a>Einrichten von Test-E-Mail-Konten
 
@@ -116,7 +116,7 @@ foreach ($email in $invitations)
 
 Dieses Skript sendet Einladungen an die E-Mail-Adressen in der Datei „Invitations.csv“. Die Ausgabe sollte für jeden Benutzer ungefähr so aussehen:
 
-![PowerShell-Ausgabe: ausstehende Annahme durch Benutzer](media/tutorial-bulk-invite/B2BBulkImport.png)
+![Screenshot: PowerShell-Ausgabe, die die ausstehende Annahme durch Benutzer enthält](media/tutorial-bulk-invite/B2BBulkImport.png)
 
 ## <a name="verify-users-exist-in-the-directory"></a>Überprüfen, ob Benutzer im Verzeichnis vorhanden sind
 
@@ -126,7 +126,7 @@ Um zu überprüfen, ob die eingeladenen Benutzer Azure AD hinzugefügt wurden, f
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
 
-Die von Ihnen eingeladenen Benutzer sollten mit einem Benutzerprinzipalnamen (UPN) im Format *E-Mail-Adresse*#EXT#\@*Domäne* angezeigt werden. Beispiel: *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, wobei „contoso.onmicrosoft.com“ der Organisation entspricht, für die Sie die Einladungen gesendet haben.
+Die von Ihnen eingeladenen Benutzer sollten mit einem Benutzerprinzipalnamen (UPN) im Format *E-Mail-Adresse* #EXT#\@*Domäne* angezeigt werden. Beispiel: *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com* , wobei „contoso.onmicrosoft.com“ der Organisation entspricht, für die Sie die Einladungen gesendet haben.
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 

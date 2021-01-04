@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: 5e20863cd971a55142283676fe035d3238520ae1
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: e3f541e28f47bb6456b441811d23baa9e020fde7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361363"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959151"
 ---
 # <a name="sap-lama-connector-for-azure"></a>SAP LaMa-Connector für Azure
 
@@ -181,7 +182,7 @@ Erstellen Sie eine neue VM mit einem Betriebssystem, das Oracle-Datenbanken unte
 
 Die Oracle-Datenbank benötigt Datenträger für/oracle, /home/oraod1 und /home/oracle.
 
-![Oracle-Datenbank unter Linux](media/lama/sap-lama-db-ora-lnx.png)
+![Diagramm: Oracle-Datenbank unter Linux und die erforderlichen Datenträger](media/lama/sap-lama-db-ora-lnx.png)
 
 #### <a name="manual-deployment-for-microsoft-sql-server"></a>Manuelles Bereitstellen für Microsoft SQL Server
 

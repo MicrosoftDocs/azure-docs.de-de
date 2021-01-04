@@ -3,19 +3,19 @@ title: Manuelles Initiieren eines Failovers für SQL Managed Instance
 description: Erfahren Sie, wie Sie ein manuelles Failover der primären und sekundären Replikate in einer Azure SQL Managed Instance ausführen.
 services: sql-database
 ms.service: sql-managed-instance
-ms.custom: seo-lt-2019, sqldbrb=1
+ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 08/31/2020
-ms.openlocfilehash: 3be0695c20eafb71564211d1168bc59813f8800a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51e9e66e2fd8ff60dd20c275a66fd13c047cc629
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617756"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985517"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Vom Benutzer initiiertes manuelles Failover für SQL Managed Instance
 
@@ -37,9 +37,9 @@ In folgenden Fällen sollten Sie allerdings ein [manuelles Failover](../database
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>Initiieren eines manuellen Failovers in SQL Managed Instance
 
-### <a name="rbac-permissions-required"></a>Erforderliche RBAC-Berechtigungen
+### <a name="azure-rbac-permissions-required"></a>Erforderliche Azure RBAC-Berechtigungen
 
-Benutzer, die einen Failover initiieren, müssen über eine der folgenden RBAC-Rollen verfügen:
+Benutzer, die einen Failover initiieren, müssen über eine der folgenden Azure-Rollen verfügen:
 
 - Rolle „Besitzer des Abonnements“ oder
 - Rolle „Mitwirkender“ der verwalteten Instanz oder
@@ -62,7 +62,7 @@ Connect-AzAccount
 Select-AzSubscription -SubscriptionId $subscription
 ```
 
-Verwenden Sie den PowerShell-Befehl [Invoke-AzSqlInstanceFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlinstancefailover) mit dem folgenden Beispiel, um ein Failover des primären Knotens zu initiieren. Dies gilt sowohl für die Dienstebene „Unternehmenskritisch“ als auch für die Ebene „Universell“.
+Verwenden Sie den PowerShell-Befehl [Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/invoke-azsqlinstancefailover) mit dem folgenden Beispiel, um ein Failover des primären Knotens zu initiieren. Dies gilt sowohl für die Dienstebene „Unternehmenskritisch“ als auch für die Ebene „Universell“.
 
 ```powershell
 $ResourceGroup = 'enter resource group of your MI'
@@ -96,7 +96,7 @@ az sql mi failover -g myresourcegroup -n myinstancename --replica-type ReadableS
 
 ### <a name="using-rest-api"></a>Verwenden der REST-API
 
-Erfahrene Benutzer, die Failovervorgänge ihrer SQL Managed Instances zur Implementierung einer Pipeline für kontinuierliche Tests oder zur automatisierten Minimierung von Leistungsproblemen automatisieren müssen, können zur Initiierung auch einen API-Aufruf verwenden. Weitere Informationen finden Sie unter [Managed Instances – REST-API für Failover](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover).
+Erfahrene Benutzer, die Failovervorgänge ihrer SQL Managed Instances zur Implementierung einer Pipeline für kontinuierliche Tests oder zur automatisierten Minimierung von Leistungsproblemen automatisieren müssen, können zur Initiierung auch einen API-Aufruf verwenden. Weitere Informationen finden Sie unter [Managed Instances – REST-API für Failover](/rest/api/sql/managed%20instances%20-%20failover/failover).
 
 Wenn Sie ein Failover über einen REST-API-Aufruf initiieren möchten, generieren Sie zunächst mithilfe eines API-Clients Ihrer Wahl das Authentifizierungstoken. Das generierte Authentifizierungstoken wird als Autorisierungseigenschaft im Header der API-Anforderung verwendet und ist obligatorisch.
 

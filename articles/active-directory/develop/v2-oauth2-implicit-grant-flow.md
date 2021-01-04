@@ -8,62 +8,30 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 11/30/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: fbe74b62352babf7a1fdd93bf19a6e1475e3f032
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b5465cc5c1c3447af5303a5c0bfe82874705362
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85553579"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511190"
 ---
-# <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft Identity Platform und der implizit gewährte Datenfluss
+# <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft Identity Platform und der Flow für die implizite Genehmigung
 
-Mit dem Microsoft Identity Platform-Endpunkt können Sie Benutzer sowohl mit persönlichen Konten als auch mit Geschäfts-, Schul- oder Unikonten von Microsoft bei Single-Page-Apps anmelden. Bei Single-Page-Apps und anderen JavaScript-Apps, die hauptsächlich im Browser ausgeführt werden, gibt es in Bezug auf die Authentifizierung einige interessante Herausforderungen:
+Microsoft Identity Platform unterstützt den Flow für die implizite Genehmigung von OAuth 2.0, der in der [OAuth 2.0-Spezifikation](https://tools.ietf.org/html/rfc6749#section-4.2) beschrieben ist. Das definierende Merkmal der impliziten Genehmigung ist, dass Token (ID-Token oder Zugriffstoken) nicht über den Tokenendpunkt, sondern direkt über den Autorisierungsendpunkt zurückgegeben werden. Dies wird häufig im Rahmen des [Autorisierungscodeflows](v2-oauth2-auth-code-flow.md) genutzt und als „hybrider Flow“ bezeichnet. Hierbei wird das ID-Token bei der Autorisierungsanforderung zusammen mit einem Autorisierungscode abgerufen.
 
-* Die Sicherheitsmerkmale dieser Apps unterscheiden sich grundlegend von herkömmlichen serverbasierten Webanwendungen.
-* Zahlreiche Autorisierungsserver und Identitätsanbieter unterstützen keine CORS-Anforderungen.
-* Umleitungen auf ganzseitige Browserseiten stören die Benutzererfahrung erheblich.
+[!INCLUDE [suggest-msal-from-protocols](includes/suggest-msal-from-protocols.md)]
 
-Bei diesen Anwendungen (Angular, Ember.js, React.js usw.) unterstützt Microsoft Identity Platform den impliziten OAuth 2.0-Genehmigungsablauf. Der implizite Fluss wird in der [OAuth 2.0-Spezifikation](https://tools.ietf.org/html/rfc6749#section-4.2) beschrieben. Der größte Vorteil besteht darin, dass die App Token aus Microsoft Identity Platform abrufen kann, ohne dass die Anmeldeinformationen für den Back-End-Server ausgetauscht werden müssen. Dadurch kann die App den Benutzer anmelden, die Sitzung aufrechterhalten und Token für andere Web-APIs abrufen. All dies geschieht innerhalb des Client-JavaScript-Codes. Bei der Verwendung des impliziten Flusses gibt es einige wichtige Sicherheitsaspekte zu beachten, insbesondere in Bezug auf [Clients](https://tools.ietf.org/html/rfc6749#section-10.3) und [Identitätswechsel](https://tools.ietf.org/html/rfc6749#section-10.3).
+## <a name="prefer-the-auth-code-flow"></a>Empfohlene Verwendung des Autorisierungscodeflows
 
-In diesem Artikel wird beschrieben, wie Sie direkt mit dem Protokoll in Ihrer Anwendung programmieren.  Es wird stattdessen empfohlen, ggf. die unterstützten Microsoft Authentication Libraries (MSAL) zu verwenden, um [Token zu erhalten und gesicherte Web-APIs aufzurufen](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Sehen Sie sich auch die [Beispiel-Apps an, die MSAL verwenden](sample-v2-code.md).
+Da geplant ist, [Drittanbietercookies aus Browsern zu entfernen](reference-third-party-cookies-spas.md), ist der **Flow für die implizite Genehmigung keine geeignete Authentifizierungsmethode mehr**.  Da die [SSO-Hintergrundfeatures](#getting-access-tokens-silently-in-the-background) des Flows für die implizite Genehmigung nicht ohne Drittanbietercookies funktionieren, tritt für Anwendungen ein Fehler auf, wenn diese ein neues Token abrufen möchten. Wir empfehlen Ihnen dringend, für alle neuen Anwendungen anstelle des Flows für die implizite Genehmigung den [Autorisierungscodeflow](v2-oauth2-auth-code-flow.md) zu verwenden, für den jetzt Single-Page-Apps unterstützt werden. Darüber hinaus ist es ratsam, auch [für vorhandene Single-Page-Apps mit der Migration zum Autorisierungscodeflow zu beginnen](migrate-spa-implicit-to-auth-code.md).
 
-Wenn Sie jedoch in Ihrer Single-Page-App keine Bibliothek verwenden und Protokollmeldungen selbst senden möchten, führen Sie die folgenden allgemeinen Schritte aus.
+## <a name="suitable-scenarios-for-the-oauth2-implicit-grant"></a>Geeignete Szenarien für die implizite OAuth2-Genehmigung
 
-## <a name="suitable-scenarios-for-the-oauth2-implicit-grant"></a>Geeignete Szenarien für die implizite OAuth2-Gewährung
-
-Gemäß Deklaration der OAuth2-Spezifikation wurde die implizite Gewährung entwickelt, um die Verwendung von Benutzer-Agent-Anwendungen (JavaScript-Anwendungen, die in einem Browser ausgeführt werden) zu ermöglichen. Solche Anwendungen zeichnen sich insbesondere dadurch aus, dass für den Zugriff auf Serverressourcen (üblicherweise eine Web-API) und für die entsprechende Aktualisierung der Benutzeroberfläche der Anwendung JavaScript-Code verwendet wird. Denken Sie dabei z.B. an Anwendungen wie Gmail oder Outlook Web Access: Wenn Sie eine Nachricht aus Ihrem Posteingang auswählen, ändert sich nur der Bereich, in dem die Nachricht dargestellt wird, während der Rest der Seite unverändert bleibt. Im Gegensatz dazu führt bei konventionellen, auf Umleitungen basierenden Web-Apps jede Benutzerinteraktion zu einem ganzseitigen Postback sowie zum ganzseitigen Rendern der neuen Serverantwort.
-
-Extrembeispiele für Anwendungen mit der JavaScript-basierten Methode sind die sogenannten Single-Page-Webanwendungen (Single-Page Applications, SPAs). Diese Anwendungen sind nur für die Versorgung einer HTML-Startseite und des dazugehörigen JavaScript-Codes konzipiert. Alle nachfolgenden Interaktionen werden mithilfe von Web-API-Aufrufen über JavaScript ausgeführt. Hybride Methoden, bei denen Anwendungen größtenteils Postback-orientiert sind, aber auch einzelne JS-Aufrufe ausführen, sind allerdings nichts Ungewöhnliches, und die Informationen zur Verwendung impliziter Abläufe sind auch für diese Methoden relevant.
-
-Auf Umleitungen basierende Anwendungen schützen ihre Anforderungen in der Regel mithilfe von Cookies. Bei JavaScript-Anwendungen funktioniert diese Methode jedoch nicht so gut. Cookies können nur für die Domäne verwendet werden, für die sie erstellt wurden. JavaScript-Aufrufe können dagegen an andere Domänen weitergeleitet werden. Das kommt in der Praxis auch recht häufig vor – etwa bei Anwendungen, die die Microsoft Graph-API, Office-API oder Azure-API aufrufen: Diese befinden sich alle außerhalb der Domäne, von der aus die Anwendung bereitgestellt wird. Bei JavaScript-Anwendungen geht der Trend zunehmend dahin, dass kein Back-End vorhanden ist und sie zur Implementierung der Geschäftsfunktion zu 100 % auf Web-APIs von Drittanbietern basieren.
-
-Aktuell wird zum Schutz von Web-API-Aufrufen die Verwendung der OAuth2-Bearertoken-Methode empfohlen. Bei dieser Methode wird jeder Aufruf von einem OAuth2-Zugriffstoken begleitet. Die Web-API untersucht das eingehende Zugriffstoken und gewährt dem angeforderten Vorgang Zugriff, wenn das Token in den erforderlichen Bereichen gefunden wurde. Der implizite Ablauf ist eine praktische Methode, mit der JavaScript-Anwendungen Zugriffstoken für eine Web-API beziehen können. Gegenüber Cookies bietet er diverse Vorteile:
-
-* Token können zuverlässig abgerufen werden, ohne dass ursprungsübergreifende Aufrufe erforderlich sind. Die obligatorische Registrierung des Umleitungs-URI, an den Token zurückgegeben werden, stellt sicher, dass Token nicht verschoben werden.
-* JavaScript-Anwendungen können beliebig viele Zugriffstoken für beliebig viele Web-APIs beziehen. Hierbei gelten keine Domänenbeschränkungen.
-* HTML5-Features wie Sitzungen oder lokale Speicher ermöglichen es, das Zwischenspeichern von Token und die Lebensdauerverwalltung vollständig zu steuern, wobei die Verwaltung von Cookies für die App nicht transparent ist.
-* Zugriffstoken sind für websiteübergreifende Anforderungsfälschungen (CSRF) nicht anfällig.
-
-Bei der impliziten Gewährung werden insbesondere aus Sicherheitsgründen keine Aktualisierungstoken ausgegeben. Ein Aktualisierungstoken ist weniger eng umgrenzt als ein Zugriffstoken und gewährt weitaus mehr Rechte, weshalb der Schaden bei Verlust auch größer sein kann. Beim impliziten Ablauf werden Token in der URL übermittelt, weshalb die Gefahr eines Abfangens höher ist als bei der Gewährung über einen Autorisierungscode.
-
-JavaScript-Anwendungen verfügen jedoch über andere Möglichkeiten, um Zugriffstoken zu erneuern, bei denen der Benutzer nicht wiederholt zur Eingabe der Anmeldeinformationen aufgefordert wird. Zum Ausführen neuer Tokenanforderungen in Bezug auf den Autorisierungsendpunkt von Azure AD kann die Anwendung ein ausgeblendetes iFrame verwenden: Wenn der Browser über eine aktive Sitzung mit der Azure AD-Domäne (d.h. über ein Sitzungscookie) verfügt, kann die Authentifizierungsanforderung ausgeführt werden, ohne dass eine Benutzerinteraktion erforderlich ist.
-
-Bei diesem Modell kann die JavaScript-Anwendung Zugriffstoken unabhängig erneuern und sogar neue Token für eine neue API beziehen (sofern der Benutzer dem vorher zugestimmt hat). Dadurch entfällt das zusätzliche Beziehen, Verwalten und Schützen eines hochwertigen Artefakts (etwa ein Aktualisierungstoken). Das Artefakt, das die Verlängerung im Hintergrund ermöglicht (das Azure AD-Sitzungscookie), wird außerhalb der Anwendung verwaltet. Ein weiterer Vorteil dieser Methode: Ein Benutzer kann sich über eine beliebige, bei Azure AD angemeldete Anwendung, die auf einer beliebigen Browserregisterkarte ausgeführt wird, von Azure AD abmelden. Daraufhin wird das Azure AD-Sitzungscookie gelöscht, sodass die JavaScript-Anwendung für den abgemeldeten Benutzer keine Token mehr erneuern kann.
-
-## <a name="is-the-implicit-grant-suitable-for-my-app"></a>Eignet sich die implizite Gewährung für meine App?
-
-Die implizite Genehmigung stellt ein höheres Risiko dar als andere Genehmigungen, die besonders zu beachtenden Bereiche sind jedoch gut dokumentiert (z. B. unter [Missbräuchliches Verwenden von Zugriffstoken zum Annehmen der Identität des Ressourcenbesitzers im impliziten Flow][OAuth2-Spec-Implicit-Misuse] und [Überlegungen zum OAuth 2.0-Bedrohungsmodell und zur Sicherheit][OAuth2-Threat-Model-And-Security-Implications]). Das höhere Risiko liegt größtenteils darin begründet, dass Anwendungen aktiviert werden, die aktiven Code ausführen, der von einer Remoteressource direkt für einen Browser bereitgestellt wird. Wenn Sie eine SPA-Architektur planen, über keine Back-End-Komponenten verfügen oder eine Web-API über JavaScript aufrufen möchten, empfiehlt sich die Verwendung des impliziten Ablaufs für den Tokenabruf.
-
-Falls es sich bei Ihrer Anwendung dagegen um einen nativen Client handelt, ist der implizite Ablauf weniger empfehlenswert. Da bei nativen Clients keine Azure AD-Sitzungscookies vorhanden sind, hat Ihre Anwendung keine Möglichkeit, eine Sitzung mit langer Laufzeit aufrechtzuerhalten. Das bedeutet, dass Ihre Anwendung beim Abrufen von Zugriffstoken für neue Ressourcen immer wieder Eingabeaufforderung an den Benutzer richtet.
-
-Auch wenn Sie eine Webanwendung mit einem Back-End entwickeln, die eine API über den Back-End-Code nutzen soll, ist der implizite Ablauf nicht die beste Wahl. Bei anderen Methoden haben Sie deutlich mehr Steuerungsmöglichkeiten. Bei der OAuth2-Gewährung mit Clientanmeldeinformationen haben Sie beispielsweise die Möglichkeit, Token zu beziehen, die die Berechtigungen für die Anwendung widerspiegeln (im Gegensatz zu Benutzerdelegierungen). Das bedeutet unter anderem, dass der Client den programmgesteuerten Zugriff auf Ressourcen verwalten kann, auch wenn ein Benutzer nicht aktiv in eine Sitzung eingebunden ist. Darüber hinaus gewährleisten Gewährungen dieser Art eine höhere Sicherheit. So durchlaufen Zugriffstoken etwa niemals den Browser des Benutzers und können dadurch gar nicht erst im Browserverlauf gespeichert werden. Die Clientanwendung kann außerdem beim Anfordern eines Tokens eine strenge Authentifizierung durchführen.
-
-[OAuth2-Spec-Implicit-Misuse]: https://tools.ietf.org/html/rfc6749#section-10.16
-[OAuth2-Threat-Model-And-Security-Implications]: https://tools.ietf.org/html/rfc6819
+Die implizite Genehmigung ist nur für den ersten interaktiven Teil Ihres Anmeldevorgangs zuverlässig, bei dem das Fehlen der [Drittanbietercookies](reference-third-party-cookies-spas.md) keine Beeinträchtigung Ihrer Anwendung bewirkt. Diese Einschränkung bedeutet, dass Sie diesen Ansatz ausschließlich im Rahmen des hybriden Flows verwenden sollten, bei dem Ihre Anwendung einen Code und ein Token vom Autorisierungsendpunkt anfordert. So ist dafür gesorgt, dass Ihre Anwendung einen Code erhält, der gegen ein Aktualisierungstoken eingelöst werden kann. Zudem bleibt die Gültigkeit für die Anmeldesitzung Ihrer App erhalten.
 
 ## <a name="protocol-diagram"></a>Protokolldiagramm
 
@@ -99,15 +67,15 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | --- | --- | --- |
 | `tenant` | required |Mit dem `{tenant}` -Wert im Pfad der Anforderung kann festgelegt werden, welche Benutzer sich bei der Anwendung anmelden können. Zulässige Werte sind `common`, `organizations`, `consumers` und Mandantenbezeichner. Weitere Informationen finden Sie in den [Grundlagen zu Protokollen](active-directory-v2-protocols.md#endpoints). |
 | `client_id` | required | Die Anwendungs-ID (Client-ID), die Ihrer App im [Azure-Portal auf der Seite „App-Registrierungen“](https://go.microsoft.com/fwlink/?linkid=2083908) zugewiesen wurde. |
-| `response_type` | required |Muss das `id_token` für die OpenID Connect-Anmeldung enthalten. Kann auch den Antworttyp `token` enthalten. Mithilfe von `token` kann Ihre App ein Zugriffstoken direkt vom Autorisierungsendpunkt abrufen, ohne dass eine zweite Anforderung an den Autorisierungsendpunkt erforderlich ist. Wenn Sie den Antworttyp `token` verwenden, muss der `scope`-Parameter einen Bereich enthalten, der angibt, für welche Ressource das Token ausgestellt wird (z. B. „user.read“ in Microsoft Graph).  |
+| `response_type` | required |Muss das `id_token` für die OpenID Connect-Anmeldung enthalten. Kann auch den Antworttyp `token` enthalten. Mithilfe von `token` kann Ihre App ein Zugriffstoken direkt vom Autorisierungsendpunkt abrufen, ohne dass eine zweite Anforderung an den Autorisierungsendpunkt erforderlich ist. Wenn Sie den Antworttyp `token` verwenden, muss der `scope`-Parameter einen Bereich enthalten, der angibt, für welche Ressource das Token ausgestellt wird (z. B. „user.read“ in Microsoft Graph). Er kann anstelle von `token` auch `code` enthalten, damit ein Autorisierungscode für die Verwendung im [Autorisierungscodeflow](v2-oauth2-auth-code-flow.md) bereitgestellt wird. Diese Antwort vom Typ „ID-Token plus Code“ wird auch als hybrider Flow bezeichnet.  |
 | `redirect_uri` | empfohlen |Der Umleitungs-URI der App, in dem Authentifizierungsantworten gesendet und von der App empfangen werden können. Er muss genau mit einer der Umleitungs-URIs übereinstimmen, die Sie im Portal registriert haben, mit dem Unterschied, dass er URL-codiert sein muss. |
 | `scope` | required |Eine durch Leerzeichen getrennte Liste von [Bereichen](v2-permissions-and-consent.md). Für OpenID Connect (id_tokens) muss der Bereich `openid` enthalten sein, der auf der Zustimmungsbenutzeroberfläche die Berechtigung „Anmeldung in Ihrem Namen“ ergibt. Optional können Sie auch die Bereiche `email` und `profile` einschließen, um Zugriff auf zusätzliche Benutzerdaten zu erhalten. Sie können in diese Anforderung auch andere Bereiche aufnehmen, um die Zustimmung für verschiedene Ressourcen anzufordern, wenn ein Zugriffstoken angefordert wird. |
 | `response_mode` | optional |Gibt die Methode an, die zum Senden des resultierenden Tokens zurück an Ihre App verwendet werden soll. Der Standardwert nur für ein Zugriffstoken ist „Abfrage“, aber „Fragment“, wenn die Anforderung ein „id_token“ enthält. |
 | `state` | empfohlen |Ein in der Anforderung enthaltener Wert, der auch in der Antwort zurückgegeben wird. Es kann sich um eine Zeichenfolge mit jedem beliebigen Inhalt handeln. Ein zufällig generierter eindeutiger Wert wird normalerweise verwendet, um [websiteübergreifende Anforderungsfälschungsangriffe zu verhindern](https://tools.ietf.org/html/rfc6749#section-10.12). Der Status wird auch verwendet, um Informationen über den Status des Benutzers in der App zu codieren, bevor die Authentifizierungsanforderung aufgetreten ist, z. B. Informationen zu der Seite oder Ansicht, die der Benutzer besucht hat. |
-| `nonce` | required |Ein Wert in der Anforderung, der von der App erzeugt wird und im resultierenden ID-Token als Anspruch enthalten sein wird. Die App kann diesen Wert dann überprüfen, um die Gefahr von Tokenwiedergabeangriffen zu vermindern. Der Wert ist in der Regel eine zufällige, eindeutige Zeichenfolge, die verwendet werden kann, um den Ursprung der Anforderung zu identifizieren. Nur erforderlich, wenn ein „id_token“ angefordert wird. |
+| `nonce` | required |Ein in der Anforderung enthaltener, von der App generierter Wert, der in das resultierende id_token als Anspruch einbezogen wird. Die App kann diesen Wert dann verifizieren, um Tokenwiederholungsangriffe abzuwehren. Der Wert ist in der Regel eine zufällige, eindeutige Zeichenfolge, die zur Identifizierung des Ursprungs der Anforderung verwendet werden kann. Nur erforderlich, wenn ein „id_token“ angefordert wird. |
 | `prompt` | optional |Gibt den Typ der erforderlichen Benutzerinteraktion an. Zu diesem Zeitpunkt sind die einzigen gültigen Werte „login“, „none“, „select_account“ und „consent“. `prompt=login` zwingt den Benutzer, die Anmeldeinformationen bei dieser Anforderung einzugeben. Einmaliges Anmelden ist dadurch nicht möglich. `prompt=none` ist genau das Gegenteil: Dieser Wert stellt sicher, dass dem Benutzer keine interaktive Eingabeaufforderung angezeigt wird. Wenn die Anforderung nicht über einmaliges Anmelden im Hintergrund abgeschlossen werden kann, gibt der Microsoft Identity Platform-Endpunkt einen Fehler zurück. `prompt=select_account` sendet den Benutzer an eine Kontoauswahl, in der alle in der Sitzung gespeicherten Konten angezeigt werden. `prompt=consent` löst nach der Anmeldung des Benutzers das OAuth-Zustimmungsdialogfeld aus, in dem der Benutzer aufgefordert wird, der App Berechtigungen zu gewähren. |
-| `login_hint`  |optional |Dieser Wert kann verwendet werden, um das Feld für den Benutzernamen oder die E-Mail-Adresse auf der Anmeldeseite vorab für den Benutzer auszufüllen, wenn dessen Benutzername im Vorfeld bekannt ist. Apps verwenden diesen Parameter häufig für die wiederholte Authentifizierung, nachdem sie den Benutzernamen aus einer vorherigen Anmeldung mithilfe des Anspruchs `preferred_username` extrahiert haben.|
-| `domain_hint` | optional |Wenn dieser Parameter vorhanden ist, wird der E-Mail-basierte Ermittlungsvorgang übersprungen, den der Benutzer auf der Anmeldeseite durchläuft, und so die Benutzerfreundlichkeit verbessert. Dieser Parameter wird häufig bei branchenspezifischen Apps verwendet, die in einem einzigen Mandanten ausgeführt werden, in dem sie einen Domänennamen innerhalb eines bestimmten Mandanten bereitstellen.  Dadurch wird der Benutzer an den Verbundanbieter für diesen Mandanten weitergeleitet.  Beachten Sie, dass sich Gäste dann nicht bei dieser Anwendung anmelden können.  |
+| `login_hint`  |optional |Kann verwendet werden, um das Feld für Benutzername/E-Mail-Adresse der Anmeldeseite für den Benutzer vorab auszufüllen, wenn du seinen Benutzernamen vorab kennst. Apps verwenden diesen Parameter häufig für die wiederholte Authentifizierung, nachdem sie den Benutzernamen über den Anspruch `preferred_username` aus einer vorherigen Anmeldung extrahiert haben.|
+| `domain_hint` | optional |Wenn dieser Parameter vorhanden ist, wird der E-Mail-basierte Ermittlungsvorgang übersprungen, den der Benutzer auf der Anmeldeseite durchläuft, und so die Benutzerfreundlichkeit verbessert. Dieser Parameter wird häufig für branchenspezifische Apps verwendet, die mit nur einem Mandanten betrieben werden. Hierbei wird in einem bestimmten Mandanten ein Domänenname angegeben, und der Benutzer wird an den Verbundanbieter für diesen Mandanten weitergeleitet.  Beachten Sie, dass sich Gäste hierbei nicht bei der Anwendung anmelden können und die Nutzung von Cloudanmeldeinformationen wie FIDO eingeschränkt wird.  |
 
 Zu diesem Zeitpunkt wird der Benutzer dazu aufgefordert, seine Anmeldeinformationen einzugeben und die Authentifizierung abzuschließen. Der Microsoft Identity Platform-Endpunkt stellt auch sicher, dass der Benutzer den Berechtigungen zugestimmt hat, die im `scope`-Abfrageparameter angegeben sind. Wenn der Benutzer **keiner** Berechtigung zugestimmt hat, wird er dazu aufgefordert, den erforderlichen Berechtigungen zuzustimmen. Weitere Informationen finden Sie unter [Berechtigungen, Zustimmung und mehrinstanzenfähigen Apps](v2-permissions-and-consent.md).
 
@@ -115,23 +83,23 @@ Sobald der Benutzer authentifiziert ist und seine Zustimmung erteilt hat, gibt d
 
 #### <a name="successful-response"></a>Erfolgreiche Antwort
 
-Eine erfolgreiche Antwort mithilfe von `response_mode=fragment` und `response_type=id_token+token` sieht wie folgt aus, wobei die Zeilenumbrüche der Lesbarkeit dienen:
+Eine erfolgreiche Antwort mithilfe von `response_mode=fragment` und `response_type=id_token+code` sieht wie folgt aus, wobei die Zeilenumbrüche der Lesbarkeit dienen:
 
 ```HTTP
 GET https://localhost/myapp/#
-&token_type=Bearer
-&expires_in=3599
+code=0.AgAAktYV-sfpYESnQynylW_UKZmH-C9y_G1A
 &id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=12345
 ```
 
 | Parameter | BESCHREIBUNG |
 | --- | --- |
+| `code` | Ist enthalten, wenn `code` in `response_type` enthalten ist. Dies ist ein Autorisierungscode, der im [Autorisierungscodeflow](v2-oauth2-auth-code-flow.md) verwendet werden kann.  |
 | `access_token` |Ist enthalten, wenn `token` in `response_type` enthalten ist. Das von der App angeforderte Zugriffstoken. Das Zugriffstoken sollte nicht decodiert oder anderweitig untersucht werden, es sollte als nicht transparente Zeichenfolge behandelt werden. |
 | `token_type` |Ist enthalten, wenn `token` in `response_type` enthalten ist. Ist immer `Bearer`. |
 | `expires_in`|Ist enthalten, wenn `token` in `response_type` enthalten ist. Gibt für die Zwischenspeicherung den Gültigkeitszeitraum des Tokens in Sekunden an. |
 | `scope` |Ist enthalten, wenn `token` in `response_type` enthalten ist. Gibt die Bereiche an, für die das Zugriffstoken gültig ist. Umfasst eventuell nicht alle angeforderten Bereiche, wenn sie nicht auf den Benutzer anwendbar sind (im Fall von reinen Azure AD-Bereichen, die angefordert werden, wenn ein persönliches Konto für die Anmeldung verwendet wird). |
-| `id_token` | Ein signiertes JSON Web Token (JWT). Die App kann die Segmente dieses Tokens decodieren, um Informationen zum angemeldeten Benutzer abzurufen. Die App kann die Werte zwischenspeichern und sie anzeigen, sollte sich in Bezug auf Autorisierungs- und Sicherheitsgrenzen aber nicht darauf verlassen. Weitere Informationen zu ID-Token finden Sie unter [`id_token reference`](id-tokens.md). <br> **Hinweis:** Wird nur bei Anforderung des `openid`-Bereichs bereitgestellt. |
+| `id_token` | Ein signiertes JSON Web Token (JWT). Die App kann die Segmente dieses Tokens decodieren, um Informationen zum angemeldeten Benutzer abzurufen. Die App kann die Werte zwischenspeichern und sie anzeigen, sollte sich in Bezug auf Autorisierungs- und Sicherheitsgrenzen aber nicht darauf verlassen. Weitere Informationen zu ID-Token finden Sie unter [`id_token reference`](id-tokens.md). <br> **Hinweis:** Wird nur bei Anforderung des Bereichs `openid` und bei Auswahl von `id_tokens` für `response_type` bereitgestellt. |
 | `state` |Wenn ein Statusparameter in der Anforderung enthalten ist, sollte der gleiche Wert in der Antwort angezeigt werden. Die Anwendung sollte überprüfen, ob die Statuswerte in der Anforderung und in der Antwort identisch sind. |
 
 #### <a name="error-response"></a>Fehlerantwort
@@ -151,9 +119,12 @@ error=access_denied
 
 ## <a name="getting-access-tokens-silently-in-the-background"></a>Automatisches Abrufen von Zugriffstoken im Hintergrund
 
+> [!Important]
+> Dieser Teil des impliziten Flows funktioniert für Ihre Anwendung wahrscheinlich nicht. Der Grund ist, dass er aufgrund der [standardmäßigen Entfernung von Drittanbietercookies](reference-third-party-cookies-spas.md) für unterschiedliche Browser genutzt wird.  Für Chromium-basierte Browser funktioniert dies zwar noch, wenn diese nicht im Inkognitomodus verwendet werden, aber Entwickler sollten die Nutzung dieses Teils des Flows trotzdem überdenken. In Browsern, die keine Drittanbietercookies unterstützen, erhalten Sie eine Fehlermeldung mit dem Hinweis, dass keine Benutzer angemeldet sind. Der Grund ist, dass die Sitzungscookies der Anmeldeseite vom Browser entfernt wurden. 
+
 Nachdem Sie den Benutzer bei der Single-Page-App angemeldet haben, können Sie Zugriffstoken zum Aufrufen der von der Microsoft Identity Platform gesicherten Web-APIs automatisch abrufen, z. B. [Microsoft Graph](https://developer.microsoft.com/graph). Auch wenn Sie mithilfe des Antworttyps `token` bereits ein Token erhalten haben, können Sie diese Methode zum Abrufen von Token für zusätzliche Ressourcen verwenden, ohne den Benutzer zur erneuten Anmeldung umzuleiten.
 
-Im herkömmlichen OpenID Connect/OAuth-Fluss senden Sie dazu eine Anforderung an den Microsoft Identity Platform-Endpunkt `/token`. Der Microsoft Identity Platform-Endpunkt unterstützt jedoch keine CORS-Anforderungen, daher kommen AJAX-Aufrufe zum Abrufen und Aktualisieren von Token nicht infrage. Stattdessen können Sie den impliziten Fluss in einem ausgeblendeten IFrame verwenden, um neue Token für andere Web-APIs zu erhalten:
+Im herkömmlichen OpenID Connect/OAuth-Fluss senden Sie dazu eine Anforderung an den Microsoft Identity Platform-Endpunkt `/token`. Sie können die Anforderung in einem ausgeblendeten IFrame senden, um neue Token für andere Web-APIs zu erhalten:
 
 ```
 // Line breaks for legibility only
@@ -177,8 +148,9 @@ Weitere Informationen zu den Abfrageparametern in der URL finden Sie unter [Send
 >
 >`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&login_hint={your-username}`
 >
+> Beachten Sie, dass dies auch in Browsern ohne Unterstützung von Drittanbietercookies funktioniert. Der Grund ist, dass die Eingabe direkt in einer Browserleiste erfolgt (im Gegensatz zum Öffnen in einem IFrame). 
 
-Dank des Parameters `prompt=none` ist diese Anforderung entweder erfolgreich oder sie schlägt direkt fehl und kehrt zu Ihrer Anwendung zurück. Eine erfolgreiche Antwort wird an Ihre App an den angegebenen Umleitungs-URI (`redirect_uri`) gesendet. Dabei wird die im Parameter `response_mode` angegebene Methode verwendet.
+Dank des Parameters `prompt=none` ist diese Anforderung entweder erfolgreich oder sie schlägt direkt fehl und kehrt zu Ihrer Anwendung zurück. Die Antwort wird an Ihre App an den angegebenen Umleitungs-URI (`redirect_uri`) gesendet. Dabei wird die im Parameter `response_mode` angegebene Methode verwendet.
 
 #### <a name="successful-response"></a>Erfolgreiche Antwort
 
@@ -221,7 +193,9 @@ Wenn Sie diesen Fehler in der IFrame-Anforderung erhalten, muss sich der Benutze
 
 ## <a name="refreshing-tokens"></a>Aktualisieren von Token
 
-Die implizite Gewährung stellt keine Aktualisierungstoken bereit. `id_token`s und `access_token`s laufen nach kurzer Zeit ab. Ihre App muss daher diese Token in regelmäßigen Abständen aktualisieren. Zum Aktualisieren beider Tokentypen können Sie die oben erwähnte verborgene IFrame-Anforderung unter Verwendung des Parameters `prompt=none` ausführen, um das Verhalten der Microsoft Identity Platform zu steuern. Wenn Sie ein neues `id_token` erhalten möchten, verwenden Sie unbedingt `id_token` in `response_type` und `scope=openid` sowie einen `nonce`-Parameter.
+Die implizite Genehmigung stellt keine Aktualisierungstoken bereit. `id_token`s und `access_token`s laufen nach kurzer Zeit ab. Ihre App muss daher diese Token in regelmäßigen Abständen aktualisieren. Zum Aktualisieren beider Tokentypen können Sie die oben erwähnte verborgene IFrame-Anforderung unter Verwendung des Parameters `prompt=none` ausführen, um das Verhalten der Microsoft Identity Platform zu steuern. Wenn Sie ein neues `id_token` erhalten möchten, verwenden Sie unbedingt `id_token` in `response_type` und `scope=openid` sowie einen `nonce`-Parameter.
+
+In Browsern, für die keine Drittanbietercookies unterstützt werden, führt dies zu einer Fehlermeldung mit dem Hinweis, dass kein Benutzer angemeldet ist. 
 
 ## <a name="send-a-sign-out-request"></a>Senden einer Abmeldungsanforderung
 
@@ -239,6 +213,4 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 ## <a name="next-steps"></a>Nächste Schritte
 
 * Wechseln Sie zu den [MSAL JS-Beispielen](sample-v2-code.md), um in die Programmierung einzusteigen.
-
-[OAuth2-Spec-Implicit-Misuse]: https://tools.ietf.org/html/rfc6749#section-10.16
-[OAuth2-Threat-Model-And-Security-Implications]: https://tools.ietf.org/html/rfc6819
+* Informieren Sie sich über den [Autorisierungscodeflow](v2-oauth2-auth-code-flow.md) als neuere und bessere Alternative zur impliziten Genehmigung. 

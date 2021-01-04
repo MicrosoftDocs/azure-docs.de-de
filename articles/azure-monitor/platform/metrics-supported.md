@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 07/16/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 59df49d320b23686a3d053335ea2b95e98125b28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1741331c57427c57507376afdb878edc18259b72
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88135554"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93306833"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Unterstützte Metriken von Azure Monitor
 
@@ -38,7 +38,7 @@ Die Verwendung von Diagnoseeinstellungen ist die einfachste Möglichkeit, um Met
 
 - **Nicht alle sind exportierbar:** Über die REST-API können zwar alle Metriken exportiert werden, doch einige können aufgrund von Feinheiten im Back-End von Azure Monitor nicht mithilfe von Diagnoseeinstellungen exportiert werden. Die Spalte *Über Diagnoseeinstellungen exportierbar?* in den folgenden Tabellen enthält die Metriken, die auf diese Weise exportiert werden können.  
 
-- **Mehrdimensionale Metriken:** Das Senden mehrdimensionaler Metriken an andere Speicherorte über Diagnoseeinstellungen wird derzeit nicht unterstützt. Metriken mit Dimensionen werden als vereinfachte eindimensionale Metriken exportiert und dimensionswertübergreifend aggregiert. *Beispiel*: Die Metrik „Eingehende Nachrichten“ in einem Event Hub kann auf Warteschlangenebene untersucht und in einem Diagramm dargestellt werden. Wenn Sie die Metrik allerdings über die Diagnoseeinstellungen exportieren, umfasst die Darstellung alle eingehenden Nachrichten für alle Warteschlangen im Event Hub.
+- **Mehrdimensionale Metriken:** Das Senden mehrdimensionaler Metriken an andere Speicherorte über Diagnoseeinstellungen wird derzeit nicht unterstützt. Metriken mit Dimensionen werden als vereinfachte eindimensionale Metriken exportiert und dimensionswertübergreifend aggregiert. *Beispiel* : Die Metrik „Eingehende Nachrichten“ in einem Event Hub kann auf Warteschlangenebene untersucht und in einem Diagramm dargestellt werden. Wenn Sie die Metrik allerdings über die Diagnoseeinstellungen exportieren, umfasst die Darstellung alle eingehenden Nachrichten für alle Warteschlangen im Event Hub.
 
 ## <a name="guest-os-and-host-os-metrics"></a>Metriken für Gast- und Hostbetriebssysteme
 
@@ -952,10 +952,10 @@ Weitere wichtige Informationen finden Sie unter [Übersicht über Azure Monitor-
 |d2c.endpoints.latency.serviceBusQueues|Ja|Routing: Nachrichtenwartezeit für Service Bus-Warteschlange|Millisekunden|Average|Durchschnittliche Wartezeit (Millisekunden) zwischen dem Eingang der Nachricht beim IoT Hub und dem Eingang der Nachricht bei einem Service Bus-Warteschlangenendpunkt.|Keine Dimensionen|
 |d2c.endpoints.latency.serviceBusTopics|Ja|Routing: Nachrichtenwartezeit für Service Bus-Thema|Millisekunden|Average|Durchschnittliche Wartezeit (Millisekunden) zwischen dem Eingang der Nachricht beim IoT Hub und dem Eingang der Nachricht bei einem Service Bus-Themaendpunkt.|Keine Dimensionen|
 |d2c.endpoints.latency.storage|Ja|Routing: Nachrichtenwartezeit für Speicher|Millisekunden|Average|Durchschnittliche Wartezeit (Millisekunden) zwischen dem Eingang der Nachricht beim IoT Hub und dem Eingang der Nachricht bei einem Speicherendpunkt.|Keine Dimensionen|
-|d2c.telemetry.egress.dropped|Ja|Routing: Verworfene Telemetrienachrichten |Anzahl|Gesamt|Die Anzahl der Nachrichten, die vom IoT Hub-Routing aufgrund von inaktiven Endpunkten gelöscht wurden. Dieser Wert zählt nicht die Nachrichten, die an die Fallbackroute übermittelt werden, da gelöschte Nachrichten dort nicht übermittelt werden.|Keine Dimensionen|
+|d2c.telemetry.egress.dropped|Ja|Routing: Verworfene Telemetrienachrichten |Anzahl|Gesamt|Die Anzahl der Nachrichten, die vom IoT Hub-Routing aufgrund von inaktiven Endpunkten gelöscht wurden. Dieser Wert zählt nicht die Nachrichten, die an die Fallbackroute übermittelt werden, da gelöschte Nachrichten dort nicht übermittelt werden.|Keine Dimensionen|
 |d2c.telemetry.egress.fallback|Ja|Routing: An den Fallback übermittelte Nachrichten|Anzahl|Gesamt|Die Häufigkeit, mit der das IoT Hub-Routing Nachrichten an den mit der Fallbackroute verbundenen Endpunkt übermittelt hat.|Keine Dimensionen|
 |d2c.telemetry.egress.invalid|Ja|Routing: Nicht kompatible Telemetrienachrichten|Anzahl|Gesamt|Die Häufigkeit, mit der das IoT Hub-Routing Nachrichten aufgrund einer Inkompatibilität mit dem Endpunkt nicht übermitteln konnte. Dieser Wert umfasst keine Wiederholungen.|Keine Dimensionen|
-|d2c.telemetry.egress.orphaned|Ja|Routing: Verwaiste Telemetrienachrichten |Anzahl|Gesamt|Die Häufigkeit, mit der Nachrichten durch das IoT Hub-Routing verwaist wurden, da sie mit keinen Routingregeln (einschließlich der Fallbackregel) übereinstimmten. |Keine Dimensionen|
+|d2c.telemetry.egress.orphaned|Ja|Routing: Verwaiste Telemetrienachrichten |Anzahl|Gesamt|Die Häufigkeit, mit der Nachrichten durch das IoT Hub-Routing verwaist wurden, da sie mit keinen Routingregeln (einschließlich der Fallbackregel) übereinstimmten. |Keine Dimensionen|
 |d2c.telemetry.egress.success|Ja|Routing: Übermittelte Telemetrienachrichten|Anzahl|Gesamt|Die Anzahl der erfolgreichen Nachrichtenübermittlungen an alle Endpunkte über das IoT Hub-Routing Wenn eine Nachricht an mehrere Endpunkte weitergeleitet wird, erhöht sich dieser Wert für jede erfolgreiche Übermittlung um eins Wenn eine Nachricht mehrmals an denselben Endpunkt übermittelt wird, erhöht sich dieser Wert für jede erfolgreiche Übermittlung um eins|Keine Dimensionen|
 |d2c.telemetry.Ingress.allProtocol|Ja|Telemetry message send attempts (Sendeversuche für Telemetrienachrichten)|Anzahl|Gesamt|Anzahl von Telemetrienachrichten vom Gerät an die Cloud, die an Ihren IoT Hub gesendet werden sollten|Keine Dimensionen|
 |d2c.telemetry.ingress.sendThrottle|Ja|Anzahl von Drosselungsfehlern|Anzahl|Gesamt|Anzahl von Drosselungsfehlern aufgrund von Drosselungen des Gerätedurchsatzes|Keine Dimensionen|
@@ -1439,7 +1439,7 @@ Weitere wichtige Informationen finden Sie unter [Übersicht über Azure Monitor-
 |Gestartete Ausführungen|Ja|Gestartete Ausführungen|Anzahl|Gesamt|Anzahl von Ausführungen für diesen Arbeitsbereich – die Anzahl wird aktualisiert, wenn eine Ausführung mit den erforderlichen Ressourcen gestartet wird.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
 |Ausführungen, die gestartet werden|Ja|Ausführungen, die gestartet werden|Anzahl|Gesamt|Anzahl gestarteter Ausführungen für diesen Arbeitsbereich – die Anzahl wird aktualisiert, nachdem eine Anforderung zur Initiierung der Ausführung eingegangen ist und die Ausführungsinformationen (z. B. runId) aufgefüllt wurden.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
 |Kerne insgesamt|Ja|Kerne insgesamt|Anzahl|Average|Gesamtanzahl von Kernen|Scenario, ClusterName|
-|Knoten insgesamt|Ja|Knoten insgesamt|Anzahl|Average|Gesamtanzahl von Knoten. Diese Summe umfasst Teile von aktiven Knoten, Leerlaufknoten, nicht verwendbaren Knoten, vorab erstellten Knoten, ausscheidenden Knoten.|Scenario, ClusterName|
+|Knoten insgesamt|Ja|Knoten insgesamt|Anzahl|Average|Gesamtanzahl von Knoten. Diese Summe umfasst Teile von aktiven Knoten, Leerlaufknoten, nicht verwendbaren Knoten, vorzeitig entfernten Knoten, ausscheidenden Knoten.|Scenario, ClusterName|
 |Nicht verwendbare Kerne|Ja|Nicht verwendbare Kerne|Anzahl|Average|Anzahl der nicht verwendbaren Kerne|Scenario, ClusterName|
 |Unusable Nodes (Nicht verwendbare Knoten)|Ja|Unusable Nodes (Nicht verwendbare Knoten)|Anzahl|Average|Anzahl nicht verwendbarer Knoten. Nicht verwendbare Knoten sind aufgrund eines nicht auflösbaren Problems nicht funktionsfähig. Azure recycelt diese Knoten.|Scenario, ClusterName|
 |Warnungen|Ja|Warnungen|Anzahl|Gesamt|Anzahl von Ausführungswarnungen in diesem Arbeitsbereich – die Anzahl wird aktualisiert, wenn bei einer Ausführung eine Warnung auftritt.|Szenario|
@@ -1494,7 +1494,7 @@ Weitere wichtige Informationen finden Sie unter [Übersicht über Azure Monitor-
 |AverageReadLatency|Ja|Durchschnittliche Wartezeit beim Lesevorgang|Millisekunden|Average|Durchschnittliche Wartezeit beim Lesen in Millisekunden pro Vorgang|Keine Dimensionen|
 |AverageWriteLatency|Ja|Durchschnittliche Wartezeit beim Schreibvorgang|Millisekunden|Average|Durchschnittliche Wartezeit beim Schreiben in Millisekunden pro Vorgang|Keine Dimensionen|
 |CbsVolumeBackupActive|Ja|Volumesicherung – Status „Aktiv“|Anzahl|Average|Gibt an, ob die Sicherung für das Volume derzeit angehalten ist|Keine Dimensionen|
-|CbsVolumeLogicalBackupBytes|Ja|Gesicherte logische Bytes|Byte|Average|Insgesamt nicht komprimierte/verschlüsselte gesicherte Bytes für dieses Volumes|Keine Dimensionen|
+|CbsVolumeLogicalBackupBytes|Ja|Gesicherte logische Bytes|Byte|Average|Insgesamt nicht komprimierte/verschlüsselte gesicherte Bytes für dieses Volume|Keine Dimensionen|
 |CbsVolumeOperationComplete|Ja|Vorgangsstatus|Anzahl|Average|Gibt an, ob der letzte Sicherungs-/Wiederherstellungsvorgang erfolgreich war|Keine Dimensionen|
 |CbsVolumeOperationTransferredBytes|Ja|Für den Vorgang übertragene Bytes|Byte|Average|Insgesamt übertragene Bytes für den letzten Sicherungs-/Wiederherstellungsvorgang|Keine Dimensionen|
 |CbsVolumeProtected|Ja|Volumestatus „Geschützt“|Anzahl|Average|Gibt an, ob das Volume durch den Cloudsicherungsdienst geschützt wird|Keine Dimensionen|
@@ -2171,7 +2171,7 @@ Weitere wichtige Informationen finden Sie unter [Übersicht über Azure Monitor-
 |StorageSyncRecalledTotalNetworkBytes|Ja|Cloudtiering-Rückrufgröße|Byte|Gesamt|Größe der zurückgerufenen Daten|SyncGroupName, ServerName|
 |StorageSyncRecallIOTotalSizeBytes|Ja|Cloudtieringrückruf|Byte|Gesamt|Gesamtgröße der vom Server zurückgerufenen Daten|ServerName|
 |StorageSyncRecallThroughputBytesPerSecond|Ja|Cloudtiering-Rückrufdurchsatz|Bytes pro Sekunde|Average|Größe des Datenrückruf-Durchsatzes|SyncGroupName, ServerName|
-|StorageSyncServerHeartbeat|Ja|Onlinestatus des Servers|Anzahl|Maximum|Metrik, die jedes Mal den Wert 1 protokolliert, wenn der registrierte Server erfolgreich einen Heartbeat mit dem Cloudendpunkt erfasst|ServerName|
+|StorageSyncServerHeartbeat|Ja|Onlinestatus des Servers|Anzahl|Maximum|Metrik, die jedes Mal dann einen Wert von 1 protokolliert, wenn der registrierte Server erfolgreich einen Heartbeat mit dem Cloudendpunkt erfasst.|ServerName|
 |StorageSyncSyncSessionAppliedFilesCount|Ja|Synchronisierte Dateien|Anzahl|Gesamt|Anzahl synchronisierter Dateien|SyncGroupName, ServerEndpointName, SyncDirection|
 |StorageSyncSyncSessionPerItemErrorsCount|Ja|Dateien ohne Synchronisierung|Anzahl|Gesamt|Anzahl von Dateien mit fehlerhafter Synchronisierung|SyncGroupName, ServerEndpointName, SyncDirection|
 
@@ -2180,7 +2180,7 @@ Weitere wichtige Informationen finden Sie unter [Übersicht über Azure Monitor-
 
 |Metrik|Über Diagnoseeinstellungen exportierbar?|Metrikanzeigename|Einheit|Aggregationstyp|BESCHREIBUNG|Dimensionen|
 |---|---|---|---|---|---|---|
-|ServerHeartbeat|Ja|Onlinestatus des Servers|Anzahl|Maximum|Metrik, die jedes Mal den Wert 1 protokolliert, wenn der registrierte Server erfolgreich einen Heartbeat mit dem Cloudendpunkt erfasst|ServerResourceId, ServerName|
+|ServerHeartbeat|Ja|Onlinestatus des Servers|Anzahl|Maximum|Metrik, die jedes Mal dann einen Wert von 1 protokolliert, wenn der registrierte Server erfolgreich einen Heartbeat mit dem Cloudendpunkt erfasst.|ServerResourceId, ServerName|
 |ServerRecallIOTotalSizeBytes|Ja|Cloudtieringrückruf|Byte|Gesamt|Gesamtgröße der vom Server zurückgerufenen Daten|ServerResourceId, ServerName|
 
 
@@ -2251,13 +2251,13 @@ Weitere wichtige Informationen finden Sie unter [Übersicht über Azure Monitor-
 |---|---|---|---|---|---|---|
 |AdaptiveCacheHitPercent|Nein|Prozentsatz der Treffer für adaptiven Cache|Percent|Maximum|Misst, wie gut Arbeitsauslastungen den adaptiven Cache nutzen. Verwenden Sie diese Metrik mit der Metrik für den Prozentsatz der Cachetreffer, um zu ermitteln, ob eine Skalierung zur Bereitstellung zusätzlicher Kapazität oder eine erneute Ausführung von Arbeitsauslastungen zum Aktualisieren des Caches erforderlich ist|Keine Dimensionen|
 |AdaptiveCacheUsedPercent|Nein|Verwendung des adaptiven Cache in Prozent|Percent|Maximum|Misst, wie gut Arbeitsauslastungen den adaptiven Cache nutzen. Verwenden Sie diese Metrik mit der Metrik zur Cacheverwendung in Prozent, um zu ermitteln, ob eine Skalierung zur Bereitstellung zusätzlicher Kapazität oder eine erneute Ausführung von Arbeitsauslastungen zum Aktualisieren des Caches erforderlich ist|Keine Dimensionen|
-|Verbindungen|Ja|Verbindungen|Anzahl|Gesamt|Gesamtanzahl der Anmeldungen beim SQL-Pool|Ergebnis|
-|ConnectionsBlockedByFirewall|Nein|Durch die Firewall blockierte Verbindungen|Anzahl|Gesamt|Anzahl von Verbindungen, die durch die Firewall blockiert wurden. Überprüfen Sie die Zugriffssteuerungsrichtlinien für Ihren SQL-Pool, und überwachen Sie diese Verbindungen bei einer hohen Anzahl|Keine Dimensionen|
-|DWULimit|Nein|DWU-Grenzwert|Anzahl|Maximum|Servicelevelziel des SQL-Pools|Keine Dimensionen|
-|DWUUsed|Nein|DWU-Verbrauch|Anzahl|Maximum|Eine allgemeine Darstellung der Nutzung für den SQL-Pool. Wird anhand von DWU-Limit × DWU-Prozentsatz berechnet|Keine Dimensionen|
-|DWUUsedPercent|Nein|DWU-Verbrauch in Prozent|Percent|Maximum|Eine allgemeine Darstellung der Nutzung für den SQL-Pool. Wird anhand des Höchstwerts zwischen CPU-Prozentsatz und E/A-Prozentsatz für Daten berechnet|Keine Dimensionen|
+|Verbindungen|Ja|Verbindungen|Anzahl|Gesamt|Gesamtanzahl der Anmeldungen beim dedizierten SQL-Pool|Ergebnis|
+|ConnectionsBlockedByFirewall|Nein|Durch die Firewall blockierte Verbindungen|Anzahl|Gesamt|Anzahl von Verbindungen, die durch die Firewall blockiert wurden. Überprüfen Sie die Zugriffssteuerungsrichtlinien für Ihren dedizierten SQL-Pool, und überwachen Sie diese Verbindungen bei einer hohen Anzahl.|Keine Dimensionen|
+|DWULimit|Nein|DWU-Grenzwert|Anzahl|Maximum|Servicelevelziel des dedizierten SQL-Pools|Keine Dimensionen|
+|DWUUsed|Nein|DWU-Verbrauch|Anzahl|Maximum|Eine allgemeine Darstellung der Nutzung für den dedizierten SQL-Pool. Wird anhand von DWU-Limit × DWU-Prozentsatz berechnet|Keine Dimensionen|
+|DWUUsedPercent|Nein|DWU-Verbrauch in Prozent|Percent|Maximum|Eine allgemeine Darstellung der Nutzung für den dedizierten SQL-Pool. Wird anhand des Höchstwerts zwischen CPU-Prozentsatz und E/A-Prozentsatz für Daten berechnet|Keine Dimensionen|
 |LocalTempDBUsedPercent|Nein|Lokale tempdb-Auslastung in Prozent|Percent|Maximum|Lokale tempdb-Auslastung für alle Computeknoten, Werte werden alle fünf Minuten ausgegeben|Keine Dimensionen|
-|MemoryUsedPercent|Nein|Verwendeter Arbeitsspeicher in Prozent|Percent|Maximum|Arbeitsspeichernutzung aller Knoten im SQL-Pool|Keine Dimensionen|
+|MemoryUsedPercent|Nein|Verwendeter Arbeitsspeicher in Prozent|Percent|Maximum|Arbeitsspeichernutzung aller Knoten im dedizierten SQL-Pool|Keine Dimensionen|
 |wlg_effective_min_resource_percent|Ja|Effektive Mindestanzahl von Ressourcen (Prozent)|Percent|Minimum|Die Einstellung für die effektive Mindestressourcenmenge in Prozent, die unter Berücksichtigung des Servicelevels und der Einstellungen der Arbeitsauslastungsgruppe zulässig ist. „effective min_percentage_resource“ kann bei niedrigeren Servicelevels erhöht werden|IsUserDefined, WorkloadGroup|
 |WLGActiveQueries|Nein|Aktive Abfragen von Arbeitsauslastungsgruppen|Anzahl|Gesamt|Die aktiven Abfragen in der Arbeitsauslastungsgruppe. Bei Verwenden dieser Metrik ohne Filterung und Aufteilung werden alle aktiven Abfragen angezeigt, die im System ausgeführt werden|IsUserDefined, WorkloadGroup|
 |WLGActiveQueriesTimeouts|Nein|Abfragetimeouts für Arbeitsauslastungsgruppen|Anzahl|Gesamt|Abfragen für die Arbeitsauslastungsgruppe, für die ein Timeout aufgetreten ist. Die von dieser Metrik gemeldeten Abfragetimeouts sind erst nach dem Start der Abfrage aufgetreten (Wartezeiten aufgrund von Sperren oder Ressourcenwartezeiten sind nicht enthalten).|IsUserDefined, WorkloadGroup|

@@ -1,7 +1,7 @@
 ---
 title: 'Convert to Dataset: Modulreferenz'
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Sie das Modul „Convert to Dataset“ in Azure Machine Learning verwenden, um Dateneingaben in das von Microsoft Azure Machine Learning verwendete interne Datasetformat zu konvertieren.
+description: Erfahren Sie, wie Sie mit dem Modul Convert to Dataset im Azure Machine Learning-Designer Dateneingaben in das interne Datasetformat konvertieren.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 9b2d003ef4938681229317b625aae4526787ac15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 671a8f7c6fa4c20ef4fc88f57d4a946a84614389
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898708"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420868"
 ---
 # <a name="convert-to-dataset"></a>Konvertieren in ein Dataset
 
@@ -35,7 +35,7 @@ Es empfiehlt sich, das Dataset mithilfe des Moduls [Edit Metadata](edit-metadata
 
 2. Verbinden Sie es mit einem beliebigen Modul, das ein Dataset ausgibt.   
 
-    Solange die Daten [tabellarisch](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) sind, können Sie sie in ein Dataset konvertieren. Dies schließt Daten ein, die mit [Import Data](import-data.md) (Daten importieren) geladen oder mithilfe von [Enter Data Manually](enter-data-manually.md) (Daten manuell eingeben) erstellt wurden, sowie Datasets, die mithilfe von [Apply Transformation](apply-transformation.md) (Transformation anwenden) transformiert wurden.
+    Solange die Daten [tabellarisch](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) sind, können Sie sie in ein Dataset konvertieren. Dies schließt Daten ein, die mit [Import Data](import-data.md) (Daten importieren) geladen oder mithilfe von [Enter Data Manually](enter-data-manually.md) (Daten manuell eingeben) erstellt wurden, sowie Datasets, die mithilfe von [Apply Transformation](apply-transformation.md) (Transformation anwenden) transformiert wurden.
 
 3.  Geben Sie in der Dropdownliste **Aktion** an, ob vor dem Speichern des Datasets eine Datenbereinigung durchgeführt werden soll:  
   
@@ -70,4 +70,4 @@ Es empfiehlt sich, das Dataset mithilfe des Moduls [Edit Metadata](edit-metadata
   
 ## <a name="next-steps"></a>Nächste Schritte
 
-Sehen Sie sich den [Satz der verfügbaren Module](module-reference.md) für Azure Machine Learning an. 
+Sehen Sie sich den [Satz der verfügbaren Module](module-reference.md) für Azure Machine Learning an.

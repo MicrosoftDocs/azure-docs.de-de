@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/18/2020
-ms.openlocfilehash: 43abe6a827af668f2b756e5f00497fbfe1698413
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69844a392aa03dc962f8af456996ab51f1adf561
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86083235"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547468"
 ---
 # <a name="apache-hadoop-clusters-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Apache Hadoop-Cluster mit Speicherkonten mit sicherer Übertragung in Azure HDInsight
 
@@ -32,13 +32,13 @@ Informationen zum Aktualisieren eines vorhandenen Speicherkontos über das Azure
 
 ### <a name="powershell"></a>PowerShell
 
-Stellen Sie für das PowerShell-Cmdlet [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) sicher, dass der Parameter `-EnableHttpsTrafficOnly` auf `1` festgelegt ist.
+Stellen Sie für das PowerShell-Cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) sicher, dass der Parameter `-EnableHttpsTrafficOnly` auf `1` festgelegt ist.
 
 Informationen zum Aktualisieren eines vorhandenen Speicherkontos mit PowerShell finden Sie unter [Erfordern sicherer Übertragung mit PowerShell](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-powershell).
 
 ### <a name="azure-cli"></a>Azure-Befehlszeilenschnittstelle
 
-Stellen Sie für den Azure CLI-Befehl [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) sicher, dass der Parameter `--https-only` auf `true` festgelegt ist.
+Stellen Sie für den Azure CLI-Befehl [az storage account create](/cli/azure/storage/account#az-storage-account-create) sicher, dass der Parameter `--https-only` auf `true` festgelegt ist.
 
 Informationen zum Aktualisieren eines vorhandenen Speicherkontos über die Azure-Befehlszeilenschnittstelle finden Sie unter [Erfordern sicherer Übertragung über die Azure-Befehlszeilenschnittstelle](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-azure-cli).
 

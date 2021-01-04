@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 923b83b388b58313e9613f0f8b71f266dcbeb028
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: be5ce5b3eebb2f784469680cf7614df6ca750b55
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282137"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658263"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Grundlegendes zu Azure AD-Anwendungsproxyconnectors
 
@@ -67,7 +67,7 @@ Sie müssen nicht verwendete Connectors nicht manuell löschen. Wenn ein Connect
 
 Azure AD bietet automatische Updates für alle von Ihnen bereitgestellten Connectors. Solange der Connectorupdatedienst für den Anwendungsproxy ausgeführt wird, werden Ihre Connectors automatisch aktualisiert. Falls der Connectorupdatedienst auf Ihrem Server nicht angezeigt wird, müssen Sie den [Connector neu installieren](application-proxy-add-on-premises-application.md), um Updates zu erhalten.
 
-Wenn Sie nicht warten möchten, bis ein Connector automatisch aktualisiert wird, können Sie die Aktualisierung manuell vornehmen. Rufen Sie auf dem Server mit dem Connector die [Downloadseite für den Connector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) auf, und wählen Sie **Herunterladen** . Durch diesen Prozess wird ein Upgrade für den lokalen Connector gestartet.
+Wenn Sie nicht warten möchten, bis ein Connector automatisch aktualisiert wird, können Sie die Aktualisierung manuell vornehmen. Rufen Sie auf dem Server mit dem Connector die [Downloadseite für den Connector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) auf, und wählen Sie **Herunterladen**. Durch diesen Prozess wird ein Upgrade für den lokalen Connector gestartet.
 
 Bei Mandanten mit mehreren Connectors werden die automatischen Updates nacheinander auf die einzelnen Connectors in jeder Gruppe angewendet, um Ausfallzeiten in Ihrer Umgebung zu vermeiden.
 
@@ -104,7 +104,7 @@ Im Allgemeinen gilt: Je mehr Benutzer Sie haben, desto größer muss der Compute
 > [!NOTE]
 > Bei Computern mit vier, acht und 16 Kernen ist der Unterschied beim TPS-Maximalwert minimal. Sie unterscheiden sich hauptsächlich bei der erwarteten Wartezeit.
 >
-> Diese Tabelle nennt auch auf die erwartete Leistung eines Connectors basierend auf dem Computertyp, auf dem er installiert ist. Dies ist unabhängig von den Drosselungsgrenzwerten des Anwendungsproxydiensts, siehe [Dienstgrenzwerte und Einschränkungen](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions).
+> Diese Tabelle nennt auch auf die erwartete Leistung eines Connectors basierend auf dem Computertyp, auf dem er installiert ist. Dies ist unabhängig von den Drosselungsgrenzwerten des Anwendungsproxydiensts, siehe [Dienstgrenzwerte und Einschränkungen](../enterprise-users/directory-service-limits-restrictions.md).
 
 ## <a name="security-and-networking"></a>Sicherheit und Netzwerk
 
@@ -126,9 +126,9 @@ Sollte der Connector oder der Computer aus irgendeinem Grund nicht mehr zur Verf
 
 Ein weiterer Leistungsfaktor ist die Qualität der Netzwerkverbindung zwischen den Connectors, z.B.:
 
-- **Onlinedienst** : Langsame Verbindungen oder Verbindungen mit hoher Wartezeit mit dem Anwendungsproxydienst in Azure beeinflussen die Leistung des Connectors. Stellen Sie für eine optimale Leistung eine Verbindung zwischen Ihrer Organisation und Azure über ExpressRoute her. Andernfalls muss das Netzwerkteam sicherstellen, dass Verbindungen mit Azure so effizient wie möglich verarbeitet werden.
-- **Back-End-Anwendungen** : In einigen Fällen sind zwischen dem Connector und den Back-End-Anwendungen zusätzliche Proxys vorhanden, die Verbindungen verlangsamen oder verhindern können. Öffnen Sie zur Behebung des Problems in diesem Szenario einen Browser vom Connectorserver aus und versuchen Sie, auf die Anwendung zuzugreifen. Wenn Sie die Connectors in Azure ausführen, die Anwendungen aber lokal vorliegen, ist die Benutzerfreundlichkeit möglicherweise nicht so hoch wie erwartet.
-- **Domänencontroller** : Wenn die Connectors SSO (Single Sign-On, einmaliges Anmelden) per eingeschränkter Kerberos-Delegierung durchführen, nehmen sie vor dem Senden der Anforderung an das Back-End Kontakt mit den Domänencontrollern auf. Die Connectors verfügen zwar über einen Cache mit Kerberos-Tickets, aber in einer Umgebung mit hoher Auslastung kann sich die Reaktionsfähigkeit der Domänencontroller auf die Leistung auswirken. Dieses Problem tritt häufiger bei Connectors auf, die in Azure ausgeführt werden, aber mit Domänencontrollern kommunizieren, die lokal installiert sind.
+- **Onlinedienst**: Langsame Verbindungen oder Verbindungen mit hoher Wartezeit mit dem Anwendungsproxydienst in Azure beeinflussen die Leistung des Connectors. Stellen Sie für eine optimale Leistung eine Verbindung zwischen Ihrer Organisation und Azure über ExpressRoute her. Andernfalls muss das Netzwerkteam sicherstellen, dass Verbindungen mit Azure so effizient wie möglich verarbeitet werden.
+- **Back-End-Anwendungen**: In einigen Fällen sind zwischen dem Connector und den Back-End-Anwendungen zusätzliche Proxys vorhanden, die Verbindungen verlangsamen oder verhindern können. Öffnen Sie zur Behebung des Problems in diesem Szenario einen Browser vom Connectorserver aus und versuchen Sie, auf die Anwendung zuzugreifen. Wenn Sie die Connectors in Azure ausführen, die Anwendungen aber lokal vorliegen, ist die Benutzerfreundlichkeit möglicherweise nicht so hoch wie erwartet.
+- **Domänencontroller**: Wenn die Connectors SSO (Single Sign-On, einmaliges Anmelden) per eingeschränkter Kerberos-Delegierung durchführen, nehmen sie vor dem Senden der Anforderung an das Back-End Kontakt mit den Domänencontrollern auf. Die Connectors verfügen zwar über einen Cache mit Kerberos-Tickets, aber in einer Umgebung mit hoher Auslastung kann sich die Reaktionsfähigkeit der Domänencontroller auf die Leistung auswirken. Dieses Problem tritt häufiger bei Connectors auf, die in Azure ausgeführt werden, aber mit Domänencontrollern kommunizieren, die lokal installiert sind.
 
 Weitere Informationen zur Optimierung Ihres Netzwerks finden Sie unter [Aspekte der Netzwerktopologie bei Verwendung des Azure Active Directory-Anwendungsproxys](application-proxy-network-topology.md).
 
@@ -155,7 +155,7 @@ Die verwendeten Zertifikate gelten nur für den Anwendungsproxydienst. Sie werde
 
 Nach der ersten erfolgreichen Zertifikatsverlängerung hat der Azure AD-Anwendungsproxy-Connectordienst (Netzwerkdienst) keine Berechtigung, das alte Zertifikat aus dem Speicher des lokalen Computers zu entfernen. Wenn das Zertifikat abgelaufen ist oder nicht mehr vom Dienst verwendet wird, können Sie es problemlos löschen.
 
-Um Probleme bei der Zertifikatsverlängerung zu vermeiden, müssen Sie sicherstellen, dass die Netzwerkkommunikation zwischen dem Connector und den [dokumentierten Zielen](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment) aktiviert ist.
+Um Probleme bei der Zertifikatsverlängerung zu vermeiden, müssen Sie sicherstellen, dass die Netzwerkkommunikation zwischen dem Connector und den [dokumentierten Zielen](./application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) aktiviert ist.
 
 Wenn ein Connector über mehrere Monate hinweg keine Verbindung mit dem Dienst herstellt, sind die Zertifikate möglicherweise veraltet. In diesem Fall müssen Sie den Connector deinstallieren und neu installieren, um die Registrierung auszulösen. Sie können die folgenden PowerShell-Befehle ausführen:
 
@@ -178,9 +178,9 @@ und Windows-Leistungsindikatoren.
 
 ![Hinzufügen von Leistungsindikatoren zum Connector mit dem Leistungsmonitor](./media/application-proxy-connectors/performance-monitor.png)
 
-Die Connectors verfügen über **Administratorprotokolle** und **Sitzungsprotokolle** . Das **Administratorprotokoll** enthält wichtige Ereignisse und die dazugehörigen Fehler. Das **Sitzungsprotokoll** enthält alle Transaktionen und die dazugehörigen Verarbeitungsdetails.
+Die Connectors verfügen über **Administratorprotokolle** und **Sitzungsprotokolle**. Das **Administratorprotokoll** enthält wichtige Ereignisse und die dazugehörigen Fehler. Das **Sitzungsprotokoll** enthält alle Transaktionen und die dazugehörigen Verarbeitungsdetails.
 
-Zum Anzeigen der Protokolle öffnen Sie die **Ereignisanzeige** , und navigieren Sie dann zu **Anwendungs- und Dienstprotokolle** > **Microsoft** > **AadApplicationProxy** > **Connector** . Damit das **Sitzungsprotokoll** im Menü **Ansicht** angezeigt wird, klicken Sie auf **Analytische und Debugprotokolle einblenden** . Das **Sitzungsprotokoll** dient in der Regel zur Problembehandlung und ist standardmäßig definiert. Aktivieren Sie das Protokoll, um mit der Erfassung von Ereignissen zu beginnen, und deaktivieren Sie es, wenn Sie es nicht mehr benötigen.
+Zum Anzeigen der Protokolle öffnen Sie die **Ereignisanzeige**, und navigieren Sie dann zu **Anwendungs- und Dienstprotokolle** > **Microsoft** > **AadApplicationProxy** > **Connector**. Damit das **Sitzungsprotokoll** im Menü **Ansicht** angezeigt wird, klicken Sie auf **Analytische und Debugprotokolle einblenden**. Das **Sitzungsprotokoll** dient in der Regel zur Problembehandlung und ist standardmäßig definiert. Aktivieren Sie das Protokoll, um mit der Erfassung von Ereignissen zu beginnen, und deaktivieren Sie es, wenn Sie es nicht mehr benötigen.
 
 Sie können den Zustand des Diensts im Fenster „Dienste“ untersuchen. Der Connector besteht aus zwei Windows-Diensten: dem eigentlichen Connector und dem Updatedienst. Beide Dienste müssen immer ausgeführt werden.
 

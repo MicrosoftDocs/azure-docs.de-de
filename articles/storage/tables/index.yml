@@ -11,12 +11,12 @@ metadata:
   author: tamram
   ms.author: tamram
   ms.date: 12/23/2019
-  ms.openlocfilehash: 73dc70fb31508667ebcab4803a9263c716ce35c2
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: e6abd9bdcff495ffc040f6e84e70d885765ded77
+  ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "75551895"
+  ms.lasthandoff: 11/20/2020
+  ms.locfileid: "94991824"
 landingContent:
 - title: Informationen zu Azure Table Storage
   linkLists:
@@ -25,7 +25,7 @@ landingContent:
     - text: Was ist Azure Table Storage?
       url: table-storage-overview.md
     - text: Tabellenspeicher oder Tabellen-API wählen
-      url: ../../cosmos-db/table-support.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fstorage%2Ftables%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fbread%2Ftoc.json
+      url: ../../cosmos-db/table-support.md?toc=%2Fazure%2Fstorage%2Ftables%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json
 - title: Leitfaden zum Tabellenentwurf
   linkLists:
   - linkListType: concept

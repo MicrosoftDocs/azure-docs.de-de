@@ -4,12 +4,12 @@ description: Erfahren Sie mehr über Azure Batch-Standardkontingente, Limits und
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8ca08d43f07633b58cf6f7067c1a8fcd58350678
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b2039794a0c8a13070c9d81b83869ca4097bd02e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107537"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325966"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch-Dienst – Kontingente und Limits
 
@@ -23,15 +23,33 @@ Wenn Sie Produktionsworkloads in Batch ausführen möchten, müssen Sie möglich
 
 ## <a name="resource-quotas"></a>Ressourcenkontingente
 
-Bei einem Kontingent handelt es sich um ein Kreditlimit und keine Kapazitätsgarantie. Wenn Sie einen umfangreichen Kapazitätsbedarf haben, wenden Sie sich an den Azure-Support.
+Bei einem Kontingent handelt es sich um einen Grenzwert und nicht um eine Kapazitätsgarantie. Wenn Sie einen umfangreichen Kapazitätsbedarf haben, wenden Sie sich an den Azure-Support.
 
 Beachten Sie, dass Kontingente keine garantierten Werte darstellen. Kontingente können basierend auf Änderungen vom Batch-Dienst oder aufgrund einer Benutzeranforderung für eine Änderung des Kontingentwerts variieren.
 
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
+## <a name="core-quotas"></a>Kernkontingente
+
+### <a name="cores-quotas-in-batch-service-mode"></a>Kernkontingente im Batch-Dienstmodus
+
+Die Erzwingung dedizierter Kernkontingente wurde verbessert. Die Änderungen werden in Phasen bereitgestellt und bis Ende Dezember 2020 für alle Batch-Konten abgeschlossen.
+
+Kernkontingente sind für alle VM-Serien verfügbar, die von Batch unterstützt werden. Sie werden im Portal auf der Seite **Kontingente** angezeigt. Kontingentgrenzen für VM-Serien können wie unten beschrieben über eine Supportanfrage aktualisiert werden.
+
+Wenn der bestehende Mechanismus eingestellt wird, werden die Kontingentgrenzen für die VM-Serien nicht überprüft, sondern es werden nur die Kontingentgrenzen für das Konto erzwungen. Es ist somit eventuell möglich, mehr Kerne für eine VM-Serie zuzuordnen, als durch das Kontingent der VM-Serie angegeben wird, und zwar bis zur Höchstgrenze für das Kontingent des Kontos.
+
+Beim neuen Verfahren werden zusätzlich zum Kontingent für das gesamte Konto auch die Kontingente für die VM-Serie erzwungen. Im Rahmen der Umstellung auf den neuen Mechanismus werden eventuell die Kontingentwerte für die VM-Serie aktualisiert, um Zuordnungsfehler zu vermeiden. Bei VM-Serien, die in den letzten Monaten verwendet wurden, wird das Kontingent der VM-Serie entsprechend dem Gesamtkontokontingent aktualisiert. Diese Änderung ermöglicht nicht die Verwendung von mehr Kapazität, als bisher bereits verfügbar war.
+
+Sie können ermitteln, ob das Erzwingen der Kontingente der VM-Serie für ein Batch-Konto bereits aktiviert wurde, indem Sie Folgendes überprüfen:
+
+* Die [dedicatedCoreQuotaPerVMFamilyEnforced](/rest/api/batchmanagement/batchaccount/get#batchaccount)-API-Eigenschaft des Batch-Kontos
+
+* Den Text auf der Seite **Kontingente** für das Batch-Konto im Portal
+
 ### <a name="cores-quotas-in-user-subscription-mode"></a>Kontingente für Kerne im Modus „Benutzerabonnement“
 
-Wenn Sie ein [Batch-Konto](accounts.md) erstellen, bei dem der Poolzuordnungsmodus auf **Benutzerabonnement** festgelegt ist, werden Kontingente unterschiedlich angewendet. In diesem Modus werden Batch-VMs und andere Ressourcen direkt in Ihrem Abonnement erstellt, wenn ein Pool erstellt wird. Die Kontingente für Kerne von Azure Batch gilt nicht für Konten, die in diesem Modus erstellt werden. Stattdessen werden die Kontingente in Ihrem Abonnement für regionale Computekerne und andere Ressourcen angewendet.
+Wenn Sie ein [Batch-Konto](accounts.md) mit dem Poolzuordnungsmodus **Benutzerabonnement** erstellt haben, werden Batch-VMs und andere Ressourcen bei der Poolerstellung oder der Größenänderung direkt in Ihrem Abonnement erstellt. Die Azure Batch-Kernkontingente gelten nicht. Stattdessen werden die Kontingente in Ihrem Abonnement für regionale Computekerne, Computekerne pro Serie und andere Ressourcen angewandt und erzwungen.
 
 Weitere Informationen zu diesen Kontingenten finden Sie unter [Einschränkungen für Azure-Abonnements und -Dienste, Kontingente und Einschränkungen](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
@@ -73,7 +91,7 @@ So zeigen Sie die Kontingente Ihres Batch-Kontos im [Azure-Portal](https://porta
 1. Wählen Sie im Menü des Batch-Kontos die Option **Kontingente** aus.
 1. Zeigen Sie die Kontingente an, die derzeit für das Batch-Konto gelten.
 
-    ![Batch-Kontokontingente][account_quotas]
+:::image type="content" source="./media/batch-quota-limit/account-quota-portal.png" alt-text="Batch-Kontokontingente":::
 
 ## <a name="increase-a-quota"></a>Erhöhen eines Kontingents
 
@@ -113,7 +131,7 @@ Sie können über das [Azure-Portal](https://portal.azure.com) eine Kontingenter
 
 1. Gehen Sie unter **Kontaktinformationen** wie folgt vor:
    
-    1. Wählen Sie eine **bevorzugte Kontaktmethode**aus.
+    1. Wählen Sie eine **bevorzugte Kontaktmethode** aus.
    
     1. Überprüfen Sie die erforderlichen Kontaktdetails, und geben Sie sie ein.
    

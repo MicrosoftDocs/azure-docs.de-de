@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 2e27b168087966701fb53cc8df19d264861257d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c2072d13cab9839a276c0437747d7075918e78a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448110"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696879"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Mehrere Front-Ends für Azure Load Balancer
 
 Mit Azure Load Balancer können Sie für Dienste an mehreren Ports, mehreren IP-Adressen oder beidem einen Lastenausgleich vornehmen. Sie können öffentliche und interne Load Balancer-Definitionen verwenden, um einen Lastenausgleich für Datenflüsse innerhalb einer VM-Gruppe durchzuführen.
 
-Dieser Artikel beschreibt die Grundlagen dieser Funktion, wichtige Konzepte und Einschränkungen. Wenn Sie Dienste mit einer IP-Adresse verfügbar machen möchten, finden Sie vereinfachte Anweisungen für öffentliche Load Balancer-Konfigurationen [hier](load-balancer-get-started-internet-portal.md) und für interne Load Balancer-Konfigurationen [hier](load-balancer-get-started-ilb-arm-portal.md). Mehrere Front-Ends können einer Konfiguration mit einem einzelnen Front-End inkrementell hinzugefügt werden. Mit den Konzepten in diesem Artikel können Sie eine vereinfachte Konfiguration jederzeit erweitern.
+Dieser Artikel beschreibt die Grundlagen dieser Funktion, wichtige Konzepte und Einschränkungen. Wenn Sie Dienste mit einer IP-Adresse verfügbar machen möchten, finden Sie vereinfachte Anweisungen für öffentliche Load Balancer-Konfigurationen [hier](./quickstart-load-balancer-standard-public-portal.md) und für interne Load Balancer-Konfigurationen [hier](./quickstart-load-balancer-standard-internal-portal.md). Mehrere Front-Ends können einer Konfiguration mit einem einzelnen Front-End inkrementell hinzugefügt werden. Mit den Konzepten in diesem Artikel können Sie eine vereinfachte Konfiguration jederzeit erweitern.
 
 Wenn Sie einen Azure Load Balancer definieren, sind eine Front-End- und eine Back-End-Pool-Konfiguration über Regeln verbunden. Mit dem Integritätstest, auf den von der Regel verwiesen wird, wird bestimmt, wie neue Datenflüsse an einen Knoten im Back-End-Pool gesendet werden. Das Front-End (bzw. VIP) wird durch eine aus 3 Tupeln bestehende IP-Adresse (öffentlich oder intern), ein Transportprotokoll (UDP oder TCP) und eine Portnummer von der Lastenausgleichsregel definiert. Der Back-End-Pool ist eine Sammlung von VM-IP-Konfigurationen (Teil der NIC-Ressource), die auf den Load Balancer-Back-End-Pool verweisen.
 

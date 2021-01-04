@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da68e21aa279ea2503a21ce35eee52f8e49d1434
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81f4407ee7721332a4143952d1720151bb70d8c9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049093"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837537"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Bedingter Zugriff: Sichere Registrierung von Sicherheitsinformationen
 
-Mit Benutzeraktionen in der Richtlinie für bedingten Zugriff kann jetzt sichergestellt werden, wann und wie sich Benutzer für Azure Multi-Factor Authentication registrieren, und auch die Self-Service-Kennwortzurücksetzung ist möglich. Diese Previewfunktion ist für Organisationen verfügbar, die die [kombinierte Registrierung (Vorschauversion)](../authentication/concept-registration-mfa-sspr-combined.md) aktiviert haben. Diese Funktionalität kann in Organisationen aktiviert werden, bei denen Bedingungen, z. B. ein vertrauenswürdiger Netzwerkstandort, verwendet werden sollen, um den Zugriff auf die Registrierung für Azure Multi-Factor Authentication und die Self-Service-Kennwortzurücksetzung (SSPR) zu beschränken. Weitere Informationen zu anwendbaren Bedingungen finden Sie im Artikel [Bedingter Zugriff: Bedingungen](concept-conditional-access-conditions.md).
+Mit Benutzeraktionen in der Richtlinie für bedingten Zugriff kann jetzt sichergestellt werden, wann und wie sich Benutzer für Azure AD Multi-Factor Authentication registrieren, und auch die Self-Service-Kennwortzurücksetzung ist möglich. Diese Previewfunktion ist für Organisationen verfügbar, die die [kombinierte Registrierung (Vorschauversion)](../authentication/concept-registration-mfa-sspr-combined.md) aktiviert haben. Diese Funktionalität kann in Organisationen aktiviert werden, bei denen Bedingungen, z. B. ein vertrauenswürdiger Netzwerkstandort, verwendet werden sollen, um den Zugriff auf die Registrierung für Azure AD Multi-Factor Authentication und die Self-Service-Kennwortzurücksetzung (SSPR) zu beschränken. Weitere Informationen zu anwendbaren Bedingungen finden Sie im Artikel [Bedingter Zugriff: Bedingungen](concept-conditional-access-conditions.md).
 
 ## <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Erstellen einer Richtlinie zum Erzwingen der Registrierung von einem vertrauenswürdigen Standort
 

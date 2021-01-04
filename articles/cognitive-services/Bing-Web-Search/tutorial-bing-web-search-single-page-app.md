@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 3c404f0028705754a68be113a331132eec02f7cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff54d605fd81fa640314d99359f1aabacf7a469e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91304031"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350380"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutorial: Erstellen einer Single-Page-Webanwendung mit der Bing-Websuche-API
+
+> [!WARNING]
+> Die APIs der Bing-Suche werden von Cognitive Services auf Bing-Suchdienste umgestellt. Ab dem **30. Oktober 2020** müssen alle neuen Instanzen der Bing-Suche mit dem [hier](/bing/search-apis/bing-web-search/create-bing-search-service-resource) dokumentierten Prozess bereitgestellt werden.
+> APIs der Bing-Suche, die mit Cognitive Services bereitgestellt wurden, werden noch drei Jahre lang bzw. bis zum Ablauf Ihres Enterprise Agreement unterstützt (je nachdem, was zuerst eintritt).
+> Eine Anleitung zur Migration finden Sie unter [Erstellen einer Ressource für die Bing-Suche über Azure Marketplace](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Diese einseitige App zeigt, wie Sie Suchergebnisse aus der Bing-Websuche-API abrufen, analysieren und anzeigen. Das Tutorial verwendet Standard-HTML und -CSS und konzentriert sich auf den JavaScript-Code. HTML-, CSS- und JS-Dateien sind in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) mit Schnellstartanweisungen verfügbar.
 
@@ -31,7 +36,7 @@ Diese Beispiel-App kann:
 > * Abonnementschlüssel verwalten
 > * Fehlerbehandlung
 
-Zum Verwenden dieser App wird ein [Azure Cognitive Services-Konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) mit Bing-Suche-APIs benötigt.
+Zum Verwenden dieser App wird ein [Azure Cognitive Services-Konto](../cognitive-services-apis-create-account.md) mit Bing-Suche-APIs benötigt.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -81,7 +86,7 @@ Dieses Tutorial konzentriert sich auf `scripts.js` und die erforderliche Logik, 
 
 ## <a name="query-options"></a>Abfrageoptionen
 
-Das HTML-Formular enthält Optionen, die Abfrageparametern in der [Bing-Websuche-API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters) zugeordnet sind. Diese Tabelle zeigt eine Aufschlüsselung, wie Benutzer Suchergebnisse mithilfe der Beispiel-App filtern können:
+Das HTML-Formular enthält Optionen, die Abfrageparametern in der [Bing-Websuche-API v7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters) zugeordnet sind. Diese Tabelle zeigt eine Aufschlüsselung, wie Benutzer Suchergebnisse mithilfe der Beispiel-App filtern können:
 
 | Parameter | BESCHREIBUNG |
 |-----------|-------------|
@@ -94,7 +99,7 @@ Das HTML-Formular enthält Optionen, die Abfrageparametern in der [Bing-Websuche
 | `offset` | Verborgenes Feld. Der Offset für das erste Suchergebnis der Anforderung. Dieser wird zur Unterteilung der Suchergebnisse in mehrere Seiten verwendet. Der Offset wird für jede neue Anforderung auf `0` zurückgesetzt. |
 
 > [!NOTE]
-> Die Bing-Websuche-API bietet zusätzliche Abfrageparameter, mit denen Sie die Suchergebnisse verfeinern können. Dieses Beispiel verwendet nur einige davon. Eine vollständige Liste der verfügbaren Parameter finden Sie in der [Referenz für die Bing-Websuche-API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters).
+> Die Bing-Websuche-API bietet zusätzliche Abfrageparameter, mit denen Sie die Suchergebnisse verfeinern können. Dieses Beispiel verwendet nur einige davon. Eine vollständige Liste der verfügbaren Parameter finden Sie in der [Referenz für die Bing-Websuche-API v7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters).
 
 Die Funktion `bingSearchOptions()` konvertiert diese Optionen in das für die Bing-Suche-API erforderliche Format.
 
@@ -298,7 +303,7 @@ Fehler werden durch Aufrufen von `renderErrorMessage()` verarbeitet. Wenn die An
 
 ## <a name="display-search-results"></a>Anzeigen von Suchergebnissen
 
-Es gibt [Verwendungs- und Anzeigeanforderungen](useanddisplayrequirements.md) für Ergebnisse, die von der Bing-Websuche-API zurückgegeben werden. Da eine Antwort verschiedene Ergebnistypen beinhalten kann, reicht es nicht aus, die `WebPages`-Auflistung auf der obersten Ebene zu durchlaufen. Die Beispiel-App verwendet stattdessen `RankingResponse` zum Sortieren der anzugebenden Ergebnisse.
+Es gibt [Verwendungs- und Anzeigeanforderungen](./use-display-requirements.md) für Ergebnisse, die von der Bing-Websuche-API zurückgegeben werden. Da eine Antwort verschiedene Ergebnistypen beinhalten kann, reicht es nicht aus, die `WebPages`-Auflistung auf der obersten Ebene zu durchlaufen. Die Beispiel-App verwendet stattdessen `RankingResponse` zum Sortieren der anzugebenden Ergebnisse.
 
 > [!NOTE]
 > Wenn Sie nur einen einzigen Ergebnistyp wünschen, verwenden Sie den Abfrageparameter `responseFilter` oder einen anderen Endpunkt für die Bing-Suche, z.B. die Bing-Bildersuche.

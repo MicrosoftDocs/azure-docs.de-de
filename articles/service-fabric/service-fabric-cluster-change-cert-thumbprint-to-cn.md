@@ -1,126 +1,105 @@
 ---
 title: Aktualisieren eines Clusters, um den allgemeinen Namen des Zertifikats zu verwenden
-description: Erfahren Sie, wie Sie einen Service Fabric-Cluster so ändern, dass anstelle des Zertifikatfingerabdrucks der allgemeine Name des Zertifikats verwendet wird.
+description: Hier erfahren Sie, wie Sie ein Azure Service Fabric-Clusterzertifikat so konvertieren, dass keine fingerabdruckbasierten Deklarationen, sondern allgemeine Namen verwendet werden.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: a90290430616302dbbe9ab9cf717510070936529
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 013b8190390a4b05791b0a56072487f249956ec5
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86247913"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495207"
 ---
-# <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Ändern des Clusters von „Zertifikatfingerabdruck“ zu „Allgemeiner Name“
-Keine zwei Zertifikate können den gleichen Fingerabdruck haben, was ein Clusterzertifikatrollover oder die Verwaltung erschwert. Mehrere Zertifikate können jedoch den gleichen allgemeinen Namen oder den gleichen Antragsteller haben.  Durch den Wechsel von „Zertifikatfingerabdruck“ zu „Allgemeiner Name“ bei einem bereitgestellten Cluster wird die Zertifikatverwaltung vereinfacht. In diesem Artikel wird beschrieben, wie Sie einen aktuell ausgeführten Service Fabric-Cluster für die Verwendung des allgemeinen Namens (anstelle des Zertifikatfingerabdrucks) aktualisieren.
+# <a name="convert-cluster-certificates-from-thumbprint-based-declarations-to-common-names"></a>Konvertieren von Clusterzertifikaten von der Verwendung fingerabdruckbasierter Deklarationen zur Verwendung allgemeiner Namen
 
->[!NOTE]
-> Wenn in Ihrer Vorlage zwei Fingerabdrücke deklariert sind, müssen Sie zwei Bereitstellungen durchführen.  Die erste Bereitstellung muss abgeschlossen sein, bevor Sie die Schritte in diesem Artikel ausführen.  Die erste Bereitstellung legt Ihre **thumbprint**-Eigenschaft in der Vorlage auf das verwendete Zertifikat fest und entfernt die **thumbprintSecondary**-Eigenschaft.  Für die zweite Bereitstellung befolgen Sie die Schritte in diesem Artikel.
- 
+Die Signatur eines Zertifikats (im Allgemeinen als Fingerabdruck bezeichnet) ist eindeutig. Ein durch einen Fingerabdruck deklariertes Clusterzertifikat bezieht sich auf eine bestimmte Instanz eines Zertifikats. Diese Besonderheit erschwert einen Zertifikatrollover und die Verwaltung allgemein. Jede Änderung erfordert die Orchestrierung von Upgrades des Clusters und der zugrunde liegenden Computerhosts.
+
+Indem Sie die Zertifikatdeklarationen eines Azure Service Fabric-Clusters konvertieren, sodass diese nicht mehr auf Fingerabdrücken, sondern auf Deklarationen des allgemeinen Namens (Common Name, CN) des Zertifikatantragstellers basieren, vereinfachen Sie die Verwaltung erheblich. Insbesondere wird der Rollover eines Zertifikats vereinfacht, weil kein Clusterupgrade mehr erforderlich ist. In diesem Artikel wird beschrieben, wie Sie einen vorhandenen Cluster ohne Ausfallzeit in CN-basierte Deklarationen konvertieren.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="get-a-certificate"></a>Abrufen eines Zertifikats
-Fordern Sie zunächst ein Zertifikat von einer [Zertifizierungsstelle (CA)](https://wikipedia.org/wiki/Certificate_authority) an.  Der allgemeine Name des Zertifikats sollte für die benutzerdefinierte Domäne bestimmt sein, die Sie besitzen, und bei einer Domänenregistrierungsstelle gekauft sein. Beispiel: „azureservicefabricbestpractices.com“; da nur Microsoft-Mitarbeiter Zertifikate für MS-Domänen bereitstellen können, können Sie die DNS-Namen von Ihrem LB oder Traffic Manager nicht als allgemeine Namen für Ihr Zertifikat verwenden, und Sie müssen eine [Azure DNS-Zone](../dns/dns-delegate-domain-azure-dns.md) bereitstellen, wenn Ihre benutzerdefinierte Domäne in Azure auflösbar sein soll. Sie sollten auch Ihre benutzerdefinierte Domäne als „managementEndpoint“ Ihres Clusters deklarieren, wenn das Portal den Alias der benutzerdefinierten Domäne für Ihren Cluster reflektieren soll.
+## <a name="move-to-certificate-authority-signed-certificates"></a>Wechsel zu von einer Zertifizierungsstelle signierten Zertifikaten
 
-Zu Testzwecken können Sie von einer kostenlosen oder offenen Zertifizierungsstelle ein von der Zertifizierungsstelle signiertes Zertifikat abrufen.
+Die Sicherheit eines Clusters, dessen Zertifikat durch einen Fingerabdruck deklariert ist, basiert auf der Tatsache, dass es unmöglich (oder zumindest berechnungstechnisch nicht durchführbar) ist, ein Zertifikat zu fälschen, das dieselbe Signatur besitzt wie ein anderes Zertifikat. In diesem Fall ist die Herkunft des Zertifikats weniger wichtig, daher sind selbstsignierte Zertifikate ausreichend.
 
-> [!NOTE]
-> Selbstsignierte Zertifikate, einschließlich der beim Bereitstellen eines Service Fabric-Clusters im Azure-Portal generierten Zertifikate, werden nicht unterstützt. 
+Im Gegensatz dazu entspringt die Sicherheit eines Clusters, dessen Zertifikate durch einen allgemeinen Namen deklariert werden, dem impliziten Vertrauen, das der Clusterbesitzer in seinen Zertifikatanbieter setzt. Der Anbieter ist der PKI-Dienst (Public Key-Infrastruktur), der das Zertifikat ausgestellt hat. Das Vertrauen basiert u. a. auf den Zertifizierungsverfahren der PKI, der Überwachung und Abnahme der Betriebssicherheit des Anbieters durch andere vertrauenswürdige Parteien usw.
+
+Der Clusterbesitzer muss außerdem genau wissen, welche Zertifizierungsstellen die Zertifikate ausstellen, da dies ein grundlegender Aspekt der Validierung von Zertifikaten anhand des Antragstellers ist. Dies bedeutet auch, dass selbstsignierte Zertifikate für diesen Zweck völlig ungeeignet sind. Buchstäblich jede Person kann ein Zertifikat mit einem bestimmten Antragsteller generieren.
+
+Ein durch den allgemeinen Namen deklariertes Zertifikat wird in der Regel in folgenden Fällen als gültig betrachtet:
+
+* Die Zertifikatkette kann erfolgreich erstellt werden.
+* Der Antragsteller weist das erwartete CN-Element auf.
+* Dem Aussteller (unmittelbar oder weiter oben in der Kette) wird von der Stelle vertraut, die die Validierung durchführt.
+
+Service Fabric unterstützt die Deklaration von Zertifikaten anhand des CN auf zwei Arten:
+
+* Mit *impliziten* Ausstellern. Dies bedeutet, dass die Kette in einem Vertrauensanker enden muss.
+* Mit Ausstellern, die durch einen Fingerabdruck deklariert werden. Dies wird auch als „Thumbprint Pinning“ (Anheften des Fingerabdrucks) bezeichnet.
+
+Weitere Informationen finden Sie unter [Auf dem allgemeinen Namen basierende Zertifikatvalidierungsdeklarationen](cluster-security-certificates.md#common-name-based-certificate-validation-declarations).
+
+Um einen Cluster mithilfe eines per Fingerabdruck deklarierten, selbstsignierten Zertifikats zur Verwendung eines allgemeinen Namens zu konvertieren, muss das Ziel – also das von einer Zertifizierungsstelle signierte Zertifikat – zunächst per Fingerabdruck im Cluster eingeführt werden. Nur dann ist eine Konvertierung von der Verwendung eines Fingerabdrucks zur Verwendung eines allgemeinen Namens möglich.
+
+Zu Testzwecken *könnte* ein selbstsigniertes Zertifikat per CN deklariert werden. Dies funktioniert aber nur, wenn der Aussteller mit seinem eigenen Fingerabdruck verknüpft ist. Aus Sicherheitsperspektive entspricht dies ungefähr dem Deklarieren desselben Zertifikats per Fingerabdruck. Eine erfolgreiche Konvertierung dieser Art garantiert keine erfolgreiche Konvertierung vom Fingerabdruck zum allgemeinen Namen mit einem von einer Zertifizierungsstelle signierten Zertifikat. Es empfiehlt sich, die Konvertierung mit einem ordnungsgemäßen, von einer Zertifizierungsstelle signierten Zertifikat zu testen. Für diesen Test gibt es einige kostenlose Optionen.
 
 ## <a name="upload-the-certificate-and-install-it-in-the-scale-set"></a>Hochladen des Zertifikats und Installieren in der Skalierungsgruppe
-In Azure wird ein Service Fabric-Cluster in einer VM-Skalierungsgruppe bereitgestellt.  Laden Sie das Zertifikat in einen Schlüsseltresor hoch, und installieren Sie es in der VM-Skalierungsgruppe, in welcher der Cluster ausgeführt wird.
 
-```powershell
-Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
+In Azure umfasst der empfohlene Mechanismus zum Abrufen und Bereitstellen von Zertifikaten Azure Key Vault und die zugehörigen Tools. Ein Zertifikat, das der Clusterzertifikatdeklaration entspricht, muss auf jedem Knoten der VM-Skalierungsgruppen bereitgestellt werden, aus denen der Cluster besteht. Weitere Informationen finden Sie unter [Wie übertrage ich ein Zertifikat sicher auf den virtuellen Computer?](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-securely-ship-a-certificate-to-the-vm).
 
-$SubscriptionId  =  "<subscription ID>"
+Es ist wichtig, dass sowohl aktuelle als auch zukünftig zu verwendende Clusterzertifikate auf den virtuellen Computern aller Knotentypen des Clusters installiert werden, bevor Sie Änderungen an den Zertifikatdeklarationen des Clusters vornehmen. Der gesamte Prozess von der Ausstellung des Zertifikats bis hin zur Bereitstellung auf einem Service Fabric-Knoten wird detailliert unter [Der Weg eines Zertifikats](cluster-security-certificate-management.md#the-journey-of-a-certificate) erläutert.
 
-# Sign in to your Azure account and select your subscription
-Login-AzAccount -SubscriptionId $SubscriptionId
+## <a name="bring-the-cluster-to-an-optimal-starting-state"></a>Versetzen des Clusters in einen optimalen Anfangszustand
 
-$region = "southcentralus"
-$KeyVaultResourceGroupName  = "mykeyvaultgroup"
-$VaultName = "mykeyvault"
-$certFilename = "C:\users\sfuser\myclustercert.pfx"
-$certname = "myclustercert"
-$Password  = "P@ssw0rd!123"
-$VmssResourceGroupName     = "myclustergroup"
-$VmssName                  = "prnninnxj"
+Die Konvertierung einer Zertifikatdeklaration von der Verwendung von Fingerabdrücken zur Verwendung von allgemeinen Namen wirkt sich auf Folgendes aus:
 
-# Create new Resource Group 
-New-AzResourceGroup -Name $KeyVaultResourceGroupName -Location $region
+- Die Art und Weise, in der die einzelnen Knoten im Cluster ihre Anmeldeinformationen finden und für andere Knoten darstellen.
+- Die Art und Weise, in der die einzelnen Knoten beim Einrichten einer sicheren Verbindung die Anmeldeinformationen ihrer Pendants überprüfen.
 
-# Create the new key vault
-$newKeyVault = New-AzKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName `
-    -Location $region -EnabledForDeployment 
-$resourceId = $newKeyVault.ResourceId 
+Lesen Sie die [Regeln für die Zertifikatkonfiguration](cluster-security-certificates.md#certificate-configuration-rules) für beide Konfigurationen, bevor Sie fortfahren. Der wichtigste Aspekt bei der Konvertierung von Fingerabdrücken zu allgemeinen Namen ist Folgendes: Sowohl Knoten, für die bereits ein Upgrade durchgeführt wurde, als auch Knoten, für dies noch nicht erfolgt ist (also Knoten, die zu verschiedenen Upgradedomänen gehören), müssen jederzeit während des Upgradeprozesses in der Lage sein, eine erfolgreiche gegenseitige Authentifizierung durchzuführen. Um dieses Ziel zu erreichen, empfiehlt es sich, das Zielzertifikat in einem ersten Upgrade per Fingerabdruck zu deklarieren. Danach erfolgt in einem nachfolgenden Upgrade der Übergang zu CN. Wenn sich der Cluster bereits in einem empfohlenen Anfangszustand befindet, können Sie diesen Abschnitt überspringen.
 
-# Add the certificate to the key vault.
-$PasswordSec = ConvertTo-SecureString -String $Password -AsPlainText -Force
-$KVSecret = Import-AzKeyVaultCertificate -VaultName $vaultName -Name $certName `
-    -FilePath $certFilename -Password $PasswordSec
+Es gibt mehrere gültige Anfangszustände für eine Konvertierung. Für alle Zustände gilt die gleiche Voraussetzung: Der Cluster muss zu Beginn des Upgrades auf CN bereits das (per Fingerabdruck deklarierte) Zielzertifikat verwenden. In diesem Artikel werden die Zertifikate `GoalCert`, `OldCert1` und `OldCert2` betrachtet.
 
-$CertificateThumbprint = $KVSecret.Thumbprint
-$CertificateURL = $KVSecret.SecretId
-$SourceVault = $resourceId
-$CommName    = $KVSecret.Certificate.SubjectName.Name
+#### <a name="valid-starting-states"></a>Gültige Anfangszustände
 
-Write-Host "CertificateThumbprint    :"  $CertificateThumbprint
-Write-Host "CertificateURL           :"  $CertificateURL
-Write-Host "SourceVault              :"  $SourceVault
-Write-Host "Common Name              :"  $CommName    
+- `Thumbprint: GoalCert, ThumbprintSecondary: None`
+- `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, wobei `GoalCert` ein späteres `NotAfter`-Datum aufweist als `OldCert1`
+- `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, wobei `GoalCert` ein späteres `NotAfter`-Datum aufweist als `OldCert1`
 
-Set-StrictMode -Version 3
-$ErrorActionPreference = "Stop"
+Wenn sich Ihr Cluster in keinem der zuvor beschriebenen gültigen Zustände befindet, finden Sie am Ende dieses Artikels Informationen dazu, wie Sie einen solchen Zustand erreichen.
 
-$certConfig = New-AzVmssVaultCertificateConfig -CertificateUrl $CertificateURL -CertificateStore "My"
+## <a name="select-the-desired-cn-based-certificate-validation-scheme"></a>Auswählen des gewünschten CN-basierten Schemas für die Zertifikatüberprüfung
 
-# Get current VM scale set 
-$vmss = Get-AzVmss -ResourceGroupName $VmssResourceGroupName -VMScaleSetName $VmssName
+Wie bereits beschrieben, unterstützt Service Fabric die Deklaration von Zertifikaten per CN mit einem impliziten Vertrauensanker oder durch explizites Anheften der Fingerabdrücke des Ausstellers. Weitere Informationen finden Sie unter [Auf dem allgemeinen Namen basierende Zertifikatvalidierungsdeklarationen](cluster-security-certificates.md#common-name-based-certificate-validation-declarations).
 
-# Add new secret to the VM scale set.
-$vmss = Add-AzVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $SourceVault `
-    -VaultCertificate $certConfig
+Sie müssen die Unterschiede und Auswirkungen der verschiedenen Mechanismen genau kennen. Aus syntaktischer Sicht wird die Auswahl durch den Wert des Parameters `certificateIssuerThumbprintList` bestimmt. Ein leerer Parameter bedeutet, dass eine vertrauenswürdige Stammzertifizierungsstelle (Vertrauensanker) verwendet wird. Eine Reihe von Fingerabdrücken dagegen beschränkt die zulässigen direkten Aussteller von Clusterzertifikaten.
 
-# Update the VM scale set 
-Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
-    -Name $VmssName -VirtualMachineScaleSet $vmss 
-```
+   > [!NOTE]
+   > Im Feld `certificateIssuerThumbprint` können Sie die erwarteten direkten Zertifikataussteller angeben, die vom allgemeinen Namen des Antragstellers deklariert werden. Zulässige Werte sind ein oder mehrere durch Trennzeichen getrennte SHA-1-Fingerabdrücke. Diese Aktion stärkt die Zertifikatüberprüfung.
+   >
+   > Wenn keine Aussteller angegeben sind oder die Liste leer ist, wird das Zertifikat für die Authentifizierung akzeptiert, sofern die Kette erstellt werden kann. Dann endet das Zertifikat in einem Stamm, dem vom Validierungssteuerelement vertraut wird. Wenn mindestens ein Fingerabdruck eines Ausstellers angegeben ist, wird das Zertifikat akzeptiert, sofern der Fingerabdruck des direkten Ausstellers – wie aus der Kette extrahiert – mit einem der in diesem Feld angegebenen Werte übereinstimmt. Das Zertifikat wird akzeptiert, unabhängig davon, ob dem Stamm vertraut wird oder nicht.
+   >
+   > Eine PKI verwendet möglicherweise andere Zertifizierungsstellen (so genannte *Aussteller* ), um Zertifikate mit einem bestimmten Antragsteller zu signieren. Aus diesem Grund ist es wichtig, alle erwarteten Fingerabdrücke von Ausstellern für diesen Antragsteller anzugeben. Anders gesagt: Die Verlängerung eines Zertifikats wird nicht unbedingt vom selben Aussteller signiert wie das Zertifikat, das verlängert wird.
+   >
+   > Die Angabe des Ausstellers gilt als Best Practice. Auch wenn kein Aussteller angegeben wird, funktioniert dieses Verfahren bei Zertifikatketten bis zu einem vertrauenswürdigen Stamm. Dieses Verhalten unterliegt jedoch Einschränkungen, und es wird möglicherweise in naher Zukunft eingestellt. Cluster, die in Azure bereitgestellt, mit durch eine private PKI ausgestellten X.509-Zertifikaten geschützt und per Antragsteller deklariert werden, können möglicherweise durch Service Fabric nicht überprüft werden (zur Kommunikation zwischen Cluster und Dienst). Für eine Überprüfung muss die Zertifikatrichtlinie der PKI ermittelbar, verfügbar und zugänglich sein.
 
->[!NOTE]
-> Geheimnisse von VM-Skalierungsgruppen unterstützen nicht die gleiche Ressourcen-ID für zwei separate Geheimnisse, da jedes Geheimnis eine eindeutige Ressource mit Versionsverwaltung ist. 
+## <a name="update-the-clusters-azure-resource-manager-template-and-deploy"></a>Aktualisieren und Bereitstellen der Azure Resource Manager-Vorlage für den Cluster
 
-## <a name="download-and-update-the-template-from-the-portal"></a>Herunterladen der Vorlage aus dem Portal und Aktualisieren der Vorlage
-Das Zertifikat wurde zwar in der zugrundeliegenden Skalierungsgruppe installiert, Sie müssen aber auch den Service Fabric-Cluster aktualisieren, damit er dieses Zertifikat und den entsprechenden allgemeinen Namen verwendet.  Laden Sie nun die Vorlage für die Clusterbereitstellung herunter.  Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an, und navigieren Sie zu der Ressourcengruppe, die den Cluster hostet.  Wählen Sie unter **Einstellungen** die Option **Bereitstellungen** aus.  Wählen Sie die neueste Bereitstellung aus, und klicken Sie auf **Vorlage anzeigen**.
+Verwalten Sie Ihre Service Fabric-Cluster mit Azure Resource Manager-Vorlagen (ARM). Eine Alternative, bei der ebenfalls JSON-Artefakte verwendet werden, ist der [Azure-Ressourcen-Explorer (Vorschau)](https://resources.azure.com). Das Azure-Portal bietet derzeit keine äquivalenten Funktionen.
 
-![Anzeigen von Vorlagen][image1]
+Wenn die ursprüngliche Vorlage für einen vorhandenen Cluster nicht verfügbar ist, kann eine gleichwertige Vorlage im Azure-Portal abgerufen werden. Wechseln Sie zu der Ressourcengruppe, die den Cluster enthält, und wählen Sie aus dem Menü **Automatisierung** auf der linken Seite die Option **Vorlage exportieren** aus. Wählen Sie dann die gewünschten Ressourcen aus. Es müssen mindestens die VM-Skalierungsgruppe bzw. die Clusterressourcen exportiert werden. Die generierte Vorlage kann ebenfalls heruntergeladen werden. Diese Vorlage muss eventuell geändert werden, bevor sie vollständig bereitgestellt werden kann. Möglicherweise entspricht die Vorlage auch nicht exakt der ursprünglichen. Sie spiegelt den aktuellen Zustand der Clusterressource wider.
 
-Laden Sie die Vorlagedatei und die JSON-Parameterdatei auf Ihren lokalen Computer herunter.
+Folgende Änderungen sind notwendig:
 
-Öffnen Sie zunächst die Parameterdatei in einem Text-Editor, und fügen Sie den folgenden Parameterwert hinzu:
+- Aktualisieren Sie die Definition der Service Fabric-Knotenerweiterung (unter den VM-Ressourcen). Wenn der Cluster mehrere Knotentypen definiert, müssen Sie die Definition jeder entsprechenden VM-Skalierungsgruppe aktualisieren.
+- Aktualisieren Sie die Clusterressourcendefinition.
+
+Im Folgenden finden Sie einige detaillierte Beispiele.
+
+### <a name="update-the-virtual-machine-scale-set-resources"></a>Aktualisieren der Ressourcen der VM-Skalierungsgruppen
+Von:
 ```json
-"certificateCommonName": {
-    "value": "myclustername.southcentralus.cloudapp.azure.com"
-},
-```
-
-Öffnen Sie als Nächstes die Vorlagendatei in einem Text-Editor, und nehmen Sie drei Aktualisierungen vor, damit der allgemeine Name des Zertifikats unterstützt wird.
-
-1. Fügen Sie im Abschnitt **parameters** einen Parameter *certificateCommonName* hinzu:
-    ```json
-    "certificateCommonName": {
-        "type": "string",
-        "metadata": {
-            "description": "Certificate Commonname"
-        }
-    },
-    ```
-
-    Außerdem könnten Sie *certificateThumbprint* entfernen, da dieser Parameter in der Resource Manager-Vorlage wahrscheinlich nicht mehr referenziert wird.
-
-2. Aktualisieren Sie in der Ressource **Microsoft.Compute/virtualMachineScaleSets** die VM-Erweiterung, damit in den Zertifikateinstellungen anstelle des Fingerabdrucks der allgemeine Name verwendet wird.  Fügen Sie unter **virtualMachineProfile**->**extensionProfile**->**extensions**->**properties**->**settings**->**certificate** den Eintrag `"commonNames": ["[parameters('certificateCommonName')]"],` hinzu, und entfernen Sie `"thumbprint": "[parameters('certificateThumbprint')]",`.
-    ```json
-        "virtualMachineProfile": {
+"virtualMachineProfile": {
         "extensionProfile": {
             "extensions": [
                 {
@@ -129,17 +108,36 @@ Laden Sie die Vorlagedatei und die JSON-Parameterdatei auf Ihren lokalen Compute
                         "type": "ServiceFabricNode",
                         "autoUpgradeMinorVersion": true,
                         "protectedSettings": {
-                            "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
-                            "StorageAccountKey2": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key2]"
+                            ...
                         },
                         "publisher": "Microsoft.Azure.ServiceFabric",
                         "settings": {
-                            "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
-                            "nodeTypeRef": "[variables('vmNodeType0Name')]",
-                            "dataPath": "D:\\SvcFab",
-                            "durabilityLevel": "Bronze",
-                            "enableParallelJobs": true,
-                            "nicPrefixOverride": "[variables('subnet0Prefix')]",
+                            ...
+                            "certificate": {
+                                "thumbprint": "[parameters('certificateThumbprint')]",
+                                "x509StoreName": "[parameters('certificateStoreValue')]"
+                            }
+                        },
+                        ...
+                    }
+                },
+```
+Nach:
+```json
+"virtualMachineProfile": {
+        "extensionProfile": {
+            "extensions": [
+                {
+                    "name": "[concat('ServiceFabricNodeVmExt','_vmNodeType0Name')]",
+                    "properties": {
+                        "type": "ServiceFabricNode",
+                        "autoUpgradeMinorVersion": true,
+                        "protectedSettings": {
+                            ...
+                        },
+                        "publisher": "Microsoft.Azure.ServiceFabric",
+                        "settings": {
+                            ...
                             "certificate": {
                                 "commonNames": [
                                     "[parameters('certificateCommonName')]"
@@ -147,42 +145,66 @@ Laden Sie die Vorlagedatei und die JSON-Parameterdatei auf Ihren lokalen Compute
                                 "x509StoreName": "[parameters('certificateStoreValue')]"
                             }
                         },
-                        "typeHandlerVersion": "1.0"
+                        ...
                     }
                 },
-    ```
+```
 
-3.  Aktualisieren Sie in der Ressource **Microsoft.ServiceFabric/clusters** die API-Version auf „2018-02-01“.  Fügen Sie auch eine Einstellung **certificateCommonNames** mit der Eigenschaft **commonNames** hinzu, und entfernen Sie die Einstellung **certificate** (mit der Eigenschaft „Thumbprint“), wie im folgenden Beispiel gezeigt:
-    ```json
+### <a name="update-the-cluster-resource"></a>Aktualisieren der Clusterressource
+
+Fügen Sie in der Ressource **Microsoft.ServiceFabric/clusters** die Eigenschaft **certificateCommonNames** mit der Einstellung **commonNames** hinzu, und entfernen Sie die Eigenschaft **certificate** vollständig, einschließlich sämtlicher Einstellungen.
+
+Von:
+```json
     {
         "apiVersion": "2018-02-01",
         "type": "Microsoft.ServiceFabric/clusters",
         "name": "[parameters('clusterName')]",
         "location": "[parameters('clusterLocation')]",
         "dependsOn": [
-            "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
+            ...
         ],
         "properties": {
             "addonFeatures": [
-                "DnsService",
-                "RepairManager"
+                ...
+            ],
+            "certificate": {
+              "thumbprint": "[parameters('certificateThumbprint')]",
+              "x509StoreName": "[parameters('certificateStoreValue')]"
+            },
+        ...
+```
+Nach:
+```json
+    {
+        "apiVersion": "2018-02-01",
+        "type": "Microsoft.ServiceFabric/clusters",
+        "name": "[parameters('clusterName')]",
+        "location": "[parameters('clusterLocation')]",
+        "dependsOn": [
+            ...
+        ],
+        "properties": {
+            "addonFeatures": [
+                ...
             ],
             "certificateCommonNames": {
                 "commonNames": [
                     {
                         "certificateCommonName": "[parameters('certificateCommonName')]",
-                        "certificateIssuerThumbprint": ""
+                        "certificateIssuerThumbprint": "[parameters('certificateIssuerThumbprintList')]"
                     }
                 ],
                 "x509StoreName": "[parameters('certificateStoreValue')]"
             },
         ...
-    ```
+```
 
 Weitere Informationen finden Sie unter [Bereitstellen eines Service Fabric-Clusters mit allgemeinem Zertifikatnamen anstelle eines Fingerabdrucks](./service-fabric-create-cluster-using-cert-cn.md).
 
 ## <a name="deploy-the-updated-template"></a>Bereitstellen der aktualisierten Vorlage
-Stellen Sie nach Abschluss der Änderungen die aktualisierte Vorlage erneut bereit.
+
+Wenn Sie alle Änderungen vorgenommen haben, stellen Sie die aktualisierte Vorlage erneut bereit.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"
@@ -191,9 +213,22 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
     -TemplateParameterFile "C:\temp\cluster\parameters.json" -TemplateFile "C:\temp\cluster\template.json" 
 ```
 
+## <a name="achieve-a-valid-starting-state-for-converting-a-cluster-to-cn-based-certificate-declarations"></a>Erreichen eines gültigen Anfangszustands für die Konvertierung eines Clusters zu CN-basierten Zertifikatdeklarationen
+
+| Anfangsstatus | Upgrade 1 | Upgrade 2 |
+| :--- | :--- | :--- |
+| `Thumbprint: OldCert1, ThumbprintSecondary: None` und `GoalCert` weisen ein späteres `NotAfter`-Datum auf als `OldCert1` | `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert` | - |
+| `Thumbprint: OldCert1, ThumbprintSecondary: None` und `OldCert1` weisen ein späteres `NotAfter`-Datum auf als `GoalCert` | `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1` | `Thumbprint: GoalCert, ThumbprintSecondary: None` |
+| `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, wobei `OldCert1` ein späteres `NotAfter`-Datum aufweist als `GoalCert` | Upgrade auf `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
+| `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, wobei `OldCert1` ein späteres `NotAfter`-Datum aufweist als `GoalCert` | Upgrade auf `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
+| `Thumbprint: OldCert1, ThumbprintSecondary: OldCert2` | Entfernen von `OldCert1` oder `OldCert2`, um den Zustand `Thumbprint: OldCertx, ThumbprintSecondary: None` zu erreichen | Fortfahren mit dem neuen Anfangszustand |
+
+Eine Anleitung zu diesen Upgrades finden Sie unter [Verwalten von Zertifikaten in einem Azure Service Fabric-Cluster](service-fabric-cluster-security-update-certs-azure.md).
+
 ## <a name="next-steps"></a>Nächste Schritte
+
 * Erfahren Sie mehr über [Clustersicherheit](service-fabric-cluster-security.md).
-* Erfahren Sie, wie Sie einen [Rollover für ein Cluster-Zertifikat ausführen](service-fabric-cluster-rollover-cert-cn.md).
-* [Aktualisieren und Verwalten von Clusterzertifikaten](service-fabric-cluster-security-update-certs-azure.md)
+* Erfahren Sie, wie Sie einen [Rollover für ein Clusterzertifikat anhand des allgemeinen Namens ausführen](service-fabric-cluster-rollover-cert-cn.md).
+* Erfahren Sie, wie Sie einen [Cluster für einen automatischen Rollover ohne Benutzereingriff konfigurieren](cluster-security-certificate-management.md).
 
 [image1]: ./media/service-fabric-cluster-change-cert-thumbprint-to-cn/PortalViewTemplates.png

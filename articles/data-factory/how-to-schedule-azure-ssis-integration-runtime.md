@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: e9647de255b749e064b94f57c9067aaff7dc3cb7
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2d9be3ec005b2eb6c1cc8e530c44117ba8fbb401
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219444"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635030"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Starten und Beenden von Azure-SSIS Integration Runtimes nach einem Zeitplan
 
@@ -31,7 +31,7 @@ Alternativ können Sie Webaktivitäten in ADF-Pipelines erstellen, um Ihre IR na
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Voraussetzungen
-Wenn Sie Ihre Azure-SSIS IR noch nicht bereitgestellt haben, stellen Sie sie mithilfe der folgenden Anweisungen im [Tutorial](tutorial-create-azure-ssis-runtime-portal.md) bereit. 
+Wenn Sie Ihre Azure-SSIS IR noch nicht bereitgestellt haben, stellen Sie sie mithilfe der folgenden Anweisungen im [Tutorial](./tutorial-deploy-ssis-packages-azure.md) bereit. 
 
 ## <a name="create-and-schedule-adf-pipelines-that-start-and-or-stop-azure-ssis-ir"></a>Erstellen und Planen von ADF-Pipelines zum Starten oder Beenden einer Azure-SSIS IR
 In diesem Abschnitt erfahren Sie, wie Sie mithilfe von Webaktivitäten in ADF-Pipelines Ihre Azure-SSIS IR nach Zeitplan oder nach Bedarf starten und beenden. Wir führen Sie durch die Erstellung von drei Pipelines: 
@@ -97,7 +97,7 @@ Wenn Sie einen dritten Trigger erstellen, der für eine Ausführung täglich um 
   
     2. Wählen Sie unter **Methode** die Option **POST** aus. 
     3. Geben Sie unter **Text** die Zeichenfolge `{"message":"Start my IR"}` ein. 
-    4. Wählen Sie für **Authentifizierung** die Option **MSI** aus, um die verwaltete Identität für Ihre ADF zu verwenden. Weitere Informationen hierzu finden Sie in dem Artikel [Verwaltete Identität für Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
+    4. Wählen Sie für **Authentifizierung** die Option **MSI** aus, um die verwaltete Identität für Ihre ADF zu verwenden. Weitere Informationen hierzu finden Sie in dem Artikel [Verwaltete Identität für Data Factory](./data-factory-service-identity.md).
     5. Geben Sie `https://management.azure.com/` als **Ressource** ein.
     
        ![ADF-Webaktivität nach Zeitplan für SSIS IR](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)

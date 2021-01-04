@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: db50049675766d9fd8a018c8730f48ac34e23bfc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f0fcd61230d68d7b26017237e2b7e0465fcb1f07
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276662"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635319"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Konfigurieren von Azure-SSIS Integration Runtime für hohe Leistung
 
@@ -118,11 +118,11 @@ Die Y-Achse zeigt die Anzahl von Paketen, deren Ausführung innerhalb einer Stun
 
 ## <a name="azuressisnodenumber"></a>AzureSSISNodeNumber
 
-**AzureSSISNodeNumber** passt die Integration Runtime-Skalierbarkeit an. Der Integration Runtime-Durchsatz ist proportional zu **AzureSSISNodeNumber**. Legen Sie **AzureSSISNodeNumber** zunächst auf einen niedrigen Wert fest, überwachen Sie den Integration Runtime-Durchsatz, und passen Sie den Wert anschließend für Ihr Szenario an. Informationen zum Ändern der Konfiguration der Workerknotenanzahl finden Sie unter [Verwalten einer Azure-SSIS-Integrationslaufzeit](manage-azure-ssis-integration-runtime.md).
+**AzureSSISNodeNumber** passt die Integration Runtime-Skalierbarkeit an. Der Integration Runtime-Durchsatz ist proportional zu **AzureSSISNodeNumber** . Legen Sie **AzureSSISNodeNumber** zunächst auf einen niedrigen Wert fest, überwachen Sie den Integration Runtime-Durchsatz, und passen Sie den Wert anschließend für Ihr Szenario an. Informationen zum Ändern der Konfiguration der Workerknotenanzahl finden Sie unter [Verwalten einer Azure-SSIS-Integrationslaufzeit](manage-azure-ssis-integration-runtime.md).
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Wenn Sie bereits einen leistungsstarken Workerknoten für die Paketausführung verwenden, lässt sich der allgemeine Integration Runtime-Durchsatz ggf. durch Erhöhen von **AzureSSISMaxParallelExecutionsPerNode** steigern. Wenn Sie den maximalen Wert erhöhen möchten, müssen Sie Azure PowerShell verwenden, um **AzureSSISMaxParallelExecutionsPerNode** zu aktualisieren. Einen geeigneten ungefähren Wert können Sie auf der Grundlage der Kosten für Ihr Paket und der folgenden Konfigurationen für Workerknoten ermitteln. Weitere Informationen finden Sie unter [Universelle VM-Größen](../virtual-machines/windows/sizes-general.md).
+Wenn Sie bereits einen leistungsstarken Workerknoten für die Paketausführung verwenden, lässt sich der allgemeine Integration Runtime-Durchsatz ggf. durch Erhöhen von **AzureSSISMaxParallelExecutionsPerNode** steigern. Wenn Sie den maximalen Wert erhöhen möchten, müssen Sie Azure PowerShell verwenden, um **AzureSSISMaxParallelExecutionsPerNode** zu aktualisieren. Einen geeigneten ungefähren Wert können Sie auf der Grundlage der Kosten für Ihr Paket und der folgenden Konfigurationen für Workerknoten ermitteln. Weitere Informationen finden Sie unter [Universelle VM-Größen](../virtual-machines/sizes-general.md).
 
 | Size             | vCPU | Memory: GiB | Temporärer Speicher (SSD): GiB | Maximaler Durchsatz (temporärer Speicher): IOPS/MBit/s Lesen/MBps Schreiben | Max. Datenträger/Durchsatz: IOPS | Maximale Anzahl NICs/Erwartete Netzwerkbandbreite (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
@@ -145,7 +145,7 @@ Wenn Sie bereits einen leistungsstarken Workerknoten für die Paketausführung v
 | Standard\_E32\_v3| 32   | 256         | 800                    | 48000/750/375                                          | 32/96 x 500                       | 8/16000                                      |
 | Standard\_E64\_v3| 64   | 432         | 1600                   | 96000/1000/500                                         | 32/192 x 500                      | 8 / 30000                                      |
 
-Richtlinien für das Festlegen des passenden Werts für die Eigenschaft **AzureSSISMaxParallelExecutionsPerNode**: 
+Richtlinien für das Festlegen des passenden Werts für die Eigenschaft **AzureSSISMaxParallelExecutionsPerNode** : 
 
 1. Verwenden Sie zunächst einen niedrigen Wert.
 2. Erhöhen Sie ihn geringfügig, um zu überprüfen, ob sich der Durchsatz insgesamt verbessert.
@@ -161,7 +161,7 @@ Richtlinien für das Festlegen des passenden Werts für die Eigenschaft **AzureS
 
 -   Wählen Sie eine leistungsfähigere Datenbank wie z.B. s3 aus, wenn der ausführliche Protokolliergrad festgelegt ist. Entsprechend unseren inoffiziellen internen Tests kann der Tarif s3 eine SSIS-Paketausführung mit 2 Knoten, 128 parallel und ausführlichem Protokolliergrad unterstützen.
 
-Der Datenbanktarif kann auch auf der Grundlage der im Azure-Portal verfügbaren Informationen zur Nutzung von [Datenbanktransaktionseinheiten](../sql-database/sql-database-what-is-a-dtu.md) (Database Transaction Units, DTUs) angepasst werden.
+Der Datenbanktarif kann auch auf der Grundlage der im Azure-Portal verfügbaren Informationen zur Nutzung von [Datenbanktransaktionseinheiten](../azure-sql/database/service-tiers-dtu.md) (Database Transaction Units, DTUs) angepasst werden.
 
 ## <a name="design-for-high-performance"></a>Entwerfen für hohe Leistung
 Das Entwerfen eines SSIS-Pakets für die Ausführung in Azure unterscheidet sich vom Entwerfen eines Pakets für die lokale Ausführung. Unabhängige Aufgaben werden hier nicht im gleichen Paket zusammengefasst, sondern auf mehrere Pakete aufgeteilt, um eine effizientere Ausführung in Azure-SSIS IR zu erreichen. Erstellen Sie für jedes Paket eine Paketausführung, damit nicht auf den Abschluss der jeweils anderen Paketausführungen gewartet werden muss. Dieser Ansatz macht sich die Skalierbarkeit von Azure-SSIS Integration Runtime zunutze und verbessert den allgemeinen Durchsatz.

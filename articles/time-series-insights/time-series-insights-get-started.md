@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 401d22ee68ba0652eb684b03b06fddf0b0fe3d72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61af7922318514a7b86a349d1970c59d4d168d85
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569453"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023325"
 ---
 # <a name="create-a-new-azure-time-series-insights-gen1-environment-in-the-azure-portal"></a>Erstellen einer neuen Azure Time Series Insights Gen1-Umgebung über das Azure-Portal
 
@@ -68,9 +68,9 @@ Führen Sie zum Erstellen einer Umgebung die folgenden Schritte aus:
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Definieren von Datenzugriffsrichtlinien](time-series-insights-data-access.md) zum Schützen Ihrer Umgebung
+* [Definieren von Datenzugriffsrichtlinien](./concepts-access-policies.md) zum Schützen Ihrer Umgebung
 
-* [Hinzufügen einer Event Hub-Ereignisquelle ](time-series-insights-how-to-add-an-event-source-eventhub.md) zu Ihrer Azure Time Series Insights-Umgebung
+* [Hinzufügen einer Event Hub-Ereignisquelle ](./how-to-ingest-data-event-hub.md) zu Ihrer Azure Time Series Insights-Umgebung
 
 * [Senden von Ereignissen](time-series-insights-send-events.md) an die Ereignisquelle
 

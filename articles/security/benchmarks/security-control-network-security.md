@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: dad01212be3589af7167082ff22c624fa776772a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a232f8e8c35e265a8243ac79e465c03f6b9650e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82193121"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487863"
 ---
 # <a name="security-control-network-security"></a>Sicherheitskontrolle: Netzwerksicherheit
 
@@ -28,15 +28,15 @@ Stellen Sie sicher, dass auf alle Virtual Network-Subnetzbereitstellungen eine N
 
 Sollte Ihr Anwendungsfall speziell sein, können die Anforderungen alternativ auch durch Implementieren von Azure Firewall erfüllt werden.
 
-- [Grundlegendes zu VNET-Dienstendpunkten](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
+- [Grundlegendes zu VNET-Dienstendpunkten](../../virtual-network/virtual-network-service-endpoints-overview.md)
 
-- [Grundlegendes zu Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview)
+- [Grundlegendes zu Azure Private Link](../../private-link/private-link-overview.md)
 
-- [Erstellen eines virtuellen Netzwerks](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+- [Erstellen eines virtuellen Netzwerks](../../virtual-network/quick-create-portal.md)
 
-- [Erstellen einer NSG mit einer Sicherheitskonfiguration](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+- [Erstellen einer NSG mit einer Sicherheitskonfiguration](../../virtual-network/tutorial-filter-network-traffic.md)
 
-- [Bereitstellen und Konfigurieren von Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+- [Bereitstellen und Konfigurieren von Azure Firewall](../../firewall/tutorial-firewall-deploy-portal.md)
 
 ## <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1.2: Überwachen und Protokollieren der Konfiguration und des Datenverkehrs von virtuellen Netzwerken, Subnetzen und Netzwerkkarten (NICs)
 
@@ -46,11 +46,11 @@ Sollte Ihr Anwendungsfall speziell sein, können die Anforderungen alternativ au
 
 Verwenden Sie Azure Security Center, und befolgen Sie die Empfehlungen für den Netzwerkschutz, um Ihre Netzwerkressourcen in Azure abzusichern. Aktivieren Sie NSG-Flussprotokolle und senden Sie Protokolle an ein Speicherkonto für die Datenverkehrsüberwachung. Sie können auch NSG-Flussprotokolle an einen Log Analytics-Arbeitsbereich senden und mithilfe von Traffic Analytics Einblicke in den Datenverkehrsfluss in Ihrer Azure-Cloud ermöglichen. Einige Vorteile von Traffic Analytics sind die Möglichkeit, die Netzwerkaktivität zu visualisieren und Hotspots zu erkennen, Sicherheitsbedrohungen zu identifizieren, Datenverkehrsflussmuster zu verstehen und Netzwerkfehlkonfigurationen zu ermitteln.
 
-- [Aktivieren der NSG-Flussprotokolle](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [Aktivieren der NSG-Flussprotokolle](../../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-- [Aktivieren und Verwenden von Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+- [Aktivieren und Verwenden von Traffic Analytics](../../network-watcher/traffic-analytics.md)
 
-- [Grundlegendes zu der von Azure Security Center bereitgestellten Netzwerksicherheit](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Grundlegendes zu der von Azure Security Center bereitgestellten Netzwerksicherheit](../../security-center/security-center-network-recommendations.md)
 
 ## <a name="13-protect-critical-web-applications"></a>1.3: Schützen kritischer Webanwendungen
 
@@ -60,7 +60,7 @@ Verwenden Sie Azure Security Center, und befolgen Sie die Empfehlungen für den 
 
 Stellen Sie die Azure Web Application Firewall (WAF) vor kritischen Webanwendungen bereit, um den eingehenden Datenverkehr weiteren Überprüfungen zu unterziehen. Aktivieren Sie die Diagnoseeinstellung für WAF, und erfassen Sie Protokolle in ein Speicherkonto, einen Event Hub oder einen Log Analytics-Arbeitsbereich.
 
-- [Bereitstellen von Azure WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag)
+- [Bereitstellen von Azure WAF](../../web-application-firewall/ag/create-waf-policy-ag.md)
 
 ## <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4: Ablehnen der Kommunikation mit bekannten bösartigen IP-Adressen
 
@@ -76,15 +76,15 @@ Verwenden Sie den Just-in-Time-Netzwerkzugriff in Azure Security Center, um NSGs
 
 Verwenden Sie die adaptive Netzwerkhärtung in Azure Security Center, um NSG-Konfigurationen zu empfehlen, die Ports und Quell-IPs basierend auf tatsächlichem Datenverkehr und Threat Intelligence einschränken.
 
-- [Konfigurieren von DDoS-Schutz](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+- [Konfigurieren von DDoS-Schutz](../../ddos-protection/manage-ddos-protection.md)
 
-- [Bereitstellen von Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+- [Bereitstellen von Azure Firewall](../../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Grundlegendes zur integrierten Threat Intelligence in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)
+- [Grundlegendes zur integrierten Threat Intelligence in Azure Security Center](../../security-center/azure-defender.md)
 
-- [Grundlegendes zur adaptiven Netzwerkhärtung von Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)
+- [Grundlegendes zur adaptiven Netzwerkhärtung von Azure Security Center](../../security-center/security-center-adaptive-network-hardening.md)
 
-- [Grundlegendes zur Just-in-Time-Netzwerkzugriffssteuerung in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+- [Grundlegendes zur Just-in-Time-Netzwerkzugriffssteuerung in Azure Security Center](../../security-center/security-center-just-in-time.md)
 
 ## <a name="15-record-network-packets"></a>1.5: Aufzeichnen von Netzwerkpaketen
 
@@ -94,7 +94,7 @@ Verwenden Sie die adaptive Netzwerkhärtung in Azure Security Center, um NSG-Kon
 
 Aktivieren Sie die Network Watcher-Paketerfassung, um anomale Aktivitäten zu untersuchen.
 
-- [Aktivieren von Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+- [Aktivieren von Network Watcher](../../network-watcher/network-watcher-create.md)
 
 ## <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6: Bereitstellen von netzwerkbasierten Angriffserkennungs-/Eindringschutzsystemen (IDS/IPS)
 
@@ -108,9 +108,9 @@ Stellen Sie die Firewalllösung Ihrer Wahl an allen Netzwerkgrenzen Ihrer Organi
 
 - [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
 
-- [Bereitstellen von Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+- [Bereitstellen von Azure Firewall](../../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Konfigurieren von Warnungen mit Azure Firewall](https://docs.microsoft.com/azure/firewall/threat-intel)
+- [Konfigurieren von Warnungen mit Azure Firewall](../../firewall/threat-intel.md)
 
 ## <a name="17-manage-traffic-to-web-applications"></a>1.7: Verwalten von Datenverkehr für Webanwendungen
 
@@ -120,11 +120,11 @@ Stellen Sie die Firewalllösung Ihrer Wahl an allen Netzwerkgrenzen Ihrer Organi
 
 Stellen Sie Azure Application Gateway für Webanwendungen mit aktiviertem HTTPS/TLS für vertrauenswürdige Zertifikate bereit.
 
-- [Bereitstellen von Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
+- [Bereitstellen von Application Gateway](../../application-gateway/quick-create-portal.md)
 
-- [Konfigurieren von Application Gateway für die Verwendung von HTTPS](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal)
+- [Konfigurieren von Application Gateway für die Verwendung von HTTPS](../../application-gateway/create-ssl-portal.md)
 
-- [Grundlegendes zum Lastenausgleich der Ebene 7 mit Azure-Webanwendungsgateways](https://docs.microsoft.com/azure/application-gateway/overview)
+- [Grundlegendes zum Lastenausgleich der Ebene 7 mit Azure-Webanwendungsgateways](../../application-gateway/overview.md)
 
 ## <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8: Minimieren der Komplexität und des Verwaltungsaufwands von Netzwerksicherheitsregeln
 
@@ -136,9 +136,9 @@ Verwenden Sie Virtual Network-Diensttags, um Netzwerkzugriffssteuerungen in Netz
 
 Sie können auch Anwendungssicherheitsgruppen verwenden, um eine komplexe Sicherheitskonfiguration zu vereinfachen. Mit Anwendungssicherheitsgruppen können Sie die Netzwerksicherheit als natürliche Erweiterung einer Anwendungsstruktur konfigurieren und virtuelle Computer gruppieren sowie auf der Grundlage dieser Gruppen Netzwerksicherheitsrichtlinien definieren.
 
-- [Grundlegendes zu Diensttags und deren Verwendung](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+- [Grundlegendes zu Diensttags und deren Verwendung](../../virtual-network/service-tags-overview.md)
 
-- [Grundlegendes zu Anwendungssicherheitsgruppen und deren Verwendung](https://docs.microsoft.com/azure/virtual-network/security-overview#application-security-groups)
+- [Grundlegendes zu Anwendungssicherheitsgruppen und deren Verwendung](../../virtual-network/network-security-groups-overview.md#application-security-groups)
 
 ## <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: Beibehalten von Standardsicherheitskonfigurationen für Netzwerkgeräte
 
@@ -148,13 +148,13 @@ Sie können auch Anwendungssicherheitsgruppen verwenden, um eine komplexe Sicher
 
 Definieren und implementieren Sie Standardsicherheitskonfigurationen für Netzwerkressourcen mit Azure Policy.
 
-Sie können umfangreiche Azure-Bereitstellungen auch mithilfe von Azure Blueprints vereinfachen, indem Sie wichtige Umgebungsartefakte wie Azure Resource Manager-Vorlagen, RBAC-Steuerelemente und Richtlinien in einer einzigen Blaupausendefinition verpacken. Sie können die Blaupause auf neue Abonnements anwenden sowie die Steuerung und Verwaltung durch die Versionsverwaltung optimieren.
+Sie können umfangreiche Azure-Bereitstellungen auch mithilfe von Azure Blueprints vereinfachen, indem Sie wichtige Umgebungsartefakte wie Azure Resource Manager-Vorlagen, Azure RBAC-Kontrollen und Richtlinien in einer einzigen Blaupausendefinition packen. Sie können die Blaupause auf neue Abonnements anwenden sowie die Steuerung und Verwaltung durch die Versionsverwaltung optimieren.
 
-- [Konfigurieren und Verwalten von Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Konfigurieren und Verwalten von Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy-Beispiele für Netzwerke](https://docs.microsoft.com/azure/governance/policy/samples/#network)
+- [Azure Policy-Beispiele für Netzwerke](../../governance/policy/samples/built-in-policies.md#network)
 
-- [Erstellen einer Azure-Blaupause](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+- [Erstellen einer Azure-Blaupause](../../governance/blueprints/create-blueprint-portal.md)
 
 ## <a name="110-document-traffic-configuration-rules"></a>1.10: Dokumentieren von Datenverkehrskonfigurationsregeln
 
@@ -168,11 +168,11 @@ Verwenden Sie eine der integrierten Azure Policy-Definitionen zum Tagging, z. B
 
 Sie können Azure PowerShell oder die Azure-Befehlszeilenschnittstelle verwenden, um Ressourcen basierend auf ihren Tags zu suchen oder Aktionen auszuführen.
 
-- [Erstellen und Verwenden von Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Erstellen und Verwenden von Tags](../../azure-resource-manager/management/tag-resources.md)
 
-- [Erstellen eines virtuellen Netzwerks](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+- [Erstellen eines virtuellen Netzwerks](../../virtual-network/quick-create-portal.md)
 
-- [Erstellen einer NSG mit einer Sicherheitskonfiguration](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+- [Erstellen einer NSG mit einer Sicherheitskonfiguration](../../virtual-network/tutorial-filter-network-traffic.md)
 
 ## <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: Verwenden automatisierter Tools zum Überwachen von Netzwerkressourcenkonfigurationen und Erkennen von Änderungen
 
@@ -182,9 +182,9 @@ Sie können Azure PowerShell oder die Azure-Befehlszeilenschnittstelle verwenden
 
 Verwenden Sie das Azure-Aktivitätsprotokoll zum Überwachen von Ressourcenkonfigurationen und Erkennen von Änderungen an Ihren Azure-Ressourcen. Erstellen Sie in Azure Monitor Warnungen, die bei Änderungen an wichtigen Ressourcen ausgelöst werden.
 
-- [Anzeigen und Abrufen von Azure-Aktivitätsprotokollereignissen](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+- [Anzeigen und Abrufen von Azure-Aktivitätsprotokollereignissen](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-- [Erstellen von Warnungen in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Erstellen von Warnungen in Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

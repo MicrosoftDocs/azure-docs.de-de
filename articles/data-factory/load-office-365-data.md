@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 170716804a5bc3133e070ee67f2aac71acad7b0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05f336af62bc0869249d5b32700ea3515ac5994f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89435557"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459699"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Laden von Daten aus Office 365 mithilfe von Azure Data Factory
 
@@ -79,7 +79,7 @@ In diesem Artikel wird gezeigt, wie Sie mithilfe von Data Factory _Daten aus Off
 
     ![Konfigurieren des Office 365-Datasets unter „Tabelle“](./media/load-office-365-data/edit-dataset.png)
 
-8. Wechseln Sie nun zurück zur Registerkarte **Pipeline** > **Quelle**, um die Konfiguration zusätzlicher Eigenschaften für die Office 365-Datenextraktion fortzusetzen.  Benutzerbereich und Benutzerbereichsfilter sind optionale Prädikate, die Sie definieren können, um die Daten einzuschränken, die aus Office 365 extrahiert werden sollen. Informationen zum Konfigurieren dieser Einstellungen finden Sie im Abschnitt [Office 365 – Dataset-Eigenschaften](https://docs.microsoft.com/azure/data-factory/connector-office-365#dataset-properties).
+8. Wechseln Sie nun zurück zur Registerkarte **Pipeline** > **Quelle**, um die Konfiguration zusätzlicher Eigenschaften für die Office 365-Datenextraktion fortzusetzen.  Benutzerbereich und Benutzerbereichsfilter sind optionale Prädikate, die Sie definieren können, um die Daten einzuschränken, die aus Office 365 extrahiert werden sollen. Informationen zum Konfigurieren dieser Einstellungen finden Sie im Abschnitt [Office 365 – Dataset-Eigenschaften](./connector-office-365.md#dataset-properties).
 
 9. Sie müssen einen der Datumsfilter auswählen und Werte für die Start- und Endzeit angeben.
 
@@ -147,7 +147,7 @@ Navigieren Sie nun zur Azure Blob Storage-Zielinstanz, und überprüfen Sie, ob 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Lesen Sie den folgenden Artikel, um mehr über die Unterstützung von Azure Synapse Analytics (vormals SQL Data Warehouse) zu erfahren: 
+Lesen Sie den folgenden Artikel, um mehr über die Unterstützung von Azure Synapse Analytics zu erfahren: 
 
 > [!div class="nextstepaction"]
 >[Office 365-Connector](connector-office-365.md)

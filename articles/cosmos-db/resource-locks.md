@@ -3,17 +3,19 @@ title: Verhindern des Löschens oder Änderns von Azure Cosmos DB-Ressourcen
 description: Verwenden Sie Azure-Ressourcensperren, um zu verhindern, dass Azure Cosmos DB-Ressourcen gelöscht oder geändert werden.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: mjbrown
-ms.openlocfilehash: b23fb22a99705e1bf37de7a7982513ff692d8f6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c8c766208132aec115e1fbeb15af3a057c3de3e
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91771002"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636689"
 ---
 # <a name="prevent-azure-cosmos-db-resources-from-being-deleted-or-changed"></a>Verhindern des Löschens oder Änderns von Azure Cosmos DB-Ressourcen
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Als Administrator möchten Sie möglicherweise ein Azure Cosmos-Konto, eine Datenbank oder einen Container sperren, um zu verhindern, dass andere Benutzer in Ihrer Organisation versehentlich wichtige Ressourcen löschen oder ändern. Sie können die Sperrebene auf CanNotDelete oder ReadOnly festlegen.
 
@@ -24,7 +26,7 @@ Als Administrator möchten Sie möglicherweise ein Azure Cosmos-Konto, eine Date
 
 Wenn Sie eine Sperre in einem übergeordneten Bereich anwenden, erben alle Ressourcen in diesem Bereich die entsprechende Sperre. Auch Ressourcen, die Sie später hinzufügen, erben die Sperre aus dem übergeordneten Element. Die restriktivste Sperre in der Vererbung hat Vorrang.
 
-Im Gegensatz zur rollenbasierten Zugriffssteuerung verwenden Sie Verwaltungssperren, um eine Einschränkung für alle Benutzer und Rollen zu aktivieren. Informationen zu RBAC für Azure Cosmos DB finden Sie unter [Rollenbasierte Zugriffssteuerung in Azure Cosmos DB](role-based-access-control.md).
+Im Gegensatz zur rollenbasierten Zugriffssteuerung in Azure verwenden Sie Verwaltungssperren, um eine Einschränkung für alle Benutzer und Rollen zu aktivieren. Informationen zu Azure RBAC für Azure Cosmos DB finden Sie unter [Rollenbasierte Azure-Zugriffssteuerung in Azure Cosmos DB](role-based-access-control.md).
 
 Resource Manager-Sperren gelten nur für Vorgänge auf der Verwaltungsebene (also für Vorgänge, die an https://management.azure.com gesendet werden). Die Ausführung ressourceneigener Funktionen wird durch die Sperren nicht eingeschränkt. Die Ressourcenänderungen sind eingeschränkt, die Ressourcenvorgänge jedoch nicht. Beispielsweise verhindert eine ReadOnly-Sperre für einen Azure Cosmos-Container das Löschen oder Ändern des Containers. Sie verhindert jedoch nicht das Erstellen, Aktualisieren oder Löschen von Daten im Container. Datentransaktionen sind zulässig, da diese Vorgänge nicht an https://management.azure.com gesendet werden.
 

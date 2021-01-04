@@ -3,18 +3,20 @@ title: Bereitstellen des Datenbankdurchsatzes in der Azure Cosmos DB-SQL-API
 description: Hier erfahren Sie, wie Sie Durchsatz auf Datenbankebene in der Azure Cosmos DB-SQL-API mit dem Azure-Portal, mit der CLI, mit PowerShell und mit verschiedenen anderen SDKs bereitstellen.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 347da75d8e3f58d3875b02000d74533b36a9b18c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4ecbee2260da735cd6ba74d3b9ffb55b4a652e9e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486105"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341993"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db---sql-api"></a>Bereitstellen von Standarddurchsatz (manuell) für eine Datenbank in Azure Cosmos DB: SQL-API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In diesem Artikel erfahren Sie, wie Sie Standarddurchsatz (manuell) für eine Datenbank in der Azure Cosmos DB-SQL-API bereitstellen. Sie können Durchsatz für einen einzelnen [Container](how-to-provision-container-throughput.md) oder für eine Datenbank bereitstellen und den Durchsatz für die darin enthaltenen Container freigeben. Wenn Sie erfahren möchten, wann Durchsatz auf Containerebene und wann er auf Datenbankebene verwendet wird, lesen Sie den Artikel [Anwendungsfälle für die Bereitstellung von Durchsatz für Container und Datenbanken](set-throughput.md). Durchsatz auf Datenbankebene kann über das Azure-Portal oder über Azure Cosmos DB SDKs bereitgestellt werden.
 
@@ -31,7 +33,7 @@ Wenn Sie eine andere API verwenden, finden Sie weitere Informationen zum Bereits
    * Geben Sie eine Datenbank-ID ein.
    * Wählen Sie die Option **Provision database throughput** (Datenbankdurchsatz bereitstellen) aus.
    * Geben Sie einen Durchsatz ein (beispielsweise 1.000 RUs).
-   * Klicken Sie auf **OK** .
+   * Klicken Sie auf **OK**.
 
     :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-sql-api.png" alt-text="Screenshot: Dialogfeld „Neue Datenbank“":::
 

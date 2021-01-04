@@ -1,27 +1,22 @@
 ---
-title: Zugreifen auf das verwaltete Entwicklerportal und Anpassen des Portals – Azure API Management | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie die verwaltete Version des Entwicklerportals in API Management verwenden.
+title: 'Tutorial: Zugreifen auf und Anpassen des Entwicklerportals – Azure API Management | Microsoft-Dokumentation'
+description: In diesem Tutorial wird beschrieben, wie Sie das API Management-Entwicklerportal anpassen. Hierbei handelt es sich um eine automatisch generierte und vollständig anpassbare Website mit der Dokumentation Ihrer APIs.
 services: api-management
-documentationcenter: API Management
 author: mikebudzynski
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 03/05/2020
+ms.topic: tutorial
+ms.date: 11/16/2020
 ms.author: apimpm
-ms.openlocfilehash: 3ceb8fd154e8ad533f4bf6bc9eb0ec3900749f8b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 90544fbafe7393630c3f3fbc694ae367eccb7f90
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075364"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012975"
 ---
-# <a name="access-and-customize-developer-portal"></a>Zugreifen auf das Entwicklerportal und Anpassen dieses Portals
+# <a name="tutorial-access-and-customize-the-developer-portal"></a>Tutorial: Zugreifen auf und Anpassen des Entwicklerportals
 
-Das Entwicklerportal ist eine automatisch generierte, vollständig anpassbare Website mit der Dokumentation Ihrer APIs. Dort können API-Consumer Ihre APIs entdecken, erfahren, wie diese verwendet werden, und Zugriff anfordern.
+Das *Entwicklerportal* ist eine automatisch generierte und vollständig anpassbare Website mit der Dokumentation Ihrer APIs. Dort können API-Consumer Ihre APIs entdecken, erfahren, wie diese verwendet werden, und Zugriff anfordern.
 
 In diesem Tutorial lernen Sie Folgendes:
 
@@ -34,7 +29,7 @@ In diesem Tutorial lernen Sie Folgendes:
 
 Weitere Informationen zum Entwicklerportal finden Sie in der [Übersicht über das Azure API Management-Entwicklerportal](api-management-howto-developer-portal.md).
 
-![API Management-Entwicklerportal: Administratormodus](media/api-management-howto-developer-portal-customize/cover.png)
+:::image type="content" source="media/api-management-howto-developer-portal-customize/cover.png" alt-text="API Management-Entwicklerportal: Administratormodus" border="false":::
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -47,44 +42,47 @@ Weitere Informationen zum Entwicklerportal finden Sie in der [Übersicht über d
 
 Führen Sie die folgenden Schritte aus, um auf die verwaltete Version des Portals zuzugreifen.
 
-1. Wechseln Sie im Azure-Portal zu Ihrer API Management-Dienstinstanz.
-1. Klicken Sie in der oberen Navigationsleiste auf die Schaltfläche **Entwicklerportal**. Eine neue Browserregisterkarte mit einer administrativen Version des Portals wird geöffnet.
+1. Navigieren Sie im [Azure-Portal](https://portal.azure.com) zu Ihrer API Management-Instanz.
+1. Wählen Sie in der oberen Navigationsleiste die Schaltfläche **Entwicklerportal** aus. Eine neue Browserregisterkarte mit einer administrativen Version des Portals wird geöffnet.
 
 ## <a name="understand-the-portals-administrative-interface"></a>Grundlegendes zur Administratoroberfläche des Portals
 
 ### <a name="default-content"></a>Standardinhalt 
 
-Wenn Sie zum ersten Mal auf das Portal zugreifen, wird der Standardinhalt automatisch im Hintergrund bereitgestellt. Der Standardinhalt ist dafür konzipiert, die Funktionen des Portals zu zeigen und den Umfang der Anpassungen zu minimieren, die zur Personalisierung des Portals erforderlich sind. Weitere Informationen dazu, was im Portal enthalten ist, finden Sie in der [Übersicht über das Azure API Management-Entwicklerportal](api-management-howto-developer-portal.md).
+Wenn Sie zum ersten Mal auf das Portal zugreifen, wird der Standardinhalt automatisch im Hintergrund bereitgestellt. Der Standardinhalt ist dafür konzipiert, die Funktionen des Portals zu veranschaulichen und den Anpassungsaufwand zu minimieren, der für die Personalisierung des Portals erforderlich ist. Weitere Informationen dazu, was im Portal enthalten ist, finden Sie in der [Übersicht über das Azure API Management-Entwicklerportal](api-management-howto-developer-portal.md).
 
 ### <a name="visual-editor"></a>Visueller Editor
 
-Sie können den Inhalt des Portals mithilfe des visuellen Editors anpassen. Über die Menüabschnitte auf der linken Seite können Sie Seiten, Medien, Layouts, Menüs, Formatvorlagen oder Websiteeinstellungen erstellen und ändern. Mit den Menüelementen im unteren Bereich können Sie zwischen Viewports wechseln (z. B. mobil und Desktop), die Elemente des Portals anzeigen, die für authentifizierte oder anonyme Benutzer sichtbar sind, und Aktionen speichern oder rückgängig machen.
-
-Sie können einer Seite Zeilen hinzufügen, indem Sie auf ein blaues Symbol mit einem Pluszeichen klicken. Widgets (z. B. Text, Bilder oder API-Listen) können durch Klicken auf ein graues Symbol mit Pluszeichen hinzugefügt werden. Sie können die Elemente auf einer Seite per Drag & Drop neu anordnen. 
+Sie können den Inhalt des Portals mithilfe des visuellen Editors anpassen. 
+* Über die Menüabschnitte auf der linken Seite können Sie Seiten, Medien, Layouts, Menüs, Formatvorlagen oder Websiteeinstellungen erstellen und ändern. 
+* Mit den Menüelementen im unteren Bereich können Sie zwischen Viewports wechseln (z. B. mobil und Desktop), die Elemente des Portals anzeigen, die für authentifizierte oder anonyme Benutzer sichtbar sind, und Aktionen speichern oder rückgängig machen.
+* Fügen Sie einer Seite Zeilen hinzu, indem Sie auf ein blaues Symbol mit einem Pluszeichen klicken. 
+* Widgets (z. B. Text, Bilder oder API-Listen) können durch Klicken auf ein graues Symbol mit Pluszeichen hinzugefügt werden.
+* Ordnen Sie die Elemente auf einer Seite per Drag & Drop neu an. 
 
 ### <a name="layouts-and-pages"></a>Layouts und Seiten
 
-![Seiten und Layouts](media/api-management-howto-developer-portal-customize/pages-layouts.png)
+:::image type="content" source="media/api-management-howto-developer-portal-customize/pages-layouts.png" alt-text="Seiten und Layouts" border="false":::
 
-Layouts definieren, wie Seiten angezeigt werden. Im Standardinhalt gibt es beispielsweise zwei Layouts: eines für die Startseite, das andere für alle anderen Seiten.
+Layouts definieren, wie Seiten angezeigt werden. Im Standardinhalt gibt es beispielsweise zwei Layouts: eines für die Startseite und das andere für alle anderen Seiten.
 
-Ein Layout wird auf eine Seite angewendet, indem die zugehörige URL-Vorlage mit der URL der Seite abgeglichen wird. Beispielsweise wird das Layout mit einer URL-Vorlage vom Typ `/wiki/*` auf jede Seite mit dem Segment `/wiki/` angewendet: `/wiki/getting-started`, `/wiki/styles` usw.
+Ein Layout wird auf eine Seite angewendet, indem die zugehörige URL-Vorlage mit der URL der Seite abgeglichen wird. Beispielsweise wird ein Layout mit einer URL-Vorlage vom Typ `/wiki/*` auf jede Seite mit dem Segment `/wiki/` angewendet: `/wiki/getting-started`, `/wiki/styles` usw.
 
-In der obigen Abbildung ist zum Layout gehöriger Inhalt blau markiert, die Seite selbst ist rot umrandet. Die Menüabschnitte sind entsprechend gekennzeichnet.
+In der obigen Abbildung ist zum Layout gehöriger Inhalt blau markiert und die Seite selbst rot umrandet. Die Menüabschnitte sind entsprechend gekennzeichnet.
 
 ### <a name="styling-guide"></a>Gestaltungsvorlagen
 
-![Gestaltungsvorlagen](media/api-management-howto-developer-portal-customize/styling-guide.png)
+:::image type="content" source="media/api-management-howto-developer-portal-customize/styling-guide.png" alt-text="Gestaltungsvorlagen" border="false":::
 
 Gestaltungsvorlagen sind ein Panel, das speziell für Designer erstellt wurde. Hier können alle visuellen Elemente in Ihrem Portal angezeigt und gestaltet werden. Die Gestaltung erfolgt hierarchisch: Viele Elemente erben Eigenschaften von anderen Elementen. Ein Beispiel: Schaltflächenelemente verwenden Farben für Text und Hintergrund. Um die Farbe einer Schaltfläche zu ändern, müssen Sie die ursprüngliche Farbvariante ändern.
 
-Um eine Variante zu bearbeiten, klicken Sie darauf, und wählen Sie das angezeigte Stiftsymbol aus. Wenn Sie die gewünschten Änderungen im Popupfenster vorgenommen haben, schließen Sie das Fenster.
+Um eine Variante zu bearbeiten, wählen Sie die gewünschte Variante und dann das angezeigte Stiftsymbol aus. Schließen Sie das Popupfenster, nachdem Sie darin die gewünschten Änderungen vorgenommen haben.
 
 ### <a name="save-button"></a>Schaltfläche „Speichern“
 
-![Schaltfläche „Speichern“](media/api-management-howto-developer-portal-customize/save-button.png)
+:::image type="content" source="media/api-management-howto-developer-portal-customize/save-button.png" alt-text="Schaltfläche „Speichern“" border="false":::
 
-Wenn Sie eine Änderung im Portal vorgenommen haben, müssen Sie diese manuell speichern, indem Sie im Menü unten auf die Schaltfläche **Speichern** klicken. Nachdem Sie die Änderungen gespeichert haben, wird der geänderte Inhalt automatisch in Ihren API Management-Dienst hochgeladen.
+Wenn Sie eine Änderung im Portal vorgenommen haben, müssen Sie diese manuell speichern, indem Sie im Menü unten die Schaltfläche **Speichern** auswählen oder STRG+S drücken. Nachdem Sie die Änderungen gespeichert haben, wird der geänderte Inhalt automatisch in Ihren API Management-Dienst hochgeladen.
 
 ## <a name="customize-the-portals-content"></a>Anpassen des Portalinhalts
 
@@ -95,7 +93,7 @@ Bevor Sie Ihr Portal Besuchern zur Verfügung stellen, sollten Sie den automatis
 
 ### <a name="home-page"></a>Startseite
 
-Die standardmäßige **Startseite** ist mit Dummyinhalt gefüllt. Sie können entweder ganze Abschnitte mitsamt Inhalt entfernen oder die Struktur beibehalten und die Elemente einzeln anpassen. Ersetzen Sie die generierten Texte und Bilder durch eigene, und stellen Sie sicher, dass die Links auf die gewünschte Speicherorte zeigen.
+Die Standard-**Startseite** ist mit Platzhalterinhalt gefüllt. Sie können entweder ganze Abschnitte mit diesem Inhalt entfernen oder die Struktur beibehalten und die Elemente einzeln anpassen. Ersetzen Sie die generierten Texte und Bilder durch eigene, und stellen Sie sicher, dass die Links auf die gewünschte Speicherorte zeigen.
 
 ### <a name="layouts"></a>Layouts
 
@@ -107,32 +105,44 @@ Sie müssen zwar keine Formatvorlagen ändern, aber möglicherweise möchten Sie
 
 ### <a name="customization-example"></a>Anpassungsbeispiel
 
-In dem folgenden Video demonstrieren wir, wie Sie den Inhalt des Portals bearbeiten, das Aussehen der Website anpassen und die Änderungen veröffentlichen.
+Im folgenden Video demonstrieren wir, wie Sie den Inhalt des Portals bearbeiten, das Aussehen der Website anpassen und die Änderungen veröffentlichen.
 
 > [!VIDEO https://www.youtube.com/embed/5mMtUSmfUlw]
 
-## <a name="publish-the-portal"></a><a name="publish"> </a>Veröffentlichen des Portals
+## <a name="publish-the-portal"></a><a name="publish"></a> Veröffentlichen des Portals
 
-Um Ihr Portal mit den neuesten Änderungen Besuchern zur Verfügung zu stellen, müssen Sie es veröffentlichen.
+Um Ihr Portal mit den neuesten Änderungen für Besucher zur Verfügung zu stellen, müssen Sie es *veröffentlichen*. Sie können das Portal über die Verwaltungsschnittstelle des Portals oder über das Azure-Portal veröffentlichen.
 
-1. Stellen Sie sicher, dass Ihre Änderungen gespeichert wurden, indem Sie auf das Symbol **Speichern** klicken.
-1. Klicken Sie im Menüabschnitt **Vorgänge** auf **Website veröffentlichen**. Dieser Vorgang kann einige Minuten dauern.  
-    ![Portal veröffentlichen](media/api-management-howto-developer-portal-customize/publish-portal.png)
+### <a name="publish-from-the-administrative-interface"></a>Veröffentlichen über die Verwaltungsschnittstelle
+
+1. Stellen Sie sicher, dass Ihre Änderungen gespeichert wurden, indem Sie das Symbol **Speichern** auswählen.
+1. Wählen Sie im Menüabschnitt **Vorgänge** die Option **Website veröffentlichen** aus. Dieser Vorgang kann einige Minuten dauern.  
+
+    :::image type="content" source="media/api-management-howto-developer-portal-customize/publish-portal.png" alt-text="Portal veröffentlichen" border="false":::
+
+### <a name="publish-from-the-azure-portal"></a>Veröffentlichen über das Azure-Portal
+
+1. Navigieren Sie im [Azure-Portal](https://portal.azure.com) zu Ihrer API Management-Instanz.
+1. Wählen Sie im Menü auf der linken Seite unter **Entwicklerportal** die Option **Portalübersicht** aus.
+1. Wählen Sie im Fenster **Portalübersicht** die Option **Veröffentlichen** aus.
+
+    :::image type="content" source="media/api-management-howto-developer-portal-customize/pubish-portal-azure-portal.png" alt-text="Veröffentlichen des Portals über das Azure-Portal":::
 
 > [!NOTE]
-> Das Portal muss nach Änderungen an der API Management-Dienstkonfiguration neu veröffentlicht werden, z. B. dem Zuweisen einer benutzerdefinierten Domäne, dem Aktualisieren der Identitätsanbieter, dem Festlegen der Delegierung, dem Angeben von Anmelde- und Produktbedingungen und mehr.
+> Das Portal muss erneut veröffentlicht werden, nachdem sich die Konfiguration des API Management-Diensts geändert hat. Führen Sie beispielsweise eine erneute Veröffentlichung des Portals durch, nachdem eine benutzerdefinierte Domäne zugewiesen wurde, die Identitätsanbieter aktualisiert wurden, die Delegierung festgelegt wurde oder Bedingungen für die Anmeldung und für Produkte angegeben wurden.
+
 
 ## <a name="visit-the-published-portal"></a>Besuchen des veröffentlichten Portals
 
-Nachdem Sie das Portal veröffentlicht haben, können Sie über die gleiche URL wie für das Verwaltungspanel darauf zugreifen, z. B. über `https://contoso-api.developer.azure-api.net`. Sie können es in einer separaten Browsersitzung (inkognito/privater Modus) als externer Besucher anzeigen.
+Nachdem Sie das Portal veröffentlicht haben, können Sie über die gleiche URL wie für das Verwaltungspanel darauf zugreifen, z. B. über `https://contoso-api.developer.azure-api.net`. Sie können es in einer separaten Browsersitzung (Inkognito oder privater Modus) als externer Besucher anzeigen.
 
 ## <a name="apply-the-cors-policy-on-apis"></a>Anwenden der CORS-Richtlinie auf APIs
 
-Sie müssen CORS (Cross-Origin Resource Sharing) für Ihre APIs aktivieren, damit die Besucher Ihres Portals die APIs über die integrierte interaktive Konsole testen können. Weitere Informationen finden Sie in [diesem Dokumentationsartikel](api-management-howto-developer-portal.md#cors).
+Aktivieren Sie CORS (Cross-Origin Resource Sharing) für Ihre APIs, damit die Besucher Ihres Portals die APIs über die integrierte interaktive Konsole testen können. Weitere Informationen finden Sie unter [Übersicht über das Azure API Management-Entwicklerportal](api-management-howto-developer-portal.md#cors).
 
 ## <a name="next-steps"></a>Nächste Schritte
-- [Ermitteln und Analysieren von Kosten mit der Kostenanalyse](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 Weitere Informationen zum Entwicklerportal:
 
 - [Übersicht über das Azure API Management-Entwicklerportal](api-management-howto-developer-portal.md)
+- [Migrieren zum neuen Entwicklerportal](developer-portal-deprecated-migration.md) aus dem veralteten Legacyportal

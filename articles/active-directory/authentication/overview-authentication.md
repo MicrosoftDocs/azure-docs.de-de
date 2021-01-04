@@ -6,24 +6,24 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
 ms.date: 07/13/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01751caba2b14f899588deba083a8c59c41d13ba
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f85b78480e7258780f8dd396431edeb968189e4c
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964008"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741251"
 ---
 # <a name="what-is-azure-active-directory-authentication"></a>Was ist die Azure Active Directory-Authentifizierung?
 
 Eine der Hauptfunktionen einer Identitätsplattform ist die Verifizierung bzw. *Authentifizierung* von Anmeldeinformationen, wenn ein Benutzer sich an einem Gerät, einer Anwendung oder einem Dienst anmeldet. In Azure Active Directory (Azure AD) geht es bei der Authentifizierung um mehr als nur die Verifizierung eines Benutzernamens und des zugehörigen Kennworts. Die Azure AD-Authentifizierung umfasst die folgenden Komponenten, um die Sicherheit zu verbessern und den Supportaufwand für den Helpdesk zu reduzieren:
 
 * Self-Service-Kennwortzurücksetzung
-* Azure Multi-Factor Authentication
+* Azure AD Multi-Factor Authentication
 * Hybridintegration zum Zurückschreiben von Kennwortänderungen in die lokale Umgebung
 * Hybridintegration zum Erzwingen von Kennwortschutzrichtlinien für eine lokale Umgebung
 * Kennwortlose Authentifizierung
@@ -32,7 +32,7 @@ Eine der Hauptfunktionen einer Identitätsplattform ist die Verifizierung bzw. *
 
 Azure AD trägt zum Schutz der Identität eines Benutzers und zur Vereinfachung der Umgebung für die Anmeldung bei. Mit Features wie der Self-Service-Kennwortzurücksetzung können Benutzer ihre Kennwörter aktualisieren oder ändern, indem Sie auf einem beliebigen Gerät den Webbrowser verwenden. Dieses Feature ist besonders nützlich, wenn der Benutzer sein Kennwort vergessen hat oder sein Konto gesperrt ist. Der Benutzer kann die Sperrung so selbst beseitigen und weiterarbeiten, ohne auf Support durch den Helpdesk oder den Administrator warten zu müssen.
 
-Bei Azure Multi-Factor Authentication können Benutzer während der Anmeldung ein zusätzliches Authentifizierungsverfahren wählen, z. B. einen Telefonanruf oder eine Benachrichtigung per mobiler App. Hierdurch wird die Beschränkung auf ein einzelnes festes Verfahren für die sekundäre Authentifizierung, z. B.per Hardwaretoken, aufgehoben. Wenn für den Benutzer ein bestimmtes Authentifizierungsverfahren gerade nicht verfügbar ist, kann er ein anderes Verfahren auswählen und sofort weiterarbeiten.
+Bei Azure AD Multi-Factor Authentication können Benutzer während der Anmeldung ein zusätzliches Authentifizierungsverfahren wählen, z. B. einen Telefonanruf oder eine Benachrichtigung per mobiler App. Hierdurch wird die Beschränkung auf ein einzelnes festes Verfahren für die sekundäre Authentifizierung, z. B.per Hardwaretoken, aufgehoben. Wenn für den Benutzer ein bestimmtes Authentifizierungsverfahren gerade nicht verfügbar ist, kann er ein anderes Verfahren auswählen und sofort weiterarbeiten.
 
 ![Verwendete Authentifizierungsmethoden auf dem Anmeldebildschirm](media/concept-authentication-methods/overview-login.png)
 
@@ -50,7 +50,7 @@ Die Self-Service-Kennwortzurücksetzung funktioniert in den folgenden Szenarien:
 
 Wenn ein Benutzer sein Kennwort per Self-Service-Kennwortzurücksetzung aktualisiert oder zurücksetzt, kann das Kennwort auch zurück in eine lokale Active Directory-Umgebung geschrieben werden. Mit dem Kennwortrückschreiben wird sichergestellt, dass ein Benutzer seine aktualisierten Anmeldeinformationen sofort für lokale Geräte und Anwendungen verwenden kann.
 
-## <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
+## <a name="azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication
 
 Multi-Factor Authentication (mehrstufige Authentifizierung) ist ein Prozess, bei dem Benutzer während des Anmeldevorgangs zur Durchführung eines weiteren Identifizierungsverfahrens aufgefordert werden, z. B. per Eingabe eines Codes auf dem Smartphone oder per Fingerabdruckscan.
 
@@ -58,13 +58,13 @@ Wenn Sie zum Authentifizieren von Benutzern nur ein Kennwort nutzen, kann dies e
 
 ![Abbildung zum Konzept der unterschiedlichen Arten von mehrstufiger Authentifizierung](./media/concept-mfa-howitworks/methods.png)
 
-Für Azure Multi-Factor Authentication sind mindestens zwei der folgenden Authentifizierungsverfahren obligatorisch:
+Für Azure AD Multi-Factor Authentication sind mindestens zwei der folgenden Authentifizierungsverfahren obligatorisch:
 
 * Eine dem Benutzer bekannte Information (meist ein Kennwort).
 * Ein im Besitz des Benutzers befindliches Objekt, z. B. ein vertrauenswürdiges Gerät, das nicht ohne Weiteres dupliziert werden kann (Telefon oder Hardwareschlüssel).
 * Ein biometrisches Merkmal des Benutzers (Fingerabdruck- oder Gesichtsscan).
 
-Um das Onboarding zu vereinfachen, können sich Benutzer mit nur einem Schritt sowohl für die Self-Service-Kennwortzurücksetzung als auch für Azure Multi-Factor Authentication registrieren. Administratoren können definieren, welche Verfahren für die sekundäre Authentifizierung genutzt werden können. Azure Multi-Factor Authentication kann auch erzwungen werden, wenn Benutzer eine Self-Service-Kennwortzurücksetzung durchführen, um diesen Prozess noch sicherer zu machen.
+Um das Onboarding zu vereinfachen, können sich Benutzer mit nur einem Schritt sowohl für die Self-Service-Kennwortzurücksetzung als auch für Azure AD Multi-Factor Authentication registrieren. Administratoren können definieren, welche Verfahren für die sekundäre Authentifizierung genutzt werden können. Azure AD Multi-Factor Authentication kann auch erzwungen werden, wenn Benutzer eine Self-Service-Kennwortzurücksetzung durchführen, um diesen Prozess noch sicherer zu machen.
 
 ## <a name="password-protection"></a>Kennwortschutz
 
@@ -76,7 +76,7 @@ Zum Erzielen von Hybridsicherheit können Sie den Azure AD-Kennwortschutz in ein
 
 ## <a name="passwordless-authentication"></a>Kennwortlose Authentifizierung
 
-Das letztendliche Ziel für viele Umgebungen besteht darin, die Nutzung von Kennwörtern für Anmeldungen zu beenden. Features wie der Azure-Kennwortschutz oder Azure Multi-Factor Authentication tragen zwar zur Erhöhung der Sicherheit bei. Die Anmeldung per Benutzername und Kennwort bleibt aber eine unsichere Form der Authentifizierung, die missbraucht werden oder Brute-Force-Angriffen unterliegen kann.
+Das letztendliche Ziel für viele Umgebungen besteht darin, die Nutzung von Kennwörtern für Anmeldungen zu beenden. Features wie der Azure-Kennwortschutz oder Azure AD Multi-Factor Authentication tragen zwar zur Erhöhung der Sicherheit bei. Die Anmeldung per Benutzername und Kennwort bleibt aber eine unsichere Form der Authentifizierung, die missbraucht werden oder Ziel von Brute-Force-Angriffen werden kann.
 
 ![Abwägung von Sicherheit und Komfort: Auf dem Weg zur kennwortlosen Authentifizierung](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
@@ -86,11 +86,11 @@ Azure AD verfügt über Verfahren für die native Authentifizierung mit kennwort
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Informationen zum Einstieg finden Sie im Tutorial zur [Self-Service-Kennwortzurücksetzung (SSPR)][tutorial-sspr] und im Tutorial zu [Azure Multi-Factor Authentication][tutorial-azure-mfa].
+Informationen zum Einstieg finden Sie im Tutorial zur [Self-Service-Kennwortzurücksetzung (SSPR)][tutorial-sspr] und im Tutorial zu [Azure AD Multi-Factor Authentication][tutorial-azure-mfa].
 
 Weitere Informationen zur Self-Service-Kennwortzurücksetzung finden Sie unter [So funktioniert's: Self-Service-Kennwortzurücksetzung in Azure AD][concept-sspr].
 
-Weitere Informationen zu den Konzepten von Multi-Factor Authentication finden Sie unter [So funktioniert's: Azure Multi-Factor Authentication][concept-mfa].
+Weitere Informationen zu den Konzepten von Multi-Factor Authentication finden Sie unter [So funktioniert's: Azure AD Multi-Factor Authentication][concept-mfa].
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

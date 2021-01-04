@@ -34,8 +34,8 @@
       href: search-get-started-java.md
     - name: JavaScript
       href: search-get-started-javascript.md
-    - name: postman
-      href: search-get-started-postman.md
+    - name: REST
+      href: search-get-started-rest.md
     - name: PowerShell
       href: search-get-started-powershell.md
     - name: Python
@@ -81,19 +81,21 @@
 - name: Beispiele
   items:
     - name: Beispiele für C#
-      href: /samples/browse/?languages=csharp&products=azure-cognitive-search
+      href: samples-dotnet.md
     - name: Beispiele für Java
-      href: /samples/browse/?languages=java&products=azure-cognitive-search
+      href: samples-java.md
     - name: JavaScript-Beispiele
-      href: /samples/browse/?languages=javascript&products=azure-cognitive-search
+      href: samples-javascript.md
     - name: Python-Beispiele
-      href: /samples/browse/?languages=python&products=azure-cognitive-search
+      href: samples-python.md
     - name: REST-Beispiele
       href: /samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search
 - name: Konzepte
   items:
     - name: Volltextsuche
       href: search-lucene-query-architecture.md
+    - name: Relevanzbewertung
+      href: index-similarity-and-scoring.md
     - name: Indexer
       href: search-indexer-overview.md
     - name: KI-Anreicherung
@@ -255,8 +257,10 @@
         - name: Abfragetypen und Komposition
           href: search-query-overview.md
         - name: Erstellen einer einfachen Abfrage
+          href: search-query-create.md
+        - name: Verwenden von einfacher Syntax (Beispiele)
           href: search-query-simple-examples.md
-        - name: Verwenden der vollständigen Lucene-Syntax
+        - name: Verwenden der vollständigen Lucene-Syntax (Beispiele)
           href: search-query-lucene-examples.md
         - name: Teilausdrücke und Sonderzeichen
           href: search-query-partial-matching.md
@@ -294,8 +298,6 @@
       items:
         - name: Arbeiten mit Ergebnissen
           href: search-pagination-page-layout.md
-        - name: Relevanzbewertung
-          href: index-similarity-and-scoring.md
         - name: Bewertungsprofile
           href: index-add-scoring-profiles.md
         - name: Ähnlichkeitsalgorithmus
@@ -304,10 +306,12 @@
       items:
         - name: 'Wählen Sie eine Ebene aus:'
           href: search-sku-tier.md
-        - name: Diensteinschränkungen
-          href: search-limits-quotas-capacity.md
+        - name: Schätzen von Kapazität und Kosten
+          href: search-sku-manage-costs.md
         - name: Anpassen der Kapazität
           href: search-capacity-planning.md
+        - name: Diensteinschränkungen
+          href: search-limits-quotas-capacity.md
         - name: Skalieren zur Verbesserung der Leistung
           href: search-performance-optimization.md
         - name: Mehrinstanzenfähige Architektur
@@ -360,12 +364,6 @@
               href: service-configure-firewall.md
             - name: Erstellen eines privaten Endpunkts
               href: service-create-private-endpoint.md
-        - name: Identitätsbasierter Zugriff
-          items:
-            - name: Sicherheitsfilter
-              href: search-security-trimming-for-azure-search.md
-            - name: Filtern nach Benutzeridentitäten
-              href: search-security-trimming-for-azure-search-with-aad.md
         - name: Ausgangssicherheit (Indexer)
           items:
             - name: Zugreifen über einen IP-Adressbereich
@@ -374,6 +372,12 @@
               href: search-indexer-howto-access-trusted-service-exception.md
             - name: Zugreifen über private Endpunkte
               href: search-indexer-howto-access-private.md
+        - name: Sicherheit auf Dokumentebene
+          items:
+            - name: Sicherheitsfilter
+              href: search-security-trimming-for-azure-search.md
+            - name: Filtern nach Benutzeridentitäten
+              href: search-security-trimming-for-azure-search-with-aad.md
     - name: Verwalten
       items:
         - name: Portal
@@ -536,6 +540,8 @@
           href: 'https://wolterskluwereap.azurewebsites.net/'
         - name: Demo zu JFK-Dateien
           href: 'https://www.microsoft.com/en-us/ai/ai-lab-jfk-files'
+        - name: Demo zu NYC-Aufträgen
+          href: 'https://azjobsdemo.azurewebsites.net/'
     - name: Training
       items:
         - name: Einführung (Microsoft Learn)
@@ -544,6 +550,8 @@
           href: 'https://www.pluralsight.com/courses/azure-adding-search-abilities-apps'
         - name: Developer-Kurs (Pluralsight)
           href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
+    - name: Partnerlösungen
+      href: resource-partners-knowledge-mining.md
     - name: Häufig gestellte Fragen
       href: search-faq-frequently-asked-questions.md
     - name: Preise

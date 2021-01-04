@@ -5,16 +5,17 @@ author: sameeksha91
 ms.author: sakhare
 ms.topic: quickstart
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.devlang: azurepowershell
 ms.date: 09/08/2020
 ms.reviewer: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 466883de31f0967f593c3c1abf5c1725bc327e41
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 28b26b8d4d6acdffb4083d182c6a0ce0539080c9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994121"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957366"
 ---
 # <a name="quickstart-deploy-azure-monitor-for-sap-solutions-with-azure-powershell"></a>Schnellstart: Bereitstellen von Azure Monitor für SAP-Lösungen mit Azure PowerShell
 

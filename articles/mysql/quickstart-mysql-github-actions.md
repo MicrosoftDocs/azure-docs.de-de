@@ -7,14 +7,14 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: ce045da7d21c2af0dfde5ee896b4f7f343ce6545
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 57e740e6c47d9518c12a49473e103d0abe772618
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541263"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337012"
 ---
-# <a name="use-github-actions-to-connect-to-azure-mysql"></a>Verwenden von GitHub Actions zum Herstellen einer Verbindung mit Azure MySQL
+# <a name="quickstart-use-github-actions-to-connect-to-azure-mysql"></a>Schnellstart: Verwenden von GitHub Actions zum Herstellen einer Verbindung mit Azure MySQL
 
 Verwenden Sie als Einstieg in [GitHub Actions](https://docs.github.com/en/actions) einen Workflow zum Bereitstellen von Datenbankupdates für [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/). 
 
@@ -66,7 +66,7 @@ Die Ausgabe ist ein JSON-Objekt mit den Anmeldeinformationen für die Rollenzuwe
 
 ## <a name="copy-the-mysql-connection-string"></a>Kopieren der MySQL-Verbindungszeichenfolge 
 
-Wechseln Sie im Azure-Portal zum Azure Database for MySQL-Server, und öffnen Sie **Einstellungen** > **Verbindungszeichenfolgen** . Kopieren Sie die **ADO.NET** -Verbindungszeichenfolge. Ersetzen Sie die Platzhalterwerte für `your_database` und `your_password`. Die Verbindungszeichenfolge ähnelt der folgenden Ausgabe: 
+Wechseln Sie im Azure-Portal zum Azure Database for MySQL-Server, und öffnen Sie **Einstellungen** > **Verbindungszeichenfolgen**. Kopieren Sie die **ADO.NET** -Verbindungszeichenfolge. Ersetzen Sie die Platzhalterwerte für `your_database` und `your_password`. Die Verbindungszeichenfolge ähnelt der folgenden Ausgabe: 
 
 ```output
    Server=my-mysql-server.mysql.database.azure.com; Port=3306; Database={your_database}; Uid=adminname@my-mysql-server; Pwd={your_password}; SslMode=Preferred;

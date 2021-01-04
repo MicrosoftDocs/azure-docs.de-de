@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 552b3f55632e817cc4669ce5da41b1e127c7d808
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9161bf4f99ddfed479451d2091458ab309aa2c17
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283869"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788620"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Tutorial: Sicherheit für verwaltete Azure SQL-Instanz durch Azure AD-Serverprinzipale (Anmeldungen)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -120,7 +120,7 @@ Um weitere Azure AD-Serverprinzipale (Anmeldungen) erstellen zu können, müsse
 
 - Wenn Sie dem neu erstellten Azure AD-Serverprinzipal (Anmeldung) die Erstellung weiterer Anmeldungen für andere Azure AD-Benutzer, -Gruppen oder -Anwendungen ermöglichen möchten, müssen Sie der Anmeldung die Serverrolle `sysadmin` oder `securityadmin` zuweisen.
 - Dem Azure AD-Serverprinzipal (Anmeldung) muss mindestens die Berechtigung **ALTER ANY LOGIN** gewährt werden, um weitere Azure AD-Serverprinzipale (Anmeldungen) erstellen zu können.
-- Neu erstellten Azure AD-Serverprinzipalen (Anmeldungen) werden im Master standardmäßig folgende Berechtigungen gewährt: **CONNECT SQL** und **VIEW ANY DATABASE**.
+- Neu erstellten Azure AD-Serverprinzipalen (Anmeldungen) werden im Master standardmäßig folgende Berechtigungen gewährt: **CONNECT SQL** und **VIEW ANY DATABASE** .
 - Die Serverrolle `sysadmin` kann innerhalb einer verwalteten Instanz zahlreichen Azure AD-Serverprinzipalen (Anmeldungen) zugewiesen werden.
 
 So fügen Sie die Anmeldung der Serverrolle `sysadmin` hinzu:
@@ -191,7 +191,7 @@ Nachdem der Azure AD-Serverprinzipal (Anmeldung) erstellt und mit Berechtigunge
         GO
         ```
 
-1. Erstellen Sie für eine Gruppe in Azure AD eine Anmeldung für die verwaltete SQL-Instanz. Die Gruppe muss bereits in Azure AD vorhanden sein, damit Sie der verwalteten SQL-Instanz die Anmeldung hinzufügen können. Weitere Informationen finden Sie unter [Erstellen einer Basisgruppe und Hinzufügen von Mitgliedern mit Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Erstellen Sie eine Gruppe namens _mygroup_, und fügen Sie ihr Mitglieder hinzu.
+1. Erstellen Sie für eine Gruppe in Azure AD eine Anmeldung für die verwaltete SQL-Instanz. Die Gruppe muss bereits in Azure AD vorhanden sein, damit Sie der verwalteten SQL-Instanz die Anmeldung hinzufügen können. Weitere Informationen finden Sie unter [Erstellen einer Basisgruppe und Hinzufügen von Mitgliedern mit Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Erstellen Sie eine Gruppe namens _mygroup_ , und fügen Sie ihr Mitglieder hinzu.
 
 1. Öffnen Sie in SQL Server Management Studio ein neues Abfragefenster.
 
@@ -262,7 +262,7 @@ Weitere Informationen zum Gewähren von Datenbankberechtigungen finden Sie unter
     Alle Benutzer, die *mygroup* angehören, können auf die Datenbank **MyMITestDB** zugreifen.
 
     > [!IMPORTANT]
-    > Wenn Sie einen Benutzer (**USER**) auf der Grundlage eines Azure AD-Serverprinzipals (Anmeldung) erstellen, müssen Sie als Benutzername den gleichen Anmeldenamen angeben wie in der Anmeldung (**LOGIN**).
+    > Wenn Sie einen Benutzer ( **USER** ) auf der Grundlage eines Azure AD-Serverprinzipals (Anmeldung) erstellen, müssen Sie als Benutzername den gleichen Anmeldenamen angeben wie in der Anmeldung ( **LOGIN** ).
 
     Weitere Informationen finden Sie unter [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current).
 
@@ -324,7 +324,7 @@ Damit dem Benutzer Daten in der Datenbank angezeigt werden, können wir ihm [Rol
     ```
 
 1. Erstellen Sie unter Verwendung des Benutzers, der der Rolle `db_datareader` hinzugefügt wurde, eine neue Verbindung mit der verwalteten Instanz.
-1. Erweitern Sie die Datenbank im **Objekt-Explorer**, um die Tabelle anzuzeigen.
+1. Erweitern Sie die Datenbank im **Objekt-Explorer** , um die Tabelle anzuzeigen.
 
     ![Screenshot vom SSMS-Objekt-Explorer mit der die Ordnerstruktur für die Tabellen in MyMITestDB. Der Ordner „dbo.TestTable“ ist hervorgehoben.](./media/aad-security-configure-tutorial/ssms-test-table.png)
 
@@ -361,7 +361,7 @@ Die verwaltete SQL-Instanz unterstützt das Annehmen der Identität von Azure AD
     GO
     ```
 
-1. Verwenden Sie den folgenden Befehl, um sich zu vergewissern, dass es sich bei dem Benutzer, dessen Identität Sie beim Ausführen der gespeicherten Prozedur annehmen, um**bob\@aadsqlmi.net** handelt:
+1. Verwenden Sie den folgenden Befehl, um sich zu vergewissern, dass es sich bei dem Benutzer, dessen Identität Sie beim Ausführen der gespeicherten Prozedur annehmen, um **bob\@aadsqlmi.net** handelt:
 
     ```sql
     Exec dbo.usp_Demo
@@ -447,7 +447,7 @@ Unter [Sicherheitsfeatures für verwaltete SQL-Instanzen](sql-managed-instance-p
 - [Bedrohungserkennung](threat-detection-configure.md)
 - [Dynamische Datenmaskierung](/sql/relational-databases/security/dynamic-data-masking)
 - [Sicherheit auf Zeilenebene](/sql/relational-databases/security/row-level-security)
-- [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
+- [Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### <a name="sql-managed-instance-capabilities"></a>Funktionen verwalteter SQL-Instanzen
 

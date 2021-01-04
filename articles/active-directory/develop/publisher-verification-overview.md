@@ -12,16 +12,20 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 2a8f9734714f0439383f6242cda3b51690284852
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1e913e3a5356ad7f49d8b3066f5bd3da7eddd2c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363418"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308778"
 ---
 # <a name="publisher-verification"></a>Herausgeberüberprüfung
 
-Die Herausgeberüberprüfung unterstützt Administratoren und Endbenutzer dabei, die Authentizität von Anwendungsentwicklern zu verstehen, die in die Microsoft Identity Platform integriert sind. Wenn eine Anwendung als durch den Herausgeber verifiziert markiert ist, bedeutet dies, dass der Herausgeber seine Identität mithilfe eines [Microsoft Partner Network](https://partner.microsoft.com/membership)-Kontos überprüft hat, für das der [Überprüfungsvorgang](/partner-center/verification-responses) abgeschlossen wurde, und dieses MPN-Konto seiner Anwendungsregistrierung zugeordnet hat. 
+Die Herausgeberüberprüfung unterstützt Administratoren und Endbenutzer dabei, die Authentizität von Anwendungsentwicklern zu verstehen, die in die Microsoft Identity Platform integriert sind. 
+
+> [!VIDEO https://www.youtube.com/embed/IYRN2jDl5dc]
+
+Wenn eine Anwendung als durch den Herausgeber verifiziert markiert ist, bedeutet dies, dass der Herausgeber seine Identität mithilfe eines [Microsoft Partner Network](https://partner.microsoft.com/membership)-Kontos überprüft hat, für das der [Überprüfungsvorgang](/partner-center/verification-responses) abgeschlossen wurde, und dieses MPN-Konto seiner Anwendungsregistrierung zugeordnet hat. 
 
 In der Azure AD-Zustimmungsaufforderung und auf anderen Bildschirmen wird ein blauer Überprüfungsbadge angezeigt: ![Zustimmungsaufforderung](./media/publisher-verification-overview/consent-prompt.png)
 

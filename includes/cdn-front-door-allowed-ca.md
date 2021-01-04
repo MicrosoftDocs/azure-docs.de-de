@@ -5,15 +5,15 @@ services: multiple
 author: sharad4u
 ms.service: multiple
 ms.topic: include
-ms.date: 05/09/2019
+ms.date: 10/30/2020
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: 68d0459153fbdb34216c1313f70e292119b93a7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb3cc6a37e9116b2a28b72fc7a3779aafb2a1e21
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269800"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027636"
 ---
 Beim Erstellen Ihres eigenen Zertifikats sind die folgenden Zertifizierungsstellen zulässig:
 
@@ -32,6 +32,7 @@ Beim Erstellen Ihres eigenen Zertifikats sind die folgenden Zertifizierungsstell
 - D-TRUST Root Class 3 CA 2 2009
 - DigiCert Cloud Services CA-1
 - DigiCert Global Root CA
+- DigiCert Global Root G2
 - DigiCert High Assurance CA-3
 - DigiCert High Assurance EV Root CA
 - DigiCert SHA2 Extended Validation Server CA
@@ -54,6 +55,7 @@ Beim Erstellen Ihres eigenen Zertifikats sind die folgenden Zertifizierungsstell
 - Go Daddy Root Certificate Authority – G2
 - Go Daddy Secure Certificate Authority - G2
 - Let's Encrypt Authority X3
+- Microsec e-Szigno Root CA 2009
 - QuoVadis Root CA2 G3
 - RapidSSL RSA CA 2018
 - Security Communication RootCA1

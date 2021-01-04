@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6a74f105525ec8ce28559b47ed4fc9624f518a06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b45e1fbaf912cc045ba51a79db434baecbabdf43
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488336"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608264"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Zuordnen eines vorhandenen benutzerdefinierten DNS-Namens zu Azure App Service
 
@@ -100,7 +100,7 @@ Wenn Sie Ihrer App eine benutzerdefinierte Domäne hinzufügen möchten, müssen
 ![Screenshot: ID im Feld „Verifizierungs-ID für benutzerdefinierte Domänen“](./media/app-service-web-tutorial-custom-domain/get-custom-domain-verification-id.png)
 
 > [!WARNING]
-> Durch das Hinzufügen von Domänenverifizierungs-IDs zu Ihrer benutzerdefinierten Domäne können verwaiste DNS-Einträge und Unterdomänenübernahmen verhindert werden. Weitere Informationen zu dieser allgemeinen Bedrohung mit hohem Schweregrad finden Sie unter [Verhindern verwaister DNS-Einträge und Vermeiden von Unterdomänenübernahmen](../security/fundamentals/subdomain-takeover.md).
+> Durch das Hinzufügen von Domänenverifizierungs-IDs zu Ihrer benutzerdefinierten Domäne können verwaiste DNS-Einträge und Unterdomänenübernahmen verhindert werden. Benutzerdefinierte Domänen, die Sie zuvor ohne diese Überprüfungs-ID konfiguriert haben, sollten Sie vor dem gleichen Risiko schützen, indem Sie Ihrem DNS-Datensatz die Überprüfungs-ID hinzufügen. Weitere Informationen zu dieser allgemeinen Bedrohung mit hohem Schweregrad finden Sie unter [Verhindern verwaister DNS-Einträge und Vermeiden von Unterdomänenübernahmen](../security/fundamentals/subdomain-takeover.md).
 
 ## <a name="map-your-domain"></a>Zuordnen Ihrer Domäne
 
@@ -206,7 +206,7 @@ Erstellen Sie zwei Einträge, um einer App (in der Regel der Stammdomäne) einen
 > | Eintragstyp | Host | Wert |
 > | - | - | - |
 > | Ein | `www` | IP-Adresse aus dem Schritt [Kopieren der IP-Adresse der App](#info) |
-> | TXT | `asuid.www` | `<app-name>.azurewebsites.net` |
+> | TXT | `asuid.www` | [Die zuvor abgerufene Verifizierungs-ID](#get-a-domain-verification-id) |
 >
 
 Nach dem Hinzufügen der Einträge sieht die Seite mit den DNS-Einträgen wie im folgenden Beispiel aus:

@@ -8,11 +8,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 07/03/2018
 ms.openlocfilehash: 5f9410cc91174420662bb5efc67c8904b5d5e647
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219682"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018986"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>Ausführen von U-SQL-Skripts auf dem lokalen Computer
 

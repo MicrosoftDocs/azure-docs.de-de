@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: b3c8f6015b4627d86a0665865fba2f3fdd39589d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81782f63199a9fe8f43f56aeefcd1c68951d57a4
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88080710"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852251"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Übersicht über den lokalen Cache von Azure App Service
 
@@ -45,7 +45,11 @@ Der lokale Cache von Azure App Service bietet eine Webrollenansicht Ihrer Inhalt
 * Bei der App-Bereitstellung über eine unterstützte Methode erfolgt die Veröffentlichung direkt im permanenten freigegebenen Inhaltsspeicher. Zum Aktualisieren der Ordner _D:\home\site_ und _D:\home\siteextensions_ im lokalen Cache muss die App neu gestartet werden. Informationen zu einem nahtlosen Lebenszyklus finden Sie weiter unten in diesem Artikel.
 * Die standardmäßige Inhaltsansicht der SCM-Site ist weiterhin die des freigegebenen Inhaltsspeichers.
 
-## <a name="enable-local-cache-in-app-service"></a>Aktivieren des lokalen Caches in App Service
+## <a name="enable-local-cache-in-app-service"></a>Aktivieren des lokalen Caches in App Service 
+
+> [!NOTE]
+> Der lokale Cache wird in den Tarifen **F1** oder **D1** nicht unterstützt. 
+
 Der lokale Cache wird mithilfe einer Kombination aus reservierten App-Einstellungen konfiguriert. Diese App-Einstellungen können über die folgenden Methoden konfiguriert werden:
 
 * [Azure portal](#Configure-Local-Cache-Portal)
@@ -116,3 +120,6 @@ Der lokale Cache trägt dazu bei, speicherbezogene Neustarts von Apps zu vermeid
 
 ### <a name="does-local-cache-exclude-any-directories-from-being-copied-to-the-faster-local-drive"></a>Gibt es Verzeichnisse, die für den lokalen Cache nicht auf das schnellere lokale Laufwerk kopiert werden?
 Bei dem Schritt, in dem der Speicherinhalt kopiert wird, werden alle Ordner mit dem Namen „repository“ ausgeschlossen. Dies hilft bei Szenarien, in denen eine Website ein Quellcodeverwaltungs-Repository enthält, das für den täglichen Betrieb der App möglicherweise nicht benötigt wird. 
+
+### <a name="how-to-flush-the-local-cache-logs-after-a-site-management-operation"></a>Wie werden die Protokolle im lokalen Cache nach einem Standortverwaltungsvorgang geleert?
+Zum Leeren der Protokolle im lokalen Cache beenden Sie die App, und starten Sie sie erneut. Durch diese Aktion wird der alte Cache gelöscht. 

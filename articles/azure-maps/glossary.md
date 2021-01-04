@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 831fc28711a181d45a8c69e3f46056604b30649e
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 05071be4fc1705787a649d331613e8d9399f983f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089467"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897176"
 ---
 # <a name="glossary"></a>Glossar
 
@@ -347,7 +347,7 @@ Die folgende Liste enthält Beschreibungen gängiger Begriffe, die im Zusammenha
 
 <a name="spatial-reference"></a> **Räumlicher Verweis** : Ein koordinatenbasiertes lokales, regionales oder globales System, um geografische Entitäten genau zu lokalisieren. Es ist als Koordinatensystem definiert, das verwendet wird, um tatsächlichen Orten auf der Welt Kartenkoordinaten zuzuordnen. Räumliche Verweise stellen sicher, dass räumliche Daten aus verschiedenen Ebenen oder Quellen zur genauen Darstellung oder Analyse integriert werden können. Azure Maps verwendet das Referenzkoordinatensystem [EPSG:3857](https://epsg.io/3857) und WGS 84 für die Eingabe von Geometriedaten.
 
-<a name="sql-spatial"></a> **SQL – räumlich** : Bezieht sich auf die räumlichen Funktionen, die in SQL Azure und SQL Server 2008 und höher integriert sind. Diese räumliche Funktionalität ist auch als .NET-Bibliothek verfügbar, die unabhängig von SQL Server verwendet werden kann. Weitere Informationen finden Sie unter [Räumliche Daten (SQL Server)](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server).
+<a name="sql-spatial"></a> **SQL – räumlich** : Bezieht sich auf die räumlichen Funktionen, die in SQL Azure und SQL Server 2008 und höher integriert sind. Diese räumliche Funktionalität ist auch als .NET-Bibliothek verfügbar, die unabhängig von SQL Server verwendet werden kann. Weitere Informationen finden Sie unter [Räumliche Daten (SQL Server)](/sql/relational-databases/spatial/spatial-data-sql-server).
 
 <a name="subscription-key"></a> **Abonnementschlüssel** : Siehe [Authentifizierung mit gemeinsam verwendetem Schlüssel](#shared-key-authentication).
 
@@ -409,4 +409,3 @@ Die folgende Liste enthält Beschreibungen gängiger Begriffe, die im Zusammenha
 <a name="zip-code"></a> **PLZ** : Siehe [Postleitzahl](#postal-code).
 
 <a name="Zoom level"></a> **Zoomfaktor** : Gibt die Detailstufe und den Anteil der Karte an, die sichtbar ist. Wenn die Karte bis auf Stufe 0 verkleinert wird, ist oftmals die gesamte Weltkarte zu sehen. Es werden jedoch nur wenige Details wie Ländernamen und -grenzen sowie die Namen der Ozeane gezeigt. Wenn die Karte bis hin zu Stufe 17 vergrößert wird, zeigt die Karte einen Bereich mit einigen Vierteln und detaillierten Straßeninformationen an. Die höchste Zoomstufe in Azure Maps ist 22. Weitere Informationen finden Sie unter [Zoomfaktoren und Grobraster](zoom-levels-and-tile-grid.md).
-

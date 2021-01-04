@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 9ea98df4b6cd8572412e7082b451feac3736919c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c61287475eb82241aa5c9e1d1649e8b20e3b28c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327071"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185945"
 ---
 # <a name="application-insights-log-based-metrics"></a>Protokollbasierte Metriken von Application Insights
 
@@ -38,7 +38,7 @@ Wenn Sie die gleiche Metrik im [Metrik-Explorer](metrics-getting-started.md) dar
 - Die ausgewählte **Teilungsdiagramm**-Dimension wird in eine zusätzliche Zusammenfassungseigenschaft übersetzt. Wenn Sie beispielsweise Ihr Diagramm nach *Standort* aufteilen und mit einer Zeitgranularität von 5 Minuten grafisch darstellen, wird die *summarize*-Klausel in der Form *... by bin(timestamp, 5 m), location* zusammengefasst.
 
 > [!NOTE]
-> Wenn Sie noch nicht mit der Kusto-Abfragesprache vertraut sind, müssen Sie zunächst die Kusto-Anweisungen kopieren und in den Log Analytics-Abfragebereich einfügen, ohne Änderungen vorzunehmen. Klicken Sie auf **Ausführen**, um das grundlegende Diagramm anzuzeigen. Wenn Sie mit der Syntax der Abfragesprache vertraut sind, können Sie damit beginnen, kleine Änderungen vorzunehmen und die Auswirkung Ihrer Änderung anzuzeigen. Das Untersuchen Ihrer eigenen Daten ist eine gute Möglichkeit, um die volle Leistungsfähigkeit von [Log Analytics](../log-query/get-started-portal.md) und [Azure Monitor](../overview.md) zu erkennen.
+> Wenn Sie noch nicht mit der Kusto-Abfragesprache vertraut sind, müssen Sie zunächst die Kusto-Anweisungen kopieren und in den Log Analytics-Abfragebereich einfügen, ohne Änderungen vorzunehmen. Klicken Sie auf **Ausführen**, um das grundlegende Diagramm anzuzeigen. Wenn Sie mit der Syntax der Abfragesprache vertraut sind, können Sie damit beginnen, kleine Änderungen vorzunehmen und die Auswirkung Ihrer Änderung anzuzeigen. Das Untersuchen Ihrer eigenen Daten ist eine gute Möglichkeit, um die volle Leistungsfähigkeit von [Log Analytics](../log-query/log-analytics-tutorial.md) und [Azure Monitor](../overview.md) zu erkennen.
 
 ## <a name="availability-metrics"></a>Verfügbarkeitsmetriken
 
@@ -492,4 +492,3 @@ union traces, requests, pageViews, dependencies, customEvents, availabilityResul
 | summarize dcount(user_AuthenticatedId) by bin(timestamp, 1h)
 | render barchart
 ```
-

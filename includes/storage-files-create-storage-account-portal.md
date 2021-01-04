@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: a0db3ee9f32be35e62accc5df7b92697a883df20
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 03cf20e5c796a7092dc16c466934f377c945ad48
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83778209"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509241"
 ---
 Ein Speicherkonto ist ein gemeinsam genutzter Pool mit Speicherplatz, in dem Sie eine Azure-Dateifreigabe oder andere Speicherressourcen wie Blobs oder Warteschlangen bereitstellen können. Ein Speicherkonto kann eine unbegrenzte Anzahl von Freigaben enthalten. Auf einer Freigabe kann eine unbegrenzte Anzahl von Dateien gespeichert werden, bis die Kapazitätsgrenzen des Speicherkontos erreicht sind.
 
@@ -30,7 +30,7 @@ So erstellen Sie ein Speicherkonto:
     > [!NOTE]
     > Dieser Schnellstart erstellt eine Standarddateifreigabe, aber wenn Sie Premium-Dateifreigaben verwenden möchten, wählen Sie stattdessen **Premium** aus.
 
-1. Wählen Sie unter **Kontoart** die Option **StorageV2**. Weitere Informationen zu den unterschiedlichen Arten von Speicherkonten finden Sie unter [Optionen für Azure Storage-Konten](../articles/storage/common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+1. Wählen Sie unter **Kontoart** die Option **StorageV2**. Weitere Informationen zu den unterschiedlichen Arten von Speicherkonten finden Sie unter [Optionen für Azure Storage-Konten](../articles/storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
     > [!NOTE]
     > In diesem Schnellstart wird ein Konto vom Typ „Allgemein v2 (GPv2)“ erstellt. Wenn Sie Premium-Dateifreigaben verwenden möchten, wählen Sie stattdessen **FileStorage** aus.

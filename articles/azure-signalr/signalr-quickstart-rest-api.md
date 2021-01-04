@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 85cda8458dca4ce24fed9433af1527f49a2393ad
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 2613f91e8c7f1ad3a05792a9a165f4560c09a637
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150980"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874524"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Schnellstart: Senden von Nachrichten in Echtzeit aus einer Konsolen-App
 
@@ -28,17 +28,17 @@ Dieser Schnellstart kann unter MacOS, Windows oder Linux ausgeführt werden.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/asrs/qsapi)
+Treten Probleme auf? Verwenden Sie den [Leitfaden zur Problembehandlung](signalr-howto-troubleshoot-guide.md), oder [informieren Sie uns](https://aka.ms/asrs/qsapi).
 
 ## <a name="sign-in-to-azure"></a>Anmelden bei Azure
 
 Melden Sie sich unter <https://portal.azure.com/> mit Ihrem Azure-Konto beim Azure-Portal an.
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/asrs/qsapi)
+Treten Probleme auf? Verwenden Sie den [Leitfaden zur Problembehandlung](signalr-howto-troubleshoot-guide.md), oder [informieren Sie uns](https://aka.ms/asrs/qsapi).
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/asrs/qsapi)
+Treten Probleme auf? Verwenden Sie den [Leitfaden zur Problembehandlung](signalr-howto-troubleshoot-guide.md), oder [informieren Sie uns](https://aka.ms/asrs/qsapi).
 
 ## <a name="clone-the-sample-application"></a>Klonen der Beispielanwendung
 
@@ -51,7 +51,7 @@ Während der Dienst bereitgestellt wird, bereiten wird den Code vor. Klonen Sie 
     ```bash
     git clone https://github.com/aspnet/AzureSignalR-samples.git
     ```
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/asrs/qsapi)
+Treten Probleme auf? Verwenden Sie den [Leitfaden zur Problembehandlung](signalr-howto-troubleshoot-guide.md), oder [informieren Sie uns](https://aka.ms/asrs/qsapi).
 
 ## <a name="build-and-run-the-sample"></a>Erstellen und Ausführen des Beispiels
 
@@ -88,7 +88,7 @@ cd bin/Release/netcoreapp2.1/osx.10.13-x64/
 Serverless server -c "<ConnectionString>" -h <HubName>
 ```
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/asrs/qsapi)
+Treten Probleme auf? Verwenden Sie den [Leitfaden zur Problembehandlung](signalr-howto-troubleshoot-guide.md), oder [informieren Sie uns](https://aka.ms/asrs/qsapi).
 
 ## <a name="run-the-sample-without-publishing"></a>Führen Sie das Beispiel ohne Veröffentlichung aus.
 
@@ -106,7 +106,7 @@ dotnet run -- client <ClientName> -c "<ConnectionString>" -h <HubName>
 
 Sie können `dotnet user-secrets set Azure:SignalR:ConnectionString "<ConnectionString>"` im Stammverzeichnis des Beispiels ausführen. Danach benötigen Sie die Option `-c "<ConnectionString>"` nicht mehr.
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/asrs/qsapi)
+Treten Probleme auf? Verwenden Sie den [Leitfaden zur Problembehandlung](signalr-howto-troubleshoot-guide.md), oder [informieren Sie uns](https://aka.ms/asrs/qsapi).
 
 ## <a name="usage"></a>Verwendung
 
@@ -122,7 +122,7 @@ broadcast
 
 Sie können mehrere Clients mit unterschiedlichen Clientnamen starten.
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/asrs/qsapi)
+Treten Probleme auf? Verwenden Sie den [Leitfaden zur Problembehandlung](signalr-howto-troubleshoot-guide.md), oder [informieren Sie uns](https://aka.ms/asrs/qsapi).
 
 ## <a name="integration-with-third-party-services"></a><a name="usage"> </a> Integration in Drittanbieterdienste
 
@@ -257,11 +257,11 @@ Statuscode der Antwort | BESCHREIBUNG
 `200` | Dienst fehlerfrei
 `5xx` | Dienstfehler
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/asrs/qsapi)
+Treten Probleme auf? Verwenden Sie den [Leitfaden zur Problembehandlung](signalr-howto-troubleshoot-guide.md), oder [informieren Sie uns](https://aka.ms/asrs/qsapi).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/asrs/qsapi)
+Treten Probleme auf? Verwenden Sie den [Leitfaden zur Problembehandlung](signalr-howto-troubleshoot-guide.md), oder [informieren Sie uns](https://aka.ms/asrs/qsapi).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
@@ -269,5 +269,3 @@ In dieser Schnellstartanleitung haben Sie gelernt, wie Sie mithilfe der REST-API
 
 > [!div class="nextstepaction"]
 > [Entwickeln von Azure Functions mithilfe von Azure SignalR Service-Bindungen](signalr-quickstart-azure-functions-csharp.md)
-
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/asrs/qsapi)

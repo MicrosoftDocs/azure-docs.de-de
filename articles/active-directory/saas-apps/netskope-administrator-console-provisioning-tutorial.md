@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Konfigurieren von Netskope Administrator Console für die automatische Benutzerbereitstellung in Azure Active Directory | Microsoft-Dokumentation'
-description: Erfahren Sie, wie Sie Azure Active Directory für das automatische Bereitstellen und Aufheben der Bereitstellung von Benutzerkonten in Netskope Administrator Console konfigurieren.
+title: 'Tutorial: Konfigurieren von Netskope User Authentication für die automatische Benutzerbereitstellung in Azure Active Directory | Microsoft-Dokumentation'
+description: Hier erfahren Sie, wie Sie Azure Active Directory für das automatische Bereitstellen und Aufheben der Bereitstellung von Benutzerkonten in Netskope User Authentication konfigurieren.
 services: active-directory
 author: zchia
 writer: zchia
@@ -8,19 +8,19 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: b4ac2308eae3466dbb9d68895bca4a4de30fcebc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46766a7439185714648572f3f1b9d51ef96abba6
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91304927"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357469"
 ---
-# <a name="tutorial-configure-netskope-administrator-console-for-automatic-user-provisioning"></a>Tutorial: Konfigurieren von Netskope Administrator Console für die automatische Benutzerbereitstellung
+# <a name="tutorial-configure-netskope-user-authentication-for-automatic-user-provisioning"></a>Tutorial: Konfigurieren von Netskope User Authentication für die automatische Benutzerbereitstellung
 
-In diesem Tutorial werden die Schritte erläutert, die in Netskope Administrator Console und Azure Active Directory (Azure AD) ausgeführt werden müssen, um Azure AD für das automatische Bereitstellen und Aufheben der Bereitstellung von Benutzern und/oder Gruppen in Netskope Administrator Console zu konfigurieren.
+In diesem Tutorial werden die Schritte erläutert, die in Netskope User Authentication und Azure Active Directory (Azure AD) ausgeführt werden müssen, um Azure AD für das automatische Bereitstellen und Aufheben der Bereitstellung von Benutzern und/oder Gruppen in Netskope User Authentication zu konfigurieren.
 
 > [!NOTE]
 > In diesem Tutorial wird ein Connector beschrieben, der auf dem Benutzerbereitstellungsdienst von Azure AD basiert. Wichtige Details zum Zweck und zur Funktionsweise dieses Diensts sowie häufig gestellte Fragen finden Sie unter [Automatisieren der Bereitstellung und Bereitstellungsaufhebung von Benutzern für SaaS-Anwendungen mit Azure Active Directory](../app-provisioning/user-provisioning.md).
@@ -32,85 +32,85 @@ In diesem Tutorial werden die Schritte erläutert, die in Netskope Administrator
 Das diesem Tutorial zu Grunde liegende Szenario setzt voraus, dass Sie bereits über die folgenden Voraussetzungen verfügen:
 
 * Einen Azure AD-Mandanten
-* [Einen Netskope Administrator Console-Mandanten](https://www.netskope.com/)
-* Ein Benutzerkonto in Netskope Administrator Console mit Administratorberechtigungen.
+* [Einen Netskope User Authentication-Mandanten](https://www.netskope.com/)
+* Ein Benutzerkonto in Netskope User Authentication mit Administratorberechtigungen.
 
-## <a name="assigning-users-to-netskope-administrator-console"></a>Zuweisen von Benutzern zu Netskope Administrator Console
+## <a name="assigning-users-to-netskope-user-authentication"></a>Zuweisen von Benutzern zu Netskope User Authentication
 
-Azure Active Directory ermittelt anhand von *Zuweisungen*, welche Benutzer Zugriff auf bestimmte Apps erhalten sollen. Im Kontext der automatischen Benutzerbereitstellung werden nur die Benutzer und/oder Gruppen synchronisiert, die einer Anwendung in Azure AD zugewiesen wurden.
+Azure Active Directory ermittelt anhand von *Zuweisungen* , welche Benutzer Zugriff auf bestimmte Apps erhalten sollen. Im Kontext der automatischen Benutzerbereitstellung werden nur die Benutzer und/oder Gruppen synchronisiert, die einer Anwendung in Azure AD zugewiesen wurden.
 
-Vor dem Konfigurieren und Aktivieren der automatischen Benutzerbereitstellung müssen Sie entscheiden, welche Benutzer und/oder Gruppen in Azure AD Zugriff auf Netskope Administrator Console benötigen. Anschließend können Sie diese Benutzer und/oder Gruppen Netskope Administrator Console anhand der folgenden Anweisungen zuweisen:
+Vor dem Konfigurieren und Aktivieren der automatischen Benutzerbereitstellung müssen Sie entscheiden, welche Benutzer und/oder Gruppen in Azure AD Zugriff auf Netskope User Authentication benötigen. Anschließend können Sie Netskope User Authentication diese Benutzer und/oder Gruppen zuweisen, indem Sie den folgenden Anweisungen folgen:
 * [Zuweisen eines Benutzers oder einer Gruppe zu einer Unternehmens-App](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="important-tips-for-assigning-users-to-netskope-administrator-console"></a>Wichtige Tipps zum Zuweisen von Benutzern zu Netskope Administrator Console
+## <a name="important-tips-for-assigning-users-to-netskope-user-authentication"></a>Wichtige Tipps zum Zuweisen von Benutzern zu Netskope User Authentication
 
-* Es wird empfohlen, Netskope Administrator Console einen einzelnen Azure AD-Benutzer zuzuweisen, um die Konfiguration der automatischen Benutzerbereitstellung zu testen. Später können weitere Benutzer und/oder Gruppen zugewiesen werden.
+* Es wird empfohlen, Netskope User Authentication einen einzelnen Azure AD-Benutzer zuzuweisen, um die Konfiguration der automatischen Benutzerbereitstellung zu testen. Später können weitere Benutzer und/oder Gruppen zugewiesen werden.
 
-* Beim Zuweisen eines Benutzers an Netskope Administrator Console müssen Sie im Dialogfeld für die Zuweisung eine gültige anwendungsspezifische Rolle auswählen (sofern verfügbar). Benutzer mit der Rolle **Standardzugriff** werden von der Bereitstellung ausgeschlossen.
+* Beim Zuweisen eines Benutzers zu Netskope User Authentication müssen Sie im Dialogfeld für die Zuweisung eine gültige anwendungsspezifische Rolle auswählen (sofern verfügbar). Benutzer mit der Rolle **Standardzugriff** werden von der Bereitstellung ausgeschlossen.
 
-## <a name="set-up-netskope-administrator-console-for-provisioning"></a>Einrichten von Netskope Administrator Console für die Bereitstellung
+## <a name="set-up-netskope-user-authentication-for-provisioning"></a>Einrichten von Netskope User Authentication für die Bereitstellung
 
-1. Melden Sie sich bei Ihrer [Netskope Administrator Console-Verwaltungskonsole](https://netskope.goskope.com/) an. Navigieren Sie zu **Startseite > Einstellungen**.
+1. Melden Sie sich bei der [Netskope User Authentication-Verwaltungskonsole](https://netskope.goskope.com/) an. Navigieren Sie zu **Startseite > Einstellungen**.
 
-    ![Netskope Administrator Console-Verwaltungskonsole](media/netskope-administrator-console-provisioning-tutorial/admin.png)
+    ![Netskope User Authentication-Verwaltungskonsole](media/netskope-administrator-console-provisioning-tutorial/admin.png)
 
 2.  Navigieren Sie zu **Tools**. Navigieren Sie unter dem Menü **Tools** zu **Verzeichnistools > SCIM-INTEGRATION**.
 
-    ![Netskope Administrator Console – Tools](media/netskope-administrator-console-provisioning-tutorial/tools.png)
+    ![Netskope User Authentication: Tools](media/netskope-administrator-console-provisioning-tutorial/tools.png)
 
-    ![Netskope Administrator Console – SCIM hinzufügen](media/netskope-administrator-console-provisioning-tutorial/directory.png)
+    ![Netskope User Authentication: SCIM hinzufügen](media/netskope-administrator-console-provisioning-tutorial/directory.png)
 
 3. Scrollen Sie nach unten, und klicken Sie auf die Schaltfläche **Token hinzufügen**. Geben Sie im Dialogfeld **OAuth-Clientname hinzufügen** einen **Clientnamen** an, und klicken Sie auf die Schaltfläche **Speichern**.
 
-    ![Netskope Administrator Console – Token hinzufügen](media/netskope-administrator-console-provisioning-tutorial/add.png)
+    ![Netskope User Authentication: Token hinzufügen](media/netskope-administrator-console-provisioning-tutorial/add.png)
 
-    ![Netskope Administrator Console – Clientname](media/netskope-administrator-console-provisioning-tutorial/clientname.png)
+    ![Netskope User Authentication: Clientname](media/netskope-administrator-console-provisioning-tutorial/clientname.png)
 
-3.  Kopieren Sie die Werte für **SCIM Server URL** und **TOKEN**. Diese Werte werden im Azure-Portal auf der Registerkarte „Bereitstellung“ der Netskope Administrator Console-Anwendung in das Feld „Mandanten-URL“ bzw. „Geheimes Token“ eingegeben.
+3.  Kopieren Sie die Werte für **SCIM Server URL** und **TOKEN**. Diese Werte werden im Azure-Portal auf der Registerkarte „Bereitstellung“ der Netskope User Authentication-Anwendung in das Feld „Mandanten-URL“ bzw. „Geheimes Token“ eingegeben.
 
-    ![Netskope Administrator Console – Token erstellen](media/netskope-administrator-console-provisioning-tutorial/token.png)
+    ![Netskope User Authentication: Token erstellen](media/netskope-administrator-console-provisioning-tutorial/token.png)
 
-## <a name="add-netskope-administrator-console-from-the-gallery"></a>Hinzufügen von Netskope Administrator Console aus dem Katalog
+## <a name="add-netskope-user-authentication-from-the-gallery"></a>Hinzufügen von Netskope User Authentication aus dem Katalog
 
-Bevor Sie Netskope Administrator Console für die automatische Benutzerbereitstellung mit Azure AD konfigurieren, müssen Sie Netskope Administrator Console aus dem Azure AD-Anwendungskatalog der Liste mit den verwalteten SaaS-Anwendungen hinzufügen.
+Vor dem Konfigurieren von Netskope User Authentication für die automatische Benutzerbereitstellung mit Azure AD müssen Sie Ihrer Liste der verwalteten SaaS-Anwendungen Netskope User Authentication aus dem Azure AD-Anwendungskatalog hinzufügen.
 
-**Führen Sie zum Hinzufügen von Netskope Administrator Console aus dem Azure AD-Anwendungskatalog die folgenden Schritte aus:**
+**Führen Sie die folgenden Schritte aus, um Netskope User Authentication aus dem Azure AD-Anwendungskatalog hinzuzufügen:**
 
 1. Wählen Sie im **[Azure-Portal](https://portal.azure.com)** im linken Navigationsbereich **Azure Active Directory** aus.
 
     ![Schaltfläche „Azure Active Directory“](common/select-azuread.png)
 
-2. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie die Option **Alle Anwendungen**.
+2. Navigieren Sie zu **Unternehmensanwendungen** , und wählen Sie die Option **Alle Anwendungen**.
 
     ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
 
-3. Klicken Sie oben im Bereich auf die Schaltfläche **Neue Anwendung**, um eine neue Anwendung hinzuzufügen.
+3. Klicken Sie oben im Bereich auf die Schaltfläche **Neue Anwendung** , um eine neue Anwendung hinzuzufügen.
 
     ![Schaltfläche „Neue Anwendung“](common/add-new-app.png)
 
-4. Geben Sie im Suchfeld **Netskope Administrator Console** ein, wählen Sie **Netskope Administrator Console** im Ergebnisbereich aus, und klicken Sie dann auf die Schaltfläche **Hinzufügen**, um die Anwendung hinzuzufügen.
+4. Geben Sie im Suchfeld den Namen **Netskope User Authentication** ein, wählen Sie im Ergebnisbereich die Anwendung **Netskope User Authentication** aus, und klicken Sie dann auf die Schaltfläche **Hinzufügen** , um die Anwendung hinzuzufügen.
 
-    ![Netskope Administrator Console in der Ergebnisliste](common/search-new-app.png)
+    ![Netskope User Authentication in der Ergebnisliste](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-netskope-administrator-console"></a>Konfigurieren der automatischen Benutzerbereitstellung für Netskope Administrator Console 
+## <a name="configuring-automatic-user-provisioning-to-netskope-user-authentication"></a>Konfigurieren der automatischen Benutzerbereitstellung für Netskope User Authentication 
 
-In diesem Abschnitt werden die Schritte zum Konfigurieren des Azure AD-Bereitstellungsdiensts zum Erstellen, Aktualisieren und Deaktivieren von Benutzern und/oder Gruppen in Netskope Administrator Console auf der Grundlage von Benutzer- bzw. Gruppenzuweisungen in Azure AD erläutert.
+In diesem Abschnitt werden die Schritte zum Konfigurieren des Azure AD-Bereitstellungsdiensts für das Erstellen, Aktualisieren und Deaktivieren von Benutzern und/oder Gruppen in Netskope User Authentication auf der Grundlage von Benutzer- und/oder Gruppenzuweisungen in Azure AD erläutert.
 
 > [!TIP]
-> Sie können auch das SAML-basierte einmalige Anmelden für Netskope Administrator Console aktivieren. Befolgen Sie hierzu die Anweisungen im [SSO-Tutorial zu Netskope Administrator Console](https://docs.microsoft.com/azure/active-directory/saas-apps/netskope-cloud-security-tutorial). Einmaliges Anmelden kann unabhängig von der automatischen Benutzerbereitstellung konfiguriert werden, obwohl diese beiden Features einander ergänzen.
+> Sie können auch das SAML-basierte einmalige Anmelden für Netskope User Authentication aktivieren. Folgen Sie dazu den Anweisungen im [SSO-Tutorial zu Netskope User Authentication](./netskope-cloud-security-tutorial.md). Einmaliges Anmelden kann unabhängig von der automatischen Benutzerbereitstellung konfiguriert werden, obwohl diese beiden Features einander ergänzen.
 
 > [!NOTE]
-> Weitere Informationen über den SCIM-Endpunkt von Netskope Administrator Console finden Sie [hier](https://docs.google.com/document/d/1n9P_TL98_kd1sx5PAvZL2HS6MQAqkQqd-OSkWAAU6ck/edit#heading=h.prxq74iwdpon).
+> Weitere Informationen zum SCIM-Endpunkt von Netskope User Authentication finden Sie [hier](https://docs.google.com/document/d/1n9P_TL98_kd1sx5PAvZL2HS6MQAqkQqd-OSkWAAU6ck/edit#heading=h.prxq74iwdpon).
 
-### <a name="to-configure-automatic-user-provisioning-for-netskope-administrator-console-in-azure-ad"></a>So konfigurieren Sie die automatische Benutzerbereitstellung für Netskope Administrator Console in Azure AD
+### <a name="to-configure-automatic-user-provisioning-for-netskope-user-authentication-in-azure-ad"></a>So konfigurieren Sie die automatische Benutzerbereitstellung für Netskope User Authentication in Azure AD
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an. Wählen Sie **Unternehmensanwendungen** und dann **Alle Anwendungen**.
 
     ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
 
-2. Wählen Sie in der Anwendungsliste den Eintrag **Netskope Administrator Console** aus.
+2. Wählen Sie in der Anwendungsliste die Option **Netskope User Authentication** aus.
 
-    ![Netskope Administrator Console-Link in der Anwendungsliste](common/all-applications.png)
+    ![Netskope User Authentication-Link in der Anwendungsliste](common/all-applications.png)
 
 3. Wählen Sie die Registerkarte **Bereitstellung**.
 
@@ -120,7 +120,7 @@ In diesem Abschnitt werden die Schritte zum Konfigurieren des Azure AD-Bereitste
 
     ![Screenshot der Dropdownliste „Bereitstellungsmodus“ mit aufgerufener Option „Automatisch“](common/provisioning-automatic.png)
 
-5. Geben Sie im Abschnitt **Administratoranmeldeinformationen**  den Wert für **SCIM Server URL** ein, den Sie zuvor in **Mandanten-URL** abgerufen haben. Geben Sie den Wert für **TOKEN** ein, den Sie zuvor unter **Geheimes Token** abgerufen haben. Klicken Sie auf **Verbindung testen**, um sicherzustellen, dass Azure AD eine Verbindung mit Netskope Administrator Console herstellen kann. Vergewissern Sie sich im Falle eines Verbindungsfehlers, dass Ihr Netskope Administrator Console-Konto über Administratorberechtigungen verfügt, und wiederholen Sie den Vorgang.
+5. Geben Sie im Abschnitt **Administratoranmeldeinformationen**  den Wert für **SCIM Server URL** ein, den Sie zuvor in **Mandanten-URL** abgerufen haben. Geben Sie den Wert für **TOKEN** ein, den Sie zuvor unter **Geheimes Token** abgerufen haben. Klicken Sie auf **Verbindung testen** , um sicherzustellen, dass Azure AD eine Verbindung mit Netskope User Authentication herstellen kann. Wenn die Verbindung nicht hergestellt werden kann, vergewissern Sie sich, dass Ihr Netskope User Authentication-Konto über Administratorberechtigungen verfügt, und versuchen Sie es noch mal.
 
     ![Mandanten-URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -130,29 +130,29 @@ In diesem Abschnitt werden die Schritte zum Konfigurieren des Azure AD-Bereitste
 
 7. Klicken Sie auf **Speichern**.
 
-8. Wählen Sie im Abschnitt **Zuordnungen** die Option **Azure Active Directory-Benutzer mit Netskope Administrator Console synchronisieren**.
+8. Wählen Sie im Abschnitt **Zuordnungen** die Option **Azure Active Directory-Benutzer mit Netskope User Authentication synchronisieren** aus.
 
-    ![Netskope Administrator Console – Benutzerzuordnungen](media/netskope-administrator-console-provisioning-tutorial/usermappings.png)
+    ![Netskope User Authentication: Benutzerzuordnungen](media/netskope-administrator-console-provisioning-tutorial/usermappings.png)
 
-9. Überprüfen Sie im Abschnitt **Attributzuordnung** die Benutzerattribute, die von Azure AD mit Netskope Administrator Console synchronisiert werden. Die als **übereinstimmende** Eigenschaften ausgewählten Attribute werden für den Abgleich der Benutzerkonten in Netskope Administrator Console für Updatevorgänge verwendet. Wählen Sie die Schaltfläche **Speichern**, um alle Änderungen zu übernehmen.
+9. Überprüfen Sie im Abschnitt **Attributzuordnung** die Benutzerattribute, die von Azure AD mit Netskope User Authentication synchronisiert werden. Die als **übereinstimmende** Eigenschaften ausgewählten Attribute werden für den Abgleich der Benutzerkonten in Netskope User Authentication für Aktualisierungsvorgänge verwendet. Wählen Sie die Schaltfläche **Speichern** , um alle Änderungen zu übernehmen.
 
-    ![Netskope Administrator Console – Benutzerattribute](media/netskope-administrator-console-provisioning-tutorial/userattributes.png)
+    ![Netskope User Authentication: Benutzerattribute](media/netskope-administrator-console-provisioning-tutorial/userattributes.png)
 
-10. Wählen Sie im Abschnitt **Zuordnungen** die Option **Azure Active Directory-Gruppen mit Netskope Administrator Console synchronisieren**.
+10. Wählen Sie im Abschnitt **Zuordnungen** die Option **Azure Active Directory-Gruppen mit Netskope User Authentication synchronisieren** aus.
 
-    ![Netskope Administrator Console – Gruppenzuordnungen](media/netskope-administrator-console-provisioning-tutorial/groupmappings.png)
+    ![Netskope User Authentication: Gruppenzuordnungen](media/netskope-administrator-console-provisioning-tutorial/groupmappings.png)
 
-11. Überprüfen Sie im Abschnitt **Attributzuordnung** die Gruppenattribute, die von Azure AD mit Netskope Administrator Console synchronisiert werden. Die als **übereinstimmende** Eigenschaften ausgewählten Attribute werden für den Abgleich der Gruppen in Netskope Administrator Console für Updatevorgänge verwendet. Wählen Sie die Schaltfläche **Speichern**, um alle Änderungen zu übernehmen.
+11. Überprüfen Sie im Abschnitt **Attributzuordnung** die Gruppenattribute, die von Azure AD mit Netskope User Authentication synchronisiert werden. Die als **übereinstimmende** Eigenschaften ausgewählten Attribute werden für den Abgleich der Gruppen in Netskope User Authentication für Aktualisierungsvorgänge verwendet. Wählen Sie die Schaltfläche **Speichern** , um alle Änderungen zu übernehmen.
 
-    ![Netskope Administrator Console – Gruppenattribute](media/netskope-administrator-console-provisioning-tutorial/groupattributes.png)
+    ![Netskope User Authentication: Gruppenattribute](media/netskope-administrator-console-provisioning-tutorial/groupattributes.png)
 
 12. Wenn Sie Bereichsfilter konfigurieren möchten, lesen Sie die Anweisungen unter [Attributbasierte Anwendungsbereitstellung mit Bereichsfiltern](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Um den Azure AD-Bereitstellungsdienst für Netskope Administrator Console zu aktivieren, ändern Sie den **Bereitstellungsstatus** im Abschnitt **Einstellungen** in **Ein**.
+13. Um den Azure AD-Bereitstellungsdienst für Netskope User Authentication zu aktivieren, ändern Sie im Abschnitt **Einstellungen** den **Bereitstellungsstatus** in **Ein**.
 
     ![Aktivierter Bereitstellungsstatus](common/provisioning-toggle-on.png)
 
-14. Legen Sie die Benutzer und/oder Gruppen fest, die in Netskope Administrator Console bereitgestellt werden sollen. Wählen Sie dazu im Abschnitt **Einstellungen** unter **Bereich** die gewünschten Werte aus.
+14. Legen Sie die Benutzer und/oder Gruppen fest, die in Netskope User Authentication bereitgestellt werden sollen, indem Sie im Abschnitt **Einstellungen** unter **Bereich** die gewünschten Werte auswählen.
 
     ![Bereitstellungsbereich](common/provisioning-scope.png)
 
@@ -160,7 +160,7 @@ In diesem Abschnitt werden die Schritte zum Konfigurieren des Azure AD-Bereitste
 
     ![Speichern der Bereitstellungskonfiguration](common/provisioning-configuration-save.png)
 
-Dadurch wird die Erstsynchronisierung aller Benutzer und/oder Gruppen gestartet, die im Abschnitt **Einstellungen** unter **Bereich** definiert sind. Die Erstsynchronisierung dauert länger als nachfolgende Synchronisierungen, die ungefähr alle 40 Minuten erfolgen, solange der Azure AD-Bereitstellungsdienst ausgeführt wird. Im Abschnitt **Synchronisierungsdetails** können Sie den Fortschritt überwachen und Links zu Berichten zur Bereitstellungsaktivität aufrufen. In diesen Berichten sind alle Aktionen aufgeführt, die vom Azure AD-Bereitstellungsdienst in Netskope Administrator Console ausgeführt werden.
+Dadurch wird die Erstsynchronisierung aller Benutzer und/oder Gruppen gestartet, die im Abschnitt **Einstellungen** unter **Bereich** definiert sind. Die Erstsynchronisierung dauert länger als nachfolgende Synchronisierungen, die ungefähr alle 40 Minuten erfolgen, solange der Azure AD-Bereitstellungsdienst ausgeführt wird. Im Abschnitt **Synchronisierungsdetails** können Sie den Fortschritt überwachen und Links zum Bereitstellungsaktivitätsbericht folgen. Darin sind alle Aktionen aufgeführt, die vom Azure AD-Bereitstellungsdienst für Netskope User Authentication ausgeführt werden.
 
 Weitere Informationen zum Lesen von Azure AD-Bereitstellungsprotokollen finden Sie unter [Tutorial: Meldung zur automatischen Benutzerkontobereitstellung](../app-provisioning/check-status-user-account-provisioning.md).
 
@@ -172,4 +172,3 @@ Weitere Informationen zum Lesen von Azure AD-Bereitstellungsprotokollen finden S
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Erfahren Sie, wie Sie Protokolle überprüfen und Berichte zu Bereitstellungsaktivitäten abrufen.](../app-provisioning/check-status-user-account-provisioning.md)
-

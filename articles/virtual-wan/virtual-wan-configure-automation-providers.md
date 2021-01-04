@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0029f3fbcf96036a247356042e4c39d59f86a224
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29fff3a6a430e3bc1a0b3a13876b55d22f7cb545
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88208342"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566468"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>Automatisierungsrichtlinien für Virtual WAN-Partner
 
@@ -33,9 +33,9 @@ Ein Zweigstellengerät (ein lokales VPN-Gerät des Kunden oder SDWAN CPE) verwen
 
 ### <a name="additional-information"></a><a name ="additional"></a>Weitere Informationen
 
-* [Rest-API](https://docs.microsoft.com/rest/api/virtualwan/virtualhubs) zum Automatisieren der Erstellung virtueller Hubs
-* [Rest-API](https://docs.microsoft.com/rest/api/virtualwan/vpngateways) zum Automatisieren des Azure-VPN-Gateways für das virtuelle WAN
-* [Rest-API](https://docs.microsoft.com/rest/api/virtualwan/vpnconnections) zum Verbinden von VPNSite mit einem Azure-VPN-Hub
+* [Rest-API](/rest/api/virtualwan/virtualhubs) zum Automatisieren der Erstellung virtueller Hubs
+* [Rest-API](/rest/api/virtualwan/vpngateways) zum Automatisieren des Azure-VPN-Gateways für das virtuelle WAN
+* [Rest-API](/rest/api/virtualwan/vpnconnections) zum Verbinden von VPNSite mit einem Azure-VPN-Hub
 * [IPsec-Standardrichtlinien](#default)
 
 ## <a name="customer-experience"></a><a name ="ae"></a>Benutzerfreundlichkeit
@@ -63,11 +63,11 @@ Kunden müssen entsprechende Zugriffssteuerungen für Virtual WAN in der Geräte
 
 ###  <a name="upload-branch-device-information"></a><a name="branch"></a>Hochladen von Informationen zum Zweigstellengerät
 
-Sie sollten die Benutzererfahrung zum Hochladen von Zweigstelleninformationen (lokal) in Azure gestalten. Zur Erstellung der Standortinformationen in Virtual WAN können Sie [REST-APIs](https://docs.microsoft.com/rest/api/virtualwan/vpnsites) für den VPN-Standort verwenden. Sie können alle SDWAN/VPN-Zweigstellengeräte bereitstellen oder entsprechende Geräteanpassungen auswählen.
+Sie sollten die Benutzererfahrung zum Hochladen von Zweigstelleninformationen (lokal) in Azure gestalten. Zur Erstellung der Standortinformationen in Virtual WAN können Sie [REST-APIs](/rest/api/virtualwan/vpnsites) für den VPN-Standort verwenden. Sie können alle SDWAN/VPN-Zweigstellengeräte bereitstellen oder entsprechende Geräteanpassungen auswählen.
 
 ### <a name="device-configuration-download-and-connectivity"></a><a name="device"></a>Herunterladen der Gerätekonfiguration und Einrichten von Konnektivität
 
-Dieser Schritt umfasst das Herunterladen der Azure-Konfiguration und Einrichten von Konnektivität zwischen Zweigstellengerät und Azure Virtual WAN. In diesem Schritt würde ein Kunde, der keinen Anbieter verwendet, die Azure-Konfiguration manuell herunterladen und auf sein lokales SDWAN/VPN-Gerät anwenden. Als Anbieter sollten Sie diesen Schritt automatisieren. Weitere Informationen finden Sie im Download der [REST-APIs](https://docs.microsoft.com/rest/api/virtualwan/vpnsitesconfiguration/download). Der Gerätecontroller kann die REST-API „GetVpnConfiguration“ zum Herunterladen der Azure-Konfiguration aufrufen.
+Dieser Schritt umfasst das Herunterladen der Azure-Konfiguration und Einrichten von Konnektivität zwischen Zweigstellengerät und Azure Virtual WAN. In diesem Schritt würde ein Kunde, der keinen Anbieter verwendet, die Azure-Konfiguration manuell herunterladen und auf sein lokales SDWAN/VPN-Gerät anwenden. Als Anbieter sollten Sie diesen Schritt automatisieren. Weitere Informationen finden Sie im Download der [REST-APIs](/rest/api/virtualwan/vpnsitesconfiguration/download). Der Gerätecontroller kann die REST-API „GetVpnConfiguration“ zum Herunterladen der Azure-Konfiguration aufrufen.
 
 **Konfigurationshinweise**
 

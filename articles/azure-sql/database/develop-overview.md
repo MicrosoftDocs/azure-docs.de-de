@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 11/14/2019
 ms.custom: sqldbrb=2
-ms.openlocfilehash: b099158261de55c829ab2b89a2f994b35b3e50d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ea3456dbd1d0942cba48c97d70982ae088d73f9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85254037"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782976"
 ---
 # <a name="application-development-overview---sql-database--sql-managed-instance"></a>Übersicht über die Anwendungsentwicklung: SQL-Datenbank und SQL Managed Instance
 
@@ -27,7 +27,7 @@ In diesem Artikel werden die grundlegenden Aspekte beschrieben, die ein Entwickl
 
 Sie können verschiedene [Programmiersprachen und Plattformen](connect-query-content-reference-guide.md) zum Herstellen einer Verbindung mit und Abfragen von Azure SQL-Datenbank verwenden. Sie können mithilfe von [Beispielanwendungen](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) eine Verbindung mit der Datenbank herstellen.
 
-Sie können Open-Source-Tools wie [Cheetah](https://github.com/wunderlist/cheetah), [Sql-Cli](https://www.npmjs.com/package/sql-cli) und [VS Code](https://code.visualstudio.com/) nutzen. Darüber hinaus funktioniert Azure SQL-Datenbank mit Microsoft-Tools wie [Visual Studio](https://www.visualstudio.com/downloads/) und [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Sie können auch das Azure-Portal, PowerShell und REST-APIs nutzen, um noch produktiver zu arbeiten.
+Sie können Open-Source-Tools wie [Cheetah](https://github.com/wunderlist/cheetah), [Sql-Cli](https://www.npmjs.com/package/sql-cli) und [VS Code](https://code.visualstudio.com/) nutzen. Darüber hinaus funktioniert Azure SQL-Datenbank mit Microsoft-Tools wie [Visual Studio](https://www.visualstudio.com/downloads/) und [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms). Sie können auch das Azure-Portal, PowerShell und REST-APIs nutzen, um noch produktiver zu arbeiten.
 
 ## <a name="authentication"></a>Authentifizierung
 
@@ -39,7 +39,7 @@ Erfahren Sie mehr zum [Verwalten des Datenbankzugriffs und der Anmeldung](logins
 
 Ändern Sie in der Clientverbindungslogik das Standardtimeout in 30 Sekunden. Der Standardwert von 15 Sekunden ist zu kurz für Verbindungen, die über das Internet hergestellt werden.
 
-Wenn Sie einen [Verbindungspool](https://msdn.microsoft.com/library/8xx3tyca.aspx)verwenden, trennen Sie unbedingt die Verbindung, sobald Ihre Anwendung sie nicht aktiv verwendet und nicht gerade auf die erneute Verwendung der Verbindung vorbereitet wird.
+Wenn Sie einen [Verbindungspool](/dotnet/framework/data/adonet/sql-server-connection-pooling)verwenden, trennen Sie unbedingt die Verbindung, sobald Ihre Anwendung sie nicht aktiv verwendet und nicht gerade auf die erneute Verwendung der Verbindung vorbereitet wird.
 
 Vermeiden Sie lang andauernde Transaktionen, weil jeder Infrastruktur- oder Verbindungsfehler zu einem Rollback der Transaktion führen kann. Teilen Sie die Transaktion (wenn möglich) in mehrere kleinere Transaktionen auf, und verwenden Sie [Batchverarbeitung zum Verbessern der Leistung](../performance-improve-use-batching.md).
 

@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.custom: contperfq2
-ms.openlocfilehash: c1c0c3038c687b7f91d3c75d8c4c9589c5e245a3
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: c279b7f4ec2d70e7eb6a97abf02cfbf4f2ef87f0
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427638"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033611"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Konfigurieren der Art und Weise, wie Endbenutzer Anwendungen zustimmen können
 
@@ -36,13 +36,13 @@ Richtlinien zur Einwilligung für die App beschreiben Bedingungen, die erfüllt 
 
 Indem Sie auswählen, welche Richtlinien zur Einwilligung für die App für alle Benutzer gelten sollen, können Sie Grenzwerte im Hinblick darauf festlegen, wann Endbenutzer Einwilligung für Apps erteilen dürfen und wann sie zum Anfordern einer Überprüfung und Genehmigung durch den Administrator aufgefordert werden sollen:
 
-* **Benutzereinwilligung deaktivieren** : Benutzer können Anwendungen keine Berechtigungen erteilen. Benutzer können sich weiterhin bei Apps anmelden, in die sie zuvor einwilligt haben oder in die Administratoren in Ihrem Namen einwilligt haben. Sie sind jedoch nicht berechtigt, in neue Berechtigungen oder neue Apps eigenständig einzuwilligen. Nur Benutzer, denen eine Verzeichnisrolle mit der Berechtigung zum Erteilen von Einwilligung erteilt wurde, können in neue Apps einwilligen.
+* **Benutzereinwilligung deaktivieren**: Benutzer können Anwendungen keine Berechtigungen erteilen. Benutzer können sich weiterhin bei Apps anmelden, in die sie zuvor einwilligt haben oder in die Administratoren in Ihrem Namen einwilligt haben. Sie sind jedoch nicht berechtigt, in neue Berechtigungen oder neue Apps eigenständig einzuwilligen. Nur Benutzer, denen eine Verzeichnisrolle mit der Berechtigung zum Erteilen von Einwilligung erteilt wurde, können in neue Apps einwilligen.
 
-* **Benutzer können in Apps von verifizierten Herausgebern oder Ihrer Organisation einwilligen, aber nur für Berechtigungen, die Sie auswählen**  – Alle Benutzer können nur in Apps einwilligen, die von einem [verifizierten Herausgeber](../develop/publisher-verification-overview.md) veröffentlicht wurden, und in Apps, die in Ihrem Mandanten registriert sind. Benutzer können nur in die Berechtigungen einwilligen, die Sie als „geringe Auswirkung“ klassifiziert haben. Sie müssen [Berechtigungen klassifizieren](configure-permission-classifications.md), um auszuwählen, in welche Berechtigungen Benutzer einwilligen dürfen.
+* **Benutzer können in Apps von verifizierten Herausgebern oder Ihrer Organisation einwilligen, aber nur für Berechtigungen, die Sie auswählen** – Alle Benutzer können nur in Apps einwilligen, die von einem [verifizierten Herausgeber](../develop/publisher-verification-overview.md) veröffentlicht wurden, und in Apps, die in Ihrem Mandanten registriert sind. Benutzer können nur in die Berechtigungen einwilligen, die Sie als „geringe Auswirkung“ klassifiziert haben. Sie müssen [Berechtigungen klassifizieren](configure-permission-classifications.md), um auszuwählen, in welche Berechtigungen Benutzer einwilligen dürfen.
 
-* **Benutzer können in alle Apps einwilligen**  – Diese Option ermöglicht es allen Benutzern, für beliebige Anwendungen in jede beliebige Berechtigung einzuwilligen, die keine Administratoreinwilligung erfordert.
+* **Benutzer können in alle Apps einwilligen** – Diese Option ermöglicht es allen Benutzern, für beliebige Anwendungen in jede beliebige Berechtigung einzuwilligen, die keine Administratoreinwilligung erfordert.
 
-* **Benutzerdefinierte Richtlinie zur Einwilligung für die App** : Bei sogar mehr Optionen für die Bedingungen zur Steuerung der Benutzereinwilligung können Sie die [benutzerdefinierte Richtlinie zur Einwilligung für die App erstellen](manage-app-consent-policies.md#create-a-custom-app-consent-policy) und für Benutzereinwilligung konfigurieren.
+* **Benutzerdefinierte Richtlinie zur Einwilligung für die App**: Bei sogar mehr Optionen für die Bedingungen zur Steuerung der Benutzereinwilligung können Sie die [benutzerdefinierte Richtlinie zur Einwilligung für die App erstellen](manage-app-consent-policies.md#create-a-custom-app-consent-policy) und für Benutzereinwilligung konfigurieren.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -57,7 +57,7 @@ So konfigurieren Sie die Einstellungen für die Benutzereinwilligung über das A
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Sie können mithilfe des neuesten Azure AD PowerShell-Vorschaumoduls, [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true), auswählen, welche Richtlinie zur Einwilligung für die App die Benutzereinwilligung für Anwendungen regeln soll.
+Sie können mithilfe des neuesten Azure AD PowerShell-Vorschaumoduls, [AzureADPreview](/powershell/azure/active-directory/install-adv2?preserve-view=true&view=azureadps-2.0-preview), auswählen, welche Richtlinie zur Einwilligung für die App die Benutzereinwilligung für Anwendungen regeln soll.
 
 #### <a name="disable-user-consent"></a>Benutzereinwilligung deaktivieren
 
@@ -101,7 +101,7 @@ Set-AzureADMSAuthorizationPolicy `
 
 ## <a name="risk-based-step-up-consent"></a>Risikobasierte hochgestufte Einwilligung
 
-Die risikobasierte hochgestufte Einwilligung trägt zur Reduzierung der Benutzergefährdung durch böswillige Apps bei, die [unrechtmäßige Einwilligungsanforderungen](https://docs.microsoft.com/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants) ausgeben. Wenn Microsoft eine risikobehaftete Anforderung der Endbenutzereinwilligung erkennt, wird die Anforderung stattdessen auf Administratoreinwilligung „hochgestuft“. Diese Funktion ist standardmäßig aktiviert, führt jedoch nur zu einer Änderung des Verhaltens, wenn die Endbenutzereinwilligung aktiviert ist.
+Die risikobasierte hochgestufte Einwilligung trägt zur Reduzierung der Benutzergefährdung durch böswillige Apps bei, die [unrechtmäßige Einwilligungsanforderungen](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants) ausgeben. Wenn Microsoft eine risikobehaftete Anforderung der Endbenutzereinwilligung erkennt, wird die Anforderung stattdessen auf Administratoreinwilligung „hochgestuft“. Diese Funktion ist standardmäßig aktiviert, führt jedoch nur zu einer Änderung des Verhaltens, wenn die Endbenutzereinwilligung aktiviert ist.
 
 Wird eine risikobehaftete Einwilligungsanforderung erkannt, wird in der Einwilligungsaufforderung eine Meldung angezeigt, die besagt, dass eine Administratorgenehmigung erforderlich ist. Wenn der [Workflow zum Anfordern der Administratoreinwilligung](configure-admin-consent-workflow.md) aktiviert ist, kann der Benutzer die Anforderung zur weiteren Überprüfung direkt von der Einwilligungsaufforderung an einen Administrator senden. Ist diese Funktion nicht aktiviert, wird die folgende Meldung angezeigt:
 
@@ -114,9 +114,9 @@ In diesem Fall wird auch ein Überwachungsereignis der Kategorie „ApplicationM
 
 ### <a name="disable-or-re-enable-risk-based-step-up-consent-using-powershell"></a>Deaktivieren oder erneutes Aktivieren der risikobasierten hochgestuften Einwilligung mit PowerShell
 
-Mit dem Modul „Azure AD PowerShell Preview“ ([AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)) können Sie die Hochstufung auf Administratoreinwilligung deaktivieren (wenn Microsoft Risiken erkennt) oder erneut aktivieren, wenn sie zuvor deaktiviert wurde.
+Mit dem Modul „Azure AD PowerShell Preview“ ([AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview)) können Sie die Hochstufung auf Administratoreinwilligung deaktivieren (wenn Microsoft Risiken erkennt) oder erneut aktivieren, wenn sie zuvor deaktiviert wurde.
 
-1. Stellen Sie sicher, dass Sie das Modul [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) verwenden. Dieser Schritt ist wichtig, wenn auf Ihrem Computer sowohl das Modul [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) als auch das Modul [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) installiert ist.
+1. Stellen Sie sicher, dass Sie das Modul [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) verwenden. Dieser Schritt ist wichtig, wenn auf Ihrem Computer sowohl das Modul [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) als auch das Modul [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) installiert ist.
 
     ```powershell
     Remove-Module AzureAD
@@ -182,7 +182,7 @@ Weitere Informationen:
 * [Konfigurieren des Workflows für die Administratoreinwilligung (Vorschau)](configure-admin-consent-workflow.md)
 * Weitere Informationen zum [Verwalten der Einwilligung zu Anwendungen und Auswerten von Einwilligungsanforderungen](manage-consent-requests.md)
 * [Erteilen einer mandantenweiten Administratoreinwilligung für eine Anwendung](grant-admin-consent.md)
-* [Berechtigungen und Zustimmung im Microsoft Identity Platform-Endpunkt](../develop/active-directory-v2-scopes.md)
+* [Berechtigungen und Zustimmung im Microsoft Identity Platform-Endpunkt](../develop/v2-permissions-and-consent.md)
 
 So erhalten Sie Hilfe oder finden Antworten auf Ihre Fragen:
 * [Azure AD bei StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

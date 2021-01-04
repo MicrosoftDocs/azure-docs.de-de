@@ -4,19 +4,19 @@ description: Verwenden Sie das Azure CLI-Beispielskript, um eine Datenbank in Az
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 07/16/2019
-ms.openlocfilehash: 48f82dcc1fa9e1f6843df4e89daca6a01c57ed63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3a314f55d45a888dde08ddc275953e7f9bbf3b2
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321447"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594146"
 ---
 # <a name="use-the-azure-cli-to-add-a-database-to-a-failover-group"></a>Verwenden der Azure CLI zum Hinzufügen einer Datenbank zu einer Failovergruppe
 

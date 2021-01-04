@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: c7d3dae2b7da2fcc14e86eb4965ebd99fd7bf681
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f1a7bffc05d83b30fe9e5bcd6e17bf6bc0192e1d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88650575"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348941"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Verschlüsseln von Azure Data Factory mit vom Kunden verwalteten Schlüsseln
 
@@ -47,8 +47,8 @@ In der folgenden Liste werden die nummerierten Schritte im Diagramm erläutert:
 
 Wenn Sie vom Kunden verwaltete Schlüssel mit Data Factory verwenden, müssen Sie für den Schlüsseltresor zwei Eigenschaften (__Vorläufiges Löschen__ und __Nicht Bereinigen__) festlegen. Diese Eigenschaften können entweder mit PowerShell oder der Azure-Befehlszeilenschnittstelle (Azure CLI) für einen neuen oder vorhandenen Schlüsseltresor aktiviert werden. Informationen zum Aktivieren dieser Eigenschaften für einen vorhandenen Schlüsseltresor finden Sie in den Abschnitten _Aktivieren des vorläufigen Löschens_ und _Aktivieren des Bereinigungsschutzes_ in einem der folgenden Artikel:
 
-- [Verwenden des vorläufigen Löschens mit PowerShell](../key-vault/general/soft-delete-powershell.md)
-- [Verwenden des vorläufigen Löschens mit der CLI](../key-vault/general/soft-delete-cli.md)
+- [Verwenden des vorläufigen Löschens mit PowerShell](../key-vault/general/key-vault-recovery.md)
+- [Verwenden des vorläufigen Löschens mit der CLI](../key-vault/general/key-vault-recovery.md)
 
 Wenn Sie im Azure-Portal eine neue Azure Key Vault-Instanz erstellen, können __Vorläufiges Löschen__ und __Nicht bereinigen__ wie folgt aktiviert werden:
 

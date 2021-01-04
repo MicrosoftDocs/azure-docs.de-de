@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 994f2829d260223567dcb5aed859812aa1fef3d1
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: a76c6467dac69fd3d21aa659c52227046c166938
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91829211"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816657"
 ---
 ## <a name="prerequisites"></a>Voraussetzungen
 Führen Sie die folgenden Schritte aus, bevor Sie beginnen:
@@ -46,7 +46,7 @@ dotnet build
 Installieren der .NET-Clientbibliothek für Chats von Azure Communication Services
 
 ```PowerShell
-dotnet add package Azure.Communication.Chat --version 1.0.0-beta.2
+dotnet add package Azure.Communication.Chat --version 1.0.0-beta.3
 ``` 
 
 ## <a name="object-model"></a>Objektmodell
@@ -77,7 +77,7 @@ ChatClient chatClient = new ChatClient(endpoint, communicationUserCredential);
 
 Verwenden Sie die `createChatThread`-Methode, um einen Chatthread zu erstellen.
 - Verwenden Sie `topic`, um für diesen Chat ein Thema anzugeben. Nach der Erstellung des Chatthreads kann das Thema mit der Funktion `UpdateThread` aktualisiert werden.
-- Verwenden Sie die `members`-Eigenschaft zum Übergeben einer Liste mit `ChatThreadMember`-Objekten, die dem Chatthread hinzugefügt werden sollen. Das `ChatThreadMember`-Objekt wird mit einem `CommunicationUser`-Objekt initialisiert. Zum Abrufen eines `CommunicationUser`-Objekts müssen Sie eine Zugriffs-ID übergeben, die Sie gemäß der Anleitung zum [Erstellen eines Benutzers](../../access-tokens.md#create-a-user) erstellt haben.
+- Verwenden Sie die `members`-Eigenschaft zum Übergeben einer Liste mit `ChatThreadMember`-Objekten, die dem Chatthread hinzugefügt werden sollen. Das `ChatThreadMember`-Objekt wird mit einem `CommunicationUser`-Objekt initialisiert. Zum Abrufen eines `CommunicationUser`-Objekts müssen Sie eine Zugriffs-ID übergeben, die Sie gemäß der Anleitung zum [Erstellen eines Benutzers](../../access-tokens.md#create-an-identity) erstellt haben.
 
 Die Antwort `chatThreadClient` wird verwendet, um Vorgänge für den erstellten Chatthread durchzuführen: Hinzufügen von Mitgliedern zum Chatthread, Senden einer Nachricht, Löschen einer Nachricht usw. Sie enthält das Attribut `Id`, bei dem es sich um die eindeutige ID des Chatthreads handelt. 
 

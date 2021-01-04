@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: b0b19eaa86269feff28c73275e4db4a3d332b3df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f089af71e4d32023e9cebd6613872f7db0eed7a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91664872"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694958"
 ---
 # <a name="high-availability-ports-overview"></a>Übersicht über Hochverfügbarkeitsports
 
@@ -54,7 +54,7 @@ Das folgende Diagramm zeigt eine Nabe-zu-Speiche-Bereitstellung eines virtuellen
 
 ### <a name="load-balancing-large-numbers-of-ports"></a>Lastenausgleich für eine große Anzahl von Ports
 
-Sie können Hochverfügbarkeitsports auch für Anwendungen verwenden, in denen ein Lastenausgleich für eine große Anzahl von Ports erforderlich ist. Sie können diese Szenarien vereinfachen, indem Sie einen internen [Standard Load Balancer](load-balancer-standard-overview.md) mit Hochverfügbarkeitsports verwenden. Eine einzelne Lastenausgleichsregel ersetzt mehrere einzelne Lastenausgleichsregeln, die jeweils für einen Port verwendet wurden.
+Sie können Hochverfügbarkeitsports auch für Anwendungen verwenden, in denen ein Lastenausgleich für eine große Anzahl von Ports erforderlich ist. Sie können diese Szenarien vereinfachen, indem Sie einen internen [Standard Load Balancer](./load-balancer-overview.md) mit Hochverfügbarkeitsports verwenden. Eine einzelne Lastenausgleichsregel ersetzt mehrere einzelne Lastenausgleichsregeln, die jeweils für einen Port verwendet wurden.
 
 ## <a name="region-availability"></a>Regionale Verfügbarkeit
 
@@ -99,5 +99,4 @@ Sie können *eine* öffentliche Load Balancer Standard-Ressource für die Back-E
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Informieren Sie sich über das Konfigurieren von Hochverfügbarkeitsports für Ihren ILB über das Portal](tutorial-load-balancer-standard-internal-portal.md#create-a-load-balancer-rule), [PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), die [CLI](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule) oder [Vorlagen.](quickstart-load-balancer-standard-internal-template.md)
-- [Übersicht über Standard Load Balancer](load-balancer-standard-overview.md)
+- [Übersicht über Standard Load Balancer](load-balancer-overview.md)

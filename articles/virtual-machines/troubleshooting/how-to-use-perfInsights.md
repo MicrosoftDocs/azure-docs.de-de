@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f49ae5139dc92ec1448e5dea05be8c8c216ef91e
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361346"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002662"
 ---
 # <a name="how-to-use-perfinsights-in-azure"></a>Verwenden von PerfInsights in Azure
 
@@ -123,10 +123,10 @@ Informationen zu virtuellen Windows-Computern, Datenträger- oder Speicherpoolko
 | XPerf-Ablaufverfolgung                       |                            |                                    |                          |                      | Ja                  |
 | StorPort-Ablaufverfolgung                    |                            |                                    |                          |                      | Ja                  |
 | Netzwerkablaufverfolgung                     |                            |                                    |                          | Ja                  | Ja                  |
-| DiskSpd-Vergleichstest-Ablaufverfolgung ***       |                            | Ja                                |                          |                      |                      |
+| DiskSpd-Vergleichstest-Ablaufverfolgung **_       |                            | Ja                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
-### <a name="performance-diagnostics-trace-"></a>Leistungsdiagnose-Ablaufverfolgung (*)
+### <a name="performance-diagnostics-trace-_"></a>Leistungsdiagnose-Ablaufverfolgung (_)
 
 Führt im Hintergrund eine regelbasiertes Engine aus, um Daten zu sammeln und akute Leistungsprobleme zu diagnostizieren. Die folgenden Regeln werden derzeit unterstützt:
 
@@ -154,7 +154,7 @@ Die Methode erfasst die folgenden Leistungsindikatoren:
 #### <a name="for-azure-files"></a>Für Azure Files
 \SMB Client Shares
 
-### <a name="diskspd-benchmark-trace-"></a>DiskSpd-Vergleichstest-Ablaufverfolgung (***)
+### <a name="diskspd-benchmark-trace-_"></a>DiskSpd-Vergleichstest-Ablaufverfolgung (**_)
 DiskSpd-E/A-Workloadtests (Betriebssystemdatenträger [Schreibzugriff] und Poollaufwerke [Lese-/Schreibzugriff])
 
 ## <a name="run-the-perfinsights-tool-on-your-vm"></a>Ausführen des Tools PerfInsights auf Ihrem virtuellen Computer
@@ -165,13 +165,12 @@ DiskSpd-E/A-Workloadtests (Betriebssystemdatenträger [Schreibzugriff] und Pooll
 
 -  Dieses Tool muss auf dem virtuellen Computer ausgeführt werden, auf dem das Leistungsproblem besteht. 
 
--  Die folgenden Betriebssysteme werden unterstützt:
-   * Windows Server 2019
+-  Die folgenden Betriebssysteme werden unterstützt: _ Windows Server 2019
    * Windows Server 2016
    * Windows Server 2012 R2
    * Windows Server 2012
    * Windows Server 2008 R2
-   * Windows 10
+   * Windows 10
    * Windows 8.1
    * Windows 8
 

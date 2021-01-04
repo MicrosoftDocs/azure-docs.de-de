@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: f946a657b5129f773319d73fb428fe0108bac20f
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 52772519cc3b9aebc42175e812ad47ae54b529e9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123561"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336680"
 ---
 # <a name="what-is-azure-data-box"></a>Was ist Azure Data Box?
 
@@ -31,32 +31,32 @@ Data Box eignet sich ideal für die Übertragung von Datenmengen von mehr als 40
 
 Im Folgenden finden Sie verschiedene Szenarien, in denen Data Box zum Importieren von Daten in Azure verwendet werden kann.
 
- - **Einmalige Migration**: Wird verwendet, wenn eine große Menge von lokalen Daten in Azure verschoben wird. 
+ - **Einmalige Migration** : Wird verwendet, wenn eine große Menge von lokalen Daten in Azure verschoben wird. 
      - Verschieben einer Medienbibliothek von Offlinebändern in Azure, um eine Onlinemedienbibliothek zu erstellen
      - Migrieren Ihrer VM-Farm, SQL-Server und Anwendungen in Azure
      - Verschieben von Verlaufsdaten in Azure für eine detaillierte Analyse und Berichterstellung mithilfe von HDInsight
 
- - **Erste Massenübertragung**: Die Ausführung einer ersten Massenübertragung mithilfe von Data Box (Seeding) gefolgt von inkrementellen Übertragungen über das Netzwerk. 
+ - **Erste Massenübertragung** : Die Ausführung einer ersten Massenübertragung mithilfe von Data Box (Seeding) gefolgt von inkrementellen Übertragungen über das Netzwerk. 
      - Beispielsweise werden Partner im Bereich Sicherungslösungen wie Commvault und Data Box herangezogen, um die erste große Sicherung von Verlaufsdaten in Azure zu verschieben. Im Anschluss werden die inkrementellen Daten über das Netzwerk in Azure Storage übertragen.
 
-- **Periodische Uploads**: Werden verwendet, wenn regelmäßig große Datenmengen generiert werden und in Azure verschoben werden müssen. Ein Beispiel hierfür ist die Exploration in der Energiebranche, bei der Videodaten auf Bohrinseln und für Windfarmen generiert werden. 
+- **Periodische Uploads** : Werden verwendet, wenn regelmäßig große Datenmengen generiert werden und in Azure verschoben werden müssen. Ein Beispiel hierfür ist die Exploration in der Energiebranche, bei der Videodaten auf Bohrinseln und für Windfarmen generiert werden. 
 
 Im Folgenden finden Sie verschiedene Szenarien, in denen Data Box zum Exportieren von Daten aus Azure verwendet werden kann.
 
-- **Notfallwiederherstellung**: Wenn eine Kopie der Daten aus Azure in einem lokalen Netzwerk wiederhergestellt wird. Dies geschieht typischerweise im Falle eines Notfallwiederherstellungsszenarios, bei dem eine große Menge an Azure-Daten in Data Box exportiert wird. Microsoft liefert diese Data Box dann aus, und die Daten werden in kurzer Zeit bei Ihnen vor Ort wiederhergestellt. 
+- **Notfallwiederherstellung** : Wenn eine Kopie der Daten aus Azure in einem lokalen Netzwerk wiederhergestellt wird. Dies geschieht typischerweise im Falle eines Notfallwiederherstellungsszenarios, bei dem eine große Menge an Azure-Daten in Data Box exportiert wird. Microsoft liefert diese Data Box dann aus, und die Daten werden in kurzer Zeit bei Ihnen vor Ort wiederhergestellt. 
 
-- **Sicherheitsanforderungen**: Wenn Sie in der Lage sein müssen, Daten aus Azure aufgrund von behördlichen oder Sicherheitsanforderungen zu exportieren. Beispielsweise ist Azure Storage in den US-Clouds „Secret“ und „Top Secret“ verfügbar, und Sie können Data Box verwenden, um Daten aus Azure zu exportieren. 
+- **Sicherheitsanforderungen** : Wenn Sie in der Lage sein müssen, Daten aus Azure aufgrund von behördlichen oder Sicherheitsanforderungen zu exportieren. Beispielsweise ist Azure Storage in den US-Clouds „Secret“ und „Top Secret“ verfügbar, und Sie können Data Box verwenden, um Daten aus Azure zu exportieren. 
 
-- **Rückmigration zu einer lokalen Lösung oder zu einem anderen Clouddienstanbieter**: Wenn Sie alle Daten zurück an Ihren lokalen Standort oder zu einem anderen Clouddienstanbieter verschieben möchten, exportieren Sie Daten über Data Box, um die Workloads zu migrieren.
+- **Rückmigration zu einer lokalen Lösung oder zu einem anderen Clouddienstanbieter** : Wenn Sie alle Daten zurück an Ihren lokalen Standort oder zu einem anderen Clouddienstanbieter verschieben möchten, exportieren Sie Daten über Data Box, um die Workloads zu migrieren.
 
 
 ## <a name="benefits"></a>Vorteile
 
 Data Box ist so ausgelegt, dass große Datenmengen ohne bzw. geringfügigen negativen Auswirkungen auf das Netzwerk in Azure verschoben werden können. Diese Lösung hat die folgenden Vorteile:
 
-- **Geschwindigkeit**: Data Box nutzt eine Netzwerkschnittstelle mit 1 oder 10 GBit/s, um bis zu 80 TB Daten in Azure zu verschieben.
+- **Geschwindigkeit** : Data Box nutzt eine Netzwerkschnittstelle mit 1 oder 10 GBit/s, um bis zu 80 TB Daten in Azure zu verschieben.
 
-- **Sicherheit**: Data Box bietet einen integrierten Sicherheitsschutz für Geräte, Daten und den Dienst.
+- **Sicherheit** : Data Box bietet einen integrierten Sicherheitsschutz für Geräte, Daten und den Dienst.
   - Das Gerät verfügt über ein widerstandsfähiges Gehäuse, das durch manipulationssichere Schrauben und Etiketten gesichert ist. 
   - Die Daten auf dem Gerät sind jederzeit durch AES-256-Bit-Verschlüsselung geschützt.
   - Das Gerät kann nur mit einem Kennwort entsperrt werden, das über das Azure-Portal bereitgestellt wird.
@@ -88,14 +88,14 @@ Das Data Box-Gerät weist in dieser Version folgende Merkmale auf.
 
 Data Box umfasst die folgenden Komponenten:
 
-* **Data Box-Gerät**: Ein physisches Gerät, das folgende Aufgaben hat: Primäres Speichermedium, Verwaltung der Kommunikation mit dem Cloudspeicher und Gewährleistung der Sicherheit und Vertraulichkeit aller Daten, die auf dem Gerät gespeichert sind. Das Data Box-Gerät bietet eine nutzbare Speicherkapazität von 80 TB. 
+* **Data Box-Gerät** : Ein physisches Gerät, das folgende Aufgaben hat: Primäres Speichermedium, Verwaltung der Kommunikation mit dem Cloudspeicher und Gewährleistung der Sicherheit und Vertraulichkeit aller Daten, die auf dem Gerät gespeichert sind. Das Data Box-Gerät bietet eine nutzbare Speicherkapazität von 80 TB. 
 
-    ![Vorder- und Rückseite des Data Box-Geräts](media/data-box-overview/data-box-combined3.png)
+    ![Vorder- und Rückseite des Data Box-Geräts](media/data-box-overview/data-box-combined.png)
 
     
 * **Data Box-Dienst:** Eine Erweiterung des Azure-Portals, mit der Sie ein Data Box-Gerät auf einer zentralen Webbenutzeroberfläche verwalten können, auf die an verschiedenen geografischen Standorten zugegriffen werden kann. Sie verwenden den Data Box-Dienst für die tägliche Verwaltung Ihres Data Box-Geräts. Zu den Aufgaben des Diensts gehören das Erstellen und Verwalten von Aufträgen, das Anzeigen und Verwalten von Warnmeldungen und das Verwalten von Freigaben.  
 
-    ![Der Data Box-Dienst im Azure-Portal](media/data-box-overview/data-box-service1.png)
+    ![Der Data Box-Dienst im Azure-Portal](media/data-box-overview/data-box-service.png)
 
     Weitere Informationen finden Sie unter [Verwalten Ihres Data Box-Geräts mithilfe des Data Box-Diensts](data-box-portal-ui-admin.md).
 
@@ -109,30 +109,30 @@ Data Box umfasst die folgenden Komponenten:
 
 Der Importworkflow umfasst üblicherweise die folgenden Schritte:
 
-1. **Auftrag**: Erstellen Sie im Azure-Portal einen Auftrag, und geben Sie die Versandinformationen und das Azure-Zielspeicherkonto für Ihre Daten an. Wenn das Gerät verfügbar ist, wird es von Azure vorbereitet und mit einer Sendungsverfolgungs-ID versendet.
+1. **Auftrag** : Erstellen Sie im Azure-Portal einen Auftrag, und geben Sie die Versandinformationen und das Azure-Zielspeicherkonto für Ihre Daten an. Wenn das Gerät verfügbar ist, wird es von Azure vorbereitet und mit einer Sendungsverfolgungs-ID versendet.
 
-2. **Empfang**: Nach Erhalt des Geräts verbinden Sie es mit den vorgesehenen Kabeln mit dem Netzwerk und der Stromversorgung. Schalten Sie das Gerät ein, und verbinden Sie sich damit. Konfigurieren Sie die Netzwerk- und Bereitstellungsfreigaben auf dem Hostcomputer, von dem aus Sie die Daten kopieren möchten.
+2. **Empfang** : Nach Erhalt des Geräts verbinden Sie es mit den vorgesehenen Kabeln mit dem Netzwerk und der Stromversorgung. Schalten Sie das Gerät ein, und verbinden Sie sich damit. Konfigurieren Sie die Netzwerk- und Bereitstellungsfreigaben auf dem Hostcomputer, von dem aus Sie die Daten kopieren möchten.
 
-3. **Kopieren von Daten**: Kopieren Sie Daten auf die Data Box-Freigaben.
+3. **Kopieren von Daten** : Kopieren Sie Daten auf die Data Box-Freigaben.
 
-4. **Rücksendung**: Bereiten Sie das Gerät vor, schalten Sie es aus, und senden Sie es an das Azure-Rechenzentrum zurück.
+4. **Rücksendung** : Bereiten Sie das Gerät vor, schalten Sie es aus, und senden Sie es an das Azure-Rechenzentrum zurück.
 
-5. **Hochladen**: Daten werden automatisch vom Gerät in Azure kopiert. Die Datenträger des Geräts werden gemäß NIST-Richtlinien (National Institute of Standards and Technology) auf sichere Weise gelöscht.
+5. **Hochladen** : Daten werden automatisch vom Gerät in Azure kopiert. Die Datenträger des Geräts werden gemäß NIST-Richtlinien (National Institute of Standards and Technology) auf sichere Weise gelöscht.
 
 Bei diesem Prozess werden Sie per E-Mail über alle Statusänderungen informiert. Weitere Informationen zum detaillierten Ablauf finden Sie unter [Bereitstellen von Data Box im Azure-Portal](data-box-deploy-ordered.md).
 
 
 Der Exportworkflow umfasst üblicherweise die folgenden Schritte:
 
-1. **Auftrag**: Erstellen Sie im Azure-Portal einen Exportauftrag, und geben Sie Versandinformationen sowie das Azure Storage-Quellkonto für Ihre Daten an. Wenn das Gerät verfügbar ist, bereitet Azure ein Gerät vor. Daten werden aus Ihrem Azure Storage-Konto in Data Box kopiert. Nachdem der Datenkopiervorgang abgeschlossen wurde, wird das Gerät von Microsoft mit einer Sendungsnachverfolgungs-ID ausgeliefert.
+1. **Auftrag** : Erstellen Sie im Azure-Portal einen Exportauftrag, und geben Sie Versandinformationen sowie das Azure Storage-Quellkonto für Ihre Daten an. Wenn das Gerät verfügbar ist, bereitet Azure ein Gerät vor. Daten werden aus Ihrem Azure Storage-Konto in Data Box kopiert. Nachdem der Datenkopiervorgang abgeschlossen wurde, wird das Gerät von Microsoft mit einer Sendungsnachverfolgungs-ID ausgeliefert.
 
-2. **Empfang**: Nach Erhalt des Geräts verbinden Sie es mit den vorgesehenen Kabeln mit dem Netzwerk und der Stromversorgung. Schalten Sie das Gerät ein, und verbinden Sie sich damit. Konfigurieren Sie die Netzwerk- und Bereitstellungsfreigaben auf dem Hostcomputer, auf den Sie die Daten kopieren möchten.
+2. **Empfang** : Nach Erhalt des Geräts verbinden Sie es mit den vorgesehenen Kabeln mit dem Netzwerk und der Stromversorgung. Schalten Sie das Gerät ein, und verbinden Sie sich damit. Konfigurieren Sie die Netzwerk- und Bereitstellungsfreigaben auf dem Hostcomputer, auf den Sie die Daten kopieren möchten.
 
-3. **Kopieren der Daten**: Kopieren Sie Daten aus Data Box-Freigaben auf die lokalen Datenserver.
+3. **Kopieren der Daten** : Kopieren Sie Daten aus Data Box-Freigaben auf die lokalen Datenserver.
 
-4. **Rücksendung**: Bereiten Sie das Gerät vor, schalten Sie es aus, und senden Sie es an das Azure-Rechenzentrum zurück.
+4. **Rücksendung** : Bereiten Sie das Gerät vor, schalten Sie es aus, und senden Sie es an das Azure-Rechenzentrum zurück.
 
-5. **Datenlöschung**:Die Datenträger des Geräts werden gemäß NIST-Richtlinien (National Institute of Standards and Technology) auf sichere Weise gelöscht.
+5. **Datenlöschung** :Die Datenträger des Geräts werden gemäß NIST-Richtlinien (National Institute of Standards and Technology) auf sichere Weise gelöscht.
 
 Während des Exportvorgangs werden Sie per E-Mail über alle Statusänderungen informiert. Weitere Informationen zum detaillierten Ablauf finden Sie unter [Bereitstellen von Data Box im Azure-Portal](data-box-deploy-export-ordered.md).
 
@@ -142,11 +142,11 @@ Data Box kann Daten basierend auf der Region, in der der Dienst bereitgestellt w
 
 ### <a name="for-import"></a>Für Importvorgänge
 
-- **Dienstverfügbarkeit**: Wenn Sie Data Box für Import- oder Exportaufträge verwenden, finden Sie Informationen zur regionalen Verfügbarkeit unter [Verfügbare Azure-Produkte nach Region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Die Exportfunktion von Data Box befindet sich derzeit in der Vorschauphase. 
+- **Dienstverfügbarkeit** : Wenn Sie Data Box für Import- oder Exportaufträge verwenden, finden Sie Informationen zur regionalen Verfügbarkeit unter [Verfügbare Azure-Produkte nach Region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Die Exportfunktion von Data Box befindet sich derzeit in der Vorschauphase. 
 
     Für Importaufträge kann Data Box auch in der Azure Government-Cloud bereitgestellt werden. Weitere Informationen finden Sie unter [What is Azure Government?](../azure-government/documentation-government-welcome.md) (Was ist Azure Government?). 
 
-- **Zielspeicherkonten**: Die Speicherkonten, in denen die Daten gespeichert werden, sind in allen Azure-Regionen verfügbar, in denen der Dienst verfügbar ist.
+- **Zielspeicherkonten** : Die Speicherkonten, in denen die Daten gespeichert werden, sind in allen Azure-Regionen verfügbar, in denen der Dienst verfügbar ist.
 
 
 ## <a name="next-steps"></a>Nächste Schritte

@@ -1,7 +1,7 @@
 ---
 title: Kontrolle des Netzwerkzugriffs
 titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Übersicht über die Verwaltung und Steuerung des Netzwerkzugriffs für Azure SQL-Datenbank und Azure Synapse Analytics (früher SQL Data Warehouse)
+description: Übersicht über die Verwaltung und Steuerung des Netzwerkzugriffs für Azure SQL-Datenbank und Azure Synapse Analytics
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 4afb6844512bd59a5c377d826267a748837ed855
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 90bc57af3aaf0d11cd354bfe7163014f836a72e8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951994"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460008"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Netzwerk-Zugriffssteuerung für Azure SQL-Datenbank und Azure Synapse Analytics
 
@@ -56,7 +56,7 @@ Dies wirkt sich jedoch auf die folgenden Features auf virtuellen Computern in Az
 
 ### <a name="import-export-service"></a>Import/Export-Dienst
 
-Der Import/Export-Dienst funktioniert nicht, wenn **Azure-Diensten Zugriff auf den Server erlauben** auf **AUS** festgelegt ist. Sie können dieses Problem jedoch umgehen, indem Sie [„sqlpackage.exe“ manuell auf einem virtuellen Azure-Computer oder den Export mithilfe der DACFx-API direkt in Ihrem Code ausführen](https://docs.microsoft.com/azure/sql-database/import-export-from-vm).
+Der Import/Export-Dienst funktioniert nicht, wenn **Azure-Diensten Zugriff auf den Server erlauben** auf **AUS** festgelegt ist. Sie können dieses Problem jedoch umgehen, indem Sie [„sqlpackage.exe“ manuell auf einem virtuellen Azure-Computer oder den Export mithilfe der DACFx-API direkt in Ihrem Code ausführen](./database-import-export-azure-services-off.md).
 
 ### <a name="data-sync"></a>Datensynchronisierung
 
@@ -148,7 +148,7 @@ Private Link ermöglicht das Herstellen von Verbindungen mit einem Server über 
 
 - Einen Schnellstart zum Erstellen einer Firewallregel für ein virtuelles Netzwerk auf Serverebene finden Sie unter [Verwenden von Virtual Network-Dienstendpunkten und -Regeln für Server in Azure SQL-Datenbank](vnet-service-endpoint-rule-overview.md).
 
-- Hilfe beim Herstellen einer Verbindung mit einer Datenbank in SQL-Datenbank über Open-Source-Anwendungen oder Drittanbieteranwendungen finden Sie unter [Clientschnellstart: Codebeispiele für SQL-Datenbank](https://msdn.microsoft.com/library/azure/ee336282.aspx).
+- Hilfe beim Herstellen einer Verbindung mit einer Datenbank in SQL-Datenbank über Open-Source-Anwendungen oder Drittanbieteranwendungen finden Sie unter [Clientschnellstart: Codebeispiele für SQL-Datenbank](/previous-versions/azure/ee336282(v=azure.100)).
 
 - Informationen zu zusätzlichen Ports, die Sie ggf. öffnen müssen, finden Sie im Abschnitt **SQL-Datenbank: ,Außerhalb‘ im Vergleich zu ,Innerhalb‘** im Artikel [Andere Ports als 1433 für ADO.NET 4.5 und SQL-Datenbank](adonet-v12-develop-direct-route-ports.md).
 
@@ -159,4 +159,3 @@ Private Link ermöglicht das Herstellen von Verbindungen mit einem Server über 
 <!--Image references-->
 [1]: media/quickstart-create-single-database/new-server2.png
 [2]: media/quickstart-create-single-database/manage-server-firewall.png
- 

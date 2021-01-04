@@ -10,14 +10,15 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
-ms.openlocfilehash: c16d7ccba24680604bc7f083f7242edd53abe102
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 181af5cf26d19a9f51e8d456e777badf7efa224d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282900"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097820"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Erstellen einer Angular-App mit der API für MongoDB von Azure Cosmos DB: Erstellen der Benutzeroberfläche mit Angular
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Dieses mehrteilige Tutorial zeigt, wie Sie eine in Node.js geschriebene neue App mit Express und Angular erstellen und mit Ihrem [Cosmos-Konto verbinden, das mit der API für MongoDB von Cosmos DB](mongodb-introduction.md) konfiguriert wurde.
 
@@ -55,16 +56,16 @@ Für diesen Teil des Tutorials wird vorausgesetzt, dass Sie die Schritte aus [Te
 
     Werfen wir einen Blick auf die Dateien, die erstellt und aktualisiert wurden. 
 
-3. Navigieren Sie in Visual Studio Code im Bereich **Explorer** zum neuen Ordner **src\app**, und öffnen Sie die neue im App-Ordner erstellte Datei **heroes.component.ts**. Diese TypeScript-Komponentendatei wurde mit dem vorherigen Befehl erstellt.
+3. Navigieren Sie in Visual Studio Code im Bereich **Explorer** zum neuen Ordner **src\app** , und öffnen Sie die neue im App-Ordner erstellte Datei **heroes.component.ts**. Diese TypeScript-Komponentendatei wurde mit dem vorherigen Befehl erstellt.
 
     > [!TIP]
     > Sollte der Anwendungsordner in Visual Studio Code nicht angezeigt werden, öffnen Sie durch Drücken von CMD+UMSCHALT+P (Mac) oder STRG+UMSCHALT+P (Windows) die Befehlspalette, und geben Sie dann *Reload Window* ein, um die Systemänderung zu übernehmen.
 
-4. Öffnen Sie im gleichen Ordner die Datei **app.module.ts**, und beachten Sie, dass sie die `HeroesComponent` den Deklarationen in Zeile 5 hinzugefügt und sie in Zeile 10 auch importiert hat.
+4. Öffnen Sie im gleichen Ordner die Datei **app.module.ts** , und beachten Sie, dass sie die `HeroesComponent` den Deklarationen in Zeile 5 hinzugefügt und sie in Zeile 10 auch importiert hat.
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png" alt-text="Installieren der hero-Komponente":::
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png" alt-text="Öffnen der Datei „app-module.ts“":::
 
-5. Navigieren Sie wieder zur Datei **heroes.component.html**, und fügen Sie den folgenden Code ein. `<div>` ist der Container für die gesamte Seite. Der Container enthält eine Liste mit Helden, die wir erstellen müssen, damit Sie auf der Benutzeroberfläche auf einen Helden klicken können, um ihn auszuwählen und zu bearbeiten oder zu löschen. Danach folgt im HTML-Code etwas Formatierung, um deutlich zu machen, welcher Held ausgewählt wurde. Darüber hinaus gibt es einen Bearbeitungsbereich, in dem Sie einen neuen Helden hinzufügen oder einen bereits vorhandenen Helden bearbeiten können. 
+5. Navigieren Sie wieder zur Datei **heroes.component.html** , und fügen Sie den folgenden Code ein. `<div>` ist der Container für die gesamte Seite. Der Container enthält eine Liste mit Helden, die wir erstellen müssen, damit Sie auf der Benutzeroberfläche auf einen Helden klicken können, um ihn auszuwählen und zu bearbeiten oder zu löschen. Danach folgt im HTML-Code etwas Formatierung, um deutlich zu machen, welcher Held ausgewählt wurde. Darüber hinaus gibt es einen Bearbeitungsbereich, in dem Sie einen neuen Helden hinzufügen oder einen bereits vorhandenen Helden bearbeiten können. 
 
     ```html
     <div>
@@ -171,7 +172,7 @@ Für diesen Teil des Tutorials wird vorausgesetzt, dass Sie die Schritte aus [Te
     }
     ```
 
-8. Öffnen Sie im **Explorer** die Datei **app/app.module.ts**, und aktualisieren Sie den Importabschnitt, um einen Import für `FormsModule` hinzuzufügen. Der Importabschnitt sollte nun wie folgt aussehen:
+8. Öffnen Sie im **Explorer** die Datei **app/app.module.ts** , und aktualisieren Sie den Importabschnitt, um einen Import für `FormsModule` hinzuzufügen. Der Importabschnitt sollte nun wie folgt aussehen:
 
     ```
     imports: [
@@ -353,7 +354,7 @@ Für diesen Teil des Tutorials wird vorausgesetzt, dass Sie die Schritte aus [Te
 
 Wir verfügen nun also über die Komponente. Aber wie bekommen wir sie auf den Bildschirm? Dazu ändern wir die Standardkomponenten in **app.component.ts**.
 
-1. Öffnen Sie im Explorer-Bereich **/app/app.component.ts**, ändern Sie den Titel in „Heroes“, und fügen Sie dann den Namen der Komponente ein, die wir in **heroes.components.ts** erstellt haben (app-heroes), um auf diese neue Komponente zu verweisen. Der Inhalt der Datei sollte nun wie folgt aussehen: 
+1. Öffnen Sie im Explorer-Bereich **/app/app.component.ts** , ändern Sie den Titel in „Heroes“, und fügen Sie dann den Namen der Komponente ein, die wir in **heroes.components.ts** erstellt haben (app-heroes), um auf diese neue Komponente zu verweisen. Der Inhalt der Datei sollte nun wie folgt aussehen: 
 
     ```ts
     import { Component } from '@angular/core';
@@ -394,7 +395,9 @@ Wir verfügen nun also über die Komponente. Aber wie bekommen wir sie auf den B
 
 5. Klicken Sie auf den Begriff `Hero`. Daraufhin zeigt Visual Studio links neben dem Codeblock ein Glühbirnensymbol an. 
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png" alt-text="Installieren der hero-Komponente" importieren.** (Die Nachricht ist abhängig von Ihrem Setup.)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png" alt-text="Glühbirne in Visual Studio Code":::
+
+6. Klicken Sie auf die Glühbirne und anschließend auf **"Hero" aus "/app/hero" importieren.** oder auf **"Hero" aus "./hero" importieren.** (Die Nachricht ist abhängig von Ihrem Setup.)
 
     In Zeile 2 erscheint eine neue Codezeile. Falls Zeile 2 auf „/app/hero“ verweist, passen Sie sie so an, dass sie auf die hero-Datei aus dem lokalen Ordner (./hero) verweist. Zeile 2 sollte wie folgt aussehen:
 
@@ -420,7 +423,7 @@ Wir verfügen nun also über die Komponente. Aber wie bekommen wir sie auf den B
     import { HeroService } from "./hero.service"
     ```
 
-3. Öffnen Sie in Visual Studio Code die Datei **hero.service.ts**, und ersetzen Sie den Inhalt der Datei durch den folgenden Code:
+3. Öffnen Sie in Visual Studio Code die Datei **hero.service.ts** , und ersetzen Sie den Inhalt der Datei durch den folgenden Code:
 
     ```ts
     import { Injectable } from '@angular/core';
@@ -454,7 +457,7 @@ Wir verfügen nun also über die Komponente. Aber wie bekommen wir sie auf den B
 
     Dieser Code verwendet die neueste Version des HTTP-Clients von Angular. Hierbei handelt es sich um ein Modul, das bereitgestellt werden muss. Und genau das machen wir im nächsten Schritt.
 
-4. Öffnen Sie in Visual Studio Code die Datei **app.module.ts**, und importieren Sie das HTTP-Clientmodul, indem Sie den Importabschnitt so aktualisieren, dass er „HttpClientModule“ enthält.
+4. Öffnen Sie in Visual Studio Code die Datei **app.module.ts** , und importieren Sie das HTTP-Clientmodul, indem Sie den Importabschnitt so aktualisieren, dass er „HttpClientModule“ enthält.
 
     ```ts
     imports: [
@@ -486,9 +489,9 @@ Wir verfügen nun also über die Komponente. Aber wie bekommen wir sie auf den B
 
 2. Klicken Sie in Visual Studio Code links auf die Schaltfläche **Debuggen** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png"::: und dann auf die Schaltfläche **Debuggen starten** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part3/start-debugging-button.png":::.
 
-3. Navigieren Sie in einem Internetbrowser zu **localhost:3000**, um zur lokal ausgeführten App zu gelangen.
+3. Navigieren Sie in einem Internetbrowser zu **localhost:3000** , um zur lokal ausgeführten App zu gelangen.
 
-     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png" alt-text="Installieren der hero-Komponente":::
+     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png" alt-text="Lokal ausgeführte hero-Anwendung":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 

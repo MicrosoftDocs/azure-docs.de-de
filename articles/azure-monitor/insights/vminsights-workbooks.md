@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: 43cdb9de111bdea5486e49a56d58d38279b685c7
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996378"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95985542"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Erstellen interaktiver Berichte mit Arbeitsmappen mithilfe von Azure Monitor für VMs
 
@@ -46,7 +46,7 @@ Eine Arbeitsmappe besteht aus Abschnitten, die wiederum aus unabhängig voneinan
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-2. Wählen Sie **Virtuelle Computer** .
+2. Wählen Sie **Virtuelle Computer**.
 
 3. Wählen Sie einen virtuellen Computer in der Liste aus.
 
@@ -64,17 +64,17 @@ Eine Arbeitsmappe besteht aus Abschnitten, die wiederum aus unabhängig voneinan
 
 ## <a name="editing-workbook-sections"></a>Bearbeiten von Arbeitsmappenabschnitten
 
-Arbeitsmappen verfügen über zwei Modi: **Bearbeitungsmodus** und **Lesemodus** . Wenn eine neue Arbeitsmappe zum ersten Mal gestartet wird, wird sie im **Bearbeitungsmodus** geöffnet. In diesem Modus wird der gesamte Inhalt der Arbeitsmappe angezeigt, einschließlich aller Schritte und Parameter, die andernfalls ausgeblendet sind. Im **Lesemodus** wird eine vereinfachte, berichtartige Ansicht präsentiert. Der Lesemodus abstrahiert zwar die Komplexität der Berichterstellung, bei Bedarf können Sie jedoch jederzeit mit wenigen Klicks auf die zugrunde liegenden Mechanismen zugreifen, um Änderungen vorzunehmen.
+Arbeitsmappen verfügen über zwei Modi: **Bearbeitungsmodus** und **Lesemodus**. Wenn eine neue Arbeitsmappe zum ersten Mal gestartet wird, wird sie im **Bearbeitungsmodus** geöffnet. In diesem Modus wird der gesamte Inhalt der Arbeitsmappe angezeigt, einschließlich aller Schritte und Parameter, die andernfalls ausgeblendet sind. Im **Lesemodus** wird eine vereinfachte, berichtartige Ansicht präsentiert. Der Lesemodus abstrahiert zwar die Komplexität der Berichterstellung, bei Bedarf können Sie jedoch jederzeit mit wenigen Klicks auf die zugrunde liegenden Mechanismen zugreifen, um Änderungen vorzunehmen.
 
 ![Screenshot: Abschnitt für Virtual Machines-Arbeitsmappe in Azure Monitor mit einer neuen Arbeitsmappe im Bearbeitungsmodus und hervorgehobenen Bearbeitungssteuerelementen](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
 
-1. Klicken Sie in der linken unteren Ecke des Abschnitts auf **Bearbeitung abgeschlossen** , wenn Sie mit der Bearbeitung fertig sind.
+1. Klicken Sie in der linken unteren Ecke des Abschnitts auf **Bearbeitung abgeschlossen**, wenn Sie mit der Bearbeitung fertig sind.
 
-2. Klicken Sie zum Erstellen eines Duplikats eines Abschnitts auf das Symbol **Abschnitt klonen** . Die Erstellung von doppelten Abschnitten ist eine hervorragende Möglichkeit, eine Abfrage zu durchlaufen, ohne vorherige Iterationen zu verlieren.
+2. Klicken Sie zum Erstellen eines Duplikats eines Abschnitts auf das Symbol **Abschnitt klonen**. Die Erstellung von doppelten Abschnitten ist eine hervorragende Möglichkeit, eine Abfrage zu durchlaufen, ohne vorherige Iterationen zu verlieren.
 
-3. Klicken Sie auf das Symbol für **Nach oben** bzw. **Nach unten** , um in einer Arbeitsmappe zum nächsten Abschnitt zu springen.
+3. Klicken Sie auf das Symbol für **Nach oben** bzw. **Nach unten**, um in einer Arbeitsmappe zum nächsten Abschnitt zu springen.
 
-4. Klicken Sie zum dauerhaften Entfernen eines Abschnitts auf das Symbol **Entfernen** .
+4. Klicken Sie zum dauerhaften Entfernen eines Abschnitts auf das Symbol **Entfernen**.
 
 ## <a name="adding-text-and-markdown-sections"></a>Hinzufügen von Text und Markdown-Abschnitten
 
@@ -164,7 +164,7 @@ Aktuell werden vier verschiedene Arten von Parametern unterstützt:
 
 Der Wert, den ein Benutzer in das Textfeld eingibt, wird direkt in der Abfrage ersetzt (ohne Escape- oder Anführungszeichen). Wenn der benötigte Wert eine Zeichenfolge ist, sollte die Abfrage den Parameter in Anführungszeichen setzen (z. B. **'{parameter}'** ).
 
-Mit dem Textparameter kann der Wert eines Textfelds überall verwendet werden. Er kann ein Tabellenname, Spaltenname, Funktionsname, Operator usw. sein.  Der Parametertyp „Text“ verfügt über die Einstellung **Standardwert aus Analyseabfrage abrufen** , die es dem Ersteller der Arbeitsmappe ermöglicht, eine Abfrage zu verwenden, um den Standardwert für das Textfeld aufzufüllen.
+Mit dem Textparameter kann der Wert eines Textfelds überall verwendet werden. Er kann ein Tabellenname, Spaltenname, Funktionsname, Operator usw. sein.  Der Parametertyp „Text“ verfügt über die Einstellung **Standardwert aus Analyseabfrage abrufen**, die es dem Ersteller der Arbeitsmappe ermöglicht, eine Abfrage zu verwenden, um den Standardwert für das Textfeld aufzufüllen.
 
 Wenn Sie den Standardwert aus einer Protokollabfrage verwenden, wird nur der erste Wert der ersten Zeile (Zeile 0, Spalte 0) als Standardwert verwendet. Aus diesem Grund empfiehlt es sich, um Ihre Abfrage einzuschränken, nur eine Zeile und eine Spalte zurückzugeben. Alle anderen von der Abfrage zurückgegebenen Daten werden ignoriert. 
 
@@ -218,27 +218,27 @@ Parametertypen „Zeitbereich“ besitzen 15 Standardbereiche, die zwischen fün
 
 ### <a name="resource-picker"></a>Ressourcenauswahl
 
-Der Parametertyp „Ressourcenauswahl“ bietet Ihnen die Möglichkeit, den Gültigkeitsbereich Ihres Bericht auf bestimmte Arten von Ressourcen zu beschränken. Ein Beispiel für eine vorgefertigte Arbeitsmappe mit Ressourcenauswahl ist die Arbeitsmappe **Leistung** .
+Der Parametertyp „Ressourcenauswahl“ bietet Ihnen die Möglichkeit, den Gültigkeitsbereich Ihres Bericht auf bestimmte Arten von Ressourcen zu beschränken. Ein Beispiel für eine vorgefertigte Arbeitsmappe mit Ressourcenauswahl ist die Arbeitsmappe **Leistung**.
 
 ![Dropdown-Steuerelement für Arbeitsbereiche](media/vminsights-workbooks/014-workbook-edit-parameter-workspaces.png)
 
 ## <a name="saving-and-sharing-workbooks-with-your-team"></a>Speichern und Freigeben von Arbeitsmappen für Ihr Team
 
-Arbeitsmappen werden in einem Log Analytics-Arbeitsbereich oder in einer VM-Ressource gespeichert (je nachdem, wie Sie auf den Arbeitsmappenkatalog zugreifen). Die Arbeitsmappe kann im für Sie privaten Abschnitt **Meine Berichte** oder im Abschnitt **Freigegebene Berichte** gespeichert werden. Letzterer ist für alle Benutzer mit Zugriff auf die Ressource zugänglich. Klicken Sie zum Anzeigen aller Arbeitsmappen in der Ressource in der Aktionsleiste auf die Schaltfläche **Öffnen** .
+Arbeitsmappen werden in einem Log Analytics-Arbeitsbereich oder in einer VM-Ressource gespeichert (je nachdem, wie Sie auf den Arbeitsmappenkatalog zugreifen). Die Arbeitsmappe kann im für Sie privaten Abschnitt **Meine Berichte** oder im Abschnitt **Freigegebene Berichte** gespeichert werden. Letzterer ist für alle Benutzer mit Zugriff auf die Ressource zugänglich. Klicken Sie zum Anzeigen aller Arbeitsmappen in der Ressource in der Aktionsleiste auf die Schaltfläche **Öffnen**.
 
 Gehen Sie wie folgt vor, um eine Arbeitsmappe freizugeben, die derzeit unter **Meine Berichte** vorhanden ist:
 
-1. Klicken Sie in der Aktionsleiste auf **Öffnen** .
+1. Klicken Sie in der Aktionsleiste auf **Öffnen**.
 2. Klicken Sie neben der Arbeitsmappe, die Sie freigeben möchten, auf die Schaltfläche „...“.
 3. Klicken Sie auf **Move to Shared Reports** (In „Freigegebene Berichte“ verschieben).
 
-Klicken Sie in der Aktionsleiste auf **Freigeben** , um eine Arbeitsmappe per Link bzw. E-Mail freizugeben. Beachten Sie, dass Empfänger des Links im Azure-Portal Zugriff auf diese Ressource benötigen, um die Arbeitsmappe anzuzeigen. Zum Durchführen von Bearbeitungen benötigen Empfänger mindestens Berechtigungen vom Typ „Mitwirkender“ für die Ressource.
+Klicken Sie in der Aktionsleiste auf **Freigeben**, um eine Arbeitsmappe per Link bzw. E-Mail freizugeben. Beachten Sie, dass Empfänger des Links im Azure-Portal Zugriff auf diese Ressource benötigen, um die Arbeitsmappe anzuzeigen. Zum Durchführen von Bearbeitungen benötigen Empfänger mindestens Berechtigungen vom Typ „Mitwirkender“ für die Ressource.
 
 Gehen Sie wie folgt vor, um in einem Azure-Dashboard einen Link zu einer Arbeitsmappe anzuheften:
 
-1. Klicken Sie in der Aktionsleiste auf **Öffnen** .
+1. Klicken Sie in der Aktionsleiste auf **Öffnen**.
 2. Klicken Sie neben der Arbeitsmappe, die Sie anheften möchten, auf die Schaltfläche „...“.
-3. Klicken Sie auf **An Dashboard anheften** .
+3. Klicken Sie auf **An Dashboard anheften**.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

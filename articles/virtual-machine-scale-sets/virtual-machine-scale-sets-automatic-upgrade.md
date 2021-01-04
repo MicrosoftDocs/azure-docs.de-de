@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 06/26/2020
 ms.reviewer: jushiman
-ms.custom: avverma
-ms.openlocfilehash: b5f3305fc5d2595c8b7b08d78ff20edea01c195e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: 334e0c745257354d9548a6f9c8cee4d43fa8da6d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89229836"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744734"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Automatische Betriebssystemimageupgrades mit Azure-VM-Skalierungsgruppen
 
@@ -68,11 +68,11 @@ Derzeit werden die folgenden Plattform-SKUs unterstützt (weitere werden regelm�
 
 ## <a name="requirements-for-configuring-automatic-os-image-upgrade"></a>Anforderungen für das Konfigurieren des automatischen Upgrades von Betriebssystemimages
 
-- Die *version*-Eigenschaft des Images muss auf *latest* festgelegt werden.
+- Die *version* -Eigenschaft des Images muss auf *latest* festgelegt werden.
 - Verwenden Sie Anwendungsintegritätstests oder [Anwendungsintegritätserweiterung](virtual-machine-scale-sets-health-extension.md) für Nicht-Service Fabric-Skalierungsgruppen.
 - Verwenden Sie Compute-API-Version 2018-10-01 oder höher.
 - Stellen Sie sicher, dass im Skalierungsgruppenmodell angegebene externe Ressourcen verfügbar und aktualisiert sind. Zu den Beispielen zählen SAS-URI für die Bootstrap-Nutzlast in VM-Erweiterungseigenschaften, Nutzlast im Speicherkonto, Verweis auf Geheimnisse im Modell und Sonstiges.
-- Für Skalierungsgruppen mit Verwendung von virtuellen Windows-Computern ab Compute-API-Version 2019-03-01 muss die *virtualMachineProfile.osProfile.windowsConfiguration.enableAutomaticUpdates*-Eigenschaft in der Skalierungsgruppenmodell-Definition auf *false* festgelegt werden. Die obige Eigenschaft ermöglicht Upgrades auf einem virtuellen Computer, bei denen „Windows Update“ Betriebssystempatches anwendet, ohne den Betriebssystemdatenträger zu ersetzen. Wenn für Ihre Skalierungsgruppe automatische Upgrades von Betriebssystemimages aktiviert sind, ist kein zusätzliches Update per „Windows Update“ erforderlich.
+- Für Skalierungsgruppen mit Verwendung von virtuellen Windows-Computern ab Compute-API-Version 2019-03-01 muss die *virtualMachineProfile.osProfile.windowsConfiguration.enableAutomaticUpdates* -Eigenschaft in der Skalierungsgruppenmodell-Definition auf *false* festgelegt werden. Die obige Eigenschaft ermöglicht Upgrades auf einem virtuellen Computer, bei denen „Windows Update“ Betriebssystempatches anwendet, ohne den Betriebssystemdatenträger zu ersetzen. Wenn für Ihre Skalierungsgruppe automatische Upgrades von Betriebssystemimages aktiviert sind, ist kein zusätzliches Update per „Windows Update“ erforderlich.
 
 ### <a name="service-fabric-requirements"></a>Service Fabric-Anforderungen
 

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/20/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 078b24e7fc3668e9b5832f0bfa46024db9b33848
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0874f6aeb74b028e92e10d972757cc5971735e39
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965555"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744311"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Häufig gestellte Fragen zur Self-Service-Kennwortzurücksetzung
 
@@ -38,7 +38,7 @@ Diese FAQ sind in folgende Abschnitte unterteilt:
 
   > **A:** Ja. Wenn die Kennwortzurücksetzung aktiviert ist und die Benutzer lizenziert sind, können diese das Kennwortregistrierungsportal (https://aka.ms/ssprsetup) öffnen und ihre Authentifizierungsdaten registrieren. Benutzer können sich auch über den Zugriffsbereich (https://myapps.microsoft.com) registrieren. Bei der Registrierung über den Zugriffsbereich müssen die Benutzer ihr Profilbild auswählen. Anschließend wählen sie **Profil** und dann die Option **Für das Zurücksetzen des Kennworts registrieren** aus.
   >
-  > Wenn Sie die [kombinierte Registrierung](concept-registration-mfa-sspr-combined.md) aktivieren, können sich Benutzer gleichzeitig per SSPR und Azure Multi-Factor Authentication registrieren.
+  > Wenn Sie die [kombinierte Registrierung](concept-registration-mfa-sspr-combined.md) aktivieren, können sich Benutzer gleichzeitig für SSPR und Azure AD Multi-Factor Authentication registrieren.
 * **F:  Wenn ich Kennwortzurücksetzung für eine Gruppe aktiviere und mich anschließend entscheide, sie für alle zu aktivieren, müssen sich meine Benutzer dann erneut registrieren?**
 
   > **A:** Nein. Benutzer mit aufgefüllten Authentifizierungsdaten müssen sich nicht erneut registrieren.
@@ -263,7 +263,7 @@ Diese FAQ sind in folgende Abschnitte unterteilt:
   >
 * **F:  Für welche Arten von Konten funktioniert das Kennwortrückschreiben?**
 
-  > **A:** Das Kennwortrückschreiben kann für Benutzerkonten verwendet werden, die aus dem lokalen Active Directory mit Azure AD synchronisiert werden. Dies schließt Verbundbenutzer, Benutzer mit Kennworthashsynchronisierung und Benutzer mit Pass-Through-Authentifizierung ein.
+  > **A:** Das Kennwortrückschreiben kann für Benutzerkonten verwendet werden, die aus dem lokalen Active Directory mit Azure AD synchronisiert werden. Dies schließt Verbundbenutzer, Benutzer mit Kennworthashsynchronisierung und Benutzer mit Pass-Through-Authentifizierung ein.
   >
   >
 * **F:  Werden die Kennwortrichtlinien meiner Domäne durch die Kennwortrückschreibung durchgesetzt?**
@@ -289,4 +289,4 @@ Diese FAQ sind in folgende Abschnitte unterteilt:
 * [Übersicht über die Kennwortrückschreibung](./tutorial-enable-sspr-writeback.md)
 * [Berichterstellungsoptionen für die Kennwortverwaltung von Azure AD](howto-sspr-reporting.md)
 * [Welche Optionen sind für SSPR verfügbar, und was bedeuten sie?](concept-sspr-howitworks.md)
-* [Anscheinend ist ein Fehler aufgetreten. Wie behebe ich Probleme mit SSPR?](active-directory-passwords-troubleshoot.md)
+* [Anscheinend ist ein Fehler aufgetreten. Wie behebe ich Probleme mit SSPR?](./troubleshoot-sspr.md)

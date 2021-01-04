@@ -45,6 +45,10 @@
           href: manage-assets-quickstart.md
         - name: Verschlüsseln von Inhalten mithilfe des Portals
           href: encrypt-content-quickstart.md
+    - name: Verwenden einer ARM-Vorlage
+      items:
+        - name: Erstellen eines Kontos mit ARM
+          href: quickstart-arm-template-account.md
 - name: Tutorials
   items:
     - name: .NET
@@ -68,8 +72,8 @@
       items:
         - name: Codieren und Streamen einer Remotedatei (REST)
           href: stream-files-tutorial-with-rest.md
-        - name: Benutzerseitig verwaltete Schlüssel mit Media Services
-          href: tutorial-byok.md
+        - name: Kundenseitig verwaltete Schlüssel mit REST-API
+          href: tutorial-byok-postman.md
     - name: Befehlszeilenschnittstelle (CLI)
       items:
         - name: Codieren und Streamen einer Remotedatei (CLI)
@@ -80,6 +84,8 @@
           href: stream-files-nodejs-quickstart.md
     - name: Azure-Portal
       items:
+        - name: 'Tutorial zu kundenseitig verwalteten Schlüsseln (Bring-Your-Own-Key, BYOK)'
+          href: tutorial-byok-portal.md
         - name: Speichern von AMS-Ereignissen in Azure Log Analytics
           href: tutorial-events-log-analytics.md
 - name: Beispiele
@@ -102,6 +108,11 @@
         - name: Speicherkonto
           href: storage-account-concept.md
           displayName: Storage side encryption
+        - name: Verwaltete Identitäten und Mediendienste
+          displayName: content protection
+          href: concept-managed-identities.md
+        - name: Vom Kunden verwaltete Schlüssel
+          href: concept-use-customer-managed-keys-byok.md
     - name: Objekte
       items:
         - name: Objekte
@@ -178,8 +189,6 @@
         - name: Dynamische Verschlüsselung und Schlüsselübermittlung
           displayName: 'content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom'
           href: content-protection-overview.md
-        - name: Vom Kunden verwaltete Schlüssel
-          href: concept-use-customer-managed-keys-byok.md
         - name: Entwerfen eines Multi-DRM-Systems
           displayName: 'drm, access control'
           href: design-multi-drm-system-with-access-control.md
@@ -231,6 +240,9 @@
         - name: Video on Demand
           displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-encoding.md
+    - name: Media Services-Architekturen
+      displayName: architectures
+      href: architectures-concept.md
     - name: Problembehandlung
       items:
         - name: Häufig gestellte Fragen
@@ -265,9 +277,13 @@
     - name: Erstellen von Transformationen und Aufträgen
       items:
         - name: Erstellen von Transformationen
-          href: cli-create-transform.md
+          href: how-to-create-transform.md
         - name: Erstellen einer grundlegenden Audiotransformation mit REST
           href: how-to-create-basic-audio-transform.md
+        - name: Erstellen der Transformation „copyAllBitrateNonInterleaved“ mit REST
+          href: how-to-create-copyallbitratenoninterleaved-transform.md
+        - name: Kopieren von Videos ohne Codierung mit REST
+          href: how-to-create-copy-video-audio-transform.md
         - name: Erstellen von Aufträgen
           href: cli-create-jobs.md
         - name: Erstellen von Auftragseingaben mit einer lokalen Datei und .NET
@@ -437,5 +453,7 @@
       href: limits-quotas-constraints.md
     - name: Azure-Clouds und -Regionen
       href: azure-clouds-regions.md
+    - name: Regionale Codenamen und Endpunkte
+      href: azure-regions-code-names.md
     - name: Dokumentationsupdates
       href: docs-release-notes.md

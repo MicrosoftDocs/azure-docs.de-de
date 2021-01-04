@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2020
+ms.date: 12/02/2020
 ms.author: mnayak
-ms.openlocfilehash: af3d9e9fcf0dad6a5e51a3db87b63567d701970e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35e4b90e9bdd52a20bf892f0784b191384f271ac
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84687989"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533705"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-the-azure-portal"></a>Konfigurieren der Routingpräferenz für einen virtuellen Computer mithilfe des Azure-Portals
 
@@ -28,12 +28,6 @@ In diesem Artikel wird gezeigt, wie Sie einen virtuellen Computer mit einer öff
 > [!IMPORTANT]
 > „Routingpräferenz“ ist zurzeit als öffentliche Vorschauversion verfügbar.
 > Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar. Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## <a name="register-the-feature-for-your-subscription"></a>Registrieren des Features für Ihr Abonnement
-Das Feature für die Routingpräferenz befindet sich derzeit in der Vorschauphase. Sie müssen das Feature mithilfe von Azure PowerShell wie folgt für Ihr Abonnement registrieren:
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature ProviderNamespace Microsoft.Network
-```
 
 ## <a name="sign-in-to-azure"></a>Anmelden bei Azure
 
@@ -69,10 +63,11 @@ Melden Sie sich beim [Azure-Portal](https://preview.portal.azure.com/) an.
 9. Nachdem der virtuelle Computer bereitgestellt wurde, geben Sie in das Suchfeld am oberen Rand des Portals *myPublicIpAddress* ein. Wenn **myPublicIpAddress** in den Suchergebnissen angezeigt wird, wählen Sie diese Angabe aus.
 10. Die zugewiesene öffentliche IP-Adresse und die Adresse, die dem virtuellen Computer **myVM** zugewiesen ist, werden angezeigt, wie in der folgenden Abbildung gezeigt wird:
 
-    ![Anzeigen einer öffentlichen IP-Adresse](./media/tutorial-routing-preference-virtual-machine-portal/pip-properties-new.png)
+    ![Screenshot der öffentlichen IP-Adresse der NIC für die Netzwerkschnittstelle mynic.](./media/tutorial-routing-preference-virtual-machine-portal/pip-properties-new.png)
 
 11. Wählen Sie **Netzwerk** aus, klicken Sie dann auf die NIC **mynic**, und wählen Sie dann die öffentliche IP-Adresse aus, um zu bestätigen, dass die Routingpräferenz vom Typ **Internet** zugewiesen ist.
-    ![Anzeigen einer öffentlichen IP-Adresse](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet-new.png)
+
+    ![Screenshot der öffentlichen IP-Adresse und Routingeinstellung für eine öffentliche IP-Adresse.](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet-new.png)
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 

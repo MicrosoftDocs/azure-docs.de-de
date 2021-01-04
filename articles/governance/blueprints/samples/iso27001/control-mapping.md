@@ -1,14 +1,14 @@
 ---
 title: Steuerungen des Blaupausenbeispiels „ISO 27001“
 description: Steuerungszuordnung des ISO 27001-Blaupausenbeispiels. Jede Steuerung wird mindestens einer Azure Policy-Definition zugeordnet, die Sie bei der Bewertung unterstützt.
-ms.date: 07/13/2020
+ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: 6e72f8ca25939b1cad8b2a5dc5bd3fc5fc286027
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 0c1c20ae8b740ce019441dbee880f883947af160
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931953"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842497"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Steuerungszuordnung des ISO 27001-Blaupausenbeispiels
 
@@ -65,7 +65,6 @@ Mit dieser Blaupause werden drei [Azure Policy](../../../policy/overview.md)-Def
 - MFA sollte für Ihre Abonnementkonten mit Leseberechtigungen aktiviert sein
 - MFA sollte für Konten mit Schreibrechten für Ihr Abonnement aktiviert werden
 - Überwachungsergebnisse von Linux-VMs anzeigen, bei denen die passwd-Dateiberechtigungen nicht auf 0644 festgelegt sind
-- Voraussetzungen für die Überwachung von Linux-VMs bereitstellen, bei denen die passwd-Dateiberechtigungen nicht auf 0644 festgelegt sind
 
 ## <a name="a925-review-of-user-access-rights"></a>A.9.2.5 Überprüfung der Zugriffsrechte für Benutzer
 
@@ -85,7 +84,7 @@ Mithilfe der [rollenbasierten Zugriffssteuerung von Azure (Azure RBAC)](../../..
 
 ## <a name="a942-secure-log-on-procedures"></a>A.9.4.2 Sichere Anmeldungsprozeduren
 
-Mit dieser Blaupause werden drei Azure Policy-Definitionen zugewiesen, um Konten ohne aktivierte mehrstufige Authentifizierung zu überwachen. Indem Azure Multi-Factor Authentication eine zweite Form der Authentifizierung verlangt, bietet das Verfahren zusätzliche Sicherheit und eine zuverlässige Authentifizierung. Durch die Überwachung von Konten ohne aktivierte mehrstufige Authentifizierung können Sie die Konten identifizieren, die möglicherweise eher kompromittiert werden.
+Mit dieser Blaupause werden drei Azure Policy-Definitionen zugewiesen, um Konten ohne aktivierte mehrstufige Authentifizierung zu überwachen. Indem Azure AD Multi-Factor Authentication eine zweite Form der Authentifizierung verlangt, bietet das Verfahren zusätzliche Sicherheit und eine zuverlässige Authentifizierung. Durch die Überwachung von Konten ohne aktivierte mehrstufige Authentifizierung können Sie die Konten identifizieren, die möglicherweise eher kompromittiert werden.
 
 - MFA sollte für Konten mit Besitzerberechtigungen in Ihrem Abonnement aktiviert sein.
 - MFA sollte für Ihre Abonnementkonten mit Leseberechtigungen aktiviert sein
@@ -100,11 +99,6 @@ Mit dieser Blaupause können Sie sichere Kennwörter erzwingen, indem 10 [Azure
 - Überwachungsergebnisse von Windows-VMs anzeigen, für die kein minimales Kennwortalter von 1 Tag gilt
 - Überwachungsergebnisse von Windows-VMs anzeigen, für die keine Mindestkennwortlänge von 14 Zeichen festgelegt ist
 - Überwachungsergebnisse von Windows-VMs anzeigen, die eine Wiederverwendung der vorherigen 24 Kennwörter zulassen
-- Erforderliche Komponenten zum Überwachen von Windows-VMs bereitstellen, auf denen nicht die Einstellung für die Kennwortkomplexität aktiviert ist
-- Erforderliche Komponenten zum Überwachen von Windows-VMs bereitstellen, für die kein maximales Kennwortalter von 70 Tagen gilt
-- Erforderliche Komponenten zum Überwachen von Windows-VMs bereitstellen, für die kein minimales Kennwortalter von 1 Tag gilt
-- Erforderliche Komponenten zum Überwachen von Windows-VMs bereitstellen, für die keine Mindestkennwortlänge von 14 Zeichen gilt
-- Erforderliche Komponenten zum Überwachen von Windows-VMs bereitstellen, die eine Wiederverwendung der vorherigen 24 Kennwörter zulassen
 
 ## <a name="a1011-policy-on-the-use-of-cryptographic-controls"></a>A.10.1.1 Richtlinie zur Verwendung von kryptografischen Steuerungen
 
@@ -113,7 +107,6 @@ Mit dieser Blaupause können Sie die Richtlinie zur Verwendung von kryptografisc
 - Zugriff auf Funktions-App nur über HTTPS gestatten
 - Zugriff auf Webanwendung nur über HTTPS gestatten
 - Auf API-Apps sollte nur über HTTPS zugegriffen werden können
-- Erforderliche Komponenten zum Überwachen von Windows-VMs bereitstellen, die Kennwörter nicht mit umkehrbarer Verschlüsselung speichern
 - Überwachungsergebnisse von Windows-VMs anzeigen, die Kennwörter nicht mit umkehrbarer Verschlüsselung speichern
 - Die Datenträgerverschlüsselung sollte auf virtuelle Computer angewendet werden.
 - Automation-Kontovariablen sollten verschlüsselt werden.

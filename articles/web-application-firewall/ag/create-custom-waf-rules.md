@@ -6,20 +6,22 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: bfa6690c636e15fa933f50698cd81359600b5c05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b14bd60ab744be5a1735abc073f32f8ebc3e1ab1
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77368308"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301698"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Erstellen und Verwenden von benutzerdefinierten Regeln für Web Application Firewall v2 auf Application Gateway
 
 Web Application Firewall (WAF) v2 auf Azure Application Gateway bietet Schutz für Webanwendungen. Dieser Schutz wird über die Kernregeln (Core Rule Set, CRS) des Open Web Application Security-Projekts (OWASP) bereitgestellt. In einigen Fällen müssen Sie unter Umständen eigene benutzerdefinierte Regeln erstellen, um Ihre jeweiligen Anforderungen zu erfüllen. Weitere Informationen zu benutzerdefinierten WAF-Regeln finden Sie unter [Custom rules for Web Application Firewall v2](custom-waf-rules-overview.md) (Benutzerdefinierte Regeln für Web Application Firewall v2).
 
 Dieser Artikel enthält einige Beispiele für benutzerdefinierte Regeln, die Sie erstellen und mit Ihrer WAF v2 nutzen können. Informationen zur Bereitstellung einer WAF mit einer benutzerdefinierten Regel mithilfe von Azure PowerShell finden Sie unter [Configure Web Application Firewall v2 with a custom rule using Azure PowerShell](configure-waf-custom-rules.md) (Konfigurieren der Web Application Firewall v2 mit einer benutzerdefinierten Regel per Azure PowerShell).
+
+Die in diesem Artikel gezeigten JSON-Codeausschnitte wurden von einer [ApplicationGatewayWebApplicationFirewallPolicies](/azure/templates/microsoft.network/applicationgatewaywebapplicationfirewallpolicies)-Ressource abgeleitet.
 
 >[!NOTE]
 > Wenn Ihr Anwendungsgateway nicht auf die WAF-Ebene zurückgreift, wird die Option zum Aktualisieren des Anwendungsgateways auf die WAF-Ebene im rechten Bereich angezeigt.

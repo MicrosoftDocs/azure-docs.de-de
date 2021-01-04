@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: memildin
-ms.openlocfilehash: 36f519ce41ccfbfb48ca696ed2a61c6131a75998
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca3dd410474af0a42a3cd5b4217c3bba90b8ff1a
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906323"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511983"
 ---
 # <a name="protect-windows-admin-center-resources-with-security-center"></a>Schützen von Windows Admin Center-Ressourcen mit Azure Security Center
 
@@ -29,7 +29,7 @@ Wenn Sie in Windows Admin Center das Onboarding eines Servers in Azure Security 
 * Anzeigen von Sicherheitswarnungen und -empfehlungen innerhalb der Security Center-Erweiterung in Windows Admin Center
 * Anzeigen des Sicherheitsstatus und Abrufen weiterer detaillierter Informationen zu Ihren mit Windows Admin Center verwalteten Servern in Security Center im Azure-Portal (oder über eine API)
 
-Durch die Kombination dieser beiden Tools wird Security Center zum zentralen Anzeigebereich für alle Ihre Sicherheitsinformationen – und zwar unabhängig von der Ressource: lokale in Windows Admin Center verwaltete Server, Ihre VMs und alle sonstigen PaaS-Workloads.
+Durch die Kombination dieser beiden Tools wird Security Center zum zentralen Anzeigebereich für alle Ihre Sicherheitsinformationen – und zwar unabhängig von der Ressource. Dadurch werden sowohl Ihre lokalen, in Windows Admin Center verwalteten Server als auch Ihre virtuellen Computer und alle sonstigen PaaS-Workloads geschützt.
 
 ## <a name="onboard-windows-admin-center-managed-servers-into-security-center"></a>Onboarding von in Windows Admin Center verwalteten Servern in Azure Security Center
 

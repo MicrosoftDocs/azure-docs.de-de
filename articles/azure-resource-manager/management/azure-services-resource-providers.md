@@ -2,13 +2,13 @@
 title: Ressourcenanbieter durch Azure-Dienste
 description: Listet alle Ressourcenanbieter-Namespaces für Azure Resource Manager auf und gibt den Azure-Dienst für den jeweiligen Namespace an.
 ms.topic: conceptual
-ms.date: 09/04/2020
-ms.openlocfilehash: f9e31f902d36cf84fc559337f3c69529cf1c014b
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 12/01/2020
+ms.openlocfilehash: faea6badc24d0152e94fc507cafdb15932d1ea3e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949121"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452622"
 ---
 # <a name="resource-providers-for-azure-services"></a>Ressourcenanbieter für Azure-Dienste
 
@@ -16,11 +16,13 @@ In diesem Artikel wird die Zuordnung von Ressourcenanbieter-Namespaces zu Azure-
 
 ## <a name="match-resource-provider-to-service"></a>Zuordnung von Ressourcenanbieter zu Dienst
 
+Die Ressourcenanbieter, die mit **– registriert** gekennzeichnet sind, sind standardmäßig für Ihr Abonnement registriert. Weitere Informationen finden Sie unter [Registrierung](#registration).
+
 | Ressourcenanbieter-Namespace | Azure-Dienst |
 | --------------------------- | ------------- |
-| Microsoft.AAD | [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) |
+| Microsoft.AAD | [Azure Active Directory-Domänendienste](../../active-directory-domain-services/index.yml) |
 | Microsoft.Addons | core |
-| Microsoft.ADHybridHealthService<sup>1</sup> | [Azure Active Directory](../../active-directory/index.yml) |
+| Microsoft.ADHybridHealthService – [registriert](#registration) | [Azure Active Directory](../../active-directory/index.yml) |
 | Microsoft.Advisor | [Azure Advisor](../../advisor/index.yml) |
 | Microsoft.AlertsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.AnalysisServices | [Azure Analysis Services](../../analysis-services/index.yml) |
@@ -28,7 +30,7 @@ In diesem Artikel wird die Zuordnung von Ressourcenanbieter-Namespaces zu Azure-
 | Microsoft.AppConfiguration | [Azure App Configuration](../../azure-app-configuration/index.yml) |
 | Microsoft.AppPlatform | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
 | Microsoft.Attestation | Azure Attestation Service |
-| Microsoft.Authorization<sup>1</sup> | [Azure Resource Manager](../index.yml) |
+| Microsoft.Authorization – [registriert](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft.Automation | [Automation](../../automation/index.yml) |
 | Microsoft.AutonomousSystems | [Autonome Systeme](https://www.microsoft.com/ai/autonomous-systems) |
 | Microsoft.AVS | [Azure VMware Solution](../../azure-vmware/index.yml) |
@@ -37,11 +39,11 @@ In diesem Artikel wird die Zuordnung von Ressourcenanbieter-Namespaces zu Azure-
 | Microsoft.AzureStack | core |
 | Microsoft.AzureStackHCI | [Azure Stack HCI](/azure-stack/hci/overview) |
 | Microsoft.Batch | [Batch](../../batch/index.yml) |
-| Microsoft.Billing<sup>1</sup> | [Kostenverwaltung und Abrechnung](/azure/billing/) |
+| Microsoft.Billing – [registriert](#registration) | [Kostenverwaltung und Abrechnung](/azure/billing/) |
 | Microsoft.BingMaps | [Bing Maps](/BingMaps/#pivot=main&panel=BingMapsAPI) |
-| Microsoft.Blockchain | [Azure Blockchain-Dienst](../../blockchain/workbench/index.yml) |
+| Microsoft.Blockchain | [Azure Blockchain Service](../../blockchain/workbench/index.yml) |
 | Microsoft.BlockchainTokens | [Azure Blockchain Tokens](https://azure.microsoft.com/services/blockchain-tokens/) |
-| Microsoft.Blueprint | [Azure Blueprints](../../governance/blueprints/index.yml) |
+| Microsoft.Blueprint | [Azure Blueprint](../../governance/blueprints/index.yml) |
 | Microsoft.BotService | [Azure Bot Service](/azure/bot-service/) |
 | Microsoft.Cache | [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) |
 | Microsoft.Capacity | core |
@@ -52,23 +54,23 @@ In diesem Artikel wird die Zuordnung von Ressourcenanbieter-Namespaces zu Azure-
 | Microsoft.ClassicInfrastructureMigrate | Migration vom klassischen Bereitstellungsmodell |
 | Microsoft.ClassicNetwork | Klassisches Bereitstellungsmodell für virtuelle Netzwerke |
 | Microsoft.ClassicStorage | Klassisches Bereitstellungsmodell für Speicher |
-| Microsoft.ClassicSubscription<sup>1</sup> | Klassisches Bereitstellungsmodell |
+| Microsoft.ClassicSubscription – [registriert](#registration) | Klassisches Bereitstellungsmodell |
 | Microsoft.CognitiveServices | [Cognitive Services](../../cognitive-services/index.yml) |
-| Microsoft.Commerce<sup>1</sup> | core |
-| Microsoft.Compute | [Azure Virtual Machines](../../virtual-machines/index.yml)<br />[Skalierungsgruppen für virtuelle Computer](../../virtual-machine-scale-sets/index.yml) |
-| Microsoft.Consumption<sup>1</sup> | [Azure Cost Management](/azure/cost-management/) |
-| Microsoft.ContainerInstance | [Azure Container Instances](../../container-instances/index.yml) |
-| Microsoft.ContainerRegistry | [Azure Container Registry](../../container-registry/index.yml) |
+| Microsoft.Commerce – [registriert](#registration) | core |
+| Microsoft.Compute | [Virtuelle Computer](../../virtual-machines/index.yml)<br />[Skalierungsgruppen für virtuelle Computer](../../virtual-machine-scale-sets/index.yml) |
+| Microsoft.Consumption – [registriert](#registration) | [Cost Management](/azure/cost-management/) |
+| Microsoft.ContainerInstance | [Containerinstanzen](../../container-instances/index.yml) |
+| Microsoft.ContainerRegistry | [Container Registry](../../container-registry/index.yml) |
 | Microsoft.ContainerService | [Azure Kubernetes Service (AKS)](../../aks/index.yml) |
-| Microsoft.CostManagement<sup>1</sup> | [Azure Cost Management](/azure/cost-management/) |
-| Microsoft.CostManagementExports | [Azure Cost Management](/azure/cost-management/) |
+| Microsoft.CostManagement – [registriert](#registration) | [Cost Management](/azure/cost-management/) |
+| Microsoft.CostManagementExports | [Cost Management](/azure/cost-management/) |
 | Microsoft.CustomerLockbox | [Kunden-Lockbox für Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md) |
 | Microsoft.CustomProviders | [Benutzerdefinierte Azure-Anbieter](../custom-providers/overview.md) |
 | Microsoft.DataBox | [Azure Data Box](../../databox/index.yml) |
 | Microsoft.DataBoxEdge | [Azure Stack Edge](../../databox-online/azure-stack-edge-overview.md) |
 | Microsoft.Databricks | [Azure Databricks](/azure/azure-databricks/) |
-| Microsoft.DataCatalog | [Azure Data Catalog](../../data-catalog/index.yml) |
-| Microsoft.DataFactory | [Azure Data Factory](../../data-factory/index.yml) |
+| Microsoft.DataCatalog | [Data Catalog](../../data-catalog/index.yml) |
+| Microsoft.DataFactory | [Data Factory](../../data-factory/index.yml) |
 | Microsoft.DataLakeAnalytics | [Data Lake Analytics](../../data-lake-analytics/index.yml) |
 | Microsoft.DataLakeStore | [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md) |
 | Microsoft.DataMigration | [Azure Database Migration Service](../../dms/index.yml) |
@@ -76,10 +78,10 @@ In diesem Artikel wird die Zuordnung von Ressourcenanbieter-Namespaces zu Azure-
 | Microsoft.DataShare | [Azure Data Share](../../data-share/index.yml) |
 | Microsoft.DBforMariaDB | [Azure Database for MariaDB](../../mariadb/index.yml) |
 | Microsoft.DBforMySQL | [Azure Database for MySQL](../../mysql/index.yml) |
-| Microsoft.DBforPostgreSQL | [Azure Database for PostgreSQL](../../postgresql/index.yml) |
+| Microsoft.DBforPostgreSQL | [Azure-Datenbank für PostgreSQL](../../postgresql/index.yml) |
 | Microsoft.DeploymentManager | [Azure-Bereitstellungs-Manager](../templates/deployment-manager-overview.md) |
 | Microsoft.DesktopVirtualization | [Windows Virtual Desktop](../../virtual-desktop/index.yml) |
-| Microsoft.Devices | [Azure IoT Hub](../../iot-hub/index.yml)<br />[Azure IoT Hub Device Provisioning-Dienst](../../iot-dps/index.yml) |
+| Microsoft.Devices | [Azure IoT Hub](../../iot-hub/index.yml)<br />[Azure IoT Hub Device Provisioning-Dienst](../../iot-dps/index.yml) |
 | Microsoft.DevOps | [Azure DevOps](/azure/devops/) |
 | Microsoft.DevSpaces | [Azure Dev Spaces](../../dev-spaces/index.yml) |
 | Microsoft.DevTestLab | [Azure Lab Services](../../lab-services/index.yml) |
@@ -90,7 +92,7 @@ In diesem Artikel wird die Zuordnung von Ressourcenanbieter-Namespaces zu Azure-
 | Microsoft.EnterpriseKnowledgeGraph | Enterprise Knowledge Graph |
 | Microsoft.EventGrid | [Event Grid](../../event-grid/index.yml) |
 | Microsoft.EventHub | [Event Hubs](../../event-hubs/index.yml) |
-| Microsoft.Features<sup>1</sup> | [Azure Resource Manager](../index.yml) |
+| Microsoft.Features – [registriert](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft.GuestConfiguration | [Azure Policy](../../governance/policy/index.yml) |
 | Microsoft.HanaOnAzure | [SAP HANA in Azure (große Instanzen)](../../virtual-machines/workloads/sap/hana-overview-architecture.md) |
 | Microsoft.HardwareSecurityModules | [Dediziertes HSM von Azure](../../dedicated-hsm/index.yml) |
@@ -101,7 +103,7 @@ In diesem Artikel wird die Zuordnung von Ressourcenanbieter-Namespaces zu Azure-
 | Microsoft.HybridNetwork  | [Private Edge Zones](../../networking/edge-zones-overview.md) |
 | Microsoft.ImportExport | [Azure Import/Export](../../storage/common/storage-import-export-service.md) |
 | microsoft.insights | [Azure Monitor](../../azure-monitor/index.yml) |
-| Microsoft.IoTCentral | [Azure IoT Central](../../iot-central/index.yml) |
+| Microsoft.IoTCentral | [Azure IoT Central](../../iot-central/index.yml) |
 | Microsoft.IoTSpaces | [Azure Digital Twins](../../digital-twins/index.yml) |
 | Microsoft.Intune | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.KeyVault | [Schlüsseltresor](../../key-vault/index.yml) |
@@ -120,13 +122,13 @@ In diesem Artikel wird die Zuordnung von Ressourcenanbieter-Namespaces zu Azure-
 | Microsoft.Maps | [Azure Maps](../../azure-maps/index.yml) |
 | Microsoft.Marketplace | core |
 | Microsoft.MarketplaceApps | core |
-| Microsoft.MarketplaceOrdering<sup>1</sup> | core |
+| Microsoft.MarketplaceOrdering – [registriert](#registration) | core |
 | Microsoft.Media | [Media Services](../../media-services/index.yml) |
 | Microsoft.Microservices4Spring | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
 | Microsoft.Migrate | [Azure Migrate](../../migrate/migrate-services-overview.md) |
 | Microsoft.MixedReality | [Azure Spatial Anchors](../../spatial-anchors/index.yml) |
 | Microsoft.NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |
-| Microsoft.Network | [Application Gateway](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md)<br />[Azure DNS](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Azure Private Link](../../private-link/index.yml)<br />[Load Balancer](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Traffic Manager](../../traffic-manager/index.yml)<br />[Virtual Network](../../virtual-network/index.yml)<br />[Virtual WAN](../../virtual-wan/index.yml)<br />[VPN Gateway](../../vpn-gateway/index.yml)<br /> |
+| Microsoft.Network | [Application Gateway](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md)<br />[Azure DNS](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Azure Private Link](../../private-link/index.yml)<br />[Load Balancer](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Traffic Manager](../../traffic-manager/index.yml)<br />[Virtual Network](../../virtual-network/index.yml)<br />[Virtual WAN](../../virtual-wan/index.yml)<br />[VPN Gateway](../../vpn-gateway/index.yml)<br /> |
 | Microsoft.Notebooks | [Azure Notebooks](https://notebooks.azure.com/help/introduction) |
 | Microsoft.NotificationHubs | [Notification Hubs](../../notification-hubs/index.yml) |
 | Microsoft.ObjectStore | Objektspeicher |
@@ -135,7 +137,7 @@ In diesem Artikel wird die Zuordnung von Ressourcenanbieter-Namespaces zu Azure-
 | Microsoft.OperationsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.Peering | [Azure Peering Service](../../peering-service/index.yml) |
 | Microsoft.PolicyInsights | [Azure Policy](../../governance/policy/index.yml) |
-| Microsoft.Portal<sup>1</sup> | [Azure portal](../../azure-portal/index.yml) |
+| Microsoft.Portal – [registriert](#registration) | [Azure portal](../../azure-portal/index.yml) |
 | Microsoft.PowerBI | [Power BI](/power-bi/power-bi-overview) |
 | Microsoft.PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
 | Microsoft.PowerPlatform | [Power Platform](/power-platform/) |
@@ -144,16 +146,15 @@ In diesem Artikel wird die Zuordnung von Ressourcenanbieter-Namespaces zu Azure-
 | Microsoft.RecoveryServices | [Azure Site Recovery](../../site-recovery/index.yml) |
 | Microsoft.RedHatOpenShift | [Azure Red Hat OpenShift](../../virtual-machines/linux/openshift-get-started.md) |
 | Microsoft.Relay | [Azure Relay](../../azure-relay/relay-what-is-it.md) |
-| Microsoft.ResourceGraph<sup>1</sup> | [Azure Resource Graph](../../governance/resource-graph/index.yml) |
+| Microsoft.ResourceGraph – [registriert](#registration) | [Azure Resource Graph](../../governance/resource-graph/index.yml) |
 | Microsoft.ResourceHealth | [Azure Service Health](../../service-health/index.yml) |
-| Microsoft.Resources<sup>1</sup> | [Azure Resource Manager](../index.yml) |
+| Microsoft.Resources – [registriert](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft.SaaS | core |
 | Microsoft.Scheduler | [Scheduler](../../scheduler/index.yml) |
 | Microsoft.Search | [Azure Cognitive Search](../../search/index.yml) |
-| Microsoft.Security | [Azure Security Center](../../security-center/index.yml) |
-| Microsoft.SecurityGraph | [Azure Security Center](../../security-center/index.yml) |
+| Microsoft.Security | [Security Center](../../security-center/index.yml) |
 | Microsoft.SecurityInsights | [Azure Sentinel](../../sentinel/index.yml) |
-| Microsoft.SerialConsole<sup>1</sup> | [Serielle Azure-Konsole für Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
+| Microsoft.SerialConsole – [registriert](#registration) | [Serielle Azure-Konsole für Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
 | Microsoft.ServiceBus | [Service Bus](/azure/service-bus/) |
 | Microsoft.ServiceFabric | [Service Fabric](../../service-fabric/index.yml) |
 | Microsoft.ServiceFabricMesh | [Service Fabric Mesh](../../service-fabric-mesh/index.yml) |
@@ -169,22 +170,27 @@ In diesem Artikel wird die Zuordnung von Ressourcenanbieter-Namespaces zu Azure-
 | Microsoft.StorSimple | [StorSimple](../../storsimple/index.yml) |
 | Microsoft.StreamAnalytics | [Azure Stream Analytics](../../stream-analytics/index.yml) |
 | Microsoft.Subscription | core |
-| microsoft.support<sup>1</sup> | core |
+| microsoft.support – [registriert](#registration) | core |
 | Microsoft.Synapse | [Azure Synapse Analytics](/azure/sql-data-warehouse/) |
 | Microsoft.TimeSeriesInsights | [Azure Time Series Insights](../../time-series-insights/index.yml) |
 | Microsoft.Token | Token |
 | Microsoft.VirtualMachineImages | [Azure Image Builder](../../virtual-machines/linux/image-builder-overview.md) |
-| microsoft.visualstudio | [Azure DevOps](/azure/devops/?view=azure-devops) |
+| microsoft.visualstudio | [Azure DevOps](/azure/devops/) |
 | Microsoft.VMware | [Azure VMware Solution](../../azure-vmware/index.yml) |
 | Microsoft.VMwareCloudSimple | [Azure VMware Solution by CloudSimple](../../vmware-cloudsimple/index.md) |
-| Microsoft.VSOnline | [Azure DevOps](/azure/devops/?view=azure-devops) |
+| Microsoft.VSOnline | [Azure DevOps](/azure/devops/) |
 | Microsoft.Web | [App Service](../../app-service/index.yml)<br />[Azure-Funktionen](../../azure-functions/index.yml) |
 | Microsoft.WindowsDefenderATP | [Microsoft Defender Advanced Threat Protection](../../security-center/security-center-wdatp.md) |
 | Microsoft.WindowsESU | Erweiterte Sicherheitsupdates |
 | Microsoft.WindowsIoT | [Windows 10 IoT Core Services](/windows-hardware/manufacture/iot/iotcoreservicesoverview) |
-| Microsoft.WorkloadMonitor<sup>1</sup> | [Azure Monitor](../../azure-monitor/index.yml) |
+| Microsoft.WorkloadMonitor | [Azure Monitor](../../azure-monitor/index.yml) |
 
-<sup>1</sup> Standardmäßig registriert
+## <a name="registration"></a>Registrierung
+
+Die obigen Ressourcenanbieter, die mit **– registriert** gekennzeichnet sind, sind standardmäßig für Ihr Abonnement registriert. Wenn Sie die anderen Ressourcenanbieter nutzen möchten, müssen Sie sie [registrieren](resource-providers-and-types.md). Viele Ressourcenanbieter werden jedoch für Sie registriert, sobald Sie bestimmte Aktionen ausführen. Wenn Sie z. B. eine Ressource im Portal erstellen, registriert das Portal automatisch alle nicht registrierten Ressourcenanbieter, die benötigt werden. Wenn Sie Ressourcen über eine [Azure Resource Manager-Vorlage](../templates/overview.md) bereitstellen, werden auch alle erforderlichen Ressourcenanbieter registriert.
+
+> [!IMPORTANT]
+> Registrieren Sie einen Ressourcenanbieter nur dann, wenn Sie ihn nutzen möchten. Der Registrierungsschritt ermöglicht Ihnen, die geringstmöglichen Berechtigungen innerhalb Ihres Abonnements beizubehalten. Ein böswilliger Benutzer kann nicht registrierte Ressourcenanbieter nicht verwenden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 07/16/2019
-ms.openlocfilehash: 95d6066cd13876400ffff934b0b0f3ccdcde1c59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8326249b48e98eccecb5f0c4953add26e167560
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321534"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594105"
 ---
 # <a name="use-powershell-to-add-an-elastic-pool-to-a-failover-group"></a>Verwenden von PowerShell, um einen Pool für elastische Datenbanken einer Failovergruppe hinzuzufügen
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]

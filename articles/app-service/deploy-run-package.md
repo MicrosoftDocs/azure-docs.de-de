@@ -3,12 +3,12 @@ title: Ausführen Ihrer App aus einem ZIP-Paket
 description: Hier erfahren Sie, wie Sie das ZIP-Paket Ihrer App mit Unteilbarkeit bereitstellen. Verbessern Sie die Vorhersagbarkeit und Zuverlässigkeit des Verhaltens Ihrer App während der ZIP-Bereitstellung.
 ms.topic: article
 ms.date: 01/14/2020
-ms.openlocfilehash: 5cc909d79b3f5ea2b4c6a3da12bc7250addbe00c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3440653455626af4e3705d89349a66d6bf2fbfc0
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77920721"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008128"
 ---
 # <a name="run-your-app-in-azure-app-service-directly-from-a-zip-package"></a>Direktes Ausführen Ihrer App in Azure App Service aus einem ZIP-Paket
 
@@ -41,13 +41,13 @@ Mit `WEBSITE_RUN_FROM_PACKAGE="1"` können Sie Ihre App aus einem für Ihre App 
 
 ## <a name="run-the-package"></a>Ausführen des Pakets
 
-Die einfachste Möglichkeit zum Ausführen eines Pakets in App Service stellt der Azure CLI-Befehl [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) dar. Beispiel:
+Die einfachste Möglichkeit zum Ausführen eines Pakets in App Service stellt der Azure CLI-Befehl [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-zip) dar. Beispiel:
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src <filename>.zip
 ```
 
-Da die App-Einstellung `WEBSITE_RUN_FROM_PACKAGE` festgelegt ist, wird der Paketinhalt durch diesen Befehl nicht in das Verzeichnis *D:\home\site\wwwroot* Ihrer App extrahiert. Stattdessen wird die ZIP-Datei unverändert in *D:\home\data\SitePackages*hochgeladen, und es wird eine Datei namens *packagename.txt* im gleichen Verzeichnis erstellt, die den Namen des ZIP-Pakets enthält, das zur Laufzeit geladen werden soll. Wenn Sie Ihr ZIP-Paket auf andere Weise hochladen (beispielsweise per [FTP](deploy-ftp.md)), müssen Sie das Verzeichnis *D:\home\data\SitePackages* und die Datei *packagename.txt* manuell erstellen.
+Da die App-Einstellung `WEBSITE_RUN_FROM_PACKAGE` festgelegt ist, wird der Paketinhalt durch diesen Befehl nicht in das Verzeichnis *D:\home\site\wwwroot* Ihrer App extrahiert. Stattdessen wird die ZIP-Datei unverändert in *D:\home\data\SitePackages* hochgeladen, und es wird eine Datei namens *packagename.txt* im gleichen Verzeichnis erstellt, die den Namen des ZIP-Pakets enthält, das zur Laufzeit geladen werden soll. Wenn Sie Ihr ZIP-Paket auf andere Weise hochladen (beispielsweise per [FTP](deploy-ftp.md)), müssen Sie das Verzeichnis *D:\home\data\SitePackages* und die Datei *packagename.txt* manuell erstellen.
 
 Durch den Befehl wird die App außerdem neu gestartet. Da `WEBSITE_RUN_FROM_PACKAGE` festgelegt ist, bindet App Service das hochgeladene Paket als schreibgeschütztes Verzeichnis *wwwroot* ein und führt die App direkt aus diesem eingebundenen Verzeichnis aus.
 

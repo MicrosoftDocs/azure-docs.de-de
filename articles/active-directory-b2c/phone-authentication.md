@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4a429314d4a992ea93f4c068203371cda769a4ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d4fa80f669493e4dc47a9ad0f9bfe9390d4ab24
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90029149"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953575"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Einrichten von Telefonregistrierung und -anmeldung mit benutzerdefinierten Richtlinien in Azure AD B2C
 
@@ -35,7 +35,7 @@ Einmalkennwörter werden mithilfe von SMS-Textnachrichten an Ihre Benutzer gesen
 > [!NOTE]
 > Wir empfehlen Ihnen dringend, bei der Anmeldung und Registrierung Zustimmungsinformationen ähnlich wie im Beispieltext unten anzugeben. Dieser Beispieltext dient nur zu Informationszwecken. Lesen Sie das Short Code Monitoring Handbook auf der [CTIA-Website](https://www.ctia.org/programs), und wenden Sie sich an Ihre eigenen Rechts- oder Complianceexperten, um eine Anleitung für die Formulierung Ihres endgültigen Texts und für die Featurekonfiguration zur Erfüllung Ihrer eigenen Complianceanforderungen zu erhalten:
 >
-> *Durch die Angabe Ihrer Telefonnummer erklären Sie sich damit einverstanden, eine Einmalkennung per SMS zu erhalten, mit der Sie sich bei *&lt;einfügen: Name Ihrer Anwendung&gt;* anmelden können. Möglicherweise gelten Standardnachrichten- und -datentarife.*
+> *Durch die Angabe Ihrer Telefonnummer erklären Sie sich damit einverstanden, eine Einmalkennung per SMS zu erhalten, mit der Sie sich bei *&lt;Name Ihrer Anwendung einfügen&gt;* anmelden können. Möglicherweise gelten Standardnachrichten- und -datentarife.*
 >
 > *&lt;Einfügen: Link zu Ihrer Datenschutzerklärung&gt;*<br/>*&lt;Einfügen: Link zu Ihren Vertragsbedingungen&gt;*
 
@@ -64,7 +64,7 @@ Ein Einmalprüfcode wird an die Telefonnummer des Benutzers gesendet. Der Benutz
 
 ![Überprüfung des Codes während der Telefonregistrierung durch den Benutzer](media/phone-authentication/phone-signup-verify-code.png)
 
- Der Benutzer gibt auf der Registrierungsseite alle weiteren erforderlichen Informationen ein, z. B. den **Anzeigenamen** , den **Vornamen** und den **Nachnamen** (das Land/die Region und die Telefonnummer sind bereits eingefügt). Wenn der Benutzer eine andere Telefonnummer verwenden möchte, kann er **Nummer ändern** auswählen, um die Registrierung neu zu starten. Wenn der Benutzer fertig ist, wählt er **Weiter** aus.
+ Der Benutzer gibt auf der Registrierungsseite alle weiteren erforderlichen Informationen ein, z. B. den **Anzeigenamen**, den **Vornamen** und den **Nachnamen** (das Land/die Region und die Telefonnummer sind bereits eingefügt). Wenn der Benutzer eine andere Telefonnummer verwenden möchte, kann er **Nummer ändern** auswählen, um die Registrierung neu zu starten. Wenn der Benutzer fertig ist, wählt er **Weiter** aus.
 
 ![Der Benutzer gibt zusätzliche Informationen an.](media/phone-authentication/phone-signup-additional-info.png)
 
@@ -82,7 +82,7 @@ Wenn der Benutzer über ein bestehendes Konto mit der Telefonnummer als Bezeichn
 
 ## <a name="deleting-a-user-account"></a>Löschen eines Benutzerkontos
 
-In bestimmten Fällen müssen Sie möglicherweise einen Benutzer und die zugehörigen Daten aus Ihrem Azure AD B2C-Verzeichnis löschen. Ausführliche Informationen zum Löschen eines Benutzerkontos im Azure-Portal finden Sie [hier](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure#step-5-delete). 
+In bestimmten Fällen müssen Sie möglicherweise einen Benutzer und die zugehörigen Daten aus Ihrem Azure AD B2C-Verzeichnis löschen. Ausführliche Informationen zum Löschen eines Benutzerkontos im Azure-Portal finden Sie [hier](/microsoft-365/compliance/gdpr-dsr-azure#step-5-delete). 
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -108,7 +108,7 @@ In den folgenden Schritten wird davon ausgegangen, dass Sie die [Voraussetzungen
 
 1. Ersetzen Sie in jeder Datei die Zeichenfolge `yourtenant` durch den Namen Ihres Azure AD B2C-Mandanten. Wenn der Name des B2C-Mandanten z.B. *contosob2c* lautet, werden alle Instanzen von `yourtenant.onmicrosoft.com` zu `contosob2c.onmicrosoft.com`.
 
-1. Führen Sie die Schritte im Abschnitt [Hinzufügen von Anwendungs-IDs zur benutzerdefinierten Richtlinie](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) von [Erste Schritte mit benutzerdefinierten Richtlinien in Azure Active Directory B2C](custom-policy-get-started.md) aus. Aktualisieren Sie in diesem Fall `/phone-number-passwordless/`**`Phone_Email_Base.xml`** mit den **Anwendungs-IDs (Client-IDs)** der beiden Anwendungen, die Sie beim Abschließen der Voraussetzungen registriert haben: *IdentityExperienceFramework* und *ProxyIdentityExperienceFramework* .
+1. Führen Sie die Schritte im Abschnitt [Hinzufügen von Anwendungs-IDs zur benutzerdefinierten Richtlinie](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) von [Erste Schritte mit benutzerdefinierten Richtlinien in Azure Active Directory B2C](custom-policy-get-started.md) aus. Aktualisieren Sie in diesem Fall `/phone-number-passwordless/`**`Phone_Email_Base.xml`** mit den **Anwendungs-IDs (Client-IDs)** der beiden Anwendungen, die Sie beim Abschließen der Voraussetzungen registriert haben: *IdentityExperienceFramework* und *ProxyIdentityExperienceFramework*.
 
 ## <a name="upload-the-policy-files"></a>Hochladen der Richtliniendateien
 
@@ -153,7 +153,7 @@ GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssi
 ## <a name="next-steps"></a>Nächste Schritte
 
 Sie finden das Starter Pack für die benutzerdefinierte Richtlinie für Telefonregistrierung und -anmeldung (und andere Starter Packs) auf GitHub: [Azure-Samples/active-directory-b2c-custom-policy-starterpack/scenarios/phone-number-passwordless][starter-pack-phone]. Die Richtliniendateien des Starter Packs verwenden technische Multi-Factor Authentication-Profile und Telefonnummern-Anspruchstransformationen:
-* [Definieren eines technischen Azure Multi-Factor Authentication-Profils](multi-factor-auth-technical-profile.md)
+* [Definieren eines technischen Azure AD Multi-Factor Authentication-Profils](multi-factor-auth-technical-profile.md)
 * [Definieren von Telefonnummern-Anspruchstransformationen](phone-number-claims-transformations.md)
 
 <!-- LINKS - External -->

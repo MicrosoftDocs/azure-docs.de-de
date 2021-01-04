@@ -4,16 +4,18 @@ description: Übersicht über allgemeine Änderungsfeed-Entwurfsmuster
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: ebd1c4f71d71ca70f6d10763d538b1877b0c3539
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 443d00e61e593daacca04a4451b90bb78cc7d854
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489352"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334583"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Änderungsfeed-Entwurfsmuster in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Der Änderungsfeed von Azure Cosmos DB ermöglicht eine effiziente Verarbeitung großer Datasets mit vielen Schreibvorgängen. Der Änderungsfeed bietet zudem eine Alternative zum Abfragen eines gesamten Datasets, um Änderungen zu ermitteln. Dieses Dokument konzentriert sich auf allgemeine Entwurfsmuster für Änderungsfeeds, Entwurfskompromisse und Einschränkungen von Änderungsfeeds.
 
@@ -38,7 +40,7 @@ Sie können auch selektiv eine Benachrichtigung auslösen oder einen Aufruf an e
 Der Änderungsfeed von Azure Cosmos DB kann für Streamverarbeitung in Echtzeit für IoT oder Analysen in Echtzeit für operative Daten verwendet werden.
 Sie empfangen und speichern Ereignisdaten von Geräten, Sensoren, Infrastrukturen und Anwendungen und verarbeiten diese Ereignisse z. B. in Echtzeit mit [Spark](../hdinsight/spark/apache-spark-overview.md). In der folgenden Abbildung wird dargestellt, wie Sie eine Lambda-Architektur mithilfe von Azure Cosmos DB über den Änderungsfeed implementieren können:
 
-:::image type="content" source="./media/change-feed/lambda.png" alt-text="Verwenden des Azure Cosmos DB-Änderungsfeeds für Echtzeitanalysen und ereignisgesteuerte Computingszenarien" border="false":::
+:::image type="content" source="./media/change-feed/lambda.png" alt-text="Azure Cosmos DB-basierte Lambda-Pipeline für die Erfassung und Abfrage" border="false":::
 
 In vielen Fällen empfangen Streamverarbeitungsimplementierungen zunächst eine große Menge eingehender Daten in einer temporären Nachrichtenwarteschlange, z. B. mit Azure Event Hub oder Apache Kafka. Der Änderungsfeed ist eine gute Alternative, weil Azure Cosmos DB eine anhaltend hohe Rate der Datenerfassung mit garantierter geringer Lese- und Schreiblatenz unterstützen kann. Die folgenden Vorteilen ergeben sich, wenn der Änderungsfeed von Azure Cosmos DB über eine Nachrichtenwarteschlange erfolgt:
 

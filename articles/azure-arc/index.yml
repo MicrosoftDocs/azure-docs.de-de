@@ -10,17 +10,20 @@ metadata:
   author: MGoedtel
   ms.author: magoedte
   ms.date: 09/23/2020
-  ms.openlocfilehash: fc48de7ec0be6ce451caff91533dc24606a1e66c
-  ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+  ms.openlocfilehash: 8536c583350e15e63f36a1f8adc3e6c51a9f28ac
+  ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/16/2020
-  ms.locfileid: "92103066"
+  ms.lasthandoff: 12/18/2020
+  ms.locfileid: "97672524"
 highlightedContent:
   items:
   - title: Informationen zu Azure Arc
     itemType: overview
     url: overview.md
+  - title: Schnelleinstieg
+    itemType: sample
+    url: https://azurearcjumpstart.io/overview/
   - title: Server mit Azure Arc-Unterstützung
     itemType: overview
     url: ./servers/overview.md

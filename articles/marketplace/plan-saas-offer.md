@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 8dfc1eb35572a6b706deb47335357417bd837825
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 5f7278a688147842b7dbfab79a20afea2b4a9288
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91819934"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621602"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planen eines SaaS-Angebots im kommerziellen Marketplace
 
@@ -21,7 +21,7 @@ In diesem Artikel werden die verschiedenen Optionen und Anforderungen zum Veröf
 
 ## <a name="listing-options"></a>Auflistungsoptionen
 
-Wenn Sie die Veröffentlichung eines neuen SaaS-Angebots vorbereiten, müssen Sie sich für eine _Auflistungs_-Option entscheiden. Dadurch wird festgelegt, welche zusätzlichen Informationen Sie bei der Erstellung Ihres Angebots im Partner Center bereitstellen müssen. Sie definieren Ihre Auflistungsoption auf der Seite **Angebotseinrichtung**, wie unter [Erstellen eines SaaS-Angebots im kommerziellen Marketplace](create-new-saas-offer.md) erläutert.
+Wenn Sie die Veröffentlichung eines neuen SaaS-Angebots vorbereiten, müssen Sie sich für eine _Auflistungs_-Option entscheiden. Die von Ihnen ausgewählte Auflistungsoption bestimmt, welche zusätzlichen Informationen Sie bei der Erstellung Ihres Angebots im Partner Center bereitstellen müssen. Sie definieren Ihre Auflistungsoption auf der Seite **Angebotseinrichtung**, wie unter [Erstellen eines SaaS-Angebots im kommerziellen Marketplace](create-new-saas-offer.md) erläutert.
 
 In der folgenden Tabelle sind die Auflistungsoptionen für SaaS-Angebote im kommerziellen Marketplace aufgeführt.
 
@@ -30,7 +30,7 @@ In der folgenden Tabelle sind die Auflistungsoptionen für SaaS-Angebote im komm
 | Kontakt mit mir aufnehmen | Der Kunde kontaktiert Sie direkt über die in Ihrer Auflistung enthaltenen Informationen.``*`` |
 | Kostenlose Testversion | Der Kunde wird über Azure Active Directory (Azure AD) an Ihre Ziel-URL umgeleitet.``*`` |
 | Jetzt abrufen (kostenlos) | Der Kunde wird über Azure AD an Ihre Ziel-URL umgeleitet.``*`` |
-| Über Microsoft verkaufen  | Über Microsoft verkaufte Angebote werden als _transaktionsfähige_ Angebote bezeichnet. Bei einem transaktionsfähigen Angebot handelt es sich um ein Angebot, bei dem Microsoft den Geldfluss für eine Softwarelizenz im Namen des Herausgebers vereinfacht. Wir berechnen SaaS-Angebote mit dem von Ihnen gewählten Preismodell und verwalten Kundentransaktionen in Ihrem Namen. Bitte beachten Sie, dass die Nutzung der Azure-Infrastruktur Ihnen als Partner direkt in Rechnung gestellt wird. Deshalb sollten Sie die Infrastrukturkosten in Ihrem Preismodell berücksichtigen. Dies wird im Abschnitt [SaaS-Abrechnung](#saas-billing) weiter unten ausführlich erläutert.  |
+| Über Microsoft verkaufen  | Über Microsoft verkaufte Angebote werden als _transaktionsfähige_ Angebote bezeichnet. Bei einem transaktionsfähigen Angebot handelt es sich um ein Angebot, bei dem Microsoft den Geldfluss für eine Softwarelizenz im Namen des Herausgebers vereinfacht. Wir berechnen SaaS-Angebote mit dem von Ihnen gewählten Preismodell und verwalten Kundentransaktionen in Ihrem Namen. Die Nutzungsgebühren für Azure-Infrastruktur werden Ihnen als Partner direkt in Rechnung gestellt. Deshalb sollten Sie die Infrastrukturkosten in Ihrem Preismodell berücksichtigen. Dies wird im Abschnitt [SaaS-Abrechnung](#saas-billing) weiter unten ausführlich erläutert.  |
 |||
 
 ``*`` Herausgeber sind für die Unterstützung aller Aspekte der Softwarelizenztransaktion verantwortlich, einschließlich, aber nicht beschränkt auf Auftrag, Auftragsabwicklung, Messung, Abrechnung, Rechnungsstellung, Zahlung und Inkasso.
@@ -45,20 +45,20 @@ Nachdem das Angebot veröffentlicht wurde, wird die von Ihnen gewählte Auflistu
 
 Die technischen Anforderungen richten sich nach der Auflistungsoption, die Sie für Ihr Angebot auswählen.
 
-Für die Auflistungsoption _Kontakt mit mir aufnehmen_ gelten keine technischen Anforderungen. Sie haben die Möglichkeit, ein CRM-System zum Verwalten von Kundenleads anzubinden. Dies wird im Abschnitt [Kundenleads](#customer-leads) weiter unten in diesem Artikel beschrieben.
+Für die Auflistungsoption _Kontakt mit mir aufnehmen_ gelten keine technischen Anforderungen. Sie haben die Möglichkeit, ein CRM-System (Customer Relationship Management) zum Verwalten von Kundenleads anzubinden. Dies wird im Abschnitt [Kundenleads](#customer-leads) weiter unten in diesem Artikel beschrieben.
 
 Für die Auflistungsoptionen _Jetzt abrufen (kostenlos)_ , _Kostenlose Testversion_ und _Über Microsoft verkaufen_ gelten die folgenden technischen Anforderungen:
 
 - Ihre SaaS-Anwendung muss eine mehrinstanzenfähige Lösung sein.
 - Zum Authentifizieren von Benutzern können Sie sowohl Microsoft-Konten (MSA) als auch [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) aktivieren.
-- Sie müssen eine Landing Page erstellen. Nachdem sich ein Käufer für das Angebot entschieden hat, wird er auf die Landing Page umgeleitet, um die erforderliche zusätzliche Bereitstellung oder Einrichtung zu vereinfachen. Anleitungen zum Erstellen der Landing Page finden Sie in den folgenden Artikeln:
+- Sie müssen eine Landing Page erstellen. Nachdem ein Benutzer das Angebot erworben hat, wird er auf die Landing Page umgeleitet. Dort können alle erforderlichen zusätzlichen Bereitstellungs- oder Einrichtungsschritte durchgeführt werden. Anleitungen zum Erstellen der Landing Page finden Sie in den folgenden Artikeln:
   - [Erstellen der Landing Page für Ihr transaktionsfähiges SaaS-Angebot im kommerziellen Marketplace](azure-ad-transactable-saas-landing-page.md)
   - [Erstellen der Landing Page für Ihr kostenloses SaaS-Angebot oder Ihr SaaS-Testangebot im kommerziellen Marketplace](azure-ad-free-or-trial-landing-page.md)
 
 Diese zusätzlichen technischen Anforderungen gelten nur für die Auflistungsoption _Über Microsoft verkaufen_ (transaktionsfähig):
 
 - Azure AD mit SSO-Identitätsverwaltung (einmaliges Anmelden) und Authentifizierung ist für den kaufenden Benutzer erforderlich, der auf die Angebotsseite zugreift. Ausführliche Informationen finden Sie unter [Azure AD und transaktionsfähige SaaS-Angebote im kommerziellen Marketplace](azure-ad-saas.md).
-- Zur Integration des Angebots in Azure Marketplace und Microsoft AppSource müssen Sie die [SaaS-Fulfillment-APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md) verwenden. Sie müssen einen Dienst verfügbar machen, der mit dem SaaS-Abonnement interagiert, um Benutzerkonten und Servicepläne erstellen, aktualisieren und löschen zu können. Wichtige API-Änderungen müssen innerhalb von 24 Stunden unterstützt werden. Weniger wichtige API-Änderungen werden regelmäßig veröffentlicht. Diagramme und ausführliche Erläuterungen zur Verwendung der gesammelten Felder finden Sie in der Dokumentation zu den [APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md).
+- Zur Integration des Angebots in Azure Marketplace und Microsoft AppSource müssen Sie die [SaaS-Fulfillment-APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md) verwenden. Sie müssen einen Dienst bereitstellen, der mit dem SaaS-Abonnement interagiert, um Benutzerkonten und Servicepläne erstellen, aktualisieren und löschen zu können. Wichtige API-Änderungen müssen innerhalb von 24 Stunden unterstützt werden. Weniger wichtige API-Änderungen werden regelmäßig veröffentlicht. Diagramme und ausführliche Erläuterungen zur Verwendung der gesammelten Felder finden Sie in der Dokumentation zu den [APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md).
 - Sie müssen mindestens einen Plan für Ihr Angebot erstellen. Der Plan für Ihr Angebot basiert auf dem Preismodell, das Sie vor der Veröffentlichung ausgewählt haben: _Pauschalgebühr_ oder _Pro Benutzer_. Weitere Details zu [Plänen](#plans) finden Sie weiter unten in diesem Artikel.
 - Der Kunde kann Ihr Angebot jederzeit stornieren.
 
@@ -76,7 +76,7 @@ Wenn Sie ein transaktionsfähiges Angebot erstellen, müssen Sie die folgenden I
 
 - **Verbindungswebhook**: Für alle asynchronen Ereignisse, die Microsoft an Sie senden muss (etwa, wenn das SaaS-Abonnement gekündigt wurde), muss eine Verbindungswebhook-URL angegeben werden. Diese URL wird aufgerufen, um Sie über das Ereignis zu informieren.
 
-  Der von Ihnen bereitgestellte Webhook sollte rund um die Uhr aktiv sein, da dies die einzige Möglichkeit ist, Sie über Aktualisierungen der SaaS-Abonnements Ihrer Kunden, die über den kommerziellen Marketplace erworben wurden, zu benachrichtigen.
+  Der von Ihnen bereitgestellte Webhook sollte rund um die Uhr aktiv sein. Dies ist die einzige Möglichkeit, Sie über Aktualisierungen der SaaS-Abonnements Ihrer Kunden, die über den kommerziellen Marketplace erworben wurden, zu benachrichtigen.
 
   > [!NOTE]
   > Innerhalb des Azure-Portals muss eine [Azure Active Directory-App](../active-directory/develop/howto-create-service-principal-portal.md) mit nur einem Mandanten erstellt werden, damit die Verbindung zwischen unseren beiden Diensten durch eine Azure-App-ID authentifiziert werden kann. Um die [Mandanten-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) zu ermitteln, wechseln Sie zu Azure Active Directory, wählen Sie **Eigenschaften** aus, und suchen Sie nach der aufgeführten Verzeichnis-ID-Nummer. Beispiel: `50c464d3-4930-494c-963c-1e951d15360e`.
@@ -104,7 +104,26 @@ Eine CRM-Verbindung kann während der Angebotserstellung zu einem beliebigen Zei
 
 ## <a name="selecting-an-online-store"></a>Auswählen eines Onlineshops
 
-Wenn Sie ein SaaS-Angebot veröffentlichen, wird es in Microsoft AppSource, Azure Marketplace oder beidem aufgelistet. Jeder Onlineshop erfüllt bestimmte Kundenanforderungen. AppSource ist für Geschäftslösungen und Azure Marketplace für IT-Lösungen vorgesehen. Ihr Angebotstyp, Ihre Transaktionsfunktionen und Ihre Kategorien bestimmen, wo Ihr Angebot veröffentlicht wird. Kategorien und Unterkategorien werden den einzelnen Onlineshops basierend auf dem Lösungstyp zugeordnet. Ausführliche Informationen zum Auswählen eines Onlineshops finden Sie unter [Auswählen eines Onlineshops](determine-your-listing-type.md#selecting-an-online-store).
+Wenn Sie ein SaaS-Angebot veröffentlichen, wird es in Microsoft AppSource, Azure Marketplace oder beidem aufgelistet. Jeder Onlineshop erfüllt bestimmte Kundenanforderungen. AppSource ist für Geschäftslösungen und Azure Marketplace für IT-Lösungen vorgesehen. Ihr Angebotstyp, Ihre Transaktionsfunktionen und Ihre Kategorien bestimmen, wo Ihr Angebot veröffentlicht wird. Kategorien und Unterkategorien werden den einzelnen Onlineshops basierend auf dem Lösungstyp zugeordnet. 
+
+Wenn Ihr SaaS-Angebot eine IT-Lösung (Azure Marketplace) *und* eine Geschäftslösung (AppSource) ist, wählen Sie eine Kategorie und Unterkategorie aus, die für jeden Onlineshop gilt. Bei Angeboten, die in beiden Onlineshops veröffentlicht werden, sollte sich das Nutzenversprechen auf eine IT-Lösung *und* auf eine Geschäftslösung beziehen.
+
+> [!IMPORTANT]
+> SaaS-Angebote mit [getakteter Abrechnung](partner-center-portal/saas-metered-billing.md) sind über den Azure Marketplace und das Azure-Portal verfügbar. SaaS-Angebote, die nur private Pläne umfassen, sind über das Azure-Portal verfügbar.
+
+| Getaktete Abrechnung | Öffentlicher Plan | Privater Tarif | Verfügbar in: |
+|---|---|---|---|
+| Ja             | Ja         | Nein           | Azure Marketplace und Azure-Portal |
+| Ja             | Ja         | Ja          | Azure Marketplace und Azure-Portal* |
+| Ja             | Nein          | Ja          | Nur Azure-Portal |
+| Nein              | Nein          | Ja          | Nur Azure-Portal |
+|||||
+
+&#42; Der private Plan des Angebots ist nur über das Azure-Portal verfügbar.
+
+Beispielsweise wird ein Angebot mit getakteter Abrechnung, das nur einen privaten Plan (keinen öffentlichen Plan) umfasst, von Kunden im Azure-Portal erworben. Erfahren Sie mehr über [Private Angebote im kommerziellen Microsoft-Marketplace](private-offers.md).
+
+Ausführliche Informationen zu Auflistungsoptionen, die von Onlineshops unterstützt werden, finden Sie unter [Auslistungs- und Preisoptionen nach Onlineshop](determine-your-listing-type.md#listing-and-pricing-options-by-online-store). Weitere Informationen zu Kategorien und Unterkategorien finden Sie unter [Kategorien und Unterkategorien im kommerziellen Marketplace](categories.md).
 
 ## <a name="legal-contracts"></a>Verträge
 
@@ -154,19 +173,19 @@ Um das Angebot einfacher zu gestalten, können Sie einige dieser Elemente vorab 
 - **Name**: Dieser Name wird als Titel Ihrer Angebotsliste im kommerziellen Marketplace angezeigt. Der Name ist möglicherweise markenrechtlich geschützt. Er darf keine Emojis (mit Ausnahme des Markenzeichen- und Copyrightsymbols) enthalten und muss auf 50 Zeichen begrenzt sein.
 - **Zusammenfassung der Suchergebnisse**: Beschreiben Sie den Zweck oder die Funktion des Angebots in einem Satz ohne Zeilenumbrüche und mit höchstens 100 Zeichen. Diese Zusammenfassung wird in den Suchergebnissen verwendet, die aus Auflistungen im kommerziellen Marketplace erfasst werden.
 - **Beschreibung**: Diese Beschreibung wird in der Übersicht der Auflistungen im kommerziellen Marketplace angezeigt. Sie können z. B ein Wertversprechen, wichtige Vorteile, Zielgruppe, Kategorie- oder Branchenzuordnungen, Möglichkeiten für In-App-Käufe, erforderliche Veröffentlichungen und einen Link zu weiteren Informationen eingeben.
-    
-    Dieses Textfeld enthält Rich-Text-Editor-Steuerelemente, mit denen Sie die Beschreibung ansprechender gestalten können. Die Beschreibung kann mithilfe von HTML-Tags formatiert werden. Sie können in diesem Feld bis zu 3.000 Zeichen Text eingeben, einschließlich HTML-Markup. Weitere Tipps finden Sie unter [Erstellen einer interessanten App-Beschreibung](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
+
+    Dieses Textfeld enthält Rich-Text-Editor-Steuerelemente, mit denen Sie die Beschreibung ansprechender gestalten können. Die Beschreibung kann mithilfe von HTML-Tags formatiert werden. Sie können in diesem Feld bis zu 3.000 Zeichen Text eingeben, einschließlich HTML-Markup. Weitere Tipps finden Sie unter [Erstellen einer interessanten App-Beschreibung](/windows/uwp/publish/write-a-great-app-description).
 
 - **Anweisungen zu den ersten Schritten**: Wenn Sie Ihr Angebot über Microsoft (transaktionsfähiges Angebot) verkaufen möchten, muss dieses Feld ausgefüllt werden. Diese Anweisungen helfen Kunden, eine Verbindung mit Ihrem SaaS-Angebot herzustellen. Sie können bis zu 3.000 Zeichen Text sowie Links zu einer ausführlicheren Onlinedokumentation hinzufügen.
 - **Suchbegriffe** (optional): Geben Sie bis zu drei Suchbegriffe ein, mit denen Kunden in den Onlineshops nach Ihrem Angebot suchen können. Sie müssen den **Namen** und die **Beschreibung** des Angebots nicht einschließen: Dieser Text wird automatisch in die Suche aufgenommen.
 - **Link zur Datenschutzrichtlinie**: Die URL zur Datenschutzrichtlinie Ihres Unternehmens. Sie müssen eine gültige Datenschutzrichtlinie bereitstellen und sicherstellen, dass die App die Datenschutzgesetze und -bestimmungen erfüllt.
-- **Kontaktinformationen**: Die folgenden Kontakte müssen in Ihrem Unternehmen festgelegt werden:
+- **Kontaktinformationen**: Sie müssen die folgenden Kontakte in Ihrer Organisation bereitstellen:
   - **Supportkontakt**: Geben Sie den Namen, die Telefonnummer und die E-Mail-Adresse für Microsoft-Partner an. Diese werden dann von Kunden bei der Eröffnung von Supporttickets verwendet. Sie müssen auch die URL für Ihre Supportwebsite einschließen.
   - **Technischer Ansprechpartner**: Geben Sie den Namen, die Telefonnummer und die E-Mail-Adresse an, die Microsoft direkt verwenden kann, wenn es Probleme mit Ihrem Angebot gibt. Diese Kontaktinformationen sind nicht im kommerziellen Marketplace aufgeführt.
   - **Ansprechpartner für CSP-Programm** (optional): Geben Sie den Namen, die Telefonnummer und die E-Mail-Adresse an, wenn Sie sich für das CSP-Programm entscheiden, damit Sie bei Fragen von Partnern kontaktiert werden können. Sie können auch eine URL zu Ihren Marketingmaterialien hinzufügen.
 - **Nützliche Links** (optional): Sie können für Benutzer Ihres Angebots Links zu verschiedenen Ressourcen bereitstellen. Beispiele: Foren, FAQ und Versionshinweise.
 - **Unterstützende Dokumente**: Sie können bis zu drei kundenorientierte Dokumente bereitstellen, z. B. Whitepaper, Broschüren, Checklisten oder PowerPoint-Präsentationen.
-- **Medien – Logos**: Geben Sie eine PNG-Datei für das **große** Logo an. Dies wird in Partner Center verwendet, um ein **kleines** und ein **mittleres** Logo zu erstellen. Sie können diese Logos später durch andere Bilder ersetzen.
+- **Medien – Logos**: Stellen Sie eine PNG-Datei für das **große** Logo bereit. Dies wird in Partner Center verwendet, um ein **kleines** und ein **mittleres** Logo zu erstellen. Sie können diese Logos später durch andere Bilder ersetzen.
 
    - Groß (von 216 × 216 bis 350 × 350 Pixel, erforderlich)
    - Mittel (90 × 90 Pixel, optional)
@@ -188,7 +207,7 @@ Um das Angebot einfacher zu gestalten, können Sie einige dieser Elemente vorab 
   - Miniaturansicht: PNG-Datei (1280 x 720)
 
 > [!Note]
-> Ihr Angebot muss die allgemeinen [Zertifizierungsrichtlinien für den kommerziellen Marketplace](https://docs.microsoft.com/legal/marketplace/certification-policies#100-general) und die [Software-as-a-Service-Richtlinien](https://docs.microsoft.com/legal/marketplace/certification-policies#1000-software-as-a-service-saas) für die Veröffentlichung auf dem kommerziellen Marketplace erfüllen.
+> Ihr Angebot muss die allgemeinen [Zertifizierungsrichtlinien für den kommerziellen Marketplace](/legal/marketplace/certification-policies#100-general) und die [Software-as-a-Service-Richtlinien](/legal/marketplace/certification-policies#1000-software-as-a-service-saas) für die Veröffentlichung auf dem kommerziellen Marketplace erfüllen.
 
 ## <a name="preview-audience"></a>Vorschauzielgruppe
 Eine Vorschauzielgruppe erhält vor der Liveveröffentlichung in den Onlineshops Zugriff auf Ihr Angebot, um die End-to-End-Funktionalität vorab zu testen. Auf der Seite **Vorschauzielgruppe** können Sie eine eingeschränkte Vorschauzielgruppe definieren. Diese Einstellung ist nicht verfügbar, wenn Sie Transaktionen unabhängig abwickeln möchten, anstatt ihr Angebot über Microsoft zu verkaufen. Wenn dies der Fall ist, können Sie diesen Abschnitt überspringen und zu [Zusätzliche Verkaufschancen](#additional-sales-opportunities) wechseln.
@@ -221,7 +240,7 @@ Für SaaS-Apps, die in Ihrem Azure-Abonnement (Herausgeber) ausgeführt werden, 
 
 SaaS-Apps, die über Microsoft verkauft werden, unterstützen die monatliche oder jährliche Abrechnung auf der Grundlage einer Pauschalgebühr, pro Benutzer oder gemäß der über den [Gebührenabrechnungsdienst](./partner-center-portal/saas-metered-billing.md) ermittelten Nutzungsgebühren. Der kommerzielle Marketplace funktioniert nach einem Agenturmodell, bei dem die Herausgeber die Preise festlegen, Microsoft den Kunden Rechnungen stellt und Microsoft die Einnahmen dann unter Einbehaltung einer Agenturgebühr an die Herausgeber auszahlt.
 
-Hier sehen Sie eine exemplarische Aufschlüsselung der Kosten und Auszahlungen zur Veranschaulichung des Agenturmodells. In diesem Beispiel stellt Microsoft 100,00 USD dem Kunden für Ihre Softwarelizenz in Rechnung und zahlt 80,00 USD an den Herausgeber aus.
+Das folgende Beispiel zeigt eine exemplarische Aufschlüsselung der Kosten und Auszahlungen zur Veranschaulichung des Agenturmodells. In diesem Beispiel stellt Microsoft 100,00 USD dem Kunden für Ihre Softwarelizenz in Rechnung und zahlt 80,00 USD an den Herausgeber aus.
 
 | Ihre Lizenzkosten | 100 USD pro Monat |
 | ------------ | ------------- |
@@ -231,15 +250,15 @@ Hier sehen Sie eine exemplarische Aufschlüsselung der Kosten und Auszahlungen z
 | Microsoft zahlt Ihnen 80% Ihrer Lizenzkosten<br>`*` Für qualifizierte SaaS-Apps zahlt Microsoft 90 % Ihrer Lizenzkosten| 80,00 USD pro Monat<br>``*`` 90,00 USD pro Monat |
 |||
 
-**`*` Reduzierte Marketplace-Dienstgebühr:** Für bestimmte SaaS-Angebote, die Sie im kommerziellen Marketplace veröffentlicht haben, reduziert Microsoft die Marketplace-Dienstgebühr von 20 Prozent (wie im Microsoft-Herausgebervertrag angegeben) auf 10 Prozent. Damit Ihre Angebote qualifiziert sind, müssen sie von Microsoft als gefördert für Azure IP-Co-Selling gekennzeichnet worden sein. Die Anforderungen für die Berechtigung müssen mindestens fünf (5) Arbeitstage vor dem Ende eines jeden Kalendermonats erfüllt sein, damit die reduzierte Marketplace-Dienstgebühr für den Monat in Anspruch genommen werden kann. Die reduzierte Marketplace-Dienstgebühr gilt auch für VMs, verwaltete Apps und andere berechtigte transaktionsfähige IaaS-Angebote im Rahmen der Azure IP-Co-Selling-Incentives, die über den kommerziellen Marketplace bereitgestellt werden.
+**`*` Reduzierte Marketplace-Dienstgebühr:** Für bestimmte SaaS-Angebote, die Sie im kommerziellen Marketplace veröffentlicht haben, reduziert Microsoft die Marketplace-Dienstgebühr von 20 Prozent (wie im Microsoft-Herausgebervertrag angegeben) auf 10 Prozent. Damit Ihre Angebote qualifiziert sind, müssen sie von Microsoft als gefördert für Azure IP-Co-Selling gekennzeichnet worden sein. Die Anforderungen für die Berechtigung müssen mindestens fünf (5) Arbeitstage vor dem Ende eines jeden Kalendermonats erfüllt sein, damit die reduzierte Marketplace-Dienstgebühr für den Monat in Anspruch genommen werden kann. Einzelheiten zur Berechtigung für das IP-Co-Selling finden Sie unter [Requirements for Co-sell Status](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status) (Anforderungen für den Co-Selling-Status). Die reduzierte Marketplace-Dienstgebühr gilt auch für VMs, verwaltete Apps und andere berechtigte transaktionsfähige IaaS-Angebote im Rahmen der Azure IP-Co-Selling-Incentives, die über den kommerziellen Marketplace bereitgestellt werden.
 
 ## <a name="additional-sales-opportunities"></a>Zusätzliche Verkaufschancen
 
 Sie haben die Möglichkeit, sich für von Microsoft unterstützte Marketing- und Vertriebskanäle zu entscheiden. Wenn Sie Ihr Angebot im Partner Center erstellen, werden gegen Ende des Prozesses zwei Registerkarten angezeigt:
 
-- **Verkauf über CSPs**: Verwenden Sie diese Option, um Microsoft CSP-Partnern (Cloud Solution Providers) zu ermöglichen, Ihre Lösung als Teil eines Bundleangebots weiterzuverkaufen. Weitere Informationen finden Sie unter [Cloud-Lösungsanbieter-Programm](cloud-solution-providers.md).
+- **Verkauf über CSPs**: Verwenden Sie diese Option, um Microsoft CSP-Partnern (Cloud Solution Providers) zu ermöglichen, Ihre Lösung als Teil eines Bundleangebots weiterzuverkaufen. Weitere Informationen zu diesem Programm finden Sie unter [Cloud Solution Provider-Programm](cloud-solution-providers.md).
 
-- **Co-Selling mit Microsoft**: Mit dieser Option können die Microsoft-Verkaufsteams Ihre für IP-Co-Selling in Frage kommende Lösung in Betracht ziehen, wenn sie Kundenanforderungen evaluieren. Ausführliche Informationen dazu, wie Sie Ihr Angebot auf die Evaluierung vorbereiten können, finden Sie unter [Co-Selling-Features im Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md).
+- **Co-Selling mit Microsoft**: Mit dieser Option können die Microsoft-Verkaufsteams Ihre für IP-Co-Selling in Frage kommende Lösung in Betracht ziehen, wenn sie Kundenanforderungen evaluieren. Einzelheiten zur Berechtigung für das Co-Selling finden Sie unter [Requirements for Co-sell Status](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status) (Anforderungen für den Co-Selling-Status). Ausführliche Informationen dazu, wie Sie Ihr Angebot auf die Auswertung vorbereiten, finden Sie unter [Co-Selling-Option im Partner Center](commercial-marketplace-co-sell.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

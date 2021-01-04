@@ -16,12 +16,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ca5361d8500ecd4ea22a577d0a4dc7ced606eab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b45decd2f2cf9c99cffb0e08d4d6a5c5cfafc67
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89275901"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858398"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Wiederherstellen der LocalDB-Obergrenze von 10 GB
 Azure AD Connect erfordert eine SQL Server-Datenbank zum Speichern von Identitätsdaten. Sie können entweder die mit Azure AD Connect installierte SQL Server 2012 Express LocalDB-Standardinstanz oder Ihre eigene vollständige Version von SQL Server verwenden. In SQL Server Express gilt eine Größenbeschränkung von 10 GB. Wenn Sie LocalDB verwenden und dieser Grenzwert erreicht ist, kann Azure AD Connect Synchronization Service nicht mehr ordnungsgemäß gestartet oder synchronisiert werden. In diesem Artikel werden die Schritte zur Wiederherstellung beschrieben.
@@ -55,7 +55,7 @@ Bestimmen Sie zunächst, ob Synchronization Service noch ausgeführt wird:
 5. Wird der Dienst nicht ausgeführt, versuchen Sie, ihn neu zu starten. Wird der Dienst gestartet, überspringen Sie den Schritt [Verkleinern der Datenbank](#shrink-the-database), und fahren Sie mit dem Schritt [Löschen der Ausführungsverlaufsdaten](#delete-run-history-data) fort. Andernfalls führen Sie den Schritt zum [Verkleinern der Datenbank](#shrink-the-database) aus.
 
 ### <a name="shrink-the-database"></a>Verkleinern der Datenbank
-Verwenden Sie den Verkleinerungsvorgang, um genügend Datenbankspeicherplatz zum Starten von Synchronization Service freizugeben. Datenbankspeicherplatz wird durch Entfernen von Leerzeichen in der Datenbank freigegeben. Dieser Schritt ist eine Empfehlung, es kann jedoch nicht garantiert werden, dass immer Speicherplatz freigegeben werden kann. Weitere Informationen zum Verkleinerungsvorgang finden Sie im Artikel [Verkleinern einer Datenbank](/sql/relational-databases/databases/shrink-a-database?view=sql-server-ver15).
+Verwenden Sie den Verkleinerungsvorgang, um genügend Datenbankspeicherplatz zum Starten von Synchronization Service freizugeben. Datenbankspeicherplatz wird durch Entfernen von Leerzeichen in der Datenbank freigegeben. Dieser Schritt ist eine Empfehlung, es kann jedoch nicht garantiert werden, dass immer Speicherplatz freigegeben werden kann. Weitere Informationen zum Verkleinerungsvorgang finden Sie im Artikel [Verkleinern einer Datenbank](/sql/relational-databases/databases/shrink-a-database).
 
 > [!IMPORTANT]
 > Überspringen Sie diesen Schritt, wenn Sie Synchronization Service ausführen können. Es wird nicht empfohlen, die SQL-Datenbank zu verkleinern, da dies aufgrund erhöhter Fragmentierung zu Leistungseinbußen führen kann.

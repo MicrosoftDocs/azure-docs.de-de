@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: include
 ms.custom: include file
 ms.author: roy-har
-ms.openlocfilehash: 9965e4c856fdef2af17b116264ad5344ebc97eb2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 081b9288d091e26d0e6d30aa849ced18a3c2ffb6
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84466922"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938459"
 ---
 Erstellen Sie die Pizza-App.
 
@@ -59,7 +59,7 @@ Ihre Pizza-App ist jetzt einsatzbereit.
 
 ## <a name="record-the-access-values-for-your-pizza-app"></a>Aufzeichnen der Zugriffswerte für Ihre Pizza-App
 
-Um Ihre neue Pizza-App zu verwenden, benötigen Sie die App-ID, den Erstellungsschlüssel und den Erstellungsendpunkt Ihrer Pizza-App.
+Um Ihre neue Pizza-App zu verwenden, benötigen Sie die App-ID, den Erstellungsschlüssel und den Erstellungsendpunkt Ihrer Pizza-App. Sie benötigen einen separaten Vorhersageendpunkt und Vorhersageschlüssel, um Vorhersagen zu treffen.
 
 So finden Sie diese Werte:
 
@@ -67,5 +67,5 @@ So finden Sie diese Werte:
 1. Notieren Sie auf der Seite **Anwendungseinstellungen** die **App-ID**.
 1. Wählen Sie **Azure-Ressourcen** aus.
 1. Wählen Sie **Erstellungsressource** aus.
-1. Notieren Sie sich den auf der Registerkarte **Erstellungsressource** angegebenen Wert für **Primärschlüssel**. Dieser Wert ist der Erstellungsschlüssel.
+1. Notieren Sie den **Primärschlüssel**, der auf den Registerkarten **Erstellungsressource** und **Vorhersageressourcen** vermerkt ist. Dieser Wert ist der Erstellungsschlüssel.
 1. Notieren Sie die **Endpunkt-URL**. Dieser Wert ist der Erstellungsendpunkt.

@@ -7,12 +7,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: b3ab711f6d324c6d49eda0dccd88a3f2ac939eb5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 2735aec0f95f5e282bb1dffba6e4f42f966cf117
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461582"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186540"
 ---
 # <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer-preview"></a>Abfragen exportierter Daten aus Azure Monitor mit Azure Data Explorer (Vorschau)
 Das Exportieren von Daten aus Azure Monitor in ein Azure Storage-Konto ermöglicht eine kostengünstige Aufbewahrung und bietet die Möglichkeit, Protokolle verschiedenen Regionen neu zuzuordnen. Verwenden Sie Azure Data Explorer, um Daten abzufragen, die aus Ihrem Log Analytics-Arbeitsbereich exportiert wurden. Nach der Konfiguration stehen unterstützte Tabellen, die von Ihren Arbeitsbereichen an ein Azure Storage-Konto gesendet werden, als Datenquelle für Azure Data Explorer bereit.
@@ -43,7 +43,7 @@ Verwenden Sie [externe Tabellen](/azure/data-explorer/kusto/query/schema-entitie
 
 Um einen Verweis zu erstellen, benötigen Sie das Schema der exportierten Tabelle. Verwenden Sie den [getschema](/azure/data-explorer/kusto/query/getschemaoperator)-Operator von Log Analytics, um diese Informationen abzurufen, zu denen auch die Spalten der Tabelle und deren Datentypen gehören.
 
-:::image type="content" source="media\azure-data-explorer-query-storage\exported-data-map-schema.jpg" alt-text="Ablauf zur Abfrage exportierter Daten mit Azure Data Explorer":::
+:::image type="content" source="media\azure-data-explorer-query-storage\exported-data-map-schema.jpg" alt-text="Log Analytics-Tabellenschema":::
 
 Sie können nun die Ausgabe verwenden, um die Kusto-Abfrage zum Erstellen der externen Tabelle zu erzeugen.
 Folgen Sie den Anweisungen unter [Erstellen und Ändern externer Tabellen in Azure Storage oder Azure Data Lake](/azure/data-explorer/kusto/management/external-tables-azurestorage-azuredatalake), erstellen Sie eine externe Tabelle in einem JSON-Format, und führen Sie dann die Abfrage aus Ihrer Azure Data Explorer-Datenbank aus.
@@ -56,12 +56,12 @@ Mit dem folgenden PowerShell-Skript werden die [create](/azure/data-explorer/kus
 ```powershell
 PARAM(
     $resourcegroupname, #The name of the Azure resource group
-    $TableName, # The log lanlyics table you wish to convert to external table
+    $TableName, # The Log Analytics table you wish to convert to external table
     $MapName, # The name of the map
     $subscriptionId, #The ID of the subscription
-    $WorkspaceId, # The log lanlyics WorkspaceId
-    $WorkspaceName, # The log lanlyics workspace name
-    $BlobURL, # The Blob URL where to save
+    $WorkspaceId, # The Log Analytics WorkspaceId
+    $WorkspaceName, # The Log Analytics workspace name
+    $BlobURL, # The Blob URL where the data is saved
     $ContainerAccessKey, # The blob container Access Key (Option to add a SAS url)
     $ExternalTableName = $null # The External Table name, null to use the same name
 )
@@ -116,12 +116,13 @@ Write-Host -ForegroundColor Green $createMapping
 
 Die folgende Abbildung zeigt ein Beispiel der Ausgabe.
 
-:::image type="content" source="media/azure-data-explorer-query-storage/external-table-create-command-output.png" alt-text="Ablauf zur Abfrage exportierter Daten mit Azure Data Explorer":::
+:::image type="content" source="media/azure-data-explorer-query-storage/external-table-create-command-output.png" alt-text="Ausgabe des create-Befehls für eine externe Tabelle":::
 
 [![Beispielausgabe](media/azure-data-explorer-query-storage/external-table-create-command-output.png)](media/azure-data-explorer-query-storage/external-table-create-command-output.png#lightbox)
 
 >[!TIP]
->Sie können die Ausgabe des Skripts kopieren, einfügen und dann in Ihrem Azure Data Explorer-Clienttool ausführen, um die Tabelle und die Zuordnung zu erstellen.
+>* Sie können die Ausgabe des Skripts kopieren, einfügen und dann in Ihrem Azure Data Explorer-Clienttool ausführen, um die Tabelle und die Zuordnung zu erstellen.
+>* Wenn Sie alle Daten im Container verwenden möchten, passen Sie das Skript an, und ändern Sie die URL in „https://your.blob.core.windows.net/containername;SecKey“.
 
 ## <a name="query-the-exported-data-from-azure-data-explorer"></a>Abfragen der exportierten Daten aus Azure Data Explorer 
 
@@ -135,4 +136,4 @@ external_table("HBTest","map") | take 10000
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Erfahren Sie mehr über das [Schreiben von Abfragen in Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/write-queries).
+- Erfahren Sie mehr über das [Schreiben von Abfragen in Azure Data Explorer](/azure/data-explorer/write-queries).

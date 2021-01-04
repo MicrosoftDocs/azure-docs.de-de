@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 4bcd0f6d4d1ac505598c839f89850f9b55a9c36a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d05395f97aded0b57780f898e9cba6ddca491f95
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977492"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005815"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>Installieren von Update 1.0 für Ihr StorSimple Virtual Array
 
@@ -102,26 +102,26 @@ Dieser Vorgang dauert etwa vier Minuten. Führen Sie die folgenden Schritte aus,
 
 1. Wechseln Sie auf der lokalen Webbenutzeroberfläche zu **Wartung** > **Softwareupdate**. Notieren Sie sich die Softwareversion, die Sie ausführen. **Fahren Sie mit dieser Aktualisierung nur fort, wenn Sie Update 0.6 (10.0.10293.0) verwenden. Sollten Sie eine ältere Version verwenden, [installieren Sie zunächst das Update 0.6](storsimple-virtual-array-install-update-06.md) auf Ihrem Gerät, und wenden Sie dann Update 1 an.**
    
-    ![Aktualisieren des Geräts 1](./media/storsimple-virtual-array-install-update-1/update1m.png)
+    ![Der Screenshot zeigt die im Menü „Wartung“ ausgewählte Option „Softwareupdate“.](./media/storsimple-virtual-array-install-update-1/update1m.png)
 
-2. Geben Sie in **Updatedateipfad**den Dateinamen für das Update oder den Hotfix ein. Sie können auch zur Installationsdatei des Updates oder Hotfixes navigieren, sofern sie auf einer Netzwerkfreigabe abgelegt wurde. Klicken Sie auf **Anwenden**.
+2. Geben Sie in **Updatedateipfad** den Dateinamen für das Update oder den Hotfix ein. Sie können auch zur Installationsdatei des Updates oder Hotfixes navigieren, sofern sie auf einer Netzwerkfreigabe abgelegt wurde. Klicken Sie auf **Anwenden**.
    
-    ![Aktualisieren des Geräts 2](./media/storsimple-virtual-array-install-update-1/update2m.png)
+    ![Der Screenshot zeigt auf der Seite „Softwareupdate“ die aktuelle Softwareversion und das Textfeld „Updatedateipfad“.](./media/storsimple-virtual-array-install-update-1/update2m.png)
 
 3. Es wird eine Warnung angezeigt. Da das virtuelle Array ein Gerät mit einem Einzelknoten ist, wird das Gerät nach dem Anwenden des Updates neu gestartet, und es kommt zu einer Ausfallzeit. Klicken Sie auf das Häkchensymbol.
    
-   ![Aktualisieren des Geräts 3](./media/storsimple-virtual-array-install-update-1/update3m.png)
+   ![Der Screenshot zeigt ein Dialogfeld mit einer Warnung zur Ausfallzeit.](./media/storsimple-virtual-array-install-update-1/update3m.png)
 
 4. Das Update wird gestartet. Nachdem das Gerät erfolgreich aktualisiert wurde, wird es neu gestartet. Auf die lokale Benutzeroberfläche kann währenddessen nicht zugegriffen werden.
    
-    ![Aktualisieren des Geräts 4](./media/storsimple-virtual-array-install-update-1/update5m.png)
+    ![Der Screenshot zeigt eine Erfolgsmeldung für das Update.](./media/storsimple-virtual-array-install-update-1/update5m.png)
 
 5. Nach dem Neustart wird die Seite **Anmelden** angezeigt. Um sicherzustellen, dass die Gerätesoftware aktualisiert wurde, wechseln Sie auf der lokalen Webbenutzeroberfläche zu **Wartung** >  **Softwareupdate**. Als Softwareversion sollte **10.0.0.0.0.10296** (für Update 1.0) angezeigt werden.
    
    > [!NOTE]
    > Die Softwareversionen werden in der lokalen Webbenutzeroberfläche und im Azure-Portal etwas unterschiedlich angegeben. Beispiel: Die lokale Webbenutzeroberfläche gibt **10.0.0.0.0.10296** an, das Azure-Portal aber **10.0.10296.0**, obwohl es sich um dieselbe Version handelt.
    
-    ![Aktualisieren des Geräts 5](./media/storsimple-virtual-array-install-update-1/update6m.png)
+    ![Der Screenshot zeigt die Seite „Softwareupdate“ mit der aktuellen Softwareversion.](./media/storsimple-virtual-array-install-update-1/update6m.png)
 
 6. Wiederholen Sie die Schritte 2 bis 4, um mithilfe der Dateien `windows8.1-kb4012213-x64` die Windows-Sicherheitsfixes zu installieren. Das virtuelle Array wird nach der Installation neu gestartet, und Sie müssen sich bei der lokalen Webbenutzeroberfläche neu anmelden.
 

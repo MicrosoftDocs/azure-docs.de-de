@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 06/30/2020
-  ms.openlocfilehash: 931a6cf2ce644d84553cf35d1c5d912ca2d81160
-  ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+  ms.openlocfilehash: 59d95b8ce13161999c06993cbbf9194a66e38ed3
+  ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/16/2020
-  ms.locfileid: "92123850"
+  ms.lasthandoff: 11/25/2020
+  ms.locfileid: "96122500"
 highlightedContent:
   items:
   - title: Was ist IoT Central?
@@ -40,7 +40,7 @@ conceptualContent:
   items:
   - title: Verbinden und Entwickeln von Geräten
     links:
-    - url: ./core/tutorial-connect-device-nodejs.md
+    - url: ./core/tutorial-connect-device.md
       itemType: tutorial
       text: Verbinden eines Geräts
     - url: ./core/concepts-get-connected.md

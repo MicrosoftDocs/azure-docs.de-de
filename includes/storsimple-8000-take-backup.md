@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 48a3326dbe0e9eed4a5490e720248555586d189c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e923fdf560692c645c8a69e7e26d13f69d6920c
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67178143"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376152"
 ---
 ### <a name="to-take-a-backup"></a>So erstellen Sie eine Sicherung
 
@@ -19,13 +19,13 @@ ms.locfileid: "67178143"
 
 2. Klicken Sie auf dem Blatt **Sicherungsrichtlinie** auf **+ Richtlinie hinzufügen**.
 
-    ![Sicherungsrichtlinie hinzufügen](./media/storsimple-8000-take-backup/step8takebu2.png)
+    ![Hinzufügen einer Sicherungsrichtlinie 2](./media/storsimple-8000-take-backup/step8takebu2.png)
 
 3. Geben Sie auf dem Blatt **Sicherungsrichtlinie erstellen** einen Namen für Ihre Sicherungsrichtlinie mit 3 bis 150 Zeichen ein.
 
 4. Wählen Sie die Volumes aus, die gesichert werden sollen. Wenn Sie mehrere Volumes auswählen, werden diese gruppiert, um eine absturzkonsistente Sicherung zu erstellen.
 
-    ![Sicherungsrichtlinie hinzufügen](./media/storsimple-8000-take-backup/step8takebu4.png)
+    ![Hinzufügen einer Sicherungsrichtlinie 3](./media/storsimple-8000-take-backup/step8takebu4.png)
 
 5. Auf dem Blatt **Ersten Zeitplan hinzufügen**:
 
@@ -35,11 +35,11 @@ ms.locfileid: "67178143"
     4. Wählen Sie die Startzeit und das Datum für die Richtlinie aus.
     5. Klicken Sie auf **OK**, um die Sicherungsrichtlinie zu erstellen.
 
-        ![Sicherungsrichtlinie hinzufügen](./media/storsimple-8000-take-backup/step8takebu5.png) 
+        ![Hinzufügen einer Sicherungsrichtlinie 4](./media/storsimple-8000-take-backup/step8takebu5.png) 
 
 6. Klicken Sie auf **Erstellen**, um die Erstellung der Sicherungsrichtlinie zu starten. Sie werden benachrichtigt, wenn die Sicherungsrichtlinie erfolgreich erstellt wurde. Die Liste der Sicherungsrichtlinien wird ebenfalls aktualisiert.
       
-      ![Sicherungsrichtlinie hinzufügen](./media/storsimple-8000-take-backup/step8takebu9.png)
+      ![Hinzufügen einer Sicherungsrichtlinie 5](./media/storsimple-8000-take-backup/step8takebu9.png)
       
       Sie verfügen nun über eine Sicherungsrichtlinie, die geplante Sicherungen für Ihre Volumedaten erstellt.
 

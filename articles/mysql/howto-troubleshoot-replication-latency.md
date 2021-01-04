@@ -6,15 +6,17 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 10/08/2020
-ms.openlocfilehash: cb02b29c100da7b8d63f214acc78906a757344c0
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.date: 10/25/2020
+ms.openlocfilehash: a6ada3557350cd3f2f67dad54152eafded6639ec
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096095"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087025"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Behandeln von Problemen mit der Replikationswartezeit in Azure Database for MySQL
+
+[!INCLUDE[applies-to-single-flexible-server](./includes/applies-to-single-flexible-server.md)]
 
 Mithilfe des [Lesereplikat](concepts-read-replicas.md)-Features können Sie Daten von einem Azure Database for MySQL-Server auf einem schreibgeschützten Replikatserver replizieren. Sie können Workloads aufskalieren, indem Sie Lese- und Berichterstellungsabfragen von der Anwendung an Replikatserver weiterleiten. Dadurch werden die Belastung des primären Servers verringert. Zudem werden Gesamtleistung und Wartezeit der Anwendung bei deren Skalierung verbessert. 
 
@@ -234,6 +236,9 @@ In Azure Database for MySQL ist die standardmäßig Replikation so optimiert, da
 Mit dem Parameter „binlog_group_commit_sync_delay“ wird gesteuert, wie viele Mikrosekunden für das Commit des binären Protokolls gewartet wird, bevor die binäre Protokolldatei synchronisiert wird. Der Vorteil dieses Parameters besteht darin, dass der Quellserver die Aktualisierungen des binären Protokolls in einem Block sendet, anstatt jede Transaktion mit Commit sofort anzuwenden. Durch diese Verzögerung werden die E/A-Vorgänge auf dem Replikatserver verringert, wodurch sich die Leistung verbessert. 
 
 Es kann sinnvoll sein, den Parameter „binlog_group_commit_sync_delay“ beispielsweise auf 1000 festzulegen. Überwachen Sie dann die Replikationswartezeit. Verwenden Sie diesen Parameter mit Bedacht und nur für Workloads mit großer Parallelität. 
+
+> [!IMPORTANT] 
+> Für den Replikatserver sollte der Parameter „binlog_group_commit_sync_delay“ auf „0“ festgelegt sein. Dies wird empfohlen, da der Replikatserver im Gegensatz zum Quellserver nicht über eine hohe Parallelität verfügt und die Erhöhung des Werts für „binlog_group_commit_sync_delay“ für den Replikatserver eine ungewollte Erhöhung der Replikationsverzögerung zur Folge haben kann.
 
 Für Workloads mit geringer Parallelität, die viele Singleton-Transaktionen enthalten, kann die „binlog_group_commit_sync_delay“-Einstellung die Latenz erhöhen. Die Latenz kann sich erhöhen, weil der E/A-Thread auf Massenupdates von binären Protokollen wartet, selbst wenn nur einige wenige Transaktionen committet wird. 
 

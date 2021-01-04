@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42dd979f6e069addc1067d0018390c358e79a7b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c318c539b1c09761ed81e7602808e415fdaf8b80
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764535"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658178"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Aktivieren des Remotezugriffs auf SharePoint per Azure AD-Anwendungsproxy
 
@@ -167,7 +167,7 @@ Nun können Sie extern über den Azure AD-Anwendungsproxy auf die SharePoint-We
 
 ## <a name="step-3-configure-kerberos-constrained-delegation"></a>Schritt 3: Konfigurieren der eingeschränkten Kerberos-Delegierung
 
-Benutzer authentifizieren sich zunächst bei Azure AD und dann bei SharePoint, wobei diese Authentifizierung mithilfe von Kerberos über den Azure AD-Proxyconnector erfolgt. Damit der Connector ein Kerberos-Token im Namen des Azure AD-Benutzers abrufen kann, muss die eingeschränkte Kerberos-Delegierung (Kerberos Constrained Delegation, KCD) mit Protokollübergang konfiguriert werden. Weitere Informationen zu KCD finden Sie in der [Übersicht über die eingeschränkte Kerberos-Delegierung](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj553400(v=ws.11)).
+Benutzer authentifizieren sich zunächst bei Azure AD und dann bei SharePoint, wobei diese Authentifizierung mithilfe von Kerberos über den Azure AD-Proxyconnector erfolgt. Damit der Connector ein Kerberos-Token im Namen des Azure AD-Benutzers abrufen kann, muss die eingeschränkte Kerberos-Delegierung (Kerberos Constrained Delegation, KCD) mit Protokollübergang konfiguriert werden. Weitere Informationen zu KCD finden Sie in der [Übersicht über die eingeschränkte Kerberos-Delegierung](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj553400(v=ws.11)).
 
 ### <a name="set-the-spn-for-the-sharepoint-service-account"></a>Festlegen des SPN für das SharePoint-Dienstkonto
 
@@ -176,7 +176,7 @@ Um den SPN `HTTP/sharepoint` für das SharePoint-Anwendungspoolkonto `Contoso\sp
 
 `setspn -S HTTP/sharepoint Contoso\spapppool`
 
-Der Befehl `Setspn` sucht vor dem Hinzufügen nach dem SPN. Ist der SPN bereits vorhanden, wird der Fehler **Doppelter SPN-Wert** angezeigt. In diesem Fall sollte der vorhandene SPN ggf. entfernt werden, wenn er nicht unter dem korrekten Anwendungspoolkonto festgelegt ist. Sie können überprüfen, ob der SPN erfolgreich hinzugefügt wurde, indem Sie den Befehl `Setspn` mit der Option „-L“ ausführen. Weitere Informationen zu diesem Befehl finden Sie unter [Setspn](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)).
+Der Befehl `Setspn` sucht vor dem Hinzufügen nach dem SPN. Ist der SPN bereits vorhanden, wird der Fehler **Doppelter SPN-Wert** angezeigt. In diesem Fall sollte der vorhandene SPN ggf. entfernt werden, wenn er nicht unter dem korrekten Anwendungspoolkonto festgelegt ist. Sie können überprüfen, ob der SPN erfolgreich hinzugefügt wurde, indem Sie den Befehl `Setspn` mit der Option „-L“ ausführen. Weitere Informationen zu diesem Befehl finden Sie unter [Setspn](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)).
 
 ### <a name="make-sure-the-connector-is-trusted-for-delegation-to-the-spn-that-was-added-to-the-sharepoint-application-pool-account"></a>Sicherstellen, dass dem Connector bei Delegierungen an den SPN, der dem SharePoint-Anwendungspoolkonto hinzugefügt wurde, vertraut wird
 

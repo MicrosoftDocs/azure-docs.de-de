@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: f395f96dfa48567f95a1c50cf5403d3cbb427cb7
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: cebe0e018b4483a9de1771fb3171effbbd5ca59c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91597830"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020060"
 ---
 # <a name="what-is-azure-time-series-insights-gen1"></a>Was ist Azure Time Series Insights Gen1?
 
@@ -33,7 +33,7 @@ Azure Time Series Insights hat vier Hauptaufgaben bzw. -merkmale:
 - Azure Time Series Insights bietet über den Azure Time Series Insights-Explorer eine standardmäßige Visualisierung.
 - Azure Time Series Insights bietet einen Abfragedienst, sowohl im Azure Time Series Insights-Explorer als auch durch den Einsatz von APIs, die zum Einbetten Ihrer Zeitreihendaten in benutzerdefinierte Anwendungen einfach integriert werden können.
 
-Wenn Sie eine Anwendung zur internen Nutzung oder für externe Kunden erstellen, können Sie Azure Time Series Insights als Back-End verwenden. Sie können damit Zeitreihendaten indizieren, speichern und aggregieren. Wenn Sie darauf aufbauend eine benutzerdefinierte Visualisierung und Benutzeroberfläche erstellen möchten, können Sie das [Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) verwenden. Azure Time Series Insights verfügt außerdem über mehrere [Abfrage-APIs](how-to-shape-query-json.md) für diese kundenspezifischen Szenarien.
+Wenn Sie eine Anwendung zur internen Nutzung oder für externe Kunden erstellen, können Sie Azure Time Series Insights als Back-End verwenden. Sie können damit Zeitreihendaten indizieren, speichern und aggregieren. Wenn Sie darauf aufbauend eine benutzerdefinierte Visualisierung und Benutzeroberfläche erstellen möchten, können Sie das [Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) verwenden. Azure Time Series Insights verfügt außerdem über mehrere [Abfrage-APIs](./concepts-json-flattening-escaping-rules.md) für diese kundenspezifischen Szenarien.
 
 Zeitreihendaten stellen dar, wie eine Ressource oder ein Prozess sich im Zeitablauf ändert. Zeitreihendaten werden anhand von Zeitstempeln indiziert. Zeit ist die aussagekräftigste Achse für die Organisation solcher Daten. Zeitreihendaten gehen normalerweise in sequenzieller Reihenfolge ein und werden daher als Einfügung und nicht als Aktualisierung der Datenbank behandelt.
 

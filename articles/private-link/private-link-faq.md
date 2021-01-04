@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: 91823ff0d324cd30566948fecd86cc441342f14e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e5edb0ccf20ab0dba14864487f2b2ddef7d57e7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757043"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544206"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Häufig gestellte Fragen (FAQ) zu Azure Private Link
 
@@ -49,6 +49,9 @@ Ja. Private Endpunkte können über AD-Mandanten eine Verbindung mit Private Lin
 ### <a name="can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions"></a>Können private Endpunkte eine Verbindung mit Azure PaaS-Ressourcen zwischen Azure-Regionen herstellen?
 Ja. Private Endpunkte können eine Verbindung mit Azure PaaS-Ressourcen zwischen Azure-Regionen herstellen.
 
+### <a name="can-i-modify-my-private-endpoint-network-interface-nic-"></a>Kann ich die Netzwerkschnittstelle (NIC) meines privaten Endpunkts ändern?
+Wenn ein privater Endpunkt erstellt wird, wird eine schreibgeschützte NIC zugewiesen. Dies kann nicht geändert werden und bleibt für den Lebenszyklus des privaten Endpunkts beibehalten.
+
 ## <a name="private-link-service"></a>Private Link-Dienst
  
 ### <a name="what-are-the-pre-requisites-for-creating-a-private-link-service"></a>Welche Voraussetzungen müssen gegeben sein, um einen Private Link-Dienst zu erstellen? 
@@ -66,8 +69,8 @@ Ja. Ein Private Link-Dienst kann Verbindungen von mehreren privaten Endpunkten e
 ### <a name="how-should-i-control-the-exposure-of-my-private-link-service"></a>Wie sollte ich die Offenlegung meines Private Link-Dienstes kontrollieren?
 Sie können die Offenlegung über die Sichtbarkeitskonfiguration des Private Link-Dienstes kontrollieren. Die Sichtbarkeit unterstützt drei Einstellungen:
 
-- **Keine**: Nur Abonnements mit RBAC-Zugriff können den Dienst finden. 
-- **Restriktiv**: Nur genehmigte aufgeführte Abonnements, die über RBAC-Zugriff verfügen, können den Dienst finden. 
+- **Keine:** Nur Abonnements mit Azure RBAC-Zugriff können den Dienst finden. 
+- **Restriktiv:** Nur genehmigte aufgeführte Abonnements, die über Azure RBAC-Zugriff verfügen, können den Dienst finden. 
 - **Alle**: Jeder kann den Dienst finden. 
  
 ### <a name="can-i-create-a-private-link-service-with-basic-load-balancer"></a>Kann ich mit einem Load Balancer im Tarif „Basic“ einen Private Link-Dienst erstellen? 

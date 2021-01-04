@@ -3,18 +3,20 @@ title: Migrieren nicht partitionierter Azure Cosmos-Container zu partitionierten
 description: Erfahren Sie, wie Sie all Ihre vorhandenen nicht partitionierten Container zu partitionierten Containern migrieren.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/25/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 01e61abacac63d698456c3ab25826f9799d2837e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: edb6114406922d55c439ae7426a2be933bba4aee
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482280"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334088"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrieren nicht partitionierter Container zu partitionierten Containern
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB unterstützt das Erstellen von Containern ohne Partitionsschlüssel. Derzeit können Sie nicht partitionierte Container mithilfe der Azure CLI und der Azure Cosmos DB SDKs (.NET, Java, Node.js) erstellen, deren Version 2.x oder früher entspricht. Sie können nicht partitionierte Container nicht über das Azure-Portal erstellen. Diese nicht partitionierten Container sind jedoch nicht elastisch und verfügen über eine feste Speicherkapazität von 20 GB und einen begrenzten Durchsatz von 10.000 RU/s.
 

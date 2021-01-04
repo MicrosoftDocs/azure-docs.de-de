@@ -7,17 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/05/2020
-ms.openlocfilehash: 60c5051b403d3072292a03c60d7cba95bd0cf1d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 0e209e8114d8f1791a00e87894fa12206edcf34e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740631"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700221"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Erstellen und Verwalten von API-Schlüsseln für einen Dienst für die kognitive Azure-Suche
 
-Für alle Anforderungen an einen Suchdienst wird ein schreibgeschützter API-Schlüssel benötigt, der speziell für Ihren Dienst generiert wurde. Dieser API-Schlüssel ist der einzige Authentifizierungsmechanismus für den Zugriff auf Ihren Suchdienstendpunkt und muss in jede Anforderung einbezogen werden. In [REST-Lösungen](search-get-started-postman.md) wird der API-Schlüssel in der Regel im Anforderungsheader angegeben. In [.NET-Lösungen](search-howto-dotnet-sdk.md#core-scenarios) wird ein Schlüssel häufig als Konfigurationseinstellung angegeben und dann in Form von [Credentials](/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) (Administratorschlüssel) oder [SearchCredentials](/dotnet/api/microsoft.azure.search.searchserviceclient.searchcredentials) (Abfrageschlüssel) auf dem [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) übergeben.
+Für alle Anforderungen an einen Suchdienst wird ein schreibgeschütztes `api-key`-Objekt benötigt, das speziell für Ihren Dienst generiert wurde. Dieses `api-key`-Objekt ist der einzige Authentifizierungsmechanismus für den Zugriff auf Ihren Suchdienstendpunkt und muss in jede Anforderung einbezogen werden. 
+
++ In [REST-Lösungen](search-get-started-rest.md) wird der API-Schlüssel in der Regel im Anforderungsheader angegeben.
+
++ In [.NET-Lösungen](search-howto-dotnet-sdk.md) wird ein Schlüssel oft als Konfigurationseinstellung angegeben und dann als [AzureKeyCredential](/dotnet/api/azure.azurekeycredential)-Objekt übergeben.
 
 Schlüssel werden während der Dienstbereitstellung mit dem Suchdienst erstellt. Sie können Schlüsselwerte im [Azure-Portal](https://portal.azure.com) anzeigen und abrufen.
 
@@ -47,7 +51,7 @@ Zugriffsschlüssel stehen über das Portal oder über die [Verwaltungs-REST-API]
 2. Listen Sie die [Suchdienste](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) für Ihr Abonnement auf.
 3. Wählen Sie den Dienst aus, und klicken Sie auf der Seite „Übersicht“ auf **Einstellungen** >**Schlüssel**, um Administrator- und Abfrageschlüssel anzuzeigen.
 
-   :::image type="content" source="media/search-security-overview/settings-keys.png" alt-text="Portalseite &gt; Einstellungen abrufen &gt; Abschnitt „Schlüssel“" border="false":::
+   :::image type="content" source="media/search-security-overview/settings-keys.png" alt-text="Portalseite &gt; Einstellungen anzeigen &gt; Abschnitt „Schlüssel“" border="false":::
 
 ## <a name="create-query-keys"></a>Erstellen von Abfrageschlüsseln
 
@@ -61,7 +65,7 @@ Das Einschränken des Zugriffs und der Vorgänge in Client-Apps ist besonders wi
 4. Klicken Sie auf **Abfrageschlüssel verwalten**.
 5. Verwenden Sie einen bereits für Ihren Dienst generierten Abfrageschlüssel, oder erstellen Sie bis zu 50 neue Abfrageschlüssel. Der Standardabfrageschlüssel ist nicht benannt. Sie können zusätzliche Abfrageschlüssel jedoch für eine einfachere Verwaltbarkeit benennen.
 
-   :::image type="content" source="media/search-security-overview/create-query-key.png" alt-text="Portalseite &gt; Einstellungen abrufen &gt; Abschnitt „Schlüssel“" border="false":::
+   :::image type="content" source="media/search-security-overview/create-query-key.png" alt-text="Erstellen oder Verwenden von Abfrageschlüsseln" border="false":::
 
 > [!Note]
 > Ein Codebeispiel für die Verwendung von Abfrageschlüsseln finden Sie in [Abfragen eines Index für die kognitive Azure-Suche in C#](./search-get-started-dotnet.md).
@@ -95,6 +99,6 @@ Mitglieder der folgenden Rollen können Schlüssel anzeigen und neu generieren: 
 
 ## <a name="see-also"></a>Weitere Informationen
 
-+ [Rollenbasierte Zugriffssteuerung in der kognitiven Azure-Suche](search-security-rbac.md)
++ [Rollenbasierte Azure-Zugriffssteuerung in Azure Cognitive Search](search-security-rbac.md)
 + [Verwalten mit PowerShell](search-manage-powershell.md) 
 + [Artikel zu Leistung und Optimierung](search-performance-optimization.md)

@@ -6,13 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/08/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 3f54139bc22ef85b016aabd2512bdf030efee91c
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: fc44dd6cf91d687f47afadf1c3378956d838bc9d
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088583"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579503"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>Tutorial: Verwenden einer verwalteten Identität, um eine Verbindung zwischen Key Vault und einer Azure Spring Cloud-App herzustellen
 
@@ -77,6 +77,8 @@ Verwenden Sie `az keyvault set-policy`, um ordnungsgemäßen Zugriff in Key Vaul
 ```azurecli
 az keyvault set-policy --name "<your-keyvault-name>" --object-id ${SERVICE_IDENTITY} --secret-permissions set get list
 ```
+> [!NOTE]
+> Verwenden Sie `az keyvault delete-policy --name "<your-keyvault-name>" --object-id ${SERVICE_IDENTITY}`, um den Zugriff für Ihre App zu entfernen, nachdem die systemseitig zugewiesene verwaltete Identität deaktiviert wurde.
 
 ## <a name="build-a-sample-spring-boot-app-with-spring-boot-starter"></a>Erstellen einer Spring Boot-Beispiel-App mit Spring Boot Starter
 Diese App besitzt Zugriff, um Geheimnisse aus Azure Key Vault abzurufen. Verwenden Sie die Starter-App: [Spring Boot StarterfürAzure Key Vault-Geheimnisse](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets).  Azure Key Vault wird als Instanz von **PropertySource** von Spring hinzugefügt.  Auf die in Azure Key Vault gespeicherten Geheimnisse kann bequem zugegriffen werden, und sie können wie jede externe Konfigurationseigenschaft wie Eigenschaften in Dateien verwendet werden. 

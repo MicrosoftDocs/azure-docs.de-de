@@ -11,12 +11,12 @@ ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/15/2020
-ms.openlocfilehash: d05b603d3f854d919df43e633449e37301a5e77d
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: ff4e6e0451b57046fb8f07f5a1051235e1f6d0f5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168323"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325722"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Dokumentationsänderungen für SQL Server auf virtuellen Azure-Computern
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,7 +33,7 @@ In Azure können Sie einen virtuellen Computer (VM) mit einem integrierten SQL 
 
 | Änderungen | Details |
 | --- | --- |
-| **Automatische Registrierung des Ressourcenanbieters** | Sie können jetzt die Funktion zur [automatischen Registrierung](sql-vm-resource-provider-automatic-registration.md) aktivieren, um automatisch alle SQL Server-VMs zu registrieren, die bereits in Ihrem Abonnement bereitgestellt wurden oder noch bereitgestellt werden.  | 
+| **Automatische Erweiterungsregistrierung** | Sie können jetzt die Funktion zur [automatischen Registrierung](sql-agent-extension-automatic-registration-all-vms.md) aktivieren, um alle bereits in Ihrem Abonnement bereitgestellten SQL Server-VMs mit der [SQL-IaaS-Agent-Erweiterung](sql-server-iaas-agent-extension-automate-management.md) automatisch zu registrieren. Dies gilt für alle vorhandenen VMs, und dadurch werden auch alle SQL Server-VMs automatisch registriert, die zu einem späteren Zeitpunkt hinzugefügt werden.   | 
 
 
 ## <a name="august-2020"></a>August 2020
@@ -49,16 +49,16 @@ In Azure können Sie einen virtuellen Computer (VM) mit einem integrierten SQL 
 | Änderungen | Details |
 | --- | --- |
 | **Migrieren von Protokollen zu Ultra Disks** | Erfahren Sie, wie Sie [Ihre Protokolldatei zu Ultra Disks migrieren](storage-migrate-to-ultradisk.md), um von hoher Leistung und niedriger Latenz zu profitieren. | 
-| **Erstellen einer Verfügbarkeitsgruppe mithilfe von PowerShell** | Die Erstellung einer Verfügbarkeitsgruppe kann nun durch Verwendung von [PowerShell](availability-group-az-commandline-configure.md) sowie der Azure CLI vereinfacht werden. | 
+| **Erstellen einer Verfügbarkeitsgruppe mithilfe von Azure PowerShell** | Die Erstellung einer Verfügbarkeitsgruppe kann jetzt durch die Verwendung von [Azure PowerShell](availability-group-az-commandline-configure.md) und Azure CLI vereinfacht werden. | 
 
 
 ## <a name="june-2020"></a>Juni 2020
 
 | Änderungen | Details |
 | --- | --- |
-| **Verteilter Netzwerkname (Distributed Network Name, DNN)** | In SQL Server 2019 unter Windows Server 2016 und höheren Versionen wird nun die Weiterleitung von Datenverkehr an Ihre Failoverclusterinstanz (FCI) mithilfe eines [verteilten Netzwerknamens](hadr-distributed-network-name-dnn-configure.md) (anstelle von Azure Load Balancer) als Vorschau bereitgestellt. Diese Unterstützung vereinfacht und optimiert die Verbindungsherstellung mit Ihrer HA-Lösung (High-Availability-Lösung, Hochverfügbarkeitslösung) in Azure. | 
+| **Verteilter Netzwerkname (Distributed Network Name, DNN)** | In SQL Server 2019 unter Windows Server 2016 und höheren Versionen wird nun die Weiterleitung von Datenverkehr an Ihre Failoverclusterinstanz (FCI) mithilfe eines [verteilten Netzwerknamens](./failover-cluster-instance-distributed-network-name-dnn-configure.md) (anstelle von Azure Load Balancer) als Vorschau bereitgestellt. Diese Unterstützung vereinfacht und optimiert die Verbindungsherstellung mit Ihrer HA-Lösung (High-Availability-Lösung, Hochverfügbarkeitslösung) in Azure. | 
 | **FCI mit freigegebenen Azure-Datenträgern** | Ihre [Failoverclusterinstanz (FCI)](failover-cluster-instance-overview.md) kann nun mithilfe [freigegebener Azure-Datenträger](failover-cluster-instance-azure-shared-disks-manually-configure.md) bereitgestellt werden. |
-| **Neu strukturierte FCI-Dokumentation** | Die Dokumentation zu [Failoverclusterinstanzen mit SQL Server auf virtuellen Azure-Computern](failover-cluster-instance-overview.md) wurde umgeschrieben und neu strukturiert, um sie besser verständlich zu machen. Wir haben einige Konfigurationsinhalte wie etwa die [bewährten Methoden für die Clusterkonfiguration](hadr-cluster-best-practices.md), die Vorbereitung eines [virtuellen Computers für eine SQL Server-FCI](failover-cluster-instance-prepare-vm.md) und die Konfiguration von [Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md) getrennt. | 
+| **Neu strukturierte FCI-Dokumentation** | Die Dokumentation zu [Failoverclusterinstanzen mit SQL Server auf virtuellen Azure-Computern](failover-cluster-instance-overview.md) wurde umgeschrieben und neu strukturiert, um sie besser verständlich zu machen. Wir haben einige Konfigurationsinhalte wie etwa die [bewährten Methoden für die Clusterkonfiguration](hadr-cluster-best-practices.md), die Vorbereitung eines [virtuellen Computers für eine SQL Server-FCI](failover-cluster-instance-prepare-vm.md) und die Konfiguration von [Azure Load Balancer](./availability-group-vnn-azure-load-balancer-configure.md) getrennt. | 
 | &nbsp; | &nbsp; |
 
 
@@ -73,7 +73,7 @@ In Azure können Sie einen virtuellen Computer (VM) mit einem integrierten SQL 
 
 | Änderungen | Details |
 | --- | --- |
-| **Azure Government-Support** | Virtuelle SQL Server-Computer können nun mit dem SQL-VM-Ressourcenanbieter für virtuelle Computer registriert werden, die in der [Azure Government-Cloud](https://azure.microsoft.com/global-infrastructure/government/) gehostet werden. | 
+| **Azure Government-Support** | Virtuelle SQL Server-Computer können jetzt mit der SQL-IaaS-Agent-Erweiterung für virtuelle Computer registriert werden, die in der [Azure Government-Cloud](https://azure.microsoft.com/global-infrastructure/government/) gehostet werden. | 
 | &nbsp; | &nbsp; |
 
 ## <a name="2019"></a>2019
@@ -81,22 +81,22 @@ In Azure können Sie einen virtuellen Computer (VM) mit einem integrierten SQL 
 |Änderungen | Details |
  --- | --- |
 | **Kostenloses DR-Replikat in Azure** | Sie können eine [kostenlose passive Instanz](business-continuity-high-availability-disaster-recovery-hadr-overview.md#free-dr-replica-in-azure) für die Notfallwiederherstellung in Azure für Ihre lokale SQL Server-Instanz hosten, wenn Sie über [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3)verfügen. | 
-| **Massenressourcen-Anbieterregistrierung** | Sie können nun virtuelle SQL Server-Computer per [Massenregistrierung](sql-vm-resource-provider-bulk-register.md) beim Ressourcenanbieter registrieren. | 
+| **Registrierung von VMs mit der SQL-IaaS-Erweiterung in einem Massenvorgang** | Sie können jetzt virtuelle SQL Server-Computer mit der [SQL-IaaS-Agent-Erweiterung](sql-server-iaas-agent-extension-automate-management.md) per [Massenregistrierung](sql-agent-extension-manually-register-vms-bulk.md) registrieren. | 
 |**Leistungsoptimierte Speicherkonfiguration** | Sie ist nun möglich, Ihre [Speicherkonfiguration vollständig anzupassen](storage-configuration.md#new-vms), wenn Sie eine neue SQL Server-VM erstellen. |
 |**Premium-Dateifreigabe für FCI** | Sie können nun eine Failoverclusterinstanz mit einer [Premium-Dateifreigabe](failover-cluster-instance-premium-file-share-manually-configure.md) erstellen, anstatt [Direkte Speicherplätze](failover-cluster-instance-storage-spaces-direct-manually-configure.md) (die ursprüngliche Methode) zu verwenden. 
 | **Azure Dedicated Host** | Sie können Ihren virtuellen SQL Server-Computer in [Azure Dedicated Host](dedicated-host.md) ausführen. | 
 | **Migration eines virtuellen SQL Server-Computers zu einer anderen Region** | Verwenden Sie Azure Site Recovery, um [Ihre SQL Server-VM aus einer Region in eine andere zu migrieren](move-sql-vm-different-region.md). |
 |  **Neue SQL-IaaS-Installationsmodi** | Die SQL Server-IaaS-Erweiterung kann nun im [Lightweight-Modus](sql-server-iaas-agent-extension-automate-management.md) installiert werden, um den SQL Server-Dienst nicht neu starten zu müssen.  |
 | **Änderung der SQL Server-Edition** | Sie können nun die [Editionseigenschaft](change-sql-server-edition.md) für Ihren virtuellen SQL Server-Computer ändern. |
-| **Änderungen am SQL-VM-Ressourcenanbieter** | Sie können [Ihren virtuellen SQL Server-Computer beim SQL-VM-Ressourcenanbieter registrieren](sql-vm-resource-provider-register.md) und dabei die neuen SQL-IaaS-Modi verwenden. Diese Möglichkeit umfasst auch Images mit [Windows Server 2008](sql-vm-resource-provider-register.md#management-modes).|
+| **Änderungen an der SQL-IaaS-Agent-Erweiterung** | Sie können [Ihre SQL Server-VM mit der SQL-IaaS-Agent-Erweiterung registrieren](sql-agent-extension-manually-register-single-vm.md) und dabei die neuen SQL-IaaS-Modi verwenden. Diese Möglichkeit umfasst auch Images mit [Windows Server 2008](sql-server-iaas-agent-extension-automate-management.md#management-modes).|
 | **Bring-Your-Own-License-Images mit dem Azure-Hybridvorteil** | Bei über den Azure Marketplace bereitgestellten Bring-Your-Own-License-Images kann der [Lizenztyp nun in nutzungsbasierte Bezahlung](licensing-model-azure-hybrid-benefit-ahb-change.md#remarks) geändert werden.| 
 | **Neue Verwaltung virtueller SQL Server-Computer im Azure-Portal** | Es gibt jetzt eine Methode, mit der Sie Ihre SQL Server-VM im Azure-Portal verwalten können. Weitere Informationen finden Sie unter [Verwalten von SQL Server-VMs über das Azure-Portal](manage-sql-vm-portal.md).  | 
 | **Erweiterte Unterstützung von SQL Server 2008 und 2008 R2** | [Erweiterung der Unterstützung](sql-server-2008-extend-end-of-support.md) für SQL Server 2008 und SQL Server 2008 R2 durch *unverändertes* Migrieren zu einer Azure-VM. | 
-| **Unterstützung von benutzerdefinierten Images** | Sie können nun die [SQL Server-IaaS-Erweiterung](sql-server-iaas-agent-extension-automate-management.md#installation) für benutzerdefinierte Betriebssystem- und SQL Server-Images installieren, die die eingeschränkte Funktionalität der [flexiblen Lizenzierung](licensing-model-azure-hybrid-benefit-ahb-change.md) bietet. Geben Sie den Lizenztyp „AHUB“ an, wenn Sie Ihr benutzerdefiniertes Image beim SQL-VM-Ressourcenanbieter registrieren. Andernfalls tritt bei der Registrierung ein Fehler auf. | 
+| **Unterstützung von benutzerdefinierten Images** | Sie können nun die [SQL Server-IaaS-Erweiterung](sql-server-iaas-agent-extension-automate-management.md#installation) für benutzerdefinierte Betriebssystem- und SQL Server-Images installieren, die die eingeschränkte Funktionalität der [flexiblen Lizenzierung](licensing-model-azure-hybrid-benefit-ahb-change.md) bietet. Geben Sie den Lizenztyp „AHUB“ an, wenn Sie Ihr benutzerdefiniertes Image mit der SQL-IaaS-Agent-Erweiterung registrieren. Andernfalls tritt bei der Registrierung ein Fehler auf. | 
 | **Unterstützung für benannte Instanzen** | Sie können jetzt die [SQL Server-IaaS-Erweiterung](sql-server-iaas-agent-extension-automate-management.md#installation) mit einer benannten Instanz verwenden, wenn die Standardinstanz ordnungsgemäß deinstalliert wurde. | 
 | **Portalerweiterung** | Die Azure-Portal-Benutzeroberfläche zur Bereitstellung einer SQL Server-VM wurde überarbeitet, um die Benutzerfreundlichkeit zu verbessern. Weitere Informationen finden Sie in Kurzform im [Schnellstart](sql-vm-create-portal-quickstart.md) und ausführlicher in der [Schrittanleitung](create-sql-vm-portal.md) zum Bereitstellen einer SQL Server-VM.|
-| **Verbesserung beim Portal** | Es ist jetzt möglich, mithilfe des [Azure-Portals](licensing-model-azure-hybrid-benefit-ahb-change.md#vms-already-registered-with-the-resource-provider) das Lizenzierungsmodell für einen virtuellen SQL Server-Computer von nutzungsbasierter Bezahlung in Bring-Your-Own-License zu ändern.|
-| **Vereinfachung der Bereitstellung von Verfügbarkeitsgruppen auf einem virtuellen SQL Server-Computer über die Azure-Befehlszeilenschnittstelle** | Es ist jetzt einfacher denn je, eine Verfügbarkeitsgruppe auf einer SQL Server-VM in Azure bereitzustellen. Sie können die [Azure-Befehlszeilenschnittstelle](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) verwenden, um den Windows-Failovercluster, den internen Lastenausgleich und die Verfügbarkeitsgruppenlistener über die Befehlszeile zu erstellen. Weitere Informationen finden Sie unter [Konfigurieren einer Always On-Verfügbarkeitsgruppe für SQL Server auf einem virtuellen Azure-Computer mithilfe der Azure CLI](availability-group-az-cli-configure.md). | 
+| **Verbesserung beim Portal** | Es ist jetzt möglich, mithilfe des [Azure-Portals](licensing-model-azure-hybrid-benefit-ahb-change.md#change-license-model) das Lizenzierungsmodell für einen virtuellen SQL Server-Computer von nutzungsbasierter Bezahlung in Bring-Your-Own-License zu ändern.|
+| **Vereinfachung der Bereitstellung von Verfügbarkeitsgruppen auf einem virtuellen SQL Server-Computer über die Azure-Befehlszeilenschnittstelle** | Es ist jetzt einfacher denn je, eine Verfügbarkeitsgruppe auf einer SQL Server-VM in Azure bereitzustellen. Sie können die [Azure-Befehlszeilenschnittstelle](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) verwenden, um den Windows-Failovercluster, den internen Lastenausgleich und die Verfügbarkeitsgruppenlistener über die Befehlszeile zu erstellen. Weitere Informationen finden Sie unter [Konfigurieren einer Always On-Verfügbarkeitsgruppe für SQL Server auf einem virtuellen Azure-Computer mithilfe der Azure CLI](./availability-group-az-commandline-configure.md). | 
 | &nbsp; | &nbsp; |
 
 ## <a name="2018"></a>2018 
@@ -105,8 +105,8 @@ In Azure können Sie einen virtuellen Computer (VM) mit einem integrierten SQL 
 | --- | --- |
 |  **Neuer Ressourcenanbieter für SQL Server-Cluster** | Ein neuer Ressourcenanbieter (Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups) definiert die Metadaten des Windows-Failoverclusters. Ein Einbinden einer SQL Server-VM in die *SqlVirtualMachineGroups* startet den Windows Server-Failovercluster-Dienst (WSFC) und verknüpft den virtuellen Computer mit dem Cluster.  |
 | **Automatisiertes Einrichten einer Verfügbarkeitsgruppenbereitstellung mit Azure-Schnellstartvorlagen** |Es ist jetzt möglich, mit zwei Azure-Schnellstartvorlagen den Windows-Failovercluster zu erstellen, virtuelle SQL Server-Computer einzubinden, den Listener zu erstellen und den internen Lastenausgleich zu konfigurieren. Weitere Informationen finden Sie unter [Verwenden von Azure-Schnellstartvorlagen zum Konfigurieren von Always On-Verfügbarkeitsgruppen für SQL Server auf einem virtuellen Azure-Computer](availability-group-quickstart-template-configure.md). | 
-| **Automatische Registrierung beim SQL-VM-Ressourcenanbieter** | Virtuelle SQL Server-Computer, die nach diesem Monat bereitgestellt werden, werden automatisch beim neuen SQL-VM-Ressourcenanbieter registriert. SQL Server-VMs, die vor diesem Monat bereitgestellt wurden, müssen weiterhin manuell registriert werden. Weitere Informationen finden Sie unter [Registrieren von virtuellen SQL Server-Computern in Azure mit dem SQL-VM-Ressourcenanbieter](sql-vm-resource-provider-register.md).|
-|**Neuer SQL-VM-Ressourcenanbieter** |  Ein neuer Ressourcenanbieter (Microsoft.SqlVirtualMachine) bietet eine bessere Verwaltung Ihrer SQL Server-VMs. Weitere Informationen zum Registrieren Ihrer VMs finden Sie unter [Registrieren von virtuellen SQL Server-Computern in Azure mit dem SQL-VM-Ressourcenanbieter](sql-vm-resource-provider-register.md). |
+| **Automatische Registrierung von VMs mit der SQL-IaaS-Agent-Erweiterung** | Nach diesem Monat bereitgestellte SQL Server-VMs werden automatisch mit der neuen SQL-IaaS-Agent-Erweiterung registriert. SQL Server-VMs, die vor diesem Monat bereitgestellt wurden, müssen weiterhin manuell registriert werden. Weitere Informationen finden Sie unter [Registrieren von virtuellen SQL Server-Computern in Azure mit der SQL-IaaS-Agent-Erweiterung](sql-agent-extension-manually-register-single-vm.md).|
+|**Neue SQL-IaaS-Agent-Erweiterung** |  Ein neuer Ressourcenanbieter (Microsoft.SqlVirtualMachine) bietet eine bessere Verwaltung Ihrer SQL Server-VMs. Weitere Informationen zum Registrieren Ihrer VMs finden Sie unter [Registrieren von virtuellen SQL Server-Computern in Azure mit der SQL-IaaS-Agent-Erweiterung](sql-agent-extension-manually-register-single-vm.md). |
 |**Wechsel des Lizenzierungsmodells** | Sie können nun mit der Azure-Befehlszeilenschnittstelle oder PowerShell für Ihre SQL Server-VM zwischen dem nutzungsbasierten Modell und dem Bring-Your-Own-License-Modell wechseln. Weitere Informationen finden Sie unter [Ändern des Lizenzierungsmodells für einen virtuellen SQL Server-Computer in Azure](licensing-model-azure-hybrid-benefit-ahb-change.md). | 
 | &nbsp; | &nbsp; |
 
@@ -126,4 +126,4 @@ In Azure können Sie einen virtuellen Computer (VM) mit einem integrierten SQL 
 * [Übersicht über SQL Server auf einem virtuellen Linux-Computer](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Bereitstellen eines virtuellen SQL Server-Computers über das Azure-Portal](../linux/sql-vm-create-portal-quickstart.md)
 * [Häufig gestellte Fragen (Linux)](../linux/frequently-asked-questions-faq.md)
-* [SQL Server unter Linux – Dokumentation](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [SQL Server unter Linux – Dokumentation](/sql/linux/sql-server-linux-overview)

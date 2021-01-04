@@ -4,12 +4,12 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: 4e79fef08af8ff73ce63ab4732c9efd77e3a5d3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51dc04fbef8d09878f33d7fda6f15039d3afba3e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67178046"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027520"
 ---
 ### <a name="configure-a-dns-label-for-the-public-ip-address"></a>Konfigurieren einer DNS-Bezeichnung für die öffentliche IP-Adresse
 
@@ -34,7 +34,7 @@ Wählen Sie zum Erstellen einer DNS-Bezeichnung als Erstes im Portal die Option 
 
 ### <a name="connect-to-the-database-engine-from-another-computer"></a>Verbindungsherstellung mit der Datenbank-Engine von einem anderen Computer aus
 
-1. Öffnen Sie SQL Server Management Studio (SSMS) auf einem mit dem Internet verbundenen Computer. Falls Sie SQL Server Management Studio nicht haben, können Sie die Suite [hier](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) herunterladen.
+1. Öffnen Sie SQL Server Management Studio (SSMS) auf einem mit dem Internet verbundenen Computer. Falls Sie SQL Server Management Studio nicht haben, können Sie die Suite [hier](/sql/ssms/download-sql-server-management-studio-ssms) herunterladen.
 
 1. Bearbeiten Sie im Dialogfeld **Mit Server verbinden** oder **Verbindung mit Datenbank-Engine herstellen** den Wert **Servername**. Geben Sie die IP-Adresse oder den vollständigen DNS-Namen des virtuellen Computers ein (in der vorherigen Aufgabe bestimmt). Sie können auch ein Komma einfügen und den TCP-Port von SQL Server angeben. Beispiel: `mysqlvmlabel.eastus.cloudapp.azure.com,1433`.
 

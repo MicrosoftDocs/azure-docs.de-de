@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1c7587a4434a84c6934179393baa5ae684f9b1fd
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: cef5aaae58797e38745b3f5164c171581a005562
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92116736"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94371964"
 ---
 [Plastischer Reader](https://www.onenote.com/learningtools) ist ein inklusiv konzipiertes Tool, das bewährte Techniken implementiert, um das Leseverständnis von Leseanfängern, Sprachenlernenden und Personen mit Lernunterschieden, wie z. B. Dyslexie, zu verbessern. Sie können den plastischen Reader in Ihren Anwendungen verwenden, um Text zu isolieren, den Fokus zu verbessern, Bilder für häufig verwendete Wörter anzuzeigen, Wortarten hervorzuheben, markierten Text laut vorzulesen, Wörter und Ausdrücke in Echtzeit zu übersetzen und vieles mehr.
 
@@ -42,7 +42,7 @@ Erstellen Sie mit der Vorlage für ASP.NET Core-Webanwendungen mit dem integrier
 
 ### <a name="configure-authentication-values"></a>Konfigurieren der Authentifizierungswerte
 
-Klicken Sie im _Projektmappen-Explorer_ mit der rechten Maustaste auf das Projekt, und wählen Sie anschließend **Geheimen Benutzerschlüssel verwalten** aus. Damit wird eine Datei namens _secrets.json_ geöffnet. Diese Datei ist nicht in die Quellcodeverwaltung eingecheckt. [Hier](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows&preserve-view=true)erhalten Sie weitere Informationen. Ersetzen Sie den Inhalt der Datei _secrets.json_ durch Folgendes. Verwenden Sie dabei die Werte, die beim Erstellen der Ressource des plastischen Readers angegeben wurden.
+Klicken Sie im _Projektmappen-Explorer_ mit der rechten Maustaste auf das Projekt, und wählen Sie anschließend **Geheimen Benutzerschlüssel verwalten** aus. Damit wird eine Datei namens _secrets.json_ geöffnet. Diese Datei ist nicht in die Quellcodeverwaltung eingecheckt. [Hier](/aspnet/core/security/app-secrets?preserve-view=true&tabs=windows&view=aspnetcore-3.1)erhalten Sie weitere Informationen. Ersetzen Sie den Inhalt der Datei _secrets.json_ durch Folgendes. Verwenden Sie dabei die Werte, die beim Erstellen der Ressource des plastischen Readers angegeben wurden.
 
 ```json
 {
@@ -71,7 +71,7 @@ Der folgende Code verwendet Objekte aus dem NuGet-Paket **Microsoft.IdentityMode
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-Anschließend konfigurieren Sie den Controller zum Abrufen der Azure AD-Werte aus _secrets.json_ . Fügen Sie am Anfang der Klasse _HomeController_ nach ```public class HomeController : Controller {``` den folgenden Code ein:
+Anschließend konfigurieren Sie den Controller zum Abrufen der Azure AD-Werte aus _secrets.json_. Fügen Sie am Anfang der Klasse _HomeController_ nach ```public class HomeController : Controller {``` den folgenden Code ein:
 
 ```csharp
 private readonly string TenantId;     // Azure subscription TenantId
@@ -142,7 +142,7 @@ public async Task<JsonResult> GetTokenAndSubdomain()
 ```
 
 ## <a name="add-sample-content"></a>Hinzufügen von Beispielinhalten
-Öffnen Sie zunächst _Views\Shared\Layout.cshtml_ . Fügen Sie vor der Zeile ```</head>``` den folgenden Code hinzu:
+Öffnen Sie zunächst _Views\Shared\Layout.cshtml_. Fügen Sie vor der Zeile ```</head>``` den folgenden Code hinzu:
 
 ```html
 @RenderSection("Styles", required: false)
@@ -218,7 +218,7 @@ Beachten Sie, dass der gesamte Text über das Attribut **lang** verfügt, das di
 
 ## <a name="add-javascript-to-handle-launching-immersive-reader"></a>Hinzufügen von JavaScript zum Behandeln des Startens des plastischen Readers
 
-Die Bibliothek des plastischen Readers stellt unter anderem Funktionen zum Starten des plastischen Readers sowie zum Rendern von Schaltflächen des plastischen Readers bereit. [Hier](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference)erhalten Sie weitere Informationen.
+Die Bibliothek des plastischen Readers stellt unter anderem Funktionen zum Starten des plastischen Readers sowie zum Rendern von Schaltflächen des plastischen Readers bereit. [Hier](../../reference.md)erhalten Sie weitere Informationen.
 
 Fügen Sie am Ende von _Views\Home\Index.cshtml_ den folgenden Code hinzu:
 

@@ -4,27 +4,27 @@ description: In diesem Artikel werden Überlegungen zur Preisgestaltung, Abrechn
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: ca8f2e1721c99c79188917e5b44950b8db6895ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 898c106fb961373889fbae87db6c755fe2495ff8
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90006396"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621262"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Transaktionsfunktionen im kommerziellen Marketplace
 
-In diesem Artikel werden Überlegungen zur Preisgestaltung, Abrechnung, Rechnungsstellung und Auszahlung im kommerziellen Microsoft-Marketplace beschrieben. 
+In diesem Artikel werden Überlegungen zur Preisgestaltung, Abrechnung, Rechnungsstellung und Auszahlung im kommerziellen Microsoft-Marketplace beschrieben.
 
 ## <a name="transactions-by-listing-option"></a>Transaktionen nach Auflistungsoption
 
-Für die Verwaltung von Softwarelizenztransaktionen für Angebote im kommerziellen Marketplace ist entweder der Herausgeber oder Microsoft verantwortlich. Wer die Transaktion verwaltet, wird durch die Auflistungsoption bestimmt, die Sie für Ihr Angebot auswählen. Informationen zur Verfügbarkeit und Erläuterungen der einzelnen Veröffentlichungsoptionen finden Sie unter [Auswählen einer Auflistungsoption](./determine-your-listing-type.md#choose-a-listing-option).
+Für die Verwaltung von Softwarelizenztransaktionen für Angebote im kommerziellen Marketplace ist entweder der Herausgeber oder Microsoft verantwortlich. Wer die Transaktion verwaltet, wird durch die Auflistungsoption bestimmt, die Sie für Ihr Angebot auswählen. Informationen zur Verfügbarkeit und Erläuterungen der einzelnen Veröffentlichungsoptionen finden Sie unter [Einführung in Auflistungsoptionen](determine-your-listing-type.md).
 
 ### <a name="contact-me-free-trial-and-byol-options"></a>Optionen „Kontaktaufnahme“, „Kostenlose Testversion“ und „BYOL“
 
-Herausgeber können die Optionen _Kontaktaufnahme_ und _Kostenlose Testversion_ für Werbezwecke und zur Neukundengewinnung auswählen. Bei manchen Angebotstypen können Sie als Herausgeber die Option „BYOL“ (Bring Your Own License) auswählen, damit Kunden mit einer Lizenz, die sie direkt bei Ihnen gekauft haben, ein Abonnement für Ihr Angebot erwerben können. Bei diesen Optionen ist Microsoft nicht direkt an den Softwarelizenztransaktionen des Herausgebers beteiligt, und es fallen keine damit verbundenen Transaktionsgebühren an. 
+Herausgeber können die Optionen _Kontaktaufnahme_ und _Kostenlose Testversion_ für Werbezwecke und zur Neukundengewinnung auswählen. Bei manchen Angebotstypen können Sie als Herausgeber die Option „BYOL“ (Bring Your Own License) auswählen, damit Kunden mit einer Lizenz, die sie direkt bei Ihnen gekauft haben, ein Abonnement für Ihr Angebot erwerben können. Bei diesen Optionen ist Microsoft nicht direkt an den Softwarelizenztransaktionen des Herausgebers beteiligt, und es fallen keine damit verbundenen Transaktionsgebühren an.
 
 Herausgeber sind dafür verantwortlich, alle Aspekte der Softwarelizenztransaktion zu unterstützen. Dazu zählen u. a. Auftrag, Erfüllung, Messung, Abrechnung, Rechnungstellung, Zahlung und Erfassung. Bei der Auflistungsoption „Kontaktaufnahme“ behalten Herausgeber 100 % der vom Kunden eingezogenen Softwarelizenzgebühren ein.
 
@@ -84,7 +84,15 @@ Bei Veröffentlichungsszenarien des Typs „Transaktion“ können Sie je nach A
 
 Zusätzlich zur Verwendung von Angebotstypen und Abrechnungsmodellen zur Verrechnung eines Angebots können Sie ein vollständiges privates Angebot mit ausgehandelten, transaktionsspezifischen Preisen oder kundenspezifischen Konfigurationen anbieten. Private Angebote werden von allen drei Veröffentlichungsoptionen des Typs „Transaktion“ unterstützt.
 
-Diese Option ermöglicht höhere oder niedrigere Preise als für das öffentlich verfügbare Angebot. Private Angebote können genutzt werden, um Rabatte zu gewähren oder eine Prämie zu einem Angebot hinzuzufügen. Private Angebote können einem oder mehreren Kunden bereitgestellt werden, indem ihr Azure-Abonnement auf Angebotsebene auf die Zulassungsliste gesetzt wird.
+Diese Option ermöglicht höhere oder niedrigere Preise als für das öffentlich verfügbare Angebot. Sie können private Angebote nutzen, um Rabatte zu gewähren oder eine Prämie zu einem Angebot hinzuzufügen. Sie können private Angebote einem oder mehreren Kunden bereitstellen, indem Sie das jeweilige Azure-Abonnement auf Angebotsebene auf die Zulassungsliste setzen.
+
+### <a name="commercial-marketplace-service-fees"></a>Dienstgebühren im kommerziellen Marketplace
+
+Wir berechnen eine Store-Standarddienstgebühr von 20 %, wenn Kunden Ihr Transaktionsangebot über den kommerziellen Marketplace erwerben. Ausführliche Informationen zu dieser Gebühr finden Sie in Abschnitt 5c der [Microsoft-Herausgebervereinbarung](https://go.microsoft.com/fwlink/?LinkID=699560).
+
+Für bestimmte transaktionsfähige Angebote, die Sie im kommerziellen Marketplace veröffentlichen, können Sie eine reduzierte Store-Dienstgebühr von 10 % beantragen. Damit ein Angebot berechtigt ist, muss es von Microsoft als „Azure IP Co-Sell Incentivized“ gekennzeichnet worden sein. Die Anforderungen für die Berechtigung müssen mindestens fünf (5) Arbeitstage vor dem Ende eines jeden Kalendermonats erfüllt sein, damit die reduzierte Marketplace-Dienstgebühr für den Monat in Anspruch genommen werden kann. Einzelheiten zur Berechtigung für das IP-Co-Selling finden Sie unter [Requirements for Co-sell Status](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status) (Anforderungen für den Co-Selling-Status).
+
+Die reduzierte Marketplace-Dienstgebühr gilt für SaaS, VMs, verwaltete Apps und andere berechtigte transaktionsfähige IaaS-Lösungen im Rahmen der Azure IP-Co-Selling-Incentives, die über den kommerziellen Marketplace bereitgestellt werden. Kostenpflichtige SaaS-Angebote, die einer Microsoft Teams-App oder mindestens zwei Microsoft 365-Add-Ins (wie Excel, PowerPoint, Word, Outlook und SharePoint) zugeordnet sind und in Microsoft AppSource veröffentlicht werden, erhalten ebenfalls diesen Rabatt.
 
 ### <a name="examples"></a>Beispiele
 
@@ -144,10 +152,6 @@ In diesem Szenario stellt Microsoft 100,00 USD für Ihre Softwarelizenz in Rech
 |Microsoft zahlt Ihnen 80% Ihrer Lizenzkosten <br> \* Für jede qualifizierte SaaS-App zahlt Microsoft 90 % Ihrer Lizenzkosten.   |   80,00 USD pro Monat <br> \* 90,00 USD pro Monat    |
 |Microsoft behält 20% Ihrer Lizenzkosten ein <br> \* Für jede qualifizierte SaaS-App behält Microsoft 10 % Ihrer Lizenzkosten.  |  20,00 USD pro Monat <br> \* 10,00 USD     |
 
-### <a name="reduced-service-fee"></a>Reduzierte Servicegebühr
-
-Für bestimmte Angebote, die Sie im kommerziellen Marketplace veröffentlichen, senkt Microsoft die Marketplace-Dienstgebühr von 20 % (wie in der [Microsoft-Herausgebervereinbarung](https://go.microsoft.com/fwlink/?LinkID=699560) angegeben) auf 10 %. Damit Ihre Angebote qualifiziert sind, müssen sie von Microsoft als gefördert für Azure IP-Co-Selling gekennzeichnet worden sein. Die Anforderungen für die Berechtigung müssen mindestens fünf (5) Arbeitstage vor dem Ende eines jeden Kalendermonats erfüllt sein, damit die reduzierte Marketplace-Dienstgebühr für den Monat in Anspruch genommen werden kann. Die gesenkte Marketplace-Dienstgebühr gilt für Azure IP-Co-Selling-Anreize für SaaS, VMs, verwaltete Apps und andere qualifizierte transaktionsfähige IaaS-Angebote, die über den kommerziellen Marketplace bereitgestellt werden. Kostenpflichtige SaaS-Angebote, die einer Microsoft Teams-App oder mindestens zwei Microsoft 365-Add-Ins (wie Excel, PowerPoint, Word, Outlook und SharePoint) zugeordnet sind und in AppSource veröffentlicht werden, erhalten ebenfalls diesen Rabatt.
-
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Rechnungsstellung für den Kunden, Zahlung, Abrechnung und Inkasso
 
 **Rechnungsstellung und Zahlung**: Sie können die vom Kunden bevorzugte Rechnungsstellungsmethode verwenden, um Abonnement- oder nutzungsbasierte Softwarelizenzgebühren zu entrichten.
@@ -197,7 +201,7 @@ Die Veröffentlichungsoption „Transaktion“ ist nur für die folgenden Typen 
 
 - **Azure-Anwendung: Lösungsvorlage oder verwaltete App**: Muss einen oder mehrere virtuelle Computer bereitstellen und zieht sich durch die Summe der Preise für virtuelle Computer. Für verwaltete Apps mit einem Einzelplan kann anstelle der Preise für virtuelle Computer ein pauschales Monatsabonnement als Preismodell gewählt werden. In einigen Fällen werden dem Kunden die Nutzungsgebühren der Azure-Infrastruktur getrennt von den Softwarelizenzgebühren in Rechnung gestellt – aber auf derselben Abrechnung. Wenn Sie allerdings ein Angebot für eine verwaltete App für ISV-Infrastrukturgebühren konfigurieren, werden die Azure-Ressourcen dem Herausgeber berechnet. Für den Kunden wird eine Pauschalgebühr verwendet, die die Kosten für die Infrastruktur, Softwarelizenzen und Verwaltungsdienste abdeckt.
 
-- **SaaS-Anwendung**: Muss eine mehrinstanzenfähige Lösung sein, [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) für die Authentifizierung verwenden und mit den [SaaS-Fulfillment-APIs](partner-center-portal/pc-saas-fulfillment-api-v2.md) integriert sein. Die Nutzung der Azure-Infrastruktur wird direkt mit Ihnen (dem Partner) verwaltet und abgerechnet. Daher sind Sie als einzige Kostenstelle für Azure-Infrastruktur-Nutzungsgebühren und Softwarelizenzgebühren verantwortlich. Ausführliche Anleitungen erhalten Sie unter [Erstellen eines neuen SaaS-Angebots im kommerziellen Marketplace](partner-center-portal/create-new-saas-offer.md).
+- **SaaS-Anwendung**: Muss eine mehrinstanzenfähige Lösung sein, [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) für die Authentifizierung verwenden und mit den [SaaS-Fulfillment-APIs](partner-center-portal/pc-saas-fulfillment-api-v2.md) integriert sein. Die Nutzung der Azure-Infrastruktur wird direkt mit Ihnen (dem Partner) verwaltet und abgerechnet. Daher sind Sie als einzige Kostenstelle für Azure-Infrastruktur-Nutzungsgebühren und Softwarelizenzgebühren verantwortlich. Ausführliche Anleitungen erhalten Sie unter [Erstellen eines neuen SaaS-Angebots im kommerziellen Marketplace](./create-new-saas-offer.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

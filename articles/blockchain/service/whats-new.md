@@ -4,12 +4,12 @@ description: Erfahren Sie, was es Neues im Azure Blockchain Service gibt, wie di
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
-ms.openlocfilehash: 47e0da5a729519f2af3c5b2a2fd3e0f7485624cf
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 6a3113a2d28e704b188d701da13493ecd8263cab
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948458"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335025"
 ---
 # <a name="whats-new-in-azure-blockchain-service"></a>Neues im Azure Blockchain Service
 
@@ -27,7 +27,7 @@ Es werden fortlaufend Verbesserungen am Azure Blockchain Service vorgenommen. Da
 
 ### <a name="version-upgrades"></a>Versionsupgrades
 
-- Upgrade der Quorum-Version auf 2.6.0. In Version 2.6.0 können Sie signierte private Transaktionen senden. Weitere Informationen zum Senden privater Transaktionen finden Sie in der [Quorum-API-Dokumentation](https://docs.goquorum.com/en/latest/Getting%20Started/api/).
+- Upgrade der Quorum-Version auf 2.6.0. In Version 2.6.0 können Sie signierte private Transaktionen senden. Weitere Informationen zum Senden privater Transaktionen finden Sie in der [Quorum-API-Dokumentation](https://docs.goquorum.consensys.net/en/latest/Reference/APIs/ContractExtensionAPIs/#apis).
 - Upgrade der Tessera-Version auf 0.10.5.
 
 ### <a name="contract-size-and-transaction-size-increased-to-128-kb"></a>Vertragsgröße und Transaktionsgröße wurden auf 128 KB angehoben
@@ -38,7 +38,7 @@ Die Vertragsgröße (MaxCodeSize) wurde auf 128 KB angehoben, sodass Sie größ
 
 ### <a name="trietimeout-value-reduced"></a>Trietimeout-Wert reduziert
 
-Typ: Konfigurationsänderung
+Typ: Konfigurationsänderung
 
 Der TrieTimeout-Wert wurde herabgesetzt, sodass der speicherinterne Zustand häufiger auf den Datenträger geschrieben wird. Mit dem niedrigeren Wert wird die schnellere Wiederherstellung eines Knotens im seltenen Fall eines Knotenabsturzes sichergestellt.
 
@@ -68,7 +68,7 @@ Die zweistufige Bereitstellung erleichtert die Optimierung von Szenarien, in den
 
 In Quorum v2.6.0 führen Aufrufe der Funktion *eth.estimateGas* ohne Bereitstellung des zusätzlichen Parameters *value* zu einer Ausnahme vom Typ *Absturz des Methodenhandlers*. Das Quorum-Team wurde benachrichtigt, und eine Problembehebung wird zu Ende Juli 2020 erwartet. Bis eine Korrektur verfügbar ist, können Sie die folgenden Problemumgehungen verwenden:
 
-- Vermeiden Sie die Verwendung von *eth.estimateGas*, da sie die Leistung beeinträchtigen kann. Weitere Informationen zu den Leistungsproblemen bei eth.estimateGas finden Sie unter [Aufrufen der eth.estimateGas-Funktion führt zu verringerter Leistung](#calling-ethestimategas-function-reduces-performance). Schließen Sie in jede Transaktion einen Wert für gas ein. Die meisten Bibliotheken rufen eth.estimateGas auf, wenn kein Wert für gas angegeben wird, was zu einem Absturz von Quorum v2.6.0 führen würde.
+- Vermeiden Sie die Verwendung von *eth.estimateGas* , da sie die Leistung beeinträchtigen kann. Weitere Informationen zu den Leistungsproblemen bei eth.estimateGas finden Sie unter [Aufrufen der eth.estimateGas-Funktion führt zu verringerter Leistung](#calling-ethestimategas-function-reduces-performance). Schließen Sie in jede Transaktion einen Wert für gas ein. Die meisten Bibliotheken rufen eth.estimateGas auf, wenn kein Wert für gas angegeben wird, was zu einem Absturz von Quorum v2.6.0 führen würde.
 - Wenn Sie *eth.estimateGas* aufrufen müssen, schlägt das Quorum-Team als Problemumgehung vor, dass Sie den zusätzlichen Parameter *value* als *0* übergeben.
 
 ### <a name="mining-stops-if-fewer-than-four-validator-nodes"></a>Mining wird bei weniger als vier Validierungsknoten beendet
@@ -83,7 +83,7 @@ Verwenden Sie *Standard* für Bereitstellungen für die Produktion. Verwenden Si
 
 ### <a name="blockchain-data-manager-requires-standard-tier-node"></a>Für Blockchain Data Manager ist ein Knoten im Standard-Tarif erforderlich
 
-Verwenden Sie den *Standard*-Tarif, wenn Sie Blockchain Data Manager verwenden. Der *Basic*-Tarif verfügt nur über 4 GB Arbeitsspeicher. Daher kann er nicht bis zu der Auslastung skaliert werden, die für Blockchain Data Manager und andere auf ihm ausgeführte Dienste erforderlich ist.
+Verwenden Sie den *Standard* -Tarif, wenn Sie Blockchain Data Manager verwenden. Der *Basic* -Tarif verfügt nur über 4 GB Arbeitsspeicher. Daher kann er nicht bis zu der Auslastung skaliert werden, die für Blockchain Data Manager und andere auf ihm ausgeführte Dienste erforderlich ist.
 
 Verwenden Sie *Basic* für die Entwicklung, das Testen und Proof of Concept-Vorgänge. Das Wechseln zwischen den Tarifen „Basic“ und „Standard“ nach der Erstellung eines Mitglieds wird nicht unterstützt.
 
@@ -127,5 +127,5 @@ Vermeiden Sie unbegrenzte Schleifen in Smart Contracts, da sie die Leistung beei
 
 - [Vermeiden von unbegrenzten Schleifen](https://blog.b9lab.com/getting-loopy-with-solidity-1d51794622ad )
 - [Bewährte Methoden für die Sicherheit von Smart Contracts](https://github.com/ConsenSys/smart-contract-best-practices)
-- [Von Quorum bereitgestellte Smart Contract-Richtlinien](http://docs.goquorum.com/en/latest/Security/Framework/Decentralized%20Application/Smart%20Contracts%20Security/)
+- [Von Quorum bereitgestellte Smart Contract-Richtlinien](https://docs.goquorum.consensys.net/en/stable/Concepts/Security/Framework/DecentralizedApplication/SmartContractsSecurity/)
 - [Von Solidity bereitgestellte Richtlinien für Gas-Grenzwerte und Schleifen](https://solidity.readthedocs.io/en/develop/security-considerations.html#gas-limit-and-loops)

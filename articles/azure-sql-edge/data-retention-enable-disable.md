@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: ee2d65d66caef5cd9405d6e3d0e094de2e30ae87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b8dd911952a63ba8775f27a6128ff61e849e823
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902497"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861424"
 ---
 # <a name="enable-and-disable-data-retention-policies"></a>Aktivieren und Deaktivieren von Datenaufbewahrungsrichtlinien
 
@@ -22,7 +22,7 @@ In diesem Thema ist beschrieben, wie Datenaufbewahrungsrichtlinien für eine Dat
 
 ## <a name="enable-data-retention-for-a-database"></a>Aktivieren von Datenaufbewahrung für eine Datenbank
 
-Im folgenden Beispiel wird gezeigt, wie Datenaufbewahrung über [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options) aktiviert werden kann.
+Im folgenden Beispiel wird gezeigt, wie Datenaufbewahrung über [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options) aktiviert werden kann.
 
 ```sql
 ALTER DATABASE [<DatabaseName>] SET DATA_RETENTION  ON;
@@ -38,9 +38,9 @@ FROM sys.databases;
 
 ## <a name="enable-data-retention-for-a-table"></a>Aktivieren von Datenaufbewahrung für eine Tabelle
 
-Datenaufbewahrung muss für jede Tabelle aktiviert werden, für die Daten automatisch bereinigt werden sollen. Wenn Datenaufbewahrung für die Datenbank und die Tabelle aktiviert ist, wird die Tabelle regelmäßig von einer Hintergrundsystemaufgabe überprüft, um veraltete Zeilen zu erkennen und zu löschen. Datenaufbewahrung kann für eine Tabelle während der Tabellenerstellung mit [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) oder später mit [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) aktiviert werden.
+Datenaufbewahrung muss für jede Tabelle aktiviert werden, für die Daten automatisch bereinigt werden sollen. Wenn Datenaufbewahrung für die Datenbank und die Tabelle aktiviert ist, wird die Tabelle regelmäßig von einer Hintergrundsystemaufgabe überprüft, um veraltete Zeilen zu erkennen und zu löschen. Datenaufbewahrung kann für eine Tabelle während der Tabellenerstellung mit [CREATE TABLE](/sql/t-sql/statements/create-table-transact-sql) oder später mit [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql) aktiviert werden.
 
-Im folgenden Beispiel wird gezeigt, wie Datenaufbewahrung für eine Tabelle über [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) aktiviert werden kann. 
+Im folgenden Beispiel wird gezeigt, wie Datenaufbewahrung für eine Tabelle über [CREATE TABLE](/sql/t-sql/statements/create-table-transact-sql) aktiviert werden kann. 
 
 ```sql
 CREATE TABLE [dbo].[data_retention_table] 
@@ -63,7 +63,7 @@ Datenaufbewahrung wird für die Tabelle im `WITH (DATA_DELETION = ON ( FILTER_CO
     - DateTimeOffset
 - RETENTION_PERIOD: ein ganzzahliger Wert, gefolgt von einem Einheitendeskriptor. Die zulässigen Einheiten sind DAY, DAYS, WEEK, WEEKS, MONTH, MONTHS, YEAR und YEARS.
 
-Im folgenden Beispiel wird gezeigt, wie Datenaufbewahrung für eine Tabelle über [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) aktiviert werden kann.  
+Im folgenden Beispiel wird gezeigt, wie Datenaufbewahrung für eine Tabelle über [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql) aktiviert werden kann.  
 
 ```sql
 Alter Table [dbo].[data_retention_table]
@@ -88,7 +88,7 @@ where is_data_deletion_filter_column =1
 and object_id = object_id(N'dbo.data_retention_table', N'U')
 ```
 
-## <a name="corelating-db-and-table-data-retention-settings"></a>Zusammenspiel der Datenaufbewahrungseinstellungen für DB und Tabellen
+## <a name="correlating-db-and-table-data-retention-settings"></a>Korrelieren von Aufbewahrungseinstellungen für Datenbank- und Tabellendaten
 
 Die Datenaufbewahrungseinstellungen für die Datenbank und die Tabellen werden zusammen verwendet, um zu bestimmen, ob die automatische Bereinigung für veraltete Zeilen für die Tabellen ausgeführt wird oder nicht. 
 
@@ -101,7 +101,7 @@ Die Datenaufbewahrungseinstellungen für die Datenbank und die Tabellen werden z
 
 ## <a name="disable-data-retention-on-a-table"></a>Deaktivieren der Datenaufbewahrung für eine Tabelle 
 
-Datenaufbewahrung kann für eine Tabelle über [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) deaktiviert werden. Der folgende Befehl kann verwendet werden, um die Datenaufbewahrung für eine Tabelle zu deaktivieren.
+Datenaufbewahrung kann für eine Tabelle über [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql) deaktiviert werden. Der folgende Befehl kann verwendet werden, um die Datenaufbewahrung für eine Tabelle zu deaktivieren.
 
 ```sql
 Alter Table [dbo].[data_retention_table]
@@ -110,7 +110,7 @@ Set (DATA_DELETION = OFF)
 
 ## <a name="disable-data-retention-on-a-database"></a>Deaktivieren der Datenaufbewahrung für eine Datenbank
 
-Datenaufbewahrung kann für eine Datenbank über [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options) deaktiviert werden. Der folgende Befehl kann verwendet werden, um die Datenaufbewahrung für eine Datenbank zu deaktivieren.
+Datenaufbewahrung kann für eine Datenbank über [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options) deaktiviert werden. Der folgende Befehl kann verwendet werden, um die Datenaufbewahrung für eine Datenbank zu deaktivieren.
 
 ```sql
 ALTER DATABASE <DatabaseName> SET DATA_RETENTION  OFF;

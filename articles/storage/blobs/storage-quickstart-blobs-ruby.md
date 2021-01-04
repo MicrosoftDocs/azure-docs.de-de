@@ -1,22 +1,22 @@
 ---
-title: 'Azure-Schnellstart: Erstellen eines Blobs im Objektspeicher mithilfe von Ruby | Microsoft-Dokumentation'
-description: In diesem Schnellstart erstellen Sie ein Speicherkonto und einen Container im Objektspeicher (Blob). Anschließend verwenden Sie die Speicherclientbibliothek für Ruby, um ein Blob in Azure Storage hochzuladen, ein Blob herunterzuladen und die Blobs in einem Container aufzulisten.
+title: 'Schnellstart: Clientbibliothek für Azure Blob Storage: Ruby'
+description: Hier erfahren Sie, wie Sie ein Speicherkonto und einen Container in Azure Blob Storage erstellen. Außerdem erfahren Sie, wie Sie die Speicherclientbibliothek für Ruby verwenden, um ein Blob zu erstellen, ein Blob herunterzuladen und die Blobs in einem Container aufzulisten.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/14/2018
+ms.date: 12/04/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 8c24c5f043d17b5f0e54ca1c2c6cf41a0d3fe9bc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ec3fc490466f5fce36b67b2f3744e4ee5cc0ae79
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "68726348"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96781095"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Schnellstart: Hochladen, Herunterladen und Auflisten von Blobs mit Ruby
+# <a name="quickstart-azure-blob-storage-client-library-for-ruby"></a>Schnellstart: Azure Blob Storage-Clientbibliothek für Ruby
 
-In diesem Schnellstart erfahren Sie, wie Sie mit Ruby Blockblobs in einem Container in Azure Blob Storage hochladen, herunterladen und auflisten. 
+Hier erfahren Sie, wie Sie mithilfe von Ruby Blobs erstellen, herunterladen und in einem Container in Microsoft Azure Blob Storage auflisten.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -24,172 +24,181 @@ In diesem Schnellstart erfahren Sie, wie Sie mit Ruby Blockblobs in einem Contai
 
 Stellen Sie sicher, dass die folgenden zusätzlichen Komponenten installiert sind:
 
-* [Ruby](https://www.ruby-lang.org/en/downloads/)
-* [Azure Storage-Bibliothek für Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage) mit dem rubygem-Paket: 
+- [Ruby](https://www.ruby-lang.org/en/downloads/)
+- [Azure Storage-Bibliothek für Ruby](https://github.com/azure/azure-storage-ruby) mit dem [RubyGem-Paket](https://rubygems.org/gems/azure-storage-blob):
 
-    ```
+    ```console
     gem install azure-storage-blob
     ```
-    
+
 ## <a name="download-the-sample-application"></a>Herunterladen der Beispielanwendung
-Die in diesem Schnellstart verwendete [Beispielanwendung](https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git) ist eine einfache Ruby-Anwendung.  
 
-Verwenden Sie [Git](https://git-scm.com/), um eine Kopie der Anwendung in Ihre Entwicklungsumgebung herunterzuladen. 
+Die in diesem Schnellstart verwendete [Beispielanwendung](https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git) ist eine einfache Ruby-Anwendung.
 
-```bash
-git clone https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git 
+Verwenden Sie [Git](https://git-scm.com/), um eine Kopie der Anwendung in Ihre Entwicklungsumgebung herunterzuladen. Mit dem folgenden Befehl wird das Repository auf Ihrem lokalen Computer geklont:
+
+```console
+git clone https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git
 ```
 
-Mit diesem Befehl wird das Repository in Ihren lokalen Git-Ordner geklont. Suchen Sie zum Öffnen der Ruby-Beispielanwendung nach dem Ordner „storage-blobs-ruby-quickstart“, und öffnen Sie die Datei „example.rb“.  
+Navigieren Sie zum Ordner *storage-blobs-ruby-quickstart*, und öffnen Sie die Datei *example.rb* in Ihrem Code-Editor.
 
 [!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>Konfigurieren der Speicherverbindungszeichenfolge
-In der Anwendung müssen Sie Ihren Speicherkontonamen sowie den Kontoschlüssel angeben, um die `BlobService`-Instanz für Ihre Anwendung zu erstellen. Öffnen Sie im Lösungsmappen-Explorer in Ihrer IDE die Datei `example.rb`. Ersetzen Sie die Werte **accountname** und **accountkey** mit Ihrem Kontonamen und dem Kontoschlüssel. 
 
-```ruby 
-blob_client = Azure::Storage::Blob::BlobService.create(
-            storage_account_name: account_name,
-            storage_access_key: account_key
-          )
-```
+Geben Sie Ihren Speicherkontonamen und Ihren Kontoschlüssel an, um eine Instanz vom Typ [BlobService](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/BlobService) für Ihre Anwendung zu erstellen.
 
-## <a name="run-the-sample"></a>Ausführen des Beispiels
-Dieses Beispiel erstellt eine Testdatei im Ordner „Dokumente“. Das Beispielprogramm lädt die Testdatei in den Blobspeicher hoch, listet die Blobs im Container auf und lädt die Datei mit einem neuen Namen herunter. 
+Durch den folgenden Code in der Datei *example.rb* wird ein neues Objekt vom Typ [BlobService](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/BlobService) instanziiert. Ersetzen Sie die Werte *accountname* und *accountkey* mit Ihrem Kontonamen und dem Kontoschlüssel.
 
-Führen Sie das Beispiel aus. Die folgende Ausgabe ist ein Beispiel der Ausgabe, die zurückgegeben wird, wenn die Anwendung ausgeführt wird.
-  
-```
-Creating a container: quickstartblobs7b278be3-a0dd-438b-b9cc-473401f0c0e8
-
-Temp file = C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
-
-Uploading to Blob storage as blobQuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
-
-List blobs in the container
-         Blob name: QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
-
-Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078_DOWNLOADED.txt
-```
-Wenn Sie eine beliebige Taste drücken, um den Vorgang fortzusetzen, löscht das Beispielprogramm den Speichercontainer und die Dateien. Überprüfen Sie Ihren Ordner „Dokumente“ nach den zwei Dateien, bevor Sie fortfahren. Sie können diese öffnen und prüfen, ob sie identisch sind.
-
-Sie können zum Anzeigen der Dateien in Blob Storage auch ein Tool, z.B. den [Azure Storage-Explorer](https://storageexplorer.com), verwenden. Der Azure Storage-Explorer ist ein kostenloses plattformübergreifendes Tool, das Ihnen den Zugriff auf die Speicherkontoinformationen ermöglicht. 
-
-Nachdem Sie die Dateien erfolgreich überprüft haben, drücken Sie eine beliebige Taste, um die Demo zu beenden und die Testdateien zu löschen. Da Sie jetzt wissen, welche Aktionen im Beispiel durchgeführt werden, können Sie die Datei „example.rb“ öffnen, um sich den Code anzusehen. 
-
-## <a name="understand-the-sample-code"></a>Grundlagen des Beispielcodes
-
-Als Nächstes gehen wir schrittweise durch den Beispielcode, damit Sie verstehen können, wie er funktioniert.
-
-### <a name="get-references-to-the-storage-objects"></a>Abrufen von Verweisen auf die Speicherobjekte
-Zunächst müssen die Verweise auf die Objekte erstellt werden, die zum Zugreifen auf und Verwalten von Blob Storage verwendet werden. Diese Objekte bauen aufeinander auf und jedes wird vom jeweils nächsten in der Liste verwendet.
-
-* Erstellen Sie eine Instanz des **BlobService**-Elements von Azure Storage, um die Anmeldeinformationen für die Verbindung einzurichten. 
-* Erstellen Sie das **Container**-Objekt, das den Container darstellt, auf den Sie zugreifen. Container werden zum Organisieren der Blobs verwendet, so wie Sie auf Ihrem Computer Ordner zum Organisieren von Dateien verwenden.
-
-Sobald Sie über den Cloud-Blobcontainer verfügen, können Sie das **Block**-Blobobjekt erstellen, das auf den gewünschten Blob verweist, und Upload-, Download- oder Kopiervorgänge durchführen.
-
-> [!IMPORTANT]
-> Die Containernamen müssen klein geschrieben werden. Weitere Informationen zu Container- und Blobnamen finden Sie unter [Benennen von Containern, Blobs und Metadaten und Verweisen auf diese](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
-
-In diesem Abschnitt richten Sie eine Instanz des Azure Storage-Clients ein, instanziieren das Blob-Dienstobjekt, erstellen einen neuen Container und legen dann Berechtigungen für den Container fest, damit die Blobs öffentlich gemacht werden. Der Name des Containers lautet **quickstartblobs**. 
-
-```ruby 
+```ruby
 # Create a BlobService object
+account_name = "accountname"
+account_key = "accountkey"
+
 blob_client = Azure::Storage::Blob::BlobService.create(
     storage_account_name: account_name,
     storage_access_key: account_key
-    )
+)
+```
 
-# Create a container called 'quickstartblobs'.
-container_name ='quickstartblobs' + SecureRandom.uuid
-container = blob_client.create_container(container_name)   
+## <a name="run-the-sample"></a>Ausführen des Beispiels
 
-# Set the permission so the blobs are public.
+In dem Beispiel wird ein Container in Blob Storage erstellt. Außerdem wird ein neues Blob in dem Container erstellt, die Blobs im Container werden aufgelistet, und das Blob wird in eine lokale Datei heruntergeladen.
+
+Führen Sie das Beispiel aus. Hier sehen Sie eine Beispielausgabe der Anwendungsausführung:
+
+```console
+C:\azure-samples\storage-blobs-ruby-quickstart> ruby example.rb
+
+Creating a container: quickstartblobs18cd9ec0-f4ac-4688-a979-75c31a70503e
+
+Creating blob: QuickStart_6f8f29a8-879a-41fb-9db2-0b8595180728.txt
+
+List blobs in the container following continuation token
+        Blob name: QuickStart_6f8f29a8-879a-41fb-9db2-0b8595180728.txt
+
+Downloading blob to C:/Users/azureuser/Documents/QuickStart_6f8f29a8-879a-41fb-9db2-0b8595180728.txt
+
+Paused, press the Enter key to delete resources created by the sample and exit the application
+```
+
+Wenn Sie zum Fortsetzen die EINGABETASTE drücken, werden der Speichercontainer und die lokale Datei durch das Beispielprogramm gelöscht. Überprüfen Sie den Ordner *Dokumente* auf die heruntergeladene Datei, bevor Sie den Vorgang fortsetzen.
+
+Die Dateien in Ihrem Speicherkonto können auch mithilfe des [Azure Storage-Explorers](https://storageexplorer.com) angezeigt werden. Der Azure Storage-Explorer ist ein kostenloses plattformübergreifendes Tool, das Ihnen den Zugriff auf die Speicherkontoinformationen ermöglicht.
+
+Drücken Sie nach der Überprüfung der Dateien die EINGABETASTE, um die Testdateien zu löschen und die Demo zu beenden. Öffnen Sie die Datei *example.rb*, um den Code anzuzeigen.
+
+## <a name="understand-the-sample-code"></a>Grundlagen des Beispielcodes
+
+Als Nächstes wird der Beispielcode Schritt für Schritt erläutert, damit Sie verstehen, wie er funktioniert.
+
+### <a name="get-references-to-the-storage-objects"></a>Abrufen von Verweisen auf die Speicherobjekte
+
+Zunächst müssen Instanzen der Objekte erstellt werden, die für den Zugriff auf und die Verwaltung von Blob Storage verwendet werden. Diese Objekte bauen aufeinander auf. Jedes wird vom jeweils nächsten Objekt in der Liste verwendet.
+
+- Erstellen Sie eine Instanz des [BlobService](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/BlobService)-Elements von Azure Storage, um die Anmeldeinformationen für die Verbindung einzurichten.
+- Erstellen Sie das Objekt [Container](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/Container/Container), das den Container darstellt, auf den Sie zugreifen. Container werden zum Organisieren der Blobs verwendet, so wie Sie auf Ihrem Computer Ordner zum Organisieren von Dateien verwenden.
+
+Wenn Sie über das Containerobjekt verfügen, können Sie ein Blob vom Typ [Block](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/Block) erstellen, das auf ein bestimmtes Blob verweist, für das Sie sich interessieren. Verwenden Sie das Objekt [Block](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/Block), um Blobs zu erstellen, herunterzuladen und zu kopieren.
+
+> [!IMPORTANT]
+> Die Containernamen müssen klein geschrieben werden. Weitere Informationen zu Container- und Blobnamen finden Sie unter [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Benennen von Containern, Blobs und Metadaten und Verweisen auf diese).
+
+Der folgende Beispielcode bewirkt Folgendes:
+
+- Erstellen eines neuen Containers
+- Festlegen von Berechtigungen für den Container, um öffentliche Blobs zu erhalten. Der Name des Containers ist eine Kombination aus *quickstartblobs* und einer angefügten eindeutigen ID.
+
+```ruby
+# Create a container
+container_name = "quickstartblobs" + SecureRandom.uuid
+puts "\nCreating a container: " + container_name
+container = blob_client.create_container(container_name)
+
+# Set the permission so the blobs are public
 blob_client.set_container_acl(container_name, "container")
 ```
 
-### <a name="upload-blobs-to-the-container"></a>Hochladen von Blobs in den Container
+### <a name="create-a-blob-in-the-container"></a>Erstellen eines Blobs im Container
 
-Blobspeicher unterstützt Block-, Anfüge- und Seitenblobs. Blockblobs werden am häufigsten und auch in diesem Schnellstart verwendet.  
+Von Blob Storage werden Block-, Anfüge- und Seitenblobs unterstützt. Rufen Sie zum Erstellen eines Blobs die Methode [create_block_blob](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob#create_block_blob-instance_method) auf, und übergeben Sie dabei die Daten für das Blob.
 
-Um eine Datei in einen Blob hochzuladen, rufen Sie den vollständigen Pfad der Datei ab, indem Sie den Verzeichnisnamen und den Dateinamen auf Ihrem lokalen Laufwerk verknüpfen. Sie können anschließend die Datei an den Speicherort unter dem angegebenen Pfad hochladen, indem Sie die **create\_block\_blob()** -Methode verwenden. 
-
-Der Beispielcode erstellt eine lokale Datei für den Upload und Download. Dabei wird die hochzuladende Datei als **file\_path\_to\_file** und der Name des Blob in **local\_file\_name** gespeichert. Im folgenden Beispiel wird die Datei in einen Container mit dem Namen **quickstartblobs** hochgeladen.
+Im folgenden Beispiel wird ein Blob namens *QuickStart_* mit einer eindeutigen ID und der Dateierweiterung *.txt* im zuvor erstellten Container erstellt:
 
 ```ruby
-# Create a file in Documents to test the upload and download.
-local_path=File.expand_path("~/Documents")
-local_file_name ="QuickStart_" + SecureRandom.uuid + ".txt"
-full_path_to_file =File.join(local_path, local_file_name)
-
-# Write text to the file.
-file = File.open(full_path_to_file,  'w')
-file.write("Hello, World!")
-file.close()
-
-puts "Temp file = " + full_path_to_file
-puts "\nUploading to Blob storage as blob" + local_file_name
-
-# Upload the created file, using local_file_name for the blob name
-blob_client.create_block_blob(container.name, local_file_name, full_path_to_file)
+# Create a new block blob containing 'Hello, World!'
+blob_name = "QuickStart_" + SecureRandom.uuid + ".txt"
+blob_data = "Hello, World!"
+puts "\nCreating blob: " + blob_name
+blob_client.create_block_blob(container.name, blob_name, blob_data)
 ```
 
-Verwenden Sie die **create\_block\_list()** -Methode, um eine Teilaktualisierung für den Inhalt eines Blockblogs durchzuführen. Blockblobs können eine Größe von bis zu 4,7 TB haben und alle Arten von Dateien sein, von Excel-Arbeitsblättern bis zu großen Videodateien. Seitenblobs werden in erster Linie für die VHD-Dateien verwendet, die IaaS-VMs zugrunde liegen. Anfügeblobs dienen der Protokollierung und können z.B. verwendet werden, um beim Schreiben in eine Datei zusätzliche Daten hinzuzufügen. Das Anfügeblob sollte nur in einem Writer-Modell verwendet werden. Die meisten Objekte, die in Blob Storage gespeichert werden, sind allerdings Blockblobs.
+Blockblobs können eine Größe von bis zu 4,7 TB haben und beliebige Daten umfassen – von Arbeitsblättern bis hin zu großen Videodateien. Seitenblobs werden in erster Linie für die VHD-Dateien verwendet, die virtuellen IaaS-Computern zugrunde liegen. Anfügeblobs werden üblicherweise zur Protokollierung genutzt und können beispielsweise verwendet werden, wenn Sie etwas in eine Datei schreiben und nach und nach weitere Informationen hinzufügen möchten.
 
-### <a name="list-the-blobs-in-a-container"></a>Auflisten der Blobs in einem Container
+### <a name="list-the-blobs-in-a-container"></a>Auflisten der Blobs im Container
 
-Sie können eine Liste mit Dateien des Containers abrufen, indem Sie die **list\_blobs()** -Methode verwenden. Der folgende Code ruft die Liste der Blobs ab und durchläuft sie, um die Namen der in einem Container gefundenen Blobs anzuzeigen.  
+Rufen Sie eine Liste der Dateien im Container mithilfe der Methode „[list_blobs](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/Container#list_blobs-instance_method)“ ab. Der folgende Code ruft die Liste der Blobs ab und zeigt anschließend deren Namen an:
 
 ```ruby
 # List the blobs in the container
+puts "\nList blobs in the container following continuation token"
 nextMarker = nil
 loop do
     blobs = blob_client.list_blobs(container_name, { marker: nextMarker })
     blobs.each do |blob|
-        puts "\tBlob name #{blob.name}"
+        puts "\tBlob name: #{blob.name}"
     end
     nextMarker = blobs.continuation_token
     break unless nextMarker && !nextMarker.empty?
 end
 ```
 
-### <a name="download-the-blobs"></a>Herunterladen der Blobs
+### <a name="download-a-blob"></a>Herunterladen eines Blobs
 
-Laden Sie Blobs auf Ihren lokalen Datenträger mithilfe der **get\_blob()** -Methode herunter. Durch den folgenden Code wird der in einem vorherigen Abschnitt hochgeladene Blob heruntergeladen. „_DOWNLOADED“ wird als Suffix an den Blobnamen hinzugefügt, damit Sie beide Dateien auf dem lokalen Datenträger sehen können. 
+Verwenden Sie die Methode [get_blob](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob#get_blob-instance_method), um ein Blob auf Ihren lokalen Datenträger herunterzuladen. Durch den folgenden Code wird das in einem vorherigen Abschnitt erstellte Blob heruntergeladen:
 
 ```ruby
-# Download the blob(s).
-# Add '_DOWNLOADED' as prefix to '.txt' so you can see both files in Documents.
-full_path_to_file2 = File.join(local_path, local_file_name.gsub('.txt', '_DOWNLOADED.txt'))
+# Download the blob
 
-puts "\n Downloading blob to " + full_path_to_file2
-blob, content = blob_client.get_blob(container_name,local_file_name)
-File.open(full_path_to_file2,"wb") {|f| f.write(content)}
+# Set the path to the local folder for downloading
+if(is_windows)
+    local_path = File.expand_path("~/Documents")
+else 
+    local_path = File.expand_path("~/")
+end
+
+# Create the full path to the downloaded file
+full_path_to_file = File.join(local_path, blob_name)
+
+puts "\nDownloading blob to " + full_path_to_file
+blob, content = blob_client.get_blob(container_name, blob_name)
+File.open(full_path_to_file,"wb") {|f| f.write(content)}
 ```
 
 ### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
-Wenn Sie die in diesem Schnellstart hochgeladenen Blobs nicht mehr benötigen, können Sie mit der **delete\_container()** -Methode den gesamten Container löschen. Wenn die erstellten Dateien nicht mehr benötigt werden, können Sie die **delete\_blob()** -Methode verwenden, um die Dateien zu löschen.
+
+Wenn ein Blob nicht mehr benötigt wird, verwenden Sie [delete_blob](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob#delete_blob-instance_method), um es zu entfernen. Mithilfe der Methode [delete_container](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/Container#delete_container-instance_method) können Sie einen gesamten Container löschen. Beim Löschen eines Containers werden auch alle im Container gespeicherten Blobs gelöscht.
 
 ```ruby
-# Clean up resources. This includes the container and the temp files
+# Clean up resources, including the container and the downloaded file
 blob_client.delete_container(container_name)
 File.delete(full_path_to_file)
-File.delete(full_path_to_file2)    
 ```
+
 ## <a name="resources-for-developing-ruby-applications-with-blobs"></a>Ressourcen für die Entwicklung von Ruby-Anwendungen mit Blobs
 
-Sehen Sie sich diese zusätzlichen Ressourcen zur Ruby-Entwicklung mit Blobspeicher an:
+Weitere Ressourcen für die Ruby-Entwicklung finden Sie hier:
 
 - Zeigen Sie den [Quellcode der Ruby-Clientbibliothek](https://github.com/Azure/azure-storage-ruby) für Azure Storage auf GitHub an, und laden Sie ihn herunter.
-- Sehen Sie sich die [Beispiele für Blobspeicher](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=ruby&term=blob) an, die mit der Ruby-Clientbibliothek geschrieben wurden.
+- Sehen Sie sich [Azure-Beispiele](/samples/browse/?products=azure&languages=ruby) an, die unter Verwendung der Ruby-Clientbibliothek geschrieben wurden.
+- [Beispiel: Erste Schritte mit Azure Storage in Ruby](https://github.com/Azure-Samples/storage-blob-ruby-getting-started)
 
 ## <a name="next-steps"></a>Nächste Schritte
- 
-In diesem Schnellstart haben Sie gelernt, wie Sie mit Ruby Dateien zwischen einem lokalen Datenträger und Azure Blob Storage übertragen. Weitere Informationen zum Arbeiten mit Blob Storage finden Sie in der exemplarischen Vorgehensweise zu Blob Storage.
+
+In dieser Schnellstartanleitung haben Sie gelernt, wie Sie mithilfe von Ruby Dateien zwischen Azure Blob Storage und einem lokalen Datenträger übertragen. Weitere Informationen zur Verwendung von Blob Storage finden Sie in der Speicherkontoübersicht.
 
 > [!div class="nextstepaction"]
-> [Gewusst wie: Blob Storage-Vorgänge](./storage-ruby-how-to-use-blob-storage.md)
+> [Speicherkontoübersicht](../common/storage-account-overview.md)
 
-
-Weitere Informationen zum Storage-Explorer und Blobs finden Sie unter [Verwalten von Azure Blob Storage-Ressourcen mit dem Speicher-Explorer (Vorschau)](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Weitere Informationen zum Storage-Explorer und zu Blobs finden Sie unter [Verwalten von Azure Blob Storage-Ressourcen mit dem Storage-Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

@@ -3,13 +3,13 @@ title: Analysieren von Azure Functions-Telemetriedaten in Application Insights
 description: Hier erfahren Sie, wie Sie Azure Functions-Telemetriedaten anzeigen und abfragen, die von Azure Application Insights gesammelt und dort gespeichert wurden.
 ms.topic: how-to
 ms.date: 10/14/2020
-ms.custom: contperfq2
-ms.openlocfilehash: 9091d59cbc3a4cf841e28505531c89c83e705c46
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 1d8d9cc9a7a4111e98b1d9141957769d6f157d45
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217302"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027729"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Analysieren von Azure Functions-Telemetriedaten in Application Insights 
 
@@ -48,9 +48,9 @@ So öffnen Sie Application Insights in einer Funktions-App im [Azure-Portal](htt
 
 1. Navigieren Sie im Portal zu Ihrer Funktions-App.
 
-1. Klicken Sie auf der linken Seite unter **Einstellungen** auf **Application Insights** . 
+1. Klicken Sie auf der linken Seite unter **Einstellungen** auf **Application Insights**. 
 
-1. Wenn Sie Application Insights mit Ihrem Abonnement zum ersten Mal verwenden, werden Sie aufgefordert, das Feature zu aktivieren. Klicken Sie hierzu auf **Application Insights aktivieren** und dann auf der nächsten Seite auf **Übernehmen** .
+1. Wenn Sie Application Insights mit Ihrem Abonnement zum ersten Mal verwenden, werden Sie aufgefordert, das Feature zu aktivieren. Klicken Sie hierzu auf **Application Insights aktivieren** und dann auf der nächsten Seite auf **Übernehmen**.
 
 ![Öffnen von Application Insights auf der Seite „Übersicht“ von Funktions-Apps](media/functions-monitoring/ai-link.png)
 
@@ -71,7 +71,7 @@ Die folgenden Bereiche von Application Insights können bei der Bewertung des Ve
 
 Mit [Application Insights Analytics](../azure-monitor/log-query/log-query-overview.md) haben Sie Zugriff auf alle Telemetriedaten in Form von Tabellen in einer Datenbank. Analytics stellt eine Abfragesprache zum Extrahieren, Bearbeiten und Visualisieren der Daten bereit. 
 
-Klicken Sie auf **Protokolle** , um protokollierte Ereignisse zu durchsuchen oder abzufragen.
+Klicken Sie auf **Protokolle**, um protokollierte Ereignisse zu durchsuchen oder abzufragen.
 
 ![Analytics-Beispiel](media/functions-monitoring/analytics-traces.png)
 

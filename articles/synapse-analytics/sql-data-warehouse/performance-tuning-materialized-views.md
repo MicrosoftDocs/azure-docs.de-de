@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
-ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 7c7109999d478121ba0251de8e7470bc0f38d64c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: nibruno; jrasnick; azure-synapse
+ms.openlocfilehash: 902f0ac96349cf3e30ec12aeda02130afc2b800c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984115"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460754"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Leistungsoptimierung mit materialisierten Sichten
 
-Die materialisierten Sichten im Synapse SQL-Pool bieten eine Methode mit geringer Wartung für komplexe analytische Abfragen, um eine schnelle Leistung ohne irgendeine Abfrageänderung zu erzielen. Dieser Artikel erläutert den allgemeinen Leitfaden zur Verwendung materialisierter Sichten.
+Materialisierte Sichten im Azure Synapse SQL-Pool bieten eine Methode mit geringer Wartung für komplexe analytische Abfragen, um eine schnelle Leistung ohne irgendeine Abfrageänderung zu erzielen. Dieser Artikel erläutert den allgemeinen Leitfaden zur Verwendung materialisierter Sichten.
 
 ## <a name="materialized-views-vs-standard-views"></a>Materialisierte Sichten im Vergleich zu Standardsichten
 
-Der SQL-Pool unterstützt Standardsichten und materialisierte Sichten.  Beides sind virtuelle Tabellen, die mit SELECT-Ausdrücken erstellt und Abfragen als logische Tabellen präsentiert werden.  Sichten kapseln die Komplexität von allgemeiner Datenberechnung und fügen eine Abstraktionsebene zur Berechnung von Änderungen hinzu, sodass Abfragen nicht erneut generiert werden müssen.  
+Der SQL-Pool in Azure Synapse unterstützt Standardsichten und materialisierte Sichten.  Beides sind virtuelle Tabellen, die mit SELECT-Ausdrücken erstellt und Abfragen als logische Tabellen präsentiert werden.  Sichten kapseln die Komplexität von allgemeiner Datenberechnung und fügen eine Abstraktionsebene zur Berechnung von Änderungen hinzu, sodass Abfragen nicht erneut generiert werden müssen.  
 
-Eine Standardsicht berechnet die zugehörigen Daten jedes Mal, wenn sie verwendet wird.  Auf dem Datenträger sind keine Daten gespeichert. Normalerweise verwenden Benutzer Standardsichten als Tool, das sie beim Organisieren logischer Objekte und Abfragen in einer Datenbank unterstützt.  Um eine Standardsicht verwenden zu können, muss eine Abfrage direkt darauf verweisen.
+Eine Standardsicht berechnet die zugehörigen Daten jedes Mal, wenn sie verwendet wird.  Auf dem Datenträger sind keine Daten gespeichert. Normalerweise verwenden Benutzer Standardsichten als Tool, das die Organisation der logischen Objekte und Abfragen in einem SQL-Pool unterstützt.  Um eine Standardsicht verwenden zu können, muss eine Abfrage direkt darauf verweisen.
 
 Eine materialisierte Sicht berechnet vorab, speichert und verwaltet die zugehörigen Daten im SQL-Pool wie eine Tabelle.  Jedes Mal, wenn eine materialisierte Sicht verwendet wird, muss nichts neu berechnet werden.  Deshalb können Abfragen, die alle Daten oder eine Teilmenge davon in materialisierten Sichten verwenden, eine schnellere Leistung erzielen.  Noch besser: Weil Abfragen eine materialisierte Sicht verwenden können, ohne direkt darauf zu verweisen, muss der Anwendungscode nicht geändert werden.  
 
@@ -79,7 +79,7 @@ Im Vergleich zu anderen Optimierungsoptionen, wie z.B. Skalierung und Statistikv
 
 **Eine andere Datenverteilungsstrategie für eine schnellere Abfrageleistung ist erforderlich**
 
-Der SQL-Pool ist ein verteiltes System mit paralleler Massenverarbeitung (Massively Parallel Processing, MPP).   Daten in einer SQL-Pooltabelle werden mit einer von drei [Verteilungsstrategien](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, round_robin oder replicated) über 60 Knoten verteilt.  
+Azure Synapse Analytics ist ein System zum Verarbeiten verteilter Abfragen.  Daten in einer SQL-Tabelle werden mit einer von drei [Verteilungsstrategien](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, round_robin oder replicated) über 60 Knoten verteilt.   
 
 Die Datenverteilung wird zum Zeitpunkt der Tabellenerstellung angegeben und bleibt so lange unverändert, bis die Tabelle gelöscht wird. Da die materialisierte Sicht eine virtuelle Tabelle auf Datenträger ist, unterstützt sie die Datenverteilungen hash und round_robin.  Benutzer können eine Datenverteilung wählen, die sich von den Basistabellen unterscheidet, aber optimal für die Leistung von Abfragen ist, die die Sichten am häufigsten verwenden.  
 
@@ -97,11 +97,11 @@ Werten Sie diese Empfehlungen unter Berücksichtigung Ihrer Workloadanforderunge
 
 **Beachten Sie den Kompromiss zwischen schnelleren Abfragen und den Kosten**
 
-Bei jeder materialisierten Sicht gibt es Kosten für den Datenspeicher und Kosten für die Wartung der Sicht.  Bei Datenänderungen in Basistabellen nimmt die Größe der materialisierten Sicht zu, und die physische Struktur ändert sich ebenfalls.  Um Beeinträchtigungen der Abfrageleistung zu vermeiden, wird jede materialisierte Sicht separat von der SQL-Pool-Engine verwaltet.  
+Bei jeder materialisierten Sicht gibt es Kosten für den Datenspeicher und Kosten für die Wartung der Sicht.  Bei Datenänderungen in Basistabellen nimmt die Größe der materialisierten Sicht zu, und die physische Struktur ändert sich ebenfalls.  Um Beeinträchtigungen der Abfrageleistung zu vermeiden, wird jede materialisierte Sicht von der SQL Analytics-Engine separat verwaltet.  
 
 Die Wartungsworkload wird höher, wenn die Anzahl von materialisierten Sichten und Änderungen an der Basistabelle zunimmt.   Benutzer sollten überprüfen, ob die aus allen materialisierten Sichten anfallenden Kosten durch den Abfrageleistungsgewinn ausgeglichen werden können.  
 
-Sie können diese Abfrage für die Liste von materialisierten Sichten in einer Datenbank ausführen:
+Sie können diese Abfrage für die Liste von materialisierten Sichten in einem SQL-Pool ausführen:
 
 ```sql
 SELECT V.name as materialized_view, V.object_id
@@ -141,7 +141,7 @@ GROUP BY A, C
 
 **Nicht die gesamte Leistungsoptimierung erfordert Abfrageänderungen**
 
-Der SQL-Pool-Optimierer kann bereitgestellte materialisierte Sichten automatisch zur Verbesserung der Abfrageleistung verwenden.  Diese Unterstützung wird auf Abfragen transparent angewendet, die nicht auf die Sichten und Abfragen verweisen, die bei der Erstellung von materialisierten Sichten nicht unterstützte Aggregate verwenden.  Es ist keine Abfrageänderung erforderlich. Sie können den geschätzten Ausführungsplan für eine Abfrage überprüfen, um sich zu vergewissern, dass eine materialisierte Sicht verwendet wird.  
+Der SQL Analytics-Optimierer kann bereitgestellte materialisierte Sichten automatisch zur Verbesserung der Abfrageleistung verwenden.  Diese Unterstützung wird auf Abfragen transparent angewendet, die nicht auf die Sichten und Abfragen verweisen, die bei der Erstellung von materialisierten Sichten nicht unterstützte Aggregate verwenden.  Es ist keine Abfrageänderung erforderlich. Sie können den geschätzten Ausführungsplan für eine Abfrage überprüfen, um sich zu vergewissern, dass eine materialisierte Sicht verwendet wird.  
 
 **Überwachen von materialisierten Sichten**
 
@@ -151,7 +151,7 @@ Um eine Leistungsbeeinträchtigung bei der Abfrage zu vermeiden, empfiehlt es si
 
 **Materialisierte Sicht und Zwischenspeichern von Resultsets**
 
-Diese beiden Features werden im SQL-Pool ungefähr zeitgleich zur Optimierung der Abfrageleistung eingeführt.  Das Zwischenspeichern von Resultsets wird verwendet, um hohe Parallelität und schnelle Antwort aus sich wiederholenden Abfragen für statische Daten zu erhalten.  
+Diese beiden Features werden in SQL Analytics ungefähr zeitgleich zur Optimierung der Abfrageleistung eingeführt.  Das Zwischenspeichern von Resultsets wird verwendet, um hohe Parallelität und schnelle Antwort aus sich wiederholenden Abfragen für statische Daten zu erhalten.  
 
 Um das zwischengespeicherte Ergebnis verwenden zu können, muss die Form des Caches, der die Abfrage anfordert, mit der Abfrage übereinstimmen, die den Cache erzeugt hat.  Außerdem muss das zwischengespeicherte Ergebnis für die gesamte Abfrage gelten.  
 

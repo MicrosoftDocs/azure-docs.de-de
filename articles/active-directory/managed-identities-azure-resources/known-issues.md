@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/06/2020
+ms.date: 12/01/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
-ms.openlocfilehash: cf9f484a3f9285d1be06443b39bd50ec73ccf632
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.custom: has-adal-ref, devx-track-azurecli
+ms.openlocfilehash: 4d7debce83928e21072c981b007e8048bfc4c594
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91665292"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460928"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Häufig gestellte Fragen und bekannte Probleme mit verwalteten Identitäten für Azure-Ressourcen
 
@@ -74,7 +74,7 @@ Bei der Sicherheitsgrenze der Identität handelt es sich um die Ressource, an di
 
 Nein. Wenn Sie ein Abonnement in ein anderes Verzeichnis verschieben, müssen Sie die Identitäten manuell neu erstellen und erneut Rollenzuweisungen in Azure erteilen.
 - Für vom System zugewiesene verwaltete Identitäten: Deaktivieren Sie die Identitäten, und aktivieren Sie sie erneut. 
-- Für vom Benutzer zugewiesene verwaltete Identitäten: Löschen Sie die Identitäten, erstellen Sie sie neu, und fügen Sie sie erneut an die erforderlichen Ressourcen an (z. B. VMs).
+- Für vom Benutzer zugewiesene verwaltete Identitäten: Löschen Sie die Identitäten, erstellen Sie sie neu, und fügen Sie sie erneut an die erforderlichen Ressourcen an (z. B. virtuelle Computer).
 
 ### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>Kann ich eine verwaltete Identität verwenden, um auf eine Ressource in einem anderen Verzeichnis/Mandanten zuzugreifen?
 
@@ -85,6 +85,46 @@ Nein. Verwaltete Identitäten unterstützen derzeit keine verzeichnisübergreife
 - Systemseitig zugewiesene verwaltete Identität: Sie benötigen Schreibberechtigungen für die Ressource. Für virtuelle Computer benötigen Sie z.B. „Microsoft.Compute/virtualMachines/write“. Diese Aktion ist in ressourcenspezifischen integrierten Rollen wie [Mitwirkender von virtuellen Computern](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) enthalten.
 - Benutzerseitig zugewiesene verwaltete Identität: Sie benötigen Schreibberechtigungen für die Ressource. Für virtuelle Computer benötigen Sie z.B. „Microsoft.Compute/virtualMachines/write“. Zusätzlich zu der Rollenzuweisung [Operator für verwaltete Identität](../../role-based-access-control/built-in-roles.md#managed-identity-operator) für die verwaltete Identität.
 
+### <a name="how-do-i-prevent-the-creation-of-user-assigned-managed-identities"></a>Wie verhindere ich die Erstellung von verwalteten Identitäten, die vom Benutzer zugewiesen werden?
+
+Mit [Azure Policy](../../governance/policy/overview.md) können Sie Ihre Benutzer am Erstellen von vom Benutzer zugewiesenen verwalteten Identitäten hindern.
+
+- Navigieren Sie zum [Azure-Portal](https://portal.azure.com) und dann zu **Policy**.
+- Wählen Sie **Definitionen** aus.
+- Wählen Sie **+ Richtliniendefinition** aus, und geben Sie die erforderlichen Informationen ein.
+- Einfügen im Abschnitt „Richtlinienregel“
+
+```json
+{
+  "mode": "All",
+  "policyRule": {
+    "if": {
+      "field": "type",
+      "equals": "Microsoft.ManagedIdentity/userAssignedIdentities"
+    },
+    "then": {
+      "effect": "deny"
+    }
+  },
+  "parameters": {}
+}
+
+```
+
+Nachdem Sie die Richtlinie erstellt haben, weisen Sie sie der gewünschten Ressourcengruppe zu.
+
+- Navigieren Sie zu „Ressourcengruppen“.
+- Suchen Sie die Ressourcengruppe, die Sie zu Testzwecken verwenden möchten.
+- Wählen Sie im Menü auf der linken Seite **Richtlinien** aus.
+- Wählen Sie **Richtlinie zuweisen** aus.
+- Geben Sie im Abschnitt **Grundeinstellungen** Folgendes an:
+    - **Bereich**: die Ressourcengruppe, die Sie zu Testzwecken verwenden.
+    - **Richtliniendefinition**: die zuvor erstellte Richtlinie.
+- Übernehmen Sie für alle anderen Einstellungen die Standardwerte, und wählen Sie **Überprüfen + Erstellen** aus.
+
+Ab diesem Zeitpunkt schlägt jeder Versuch, eine vom Benutzer zugewiesene verwaltete Identität in der Ressourcengruppe zu erstellen, fehl.
+
+  ![Richtlinienverletzung](./media/known-issues/policy-violation.png)
 
 ## <a name="known-issues"></a>Bekannte Probleme
 
@@ -127,7 +167,7 @@ Verwaltete Identitäten werden nicht aktualisiert, wenn ein Abonnement in ein an
 Problemumgehung für verwaltete Identitäten in einem Abonnement, die in ein anderes Verzeichnis verschoben wurden:
 
  - Für vom System zugewiesene verwaltete Identitäten: Deaktivieren Sie die Identitäten, und aktivieren Sie sie erneut. 
- - Für vom Benutzer zugewiesene verwaltete Identitäten: Löschen Sie die Identitäten, erstellen Sie sie neu, und fügen Sie sie erneut an die erforderlichen Ressourcen an (z. B. VMs).
+ - Für vom Benutzer zugewiesene verwaltete Identitäten: Löschen Sie die Identitäten, erstellen Sie sie neu, und fügen Sie sie erneut an die erforderlichen Ressourcen an (z. B. virtuelle Computer).
 
 Weitere Informationen finden Sie unter [Übertragen eines Azure-Abonnements in ein anderes Azure AD-Verzeichnis](../../role-based-access-control/transfer-subscription.md).
 

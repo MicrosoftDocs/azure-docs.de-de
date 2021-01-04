@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 09/23/2019
-ms.openlocfilehash: fbf76f846395d6bf0b02828ab1d6ad8b70c97784
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e9f3b7ea3d99de51b9398bda82b690d2c249a1d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289338"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520964"
 ---
 # <a name="how-to-migrate-your-account-from-cloud-partner-portal-to-partner-center"></a>Migrieren Ihres Kontos vom Cloud-Partnerportal zu Partner Center
 
@@ -81,7 +81,7 @@ Spezifische Informationen dazu, was Sie bis zum **15. Oktober 2019** für Ihre D
     * Die Zertifizierung oder erneute Zertifizierung erfordert, dass Ihre App die neueste Version unserer Business Applications-Plattform unterstützt.
     * Nachdem Ihre App genehmigt wurde, erhalten Sie eine E-Mail. Kehren Sie darüber zum Angebot zurück, und wählen Sie „Live schalten“ aus, um das Angebot auf Microsoft AppSource live zu schalten.
 
-## <a name="additional-resources"></a>Weitere Ressourcen
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 Greifen Sie auf der Seite zu [Microsoft Dynamics CRM](https://community.dynamics.com/crm?wa=wsignin1.0) auf Blogs, Webinare, Videos, Ereignisse und mehr zu, um Hilfe von Experten oder anderen Mitgliedern der Community zu erhalten.
 

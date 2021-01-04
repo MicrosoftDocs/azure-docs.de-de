@@ -1,14 +1,14 @@
 ---
 title: Bereitstellen von Azure Policy für delegierte Abonnements in großem Umfang
 description: Hier erfahren Sie, wie Sie mit Azure Lighthouse eine Richtliniendefinition und eine Richtlinienzuweisung für mehrere Mandanten bereitstellen können.
-ms.date: 08/12/2020
+ms.date: 11/09/2020
 ms.topic: how-to
-ms.openlocfilehash: 27d32a68c1a3806e514533efbae581aa97bc6d0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5af938c61ad3e42e36360a15c6011b54fa1e823d
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167282"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412067"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Bereitstellen von Azure Policy für delegierte Abonnements in großem Umfang
 
@@ -91,7 +91,11 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 }
 ```
 
+> [!NOTE]
+> Sie können zwar Richtlinien mandantenübergreifend bereitstellen, aber für nicht konforme Ressourcen in diesen Mandanten keine [Konformitätsdetails anzeigen](../../governance/policy/how-to/determine-non-compliance.md#compliance-details).
+
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Informieren Sie sich über [Azure Policy](../../governance/policy/index.yml).
 - Erfahren Sie über [Mandantenübergreifende Verwaltungsmöglichkeiten](../concepts/cross-tenant-management-experience.md).
+- Erfahren Sie, wie Sie eine [Richtlinie bereitstellen, die in einem delegierten Abonnement gewartet werden kann](deploy-policy-remediation.md).

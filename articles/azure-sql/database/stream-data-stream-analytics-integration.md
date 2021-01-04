@@ -11,12 +11,12 @@ author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 640dcfc49d1b467cbb852e8b07b113c1180daf7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36a96a1927aeedb5f841083241d487e0c61d6813
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617093"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454032"
 ---
 # <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Streamen von Daten an Azure SQL-Datenbank mithilfe der Azure Stream Analytics-Integration (Vorschauversion)
 
@@ -31,7 +31,7 @@ Benutzer können Streamingdaten jetzt in Echtzeit direkt aus einer Datenbank in 
 - Zusätzliche Benutzerfreundlichkeit mit Vorschau von Daten: Sie können eine Vorschau eingehender Daten aus der Ereignisquelle (Event Hub/IOT Hub) im Kontext der ausgewählten Tabelle anzeigen.
 
 > [!IMPORTANT]
-> Ein Azure Stream Analytics-Auftrag kann Ergebnisse in Azure SQL-Datenbank, Azure SQL Managed Instance oder Azure Synapse Analytics (vormals SQL Data Warehouse) ausgeben. Weitere Informationen finden Sie unter [Ausgaben](../../stream-analytics/stream-analytics-define-outputs.md).
+> Ein Azure Stream Analytics-Auftrag kann Ergebnisse in Azure SQL-Datenbank, Azure SQL Managed Instance oder Azure Synapse Analytics ausgeben. Weitere Informationen finden Sie unter [Ausgaben](../../stream-analytics/stream-analytics-define-outputs.md).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -124,6 +124,5 @@ Zum Ausführen der Schritte in diesem Artikel benötigen Sie folgende Ressourcen
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Azure Stream Analytics-Dokumentation](https://docs.microsoft.com/azure/stream-analytics/)
+- [Azure Stream Analytics-Dokumentation](../../stream-analytics/index.yml)
 - [Lösungsmuster in Azure Stream Analytics](../../stream-analytics/stream-analytics-solution-patterns.md)
- 

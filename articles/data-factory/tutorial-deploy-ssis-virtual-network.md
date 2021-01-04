@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 1/10/2020
-ms.openlocfilehash: ef2bd2fa9badc7c299099b647e1f67c50e997024
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fc34c2422816f23c0c3eb8adf8a02b5e7ed3b4c0
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91292301"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636985"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>Konfigurieren einer Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR) für die Verknüpfung mit einem virtuellen Netzwerk
 
@@ -33,14 +33,14 @@ Dazu müssen folgende Schritte ausgeführt werden:
 
 - **Azure SSIS-Integration Runtime:** Wenn Sie keine Azure-SSIS Integration Runtime haben, müssen Sie zuerst [eine Azure-SSIS Integration Runtime in Azure Data Factory bereitstellen](tutorial-deploy-ssis-packages-azure.md).
 
-- **Benutzerberechtigung**. Der Benutzer, der die Azure-SSIS IR erstellt, muss über die [Rollenzuweisung](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-portal#list-role-assignments-for-a-user-at-a-scope) mindestens für die Azure Data Factory-Ressource verfügen, und zwar mit einer der folgenden Optionen:
+- **Benutzerberechtigung** . Der Benutzer, der die Azure-SSIS IR erstellt, muss über die [Rollenzuweisung](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope) mindestens für die Azure Data Factory-Ressource verfügen, und zwar mit einer der folgenden Optionen:
 
     - Verwenden Sie die integrierte Rolle „Netzwerkmitwirkender“. Diese Rolle umfasst die Berechtigung _Microsoft.Network/\*_ , die jedoch einen deutlich größeren Umfang als erforderlich hat.
     - Erstellen Sie eine benutzerdefinierte Rolle, die nur die erforderliche Berechtigung _Microsoft.Network/virtualNetworks/\*/join/action_ aufweist. Wenn Sie beim Verknüpfen der Azure-SSIS IR mit einem virtuellen Azure Resource Manager-Netzwerk Ihre eigenen öffentlichen IP-Adressen für die IR verwenden möchten, beziehen Sie auch die Berechtigung _Microsoft.Network/publicIPAddresses/*/join/action_ mit in die Rolle ein.
 
-- **Virtuelles Netzwerk**.
+- **Virtuelles Netzwerk** .
 
-    - Wenn Sie noch keines haben, [erstellen Sie ein virtuelles Netzwerk über das Azure-Portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal).
+    - Wenn Sie noch keines haben, [erstellen Sie ein virtuelles Netzwerk über das Azure-Portal](../virtual-network/quick-create-portal.md).
 
     - Stellen Sie sicher, dass bestimmte Azure-Netzwerkressourcen durch die Ressourcengruppe des virtuellen Netzwerks erstellt und gelöscht werden können.
     
@@ -51,7 +51,7 @@ Dazu müssen folgende Schritte ausgeführt werden:
     
         Diese Ressourcen werden beim Start Ihrer Azure-SSIS IR erstellt. Sie werden gelöscht, wenn die Azure-SSIS IR beendet wird. Damit Ihre Azure-SSIS IR ordnungsgemäß beendet werden kann, sollten Sie diese Netzwerkressourcen nicht in anderen Ressourcen wiederverwenden.
 
-    - Stellen Sie sicher, dass für die Ressourcengruppe/das Abonnement, zu der bzw. dem das virtuelle Netzwerk gehört, keine [Ressourcensperre](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) besteht. Wenn Sie eine Schreibschutzsperre oder eine Löschsperre konfigurieren, kann beim Starten und Beenden Ihrer Azure-SSIS IR ein Fehler auftreten oder die IR nicht mehr reagieren.
+    - Stellen Sie sicher, dass für die Ressourcengruppe/das Abonnement, zu der bzw. dem das virtuelle Netzwerk gehört, keine [Ressourcensperre](../azure-resource-manager/management/lock-resources.md) besteht. Wenn Sie eine Schreibschutzsperre oder eine Löschsperre konfigurieren, kann beim Starten und Beenden Ihrer Azure-SSIS IR ein Fehler auftreten oder die IR nicht mehr reagieren.
 
     - Stellen Sie sicher, dass Sie keine Azure Policy-Zuweisung aufweisen, die verhindert, dass die folgenden Ressourcen unter der Ressourcengruppe/dem Abonnement erstellt werden, zu der bzw. dem das virtuelle Netzwerk gehört:
         - Microsoft.Network/LoadBalancers
@@ -74,7 +74,7 @@ Konfigurieren Sie ein virtuelles Netzwerk über das Azure-Portal, bevor Sie vers
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Wählen Sie **Weitere Dienste**. Filtern Sie nach **Virtuelle Netzwerke**, und wählen Sie die Option aus.
+1. Wählen Sie **Weitere Dienste** . Filtern Sie nach **Virtuelle Netzwerke** , und wählen Sie die Option aus.
 
 1. Filtern Sie nach Ihrem virtuellen Netzwerk, und wählen Sie es in der Liste aus.
 
@@ -114,7 +114,7 @@ Nachdem Sie Ihr virtuelles Azure Resource Manager-Netzwerk oder klassisches virt
 
    ![Data Factory-Startseite](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
 
-1. Wechseln Sie in der Data Factory-Benutzeroberfläche zur Registerkarte **Bearbeiten**, klicken Sie auf **Verbindungen**, und wechseln Sie zur Registerkarte **Integration Runtimes**.
+1. Wechseln Sie in der Data Factory-Benutzeroberfläche zur Registerkarte **Bearbeiten** , klicken Sie auf **Verbindungen** , und wechseln Sie zur Registerkarte **Integration Runtimes** .
 
    ![Registerkarte „Integration Runtimes“](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png)
 
@@ -126,10 +126,10 @@ Nachdem Sie Ihr virtuelles Azure Resource Manager-Netzwerk oder klassisches virt
 
    ![Bearbeiten der Integration Runtime](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtime-edit.png)
 
-1. Navigieren Sie im Bereich für die Integration Runtime-Einrichtung durch die Abschnitte **Allgemeine Einstellungen** und **SQL-Einstellungen**, indem Sie die Schaltfläche **Weiter** auswählen.
+1. Navigieren Sie im Bereich für die Integration Runtime-Einrichtung durch die Abschnitte **Allgemeine Einstellungen** und **SQL-Einstellungen** , indem Sie die Schaltfläche **Weiter** auswählen.
 
 1. Gehen Sie im Abschnitt **Erweiterte Einstellungen** folgendermaßen vor:
-   1. Aktivieren Sie das Kontrollkästchen **VNET für die Einbindung Ihrer Azure-SSIS Integration Runtime-Instanz auswählen, Erstellung bestimmter Netzwerkressourcen für ADF ermöglichen und optional eigene statische öffentliche IP-Adressen verwenden**.
+   1. Aktivieren Sie das Kontrollkästchen **VNET für die Einbindung Ihrer Azure-SSIS Integration Runtime-Instanz auswählen, Erstellung bestimmter Netzwerkressourcen für ADF ermöglichen und optional eigene statische öffentliche IP-Adressen verwenden** .
 
    1. Wählen Sie unter **Abonnement** das Azure-Abonnement aus, das Ihr virtuelles Netzwerk enthält.
 

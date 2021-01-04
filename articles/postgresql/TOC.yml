@@ -1,4 +1,4 @@
-- name: Dokumentation zu Azure DB for PostgreSQL
+- name: Dokumentation zu Azure Database for PostgreSQL
   href: index.yml
 - name: Übersicht
   items:
@@ -12,6 +12,10 @@
           href: concepts-certificate-rotation.md
 - name: Verfügbare Dokumentation
   items:
+    - name: Datenbankbereitstellung
+      items:
+        - name: Github Actions
+          href: how-to-deploy-github-action.md
     - name: Migration
       items:
         - name: Migrieren von Daten mit „pg_dump“ und „pg_restore“
@@ -23,6 +27,9 @@
         - name: Migration mit minimaler Downtime per DMS
           href: howto-migrate-online.md
           displayName: 'dms, data migration service'
+    - name: Versioning policy (Versionsverwaltungsrichtlinie)
+      href: concepts-version-policy.md
+      displayName: 'version, postgresql'
 - name: Einzelner Server
   expanded: true
   items:
@@ -103,8 +110,6 @@
       items:
         - name: Azure CLI
           href: sample-scripts-azure-cli.md
-        - name: Integrierte Azure Policy-Aktionen
-          href: ./policy-reference.md
     - name: Konzepte
       items:
         - name: Server
@@ -144,6 +149,9 @@
             - name: Doppelte Infrastrukturverschlüsselung
               href: concepts-infrastructure-double-encryption.md
               displayName: 'security, infrastructure encryption'
+            - name: Sicherheitskontrollen von Azure Policy
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
             - name: Sicherheitsbaseline
               href: security-baseline.md
         - name: Netzwerk
@@ -198,6 +206,8 @@
               displayName: 'query store, performance, optimize, recommendations'
         - name: App-Entwicklung
           items:
+            - name: Bewährte Methoden
+              href: application-best-practices.md
             - name: Verbindungsbibliotheken
               href: concepts-connection-libraries.md
               displayName: 'libraries, drivers'
@@ -252,6 +262,9 @@
             - name: Azure PowerShell
               href: howto-restore-server-powershell.md
               displayName: 'restore, georestore, geo-restore, outage'
+            - name: Wiederherstellen eines gelöschten Servers
+              href: howto-restore-dropped-server.md
+              displayName: 'restore server,dropped, recover'
         - name: Authentifizierung aktivieren
           items:
             - name: Erstellen von Benutzern
@@ -382,6 +395,8 @@
           items:
             - name: Azure-Portal
               href: howto-move-regions-portal.md
+        - name: Upgrades von Hauptversionen
+          href: how-to-upgrade-using-dump-and-restore.md
 - name: Flexible Server (Vorschau)
   expanded: true
   items:
@@ -407,10 +422,16 @@
               href: flexible-server/connect-python.md
     - name: Tutorials
       items:
-        - name: Erstellen einer Web-App in einem virtuellen Netzwerk
-          href: flexible-server/tutorial-webapp-server-vnet.md
-        - name: Bereitstellen einer Django-App
-          href: flexible-server/tutorial-django-app-service-postgres.md
+        - name: Erstellen mit AKS
+          items:
+            - name: Bereitstellen einer Python-App in Kubernetes
+              href: flexible-server/tutorial-django-aks-database.md
+        - name: Erstellen mit App Services
+          items:
+            - name: Erstellen einer Web-App in einem virtuellen Netzwerk
+              href: flexible-server/tutorial-webapp-server-vnet.md
+            - name: Bereitstellen einer Django-App in App Service
+              href: flexible-server/tutorial-django-app-service-postgres.md
     - name: Konzepte
       items:
         - name: Server
@@ -457,6 +478,8 @@
               href: flexible-server/how-to-manage-server-portal.md
             - name: Azure CLI
               href: flexible-server/how-to-manage-server-cli.md
+            - name: Anleitung zur Verbindungsherstellung und zu Abfragen
+              href: flexible-server/how-to-connect-query-guide.md
         - name: Geplante Wartung
           items:
             - name: Azure-Portal
@@ -530,6 +553,12 @@
               displayName: 'portal, create hyperscale'
     - name: Tutorials
       items:
+        - name: Servergruppe erstellen
+          href: tutorial-hyperscale-server-group.md
+        - name: Modellieren und Laden von Daten
+          items:
+            - name: Sharddaten in Workerknoten
+              href: tutorial-hyperscale-shard.md
         - name: Entwerfen einer mehrinstanzenfähigen Datenbank
           href: tutorial-design-database-hyperscale-multi-tenant.md
           displayName: 'hyperscale, tutorial, multi-tenant'
@@ -594,8 +623,14 @@
           href: reference-hyperscale-metadata.md
     - name: Anleitungen
       items:
-        - name: Skalieren einer Servergruppe
-          href: howto-hyperscale-scaling.md
+        - name: Größe der Servergruppe
+          items:
+            - name: Auswählen der ursprünglichen Größe
+              href: howto-hyperscale-scale-initial.md
+            - name: Skalieren einer Servergruppe
+              href: howto-hyperscale-scale-grow.md
+            - name: Ausgleichen von Shards
+              href: howto-hyperscale-scale-rebalance.md
         - name: Firewallregeln
           items:
             - name: Azure-Portal
@@ -630,6 +665,9 @@
       href: /rest/api/postgresql
     - name: Resource Manager-Vorlage
       href: /azure/templates/microsoft.dbforpostgresql/allversions
+    - name: Azure Policy-Integrationen
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Ressourcen
   items:
     - name: Erweitern Ihrer Fähigkeiten mit Microsoft Learn

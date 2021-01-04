@@ -4,17 +4,17 @@ summary: Hier erfahren Sie, wie Sie Azure App Configuration verwenden. Dabei han
 metadata:
   title: Dokumentation zu Azure App Configuration
   description: Hier erfahren Sie, wie Sie Azure App Configuration verwenden. Dabei handelt es sich um einen verwalteten Dienst, mit dem Entwickler ihre Anwendungs- und Featureeinstellungen einfach und sicher zentralisieren können.
-  author: lisaguthrie
-  ms.author: lcozzens
+  author: AlexandraKemperMS
+  ms.author: alkemper
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 02/03/2020
-  ms.openlocfilehash: d9f08f99b6b8d945243b78cc208a3432e43108b7
-  ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+  ms.openlocfilehash: 45b249dbe8e95a063cdeb30c3b7389eb1dcf2001
+  ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/15/2020
-  ms.locfileid: "92074752"
+  ms.lasthandoff: 12/09/2020
+  ms.locfileid: "96929530"
 landingContent:
 - title: Informationen zu Azure App Configuration
   linkLists:
@@ -143,4 +143,4 @@ landingContent:
     - text: Azure SDK für JavaScript
       url: https://go.microsoft.com/fwlink/?linkid=2103664
     - text: REST
-      url: https://go.microsoft.com/fwlink/?linkid=2078296
+      url: rest-api.md

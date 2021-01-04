@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 06/21/2020
-  ms.openlocfilehash: ee97286cc8b0b2e238d2cf6791c5715b93f8d6c4
-  ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+  ms.openlocfilehash: 82c4b4e574c66e8f45a2bb408b6bced4c6f195da
+  ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/16/2020
-  ms.locfileid: "92123625"
+  ms.lasthandoff: 11/25/2020
+  ms.locfileid: "96122446"
 landingContent:
 - title: Informationen zu Azure IoT Central
   linkLists:
@@ -45,10 +45,8 @@ landingContent:
       url: overview-iot-central-developer.md
   - linkListType: tutorial
     links:
-    - text: Herstellen einer Verbindung mit einem Gerät (Node.js)
-      url: tutorial-connect-device-nodejs.md
-    - text: Herstellen einer Verbindung mit einem Gerät (Python)
-      url: tutorial-connect-device-python.md
+    - text: Erstellen eines Geräts und Herstellen einer Verbindung mit ihm
+      url: tutorial-connect-device.md
   - linkListType: concept
     links:
     - text: Gerätekonnektivität

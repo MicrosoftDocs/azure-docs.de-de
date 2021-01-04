@@ -7,17 +7,18 @@ author: rdeltcheva
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 9efdbb32683c9a244226012bd2d4bfcab6046678
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5af2c40dd1efa542ac13bd4cf96ba3017810bf00
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151168"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608672"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Hochverfügbarkeit von SAP HANA auf Azure-VMs unter SUSE Linux Enterprise Server
 
@@ -104,15 +105,15 @@ Führen Sie diese Schritte aus, um die Vorlage bereitzustellen:
     Die Datenbankvorlage erstellt nur die Lastenausgleichsregeln für eine Datenbank. Die konvergierte Vorlage erstellt auch die Lastenausgleichsregeln für eine ASCS/SCS- und ERS-Instanz (nur Linux). Wenn Sie ein SAP NetWeaver-basiertes System installieren und die ASCS/SCS-Instanz auf denselben Computern installieren möchten, verwenden Sie die [konvergierte Vorlage][template-converged].
 
 1. Legen Sie die folgenden Parameter fest:
-    - **SAP-System-ID** : Geben Sie die SAP-System-ID des SAP-Systems ein, das Sie installieren möchten. Die ID wird als Präfix für die Ressourcen verwendet, die bereitgestellt werden.
+    - **SAP-System-ID**: Geben Sie die SAP-System-ID des SAP-Systems ein, das Sie installieren möchten. Die ID wird als Präfix für die Ressourcen verwendet, die bereitgestellt werden.
     - **Stapeltyp:** (Dieser Parameter gilt nur, wenn Sie die konvergierte Vorlage verwenden.) Wählen Sie den SAP NetWeaver-Stapeltyp aus.
-    - **Betriebssystemtyp** : Wählen Sie eine der Linux-Distributionen aus. Wählen Sie für dieses Beispiel **SLES 12** aus.
-    - **DB-Typ** : Wählen Sie **HANA** aus.
-    - **SAP-Systemgröße** : Geben Sie die SAPS-Anzahl an, die das neue System bereitstellen soll. Wenn Sie nicht sicher sind, welche SAPS-Anzahl für das System benötigt wird, können Sie sich an den SAP-Technologiepartner oder -Systemintegrator wenden.
-    - **Systemverfügbarkeit** : Wählen Sie **HA** (Hohe Verfügbarkeit).
+    - **Betriebssystemtyp**: Wählen Sie eine der Linux-Distributionen aus. Wählen Sie für dieses Beispiel **SLES 12** aus.
+    - **DB-Typ**: Wählen Sie **HANA** aus.
+    - **SAP-Systemgröße**: Geben Sie die SAPS-Anzahl an, die das neue System bereitstellen soll. Wenn Sie nicht sicher sind, welche SAPS-Anzahl für das System benötigt wird, können Sie sich an den SAP-Technologiepartner oder -Systemintegrator wenden.
+    - **Systemverfügbarkeit**: Wählen Sie **HA** (Hohe Verfügbarkeit).
     - **Administratorbenutzername und Administratorkennwort:** Ein neuer Benutzer wird erstellt, der für die Anmeldung beim Computer verwendet werden kann.
     - **Neues oder vorhandenes Subnetz:** Legt fest, ob ein neues virtuelles Netzwerk und Subnetz erstellt oder ein bestehendes Subnetz verwendet werden soll. Wenn Sie bereits über ein virtuelles Netzwerk verfügen, das mit dem lokalen Netzwerk verbunden ist, wählen Sie hier **Vorhanden** aus.
-    - **Subnetz-ID** : Wenn Sie die VM in einem vorhandenen VNET bereitstellen möchten, in dem Sie ein Subnetz definiert haben, dem die VM zugewiesen werden soll, geben Sie die ID dieses spezifischen Subnetzes an. Die ID sieht in der Regel wie folgt aus: **/subscriptions/\<subscription ID>/resourceGroups/\<resource group name>/providers/Microsoft.Network/virtualNetworks/\<virtual network name>/subnets/\<subnet name>** .
+    - **Subnetz-ID**: Wenn Sie die VM in einem vorhandenen VNET bereitstellen möchten, in dem Sie ein Subnetz definiert haben, dem die VM zugewiesen werden soll, geben Sie die ID dieses spezifischen Subnetzes an. Die ID sieht in der Regel wie folgt aus: **/subscriptions/\<subscription ID>/resourceGroups/\<resource group name>/providers/Microsoft.Network/virtualNetworks/\<virtual network name>/subnets/\<subnet name>** .
 
 ### <a name="manual-deployment"></a>Manuelle Bereitstellung
 
@@ -135,7 +136,7 @@ Führen Sie diese Schritte aus, um die Vorlage bereitzustellen:
 1. Fügen Sie Datenträger hinzu.
 
 > [!IMPORTANT]
-> Floating IP-Adressen werden in IP-Konfigurationen mit zwei NICs in Szenarien mit Lastenausgleich nicht unterstützt. Weitere Informationen finden Sie unter [Azure Load Balancer – Einschränkungen](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Wenn Sie zusätzliche IP-Adressen für die VM benötigen, stellen Sie eine zweite NIC bereit.   
+> Floating IP-Adressen werden in IP-Konfigurationen mit zwei NICs in Szenarien mit Lastenausgleich nicht unterstützt. Weitere Informationen finden Sie unter [Azure Load Balancer – Einschränkungen](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Wenn Sie zusätzliche IP-Adressen für die VM benötigen, stellen Sie eine zweite NIC bereit.   
 
 > [!Note]
 > Wenn virtuelle Computer ohne öffentliche IP-Adressen im Back-End-Pool einer internen Azure Load Balancer Standard-Instanz (ohne öffentliche IP-Adresse) platziert werden, liegt keine ausgehende Internetverbindung vor, sofern nicht in einer zusätzlichen Konfiguration das Routing an öffentliche Endpunkte zugelassen wird. Ausführliche Informationen zum Erreichen ausgehender Konnektivität finden Sie unter [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md) (Konnektivität mit öffentlichen Endpunkten für virtuelle Computer mithilfe von Azure Load Balancer Standard in SAP-Szenarien mit Hochverfügbarkeit).  
@@ -144,94 +145,94 @@ Führen Sie diese Schritte aus, um die Vorlage bereitzustellen:
    1. Erstellen Sie zunächst einen Front-End-IP-Pool:
    
       1. Öffnen Sie den Lastenausgleich, und wählen Sie den **Front-End-IP-Pool** und dann **Hinzufügen** aus.
-      1. Geben Sie den Namen des neuen Front-End-IP-Pools ein (z.B. **hana-frontend** ).
-      1. Legen Sie die **Zuweisung** auf **Statisch** fest, und geben Sie die IP-Adresse ein (z.B. **10.0.0.13** ).
-      1. Klicken Sie auf **OK** .
+      1. Geben Sie den Namen des neuen Front-End-IP-Pools ein (z.B. **hana-frontend**).
+      1. Legen Sie die **Zuweisung** auf **Statisch** fest, und geben Sie die IP-Adresse ein (z.B. **10.0.0.13**).
+      1. Klicken Sie auf **OK**.
       1. Notieren Sie nach Erstellen des neuen Front-End-IP-Pools dessen IP-Adresse.
    
    1. Erstellen Sie als Nächstes einen Back-End-Pool:
    
       1. Öffnen Sie den Lastenausgleich, und wählen Sie **Back-End-Pools** und dann **Hinzufügen** aus.
-      1. Geben Sie den Namen des neuen Back-End-Pools ein (z.B. **hana-backend** ).
+      1. Geben Sie den Namen des neuen Back-End-Pools ein (z.B. **hana-backend**).
       1. Wählen Sie **Virtuelles Netzwerk** aus.
       1. Wählen Sie **Virtuellen Computer hinzufügen** aus.
       1. Wählen Sie **Virtueller Computer** aus.
       1. Wählen Sie die virtuellen Computer des SAP HANA-Clusters und deren IP-Adressen aus.
-      1. Wählen Sie **Hinzufügen** .
+      1. Wählen Sie **Hinzufügen**.
    
    1. Erstellen Sie als Nächstes einen Integritätstest:
    
       1. Öffnen Sie den Lastenausgleich, und wählen Sie **Integritätstests** und dann **Hinzufügen** aus.
-      1. Geben Sie den Namen des neuen Integritätstests ein (z.B. **hana-hp** ).
+      1. Geben Sie den Namen des neuen Integritätstests ein (z.B. **hana-hp**).
       1. Wählen Sie als Protokoll **TCP** und als Port 625 **03** aus. Behalten Sie für das **Intervall** den Wert „5“ und als **Fehlerschwellenwert** „2“ bei.
-      1. Klicken Sie auf **OK** .
+      1. Klicken Sie auf **OK**.
    
    1. Erstellen Sie als Nächstes die Lastenausgleichsregeln:
    
       1. Öffnen Sie den Lastenausgleich, und wählen Sie **Lastenausgleichsregeln** und dann **Hinzufügen** aus.
-      1. Geben Sie den Namen der neuen Lastenausgleichsregel ein (z. B. **hana-lb** ).
-      1. Wählen Sie die Front-End-IP-Adresse, den Back-End-Pool und den Integritätstest aus, die Sie zuvor erstellt haben (z. B. **hana-frontend** , **hana-backend** und **hana-hp** ).
+      1. Geben Sie den Namen der neuen Lastenausgleichsregel ein (z. B. **hana-lb**).
+      1. Wählen Sie die Front-End-IP-Adresse, den Back-End-Pool und den Integritätstest aus, die Sie zuvor erstellt haben (z. B. **hana-frontend**, **hana-backend** und **hana-hp**).
       1. Wählen Sie **HA-Ports** aus.
       1. Erhöhen Sie die **Leerlaufzeitüberschreitung** auf 30 Minuten.
-      1. Achten Sie darauf, dass Sie **„Floating IP“ aktivieren** .
-      1. Klicken Sie auf **OK** .
+      1. Achten Sie darauf, dass Sie **„Floating IP“ aktivieren**.
+      1. Klicken Sie auf **OK**.
 
 1. Wenn Ihr Szenario die Verwendung von Load Balancer Basic vorschreibt, führen Sie stattdessen die folgenden Konfigurationsschritte aus:
    1. Erstellen Sie zunächst einen Front-End-IP-Pool:
    
       1. Öffnen Sie den Lastenausgleich, und wählen Sie den **Front-End-IP-Pool** und dann **Hinzufügen** aus.
-      1. Geben Sie den Namen des neuen Front-End-IP-Pools ein (z.B. **hana-frontend** ).
-      1. Legen Sie die **Zuweisung** auf **Statisch** fest, und geben Sie die IP-Adresse ein (z.B. **10.0.0.13** ).
-      1. Klicken Sie auf **OK** .
+      1. Geben Sie den Namen des neuen Front-End-IP-Pools ein (z.B. **hana-frontend**).
+      1. Legen Sie die **Zuweisung** auf **Statisch** fest, und geben Sie die IP-Adresse ein (z.B. **10.0.0.13**).
+      1. Klicken Sie auf **OK**.
       1. Notieren Sie nach Erstellen des neuen Front-End-IP-Pools dessen IP-Adresse.
    
    1. Erstellen Sie als Nächstes einen Back-End-Pool:
    
       1. Öffnen Sie den Lastenausgleich, und wählen Sie **Back-End-Pools** und dann **Hinzufügen** aus.
-      1. Geben Sie den Namen des neuen Back-End-Pools ein (z.B. **hana-backend** ).
+      1. Geben Sie den Namen des neuen Back-End-Pools ein (z.B. **hana-backend**).
       1. Wählen Sie **Virtuellen Computer hinzufügen** aus.
       1. Wählen Sie die Verfügbarkeitsgruppe aus, die Sie in Schritt 3 erstellt haben.
       1. Wählen Sie die virtuellen Computer des SAP HANA-Clusters aus.
-      1. Klicken Sie auf **OK** .
+      1. Klicken Sie auf **OK**.
    
    1. Erstellen Sie als Nächstes einen Integritätstest:
    
       1. Öffnen Sie den Lastenausgleich, und wählen Sie **Integritätstests** und dann **Hinzufügen** aus.
-      1. Geben Sie den Namen des neuen Integritätstests ein (z.B. **hana-hp** ).
+      1. Geben Sie den Namen des neuen Integritätstests ein (z.B. **hana-hp**).
       1. Wählen Sie als Protokoll **TCP** und als Port 625 **03** aus. Behalten Sie für das **Intervall** den Wert „5“ und als **Fehlerschwellenwert** „2“ bei.
-      1. Klicken Sie auf **OK** .
+      1. Klicken Sie auf **OK**.
    
    1. Erstellen Sie die Lastenausgleichsregeln für SAP HANA 1.0:
    
       1. Öffnen Sie den Lastenausgleich, und wählen Sie **Lastenausgleichsregeln** und dann **Hinzufügen** aus.
       1. Geben Sie den Namen der neuen Lastenausgleichsregel ein (z.B. „hana-lb-3 **03** 15“).
-      1. Wählen Sie die Front-End-IP-Adresse, den Back-End-Pool und den Integritätstest, die Sie zuvor erstellt haben (z.B. **hana-frontend** ), aus.
+      1. Wählen Sie die Front-End-IP-Adresse, den Back-End-Pool und den Integritätstest, die Sie zuvor erstellt haben (z.B. **hana-frontend**), aus.
       1. Behalten Sie als **Protokoll** den Wert **TCP** bei, und geben Sie als Port 3 **03** 15 ein.
       1. Erhöhen Sie die **Leerlaufzeitüberschreitung** auf 30 Minuten.
-      1. Achten Sie darauf, dass Sie **„Floating IP“ aktivieren** .
-      1. Klicken Sie auf **OK** .
+      1. Achten Sie darauf, dass Sie **„Floating IP“ aktivieren**.
+      1. Klicken Sie auf **OK**.
       1. Wiederholen Sie diese Schritte für den Port 3 **03** 17.
    
    1. Erstellen Sie für SAP HANA 2.0 Lastenausgleichsregeln für die Systemdatenbank:
    
       1. Öffnen Sie den Lastenausgleich, und wählen Sie **Lastenausgleichsregeln** und dann **Hinzufügen** aus.
       1. Geben Sie den Namen der neuen Lastenausgleichsregel ein (z.B. „hana-lb-3 **03** 13“).
-      1. Wählen Sie die Front-End-IP-Adresse, den Back-End-Pool und den Integritätstest, die Sie zuvor erstellt haben (z.B. **hana-frontend** ), aus.
+      1. Wählen Sie die Front-End-IP-Adresse, den Back-End-Pool und den Integritätstest, die Sie zuvor erstellt haben (z.B. **hana-frontend**), aus.
       1. Behalten Sie als **Protokoll** den Wert **TCP** bei, und geben Sie als Port 3 **03** 13 ein.
       1. Erhöhen Sie die **Leerlaufzeitüberschreitung** auf 30 Minuten.
-      1. Achten Sie darauf, dass Sie **„Floating IP“ aktivieren** .
-      1. Klicken Sie auf **OK** .
+      1. Achten Sie darauf, dass Sie **„Floating IP“ aktivieren**.
+      1. Klicken Sie auf **OK**.
       1. Wiederholen Sie diese Schritte für den Port 3 **03** 14.
    
    1. Erstellen Sie für SAP HANA 2.0 Lastenausgleichsregeln für die Mandantendatenbank:
    
       1. Öffnen Sie den Lastenausgleich, und wählen Sie **Lastenausgleichsregeln** und dann **Hinzufügen** aus.
       1. Geben Sie den Namen der neuen Lastenausgleichsregel ein (z.B. „hana-lb-3 **03** 40“).
-      1. Wählen Sie die Front-End-IP-Adresse, den Back-End-Pool und den Integritätstest, die Sie zuvor erstellt haben (z.B. **hana-frontend** ) aus.
+      1. Wählen Sie die Front-End-IP-Adresse, den Back-End-Pool und den Integritätstest, die Sie zuvor erstellt haben (z.B. **hana-frontend**) aus.
       1. Behalten Sie als **Protokoll** den Wert **TCP** bei, und geben Sie als Port 3 **03** 40 ein.
       1. Erhöhen Sie die **Leerlaufzeitüberschreitung** auf 30 Minuten.
-      1. Achten Sie darauf, dass Sie **„Floating IP“ aktivieren** .
-      1. Klicken Sie auf **OK** .
+      1. Achten Sie darauf, dass Sie **„Floating IP“ aktivieren**.
+      1. Klicken Sie auf **OK**.
       1. Wiederholen Sie diese Schritte für die Ports 3 **03** 41 und 3 **03** 42.
 
    Weitere Informationen zu den erforderlichen Ports für SAP HANA finden Sie im Kapitel zu [Verbindungen mit Mandantendatenbanken](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) im Handbuch zu [SAP HANA-Mandantendatenbanken](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) oder im [SAP-Hinweis 2388694][2388694].
@@ -281,7 +282,7 @@ Für die Schritte in diesem Abschnitt werden die folgenden Präfixe verwendet:
    sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
    </code></pre>
 
-   Erstellen Sie die logischen Volumes. Ein lineares Volume wird erstellt, wenn Sie `lvcreate` ohne den Schalter `-i` verwenden. Es wird empfohlen, ein Stripesetvolume für eine bessere E/A-Leistung zu erstellen und die Stripegrößen an die in [SAP HANA VM-Speicherkonfigurationen](./hana-vm-operations-storage.md) dokumentierten Werte anzupassen. Das `-i`-Argument sollte die Anzahl der zugrunde liegenden physischen Volumes und das `-I`-Argument die Stripegröße sein. In diesem Dokument werden zwei physische Volumes für das Datenvolume verwendet, daher wird das Argument für den Schalter `-i` auf **2** festgelegt. Die Stripegröße für das Datenvolume beträgt **256 KiB** . Für das Protokollvolume wird ein physisches Volume verwendet, sodass keine `-i`- oder `-I`-Schalter explizit für die Protokollvolumebefehle verwendet werden.  
+   Erstellen Sie die logischen Volumes. Ein lineares Volume wird erstellt, wenn Sie `lvcreate` ohne den Schalter `-i` verwenden. Es wird empfohlen, ein Stripesetvolume für eine bessere E/A-Leistung zu erstellen und die Stripegrößen an die in [SAP HANA VM-Speicherkonfigurationen](./hana-vm-operations-storage.md) dokumentierten Werte anzupassen. Das `-i`-Argument sollte die Anzahl der zugrunde liegenden physischen Volumes und das `-I`-Argument die Stripegröße sein. In diesem Dokument werden zwei physische Volumes für das Datenvolume verwendet, daher wird das Argument für den Schalter `-i` auf **2** festgelegt. Die Stripegröße für das Datenvolume beträgt **256 KiB**. Für das Protokollvolume wird ein physisches Volume verwendet, sodass keine `-i`- oder `-I`-Schalter explizit für die Protokollvolumebefehle verwendet werden.  
 
    > [!IMPORTANT]
    > Verwenden Sie den Schalter `-i`, und ändern Sie die Zahl in die Anzahl der zugrunde liegenden physischen Volumes, wenn Sie für die einzelnen Daten-, Protokoll- oder freigegebenen Volumes mehrere physische Datenträger verwenden. Verwenden Sie den Schalter `-I`, um die Stripegröße festzulegen, wenn Sie ein Stripesetvolume erstellen.  
@@ -371,8 +372,8 @@ Installieren Sie die SAP HANA-Systemreplikation gemäß Kapitel 4 des [SAP HANA 
    * Geben Sie den Installationspfad ein [/hana/shared]: Drücken Sie die EINGABETASTE.
    * Geben Sie den Namen des lokalen Hosts ein [..]: Drücken Sie die EINGABETASTE.
    * Möchten Sie dem System weitere Hosts hinzufügen? (j/n) [n] : Drücken Sie die EINGABETASTE.
-   * Geben Sie die SAP HANA-System-ID ein: Geben Sie die HANA-SID ein, z.B.: **HN1** .
-   * Geben Sie die Instanznummer ein [00]: Geben Sie die HANA-Instanznummer ein. Verwenden Sie **03** , wenn Sie die Azure-Vorlage verwendet oder die in diesem Artikel beschriebene manuelle Bereitstellung durchgeführt haben.
+   * Geben Sie die SAP HANA-System-ID ein: Geben Sie die HANA-SID ein, z.B.: **HN1**.
+   * Geben Sie die Instanznummer ein [00]: Geben Sie die HANA-Instanznummer ein. Verwenden Sie **03**, wenn Sie die Azure-Vorlage verwendet oder die in diesem Artikel beschriebene manuelle Bereitstellung durchgeführt haben.
    * Wählen Sie den Datenbankmodus / geben Sie den Index ein [1]: Drücken Sie die EINGABETASTE.
    * Wählen Sie die Systemnutzung / geben Sie den Index [ein 4]: Wählen Sie den Systemnutzungswert aus.
    * Geben Sie den Speicherort der Datenvolumes ein [/hana/data/HN1]: Drücken Sie die EINGABETASTE.
@@ -454,7 +455,7 @@ Für die Schritte in diesem Abschnitt werden die folgenden Präfixe verwendet:
 
 1. **[1]** Erstellen Sie die erforderlichen Benutzer.
 
-   Führen Sie den folgenden Befehl als root aus. Achten Sie darauf, die fett formatierten Zeichenfolgen (HANA-System-ID **HN1** und Instanzenanzahl **03** ) durch die Werte Ihrer SAP HANA-Installation zu ersetzen:
+   Führen Sie den folgenden Befehl als root aus. Achten Sie darauf, die fett formatierten Zeichenfolgen (HANA-System-ID **HN1** und Instanzenanzahl **03**) durch die Werte Ihrer SAP HANA-Installation zu ersetzen:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"'
@@ -528,6 +529,10 @@ Erstellen Sie als Nächstes die HANA-Ressourcen:
 >
 > Beachten Sie, dass für die Änderung eine kurze Ausfallzeit erforderlich ist.  
 > Wenn die Konfiguration bei vorhandenen Pacemaker-Clustern bereits für die Verwendung von socat geändert wurde, wie unter [Azure Load Balancer-Erkennungshärtung](https://www.suse.com/support/kb/doc/?id=7024128) beschrieben, müssen Sie nicht sofort zum Ressourcen-Agent azure-lb wechseln.
+
+
+> [!NOTE]
+> Dieser Artikel enthält Verweise auf die Begriffe *Master* und *Slave*, die von Microsoft nicht mehr verwendet werden. Sobald diese Begriffe aus der Software entfernt wurden, werden sie auch aus diesem Artikel gelöscht.
 
 <pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
 

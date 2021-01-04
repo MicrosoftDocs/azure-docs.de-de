@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
 ms.openlocfilehash: 4967991b0edaa854acbf6b308596859d662311fe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316754"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993383"
 ---
 ## <a name="prerequisites"></a>Voraussetzungen
 Bevor Sie CDN-Verwaltungscode schreiben können, müssen Sie einige Vorbereitungsschritte ausführen, damit der Code mit Azure Resource Manager interagieren kann. Dies umfasst die folgenden Vorbereitungsmaßnahmen:
@@ -61,7 +61,7 @@ Wenn Sie statt eines Dienstprinzipals lieber eine interaktive individuelle Benut
 
     ![Native Anwendung](./media/cdn-app-dev-prep/cdn-native-application-include.png)
 2. Auf der nächsten Seite werden Sie zur Eingabe eines **Umleitungs-URI** aufgefordert.  Der URI wird nicht überprüft, merken Sie sich jedoch, was Sie eingegeben haben. Sie benötigen ihn später.
-3. Sie müssen keinen **Clientauthentifizierungsschlüssel**erstellen.
+3. Sie müssen keinen **Clientauthentifizierungsschlüssel** erstellen.
 4. Anstatt der Rolle **Mitwirkender von CDN-Profil** einen Dienstprinzipal zuzuweisen, weisen Sie einzelne Benutzer oder Gruppen zu.  In diesem Beispiel sehen Sie, dass ich den Benutzer *CDN-Demobenutzer* der Rolle **Mitwirkender von CDN-Profil** zugewiesen habe.  
 
     ![Individueller Benutzerzugriff](./media/cdn-app-dev-prep/cdn-aad-user-include.png)

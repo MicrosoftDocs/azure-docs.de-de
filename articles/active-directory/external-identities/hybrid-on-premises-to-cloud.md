@@ -5,25 +5,28 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/24/2018
+ms.date: 11/03/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76b17391008160cfea9cbf029932d7081466cf3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06a6a42724eb172a77079b94f2cf50afb8e9cdf1
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87907478"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357316"
 ---
 # <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Gewähren des Zugriffs auf Cloudressourcen für lokal verwaltete Partnerkonten mit Azure AD B2B-Zusammenarbeit
 
 Vor Azure Active Directory (Azure AD) haben Unternehmen mit lokalen Identitätssystemen Partnerkonten herkömmlicherweise in ihrem lokalen Verzeichnis verwaltet. Wenn Sie in einem solchen Unternehmen damit beginnen, Apps zu Azure AD zu migrieren, möchten Sie sicherstellen, dass Ihre Partner auf die benötigten Ressourcen zugreifen können. Dabei sollte es keine Rolle spielen, ob die Ressourcen lokal oder in der Cloud gespeichert sind. Zudem sollen Ihre Partnerbenutzer in der Lage sein, für lokale und Azure AD-Ressourcen dieselben Anmeldeinformationen zu verwenden. 
 
-Wenn Sie Konten für externe Partner in Ihrem lokalen Verzeichnis erstellen (beispielsweise ein Konto mit dem Anmeldenamen „mkrause“ für eine externe Benutzerin namens Marie Krause in Ihrer Domäne „partners.contoso.com“), können Sie diese Konten jetzt mit der Cloud synchronisieren. Insbesondere können Sie mithilfe von Azure AD Connect die Partnerkonten als Azure AD B2B-Benutzer (also als Benutzer mit „UserType = Guest“) mit der Cloud synchronisieren. Dadurch können Ihre Partner mit denselben Anmeldeinformationen wie für ihre lokalen Konten auf Cloudressourcen zugreifen, ohne mehr Zugriff als nötig zu erhalten. 
+Wenn Sie Konten für externe Partner in Ihrem lokalen Verzeichnis erstellen (beispielsweise ein Konto mit dem Anmeldenamen „mkrause“ für eine externe Benutzerin namens Marie Krause in Ihrer Domäne „partners.contoso.com“), können Sie diese Konten jetzt mit der Cloud synchronisieren. Insbesondere können Sie mithilfe von Azure AD Connect die Partnerkonten mit der Cloud synchronisieren, wobei ein Benutzerkonto mit „UserType = Guest“ erstellt wird. Dadurch können Ihre Partner mit denselben Anmeldeinformationen wie für ihre lokalen Konten auf Cloudressourcen zugreifen, ohne mehr Zugriff als nötig zu erhalten.
+
+> [!NOTE]
+> Weitere Informationen finden Sie auch unter [Einladen von internen Benutzern zu B2B Collaboration](invite-internal-users.md) (Feature in der öffentlichen Vorschau). Mit diesem Feature können Sie interne Gastbenutzer zur Verwendung von B2B Collaboration einladen, unabhängig davon, ob ihre Konten aus Ihrem lokalen Verzeichnis mit der Cloud synchronisiert wurden. Wenn Benutzer die Einladung zur Verwendung von B2B Collaboration annehmen, können sie ihre eigenen Identitäten und Anmeldeinformationen verwenden, um sich bei den Ressourcen anzumelden, auf die sie zugreifen sollen. So müssen keine Kennwörter oder Kontolebenszyklen verwaltet werden.
 
 ## <a name="identify-unique-attributes-for-usertype"></a>Identifizieren von eindeutigen Attributen für UserType
 
@@ -38,7 +41,7 @@ Detaillierte Attributanforderungen finden Sie unter [Synchronisierung des Benutz
 
 ## <a name="configure-azure-ad-connect-to-sync-users-to-the-cloud"></a>Konfigurieren von Azure AD Connect für die Synchronisierung von Benutzern mit der Cloud
 
-Nachdem Sie das eindeutige Attribut identifiziert haben, können Sie Azure AD Connect so konfigurieren, dass diese Benutzer mit der Cloud als Azure AD B2B-Benutzer (d.h. Benutzer mit UserType = Guest) synchronisiert werden. Aus Sicht der Autorisierung sind diese Benutzer nicht von B2B-Benutzern zu unterscheiden, die durch den Einladungsprozess von Azure AD B2B-Zusammenarbeit erstellt wurden.
+Nachdem Sie das eindeutige Attribut identifiziert haben, können Sie Azure AD Connect so konfigurieren, dass diese Benutzer mit der Cloud synchronisiert werden, wobei ein Benutzerkonto mit „UserType = Guest“ erstellt wird. Aus Sicht der Autorisierung sind diese Benutzer nicht von B2B-Benutzern zu unterscheiden, die durch den Einladungsprozess von Azure AD B2B-Zusammenarbeit erstellt wurden.
 
 Eine Anleitung zur Implementierung finden Sie unter [Synchronisierung des Benutzertyps aktivieren](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype).
 

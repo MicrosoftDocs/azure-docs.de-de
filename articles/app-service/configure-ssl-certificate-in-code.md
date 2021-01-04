@@ -5,18 +5,18 @@ ms.topic: article
 ms.date: 09/22/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: e791e4ca3481bc0aea931abe946751415f1e1614
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b4e184f827875ebebd40ab976ef63e77ee702d49
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311817"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126038"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Verwenden eines TLS-/SSL-Zertifikats in Ihrem Code in Azure App Service
 
 Sie können in Ihrem Anwendungscode auf die [öffentlichen oder privaten Zertifikate zugreifen, die Sie App Service hinzufügen](configure-ssl-certificate.md). Der App-Code kann als Client fungieren und auf einen externen Dienst mit erforderlicher Zertifikatauthentifizierung zugreifen oder ggf. kryptografische Aufgaben ausführen. Diese Schrittanleitung zeigt, wie Sie öffentliche oder private Zertifikate in Ihrem Anwendungscode verwenden.
 
-Bei der Verwendung von Zertifikaten in Ihrem Code wird die TLS-Funktionalität in App Service genutzt. Dazu muss Ihre App im Tarif **Basic** oder höher ausgeführt werden. Befindet sich Ihre App in der Ebene **Free** oder **Shared**, können Sie [die Zertifikatsdatei in Ihr App-Repository aufnehmen](#load-certificate-from-file).
+Bei der Verwendung von Zertifikaten in Ihrem Code wird die TLS-Funktionalität in App Service genutzt. Dazu muss Ihre App im Tarif **Basic** oder höher ausgeführt werden. Befindet sich Ihre App in der Ebene **Free** oder **Shared** , können Sie [die Zertifikatsdatei in Ihr App-Repository aufnehmen](#load-certificate-from-file).
 
 Wenn Sie Ihre TLS-/SSL-Zertifikate über App Service verwalten, können Sie die Zertifikate und Ihren Anwendungscode separat verwalten und Ihre sensiblen Daten schützen.
 
@@ -49,10 +49,7 @@ Damit auf alle Zertifikate zugegriffen werden kann, legen Sie den Wert auf `*` f
 
 ## <a name="load-certificate-in-windows-apps"></a>Laden eines Zertifikats in Windows-Apps
 
-Die App-Einstellung `WEBSITE_LOAD_CERTIFICATES` macht die angegebenen Zertifikate für Ihre unter Windows gehostete App im Windows-Zertifikatspeicher zugänglich. Der Speicherort hängt vom [Tarif](overview-hosting-plans.md) ab:
-
-- Tarif **Isolated**: [Local Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) 
-- Alle anderen Tarife: [Current User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores)
+Die App-Einstellung `WEBSITE_LOAD_CERTIFICATES` macht die angegebenen Zertifikate für Ihre unter Windows gehostete App im Windows-Zertifikatspeicher in [Current User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) zugänglich.
 
 In C#-Code greifen Sie auf das Zertifikat anhand des Zertifikatfingerabdrucks zu. Der folgende Code lädt ein Zertifikat mit dem Fingerabdruck `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`.
 
@@ -151,7 +148,7 @@ Die Zertifikatsdateinamen sind die Zertifikatfingerabdrücke.
 > Von App Service werden die Zertifikatpfade in Windows-Container als Umgebungsvariablen (`WEBSITE_PRIVATE_CERTS_PATH`, `WEBSITE_INTERMEDIATE_CERTS_PATH`, `WEBSITE_PUBLIC_CERTS_PATH` und `WEBSITE_ROOT_CERTS_PATH`) eingefügt. Für den Fall, dass sich die Zertifikatpfade später ändern, ist es besser, auf den Zertifikatpfad mit den Umgebungsvariablen zu verweisen, anstatt einen hartcodierten Zertifikatpfad zu verwenden.
 >
 
-Darüber hinaus laden [Windows Server Core-Container](configure-custom-container.md#supported-parent-images) die Zertifikate automatisch in den Zertifikatspeicher (in **LocalMachine\My**). Verwenden Sie zum Laden der Zertifikate das gleiche Muster wie beim [Laden eines Zertifikats in Windows-Apps](#load-certificate-in-windows-apps). Verwenden Sie für Windows Nano-basierte Container die oben angegebenen Dateipfade, um [das Zertifikat direkt aus der Datei zu laden](#load-certificate-from-file).
+Darüber hinaus laden [Windows Server Core-Container](configure-custom-container.md#supported-parent-images) die Zertifikate automatisch in den Zertifikatspeicher (in **LocalMachine\My** ). Verwenden Sie zum Laden der Zertifikate das gleiche Muster wie beim [Laden eines Zertifikats in Windows-Apps](#load-certificate-in-windows-apps). Verwenden Sie für Windows Nano-basierte Container die oben angegebenen Dateipfade, um [das Zertifikat direkt aus der Datei zu laden](#load-certificate-from-file).
 
 Der folgende C#-Code zeigt, wie ein öffentliches Zertifikat in eine Linux-App geladen wird.
 

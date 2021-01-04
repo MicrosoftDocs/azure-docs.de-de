@@ -11,36 +11,38 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: 73560c49e10ab96c934d4dd3cea9395093a26420
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f78d0b02c9790234a63ef64200dcab72bc64c033
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82629047"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629424"
 ---
-# <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Kopieren von Dateien aus mehreren Containern mit Azure Data Factory
+# <a name="copy-multiple-folders-with-azure-data-factory"></a>Kopieren mehrerer Ordner mit Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In diesem Artikel wird eine Lösungsvorlage beschrieben, mit der Sie Dateien aus mehreren Containern zwischen Dateispeichern kopieren können. Beispielsweise könnten Sie Ihr Data Lake-Repository aus AWS S3 in Azure Data Lake Storage migrieren. Oder Sie können die Vorlage verwenden, um alles aus einem Azure Blob Storage-Konto in ein anderes zu replizieren.
+In diesem Artikel wird eine Lösungsvorlage beschrieben, mit der Sie mehrere Kopieraktivitäten verwenden können, um Container oder Ordner zwischen dateibasierten Speichern zu kopieren. Jede Kopieraktivität dient dabei zum Kopieren eines einzelnen Containers oder Ordners. 
 
 > [!NOTE]
 > Wenn Sie Dateien aus einem einzelnen Container kopieren möchten, ist es effizienter, mit dem [Tool „Daten kopieren“](copy-data-tool.md) eine Pipeline mit einer einzelnen Kopieraktivität zu erstellen. Die Vorlage in diesem Artikel ist für dieses einfache Szenario umfangreicher als notwendig.
 
 ## <a name="about-this-solution-template"></a>Informationen zu dieser Lösungsvorlage
 
-Diese Vorlage zählt die Container in Ihrem Quellspeicher auf. Anschließend kopiert sie diese Container in den Zielspeicher.
+Diese Vorlage listet die Ordner aus einem angegebenen übergeordneten Ordner in Ihrem Quellspeicher auf. Anschließend kopiert sie jeden dieser Ordner in den Zielspeicher.
 
 Die Vorlage enthält drei Aktivitäten:
-- **GetMetadata** dient zum Überprüfen Ihres Quellspeichers und zum Abrufen der Containerliste.
-- **ForEach** dient zum Abrufen der Containerliste von der Aktivität **GetMetadata** sowie zum Durchlaufen der Liste und zum Übergeben der einzelnen Container an die Kopieraktivität.
-- **Copy** dient zum Kopieren der einzelnen Container aus dem Quell- in den Zielspeicher.
+- **GetMetadata** überprüft den Quellspeicher und ruft die Unterordnerliste aus einem angegebenen übergeordneten Ordner ab.
+- **ForEach** ruft die Liste der Unterordner aus der Aktivität **GetMetadata** ab, durchläuft dann die Liste und übergibt jeden einzelnen Ordner an die Kopieraktivität.
+- **Copy** kopiert jeden Ordner aus dem Quell- in den Zielspeicher.
 
 Die Vorlage definiert die folgenden Parameter:
-- *SourceFileFolder* ist der Ordnerpfad Ihres Datenquellenspeichers, aus dem Sie eine Liste der Container abrufen können. Bei dem Pfad handelt es sich um das Stammverzeichnis, das mehrere Containerordner enthält. Der Standardwert dieses Parameters lautet `sourcefolder`.
-- *SourceFileDirectory* ist der Unterordnerpfad im Stammverzeichnis des Datenquellenspeichers. Der Standardwert dieses Parameters lautet `subfolder`.
-- *DestinationFileFolder* ist der Ordnerpfad, unter dem die Dateien in Ihren Zielspeicher kopiert werden. Der Standardwert dieses Parameters lautet `destinationfolder`.
-- *DestinationFileDirectory* ist der Unterordnerpfad, unter dem die Dateien in Ihren Zielspeicher kopiert werden. Der Standardwert dieses Parameters lautet `subfolder`.
+- *SourceFileFolder* gehört zum Pfad des übergeordneten Ordners im Quelldatenspeicher: *SourceFileFolder/SourceFileDirectory* : Hier wird die Liste der Unterordner abgerufen. 
+- *SourceFileDirectory* gehört zum Pfad des übergeordneten Ordners im Quelldatenspeicher: *SourceFileFolder/SourceFileDirectory* : Hier wird die Liste der Unterordner abgerufen. 
+- *DestinationFileFolder* gehört zum Pfad des übergeordneten Ordners: *DestinationFileFolder/DestinationFileDirectory* : In diesen Ordner bzw. dieses Verzeichnis im Zielspeicher werden die Dateien kopiert. 
+- *DestinationFileDirectory* gehört zum Pfad des übergeordneten Ordners: *DestinationFileFolder/DestinationFileDirectory* : In diesen Ordner bzw. dieses Verzeichnis im Zielspeicher werden die Dateien kopiert. 
+
+Wenn Sie mehrere Container in Stammordnern zwischen Speichern kopieren möchten, können Sie alle vier Parameter als */* angeben. Dadurch replizieren Sie sämtliche Daten zwischen den Speichern.
 
 ## <a name="how-to-use-this-solution-template"></a>So verwenden Sie diese Lösungsvorlage
 
@@ -60,7 +62,7 @@ Die Vorlage definiert die folgenden Parameter:
 
     ![Pipeline anzeigen](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png)
 
-5. Klicken Sie auf **Debuggen**, geben Sie die **Parameter** ein, und klicken Sie dann auf **Fertig stellen**.
+5. Klicken Sie auf **Debuggen** , geben Sie die **Parameter** ein, und klicken Sie dann auf **Fertig stellen**.
 
     ![Führen Sie die Pipeline aus.](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png)
 

@@ -3,13 +3,13 @@ title: Selektive Datenträgersicherung und -wiederherstellung für Azure-VMs
 description: In diesem Artikel lernen Sie die selektive Datenträgersicherung und -wiederherstellung mithilfe der Azure-VM-Sicherungslösung kennen.
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.custom: references_regions
-ms.openlocfilehash: 21e4ead8b3302ceef4cc53c126b9eab5784544b4
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.custom: references_regions , devx-track-azurecli
+ms.openlocfilehash: 95104f231e7b4d4d2135ac3c5dde27512d465775
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174111"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746992"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Selektive Datenträgersicherung und -wiederherstellung für Azure-VMs
 
@@ -42,11 +42,11 @@ az account set -s {subscriptionID}
 ```
 
 >[!NOTE]
->In jedem der folgenden Befehle wird nur der **resourcegroup**-Name (nicht das Objekt) benötigt, der dem Tresor entspricht.
+>In jedem der folgenden Befehle wird nur der **resourcegroup** -Name (nicht das Objekt) benötigt, der dem Tresor entspricht.
 
 ### <a name="configure-backup-with-azure-cli"></a>Konfigurieren der Sicherung mit Azure CLI
 
-Beim Konfigurieren des Schutzes müssen Sie die Datenträgerlisteneinstellung mit einem **inclusion** / **exclusion**-Parameter angeben und die LUN-Nummern der Datenträger angeben, die in die Sicherung eingeschlossen oder ausgeschlossen werden sollen.
+Beim Konfigurieren des Schutzes müssen Sie die Datenträgerlisteneinstellung mit einem **inclusion** / **exclusion** -Parameter angeben und die LUN-Nummern der Datenträger angeben, die in die Sicherung eingeschlossen oder ausgeschlossen werden sollen.
 
 ```azurecli
 az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name {vaultname} --vm {vmname} --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
@@ -98,7 +98,7 @@ az backup restore restore-disks --resource-group {resourcegroup} --vault-name {v
 az backup item show -c {vmname} -n {vmname} --vault-name {vaultname} --resource-group {resourcegroup} --backup-management-type AzureIaasVM
 ```
 
-Dem geschützten Element wird wie folgt ein zusätzlicher **diskExclusionProperties**-Parameter hinzugefügt:
+Dem geschützten Element wird wie folgt ein zusätzlicher **diskExclusionProperties** -Parameter hinzugefügt:
 
 ```azurecli
 "extendedProperties": {
@@ -192,7 +192,11 @@ Stellen Sie sicher, dass Sie Azure PowerShell Version 3.7.0 oder höher verwend
 ### <a name="enable-backup-with-powershell"></a>Aktivieren der Sicherung mit PowerShell
 
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -DiskListSetting "Include"/"Exclude" -DisksList[Strings] -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -InclusionDisksList[Strings] -VaultId $targetVault.ID
+```
+
+```azurepowershell
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -ExclusionDisksList[Strings] -VaultId $targetVault.ID
 ```
 
 ### <a name="backup-only-os-disk-during-configure-backup-with-powershell"></a>Ausschließliche Sicherung des Betriebssystemdatenträgers beim Konfigurieren der Sicherung mit PowerShell
@@ -207,12 +211,16 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 $item= Get-AzRecoveryServicesBackupItem -BackupManagementType "AzureVM" -WorkloadType "AzureVM" -VaultId $Vault.ID -FriendlyName "V2VM"
 ```
 
-Sie müssen das oben genannte **$item**-Objekt in den folgenden Cmdlets an den Parameter **–Item** übergeben.
+Sie müssen das oben genannte **$item** -Objekt in den folgenden Cmdlets an den Parameter **–Item** übergeben.
 
 ### <a name="modify-protection-for-already-backed-up-vms-with-powershell"></a>Ändern des Schutzes für bereits gesicherte VMs mit PowerShell
 
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Item $item -DiskListSetting "Include"/"Exclude" -DisksList[Strings]   -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Item $item -InclusionDisksList[Strings] -VaultId $targetVault.ID
+```
+
+```azurepowershell
+Enable-AzRecoveryServicesBackupProtection -Item $item -ExclusionDisksList[Strings] -VaultId $targetVault.ID
 ```
 
 ### <a name="backup-only-os-disk-during-modify-protection-with-powershell"></a>Ausschließliche Sicherung des Betriebssystemdatenträgers beim Ändern des Schutzes mit PowerShell
@@ -224,7 +232,7 @@ Enable-AzRecoveryServicesBackupProtection -Item $item  -ExcludeAllDataDisks -Vau
 ### <a name="reset-disk-exclusion-setting-with-powershell"></a>Zurücksetzen der Datenträgerausschlusseinstellung mit PowerShell
 
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Item $item -DiskListSetting "Reset" -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Item $item -ResetExclusionSettings -VaultId $targetVault.ID
 ```
 
 ### <a name="restore-selective-disks-with-powershell"></a>Wiederherstellen von selektiven Datenträgern mit PowerShell
@@ -278,7 +286,7 @@ Selektive Datenträgerwiederherstellung ist eine zusätzliche Funktionalität, d
 
 - Der Betriebssystemdatenträger ist standardmäßig in der Sicherung und Wiederherstellung des virtuellen Computers eingeschlossen und kann nicht ausgeschlossen werden.
 - Die selektive Datenträgerwiederherstellung wird nur für Wiederherstellungspunkte unterstützt, die nach der Aktivierung der Datenträgerausschlussfunktion erstellt wurden.
-- Sicherungen mit der Datenträgerausschluss-Einstellung **EIN** unterstützen nur die Option **Datenträgerwiederherstellung**. Die Wiederherstellungsoptionen **VM-Wiederherstellung** oder **Vorhandene ersetzen** werden in diesem Fall nicht unterstützt.
+- Sicherungen mit der Datenträgerausschluss-Einstellung **EIN** unterstützen nur die Option **Datenträgerwiederherstellung** . Die Wiederherstellungsoptionen **VM-Wiederherstellung** oder **Vorhandene ersetzen** werden in diesem Fall nicht unterstützt.
 
 ![Die Optionen zum Wiederherstellen der VM und zum Ersetzen der vorhandenen VM stehen während des Wiederherstellungsvorgangs nicht zur Verfügung.](./media/selective-disk-backup-restore/options-not-available.png)
 

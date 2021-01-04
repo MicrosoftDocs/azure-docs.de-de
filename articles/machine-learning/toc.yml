@@ -84,6 +84,18 @@
           href: tutorial-setup-vscode-extension.md
         - name: Trainieren und Bereitstellen eines TensorFlow-Bildklassifizierungsmodells
           href: tutorial-train-deploy-image-classification-model-vscode.md
+    - name: Microsoft Power BI-Integration
+      items:
+        - name: 'Teil 1: Trainieren und Bereitstellen von Modellen'
+          items:
+            - name: Verwenden von Notebooks (Code)
+              href: tutorial-power-bi-custom-model.md
+            - name: Verwenden des Designers
+              href: tutorial-power-bi-designer-model.md
+            - name: Verwenden von automatisiertem maschinellem Lernen
+              href: tutorial-power-bi-automated-model.md
+        - name: 'Teil 2: Nutzen in Power BI'
+          href: /power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context
 - name: Beispiele
   items:
     - name: Jupyter Notebook
@@ -153,6 +165,8 @@
       href: concept-model-management-and-deployment.md
     - name: Modellportabilität (ONNX)
       href: concept-onnx.md
+    - name: Open Source-Integrationen
+      href: concept-open-source.md
     - name: ML-Pipelines
       href: concept-ml-pipelines.md
     - name: Sicherheit
@@ -358,6 +372,8 @@
           href: how-to-train-pytorch.md
         - name: Trainieren mit einem benutzerdefinierten Docker-Image
           href: how-to-train-with-custom-image.md
+        - name: Migrieren von Schätzern zu ScriptRunConfig
+          href: how-to-migrate-from-estimators-to-scriptrunconfig.md
         - name: Nachverfolgen und Überwachen des Trainings
           items:
             - name: 'Starten, Überwachen oder Abbrechen von Ausführungen'
@@ -396,6 +412,9 @@
           href: how-to-configure-auto-train.md
         - name: Verwenden von automatisiertem ML (Schnittstelle)
           href: how-to-use-automated-ml-for-ml-models.md
+        - name: Verwenden von automatisiertem ML mit Databricks
+          displayName: automl
+          href: how-to-configure-databricks-automl-environment.md
         - name: Verwenden von Remote-Computezielen
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
@@ -413,6 +432,8 @@
           href: how-to-use-automlstep-in-pipelines.md
         - name: Grundlegendes zu Diagrammen und Metriken
           href: how-to-understand-automated-ml.md
+        - name: Verwenden des ONNX-Modells in einer .NET-Anwendung
+          href: how-to-use-automl-onnx-model-dotnet.md
     - name: Bereitstellen und Verarbeiten von Modellen
       items:
         - name: 'Bereitstellung: wo und wie'
@@ -449,6 +470,8 @@
               href: how-to-deploy-fpga-web-service.md
         - name: Problembehandlung und Debuggen
           href: how-to-troubleshoot-deployment.md
+        - name: Problembehandlung und Debuggen (lokal)
+          href: how-to-troubleshoot-deployment-local.md
         - name: Verwenden eines Webdiensts
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
@@ -489,13 +512,11 @@
       displayName: pipelines
       items:
         - name: Erstellen von ML-Pipelines (Python)
-          href: how-to-create-your-first-pipeline.md
+          href: how-to-create-machine-learning-pipelines.md
         - name: Verschieben von Daten in ML-Pipelineschritte und zwischen ML-Pipelineschritten (Python)
           href: how-to-move-data-in-out-of-pipelines.md
         - name: Bereitstellen von ML-Pipelines (Python)
           href: how-to-deploy-pipelines.md
-        - name: Planen einer Pipeline (Python)
-          href: how-to-schedule-pipelines.md
         - name: Auslösen einer Pipeline
           href: how-to-trigger-published-pipeline.md
         - name: "Designer (Drag\_&\_Drop)"

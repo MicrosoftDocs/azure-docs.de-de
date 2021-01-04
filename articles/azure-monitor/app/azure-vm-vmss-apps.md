@@ -3,12 +3,12 @@ title: Überwachen der Leistung auf Azure-VMs – Azure Application Insights
 description: Leistungsüberwachung für Anwendungen auf Azure-VMs und in Azure-VM-Skalierungsgruppen. Ladezeit für Diagramme und Antwortzeit, Informationen zu den Abhängigkeiten und Festlegen von Benachrichtigungen zur Leistung.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 8b025c5196d65234a632bd1f939bc1116b72dce0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bc70b3d9a1a7a2d3fffb71ad28f2cf64cbd323b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87024631"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461730"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Bereitstellen des Azure Monitor Application Insights-Agents auf virtuellen Azure-Computern und in Azure-VM-Skalierungsgruppen
 
@@ -17,8 +17,8 @@ Die Überwachung der .NET-basierten Webanwendungen auf [virtuellen Azure-Compute
 Dieser Artikel führt Sie Schritt für Schritt durch das Aktivieren der Application Insights-Überwachung mithilfe des Application Insights-Agents und bietet eine vorläufige Anleitung zur Automatisierung des Prozesses für umfangreiche Bereitstellungen.
 
 > [!IMPORTANT]
-> Der Azure Application Insights-Agent für .NET befindet sich derzeit in der Public Preview.
-> Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Einige Features werden möglicherweise nicht unterstützt oder bieten möglicherweise nur eingeschränkte Funktionen.
+> Der Azure Application Insights-Agent für ASP.NET-Anwendungen, die **auf Azure-VMs und in VM-Skalierungsgruppen** ausgeführt werden, befindet sich derzeit in der Public Preview. Verwenden Sie zum Überwachen Ihrer **lokal** ausgeführten ASP.NET-Anwendungen den [Azure Application Insights-Agent für lokale Server](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview), der allgemein verfügbar ist und vollständig unterstützt wird.
+> Die Vorschauversion für Azure-VMs und VM-Skalierungsgruppen wird ohne Vereinbarung zum Servicelevel bereitgestellt und nicht für Produktionsworkloads empfohlen. Einige Features werden möglicherweise nicht unterstützt oder bieten möglicherweise nur eingeschränkte Funktionen.
 > Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="enable-application-insights"></a>Aktivieren von Application Insights

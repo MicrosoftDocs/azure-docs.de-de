@@ -3,18 +3,18 @@ title: Verwalten von Anmeldeinformationen in Azure Automation
 description: Dieser Artikel beschreibt, wie Sie Anmeldeinformationsobjekte erstellen und in einem Runbook oder einer DSC-Konfiguration verwenden.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 09/10/2020
+ms.date: 12/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4fbcf74c2c70d3dffd86728132d58430472271b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec35653f67c46a7032e834020d8e2ca4ab3125c8
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90004663"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558833"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Verwalten von Anmeldeinformationen in Azure Automation
 
-Ein Automation-Anmeldeinformationsobjekt enthält ein Objekt, das Sicherheitsanmeldeinformationen wie beispielsweise einen Benutzernamen und ein Kennwort umfasst. Runbooks und DSC-Konfigurationen verwenden Cmdlets, die ein [PSCredential-](/dotnet/api/system.management.automation.pscredential)-Objekt für die Authentifizierung akzeptieren. Alternativ können sie den Benutzernamen und das Kennwort des `PSCredential`-Objekts extrahieren, um diese einer Anwendung oder einem Dienst bereitzustellen, die eine Authentifizierung erfordern. 
+Ein Automation-Anmeldeinformationsobjekt enthält ein Objekt, das Sicherheitsanmeldeinformationen wie beispielsweise einen Benutzernamen und ein Kennwort umfasst. Runbooks und DSC-Konfigurationen verwenden Cmdlets, die ein [PSCredential-](/dotnet/api/system.management.automation.pscredential)-Objekt für die Authentifizierung akzeptieren. Alternativ können sie den Benutzernamen und das Kennwort des `PSCredential`-Objekts extrahieren, um diese einer Anwendung oder einem Dienst bereitzustellen, die eine Authentifizierung erfordern.
 
 >[!NOTE]
 >Zu den sicheren Objekten in Azure Automation gehören Anmeldeinformationen, Zertifikate, Verbindungen und verschlüsselte Variablen. Diese Objekte werden mithilfe eines eindeutigen Schlüssels verschlüsselt und in Azure Automation gespeichert, der für jedes Automation-Konto generiert wird. Azure Automation speichert den Schlüssel im vom System verwalteten Schlüsseltresor. Vor dem Speichern einer sicheren Ressource lädt Azure Automation den Schlüssel aus dem Schlüsseltresor und verwendet ihn dann zum Verschlüsseln der Ressource. 
@@ -44,7 +44,7 @@ Die Cmdlets in der folgenden Tabelle werden für den Zugriff auf Anmeldeinformat
 
 Zum Abrufen von `PSCredential`-Objekten in Ihrem Code müssen Sie das `Orchestrator.AssetManagement.Cmdlets`-Modul importieren. Weitere Informationen finden Sie unter [Verwalten von Modulen in Azure Automation](modules.md).
 
-```azurepowershell
+```powershell
 Import-Module Orchestrator.AssetManagement.Cmdlets -ErrorAction SilentlyContinue
 ```
 
@@ -69,15 +69,15 @@ Sie können ein neues Anmeldeinformationsobjekt im Azure-Portal oder mit Windows
 ### <a name="create-a-new-credential-asset-with-the-azure-portal"></a>Erstellen eines neuen Anmeldeinformationsobjekts über das Azure-Portal
 
 1. Wählen Sie in Ihrem Azure Automation-Konto im linken Bereich **Anmeldeinformationen** unter **Freigegebene Ressourcen** aus.
-1. Wählen Sie auf der Seite **Anmeldeinformationen** den Befehl **Anmeldeinformationen hinzufügen** aus.
-2. Geben Sie im Bereich „Neue Anmeldeinformationen“ einen geeigneten Anmeldeinformationsnamen ein, der Ihre Benennungsstandards einhält.
-3. Geben Sie Ihre Zugriffs-ID in das Feld **Benutzername** ein.
-4. Geben Sie für beide Kennwortfelder Ihren geheimen Zugriffsschlüssel ein.
+2. Wählen Sie auf der Seite **Anmeldeinformationen** den Befehl **Anmeldeinformationen hinzufügen** aus.
+3. Geben Sie im Bereich „Neue Anmeldeinformationen“ einen geeigneten Anmeldeinformationsnamen ein, der Ihre Benennungsstandards einhält.
+4. Geben Sie Ihre Zugriffs-ID in das Feld **Benutzername** ein.
+5. Geben Sie für beide Kennwortfelder Ihren geheimen Zugriffsschlüssel ein.
 
     ![Erstellen neuer Anmeldeinformationen](../media/credentials/credential-create.png)
 
-5. Wenn das Kontrollkästchen für mehrstufige Authentifizierung aktiviert ist, deaktivieren Sie es.
-6. Klicken Sie auf **Erstellen**, um das neue Anmeldeinformationsobjekt zu speichern.
+6. Wenn das Kontrollkästchen für mehrstufige Authentifizierung aktiviert ist, deaktivieren Sie es.
+7. Klicken Sie auf **Erstellen**, um das neue Anmeldeinformationsobjekt zu speichern.
 
 > [!NOTE]
 > Azure Automation unterstützt keine Benutzerkonten, die mehrstufige Authentifizierung verwenden.
@@ -106,8 +106,7 @@ Alternativ können Sie die Methode [GetNetworkCredential](/dotnet/api/system.man
 
 Das folgende Beispiel zeigt, wie Sie ein PowerShell-Anmeldeinformationsobjekt in einem Runbook verwenden. Es ruft das Anmeldeinformationsobjekt ab und weist seinen Benutzernamen und das Kennwort Variablen zu.
 
-
-```azurepowershell
+```powershell
 $myCredential = Get-AutomationPSCredential -Name 'MyCredential'
 $userName = $myCredential.UserName
 $securePassword = $myCredential.Password
@@ -116,14 +115,13 @@ $password = $myCredential.GetNetworkCredential().Password
 
 Sie können Anmeldeinformationen auch zum Authentifizieren mit [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) in Azure verwenden. In den meisten Fällen sollten Sie ein [ausführendes Konto](../manage-runas-account.md) verwenden und die Verbindung mit [Get-AzAutomationConnection](../automation-connections.md) abrufen.
 
-
-```azurepowershell
+```powershell
 $myCred = Get-AutomationPSCredential -Name 'MyCredential'
 $userName = $myCred.UserName
 $securePassword = $myCred.Password
 $password = $myCred.GetNetworkCredential().Password
 
-$myPsCred = New-Object System.Management.Automation.PSCredential ($userName,$password)
+$myPsCred = New-Object System.Management.Automation.PSCredential ($userName,$securePassword)
 
 Connect-AzAccount -Credential $myPsCred
 ```
@@ -145,7 +143,6 @@ DSC-Konfigurationen in Azure Automation können mithilfe von `Get-AutomationPSCr
 ## <a name="use-credentials-in-a-python-2-runbook"></a>Verwenden von Anmeldeinformationen in einem Python 2-Runbook
 
 Im folgenden Beispiel wird der Zugriff auf Anmeldeinformationen in Python 2-Runbooks veranschaulicht.
-
 
 ```python
 import automationassets

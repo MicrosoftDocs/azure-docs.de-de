@@ -6,13 +6,13 @@ ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 1cb86f77a6ffcbb0fb45b3a57b57de531822f2b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, fasttrack-edit, devx-track-azurecli
+ms.openlocfilehash: c7900341cfcda52dafcb269b833f5ad8dd0f55b7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742603"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739751"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure App Service-Hybridverbindungen
 
@@ -197,7 +197,7 @@ Commands:
 
 Eine vorhandene Hybridverbindung kann von jedem Benutzer mit ausreichenden Berechtigungen für das zugrunde liegende Azure Service Bus Relay anderen App Service-Web-Apps hinzugefügt werden. Daher müssen Sie den Zugriff auf das Azure Service Bus Relay blockieren, wenn Sie verhindern möchten, dass dieselbe Hybridverbindung von anderen wiederverwendet wird (wenn z. B. die Zielressource ein Dienst ist, für den keine weiteren Sicherheitsmaßnahmen vorhanden sind, um nicht autorisierten Zugriff zu verhindern).
 
-Jeder Benutzer mit `Reader`-Zugriff auf das Relay kann die Hybridverbindung _anzeigen_, wenn er versucht, diese seiner Web-App im Azure-Portal hinzuzufügen. Er kann sie jedoch nicht _hinzufügen_, da er nicht über die Berechtigungen zum Abrufen der Verbindungszeichenfolge verfügt, die zum Herstellen der Relayverbindung verwendet wird. Damit die Hybridverbindung erfolgreich hinzugefügt werden kann, müssen Sie über die `listKeys`-Berechtigung (`Microsoft.Relay/namespaces/hybridConnections/authorizationRules/listKeys/action`) verfügen. Mit der Rolle `Contributor` oder einer anderen Rolle, die diese Berechtigung für das Relay umfasst, können Benutzer die Hybridverbindung verwenden und sie den eigenen Web-Apps hinzufügen.
+Jeder Benutzer mit `Reader`-Zugriff auf das Relay kann die Hybridverbindung _anzeigen_ , wenn er versucht, diese seiner Web-App im Azure-Portal hinzuzufügen. Er kann sie jedoch nicht _hinzufügen_ , da er nicht über die Berechtigungen zum Abrufen der Verbindungszeichenfolge verfügt, die zum Herstellen der Relayverbindung verwendet wird. Damit die Hybridverbindung erfolgreich hinzugefügt werden kann, müssen Sie über die `listKeys`-Berechtigung (`Microsoft.Relay/namespaces/hybridConnections/authorizationRules/listKeys/action`) verfügen. Mit der Rolle `Contributor` oder einer anderen Rolle, die diese Berechtigung für das Relay umfasst, können Benutzer die Hybridverbindung verwenden und sie den eigenen Web-Apps hinzufügen.
 
 ## <a name="troubleshooting"></a>Problembehandlung ##
 

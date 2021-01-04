@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
-ms.openlocfilehash: e3bbe39077cf6d7781f7e11fde044cf272aa83e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 283ec9999f9b4362035b6770383984efb0879d49
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714378"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783758"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Sicherheitsleitfaden für Azure Storage-Explorer
 
@@ -44,13 +44,13 @@ In diesem Abschnitt werden die zwei Azure AD-basierten Technologien beschrieben
 
 #### <a name="azure-role-based-access-control-azure-rbac"></a>Rollenbasierte Zugriffssteuerung von Azure (Azure RBAC)
 
-Die [rollenbasierte Zugriffssteuerung in Azure (Azure Role-Based Access Control, Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) ermöglicht Ihnen eine differenzierte Zugriffssteuerung für Ihre Azure-Ressourcen. Azure-Rollen und -Berechtigungen können im Azure-Portal verwaltet werden.
+Die [rollenbasierte Zugriffssteuerung in Azure (Azure Role-Based Access Control, Azure RBAC)](../../role-based-access-control/overview.md) ermöglicht Ihnen eine differenzierte Zugriffssteuerung für Ihre Azure-Ressourcen. Azure-Rollen und -Berechtigungen können im Azure-Portal verwaltet werden.
 
 Storage-Explorer unterstützt den Azure RBAC-Zugriff auf Speicherkonten, Blobs und Warteschlangen. Wenn Sie Zugriff auf Dateifreigaben oder Tabellen benötigen, müssen Sie Azure-Rollen zuweisen, die die Berechtigung zum Auflisten von Speicherkontoschlüsseln erteilen.
 
 #### <a name="access-control-lists-acls"></a>Zugriffssteuerungslisten (ACLs)
 
-Mit [Zugriffssteuerungslisten (Access Control Lists, ACLs)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) können Sie den Zugriff auf Datei- und Ordnerebene in ADLS Gen2-Blobcontainern steuern. Sie können Ihre ACLs mit Storage-Explorer verwalten.
+Mit [Zugriffssteuerungslisten (Access Control Lists, ACLs)](../blobs/data-lake-storage-access-control.md) können Sie den Zugriff auf Datei- und Ordnerebene in ADLS Gen2-Blobcontainern steuern. Sie können Ihre ACLs mit Storage-Explorer verwalten.
 
 ### <a name="shared-access-signatures-sas"></a>Shared Access Signatures (SAS)
 
@@ -81,7 +81,7 @@ Speicherkontoschlüssel gewähren uneingeschränkten Zugriff auf die Dienste und
 
 Einige Azure-Rollen erteilen die Berechtigung zum Abrufen von Speicherkontoschlüsseln. Personen mit diesen Rollen können durch Azure RBAC erteilte oder verweigerte Berechtigungen effektiv umgehen. Wir empfehlen, diese Berechtigung nur zu erteilen, wenn dies unbedingt erforderlich ist.
 
-Storage-Explorer versucht, Speicherkontoschlüssel zu verwenden (sofern verfügbar), um Anforderungen zu authentifizieren. Sie können diese Funktion in den Einstellungen deaktivieren (**Dienste > Speicherkonten > Verwendung von Schlüsseln deaktivieren**). Einige Funktionen (wie das Arbeiten mit klassischen Speicherkonten) unterstützen Azure RBAC nicht. Diese Funktionen erfordern weiterhin Schlüssel und sind von dieser Einstellung nicht betroffen.
+Storage-Explorer versucht, Speicherkontoschlüssel zu verwenden (sofern verfügbar), um Anforderungen zu authentifizieren. Sie können diese Funktion in den Einstellungen deaktivieren ( **Dienste > Speicherkonten > Verwendung von Schlüsseln deaktivieren** ). Einige Funktionen (wie das Arbeiten mit klassischen Speicherkonten) unterstützen Azure RBAC nicht. Diese Funktionen erfordern weiterhin Schlüssel und sind von dieser Einstellung nicht betroffen.
 
 Wenn Sie Schlüssel für den Zugriff auf Ihre Speicherressourcen verwenden müssen, empfehlen wir, die folgenden Richtlinien zu befolgen:
 
@@ -102,4 +102,4 @@ Wenn Sie den öffentlichen Zugriff für einen Blobcontainer aktivieren, empfehle
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Sicherheitsempfehlungen](https://docs.microsoft.com/azure/storage/blobs/security-recommendations)
+- [Sicherheitsempfehlungen](../blobs/security-recommendations.md)

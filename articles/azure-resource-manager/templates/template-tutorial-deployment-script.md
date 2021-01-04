@@ -1,6 +1,6 @@
 ---
 title: Verwenden von Bereitstellungsskripts für Vorlagen | Microsoft-Dokumentation
-description: Es wird beschrieben, wie Sie Bereitstellungsskripts in Azure Resource Manager-Vorlagen verwenden.
+description: Hier wird beschrieben, wie Sie Bereitstellungsskripts in Azure Resource Manager-Vorlagen (ARM-Vorlagen) verwenden.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.date: 08/25/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e1094befcc6b3a6e9d56ba3b603dc45fcb91ba13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc19222cf1e610c6c65d7c721a54f9949bed70ae
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88825493"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931434"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutorial: Verwenden von Bereitstellungsskripts zum Erstellen eines selbstsignierten Zertifikats (Vorschau)
 
-Es wird beschrieben, wie Sie Bereitstellungsskripts in ARM-Vorlagen (Azure Resource Manager) verwenden. Bereitstellungsskripts können genutzt werden, um benutzerdefinierte Schritte auszuführen, die für ARM-Vorlagen nicht möglich sind. Ein Beispiel hierfür ist die Erstellung eines selbstsignierten Zertifikats.  In diesem Tutorial erstellen Sie eine Vorlage für die Bereitstellung eines Azure-Schlüsseltresors. Anschließend verwenden Sie die `Microsoft.Resources/deploymentScripts`-Ressource in derselben Vorlage, um ein Zertifikat zu erstellen, und fügen das Zertifikat dann dem Schlüsseltresor hinzu. Weitere Informationen zum Bereitstellungsskript finden Sie unter [Verwenden von Bereitstellungsskripts in ARM-Vorlagen](./deployment-script-template.md).
+Hier wird beschrieben, wie Sie Bereitstellungsskripts in Azure Resource Manager-Vorlagen (ARM-Vorlagen) verwenden. Bereitstellungsskripts können genutzt werden, um benutzerdefinierte Schritte auszuführen, die für ARM-Vorlagen nicht möglich sind. Ein Beispiel hierfür ist die Erstellung eines selbstsignierten Zertifikats.  In diesem Tutorial erstellen Sie eine Vorlage für die Bereitstellung eines Azure-Schlüsseltresors. Anschließend verwenden Sie die `Microsoft.Resources/deploymentScripts`-Ressource in derselben Vorlage, um ein Zertifikat zu erstellen, und fügen das Zertifikat dann dem Schlüsseltresor hinzu. Weitere Informationen zum Bereitstellungsskript finden Sie unter [Verwenden von Bereitstellungsskripts in ARM-Vorlagen](./deployment-script-template.md).
 
 > [!IMPORTANT]
 > Zwei Bereitstellungsskriptressourcen – ein Speicherkonto und eine Containerinstanz – werden für die Skriptausführung und Problembehandlung in derselben Ressourcengruppe erstellt. Diese Ressourcen werden vom Skriptdienst normalerweise gelöscht, bevor die Skriptausführung beendet wird. Die Ressourcen werden Ihnen in Rechnung gestellt, bis sie gelöscht werden. Weitere Informationen finden Sie unter [Bereinigen von Bereitstellungsskriptressourcen](./deployment-script-template.md#clean-up-deployment-script-resources).
@@ -40,7 +40,7 @@ Dieses Tutorial enthält die folgenden Aufgaben:
 
 Damit Sie die Anweisungen in diesem Artikel ausführen können, benötigen Sie Folgendes:
 
-* **[Visual Studio Code](https://code.visualstudio.com/) mit der Erweiterung „Azure Resource Manager-Tools“.** Weitere Informationen finden Sie unter [Schnellstart: Erstellen von Azure Resource Manager-Vorlagen mit Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md)
+* **[Visual Studio Code](https://code.visualstudio.com/) mit der Erweiterung „Azure Resource Manager-Tools“.** Weitere Informationen finden Sie unter [Schnellstart: Erstellen von ARM-Vorlagen mit Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 
 * **Vom Benutzer zugewiesene verwaltete Identität mit der Rolle „Mitwirkender“ auf Abonnementebene.** Diese Identität wird zum Ausführen von Bereitstellungsskripts verwendet. Informationen zur Erstellung finden Sie unter [Benutzerseitig zugewiesene verwaltete Identität](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). Sie benötigen die Identitäts-ID beim Bereitstellen der Vorlage. Das Format der Identität lautet:
 

@@ -1,19 +1,19 @@
 ---
 title: Sichern und Wiederherstellen – Azure PowerShell – Azure Database for MariaDB
 description: Informationen zum Sichern und Wiederherstellen eines Servers in Azure Database for MariaDB mithilfe von Azure PowerShell
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 984a5d52dfdd45190cbded5e900d3fcfe2f9ad43
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0207be2c983fd986d5852403e36462d2d7d2cdda
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424510"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539616"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mariadb-server-using-powershell"></a>Sichern und Wiederherstellen eines Azure Database for MariaDB-Servers mithilfe von PowerShell
 
@@ -73,13 +73,13 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
   Restore-AzMariaDbServer -Name mydemoserver-restored -ResourceGroupName myresourcegroup -RestorePointInTime $restorePointInTime -UsePointInTimeRestore
 ```
 
-Die **PointInTimeRestore** -Parameter des `Restore-AzMariaDbServer`-Cmdlet müssen die folgenden Parameter umfassen:
+Die **PointInTimeRestore**-Parameter des `Restore-AzMariaDbServer`-Cmdlet müssen die folgenden Parameter umfassen:
 
 | Einstellung | Vorgeschlagener Wert | BESCHREIBUNG  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  Die Ressourcengruppe, in der sich der Quellserver befindet.  |
 | Name | mydemoserver-restored | Der Name des neuen Servers, der durch den Befehl „restore“ erstellt wird. |
-| RestorePointInTime | 2020-03-13T13:59:00Z | Wählen Sie einen Zeitpunkt für die Wiederherstellung aus. Datum und Zeit müssen innerhalb des Aufbewahrungszeitraums für Sicherungen des Quellservers liegen. Verwenden Sie das Datums- und Zeitformat nach ISO 8601. Beispielsweise können Sie Ihre eigene lokale Zeitzone wie **2020-03-13T05:59:00-08:00** verwenden. Sie können auch das Format „UTC-Zulu“ verwenden, z. B. **2018-03-13T13:59:00Z** . |
+| RestorePointInTime | 2020-03-13T13:59:00Z | Wählen Sie einen Zeitpunkt für die Wiederherstellung aus. Datum und Zeit müssen innerhalb des Aufbewahrungszeitraums für Sicherungen des Quellservers liegen. Verwenden Sie das Datums- und Zeitformat nach ISO 8601. Beispielsweise können Sie Ihre eigene lokale Zeitzone wie **2020-03-13T05:59:00-08:00** verwenden. Sie können auch das Format „UTC-Zulu“ verwenden, z. B. **2018-03-13T13:59:00Z**. |
 | UsePointInTimeRestore | `<SwitchParameter>` | Verwenden Sie den Point-in-Time-Modus für die Wiederherstellung. |
 
 Wenn Sie den Zustand eines Servers zu einem früheren Zeitpunkt wiederherstellen, wird ein neuer Server erstellt. Der ursprüngliche Server und seine Datenbanken zum angegebenen Zeitpunkt werden auf den neuen Server kopiert.
@@ -94,7 +94,7 @@ Der neue Server, der während einer Wiederherstellung erstellt wird, weist nicht
 
 Wenn Sie Ihren Server für georedundante Sicherungen konfiguriert haben, kann aus der Sicherung dieses vorhandenen Servers ein neuer Server erstellt werden. Dieser neue Server kann in allen Regionen erstellt werden, in denen Azure Database for MariaDB verfügbar ist.
 
-Wenn Sie einen Server mithilfe einer georedundanten Sicherung erstellen möchten, verwenden Sie den `Restore-AzMariaDbServer`-Befehl mit dem Parameter **UseGeoRestore** .
+Wenn Sie einen Server mithilfe einer georedundanten Sicherung erstellen möchten, verwenden Sie den `Restore-AzMariaDbServer`-Befehl mit dem Parameter **UseGeoRestore**.
 
 > [!NOTE]
 > Für einen neu erstellten Server kann möglicherweise nicht sofort eine Geowiederherstellung durchgeführt werden. Es kann einige Stunden dauern, bis die erforderlichen Metadaten aufgefüllt wurden.
@@ -115,7 +115,7 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
   Restore-AzMariaDbServer -Name mydemoserver-georestored -ResourceGroupName newresourcegroup -Location eastus -Sku GP_Gen5_8 -UseGeoRestore
 ```
 
-Die **GeoRestore** -Parameter des `Restore-AzMariaDbServer`-Cmdlet müssen die folgenden Parameter umfassen:
+Die **GeoRestore**-Parameter des `Restore-AzMariaDbServer`-Cmdlet müssen die folgenden Parameter umfassen:
 
 | Einstellung | Vorgeschlagener Wert | BESCHREIBUNG  |
 | --- | --- | --- |

@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d839ea042dec2224885f9ba4a0cb6adef5108568
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff023ad98c7ffa269223b5d0b4a1cecc5fde1feb
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458619"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410214"
 ---
 # <a name="azure-encryption-overview"></a>Übersicht über die Azure-Verschlüsselung
 
@@ -53,7 +53,7 @@ Die drei Modelle für die serverseitige Verschlüsselung bieten unterschiedliche
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-Sie können virtuelle Windows- und Linux-Computer mithilfe von [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) schützen. Hierbei werden die [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx)-Technologie und Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) verwendet, um Betriebssystemdatenträger sowie Datenträger mit vollständiger Volumeverschlüsselung zu schützen.
+Sie können virtuelle Windows- und Linux-Computer mithilfe von [Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md) schützen. Hierbei werden die [Windows BitLocker](/previous-versions/windows/it-pro/windows-vista/cc766295(v=ws.10))-Technologie und Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) verwendet, um Betriebssystemdatenträger sowie Datenträger mit vollständiger Volumeverschlüsselung zu schützen.
 
 Verschlüsselungsschlüssel und Geheimnisse werden in Ihrem [Azure Key Vault-Abonnement](../../key-vault/general/overview.md) geschützt. Mithilfe des Azure Backup-Diensts können Sie verschlüsselte virtuelle Computer, die mit der KEK-Konfiguration (Key Encryption Key) verschlüsselt sind, sichern und wiederherstellen.
 
@@ -83,13 +83,13 @@ Schließlich können Sie auch die Azure Storage-Clientbibliothek für Java verwe
 
 #### <a name="transparent-data-encryption"></a>Transparente Datenverschlüsselung
 
-[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) wird verwendet, um Datendateien aus [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL-Datenbank](../../azure-sql/database/sql-database-paas-overview.md) und [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) in Echtzeit mit einem Datenbankverschlüsselungsschlüssel (DEK, Database Encryption Key) zu verschlüsseln, der für die Verfügbarkeit während der Wiederherstellung im Datenbank-Startdatensatz gespeichert ist.
+[TDE](/sql/relational-databases/security/encryption/transparent-data-encryption-tde) wird verwendet, um Datendateien aus [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL-Datenbank](../../azure-sql/database/sql-database-paas-overview.md) und [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) in Echtzeit mit einem Datenbankverschlüsselungsschlüssel (DEK, Database Encryption Key) zu verschlüsseln, der für die Verfügbarkeit während der Wiederherstellung im Datenbank-Startdatensatz gespeichert ist.
 
 TDE schützt die Daten- und Protokolldateien über die Verschlüsselungsalgorithmen AES und Triple Data Encryption Standard (3DES). Die Verschlüsselung der Datenbankdatei erfolgt auf Seitenebene. Die Seiten in einer verschlüsselten Datenbank werden verschlüsselt, bevor sie auf den Datenträger geschrieben werden, und entschlüsselt, bevor sie in den Arbeitsspeicher eingelesen werden. TDE ist jetzt bei neu erstellten Azure SQL-Datenbanken standardmäßig aktiviert.
 
 #### <a name="always-encrypted-feature"></a>Always Encrypted-Feature
 
-Mit dem [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine)-Feature in Azure SQL können Sie Daten in Clientanwendungen vor dem Speichern in Azure SQL-Datenbank verschlüsseln. Außerdem können Sie die Delegierung der lokalen Datenbankverwaltung an Drittanbieter aktivieren und die Trennung zwischen den Benutzern, die die Daten besitzen und anzeigen können, und den Benutzern, die die Daten verwalten, jedoch keinen Zugriff darauf haben sollen, aufrechterhalten.
+Mit dem [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)-Feature in Azure SQL können Sie Daten in Clientanwendungen vor dem Speichern in Azure SQL-Datenbank verschlüsseln. Außerdem können Sie die Delegierung der lokalen Datenbankverwaltung an Drittanbieter aktivieren und die Trennung zwischen den Benutzern, die die Daten besitzen und anzeigen können, und den Benutzern, die die Daten verwalten, jedoch keinen Zugriff darauf haben sollen, aufrechterhalten.
 
 #### <a name="cell-level-or-column-level-encryption"></a>Verschlüsselung auf Zellen- oder Spaltenebene
 
@@ -125,9 +125,9 @@ Microsoft gibt Kunden die Möglichkeit, das [Transport Layer Security-Protokoll]
 
 Wenn Sie mit Azure Storage über das Azure-Portal interagieren, erfolgen alle Transaktionen über HTTPS. Für die Interaktion mit Azure Storage können Sie auch die Storage-REST-API über HTTPS verwenden. Sie können die Verwendung von HTTPS beim Aufruf von REST-APIs für den Zugriff auf Objekte in Speicherkonten erzwingen, indem Sie die Option „Sichere Übertragung erforderlich“ aktivieren.
 
-Mit Shared Access Signatures ([SAS](../../storage/common/storage-dotnet-shared-access-signature-part-1.md)), die zum Delegieren des Zugriffs auf Azure Storage-Objekte verwendet werden können, können Sie festlegen, dass bei Verwendung von Shared Access Signatures nur das HTTPS-Protokoll verwendet werden darf. Mit diesem Ansatz wird sichergestellt, dass jeder, der Links mit SAS-Token sendet, das richtige Protokoll verwendet.
+Mit Shared Access Signatures ([SAS](../../storage/common/storage-sas-overview.md)), die zum Delegieren des Zugriffs auf Azure Storage-Objekte verwendet werden können, können Sie festlegen, dass bei Verwendung von Shared Access Signatures nur das HTTPS-Protokoll verwendet werden darf. Mit diesem Ansatz wird sichergestellt, dass jeder, der Links mit SAS-Token sendet, das richtige Protokoll verwendet.
 
-[SMB 3.0](https://technet.microsoft.com/library/dn551363(v=ws.11).aspx#BKMK_SMBEncryption), das für den Zugriff auf Azure Files-Freigaben verwendet wird, unterstützt die Verschlüsselung und ist in Windows Server 2012 R2, Windows 8, Windows 8.1 und Windows 10 verfügbar. Dies macht einen regionsübergreifenden Zugriff und sogar den Zugriff auf dem Desktop möglich.
+[SMB 3.0](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn551363(v=ws.11)#BKMK_SMBEncryption), das für den Zugriff auf Azure Files-Freigaben verwendet wird, unterstützt die Verschlüsselung und ist in Windows Server 2012 R2, Windows 8, Windows 8.1 und Windows 10 verfügbar. Dies macht einen regionsübergreifenden Zugriff und sogar den Zugriff auf dem Desktop möglich.
 
 Die Daten werden mit der clientseitigen Verschlüsselung verschlüsselt, bevor sie an Ihre Azure Storage-Instanz gesendet werden, sodass sie während der Übertragung im Netzwerk verschlüsselt sind.
 
@@ -143,7 +143,7 @@ Daten, die auf, von und zwischen virtuellen Computern unter Windows übertragen 
 
 ### <a name="rdp-sessions"></a>RDP-Sitzungen
 
-Sie können über das [Remotedesktopprotokoll (RDP)](https://msdn.microsoft.com/library/aa383015(v=vs.85).aspx) über einen Windows-Clientcomputer oder einen Macintosh-Computer mit installiertem RDP-Client eine Verbindung mit einem virtuellen Computer herstellen und sich bei diesem anmelden. Daten während der Übertragung über das Netzwerk in RDP-Sitzungen können durch TLS geschützt werden.
+Sie können über das [Remotedesktopprotokoll (RDP)](/windows/win32/termserv/remote-desktop-protocol) über einen Windows-Clientcomputer oder einen Macintosh-Computer mit installiertem RDP-Client eine Verbindung mit einem virtuellen Computer herstellen und sich bei diesem anmelden. Daten während der Übertragung über das Netzwerk in RDP-Sitzungen können durch TLS geschützt werden.
 
 Sie können auch über Remotedesktop eine Verbindung mit einem virtuellen Linux-Computer in Azure herstellen.
 
@@ -163,7 +163,7 @@ Site-to-Site-VPN-Verbindungen verwenden [IPsec](https://en.wikipedia.org/wiki/IP
 
 ### <a name="point-to-site-vpns"></a>Point-to-Site-VPN-Verbindungen
 
-Über Point-to-Site-VPN-Verbindungen können einzelne Clientcomputer auf ein virtuelles Azure-Netzwerk zugreifen. Das [Secure Socket Tunneling-Protokoll (SSTP)](https://technet.microsoft.com/library/2007.06.cableguy.aspx) wird verwendet, um den VPN-Tunnel zu erstellen. Das Protokoll kann Firewalls durchlaufen (der Tunnel wird als HTTPS-Verbindung angezeigt). Sie können für Point-to-Site-Verbindungen Ihre eigene interne PKI-Stammzertifizierungsstelle (Public Key-Infrastruktur) verwenden.
+Über Point-to-Site-VPN-Verbindungen können einzelne Clientcomputer auf ein virtuelles Azure-Netzwerk zugreifen. Das [Secure Socket Tunneling-Protokoll (SSTP)](/previous-versions/technet-magazine/cc162322(v=msdn.10)) wird verwendet, um den VPN-Tunnel zu erstellen. Das Protokoll kann Firewalls durchlaufen (der Tunnel wird als HTTPS-Verbindung angezeigt). Sie können für Point-to-Site-Verbindungen Ihre eigene interne PKI-Stammzertifizierungsstelle (Public Key-Infrastruktur) verwenden.
 
 Sie können eine Point-to-Site-VPN-Verbindung mit einem virtuellen Netzwerk über das Azure-Portal mit Zertifikatauthentifizierung oder über PowerShell konfigurieren.
 
@@ -201,9 +201,9 @@ Mit Key Vault gehören für Organisationen das Konfigurieren, Patchen und Verwal
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Azure-Sicherheitsübersicht](get-started-overview.md)
+- [Azure-Sicherheitsübersicht](./overview.md)
 - [Die Netzwerksicherheit in Azure in der Übersicht](network-overview.md)
-- [Übersicht über die Sicherheit der Azure-Datenbank](database-security-overview.md)
+- [Übersicht über die Sicherheit der Azure-Datenbank](../../azure-sql/database/security-overview.md)
 - [Virtuelle Azure-Computer – Sicherheitsübersicht](virtual-machines-overview.md)
 - [Datenverschlüsselung ruhender Daten](encryption-atrest.md)
 - [Bewährte Methoden für Datensicherheit und Verschlüsselung](data-encryption-best-practices.md)

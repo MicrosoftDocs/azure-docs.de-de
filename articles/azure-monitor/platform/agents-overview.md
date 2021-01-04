@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/20/2020
-ms.openlocfilehash: 66d420a902cbfb56ece75646ee39bbba774b6208
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 11/21/2020
+ms.openlocfilehash: 9c453219638b9586d4ad2cc2a89311b1f2bdeefe
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312412"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450097"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Übersicht über Azure Monitor-Agents
 
@@ -34,7 +34,7 @@ Die folgenden Tabellen enthalten eine kurze Gegenüberstellung der Azure Monito
 
 | | Azure Monitor-Agent (Vorschau) | Diagnose<br>erweiterung (WAD) | Log Analytics<br>Agent | Abhängigkeit<br>Agent |
 |:---|:---|:---|:---|:---|
-| **Unterstützte Umgebungen** | Azure | Azure | Azure<br>Andere Cloud<br>Lokal | Azure<br>Andere Cloud<br>Lokal | 
+| **Unterstützte Umgebungen** | Azure<br>Andere Cloud (Azure Arc)<br>Lokal (Azure Arc)  | Azure | Azure<br>Andere Cloud<br>Lokal | Azure<br>Andere Cloud<br>Lokal | 
 | **Agent-Anforderungen**  | Keine | Keine | Keine | Erfordert Log Analytics-Agent |
 | **Gesammelte Daten** | Ereignisprotokolle<br>Leistung | Ereignisprotokolle<br>ETW-Ereignisse<br>Leistung<br>Dateibasierte Protokolle<br>IIS-Protokolle<br>.NET-App-Protokolle<br>Absturzabbilder<br>Agent-Diagnoseprotokolle | Ereignisprotokolle<br>Leistung<br>Dateibasierte Protokolle<br>IIS-Protokolle<br>Erkenntnisse und Lösungen<br>Sonstige Dienste | Prozessabhängigkeiten<br>Netzwerkverbindungsmetriken |
 | **Senden von Daten an** | Azure Monitor-Protokolle<br>Azure Monitor-Metriken | Azure Storage<br>Azure Monitor-Metriken<br>Event Hub | Azure Monitor-Protokolle | Azure Monitor-Protokolle<br>(über den Log Analytics-Agent) |
@@ -44,7 +44,7 @@ Die folgenden Tabellen enthalten eine kurze Gegenüberstellung der Azure Monito
 
 | | Azure Monitor-Agent (Vorschau) | Diagnose<br>erweiterung (LAD) | Telegraf-<br>Agent | Log Analytics<br>Agent | Abhängigkeit<br>Agent |
 |:---|:---|:---|:---|:---|:---|
-| **Unterstützte Umgebungen** | Azure | Azure | Azure<br>Andere Cloud<br>Lokal | Azure<br>Andere Cloud<br>Lokal | Azure<br>Andere Cloud<br>Lokal |
+| **Unterstützte Umgebungen** | Azure<br>Andere Cloud (Azure Arc)<br>Lokal (Azure Arc) | Azure | Azure<br>Andere Cloud<br>Lokal | Azure<br>Andere Cloud<br>Lokal | Azure<br>Andere Cloud<br>Lokal |
 | **Agent-Anforderungen**  | Keine | Keine | Keine | Keine | Erfordert Log Analytics-Agent |
 | **Gesammelte Daten** | syslog<br>Leistung | syslog<br>Leistung | Leistung | syslog<br>Leistung| Prozessabhängigkeiten<br>Netzwerkverbindungsmetriken |
 | **Senden von Daten an** | Azure Monitor-Protokolle<br>Azure Monitor-Metriken | Azure Storage<br>Event Hub | Azure Monitor-Metriken | Azure Monitor-Protokolle | Azure Monitor-Protokolle<br>(über den Log Analytics-Agent) |
@@ -56,7 +56,7 @@ Der [Azure Monitor-Agent](azure-monitor-agent-overview.md) befindet sich derzeit
 
 Verwenden Sie den Azure Monitor-Agent zu folgenden Zwecken:
 
-- Sammeln von Gastprotokollen und Metriken von einem beliebigen virtuellen Computer in Azure, in anderen Clouds oder lokal. (Azure nur in der Vorschau.)
+- Sammeln von Gastprotokollen und Metriken von einem beliebigen virtuellen Computer in Azure, in anderen Clouds oder lokal. (Azure Arc ist für VMs außerhalb von Azure erforderlich.) 
 - Senden von Daten an Azure Monitor-Protokolle und Azure Monitor- Metriken zur Analyse mit Azure Monitor. 
 - Senden von Daten an Azure Storage zur Archivierung.
 - Senden von Daten an Drittanbietertools mithilfe von [Azure Event Hubs](diagnostics-extension-stream-event-hubs.md)
@@ -81,8 +81,8 @@ Verwenden Sie den Log Analytics-Agent für Folgendes:
 * Erfassen von Protokollen und Leistungsdaten von virtuellen oder physischen Computern innerhalb oder außerhalb von Azure 
 * Senden von Überwachungsdaten an einen Log Analytics-Arbeitsbereich, um die von [Azure Monitor-Protokollen](data-platform-logs.md) unterstützten Features wie etwa [Protokollabfragen](../log-query/log-query-overview.md) zu nutzen
 * Verwenden von [Azure Monitor für VMs](../insights/vminsights-overview.md) zur bedarfsgerechten Überwachung Ihrer virtuellen Computer sowie zur Überwachung der zugehörigen Prozesse und Abhängigkeiten von anderen Ressourcen und externen Prozessen  
-* Verwalten der Sicherheit Ihrer virtuellen Computer mit [Azure Security Center](../../security-center/security-center-intro.md) oder [Azure Sentinel](../../sentinel/overview.md)
-* Verwenden von [Azure Automation-Updateverwaltung](../../automation/update-management/update-mgmt-overview.md), [Azure Automation State Configuration](../../automation/automation-dsc-overview.md) oder [Azure Automation für Änderungsnachverfolgung und Bestand](../../automation/change-tracking/overview.md) zur umfassenden Verwaltung Ihrer virtuellen Azure-Computer
+* Verwalten der Sicherheit Ihrer virtuellen Computer mit [Azure Security Center](../../security-center/security-center-introduction.md) oder [Azure Sentinel](../../sentinel/overview.md)
+* Verwenden von [Azure Automation-Updateverwaltung](../../automation/update-management/overview.md), [Azure Automation State Configuration](../../automation/automation-dsc-overview.md) oder [Azure Automation für Änderungsnachverfolgung und Bestand](../../automation/change-tracking/overview.md) zur umfassenden Verwaltung Ihrer virtuellen Azure-Computer
 * Verwenden verschiedener [Lösungen](../monitor-reference.md#insights-and-core-solutions) zur Überwachung eines bestimmten Diensts oder einer bestimmten Anwendung
 
 Einschränkungen des Log Analytics-Agents:
@@ -176,6 +176,7 @@ In der folgenden Tabelle sind die Betriebssysteme aufgeführt, die von den Azure
 | Red Hat Enterprise Linux Server 7                        | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                        |   | X | X |   |
 | Red Hat Enterprise Linux Server 6.7+                     |   | X | X | X |
+| SUSE Linux Enterprise Server 15.1                        |   | X |   |   |
 | SUSE Linux Enterprise Server 15                          | X | X |   |   |
 | SUSE Linux Enterprise Server 12                          | X | X | X | X |
 | Ubuntu 20.04 LTS                                         |   | X |   |   |

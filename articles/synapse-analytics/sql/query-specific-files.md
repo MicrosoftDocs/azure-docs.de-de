@@ -7,18 +7,18 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: c03051e2c8fddc21e4399375faeff6a40fb4d0d4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d24ae1f42c685589309506b2d5e0eab157b2bc42
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288102"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299614"
 ---
-# <a name="use-file-metadata-in-queries"></a>Verwenden von Dateimetadaten in Abfragen
+# <a name="use-file-metadata-in-serverless-sql-pool-queries"></a>Verwenden von Dateimetadaten in Abfragen eines serverlosen SQL-Pools
 
-SQL On-Demand kann mehrere Dateien und Ordner behandeln, wie im Artikel [Abfrageordner und mehrere Dateien](query-folders-multiple-csv-files.md) beschrieben. In diesem Artikel erfahren Sie, wie Sie Metadateninformationen zu Datei- und Ordnernamen in den Abfragen verwenden können.
+Ein serverloser SQL-Pool kann mehrere Dateien und Ordner behandeln, wie im Artikel [Abfrageordner und mehrere Dateien](query-folders-multiple-csv-files.md) beschrieben. In diesem Artikel erfahren Sie, wie Sie Metadateninformationen zu Datei- und Ordnernamen in den Abfragen verwenden können.
 
 Gelegentlich müssen Sie möglicherweise wissen, welche Datei- oder Ordnerquelle mit einer bestimmten Zeile im Resultset korreliert.
 
@@ -76,7 +76,7 @@ ORDER BY
 
 Die Dateipfadfunktion (filepath) gibt einen vollständigen oder teilweisen Pfad zurück:
 
-- Beim Aufruf ohne Parameter wird der vollständige Pfad einer Datei zurückgegeben, aus der die Zeile stammt.
+- Beim Aufruf ohne Parameter wird der vollständige Pfad einer Datei zurückgegeben, aus der die Zeile stammt. Wenn DATA_SOURCE in OPENROWSET verwendet wird, wird der Pfad relativ zu DATA_SOURCE zurückgegeben. 
 - Beim Aufruf mit Parameter wird ein Teil eines Pfads zurückgegeben, der dem Platzhalterzeichen an der im Parameter angegebenen Position entspricht. Der Parameterwert 1 würde z. B. den Teil eines Pfads zurückgeben, der dem ersten Platzhalterzeichen entspricht.
 
 Das folgende Beispiel liest die Datendateien von „NYC Yellow Taxi“ für die letzten drei Monate des Jahres 2017. Es gibt die Anzahl der Fahrten pro Dateipfad zurück. Der OPENROWSET-Teil der Abfrage gibt an, welche Dateien gelesen werden sollen.

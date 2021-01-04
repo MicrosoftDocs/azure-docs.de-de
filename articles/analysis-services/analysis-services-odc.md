@@ -4,19 +4,19 @@ description: Erfahren Sie, wie Sie eine Office Data-Verbindung mit einem Analysi
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 12/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 039783fc10fb08523dc81e13b5f6f456fa8d0c97
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 8fa657f3b343cdf49723dc68601bb1c9513ff504
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014765"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487336"
 ---
 # <a name="create-an-office-data-connection-file"></a>Erstellen einer Office Data Connection-Datei
 
-Die Informationen in diesem Artikel beschreiben, wie Sie eine Office Data Connection-Datei (ODC) erstellen, um aus Excel 2016, Versionsnummer 16.0.7369.2117 oder früher, oder aus Excel 2013 eine Verbindung mit einem Azure Analysis Services-Server herzustellen. Ein aktualisierter [MSOLAP.7-Anbieter](/analysis-services/client-libraries?view=azure-analysis-services-current) ist ebenfalls erforderlich.
+Die Informationen in diesem Artikel beschreiben, wie Sie eine Office Data Connection-Datei (ODC) erstellen, um aus Excel 2016, Versionsnummer 16.0.7369.2117 oder früher, oder aus Excel 2013 eine Verbindung mit einem Azure Analysis Services-Server herzustellen. Ein aktualisierter [MSOLAP.7-Anbieter](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true) ist ebenfalls erforderlich.
 
 
 1. Kopieren Sie die Beispieldatei für die Verbindung unten, und fügen Sie sie in einem Text-Editor ein. 

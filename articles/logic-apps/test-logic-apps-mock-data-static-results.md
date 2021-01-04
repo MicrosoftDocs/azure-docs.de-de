@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/13/2019
-ms.openlocfilehash: b71aae91f4a065b70537a300aa0bd7016edfd4b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 711d753203aeaeba50cea692053a37fcab2e9c7b
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74790285"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027702"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Testen von Logik-Apps mit Simulationsdaten durch die Einrichtung von statischen Ergebnissen
 
@@ -102,7 +102,7 @@ Wenn es von einer früheren Ausführung Ihrer Logik-App noch Ausgaben gibt, die 
 
    ![JSON-Modus](./media/test-logic-apps-mock-data-static-results/json-editing-mode.png)
 
-1. Klicken Sie auf **Fertig**, wenn Sie fertig sind. Stattdessen können Sie auch auf **Editor-Modus wechseln** (Auf ![„Editor-Modus wechseln“](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png) klicken) klicken, um zum Designer zurückzukehren.
+1. Klicken Sie auf **Fertig** , wenn Sie fertig sind. Stattdessen können Sie auch auf **Editor-Modus wechseln** (Auf ![„Editor-Modus wechseln“](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png) klicken) klicken, um zum Designer zurückzukehren.
 
 <a name="find-runs-mock-data"></a>
 
@@ -130,11 +130,11 @@ Wenn Sie die statischen Ergebnisse deaktivieren, werden die Werte Ihres letzten 
 
 1. Suchen Sie die Aktion, für die Sie statische Ausgaben deaktivieren möchten. Klicken Sie oben rechts in der Aktion auf das Becherglas (![Symbol für statische Ergebnisse](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)).
 
-   ![Statische Ergebnisse deaktivieren](./media/test-logic-apps-mock-data-static-results/disable-static-results.png)
+   ![Screenshot: Eine HTTP-Aktion, bei der Sie das Becherglassymbol auswählen können](./media/test-logic-apps-mock-data-static-results/disable-static-results.png)
 
 1. Klicken Sie auf **Statisches Ergebnis deaktivieren** > **Fertig**.
 
-   ![Statische Ergebnisse deaktivieren](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
+   ![Screenshot: Auswählbare Option „Statisches Ergebnis deaktivieren“](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 
 ## <a name="reference"></a>Verweis
 

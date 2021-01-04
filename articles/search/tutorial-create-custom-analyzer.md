@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: ac7cee2c1d72b4102fb397aa8093c2d38686fc88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90d60a20bb464936d04662b0b9286bd7aaac9e74
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397265"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700170"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Tutorial: Erstellen eines benutzerdefinierten Analysetools für Telefonnummern
 
@@ -59,9 +59,9 @@ Für jede Anforderung müssen Sie die folgenden Schritte ausführen:
 
 1. Ersetzen Sie `<YOUR-ADMIN-API-KEY>` durch den primären oder sekundären Schlüssel Ihres Suchdiensts.
 
-  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="Postman-Anforderungs-URL und -Header" border="false":::
+  :::image type="content" source="media/search-get-started-rest/postman-url.png" alt-text="Postman-Anforderungs-URL und -Header" border="false":::
 
-Wenn Sie mit Postman nicht vertraut sind, lesen Sie [Untersuchen von Azure Cognitive Search-REST-APIs mit Postman](search-get-started-postman.md).
+Wenn Sie mit Postman nicht vertraut sind, lesen Sie [Schnellstart: Erstellen eines Azure Cognitive Search-Index mithilfe von REST-APIs](search-get-started-rest.md).
 
 ## <a name="3---create-an-initial-index"></a>3\. Erstellen eines Anfangsindexes
 
@@ -239,11 +239,11 @@ Analysetools bestehen aus drei Komponenten:
 
 In der folgenden Abbildung sehen Sie, wie diese drei Komponenten zusammenwirken, um einen Satz in Token zu zerlegen:
 
-  :::image type="content" source="media/tutorial-create-custom-analyzer/analyzers-explained.png" alt-text="Postman-Anforderungs-URL und -Header":::
+  :::image type="content" source="media/tutorial-create-custom-analyzer/analyzers-explained.png" alt-text="Abbildung des Analysetoolvorgangs zum Zerlegen eines Satzes in Token":::
 
 Diese Token werden dann in einem invertierten Index gespeichert, der eine schnelle Volltextsuche ermöglicht.  Ein invertierter Index ermöglicht Volltextsuche, indem er alle eindeutigen Begriffe, die bei der lexikalischen Analyse extrahiert wurden, den Dokumenten zuordnet, in denen sie vorkommen. Ein Beispiel sehen Sie in der Abbildung unten:
 
-  :::image type="content" source="media/tutorial-create-custom-analyzer/inverted-index-explained.png" alt-text="Postman-Anforderungs-URL und -Header":::
+  :::image type="content" source="media/tutorial-create-custom-analyzer/inverted-index-explained.png" alt-text="Beispiel für invertierten Index":::
 
 Die gesamte Suche läuft auf die Suche nach den im invertierten Index gespeicherten Begriffen hinaus. Wenn ein Benutzer eine Abfrage ausgibt:
 
@@ -251,7 +251,7 @@ Die gesamte Suche läuft auf die Suche nach den im invertierten Index gespeicher
 1. Der invertierte Index wird dann nach Dokumenten mit übereinstimmenden Begriffen gescannt.
 1. Schließlich wir die Rangfolge der abgerufenen Dokumente durch den [Ähnlichkeitsalgorithmus](index-ranking-similarity.md) ermittelt.
 
-  :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="Postman-Anforderungs-URL und -Header":::
+  :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="Abbildung des Analysetoolvorgangs zum Ermitteln der Ähnlichkeitsrangfolge":::
 
 Wenn die Abfragebegriffe nicht mit den Begriffen in Ihrem invertierten Index übereinstimmen, werden keine Ergebnisse zurückgegeben. Weitere Informationen zur Funktionsweise von Abfragen finden Sie im Artikel zur [Volltextsuche](search-lucene-query-architecture.md).
 

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 0b4f18c32639ceb2084febe210a8cfd4c423a0cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f438fadb73f7e3bd25cd7ab9aef0bc46285e30e2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86135762"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424823"
 ---
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>Replizieren von virtuellen Azure-Computern mit direkten Speicherplätzen in eine andere Region
 
@@ -49,12 +49,12 @@ Die folgende Abbildung zeigt einen Azure-VM-Failovercluster mit zwei Knoten, der
 1. Wählen Sie die Replikationsrichtlinie mit deaktivierter Anwendungskonsistenz aus (es ist nur Unterstützung für Absturzkonsistenz verfügbar).
 1. Aktivieren Sie die Replikation.
 
-   ![storagespacesdirect protection](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
+   ![Screenshot, der zeigt, wo die Replikationseinstellungen konfiguriert werden](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
 
 2. Wenn Sie zu den replizierten Elementen wechseln, wird der Status der beiden virtuellen Computer angezeigt.
 3. Beide virtuellen Computer werden geschützt und werden auch als Teil der Multi-VM-Konsistenzgruppe angezeigt.
 
-   ![storagespacesdirect protection](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
+   ![Screenshot: Die virtuellen Computer werden geschützt und sind Teil der Multi-VM-Konsistenzgruppe.](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
 
 ## <a name="creating-a-recovery-plan"></a>Erstellen eines Wiederherstellungsplans
 Ein Wiederherstellungsplan unterstützt die Sequenzierung der verschiedenen Ebenen in einer Anwendung mit mehreren Ebenen während eines Failovers. Die Sequenzierung trägt zur Wahrung der Anwendungskonsistenz bei. Beim Erstellen eines Wiederherstellungsplans für eine Webanwendung mit mehreren Ebenen führen Sie die unter [Erstellen eines Wiederherstellungsplans mit Site Recovery](site-recovery-create-recovery-plans.md) beschriebenen Schritte aus.
@@ -80,7 +80,7 @@ Für beide Knoten der VMs muss ein Failover mithilfe des Site Recovery-[Wiederhe
 3.  Wählen Sie **Testfailover** aus.
 4.  Wählen Sie den Wiederherstellungspunkt und das virtuelle Azure-Netzwerk aus, um den Prozess für das Testfailover zu starten.
 5.  Wenn die sekundäre Umgebung aktiv ist, können Sie Überprüfungen durchführen.
-6.  Klicken Sie nach Abschluss der Überprüfungen auf **Testfailover bereinigen**, um die Failoverumgebung zu bereinigen.
+6.  Klicken Sie nach Abschluss der Überprüfungen auf **Testfailover bereinigen** , um die Failoverumgebung zu bereinigen.
 
 Weitere Informationen finden Sie unter [Testfailover nach Azure in Site Recovery](site-recovery-test-failover-to-azure.md).
 

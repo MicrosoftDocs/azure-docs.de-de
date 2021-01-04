@@ -10,14 +10,19 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 7999ed5296f2ff4e64b9edc0fb355f72b7d7a04e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a114cb24d79189f9e370fae1962f60ca97241d90
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316646"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351366"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Leitfaden zur Durchführung eines Upgrades für die News-Suche-API
+
+> [!WARNING]
+> Die APIs der Bing-Suche werden von Cognitive Services auf Bing-Suchdienste umgestellt. Ab dem **30. Oktober 2020** müssen alle neuen Instanzen der Bing-Suche mit dem [hier](/bing/search-apis/bing-web-search/create-bing-search-service-resource) dokumentierten Prozess bereitgestellt werden.
+> APIs der Bing-Suche, die mit Cognitive Services bereitgestellt wurden, werden noch drei Jahre lang oder bis zum Ablauf Ihres Enterprise Agreement unterstützt (je nachdem, was zuerst geschieht).
+> Eine Anleitung zur Migration finden Sie unter [Bing-Suchdienste](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 In diesem Upgradeleitfaden sind die Änderungen zwischen Version 5 und Version 7 der Bing-News-Suche-API angegeben. Anhand dieses Leitfadens können Sie die Teile Ihrer Anwendung ermitteln, die Sie zur Verwendung von Version 7 aktualisieren müssen.
 
@@ -70,24 +75,24 @@ Blockiert|InvalidRequest.Blocked
 
 ### <a name="object-changes"></a>Änderungen an Objekten
 
-- Das Feld `contractualRules` wurde zum [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle)-Objekt hinzugefügt. Das Feld `contractualRules` enthält eine Liste von Regeln, die eingehalten werden müssen (z.B. Artikelzuordnungen). Statt `provider` müssen Sie die in `contractualRules` angegebene Zuordnung anwenden. Der Artikel umfasst `contractualRules` nur, wenn die Antwort der [Websuche-API](../bing-web-search/search-the-web.md) eine News-Antwort enthält.
+- Das Feld `contractualRules` wurde zum [NewsArticle](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle)-Objekt hinzugefügt. Das Feld `contractualRules` enthält eine Liste von Regeln, die eingehalten werden müssen (z.B. Artikelzuordnungen). Statt `provider` müssen Sie die in `contractualRules` angegebene Zuordnung anwenden. Der Artikel umfasst `contractualRules` nur, wenn die Antwort der [Websuche-API](../bing-web-search/overview.md) eine News-Antwort enthält.
 
 ## <a name="non-breaking-changes"></a>Geringfügige Änderungen
 
 ### <a name="query-parameters"></a>Abfrageparameter
 
-- „Products“ wurde als möglicher Wert hinzugefügt, auf den Sie den Abfrageparameter [category](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category) festlegen können. Weitere Informationen finden Sie unter [Referenz zur News-Suche-API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).
+- „Products“ wurde als möglicher Wert hinzugefügt, auf den Sie den Abfrageparameter [category](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category) festlegen können. Weitere Informationen finden Sie unter [Referenz zur News-Suche-API v7](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).
 
-- Der Abfrageparameter [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortby) wurde hinzugefügt, der beliebte Themen nach Datum sortiert mit dem aktuellen Thema an erster Stelle zurückgibt.
+- Der Abfrageparameter [SortBy](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortby) wurde hinzugefügt, der beliebte Themen nach Datum sortiert mit dem aktuellen Thema an erster Stelle zurückgibt.
 
-- Der Abfrageparameter [Since](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#since) wurde hinzugefügt, der beliebte Themen zurückgibt, die von Bing am oder nach dem angegebenen Unix-Epochenzeitstempel ermittelt wurden.
+- Der Abfrageparameter [Since](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#since) wurde hinzugefügt, der beliebte Themen zurückgibt, die von Bing am oder nach dem angegebenen Unix-Epochenzeitstempel ermittelt wurden.
 
 ### <a name="object-changes"></a>Änderungen an Objekten
 
-- Das Feld `mentions` wurde zum [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle)-Objekt hinzugefügt. Das Feld `mentions` enthält eine Liste von Entitäten (Personen oder Orte), die im Artikel gefunden wurden.
+- Das Feld `mentions` wurde zum [NewsArticle](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle)-Objekt hinzugefügt. Das Feld `mentions` enthält eine Liste von Entitäten (Personen oder Orte), die im Artikel gefunden wurden.
 
-- Das Feld `video` wurde zum [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle)-Objekt hinzugefügt. Das Feld `video` enthält ein Video, das mit dem Nachrichtenartikel verknüpft ist. Bei dem Video handelt es sich entweder um ein \<iframe\>, das Sie einbetten können, oder um eine bewegte Miniaturansicht.
+- Das Feld `video` wurde zum [NewsArticle](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle)-Objekt hinzugefügt. Das Feld `video` enthält ein Video, das mit dem Nachrichtenartikel verknüpft ist. Bei dem Video handelt es sich entweder um ein \<iframe\>, das Sie einbetten können, oder um eine bewegte Miniaturansicht.
 
-- Das Feld `sort` wurde zum [News](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news)-Objekt hinzugefügt. Das Feld `sort` zeigt die Sortierreihenfolge der Artikel an. Beispielsweise werden die Artikel nach Relevanz (Standard) oder Datum sortiert.
+- Das Feld `sort` wurde zum [News](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news)-Objekt hinzugefügt. Das Feld `sort` zeigt die Sortierreihenfolge der Artikel an. Beispielsweise werden die Artikel nach Relevanz (Standard) oder Datum sortiert.
 
-- Das Objekt [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue) wurde hinzugefügt, das eine Sortierreihenfolge definiert. Das Feld `isSelected` gibt an, ob in der Antwort die Sortierreihenfolge verwendet wurde. Wenn es **true** angibt, wurde in der Antwort die Sortierreihenfolge verwendet. Wenn `isSelected`**false** lautet, können Sie die URL im Feld `url` verwenden, um eine andere Sortierreihenfolge anzufordern.
+- Das Objekt [SortValue](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue) wurde hinzugefügt, das eine Sortierreihenfolge definiert. Das Feld `isSelected` gibt an, ob in der Antwort die Sortierreihenfolge verwendet wurde. Wenn es **true** angibt, wurde in der Antwort die Sortierreihenfolge verwendet. Wenn `isSelected`**false** lautet, können Sie die URL im Feld `url` verwenden, um eine andere Sortierreihenfolge anzufordern.

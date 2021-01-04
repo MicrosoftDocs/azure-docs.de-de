@@ -10,12 +10,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 07/20/2020
-  ms.openlocfilehash: 984fecd947cb174ab6663a874071926d16f657bd
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 64266f5eff2388634486215c2e9b7a00b2ab157b
+  ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91285400"
+  ms.lasthandoff: 12/09/2020
+  ms.locfileid: "96937201"
 landingContent:
 - title: Informationen zu Microsoft Azure Attestation
   linkLists:
@@ -29,6 +29,8 @@ landingContent:
     links:
     - text: Schnellstart für PowerShell
       url: quickstart-powershell.md
+    - text: Schnellstartanleitung zur CLI
+      url: quickstart-azure-cli.md
     - text: Schnellstart für ARM-Vorlagen
       url: quickstart-template.md
 - title: Konzepte
@@ -47,7 +49,7 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Erstellen und Signieren einer Nachweisrichtlinie
+    - text: Erstellen einer Nachweisrichtlinie
       url: author-sign-policy.md
     - text: Codebeispiele für den SGX-Nachweis
       url: /samples/browse/?expanded=azure&terms=attestation
@@ -59,5 +61,5 @@ landingContent:
       url: faq.md
     - text: REST
       url: /rest/api/attestation/
-    - text: Azure PowerShell
-      url: /powershell/module/az.attestation/?view=azps-4.3.0#attestation
+    - text: Behandeln von Problemen
+      url: troubleshoot-guide.md

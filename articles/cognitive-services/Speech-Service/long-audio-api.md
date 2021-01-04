@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: trbye
-ms.openlocfilehash: be38d3e78108a15c9f7875a15156e0eeba5a6211
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 255cfe11f8601abc89a1d96f702f453c2af1ccbd
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167758"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533059"
 ---
 # <a name="long-audio-api-preview"></a>API für lange Audioinhalte (Vorschau)
 
@@ -27,7 +27,7 @@ Weitere Vorteile der API für lange Audioinhalte:
 * Es muss kein Stimmendpunkt bereitgestellt werden, da Stimmen in einem nicht echtzeitbasierten Batchmodus synthetisiert werden.
 
 > [!NOTE]
-> Die API für lange Audioinhalte unterstützt jetzt sowohl [öffentliche neuronale Stimmen](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices) als auch [benutzerdefinierte neuronale Stimmen](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices).
+> Die API für lange Audioinhalte unterstützt jetzt sowohl [öffentliche neuronale Stimmen](./language-support.md#neural-voices) als auch [benutzerdefinierte neuronale Stimmen](./how-to-custom-voice.md#custom-neural-voices).
 
 ## <a name="workflow"></a>Workflow
 
@@ -44,7 +44,7 @@ Stellen Sie bei der Vorbereitung Ihrer Textdatei Folgendes sicher:
 * Es handelt sich entweder um Nur-Text (.txt) oder SSML-Text (.txt).
 * Die Verschlüsselung ist [UTF-8 mit Bytereihenfolge-Marke (BOM)](https://www.w3.org/International/questions/qa-utf8-bom.en#bom).
 * Es handelt sich um eine einzelne Datei, nicht um ein ZIP-Archiv.
-* Sie enthält mehr als 400 Zeichen für Nur-Text oder 400 [abrechenbare Zeichen](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech#pricing-note) für SSML-Text und weniger als 10.000 Absätze.
+* Sie enthält mehr als 400 Zeichen für Nur-Text oder 400 [abrechenbare Zeichen](./text-to-speech.md#pricing-note) für SSML-Text und weniger als 10.000 Absätze.
   * Bei Nur-Text wird jeder Absatz durch Drücken der **EINGABETASTE** getrennt – [Beispiel für die Eingabe von Nur-Text](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt) anzeigen
   * Bei SSML-Text wird jede SSML-Komponente als Absatz betrachtet. SSML-Elemente sollen durch verschiedene Absätze getrennt werden – [Beispiel für die Eingabe von SSML-Text](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt) anzeigen.
 > [!NOTE]
@@ -114,7 +114,7 @@ Wenn der Parameter **PublicVoice** auf **True** festgelegt ist, wird eine öffen
 Bereiten Sie eine Eingabetextdatei vor, entweder als Nur-Text oder als SSML-Text, und fügen Sie dann den folgenden Code in `voice_synthesis_client.py` hinzu:
 
 > [!NOTE]
-> 'concatenateResult' ist ein optionaler Parameter. Wenn dieser Parameter nicht festgelegt ist, wird für jeden Absatz eine Audioausgabe generiert. Indem Sie den Parameter festlegen, können Sie die Audiodateien in eine Ausgabe verketten. Standardmäßig ist die Audioausgabe auf riff-16khz-16bit-16bit-mono-pcm eingestellt. Weitere Informationen zu unterstützten Audioausgaben finden Sie unter [Audioausgabeformate](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#audio-output-formats).
+> 'concatenateResult' ist ein optionaler Parameter. Wenn dieser Parameter nicht festgelegt ist, wird für jeden Absatz eine Audioausgabe generiert. Indem Sie den Parameter festlegen, können Sie die Audiodateien in eine Ausgabe verketten. Standardmäßig ist die Audioausgabe auf riff-16khz-16bit-16bit-mono-pcm eingestellt. Weitere Informationen zu unterstützten Audioausgaben finden Sie unter [Audioausgabeformate](#audio-output-formats).
 
 ```python
 parser.add_argument('--submit', action="store_true", default=False, help='submit a synthesis request')
@@ -287,15 +287,11 @@ Die API für lange Audioinhalte ist in mehreren Regionen mit eindeutigen Endpunk
 
 | Region | Endpunkt |
 |--------|----------|
-| Australien (Osten) | `https://australiaeast.customvoice.api.speech.microsoft.com` |
-| Kanada, Mitte | `https://canadacentral.customvoice.api.speech.microsoft.com` |
 | East US | `https://eastus.customvoice.api.speech.microsoft.com` |
 | Indien, Mitte | `https://centralindia.customvoice.api.speech.microsoft.com` |
-| USA Süd Mitte | `https://southcentralus.customvoice.api.speech.microsoft.com` |
 | Asien, Südosten | `https://southeastasia.customvoice.api.speech.microsoft.com` |
 | UK, Süden | `https://uksouth.customvoice.api.speech.microsoft.com` |
 | Europa, Westen | `https://westeurope.customvoice.api.speech.microsoft.com` |
-| USA, Westen 2 | `https://westus2.customvoice.api.speech.microsoft.com` |
 
 ## <a name="audio-output-formats"></a>Audioausgabeformate
 

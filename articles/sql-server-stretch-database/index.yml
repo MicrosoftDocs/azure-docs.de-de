@@ -10,19 +10,19 @@ metadata:
   author: craigg-msft
   ms.author: craigg
   ms.date: 03/30/2020
-  ms.openlocfilehash: 7795ebe8e988cfe2cea41e7fcadf955a354d9a5e
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 6205f11a9c6e0ba47541474b874397cad90e7464
+  ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "80422943"
+  ms.lasthandoff: 11/21/2020
+  ms.locfileid: "95024261"
 landingContent:
 - title: Erste Schritte
   linkLists:
   - linkListType: overview
     links:
     - text: Was ist Azure SQL Server Stretch Database?
-      url: https://docs.microsoft.com/sql/sql-server/stretch-database/stretch-database
+      url: /sql/sql-server/stretch-database/stretch-database
   - linkListType: video
     links:
     - text: Video zu Azure SQL Server Stretch Database
@@ -30,6 +30,6 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Identifizieren von Datenbanken und Tabellen für Stretch Database von Data Migration Assistant
-      url: https://docs.microsoft.com/sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor
+      url: /sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor
     - text: Erste Schritte durch Ausführen des Assistenten zum Aktivieren von Stretch für eine Datenbank
-      url: https://docs.microsoft.com/sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard
+      url: /sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard

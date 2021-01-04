@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 9ada1956af2dabdb8e5deff33722af7a8691dd19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99e7a8fcb34c963cfab366f1913508a7ff3f4a51
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295463"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408701"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>Sicherheitskontrolle V2: Protokollierung und Bedrohungserkennung
 
@@ -30,7 +30,7 @@ Verwenden Sie die integrierte Funktion zur Bedrohungserkennung in Azure Security
 
 Zusätzlich können Sie mithilfe von Azure Sentinel Analyseregeln erstellen, anhand derer in der gesamten Umgebung nach Bedrohungen gesucht wird, die bestimmten Kriterien entsprechen. Bei Übereinstimmung mit den Kriterien werden durch die Regeln Incidents generiert, die Sie einzeln untersuchen können. Sie können in Azure Sentinel auch Threat Intelligence von Drittanbietern importieren, um dessen Funktion zur Bedrohungserkennung zu verbessern. 
 
-- [Bedrohungsschutz in Azure Security Center](../../security-center/threat-protection.md)
+- [Bedrohungsschutz in Azure Security Center](../../security-center/azure-defender.md)
 
 - [Sicherheitswarnungen von Azure Security Center (Referenzhandbuch)](../../security-center/alerts-reference.md)
 
@@ -38,9 +38,9 @@ Zusätzlich können Sie mithilfe von Azure Sentinel Analyseregeln erstellen, anh
 
 - [Cyber Threat Intelligence mit Azure Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)
 
-**Verantwortlichkeit**: Kunde
+**Verantwortlichkeit** : Kunde
 
-**Sicherheitsverantwortliche beim Kunden** ([weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Sicherheitsverantwortliche beim Kunden** ( [weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastruktur- und Endpunktsicherheit](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -73,11 +73,11 @@ Auch Azure Security Center kann bestimmte verdächtige Aktivitäten melden, wie 
 
 - [Aktivieren von Azure Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Bedrohungsschutz in Azure Security Center](../../security-center/threat-protection.md)
+- [Bedrohungsschutz in Azure Security Center](../../security-center/azure-defender.md)
 
-**Verantwortlichkeit**: Kunde
+**Verantwortlichkeit** : Kunde
 
-**Sicherheitsverantwortliche beim Kunden** ([weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Sicherheitsverantwortliche beim Kunden** ( [weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastruktur- und Endpunktsicherheit](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -109,9 +109,9 @@ Aktivieren und Sammeln Sie für die Sicherheitsanalyse NSG-Ressourcenprotokolle 
 
 - [Sammeln von Erkenntnissen zu Ihrer DNS-Infrastruktur mit der DNS Analytics-Lösung](../../azure-monitor/insights/dns-analytics.md)
 
-**Verantwortlichkeit**: Kunde
+**Verantwortlichkeit** : Kunde
 
-**Sicherheitsverantwortliche beim Kunden** ([weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Sicherheitsverantwortliche beim Kunden** ( [weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastruktur- und Endpunktsicherheit](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -137,11 +137,9 @@ Sie können mithilfe von Azure Security Center und Azure Policy Ressourcenprotok
 
 - [Grundlegendes zur Datensammlung in Azure Security Center](../../security-center/security-center-enable-data-collection.md)
 
-- [Aktivieren und Konfigurieren der Antimalware-Überwachung](../fundamentals/antimalware.md#enable-and-configure-antimalware-monitoring-using-powershell-cmdlets)
+**Verantwortlichkeit** : Shared
 
-**Verantwortlichkeit**: Shared
-
-**Sicherheitsverantwortliche beim Kunden** ([weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Sicherheitsverantwortliche beim Kunden** ( [weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicherheitsvorgänge](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -153,7 +151,7 @@ Infrastruktur- und Endpunktsicherheit
 
 ## <a name="lt-5-centralize-security-log-management-and-analysis"></a>LT-5: Zentralisieren der Verwaltung und Analyse von Sicherheitsprotokollen
 
-| Azure-ID | ID(s) von CIS-Steuerelementen v7.1 | ID(s) von NIST SP800-53 r4 |
+| Azure-ID | CIS Controls v7.1 ID(s) | ID(s) von NIST SP800-53 r4 |
 |--|--|--|--|
 | LT-5 | 6.5, 6.6 | AU-3, SI-4 |
 
@@ -169,9 +167,9 @@ Viele Unternehmen verwenden Azure Sentinel für „heiße“ Daten, die häufig 
 
 - [Durchführen des Onboardings für Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-**Verantwortlichkeit**: Kunde
+**Verantwortlichkeit** : Kunde
 
-**Sicherheitsverantwortliche beim Kunden** ([weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Sicherheitsverantwortliche beim Kunden** ( [weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicherheitsarchitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -181,7 +179,7 @@ Viele Unternehmen verwenden Azure Sentinel für „heiße“ Daten, die häufig 
 
 ## <a name="lt-6-configure-log-storage-retention"></a>LT-6: Konfigurieren der Aufbewahrungsdauer von Protokollen im Speicher
 
-| Azure-ID | ID(s) von CIS-Steuerelementen v7.1 | ID(s) von NIST SP800-53 r4 |
+| Azure-ID | CIS Controls v7.1 ID(s) | ID(s) von NIST SP800-53 r4 |
 |--|--|--|--|
 | LT-6 | 6.4 | AU-3, AU-11 |
 
@@ -195,9 +193,9 @@ In Azure Monitor können Sie den Aufbewahrungszeitraum des Log Analytics-Arbeits
 
 - [Exportieren von Azure Security Center-Warnungen und -Empfehlungen](../../security-center/continuous-export.md)
 
-**Verantwortlichkeit**: Kunde
+**Verantwortlichkeit** : Kunde
 
-**Sicherheitsverantwortliche beim Kunden** ([weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Sicherheitsverantwortliche beim Kunden** ( [weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicherheitsarchitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -209,7 +207,7 @@ In Azure Monitor können Sie den Aufbewahrungszeitraum des Log Analytics-Arbeits
 
 ## <a name="lt-7-use-approved-time-synchronization-sources"></a>LT-7: Verwenden von genehmigten Zeitsynchronisierungsquellen
 
-| Azure-ID | ID(s) von CIS-Steuerelementen v7.1 | ID(s) von NIST SP800-53 r4 |
+| Azure-ID | CIS Controls v7.1 ID(s) | ID(s) von NIST SP800-53 r4 |
 |--|--|--|--|
 | LT-7 | 6.1 | AU-8 |
 
@@ -223,13 +221,12 @@ Alle Protokolle, die in Azure von Ressourcen generiert werden, enthalten Zeitste
 
 - [Deaktivieren eingehender UDP für Azure-Dienste](https://support.microsoft.com/help/4558520/how-to-disable-inbound-udp-for-azure-services)
 
-**Verantwortlichkeit**: Shared
+**Verantwortlichkeit** : Shared
 
-**Sicherheitsverantwortliche beim Kunden** ([weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Sicherheitsverantwortliche beim Kunden** ( [weitere Informationen](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Richtlinien und Standards](/azure/cloud-adoption-framework/organize/cloud-security-policy-standards)
 
 - [Anwendungssicherheit und DevSecOps-Funktionen](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
 - [Infrastruktur- und Endpunktsicherheit](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
-

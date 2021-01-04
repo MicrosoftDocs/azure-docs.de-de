@@ -3,13 +3,13 @@ title: Abrufen von Containerinstanzprotokollen und -ereignissen
 description: Erfahren Sie, wie Sie Containerprotokolle und -ereignisse in Azure Container Instances abrufen, um die Behandlung von Containerproblemen zu unterstützen.
 ms.topic: article
 ms.date: 12/30/2019
-ms.custom: mvc
-ms.openlocfilehash: 0991b9cb1f99606910dbdf2c87b111f67da6da7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 20b6e1cfe6bb8f6ac721a401c3d0831d4f447edb
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78250000"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746965"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Abrufen von Containerprotokollen und -ereignissen in Azure Container Instances
 

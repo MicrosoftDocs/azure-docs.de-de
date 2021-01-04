@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: jomore
 ms.custom: fasttrack-new
-ms.openlocfilehash: fa4828d8b2752168d5f66a4f80c00611f80f0176
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc8e7314c941035207ecf809a9d85ef46bd58379
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306632"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913754"
 ---
 # <a name="use-private-link-in-virtual-wan"></a>Verwenden von Private Link in Virtual WAN
 
@@ -38,11 +38,11 @@ Sie können einen Private Link-Endpunkt für viele verschiedene Dienste erstelle
 
 Nachdem Sie die Azure SQL-Datenbank erstellt haben, können Sie die privaten Endpunkte durchsuchen, um die IP-Adresse des privaten Endpunkts zu überprüfen:
 
-:::image type="content" source="./media/howto-private-link/endpoints.png" alt-text="Erstellen eines Private Link" lightbox="./media/howto-private-link/endpoints.png":::
+:::image type="content" source="./media/howto-private-link/endpoints.png" alt-text="Private Endpunkte" lightbox="./media/howto-private-link/endpoints.png":::
 
 Wenn Sie auf den privaten Endpunkt klicken, den wir erstellt haben, werden die private IP-Adresse sowie ihr vollqualifizierter Domänenname (Fully Qualified Domain Name, FQDN) angezeigt. Beachten Sie, dass der private Endpunkt über eine IP-Adresse im Bereich des VNET verfügt, in dem er bereitgestellt wurde (10.1.3.0/24):
 
-:::image type="content" source="./media/howto-private-link/sql-endpoint.png" alt-text="Erstellen eines Private Link" lightbox="./media/howto-private-link/sql-endpoint.png":::
+:::image type="content" source="./media/howto-private-link/sql-endpoint.png" alt-text="SQL-Endpunkt" lightbox="./media/howto-private-link/sql-endpoint.png":::
 
 ## <a name="verify-connectivity-from-the-same-vnet"></a><a name="connectivity"></a>Überprüfen der Konnektivität aus demselben VNET
 
@@ -61,7 +61,7 @@ Address: 10.1.3.228
 
 Wie Sie aus der vorherigen Ausgabe ersehen können, ist der FQDN `wantest.database.windows.net` zu `wantest.privatelink.database.windows.net` zugeordnet, und die am privaten Endpunkt erstellte private DNS-Zone wird in die private IP-Adresse `10.1.3.228` aufgelöst. Die Überprüfung der privaten DNS-Zone ergibt, dass für den privaten Endpunkt, der der privaten IP-Adresse zugeordnet ist, ein A-Eintrag vorhanden ist:
 
-:::image type="content" source="./media/howto-private-link/dns-zone.png" alt-text="Erstellen eines Private Link" lightbox="./media/howto-private-link/dns-zone.png":::
+:::image type="content" source="./media/howto-private-link/dns-zone.png" alt-text="DNS-Zone" lightbox="./media/howto-private-link/dns-zone.png":::
 
 Nachdem wir die DNS-Auflösung erfolgreich überprüft haben, können wir versuchen, eine Verbindung mit der Datenbank herzustellen:
 
@@ -72,7 +72,7 @@ $ sqlcmd -S wantest.database.windows.net -U $username -P $password -Q "$query"
 10.1.3.75
 ```
 
-Wie Sie sehen, verwenden wir eine spezielle SQL-Abfrage, die uns die Quell-IP-Adresse liefert, die für den SQL Server vom Client sichtbar ist. In diesem Fall wird für den Server der Client mit seiner privaten IP-Adresse (`10.1.3.75`) angezeigt. Das bedeutet, dass der Datenverkehr nicht über das öffentliche Internet, sondern direkt an den privaten Endpunkt geleitet wird.
+Wie Sie sehen, verwenden wir eine spezielle SQL-Abfrage, die uns die Quell-IP-Adresse liefert, die für den SQL Server vom Client sichtbar ist. In diesem Fall wird für den Server der Client mit seiner privaten IP-Adresse (`10.1.3.75`) angezeigt. Das bedeutet, dass der Datenverkehr direkt aus dem VNET an den privaten Endpunkt geleitet wird.
 
 Beachten Sie, dass Sie die Variablen `username` und `password` so festlegen müssen, dass sie den in der Azure SQL-Datenbank definierten Anmeldeinformationen entsprechen, damit die Beispiele in dieser Anleitung ausgeführt werden können.
 
@@ -87,7 +87,7 @@ Sobald die Konnektivität zwischen dem VNET oder der Verzweigung mit dem VNET be
 
 In diesem Beispiel stellen wir die Verbindung aus einem anderen VNET her. Zuerst fügen wir die private DNS-Zone an das neue VNET an, damit die Workloads den vollqualifizierten Domänennamen der Azure SQL-Datenbank in die private IP-Adresse auflösen können. Dies erfolgt durch Verknüpfen der privaten DNS-Zone mit dem neuen VNET:
 
-:::image type="content" source="./media/howto-private-link/dns-link.png" alt-text="Erstellen eines Private Link" lightbox="./media/howto-private-link/dns-link.png":::
+:::image type="content" source="./media/howto-private-link/dns-link.png" alt-text="DNS-Link" lightbox="./media/howto-private-link/dns-link.png":::
 
 Nun sollte jeder virtuelle Computer im zugeordneten VNET den FQDN der Azure SQL-Datenbank ordnungsgemäß in die private IP-Adresse des Private Link auflösen:
 
@@ -104,7 +104,7 @@ Address: 10.1.3.228
 
 Um zu überprüfen, ob das VNET (10.1.1.0/24) über Konnektivität mit dem ursprünglichen VNET verfügt, in dem der private Endpunkt konfiguriert wurde (10.1.3.0/24), können Sie die effektive Routingtabelle auf jedem virtuellen Computer im VNET überprüfen:
 
-:::image type="content" source="./media/howto-private-link/effective-routes.png" alt-text="Erstellen eines Private Link" lightbox="./media/howto-private-link/effective-routes.png":::
+:::image type="content" source="./media/howto-private-link/effective-routes.png" alt-text="Effektive Routen" lightbox="./media/howto-private-link/effective-routes.png":::
 
 Wie Sie sehen können, gibt es eine Route, die auf das VNET 10.1.3.0/24 verweist, das von den Gateways für virtuelle Netzwerke in Azure Virtual WAN eingefügt wurde. Jetzt können wir die Konnektivität mit der Datenbank testen:
 

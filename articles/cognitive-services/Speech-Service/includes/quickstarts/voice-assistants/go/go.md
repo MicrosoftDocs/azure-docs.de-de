@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/25/2020
 ms.author: trrwilson
-ms.openlocfilehash: 59e862fe04e7bf715e6e44c783f2cf9c0ecbc7c3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c37637ba1cb5154bbd56f7fd22bbbca62b8c3438
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91377016"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187627"
 ---
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -18,7 +18,7 @@ Bevor Sie beginnen:
 > [!div class="checklist"]
 > * [Erstellen einer Azure Speech-Ressource](../../../../overview.md#try-the-speech-service-for-free)
 > * [Einrichten Ihrer Entwicklungsumgebung und Erstellen eines leeren Projekts](../../../../quickstarts/setup-platform.md)
-> * Erstellen eines Bots, der mit dem [Direct Line Speech-Kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) verbunden ist
+> * Erstellen eines Bots, der mit dem [Direct Line Speech-Kanal](/azure/bot-service/bot-service-channel-connect-directlinespeech) verbunden ist
 > * Stellen Sie sicher, dass Sie Zugriff auf ein Mikrofon für die Audioaufnahme haben.
 >
   > [!NOTE]
@@ -29,7 +29,7 @@ Bevor Sie beginnen:
 Aktualisieren Sie die go.mod-Datei mit der aktuellsten SDK-Version, indem Sie diese Zeile hinzufügen
 ```sh
 require (
-    github.com/Microsoft/cognitive-services-speech-sdk-go v1.13.0
+    github.com/Microsoft/cognitive-services-speech-sdk-go v1.14.0
 )
 ```
 
@@ -108,7 +108,7 @@ Ersetzen Sie die Werte `YOUR_SUBSCRIPTION_KEY` und `YOUR_BOT_REGION` durch tats�
    > Beachten Sie [die Liste mit den unterstützten Regionen für Sprach-Assistenten](~/articles/cognitive-services/speech-service/regions.md#voice-assistants), und stellen Sie sicher, dass Ihre Ressourcen in einer dieser Regionen bereitgestellt werden.
 
    > [!NOTE]
-   > Informationen zum Konfigurieren Ihres Bots finden Sie in der Bot Framework-Dokumentation zum [Direct Line Speech-Kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
+   > Informationen zum Konfigurieren Ihres Bots finden Sie in der Bot Framework-Dokumentation zum [Direct Line Speech-Kanal](/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
 ## <a name="code-explanation"></a>Erläuterung zum Code
 Für die Erstellung eines Sprachkonfigurationsobjekts sind der Speech-Abonnementschlüssel und die Region erforderlich. Das Konfigurationsobjekt wird zum Instanziieren eines Spracherkennungsobjekts benötigt.

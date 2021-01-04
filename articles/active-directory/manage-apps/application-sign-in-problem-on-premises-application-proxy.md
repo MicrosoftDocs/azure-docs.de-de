@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29aa4eb0bc40f0b2b960c49cf7b17dc62d92b0ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a73dea856ee3250eb040f8464ee8703b01003f1f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85367715"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180556"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Probleme beim Anmelden bei einer lokalen Anwendung über den Azure AD-Anwendungsproxy
 
@@ -48,7 +48,7 @@ Die folgenden Dokumente helfen Ihnen, einige der am häufigsten auftretenden Pro
 ## <a name="im-having-a-problem-setting-up-back-end-authentication-to-my-application"></a>Beim Einrichten der Back-End-Authentifizierung für meine Anwendung treten Probleme auf.
   Die folgenden Dokumente helfen Ihnen, einige der am häufigsten auftretenden Probleme in dieser Kategorie zu beheben.
   * [Ich weiß nicht, wie die eingeschränkte Kerberos-Delegierung konfiguriert wird.](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-  * [Ich weiß nicht, wie meine Anwendung mit PingAccess konfiguriert wird.](application-proxy-back-end-ping-access-how-to.md)
+  * [Ich weiß nicht, wie meine Anwendung mit PingAccess konfiguriert wird.](./application-proxy-ping-access-publishing-guide.md)
 
 ## <a name="im-having-a-problem-when-signing-in-to-my-application"></a>Beim Anmelden bei meiner Anwendung treten Probleme auf.
   Die folgenden Dokumente helfen Ihnen, einige der am häufigsten auftretenden Probleme in dieser Kategorie zu beheben.

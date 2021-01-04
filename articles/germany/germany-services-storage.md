@@ -7,12 +7,12 @@ author: gitralf
 ms.author: ralfwi
 ms.service: germany
 ms.custom: bfdocs
-ms.openlocfilehash: 8bb5a9a73a75c6f04be4ff2858e58b5754fcea90
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7a82dfa03c85ecf8ad5c80a7d037431b18a28fed
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124334"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018472"
 ---
 # <a name="azure-germany-storage-services"></a>Speicherdienste von Azure Deutschland
 
@@ -71,4 +71,4 @@ Das zu verwendende Endpunktsuffix für diese Überladungen lautet *core.cloudapi
 
 
 ## <a name="next-steps"></a>Nächste Schritte
-Abonnieren Sie den [Azure Deutschland-Blog](https://blogs.msdn.microsoft.com/azuregermany/), um weitere Informationen und Updates zu erhalten.
+Abonnieren Sie den [Azure Deutschland-Blog](/archive/blogs/azuregermany/), um weitere Informationen und Updates zu erhalten.

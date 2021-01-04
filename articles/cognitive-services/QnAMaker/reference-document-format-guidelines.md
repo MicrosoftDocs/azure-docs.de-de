@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: d35ea57a68e500deffa99033b83114ec518dd5e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1bf6eebcfc43452dd9a62e4a49f9aacbcd517ffc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776730"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352234"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Formatierungsrichtlinien für importierte Dokumente und URLs
 
@@ -22,7 +22,7 @@ Nach dem Importieren einer Datei oder URL konvertiert QnA Maker den Inhalt im [M
 
 Wenn Sie Ihren Inhalt direkt in der Wissensdatenbank hinzufügen oder bearbeiten, können Sie das **Markdown-Format** verwenden, um umfangreiche Textinhalte zu erstellen oder Inhalte im Markdown-Format zu ändern, die bereits in der Antwort vorhanden sind. QnA Maker unterstützt einen Großteil des Markdown-Formats, um umfassende Textfunktionen für Ihre Inhalte bereitzustellen. Die Clientanwendung, z. B. ein Chatbot, unterstützt jedoch möglicherweise nicht dieselben Markdown-Formate. Es ist wichtig, die Anzeige von Antworten in der Clientanwendung zu testen.
 
-Hier finden Sie eine vollständige Liste mit [Inhaltstypen und Beispielen](./Concepts/content-types.md#file-and-url-data-types).
+Hier finden Sie eine vollständige Liste mit [Inhaltstypen und Beispielen](./concepts/data-sources-and-content.md#content-types-of-documents-you-can-add-to-a-knowledge-base).
 
 ## <a name="basic-document-formatting"></a>Grundlegende Dokumentformatierung
 
@@ -118,4 +118,4 @@ Beim Importieren einer Wissensdatenbank wird der Inhalt der vorhandenen Wissensd
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Hier finden Sie eine vollständige Liste mit [Inhaltstypen und Beispielen](./Concepts/content-types.md#file-and-url-data-types).
+Hier finden Sie eine vollständige Liste mit [Inhaltstypen und Beispielen](./concepts/data-sources-and-content.md#content-types-of-documents-you-can-add-to-a-knowledge-base).

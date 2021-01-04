@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
 ms.custom: devx-track-js
-ms.openlocfilehash: 6e43a43d929d256bc2a12b6b243d9620c5bd1aba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8891bb5cd3b8bd8ae9e02c871d6d0ffe42078c0b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317700"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124763"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Azure Stream Analytics – benutzerdefinierte JavaScript-Aggregate
  
@@ -124,7 +124,7 @@ Nun erstellen wir anhand der folgenden Schritte ein JavaScript-UDA unter einem v
 
 1. Melden Sie sich beim Azure-Portal an, und suchen Sie Ihren vorhandenen Stream Analytics-Auftrag.
 1. Klicken Sie auf den Funktionslink unter **AUFTRAGSTOPOLOGIE**.
-1. Klicken Sie auf das Symbol **Hinzufügen**, um eine neue Funktion hinzuzufügen.
+1. Klicken Sie auf das Symbol **Hinzufügen** , um eine neue Funktion hinzuzufügen.
 1. Wählen Sie in der Ansicht „Neue Funktion“ den Funktionstyp **JavaScript-UDA** aus. Daraufhin wird im Editor eine UDA-Standardvorlage angezeigt.
 1. Geben Sie „TWA“ als UDA-Alias ein, und ändern Sie die Funktionsimplementierung wie im Folgenden angegeben:
 
@@ -226,12 +226,12 @@ Erstellen Sie eine lokale JSON-Datei mit dem nachstehenden Inhalt, laden Sie die
 
 ## <a name="get-help"></a>Hier erhalten Sie Hilfe
 
-Weitere Hilfe finden Sie auf der [Frageseite von Microsoft Q&A (Fragen und Antworten) zu Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Weitere Hilfe finden Sie auf der [Frageseite von Microsoft Q&A (Fragen und Antworten) zu Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Einführung in Azure Stream Analytics](stream-analytics-introduction.md)
 * [Erste Schritte mit Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skalieren von Azure Stream Analytics-Aufträgen](stream-analytics-scale-jobs.md)
-* [Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) (Referenz zur Stream Analytics-Abfragesprache)
-* [Azure Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx) (Referenz zur Azure Stream Analytics-Verwaltungs-REST-API)
+* [Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference) (Referenz zur Stream Analytics-Abfragesprache)
+* [Azure Stream Analytics management REST API reference](/rest/api/streamanalytics/) (Referenz zur Azure Stream Analytics-Verwaltungs-REST-API)

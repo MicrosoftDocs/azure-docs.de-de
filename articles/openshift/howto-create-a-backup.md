@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 49ffc33310564299131e2831b74154719b7cf7c7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 264778d2d6d1ee0119ad8622043b7cd3a1088ec1
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078577"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280125"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>Erstellen einer Sicherung einer Azure Red Hat OpenShift 4-Clusteranwendung
 
@@ -22,6 +22,9 @@ In diesem Artikel erfahren Sie, wie Sie Ihre Umgebung für das Erstellen einer S
 > [!div class="checklist"]
 > * Einrichten der erforderlichen Komponenten und Installieren der erforderlichen Tools
 > * Erstellen einer Azure Red Hat OpenShift 4-Anwendungssicherung
+
+> [!NOTE] 
+> Velero sichert keine Daten aus dem etcd-Schlüssel-Wert-Speicher von Azure Red Hat OpenShift. Wenn Sie etcd sichern möchten, informieren Sie sich unter [Sichern von etcd](https://docs.openshift.com/container-platform/4.5/backup_and_restore/backing-up-etcd.html).
 
 Wenn Sie die CLI lokal installieren und verwenden möchten, müssen Sie für dieses Tutorial mindestens Version 2.6.0 der Azure CLI ausführen. Führen Sie `az --version` aus, um die Version zu ermitteln. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sie bei Bedarf unter [Installieren der Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -60,7 +63,7 @@ az storage container create -n $BLOB_CONTAINER --public-access off --account-nam
 Velero benötigt Berechtigungen zum Ausführen von Sicherungen und Wiederherstellungen. Wenn Sie einen Dienstprinzipal erstellen, erteilen Sie Velero die Berechtigung für den Zugriff auf die Ressourcengruppe, die Sie im vorherigen Schritt definiert haben. Mit diesem Schritt wird die Ressourcengruppe des Clusters abgerufen:
 
 ```bash
-export AZURE_RESOURCE_GROUP=aro-$(az aro show --name <name of cluster> --resource-group <name of resource group> | jq -r '.clusterProfile.domain')
+export AZURE_RESOURCE_GROUP=$(az aro show --name <name of cluster> --resource-group <name of resource group> | jq -r .clusterProfile.resourceGroupId | cut -d '/' -f 5,5)
 ```
 
 

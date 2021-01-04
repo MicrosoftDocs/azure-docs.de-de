@@ -3,18 +3,18 @@ title: Erwerben eines benutzerdefinierten Domänennamens
 description: Erfahren Sie, wie Sie eine App Service-Domäne erwerben und als benutzerdefinierte Domäne für Ihre App in Azure App Service verwenden können.
 ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
-ms.date: 11/24/2017
+ms.date: 11/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0111da00962f267387e66978952e8a7c9f5d7308
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f0ff7a54c2ad1fa1af649c8082498b442783c7e
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970053"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608076"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Kaufen eines benutzerdefinierten Domänennamens für Azure App Service
 
-App Service-Domänen sind Domänen der obersten Ebene, die direkt in Azure verwaltet werden. Sie erleichtern die Verwaltung von benutzerdefinierten Domänen für [Azure App Service](overview.md). In diesem Tutorial wird gezeigt, wie Sie eine App Service-Domäne kaufen und Azure App Service einen DNS-Namen zuweisen.
+App Service-Domänen sind benutzerdefinierte Domänen, die direkt in Azure verwaltet werden. Sie erleichtern die Verwaltung von benutzerdefinierten Domänen für [Azure App Service](overview.md). In diesem Tutorial wird gezeigt, wie Sie eine App Service-Domäne kaufen und Azure App Service einen DNS-Namen zuweisen.
 
 Informationen zu Azure VMs und Azure Storage finden Sie unter [Assign App Service domain to Azure VM or Azure Storage (Zuweisen einer App Service-Domäne zu einer Azure-VM oder Azure Storage)](https://azure.github.io/AppService/2017/07/31/Assign-App-Service-domain-to-Azure-VM-or-Azure-Storage). Informationen zu Clouddiensten finden Sie unter [Konfigurieren eines benutzerdefinierten Domänennamens für einen Azure-Clouddienst](../cloud-services/cloud-services-custom-domain-name-portal.md)
 
@@ -22,176 +22,163 @@ Informationen zu Azure VMs und Azure Storage finden Sie unter [Assign App Servic
 
 Für dieses Tutorial benötigen Sie Folgendes:
 
-* [Erstellen Sie eine App Service-App](./index.yml), oder verwenden Sie eine App, die Sie für ein anderes Tutorial erstellt haben.
+* [Erstellen Sie eine App Service-App](./index.yml), oder verwenden Sie eine App, die Sie für ein anderes Tutorial erstellt haben. Die App muss sich in einer öffentlichen Azure-Region befinden. Nationale Azure-Clouds werden derzeit nicht unterstützt.
 * [Entfernen Sie das Ausgabenlimit für Ihr Abonnement.](../cost-management-billing/manage/spending-limit.md#remove) Sie können keine App Service-Domänen mit kostenlosem Abonnementguthaben erwerben.
+
+## <a name="buy-an-app-service-domain"></a>Erwerben einer App Service-Domäne
+
+Preisinformationen zu App Service-Domänen finden Sie auf der Seite [App Service – Preise](https://azure.microsoft.com/pricing/details/app-service/windows/) im Abschnitt „App Service-Domäne“.
+
+1. Öffnen Sie das [Azure-Portal](https://portal.azure.com), und melden Sie sich mit Ihrem Azure-Konto an.
+
+1. Suchen Sie auf der Suchleiste nach **App Service-Domänen**, und wählen Sie die Option aus.
+
+    ![Navigation im Portal zu Azure App Service-Domänen](./media/app-service-web-tutorial-custom-domain/view-app-service-domains.png)
+
+1. Klicken Sie in der Ansicht **App Service-Domänen** auf **Hinzufügen**.
+
+    ![Klicken auf „Hinzufügen“ in „App Service-Domänen“](./media/app-service-web-tutorial-custom-domain/add-app-service-domain.png)
+
+1. Wählen Sie **Klicken Sie, um die neuere Version der Erstellungsoberfläche für App Service-Domänen auszuprobieren** aus.
+
+    ![Erstellen einer App Service-Domäne mit neuer Oberfläche](./media/app-service-web-tutorial-custom-domain/select-new-create-experience.png)
+
+### <a name="basics-tab"></a>Registerkarte „Grundlagen“
+
+1. Konfigurieren Sie auf der Registerkarte **Grundlagen** die Einstellungen anhand der folgenden Tabelle:  
+
+   | Einstellung  | BESCHREIBUNG |
+   | -------- | ----------- |
+   | **Abonnement** | Das Abonnement, das für den Kauf der Domäne verwendet werden soll. |
+   | **Ressourcengruppe** | Die Ressourcengruppe, in der die Domäne eingefügt werden soll. Beispielsweise die Ressourcengruppe, in der sich Ihre App befindet. |
+   | **Domäne** | Geben Sie die gewünschte Domäne ein. Beispiel: **contoso.com**. Wenn die gewünschte Domäne nicht verfügbar ist, können Sie eine Domäne in einer Liste mit Vorschlägen für verfügbare Domänen auswählen oder eine andere Domäne angeben. |
+
+    > [!NOTE]
+    > Die folgenden [Domänen der obersten Ebene](https://wikipedia.org/wiki/Top-level_domain) werden von App Service-Domänen unterstützt: _com_, _net_, _co.uk_, _org_, _nl_, _in_, _biz_, _org.uk_ und _co.in_.
+    >
+    >
+    
+2. Klicken Sie abschließend auf **Weiter: Kontaktinformationen**.
+
+### <a name="contact-information-tab"></a>Registerkarte „Kontaktinformationen“
+
+1. Geben Sie Ihre Informationen entsprechend den Anforderungen von [ICANN](https://go.microsoft.com/fwlink/?linkid=2116641) für die Domänenregistrierung an. 
+
+    Es ist wichtig, dass Sie alle erforderlichen Felder so genau wie möglich ausfüllen. Fehlerhafte Daten in den Kontaktinformationen können dazu führen, dass der Domänenkauf nicht zustande kommt.
+
+1. Klicken Sie abschließend auf **Weiter: Erweitert** aus.
+
+### <a name="advanced-tab"></a>Registerkarte „Erweitert“
+
+1. Konfigurieren Sie auf der Registerkarte **Erweitert** die optionalen Einstellungen:  
+
+   | Einstellung  | BESCHREIBUNG |
+   | -------- | ----------- |
+   | **Automatische Verlängerung** | Standardmäßig aktiviert. Ihre App Service-Domäne wird jeweils für ein Jahr für Sie registriert. Durch „Automatische Verlängerung“ wird sichergestellt, dass die Domänenregistrierung nicht abläuft und Sie Besitzer der Domäne bleiben. Für Ihr Azure-Abonnement wird zum Zeitpunkt der Verlängerung automatisch die Jahresgebühr für die Domänenregistrierung in Rechnung gestellt. Wählen Sie **Deaktivieren** aus, um die Option abzuwählen. Wenn die automatische Verlängerung deaktiviert ist, können Sie [die Domäne manuell verlängern](#renew-the-domain). |
+   | **Datenschutz** | Standardmäßig aktiviert. Über „Datenschutz“ werden Ihre Kontaktinformationen für die Domänenregistrierung in der WHOIS-Datenbank ausgeblendet. Der Datenschutz ist bereits in der Jahresgebühr für die Domänenregistrierung enthalten. Wählen Sie **Deaktivieren** aus, um die Option abzuwählen. |
+
+2. Klicken Sie abschließend auf **Weiter: Tags**.
+
+### <a name="finish"></a>Finish
+
+1. Legen Sie auf der Registerkarte **Tags** die für die App Service-Domäne gewünschten Tags fest. Tagging ist zur Verwendung von App Service-Domänen nicht erforderlich, bietet jedoch eine [Funktion in Azure zum Verwalten von Ressourcen](../azure-resource-manager/management/tag-resources.md).
+
+1. Klicken Sie auf **Weiter: Überprüfen + erstellen**.
+
+1. Überprüfen Sie auf der Registerkarte **Überprüfen + erstellen** die Domänenbestellung. Klicken Sie auf **Erstellen**, wenn Sie fertig sind.
+
+    > [!NOTE]
+    > App Service-Domänen verwenden GoDaddy zur Domänenregistrierung und Azure DNS zum Hosten der Domänen. Zusätzlich zu der Jahresgebühr für die Domänenregistrierung fallen Nutzungsgebühren für Azure DNS an. Informationen finden Sie unter [Azure DNS Pricing (Azure DNS-Preisübersicht)](https://azure.microsoft.com/pricing/details/dns/).
+    >
+    >
+
+1. Wenn die Domänenregistrierung abgeschlossen ist, wird die Schaltfläche **Zu Ressource wechseln** angezeigt. Wählen Sie sie aus, um die Verwaltungsseite anzuzeigen.
+
+    ![App Service-Domäne erstellt Zu Ressource wechseln](./media/app-service-web-tutorial-custom-domain/deployment-complete.png)
+
+Nun können Sie dieser benutzerdefinierten Domäne eine App Service-App zuweisen.
 
 ## <a name="prepare-the-app"></a>Vorbereiten der App
 
+Um einer Web-App einen benutzerdefinierten DNS-Namen zuzuordnen, muss der [App Service-Plan](https://azure.microsoft.com/pricing/details/app-service/) der Web-App einen kostenpflichtigen Tarif („Shared“, „Basic“, „Standard“, „Premium“ oder „Consumption“ für Azure Functions) aufweisen. In diesem Schritt stellen Sie sicher, dass sich die App Service-App innerhalb des unterstützten Tarifs befindet.
+
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
-
-Um benutzerdefinierte Domänen in Azure App Service zu verwenden, muss der [App Service-Plan](https://azure.microsoft.com/pricing/details/app-service/) Ihrer App einen kostenpflichtigen Tarif (**Shared**, **Basic**, **Standard** oder **Premium**) aufweisen. Stellen Sie in diesem Schritt sicher, dass sich die App im richtigen Tarif befindet.
-
-### <a name="sign-in-to-azure"></a>Anmelden bei Azure
-
-Öffnen Sie das [Azure-Portal](https://portal.azure.com), und melden Sie sich mit Ihrem Azure-Konto an.
 
 ### <a name="navigate-to-the-app-in-the-azure-portal"></a>Navigieren zur App im Azure-Portal
 
-Wählen Sie im linken Menü **App Services** und anschließend den Namen der App aus.
+1. Suchen Sie oben auf der Suchleiste nach **App Services**, und wählen Sie die Option aus.
 
-![Portalnavigation zur Azure-App](./media/app-service-web-tutorial-custom-domain/select-app.png)
+    ![Suchen nach App Services](./media/app-service-web-tutorial-custom-domain/app-services.png)
 
-Die Verwaltungsseite der App Service-App wird angezeigt.  
+1. Wählen Sie den Namen der App aus.
+
+    ![Portalnavigation zur Azure-App](./media/app-service-web-tutorial-custom-domain/select-app.png)
+
+    Die Verwaltungsseite der App Service-App wird angezeigt.  
 
 ### <a name="check-the-pricing-tier"></a>Überprüfen des Tarifs
 
-Scrollen Sie im linken Navigationsbereich der App-Seite zum Abschnitt **Einstellungen**, und wählen Sie **Hochskalieren (App Service-Plan)** .
+1. Scrollen Sie im linken Navigationsbereich der App-Seite zum Abschnitt **Einstellungen**, und wählen Sie **Hochskalieren (App Service-Plan)** .
 
-![Menü „Zentral hochskalieren“](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
+    ![Menü „Zentral hochskalieren“](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-Der aktuelle Tarif der App wird durch einen blauen Rahmen hervorgehoben. Vergewissern Sie sich, dass sich die App nicht im Tarif **F1** befindet. Benutzerdefiniertes DNS wird im Tarif **F1** nicht unterstützt. 
+1. Der aktuelle Tarif der App wird durch einen blauen Rahmen hervorgehoben. Vergewissern Sie sich, dass sich die App nicht im Tarif **F1** befindet. Benutzerdefiniertes DNS wird im Tarif **F1** nicht unterstützt. 
 
-:::image type="content" source="./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png" alt-text="Screenshot: Linkes Navigationsmenü der App-Seite, auf der „Zentral hochskalieren (App Service-Plan)“ hervorgehoben ist":::
+    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png" alt-text="Screenshot: Linkes Navigationsmenü der App-Seite, auf der „Zentral hochskalieren (App Service-Plan)“ hervorgehoben ist":::
 
-Wenn sich der App Service-Plan nicht im Tarif **F1** befindet, schließen Sie die Seite **Hochskalieren**, und fahren Sie mit [Domäne kaufen](#buy-the-domain) fort.
+1. Wenn sich der App Service-Plan nicht im Tarif **F1** befindet, schließen Sie die Seite **Hochskalieren**, und fahren Sie mit [Domäne kaufen](#buy-an-app-service-domain) fort.
 
 ### <a name="scale-up-the-app-service-plan"></a>Hochskalieren des App Service-Plans
 
-Wählen Sie einen der kostenpflichtigen Tarife aus (**D1**, **B1**, **B2**, **B3** oder einen beliebigen Tarif aus der Kategorie **Produktion**). Klicken Sie auf **Alle Optionen anzeigen**, um weitere Optionen anzuzeigen.
+1. Wählen Sie einen der kostenpflichtigen Tarife aus (**D1**, **B1**, **B2**, **B3** oder einen beliebigen Tarif aus der Kategorie **Produktion**). Klicken Sie auf **Alle Optionen anzeigen**, um weitere Optionen anzuzeigen.
 
-Klicken Sie auf **Anwenden**.
+1. Klicken Sie auf **Anwenden**.
 
-:::image type="content" source="./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png" alt-text="Screenshot: Linkes Navigationsmenü der App-Seite, auf der „Zentral hochskalieren (App Service-Plan)“ hervorgehoben ist":::
+    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png" alt-text="Screenshot: Tarife für benutzerdefinierte Domäne in der Kategorie „Produktion“, in der die Registerkarte „Produktion“, der Plan „B1“ und die Schaltfläche „Anwenden“ hervorgehoben sind":::
 
-Wenn die unten angegebene Benachrichtigung angezeigt wird, ist der Skalierungsvorgang abgeschlossen.
+    Wenn die unten angegebene Benachrichtigung angezeigt wird, ist der Skalierungsvorgang abgeschlossen.
 
-![Bestätigung des Skalierungsvorgangs](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
+    ![Bestätigung des Skalierungsvorgangs](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
-## <a name="buy-the-domain"></a>Kaufen der Domäne
+## <a name="map-app-service-domain-to-your-app"></a>Zuordnen der App Service-Domäne zu Ihrer App
 
-### <a name="pricing-information"></a>Preisinformationen
-Preisinformationen zu Azure App Service-Domänen finden Sie auf der Seite [App Service – Preise](https://azure.microsoft.com/pricing/details/app-service/windows/) im Abschnitt „App Service-Domäne“.
-
-### <a name="sign-in-to-azure"></a>Anmelden bei Azure
-Öffnen Sie das [Azure-Portal](https://portal.azure.com/), und melden Sie sich mit Ihrem Azure-Konto an.
-
-### <a name="launch-buy-domains"></a>Starten Sie „Domänen kaufen“
-Klicken Sie auf der Registerkarte **App Services** auf den Namen der App, wählen Sie **Einstellungen** aus, und klicken Sie anschließend auf **Benutzerdefinierte Domänen**.
-   
-![Screenshot mit hervorgehobener Option „Benutzerdefinierte Domänen“](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
-
-Klicken Sie auf der Seite **Benutzerdefinierte Domänen** auf **Domäne erwerben**.
-
-![Screenshot mit hervorgehobener Option „Domäne erwerben“](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
+Ein Hostname in Ihrer App Service-Domäne lässt sich einfach zu einer App Service-App zuordnen, solange er sich im gleichen Abonnement befindet. Sie ordnen die App Service-Domäne oder eine ihrer Unterdomänen direkt in Ihrer App zu. In Azure werden dann die erforderlichen DNS-Einträge erstellt.
 
 > [!NOTE]
-> Wenn der Abschnitt **App Service-Domänen** nicht angezeigt wird, müssen Sie das Ausgabenlimit für Ihr Azure-Konto entfernen (siehe [Voraussetzungen](#prerequisites)).
->
->
-
-### <a name="configure-the-domain-purchase"></a>Konfigurieren des Domänenkaufs
-
-Tippen Sie den Domänennamen auf der Seite **App Service Domain** (App Service-Domäne) in das Suchfeld **Search for domain** (Domäne suchen) ein und drücken Sie `Enter`. Die vorgeschlagenen verfügbaren Domänen werden direkt unter dem Textfeld angezeigt. Klicken Sie mindestens eine Domäne an, die Sie kaufen möchten.
-
-![Screenshot des Suchfelds „Nach Domäne suchen“](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
-
-> [!NOTE]
-> Die folgenden [Domänen der obersten Ebene](https://wikipedia.org/wiki/Top-level_domain) werden von App Service-Domänen unterstützt: _com_, _net_, _co.uk_, _org_, _nl_, _in_, _biz_, _org.uk_ und _co.in_.
->
+> Wenn sich die Domäne und die App in unterschiedlichen Abonnements befinden, ordnen Sie die App Service-Domäne genauso der App zu wie Sie [eine extern erworbene Domäne zuordnen](app-service-web-tutorial-custom-domain.md). In diesem Fall ist Azure DNS der externe Domänenanbieter. Sie müssen daher [die erforderlichen DNS-Einträge manuell hinzufügen](#manage-custom-dns-records).
 >
 
-Klicken Sie auf **Kontaktinformationen**, und füllen Sie das Formular mit den Kontaktinformationen für die Domäne aus. Wenn Sie fertig sind, klicken Sie auf **OK**, um zur Seite „App Service-Domäne“ zurückzukehren.
+### <a name="map-the-domain"></a>Zuordnen der Domäne
 
-Es ist wichtig, dass Sie alle erforderlichen Felder so genau wie möglich ausfüllen. Fehlerhafte Daten in den Kontaktinformationen können dazu führen, dass der Domänenkauf fehlschlägt.
+1. Scrollen Sie im linken Navigationsbereich der App-Seite zum Abschnitt **Einstellungen**, und wählen Sie **Benutzerdefinierte Domänen** aus.
 
-Wählen Sie als nächstes die gewünschten Optionen für Ihre Domäne aus. Die folgende Tabelle enthält einige Erläuterungen:
+    ![Screenshot: Menü „Benutzerdefinierte Domänen“](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-| Einstellung | Empfohlener Wert | BESCHREIBUNG |
-|-|-|-|
-|Datenschutz | Aktivieren | Abonnieren Sie „Datenschutz“. Diese Option ist _kostenlos_ im Kaufpreis enthalten. Manche Domänen der obersten Ebene werden von Registrierungsstellen verwaltet, die den Datenschutz nicht unterstützen. Sie sind auf der Seite **Datenschutz** aufgeführt. |
-| Zuweisen von Standardhostnamen | **www** und **\@** | Wählen Sie bei Bedarf die gewünschten Hostnamenbindungen. Wenn der Vorgang des Domänenkaufs abgeschlossen ist, kann auf Ihre App über die ausgewählten Hostnamen zugegriffen werden. Wenn Ihre App sich hinter dem [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) befindet, wird Ihnen die Option nicht angezeigt, durch die die Stammdomäne (@) zugewiesen werden kann, da der Traffic Manager keine A-Datensätze unterstützt. Sie können Änderungen an den Zuweisungen der Hostnamen vornehmen, nachdem der Domänenkauf abgeschlossen ist. |
+1. Wählen Sie **Benutzerdefinierte Domäne hinzufügen**.
 
-### <a name="accept-terms-and-purchase"></a>Akzeptieren der Bedingungen und Erwerben
+    ![Screenshot: Element zum Hinzufügen des Hostnamens](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Klicken Sie auf **Legal Terms** (Rechtliche Bedingungen), um die Bedingungen und die Gebühren anzuzeigen, und klicken Sie dann auf **Buy** (Kaufen).
+1. Geben Sie die App Service-Domäne (z. B. **contoso.com**) oder eine Unterdomäne (z. B. **www.contoso.com**) ein, und klicken Sie auf **Überprüfen**.
 
-> [!NOTE]
-> App Service-Domänen verwenden GoDaddy zur Domänenregistrierung und Azure DNS zum Hosten der Domänen. Zusätzlich zu den Gebühren für die Domänenregistrierung fallen Nutzungsgebühren für Azure DNS an. Informationen finden Sie unter [Azure DNS Pricing (Azure DNS-Preisübersicht)](https://azure.microsoft.com/pricing/details/dns/).
->
->
+    > [!NOTE]
+    > Bei einem Tippfehler im Namen der App Service-Domäne wird unten auf der Seite ein Überprüfungsfehler angezeigt, in dem angegeben wird, dass einige DNS-Einträge fehlen. Sie müssen diese Einträge für eine App Service-Domäne nicht manuell hinzufügen. Geben Sie den Namen der Domäne richtig ein, und klicken Sie dann erneut auf **Überprüfen**.
+    >
+    > ![Screenshot: Überprüfungsfehler](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
-Klicken Sie auf der Seite **App Service Domain** (App Service-Domäne) auf **OK**. Während der Vorgang ausgeführt wird, sehen Sie folgende Benachrichtigungen:
+1. Übernehmen Sie den **Typ des Hostnamenseintrags**, und klicken Sie auf **Benutzerdefinierte Domäne hinzufügen**.
 
-![Screenshot der Nachricht „Überprüfung wird ausgeführt“](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-validate.png)
+    ![Screenshot: Schaltfläche „Benutzerdefinierte Domäne hinzufügen“](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-![Screenshot der Benachrichtigung darüber, dass der Kauf erfolgreich war](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-purchase-success.png)
+1. Unter Umständen dauert es eine Weile, bis die neue benutzerdefinierte Domäne auf der Seite **Benutzerdefinierte Domänen** der App angezeigt wird. Aktualisieren Sie den Browser, um die Daten zu aktualisieren.
 
-### <a name="test-the-hostnames"></a>Testen des Hostnamens
+    ![Screenshot: Hinzufügen des CNAME-Eintrags](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
-Wenn Sie Ihrer App Standardhostnamen zugewiesen haben, wird Ihnen für jeden ausgewählten Hostnamen eine Erfolgsbenachrichtigung angezeigt.
+    > [!NOTE]
+    > Wenn Ihre benutzerdefinierte Domäne mit **Nicht sicher** gekennzeichnet ist, wurde sie noch nicht an ein TLS/SSL-Zertifikat gebunden. Für alle HTTPS-Anforderungen von einem Browser an Ihre benutzerdefinierte Domäne wird abhängig vom Browser ein Fehler oder eine Warnung angezeigt. Weitere Informationen zum Hinzufügen einer TLS-/SSL-Bindung finden Sie unter [Schützen eines benutzerdefinierten DNS-Namens mit einer TLS-/SSL-Bindung in Azure App Service](configure-ssl-bindings.md).
+    
+### <a name="test-the-custom-domain"></a>Testen der benutzerdefinierten Domäne
 
-![Screenshot der Benachrichtigung über Erfolg für die ausgewählten Hostnamen](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
-
-Auf der Seite **Benutzerdefinierte Domänen** werden Ihnen die ausgewählten Hostnamen im Abschnitt **Benutzerdefinierte Hostnamen** angezeigt.
-
-![Screenshot der ausgewählten Hostnamen im Bereich „Benutzerdefinierte Hostnamen“ auf der Seite „Benutzerdefinierte Domänen“](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
-
-> [!NOTE]
-> Die Bezeichnung **Nicht sicher** für Ihre benutzerdefinierte Domäne bedeutet, dass diese noch nicht an ein TLS-/SSL-Zertifikat gebunden ist und dass für alle HTTPS-Anforderungen von einem Browser an Ihre benutzerdefinierte Domäne abhängig vom Browser eine Warnung oder ein Fehler angezeigt wird. Weitere Informationen zum Konfigurieren einer TLS-/SSL-Bindung finden Sie unter [Schützen eines benutzerdefinierten DNS-Namens mit einer TLS-/SSL-Bindung in Azure App Service](configure-ssl-bindings.md).
->
-
-Um den Hostnamen zu testen, navigieren Sie zu den aufgelisteten Hostnamen im Browser. Versuchen Sie wie im Beispiel im vorstehenden Screenshot, zu den Seiten _kontoso.net_ und _www\.kontoso.net_ zu navigieren.
-
-## <a name="assign-hostnames-to-app"></a>Zuweisen von Hostnamen zur App
-
-Wenn Sie Ihrer App während des Kaufvorgangs nicht einen oder mehrere Standardhostnamen zuweisen möchten oder wenn Sie einen Hostnamen zuweisen müssen, der nicht aufgeführt ist, können Sie die Zuweisung auch zu jedem anderen Zeitpunkt durchführen.
-
-In der App Service-Domäne können Sie auch jeder anderen App einen Hostnamen zuweisen. Die Schritte hängen davon ab, ob die App Service-Domäne und die App zum selben Abonnement gehören.
-
-- Anderes Abonnement: Zuordnen benutzerdefinierter DNS-Datensätze (z.B. eine extern erworbene Domäne) von der App Service-Domäne zur App. Weitere Informationen zum Hinzufügen von benutzerdefinierten DNS-Namen zu einer App Service-Domäne finden Sie unter [Manage custom DNS records (Verwalten von benutzerdefinierten DNS-Datensätzen)](#custom). Weitere Informationen zum Zuordnen einer extern erworbenen Domäne zu einer App finden Sie unter [Zuweisen eines bestehenden benutzerdefinierten DNS-Namens zu Azure App Service](app-service-web-tutorial-custom-domain.md). 
-- Gleiches Abonnement: Führen Sie die folgenden Schritte aus:
-
-### <a name="launch-add-hostname"></a>Starten Sie „Hostname hinzufügen“
-Wählen Sie auf der Seite **App Services** (App-Dienste) den Namen Ihrer App aus, der Sie Hostnamen zuweisen möchten, klicken Sie auf **Settings** (Einstellungen), und dann auf **Custom domains** (Benutzerdefinierte Domänen).
-
-![Screenshot mit hervorgehobener Option „Benutzerdefinierte Domänen“](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
-
-Stellen Sie sicher, dass Ihre erworbene Domäne im Abschnitt**App Service Domains** (App Service-Domänen) aufgelistet ist, aber klicken Sie sie nicht an. 
-
-![Screenshot Ihrer erworbenen Domäne im App Service-Bereich zu Domänen](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
-
-> [!NOTE]
-> Alle App Service-Domänen, die zum selben Abonnement gehören, werden auf der Seite **Custom domains** (Benutzerdefinierte Domänen) in der App angezeigt. Wenn Ihre Domäne sich im Abonnement der App befindet, jedoch nicht auf der Seite **Custom domains** (Benutzerdefinierte Domänen) der App angezeigt wird, öffnen Sie die Seite **Custom domains** (Benutzerdefinierte Domänen) erneut oder aktualisieren Sie die Webseite. Überprüfen Sie auch die Anzeige der Benachrichtigungsglocke am oberen Rand des Azure-Portals auf Fortschritts- oder Erstellungsfehler.
->
->
-
-Wählen Sie **Hostnamen hinzufügen**.
-
-### <a name="configure-hostname"></a>Konfigurieren des Hostnamens
-Tippen Sie im Dialogfeld**Add hostname** (Hostname hinzufügen) den vollqualifizierten Domänennamen Ihrer App Service-Domäne oder einer Unterdomäne ein. Beispiel:
-
-- kontoso.net
-- www\.kontoso.net
-- abc.kontoso.net
-
-Klicken Sie anschließend auf **Validate** (Überprüfen). Der Datensatztyp für Ihren Hostnamen wird automatisch für Sie ausgewählt.
-
-Wählen Sie **Hostnamen hinzufügen**.
-
-Wenn der Vorgang abgeschlossen ist, sehen Sie eine Erfolgsmeldung für den zugeordneten Hostnamen.  
-
-![Screenshot der Benachrichtigung über Erfolg für den zugewiesenen Hostnamen](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
-
-### <a name="close-add-hostname"></a>Schließen Sie „Hostname hinzufügen“
-Auf der Seite **Add hostname** (Hostname hinzufügen) können Sie Ihrer App bei Bedarf einen beliebigen anderen Hostnamen zuweisen. Schließen Sie die Seite **Add hostname** (Hostname hinzufügen), wenn Sie fertig sind.
-
-Der oder die neu zugewiesenen Hostname(n) sollten nun auf der Seite **Custom Domains** (Benutzerdefinierte Domänen) in Ihrer App angezeigt werden.
-
-![Screenshot der neu zugewiesenen Hostnamen auf der Seite „Benutzerdefinierte Domänen“ in Ihrer App](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added2.png)
-
-### <a name="test-the-hostnames"></a>Testen des Hostnamens
-
-Navigieren Sie zu den aufgelisteten Hostnamen im Browser. Versuchen Sie wie im Beispiel im obigen Screenshot, zu der Seite _abc.kontoso.net_ zu navigieren.
+Navigieren Sie im Browser zu der benutzerdefinierten Domäne, um sie zu testen.
 
 ## <a name="renew-the-domain"></a>Verlängern der Domäne
 
@@ -199,17 +186,19 @@ Die erworbene App Service-Domäne ist ab dem Kaufdatum ein Jahr lang gültig. Di
 
 Wenn Sie die automatische Verlängerung deaktivieren oder die Domäne manuell verlängern möchten, führen Sie die nachfolgenden Schritte aus.
 
-Klicken Sie auf der Registerkarte **App Services** auf den Namen der App, wählen Sie **Einstellungen** aus, und klicken Sie anschließend auf **Benutzerdefinierte Domänen**.
+1. Suchen Sie auf der Suchleiste nach **App Service-Domänen**, und wählen Sie die Option aus.
 
-![Screenshot mit hervorgehobener Option „Benutzerdefinierte Domänen“](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+    ![Navigation im Portal zu Azure App Service-Domänen](./media/app-service-web-tutorial-custom-domain/view-app-service-domains.png)
 
-Wählen Sie im Abschnitt **App Service-Domänen** die Domäne aus, die Sie konfigurieren möchten.
+1. Wählen Sie im Abschnitt **App Service-Domänen** die Domäne aus, die Sie konfigurieren möchten.
 
-![Screenshot Ihrer erworbenen Domäne im App Service-Bereich zu Domänen](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
+1. Klicken Sie im linken Navigationsbereich der Domäne auf **Domänenverlängerung**. Wenn die Domäne nicht automatisch verlängert werden soll, wählen Sie **Aus** aus. Die Einstellung wird sofort wirksam.
 
-Klicken Sie im linken Navigationsbereich der Domäne auf **Domänenverlängerung**. Wenn die Domäne nicht automatisch verlängert werden soll, klicken Sie auf **Aus** und dann auf **Speichern**.
+    ![Screenshot der Option zum automatischen Verlängern Ihrer Domäne](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
-![Screenshot der Option zum automatischen Verlängern Ihrer Domäne](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
+    > [!NOTE]
+    > Ignorieren Sie beim Verlassen der Seite den Fehler „Nicht gespeicherte Änderungen werden verworfen“, indem Sie auf **OK** klicken.
+    >
 
 Wenn Sie Ihre Domäne manuell verlängern möchten, klicken Sie auf **Domäne verlängern**. Diese Schaltfläche wird aber erst [90 Tage vor Ablauf der Domäne](#when-domain-expires) aktiviert.
 
@@ -231,60 +220,55 @@ In Azure werden ablaufende bzw. abgelaufene App Service-Domänen wie folgt verar
 
 ## <a name="manage-custom-dns-records"></a>Verwalten von benutzerdefinierten DNS-Datensätzen
 
-In Azure werden DNS-Datensätze für eine App Service-Domäne mithilfe von [Azure DNS](https://azure.microsoft.com/services/dns/) verwaltet. Sie können DNS-Datensätze hinzufügen, entfernen und aktualisieren, auch für eine extern erworbene Domäne.
+In Azure werden DNS-Datensätze für eine App Service-Domäne mithilfe von [Azure DNS](https://azure.microsoft.com/services/dns/) verwaltet. Sie können DNS-Datensätze hinzufügen, entfernen und aktualisieren, auch für eine extern erworbene Domäne. So verwalten Sie benutzerdefinierte DNS-Einträge
 
-### <a name="open-app-service-domain"></a>Open-App Service-Domäne
+1. Suchen Sie auf der Suchleiste nach **App Service-Domänen**, und wählen Sie die Option aus.
 
-Klicken Sie im linken Menü des Azure-Portals auf **Alle Dienste** > **App Service-Domänen**.
+    ![Navigation im Portal zu Azure App Service-Domänen](./media/app-service-web-tutorial-custom-domain/view-app-service-domains.png)
 
-![Screenshot, der zeigt, wo auf App Service-Domänen zugegriffen werden kann](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
+1. Wählen Sie im Abschnitt **App Service-Domänen** die Domäne aus, die Sie konfigurieren möchten.
 
-Wählen Sie die Domäne, die verwaltet werden soll. 
+1. Wählen Sie auf der Seite **Übersicht** die Option **DNS-Einträge verwalten** aus.
 
-### <a name="access-dns-zone"></a>Zugreifen auf die DNS-Zone
+    ![Screenshot des Zugriffs auf DNS-Einträge](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-dns-zone.png)
 
-Klicken Sie im linken Menü der Domäne auf **DNS zone** (DNS-Zone).
-
-![Screenshot, der zeigt, wo Sie die DNS-Zone auswählen können](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-dns-zone.png)
-
-Diese Aktion öffnet die Seite [DNS zone](../dns/dns-zones-records.md) (DNS-Zone) Ihrer App Service-Domäne in Azure DNS. Informationen zum Bearbeiten von DNS-Datensätzen finden Sie unter [How to manage DNS Zones in the Azure portal (Vorgehensweise: Verwalten von DNS-Zonen im Azure-Portal)](../dns/dns-operations-dnszones-portal.md).
+Informationen zum Bearbeiten von DNS-Datensätzen finden Sie unter [How to manage DNS Zones in the Azure portal (Vorgehensweise: Verwalten von DNS-Zonen im Azure-Portal)](../dns/dns-operations-dnszones-portal.md).
 
 ## <a name="cancel-purchase-delete-domain"></a>Abbrechen des Kaufs (Domäne löschen)
 
 Nach dem Kauf der App Service-Domäne haben Sie fünf Tage Zeit, um Ihren Kauf zu stornieren und eine vollständige Rückerstattung zu erhalten. Nach fünf Tagen können Sie die App Service-Domäne zwar löschen, erhalten jedoch keine Rückerstattung.
 
-### <a name="open-app-service-domain"></a>Open-App Service-Domäne
+1. Suchen Sie auf der Suchleiste nach **App Service-Domänen**, und wählen Sie die Option aus.
 
-Klicken Sie im linken Menü des Azure-Portals auf **Alle Dienste** > **App Service-Domänen**.
+    ![Navigation im Portal zu Azure App Service-Domänen](./media/app-service-web-tutorial-custom-domain/view-app-service-domains.png)
 
-![Screenshot, der zeigt, wo auf App Service-Domänen zugegriffen werden kann](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
+1. Wählen Sie im Abschnitt **App Service-Domänen** die Domäne aus, die Sie konfigurieren möchten.
 
-Wählen Sie die Domäne aus, die Sie stornieren oder löschen möchten. 
+1. Wählen Sie im linken Navigationsbereich der Domäne die Option **Hostnamenbindungen** aus. Die Hostnamenbindungen aus allen Azure-Diensten werden hier aufgelistet.
 
-### <a name="delete-hostname-bindings"></a>Löschen von Hostnamenbindungen
+    ![Screenshot der Seite „Hostnamenbindungen“](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostname-bindings.png)
 
-Klicken Sie im linken Menü der Domäne auf **Hostname bindings** (Hostnamenbindungen). Die Hostnamenbindungen aus allen Azure-Diensten werden hier aufgelistet.
+1. Löschen Sie jede Hostnamenbindung, indem Sie auf **...**  > **Delete** (Löschen) klicken. Nachdem alle Bindungen gelöscht worden sind, klicken Sie auf **Save** (Speichern).
 
-![Screenshot der Seite „Hostnamenbindungen“](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostname-bindings.png)
+    <!-- ![Screenshot that shows where to delete the hostname bindings.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png) -->
 
-Die App Service-Domäne kann nicht gelöscht werden, bis alle Hostnamenbindungen gelöscht wurden.
+1. Wählen Sie im linken Navigationsbereich die Option **Übersicht** aus. 
 
-Löschen Sie jede Hostnamenbindung, indem Sie auf **...**  > **Delete** (Löschen) klicken. Nachdem alle Bindungen gelöscht worden sind, klicken Sie auf **Save** (Speichern).
+1. Wenn die Kündigungsfrist für die erworbene Domäne nicht abgelaufen ist, klicken Sie auf **Cancel purchase** (Kauf stornieren). Andernfalls sehen Sie stattdessen die Schaltfläche **Delete** (Löschen). Klicken Sie zum Löschen der Domäne ohne Rückerstattung auf **Delete** (Löschen).
 
-![Screenshot, der zeigt, wo die Hostnamenbindungen gelöscht werden können](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png)
+    ![Screenshot, der zeigt, wo eine erworbene Domäne gelöscht oder der Kauf abgebrochen werden kann](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
 
-### <a name="cancel-or-delete"></a>Stornieren oder Löschen
+1. Wählen Sie **Ja** aus, um den Vorgang zu bestätigen.
 
-Klicken Sie im linken Menü der Domäne auf **Overview** (Übersicht). 
-
-Wenn die Kündigungsfrist für die erworbene Domäne nicht abgelaufen ist, klicken Sie auf **Cancel purchase** (Kauf stornieren). Andernfalls sehen Sie stattdessen die Schaltfläche **Delete** (Löschen). Klicken Sie zum Löschen der Domäne ohne Rückerstattung auf **Delete** (Löschen).
-
-![Screenshot, der zeigt, wo eine erworbene Domäne gelöscht oder der Kauf abgebrochen werden kann](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
-
-Klicken Sie auf **Ja**, um den Vorgang zu bestätigen.
-
-Nachdem der Vorgang abgeschlossen ist, ist die Domäne aus Ihrem Abonnement freigegeben und steht wieder für jeden zum Kauf zur Verfügung. 
+    Nachdem der Vorgang abgeschlossen ist, ist die Domäne aus Ihrem Abonnement freigegeben und steht wieder für jeden zum Kauf zur Verfügung. 
 
 ## <a name="direct-default-url-to-a-custom-directory"></a>Weiterleiten der Standard-URL an ein benutzerdefiniertes Verzeichnis
 
-App Service leitet Webanforderungen standardmäßig an das Stammverzeichnis des App-Codes weiter. Informationen zum Weiterleiten an ein Unterverzeichnis wie `public` finden Sie unter [Zuordnen eines vorhandenen benutzerdefinierten DNS-Namens zu Azure-Web-Apps](app-service-web-tutorial-custom-domain.md#virtualdir).
+App Service leitet Webanforderungen standardmäßig an das Stammverzeichnis des App-Codes weiter. Informationen zur Weiterleitung an ein Unterverzeichnis wie `public` finden Sie unter [Umleitung zu einem benutzerdefinierten Verzeichnis](app-service-web-tutorial-custom-domain.md#redirect-to-a-custom-directory).
+
+## <a name="next-steps"></a>Nächste Schritte
+
+Informieren Sie sich darüber, wie Sie ein benutzerdefiniertes TLS/SSL-Zertifikat an App Service binden.
+
+> [!div class="nextstepaction"]
+> [Schützen eines benutzerdefinierten DNS-Namens mit einer TLS-Bindung in Azure App Service](configure-ssl-bindings.md)

@@ -1,26 +1,26 @@
 ---
-title: Azure Multi-Factor Authentication für Ihre Organisation – Azure Active Directory
-description: Erfahren Sie mehr über die verfügbaren Features von Azure Multi-Factor Authentication für Ihre Organisation auf der Grundlage Ihres Lizenzmodells.
+title: Azure AD Multi-Factor Authentication für Ihre Organisation – Azure Active Directory
+description: Erfahren Sie mehr über die verfügbaren Features von Azure AD Multi-Factor Authentication für Ihre Organisation auf der Grundlage Ihres Lizenzmodells.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: daveba
+author: daveba
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13bb7782f6396466200fbb3e2df77158bb75d8a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85e7f02f8cbda6218396bf4a9a4654a113b7817c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705400"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836741"
 ---
-# <a name="overview-of-azure-multi-factor-authentication-for-your-organization"></a>Übersicht über Azure Multi-Factor Authentication für Ihre Organisation
+# <a name="overview-of-azure-ad-multi-factor-authentication-for-your-organization"></a>Übersicht über Azure AD Multi-Factor Authentication für Ihre Organisation
 
-Es gibt mehrere Möglichkeiten, Azure Multi-Factor Authentication für Ihre Benutzer von Azure Active Directory (Azure AD) basierend auf den Lizenzen zu aktivieren, die Ihre Organisation besitzt. 
+Es gibt mehrere Möglichkeiten, Azure AD Multi-Factor Authentication für Ihre Benutzer von Azure Active Directory (Azure AD) basierend auf den Lizenzen zu aktivieren, die Ihre Organisation besitzt. 
 
 ![Signale untersuchen und bei Bedarf MFA erzwingen](./media/concept-fundamentals-mfa-get-started/verify-signals-and-perform-mfa-if-required.png)
 
@@ -36,7 +36,7 @@ Kunden, die die kostenlosen Vorteile von Azure AD nutzen, können mithilfe von [
 
 Kunden, die über Microsoft 365 verfügen, stehen zwei Optionen zur Verfügung:
 
-* Azure Multi-Factor Authentication ist für alle Benutzer und alle Anmeldeereignisse entweder aktiviert oder deaktiviert. Es gibt keine Möglichkeit, die mehrstufige Authentifizierung nur für eine Teilmenge von Benutzern oder nur bei bestimmten Szenarien zu aktivieren. Die Verwaltung erfolgt über das Office 365-Portal. 
+* Azure AD Multi-Factor Authentication ist für alle Benutzer und alle Anmeldeereignisse entweder aktiviert oder deaktiviert. Es gibt keine Möglichkeit, die mehrstufige Authentifizierung nur für eine Teilmenge von Benutzern oder nur bei bestimmten Szenarien zu aktivieren. Die Verwaltung erfolgt über das Office 365-Portal. 
 * Führen Sie zugunsten einer optimierten Benutzerumgebung ein Upgrade auf Azure AD Premium P1 oder P2 durch, und verwenden Sie den bedingten Zugriff. Weitere Informationen finden Sie unter Schützen von Microsoft 365-Ressourcen mit der mehrstufigen Authentifizierung.
 
 ## <a name="azure-ad-premium-p1"></a>Azure AD Premium P1
@@ -62,6 +62,6 @@ Bietet die höchste Sicherheitsstufe und eine verbesserte Benutzerumgebung. Erwe
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Sehen Sie sich zum Einstieg das Tutorial zum [Schützen von Benutzeranmeldeereignissen mit Azure Multi-Factor Authentication](../authentication/tutorial-enable-azure-mfa.md) an.
+Sehen Sie sich zum Einstieg das Tutorial zum [Schützen von Benutzeranmeldeereignissen mit Azure AD Multi-Factor Authentication](../authentication/tutorial-enable-azure-mfa.md) an.
 
-Weitere Informationen zur Lizenzierung finden Sie unter [Features und Lizenzen für Azure Multi-Factor Authentication](../authentication/concept-mfa-licensing.md).
+Weitere Informationen zur Lizenzierung finden Sie unter [Features und Lizenzen für Azure AD Multi-Factor Authentication](../authentication/concept-mfa-licensing.md).

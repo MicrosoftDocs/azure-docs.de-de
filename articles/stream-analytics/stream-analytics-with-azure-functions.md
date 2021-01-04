@@ -7,18 +7,21 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 01/27/2020
-ms.openlocfilehash: 70ea5ec9ee91fdba8023b9c6af1ce65b691a17fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb2eb36e4116c17efb20946b0da4586678838f3b
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006889"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862002"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Tutorial: Ausführen von Azure Functions in Azure Stream Analytics-Aufträgen 
 
 Sie können Azure Functions in Azure Stream Analytics ausführen, indem Sie Functions als eine der Ausgabesenken für den Stream Analytics-Auftrag konfigurieren. Functions ist eine ereignisgesteuerte On-Demand-Computeumgebung, mit der Sie Code implementieren können, der durch in Azure- oder Drittanbieterdiensten auftretende Ereignisse ausgelöst wird. Aufgrund der Möglichkeit, auf Trigger zu antworten, ist Functions die ideale Ausgabe für Stream Analytics-Aufträge.
 
 Stream Analytics ruft Functions über HTTP-Trigger auf. Der Functions-Ausgabeadapter ermöglicht Benutzern das Verbinden von Functions mit Stream Analytics, sodass die Ereignisse basierend auf Stream Analytics-Abfragen ausgelöst werden können. 
+
+> [!NOTE]
+> Eine Verbindung mit Azure Functions innerhalb eines virtuellen Netzwerks (VNET) aus einem Stream Analytics-Auftrag, der in einem mehrinstanzenfähigen Cluster ausgeführt wird, wird nicht unterstützt.
 
 In diesem Tutorial lernen Sie Folgendes:
 
@@ -130,11 +133,11 @@ Führen Sie das Tutorial zur [Betrugserkennung in Echtzeit](stream-analytics-rea
  
 4. Wechseln Sie zurück zum Azure-Portal. Navigieren Sie auf der Registerkarte **Plattformfeatures** zu Ihrer Funktion. Wählen Sie unter **Entwicklungstools** die Option **App Service-Editor** aus. 
  
-   ![Screenshot des App Service-Editors](./media/stream-analytics-with-azure-functions/image3.png)
+   ![Screenshot: Registerkarte „Plattformfeatures“, auf der „App Service-Editor“ ausgewählt ist](./media/stream-analytics-with-azure-functions/image3.png)
 
 5. Klicken Sie im App Service-Editor mit der rechten Maustaste auf Ihr Stammverzeichnis, und laden Sie die Datei **project.json** hoch. Aktualisieren Sie nach dem erfolgreichen Upload die Seite. Jetzt sollte eine automatisch generierte Datei namens **project.lock.json** angezeigt werden. Die automatisch generierte Datei enthält Verweise auf die DLL-Dateien, die in der Datei „project.json“ angegeben werden.  
 
-   ![Screenshot des App Service-Editors](./media/stream-analytics-with-azure-functions/image4.png)
+   ![Screenshot: Die im Menü ausgewählte Option „Dateien hochladen“](./media/stream-analytics-with-azure-functions/image4.png)
 
 ## <a name="update-the-stream-analytics-job-with-the-function-as-output"></a>Aktualisieren des Stream Analytics-Auftrags mit der Funktion als Ausgabe
 
@@ -192,13 +195,15 @@ Führen Sie das Tutorial zur [Betrugserkennung in Echtzeit](stream-analytics-rea
 Im Falle eines Fehlers beim Senden von Ereignissen an Azure Functions werden die meisten Vorgänge von Stream Analytics wiederholt. Mit Ausnahme des HTTP-Fehlers 413 (Entität zu groß) werden alle HTTP-Ausnahmen bis zur erfolgreichen Ausführung wiederholt. Fehler vom Typ „Entität zu groß“ werden als Datenfehler gemäß der [Ausgabefehlerrichtlinie](stream-analytics-output-error-policy.md) behandelt und entweder wiederholt oder verworfen.
 
 > [!NOTE]
-> Das Zeitlimit für HTTP-Anforderungen von Stream Analytics an Azure Functions ist auf 100 Sekunden festgelegt. Falls Ihre Azure Functions-App mehr als 100 Sekunden für die Verarbeitung eines Batchs benötigt, tritt für Stream Analytics ein Fehler auf.
+> Das Zeitlimit für HTTP-Anforderungen von Stream Analytics an Azure Functions ist auf 100 Sekunden festgelegt. Falls Ihre Azure Functions-App mehr als 100 Sekunden für die Verarbeitung eines Batchs benötigt, tritt für Stream Analytics ein Fehler auf, und die Batchverarbeitung wird erneut versucht.
+
+Wiederholungsversuche infolge eines Timeouts können dazu führen, dass doppelte Ereignisse in die Ausgabesenke geschrieben werden. Wenn von Stream Analytics ein erneuter Versuch für einen nicht erfolgreichen Batch ausgeführt wird, umfasst dieser Versuch alle Ereignisse im Batch. Stellen Sie sich beispielsweise einen Batch mit 20 Ereignissen vor, die von Stream Analytics an Azure Functions gesendet werden. Angenommen, Azure Functions benötigt 100 Sekunden für die Verarbeitung der ersten zehn Ereignisse. Nach 100 Sekunden wird die Anforderung von Stream Analytics unterbrochen, da keine positive Antwort von Azure Functions empfangen wurde, und es wird eine weitere Anforderung für den gleichen Batch gesendet. Die ersten zehn Ereignisse im Batch werden erneut von Azure Functions verarbeitet, was ein Duplikat zur Folge hat. 
 
 ## <a name="known-issues"></a>Bekannte Probleme
 
 Wenn Sie im Azure-Portal versuchen, die Werte für die maximal zulässige Batchgröße oder die maximal zulässige Batchanzahl auf einen leeren Wert (Standard) zurückzusetzen, ändert sich der Wert beim Speichern in den zuvor eingegebenen Wert. Geben Sie in diesem Fall die Standardwerte für diese Felder manuell ein.
 
-Die Verwendung von [HTTP-Routing](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp) für Ihre Azure Functions wird derzeit nicht von Stream Analytics unterstützt.
+Die Verwendung von [HTTP-Routing](/sandbox/functions-recipes/routes?tabs=csharp) für Ihre Azure Functions wird derzeit nicht von Stream Analytics unterstützt.
 
 Die Unterstützung für die Verbindungsherstellung mit der Azure Functions-Lösung, die in einem virtuellen Netzwerk gehostet wird, ist nicht aktiviert.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
-ms.openlocfilehash: e42e976e57dd69ffcbd9065cfb3aaf3af9c4b972
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 124bc053aa2c6e59e205bb6f33a9a96190799499
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852071"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102036"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Hinzufügen eines benutzerdefinierten ZS-Zertifikats in Azure API Management
 
@@ -41,22 +41,22 @@ Gehen Sie folgendermaßen vor, um ein neues ZS-Zertifikat hochzuladen. Falls Sie
 
 3. Klicken Sie auf die Schaltfläche **+ Hinzufügen**.  
 
-    ![Hinzufügen von ZS-Zertifikaten](media/api-management-howto-ca-certificates/01.png)  
+    ![Screenshot der Schaltfläche „+ Hinzufügen“ zum Hinzufügen eines ZS-Zertifikats](media/api-management-howto-ca-certificates/01.png)  
 
 4. Suchen Sie nach dem Zertifikat, und wählen Sie den Zertifikatspeicher aus. Es ist nur der öffentliche Schlüssel erforderlich, kein Kennwort.
 
-    ![Hinzufügen von ZS-Zertifikaten](media/api-management-howto-ca-certificates/02.png)  
+    ![Screenshot der Navigation zum Zertifikat](media/api-management-howto-ca-certificates/02.png)  
 
 5. Klicken Sie auf **Speichern**. Dieser Vorgang kann einige Minuten dauern.
 
-    ![Hinzufügen von ZS-Zertifikaten](media/api-management-howto-ca-certificates/03.png)  
+    ![Screenshot der Speicherung des Zertifikats](media/api-management-howto-ca-certificates/03.png)  
 
 > [!NOTE]
 > Sie können ein ZS-Zertifikat mithilfe des PowerShell-Befehls `New-AzApiManagementSystemCertificate` hochladen.
 
 ## <a name="delete-a-client-certificate"></a><a name="step1a"> </a>Löschen eines Clientzertifikats
 
-Um ein Zertifikat zu löschen, klicken Sie auf das Kontextmenü **...**, und wählen Sie neben dem betreffenden Zertifikat **Löschen** aus.
+Um ein Zertifikat zu löschen, klicken Sie auf das Kontextmenü **...** , und wählen Sie neben dem betreffenden Zertifikat **Löschen** aus.
 
 ![Löschen von ZS-Zertifikaten](media/api-management-howto-ca-certificates/04.png)  
 

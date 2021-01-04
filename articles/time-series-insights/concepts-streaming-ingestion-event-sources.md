@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: 6bc238389ac470e6127a582eb174ec7bc438e36b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e83cca79a4dc99533ab17cca7e96e1ac802d598
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650867"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020792"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights Gen2-Ereignisquellen
 
@@ -27,7 +27,7 @@ Ereignisse müssen als UTF-8-codierte JSON-Dateien gesendet werden.
 
 ## <a name="create-or-edit-event-sources"></a>Erstellen oder Bearbeiten von Ereignisquellen
 
-Die Ressource(n) Ihrer Ereignisquelle kann bzw. können sich im selben Azure-Abonnement wie Ihre Azure Time Series Insights Gen2-Umgebung oder in einem anderen Abonnement befinden. Mithilfe des [Azure-Portals](time-series-insights-update-create-environment.md#create-a-preview-payg-environment), der [Azure CLI](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), von [ARM-Vorlagen](time-series-insights-manage-resources-using-azure-resource-manager-template.md) und der [REST-API](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) können Sie die Ereignisquelle Ihrer Umgebung erstellen, bearbeiten oder entfernen.
+Die Ressource(n) Ihrer Ereignisquelle kann bzw. können sich im selben Azure-Abonnement wie Ihre Azure Time Series Insights Gen2-Umgebung oder in einem anderen Abonnement befinden. Mithilfe des [Azure-Portals](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), der [Azure CLI](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), von [ARM-Vorlagen](time-series-insights-manage-resources-using-azure-resource-manager-template.md) und der [REST-API](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) können Sie die Ereignisquelle Ihrer Umgebung erstellen, bearbeiten oder entfernen.
 
 Wenn Sie eine Ereignisquelle verbinden, liest Ihre Azure Time Series Insights Gen2-Umgebung alle Ereignisse, die aktuell in Ihrem IoT Hub oder Event Hub gespeichert sind. Dabei wird mit dem ältesten Ereignis begonnen.
 
@@ -45,7 +45,7 @@ Wenn Sie eine Ereignisquelle verbinden, liest Ihre Azure Time Series Insights Ge
 
 - Überschreiten Sie nicht den [Grenzwert Ihrer Umgebung für die Durchsatzrate](./concepts-streaming-ingress-throughput-limits.md) oder den Durchsatz pro Partition.
 
-- Konfigurieren Sie eine [Verzögerungswarnung](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts), damit Sie benachrichtigt werden, wenn in Ihrer Umgebung Probleme beim Verarbeiten von Daten auftreten.
+- Konfigurieren Sie eine [Verzögerungswarnung](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts), damit Sie benachrichtigt werden, wenn in Ihrer Umgebung Probleme beim Verarbeiten von Daten auftreten.
 
 - Verwenden Sie die Streamingerfassung nur für Daten in Quasi-Echtzeit und für aktuelle Daten. Das Streamen historischer Daten wird nicht unterstützt.
 
@@ -64,7 +64,7 @@ Die Streamingpipeline kann in Azure Time Series Insights Gen2 aktuell nicht zum 
 
 ## <a name="event-source-timestamp"></a>Zeitstempel der Ereignisquelle
 
-Beim Konfigurieren einer Ereignisquelle werden Sie dazu aufgefordert, eine Zeitstempel-ID-Eigenschaft anzugeben. Die Zeitstempeleigenschaft wird verwendet, um Ereignisse im Zeitverlauf zu verfolgen. Diese Zeit wird als $event.$ts in den [Abfrage-APIs](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute) und zum Zeichnen von Reihen im Azure Time Series Insights-Explorer verwendet. Wenn zum Zeitpunkt der Erstellung keine Eigenschaft bereitgestellt wird oder die Zeitstempeleigenschaft aus einem Ereignis fehlt, wird der Zeitpunkt der Einreihung in die IoT Hub- oder Event Hubs-Warteschlange als Standardwert verwendet. Werte der Zeitstempeleigenschaft werden in UTC gespeichert.
+Beim Konfigurieren einer Ereignisquelle werden Sie dazu aufgefordert, eine Zeitstempel-ID-Eigenschaft anzugeben. Die Zeitstempeleigenschaft wird verwendet, um Ereignisse im Zeitverlauf zu verfolgen. Diese Zeit wird als $event.$ts in den [Abfrage-APIs](/rest/api/time-series-insights/dataaccessgen2/query/execute) und zum Zeichnen von Reihen im Azure Time Series Insights-Explorer verwendet. Wenn zum Zeitpunkt der Erstellung keine Eigenschaft bereitgestellt wird oder die Zeitstempeleigenschaft aus einem Ereignis fehlt, wird der Zeitpunkt der Einreihung in die IoT Hub- oder Event Hubs-Warteschlange als Standardwert verwendet. Werte der Zeitstempeleigenschaft werden in UTC gespeichert.
 
 Im Allgemeinen entscheiden sich Benutzer dafür, die Zeitstempeleigenschaft anzupassen und den Zeitpunkt zu verwenden, zu dem der Sensor oder das Tag den Lesevorgang generiert hat, anstatt den Standardwert des Zeitpunkts der Einreihung in die Hub-Warteschlange zu verwenden. Dies ist besonders dann notwendig, wenn Geräte vorübergehenden Konnektivitätsverlust aufweisen und ein Batch verzögerter Nachrichten an Azure Time Series Insights Gen2 weitergeleitet wird.
 

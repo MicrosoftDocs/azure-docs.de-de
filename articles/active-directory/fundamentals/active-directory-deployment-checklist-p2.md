@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 10/29/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64f78dadc0eb1570018320aa77a390f94adf708a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 92d1e5b8ac6492b0b1d819431e4616d32a092cc8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371901"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836919"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Bereitstellungshandbuch für Azure Active Directory-Features
 
@@ -35,7 +35,7 @@ Weitere Informationen zur Lizenzierung finden Sie auf den folgenden Seiten:
 * [Azure AD-Lizenzierung](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 * [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
-* [Leitfaden zur Azure AD B2B-Lizenzierung](../external-identities/licensing-guidance.md)
+* [Abrechnungsmodell für externe Identitäten in Azure AD](../external-identities/external-identities-pricing.md)
 
 ## <a name="phase-1-build-a-foundation-of-security"></a>Phase 1: Erstellen eines Fundaments aus Sicherheit
 
@@ -57,7 +57,7 @@ In dieser Phase aktivieren Administratoren die grundlegenden Sicherheitsfunktion
 | [Bereitstellen von Azure AD Multi-Factor Authentication mit Richtlinien für bedingten Zugriff](../authentication/howto-mfa-getstarted.md) | Legen Sie mithilfe von Richtlinien für bedingten Zugriff fest, dass Benutzer beim Zugriff auf sensible Anwendungen eine zweistufige Überprüfung durchführen müssen. | Azure AD Premium P1 |
 | [Aktivieren der Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md) | Aktivieren Sie die Nachverfolgung von riskanten Anmeldungen und kompromittierten Anmeldeinformationen für Benutzer in Ihrer Organisation. | Azure AD Premium P2 |
 | [Verwenden von Risikoerkennungen zum Auslösen von mehrstufiger Authentifizierung und Kennwortänderungen](../authentication/tutorial-risk-based-sspr-mfa.md) | Aktivieren Sie eine Automatisierung, die Ereignisse risikobasiert auslösen kann, z.B. mehrstufige Authentifizierung, Kennwortzurücksetzung und das Blockieren von Anmeldungen. | Azure AD Premium P2 |
-| [Aktivieren der kombinierten Registrierung für die Self-Service-Kennwortzurücksetzung und Azure AD Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) | Ermöglichen Sie Ihren Benutzern die Registrierung über eine gemeinsame Umgebung sowohl für Azure Multi-Factor Authentication als auch Self-Service-Kennwortzurücksetzung. | Azure AD Premium P1 |
+| [Aktivieren der kombinierten Registrierung für die Self-Service-Kennwortzurücksetzung und Azure AD Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) | Ermöglichen Sie Ihren Benutzern die Registrierung über eine gemeinsame Umgebung sowohl für Azure AD Multi-Factor Authentication als auch Self-Service-Kennwortzurücksetzung. | Azure AD Premium P1 |
 
 ## <a name="phase-2-import-users-enable-synchronization-and-manage-devices"></a>Phase 2: Importieren von Benutzern, Aktivieren der Synchronisierung und Verwalten von Geräten
 
@@ -70,7 +70,7 @@ Als Nächstes ergänzen wir die in Phase 1 geschaffene Grundlage durch das Impor
 | [Implementieren der Kennwortrückschreibung](../authentication/tutorial-enable-sspr-writeback.md) | Lassen Sie zu, dass Kennwortänderungen in der Cloud in eine lokale Windows Server Active Directory-Umgebung zurückgeschrieben werden. | Azure AD Premium P1 |
 | [Implementieren von Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) | Aktivieren Sie die Überwachung wichtiger Integritätsstatistiken für Ihre Azure AD Connect-Server, AD FS-Server und Domänencontroller. | Azure AD Premium P1 |
 | [Zuweisen von Lizenzen zu Benutzer nach Gruppenmitgliedschaft in Azure Active Directory](../enterprise-users/licensing-groups-assign.md) | Sparen Sie Zeit und Aufwand durch das Erstellen von Lizenzierungsgruppen, die Funktionen anhand von Gruppen anstatt einer Einstellung pro Benutzer aktivieren oder deaktivieren. | |
-| [Erstellen eines Plans für den Zugriff durch Gastbenutzer](../external-identities/what-is-b2b.md) | Arbeiten Sie mit Gastbenutzern zusammen, indem Sie ihnen ermöglichen, sich mit ihrem Geschäfts-, Schul- oder Unikonto bzw. mit ihrer Identität bei Ihren Anwendungen und Diensten anzumelden. | [Leitfaden zur Azure AD B2B-Lizenzierung](../external-identities/licensing-guidance.md) |
+| [Erstellen eines Plans für den Zugriff durch Gastbenutzer](../external-identities/what-is-b2b.md) | Arbeiten Sie mit Gastbenutzern zusammen, indem Sie ihnen ermöglichen, sich mit ihrem Geschäfts-, Schul- oder Unikonto bzw. mit ihrer Identität bei Ihren Anwendungen und Diensten anzumelden. | [Abrechnungsmodell für externe Identitäten in Azure AD](../external-identities/external-identities-pricing.md) |
 | [Entscheidungen zur Geräteverwaltungsstrategie](../devices/overview.md) | Entscheiden Sie, was Ihre Organisation in Bezug auf Geräte zulässt, z.B. Registrierung oder Beitritt, Bring Your Own Device oder unternehmenseigene Geräte. | |
 | [Bereitstellen von Windows Hello for Business in Ihrer Organisation](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Bereiten Sie die kennwortlose Authentifizierung unter Verwendung von Windows Hello vor. | |
 | [Bereitstellen von Methoden zur kennwortlosen Authentifizierung für Ihre Benutzer](../authentication/concept-authentication-passwordless.md) | Stellen Sie für Ihre Benutzer Methoden für die Authentifizierung ohne Kennwort bereit. | Azure AD Premium P1 |

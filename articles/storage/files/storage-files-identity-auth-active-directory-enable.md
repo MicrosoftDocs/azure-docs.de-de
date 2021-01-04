@@ -7,16 +7,16 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: bb408c762c33e4d146a2f0ef36f32e525b3859bd
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 2214dbc9dcbd4ba7728065ee45471e9f94b9e513
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91758267"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95739994"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Übersicht – lokale Active Directory Domain Services-Authentifizierung über SMB für Azure-Dateifreigaben
 
-[Azure Files](storage-files-introduction.md)  unterstützt die identitätsbasierte Authentifizierung per SMB (Server Message Block) über zwei Arten von Domänendiensten: lokales Active Directory Domain Services (AD DS) und Azure Active Directory Domain Services (Azure AD DS). Es wird dringend empfohlen, den Abschnitt [Funktionsweise](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview#how-it-works) zu lesen, damit Sie für die Authentifizierung den richtigen Domänendienst auswählen. Die Einrichtung unterscheidet sich je nach gewähltem Domänendienst. Diese Artikelreihe behandelt das Aktivieren und Konfigurieren von lokalen AD DS für die Authentifizierung mit Azure-Dateifreigaben.
+[Azure Files](storage-files-introduction.md)  unterstützt die identitätsbasierte Authentifizierung per SMB (Server Message Block) über zwei Arten von Domänendiensten: lokales Active Directory Domain Services (AD DS) und Azure Active Directory Domain Services (Azure AD DS). Es wird dringend empfohlen, den Abschnitt [Funktionsweise](./storage-files-active-directory-overview.md#how-it-works) zu lesen, damit Sie für die Authentifizierung den richtigen Domänendienst auswählen. Die Einrichtung unterscheidet sich je nach gewähltem Domänendienst. Diese Artikelreihe behandelt das Aktivieren und Konfigurieren von lokalen AD DS für die Authentifizierung mit Azure-Dateifreigaben.
 
 Wenn Sie noch nicht mit Azure-Dateifreigaben vertraut sind, empfiehlt es sich, unsere [Planhinweisliste](storage-files-planning.md) zu lesen, bevor Sie die folgende Artikelreihe lesen.
 
@@ -24,7 +24,7 @@ Wenn Sie noch nicht mit Azure-Dateifreigaben vertraut sind, empfiehlt es sich, u
 
 - AD DS-Identitäten, die für die lokale AD DS-Authentifizierung von Azure Files verwendet werden, müssen mit Azure AD synchronisiert sein. Kennworthashsynchronisierung ist optional. 
 - Unterstützt von Azure-Dateisynchronisierung verwaltete Azure-Dateifreigaben.
-- Unterstützt Kerberos-Authentifizierung mit AD mit RC4-HMAC- und [AES 256-Verschlüsselung](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). AES 128-Kerberos-Verschlüsselung wird noch nicht unterstützt.
+- Unterstützt Kerberos-Authentifizierung mit AD mit RC4-HMAC- und [AES 256-Verschlüsselung](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). Die Unterstützung für die AES 256-Verschlüsselung ist zurzeit auf Speicherkonten beschränkt, deren Namen maximal 15 Zeichen lang sind. AES 128-Kerberos-Verschlüsselung wird noch nicht unterstützt.
 - Unterstützt Einmaliges Anmelden.
 - Wird nur auf Clients unterstützt, die auf Betriebssystemversionen nach Windows 7 oder Windows Server 2008 R2 ausgeführt werden.
 - Wird nur für die AD-Gesamtstruktur unterstützt, in der das Speicherkonto registriert ist. Sie können auf Azure-Dateifreigaben standardmäßig nur mit den AD DS-Anmeldeinformationen einer einzelnen Gesamtstruktur zugreifen. Wenn Sie von einer anderen Gesamtstruktur aus auf Ihre Azure-Dateifreigabe zugreifen müssen, stellen Sie sicher, dass Sie die richtige Gesamtstrukturvertrauensstellung konfiguriert haben. Weitere Informationen finden Sie unter [FAQ](storage-files-faq.md#ad-ds--azure-ad-ds-authentication).
@@ -42,11 +42,11 @@ Wenn Sie AD DS für Azure-Dateifreigaben über SMB aktivieren, können Ihre in A
 
 Bevor Sie die AD DS-Authentifizierung für Azure-Dateifreigaben aktivieren, müssen Sie sicherstellen, dass die folgenden Voraussetzungen erfüllt sind: 
 
-- Sie müssen Ihre [AD DS-Umgebung](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) auswählen und erstellen und über Azure AD Connect mit [Azure AD synchronisieren](../../active-directory/hybrid/how-to-connect-install-roadmap.md). 
+- Sie müssen Ihre [AD DS-Umgebung](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) auswählen und erstellen und über Azure AD Connect mit [Azure AD synchronisieren](../../active-directory/hybrid/how-to-connect-install-roadmap.md). 
 
     Sie können das Feature für eine neue oder eine vorhandene AD DS-Umgebung aktivieren. Die für den Zugriff verwendeten Identitäten müssen mit Azure AD synchronisiert werden. Der Azure AD-Mandant und die Dateifreigabe, auf die Sie zugreifen möchten, müssen dem gleichen Abonnement zugeordnet sein.
 
-- Binden Sie einen lokalen Computer oder eine Azure-VM in eine lokale AD DS-Domäne ein. Weitere Informationen zum Domänenbeitritt finden Sie unter [Hinzufügen eines Computers zu einer Domäne](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain).
+- Binden Sie einen lokalen Computer oder eine Azure-VM in eine lokale AD DS-Domäne ein. Weitere Informationen zum Domänenbeitritt finden Sie unter [Hinzufügen eines Computers zu einer Domäne](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain).
 
     Wenn Ihr Computer keiner AD DS-Domäne beigetreten ist, können Sie möglicherweise dennoch AD-Anmeldeinformationen für die Authentifizierung verwenden, wenn Ihr Computer über eine Sichtverbindung mit dem AD-Domänencontroller verfügt.
 
@@ -55,7 +55,7 @@ Bevor Sie die AD DS-Authentifizierung für Azure-Dateifreigaben aktivieren, müs
     Stellen Sie sicher, dass das Speicherkonto mit den Dateifreigaben nicht bereits für Azure AD DS-Authentifizierung konfiguriert ist. Wenn die Azure Files-Azure AD DS-Authentifizierung für das Speicherkonto aktiviert ist, muss diese vor der Umstellung auf eine lokale AD DS-Authentifizierung deaktiviert werden. Dies bedeutet, dass vorhandene ACLs, die in der Azure AD DS-Umgebung konfiguriert sind, für die ordnungsgemäße Berechtigungserzwingung neu konfiguriert werden müssen.
 
 
-    Wenn beim Herstellen einer Verbindung mit Azure Files Probleme auftreten, können Sie das [Problembehandlungstool verwenden, das für Azure Files-Einbindungsfehler unter Windows veröffentlicht wurde](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Außerdem stehen [Anleitungen](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) zur Umgehung von Szenarien bereit, wenn Port 445 blockiert ist. 
+    Wenn beim Herstellen einer Verbindung mit Azure Files Probleme auftreten, können Sie das [Problembehandlungstool verwenden, das für Azure Files-Einbindungsfehler unter Windows veröffentlicht wurde](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Außerdem stehen [Anleitungen](./storage-files-faq.md#on-premises-access) zur Umgehung von Szenarien bereit, wenn Port 445 blockiert ist. 
 
 
 - Nehmen Sie alle relevanten Netzwerkkonfigurationen vor der Aktivierung und Konfiguration der AD DS-Authentifizierung für Ihre Azure-Dateifreigaben vor. Weitere Informationen finden Sie unter [Azure Files – Überlegungen zum Netzwerkbetrieb](storage-files-networking-overview.md).
@@ -66,7 +66,7 @@ Die Azure Files-Authentifizierung mit AD DS ist [in allen öffentlichen Azure- 
 
 ## <a name="overview"></a>Übersicht
 
-Wenn Sie Netzwerkkonfigurationen für Ihre Dateifreigabe aktivieren möchten, lesen Sie den Artikel [Netzwerküberlegungen](https://docs.microsoft.com/azure/storage/files/storage-files-networking-overview), und nehmen Sie entsprechende Konfiguration vor, bevor Sie die AD DS-Authentifizierung aktivieren.
+Wenn Sie Netzwerkkonfigurationen für Ihre Dateifreigabe aktivieren möchten, lesen Sie den Artikel [Netzwerküberlegungen](./storage-files-networking-overview.md), und nehmen Sie entsprechende Konfiguration vor, bevor Sie die AD DS-Authentifizierung aktivieren.
 
 Wenn Sie die AD DS-Authentifizierung für Ihre Azure-Dateifreigaben aktivieren, können Sie sich mit Ihren lokalen AD DS-Anmeldeinformationen bei ihren Azure-Dateifreigaben authentifizieren. Außerdem ermöglicht es eine bessere Verwaltung der Berechtigungen, sodass Sie eine präzise Zugriffssteuerung erzielen. Hierzu müssen die Identitäten mithilfe von AD Connect aus den lokalen AD DS mit Azure AD synchronisiert werden. Sie steuern den Zugriff auf Freigabeebene mit Identitäten, die mit Azure AD synchronisiert werden, während Sie den Zugriff auf Datei-/Freigabebene mit lokalen AD DS-Anmeldeinformationen verwalten.
 
@@ -86,7 +86,7 @@ Die folgende Abbildung zeigt den vollständigen Workflow zur Aktivierung der Azu
 
 ![Files AD-Workflowdiagramm](media/storage-files-active-directory-domain-services-enable/diagram-files-ad.png)
 
-Die für den Zugriff auf Azure-Dateifreigaben verwendeten Identitäten müssen mit Azure AD synchronisiert werden, um über das Modell für die [rollenbasierte Zugriffssteuerung von Azure (Azure Role-Based Access Control, Azure-RBAC)](../../role-based-access-control/overview.md) Dateiberechtigungen auf Freigabeebene zu erzwingen. [DACLs im Windows-Stil](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) für Dateien/Verzeichnisse, die von vorhandenen Dateiservern übertragen werden, werden beibehalten und erzwungen. Diese bietet Ihnen nahtlose Integration in die AD DS-Umgebung Ihres Unternehmens. Wenn Sie lokale Dateiserver durch Azure-Dateifreigaben ersetzen, können vorhandene Benutzer ohne Änderungen an den verwendeten Anmeldeinformationen auf Azure-Dateifreigaben von ihren aktuellen SSO-Clients aus zugreifen.  
+Die für den Zugriff auf Azure-Dateifreigaben verwendeten Identitäten müssen mit Azure AD synchronisiert werden, um über das Modell für die [rollenbasierte Zugriffssteuerung von Azure (Azure Role-Based Access Control, Azure-RBAC)](../../role-based-access-control/overview.md) Dateiberechtigungen auf Freigabeebene zu erzwingen. [DACLs im Windows-Stil](/previous-versions/technet-magazine/cc161041(v=msdn.10)) für Dateien/Verzeichnisse, die von vorhandenen Dateiservern übertragen werden, werden beibehalten und erzwungen. Diese bietet Ihnen nahtlose Integration in die AD DS-Umgebung Ihres Unternehmens. Wenn Sie lokale Dateiserver durch Azure-Dateifreigaben ersetzen, können vorhandene Benutzer ohne Änderungen an den verwendeten Anmeldeinformationen auf Azure-Dateifreigaben von ihren aktuellen SSO-Clients aus zugreifen.  
 
 ## <a name="next-steps"></a>Nächste Schritte
 

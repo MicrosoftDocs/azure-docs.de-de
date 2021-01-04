@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: 2f115313b17ed159973d2545b947e2ff031508eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff0378871139a038f096a44b9ee0c6af2cb67d73
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362332"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325818"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Erneutes Trainieren und Bereitstellen eines Machine Learning-Modells
 
-**GILT FÜR:**  ![Gilt für ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic) ![Gilt nicht für ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**GILT FÜR:**  ![Gilt für ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic) ![Gilt nicht für ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Das erneute Training von Machine Learning-Modellen ist eine Möglichkeit sicherzustellen, dass sie fehlerfrei bleiben und auf den relevantesten verfügbaren Daten basieren. Dieser Artikel veranschaulicht das erneute Trainieren und Bereitstellen eines Machine Learning-Modells als neuer Webdienst in Studio (klassisch). Wenn Sie einen klassischen Webdienst erneut trainieren möchten, [lesen Sie diese Anleitung](retrain-classic-web-service.md).
@@ -39,9 +39,9 @@ Mit einem Webdienst zum erneuten Trainieren können Sie Ihr Modell erneut mit ei
 
 Stellen Sie mit folgenden Schritten einen Webdienst zum erneuten Trainieren bereit:
 
-1. Stellen Sie die Verbindung eines **Web Service Input**-Moduls mit Ihrer Dateneingabe her. Dadurch wird sichergestellt, dass Ihre Daten für das erneute Training genau so verarbeitet werden wie Ihre ursprünglichen Trainingsdaten.
-1. Stellen Sie die Verbindung eines **Web Service Output**-Moduls mit der Ausgabe Ihres **Train Model** her.
-1. Wenn Sie ein **Evaluate Model**-Modul haben, können Sie die Verbindung eines **Web Service Output**-Moduls zur Ausgabe der Auswertungsergebnisse herstellen.
+1. Stellen Sie die Verbindung eines **Web Service Input** -Moduls mit Ihrer Dateneingabe her. Dadurch wird sichergestellt, dass Ihre Daten für das erneute Training genau so verarbeitet werden wie Ihre ursprünglichen Trainingsdaten.
+1. Stellen Sie die Verbindung eines **Web Service Output** -Moduls mit der Ausgabe Ihres **Train Model** her.
+1. Wenn Sie ein **Evaluate Model** -Modul haben, können Sie die Verbindung eines **Web Service Output** -Moduls zur Ausgabe der Auswertungsergebnisse herstellen.
 1. Führen Sie das Experiment aus.
 
     Nachdem Sie Ihr Experiment ausgeführt haben, sollte der resultierende Workflow dem folgenden Image ähneln:
@@ -76,27 +76,27 @@ Der folgende Screenshot zeigt die Seite **Consume** im Azure Machine Learning-We
 
 ### <a name="update-the-apikey-declaration"></a>Aktualisieren der apiKey-Deklaration
 
-Suchen Sie die **apiKey**-Deklaration:
+Suchen Sie die **apiKey** -Deklaration:
 
 ```csharp
 const string apiKey = "abc123"; // Replace this with the API key for the web service
 ```
 
-Kopieren Sie auf der Seite **Consume** (Verbrauchen) im Abschnitt **Basic consumption info** (Grundlegende Verbrauchsinformationen) den Primärschlüssel, und fügen Sie ihn in die **apikey**-Deklaration ein.
+Kopieren Sie auf der Seite **Consume** (Verbrauchen) im Abschnitt **Basic consumption info** (Grundlegende Verbrauchsinformationen) den Primärschlüssel, und fügen Sie ihn in die **apikey** -Deklaration ein.
 
 ### <a name="update-the-azure-storage-information"></a>Aktualisieren der Azure Storage-Informationen
 
 Der BES-Beispielcode lädt eine Datei von einem lokalen Laufwerk (z.B. „C:\temp\CensusInput.csv“) in Azure Storage hoch, verarbeitet sie und schreibt die Ergebnisse zurück in Azure Storage.
 
 1. Anmelden beim Azure-Portal
-1. Klicken Sie in der linken Navigationsspalte auf **Weitere Dienste**, suchen Sie nach **Speicherkonten**, und wählen Sie die Option aus.
+1. Klicken Sie in der linken Navigationsspalte auf **Weitere Dienste** , suchen Sie nach **Speicherkonten** , und wählen Sie die Option aus.
 1. Wählen Sie in der Speicherkontenliste ein Speicherkonto zum Speichern des neu trainierten Modells aus.
 1. Klicken Sie in der linken Navigationsspalte auf **Zugriffsschlüssel**.
 1. Kopieren und speichern Sie den Wert für **Primärer Zugriffsschlüssel**.
 1. Klicken Sie im linken Navigationsbereich auf **Blobs**.
 1. Wählen Sie einen vorhandenen Container aus, oder erstellen Sie einen neuen, und speichern Sie den Namen.
 
-Suchen Sie die Deklarationen *StorageAccountName*, *StorageAccountKey* und *StorageContainerName*, und aktualisieren Sie die Werte mit den gespeicherten Werten aus dem Portal.
+Suchen Sie die Deklarationen *StorageAccountName* , *StorageAccountKey* und *StorageContainerName* , und aktualisieren Sie die Werte mit den gespeicherten Werten aus dem Portal.
 
 ```csharp
 const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
@@ -130,11 +130,11 @@ Hier ist eine Beispielausgabe zum erneuten Trainieren:
 
 Wenn Sie die Anwendung ausführen, enthält die Ausgabe die URL und das erforderliche SAS-Token für den Zugriff auf die Auswertungsergebnisse.
 
-Sie können die Leistungsergebnisse des erneut trainierten Modells anzeigen, indem Sie *BaseLocation*, *RelativeLocation* und *SasBlobToken* aus den Ausgabeergebnissen für *output2* kombinieren und die vollständige URL in die Adressleiste des Browsers einfügen.
+Sie können die Leistungsergebnisse des erneut trainierten Modells anzeigen, indem Sie *BaseLocation* , *RelativeLocation* und *SasBlobToken* aus den Ausgabeergebnissen für *output2* kombinieren und die vollständige URL in die Adressleiste des Browsers einfügen.
 
 Überprüfen Sie die Ergebnisse, um festzustellen, ob das neu trainierte Modell besser ist als das vorhandene.
 
-Speichern Sie die Werte für *BaseLocation*, *RelativeLocation* und *SasBlobToken* aus den Ausgabeergebnissen.
+Speichern Sie die Werte für *BaseLocation* , *RelativeLocation* und *SasBlobToken* aus den Ausgabeergebnissen.
 
 ## <a name="update-the-predictive-experiment"></a>Aktualisieren des Vorhersageexperiments
 
@@ -144,7 +144,7 @@ Melden Sie sich innerhalb Ihrer PowerShell-Umgebung zunächst mithilfe des Cmdle
 
 ### <a name="get-the-web-service-definition-object"></a>Abrufen des Webdienstdefinition-Objekts
 
-Rufen Sie als nächstes mithilfe des Cmdlets [Get-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservice) das Webdienstdefinition-Objekt ab.
+Rufen Sie als nächstes mithilfe des Cmdlets [Get-AzMlWebService](/powershell/module/az.machinelearning/get-azmlwebservice) das Webdienstdefinition-Objekt ab.
 
 ```azurepowershell
 $wsd = Get-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
@@ -167,7 +167,7 @@ Alternativ können Sie sich zur Ermittlung des Ressourcengruppennamens eines vor
 
 ### <a name="export-the-web-service-definition-object-as-json"></a>Exportieren des Webdienstdefinition-Objekts als JSON-Code
 
-Um die Definition so zu ändern, dass das neu trainierte Modell verwendet wird, müssen Sie sie zunächst mithilfe des Cmdlets [Export-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/export-azmlwebservice) in eine Datei im JSON-Format exportieren.
+Um die Definition so zu ändern, dass das neu trainierte Modell verwendet wird, müssen Sie sie zunächst mithilfe des Cmdlets [Export-AzMlWebService](/powershell/module/az.machinelearning/export-azmlwebservice) in eine Datei im JSON-Format exportieren.
 
 ```azurepowershell
 Export-AzMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
@@ -194,7 +194,7 @@ Suchen Sie in den Assets nach „[trained model]“, und aktualisieren Sie den W
 
 ### <a name="import-the-json-into-a-web-service-definition-object"></a>Importieren des JSON-Codes in ein Webdienstdefinition-Objekt
 
-Konvertieren Sie die geänderte JSON-Datei mithilfe des Cmdlets [Import-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/import-azmlwebservice) wieder in ein Webdienstdefinition-Objekt, mit dem Sie das Vorhersageexperiment aktualisieren können.
+Konvertieren Sie die geänderte JSON-Datei mithilfe des Cmdlets [Import-AzMlWebService](/powershell/module/az.machinelearning/import-azmlwebservice) wieder in ein Webdienstdefinition-Objekt, mit dem Sie das Vorhersageexperiment aktualisieren können.
 
 ```azurepowershell
 $wsd = Import-AzMlWebService -InputFile "C:\temp\mlservice_export.json"
@@ -202,7 +202,7 @@ $wsd = Import-AzMlWebService -InputFile "C:\temp\mlservice_export.json"
 
 ### <a name="update-the-web-service"></a>Aktualisieren des Webdiensts
 
-Verwenden Sie abschließend das Cmdlet [Update-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/update-azmlwebservice), um das Vorhersageexperiment zu aktualisieren.
+Verwenden Sie abschließend das Cmdlet [Update-AzMlWebService](/powershell/module/az.machinelearning/update-azmlwebservice), um das Vorhersageexperiment zu aktualisieren.
 
 ```azurepowershell
 Update-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'

@@ -10,12 +10,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.date: 05/08/2019
-ms.openlocfilehash: 5f02a38059ebd27879a3c8d44eee7e473711d0e7
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: a454c1297b0f25c64b11217811999d4331148205
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776509"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96022461"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Von Azure Data Factory unterstützte Compute-Umgebungen
 
@@ -114,7 +114,7 @@ Die folgende JSON definiert einen bedarfsgesteuerten Linux-basierten mit HDInsig
 
 | Eigenschaft                     | Beschreibung                              | Erforderlich |
 | ---------------------------- | ---------------------------------------- | -------- |
-| type                         | Legen Sie die Typeigenschaft auf **HDInsightOnDemand**fest. | Ja      |
+| type                         | Legen Sie die Typeigenschaft auf **HDInsightOnDemand** fest. | Ja      |
 | clusterSize                  | Anzahl der Worker-/Datenknoten im Cluster. Der HDInsight-Cluster wird mit zwei Hauptknoten sowie der Anzahl der Workerknoten erstellt, die Sie für diese Eigenschaft angeben. Die Knoten haben die Größe Standard_D3, die vier Kerne aufweist. Ein Cluster mit vier Workerknoten nutzt also 24 Kerne (4 \* 4 = 16 für die Workerknoten + 2 \* 4 = 8 für die Hauptknoten). Nähere Informationen finden Sie unter [Einrichten von Clustern in HDInsight mit Hadoop, Spark, Kafka usw.](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) | Ja      |
 | linkedServiceName            | Der verknüpfte Azure Storage-Dienst, den der bedarfsgesteuerte Cluster zum Speichern und Verarbeiten von Daten nutzt. Der HDInsight-Cluster wird in der gleichen Region wie das Azure Storage-Konto erstellt. Die Gesamtanzahl von Kernen, die Sie in jeder von Azure HDInsight unterstützten Azure-Region verwenden können, ist begrenzt. Stellen Sie sicher, dass Sie über genügend Kernekontingente in dieser Azure-Region verfügen, um die Anforderungen von clusterSize zu erfüllen. Nähere Informationen finden Sie unter [Einrichten von Clustern in HDInsight mit Hadoop, Spark, Kafka usw.](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)<p>Derzeit können Sie keinen bedarfsgesteuerten HDInsight-Cluster erstellen, der einen Azure Data Lake Storage (Gen 2) als Speicher verwendet. Wenn Sie die Ergebnisdaten der HDInsight-Verarbeitung in einem Azure Data Lake Storage (Gen 2) speichern möchten, kopieren Sie die Daten mittels einer Kopieraktivität aus dem Azure Blob Storage in den Azure Data Lake Storage (Gen 2). </p> | Ja      |
 | clusterResourceGroup         | Der HDInsight-Cluster wird in dieser Ressourcengruppe erstellt. | Ja      |
@@ -132,7 +132,7 @@ Die folgende JSON definiert einen bedarfsgesteuerten Linux-basierten mit HDInsig
 | clusterPassword                   | Das Kennwort als sichere Zeichenfolge zum Zugriff auf den Cluster. | Nein       |
 | clusterSshUserName         | Der Benutzername zum Herstellen einer SSH-Remoteverbindung mit dem Knoten des Clusters (für Linux). | Nein       |
 | clusterSshPassword         | Das Kennwort als sichere Zeichenfolge zum Herstellen einer SSH-Remoteverbindung mit dem Knoten des Clusters (für Linux). | Nein       |
-| scriptActions | Geben Sie beim Erstellen bedarfsgesteuerter Cluster Skripts für [HDInsight-Clusteranpassungen](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux) an. <br />Derzeit unterstützt das Erstellungstool für die Benutzeroberfläche der Azure Data Factory die Angabe von nur einer Skriptaktion. Sie können diese Einschränkung jedoch durch die Angabe mehrerer Skriptaktionen im JSON-Code beseitigen. | Nein |
+| scriptActions | Geben Sie beim Erstellen bedarfsgesteuerter Cluster Skripts für [HDInsight-Clusteranpassungen](../hdinsight/hdinsight-hadoop-customize-cluster-linux.md) an. <br />Derzeit unterstützt das Erstellungstool für die Benutzeroberfläche der Azure Data Factory die Angabe von nur einer Skriptaktion. Sie können diese Einschränkung jedoch durch die Angabe mehrerer Skriptaktionen im JSON-Code beseitigen. | Nein |
 
 
 > [!IMPORTANT]
@@ -152,7 +152,7 @@ Die folgende JSON definiert einen bedarfsgesteuerten Linux-basierten mit HDInsig
 
 #### <a name="service-principal-authentication"></a>Dienstprinzipalauthentifizierung
 
-Der verknüpfte, bedarfsgesteuerte HDInsight-Dienst erfordert eine Dienstprinzipalauthentifizierung, um HDInsight-Cluster in Ihrem Namen zu erstellen. Um die Dienstprinzipalauthentifizierung zu verwenden, registrieren Sie eine Anwendungsentität in Azure Active Directory (Azure AD), und teilen Sie ihr die Rolle **Mitwirkender** des Abonnements oder der Ressourcengruppe zu, wo der HDInsight-Cluster erstellt wird. Nähere Informationen finden Sie unter [Erstellen einer Azure Active Directory-Anwendung und eines Dienstprinzipals mit Ressourcenzugriff mithilfe des Portals](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Notieren Sie sich die folgenden Werte, die Sie zum Definieren des verknüpften Diensts verwenden:
+Der verknüpfte, bedarfsgesteuerte HDInsight-Dienst erfordert eine Dienstprinzipalauthentifizierung, um HDInsight-Cluster in Ihrem Namen zu erstellen. Um die Dienstprinzipalauthentifizierung zu verwenden, registrieren Sie eine Anwendungsentität in Azure Active Directory (Azure AD), und teilen Sie ihr die Rolle **Mitwirkender** des Abonnements oder der Ressourcengruppe zu, wo der HDInsight-Cluster erstellt wird. Nähere Informationen finden Sie unter [Erstellen einer Azure Active Directory-Anwendung und eines Dienstprinzipals mit Ressourcenzugriff mithilfe des Portals](../active-directory/develop/howto-create-service-principal-portal.md). Notieren Sie sich die folgenden Werte, die Sie zum Definieren des verknüpften Diensts verwenden:
 
 - Anwendungs-ID
 - Anwendungsschlüssel 
@@ -244,7 +244,7 @@ Sie können die Größe der Head-, Daten- und Zookeeper-Knoten mit den folgenden
 | dataNodeSize      | Gibt die Größe des Datenknotens an. Der Standardwert lautet: Standard_D3. | Nein       |
 | zookeeperNodeSize | Gibt die Größe des Zoo Keeper-Knotens an. Der Standardwert lautet: Standard_D3. | Nein       |
 
-* Für die Angabe von Knotengrößen lesen Sie den Artikel [Größen von virtuellen Computern](../virtual-machines/linux/sizes.md), um Näheres zu Zeichenfolgenwerten zu erfahren, die Sie für die im vorherigen Abschnitt erwähnten Eigenschaften angeben müssen. Die Werte müssen den **CMDLETs und APIs** entsprechen, auf die im Artikel verwiesen wird. Wie Sie in diesem Artikel sehen können, hat der Datenknoten „Large“ (Standard) 7 GB Arbeitsspeicher, was für Ihr Szenario möglicherweise nicht ausreichend ist. 
+* Für die Angabe von Knotengrößen lesen Sie den Artikel [Größen von virtuellen Computern](../virtual-machines/sizes.md), um Näheres zu Zeichenfolgenwerten zu erfahren, die Sie für die im vorherigen Abschnitt erwähnten Eigenschaften angeben müssen. Die Werte müssen den **CMDLETs und APIs** entsprechen, auf die im Artikel verwiesen wird. Wie Sie in diesem Artikel sehen können, hat der Datenknoten „Large“ (Standard) 7 GB Arbeitsspeicher, was für Ihr Szenario möglicherweise nicht ausreichend ist. 
 
 Wenn Sie Hauptknoten und Workerknoten der Größe D4 erstellen möchten, geben Sie **Standard_D4** als Wert für die Eigenschaften „headNodeSize“ und „dataNodeSize“ an. 
 
@@ -253,7 +253,7 @@ Wenn Sie Hauptknoten und Workerknoten der Größe D4 erstellen möchten, geben S
 "dataNodeSize": "Standard_D4",
 ```
 
-Wenn Sie einen falschen Wert für diese Eigenschaften angeben, erhalten Sie möglicherweise den folgenden **Fehler**: Der Cluster wurde nicht erstellt. Ausnahme: Vorgang der Clustererstellung kann nicht abgeschlossen werden. Vorgang mit Code ‚400‘ fehlgeschlagen. Cluster hinterließ folgenden Status: 'Error'. Meldung: 'PreClusterCreationValidationFailure'. Wenn Sie diesen Fehler erhalten, achten Sie darauf, dass Sie den Namen der **Cmdlets und APIs** aus der Tabelle im Artikel [Größen für virtuelle Computer](../virtual-machines/linux/sizes.md) verwenden.        
+Wenn Sie einen falschen Wert für diese Eigenschaften angeben, erhalten Sie möglicherweise den folgenden **Fehler**: Der Cluster wurde nicht erstellt. Ausnahme: Vorgang der Clustererstellung kann nicht abgeschlossen werden. Vorgang mit Code ‚400‘ fehlgeschlagen. Cluster hinterließ folgenden Status: 'Error'. Meldung: 'PreClusterCreationValidationFailure'. Wenn Sie diesen Fehler erhalten, achten Sie darauf, dass Sie den Namen der **Cmdlets und APIs** aus der Tabelle im Artikel [Größen für virtuelle Computer](../virtual-machines/sizes.md) verwenden.          
 
 ### <a name="bring-your-own-compute-environment"></a>Eigene Compute-Umgebung
 Bei dieser Konfiguration können Benutzer eine bereits vorhandene Compute-Umgebung als verknüpften Dienst in Data Factory registrieren. Die Compute-Umgebung wird vom Benutzer verwaltet und von Data Factory zum Ausführen von Aktivitäten verwendet.
@@ -299,12 +299,12 @@ Sie können einen verknüpften Azure HDInsight-Dienst erstellen, um Ihren eigene
 ### <a name="properties"></a>Eigenschaften
 | Eigenschaft          | Beschreibung                                                  | Erforderlich |
 | ----------------- | ------------------------------------------------------------ | -------- |
-| type              | Legen Sie die Typeigenschaft auf **HDInsight**fest.            | Ja      |
+| type              | Legen Sie die Typeigenschaft auf **HDInsight** fest.            | Ja      |
 | clusterUri        | Der URI des HDInsight-Clusters.                            | Ja      |
 | username          | Geben Sie den Namen des Benutzers ein, der mit einem vorhandenen HDInsight-Cluster verbunden werden soll. | Ja      |
 | password          | Geben Sie ein Kennwort für das Benutzerkonto an.                       | Ja      |
 | linkedServiceName | Der Name des verknüpften Azure Storage-Diensts für die von diesem HDInsight-Cluster verwendete Azure Blob Storage-Instanz. <p>Derzeit können Sie keinen verknüpften Azure Data Lake Storage (Gen 2)-Dienst für diese Eigenschaft angeben. Wenn der HDInsight-Cluster Zugriff auf den Data Lake Store hat, können Sie auf Daten im Azure Data Lake Storage (Gen 2) über Hive-/Pig-Skripts zugreifen. </p> | Ja      |
-| isEspEnabled      | Geben Sie *TRUE* an, wenn der HDInsight-Cluster für das [Enterprise-Sicherheitspaket](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-architecture) aktiviert ist. Die Standardeinstellung lautet *FALSE*. | Nein       |
+| isEspEnabled      | Geben Sie *TRUE* an, wenn der HDInsight-Cluster für das [Enterprise-Sicherheitspaket](../hdinsight/domain-joined/apache-domain-joined-architecture.md) aktiviert ist. Die Standardeinstellung lautet *FALSE*. | Nein       |
 | connectVia        | Die Integration Runtime, mit der die Aktivitäten diesem verknüpften Dienst zugeteilt werden. Sie können Azure Integration Runtime oder selbstgehostete Integration Runtime verwenden. Wenn keine Option angegeben ist, wird die standardmäßige Azure Integration Runtime verwendet. <br />Verwenden Sie für einen für das Enterprise-Sicherheitspaket (ESP) aktivierten HDInsight-Cluster eine selbstgehostete Integration Runtime, die auf den Cluster zugreifen kann oder in demselben virtuellen Netzwerk wie der ESP-HDInsight-Cluster bereitgestellt werden muss. | Nein       |
 
 > [!IMPORTANT]
@@ -324,7 +324,7 @@ Sie können einen verknüpften Azure Batch-Dienst erstellen, um einen Batch-Pool
 Lesen Sie die folgenden Artikel, wenn Sie noch nicht mit dem Azure Batch-Dienst vertraut sind:
 
 * [Azure Batch – Grundlagen](../batch/batch-technical-overview.md) finden Sie eine Übersicht über den Azure Batch-Dienst.
-* Erstellen Sie ein Azure Batch-Konto mit dem Cmdlet [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount), oder erstellen Sie das Azure Batch-Konto über das [Azure-Portal](../batch/batch-account-create-portal.md). Im Artikel [Verwenden von PowerShell zum Verwalten eines Azure Batch-Kontos](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) ist die Verwendung dieses Cmdlets im Detail beschrieben.
+* Erstellen Sie ein Azure Batch-Konto mit dem Cmdlet [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount), oder erstellen Sie das Azure Batch-Konto über das [Azure-Portal](../batch/batch-account-create-portal.md). Im Artikel [Verwenden von PowerShell zum Verwalten eines Azure Batch-Kontos](/archive/blogs/windowshpc/using-azure-powershell-to-manage-azure-batch-account) ist die Verwendung dieses Cmdlets im Detail beschrieben.
 * [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool), um einen Azure Batch-Pool zu erstellen.
 
 ### <a name="example"></a>Beispiel
@@ -359,7 +359,7 @@ Lesen Sie die folgenden Artikel, wenn Sie noch nicht mit dem Azure Batch-Dienst 
 ### <a name="properties"></a>Eigenschaften
 | Eigenschaft          | Beschreibung                              | Erforderlich |
 | ----------------- | ---------------------------------------- | -------- |
-| type              | Legen Sie die Typeigenschaft auf **AzureBatch**fest. | Ja      |
+| type              | Legen Sie die Typeigenschaft auf **AzureBatch** fest. | Ja      |
 | .<Name der Region       | Der Name des Azure Batch-Kontos.         | Ja      |
 | accessKey         | Der Zugriffsschlüssel für das Azure Batch-Konto.  | Ja      |
 | batchUri          | URL zu Ihrem Azure Batch-Konto im Format „https://*batchaccountname.region*. batch.azure.com“. | Ja      |
@@ -497,7 +497,7 @@ Sie erstellen einen mit **Azure Data Lake Analytics** verknüpften Dienst, um ei
 ## <a name="azure-databricks-linked-service"></a>Mit Azure Databricks verknüpfter Dienst
 Sie können einen **mit Azure Databricks verknüpften Dienst** erstellen, um den Databricks-Arbeitsbereich zu registrieren, den Sie für die Ausführung der Databricks-Workloads (Notebook, JAR, Python) verwenden möchten. 
 > [!IMPORTANT]
-> Mit Databricks verknüpfte Dienste unterstützen [Instanzenpools](https://aka.ms/instance-pools). 
+> Mit Databricks verknüpfte Dienste unterstützen [Instanzenpools](https://aka.ms/instance-pools) und die Authentifizierung der systemseitig zugewiesenen verwalteten Identität.
 
 ### <a name="example---using-new-job-cluster-in-databricks"></a>Beispiel: Verwenden eines neuen Auftragsclusters in Databricks
 
@@ -547,7 +547,8 @@ Sie können einen **mit Azure Databricks verknüpften Dienst** erstellen, um den
 | name                 | Name des verknüpften Diensts               | Ja   |
 | type                 | Legen Sie die type-Eigenschaft auf **Azure Databricks**: | Ja                                      |
 | Domäne               | Geben Sie die Azure-Region entsprechend der Region des Databricks-Arbeitsbereichs an. Beispiel: https://eastus.azuredatabricks.net | Ja                                 |
-| accessToken          | Für die Authentifizierung bei Azure Databricks ist ein Zugriffstoken erforderlich. Das Zugriffstoken muss im Databricks-Arbeitsbereich generiert werden. Ausführlichere Informationen zum Auffinden des Zugriffstokens finden Sie [hier](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token).  | Ja                                       |
+| accessToken          | Für die Authentifizierung bei Azure Databricks ist ein Zugriffstoken erforderlich. Das Zugriffstoken muss im Databricks-Arbeitsbereich generiert werden. Ausführlichere Informationen zum Auffinden des Zugriffstokens finden Sie [hier](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token).  | Nein                                       |
+| MSI          | Verwenden Sie die verwaltete Identität von Data Factory (systemseitig zugewiesen) zur Authentifizierung bei Azure Databricks. Wenn Sie die MSI-Authentifizierung verwenden, benötigen Sie kein Zugriffstoken.  | Nein                                       |
 | existingClusterId    | Cluster-ID eines vorhandenen Clusters, in dem alle Aufträge ausgeführt werden. Dabei sollte es sich um einen bereits erstellten interaktiven Cluster handeln. Möglicherweise müssen Sie den Cluster manuell neu starten, falls er nicht mehr reagiert. Databricks empfiehlt, Aufträge in neuen Clustern auszuführen, um die Zuverlässigkeit zu erhöhen. Sie finden die Cluster-ID eines interaktiven Clusters unter: Databricks-Arbeitsbereich -> Cluster -> Name des interaktiven Clusters -> Konfiguration -> Tags. [Weitere Informationen](https://docs.databricks.com/user-guide/clusters/tags.html) | Nein 
 | instancePoolId    | Instanzenpool-ID eines vorhandenen Pools im Databricks-Arbeitsbereich.  | Nein  |
 | newClusterVersion    | Die Spark-Version des Clusters. Damit wird ein Auftragscluster in Databricks erstellt. | Nein  |

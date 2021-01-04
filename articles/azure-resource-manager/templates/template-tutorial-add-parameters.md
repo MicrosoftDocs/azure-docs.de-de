@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Hinzufügen von Parametern zu einer Vorlage'
-description: Fügen Sie Ihrer Azure Resource Manager-Vorlage Parameter hinzu, damit sie wiederverwendet werden kann.
+description: Fügen Sie Ihrer Azure Resource Manager-Vorlage (ARM-Vorlage) Parameter hinzu, damit sie wiederverwendet werden kann.
 author: mumian
 ms.date: 03/31/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9e860941c3d782498c12afa12f285f44e7e68f37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d0743d316b9d879017f3b0fbe08ee4dc2b3e1c2
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069440"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931060"
 ---
 # <a name="tutorial-add-parameters-to-your-arm-template"></a>Tutorial: Hinzufügen von Parametern zu Ihrer ARM-Vorlage
 
-Im [vorherigen Tutorial](template-tutorial-add-resource.md) haben Sie erfahren, wie Sie der Vorlage ein Speicherkonto hinzufügen und sie bereitstellen. In diesem Tutorial wird beschrieben, wie Sie die ARM-Vorlage (Azure Resource Manager) verbessern, indem Sie Parameter hinzufügen. Das Tutorial dauert ungefähr **14 Minuten**.
+Im [vorherigen Tutorial](template-tutorial-add-resource.md) haben Sie erfahren, wie Sie der Vorlage ein Speicherkonto hinzufügen und sie bereitstellen. In diesem Tutorial wird beschrieben, wie Sie die ARM-Vorlage (Azure Resource Manager-Vorlage) verbessern, indem Sie Parameter hinzufügen. Das Tutorial dauert ungefähr **14 Minuten**.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 

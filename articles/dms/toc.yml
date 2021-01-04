@@ -28,6 +28,10 @@
           href: resource-network-topologies.md
         - name: Benutzerdefinierte Rollen
           href: resource-custom-roles-sql-db-managed-instance.md
+    - name: Sicherheit
+      items:
+        - name: Sicherheitsbaseline
+          href: security-baseline.md
 - name: Tutorials
   expanded: true
   items:
@@ -112,11 +116,11 @@
         - name: Leitfaden zur Azure-Datenbankmigration
           href: 'https://aka.ms/datamigration'
         - name: Datenmigrations-Assistent
-          href: 'https://aka.ms/dma'
+          href: /sql/dma/dma-overview
         - name: SQL Server Migration Assistant
-          href: 'https://aka.ms/ssma'
+          href: /sql/ssma/sql-server-migration-assistant
         - name: Assistent für Datenbankexperimente
-          href: 'https://aka.ms/dea-docs'
+          href: /sql/dea/database-experimentation-assistant-overview
         - name: Data Access Migration Toolkit
           href: 'https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit'
     - name: Problembehandlung und bekannte Probleme

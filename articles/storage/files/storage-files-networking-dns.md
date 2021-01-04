@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4b5ce48cf15c890fbdb3dfd90d9d0ab922a2f4b2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9abe306668a4b20e42e45c498bf85b540dfaaee5
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320267"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630191"
 ---
 # <a name="configuring-dns-forwarding-for-azure-files"></a>Konfigurieren der DNS-Weiterleitung für Azure Files
 Mit Azure Files können Sie private Endpunkte für die Speicherkonten erstellen, die Ihre Dateifreigaben enthalten. Private Endpunkte können für viele unterschiedliche Anwendungsarten genutzt werden. Sie sind aber besonders nützlich, um aus Ihrem lokalen Netzwerk eine Verbindung mit Ihren Azure-Dateifreigaben herzustellen, indem eine VPN- oder ExpressRoute-Verbindung mit privatem Peering verwendet wird. 
@@ -43,7 +43,7 @@ Bevor Sie die DNS-Weiterleitung zu Azure Files einrichten können, müssen Sie d
 
 - Ein Speicherkonto mit einer Azure-Dateifreigabe, die Sie einbinden möchten. Informationen zum Erstellen eines Speicherkontos und einer Azure-Dateifreigabe finden Sie unter [Erstellen einer Azure-Dateifreigabe](storage-how-to-create-file-share.md).
 - Ein privater Endpunkt für das Speicherkonto. Informationen zum Erstellen eines privaten Endpunkts für Azure Files finden Sie unter [Erstellen eines privaten Endpunkts](storage-files-networking-endpoints.md#create-a-private-endpoint).
-- Die [aktuelle Version](https://docs.microsoft.com/powershell/azure/install-az-ps) des Azure PowerShell-Moduls.
+- Die [aktuelle Version](/powershell/azure/install-az-ps) des Azure PowerShell-Moduls.
 
 > [!Important]  
 > In diesem Leitfaden wird davon ausgegangen, dass Sie den DNS-Server unter Windows Server in Ihrer lokalen Umgebung verwenden. Alle Schritte, die in diesem Leitfaden beschrieben werden, gelten nicht nur für den DNS-Server von Windows, sondern für alle DNS-Server.

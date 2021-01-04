@@ -36,122 +36,32 @@
       href: tutorial-virtual-network.md
     - name: 9 – Sichern virtueller Computer
       href: tutorial-backup-vms.md
-    - name: '10: Verwalten von virtuellen Computern'
+    - name: 10. Aktivieren der Notfallwiederherstellung
+      href: tutorial-disaster-recovery.md
+    - name: 11. Verwalten virtueller Computer
       href: tutorial-govern-resources.md
-    - name: '11: Nachverfolgen und Aktualisieren von virtuellen Computern'
+    - name: 12. Nachverfolgen und Aktualisieren virtueller Computer
       href: tutorial-config-management.md
-    - name: '12: Überwachen virtueller Computer'
+    - name: 13. Überwachen virtueller Computer
       href: tutorial-monitor.md
-    - name: '13: Verwalten der VM-Sicherheit'
-      href: tutorial-azure-security.md
-    - name: '14a: Bereitstellen mit Jenkins'
+    - name: 14. Verwalten der VM-Sicherheit
+      href: ../tutorial-azure-security.md
+    - name: 15a. Erstellen mit Jenkins
       href: /azure/developer/jenkins/pipeline-with-github-and-docker
-    - name: '14b: Integrieren von Jenkins in Azure DevOps'
+    - name: 15b. Integrieren von Jenkins in Azure DevOps
       href: /azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services
-    - name: '15a: Konfigurieren der Strategie für eine parallele Bereitstellung'
+    - name: 16a. Konfigurieren der Strategie für eine parallele Bereitstellung
       href: tutorial-devops-azure-pipelines-classic.md
-    - name: '15b: Konfigurieren der Strategie für die Canary-Bereitstellung'
+    - name: 16b. Konfigurieren der Strategie für die Canary-Bereitstellung
       href: tutorial-azure-devops-canary-strategy.md
-    - name: '15c: Konfigurieren der Strategie für eine Blaugrün-Bereitstellung'
+    - name: 16c. Konfigurieren der Strategie für eine Blaugrün-Bereitstellung
       href: tutorial-azure-devops-blue-green-strategy.md
-    - name: '15d: CI/CD mit Azure Pipelines (YAML)'
+    - name: 16d. CI/CD mit Azure Pipelines (YAML)
       href: tutorial-build-deploy-azure-pipelines.md
-    - name: '16: Erstellen eines LAMP-Stapels'
+    - name: 17. Erstellen eines LAMP-Stapels
       href: tutorial-lamp-stack.md
-    - name: '17: Sichern von Webservern mit SSL'
+    - name: 18. Sichern von Webservern mit SSL
       href: tutorial-secure-web-server.md
-- name: Beispiele
-  items:
-    - name: Azure CLI
-      items:
-        - name: Index für CLI-Beispiele
-          href: cli-samples.md
-        - name: Virtuelle Computer erstellen
-          items:
-            - name: Erstellen eines virtuellen Computers
-              href: ./../scripts/virtual-machines-linux-cli-sample-create-vm-quick-create.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: Erstellen einer vollständig konfigurierten VM
-              href: ./../scripts/virtual-machines-linux-cli-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: Erstellen hoch verfügbarer VMs
-              href: ./../scripts/virtual-machines-linux-cli-sample-nlb.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: Erstellen einer VM und Ausführen eines Konfigurationsskripts
-              href: ./../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: Erstellen eines virtuellen Computers mit WordPress
-              href: ./../scripts/virtual-machines-linux-cli-sample-create-vm-wordpress.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: Erstellen eines virtuellen Computers von einem verwalteten Betriebssystemdatenträger
-              href: ./../scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: Erstellen eines virtuellen Computers aus einer Momentaufnahme
-              href: ./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: Verwalten von Speicher
-          items:
-            - name: Erstellen verwalteter Datenträger aus einer VHD
-              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: Erstellen eines verwalteten Datenträgers aus einer Momentaufnahme
-              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: Kopieren eines verwalteten Datenträgers in dasselbe oder ein anderes Abonnement
-              href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: Exportieren einer Momentaufnahme als VHD-Datei in ein Speicherkonto
-              href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: Exportieren der VHD eines verwalteten Datenträgers in ein Speicherkonto
-              href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: Kopieren einer Momentaufnahme in dasselbe oder ein anderes Abonnement
-              href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: Netzwerk-VMs
-          items:
-            - name: Sicherer Netzwerkdatenverkehr zwischen virtuellen Computern
-              href: ./../scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: Sichern von virtuellen Computern
-          items:
-            - name: Verschlüsseln eines virtuellen Computers und der Datenträger
-              href: ./../scripts/virtual-machines-linux-cli-sample-encrypt-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: Überwachen virtueller Maschinen
-          items:
-            - name: "Überwachen eines virtuellen Computers mit Azure\_Monitor-Protokollen"
-              href: ./../scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: Problembehandlung
-          items:
-            - name: Problembehandlung bei einem Betriebssystem-Datenträger eines virtuellen Computers
-              href: ./../scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Azure PowerShell
-      items:
-        - name: Index für PowerShell-Beispiele
-          href: powershell-samples.md
-        - name: Erstellen von virtuellen Computern
-          items:
-            - name: Erstellen einer vollständig konfigurierten VM
-              href: './../scripts/virtual-machines-linux-powershell-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a resource group, virtual machine, and all related resources.|'
-            - name: Erstellen eines virtuellen Computers mit Docker
-              href: ./../scripts/virtual-machines-linux-powershell-sample-create-docker-host.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: Erstellen einer VM und Ausführen eines Konfigurationsskripts
-              href: ./../scripts/virtual-machines-linux-powershell-sample-create-vm-nginx.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: Erstellen eines virtuellen Computers mit WordPress
-              href: ./../scripts/virtual-machines-linux-powershell-sample-create-vm-wordpress.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: Erstellen eines virtuellen Computers von einem verwalteten Betriebssystemdatenträger
-              href: ./../scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: Erstellen eines virtuellen Computers aus einer Momentaufnahme
-              href: ./../scripts/virtual-machines-linux-powershell-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: Verwalten von Speicher
-          items:
-            - name: Erstellen eines verwalteten Datenträgers auf der Grundlage einer VHD im gleichen oder in einem anderen Abonnement
-              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: Erstellen eines verwalteten Datenträgers aus einer Momentaufnahme
-              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: Exportieren einer Momentaufnahme als VHD in ein Speicherkonto
-              href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: Exportieren der VHD eines verwalteten Datenträgers in ein Speicherkonto
-              href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: Erstellen einer Momentaufnahme aus einer VHD
-              href: ../scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: Kopieren einer Momentaufnahme in das gleiche oder in ein anderes Abonnement
-              href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: Überwachen virtueller Maschinen
-          items:
-            - name: "Überwachen eines virtuellen Computers mit Azure\_Monitor-Protokollen"
-              href: ./../scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: Kopieren eines verwalteten Datenträgers in das gleiche oder in ein anderes Abonnement
-              href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: Sammeln von Informationen zu allen virtuellen Computern in einem Abonnement mit PowerShell
-              href: ../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
 - name: Konzepte
   items:
     - name: Bildverarbeitung
@@ -161,9 +71,9 @@
         - name: Bereitstellung
           href: provisioning.md
         - name: Kataloge mit freigegebenen Images
-          href: shared-image-galleries.md
+          href: ../shared-image-galleries.md
         - name: Image Builder
-          href: image-builder-overview.md
+          href: ../image-builder-overview.md
     - name: Azure Resource Manager
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Regions
@@ -181,7 +91,7 @@
         - name: Verfügbarkeit
           href: ../availability.md
         - name: Zusammenstellung
-          href: co-location.md
+          href: ../co-location.md
         - name: Netzwerkleistung
           href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Arten und Größen von virtuellen Computern
@@ -285,7 +195,7 @@
         - name: Reservierte Instanzen
           items:
             - name: Vorauszahlung für virtuelle Computer
-              href: prepay-reserved-vm-instances.md
+              href: ../prepay-reserved-vm-instances.md
             - name: Vorauszahlung für Dedicated Host-Instanzen
               href: ../prepay-dedicated-hosts-reserved-instances.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Was sind Azure-Reservierungen?
@@ -328,13 +238,15 @@
         - name: Entwerfen für hohe Leistung
           href: ../premium-storage-performance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Datenträgerbursting
-          href: disk-bursting.md
+          href: ../disk-bursting.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Skalierbarkeitsziele für Datenträger
           href: disk-scalability-targets.md
         - name: Sicherung und Notfallwiederherstellung für Datenträger
           href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Freigegebene Datenträger
-          href: disks-shared.md
+          href: ../disks-shared.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Leistungsstufen für Datenträger
+          href: ../disks-change-performance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Kurzlebige Betriebssystemdatenträger
           href: ../ephemeral-os-disks.md
     - name: Netzwerk
@@ -409,17 +321,17 @@
         - name: Deaktivierung ab dem 1. März 2023
           href: ../classic-vm-deprecation.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Übersicht über die Migration
-          href: migration-classic-resource-manager-overview.md
+          href: ../migration-classic-resource-manager-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Ausführliche Informationen zur Migration
           href: ../migration-classic-resource-manager-deep-dive.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Planen der Migration
-          href: migration-classic-resource-manager-plan.md
+          href: ../migration-classic-resource-manager-plan.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Migrieren mithilfe der Befehlszeilenschnittstelle
-          href: migration-classic-resource-manager-cli.md
+          href: ../migration-classic-resource-manager-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Häufige Fehler bei der Migration
-          href: migration-classic-resource-manager-errors.md
+          href: ../migration-classic-resource-manager-errors.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Communitytools für die Migration
-          href: ../windows/migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Häufig gestellte Fragen
           href: ../migration-classic-resource-manager-faq.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Verwenden von Images
@@ -483,7 +395,7 @@
                       href: ../image-version-vm-cli.md
                     - name: Von einem verwalteten Datenträger oder von einer Momentaufnahme
                       href: ../image-version-snapshot-cli.md
-                    - name: Migrieren von einem verwalteten Image
+                    - name: Klonen eines verwalteten Images
                       href: ../image-version-managed-image-cli.md
                     - name: Kopieren aus einem anderen Katalog
                       href: ../image-version-another-gallery-cli.md
@@ -507,7 +419,7 @@
                       href: ../image-version-vm-powershell.md
                     - name: Von einem verwalteten Datenträger oder von einer Momentaufnahme
                       href: ../image-version-snapshot-powershell.md
-                    - name: Migrieren von einem verwalteten Image
+                    - name: Klonen eines verwalteten Images
                       href: ../image-version-managed-image-powershell.md
                     - name: Kopieren aus einem anderen Katalog
                       href: ../image-version-another-gallery-powershell.md
@@ -582,7 +494,7 @@
     - name: Schützen von virtuellen Computern
       items:
         - name: Empfehlungen
-          href: security-recommendations.md
+          href: ../security-recommendations.md
         - name: Just-in-Time-Zugriff
           href: ../../security-center/security-center-just-in-time.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Verwenden von Bastion
@@ -590,7 +502,7 @@
             - name: Erstellen eines Bastion-Hosts
               items:
                 - name: Portal
-                  href: ../../bastion/bastion-create-host-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                  href: ../../bastion/tutorial-create-host-portal.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
                 - name: PowerShell
                   href: ../../bastion/bastion-create-host-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
                 - name: Befehlszeilenschnittstelle (CLI)
@@ -685,7 +597,15 @@
         - name: Zeitsynchronisierung
           href: time-sync.md
         - name: Kennzeichnen eines virtuellen Computers
-          href: tag.md
+          items:
+            - name: Befehlszeilenschnittstelle (CLI)
+              href: ../tag-cli.md
+            - name: Portal
+              href: ../tag-portal.md
+            - name: PowerShell
+              href: ../tag-powershell.md
+            - name: Vorlage
+              href: ../tag-template.md
         - name: Ausführen von Skripts für einen virtuellen Computer
           href: run-scripts-in-vm.md
           items:
@@ -717,7 +637,7 @@
             - name: Agent-Aktualisierung
               href: ../extensions/update-linux-agent.md
         - name: Maßnahmen im Zusammenhang mit der spekulativen Ausführung
-          href: mitigate-se.md
+          href: ../mitigate-se.md
         - name: Überwachen von Metadaten
           href: instance-metadata-service.md
         - name: Abrufen von Nutzungsmetriken mit REST
@@ -961,8 +881,10 @@
               href: add-disk.md
             - name: Azure-Portal
               href: attach-disk-portal.md
-        - name: Ändern der Datenträgerebene
+        - name: 'Ändern der Datenträgerebene: PowerShell/CLI'
           href: ../disks-performance-tiers.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: 'Ändern der Datenträgerebene: Portal'
+          href: ../disks-performance-tiers-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Trennen eines Datenträgers
           href: detach-disk.md
         - name: Bereitstellen von Datenträgern mit einer ARM-Vorlage
@@ -1022,12 +944,12 @@
               href: ../disks-enable-ultra-ssd.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Durchführen von Vergleichstest für einen Datenträger
               href: disks-benchmarks.md
-            - name: Optimieren der Leistung
-              href: optimization.md
         - name: 'Ermitteln nicht angefügter Datenträger: CLI'
           href: find-unattached-disks.md
         - name: 'Ermitteln nicht angefügter Datenträger: Portal'
           href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Zuordnen von Azure-Datenträgern zu Gastdatenträgern
+          href: azure-to-guest-disk-mapping.md
         - name: Verwenden von File Storage
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: Häufig gestellte Fragen zu Datenträgern
@@ -1045,7 +967,7 @@
         - name: Verwenden des beschleunigten Netzwerkbetriebs
           href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Zuweisen eines öffentlichen DNS-Namens
-          href: portal-create-fqdn.md
+          href: ../create-fqdn.md
         - name: Suchen und Löschen nicht angefügter Netzwerkadapter
           href: find-unattached-nics.md
         - name: DNS-Auflösung
@@ -1138,6 +1060,8 @@
               href: upload-vhd.md
             - name: Von Azure Site Recovery
               href: ../../site-recovery/migrate-overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
+        - name: Migrieren von WebLogic zu Azure
+          href: /azure/developer/java/migration/migrate-weblogic-to-virtual-machines
 - name: Verweis
   items:
     - name: Azure CLI

@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: bd393a897052dd0bd49851eee424c99ad1fcfb1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c09a54daa482d738ded9f7aca1c95c2b640617e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319425"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790269"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Verwenden von schreibgeschützten Replikaten zum Lesen schreibgeschützter Abfrageworkloads
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Als Teil der [Hochverfügbarkeitsarchitektur](high-availability-sla.md#premium-and-business-critical-service-tier-availability) wird jede Datenbank, jeder Pool für elastische Datenbanken und jede verwaltete Instanz der Dienstebenen „Premium“ und „Unternehmenskritisch“ automatisch mit einem primären Replikat mit Lese-/Schreibzugriff und mehreren sekundären schreibgeschützten Replikaten bereitgestellt. Die sekundären Replikate werden mit derselben Computegröße wie das primäre Replikat bereitgestellt. Die *horizontale Leseskalierung* ermöglicht es Ihnen, schreibgeschützte Workloads mithilfe der Computekapazität eines der schreibgeschützten Replikate auszulagern, anstatt sie auf dem Replikat mit Lese-/Schreibzugriff auszuführen. Auf diese Weise können einige schreibgeschützte Workloads von der Hauptworkload mit Lesen- und Schreibvorgängen isoliert werden, ohne ihre Leistung zu beeinträchtigen. Die Funktion ist für Anwendungen vorgesehen, die logisch getrennte, schreibgeschützte Workloads (z. B. zur Analyse) enthalten. In den Diensttarifen Premium und Unternehmenskritisch können Anwendungen Leistungsvorteile erzielen, die diese zusätzliche Kapazität ohne zusätzliche Kosten nutzen.
+Als Teil der [Hochverfügbarkeitsarchitektur](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) wird jede Datenbank, jeder Pool für elastische Datenbanken und jede verwaltete Instanz der Dienstebenen „Premium“ und „Unternehmenskritisch“ automatisch mit einem primären Replikat mit Lese-/Schreibzugriff und mehreren sekundären schreibgeschützten Replikaten bereitgestellt. Die sekundären Replikate werden mit derselben Computegröße wie das primäre Replikat bereitgestellt. Die *horizontale Leseskalierung* ermöglicht es Ihnen, schreibgeschützte Workloads mithilfe der Computekapazität eines der schreibgeschützten Replikate auszulagern, anstatt sie auf dem Replikat mit Lese-/Schreibzugriff auszuführen. Auf diese Weise können einige schreibgeschützte Workloads von der Hauptworkload mit Lesen- und Schreibvorgängen isoliert werden, ohne ihre Leistung zu beeinträchtigen. Die Funktion ist für Anwendungen vorgesehen, die logisch getrennte, schreibgeschützte Workloads (z. B. zur Analyse) enthalten. In den Diensttarifen Premium und Unternehmenskritisch können Anwendungen Leistungsvorteile erzielen, die diese zusätzliche Kapazität ohne zusätzliche Kosten nutzen.
 
 Die *horizontale Leseskalierung* ist auch auf der Dienstebene Hyperscale verfügbar, wenn mindestens ein sekundäres Replikat erstellt wird. Mehrere sekundäre Replikate können für einen Lastenausgleich schreibgeschützter Workloads verwendet werden, wenn mehr Ressourcen erforderlich sind, als auf einem sekundären Replikat zur Verfügung stehen.
 
@@ -36,7 +36,7 @@ Die *horizontale Leseskalierung* ist bei Datenbanken in den Tarifen Premium, Unt
 > [!NOTE]
 > Die horizontale Leseskalierung ist auf der Dienstebene Unternehmenskritisch von Managed Instance immer aktiviert.
 
-Wenn Ihre SQL-Verbindungszeichenfolge mit `ApplicationIntent=ReadOnly` konfiguriert wurde, wird die Anwendung zu einem schreibgeschützten Replikat dieser Datenbank oder verwalteten Instanz umgeleitet. Informationen zur Verwendung der `ApplicationIntent`-Eigenschaft finden Sie unter [Angeben der Anwendungsabsicht](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
+Wenn Ihre SQL-Verbindungszeichenfolge mit `ApplicationIntent=ReadOnly` konfiguriert wurde, wird die Anwendung zu einem schreibgeschützten Replikat dieser Datenbank oder verwalteten Instanz umgeleitet. Informationen zur Verwendung der `ApplicationIntent`-Eigenschaft finden Sie unter [Angeben der Anwendungsabsicht](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
 Wenn Sie sicherstellen möchten, dass die Anwendung unabhängig von der Einstellung `ApplicationIntent` in der SQL-Verbindungszeichenfolge eine Verbindung mit dem primären Replikat herstellt, müssen Sie die horizontale Leseskalierung beim Erstellen der Datenbank oder beim Ändern ihrer Konfiguration explizit deaktivieren. Wenn Sie Ihre Datenbank z. B. vom Tarif Standard oder Universell auf einen der Tarife Premium, Unternehmenskritisch oder Hyperscale umstellen und sicherstellen möchten, dass weiterhin alle Verbindungen zum primären Replikat führen, deaktivieren Sie die horizontale Leseskalierung. Weitere Informationen zum Deaktivieren finden Sie unter [Aktivieren und Deaktivieren der horizontalen Leseskalierung](#enable-and-disable-read-scale-out).
 
@@ -87,16 +87,16 @@ Häufig verwendete Sichten sind:
 
 | Name | Zweck |
 |:---|:---|
-|[sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Bietet Metriken zur Ressourcennutzung für die letzte Stunde, einschließlich CPU-, Daten-E/A- und Protokollschreibauslastung bezogen auf Dienstziellimits.|
-|[sys.dm_os_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Stellt Statistiken zu aggregierten Wartevorgängen für die Datenbank-Engine-Instanz bereit. |
-|[sys.dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Bietet Statistiken zum Replikatintegritätsstatus und zur Synchronisierung. Die Größe der Wiederholungswarteschlange und die Wiederholungsrate dienen als Hinweise auf die Datenlatenz im schreibgeschützten Replikat. |
-|[sys.dm_os_performance_counters](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql)| Bietet Leistungsindikatoren für die Datenbank-Engine.|
-|[sys.dm_exec_query_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)| Bietet Ausführungsstatistiken pro Abfrage, z. B. Anzahl von Ausführungen, verwendete CPU-Zeit usw.|
-|[sys.dm_exec_query_plan()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| Bietet zwischengespeicherte Abfragepläne. |
-|[sys.dm_exec_sql_text()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql)| Stellt Abfragetext für einen zwischengespeicherten Abfrageplan bereit.|
-|[sys.dm_exec_query_profiles](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Stellt den Abfragefortschritt einer ausgeführten Abfrage in Echtzeit bereit.|
-|[sys.dm_exec_query_plan_stats()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Stellt den letzten bekannten tatsächlichen Ausführungsplan einschließlich Laufzeitstatistiken für eine Abfrage bereit.|
-|[sys.dm_io_virtual_file_stats()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)| Bietet Statistiken zu IOPS, Durchsatz und Latenz der Speicherung für alle Datenbankdateien. |
+|[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Bietet Metriken zur Ressourcennutzung für die letzte Stunde, einschließlich CPU-, Daten-E/A- und Protokollschreibauslastung bezogen auf Dienstziellimits.|
+|[sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Stellt Statistiken zu aggregierten Wartevorgängen für die Datenbank-Engine-Instanz bereit. |
+|[sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Bietet Statistiken zum Replikatintegritätsstatus und zur Synchronisierung. Die Größe der Wiederholungswarteschlange und die Wiederholungsrate dienen als Hinweise auf die Datenlatenz im schreibgeschützten Replikat. |
+|[sys.dm_os_performance_counters](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql)| Bietet Leistungsindikatoren für die Datenbank-Engine.|
+|[sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)| Bietet Ausführungsstatistiken pro Abfrage, z. B. Anzahl von Ausführungen, verwendete CPU-Zeit usw.|
+|[sys.dm_exec_query_plan()](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| Bietet zwischengespeicherte Abfragepläne. |
+|[sys.dm_exec_sql_text()](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql)| Stellt Abfragetext für einen zwischengespeicherten Abfrageplan bereit.|
+|[sys.dm_exec_query_profiles](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Stellt den Abfragefortschritt einer ausgeführten Abfrage in Echtzeit bereit.|
+|[sys.dm_exec_query_plan_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Stellt den letzten bekannten tatsächlichen Ausführungsplan einschließlich Laufzeitstatistiken für eine Abfrage bereit.|
+|[sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)| Bietet Statistiken zu IOPS, Durchsatz und Latenz der Speicherung für alle Datenbankdateien. |
 
 > [!NOTE]
 > Die DMVs `sys.resource_stats` und `sys.elastic_pool_resource_stats` in der logischen Masterdatenbank geben Ressourcennutzungsdaten des primären Replikats zurück.
@@ -109,13 +109,13 @@ Eine Sitzung für erweiterte Ereignisse auf einem schreibgeschützten Replikat, 
 
 ### <a name="transaction-isolation-level-on-read-only-replicas"></a>Transaktionsisolationsebene auf schreibgeschützten Replikaten
 
-Abfragen, die auf schreibgeschützten Replikaten ausgeführt werden, werden immer der Transaktionsisolationsebene [Momentaufnahme](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server) zugeordnet. Die Momentaufnahmeisolation verwendet Zeilenversionsverwaltung, um Blockierungsszenarien zu vermeiden, in denen Reader Writer blockieren.
+Abfragen, die auf schreibgeschützten Replikaten ausgeführt werden, werden immer der Transaktionsisolationsebene [Momentaufnahme](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server) zugeordnet. Die Momentaufnahmeisolation verwendet Zeilenversionsverwaltung, um Blockierungsszenarien zu vermeiden, in denen Reader Writer blockieren.
 
-Wenn eine Transaktion mit Momentaufnahmeisolation auf Objektmetadaten zugreift, die in einer anderen gleichzeitig stattfindenden Transaktion geändert wurden, kann in seltenen Fällen der Fehler [3961](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-3961-database-engine-error) auftreten: „Fehler bei der Momentaufnahme-Isolationstransaktion in der %.*ls-Datenbank, weil das von der Anweisung zugegriffene Objekt durch eine DDL-Anweisung in einer anderen gleichzeitigen Transaktion seit dem Beginn dieser Transaktion geändert wurde. Der Vorgang ist nicht zulässig, weil für die Metadaten keine Versionsverwaltung durchgeführt wird. Das gleichzeitige Update von Metadaten kann in Kombination mit der Momentaufnahmeisolation zu Inkonsistenzen führen.“
+Wenn eine Transaktion mit Momentaufnahmeisolation auf Objektmetadaten zugreift, die in einer anderen gleichzeitig stattfindenden Transaktion geändert wurden, kann in seltenen Fällen der Fehler [3961](/sql/relational-databases/errors-events/mssqlserver-3961-database-engine-error) auftreten: „Fehler bei der Momentaufnahme-Isolationstransaktion in der %.*ls-Datenbank, weil das von der Anweisung zugegriffene Objekt durch eine DDL-Anweisung in einer anderen gleichzeitigen Transaktion seit dem Beginn dieser Transaktion geändert wurde. Der Vorgang ist nicht zulässig, weil für die Metadaten keine Versionsverwaltung durchgeführt wird. Das gleichzeitige Update von Metadaten kann in Kombination mit der Momentaufnahmeisolation zu Inkonsistenzen führen.“
 
 ### <a name="long-running-queries-on-read-only-replicas"></a>Abfragen mit langer Ausführungszeit für schreibgeschützte Replikate
 
-Abfragen, die für schreibgeschützte Replikate ausgeführt werden, müssen auf die Metadaten für die in der Abfrage referenzierten Objekte (Tabellen, Indizes, Statistiken usw.) zugreifen. Wenn ein Metadatenobjekt für das primäre Replikat geändert wird, während eine Abfrage eine Sperre für dasselbe Objekt im schreibgeschützten Replikat enthält, kann die Abfrage in seltenen Fällen den Prozess, der Änderungen vom primären Replikat auf das schreibgeschützte Replikat anwendet, [blockieren](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK). Wenn eine solche Abfrage über einen längeren Zeitraum ausgeführt wird, führt dies dazu, dass das schreibgeschützte Replikat mit dem primären Replikat nicht mehr synchronisiert ist. 
+Abfragen, die für schreibgeschützte Replikate ausgeführt werden, müssen auf die Metadaten für die in der Abfrage referenzierten Objekte (Tabellen, Indizes, Statistiken usw.) zugreifen. Wenn ein Metadatenobjekt für das primäre Replikat geändert wird, während eine Abfrage eine Sperre für dasselbe Objekt im schreibgeschützten Replikat enthält, kann die Abfrage in seltenen Fällen den Prozess, der Änderungen vom primären Replikat auf das schreibgeschützte Replikat anwendet, [blockieren](/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK). Wenn eine solche Abfrage über einen längeren Zeitraum ausgeführt wird, führt dies dazu, dass das schreibgeschützte Replikat mit dem primären Replikat nicht mehr synchronisiert ist. 
 
 Wenn eine Abfrage mit langer Ausführungszeit auf einem schreibgeschützten Replikat diese Art von Blockierung bewirkt, wird sie automatisch beendet, und die Sitzung empfängt den Fehler 1219: „Die Sitzung wurde aufgrund eines DDL-Vorgangs hoher Priorität getrennt“.
 
@@ -123,7 +123,7 @@ Wenn eine Abfrage mit langer Ausführungszeit auf einem schreibgeschützten Repl
 > Wenn beim Ausführen von Abfragen für ein schreibgeschütztes Replikat einer der Fehler 3961 oder 1219 angezeigt wird, wiederholen Sie die Abfrage.
 
 > [!TIP]
-> Wenn eine Verbindung mit einem schreibgeschützten Replikat besteht, können auf den Dienstebenen Premium und Unternehmenskritisch die Spalten `redo_queue_size` und `redo_rate` in der DMV [sys.dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) zum Überwachen der Datensynchronisierung verwendet werden und dadurch als Indikatoren für die Datenlatenz auf dem schreibgeschützten Replikat herangezogen werden.
+> Wenn eine Verbindung mit einem schreibgeschützten Replikat besteht, können auf den Dienstebenen Premium und Unternehmenskritisch die Spalten `redo_queue_size` und `redo_rate` in der DMV [sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) zum Überwachen der Datensynchronisierung verwendet werden und dadurch als Indikatoren für die Datenlatenz auf dem schreibgeschützten Replikat herangezogen werden.
 > 
 
 ## <a name="enable-and-disable-read-scale-out"></a>Aktivieren und Deaktivieren der horizontalen Leseskalierung
@@ -137,14 +137,14 @@ Sie können die horizontale Leseskalierung für Singletons und Pools für elasti
 
 ### <a name="azure-portal"></a>Azure-Portal
 
-Sie verwalten die Einstellung für die horizontale Leseskalierung auf dem Datenbankblatt **Konfigurieren**.
+Sie verwalten die Einstellung für die horizontale Leseskalierung auf dem Datenbankblatt **Konfigurieren** .
 
 ### <a name="powershell"></a>PowerShell
 
 > [!IMPORTANT]
 > Das Azure Resource Manager-Modul von PowerShell wird weiterhin unterstützt, aber alle zukünftigen Entwicklungen erfolgen für das Az.Sql-Modul. Für das Azure Resource Manager-Modul werden mindestens bis Dezember 2020 weiterhin Fehlerbehebungen veröffentlicht.  Die Argumente für die Befehle im Az-Modul und den Azure Resource Manager-Modulen sind im Wesentlichen identisch. Weitere Informationen zur Kompatibilität finden Sie in der [Einführung in das neue Azure PowerShell Az-Modul](/powershell/azure/new-azureps-module-az).
 
-Für die Verwaltung der horizontalen Leseskalierung in Azure PowerShell ist das Azure PowerShell-Release von Dezember 2016 oder eine neuere Version erforderlich. Das neueste PowerShell-Release finden Sie unter [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Für die Verwaltung der horizontalen Leseskalierung in Azure PowerShell ist das Azure PowerShell-Release von Dezember 2016 oder eine neuere Version erforderlich. Das neueste PowerShell-Release finden Sie unter [Azure PowerShell](/powershell/azure/install-az-ps).
 
 Sie aktivieren oder deaktivieren die horizontale Leseskalierung in Azure PowerShell, indem Sie das Cmdlet [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) aufrufen und für den Parameter `-ReadScale` den gewünschten Wert übergeben: `Enabled` oder `Disabled`.
 
@@ -180,7 +180,7 @@ Body: {
 }
 ```
 
-Weitere Informationen finden Sie unter [Databanken – Erstellen oder Aktualisieren](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+Weitere Informationen finden Sie unter [Databanken – Erstellen oder Aktualisieren](/rest/api/sql/databases/createorupdate).
 
 ## <a name="using-the-tempdb-database-on-a-read-only-replica"></a>Verwenden der Datenbank `tempdb` auf einem schreibgeschützten Replikat
 

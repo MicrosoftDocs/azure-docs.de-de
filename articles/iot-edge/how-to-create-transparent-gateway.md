@@ -11,22 +11,37 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 506f6a2025a61b4d9d16918b2a95de620171c46b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 9f81d059c1a71bf6349d0ef9b4aae8f7a47c161f
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147850"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938782"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Konfigurieren eines IoT Edge-Geräts als transparentes Gateway
 
 Dieser Artikel enthält detaillierte Anweisungen zur Konfiguration eines IoT Edge-Geräts, das als transparentes Gateway für andere Geräte zur Kommunikation mit IoT Hub dient. In diesem Artikel wird mit dem Begriff *IoT Edge-Gateway* auf ein IoT Edge-Gerät verwiesen, das als transparentes Gateway konfiguriert wurde. Weitere Informationen finden Sie unter [Verwendung eines IoT Edge-Geräts als Gateway](./iot-edge-as-gateway.md).
+
+<!-- 1.0.10 -->
+::: moniker range="iotedge-2018-06"
 
 >[!NOTE]
 >Derzeit gilt Folgendes:
 >
 > * Edge-fähige Geräte können keine Verbindung mit IoT Edge-Gateways herstellen.
 > * Nachgeschaltete Geräte können keinen Dateiupload verwenden.
+
+::: moniker-end
+
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+>[!NOTE]
+>Derzeit gilt Folgendes:
+>
+> * Nachgeschaltete Geräte können keinen Dateiupload verwenden.
+
+::: moniker-end
 
 Es gibt drei allgemeine Schritte zum Einrichten einer erfolgreichen Verbindung mit einem transparenten Gateway. In diesem Artikel wird der erste Schritt behandelt:
 
@@ -86,9 +101,9 @@ In Produktionsszenarios sollten diese Dateien mit ihrer eigenen Zertifizierungss
    * Linux: `/etc/iotedge/config.yaml`
 
 4. Suchen Sie den Abschnitt **Zertifikateinstellungen** der Datei. Heben Sie die Auskommentierung der vier Zeilen ab **Zertifikate:** auf, und geben Sie die Datei-URIs für Ihre drei Dateien als Werte für die folgenden Eigenschaften an:
-   * **device_ca_cert** : Zertifikat der Gerätezertifizierungsstelle
-   * **device_ca_pk** : Privater Schlüssel der Gerätezertifizierungsstelle
-   * **trusted_ca_certs** : Zertifikat der Stammzertifizierungsstelle
+   * **device_ca_cert**: Zertifikat der Gerätezertifizierungsstelle
+   * **device_ca_pk**: Privater Schlüssel der Gerätezertifizierungsstelle
+   * **trusted_ca_certs**: Zertifikat der Stammzertifizierungsstelle
 
    Sorgen Sie dafür, dass die Zeile **Zertifikate:** kein führendes Leerzeichen enthält und dass die anderen Zeilen um zwei Leerzeichen eingezogen werden.
 
@@ -114,25 +129,25 @@ Führen Sie die folgenden Schritte aus, um das Modul „IoT Edge-Hub“ bereitzu
 
 1. Navigieren Sie im Azure-Portal zu Ihrem IoT Hub.
 
-2. Wechseln Sie zu **IoT Edge** , und wählen Sie das IoT Edge-Gerät aus, das Sie als Gateway verwenden möchten.
+2. Wechseln Sie zu **IoT Edge**, und wählen Sie das IoT Edge-Gerät aus, das Sie als Gateway verwenden möchten.
 
 3. Wählen Sie **Module festlegen** aus.
 
 4. Auf der Seite **Module** können Sie alle Module hinzufügen, die Sie auf dem Gatewaygerät bereitstellen möchten. Für den Zweck dieses Artikels konzentrieren wir uns auf die Konfiguration und Bereitstellung des Moduls „edgeHub“, das auf dieser Seite nicht explizit festgelegt werden muss.
 
-5. Klicken Sie auf **Weiter: Routen** .
+5. Klicken Sie auf **Weiter: Routen**.
 
 6. Stellen Sie auf der Seite **Routen** sicher, dass es eine Route zum Verarbeiten von Nachrichten von nachgeschalteten Geräten gibt. Beispiel:
 
    * Eine Route, die alle Nachrichten – ganz gleich, ob von einem Modul oder einem nachgeschalteten Gerät – an IoT Hub sendet:
-       * **Name** : `allMessagesToHub`
-       * **Wert** : `FROM /messages/* INTO $upstream`
+       * **Name**: `allMessagesToHub`
+       * **Wert**: `FROM /messages/* INTO $upstream`
 
    * Eine Route, die sämtliche Nachrichten von allen nachgeschalteten Geräten an IoT Hub sendet:
-      * **Name** : `allDownstreamToHub`
-      * **Wert** : `FROM /messages/* WHERE NOT IS_DEFINED ($connectionModuleId) INTO $upstream`
+      * **Name**: `allDownstreamToHub`
+      * **Wert**: `FROM /messages/* WHERE NOT IS_DEFINED ($connectionModuleId) INTO $upstream`
 
-      Diese Route funktioniert, weil Nachrichten von nachgeschalteten Geräten – im Gegensatz zu Nachrichten von IoT Edge Modulen – keine Modul-ID zugeordnet ist. Mithilfe der **WHERE** -Klausel der Route können alle Nachrichten mit dieser Systemeigenschaft herausgefiltert werden.
+      Diese Route funktioniert, weil Nachrichten von nachgeschalteten Geräten – im Gegensatz zu Nachrichten von IoT Edge Modulen – keine Modul-ID zugeordnet ist. Mithilfe der **WHERE**-Klausel der Route können alle Nachrichten mit dieser Systemeigenschaft herausgefiltert werden.
 
       Weitere Informationen zum Routing von Nachrichten finden Sie unter [Bereitstellen von Modulen und Einrichten von Routen](./module-composition.md#declare-routes).
 

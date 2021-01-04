@@ -1,17 +1,17 @@
 ---
 title: Konfigurieren der Datenreplikation – Azure Database for MariaDB
 description: In diesem Artikel wird beschrieben, wie die Datenreplikation in Azure Database for MariaDB eingerichtet wird.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: 21a0aaaa9e10a7c3e445145eb178b50b446ba6ae
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: fe7e02cc34dc9c97e540d7b8d96c48ee8d5cfe09
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426007"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535366"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Konfigurieren der Datenreplikation in Azure Database for MariaDB
 
@@ -99,7 +99,7 @@ Mit den folgenden Schritten wird der MariaDB-Server, der lokal, auf einer VM ode
 
    Wenn die Variable [`log_bin`](https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin) den Wert `ON` zurückgibt, ist die binäre Protokollierung auf Ihrem Server aktiviert.
 
-   Wenn `log_bin` den Wert `OFF` zurückgibt, bearbeiten Sie die Datei **my.cnf** , damit `log_bin=ON` die binäre Protokollierung aktiviert. Starten Sie den Server neu, damit die Änderung wirksam wird.
+   Wenn `log_bin` den Wert `OFF` zurückgibt, bearbeiten Sie die Datei **my.cnf**, damit `log_bin=ON` die binäre Protokollierung aktiviert. Starten Sie den Server neu, damit die Änderung wirksam wird.
 
 3. Konfigurieren Sie die Quellservereinstellungen.
 

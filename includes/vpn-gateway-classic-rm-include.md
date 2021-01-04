@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 07d32faf2416de554c84a5a26520bcdf0398f406
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d9d443f0109757c0ab528a7f3ee7076c1293a8bb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "67177828"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018156"
 ---
-In Azure können derzeit zwei Bereitstellungsmodelle verwendet werden: die Resource Manager-Bereitstellung und die klassische Bereitstellung. Die beiden Modelle sind nicht vollständig kompatibel. Bevor Sie beginnen, müssen Sie wissen, in welchem Modell Sie arbeiten möchten. Informationen zu den Bereitstellungsmodellen finden Sie unter [Understanding deployment models](../articles/resource-manager-deployment-model.md) (Grundlagen von Bereitstellungsmodellen). Wenn Sie noch nicht mit Azure vertraut sind, wird die Verwendung des Resource Manager-Modells empfohlen.
+In Azure können derzeit zwei Bereitstellungsmodelle verwendet werden: die Resource Manager-Bereitstellung und die klassische Bereitstellung. Die beiden Modelle sind nicht vollständig kompatibel. Bevor Sie beginnen, müssen Sie wissen, in welchem Modell Sie arbeiten möchten. Informationen zu den Bereitstellungsmodellen finden Sie unter [Understanding deployment models](../articles/azure-resource-manager/management/deployment-models.md) (Grundlagen von Bereitstellungsmodellen). Wenn Sie noch nicht mit Azure vertraut sind, wird die Verwendung des Resource Manager-Modells empfohlen.

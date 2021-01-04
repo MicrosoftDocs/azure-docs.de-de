@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f68bc5e4604f35f9c4c45cd3e38ddaf8d24cd03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41532e554623c47e9728c6ccab92d99500e42021
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89004458"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517426"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Sicherheitsrahmen: Verwaltung von Ausnahmen | Risikominderung 
 | Produkt/Dienst | Artikel |
@@ -38,7 +38,7 @@ ms.locfileid: "89004458"
 | **SDL-Phase**               | Entwickeln |  
 | **Zutreffende Technologien** | Allgemein, .NET Framework 3 |
 | **Attribute**              | –  |
-| **Referenzen**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
+| **Referenzen**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
 | **Schritte** | WCF-Dienste (Windows Communication Framework) können so konfiguriert werden, dass Debuginformationen verfügbar gemacht werden. Debuginformationen sollten in Produktionsumgebungen nicht verwendet werden. Das `<serviceDebug>`-Tag definiert, ob die Funktion für Debuginformationen für einen WCF-Dienst aktiviert ist. Wenn das Attribut „includeExceptionDetailInFaults“ auf „true“ festgelegt ist, werden Ausnahmeinformationen von der Anwendung an Clients zurückgegeben. Angreifer können die zusätzlichen Informationen nutzen, die sie mit der Debugausgabe erhalten, um Angriffe auf das Framework, die Datenbank oder andere von der Anwendung verwendete Ressourcen zu starten. |
 
 ### <a name="example"></a>Beispiel
@@ -62,7 +62,7 @@ Deaktivieren Sie die Debuginformationen im Dienst. Dazu können Sie das `<servic
 | **SDL-Phase**               | Entwickeln |  
 | **Zutreffende Technologien** | Allgemein |
 | **Attribute**              | Allgemein, .NET Framework 3 |
-| **Referenzen**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
+| **Referenzen**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
 | **Schritte** | Wenn Informationen zu einem Dienst öffentlich verfügbar gemacht werden, erhalten Angreifer wertvolle Einblicke in Möglichkeiten zum Missbrauch des Diensts. Das `<serviceMetadata>`-Tag aktiviert die Funktion zum Veröffentlichen von Metadaten. Dienstmetadaten können vertrauliche Informationen enthalten, die nicht öffentlich zugänglich sein sollten. Sie sollten nur vertrauenswürdigen Benutzern den Zugriff auf die Metadaten ermöglichen und sicherstellen, dass keine unnötigen Informationen verfügbar gemacht werden. Noch besser wäre es allerdings, die Möglichkeit zum Veröffentlichen von Metadaten vollständig zu deaktivieren. Eine sichere WCF-Konfiguration enthält das `<serviceMetadata>`-Tag nicht. |
 
 ## <a name="ensure-that-proper-exception-handling-is-done-in-aspnet-web-api"></a><a id="exception"></a>Sicherstellen, dass eine ordnungsgemäße Ausnahmebehandlung in der ASP.NET-Web-API erfolgt
@@ -202,7 +202,7 @@ public HttpResponseMessage PostProduct(Product item)
 | **SDL-Phase**               | Entwickeln |  
 | **Zutreffende Technologien** | Allgemein |
 | **Attribute**              | –  |
-| **Referenzen**              | [Dialogfeld „ASP.NET-Einstellungen für Fehlerseiten bearbeiten“](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
+| **Referenzen**              | [Dialogfeld „ASP.NET-Einstellungen für Fehlerseiten bearbeiten“](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd569096(v=ws.10)) |
 | **Schritte** | <p>Wenn eine ASP.NET-Anwendung fehlschlägt und zu einem Fehler vom Typ „HTTP/1.x 500: Interner Serverfehler“ führt oder wenn eine Funktionskonfiguration (z.B. Anforderungsfilterung) verhindert, dass eine Seite angezeigt wird, wird eine Fehlermeldung generiert. Administratoren können auswählen, ob die Anwendung dem Client eine benutzerfreundliche Meldung oder eine detaillierte Fehlermeldung anzeigt bzw. die detaillierte Fehlermeldung nur für „localhost“ anzeigt. Das `<customErrors>`-Tag in der Datei „web.config“ verfügt über drei Modi:</p><ul><li>**On:** Gibt an, dass benutzerdefinierte Fehler aktiviert sind. Benutzer sehen einen allgemeinen Fehler, wenn kein defaultRedirect-Attribut angegeben wird. Die benutzerdefinierten Fehler werden auf den Remoteclients und dem lokalen Host angezeigt.</li><li>**Off:** Gibt an, dass benutzerdefinierte Fehler deaktiviert sind. Die detaillierten ASP.NET-Fehler werden auf den Remoteclients und dem lokalen Host angezeigt.</li><li>**RemoteOnly:** Gibt an, dass benutzerdefinierte Fehler nur auf den Remoteclients angezeigt werden, und dass ASP.NET-Fehler auf dem lokalen Host angezeigt werden. Dies ist der Standardwert.</li></ul><p>Öffnen Sie die Datei `web.config` für die Anwendung/Website, und stellen Sie sicher, dass das Tag als `<customErrors mode="RemoteOnly" />` oder `<customErrors mode="On" />` definiert ist.</p>|
 
 ## <a name="set-deployment-method-to-retail-in-iis"></a><a id="deployment"></a>Festlegen der Bereitstellungsmethode auf „Retail“ in IIS
@@ -213,7 +213,7 @@ public HttpResponseMessage PostProduct(Product item)
 | **SDL-Phase**               | Bereitstellung |  
 | **Zutreffende Technologien** | Allgemein |
 | **Attribute**              | –  |
-| **Referenzen**              | [deployment-Element (ASP.NET-Einstellungsschema)](https://msdn.microsoft.com/library/ms228298(VS.80).aspx) |
+| **Referenzen**              | [deployment-Element (ASP.NET-Einstellungsschema)](/previous-versions/dotnet/netframework-2.0/ms228298(v=vs.80)) |
 | **Schritte** | <p>Der Switch `<deployment retail>` ist für die Verwendung auf IIS-Produktionsservern vorgesehen. Dieser Switch wird verwendet, damit Anwendungen mit der bestmöglichen Leistung und einer möglichst geringen Offenlegung von Sicherheitsinformationen ausgeführt werden. Dazu werden folgende Funktionen in der Anwendung deaktiviert: Generieren der Ausgabe der Ablaufverfolgung auf einer Seite, Anzeigen detaillierter Fehlermeldungen für die Endbenutzer und der Debugswitch.</p><p>Häufig sind Switches und Optionen, die für Entwickler vorgesehen sind, z.B. Fehler bei der Ablaufverfolgung und beim Debuggen von Anforderungen, während der aktiven Entwicklung aktiviert. Es wird empfohlen, die Methode für die Bereitstellung auf allen Produktionsserver auf „retail“ festzulegen. Öffnen Sie die Datei „machine.config“, und stellen Sie sicher, dass `<deployment retail="true" />` weiterhin auf „true“ festgelegt ist.</p>|
 
 ## <a name="exceptions-should-fail-safely"></a><a id="fail"></a>Sicherer Ausfall bei Ausnahmen
@@ -268,4 +268,4 @@ public HttpResponseMessage PostProduct(Product item)
             }
         }
 ```
-Die oben dargestellte Methode gibt immer „True“ zurück, wenn eine Ausnahme auftritt. Wenn der Endbenutzer eine falsch formatierte URL bereitstellt, die der Browser respektiert, der `Uri()`-Konstruktor aber nicht, wird eine Ausnahme ausgelöst, und der Benutzer gelangt zur gültigen, aber falsch formatierten URL. 
+Die oben dargestellte Methode gibt immer „True“ zurück, wenn eine Ausnahme auftritt. Wenn der Endbenutzer eine falsch formatierte URL bereitstellt, die der Browser respektiert, der `Uri()`-Konstruktor aber nicht, wird eine Ausnahme ausgelöst, und der Benutzer gelangt zur gültigen, aber falsch formatierten URL.

@@ -5,18 +5,18 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9d13e19958ce4614db3706845cc6717b77f60c4c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 6ca5b1df05c04937598278378e001f41f08ef23c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209088"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183633"
 ---
 # <a name="enable-change-tracking-and-inventory-from-azure-portal"></a>Aktivieren von „Änderungsnachverfolgung und Bestand“ über das Azure-Portal
 
 In diesem Artikel erfahren Sie, wie Sie [Änderungsnachverfolgung und Bestand](overview.md) für einen oder mehrere virtuelle Azure-Computer im Azure-Portal aktivieren können. Wenn Sie virtuelle Azure-Computer im großen Stil aktivieren möchten, müssen Sie einen vorhandenen virtuellen Computer mithilfe von „Änderungsnachverfolgung und Bestand“ aktivieren.
 
-Die Anzahl von Ressourcengruppen, die für die Verwaltung Ihrer virtuellen Computer verwendet werden können, ist durch [Resource Manager-Bereitstellungsgrenzwerte](../../azure-resource-manager/templates/cross-scope-deployment.md) eingeschränkt. Resource Manager-Bereitstellungen sind auf fünf Ressourcengruppen pro Bereitstellung beschränkt. Zwei dieser Ressourcengruppen sind für die Konfiguration des Log Analytics-Arbeitsbereichs, des Automation-Kontos und der zugehörigen Ressourcen reserviert. Somit können noch drei Ressourcengruppen für die Verwaltung durch „Änderungsnachverfolgung und Bestand“ ausgewählt werden. Dieser Grenzwert gilt nur für die gleichzeitige Einrichtung, nicht für die Anzahl von Ressourcengruppen, die durch ein Automation-Feature verwaltet werden können.
+Die Anzahl von Ressourcengruppen, die für die Verwaltung Ihrer virtuellen Computer verwendet werden können, ist durch [Resource Manager-Bereitstellungsgrenzwerte](../../azure-resource-manager/templates/deploy-to-resource-group.md) eingeschränkt. Resource Manager-Bereitstellungen sind auf fünf Ressourcengruppen pro Bereitstellung beschränkt. Zwei dieser Ressourcengruppen sind für die Konfiguration des Log Analytics-Arbeitsbereichs, des Automation-Kontos und der zugehörigen Ressourcen reserviert. Somit können noch drei Ressourcengruppen für die Verwaltung durch „Änderungsnachverfolgung und Bestand“ ausgewählt werden. Dieser Grenzwert gilt nur für die gleichzeitige Einrichtung, nicht für die Anzahl von Ressourcengruppen, die durch ein Automation-Feature verwaltet werden können.
 
 > [!NOTE]
 > Wenn Sie „Änderungsnachverfolgung und Bestand“ aktivieren, werden nur bestimmte Regionen für die Verknüpfung eines Log Analytics-Arbeitsbereichs und eines Automation-Kontos unterstützt. Eine Liste der unterstützten Zuordnungspaare finden Sie unter [Regionszuordnung für Automation-Konto und Log Analytics-Arbeitsbereich](../how-to/region-mappings.md).
@@ -33,7 +33,7 @@ Melden Sie sich unter https://portal.azure.com bei Azure an.
 
 ## <a name="enable-change-tracking-and-inventory"></a>Aktivieren der Lösung für Änderungsnachverfolgung und Bestand
 
-1. Navigieren Sie im Azure-Portal zu **Virtuelle Computer** .
+1. Navigieren Sie im Azure-Portal zu **Virtuelle Computer**.
 
 2. Wählen Sie mithilfe der Kontrollkästchen die virtuellen Computer aus, die „Änderungsnachverfolgung und Bestand“ hinzugefügt werden sollen. Es können gleichzeitig Computer für bis zu drei verschiedene Ressourcengruppen hinzugefügt werden. Virtuelle Azure-Computer können sich unabhängig vom Standort Ihres Automation-Kontos in einer beliebigen Region befinden.
 
@@ -46,17 +46,17 @@ Melden Sie sich unter https://portal.azure.com bei Azure an.
 
 4. Die Liste der virtuellen Computer wird gefiltert, um nur die virtuellen Computer anzuzeigen, die sich in demselben Abonnement und Speicherort befinden. Wenn sich Ihr virtueller Computer in mehr als drei Ressourcengruppen befindet, werden die ersten drei Ressourcengruppen ausgewählt.
 
-5. Standardmäßig sind ein vorhandener Log Analytics-Arbeitsbereich und ein neues Automation-Konto ausgewählt. Falls Sie einen anderen Log Analytics-Arbeitsbereich und ein anderes Automation-Konto verwenden möchten, klicken Sie auf **BENUTZERDEFINIERT** , um sie auf der Seite für die benutzerdefinierte Konfiguration auszuwählen. Wenn Sie einen Log Analytics-Arbeitsbereich auswählen, wird überprüft, ob eine Verknüpfung mit einem Automation-Konto besteht. Sollte ein verknüpftes Automation-Konto gefunden werden, wird der folgende Bildschirm angezeigt. Klicken Sie auf **OK** , wenn Sie fertig sind.
+5. Standardmäßig sind ein vorhandener Log Analytics-Arbeitsbereich und ein neues Automation-Konto ausgewählt. Falls Sie einen anderen Log Analytics-Arbeitsbereich und ein anderes Automation-Konto verwenden möchten, klicken Sie auf **BENUTZERDEFINIERT**, um sie auf der Seite für die benutzerdefinierte Konfiguration auszuwählen. Wenn Sie einen Log Analytics-Arbeitsbereich auswählen, wird überprüft, ob eine Verknüpfung mit einem Automation-Konto besteht. Sollte ein verknüpftes Automation-Konto gefunden werden, wird der folgende Bildschirm angezeigt. Klicken Sie auf **OK**, wenn Sie fertig sind.
 
     ![Auswählen von Arbeitsbereich und Konto](media/enable-from-portal/select-workspace-and-account.png)
 
-6. Ist der ausgewählte Arbeitsbereich nicht mit einem Automation-Konto verknüpft, wird der folgende Bildschirm angezeigt. Wählen Sie ein Automation-Konto aus, und klicken Sie anschließend auf **OK** .
+6. Ist der ausgewählte Arbeitsbereich nicht mit einem Automation-Konto verknüpft, wird der folgende Bildschirm angezeigt. Wählen Sie ein Automation-Konto aus, und klicken Sie anschließend auf **OK**.
 
     ![Kein Arbeitsbereich](media/enable-from-portal/no-workspace.png)
 
 7. Deaktivieren Sie das Kontrollkästchen neben jedem virtuellen Computern, den Sie nicht aktivieren möchten. Die Auswahl für virtuelle Computer, die nicht aktiviert werden können, ist bereits aufgehoben.
 
-8. Klicken Sie auf **Aktivieren** , um das ausgewählte Feature zu aktivieren. Die Einrichtung dauert bis zu 15 Minuten.
+8. Klicken Sie auf **Aktivieren**, um das ausgewählte Feature zu aktivieren. Die Einrichtung dauert bis zu 15 Minuten.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

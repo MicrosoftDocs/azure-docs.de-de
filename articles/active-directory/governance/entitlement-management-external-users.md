@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dd1234e13f77f1ea95327a0a489e9a97cdc0ffd
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0fae7a62f062478c5fee45d172b88d0132f3a8f8
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362500"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546130"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Steuern des Zugriffs für externe Benutzer in der Azure AD-Berechtigungsverwaltung
 
@@ -51,7 +51,7 @@ Im folgenden Diagramm und den folgenden Schritten erhalten Sie einen Überblick 
 
 1. Sie senden einen [Link für das Portal „Mein Zugriff“](entitlement-management-access-package-settings.md) an Ihre Kontaktperson in der externen Organisation, den diese zur Anforderung des Zugriffspakets an die Benutzer weitergeben kann.
 
-1. Ein externer Benutzer (in diesem Beispiel **Requestor A** ) verwendet den Link für das Portal „Mein Zugriff“, um [Zugriff auf das Zugriffspaket anzufordern](entitlement-management-request-access.md). Wie sich der Benutzer anmeldet, hängt vom Authentifizierungstyp des Verzeichnisses oder der Domäne ab, der bzw. die in der verbundenen Organisation definiert ist.
+1. Ein externer Benutzer (in diesem Beispiel **Requestor A**) verwendet den Link für das Portal „Mein Zugriff“, um [Zugriff auf das Zugriffspaket anzufordern](entitlement-management-request-access.md). Wie sich der Benutzer anmeldet, hängt vom Authentifizierungstyp des Verzeichnisses oder der Domäne ab, der bzw. die in der verbundenen Organisation definiert ist.
 
 1. Eine genehmigende Person [genehmigt die Anforderung](entitlement-management-request-approve.md) (oder sie wird automatisch genehmigt).
 
@@ -84,7 +84,7 @@ Um zu gewährleisten, dass Benutzer außerhalb Ihrer Organisation Zugriffspakete
 - Wenn Sie Gastbenutzern erlauben, andere Gastbenutzer in Ihr Verzeichnis einzuladen, können Gastbenutzereinladungen auch außerhalb der Berechtigungsverwaltung erfolgen. Es wird empfohlen, dass die Option **Gäste können einladen** auf **Nein** gesetzt wird, sodass nur ordnungsgemäß gesteuerte Einladungen möglich sind.
 - Wenn Sie die B2B-Zulassungsliste verwenden, müssen Sie sicherstellen, dass alle Domänen, mit denen Sie über die Berechtigungsverwaltung zusammenarbeiten möchten, zur Liste hinzugefügt werden. Wenn Sie stattdessen die B2B-Verweigerungliste verwenden, müssen Sie sicherstellen, dass alle Domänen, mit denen Sie zusammenarbeiten möchten, nicht zur Liste hinzugefügt werden.
 - Wenn Sie eine Richtlinie für die Berechtigungsverwaltung für **alle Benutzer** (alle verbundenen Organisationen und alle neuen externen Benutzer) erstellen und ein Benutzer nicht zu einer verbundenen Organisation in Ihrem Verzeichnis gehört, wird automatisch eine verbundene Organisation für ihn erstellt, wenn er das Paket anfordert. Alle Einstellungen Ihrer B2B-Zulassungs- oder Verweigerungsliste haben Vorrang. Achten Sie daher darauf, die Domänen, die Sie in diese Richtlinie einbeziehen möchten, in Ihre Zulassungsliste aufzunehmen, wenn Sie eine verwenden, bzw. sie von Ihrer Verweigerungsliste auszuschließen, wenn Sie mit einer solchen Liste arbeiten.
-- Wenn Sie eine Richtlinie zur Berechtigungsverwaltung erstellen möchten, die **alle Benutzer** umfasst (alle verbundenen Organisationen + alle neuen externen Benutzer), müssen Sie zunächst die Authentifizierung mit Einmalkennung per E-Mail für Ihr Verzeichnis aktivieren. Weitere Informationen finden Sie unter [Authentifizierung mit Einmalkennung per E-Mail (Vorschauversion)](../external-identities/one-time-passcode.md#opting-in-to-the-preview).
+- Wenn Sie eine Richtlinie zur Berechtigungsverwaltung erstellen möchten, die **alle Benutzer** umfasst (alle verbundenen Organisationen + alle neuen externen Benutzer), müssen Sie zunächst die Authentifizierung mit Einmalkennung per E-Mail für Ihr Verzeichnis aktivieren. Weitere Informationen finden Sie unter [Authentifizierung mit Einmalkennung per E-Mail (Vorschauversion)](../external-identities/one-time-passcode.md).
 - Weitere Informationen über Einstellungen für externe Azure AD B2B-Zusammenarbeit finden Sie unter [Aktivieren der externen B2B-Zusammenarbeit und Steuern, wer Gäste einladen kann](../external-identities/delegate-invitations.md).
 
     ![Einstellungen für externe Azure AD-Zusammenarbeit](./media/entitlement-management-external-users/collaboration-settings.png)
@@ -121,11 +121,11 @@ Sie können auswählen, was passiert, wenn ein externer Benutzer, der per Genehm
 
 **Erforderliche Rolle:** Globaler Administrator oder Benutzeradministrator
 
-1. Klicken Sie im Azure-Portal auf **Azure Active Directory** und dann auf **Identity Governance** .
+1. Klicken Sie im Azure-Portal auf **Azure Active Directory** und dann auf **Identity Governance**.
 
-1. Klicken Sie im linken Menü im Abschnitt **Berechtigungsverwaltung** auf **Einstellungen** .
+1. Klicken Sie im linken Menü im Abschnitt **Berechtigungsverwaltung** auf **Einstellungen**.
 
-1. Klicken Sie auf **Bearbeiten** .
+1. Klicken Sie auf **Bearbeiten**.
 
     ![Einstellungen für die Verwaltung des Lebenszyklus von externen Benutzern](./media/entitlement-management-external-users/settings-external-users.png)
 
@@ -143,7 +143,7 @@ Sie können auswählen, was passiert, wenn ein externer Benutzer, der per Genehm
 
 1. Wenn Sie das Gastbenutzerkonto in diesem Verzeichnis entfernen möchten, können Sie die Anzahl von Tagen festlegen, die ablaufen sollen, bevor die Entfernung durchgeführt wird. Falls Sie das Gastbenutzerkonto entfernen möchten, sobald die letzte Zuweisung von Zugriffspaketen abgelaufen ist, legen Sie **Anzahl von Tagen, bevor ein externer Benutzer aus diesem Verzeichnis entfernt wird** auf **0** fest.
 
-1. Klicken Sie auf **Speichern** .
+1. Klicken Sie auf **Speichern**.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

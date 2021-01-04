@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9b389841bdba107ba27371387d4a6e5d1f009d41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f98eac4305333ec7225c90da2777b7e02f050a0
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919351"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853531"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analysieren von Videoinhalten auf anstößiges Material in C#
 
@@ -33,7 +33,7 @@ Die Videomoderationsfunktion von Content Moderator ist als **Medienprozessor** i
 
 ### <a name="create-an-azure-media-services-account"></a>Erstellen eines Azure Media Services-Kontos
 
-Befolgen Sie die Anweisungen in [Erstellen eines Azure Media Services-Kontos](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account), um AMS zu abonnieren und ein zugeordnetes Azure Storage-Konto zu erstellen. Erstellen Sie in diesem Speicherkonto einen neuen Blob Storage-Container.
+Befolgen Sie die Anweisungen in [Erstellen eines Azure Media Services-Kontos](../../media-services/previous/media-services-portal-create-account.md), um AMS zu abonnieren und ein zugeordnetes Azure Storage-Konto zu erstellen. Erstellen Sie in diesem Speicherkonto einen neuen Blob Storage-Container.
 
 ### <a name="create-an-azure-active-directory-application"></a>Erstellen einer Azure Active Directory-Anwendung
 
@@ -43,7 +43,7 @@ Wählen Sie im Abschnitt **Azure AD-App** die Option **Neue erstellen** und bene
 
 Wählen Sie Ihre App-Registrierung, und klicken Sie darunter auf **Anwendung verwalten**. Notieren Sie den Wert im Feld **Anwendungs-ID**. Diesen benötigen Sie später. Wählen Sie **Einstellungen** > **Schlüssel** aus, und geben Sie eine Beschreibung für einen neuen Schlüssel ein (z.B. „VideoModKey“). Klicken Sie auf **Speichern**, und notieren Sie den neuen Schlüsselwert. Kopieren Sie diese Zeichenfolge, und speichern Sie sie an einem sicheren Ort.
 
-Eine ausführlichere Erläuterung für das oben beschriebene Verfahren finden Sie unter [Erste Schritte mit Azure AD-Authentifizierung](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad).
+Eine ausführlichere Erläuterung für das oben beschriebene Verfahren finden Sie unter [Erste Schritte mit Azure AD-Authentifizierung](../../media-services/previous/media-services-portal-get-started-with-aad.md).
 
 Wenn Sie fertig sind, können Sie die Videomoderation des Medienprozessors auf zwei unterschiedliche Arten verwenden.
 
@@ -430,9 +430,5 @@ Nachdem der Content Moderator-Auftrag abgeschlossen ist, analysieren Sie die JSO
 ## <a name="next-steps"></a>Nächste Schritte
 
 Erfahren Sie, wie Sie [Videoüberprüfungen](video-reviews-quickstart-dotnet.md) aus Ihrer Moderationsausgabe generieren.
-
-Fügen Sie die [Transkriptmoderation](video-transcript-moderation-review-tutorial-dotnet.md) zu Ihren Videoüberprüfungen hinzu.
-
-In diesem ausführlichen Tutorial erhalten Sie weitere Informationen zum Erstellen einer [vollständigen Projektmappe zur Video- und Transkriptmoderation](video-transcript-moderation-review-tutorial-dotnet.md).
 
 Laden Sie die [Visual Studio-Projektmappe](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) für diesen und andere Content Moderator-Schnellstarts für .NET herunter.

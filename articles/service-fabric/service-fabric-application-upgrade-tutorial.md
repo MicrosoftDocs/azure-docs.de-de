@@ -4,11 +4,11 @@ description: Dieser Artikel bietet eine exemplarische Vorgehensweise für das Be
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: acde2f4e51bee29d2eefb0d5fbb54fbe421a41f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82195866"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996235"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Tutorial für das Upgraden von Service Fabric-Anwendungen mithilfe von Visual Studio
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ Sie können nun im Dialogfeld auf **Veröffentlichen** klicken. Nun können Sie 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Schritt 2: Aktualisieren des Beispiels „Visual Objects“
 Sie werden feststellen, dass sich die visuellen Objekte mit der Version, die in Schritt 1 bereitgestellt wurde, nicht drehen. Wir aktualisieren diese Anwendung so, dass sich die visuellen Objekte drehen.
 
-Wählen Sie das Projekt „VisualObjects.ActorService“ in der Projektmappe „VisualObjects“ aus, und öffnen Sie die Datei **VisualObjectActor.cs** . Navigieren Sie in der Datei zur `MoveObject`-Methode, kommentieren Sie `visualObject.Move(false)` aus, und heben Sie die Auskommentierung für `visualObject.Move(true)` auf. Diese Codeänderung bewirkt, dass sich die Objekte nach dem Upgrade des Diensts drehen.  **Jetzt können Sie die Projektmappe erstellen (nicht neu erstellen)** , die die geänderten Projekte erstellt. Wenn Sie die Option *Alles neu erstellen*auswählen, müssen Sie die Versionen für alle Projekte aktualisieren.
+Wählen Sie das Projekt „VisualObjects.ActorService“ in der Projektmappe „VisualObjects“ aus, und öffnen Sie die Datei **VisualObjectActor.cs** . Navigieren Sie in der Datei zur `MoveObject`-Methode, kommentieren Sie `visualObject.Move(false)` aus, und heben Sie die Auskommentierung für `visualObject.Move(true)` auf. Diese Codeänderung bewirkt, dass sich die Objekte nach dem Upgrade des Diensts drehen.  **Jetzt können Sie die Projektmappe erstellen (nicht neu erstellen)** , die die geänderten Projekte erstellt. Wenn Sie die Option *Alles neu erstellen* auswählen, müssen Sie die Versionen für alle Projekte aktualisieren.
 
 Wir müssen unsere Anwendung auch mit einer Version versehen. Sie können die Option **Manifestversionen bearbeiten** von Visual Studio verwenden, um die Versionen zu ändern, nachdem Sie mit einem Rechtsklick das **VisualObjects**-Projekt ausgewählt haben. Bei Wahl dieser Option wird das Dialogfeld zum Bearbeiten von Versionen wie folgt angezeigt:
 
@@ -47,7 +47,7 @@ Aktualisieren Sie die Versionen für die geänderten Projekte und ihre Codepaket
 
 ![Aktualisieren von Versionen][image4]
 
-Die Visual Studio-Tools können automatische Rollups von Versionen durchführen, wenn Sie die Option **Anwendung und Dienstversionen automatisch aktualisieren**auswählen. Wenn Sie [SemVer](http://www.semver.org)verwenden, müssen Sie den Code und/oder die Version der Paketkonfiguration aktualisieren, wenn diese Option ausgewählt ist.
+Die Visual Studio-Tools können automatische Rollups von Versionen durchführen, wenn Sie die Option **Anwendung und Dienstversionen automatisch aktualisieren** auswählen. Wenn Sie [SemVer](http://www.semver.org)verwenden, müssen Sie den Code und/oder die Version der Paketkonfiguration aktualisieren, wenn diese Option ausgewählt ist.
 
 Speichern Sie die Änderungen, und aktivieren Sie nun das Kontrollkästchen **Anwendungs- und Dienstversionen automatisch aktualisieren** .
 

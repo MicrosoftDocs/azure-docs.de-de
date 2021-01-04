@@ -3,12 +3,12 @@ title: Zugreifen auf ein Classroom-Lab in Azure Lab Services | Microsoft-Dokumen
 description: Hier wird beschrieben, wie Sie sich bei einem Classroom-Lab registrieren, alle Labs anzeigen, auf die Sie zugreifen können, einen virtuellen Computer im Lab starten/beenden und eine Verbindung mit dem virtuellen Computer herstellen.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 0c2f0ba5e6a47e00f47a31e08c036ea17ff2507a
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 6d5585082473a363df5f25f331475536544ae828
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946109"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433137"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Zugreifen auf ein Classroom-Lab in Azure Lab Services
 In diesem Artikel wird beschrieben, wie Sie sich bei einem Classroom-Lab registrieren, alle Labs anzeigen, auf die Sie zugreifen können, einen virtuellen Computer im Lab starten/beenden und eine Verbindung mit dem virtuellen Computer herstellen. 
@@ -70,8 +70,8 @@ Die Statusanzeige auf der Kachel gibt Aufschluss darüber, wie viele Stunden der
     ![Blaue Statusanzeige](./media/tutorial-connect-vm-in-classroom-lab/progress-bar-blue-color.png)
 
 
-## <a name="view-all-the-classroom-labs"></a>Anzeigen aller Classroom-Labs
-Nachdem Sie sich bei den Labs registriert haben, können Sie alle Classroom-Labs anzeigen, indem Sie die folgenden Schritte ausführen: 
+## <a name="view-all-the-labs"></a>Anzeigen aller Labs
+Nachdem Sie sich bei den Labs registriert haben, können Sie alle Labs anzeigen, indem Sie die folgenden Schritte ausführen: 
 
 1. Navigieren Sie zu [https://labs.azure.com](https://labs.azure.com). Internet Explorer 11 wird noch nicht unterstützt. 
 2. Melden Sie sich mit dem Benutzerkonto, das Sie zum Registrieren beim Lab verwendet haben, beim Dienst an. 

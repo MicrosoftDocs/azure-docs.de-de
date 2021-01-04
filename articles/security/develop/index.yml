@@ -12,12 +12,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 10/24/2019
-  ms.openlocfilehash: 774c6baba62dca90ea3a186ddff2999ac0274b0a
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 7018e9607065fcea90b70d41d917b70d7d645088
+  ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "89567893"
+  ms.lasthandoff: 11/11/2020
+  ms.locfileid: "94517919"
 landingContent:
 - title: Erste Schritte
   linkLists:
@@ -44,6 +44,6 @@ landingContent:
   - linkListType: learn
     links:
     - text: Top 5 der Sicherheitselemente
-      url: https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider
+      url: /learn/modules/top-5-security-items-to-consider
     - text: Schützen Ihrer Cloudanwendungen in Azure
-      url: https://docs.microsoft.com/learn/paths/secure-your-cloud-apps
+      url: /learn/paths/secure-your-cloud-apps

@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: ead24b89dba889a4bb8f11d57eb687e7790aebfb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35fa0fc134045585eebd21324352f9b4ff272e87
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055910"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954238"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Verwenden der Benutzeroberfläche des StorSimple Snapshot Managers zum Verwalten von Sicherungsaufträgen und Sicherungskatalog
 
@@ -46,7 +46,7 @@ Darüber hinaus unterstützt der StorSimple Snapshot Manager [die Tastaturnaviga
 Die Benutzeroberfläche des StorSimple Snapshot Managers unterstützt die Features zur Barrierefreiheit des Windows-Betriebssystems und der Microsoft Management Console (MMC) sowie einige StorSimple Snapshot Manager-spezifische Tastenkombinationen. 
 
 * Eine Beschreibung der Windows-Features zur Barrierefreiheit finden Sie unter [Tastenkombinationen für Windows](https://support.microsoft.com/kb/126449). 
-* Eine Beschreibung der MMC-Barrierefreiheitsfeatures finden Sie unter [Barrierefreiheit für MMC 3.0](https://technet.microsoft.com/library/cc766075.aspx)
+* Eine Beschreibung der MMC-Barrierefreiheitsfeatures finden Sie unter [Barrierefreiheit für MMC 3.0](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc766075(v=ws.11))
 * Eine Beschreibung der Features zur Barrierefreiheit des StorSimple Snapshot Managers finden Sie unter [Tastaturnavigation und Tastenkombinationen](#keyboard-navigation-and-shortcuts).
 
 ## <a name="menu-bar"></a>Menüleiste
@@ -73,7 +73,7 @@ In der folgenden Tabelle werden die Elemente im Menü **Datei** beschrieben.
 | Öffnen |Klicken Sie auf **Öffnen** , um eine vorhandene Konsole zu öffnen. |
 | Speichern |Klicken Sie auf **Speichern** , um die aktuelle Konsole zu speichern. |
 | Speichern unter |Klicken Sie auf **Speichern unter** , um eine neue, umbenannte Instanz der aktuellen Konsole zu erstellen. Verwenden Sie die Option **Speichern unter** , um eine Ansicht anzupassen und für den späteren Abruf zu speichern. Sie können beispielsweise StorSimple Snapshot Manager-Snap-Ins erstellen, die auf bestimmte Server verweisen. |
-| Snap-In hinzufügen/entfernen |Klicken Sie auf **Snap-In hinzufügen/entfernen**, um Snap-Ins hinzuzufügen oder zu entfernen und um die Knoten im **Bereichsfenster** zu organisieren. Weitere Informationen finden Sie unter [Hinzufügen, Entfernen und Organisieren von Snap-Ins und Erweiterungen in MMC 3.0](https://technet.microsoft.com/library/cc722035.aspx). |
+| Snap-In hinzufügen/entfernen |Klicken Sie auf **Snap-In hinzufügen/entfernen**, um Snap-Ins hinzuzufügen oder zu entfernen und um die Knoten im **Bereichsfenster** zu organisieren. Weitere Informationen finden Sie unter [Hinzufügen, Entfernen und Organisieren von Snap-Ins und Erweiterungen in MMC 3.0](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc722035(v=ws.11)). |
 | Tastatur |Klicken Sie auf **Optionen** , um das Konsolensymbol zu ändern, Benutzerzugriffsmodi und Berechtigungen anzugeben oder Konsolendateien zu löschen, um Speicherplatz freizugeben. |
 | Liste von Dateipfaden |Klicken Sie auf einen Pfad in der nummerierten Liste, um eine der Dateien, die Sie zuletzt geöffnet hatten, erneut zu öffnen. |
 | Beenden |Klicken Sie auf **Beenden**, um das Menü **Datei** zu schließen. |
@@ -450,4 +450,3 @@ In den folgenden Tabellen werden die Tastenkombinationen für die einzelnen Knot
 ## <a name="next-steps"></a>Nächste Schritte
 * Erfahren Sie mehr über das [Verwenden von StorSimple Snapshot Manager zum Verwalten der StorSimple-Lösung](storsimple-snapshot-manager-admin.md).
 * Erfahren Sie, wie Sie [mit dem StorSimple Snapshot Manager Verbindungen mit Geräten herstellen und diese verwalten](storsimple-snapshot-manager-manage-devices.md).
-

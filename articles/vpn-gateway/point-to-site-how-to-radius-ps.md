@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 11/18/2020
 ms.author: cherylmc
-ms.openlocfilehash: c8d7ae3cd40f118399e5ff60fa0738b07249c5ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d962d3a4757b4c7b2d217f91aaf73d6ad4164d3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442403"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964846"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Konfigurieren einer Point-to-Site-Verbindung mit einem VNET unter Verwendung der RADIUS-Authentifizierung: PowerShell
 
@@ -40,7 +40,7 @@ Point-to-Site-Verbindungen erfordern weder ein VPN-Gerät noch eine öffentliche
 
 P2S-Verbindungen erfordern Folgendes:
 
-* Ein RouteBased-VPN-Gateway. 
+* Ein RouteBased-VPN-Gateway. 
 * Einen RADIUS-Server für die Benutzerauthentifizierung. Der RADIUS-Server kann lokal oder im Azure-VNET bereitgestelltwerden. Für eine Hochverfügbarkeit können Sie auch zwei RADIUS-Server konfigurieren.
 * Ein VPN-Clientkonfigurationspaket für die Windows-Geräte, die eine Verbindung mit dem VNET herstellen. Ein VPN-Clientkonfigurationspaket enthält die Einstellungen, die ein VPN-Client zum Herstellen einer P2S-Verbindung benötigt.
 
@@ -148,11 +148,11 @@ Mit den folgenden Schritten werden eine Ressourcengruppe und ein virtuelles Netz
 
 Vor dem Erstellen und Konfigurieren des Gateways für virtuelle Netzwerke muss der RADIUS-Server ordnungsgemäß für die Authentifizierung konfiguriert werden.
 
-1. Wenn kein RADIUS-Server bereitgestellt wurde, stellen Sie einen bereit. Informationen zu den Bereitstellungsschritten finden Sie im Einrichtungshandbuch des RADIUS-Anbieters.  
-2. Konfigurieren Sie das VPN-Gateway als RADIUS-Client auf dem RADIUS-Server. Geben Sie beim Hinzufügen dieses RADIUS-Clients das erstellte Gatewaysubnetzt für virtuelle Netzwerke an. 
+1. Wenn kein RADIUS-Server bereitgestellt wurde, stellen Sie einen bereit. Informationen zu den Bereitstellungsschritten finden Sie im Einrichtungshandbuch des RADIUS-Anbieters.  
+2. Konfigurieren Sie das VPN-Gateway als RADIUS-Client auf dem RADIUS-Server. Geben Sie beim Hinzufügen dieses RADIUS-Clients das erstellte Gatewaysubnetzt für virtuelle Netzwerke an. 
 3. Rufen Sie nach der Einrichtung des RADIUS-Servers die IP-Adresse und das gemeinsame Geheimnis des RADIUS-Servers ab, die RADIUS-Clients für die Kommunikation mit dem RADIUS-Server verwenden sollen. Wenn sich der RADIUS-Server im Azure-VNET befindet, verwenden Sie die Zertifizierungsstellen-IP des virtuellen Computers mit dem RADIUS-Server.
 
-Der Artikel [Network Policy Server (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) (Netzwerkrichtlinienserver (Network Policy Server, NPS)) enthält Anweisungen zum Konfigurieren eines Windows-RADIUS-Servers (NPS) für AD-Domänenauthentifizierung.
+Der Artikel [Network Policy Server (NPS)](/windows-server/networking/technologies/nps/nps-top) (Netzwerkrichtlinienserver (Network Policy Server, NPS)) enthält Anweisungen zum Konfigurieren eines Windows-RADIUS-Servers (NPS) für AD-Domänenauthentifizierung.
 
 ## <a name="4-create-the-vpn-gateway"></a>4. <a name="creategw"></a>Erstellen des VPN-Gateways
 
@@ -169,9 +169,9 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 
 ## <a name="5-add-the-radius-server-and-client-address-pool"></a>5. <a name="addradius"></a>Hinzufügen des RADIUS-Servers und des Clientadresspools
  
-* Für „-RadiusServer“ kann ein Name oder eine IP-Adresse angegeben werden. Wenn Sie den Namen angeben und sich der Server in der lokalen Umgebung befindet, kann das VPN-Gateway den Namen unter Umständen nicht auflösen. In diesem Fall ist es besser, die IP-Adresse des Servers anzugeben. 
+* Für „-RadiusServer“ kann ein Name oder eine IP-Adresse angegeben werden. Wenn Sie den Namen angeben und sich der Server in der lokalen Umgebung befindet, kann das VPN-Gateway den Namen unter Umständen nicht auflösen. In diesem Fall ist es besser, die IP-Adresse des Servers anzugeben. 
 * „-RadiusSecret“ muss dem für den RADIUS-Server konfigurierten Wert entsprechen.
-* Bei „-VpnClientAddressPool“ handelt es sich um den Bereich, aus dem die VPN-Clients, die eine Verbindung herstellen, eine IP-Adresse erhalten.Verwenden Sie einen privaten IP-Adressbereich, der sich nicht mit dem lokalen Standort überschneidet, aus dem Sie Verbindungen herstellen möchten. Der Bereich darf sich auch nicht mit dem VNET überschneiden, mit dem Sie Verbindungen herstellen möchten. Stellen Sie sicher, dass der konfigurierte Adresspool groß genug ist.  
+* Bei „-VpnClientAddressPool“ handelt es sich um den Bereich, aus dem die VPN-Clients, die eine Verbindung herstellen, eine IP-Adresse erhalten. Verwenden Sie einen privaten IP-Adressbereich, der sich nicht mit dem lokalen Standort überschneidet, aus dem Sie Verbindungen herstellen möchten. Der Bereich darf sich auch nicht mit dem VNET überschneiden, mit dem Sie Verbindungen herstellen möchten. Stellen Sie sicher, dass der konfigurierte Adresspool groß genug ist.  
 
 1. Erstellen Sie eine sichere Zeichenfolge für das RADIUS-Geheimnis.
 
@@ -224,7 +224,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-   Verwenden Sie die folgende Syntax, um **zwei** RADIUS-Server **(Vorschau)** anzugeben. Ändern Sie den Wert **-VpnClientProtocol** nach Bedarf.
+   Verwenden Sie die folgende Syntax, um **zwei** RADIUS-Server anzugeben. Ändern Sie den Wert **-VpnClientProtocol** nach Bedarf.
 
     ```azurepowershell-interactive
     $radiusServer1 = New-AzRadiusServer -RadiusServerAddress 10.1.0.15 -RadiusServerSecret $radiuspd -RadiusServerScore 30
@@ -237,7 +237,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 
 ## <a name="6-download-the-vpn-client-configuration-package-and-set-up-the-vpn-client"></a>6. <a name="vpnclient"></a>Herunterladen des VPN-Clientkonfigurationspakets und Einrichten des VPN-Clients
 
-Die VPN-Clientkonfiguration ermöglicht Geräten das Herstellen einer P2S-Verbindung mit einem VNET.Informationen zum Erstellen eines VPN-Clientkonfigurationspakets und zum Einrichten des VPN-Clients finden Sie unter [Create and install VPN client configuration files for P2S RADIUS authentication (Preview)](point-to-site-vpn-client-configuration-radius.md) (Erstellen und Installieren von VPN-Clientkonfigurationsdateien für P2S-RADIUS-Authentifizierung (Vorschauversion)).
+Die VPN-Clientkonfiguration ermöglicht Geräten das Herstellen einer P2S-Verbindung mit einem VNET. Informationen zum Erstellen eines VPN-Clientkonfigurationspakets und zum Einrichten des VPN-Clients finden Sie unter [Create and install VPN client configuration files for P2S RADIUS authentication (Preview)](point-to-site-vpn-client-configuration-radius.md) (Erstellen und Installieren von VPN-Clientkonfigurationsdateien für P2S-RADIUS-Authentifizierung (Vorschauversion)).
 
 ## <a name="7-connect-to-azure"></a><a name="connect"></a>7. Herstellen einer Verbindung mit Azure
 
@@ -258,7 +258,7 @@ Navigieren Sie im Dialogfeld „Netzwerk“ zum gewünschten Clientprofil, und k
 
 ## <a name="to-verify-your-connection"></a><a name="verify"></a>So überprüfen Sie Ihre Verbindung
 
-1. Um sicherzustellen, dass die VPN-Verbindung aktiv ist, öffnen Sie eine Eingabeaufforderung mit Administratorrechten, und führen Sie *Ipconfig/all*aus.
+1. Um sicherzustellen, dass die VPN-Verbindung aktiv ist, öffnen Sie eine Eingabeaufforderung mit Administratorrechten, und führen Sie *Ipconfig/all* aus.
 2. Zeigen Sie die Ergebnisse an. Beachten Sie, dass die erhaltene IP-Adresse eine der Adressen aus dem Clientadresspool des Punkt-zu-Standort-VPN ist, den Sie in Ihrer Konfiguration angegeben haben. Die Ergebnisse sehen in etwa wie in diesem Beispiel aus:
 
    ```
@@ -278,7 +278,11 @@ Informationen zur Problembehandlung für eine P2S-Verbindung finden Sie unter [P
 
 ## <a name="to-connect-to-a-virtual-machine"></a><a name="connectVM"></a>Herstellen einer Verbindung mit einem virtuellen Computer
 
-[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-p2s-include.md)]
+[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm.md)]
+
+* Stellen Sie sicher, dass das VPN-Clientkonfigurationspaket generiert wurde, nachdem die IP-Adressen des DNS-Server für das VNET angegeben wurden. Wenn Sie die IP-Adressen des DNS-Servers aktualisiert haben, generieren Sie ein neues VPN-Clientkonfigurationspaket und installieren es.
+
+* Überprüfen Sie mit „ipconfig“ die IPv4-Adresse, die dem Ethernet-Adapter auf dem Computer zugewiesen ist, von dem aus Sie die Verbindung herstellen. Wenn sich die IP-Adresse im Adressbereich des VNETs befindet, mit dem Sie die Verbindung herstellen, oder im Adressbereich von „VPNClientAddressPool“ liegt, wird dies als sich überschneidender Adressraum bezeichnet. Falls sich Ihr Adressraum auf diese Weise überschneidet, kommt der Netzwerkdatenverkehr nicht bei Azure an, sondern verbleibt im lokalen Netzwerk.
 
 ## <a name="faq"></a><a name="faq"></a>Häufig gestellte Fragen
 
@@ -288,4 +292,4 @@ Diese häufig gestellten Fragen beziehen sich auf P2S mit RADIUS-Authentifizieru
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Sobald die Verbindung hergestellt ist, können Sie Ihren virtuellen Netzwerken virtuelle Computer hinzufügen. Weitere Informationen finden Sie unter [Virtuelle Computer](https://docs.microsoft.com/azure/) . Weitere Informationen zu Netzwerken und virtuellen Computern finden Sie unter [Azure- und Linux-VM-Netzwerke (Übersicht)](../virtual-machines/linux/azure-vm-network-overview.md).
+Sobald die Verbindung hergestellt ist, können Sie Ihren virtuellen Netzwerken virtuelle Computer hinzufügen. Weitere Informationen finden Sie unter [Virtuelle Computer](../index.yml) . Weitere Informationen zu Netzwerken und virtuellen Computern finden Sie unter [Azure- und Linux-VM-Netzwerke (Übersicht)](../virtual-machines/network-overview.md).

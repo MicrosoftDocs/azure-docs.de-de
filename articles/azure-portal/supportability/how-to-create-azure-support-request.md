@@ -1,20 +1,15 @@
 ---
-title: Erstellen einer Azure-Supportanfrage | Microsoft Docs
+title: 'Gewusst wie: Erstellen einer Azure-Supportanfrage'
 description: Kunden, die Unterstützung benötigen, können das Azure-Portal verwenden, um Self-Service-Lösungen zu finden und Supportanfragen zu erstellen und zu verwalten.
-services: Azure Supportability
-author: mgblythe
-manager: scotthit
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
-ms.service: azure-supportability
 ms.topic: how-to
 ms.date: 06/25/2020
-ms.author: mblythe
-ms.openlocfilehash: f937b03b2f838f69f56a4b132d0ea7a7e298b532
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 11ca7925ce1664b5586ab8ec0fb523a2d562ee80
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372122"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745586"
 ---
 # <a name="create-an-azure-support-request"></a>Erstellen einer Azure-Supportanfrage
 
@@ -29,9 +24,9 @@ Azure ermöglicht das Erstellen und Verwalten von Supportanfragen (auch Supportt
 
 Die Oberfläche für Supportanfragen ist auf drei Hauptziele konzentriert:
 
-* **Optimierung** : Einfacheres Auffinden von Support und Problembehandlung und vereinfachtes Absenden einer Supportanfrage.
-* **Integration** : Bei der Behandlung eines Problems mit einer Azure-Ressource können Sie eine Supportanfrage ganz einfach öffnen, ohne den Kontext zu wechseln.
-* **Effizient** : Sammeln Sie die wichtigen Informationen, die Ihr Supporttechniker benötigt, um das Problem effizient zu lösen.
+* **Optimierung**: Einfacheres Auffinden von Support und Problembehandlung und vereinfachtes Absenden einer Supportanfrage.
+* **Integration**: Bei der Behandlung eines Problems mit einer Azure-Ressource können Sie eine Supportanfrage ganz einfach öffnen, ohne den Kontext zu wechseln.
+* **Effizient**: Sammeln Sie die wichtigen Informationen, die Ihr Supporttechniker benötigt, um das Problem effizient zu lösen.
 
 In Azure wird unbegrenzter Support für die Abonnementverwaltung bereitgestellt, einschließlich Abrechnung, Kontingentanpassungen und Kontenübertragungen. Für technischen Support benötigen Sie einen Supportplan. Weitere Informationen finden Sie unter [Supportpläne vergleichen](https://azure.microsoft.com/support/plans).
 
@@ -73,7 +68,7 @@ Wir führen Sie durch einige Schritte, um Informationen zu Ihrem Problem zu samm
 
 Im ersten Schritt des Prozesses für Supportanfragen werden grundlegende Informationen zu Ihrem Problem und Supportplan gesammelt.
 
-Verwenden Sie auf der Registerkarte **Grundlagen** von **Neue Supportanfrage** die Selektoren, um uns erste Informationen über das Problem mitzuteilen. Zuerst identifizieren Sie einige allgemeine Kategorien für den Problemtyp und wählen das zugehörige Abonnement aus. Wählen Sie den Dienst aus, z. B. **Virtueller Computer mit Windows** . Wählen Sie die Ressource aus, z. B. den Namen Ihres virtuellen Computers. Beschreiben Sie das Problem kurz mit eigenen Worten, und wählen Sie dann **Problemtyp** und **Problemuntertyp** aus, um genauere Informationen anzugeben.
+Verwenden Sie auf der Registerkarte **Grundlagen** von **Neue Supportanfrage** die Selektoren, um uns erste Informationen über das Problem mitzuteilen. Zuerst identifizieren Sie einige allgemeine Kategorien für den Problemtyp und wählen das zugehörige Abonnement aus. Wählen Sie den Dienst aus, z. B. **Virtueller Computer mit Windows**. Wählen Sie die Ressource aus, z. B. den Namen Ihres virtuellen Computers. Beschreiben Sie das Problem kurz mit eigenen Worten, und wählen Sie dann **Problemtyp** und **Problemuntertyp** aus, um genauere Informationen anzugeben.
 
 ![Blatt "Grundlagen"](./media/how-to-create-azure-support-request/basics2lower.png)
 

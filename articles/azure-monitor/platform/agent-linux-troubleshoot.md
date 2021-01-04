@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: c28a3b0f445ca905a882a7ede3fcfed2c1e673a4
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 13959c4a3c798656efdc72b5c8e5f96e4fb2392a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531189"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011896"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Behandeln von Problemen mit dem Log Analytics-Agent für Linux 
 
@@ -23,7 +23,46 @@ Falls sich Ihr Problem durch keinen dieser Schritte beheben lässt, stehen Ihnen
 * Kunden mit Azure-Supportvereinbarungen können eine Supportanfrage [im Azure-Portal](https://manage.windowsazure.com/?getsupport=true) stellen.
 * Verwenden Sie zum Diagnostizieren von OMI-Problemen den [OMI troubleshooting guide](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md) (Leitfaden zur OMI-Problembehandlung).
 * Melden Sie ein [GitHub-Problem](https://github.com/Microsoft/OMS-Agent-for-Linux/issues).
-* Besuchen Sie die Log Analytics-Feedbackseite unter [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback), um bereits eingereichte Vorschläge und gemeldete Fehler einzusehen oder ein neues Problem zu melden.  
+* Besuchen Sie die Log Analytics-Feedbackseite unter [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback), um bereits eingereichte Vorschläge und gemeldete Fehler einzusehen oder ein neues Problem zu melden. 
+
+## <a name="log-analytics-troubleshooting-tool"></a>Log Analytics-Problembehandlungstool
+
+Das Problembehandlungstool für den Log Analytics-Agent für Linux ist ein Skript, das für die Ermittlung und Diagnose von Problemen mit dem Log Analytics-Agent konzipiert ist. Es ist bei der Installation des Agents automatisch enthalten. Das Ausführen des Tools sollte der erste Schritt bei der Diagnose eines Problems sein.
+
+### <a name="how-to-use"></a>Verwendung
+Das Problembehandlungstool kann ausgeführt werden, indem Sie auf einem Computer mit dem Log Analytics-Agent den folgenden Befehl in ein Terminalfenster einfügen: `sudo /opt/microsoft/omsagent/bin/troubleshooter`
+
+### <a name="manual-installation"></a>Manuelle Installation
+Das Problembehandlungstool ist bei der Installation des Log Analytics-Agents automatisch enthalten. Wenn die Installation jedoch in irgendeiner Weise fehlschlägt, kann es mithilfe der folgenden Schritte auch manuell installiert werden.
+
+1. Kopieren Sie das Problembehandlungspaket auf Ihren Computer: `wget https://raw.github.com/microsoft/OMS-Agent-for-Linux/master/source/code/troubleshooter/omsagent_tst.tar.gz`
+2. Entpacken Sie das Paket: `tar -xzvf omsagent_tst.tar.gz`
+3. Führen Sie die manuelle Installation aus: `sudo ./install_tst`
+
+### <a name="scenarios-covered"></a>Abgedeckte Szenarien
+Es folgt eine Liste von Szenarien, die vom Problembehandlungstool geprüft werden:
+
+1. Agent ist fehlerhaft, Takt funktioniert nicht ordnungsgemäß
+2. Agent startet nicht, keine Verbindung mit Log Analytics-Diensten
+3. Agent-Syslog funktioniert nicht
+4. Agent weist hohe CPU-/Arbeitsspeicherauslastung auf
+5. Agent weist Installationsprobleme auf
+6. Benutzerdefinierte Agent-Protokolle funktionieren nicht
+7. Sammeln von Agent-Protokollen
+
+Weitere Informationen finden Sie in der [GitHub-Dokumentation](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting-Tool.md).
+
+ >[!NOTE]
+ >Führen Sie das Protokollsammler-Tool aus, wenn ein Problem auftritt. Mithilfe der anfänglichen Protokolle kann unser Supportteam das Problem schneller beheben.
+
+## <a name="purge-and-re-install-the-linux-agent"></a>Vollständiges Löschen und erneutes Installieren des Linux-Agents
+
+Wir haben festgestellt, dass eine saubere Neuinstallation des Agents die meisten Probleme behebt. Dies ist möglicherweise die erste Empfehlung des Supportteams, um den Agent wieder in einen fehlerfreien Zustand zu versetzen. Das Ausführen der Problembehandlung, die Erfassung von Protokollen und der Versuch einer sauberen Neuinstallation tragen zu einer schnelleren Behebung von Problemen bei.
+
+1. Laden Sie das Skript zur endgültigen Löschung herunter:
+- `$ wget https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/tools/purge_omsagent.sh`
+2. Führen Sie das Skript zur endgültigen Löschung (mit sudo-Berechtigungen) aus:
+- `$ sudo sh purge_omsagent.sh`
 
 ## <a name="important-log-locations-and-log-collector-tool"></a>Wichtige Protokollspeicherorte und das Protokollsammler-Tool
 

@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4f8987a8daccc012f9d6da53e46fe7c4e8b43ad
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 8d3f8e9441064a5d2d1372e3f177534b8dfefb93
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146351"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359831"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologien für Azure AD Connect
 In diesem Artikel werden verschiedene lokale und Azure Active Directory (Azure AD)-Topologien beschrieben, die Azure AD Connect-Synchronisierung als Schlüsselintegrationslösung verwenden. In diesem Artikel werden sowohl unterstützte als auch nicht unterstützte Konfigurationen beschrieben.
@@ -142,7 +142,7 @@ Sie können mehrere Stagingserver verwenden, wenn Sie mehrere Sicherungen in ver
 
 ## <a name="multiple-azure-ad-tenants"></a>Mehrere Azure AD-Mandanten
 Wir empfehlen einen einzelnen Mandanten in Azure AD für eine Organisation.
-Wenn Sie mehrere Azure AD-Mandanten verwenden möchten, erhalten Sie im Artikel [Verwaltung administrativer Einheiten in Azure AD](../users-groups-roles/directory-administrative-units.md) weitere Informationen. Es umfasst häufige Szenarien, in denen Sie einen einzelnen Mandanten verwenden können.
+Wenn Sie mehrere Azure AD-Mandanten verwenden möchten, erhalten Sie im Artikel [Verwaltung administrativer Einheiten in Azure AD](../roles/administrative-units.md) weitere Informationen. Es umfasst häufige Szenarien, in denen Sie einen einzelnen Mandanten verwenden können.
 
 ![Topologie für mehrere Gesamtstrukturen und mehrere Mandanten](./media/plan-connect-topologies/multiforestmultidirectory.png)
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/11/2020
-ms.openlocfilehash: 452a3b04637126b40aca907178bebd6f74ec4481
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86d951089e4247d9b959476c812b98e170d92bd8
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79365774"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547978"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Verwendung des Enterprise-Sicherheitspakets in HDInsight
 
@@ -57,7 +57,7 @@ Weitere Informationen finden Sie unter [Konfigurieren eines HDInsight-Clusters m
 
 Wenn Sie eine lokale Active Directory-Instanz oder komplexere Active Directory-Setups für Ihre Domäne haben, können Sie diese Identitäten anhand von Azure AD Connect mit Azure synchronisieren. Anschließend können Sie Azure AD DS auf diesem Active Directory-Mandanten aktivieren.
 
-Da Kerberos auf Kennworthashes angewiesen ist, müssen Sie [die Kennworthashsynchronisierung für Azure AD DS aktivieren](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md).
+Da Kerberos auf Kennworthashes angewiesen ist, müssen Sie [die Kennworthashsynchronisierung für Azure AD DS aktivieren](../../active-directory-domain-services/tutorial-create-instance.md).
 
 Wenn Sie einen Verbund mit Active Directory-Verbunddienste (AD FS) verwenden, müssen Sie die Kennworthashsynchronisierung aktivieren. (Eine empfohlene Konfiguration finden Sie in [diesem Video](https://youtu.be/qQruArbu2Ew).) Die Kennworthashsynchronisierung hilft bei der Notfallwiederherstellung, falls Ihre AD FS-Infrastruktur ausfällt, und bietet zudem Schutz vor der Offenlegung von Anmeldeinformationen. Weitere Informationen finden Sie unter [Implementieren der Kennworthashsynchronisierung mit der Azure AD Connect-Synchronisierung](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
 
@@ -65,7 +65,7 @@ Die alleinige Verwendung des lokalen Active Directory oder Active Directory auf 
 
 Wenn ein Verbund verwendet wird und Kennworthashes richtig synchronisiert werden, Sie aber Authentifizierungsfehler erhalten, überprüfen Sie, ob die Cloudkennwortauthentifizierung des PowerShell-Dienstprinzipals aktiviert ist. Ist dies nicht der Fall, müssen Sie eine [HRD-Richtlinie (Home Realm Discovery, Startbereichsermittlung)](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) für Ihren Azure AD-Mandanten festlegen. So überprüfen Sie die HRD-Richtlinie und legen sie fest
 
-1. Installieren Sie die Vorschauversion des [Azure AD PowerShell-Moduls](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
+1. Installieren Sie die Vorschauversion des [Azure AD PowerShell-Moduls](/powershell/azure/active-directory/install-adv2).
 
    ```powershell
    Install-Module AzureAD

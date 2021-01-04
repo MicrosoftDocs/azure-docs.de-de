@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8f528c6be68258400cb3e29582943f1d657c557d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71eda40abd38b4885b8e88085e338667b608902f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069271"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655135"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutorial: Filtern von eingehendem Internetdatenverkehr mit Azure Firewall-DNAT im Azure-Portal
 
@@ -226,4 +226,4 @@ In diesem Tutorial haben Sie Folgendes gelernt:
 Als Nächstes können Sie die Azure Firewall-Protokolle überwachen.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Überwachen von Azure Firewall-Protokollen](./tutorial-diagnostics.md)
+> [Tutorial: Überwachen von Azure Firewall-Protokollen](./firewall-diagnostics.md)

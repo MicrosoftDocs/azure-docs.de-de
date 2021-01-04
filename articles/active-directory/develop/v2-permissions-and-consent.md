@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperfq1, identityplatformtop40
-ms.openlocfilehash: 9c8a911bef5fb92f5bf9aa447e9e810a85317208
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1b8b7b16a354fba482fcefe8f306f949f9a952ea
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365849"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902645"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Berechtigungen und Zustimmung im Microsoft Identity Platform-Endpunkt
 
@@ -25,7 +25,7 @@ Anwendungen, die sich in die Microsoft Identity Platform integrieren lassen, fol
 
 ## <a name="scopes-and-permissions"></a>Bereiche und Berechtigungen
 
-Die Microsoft Identity Platform implementiert das [OAuth 2.0](active-directory-v2-protocols.md)-Autorisierungsprotokoll. OAuth 2.0 ist eine Methode, über die eine Drittanbieter-App im Auftrag eines Benutzers auf im Web gehostete Ressourcen zugreifen kann. Alle im Web gehosteten Ressourcen, die in die Microsoft Identity Platform integriert werden können, verfügen über einen Ressourcenbezeichner bzw. *Anwendungs-ID-URI* . Zu den von Microsoft im Web gehosteten Ressourcen zählen beispielsweise:
+Die Microsoft Identity Platform implementiert das [OAuth 2.0](active-directory-v2-protocols.md)-Autorisierungsprotokoll. OAuth 2.0 ist eine Methode, über die eine Drittanbieter-App im Auftrag eines Benutzers auf im Web gehostete Ressourcen zugreifen kann. Alle im Web gehosteten Ressourcen, die in die Microsoft Identity Platform integriert werden können, verfügen über einen Ressourcenbezeichner bzw. *Anwendungs-ID-URI*. Zu den von Microsoft im Web gehosteten Ressourcen zählen beispielsweise:
 
 * Microsoft Graph: `https://graph.microsoft.com`
 * API für Microsoft 365-E-Mail: `https://outlook.office.com`
@@ -52,7 +52,7 @@ Eine App fordert diese Berechtigungen meist durch Angabe der Bereiche in Anforde
 
 ## <a name="permission-types"></a>Berechtigungstypen
 
-Die Microsoft Identity Platform unterstützt zwei Arten von Berechtigungen: **delegierte Berechtigungen** und **Anwendungsberechtigungen** .
+Die Microsoft Identity Platform unterstützt zwei Arten von Berechtigungen: **delegierte Berechtigungen** und **Anwendungsberechtigungen**.
 
 * **Delegierte Berechtigungen** werden von Apps verwendet, bei denen ein angemeldeter Benutzer vorhanden ist. Für diese Apps willigt entweder der Benutzer oder ein Administrator in die Erteilung der von der App angeforderten Berechtigungen ein, und an die App wird die Berechtigung delegiert, bei Aufrufen der Zielressource als der angemeldete Benutzer zu agieren. Bei manchen delegierten Berechtigungen können Benutzer ohne Administratorrechte die Einwilligung erteilen, einige erhöhte Berechtigungen erfordern jedoch eine [Administratoreinwilligung](#admin-restricted-permissions). Um zu erfahren, welche Administratorrollen delegierten Berechtigungen zustimmen können, lesen Sie [Berechtigungen der Administratorrolle in Azure AD](../roles/permissions-reference.md).
 
@@ -167,7 +167,7 @@ Anwendungen können im App-Registrierungsportal angeben, welche Berechtigungen s
 #### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>So konfigurieren Sie die Liste statisch angeforderter Berechtigungen für eine Anwendung
 
 1. Wechseln Sie im [Azure-Portal – App-Registrierungen](https://go.microsoft.com/fwlink/?linkid=2083908) zu Ihrer Anwendung oder [erstellen Sie eine App](quickstart-register-app.md), sofern noch nicht geschehen.
-2. Suchen Sie den Abschnitt **API-Berechtigungen** , und klicken Sie in den API-Berechtigungen auf „Berechtigung hinzufügen“.
+2. Suchen Sie den Abschnitt **API-Berechtigungen**, und klicken Sie in den API-Berechtigungen auf „Berechtigung hinzufügen“.
 3. Wählen Sie in der Liste der verfügbaren APIs **Microsoft Graph** aus, und fügen Sie dann die Berechtigungen hinzu, die für die App erforderlich sind.
 3. **Speichern** Sie die App-Registrierung.
 
@@ -304,7 +304,7 @@ Dies erzeugt einen Einwilligungsbildschirm für alle registrierten Berechtigunge
 
 ### <a name="client-credentials-grant-flow-and-default"></a>Flow zum Gewähren von Clientanmeldeinformationen und Verwenden von „/.default“
 
-Ebenso kann `./default` verwendet werden, um Anwendungsberechtigungen (oder *Rollen* ) in einer nicht interaktiven Anwendung wie der Daemon-App anzufordern, die den Flow zum Gewähren von [Clientanmeldeinformationen](v2-oauth2-client-creds-grant-flow.md) verwendet, um eine Web-API aufzurufen.
+Ebenso kann `/.default` verwendet werden, um Anwendungsberechtigungen (oder *Rollen*) in einer nicht interaktiven Anwendung wie der Daemon-App anzufordern, die den Flow zum Gewähren von [Clientanmeldeinformationen](v2-oauth2-client-creds-grant-flow.md) verwendet, um eine Web-API aufzurufen.
 
 Informationen zum Erstellen von Anwendungsberechtigungen (Rollen) für eine Web-API finden Sie unter [Vorgehensweise: Hinzufügen von App-Rollen in Ihrer Anwendung](howto-add-app-roles-in-azure-ad-apps.md).
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: krsh
 ms.date: 10/20/2020
-ms.openlocfilehash: 34d64d70c657712bb44aa6331b53f014349a0dda
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: c28595458fea61f66b6930ce72fa0702e00aecd9
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283204"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129295"
 ---
 # <a name="how-to-create-a-virtual-machine-using-an-approved-base"></a>Erstellen eines virtuellen Computers mit einer genehmigten Basis
 
@@ -32,7 +32,7 @@ Wählen Sie eines der folgenden Windows- oder Linux-Images als Basis aus.
 
 ### <a name="linux"></a>Linux
 
-Azure bietet eine Reihe von genehmigten Linux-Distributionen. Eine aktuelle Liste finden Sie unter [Linux auf von Azure unterstützten Distributionen](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+Azure bietet eine Reihe von genehmigten Linux-Distributionen. Eine aktuelle Liste finden Sie unter [Linux auf von Azure unterstützten Distributionen](../virtual-machines/linux/endorsed-distros.md).
 
 ## <a name="create-vm-on-the-azure-portal"></a>Erstellen der VM im Azure-Portal
 
@@ -46,12 +46,12 @@ Azure bietet eine Reihe von genehmigten Linux-Distributionen. Eine aktuelle List
 
 6. Wählen Sie die Größe der bereitzustellenden VM aus.
 
-    :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="Wählen Sie „Gen 1“ oder „Gen 2“ aus.":::
+    :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="Wählen Sie eine empfohlene VM-Größe für das ausgewählte Image aus.":::
 
 7. Geben Sie die anderen Details ein, die zum Erstellen der VM erforderlich sind.
 8. Wählen Sie **Bewerten + erstellen** aus, um Ihre Auswahl zu überprüfen. Wenn die Meldung **Überprüfung erfolgreich** angezeigt wird, wählen Sie **Erstellen** aus.
 
-Azure beginnt mit der Bereitstellung der von Ihnen angegebenen VM. Sie können den Fortschritt nachverfolgen, indem Sie im linken Menü die Registerkarte **Virtuelle Computer** auswählen. Nach der Erstellung ändert sich der Status des virtuellen Computers in **Wird ausgeführt** .
+Azure beginnt mit der Bereitstellung der von Ihnen angegebenen VM. Sie können den Fortschritt nachverfolgen, indem Sie im linken Menü die Registerkarte **Virtuelle Computer** auswählen. Nach der Erstellung ändert sich der Status des virtuellen Computers in **Wird ausgeführt**.
 
 
 ## <a name="configure-the-vm"></a>Konfigurieren der VM

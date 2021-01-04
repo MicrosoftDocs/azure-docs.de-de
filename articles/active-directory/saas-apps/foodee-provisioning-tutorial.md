@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 78ba57d485f9842ad8531ce22a2b932aa1a1d28b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b4bfa7e9bf457d79c6c4a0b5255bce4fe36dff4
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850420"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358676"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Tutorial: Konfigurieren von Foodee für die automatische Benutzerbereitstellung
 
@@ -37,7 +37,7 @@ In diesem Tutorial wird davon ausgegangen, dass Sie die folgenden Voraussetzunge
 
 ## <a name="assign-users-to-foodee"></a>Zuweisen von Benutzern zu Foodee 
 
-Azure AD ermittelt anhand von *Zuweisungen*, welche Benutzer Zugriff auf ausgewählte Apps erhalten sollen. Im Kontext der automatischen Benutzerbereitstellung werden nur die Benutzer oder Gruppen synchronisiert, die einer Anwendung in Azure AD zugewiesen wurden.
+Azure AD ermittelt anhand von *Zuweisungen* , welche Benutzer Zugriff auf ausgewählte Apps erhalten sollen. Im Kontext der automatischen Benutzerbereitstellung werden nur die Benutzer oder Gruppen synchronisiert, die einer Anwendung in Azure AD zugewiesen wurden.
 
 Vor dem Konfigurieren und Aktivieren der automatischen Benutzerbereitstellung müssen Sie entscheiden, welche Benutzer oder Gruppen in Azure AD Zugriff auf Foodee benötigen. Nachdem Sie Ihre Entscheidung getroffen haben, können Sie diese Benutzer oder Gruppen entsprechend den Anleitungen unter [Zuweisen eines Benutzers oder einer Gruppe zu einer Unternehmens-App](../manage-apps/assign-user-or-group-access-portal.md) Foodee zuweisen.
 
@@ -63,7 +63,7 @@ Bevor Sie Foodee für die automatische Benutzerbereitstellung mithilfe von Azure
 
 1. Kopieren Sie den Wert im Feld **API-Token** zur späteren Verwendung. Sie werden ihn im Azure-Portal auf der Registerkarte **Bereitstellung** Ihrer Foodee-Anwendung im Feld **Geheimes Token** eingeben.
 
-    :::image type="content" source="media/Foodee-provisioning-tutorial/token.png" alt-text="Screenshot des Hauptmenüs des Foodee-Unternehmensportals. Im Menü wird ein Platzhalter für eine Mandanten-ID angezeigt." border="false":::
+    :::image type="content" source="media/Foodee-provisioning-tutorial/token.png" alt-text="Screenshot einer Seite des Foodee-Unternehmensportals. Ein API-Tokenwert ist hervorgehoben." border="false":::
 
 ## <a name="add-foodee-from-the-gallery"></a>Hinzufügen von Foodee aus dem Katalog
 
@@ -130,20 +130,20 @@ Konfigurieren Sie die automatische Benutzerbereitstellung für Foodee in Azure A
 
 1. Wählen Sie unter **Zuordnungen** die Option **Azure Active Directory-Benutzer mit Foodee synchronisieren** aus.
 
-    :::image type="content" source="media/Foodee-provisioning-tutorial/usermapping.png" alt-text="Screenshot des Hauptmenüs des Foodee-Unternehmensportals. Im Menü wird ein Platzhalter für eine Mandanten-ID angezeigt." border="false":::
+    :::image type="content" source="media/Foodee-provisioning-tutorial/usermapping.png" alt-text="Screenshot des Abschnitts „Zuordnungen“. Unter „Name“ ist die Option „Azure Active Directory-Benutzer mit Foodee synchronisieren“ hervorgehoben." border="false":::
 
 1. Überprüfen Sie unter **Attributzuordnungen** die Benutzerattribute, die von Azure AD mit Foodee synchronisiert werden. Die als **übereinstimmende** Eigenschaften ausgewählten Attribute werden bei Aktualisierungsvorgängen für den Abgleich der *Benutzerkonten* in Foodee verwendet. 
 
-    :::image type="content" source="media/Foodee-provisioning-tutorial/userattribute.png" alt-text="Screenshot des Hauptmenüs des Foodee-Unternehmensportals. Im Menü wird ein Platzhalter für eine Mandanten-ID angezeigt." border="false":::
+    :::image type="content" source="media/Foodee-provisioning-tutorial/userattribute.png" alt-text="Screenshot der Seite „Attributzuordnungen“. In einer Tabelle werden Attribute für Azure Active Directory und Foodee sowie die entsprechende Rangfolge aufgelistet." border="false":::
 
 1. Wenn Sie Ihre Änderungen committen möchten, wählen Sie **Speichern** aus.
 1. Wählen Sie unter **Zuordnungen** die Option **Azure Active Directory-Gruppen mit Foodee synchronisieren** aus.
 
-    :::image type="content" source="media/Foodee-provisioning-tutorial/groupmapping.png" alt-text="Screenshot des Hauptmenüs des Foodee-Unternehmensportals. Im Menü wird ein Platzhalter für eine Mandanten-ID angezeigt." border="false":::
+    :::image type="content" source="media/Foodee-provisioning-tutorial/groupmapping.png" alt-text="Screenshot des Abschnitts „Zuordnungen“. Unter „Name“ ist die Option „Azure Active Directory-Gruppen mit Foodee synchronisieren“ hervorgehoben." border="false":::
 
 1. Überprüfen Sie unter **Attributzuordnungen** die Benutzerattribute, die von Azure AD mit Foodee synchronisiert werden. Die als **übereinstimmende** Eigenschaften ausgewählten Attribute werden bei Aktualisierungsvorgängen für den Abgleich der *Gruppenkonten* in Foodee verwendet.
 
-    :::image type="content" source="media/Foodee-provisioning-tutorial/groupattribute.png" alt-text="Screenshot des Hauptmenüs des Foodee-Unternehmensportals. Im Menü wird ein Platzhalter für eine Mandanten-ID angezeigt." border="false":::
+    :::image type="content" source="media/Foodee-provisioning-tutorial/groupattribute.png" alt-text="Screenshot der Seite „Attributzuordnungen“. In einer Tabelle werden Attribute für Azure Active Directory und Foodee sowie die entsprechende Rangfolge aufgelistet." border="false":::
 
 1. Wenn Sie Ihre Änderungen committen möchten, wählen Sie **Speichern** aus.
 1. Konfigurieren Sie die Bereichsfilter. Informationen zur Vorgehensweise finden Sie in den Anleitungen unter [Attributbasierte Anwendungsbereitstellung mit Bereichsfiltern](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

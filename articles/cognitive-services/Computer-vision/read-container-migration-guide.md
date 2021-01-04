@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 09/21/2020
+ms.date: 10/23/2020
 ms.author: aahi
-ms.openlocfilehash: 856e73181ee02fe2bb21c4317ec8c733e2536d53
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0ae7bb9acde3cc8552a23db12d208a82ba0fb2f3
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973120"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95800877"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migration zu den Read v3.x OCR-Containern
 
@@ -29,23 +29,13 @@ Wenn Sie Version 2 des Read OCR-Containers für maschinelles Sehen verwenden, i
 
 ## <a name="api-changes"></a>API-Änderungen
 
-Die Read v3.x-Container verwenden Version 3 der Maschinelles Sehen-API und weisen die folgenden Endpunkte auf:
+Der Read v3.2-Container verwendet Version 3 der Maschinelles Sehen-API und verfügt über folgende Endpunkte:
 
-#### <a name="version-31-preview"></a>[Version 3.1-preview](#tab/version-3-1)
+* `/vision/v3.2-preview.1/read/analyzeResults/{operationId}`
+* `/vision/v3.2-preview.1/read/analyze`
+* `/vision/v3.2-preview.1/read/syncAnalyze`
 
-* `/vision/v3.1-preview.2/read/analyzeResults/{operationId}`
-* `/vision/v3.1-preview.2/read/analyze`
-* `/vision/v3.1-preview.2/read/syncAnalyze`
-
-#### <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
-
-* `/vision/v3.0/read/analyzeResults/{operationId}`
-* `/vision/v3.0/read/analyze`
-* `/vision/v3.0/read/syncAnalyze`
-
----
-
-Ausführliche Informationen zum Aktualisieren Ihrer Anwendungen für die Verwendung von Version 3 der cloudbasierten Read-API finden Sie im [Migrationshandbuch für die REST-API von Maschinelles Sehen v3](https://docs.microsoft.com/azure/cognitive-services/computer-vision/upgrade-api-versions). Diese Informationen gelten auch für den Container. Beachten Sie, dass Synchronisierungsvorgänge nur in Containern unterstützt werden.
+Ausführliche Informationen zum Aktualisieren Ihrer Anwendungen für die Verwendung von Version 3 der cloudbasierten Read-API finden Sie im [Migrationshandbuch für die REST-API von Maschinelles Sehen v3](./upgrade-api-versions.md). Diese Informationen gelten auch für den Container. Beachten Sie, dass Synchronisierungsvorgänge nur in Containern unterstützt werden.
 
 ## <a name="memory-requirements"></a>Speicheranforderungen
 
@@ -53,8 +43,7 @@ Die Anforderungen und Empfehlungen basieren auf Benchmarks mit einer einzelnen A
 
 |Container  |Minimum | Empfohlen  |
 |---------|---------|------|
-|Read 3.0-preview     | 8 Kerne, 16 GB Arbeitsspeicher         | 8 Kerne, 24 GB Arbeitsspeicher
-|Read 3.1-preview | 8 Kerne, 16 GB Arbeitsspeicher         | 8 Kerne, 24 GB Arbeitsspeicher
+|Read 3.2-preview | 8 Kerne, 16 GB Arbeitsspeicher         | 8 Kerne, 24 GB Arbeitsspeicher |
 
 Jeder Kern muss eine Geschwindigkeit von mindestens 2,6 GHz aufweisen.
 

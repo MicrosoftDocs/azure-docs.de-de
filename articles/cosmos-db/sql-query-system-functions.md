@@ -3,18 +3,20 @@ title: Systemfunktionen in der Abfragesprache für Azure Cosmos DB
 description: Hier erfahren Sie mehr über integrierte und benutzerdefinierte SQL-Systemfunktionen in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 18fdab8f4aa90e993f6802508c13a78565b9fa6e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 71dc5b84deda04c02b6d1722b11abf6631e9aa03
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279931"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546368"
 ---
 # <a name="system-functions-azure-cosmos-db"></a>Systemfunktionen (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  Cosmos DB bietet viele integrierte SQL-Funktionen. Die Kategorien der integrierten Funktionen sind unten aufgeführt.  
   
@@ -45,4 +47,4 @@ Der Hauptunterschied zwischen Cosmos DB-Funktionen und ANSI SQL-Funktionen beste
 - [Zeichenfolgenfunktionen](sql-query-string-functions.md)
 - [Funktionen für die Typüberprüfung](sql-query-type-checking-functions.md)
 - [Benutzerdefinierte Funktionen](sql-query-udfs.md)
-- [Aggregate](sql-query-aggregates.md)
+- [Aggregate](sql-query-aggregate-functions.md)

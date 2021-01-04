@@ -1,15 +1,15 @@
 ---
-author: rgarcia
+author: msftradford
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 09/17/2020
-ms.author: rgarcia
-ms.openlocfilehash: d553d8bea7e5dd18fd5ca0c10ef067c7f82c529f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 11/20/2020
+ms.author: parkerra
+ms.openlocfilehash: 67e8ca2f801cb154a5c06cadff4aa5ee779ea532
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971358"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185369"
 ---
 Stellen Sie die App auf Ihrem Gerät bereit. 
 

@@ -9,10 +9,10 @@ ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 843d0b8cfd75e8cbdf45ac535cc9486aa42442d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "91761792"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Tutorial: Konfigurieren eines virtuellen Netzwerkgateways für ExpressRoute mit dem Azure-Portal
@@ -60,7 +60,7 @@ Sie können sich ein [Video](https://azure.microsoft.com/documentation/videos/az
 
 1. Als **Name** für Ihr Subnetz wird automatisch der Wert „GatewaySubnet“ eingefügt. Dieser Wert ist erforderlich, damit Azure das Subnetz als Gatewaysubnetz erkennt. Passen Sie die automatisch ausgefüllten Werte für **Adressbereich** an Ihre Konfigurationsanforderungen an. Es empfiehlt sich, ein Gatewaysubnetz mit /27 oder größer (/26, /25 usw.) zu erstellen. Wählen Sie dann **OK** aus, um die Werte zu speichern und das Gatewaysubnetz zu erstellen.
 
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Hinzufügen des Gatewaysubnetzes":::
+    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Hinzufügen des Subnetzes":::
 
 ## <a name="create-the-virtual-network-gateway"></a>Erstellen des Gateways für das lokale Netzwerk
 
@@ -81,13 +81,13 @@ Sie können sich ein [Video](https://azure.microsoft.com/documentation/videos/az
 
 1. Wählen Sie **Bewerten + erstellen** und dann **Erstellen** aus, um mit der Erstellung des Gateways zu beginnen. Die Einstellungen werden überprüft, und das Gateway wird bereitgestellt. Das vollständige Erstellen des virtuellen Netzwerkgateways kann bis zu 45 Minuten dauern.
 
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway.png" alt-text="Hinzufügen des Gatewaysubnetzes":::
+    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway.png" alt-text="Felder der Seite „Gateway für virtuelle Netzwerke erstellen“":::
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
 Wenn Sie das ExpressRoute-Gateway nicht mehr benötigen, suchen Sie das Gateway in der Ressourcengruppe des virtuellen Netzwerks, und wählen Sie **Löschen** aus. Stellen Sie sicher, dass das Gateway über keine Verbindungen mit einer Leitung verfügt.
 
-:::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/delete-gateway.png" alt-text="Hinzufügen des Gatewaysubnetzes":::
+:::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/delete-gateway.png" alt-text="Löschen eines Gateways für virtuelle Netzwerke":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 Nachdem Sie das VNET-Gateway erstellt haben, können Sie Ihr VNET mit einer ExpressRoute-Leitung verknüpfen. 

@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c826a679c1c64e113beb6b2cc5ffd29f82b55a3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 779286a43f8b20ce9a9a528e14eaa930763d82b4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84759537"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651582"
 ---
 # <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>App-Seite, auf der eine Fehlermeldung angezeigt wird, nachdem sich ein Benutzer angemeldet hat
 
@@ -29,7 +29,7 @@ Im folgenden Szenario wird ein Benutzer durch Azure Active Directory (Azure AD) 
 
 Für diese Situation gibt es mehrere mögliche Gründe. Wenn aus der Fehlermeldung nicht deutlich hervorgeht, welche Antwortinformationen fehlen, können Sie Folgendes versuchen:
 
--   Wenn es sich bei der App um den Azure AD-Katalog handelt, müssen Sie alle Schritte im Artikel [How to debug SAML-based single sign-on to applications in Azure AD (Debuggen des SAML-basierten einmaligen Anmeldens in Azure AD)](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging) ausführen.
+-   Wenn es sich bei der App um den Azure AD-Katalog handelt, müssen Sie alle Schritte im Artikel [How to debug SAML-based single sign-on to applications in Azure AD (Debuggen des SAML-basierten einmaligen Anmeldens in Azure AD)](./debug-saml-sso-issues.md) ausführen.
 
 -   Verwenden Sie ein Tool wie [Fiddler](https://www.telerik.com/fiddler), um die SAML-Anforderung, die SAML-Antwort und das SAML-Token zu erfassen.
 
@@ -72,7 +72,7 @@ Führen Sie die folgenden Schritte aus, um der Azure AD-Konfiguration ein Attrib
 
 Die Anmeldung bei der App schlägt möglicherweise fehl, weil in der SAML-Antwort ein Attribut (beispielsweise eine Rolle) fehlt. Sie kann auch fehlschlagen, wenn die App ein anderes Format oder einen anderen Wert für das **NameID**-Attribut (Benutzer-ID) erwartet.
 
-Wenn Sie die [automatische Benutzerbereitstellung von Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) verwenden, um Benutzer in der App zu erstellen, zu verwalten und aus dieser zu löschen, müssen Sie darauf achten, dass der Benutzer in der SaaS-App bereitgestellt wurde. Weitere Informationen finden Sie unter [Es werden keine Benutzer für eine Azure AD-Kataloganwendung bereitgestellt](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md).
+Wenn Sie die [automatische Benutzerbereitstellung von Azure AD](../app-provisioning/user-provisioning.md) verwenden, um Benutzer in der App zu erstellen, zu verwalten und aus dieser zu löschen, müssen Sie darauf achten, dass der Benutzer in der SaaS-App bereitgestellt wurde. Weitere Informationen finden Sie unter [Es werden keine Benutzer für eine Azure AD-Kataloganwendung bereitgestellt](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md).
 
 ## <a name="add-an-attribute-to-the-azure-ad-app-configuration"></a>Hinzufügen eines Attributs zur Azure AD-App-Konfiguration
 
@@ -99,9 +99,9 @@ Um den Benutzer-ID-Wert zu ändern, führen Sie die folgenden Schritte aus:
 
 ## <a name="change-the-nameid-format"></a>Ändern des NameID-Formats
 
-Wenn die Anwendung ein anderes Format für das **NameID**-Attribut (Benutzer-ID) erwartet, finden Sie unter [Bearbeiten der NameID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization#editing-nameid) weitere Informationen dazu, wie Sie das NameID-Format anpassen.
+Wenn die Anwendung ein anderes Format für das **NameID**-Attribut (Benutzer-ID) erwartet, finden Sie unter [Bearbeiten der NameID](../develop/active-directory-saml-claims-customization.md#editing-nameid) weitere Informationen dazu, wie Sie das NameID-Format anpassen.
 
-Azure AD wählt das Format für das **NameID**-Attribut (Benutzer-ID) auf Grundlage des ausgewählten Werts oder des Formats aus, das in der SAML-Authentifizierungsanforderung von der App angefordert wird. Weitere Informationen finden Sie im Abschnitt „NameIDPolicy“ des Artikels [Single sign-on SAML protocol (SAML-Protokoll für einmaliges Anmelden)](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol#nameidpolicy).
+Azure AD wählt das Format für das **NameID**-Attribut (Benutzer-ID) auf Grundlage des ausgewählten Werts oder des Formats aus, das in der SAML-Authentifizierungsanforderung von der App angefordert wird. Weitere Informationen finden Sie im Abschnitt „NameIDPolicy“ des Artikels [Single sign-on SAML protocol (SAML-Protokoll für einmaliges Anmelden)](../develop/single-sign-on-saml-protocol.md#nameidpolicy).
 
 ## <a name="the-app-expects-a-different-signature-method-for-the-saml-response"></a>Die App erwartet eine andere Signaturmethode für die SAML-Antwort
 
@@ -164,4 +164,4 @@ Um den Signaturalgorithmus zu ändern, führen Sie die folgenden Schritte aus:
    Wenn sich der Benutzer das nächste Mal bei der App anmeldet, signiert Azure AD das SAML-Token mithilfe des SHA-1-Algorithmus.
 
 ## <a name="next-steps"></a>Nächste Schritte
-[How to debug SAML-based single sign-on to applications in Azure AD (Debuggen des SAML-basierten einmaligen Anmeldens bei Anwendungen in Azure AD)](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging)
+[How to debug SAML-based single sign-on to applications in Azure AD (Debuggen des SAML-basierten einmaligen Anmeldens bei Anwendungen in Azure AD)](./debug-saml-sso-issues.md)

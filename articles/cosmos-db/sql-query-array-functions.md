@@ -3,18 +3,20 @@ title: Arrayfunktionen in der Abfragesprache für Azure Cosmos DB
 description: Hier erfahren Sie, wie Sie mithilfe von Arrayfunktionen Vorgänge für Arrays in Azure Cosmos DB ausführen.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2a4033088a9152363a91c368109136062cace4ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e27f9c0af62c4cbdd550fd9907a0dd88d72bba6e
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85563513"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549207"
 ---
 # <a name="array-functions-azure-cosmos-db"></a>Arrayfunktionen (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Die Array Funktionen ermöglichen das Ausführen von Vorgängen für Arrays in Azure Cosmos DB.
 
@@ -36,4 +38,4 @@ Die folgenden Skalarfunktionen führen einen Vorgang für einen Arrayeingabewert
 - [Systemfunktionen in Azure Cosmos DB](sql-query-system-functions.md)
 - [Einführung in Azure Cosmos DB](introduction.md)
 - [Benutzerdefinierte Funktionen](sql-query-udfs.md)
-- [Aggregate](sql-query-aggregates.md)
+- [Aggregate](sql-query-aggregate-functions.md)

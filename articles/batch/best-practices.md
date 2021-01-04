@@ -1,18 +1,18 @@
 ---
 title: Bewährte Methoden
-description: Erhalten Sie Informationen über bewährte Methoden und nützliche Tipps für das Entwickeln Ihrer Azure Batch-Lösung.
-ms.date: 08/12/2020
+description: Erfahren Sie, welche bewährten Methoden und nützlichen Tipps es für das Entwickeln Ihrer Azure Batch-Lösungen gibt.
+ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0663d1910e2b67b8302e41a96509bdd84cd1a3a0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 6aaed76ad398b5278850dd66ce1da6d5bd33807f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102777"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95254662"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch: bewährte Methoden
 
-In diesem Artikel werden bewährte Methoden für die effektive und effiziente Verwendung des Azure Batch-Diensts auf Grundlage praktischer Erfahrungen mit Batch behandelt. Lesen Sie diesen Artikel, um Fehler beim Entwurf, potenzielle Leistungsprobleme und Antimuster bei der Entwicklung für und Verwendung von Batch zu vermeiden.
+In diesem Artikel werden bewährte Methoden und nützliche Tipps für die effektive Verwendung des Azure Batch-Diensts auf Grundlage praktischer Erfahrungen mit Batch behandelt. Diese Tipps können Ihnen helfen, die Leistung zu verbessern und Entwurfsfehler bei Ihren Azure Batch-Lösungen zu vermeiden.
 
 ## <a name="pools"></a>Pools
 
@@ -38,10 +38,10 @@ In diesem Artikel werden bewährte Methoden für die effektive und effiziente Ve
 
 ### <a name="pool-lifetime-and-billing"></a>Lebensdauer und Abrechnung für Pools
 
-Die Poollebensdauer kann abhängig von der Zuordnungsmethode und den auf die Poolkonfiguration angewendeten Optionen variieren. Pools können eine beliebige Lebensdauer sowie eine jederzeit variable Anzahl von Computeknoten im Pool besitzen. Es liegt in ihrer Verantwortung, die Computeknoten im Pool entweder explizit oder durch vom Dienst bereitgestellte Funktionen (Autoskalierung oder AutoPool) zu verwalten.
+Die Poollebensdauer kann abhängig von der Zuordnungsmethode und den auf die Poolkonfiguration angewendeten Optionen variieren. Pools können eine beliebige Lebensdauer sowie eine jederzeit variable Anzahl von Computeknoten im Pool besitzen. Es liegt in Ihrer Verantwortung, die Serverknoten im Pool entweder explizit oder durch vom Dienst bereitgestellte Features ([Autoskalierung](nodes-and-pools.md#automatic-scaling-policy) oder [automatischer Pool](nodes-and-pools.md#autopools)) zu verwalten.
 
 - **Pools aktuell halten.**
-    Sie sollten die Größe Ihrer Pools alle paar Monate auf Null setzen, um sicherzustellen, dass Sie die neuesten Updates und Fehlerbehebungen für den Knoten-Agent erhalten. Ihr Pool empfängt keine Updates für den Knoten-Agent, es sei denn, er wird neu erstellt oder seine Größe auf 0 Computeknoten geändert. Vor dem erneuten Erstellen oder Ändern der Größe Ihres Pools wird empfohlen, alle Knoten-Agent-Protokolle zu Debuggingzwecken herunterzuladen, wie im Abschnitt [Knoten](#nodes) erläutert.
+    Setzen Sie die Größe Ihrer Pools alle paar Monate auf null zurück, um sicherzustellen, dass Sie die [neuesten Updates und Fehlerbehebungen](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) für den Knoten-Agent erhalten. Ihr Pool empfängt keine Updates für den Knoten-Agent, es sei denn, er wird neu erstellt oder seine Größe auf 0 Computeknoten geändert. Vor dem erneuten Erstellen oder Ändern der Größe Ihres Pools wird empfohlen, alle Knoten-Agent-Protokolle zu Debuggingzwecken herunterzuladen, wie im Abschnitt [Knoten](#nodes) erläutert.
 
 - **Erneutes Erstellen eines Pools**: In ähnlicher Weise ist es nicht empfehlenswert, Ihre Pools täglich zu löschen und neu zu erstellen. Erstellen Sie stattdessen einen neuen Pool, und aktualisieren Sie die vorhandenen Aufträge so, dass Sie auf den neuen Pool verweisen. Nachdem alle Aufgaben in den neuen Pool verschoben wurden, löschen Sie den alten Pool.
 
@@ -93,7 +93,7 @@ Es gibt ein standardmäßiges [Kontingent für aktive Aufträge und die Zeitplan
 
 ### <a name="save-task-data"></a>Speichern von Aufgabendaten
 
-Computeknoten sind von Natur aus kurzlebig. Es gibt viele Funktionen in Batch wie AutoPool und Autoskalierung, die das Verschwinden von Knoten begünstigen. Wenn Knoten einen Pool verlassen (aufgrund einer Größenänderung oder des Löschens eine Pools), werden alle Dateien auf diesen Knoten ebenfalls gelöscht. Aus diesem Grund sollte die Ausgabe einer Aufgabe aus dem Knoten, auf dem sie ausgeführt wird, in einen permanenten Speicher verschoben werden, bevor sie abgeschlossen wird. Wenn eine Aufgabe fehlschlägt, sollten auch die für die Diagnose des Fehlers erforderlichen Protokolle in einen permanenten Speicher verschoben werden.
+Computeknoten sind von Natur aus kurzlebig. Es gibt viele Features in Batch wie [automatische Pools](nodes-and-pools.md#autopools) und [Autoskalierung](nodes-and-pools.md#automatic-scaling-policy), die das Verschwinden von Knoten begünstigen können. Wenn Knoten einen Pool verlassen (aufgrund einer Größenänderung oder des Löschens eine Pools), werden alle Dateien auf diesen Knoten ebenfalls gelöscht. Aus diesem Grund sollte die Ausgabe einer Aufgabe aus dem Knoten, auf dem sie ausgeführt wird, in einen permanenten Speicher verschoben werden, bevor sie abgeschlossen wird. Wenn eine Aufgabe fehlschlägt, sollten auch die für die Diagnose des Fehlers erforderlichen Protokolle in einen permanenten Speicher verschoben werden.
 
 Batch verfügt über integrierte Unterstützung für Azure Storage zum Hochladen von Daten über [OutputFiles](batch-task-output-files.md) sowie eine Vielzahl von freigegebenen Dateisystemen, oder Sie können auch den Upload selbst in Ihren Aufgaben durchführen.
 
@@ -175,7 +175,7 @@ Weitere Informationen zu Resource Manager und Vorlagen finden Sie unter [Schnell
 
 ## <a name="connectivity"></a>Konnektivität
 
-Lesen Sie die folgenden Anleitungen für die Konnektivität in Ihren Batch-Lösungen.
+Lesen Sie den folgenden Leitfaden zur Konnektivität in Ihren Batch-Lösungen.
 
 ### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>Netzwerksicherheitsgruppen (NSGs) und benutzerdefinierte Routen (UDRs)
 
@@ -198,6 +198,10 @@ Stellen Sie sicher, dass für Ihre Batch-Dienstclients geeignete Wiederholungsri
 
 Normalerweise erfolgt der Zugriff auf virtuelle Computer in einem Batch-Pool über öffentliche IP-Adressen, die sich während der Nutzungsdauer des Pools ändern können. Dies kann die Interaktion mit einer Datenbank oder einem anderen externen Dienst erschweren, bei denen der Zugriff auf bestimmte IP-Adressen beschränkt ist. Um sicherzustellen, dass die öffentlichen IP-Adressen in einem Pool nicht unerwartet geändert werden, können Sie einen Pool mithilfe einer Gruppe von statischen öffentlichen IP-Adressen erstellen, die Sie steuern. Weitere Informationen finden Sie unter [Erstellen eines Azure Batch-Pools mit angegebenen öffentlichen IP-Adressen](create-pool-public-ip.md).
 
+### <a name="testing-connectivity-with-cloud-services-configuration"></a>Testen der Konnektivität mit Cloud Services-Konfiguration
+
+Sie können das normale „ping“/ICMP-Protokoll nicht mit Cloud Services verwenden, da das ICMP-Protokoll nicht über Azure Load Balancer zugelassen wird. Weitere Informationen finden Sie unter [Konnektivität und Netzwerke in Azure Cloud Services](../cloud-services/cloud-services-connectivity-and-networking-faq.md#can-i-ping-a-cloud-service).
+
 ## <a name="batch-node-underlying-dependencies"></a>Zugrunde liegende Abhängigkeiten von Batch-Knoten
 
 Beachten Sie beim Entwerfen Ihrer Batch-Lösungen die folgenden Abhängigkeiten und Einschränkungen.
@@ -206,12 +210,12 @@ Beachten Sie beim Entwerfen Ihrer Batch-Lösungen die folgenden Abhängigkeiten 
 
 Azure Batch erstellt und verwaltet eine Gruppe von Benutzern und Gruppen auf der VM, die nicht geändert werden sollten. Dies sind:
 
-#### <a name="windows"></a>Windows
+Windows:
 
 - Ein Benutzer mit dem Namen **PoolNonAdmin**
 - Eine Benutzergruppe mit dem Namen **WATaskCommon**
 
-#### <a name="linux"></a>Linux
+Linux:
 
 - Ein Benutzer mit dem Namen **_azbatch**
 
@@ -220,3 +224,9 @@ Azure Batch erstellt und verwaltet eine Gruppe von Benutzern und Gruppen auf der
 Batch versucht, das Arbeitsverzeichnis zu bereinigen, in dem Aufgaben ausgeführt werden, sobald die Aufbewahrungsdauer abläuft. Alle außerhalb dieses Verzeichnisses geschriebenen Dateien [müssen von Ihnen bereinigt werden](#manage-task-lifetime), um die Überfüllung des Speicherplatzes zu verhindern.
 
 Wenn Sie einen Dienst unter Windows aus dem Arbeitsverzeichnis „startTask“ ausführen, wird die automatisierte Bereinigung für das Arbeitsverzeichnis blockiert, weil der Ordner noch verwendet wird. Dadurch wird die Leistung beeinträchtigt. Um dieses Problem zu beheben, ändern Sie das Verzeichnis für diesen Dienst in ein anderes Verzeichnis, das nicht von Batch verwaltet wird.
+
+## <a name="next-steps"></a>Nächste Schritte
+
+- [Erstellen und Verwalten eines Azure Batch-Kontos im Azure-Portal](batch-account-create-portal.md).
+- Erfahren Sie mehr über den [Workflow des Batch-Diensts und primäre Ressourcen](batch-service-workflow-features.md) wie Pools, Knoten, Aufträge und Aufgaben.
+- Erfahren Sie mehr über [Azure Batch-Standardkontingente, Grenzwerte und Einschränkungen sowie die Anforderung von Kontingentsteigerungen](batch-quota-limit.md).

@@ -1,14 +1,17 @@
 ---
 title: Häufig gestellte Fragen zur Azure Migrate-Appliance
 description: Hier erhalten Sie Antworten auf häufig gestellte Fragen zur Azure Migrate-Appliance.
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: e0fd170859de2d4a9d38fdba0fff0575921c6d32
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9badbfe6cfe12d67e07f0889d175ed32bc455321
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314779"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753874"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate-Appliance: Häufig gestellte Fragen
 
@@ -42,12 +45,13 @@ Die Appliance kann wie folgt bereitgestellt werden:
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>Wie stellt die Appliance eine Verbindung mit Azure her?
 
-Die Appliance kann eine Verbindung über das Internet oder mithilfe von Azure ExpressRoute herstellen. Stellen Sie sicher, dass diese [URLs](./migrate-appliance.md#url-access) genehmigt wurden, damit die Appliance eine Verbindung mit Azure herstellen kann.
+Die Appliance kann eine Verbindung über das Internet oder mithilfe von Azure ExpressRoute herstellen. 
 
-- Zur Verwendung von Azure ExpressRoute für Azure Migrate-Replikationsdatenverkehr ist Microsoft-Peering oder ein vorhandenes öffentliches Peering erforderlich (öffentliches Peering ist für neue ER-Erstellungen veraltet).
-- Die Replikation über Azure ExpressRoute mit (nur) aktiviertem privatem Peering wird nicht unterstützt.
+- Vergewissern Sie sich, dass die Appliance eine Verbindung mit diesen [Azure-URLs](./migrate-appliance.md#url-access) herstellen kann. 
+- Sie können ExpressRoute mit Microsoft-Peering verwenden.  Öffentliches Peering ist veraltet und steht für neue ExpressRoute-Leitungen nicht mehr zur Verfügung.
+- Das rein private Peering wird nicht unterstützt.
 
-Azure ExpressRoute mit konfiguriertem Microsoft-Peering ist die empfohlene Routingdomäne für den Replikationsdatenverkehr.
+
 
 ## <a name="does-appliance-analysis-affect-performance"></a>Wirkt sich die Applianceanalyse auf die Leistung aus?
 

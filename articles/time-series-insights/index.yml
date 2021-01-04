@@ -12,12 +12,12 @@ metadata:
   author: shreyasharmamsft
   ms.author: shresha
   ms.date: 07/09/2020
-  ms.openlocfilehash: 7419fed9084425f50eda4b504c2f3158873559a4
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 2950d394b50c2c031e53c85446fac2067b5035fd
+  ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "88245688"
+  ms.lasthandoff: 11/21/2020
+  ms.locfileid: "95016733"
 landingContent:
 - title: Informationen zu Azure Time Series Insights
   linkLists:
@@ -62,9 +62,11 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Bereitstellen und Verwalten
-      url: time-series-insights-update-how-to-manage.md
+      url: ./how-to-provision-manage.md
+    - text: Auswählen einer TSID
+      url: how-to-select-tsid.md
     - text: Gewähren des Datenzugriffs
-      url: time-series-insights-data-access.md
+      url: ./concepts-access-policies.md
     - text: Erstellen eines Time Series-Modells
       url: how-to-edit-your-model.md
     - text: Daten abfragen
@@ -74,8 +76,8 @@ landingContent:
   - linkListType: reference
     links:
     - text: Übersicht über REST-APIs
-      url: https://docs.microsoft.com/rest/api/time-series-insights/
+      url: /rest/api/time-series-insights/
     - text: Datenzugriffskonzepte (Gen2)
-      url: https://docs.microsoft.com/rest/api/time-series-insights/reference-data-access-overview
+      url: /rest/api/time-series-insights/reference-data-access-overview
     - text: JavaScript Client SDK
       url: https://github.com/microsoft/tsiclient/blob/master/docs/API.md

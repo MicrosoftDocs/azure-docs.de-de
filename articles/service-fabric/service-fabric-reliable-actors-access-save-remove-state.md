@@ -1,17 +1,15 @@
 ---
 title: Verwalten des Azure Service Fabric-Zustands
 description: Erfahren Sie, wie Sie auf den Zustand eines Reliable Actor von Azure Service Fabric zugreifen, diesen speichern oder entfernen, und machen Sie sich mit Überlegungen zum Entwerfen einer Anwendung vertraut.
-author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e97fadb374fc45110f5071aab48da0a57eef4284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e796232719342883efc2aa5dd377d586f3039ad
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012788"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571316"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Zugriff auf den Reliable Actors-Status, dessen Speichern und Entfernen
 [Reliable Actors](service-fabric-reliable-actors-introduction.md) sind Singlethread-Objekte, die sich zum Kapseln von Logik und Zustand sowie zuverlässigen Beibehalten des Zustands eignen. Jede Actorinstanz verfügt über einen eigenen [Zustands-Manager](service-fabric-reliable-actors-state-management.md): Dabei handelt es sich um eine wörterbuchähnliche Datenstruktur, die zuverlässig Schlüssel-Wert-Paare speichert. Der Zustands-Manager ist ein Wrapper für einen Zustandsanbieter. Sie können ihn unabhängig von der verwendeten [Persistenzeinstellung](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) zum Speichern von Daten verwenden.

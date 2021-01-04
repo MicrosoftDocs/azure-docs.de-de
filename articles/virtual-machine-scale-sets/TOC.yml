@@ -105,44 +105,44 @@
         - name: Verfügbarkeit
           href: ../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
         - name: Zusammenstellung
-          href: co-location.md
+          href: ../virtual-machines/co-location.md
         - name: Netzwerkleistung
           href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machine-scale-sets%2fwindows%2ftoc.json
         - name: Verwalten von Fehlerdomänen in Skalierungsgruppen
           href: virtual-machine-scale-sets-manage-fault-domains.md
       maintainContext: true
     - name: Bilder
-      href: shared-image-galleries.md
+      href: ../virtual-machines/shared-image-galleries.md?toc=%2fazure%2fvirtual-machine-scale-sets%2fwindows%2ftoc.json
     - name: Arten und Größen von virtuellen Computern
       href: ../virtual-machines/sizes.md
       items:
         - name: Allgemeiner Zweck
           href: ../virtual-machines/sizes-general.md
-          maintainContext: true
           items:
             - name: Burstable-Computer der B-Serie
               href: ../virtual-machines/sizes-b-series-burstable.md
               maintainContext: true
+          maintainContext: true
         - name: Computeoptimiert
           href: ../virtual-machines/sizes-compute.md
           maintainContext: true
         - name: Arbeitsspeicheroptimiert
           href: ../virtual-machines/sizes-memory.md
-          maintainContext: true
           items:
             - name: Eingeschränkte vCPUs
               href: ../virtual-machines/constrained-vcpu.md
               maintainContext: true
+          maintainContext: true
         - name: Speicheroptimiert
           href: ../virtual-machines/sizes-storage.md
           maintainContext: true
         - name: GPU-optimiert
           href: ../virtual-machines/sizes-gpu.md
-          maintainContext: true
           items:
             - name: Einrichten von NVIDIA-GPU-Treibern
               href: ../virtual-machines/windows/n-series-driver-setup.md
               maintainContext: true
+          maintainContext: true
         - name: High Performance Computing
           href: ../virtual-machines/sizes-hpc.md
           maintainContext: true
@@ -165,8 +165,6 @@
     - name: Wartung und Updates
       href: ../virtual-machines/maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
       maintainContext: true
-    - name: Orchestrierungsmodi
-      href: orchestration-modes.md
     - name: Datenträgerspeicher
       items:
         - name: Managed Disks
@@ -176,7 +174,7 @@
           href: ../virtual-machines/disks-types.md
           maintainContext: true
         - name: Verschlüsselung
-          href: ../virtual-machines/windows/disk-encryption.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
+          href: ../virtual-machines/disk-encryption.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
           maintainContext: true
         - name: Storage Premium-Leistung
           href: ../virtual-machines/premium-storage-performance.md

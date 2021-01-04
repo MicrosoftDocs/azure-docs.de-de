@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 1c03f52802881bcf4c916ce3ed438e465e574090
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eacc7adae16785049022cd05f04904d97b0b3a6d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91339459"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95486125"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Freigeben und Entdecken von Ressourcen im Azure KI-Katalog
 
-**BETRIFFT:** ![Ja](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic) ![Nein](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**GILT FÜR:**  ![Dies ist ein Häkchen, d. h., dieser Artikel bezieht sich auf Machine Learning Studio (Classic). ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic)   ![Dies ist ein X, d. h., dieser Artikel bezieht sich auf Azure Machine Learning. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 
@@ -202,6 +202,6 @@ Nachdem Sie ein Tag eingegeben haben, drücken Sie die TAB-TASTE, um ein weitere
 
 Der Katalog soll von unseren Benutzern für unsere Benutzer gestaltet werden. Teilen Sie uns mit dem Smiley auf der rechten Seite mit, was Sie am Katalog schätzen oder daran ändern möchten.  
 
-![Feedback](./media/gallery-how-to-use-contribute-publish/feedback.png)
+![In einem Feedbackfenster können Sie ein Lächeln oder ein Stirnrunzeln übermitteln bzw. einen Text eingeben. Es gibt eine Schaltfläche zum Übermitteln.](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
 **[ZUM KATALOG &gt;&gt;](https://gallery.azure.ai)**

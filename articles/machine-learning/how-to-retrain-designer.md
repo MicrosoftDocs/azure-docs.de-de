@@ -1,7 +1,7 @@
 ---
 title: Erneutes Trainieren von Modellen mit Azure Machine Learning-Designer
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Sie Modelle mit veröffentlichten Pipelines im Azure Machine Learning-Designer erneut trainieren können.
+description: Hier erfahren Sie, wie Sie Machine Learning-Modelle mit veröffentlichten Pipelines im Azure Machine Learning-Designer erneut trainieren können.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: d43bea855d9ac3dc34b8e72adcd9577e5933e52c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d754674fe3aa65fa9fd8540b05083979ce96aff8
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905669"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437115"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer"></a>Erneutes Trainieren von Modellen mit Azure Machine Learning-Designer
 
@@ -47,7 +47,11 @@ Die in diesem Artikel verwendete Pipeline ist eine geänderte Version einer [Ein
 
 ## <a name="create-a-pipeline-parameter"></a>Erstellen eines Pipelineparameters
 
-Erstellen Sie Pipelineparameter, um Variablen zur Laufzeit dynamisch festzulegen. In diesem Beispiel werden Sie den Trainingsdatenpfad von einem festen Wert in einen Parameter ändern, sodass Sie Ihr Modell anhand anderer Daten neu trainieren können.
+Pipelineparameter dienen zum Erstellen vielseitiger Pipelines, die später mit variierenden Parameterwerten erneut übermittelt werden können. Einige typische Szenarien sind die Aktualisierung von Datasets oder einiger Hyperparameter für das erneute Training. Erstellen Sie Pipelineparameter, um Variablen zur Laufzeit dynamisch festzulegen. 
+
+Pipelineparameter können in einer Pipeline Datenquellen- oder Modulparametern hinzugefügt werden. Wenn die Pipeline erneut übermittelt wird, können die Werte dieser Parameter angegeben werden.
+
+In diesem Beispiel werden Sie den Trainingsdatenpfad von einem festen Wert in einen Parameter ändern, sodass Sie Ihr Modell anhand anderer Daten neu trainieren können. Sie können auch je nach Anwendungsfall weitere Modulparameter als Pipelineparameter hinzufügen.
 
 1. Wählen Sie das Modul **Import Data** (Daten importieren) aus.
 
@@ -60,31 +64,22 @@ Erstellen Sie Pipelineparameter, um Variablen zur Laufzeit dynamisch festzulegen
 
 1. Bewegen Sie den Mauszeiger über das Feld **Pfad**, und wählen Sie die Auslassungspunkte über dem Feld **Pfad** aus, die angezeigt werden.
 
-    ![Screenshot, der zeigt, wie ein Pipelineparameter erstellt wird](media/how-to-retrain-designer/add-pipeline-parameter.png)
-
 1. Wählen Sie **Zu Pipelineparameter hinzufügen** aus.
 
 1. Geben Sie einen Parameternamen und einen Standardwert an.
 
-   > [!NOTE]
-   > Über das Zahnradsymbol **Einstellungen** neben dem Titel Ihres Pipelineentwurfs können Sie die Pipelineparameter überprüfen und bearbeiten. 
+   ![Screenshot, der zeigt, wie ein Pipelineparameter erstellt wird](media/how-to-retrain-designer/add-pipeline-parameter.png)
 
 1. Wählen Sie **Speichern** aus.
 
+   > [!NOTE]
+   > Sie können auch im Bereich mit den Moduldetails (vergleichbar mit dem Hinzufügen von Pipelineparametern) einen Modulparameter von einem Pipelineparameter trennen.
+   >
+   > Über das Zahnradsymbol **Einstellungen** neben dem Titel Ihres Pipelineentwurfs können Sie die Pipelineparameter überprüfen und bearbeiten. 
+   >    - Nach dem Trennen können Sie den Pipelineparameter im Bereich **Einstellungen** löschen.
+   >    - Sie können auch einen Pipelineparameter im Bereich **Einstellungen** hinzufügen und ihn dann auf einen Modulparameter anwenden.
+
 1. Übermitteln Sie die Pipelineausführung.
-
-## <a name="find-a-trained-model"></a>Suchen eines trainierten Modells
-
-Der Designer speichert alle Pipelineausgaben, einschließlich trainierter Modelle, im standardmäßigen Arbeitsbereichspeicherkonto. Sie können auch direkt im Designer auf trainierte Modelle zugreifen:
-
-1. Warten Sie, bis die Ausführung der Pipeline abgeschlossen ist.
-1. Wählen Sie das Modul **Train Model** (Modell trainieren) aus.
-1. Wählen Sie rechts neben der Canvas im Bereich mit den Moduldetails die Option **Ausgaben und Protokolle** aus.
-1. Sie finden Ihr Modell in **Andere Ausgaben** zusammen mit Ausführungsprotokollen.
-1. Wählen Sie alternativ das Symbol **Ausgabe anzeigen** aus. Von hier aus können Sie den Anweisungen im Dialogfeld folgen, um direkt zu Ihrem Datenspeicher zu navigieren. 
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot, der zeigt, wie das trainierte Modell heruntergeladen wird](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="publish-a-training-pipeline"></a>Veröffentlichen einer Trainingspipeline
 

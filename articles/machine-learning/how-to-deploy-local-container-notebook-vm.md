@@ -11,12 +11,12 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 1767f149d9935c86281c7b7be3e684aa82a603f9
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 17b2d717ac6f244cb3ddddfdbc2f29581aa1f59f
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999046"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95527308"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Bereitstellen eines Modells auf einer Azure Machine Learning Studio-Compute-Instanz
 
@@ -40,7 +40,7 @@ Ein Beispielnotebook mit einer Veranschaulichung lokaler Bereitstellungen ist au
 
 1. Wählen Sie in [Azure Machine Learning Studio](https://ml.azure.com) Ihre Azure Machine Learning-Compute-Instanzen aus.
 
-1. Öffnen Sie das Unterverzeichnis `samples-*` und anschließend `how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb`. Führen Sie dann das Notebook aus.
+1. Öffnen Sie das Unterverzeichnis `samples-*` und anschließend `how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb`. Führen Sie dann das Notebook aus.
 
     ![Screenshot des ausgeführten lokalen Diensts auf dem Notebook](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
 
@@ -63,7 +63,7 @@ Verwenden Sie den folgenden Code, um Beispieldaten an den ausgeführten Dienst z
 > [!NOTE]
 > Bei der Authentifizierung für eine Bereitstellung auf der Computeinstanz erfolgt die Authentifizierung über Azure Active Directory. Der Aufruf von `interactive_auth.get_authentication_header()` im Beispielcode authentifiziert Sie mithilfe von AAD und gibt einen Header zurück, der dann zur Authentifizierung gegenüber dem Dienst auf der Computeinstanz verwendet werden kann. Weitere Informationen finden Sie unter [Einrichten der Authentifizierung für Azure Machine Learning-Ressourcen und -Workflows](how-to-setup-authentication.md#interactive-authentication).
 >
-> Bei der Authentifizierung für eine Bereitstellung in Azure Kubernetes Service oder Azure Container Instances wird eine andere Authentifizierungsmethode verwendet. Weitere Informationen finden Sie unter [Einrichten der Authentifizierung für Azure Machine Learning-Ressourcen und -Workflows](how-to-setup-authentication.md#web-service-authentication).
+> Bei der Authentifizierung für eine Bereitstellung in Azure Kubernetes Service oder Azure Container Instances wird eine andere Authentifizierungsmethode verwendet. Weitere Informationen finden Sie unter [Konfigurieren der Authentifizierung für Azure Machine Learning-Modelle, die als Webdienst bereitgestellt werden](how-to-authenticate-web-service.md).
 
 ```python
 import requests

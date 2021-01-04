@@ -35,6 +35,10 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=cdn'
 - name: Konzepte
   items:
+    - name: Sicherheit
+      items:
+        - name: Sicherheitsbaseline
+          href: security-baseline.md
     - name: Funktionsweise der Zwischenspeicherung
       href: cdn-how-caching-works.md
     - name: 'Inhaltsbereitstellung: China'
@@ -64,6 +68,8 @@
           href: cdn-create-endpoint-how-to.md
         - name: Verwalten mit Azure PowerShell
           href: cdn-manage-powershell.md
+        - name: Durchführen des Onboardings für eine Stamm- oder Apex-Domäne
+          href: onboard-apex-domain.md
         - name: Einschränken des Zugriffs nach Land oder Region
           href: cdn-restrict-access-by-country.md
         - name: Verbessern der Leistung durch Komprimieren von Dateien
@@ -105,8 +111,8 @@
     - name: Analysieren
       href: cdn-log-analysis.md
       items:
-        - name: Unformatierte HTTP-Protokolle
-          href: enable-raw-logs.md
+        - name: 'Überwachungs-, Metrik-und Zugriffsprotokolle'
+          href: monitoring-and-access-log.md
         - name: Azure-Diagnoseprotokolle
           href: cdn-azure-diagnostic-logs.md
         - name: Analysetools für Azure CDN aus Verizon

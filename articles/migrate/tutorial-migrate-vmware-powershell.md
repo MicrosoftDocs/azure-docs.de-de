@@ -1,18 +1,17 @@
 ---
 title: 'Migrieren virtueller VMware-Computer zu Azure (ohne Agent): PowerShell'
 description: Hier erfahren Sie, wie Sie eine Migration virtueller VMware-Computer ohne Agent mit Azure Migrate über PowerShell durchführen.
-services: ''
-author: rahugup
+author: rahulg1190
+ms.author: rahugup
 manager: bsiva
 ms.topic: tutorial
 ms.date: 10/1/2020
-ms.author: rahugup
-ms.openlocfilehash: eed10f13b9495ab2cccfd9c57ae14ccc5d8e4a63
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 187e17bcf385ba6b3c17566fc00e5ee77cf009fe
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043543"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752480"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless---powershell"></a>Migrieren virtueller VMware-Computer zu Azure (ohne Agent): PowerShell
 
@@ -38,7 +37,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 Bevor Sie mit diesem Tutorial beginnen, sollten folgende Voraussetzungen erfüllt sein:
 
 1. [Absolvieren Sie das Tutorial zur Ermittlung](tutorial-discover-vmware.md), um Azure und VMware für die Migration vorzubereiten.
-2. Es empfiehlt sich, das zweite Tutorial zum [Bewerten virtueller VMware-Computer](tutorial-assess-vmware.md) zu absolvieren, bevor Sie sie zu Azure migrieren.
+2. Es empfiehlt sich, das zweite Tutorial zum [Bewerten virtueller VMware-Computer](./tutorial-assess-vmware-azure-vm.md) zu absolvieren, bevor Sie sie zu Azure migrieren.
 3. Sie verfügen über das Azure PowerShell-Modul `Az`. Wenn Sie PowerShell installieren oder aktualisieren müssen, führen Sie die [Schritte zum Installieren und Konfigurieren von Azure PowerShell](/powershell/azure/install-az-ps) aus.
 
 ## <a name="install-azure-migrate-powershell-module"></a>Installieren des Azure Migrate-PowerShell-Moduls
@@ -86,6 +85,9 @@ $MigrateProject | ConvertTo-JSON
 Von Azure Migrate wird eine einfache [Azure Migrate-Appliance](migrate-appliance-architecture.md) verwendet. Die Azure Migrate-Appliance wurde im Rahmen der Vorbereitung als virtueller VMware-Computer bereitgestellt.
 
 Geben Sie zum Abrufen eines bestimmten virtuellen VMware-Computers in einem Azure Migrate-Projekt den Namen des Azure Migrate-Projekts (`ProjectName`), die Ressourcengruppe des Azure Migrate-Projekts (`ResourceGroupName`) und den Namen des virtuellen Computers (`DisplayName`) an. 
+
+> [!NOTE]
+> **Beim Parameterwert für den VM-Namen (`DisplayName`) wird die Groß-/Kleinschreibung beachtet.**
 
 ```azurepowershell
 # Get a specific VMware VM in an Azure Migrate project
@@ -146,7 +148,7 @@ Die Replikationseigenschaften können wie folgt angegeben werden:
 - **Ziel-VNET und -subnetz:** Geben Sie mithilfe der Parameter `TargetNetworkId` und `TargetSubnetName` die ID der Azure Virtual Network-Instanz und den Namen des Subnetzes ein, zu der bzw. zu dem der virtuelle Computer migriert werden soll. 
 - **Name des virtuellen Zielcomputers:** Geben Sie mithilfe des Parameters `TargetVMName` den Namen des zu erstellenden virtuellen Azure-Computers an.
 - **Größe des virtuellen Zielcomputers:** Geben Sie mithilfe des Parameters `TargetVMSize` die Größe des virtuellen Azure-Computers an, die für den replizierenden virtuellen Computer verwendet werden soll. Wenn Sie also beispielsweise einen virtuellen Computer zu „D2_v2“ in Azure migrieren möchten, geben Sie für `TargetVMSize` den Wert „Standard_D2_v2“ an.  
-- **Lizenz:** Wenn Sie den Azure-Hybridvorteil für Ihre Windows Server-Computer nutzen möchten, die durch aktive Software Assurance- oder Windows Server-Abonnements abgedeckt sind, geben Sie für den Parameter `LicenseType` den Wert „AHUB“ an. Geben Sie andernfalls für den Parameter `LicenseType` den Wert „NoLicenseType“ an.
+- **Lizenz:** Wenn Sie den Azure-Hybridvorteil für Ihre Windows Server-Computer nutzen möchten, die durch aktive Software Assurance- oder Windows Server-Abonnements abgedeckt sind, geben Sie für den Parameter `LicenseType` den Wert „WindowsServer“ an. Geben Sie andernfalls für den Parameter `LicenseType` den Wert „NoLicenseType“ an.
 - **Betriebssystemdatenträger:** Geben Sie den eindeutigen Bezeichner des Datenträgers an, auf dem sich der Bootloader und das Installationsprogramm des Betriebssystems befinden. Die zu verwendende Datenträger-ID ist die UUID-Eigenschaft (Unique Identifier, eindeutiger Bezeichner) für den Datenträger, die mithilfe des Cmdlets `Get-AzMigrateServer` abgerufen wurde.
 - **Datenträgertyp:** Geben Sie den Wert für den Parameter `DiskType` wie folgt an:
     - Wenn Sie verwaltete Premium-Datenträger verwenden möchten, geben Sie für den Parameter `DiskType` den Wert „Premium_LRS“ an. 
@@ -156,7 +158,8 @@ Die Replikationseigenschaften können wie folgt angegeben werden:
     - Verfügbarkeitszone, um den migrierten Computer einer bestimmten Verfügbarkeitszone in der Region anzuheften. Verteilen Sie mit dieser Option Server, die eine Anwendungsebene mit mehreren Knoten bilden, über Verfügbarkeitszonen. Diese Option ist nur verfügbar, wenn die für die Migration ausgewählte Zielregion Verfügbarkeitszonen unterstützt. Falls Sie Verfügbarkeitszonen verwenden möchten, geben Sie für den Parameter `TargetAvailabilityZone` den Wert der Verfügbarkeitszone an.
     - Verfügbarkeitsgruppe, um den migrierten Computer in einer Verfügbarkeitsgruppe zu platzieren. Um diese Option verwenden zu können, muss die ausgewählte Zielressourcengruppe über mindestens eine Verfügbarkeitsgruppe verfügen. Falls Sie eine Verfügbarkeitsgruppe verwenden möchten, geben Sie für den Parameter `TargetAvailabilitySet` die ID der Verfügbarkeitsgruppe an. 
 
-In diesem Tutorial werden alle Datenträger des ermittelten virtuellen Computers repliziert, und es wird ein neuer Name für den virtuellen Computer in Azure angegeben. Der erste Datenträger des ermittelten Servers wird als Betriebssystemdatenträger festgelegt, und alle Datenträger werden als „HDD Standard“ migriert. Der Betriebssystemdatenträger enthält den Bootloader und das Installationsprogramm des Betriebssystems.
+### <a name="replicate-vms-with-all-disks"></a>Replizieren von virtuellen Computern mit allen Datenträgern
+In diesem Tutorial werden alle Datenträger des ermittelten virtuellen Computers repliziert, und es wird ein neuer Name für den virtuellen Computer in Azure angegeben. Der erste Datenträger des ermittelten Servers wird als Betriebssystemdatenträger festgelegt, und alle Datenträger werden als „HDD Standard“ migriert. Der Betriebssystemdatenträger enthält den Bootloader und das Installationsprogramm des Betriebssystems. Mit dem Cmdlet wird ein Auftrag zurückgegeben, der zur Überwachung des Vorgangsstatus nachverfolgt werden kann. 
 
 ```azurepowershell
 # Retrieve the resource group that you want to migrate to
@@ -178,6 +181,7 @@ while (($MigrateJob.State -eq "InProgress") -or ($MigrateJob.State -eq "NotStart
 Write-Output $MigrateJob.State
 ```
 
+### <a name="replicate-vms-with-select-disks"></a>Replizieren von virtuellen Computern mit ausgewählten Datenträgern
 Die Datenträger des ermittelten virtuellen Computers können auch selektiv repliziert werden. Verwenden Sie dazu das Cmdlet `New-AzMigrateDiskMapping`, und geben Sie es als Eingabe für den Parameter `DiskToInclude` im Cmdlet `New-AzMigrateServerReplication` an. Sie können auch das Cmdlet `New-AzMigrateDiskMapping` verwenden, um für die einzelnen zu replizierenden Datenträger jeweils andere Zieldatenträgertypen anzugeben. 
 
 Geben Sie Werte für die folgenden Parameter des Cmdlets `New-AzMigrateDiskMapping` an:
@@ -186,7 +190,7 @@ Geben Sie Werte für die folgenden Parameter des Cmdlets `New-AzMigrateDiskMappi
 - **IsOSDisk**: Geben Sie „true“ an, wenn es sich bei dem zu migrierenden Datenträger um den Betriebssystemdatenträger des virtuellen Computers handelt. Geben Sie andernfalls „false“ an.
 - **DiskType**: Geben Sie die Art des Datenträgers an, die in Azure verwendet werden soll. 
 
-Im folgenden Beispiel werden nur zwei Datenträger des ermittelten virtuellen Computers repliziert. Der Betriebssystemdatenträger wird angegeben, und es werden unterschiedliche Datenträgertypen für die zu replizierenden Datenträger verwendet.
+Im folgenden Beispiel werden nur zwei Datenträger des ermittelten virtuellen Computers repliziert. Der Betriebssystemdatenträger wird angegeben, und es werden unterschiedliche Datenträgertypen für die zu replizierenden Datenträger verwendet. Mit dem Cmdlet wird ein Auftrag zurückgegeben, der zur Überwachung des Vorgangsstatus nachverfolgt werden kann. 
 
 ```azurepowershell
 # View disk details of the discovered server
@@ -308,9 +312,18 @@ Die Replikation wird wie folgt durchgeführt:
 - Während der ersten Replikation wird eine VM-Momentaufnahme erstellt. Datenträgerdaten der Momentaufnahme werden auf verwalteten Replikatdatenträgern in Azure repliziert.
 - Nach Abschluss der ersten Replikation beginnt die Deltareplikation. Inkrementelle Änderungen an lokalen Datenträgern werden regelmäßig auf den Replikatdatenträgern in Azure repliziert.
 
+## <a name="retrieve-the-status-of-a-job"></a>Abrufen des Status eines Auftrags
+
+Sie können den Status eines Auftrags mithilfe des Cmdlets `Get-AzMigrateJob` überwachen. 
+
+```azurepowershell
+# Retrieve the updated status for a job
+$job = Get-AzMigrateJob -InputObject $job
+```
+
 ## <a name="update-properties-of-a-replicating-vm"></a>Aktualisieren von Eigenschaften eines replizierenden virtuellen Computers
 
-[Azure Migrate: Servermigration](migrate-services-overview.md#azure-migrate-server-migration-tool) ermöglicht das Ändern von Zieleigenschaften wie Name, Größe, Ressourcengruppe und NIC-Konfiguration für einen replizierenden virtuellen Computer. 
+[Azure Migrate: Servermigration](migrate-services-overview.md#azure-migrate-server-migration-tool) ermöglicht das Ändern von Zieleigenschaften wie Name, Größe, Ressourcengruppe und NIC-Konfiguration für einen replizierenden virtuellen Computer. Mit dem Cmdlet wird ein Auftrag zurückgegeben, der zur Überwachung des Vorgangsstatus nachverfolgt werden kann. 
 
 ```azurepowershell
 # Retrieve the replicating VM details by using the discovered VM identifier
@@ -348,6 +361,15 @@ $NicMapping += $NicMapping2
 
 # Update the name, size and NIC configuration of a replicating server
 $UpdateJob = Set-AzMigrateServerReplication -InputObject $ReplicatingServer -TargetVMSize "Standard_DS13_v2" -TargetVMName "MyMigratedVM" -NicToUpdate $NicMapping
+
+# Track job status to check for completion
+while (($UpdateJob.State -eq "InProgress") -or ($UpdateJob.State -eq "NotStarted")){
+        #If the job hasn't completed, sleep for 10 seconds before checking the job status again
+        sleep 10;
+        $UpdateJob = Get-AzMigrateJob -InputObject $UpdateJob
+}
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
+Write-Output $UpdateJob.State
 ```
 
 Sie können auch alle replizierenden Server in einem Azure Migrate-Projekt auflisten und dann den Bezeichner des replizierenden virtuellen Computers verwenden, um VM-Eigenschaften zu aktualisieren.
@@ -363,7 +385,7 @@ $ReplicatingServer = Get-AzMigrateServerReplication -TargetObjectID $Replicating
 
 ## <a name="run-a-test-migration"></a>Ausführen einer Testmigration
 
-Wenn die Deltareplikation beginnt, können Sie zunächst eine Testmigration für die virtuellen Computer ausführen, bevor eine vollständige Migration zu Azure erfolgt. Wir empfehlen dringend, diese Testmigration mindestens einmal für jeden Computer auszuführen, bevor Sie ihn migrieren.
+Wenn die Deltareplikation beginnt, können Sie zunächst eine Testmigration für die virtuellen Computer ausführen, bevor eine vollständige Migration zu Azure erfolgt. Wir empfehlen dringend, diese Testmigration mindestens einmal für jeden Computer auszuführen, bevor Sie ihn migrieren. Mit dem Cmdlet wird ein Auftrag zurückgegeben, der zur Überwachung des Vorgangsstatus nachverfolgt werden kann. 
 
 - Bei einer Testmigration wird überprüft, ob die Migration wie erwartet funktioniert. Der lokale Computer wird dadurch nicht beeinträchtigt, bleibt betriebsbereit und wird weiter repliziert. 
 - Mit der Testmigration wird die Migration simuliert, indem eine Azure-VM mit replizierten Daten erstellt wird (normalerweise per Migration zu einem nicht für die Produktion bestimmten VNET unter Ihrem Azure-Abonnement).
@@ -377,32 +399,69 @@ $TestVirtualNetwork = Get-AzVirtualNetwork -Name MyTestVirtualNetwork
 
 # Start test migration for a replicating server
 $TestMigrationJob = Start-AzMigrateTestMigration -InputObject $ReplicatingServer -TestNetworkID $TestVirtualNetwork.Id
+
+# Track job status to check for completion
+while (($TestMigrationJob.State -eq "InProgress") -or ($TestMigrationJob.State -eq "NotStarted")){
+        #If the job hasn't completed, sleep for 10 seconds before checking the job status again
+        sleep 10;
+        $TestMigrationJob = Get-AzMigrateJob -InputObject $TestMigrationJob
+}
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
+Write-Output $TestMigrationJob.State
 ```
 
-Bereinigen Sie die Testmigration nach Abschluss des Tests mithilfe des Cmdlets `Start-AzMigrateTestMigrationCleanup`.
+Bereinigen Sie die Testmigration nach Abschluss des Tests mithilfe des Cmdlets `Start-AzMigrateTestMigrationCleanup`. Mit dem Cmdlet wird ein Auftrag zurückgegeben, der zur Überwachung des Vorgangsstatus nachverfolgt werden kann. 
 
 ```azurepowershell
 # Clean-up test migration for a replicating server
 $CleanupTestMigrationJob = Start-AzMigrateTestMigrationCleanup -InputObject $ReplicatingServer
+
+# Track job status to check for completion
+while (($CleanupTestMigrationJob.State -eq "InProgress") -or ($CleanupTestMigrationJob.State -eq "NotStarted")){
+        #If the job hasn't completed, sleep for 10 seconds before checking the job status again
+        sleep 10;
+        $CleanupTestMigrationJob = Get-AzMigrateJob -InputObject $CleanupTestMigrationJob
+}
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
+Write-Output $CleanupTestMigrationJob.State
 ```
 
 ## <a name="migrate-vms"></a>Migrieren virtueller Computer
 
-Nachdem Sie sich vergewissert haben, dass die Testmigration wie erwartet funktioniert, können Sie den replizierenden Server mithilfe des folgenden Cmdlets migrieren:
+Nachdem Sie sich vergewissert haben, dass die Testmigration wie erwartet funktioniert, können Sie den replizierenden Server mithilfe des folgenden Cmdlets migrieren: Mit dem Cmdlet wird ein Auftrag zurückgegeben, der zur Überwachung des Vorgangsstatus nachverfolgt werden kann. 
+
+Soll der Quellserver nicht ausgeschaltet werden, lassen Sie den Parameter `TurnOffSourceServer` weg.
 
 ```azurepowershell
 # Start migration for a replicating server and turn off source server as part of migration
 $MigrateJob = Start-AzMigrateServerMigration -InputObject $ReplicatingServer -TurnOffSourceServer 
+
+# Track job status to check for completion
+while (($MigrateJob.State -eq "InProgress") -or ($MigrateJob.State -eq "NotStarted")){
+        #If the job hasn't completed, sleep for 10 seconds before checking the job status again
+        sleep 10;
+        $MigrateJob = Get-AzMigrateJob -InputObject $MigrateJob
+}
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
+Write-Output $MigrateJob.State
 ```
-Soll der Quellserver nicht ausgeschaltet werden, lassen Sie den Parameter `TurnOffSourceServer` weg.
 
 ## <a name="complete-the-migration"></a>Fertigstellen der Migration
 
-1. Beenden Sie nach Abschluss der Migration die Replikation für den lokalen Computer, und bereinigen Sie die Informationen zum Replikationszustand für den virtuellen Computer mithilfe des folgenden Cmdlets:
+1. Beenden Sie nach Abschluss der Migration die Replikation für den lokalen Computer, und bereinigen Sie die Informationen zum Replikationszustand für den virtuellen Computer mithilfe des folgenden Cmdlets: Mit dem Cmdlet wird ein Auftrag zurückgegeben, der zur Überwachung des Vorgangsstatus nachverfolgt werden kann. 
 
 ```azurepowershell
 # Stop replication for a migrated server
 $StopReplicationJob = Remove-AzMigrateServerReplication -InputObject $ReplicatingServer 
+
+# Track job status to check for completion
+while (($StopReplicationJob.State -eq "InProgress") -or ($StopReplicationJob.State -eq "NotStarted")){
+        #If the job hasn't completed, sleep for 10 seconds before checking the job status again
+        sleep 10;
+        $StopReplicationJob = Get-AzMigrateJob -InputObject $StopReplicationJob
+}
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
+Write-Output $StopReplicationJob.State
 ```
 
 2. Installieren Sie den [Windows](../virtual-machines/extensions/agent-windows.md)- oder [Linux](../virtual-machines/extensions/agent-linux.md)-Agent für die Azure-VM auf den migrierten Computern.
@@ -420,11 +479,8 @@ $StopReplicationJob = Remove-AzMigrateServerReplication -InputObject $Replicatin
     - Sorgen Sie für die kontinuierliche Ausführung und Verfügbarkeit von Workloads, indem Sie Azure-VMs mithilfe von Site Recovery in eine sekundäre Region replizieren. [Weitere Informationen](../site-recovery/azure-to-azure-tutorial-enable-replication.md)
 - Beachten Sie zur Steigerung der Sicherheit Folgendes:
     - Sperren und beschränken Sie den Zugriff von eingehendem Datenverkehr mit der [Just-in-Time-Verwaltung im Azure Security Center](../security-center/security-center-just-in-time.md).
-    - Beschränken Sie den Netzwerkdatenverkehr mithilfe von [Netzwerksicherheitsgruppen](../virtual-network/security-overview.md) auf Verwaltungsendpunkte.
+    - Beschränken Sie den Netzwerkdatenverkehr mithilfe von [Netzwerksicherheitsgruppen](../virtual-network/network-security-groups-overview.md) auf Verwaltungsendpunkte.
     - Stellen Sie [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) bereit, um Datenträger und Daten vor Diebstahl und unbefugtem Zugriff zu schützen.
     - Erfahren Sie mehr über das [Sichern von IaaS-Ressourcen](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), und besuchen Sie die Website [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - Beachten Sie zur Überwachung und Verwaltung Folgendes:
 -  Ziehen Sie die Bereitstellung von [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) in Erwägung, um den Ressourceneinsatz und die Ausgaben zu überwachen.
-
-
-

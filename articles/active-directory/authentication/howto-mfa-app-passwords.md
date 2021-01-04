@@ -1,26 +1,26 @@
 ---
-title: Konfigurieren von App-Kennwörtern für Azure Multi-Factor Authentication – Azure Active Directory
-description: Erfahren Sie, wie Sie App-Kennwörter für ältere Anwendungen in Azure Multi-Factor Authentication konfigurieren und verwenden
+title: Konfigurieren von App-Kennwörtern für Azure AD Multi-Factor Authentication – Azure Active Directory
+description: Hier erfahren Sie, wie Sie App-Kennwörter für ältere Anwendungen in Azure AD Multi-Factor Authentication konfigurieren und verwenden.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 06/05/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85031896a196dd742868466243dd401345b0bc97
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: dfb38f9fcdba6898b690d0af68b715fea07e80bb
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964501"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743104"
 ---
-# <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Aktivieren und Verwenden von Azure Multi-Factor Authentication mit ältere Anwendungen mithilfe von App-Kennwörtern
+# <a name="enable-and-use-azure-ad-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Aktivieren und Verwenden von Azure AD Multi-Factor Authentication bei älteren Anwendungen mithilfe von App-Kennwörtern
 
-Einige ältere, nicht browserbasierte Apps – etwa Office 2010 oder ältere Versionen und Apple Mail vor iOS 11 – kennen keine Pausen oder Unterbrechungen im Authentifizierungsvorgang. Wenn Azure Multi-Factor Authentication für einen Benutzer aktiviert ist und der Benutzer versucht, eine dieser älteren, nicht browserbasierten Apps zu verwenden, kann er sich nicht erfolgreich authentifizieren. Um diese Anwendungen auf sichere Weise mit Azure Multi-Factor Authentication (das für die Benutzerkonten aktiviert ist) zu verwenden, können Sie App-Kennwörter nutzen. Diese App-Kennwörter ersetzen das herkömmliche Kennwort und ermöglichen der App, die mehrstufige Authentifizierung zu umgehen und ordnungsgemäß zu funktionieren.
+Einige ältere, nicht browserbasierte Apps – etwa Office 2010 oder ältere Versionen und Apple Mail vor iOS 11 – kennen keine Pausen oder Unterbrechungen im Authentifizierungsvorgang. Wenn Azure AD Multi-Factor Authentication für einen Benutzer aktiviert wurde und der Benutzer versucht, eine dieser älteren, nicht browserbasierten Apps zu verwenden, kann er sich nicht erfolgreich authentifizieren. Wenn Sie diese Anwendungen auf sichere Weise mit Azure AD Multi-Factor Authentication (das für die Benutzerkonten aktiviert wurde) verwenden möchten, können Sie App-Kennwörter nutzen. Diese App-Kennwörter ersetzen das herkömmliche Kennwort und ermöglichen der App, die mehrstufige Authentifizierung zu umgehen und ordnungsgemäß zu funktionieren.
 
 Die moderne Authentifizierung für Microsoft Office 2013-Clients und neuere Clients wird unterstützt. Office 2013-Clients (einschließlich Outlook) unterstützen moderne Authentifizierungsprotokolle und können für die zweistufige Überprüfung aktiviert werden. Nach der Aktivierung sind für diese Clients keine App-Kennwörter erforderlich.
 
@@ -31,7 +31,7 @@ In diesem Artikel erfahren Sie, wie Sie App-Kennwörter für ältere Anwendungen
 
 ## <a name="overview-and-considerations"></a>Übersicht und Überlegungen
 
-Wenn ein Benutzerkonto für Azure Multi-Factor Authentication aktiviert wird, wird die reguläre Anmeldeaufforderung durch eine Anforderung zur zusätzlichen Überprüfung unterbrochen. Einige ältere Anwendungen verstehen diese Unterbrechung beim Anmeldevorgang nicht, sodass die Authentifizierung fehlschlägt. Um weiterhin die Sicherheit von Benutzerkonten zu gewährleisten und Azure Multi-Factor Authentication zu aktivieren, können anstelle des normalen Benutzernamens und Kennworts des Benutzers App-Kennwörter verwendet werden. Wenn bei der Anmeldung ein App-Kennwort verwendet wird, gibt es keine zusätzliche Überprüfungsaufforderung, sodass die Authentifizierung erfolgreich ist.
+Wenn ein Benutzerkonto für Azure AD Multi-Factor Authentication aktiviert wurde, wird die reguläre Anmeldeaufforderung durch eine Anforderung zur zusätzlichen Überprüfung unterbrochen. Einige ältere Anwendungen verstehen diese Unterbrechung beim Anmeldevorgang nicht, sodass die Authentifizierung fehlschlägt. Wenn die Sicherheit von Benutzerkonten weiterhin gewährleistet und die Aktivierung von Azure AD Multi-Factor Authentication beibehalten werden soll, können statt des normalen Benutzernamens und Kennworts des Benutzers App-Kennwörter verwendet werden. Wenn bei der Anmeldung ein App-Kennwort verwendet wird, gibt es keine zusätzliche Überprüfungsaufforderung, sodass die Authentifizierung erfolgreich ist.
 
 App-Kennwörter werden automatisch generiert und nicht vom Benutzer angegeben. Automatisch generierte Kennwörter sind für einen Angreifer schwerer zu erraten und daher sicherer. Benutzer müssen sich die Kennwörter nicht merken oder sie jedes Mal eingeben, da App-Kennwörter nur einmal pro Anwendung eingegeben werden.
 
@@ -39,7 +39,7 @@ Beim Verwenden von App-Kennwörtern sind folgende Überlegungen zu beachten:
 
 * Pro Benutzer können maximal 40 App-Kennwörter festgelegt werden.
 * Bei Anwendungen, die Kennwörter zwischenspeichern und in lokalen Szenarien nutzen, können Fehler auftreten, da das App-Kennwort außerhalb des Geschäfts-, Schul- oder Unikontos nicht bekannt ist. Ein Beispiel dafür sind Exchange-E-Mails, die lokal vorhanden sind, bei denen sich die archivierten Nachrichten jedoch in der Cloud befinden. Das gleiche Kennwort funktioniert in diesem Fall nicht.
-* Nachdem Azure Multi-Factor Authentication für ein Benutzerkonto aktiviert wurde, können für die meisten nicht auf Browsern basierenden Clients wie Outlook oder Microsoft Skype for Business App-Kennwörter verwendet werden. Bei Verwendung von App-Kennwörtern können jedoch keine administrativen Aufgaben durch nicht auf Browsern basierende Anwendungen (z. B. Windows PowerShell) durchgeführt werden. Die Aufgaben können selbst dann nicht durchgeführt werden, wenn der betreffende Benutzer über ein administratives Konto verfügt.
+* Nachdem Azure AD Multi-Factor Authentication für ein Benutzerkonto aktiviert wurde, können App-Kennwörter für die meisten nicht auf Browsern basierenden Clients wie Outlook oder Microsoft Skype for Business verwendet werden. Bei Verwendung von App-Kennwörtern können jedoch keine administrativen Aufgaben durch nicht auf Browsern basierende Anwendungen (z. B. Windows PowerShell) durchgeführt werden. Die Aufgaben können selbst dann nicht durchgeführt werden, wenn der betreffende Benutzer über ein administratives Konto verfügt.
     * Erstellen Sie zum Ausführen von PowerShell-Skripts ein Dienstkonto mit einem sicheren Kennwort, und aktivieren Sie für das Konto nicht die zweistufige Überprüfung.
 * Wenn Sie vermuten, dass ein Benutzerkonto gefährdet ist, und das Kontokennwort widerrufen bzw. zurücksetzen, sollten die App-Kennwörter ebenfalls aktualisiert werden. App-Kennwörter werden nicht automatisch widerrufen, wenn das Kennwort eines Benutzerkontos widerrufen bzw. zurückgesetzt wird. Der Benutzer sollte vorhandene App-Kennwörter löschen und neue erstellen.
    * Weitere Informationen finden Sie unter [Erstellen und Löschen von App-Kennwörtern auf der Seite „Zusätzliche Sicherheitsüberprüfung“](../user-help/multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page).
@@ -55,7 +55,7 @@ Es empfiehlt sich, ein App-Kennwort pro Gerät und nicht pro Anwendung zu erstel
 
 ## <a name="federated-or-single-sign-on-app-passwords"></a>App-Kennwörter im Verbund oder mit einmaligem Anmelden
 
-Azure AD unterstützt den Verbund bzw. das einmalige Anmelden (SSO) mit lokalen Active Directory Domain Services (AD DS). Wenn Ihre Organisation einen Verbund mit Azure AD bildet und Sie Azure Multi-Factor Authentication verwenden, sind die folgenden Punkte zu App-Kennwörtern zu beachten:
+Azure AD unterstützt den Verbund bzw. das einmalige Anmelden (SSO) mit lokalen Active Directory Domain Services (AD DS). Wenn Ihre Organisation einen Verbund mit Azure AD bildet und Sie Azure AD Multi-Factor Authentication verwenden, sind die folgenden Punkte zu App-Kennwörtern zu beachten:
 
 >[!NOTE]
 > Die folgenden Punkte gelten nur für Verbundkunden (SSO).
@@ -72,7 +72,7 @@ Angenommen, Sie verfügen über die folgende Architektur:
 * Ihre lokale Instanz von Active Directory bildet einen Verbund mit Azure AD.
 * Sie verwenden Exchange Online.
 * Sie verwenden Skype for Business lokal.
-* Sie verwenden Azure Multi-Factor Authentication.
+* Sie verwenden Azure AD Multi-Factor Authentication.
 
 In diesem Szenario verwenden Sie die folgenden Anmeldeinformationen:
 
@@ -99,10 +99,10 @@ Standardmäßig können Benutzer keine App-Kennwörter erstellen. Die App-Kennwo
 
 ## <a name="create-an-app-password"></a>Erstellen eines App-Kennworts
 
-Wenn Benutzer ihre anfängliche Registrierung für Azure Multi-Factor Authentication abgeschlossen haben, können sie am Ende des Registrierungsvorgangs App-Kennwörter erstellen.
+Wenn Benutzer ihre anfängliche Registrierung für Azure AD Multi-Factor Authentication abgeschlossen haben, können sie am Ende des Registrierungsvorgangs App-Kennwörter erstellen.
 
-Benutzer können auch App-Kennwörter nach der Registrierung erstellen. Weitere Informationen und detaillierte Schritte für Ihre Benutzer finden Sie unter [Welchen Zweck erfüllen App-Kennwörter bei Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
+Benutzer können auch App-Kennwörter nach der Registrierung erstellen. Weitere Informationen und detaillierte Schritte für Ihre Benutzer finden Sie unter [Welchen Zweck erfüllen App-Kennwörter bei Azure AD Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zur schnellen Registrierung durch Benutzer für Azure Multi-Factor Authentication finden Sie unter [Kombinierte Registrierung von Sicherheitsinformationen – Übersicht](concept-registration-mfa-sspr-combined.md).
+Weitere Informationen zur schnellen Registrierung durch Benutzer für Azure AD Multi-Factor Authentication finden Sie unter [Kombinierte Registrierung von Sicherheitsinformationen – Übersicht](concept-registration-mfa-sspr-combined.md).

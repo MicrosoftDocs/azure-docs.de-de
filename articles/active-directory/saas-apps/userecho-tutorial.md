@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 6708fcbe6f756a92984ee8aa48c181e1103f2046
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be52d220848a27c1307e71fdb7cc4dccfaeb9618
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88532881"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92509370"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-userecho"></a>Tutorial: Azure Active Directory-Integration mit UserEcho
 
@@ -27,7 +27,7 @@ Die Integration von UserEcho in Azure AD bietet die folgenden Vorteile:
 * Sie können es Ihren Benutzern ermöglichen, sich mit ihren Azure AD-Konten automatisch bei UserEcho anzumelden (einmaliges Anmelden; Single Sign-On, SSO).
 * Sie können Ihre Konten über das Azure-Portal an einem zentralen Ort verwalten.
 
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
@@ -53,15 +53,15 @@ Zum Konfigurieren der Integration von UserEcho in Azure AD müssen Sie UserEcho
 
     ![Schaltfläche „Azure Active Directory“](common/select-azuread.png)
 
-2. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie die Option **Alle Anwendungen** aus.
+2. Navigieren Sie zu **Unternehmensanwendungen** , und wählen Sie die Option **Alle Anwendungen** aus.
 
     ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
 
-3. Klicken Sie oben im Dialogfeld auf die Schaltfläche **Neue Anwendung**, um eine neue Anwendung hinzuzufügen.
+3. Klicken Sie oben im Dialogfeld auf die Schaltfläche **Neue Anwendung** , um eine neue Anwendung hinzuzufügen.
 
     ![Schaltfläche „Neue Anwendung“](common/add-new-app.png)
 
-4. Geben Sie im Suchfeld **UserEcho** ein, wählen Sie im Ergebnisbereich **UserEcho** aus, und klicken Sie dann auf die Schaltfläche **Hinzufügen**, um die Anwendung hinzuzufügen.
+4. Geben Sie im Suchfeld **UserEcho** ein, wählen Sie im Ergebnisbereich **UserEcho** aus, und klicken Sie dann auf die Schaltfläche **Hinzufügen** , um die Anwendung hinzuzufügen.
 
      ![UserEcho in der Ergebnisliste](common/search-new-app.png)
 
@@ -93,7 +93,7 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit UserEch
 
     ![Auswahlmodus für einmaliges Anmelden](common/select-saml-option.png)
 
-3. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Symbol **Bearbeiten**, um das Dialogfeld **Grundlegende SAML-Konfiguration** zu öffnen.
+3. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Symbol **Bearbeiten** , um das Dialogfeld **Grundlegende SAML-Konfiguration** zu öffnen.
 
     ![Bearbeiten der SAML-Basiskonfiguration](common/edit-urls.png)
 
@@ -108,7 +108,7 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit UserEch
     > [!NOTE]
     > Hierbei handelt es sich um Beispielwerte. Ersetzen Sie diese Werte durch die tatsächliche Anmelde-URL und den tatsächlichen Bezeichner. Wenden Sie sich an das [Supportteam für den UserEcho-Client](https://feedback.userecho.com/), um diese Werte zu erhalten. Sie können sich auch die Muster im Abschnitt **Grundlegende SAML-Konfiguration** im Azure-Portal ansehen.
 
-4. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** auf **Herunterladen**, um das Ihrer Anforderung entsprechende **Zertifikat (Base64)** aus den angegebenen Optionen herunterzuladen und auf Ihrem Computer zu speichern.
+4. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** auf **Herunterladen** , um das Ihrer Anforderung entsprechende **Zertifikat (Base64)** aus den angegebenen Optionen herunterzuladen und auf Ihrem Computer zu speichern.
 
     ![Downloadlink für das Zertifikat](common/certificatebase64.png)
 
@@ -128,19 +128,19 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit UserEch
 
 2. Klicken Sie auf der Symbolleiste oben auf Ihren Benutzernamen, um das Menü zu erweitern, und klicken Sie dann auf **Setup**.
    
-    ![Einmaliges Anmelden konfigurieren](./media/userecho-tutorial/tutorial_userecho_06.png) 
+    ![Screenshot der ausgewählten Option für Setup auf der UserEcho-Website](./media/userecho-tutorial/tutorial_userecho_06.png) 
 
 3. Klicken Sie auf **Integrations**.
    
-    ![Einmaliges Anmelden konfigurieren](./media/userecho-tutorial/tutorial_userecho_07.png) 
+    ![Screenshot der ausgewählten Option für Integrationen im Einstellungsmenü](./media/userecho-tutorial/tutorial_userecho_07.png) 
 
 4. Klicken Sie auf **Website** und dann auf **Single sign-on (SAML2)** (Einmaliges Anmelden (SAML2)).
    
-    ![Einmaliges Anmelden konfigurieren](./media/userecho-tutorial/tutorial_userecho_08.png) 
+    ![Screenshot der ausgewählten Option für einmaliges Anmelden (SAML2) im Menü für Integrationen](./media/userecho-tutorial/tutorial_userecho_08.png) 
 
 5. Führen Sie auf der Seite **Single sign-on (SAML)** die folgenden Schritte aus:
    
-    ![Einmaliges Anmelden konfigurieren](./media/userecho-tutorial/tutorial_userecho_09.png)
+    ![Screenshot der Seite für einmaliges Anmelden (SAML) zum Eingeben der beschriebenen Werte](./media/userecho-tutorial/tutorial_userecho_09.png)
     
     a. Wählen Sie für **SAML-aktiviert** die Option **Ja**.
     
@@ -156,7 +156,7 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit UserEch
 
 Das Ziel dieses Abschnitts ist das Erstellen eines Testbenutzers namens Britta Simon im Azure-Portal.
 
-1. Wählen Sie im Azure-Portal im linken Bereich die Option **Azure Active Directory**, **Benutzer** und dann **Alle Benutzer** aus.
+1. Wählen Sie im Azure-Portal im linken Bereich die Option **Azure Active Directory** , **Benutzer** und dann **Alle Benutzer** aus.
 
     ![Links „Benutzer und Gruppen“ und „Alle Benutzer“](common/users.png)
 
@@ -172,7 +172,7 @@ Das Ziel dieses Abschnitts ist das Erstellen eines Testbenutzers namens Britta S
   
     b. Geben Sie im Feld **Benutzername** den Namen brittasimon@yourcompanydomain.extension ein. Zum Beispiel, BrittaSimon@contoso.com
 
-    c. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den Wert, der im Feld „Kennwort“ angezeigt wird.
+    c. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen** , und notieren Sie sich den Wert, der im Feld „Kennwort“ angezeigt wird.
 
     d. Klicken Sie auf **Erstellen**.
 
@@ -184,7 +184,7 @@ In diesem Abschnitt ermöglichen Sie Britta Simon die Verwendung des einmaligen 
 
     ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
 
-2. Wählen Sie in der Anwendungsliste **UserEcho**aus.
+2. Wählen Sie in der Anwendungsliste **UserEcho** aus.
 
     ![UserEcho-Link in der Anwendungsliste](common/all-applications.png)
 
@@ -192,7 +192,7 @@ In diesem Abschnitt ermöglichen Sie Britta Simon die Verwendung des einmaligen 
 
     ![Link „Benutzer und Gruppen“](common/users-groups-blade.png)
 
-4. Klicken Sie auf die Schaltfläche **Benutzer hinzufügen**, und wählen Sie dann im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
+4. Klicken Sie auf die Schaltfläche **Benutzer hinzufügen** , und wählen Sie dann im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
 
     ![Bereich „Zuweisung hinzufügen“](common/add-assign-user.png)
 
@@ -212,23 +212,23 @@ Das Ziel dieses Abschnitts ist das Erstellen eines Benutzers namens Britta Simon
 
 2. Klicken Sie auf der Symbolleiste oben auf Ihren Benutzernamen, um das Menü zu erweitern, und klicken Sie dann auf **Setup**.
    
-    ![Einmaliges Anmelden konfigurieren](./media/userecho-tutorial/tutorial_userecho_06.png)
+    ![Screenshot der ausgewählten Option für Setup auf der UserEcho-Website](./media/userecho-tutorial/tutorial_userecho_06.png)
 
-3. Klicken Sie auf **Benutzer**, um den Abschnitt **Benutzer** zu erweitern.
+3. Klicken Sie auf **Benutzer** , um den Abschnitt **Benutzer** zu erweitern.
    
-    ![Einmaliges Anmelden konfigurieren](./media/userecho-tutorial/tutorial_userecho_10.png)
+    ![Screenshot der ausgewählten Option für Benutzer im Einstellungsmenü](./media/userecho-tutorial/tutorial_userecho_10.png)
 
 4. Klicken Sie auf **Users**.
    
-    ![Einmaliges Anmelden konfigurieren](./media/userecho-tutorial/tutorial_userecho_11.png)
+    ![Screenshot: Auswahl von „Users“ (Benutzer)](./media/userecho-tutorial/tutorial_userecho_11.png)
 
 5. Klicken Sie auf **Invite a new user**.
    
-    ![Einmaliges Anmelden konfigurieren](./media/userecho-tutorial/tutorial_userecho_12.png)
+    ![Screenshot des Steuerelements zum Einladen eines neuen Benutzers](./media/userecho-tutorial/tutorial_userecho_12.png)
 
 6. Führen Sie im Dialogfeld **Invite a new user** die folgenden Schritte aus:
    
-    ![Einmaliges Anmelden konfigurieren](./media/userecho-tutorial/tutorial_userecho_13.png)
+    ![Screenshot des Dialogfelds für das Einladen eines neuen Benutzers zum Eingeben von Benutzerinformationen](./media/userecho-tutorial/tutorial_userecho_13.png)
 
     a. Geben Sie im Textfeld **Name** den Namen des Benutzers, z.B. „Britta Simon“, ein.
     
@@ -240,13 +240,12 @@ Das Ziel dieses Abschnitts ist das Erstellen eines Benutzers namens Britta Simon
 
 In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich.
 
-Wenn Sie im Zugriffsbereich auf die Kachel „UserEcho“ klicken, sollten Sie automatisch bei der UserEcho-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Wenn Sie im Zugriffsbereich auf die Kachel „UserEcho“ klicken, sollten Sie automatisch bei der UserEcho-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Weitere Ressourcen
 
-- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](./tutorial-list.md)
 
-- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Was ist bedingter Zugriff?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Was ist bedingter Zugriff?](../conditional-access/overview.md)

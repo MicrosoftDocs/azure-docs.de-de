@@ -7,13 +7,13 @@ ms.subservice: security
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
-ms.custom: seodec18
-ms.openlocfilehash: fa01c4a595a08ffdba56d777128431946540eee5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: c8228086eb67478d80aa041004e0da3eed71f896
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372670"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741801"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Aktivieren von Azure Disk Encryption mit Azure AD auf Linux-VMs (vorheriges Release)
 
@@ -148,7 +148,7 @@ In der folgenden Tabelle werden Parameter der Resource Manager-Vorlage für vorh
 | AADClientSecret | Clientgeheimnis der Azure AD-Anwendung, die über Berechtigungen zum Schreiben von Geheimnissen in den Schlüsseltresor verfügt. |
 | keyVaultName | Der Name des Schlüsseltresors, in den der Schlüssel hochgeladen werden soll. Sie können den Namen abrufen, indem Sie den Azure CLI-Befehl `az keyvault show --name "MySecureVault" --query KVresourceGroup` verwenden. |
 |  keyEncryptionKeyURL | Die URL des KEK, der zum Verschlüsseln des generierten Schlüssels verwendet wird. Dieser Parameter ist optional, wenn Sie in der Dropdownliste **UseExistingKek** die Option **nokek** auswählen. Wenn Sie in der Dropdownliste **UseExistingKek** die Option **kek** auswählen, müssen Sie den Wert _keyEncryptionKeyURL_ eingeben. |
-| volumeType | Der Typ des Volumes, auf dem der Verschlüsselungsvorgang durchgeführt wird. Gültige unterstützte Werte sind _OS_ und _All_. (Weitere Informationen finden Sie weiter oben im Abschnitt mit den Voraussetzungen unter den unterstützten Linux-Distributionen und deren Versionen für Betriebssystemdatenträger und reguläre Datenträger.) |
+| volumeType | Der Typ des Volumes, auf dem der Verschlüsselungsvorgang durchgeführt wird. Gültige unterstützte Werte sind _OS_ und _All_ . (Weitere Informationen finden Sie weiter oben im Abschnitt mit den Voraussetzungen unter den unterstützten Linux-Distributionen und deren Versionen für Betriebssystemdatenträger und reguläre Datenträger.) |
 | sequenceVersion | Sequenzversion des BitLocker-Vorgangs. Diese Versionsnummer sollte jedes Mal erhöht werden, wenn auf demselben virtuellen Computer ein Vorgang für eine Datenträgerverschlüsselung durchgeführt wird. |
 | vmName | Der Name des virtuellen Computers, auf dem der Verschlüsselungsvorgang durchgeführt wird. |
 | Passphrase | Geben Sie eine sichere Passphrase als Datenverschlüsselungsschlüssel ein. |
@@ -180,7 +180,7 @@ Nutzen Sie für die Verwendung der EncryptFormatAll-Option eine bereits vorhande
 
 1. Verwenden Sie als Beispiel die [Resource Manager-Vorlage zum Verschlüsseln eines ausgeführten virtuellen Linux-IaaS-Computers](https://github.com/vermashi/azure-quickstart-templates/tree/encrypt-format-running-linux-vm/201-encrypt-running-linux-vm). 
 2. Wählen Sie in der Azure-Schnellstartvorlage **Deploy to Azure** (In Azure bereitstellen) aus.
-3. Ändern Sie das Feld **EncryptionOperation** von **EnableEncryption** in **EnableEncryptionFormatAl**.
+3. Ändern Sie das Feld **EncryptionOperation** von **EnableEncryption** in **EnableEncryptionFormatAl** .
 4. Wählen Sie das Abonnement, die Ressourcengruppe, den Ressourcengruppenstandort, weitere Parameter, die rechtlichen Bedingungen und die Vereinbarung aus. Wählen Sie **Erstellen** aus, um die Verschlüsselung auf dem vorhandenen oder ausgeführten virtuellen IaaS-Computer zu aktivieren.
 
 

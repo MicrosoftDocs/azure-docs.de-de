@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: lyhughes
-ms.openlocfilehash: 320d92ef0ad6d02dbe7c31b883eb7f73472378ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56a1d5aab2f665f9c5bd8f6fa322f35e55483c7b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667808"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995232"
 ---
 # <a name="upcoming-changes-to-json-flattening-and-escaping-rules-for-new-environments"></a>Bevorstehende Änderungen an den JSON-Vereinfachungs- und -Escaperegeln für neue Umgebungen
 
@@ -44,17 +44,17 @@ Arrays von Objekten werden immer vereinfacht, und es werden mehrere Ereignisse g
 
 Alle neuen Bereitstellungen müssen den neuen Erfassungsregeln entsprechen. Wenn Ihre Zeitreihen-ID z. B. `telemetry_tagId` lautet, müssen Sie alle Azure Resource Manager-Vorlagen oder automatisierten Bereitstellungsskripts so aktualisieren, dass `telemetry.tagId` als Zeitreihen-ID für die Umgebung konfiguriert ist. Diese Änderung ist auch bei Zeitstempeln für Ereignisquellen in geschachteltem JSON-Code erforderlich.
 
-### <a name="if-your-payload-contains-nested-json-or-special-characters-and-you-automate-authoring-time-series-model-variable-expressions"></a>Wenn Ihre Nutzlast geschachtelten JSON-Code oder Sonderzeichen enthält, und Sie die Erstellung von variablen Ausdrücken für das [Zeitreihenmodell](.\time-series-insights-update-tsm.md) automatisieren
+### <a name="if-your-payload-contains-nested-json-or-special-characters-and-you-automate-authoring-time-series-model-variable-expressions"></a>Wenn Ihre Nutzlast geschachtelten JSON-Code oder Sonderzeichen enthält, und Sie die Erstellung von variablen Ausdrücken für das [Zeitreihenmodell](./concepts-model-overview.md) automatisieren
 
-Aktualisieren Sie den Clientcode, über den [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) ausgeführt wird, um ihn an die neuen Erfassungsregeln anzupassen. Beispielsweise sollte ein bisheriger [Zeitreihenausdruck](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) von `"value": {"tsx": "$event.series_value.Double"}` in eine der folgenden Optionen geändert werden:
+Aktualisieren Sie den Clientcode, über den [TypesBatchPut](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) ausgeführt wird, um ihn an die neuen Erfassungsregeln anzupassen. Beispielsweise sollte ein bisheriger [Zeitreihenausdruck](/rest/api/time-series-insights/reference-time-series-expression-syntax) von `"value": {"tsx": "$event.series_value.Double"}` in eine der folgenden Optionen geändert werden:
 
 * `"value": {"tsx": "$event.series.value.Double"}`
 * `"value": {"tsx": "$event['series']['value'].Double"}`
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Erfahren Sie mehr über [Datenspeicherung und -erfassung in Azure Time Series Insights Gen2](./time-series-insights-update-storage-ingress.md).
+* Erfahren Sie mehr über [Datenspeicherung und -erfassung in Azure Time Series Insights Gen2](./concepts-ingestion-overview.md).
 
 * Erfahren Sie, wie Sie Ihre Daten mit [Zeitreihenabfrage-APIs](./concepts-query-overview.md) abfragen.
 
-* Erfahren Sie mehr über die [neue Time Series-Ausdruckssyntax](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+* Erfahren Sie mehr über die [neue Time Series-Ausdruckssyntax](/rest/api/time-series-insights/reference-time-series-expression-syntax).

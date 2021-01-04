@@ -5,15 +5,15 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/01/2020
+ms.date: 11/16/2020
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 783e48139cf057bb17278d98e3683cb2b4cbad89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9dd39ffa68d8261f5c5d301d4c351c52b3f27c1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279549"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654591"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Problembehandlung für Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -522,79 +522,30 @@ Die folgende Tabelle gilt für Azure Batch.
  
 ## <a name="hdinsight"></a>HDInsight
 
-### <a name="error-code-200"></a>Fehlercode: 200
-
-- **Meldung**: `Unexpected error happened: '%error;'.`
-
-- **Ursache:** Ein internes Dienstproblem ist aufgetreten.
-
-- **Empfehlung**: Wenn Sie weitere Unterstützung benötigen, wenden Sie sich an den ADF-Support.
-
-### <a name="error-code-201"></a>Fehlercode: 201
-
-- **Meldung**: `JobType %jobType; is not found.`
-
-- **Ursache:** Es gibt einen neuen Auftragstyp, der von ADF nicht unterstützt wird.
-
-- **Empfehlung**: Wenn Sie weitere Unterstützung benötigen, wenden Sie sich an das ADF-Supportteam.
-
-### <a name="error-code-202"></a>Fehlercode: 202
-
-- **Meldung**: `Failed to create on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
-
-- **Ursache:** Die Fehlermeldung enthält die Details zum Fehler.
-
-- **Empfehlung**: Die Details der Fehlermeldung sollten Ihnen bei der Behandlung des Problems helfen. Wenn diese Informationen nicht ausreichen, wenden Sie sich an den ADF-Support, um weitere Unterstützung zu erhalten.
-
-### <a name="error-code-203"></a>Fehlercode: 203
-
-- **Meldung**: `Failed to delete on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
-
-- **Ursache:** Die Fehlermeldung enthält die Details zum Fehler.
-
-- **Empfehlung**: Die Details der Fehlermeldung sollten Ihnen bei der Behandlung des Problems helfen. Wenn diese Informationen nicht ausreichen, wenden Sie sich an den ADF-Support, um weitere Unterstützung zu erhalten.
-
-### <a name="error-code-204"></a>Fehlercode: 204
-
-- **Meldung**: `The resumption token is missing for runId '%runId;'.`
-
-- **Ursache:** Ein internes Dienstproblem ist aufgetreten.
-
-- **Empfehlung**: Wenn Sie weitere Unterstützung benötigen, wenden Sie sich an den ADF-Support.
-
-### <a name="error-code-205"></a>Fehlercode: 205
-
-- **Meldung**: `Failed to prepare cluster for LinkedService '%linkedServiceName;', the current resource status is '%status;'.`
-
-- **Ursache:** Beim Erstellen des HDI-On-Demand-Clusters ist ein Fehler aufgetreten.
-
-- **Empfehlung**: Wenn Sie weitere Unterstützung benötigen, wenden Sie sich an den ADF-Support.
-
 ### <a name="error-code-206"></a>Fehlercode: 206
 
-- **Meldung**: `The batch ID for Spark job is invalid. Please retry your job, and if the problem persists, contact the ADF support for further assistance.`
+- **Meldung**: `The batch ID for Spark job is invalid. Please retry your job.`
 
 - **Ursache:** Ein internes Problem mit dem Dienst hat diesen Fehler verursacht.
 
-- **Empfehlung**: Dies könnte ein vorübergehendes Problem sein. Führen Sie Ihren Auftrag erneut aus. Wenn das Problem weiterhin besteht, wenden Sie sich an den ADF-Support, um weitere Unterstützung zu erhalten.
+- **Empfehlung**: Dies könnte ein vorübergehendes Problem sein. Wiederholen Sie den Auftrag nach einiger Zeit.
 
 ### <a name="error-code-207"></a>Fehlercode: 207
 
-- **Meldung**: `Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI or contact ADF support team and provide the activity run ID.`
+- **Meldung**: `Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI.`
 
 - **Ursache:** Beim Ermitteln der Region aus dem primären Speicherkonto ist ein interner Fehler aufgetreten.
 
-- **Empfehlung**: Versuchen Sie es mit einem anderen Speicher. Wenn diese Option keine akzeptable Lösung ist, wenden Sie sich an das ADF-Supportteam, um weitere Unterstützung zu erhalten.
+- **Empfehlung**: Versuchen Sie es mit einem anderen Speicher. 
 
 ### <a name="error-code-208"></a>Fehlercode: 208
 
-- **Meldung**: `Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again. In case if this is not an acceptable solution, contact ADF support team for further assistance.`
+- **Meldung**: `Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again.`
 
 - **Ursache:** Beim Lesen des Dienstprinzipals bzw. beim Instanziieren der MSI-Authentifizierung ist ein interner Fehler aufgetreten.
 
-- **Empfehlung**: Erwägen Sie die Angabe eines Dienstprinzipals, der Berechtigungen zum Erstellen eines HDInsight-Clusters im angegebenen Abonnement hat, und versuchen Sie es erneut. Überprüfen Sie, ob [die verwalteten Identitäten ordnungsgemäß eingerichtet wurden](https://docs.microsoft.com/azure/hdinsight/hdinsight-managed-identities).
+- **Empfehlung**: Erwägen Sie die Angabe eines Dienstprinzipals, der Berechtigungen zum Erstellen eines HDInsight-Clusters im angegebenen Abonnement hat, und versuchen Sie es erneut. Überprüfen Sie, ob [die verwalteten Identitäten ordnungsgemäß eingerichtet wurden](../hdinsight/hdinsight-managed-identities.md).
 
-   Wenn diese Option keine akzeptable Lösung ist, wenden Sie sich an das ADF-Supportteam, um weitere Unterstützung zu erhalten.
 
 ### <a name="error-code-2300"></a>Fehlercode: 2300
 
@@ -604,7 +555,7 @@ Die folgende Tabelle gilt für Azure Batch.
 
 - **Empfehlung**: Vergewissern Sie sich, dass der Cluster nicht gelöscht wurde und der angegebene URI richtig ist. Wenn Sie den URI in einem Browser öffnen, sollte die Ambari-Benutzeroberfläche angezeigt werden. Wenn sich der Cluster in einem virtuellen Netzwerk befindet, sollte der URI der private URI sein. Um es zu öffnen, verwenden Sie einen virtuellen Computer (VM), der zu diesem virtuellen Netzwerk gehört.
 
-   Weitere Informationen finden Sie unter [Herstellen einer direkten Verbindung mit Apache Hadoop-Diensten](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#directly-connect-to-apache-hadoop-services).
+   Weitere Informationen finden Sie unter [Herstellen einer direkten Verbindung mit Apache Hadoop-Diensten](../hdinsight/hdinsight-plan-virtual-network-deployment.md#directly-connect-to-apache-hadoop-services).
  
  </br>
 
@@ -612,9 +563,9 @@ Die folgende Tabelle gilt für Azure Batch.
 
 - **Empfehlung**: Das Problem kann entweder ein allgemeines HDInsight-Verbindungsproblem oder ein Netzwerkverbindungsproblem sein. Vergewissern Sie sich zunächst, ob die HDInsight Ambari-Benutzeroberfläche in jedem Browser verfügbar ist. Überprüfen Sie anschließend, ob Ihre Anmeldeinformationen noch gültig sind.
    
-   Wenn Sie eine selbstgehostete Integration Runtime (IR) verwenden, führen Sie diesen Schritt auf der VM oder dem Computer aus, auf der bzw. dem die selbstgehostete IR installiert wurde. Übermitteln Sie den Auftrag dann erneut über Data Factory. Wenn weiterhin Fehler auftreten, wenden Sie sich an das Data Factory-Team.
+   Wenn Sie eine selbstgehostete Integration Runtime (IR) verwenden, führen Sie diesen Schritt auf der VM oder dem Computer aus, auf der bzw. dem die selbstgehostete IR installiert wurde. Übermitteln Sie den Auftrag dann erneut über Data Factory.
 
-   Weitere Informationen finden Sie unter [Ambari-Webbenutzeroberfläche](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-manage-ambari#ambari-web-ui).
+   Weitere Informationen finden Sie unter [Ambari-Webbenutzeroberfläche](../hdinsight/hdinsight-hadoop-manage-ambari.md#ambari-web-ui).
 
  </br>
 
@@ -622,7 +573,7 @@ Die folgende Tabelle gilt für Azure Batch.
 
 - **Empfehlung**: Korrigieren Sie die Anmeldeinformation, und stellen Sie den verknüpften Dienst erneut bereit. Überprüfen Sie zunächst, ob die Anmeldeinformationen in HDInsight funktionieren. Öffnen Sie dazu den Cluster-URI in einem beliebigen Browser, und versuchen Sie, sich anzumelden. Wenn die Anmeldeinformationen nicht funktionieren, können Sie sie im Azure-Portal zurücksetzen.
 
-   Setzen Sie das Kennwort beim ESP-Cluster über die [Self-Service-Kennwortzurücksetzung](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password) zurück.
+   Setzen Sie das Kennwort beim ESP-Cluster über die [Self-Service-Kennwortzurücksetzung](../active-directory/user-help/active-directory-passwords-update-your-own-password.md) zurück.
 
  </br>
 
@@ -638,8 +589,8 @@ Die folgende Tabelle gilt für Azure Batch.
        Weitere Informationen finden Sie in der Dokumentation zur Problembehandlung bei Azure HDInsight. Beispiel:
 
        * [Ambari UI 502 error](https://hdinsight.github.io/ambari/ambari-ui-502-error.html) (Ambari-Benutzeroberfläche: Fehler 502)
-       * [RpcTimeoutException für Apache Spark Thrift-Server](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-troubleshoot-rpctimeoutexception)
-       * [Behandeln von Fehlern aufgrund eines ungültigen Gateways in Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502)
+       * [RpcTimeoutException für Apache Spark Thrift-Server](../hdinsight/spark/apache-spark-troubleshoot-rpctimeoutexception.md)
+       * [Behandeln von Fehlern aufgrund eines ungültigen Gateways in Application Gateway](../application-gateway/application-gateway-troubleshooting-502.md)
 
  </br>
 
@@ -647,7 +598,7 @@ Die folgende Tabelle gilt für Azure Batch.
 
 - **Empfehlung**: Begrenzen Sie die Anzahl der gleichzeitigen Aufträge, die an HDInsight übermittelt werden. Wenn die Aufträge über die gleiche Aktivität übermittelt werden, helfen Ihnen die entsprechenden Informationen in der Data Factory-Aktivität für Parallelität weiter. Ändern Sie die Trigger so, dass die gleichzeitigen Pipelineausführungen über die Zeit verteilt werden.
 
-   Weitere Informationen zum wie im Fehler angegebenen Anpassen von `templeton.parallellism.job.submit` finden Sie in der [HDInsight-Dokumentation](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-templeton-webhcat-debug-errors).
+   Weitere Informationen zum wie im Fehler angegebenen Anpassen von `templeton.parallellism.job.submit` finden Sie in der [HDInsight-Dokumentation](../hdinsight/hdinsight-hadoop-templeton-webhcat-debug-errors.md).
 
 ### <a name="error-code-2301"></a>Fehlercode: 2301
 
@@ -673,7 +624,7 @@ Die folgende Tabelle gilt für Azure Batch.
        1. Weitere Informationen zu Warnungen und den entsprechenden Lösungen finden Sie unter [Verwalten und Überwachen eines Clusters](https://docs.cloudera.com/HDPDocuments/Ambari-2.7.5.0/managing-and-monitoring-ambari/content/amb_predefined_alerts.html).
     1. Überprüfen Sie Ihren YARN-Arbeitsspeicher. Wenn eine hohe Auslastung des YARN-Arbeitsspeichers vorliegt, wird die Verarbeitung Ihrer Aufträge möglicherweise verzögert. Führen Sie für den Cluster das Hochskalieren durch, um sicherzustellen, dass er über genügend Arbeitsspeicher und Kerne verfügt, falls nicht ausreichend Ressourcen für Ihre Spark-Anwendung bzw. die Aufträge vorhanden sind. 
  1. Führen Sie einen Beispieltestauftrag aus.
-    1. Wenn Sie denselben Auftrag im HDInsight-Backend ausführen, überprüfen Sie, ob er erfolgreich war. Beispiele für Beispielausführungen finden Sie unter [Ausführen von MapReduce-Beispielen in HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-run-samples-linux). 
+    1. Wenn Sie denselben Auftrag im HDInsight-Backend ausführen, überprüfen Sie, ob er erfolgreich war. Beispiele für Beispielausführungen finden Sie unter [Ausführen von MapReduce-Beispielen in HDInsight](../hdinsight/hadoop/apache-hadoop-run-samples-linux.md). 
  1. Wenn der Auftrag in HDInsight weiterhin fehlgeschlagen ist, überprüfen Sie die Anwendungsprotokolle und Informationen, die dem Support bereitgestellt werden müssen:
     1. Überprüfen Sie, ob der Auftrag an YARN übermittelt wurde. Wurde er nicht an YARN übermittelt, verwenden Sie `--master yarn`.
     1. Wenn die Anwendung die Ausführung beendet hat, erfassen Sie die Start- und Endzeit der YARN-Anwendung. Hat sie die Ausführung nicht beendet, erfassen Sie „Startzeit/Startzeit“.
@@ -695,7 +646,7 @@ Die folgende Tabelle gilt für Azure Batch.
        1. Weitere Informationen zu Warnungen und den entsprechenden Lösungen finden Sie unter [Verwalten und Überwachen eines Clusters](https://docs.cloudera.com/HDPDocuments/Ambari-2.7.5.0/managing-and-monitoring-ambari/content/amb_predefined_alerts.html).
     1. Überprüfen Sie Ihren YARN-Arbeitsspeicher. Wenn eine hohe Auslastung des YARN-Arbeitsspeichers vorliegt, wird die Verarbeitung Ihrer Aufträge möglicherweise verzögert. Führen Sie für den Cluster das Hochskalieren durch, um sicherzustellen, dass er über genügend Arbeitsspeicher und Kerne verfügt, falls nicht ausreichend Ressourcen für Ihre Spark-Anwendung bzw. die Aufträge vorhanden sind. 
  1. Führen Sie einen Beispieltestauftrag aus.
-    1. Wenn Sie denselben Auftrag im HDInsight-Backend ausführen, überprüfen Sie, ob er erfolgreich war. Beispiele für Beispielausführungen finden Sie unter [Ausführen von MapReduce-Beispielen in HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-run-samples-linux). 
+    1. Wenn Sie denselben Auftrag im HDInsight-Backend ausführen, überprüfen Sie, ob er erfolgreich war. Beispiele für Beispielausführungen finden Sie unter [Ausführen von MapReduce-Beispielen in HDInsight](../hdinsight/hadoop/apache-hadoop-run-samples-linux.md). 
  1. Wenn der Auftrag in HDInsight weiterhin fehlgeschlagen ist, überprüfen Sie die Anwendungsprotokolle und Informationen, die dem Support bereitgestellt werden müssen:
     1. Überprüfen Sie, ob der Auftrag an YARN übermittelt wurde. Wurde er nicht an YARN übermittelt, verwenden Sie `--master yarn`.
     1. Wenn die Anwendung die Ausführung beendet hat, erfassen Sie die Start- und Endzeit der YARN-Anwendung. Hat sie die Ausführung nicht beendet, erfassen Sie „Startzeit/Startzeit“.
@@ -727,7 +678,7 @@ Die folgende Tabelle gilt für Azure Batch.
 
 - **Empfehlung**: Sie sollten das Problem mithilfe der Fehlermeldung identifizieren können. Korrigieren Sie die JSON-Konfiguration, und versuchen Sie es erneut.
 
-   Weitere Informationen finden Sie unter [Bedarfsgesteuerter verknüpfter Azure HDInsight-Dienst](https://docs.microsoft.com/azure/data-factory/compute-linked-services#azure-hdinsight-on-demand-linked-service).
+   Weitere Informationen finden Sie unter [Bedarfsgesteuerter verknüpfter Azure HDInsight-Dienst](./compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
 ### <a name="error-code-2310"></a>Fehlercode: 2310
 
@@ -737,7 +688,7 @@ Die folgende Tabelle gilt für Azure Batch.
 
 - **Empfehlung**: Beheben Sie das Problem anhand der Fehlermeldung. Wenn die Informationen zur Lösung des Problems nicht ausreichen, wenden Sie sich an das HDI-Team, und geben Sie die Batch-ID und die Auftrags-ID an. Sie finden sie auf der Seite zur ADF-Überwachung in der Ausgabe der Aktivitätsausführung. Sollte eine weitere Problembehandlung erforderlich sein, erfassen Sie das vollständige Protokoll des Batchauftrags.
 
-   Weitere Informationen zum Erfassen des vollständigen Protokolls finden Sie unter [Abrufen des vollständigen Protokolls eines Batch-Auftrags](https://docs.microsoft.com/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job).
+   Weitere Informationen zum Erfassen des vollständigen Protokolls finden Sie unter [Abrufen des vollständigen Protokolls eines Batch-Auftrags](/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job).
 
 ### <a name="error-code-2312"></a>Fehlercode: 2312
 
@@ -747,7 +698,7 @@ Die folgende Tabelle gilt für Azure Batch.
 
 - **Empfehlung**: Verwenden Sie die Links in der Ausgabe der Aktivitätsausführung auf der Seite zur ADF-Überwachung, um Probleme bei der Ausführung auf dem HDInsight Spark-Cluster zu beheben. Wenn Sie weitere Unterstützung benötigen, wenden Sie sich an das HDInsight-Supportteam.
 
-   Weitere Informationen zum Erfassen des vollständigen Protokolls finden Sie unter [Abrufen des vollständigen Protokolls eines Batch-Auftrags](https://docs.microsoft.com/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job).
+   Weitere Informationen zum Erfassen des vollständigen Protokolls finden Sie unter [Abrufen des vollständigen Protokolls eines Batch-Auftrags](/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job).
 
 ### <a name="error-code-2313"></a>Fehlercode: 2313
 
@@ -757,7 +708,7 @@ Die folgende Tabelle gilt für Azure Batch.
 
 - **Empfehlung**: Beheben Sie Probleme mit Batches auf dem HDInsight Spark-Cluster. Wenden Sie sich an den HDInsight-Support, um weitere Unterstützung zu erhalten. 
 
-   Weitere Informationen zum Erfassen des vollständigen Protokolls finden Sie unter [Abrufen des vollständigen Protokolls eines Batch-Auftrags](https://docs.microsoft.com/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job). Geben Sie das vollständige Protokoll für den HDInsight-Support frei, um weitere Unterstützung zu erhalten.
+   Weitere Informationen zum Erfassen des vollständigen Protokolls finden Sie unter [Abrufen des vollständigen Protokolls eines Batch-Auftrags](/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job). Geben Sie das vollständige Protokoll für den HDInsight-Support frei, um weitere Unterstützung zu erhalten.
 
 ### <a name="error-code-2328"></a>Fehlercode: 2328
 
@@ -844,8 +795,8 @@ Die folgende Tabelle gilt für Azure Batch.
    1. Vergewissern Sie sich, dass Sie Ihre ODBC-/Java Database Connectivity (JDBC)-Verbindung ordnungsgemäß eingerichtet haben.
       1. Wenn Sie dasselbe virtuelle Netzwerk verwenden, können Sie diese Verbindung für JDBC abrufen von:<br>
         `Hive -> Summary -> HIVESERVER2 JDBC URL`
-      1. Informationen zur Sicherstellung, dass Sie JDBC korrekt eingerichtet haben, finden Sie unter [Abfragen von Apache Hive über den JDBC-Treiber in HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-connect-hive-jdbc-driver).
-      1. Lesen Sie für Open Database (ODB) [Tutorial: Abfragen von Apache Hive mit ODBC und PowerShell](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-query-odbc-driver-powershell), um sicherzustellen, dass Sie es korrekt eingerichtet haben. 
+      1. Informationen zur Sicherstellung, dass Sie JDBC korrekt eingerichtet haben, finden Sie unter [Abfragen von Apache Hive über den JDBC-Treiber in HDInsight](../hdinsight/hadoop/apache-hadoop-connect-hive-jdbc-driver.md).
+      1. Lesen Sie für Open Database (ODB) [Tutorial: Abfragen von Apache Hive mit ODBC und PowerShell](../hdinsight/interactive-query/apache-hive-query-odbc-driver-powershell.md), um sicherzustellen, dass Sie es korrekt eingerichtet haben. 
    1. Überprüfen Sie, ob „Hiveserver2“, „Hive-Metastore“ und „Hiveserver2 Interactive“ aktiv sind und funktionieren. 
    1. Überprüfen Sie die Ambari-Benutzeroberfläche (User Interface, UI):
       1. Vergewissern Sie sich, dass alle Dienste weiterhin ausgeführt werden.
@@ -864,8 +815,8 @@ Die folgende Tabelle gilt für Azure Batch.
    1. Vergewissern Sie sich, dass Sie Ihre ODBC-/Java Database Connectivity (JDBC)-Verbindung ordnungsgemäß eingerichtet haben.
       1. Wenn Sie dasselbe virtuelle Netzwerk verwenden, können Sie diese Verbindung für JDBC abrufen von:<br>
         `Hive -> Summary -> HIVESERVER2 JDBC URL`
-      1. Informationen zur Sicherstellung, dass Sie JDBC korrekt eingerichtet haben, finden Sie unter [Abfragen von Apache Hive über den JDBC-Treiber in HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-connect-hive-jdbc-driver).
-      1. Lesen Sie für Open Database (ODB) [Tutorial: Abfragen von Apache Hive mit ODBC und PowerShell](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-query-odbc-driver-powershell), um sicherzustellen, dass Sie es korrekt eingerichtet haben. 
+      1. Informationen zur Sicherstellung, dass Sie JDBC korrekt eingerichtet haben, finden Sie unter [Abfragen von Apache Hive über den JDBC-Treiber in HDInsight](../hdinsight/hadoop/apache-hadoop-connect-hive-jdbc-driver.md).
+      1. Lesen Sie für Open Database (ODB) [Tutorial: Abfragen von Apache Hive mit ODBC und PowerShell](../hdinsight/interactive-query/apache-hive-query-odbc-driver-powershell.md), um sicherzustellen, dass Sie es korrekt eingerichtet haben. 
    1. Überprüfen Sie, ob „Hiveserver2“, „Hive-Metastore“ und „Hiveserver2 Interactive“ aktiv sind und funktionieren. 
    1. Überprüfen Sie die Ambari-Benutzeroberfläche (User Interface, UI):
       1. Vergewissern Sie sich, dass alle Dienste weiterhin ausgeführt werden.
@@ -921,7 +872,7 @@ Die folgende Tabelle gilt für Azure Batch.
 
 - **Empfehlung**: Überprüfen Sie, ob beim ausgewählten verknüpften Dienst einer der unterstützten Typen für die Aktivität verwendet wird. HDI-Aktivitäten unterstützen die verknüpften Dienste „AzureBlobStorage“ und „AzureBlobFSStorage“.
 
-   Weitere Informationen finden Sie unter [Vergleich der Speicheroptionen für die Verwendung mit Azure HDInsight-Clustern](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-compare-storage-options).
+   Weitere Informationen finden Sie unter [Vergleich der Speicheroptionen für die Verwendung mit Azure HDInsight-Clustern](../hdinsight/hdinsight-hadoop-compare-storage-options.md).
 
 ### <a name="error-code-2355"></a>Fehlercode: 2355
 
@@ -1057,7 +1008,16 @@ Weitere Informationen finden Sie unter [Erste Schritte mit Fiddler](https://docs
 ## <a name="general"></a>Allgemein
 
 ### <a name="activity-stuck-issue"></a>Problem mit hängen gebliebener Aktivität
+
 Wenn Sie beobachten, dass die Aktivität viel länger läuft als gewöhnlich und kaum vorankommt, ist sie möglicherweise hängen geblieben. Sie können versuchen, die Aktivität abzubrechen und zu wiederholen, um zu sehen, ob das hilft. Wenn es sich um eine Kopieraktivität handelt, können Sie sich unter [Problembehandlung für die Leistung der Kopieraktivität](copy-activity-performance-troubleshooting.md) über die Leistungsüberwachung und Problembehandlung informieren. Wenn es sich um einen Datenfluss handelt, informieren Sie sich unter [Leistung von Zuordnungsdatenflüssen](concepts-data-flow-performance.md) und im Leitfaden für die Optimierung.
+
+### <a name="payload-is-too-large"></a>Nutzdaten sind zu umfangreich
+
+**Fehlermeldung:** `The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
+
+**Ursache:** Die Nutzdaten für jede Aktivitätsausführung enthalten die Aktivitätskonfiguration, die Konfigurationen der zugeordneten Datasets und verknüpften Dienste (sofern vorhanden) sowie einen kleinen Teil der Systemeigenschaften, die pro Aktivitätstyp generiert werden. Der Grenzwert für diese Nutzdatengröße ist 896 KB, wie im Abschnitt [Data Factory-Grenzwerte](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) beschrieben.
+
+**Empfehlung:** Sie erreichen dieses Limit wahrscheinlich, weil Sie einen oder mehrere große Parameterwerte übergeben, die entweder aus der vorgelagerten Aktivitätsausgabe stammen oder externen Ursprungs sind, insbesondere, wenn Sie tatsächliche Daten über Aktivitäten in der Ablaufsteuerung hinweg übergeben. Überprüfen Sie, ob Sie die Größe großer Parameterwerte reduzieren können, oder optimieren Sie die Pipelinelogik, um zu vermeiden, dass solche Werte über Aktivitäten hinweg übergeben werden, und verarbeiten Sie sie stattdessen in der Aktivität.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
@@ -1068,4 +1028,4 @@ Weitere Informationen zur Problembehandlung finden Sie in diesen Ressourcen:
 * [Stack Overflow-Forum für Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Twitter-Informationen über Data Factory](https://twitter.com/hashtag/DataFactory)
 * [Azure-Videos](https://azure.microsoft.com/resources/videos/index/)
-* [Frageseite von Microsoft Q&A (Fragen und Antworten)](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+* [Frageseite von Microsoft Q&A (Fragen und Antworten)](/answers/topics/azure-data-factory.html)

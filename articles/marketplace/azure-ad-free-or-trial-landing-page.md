@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/04/2020
-ms.openlocfilehash: b01b482b967ba6db90aa80ba537457597fb91046
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 699271316eccec1244db886ed2296f87c52f91ae
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488608"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348354"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>Erstellen der Landing Page für Ihr kostenloses SaaS-Angebot oder Ihr SaaS-Testangebot im kommerziellen Marketplace
 
@@ -43,23 +43,23 @@ In den folgenden Abschnitten dieses Artikels werden Sie durch die Schritte zum E
 
 ## <a name="create-an-azure-ad-app-registration"></a>Erstellen einer Azure AD-App-Registrierung
 
-Der kommerzielle Marketplace ist vollständig in Azure AD integriert. Benutzer authentifizieren sich mit einem [Azure AD-Konto oder einem Microsoft-Konto (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology), um den Marketplace zu nutzen. Nach dem Erwerb einer kostenlosen Testversion oder eines kostenlosen Abonnements über Ihr reines Auflistungsangebot wechselt der Benutzer vom kommerziellen Marketplace zu Ihrer Landing Page-URL, um sein Abonnement für Ihre SaaS-Anwendung zu aktivieren und zu verwalten. Sie müssen es dem Benutzer ermöglichen, sich mit dem einmaligen Anmelden in Azure AD bei Ihrer Anwendung anzumelden. (Die Landing Page-URL ist auf der Seite [Technische Konfiguration](plan-saas-offer.md#technical-information) des Angebots angegeben.)
+Der kommerzielle Marketplace ist vollständig in Azure AD integriert. Benutzer authentifizieren sich mit einem [Azure AD-Konto oder einem Microsoft-Konto (MSA)](../active-directory/fundamentals/active-directory-whatis.md#terminology), um den Marketplace zu nutzen. Nach dem Erwerb einer kostenlosen Testversion oder eines kostenlosen Abonnements über Ihr reines Auflistungsangebot wechselt der Benutzer vom kommerziellen Marketplace zu Ihrer Landing Page-URL, um sein Abonnement für Ihre SaaS-Anwendung zu aktivieren und zu verwalten. Sie müssen es dem Benutzer ermöglichen, sich mit dem einmaligen Anmelden in Azure AD bei Ihrer Anwendung anzumelden. (Die URL der Landing Page wird auf der Seite [Technische Konfiguration](plan-saas-offer.md#technical-information) des Angebots angegeben.)
 
-Zur Verwendung der Identität muss zunächst sichergestellt werden, dass Ihre Landing Page als Azure AD-Anwendung registriert ist. Durch die Registrierung der Anwendung können Sie Azure AD zum Authentifizieren von Benutzern und Anfordern des Zugriffs auf Benutzerressourcen verwenden. Sie kann als Definition der Anwendung betrachtet werden, durch die der Dienst angewiesen wird, wie basierend auf den App-Einstellungen Token für die App ausgestellt werden sollen.
+Zur Verwendung der Identität muss zunächst sichergestellt werden, dass Ihre Landing Page als Azure AD-Anwendung registriert ist. Durch die Registrierung der Anwendung können Sie Azure AD zum Authentifizieren von Benutzern und Anfordern des Zugriffs auf Benutzerressourcen verwenden. Sie kann als Anwendungsdefinition betrachtet werden, durch die der Dienst angewiesen wird, wie basierend auf den App-Einstellungen Token für die App ausgestellt werden sollen.
 
 ### <a name="register-a-new-application-using-the-azure-portal"></a>Registrieren einer neuen Anwendung mit dem Azure-Portal
 
-Befolgen Sie zunächst die Anweisungen zum [Registrieren einer neuen Anwendung](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Damit Benutzer aus anderen Unternehmen auf die App zugreifen können, müssen Sie **„Konten in einem beliebigen Organisationsverzeichnis (beliebiges Azure AD-Verzeichnis – mehrinstanzenfähig)“ und „Persönliche Microsoft-Konten (z. B. Skype oder Xbox)“** auswählen, wenn Sie gefragt werden, wer die Anwendung verwenden darf.
+Befolgen Sie zunächst die Anweisungen zum [Registrieren einer neuen Anwendung](../active-directory/develop/quickstart-register-app.md). Damit Benutzer aus anderen Unternehmen auf die App zugreifen können, müssen Sie **„Konten in einem beliebigen Organisationsverzeichnis (beliebiges Azure AD-Verzeichnis – mehrinstanzenfähig)“ und „Persönliche Microsoft-Konten (z. B. Skype oder Xbox)“** auswählen, wenn Sie gefragt werden, wer die Anwendung verwenden darf.
 
-[Konfigurieren Sie Ihre neue Anwendung für den Zugriff auf Web-APIs](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis), wenn Sie beabsichtigen, Abfragen an die Microsoft Graph-API zu senden. Bei der Auswahl der API-Berechtigungen für diese Anwendung ist die Standardeinstellung **User.Read** ausreichend, um grundlegende Informationen zum Benutzer zu erfassen. Dadurch kann das Onboarding reibungslos und automatisiert durchgeführt werden. Legen Sie keine API-Berechtigungen vom Typ **Administratoreinwilligung erforderlich** als erforderlich fest. Anderenfalls kann Ihre Landing Page nur von Benutzern mit Administratorfunktion besucht werden.
+[Konfigurieren Sie Ihre neue Anwendung für den Zugriff auf Web-APIs](../active-directory/develop/quickstart-configure-app-access-web-apis.md), wenn Sie beabsichtigen, Abfragen an die Microsoft Graph-API zu senden. Bei der Auswahl der API-Berechtigungen für diese Anwendung ist die Standardeinstellung **User.Read** ausreichend, um grundlegende Informationen zum Benutzer zu erfassen. Dadurch kann das Onboarding reibungslos und automatisiert durchgeführt werden. Legen Sie keine API-Berechtigungen vom Typ **Administratoreinwilligung erforderlich** als erforderlich fest. Anderenfalls kann Ihre Landing Page nur von Benutzern mit Administratorfunktion besucht werden.
 
-Wenn Sie im Rahmen Ihres Onboarding- oder Bereitstellungsvorgangs jedoch erhöhte Rechte benötigen, verwenden Sie gegebenenfalls die [inkrementelle Einwilligung](https://aka.ms/incremental-consent) von Azure AD. Bei Verwendung dieser Funktion sind alle Benutzer, die vom Marketplace weitergeleitet werden, anfänglich in der Lage, mit der Landing Page zu interagieren.
+Wenn Sie im Rahmen Ihres Onboarding- oder Bereitstellungsvorgangs jedoch erhöhte Rechte benötigen, verwenden Sie gegebenenfalls die [inkrementelle Einwilligung](../active-directory/azuread-dev/azure-ad-endpoint-comparison.md) von Azure AD. Bei Verwendung dieser Funktion sind alle Benutzer, die vom Marketplace weitergeleitet werden, anfänglich in der Lage, mit der Landing Page zu interagieren.
 
 ## <a name="use-a-code-sample-as-a-starting-point"></a>Verwenden eines Codebeispiels als Ausgangspunkt
 
 Microsoft hat mehrere Beispiel-Apps bereitgestellt, mit denen eine einfache Website implementiert wird, für die die Azure AD-Anmeldung aktiviert ist. Nachdem Ihre Anwendung in Azure AD registriert wurde, wird auf dem Blatt **Schnellstart** eine Liste gängiger Anwendungstypen und Entwicklungsstapel aufgeführt (Abbildung 1). Wählen Sie die geeignete Option für Ihre Umgebung aus, und befolgen Sie die Anweisungen zum Herunterladen und Einrichten.
 
-***Abbildung 1: Blatt „Schnellstart“ im Azure-Portal***
+**_Abbildung 1: Blatt „Schnellstart“ im Azure-Portal_* _
 
 :::image type="content" source="./media/azure-ad-saas/azure-ad-quickstart-blade.png" alt-text="Veranschaulicht das Blatt „Schnellstart“ im Azure-Portal.":::
 
@@ -67,14 +67,14 @@ Nachdem Sie den Code heruntergeladen und Ihre Entwicklungsumgebung eingerichtet 
 
 ## <a name="read-information-from-claims-encoded-in-the-id-token"></a>Lesen von Informationen aus Ansprüchen, die im ID-Token codiert sind
 
-Im Rahmen des [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc)-Flows fügt Azure AD ein [ID-Token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens) zur Anforderung hinzu, wenn der Benutzer zur Landing Page weitergeleitet wird. Dieses Token umfasst verschiedene grundlegende Informationen, die bei der Aktivierung nützlich sein können. Dazu zählen u. a. die in der nachfolgenden Tabelle enthaltenen Informationen.
+Im Rahmen des [OpenID Connect](../active-directory/develop/v2-protocols-oidc.md)-Flows fügt Azure AD ein [ID-Token](../active-directory/develop/id-tokens.md) zur Anforderung hinzu, wenn der Benutzer zur Landing Page weitergeleitet wird. Dieses Token umfasst verschiedene grundlegende Informationen, die bei der Aktivierung nützlich sein können. Dazu zählen u. a. die in der nachfolgenden Tabelle enthaltenen Informationen.
 
 | Wert | BESCHREIBUNG |
 | ------------ | ------------- |
 | aud | Zielgruppe für dieses Token. In diesem Fall sollte der Wert Ihrer Anwendungs-ID entsprechen und überprüft werden. |
 | preferred_username | Primärer Benutzername des Benutzers, der die App aufruft. Dabei kann es sich um die E-Mail-Adresse, die Telefonnummer oder einen anderen Bezeichner handeln. |
 | email | E-Mail-Adresse des Benutzers. Dieses Feld kann leer sein. |
-| name | Ein lesbarer Wert, der den Antragsteller des Tokens angibt. In diesem Fall ist dies der Name des Benutzers. |
+| name | Ein lesbarer Wert, der den Antragsteller des Tokens angibt. In diesem Fall ist dies der Benutzername. |
 | oid | Bezeichner im Microsoft-Identitätssystem, der den Benutzer anwendungsübergreifend eindeutig identifiziert. Der Microsoft Graph gibt diesen Wert als ID-Eigenschaft für ein Benutzerkonto zurück. |
 | tid | Bezeichner, der den Azure AD-Mandanten darstellt, dem der Benutzer angehört. Im Fall einer MSA-Identität lautet dieser Wert immer `9188040d-6c67-4c5b-b112-36a304b66dad`. Weitere Informationen finden Sie im nächsten Abschnitt unter „Hinweis“: Verwenden der Microsoft Graph-API |
 | sub | Eindeutiger Bezeichner des Benutzers in der jeweiligen Anwendung. |
@@ -82,7 +82,7 @@ Im Rahmen des [OpenID Connect](https://docs.microsoft.com/azure/active-directory
 
 ## <a name="use-the-microsoft-graph-api"></a>Verwenden der Microsoft Graph-API
 
-Das ID-Token enthält grundlegende Informationen zur Identifizierung des Benutzers. Für Ihren Aktivierungsprozess können jedoch weitere Details erforderlich sein (z. B. das Unternehmen des Benutzers), um das Onboarding abzuschließen. Fordern Sie diese Informationen mithilfe der [Microsoft Graph-API](https://docs.microsoft.com/graph/use-the-api) an. Dadurch verhindern Sie, dass der Benutzer diese Angaben erneut machen muss. Die standardmäßigen **User.Read** -Berechtigungen umfassen folgende Informationen:
+Das ID-Token enthält grundlegende Informationen zur Identifizierung des Benutzers. Für Ihren Aktivierungsprozess können jedoch weitere Details erforderlich sein (z. B. das Unternehmen des Benutzers), um das Onboarding abzuschließen. Fordern Sie diese Informationen mithilfe der [Microsoft Graph-API](/graph/use-the-api) an. Dadurch verhindern Sie, dass der Benutzer diese Angaben erneut machen muss. Die _ *User.Read* *-Berechtigungen umfassen standardmäßig folgende Informationen:
 
 | Wert | BESCHREIBUNG |
 | ------------ | ------------- |
@@ -95,9 +95,9 @@ Das ID-Token enthält grundlegende Informationen zur Identifizierung des Benutze
 | surname | Der Nachname des Benutzers. |
 |||
 
-Es können weitere Eigenschaften wie der Name des Unternehmens oder der Standort des Benutzers (Land/Region) ausgewählt werden, die in der Anforderung enthalten sein sollen. Weitere Informationen finden Sie unter [Eigenschaften für den Benutzerressourcentyp](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0#properties).
+Es können weitere Eigenschaften wie der Name des Unternehmens oder der Standort des Benutzers (Land) ausgewählt werden, die in der Anforderung enthalten sein sollen. Weitere Informationen finden Sie unter [Eigenschaften für den Benutzerressourcentyp](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true#properties).
 
-Die meisten Apps, die in Azure AD registriert sind, erteilen delegierte Berechtigungen zum Lesen der Benutzerinformationen aus dem Azure AD-Mandanten seines Unternehmens. Microsoft Graph-Anforderungen zum Abrufen dieser Informationen müssen ein Zugriffstoken zur Authentifizierung enthalten. Die jeweils erforderlichen Schritte zum Erzeugen des Zugriffstokens hängen vom verwendeten Technologiestapel ab. Ein Beispiel finden Sie im Beispielcode. Weitere Informationen finden Sie unter [Zugreifen im Namen eines Benutzers](https://docs.microsoft.com/graph/auth-v2-user).
+Die meisten Apps, die in Azure AD registriert sind, erteilen delegierte Berechtigungen zum Lesen der Benutzerinformationen aus dem Azure AD-Mandanten seines Unternehmens. Microsoft Graph-Anforderungen zum Abrufen dieser Informationen müssen ein Zugriffstoken zur Authentifizierung enthalten. Die jeweils erforderlichen Schritte zum Erzeugen des Zugriffstokens hängen vom verwendeten Technologiestapel ab. Ein Beispiel finden Sie im Beispielcode. Weitere Informationen finden Sie unter [Zugreifen im Namen eines Benutzers](/graph/auth-v2-user).
 
 > [!NOTE]
 > Konten des MSA-Mandanten (mit Mandanten-ID `9188040d-6c67-4c5b-b112-36a304b66dad`) geben keine weiteren Informationen zurück als die bereits mit dem ID-Token erfassten Informationen. Sie können diesen Aufruf der Graph-API für diese Konten überspringen.

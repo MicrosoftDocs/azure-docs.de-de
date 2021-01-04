@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: c7f4cba10117efef4099b3524b49cae313593a9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ecf3c3954bd77962e56ee289b623806efb352410
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442712"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461267"
 ---
 # <a name="bulk-copy-from-files-to-database"></a>Massenkopieren von Dateien in eine Datenbank
 
@@ -55,7 +55,7 @@ Die Vorlage definiert die folgenden beiden Parameter:
     ![Überprüfen der Pipeline](media/solution-template-bulk-copy-from-files-to-database/new-pipeline.png)
 
     > [!NOTE]
-    > Wenn Sie oben in **Schritt 2** als Datenziel **Azure Synapse Analytics (ehemals SQL DW)** ausgewählt haben, müssen Sie eine Verbindung mit Azure Blob Storage für den Stagingprozess eingeben, da dies für Azure Synapse Analytics (ehemals SQL Data Warehouse) PolyBase erforderlich ist. Wie im folgenden Screenshot gezeigt, generiert die Vorlage automatisch einen *Speicherpfad* für Ihren Blobspeicher. Überprüfen Sie nach der Pipelineausführung, ob der Container erstellt wurde.
+    > Wenn Sie in **Schritt 2** oben als Datenziel **Azure Synapse Analytics (ehemals SQL DW)** ausgewählt haben, müssen Sie eine Verbindung mit Azure Blob Storage für den Stagingprozess eingeben, da dies für Azure Synapse Analytics PolyBase erforderlich ist. Wie im folgenden Screenshot gezeigt, generiert die Vorlage automatisch einen *Speicherpfad* für Ihren Blobspeicher. Überprüfen Sie nach der Pipelineausführung, ob der Container erstellt wurde.
         
     ![PolyBase-Einstellung](media/solution-template-bulk-copy-from-files-to-database/staging-account.png)
 

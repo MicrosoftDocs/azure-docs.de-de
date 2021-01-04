@@ -9,12 +9,12 @@ metadata:
   author: mikben
   ms.author: mikben
   ms.date: 08/10/2020
-  ms.openlocfilehash: 6081063605439982e29984cc4378ec3aee7ac08a
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 396b32a9f84895532c8c233b5c7ccc3d2ce85c11
+  ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "90928852"
+  ms.lasthandoff: 12/09/2020
+  ms.locfileid: "96937303"
 landingContent:
 - title: Informationen zu Azure Communication Services
   linkLists:

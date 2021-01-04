@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/26/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94b8d744c964b07c1ed6a4d7e8b89bca2258c1bc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6a3044127aacb5910a270d40d94d3255031a71a2
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963957"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741302"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Problembehandlung beim Rückschreiben der Self-Service-Kennwortzurücksetzung in Azure Active Directory
 
@@ -104,29 +104,29 @@ Azure AD Connect benötigt für das Kennwortrückschreiben die AD DS-Berechtigun
 1. Melden Sie sich beim Azure AD Connect-Server an, und starten Sie den **Synchronization Service Manager**, indem Sie auf **Start** > **Synchronisierungsdienst** klicken.
 1. Wählen Sie auf der Registerkarte **Connectors** den lokalen Connector **Active Directory Domain Services** aus, und klicken Sie anschließend auf **Eigenschaften**.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="Neustarten des Azure AD Sync-Diensts mit der grafischen Benutzeroberfläche" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="Synchronization Service Manager zeigt das Bearbeiten von Eigenschaften" border="false":::
   
 1. Klicken Sie im Popupfenster auf die Registerkarte **Mit Active Directory-Gesamtstruktur verbinden**, und notieren Sie sich die Eigenschaft **Benutzername**. Bei dieser Eigenschaft handelt es sich um das AD DS-Konto, das von Azure AD Connect für die Verzeichnissynchronisierung verwendet wird.
 
     Damit Azure AD Connect das Kennwortrückschreiben durchführen kann, muss das AD DS-Konto über die Berechtigung „Kennwort zurücksetzen“ verfügen. Mit den folgenden Schritten überprüfen Sie die Berechtigungen für dieses Benutzerkonto.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager-properties.png" alt-text="Neustarten des Azure AD Sync-Diensts mit der grafischen Benutzeroberfläche" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager-properties.png" alt-text="Suchen des Active Directory-Benutzerkontos für den Synchronisierungsdienst" border="false":::
   
 1. Melden Sie sich bei einem lokalen Domänencontroller an, und starten Sie die Anwendung **Active Directory-Benutzer und -Computer**.
 1. Klicken Sie auf **Ansicht**, und vergewissern Sie sich, dass die Option **Erweiterte Features** aktiviert ist.  
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-advanced-features.png" alt-text="Neustarten des Azure AD Sync-Diensts mit der grafischen Benutzeroberfläche" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-advanced-features.png" alt-text="Active Directory-Benutzer und -Computer zeigen erweiterte Features." border="false":::
   
 1. Suchen Sie nach dem AD DS-Benutzerkonto, das Sie überprüfen möchten. Klicken Sie mit der rechten Maustaste auf das Konto, und klicken Sie anschließend auf **Eigenschaften**.  
 1. Navigieren Sie im Popupfenster zur Registerkarte **Sicherheit**, und klicken Sie auf **Erweitert**.  
 1. Navigieren Sie im Popupfenster mit den erweiterten **Sicherheitseinstellungen für den Administratorzur** Registerkarte **Effektiver Zugriff**.
 1. Wählen Sie **Benutzer auswählen** aus, wählen Sie das von Azure AD Connect verwendete AD DS-Konto aus, und klicken Sie anschließend auf **Effektiven Zugriff anzeigen**.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-effective-access.png" alt-text="Neustarten des Azure AD Sync-Diensts mit der grafischen Benutzeroberfläche" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-effective-access.png" alt-text="Registerkarte „Effektiver Zugriff“ zeigt das Synchronisierungskonto" border="false":::
   
 1. Scrollen Sie nach unten, und suchen Sie nach **Kennwort zurücksetzen**. Ist der Eintrag mit einem Häkchen versehen, ist das AD DS-Konto zum Zurücksetzen des Kennworts für das ausgewählte Active Directory-Benutzerkonto berechtigt.  
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/check-permissions.png" alt-text="Neustarten des Azure AD Sync-Diensts mit der grafischen Benutzeroberfläche" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/check-permissions.png" alt-text="Überprüfen, ob das Synchronisierungskonto die Berechtigung zum Zurücksetzen des Kennworts hat" border="false":::
 
 ## <a name="common-password-writeback-errors"></a>Häufige Fehler bei der Kennwortrückschreibung
 
@@ -178,6 +178,7 @@ Eine bewährte Methode bei der Problembehandlung für das Kennwortrückschreiben
 | 31016| WriteBackServiceStopped| Dieses Ereignis gibt an, dass der Dienst zum Kennwortrückschreiben beendet wurde. Kennwortverwaltungsanforderungen aus der Cloud haben keinen Erfolg.|
 | 31017| AuthTokenSuccess| Dieses Ereignis weist darauf hin, dass für den globalen Administrator, der während der Azure AD Connect-Einrichtung angegeben wurde, erfolgreich ein Autorisierungstoken abgerufen wurde, um den Vorgang zur Integration oder zum Entfernen zu starten.|
 | 31018| KeyPairCreationSuccess| Dieses Ereignis gibt an, dass der Kennwortverschlüsselungsschlüssel erfolgreich erstellt wurde. Der Schlüssel dient zum Verschlüsseln von Kennwörtern aus der Cloud, die an Ihre lokale Umgebung gesendet werden.|
+| 31034| ServiceBusListenerError| Dieses Ereignis gibt an, dass beim Herstellen einer Verbindung mit dem Service Bus-Listener Ihres Mandanten ein Fehler aufgetreten ist. Wenn die Fehlermeldung „Das Remotezertifikat ist laut Validierungsverfahren ungültig“ enthält, stellen Sie sicher, dass der Azure AD Connect-Server wie unter [TLS-Zertifikatänderungen für Azure](../../security/fundamentals/tls-certificate-changes.md) beschrieben über alle erforderlichen Stammzertifizierungsstellen verfügt. |
 | 32000| UnknownError| Dieses Ereignis gibt an, dass während eines Kennwortverwaltungsvorgangs ein unbekannter Fehler aufgetreten ist. Lesen Sie den Ausnahmetext im Ereignis, um weitere Informationen zu erhalten. Deaktivieren Sie bei Problemen das Kennwortrückschreiben, und aktivieren Sie es anschließend wieder. Sollte das Problem weiterhin auftreten, senden Sie eine Kopie des Ereignisprotokolls zusammen mit der angegebenen Nachverfolgungs-ID, wenn Sie eine Supportanfrage öffnen.|
 | 32001| ServiceError| Dieses Ereignis gibt an, dass beim Herstellen einer Verbindung mit dem Kennwortzurücksetzungsdienst ein Fehler aufgetreten ist. Dieser Fehler tritt in der Regel auf, wenn der lokale Dienst keine Verbindung mit dem Webdienst für die Kennwortzurücksetzung herstellen konnte.|
 | 32002| ServiceBusError| Dieses Ereignis gibt an, dass beim Herstellen einer Verbindung mit der Service Bus-Instanz Ihres Mandanten ein Fehler aufgetreten ist. Dieser Fall kann eintreten, wenn Sie in Ihrer lokalen Umgebung ausgehende Verbindungen blockieren. Prüfen Sie Ihre Firewall, und vergewissern Sie sich, dass Verbindungen über TCP 443 und mit https://ssprdedicatedsbprodncu.servicebus.windows.net möglich sind. Versuchen Sie es anschließend erneut. Sollten weiterhin Probleme auftreten, deaktivieren Sie das Kennwortrückschreiben, und aktivieren Sie es anschließend wieder.|
@@ -217,7 +218,7 @@ Damit wir Sie bestmöglich unterstützen können, geben Sie bitte so viele Detai
 * **Unterstützungscode**: Welcher Unterstützungscode wurde generiert, als der Fehler aufgetreten ist?
    * Reproduzieren Sie zum Ermitteln des Unterstützungscodes den Fehler, klicken Sie im unteren Bildschirmbereich auf den Link **Unterstützungscode**, und senden Sie die generierte GUID an den Supportmitarbeiter.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="Neustarten des Azure AD Sync-Diensts mit der grafischen Benutzeroberfläche":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="Der Unterstützungscode befindet sich unten rechts im Webbrowserfenster.":::
 
   * Wenn Sie sich auf einer Seite ohne Unterstützungscode befinden, drücken Sie F12, suchen Sie nach der SID und der CID, und senden Sie beide Ergebnisse an den Supportmitarbeiter.
 * **Datum, Uhrzeit und Zeitzone**: Geben Sie das genaue Datum und die exakte Uhrzeit des Fehlers an (*einschließlich der Zeitzone*).

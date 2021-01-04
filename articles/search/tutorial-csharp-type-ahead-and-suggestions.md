@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 202a7f6b01423045fe7c72db5b42c29ae58f648d
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91739662"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013835"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Tutorial: Hinzufügen von AutoVervollständigen und Vorschlägen mithilfe des .NET SDK
 
@@ -151,7 +151,7 @@ Wir beginnen mit der einfachsten Möglichkeit zum Anbieten von Alternativen für
 
 4. Legen Sie im Skript der Ansicht **&fuzzy** auf „true“ fest, und führen Sie die App erneut aus. Geben Sie jetzt „po“ ein. Sie sehen, dass die Suche annimmt, dass ein Buchstabe falsch ist.
  
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png" alt-text="Die Eingabe von „*po*“ ergibt zwei Vorschläge" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png" alt-text="Eingeben von „*pa*“, wobei „fuzzy“ auf „true“ festgelegt ist" border="false":::
 
     Wenn Sie Interesse daran haben, können Sie sich unter [Lucene-Abfragesyntax in Azure Cognitive Search](./query-lucene-syntax.md) ausführlicher über die Logik informieren, die für Fuzzysuchen verwendet wird.
 
@@ -196,7 +196,7 @@ Sie können die Darstellung der Vorschläge für den Benutzer verbessern, indem 
 
 1. Wenn Sie die App erneut ausführen, sollte Ihr eingegebener Text in den Vorschlägen fett angezeigt werden. Versuchen Sie es mit der Eingabe von „pa“.
  
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png" alt-text="Die Eingabe von „*po*“ ergibt zwei Vorschläge" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png" alt-text="Eingeben von „*pa*“ mit Hervorhebung" border="false":::
 
    Die Logik, die oben im Skript für die Hervorhebung verwendet wird, ist nicht narrensicher. Wenn Sie einen Begriff eingeben, der in demselben Namen zweimal enthalten ist, sieht der Fettdruck nicht wie gewünscht aus. Versuchen Sie es mit der Eingabe von „mo“.
 
@@ -255,7 +255,7 @@ Eine andere Variante, die sich leicht von Vorschlägen unterscheidet, ist AutoVe
 
 1. Führen Sie die App aus. Beachten Sie, dass es sich bei den Optionen in der Dropdownliste um einzelne Wörter handelt. Versuchen Sie es mit der Eingabe von Wörtern, die mit „re“ beginnen. Sie sehen, dass sich die Anzahl von Optionen reduziert, je mehr Buchstaben Sie eingeben.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png" alt-text="Die Eingabe von „*po*“ ergibt zwei Vorschläge" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png" alt-text="Eingabe mit einfacher AutoVervollständigen-Funktion" border="false":::
 
     Es sieht so aus, als ob das Skript für Vorschläge, das Sie weiter oben ausgeführt haben, hilfreicher als dieses Skript für AutoVervollständigen ist. Um die automatische Vervollständigung benutzerfreundlicher zu gestalten, sollten Sie Sie mit den empfohlenen Ergebnissen verwenden.
 
@@ -451,7 +451,7 @@ Es gibt Bibliotheken, die diese Funktionalität enthalten. Dies wird häufig als
 
 1. Führen Sie anschließend die App aus. Geben Sie im Suchfeld „pa“ ein. Erhalten Sie „palace“ als AutoVervollständigen-Vorschlag und zwei Namen von Hotels, die „pa“ enthalten?
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png" alt-text="Die Eingabe von „*po*“ ergibt zwei Vorschläge" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png" alt-text="Eingabe mit Inline-Autovervollständigen und Vorschlägen" border="false":::
 
 1. Versuchen Sie, den AutoVervollständigen-Vorschlag mit der TAB-TASTE zu akzeptieren und Vorschläge mit den Pfeiltasten und der TAB-TASTE auszuwählen. Starten Sie dann einen neuen Versuch, indem Sie die Maus und einen einzelnen Klick verwenden. Vergewissern Sie sich, dass alle Situationen vom Skript richtig verarbeitet werden.
 

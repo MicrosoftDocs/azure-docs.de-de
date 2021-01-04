@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: e279f0ba5186ae4e4ad4b403ad823a59ee085170
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2aa33ac9e92f6763c0d89f0a049409c1a6a4049
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88997556"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546023"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Verwalten von Protokollen für einen HDInsight-Cluster
 
@@ -42,7 +42,7 @@ Die folgenden Clusterdetails sind hilfreich beim Sammeln von Informationen für 
 * Clusterstatus, einschließlich Details zur letzten Statusänderung
 * Art und Anzahl von HDInsight-Instanzen, die für die Master-, Core- und Aufgabenknoten angegeben werden
 
-Sie können die meisten dieser Informationen der obersten Ebene über das Azure-Portal abrufen.  Alternativ dazu können Sie die [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) verwenden, um Informationen zu Ihren HDInsight-Clustern abzurufen:
+Sie können die meisten dieser Informationen der obersten Ebene über das Azure-Portal abrufen.  Alternativ dazu können Sie die [Azure CLI](/cli/azure/) verwenden, um Informationen zu Ihren HDInsight-Clustern abzurufen:
 
 ```azurecli
 az hdinsight list --resource-group <ResourceGroup>
@@ -75,9 +75,9 @@ Für einen typischen HDInsight-Cluster werden mehrere Dienste und Open-Source-So
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Anzeigen von Einstellungen zur Clusterkonfiguration mit der Ambari-Benutzeroberfläche
 
-Mit Apache Ambari wird die Verwaltung, Konfiguration und Überwachung eines HDInsight-Clusters vereinfacht, indem eine Webbenutzeroberfläche und eine REST-API bereitgestellt werden. Ambari ist in Linux-basierten HDInsight-Clustern enthalten. Wählen Sie im Azure-Portal auf der Seite „HDInsight“ den Bereich **Clusterdashboard**, um die Linkseite **Clusterdashboards** zu öffnen.  Wählen Sie als Nächstes den Bereich **HDInsight-Cluster-Dashboard**, um die Ambari-Benutzeroberfläche zu öffnen.  Sie werden aufgefordert, Ihre Anmeldeinformationen für den Cluster einzugeben.
+Mit Apache Ambari wird die Verwaltung, Konfiguration und Überwachung eines HDInsight-Clusters vereinfacht, indem eine Webbenutzeroberfläche und eine REST-API bereitgestellt werden. Ambari ist in Linux-basierten HDInsight-Clustern enthalten. Wählen Sie im Azure-Portal auf der Seite „HDInsight“ den Bereich **Clusterdashboard** , um die Linkseite **Clusterdashboards** zu öffnen.  Wählen Sie als Nächstes den Bereich **HDInsight-Cluster-Dashboard** , um die Ambari-Benutzeroberfläche zu öffnen.  Sie werden aufgefordert, Ihre Anmeldeinformationen für den Cluster einzugeben.
 
-Wählen Sie zum Öffnen einer Liste mit den Dienstansichten im Azure-Portal auf der Seite „HDInsight“ den Bereich **Ambari Views**.  Der Inhalt der Liste variiert in Abhängigkeit davon, welche Bibliotheken Sie installiert haben.  Beispielsweise werden ggf. YARN Queue Manager, Hive View und Tez View angezeigt.  Wählen Sie einen beliebigen Dienstlink aus, um die Konfigurations- und Dienstinformationen anzuzeigen.  Die Seite **Stack and Versions** (Stapel und Versionen) der Ambari-Benutzeroberfläche enthält Informationen zur Konfiguration und zum Dienstversionsverlauf der Clusterdienste. Wählen Sie zum Navigieren dieses Abschnitts der Ambari-Benutzeroberfläche das Menü **Admin** und dann die Option **Stack and Versions** (Stapel und Versionen).  Wählen Sie die Registerkarte **Versions** (Versionen), um Informationen zur Dienstversion anzuzeigen.
+Wählen Sie zum Öffnen einer Liste mit den Dienstansichten im Azure-Portal auf der Seite „HDInsight“ den Bereich **Ambari Views** .  Der Inhalt der Liste variiert in Abhängigkeit davon, welche Bibliotheken Sie installiert haben.  Beispielsweise werden ggf. YARN Queue Manager, Hive View und Tez View angezeigt.  Wählen Sie einen beliebigen Dienstlink aus, um die Konfigurations- und Dienstinformationen anzuzeigen.  Die Seite **Stack and Versions** (Stapel und Versionen) der Ambari-Benutzeroberfläche enthält Informationen zur Konfiguration und zum Dienstversionsverlauf der Clusterdienste. Wählen Sie zum Navigieren dieses Abschnitts der Ambari-Benutzeroberfläche das Menü **Admin** und dann die Option **Stack and Versions** (Stapel und Versionen).  Wählen Sie die Registerkarte **Versions** (Versionen), um Informationen zur Dienstversion anzuzeigen.
 
 ![Apache Ambari – Admin – Stapel und Versionen](./media/hdinsight-log-management/ambari-stack-versions.png)
 
@@ -109,7 +109,7 @@ Im nächsten Schritt werden die Protokolldateien zur Auftragsausführung für di
 
 ### <a name="access-the-hadoop-log-files"></a>Zugreifen auf die Hadoop-Protokolldateien
 
-HDInsight speichert die Protokolldateien sowohl im Clusterdateisystem als auch in Azure Storage. Sie können Protokolldateien im Cluster untersuchen, indem Sie eine [SSH](hdinsight-hadoop-linux-use-ssh-unix.md)-Verbindung mit dem Cluster öffnen und das Dateisystem durchsuchen oder das Hadoop YARN-Statusportal auf dem Hauptknoten-Remoteserver verwenden. Sie können die Protokolldateien in Azure Storage mit allen Tools untersuchen, mit denen auf Daten in Azure Storage zugegriffen und diese heruntergeladen werden können. Beispiele hierfür sind [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) und der Server-Explorer von Visual Studio. Sie können auch PowerShell und die Azure Storage-Clientbibliotheken oder die Azure .NET SDKs verwenden, um auf Daten in Azure Blob Storage zuzugreifen.
+HDInsight speichert die Protokolldateien sowohl im Clusterdateisystem als auch in Azure Storage. Sie können Protokolldateien im Cluster untersuchen, indem Sie eine [SSH](hdinsight-hadoop-linux-use-ssh-unix.md)-Verbindung mit dem Cluster öffnen und das Dateisystem durchsuchen oder das Hadoop YARN-Statusportal auf dem Hauptknoten-Remoteserver verwenden. Sie können die Protokolldateien in Azure Storage mit allen Tools untersuchen, mit denen auf Daten in Azure Storage zugegriffen und diese heruntergeladen werden können. Beispiele hierfür sind [AzCopy](../storage/common/storage-use-azcopy-v10.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) und der Server-Explorer von Visual Studio. Sie können auch PowerShell und die Azure Storage-Clientbibliotheken oder die Azure .NET SDKs verwenden, um auf Daten in Azure Blob Storage zuzugreifen.
 
 Hadoop führt die Schritte der Aufträge als *Taskversuche* auf verschiedenen Knoten im Cluster aus. HDInsight kann spekulative Taskversuche initiieren und zuerst alle anderen Taskversuche beenden, die nicht erfolgreich abgeschlossen werden können. Hierbei wird eine erhebliche Zahl von Aktivitäten generiert, die nebenbei in den controller-, stderr- und syslog-Protokolldateien protokolliert werden. Außerdem werden gleichzeitig mehrere Taskversuche ausgeführt, aber eine Protokolldatei kann Ergebnisse nur linear anzeigen.
 
@@ -150,7 +150,7 @@ Die YARN-ResourceManager-Benutzeroberfläche wird auf dem Hauptknoten des Cluste
 
 Nachdem Sie die obigen Schritte ausgeführt haben, sind Sie mit den Typen und Mengen von Protokolldateien vertraut, die von Ihren HDInsight-Clustern erzeugt werden.
 
-Analysieren Sie als Nächstes für einen bestimmten Zeitraum die Menge der Protokolldaten an wichtigen Protokollspeicherorten. Sie können beispielsweise die Menge und die Zunahme für Zeiträume von 30, 60 oder 90 Tagen analysieren.  Zeichnen Sie diese Informationen in einer Tabelle auf, oder verwenden Sie andere Tools, z.B. Visual Studio, Azure Storage-Explorer oder Power Query für Excel. Weitere Informationen finden Sie unter [Analysieren von HDInsight-Protokollen](hdinsight-debug-jobs.md).  
+Analysieren Sie als Nächstes für einen bestimmten Zeitraum die Menge der Protokolldaten an wichtigen Protokollspeicherorten. Sie können beispielsweise die Menge und die Zunahme für Zeiträume von 30, 60 oder 90 Tagen analysieren.  Zeichnen Sie diese Informationen in einer Tabelle auf, oder verwenden Sie andere Tools, z.B. Visual Studio, Azure Storage-Explorer oder Power Query für Excel. ```
 
 Sie verfügen jetzt über ausreichende Informationen zum Aufstellen einer Protokollverwaltungsstrategie für die Schlüsselprotokolle.  Verwenden Sie Ihre Tabelle (bzw. das Tool Ihrer Wahl), um sowohl die Zunahme der Protokollgröße als auch die Kosten für Azure-Dienste zur Protokollspeicherung zu prognostizieren.  Berücksichtigen Sie für die Gruppe der Protokolle, die Sie untersuchen, auch alle Anforderungen in Bezug auf die Protokollaufbewahrung.  Sie können nun die zukünftigen Kosten für die Protokollspeicherung erneut prognostizieren, nachdem Sie ermittelt haben, welche Protokolldateien ggf. gelöscht und welche Protokolle aufbewahrt und in kostengünstigeren Azure Storage-Optionen archiviert werden können.
 
@@ -158,7 +158,7 @@ Sie verfügen jetzt über ausreichende Informationen zum Aufstellen einer Protok
 
 Nachdem Sie festgelegt haben, welche Protokolle gelöscht werden können, können Sie die Protokollierungsparameter für viele Hadoop-Dienste anpassen, um Protokolldateien nach einem bestimmten Zeitraum automatisch zu löschen.
 
-Für bestimmte Protokolldateien können Sie einen kostengünstigeren Ansatz zur Archivierung von Protokolldateien verwenden. Für Azure Resource Manager-Aktivitätsprotokolle können Sie diesen Ansatz über das Azure-Portal untersuchen.  Richten Sie die Archivierung der Resource Manager-Protokolle ein, indem Sie im Azure-Portal für Ihre HDInsight-Instanz den Link **Aktivitätsprotokoll** wählen.  Wählen Sie oben auf der Seite „Aktivitätsprotokoll“ das Menüelement **Exportieren**, um den Bereich **Aktivitätsprotokoll exportieren** zu öffnen.  Geben Sie an, welches Abonnement und welche Region verwendet werden sollen, ob der Export in ein Speicherkonto durchgeführt werden soll und wie viele Tage die Protokolle aufbewahrt werden sollen. In diesem Bereich können Sie auch angeben, ob ein Event Hub exportiert werden soll.
+Für bestimmte Protokolldateien können Sie einen kostengünstigeren Ansatz zur Archivierung von Protokolldateien verwenden. Für Azure Resource Manager-Aktivitätsprotokolle können Sie diesen Ansatz über das Azure-Portal untersuchen.  Richten Sie die Archivierung der Resource Manager-Protokolle ein, indem Sie im Azure-Portal für Ihre HDInsight-Instanz den Link **Aktivitätsprotokoll** wählen.  Wählen Sie oben auf der Seite „Aktivitätsprotokoll“ das Menüelement **Exportieren** , um den Bereich **Aktivitätsprotokoll exportieren** zu öffnen.  Geben Sie an, welches Abonnement und welche Region verwendet werden sollen, ob der Export in ein Speicherkonto durchgeführt werden soll und wie viele Tage die Protokolle aufbewahrt werden sollen. In diesem Bereich können Sie auch angeben, ob ein Event Hub exportiert werden soll.
 
 ![Azure-Portal – Exportieren des Aktivitätsprotokolls (Vorschau)](./media/hdinsight-log-management/hdi-export-log-files.png)
 
@@ -186,6 +186,6 @@ Zum Sammeln der Protokolle von allen Knoten an einem zentralen Speicherort könn
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Monitoring and Logging Practice for HDInsight](https://msdn.microsoft.com/library/dn749790.aspx) (Vorgehensweise zur Überwachung und Protokollierung für HDInsight)
+* [Monitoring and Logging Practice for HDInsight](/previous-versions/msp-n-p/dn749790(v=pandp.10)) (Vorgehensweise zur Überwachung und Protokollierung für HDInsight)
 * [Zugreifen auf Apache Hadoop YARN-Anwendungsprotokolle in Linux-basiertem HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [How to control size of log files for various HDP components (Steuern der Größe von Protokolldateien für verschiedene HDP-Komponenten)](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

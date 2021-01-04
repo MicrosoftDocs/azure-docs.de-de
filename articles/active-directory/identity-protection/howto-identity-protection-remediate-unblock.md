@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c297e1a4f6443e584f04914712314d33df23b119
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dd918aef85deefc23771413c3eb7b92f1189d39
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776101"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835797"
 ---
 # <a name="remediate-risks-and-unblock-users"></a>Behandeln von Risiken und Aufheben der Blockierung von Benutzern
 
@@ -37,7 +37,7 @@ Administratoren stehen die folgenden Optionen zum Beheben von Risiken zur Verfü
 
 ### <a name="self-remediation-with-risk-policy"></a>Eigenwartung mit Risikorichtlinie
 
-Wenn Sie Benutzern die Eigenwartung mit Azure Multi-Factor Authentication (MFA) und Self-Service-Kennwortzurücksetzung (SSPR) in ihren Risikorichtlinien erlauben, können sie ihre bei Erkennung eines Risikos erfolgte Blockierung selbst aufheben. Diese Erkennungen werden dann als geschlossen betrachtet. Benutzer müssen sich zuvor für Azure MFA und SSPR registriert haben, um diese Aktionen zu verwenden, wenn Risiken erkannt werden.
+Wenn Sie Benutzern die Eigenwartung mit Azure AD Multi-Factor Authentication (MFA) und Self-Service-Kennwortzurücksetzung (SSPR) in Ihren Risikorichtlinien erlauben, können sie ihre bei Erkennung eines Risikos erfolgte Blockierung selbst aufheben. Diese Erkennungen werden dann als geschlossen betrachtet. Benutzer müssen sich zuvor für Azure AD MFA und SSPR registriert haben, um diese Aktionen zu verwenden, wenn Risiken erkannt werden.
 
 Einige Erkennungen lösen möglicherweise keine Risiken in der Stufe aus, in der eine Eigenwartung durch den Benutzer erforderlich ist, aber Administratoren sollten diese Erkennungen trotzdem auswerten. Administratoren können feststellen, dass zusätzliche Maßnahmen erforderlich sind, wie das [Blockieren des Zugriffs von bestimmten Orten](../conditional-access/howto-conditional-access-policy-location.md) oder das Reduzieren des akzeptablen Risikos in ihren Richtlinien.
 
@@ -49,7 +49,7 @@ Administratoren erhalten beim Zurücksetzen eines Kennworts für Ihre Benutzer z
 
 - **Temporäres Kennwort generieren**: Durch das Generieren eines temporären Kennworts können Sie eine Identität umgehend in einen sicheren Status zurückversetzen. Diese Methode erfordert, mit den betroffenen Benutzern Kontakt aufzunehmen, da diese das temporäre Kennwort kennen müssen. Da das Kennwort temporär ist, wird der Benutzer bei der nächsten Anmeldung aufgefordert, ein neues Kennwort festzulegen.
 
-- **Benutzer zum Zurücksetzen des Kennworts auffordern**: Wenn der Benutzer zum Zurücksetzen von Kennwörtern aufgefordert wird, ist eine Self-Service-Wiederherstellung ohne Kontakt mit dem Helpdesk oder einem Administrator möglich. Diese Methode gilt nur für Benutzer, die für Azure MFA und SSPR registriert sind. Für Benutzer, die nicht registriert sind, ist diese Option nicht verfügbar.
+- **Benutzer zum Zurücksetzen des Kennworts auffordern**: Wenn der Benutzer zum Zurücksetzen von Kennwörtern aufgefordert wird, ist eine Self-Service-Wiederherstellung ohne Kontakt mit dem Helpdesk oder einem Administrator möglich. Diese Methode gilt nur für Benutzer, die für Azure AD MFA und SSPR registriert sind. Für Benutzer, die nicht registriert sind, ist diese Option nicht verfügbar.
 
 ### <a name="dismiss-user-risk"></a>Benutzerrisiko verwerfen
 

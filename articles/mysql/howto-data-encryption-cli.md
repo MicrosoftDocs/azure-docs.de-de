@@ -1,18 +1,18 @@
 ---
 title: 'Datenverschlüsselung: Azure-Befehlszeilenschnittstelle – Azure Database for MySQL'
 description: Erfahren Sie, wie Sie über die Azure-Befehlszeilenschnittstelle die Datenverschlüsselung für Azure Database for MySQL einrichten und verwalten.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: eb83cd4fe7e98b1cde6dcee5d3f25fa5e35f1d2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d9abc67035b4581a028d8e59ef080b4f1ffa5b9
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87799818"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519041"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Datenverschlüsselung für Azure Database for MySQL über die Azure-Befehlszeilenschnittstelle
 
@@ -24,7 +24,7 @@ Erfahren Sie, wie Sie über die Azure-Befehlszeilenschnittstelle die Datenversch
 * Erstellen Sie einen Schlüsseltresor und einen Schlüssel, der als vom Kunden verwalteter Schlüssel verwendet werden soll. Aktivieren Sie außerdem den Löschschutz und das vorläufige Löschen für den Schlüsseltresor.
 
   ```azurecli-interactive
-  az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true -enable-purge-protection true
+  az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true --enable-purge-protection true
   ```
 
 * Erstellen Sie in der von Ihnen erstellten Azure Key Vault-Instanz den Schlüssel, der für die Datenverschlüsselung in Azure Database for MySQL verwendet wird.
@@ -46,11 +46,23 @@ Erfahren Sie, wie Sie über die Azure-Befehlszeilenschnittstelle die Datenversch
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
     ```
+  * Auf 90 Tage festgelegte Datenaufbewahrung
+  ```azurecli-interactive
+    az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --retention-days 90
+    ```
 
 * Der Schlüssel muss die folgenden Attribute aufweisen, damit er als vom Kunden verwalteter Schlüssel verwendet werden kann:
   * Kein Ablaufdatum
   * Nicht deaktiviert
   * Ausführen der Vorgänge **get**, **wrap** und **unwrap**
+  * Das recoverylevel-Attribut ist auf **Recoverable** festgelegt. (Dafür muss vorläufiges Löschen mit einer Beibehaltungsdauer von 90 Tagen aktiviert sein.)
+  * Bereinigungsschutz aktiviert
+
+Sie können die oben genannten Attribute des Schlüssels mit dem folgenden Befehl überprüfen:
+
+```azurecli-interactive
+az keyvault key show --vault-name <key_vault_name> -n <key_name>
+```
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Festlegen der richtigen Berechtigungen für Schlüsselvorgänge
 

@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: c2228c99dba2dd99c0afa44457642235e08ac011
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c45445415f3eaa7cb0f9069dd5f64b57c19e5836
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480920"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437149"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migrieren Hunderter Terabytes von Daten zu Azure Cosmos DB 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 In Azure Cosmos DB können viele TB an Daten gespeichert werden. Sie können eine umfangreiche Datenmigration durchführen, um Ihre Produktionsworkloads in Azure Cosmos DB zu verschieben. Dieser Artikel beschreibt die Herausforderungen beim Verschieben von umfangreichen Daten in Azure Cosmos DB und stellt Ihnen das Tool vor, das bei der Bewältigung der Herausforderungen hilft und Daten zu Azure Cosmos DB migriert. In dieser Fallstudie hat der Kunde die Cosmos DB SQL-API verwendet.  
 
@@ -28,11 +29,11 @@ Azure Cosmos DB-Migrationsstrategien unterscheiden sich zurzeit je nach API-Ausw
 
 Die vorhandenen Tools zum Migrieren von Daten zu Azure Cosmos DB weisen einige Einschränkungen auf, die bei großen Datenmengen besonders offensichtlich werden:
 
- * **Eingeschränkte Funktionen für das Aufskalieren** : Um Terabyte an Daten so schnell wie möglich zu Azure Cosmos DB zu migrieren und den gesamten bereitgestellten Durchsatz effektiv zu nutzen, sollte für die Migrationsclients die Möglichkeit bestehen, unbegrenzt aufskaliert zu werden.  
+ * **Eingeschränkte Funktionen für das Aufskalieren**: Um Terabyte an Daten so schnell wie möglich zu Azure Cosmos DB zu migrieren und den gesamten bereitgestellten Durchsatz effektiv zu nutzen, sollte für die Migrationsclients die Möglichkeit bestehen, unbegrenzt aufskaliert zu werden.  
 
-* **Fehlende Fortschrittsverfolgung und Prüfpunkte** : Es ist wichtig, den Migrationsfortschritt nachzuverfolgen und bei der Migration großer Datasets Prüfpunkte zu verwenden. Andernfalls wird bei allen Fehlern, die während der Migration auftreten, die Migration beendet, und Sie müssen den Prozess von Grund auf neu starten. Es wäre nicht produktiv, den gesamten Migrationsprozess neu zu starten, wenn 99 % davon bereits abgeschlossen sind.  
+* **Fehlende Fortschrittsverfolgung und Prüfpunkte**: Es ist wichtig, den Migrationsfortschritt nachzuverfolgen und bei der Migration großer Datasets Prüfpunkte zu verwenden. Andernfalls wird bei allen Fehlern, die während der Migration auftreten, die Migration beendet, und Sie müssen den Prozess von Grund auf neu starten. Es wäre nicht produktiv, den gesamten Migrationsprozess neu zu starten, wenn 99 % davon bereits abgeschlossen sind.  
 
-* **Fehlende Warteschlange für unzustellbare Nachrichten** : In großen Datasets kann es in einigen Fällen zu Problemen mit Teilen der Quelldaten kommen. Außerdem treten möglicherweise vorübergehende Probleme mit dem Client oder dem Netzwerk auf. Beide Fälle sollten nicht bewirken, dass die gesamte Migration fehlschlägt. Obwohl die meisten Migrationstools über robuste Wiederholungsfunktionen verfügen, die vor zeitweiligen Problemen schützen, ist dies nicht immer ausreichend. Wenn z.B. weniger als 0,01 % der Quelldatendokumente größer als 2 MB sind, führt dies dazu, dass das Schreiben des Dokuments in Azure Cosmos DB fehlschlägt. Im Idealfall ist es nützlich, wenn das Migrationstool diese „fehlerhaften“ Dokumente in einer anderen Warteschlange für unzustellbare Nachrichten persistent speichert, die nach der Migration verarbeitet werden kann. 
+* **Fehlende Warteschlange für unzustellbare Nachrichten**: In großen Datasets kann es in einigen Fällen zu Problemen mit Teilen der Quelldaten kommen. Außerdem treten möglicherweise vorübergehende Probleme mit dem Client oder dem Netzwerk auf. Beide Fälle sollten nicht bewirken, dass die gesamte Migration fehlschlägt. Obwohl die meisten Migrationstools über robuste Wiederholungsfunktionen verfügen, die vor zeitweiligen Problemen schützen, ist dies nicht immer ausreichend. Wenn z.B. weniger als 0,01 % der Quelldatendokumente größer als 2 MB sind, führt dies dazu, dass das Schreiben des Dokuments in Azure Cosmos DB fehlschlägt. Im Idealfall ist es nützlich, wenn das Migrationstool diese „fehlerhaften“ Dokumente in einer anderen Warteschlange für unzustellbare Nachrichten persistent speichert, die nach der Migration verarbeitet werden kann. 
 
 Viele dieser Einschränkungen werden für Tools wie Azure Data Factory und Azure Data Migration Services korrigiert. 
 
@@ -141,12 +142,6 @@ Nachdem die Voraussetzungen erfüllt sind, können Sie die Daten mit den folgend
 6. Einige dieser Fehler können auf falsche Dokumente in den Quelldaten zurückzuführen sein. Diese sollten identifiziert und korrigiert werden. Anschließend sollten Sie den Importschritt für die fehlerhaften Partitionen erneut ausführen, um sie erneut zu erfassen. 
 
 Nachdem die Migration abgeschlossen ist, können Sie überprüfen, ob die Anzahl der Dokumente in Azure Cosmos DB mit der Anzahl der Dokumente in der Quelldatenbank identisch ist. In diesem Beispiel hat sich eine Gesamtgröße in Azure Cosmos DB von 65 Terabyte ergeben. Nach der Migration kann die Indizierung selektiv aktiviert werden, und die RUs können auf die Ebene verringert werden, die für die Vorgänge der Workload erforderlich ist.
-
-## <a name="contact-the-azure-cosmos-db-team"></a>Kontaktaufnahme mit dem Azure Cosmos DB-Team
-Sie können diesen Leitfaden zwar zum erfolgreichen Migrieren großer Datasets zu Azure Cosmos DB verwenden, aber für Migrationen größeren Umfangs empfehlen wir Ihnen, sich an das Azure Cosmos DB-Produktteam zu wenden. Das Team kann die Datenmodellierung überprüfen und eine allgemeine Prüfung der Architektur durchführen. Basierend auf Ihrem Dataset und Ihrer Workload kann das Produktteam auch andere Leistungs- und Kostenoptimierungen vorschlagen, die für Sie unter Umständen geeignet sind. Wenden Sie sich wie folgt an das Azure Cosmos DB-Team, um Hilfe bei größeren Migrationen zu erhalten: Erstellen Sie wie unten gezeigt unter dem Problemtyp „General Advisory“ (Allgemeine Ratschläge) und dem Problemuntertyp „Large (TB+) migrations“ (Umfangreiche Migrationen (TB+)) ein Supportticket.
-
-:::image type="content" source="./media/migrate-cosmosdb-data/supporttopic.png" alt-text="Einrichten des Migrationstools":::
-
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -3,18 +3,20 @@ title: 'Verwenden des Änderungsfeed-Estimators: Azure Cosmos DB'
 description: Hier erfahren Sie, wie Sie mit dem Änderungsfeed-Estimator den Fortschritt Ihres Änderungsfeedprozessors analysieren
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 08/15/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 40a909b111d5e667f7554cf727ab26bf9bc39650
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a44557d15f437317c2b5fa659ab8d4ca3c208edf
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485850"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339834"
 ---
 # <a name="use-the-change-feed-estimator"></a>Verwenden des Änderungsfeed-Estimators
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In diesem Artikel erfahren Sie, wie Sie den Fortschritt Ihrer [Änderungsfeedprozessor](./change-feed-processor.md)-Instanzen beim Lesen des Änderungsfeeds überwachen können.
 

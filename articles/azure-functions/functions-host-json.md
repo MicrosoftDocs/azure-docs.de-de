@@ -3,12 +3,12 @@ title: host.json-Referenz für Azure Functions 2.x
 description: Referenzdokumentation für die host.json-Datei von Azure Functions mit der v2 Runtime.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: f58eefd636b2bd59d6b3656bf162f7d601f7ff85
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 96d6b884e9e2c835316af01140c6fc7208ee5ab9
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167649"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746079"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>host.json-Referenz für Azure Functions 2.x oder höher 
 
@@ -117,6 +117,11 @@ In der folgenden Beispieldatei *host.json* für Version 2.x und höher sind all
     "managedDependency": {
         "enabled": true
     },
+    "retry": {
+      "strategy": "fixedDelay",
+      "maxRetryCount": 5,
+      "delayInterval": "00:00:05"
+    },
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -156,6 +161,8 @@ Die vollständige JSON-Struktur finden Sie in der obigen [Beispieldatei „host.
 | snapshotConfiguration | – | Siehe [applicationInsights.snapshotConfiguration](#applicationinsightssnapshotconfiguration). |
 
 ### <a name="applicationinsightssamplingsettings"></a>applicationInsights.samplingSettings
+
+Weitere Informationen zu diesen Einstellungen finden Sie unter [Erstellen von Stichproben in Application Insights](../azure-monitor/app/sampling.md). 
 
 |Eigenschaft | Standard | BESCHREIBUNG |
 | --------- | --------- | --------- | 
@@ -211,6 +218,28 @@ Weitere Informationen zu Momentaufnahmen finden Sie unter [Debugmomentaufnahmen 
 ## <a name="cosmosdb"></a>cosmosDb
 
 Die Konfigurationseinstellung finden Sie in [Cosmos DB-Trigger und -Bindungen](functions-bindings-cosmosdb-v2-output.md#host-json).
+
+## <a name="customhandler"></a>customHandler
+
+Konfigurationseinstellungen für einen benutzerdefinierten Handler. Weitere Informationen finden Sie unter [Benutzerdefinierte Azure Functions-Handler](functions-custom-handlers.md#configuration).
+
+```json
+"customHandler": {
+  "description": {
+    "defaultExecutablePath": "server",
+    "workingDirectory": "handler",
+    "arguments": [ "--port", "%FUNCTIONS_CUSTOMHANDLER_PORT%" ]
+  },
+  "enableForwardingHttpRequest": false
+}
+```
+
+|Eigenschaft | Standard | BESCHREIBUNG |
+| --------- | --------- | --------- |
+| defaultExecutablePath | – | Die ausführbare Datei, die als benutzerdefinierter Handlerprozess gestartet wird. Dies ist eine erforderliche Einstellung bei der Verwendung von benutzerdefinierten Handlern, und der zugehörige Wert ist relativ zum Stamm der Funktions-App. |
+| workingDirectory | *Stamm der Funktions-App* | Das Arbeitsverzeichnis, in dem der benutzerdefinierte Handlerprozess gestartet werden soll. Es handelt sich um eine optionale Einstellung, und ihr Wert ist relativ zum Stamm der Funktions-App. |
+| Argumente | – | Ein Array von Befehlszeilenargumenten, die an den benutzerdefinierten Handlerprozess übergeben werden sollen. |
+| enableForwardingHttpRequest | false | Wenn diese Option festgelegt ist, werden alle Funktionen, die nur aus einem HTTP-Trigger und einer HTTP-Ausgabe bestehen, an die ursprüngliche HTTP-Anforderung weitergeleitet, anstatt an die [Anforderungsnutzlast](functions-custom-handlers.md#request-payload) des benutzerdefinierten Handlers. |
 
 ## <a name="durabletask"></a>durableTask
 
@@ -349,6 +378,28 @@ Verwaltete Abhängigkeit ist ein Vorschaufeature, das derzeit nur mit PowerShell
 ## <a name="queues"></a>queues
 
 Die Konfigurationseinstellungen finden Sie in [Trigger und Bindungen der Speicherwarteschlange](functions-bindings-storage-queue-output.md#host-json).  
+
+## <a name="retry"></a>retry
+
+Steuert die Optionen der [Wiederholungsrichtlinie](./functions-bindings-error-pages.md#retry-policies-preview) für alle Ausführungen in der App.
+
+```json
+{
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 2,
+        "delayInterval": "00:00:03"  
+    }
+}
+```
+
+|Eigenschaft  |Standard | Beschreibung |
+|---------|---------|---------| 
+|strategy|NULL|Erforderlich. Die Wiederholungsstrategie, die verwendet werden soll. Gültige Werte sind `fixedDelay` und `exponentialBackoff`.|
+|maxRetryCount|NULL|Erforderlich. Die maximale Anzahl zulässiger Wiederholungen pro Funktionsausführung. `-1` bedeutet unbegrenzte Wiederholungen.|
+|delayInterval|NULL|Die Verzögerung zwischen Wiederholungsversuchen mit der Strategie `fixedDelay`.|
+|MinimumIntervall|NULL|Die geringste Wiederholungsverzögerung bei Verwendung der Strategie `exponentialBackoff`.|
+|Maximumintervall|NULL|Die höchste Wiederholungsverzögerung bei Verwendung der Strategie `exponentialBackoff`.| 
 
 ## <a name="sendgrid"></a>sendGrid
 

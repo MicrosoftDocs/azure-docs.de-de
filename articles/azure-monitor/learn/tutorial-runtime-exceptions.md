@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: af8479f6460a6cc555d7ea67dcfe65c779878624
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 057b211179c6932d4214e6118e3fa97b95145ba0
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357861"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926630"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Suchen und Diagnostizieren von Laufzeitausnahmen mit Azure Application Insights
 
@@ -81,7 +81,7 @@ Der Momentaufnahmedebugger erfasst Momentaufnahmen der häufigsten Ausnahmen in 
 
 3. Der erste Aufruf mit gültigen Werten ist **ValidZipCode**, und wir können sehen, dass eine Postleitzahl mit Buchstaben angegeben wurde, die nicht in eine ganze Zahl übersetzt werden können.  Dies scheint der Fehler im Code zu sein, der behoben werden muss.
 
-    ![Momentaufnahme debuggen](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
+    ![Screenshot: Fehler im Code, der behoben werden muss    ](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
 
 4. Dann haben Sie die Option, diese Momentaufnahme in Visual Studio herunterzuladen, wo wir den tatsächlichen Code finden, der korrigiert werden muss. Zu diesem Zweck klicken Sie auf **Momentaufnahme herunterladen**.
 5. Die Momentaufnahme wird in Visual Studio geladen.

@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 2b99d032b953caecfca2b34d5eadafe94f45f307
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87809372"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009533"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Verwalten von Instanzen in Durable Functions in Azure
 
@@ -997,7 +997,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 ---
 
 > [!NOTE]
-> Damit der Vorgang zum Bereinigen des Verlaufs erfolgreich ist, muss der Laufzeitstatus der Zielinstanz **Abgeschlossen**, **Beendet**oder **Fehlgeschlagenen** sein.
+> Damit der Vorgang zum Bereinigen des Verlaufs erfolgreich ist, muss der Laufzeitstatus der Zielinstanz **Abgeschlossen**, **Beendet** oder **Fehlgeschlagenen** sein.
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 

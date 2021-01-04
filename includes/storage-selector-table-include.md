@@ -4,15 +4,15 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: c3c962457fd6aef387a250e1719ff5904d3d4f57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77aaef751a15ddbb6dc66653e8e3e5d4878c587e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67177836"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026886"
 ---
 > [!div class="op_single_selector"]
-> * [.NET](../articles/cosmos-db/table-storage-how-to-use-dotnet.md)
+> * [.NET](../articles/cosmos-db/tutorial-develop-table-dotnet.md)
 > * [Node.js](../articles/cosmos-db/table-storage-how-to-use-nodejs.md)
 > * [Java](../articles/cosmos-db/table-storage-how-to-use-java.md)
 > * [C++](../articles/cosmos-db/table-storage-how-to-use-c-plus.md)
@@ -20,5 +20,4 @@ ms.locfileid: "67177836"
 > * [Ruby](../articles/cosmos-db/table-storage-how-to-use-ruby.md)
 > * [Python](../articles/cosmos-db/table-storage-how-to-use-python.md)
 > 
-> 
-
+>

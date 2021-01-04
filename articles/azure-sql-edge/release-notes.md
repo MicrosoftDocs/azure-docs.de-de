@@ -9,17 +9,32 @@ ms.subservice: ''
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 09/22/2020
-ms.openlocfilehash: afd78acadf133a9f128eec402eba9d0eed51b8e3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 11/24/2020
+ms.openlocfilehash: bb0c176ee8c145e1268827d79b453628e6f1bc28
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284481"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808628"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Azure SQL Edge: Versionshinweise 
 
 In diesem Artikel erhalten Sie Informationen zu Neuerungen und Änderungen für neue Azure SQL Edge-Builds.
+
+## <a name="azure-sql-edge---101"></a>Azure SQL Edge – 1.0.1
+
+### <a name="sql-engine-build-number---15020001553"></a>SQL-Engine-Buildnummer – 15.0.2000.1553
+
+### <a name="whats-new"></a>Neuigkeiten
+
+- In berechneten Spalten definierter Datebucket-Ausdruck wird zugelassen.
+
+### <a name="fixes"></a>Fehlerbehebungen
+
+- Korrektur der Aufbewahrungsrichtlinie für das Löschen einer Tabelle mit aktivierter Aufbewahrungsrichtlinie mit unbegrenztem Timeout
+- Unterstützung von Streaming- und Aufbewahrungsrichtlinienfeatures durch die DacFx-Bereitstellung 
+- Korrektur der DacFx-Bereitstellung zum Aktivieren der Bereitstellung aus einem geschachtelten Ordner in der SAS-URL 
+- PREDICT-Korrektur zur Unterstützung langer Spaltennamen in Fehlermeldungen
 
 ## <a name="azure-sql-edge---100-rtm"></a>Azure SQL Edge – 1.0.0 (RTM)
 
@@ -37,9 +52,9 @@ In diesem Artikel erhalten Sie Informationen zu Neuerungen und Änderungen für 
    - Aktivieren von parallelen Ausführungsszenarien
 6. Verbesserungen der Energiesparfunktion bei niedrigem Energiestatus
 7. Streaming der Unterstützung für neue Funktionen 
-   - [Momentaufnahmefenster](https://docs.microsoft.com/stream-analytics-query/snapshot-window-azure-stream-analytics): neuer Fenstertyp, der das Gruppieren nach gleichzeitig eintreffenden Ereignissen ermöglicht. 
-   - Aktivieren Sie [TopOne](https://docs.microsoft.com/stream-analytics-query/topone-azure-stream-analytics) und [CollectTop](https://docs.microsoft.com/stream-analytics-query/collecttop-azure-stream-analytics) als analytische Funktion. Dadurch können (nach der Spalte Ihrer Wahl sortierte) Datensätze zurückgegeben werden, ohne dass sie Teil eines Fensters sein müssen. 
-   - Verbesserungen bei [MATCH_RECOGNIZE](https://docs.microsoft.com/stream-analytics-query/match-recognize-stream-analytics). 
+   - [Momentaufnahmefenster](/stream-analytics-query/snapshot-window-azure-stream-analytics): neuer Fenstertyp, der das Gruppieren nach gleichzeitig eintreffenden Ereignissen ermöglicht. 
+   - Aktivieren Sie [TopOne](/stream-analytics-query/topone-azure-stream-analytics) und [CollectTop](/stream-analytics-query/collecttop-azure-stream-analytics) als analytische Funktion. Dadurch können (nach der Spalte Ihrer Wahl sortierte) Datensätze zurückgegeben werden, ohne dass sie Teil eines Fensters sein müssen. 
+   - Verbesserungen bei [MATCH_RECOGNIZE](/stream-analytics-query/match-recognize-stream-analytics). 
 
 ### <a name="fixes"></a>Fehlerbehebungen
 1. Zusätzliche Fehlermeldungen und Details zur Problembehandlung von TQL-Streamingvorgängen. 

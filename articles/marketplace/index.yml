@@ -7,15 +7,15 @@ metadata:
   ms.service: marketplace
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: landing-page
-  author: keferna
-  ms.author: keferna
+  author: mingshen-ms
+  ms.author: mingshen
   ms.date: 09/02/2020
-  ms.openlocfilehash: ce57fb7da524feb4d58231e2ba8bf96ccb28a1c3
-  ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+  ms.openlocfilehash: 95903c1068d64545ae025fb5899a80014b8f26f2
+  ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/20/2020
-  ms.locfileid: "92281769"
+  ms.lasthandoff: 12/06/2020
+  ms.locfileid: "96746385"
 landingContent:
 - title: Verwenden des kommerziellen Marketplace
   linkLists:
@@ -45,12 +45,12 @@ landingContent:
     links:
     - text: Kundenleads aus Ihrem Marketplace-Angebot
       url: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
-    - text: Co-Selling-Option im Partner Center
-      url: ./partner-center-portal/commercial-marketplace-co-sell.md
+    - text: Co-Selling-Option im kommerziellen Marketplace
+      url: commercial-marketplace-co-sell.md
     - text: Partner-Engagement für Co-Selling
       url: ./marketplace-co-sell.md
     - text: Stellen Sie Lösungen in Microsoft AppSource und innerhalb von Office bereit.
-      url: https://docs.microsoft.com/office/dev/store/submit-to-appsource-via-partner-center
+      url: /office/dev/store/submit-to-appsource-via-partner-center
     - text: Beteiligen Sie sich an den Azure Marketplace- und AppSource-Communityforen.
       url: https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222
     - text: Registrieren Sie sich, um zur Diskussion an Webinaren teilnehmen und sie später als Video on Demand anzusehen.
@@ -60,15 +60,15 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Dashboard „Zusammenfassung“
-      url: ./partner-center-portal/summary-dashboard.md
+      url: ./summary-dashboard.md
     - text: Dashboard „Marketplace-Erkenntnisse“
-      url: ./partner-center-portal/insights-dashboard.md
+      url: ./insights-dashboard.md
     - text: Dashboard „Nutzung“
-      url: ./partner-center-portal/usage-dashboard.md
+      url: ./usage-dashboard.md
     - text: Dashboard „Kunden“
-      url: ./partner-center-portal/customer-dashboard.md
+      url: ./customer-dashboard.md
     - text: Dashboard „Bestellungen“
-      url: ./partner-center-portal/orders-dashboard.md
+      url: ./orders-dashboard.md
     - text: Dashboard „Downloads“
       url: ./partner-center-portal/downloads-dashboard.md
     - text: Dashboard „Bewertungen und Rezensionen“
@@ -82,7 +82,7 @@ landingContent:
     - text: Angebote für virtuelle Computer
       url: ./marketplace-virtual-machines.md
     - text: Azure-Anwendungsangebote
-      url: ./partner-center-portal/create-new-azure-apps-offer.md
+      url: ./create-new-azure-apps-offer.md
     - text: Angebote für Dynamics 365 for Customer Engagement & PowerApps
       url: ./partner-center-portal/create-new-customer-engagement-offer.md
     - text: Angebote für Dynamics 365 Business Central
@@ -90,7 +90,7 @@ landingContent:
     - text: Angebote für Dynamics 365 for Operations
       url: ./partner-center-portal/create-new-operations-offer.md
     - text: Weitere Angebotsarten
-      url: ./cloud-partner-portal/cpp-marketplace-offers.md
+      url: ./publisher-guide-by-offer-type.md
 - title: Zahlungen erhalten
   linkLists:
   - linkListType: concept
@@ -104,7 +104,7 @@ landingContent:
     - text: Steuerdetails
       url: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
     - text: Abrechnung des kommerziellen Marketplace
-      url: ./partner-center-portal/billing-details.md
+      url: ./marketplace-commercial-transaction-capabilities-and-considerations.md
 - title: API-Referenz
   linkLists:
   - linkListType: reference

@@ -10,47 +10,99 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/19/2020
+ms.date: 11/20/2020
 ms.author: yohaddad
-ms.openlocfilehash: 3f088d248037ecf552bf7130e3fe4c86d7430695
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 9cc86167b9d92289aa2edb605d8037a1bf6a9dcb
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207987"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338723"
 ---
 # <a name="azure-guest-os"></a>Azure-Gastbetriebssystem
 Die folgenden Tabellen zeigen die Microsoft Security Response Center-Updates (MSRC), die auf das Azure-Gastbetriebssystem angewendet wurden. Durchsuchen Sie diesen Artikel, um zu ermitteln, ob ein bestimmtes Update für das Gastbetriebssystem gilt, das Sie verwenden. Updates werden für die [Familie][family-explain], in der sie eingeführt wurden, immer in die jeweils neueste Version übertragen.
 
-## <a name="october-2020-guest-os"></a>Gastbetriebssystem für Oktober 2020
+## <a name="november-2020-guest-os"></a>Gastbetriebssystem für November 2020
 >[!NOTE] 
 
->Das Gastbetriebssystem für Oktober wird derzeit auf Clouddienst-VMs eingeführt, die für automatische Updates konfiguriert sind. Wenn die Bereitstellung abgeschlossen ist, wird diese Version für manuelle Updates über das Azure-Portal und Konfigurationsdateien verfügbar gemacht. Die folgenden Patches sind im Gastbetriebssystem für Oktober enthalten. Änderungen der Liste vorbehalten. 
+>Das Gastbetriebssystem für November wird derzeit auf Clouddienst-VMs eingeführt, die für automatische Updates konfiguriert sind. Wenn die Bereitstellung abgeschlossen ist, wird diese Version für manuelle Updates über das Azure-Portal und Konfigurationsdateien verfügbar gemacht. Die folgenden Patches sind im Gastbetriebssystem für Oktober enthalten. Änderungen der Liste vorbehalten. 
 
 | Produktkategorie | Übergeordneter KB-Artikel | Beschreibung des Sicherheitsrisikos | Gastbetriebssystem | Datum der ersten Einführung |
 | --- | --- | --- | --- | --- |
-|  Rel 20-10 |  [4577010]  |  Kumulatives IE-Update | 2.103, 3.90, 4.83 | 8\. September 2020 |
-|  Rel 20-10 |  [4580325]  |  Flash-Update | 3.90, 4.83, 5.48, 6.24 | 13. Oktober 2020 |
-|  Rel 20-10 |  [4577668]  |  Letztes kumulatives Update | 6.24 | 13. Oktober 2020 |
-|  Rel 20-10 |  [4580346]  |  Letztes kumulatives Update | 5.48 | 13. Oktober 2020 |
-|  Rel 20-10 |  [4580970]  |  Wartungsstapelaktualisierung | 2.103 | 13. Oktober 2020 |
-|  Rel 20-10 |  [4580345]  |  Monatlicher Rollup | 2.103 | 13. Oktober 2020 |
-|  Rel 20-10 |  [4578952]  |  .NET Framework 3.5.1: Sicherheits- und Qualitätsrollup | 2.103 | 13. Oktober 2020 |
-|  Rel 20-10 |  [4578955]  |  .NET Framework 4.5.2: Sicherheits- und Qualitätsrollup | 2.103 | 13. Oktober 2020 |
-|  Rel 20-10 |  [4566426]  |  Wartungsstapelaktualisierung | 3,90 | 14. Jul 2020 |
-|  Rel 20-10 |  [4580382]  |  Monatlicher Rollup | 3,90 | 13. Oktober 2020 |
-|  Rel 20-10 |  [4578950]  |  .NET Framework 3.5: Sicherheits- und Qualitätsrollup | 3,90 | 13. Oktober 2020 |
-|  Rel 20-10 |  [4578954]  |  .NET Framework 4.5.2: Sicherheits- und Qualitätsrollup | 3,90 | 13. Oktober 2020 |
-|  Rel 20-10 |  [4566425]  |  Wartungsstapelaktualisierung | 4.83 | 14. Jul 2020 |
-|  Rel 20-10 |  [4580347]  |  Monatlicher Rollup | 4.83 | 13. Oktober 2020 |
-|  Rel 20-10 |  [4578953]  |  .NET Framework 3.5: Sicherheits- und Qualitätsrollup | 4.83 | 13. Oktober 2020 |
-|  Rel 20-10 |  [4578956]  |  .NET Framework 4.5.2: Sicherheits- und Qualitätsrollup | 4.83 | 13. Oktober 2020 |
-|  Rel 20-10 |  [4578013]  |  Eigenständiges Sicherheitsupdate | 4.83 | 19. August 2020 |
-|  Rel 20-10 |  [4576750]  |  Wartungsstapelaktualisierung | 5.48 | 8\. September 2020 |
-|  Rel 20-10 |  [4494175]  |  Microcode | 5.48 | 1\. September 2020 |
-|  Rel 20-10 |  [4577667]  |  Wartungsstapelaktualisierung | 6.24 | 13. Oktober 2020 |
-|  Rel 20-10 |  [4578966]  |  Kumulatives Update für .NET Framework 3.5 und 4.7.2 | 6.24 | 13. Oktober 2020 |
-|  Rel 20-10 |  [4494174]  |  Microcode | 6.24 | 3\. September 2020 |
+|  Rel 20-11 OOB |  [4594442]  |  Letztes kumulatives Update | 6.25 | 17. November 2020 |
+|  Rel 20-11 OOB |  [4594441]  |  Letztes kumulatives Update | 5,49 | 19. November 2020 |
+|  Rel 20-11 |  [4580325]  |  Flash-Update | 3.91, 4.84, 5.49, 6.25 | 13. Oktober 2020 |
+|  Rel 20-11 |  [4586768]  |  Kumulatives IE-Update | 2.104, 3.91, 4.84 | 10. November 2020 |
+|  Rel 20-11 |  [4578952]  |  .NET Framework 3.5: Sicherheits- und Qualitätsrollup | 2.104 | 10. November 2020 |
+|  Rel 20-11 |  [4578955]  |  .NET Framework 4.5.2: Sicherheits- und Qualitätsrollup | 2.104 | 10. November 2020 |
+|  Rel 20-11 |  [4578953]  |  .NET Framework 3.5: Sicherheits- und Qualitätsrollup | 4.84 | 10. November 2020 |
+|  Rel 20-11 |  [4578956]  |  .NET Framework 4.5.2: Sicherheits- und Qualitätsrollup | 4.84 | 10. November 2020 |
+|  Rel 20-11 |  [4578950]  |  .NET Framework 3.5: Sicherheits- und Qualitätsrollup | 3,91 | 10. November 2020 |
+|  Rel 20-11 |  [4578954]  |  .NET Framework 4.5.2: Sicherheits- und Qualitätsrollup | 3,91 | 10. November 2020 |
+|  Rel 20-11 |  [4578966]  |  Kumulatives Update für .NET Framework 3.5 und 4.7.2 | 6.25 | 13. Oktober 2020 |
+|  Rel 20-11 |  [4586827]  |  Monatlicher Rollup | 2.104 | 10. November 2020 |
+|  Rel 20-11 |  [4586834]  |  Monatlicher Rollup | 3,91 | 10. November 2020 |
+|  Rel 20-11 |  [4586845]  |  Monatlicher Rollup | 4.84 | 10. November 2020 |
+|  Rel 20-11 |  [4566426]  |  Wartungsstapelaktualisierung | 3,91 | 14. Jul 2020 |
+|  Rel 20-11 |  [4566425]  |  Wartungsstapelaktualisierung | 4.84 | 14. Jul 2020 |
+|  Rel 20-11 OOB |  [4578013]  |  Eigenständiges Sicherheitsupdate | 4.84 | 19. August 2020 |
+|  Rel 20-11 |  [4576750]  |  Wartungsstapelaktualisierung | 5,49 | 8\. September 2020 |
+|  Rel 20-11 |  [4580970]  |  Wartungsstapelaktualisierung | 2.104 | 13. Oktober 2020 |
+|  Rel 20-11 |  [4587735]  |  Wartungsstapelaktualisierung | 6.25 | 10. November 2020 |
+|  Rel 20-11 |  [4494175]  |  Microcode | 5,49 | 1\. September 2020 |
+|  Rel 20-11 |  [4494174]  |  Microcode | 6.25 | 3\. September 2020 |
+
+[4594442]: https://support.microsoft.com/kb/4594442
+[4594441]: https://support.microsoft.com/kb/4594441
+[4580325]: https://support.microsoft.com/kb/4580325
+[4586768]: https://support.microsoft.com/kb/4586768
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4578966]: https://support.microsoft.com/kb/4578966
+[4586827]: https://support.microsoft.com/kb/4586827
+[4586834]: https://support.microsoft.com/kb/4586834
+[4586845]: https://support.microsoft.com/kb/4586845
+[4566426]: https://support.microsoft.com/kb/4566426
+[4566425]: https://support.microsoft.com/kb/4566425
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4580970]: https://support.microsoft.com/kb/4580970
+[4587735]: https://support.microsoft.com/kb/4587735
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+
+
+
+## <a name="october-2020-guest-os"></a>Gastbetriebssystem für Oktober 2020
+
+| Produktkategorie | Übergeordneter KB-Artikel | Beschreibung des Sicherheitsrisikos | Gastbetriebssystem | Datum der ersten Einführung |
+| --- | --- | --- | --- | --- |
+|  Rel 20-10 |  [4577010]  |  Kumulatives IE-Update | [2.103], [3.90], [4.83] | 8\. September 2020 |
+|  Rel 20-10 |  [4580325]  |  Flash-Update | [3.90], [4.83], [5.48], [6.24] | 13. Oktober 2020 |
+|  Rel 20-10 |  [4577668]  |  Letztes kumulatives Update | [6.24] | 13. Oktober 2020 |
+|  Rel 20-10 |  [4580346]  |  Letztes kumulatives Update | [5.48] | 13. Oktober 2020 |
+|  Rel 20-10 |  [4580970]  |  Wartungsstapelaktualisierung | [2.103] | 13. Oktober 2020 |
+|  Rel 20-10 |  [4580345]  |  Monatlicher Rollup | [2.103] | 13. Oktober 2020 |
+|  Rel 20-10 |  [4578952]  |  .NET Framework 3.5.1: Sicherheits- und Qualitätsrollup | [2.103] | 13. Oktober 2020 |
+|  Rel 20-10 |  [4578955]  |  .NET Framework 4.5.2: Sicherheits- und Qualitätsrollup | [2.103] | 13. Oktober 2020 |
+|  Rel 20-10 |  [4566426]  |  Wartungsstapelaktualisierung | [3,90] | 14. Jul 2020 |
+|  Rel 20-10 |  [4580382]  |  Monatlicher Rollup | [3,90] | 13. Oktober 2020 |
+|  Rel 20-10 |  [4578950]  |  .NET Framework 3.5: Sicherheits- und Qualitätsrollup | [3,90] | 13. Oktober 2020 |
+|  Rel 20-10 |  [4578954]  |  .NET Framework 4.5.2: Sicherheits- und Qualitätsrollup | [3,90] | 13. Oktober 2020 |
+|  Rel 20-10 |  [4566425]  |  Wartungsstapelaktualisierung | [4.83] | 14. Jul 2020 |
+|  Rel 20-10 |  [4580347]  |  Monatlicher Rollup | [4.83] | 13. Oktober 2020 |
+|  Rel 20-10 |  [4578953]  |  .NET Framework 3.5: Sicherheits- und Qualitätsrollup | [4.83] | 13. Oktober 2020 |
+|  Rel 20-10 |  [4578956]  |  .NET Framework 4.5.2: Sicherheits- und Qualitätsrollup | [4.83] | 13. Oktober 2020 |
+|  Rel 20-10 |  [4578013]  |  Eigenständiges Sicherheitsupdate | [4.83] | 19. August 2020 |
+|  Rel 20-10 |  [4576750]  |  Wartungsstapelaktualisierung | [5.48] | 8\. September 2020 |
+|  Rel 20-10 |  [4494175]  |  Microcode | [5.48] | 1\. September 2020 |
+|  Rel 20-10 |  [4577667]  |  Wartungsstapelaktualisierung | [6.24] | 13. Oktober 2020 |
+|  Rel 20-10 |  [4578966]  |  Kumulatives Update für .NET Framework 3.5 und 4.7.2 | [6.24] | 13. Oktober 2020 |
+|  Rel 20-10 |  [4494174]  |  Microcode | [6.24] | 3\. September 2020 |
 
 
 [4577010]: https://support.microsoft.com/kb/4577010
@@ -75,6 +127,11 @@ Die folgenden Tabellen zeigen die Microsoft Security Response Center-Updates (MS
 [4577667]: https://support.microsoft.com/kb/4577667
 [4578966]: https://support.microsoft.com/kb/4578966
 [4494174]: https://support.microsoft.com/kb/4494174
+[2.103]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3,90]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.83]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.48]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.24]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 
 ## <a name="september-2020-guest-os"></a>Gastbetriebssystem für September 2020
@@ -126,11 +183,11 @@ Die folgenden Tabellen zeigen die Microsoft Security Response Center-Updates (MS
 [4570332]: https://support.microsoft.com/kb/4570332
 [4570720]: https://support.microsoft.com/kb/4570720
 [4494174]: https://support.microsoft.com/kb/4494174
-[2.102]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
-[3.89]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[4.82]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[5,47]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[6,23]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[2.102]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.89]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.82]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5,47]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6,23]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 ## <a name="august-2020-guest-os"></a>Gastbetriebssystem August 2020
 
@@ -285,9 +342,9 @@ Die folgenden Tabellen zeigen die Microsoft Security Response Center-Updates (MS
 
 | Produktkategorie | Übergeordneter KB-Artikel | Beschreibung des Sicherheitsrisikos | Gastbetriebssystem | Datum der ersten Einführung |
 | --- | --- | --- | --- | --- |
-|  Rel 20-05  |  [4556798]  |  Internet Explorer   |  [2.98], [3.85], [4.78]  |  12. Mai 2020  |
-|  Rel 20-05  |  [4556813]  |  Letztes kumulatives Update   |  [5.43]  |  12. Mai 2020  |
-|  Rel 20-05  |  [4551853]  |  Letztes kumulatives Update   |  [6.19]  |  12. Mai 2020  |
+|  Rel 20-05  |  [4556798]  |  Internet Explorer   |  [2.98], [3.85], [4.78]  |  12. Mai 2020  |
+|  Rel 20-05  |  [4556813]  |  Letztes kumulatives Update   |  [5.43]  |  12. Mai 2020  |
+|  Rel 20-05  |  [4551853]  |  Letztes kumulatives Update   |  [6.19]  |  12. Mai 2020  |
 |  Rel 20-05  |  [4552940]  |  Monatlicher Rollup   |  [2.98]  |  12. Mai 2020  |
 |  Rel 20-05  |  [4556836]  |  Monatlicher Rollup   |  [2.98]  |  12. Mai 2020  |
 |  Rel 20-05  |  [4555449]  |  Wartungsstapelaktualisierung   |  [2.98]  |  12. Mai 2020  |
@@ -1830,7 +1887,7 @@ Die folgenden Tabellen zeigen die Microsoft Security Response Center-Updates (MS
 | MS15-014 |[3004361] |Sicherheitsanfälligkeit in SMB kann Umgehung der Sicherheitsfunktion ermöglichen |4.17, 3.24, 2.36 |– |
 | MS15-015 |[3031432] |Sicherheitsanfälligkeit in Microsoft Windows kann Erhöhung von Berechtigungen ermöglichen |4.17, 3.24, 2.36 |– |
 | MS15-016 |[3029944] |Sicherheitsanfälligkeit in Microsoft-Grafikkomponente kann Offenlegung von Informationen ermöglichen |4.17, 3.24, 2.36 |– |
-| – |[3004375] |Update zur Verbesserung der Windows-Befehlszeilenüberwachung<p/>**Hinweis** : Dies wird installiert, aber der Registrierungsschlüssel zum Aktivieren ist deaktiviert. |4.17, 3.24, 2.36 |– |
+| – |[3004375] |Update zur Verbesserung der Windows-Befehlszeilenüberwachung<p/>**Hinweis**: Dies wird installiert, aber der Registrierungsschlüssel zum Aktivieren ist deaktiviert. |4.17, 3.24, 2.36 |– |
 
 ## <a name="january-2015-guest-os"></a>Gastbetriebssystem für Januar 2015
 | Bulletin-ID | Übergeordneter KB-Artikel | Beschreibung des Sicherheitsrisikos | Gastbetriebssystem | Datum der ersten Einführung |

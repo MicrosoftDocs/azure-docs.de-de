@@ -4,14 +4,15 @@ description: In diesem Tutorial greifen Sie auf Geheimnisse in Azure Key Vault z
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: c101cb4eca246ee68a30ba3499981c589c564f92
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c628ba780ae64fceb32322fdb2004d69e2ebf24b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368654"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452757"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Konfigurieren und Ausführen des Azure Key Vault-Anbieters für den Secrets Store CSI-Treiber auf Kubernetes
 
@@ -35,7 +36,7 @@ In diesem Tutorial lernen Sie Folgendes:
 
 * Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
 
-* Installieren Sie die [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest), bevor Sie mit diesem Tutorial beginnen.
+* Installieren Sie die [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest), bevor Sie mit diesem Tutorial beginnen.
 
 ## <a name="create-a-service-principal-or-use-managed-identities"></a>Erstellen eines Dienstprinzipals oder Verwenden von verwalteten Identitäten
 
@@ -52,11 +53,17 @@ Daraufhin wird eine Reihe von Schlüssel-Wert-Paaren zurückgegeben:
 
 Kopieren Sie die **appId**- und **password**-Anmeldeinformationen zur späteren Verwendung.
 
+## <a name="flow-for-using-managed-identity"></a>Flow für die Verwendung einer verwalteten Identität
+
+Im folgenden Diagramm wird der Flow für eine verwaltete Identität bei der AKS-Key Vault-Integration veranschaulicht:
+
+![Diagramm, das den Flow für eine verwaltete Identität bei der AKS-Key Vault-Integration veranschaulicht](../media/aks-key-vault-integration-flow.png)
+
 ## <a name="deploy-an-azure-kubernetes-service-aks-cluster-by-using-the-azure-cli"></a>Bereitstellen eines AKS-Clusters (Azure Kubernetes Service) über die Azure CLI
 
 Sie müssen Azure Cloud Shell nicht verwenden. Ihre Eingabeaufforderung (Terminal) mit einer installierten Azure CLI reicht aus. 
 
-Führen Sie die Abschnitte „Erstellen einer Ressourcengruppe“, „Erstellen eines AKS-Clusters“ und „Herstellen einer Verbindung mit dem Cluster“ in [Bereitstellen eines Azure Kubernetes Service-Clusters mithilfe der Azure CLI](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough) aus. 
+Führen Sie die Abschnitte „Erstellen einer Ressourcengruppe“, „Erstellen eines AKS-Clusters“ und „Herstellen einer Verbindung mit dem Cluster“ in [Bereitstellen eines Azure Kubernetes Service-Clusters mithilfe der Azure CLI](../../aks/kubernetes-walkthrough.md) aus. 
 
 > [!NOTE] 
 > Wenn Sie beabsichtigen, eine Pod-Identität anstelle eines Dienstprinzipals zu verwenden, stellen Sie sicher, dass Sie sie beim Erstellen des Kubernetes-Clusters aktivieren, wie im folgenden Befehl gezeigt:
@@ -103,7 +110,7 @@ Mit der [Secrets Store CSI](https://github.com/Azure/secrets-store-csi-driver-pr
 
 ## <a name="create-an-azure-key-vault-and-set-your-secrets"></a>Erstellen einer Azure Key Vault-Instanz und Festlegen Ihrer Geheimnisse
 
-Befolgen Sie zum Erstellen Ihres eigenen Schlüsseltresors und zum Festlegen Ihrer Geheimnisse die Anleitungen unter [Festlegen eines Geheimnisses und Abrufen des Geheimnisses aus Azure Key Vault mithilfe der Azure CLI](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-cli).
+Befolgen Sie zum Erstellen Ihres eigenen Schlüsseltresors und zum Festlegen Ihrer Geheimnisse die Anleitungen unter [Festlegen eines Geheimnisses und Abrufen des Geheimnisses aus Azure Key Vault mithilfe der Azure CLI](../secrets/quick-create-cli.md).
 
 > [!NOTE] 
 > Sie müssen weder Azure Cloud Shell verwenden noch eine neue Ressourcengruppe erstellen. Sie können die Ressourcengruppe verwenden, die Sie zuvor für den Kubernetes-Cluster erstellt haben.
@@ -128,7 +135,7 @@ Eine Dokumentation aller erforderlichen Felder finden Sie hier: [Link](https://g
 Die aktualisierte Vorlage ist im folgenden Code dargestellt. Laden Sie sie als YAML-Datei herunter, und füllen Sie die erforderlichen Felder aus. In diesem Beispiel ist der Schlüsseltresor **contosoKeyVault5**. Er verfügt über zwei Geheimnisse, **secret1** und **secret2**.
 
 > [!NOTE] 
-> Wenn Sie verwaltete Identitäten verwenden, legen Sie den Wert von **usePodIdentity** auf *true*fest, und legen Sie den Wert von **userAssignedIdentityID** auf ein Paar Anführungszeichen ( **""** ) fest. 
+> Wenn Sie verwaltete Identitäten verwenden, legen Sie den Wert von **usePodIdentity** auf *true* fest, und legen Sie den Wert von **userAssignedIdentityID** auf ein Paar Anführungszeichen ( **""** ) fest. 
 
 ```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
@@ -210,7 +217,7 @@ az ad sp credential reset --name contosoServicePrincipal --credential-descriptio
 
 Wenn Sie verwaltete Identitäten verwenden, weisen Sie dem AKS-Cluster, den Sie erstellt haben, spezifische Rollen zu. 
 
-1. Ihrem AKS-Cluster muss die Rolle [Operator für verwaltete Identität](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) zugewiesen sein, um eine benutzerseitig zugewiesene verwaltete Identität erstellen, auflisten oder lesen zu können. Stellen Sie sicher, dass die **$clientId** die clientId des Kubernetes-Clusters ist. Der Bereich ist Teil des Azure-Abonnementdiensts, genauer gesagt der Knotenressourcengruppe, die bei der Erstellung des AKS-Clusters erstellt wurde. Durch diesen Bereich wird sichergestellt, dass sich die unten zugewiesenen Rollen nur auf Ressourcen in dieser Gruppe auswirken. 
+1. Ihrem AKS-Cluster muss die Rolle [Operator für verwaltete Identität](../../role-based-access-control/built-in-roles.md#managed-identity-operator) zugewiesen sein, um eine benutzerseitig zugewiesene verwaltete Identität erstellen, auflisten oder lesen zu können. Stellen Sie sicher, dass die **$clientId** die clientId des Kubernetes-Clusters ist. Der Bereich ist Teil des Azure-Abonnementdiensts, genauer gesagt der Knotenressourcengruppe, die bei der Erstellung des AKS-Clusters erstellt wurde. Durch diesen Bereich wird sichergestellt, dass sich die unten zugewiesenen Rollen nur auf Ressourcen in dieser Gruppe auswirken. 
 
     ```azurecli
     RESOURCE_GROUP=contosoResourceGroup
@@ -355,4 +362,4 @@ kubectl exec -it nginx-secrets-store-inline -- cat /mnt/secrets-store/secret1
 
 Um sicherzustellen, dass Ihr Schlüsseltresor wiederherstellbar ist:
 > [!div class="nextstepaction"]
-> [Aktivieren des vorläufigen Löschens](https://docs.microsoft.com/azure/key-vault/general/soft-delete-cli)
+> [Aktivieren des vorläufigen Löschens](./key-vault-recovery.md)

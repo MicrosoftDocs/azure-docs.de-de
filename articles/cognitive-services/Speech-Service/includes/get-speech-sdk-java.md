@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 039bea98090edcc5966be3cea54b31c61c18dc10
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: fcc04cc4599681e3542b275d238b75352d690a95
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92157827"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135992"
 ---
 :::row:::
     :::column span="3":::
-        Das Java SDK für Android ist als <a href="https://developer.android.com/studio/projects/android-library" target="_blank">AAR (Android-Bibliothek) <span class="docon docon-navigate-external x-hidden-focus"></span></a> gepackt und enthält die erforderlichen Bibliotheken sowie die erforderlichen Android-Berechtigungen. Es wird in einem Maven-Repository unter `https://csspeechstorage.blob.core.windows.net/maven/` als Paket `com.microsoft.cognitiveservices.speech:client-sdk:1.13.0` gehostet.
+        Das Java SDK für Android ist als <a href="https://developer.android.com/studio/projects/android-library" target="_blank">AAR (Android-Bibliothek) <span class="docon docon-navigate-external x-hidden-focus"></span></a> gepackt und enthält die erforderlichen Bibliotheken sowie die erforderlichen Android-Berechtigungen. Es wird in einem Maven-Repository unter `https://csspeechstorage.blob.core.windows.net/maven/` als Paket `com.microsoft.cognitiveservices.speech:client-sdk:1.14.0` gehostet.
     :::column-end:::
     :::column:::
         <br>
@@ -32,7 +32,7 @@ Um das Paket im Android Studio-Projekt zu nutzen, nehmen Sie die folgenden Ände
 
 2. Fügen Sie der Datei *build.gradle* auf Modulebene Folgendes im Abschnitt `dependencies` hinzu:
   ```gradle
-  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.13.0'
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.14.0'
   ```
 
 Das Java SDK ist auch Teil des [Speech-Geräte-SDK](../speech-devices-sdk.md).

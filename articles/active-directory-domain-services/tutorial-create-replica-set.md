@@ -2,20 +2,20 @@
 title: 'Tutorial: Erstellen einer Replikatgruppe in Azure AD Domain Services | Microsoft-Dokumentation'
 description: Hier erfahren Sie, wie Sie im Azure-Portal Replikatgruppen für die Dienstresilienz mit Azure AD Domain Services erstellen und verwenden.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2020
-ms.author: joflore
-ms.openlocfilehash: 8cd78a98e47468f103459fd7aa40b145d53db4fd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 059f711269fd5f1eea9675f238a6003eaf1a0534
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967034"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618109"
 ---
 # <a name="tutorial-create-and-use-replica-sets-for-resiliency-or-geolocation-in-azure-active-directory-domain-services-preview"></a>Tutorial: Erstellen und Verwenden von Replikatgruppen für Resilienz oder Geolocation in Azure Active Directory Domain Services (Vorschau)
 

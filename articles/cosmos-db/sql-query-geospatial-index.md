@@ -3,30 +3,30 @@ title: Indizieren von räumlichen Daten mit Azure Cosmos DB
 description: Indizieren räumlicher Daten mit Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/03/2020
+ms.date: 11/03/2020
 ms.author: tisande
-ms.openlocfilehash: 546b664c74980b3522fefed82c00eec414641eaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47eedf1ddbb155180d364c42ec179b3e01279e44
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326625"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336213"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indizieren von räumlichen Daten mit Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Wir haben die Datenbank-Engine von Azure Cosmos DB so entworfen, dass sie vollständig vom Schema unabhängig ist und erstklassige Unterstützung für JSON bietet. Die für Schreibvorgänge optimierte Datenbank-Engine von Azure Cosmos DB bietet jetzt auch native Unterstützung für räumliche Daten, die gemäß GeoJSON-Standard dargestellt sind.
 
-Kurz gesagt, die Geometrie wird von geodätischen Koordinaten auf eine 2D-Ebene projiziert und dann schrittweise mithilfe eines **Quadtrees**in Zellen unterteilt. Diese Zellen werden zu 1D basierend auf der Position der Zelle auf einer **raumfüllenden Hilbert-Kurve**zugeordnet, die die Lage von Punkten beibehält. Wenn Positionsdaten darüber hinaus indiziert werden, durchlaufen sie einen als **Mosaikarbeit** bezeichneten Prozess, bei dem alle Zellen, die eine Position schneiden, im Azure Cosmos DB-Index als Schlüssel indiziert und gespeichert werden. Zur Abfragezeit werden Argumente wie Punkte und Polygone auch in den Mosaikprozess einbezogen, um die entsprechenden Zellen-ID-Bereiche zu extrahieren, und dann zum Abrufen von Daten aus dem Index verwendet.
+Kurz gesagt, die Geometrie wird von geodätischen Koordinaten auf eine 2D-Ebene projiziert und dann schrittweise mithilfe eines **Quadtrees** in Zellen unterteilt. Diese Zellen werden zu 1D basierend auf der Position der Zelle auf einer **raumfüllenden Hilbert-Kurve** zugeordnet, die die Lage von Punkten beibehält. Wenn Positionsdaten darüber hinaus indiziert werden, durchlaufen sie einen als **Mosaikarbeit** bezeichneten Prozess, bei dem alle Zellen, die eine Position schneiden, im Azure Cosmos DB-Index als Schlüssel indiziert und gespeichert werden. Zur Abfragezeit werden Argumente wie Punkte und Polygone auch in den Mosaikprozess einbezogen, um die entsprechenden Zellen-ID-Bereiche zu extrahieren, und dann zum Abrufen von Daten aus dem Index verwendet.
 
-Wenn Sie eine Indizierungsrichtlinie angeben, die einen räumlichen Index für „/*“ (alle Pfade) enthält, werden alle im Container gefundenen Daten für effiziente räumliche Abfragen indiziert.
+Wenn Sie eine Indizierungsrichtlinie angeben, die einen räumlichen Index für `/*` (alle Pfade) enthält, werden alle im Container gefundenen Daten für effiziente räumliche Abfragen indiziert.
 
 > [!NOTE]
-> Azure Cosmos DB unterstützt die Indizierung von Punkten, Linienfolgen (LineStrings), Polygonen und Multipolygonen.
->
->
+> Azure Cosmos DB unterstützt die Indizierung von Punkten, Linienfolgen (LineStrings), Polygonen und Multipolygonen. Wenn Sie einen dieser Typen indizieren, werden automatisch alle anderen Typen indiziert. Anders ausgedrückt: Wenn Sie Polygone indizieren, werden auch Punkte, Linienfolgen und Multipolygone indiziert. Die Indizierung eines neuen räumlichen Typs wirkt sich nicht auf die RU-Gebühr für Schreibvorgänge oder die Indexgröße aus, es sei denn, Sie verfügen über gültige GeoJSON-Daten dieses Typs.
 
-## <a name="modifying-geospatial-data-type"></a>Ändern des räumlichen Datentyps
+## <a name="modifying-geospatial-configuration"></a>Ändern der Geokonfiguration
 
 In Ihrem Container legt die **Geokonfiguration** fest, wie die räumlichen Daten indiziert werden. Geben Sie pro Container eine **Geokonfiguration** an: „Geografie“ oder „Geometrie“.
 
@@ -107,20 +107,20 @@ Sie können die Indizierungsrichtlinie mit der Azure-Befehlszeilenschnittstelle,
 
 ## <a name="geometry-data-indexing-examples"></a>Beispiele für die Indizierung geometrischer Daten
 
-Beim **geometry**-Datentyp müssen Sie ähnlich wie beim geography-Datentyp relevante Pfade und Typen angeben, die indiziert werden sollen. Darüber hinaus müssen Sie eine `boundingBox` in der Indizierungsrichtlinie angeben, um den gewünschten Bereich anzugeben, der für den betreffenden Pfad indiziert werden soll. Für jeden räumlichen Pfad ist eine eigene `boundingBox` erforderlich.
+Beim **geometry** -Datentyp müssen Sie ähnlich wie beim geography-Datentyp relevante Pfade und Typen angeben, die indiziert werden sollen. Darüber hinaus müssen Sie eine `boundingBox` in der Indizierungsrichtlinie angeben, um den gewünschten Bereich anzugeben, der für den betreffenden Pfad indiziert werden soll. Für jeden räumlichen Pfad ist eine eigene `boundingBox` erforderlich.
 
 Der Begrenzungsrahmen umfasst folgende Eigenschaften:
 
-- **xmin**: die minimale indizierte x-Koordinate
-- **ymin**: die minimale indizierte y-Koordinate
-- **xmax**: die maximale indizierte x-Koordinate
-- **ymax**: die maximale indizierte y-Koordinate
+- **xmin** : die minimale indizierte x-Koordinate
+- **ymin** : die minimale indizierte y-Koordinate
+- **xmax** : die maximale indizierte x-Koordinate
+- **ymax** : die maximale indizierte y-Koordinate
 
-Ein Begrenzungsrahmen ist erforderlich, da geometrische Daten auf einer Ebene liegen, die unendlich sein kann. Für räumliche Indizes ist jedoch ein endlicher Raum erforderlich. Beim **geography**-Datentyp ist die Erde die Begrenzung, sodass Sie keinen Begrenzungsrahmen festlegen müssen.
+Ein Begrenzungsrahmen ist erforderlich, da geometrische Daten auf einer Ebene liegen, die unendlich sein kann. Für räumliche Indizes ist jedoch ein endlicher Raum erforderlich. Beim **geography** -Datentyp ist die Erde die Begrenzung, sodass Sie keinen Begrenzungsrahmen festlegen müssen.
 
 Erstellen Sie einen Begrenzungsrahmen, der alle (oder die meisten) Ihre(r) Daten enthält. Nur Vorgänge, die mit Objekten berechnet werden, die vollständig im Begrenzungsrahmen liegen, nutzen den räumlichen Index. Wenn Sie den Begrenzungsrahmen größer als nötig erstellen, wirkt sich dies negativ auf die Abfrageleistung aus.
 
-Nachstehend finden Sie ein Beispiel für eine Indizierungsrichtlinie, die **geometry**-Daten indiziert, wobei **geospatialConfig** auf `geometry` festgelegt ist:
+Nachstehend finden Sie ein Beispiel für eine Indizierungsrichtlinie, die **geometry** -Daten indiziert, wobei **geospatialConfig** auf `geometry` festgelegt ist:
 
 ```json
 {

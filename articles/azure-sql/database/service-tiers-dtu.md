@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.date: 10/15/2020
 ms.reviewer: ''
-ms.openlocfilehash: 9ae5d5e488a7bbe0e80f5a8960be27fd3de8489a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 19178359d1eeb935499a01828f7c53b123e17571
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102998"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793176"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Diensttarife beim DTU-basierten Kaufmodell
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -54,7 +54,7 @@ Die Auswahl einer Dienstebene hängt in erster Linie von den Anforderungen an Ge
 >
 
 > [!TIP]
-> Für die tatsächlichen Grenzwerte für die [Ressourcengovernance](resource-limits-logical-server.md#resource-governance) einer Datenbank oder eines Pools für elastische Datenbanken fragen Sie die Sicht [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) ab.
+> Für die tatsächlichen Grenzwerte für die [Ressourcengovernance](resource-limits-logical-server.md#resource-governance) einer Datenbank oder eines Pools für elastische Datenbanken fragen Sie die Sicht [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) ab.
 
 > [!NOTE]
 > Sie können eine kostenlose Datenbank in Azure SQL-Datenbank mit dem Diensttarif „Basic“ in Verbindung mit einem kostenlosen Azure-Konto erhalten, um Azure kennenzulernen. Weitere Informationen finden Sie unter [Mit dem kostenlosen Azure-Konto eine verwaltete Clouddatenbank erstellen](https://azure.microsoft.com/free/services/sql-database/).

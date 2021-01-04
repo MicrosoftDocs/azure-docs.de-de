@@ -11,12 +11,12 @@ ms.date: 11/30/2018
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1d631c47225fac7d8a95541313593333a1399e07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2233dbd7b0e669c23397b4bc6a84f2bfdc208391
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87115954"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952810"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Definieren benutzerdefinierter Attribute in Azure Active Directory B2C
 
@@ -52,4 +52,4 @@ Das benutzerdefinierte Attribut steht jetzt in der Liste der **Benutzerattribute
 1. Wählen Sie **Anwendungsansprüche** und dann das benutzerdefinierte Attribut aus.
 1. Klicken Sie auf **Speichern**.
 
-Nach dem Erstellen eines neuen Benutzers über einen Benutzerflow, der das neu erstellte benutzerdefinierte Attribut verwendet, kann das Objekt im [Microsoft Graph-Explorer](https://developer.microsoft.com/graph/graph-explorer) abgefragt werden. Alternativ können Sie mit der Funktion [Benutzerflow ausführen](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) für den Benutzerflow die Benutzerfreundlichkeit überprüfen. **ShoeSize** sollte jetzt in der Liste der Attribute, die während der Registrierung erfasst werden, sowie in dem Token angezeigt werden, das zurück an die Anwendung gesendet wird.
+Nach dem Erstellen eines neuen Benutzers über einen Benutzerflow, der das neu erstellte benutzerdefinierte Attribut verwendet, kann das Objekt im [Microsoft Graph-Explorer](https://developer.microsoft.com/graph/graph-explorer) abgefragt werden. Alternativ können Sie mit der Funktion [Benutzerflow ausführen](./tutorial-create-user-flows.md) für den Benutzerflow die Benutzerfreundlichkeit überprüfen. **ShoeSize** sollte jetzt in der Liste der Attribute, die während der Registrierung erfasst werden, sowie in dem Token angezeigt werden, das zurück an die Anwendung gesendet wird.

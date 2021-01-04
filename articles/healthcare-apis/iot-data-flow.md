@@ -6,18 +6,18 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 11/13/2020
 ms.author: punagpal
-ms.openlocfilehash: 43b7bcba97617d6931fd5c191e62e833a25bf89d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 310be095af10f5ed5860c4f627caa0373be55835
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513371"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629664"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Datenfluss in Azure IoT-Konnektor für FHIR (Vorschau)
 
-Dieser Artikel bietet eine Übersicht über den Datenfluss im Azure IoT-Konnektor für FHIR*. Sie erhalten Informationen zu den verschiedenen Phasen der Datenverarbeitung im Azure IoT-Konnektor für FHIR, in denen Gerätedaten in FHIR-basierte [Observation](https://www.hl7.org/fhir/observation.html)-Ressourcen transformiert werden.
+Dieser Artikel bietet eine Übersicht über den Datenfluss im Azure IoT-Konnektor für Fast Healthcare Interoperability Resources (FHIR&#174;)*. Sie erhalten Informationen zu den verschiedenen Phasen der Datenverarbeitung im Azure IoT-Konnektor für FHIR, in denen Gerätedaten in FHIR-basierte [Observation](https://www.hl7.org/fhir/observation.html)-Ressourcen transformiert werden.
 
 ![Datenfluss im Azure IoT-Konnektor für FHIR](media/concepts-iot-data-flow/iot-connector-data-flow.png)
 
@@ -26,7 +26,7 @@ Das Diagramm oben zeigt allgemeine Datenflüsse unter Verwendung des Azure IoT-K
 Im Folgenden werden die verschiedenen Phasen beschrieben, die die Daten nach dem Empfang im Azure IoT-Konnektor für FHIR durchlaufen.
 
 ## <a name="ingest"></a>Erfassen
-Die Erfassung ist die erste Phase, in der die Gerätedaten im Azure IoT-Konnektor für FHIR empfangen werden. Der Erfassungsendpunkt für Gerätedaten wird in einer Instanz von [Azure Event Hub](https://docs.microsoft.com/azure/event-hubs/) gehostet. Die Azure Event Hub-Plattform unterstützt hohe Skalierbarkeit und hohen Durchsatz mit der Möglichkeit, Millionen von Nachrichten pro Sekunde zu empfangen und zu verarbeiten. Außerdem wird ermöglicht, dass Nachrichten im Azure IoT-Konnektor für FHIR asynchron verarbeitet werden, sodass Geräte nicht mehr warten müssen, während die Gerätedaten verarbeitet werden.
+Die Erfassung ist die erste Phase, in der die Gerätedaten im Azure IoT-Konnektor für FHIR empfangen werden. Der Erfassungsendpunkt für Gerätedaten wird in einer Instanz von [Azure Event Hub](../event-hubs/index.yml) gehostet. Die Azure Event Hub-Plattform unterstützt hohe Skalierbarkeit und hohen Durchsatz mit der Möglichkeit, Millionen von Nachrichten pro Sekunde zu empfangen und zu verarbeiten. Außerdem wird ermöglicht, dass Nachrichten im Azure IoT-Konnektor für FHIR asynchron verarbeitet werden, sodass Geräte nicht mehr warten müssen, während die Gerätedaten verarbeitet werden.
 
 > [!NOTE]
 > Derzeit wird JSON als einziges Format für die Gerätedaten unterstützt.
@@ -64,6 +64,4 @@ Klicken Sie unten auf den nächsten Schritt, um zu erfahren, wie Sie Geräte- un
 >[!div class="nextstepaction"]
 >[Zuordnungsvorlagen im Azure IoT-Konnektor für FHIR](iot-mapping-templates.md)
 
-*Im Azure-Portal wird Azure IoT-Konnektor für FHIR als IoT-Konnektor (Vorschauversion) bezeichnet.
-
-FHIR ist ein eingetragenes Markenzeichen von HL7 und wird mit Erlaubnis von HL7 verwendet.
+*Im Azure-Portal wird Azure IoT-Konnektor für FHIR als „IoT-Konnektor (Vorschau)“ bezeichnet. FHIR ist eine eingetragene Marke von HL7 und wird mit Genehmigung von HL7 verwendet. 

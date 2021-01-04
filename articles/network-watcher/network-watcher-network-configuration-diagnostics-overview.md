@@ -11,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2020
 ms.author: damendo
-ms.openlocfilehash: 4d308b8a1a589308e2481c8bb9e0dc9ec64be25b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad60b0be8a9a5341c71d760f98c0db84a72763c2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992903"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951518"
 ---
 # <a name="introduction-to-network-configuration-diagnostics-in-azure-network-watcher"></a>Einführung in die Netzwerkkonfigurationsdiagnose in Azure Network Watcher
 
 Das Tool zur Netzwerkdatenverkehrsdiagnose hilft Kunden zu verstehen, welcher Datenverkehr in Ihrem Azure Virtual Network zugelassen oder abgelehnt wird, zusammen mit ausführlichen Informationen zum Debuggen. Es kann Ihnen helfen zu verstehen, ob Ihre NSG-Regeln (Netzwerksicherheitsgruppe) ordnungsgemäß konfiguriert sind. 
 
 ## <a name="pre-requisites"></a>Voraussetzungen
-Zur Verwendung der Netzwerkkonfigurationsdiagnose muss Network Watcher in Ihrem Abonnement aktiviert sein. Informationen zur Aktivierung finden Sie unter [Erstellen einer Azure Network Watcher-Instanz](https://docs.microsoft.com/azure/network-watcher/network-watcher-create).
+Zur Verwendung der Netzwerkkonfigurationsdiagnose muss Network Watcher in Ihrem Abonnement aktiviert sein. Informationen zur Aktivierung finden Sie unter [Erstellen einer Azure Network Watcher-Instanz](./network-watcher-create.md).
 
 ## <a name="background"></a>Hintergrund
 
@@ -39,7 +39,6 @@ Für einen gegebenen Flow führt das Tool zur Netzwerkkonfigurationsdiagnose ein
 ## <a name="next-steps"></a>Nächste Schritte
 
 Verwenden der Netzwerkkonfigurationsdiagnose über andere Schnittstellen
- - [REST-API](https://docs.microsoft.com/rest/api/network-watcher/networkwatchers/getnetworkconfigurationdiagnostic)
- - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/invoke-aznetworkwatchernetworkconfigurationdiagnostic?view=azps-4.6.1)
- - [Azure-Befehlszeilenschnittstelle](https://docs.microsoft.com/cli/azure/network/watcher?view=azure-cli-latest#az_network_watcher_run_configuration_diagnostic)
-
+ - [REST-API](/rest/api/network-watcher/networkwatchers/getnetworkconfigurationdiagnostic)
+ - [PowerShell](/powershell/module/az.network/invoke-aznetworkwatchernetworkconfigurationdiagnostic?view=azps-4.6.1)
+ - [Azure-Befehlszeilenschnittstelle](/cli/azure/network/watcher?view=azure-cli-latest#az_network_watcher_run_configuration_diagnostic)

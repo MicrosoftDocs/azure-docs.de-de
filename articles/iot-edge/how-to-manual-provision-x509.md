@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: kgremban
-ms.openlocfilehash: b1aa12bd73772b5d6332a36d749ec4d7d10d4026
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: abb3aa9ca7c9697fef1cf456964154249f0d69f3
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048184"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913975"
 ---
 # <a name="set-up-an-azure-iot-edge-device-with-x509-certificate-authentication"></a>Einrichten eines Azure IoT Edge-Geräts mit der Authentifizierung mit X.509-Zertifikat
 
@@ -26,11 +26,11 @@ Die Schritte in diesem Artikel führen Sie durch die sogenannte manuelle Bereits
 
 Bei der manuellen Bereitstellung haben Sie zwei Optionen zum Authentifizieren von IoT Edge-Geräten:
 
-* **Symmetrische Schlüssel**: Wenn Sie in IoT Hub eine neue Geräteidentität erstellen, erstellt der Dienst zwei Schlüssel. Ein Schlüssel befindet sich auf dem Gerät, den es bei der Authentifizierung in IoT Hub vorzeigt.
+* **Symmetrische Schlüssel** : Wenn Sie in IoT Hub eine neue Geräteidentität erstellen, erstellt der Dienst zwei Schlüssel. Ein Schlüssel befindet sich auf dem Gerät, den es bei der Authentifizierung in IoT Hub vorzeigt.
 
   Diese Authentifizierungsmethode kann schneller eingerichtet werden, ist dafür aber weniger sicher.
 
-* **X.509, selbstsigniert**: Sie erstellen zwei X. 509-Identitätszertifikate und bewahren diese auf dem Gerät auf. Wenn Sie in IoT Hub eine neue Geräteidentität erstellen, geben Sie Fingerabdrücke aus beiden Zertifikaten an. Wenn sich das Gerät bei IoT Hub authentifiziert, werden die Zertifikate vorgezeigt, und IoT Hub kann überprüfen, ob sie den Fingerabdrücken entsprechen.
+* **X.509, selbstsigniert** : Sie erstellen zwei X. 509-Identitätszertifikate und bewahren diese auf dem Gerät auf. Wenn Sie in IoT Hub eine neue Geräteidentität erstellen, geben Sie Fingerabdrücke aus beiden Zertifikaten an. Wenn sich das Gerät bei IoT Hub authentifiziert, werden die Zertifikate vorgezeigt, und IoT Hub kann überprüfen, ob sie den Fingerabdrücken entsprechen.
 
   Diese Authentifizierungsmethode ist sicherer und wird in Produktionsszenarios empfohlen.
 
@@ -44,9 +44,24 @@ Die manuelle Bereitstellung mit X.509-Zertifikaten erfordert die IoT Edge-Versio
 
 ## <a name="create-certificates-and-thumbprints"></a>Erstellen von Zertifikaten und Fingerabdrücken
 
+Das Geräteidentitätszertifikat ist ein Blattzertifikat, das über eine Zertifikatvertrauenskette mit dem obersten X.509-Zertifikat der Zertifizierungsstelle (Certificate Authority, CA) verbunden ist. Für das Geräteidentitätszertifikat muss der allgemeine Name (Common Name, CN) auf die Geräte-ID festgelegt sein, die das Gerät in Ihrem IoT-Hub haben soll.
 
+Geräteidentitätszertifikate werden nur für die Bereitstellung des IoT Edge Geräts und die Authentifizierung des Geräts bei Azure IoT Hub verwendet. Im Gegensatz zu den Zertifizierungsstellenzertifikaten, die das IoT Edge-Gerät Modulen oder Blattgeräten zur Überprüfung präsentiert, signieren sie keine Zertifikate. Weitere Informationen finden Sie unter [Details zur Verwendung von Azure IoT Edge-Zertifikaten](iot-edge-certs.md).
 
-<!-- TODO -->
+Nachdem Sie das Geräteidentitätszertifikat erstellt haben, sollten Sie zwei Dateien haben: eine CER- oder PEM-Datei, die den öffentlichen Teil des Zertifikats enthält, und eine CER- oder PEM-Datei mit dem privaten Schlüssel des Zertifikats.
+
+Für die manuelle Bereitstellung mit X.509 ist Folgendes erforderlich:
+
+* Zwei Gruppen von Geräteidentitätszertifikaten und privaten Schlüsselzertifikaten. Eine Gruppe von Zertifikat-/Schlüsseldateien wird für die IoT Edge-Runtime bereitgestellt.
+* Fingerabdrücke von beiden Geräteidentitätszertifikaten. Die Fingerabdruckwerte bestehen aus 40 Hexadezimalzeichen für SHA-1-Hashes oder 64 Hexadezimalzeichen für SHA-256-Hashes. Beide Fingerabdrücke werden zum Zeitpunkt der Geräteregistrierung für IoT Hub bereitgestellt.
+
+Sollten Sie über keine Zertifikate verfügen, können Sie [Demozertifikate zum Testen von IoT Edge-Gerätefeatures erstellen](how-to-create-test-certificates.md). Gehen Sie wie in dem Artikel beschrieben vor, um Zertifikaterstellungsskripts einzurichten und ein Zertifikat der Stammzertifizierungsstelle sowie zwei IoT Edge-Geräteidentitätszertifikate zu erstellen.
+
+Der Fingerabdruck kann beispielsweise mithilfe des folgenden OpenSSL-Befehls aus einem Zertifikat abgerufen werden:
+
+```cmd
+openssl x509 -in <certificate filename>.pem -text -fingerprint
+```
 
 ## <a name="register-a-new-device"></a>Registrieren eines neuen Geräts
 
@@ -54,7 +69,7 @@ Jedes Gerät, das eine Verbindung mit einem IoT-Hub herstellt, verfügt über ei
 
 Bei der Authentifizierung mit dem X.509-Zertifikat werden diese Informationen in Form eines *Fingerabdrucks* bereitgestellt, der den Geräteidentitätszertifikaten entnommen wurde. Diese Fingerabdrücke werden IoT Hub zum Zeitpunkt der Geräteregistrierung bereitgestellt, damit der Dienst das Gerät erkennen kann, wenn es eine Verbindung herstellt.
 
-Sie können verschiedene Tools verwenden, um ein neues IoT Edge-Gerät in IoT Hub zu registrieren und seine Zertifikatfingerabdrücke hochzuladen. 
+Sie können verschiedene Tools verwenden, um ein neues IoT Edge-Gerät in IoT Hub zu registrieren und seine Zertifikatfingerabdrücke hochzuladen.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -68,7 +83,7 @@ In Ihrem IoT Hub im Azure-Portal werden IoT Edge-Geräte separat von IoT-Geräte
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an, und navigieren Sie zu Ihrem IoT Hub.
 
-1. Klicken Sie im Menü im linken Bereich auf **IoT Edge** und dann auf **IoT Edge-Gerät hinzufügen**.
+1. Klicken Sie im linken Bereich auf **IoT Edge** , und klicken Sie dann auf **IoT Edge Geräte hinzufügen**.
 
    ![Hinzufügen eines IoT Edge-Geräts im Azure-Portal](./media/how-to-manual-provision-symmetric-key/portal-add-iot-edge-device.png)
 
@@ -121,7 +136,7 @@ Verwenden Sie den Befehl [az iot hub device-identity list](/cli/azure/ext/azure-
 
 Fügen Sie das Flag `--edge-enabled` oder `--ee` hinzu, um nur die IoT Edge-Geräte in Ihrem IoT-Hub aufzulisten.
 
-Alle als IoT Edge-Gerät registrierten Geräte weisen die **capabilities.iotEdge**-Eigenschaft mit dem Wert **true** auf.
+Alle als IoT Edge-Gerät registrierten Geräte weisen die **capabilities.iotEdge** -Eigenschaft mit dem Wert **true** auf.
 
 --- 
 
@@ -160,10 +175,10 @@ Auf einem Linux-Gerät geben Sie diese Informationen an, indem Sie eine config.y
 
 1. Aktualisieren Sie die folgenden Felder:
 
-   * **iothub_hostname**: Dies ist der Hostname des IoT-Hubs, mit dem das Gerät eine Verbindung herstellt. Beispiel: `{IoT hub name}.azure-devices.net`.
-   * **device_id**: Dies ist die ID, die Sie bei der Registrierung des Geräts angegeben haben.
-   * **identity_cert**: Dies ist der URI für ein Identitätszertifikat auf dem Gerät. Beispiel: `file:///path/identity_certificate.pem`.
-   * **identity_pk**: Dies ist der URI für die Datei mit dem privaten Schlüssel für das bereitgestellte Identitätszertifikat. Beispiel: `file:///path/identity_key.pem`.
+   * **iothub_hostname** : Dies ist der Hostname des IoT-Hubs, mit dem das Gerät eine Verbindung herstellt. Beispiel: `{IoT hub name}.azure-devices.net`.
+   * **device_id** : Dies ist die ID, die Sie bei der Registrierung des Geräts angegeben haben.
+   * **identity_cert** : Dies ist der URI für ein Identitätszertifikat auf dem Gerät. Beispiel: `file:///path/identity_certificate.pem`.
+   * **identity_pk** : Dies ist der URI für die Datei mit dem privaten Schlüssel für das bereitgestellte Identitätszertifikat. Beispiel: `file:///path/identity_key.pem`.
 
 1. Speichern und schließen Sie die Datei.
 
@@ -202,10 +217,10 @@ Auf einem Linux-Gerät geben Sie diese Informationen an, indem Sie eine config.y
 
 3. Geben Sie bei entsprechender Aufforderung die folgenden Informationen ein:
 
-   * **IotHubHostName**: Dies ist der Hostname des IoT-Hubs, mit dem das Gerät eine Verbindung herstellt. Beispiel: `{IoT hub name}.azure-devices.net`.
-   * **DeviceId**: Dies ist die ID, die Sie bei der Registrierung des Geräts angegeben haben.
-   * **X509IdentityCertificate**: Dies ist der absolute Pfad zu einem Identitätszertifikat auf dem Gerät. Beispiel: `C:\path\identity_certificate.pem`.
-   * **X509IdentityPrivateKey**: Dies ist der absolute Pfad zu der Datei mit dem privaten Schlüssel für das bereitgestellte Identitätszertifikat. Beispiel: `C:\path\identity_key.pem`.
+   * **IotHubHostName** : Dies ist der Hostname des IoT-Hubs, mit dem das Gerät eine Verbindung herstellt. Beispiel: `{IoT hub name}.azure-devices.net`.
+   * **DeviceId** : Dies ist die ID, die Sie bei der Registrierung des Geräts angegeben haben.
+   * **X509IdentityCertificate** : Dies ist der absolute Pfad zu einem Identitätszertifikat auf dem Gerät. Beispiel: `C:\path\identity_certificate.pem`.
+   * **X509IdentityPrivateKey** : Dies ist der absolute Pfad zu der Datei mit dem privaten Schlüssel für das bereitgestellte Identitätszertifikat. Beispiel: `C:\path\identity_key.pem`.
 
 Wenn Sie ein Gerät manuell bereitstellen, können Sie zusätzliche Parameter verwenden, um den Prozess folgendermaßen anzupassen:
 

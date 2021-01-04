@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb585e2ccf8c8ed071b5156961adf48d4e4b108d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2472183673e5f06f5664a306a69d14c2eaf5f82d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309785"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949767"
 ---
 # <a name="set-up-identity-protection-and-conditional-access-in-azure-ad-b2c"></a>Einrichten von Identity Protection und bedingtem Zugriff in Azure AD B2C
 
@@ -26,7 +26,7 @@ Identity Protection bietet eine kontinuierliche Risikoerkennung für Ihren Azure
 ## <a name="prerequisites"></a>Voraussetzungen
 
 - Ihr Azure AD B2C-Mandant muss [mit einem Azure AD-Abonnement verknüpft sein](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
-- Für die Verwendung von bedingtem Zugriff auf der Grundlage von Anmeldungen und Benutzerrisiko ist Azure AD B2C Premium P2 erforderlich. [Stellen Sie Ihren Azure AD B2C-Tarif auf „Premium P2“ um](https://aka.ms/exid-pricing-tier) (falls erforderlich). 
+- Für die Verwendung von bedingtem Zugriff auf der Grundlage von Anmeldungen und Benutzerrisiko ist Azure AD B2C Premium P2 erforderlich. [Stellen Sie Ihren Azure AD B2C-Tarif auf „Premium P2“ um](./billing.md) (falls erforderlich). 
 - Für die Verwaltung von Identity Protection und bedingtem Zugriff in Ihrem B2C-Mandanten benötigen Sie ein Konto, dem die Rolle „Globaler Administrator“ oder „Sicherheitsadministrator“ zugewiesen ist.
 - Um diese Funktionen in Ihrem Mandanten verwenden zu können, müssen Sie zuerst zum Azure AD B2C-Tarif „Premium P2“ wechseln.
 

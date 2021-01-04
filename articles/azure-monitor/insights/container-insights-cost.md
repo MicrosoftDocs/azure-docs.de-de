@@ -3,12 +3,12 @@ title: Überwachen der Kosten für Azure Monitor für Container | Microsoft-Doku
 description: In diesem Artikel wird die Überwachung der Kosten für Metriken und Bestandsdaten beschrieben, die von Azure Monitor für Container gesammelt werden, damit Kunden ihre Nutzung und die entsprechenden Kosten besser verwalten können.
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: a03e94fa7650c56a4d3b3beda3c27283329aebbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81a20f564af68c3da6d63394e4cffe7caed91b46
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84204649"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903218"
 ---
 # <a name="understand-monitoring-costs-for-azure-monitor-for-containers"></a>Überwachen der Kosten für Azure Monitor für Container
 
@@ -127,19 +127,21 @@ Mithilfe der allgemeinen [Preisübersicht](https://azure.microsoft.com/pricing/d
 
 ## <a name="controlling-ingestion-to-reduce-cost"></a>Steuern der Datenerfassung zur Senkung der Kosten
 
-Stellen Sie sich ein Szenario vor, in dem die unterschiedlichen Geschäftseinheiten Ihres Unternehmens die Kubernetes-Infrastruktur und einen Log Analytics-Arbeitsbereich teilen. Dabei werden die Geschäftseinheiten durch Kubernetes-Namespaces voneinander getrennt. Mithilfe einer kürzlich veröffentlichten Arbeitsmappe können Sie die Datenmengen, die in den einzelnen Arbeitsbereichen erfasst werden, visualisieren. Mithilfe der Arbeitsmappe **Container Insights-Nutzung** (die sich im [Arbeitsmappenkatalog](../platform/workbooks-overview.md#getting-started) befindet) können Sie die Datenquellen visualisieren, ohne selbst eine Bibliothek mit Abfragen basierend auf den in der Dokumentation freigegebenen Informationen erstellen zu müssen. Die Arbeitsmappe enthält Diagramme, mit denen Sie abrechenbare Daten nach folgenden Gesichtspunkten anzeigen können:
+Stellen Sie sich ein Szenario vor, in dem die unterschiedlichen Geschäftseinheiten Ihres Unternehmens die Kubernetes-Infrastruktur und einen Log Analytics-Arbeitsbereich teilen. Dabei werden die Geschäftseinheiten durch Kubernetes-Namespaces voneinander getrennt. Mithilfe des Runbooks für die **Datennutzung**, das in der Dropdownliste **Arbeitsmappen anzeigen** verfügbar ist, können Sie die Datenmengen, die in den einzelnen Arbeitsbereichen erfasst werden, visualisieren.
+
+[![Dropdownliste „Arbeitsmappen anzeigen“](media/container-insights-cost/workbooks-dropdown.png)](media/container-insights-cost/workbooks-dropdown.png#lightbox)
+
+
+Mithilfe dieser Arbeitsmappe können Sie die Datenquellen visualisieren, ohne selbst eine Bibliothek mit Abfragen basierend auf den in der Dokumentation freigegebenen Informationen erstellen zu müssen. Die Arbeitsmappe enthält Diagramme, mit denen Sie abrechenbare Daten nach folgenden Gesichtspunkten anzeigen können:
 
 - Gesamtmenge der erfassten abrechenbaren Daten (in GB) pro Lösung
-
 - in Containerprotokollen (Anwendungsprotokollen) erfasste abrechenbare Daten
-
 - in einem Kubernetes-Namespace erfasste abrechenbare Containerprotokolldaten
-
 - unter einem Clusternamen erfasste abrechenbare Containerprotokolldaten
-
 - in einem Protokollquelleintrag erfasste abrechenbare Containerprotokolldaten
-
 - in Diagnosemasterknoten-Protokollen erfasste abrechenbare Diagnosedaten
+
+[![Arbeitsmappe für Datennutzung](media/container-insights-cost/data-usage-workbook.png)](media/container-insights-cost/data-usage-workbook.png#lightbox)
 
 Weitere Informationen zum Verwalten von Rechten und Berechtigungen für die Arbeitsmappe finden Sie unter [Zugriffssteuerung](../platform/workbooks-access-control.md).
 

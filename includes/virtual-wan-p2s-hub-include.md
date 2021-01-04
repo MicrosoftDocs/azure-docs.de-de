@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -25,7 +25,7 @@ ms.locfileid: "91812720"
    * **Name**: Geben Sie den Namen ein, den Sie Ihrem virtuellen Hub zuweisen möchten.
    * **Privater Adressraum des Hubs**: Der Adressbereich des Hubs in CIDR-Notation.
 
-   :::image type="content" source="media/virtual-wan-p2s-hub/create-hub.jpg" alt-text="Neuer Hub":::
+   :::image type="content" source="media/virtual-wan-p2s-hub/create-hub.jpg" alt-text="Virtuellen Hub erstellen":::
 
 1. Füllen Sie auf der Registerkarte „Point-to-Site“ die folgenden Felder aus:
 
@@ -34,7 +34,7 @@ ms.locfileid: "91812720"
    * **Clientadresspool**: Für die Remotebenutzer bestimmt.
    * **IP-Adresse des benutzerdefinierten DNS-Servers**.
 
-   :::image type="content" source="media/virtual-wan-p2s-hub/hub-with-p2s.png" alt-text="Neuer Hub":::
+   :::image type="content" source="media/virtual-wan-p2s-hub/hub-with-p2s.png" alt-text="Hub mit Point-to-Site":::
 
 1. Klicken Sie auf **Überprüfen + erstellen**.
 1. Wählen Sie auf der Seite **Überprüfung erfolgreich** die Option **Erstellen** aus.

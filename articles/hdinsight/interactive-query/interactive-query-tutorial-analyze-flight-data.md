@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 07/02/2019
-ms.openlocfilehash: 5c5a3c9e66a4d25a84d7940f49ec332d57f4c818
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 730a6bfa627eafcab799fc811db4e20a1d4cec48
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85319190"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534582"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Tutorial: Extrahieren, Transformieren und Laden von Daten mithilfe von Interactive Query in Azure HDInsight
 
@@ -32,7 +32,7 @@ Dieses Tutorial enthält die folgenden Aufgaben:
 
 * Ein Interactive Query-Cluster in HDInsight. Siehe [Erstellen von Apache Hadoop-Clustern im Azure-Portal](../hdinsight-hadoop-create-linux-clusters-portal.md), und wählen Sie **Interactive Query** für **Clustertyp** aus.
 
-* Sie benötigen eine Datenbank in Azure SQL-Datenbank. Sie verwenden die Datenbank als Zieldatenspeicher. Wenn Sie noch nicht über eine Datenbank in Azure SQL-Datenbank verfügen, helfen Ihnen die Informationen unter [Erstellen einer Datenbank in Azure SQL-Datenbank im Azure-Portal](/azure/sql-database/sql-database-single-database-get-started) weiter.
+* Sie benötigen eine Datenbank in Azure SQL-Datenbank. Sie verwenden die Datenbank als Zieldatenspeicher. Wenn Sie noch nicht über eine Datenbank in Azure SQL-Datenbank verfügen, helfen Ihnen die Informationen unter [Erstellen einer Datenbank in Azure SQL-Datenbank im Azure-Portal](../../azure-sql/database/single-database-create-quickstart.md) weiter.
 
 * Einen SSH-Client. Weitere Informationen finden Sie unter [Herstellen einer Verbindung mit HDInsight (Hadoop) per SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -95,7 +95,7 @@ Daten können auf unterschiedliche Weise in den zugeordneten Speicher eines HDIn
 
 Ein Hive-Auftrag kann auf verschiedenste Arten in einem HDInsight-Cluster ausgeführt werden. In diesem Abschnitt verwenden Sie [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline%E2%80%93CommandLineShell), um einen Hive-Auftrag auszuführen. Informationen zu anderen Ausführungsmethoden für Hive-Aufträge finden Sie unter [Was sind Apache Hive und HiveQL in Azure HDInsight?](../hadoop/hdinsight-use-hive.md).
 
-Im Rahmen des Hive-Auftrags importieren Sie die Daten aus der CSV-Datei in eine Hive-Tabelle namens **Delays**.
+Im Rahmen des Hive-Auftrags importieren Sie die Daten aus der CSV-Datei in eine Hive-Tabelle namens **Delays** .
 
 1. Verwenden Sie an der SSH-Eingabeaufforderung, die bereits für den HDInsight-Cluster geöffnet ist, den folgenden Befehl, um eine neue Datei namens **flightdelays.hql** zu erstellen und zu bearbeiten:
 
@@ -165,7 +165,7 @@ Im Rahmen des Hive-Auftrags importieren Sie die Daten aus der CSV-Datei in eine 
     FROM delays_raw;
     ```
 
-3. Um die Datei zu speichern, drücken Sie **STRG+X**, dann **Y** und schließlich die EINGABETASTE.
+3. Um die Datei zu speichern, drücken Sie **STRG+X** , dann **Y** und schließlich die EINGABETASTE.
 
 4. Starten Sie Hive mit dem folgenden Befehl, und führen Sie die Datei **flightdelays.hql** aus:
 

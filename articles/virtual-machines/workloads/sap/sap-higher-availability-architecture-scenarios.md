@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: f0b2f8f0-e798-4176-8217-017afe147917
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 82b0b53b1933a7ca08163a12b2b7649b7b9538f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d7904b950fa79f9ccbf98ec08f09aa6688f8a99
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361635"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957893"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Verwenden der Neustartfunktion des virtuellen Computers der Azure-Infrastruktur für eine „höhere Verfügbarkeit“ eines SAP-Systems
 
@@ -228,7 +229,7 @@ Von Azure verwaltete Datenträger werden automatisch in der Fehlerdomäne des vi
 
 Die folgende Beispielarchitektur nutzt ein SAP NetWeaver-System, das Hochverfügbarkeit und Speicherkonten der Azure-Infrastruktur verwendet:
 
-![Verwenden der Hochverfügbarkeit der Azure-Infrastruktur für eine „höhere Verfügbarkeit“ von SAP-Anwendungen][planning-guide-figure-2900]
+![Diagramm der Architektur eines SAP NetWeaver-Systems, das Hochverfügbarkeit und Speicherkonten der Azure-Infrastruktur verwendet][planning-guide-figure-2900]
 
 Die folgende Beispielarchitektur nutzt ein SAP NetWeaver-System, das Hochverfügbarkeit und verwaltete Datenträger der Azure-Infrastruktur verwendet:
 

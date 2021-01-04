@@ -12,12 +12,12 @@ ms.date: 03/25/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23d2d6645bea6e99e9f62e36364adf8816329c26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef1abd1d72e4435aa59bbb9a99f3cc423f11268e
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601138"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858297"
 ---
 # <a name="hide-enterprise-applications-from-end-users-in-azure-active-directory"></a>Ausblenden von Unternehmensanwendung für Endbenutzer in Azure Active Directory
 
@@ -47,7 +47,7 @@ Führen Sie die folgenden Schritte aus, um eine Anwendung im Panel „Meine Apps
 
 ## <a name="use-azure-ad-powershell-to-hide-an-application"></a>Ausblenden einer Anwendung mit Azure AD PowerShell
 
-Wenn Sie eine Anwendung im Bereich „MyApps“ ausblenden möchten, können Sie dem Dienstprinzipal für die Anwendung das HideApp-Tag manuell hinzufügen. Führen Sie die folgenden [AzureAD PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#service_principals)-Befehle aus, um die Eigenschaft **Für Benutzer sichtbar?** auf **Nein** festzulegen. 
+Wenn Sie eine Anwendung im Bereich „MyApps“ ausblenden möchten, können Sie dem Dienstprinzipal für die Anwendung das HideApp-Tag manuell hinzufügen. Führen Sie die folgenden [AzureAD PowerShell](/powershell/module/azuread/#service_principals)-Befehle aus, um die Eigenschaft **Für Benutzer sichtbar?** auf **Nein** festzulegen. 
 
 ```PowerShell
 Connect-AzureAD
@@ -74,6 +74,5 @@ Mit den folgenden Schritten können Sie alle Microsoft 365-Anwendungen im Panel
 ## <a name="next-steps"></a>Nächste Schritte
 * [Alle meine Gruppen anzeigen](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Zuweisen eines Benutzers oder einer Gruppe zu einer Unternehmens-App](assign-user-or-group-access-portal.md)
-* [Entfernen einer Benutzer- oder Gruppenzuweisung aus einer Unternehmens-App](remove-user-or-group-access-portal.md)
-* [Ändern des Namens oder Logos einer Unternehmens-App](change-name-or-logo-portal.md)
-
+* [Entfernen einer Benutzer- oder Gruppenzuweisung aus einer Unternehmens-App](./assign-user-or-group-access-portal.md)
+* [Ändern des Namens oder Logos einer Unternehmens-App](./add-application-portal-configure.md)

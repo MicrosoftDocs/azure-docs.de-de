@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 478f7b7671a71d0d1f1f56c5d1d9889db81f7d37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e930e5d125a8f1ee90448e293e2e0ca2c5c28465
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760193"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913669"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Tutorial: Moderieren von Facebook-Posts und -Kommentaren mit Azure Content Moderator
 
@@ -39,12 +39,12 @@ In diesem Diagramm sind die einzelnen Komponenten dieses Szenarios dargestellt:
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-- Ein Content Moderator-Abonnementschlüssel. Gehen Sie wie unter [Schnellstart: Erstellen eines Cognitive Services-Kontos im Azure-Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) beschrieben vor, um den Content Moderator-Dienst zu abonnieren und Ihren Schlüssel zu erhalten.
+- Ein Content Moderator-Abonnementschlüssel. Gehen Sie wie unter [Schnellstart: Erstellen eines Cognitive Services-Kontos im Azure-Portal](../cognitive-services-apis-create-account.md) beschrieben vor, um den Content Moderator-Dienst zu abonnieren und Ihren Schlüssel zu erhalten.
 - Ein [Facebook-Konto](https://www.facebook.com/).
 
 ## <a name="create-a-review-team"></a>Erstellen eines Prüfungsteams
 
-Informationen zum Registrieren für das [Content Moderator-Prüfungstool](https://contentmoderator.cognitive.microsoft.com/) sowie zum Erstellen eines Prüfungsteams finden Sie unter [Schnellstart: Testen von Content Moderator im Web](quick-start.md). Notieren Sie sich auf der Seite **Anmeldeinformationen** die **Team-ID**.
+Informationen zum Registrieren für das [Content Moderator-Prüfungstool](https://contentmoderator.cognitive.microsoft.com/) sowie zum Erstellen eines Prüfungsteams finden Sie unter [Schnellstart: Testen von Content Moderator im Web](quick-start.md). Notieren Sie sich auf der Seite **Anmeldeinformationen** die **Team-ID** .
 
 ## <a name="configure-image-moderation-workflow"></a>Konfigurieren des Workflows für die Bildmoderation
 
@@ -56,7 +56,7 @@ Verwenden Sie erneut den Leitfaden [Definieren, Testen und Verwenden von Workflo
 
 ![Konfigurieren des Textworkflows](images/text-workflow-configure.PNG)
 
-Testen Sie Ihren Workflow mit der Schaltfläche **Workflow ausführen**.
+Testen Sie Ihren Workflow mit der Schaltfläche **Workflow ausführen** .
 
 ![Testen des Textworkflows](images/text-workflow-test.PNG)
 
@@ -64,35 +64,35 @@ Testen Sie Ihren Workflow mit der Schaltfläche **Workflow ausführen**.
 
 Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an, und führen Sie diese Schritte aus:
 
-1. Erstellen Sie eine Azure-Funktionen-App gemäß der Anleitung auf der Seite [Erstellen einer Funktionen-App im Azure-Portal](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal).
+1. Erstellen Sie eine Azure-Funktionen-App gemäß der Anleitung auf der Seite [Erstellen einer Funktionen-App im Azure-Portal](../../azure-functions/functions-create-function-app-portal.md).
 1. Navigieren Sie zur neu erstellten Funktions-App.
-1. Navigieren Sie in der App zur Registerkarte **Plattformfeatures**, und wählen Sie **Konfiguration** aus. Wählen Sie auf der nächsten Seite im Abschnitt **Anwendungseinstellungen** die Option **Neue Anwendungseinstellung** aus, um die folgenden Schlüssel-Wert-Paare hinzuzufügen:
+1. Navigieren Sie in der App zur Registerkarte **Plattformfeatures** , und wählen Sie **Konfiguration** aus. Wählen Sie auf der nächsten Seite im Abschnitt **Anwendungseinstellungen** die Option **Neue Anwendungseinstellung** aus, um die folgenden Schlüssel-Wert-Paare hinzuzufügen:
     
     | Name der App-Einstellung | value   | 
     | -------------------- |-------------|
     | `cm:TeamId`   | Ihre Content Moderator-Team-ID  | 
-    | `cm:SubscriptionKey` | Ihr Content Moderator-Abonnementschlüssel – Siehe [Anmeldeinformationen](review-tool-user-guide/credentials.md) |
-    | `cm:Region` | Ihr Content Moderator-Regionsname, ohne Leerzeichen. Sie finden diesen Namen auf der Registerkarte **Übersicht** Ihrer Azure-Ressource im Feld **Standort**.|
+    | `cm:SubscriptionKey` | Ihr Content Moderator-Abonnementschlüssel – Siehe [Anmeldeinformationen](./review-tool-user-guide/configure.md#credentials) |
+    | `cm:Region` | Ihr Content Moderator-Regionsname, ohne Leerzeichen. Sie finden diesen Namen auf der Registerkarte **Übersicht** Ihrer Azure-Ressource im Feld **Standort** .|
     | `cm:ImageWorkflow` | Name des Workflows für Bilder |
     | `cm:TextWorkflow` | Name des Workflows für Text |
     | `cm:CallbackEndpoint` | URL für die CMListener-Funktionen-App, die Sie später in diesem Leitfaden erstellen |
     | `fb:VerificationToken` | Ein von Ihnen erstelltes geheimes Token, das zum Abonnieren der Facebook-Feedereignisse verwendet wird |
     | `fb:PageAccessToken` | Das Zugriffstoken für die Facebook-Graph-API läuft nicht ab und lässt die Funktion zum Ausblenden/Löschen von Posts in Ihrem Namen zu Dieses Token erhalten Sie in einem späteren Schritt. |
 
-    Klicken Sie oben auf der Seite auf die Schaltfläche **Speichern**.
+    Klicken Sie oben auf der Seite auf die Schaltfläche **Speichern** .
 
-1. Navigieren Sie zurück zur Registerkarte **Plattformfeatures**. Verwenden Sie die Schaltfläche **+** im linken Bereich, um den Bereich **Neue Funktion** anzuzeigen. Die Funktion, die Sie nun erstellen, empfängt Ereignisse von Facebook.
+1. Navigieren Sie zurück zur Registerkarte **Plattformfeatures** . Verwenden Sie die Schaltfläche **+** im linken Bereich, um den Bereich **Neue Funktion** anzuzeigen. Die Funktion, die Sie nun erstellen, empfängt Ereignisse von Facebook.
 
     ![Azure Functions-Bereich mit hervorgehobener Schaltfläche „Funktion hinzufügen“](images/new-function.png)
 
-    1. Klicken Sie auf die Kachel **HTTP-Trigger**.
+    1. Klicken Sie auf die Kachel **HTTP-Trigger** .
     1. Geben Sie den Namen **FBListener** ein. Das Feld **Autorisierungsstufe** sollte auf **Funktion** festgelegt sein.
-    1. Klicken Sie auf **Erstellen**.
-    1. Ersetzen Sie den Inhalt von **run.csx** durch den Inhalt von **FbListener/run.csx**.
+    1. Klicken Sie auf **Erstellen** .
+    1. Ersetzen Sie den Inhalt von **run.csx** durch den Inhalt von **FbListener/run.csx** .
 
     [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-154)]
 
-1. Erstellen Sie eine neue Funktion vom Typ **HTTP-Trigger** mit dem Namen **CMListener**. Diese Funktion empfängt Ereignisse von Content Moderator. Ersetzen Sie den Inhalt von **run.csx** durch den Inhalt von **CMListener/run.csx**.
+1. Erstellen Sie eine neue Funktion vom Typ **HTTP-Trigger** mit dem Namen **CMListener** . Diese Funktion empfängt Ereignisse von Content Moderator. Ersetzen Sie den Inhalt von **run.csx** durch den Inhalt von **CMListener/run.csx** .
 
     [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-110)]
 
@@ -112,28 +112,28 @@ Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an, und führen S
     1. Wählen Sie im Dropdownmenü die Option **Page** (Seite), und wählen Sie **Subscribe to this object** (Objekt abonnieren).
     1. Geben Sie die **FBListener Url** als Rückruf-URL und das von Ihnen in den **Funktionen-App-Einstellungen** konfigurierte **Überprüfungstoken** an.
     1. Scrollen Sie nach dem Abonnieren nach unten zum Feed, und wählen Sie **Subscribe** (Abonnieren).
-    1. Klicken Sie in der Zeile **Feed** auf die Schaltfläche **Test**, um eine Testnachricht an Ihre Azure-Funktion „FBListener“ zu senden. Klicken Sie anschließend auf die Schaltfläche **Send to My Server** (An meinen Server senden). Daraufhin sollten Sie sehen, wie die Anforderung von FBListener empfangen wird.
+    1. Klicken Sie in der Zeile **Feed** auf die Schaltfläche **Test** , um eine Testnachricht an Ihre Azure-Funktion „FBListener“ zu senden. Klicken Sie anschließend auf die Schaltfläche **Send to My Server** (An meinen Server senden). Daraufhin sollten Sie sehen, wie die Anforderung von FBListener empfangen wird.
 
 1. Erstellen Sie eine Facebook-Seite.
 
     > [!IMPORTANT]
     > Im Jahr 2018 wurde von Facebook eine strengere Überprüfung von Facebook-Apps eingeführt. Die Abschnitte 2, 3 und 4 können nur ausgeführt werden, wenn Ihre App vom Facebook-Überprüfungsteam überprüft und genehmigt wurde.
 
-    1. Navigieren Sie zu [Facebook](https://www.facebook.com/bookmarks/pages), und erstellen Sie eine **neue Facebook-Seite**.
+    1. Navigieren Sie zu [Facebook](https://www.facebook.com/bookmarks/pages), und erstellen Sie eine **neue Facebook-Seite** .
     1. Lassen Sie für die Facebook-App den Zugriff auf diese Seite zu, indem Sie die folgenden Schritte ausführen:
         1. Navigieren Sie zum [Graph-API-Explorer](https://developers.facebook.com/tools/explorer/).
-        1. Wählen Sie die Option **Anwendung**.
-        1. Wählen Sie die Option **Page Access Token** (Seitenzugriffstoken), und senden Sie eine **Get**-Anforderung.
+        1. Wählen Sie die Option **Anwendung** .
+        1. Wählen Sie die Option **Page Access Token** (Seitenzugriffstoken), und senden Sie eine **Get** -Anforderung.
         1. Klicken Sie in der Antwort auf die **Page ID** (Seiten-ID).
-        1. Fügen Sie jetzt **/subscribed_apps** an die URL an, und senden Sie eine **Get**-Anforderung (leere Antwort).
-        1. Übermitteln Sie eine **POST**-Anforderung. Sie erhalten eine Antwort der Form **success: true**.
+        1. Fügen Sie jetzt **/subscribed_apps** an die URL an, und senden Sie eine **Get** -Anforderung (leere Antwort).
+        1. Übermitteln Sie eine **POST** -Anforderung. Sie erhalten eine Antwort der Form **success: true** .
 
 3. Erstellen Sie ein nicht ablaufendes Graph-API-Zugriffstoken.
 
     1. Navigieren Sie zum [Graph-API-Explorer](https://developers.facebook.com/tools/explorer/).
     2. Wählen Sie die Option **Application** (Anwendung).
     3. Wählen Sie die Option **Get User Access Token** (Benutzerzugriffstoken abrufen).
-    4. Wählen Sie unter **Select Permissions** (Berechtigungen auswählen) die Optionen **manage_pages** und **publish_pages**.
+    4. Wählen Sie unter **Select Permissions** (Berechtigungen auswählen) die Optionen **manage_pages** und **publish_pages** .
     5. Wir verwenden das **Zugriffstoken** (kurzlebiges Token) im nächsten Schritt.
 
 4. Für die nächsten Schritte verwenden wir Postman.

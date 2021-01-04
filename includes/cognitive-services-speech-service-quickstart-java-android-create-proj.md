@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: travisw
 ms.openlocfilehash: 2efe17bdf597b7e3ba7d0277f06d4b24e9b51db3
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096877"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187668"
 ---
 1. Starten Sie Android Studio, und wählen Sie im **Begrüßungsfenster** die Option **Neues Android Studio-Projekt starten** aus.
 
@@ -19,7 +19,7 @@ ms.locfileid: "92096877"
 
    ![Screenshot: Assistent für die Projektauswahl](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-02-target-android-devices.png)
 
-1. Geben Sie im**Projektkonfigurationsbildschirm** als **Name** den Namen *Quickstart* (Schnellstart) und als **Paketname** den Namen *samples.speech.cognitiveservices.microsoft.com* ein. Wählen Sie anschließend ein Projektverzeichnis aus. Wählen Sie anschließend unter **Minimum API level** (API-Mindestebene) die Option **API 23: Android 6.0 (Marshmallow)** aus. Lassen Sie alle anderen Kontrollkästchen deaktiviert, und wählen Sie **Fertig stellen** aus.
+1. Geben Sie im **Projektkonfigurationsbildschirm** als **Name** den Namen *Quickstart* (Schnellstart) und als **Paketname** den Namen *samples.speech.cognitiveservices.microsoft.com* ein. Wählen Sie anschließend ein Projektverzeichnis aus. Wählen Sie anschließend unter **Minimum API level** (API-Mindestebene) die Option **API 23: Android 6.0 (Marshmallow)** aus. Lassen Sie alle anderen Kontrollkästchen deaktiviert, und wählen Sie **Fertig stellen** aus.
 
    ![Screenshot: Projektkonfigurations-Assistent](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-03-create-android-project.png)
 

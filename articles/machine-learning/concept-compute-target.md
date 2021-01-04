@@ -1,7 +1,7 @@
 ---
 title: Was sind Computziele?
 titleSuffix: Azure Machine Learning
-description: Legen Sie fest, wo Sie Ihr Modell mit Azure Machine Learning trainieren oder bereitstellen möchten.
+description: Erfahren Sie, wie Sie eine Computeressource oder Umgebung für das Training oder die Bereitstellung Ihres Modells mit Azure Machine Learning bestimmen können.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 18f9af0198c7a89b607630c686fbf8dafdd01a50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d3a7be429f730dd4dbd71bade1e3e51ea73c10f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841946"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188648"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Was sind Computeziele in Azure Machine Learning?
 
@@ -54,7 +54,7 @@ Beim Durchführen von Rückschlüssen erstellt Azure Machine Learning einen Dock
 
 * Als Endpunkt für _Batchrückschlüsse_, der zur regelmäßigen Verarbeitung von Datenbatches verwendet wird. Batchrückschlüsse verwenden [Azure Machine Learning-Computecluster](how-to-create-attach-compute-cluster.md).
 
-* Auf ein _IoT-Gerät_ (Vorschau). Bei der Bereitstellung auf einem IoT-Gerät wird nur Azure Machine Learning zum Erstellen des Docker-Containers vorausgesetzt. Anschließend erfolgt die Bereitstellung über Azure IoT Edge. Weitere Informationen finden Sie unter [Deploy as an IoT Edge module (preview)](/azure/iot-edge/tutorial-deploy-machine-learning) (Bereitstellen als IoT Edge-Modul (Vorschau)).
+* Auf ein _IoT-Gerät_ (Vorschau). Bei der Bereitstellung auf einem IoT-Gerät wird nur Azure Machine Learning zum Erstellen des Docker-Containers vorausgesetzt. Anschließend erfolgt die Bereitstellung über Azure IoT Edge. Weitere Informationen finden Sie unter [Deploy as an IoT Edge module (preview)](../iot-edge/tutorial-deploy-machine-learning.md) (Bereitstellen als IoT Edge-Modul (Vorschau)).
 
 Erfahren Sie, [wo und wie Sie Ihr Modell auf einem Computeziel bereitstellen](how-to-deploy-and-where.md).
 
@@ -89,7 +89,7 @@ Nach der Erstellung sind diese Computeressourcen im Gegensatz zu anderen Arten v
 
 ### <a name="supported-vm-series-and-sizes"></a>Unterstützte VM-Serien und -Größen
 
-Wenn Sie eine Knotengröße für eine verwaltete Computeressource in Azure Machine Learning auswählen, können Sie unter den in Azure verfügbaren VM-Größen auswählen. Azure bietet eine Reihe von Größen für Linux und Windows für verschiedene Workloads. Weitere Informationen finden Sie unter [VM-Typen und -Größen](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+Wenn Sie eine Knotengröße für eine verwaltete Computeressource in Azure Machine Learning auswählen, können Sie unter den in Azure verfügbaren VM-Größen auswählen. Azure bietet eine Reihe von Größen für Linux und Windows für verschiedene Workloads. Weitere Informationen finden Sie unter [VM-Typen und -Größen](../virtual-machines/sizes.md).
 
 Bei der Auswahl einer VM-Größe gelten einige Ausnahmen und Einschränkungen:
 
@@ -120,6 +120,12 @@ In der folgenden Tabelle finden Sie weitere Informationen zu unterstützten Seri
 
 Obwohl Azure Machine Learning diese VM-Serien unterstützt, sind sie möglicherweise nicht in allen Azure-Regionen verfügbar. Informationen zum Überprüfen, ob VM-Serien verfügbar sind, finden Sie unter [Verfügbare Produkte nach Region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
+> [!NOTE]
+> Azure Machine Learning unterstützt nicht alle VM-Größen, die von Azure Compute unterstützt werden. Um alle verfügbaren VM-Größen aufzulisten, verwenden Sie eine der folgenden Methoden:
+> * [REST-API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
+> * [Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py.md#supported-vmsizes-workspace--location-none-)
+>
+
 ### <a name="compute-isolation"></a>Computeisolation
 
 Azure Machine Learning Compute bietet VM-Größen, die für einen bestimmten Hardwaretyp isoliert und für einen einzelnen Kunden bestimmt sind. Die Größen isolierter VMs eignen sich am besten für Workloads, die ein hohes Maß an Isolation von den Workloads anderer Kunden erfordern, beispielsweise um Compliance zu erzielen und gesetzliche Anforderungen zu erfüllen. Durch die Verwendung isolierter Größen wird sichergestellt, dass Ihre VM als einzige in der jeweiligen Serverinstanz ausgeführt wird.
@@ -133,7 +139,7 @@ Die aktuellen Angebote für isolierte VMs umfassen Folgendes:
 
 *RDMA-fähig
 
-Weitere Informationen zur Isolation finden Sie unter [Isolation in der öffentlichen Azure-Cloud](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices).
+Weitere Informationen zur Isolation finden Sie unter [Isolation in der öffentlichen Azure-Cloud](../security/fundamentals/isolation-choices.md).
 
 ## <a name="unmanaged-compute"></a>Nicht verwaltete Computeressourcen
 

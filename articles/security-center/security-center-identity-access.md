@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 575c139a3b417eb9429695d3ea6be26bf5625de5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b36f52fd97a9f7ff294f14ec394ff9a9f607b5b0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371068"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187152"
 ---
 # <a name="monitor-identity-and-access"></a>Überwachen der Identität und des Zugriffs
 
@@ -30,9 +30,9 @@ Durch die Überwachung von Aktivitäten und Konfigurationseinstellungen zu Ident
 
 Azure Security Center verfügt über zwei dedizierte Sicherheitskontrollen, mit denen Sie die Identitäts- und Sicherheitsanforderungen Ihrer Organisation erfüllen: 
 
- - **Verwalten des Zugriffs und der Berechtigungen** : Es wird empfohlen, dem [Modell eines Zugriffs mit den geringsten Rechten](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) zu folgen und sicherzustellen, dass Ihre Benutzer nur über den für die Ausführung ihrer Aufgaben benötigten Zugriff verfügen. Diese Steuerung enthält auch Empfehlungen zum Implementieren der [rollenbasierten Zugriffssteuerung (Role-Based Access Control, RBAC)](../role-based-access-control/overview.md), um den Zugriff auf Ihre Ressourcen zu kontrollieren.
+ - **Verwalten des Zugriffs und der Berechtigungen**: Es wird empfohlen, dem [Modell eines Zugriffs mit den geringsten Rechten](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) zu folgen und sicherzustellen, dass Ihre Benutzer nur über den für die Ausführung ihrer Aufgaben benötigten Zugriff verfügen. Diese Steuerung enthält auch Empfehlungen zum Implementieren der [rollenbasierten Zugriffssteuerung von Azure (Role-Based Access Control, Azure RBAC)](../role-based-access-control/overview.md), um den Zugriff auf Ihre Ressourcen zu kontrollieren.
  
- - **Aktivieren der MFA** : Wenn [Multi-Factor Authentication (MFA)](https://www.microsoft.com/security/business/identity/mfa) aktiviert ist, sind Ihre Konten sicherer, und Benutzer können sich weiterhin bei nahezu allen Anwendungen mit der einmaligen Anmeldung (Single Sign-On, SSO) authentifizieren.
+ - **Aktivieren der MFA**: Wenn [Multi-Factor Authentication (MFA)](https://www.microsoft.com/security/business/identity/mfa) aktiviert ist, sind Ihre Konten sicherer, und Benutzer können sich weiterhin bei nahezu allen Anwendungen mit der einmaligen Anmeldung (Single Sign-On, SSO) authentifizieren.
 
 ### <a name="example-recommendations-for-identity-and-access"></a>Beispiele für Empfehlungen für Identität und Zugriff
 
@@ -59,13 +59,13 @@ Es gibt einige Einschränkungen beim Identitäts- und Zugriffsschutz im Security
 Zum Aktivieren von MFA sind [Berechtigungen für Azure Active Directory (AD)-Mandanten](../active-directory/roles/permissions-reference.md) erforderlich.
 
 - Wenn Sie eine Premium-Edition von AD besitzen, können Sie MFA über den [bedingten Zugriff](../active-directory/conditional-access/concept-conditional-access-policy-common.md) aktivieren.
-- Wenn Sie die AD Free-Edition verwenden, aktivieren Sie **Sicherheitsstandards** , wie in der [Azure Active Directory-Dokumentation](../active-directory/fundamentals/concept-fundamentals-security-defaults.md) beschrieben.
+- Wenn Sie die AD Free-Edition verwenden, aktivieren Sie **Sicherheitsstandards**, wie in der [Azure Active Directory-Dokumentation](../active-directory/fundamentals/concept-fundamentals-security-defaults.md) beschrieben.
 
 ## <a name="identify-accounts-without-multi-factor-authentication-mfa-enabled"></a>Identifizieren von Konten ohne aktivierte mehrstufige Authentifizierung (Multi-Factor Authentication, MFA)
 
 Verwenden Sie die folgende Azure Resource Graph-Abfrage, um anzuzeigen, für welche Konten MFA nicht aktiviert ist. Die Abfrage gibt alle fehlerhaften Ressourcen (Konten) zur Empfehlung „MFA sollte für Konten mit Besitzerberechtigungen in Ihrem Abonnement aktiviert sein“ zurück. 
 
-1. Öffnen Sie den **Azure Resource Graph-Explorer** .
+1. Öffnen Sie den **Azure Resource Graph-Explorer**.
 
     :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Die Empfehlungsseite des Azure Resource Graph-Explorer** wird gestartet." :::
 

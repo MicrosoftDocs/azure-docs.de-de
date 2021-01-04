@@ -4,16 +4,16 @@ description: Lernen Sie Azure Analysis Services kennen, eine vollständig verwal
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/19/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: a05da5fae748e799d7965c51415956c2e2a524b1
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: e70d02c02ba9a3f14d1659851919fbccf71776d1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201510"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487353"
 ---
 # <a name="what-is-azure-analysis-services"></a>Was ist Azure Analysis Services?
 
@@ -35,11 +35,11 @@ Azure Analysis Services arbeitet mit vielen Azure-Diensten zusammen und ermögli
 
 ## <a name="the-right-tier-when-you-need-it"></a>Immer der richtige Tarif
 
-Azure Analysis Services ist in den Tarifen **Developer** , **Basic** und **Standard** erhältlich. Die Plankosten in den einzelnen Tarifen sind jeweils abhängig von Verarbeitungsleistung, Abfrageverarbeitungseinheiten (Query Processing Units, QPUs) und Arbeitsspeichergröße. Bei der Servererstellung wählen Sie einen Plan innerhalb eines Tarifs aus. Sie können Pläne innerhalb eines Tarifs nach oben oder unten anpassen oder in einen höheren Tarif wechseln. Nur ein Wechsel in einen niedrigeren Tarif ist nicht möglich.
+Azure Analysis Services ist in den Tarifen **Developer**, **Basic** und **Standard** erhältlich. Die Plankosten in den einzelnen Tarifen sind jeweils abhängig von Verarbeitungsleistung, Abfrageverarbeitungseinheiten (Query Processing Units, QPUs) und Arbeitsspeichergröße. Bei der Servererstellung wählen Sie einen Plan innerhalb eines Tarifs aus. Sie können Pläne innerhalb eines Tarifs nach oben oder unten anpassen oder in einen höheren Tarif wechseln. Nur ein Wechsel in einen niedrigeren Tarif ist nicht möglich.
 
 ### <a name="developer-tier"></a>Developer-Tarif
 
-Dieser Tarif wird für Auswertungs-, Entwicklungs- und Testszenarien empfohlen. Ein einzelner Plan enthält die gleichen Funktionen wie der Standard-Tarif, ist aber in Bezug auf die Verarbeitungsleistung, die QPUs und die Speichergröße begrenzt. Das horizontale Hochskalieren von Abfragereplikaten ist für diesen Tarif *nicht verfügbar* . Für diesen Tarif wird keine Vereinbarung zum Servicelevel angeboten.
+Dieser Tarif wird für Auswertungs-, Entwicklungs- und Testszenarien empfohlen. Ein einzelner Plan enthält die gleichen Funktionen wie der Standard-Tarif, ist aber in Bezug auf die Verarbeitungsleistung, die QPUs und die Speichergröße begrenzt. Das horizontale Hochskalieren von Abfragereplikaten ist für diesen Tarif *nicht verfügbar*. Für diesen Tarif wird keine Vereinbarung zum Servicelevel angeboten.
 
 |Planen  |QPUs  |Arbeitsspeicher (GB)  |
 |---------|---------|---------|
@@ -48,7 +48,7 @@ Dieser Tarif wird für Auswertungs-, Entwicklungs- und Testszenarien empfohlen. 
 
 ### <a name="basic-tier"></a>Basic-Tarif
 
-Dieser Tarif wird für Produktionslösungen mit kleineren Tabellenmodellen, einer begrenzten Anzahl von gleichzeitig aktiven Benutzern und einfachen Anforderungen an die Datenaktualisierung empfohlen. Das horizontale Hochskalieren von Abfragereplikaten ist für diesen Tarif *nicht verfügbar* . Features wie Perspektiven, mehrere Partitionen und das DirectQuery-Tabellenmodell werden für diesen Tarif *nicht unterstützt* .  
+Dieser Tarif wird für Produktionslösungen mit kleineren Tabellenmodellen, einer begrenzten Anzahl von gleichzeitig aktiven Benutzern und einfachen Anforderungen an die Datenaktualisierung empfohlen. Das horizontale Hochskalieren von Abfragereplikaten ist für diesen Tarif *nicht verfügbar*. Features wie Perspektiven, mehrere Partitionen und das DirectQuery-Tabellenmodell werden für diesen Tarif *nicht unterstützt*.  
 
 |Planen  |QPUs  |Arbeitsspeicher (GB)  |
 |---------|---------|---------|
@@ -145,7 +145,7 @@ Tabellarische Modelle werden sowohl im In-Memory- als auch im DirectQuery-Modus 
 
 Die Partitionierung ermöglicht inkrementelle Lasten, erhöht die Parallelität und verringert den Speicherverbrauch. Andere erweiterte Features der Datenmodellierung, z.B. berechnete Tabellen, und alle DAX-Funktionen werden unterstützt. In-Memory-Modelle müssen aktualisiert (verarbeitet) werden, um zwischengespeicherte Daten von Datenquellen zu aktualisieren. Mit dem Azure-Dienstprinzipalsupport kann mit unbeaufsichtigten Aktualisierungsvorgängen per PowerShell, TOM, TMSL und REST flexibel sichergestellt werden, dass Ihre Modelldaten immer auf dem aktuellen Stand sind. 
 
-Im DirectQuery-Modus* wird die relationale Back-End-Datenbank für die Speicherung und Abfragenausführung genutzt. Sehr große Datasets werden in einzelnen Datenquellen von SQL Server, SQL Server Data Warehouse, Azure SQL-Datenbank, Azure Synapse Analytics (vormals SQL Data Warehouse), Oracle und Teradata unterstützt. Für Back-End-Datasets kann der verfügbare Speicher für Serverressourcen überschritten werden. Komplexe Aktualisierungsszenarien für Datenmodelle sind nicht erforderlich. Es gelten auch einige Einschränkungen, z. B. eine begrenzte Zahl von Datenquellentypen, DAX-Formelbeschränkungen und fehlende Unterstützung einiger Features für die erweiterte Datenmodellierung. Lesen Sie die Informationen zum [DirectQuery-Modus](/analysis-services/tabular-models/directquery-mode-ssas-tabular), bevor Sie den für Sie am besten geeigneten Modus ermitteln.
+Im DirectQuery-Modus* wird die relationale Back-End-Datenbank für die Speicherung und Abfragenausführung genutzt. Sehr große Datasets werden in einzelnen Datenquellen von SQL Server, SQL Server Data Warehouse, Azure SQL-Datenbank, Azure Synapse Analytics, Oracle und Teradata unterstützt. Für Back-End-Datasets kann der verfügbare Speicher für Serverressourcen überschritten werden. Komplexe Aktualisierungsszenarien für Datenmodelle sind nicht erforderlich. Es gelten auch einige Einschränkungen, z. B. eine begrenzte Zahl von Datenquellentypen, DAX-Formelbeschränkungen und fehlende Unterstützung einiger Features für die erweiterte Datenmodellierung. Lesen Sie die Informationen zum [DirectQuery-Modus](/analysis-services/tabular-models/directquery-mode-ssas-tabular), bevor Sie den für Sie am besten geeigneten Modus ermitteln.
 
 \* Die Verfügbarkeit der Features hängt vom Tarif ab.
 
@@ -160,7 +160,7 @@ Der Kompatibilitätsgrad bezieht sich auf releasespezifische Verhalten in der An
 
 ## <a name="your-data-is-secure"></a>Datensicherheit
 
-Azure Analysis Services bietet Sicherheit für Ihre sensiblen Daten auf mehreren Ebenen. Als Azure-Dienst bietet Analysis Services **grundlegenden** Schutz vor DDoS-Angriffen (Distributed Denial of Service). Dieser Schutz ist im Rahmen der Azure-Plattform automatisch aktiviert. Weitere Informationen finden Sie in der [Übersicht über Azure DDoS Protection Standard](../virtual-network/ddos-protection-overview.md). 
+Azure Analysis Services bietet Sicherheit für Ihre sensiblen Daten auf mehreren Ebenen. Als Azure-Dienst bietet Analysis Services **grundlegenden** Schutz vor DDoS-Angriffen (Distributed Denial of Service). Dieser Schutz ist im Rahmen der Azure-Plattform automatisch aktiviert. Weitere Informationen finden Sie in der [Übersicht über Azure DDoS Protection Standard](../ddos-protection/ddos-protection-overview.md). 
 
 Auf der Serverebene bietet Analysis Services eine Firewall, Azure-Authentifizierung, Serveradministratorrollen und serverseitige Verschlüsselung. Auf der Datenmodellebene sorgen Benutzerrollen sowie die Sicherheit auf Zeilen- und Objektebene dafür, dass Ihre Daten sicher sind und nur den vorgesehenen Benutzern angezeigt werden.
 
@@ -243,7 +243,7 @@ Azure Analysis Services unterstützt auch [dynamische Verwaltungssichten](/analy
 
 Spezifische Dokumentationsinformationen zu Azure Analysis Services sind in diesem Text enthalten. Verwenden Sie das Inhaltsverzeichnis links im Browserfenster, um nach Artikeln zu suchen. 
 
-Da tabellarische Modelle in Azure Analysis Services den tabellarischen Modellen in SQL Server Analysis Services und Power BI Premium-Datasets stark ähneln, enthält die [Dokumentation zu Analysis Services](/analysis-services/?view=azure-analysis-services-current) eine umfangreiche Bibliothek mit Tutorials zur Modellierung gemeinsam verwendeter Daten. Darüber hinaus umfasst diese Bibliothek Artikel zu Konzepten und Verfahren sowie relevante Informationen für Entwickler und Referenzartikel. Die Artikel der gemeinsamen Analysis Services-Dokumentation enthalten unterhalb des Titels einen GILT FÜR-Banner, der zeigt, ob die Artikel auch für Azure Analysis Services gelten. Sie können auch die Versionsauswahl oberhalb des Inhaltsverzeichnisses verwenden, um nur Artikel anzuzeigen, die für die von Ihnen verwendete Plattform gelten.
+Da tabellarische Modelle in Azure Analysis Services den tabellarischen Modellen in SQL Server Analysis Services und Power BI Premium-Datasets stark ähneln, enthält die [Dokumentation zu Analysis Services](/analysis-services/?view=azure-analysis-services-current&preserve-view=true) eine umfangreiche Bibliothek mit Tutorials zur Modellierung gemeinsam verwendeter Daten. Darüber hinaus umfasst diese Bibliothek Artikel zu Konzepten und Verfahren sowie relevante Informationen für Entwickler und Referenzartikel. Die Artikel der gemeinsamen Analysis Services-Dokumentation enthalten unterhalb des Titels einen GILT FÜR-Banner, der zeigt, ob die Artikel auch für Azure Analysis Services gelten. Sie können auch die Versionsauswahl oberhalb des Inhaltsverzeichnisses verwenden, um nur Artikel anzuzeigen, die für die von Ihnen verwendete Plattform gelten.
 
 ![Verfügbare Dokumentation](./media/analysis-services-overview/aas-overview-applies-to.png)
 

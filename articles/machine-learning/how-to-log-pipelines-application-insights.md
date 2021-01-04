@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8a3a82e091791b39ddf36e39987590dcddea320f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 624409be4d7e2cfba37dbe16e083904766ae1389
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897495"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309663"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Sammeln von Machine Learning-Pipelineprotokolldateien in Application Insights für Warnungen und Debuggen
 
@@ -38,7 +38,7 @@ Dadurch, dass sich alle Ihre Protokolle am selben Speicherort befinden, erhalten
 
 Dieser Abschnitt ist eine Einführung in die Verwendung von OpenCensus aus einer Azure Machine Learning-Pipeline. Ein ausführliches Tutorial finden Sie unter [OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure).
 
-Fügen Sie Ihrer Azure Machine Learning-Pipeline einen PythonScriptStep hinzu. Konfigurieren Sie Ihre [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true) mit der Abhängigkeit von opencensus-ext-azure. Konfigurieren Sie die Umgebungsvariable `APPLICATIONINSIGHTS_CONNECTION_STRING`.
+Fügen Sie Ihrer Azure Machine Learning-Pipeline einen PythonScriptStep hinzu. Konfigurieren Sie Ihre [RunConfiguration](/python/api/azureml-core/azureml.core.runconfiguration?preserve-view=true&view=azure-ml-py) mit der Abhängigkeit von opencensus-ext-azure. Konfigurieren Sie die Umgebungsvariable `APPLICATIONINSIGHTS_CONNECTION_STRING`.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies
@@ -153,7 +153,7 @@ Das Ergebnis in Application Insights enthält die Protokollmeldung und -ebene, d
 
 ### <a name="additional-helpful-queries"></a>Weitere nützliche Abfragen
 
-Einige der nachstehenden Abfragen verwenden „customDimensions.Level“. Diese Schweregrade entsprechen der Ebene, mit der das Python-Protokoll ursprünglich gesendet wurde. Weitere Abfrageinformationen finden Sie unter [Protokollabfragen in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
+Einige der nachstehenden Abfragen verwenden „customDimensions.Level“. Diese Schweregrade entsprechen der Ebene, mit der das Python-Protokoll ursprünglich gesendet wurde. Weitere Abfrageinformationen finden Sie unter [Protokollabfragen in Azure Monitor](/azure/data-explorer/kusto/query/).
 
 | Anwendungsfall                                                               | Abfrage                                                                                              |
 |------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
@@ -166,4 +166,4 @@ Einige der nachstehenden Abfragen verwenden „customDimensions.Level“. Diese 
 
 Nachdem Sie in Ihrer Application Insights-Instanz Protokolle verwendet haben, können Sie sie zum Festlegen von [Azure Monitor-Warnungen](../azure-monitor/platform/alerts-overview.md#what-you-can-alert-on) basierend auf den Abfrageergebnissen verwenden.
 
-Sie können auch einem [Azure-Dashboard](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards#add-logs-analytics-query) Ergebnisse aus Abfragen hinzufügen, um weitere Erkenntnisse zu gewinnen.
+Sie können auch einem [Azure-Dashboard](../azure-monitor/learn/tutorial-app-dashboards.md#add-logs-query) Ergebnisse aus Abfragen hinzufügen, um weitere Erkenntnisse zu gewinnen.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: ee5a88dfcc3b4ab29cd3ad8c5ff7c4701d1fced6
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 95c3ad6f689893195e0e5c17c59ab31143cf238d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339712"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346518"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Verwenden von adaptiven Anwendungssteuerungen zum Verringern der Angriffsfläche Ihres Computers
 
@@ -61,7 +61,7 @@ Durch die Definition von Listen mit bekannten sicheren Anwendungen und das Gener
 
 ## <a name="enable-application-controls-on-a-group-of-machines"></a>Aktivieren von Anwendungssteuerelementen auf einer Gruppe von Computern
 
-Wenn Security Center Gruppen von Computern in ihren Abonnements identifiziert hat, die konsistent einen ähnlichen Satz von Anwendungen ausführen, werden Sie mit der folgenden Empfehlung aufgefordert: **Adaptive Anwendungssteuerung zum Definieren sicherer Anwendungen muss auf Computern aktiviert sein** .
+Wenn Security Center Gruppen von Computern in ihren Abonnements identifiziert hat, die konsistent einen ähnlichen Satz von Anwendungen ausführen, werden Sie mit der folgenden Empfehlung aufgefordert: **Adaptive Anwendungssteuerung zum Definieren sicherer Anwendungen muss auf Computern aktiviert sein**.
 
 Wählen Sie die Empfehlung aus, oder öffnen Sie die Seite der adaptiven Anwendungssteuerung, um die Liste der empfohlenen, bekannten sicheren Anwendungen und Gruppen von Computern anzuzeigen.
 
@@ -91,7 +91,7 @@ Wählen Sie die Empfehlung aus, oder öffnen Sie die Seite der adaptiven Anwendu
       > Security Center benötigt mindestens die Daten von zwei Wochen, um die eindeutigen Empfehlungen pro Gruppe von Computern zu definieren. Computer, die vor kurzem erstellt wurden oder zu Abonnements gehören, die erst kürzlich mit Azure Defender aktiviert wurden, werden auf der Registerkarte **Keine Empfehlung** angezeigt.
 
 
-1. Öffnen Sie die Registerkarte **Empfohlen** . Die Gruppen von Computern mit empfohlenen Zulassungslisten werden angezeigt.
+1. Öffnen Sie die Registerkarte **Empfohlen**. Die Gruppen von Computern mit empfohlenen Zulassungslisten werden angezeigt.
 
    ![Registerkarte „Empfohlen“](./media/security-center-adaptive-application/adaptive-application-recommended-tab.png)
 
@@ -135,7 +135,7 @@ So bearbeiten Sie die Regeln für eine Gruppe von Computern:
 
       ![Hinzufügen einer benutzerdefinierten Regel](./media/security-center-adaptive-application/adaptive-application-add-custom-rule.png)
 
-   1. Wenn Sie einen bekannten sicheren Pfad definieren, ändern Sie den **Regeltyp** in „Path“. Sie können Platzhalter in den Pfad einschließen.
+   1. Falls Sie einen bekannten sicheren Pfad definieren, ändern Sie den **Regeltyp** in „Pfad“, und geben Sie einen einzelnen Pfad ein. Sie können Platzhalter in den Pfad einschließen.
    
       > [!TIP]
       > Einige Szenarien, in denen Platzhalter in einem Pfad nützlich sein können:
@@ -156,12 +156,12 @@ So bearbeiten Sie die Regeln für eine Gruppe von Computern:
 
     In diesem Bereich werden der Name der Gruppe (der geändert werden kann), der Betriebssystemtyp, der Standort und andere relevante Details angezeigt.
 
-    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Öffnen von „Adaptive Anwendungssteuerungen“ über das Azure-Dashboard" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
+    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Seite „Gruppeneinstellungen“ für adaptive Anwendungssteuerungen" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
 
     > [!IMPORTANT]
     > Die Option **Erzwingen** in den Einstellungen zum Schutzmodus für Dateitypen ist in **allen** Szenarien abgeblendet. Derzeit sind keine Erzwingungsoptionen verfügbar. 
     >
-    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="Öffnen von „Adaptive Anwendungssteuerungen“ über das Azure-Dashboard":::
+    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="Erzwingungsmodus für Dateischutz dauerhaft abgeblendet. Keine Erzwingungsoptionen verfügbar.":::
 
 1. Ändern Sie optional den Namen der Gruppe oder den jeweiligen Schutzmodus für Dateitypen.
 
@@ -208,7 +208,7 @@ Wenn Sie einen Computer aus einer Gruppe in eine andere Gruppen verschieben, än
 
 1. Wählen Sie auf der Seite **Adaptive Anwendungssteuerung** auf der Registerkarte **Konfiguriert** die Gruppe aus, die den Computer enthält, der verschoben werden soll.
 
-1. Öffnen Sie die Liste **Konfigurierte Computer** .
+1. Öffnen Sie die Liste **Konfigurierte Computer**.
 
 1. Öffnen Sie das Menü des Computers über die drei Punkte am Ende der Zeile, und wählen Sie **Verschieben** aus. Der Bereich **Computer in eine andere Gruppe verschieben** wird geöffnet.
 

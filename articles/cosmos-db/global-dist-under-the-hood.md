@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: c86207af51ebd1a9442afe6fa609598ec917bf15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f19e009341ac0e9556cef36f8da6ef19cde0447f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570440"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087512"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Globale Datenverteilung mit Azure Cosmos DB: Hintergrundinformationen
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB ist einer der Basisdienste in Azure und wird daher in sämtlichen Azure-Regionen weltweit (einschließlich der öffentlichen, Sovereign-, DoD- (Department of Defense) und Government-Clouds) bereitgestellt. Innerhalb eines Rechenzentrums wird Azure Cosmos DB auf umfangreichen „Stamps“ von Computern, die jeweils über dedizierten lokalen Speicher verfügen, bereitgestellt und verwaltet. Innerhalb eines Datencenters wird Azure Cosmos DB in vielen Clustern bereitgestellt, die jeweils in der Lage sind, mehrere Generationen von Hardware auszuführen. Für Hochverfügbarkeit innerhalb einer Region werden die Computer in einem Cluster in der Regel auf 10–20 Fehlerdomänen aufgeteilt. Die folgende Abbildung zeigt die Systemtopologie von Cosmos DB für die globale Verteilung:
 
@@ -22,15 +23,15 @@ Azure Cosmos DB ist einer der Basisdienste in Azure und wird daher in sämtliche
 
 **Durch die globale Verteilung in Azure Cosmos DB wird eine schlüsselfertige Lösung bereitgestellt:** Sie können jederzeit und mit nur wenigen Mausklicks oder programmgesteuert mit einem einzigen API-Aufruf die Ihrer Cosmos-Datenbank zugeordneten geografischen Regionen hinzufügen oder entfernen. Eine Cosmos-Datenbank wiederum besteht aus einer Gruppe von Cosmos-Containern. In Cosmos DB dienen Container als logische Einheit für die Verteilung und Skalierung. Die Sammlungen, Tabellen und Diagramme, die Sie erstellen, sind (intern) nur Cosmos-Container. Container sind vollständig schemaunabhängig und stellen einen Gültigkeitsbereich für eine Abfrage dar. Die Daten in einem Cosmos-Container werden bei der Erfassung automatisch indiziert. Durch die automatische Indizierung können Benutzer die Daten abfragen, ohne sich um das Schema oder die Indexverwaltung kümmern zu müssen, was besonders in einem global verteilten Setup hilfreich ist.  
 
-- In einer bestimmten Region werden die Daten in einem Container mithilfe eines Partitionsschlüssels, den Sie angeben, verteilt und transparent von den zugrunde liegenden physischen Partitionen (*lokale Verteilung*) verwaltet.  
+- In einer bestimmten Region werden die Daten in einem Container mithilfe eines Partitionsschlüssels, den Sie angeben, verteilt und transparent von den zugrunde liegenden physischen Partitionen ( *lokale Verteilung* ) verwaltet.  
 
-- Jede physische Partition wird außerdem über geografische Regionen repliziert (*globale Verteilung*). 
+- Jede physische Partition wird außerdem über geografische Regionen repliziert ( *globale Verteilung* ). 
 
 Wenn eine App den Durchsatz in einem Cosmos-Container mithilfe von Cosmos DB elastisch skaliert oder zusätzlichen Speicher verbraucht, verarbeitet Cosmos DB die Vorgänge zur Partitionsverwaltung (z.B. Teilen, Klonen, Löschen usw.) in sämtlichen Regionen transparent. Unabhängig von Skalierung, Verteilung oder Ausfällen stellt Cosmos DB weiterhin ein einzelnes Systemimage der Daten in den Containern bereit, die global auf eine beliebige Anzahl von Regionen verteilt sind.  
 
 Wie in der folgenden Abbildung gezeigt wird, sind die Daten in einem Container über zwei Dimensionen verteilt – innerhalb einer Region und regionsübergreifend, weltweit:  
 
-:::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="Systemtopologie" border="false":::
+:::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="Physische Partitionen" border="false":::
 
 Eine physische Partition wird durch eine Gruppe von Replikaten implementiert, die als *Replikatgruppe* bezeichnet wird. Jeder Computer hostet Hunderte von Replikaten für verschiedene physische Partitionen innerhalb eines festen Satzes von Prozessen, wie in der Abbildung oben gezeigt. Die zu den physischen Partitionen gehörenden Replikate werden dynamisch und mit Lastenausgleich auf die Computer in einem Cluster sowie die Rechenzentren in einer Region verteilt.  
 
@@ -52,7 +53,7 @@ Eine physische Partition ist eine selbst verwaltete Gruppe von Replikaten mit dy
 
 Eine Gruppe physischer Partitionen (jeweils eine aus jeder für die Cosmos-Datenbank konfigurierten Region) dient der Verwaltung derselben Schlüsselsätze, die in allen konfigurierten Regionen repliziert werden. Dieses höhere Koordinationselement wird als *Partitionsgruppe* bezeichnet. Es stellt eine geografisch verteilte, dynamische Überlagerung der physischen Partitionen für die Verwaltung eines bestimmten Schlüsselsatzes dar. Während der Gültigkeitsbereich einer physischen Partition (einer Replikatgruppe) auf einen Cluster beschränkt ist, kann eine Partitionsgruppe Cluster, Rechenzentren und geografische Regionen überschreiten, wie die folgende Abbildung zeigt:  
 
-:::image type="content" source="./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png" alt-text="Systemtopologie" border="false":::
+:::image type="content" source="./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png" alt-text="Partitionsgruppen" border="false":::
 
 Sie können sich eine Partitionsgruppe als eine geografisch verteilte „Superreplikatgruppe“ vorstellen, die mehrere Replikatgruppen mit denselben Schlüsselsätzen umfasst. Wie bei einer Replikatgruppe ist auch bei einer Partitionsgruppe die Mitgliedschaft dynamisch. Sie variiert in Abhängigkeit von impliziten Vorgängen zur Verwaltung physischer Partitionen beim Hinzufügen/Entfernen von Partitionen in einer Partitionsgruppe (wenn Sie z.B. den Durchsatz in einem Container aufskalieren, in Ihrer Cosmos-Datenbank eine Region hinzufügen/entfernen, oder bei Ausfällen). Damit die einzelnen Partitionen (einer Partitionsgruppe) die festgelegte Mitgliedschaft in der eigenen Replikatgruppe verwalten können, ist die Mitgliedschaft vollständig dezentralisiert und hochverfügbar angelegt. Während der Neukonfiguration einer Partitionsgruppe wird auch die Topologie der Überlagerung zwischen physischen Partitionen eingerichtet. Die Topologie wird dynamisch basierend auf der Konsistenzstufe, dem geografischen Abstand und der zwischen den physischen Quell- und Zielpartitionen verfügbaren Netzwerkbandbreite ausgewählt.  
 

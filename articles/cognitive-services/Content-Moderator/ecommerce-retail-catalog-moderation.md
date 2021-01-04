@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9aae410d320713650704e175006a6593b30f52a7
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 6d105528404c99f7273687fcdea6972b4212fcf1
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504155"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913686"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Tutorial: Moderieren von E-Commerce-Produktbildern mit Azure Content Moderator
 
@@ -37,7 +37,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-- Ein Content Moderator-Abonnementschlüssel. Gehen Sie wie unter [Schnellstart: Erstellen eines Cognitive Services-Kontos im Azure-Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) beschrieben vor, um den Content Moderator-Dienst zu abonnieren und Ihren Schlüssel zu erhalten.
+- Ein Content Moderator-Abonnementschlüssel. Gehen Sie wie unter [Schnellstart: Erstellen eines Cognitive Services-Kontos im Azure-Portal](../cognitive-services-apis-create-account.md) beschrieben vor, um den Content Moderator-Dienst zu abonnieren und Ihren Schlüssel zu erhalten.
 - Ein Abonnementschlüssel für maschinelles Sehen (siehe obige Anweisungen).
 - Eine beliebige Edition von [Visual Studio 2015 oder 2017](https://www.visualstudio.com/downloads/).
 - Bilder für jede Bezeichnung zur Verwendung durch die Custom Vision-Klassifizierung (in diesem Fall Spielsachen, Stifte und US-Flaggen).
@@ -48,7 +48,7 @@ Informationen zum Registrieren für das [Content Moderator-Prüfungstool](https:
 
 ## <a name="create-custom-moderation-tags"></a>Erstellen benutzerdefinierter Moderationstags
 
-Erstellen Sie als Nächstes im Prüfungstool benutzerdefinierte Tags. (Informationen hierzu finden Sie bei Bedarf im Artikel [Infos zu Tags](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags).) Wir fügen hier folgende Tags hinzu: **celebrity** (prominente Person), **USA** , **flag** (Flagge), **toy** (Spielzeug) und **pen** (Stift). Es muss sich nicht bei allen Tags um Kategorien handeln, die durch maschinelles Sehen erkannt werden können (beispielsweise **celebrity** ). Sie können gerne eigene benutzerdefinierte Tags hinzufügen, solange Sie die Custom Vision-Klassifizierung später für deren Erkennung trainieren.
+Erstellen Sie als Nächstes im Prüfungstool benutzerdefinierte Tags. (Informationen hierzu finden Sie bei Bedarf im Artikel [Infos zu Tags](./review-tool-user-guide/configure.md#tags).) Wir fügen hier folgende Tags hinzu: **celebrity** (prominente Person), **USA** , **flag** (Flagge), **toy** (Spielzeug) und **pen** (Stift). Es muss sich nicht bei allen Tags um Kategorien handeln, die durch maschinelles Sehen erkannt werden können (beispielsweise **celebrity** ). Sie können gerne eigene benutzerdefinierte Tags hinzufügen, solange Sie die Custom Vision-Klassifizierung später für deren Erkennung trainieren.
 
 ![Konfigurieren von benutzerdefinierten Tags](images/tutorial-ecommerce-tags2.PNG)
 
@@ -90,11 +90,11 @@ Die nächste Methode akzeptiert eine Bild-URL und die Informationen Ihres Abonne
 
 ## <a name="evaluatecustomvisiontags-method"></a>Methode „EvaluateCustomVisionTags“
 
-Sehen Sie sich als Nächstes die Methode **EvaluateCustomVisionTags** an. Diese klassifiziert die eigentlichen Produkte (in diesem Fall Flaggen, Spielsachen und Stifte). Gehen Sie gemäß der Anleitung unter [Erstellen einer Klassifizierung mit Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) vor, um Ihre eigene benutzerdefinierte Bildklassifizierung zu erstellen und Flaggen, Spielsachen und Stifte (oder andere benutzerdefinierte Tags) in Bildern zu erkennen. Sie können die Bilder im Ordner **sample-images** des [GitHub-Repositorys](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) verwenden, um schnell einige der Kategorien in diesem Beispiel zu trainieren.
+Sehen Sie sich als Nächstes die Methode **EvaluateCustomVisionTags** an. Diese klassifiziert die eigentlichen Produkte (in diesem Fall Flaggen, Spielsachen und Stifte). Gehen Sie gemäß der Anleitung unter [Erstellen einer Klassifizierung mit Custom Vision](../custom-vision-service/getting-started-build-a-classifier.md) vor, um Ihre eigene benutzerdefinierte Bildklassifizierung zu erstellen und Flaggen, Spielsachen und Stifte (oder andere benutzerdefinierte Tags) in Bildern zu erkennen. Sie können die Bilder im Ordner **sample-images** des [GitHub-Repositorys](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) verwenden, um schnell einige der Kategorien in diesem Beispiel zu trainieren.
 
 ![Custom Vision-Webseite mit Trainingsbildern für Stifte, Spielsachen und Flaggen](images/tutorial-ecommerce-custom-vision.PNG)
 
-Rufen Sie nach dem Trainieren Ihrer Klassifizierung den Vorhersageschlüssel und die Vorhersageendpunkt-URL ab (siehe [Abrufen der Vorhersage-URL und des Vorhersage-Schlüssels](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key)), und weisen Sie diese Werte dem Feld `CustomVisionKey` bzw. `CustomVisionUri` zu. Die Methode verwendet diese Werte, um die Klassifizierung abzufragen. Findet die Klassifizierung mindestens eines der benutzerdefinierten Tags auf dem Bild, legt diese Methode die entsprechenden Werte im Array **ReviewTags** auf **true** fest.
+Rufen Sie nach dem Trainieren Ihrer Klassifizierung den Vorhersageschlüssel und die Vorhersageendpunkt-URL ab (siehe [Abrufen der Vorhersage-URL und des Vorhersage-Schlüssels](../custom-vision-service/use-prediction-api.md#get-the-url-and-prediction-key)), und weisen Sie diese Werte dem Feld `CustomVisionKey` bzw. `CustomVisionUri` zu. Die Methode verwendet diese Werte, um die Klassifizierung abzufragen. Findet die Klassifizierung mindestens eines der benutzerdefinierten Tags auf dem Bild, legt diese Methode die entsprechenden Werte im Array **ReviewTags** auf **true** fest.
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=148-171)]
 

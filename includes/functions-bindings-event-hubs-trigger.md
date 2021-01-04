@@ -4,33 +4,33 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: d8c6b79dca97de3dd46eb9c677f2c94191f276b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cd514c852e13b83a679821ca2d940e4ed112bd8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89304026"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558925"
 ---
 Der Funktionstrigger kann verwendet werden, um auf ein Ereignis zu reagieren, das an einen Event Hub-Datenstrom gesendet wird. Sie benötigen Lesezugriff auf den zugrunde liegenden Event Hub, um den Trigger einzurichten. Beim Auslösen der Funktion wird die an die Funktion übergebene Nachricht als Zeichenfolge eingegeben.
 
 ## <a name="scaling"></a>Skalierung
 
-Jede Instanz einer durch ein Ereignis ausgelösten Funktion wird durch eine einzelne [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)-Instanz gesichert. Der (auf Event Hubs basierende) Trigger stellt sicher, dass nur eine [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)-Instanz eine Lease für eine bestimmte Partition erhalten kann.
+Jede Instanz einer durch ein Ereignis ausgelösten Funktion wird durch eine einzelne [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor)-Instanz gesichert. Der (auf Event Hubs basierende) Trigger stellt sicher, dass nur eine [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor)-Instanz eine Lease für eine bestimmte Partition erhalten kann.
 
 Stellen Sie sich einen Event Hub wie folgt vor:
 
 * 10 Partitionen
 * 1\.000 gleichmäßig auf alle Partitionen verteilte Ereignisse mit 100 Nachrichten in jeder Partition
 
-Wenn Ihre Funktion zuerst aktiviert wird, gibt es nur eine Instanz der Funktion. Wir nennen die erste Funktionsinstanz `Function_0`. Die `Function_0`-Funktion umfasst eine einzelne Instanz von [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) mit einer Lease auf allen zehn Partitionen. Diese Instanz beginnt mit dem Lesen von Ereignissen von den Partitionen 0-9. Von diesem Punkt an wird eines der folgenden Ereignisse eintreten:
+Wenn Ihre Funktion zuerst aktiviert wird, gibt es nur eine Instanz der Funktion. Wir nennen die erste Funktionsinstanz `Function_0`. Die `Function_0`-Funktion umfasst eine einzelne Instanz von [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor) mit einer Lease auf allen zehn Partitionen. Diese Instanz beginnt mit dem Lesen von Ereignissen von den Partitionen 0-9. Von diesem Punkt an wird eines der folgenden Ereignisse eintreten:
 
 * **Es sind keine neuen Funktionsinstanzen erforderlich:** `Function_0` kann alle 1.000 Ereignisse verarbeiten, bevor die Skalierungslogik von Functions einsetzt. In diesem Fall werden alle 1.000 Nachrichten von `Function_0` verarbeitet.
 
-* **Eine weitere Funktionsinstanz wird hinzugefügt**: Wenn die Functions-Skalierungslogik bestimmt, dass `Function_0` mehr Nachrichten enthält, als verarbeitet werden können, wird eine neue Funktions-App-Instanz (`Function_1`) erstellt. Diese neue Funktion umfasst auch eine zugeordnete Instanz von [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor). Wenn die zugrunde liegende Event Hubs-Instanz erkennt, dass eine neue Hostinstanz versucht, Nachrichten zu lesen, wird ein Lastenausgleich der Partitionen in den Hostinstanzen vorgenommen. Zum Beispiel können die Partitionen 0-4 `Function_0` und die Partitionen 5-9 `Function_1` zugewiesen werden.
+* **Eine weitere Funktionsinstanz wird hinzugefügt**: Wenn die Functions-Skalierungslogik bestimmt, dass `Function_0` mehr Nachrichten enthält, als verarbeitet werden können, wird eine neue Funktions-App-Instanz (`Function_1`) erstellt. Diese neue Funktion umfasst auch eine zugeordnete Instanz von [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor). Wenn die zugrunde liegende Event Hubs-Instanz erkennt, dass eine neue Hostinstanz versucht, Nachrichten zu lesen, wird ein Lastenausgleich der Partitionen in den Hostinstanzen vorgenommen. Zum Beispiel können die Partitionen 0-4 `Function_0` und die Partitionen 5-9 `Function_1` zugewiesen werden.
 
 * **N weitere Funktionsinstanzen werden hinzufügt**: Wenn die Functions-Skalierungslogik bestimmt, dass sowohl `Function_0` als auch `Function_1` mehr Nachrichten aufweisen, als verarbeitet werden können, werden neue `Functions_N`-Funktions-App-Instanzen erstellt.  Apps werden erstellt, bis `N` größer ist als die Anzahl der Event Hub-Partitionen. In unserem Beispiel für Event Hubs erneut einen Lastenausgleich für die Partitionen aus, in diesem Fall für die Instanzen `Function_0`... `Functions_9`.
 
-Wenn skaliert wird, entsprechen `N` Instanzen einer Zahl, die größer als die Anzahl der Event Hub-Partitionen ist. Dieses Muster wird verwendet, um sicherzustellen, dass [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)-Instanzen verfügbar sind, um Partitionen zu sperren, sobald diese von anderen Instanzen bereitgestellt werden. Es werden Ihnen nur die Ressourcen berechnet, die bei der Ausführung der Funktionsinstanz in Anspruch genommen werden. Das heißt, die Kosten für diese übermäßige Bereitstellung werden nicht berechnet.
+Wenn skaliert wird, entsprechen `N` Instanzen einer Zahl, die größer als die Anzahl der Event Hub-Partitionen ist. Dieses Muster wird verwendet, um sicherzustellen, dass [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor)-Instanzen verfügbar sind, um Partitionen zu sperren, sobald diese von anderen Instanzen bereitgestellt werden. Es werden Ihnen nur die Ressourcen berechnet, die bei der Ausführung der Funktionsinstanz in Anspruch genommen werden. Das heißt, die Kosten für diese übermäßige Bereitstellung werden nicht berechnet.
 
 Wenn alle Funktionsausführungen abgeschlossen sind (mit oder ohne Fehler), werden Prüfpunkte dem zugehörigen Speicherkonto hinzugefügt. Wenn die Prüfpunkte erfolgreich erstellt wurden, werden alle 1.000 Nachrichten nie wieder abgerufen.
 
@@ -343,7 +343,7 @@ Attribute werden von Python nicht unterstützt.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Verwenden Sie die [EventHubTrigger](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhubtrigger)-Anmerkung aus der [Laufzeitbibliothek für Java-Funktionen](https://docs.microsoft.com/java/api/overview/azure/functions/runtime) für Parameter, deren Wert von Event Hub empfangen wird. Parameter mit diesen Anmerkungen führen dazu, dass die Funktion ausgeführt wird, wenn ein Ereignis empfangen wird. Diese Anmerkung kann mit nativen Java-Typen, POJOs oder Werten mit `Optional<T>`, die NULL-Werte annehmen können, verwendet werden.
+Verwenden Sie die [EventHubTrigger](/java/api/com.microsoft.azure.functions.annotation.eventhubtrigger)-Anmerkung aus der [Laufzeitbibliothek für Java-Funktionen](/java/api/overview/azure/functions/runtime) für Parameter, deren Wert von Event Hub empfangen wird. Parameter mit diesen Anmerkungen führen dazu, dass die Funktion ausgeführt wird, wenn ein Ereignis empfangen wird. Diese Anmerkung kann mit nativen Java-Typen, POJOs oder Werten mit `Optional<T>`, die NULL-Werte annehmen können, verwendet werden.
 
 ---
 
@@ -366,11 +366,11 @@ Die folgende Tabelle gibt Aufschluss über die Bindungskonfigurationseigenschaft
 
 ## <a name="event-metadata"></a>Ereignismetadaten
 
-Der Event Hubs-Trigger stellt mehrere [Metadateneigenschaften](../articles/azure-functions/./functions-bindings-expressions-patterns.md) bereit. Metadateneigenschaften können als Teil der Bindungsausdrücke in anderen Bindungen oder als Parameter im Code verwendet werden. Die Eigenschaften stammen aus der [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata)-Klasse.
+Der Event Hubs-Trigger stellt mehrere [Metadateneigenschaften](../articles/azure-functions/./functions-bindings-expressions-patterns.md) bereit. Metadateneigenschaften können als Teil der Bindungsausdrücke in anderen Bindungen oder als Parameter im Code verwendet werden. Die Eigenschaften stammen aus der [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata)-Klasse.
 
 |Eigenschaft|type|BESCHREIBUNG|
 |--------|----|-----------|
-|`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|Die `PartitionContext`-Instanz.|
+|`PartitionContext`|[PartitionContext](/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|Die `PartitionContext`-Instanz.|
 |`EnqueuedTimeUtc`|`DateTime`|Die in die Warteschlange eingereihte Uhrzeit in UTC.|
 |`Offset`|`string`|Der Offset der Daten relativ zum Event Hub-Partitionsdatenstrom. Der Offset ist ein Marker oder ein Bezeichner für ein Ereignis innerhalb des Event Hubs-Datenstroms. Der Bezeichner ist innerhalb einer Partition des Event Hubs-Datenstroms eindeutig.|
 |`PartitionKey`|`string`|Die Partition, an die Ereignisdaten gesendet werden sollen.|

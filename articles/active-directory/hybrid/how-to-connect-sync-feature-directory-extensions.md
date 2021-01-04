@@ -16,12 +16,12 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a0765f5279eb41324691c431c5973bb55a8b52d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74bc659c11c4f43ab3cf85cdc53f704cd07a1cde
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662485"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172366"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect Sync: Verzeichniserweiterungen
 Sie können Verzeichniserweiterungen verwenden, um das Schema in Azure Active Directory (Azure AD) um Ihre eigenen Attribute aus dem lokalen Active Directory zu erweitern. Dank dieses Features können Sie Branchen-Apps erstellen, indem Sie Attribute nutzen, die Sie weiterhin lokal verwalten. Diese Attribute können über [Erweiterungen](/graph/extensibility-overview
@@ -70,6 +70,9 @@ Diese Attribute sind jetzt in [Microsoft Graph-Explorer](https://developer.micro
 > In der Microsoft Graph-API müssen Sie die zurückzugebenden Attribute anfordern. Wählen Sie die Attribute wie folgt explizit aus: `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division`.
 >
 > Weitere Informationen finden Sie unter [Microsoft Graph: Verwenden von Abfrageparametern](/graph/query-parameters#select-parameter).
+
+>[!NOTE]
+> Das Synchronisieren von Attributwerten aus AAD Connect mit Erweiterungsattributen, die nicht von AAD Connect erstellt wurden, wird nicht unterstützt. Dies kann zu einer Beeinträchtigung der Leistung und zu unerwarteten Ergebnissen führen. Nur Erweiterungsattribute, die wie oben gezeigt erstellt wurden, werden für die Synchronisierung unterstützt.
 
 ## <a name="use-the-attributes-in-dynamic-groups"></a>Verwenden der Attribute in dynamischen Gruppen
 

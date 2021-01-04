@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: rkarlin
-ms.openlocfilehash: 4189cb8628db58343c816535836af82825014b7e
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: a8697094a3366e3b82ca65f1b962101243b22f84
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096316"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548918"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Architektur von Azure Defender für IoT
 
@@ -69,7 +69,7 @@ Mithilfe von maschinellem Lernen warnt die Erkennungs-Engine für Richtlinienver
 Die Erkennungs-Engine für industrielle Schadsoftware identifiziert Verhalten, die auf das Vorhandensein bekannter Schadsoftware hinweisen, z. B. Conficker, Black Energy, Havex, WannaCry, NotPetya und Triton. 
 
 #### <a name="anomaly-detection-engine"></a>Anomalieerkennungs-Engine
-Die Anomalieerkennungs-Engine erkennt ungewöhnliche Maschine-zu-Maschine (M2M)-Kommunikation und -Verhaltensweisen. Durch die Modellierung von ICS-Netzwerken als deterministische Sequenzen von Status und Übergängen erfordert die Plattform einen kürzeren Lernzeitraum als generische mathematische Ansätze oder Analysen, die ursprünglich für IT und nicht für OT entwickelt wurden. Sie erkennt auch Anomalien schneller, mit minimalen falsch positiven Ergebnissen. Warnungen der Anomalieerkennungs-Engine enthalten „Excessive SMB login attempts“ (Übermäßig viele SMB-Anmeldeversuche) und „PLC Scan Detected“ (PLC-Scan erkannt).
+Die Anomalieerkennungs-Engine erkennt ungewöhnliche Maschine-zu-Maschine (M2M)-Kommunikation und -Verhaltensweisen. Durch die Modellierung von ICS-Netzwerken als deterministische Sequenzen von Status und Übergängen erfordert die Plattform einen kürzeren Lernzeitraum als generische mathematische Ansätze oder Analysen, die ursprünglich für IT und nicht für OT entwickelt wurden. Sie erkennt auch Anomalien schneller, mit minimalen falsch positiven Ergebnissen. Warnungen der Anomalieerkennungs-Engine enthalten übermäßig viele SMB-Anmeldeversuche und erkannte PLC-Scans.
 
 #### <a name="operational-incident-detection"></a>Erkennung von Betriebsvorfällen
 Die Erkennung von Betriebsvorfällen erkennt Betriebsprobleme, z. B. Verbindungsunterbrechung, die auf frühe Anzeichen von Gerätefehlern hinweisen können. Beispielsweise wird vermutet, dass das Gerät getrennt ist (nicht reagiert) und dem Befehl „Siemens S7 stop PLC“ Warnungen gesendet wurden.
@@ -82,7 +82,7 @@ Die Verwaltung von Azure Defender für IoT in Hybridumgebungen erfolgt über zwe
 - Das Azure-Portal
 
 #### <a name="sensor-console"></a>Sensorkonsole
-Sensorerkennungen werden in der Sensorkonsole angezeigt. Dort können sie in einer Netzwerkübersicht, im Ressourcenbestand und in einer umfangreichen Palette von Berichten (z. B. Risikobewertungsberichten, Data Mining-Abfragen und Angriffsvektoren) angezeigt, untersucht und analysiert werden. Sie können über die Konsole auch von Sensormodulen erkannte Bedrohungen anzeigen und behandeln, Informationen an Drittanbietersysteme weiterleiten, Benutzer verwalten und vieles mehr.
+Sensorerkennungen werden in der Sensorkonsole angezeigt. Dort können sie in einer Netzwerkübersicht, im Ressourcenbestand und in einer umfangreichen Palette von Berichten (z. B. Risikobewertungsberichten, Data Mining-Abfragen und Angriffsvektoren) angezeigt, untersucht und analysiert werden. Sie können die Konsole auch verwenden, um von Sensormodulen erkannte Bedrohungen anzuzeigen und zu behandeln, Informationen an Drittanbietersysteme weiterzuleiten, Benutzer zu verwalten und vieles mehr.
 
 ![Defender für IoT-Sensorkonsole](./media/architecture/sensor-console.png)
 
@@ -107,7 +107,7 @@ Im Modus **Integriert** wird Defender für IoT aktiviert, wenn Sie in Ihrem IoT 
 
 Nach dem Aktivieren der Option **Sicherheit** in Ihrem IoT Hub und der Installation von Defender für IoT-Geräte-Agents auf Ihren Geräten erfassen, aggregieren und analysieren die Agents im Modus **Erweitert** Sicherheitsereignis-Rohdaten von Ihren Geräten. Sicherheitsereignis-Rohdaten können IP-Verbindungen, die Prozesserstellung, Benutzeranmeldungen und andere sicherheitsrelevante Informationen enthalten. Defender für IoT-Geräte-Agents verarbeiten auch die Ereignisaggregation, um hohe Netzwerkdurchsätze zu vermeiden. Die Agents sind in hohem Maße anpassbar, sodass Sie sie für bestimmte Aufgaben wie das Senden ausschließlich wichtiger Informationen mit dem dringlichsten SLA oder für das Aggregieren umfangreicher Sicherheitsinformationen und Kontextdaten zu größeren Segmenten verwenden und auf diese Weise höhere Servicekosten vermeiden können.
 
-Geräte-Agents und andere Anwendungen verwenden das **Azure Security Center SDK zum Senden von Sicherheitsmeldungen** , um Sicherheitsinformationen an Azure IoT Hub zu senden. IoT Hub ruft diese Informationen ab und leitet sie an den Defender für IoT-Dienst weiter.
+Geräte-Agents und andere Anwendungen verwenden das **Azure Security Center SDK zum Senden von Sicherheitsmeldungen**, um Sicherheitsinformationen an Azure IoT Hub zu senden. IoT Hub ruft diese Informationen ab und leitet sie an den Defender für IoT-Dienst weiter.
 
 Sobald der Defender für IoT-Dienst aktiviert ist, versendet IoT Hub zusätzlich zu den weitergeleiteten Daten alle seine internen Daten für die Analyse durch Defender für IoT. Diese Daten umfassen Cloudvorgangsprotokolle von Geräten, Geräte-Identitäten und die Hub-Konfiguration. Alle diese Informationen tragen dazu bei, die Defender für IoT-Analysepipeline zu erstellen.
 

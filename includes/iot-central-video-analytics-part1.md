@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: iot-central
 author: dominicbetts
 ms.service: iot-central
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 7246375468b3419c3d52ee3d5a51a95aa20050a9
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 2f3e4bf640b8da31a7fa4d818b94b0372d3026b8
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876661"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763425"
 ---
 Die Beispielanwendung umfasst zwei simulierte Geräte und ein IoT Edge-Gateway. Die folgenden Tutorials veranschaulichen zwei Ansätze zum Experimentieren mit den Funktionen des Gateways und zum besseren Verständnis:
 
@@ -36,6 +36,6 @@ Zum Abschließen dieses Tutorials benötigen Sie Folgendes:
 
 ## <a name="initial-setup"></a>Erste Einrichtung
 
-In diesen Tutorials aktualisieren und verwenden Sie mehrere Konfigurationsdateien. Die Anfangsversionen dieser Dateien sind im GitHub-Repository [LVA-gateway](https://github.com/Azure/live-video-analytics/tree/master/ref-apps/lva-edge-iot-central-gateway) verfügbar. Das Repository enthält auch eine Scratchpad-Textdatei, die Sie herunterladen und verwenden können, um Konfigurationswerte für die von Ihnen bereitgestellten Dienste aufzuzeichnen.
+In diesen Tutorials aktualisieren und verwenden Sie mehrere Konfigurationsdateien. Die Anfangsversionen dieser Dateien sind im GitHub-Repository [LVA-gateway](https://github.com/Azure/live-video-analytics/tree/master/ref-apps/lva-edge-iot-central-gateway) verfügbar. Das Repository enthält eine [Scratchpad](https://github.com/Azure/live-video-analytics/blob/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt)-Textdatei, die Sie herunterladen und verwenden können, um Konfigurationswerte für die von Ihnen bereitgestellten Dienste aufzuzeichnen. Mit dieser Datei können Sie später Schritte in den Tutorials ausführen.
 
 Erstellen Sie auf Ihrem lokalen Computer einen Ordner mit dem Namen *lva-configuration*, um darin Kopien dieser Dateien zu speichern. Klicken Sie anschließend mit der rechten Maustaste auf die folgenden Links, und wählen Sie **Speichern unter** aus, um die Datei im Ordner *lva-configuration* zu speichern:

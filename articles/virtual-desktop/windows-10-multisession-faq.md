@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 91c7c19fddab2a4372f183c90532b24e774277d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24d27859aad7642392a5702ab7ddbb727b538d51
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88008048"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025009"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Häufig gestellte Fragen zu Windows 10 Enterprise mit mehreren Sitzungen
 
@@ -80,8 +80,8 @@ Das passiert, weil Sie Windows 10 Enterprise mit mehreren Sitzungen mit einer P
 Die meisten virtualisierten Umgebungen sind standardmäßig so konfiguriert, dass Benutzer keine zusätzlichen Apps in ihren Profilen installieren können. Wenn Sie sicherstellen möchten, dass eine App nicht verschwindet, wenn sich der Benutzer von Windows Virtual Desktop abmeldet, müssen Sie diese App für alle Benutzerprofile in Ihrer Umgebung bereitstellen. Weitere Informationen zur App-Bereitstellung finden Sie in den folgenden Ressourcen:
 
 - [Veröffentlichen von integrierten Apps in Windows Virtual Desktop](publish-apps.md)
-- [Befehlszeilenoptionen für die Wartung von DISM-App-Paketen (APPX- oder APPXBUNDLE-Dateien)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
-- [Add-AppxProvisionedPackage](https://docs.microsoft.com/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
+- [Befehlszeilenoptionen für die Wartung von DISM-App-Paketen (APPX- oder APPXBUNDLE-Dateien)](/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
+- [Add-AppxProvisionedPackage](/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
 
 ## <a name="how-do-i-make-sure-users-dont-download-and-install-apps-from-the-microsoft-store"></a>Wie kann ich sicherstellen, dass Benutzer keine Apps aus dem Microsoft Store herunterladen und installieren?
 

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: b5170f1c2e6c72c684cb1afcf1bf9bf8d3ef6fff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79ccf0f8aae7e915601081f875cea294de52d787
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91284362"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500851"
 ---
 # <a name="database-advisor-performance-recommendations-for-azure-sql-database"></a>Database Advisor: Empfehlungen zur Leistung für Azure SQL-Datenbank
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -57,7 +57,7 @@ Azure SQL-Datenbank überwacht kontinuierlich die ausgeführten Abfragen und erk
 
 Azure SQL-Datenbank baut Vertrauen auf, indem berechnet wird, zu welchem Leistungsgewinn der Index mit der Zeit führen würde. Je nach geschätztem Leistungsgewinn werden Empfehlungen als „Hoch“, „Mittel“ oder „Niedrig“ eingestuft.
 
-Indizes, die mit Empfehlungen erstellt wurden, sind immer als automatisch erstellte Indizes gekennzeichnet. Sie können in der [Ansicht „sys.indexes“](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql) anzeigen, welche Indizes automatisch erstellt wurden. Automatisch erstellte Indizes blockieren keine ALTER/RENAME-Befehle.
+Indizes, die mit Empfehlungen erstellt wurden, sind immer als automatisch erstellte Indizes gekennzeichnet. Sie können in der [Ansicht „sys.indexes“](/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql) anzeigen, welche Indizes automatisch erstellt wurden. Automatisch erstellte Indizes blockieren keine ALTER/RENAME-Befehle.
 
 Wenn Sie versuchen, die Spalte mit einem automatisch erstellten Index zu löschen, wird der Befehl übergeben. Der automatisch erstellte Index wird ebenfalls mit dem Befehl gelöscht. Reguläre Indizes blockieren den Befehl ALTER/RENAME für Spalten, die indiziert sind.
 
@@ -114,7 +114,7 @@ Die Empfehlung zum „Beheben von Schemaproblemen“ wird angezeigt, wenn Azure 
 
 ## <a name="custom-applications"></a>Benutzerdefinierte Anwendungen
 
-Entwickler sollten in Betracht ziehen, benutzerdefinierte Anwendungen unter Verwendung von Leistungsempfehlungen für Azure SQL-Datenbank zu entwickeln. Auf alle im Portal aufgeführten Empfehlungen für eine Datenbank kann über die [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction)-API zugegriffen werden.
+Entwickler sollten in Betracht ziehen, benutzerdefinierte Anwendungen unter Verwendung von Leistungsempfehlungen für Azure SQL-Datenbank zu entwickeln. Auf alle im Portal aufgeführten Empfehlungen für eine Datenbank kann über die [Get-AzSqlDatabaseRecommendedAction](/powershell/module/az.sql/get-azsqldatabaserecommendedaction)-API zugegriffen werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

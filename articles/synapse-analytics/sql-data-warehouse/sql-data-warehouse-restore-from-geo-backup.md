@@ -1,39 +1,39 @@
 ---
-title: Wiederherstellung einer Data Warehouse-Instanz von einer Geosicherung
-description: Leitfaden für die Geowiederherstellung eines SQL-Pools
+title: Wiederherstellen eines dedizierten SQL-Pools aus einer Geosicherung
+description: Schrittanleitung für die Geowiederherstellung eines dedizierten SQL-Pools in Azure Synapse Analytics
 services: synapse-analytics
 author: anumjs
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 07/12/2019
-ms.author: anjangsh
+ms.date: 11/13/2020
+ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3c8d78c164cefbab03d9d3fa783c75ded9773d38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4683bd84873506483209f4a0eb3751a1b163ed48
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87075806"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449874"
 ---
-# <a name="geo-restore-for-sql-pool"></a>Geowiederherstellung für SQL-Pool
+# <a name="geo-restore-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Geowiederherstellung eines dedizierten SQL-Pools in Azure Synapse Analytics
 
-In diesem Artikel erfahren Sie, wie Sie Ihren SQL-Pool aus einer Geosicherung über das Azure-Portal und PowerShell wiederherstellen.
+In diesem Artikel erfahren Sie, wie Sie Ihren dedizierten SQL-Pool (früher SQL Data Warehouse) aus einer Geosicherung über das Azure-Portal und PowerShell wiederherstellen.
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Überprüfen Sie Ihre DTU-Kapazität.** Jeder SQL-Pool wird von einemr [logischen SQL Server-Instanz](../../azure-sql/database/logical-servers.md) gehostet (z. B. myserver.database.windows.net), die über ein Standard-DTU-Kontingent verfügt. Vergewissern Sie sich, dass die SQL Server-Instanz über ein ausreichendes DTU-Kontingent für die Datenbankwiederherstellung verfügt. Informationen zum Berechnen des DTU-Bedarfs bzw. zur Anforderung weiterer DTUs finden Sie unter [Anfordern einer DTU-Kontingentänderung](sql-data-warehouse-get-started-create-support-ticket.md).
+**Überprüfen Sie Ihre DTU-Kapazität.** Jeder dedizierte SQL-Pool (früher SQL Data Warehouse) wird von einem [logischen SQL-Server](../../azure-sql/database/logical-servers.md) gehostet (z. B. myserver.database.windows.net), der über ein DTU-Standardkontingent verfügt. Vergewissern Sie sich, dass die SQL Server-Instanz über ein ausreichendes DTU-Kontingent für die Datenbankwiederherstellung verfügt. Informationen zum Berechnen des DTU-Bedarfs bzw. zur Anforderung weiterer DTUs finden Sie unter [Anfordern einer DTU-Kontingentänderung](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>Wiederherstellen von einer geografischen Azure-Region mithilfe von PowerShell
 
 Verwenden Sie für die Wiederherstellung aus einer Geosicherung die Cmdlets [Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) und [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 > [!NOTE]
-> Sie können eine Geowiederherstellung nach Gen2 durchführen! Geben Sie zu diesem Zweck als optionalen Parameter einen ServiceObjectiveName-Wert für Gen2 ein (z.B. DW1000**c**).
+> Sie können eine Geowiederherstellung nach Gen2 durchführen! Geben Sie zu diesem Zweck als optionalen Parameter einen ServiceObjectiveName-Wert für Gen2 ein (z.B. DW1000 **c**).
 >
 
 1. Bevor Sie beginnen, müssen Sie [Azure PowerShell installieren](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
@@ -74,28 +74,24 @@ Für die wiederhergestellte Datenbank ist TDE aktiviert, wenn für die Quelldate
 
 ## <a name="restore-from-an-azure-geographical-region-through-azure-portal"></a>Wiederherstellen von einer geografischen Azure-Region über das Azure-Portal
 
-Führen Sie die folgenden Schritte aus, um einen SQL-Pool aus einer Geosicherung wiederherzustellen:
+Führen Sie die folgenden Schritte aus, um einen dedizierten SQL-Pool (früher SQL Data Warehouse) aus einer Geosicherung wiederherzustellen:
 
 1. Melden Sie sich bei Ihrem [Azure-Portal](https://portal.azure.com/)-Konto an.
-2. Klicken Sie auf **+ Ressource erstellen**.
+1. Suchen Sie nach **Dedizierte SQL-Pools (früher SQL Data Warehouse)** .
 
-   ![Neues Data Warehouse](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
+   ![Neues DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
-3. Klicken Sie auf **Datenbanken** und dann auf **Azure Synapse Analytics (vormals SQL DW)** .
-
-   ![Neues DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
-
-4. Geben Sie auf der Registerkarte **Grundlagen** die angeforderten Informationen ein, und klicken Sie auf **Weiter: Zusätzliche Einstellungen**.
+1. Klicken Sie auf „Hinzufügen“. Geben Sie auf der Registerkarte **Grundlagen** die angeforderten Informationen ein, und klicken Sie auf **Weiter: Zusätzliche Einstellungen**.
 
    ![Grundlagen](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
-5. Wählen Sie für den Parameter **Vorhandenen Daten verwenden** die Option **Sicherung** aus, und wählen Sie dann die entsprechende Sicherung aus den Scrolldownoptionen aus. Klicken Sie auf **Überprüfen und erstellen**.
+1. Wählen Sie für den Parameter **Vorhandenen Daten verwenden** die Option **Sicherung** aus, und wählen Sie dann die entsprechende Sicherung aus den Scrolldownoptionen aus. Klicken Sie auf **Überprüfen und erstellen**.
 
    ![Sicherung](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 
-6. Nachdem das Data Warehouse wieder hergestellt wurde, überprüfen Sie, ob der **Status** „Online“ lautet.
+1. Nachdem das Data Warehouse wieder hergestellt wurde, überprüfen Sie, ob der **Status** „Online“ lautet.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Wiederherstellen eines vorhandenen SQL-Pools](sql-data-warehouse-restore-active-paused-dw.md)
-- [Wiederherstellen eines gelöschten SQL-Pools](sql-data-warehouse-restore-deleted-dw.md)
+- [Wiederherstellen eines vorhandenen dedizierten SQL-Pools (früher SQL Data Warehouse)](sql-data-warehouse-restore-active-paused-dw.md)
+- [Wiederherstellen eines gelöschten dedizierten SQL-Pools (früher SQL Data Warehouse)](sql-data-warehouse-restore-deleted-dw.md)

@@ -7,12 +7,12 @@ author: gitralf
 ms.author: ralfwi
 ms.service: germany
 ms.custom: bfdocs
-ms.openlocfilehash: 25e2dc2fbf02ae890f680eee9c5e23e2a49949c5
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: f5749ed9d2080a92a33993d8131595359110b75e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122213"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018603"
 ---
 # <a name="connect-to-azure-germany-by-using-visual-studio"></a>Herstellen einer Verbindung mit Azure Deutschland über Visual Studio
 
@@ -96,7 +96,7 @@ Windows Registry Editor Version 5.00
 ```
 
 1. Speichern Sie die Datei, und doppelklicken Sie anschließend darauf, um sie auszuführen. Sie werden aufgefordert, die Datei mit Ihrer Registrierung zusammenzuführen.
-1. Starten Sie Visual Studio. Nun können Sie den [Cloud-Explorer](../vs-azure-tools-resources-managing-with-cloud-explorer.md) mit Ihrem Azure Deutschland-Konto verwenden.
+1. Starten Sie Visual Studio. Nun können Sie den [Cloud-Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer) mit Ihrem Azure Deutschland-Konto verwenden.
 
 > [!NOTE]
 > Nach dem Festlegen dieses Registrierungsschlüssels können Sie nur auf Azure Deutschland-Abonnements zugreifen. Zuvor konfigurierte Abonnements werden zwar noch angezeigt, funktionieren jedoch nicht, da Visual Studio jetzt mit Azure Deutschland statt mit der globalen Azure-Umgebung verbunden ist. Um eine Verbindung mit der globalen Azure-Umgebung herzustellen, machen Sie die Änderungen rückgängig.

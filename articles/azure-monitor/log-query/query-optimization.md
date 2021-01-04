@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: ba9f2b10258f19504e3fd37723eceff7b8c37f6a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a817c12a367d7c14f693389920e49b368a35cc06
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203482"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522871"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimieren von Protokollabfragen in Azure Monitor
-Azure Monitor-Protokolle verwendet [Azure Data Explorer (ADX)](/azure/data-explorer/), um Protokolldaten zu speichern und Abfragen zum Analysieren dieser Daten auszuführen. Es werden die ADX-Cluster für Sie erstellt, verwaltet und gepflegt sowie für Ihre Protokollanalyse-Workload optimiert. Wenn Sie eine Abfrage ausführen, wird diese optimiert und an den entsprechenden ADX-Cluster weitergeleitet, der die Arbeitsbereichsdaten speichert. Sowohl Azure Monitor-Protokolle als auch Azure Data Explorer nutzen eine Vielzahl automatischer Mechanismen zur Abfrageoptimierung. Automatische Optimierungen bieten zwar eine deutliche Steigerung, aber in einigen Fällen können Sie damit die Abfrageleistung erheblich verbessern. In diesem Artikel werden Leistungsaspekte sowie verschiedene Verfahren zur Behebung von Leistungsproblemen erläutert.
+Azure Monitor-Protokolle verwendet [Azure Data Explorer (ADX)](/azure/data-explorer/), um Protokolldaten zu speichern und Abfragen zum Analysieren dieser Daten auszuführen. Es werden die ADX-Cluster für Sie erstellt, verwaltet und gepflegt sowie für Ihre Protokollanalyse-Workload optimiert. Wenn Sie eine Abfrage ausführen, wird diese optimiert und an den entsprechenden ADX-Cluster weitergeleitet, der die Arbeitsbereichsdaten speichert. Sowohl Azure Monitor-Protokolle als auch Azure Data Explorer nutzen eine Vielzahl automatischer Mechanismen zur Abfrageoptimierung. Automatische Optimierungen bieten bereits eine deutliche Steigerung, aber in einigen Fällen können Sie die Abfrageleistung erheblich verbessern. In diesem Artikel werden Leistungsaspekte sowie verschiedene Verfahren zur Behebung von Leistungsproblemen erläutert.
 
 Die meisten der Verfahren gelten für Abfragen, die direkt in Azure Data Explorer und Azure Monitor-Protokolle ausgeführt werden. Es gibt jedoch einige Aspekte, die nur auf Azure Monitor-Protokolle zutreffen und hier erläutert werden. Weitere Tipps zur Optimierung von Azure Data Explorer finden Sie unter [Best Practices für Abfragen](/azure/kusto/query/best-practices).
 
@@ -131,7 +131,7 @@ SecurityEvent
 
 Während einige Aggregationsbefehle wie [max()](/azure/kusto/query/max-aggfunction), [sum()](/azure/kusto/query/sum-aggfunction), [count()](/azure/kusto/query/count-aggfunction) und [avg()](/azure/kusto/query/avg-aggfunction) aufgrund ihrer Logik nur geringe CPU-Auswirkung haben, sind andere komplexer und umfassen Heuristik und Schätzungen, die eine effiziente Ausführung ermöglichen. Beispielsweise verwendet [dcount()](/azure/kusto/query/dcount-aggfunction) den HyperLogLog-Algorithmus, um eine genaue Schätzung für die eindeutige Anzahl großer Datenmengen zu liefern, ohne jeden Wert tatsächlich zu zählen. Mit den Perzentilfunktionen werden ähnliche Annäherungen mithilfe des Algorithmus für das Perzentil des nächsten Rangs durchgeführt. Einige der Befehle enthalten optionale Parameter, um ihre Auswirkung zu verringern. Beispielsweise verfügt die [makeset()](/azure/kusto/query/makeset-aggfunction)-Funktion über einen optionalen Parameter zum Definieren der maximalen festgelegten Größe, was sich erheblich auf CPU und Arbeitsspeicher auswirkt.
 
-[join](/azure/kusto/query/joinoperator?pivots=azuremonitor)- und [summarize](/azure/kusto/query/summarizeoperator)-Befehle können zu einer hohen CPU-Auslastung führen, wenn mit ihnen eine große Datenmenge verarbeitet wird. Ihre Komplexität steht in direktem Bezug zur Anzahl möglicher Werte ( *Kardinalität* genannt) der Spalten, die als `by` in „summarize“ oder als „join“-Attribute verwendet werden. Eine Erläuterung und Informationen zur Optimierung von „join“ und „summarize“ finden Sie in den Artikeln und Optimierungstipps in der jeweiligen Dokumentation.
+[join](/azure/kusto/query/joinoperator?pivots=azuremonitor)- und [summarize](/azure/kusto/query/summarizeoperator)-Befehle können zu einer hohen CPU-Auslastung führen, wenn mit ihnen eine große Datenmenge verarbeitet wird. Ihre Komplexität steht in direktem Bezug zur Anzahl möglicher Werte (*Kardinalität* genannt) der Spalten, die als `by` in „summarize“ oder als „join“-Attribute verwendet werden. Eine Erläuterung und Informationen zur Optimierung von „join“ und „summarize“ finden Sie in den Artikeln und Optimierungstipps in der jeweiligen Dokumentation.
 
 Beispielsweise wird mit den folgenden Abfragen genau das gleiche Ergebnis erzielt, da **CounterPath** immer **CounterName** und **ObjectName** eins zu eins zugeordnet wird. Die zweite Abfrage ist effizienter, da die Aggregationsdimension kleiner ist:
 
@@ -197,7 +197,7 @@ Ein kritischer Faktor bei der Verarbeitung der Abfrage ist die Menge an Daten, d
 
 Abfragen, die mehr als 2.000 KB Daten verarbeiten, werden als Abfragen mit übermäßigem Ressourcenverbrauch betrachtet. Abfragen, die mehr als 20.000 KB Daten verarbeiten, werden als missbräuchliche Abfragen betrachtet und möglicherweise gedrosselt.
 
-In Azure Monitor-Protokolle wird die Spalte **TimeGenerated** als Methode zum Indizieren der Daten verwendet. Wenn Sie die **TimeGenerated** -Werte auf einen möglichst kleinen Bereich beschränken, wird die Abfrageleistung wesentlich verbessert, da die Menge der zu verarbeitenden Daten erheblich eingeschränkt wird.
+In Azure Monitor-Protokolle wird die Spalte **TimeGenerated** als Methode zum Indizieren der Daten verwendet. Wenn Sie die **TimeGenerated**-Werte auf einen möglichst kleinen Bereich beschränken, wird die Abfrageleistung wesentlich verbessert, da die Menge der zu verarbeitenden Daten erheblich eingeschränkt wird.
 
 ### <a name="avoid-unnecessary-use-of-search-and-union-operators"></a>Vermeiden der unnötigen Verwendung von search- und union-Operatoren
 
@@ -325,7 +325,7 @@ Abfragen mit einer Zeitspanne von mehr als 15 Tagen werden als Abfragen mit üb
 Der Zeitbereich kann mithilfe der Zeitbereichsauswahl im Log Analytics-Bildschirm festgelegt werden, wie es unter [Protokollabfragebereich und Zeitbereich in Azure Monitor Log Analytics](scope.md#time-range) beschrieben ist. Dies ist die empfohlene Methode, da der ausgewählte Zeitbereich mithilfe der Abfragemetadaten an das Back-End übermittelt wird. 
 
 Eine alternative Methode ist das explizite Einschließen einer [where](/azure/kusto/query/whereoperator)-Bedingung für **TimeGenerated** in die Abfrage. Sie sollten diese Methode verwenden, da dann auch bei Verwendung der Abfrage über eine andere Schnittstelle eine feste Zeitspanne gewährleistet ist.
-Sie sollten sicherstellen, dass alle Teile der Abfrage über **TimeGenerated** -Filter verfügen. Wenn eine Abfrage Unterabfragen zum Abrufen von Daten aus verschiedenen Tabellen oder derselben Tabelle enthält, muss jede dieser Abfragen eine eigene [where](/azure/kusto/query/whereoperator)-Bedingung enthalten.
+Sie sollten sicherstellen, dass alle Teile der Abfrage über **TimeGenerated**-Filter verfügen. Wenn eine Abfrage Unterabfragen zum Abrufen von Daten aus verschiedenen Tabellen oder derselben Tabelle enthält, muss jede dieser Abfragen eine eigene [where](/azure/kusto/query/whereoperator)-Bedingung enthalten.
 
 ### <a name="make-sure-all-sub-queries-have-timegenerated-filter"></a>Stellen Sie sicher, dass alle Unterabfragen über den TimeGenerated-Filter verfügen.
 
@@ -463,7 +463,7 @@ Hier einige Abfrageverhalten, die zur einer Verringerung der Parallelität führ
 - Verwendung von Serialisierungs- und Fensterfunktionen, z. B. dem [serialize-Operator](/azure/kusto/query/serializeoperator), [next()](/azure/kusto/query/nextfunction), [prev()](/azure/kusto/query/prevfunction) und den [row](/azure/kusto/query/rowcumsumfunction)-Funktionen. In einigen dieser Fälle können Zeitreihen- und Benutzeranalysefunktionen verwendet werden. Eine ineffiziente Serialisierung kann auch auftreten, wenn die folgenden Operatoren nicht am Ende der Abfrage verwendet werden: [range](/azure/kusto/query/rangeoperator), [sort](/azure/kusto/query/sortoperator), [order](/azure/kusto/query/orderoperator), [top](/azure/kusto/query/topoperator), [top-hitters](/azure/kusto/query/tophittersoperator), [getschema](/azure/kusto/query/getschemaoperator).
 -    Durch Verwendung der Aggregationsfunktion [dcount()](/azure/kusto/query/dcount-aggfunction) wird das System gezwungen, eine zentrale Kopie der eindeutigen Werte zu verwenden. Wenn die Datenmenge groß ist, sollten Sie die optionalen Parameter der dcount-Funktion verwenden, um die Genauigkeit zu verringern.
 -    In vielen Fällen verringert der [join](/azure/kusto/query/joinoperator?pivots=azuremonitor)-Operator die Gesamtparallelität. Prüfen Sie Shuffle-Join als Alternative, wenn die Leistung problematisch ist.
--    Bei Abfragen mit Ressourcenbereich können sich die RBAC-Prüfungen vor der Ausführung in Situationen, in denen eine große Anzahl von Azure-Rollenzuweisungen vorliegt, verzögern. Dies kann zu längeren Überprüfungen führen, was wiederum eine geringere Parallelität bewirkt. Beispielsweise wird eine Abfrage für ein Abonnement ausgeführt, bei dem Tausende von Ressourcen vorhanden sind, und jede Ressource verfügt über viele Rollenzuweisungen auf der Ressourcenebene und nicht auf Ebene des Abonnements oder der Ressourcengruppe.
+-    Bei Abfragen im Ressourcenbereich können sich die Kubernetes RBAC- oder Azure RBAC-Prüfungen vor der Ausführung in Situationen mit einer sehr großen Anzahl von Azure-Rollenzuweisungen verzögern. Dies kann zu längeren Überprüfungen führen, was wiederum eine geringere Parallelität bewirkt. Beispielsweise wird eine Abfrage für ein Abonnement ausgeführt, bei dem Tausende von Ressourcen vorhanden sind, und jede Ressource verfügt über viele Rollenzuweisungen auf der Ressourcenebene und nicht auf Ebene des Abonnements oder der Ressourcengruppe.
 -    Wenn eine Abfrage kleine Datenblöcke verarbeitet, ist die Parallelität gering, da sie vom System nicht auf viele Computeknoten verteilt wird.
 
 

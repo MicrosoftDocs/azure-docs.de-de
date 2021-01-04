@@ -1,7 +1,7 @@
 ---
 title: Tune Model Hyperparameters
 titleSuffix: Azure Machine Learning
-description: Informieren Sie sich über die Verwendung des Moduls „Tune Model Hyperparameters“ (Optimieren von Modellhyperparametern) in Azure Machine Learning verwenden, um eine Parameterbereinigung (Parameter Sweep) für ein Modell auszuführen und so die optimalen Parametereinstellungen zu bestimmen.
+description: Verwenden Sie das Tune Model Hyperparameters-Modul im Designer, um eine Parameterbereinigung zur Optimierung von Hyperparametern durchzuführen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2020
-ms.openlocfilehash: 2ec1726056c7ab223f7d3de70a715a8254e95db4
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 2bbf75ba5de4ad20e11261bdcfd1204b1a0b0766
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940208"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420630"
 ---
 # <a name="tune-model-hyperparameters"></a>Tune Model Hyperparameters
 
@@ -142,7 +142,7 @@ Während eines Trainings müssen Sie jedoch eine *einzige* Metrik auswählen, di
 
 -   **Relative squared error** (Relativer quadratischer Fehler): Normalisiert den gesamten quadratischen Fehler, indem dieser durch den gesamten quadratischen Fehler der vorhergesagten Werte dividiert wird.  
 
--   **Coefficient of determination** (Bestimmtheitsmaß): Einzelne Zahl, die angibt, wie gut Daten zu einem Modell passen. Der Wert „1“ bedeutet, dass das Modell genau mit den Daten übereinstimmt. Der Wert „0“ bedeutet, dass die Daten zufälliger Art sind oder aus anderen Gründen nicht an das Modell angepasst werden können. Häufig lautet die Bezeichnung hierfür *r<sup>2</sup>* , *R<sup>2</sup>* oder *r-squared* (R zum Quadrat).  
+-   **Coefficient of determination** (Bestimmtheitsmaß): Einzelne Zahl, die angibt, wie gut Daten zu einem Modell passen. Der Wert „1“ bedeutet, dass das Modell genau mit den Daten übereinstimmt. Der Wert „0“ bedeutet, dass die Daten zufälliger Art sind oder aus anderen Gründen nicht an das Modell angepasst werden können. Häufig lautet die Bezeichnung hierfür *r <sup>2</sup>* , *R <sup>2</sup>* oder *r-squared* (R zum Quadrat).  
 
 ### <a name="modules-that-dont-support-a-parameter-sweep"></a>Module, die keine Parameterbereinigung unterstützen
 

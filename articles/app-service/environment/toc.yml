@@ -3,6 +3,8 @@
   items:
     - name: Informationen zu App Service-Umgebungen
       href: intro.md
+    - name: "App Service-Umgebung\_v3 (Vorschau)"
+      href: overview.md
 - name: Schnellstarts
   expanded: true
   items:
@@ -10,15 +12,17 @@
       href: create-external-ase.md
     - name: Erstellen einer internen ASE
       href: create-ilb-ase.md
+    - name: Erstellen von ASEv3 (Vorschau)
+      href: creation.md
 - name: Tutorials
   items:
     - name: Integrieren in ein WAF
       href: app-service-app-service-environment-web-application-firewall.md
-    - name: Konfigurieren von TLS
+    - name: Benutzerdefinierte Einstellungen für die ASE
       href: app-service-app-service-environment-custom-settings.md
 - name: Beispiele
   items:
-    - name: Azure CLI
+    - name: Azure-Befehlszeilenschnittstelle
       href: ../samples-cli.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
     - name: Azure PowerShell
       href: ../samples-powershell.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
@@ -28,12 +32,12 @@
       href: network-info.md
     - name: Geografisch verteilte Skalierung
       href: app-service-app-service-environment-geo-distributed-scale.md
-    - name: ASEv1
-      href: app-service-app-service-environment-intro.md
     - name: Diagnose
       href: ../overview-diagnostics.md
     - name: Zertifikate
       href: certificates.md
+    - name: ASEv3-Netzwerk (Vorschau)
+      href: networking.md
 - name: Anleitungen
   items:
     - name: Verwenden einer ASE
@@ -48,12 +52,16 @@
       href: firewall-integration.md
     - name: Zonenredundanz
       href: zone-redundancy.md
+    - name: Verwenden von ASEv3 (Vorschau)
+      href: using.md
 - name: Verweis
   items:
     - name: Verwaltungsadressen
       href: management-addresses.md
     - name: ASEv1-Dokumentation
       items:
+        - name: ASEv1
+          href: app-service-app-service-environment-intro.md
         - name: Erstellen von ASEv1
           href: app-service-web-how-to-create-an-app-service-environment.md
         - name: Konfigurieren von ASEv1

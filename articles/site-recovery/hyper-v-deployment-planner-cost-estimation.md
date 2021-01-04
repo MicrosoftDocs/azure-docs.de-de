@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 29457f2f5021fed9d8785f5764c4119de4be1fa9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87089548"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999211"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery-Bereitstellungsplaner-Bericht zur Kostenvorkalkulation 
 
@@ -90,7 +90,7 @@ Wenn Sie ein Azure-Partner oder Kunde sind und Ihnen ein allgemeiner Rabatt auf 
 In dieser Tabelle werden die Anzahl von Windows-VMs und anderen VMs sowie die dazugehörigen Computekosten für DR-Drills angezeigt.
 
 ### <a name="settings"></a>Einstellungen 
-**Using managed disk** (Verwalteten Datenträger verwenden): Diese Einstellung gibt an, ob bei DR-Drills ein verwalteter Datenträger verwendet wird. Die Option ist standardmäßig auf **Ja**festgelegt. Wenn Sie **-UseManagedDisks** auf **No** festlegen, wird der Preis für den nicht verwalteten Datenträger für die Kostenkalkulation verwendet.
+**Using managed disk** (Verwalteten Datenträger verwenden): Diese Einstellung gibt an, ob bei DR-Drills ein verwalteter Datenträger verwendet wird. Die Option ist standardmäßig auf **Ja** festgelegt. Wenn Sie **-UseManagedDisks** auf **No** festlegen, wird der Preis für den nicht verwalteten Datenträger für die Kostenkalkulation verwendet.
 
 **Currency**: Die Währung, in der der Bericht erstellt wird.
 
@@ -149,7 +149,7 @@ Gehen Sie wie folgt vor, um VMs manuell hinzuzufügen:
 
 **Data redundancy** (Datenredundanz): Lokal redundanter Speicher, georedundanter Speicher oder schreibgeschützter georedundanter Speicher. Standardmäßig wird lokal redundanter Speicher verwendet. Sie können den Typ basierend auf Ihrem Speicherkonto für bestimmte VMs ändern, oder Sie können den neuen Typ auf alle VMs anwenden. Ändern Sie den Typ der obersten Zeile, und wählen Sie die Option **Auf alle anwenden**. Die Speicherkosten für die Replikation werden basierend auf dem Preis für die Datenredundanz berechnet, die Sie ausgewählt haben. 
 
-**Azure Hybrid Use Benefit** (Azure-Hybridnutzungsvorteil): Sie können den Azure-Hybridvorteil auf virtuelle Windows-Computer anwenden, falls zutreffend. Die Option ist standardmäßig auf **Ja**festgelegt. Sie können die Einstellung für bestimmte VMs ändern oder alle VMs aktualisieren. Wählen Sie **Apply to all** (Auf alle anwenden).
+**Azure Hybrid Use Benefit** (Azure-Hybridnutzungsvorteil): Sie können den Azure-Hybridvorteil auf virtuelle Windows-Computer anwenden, falls zutreffend. Die Option ist standardmäßig auf **Ja** festgelegt. Sie können die Einstellung für bestimmte VMs ändern oder alle VMs aktualisieren. Wählen Sie **Apply to all** (Auf alle anwenden).
 
 **Total Azure consumption** (Azure-Gesamtverbrauch): Die Compute-, Speicher- und Site Recovery-Lizenzkosten für Ihre Notfallwiederherstellung. Basierend auf Ihrer Auswahl werden die Kosten entweder monatlich oder jährlich angezeigt.
 

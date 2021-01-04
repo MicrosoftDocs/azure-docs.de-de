@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: b73c7e62c6b621d3ac86cfb99b10b567460534f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e879d8370821ea465147e344d0fe95836c843ff4
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961855"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008009"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Continuous Deployment mit Web-App für Container
 
@@ -35,7 +35,7 @@ In diesem Tutorial konfigurieren Sie Continuous Deployment für ein benutzerdefi
 
 Nachdem Continuous Deployment aktiviert wurde, können Sie den neu erstellten Webhook auf Ihrer Webhooks-Seite in Azure Container Registry anzeigen.
 
-![Screenshot des ACR-Webhooks](./media/deploy-ci-cd-custom-container/ci-cd-acr-03.png)
+![Screenshot, der zeigt, wo Sie den neu erstellten Webhook auf Ihrer Webhooks-Seite in Azure Container Registry anzeigen können.](./media/deploy-ci-cd-custom-container/ci-cd-acr-03.png)
 
 Klicken Sie in Ihrer Container Registry-Instanz auf „Webhooks“, um die aktuellen Webhooks anzuzeigen.
 
@@ -55,7 +55,7 @@ Kopieren Sie die Webhook-URL. Zum Hinzufügen eines Webhooks für Docker Hub geh
 
 ## <a name="automate-with-cli"></a>Automatisieren mithilfe der Befehlszeilenschnittstelle
 
-Führen Sie zum Konfigurieren von CI/CD mithilfe der Azure CLI den Befehl [az webapp deployment container config](/cli/azure/webapp/deployment/container?view=azure-cli-latest#az-webapp-deployment-container-config) aus, um die Webhook-URL zu generieren. Die URL kann zum Konfigurieren der DockerHub- oder Azure Container Registry-Instanz verwendet werden.
+Führen Sie zum Konfigurieren von CI/CD mithilfe der Azure CLI den Befehl [az webapp deployment container config](/cli/azure/webapp/deployment/container#az-webapp-deployment-container-config) aus, um die Webhook-URL zu generieren. Die URL kann zum Konfigurieren der DockerHub- oder Azure Container Registry-Instanz verwendet werden.
 
 ```azurecli-interactive
 az webapp deployment container config --name <app-name> --resource-group <group-name> --enable-cd true

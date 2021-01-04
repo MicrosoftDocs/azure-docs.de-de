@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: af4797d7d7d7cb866674747ea8871bebb059207d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3af3307892e82ecd0697124954e99837ad5eb9e
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031244"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515692"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>Informationen zur Microsoft-Sicherheitscodeanalyse
 
@@ -39,7 +39,7 @@ Tools der Microsoft-Sicherheitscodeanalyse werden der Azure DevOps-Pipeline gena
 
 ### <a name="clean-builds"></a>Bereinigte Builds
 
-Nachdem Sie die anfänglichen Probleme behoben haben, die von den Tools gemeldet wurden, können Sie die Erweiterung so konfigurieren, dass die Builds bei neuen Problemen unterbrochen werden. Das Einrichten von Continuous Integration-Builds bei jedem Pull Request ist ausgesprochen einfach.
+Nachdem Sie die anfänglichen Probleme behoben haben, die von den Tools gemeldet wurden, können Sie die Erweiterung so konfigurieren, dass die Builds bei neuen Problemen unterbrochen werden.  Das Einrichten von Continuous Integration-Builds bei jedem Pull Request ist ausgesprochen einfach.
 
 ### <a name="set-it-and-forget-it"></a>Einmal festlegen und dann vergessen
 
@@ -73,7 +73,7 @@ Kennwörter und andere Geheimnisse, die im Quellcode gespeichert sind, stellen e
 
 ### <a name="roslyn-analyzers"></a>Roslyn Analyzers
 
-Roslyn Analyzers ist das in den Compiler integrierte statische Microsoft-Analysetool zum Analysieren von verwaltetem Code (C# und Visual Basic). Weitere Informationen finden Sie unter [Die auf Roslyn basierenden Analysetools](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer).
+Roslyn Analyzers ist das in den Compiler integrierte statische Microsoft-Analysetool zum Analysieren von verwaltetem Code (C# und Visual Basic). Weitere Informationen finden Sie unter [Die auf Roslyn basierenden Analysetools](/dotnet/fundamentals/code-analysis/quality-rules/security-warnings).
 
 ### <a name="tslint"></a>TSLint
 

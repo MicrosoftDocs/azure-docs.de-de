@@ -9,25 +9,25 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 09/30/2020
-ms.openlocfilehash: 6c8d048d43a16191cc7b1245ad2d686ba2ca22ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d28cf1a89ff455cfbed26aad234607ec8cd7e63
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596976"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490566"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Überwachung und Leistungsoptimierung in Azure SQL-Datenbank und Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Um die Leistung einer Datenbank in Azure SQL-Datenbank und Azure SQL Managed Instance zu überwachen, beginnen Sie mit der Überwachung der CPU und der E/A-Ressourcen, die von der Arbeitsauslastung in Bezug auf den Grad der Datenbankleistung verwendet werden, den Sie bei der Auswahl einer bestimmten Dienst- und Leistungsebene ausgewählt haben. Um dies zu erreichen, geben Azure SQL-Datenbank und Azure SQL Managed Instance Ressourcenmetriken aus, die im Azure-Portal oder mithilfe eines dieser SQL Server-Verwaltungstools angezeigt werden können: [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) oder [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS).
+Um die Leistung einer Datenbank in Azure SQL-Datenbank und Azure SQL Managed Instance zu überwachen, beginnen Sie mit der Überwachung der CPU und der E/A-Ressourcen, die von der Arbeitsauslastung in Bezug auf den Grad der Datenbankleistung verwendet werden, den Sie bei der Auswahl einer bestimmten Dienst- und Leistungsebene ausgewählt haben. Um dies zu erreichen, geben Azure SQL-Datenbank und Azure SQL Managed Instance Ressourcenmetriken aus, die im Azure-Portal oder mithilfe eines dieser SQL Server-Verwaltungstools angezeigt werden können: [Azure Data Studio](/sql/azure-data-studio/what-is) oder [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS).
 
 Azure SQL-Datenbank bietet eine Reihe von Database Advisors, mit denen Sie Empfehlungen zur Leistungsoptimierung und automatische Optimierungsoptionen für eine bessere Leistung erhalten. Darüber hinaus zeigt Query Performance Insight Details zu den Abfragen an, die für den Großteil der CPU- und E/A-Auslastung für Singletons und Pooldatenbanken verantwortlich sind.
 
 Azure SQL-Datenbank und Azure SQL Managed Instance bieten verbesserte Überwachungs- und Optimierungsfunktionen, die von künstlicher Intelligenz unterstützt werden, um Ihnen bei der Problembehandlung und Maximierung der Leistung Ihrer Datenbanken und Lösungen zu helfen. Sie können den [Streamingexport](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) dieser [Intelligent Insights](intelligent-insights-overview.md) und andere Ressourcenprotokolle und Metriken der Datenbank in eines von mehreren Zielen für die Nutzung und Analyse konfigurieren, insbesondere mithilfe von [SQL-Analyse](../../azure-monitor/insights/azure-sql.md). Azure SQL-Analyse ist eine erweiterte Cloudüberwachungslösung zum abonnementübergreifenden Überwachen der Leistung Ihrer gesamten Datenbankinstanzen im großen Stil in einer zentralen Ansicht. Eine Liste der Protokolle und Metriken, die Sie exportieren können, finden Sie unter [Diagnosetelemetriedaten für den Export](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#diagnostic-telemetry-for-export).
 
-SQL Server verfügt mit dem [Abfragespeicher](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) und [dynamischen Verwaltungssichten](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) (Dynamic Management Views, DMVs) über eigene Überwachungs- und Diagnosefunktionen, die von SQL-Datenbank und SQL Managed Instance genutzt werden. Weitere Informationen dazu, wie Skripts eine Vielzahl von Leistungsproblemen überwachen können, finden Sie unter [Überwachen mit dynamischen Verwaltungssichten](monitoring-with-dmvs.md).
+SQL Server verfügt mit dem [Abfragespeicher](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) und [dynamischen Verwaltungssichten](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) (Dynamic Management Views, DMVs) über eigene Überwachungs- und Diagnosefunktionen, die von SQL-Datenbank und SQL Managed Instance genutzt werden. Weitere Informationen dazu, wie Skripts eine Vielzahl von Leistungsproblemen überwachen können, finden Sie unter [Überwachen mit dynamischen Verwaltungssichten](monitoring-with-dmvs.md).
 
 ## <a name="monitoring-and-tuning-capabilities-in-the-azure-portal"></a>Überwachungs- und Optimierungsfunktionen im Azure-Portal
 
@@ -44,7 +44,7 @@ In der Ansicht **Metriken** im Azure-Portal können Sie eine Vielzahl von Ressou
 
 ### <a name="database-advisors-in-azure-sql-database"></a>Database Advisors in Azure SQL-Datenbank
 
-Azure SQL-Datenbank umfasst [Database Advisors](database-advisor-implement-performance-recommendations.md), die Empfehlungen zur Leistungsoptimierung für Einzel- und Pooldatenbanken bieten. Diese Empfehlungen sind sowohl im Azure-Portal als auch mithilfe von [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseadvisor) verfügbar. Aktivieren Sie die [automatische Optimierung](automatic-tuning-overview.md), damit diese Optimierungsempfehlungen von Azure SQL-Datenbank automatisch implementiert werden können.
+Azure SQL-Datenbank umfasst [Database Advisors](database-advisor-implement-performance-recommendations.md), die Empfehlungen zur Leistungsoptimierung für Einzel- und Pooldatenbanken bieten. Diese Empfehlungen sind sowohl im Azure-Portal als auch mithilfe von [PowerShell](/powershell/module/az.sql/get-azsqldatabaseadvisor) verfügbar. Aktivieren Sie die [automatische Optimierung](automatic-tuning-overview.md), damit diese Optimierungsempfehlungen von Azure SQL-Datenbank automatisch implementiert werden können.
 
 ### <a name="query-performance-insight-in-azure-sql-database"></a>Query Performance Insight in Azure SQL-Datenbank
 
@@ -99,11 +99,11 @@ Konfigurieren Sie Diagnoseeinstellung zum Streamen von Kategorien von Metriken u
 
 ### <a name="log-analytics-workspace-in-azure-monitor"></a>Log Analytics-Arbeitsbereich in Azure Monitor
 
-Sie können Metriken und Ressourcenprotokolle an einen [Log Analytics-Arbeitsbereich in Azure Monitor](../../azure-monitor/platform/resource-logs-collect-workspace.md) streamen. Hier gestreamte Daten können von [SQL Analytics](../../azure-monitor/insights/azure-sql.md) genutzt werden. Dabei handelt es sich um eine auf die Cloud beschränkte Überwachungslösung. Sie ermöglicht die intelligente Überwachung Ihrer Datenbanken mit Leistungsberichten, Warnungen und Empfehlungen zur Risikominderung. Die an einen Log Analytics-Arbeitsbereich gestreamten Daten können zusammen mit anderen erfassten Überwachungsdaten analysiert werden. Sie ermöglichen Ihnen außerdem die Nutzung anderer Azure Monitor-Features wie Warnungen und Visualisierungen.
+Sie können Metriken und Ressourcenprotokolle an einen [Log Analytics-Arbeitsbereich in Azure Monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) streamen. Hier gestreamte Daten können von [SQL Analytics](../../azure-monitor/insights/azure-sql.md) genutzt werden. Dabei handelt es sich um eine auf die Cloud beschränkte Überwachungslösung. Sie ermöglicht die intelligente Überwachung Ihrer Datenbanken mit Leistungsberichten, Warnungen und Empfehlungen zur Risikominderung. Die an einen Log Analytics-Arbeitsbereich gestreamten Daten können zusammen mit anderen erfassten Überwachungsdaten analysiert werden. Sie ermöglichen Ihnen außerdem die Nutzung anderer Azure Monitor-Features wie Warnungen und Visualisierungen.
 
 ### <a name="azure-event-hubs"></a>Azure Event Hubs
 
-Sie können Metriken und Ressourcenprotokolle in [Azure Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md) streamen. Streamen Sie Diagnosetelemetrie an Event Hubs, um folgende Funktionalität bereitzustellen:
+Sie können Metriken und Ressourcenprotokolle in [Azure Event Hubs](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) streamen. Streamen Sie Diagnosetelemetrie an Event Hubs, um folgende Funktionalität bereitzustellen:
 
 - **Streamen von Protokollen in Protokollierungs- und Telemetriesystemen von Drittanbietern**
 
@@ -113,15 +113,15 @@ Sie können Metriken und Ressourcenprotokolle in [Azure Event Hubs](../../azure-
   Event Hubs ermöglichen dank des hochgradig skalierbaren Veröffentlichen-Abonnieren-Musters eine flexible Erfassung der Metriken und Ressourcenprotokolle auf einer benutzerdefinierten Telemetrieplattform. Ausführliche Informationen finden Sie unter [Designing and Sizing a Global Scale Telemetry Platform on Azure Event Hubs](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) (Entwerfen und Dimensionieren einer globalen Telemetrieplattform in Azure Event Hubs).
 - **Anzeigen der Dienstintegrität durch Streamen von Daten an Power BI**
 
-  Verwenden Sie Event Hubs, Stream Analytics und Power BI, um sich anhand Ihrer Diagnosedaten nahezu in Echtzeit einen Einblick in Ihre Azure-Dienste verschaffen. Details zu dieser Lösung finden Sie unter [Stream Analytics und Power BI: Ein Dashboard zur Echtzeitanalyse von Streamingdaten](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-power-bi-dashboard).
+  Verwenden Sie Event Hubs, Stream Analytics und Power BI, um sich anhand Ihrer Diagnosedaten nahezu in Echtzeit einen Einblick in Ihre Azure-Dienste verschaffen. Details zu dieser Lösung finden Sie unter [Stream Analytics und Power BI: Ein Dashboard zur Echtzeitanalyse von Streamingdaten](../../stream-analytics/stream-analytics-power-bi-dashboard.md).
 
 ### <a name="azure-storage"></a>Azure Storage
 
-Streamen Sie Metriken und Ressourcenprotokolle in [Azure Storage](../../azure-monitor/platform/resource-logs-collect-storage.md). Verwenden Sie Azure Storage zum Archivieren großer Mengen von Diagnosetelemetriedaten zu einem Bruchteil der Kosten der beiden vorherigen Streamingoptionen.
+Streamen Sie Metriken und Ressourcenprotokolle in [Azure Storage](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Verwenden Sie Azure Storage zum Archivieren großer Mengen von Diagnosetelemetriedaten zu einem Bruchteil der Kosten der beiden vorherigen Streamingoptionen.
 
 ## <a name="use-extended-events"></a>Verwenden erweiterter Ereignisse 
 
-Die [erweiterten Ereignisse](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) in SQL Server bieten Ihnen eine erweiterte Überwachung und Problembehandlung. Die Funktionalität der erweiterten Ereignisse ermöglicht es Benutzern, Daten in dem Umfang zu sammeln, der erforderlich ist, um Leistungsproblem zu erkennen oder zu beheben. Informationen zur Verwendung erweiterter Ereignisse in Azure SQL-Datenbank finden Sie unter [Erweiterte Ereignisse in Azure SQL-Datenbank](xevent-db-diff-from-svr.md).
+Die [erweiterten Ereignisse](/sql/relational-databases/extended-events/extended-events) in SQL Server bieten Ihnen eine erweiterte Überwachung und Problembehandlung. Die Funktionalität der erweiterten Ereignisse ermöglicht es Benutzern, Daten in dem Umfang zu sammeln, der erforderlich ist, um Leistungsproblem zu erkennen oder zu beheben. Informationen zur Verwendung erweiterter Ereignisse in Azure SQL-Datenbank finden Sie unter [Erweiterte Ereignisse in Azure SQL-Datenbank](xevent-db-diff-from-svr.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

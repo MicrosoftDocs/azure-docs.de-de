@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca2190079cb97e37318bd1c6a32dfb2b9b309a8d
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: edace0298514d1fc3cfd3afcff73fa0d29e18f0c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276948"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858772"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Voraussetzungen für Azure AD Connect
 In diesem Artikel werden die Voraussetzungen und die Hardwareanforderungen für Azure Active Directory (Azure AD) Connect beschrieben.
@@ -42,9 +42,9 @@ Vor der Installation von Azure AD Connect gibt es einige Dinge, die Sie benötig
 
 ### <a name="on-premises-active-directory"></a>Lokales Active Directory
 * Die Active Directory-Schemaversion und die Funktionsebene der Gesamtstruktur müssen Windows Server 2003 oder höher entsprechen. Die Domänencontroller können unter einer beliebigen Version ausgeführt werden, sofern die Anforderungen an die Schemaversion und an die Gesamtstrukturebene erfüllt sind.
-* Wenn Sie das Feature *Kennwortrückschreiben* verwenden möchten, müssen die Domänencontroller unter Windows Server 2008 R2 oder höher ausgeführt werden.
-* Der von Azure AD verwendete Domänencontroller darf nicht schreibgeschützt sein. Die Verwendung eines schreibgeschützten Domänencontrollers (Read-Only Domain Controller, RODC) wird *nicht unterstützt* , und Azure AD Connect folgt keinen Umleitungen für Schreibvorgänge.
-* Die Verwendung von lokalen Gesamtstrukturen oder Domänen mit NetBIOS-Namen, die einen Punkt (.) enthalten, wird *nicht unterstützt* .
+* Wenn Sie das Feature *Kennwortrückschreiben* verwenden möchten, müssen die Domänencontroller unter Windows Server 2012 oder höher ausgeführt werden.
+* Der von Azure AD verwendete Domänencontroller darf nicht schreibgeschützt sein. Die Verwendung eines schreibgeschützten Domänencontrollers (Read-Only Domain Controller, RODC) wird *nicht unterstützt*, und Azure AD Connect folgt keinen Umleitungen für Schreibvorgänge.
+* Die Verwendung von lokalen Gesamtstrukturen oder Domänen mit NetBIOS-Namen, die einen Punkt (.) enthalten, wird *nicht unterstützt*.
 * Wir empfehlen das [Aktivieren des Active Directory-Papierkorbs](how-to-connect-sync-recycle-bin.md).
 
 ### <a name="powershell-execution-policy"></a>PowerShell-Ausführungsrichtlinie
@@ -52,7 +52,7 @@ Azure Active Directory Connect führt signierte PowerShell-Skripts im Rahmen der
 
 Die empfohlene Ausführungsrichtlinie während der Installation ist „RemoteSigned“.
 
-Weitere Informationen zum Festlegen der PowerShell-Ausführungsrichtlinie finden Sie unter [Set-ExecutionPolicy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7).
+Weitere Informationen zum Festlegen der PowerShell-Ausführungsrichtlinie finden Sie unter [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy).
 
 
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect-Server
@@ -82,7 +82,7 @@ Es wird empfohlen, den Azure AD Connect-Server zuverlässig zu schützen, um di
 - Erstellen Sie ein [dediziertes Konto für alle Mitarbeiter mit privilegiertem Zugriff](/windows-server/identity/securing-privileged-access/securing-privileged-access). Administratoren sollten in Konten mit hohen Berechtigungen nicht im Internet surfen, ihre E-Mails abfragen oder alltägliche Produktivitätsaufgaben ausführen.
 - Folgen Sie den Anweisungen unter [Schützen des privilegierten Zugriffs](/windows-server/identity/securing-privileged-access/securing-privileged-access). 
 - Lehnen Sie die Verwendung der NTLM-Authentifizierung beim AADConnect-Server ab. Hierfür gibt es verschiedene Möglichkeiten: [Einschränken von NTLM auf dem AADConnect-Server](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-outgoing-ntlm-traffic-to-remote-servers) und [Einschränken von NTLM in einer Domäne](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain)
-- Stellen Sie sicher, dass für jeden Computer ein eindeutiges lokales Administratorkennwort vorhanden ist. Weitere Informationen finden Sie unter [Microsoft-Sicherheitsempfehlung: Local Administrator Password Solution (LAPS)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps). Mit dieser Lösung können eindeutige zufällige Kennwörter auf jeder Arbeitsstation konfiguriert werden, und für den Server werden die Kennwörter in Active Directory gespeichert und durch eine ACL geschützt. Nur berechtigte autorisierte Benutzer können diese lokalen Kennwörter für das Administratorkonto lesen oder eine Rücksetzung anfordern. Sie können die LAPS für die Verwendung auf Arbeitsstationen und Servern aus dem [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=46899#:~:text=The%20%22Local%20Administrator%20Password%20Solution,it%20or%20request%20its%20reset.) abrufen. Weitere Informationen zum Betreiben einer Umgebung mit LAPS und Arbeitsstationen mit privilegiertem Zugriff (Privileged Access Workstations, PAWs) finden Sie unter [Prinzip der vertrauenswürdigen Quelle für betriebliche Standards](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle). 
+- Stellen Sie sicher, dass für jeden Computer ein eindeutiges lokales Administratorkennwort vorhanden ist. Weitere Informationen finden Sie unter [Microsoft-Sicherheitsempfehlung: Local Administrator Password Solution (LAPS)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps). Mit dieser Lösung können eindeutige zufällige Kennwörter auf jeder Arbeitsstation konfiguriert werden, und für den Server werden die Kennwörter in Active Directory gespeichert und durch eine ACL geschützt. Nur berechtigte autorisierte Benutzer können diese lokalen Kennwörter für das Administratorkonto lesen oder eine Rücksetzung anfordern. Sie können die LAPS für die Verwendung auf Arbeitsstationen und Servern aus dem [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=46899) abrufen. Weitere Informationen zum Betreiben einer Umgebung mit LAPS und Arbeitsstationen mit privilegiertem Zugriff (Privileged Access Workstations, PAWs) finden Sie unter [Prinzip der vertrauenswürdigen Quelle für betriebliche Standards](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle). 
 - Implementieren Sie dedizierte [Arbeitsstationen mit privilegiertem Zugriff](/windows-server/identity/securing-privileged-access/privileged-access-workstations) für alle Mitarbeiter mit privilegiertem Zugriff auf die Informationssysteme Ihrer Organisation. 
 - Berücksichtigen Sie diese [zusätzlichen Richtlinien](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface), um die Angriffsfläche Ihrer Active Directory-Umgebung zu verringern.
 
@@ -90,9 +90,9 @@ Es wird empfohlen, den Azure AD Connect-Server zuverlässig zu schützen, um di
 ### <a name="sql-server-used-by-azure-ad-connect"></a>Von Azure AD Connect verwendete SQL Server-Datenbank
 * Azure AD Connect erfordert eine SQL Server-Datenbank zum Speichern von Identitätsdaten. Standardmäßig wird SQL Server 2012 Express LocalDB (eine einfache Version von SQL Server Express) installiert. Für SQL Server Express gilt eine Größenbeschränkung von 10 GB. Dies ermöglicht Ihnen das Verwalten von ca. 100.000 Objekten. Wenn Sie eine größere Anzahl von Verzeichnisobjekten verwalten möchten, müssen Sie im Installations-Assistenten auf eine andere Installation von SQL Server verweisen. Der SQL Server-Installationstyp kann sich auf die [Leistung von Azure AD Connect](./plan-connect-performance-factors.md#sql-database-factors) auswirken.
 * Wenn Sie eine andere Installation von SQL Server verwenden, gelten die folgenden Anforderungen:
-  * Azure AD Connect unterstützt alle SQL Server-Versionen von 2012 (mit dem neuesten Service Pack) bis SQL Server 2019. Azure SQL-Datenbank wird als Datenbank *nicht unterstützt* .
-  * Sie müssen eine SQL-Sortierung ohne Berücksichtigung der Groß- und Kleinschreibung verwenden. Diese Sortierungen werden durch „\_CI_“ in ihrem Namen bestimmt. Eine Sortierung mit Berücksichtigung der Groß- und Kleinschreibung und „\_CS_“ im Namen wird *nicht unterstützt* .
-  * Sie können jeweils nur ein Synchronisierungsmodul pro SQL-Instanz verwenden. Das Freigeben einer SQL-Instanz mit FIM/MIM Sync, DirSync oder Azure AD Sync wird *nicht unterstützt* .
+  * Azure AD Connect unterstützt alle SQL Server-Versionen von 2012 (mit dem neuesten Service Pack) bis SQL Server 2019. Azure SQL-Datenbank wird als Datenbank *nicht unterstützt*.
+  * Sie müssen eine SQL-Sortierung ohne Berücksichtigung der Groß- und Kleinschreibung verwenden. Diese Sortierungen werden durch „\_CI_“ in ihrem Namen bestimmt. Eine Sortierung mit Berücksichtigung der Groß- und Kleinschreibung und „\_CS_“ im Namen wird *nicht unterstützt*.
+  * Sie können jeweils nur ein Synchronisierungsmodul pro SQL-Instanz verwenden. Das Freigeben einer SQL-Instanz mit FIM/MIM Sync, DirSync oder Azure AD Sync wird *nicht unterstützt*.
 
 ### <a name="accounts"></a>Konten
 * Sie müssen über ein globales Azure AD-Administratorkonto für den Azure AD-Mandanten verfügen, den Sie integrieren möchten. Bei diesem Konto muss es sich um ein *Geschäfts-, Schul- oder Unikonto* handeln, und es darf kein *Microsoft-Konto* sein.
@@ -102,7 +102,7 @@ Es wird empfohlen, den Azure AD Connect-Server zuverlässig zu schützen, um di
 ### <a name="connectivity"></a>Konnektivität
 * Der Azure AD Connect-Server benötigt die DNS-Auflösung sowohl für das Intranet als auch für das Internet. Der DNS-Server muss Namen sowohl zu Ihrem lokalen Active Directory als auch zu den Azure AD-Endpunkten auflösen können.
 * Wenn Sie in Ihrem Intranet Firewalls verwenden und die Ports zwischen den Azure AD Connect-Servern und Ihren Domänencontrollern öffnen müssen, lesen Sie die Informationen unter [Azure AD Connect-Ports](reference-connect-ports.md).
-* Wenn Ihr Proxy oder Ihre Firewall den Zugriff auf bestimmte URLs beschränkt, müssen die unter [Office 365-URLs und -IP-Adressbereiche](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) dokumentierten URLs geöffnet werden.
+* Wenn Ihr Proxy oder Ihre Firewall den Zugriff auf bestimmte URLs beschränkt, müssen die unter [Office 365-URLs und -IP-Adressbereiche](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) dokumentierten URLs geöffnet werden. Weitere Informationen finden Sie auch unter [Hinzufügen der Azure-Portal-URLs zu einer Liste sicherer Adressen für Ihre Firewall oder Ihren Proxyserver](../../azure-portal/azure-portal-safelist-urls.md?tabs=public-cloud)
   * Wenn Sie die Microsoft Cloud in Deutschland oder die Microsoft Azure Government-Cloud verwenden, finden Sie die entsprechenden URLs unter [Azure AD Connect: Besondere Überlegungen zu Instanzen](reference-connect-instances.md).
 * Azure AD Connect (Version 1.1.614.0 und höher) verwendet standardmäßig TLS 1.2 für die Verschlüsselung der Kommunikation zwischen dem Synchronisierungsmodul und Azure AD. Wenn TLS 1.2 auf dem zugrunde liegenden Betriebssystem nicht verfügbar ist, greift Azure AD Connect schrittweise auf älter Protokolle zurück (TLS 1.1 und TLS 1.0).
 * Vor der Version 1.1.614.0 verwendet Azure AD Connect standardmäßig TLS 1.0 für die Verschlüsselung der Kommunikation zwischen dem Synchronisierungsmodul und Azure AD. Folgen Sie zur Änderung in TLS 1.2 den Schritten in [Aktivieren von TLS 1.2 für Azure AD Connect](#enable-tls-12-for-azure-ad-connect).
@@ -180,7 +180,7 @@ Wenn Sie Azure AD Connect zum Bereitstellen von AD FS oder des Webanwendungspr
   * Auf dem Computer, auf dem der Assistent ausgeführt wird (wenn der Zielcomputer nicht in die Domäne eingebunden ist oder sich in einer nicht vertrauenswürdigen Domäne befindet):
     * Verwenden Sie in einem PowerShell-Befehlsfenster mit erhöhten Rechten den Befehl `Set-Item.WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`.
     * Im Server-Manager:
-      * Fügen Sie einem Computerpool einen DMZ-WAP-Host hinzu. Wählen Sie im Server-Manager die Optionen **Verwalten** > **Server hinzufügen** aus, und verwenden Sie dann die Registerkarte **DNS** .
+      * Fügen Sie einem Computerpool einen DMZ-WAP-Host hinzu. Wählen Sie im Server-Manager die Optionen **Verwalten** > **Server hinzufügen** aus, und verwenden Sie dann die Registerkarte **DNS**.
       * Klicken Sie auf der Registerkarte **Server-Manager – Alle Server** mit der rechten Maustaste auf den WAP-Server, und wählen Sie **Verwalten als** aus. Geben Sie die lokalen (keine domänenspezifischen) Anmeldeinformationen für den WAP-Computer ein.
       * Um die PowerShell-Remotekonnektivität zu überprüfen, klicken Sie auf der Registerkarte **Server-Manager – Alle Server** mit der rechten Maustaste auf den WAP-Server, und wählen Sie **Windows PowerShell** aus. Daraufhin sollte eine PowerShell-Remotesitzung geöffnet werden, um sicherzustellen, dass PowerShell-Remotesitzungen hergestellt werden können.
 

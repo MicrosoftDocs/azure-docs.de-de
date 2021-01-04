@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43b883cac7b970488a30116bc06efc8663766629
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5c4301a61a79ab2351c18af0c76cccc3d07dd202
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370201"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836681"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Schnelles Reagieren auf Sicherheitsvorfälle mit Azure AD
 
@@ -75,7 +75,7 @@ In der folgenden Tabelle sind die wichtigsten Aktionen für die folgenden Lizenz
 
 | Empfohlene Maßnahme | Detail |
 | --- | --- |
-| [Kombinierte Registrierung für Azure MFA und SSPR zum Vereinfachen der Benutzerregistrierung aktivieren](../authentication/howto-registration-mfa-sspr-combined.md) | Ermöglichen Sie Ihren Benutzern die Registrierung über eine gemeinsame Umgebung sowohl für Azure Multi-Factor Authentication als auch Self-Service-Kennwortzurücksetzung. |
+| [Kombinierte Registrierung für Azure AD MFA und SSPR zum Vereinfachen der Benutzerregistrierung aktivieren](../authentication/howto-registration-mfa-sspr-combined.md) | Ermöglichen Sie Ihren Benutzern die Registrierung über eine gemeinsame Umgebung sowohl für Azure AD Multi-Factor Authentication als auch Self-Service-Kennwortzurücksetzung. |
 | [MFA-Einstellungen für Ihre Organisation konfigurieren](../authentication/howto-mfa-getstarted.md) | Stellt sicher, dass Konten durch Multi-Factor Authentication vor Änderungen geschützt sind |
 | [Aktivieren der Self-Service-Kennwortzurücksetzung](../authentication/tutorial-enable-sspr.md) | Dies führt zu weniger Anrufen beim Helpdesk und Produktivitätsverlusten, wenn sich ein Benutzer nicht an seinem Gerät oder einer Anwendung anmelden kann. |
 | [Kennwortrückschreiben implementieren](../authentication/tutorial-enable-sspr-writeback.md) (bei Verwendung von Hybrididentitäten) | Lassen Sie zu, dass Kennwortänderungen in der Cloud in eine lokale Windows Server Active Directory-Umgebung zurückgeschrieben werden. |
@@ -105,11 +105,11 @@ In der folgenden Tabelle sind die wichtigsten Aktionen für die folgenden Lizenz
 
 | Empfohlene Maßnahme | Detail |
 | --- | --- |
-| [Kombinierte Registrierung für Azure MFA und SSPR zum Vereinfachen der Benutzerregistrierung aktivieren](../authentication/howto-registration-mfa-sspr-combined.md) | Ermöglichen Sie Ihren Benutzern die Registrierung über eine gemeinsame Umgebung sowohl für Azure Multi-Factor Authentication als auch Self-Service-Kennwortzurücksetzung. |
+| [Kombinierte Registrierung für Azure AD MFA und SSPR zum Vereinfachen der Benutzerregistrierung aktivieren](../authentication/howto-registration-mfa-sspr-combined.md) | Ermöglichen Sie Ihren Benutzern die Registrierung über eine gemeinsame Umgebung sowohl für Azure AD Multi-Factor Authentication als auch Self-Service-Kennwortzurücksetzung. |
 | [MFA-Einstellungen für Ihre Organisation konfigurieren](../authentication/howto-mfa-getstarted.md) | Stellt sicher, dass Konten durch Multi-Factor Authentication vor Änderungen geschützt sind |
 | [Aktivieren der Self-Service-Kennwortzurücksetzung](../authentication/tutorial-enable-sspr.md) | Dies führt zu weniger Anrufen beim Helpdesk und Produktivitätsverlusten, wenn sich ein Benutzer nicht an seinem Gerät oder einer Anwendung anmelden kann. |
 | [Kennwortrückschreiben implementieren](../authentication/tutorial-enable-sspr-writeback.md) (bei Verwendung von Hybrididentitäten) | Lassen Sie zu, dass Kennwortänderungen in der Cloud in eine lokale Windows Server Active Directory-Umgebung zurückgeschrieben werden. |
-| [Identity Protection-Richtlinien zum Erzwingen der MFA-Registrierung aktivieren](../identity-protection/howto-identity-protection-configure-mfa-policy.md) | Verwalten Sie die Umsetzung von Azure Multi-Factor Authentication (MFA). |
+| [Identity Protection-Richtlinien zum Erzwingen der MFA-Registrierung aktivieren](../identity-protection/howto-identity-protection-configure-mfa-policy.md) | Verwalten Sie die Umsetzung von Azure AD Multi-Factor Authentication (MFA). |
 | [Identity Protection-Richtlinien für Benutzer und Anmelderisiken aktivieren](../identity-protection/howto-identity-protection-configure-risk-policies.md) | Aktivieren Sie Identity Protection-Richtlinien für Benutzer und Anmelderichtlinien. Die empfohlene Anmelderichtlinie zielt auf Anmeldungen mit mittlerem Risiko ab und erfordert MFA. Benutzerrichtlinien sollten auf Benutzer mit hohem Risiko ausgerichtet sein und eine Kennwortänderung erfordern. |
 | Richtlinien für bedingten Zugriff erstellen und aktivieren | [MFA für Administratoren, um Konten zu schützen, denen Administratorrechte zugewiesen sind](../conditional-access/howto-conditional-access-policy-admin-mfa.md) <br><br> [Blockieren älterer Authentifizierungsprotokolle wegen des höheren Risikos im Zusammenhang mit Legacy-Authentifizierungsprotokollen](../conditional-access/howto-conditional-access-policy-block-legacy.md) <br><br> [Erzwingen von MFA für die Azure-Verwaltung, um durch Erzwingung der mehrstufigen Authentifizierung für jeden Benutzer, der auf Azure-Ressourcen zugreift, Ressourcen mit erhöhten Rechten zu schützen](../conditional-access/howto-conditional-access-policy-azure-management.md) |
 | [Kennworthashsynchronisierung aktivieren](../hybrid/how-to-connect-password-hash-synchronization.md) (bei Verwendung von Hybrididentitäten) | Sorgt für Redundanz bei der Authentifizierung und erhöht die Sicherheit (einschließlich Smart Lockout, IP-Sperre und der Möglichkeit, kompromittierte Anmeldeinformationen zu ermitteln). |

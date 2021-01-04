@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: 5abb509f1753c65554bd74ababe9acca4103c15a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5974388c096c9bc8693c5fc2cf918989c6eadd3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86509085"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488730"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Verwenden von Remotetools zur Behandlung von Azure-VM-Problemen
 
@@ -180,7 +180,7 @@ Führen Sie den folgenden Befehl basierend auf dem Standort des Clientcomputers 
     Enter-PSSession -ComputerName  "<<CLOUDSERVICENAME.cloudapp.net>>" -port "<<PUBLIC PORT NUMBER>>" -Credential (Get-Credential) -useSSL -SessionOption $Skip
     ```
 
-  * Fügen Sie für über Azure Resource Manager bereitgestellte virtuelle Computer der öffentlichen IP-Adresse zunächst einen DNS-Namen hinzu. Detaillierte Schritte dazu finden Sie unter [Erstellen eines vollqualifizierten Domänennamens im Azure-Portal für eine Windows-VM](../windows/portal-create-fqdn.md). Führen Sie dann den folgenden Befehl aus:
+  * Fügen Sie für über Azure Resource Manager bereitgestellte virtuelle Computer der öffentlichen IP-Adresse zunächst einen DNS-Namen hinzu. Detaillierte Schritte dazu finden Sie unter [Erstellen eines vollqualifizierten Domänennamens im Azure-Portal für eine Windows-VM](../create-fqdn.md). Führen Sie dann den folgenden Befehl aus:
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck

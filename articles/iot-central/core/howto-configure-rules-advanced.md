@@ -75,7 +75,7 @@ Gehen Sie wie folgt vor, um den **Azure IoT Central V3 – Vorschau**-Connector 
 1. Wählen Sie in der Liste mit den Aktionen die gewünschte IoT Central-Aktion aus.
 1. Schließen Sie im Aktionsschritt die Konfiguration für die ausgewählte Aktion ab. Klicken Sie dann auf **Speichern**.
 
-:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Suchen nach dem Connector „Azure IoT Central - preview“ (Azure IoT Central (Vorschauversion)) und Auswählen des Triggers":::
+:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Suchen nach dem Azure IoT Central V3-Connector, und wählen Sie eine Aktion aus":::
 
 ## <a name="list-of-actions"></a>Liste mit Aktionen
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
-ms.openlocfilehash: 2a030d9ca5422e12856dcb81b29f8327e684c97e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6b6649d03da319171b24baa24983972bf270679
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90528652"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954544"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Verwenden der automatischen Bereitstellung des Azure IoT Hub Device Provisioning Service zum Registrieren des MXChip IoT DevKit bei IoT Hub
 
@@ -30,9 +30,9 @@ Das [MXChip IoT DevKit](https://aka.ms/iot-devkit) ist ein mit Arduino kompatibl
 
 Um die Schritte in diesem Tutorial auszuführen, erledigen Sie zuerst die folgenden Aufgaben:
 
-* Konfigurieren Sie das WLAN Ihres DevKits, und bereiten Sie Ihre Entwicklungsumgebung vor, indem Sie die in [Verbinden von IoT DevKit AZ3166 mit Azure IoT Hub in der Cloud](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment) im Abschnitt „Vorbereiten der Entwicklungsumgebung“ beschriebenen Schritte ausführen.
+* Konfigurieren Sie das WLAN Ihres DevKits, und bereiten Sie Ihre Entwicklungsumgebung vor, indem Sie die in [Verbinden von IoT DevKit AZ3166 mit Azure IoT Hub in der Cloud](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment) im Abschnitt „Vorbereiten der Entwicklungsumgebung“ beschriebenen Schritte ausführen.
 * Führen Sie ein Upgrade auf die neueste Firmware (1.3.0 oder höher) mit dem Tutorial [Update der DevKit-Firmware](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) durch.
-* Erstellen und Verknüpfen Sie einen IoT-Hub mit einer Device Provisioning-Dienstinstanz, indem Sie die Schritte in [Einrichten des IoT Hub Device Provisioning-Diensts über das Azure-Portal](/azure/iot-dps/quick-setup-auto-provision) ausführen.
+* Erstellen und Verknüpfen Sie einen IoT-Hub mit einer Device Provisioning-Dienstinstanz, indem Sie die Schritte in [Einrichten des IoT Hub Device Provisioning-Diensts über das Azure-Portal](./quick-setup-auto-provision.md) ausführen.
 
 ## <a name="open-sample-project"></a>Öffnen eines Beispielprojekts
 
@@ -74,7 +74,7 @@ So speichern Sie einen UDS auf dem DevKit:
 
 ## <a name="update-the-global-device-endpoint-and-id-scope"></a>Aktualisieren von globalem Geräteendpunkt und ID-Bereich
 
-Im Gerätecode müssen Sie den [Endpunkt für die Gerätebereitstellung](/azure/iot-dps/concepts-service#device-provisioning-endpoint) und den ID-Bereich angeben, um die Mandantenisolation sicherzustellen.
+Im Gerätecode müssen Sie den [Endpunkt für die Gerätebereitstellung](./concepts-service.md#device-provisioning-endpoint) und den ID-Bereich angeben, um die Mandantenisolation sicherzustellen.
 
 1. Wählen Sie im Azure-Portal den Bereich **Übersicht** Ihres Device Provisioning-Diensts aus, und notieren Sie sich die Werte von **Globaler Geräteendpunkt** und **ID-Bereich**.
   ![Globaler Endpunkt und ID-Bereich von Device Provisioning Service](media/how-to-connect-mxchip-iot-devkit/dps-global-endpoint.png)
@@ -90,7 +90,7 @@ Im Gerätecode müssen Sie den [Endpunkt für die Gerätebereitstellung](/azure/
 
 ## <a name="generate-x509-certificate"></a>Generieren eines X.509-Zertifikats
 
-Der von diesem Beispiel verwendete [Nachweismechanismus](/azure/iot-dps/concepts-device#attestation-mechanism) ist ein X.509-Zertifikat. Zu dessen Generierung müssen Sie ein Hilfsprogramm verwenden.
+Der von diesem Beispiel verwendete [Nachweismechanismus](./concepts-service.md#attestation-mechanism) ist ein X.509-Zertifikat. Zu dessen Generierung müssen Sie ein Hilfsprogramm verwenden.
 
 1. Klicken Sie in VS Code auf `F1`, geben Sie **Open New Terminal** (Neues Terminal öffnen) ein, und wählen Sie den Befehl aus, um ein Terminalfenster zu öffnen.
 
@@ -141,4 +141,3 @@ Zusammengefasst haben Sie die folgenden Verfahren kennengelernt:
 > * Überprüfen, ob das Gerät registriert ist
 
 Informationen zum [Erstellen und Bereitstellen eines simulierten Geräts](./quick-create-simulated-device.md)
-

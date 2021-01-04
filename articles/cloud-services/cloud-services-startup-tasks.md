@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: f2417389de98f9998c189e7cbbbcdae77fbb8840
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075058"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020703"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Konfigurieren und Ausführen von Startaufgaben für einen Clouddienst
 Mit Startaufgaben können Sie Vorgänge ausführen, bevor eine Rolle gestartet wird. Zu den Vorgängen, die Sie vielleicht ausführen möchten, gehören das Installieren von Komponenten, das Registrieren von COM-Komponenten, das Festlegen von Registrierungsschlüsseln und das Starten eines lang andauernden Prozesses.
@@ -31,7 +31,7 @@ Die Startaufgabe kann Informationen und Fehler im angegebenen Verzeichnis protok
 
 Startaufgaben können auch mehrmals zwischen Neustarts ausgeführt werden. Beispielsweise wird die Startaufgabe bei jeder zyklischen Ausführung der Rolle ausgeführt, und die zyklische Rollenausführung ist nicht immer mit einem Neustart verbunden. Startaufgaben sollten so geschrieben werden, die sie ohne Probleme mehrmals ausgeführt werden können.
 
-Startaufgaben müssen mit dem **errorlevel** (oder Exitcode) Null (0) enden, damit der Startprozess abgeschlossen wird. Wenn eine Startaufgabe mit einem von Null abweichenden **errorlevel**beendet wird, wird die Rolle nicht gestartet.
+Startaufgaben müssen mit dem **errorlevel** (oder Exitcode) Null (0) enden, damit der Startprozess abgeschlossen wird. Wenn eine Startaufgabe mit einem von Null abweichenden **errorlevel** beendet wird, wird die Rolle nicht gestartet.
 
 ## <a name="role-startup-order"></a>Reihenfolge beim Starten einer Rolle
 Im Folgenden werden die Schritte beim Starten einer Rolle in Azure aufgeführt:

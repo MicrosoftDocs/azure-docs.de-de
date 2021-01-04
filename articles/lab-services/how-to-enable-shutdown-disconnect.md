@@ -3,12 +3,12 @@ title: Konfigurieren des automatischen Herunterfahrens von VMs für ein Lab in A
 description: Hier erfahren Sie, wie Sie das automatische Herunterfahren von VMs aktivieren oder deaktivieren, wenn eine Remotedesktopverbindung getrennt wird.
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 67b51941207fdd4913df9a92362959bbd468d336
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f9080f3b7b762d3b9fa448a903a4167cd2cec4a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649880"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433930"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab"></a>Konfigurieren des automatischen Herunterfahrens von virtuellen Computern für ein Lab
 
@@ -40,4 +40,4 @@ Lesen Sie unbedingt die Informationen zum automatischen Herunterfahren im Abschn
 > Wenn Sie das Linux- oder Windows-Betriebssystem einer VM herunterfahren, bevor Sie eine RDP-Sitzung mit der VM trennen, funktioniert das automatische Herunterfahren nicht ordnungsgemäß.  
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Dashboard für Classroom-Labs](use-dashboard.md)
+[Dashboard für Labs](use-dashboard.md)

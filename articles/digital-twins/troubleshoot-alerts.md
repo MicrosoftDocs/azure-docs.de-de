@@ -5,14 +5,14 @@ description: Es wird beschrieben, wie Sie Warnungen in Azure Digital Twins-Metri
 author: baanders
 ms.author: baanders
 ms.date: 7/28/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ae7e85624f5da06603ddc2675787b84203bc987b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 057a1b08095a71e2fca6119f5b63bfdc787eea88
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90087206"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616601"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Problembehandlung von Azure Digital Twins: Alerts
 
@@ -44,17 +44,17 @@ Eine Anleitung zum Ausfüllen dieser Felder finden Sie unter [*Überblick über 
 
 Hier ist ein Auszug aus dem Prozess *Bedingung auswählen* angegeben, um zu veranschaulichen, welche Arten von Warnungssignalen für Azure Digital Twins verfügbar sind. Auf dieser Seite können Sie nach dem Typ des Signals filtern und das gewünschte Signal in einer Liste auswählen.
 
-:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic.png" alt-text="Screenshot: Seite „Warnungsregel erstellen“ mit Abschnitten für Bereich, Bedingung, Aktionsgruppe und Details zur Warnungsregel":::
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic.png" alt-text="Screenshot: Erste Seite „Signallogik konfigurieren“. Das Feld „Signaltyp“ ist hervorgehoben, über das Metriken und Aktivitätsprotokolle ausgewählt werden können, und unterhalb davon können Sie eine Liste mit Metriken auswählen.":::
 
 Nachdem Sie ein Signal ausgewählt haben, werden Sie aufgefordert, die Logik der Warnung zu konfigurieren. Sie können nach einer Dimension filtern und einen Schwellenwert für Ihre Warnung sowie die Häufigkeit der Überprüfungen für die Bedingung festlegen. Hier ist ein Beispiel für die Einrichtung einer Warnung für den Fall angegeben, dass der Durchschnittswert für die Metrik „Routingfehlerrate“ über 5 % steigt.
 
-:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Screenshot: Seite „Warnungsregel erstellen“ mit Abschnitten für Bereich, Bedingung, Aktionsgruppe und Details zur Warnungsregel":::
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Screenshot: Zweite Seite „Signallogik konfigurieren“. Auf der Seite wird der Metrikverlauf angezeigt, sie verfügt über einen Bereich zum Filtern nach einer Dimension, z. B. Event Grid-Vorgänge, und es ist ein Abschnitt zum Definieren der Warnungslogik vorhanden (Beispiel: „Durchschnittswert größer als 5“).":::
 
 ### <a name="verify-success"></a>Überprüfen des erfolgreichen Abschlusses
 
 Nach dem Einrichten von Warnungen werden diese auf der Seite *Warnungen* für Ihre Instanz angezeigt.
  
-:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Screenshot: Seite „Warnungsregel erstellen“ mit Abschnitten für Bereich, Bedingung, Aktionsgruppe und Details zur Warnungsregel" lightbox="media/troubleshoot-alerts/alerts-post.png":::
+:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Screenshot: Seite „Warnungen“ und Schaltfläche zum Hinzufügen. Eine Warnung ist konfiguriert." lightbox="media/troubleshoot-alerts/alerts-post.png":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 

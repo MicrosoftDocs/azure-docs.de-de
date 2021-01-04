@@ -1,15 +1,15 @@
 ---
-author: craigktreasure
+author: msftradford
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 8/13/2020
-ms.author: crtreasu
-ms.openlocfilehash: e712f7876a31e2bde629b2a2a3ad83a22c6ad7e7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 11/20/2020
+ms.author: parkerra
+ms.openlocfilehash: bf644689f0e6b3b5bad367d48b8e263ac7c07c36
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971327"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185341"
 ---
 ## <a name="configure-the-account-information"></a>Konfigurieren der Kontoinformationen
 

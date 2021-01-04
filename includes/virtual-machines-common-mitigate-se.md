@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/12/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 6668d9753d0b93ab907d37cdeff8315f488cff7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9146099951aba223a7b201c1613e1ec0ba617d4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73935875"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509480"
 ---
 **Letzte Aktualisierung des Dokuments**: 12. November 2019 10:00 PST.
 
@@ -21,9 +21,9 @@ Eine öffentlich gemachte [neue Art von CPU-Sicherheitsrisiken](https://portal.m
 
 Microsoft hat Maßnahmen zur Minderung dieser Risiken für alle Clouddienste bereitgestellt. Die Infrastruktur, in der Azure ausgeführt und Kundenworkloads voneinander isoliert werden, ist geschützt. Dies bedeutet, dass ein potenzieller Angreifer, der dieselbe Infrastruktur nutzt, Ihre Anwendung über diese Sicherheitsrisiken nicht angreifen kann.
 
-In Azure wird nach Möglichkeit die [Wartung mit Speicherbeibehaltung](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-that-doesnt-require-a-reboot) genutzt, um die Auswirkungen für Kunden möglichst gering zu halten und auf Neustarts verzichten zu können. In Azure werden diese Methoden eingesetzt, wenn systemweite Updates am Host vorgenommen werden, um unsere Kunden zu schützen.
+In Azure wird nach Möglichkeit die [Wartung mit Speicherbeibehaltung](../articles/virtual-machines/maintenance-and-updates.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json%252c%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json%253ftoc%253d%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#maintenance-that-doesnt-require-a-reboot) genutzt, um die Auswirkungen für Kunden möglichst gering zu halten und auf Neustarts verzichten zu können. In Azure werden diese Methoden eingesetzt, wenn systemweite Updates am Host vorgenommen werden, um unsere Kunden zu schützen.
 
-Weitere Informationen dazu, wie die Sicherheit in alle Bereiche von Azure integriert ist, finden Sie auf der Website mit der [Dokumentation zur Azure-Sicherheit](https://docs.microsoft.com/azure/security/). 
+Weitere Informationen dazu, wie die Sicherheit in alle Bereiche von Azure integriert ist, finden Sie auf der Website mit der [Dokumentation zur Azure-Sicherheit](../articles/security/index.yml). 
 
 > [!NOTE] 
 > Seit der ersten Veröffentlichung dieses Dokuments wurden mehrere Varianten dieser Sicherheitsrisikoklasse öffentlich gemacht. Microsoft investiert weiterhin stark in den Schutz seiner Kunden und in die Bereitstellung von Anleitungen. Diese Seite wird aktualisiert, wenn weitere Fehlerbehebungen veröffentlicht werden. 
@@ -43,7 +43,7 @@ Ein Betriebssystemupdate ist zwar nicht erforderlich, um Ihre in Azure ausgefüh
 
 | Angebot | Empfohlene Maßnahme  |
 |----------|---------------------|
-| Azure Cloud Services  | Aktivieren Sie [automatische Updates](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal), oder stellen Sie sicher, dass das neueste Gastbetriebssystem ausgeführt wird. |
+| Azure Cloud Services  | Aktivieren Sie [automatische Updates](../articles/cloud-services/cloud-services-how-to-configure-portal.md), oder stellen Sie sicher, dass das neueste Gastbetriebssystem ausgeführt wird. |
 | Virtuelle Azure Linux-Computer | Installieren Sie Updates vom Anbieter Ihres Betriebssystems. Weitere Informationen finden Sie unter [Linux](#linux) in diesem Dokument. |
 | Virtuelle Azure Windows-Computer  | Installieren Sie das aktuelle Sicherheitsrollup.
 | Weitere Azure PaaS-Dienste | Für Kunden, die diese Dienste verwenden, sind keine Maßnahmen erforderlich. Azure hält Ihre Betriebssystemversionen automatisch auf dem neuesten Stand. |
@@ -72,7 +72,7 @@ Sie können auf Ihrem virtuellen Computer oder in Ihrem Clouddienst zusätzliche
 Ihr Zielbetriebssystem muss aktuell sein, damit Sie diese zusätzlichen Sicherheitsfunktionen aktivieren können. Für „Seitenkanalangriffe mit spekulativer Ausführung“ sind standardmäßig mehrere Maßnahmen zur Risikominderung aktiviert, aber die hier beschriebenen zusätzlichen Features müssen manuell aktiviert werden und können sich auf die Leistung auswirken. 
 
 
-**Schritt 1: Deaktivieren von Hyperthreading auf dem virtuellen Computer**: Kunden, die nicht vertrauenswürdigen Code auf einem virtuellen Computer mit Hyperthreading ausführen, müssen das Hyperthreading deaktivieren oder zu einer VM-Größe ohne Hyperthreading wechseln. Eine Liste mit VM-Größen mit Hyperthreading finden Sie in [diesem Dokument](https://docs.microsoft.com/azure/virtual-machines/windows/acu). (Bei diesen VM-Größen beträgt das Verhältnis zwischen vCPU und Kern 2:1.) Mit dem folgenden Skript können Sie über die Windows-Befehlszeile auf dem virtuellen Computer ermitteln, ob Hyperthreading für Ihren virtuellen Computer aktiviert ist.
+**Schritt 1: Deaktivieren von Hyperthreading auf dem virtuellen Computer**: Kunden, die nicht vertrauenswürdigen Code auf einem virtuellen Computer mit Hyperthreading ausführen, müssen das Hyperthreading deaktivieren oder zu einer VM-Größe ohne Hyperthreading wechseln. Eine Liste mit VM-Größen mit Hyperthreading finden Sie in [diesem Dokument](../articles/virtual-machines/acu.md). (Bei diesen VM-Größen beträgt das Verhältnis zwischen vCPU und Kern 2:1.) Mit dem folgenden Skript können Sie über die Windows-Befehlszeile auf dem virtuellen Computer ermitteln, ob Hyperthreading für Ihren virtuellen Computer aktiviert ist.
 
 Geben Sie `wmic` ein, um die interaktive Benutzeroberfläche aufzurufen. Geben Sie dann den folgenden Befehl ein, um die Menge der physischen und logischen Prozessoren auf dem virtuellen Computer anzuzeigen.
 
@@ -108,10 +108,10 @@ Wenn die Ausgabe `MDS mitigation is enabled: False` anzeigt, [wenden Sie sich an
 **Schritt 3:** Folgen Sie den Anweisungen in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution), um die Betriebssystemunterstützung für KVAS (Kernel Virtual Address Shadowing) und BTI (Branch Target Injection) zu aktivieren, damit Schutz über die `Session Manager`-Registrierungsschlüssel aktiviert wird. Es ist ein Neustart erforderlich.
 
 
-**Schritt 4:** Für Bereitstellungen, in denen [geschachtelte Virtualisierung](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) verwendet wird (nur D3 und E3): Diese Anweisungen gelten für den virtuellen Computer, den Sie als Hyper-V-Host verwenden.
+**Schritt 4:** Für Bereitstellungen, in denen [geschachtelte Virtualisierung](../articles/virtual-machines/windows/nested-virtualization.md) verwendet wird (nur D3 und E3): Diese Anweisungen gelten für den virtuellen Computer, den Sie als Hyper-V-Host verwenden.
 
 1.  Befolgen Sie die Anleitung unter [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution), um den Schutz über die `MinVmVersionForCpuBasedMitigations`-Registrierungsschlüssel zu aktivieren.
-2.  Legen Sie den Typ des Hypervisorplaners auf `Core` fest, indem Sie [diese Anweisungen](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types) ausführen.
+2.  Legen Sie den Typ des Hypervisorplaners auf `Core` fest, indem Sie [diese Anweisungen](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types) ausführen.
 
 
 ### <a name="linux"></a>Linux
@@ -119,7 +119,7 @@ Wenn die Ausgabe `MDS mitigation is enabled: False` anzeigt, [wenden Sie sich an
 <a name="linux"></a>Für die Aktivierung der internen zusätzlichen Sicherheitsfunktionen ist es erforderlich, dass das Zielbetriebssystem auf dem aktuellsten Stand ist. Einige Maßnahmen zur Risikominderung sind standardmäßig aktiviert. Im folgenden Abschnitt werden die Funktionen beschrieben, die standardmäßig deaktiviert sind bzw. für die eine Hardwareunterstützung (Microcode) benötigt wird. Die Aktivierung dieser Funktionen kann zu einer Beeinträchtigung der Leistung führen. Weitere Informationen finden Sie in der Dokumentation des Anbieters Ihres Betriebssystems.
 
 
-**Schritt 1: Deaktivieren von Hyperthreading auf dem virtuellen Computer**: Kunden, die nicht vertrauenswürdigen Code auf einem virtuellen Computer mit Hyperthreading ausführen, müssen das Hyperthreading deaktivieren oder zu einem virtuellen Computer ohne Hyperthreading wechseln.  Eine Liste mit VM-Größen mit Hyperthreading finden Sie in [diesem Dokument](https://docs.microsoft.com/azure/virtual-machines/linux/acu). (Bei diesen VM-Größen beträgt das Verhältnis zwischen vCPU und Kern 2:1.) Führen Sie auf dem virtuellen Linux-Computer den Befehl `lscpu` aus, um zu ermitteln, ob Sie einen virtuellen Computer mit Hyperthreading ausführen. 
+**Schritt 1: Deaktivieren von Hyperthreading auf dem virtuellen Computer**: Kunden, die nicht vertrauenswürdigen Code auf einem virtuellen Computer mit Hyperthreading ausführen, müssen das Hyperthreading deaktivieren oder zu einem virtuellen Computer ohne Hyperthreading wechseln.  Eine Liste mit VM-Größen mit Hyperthreading finden Sie in [diesem Dokument](../articles/virtual-machines/acu.md). (Bei diesen VM-Größen beträgt das Verhältnis zwischen vCPU und Kern 2:1.) Führen Sie auf dem virtuellen Linux-Computer den Befehl `lscpu` aus, um zu ermitteln, ob Sie einen virtuellen Computer mit Hyperthreading ausführen. 
 
 Bei `Thread(s) per core = 2` ist Hyperthreading aktiviert. 
 
@@ -179,11 +179,3 @@ Dieser Artikel enthält Anleitungen zu den folgenden Seitenkanalangriffen mit sp
 
 Transactional Synchronization Extensions (Intel® TSX) Transaction Asynchronous Abort:  
 - [CVE-2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135) – TSX Transaction Asynchronous Abort (TAA)
-
-
-
-
-
-
-
-

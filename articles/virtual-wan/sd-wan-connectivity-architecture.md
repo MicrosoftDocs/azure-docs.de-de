@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sukishen
-ms.openlocfilehash: e3f6f947b86b1cb34fde66c62199336403037827
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: ea9ddd05fe6fc745a3eefc29ab4f1d6aababc936
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91828057"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564700"
 ---
 # <a name="sd-wan-connectivity-architecture-with-azure-virtual-wan"></a>SD-WAN-Konnektivitätsarchitektur mit Azure Virtual WAN
 
@@ -44,9 +44,9 @@ Mit Virtual WAN können Benutzer Azure-Pfadauswahl erhalten, eine richtlinienbas
 
 ## <a name="direct-interconnect-model-with-nva-in-vwan-hub"></a><a name="direct"></a>Direktes Interconnectmodell mit NVA-in-VWAN-Hub
 
-:::image type="content" source="./media/sd-wan-connectivity-architecture/direct-nva.png" alt-text="Modell mit direkter Verbindung":::
+:::image type="content" source="./media/sd-wan-connectivity-architecture/direct-nva.png" alt-text="Direktes Interconnectmodell mit NVA-in-VWAN-Hub":::
 
-Dieses Architekturmodell unterstützt die Bereitstellung einer [Network Virtual Appliance (NVA) von Drittanbietern direkt im virtuellen Hub](https://docs.microsoft.com/azure/virtual-wan/about-nva-hub). Dadurch können Kunden ihr Zweigniederlassungs-CPE mit der gleichen Marken-NVA im virtuellen Hub verbinden und so proprietäre End-to-End-SD-WAN-Funktionen nutzen, wenn sie eine Verbindung mit Azure-Workloads herstellen. 
+Dieses Architekturmodell unterstützt die Bereitstellung einer [Network Virtual Appliance (NVA) von Drittanbietern direkt im virtuellen Hub](./about-nva-hub.md). Dadurch können Kunden ihr Zweigniederlassungs-CPE mit der gleichen Marken-NVA im virtuellen Hub verbinden und so proprietäre End-to-End-SD-WAN-Funktionen nutzen, wenn sie eine Verbindung mit Azure-Workloads herstellen. 
 
 Mehrere Virtual WAN-Partner haben eine Funktion entwickelt, die die NVA im Rahmen des Bereitstellungsprozesses automatisch konfiguriert. Nachdem das NVA im virtuellen Hub bereitgestellt wurde, müssen alle zusätzlichen Konfigurationsschritte, die für das NVA erforderlich sind, über das NVA-Partnerportal oder die Verwaltungsanwendung durchgeführt werden. Der direkte Zugriff auf das NVA ist nicht möglich. Die zur direkten Bereitstellung im Azure Virtual WAN-Hub verfügbaren NVAs werden speziell für die Verwendung im virtuellen Hub entwickelt. Partner, die NVAs im VWAN-Hub sowie deren Bereitstellungsleitfäden unterstützen, finden Sie im Artikel [Virtual WAN-Partner](virtual-wan-locations-partners.md#partners-with-integrated-virtual-hub-offerings).
 
@@ -55,7 +55,7 @@ In diesem Modell wird die proprietäre Datenverkehrsoptimierung auf der Grundlag
 
 ## <a name="indirect-interconnect-model"></a><a name="indirect"></a>Modell mit indirekter Verbindung
 
-:::image type="content" source="./media/sd-wan-connectivity-architecture/indirect.png" alt-text="Modell mit direkter Verbindung":::
+:::image type="content" source="./media/sd-wan-connectivity-architecture/indirect.png" alt-text="Modell mit indirekter Verbindung":::
 
 In diesem Architekturmodell sind die Zweigniederlassungs-CPEs des SD-WAN indirekt mit Virtual WAN-Hubs verbunden. Wie in der Abbildung ersichtlich ist, wird eine CPE in einem virtuellen SD-WAN in einem Unternehmens-VNET bereitgestellt. Diese virtuelle CPE ist wiederum über IPsec mit den Virtual WAN-Hubs verbunden. Die virtuelle CPE übernimmt also die Aufgabe eines SD-WAN-Gateways zu Azure. Zweigniederlassungen, die auf ihre Workloads in Azure zugreifen müssen, können über das v-CPE-Gateway darauf zugreifen.
 
@@ -63,7 +63,7 @@ Da die Verbindungen mit Azure über das v-CPE-Gateway (NVA) erfolgen, findet der
   
 ## <a name="managed-hybrid-wan-model"></a><a name="hybrid"></a>Modell mit verwaltetem Hybrid-WAN
 
-:::image type="content" source="./media/sd-wan-connectivity-architecture/hybrid.png" alt-text="Modell mit direkter Verbindung":::
+:::image type="content" source="./media/sd-wan-connectivity-architecture/hybrid.png" alt-text="Modell mit verwaltetem Hybrid-WAN":::
 
 In diesem Architekturmodell können Unternehmen einen verwalteten SD-WAN-Dienst nutzen, der von einem MSP-Partner (Managed Service Provider) angeboten wird. Dieses Modell ähnelt den oben beschriebenen direkten und indirekten Modellen. In diesem Modell werden jedoch der SD-WAN-Entwurf, die Orchestrierung und der Betrieb vom SD-WAN-Anbieter bereitgestellt.
 

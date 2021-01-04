@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 3d35a1f6913d0b657956489d0e57836a05f9eb1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 188a348b497a485be0a8091b50a3f2c11b6493c0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90900052"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960749"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Häufig gestellte Fragen (FAQ) zu Azure Cognitive Services-Containern
 
@@ -50,7 +50,7 @@ Cognitive Services-Containerkonfigurationen von Ressourcen werden von Kunden kon
 
 **A:** Nicht jeder ist mit dem Begriff „Sovereign Cloud“ vertraut, daher beginnen wir mit der Definition:
 
-> Die „Sovereign Cloud“ besteht aus den Clouds [Azure Government](../../azure-government/documentation-government-welcome.md), [Azure Deutschland](../../germany/germany-welcome.md) und [Azure China 21Vianet](https://docs.microsoft.com/azure/china/overview-operations).
+> Die „Sovereign Cloud“ besteht aus den Clouds [Azure Government](../../azure-government/documentation-government-welcome.md), [Azure Deutschland](../../germany/germany-welcome.md) und [Azure China 21Vianet](/azure/china/overview-operations).
 
 Leider werden die Cognitive Services-Container *nicht* nativ in den Sovereign Clouds unterstützt. Die Container können in diesen Clouds ausgeführt werden, aber sie werden aus der Public Cloud abgerufen und müssen Nutzungsdaten an den öffentlichen Endpunkt senden.
 

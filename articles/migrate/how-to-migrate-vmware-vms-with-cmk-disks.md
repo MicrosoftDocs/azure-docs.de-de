@@ -1,18 +1,17 @@
 ---
 title: Migrieren von virtuellen VMware-Computern zu Azure mit serverseitiger Verschlüsselung (Server-Side Encryption, SSE) und von Kunden verwalteten Schlüsseln (Customer-Managed Keys, CMK) mit Azure Migrate-Servermigration
 description: Erfahren Sie, wie Sie virtuelle VMware-Computer mit serverseitiger Verschlüsselung (Server-Side Encryption, SSE) und von Kunden verwalteten Schlüsseln (Customer-Managed Keys, CMK) mit Azure Migrate-Servermigration zu Azure migrieren.
-author: bsiva
-ms.service: azure-migrate
-ms.manager: carmonm
-ms.topic: article
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
+ms.topic: how-to
 ms.date: 03/12/2020
-ms.author: raynew
-ms.openlocfilehash: 01f30305529e7f142be0ca6ddffa0f5a12a235bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a174c3b2bfb390eb7d691ae1bdcb0e28dde9032
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260018"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751086"
 ---
 # <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>Migrieren von VMware-VMs zu Azure-VMS mit serverseitiger Verschlüsselung und von Kunden verwalteten Schlüsseln
 
@@ -22,12 +21,12 @@ Die Benutzeroberfläche des Azure Migrate-Servermigrationsportals ermöglicht Ih
 
 In den Beispielen in diesem Artikel wird [Azure PowerShell](/powershell/azure/new-azureps-module-az) verwendet, um die Aufgaben auszuführen, die zum Erstellen und Bereitstellen der Resource Manager-Vorlage erforderlich sind.
 
-[Erfahren Sie mehr](../virtual-machines/windows/disk-encryption.md) über die serverseitige Verschlüsselung (SSE) mit vom Kunden verwalteten Schlüsseln (CMK) für verwaltete Datenträger.
+[Erfahren Sie mehr](../virtual-machines/disk-encryption.md) über die serverseitige Verschlüsselung (SSE) mit vom Kunden verwalteten Schlüsseln (CMK) für verwaltete Datenträger.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 - [Lesen Sie das Tutorial](tutorial-migrate-vmware.md) zur Migration von VMware-VMS zu Azure mit Replikation ohne Agent, um die Anforderungen des Tools zu verstehen.
-- [Befolgen Sie diese Anweisungen](how-to-add-tool-first-time.md), um ein Azure Migrate-Projekt zu erstellen und das Tool **Azure Migrate: Servermigration** dem Projekt hinzuzufügen.
+- [Befolgen Sie diese Anweisungen](./create-manage-projects.md), um ein Azure Migrate-Projekt zu erstellen und das Tool **Azure Migrate: Servermigration** dem Projekt hinzuzufügen.
 - [Befolgen Sie diese Anweisungen](how-to-set-up-appliance-vmware.md), um die Azure Migrate-Appliance für VMware in Ihrer lokalen Umgebung einzurichten und die Ermittlung abzuschließen.
 
 ## <a name="prepare-for-replication"></a>Vorbereiten der Replikation

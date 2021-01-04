@@ -3,12 +3,12 @@ title: Übersicht über ACR Tasks
 description: 'Einführung in ACR Tasks: eine Suite mit Features in Azure Container Registry für sichere, automatisierte Build- und Patchvorgänge für Containerimages und Verwaltung in der Cloud.'
 ms.topic: article
 ms.date: 08/12/2020
-ms.openlocfilehash: 24cc0415fe8756e900a8ea0ce7039f6b4710cf6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14758e363e74450a10f1a2cbfc889f3e24782771
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488642"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027665"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatisieren von Containerimage-Builds und Wartung mit ACR Tasks
 
@@ -23,7 +23,7 @@ Container bieten neue Virtualisierungsmöglichkeiten und trennen Anwendungs- und
 ACR Tasks unterstützt verschiedene Szenarien zum Erstellen und Verwalten von Containerimages und anderen Artefakten. Weitere Informationen finden Sie in den folgenden Abschnitten dieses Artikels.
 
 * **[Schnelltask](#quick-task)** : Bedarfsgesteuertes Erstellen und Pushen eines einzelnen Containerimages in eine Containerregistrierung in Azure ohne lokale Docker Engine-Installation. Kurz: `docker build`, `docker push` in die Cloud.
-* **Automatisch ausgelöste Tasks**: Aktivieren Sie einen oder mehrere *Trigger*, um ein Image zu erstellen:
+* **Automatisch ausgelöste Tasks** : Aktivieren Sie einen oder mehrere *Trigger* , um ein Image zu erstellen:
   * **[Auslösen des Tasks beim Update des Quellcodes](#trigger-task-on-source-code-update)** 
   * **[Auslösen beim Basisimageupdate](#automate-os-and-framework-patching)** 
   * **[Auslösen nach Zeitplan](#schedule-a-task)** 
@@ -70,7 +70,7 @@ Informationen zum Auslösen von Buildvorgängen nach dem Committen von Quellcode
 
 ## <a name="automate-os-and-framework-patching"></a>Automatisierung von Betriebssystem- und Frameworkpatching
 
-Durch die Möglichkeit zur Erkennung von *Basisimage*aktualisierungen bietet ACR Tasks einen echten Mehrwert für Ihren Containererstellungsworkflow. Ein Basisimage, das ein Feature der meisten Containerimages ist, ist ein übergeordnetes Image, auf dem ein oder mehrere Anwendungsimages basieren. Basisimages enthalten in der Regel das Betriebssystem und manchmal auch Anwendungsframeworks. 
+Durch die Möglichkeit zur Erkennung von *Basisimage* aktualisierungen bietet ACR Tasks einen echten Mehrwert für Ihren Containererstellungsworkflow. Ein Basisimage, das ein Feature der meisten Containerimages ist, ist ein übergeordnetes Image, auf dem ein oder mehrere Anwendungsimages basieren. Basisimages enthalten in der Regel das Betriebssystem und manchmal auch Anwendungsframeworks. 
 
 Sie können einen ACR Task einrichten, um eine Abhängigkeit von einem Basisimage zu verfolgen, wenn es ein Anwendungsimage erstellt. Wenn das aktualisierte Basisimage in Ihre Registrierung gepusht oder ein Basisimage in einem öffentlichen Repository. wie Docker Hub, aktualisiert wird, kann ACR Tasks automatisch alle darauf basierenden Anwendungsimages erstellen.
 Die automatische Erkennung und Neuerstellung von ACR Tasks spart Zeit, die ansonsten für die manuelle Nachverfolgung und Aktualisierung der einzelnen Anwendungsimages aufgewendet werden müsste, die auf Ihr aktualisiertes Basisimage verweisen.
@@ -138,10 +138,6 @@ Wenn Sie bereit sind, die Erstellung und Wartung von Containerimages in der Clou
 Installieren Sie optional die [Docker-Erweiterung für Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) und die [Azure-Kontoerweiterung](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) für die Verwendung mit Ihren Azure-Containerregistrierungen. In Visual Studio Code können Sie Pull- und Pushvorgänge für Images in einer Azure-Containerregistrierung oder auch ACR Tasks ausführen.
 
 <!-- LINKS - External -->
-[base-alpine]: https://hub.docker.com/_/alpine/
-[base-dotnet]: https://hub.docker.com/r/microsoft/dotnet/
-[base-node]: https://hub.docker.com/_/node/
-[base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
 [sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 

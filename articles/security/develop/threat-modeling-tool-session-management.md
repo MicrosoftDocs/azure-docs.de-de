@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
-ms.openlocfilehash: c26acb1460516781b34a5dcc861164e9ef87a37a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1f4d4a3bb78da82753d651e1a73cf244096d5df
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331623"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518100"
 ---
 # <a name="security-frame-session-management"></a>Sicherheitsrahmen: Sitzungsverwaltung
 | Produkt/Dienst | Artikel |
@@ -159,7 +159,7 @@ Außerdem sollte die Sitzung des Benutzers durch den Aufruf der Session.Abandon(
 | **SDL-Phase**               | Entwickeln |  
 | **Zutreffende Technologien** | Allgemein |
 | **Attribute**              | EnvironmentType – OnPrem |
-| **Referenzen**              | [httpCookies-Element (ASP.NET-Einstellungsschema)](https://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [HttpCookie.Secure-Eigenschaft](https://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
+| **Referenzen**              | [httpCookies-Element (ASP.NET-Einstellungsschema)](/previous-versions/dotnet/netframework-4.0/ms228262(v=vs.100)), [HttpCookie.Secure-Eigenschaft](/dotnet/api/system.web.httpcookie.secure) |
 | **Schritte** | Auf Cookies kann normalerweise nur über die Domäne zugegriffen werden, für die sie zugeordnet wurden. Die Definition von „Domäne“ enthält leider nicht das Protokoll, sodass auf Cookies, die per HTTPS erstellt werden, über HTTP zugegriffen werden kann. Mit dem Attribut „secure“ wird für den Browser angegeben, dass das Cookie nur per HTTPS verfügbar gemacht werden sollte. Stellen Sie sicher, dass für alle Cookies, die per HTTPS festgelegt werden, das Attribut **secure** verwendet wird. Die Anforderung kann in der Datei „web.config“ erzwungen werden, indem das Attribut „requireSSL“ auf „TRUE“ festgelegt wird. Dies ist der bevorzugte Ansatz, da hiermit das Attribut **secure** für alle aktuellen und zukünftigen Cookies erzwungen wird, ohne dass zusätzliche Codeänderungen vorgenommen werden müssen.|
 
 ### <a name="example"></a>Beispiel
@@ -221,7 +221,7 @@ Für alle HTTP-basierten Anwendungen, die Cookies verwenden, sollte in der Cooki
 | **SDL-Phase**               | Entwickeln |  
 | **Zutreffende Technologien** | Web Forms |
 | **Attribute**              | –  |
-| **Referenzen**              | [FormsAuthentication.RequireSSL-Eigenschaft](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
+| **Referenzen**              | [FormsAuthentication.RequireSSL-Eigenschaft](/dotnet/api/system.web.security.formsauthentication.requiressl) |
 | **Schritte** | Der RequireSSL-Eigenschaftswert wird in der Konfigurationsdatei für eine ASP.NET-Anwendung festgelegt, indem das requireSSL-Attribut des Konfigurationselements verwendet wird. Sie können in der Datei „Web.config“ für Ihre ASP.NET-Anwendung angeben, ob TLS (Transport Layer Security), früher als SSL (Secure Sockets Layer) bezeichnet, zum Zurückgeben des Forms-Authentifizierungscookies an den Server erforderlich ist, indem Sie das Attribut requireSSL festlegen.|
 
 ### <a name="example"></a>Beispiel 
@@ -238,7 +238,7 @@ Im folgenden Codebeispiel wird das Attribut „requireSSL“ in der Datei „Web
 | **SDL-Phase**               | Entwickeln |  
 | **Zutreffende Technologien** | MVC5 |
 | **Attribute**              | EnvironmentType – OnPrem |
-| **Referenzen**              | [Windows Identity Foundation (WIF) Configuration – Part II](https://blogs.msdn.microsoft.com/alikl/2011/02/01/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler/) (WIF-Konfiguration (Windows Identity Foundation) – Teil II) |
+| **Referenzen**              | [Windows Identity Foundation (WIF) Configuration – Part II](/archive/blogs/alikl/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler) (WIF-Konfiguration (Windows Identity Foundation) – Teil II) |
 | **Schritte** | Zum Angeben des Attributs „httpOnly“ für FedAuth-Cookies sollte der Wert für das Attribut „hideFromCsript“ auf „True“ festgelegt werden. |
 
 ### <a name="example"></a>Beispiel
@@ -358,7 +358,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 | **SDL-Phase**               | Entwickeln |  
 | **Zutreffende Technologien** | Web Forms |
 | **Attribute**              | –  |
-| **Referenzen**              | [Abwehr von Webangriffen mit ASP.NET](https://msdn.microsoft.com/library/ms972969.aspx#securitybarriers_topic2) |
+| **Referenzen**              | [Abwehr von Webangriffen mit ASP.NET](/previous-versions/dotnet/articles/ms972969(v=msdn.10)#securitybarriers_topic2) |
 | **Schritte** | CSRF-Angriffen in WebForm-basierten Anwendungen kann begegnet werden, indem Sie „ViewStateUserKey“ auf eine zufällige Zeichenfolge festlegen, die für jeden Benutzer variiert (Benutzer-ID oder, noch besser, Sitzungs-ID). Aus verschiedenen technischen und sozialen Gründen ist die Sitzungs-ID hier deutlich besser geeignet, weil sie unvorhersagbar ist, abläuft und sich von Benutzer zu Benutzer unterscheidet.|
 
 ### <a name="example"></a>Beispiel
@@ -378,7 +378,7 @@ void Page_Init (object sender, EventArgs e) {
 | **SDL-Phase**               | Entwickeln |  
 | **Zutreffende Technologien** | Allgemein |
 | **Attribute**              | –  |
-| **Referenzen**              | [HttpSessionState.Timeout-Eigenschaft](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
+| **Referenzen**              | [HttpSessionState.Timeout-Eigenschaft](/dotnet/api/system.web.sessionstate.httpsessionstate.timeout) |
 | **Schritte** | Das Sitzungstimeout entspricht dem Ereignis, das eintritt, wenn Benutzer während eines (vom Webserver vorgegebenen) Intervallzeitraums keine Aktion auf einer Website durchführen. Mit dem Ereignis wird auf Serverseite der Status der Benutzersitzung in „ungültig“ (z.B. nicht mehr verwendet) geändert, und der Webserver wird angewiesen, die Sitzung zu zerstören (Löschen aller enthaltenen Daten). Im folgenden Codebeispiel wird das Attribut für das Sitzungstimeout in der Datei „Web.config“ auf 15 Minuten festgelegt.|
 
 ### <a name="example"></a>Beispiel
@@ -398,7 +398,7 @@ void Page_Init (object sender, EventArgs e) {
 | **SDL-Phase**               | Entwickeln |  
 | **Zutreffende Technologien** | Web Forms |
 | **Attribute**              | –  |
-| **Referenzen**              | [Forms-Element für Authentifizierung (ASP.NET-Einstellungsschema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
+| **Referenzen**              | [Forms-Element für Authentifizierung (ASP.NET-Einstellungsschema)](/previous-versions/dotnet/netframework-4.0/1d3t3c61(v=vs.100)) |
 | **Schritte** | Festlegen des Cookietimeouts für das Forms-Authentifizierungsticket auf 15 Minuten|
 
 ### <a name="example"></a>Beispiel

@@ -12,14 +12,19 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 2936b94d7ba791b1a4e5a9b95aca3ca3ecdb5904
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf7d1baf895d44730eb913b658ee4c7fe7eb7b11
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "66383432"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341613"
 ---
 # <a name="get-trending-images-from-the-web"></a>Abrufen von beliebten Bildern aus dem Web
+
+> [!WARNING]
+> Die APIs der Bing-Suche werden von Cognitive Services auf Bing-Suchdienste umgestellt. Ab dem **30. Oktober 2020** müssen alle neuen Instanzen der Bing-Suche mit dem [hier](/bing/search-apis/bing-web-search/create-bing-search-service-resource) dokumentierten Prozess bereitgestellt werden.
+> APIs der Bing-Suche, die mit Cognitive Services bereitgestellt wurden, werden noch drei Jahre lang bzw. bis zum Ablauf Ihres Enterprise Agreement unterstützt (je nachdem, was zuerst geschieht).
+> Eine Anleitung zur Migration finden Sie unter [Bing-Suchdienste](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Um die heutigen beliebten Bilder zu erhalten, senden Sie die folgenden GET-Anforderung:  
 
@@ -39,7 +44,7 @@ Die API für beliebte Bilder unterstützt zurzeit nur die folgenden Märkte:
 - en-AU (Englisch, Australien)  
 - zh-CN (Chinesisch, China)
 
-Die Antwort enthält einen [TrendingImages](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#trendingimages) -Objekt, das Bilder nach Kategorie aufgelistet. Verwenden Sie den `title`-Parameter der Kategorie, um die Bilder in Ihrer Benutzeroberfläche zu gruppieren. Die Kategorien können sich täglich ändern.  
+Die Antwort enthält einen [TrendingImages](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#trendingimages) -Objekt, das Bilder nach Kategorie aufgelistet. Verwenden Sie den `title`-Parameter der Kategorie, um die Bilder in Ihrer Benutzeroberfläche zu gruppieren. Die Kategorien können sich täglich ändern.  
 
 ```json
 {
@@ -88,9 +93,9 @@ Die Antwort enthält einen [TrendingImages](https://docs.microsoft.com/rest/api/
 }  
 ```  
 
-Jede Kachel enthält ein Bild und die Optionen zum Abrufen verwandter Bilder. Um die verwandten Bilder zu erhalten, können Sie die Abfrage `text` verwenden, um die [Bildersuche-API](./search-the-web.md) aufzurufen und die verwandten Bilder selbst anzuzeigen. Alternativ können Sie die URL im `webSearchUrl` verwenden, um den Benutzer zur Seite der Bildersuchergebnisse von Bing zu leiten, auf der die verwandten Bilder zu finden sind.
+Jede Kachel enthält ein Bild und die Optionen zum Abrufen verwandter Bilder. Um die verwandten Bilder zu erhalten, können Sie die Abfrage `text` verwenden, um die [Bildersuche-API](./overview.md) aufzurufen und die verwandten Bilder selbst anzuzeigen. Alternativ können Sie die URL im `webSearchUrl` verwenden, um den Benutzer zur Seite der Bildersuchergebnisse von Bing zu leiten, auf der die verwandten Bilder zu finden sind.
 
-Wenn Sie die Bildersuche-API zum Abrufen der verwandten Bilder aufrufen, legen Sie für den [Id](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#id)-Abfrageparameter die ID im `id`-Feld fest. Durch die Angabe der ID wird sichergestellt, dass die Antwort das Bild (es ist das erste Bild in der Antwort) und die verwandten Bilder enthält. Legen Sie außerdem für den [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) -Abfrageparameter den Text im `text`-Feld des `query`-Objekts fest.
+Wenn Sie die Bildersuche-API zum Abrufen der verwandten Bilder aufrufen, legen Sie für den [Id](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#id)-Abfrageparameter die ID im `id`-Feld fest. Durch die Angabe der ID wird sichergestellt, dass die Antwort das Bild (es ist das erste Bild in der Antwort) und die verwandten Bilder enthält. Legen Sie außerdem für den [q](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) -Abfrageparameter den Text im `text`-Feld des `query`-Objekts fest.
 
 Das folgende Beispiel zeigt, wie die Bild-ID verwendet wird, um verwandte Bilder von Mr. Smith in der vorhergehenden Antwort der API für beliebte Bilder zu erhalten.
 
@@ -101,4 +106,4 @@ X-MSEdge-ClientIP: 999.999.999.999
 X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
-```  
+```

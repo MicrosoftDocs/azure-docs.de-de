@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: 2742a08d97d537e8a5e0670c40f0ab69b34a4d9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f12c823f609ac309d4b5ddbbaa7d5a076a7bb9ad
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619592"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447289"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Mandantenübergreifende Analysen mit extrahierten Daten – Mehrinstanzenfähige App
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ Die von Ihnen entwickelten SaaS-Anwendungen haben Zugriff auf eine große Menge 
 
 Der Zugriff auf die Daten für alle Mandanten ist einfach, wenn sämtliche Daten sich in nur einer mehrinstanzenfähigen Datenbank befinden. Komplexer wird der Zugriff, wenn die Daten auf Tausende von Datenbanken verteilt sind. Zur Vereinfachung können Sie die Daten in eine Analysedatenbank oder ein Data Warehouse extrahieren. Sie können das Data Warehouse abfragen, um Einblicke in die Ticketdaten aller Mandanten zu erhalten.
 
-In diesem Tutorial wird ein vollständiges Analyseszenario für diese SaaS-Beispielanwendung gezeigt. Zunächst werden die Daten mithilfe elastischer Aufträge aus den einzelnen Mandantendatenbanken extrahiert. Die Daten werden in den Analysespeicher übertragen. Der Analysespeicher kann entweder eine SQL-Datenbank- oder Azure Synapse Analytics-Instanz (vormals SQL Data Warehouse) sein. Für umfangreiche Datenextraktionen wird [Azure Data Factory](../../data-factory/introduction.md) empfohlen.
+In diesem Tutorial wird ein vollständiges Analyseszenario für diese SaaS-Beispielanwendung gezeigt. Zunächst werden die Daten mithilfe elastischer Aufträge aus den einzelnen Mandantendatenbanken extrahiert. Die Daten werden in den Analysespeicher übertragen. Der Analysespeicher kann entweder eine SQL-Datenbank- oder Azure Synapse Analytics-Instanz sein. Für umfangreiche Datenextraktionen wird [Azure Data Factory](../../data-factory/introduction.md) empfohlen.
 
 Als Nächstes werden die aggregierten Daten in mehrere Tabellen im [Sternschema](https://www.wikipedia.org/wiki/Star_schema) aufgeteilt. Die Tabellen bestehen aus einer zentralen Faktentabelle und den zugehörigen Dimensionstabellen:
 
@@ -70,11 +70,11 @@ Informationen darüber, wie regelmäßig einzelne Mandanten den Dienst verwenden
 
 Stellen Sie vor dem Durchführen dieses Tutorials sicher, dass die folgenden Voraussetzungen erfüllt sind:
 
-- Die mehrinstanzenfähige Wingtip Tickets-SaaS-Datenbankanwendung wurde bereitgestellt. Unter [Bereitstellen und Kennenlernen der App „Wingtip Tickets SaaS Multi-tenant Database“](../../sql-database/saas-multitenantdb-get-started-deploy.md) finden Sie Informationen dazu, wie Sie die App in weniger als fünf Minuten bereitstellen.
+- Die mehrinstanzenfähige Wingtip Tickets-SaaS-Datenbankanwendung wurde bereitgestellt. Unter [Bereitstellen und Kennenlernen der App „Wingtip Tickets SaaS Multi-tenant Database“](./saas-multitenantdb-get-started-deploy.md) finden Sie Informationen dazu, wie Sie die App in weniger als fünf Minuten bereitstellen.
 - [Quellcode](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) und Wingtip-SaaS-Skripts können von GitHub heruntergeladen werden. Achten Sie darauf, die *ZIP-Datei zu entsperren*, bevor Sie ihren Inhalt extrahieren. Schritte zum Herunterladen und Entsperren der Wingtip Tickets-SaaS-Skripts finden Sie unter [General guidance for working with Wingtip Tickets sample SaaS apps](saas-tenancy-wingtip-app-guidance-tips.md) (Allgemeine Hinweise zur Verwendung von Wingtip Tickets-Beispiel-SaaS-Apps).
 - Power BI Desktop wird installiert. [Power BI Desktop herunterladen](https://powerbi.microsoft.com/downloads/)
-- Der Batch zusätzlicher Mandanten wurde bereitgestellt. Weitere Informationen finden Sie im [**Tutorial zum Bereitstellen von Mandanten**](../../sql-database/saas-multitenantdb-provision-and-catalog.md).
-- Ein Auftrags-Agent und die Auftrags-Agent-Datenbank wurden erstellt. Weitere Informationen zu den entsprechenden Schritten finden Sie im [**Tutorial zur Schemaverwaltung**](../../sql-database/saas-multitenantdb-schema-management.md#create-a-job-agent-database-and-new-job-agent).
+- Der Batch zusätzlicher Mandanten wurde bereitgestellt. Weitere Informationen finden Sie im [**Tutorial zum Bereitstellen von Mandanten**](./saas-multitenantdb-provision-and-catalog.md).
+- Ein Auftrags-Agent und die Auftrags-Agent-Datenbank wurden erstellt. Weitere Informationen zu den entsprechenden Schritten finden Sie im [**Tutorial zur Schemaverwaltung**](./saas-multitenantdb-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### <a name="create-data-for-the-demo"></a>Erstellen von Daten für die Demo
 
@@ -94,7 +94,7 @@ In den folgenden Schritten stellen Sie einen Analysespeicher namens **tenantanal
     - Wenn Sie SQL-Datenbank mit Columnstore verwenden, legen Sie **$DemoScenario** = **3** fest.  
 3. Drücken Sie **F5** zum Ausführen des Demoskripts (das das Skript *Deploy-TenantAnalytics\<XX>.ps1* aufruft), um den Mandantenanalysespeicher zu erstellen. 
 
-Nachdem Sie die Anwendung bereitgestellt und mit interessanten Mandantendaten gefüllt haben, stellen Sie mit [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) eine Verbindung mit den Servern **tenants1-mt-\<User\>** und **catalog-mt-\<User\>** mithilfe der Werte „Login = *Developer*“ und „Password = *P\@ssword1*“ her.
+Nachdem Sie die Anwendung bereitgestellt und mit interessanten Mandantendaten gefüllt haben, stellen Sie mit [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) eine Verbindung mit den Servern **tenants1-mt-\<User\>** und **catalog-mt-\<User\>** mithilfe der Werte „Login = *Developer*“ und „Password = *P\@ssword1*“ her.
 
 ![architectureOverView](./media/saas-multitenantdb-tenant-analytics/ssmsSignIn.png)
 
@@ -241,6 +241,6 @@ Glückwunsch!
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-Zusätzliche [Tutorials, die auf der Wingtip-SaaS-Anwendung aufbauen](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials) 
-- [Elastische Aufträge](../../sql-database/elastic-jobs-overview.md)
-- [Mandantenübergreifende Analysen mit extrahierten Daten – App mit einem Mandanten](saas-tenancy-tenant-analytics.md) 
+Zusätzliche [Tutorials, die auf der Wingtip-SaaS-Anwendung aufbauen](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials) 
+- [Elastische Aufträge](./elastic-jobs-overview.md)
+- [Mandantenübergreifende Analysen mit extrahierten Daten – App mit einem Mandanten](saas-tenancy-tenant-analytics.md)

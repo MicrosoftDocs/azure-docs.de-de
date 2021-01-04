@@ -4,13 +4,13 @@ description: In dieser Schnellstartanleitung lernen Sie, eine LUIS-App zu erstel
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/05/2020
-ms.openlocfilehash: 28bf79b61c0278a3f45820a23cd2c69f0b609700
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/13/2020
+ms.openlocfilehash: 2048079a9b1eb5234d03c6fe57073228bd892d53
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91316483"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019159"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Schnellstart: Verwenden der vordefinierten Home Automation-App
 
@@ -23,20 +23,23 @@ In dieser Schnellstartanleitung erstellen Sie eine LUIS-App, die die vordefinier
 ## <a name="create-a-new-app"></a>Erstellen einer neuen App
 Sie können Ihre Anwendungen auf der Seite **Meine Apps** erstellen und verwalten.
 
-1. Wählen Sie in der Liste „Meine Apps“ die Option **New app for conversation** (+ Neue App für die Konversation) und anschließend in der Liste mit den Optionen erneut **New app for conversation** (+ Neue App für die Konversation) aus.
+### <a name="create-an-application"></a>Erstellen einer Anwendung
 
-1. Geben Sie im Dialogfeld den Namen `Home Automation` für Ihre Anwendung ein.
-1. Legen Sie die Kultur auf **Englisch** fest.
-1. Geben Sie optional eine Beschreibung ein.
-1. Wählen Sie keine Vorhersageressource aus, falls Sie die Ressource noch nicht erstellt haben. Um den Vorhersageendpunkt (Staging oder Produktion) Ihrer App verwenden zu können, müssen Sie eine Vorhersageressource zuweisen.
-1. Wählen Sie **Fertig**aus.
+Klicken Sie zum Erstellen einer Anwendung auf **+ Neue App**. 
 
-    LUIS erstellt die App.
+Geben Sie im angezeigten Fenster die folgenden Informationen ein:
 
-    ![Geben Sie Ihrer Anwendung im Dialogfeld den Namen „Home Automation“.](./media/create-new-app-details.png)
+|Name  |Beschreibung  |
+|---------|---------|
+|AName     | Ein Name für Ihre App. Beispiel: „Home Automation“.        |
+|culture     | Die Sprache, die Ihre App versteht und spricht.   |
+|Beschreibung | Eine Beschreibung für Ihre App.
+|Vorhersageressource | Die Vorhersageressource, die Abfragen empfängt. |
 
-    >[!NOTE]
-    >Die Kultur kann nach dem Erstellen der Anwendung nicht mehr geändert werden.
+Wählen Sie **Fertig** aus.
+
+>[!NOTE]
+>Die Kultur kann nach dem Erstellen der Anwendung nicht mehr geändert werden.
 
 ## <a name="add-prebuilt-domain"></a>Hinzufügen einer vordefinierten Domäne
 
@@ -51,10 +54,7 @@ Sie können Ihre Anwendungen auf der Seite **Meine Apps** erstellen und verwalte
 
 ## <a name="intents-and-entities"></a>Absichten und Entitäten
 
-1. Wählen Sie **Absichten** aus, um die Absichten der HomeAutomation-Domäne anzuzeigen. Die Absichten der vordefinierten Domäne verfügen über Beispieläußerungen.
-
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot: Liste mit HomeAutomation-Absichten](media/luis-quickstart-new-app/home-automation-intents.png "Screenshot: Liste mit HomeAutomation-Absichten")
+1. Wählen Sie im linken Navigationsmenü die Option **Absichten** aus, um die Absichten der Domäne „HomeAutomation“ anzuzeigen. Hierin sind Beispieläußerungen enthalten, z. B. `HomeAutomation.QueryState` und `HomeAutomation.SetDevice`.
 
     > [!NOTE]
     > **None** (Keine) ist eine Absicht, die von allen LUIS-Apps bereitgestellt wird. Diese Absicht verwenden Sie zum Behandeln von Äußerungen, die keiner Funktionalität Ihrer App entsprechen.
@@ -63,6 +63,10 @@ Sie können Ihre Anwendungen auf der Seite **Meine Apps** erstellen und verwalte
 
     > [!div class="mx-imgBorder"]
     > [![Screenshot: Absicht „HomeAutomation.TurnOff“](media/luis-quickstart-new-app/home-automation-turnoff.png "Screenshot: Absicht „HomeAutomation.TurnOff“")](media/luis-quickstart-new-app/home-automation-turnoff.png)
+
+1. Wählen Sie **Entitäten** aus, wenn Sie Entitäten für die App anzeigen möchten. Wenn Sie auf eine der Entitäten klicken, z. B. **HomeAutomation.DeviceName**, wird eine Liste mit den zugeordneten Werten angezeigt. 
+ 
+    :::image type="content" source="media/luis-quickstart-new-app/entities-page.png" alt-text="Alternativer Bildtext" lightbox="media/luis-quickstart-new-app/entities-page.png":::
 
 ## <a name="train-the-luis-app"></a>Trainieren der LUIS-App
 
@@ -73,11 +77,7 @@ Nachdem Sie Ihre App trainiert haben, können Sie sie testen.
 
 1. Wählen Sie im Navigationsbereich rechts oben die Option **Testen** aus.
 
-1. Geben Sie eine Testäußerung wie `Turn off the lights` in den interaktiven Testbereich ein, und drücken Sie die EINGABETASTE.
-
-    ```
-    Turn off the lights
-    ```
+1. Geben Sie eine Testäußerung wie `Turn off the lights` in den interaktiven Testbereich ein, und drücken Sie die EINGABETASTE. Beispiel: *Turn off the lights*.
 
     In diesem Beispiel wurde `Turn off the lights` korrekt als Absicht mit der höchsten Bewertung von **HomeAutomation.TurnOff** identifiziert.
 
@@ -94,7 +94,18 @@ Nachdem Sie Ihre App trainiert haben, können Sie sie testen.
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Veröffentlichen der App zum Abrufen der Endpunkt-URL
 
-[!INCLUDE [LUIS How to Publish steps](./includes/howto-publish.md)]
+Damit Sie eine LUIS-Vorhersage in einem Chatbot oder einer anderen Clientanwendung empfangen können, muss die App im Vorhersage-Endpunkt veröffentlicht werden.
+
+1. Wählen Sie oben rechts im Fenster die Option **Veröffentlichen** aus.
+
+1. Wählen Sie den Slot **Produktion** und anschließend **Fertig** aus.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot: LUIS-Veröffentlichung am Endpunkt](media/howto-publish/publish-app-popup.png)
+
+1. Wählen sie in der Benachrichtigung den Link **Access your endpoint URLs** (Auf Endpunkt-URLs zugreifen) aus, um die Seite **Azure-Ressourcen** aufzurufen. Die Endpunkt-URLs sind als **Beispielabfrage** aufgeführt.
+
+<!-- [!INCLUDE [LUIS How to Publish steps](./includes/howto-publish.md)] -->
 
 <a name="query-the-v2-api-prediction-endpoint"></a>
 
@@ -212,4 +223,4 @@ Nachdem Sie Ihre App trainiert haben, können Sie sie testen.
 Sie können den Endpunkt im Code aufrufen:
 
 > [!div class="nextstepaction"]
-> [Aufrufen eines LUIS-Endpunkts mithilfe von Code](luis-get-started-cs-get-intent.md)
+> [Aufrufen eines LUIS-Endpunkts mithilfe von Code](./luis-get-started-get-intent-from-rest.md)

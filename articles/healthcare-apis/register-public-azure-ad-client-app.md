@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: f39fb5766965e3881068bd6d2fd3a8142f9eb2ac
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ff7bb6084839af56b5f6e874b39929021f23f8a1
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975908"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398078"
 ---
 # <a name="register-a-public-client-application-in-azure-active-directory"></a>Registrieren einer öffentlichen Clientanwendung in Azure Active Directory
 
@@ -21,13 +21,13 @@ In diesem Artikel erfahren Sie, wie Sie eine öffentliche Anwendung in Azure Act
 
 Clientanwendungsregistrierungen stellen Anwendungen in Azure Active Directory dar, die im Auftrag des Benutzers authentifiziert werden und API-Berechtigungen anfordern können. Öffentliche Clients sind Anwendungen wie beispielsweise mobile Anwendungen und JavaScript-Einzelseitenanwendungen, die Geheimnisse nicht vertraulich behandeln können. Das Verfahren ähnelt dem [Registrieren eines vertraulichen Clients](register-confidential-azure-ad-client-app.md). Öffentliche Clients erweisen sich jedoch beim Speichern eines Anwendungsgeheimnisses als nicht vertrauenswürdig, daher muss kein Geheimnis hinzugefügt werden.
 
-In dieser Schnellstartanleitung erhalten Sie allgemeine Informationen, wie Sie [eine Anwendung bei der Microsoft Identity Platform registrieren](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
+In dieser Schnellstartanleitung erhalten Sie allgemeine Informationen, wie Sie [eine Anwendung bei der Microsoft Identity Platform registrieren](../active-directory/develop/quickstart-register-app.md).
 
 ## <a name="app-registrations-in-azure-portal"></a>App-Registrierungen im Azure-Portal
 
 1. Klicken Sie im linken Navigationsbereich des [Azure-Portals](https://portal.azure.com) auf **Azure Active Directory**.
 
-2. Klicken Sie auf dem Blatt **Azure Active Directory** auf **App-Registrierungen**:
+2. Klicken Sie auf dem Blatt **Azure Active Directory** auf **App-Registrierungen** :
 
     ![Azure-Portal. Neue App-Registrierung.](media/how-to-aad/portal-aad-new-app-registration.png)
 
@@ -42,7 +42,7 @@ In dieser Schnellstartanleitung erhalten Sie allgemeine Informationen, wie Sie [
     ![Azure-Portal. Neue öffentliche App-Registrierung](media/how-to-aad/portal-aad-register-new-app-registration-PUB-CLIENT-NAME.png)
 
 
-So konfigurieren Sie Ihre [Desktop](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration)-, [mobile](https://docs.microsoft.com/azure/active-directory/develop/scenario-mobile-app-registration) oder [Single-Page](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration)-Anwendung als öffentliche Anwendung:
+So konfigurieren Sie Ihre [Desktop](../active-directory/develop/scenario-desktop-app-registration.md)-, [mobile](../active-directory/develop/scenario-mobile-app-registration.md) oder [Single-Page](../active-directory/develop/scenario-spa-app-registration.md)-Anwendung als öffentliche Anwendung:
 
 1. Wählen Sie im [Azure-Portal](https://portal.azure.com) unter **App-Registrierungen** Ihre App aus, und wählen Sie dann **Authentifizierung** aus.
 

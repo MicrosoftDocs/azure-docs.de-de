@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: be8e38d38408bd7cf11608d71035bd7cf0808b60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ea1982e7545f4ac39a5ecd15dc9e19a582ae31c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488863"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459629"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Azure SQL-Datenbank Hyperscale – Häufig gestellte Fragen (FAQs)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -118,7 +118,7 @@ Hyperscale unterstützt alle SQL Server-Workloads, wurde aber in erster Linie f�
 
 Wenn Sie zurzeit interaktive Analyseabfragen mit SQL Server als Data Warehouse ausführen, stellt Hyperscale eine hervorragende Option dar, weil Sie kleine und mittelgroße Data Warehouses (z.B. von wenigen TB bis hin zu 100 TB) zu geringeren Kosten hosten und Ihre SQL Server Data Warehouse-Workloads mit nur minimalen Änderungen am T-SQL-Code zu Hyperscale migrieren können.
 
-Wenn Sie Datenanalysen im großen Umfang mit komplexen Abfragen und nachhaltigen Erfassungsraten von mehr als 100 MB/Sek. oder aber mithilfe von Parallel Data Warehouse (PDW), Teradata oder anderen Data Warehouses mit MPP-Design (Massively Parallel Processing) durchführen, ist Azure Synapse Analytics (früher SQL Data Warehouse) möglicherweise die beste Wahl.
+Wenn Sie Datenanalysen im großen Umfang mit komplexen Abfragen und nachhaltigen Erfassungsraten von mehr als 100 MB/Sek. oder aber mithilfe von Parallel Data Warehouse (PDW), Teradata oder anderen Data Warehouses mit MPP-Design (Massively Parallel Processing) durchführen, ist Azure Synapse Analytics möglicherweise die beste Wahl.
   
 ## <a name="hyperscale-compute-questions"></a>Fragen zu Hyperscale Compute
 
@@ -136,7 +136,7 @@ Nein.
 
 ### <a name="how-many-read-scale-out-replicas-are-supported"></a>Wie viele Replikate mit horizontaler Leseskalierung werden unterstützt?
 
-Die Hyperscale-Datenbanken werden standardmäßig mit einem Replikat mit horizontaler Leseskalierung (zwei Replikate, einschließlich des primären Replikats) erstellt. Sie können die Anzahl der schreibgeschützten Replikate zwischen 0 und 4 über das [Azure Portal](https://portal.azure.com) oder die [REST-API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) skalieren.
+Die Hyperscale-Datenbanken werden standardmäßig mit einem Replikat mit horizontaler Leseskalierung (zwei Replikate, einschließlich des primären Replikats) erstellt. Sie können die Anzahl der schreibgeschützten Replikate zwischen 0 und 4 über das [Azure Portal](https://portal.azure.com) oder die [REST-API](/rest/api/sql/databases/createorupdate) skalieren.
 
 ### <a name="for-high-availability-do-i-need-to-provision-additional-compute-replicas"></a>Muss ich zur Erzielung von Hochverfügbarkeit zusätzliche Computereplikate bereitstellen?
 
@@ -198,7 +198,7 @@ Ja, einschließlich Zeilen-, Seiten- und Columnstorekomprimierung.
 
 ### <a name="if-i-have-a-huge-table-does-my-table-data-get-spread-out-across-multiple-data-files"></a>Werden Daten in einer großen Tabelle auf mehrere Datendateien verteilt?
 
-Ja. Die Datenseiten einer bestimmten Tabelle können auf mehrere Datendateien, die Teil der gleichen Dateigruppe sind, verteilt werden. Bei SQL Server kommt eine [proportionale Füllstrategie](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) zum Einsatz, um Daten auf Datendateien zu verteilen.
+Ja. Die Datenseiten einer bestimmten Tabelle können auf mehrere Datendateien, die Teil der gleichen Dateigruppe sind, verteilt werden. Bei SQL Server kommt eine [proportionale Füllstrategie](/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) zum Einsatz, um Daten auf Datendateien zu verteilen.
 
 ## <a name="data-migration-questions"></a>Fragen zur Datenmigration
 
@@ -231,9 +231,9 @@ Hyperscale kann 100 MB/Sek. neuer/geänderter Daten verarbeiten, aber die Zeit f
 
 ### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-in-azure-synapse-analytics"></a>Können Daten aus Blob Storage gelesen und schnell geladen werden (wie PolyBase in Azure Synapse Analytics)?
 
-Sie können festlegen, dass eine Clientanwendung Daten aus Azure Storage lesen und Daten in eine Hyperscale-Datenbank laden soll (genauso, wie dies bei jeder anderen Datenbank in Azure SQL-Datenbank möglich ist). PolyBase wird in Azure SQL-Datenbank derzeit nicht unterstützt. Als Alternative zum schnellen Laden können Sie entweder [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) oder einen Spark-Auftrag in [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) mit dem [Spark-Connector für SQL](spark-connector.md) verwenden. Der Spark-Connector für SQL unterstützt Importe mit BULK INSERT.
+Sie können festlegen, dass eine Clientanwendung Daten aus Azure Storage lesen und Daten in eine Hyperscale-Datenbank laden soll (genauso, wie dies bei jeder anderen Datenbank in Azure SQL-Datenbank möglich ist). PolyBase wird in Azure SQL-Datenbank derzeit nicht unterstützt. Als Alternative zum schnellen Laden können Sie entweder [Azure Data Factory](../../data-factory/index.yml) oder einen Spark-Auftrag in [Azure Databricks](/azure/azure-databricks/) mit dem [Spark-Connector für SQL](spark-connector.md) verwenden. Der Spark-Connector für SQL unterstützt Importe mit BULK INSERT.
 
-Es ist auch möglich, Daten aus einem Azure-Blobspeicher mithilfe von BULK INSERT oder OPENROWSET zu lesen: [Beispiele für den Massenzugriff auf Daten in Azure Blob Storage.](https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location)
+Es ist auch möglich, Daten aus einem Azure-Blobspeicher mithilfe von BULK INSERT oder OPENROWSET zu lesen: [Beispiele für den Massenzugriff auf Daten in Azure Blob Storage.](/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location)
 
 Einfache Wiederherstellungen oder Massenprotokollierungsmodelle werden in Hyperscale nicht unterstützt. Ein vollständiges Wiederherstellungsmodell ist erforderlich, um Hochverfügbarkeit und Zeitpunktwiederherstellung bereitzustellen. Allerdings bietet die Hyperscale-Protokollarchitektur im Vergleich zu anderen Dienstebenen für Azure SQL-Datenbank eine bessere Datenerfassungsrate.
 
@@ -277,7 +277,7 @@ Nein. Sicherungen werden vom Speichersubsystem verwaltet und nutzen Speichermome
 
 ### <a name="can-i-perform-geo-restore-with-a-hyperscale-database"></a>Kann ich bei einer Hyperscale-Datenbank eine Geowiederherstellung durchführen?
 
-Ja. Die Geowiederherstellung wird vollständig unterstützt. Anders als bei der Point-in-Time-Wiederherstellung erfordert die Geowiederherstellung einen zeitintensiven Vorgang. Weil Datendateien parallel kopiert werden, hängt die Dauer dieses Vorgangs also hauptsächlich von der Größe der größten Datei in der Datenbank und nicht von der Gesamtgröße der Datenbank ab. Die Geowiederherstellungszeit ist deutlich kürzer, wenn die Datenbank in der Azure-Region wiederhergestellt wird, die mit der Region der Quelldatenbank [gekoppelt](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) ist.
+Ja. Die Geowiederherstellung wird vollständig unterstützt. Anders als bei der Point-in-Time-Wiederherstellung erfordert die Geowiederherstellung einen zeitintensiven Vorgang. Weil Datendateien parallel kopiert werden, hängt die Dauer dieses Vorgangs also hauptsächlich von der Größe der größten Datei in der Datenbank und nicht von der Gesamtgröße der Datenbank ab. Die Geowiederherstellungszeit ist deutlich kürzer, wenn die Datenbank in der Azure-Region wiederhergestellt wird, die mit der Region der Quelldatenbank [gekoppelt](../../best-practices-availability-paired-regions.md) ist.
 
 ### <a name="can-i-set-up-geo-replication-with-hyperscale-database"></a>Kann ich für eine Hyperscale-Datenbank Georeplikation einrichten?
 
@@ -357,7 +357,7 @@ Nein. Nur das primäre Computereplikat akzeptiert Lese-/Schreibanforderungen. Se
 
 ### <a name="how-many-secondary-compute-replicas-can-i-provision"></a>Wie viele sekundäre Computereplikate kann ich bereitstellen?
 
-Wir erstellen standardmäßig ein sekundäres Replikat für Hyperscale-Datenbanken. Wenn Sie die Anzahl von Replikaten anpassen möchten, können Sie dies über das [Azure-Portal](https://portal.azure.com) oder die [REST-API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) erledigen.
+Wir erstellen standardmäßig ein sekundäres Replikat für Hyperscale-Datenbanken. Wenn Sie die Anzahl von Replikaten anpassen möchten, können Sie dies über das [Azure-Portal](https://portal.azure.com) oder die [REST-API](/rest/api/sql/databases/createorupdate) erledigen.
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-replicas"></a>Wie kann ich eine Verbindung mit diesen sekundären Computereplikaten herstellen?
 

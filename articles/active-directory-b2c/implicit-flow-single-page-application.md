@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 44300771ce6471c97dcd582884995395daae4995
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: fe31e1bf095d15cfdd7945288486cb866ace8246
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215483"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840609"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Single-Page-Anmeldung mithilfe des impliziten OAuth 2.0-Flusses in Azure Active Directory B2C
 
@@ -141,7 +141,7 @@ Es gibt auch noch einige andere Überprüfungen, die Sie durchführen sollten. D
 
 * Sicherstellen, dass sich der Benutzer/die Organisation für die App registriert hat.
 * Sicherstellen, dass der Benutzer über eine ordnungsgemäße Autorisierung und die richtigen Berechtigungen verfügt.
-* Sicherstellen, dass eine bestimmte Authentifizierungsmethode verwendet wird, z.B. Multi-Factor Authentication von Azure.
+* Sicherstellen, dass eine bestimmte Authentifizierungsmethode verwendet wird, z. B. Azure AD Multi-Factor Authentication.
 
 Weitere Informationen zu den Ansprüchen in einem ID-Token finden Sie im [Azure AD B2C-Tokenverweis](tokens-overview.md).
 

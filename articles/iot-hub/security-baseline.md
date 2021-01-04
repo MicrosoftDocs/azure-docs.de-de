@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 49496dbf1355ceee7619d93bcb0676892b7a212d
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 891366060cddaf2a046de36fa9300432977ec903
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150562"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457734"
 ---
 # <a name="azure-security-baseline-for-azure-iot-hub"></a>Azure-Sicherheitsbaseline für Azure IoT Hub
 
@@ -33,7 +33,7 @@ Es empfiehlt sich, die Konnektivität mit Ihren Azure-Ressourcen (einschließlic
 Beschränken Sie geöffnete Hardwareanschlüsse in Ihren Geräten auf ein absolutes Minimum, um unerwünschten Zugriff zu vermeiden. Entwickeln Sie darüber hinaus Mechanismen, um physische Manipulationen am Gerät zu verhindern oder zu erkennen.
 
 - [Unterstützung für virtuelle IoT-Netzwerke](virtual-network-support.md)
-- [Bewährte Methoden für IoT-Netzwerke](../iot-fundamentals/security-recommendations.md?context=azure%252fiot-hub%252frc%252frc#networking)
+- [Bewährte Methoden für IoT-Netzwerke](../iot-fundamentals/security-recommendations.md?context=azure%2fiot-hub%2frc%2frc#networking)
 - [Übersicht über Azure Private Link](../private-link/private-link-overview.md)
 - [Azure-Netzwerksicherheitsgruppe](../virtual-network/network-security-groups-overview.md)
 
@@ -73,7 +73,7 @@ Azure DDoS Protection Basic ist bereits aktiviert und steht im Rahmen von IoT Hu
 
 - [Azure Security Center für verdächtige IoT-IP-Adressenkommunikation](../defender-for-iot/concept-security-alerts.md)
 
-- [Verwalten von Azure DDoS Protection Basic](../virtual-network/ddos-protection-overview.md)
+- [Verwalten von Azure DDoS Protection Basic](../ddos-protection/ddos-protection-overview.md)
 
 - [Bedrohungsschutz in Azure Security Center](../security-center/azure-defender.md)
 
@@ -172,7 +172,7 @@ Stellen Sie die Firewalllösung Ihrer Wahl an allen Netzwerkgrenzen Ihrer Organi
 
 **Leitfaden**: Erfassen Sie Protokolle über Azure Monitor zum Aggregieren der von Azure IoT Hub generierten Sicherheitsdaten. Verwenden Sie in Azure Monitor Log Analytics-Arbeitsbereiche zum Abfragen und Ausführen von Analysen, und verwenden Sie Azure Storage-Konten für langfristige Speicherung/Archivierung. Alternativ dazu können Sie auch Daten in Azure Sentinel oder einer Security Incident & Event Management-Lösung (SIEM) eines Drittanbieters aktivieren und integrieren.
 
-- [Einrichten von Azure IoT-Protokollen](iot-hub-monitor-resource-health.md)
+- [Einrichten von Azure IoT-Protokollen](monitor-iot-hub-reference.md#resource-logs)
 - [Durchführen des Onboardings für Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center-Überwachung**: Ja
@@ -181,9 +181,9 @@ Stellen Sie die Firewalllösung Ihrer Wahl an allen Netzwerkgrenzen Ihrer Organi
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: Aktivieren der Überwachungsprotokollierung für Azure-Ressourcen
 
-**Leitfaden**: Aktivieren Sie die Azure IoT-Diagnoseeinstellungen für Azure-Ressourcen für den Zugriff auf Überwachungs-, Sicherheits- und Diagnoseprotokolle. Aktivitätsprotokolle, die automatisch verfügbar sind, enthalten Ereignisquelle, Datum, Benutzer, Zeitstempel, Quelladressen, Zieladressen und andere nützliche Elemente.
+**Leitfaden**: Aktivieren Sie die Azure IoT-Diagnoseeinstellungen für Azure-Ressourcen für den Zugriff auf Überwachungs-, Sicherheits- und Ressourcenprotokolle. Aktivitätsprotokolle, die automatisch verfügbar sind, enthalten Ereignisquelle, Datum, Benutzer, Zeitstempel, Quelladressen, Zieladressen und andere nützliche Elemente.
 
-- [Einrichten von Azure IoT Hub-Protokollen](iot-hub-monitor-resource-health.md)
+- [Einrichten von Azure IoT Hub-Protokollen](monitor-iot-hub-reference.md#resource-logs)
 
 - [Sammeln von Plattformprotokollen und -metriken mit Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
 
@@ -217,10 +217,10 @@ Stellen Sie die Firewalllösung Ihrer Wahl an allen Netzwerkgrenzen Ihrer Organi
 
 Alternativ können Sie auch Daten in Azure Sentinel oder einer SIEM-Drittanbieterlösung aktivieren und integrieren. 
 
-- [Überwachen der Azure IoT-Integrität](iot-hub-monitor-resource-health.md)
+- [Überwachen der Azure IoT-Integrität](monitor-iot-hub.md)
 - [Durchführen des Onboardings für Azure Sentinel](../sentinel/quickstart-onboard.md)
   
-- [Erste Schritte mit Log Analytics-Abfragen](../azure-monitor/log-query/get-started-portal.md)
+- [Erste Schritte mit Log Analytics-Abfragen](../azure-monitor/log-query/log-analytics-tutorial.md)
    
 - [Ausführen benutzerdefinierter Abfragen in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -232,7 +232,7 @@ Alternativ können Sie auch Daten in Azure Sentinel oder einer SIEM-Drittanbiete
 
 **Leitfaden**: Verwenden Sie Azure Security Center für IoT bei einem Log Analytics-Arbeitsbereich für die Überwachung und Warnung bei anomalen Aktivitäten, die in Sicherheitsprotokollen und Ereignissen gefunden werden. Alternativ dazu können Sie auch Daten in Azure Sentinel aktivieren und integrieren. Sie können auch Betriebswarnungen mit Azure Monitor definieren, die möglicherweise Auswirkungen auf die Sicherheit haben, z. B. bei einem unerwarteten Ausfall des Datenverkehrs.
 
-- [Überwachen der Azure IoT Hub-Integrität](iot-hub-monitor-resource-health.md)
+- [Überwachen der Azure IoT Hub-Integrität](monitor-iot-hub.md)
 - [Durchführen des Onboardings für Azure Sentinel](../sentinel/quickstart-onboard.md)
 - [Azure Security Center für IoT-Warnungen](../defender-for-iot/concept-security-alerts.md)
 
@@ -390,11 +390,11 @@ Verwenden Sie Azure AD Privileged Identity Management (PIM) für die Generierun
 
 Sie können diesen Prozess optimieren, indem Sie Diagnoseeinstellungen für Azure AD-Benutzerkonten erstellen und die Überwachungs- und Anmeldeprotokolle an einen Log Analytics-Arbeitsbereich senden. Sie können gewünschte Warnungen im Log Analytics-Arbeitsbereich konfigurieren. 
 
-Verwenden Sie Azure Monitor-Diagnoseprotokolle zur Überwachung von nicht autorisierten Verbindungsversuchen in der Kategorie „Verbindungen“.
+Verwenden Sie Azure Monitor-Ressourcenprotokolle zur Überwachung nicht autorisierter Verbindungsversuche in der Kategorie „Verbindungen“.
 
 - [Integrieren von Azure-Aktivitätsprotokollen in Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Konfigurieren von Diagnoseprotokollen für IoT Hub](iot-hub-monitor-resource-health.md)
+- [Konfigurieren von Ressourcenprotokollen für IoT-Hub](monitor-iot-hub.md#collection-and-routing)
 
 **Azure Security Center-Überwachung**: Nicht zutreffend
 
@@ -830,7 +830,7 @@ Verwenden Sie verwaltete Identitäten in Verbindung mit Azure Key Vault, um die 
 - [IoT Hub-Sicherheitstoken](../iot-fundamentals/iot-security-deployment.md#iot-hub-security-tokens)
 - [Verwenden von verwalteten Identitäten für IoT Hub](virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
 
-- [Erstellen eines Schlüsseltresors](../key-vault/secrets/quick-create-portal.md)
+- [Erstellen eines Schlüsseltresors](../key-vault/general/quick-create-portal.md)
 - [Bereitstellen der Key Vault-Authentifizierung mit einer verwalteten Identität](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center-Überwachung**: Ja

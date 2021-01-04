@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 32e67bd7f30fecee3449935a35235844a047957b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cccb1fdfe775250f80da6cc2ecdcc4ddaa3d88e
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91574319"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95484082"
 ---
 # <a name="iot-plug-and-play-architecture"></a>IoT Plug & Play-Architektur
 
@@ -36,7 +36,7 @@ Das [Modellrepository](./concepts-model-repository.md) ist ein Speicher für Mod
 
 Mithilfe der Webbenutzeroberfläche können Sie die Modelle und Schnittstellen verwalten.
 
-Das Modellrepository verwendet RBAC, damit Sie den Zugriff auf Schnittstellendefinitionen einschränken können.
+Das Modellrepository hat integrierte rollenbasierte Zugriffssteuerungen, mit denen Sie den Zugriff auf Schnittstellendefinitionen einschränken können.
 
 ## <a name="devices"></a>Geräte
 
@@ -98,4 +98,4 @@ Nachdem Sie nun einen Überblick über die Architektur einer IoT Plug & Play-L
 
 - [Modellrepository](./concepts-model-repository.md)
 - [Integration von digitale Zwillingsmodellen](./concepts-model-discovery.md)
-- [Entwicklung für IoT Plug & Play](./concepts-developer-guide-device-csharp.md)
+- [Entwicklung für IoT Plug & Play](./concepts-developer-guide-device.md)

@@ -7,12 +7,12 @@ keywords: Azure Automation, DSC, PowerShell, State Configuration, Updateverwaltu
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 24aeb37cf868bed5d4211bc9b459a4736ceea4b2
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: e3986b7e8fc70f8662bed40b076897caa6165744
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205335"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182817"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Einführung in Azure Automation
 
@@ -43,7 +43,7 @@ Die Konfigurationsverwaltung in Azure Automation ermöglicht den Zugriff auf zwe
 
 ## <a name="update-management"></a>Updateverwaltung
 
-Azure Automation umfasst ein Feature zur [Updateverwaltung](update-management/update-mgmt-overview.md) für Windows- und Linux-Systeme in Hybridumgebungen. Mithilfe der Updateverwaltung erhalten Sie einen Einblick in die Konformität von Updates für Azure, andere Clouds und die lokale Umgebung. Mit diesem Feature können Sie geplante Bereitstellungen erstellen, um die Installation von Updates in einem definierten Wartungsfenster zu orchestrieren. Wenn ein Update nicht auf einem Computer installiert werden soll, können Sie es mithilfe der Funktionen zur Updateverwaltung von einer Bereitstellung ausschließen.
+Azure Automation umfasst ein Feature zur [Updateverwaltung](./update-management/overview.md) für Windows- und Linux-Systeme in Hybridumgebungen. Mithilfe der Updateverwaltung erhalten Sie einen Einblick in die Konformität von Updates für Azure, andere Clouds und die lokale Umgebung. Mit diesem Feature können Sie geplante Bereitstellungen erstellen, um die Installation von Updates in einem definierten Wartungsfenster zu orchestrieren. Wenn ein Update nicht auf einem Computer installiert werden soll, können Sie es mithilfe der Funktionen zur Updateverwaltung von einer Bereitstellung ausschließen.
 
 ## <a name="shared-capabilities"></a>Gemeinsam genutzte Funktionen
 

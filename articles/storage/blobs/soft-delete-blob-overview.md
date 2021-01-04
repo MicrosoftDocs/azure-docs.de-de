@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: a6fc1d6b831ae794907c59ab1af3328902f3a70a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb90c5776e67c1ba8fecdbf394a8098e96ca0652
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230108"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96022376"
 ---
 # <a name="soft-delete-for-blobs"></a>Vorläufiges Löschen für Blobs
 
 Vorläufiges Löschen für Blobs schützt Ihre Daten vor versehentlichem oder irrtümlichem Ändern oder Löschen. Wenn vorläufiges Löschen von Blobs für ein Speicherkonto aktiviert ist, können Blobs, Blobversionen und Momentaufnahmen in diesem Speicherkonto nach ihrer Löschung innerhalb eines von Ihnen angegebenen Aufbewahrungszeitraums wiederhergestellt werden.
 
-Wenn die Möglichkeit besteht, dass Ihre Daten von einer Anwendung oder einem anderen Benutzer des Speicherkontos versehentlich geändert oder gelöscht werden, empfiehlt Microsoft, vorläufiges Löschen zu aktivieren. Weitere Informationen zum Aktivieren des vorläufigen Löschens finden Sie unter [Aktivieren und Verwalten des vorläufigen Löschens für Blobs](soft-delete-enable.md).
+Wenn die Möglichkeit besteht, dass Ihre Daten von einer Anwendung oder einem anderen Benutzer des Speicherkontos versehentlich geändert oder gelöscht werden, empfiehlt Microsoft, vorläufiges Löschen zu aktivieren. Weitere Informationen zum Aktivieren des vorläufigen Löschens finden Sie unter [Aktivieren und Verwalten des vorläufigen Löschens für Blobs](./soft-delete-blob-enable.md).
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -149,7 +149,7 @@ Im Abschnitt [Nächste Schritte](#next-steps) finden Sie einen Hinweis auf die A
 
 ## <a name="pricing-and-billing"></a>Preise und Abrechnung
 
-Alle vorläufig gelöschten Daten werden mit dem gleichen Tarif wie aktive Daten in Rechnung gestellt. Für Daten, die nach Ablauf der konfigurierten Beibehaltungsdauer dauerhaft gelöscht werden, fallen keine Kosten an. Ausführlichere Informationen zu Momentaufnahmen und den dafür anfallenden Kosten finden Sie unter [Blobmomentaufnahmen](storage-blob-snapshots.md).
+Alle vorläufig gelöschten Daten werden mit dem gleichen Tarif wie aktive Daten in Rechnung gestellt. Für Daten, die nach Ablauf der konfigurierten Beibehaltungsdauer dauerhaft gelöscht werden, fallen keine Kosten an. Ausführlichere Informationen zu Momentaufnahmen und den dafür anfallenden Kosten finden Sie unter [Blobmomentaufnahmen](./snapshots-overview.md).
 
 Ihnen werden keine Transaktionen im Zusammenhang mit der automatischen Generierung von Momentaufnahmen in Rechnung gestellt. Ihnen werden **Undelete Blob**-Transaktionen zum Tarif für Schreibvorgänge in Rechnung gestellt.
 
@@ -193,5 +193,5 @@ Es ist möglich, vorläufiges Löschen unabhängig von der API-Version zu nutzen
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Aktivieren von „Vorläufiges Löschen“ für Blobs](soft-delete-enable.md)
+- [Aktivieren von „Vorläufiges Löschen“ für Blobs](./soft-delete-blob-enable.md)
 - [Blobversionsverwaltung](versioning-overview.md)

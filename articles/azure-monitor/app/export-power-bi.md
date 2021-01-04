@@ -3,12 +3,12 @@ title: Exportieren nach Power BI aus Azure Application Insights | Microsoft-Doku
 description: Analytics-Abfragen können in Power BI angezeigt werden.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 804da7d3aaa2fd1b7973a686bc9ca5cb5ee973a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e88d60cd9a9d0e6267998237b33a361b12ffd84
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979164"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186999"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Datenimport nach Power BI aus Application Insights
 [Power BI](https://www.powerbi.com/) ist eine Suite aus Unternehmenstools, mit denen Sie Daten analysieren und Informationen teilen können. Auf jedem Gerät stehen leistungsfähige Dashboards zur Verfügung. Sie können Daten aus vielen Quellen kombinieren, z.B. Analytics-Abfragen aus [Azure Application Insights](./app-insights-overview.md).
@@ -31,7 +31,7 @@ Zum Importieren Ihrer Application Insights-Abfrage verwenden Sie die Desktopvers
 Installieren Sie [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Exportieren einer Analytics-Abfrage
-1. [Öffnen Sie Analytics, und schreiben Sie Ihre Abfrage](../log-query/get-started-portal.md).
+1. [Öffnen Sie Analytics, und schreiben Sie Ihre Abfrage](../log-query/log-analytics-tutorial.md).
 2. Testen und optimieren Sie die Abfrage, bis Sie mit den Ergebnissen zufrieden sind. Stellen Sie sicher, dass die Abfrage ordnungsgemäß in Analytics ausgeführt wird, bevor Sie sie exportieren.
 3. Wählen Sie im Menü **Exportieren** die Option **Power BI (M)** . Speichern Sie die Textdatei.
    
@@ -57,7 +57,7 @@ Installieren Sie [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/
 
 ### <a name="export-a-funnel"></a>Exportieren eines Trichters
 1. [Erstellen Sie Ihren Trichter.](./usage-funnels.md)
-2. Wählen Sie **Power BI**aus.
+2. Wählen Sie **Power BI** aus.
 
    ![Screenshot der Power BI-Schaltfläche](./media/export-power-bi/button.png)
 
@@ -146,5 +146,4 @@ Nach dem anfänglichen Import werden das Dashboard und die Berichte täglich akt
 
 ## <a name="next-steps"></a>Nächste Schritte
 * [Power BI – Informationen](https://www.powerbi.com/learning/)
-* [Analytics-Tutorial](../log-query/get-started-portal.md)
-
+* [Analytics-Tutorial](../log-query/log-analytics-tutorial.md)

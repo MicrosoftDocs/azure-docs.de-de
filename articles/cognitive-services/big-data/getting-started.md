@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 5256db4547f8c19960a6f470ce3c84b2eef25e24
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 095f2c3ed17042bb616fb091d1af52a64c913709
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776611"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460498"
 ---
 # <a name="getting-started"></a>Erste Schritte
 
@@ -31,11 +31,11 @@ Um das Cognitive Services für Big Data verwenden zu können, müssen wir zuerst
 
 ### <a name="cloud-services"></a>Clouddienste
 
-Cloudbasierte Cognitive Services-Instanzen sind intelligente Algorithmen, die in Azure gehostet werden. Diese Dienste sind ohne Training einsatzbereit. Sie benötigen lediglich eine Internetverbindung. Sie können [eine Cognitive Service-Instanz im Azure-Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows) oder mit der [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows) erstellen.
+Cloudbasierte Cognitive Services-Instanzen sind intelligente Algorithmen, die in Azure gehostet werden. Diese Dienste sind ohne Training einsatzbereit. Sie benötigen lediglich eine Internetverbindung. Sie können [eine Cognitive Service-Instanz im Azure-Portal](../cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows) oder mit der [Azure CLI](../cognitive-services-apis-create-account-cli.md?tabs=windows) erstellen.
 
 ### <a name="containerized-services-optional"></a>Dienste in Containern (optional)
 
-Wenn Ihre Anwendung oder Workload extrem große Datasets verwendet, private Netzwerke erfordert oder keine Verbindung mit der Cloud herstellen kann, ist die Kommunikation mit Clouddiensten möglicherweise nicht möglich. In dieser Situation haben Cognitive Services-Instanzen in Containern folgende Vorteile:
+Wenn für Ihre Anwendung oder Workload große Datasets verwendet werden, private Netzwerke erforderlich sind oder keine Verbindung mit der Cloud hergestellt werden kann, ist die Kommunikation mit Clouddiensten unter Umständen nicht möglich. In dieser Situation haben Cognitive Services-Instanzen in Containern folgende Vorteile:
 
 * **Niedrige Konnektivität**: Sie können Cognitive Services in Containern in jeder beliebigen Computerumgebung bereitstellen, sowohl in als auch außerhalb der Cloud. Wenn Ihre Anwendung nicht mit der Cloud in Kontakt treten kann, erwägen Sie die Bereitstellung von Cognitive Services in Containern für Ihre Anwendung.
 
@@ -45,7 +45,7 @@ Wenn Ihre Anwendung oder Workload extrem große Datasets verwendet, private Netz
 
 * **Hohe Skalierbarkeit**: Für Dienste in Containern gibt es keine Begrenzung der Datenübertragungsrate, und sie werden auf von Benutzern verwalteten Computern ausgeführt. Daher können Sie Cognitive Services ohne Ende skalieren, um weitaus größere Workloads zu verarbeiten.
 
-Befolgen Sie [diese Anleitung](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support?tabs=luis), um eine Cognitive Service-Instanz in einem Container zu erstellen.
+Befolgen Sie [diese Anleitung](../cognitive-services-container-support.md?tabs=luis), um eine Cognitive Service-Instanz in einem Container zu erstellen.
 
 ## <a name="create-an-apache-spark-cluster"></a>Erstellen eines Apache Spark-Clusters
 
@@ -55,8 +55,8 @@ Befolgen Sie [diese Anleitung](https://docs.microsoft.com/azure/cognitive-servic
 
 Azure Databricks ist eine Apache Spark-basierte Analyseplattform, die mit nur einem Klick eingerichtet werden kann und optimierte Workflows sowie einen interaktiven Arbeitsbereich bietet. Sie wird häufig für die Zusammenarbeit zwischen Datenanalysten, Technikern und Wirtschaftsanalytikern verwendet. Führen Sie die folgenden Schritte aus, um Cognitive Services für Big Data in Azure Databricks zu verwenden:
 
-1. [Erstellen eines Azure Databricks-Arbeitsbereichs](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal#create-an-azure-databricks-workspace)
-1. [Erstellen eines Spark-Clusters in Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal#create-a-spark-cluster-in-databricks)
+1. [Erstellen eines Azure Databricks-Arbeitsbereichs](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal#create-an-azure-databricks-workspace)
+1. [Erstellen eines Spark-Clusters in Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal#create-a-spark-cluster-in-databricks)
 1. Installieren von Cognitive Services für Big Data
     * Erstellen einer neuen Bibliothek in Ihrem Databricks-Arbeitsbereich  
        <img src="media/create-library.png" alt="Create library" width="50%"/>
@@ -65,14 +65,14 @@ Azure Databricks ist eine Apache Spark-basierte Analyseplattform, die mit nur ei
     * Installieren der Bibliothek auf einem Cluster  
       <img src="media/install-library.png" alt="Install Library on Cluster" width="50%"/>
 
-### <a name="synapse-analytics-optional"></a>Synapse Analytics (optional)
+### <a name="azure-synapse-analytics-optional"></a>Azure Synapse Analytics (optional)
 
-Optional können Sie Synapse Analytics zum Erstellen eines Spark-Clusters verwenden. Azure Synapse vereint Data Warehousing für Unternehmen mit Big Data-Analysen. Er ermöglicht flexible Datenabfragen nach Ihren Vorstellungen, indem serverlose On-Demand-Ressourcen oder bereitgestellten Ressourcen im gewünschten Umfang verwendet werden. Für erste Schritte mit Synapse Analytics gehen Sie folgendermaßen vor:
+Optional können Sie Synapse Analytics zum Erstellen eines Spark-Clusters verwenden. Azure Synapse vereint Data Warehousing für Unternehmen mit Big Data-Analysen. Er ermöglicht flexible Datenabfragen nach Ihren Vorstellungen, indem serverlose On-Demand-Ressourcen oder bereitgestellten Ressourcen im gewünschten Umfang verwendet werden. Für erste Schritte mit Azure Synapse Analytics gehen Sie folgendermaßen vor:
 
-1. [Erstellen Sie einen Synapse-Arbeitsbereich (Vorschau)](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace).
-1. [Erstellen Sie einen neuen Apache Spark-Pool (Vorschau) mithilfe des Azure-Portals](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool-portal).
+1. [Erstellen Sie einen Synapse-Arbeitsbereich (Vorschau)](../../synapse-analytics/quickstart-create-workspace.md).
+1. [Erstellen Sie einen neuen serverlosen Apache Spark-Pool über das Azure-Portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
 
-In Synapse Analytics wird Big Data für Cognitive Services standardmäßig installiert.
+In Azure Synapse Analytics wird Big Data für Cognitive Services standardmäßig installiert.
 
 ### <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 
@@ -80,9 +80,9 @@ Wenn Sie Cognitive Services in Containern verwenden, ist eine beliebte Option f�
 
 Führen Sie zum Einstieg in den Azure Kubernetes-Dienst die folgenden Schritte aus:
 
-1. [Schnellstart: Bereitstellen eines AKS-Clusters (Azure Kubernetes Service) über das Azure-Portal](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal)
+1. [Schnellstart: Bereitstellen eines AKS-Clusters (Azure Kubernetes Service) über das Azure-Portal](../../aks/kubernetes-walkthrough-portal.md)
 1. [Installieren des Apache Spark 2.4.0-Helm-Charts](https://hub.helm.sh/charts/microsoft/spark)
-1. [Installieren eines Cognitive Service-Containers mithilfe von Helm](https://docs.microsoft.com/azure/cognitive-services/computer-vision/deploy-computer-vision-on-premises)
+1. [Installieren eines Cognitive Service-Containers mithilfe von Helm](../computer-vision/deploy-computer-vision-on-premises.md)
 
 ## <a name="try-a-sample"></a>Beispiel ausprobieren
 
@@ -100,7 +100,7 @@ Zunächst können wir ein Notebooks in Azure Databricks erstellen. Verwenden Sie
 
     Klicken Sie auf **Erstellen**.
 
-1. Fügen Sie den folgenden Codeausschnitt in Ihr neues Notebook ein.
+1. Fügen Sie diesen Codeausschnitt in Ihr neues Notebook ein.
 
 ```python
 from mmlspark.cognitive import *

@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: a59e498435aab7b3e3e2ecf2e6096c044550a1b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd5c6527cd6a0beea291dce94ff0e5949ba00671
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628365"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791255"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Herstellen einer Verbindung zwischen einer Anwendung und SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -48,7 +48,7 @@ Es gibt zwei Optionen zum Verbinden virtueller Netzwerke:
 Dabei ist Peering vorzuziehen, da dabei das Microsoft-Backbonenetzwerk verwendet wird, sodass es im Hinblick auf die Konnektivität keinen spürbaren Unterschied bei der Latenz zwischen virtuellen Computern im Peering-VNET und im selben VNET gibt. VNET-Peering wird zwischen Netzwerken in der gleichen Region unterstützt. Globales Peering virtueller Netzwerke wird ebenfalls unterstützt. Die einzige Einschränkung ist im folgenden Hinweis beschrieben.  
 
 > [!IMPORTANT]
-> [Am 22.09.2020 haben wir globales Peering virtueller Netzwerke für neu erstellte virtuelle Cluster angekündigt](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Dies bedeutet, dass globales Peering virtueller Netzwerke sowohl für SQL Managed Instance-Bereitstellungen, die nach dem Ankündigungsdatum in leeren Subnetzen erstellt wurden, als auch für alle späteren verwalteten Instanzen, die in diesen Subnetzen erstellt werden, unterstützt wird. Für alle anderen SQL Managed Instance-Bereitstellungen ist die Peeringunterstützung aufgrund der [Einschränkungen beim globalen Peering virtueller Netzwerke](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints) auf die Netzwerke in derselben Region beschränkt. Ausführliche Informationen finden Sie im entsprechenden Abschnitt des Artikels [Azure Virtual Network – häufig gestellte Fragen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). 
+> [Am 22.09.2020 haben wir globales Peering virtueller Netzwerke für neu erstellte virtuelle Cluster angekündigt](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Dies bedeutet, dass globales Peering virtueller Netzwerke sowohl für SQL Managed Instance-Bereitstellungen, die nach dem Ankündigungsdatum in leeren Subnetzen erstellt wurden, als auch für alle späteren verwalteten Instanzen, die in diesen Subnetzen erstellt werden, unterstützt wird. Für alle anderen SQL Managed Instance-Bereitstellungen ist die Peeringunterstützung aufgrund der [Einschränkungen beim globalen Peering virtueller Netzwerke](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints) auf die Netzwerke in derselben Region beschränkt. Ausführliche Informationen finden Sie im entsprechenden Abschnitt des Artikels [Azure Virtual Network – häufig gestellte Fragen](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). 
 
 ## <a name="connect-from-on-premises"></a>Herstellen einer Verbindung mit einer lokalen Anwendung 
 
@@ -73,8 +73,8 @@ Ein weiteres Szenario von Kunden ist die Installation eines VPN-Gateways in eine
 
 Nachdem Sie die grundlegende Infrastruktur eingerichtet haben, müssen Sie einige Einstellungen ändern, damit das VPN-Gateway die IP-Adressen im virtuellen Netzwerk, das SQL Managed Instance hostet, erkennen kann. Nehmen Sie zu diesem Zweck die folgenden sehr spezifischen Änderungen unter **Peeringeinstellungen** vor.
 
-1. Navigieren Sie im virtuelle Netzwerk, das das VPN-Gateway hostet, zu **Peerings** und dann zur Verbindung, die mittels Peering zwischen SQL Managed Instance und dem virtuellen Netzwerk hergestellt wurde. Klicken Sie dann auf **Gatewaytransit zulassen**.
-2. Navigieren Sie im virtuellen Netzwerk, das SQL Managed Instance hostet, zu **Peerings** und dann zur Verbindung, die mittels Peering zwischen dem VPN-Gateway und dem virtuellen Netzwerk hergestellt wurde. Klicken Sie dann auf **Remotegateways verwenden**.
+1. Navigieren Sie im virtuelle Netzwerk, das das VPN-Gateway hostet, zu **Peerings** und dann zur Verbindung, die mittels Peering zwischen SQL Managed Instance und dem virtuellen Netzwerk hergestellt wurde. Klicken Sie dann auf **Gatewaytransit zulassen** .
+2. Navigieren Sie im virtuellen Netzwerk, das SQL Managed Instance hostet, zu **Peerings** und dann zur Verbindung, die mittels Peering zwischen dem VPN-Gateway und dem virtuellen Netzwerk hergestellt wurde. Klicken Sie dann auf **Remotegateways verwenden** .
 
 ## <a name="connect-azure-app-service"></a>Herstellen einer Verbindung mit Azure App Service 
 
@@ -151,8 +151,8 @@ Die folgenden Mindestversionen der Tools und Treiber werden empfohlen, wenn Sie 
 |JDBC-Treiber| 6.4.0 |
 |Node.js-Treiber| 2.1.1 |
 |OLEDB-Treiber| 18.0.2.0 |
-|SSMS| 18.0 oder [höher](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
-|[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) oder höher |
+|SSMS| 18.0 oder [höher](/sql/ssms/download-sql-server-management-studio-ssms) |
+|[SMO](/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) oder höher |
 
 ## <a name="next-steps"></a>Nächste Schritte
 

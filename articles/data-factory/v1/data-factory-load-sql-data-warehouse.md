@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a5bf53597c0706a5ef435d6ab8cc06e14726db8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68c9e594201f0d0689a289e13f2c4ebf909c2f87
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442478"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457109"
 ---
 # <a name="load-1-tb-into-azure-synapse-analytics-under-15-minutes-with-data-factory"></a>Laden von 1 TB Daten in Azure Synapse Analytics in weniger als 15 Minuten mit Data Factory
 > [!NOTE]
-> Dieser Artikel gilt für Version 1 von Data Factory. Informationen zur aktuellen Version des Data Factory-Diensts finden Sie unter [Kopieren von Daten mithilfe von Azure Data Factory in und aus Azure Synapse Analytics (ehemals SQL Data Warehouse)](../connector-azure-sql-data-warehouse.md).
+> Dieser Artikel gilt für Version 1 von Data Factory. Informationen für die aktuelle Version des Data Factory-Diensts finden Sie unter [Kopieren und Transformieren von Daten in Azure Synapse Analytics (ehemals SQL Data Warehouse) mithilfe von Azure Data Factory](../connector-azure-sql-data-warehouse.md).
 
 
 [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) ist eine cloudbasierte Datenbank mit horizontaler Skalierung, mit der sehr große volumen sowohl relationaler als auch nicht relationaler Daten verarbeitet werden können.  Azure Synapse Analytics basiert auf der MPP-Architektur (Massively Parallel Processing), die für Data-Warehouse-Workloads in Großunternehmen optimiert ist.  Es bietet Cloudelastizität mit der Flexibilität, Speicher zu skalieren und unabhängig zu berechnen.
@@ -56,7 +56,7 @@ Dieser Artikel enthält detaillierte Anleitungen zum Verschieben von Daten in Az
     Kopieren Sie jetzt die generierten Dateien in Azure Blob.  Unter [Verschieben von Daten in das lokale und aus dem lokalen Dateisystem mithilfe von Azure Data Factory](data-factory-onprem-file-system-connector.md) erhalten Sie weitere Informationen, wie Sie dies mithilfe von ADF Copy durchführen.    
 * Azure Synapse Analytics: Bei diesem Experiment werden mit 6.000 DWUs erstellte Daten in Azure Synapse Analytics geladen.
 
-    Ausführliche Anweisungen zum Erstellen einer Azure Synapse Analytics-Datenbank finden Sie unter [Erstellen einer Azure Synapse Analytics-Datenbank](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md).  Um die bestmögliche Leistung des Ladevorgangs in Azure Synapse Analytics mithilfe von Polybase zu erreichen, wählen wir die maximale Anzahl von Data Warehouse-Einheiten (DWUs) aus, die in der Leistungseinstellung zulässig ist (6.000).
+    Ausführliche Anweisungen zum Erstellen einer Azure Synapse Analytics-Datenbank finden Sie unter [Erstellen einer Azure Synapse Analytics-Datenbank](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).  Um die bestmögliche Leistung des Ladevorgangs in Azure Synapse Analytics mithilfe von Polybase zu erreichen, wählen wir die maximale Anzahl von Data Warehouse-Einheiten (DWUs) aus, die in der Leistungseinstellung zulässig ist (6.000).
 
   > [!NOTE]
   > Wenn Sie aus Azure Blob Storage laden, ist die Leistung beim Laden von Daten direkt proportional zur Anzahl der DWUs, die Sie für Azure Synapse Analytics konfigurieren:
@@ -65,7 +65,7 @@ Dieser Artikel enthält detaillierte Anleitungen zum Verschieben von Daten in Az
   >
   >
 
-    Bewegen Sie den Schieberegler „Leistung“ ganz nach rechts, um einen Synapse SQL-Pool mit 6.000 DWUs zu erstellen:
+    Bewegen Sie den Schieberegler „Leistung“ ganz nach rechts, um einen dedizierten SQL-Pool mit 6.000 DWUs zu erstellen:
 
     ![Schieberegler „Performance“ (Leistung)](media/data-factory-load-sql-data-warehouse/performance-slider.png)
 
@@ -79,7 +79,7 @@ Dieser Artikel enthält detaillierte Anleitungen zum Verschieben von Daten in Az
 
     In diesem Experiment werden Daten mithilfe der Ressourcenklasse `xlargerc` in Azure Synapse Analytics geladen.
 
-    Um den bestmögliche Durchsatz zu erreichen, muss mithilfe eines Azure Synapse Analytics-Benutzers, der zur Ressourcenklasse `xlargerc` gehört, ein Kopiervorgang ausgeführt werden.  Erfahren Sie, wie das geht, indem Sie das folgende [Beispiel: Ändern der Ressourcenklasse eines Benutzers](../../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md) ausführen.  
+    Um den bestmögliche Durchsatz zu erreichen, muss mithilfe eines Azure Synapse Analytics-Benutzers, der zur Ressourcenklasse `xlargerc` gehört, ein Kopiervorgang ausgeführt werden.  Erfahren Sie, wie das geht, indem Sie das folgende [Beispiel: Ändern der Ressourcenklasse eines Benutzers](../../synapse-analytics/sql-data-warehouse/resource-classes-for-workload-management.md) ausführen.  
 * Erstellen Sie eine Zieltabellenschema in der Datenbank von Azure Synapse Analytics, indem Sie die folgende DDL-Anweisung ausführen:
 
     ```SQL  
@@ -117,7 +117,7 @@ Dieser Artikel enthält detaillierte Anleitungen zum Verschieben von Daten in Az
 
    1. Geben Sie **LoadIntoSQLDWDataFactory** als **Name** ein.
        Der Name der Azure Data Factory muss global eindeutig sein. Bei Anzeige der Fehlermeldung **Data Factory-Name „LoadIntoSQLDWDataFactory“ ist nicht verfügbar**. Ändern Sie den Namen der Data Factory (z. B. in „IhrnameLoadIntoSQLDWDataFactory“), und wiederholen Sie den Vorgang. Benennungsregeln für Data Factory-Artefakte finden Sie im Thema [Data Factory – Benennungsregeln](data-factory-naming-rules.md) .  
-   2. Wählen Sie Ihr Azure- **Abonnement**aus.
+   2. Wählen Sie Ihr Azure- **Abonnement** aus.
    3. Führen Sie unter „Ressourcengruppe“ einen der folgenden Schritte aus:
       1. Wählen Sie **Use existing** (Vorhandene verwenden), um eine vorhandene Ressourcengruppe auszuwählen.
       2. Wählen Sie **Neu erstellen**, um einen Namen für eine Ressourcengruppe einzugeben.

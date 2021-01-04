@@ -1,18 +1,18 @@
 ---
 title: Überprüfen von Kostenvorkalkulationen im Azure Site Recovery-Bereitstellungsplaner
 description: Dieser Artikel beschreibt, wie Sie die Kostenvorkalkulation im Azure Site Recovery-Bereitstellungsplaner für die VMware-Notfallwiederherstellung überprüfen.
-author: mayurigupta13
+author: rajeswari-mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/29/2019
-ms.author: mayg
-ms.openlocfilehash: d7ee72b5f6441f2b3b3ea9a7eaa41a3e1b650745
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: ramamill
+ms.openlocfilehash: dba585fbadca479c146ad42ac1bc5aa9d5349f49
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86528960"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186704"
 ---
 # <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Überprüfen von Kostenvorkalkulationen im VMware-Bereitstellungsplaner 
 
@@ -52,9 +52,9 @@ Für den gesamten Bericht gilt, dass die grau markierten Zellen schreibgeschütz
 ### <a name="overall-dr-cost-by-components"></a>Overall DR cost by components (Gesamtkosten der Notfallwiederherstellung nach Komponenten)
 Im ersten Abschnitt werden die Kosten für die Notfallwiederherstellung nach Komponenten und Zuständen angezeigt. 
 
-**Compute**: Kosten für IaaS-VMs, die in Azure zu Notfallwiederherstellungszwecken ausgeführt werden. Hierin sind VMs enthalten, die von Azure Site Recovery bei DR-Drills (Testfailovern) erstellt werden, und VMs, die in Azure ausgeführt werden, z.B. SQL Server mit Always On-Verfügbarkeitsgruppen und Domänencontrollern/Domänennamenservern.
+**Compute** : Kosten für IaaS-VMs, die in Azure zu Notfallwiederherstellungszwecken ausgeführt werden. Hierin sind VMs enthalten, die von Azure Site Recovery bei DR-Drills (Testfailovern) erstellt werden, und VMs, die in Azure ausgeführt werden, z.B. SQL Server mit Always On-Verfügbarkeitsgruppen und Domänencontrollern/Domänennamenservern.
 
-**Storage**: Kosten für den Azure-Speicherverbrauch für Notfallwiederherstellungszwecke. Hierin ist die Speichernutzung für Replikationsvorgänge und DR-Drills enthalten.
+**Storage** : Kosten für den Azure-Speicherverbrauch für Notfallwiederherstellungszwecke. Hierin ist die Speichernutzung für Replikationsvorgänge und DR-Drills enthalten.
 Netzwerk: Die Kosten für die ExpressRoute- und Site-to-Site-VPN-Verbindung für Notfallwiederherstellungszwecke. 
 
 **ASR license** (ASR-Lizenz): Azure Site Recovery-Lizenzkosten für alle kompatiblen VMs. Wenn Sie eine VM manuell in die Tabelle für die ausführliche Kostenanalyse eingegeben haben, sind auch die Azure Site Recovery-Lizenzkosten für diese VM enthalten.
@@ -73,7 +73,7 @@ In dieser Tabelle sind die Kosten für Storage Premium und Standardspeicher für
 ### <a name="site-to-azure-network"></a>Site to Azure network (Site-zu-Azure-Netzwerk)
 Wählen Sie die Einstellungen gemäß Ihren Anforderungen aus. 
 
-**ExpressRoute**: Das Tool wählt standardmäßig den ExpressRoute-Plan aus, der der erforderlichen Netzwerkbandbreite für die Deltareplikation am ehesten entspricht. Sie können den Plan gemäß Ihren Anforderungen ändern.
+**ExpressRoute** : Das Tool wählt standardmäßig den ExpressRoute-Plan aus, der der erforderlichen Netzwerkbandbreite für die Deltareplikation am ehesten entspricht. Sie können den Plan gemäß Ihren Anforderungen ändern.
 
 **VPN Gateway** (VPN-Gateway): Wählen Sie das VPN-Gateway aus, sofern ein solches in Ihrer Umgebung vorhanden ist. Standardmäßig ist „NA“ (Nicht verfügbar) festgelegt.
 
@@ -90,7 +90,7 @@ In dieser Tabelle werden die Anzahl von Windows-VMs und anderen VMs sowie die da
 
 ### <a name="settings"></a>Einstellungen 
 
-**Currency**: Die Währung, in der der Bericht erstellt wird. „Cost duration“ (Kostendauer):  Sie können alle Kosten für den Monat oder für das ganze Jahr anzeigen. 
+**Currency** : Die Währung, in der der Bericht erstellt wird. „Cost duration“ (Kostendauer):  Sie können alle Kosten für den Monat oder für das ganze Jahr anzeigen. 
 
 ## <a name="detailed-cost-analysis-table"></a>Tabelle „Detailed cost analysis“ (Ausführliche Kostenanalyse)
 ![Detailed cost analysis](media/site-recovery-hyper-v-deployment-planner-cost-estimation/detailed-cost-analysis-h2a.png) (Ausführliche Kostenanalyse): In dieser Tabelle sind die Kosten für die einzelnen kompatiblen VMs aufgeschlüsselt. Sie können diese Tabelle auch verwenden, um die geschätzten Kosten für die Azure-Notfallwiederherstellung für VMs ohne Profilerstellung zu erhalten, wenn Sie VMs manuell hinzufügen. Dies ist hilfreich, wenn Sie die Azure-Kosten für eine neue Bereitstellung der Notfallwiederherstellung kalkulieren müssen, ohne dass eine ausführliche Profilerstellung durchgeführt wird.

@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/15/2020
-ms.openlocfilehash: f1d8715fcadeda5ccd1a98192a70939b0c359c88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5a893ee1923ba4b2bec53b20fb164337bd65902
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84976675"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558112"
 ---
 # <a name="skillset-concepts-in-azure-cognitive-search"></a>Skillsetkonzepte in Azure Cognitive Search
 
@@ -222,8 +222,6 @@ Der Shaper-Ansatz ist ausführlicher als die Inlinestrukturierung, stellt jedoch
 Um das Beispiel zu erweitern, könnten Sie die Inlinestrukturierung entfernen und mithilfe einer Shaper-Qualifikation einen neuen Knoten für die Schlüsselbegriffe erstellen. Zum Erstellen einer in drei Tabellen (`hotelReviewsDocument`, `hotelReviewsPages` und `hotelReviewsKeyPhrases`) projizierten Form werden die beiden Optionen in den folgenden Abschnitten beschrieben.
 
 #### <a name="shaper-skill-and-projection"></a>Shaper-Qualifikation und Projektion
-
-Diese 
 
 > [!Note]
 > Einige der Spalten aus der Dokumententabelle wurden aus Platzgründen aus diesem Beispiel entfernt.

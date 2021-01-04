@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 01021530c491fd25a199f32475c031a0e7f6cd0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95560801d4132735435e4d45e8a588476636ec38
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89376637"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001234"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Azure Queue Storage-Trigger für Azure Functions
 
@@ -97,6 +97,22 @@ public static void Run(CloudQueueMessage myQueueItem,
 
 Im Abschnitt [Verwendung](#usage) finden Sie weitere Informationen zu `myQueueItem` (benannt durch die Eigenschaft `name` in „function.json“).  Alle anderen gezeigten Variablen werden im Abschnitt [Nachrichtenmetadaten](#message-metadata) erläutert.
 
+# <a name="java"></a>[Java](#tab/java)
+
+Das folgende Java-Beispiel zeigt eine Funktion für einen Storage-Warteschlangentrigger, mit der die ausgelöste Nachricht, die in Warteschlange `myqueuename` abgelegt ist, protokolliert wird.
+
+ ```java
+ @FunctionName("queueprocessor")
+ public void run(
+    @QueueTrigger(name = "msg",
+                   queueName = "myqueuename",
+                   connection = "myconnvarname") String message,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Das folgende Beispiel enthält eine Warteschlangentrigger-Bindung in einer Datei *function.json* sowie eine [JavaScript-Funktion](functions-reference-node.md), die die Bindung verwendet. Die Funktion fragt die Warteschlange `myqueue-items` ab und schreibt ein Protokoll, sobald ein Warteschlangenelement verarbeitet wird.
@@ -141,6 +157,42 @@ module.exports = async function (context, message) {
 ```
 
 Im Abschnitt [Verwendung](#usage) finden Sie weitere Informationen zu `myQueueItem` (benannt durch die Eigenschaft `name` in „function.json“).  Alle anderen gezeigten Variablen werden im Abschnitt [Nachrichtenmetadaten](#message-metadata) erläutert.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Das folgende Beispiel zeigt, wie Sie eine an eine Funktion übergebene Warteschlangennachricht mittels Trigger lesen.
+
+Der Trigger einer Speicherwarteschlange wird in der Datei *function.json* definiert, wobei `type` auf `queueTrigger` festgelegt ist.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "QueueItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "messages",
+      "connection": "MyStorageConnectionAppSetting"
+    }
+  ]
+}
+```
+
+Der Code in der Datei *Run.ps1* deklariert einen Parameter als `$QueueItem`, was es Ihnen ermöglicht, die Warteschlangennachricht in ihrer Funktion zu lesen.
+
+```powershell
+# Input bindings are passed in via param block.
+param([string] $QueueItem, $TriggerMetadata)
+
+# Write out the queue message and metadata to the information log.
+Write-Host "PowerShell queue trigger function processed work item: $QueueItem"
+Write-Host "Queue item expiration time: $($TriggerMetadata.ExpirationTime)"
+Write-Host "Queue item insertion time: $($TriggerMetadata.InsertionTime)"
+Write-Host "Queue item next visible time: $($TriggerMetadata.NextVisibleTime)"
+Write-Host "ID: $($TriggerMetadata.Id)"
+Write-Host "Pop receipt: $($TriggerMetadata.PopReceipt)"
+Write-Host "Dequeue count: $($TriggerMetadata.DequeueCount)"
+```
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -189,22 +241,6 @@ def main(msg: func.QueueMessage):
 
     logging.info(result)
 ```
-
-# <a name="java"></a>[Java](#tab/java)
-
-Das folgende Java-Beispiel zeigt eine Funktion für einen Storage-Warteschlangentrigger, mit der die ausgelöste Nachricht, die in Warteschlange `myqueuename` abgelegt ist, protokolliert wird.
-
- ```java
- @FunctionName("queueprocessor")
- public void run(
-    @QueueTrigger(name = "msg",
-                   queueName = "myqueuename",
-                   connection = "myconnvarname") String message,
-     final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
- ```
 
  ---
 
@@ -270,14 +306,6 @@ Das zu verwendende Speicherkonto wird anhand von Folgendem bestimmt (in der ange
 
 Attribute werden von C#-Skript nicht unterstützt.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-Attribute werden von JavaScript nicht unterstützt.
-
-# <a name="python"></a>[Python](#tab/python)
-
-Attribute werden von Python nicht unterstützt.
-
 # <a name="java"></a>[Java](#tab/java)
 
 Die `QueueTrigger`-Anmerkung gewährt Ihnen Zugriff auf die Warteschlange, die die Funktion auslöst. Im folgenden Beispiel wird die Warteschlangennachricht über den Parameter `message` für die Funktion verfügbar gemacht.
@@ -305,6 +333,18 @@ public class QueueTriggerDemo {
 |`queueName`  | Deklariert den Warteschlangennamen im Speicherkonto. |
 |`connection` | Verweist auf die Speicherkonto-Verbindungszeichenfolge. |
 
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Attribute werden von JavaScript nicht unterstützt.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Attribute werden von PowerShell nicht unterstützt.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Attribute werden von Python nicht unterstützt.
+
 ---
 
 ## <a name="configuration"></a>Konfiguration
@@ -327,7 +367,7 @@ Die folgende Tabelle gibt Aufschluss über die Bindungskonfigurationseigenschaft
 
 Zugriff auf die Nachrichtendaten mittels eines Methodenparameters wie `string paramName`. Eine Bindung kann mit folgenden Typen erstellt werden:
 
-* Objekt – Die Functions-Runtime deserialisiert eine JSON-Nutzlast in eine Instanz einer beliebigen Klasse, die in Ihrem Code definiert ist. 
+* Objekt – Die Functions-Runtime deserialisiert eine JSON-Nutzlast in eine Instanz einer beliebigen Klasse, die in Ihrem Code definiert ist.
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
@@ -345,17 +385,21 @@ Zugriff auf die Nachrichtendaten mittels eines Methodenparameters wie `string pa
 
 Wenn Sie versuchen, eine Bindung an `CloudQueueMessage` herzustellen, und eine Fehlermeldung erhalten, stellen Sie sicher, dass ein Verweis auf [die richtige Storage SDK-Version](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x) vorliegt.
 
+# <a name="java"></a>[Java](#tab/java)
+
+Die [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable&preserve-view=true)-Anmerkung gewährt Ihnen Zugriff auf die Warteschlangennachricht, die die Funktion ausgelöst hat.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Die Nutzlast des Warteschlangenelements ist über `context.bindings.<NAME>` verfügbar, wobei `<NAME>` dem in *function.json* definierten Namen entspricht. Falls es sich um eine JSON-Nutzlast handelt, wird der Wert in ein Objekt deserialisiert.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Greifen Sie auf die Warteschlangennachricht über einen Zeichenfolgenparameter zu, der mit dem Namen übereinstimmt, der durch den `name`-Parameter der Bindung in der Datei *function.json* festgelegt ist.
+
 # <a name="python"></a>[Python](#tab/python)
 
-Greifen Sie über den Parameter, der als [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python) typisiert ist, auf die Warteschlangennachricht zu.
-
-# <a name="java"></a>[Java](#tab/java)
-
-Die [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable)-Anmerkung gewährt Ihnen Zugriff auf die Warteschlangennachricht, die die Funktion ausgelöst hat.
+Greifen Sie über den Parameter, der als [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python&preserve-view=true) typisiert ist, auf die Warteschlangennachricht zu.
 
 ---
 
@@ -408,7 +452,7 @@ Die Datei [host.json](functions-host-json.md#queues) enthält Einstellungen, mit
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Schreiben von Blobspeichernachrichten (Ausgabebindung)](./functions-bindings-storage-blob-output.md)
+- [Schreiben von Queue Storage-Nachrichten (Ausgabebindung)](./functions-bindings-storage-queue-output.md)
 
 <!-- LINKS -->
 

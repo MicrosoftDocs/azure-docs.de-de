@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: eace63effdbd62d8f08395aa16683627b475a963
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 698a1d52af6c2472d6c025851ead1a0b6a6dff82
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86232524"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015340"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Empfehlungen zum Mikrofonarray für das Speech-Geräte-SDK
 
@@ -97,7 +97,7 @@ Die folgenden Architekturrichtlinien sind notwendig, wenn Sie Mikrofone in ein G
 | Samplingtakt      | Die Audioaufnahme des Geräts darf keinen Jitter, keine Ausfälle und nur geringe Abweichung aufweisen |
 | Aufzeichnungsfähigkeit   | Das Gerät muss Rohdatenströme einzelner Kanäle gleichzeitig aufzeichnen können |
 | USB                 | Alle USB-Audioeingabegeräte müssen Deskriptoren gemäß den [Spezifikationen für USB-Audiogeräte Rev3](https://www.usb.org/document-library/usb-audio-devices-rev-30-and-adopters-agreement) festlegen |
-| Mikrofongeometrie | Treiber müssen [Deskriptoren für die Geometrie des Mikrofonarrays](https://docs.microsoft.com/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) ordnungsgemäß implementieren |
+| Mikrofongeometrie | Treiber müssen [Deskriptoren für die Geometrie des Mikrofonarrays](/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) ordnungsgemäß implementieren |
 | Erkennbarkeit     | Geräte dürfen keine nicht erkennbaren oder nicht steuerbaren auf Hardware, Firmware oder Software von Drittanbietern basierte nicht lineare Audioverarbeitungsalgorithmen zum/vom Gerät aufweisen |
 | Aufnahmeformat      | Aufnahmeformate müssen eine minimale Samplingrate von 16 kHz und eine empfohlene Tiefe von 24 Bit aufweisen |
 

@@ -3,16 +3,16 @@ title: Informationen zur SAP HANA-Datenbanksicherung in Azure Virtual Machines
 description: In diesem Artikel erfahren Sie mehr über das Sichern von SAP HANA-Datenbanken, die in Azure Virtual Machines ausgeführt werden.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: e30510817401fd8db23dc9f1d62fab495fac7ab2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efb9c3f786e429df404e261f053a9c9a9b032e11
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022308"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296453"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Informationen zur SAP HANA-Datenbanksicherung in Azure Virtual Machines
 
-SAP HANA-Datenbanken sind geschäftskritische Workloads, die eine niedrige Recovery Point Objective (RPO) und schnelle Recovery Time Objective (RTO) erfordern. Sie können [auf virtuellen Azure-Computern ausgeführte SAP HANA-Datenbanken jetzt mithilfe von [Azure Backup](./backup-overview.md) sichern](./tutorial-backup-sap-hana-db.md).
+SAP HANA-Datenbanken sind geschäftskritische Workloads, die eine niedrige Recovery Point Objective (RPO) und schnelle Recovery Time Objective (RTO) erfordern. Mithilfe von [Azure Backup](./backup-overview.md) können Sie jetzt [auf virtuellen Azure-Computern ausgeführte SAP HANA-Datenbanken sichern](./tutorial-backup-sap-hana-db.md).
 
 Azure Backup ist SAP [Backint-zertifiziert](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5) und bietet native Sicherungsunterstützung durch Verwendung der nativen APIs von SAP HANA. Dieses Angebot von Azure Backup orientiert sich an dem Azure Backup-Mantra von **Sicherungen ohne Infrastruktur**, sodass keine Sicherungsinfrastruktur bereitgestellt und verwaltet werden muss. Sie können SAP HANA Datenbanken, die auf virtuellen Azure-Computern ausgeführt werden, jetzt nahtlos sichern und wiederherstellen ([virtuelle Computer der M-Serie](../virtual-machines/m-series.md) werden jetzt auch unterstützt) und die von Azure Backup bereitgestellten Unternehmensverwaltungsfunktionen nutzen.
 
@@ -60,15 +60,12 @@ Zusätzlich zur SAP HANA-Sicherung in Azure für die Sicherung und Wiederherste
 
 Die [Backint-zertifizierte Azure-SAP HANA-Sicherungslösung](#backup-architecture) kann für die Datenbanksicherung und -wiederherstellung verwendet werden.
 
-Die [Azure-VM-Sicherung](backup-azure-vms-introduction.md) kann zum Sichern der Betriebssystemdatenträger sowie anderer datenbankfremder Datenträger verwendet werden. Die VM-Sicherung wird einmal täglich erstellt und umfasst alle Datenträger (mit Ausnahme von **Datenträgern mit Schreibbeschleunigung (Write Accelerator, WA)** und **Ultra Disks**). Da die Datenbank mithilfe der Azure-SAP HANA-Sicherungslösung gesichert wird, können Sie mithilfe des Features [Selektives Sichern und Wiederherstellen von Datenträgern auf Azure-VMs](selective-disk-backup-restore.md) eine dateikonsistente Sicherung erstellen, die nur die Betriebssystemdatenträger und datenbankfremden Datenträger umfasst.
-
->[!NOTE]
-> Die Verwendung von Pre-/Post-Skripts mit der Azure-VM-Sicherung ermöglicht App-konsistente Sicherungen der Datenvolumes der Datenbank. Wenn sich der Protokollbereich jedoch auf Datenträgern mit Schreibbeschleunigung befindet, ist im Falle der Erstellung einer Momentaufnahme dieser Datenträger unter Umständen keine Protokollbereichskonsistenz gewährleistet. Aus diesem Grund verfügt HANA über eine explizite Methode zum Generieren von Protokollsicherungen. Aktivieren Sie die entsprechende Funktion in Ihrer SAP HANA-Instanz, um die Verwendung der Azure-SAP HANA-Sicherung zu ermöglichen.
+Die [Azure-VM-Sicherung](backup-azure-vms-introduction.md) kann zum Sichern der Betriebssystemdatenträger sowie anderer datenbankfremder Datenträger verwendet werden. Die VM-Sicherung wird einmal täglich erstellt und umfasst alle Datenträger (mit Ausnahme von **Betriebssystemdatenträgern mit Schreibbeschleunigung (Write Accelerator, WA)** und **Ultra Disks**). Da die Datenbank mithilfe der Azure-SAP HANA-Sicherungslösung gesichert wird, können Sie mithilfe des Features [Selektives Sichern und Wiederherstellen von Datenträgern auf Azure-VMs](selective-disk-backup-restore.md) eine dateikonsistente Sicherung erstellen, die nur die Betriebssystemdatenträger und datenbankfremden Datenträger umfasst.
 
 Ein virtueller Computer mit SAP HANA kann wie folgt wiederhergestellt werden:
 
 * [Stellen Sie einen neuen virtuellen Computer aus der Azure-VM-Sicherung wieder her](backup-azure-arm-restore-vms.md), und verwenden Sie dabei den aktuellen Wiederherstellungspunkt. Alternativ können Sie auch einen neuen leeren virtuellen Computer erstellen und die Datenträger aus dem aktuellen Wiederherstellungspunkt anfügen.
-* Da Datenträger mit Schreibbeschleunigung nicht gesichert werden, werden Sie auch nicht wiederhergestellt. Erstellen Sie leere Datenträger mit Schreibbeschleunigung und einen Protokollbereich.
+* Wenn WA-Datenträger ausgeschlossen werden, werden sie nicht wiederhergestellt. In diesem Fall erstellen Sie leere Datenträger mit Schreibbeschleunigung und einen Protokollbereich.
 * Nachdem alle anderen Konfigurationen (IP-Adresse, Systemname usw.) festgelegt wurden, kann der Computer Datenbankdaten von Azure Backup empfangen.
 * Stellen Sie nun auf dem virtuellen Computer den gewünschten Zustand (Zeitpunkt) der Datenbank aus der [Azure-SAP HANA-Datenbanksicherung](sap-hana-db-restore.md#restore-to-a-point-in-time-or-to-a-recovery-point) wieder her.
 

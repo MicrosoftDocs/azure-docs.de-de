@@ -479,10 +479,10 @@ Die Mustersyntax verfügt über Anfangs- und Endankersyntax für Äußerungen in
 
     |Beispieläußerung|Formularname|
     |--|--|
-    |Wo ist das Formular **What to do when a fire breaks out in the Lab**, und wer muss es unterzeichnen, nachdem ich es gelesen habe?|What to do when a fire breaks out in the Lab
-    |Wo ist **Request relocation from employee new to the company** auf dem Server?|Request relocation from employee new to the company|
-    |Wer hat **Health and wellness requests on the main campus** erstellt, und was ist die aktuelle Version?|Health and wellness requests on the main campus|
-    |Ich suche das Formular mit dem Namen **Office move request including physical assets**. |Office move request including physical assets|
+    |Wo ist das Formular **What to do when a fire breaks out in the Lab** (Vorgehensweise bei einem Brand im Labor), und wer muss es unterzeichnen, nachdem ich es gelesen habe?|Vorgehensweise bei einem Brand im Labor
+    |Wo ist **Request relocation from employee new to the company** (Umzugsanfrage für neuen Mitarbeiter) auf dem Server?|Umzugsanfrage für neuen Mitarbeiter|
+    |Wer hat **Health and wellness requests on the main campus** (Gesundheits- und Wellnessanforderungen auf dem Hauptcampus) erstellt, und was ist die aktuelle Version?|Gesundheits- und Wellnessanforderungen auf dem Hauptcampus|
+    |Ich suche das Formular mit dem Namen **Office move request including physical assets** (Anfrage für Büroumzug einschließlich physischer Ressourcen). |Office move request including physical assets (Anfrage für Büroumzug einschließlich physischer Ressourcen)|
 
     Ohne eine Pattern.any-Entität wäre es für LUIS schwierig, zu verstehen, wo der Titel des Formulars endet, weil viele Variationen des Formularnamens vorliegen.
 

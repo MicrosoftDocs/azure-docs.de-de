@@ -9,22 +9,22 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 394521156d6192d25c3a4d254ac2c9b94c6231f5
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 0e3bbb2532340664d0fc54b29bea3ef3af75f9b6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093547"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459160"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Synapse SQL-Ressourcennutzung
 
-In diesem Artikel werden die Modelle zum Ressourcenverbrauch von Synapse SQL (Vorschauversion) beschrieben.
+In diesem Artikel werden die Modelle zum Ressourcenverbrauch von Synapse SQL beschrieben.
 
-## <a name="sql-on-demand"></a>SQL On-Demand
+## <a name="serverless-sql-pool"></a>Serverloser SQL-Pool
 
-SQL On-Demand ist ein Dienst mit abfragebasierter Bezahlung, bei dem Sie nicht die richtige Größe auswählen müssen. Das System passt sich automatisch an Ihre Anforderungen an, sodass Sie weder Ihre Infrastruktur verwalten und noch die richtige Größe für Ihre Lösung auswählen müssen.
+Ein serverloser SQL-Pool ist ein Dienst mit abfragebasierter Bezahlung, bei dem Sie nicht die richtige Größe auswählen müssen. Das System passt sich automatisch an Ihre Anforderungen an, sodass Sie weder Ihre Infrastruktur verwalten und noch die richtige Größe für Ihre Lösung auswählen müssen.
 
-## <a name="sql-pool---data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>SQL-Pool: Data Warehouse-Einheiten (DWUs) und Compute Data Warehouse-Einheiten (cDWUs)
+## <a name="dedicated-sql-pool---data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Dedizierter SQL-Pool: Data Warehouse-Einheiten (DWUs) und Compute Data Warehouse-Einheiten (cDWUs)
 
 Empfehlungen zum Auswählen der idealen Anzahl von Data Warehouse-Einheiten (Data Warehouse Units, DWUs) sowie zum Ändern der Anzahl der Einheiten.
 
@@ -50,12 +50,12 @@ Erhöhen der Anzahl der DWUs:
 
 Das Servicelevelziel (Service Level Objective, SLO) ist die Skalierbarkeitseinstellung, die die Kosten und Leistungsstufe Ihres Data Warehouse festlegt. Die Servicelevel für Gen2 werden in cDWU (Compute-Data Warehouse-Einheiten) gemessen, z.B. DW2000c. Gen1-Servicelevel werden in DWUs gemessen, z.B. DW2000.
 
-Das Servicelevelziel (Service Level Objective, SLO) ist die Skalierbarkeitseinstellung, die die Kosten und Leistungsstufe Ihres Data Warehouse festlegt. Die Servicelevel für den Gen2-SQL-Pool werden in DWU (Data Warehouse-Einheiten) gemessen, z. B. DW2000c.
+Das Servicelevelziel (Service Level Objective, SLO) ist die Skalierbarkeitseinstellung, die die Kosten und Leistungsstufe Ihres Data Warehouse festlegt. Die Servicelevel für einen dedizierten Gen2-SQL-Pool werden in DWU (Data Warehouse-Einheiten) gemessen, z. B. DW2000c.
 
 > [!NOTE]
 > Azure Synapse Analytics Gen2 wurden kürzlich zusätzliche Skalierungsfunktionen zur Unterstützung von Computeebenen bis zu 100 cDWU hinzugefügt. Vorhandene Data Warehouses mit derzeit Gen1, die die niedrigeren Computeebenen erfordern, können jetzt in den Regionen, die derzeit ohne zusätzliche Kosten zur Verfügung stehen, auf Gen2 upgraden.  Wenn Ihre Region noch nicht unterstützt wird, können Sie weiterhin auf eine unterstützte Region upgraden. Weitere Informationen finden Sie unter [Optimieren der Leistung durch ein Upgrade von SQL Data Warehouse](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-In T-SQL bestimmt die Einstellung SERVICE_OBJECTIVE den Servicelevel und die Leistungsstufe für Ihren SQL-Pool.
+In T-SQL bestimmt die Einstellung SERVICE_OBJECTIVE den Servicelevel und die Leistungsstufe für Ihren dedizierten SQL-Pool.
 
 ```sql
 CREATE DATABASE mySQLDW
@@ -204,7 +204,7 @@ AND       major_resource_id = 'MySQLDW'
 ;
 ```
 
-Diese DMV gibt Informationen zu verschiedenen Verwaltungsvorgängen auf Ihrer SQL-Pool-Instanz zurück. Dazu gehören etwa der Vorgang und der Status des Vorgangs, der IN_PROGRESS oder COMPLETED lauten kann.
+Diese DMV gibt Informationen zu verschiedenen Verwaltungsvorgängen in Ihrem dedizierten SQL-Pool zurück. Dazu gehören etwa der Vorgang und der Status des Vorgangs, der IN_PROGRESS oder COMPLETED lauten kann.
 
 ### <a name="the-scaling-workflow"></a>Der Skalierungsworkflow
 

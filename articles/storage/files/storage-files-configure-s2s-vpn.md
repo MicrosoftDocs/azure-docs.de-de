@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4d1d0f9e2a86da8213a9662b68c791a117dcc7fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fa3fb8040fd79d68f9260ab520d3b6823ab363d
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515339"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629290"
 ---
 # <a name="configure-a-site-to-site-vpn-for-use-with-azure-files"></a>Konfigurieren eines Site-to-Site-VPN zur Verwendung mit Azure Files
 Sie können ein S2S-VPN (Site-to-Site) verwenden, um Ihre Azure-Dateifreigaben aus Ihrem lokalen Netzwerk über SMB einzubinden, ohne Port 445 zu öffnen. Sie können ein Site-to-Site-VPN mithilfe des [Azure VPN Gateways](../../vpn-gateway/vpn-gateway-about-vpngateways.md) einrichten, einer Azure-Ressource, die VPN-Dienste anbietet, und die in einer Ressourcengruppe zusammen mit Speicherkonten oder anderen Azure-Ressourcen bereitgestellt wird.
@@ -30,7 +30,7 @@ Der Artikel beschreibt die Schritte zur Konfiguration eines Site-to-Site-VPN, um
 
 - Ein mit Azure VPN Gateway kompatibles Netzwerkgerät oder ein Netzwerkserver in Ihrem lokalen Rechenzentrum. Azure Files ist unabhängig vom ausgewählten lokalen Netzwerkgerät, aber Azure VPN Gateway verwaltet eine [Liste der getesteten Geräte](../../vpn-gateway/vpn-gateway-about-vpn-devices.md). Unterschiedliche Netzwerkgeräte bieten unterschiedliche Features, Leistungsmerkmale und Verwaltungsfunktionen. Dies sollten Sie bei der Auswahl eines Netzwerkgeräts berücksichtigen.
 
-    Wenn Sie kein vorhandenes Netzwerkgerät haben, bietet Ihnen Windows Server eine integrierte Serverrolle, Routing and Remote Access (RRAS), die als lokales Netzwerkgerät verwendet werden kann. Weitere Informationen zum Konfigurieren von Routing and Remote Access in Windows Server finden Sie unter [RAS-Gateway](https://docs.microsoft.com/windows-server/remote/remote-access/ras-gateway/ras-gateway).
+    Wenn Sie kein vorhandenes Netzwerkgerät haben, bietet Ihnen Windows Server eine integrierte Serverrolle, Routing and Remote Access (RRAS), die als lokales Netzwerkgerät verwendet werden kann. Weitere Informationen zum Konfigurieren von Routing and Remote Access in Windows Server finden Sie unter [RAS-Gateway](/windows-server/remote/remote-access/ras-gateway/ras-gateway).
 
 ## <a name="add-storage-account-to-vnet"></a>Hinzufügen eines Speicherkontos zu VNET
 Navigieren Sie im Azure-Portal zum Speicherkonto mit der Azure-Dateifreigabe, die Sie lokal einbinden möchten. Wählen Sie im Inhaltsverzeichnis des Speicherkontos den Eintrag **Firewalls und virtuelle Netzwerke** aus. Wenn Sie Ihrem Speicherkonto bei der Erstellung kein virtuelles Netzwerk hinzugefügt haben, wird im angezeigten Bereich für das Optionsfeld **Zugriff erlauben von** **Alle Netzwerke** ausgewählt.

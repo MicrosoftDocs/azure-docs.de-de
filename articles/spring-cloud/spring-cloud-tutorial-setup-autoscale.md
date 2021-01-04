@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Einrichten der Autoskalierung für Microserviceanwendungen'
+title: Einrichten der Autoskalierung für Microserviceanwendungen
 description: In diesem Artikel wird beschrieben, wie Sie über das Microsoft Azure-Portal oder die Azure CLI Autoskalierungseinstellungen für Ihre Anwendungen einrichten.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/22/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 4effdbf5fb924b59a540ce16e769633c484c641a
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: d59d5de0d98380be215747c7daa33721fcebf33c
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091065"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533824"
 ---
-# <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>Tutorial: Einrichten der Autoskalierung für Microserviceanwendungen
+# <a name="set-up-autoscale-for-microservice-applications"></a>Einrichten der Autoskalierung für Microserviceanwendungen
 
 **Dieser Artikel gilt für:** ✔️ Java ✔️ C#
 

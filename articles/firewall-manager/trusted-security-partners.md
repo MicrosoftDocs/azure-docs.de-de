@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 12/01/2020
 ms.author: victorh
-ms.openlocfilehash: 3c09e75a98e5342ab54710e05466755d86705b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 923c6b685d20ff68788e7d9cfcb45ebaecb535e3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399430"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490107"
 ---
 # <a name="what-are-security-partner-providers"></a>Was sind Sicherheitspartneranbieter?
 
@@ -22,7 +22,7 @@ Mit einigen schnellen Konfigurationsschritten können Sie einen Hub mit einem un
 
 Sie können geschützte, mithilfe eines Sicherheitspartners Ihrer Wahl konfigurierte Hubs in mehreren Azure-Regionen bereitstellen, um Konnektivität und Sicherheit für Benutzer in diesen Regionen rund um die Welt zu gewährleisten. Dank der Möglichkeit, das Angebot des Sicherheitspartners für den Internet-/SaaS-Anwendungsdatenverkehr und die Azure Firewall für privaten Datenverkehr in den geschützten Hubs zu nutzen, können Sie jetzt Ihre Sicherheitsperipherie in Azure aufbauen, die sich in der Nähe ihrer weltweit verteilten Benutzer und Anwendungen befindet.
 
-Die unterstützten Sicherheitspartner sind **ZScaler**, **Check Point** (Vorschau) und **iboss** (Vorschau).
+Die unterstützten Sicherheitspartner sind **Zscaler**, **[Check Point](check-point-overview.md)** und **iboss**.
 
 ![Sicherheitspartneranbieter](media/trusted-security-partners/trusted-security-partners.png)
 

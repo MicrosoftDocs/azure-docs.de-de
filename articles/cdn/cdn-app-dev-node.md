@@ -16,11 +16,11 @@ ms.date: 01/23/2017
 ms.author: mazha
 ms.custom: devx-track-js
 ms.openlocfilehash: f5d5c7a6e1f6993b19f38db2ae846b213a1d553e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316755"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993389"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Erste Schritte mit der Azure CDN-Entwicklung
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Erstellen Sie einen Ordner zum Speichern der Anwendung.  Legen Sie in einer Kons
 npm init
 ```
 
-Ihnen werden dann verschiedene Fragen zur Initialisierung des Projekts gestellt.  Als **Einstiegspunkt**wird in diesem Tutorial *app.js*verwendet.  Meine anderen gewählten Optionen sehen Sie im folgenden Beispiel:
+Ihnen werden dann verschiedene Fragen zur Initialisierung des Projekts gestellt.  Als **Einstiegspunkt** wird in diesem Tutorial *app.js* verwendet.  Meine anderen gewählten Optionen sehen Sie im folgenden Beispiel:
 
 ![NPM-Initialisierungsausgabe](./media/cdn-app-dev-node/cdn-npm-init.png)
 

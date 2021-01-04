@@ -3,12 +3,12 @@ title: Bereitstellen einer .NET-App in einem Container in Azure Service Fabric
 description: Hier erfahren Sie, wie Sie eine vorhandene .NET-Anwendung mit Visual Studio in einen Container packen und Container in Service Fabric lokal debuggen. Die Containeranwendung wird per Push an eine Azure-Containerregistrierung übertragen und in einem Service Fabric-Cluster bereitgestellt. Bei der Bereitstellung in Azure nutzt die Anwendung Azure SQL-Datenbank für die dauerhafte Speicherung von Daten.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: c2e44db9bc813b346493b4d23b9f48b279e245b3
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 8be9de495fa6bc5689a2dba5384f5df3112cbb38
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122062"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485521"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Bereitstellen einer .NET-App in einem Windows-Container in Azure Service Fabric
 
@@ -169,7 +169,7 @@ Beim Erstellen des Clusters:
     d. Klicken Sie auf die Registerkarte **VM-Detail**. Geben Sie das Kennwort an, das Sie für die virtuellen Computer verwenden möchten, die den Cluster bilden. Die Kombination aus Benutzername und Kennwort kann zum Herstellen einer Remoteverbindung mit dem virtuellen Computer verwendet werden. Wählen Sie außerdem eine VM-Größe aus, und ändern Sie bei Bedarf das VM-Image.
 
     > [!IMPORTANT]
-    > Wählen Sie eine SKU, die die Ausführung von Containern unterstützt. Das Windows Server-Betriebssystem auf Ihren Clusterknoten muss mit dem Windows Server-Betriebssystem Ihres Containers kompatibel sein. Weitere Informationen finden Sie unter [Erstellen Ihrer ersten Service Fabric-Containeranwendung unter Windows](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). In diesem Tutorial wird standardmäßig ein auf Windows Server 2016 LTSC basierendes Docker-Image erstellt. Auf diesem Image basierende Container können in Clustern ausgeführt werden, die mit Windows Server 2016 Datacenter mit Containern erstellt wurden. Wenn Sie jedoch einen Cluster erstellen oder einen vorhandenen Cluster verwenden, der auf Windows Server Datacenter Core 1709 mit Containern basiert, müssen Sie das Windows Server-Betriebssystemimage ändern, auf dem der Container basiert. Öffnen Sie die **Dockerfile**-Datei im Projekt **FabrikamFiber.Web**, kommentieren Sie die vorhandene `FROM`-Anweisung (basierend auf `windowsservercore-ltsc`) aus, und heben Sie die Auskommentierung der `FROM`-Anweisung basierend auf `windowsservercore-1709` auf.
+    > Wählen Sie eine SKU, die die Ausführung von Containern unterstützt. Das Windows Server-Betriebssystem auf Ihren Clusterknoten muss mit dem Windows Server-Betriebssystem Ihres Containers kompatibel sein. Weitere Informationen finden Sie unter [Erstellen Ihrer ersten Service Fabric-Containeranwendung unter Windows](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). In diesem Tutorial wird standardmäßig ein auf Windows Server 2016 LTSC basierendes Docker-Image erstellt. Auf diesem Image basierende Container können in Clustern ausgeführt werden, die mit Windows Server 2016 Datacenter mit Containern erstellt wurden. Wenn Sie jedoch einen Cluster erstellen oder einen vorhandenen Cluster verwenden, der auf verschiedenen Versionen von Windows Server basiert, müssen Sie das Betriebssystemimage ändern, auf dem der Container basiert. Öffnen Sie das **Dockerfile** im Projekt **FabrikamFiber.Web**, und kommentieren Sie vorhandene `FROM`-Anweisungen aus, die auf einer vorherigen Windows Server-Version basieren. Fügen Sie dann von der [DockerHub-Seite für Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore) eine `FROM`-Anweisung hinzu, die auf dem Tag der gewünschten Version basiert. Weitere Informationen zu Windows Server Core-Releases, zur Unterstützung von Zeitachsen und zur Versionsverwaltung finden Sie unter [Versionsinformationen zu Windows Server](/windows-server/get-started/windows-server-release-info). 
 
     e. Listen Sie auf der Registerkarte **Erweitert** den Anwendungsport auf, der bei der Clusterbereitstellung im Lastenausgleichsmodul geöffnet sein soll. Dies ist der Port, den Sie sich vor der Erstellung des Clusters notiert haben. Sie können auch einen vorhandenen Application Insights-Schlüssel hinzufügen, der als Routingziel für Anwendungsprotokolldateien verwendet werden soll.
 

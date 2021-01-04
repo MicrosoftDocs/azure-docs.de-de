@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: 09485d3279e4ca4fff5b6492bab432d8034d7e42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e426962310417fdca56ea2f7d45a6ea820d41981
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449415"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335875"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights-Connector-Verwaltungslösung (Veraltet)
 
@@ -57,8 +57,8 @@ Im Gegensatz zu den meisten anderen Log Analytics-Lösungen werden die Daten fü
 
 ## <a name="configuration"></a>Konfiguration
 
-1. Aktivieren Sie die Lösung Azure-Web-Apps-Analyse in [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) oder mit den unter [Hinzufügen von Log Analytics-Lösungen aus dem Lösungskatalog](../insights/solutions.md) beschriebenen Schritten.
-2. Navigieren Sie zum [Azure-Portal](https://portal.azure.com). Wählen Sie **Alle Dienste**, um Application Insights zu öffnen. Suchen Sie dann nach „Application Insights“. 
+1. Aktivieren Sie die Lösung Azure-Web-Apps-Analyse in [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps) oder mit den unter [Hinzufügen von Log Analytics-Lösungen aus dem Lösungskatalog](../insights/solutions.md) beschriebenen Schritten.
+2. Navigieren Sie zum [Azure-Portal](https://portal.azure.com). Wählen Sie **Alle Dienste** , um Application Insights zu öffnen. Suchen Sie dann nach „Application Insights“. 
 3. Wählen Sie unter **Abonnements** ein Abonnement aus, das über Application Insights-Ressourcen verfügt, und wählen Sie dann unter **Name** mindestens eine Anwendung aus.
 4. Klicken Sie auf **Speichern**.
 
@@ -81,7 +81,7 @@ In den folgenden Abschnitten wird beschrieben, wie Sie die Blätter im Applicati
 
 ### <a name="view-application-insights-connector-information"></a>Anzeigen von Application Insights-Connector-Informationen
 
-Klicken Sie auf die Kachel **Application Insights**, um das **Application Insights**-Dashboard zu öffnen und die folgenden Blätter anzuzeigen.
+Klicken Sie auf die Kachel **Application Insights** , um das **Application Insights** -Dashboard zu öffnen und die folgenden Blätter anzuzeigen.
 
 ![Screenshot des Application Insights-Dashboards mit den Blättern „Anwendungen“, „Datenvolumen“ und „Verfügbarkeit“](./media/app-insights-connector/app-insights-dash01.png)
 
@@ -304,7 +304,7 @@ $Headers = @{
 $Connections = Invoke-RestMethod -Method "GET" -Uri "https://management.azure.com$($LAWorkspace.ResourceId)/dataSources/?%24filter=kind%20eq%20'ApplicationInsights'&api-version=2015-11-01-preview" -Headers $Headers
 $ConnectionsJson = $Connections | ConvertTo-Json
 ```
-Dieses Skript erfordert ein Bearertoken zur Authentifizierung für Azure Active Directory. Als eine Möglichkeit zum Abrufen dieses Tokens können Sie einen Artikel auf der [Dokumentationswebsite für die REST-API](/rest/api/loganalytics/datasources/createorupdate) verwenden. Klicken Sie auf **Jetzt testen**, und melden Sie sich bei Ihrem Azure-Abonnement an. Sie können das Bearertoken aus der **Anforderungsvorschau** kopieren, wie es in der folgenden Abbildung dargestellt ist.
+Dieses Skript erfordert ein Bearertoken zur Authentifizierung für Azure Active Directory. Als eine Möglichkeit zum Abrufen dieses Tokens können Sie einen Artikel auf der [Dokumentationswebsite für die REST-API](/rest/api/loganalytics/datasources/createorupdate) verwenden. Klicken Sie auf **Jetzt testen** , und melden Sie sich bei Ihrem Azure-Abonnement an. Sie können das Bearertoken aus der **Anforderungsvorschau** kopieren, wie es in der folgenden Abbildung dargestellt ist.
 
 
 ![Bearertoken](media/app-insights-connector/bearer-token.png)

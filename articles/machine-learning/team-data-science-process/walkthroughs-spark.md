@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 91aac279a264d64ace5988d147c4caf8c52e9656
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1662af6cd3499fdf851d4e1bd8a0db48da7635b4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75864144"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320135"
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>Exemplarische Data Science-Vorgehensweisen mit HDInsight Spark unter Verwendung von PySpark und Scala in Azure
 
@@ -40,12 +40,11 @@ Unter [Erweiterte Datendurchsuchung und Modellierung mit Spark](spark-advanced-d
 
 ## <a name="predict-taxi-tips-using-scala-on-azure-spark"></a>Vorhersagen von Taxitrinkgeldern mithilfe von Scala in Azure Spark
 
-Die exemplarische Vorgehensweise [Data Science unter Verwendung von Scala und Spark in Azure](scala-walkthrough.md) sagt voraus, ob ein Trinkgeld (und in welcher Höhe) gezahlt wird. Gezeigt wird die Verwendung von Scala für überwachte Machine Learning-Aufgaben mit der Machine Learning-Bibliothek (MLlib) von Spark und SparkML-Paketen in einem Azure HDInsight Spark-Cluster. Sie führt Sie durch die Aufgaben, aus denen der [Data Science-Prozess](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)besteht: Erfassen und Durchsuchen von Daten, Visualisierung, Featureentwicklung, Modellierung und Modellnutzung. Die erstellten Modelle umfassen logistische und lineare Regression, Random Forests und Gradient-Boosted-Strukturen.
+Die exemplarische Vorgehensweise [Data Science unter Verwendung von Scala und Spark in Azure](scala-walkthrough.md) sagt voraus, ob ein Trinkgeld (und in welcher Höhe) gezahlt wird. Gezeigt wird die Verwendung von Scala für überwachte Machine Learning-Aufgaben mit der Machine Learning-Bibliothek (MLlib) von Spark und SparkML-Paketen in einem Azure HDInsight Spark-Cluster. Sie führt Sie durch die Aufgaben, aus denen der [Data Science-Prozess](./index.yml)besteht: Erfassen und Durchsuchen von Daten, Visualisierung, Featureentwicklung, Modellierung und Modellnutzung. Die erstellten Modelle umfassen logistische und lineare Regression, Random Forests und Gradient-Boosted-Strukturen.
 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 Eine Übersicht über den Team Data Science-Prozess finden Sie unter [Was ist der Team Data Science-Prozess (TDSP)?](overview.md).
 
-Informationen zum Lebenszyklus des Team Data Science-Prozesses finden Sie unter [Lebenszyklus des Team Data Science-Prozesses](lifecycle.md). In diesem Lebenszyklus sind die gesamten Schritte aufgeführt, die bei Projekten bei der Ausführung normalerweise durchlaufen werden. 
-
+Informationen zum Lebenszyklus des Team Data Science-Prozesses finden Sie unter [Lebenszyklus des Team Data Science-Prozesses](lifecycle.md). In diesem Lebenszyklus sind die gesamten Schritte aufgeführt, die bei Projekten bei der Ausführung normalerweise durchlaufen werden.

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 8a0d930d1c0fd30c48d97b0d1d4b94548077fbca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ab99f32932f39d5ad140b7a16d16ceae30fff54
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86261476"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896207"
 ---
 # <a name="add-a-tile-layer"></a>Hinzufügen einer Kachelebene
 
@@ -57,11 +57,11 @@ Die Kachel-URL ist eine HTTPS-URL zu einer Kachel-URL-Vorlage, in der die folgen
 -   `{quadkey}`: `quadkey`-Bezeichner der Kachel basierend auf der Namenskonvention des Bing Maps-Kachelsystems
 -   `{bbox-epsg-3857}`: Eine Begrenzungsrahmen-Zeichenfolge mit dem Format `{west},{south},{east},{north}` im Raumbezugssystem EPSG 3857.
 
-Das folgende Beispiel zeigt eine formatierte Kachel-URL für den [Wetterradar-Kacheldienst](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) in Azure Maps. Beachten Sie, dass `[subscription-key]` ein Platzhalter für Ihren Azure Maps-Abonnementschlüssel ist.
+Das folgende Beispiel zeigt eine formatierte Kachel-URL für den [Wetterradar-Kacheldienst](/rest/api/maps/renderv2/getmaptilepreview) in Azure Maps. Beachten Sie, dass `[subscription-key]` ein Platzhalter für Ihren Azure Maps-Abonnementschlüssel ist.
 
 > `https://atlas.microsoft.com/map/tile?zoom={z}&x={x}&y={y}&tilesetId=microsoft.weather.radar.main&api-version=2.0&subscription-key=[subscription-key]`
 
-Weitere Informationen zum Azure Maps-Kachelsystem finden Sie unter  [Zoomfaktoren und Kachelraster](zoom-levels-and-tile-grid.md).
+Weitere Informationen zum Azure Maps-Kachelsystem finden Sie unter [Zoomstufen und Grobraster](zoom-levels-and-tile-grid.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

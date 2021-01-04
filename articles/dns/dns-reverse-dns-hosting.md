@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: d6fabd58baf8fb3dc30c2468efd5bdc8179d5f95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a0aebc727233cdd838f3e1bf8eeb5cd247b9836
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84709197"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014022"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Hosten von Reverse-DNS-Lookupzonen in Azure DNS
 
@@ -48,7 +48,7 @@ Der Name einer IPv4-Reverse-Lookupzone basiert auf dem IP-Adressbereich, den sie
 
 Das folgende Beispiel zeigt, wie Sie über das Azure-Portal eine Reverse-DNS-Zone der Klasse C mit dem Namen `2.0.192.in-addr.arpa` in Azure DNS erstellen:
 
- ![Bereich „DNS-Zone erstellen“ mit ausgefüllten Feldern](./media/dns-reverse-dns-hosting/figure2.png)
+ ![Screenshot, der zeigt, wie Sie über das Azure-Portal eine Reverse-DNS-Zone der Klasse C mit dem Namen „2.0.192.in-addr.arpa“ in Azure DNS erstellen.](./media/dns-reverse-dns-hosting/figure2.png)
 
 **Ressourcengruppenstandort** definiert den Standort für die Ressourcengruppe. Die Angabe hat keine Auswirkungen auf die DNS-Zone. Der Standort der DNS-Zone ist immer „global“ und wird nicht angezeigt.
 
@@ -117,7 +117,7 @@ Im folgenden Beispiel wird die Erstellung eines PTR-Eintrags in einer Reverse-DN
 
 1. Klicken Sie oben im Bereich **DNS-Zone** auf **+ Datensatzgruppe**, um den Bereich **Datensatzgruppe hinzufügen** zu öffnen.
 
-   ![Schaltfläche zum Erstellen einer Datensatzgruppe](./media/dns-reverse-dns-hosting/figure4.png)
+   ![Screenshot des Bereichs der DNS-Zone mit einem Pfeil, der auf die Schaltfläche „+ Datensatzgruppe“ zeigt.](./media/dns-reverse-dns-hosting/figure4.png)
 
 1. Der Name des Datensatzes für einen PTR-Eintrag muss der restliche Teil der IPv4-Adresse in umgekehrter Reihenfolge sein. 
 
@@ -162,7 +162,7 @@ Im folgenden Beispiel werden die einzelnen Schritte zur Erstellung eines neuen P
 4. Geben Sie für **DOMÄNENNAME** den FQDN der Ressource an, die die IP-Adresse verwendet.
 5. Klicken Sie im unteren Bereich auf **OK**, um den DNS-Eintrag zu erstellen.
 
-![Bereich „Datensatzgruppe hinzufügen“ mit ausgefüllten Feldern](./media/dns-reverse-dns-hosting/figure7.png)
+![Screenshot des Bereichs „Datensatzgruppe hinzufügen“ mit einem Pfeil, der auf den Wert im Typfeld zeigt.](./media/dns-reverse-dns-hosting/figure7.png)
 
 Die folgenden Beispiele zeigen, wie diese Aufgabe mit PowerShell oder mit der Azure-Befehlszeilenschnittstelle durchgeführt wird:
 

@@ -5,12 +5,12 @@ services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 7c5e6fe92ce5ac118de204e43eb443b4aab3b698
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 25e6854491f35dd0aa46b5de218d312f57854760
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320506"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018918"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Übersicht über Service Fabric-Cluster in Azure
 Ein Service Fabric-Cluster enthält eine per Netzwerk verbundene Gruppe von virtuellen oder physischen Computern, auf denen Ihre Microservices bereitgestellt und verwaltet werden. Ein Computer oder ein virtueller Computer, der Teil eines Clusters ist, wird als Clusterknoten bezeichnet. Cluster können auf Tausende von Knoten skaliert werden. Wenn Sie dem Cluster neue Knoten hinzufügen, verteilt Service Fabric Partitionsreplikate und Instanzen des Diensts auf die erhöhte Anzahl von Knoten neu, um sie auszugleichen. Die Gesamtleistung der Anwendung verbessert sich und Konflikte beim Speicherzugriff werden reduziert. Wenn die Knoten im Cluster nicht effizient genutzt werden, können Sie die Anzahl der Knoten im Cluster verringern. Service Fabric gleicht die Partitionsreplikate und Instanzen erneut über die verringerte Anzahl von Knoten aus, um die Hardware der einzelnen Knoten besser zu nutzen.
@@ -68,12 +68,12 @@ Zusätzlich zu Clientzertifikaten kann auch Azure Active Directory für das Auth
 
 Weitere Informationen finden Sie unter [Client-zu-Knoten-Sicherheit](service-fabric-cluster-security.md#client-to-node-security).
 
-### <a name="role-based-access-control"></a>Rollenbasierte Access Control
-Rollenbasierte Zugriffssteuerung (RBAC) ermöglicht Ihnen das Zuweisen differenzierter Zugriffskontrollen für Azure-Ressourcen.  Sie können Abonnements, Ressourcengruppen und Ressourcen verschiedene Zugriffsregeln zuweisen.  RBAC-Regeln werden zusammen mit der Ressourcenhierarchie vererbt, es sei denn, sie werden auf einer niedrigeren Ebene überschrieben.  Sie können alle Benutzer oder Benutzergruppen in Ihrer AAD-Instanz mit RBAC-Regeln zuweisen, sodass ausgewählte Benutzer und Gruppen Ihren Cluster ändern können.  Weitere Informationen finden Sie in der [Übersicht über Azure RBAC](../role-based-access-control/overview.md).
+### <a name="role-based-access-control"></a>Rollenbasierte Zugriffssteuerung
+Rollenbasierte Zugriffssteuerung von Azure (Azure RBAC) ermöglicht Ihnen das Zuweisen differenzierter Zugriffskontrollen für Azure-Ressourcen.  Sie können Abonnements, Ressourcengruppen und Ressourcen verschiedene Zugriffsregeln zuweisen.  Azure RBAC-Regeln werden zusammen mit der Ressourcenhierarchie vererbt, es sei denn, sie werden auf einer niedrigeren Ebene überschrieben.  Sie können alle Benutzer oder Benutzergruppen in Ihrer AAD-Instanz mit Azure RBAC-Regeln zuweisen, sodass ausgewählte Benutzer und Gruppen Ihren Cluster ändern können.  Weitere Informationen finden Sie in der [Übersicht über Azure RBAC](../role-based-access-control/overview.md).
 
 Service Fabric unterstützt auch die Zugriffssteuerung zum Einschränken des Zugriffs auf bestimmte Clustervorgänge für verschiedene Gruppen von Benutzern. Dadurch wird der Cluster sicherer. Für Clients, die eine Clusterverbindung herstellen, werden zwei Zugriffssteuerungen unterstützt: Administratorrolle und Benutzerrolle.  
 
-Weitere Informationen finden Sie unter [Rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
+Weitere Informationen finden Sie unter [Rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC)](service-fabric-cluster-security.md#service-fabric-role-based-access-control).
 
 ### <a name="network-security-groups"></a>Netzwerksicherheitsgruppen 
 Netzwerksicherheitsgruppen (NSGs) steuern ein- und ausgehenden Datenverkehr eines Subnetzes, virtuellen Computers oder einer bestimmten NIC.  Wenn sich mehrere virtuelle Computer im selben virtuellen Netzwerk befinden, können sie standardmäßig über einen beliebigen Port miteinander kommunizieren.  Wenn Sie die Kommunikation zwischen den Computern einschränken möchten, können Sie NSGs zum Segmentieren des Netzwerks oder zum Isolieren der virtuellen Computer voneinander definieren.  Wenn Sie mehrere Knotentypen in einem Cluster haben, können Sie NSGs auf Subnetze anwenden, um zu verhindern, dass Computer, die verschiedenen Knotentypen angehören, miteinander kommunizieren.  

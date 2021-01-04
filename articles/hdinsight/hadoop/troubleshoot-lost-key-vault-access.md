@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/30/2020
-ms.openlocfilehash: 1e34c1002be3dffb719490fee01e481e8df45901
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc8162f3a7ca8744a94aba039996275b5f13c727
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532561"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533409"
 ---
 # <a name="scenario-azure-hdinsight-clusters-with-disk-encryption-lose-key-vault-access"></a>Szenario: Azure HDInsight-Cluster mit Datenträgerverschlüsselung verlieren den Zugriff auf Key Vault
 
@@ -36,7 +36,7 @@ Ausführlichere Informationen finden Sie unter [Azure Key Vault: Verfügbarkeit 
 
 ### <a name="kv-accidental-deletion"></a>Versehentliche Löschung in KV
 
-* Stellen Sie den gelöschten Schlüssel in KV zur automatischen Wiederherstellung wieder her. Weitere Informationen finden Sie unter [Wiederherstellen eines gelöschten Schlüssels](https://docs.microsoft.com/rest/api/keyvault/recoverdeletedkey).
+* Stellen Sie den gelöschten Schlüssel in KV zur automatischen Wiederherstellung wieder her. Weitere Informationen finden Sie unter [Wiederherstellen eines gelöschten Schlüssels](/rest/api/keyvault/recoverdeletedkey).
 * Wenden Sie sich an das KV-Team, um Hilfe beim Wiederherstellen nach versehentlichen Löschvorgängen zu erhalten.
 
 ### <a name="kv-access-policy-changed"></a>Geänderte KV-Zugriffsrichtlinie
@@ -88,4 +88,4 @@ Wenn Ihr Problem nicht aufgeführt ist oder Sie es nicht lösen können, besuche
 
 * Herstellen einer Verbindung mit [@AzureSupport](https://twitter.com/azuresupport), dem offiziellen Microsoft Azure-Konto zum Verbessern der Kundenfreundlichkeit. Verbinden der Azure-Community mit den richtigen Ressourcen: Antworten, Support und Experten.
 
-* Sollten Sie weitere Unterstützung benötigen, senden Sie eine Supportanfrage über das [Azure-Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Wählen Sie dazu auf der Menüleiste die Option **Support** aus, oder öffnen Sie den Hub **Hilfe und Support**. Ausführlichere Informationen hierzu finden Sie unter [Erstellen einer Azure-Supportanfrage](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Zugang zu Abonnementverwaltung und Abrechnungssupport ist in Ihrem Microsoft Azure-Abonnement enthalten. Technischer Support wird über einen [Azure-Supportplan](https://azure.microsoft.com/support/plans/) bereitgestellt.
+* Sollten Sie weitere Unterstützung benötigen, senden Sie eine Supportanfrage über das [Azure-Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Wählen Sie dazu auf der Menüleiste die Option **Support** aus, oder öffnen Sie den Hub **Hilfe und Support** . Ausführlichere Informationen hierzu finden Sie unter [Erstellen einer Azure-Supportanfrage](../../azure-portal/supportability/how-to-create-azure-support-request.md). Zugang zu Abonnementverwaltung und Abrechnungssupport ist in Ihrem Microsoft Azure-Abonnement enthalten. Technischer Support wird über einen [Azure-Supportplan](https://azure.microsoft.com/support/plans/) bereitgestellt.

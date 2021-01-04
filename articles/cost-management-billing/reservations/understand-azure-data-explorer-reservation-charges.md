@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: af2dc8378d1f1fe952a568ecb4bd89d088e3e3d3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b222e4ff519fbe2fbb4fa58b39555ac9fead0917
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147236"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352914"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Grundlegendes zur Anwendung des Rabatts für Reservierungen auf Azure Data Explorer
 
@@ -29,7 +29,7 @@ Wenn Sie eine Ressource beenden, wird der Reservierungsrabatt automatisch auf ei
 Reservierungsrabatte werden auf Stundenbasis auf den Azure Data Explorer-Aufschlagsverbrauch angewendet. Bei Azure Data Explorer-Ressourcen, die nicht über die gesamte Stunde hinweg ausgeführt werden, wird der Reservierungsrabatt automatisch auf andere Azure Data Explorer-Ressourcen angewendet, die den Reservierungsattributen entsprechen. Der Rabatt kann auf gleichzeitig ausgeführte Azure Data Explorer-Ressourcen angewendet werden. Wenn Sie über keine Azure Data Explorer-Ressourcen verfügen, die über die gesamte Stunde hinweg ausgeführt werden und den Reservierungsattributen entsprechen, profitieren Sie nicht in vollem Umfang vom Reservierungsrabatt für diese Stunde.
 
 > [!NOTE]
-> * Es wird **dringend empfohlen**, [Reservierungskapazität](../../virtual-machines/windows/prepay-reserved-vm-instances.md) für die virtuellen Computer zu erwerben, die für den Azure Data Explorer-Cluster verwendet werden, um die Einsparungen durch reservierte Kapazität zu maximieren.
+> * Es wird **dringend empfohlen**, [Reservierungskapazität](../../virtual-machines/prepay-reserved-vm-instances.md) für die virtuellen Computer zu erwerben, die für den Azure Data Explorer-Cluster verwendet werden, um die Einsparungen durch reservierte Kapazität zu maximieren.
 > * Bei dem Reservierungskauf werden Rabatte auf alle Regionen angewendet.
 
 ## <a name="examples"></a>Beispiele

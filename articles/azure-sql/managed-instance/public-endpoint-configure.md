@@ -10,17 +10,17 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, sstein
 ms.date: 05/07/2019
-ms.openlocfilehash: f3708885759a6a353742fe89b4454b39496aeeab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73fa4d4988c7a036dc1d2eb7dc81c3c1c5d77026
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619983"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788280"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Konfigurieren eines öffentlichen Endpunkts in Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Der öffentliche Endpunkt für eine [verwaltete Instanz](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) ermöglicht den Datenzugriff auf Ihre verwaltete Instanz von außerhalb des [virtuellen Netzwerks](../../virtual-network/virtual-networks-overview.md). Sie können von mehrinstanzenfähigen Azure-Diensten wie Power BI, Azure App Service oder einem lokalen Netzwerk aus auf Ihre verwaltete Instanz zugreifen. Bei Verwendung des öffentlichen Endpunkts auf einer verwalteten Instanz müssen Sie kein VPN verwenden, was VPN-Durchsatzprobleme vermeiden kann.
+Der öffentliche Endpunkt für eine [verwaltete Instanz](./sql-managed-instance-paas-overview.md) ermöglicht den Datenzugriff auf Ihre verwaltete Instanz von außerhalb des [virtuellen Netzwerks](../../virtual-network/virtual-networks-overview.md). Sie können von mehrinstanzenfähigen Azure-Diensten wie Power BI, Azure App Service oder einem lokalen Netzwerk aus auf Ihre verwaltete Instanz zugreifen. Bei Verwendung des öffentlichen Endpunkts auf einer verwalteten Instanz müssen Sie kein VPN verwenden, was VPN-Durchsatzprobleme vermeiden kann.
 
 In diesem Artikel lernen Sie Folgendes:
 
@@ -82,7 +82,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 ## <a name="allow-public-endpoint-traffic-on-the-network-security-group"></a>Zulassen von Datenverkehr auf dem öffentlichen Endpunkt in der Netzwerksicherheitsgruppe
 
-1. Wenn die Konfigurationsseite der verwalteten Instanz noch geöffnet ist, navigieren Sie zur Registerkarte **Übersicht**. Andernfalls wechseln Sie zurück zu Ihrer **Verwaltete SQL-Instanz**-Ressource. Wählen Sie den Link **Virtuelles Netzwerk/Subnetz** aus, sodass Sie zu der Konfigurationsseite „Virtuelles Netzwerk“ gelangen.
+1. Wenn die Konfigurationsseite der verwalteten Instanz noch geöffnet ist, navigieren Sie zur Registerkarte **Übersicht** . Andernfalls wechseln Sie zurück zu Ihrer **Verwaltete SQL-Instanz** -Ressource. Wählen Sie den Link **Virtuelles Netzwerk/Subnetz** aus, sodass Sie zu der Konfigurationsseite „Virtuelles Netzwerk“ gelangen.
 
     ![Screenshot: Konfigurationsseite für virtuelles Netzwerk zum Suchen des Werts des virtuellen Netzwerks bzw. Subnetzes](./media/public-endpoint-configure/mi-overview.png)
 
@@ -92,7 +92,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 1. Wechseln Sie zurück zur Ressourcengruppe, die Ihre verwaltete Instanz enthält. Daraufhin sollte der oben notierte Name der **Netzwerksicherheitsgruppe** angezeigt werden. Wählen Sie den Namen aus, um die Konfigurationsseite der Netzwerksicherheitsgruppe zu öffnen.
 
-1. Wählen Sie die Registerkarte **Eingangssicherheitsregeln** zum **Hinzufügen** einer Regel mit den folgenden Einstellungen aus, die höhere Priorität aufweist als die Regel **deny_all_inbound**: </br> </br>
+1. Wählen Sie die Registerkarte **Eingangssicherheitsregeln** zum **Hinzufügen** einer Regel mit den folgenden Einstellungen aus, die höhere Priorität aufweist als die Regel **deny_all_inbound** : </br> </br>
 
     |Einstellung  |Vorgeschlagener Wert  |BESCHREIBUNG  |
     |---------|---------|---------|
@@ -112,7 +112,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 ## <a name="obtaining-the-managed-instance-public-endpoint-connection-string"></a>Abrufen der Verbindungszeichenfolge des öffentlichen Endpunkts der verwalteten Instanz
 
 1. Navigieren Sie zur Konfigurationsseite der verwalteten Instanz, die für den öffentlichen Endpunkt aktiviert wurde. Wählen Sie die Registerkarte **Verbindungszeichenfolgen** im Konfigurationsabschnitt **Einstellungen** aus.
-1. Beachten Sie, dass der Hostname des öffentlichen Endpunkts das Format <mi_name>.**public**.<dns_zone>.database.windows.net hat und der Port 3342 für die Verbindung verwendet wird.
+1. Beachten Sie, dass der Hostname des öffentlichen Endpunkts das Format <mi_name>. **public** .<dns_zone>.database.windows.net hat und der Port 3342 für die Verbindung verwendet wird.
 
     ![Screenshot: Verbindungszeichenfolgen für die öffentlichen und privaten Endpunkte](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
 

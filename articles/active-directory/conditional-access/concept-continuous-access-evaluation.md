@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ca23c1503b01c1aa9523edc2576599d7b6ab458
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b7519b6c7e1f3381be77b9a0734ddda250228e7d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992805"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860302"
 ---
 # <a name="continuous-access-evaluation"></a>Fortlaufende Zugriffsevaluierung
 
@@ -26,7 +26,9 @@ Kunden haben Bedenken wegen der Verzögerung geäußert, die zwischen der Änder
 
 Die rechtzeitige Reaktion auf Richtlinienverstöße oder Sicherheitsprobleme erfordert einen echten Austausch zwischen dem Tokenaussteller (z. B. Azure AD) und der vertrauenden Seite (z. B. Exchange Online). Dieser bidirektionale Austausch bietet zwei wichtige Funktionen. Die vertrauende Seite kann sehen, wann Änderungen vorgenommen wurden, z. B. wenn sich ein Client an einem neuen Standort befindet, und den Aussteller des Tokens informieren. Außerdem ermöglicht dies dem Tokenaussteller, der vertrauenden Seite mitzuteilen, keine Token für einen bestimmten Benutzer anzunehmen, da dessen Konto kompromittiert oder deaktiviert wurde oder da andere Bedenken bestehen. Der Mechanismus für diesen Austausch ist die fortlaufende Zugriffsevaluierung (Continuous Access Evaluation, CAE). Ziel ist es, dass die Reaktion nahezu in Echtzeit erfolgt, aber in einigen Fällen kann durch die Ereignispropagierungszeit eine Latenzzeit von bis zu 15 Minuten beobachtet werden.
 
-Die anfängliche Implementierung der fortlaufenden Zugriffsevaluierung konzentriert sich auf Exchange, Teams und SharePoint Online. 
+Die anfängliche Implementierung der fortlaufenden Zugriffsevaluierung konzentriert sich auf Exchange, Teams und SharePoint Online.
+
+Informationen zum Vorbereiten Ihrer Anwendungen auf die Verwendung der fortlaufenden Zugriffsevaluierung finden Sie unter [Verwenden von APIs mit aktivierter fortlaufender Zugriffsevaluierung in Ihren Anwendungen](/azure/active-directory/develop/app-resilience-continuous-access-evaluation).
 
 ### <a name="key-benefits"></a>Hauptvorteile
 
@@ -103,7 +105,7 @@ Wenn Sie keine CAE-fähigen Clients verwenden, beträgt die Standardgültigkeits
 
 1. Ein CAE-fähiger Client stellt Anmeldeinformationen oder ein Aktualisierungstoken für Azure AD bereit und fordert ein Zugriffstoken für eine Ressource an.
 1. Ein Zugriffstoken wird zusammen mit anderen Artefakten an den Client zurückgegeben.
-1. Ein Administrator [sperrt explizit alle Aktualisierungstoken für den Benutzer](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Von Azure AD wird ein Sperrereignis an den Ressourcenanbieter gesendet.
+1. Ein Administrator [sperrt explizit alle Aktualisierungstoken für den Benutzer](/powershell/module/azuread/revoke-azureaduserallrefreshtoken). Von Azure AD wird ein Sperrereignis an den Ressourcenanbieter gesendet.
 1. Dem Ressourcenanbieter wird ein Zugriffstoken präsentiert. Der Ressourcenanbieter wertet die Gültigkeit des Tokens aus und überprüft, ob für den Benutzer ein Sperrereignis vorliegt. Der Ressourcenanbieter verwendet diese Informationen, um den Zugriff auf die Ressource zu gewähren oder zu untersagen.
 1. In diesem Fall verweigert der Ressourcenanbieter den Zugriff und sendet die Anspruchsaufforderung „401+“ an den Client zurück.
 1. Der CAE-fähige Client versteht die Anspruchsaufforderung „401+“. Er umgeht die Caches, geht zurück zu Schritt 1 und sendet das Aktualisierungstoken zusammen mit der Anspruchsaufforderung zurück an Azure AD. Azure AD wertet dann alle Bedingungen erneut aus und fordert in diesem Fall den Benutzer auf, sich erneut zu authentifizieren.
@@ -140,7 +142,7 @@ Auf dieser Seite können Sie optional die Benutzer und Gruppen für die Vorschau
 Für die fortlaufende Zugriffsevaluierung sind nur Erkenntnisse zu benannten Standorten auf der Basis der IP-Adresse möglich. Erkenntnisse zu anderen Standorteinstellungen, z. B. [durch MFA bestätigte IP-Adressen](../authentication/howto-mfa-mfasettings.md#trusted-ips), oder in länderbasierte Standorte sind dagegen nicht möglich. Wenn der Benutzer von einer durch MFA bestätigten IP-Adresse, von vertrauenswürdigen Standorten, die durch MFA bestätigte IP-Adressen enthalten, oder von einem länderbasierten Standort stammt, wird die fortlaufende Zugriffsevaluierung erst nach dem Wechsel des Benutzers zu einem anderen Standort erzwungen. In diesen Fällen wird ein 1-stündiges CAE-Token ohne sofortige erzwungene Überprüfung der IP-Adresse ausgegeben.
 
 > [!IMPORTANT]
-> Verwenden Sie bei der Konfiguration von Standorten für die fortlaufende Zugriffsevaluierung nur die [Standortbedingung für den auf IP-Adressen basierenden bedingten Zugriff](../conditional-access/location-condition.md#preview-features), und konfigurieren Sie alle IP-Adressen, **einschließlich IPv4- und IPv6-Adressbereichen**, die vom Identitätsanbieter und Ressourcenanbieter angezeigt werden können. Verwenden Sie keine länderspezifischen Standortbedingungen und auch nicht die Funktion für vertrauenswürdige IP-Adressen, die auf der Seite der Diensteinstellungen für Azure Multi-Factor Authentication verfügbar ist.
+> Verwenden Sie bei der Konfiguration von Standorten für die fortlaufende Zugriffsevaluierung nur die [Standortbedingung für den auf IP-Adressen basierenden bedingten Zugriff](../conditional-access/location-condition.md#preview-features), und konfigurieren Sie alle IP-Adressen, **einschließlich IPv4- und IPv6-Adressbereichen**, die vom Identitätsanbieter und Ressourcenanbieter angezeigt werden können. Verwenden Sie keine länderspezifischen Standortbedingungen und auch nicht die Funktion für vertrauenswürdige IP-Adressen, die auf der Seite der Diensteinstellungen für Azure AD Multi-Factor Authentication verfügbar ist.
 
 ### <a name="ip-address-configuration"></a>IP-Adresskonfiguration
 

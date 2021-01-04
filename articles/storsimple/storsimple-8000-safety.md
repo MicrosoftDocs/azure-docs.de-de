@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 556a84acb3461fb39b3eb0390b54878254bafabf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3adbd292d42fd6fd2a0e149e103c17968a6f084b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514535"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950753"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Sichere Installation und Verwendung des StorSimple-Geräts
 ![Symbol „Warnung“](./media/storsimple-safety/IC740879.png)
@@ -114,7 +114,7 @@ Das Gerät ist für den Betrieb mit zwei Kühleinheiten ausgelegt. Jede der Küh
 
 So reduzieren Sie die Wahrscheinlichkeit, dass Verletzungen, Elektroschocks oder Tod eintreten:
 
-* Entfernen Sie nicht die Abdeckungen vom PCM. Innen besteht die Gefahr von Elektroschocks. Um ein PCM zurückzugeben und Ersatz zu erhalten, [wenden Sie sich an den Microsoft-Support](storsimple-contact-microsoft-support.md).
+* Entfernen Sie nicht die Abdeckungen vom PCM. Innen besteht die Gefahr von Elektroschocks. Um ein PCM zurückzugeben und Ersatz zu erhalten, [wenden Sie sich an den Microsoft-Support](./storsimple-8000-contact-microsoft-support.md).
 
 ![Symbol „Hinweis“](./media/storsimple-safety/IC740881.png) **HINWEIS:**
 

@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 3164de9c3e44001d58d46eab9f823041b440960b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 612ba18ba71a22ad6c346b26008e688195c1d1e4
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984175"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746582"
 ---
 # <a name="create-a-storage-account-with-infrastructure-encryption-enabled-for-double-encryption-of-data"></a>Erstellen eines Speicherkontos mit aktivierter Infrastrukturverschlüsselung für die doppelte Datenverschlüsselung
 
@@ -93,9 +94,9 @@ Die Infrastrukturverschlüsselung kann nicht aktiviert oder deaktiviert werden, 
 
 Führen Sie die folgenden Schritte aus, um mit PowerShell ein Speicherkonto mit aktivierter Infrastrukturverschlüsselung zu erstellen:
 
-1. Navigieren Sie im Azure-Portal zur Seite **Speicherkonten**.
+1. Navigieren Sie im Azure-Portal zur Seite **Speicherkonten** .
 1. Wählen Sie die Schaltfläche **Hinzufügen** aus, um ein neues Speicherkonto vom Typ „Universell v2“ hinzuzufügen.
-1. Suchen Sie auf der Registerkarte **Erweitert** nach dem Verschlüsselungstyp **Infrastruktur**, und wählen Sie **Aktiviert** aus.
+1. Suchen Sie auf der Registerkarte **Erweitert** nach dem Verschlüsselungstyp **Infrastruktur** , und wählen Sie **Aktiviert** aus.
 1. Wählen Sie **Überprüfen + erstellen** aus, um das Erstellen des Speicherkontos abzuschließen.
 
     :::image type="content" source="media/infrastructure-encryption-enable/create-account-infrastructure-encryption-portal.png" alt-text="Screenshot der Aktivierung der Infrastrukturverschlüsselung beim Erstellen eines Kontos":::

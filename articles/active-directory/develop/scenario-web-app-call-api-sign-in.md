@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5246100815fde569c55027a555464c44a240d4b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7f59f235f4baa270b36b01cc4532227ab23fbc8
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119996"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442530"
 ---
 # <a name="a-web-app-that-calls-web-apis-remove-accounts-from-the-token-cache-on-global-sign-out"></a>Web-App, die Web-APIs aufruft: Entfernen von Konten aus dem Tokencache bei der globalen Abmeldung
 
@@ -50,22 +50,18 @@ Im Python-Beispiel werden Konten bei der globalen Abmeldung nicht aus dem Cache 
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-> [!div class="nextstepaction"]
-> [Abrufen eines Tokens für die Web-App](./scenario-web-app-call-api-acquire-token.md?tabs=aspnetcore)
+Fahren Sie mit dem nächsten Artikel in diesem Szenario fort: [Abrufen eines Tokens für die Web-App](./scenario-web-app-call-api-acquire-token.md?tabs=aspnetcore).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-> [!div class="nextstepaction"]
-> [Abrufen eines Tokens für die Web-App](./scenario-web-app-call-api-acquire-token.md?tabs=aspnet)
+Fahren Sie mit dem nächsten Artikel in diesem Szenario fort: [Abrufen eines Tokens für die Web-App](./scenario-web-app-call-api-acquire-token.md?tabs=aspnet).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Abrufen eines Tokens für die Web-App](./scenario-web-app-call-api-acquire-token.md?tabs=java)
+Fahren Sie mit dem nächsten Artikel in diesem Szenario fort: [Abrufen eines Tokens für die Web-App](./scenario-web-app-call-api-acquire-token.md?tabs=java).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Abrufen eines Tokens für die Web-App](./scenario-web-app-call-api-acquire-token.md?tabs=python)
+Fahren Sie mit dem nächsten Artikel in diesem Szenario fort: [Abrufen eines Tokens für die Web-App](./scenario-web-app-call-api-acquire-token.md?tabs=python).
 
 ---

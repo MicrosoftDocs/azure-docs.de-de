@@ -12,12 +12,12 @@ metadata:
   author: IEvangelist
   ms.author: dapine
   ms.date: 01/23/2020
-  ms.openlocfilehash: 519abb112f0bb0d5a74a84bb6e84bddda9acbf48
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: c19e6c7e05a3478007505ee4f02f12a7eade5eb6
+  ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92371391"
+  ms.lasthandoff: 10/30/2020
+  ms.locfileid: "93130237"
 landingContent:
 - title: Informationen zum plastischen Reader
   linkLists:
@@ -79,6 +79,8 @@ landingContent:
     links:
     - text: JavaScript SDK
       url: reference.md
+    - text: Anmerkungen zu dieser Version
+      url: release-notes.md
 - title: Hilfe und Feedback
   linkLists:
   - linkListType: reference

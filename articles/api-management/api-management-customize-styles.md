@@ -11,15 +11,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.custom: mvc
-ms.topic: tutorial
+ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 9a654454c1ef3d5ea1ff7e6eb525bb153f7875c1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 0cdad245981ad02d3cdaefba447d131c775e242f
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168204"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145768"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Anpassen des Stils der Seiten im Entwicklerportal
 
@@ -45,7 +45,7 @@ In diesem Artikel erfahren Sie, wie Sie den Stil der Elemente auf den Seiten des
 
 ## <a name="customize-the-developer-portal"></a>Anpassen des Entwicklerportals
 
-1. Wählen Sie **Übersicht** .
+1. Wählen Sie **Übersicht**.
 2. Klicken Sie oben im Fenster **Übersicht** auf die Schaltfläche **Developer portal (legacy)** (Entwicklerportal (Legacy-Version)).
 3. Oben links auf dem Bildschirm wird ein aus zwei Pinseln bestehendes Symbol angezeigt. Zeigen Sie auf dieses Symbol, um das Menü für die Portalanpassung zu öffnen.
 
@@ -59,7 +59,7 @@ In diesem Artikel erfahren Sie, wie Sie den Stil der Elemente auf den Seiten des
 
     ![Anpassen des Stils](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. Klicken Sie auf das Feld für die Variable **\@headings-color** . 
+6. Klicken Sie auf das Feld für die Variable **\@headings-color**. 
     
     Die Dropdownliste für die Farbauswahl wird geöffnet.
 7. Wählen Sie in der Dropdownliste für die Farbauswahl eine neue Farbe aus.
@@ -67,7 +67,7 @@ In diesem Artikel erfahren Sie, wie Sie den Stil der Elemente auf den Seiten des
     > [!TIP]
     > Für alle Änderungen ist eine Echtzeitvorschau verfügbar. Oben im Anpassungsbereich wird eine Statusanzeige angezeigt. Nach einigen Sekunden wird die Farbe des Überschriftentexts in die neu ausgewählte Farbe geändert.
 
-8. Klicken Sie unten links im Menü des Anpassungsbereich auf **Veröffentlichen** .
+8. Klicken Sie unten links im Menü des Anpassungsbereich auf **Veröffentlichen**.
 9. Klicken Sie auf **Anpassungen veröffentlichen** , um die Änderungen öffentlich verfügbar zu machen.
 
 ## <a name="view-your-change"></a>Anzeigen der Änderungen

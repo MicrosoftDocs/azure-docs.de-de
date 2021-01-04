@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: e17c7d6618d67d66c89875696c5c529af3a85ea9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75ca0438336825bf8d4bbdc6e08eca109f430fde
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440552"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785917"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Verwalten von und Reagieren auf Sicherheitswarnungen in Azure Security Center
 
@@ -60,15 +60,15 @@ Security Center erfasst, analysiert und vereinigt automatisch Protokolldaten von
 
     Im linken Bereich der Seite mit der Sicherheitswarnung werden allgemeine Informationen zur Sicherheitswarnung angezeigt: Titel, Schweregrad, Status, Zeitpunkt der Aktivität, Beschreibung der verdächtigen Aktivität und die betroffene Ressource. Neben der betroffenen Ressource finden Sie die Azure-Tags für die Ressource. Verwenden Sie diese Tags, um den Organisationskontext der Ressource abzuleiten, wenn Sie die Warnung untersuchen.
 
-    Auf der rechten Seite befindet sich die Registerkarte **Warnungsdetails**, die detaillierte Informationen zur Warnung anzeigt, die Ihnen beim Untersuchen des Problems helfen: IP-Adressen, Dateien, Prozesse und vieles mehr.
+    Auf der rechten Seite befindet sich die Registerkarte **Warnungsdetails** , die detaillierte Informationen zur Warnung anzeigt, die Ihnen beim Untersuchen des Problems helfen: IP-Adressen, Dateien, Prozesse und vieles mehr.
      
     ![Vorschläge für Maßnahmen bei Sicherheitswarnungen](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
 
     Im rechten Bereich finden Sie auch die Registerkarte **Aktion ausführen**. Über diese Registerkarte können Sie weitere Aktionen in Bezug auf die Sicherheitswarnung ausführen. Folgende Aktionen sind möglich:
-    - *Auswirkungen der Bedrohung minimieren*: Stellt manuelle Schritte zur Behebung dieser Sicherheitswarnung bereit.
-    - *Künftige Angriffe verhindern*: Gibt Sicherheitsempfehlungen, um die Angriffsfläche zu verringern, den Sicherheitsstatus zu erhöhen und so künftige Angriffe zu verhindern.
-    - *Automatische Reaktion auslösen*: Bietet die Möglichkeit, eine Logik-App als Reaktion auf diese Sicherheitswarnung auszulösen.
-    - *Ähnliche Warnungen unterdrücken*: Bietet die Möglichkeit, zukünftige Warnungen mit ähnlichen Merkmalen zu unterdrücken, wenn die Warnung für Ihre Organisation nicht relevant ist.
+    - *Auswirkungen der Bedrohung minimieren* : Stellt manuelle Schritte zur Behebung dieser Sicherheitswarnung bereit.
+    - *Künftige Angriffe verhindern* : Gibt Sicherheitsempfehlungen, um die Angriffsfläche zu verringern, den Sicherheitsstatus zu erhöhen und so künftige Angriffe zu verhindern.
+    - *Automatische Reaktion auslösen* : Bietet die Möglichkeit, eine Logik-App als Reaktion auf diese Sicherheitswarnung auszulösen.
+    - *Ähnliche Warnungen unterdrücken* : Bietet die Möglichkeit, zukünftige Warnungen mit ähnlichen Merkmalen zu unterdrücken, wenn die Warnung für Ihre Organisation nicht relevant ist.
 
     ![Registerkarte „Aktion ausführen“](./media/security-center-managing-and-responding-alerts/alert-take-action.png)
 
@@ -80,4 +80,4 @@ Security Center erfasst, analysiert und vereinigt automatisch Protokolldaten von
 In diesem Dokument haben Sie erfahren, wie Sie Sicherheitswarnungen anzeigen. Verwandte Informationen finden Sie auf den folgenden Seiten:
 
 - [Konfigurieren von Warnungsunterdrückungsregeln](alerts-suppression-rules.md)
-- [Automatisieren von Reaktionen auf Warnungen und Empfehlungen mit der Workflowautomatisierung](workflow-automation.md)
+- [Automatisieren der Reaktionen auf Security Center-Trigger](workflow-automation.md)

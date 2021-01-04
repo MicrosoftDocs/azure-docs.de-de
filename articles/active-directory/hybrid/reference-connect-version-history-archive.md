@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f80808f917036dfba122a97bbd255d466f40e476
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 859a4f199e65dd0c3aee9424029f6060683d5fbd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018491"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836086"
 ---
 # <a name="azure-ad-connect-version-release-history-archive"></a>Azure AD Connect: Archiv des Versionsfreigabeverlaufs
 
@@ -167,7 +167,7 @@ Beim Azure AD Connect-Upgrade tritt ein Fehler auf, wenn für die ADSync-Datenba
 ### <a name="new-features-and-improvements"></a>Neue Features und Verbesserungen
 
 - Die Ping-Federate-Integration in Azure AD Connect ist jetzt allgemein verfügbar. [Erfahren Sie mehr über den Verbund von Azure AD mit Ping Federate](./plan-connect-user-signin.md#federation-with-pingfederate)
-- Azure AD Connect erstellt jetzt bei jedem Update die Sicherung der Azure AD-Vertrauensstellung in AD FS und speichert diese zum einfachen Wiederherstellen in einer separaten Datei. [Erfahren Sie mehr über die neuen Funktionen und die Verwaltung der Azure AD-Vertrauensstellung in Azure AD Connect](https://aka.ms/fedtrustinaadconnect).
+- Azure AD Connect erstellt jetzt bei jedem Update die Sicherung der Azure AD-Vertrauensstellung in AD FS und speichert diese zum einfachen Wiederherstellen in einer separaten Datei. [Erfahren Sie mehr über die neuen Funktionen und die Verwaltung der Azure AD-Vertrauensstellung in Azure AD Connect](./how-to-connect-azure-ad-trust.md).
 - Neues Tool für Problembehandlung vereinfacht die Problembehandlung durch das Ändern der primären E-Mail-Adresse und das Ausblenden des Kontos von der globalen Adressliste.
 - Azure AD Connect wurde aktualisiert und enthält nun die neueste Version von SQL Server 2012 Native Client
 - Wenn Sie in der Aufgabe „Benutzeranmeldung ändern“ die Benutzeranmeldung auf die Kennworthashsynchronisierung oder Passthrough-Authentifizierung umstellen, ist das Kontrollkästchen für nahtloses einmaliges Anmelden standardmäßig aktiviert.
@@ -653,15 +653,15 @@ Dabei entsteht das Problem, dass die **Sync all domains and OUs option** (Option
   * Diese Option wird nur in bestehenden Bereitstellungen angezeigt, die „objectGuid“ als Attribut für den Quellanker verwenden.
   * Wenn Sie diese Option konfigurieren, überprüft der Assistent den Status des Attributs „ms-DS-ConsistencyGuid“ in Ihrem lokalen Active Directory. Wenn das Attribut in keinem Benutzerobjekt im Verzeichnis konfiguriert ist, verwendet der Assistent „ms-DS-ConsistencyGuid“ als „sourceAnchor“-Attribut. Wenn das Attribut in einem oder in mehreren Objekten oder Benutzern im Verzeichnis konfiguriert ist, folgert der Assistent daraus, dass das Attribut von anderen Anwendungen verwendet wird und nicht als „sourceAnchor“-Attribut infrage kommt. Deshalb gestattet der Assistent nicht, dass die Änderung des Quellankers fortgesetzt wird. Wenn Sie sicher sind, dass das Attribut nicht von vorhandenen Anwendungen verwendet wird, wenden Sie sich an den Support, um Informationen zum Unterdrücken der Fehlermeldung zu erhalten.
 
-* Speziell für das Attribut**userCertificate** der Geräteobjekte sucht Azure AD Connect nun nach den Zertifikatwerten, die für das [Connecting domain-joined devices to Azure AD for Windows 10 experience (Verbinden von in Domänen eingebunden Geräten mit Azure AD für Windows 10)](../devices/hybrid-azuread-join-plan.md) benötigt werden und filtert den Rest heraus, bevor mit Azure AD synchronisiert wird. Um dieses Verhalten zu ermöglichen, wurde die Out-of-Box-Synchronisierungsregel „Ausgehend nach AAD: Gerät Join SOAInAD“ aktualisiert.
+* Speziell für das Attribut **userCertificate** der Geräteobjekte sucht Azure AD Connect nun nach den Zertifikatwerten, die für das [Connecting domain-joined devices to Azure AD for Windows 10 experience (Verbinden von in Domänen eingebunden Geräten mit Azure AD für Windows 10)](../devices/hybrid-azuread-join-plan.md) benötigt werden und filtert den Rest heraus, bevor mit Azure AD synchronisiert wird. Um dieses Verhalten zu ermöglichen, wurde die Out-of-Box-Synchronisierungsregel „Ausgehend nach AAD: Gerät Join SOAInAD“ aktualisiert.
 
 * Azure AD Connect unterstützt jetzt die Rückschreibung des Exchange Online-Attributs **cloudPublicDelegates** auf das lokale AD-Attribut **publicDelegates**. Dadurch wird einem Exchange Online-Postfach ermöglicht, dass Benutzern mit lokalem Exchange-Postfach SendOnBehalfTo-Rechte erteilt werden. Zur Unterstützung dieses Features wurde die neue Out-of-Box-Synchronisierungsregel „Ausgehend nach AD: User Exchange Hybrid PublicDelegates writeback“ hinzugefügt. Diese Synchronisierungsregel wird nur zu Azure AD Connect hinzugefügt, wenn das Feature „Exchange Hybrid“ aktiviert ist.
 
-* Azure AD Connect unterstützt nun die Synchronisierung des Attributs**altRecipient** von Azure AD. Um diese Änderung zu unterstützen wurden folgende Out-of-Box-Synchronisierungsregeln aktualisiert, um den erforderlichen Attributfluss einzuschließen:
+* Azure AD Connect unterstützt nun die Synchronisierung des Attributs **altRecipient** von Azure AD. Um diese Änderung zu unterstützen wurden folgende Out-of-Box-Synchronisierungsregeln aktualisiert, um den erforderlichen Attributfluss einzuschließen:
   * Ein von AD – Benutzer Exchange
   * Ausgehend nach AAD: User ExchangeOnline
 
-* Das Attribut**cloudSOAExchMailbox** in der Metaverse gibt an, ob ein bestimmter Benutzer über ein Exchange Online-Postfach verfügt oder nicht. Die Definition wurde aktualisiert, sodass zusätzlich „RecipientDisplayTypes“ für Exchange Online hinzugefügt wurde und dadurch auch Postfächer für Anlagen und Konferenzräume. Um diese Änderungen vorzunehmen wurde die Definition des Attributs „cloudSOAExchMailbox“, das unter der Out-of-Box-Synchronisierungsregel „Eingehend von AAD: User Exchange Hybrid“ gefunden werden kann, von Folgendem aktualisiert:
+* Das Attribut **cloudSOAExchMailbox** in der Metaverse gibt an, ob ein bestimmter Benutzer über ein Exchange Online-Postfach verfügt oder nicht. Die Definition wurde aktualisiert, sodass zusätzlich „RecipientDisplayTypes“ für Exchange Online hinzugefügt wurde und dadurch auch Postfächer für Anlagen und Konferenzräume. Um diese Änderungen vorzunehmen wurde die Definition des Attributs „cloudSOAExchMailbox“, das unter der Out-of-Box-Synchronisierungsregel „Eingehend von AAD: User Exchange Hybrid“ gefunden werden kann, von Folgendem aktualisiert:
 
     ```
     CBool(IIF(IsNullOrEmpty([cloudMSExchRecipientDisplayType]),NULL,BitAnd([cloudMSExchRecipientDisplayType],&amp;HFF) = 0))
@@ -1023,7 +1023,7 @@ Veröffentlichung: Februar 2016
 **Neue Features:**
 
 * [Automatic upgrade](how-to-connect-install-automatic-upgrade.md) für Kunden mit Expresseinstellungen.
-* Unterstützung für den globalen Administrator durch Verwenden von Azure Multi-Factor Authentication und Privileged Identity Management im Installations-Assistenten.
+* Unterstützung für den globalen Administrator durch Verwenden von Azure AD Multi-Factor Authentication und Privileged Identity Management im Installations-Assistenten.
   * Sie müssen für Ihren Proxy auch Datenverkehr an https://secure.aadcdn.microsoftonline-p.com zulassen, wenn Sie die Multi-Factor Authentication verwenden.
   * Sie müssen https://secure.aadcdn.microsoftonline-p.com der Liste mit den vertrauenswürdigen Sites hinzufügen, damit die Multi-Factor Authentication richtig funktioniert.
 * Das Ändern der Anmeldemethode des Benutzers nach der Erstinstallation ist zulässig.

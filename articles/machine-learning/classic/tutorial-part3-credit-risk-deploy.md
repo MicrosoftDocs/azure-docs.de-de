@@ -9,17 +9,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 148a3deb23219036f2fd9d8fe4dad93e9fb96b9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3afcf87c360651ac314450910fbf5ab72afd289a
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91337980"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95503915"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Tutorial 3: Bereitstellen eines Kreditrisikomodells – Azure Machine Learning Studio (klassisch)
 
-**BETRIFFT:** ![Ja](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic) ![Nein](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
-
+**GILT FÜR:**  ![Dies ist ein Häkchen, d. h., dieser Artikel bezieht sich auf Machine Learning Studio (Classic). ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic)   ![Dies ist ein X, d. h., dieser Artikel bezieht sich auf Azure Machine Learning. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 Dieses Tutorial befasst sich eingehend mit der Entwicklung einer Predictive Analytics-Lösung. Hierzu wird in Machine Learning Studio (klassisch) ein einfaches Modell entwickelt.  Anschließend wird das Modell als Azure Machine Learning-Webdienst bereitgestellt.  Dieses bereitgestellte Modell kann auf der Grundlage neuer Daten Vorhersagen generieren. Dieses Tutorial ist der **dritte Teil einer dreiteiligen Reihe**.
 
@@ -49,12 +48,12 @@ Schließen Sie den [zweiten Teil des Tutorials](tutorial-part2-credit-risk-train
 ## <a name="prepare-for-deployment"></a>Vorbereiten der Bereitstellung
 Um anderen die Möglichkeit zu geben, das Vorhersagemodell zu nutzen, das Sie in diesem Tutorial entwickelt haben, können Sie es in Azure als Webdienst bereitstellen.
 
-Bis jetzt haben Sie mit dem Trainieren des Modells experimentiert. Der bereitgestellte Dienst führt jedoch kein Training mehr durch, sondern generiert neue Vorhersagen durch Bewerten der Benutzereingaben basierend auf unserem Modell. Wir führen einige vorbereitende Schritte durch, um dieses Experiment von einem ***Trainingsexperiment*** in ein ***Vorhersageexperiment*** umzuwandeln. 
+Bis jetzt haben Sie mit dem Trainieren des Modells experimentiert. Der bereitgestellte Dienst führt jedoch kein Training mehr durch, sondern generiert neue Vorhersagen durch Bewerten der Benutzereingaben basierend auf unserem Modell. Wir führen einige vorbereitende Schritte durch, um dieses Experiment von einem ***Trainingsexperiment** _ in ein _*_Vorhersageexperiment_*_ umzuwandeln. 
 
 Die Bereitstellungsvorbereitung umfasst drei Schritte:  
 
 1. Entfernen eines der Modelle
-1. Konvertieren des erstellten *Trainingsexperiments* in ein *Vorhersageexperiment*
+1. Konvertieren des erstellten _Trainingsexperiments* in ein *Vorhersageexperiment*
 1. Bereitstellung des Vorhersageexperiments als Webdienst
 
 ### <a name="remove-one-of-the-models"></a>Entfernen eines der Modelle
@@ -93,7 +92,7 @@ Dieser Prozess könnte zwar auch manuell ausgeführt werden, glücklicherweise k
 > [!TIP]
 > Wenn Sie weitere Details dazu erhalten möchten, was geschieht, wenn Sie ein Trainingsexperiment in ein Vorhersageexperiment konvertieren, lesen Sie [Vorbereiten der Bereitstellung Ihres Modells in Azure Machine Learning Studio (klassisch)](deploy-a-machine-learning-web-service.md).
 
-Beim Klicken auf **Set Up Web Service**geschehen mehrere Dinge:
+Beim Klicken auf **Set Up Web Service** geschehen mehrere Dinge:
 
 * Das trainierte Modell wird in ein einzelnes **Trained Model**-Modul konvertiert und in der Modulpalette gespeichert, die sich links neben dem Experimentbereich befindet. (Sie finden sie unter **Trained Models**.)
 * Module, die zum Training verwendet wurden, werden entfernt. Das gilt insbesondere für:
@@ -232,7 +231,7 @@ Der Webdienst ist ein Azure-Webdienst, der Daten auf eine von zwei Arten über R
 > [!NOTE]
 > Featurespaltennamen in Studio (Classic) berücksichtigen die **Groß-/Kleinschreibung**. Stellen Sie sicher, dass Ihre Eingabedaten für den Aufruf des Webdiensts dieselben Spaltennamen wie im Trainingsdataset aufweisen.
 
-Weitere Informationen zum Zugriff auf den Webdienst und zu seiner Nutzung finden Sie unter [Verwenden eines Azure Machine Learning-Webdiensts mit einer Web-App-Vorlage](/azure/machine-learning/studio/consume-web-services).
+Weitere Informationen zum Zugriff auf den Webdienst und zu seiner Nutzung finden Sie unter [Verwenden eines Azure Machine Learning-Webdiensts mit einer Web-App-Vorlage](./consume-web-services.md).
 
 
 
@@ -257,13 +256,13 @@ Sie können auch eine benutzerdefinierte Anwendung entwickeln, die mithilfe von 
 > [Nutzen eines Azure Machine Learning Studio-Webdiensts](consume-web-services.md)
 
 <!-- Module References -->
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[normalize-data]: https://msdn.microsoft.com/library/azure/986df333-6748-4b85-923d-871df70d6aaf/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
-[two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[metadata-editor]: /azure/machine-learning/studio-module-reference/edit-metadata
+[normalize-data]: /azure/machine-learning/studio-module-reference/normalize-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[two-class-boosted-decision-tree]: /azure/machine-learning/studio-module-reference/two-class-boosted-decision-tree
+[two-class-support-vector-machine]: /azure/machine-learning/studio-module-reference/two-class-support-vector-machine
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset

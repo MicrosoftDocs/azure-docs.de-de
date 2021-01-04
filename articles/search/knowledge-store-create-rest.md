@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 08/02/2020
-ms.openlocfilehash: 1745a2bf83cb704c8cc73e9d3bf0eba8245329b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/18/2020
+ms.openlocfilehash: 6af9b8f97d622ae10cfdbcaa8ca50abb42ec7332
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88924264"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94889053"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>Erstellen eines Wissensspeichers mithilfe von REST und Postman
 
@@ -84,7 +84,7 @@ Navigieren Sie zum Azure Cognitive Search-Dienst, und wählen Sie die Register
 | `index-name` | Übernehmen Sie **hotel-reviews-ix**. | 
 | `search-service-name` | Der Name des Azure Cognitive Search-Diensts. Die URL ist `https://{{search-service-name}}.search.windows.net`. | 
 | `skillset-name` | Übernehmen Sie **hotel-reviews-ss**. | 
-| `storage-account-name` | Der Name des Speicherkontos. | 
+| `storage-account-name` | Azure-Speicherkontoname | 
 | `storage-connection-string` | Wählen Sie im Speicherkonto auf der Registerkarte **Zugriffsschlüssel** **key1** > **Verbindungszeichenfolge** aus. | 
 | `storage-container-name` | Übernehmen Sie **hotel-reviews**. | 
 

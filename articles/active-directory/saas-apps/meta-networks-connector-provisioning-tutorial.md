@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/01/2019
 ms.author: Zhchia
-ms.openlocfilehash: c43624b57f5a46473e8640200a7284a9fa737790
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6a8f192cd26639431cc9fcb6b43e1bc5e8e2843
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849247"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353628"
 ---
 # <a name="tutorial-configure-meta-networks-connector-for-automatic-user-provisioning"></a>Tutorial: Konfigurieren von Meta Networks Connector für die automatische Benutzerbereitstellung
 
@@ -68,7 +68,7 @@ Vor dem Konfigurieren und Aktivieren der automatischen Benutzerbereitstellung m�
 
 5.  Klicken Sie auf **Hinzufügen**. Kopieren Sie den Wert von **SECRET** (Geheimnis), und speichern Sie ihn, weil er nur zu diesem Zeitpunkt angezeigt wird. Dieser Wert wird im Azure-Portal auf der Registerkarte „Bereitstellung“ Ihrer Meta Networks Connector-Anwendung in das Feld „Geheimes Token“ eingegeben.
 
-    :::image type="content" source="media/meta-networks-connector-provisioning-tutorial/token.png" alt-text="Screenshot der Verwaltungskonsole von Meta Networks Connector mit hervorgehobenen Werten für API-Schlüsselname und API-Schlüsselbeschreibung für den Azure AD- und API-Schlüssel" border="false":::
+    :::image type="content" source="media/meta-networks-connector-provisioning-tutorial/token.png" alt-text="Screenshot eines Fensters, in dem der Benutzer informiert wird, dass der API-Schlüssel hinzugefügt wurde. Das Feld „Secret“ (Geheimnis) enthält einen nicht lesbaren Wert und ist hervorgehoben." border="false":::
 
 6.  Fügen Sie einen IdP hinzu, indem Sie zu **Administration > Settings > IdP > Create New** (Verwaltung > Einstellungen > IdP > Neu erstellen) navigieren.
 
@@ -115,7 +115,7 @@ Vor dem Konfigurieren von Meta Networks Connector für die automatische Benutzer
 In diesem Abschnitt werden die Schritte zum Konfigurieren des Azure AD-Bereitstellungsdiensts für das Erstellen, Aktualisieren und Deaktivieren von Benutzern und/oder Gruppen in Meta Networks Connector auf der Grundlage von Benutzer- und/oder Gruppenzuweisungen in Azure AD erläutert.
 
 > [!TIP]
-> Sie können auch das SAML-basierte einmalige Anmelden für Meta Networks Connector aktivieren. Folgen Sie dazu den Anweisungen unter [Tutorial: Azure Active Directory-Integration von Meta Networks Connector](https://docs.microsoft.com/azure/active-directory/saas-apps/metanetworksconnector-tutorial). Einmaliges Anmelden kann unabhängig von der automatischen Benutzerbereitstellung konfiguriert werden, obwohl diese beiden Features einander ergänzen.
+> Sie können auch das SAML-basierte einmalige Anmelden für Meta Networks Connector aktivieren. Folgen Sie dazu den Anweisungen unter [Tutorial: Azure Active Directory-Integration von Meta Networks Connector](./metanetworksconnector-tutorial.md). Einmaliges Anmelden kann unabhängig von der automatischen Benutzerbereitstellung konfiguriert werden, obwohl diese beiden Features einander ergänzen.
 
 ### <a name="to-configure-automatic-user-provisioning-for-meta-networks-connector-in-azure-ad"></a>So konfigurieren Sie die automatische Benutzerbereitstellung für Meta Networks Connector in Azure AD:
 
@@ -187,4 +187,3 @@ Weitere Informationen zum Lesen von Azure AD-Bereitstellungsprotokollen finden S
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Erfahren Sie, wie Sie Protokolle überprüfen und Berichte zu Bereitstellungsaktivitäten abrufen.](../app-provisioning/check-status-user-account-provisioning.md)
-

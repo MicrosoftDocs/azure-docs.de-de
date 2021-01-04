@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 087147038286bd7363fcc0eb3812abccc6ef9206
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8602450ef7df7f728fc5bdcda4f46ae30058fc94
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201833"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487795"
 ---
 # <a name="security-control-v2-asset-management"></a>Sicherheitskontrolle V2: Ressourcenverwaltung
 
@@ -60,7 +60,7 @@ Organisieren Sie Ressourcen logisch gemäß der Taxonomie Ihrer Organisation mit
 
 - [Verwalten des Ressourcenbestands in Azure Security Center](../../security-center/asset-inventory.md)
 
-- [Weitere Informationen zum Taggen von Ressourcen finden Sie im „Leitfaden zur Entscheidungsfindung für Ressourcenbenennung und -markierung“.](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [Weitere Informationen zum Taggen von Ressourcen finden Sie im „Leitfaden zur Entscheidungsfindung für Ressourcenbenennung und -markierung“.](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 **Verantwortlichkeit**: Kunde
 
@@ -80,7 +80,7 @@ Verwenden Sie Azure Policy, um die Dienste, die von Benutzern in Ihrer Umgebung 
 
 - [Konfigurieren und Verwalten von Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Ablehnen eines bestimmten Ressourcentyps mit Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Ablehnen eines bestimmten Ressourcentyps mit Azure Policy](../../governance/policy/samples/index.md)
 
 - [Schnellstart: Ausführen Ihrer ersten Resource Graph-Abfrage mithilfe des Azure Resource Graph-Explorers](../../governance/resource-graph/first-query-portal.md)
 
@@ -152,7 +152,7 @@ Sie können auch eine Drittanbieterlösung verwenden, um nicht genehmigte Softwa
 
 - [Grundlegendes zu Azure Automation-Änderungsnachverfolgung und -Bestand](../../automation/change-tracking/overview.md)
 
-- [Steuern der PowerShell-Skriptausführung in Windows-Umgebungen](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+- [Steuern der PowerShell-Skriptausführung in Windows-Umgebungen](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 
 **Verantwortlichkeit**: Kunde
 
@@ -163,4 +163,3 @@ Sie können auch eine Drittanbieterlösung verwenden, um nicht genehmigte Softwa
 - [Statusverwaltung](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
 
 - [Sicherheitscomplianceverwaltung](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
-

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 1c9b0b48c7862990cfa2c8ba38bde0851058a228
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49d9b91df896646da7bf36e077d9f3c9187137dd
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86023022"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021795"
 ---
 # <a name="debug-errors-when-running-a-custom-commands-application"></a>Debuggen von Fehlern beim Ausführen einer Anwendung für benutzerdefinierte Befehle
 
@@ -92,7 +92,7 @@ Language Understanding (LUIS) hat Grenzen hinsichtlich der Ressourcennutzung. No
 
     Wenn Sie sich auf einer F0-Vorhersageressource befinden, hat diese einen Grenzwert von 10.000/Monat, 5 Abfragen/Sekunde.
 
-Weitere Informationen zu den LUIS-Ressourceneinschränkungen finden Sie unter [Language Understanding: Ressourcennutzung und Grenzwert](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits#resource-usage-and-limits)
+Weitere Informationen zu den LUIS-Ressourceneinschränkungen finden Sie unter [Language Understanding: Ressourcennutzung und Grenzwert](../luis/luis-limits.md#resource-usage-and-limits)
 
 ### <a name="connection-to-the-recognizer-failed"></a>Fehler beim Herstellen der Verbindung mit der Erkennung.
 Normalerweise bedeutet es einen vorübergehenden Verbindungsfehler zur LUIS-Erkennung (Language Understanding). Versuchen Sie es erneut und das Problem sollte behoben sein.
@@ -123,7 +123,7 @@ Unerwartete Antworten können mehrere Ursachen haben. Mit folgenden Prüfungen k
 
     Die Genauigkeit der LUIS-Erkennung kann beeinträchtigt werden, wenn zwei Befehle ähnliche Absichten und Beispielsätze teilen. Sie können versuchen, die Funktionalität von Befehlen und Beispielsätzen so deutlich wie möglich zu gestalten.
 
-    Eine bewährte Methode zum Verbessern der Erkennungsgenauigkeit finden Sie unter [LUIS: Bewährte Methode](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+    Eine bewährte Methode zum Verbessern der Erkennungsgenauigkeit finden Sie unter [LUIS: Bewährte Methode](../luis/luis-concept-best-practices.md).
 
 - Der Dialog ist abgebrochen.
     

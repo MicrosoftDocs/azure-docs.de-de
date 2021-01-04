@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: ril
 ms.reviewer: juliako
-ms.openlocfilehash: 5fdec829ceeefce2426a5fd08b4245e66bd0a08c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 1a106874277f64a006584f9deb98fb9729263b1b
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016670"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040715"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Exemplarische Vorgehensweise: Bearbeiten von Gesichtern mit Azure Media Analytics
 
@@ -47,7 +47,7 @@ Die einfachste Einstiegsmöglichkeit in Redactor ist die Verwendung des Open Sou
 
     Um den Kontonamen und wichtige Informationen zu erhalten, wählen Sie im [Azure-Portal](https://portal.azure.com/) Ihr AMS-Konto aus. Wählen Sie dann „Einstellungen“ > „Schlüssel“ aus. Im Fenster „Schlüssel verwalten“ werden der Kontoname sowie der Primär- und Sekundärschlüssel angezeigt. Kopieren Sie die Werte für den Kontonamen und den Primärschlüssel.
 
-![Gesichtsbearbeitung](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough001.png)
+![Screenshot: Zeigt, wo Sie in Microsoft Azure Media Services Ihren Kontonamen und -schlüssel eingeben können](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough001.png)
 
 ### <a name="first-pass--analyze-mode"></a>Erster Durchgang – Analysemodus
 
@@ -55,32 +55,32 @@ Die einfachste Einstiegsmöglichkeit in Redactor ist die Verwendung des Open Sou
 1. Klicken Sie mit der rechten Maustaste, und verarbeiten Sie die Mediendatei mit „Media Analytics“ > „Azure Media Redactor“ > „Analysemodus“. 
 
 
-![Gesichtsbearbeitung](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough002.png)
+![Screenshot: Menü mit Option zum Verarbeiten von Medienobjekten mit Azure Media Redactor](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough002.png)
 
-![Gesichtsbearbeitung](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough003.png)
+![Screenshot: Azure Media Redactor mit ausgewählter Option „First Pass: Analyze mode“ (Erster Durchgang: Analysemodus)](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough003.png)
 
 Die Ausgabe umfasst sowohl eine Anmerkungen-JSON-Datei mit Gesichtsspeicherort-Daten als auch eine JPG-Datei jedes erkannten Gesichts. 
 
-![Gesichtsbearbeitung](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
+![Screenshot: Ausgabe der Analyse](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
 
 ### <a name="second-pass--redact-mode"></a>Zweiter Durchgang – Redact-Modus
 
 1. Laden Sie Ihre ursprüngliche Videoressource zur Ausgabe des ersten Durchgangs hoch, und legen Sie sie als primäre Ressource fest. 
 
-    ![Gesichtsbearbeitung](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough005.png)
+    ![Screenshot: Schaltflächen „Hochladen“ und „Als primär festlegen“](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough005.png)
 
 2. (optional) Laden Sie eine die „Dance_idlist.txt“ hoch, die eine durch Zeilenvorschübe getrennte Liste der IDs enthält, die Sie bearbeiten möchten. 
 
-    ![Gesichtsbearbeitung](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
+    ![Screenshot: Option zum Hochladen der Textdatei](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
 
 3. (Optional) Nehmen Sie Änderungen an der annotations.json-Datei vor, verstärken Sie z.B. die Rahmen, die den Begrenzungsrahmen bilden. 
-4. Klicken Sie mit der rechten Maustaste auf die im ersten Durchgang ausgegebene Ressource, wählen Sie den Redactor aus, und führen Sie den **Redact**-Modus aus. 
+4. Klicken Sie mit der rechten Maustaste auf die im ersten Durchgang ausgegebene Ressource, wählen Sie den Redactor aus, und führen Sie den **Redact** -Modus aus. 
 
-    ![Gesichtsbearbeitung](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough007.png)
+    ![Screenshot: Azure Media Redactor mit ausgewählter Option „Second Pass: Redact mode“ (Zweiter Durchgang: Bearbeitungsmodus)](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough007.png)
 
 5. Laden Sie die endgültig bearbeitete, ausgegebene Ressource herunter, oder geben Sie sie frei. 
 
-    ![Gesichtsbearbeitung](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
+    ![Screenshot: Schaltfläche „Herunterladen“](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
 
 ## <a name="azure-media-redactor-visualizer-open-source-tool"></a>Open Source-Tool Azure Media Redactor Visualizer
 
@@ -94,12 +94,12 @@ Wenn Sie als Entwickler versuchen, die JSON-Anmerkungsdaten zu analysieren, such
 
 1.  Laden Sie die gesamte Lösung herunter, und installieren Sie sie. 
 
-    ![Gesichtsbearbeitung](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
+    ![Screenshot: Ausgewählte Menüoption zum Erstellen der Lösung](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
 
 2.  Laden Sie FFMPEG [hier](https://ffmpeg.org/download.html) herunter. Dieses Projekt wurde ursprünglich mit Version be1d324 (2016-10-04) mit statischer Verknüpfung entwickelt. 
 3.  Kopieren Sie „ffmpeg.exe“ und „ffprobe.exe“ in den gleichen Ausgabeordner wie „AzureMediaRedactor.exe“. 
 
-    ![Gesichtsbearbeitung](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
+    ![Screenshot: Inhalt des Ordners, einschließlich „ffmpeg“ und „ffprobe“](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
 
 4. Führen Sie „AzureMediaRedactor.exe“ aus. 
 
@@ -109,11 +109,11 @@ Wenn Sie als Entwickler versuchen, die JSON-Anmerkungsdaten zu analysieren, such
 2. Laden Sie sowohl die ursprüngliche Videodatei als auch die Ausgabe des Redact-/Analyseauftrags herunter. 
 3. Führen Sie die Visualizeranwendung aus, und wählen Sie die oben aufgeführten Dateien aus. 
 
-    ![Gesichtsbearbeitung](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough011.png)
+    ![Screenshot: Azure Media Redactor beim Hochladen von Dateien](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough011.png)
 
 4. Zeigen Sie Ihre Datei in der Vorschau an. Wählen Sie in der rechten Seitenleiste die Gesichter aus, die Sie verschwommen darstellen möchten. 
     
-    ![Gesichtsbearbeitung](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
+    ![Screenshot: Zeigt, wo Sie in Azure Media Redactor eine Vorschau anzeigen und Gesichter auswählen können, die unkenntlich gemacht werden sollen](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
 5.  Im Textfeld unten werden die IDs der Gesichter aktualisiert. Erstellen Sie eine Datei namens „idlist.txt“ mit diesen IDs als durch Zeilenvorschübe getrennte Liste. 
 

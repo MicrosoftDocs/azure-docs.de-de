@@ -3,18 +3,18 @@ title: Einführung in Azure Data Factory
 description: Hier finden Sie Informationen zu Azure Data Factory – ein cloudbasierter Datenintegrationsdienst, der das Verschieben und Transformieren von Daten orchestriert und automatisiert.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: 1840bf93cbca73e593465c999b416e7cbd7af201
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d8b6a852ff0aeb287b12d63bfa689a38a56d418f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89536311"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485014"
 ---
 # <a name="what-is-azure-data-factory"></a>Was ist Azure Data Factory?
 
@@ -28,7 +28,7 @@ Beispiel: Angenommen, bei einem Spieleunternehmen fallen durch Spiele in der Clo
 
 Zum Analysieren dieser Protokolle benötigt das Unternehmen Referenzdaten (beispielsweise Informationen zu den Kunden, zum Spiel und zur Marketingkampagne), die in einem lokalen Datenspeicher gespeichert sind. Das Unternehmen möchte diese Daten aus dem lokalen Datenspeicher zusammen mit zusätzlichen Protokolldaten aus einem Clouddatenspeicher nutzen. 
 
-Zur Auswertung möchte das Unternehmen die gesamten Daten mithilfe eines Spark-Clusters in der Cloud (Azure HDInsight) verarbeiten und die transformierten Dateien in einem cloudbasierten Data Warehouse wie Azure Synapse Analytics (vormals SQL Data Warehouse) veröffentlichen, um – darauf basierend – einen Bericht bequem erstellen zu können. Dieser Workflow soll automatisiert und nach einem täglichen Zeitplan überwacht und verwaltet werden. Darüber hinaus soll der Workflow ausgeführt werden, wenn Dateien in einem Blobspeichercontainer eintreffen.
+Zur Auswertung möchte das Unternehmen die gesamten Daten mithilfe eines Spark-Clusters in der Cloud (Azure HDInsight) verarbeiten und die transformierten Dateien in einem cloudbasierten Data Warehouse wie Azure Synapse Analytics veröffentlichen, um basierend darauf komfortabel einen Bericht erstellen zu können. Dieser Workflow soll automatisiert und nach einem täglichen Zeitplan überwacht und verwaltet werden. Darüber hinaus soll der Workflow ausgeführt werden, wenn Dateien in einem Blobspeichercontainer eintreffen.
 
 Die Azure Data Factory-Plattform ist die richtige Lösung für solche Datenszenarien. Sie ist der *cloudbasierte ETL- und Datenintegrationsdienst, mit dem Sie datengesteuerte Workflows erstellen können, um Datenverschiebungen und -transformationen bedarfsgesteuert zu orchestrieren*. Mit Azure Data Factory können Sie datengesteuerte Workflows (so genannte Pipelines) erstellen und planen, die Daten aus unterschiedlichen Datenspeichern erfassen. Sie können komplexe ETL-Prozesse erstellen, bei denen Daten visuell mit Datenflüssen oder mit Computediensten wie Azure HDInsight Hadoop, Azure Databricks und Azure SQL-Datenbank transformiert werden. 
 

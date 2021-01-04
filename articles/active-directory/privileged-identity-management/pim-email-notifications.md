@@ -16,12 +16,12 @@ ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02fbfc83c16cb13376cce820f19b247a7cd7db59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe57a44a5a6fa9a631604d92419fd8f5ebcce50a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82232307"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394729"
 ---
 # <a name="email-notifications-in-pim"></a>E-Mail-Benachrichtigungen in PIM
 
@@ -79,10 +79,13 @@ Im Abschnitt **Overview of your top roles** (Übersicht über Ihre wichtigsten R
 
 ## <a name="email-timing-for-activation-approvals"></a>E-Mail-Timing für Aktivierungsgenehmigungen
 
-Wenn Benutzer ihre Rolle aktivieren und die Rolleneinstellung genehmigt werden muss, erhalten genehmigende Personen für jede Genehmigung drei E-Mails:
+Wenn Benutzer ihre Rolle aktivieren und die Rolleneinstellung genehmigt werden muss, erhalten genehmigende Personen für jede Genehmigung zwei E-Mails:
 
 - Anforderung zum Genehmigen oder Ablehnen der Aktivierungsanforderung des Benutzers (vom Genehmigungsanforderungsmodul gesendet)
 - Die Anforderung des Benutzers wird genehmigt (vom Genehmigungsanforderungsmodul gesendet)
+
+Außerdem erhalten globale Administratoren und Administratoren für privilegierte Rollen eine E-Mail für jede Genehmigung:
+
 - Die Rolle des Benutzers wird aktiviert (von Privileged Identity Management gesendet)
 
 Bei den ersten beiden vom Genehmigungsanforderungsmodul gesendeten E-Mails können Verzögerungen auftreten. Bei 90 % der E-Mails dauert das Versenden derzeit drei bis zehn Minuten, aber bei 1 % der Kunden kann es viel länger dauern, bis zu fünfzehn Minuten.

@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9b320c765b258473acd6fa553831b4f075cca9ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8806ff41edabcd3c0875d3c02360dc9a275e3878
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983246"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460827"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault-Funktionen für Kundendaten
 
@@ -54,12 +54,12 @@ Azure Key Vault-Diagnoseprotokolle, die persönliche Daten enthalten, können du
 
 - [Azure-Schlüsseltresor-Protokollierung](logging.md)
 
-- [Übersicht über die Azure Key Vault-Funktion für vorläufiges Löschen](soft-delete-cli.md)
+- [Übersicht über die Azure Key Vault-Funktion für vorläufiges Löschen](./key-vault-recovery.md)
 
-- [Azure Key Vault-Vorgänge für Schlüssel](https://docs.microsoft.com/rest/api/keyvault/key-operations)
+- [Azure Key Vault-Vorgänge für Schlüssel](/rest/api/keyvault/key-operations)
 
-- [Azure Key Vault-Vorgänge für Geheimnisse](https://docs.microsoft.com/rest/api/keyvault/secret-operations)
+- [Azure Key Vault-Vorgänge für Geheimnisse](/rest/api/keyvault/secret-operations)
 
-- [Azure Key Vault-Zertifikate und -Richtlinien](https://docs.microsoft.com/rest/api/keyvault/certificates-and-policies)
+- [Azure Key Vault-Zertifikate und -Richtlinien](/rest/api/keyvault/certificates-and-policies)
 
-- [Azure Key Vault-Vorgänge für Speicherkonten](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)
+- [Azure Key Vault-Vorgänge für Speicherkonten](/rest/api/keyvault/storage-account-key-operations)

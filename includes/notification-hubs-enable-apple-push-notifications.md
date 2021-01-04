@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/10/2020
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: 1cb7753f54e9c1334e35635c227f776041631f1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b5034f2163e8478d7ddb7b9271402b094a809d7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88864700"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95564360"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Erstellen der Zertifikatsignieranforderungsdatei
 
@@ -78,9 +78,9 @@ Zum Senden von Pushbenachrichtigungen an eine iOS-App registrieren Sie Ihre Anwe
 Damit der Notification Hub mit **APNs** funktioniert, ist ein Zertifikat erforderlich. Dafür können Sie zwei Methoden verwenden:
 
 1. Erstellen Sie eine **P12**-Datei, die direkt in den Notification Hub hochgeladen werden kann.  
-2. Erstellen Sie eine **P8**-Datei, die für die [tokenbasierte Authentifizierung](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentification) verwendet werden kann (dies ist die *neuere Methode*).
+2. Erstellen Sie eine **P8**-Datei, die für die [tokenbasierte Authentifizierung](../articles/notification-hubs/notification-hubs-push-notification-http2-token-authentication.md) verwendet werden kann (dies ist die *neuere Methode*).
 
-Die neuere Methode bietet eine Reihe von Vorteilen gegenüber der Verwendung von Zertifikaten. Diese sind unter [Tokenbasierte Authentifizierung (HTTP/2) für APNs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentification) dokumentiert. Hier finden Sie die Schritte für beide Methoden. 
+Die neuere Methode bietet eine Reihe von Vorteilen gegenüber der Verwendung von Zertifikaten. Diese sind unter [Tokenbasierte Authentifizierung (HTTP/2) für APNs](../articles/notification-hubs/notification-hubs-push-notification-http2-token-authentication.md) dokumentiert. Hier finden Sie die Schritte für beide Methoden. 
 
 ### <a name="option-1-creating-a-p12-push-certificate-that-can-be-uploaded-directly-to-notification-hub"></a>OPTION 1: Erstellen eines P12-Pushzertifikats, das direkt in den Notification Hub hochgeladen werden kann
 
@@ -215,7 +215,7 @@ Wählen Sie unter **Benachrichtigungsdienste** die Option **Apple (APNs)** aus, 
 
 ### <a name="option-1-using-a-p12-push-certificate"></a>OPTION 1: Verwenden eines P12-Zertifikats
 
-1. Wählen Sie **Certificate**aus.
+1. Wählen Sie **Certificate** aus.
 
 1. Wählen Sie das Dateisymbol aus.
 

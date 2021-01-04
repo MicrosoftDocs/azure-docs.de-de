@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 07/07/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 3de79e5cb3db2d0c52d13826900ec7160271edf9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a971f6e56f441ab05a6a9b483eeef990d3ea31f
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86224939"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903750"
 ---
 # <a name="supply-azure-marketplace-purchase-plan-information-when-creating-images"></a>Bereitstellen von Azure Marketplace-Erwerbsplaninformationen beim Erstellen von Images
 
@@ -24,15 +24,13 @@ Weitere Informationen zum Suchen und Verwenden von Marketplace-Images finden Sie
 
 
 ## <a name="get-the-source-vm-information"></a>Abrufen der Informationen zur Quell-VM
-Wenn Sie noch über die ursprüngliche VM verfügen, können Sie Informationen zu Plan, Herausgeber und SKU mithilfe von „Get-AzVM“ von dieser VM abrufen. Dieses Beispiel ruft eine VM namens *myVM* in der Ressourcengruppe *myResourceGroup* ab und zeigt dann die Erwerbsplaninformationen an.
+Wenn Sie noch über die ursprüngliche VM verfügen, können Sie Informationen zum Plannamen, Herausgeber und dem Produkt mithilfe von „Get-AzVM“ von dieser VM abrufen. Dieses Beispiel ruft eine VM namens *myVM* in der Ressourcengruppe *myResourceGroup* ab und zeigt dann die Erwerbsplaninformationen für die VM an.
 
 ```azurepowershell-interactive
 $vm = Get-azvm `
    -ResourceGroupName myResourceGroup `
    -Name myVM
-$vm.Plan.Publisher
-$vm.Plan.Name
-$vm.Plan.Product
+$vm.Plan
 ```
 
 ## <a name="create-the-image-definition"></a>Erstellen der Imagedefinition

@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: d2df7388018c463ba58b57be46945915210b84b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9832a961562930e61e94b28ed78976fd9f8c6f78
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67178289"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376273"
 ---
 #### <a name="to-install-an-update-from-the-azure-portal"></a>So installieren Sie ein Update über das Azure-Portal
 
@@ -23,11 +23,11 @@ ms.locfileid: "67178289"
 
 2. Eine Benachrichtigung wird angezeigt, wenn neue Updates verfügbar sind. Alternativ können Sie auf dem Blatt **Geräteupdates** auf **Updates scannen** klicken. Ein Auftrag für die Suche nach verfügbaren Updates wird erstellt. Sie werden benachrichtigt, wenn der Auftrag erfolgreich abgeschlossen wurde.
 
-    ![Klicken Sie auf „Geräteupdates“.](./media/storsimple-8000-install-update5-via-portal/update3.png)
+    ![Klicken auf „Geräteupdates“ 2](./media/storsimple-8000-install-update5-via-portal/update3.png)
 
 3. Es empfiehlt sich, die Versionshinweise zu lesen, bevor Sie ein Update auf Ihr Gerät anwenden. Klicken Sie zum Anwenden von Updates auf **Updates installieren**. Überprüfen Sie auf dem Blatt **Reguläre Updates bestätigen** die Voraussetzungen, bevor Sie Updates anwenden. Aktivieren Sie das Kontrollkästchen, um anzugeben, dass Sie bereit sind, das Gerät zu aktualisieren, und klicken Sie dann auf **Installieren**.
 
-    ![Klicken Sie auf „Geräteupdates“.](./media/storsimple-8000-install-update5-via-portal/update4.png)
+    ![Klicken auf „Geräteupdates“ 3](./media/storsimple-8000-install-update5-via-portal/update4.png)
 
 6. Eine Reihe von Voraussetzungsüberprüfungen wird gestartet. Diese Prüfungen umfassen:
    
@@ -45,11 +45,11 @@ ms.locfileid: "67178289"
 
 9. Das Update dauert einige Stunden. Durch Auswählen des Updateauftrags und Klicken auf **Details** können Sie jederzeit die Details des Auftrags anzeigen.
 
-    ![Erstellen eines Updateauftrags](./media/storsimple-8000-install-update5-via-portal/update8.png)
+    ![Erstellen eines Updateauftrags 2](./media/storsimple-8000-install-update5-via-portal/update8.png)
 
      Sie können den Fortschritt des Updateauftrags auch über **Geräteeinstellungen > Aufträge** überwachen. Auf dem Blatt **Aufträge** sehen Sie den Updatestatus.
 
-     ![Erstellen eines Updateauftrags](./media/storsimple-8000-install-update5-via-portal/update7.png)
+     ![Erstellen eines Updateauftrags 3](./media/storsimple-8000-install-update5-via-portal/update7.png)
 
 10. Nachdem der Auftrag abgeschlossen ist, navigieren Sie zu **Geräteeinstellungen > Geräteupdates**. Die Softwareversion sollte jetzt aktualisiert sein.
 

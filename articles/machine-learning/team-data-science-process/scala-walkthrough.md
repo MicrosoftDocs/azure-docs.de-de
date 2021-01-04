@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 56f266eaba76bb990a4d2bc3d902f4c5911d9c47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ae4549fe343422bbf60275a97768ca407f2dc7c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86026184"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321370"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Data Science unter Verwendung von Scala und Spark in Azure
-Dieser Artikel zeigt Ihnen die Verwendung von Scala für überwachte Machine Learning-Aufgaben mit der skalierbaren Machine Learning-Bibliothek (MLlib) von Spark und Spark ML-Paketen auf einem Azure HDInsight Spark-Cluster. Sie werden durch die Aufgaben geführt, aus denen der [Data Science-Prozess](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)besteht: Erfassen und Durchsuchen von Daten, Visualisierung, Featureentwicklung, Modellierung und Modellnutzung. Die im Artikel behandelten Modelle beinhalten logistische und lineare Regression, zufällige Gesamtstrukturen und Gradient-Boosted-Strukturen (Gradient-boosted Trees, GBTs) neben zwei häufig überwachten Machine Learning-Aufgaben:
+Dieser Artikel zeigt Ihnen die Verwendung von Scala für überwachte Machine Learning-Aufgaben mit der skalierbaren Machine Learning-Bibliothek (MLlib) von Spark und Spark ML-Paketen auf einem Azure HDInsight Spark-Cluster. Sie werden durch die Aufgaben geführt, aus denen der [Data Science-Prozess](./index.yml)besteht: Erfassen und Durchsuchen von Daten, Visualisierung, Featureentwicklung, Modellierung und Modellnutzung. Die im Artikel behandelten Modelle beinhalten logistische und lineare Regression, zufällige Gesamtstrukturen und Gradient-Boosted-Strukturen (Gradient-boosted Trees, GBTs) neben zwei häufig überwachten Machine Learning-Aufgaben:
 
 * Regressionsproblem: Vorhersage des Trinkgeldbetrags ($) für eine Taxifahrt
 * Binäre Klassifizierung: Vorhersage für eine Taxifahrt, ob Trinkgeld gegeben wird oder nicht (1/0)
@@ -52,7 +52,7 @@ Installationsschritte und Code in diesem Artikel sind für Azure HDInsight 3.4 S
 Eine Beschreibung der NYC-Taxidaten und Anweisungen zum Ausführen von Code aus einem Jupyter-Notebook im Spark-Cluster finden Sie in den entsprechenden Abschnitten von [Übersicht zu Data Science unter Verwendung von Spark unter Azure HDInsight](spark-overview.md).  
 
 ## <a name="execute-scala-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Ausführen von Scala-Code über ein Jupyter-Notebook auf dem Spark-Cluster
-Sie können ein Jupyter-Notebook über das Azure-Portal starten. Suchen Sie den Spark-Cluster auf Ihrem Dashboard, und klicken Sie darauf, um zur Verwaltungsseite für Ihren Cluster zu gelangen. Klicken Sie dann auf **Cluster-Dashboards** und **Jupyter-Notebook**, um das dem Spark-Cluster zugeordnete Notebook zu öffnen.
+Sie können ein Jupyter-Notebook über das Azure-Portal starten. Suchen Sie den Spark-Cluster auf Ihrem Dashboard, und klicken Sie darauf, um zur Verwaltungsseite für Ihren Cluster zu gelangen. Klicken Sie dann auf **Cluster-Dashboards** und **Jupyter-Notebook** , um das dem Spark-Cluster zugeordnete Notebook zu öffnen.
 
 ![Cluster-Dashboard und Jupyter-Notebooks](./media/scala-walkthrough/spark-jupyter-on-portal.png)
 
@@ -268,7 +268,7 @@ Nachdem Sie die Daten in Spark eingebracht haben, besteht der nächste Schritt i
 Standardmäßig ist die Ausgabe von allen Codeausschnitten, die Sie über ein Jupyter-Notebook ausführen, innerhalb des Kontexts der Sitzung verfügbar, die auf Workerknoten beibehalten wird. Wenn Sie eine Fahrt für jede Berechnung auf den Workerknoten speichern möchten, und wenn alle Daten, die Sie zur Berechnung benötigen, lokal auf dem Jupyter-Serverknoten (dem Hauptknoten) verfügbar sind, können Sie den Codeausschnitt mit dem Magic-Befehl `%%local` auf dem Jupyter-Server ausführen.
 
 * **SQL Magic** (`%%sql`). Der HDInsight Spark-Kernel unterstützt einfache HiveQL-Inlineabfragen für den SQLContext. Mit dem Argument (`-o VARIABLE_NAME`) wird die Ausgabe der SQL-Abfrage als Pandas-Dataframe auf dem Jupyter-Server beibehalten. Mit dieser Einstellung wird die Ausgabe im lokalen Modus verfügbar gemacht.
-* `%%local` **magic**: Der Magic-Befehl `%%local` führt den Code lokal auf dem Jupyter-Server aus – dem Hauptknoten des HDInsight-Clusters. Normalerweise verwenden Sie den Magic-Befehl `%%local` zusammen mit dem Magic-Befehl `%%sql` mit dem Parameter `-o`. Mit dem Parameter `-o` wird die Ausgabe der SQL-Abfrage lokal beibehalten. Anschließend löst der Magic-Befehl `%%local` die nächste Gruppe von Codeausschnitten aus, damit diese lokal für die Ausgabe der lokal gespeicherten SQL-Abfragen ausgeführt werden können.
+* `%%local` **magic** : Der Magic-Befehl `%%local` führt den Code lokal auf dem Jupyter-Server aus – dem Hauptknoten des HDInsight-Clusters. Normalerweise verwenden Sie den Magic-Befehl `%%local` zusammen mit dem Magic-Befehl `%%sql` mit dem Parameter `-o`. Mit dem Parameter `-o` wird die Ausgabe der SQL-Abfrage lokal beibehalten. Anschließend löst der Magic-Befehl `%%local` die nächste Gruppe von Codeausschnitten aus, damit diese lokal für die Ausgabe der lokal gespeicherten SQL-Abfragen ausgeführt werden können.
 
 ### <a name="query-the-data-by-using-sql"></a>Abfragen der Daten mit SQL
 Diese Abfrage ruft die Taxifahrten nach Höhe des Fahrpreises, Anzahl der Fahrgäste und Trinkgeldbetrag ab.
@@ -353,7 +353,7 @@ Für strukturbasierte Modellierungsfunktionen von Spark ML und MLlib müssen Sie
 1. Erstellen eines neuen Features durch **Diskretisieren** von Stunden in Verkehrszeitbuckets.
 2. Anwenden von **Indizieren und One-Hot-Codieren** auf kategorische Features.
 3. **Stichprobenerfassung in Dataset und Teilen** in Trainings- und Testteile.
-4. **Festlegen von Trainingsvariablen und Features**und dann Erstellen indizierter oder One-Hot-codierter RDDs (Resilient Distributed Datasets) mit bezeichnetem Punkt oder Dataframes für Training und Testeingabe.
+4. **Festlegen von Trainingsvariablen und Features** und dann Erstellen indizierter oder One-Hot-codierter RDDs (Resilient Distributed Datasets) mit bezeichnetem Punkt oder Dataframes für Training und Testeingabe.
 5. Automatisches **Kategorisieren und Vektorisieren von Features und Zielen** für die Verwendung als Eingaben für ML-Modelle.
 
 ### <a name="create-a-new-feature-by-binning-hours-into-traffic-time-buckets"></a>Erstellen eines neuen Features durch Diskretisieren von Stunden in Verkehrszeitbuckets
@@ -922,11 +922,11 @@ In diesem Abschnitt verwenden Sie Machine Learning-Hilfsprogramme, die Entwickle
 * Optimieren des Modells mit Kreuzvalidierung und Hyperparameter-Sweeping mithilfe der CrossValidator-Funktion von Spark ML (binäre Klassifizierung)
 * Optimieren des Modells mit benutzerdefinierter Kreuzvalidierung und Parameter-Sweepingcode zur Nutzung beliebiger Machine Learning-Funktionen und Parametersätze (lineare Regression)
 
-**Kreuzvalidierung** ist eine Technik, mit der bewertet wird, wie gut ein Modell, das mit einem bekannten Dataset trainiert wurde, verallgemeinern kann, um die Features von Datasets, mit denen es nicht trainiert wurde, vorherzusagen. Der Grundgedanke hinter dieser Technik ist, dass ein Modell mit bekannten Daten trainiert und die Genauigkeit seiner Vorhersagen dann mit einem unabhängigen Dataset geprüft wird. Eine gängige Implementierung besteht darin, den Dataset *k*-fach aufzuteilen und das Modell daraufhin im Roundrobin-Verfahren mit allen Teilmengen außer einer zu trainieren.
+**Kreuzvalidierung** ist eine Technik, mit der bewertet wird, wie gut ein Modell, das mit einem bekannten Dataset trainiert wurde, verallgemeinern kann, um die Features von Datasets, mit denen es nicht trainiert wurde, vorherzusagen. Der Grundgedanke hinter dieser Technik ist, dass ein Modell mit bekannten Daten trainiert und die Genauigkeit seiner Vorhersagen dann mit einem unabhängigen Dataset geprüft wird. Eine gängige Implementierung besteht darin, den Dataset *k* -fach aufzuteilen und das Modell daraufhin im Roundrobin-Verfahren mit allen Teilmengen außer einer zu trainieren.
 
 Die **Hyperparameteroptimierung** besteht in dem Problem, einen Hyperparametersatz für einen Lernalgorithmus auszuwählen, in der Regel um eine Leistungskennzahl des Algorithmus in Bezug auf einen unabhängigen Dataset zu optimieren. Ein Hyperparameter ist ein Wert, den Sie außerhalb des Modelltrainingsverfahrens angeben müssen. Annahmen über Hyperparameterwerte können sich auf die Flexibilität und Genauigkeit des Modells auswirken. Entscheidungsstrukturen umfassen Hyperparameter, wie z.B. die gewünschte Tiefe und Anzahl der Blätter in der Struktur. Sie müssen Bedingungen für Abzüge bei Fehlklassifikationen für eine Support Vector Machine (SVM) festlegen.
 
-Eine hier häufig verwendete Methode für die Hyperparameteroptimierung ist die auch als **Parameter-Sweeping**bezeichnete Rastersuche. Bei einer Rastersuche werden die Werte einer bestimmten Teilmenge des Hyperparameterraums für einen Lernalgorithmus umfassend durchsucht. Die Kreuzvalidierung kann eine Leistungsmetrik liefern, um die besten Ergebnisse des Rastersuchalgorithmus auszusortieren. Wenn Sie Kreuzvalidierungs-Hyperparameter-Sweeping verwenden, können Sie Probleme wie Überanpassung eines Modell an Trainingsdaten vermindern. So ist das Modell weiterhin für die allgemeine Datenmenge gültig, aus der die Trainingsdaten extrahiert wurden.
+Eine hier häufig verwendete Methode für die Hyperparameteroptimierung ist die auch als **Parameter-Sweeping** bezeichnete Rastersuche. Bei einer Rastersuche werden die Werte einer bestimmten Teilmenge des Hyperparameterraums für einen Lernalgorithmus umfassend durchsucht. Die Kreuzvalidierung kann eine Leistungsmetrik liefern, um die besten Ergebnisse des Rastersuchalgorithmus auszusortieren. Wenn Sie Kreuzvalidierungs-Hyperparameter-Sweeping verwenden, können Sie Probleme wie Überanpassung eines Modell an Trainingsdaten vermindern. So ist das Modell weiterhin für die allgemeine Datenmenge gültig, aus der die Trainingsdaten extrahiert wurden.
 
 ### <a name="optimize-a-linear-regression-model-with-hyper-parameter-sweeping"></a>Optimieren eines linearen Regressionsmodells mit Hyperparameter-Sweeping
 Teilen Sie die Daten als Nächstes in Trainings- und Validierungssets ein, wenden Sie Hyperparameter-Sweeping auf ein Trainingsset an, um das Modell zu optimieren, und werten Sie ein Validierungsset aus (lineare Regression).
@@ -1135,9 +1135,8 @@ val test_rsqr = new RegressionMetrics(labelAndPreds).r2
 Zeit zum Ausführen der Zelle: 61 Sekunden.
 
 ## <a name="consume-spark-built-machine-learning-models-automatically-with-scala"></a>Automatische Nutzung mit Spark erstellter Machine Learning-Modelle mit Scala
-Eine Übersicht zu Themen, die Sie durch die Aufgaben führen, die den Data Science-Prozess in Azure umfassen, finden Sie unter [Team Data Science-Prozess (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Eine Übersicht zu Themen, die Sie durch die Aufgaben führen, die den Data Science-Prozess in Azure umfassen, finden Sie unter [Team Data Science-Prozess (TDSP)](./index.yml).
 
 [Exemplarische Vorgehensweisen für den Team Data Science-Prozess](walkthroughs.md) beschreibt andere exemplarische End-to-End-Vorgehensweisen, in denen die Schritte im Team Data Science-Prozess für bestimmte Szenarien veranschaulicht werden. Die exemplarischen Vorgehensweisen zeigen auch, wie Cloud- und lokale Tools und Dienste in einem Workflow oder einer Pipeline zum Erstellen einer intelligenten Anwendung kombiniert werden.
 
 [Bewerten von Machine Learning-Modellen, die mit Spark erstellt wurden](spark-model-consumption.md) zeigt Ihnen, wie Sie Scala-Code verwenden, um mit in Spark erstellten und in Azure Blob Storage gespeicherten Machine Learning-Modellen automatisch neue Datasets zu laden und zu bewerten. Sie können die dortigen Anweisungen befolgen und für eine automatisierte Nutzung einfach den Python-Code durch den Scala-Code in diesem Artikel ersetzen.
-

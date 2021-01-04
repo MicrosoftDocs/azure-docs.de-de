@@ -5,12 +5,12 @@ ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: devx-track-js
-ms.openlocfilehash: d1d3ad94957e791b2178b6c60d4c7debdec2b391
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e680bc601b7f230314c1063523a003e95a849c0a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283427"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024397"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Bereitstellen der Lösungsvorlage „Ethereum-Proof-of-Authority-Konsortium“ auf Azure
 
@@ -48,7 +48,9 @@ Jede Bereitstellung von Konsortiumsmitgliedern umfasst Folgendes:
 * Azure Monitor zum Aggregieren von Protokollen und Leistungsstatistiken
 * VNET-Gateway (optional) zum Zulassen von VPN-Verbindungen über private VNETs
 
-Standardmäßig sind die RPC- und Peeringendpunkte über die öffentliche IP-Adresse zugänglich, um eine vereinfachte Konnektivität über Abonnements und Clouds zu ermöglichen. Für die Zugriffssteuerung auf Anwendungsebene können Sie [Parity-Verträge zur Berechtigungsvergabe](https://wiki.parity.io/Permissioning) verwenden. Es werden Netzwerke unterstützt, die hinter VPNs mit VNET-Gateways für abonnementübergreifende Konnektivität bereitgestellt werden. Da VPN- und VNET-Bereitstellungen komplexer sind sollten Sie beim Erstellen eines Prototyps für eine Lösung mit einem öffentlichen IP-Modell beginnen.
+Standardmäßig sind die RPC- und Peeringendpunkte über die öffentliche IP-Adresse zugänglich, um eine vereinfachte Konnektivität über
+
+Abonnements und Clouds zu ermöglichen. Für die Zugriffssteuerung auf Anwendungsebene können Sie [Parity-Verträge zur Berechtigungsvergabe](https://openethereum.github.io/Permissioning.html) verwenden. Es werden Netzwerke unterstützt, die hinter VPNs mit VNET-Gateways für abonnementübergreifende Konnektivität bereitgestellt werden. Da VPN- und VNET-Bereitstellungen komplexer sind sollten Sie beim Erstellen eines Prototyps für eine Lösung mit einem öffentlichen IP-Modell beginnen.
 
 Docker-Container sorgen für Zuverlässigkeit und Modularität. Azure Container Registry wird verwendet, um im Rahmen jeder Bereitstellung Images mit Versionsangabe zu hosten und bereitzustellen. Die Containerimages bestehen aus:
 
@@ -685,7 +687,7 @@ Nachdem Ihr Smart Contract bereitgestellt wurde, können Sie eine Transaktion se
 
 ## <a name="webassembly-wasm-support"></a>Unterstützung von WebAssembly (WASM)
 
-Die WebAssembly-Unterstützung ist für neu bereitgestellte PoA-Netzwerke bereits für Sie aktiviert. Sie ermöglicht die Smart Contract-Entwicklung in jeder Sprache, mit der die Transpilierung für Web-Assembly (Rust, C, C++) möglich ist. Weitere Informationen finden Sie unter [Parity-Übersicht für WebAssembly](https://wiki.parity.io/WebAssembly-Home) und [Tutorial von Parity Technologies](https://github.com/paritytech/pwasm-tutorial).
+Die WebAssembly-Unterstützung ist für neu bereitgestellte PoA-Netzwerke bereits für Sie aktiviert. Sie ermöglicht die Smart Contract-Entwicklung in jeder Sprache, mit der die Transpilierung für Web-Assembly (Rust, C, C++) möglich ist. Weitere Informationen finden Sie unter [Parity-Übersicht für WebAssembly](https://openethereum.github.io/WebAssembly-Home.html) und [Tutorial von Parity Technologies](https://github.com/paritytech/pwasm-tutorial).
 
 ## <a name="faq"></a>Häufig gestellte Fragen
 

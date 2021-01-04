@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: 54a1135931c2be9c6b7941c9ff740fd29f855eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fd9e504448d55b4a2ef8c10b4ba1176cb2e3402
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601247"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172634"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>Fünf Schritte zum Integrieren Ihrer gesamten Apps in Azure AD
 
@@ -38,7 +38,7 @@ Azure Active Directory (Azure AD) enthält einen Katalog mit Tausenden von vorab
 - [AWS](../saas-apps/amazon-web-service-tutorial.md)
 - [Puffer](../saas-apps/slack-tutorial.md)
 
-Darüber hinaus können Sie auch [nicht im Katalog enthaltene Anwendungen integrieren](../manage-apps/view-applications-portal.md). Beispiele hierfür sind alle Anwendungen, die in Ihrer Organisation bereits vorhanden sind, oder alle Drittanbieteranwendungen von einem Anwender, der nicht bereits im Azure AD-Katalog enthalten ist. Sie haben auch die Möglichkeit, [Ihre App dem Katalog hinzuzufügen](../azuread-dev/howto-app-gallery-listing.md), falls sie darin noch nicht enthalten ist.
+Darüber hinaus können Sie auch [nicht im Katalog enthaltene Anwendungen integrieren](../manage-apps/view-applications-portal.md). Beispiele hierfür sind alle Anwendungen, die in Ihrer Organisation bereits vorhanden sind, oder alle Drittanbieteranwendungen von einem Anwender, der nicht bereits im Azure AD-Katalog enthalten ist. Sie haben auch die Möglichkeit, [Ihre App dem Katalog hinzuzufügen](../develop/v2-howto-app-gallery-listing.md), falls sie darin noch nicht enthalten ist.
 
 Außerdem können Sie die von Ihnen intern entwickelten Apps integrieren. Dies wird in Schritt 5 dieses Handbuchs beschrieben.
 
@@ -46,7 +46,7 @@ Außerdem können Sie die von Ihnen intern entwickelten Apps integrieren. Dies w
 
 Ermitteln Sie als Nächstes die Anwendungen, die von Mitarbeitern häufig genutzt werden, und priorisieren Sie Ihre Arbeit für die Integration in Azure AD.
 
-Sie können beginnen, indem Sie die [Cloud Discovery-Tools](/cloud-app-security/tutorial-shadow-it) von Microsoft Cloud App Security verwenden, um für Ihr Netzwerk die Ermittlung von „Schatten-IT“ durchzuführen (Apps, die nicht von der IT-Abteilung verwaltet werden). Sie können [Microsoft Defender Advanced Threat Protection (ATP) verwenden](/cloud-app-security/wdatp-integration), um den Ermittlungsprozess zu vereinfachen und zu erweitern.
+Sie können beginnen, indem Sie die [Cloud Discovery-Tools](/cloud-app-security/tutorial-shadow-it) von Microsoft Cloud App Security verwenden, um für Ihr Netzwerk die Ermittlung von „Schatten-IT“ durchzuführen (Apps, die nicht von der IT-Abteilung verwaltet werden). Sie können [Microsoft Defender Advanced Threat Protection (ATP) verwenden](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection), um den Ermittlungsprozess zu vereinfachen und zu erweitern.
 
 Außerdem können Sie den [AD FS-Anwendungsaktivitätsbericht](../manage-apps/migrate-adfs-application-activity.md) im Azure-Portal verwenden, um alle AD FS-Apps in Ihrer Organisation, die Anzahl von dafür angemeldeten eindeutigen Benutzern und die Kompatibilität in Bezug auf die Integration in Azure AD zu ermitteln.
 
@@ -66,7 +66,7 @@ Während Ihres Ermittlungsprozesses haben Sie ggf. Anwendungen ermittelt, die vo
 - Einsparung von Kosten, indem die lokale Benutzerbereitstellung und -authentifizierung sowie die Lizenzierungsgebühren wegfallen, die an andere Cloudidentitätsanbieter für den gleichen Dienst gezahlt werden müssen
 - Reduzierung des Verwaltungsaufwands und Ermöglichung von strengeren Sicherheitsmaßnahmen mit weniger Redundanzen für Ihren Prozess zur Identitäts- und Zugriffsverwaltung
 - Ermöglichung des Zugriffs mit sicherem einmaligem Anmelden auf ALLE benötigten Anwendungen für Mitarbeiter über das [MyApps-Portal](../manage-apps/access-panel-collections.md)
-- Verbesserung der Intelligence-Ebene der Dienste für [Identity Protection](../identity-protection/overview-identity-protection.md) von Azure AD, z. B. bedingter Zugriff, indem die Datenmenge zur App-Nutzung erhöht wird und die erzielten Vorteile auf neu hinzugefügte Apps ausgedehnt werden
+- Verbesserung der Intelligence-Ebene der Dienste für [Identity Protection](../identity-protection/overview-identity-protection.md) von Azure AD, z. B. bedingter Zugriff, indem die Datenmenge zur App-Nutzung erhöht wird und die erzielten Vorteile auf neu hinzugefügte Apps ausgedehnt werden.
 
 Wir haben einen Leitfaden zur Verwaltung des Geschäftsprozesses für die Integration von Apps in Azure AD veröffentlicht. Darin sind beispielsweise ein [Poster](https://aka.ms/AppOnePager) und eine [Präsentation](https://aka.ms/AppGuideline) enthalten, damit Sie die für Geschäftsprozesse und Anwendungen verantwortlichen Personen informieren und deren Interesse wecken können. Sie können diese Beispiele mit Ihrem eigenen Branding versehen und für Ihre Organisation veröffentlichen, indem Sie Ihr Unternehmensportal, einen Newsletter oder ein anderes Medium verwenden, während Sie diesen Prozess durchführen.
 

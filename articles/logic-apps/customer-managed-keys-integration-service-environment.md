@@ -3,15 +3,15 @@ title: Einrichten von kundenseitig verwalteten Schlüsseln zum Verschlüsseln ru
 description: Erstellen und verwalten Sie Ihre eigenen Verschlüsselungsschlüssel in Azure Logic Apps, um ruhende Daten für Integrationsdienstumgebungen (Integration Service Environment, ISE) zu schützen.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, rarayudu, logicappspm
+ms.reviewer: mijos, rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.openlocfilehash: d9f25fc419a92d125dffe5c14b9b4c19cd795c6e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 11/20/2020
+ms.openlocfilehash: 0057a4671dbc63bf53bafa8d2d742d4edcda1e5e
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318448"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741047"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Einrichten von kundenseitig verwalteten Schlüsseln zum Verschlüsseln von ruhenden Daten für Integrationsdienstumgebungen (Integration Service Environment, ISE) in Azure Logic Apps
 
@@ -27,11 +27,15 @@ In diesem Thema erfahren Sie, wie Sie Ihren eigenen Verschlüsselungsschlüssel 
 
 * Sie können einen vom Kunden verwalteten Schlüssel *nur beim Erstellen der ISE* angeben, nicht später. Sie können diesen Schlüssel nach dem Erstellen Ihrer ISE nicht mehr deaktivieren. Zurzeit wird das Rotieren eines vom Kunden verwalteten Schlüssels für eine ISE nicht unterstützt.
 
-* Zur Unterstützung von kundenseitig verwalteten Schlüsseln muss die [vom System zugewiesene verwaltete Identität](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) Ihrer ISE aktiviert sein. Mit dieser Identität kann die ISE den Zugriff auf Ressourcen in anderen Azure Active Directory-Mandanten (Azure AD) authentifizieren, sodass Sie sich nicht mit Ihren Anmeldeinformationen anmelden müssen.
+* Zur Unterstützung von kundenseitig verwalteten Schlüsseln muss die [systemseitig zugewiesene oder die benutzerseitig zugewiesene verwaltete Identität](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) Ihrer ISE aktiviert sein. Mit dieser Identität kann Ihre ISE den auf geschützte Ressourcen wie virtuelle Computer und andere Systeme oder Dienste, die sich innerhalb eines virtuellen Azure-Netzwerks befinden oder damit verbunden sind, authentifizieren. Auf diese Weise müssen Sie sich nicht mit Ihren Anmeldeinformationen anmelden.
 
-* Derzeit müssen Sie zum Erstellen einer ISE, die vom Kunden verwaltete Schlüssel unterstützt und deren vom System zugewiesene Identität aktiviert ist, die Logic Apps-REST-API über eine HTTPS PUT-Anforderung aufrufen.
+* Derzeit müssen Sie zum Erstellen einer ISE, die kundenseitig verwaltete Schlüssel unterstützt und beide verwalteten Identitätstypen aktiviert hat, die Logic Apps-REST-API über eine HTTPS PUT-Anforderung aufrufen.
 
-* Innerhalb von *30 Minuten* nach dem Senden der HTTPS PUT-Anforderung zum Erstellen der ISE müssen Sie [Key Vault Zugriff auf die vom System zugewiesene Identität Ihrer ISE gewähren](#identity-access-to-key-vault). Andernfalls tritt bei der ISE-Erstellung ein Fehler auf und ein Berechtigungsfehler wird ausgegeben.
+* Sie müssen dem [Schlüsseltresor Zugriff auf die verwaltete Identität Ihrer ISE gewähren](#identity-access-to-key-vault), aber das Timing hängt davon ab, welche verwaltete Identität Sie verwenden.
+
+  * **Systemseitig zugewiesene verwaltete Identität**: Innerhalb von *30 Minuten nach* dem Senden der HTTPS PUT-Anforderung zum Erstellen Ihrer ISE müssen Sie dem [Schlüsseltresor Zugriff auf die verwaltete Identität Ihrer ISE gewähren](#identity-access-to-key-vault). Andernfalls tritt bei der ISE-Erstellung ein Fehler auf und ein Berechtigungsfehler wird ausgegeben.
+
+  * **Benutzerseitig zugewiesene verwaltete Identität**: Vor dem Senden der HTTPS PUT-Anforderung zum Erstellen Ihrer ISE [gewähren Sie dem Schlüsseltresor Zugriff auf die verwaltete Identität Ihrer ISE ](#identity-access-to-key-vault).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -39,7 +43,7 @@ In diesem Thema erfahren Sie, wie Sie Ihren eigenen Verschlüsselungsschlüssel 
 
 * Ein Azure-Schlüsseltresor mit aktivierten Eigenschaften **Vorläufiges Löschen** und **Do Not Purge** (Nicht bereinigen)
 
-  Weitere Informationen zum Aktivieren dieser Eigenschaften finden Sie unter [Übersicht über die Azure Key Vault-Funktion für vorläufiges Löschen](../key-vault/general/soft-delete-overview.md) und [Konfigurieren von kundenseitig verwalteten Schlüsseln mit Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md). Wenn Sie noch nicht mit Azure Key Vault vertraut sind, informieren Sie sich, wie Sie mithilfe des Azure-Portals oder des Azure PowerShell-Befehls [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault) [einen Schlüsseltresor erstellen](../key-vault/secrets/quick-create-portal.md#create-a-vault).
+  Weitere Informationen zum Aktivieren dieser Eigenschaften finden Sie unter [Übersicht über die Azure Key Vault-Funktion für vorläufiges Löschen](../key-vault/general/soft-delete-overview.md) und [Konfigurieren von kundenseitig verwalteten Schlüsseln mit Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md). Wenn Sie noch keine Erfahrung mit [Azure Key Vault](../key-vault/general/overview.md) haben, informieren Sie sich, wie Sie einen Schlüsseltresor über das [Azure-Portal](../key-vault/general/quick-create-portal.md), mithilfe der [Azure-Befehlszeilenschnittstelle](../key-vault/general/quick-create-cli.md) oder per [Azure PowerShell](../key-vault/general/quick-create-powershell.md) erstellen.
 
 * Ein Schlüssel in Ihrem Schlüsseltresor, der mit diesen Eigenschaftswerten erstellt wurde:
 
@@ -56,7 +60,7 @@ In diesem Thema erfahren Sie, wie Sie Ihren eigenen Verschlüsselungsschlüssel 
 
 * Ein Tool, mit dem Sie Ihre ISE durch Aufrufen der Logic Apps-REST-API mit einer HTTPS PUT-Anforderung erstellen können. Beispielsweise können Sie [Postman](https://www.getpostman.com/downloads/) verwenden oder eine Logik-App erstellen, die diese Aufgabe ausführt.
 
-<a name="enable-support-key-system-identity"></a>
+<a name="enable-support-key-managed-identity"></a>
 
 ## <a name="create-ise-with-key-vault-and-managed-identity-support"></a>Erstellen der ISE mit Schlüsseltresor und Unterstützung für verwaltete Identitäten
 
@@ -65,7 +69,7 @@ Um Ihre ISE durch Aufrufen der Logic Apps-REST-API zu erstellen, führen Sie die
 `PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01`
 
 > [!IMPORTANT]
-> Version 2019-05-01 der Logic Apps-REST-API erfordert, dass Sie Ihre eigene HTTP PUT-Anforderung für ISE-Connectors ausführen.
+> Version 2019-05-01 der Logic Apps-REST-API erfordert, dass Sie Ihre eigene HTTPS PUT-Anforderung für ISE-Connectors ausführen.
 
 Der Bereitstellungsvorgang dauert in der Regel maximal zwei Stunden. Gelegentlich kann die Bereitstellung bis zu vier Stunden dauern. Wählen Sie zum Überprüfen des Bereitstellungsstatus im [Azure-Portal](https://portal.azure.com) auf Ihrer Azure-Symbolleiste das Benachrichtigungssymbol aus, um den Benachrichtigungsbereich zu öffnen.
 
@@ -88,7 +92,7 @@ Schließen Sie die folgenden Eigenschaften in den Anforderungsheader ein:
 
 Aktivieren Sie im Anforderungstext die Unterstützung für diese zusätzlichen Elemente, indem Sie die entsprechenden Informationen in der ISE-Definition bereitstellen:
 
-* Die vom System zugewiesene verwaltete Identität, die Ihre ISE zum Zugreifen auf Ihren Schlüsseltresor verwendet
+* Die verwaltete Identität, die Ihre ISE zum Zugreifen auf Ihren Schlüsseltresor verwendet
 * Ihr Schlüsseltresor und der vom Kunden verwaltete Schlüssel, den Sie verwenden möchten
 
 #### <a name="request-body-syntax"></a>Syntax des Anforderungstexts
@@ -97,7 +101,7 @@ Hier ist die Syntax des Anforderungstexts, in der die Eigenschaften für das Ers
 
 ```json
 {
-   "id": "/subscriptions/{Azure-subscription-ID/resourceGroups/{Azure-resource-group}/providers/Microsoft.Logic/integrationServiceEnvironments/{ISE-name}",
+   "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Logic/integrationServiceEnvironments/{ISE-name}",
    "name": "{ISE-name}",
    "type": "Microsoft.Logic/integrationServiceEnvironments",
    "location": "{Azure-region}",
@@ -106,7 +110,14 @@ Hier ist die Syntax des Anforderungstexts, in der die Eigenschaften für das Ers
       "capacity": 1
    },
    "identity": {
-      "type": "SystemAssigned"
+      "type": <"SystemAssigned" | "UserAssigned">,
+      // When type is "UserAssigned", include the following "userAssignedIdentities" object:
+      "userAssignedIdentities": {
+         "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{user-assigned-managed-identity-object-ID}": {
+            "principalId": "{principal-ID}",
+            "clientId": "{client-ID}"
+         }
+      }
    },
    "properties": {
       "networkConfiguration": {
@@ -153,7 +164,13 @@ In diesem Beispielanforderungstext werden die Beispielwerte gezeigt:
    "type": "Microsoft.Logic/integrationServiceEnvironments",
    "location": "WestUS2",
    "identity": {
-      "type": "SystemAssigned"
+      "type": "UserAssigned",
+      "userAssignedIdentities": {
+         "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/*********************************": {
+            "principalId": "*********************************",
+            "clientId": "*********************************"
+         }
+      }
    },
    "sku": {
       "name": "Premium",
@@ -197,7 +214,11 @@ In diesem Beispielanforderungstext werden die Beispielwerte gezeigt:
 
 ## <a name="grant-access-to-your-key-vault"></a>Gewähren des Zugriffs auf Ihren Schlüsseltresor
 
-Innerhalb von *30 Minuten* nach dem Senden der HTTP PUT-Anforderung zum Erstellen der ISE müssen Sie Ihrem Schlüsseltresor eine Zugriffsrichtlinie für die vom System zugewiesene Identität Ihrer ISE hinzufügen. Andernfalls tritt bei der Erstellung Ihrer ISE ein Fehler auf, und Sie erhalten einen Berechtigungsfehler. 
+Obgleich sich das Timing je nach der von Ihnen verwendeten verwalteten Identität unterscheidet, müssen Sie dem [Schlüsseltresor Zugriff auf die verwaltete Identität Ihrer ISE gewähren](#identity-access-to-key-vault).
+
+* **Systemseitig zugewiesene verwaltete Identität**: Innerhalb von *30 Minuten nach* dem Senden der HTTPS PUT-Anforderung zum Erstellen Ihrer ISE müssen Sie Ihrem Schlüsseltresor eine Zugriffsrichtlinie für die systemseitig zugewiesene verwaltete Identität Ihrer ISE hinzufügen. Andernfalls tritt bei der Erstellung Ihrer ISE ein Fehler auf, und Sie erhalten einen Berechtigungsfehler.
+
+* **Benutzerseitig zugewiesene verwaltete Identität**: Vor dem Senden der HTTPS PUT-Anforderung zum Erstellen Ihrer ISE fügen Sie Ihrem Schlüsseltresor eine Zugriffsrichtlinie für die benutzerseitig zugewiesene verwaltete Identität Ihrer ISE hinzu.
 
 Für diese Aufgabe können Sie entweder den Azure PowerShell-Befehl [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) verwenden oder die folgenden Schritte im Azure-Portal ausführen:
 

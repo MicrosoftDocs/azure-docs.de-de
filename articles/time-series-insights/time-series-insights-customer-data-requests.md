@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5565dd43689d0420fbb9b73f088f24a38a2d54db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5ecbabe4a5c3458c77d145fbce1281550470e00
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665904"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96019071"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Zusammenfassung der Features für Kundendatenanforderungen
 
@@ -34,7 +34,7 @@ Ein Mandantenadministrator kann Kundendaten über das Azure-Portal löschen.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-Bevor Sie jedoch Kundendaten über das Portal löschen, sollten Sie die Zugriffsrichtlinien des Benutzers aus der Time Series Insights-Umgebung im Azure-Portal entfernen. Weitere Informationen finden Sie unter [Gewähren von Datenzugriff für eine Time Series Insights-Umgebung mit Azure-Portal](time-series-insights-data-access.md).
+Bevor Sie jedoch Kundendaten über das Portal löschen, sollten Sie die Zugriffsrichtlinien des Benutzers aus der Time Series Insights-Umgebung im Azure-Portal entfernen. Weitere Informationen finden Sie unter [Gewähren von Datenzugriff für eine Time Series Insights-Umgebung mit Azure-Portal](./concepts-access-policies.md).
 
 Sie können Löschvorgänge für Zugriffsrichtlinien auch über die REST-API durchführen. Weitere Informationen finden Sie unter [Access Policies – Delete](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/delete) (Zugriffsrichtlinien – Löschen).
 
@@ -46,7 +46,7 @@ Time Series Insights ist in das Blatt „Policy“ im Azure-Portal integriert. I
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-Als Mandantenadministrator können Sie Datenzugriffsrichtlinien innerhalb der Time Series Insights-Umgebung im Azure-Portal anzeigen. Weitere Informationen finden Sie unter [Gewähren von Datenzugriff für eine Time Series Insights-Umgebung mit Azure-Portal](time-series-insights-data-access.md).
+Als Mandantenadministrator können Sie Datenzugriffsrichtlinien innerhalb der Time Series Insights-Umgebung im Azure-Portal anzeigen. Weitere Informationen finden Sie unter [Gewähren von Datenzugriff für eine Time Series Insights-Umgebung mit Azure-Portal](./concepts-access-policies.md).
 
 Es ist zudem möglich, Exportvorgänge für Zugriffsrichtlinien über den Vorgang „List By Environment“ in der bereitgestellten REST-API durchzuführen. Weitere Informationen finden Sie unter [Access Policies – List By Environment](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/listbyenvironment) (Zugriffsrichtlinien – Nach Umgebung auflisten).
 
@@ -68,7 +68,7 @@ Weitere Informationen finden Sie unter [Konfigurieren der Vermerkdauer in Time S
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Lesen Sie weitere Informationen zum [Gewähren von Datenzugriff auf Ihre Azure Time Series Insights-Umgebung](./time-series-insights-data-access.md).
+* Lesen Sie weitere Informationen zum [Gewähren von Datenzugriff auf Ihre Azure Time Series Insights-Umgebung](./concepts-access-policies.md).
 
 * Anzeigen des [Azure Time Series Insights-Explorers](time-series-insights-explorer.md).
 

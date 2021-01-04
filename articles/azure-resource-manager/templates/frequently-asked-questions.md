@@ -1,39 +1,39 @@
 ---
 title: Häufig gestellte Fragen zu Resource Manager-Vorlagen
-description: Häufig gestellte Fragen (FAQ) zu Azure Resource Manager-Vorlagen.
+description: Häufig gestellte Fragen (FAQ) zu Azure Resource Manager-Vorlagen (ARM-Vorlagen).
 ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 47ac8d0e3172645ec168d5cfe7a002d84765b864
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 757dfa119649e21c6e1787671afa61ee18184300
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333119"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561901"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Häufig gestellte Fragen zu Resource Manager-Vorlagen
 
-In diesem Artikel finden Sie Antworten auf häufig gestellte Fragen zu Azure Resource Manager-Vorlagen.
+In diesem Artikel finden Sie Antworten auf häufig gestellte Fragen zu Azure Resource Manager-Vorlagen (ARM-Vorlagen).
 
 ## <a name="getting-started"></a>Erste Schritte
 
 * **Was sind Resource Manager-Vorlagen, und warum sollte ich sie verwenden?**
 
   Resource Manager-Vorlagen sind JSON-Dateien, in denen Sie definieren, was Sie in Azure bereitstellen möchten. Vorlagen helfen Ihnen dabei, eine Infrastructure-as-Code-Lösung für Azure zu implementieren. Ihre Organisation kann die damit erforderliche Infrastruktur wiederholt und zuverlässig in verschiedenen Umgebungen bereitstellen.
-  
+
   Weitere Informationen zur Unterstützung von Resource Manager-Vorlagen bei der Verwaltung Ihrer Azure-Infrastruktur finden Sie unter [Was sind ARM-Vorlagen?](overview.md)
 
 * **Wie beginne ich mit der Nutzung von Vorlagen?**
 
-  Um die Erstellung von Resource Manager-Vorlagen zu vereinfachen, benötigen Sie die richtigen Tools. Wir empfehlen die Installation von [Visual Studio Code](https://code.visualstudio.com/) und der [Erweiterung „Azure Resource Manager-Tools“](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). Eine kurze Einführung in diese Tools finden Sie unter [Schnellstart: Erstellen von Azure Resource Manager-Vorlagen mit Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+  Um die Erstellung von Resource Manager-Vorlagen zu vereinfachen, benötigen Sie die richtigen Tools. Wir empfehlen die Installation von [Visual Studio Code](https://code.visualstudio.com/) und der [Erweiterung „Azure Resource Manager-Tools“](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). Eine kurze Einführung in diese Tools finden Sie unter [Schnellstart: Erstellen von ARM-Vorlagen mit Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
   Wenn Sie sich über das Erstellen von Resource Manager-Vorlagen informieren möchten, arbeiten Sie die [Tutorial-Reihe zu Resource Manager-Vorlagen für Einsteiger](template-tutorial-create-first-template.md) durch. Diese Tutorials führen Sie Schritt für Schritt durch das Erstellen einer Resource Manager-Vorlage. Sie erfahren mehr über die verschiedenen Abschnitte einer Vorlage und deren Zusammenarbeit. Diese Informationen sind auch als [Microsoft Learn-Modul](/learn/modules/authoring-arm-templates/) verfügbar.
 
 * **Sollte ich Resource Manager-Vorlagen oder Terraform für die Bereitstellung in Azure verwenden?**
 
   Verwenden Sie die für Sie am besten geeignete Option. Beide Dienste unterstützen Sie bei der Automatisierung von Bereitstellungen in Azure.
-  
+
   Wir sind davon überzeugt, dass Resource Manager-Vorlagen gegenüber anderen Infrastructure-as-Code-Diensten eine Reihe von Vorteilen bieten. Weitere Informationen zu diesen Vorteilen finden Sie unter [Warum ARM-Vorlagen verwenden?](overview.md#why-choose-arm-templates)
 
 ## <a name="build-2020"></a>Build 2020
@@ -59,7 +59,7 @@ In diesem Artikel finden Sie Antworten auf häufig gestellte Fragen zu Azure Res
 * **Ich habe meine Umgebung über das Portal eingerichtet. Gibt es eine Möglichkeit, die Vorlage aus einer vorhandenen Ressourcengruppe zu übernehmen?**
 
   Ja, Sie können die [Vorlage aus einer Ressourcengruppe exportieren](export-template-portal.md). Die exportierte Vorlage ist ein guter Ausgangspunkt, um sich mit Vorlagen vertraut zu machen. Sie sollten sie allerdings überarbeiten, bevor Sie sie in einer Produktionsumgebung verwenden.
-  
+
   Beim Exportieren der Vorlage können Sie auswählen, welche Ressourcen Sie in die Vorlage einschließen möchten.
 
 * **Kann ich eine Ressourcengruppe in einer Resource Manager-Vorlage erstellen und Ressourcen darin bereitstellen?**
@@ -68,7 +68,7 @@ In diesem Artikel finden Sie Antworten auf häufig gestellte Fragen zu Azure Res
 
 * **Kann ich ein Abonnement in einer Resource Manager-Vorlage erstellen?**
 
-  Noch nicht, aber wir arbeiten daran.
+  Ja. Weitere Informationen finden Sie unter [Programmgesteuertes Erstellen von Azure-Abonnements mit den neuesten APIs](../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md).
 
 * **Wie kann ich meine Vorlage vor der Bereitstellung testen?**
 
@@ -104,9 +104,9 @@ In diesem Artikel finden Sie Antworten auf häufig gestellte Fragen zu Azure Res
 
 ## <a name="template-specs"></a>Vorlagenspezifikationen
 
-* **Wie kann ich an der Vorschauversion von Vorlagenspezifikationen beteiligt werden?**
+* **Wie kann ich die Vorschauversion von Vorlagenspezifikationen verwenden?**
 
-  Melden sie sich für die [Warteliste](https://aka.ms/templateSpecsWaitlist) für Vorlagenspezifikationen an.
+  Installieren Sie die aktuelle Version von PowerShell oder der Azure CLI. Verwenden Sie [mindestens Version 5.0.0](/powershell/azure/install-az-ps) von Azure PowerShell. Verwenden Sie [mindestens Version 2.14.2](/cli/azure/install-azure-cli) der Azure CLI.
 
 * **Was ist der Zusammenhang zwischen Vorlagenspezifikationen und Azure Blueprints?**
 
@@ -154,7 +154,7 @@ In diesem Artikel finden Sie Antworten auf häufig gestellte Fragen zu Azure Res
 
 * **Wenn ich den Was-wäre-wenn-Vorgang verwende, werden Änderungen bei Eigenschaften angezeigt, die nicht in meiner Vorlage enthalten sind. Muss mit solchen Fehlern gerechnet werden?**
 
-  Der Was-wäre-wenn-Vorgang befindet sich in der Vorschauversion. Wir arbeiten daran, die Fehlerrate zu verringern. Sie können uns bei der Verbesserung helfen, indem Sie Probleme über unser GitHub-Repository melden: https://aka.ms/WhatIfIssues
+  Wir arbeiten daran, die Fehlerrate zu verringern. Sie können uns bei der Verbesserung helfen, indem Sie Probleme über unser GitHub-Repository melden: https://aka.ms/WhatIfIssues
 
 ## <a name="template-visualizer"></a>Schnellansicht für Vorlagen
 
@@ -182,11 +182,11 @@ In diesem Artikel finden Sie Antworten auf häufig gestellte Fragen zu Azure Res
 
 * **Kann ich Resource Manager-Vorlagen in Azure Pipelines integrieren?**
 
-  Ja. Eine Erläuterung zur Verwendung von Vorlagen und Pipelines finden Sie unter [Tutorial: Continuous Integration von Azure Resource Manager-Vorlagen mit Azure Pipelines](deployment-tutorial-pipeline.md) und [Integrieren von ARM-Vorlagen in Azure Pipelines](add-template-to-azure-pipelines.md).
+  Ja. Eine Erläuterung zur Verwendung von Vorlagen und Pipelines finden Sie unter [Tutorial: Continuous Integration von ARM-Vorlagen mit Azure Pipelines](deployment-tutorial-pipeline.md) und [Integrieren von ARM-Vorlagen in Azure Pipelines](add-template-to-azure-pipelines.md).
 
 * **Kann ich GitHub Actions für die Bereitstellung einer Vorlage verwenden?**
 
-  Ja. Weitere Informationen finden Sie unter [Bereitstellen von Azure Resource Manager-Vorlagen mithilfe von GitHub Actions](deploy-github-actions.md).
+  Ja, siehe [Bereitstellen von ARM-Vorlagen mithilfe von GitHub Actions](deploy-github-actions.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

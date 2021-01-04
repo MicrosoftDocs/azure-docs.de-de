@@ -5,12 +5,12 @@ author: usha-rathnavel
 ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
-ms.openlocfilehash: 2535c05241c076e08f8f0f2ba9e2301fb353723e
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 5863dcc20fb13f1bb203c68ad168655371130601
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330477"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674559"
 ---
 # <a name="install-azure-farmbeats"></a>Installieren von Azure FarmBeats
 
@@ -87,7 +87,7 @@ Die ersten beiden Berechtigungen sind zum [Erstellen der AAD-Anwendung](#create-
 
 Die Person, die die FarmBeats-Installation vom Marketplace aus ausführt, muss ein Besitzer der Ressourcengruppe sein, in der FarmBeats installiert wird. Bei Abonnementbesitzern erfolgt dies automatisch, wenn die Ressourcengruppe erstellt wird. Erstellen Sie die Ressourcengruppe vorab für andere, und bitten Sie den Besitzer des Abonnements, Sie zu einem Besitzer der Ressourcengruppe zu machen.
 
-Sie können Ihre Zugriffsberechtigungen im Azure-Portal überprüfen, indem Sie die Anweisungen zur [rollenbasierten Zugriffssteuerung von Azure](https://docs.microsoft.com/azure/role-based-access-control/check-access) befolgen.
+Sie können Ihre Zugriffsberechtigungen im Azure-Portal überprüfen, indem Sie die Anweisungen zur [rollenbasierten Zugriffssteuerung von Azure](../../role-based-access-control/check-access.md) befolgen.
 
 ### <a name="decide-subscription-and-region"></a>Auswählen des Abonnements und der Region
 

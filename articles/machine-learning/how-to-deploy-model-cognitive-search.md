@@ -1,7 +1,7 @@
 ---
 title: Bereitstellen eines Modells für die Verwendung mit Cognitive Search
 titleSuffix: Azure Machine Learning
-description: In diesem Artikel wird die Verwendung von Azure Machine Learning zum Bereitstellen eines Modells für die Nutzung mit Azure Cognitive Search erläutert. Cognitive Search kann Modelle verwenden, die von Azure Machine Learning als benutzerdefinierter Skill zum Erweitern der Suchfunktion bereitgestellt werden.
+description: Erfahren Sie, wie Sie Azure Machine Learning zum Bereitstellen eines Modells für die Nutzung mit Cognitive Search verwenden. Das Modell wird als benutzerdefinierte Skill verwendet, um die Suchoberfläche zu erweitern.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: cjgronlund
 ms.reviewer: larryfr
 ms.date: 06/11/2020
 ms.custom: deploy
-ms.openlocfilehash: 5d198a27d7aeca679f1ee17f35d3f4384283f13c
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: e1eebf88b72c87ce9db02760c5c44a0aa25c57cc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998917"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305923"
 ---
 # <a name="deploy-a-model-for-use-with-cognitive-search"></a>Bereitstellen eines Modells für die Verwendung mit Cognitive Search
 
@@ -46,7 +46,7 @@ Wenn Sie ein Modell für die Verwendung mit Azure Cognitive Search bereitstellen
 
 * Ein Azure Machine Learning-Arbeitsbereich. Weitere Informationen finden Sie unter [Erstellen eines Azure Machine Learning-Arbeitsbereichs](how-to-manage-workspace.md).
 
-* Eine Python-Entwicklungsumgebung, in der das Azure Machine Learning SDK installiert ist. Weitere Informationen finden Sie unter [Install the Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (Installieren des Azure Machine Learning SDK für Python).  
+* Eine Python-Entwicklungsumgebung, in der das Azure Machine Learning SDK installiert ist. Weitere Informationen finden Sie unter [Install the Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (Installieren des Azure Machine Learning SDK für Python).  
 
 * Ein registriertes Modell. Wenn Sie über kein Modell verfügen, verwenden Sie das Beispielnotebook unter [https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill).
 
@@ -75,7 +75,7 @@ except:
 
 ## <a name="create-a-kubernetes-cluster"></a>Erstellen eines Kubernetes-Clusters
 
-**Geschätzter Zeitaufwand**: Ca. 20 Minuten.
+**Geschätzter Zeitaufwand** : Ca. 20 Minuten.
 
 Bei einem Kubernetes-Cluster handelt es sich um eine Reihe von VM-Instanzen (werden Knoten genannt), die zum Ausführen von Containeranwendungen verwendet werden.
 
@@ -252,7 +252,7 @@ from azureml.core.model import InferenceConfig
 inf_config = InferenceConfig(entry_script='score.py', environment=myenv)
 ```
 
-Weitere Informationen finden Sie in der Referenzdokumentation zu [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true).
+Weitere Informationen finden Sie in der Referenzdokumentation zu [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py).
 
 ## <a name="deploy-the-model"></a>Bereitstellen des Modells
 
@@ -277,7 +277,7 @@ aks_service.wait_for_deployment(show_output = True)
 print(aks_service.state)
 ```
 
-Weitere Informationen finden Sie in der Referenzdokumentation zu [Model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true).
+Weitere Informationen finden Sie in der Referenzdokumentation zu [Model](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py).
 
 ## <a name="issue-a-sample-query-to-your-service"></a>Ausstellen einer Beispielabfrage für Ihren Dienst
 

@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/14/2020
-ms.openlocfilehash: f2dd759203655746601699f665436c78ee0758f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb1a1a0b9f3a5996af56ff2c4e2de91d78a6c260
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885502"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129336"
 ---
 # <a name="azure-stream-analytics-jobconfigjson-fields"></a>JobConfig.json-Felder von Azure Stream Analytics
 
@@ -58,4 +58,4 @@ Die folgenden Felder werden in der Datei *JobConfig.json* unterstützt, die zum 
 * [Erstellen eines Azure Stream Analytics-Auftrags in Visual Studio Code](quick-create-visual-studio-code.md)
 * [Lokales Testen von Stream Analytics-Abfragen mit Beispieldaten mithilfe von Visual Studio Code](visual-studio-code-local-run.md)
 * [Lokales Testen von Azure Stream Analytics-Abfragen unter Verwendung einer Livestreameingabe mithilfe von Visual Studio Code](visual-studio-code-local-run-live-input.md)
-*[Bereitstellen eines Azure Stream Analytics-Auftrags mit einem CI/CD npm-Paket](setup-cicd-vs-code.md)
+*[Bereitstellen eines Azure Stream Analytics-Auftrags mit einem CI/CD npm-Paket](./cicd-overview.md)

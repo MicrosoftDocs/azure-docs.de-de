@@ -1,7 +1,7 @@
 ---
 title: 'Zweiklassige Support Vector Machine: Modulreferenz'
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Sie mithilfe des Moduls **Two-Class Support Vector Machine** in Azure Machine Learning ein Modell erstellen, das auf dem Algorithmus für die Support Vector Machine basiert.
+description: Erfahren Sie, wie Sie mit dem Modul „zweiklassige Support Vector Machine“ in Azure Machine Learning einen binären Klassifizierer erstellen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 1dc2f8bdf6ed2823b44d25bdf65766b1f7ae060c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46cfdd319fc89e569d165dc2e11303e67c6dd54e
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907672"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420562"
 ---
 # <a name="two-class-support-vector-machine-module"></a>Modul „Zweiklassige Support Vector Machine“
 

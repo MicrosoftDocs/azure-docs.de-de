@@ -3,13 +3,13 @@ title: Einbinden eines Azure Files-Volumes in eine Containergruppe
 description: Erfahren Sie, wie Sie ein Azure Files-Volume einbinden, sodass der Zustand bei Azure Container Instances beibehalten wird.
 ms.topic: article
 ms.date: 07/02/2020
-ms.custom: mvc
-ms.openlocfilehash: eaf5e0704ba2ea4f0e0a30d61e4ae1d2ad1bf58d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 5ca619ac3ae93ee238d019b64ecccc975b7c8e3b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259476"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746871"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Einbinden einer Azure-Dateifreigabe in Azure Container Instances
 
@@ -49,15 +49,15 @@ az storage share create \
 
 Um eine Azure-Dateifreigabe als Volume in Azure Container Instances einzubinden, benötigen Sie drei Werte: den Namen des Speicherkontos, den Freigabenamen und den Speicherzugriffsschlüssel.
 
-* **Speicherkontoname**: Wenn Sie das obige Skript verwendet haben, wurde der Name des Speicherkontos in der Variablen `$ACI_PERS_STORAGE_ACCOUNT_NAME` gespeichert. Um den Kontonamen einzusehen, geben Sie Folgendes ein:
+* **Speicherkontoname** : Wenn Sie das obige Skript verwendet haben, wurde der Name des Speicherkontos in der Variablen `$ACI_PERS_STORAGE_ACCOUNT_NAME` gespeichert. Um den Kontonamen einzusehen, geben Sie Folgendes ein:
 
   ```console
   echo $ACI_PERS_STORAGE_ACCOUNT_NAME
   ```
 
-* **Freigabename**: Dieser Wert ist bereits bekannt (definiert als `acishare` im vorangehenden Skript).
+* **Freigabename** : Dieser Wert ist bereits bekannt (definiert als `acishare` im vorangehenden Skript).
 
-* **Speicherkontoschlüssel**: Diesen Wert finden Sie mithilfe des folgenden Befehls:
+* **Speicherkontoschlüssel** : Diesen Wert finden Sie mithilfe des folgenden Befehls:
 
   ```azurecli-interactive
   STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $ACI_PERS_STORAGE_ACCOUNT_NAME --query "[0].value" --output tsv)

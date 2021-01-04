@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/06/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: a7d0a899b4a2ef86153e82a4e3f04e7ec430a1bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b32ff0926aa2b797bdb8dfcbb01cf845080a0ce9
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67178683"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376160"
 ---
 1. Navigieren Sie zur [Google Developers Console](https://console.developers.google.com/cloud-resource-manager), und melden Sie sich mit den Anmeldeinformationen Ihres Google-Kontos an. 
 2. Wählen Sie auf der Symbolleiste die Option **Create Project** (Projekt erstellen) aus. 
@@ -29,10 +29,10 @@ ms.locfileid: "67178683"
 6. Wählen Sie im Dashboard auf der Kachel **APIs** die Option **Go to APIs overview** (Zur API-Übersicht wechseln) aus. 
 
     ![API-Übersichtslink](./media/mobile-services-enable-google-cloud-messaging/go-to-api-overview.png)
-7. Wählen Sie auf der **API**-Seite **ENABLE APIS AND SERVICES** (APIS UND DIENSTE AKTIVIEREN) aus. 
+7. Wählen Sie auf der **API** -Seite **ENABLE APIS AND SERVICES** (APIS UND DIENSTE AKTIVIEREN) aus. 
 
     ![Schaltfläche „Enable APIs and Services“ (APIs und Dienste aktivieren)](./media/mobile-services-enable-google-cloud-messaging/enable-api-services-button.png)
-8. Suchen Sie **Google Cloud Messaging**, und wählen Sie es aus. 
+8. Suchen Sie **Google Cloud Messaging** , und wählen Sie es aus. 
 
     ![Suchen Sie Google Cloud Messaging, und wählen Sie es aus.](./media/mobile-services-enable-google-cloud-messaging/search-select-gcm.png)
 9. Um Google Cloud Messaging für das Projekt zu aktivieren, wählen Sie **AKTIVIEREN** aus.
@@ -43,7 +43,7 @@ ms.locfileid: "67178683"
     ![Schaltfläche „Create credentials“ (Anmeldeinformationen erstellen)](./media/mobile-services-enable-google-cloud-messaging/create-credentials-button.png)
 11. Wählen Sie auf der Seite **Add credentials to your project** (Anmeldeinformationen Ihrem Projekt hinzufügen) den Link **API key** (API-Schlüssel) aus. 
 
-    ![Schaltfläche „Create credentials“ (Anmeldeinformationen erstellen)](./media/mobile-services-enable-google-cloud-messaging/api-key-button.png)    
+    ![Hinzufügen von Anmeldeinformationen](./media/mobile-services-enable-google-cloud-messaging/api-key-button.png)    
 12. Wählen Sie auf der Seite **API-Schlüssel** die Option **Create/Save** (Erstellen/speichern) aus. Im folgenden Beispiel ist die Option **IP addresses** (IP-Adressen) ausgewählt, und **0.0.0.0/0** wird für zulässige IP-Adressen eingegeben. Sie sollten Ihren API-Schlüssel entsprechend einschränken. 
 
     ![API-Schlüssel – Schaltfläche „Create“ (Erstellen)](./media/mobile-services-enable-google-cloud-messaging/api-key-create-button.png)

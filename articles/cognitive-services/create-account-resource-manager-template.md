@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
-ms.custom: subject-armqs
-ms.openlocfilehash: d88d613b6edfc6b08d08410cdc7cf481d973512d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: subject-armqs, devx-track-azurecli
+ms.openlocfilehash: 4afaad77fdff7a1ba80a385e9f2c3d8ddef8ab96
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91348218"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842106"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Schnellstart: Erstellen einer Cognitive Services-Ressource mithilfe einer ARM-Vorlage
 
@@ -45,7 +45,7 @@ Die in dieser Schnellstartanleitung verwendete Vorlage stammt von der Seite mit 
 :::code language="json" source="~/quickstart-templates/101-cognitive-services-universalkey/azuredeploy.json":::
 
 In der Vorlage ist eine einzelne Azure-Ressource definiert:
-* [Microsoft.CognitiveServices/accounts](https://docs.microsoft.com/azure/templates/microsoft.cognitiveservices/accounts): erstellt eine Cognitive Services-Ressource.
+* [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts): erstellt eine Cognitive Services-Ressource.
 
 ## <a name="deploy-the-template"></a>Bereitstellen der Vorlage
 
@@ -73,9 +73,9 @@ In der Vorlage ist eine einzelne Azure-Ressource definiert:
 # <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/CLI)
 
 > [!NOTE]
-> Zum Erstellen von `az deployment group` ist Azure CLI, Version 2.6 oder höher, erforderlich. Verwenden Sie den Befehl `az --version`, um den Versionstyp anzuzeigen. Weitere Informationen finden Sie in der [Dokumentation](https://docs.microsoft.com/cli/azure/deployment/group).
+> Zum Erstellen von `az deployment group` ist Azure CLI, Version 2.6 oder höher, erforderlich. Verwenden Sie den Befehl `az --version`, um den Versionstyp anzuzeigen. Weitere Informationen finden Sie in der [Dokumentation](/cli/azure/deployment/group).
 
-Führen Sie das folgende Skript an der Azure-Befehlszeilenschnittstelle (CLI) [auf dem lokalen Computer](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) oder in einem Browser über die Schaltfläche **Ausprobieren** aus. Geben Sie einen Namen und einen Speicherort (beispielsweise `centralus`) für eine neue Ressourcengruppe ein, dann wird die ARM-Vorlage verwendet, um darin eine Cognitive Services-Ressource bereitzustellen. Merken Sie sich den verwendeten Namen. Sie benötigen ihn später, um die Bereitstellung zu überprüfen.
+Führen Sie das folgende Skript an der Azure-Befehlszeilenschnittstelle (CLI) [auf dem lokalen Computer](/cli/azure/install-azure-cli?view=azure-cli-latest) oder in einem Browser über die Schaltfläche **Ausprobieren** aus. Geben Sie einen Namen und einen Speicherort (beispielsweise `centralus`) für eine neue Ressourcengruppe ein, dann wird die ARM-Vorlage verwendet, um darin eine Cognitive Services-Ressource bereitzustellen. Merken Sie sich den verwendeten Namen. Sie benötigen ihn später, um die Bereitstellung zu überprüfen.
 
 
 ```azurecli-interactive
@@ -140,6 +140,6 @@ az group delete --name $resourceGroupName
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Authentifizieren von Anforderungen an Azure Cognitive Services](authentication.md)
-* [Was ist Azure Cognitive Services?](Welcome.md)
+* [Was ist Azure Cognitive Services?](./what-are-cognitive-services.md)
 * [Unterstützung für natürliche Sprachen in Azure Cognitive Services](language-support.md)
 * [Containerunterstützung in Azure Cognitive Services](cognitive-services-container-support.md)

@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: c9d4356f5dc0b1eace586b741593b9c718c35caf
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 5d160c46b235c6890426cab9de52ec7b827efe4a
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945446"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750712"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Vorbereiten einer Anwendung für die Bereitstellung in Azure Spring Cloud
 
@@ -23,22 +23,45 @@ Azure Spring Cloud bietet robuste Dienste zum Hosten, Überwachen, Skalieren und
 In diesem Artikel werden die Abhängigkeiten, die Konfiguration und der Code erläutert, die zum Ausführen einer .NET Core-Steeltoe-App in Azure Spring Cloud erforderlich sind. Informationen zum Bereitstellen einer Anwendung in Azure Spring Cloud finden Sie unter [Bereitstellen Ihrer ersten Azure Spring Cloud-Anwendung](spring-cloud-quickstart.md).
 
 >[!Note]
-> Steeltoe-Unterstützung für Azure Spring Cloud wird zurzeit als öffentliche Vorschau angeboten. Angebote der Public Preview ermöglichen Kunden das Experimentieren mit neuen Funktionen vor der offiziellen Veröffentlichung.  Funktionen und Dienste in der Public Preview sind nicht zur Verwendung in der Produktion bestimmt.  Weitere Informationen zum Support während der Vorschauphase finden Sie in den [häufig gestellten Fragen](https://azure.microsoft.com/support/faq/). Sie können auch eine [Supportanfrage](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) einreichen.
+> Steeltoe-Unterstützung für Azure Spring Cloud wird zurzeit als öffentliche Vorschau angeboten. Angebote der Public Preview ermöglichen Kunden das Experimentieren mit neuen Funktionen vor der offiziellen Veröffentlichung.  Funktionen und Dienste in der Public Preview sind nicht zur Verwendung in der Produktion bestimmt.  Weitere Informationen zum Support während der Vorschauphase finden Sie in den [häufig gestellten Fragen](https://azure.microsoft.com/support/faq/). Sie können auch eine [Supportanfrage](../azure-portal/supportability/how-to-create-azure-support-request.md) einreichen.
 
 ##  <a name="supported-versions"></a>Unterstützte Versionen
 
 Azure Spring Cloud unterstützt Folgendes:
 
 * .NET Core 3.1
-* Steeltoe 2.4
+* Steeltoe 2.4 und 3.0
 
 ## <a name="dependencies"></a>Abhängigkeiten
 
-Installieren Sie das Paket [Microsoft.Azure.SpringCloud.Client](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/).
+Für Steeltoe 2.4 fügen Sie der Projektdatei das neueste Paket [Microsoft.Azure.SpringCloud.Client 1.x.x](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) hinzu:
+
+```xml
+<ItemGroup>
+  <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="1.0.0-preview.1" />
+  <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="2.4.4" />
+  <PackageReference Include="Steeltoe.Extensions.Configuration.ConfigServerCore" Version="2.4.4" />
+  <PackageReference Include="Steeltoe.Management.TracingCore" Version="2.4.4" />
+  <PackageReference Include="Steeltoe.Management.ExporterCore" Version="2.4.4" />
+</ItemGroup>
+```
+
+Für Steeltoe 3.0 fügen Sie der Projektdatei das neueste Paket [Microsoft.Azure.SpringCloud.Client 2.x.x](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) hinzu:
+
+```xml
+<ItemGroup>
+  <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="2.0.0-preview.1" />
+  <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="3.0.0" />
+  <PackageReference Include="Steeltoe.Extensions.Configuration.ConfigServerCore" Version="3.0.0" />
+  <PackageReference Include="Steeltoe.Management.TracingCore" Version="3.0.0" />
+</ItemGroup>
+```
 
 ## <a name="update-programcs"></a>Aktualisieren der Datei "Program.cs"
 
-Rufen Sie in der `Program.Main`-Methode die `UseAzureSpringCloudService`-Methode auf:
+Rufen Sie in der `Program.Main`-Methode die `UseAzureSpringCloudService`-Methode auf.
+
+Rufen Sie für Steeltoe 2.4.4 `UseAzureSpringCloudService` nach `ConfigureWebHostDefaults` und nach `AddConfigServer` auf, sofern ein Aufruf erfolgt:
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -47,7 +70,21 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
         {
             webBuilder.UseStartup<Startup>();
         })
+        .AddConfigServer()
         .UseAzureSpringCloudService();
+```
+
+Rufen Sie für Steeltoe 3.0.0 `UseAzureSpringCloudService` vor `ConfigureWebHostDefaults` und vor sonstigem Steeltoe-Konfigurationscode auf:
+
+```csharp
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .UseAzureSpringCloudService()
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.UseStartup<Startup>();
+        })
+        .AddConfigServer();
 ```
 
 ## <a name="enable-eureka-server-service-discovery"></a>Aktivieren der Eureka Server-Dienstermittlung
@@ -99,7 +136,7 @@ In diesem Artikel werden die erforderlichen Abhängigkeiten erläutert und wie d
 
 In Azure Spring Cloud können nur Spring-/Java-Anwendungen ausgeführt werden.
 
-Azure Spring Cloud unterstützt sowohl Java 8 als auch Java 11. Die Hostingumgebung enthält die aktuelle Version von Azul Zulu OpenJDK für Azure. Weitere Informationen zu Azul Zulu OpenJDK für Azure finden Sie unter [Installieren des JDK für Azure und Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install).
+Azure Spring Cloud unterstützt sowohl Java 8 als auch Java 11. Die Hostingumgebung enthält die aktuelle Version von Azul Zulu OpenJDK für Azure. Weitere Informationen zu Azul Zulu OpenJDK für Azure finden Sie unter [Installieren des JDK für Azure und Azure Stack](/azure/developer/java/fundamentals/java-jdk-install).
 
 ## <a name="spring-boot-and-spring-cloud-versions"></a>Spring Boot- and Spring Cloud-Versionen
 
@@ -112,6 +149,9 @@ Spring Boot-Version | Spring Cloud-Version
 2.1 | Greenwich.RELEASE
 2.2 | Hoxton.SR8
 2.3 | Hoxton.SR8
+
+> [!NOTE]
+> Wir haben ein Problem mit Spring Boot 2.4 bei der TLS-Authentifizierung zwischen Ihren Apps und Eureka identifiziert und arbeiten zurzeit gemeinsam mit der Spring-Community an dessen Behebung. Eine Problemumgehung finden Sie in unseren [Häufig gestellten Fragen (FAQ)](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development).
 
 ### <a name="dependencies-for-spring-boot-version-21"></a>Abhängigkeiten für die Spring Boot-Version 2.1
 
@@ -305,9 +345,9 @@ Schließen Sie die folgenden Abhängigkeiten vom Typ `spring-cloud-starter-sleut
  Darüber hinaus müssen Sie eine Azure Application Insights-Instanz für die Verwendung mit der Azure Spring Cloud-Dienstinstanz aktivieren. Informationen zur Verwendung von Application Insights mit Azure Spring Cloud finden Sie in der [Dokumentation zur verteilten Ablaufverfolgung](spring-cloud-tutorial-distributed-tracing.md).
 
 ## <a name="see-also"></a>Weitere Informationen
-* [Analysieren von Anwendungsprotokollen und -metriken](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
-* [Einrichten Ihres Konfigurationsservers](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-config-server)
-* [Verwenden der verteilten Ablaufverfolgung mit Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
+* [Analysieren von Anwendungsprotokollen und -metriken](./diagnostic-services.md)
+* [Einrichten Ihres Konfigurationsservers](./spring-cloud-tutorial-config-server.md)
+* [Verwenden der verteilten Ablaufverfolgung mit Azure Spring Cloud](./spring-cloud-tutorial-distributed-tracing.md)
 * [Schnellstartanleitung zu Spring](https://spring.io/quickstart)
 * [Spring Boot-Dokumentation](https://spring.io/projects/spring-boot)
 

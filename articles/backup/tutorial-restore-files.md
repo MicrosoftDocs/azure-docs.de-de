@@ -3,13 +3,13 @@ title: 'Tutorial: Wiederherstellen von Dateien auf einem virtuellen Computer mit
 description: Informationen zum Ausführen von Wiederherstellungen auf Dateiebene auf einer Azure-VM mit Sicherungs- und Wiederherstellungsdiensten.
 ms.topic: tutorial
 ms.date: 01/31/2019
-ms.custom: mvc
-ms.openlocfilehash: 6684e8717bad47248b539ecf70d135a46f459a4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: d977919b806be32b84001a9b91dc9e396fbd63ce
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324981"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557908"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Wiederherstellen von Dateien auf einem virtuellen Computer in Azure
 
@@ -21,13 +21,15 @@ Azure Backup erstellt Wiederherstellungspunkte, die in geografisch redundanten R
 > * Herstellen einer Verbindung eines Wiederherstellungspunkts mit einer VM
 > * Wiederherstellen von Dateien aus einem Wiederherstellungspunkt
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Wenn Sie die CLI lokal installieren und verwenden möchten, müssen Sie für dieses Tutorial mindestens die Azure CLI-Version 2.0.18 ausführen. Führen Sie `az --version` aus, um die Version zu ermitteln. Installations- und Upgradeinformationen finden Sie bei Bedarf unter [Installieren von Azure CLI](/cli/azure/install-azure-cli).
-
 ## <a name="prerequisites"></a>Voraussetzungen
 
 Dieses Tutorial erfordert eine Linux-VM, die mit Azure Backup geschützt wurde. Um eine versehentliche Dateilöschung und den Wiederherstellungsprozess zu simulieren, löschen Sie eine Seite von einem Webserver. Wenn Sie eine Linux-VM benötigen, die einen Webserver ausführt und mit Azure Backup geschützt wurde, lesen Sie [Back up a virtual machine in Azure with the CLI](quick-backup-vm-cli.md) (Sichern eines virtuellen Computers in Azure mit der CLI).
+
+Vorbereiten der Umgebung:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- Für diesen Artikel ist mindestens Version 2.0.18 der Azure CLI erforderlich. Bei Verwendung von Azure Cloud Shell ist die aktuelle Version bereits installiert.
 
 ## <a name="backup-overview"></a>Übersicht über Azure Backup
 
@@ -119,7 +121,7 @@ Um Ihre Dateien wiederherzustellen, bietet Azure Backup ein Skript zur Ausführu
 Wenn das Wiederherstellungsskript auf Ihren virtuellen Computer kopiert worden ist, können Sie eine Verbindung mit dem Wiederherstellungspunkt herstellen und Dateien wiederherstellen.
 
 >[!NOTE]
-> [Hier](backup-azure-restore-files-from-vm.md#selecting-the-right-machine-to-run-the-script) können Sie überprüfen, ob Sie das Skript auf Ihrem virtuellen Computer ausführen können, bevor Sie den Vorgang fortsetzen.
+> [Hier](backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) können Sie überprüfen, ob Sie das Skript auf Ihrem virtuellen Computer ausführen können, bevor Sie den Vorgang fortsetzen.
 
 1. Stellen Sie die Verbindung mit Ihrem virtuellen Computer mit SSH her. Ersetzen Sie *publicIpAddress* wie folgt durch die öffentliche IP-Adresse Ihres virtuellen Computers:
 

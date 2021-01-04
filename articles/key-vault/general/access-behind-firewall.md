@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 1ab5ae7bf9f1d13458e3bbeeec564fe642eb3303
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca5842fb268c20f8ae58eb5f683229c4ae3919f4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588727"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289165"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Zugreifen auf Azure Key Vault hinter einer Firewall
 
@@ -43,7 +43,7 @@ Schlüsseltresor-Clientanwendungen müssen zur Authentifizierung auf Azure Activ
 | Benutzer- oder Dienstprinzipal mit einem Geschäfts-, Schul- oder Unikonto bei Azure AD (z.B. user@contoso.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login.microsoftonline.us:443<br><br>**Azure Deutschland:**<br> login.microsoftonline.de:443 |
 | Benutzer- oder Dienstprinzipal mit einem Geschäfts-, Schul- oder Unikonto plus Active Directory-Verbunddienste (AD FS) oder einem anderen Verbundendpunkt (z.B. user@contoso.com) |Alle Endpunkte für ein Geschäfts-, Schul- oder Unikonto plus AD FS oder anderen Verbundendpunkten |
 
-Es sind noch andere komplexe Szenarien möglich. Weitere Informationen finden Sie unter [Authentifizierungsszenarien für Azure AD](../../active-directory/develop/authentication-scenarios.md), [Integrieren von Anwendungen in Azure Active Directory](../../active-directory/develop/active-directory-how-to-integrate.md) und [Active Directory-Authentifizierungsprotokolle](https://msdn.microsoft.com/library/azure/dn151124.aspx).  
+Es sind noch andere komplexe Szenarien möglich. Weitere Informationen finden Sie unter [Authentifizierungsszenarien für Azure AD](../../active-directory/develop/authentication-vs-authorization.md), [Integrieren von Anwendungen in Azure Active Directory](../../active-directory/develop/active-directory-how-to-integrate.md) und [Active Directory-Authentifizierungsprotokolle](/previous-versions/azure/dn151124(v=azure.100)).  
 
 ## <a name="key-vault-management"></a>Schlüsseltresorverwaltung
 
@@ -56,7 +56,7 @@ Für die Schlüsseltresorverwaltung (CRUD und Festlegen der Zugriffsrichtlinie) 
 
 ## <a name="key-vault-operations"></a>Schlüsseltresorvorgänge
 
-Für alle Schlüsseltresorvorgänge in Bezug auf die Objektverwaltung (Schlüssel und Geheimnisse) und Kryptografie benötigt der Schlüsseltresorclient Zugriff auf den Schlüsseltresor-Endpunkt. Das DNS-Suffix des Endpunkts unterscheidet sich je nach Standort des Schlüsseltresors. Der Schlüsseltresor-Endpunkt hat das folgende Format: *Tresorname*.*regionsspezifisches DNS-Suffix*. Dies ist in der Tabelle unten beschrieben.  
+Für alle Schlüsseltresorvorgänge in Bezug auf die Objektverwaltung (Schlüssel und Geheimnisse) und Kryptografie benötigt der Schlüsseltresorclient Zugriff auf den Schlüsseltresor-Endpunkt. Das DNS-Suffix des Endpunkts unterscheidet sich je nach Standort des Schlüsseltresors. Der Schlüsseltresor-Endpunkt hat das folgende Format: *Tresorname*. *regionsspezifisches DNS-Suffix*. Dies ist in der Tabelle unten beschrieben.  
 
 | Typ der Operation | Endpunkt:Port |
 | --- | --- |
@@ -74,4 +74,4 @@ Authentifizierung und Identität (Azure Active Directory) ist ein globaler Diens
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Besuchen Sie die [Microsoft-Seite mit häufig gestellten Fragen zu Azure Key Vault](https://docs.microsoft.com/answers/topics/azure-key-vault.html), wenn Sie Fragen zu Key Vault haben.
+Besuchen Sie die [Microsoft-Seite mit häufig gestellten Fragen zu Azure Key Vault](/answers/topics/azure-key-vault.html), wenn Sie Fragen zu Key Vault haben.

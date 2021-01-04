@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a530a6f656f37657a198af85d93d5404ac88d0e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f524bf6af66d44bc13b7c0957de7977968cbef28
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83651027"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427250"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrieren von Workloads unter Verwendung von Layer-2-Stretchingnetzwerken
 
@@ -118,7 +118,7 @@ Die folgenden Schritte zeigen, wie Sie die ID des logischen Routers der logische
 
 3. Öffnen Sie eine SSH-Sitzung mit der Verwaltungs-IP-Adresse der Edge-VM. Führen Sie den Befehl ```get logical-router``` mit dem Benutzernamen **admin** und dem Kennwort **CloudSimple 123!** aus.
 
-    ![Abrufen der Ausgabe des logischen Routers](media/l2vpn-fetch03.png)
+    ![Screenshot: Offene SSH-Sitzung](media/l2vpn-fetch03.png)
 
 4. Wenn der Eintrag „DR-Provider-LR“ nicht angezeigt wird, führen Sie die folgenden Schritte aus.
 
@@ -132,7 +132,7 @@ Die folgenden Schritte zeigen, wie Sie die ID des logischen Routers der logische
 
 7. Führen Sie den Befehl `get logical-router` erneut in der SSH-Sitzung auf der Edge-VM aus. Die UUID des logischen Routers „DR-Provider-LR“ wird angezeigt. Notieren Sie sich die UUID. Diese wird für das Konfigurieren des L2VPN benötigt.
 
-    ![Abrufen der Ausgabe des logischen Routers](media/l2vpn-fetch06.png)
+    ![Screenshot: UUID für den logischen Router](media/l2vpn-fetch06.png)
 
 ## <a name="fetch-the-logical-switch-id-needed-for-l2vpn"></a>Abrufen der ID des logischen Switches für L2VPN
 
@@ -430,7 +430,7 @@ Stellen Sie vor der Bereitstellung sicher, dass Ihre lokalen Firewallregeln eing
 
 2. Wechseln Sie zum Ordner mit allen extrahierten Dateien. Wählen Sie alle VMDK-Dateien aus („NSX-l2t-client-large.mf“ und „NSX-l2t-client-large.ovf“ für große Appliances bzw. „NSX-l2t-client-Xlarge.mf“ und „NSX-l2t-client-Xlarge.ovf“ für sehr große Appliances). Klicken Sie auf **Weiter**.
 
-    ![Auswählen der Vorlage](media/l2vpn-deploy-client02.png) ![Auswählen der Vorlage](media/l2vpn-deploy-client03.png)
+    ![Vorlage auswählen](media/l2vpn-deploy-client02.png) ![Screenshot: Ausgewählte VMDKS-Dateien](media/l2vpn-deploy-client03.png)
 
 3. Geben Sie einen Namen für den eigenständigen NSX-T-Client ein, und klicken Sie auf **Next** (Weiter).
 

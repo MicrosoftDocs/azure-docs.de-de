@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: f5b14ecf061e8f0c53dc1387d1581bc780d190b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec509cc04db87602b3e29230253d9b363a5e30d5
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850878"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353917"
 ---
 # <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Tutorial: Konfigurieren von Figma für die automatische Benutzerbereitstellung
 
@@ -57,19 +57,19 @@ Bevor Sie Figma für die automatische Benutzerbereitstellung mit Azure AD konfig
 
 2. Navigieren Sie zu **General > Update Log in Settings** (Allgemein > Einstellungen für die Anmeldung aktualisieren).
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/figma03.png" alt-text="Screenshot der Figma-Verwaltungskonsole. Ein Mandant mit dem Namen „AAD Scim Test“ wird angezeigt. Neben dem Mandanten ist ein Zahnradsymbol hervorgehoben." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma03.png" alt-text="Screenshot der Registerkarte „Allgemein“ der Figma-Verwaltungskonsole. Unter „Anmeldung und Bereitstellung“ ist die Einstellung „Einstellungen für die Anmeldung aktualisieren“ hervorgehoben." border="false":::
 
 3. Kopieren Sie die **Tenant ID** (Mandanten-ID). Dieser Wert wird verwendet, um die SCIM-Endpunkt-URL zu erstellen, die im Azure-Portal auf der Registerkarte „Bereitstellung“ Ihrer Figma-Anwendung im Feld **Mandanten-ID** eingegeben werden soll.
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/figma-tenantid.png" alt-text="Screenshot der Figma-Verwaltungskonsole. Ein Mandant mit dem Namen „AAD Scim Test“ wird angezeigt. Neben dem Mandanten ist ein Zahnradsymbol hervorgehoben." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma-tenantid.png" alt-text="Screenshot des Abschnitts „SAML SSO“ der Figma-Verwaltungskonsole. Die Bezeichnung „Mandanten-ID“ und der Link „Kopieren“ sind hervorgehoben" border="false":::
 
 4. Scrollen Sie nach unten, und klicken Sie auf **Generate API Token** (API-Token generieren).
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/token.png" alt-text="Screenshot der Figma-Verwaltungskonsole. Ein Mandant mit dem Namen „AAD Scim Test“ wird angezeigt. Neben dem Mandanten ist ein Zahnradsymbol hervorgehoben." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/token.png" alt-text="Screenshot des Abschnitts „SCIM-Bereitstellung“ der Figma-Verwaltungskonsole. Ein Link mit der Bezeichnung „API-Token generieren“ ist hervorgehoben." border="false":::
 
 5. Kopieren Sie den Wert von **API Token**. Dieser Wert wird im Azure-Portal auf der Registerkarte „Bereitstellung“ Ihrer Figma-Anwendung in das Feld **Geheimes Token** eingegeben. 
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/figma04.png" alt-text="Screenshot der Figma-Verwaltungskonsole. Ein Mandant mit dem Namen „AAD Scim Test“ wird angezeigt. Neben dem Mandanten ist ein Zahnradsymbol hervorgehoben." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma04.png" alt-text="Screenshot einer Seite der Figma-Verwaltungskonsole. Unter „Mein Bereitstellungs-API-Token“ ist ein Platzhalter für das Token hervorgehoben." border="false":::
 
 ## <a name="add-figma-from-the-gallery"></a>Hinzufügen von Figma aus dem Katalog
 
@@ -104,7 +104,7 @@ In diesem Abschnitt werden die Schritte erläutert, mit denen Sie den Azure AD-B
 
     ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
 
-2. Wählen Sie in der Anwendungsliste **Figma**aus.
+2. Wählen Sie in der Anwendungsliste **Figma** aus.
 
     ![Figma-Link in der Anwendungsliste](common/all-applications.png)
 

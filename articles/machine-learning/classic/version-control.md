@@ -8,16 +8,16 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 10/27/2016
-ms.openlocfilehash: 186289826273e85c9faa7f972b6f48d34e38416f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5c9e27e894541d71986fe929cbc5d6fde31bc18
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357368"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308812"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio-classic"></a>Application Lifecycle Management in Azure Machine Learning Studio (klassisch)
 
-**GILT FÜR:**  ![Gilt für ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic) ![Gilt nicht für ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**GILT FÜR:**  ![Gilt für ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic) ![Gilt nicht für ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Azure Machine Learning Studio (klassisch) ist ein Tool, mit dem Machine Learning-Experimente entwickelt und auf der Azure-Cloudplattform ausgeführt werden. Es ist vergleichbar mit der Zusammenführung der Visual Studio IDE mit skalierbaren Clouddiensten zu einer einzelnen Plattform. Sie können Standard-ALM-Vorgehensweisen (Application Lifecycle Management) von der Versionsverwaltung verschiedener Ressourcen bis hin zur automatischen Ausführung und Bereitstellung in Azure Machine Learning Studio (klassisch) integrieren. In diesem Artikel werden einige der Optionen und Ansätze behandelt.
@@ -46,7 +46,7 @@ Die Momentaufnahmen des Ausführungsverlaufs dienen zum Beibehalten einer unver�
 Die JSON-Datei ist eine Textdarstellung des Experimentdiagramms, die möglicherweise Verweise auf Ressourcen im Arbeitsbereich enthält, z.B. ein Dataset oder ein trainiertes Modell. Sie enthält keine serialisierte Version des Assets. Wenn Sie versuchen, das JSON-Dokument wieder in den Arbeitsbereich zu importieren, müssen die referenzierten Assets bereits mit den gleichen Asset-IDs vorhanden sein, auf die im Experiment verwiesen wird. Andernfalls können Sie nicht auf das importierte Experiment zugreifen.
 
 ## <a name="versioning-trained-model"></a>Versionsverwaltung trainierter Modelle
-Ein trainiertes Modell in Azure Machine Learning Studio (klassisch) wird in ein als „iLearner-Datei“ (`.iLearner`) bezeichnetes Format serialisiert und in dem Azure Blob Storage-Konto gespeichert, das mit dem Arbeitsbereich verknüpft ist. Eine Möglichkeit zum Abrufen einer Kopie der iLearner-Datei bietet die API zum erneuten Trainieren. [In diesem Artikel](/azure/machine-learning/studio/retrain-machine-learning-model) wird die Funktionsweise der API zum erneuten Trainieren erläutert. Allgemeine Schritte:
+Ein trainiertes Modell in Azure Machine Learning Studio (klassisch) wird in ein als „iLearner-Datei“ (`.iLearner`) bezeichnetes Format serialisiert und in dem Azure Blob Storage-Konto gespeichert, das mit dem Arbeitsbereich verknüpft ist. Eine Möglichkeit zum Abrufen einer Kopie der iLearner-Datei bietet die API zum erneuten Trainieren. [In diesem Artikel](./retrain-machine-learning-model.md) wird die Funktionsweise der API zum erneuten Trainieren erläutert. Allgemeine Schritte:
 
 1. Richten Sie Ihr Trainingsexperiment ein.
 2. Fügen Sie einen Webdienst-Ausgabeport dem Train Model-Modul oder dem Modul hinzu, das das trainierte Modell erzeugt, z.B. Tune Model Hyperparameter oder Create R Model.
@@ -78,7 +78,7 @@ Im Lauf der Zeit haben Sie ggf. im selben Webdienst zahlreiche Endpunkte erstell
 Sie können auch viele identische Webdienst-Endpunkte erstellen und dann verschiedene Versionen der iLearner-Datei mit dem Endpunkt patchen, um einen ähnlichen Effekt zu erzielen. In diesem [Artikel](create-models-and-endpoints-with-powershell.md) wird ausführlicher erläutert, wie Sie dies durchführen können.
 
 ### <a name="new-web-service"></a>Neuer Webdienst
-Wenn Sie einen neuen Webdienst auf Azure Resource Manager-Basis erstellen, ist das Endpunktkonstrukt nicht mehr verfügbar. Sie können stattdessen anhand Ihres Vorhersageexperiments mit dem PowerShell-Cmdlet [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) oder von einem Webdienst auf Basis des Resource Manager aus mit dem PowerShell-Cmdlet [*Export-AzMlWebservice*](https://docs.microsoft.com/powershell/module/az.machinelearning/export-azmlwebservice) WSD-Dateien (Web Service Definition, Webdienstdefinition) im JSON-Format generieren.
+Wenn Sie einen neuen Webdienst auf Azure Resource Manager-Basis erstellen, ist das Endpunktkonstrukt nicht mehr verfügbar. Sie können stattdessen anhand Ihres Vorhersageexperiments mit dem PowerShell-Cmdlet [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) oder von einem Webdienst auf Basis des Resource Manager aus mit dem PowerShell-Cmdlet [*Export-AzMlWebservice*](/powershell/module/az.machinelearning/export-azmlwebservice) WSD-Dateien (Web Service Definition, Webdienstdefinition) im JSON-Format generieren.
 
 Nachdem Sie die WSD-Datei exportiert haben und ihre Version verwalten, können Sie auch die WSD in einem anderen Webdienstplan in einer anderen Azure-Region als neuen Webdienst bereitstellen. Achten Sie nur darauf, dass Sie sowohl die richtige Speicherkontokonfiguration als auch die neue Webdienstplan-ID angeben. Um in verschiedenen iLearner-Dateien zu patchen, können Sie die WSD-Datei ändern und den Speicherortverweis des trainierten Modells aktualisieren und als neuen Webdienst bereitstellen.
 

@@ -4,13 +4,13 @@ description: Erfahren Sie mehr über das optionale Betriebszeit-SLA-Angebot für
 services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.custom: references_regions
-ms.openlocfilehash: 6523e16bfe3bf0592b78da544d7d52dc3d969af4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 51430a37f34600d3191a646df7c1890b6d94f481
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88749124"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033016"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Azure Kubernetes Service (AKS): Betriebszeit-SLA
 
@@ -27,11 +27,7 @@ Kunden können nach wie vor unbegrenzt kostenlose Cluster mit einem Servicelevel
 
 Die Uptime-SLA ist in öffentlichen Regionen und Azure Government-Regionen mit [AKS-Unterstützung](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service) verfügbar.
 
-* Azure China 21Vianet wird derzeit nicht unterstützt.
-
 ## <a name="limitations"></a>Einschränkungen
-
-* Private Cluster werden zurzeit nicht unterstützt.
 
 ## <a name="sla-terms-and-conditions"></a>SLA-Geschäftsbedingungen
 
@@ -39,7 +35,7 @@ Die Betriebszeit-SLA ist ein kostenpflichtiges Feature und wird pro Cluster akti
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
-* Installieren Sie mindestens die Version 2.8.0 der [Azure-Befehlszeilenschnittstelle](/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Installieren Sie mindestens die Version 2.8.0 der [Azure-Befehlszeilenschnittstelle](/cli/azure/install-azure-cli).
 
 ## <a name="creating-a-new-cluster-with-uptime-sla"></a>Erstellen eines neuen Clusters mit Betriebszeit-SLA
 
@@ -136,9 +132,9 @@ Konfigurieren Sie den Cluster so, dass der [ausgehende Datenverkehr eingeschrän
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [faq]: ./faq.md
 [availability-zones]: ./availability-zones.md
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
+[az-aks-create]: /cli/azure/aks?#az-aks-create
 [limit-egress-traffic]: ./limit-egress-traffic.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-update
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool?#az-aks-nodepool-update
 [az-group-delete]: /cli/azure/group#az-group-delete

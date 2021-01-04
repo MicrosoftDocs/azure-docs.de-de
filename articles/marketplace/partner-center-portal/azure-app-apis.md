@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 51de1ab26318a02381ed95f00eadcc4e892f2f57
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9863ed24da9e427f885a4794bda7e103b0c1cc8e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371629"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455444"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>Partner Center-Übermittlungs-API zum Integrieren von Azure-Apps im Partner Center
 
-Verwenden Sie die *Partner Center-Übermittlungs-API* , um Azure-Angebote programmgesteuert abzufragen, zu erstellen und zu veröffentlichen.  Diese API ist nützlich, wenn Ihr Konto viele Angebote verwaltet und Sie den Übermittlungsvorgang für diese Angebote automatisieren und optimieren möchten.
+Verwenden Sie die *Partner Center-Übermittlungs-API*, um Azure-Angebote programmgesteuert abzufragen, zu erstellen und zu veröffentlichen.  Diese API ist nützlich, wenn Ihr Konto viele Angebote verwaltet und Sie den Übermittlungsvorgang für diese Angebote automatisieren und optimieren möchten.
 
 ## <a name="api-prerequisites"></a>API-Voraussetzungen
 
@@ -29,9 +29,9 @@ Es gibt einige programmgesteuerte Ressourcen, die Sie benötigen, um die Partner
 
 Stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt sind, bevor Sie mit dem Schreiben von Code zum Aufrufen der Partner Center-Übermittlungs-API beginnen.
 
-- Sie (oder Ihre Organisation) müssen über ein Azure AD-Verzeichnis verfügen, und Ihnen müssen die Berechtigungen [globaler Administrator](../../active-directory/roles/permissions-reference.md) für das Verzeichnis gewährt worden sein. Wenn Sie Microsoft 365 oder andere Unternehmensdienste von Microsoft verwenden, verfügen Sie bereits über ein Azure AD-Verzeichnis. Andernfalls können Sie ohne zusätzliche Kosten [eine neue Azure AD-Instanz in Partner Center erstellen](https://docs.microsoft.com/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account).
+- Sie (oder Ihre Organisation) müssen über ein Azure AD-Verzeichnis verfügen, und Ihnen müssen die Berechtigungen [globaler Administrator](../../active-directory/roles/permissions-reference.md) für das Verzeichnis gewährt worden sein. Wenn Sie Microsoft 365 oder andere Unternehmensdienste von Microsoft verwenden, verfügen Sie bereits über ein Azure AD-Verzeichnis. Andernfalls können Sie ohne zusätzliche Kosten [eine neue Azure AD-Instanz in Partner Center erstellen](/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account).
 
-- Sie müssen [Ihrem Partner Center-Konto eine Azure AD-Anwendung zuordnen](https://docs.microsoft.com/windows/uwp/monetize/create-and-manage-submissions-using-windows-store-services#associate-an-azure-ad-application-with-your-windows-partner-center-account) und Ihre Mandanten-ID, die Client-ID und den Schlüssel abrufen. Sie benötigen diese Werte, um ein Azure AD-Zugriffstoken zu erhalten, das Sie in Aufrufen der Microsoft Store-Übermittlungs-API verwenden.
+- Sie müssen [Ihrem Partner Center-Konto eine Azure AD-Anwendung zuordnen](/windows/uwp/monetize/create-and-manage-submissions-using-windows-store-services#associate-an-azure-ad-application-with-your-windows-partner-center-account) und Ihre Mandanten-ID, die Client-ID und den Schlüssel abrufen. Sie benötigen diese Werte, um ein Azure AD-Zugriffstoken zu erhalten, das Sie in Aufrufen der Microsoft Store-Übermittlungs-API verwenden.
 
 #### <a name="how-to-associate-an-azure-ad-application-with-your-partner-center-account"></a>Zuordnen einer anderen Azure AD-Anwendung zu Ihrem Partner Center-Konto
 
@@ -40,16 +40,16 @@ Um die Microsoft Store-Übermittlungs-API zu verwenden, müssen Sie Ihrem Partne
 >[!Note]
 >Sie müssen diese Aufgabe nur einmal ausführen. Nachdem Sie über die Mandanten-ID, die Client-ID und den Schlüssel verfügen, können Sie diese jederzeit wiederverwenden, wenn Sie ein neues Azure AD-Zugriffstoken erstellen müssen.
 
-1. Verknüpfen Sie in Partner Center [das Partner Center-Konto Ihres Unternehmens mit dem Azure AD-Verzeichnis](https://docs.microsoft.com/windows/uwp/publish/associate-azure-ad-with-partner-center) Ihrer Organisation.
-1. Fügen Sie als Nächstes auf der Seite **Benutzer** im Abschnitt **Kontoeinstellungen** von Partner Center die [Azure AD-Anwendung](https://docs.microsoft.com/windows/uwp/publish/add-users-groups-and-azure-ad-applications#add-azure-ad-applications-to-your-partner-center-account) hinzu, die die App oder den Dienst darstellt, mit der bzw. dem Sie auf die Übermittlungen Ihres Partner Center-Kontos zugreifen. Stellen Sie sicher, dass Sie dieser Anwendung die Rolle **Manager** zuweisen. Wenn die Anwendung noch nicht in Ihrem Azure AD-Verzeichnis vorhanden ist, können Sie [in Partner Center eine neue Azure AD-Anwendung erstellen](https://docs.microsoft.com/windows/uwp/publish/add-users-groups-and-azure-ad-applications#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account).
+1. Verknüpfen Sie in Partner Center [das Partner Center-Konto Ihres Unternehmens mit dem Azure AD-Verzeichnis](/windows/uwp/publish/associate-azure-ad-with-partner-center) Ihrer Organisation.
+1. Fügen Sie als Nächstes auf der Seite **Benutzer** im Abschnitt **Kontoeinstellungen** von Partner Center die [Azure AD-Anwendung](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#add-azure-ad-applications-to-your-partner-center-account) hinzu, die die App oder den Dienst darstellt, mit der bzw. dem Sie auf die Übermittlungen Ihres Partner Center-Kontos zugreifen. Stellen Sie sicher, dass Sie dieser Anwendung die Rolle **Manager** zuweisen. Wenn die Anwendung noch nicht in Ihrem Azure AD-Verzeichnis vorhanden ist, können Sie [in Partner Center eine neue Azure AD-Anwendung erstellen](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account).
 1. Kehren Sie zur Seite **Benutzer** zurück, klicken Sie auf den Namen Ihrer Azure AD-Anwendung, um die Anwendungseinstellungen zu öffnen, und schreiben Sie die Werte **Mandanten-ID** und **Client-ID** auf.
-1. Klicken Sie auf **Neuen Schlüssel hinzufügen** . Notieren Sie auf dem folgenden Bildschirm den Wert von **Schlüssel** . Nachdem Sie diese Seite verlassen haben, können Sie nicht mehr auf diese Informationen zugreifen. Weitere Informationen finden Sie unter [Verwalten von Schlüsseln für eine Azure AD-Anwendung](https://docs.microsoft.com/windows/uwp/publish/add-users-groups-and-azure-ad-applications#manage-keys).
+1. Klicken Sie auf **Neuen Schlüssel hinzufügen**. Notieren Sie auf dem folgenden Bildschirm den Wert von **Schlüssel**. Nachdem Sie diese Seite verlassen haben, können Sie nicht mehr auf diese Informationen zugreifen. Weitere Informationen finden Sie unter [Verwalten von Schlüsseln für eine Azure AD-Anwendung](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#manage-keys).
 
 ### <a name="step-2-obtain-an-azure-ad-access-token"></a>Schritt 2: Abrufen eines Azure AD-Zugriffstokens
 
-Bevor Sie eine der Methoden in der Partner Center-Übermittlungs-API aufrufen, müssen Sie zunächst ein Azure AD-Zugriffstoken abrufen, das Sie an den **Authorization** -Header jeder Methode in der API übergeben. Nachdem Sie ein Zugriffstoken erhalten haben, haben Sie 60 Minuten Zeit, es zu verwenden, bevor es abläuft. Nach dem Ablauf können Sie das Token aktualisieren, damit Sie es in zukünftigen Aufrufen der API weiterhin verwenden können.
+Bevor Sie eine der Methoden in der Partner Center-Übermittlungs-API aufrufen, müssen Sie zunächst ein Azure AD-Zugriffstoken abrufen, das Sie an den **Authorization**-Header jeder Methode in der API übergeben. Nachdem Sie ein Zugriffstoken erhalten haben, haben Sie 60 Minuten Zeit, es zu verwenden, bevor es abläuft. Nach dem Ablauf können Sie das Token aktualisieren, damit Sie es in zukünftigen Aufrufen der API weiterhin verwenden können.
 
-Um das Zugriffstoken zu erhalten, befolgen Sie die Anweisungen in [Verwenden von Clientanmeldeinformationen für Dienst-zu-Dienst-Aufrufe](https://azure.microsoft.com/documentation/articles/active-directory-protocols-oauth-service-to-service/), um eine `HTTP POST`-Anweisung an den Endpunkt `https://login.microsoftonline.com/<tenant_id>/oauth2/token` zu senden. Hier ist eine Beispielanforderung:
+Um das Zugriffstoken zu erhalten, befolgen Sie die Anweisungen in [Verwenden von Clientanmeldeinformationen für Dienst-zu-Dienst-Aufrufe](../../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md), um eine `HTTP POST`-Anweisung an den Endpunkt `https://login.microsoftonline.com/<tenant_id>/oauth2/token` zu senden. Hier ist eine Beispielanforderung:
 
 JSONCopy
 ```Json
@@ -73,5 +73,5 @@ https://apidocs.microsoft.com/services/partneringestion/
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Erfahren Sie mehr über das [Erstellen einer technischen Azure-VM-Ressource](create-azure-container-technical-assets.md).
-* Lesen Sie mehr über das [Erstellen eines Azure-Containerangebots](create-azure-container-offer.md).
+* Erfahren Sie mehr über das [Erstellen einer technischen Azure-VM-Ressource](../create-azure-container-technical-assets.md).
+* Lesen Sie mehr über das [Erstellen eines Azure-Containerangebots](../create-azure-container-offer.md).

@@ -3,12 +3,12 @@ title: Authentifizieren einer Anwendung für den Zugriff auf Azure Service Bus-E
 description: Dieser Artikel enthält Informationen zur Authentifizierung einer Anwendung mit Azure Active Directory, um auf Azure Service Bus-Entitäten (Warteschlangen, Themen, usw.) zuzugreifen.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: b12f2f294a66159a7035240c361ab93f9f84718e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4e19c0ab26d491ba0b95159e274383431aefaee
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88064824"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518227"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Authentifizieren und Autorisieren einer Anwendung mit Azure Active Directory für den Zugriff auf Azure Service Bus-Entitäten
 Azure Service Bus unterstützt die Verwendung von Azure Active Directory (Azure AD), um Anforderungen an Service Bus-Entitäten (Warteschlangen, Themen, Abonnements oder Filter) zu autorisieren. Mit Azure AD können Sie die rollenbasierte Zugriffssteuerung von Azure (Azure RBAC) zum Gewähren von Berechtigungen für einen Sicherheitsprinzipal verwenden, bei dem es sich um einen Benutzer, eine Gruppe oder einen Anwendungsdienstprinzipal handeln kann. Weitere Informationen zu Rollen und Rollenzuweisungen finden Sie unter [Grundlegendes zu den verschiedenen Rollen](../role-based-access-control/overview.md).
@@ -43,13 +43,13 @@ Bevor Sie einem Sicherheitsprinzipal eine Azure-Rolle zuweisen, legen Sie den Zu
 
 In der folgenden Liste werden die Ebenen beschrieben, auf denen Sie den Zugriff auf Service Bus-Ressourcen einschränken können, beginnend mit dem kleinstmöglichen Bereich:
 
-- **Warteschlange**, **Thema** oder **Abonnement**: Die Rollenzuweisung gilt für die jeweilige Service Bus-Entität. Derzeit wird das Zuweisen von Benutzern/Gruppen/verwalteten Identitäten zu Service Bus-Azure-Rollen auf Abonnementebene vom Azure-Portal nicht unterstützt. 
+- **Warteschlange** , **Thema** oder **Abonnement** : Die Rollenzuweisung gilt für die jeweilige Service Bus-Entität. Derzeit wird das Zuweisen von Benutzern/Gruppen/verwalteten Identitäten zu Service Bus-Azure-Rollen auf Abonnementebene vom Azure-Portal nicht unterstützt. 
 - **Service Bus-Namespace:** Die Rollenzuweisung umfasst die gesamte Topologie von Service Bus unter dem Namespace und für die zugeordnete Consumergruppe.
-- **Ressourcengruppe**: Die Rollenzuweisung gilt für alle Service Bus-Ressourcen unter der Ressourcengruppe.
-- **Abonnement**: Die Rollenzuweisung gilt für alle Service Bus-Ressourcen in allen Ressourcengruppen im Abonnement.
+- **Ressourcengruppe** : Die Rollenzuweisung gilt für alle Service Bus-Ressourcen unter der Ressourcengruppe.
+- **Abonnement** : Die Rollenzuweisung gilt für alle Service Bus-Ressourcen in allen Ressourcengruppen im Abonnement.
 
 > [!NOTE]
-> Denken Sie daran, dass die Weitergabe von Azure-Rollenzuweisungen bis zu fünf Minuten dauern kann. 
+> Denken Sie daran, dass die Weitergabe von Azure-Rollenzuweisungen bis zu fünf Minuten dauern kann. 
 
 Weitere Informationen dazu, wie integrierte Rollen definiert sind, finden Sie unter [Grundlegendes zu Rollendefinitionen](../role-based-access-control/role-definitions.md#management-and-data-operations). Informationen zum Erstellen von benutzerdefinierten Azure-Rollen finden Sie unter [Benutzerdefinierte Azure-Rollen](../role-based-access-control/custom-roles.md).
 
@@ -71,7 +71,7 @@ Nachdem Sie den gewünschten Bereich für eine Rollenzuweisung festgelegt haben,
 1. Führen Sie auf der Seite **Rollenzuweisung hinzufügen** die folgenden Schritte aus:
     1. Wählen Sie die **Service Bus-Rolle** aus, die Sie zuweisen möchten. 
     1. Suchen Sie nach dem **Sicherheitsprinzipal** (Benutzer, Gruppe, Dienstprinzipal), dem Sie die Rolle zuweisen möchten.
-    1. Klicken Sie auf **Speichern**, um die Rollenzuweisung zu speichern. 
+    1. Klicken Sie auf **Speichern** , um die Rollenzuweisung zu speichern. 
 
         ![Zuweisen einer Rolle zu einem Benutzer](./media/authenticate-application/assign-role-to-user.png)
     4. Die Identität, der Sie die Rolle zugewiesen haben, wird unter dieser Rolle angezeigt. Die folgende Abbildung zeigt, dass sich „Azure-users“ in der Azure Service Bus-Rolle „Datenbesitzer“ befindet. 
@@ -131,9 +131,9 @@ Sobald Sie Ihre Anwendung registriert und ihr die Berechtigung zum Senden/Empfan
 Eine Liste der Szenarien, für die das Abrufen von Token unterstützt wird, finden Sie im GitHub-Repository [Microsoft Authentication Library (MSAL) for .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) im Bereich [Scenarios](https://aka.ms/msal-net-scenarios).
 
 ## <a name="sample-on-github"></a>Beispiel auf GitHub
-Auf GitHub ist das folgende Beispiele verfügbar: [Rollenbasierte Zugriffssteuerung für Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl). 
+Auf GitHub ist das folgende Beispiele verfügbar: [Rollenbasierte Zugriffssteuerung von Azure für Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl) 
 
-Verwenden Sie die Option für die **Anmeldung mit dem geheimen Clientschlüssel**, nicht die Option für die **interaktive Benutzeranmeldung**. Wenn Sie die Option für den geheimen Clientschlüssel verwenden, wird kein Popupfenster angezeigt. Die Anwendung nutzt die Mandanten-ID und die App-ID für die Authentifizierung. 
+Verwenden Sie die Option für die **Anmeldung mit dem geheimen Clientschlüssel** , nicht die Option für die **interaktive Benutzeranmeldung**. Wenn Sie die Option für den geheimen Clientschlüssel verwenden, wird kein Popupfenster angezeigt. Die Anwendung nutzt die Mandanten-ID und die App-ID für die Authentifizierung. 
 
 ### <a name="run-the-sample"></a>Ausführen des Beispiels
 

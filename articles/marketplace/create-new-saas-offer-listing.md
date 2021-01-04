@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 6884b0c5d351d5cca160a1e00e409397f21311ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a47ba2025bcaba542d2dbec0c89643e0900f233
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380484"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746147"
 ---
 # <a name="how-to-configure-your-saas-offer-listing-details"></a>Konfigurieren von Angebotsdetails für Ihr SaaS-Angebot
 
@@ -24,7 +24,7 @@ Die Informationen, die Sie auf der Seite **Angebotsliste** für Ihr SaaS-Angebot
 
 ## <a name="marketplace-details"></a>Marketplace-Details
 
-Führen Sie auf der Seite **Angebotsliste** unter **Marketplace-Details** die folgenden Schritte aus. Weitere Informationen zu diesen erforderlichen Details finden Sie unter [Angebotslistendetails](plan-saas-offer.md#offer-listing-details).
+Führen Sie auf der Seite **Angebotsliste** unter **Marketplace-Details** die folgenden Schritte aus. Weitere Informationen zu diesen erforderlichen Details finden Sie unter [Angebotslistendetails](plan-azure-application-offer.md#offer-listing-details).
 
 1. Das Feld **Name** ist bereits mit dem Namen ausgefüllt, den Sie zuvor im Dialogfeld **Neues Angebot** eingegeben haben. Sie können den Namen jederzeit ändern.
 1. Geben Sie im Feld **Zusammenfassung der Suchergebnisse** bis zu 50 Zeichen Text ein. Diese Zusammenfassung wird in den Suchergebnissen für Marketplace-Angebote verwendet.
@@ -33,7 +33,9 @@ Führen Sie auf der Seite **Angebotsliste** unter **Marketplace-Details** die fo
 1. (Optional:) Geben Sie in den Feldern für **Suchbegriffe** bis zu drei Suchbegriffe ein, mit denen Kunden im kommerziellen Marketplace nach Ihrem Angebot suchen können. Sie müssen den **Namen** und die **Beschreibung** des Angebots nicht einschließen: Dieser Text wird automatisch in die Suche aufgenommen.
 1. Geben Sie im Feld **Link zur Datenschutzrichtlinie** einen Link (beginnend mit „https“) zur Datenschutzrichtlinie Ihres Unternehmens ein. Sie müssen sicherzustellen, dass die App die Datenschutzgesetze und -bestimmungen erfüllt, und Sie müssen eine gültige Datenschutzrichtlinie bereitstellen.
 
-## <a name="add-links-to-supplemental-online-documentation-optional"></a>Hinzufügen von Links zu ergänzender Onlinedokumentation (optional)
+## <a name="add-supplemental-links-optional"></a>Hinzufügen ergänzender Links (optional)
+
+Führen Sie diese Schritte aus, um Links zu ergänzender Onlinedokumentation hinzuzufügen.
 
 1. Um optionale zusätzliche Onlinedokumente zu Ihrer App oder zu zugehörigen Diensten hinzuzufügen, wählen Sie unter **Nützliche Links** die Option **Link hinzufügen** aus.
 1. Geben Sie in den angezeigten Feldern einen Titel (bis zu 255 Zeichen) und den Link (beginnend mit „https“) zum Onlinedokument ein.
@@ -69,14 +71,14 @@ Sie müssen mindestens ein und höchsten drei Marketingdokumente für Ihr Angebo
 
 ### <a name="add-logos"></a>Hinzufügen von Logos
 
-Laden Sie unter **Logos**ein **großes** Logo im PNG-Format zwischen 216 × 216 und 350 × 350 Pixel hoch. Partner Center erstellt automatisch Logos in den Formaten **Klein** (48 × 48) und **Mittel** (90 × 90), die Sie später auf Wunsch ersetzen können.
+Laden Sie unter **Logos** ein **großes** Logo im PNG-Format zwischen 216 × 216 und 350 × 350 Pixel hoch. Partner Center erstellt automatisch Logos in den Formaten **Klein** (48 × 48) und **Mittel** (90 × 90), die Sie später auf Wunsch ersetzen können.
 
 Alle drei Logogrößen werden an verschiedenen Stellen in den Onlineshops verwendet.
 
 - Das **mittelgroße** Logo wird angezeigt, wenn Sie eine neue Ressource in Microsoft Azure erstellen.
 - Das **große** Logo wird auf der Seite Ihres Angebots sowie im Azure Marketplace und in Microsoft AppSource angezeigt.
 - Das **kleine** Logo wird in den Suchergebnissen des Azure Marketplace sowie auf der Hauptseite und den Suchergebnisseiten von Microsoft AppSource aufgeführt.
-   
+
 ### <a name="add-screenshots"></a>Hinzufügen von Screenshots
 
 Sie müssen mindestens einen und höchsten fünf Screenshots hinzufügen, die Ihr Angebot veranschaulichen. Alle Bilder müssen 1.280 × 720 Pixel groß sein und im PNG-Format vorliegen.
@@ -96,11 +98,11 @@ Sie können Links zu YouTube- oder Vimeo-Videos hinzufügen, in denen Ihr Angebo
 4. Wiederholen Sie die Schritte 1 bis 3, um ein weiteres Video hinzuzufügen.
 
 > [!TIP]
-> Wenn beim Hochladen von Dateien ein Problem auftritt, vergewissern Sie sich, dass das lokale Netzwerk den von Partner Center verwendeten Dienst [ **https://upload.xboxlive.com** ](https://upload.xboxlive.com/) nicht blockiert.
+> Wenn beim Hochladen von Dateien ein Problem auftritt, vergewissern Sie sich, dass das lokale Netzwerk den von Partner Center verwendeten Dienst [ **https://upload.xboxlive.com**](https://upload.xboxlive.com/) nicht blockiert.
 
 Wählen Sie **Entwurf speichern** aus, bevor Sie mit der nächsten Registerkarte fortfahren: Vorschauzielgruppe
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Wenn Sie Ihr Angebot über Microsoft verkaufen, lesen Sie [Hinzufügen einer Vorschauzielgruppe für Ihr SaaS-Angebot](create-new-saas-offer-preview.md). 
-- Lesen Sie andernfalls [Vermarkten Ihres SaaS-Angebots](create-new-saas-offer-marketing.md).
+- Lesen Sie andernfalls [Verkaufen Ihres SaaS-Angebots](create-new-saas-offer-marketing.md).

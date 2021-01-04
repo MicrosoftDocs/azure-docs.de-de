@@ -8,22 +8,22 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: 4626d40acc9ae84e7fcc5da16add0de7ffe6ffcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79314db13531f1fcf518c7931d4a1aa9158a172b
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84807898"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397194"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Erneutes Generieren von HTTP-Anforderungs- und Antwortheadern mit Azure Application Gateway – Azure-Portal
 
-In diesem Artikel erfahren Sie, wie Sie über das Azure-Portal eine [Application Gateway v2-SKU](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>)-Instanz konfigurieren, um die HTTP-Header in Anforderungen und Antworten erneut zu generieren.
+In diesem Artikel erfahren Sie, wie Sie über das Azure-Portal eine [Application Gateway v2-SKU](./application-gateway-autoscaling-zone-redundant.md)-Instanz konfigurieren, um die HTTP-Header in Anforderungen und Antworten erneut zu generieren.
 
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
-Sie benötigen eine Application Gateway v2-SKU-Instanz, um die Schritte in diesem Artikel durchzuführen. Das erneute Generieren von Headern wird in der v1-SKU nicht unterstützt. Wenn Sie nicht über die v2-SKU verfügen, erstellen Sie eine [Application Gateway v2-SKU](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps)-Instanz, bevor Sie beginnen.
+Sie benötigen eine Application Gateway v2-SKU-Instanz, um die Schritte in diesem Artikel durchzuführen. Das erneute Generieren von Headern wird in der v1-SKU nicht unterstützt. Wenn Sie nicht über die v2-SKU verfügen, erstellen Sie eine [Application Gateway v2-SKU](./tutorial-autoscale-ps.md)-Instanz, bevor Sie beginnen.
 
 ## <a name="create-required-objects"></a>Erstellen der erforderlichen Objekte
 
@@ -31,17 +31,17 @@ Um das erneute Generieren von HTTP-Headern zu konfigurieren, müssen Sie diese S
 
 1. Erstellen Sie die Objekte, die zum erneuten Generieren von HTTP-Headern erforderlich sind:
 
-   - **Aktion für das erneute Generieren**: Dient dazu, die Felder für Anforderung und Anforderungsheader, die Sie erneut generieren möchten, und den neuen Wert für die Header anzugeben. Sie können eine oder mehrere Bedingungen für das erneute Generieren mit einer Aktion für das erneute Generieren verknüpfen.
+   - **Aktion für das erneute Generieren** : Dient dazu, die Felder für Anforderung und Anforderungsheader, die Sie erneut generieren möchten, und den neuen Wert für die Header anzugeben. Sie können eine oder mehrere Bedingungen für das erneute Generieren mit einer Aktion für das erneute Generieren verknüpfen.
 
-   - **Bedingung für das erneute Generieren**: Eine optionale Konfiguration. Bedingungen für das erneute Generieren werten den Inhalt von HTTP(S)-Anforderungen und -Antworten aus. Die Aktion für das erneute Generieren wird ausgeführt, wenn die HTTP(S)-Anforderung oder -Antwort die Bedingung für das erneute Generieren erfüllt.
+   - **Bedingung für das erneute Generieren** : Eine optionale Konfiguration. Bedingungen für das erneute Generieren werten den Inhalt von HTTP(S)-Anforderungen und -Antworten aus. Die Aktion für das erneute Generieren wird ausgeführt, wenn die HTTP(S)-Anforderung oder -Antwort die Bedingung für das erneute Generieren erfüllt.
 
      Wenn Sie der Aktion mehr als eine Bedingung zuordnen, erfolgt die Aktion nur, wenn alle Bedingungen erfüllt sind. Das heißt also, dass der Vorgang ein logischer UND-Vorgang ist.
 
-   - **Regel zum erneuten Generieren**: Enthält mehrere Kombinationen aus Aktion und Bedingung für das erneute Generieren.
+   - **Regel zum erneuten Generieren** : Enthält mehrere Kombinationen aus Aktion und Bedingung für das erneute Generieren.
 
-   - **Regelsequenz**: Hilft, die Reihenfolge zu bestimmen, in der die Regeln zum erneuten Generieren ausgeführt werden. Diese Konfiguration ist hilfreich, wenn Sie mehrere Regeln zum erneuten Generieren in einem Satz zum erneuten Generieren haben. Eine Regel zum erneuten Generieren, die eine niedrigere Regelsequenz besitzt, wird zuerst ausgeführt. Wenn Sie denselben Regelsequenzwert zwei Regeln zum erneuten Generieren zuweisen, ist die Reihenfolge der Ausführung unbestimmt.
+   - **Regelsequenz** : Hilft, die Reihenfolge zu bestimmen, in der die Regeln zum erneuten Generieren ausgeführt werden. Diese Konfiguration ist hilfreich, wenn Sie mehrere Regeln zum erneuten Generieren in einem Satz zum erneuten Generieren haben. Eine Regel zum erneuten Generieren, die eine niedrigere Regelsequenz besitzt, wird zuerst ausgeführt. Wenn Sie denselben Regelsequenzwert zwei Regeln zum erneuten Generieren zuweisen, ist die Reihenfolge der Ausführung unbestimmt.
 
-   - **Satz zum erneuten Generieren**: Enthält mehrere Regeln zum erneuten Generieren, die einer Anforderungsroutingregel zugeordnet werden.
+   - **Satz zum erneuten Generieren** : Enthält mehrere Regeln zum erneuten Generieren, die einer Anforderungsroutingregel zugeordnet werden.
 
 2. Fügen Sie den Satz für das erneute Generieren an eine Routingregel an. Die Konfiguration für das erneute Generieren wird dem Quelllistener über die Routingregel angefügt. Bei Verwendung einer einfachen Routingregel wird die Konfiguration der erneuten Generierung eines Headers einem Quelllistener zugeordnet und fungiert als erneute Generierung eines globalen Headers. Wenn eine pfadbasierte Routingregel verwendet wird, wird die Konfiguration der erneuten Generierung eines Headers in der URL-Pfadzuordnung definiert. In diesem Fall gilt sie nur für den bestimmten Pfadbereich einer Site.
 
@@ -83,7 +83,7 @@ In diesem Beispiel werden wir eine Umleitungs-URL ändern, indem der Adressheade
 
 6. In diesem Beispiel wird der Adressheader nur dann erneut generiert, wenn er einen Verweis auf „azurewebsites.net“ enthält. Fügen Sie dazu eine Bedingung hinzu, um zu prüfen, ob der Adressheader in der Antwort „azurewebsites.net“ enthält:
 
-   - Wählen Sie auf **Bedingung hinzufügen** und dann das Feld aus, das die **If**-Anweisungen enthält, um es zu erweitern.
+   - Wählen Sie auf **Bedingung hinzufügen** und dann das Feld aus, das die **If** -Anweisungen enthält, um es zu erweitern.
 
      ![Bedingung hinzufügen](media/rewrite-http-headers-portal/add-condition.png)
 
@@ -131,4 +131,4 @@ In diesem Beispiel werden wir eine Umleitungs-URL ändern, indem der Adressheade
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zum Einrichten einiger gängiger Anwendungsfälle finden Sie unter [Allgemeine Szenarien zum erneuten Generieren von Headern](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
+Weitere Informationen zum Einrichten einiger gängiger Anwendungsfälle finden Sie unter [Allgemeine Szenarien zum erneuten Generieren von Headern](./rewrite-http-headers.md).

@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 6514b149b057d690d37551bd0489c63852addb1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8afedec224fed55f617340af512485726ff44326
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207499"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792938"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Datenübertragung für große Datasets mit geringer oder keiner Netzwerkbandbreite
  
@@ -38,8 +38,8 @@ Um zu überprüfen, ob ein physisches Gerät die richtige Option ist, verwenden 
 
 Die in diesem Szenario verfügbaren Optionen sind Geräte für Azure Data Box-Offlineübertragung oder Azure Import/Export.
 
-- **Azure Data Box-Produktfamilie für Offlineübertragungen**: Verwenden Sie von Microsoft bereitgestellte Data Box-Geräte, um große Datenmengen in Azure zu übertragen, wenn Sie aufgrund von Zeit, Netzwerkverfügbarkeit oder Kosten eingeschränkt sind. Kopieren Sie lokale Daten mithilfe von Tools wie Robocopy. Abhängig von der für die Übertragung vorgesehenen Datengröße können Sie zwischen Data Box Disk, Data Box oder Data Box Heavy wählen.
-- **Azure Import/Export**: Verwenden Sie den Azure Import/Export-Dienst, indem Sie Ihre eigenen Festplattenlaufwerke versenden, um große Datenmengen sicher in Azure Blob Storage und Azure Files zu importieren. Sie können diesen Dienst auch zum Übertragen von Daten aus Azure Blob Storage auf Festplattenlaufwerke und zum Versand an lokale Standorte nutzen.
+- **Azure Data Box-Produktfamilie für Offlineübertragungen** : Verwenden Sie von Microsoft bereitgestellte Data Box-Geräte, um große Datenmengen in Azure zu übertragen, wenn Sie aufgrund von Zeit, Netzwerkverfügbarkeit oder Kosten eingeschränkt sind. Kopieren Sie lokale Daten mithilfe von Tools wie Robocopy. Abhängig von der für die Übertragung vorgesehenen Datengröße können Sie zwischen Data Box Disk, Data Box oder Data Box Heavy wählen.
+- **Azure Import/Export** : Verwenden Sie den Azure Import/Export-Dienst, indem Sie Ihre eigenen Festplattenlaufwerke versenden, um große Datenmengen sicher in Azure Blob Storage und Azure Files zu importieren. Sie können diesen Dienst auch zum Übertragen von Daten aus Azure Blob Storage auf Festplattenlaufwerke und zum Versand an lokale Standorte nutzen.
 
 ## <a name="comparison-of-key-capabilities"></a>Vergleich der Schlüsselfunktionen
 
@@ -66,6 +66,6 @@ In der folgenden Tabelle werden die Unterschiede der Schlüsselfunktionen zusamm
 
 - Informationen zum
 
-    - [Übertragen von Daten mit Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-quickstart-portal).
-    - [Übertragen von Daten mit Data Box](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal).
-    - [Übertragen von Daten mit Import/Export](/azure/storage/common/storage-import-export-data-to-blobs).
+    - [Übertragen von Daten mit Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
+    - [Übertragen von Daten mit Data Box](../../databox/data-box-quickstart-portal.md).
+    - [Übertragen von Daten mit Import/Export](./storage-import-export-data-to-blobs.md).

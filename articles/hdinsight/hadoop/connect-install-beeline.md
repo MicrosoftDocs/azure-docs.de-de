@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 05/27/2020
-ms.openlocfilehash: 5495e6c6392ba2e824a0a70717bd19747db9b754
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0a693b2dc2c236cbac79ec4789b2a480ce65427
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88754955"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028936"
 ---
 # <a name="connect-to-apache-beeline-on-hdinsight-or-install-it-locally"></a>Herstellen einer Verbindung mit Apache Beeline in HDInsight oder lokales Installieren
 
@@ -104,7 +104,7 @@ Wenn Sie direkt vom Clusterhauptknoten oder von einer Ressource, die sich in der
 
 ## <a name="install-beeline-client"></a>Installieren des Beeline-Clients
 
-Obwohl Beeline auf den Hauptknoten enthalten ist, können Sie es lokal installieren.  Die Schritte zum Installieren von Beeline auf einem lokalen Computer basieren auf einem [Windows-Subsystem für Linux](https://docs.microsoft.com/windows/wsl/install-win10).
+Obwohl Beeline auf den Hauptknoten enthalten ist, können Sie es lokal installieren.  Die Schritte zum Installieren von Beeline auf einem lokalen Computer basieren auf einem [Windows-Subsystem für Linux](/windows/wsl/install-win10).
 
 1. Aktualisieren Sie die Paketlisten. Geben Sie in der Bash-Shell den folgenden Befehl ein:
 
@@ -144,7 +144,7 @@ Obwohl Beeline auf den Hauptknoten enthalten ist, können Sie es lokal installie
     tar -xvzf apache-hive-1.2.1-bin.tar.gz
     ```
 
-1. Nehmen Sie weitere Änderungen an der BASHRC-Datei vor. Sie müssen den Pfad angeben, in den die Archive entpackt wurden. Wenn Sie das [Windows-Subsystem für Linux](https://docs.microsoft.com/windows/wsl/install-win10) verwenden und die Schritte genau befolgt haben, lautet der Pfad `/mnt/c/Users/user/`, wobei `user` für Ihren Benutzernamen steht.
+1. Nehmen Sie weitere Änderungen an der BASHRC-Datei vor. Sie müssen den Pfad angeben, in den die Archive entpackt wurden. Wenn Sie das [Windows-Subsystem für Linux](/windows/wsl/install-win10) verwenden und die Schritte genau befolgt haben, lautet der Pfad `/mnt/c/Users/user/`, wobei `user` für Ihren Benutzernamen steht.
 
     1. Öffnen Sie die Datei mit `nano ~/.bashrc`.
 

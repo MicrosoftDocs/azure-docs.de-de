@@ -1,6 +1,6 @@
 ---
-title: Erstellen und Verwenden externer Tabellen in SQL On-Demand (Vorschauversion)
-description: In diesem Abschnitt erfahren Sie, wie Sie externe Tabellen in SQL On-Demand (Vorschauversion) erstellen und verwenden.
+title: Erstellen und Verwenden externer Tabellen in einem serverlosen SQL-Pool
+description: In diesem Abschnitt erfahren Sie, wie Sie externe Tabellen in einem serverlosen SQL-Pool erstellen und verwenden.
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 182deba959144f6a3992bb41243f29023bad5e5c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5dcd4b7b76752ca5396fc68afc8d4c8e4e1edca5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289326"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462295"
 ---
-# <a name="create-and-use-external-tables-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Erstellen und Verwenden externer Tabellen in SQL On-Demand (Vorschauversion) mithilfe von Azure Synapse Analytics
+# <a name="create-and-use-external-tables-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Erstellen und Verwenden externer Tabellen mithilfe eines serverlosen SQL-Pools in Azure Synapse Analytics
 
-In diesem Abschnitt erfahren Sie, wie Sie [externe Tabellen](develop-tables-external-tables.md) in SQL On-Demand (Vorschauversion) erstellen und verwenden. Externe Tabellen sind nützlich, wenn Sie den Zugriff auf externe Daten in SQL On-Demand steuern und Tools wie Power BI in Verbindung mit SQL On-Demand verwenden möchten. Externe Tabellen können auf zwei Speichertypen zugreifen:
+In diesem Abschnitt erfahren Sie, wie Sie [externe Tabellen](develop-tables-external-tables.md) in einem serverlosen SQL-Pool erstellen und verwenden. Externe Tabellen sind nützlich, wenn Sie den Zugriff auf externe Daten in einem serverlosen SQL-Pool steuern und Tools wie Power BI in Verbindung mit einem serverlosen SQL-Pool verwenden möchten. Externe Tabellen können auf zwei Speichertypen zugreifen:
 - Öffentlicher Speicher, in dem Benutzer auf öffentliche Speicherdateien zugreifen.
 - Geschützter Speicher, in dem Benutzer mithilfe von SAS-Anmeldeinformationen, Azure AD-Identität oder verwalteter Identität des Synapse-Arbeitsbereichs auf Speicherdateien zugreifen.
 

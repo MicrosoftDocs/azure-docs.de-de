@@ -1,17 +1,17 @@
 ---
 title: Konfigurieren von Protokollen für langsame Abfragen – Azure-Portal – Azure Database for MySQL – Flexible Server
 description: In diesem Artikel wird beschrieben, wie Sie die Protokolle für langsame Abfragen in Azure Database for MySQL – Flexible Server im Azure-Portal konfigurieren und auf die Protokolle zugreifen.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: e2046673cda17c58153ceb12eee31edb83365092
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a61c8e3451d661dae2e5ad56a0d4a947252ec873
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91565707"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540062"
 ---
 # <a name="configure-and-access-slow-query-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Konfigurieren von Protokollen für langsame Abfragen für Azure Database for MySQL – Flexible Server und Zugreifen auf diese Protokolle im Azure-Portal
 
@@ -34,13 +34,13 @@ Konfigurieren Sie den Zugriff auf das MySQL-Protokoll für langsame Abfragen.
    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/server-parameters.png" alt-text="Seite „Serverparameter“":::
 
 1. Aktualisieren Sie den Parameter **slow_query_log** auf **ON** (EIN).
-   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/slow-query-log-enable.png" alt-text="Seite „Serverparameter“":::
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/slow-query-log-enable.png" alt-text="Aktivieren der Protokolle für langsame Abfragen":::
 
 1. Ändern Sie alle anderen erforderlichen Parameter (z. B. `long_query_time`, `log_slow_admin_statements`). Weitere Parameter finden Sie in der Dokumentation für [Protokolle für langsame Abfragen](./concepts-slow-query-logs.md#configure-slow-query-logging).  
-   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/long-query-time.png" alt-text="Seite „Serverparameter“":::
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/long-query-time.png" alt-text="Aktualisieren der Parameter für das Protokoll für langsame Abfragen":::
 
 1. Wählen Sie **Speichern**. 
-   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-parameters.png" alt-text="Seite „Serverparameter“":::
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-parameters.png" alt-text="Speichern der Parameter für das Protokoll für langsame Abfragen":::
 
 Von der Seite **Serverparameter** können Sie zur Liste der Protokolle zurückkehren, indem Sie die Seite schließen.
 
@@ -50,17 +50,17 @@ Protokolle für langsame Abfragen sind in die Diagnoseeinstellungen von Azure Mo
 
 1. Wählen Sie auf der Randleiste im Abschnitt **Überwachung** die Option **Diagnoseeinstellungen** > **Diagnoseeinstellungen hinzufügen** aus.
 
-   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/add-diagnostic-setting.png" alt-text="Seite „Serverparameter“":::
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/add-diagnostic-setting.png" alt-text="Screenshot der Optionen für Diagnoseeinstellungen":::
 
 1. Geben Sie einen Namen für die Diagnoseeinstellung ein.
 
 1. Geben Sie an, an welche Ziele die langsamen Abfrageprotokolle gesendet werden sollen (Speicherkonto, Event Hub oder Log Analytics-Arbeitsbereich).
 
 1. Wählen Sie als Protokolltyp **MySqlSlowLogs** aus.
-    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/configure-diagnostic-setting.png" alt-text="Seite „Serverparameter“":::
+    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/configure-diagnostic-setting.png" alt-text="Screenshot der Konfigurationsoptionen für Diagnoseeinstellungen":::
 
 1. Nachdem Sie die Datensenken für die langsamen Abfrageprotokolle konfiguriert haben, wählen Sie **Speichern** aus.
-    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-diagnostic-setting.png" alt-text="Seite „Serverparameter“":::
+    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-diagnostic-setting.png" alt-text="Screenshot der Konfigurationsoptionen für Diagnoseeinstellungen mit hervorgehobener Option „Speichern“":::
 
 1. Greifen Sie auf die langsamen Abfrageprotokolle zu, indem Sie sie in den von Ihnen konfigurierten Datensenken einsehen. Es kann bis zu 10 Minuten dauern, bis die Protokolle angezeigt werden.
 

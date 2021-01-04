@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6fedefccf57364e690415542114030ba7ce12b49
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3f02c90dd6c751909434f3f2af9b8eb81ee1c4b9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974090"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488373"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Häufig gestellte Fragen zu Azure Disk Encryption für virtuelle Windows-Computer
 
@@ -55,15 +55,15 @@ Nein, Azure Disk Encryption verschlüsselt nur bereitgestellte Volumes.
 
 ## <a name="what-is-storage-server-side-encryption"></a>Was ist serverseitige Speicherverschlüsselung?
 
-Bei der serverseitigen Speicherverschlüsselung werden verwaltete Azure-Datenträger in Azure Storage verschlüsselt. Verwaltete Datenträger werden standardmäßig mit serverseitiger Verschlüsselung mit einem von der Plattform verwalteten Schlüssel verschlüsselt (Stand: 10. Juni 2017). Sie können die Verschlüsselung verwalteter Datenträger mit Ihren eigenen Schlüsseln verwalten, indem Sie einen kundenseitig verwalteten Schlüssel angeben. Weitere Informationen finden Sie unter [Serverseitige Verschlüsselung von verwalteten Azure-Datenträgern](disk-encryption.md).
+Bei der serverseitigen Speicherverschlüsselung werden verwaltete Azure-Datenträger in Azure Storage verschlüsselt. Verwaltete Datenträger werden standardmäßig mit serverseitiger Verschlüsselung mit einem von der Plattform verwalteten Schlüssel verschlüsselt (Stand: 10. Juni 2017). Sie können die Verschlüsselung verwalteter Datenträger mit Ihren eigenen Schlüsseln verwalten, indem Sie einen kundenseitig verwalteten Schlüssel angeben. Weitere Informationen finden Sie unter [Serverseitige Verschlüsselung von verwalteten Azure-Datenträgern](../disk-encryption.md).
  
 ## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>Wie unterscheidet sich Azure Disk Encryption von der serverseitigen Speicherverschlüsselung mit einem vom Kunden verwalteten Schlüssel, und wann sollte ich die beiden Lösungen verwenden?
 
 Azure Disk Encryption bietet End-to-End-Verschlüsselung für den Betriebssystemdatenträger, Datenträger für Daten und den temporären Datenträger mit einem vom Kunden verwalteten Schlüssel.
 
 - Wenn Ihre Anforderungen das Verschlüsseln der genannten Datenträger sowie End-to-End-Verschlüsselung einschließen, verwenden Sie Azure Disk Encryption. 
-- Wenn Ihre Anforderungen das Verschlüsseln von ruhenden Daten mit einem vom Kunden verwalteten Schlüssel einschließen, verwenden Sie [serverseitige Verschlüsselung mit vom Kunden verwalteten Schlüsseln](disk-encryption.md). Sie können einen Datenträger nicht sowohl mit Azure Disk Encryption als auch mit der serverseitigen Speicherverschlüsselung mit vom Kunden verwalteten Schlüsseln verschlüsseln.
-- Wenn Sie ein unter [Nicht unter Windows unterstützte Szenarios](disk-encryption-windows.md#unsupported-scenarios) genanntes Szenario verwenden, sollten Sie die [serverseitige Verschlüsselung mit vom Kunden verwalteten Schlüsseln](disk-encryption.md) in Betracht ziehen. 
+- Wenn Ihre Anforderungen das Verschlüsseln von ruhenden Daten mit einem vom Kunden verwalteten Schlüssel einschließen, verwenden Sie [serverseitige Verschlüsselung mit vom Kunden verwalteten Schlüsseln](../disk-encryption.md). Sie können einen Datenträger nicht sowohl mit Azure Disk Encryption als auch mit der serverseitigen Speicherverschlüsselung mit vom Kunden verwalteten Schlüsseln verschlüsseln.
+- Wenn Sie ein unter [Nicht unter Windows unterstützte Szenarios](disk-encryption-windows.md#unsupported-scenarios) genanntes Szenario verwenden, sollten Sie die [serverseitige Verschlüsselung mit vom Kunden verwalteten Schlüsseln](../disk-encryption.md) in Betracht ziehen. 
 - Wenn es nach den Richtlinien Ihrer Organisation zulässig ist, ruhende Inhalte mit einem von Azure verwalteten Schlüssel zu verschlüsseln, ist keine Aktion erforderlich: Der Inhalt wird standardmäßig verschlüsselt. Bei verwalteten Datenträgern wird der Inhalt im Speicher standardmäßig mit serverseitiger Verschlüsselung mit einem von der Plattform verwalteten Schlüssel verschlüsselt. Der Schlüssel wird vom Azure Storage-Dienst verwaltet. 
 
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Wie rotiere ich geheime oder Verschlüsselungsschlüssel?

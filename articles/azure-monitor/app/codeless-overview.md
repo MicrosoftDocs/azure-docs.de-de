@@ -6,12 +6,12 @@ author: MS-jgol
 ms.author: jgol
 ms.date: 05/31/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 234f772b4a77b780f0b0c1faf307c93847e5caf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa5c2a0070ea0c3a0963f97fc1a04670eeaa4827
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87310717"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701890"
 ---
 # <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>Was ist automatische Instrumentierung oder Anfügung ohne Code – Azure Monitor Application Insights?
 
@@ -23,17 +23,17 @@ Application Insights ist mit verschiedenen Ressourcenanbietern integriert und fu
 
 Da wir ständig weitere Integrationen hinzufügen, wird die Funktionsmatrix für die automatische Instrumentierung zunehmend komplex. Die nachstehende Tabelle zeigt den aktuellen Status der Unterstützung verschiedener Ressourcenanbieter, Sprachen und Umgebungen.
 
-|Umgebung/Ressourcenanbieter | .NET            | .NET Core       | Java            | Node.js         |
-|------------------------------|-----------------|-----------------|-----------------|-----------------|
-|Azure App Service unter Windows  | GA, st. akt.*       | GA, Anmeldung      | Private Vorschau | Private Vorschau |
-|Azure App Service unter Linux    | –             | Nicht unterstützt   | Öffentliche Vorschau  | Öffentliche Vorschau  |
-|Azure App Service unter AKS      | –             | Im Entwurf       | Im Entwurf       | Im Entwurf       |
-|Azure Functions: grundlegend       | GA, st. akt.*       | GA, st. akt.*       | GA, st. akt.*       | GA, st. akt.*       |
-|Azure Functions: Abhängigkeiten| Nicht unterstützt   | Nicht unterstützt   | Öffentliche Vorschau  | Nicht unterstützt   |
-|Azure Kubernetes Service      | –             | Im Entwurf       | Über den-Agent   | Im Entwurf       |
-|Azure-VMs unter Windows             | Öffentliche Vorschau  | Nicht unterstützt   | Nicht unterstützt   | Nicht unterstützt   |
-|Lokale VMs unter Windows       | GA, Anmeldung      | Nicht unterstützt   | Über den-Agent   | Nicht unterstützt   |
-|Eigenständiger Agent: alle Umg.   | Nicht unterstützt   | Nicht unterstützt   | Öffentliche Vorschau  | Nicht unterstützt   |
+|Umgebung/Ressourcenanbieter          | .NET            | .NET Core       | Java            | Node.js         |
+|---------------------------------------|-----------------|-----------------|-----------------|-----------------|
+|Azure App Service unter Windows           | GA, st. akt.*       | GA, Anmeldung      | Private Vorschau | Private Vorschau |
+|Azure App Service unter Linux             | –             | Nicht unterstützt   | Private Vorschau | Öffentliche Vorschau  |
+|Azure App Service unter AKS               | –             | Im Entwurf       | Im Entwurf       | Im Entwurf       |
+|Azure Functions: grundlegend                | GA, st. akt.*       | GA, st. akt.*       | GA, st. akt.*       | GA, st. akt.*       |
+|Azure Functions Windows – Abhängigkeiten | Nicht unterstützt   | Nicht unterstützt   | Öffentliche Vorschau  | Nicht unterstützt   |
+|Azure Kubernetes Service               | –             | Im Entwurf       | Über den-Agent   | Im Entwurf       |
+|Azure-VMs unter Windows                      | Öffentliche Vorschau  | Nicht unterstützt   | Nicht unterstützt   | Nicht unterstützt   |
+|Lokale VMs unter Windows                | GA, Anmeldung      | Nicht unterstützt   | Über den-Agent   | Nicht unterstützt   |
+|Eigenständiger Agent: alle Umg.            | Nicht unterstützt   | Nicht unterstützt   | Allgemein verfügbar              | Nicht unterstützt   |
 
 \* „St. akt.“ steht für „standardmäßig aktiviert“. Application Insights wird automatisch aktiviert, sobald Sie die App in unterstützten Umgebungen bereitstellen. 
 

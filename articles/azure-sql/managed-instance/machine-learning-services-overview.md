@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 06/03/2020
-ms.openlocfilehash: d7a3c86f3d9cf083a8746f753b8c5287c774a93e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c805bacbd4a2219fb79168ad6426efd8b0a390df
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263266"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324515"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Machine Learning Services in Azure SQL Managed Instance (Vorschauversion)
 
@@ -44,7 +44,7 @@ Verwenden Sie Machine Learning Services mit R-/Python-Unterstützung in Azure SQ
 
 - **Bereitstellen Ihrer Modelle und Skripts in der Produktion in gespeicherten Prozeduren:** Die Skripts und trainierten Modelle können einfach durch Einbetten in gespeicherte T-SQL-Prozeduren operationalisiert werden. Apps, die eine Verbindung mit Azure SQL Managed Instance herstellen, können von Vorhersagen und der Datenanalyse in diesen Modellen profitieren, indem sie einfach eine gespeicherte Prozedur aufrufen. Sie können auch die native T-SQL-Funktion PREDICT verwenden, um Modelle für die schnelle Bewertung in Szenarien zu operationalisieren, in denen viele gleichzeitige Echtzeitbewertungen durchgeführt werden.
 
-In Machine Learning Services sind Basisverteilungen von R und Python enthalten. Neben den Microsoft-Paketen [revoscalepy](https://docs.microsoft.com/sql/advanced-analytics/python/ref-py-revoscalepy) und [microsoftml](https://docs.microsoft.com/sql/advanced-analytics/python/ref-py-microsoftml) für Python und [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler), [MicrosoftML](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-microsoftml), [olapR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-olapr) und [sqlrutils](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-sqlrutils) für R können Sie Open-Source-Pakete und -Frameworks wie PyTorch, TensorFlow und scikit-learn installieren und verwenden.
+In Machine Learning Services sind Basisverteilungen von R und Python enthalten. Neben den Microsoft-Paketen [revoscalepy](/sql/advanced-analytics/python/ref-py-revoscalepy) und [microsoftml](/sql/advanced-analytics/python/ref-py-microsoftml) für Python und [RevoScaleR](/sql/advanced-analytics/r/ref-r-revoscaler), [MicrosoftML](/sql/advanced-analytics/r/ref-r-microsoftml), [olapR](/sql/advanced-analytics/r/ref-r-olapr) und [sqlrutils](/sql/advanced-analytics/r/ref-r-sqlrutils) für R können Sie Open-Source-Pakete und -Frameworks wie PyTorch, TensorFlow und scikit-learn installieren und verwenden.
 
 <a name="signup"></a>
 
@@ -52,21 +52,29 @@ In Machine Learning Services sind Basisverteilungen von R und Python enthalten. 
 
 Diese eingeschränkte Public Preview unterliegt den [Azure-Vorschaubestimmungen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-Wenn Sie am Vorschauprogramm teilnehmen möchten und diese Bedingungen akzeptieren, können Sie die Registrierung anfordern. Erstellen Sie dazu unter [ **https://azure.microsoft.com/support/create-ticket/** ](https://azure.microsoft.com/support/create-ticket/) ein Azure-Supportticket. 
+Wenn Sie am Vorschauprogramm teilnehmen möchten und diese Bedingungen akzeptieren, können Sie die Registrierung anfordern. Erstellen Sie dazu unter [ **https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/) ein Azure-Supportticket. 
+
+1. Klicken Sie auf der Seite **Supportticket erstellen** auf **Create an Incident** (Incident erstellen).
+
+1. Klicken Sie auf der Seite **Hilfe und Support** auf **Neue Supportanfrage**, um ein neues Ticket zu erstellen.
 
 1. Wählen Sie die folgenden Optionen:
    - Problemtyp: **Technisch**
    - Abonnement: *Wählen Sie Ihr Abonnement aus.*
-   - Dienst: **Verwaltete SQL-Datenbank-Instanz**
+   - Dienst: **SQL Managed Instance**
+   - Ressource: *Wählen Sie Ihre verwaltete Instanz aus.*
    - Zusammenfassung: *Geben Sie eine kurze Beschreibung Ihrer Anfrage ein.*
    - Problemtyp: **Machine Learning Services in SQL Managed Instance (Vorschauversion)**
    - Problemuntertyp: **Weitere Probleme oder Fragen zur Vorgehensweise**
 
 1. Klicken Sie auf **Weiter: Lösungen**.
 
-1. Lesen Sie die Informationen zur Vorschauversion, und klicken Sie dann auf **Details**.
+1. Lesen Sie die Informationen zur Vorschau, und klicken Sie dann auf **Weiter: Details**.
 
-1. Geben Sie unter **Beschreibung** Besonderheiten Ihrer Anforderung ein, einschließlich des Namens des logischen Servers, der Region und der Abonnement-ID, die Sie für die Vorschau registrieren möchten. Geben Sie bei Bedarf weitere Details ein.
+1. Gehen Sie auf dieser Seite wie folgt vor:
+   - Wählen Sie für die Frage **Are you trying to sign up for the Preview?** (Möchten Sie sich für die Vorschau registrieren?) die Option **Ja** aus. 
+   - Geben Sie unter **Beschreibung** relevante Daten zu Ihrer Anforderung ein, einschließlich des Namens des logischen Servers, der Region und der Abonnement-ID, die Sie für die Vorschau registrieren möchten. Geben Sie bei Bedarf weitere Details ein.
+   - Wählen Sie eine bevorzugte Kontaktmethode aus. 
 
 1. Klicken Sie abschließend auf **Weiter: Überprüfen + erstellen** und dann auf **Erstellen**.
 
@@ -77,6 +85,6 @@ Es ist nicht empfehlenswert, Machine Learning Services in SQL Managed Instance w
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Lesen Sie [Key differences from SQL Server Machine Learning Services](machine-learning-services-differences.md) (Wichtige Unterschiede zwischen Machine Learning Services in Azure SQL Server).
-- Informationen zur Verwendung von Python in Machine Learning Services finden Sie unter [Schnellstart: Ausführen einfacher Python-Skripts mit SQL Server Machine Learning Services](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).
-- Informationen zur Verwendung von R in Machine Learning Services finden Sie unter [Schnellstart: Ausführen einfacher R-Skripts mit SQL Machine Learning](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).
-- Weitere Informationen zu Machine Learning auf anderen SQL-Plattformen finden Sie in der [SQL Machine Learning-Dokumentation](https://docs.microsoft.com/sql/machine-learning/).
+- Informationen zur Verwendung von Python in Machine Learning Services finden Sie unter [Schnellstart: Ausführen einfacher Python-Skripts mit SQL Server Machine Learning Services](/sql/machine-learning/tutorials/quickstart-python-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&view=sql-server-ver15).
+- Informationen zur Verwendung von R in Machine Learning Services finden Sie unter [Schnellstart: Ausführen einfacher R-Skripts mit SQL Machine Learning](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&view=sql-server-ver15).
+- Weitere Informationen zu Machine Learning auf anderen SQL-Plattformen finden Sie in der [SQL Machine Learning-Dokumentation](/sql/machine-learning/).

@@ -3,14 +3,14 @@ title: Verwalten von Änderungsnachverfolgung und Bestand in Azure Automation
 description: In diesem Artikel wird beschrieben, wie Sie Änderungsnachverfolgung und Bestand verwenden, um Änderungen an Software und Microsoft-Diensten in Ihrer Umgebung nachzuverfolgen.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/14/2020
+ms.date: 11/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: a599bb6f07683540f5b12c6a69d6565161f89a4f
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 99cdc4191320efb37b37e4ec38e808f3961a1207
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209262"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288740"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Verwalten der Änderungsnachverfolgung und des Bestands
 
@@ -37,7 +37,7 @@ Führen Sie zum Konfigurieren der Dateinachverfolgung auf Windows-Computern die 
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-2. Wählen Sie im Azure-Portal **Alle Dienste** aus. Geben Sie in der Liste mit den Ressourcen **Automation** ein. Sobald Sie mit der Eingabe beginnen, werden Vorschläge in der Liste auf Grundlage Ihrer Eingabe gefiltert. Wählen Sie die Option **Automation-Konten** .
+2. Wählen Sie im Azure-Portal **Alle Dienste** aus. Geben Sie in der Liste mit den Ressourcen **Automation** ein. Sobald Sie mit der Eingabe beginnen, werden Vorschläge in der Liste auf Grundlage Ihrer Eingabe gefiltert. Wählen Sie die Option **Automation-Konten**.
 
 3. Wählen Sie in Ihrer Liste der Automation-Konten das Konto aus, das Sie beim Aktivieren von „Änderungsnachverfolgung und Bestand“ ausgewählt haben.
 
@@ -47,17 +47,24 @@ Führen Sie zum Konfigurieren der Dateinachverfolgung auf Windows-Computern die 
 
 6. Wählen Sie auf der Seite „Arbeitsbereichskonfiguration“ die Option **Windows-Dateien** aus, und klicken Sie dann auf **+ Hinzufügen** , um eine neue nachzuverfolgende Datei hinzuzufügen.
 
-7. Geben Sie im Bereich „Windows-Datei für Änderungsnachverfolgung hinzufügen“ die Informationen zu der nachzuverfolgenden Datei bzw. dem Ordner ein, und klicken Sie auf **Speichern** . Die folgende Tabelle definiert die Eigenschaften, die Sie für die Informationen verwenden können.
+7. Geben Sie im Bereich „Windows-Datei für Änderungsnachverfolgung hinzufügen“ die Informationen zu der nachzuverfolgenden Datei bzw. dem Ordner ein, und klicken Sie auf **Speichern**. Die folgende Tabelle definiert die Eigenschaften, die Sie für die Informationen verwenden können.
 
     |Eigenschaft  |BESCHREIBUNG  |
     |---------|---------|
     |Aktiviert     | TRUE, wenn die Einstellung angewendet wird, andernfalls FALSE.        |
     |Item Name     | Anzeigename der nachzuverfolgenden Datei        |
     |Group     | Gruppenname für die logische Gruppierung von Dateien        |
-    |Pfad eingeben     | Der für die Datei zu überprüfende Pfad, z. B. **c:\temp\\\*.txt** . Sie können auch Umgebungsvariablen verwenden, beispielsweise `%winDir%\System32\\\*.*`.       |
+    |Pfad eingeben     | Der für die Datei zu überprüfende Pfad, z. B. **c:\temp\\\*.txt**. Sie können auch Umgebungsvariablen verwenden, beispielsweise `%winDir%\System32\\\*.*`.       |
     |Pfadtyp     | Der Typ des Pfads. Mögliche Werte sind „Datei“ und „Ordner“.        |    
     |Rekursion     | TRUE, wenn ob beim Suchen nach dem nachzuverfolgenden Element die Rekursion verwendet wird, andernfalls FALSE.        |    
     |Dateiinhalt hochladen | „True“, um den Dateiinhalt von nachverfolgten Änderungen hochzuladen, andernfalls „False“.|
+
+    Wenn Sie die Überwachung von Dateien und Ordnern mithilfe von Platzhaltern konfigurieren möchten, berücksichtigen Sie Folgendes:
+
+    - Platzhalter werden zum Nachverfolgen mehrerer Dateien benötigt.
+    - Platzhalter können nur im letzten Segment eines Pfads verwendet werden, z. B. „ *C:\Ordner\Datei* “ oder „ */etc/* .conf*“.
+    - Wenn eine Umgebungsvariable einen ungültigen Pfad enthält, ist die Überprüfung zwar erfolgreich, bei der Ausführung der Inventur tritt jedoch ein Fehler für den Pfad auf.
+    - Vermeiden Sie beim Festlegen des Pfads die Verwendung allgemeiner Pfade wie *c:* .**, da in diesem Fall zu viele Ordner durchlaufen werden müssen.
 
 8. Stellen Sie sicher, dass Sie „True“ für **Dateiinhalt hochladen** angeben. Diese Einstellung ermöglicht die Nachverfolgung von Dateiinhalten für den angegebenen Dateipfad.
 
@@ -71,12 +78,12 @@ Führen Sie zum Konfigurieren der Dateinachverfolgung auf Linux-Computern die fo
 
 3. Geben Sie auf der Seite **Linux-Datei für Änderungsnachverfolgung hinzufügen** die Informationen zu der Datei oder dem Verzeichnis ein, die bzw. das nachverfolgt werden soll, und wählen Sie dann **Speichern** aus. Die folgende Tabelle definiert die Eigenschaften, die Sie für die Informationen verwenden können.
 
-    |Eigenschaft  |BESCHREIBUNG  |
+    |Eigenschaft  |Beschreibung  |
     |---------|---------|
     |Aktiviert     | TRUE, wenn die Einstellung angewendet wird, andernfalls FALSE.        |
     |Item Name     | Anzeigename der nachzuverfolgenden Datei        |
     |Group     | Gruppenname für die logische Gruppierung von Dateien        |
-    |Pfad eingeben     | Der zu überprüfende Pfad für die Datei, z. B. **/etc/*.conf** .       |
+    |Pfad eingeben     | Der zu überprüfende Pfad für die Datei, z. B. **/etc/*.conf**.       |
     |Pfadtyp     | Der Typ des Pfads. Mögliche Werte sind „Datei“ und „Verzeichnis“.        |
     |Rekursion     | TRUE, wenn ob beim Suchen nach dem nachzuverfolgenden Element die Rekursion verwendet wird, andernfalls FALSE.        |
     |Sudo verwenden     | „True“, um sudo bei der Suche nach dem Element zu verwenden, andernfalls „False“.         |
@@ -108,7 +115,7 @@ Führen Sie die folgenden Schritte aus, um das Nachverfolgen von Änderungen an 
 
 3. Wählen Sie das Abonnement und das Speicherkonto aus, die für die Speicherung von Dateiinhalten verwendet werden sollen.
 
-5. Wenn Sie die Nachverfolgung von Dateiinhalten für alle vorhandenen nachverfolgten Dateien aktivieren möchten, wählen Sie **Ein** für **Dateiinhalte für alle Einstellungen hochladen** . Sie können diese Einstellung für jeden Dateipfad nachträglich ändern.
+5. Wenn Sie die Nachverfolgung von Dateiinhalten für alle vorhandenen nachverfolgten Dateien aktivieren möchten, wählen Sie **Ein** für **Dateiinhalte für alle Einstellungen hochladen**. Sie können diese Einstellung für jeden Dateipfad nachträglich ändern.
 
    ![Speicherkonto festlegen](./media/manage-change-tracking/storage-account.png)
 
@@ -138,9 +145,9 @@ Führen Sie zum Konfigurieren der Nachverfolgung von Registrierungsschlüsseln a
 
 3. Wählen Sie **+ Hinzufügen** aus, um einen neuen Registrierungsschlüssel zur Nachverfolgung hinzuzufügen.
 
-4. Geben Sie auf der Seite **Windows-Registrierung für Änderungsnachverfolgung hinzufügen** die Informationen zu dem Schlüssel ein, der nachverfolgt werden soll, und wählen Sie dann **Speichern** aus. Die folgende Tabelle definiert die Eigenschaften, die Sie für die Informationen verwenden können.
+4. Geben Sie auf der Seite **Windows-Registrierung für Änderungsnachverfolgung hinzufügen** die Informationen zu dem Schlüssel ein, der nachverfolgt werden soll, und wählen Sie dann **Speichern** aus. Die folgende Tabelle definiert die Eigenschaften, die Sie für die Informationen verwenden können. Wenn Sie einen Registrierungspfad angeben, muss es sich um den Schlüssel und nicht um einen Wert handeln.
 
-    |Eigenschaft  |BESCHREIBUNG  |
+    |Eigenschaft  |Beschreibung  |
     |---------|---------|
     |Aktiviert     | „True“, wenn eine Einstellung angewendet wird, andernfalls „False“.        |
     |Item Name     | Anzeigename des nachzuverfolgenden Registrierungsschlüssels.        |

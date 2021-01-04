@@ -7,11 +7,11 @@ ms.date: 03/20/2020
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: b7730558e2a660b0cf00a5b6962d1e2275dd472c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984398"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004342"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Continuous Deployment in Azure App Service
 
@@ -114,7 +114,7 @@ Damit Azure App Service Continuous Delivery mithilfe von Azure Pipelines einrich
    
 1. Wählen Sie auf der Seite **Buildanbieter** nacheinander **Azure Pipelines (Vorschau)** und dann **Weiter** aus.
 
-    :::image type="content" source="media/app-service-continuous-deployment/select-build-provider.png" alt-text="Ein Screenshot der Seite „App Service-Bereitstellungscenter“.":::
+    :::image type="content" source="media/app-service-continuous-deployment/select-build-provider.png" alt-text="Ein Screenshot, der die Seite „Bereitstellungscenter“ mit ausgewählten „Azure Pipelines (Vorschau)“ zeigt.":::
    
 1. Wählen Sie auf der Seite **Konfigurieren** im Abschnitt **Code** die **Organisation**, das **Repository** und den **Branch** aus, aus dem Continuous Deployment erfolgen soll, und wählen Sie **Weiter** aus.
      
@@ -123,11 +123,11 @@ Damit Azure App Service Continuous Delivery mithilfe von Azure Pipelines einrich
        
     Geben Sie im Abschnitt **Build** die Azure DevOps-Organisation, das Projekt und das Sprachenframework an, die/das Azure Pipelines verwenden soll, um Buildaufgaben auszuführen, und wählen Sie dann **Weiter** aus.
 
-   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Ein Screenshot der Seite „App Service-Bereitstellungscenter“.":::
+   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Ein Screenshot des Abschnitts „Erstellen“ mit Beispieltext in den Feldern.":::
 
 1. Nachdem Sie den Buildanbieter konfiguriert haben, überprüfen Sie die Einstellungen auf der Seite **„Zusammenfassung“** und wählen Sie dann **„Fertig stellen“** .
 
-   :::image type="content" source="media/app-service-continuous-deployment/summary.png" alt-text="Ein Screenshot der Seite „App Service-Bereitstellungscenter“.":::
+   :::image type="content" source="media/app-service-continuous-deployment/summary.png" alt-text="Ein Screenshot der Seite „Bereitstellungscenter“, auf der Commits und Bereitstellungen mit hervorgehobener Schaltfläche „Aktualisieren“ angezeigt werden.":::
    
 1. Neue Commits im ausgewählten Repository und Branch werden nun fortlaufend in Ihrem App Service bereitgestellt. Auf der Seite **„Bereitstellungscenter“** können Sie die Commits und Bereitstellen verfolgen.
    
@@ -141,11 +141,11 @@ Damit Azure App Service Continuous Delivery mithilfe von Azure Pipelines einrich
 
 1. Wählen Sie auf der Seite **Bereitstellungscenter** **Azure Repos** als Quellcodeverwaltungsanbieter aus, und wählen Sie **Weiter** aus.
 
-    :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="Ein Screenshot der Seite „App Service-Bereitstellungscenter“.":::
+    :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="Ein Screenshot der Seite „Bereitstellungscenter“ mit ausgewählten Continuous Deployment (CI/CD)-Optionen.":::
 
 1. Wählen Sie auf der Seite **Buildanbieter** nacheinander **Azure Pipelines (Vorschau)** und dann **Weiter** aus.
 
-    :::image type="content" source="media/app-service-continuous-deployment/azure-pipelines.png" alt-text="Ein Screenshot der Seite „App Service-Bereitstellungscenter“.":::
+    :::image type="content" source="media/app-service-continuous-deployment/azure-pipelines.png" alt-text="Ein Screenshot des Bereitstellungscenters mit angezeigten „Azure Pipelines (Vorschau)“.":::
 
 1. Wählen Sie auf der Seite **Konfigurieren** im Abschnitt **Code** die **Organisation**, das **Repository** und den **Branch** aus, aus dem Continuous Deployment erfolgen soll, und wählen Sie **Weiter** aus.
 
@@ -154,11 +154,11 @@ Damit Azure App Service Continuous Delivery mithilfe von Azure Pipelines einrich
 
    Geben Sie im Abschnitt **Build** die Azure DevOps-Organisation, das Projekt und das Sprachenframework an, die/das Azure Pipelines verwenden soll, um Buildaufgaben auszuführen, und wählen Sie dann **Weiter** aus.
 
-   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Ein Screenshot der Seite „App Service-Bereitstellungscenter“.":::
+   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Ein Screenshot des Abschnitts „Erstellen“, in dem die mit Beispielen ausgefüllten Felder „Azure DevOps-Organisation“ und „Projekt“ angezeigt werden.":::
 
 1. Nachdem Sie den Buildanbieter konfiguriert haben, überprüfen Sie die Einstellungen auf der Seite **„Zusammenfassung“** und wählen Sie dann **„Fertig stellen“** .  
      
-   :::image type="content" source="media/app-service-continuous-deployment/summary-azure-pipelines.png" alt-text="Ein Screenshot der Seite „App Service-Bereitstellungscenter“.":::
+   :::image type="content" source="media/app-service-continuous-deployment/summary-azure-pipelines.png" alt-text="Ein Screenshot, der die ausgewählten Einstellungen auf der Seite „Zusammenfassung“ zeigt.":::
 
 1. Neue Commits im ausgewählten Repository und Branch werden nun fortlaufend in Ihrem App Service bereitgestellt. Auf der Seite **„Bereitstellungscenter“** können Sie die Commits und Bereitstellen verfolgen.
 

@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: wellee
-ms.openlocfilehash: 875fd40fea315269f7fe72032942c40551a6b144
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c49a85c71c9b877be7e143f5caf27dc307fe0c12
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078968"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381268"
 ---
 # <a name="connect-cross-tenant-vnets-to-a-virtual-wan-hub"></a>Mandantenübergreifendes Verbinden von VNETs mit einem Virtual WAN-Hub
 
@@ -44,9 +44,9 @@ Damit Sie die Schritte in diesem Artikel ausführen können, müssen Sie die fol
 
 ## <a name="assign-permissions"></a><a name="rights"></a>Zuweisen von Berechtigungen
 
-Damit das übergeordnete Abonnement mit dem virtuellen Hub die virtuellen Netzwerke im Remotemandanten ändern und auf diese zugreifen kann, müssen Sie dem übergeordneten Abonnement aus dem Remotemandantenabonnement **Mitwirkender**-Berechtigungen zuweisen.
+Damit das übergeordnete Abonnement mit dem virtuellen Hub die virtuellen Netzwerke im Remotemandanten ändern und auf diese zugreifen kann, müssen Sie dem übergeordneten Abonnement aus dem Remotemandantenabonnement **Mitwirkender** -Berechtigungen zuweisen.
 
-1. Fügen Sie dem übergeordneten Konto (dem mit dem virtuellen WAN-Hub) die **Mitwirkender**-Rollenzuweisung hinzu. Sie können zum Zuweisen dieser Rolle entweder PowerShell oder das Azure-Portal verwenden. Weitere Informationen finden Sie in den folgenden Artikeln zum **Hinzufügen oder Entfernen von Rollenzuweisungen**:
+1. Fügen Sie dem übergeordneten Konto (dem mit dem virtuellen WAN-Hub) die **Mitwirkender** -Rollenzuweisung hinzu. Sie können zum Zuweisen dieser Rolle entweder PowerShell oder das Azure-Portal verwenden. Weitere Informationen finden Sie in den folgenden Artikeln zum **Hinzufügen oder Entfernen von Rollenzuweisungen** :
 
    * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
    * [Portal](../role-based-access-control/role-assignments-portal.md)
@@ -54,7 +54,7 @@ Damit das übergeordnete Abonnement mit dem virtuellen Hub die virtuellen Netzwe
 1. Fügen Sie als nächstes das Remotemandantenabonnement und das übergeordnete Mandantenabonnement der aktuellen PowerShell-Sitzung hinzu. Führen Sie den folgenden Befehl aus. Wenn Sie beim übergeordneten Element angemeldet sind, müssen Sie nur den Befehl für den Remotemandanten ausführen.
 
    ```azurepowershell-interactive
-   Add-AzAccount "xxxxx-b34a-4df9-9451-4402dcaecc5b"
+   Add-AzAccount -SubscriptionId "xxxxx-b34a-4df9-9451-4402dcaecc5b"
    ```
 
 1. Überprüfen Sie, ob die Rollenzuweisung erfolgreich ist, indem Sie sich mit den Anmeldeinformationen des übergeordneten Elements bei Azure PowerShell anmelden und den folgenden Befehl ausführen:

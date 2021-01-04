@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/06/2020
-ms.openlocfilehash: 48336b65ec564f834ef8a1e8f4911c89b1a37f31
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c6b976ca1beb9beb78f7c56d7ae512c1f499c2c5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107945"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186523"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Quellen für Überwachungsdaten für Azure Monitor
 Azure Monitor basiert auf einer [allgemeinen Überwachungsdatenplattform](data-platform.md), die [Protokolle](data-platform-logs.md) und [Metriken](data-platform-metrics.md) umfasst. Das Sammeln von Daten auf dieser Plattform macht es möglich, Daten von mehreren Ressourcen zusammen mit einem gemeinsamen Satz von Tools in Azure Monitor zu analysieren. Überwachungsdaten werden ggf. auch zur Unterstützung bestimmter Szenarien an andere Speicherorte gesendet, und einige Ressourcen schreiben möglicherweise Daten an andere Speicherorte, bevor sie in Protokollen oder Metriken gesammelt werden können.
@@ -164,7 +164,7 @@ Wenn Sie Application Insights durch Installation eines Instrumentierungspakets f
 |            | Daten zu Debugmomentaufnahmen, die für eine Teilmenge von Ausnahmen erfasst werden, werden in Azure Storage gespeichert. Verwenden Sie Application Insights im Azure-Portal zum Herunterladen für die lokale Analyse.  | [Funktionsweise von Momentaufnahmen](../app/snapshot-debugger.md#how-snapshots-work) |
 
 ## <a name="monitoring-solutions-and-insights"></a>Überwachungslösungen und Insights
-[Überwachungslösungen](../insights/solutions.md) und [Insights](../insights/insights-overview.md) sammeln Daten, um zusätzliche Erkenntnisse zum Betrieb eines bestimmten Diensts oder einer bestimmten Anwendung zu liefern. Dazu können Ressourcen auf verschiedenen Anwendungsebenen und sogar mehreren Ebenen verwendet werden.
+[Überwachungslösungen](../insights/solutions.md) und [Insights](../monitor-reference.md) sammeln Daten, um zusätzliche Erkenntnisse zum Betrieb eines bestimmten Diensts oder einer bestimmten Anwendung zu liefern. Dazu können Ressourcen auf verschiedenen Anwendungsebenen und sogar mehreren Ebenen verwendet werden.
 
 ### <a name="monitoring-solutions"></a>Überwachungslösungen
 

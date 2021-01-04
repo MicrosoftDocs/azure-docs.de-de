@@ -2,21 +2,21 @@
 title: Schützen eines verknüpften Diensts
 description: Hier erfahren Sie, wie Sie einen verknüpften Dienst per verwaltetem VNET bereitstellen und schützen.
 services: synapse-analytics
-author: acomet
+author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: f5a3c73d60f038820de100f99c554eec27fd6f55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb3c7dd7b3d7e8e42e230eedcd0d1b43af104327
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033182"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452525"
 ---
-# <a name="secure-a-linked-service-with-private-links"></a>Schützen eines verknüpften Diensts mit Private Link 
+# <a name="secure-a-linked-service-with-private-links"></a>Schützen eines verknüpften Diensts mit Private Link
 
 In diesem Artikel erfahren Sie, wie Sie einen verknüpften Dienst in Synapse mit einem privaten Endpunkt schützen.
 
@@ -68,6 +68,8 @@ Jetzt haben Sie eine sichere und private Verbindung zwischen Synapse und Ihrem v
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Wenn Sie noch besser verstehen möchten, was „Verwalteter privater Endpunkt“ in Synapse Analytics bedeutet, lesen Sie den Artikel [Concept around Synapse Managed private endpoint](data-integration-data-lake.md) (Konzept rund um „Verwalteter privater Endpunkt in Synapse“).
 
-Weitere Informationen zur Datenintegration bei Synapse Analytics finden Sie im Artikel [Erfassen von Daten in einem Data Lake](data-integration-data-lake.md).
+Lesen Sie den Artikel [Verwaltete private Endpunkte](../security/synapse-workspace-managed-private-endpoints.md), um ein noch besseres Verständnis für verwaltete private Endpunkte in Azure Synapse Analytics zu entwickeln.
+
+
+Weitere Informationen zur Datenintegration bei Azure Synapse Analytics finden Sie im Artikel [Erfassen von Daten in einem Data Lake](data-integration-data-lake.md).

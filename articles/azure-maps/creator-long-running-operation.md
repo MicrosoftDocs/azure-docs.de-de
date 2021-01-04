@@ -3,22 +3,26 @@ title: 'Azure Maps: API für zeitintensive Vorgänge'
 description: Hier erfahren Sie mehr über die zeitintensive asynchrone Hintergrundverarbeitung in Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 360fc4af688e393bb8639ee773f0bf0de603a425
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5fb7c8059c8b98e8ec514a4159e96f48db7b1ad
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83596049"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906198"
 ---
-# <a name="creator-long-running-operation-api"></a>Creator-API für zeitintensive Vorgänge
+# <a name="creator-preview-long-running-operation-api"></a>Creator-API für zeitintensive Vorgänge (Vorschau)
 
-Einige APIs in Azure Maps verwenden ein [asynchrones Anforderung-Antwort-Muster](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply). Dieses Muster ermöglicht Azure Maps die Bereitstellung hochverfügbarer und reaktionsfähiger Dienste. In diesem Artikel wird die für Azure Maps spezifische Implementierung der zeitintensiven asynchronen Hintergrundverarbeitung erläutert.
+> [!IMPORTANT]
+> Azure Maps Creator-Dienste befinden sich derzeit in der öffentlichen Vorschau.
+> Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar. Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Einige APIs in Azure Maps verwenden ein [asynchrones Anforderung-Antwort-Muster](/azure/architecture/patterns/async-request-reply). Dieses Muster ermöglicht Azure Maps die Bereitstellung hochverfügbarer und reaktionsfähiger Dienste. In diesem Artikel wird die für Azure Maps spezifische Implementierung der zeitintensiven asynchronen Hintergrundverarbeitung erläutert.
 
 ## <a name="submitting-a-request"></a>Übermitteln einer Anforderung
 

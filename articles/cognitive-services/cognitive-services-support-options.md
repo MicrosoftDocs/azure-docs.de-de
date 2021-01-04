@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/11/2020
 ms.author: erhopf
-ms.openlocfilehash: d99cfc8b50155eb4cb2aecb3cb770f71b927ce1d
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 01e46ad8d139f2cab2fbb6499dc66c7af5ceb554
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148700"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368762"
 ---
 # <a name="azure-cognitive-services-support-and-help-options"></a>Support- und Hilfeoptionen für Azure Cognitive Services
 
@@ -32,39 +32,39 @@ Erkunden Sie die verschiedenen [Azure-Supportoptionen, und wählen Sie den Plan 
 
 ## <a name="post-a-question-on-microsoft-qa"></a>Stellen einer Frage bei Microsoft Q&A (Fragen und Antworten)
 
-Bei [Microsoft Q&A (Fragen und Antworten)](https://docs.microsoft.com/answers/products/azure?product=all), der bevorzugten Azure-Plattform für Communitysupport, erhalten Sie von Microsoft-Technikern, Azure MVPs (Most Valuable Professionals) oder unserer fachkundigen Community schnell und zuverlässig Antworten auf technische Produktfragen.
+Bei [Microsoft Q&A (Fragen und Antworten)](/answers/products/azure?product=all), der bevorzugten Azure-Plattform für Communitysupport, erhalten Sie von Microsoft-Technikern, Azure MVPs (Most Valuable Professionals) oder unserer fachkundigen Community schnell und zuverlässig Antworten auf technische Produktfragen.
 
 Wenn Sie über die Suche keine Lösung für Ihr Problem finden können, übermitteln Sie eine neue Frage an Microsoft Q&A (Fragen und Antworten). Verwenden Sie für Ihre Frage eins der folgenden Tags:
 
-* [Cognitive Services](https://docs.microsoft.com/answers/topics/azure-cognitive-services.html)
+* [Cognitive Services](/answers/topics/azure-cognitive-services.html)
 
 **Bildanalyse**
 
-* [Maschinelles Sehen](https://docs.microsoft.com/answers/topics/azure-computer-vision.html)
-* [Custom Vision](https://docs.microsoft.com/answers/topics/azure-custom-vision.html)
-* [Gesichtserkennung](https://docs.microsoft.com/answers/topics/azure-face.html)
-* [Formularerkennung](https://docs.microsoft.com/answers/topics/azure-form-recognizer.html)
-* [Video Indexer](https://docs.microsoft.com/answers/topics/azure-media-services.html)
+* [Maschinelles Sehen](/answers/topics/azure-computer-vision.html)
+* [Custom Vision](/answers/topics/azure-custom-vision.html)
+* [Gesichtserkennung](/answers/topics/azure-face.html)
+* [Formularerkennung](/answers/topics/azure-form-recognizer.html)
+* [Video Indexer](/answers/topics/azure-media-services.html)
 
 **Sprache**
 
-* [Plastischer Reader](https://docs.microsoft.com/answers/topics/azure-immersive-reader.html)
-* [Language Understanding (LUIS)](https://docs.microsoft.com/answers/topics/azure-language-understanding.html)
-* [QnA Maker](https://docs.microsoft.com/answers/topics/azure-qna-maker.html)
-* [Textanalyse](https://docs.microsoft.com/answers/topics/azure-text-analytics.html)
-* [Translator](https://docs.microsoft.com/answers/topics/azure-translator.html)
+* [Plastischer Reader](/answers/topics/azure-immersive-reader.html)
+* [Language Understanding (LUIS)](/answers/topics/azure-language-understanding.html)
+* [QnA Maker](/answers/topics/azure-qna-maker.html)
+* [Textanalyse](/answers/topics/azure-text-analytics.html)
+* [Translator](/answers/topics/azure-translator.html)
 
 **Speech**
 
-* [Speech-Dienst](https://docs.microsoft.com/answers/topics/azure-speech.html)
+* [Speech-Dienst](/answers/topics/azure-speech.html)
 
 
 **Entscheidung**
 
-* [Anomalieerkennung](https://docs.microsoft.com/answers/topics/azure-anomaly-detector.html) 
-* [Content Moderator](https://docs.microsoft.com/answers/topics/azure-content-moderator.html)
+* [Anomalieerkennung](/answers/topics/azure-anomaly-detector.html) 
+* [Content Moderator](/answers/topics/azure-content-moderator.html)
 * [Metrics Advisor (Vorschau)]()
-* [Personalisierung](https://docs.microsoft.com/answers/topics/azure-personalizer.html)
+* [Personalisierung](/answers/topics/azure-personalizer.html)
 
 ## <a name="post-a-question-to-stack-overflow"></a>Richten einer Frage an Stack Overflow
 
@@ -143,4 +143,4 @@ Wenn Sie zu Features in einem neuen Release oder Neuigkeiten im Azure-Blog auf d
 ## <a name="next-steps"></a>Nächste Schritte
 
 > [!div class="nextstepaction"]
-> [Was ist Azure Cognitive Services?](welcome.md)
+> [Was ist Azure Cognitive Services?](./what-are-cognitive-services.md)

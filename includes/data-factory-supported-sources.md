@@ -9,11 +9,11 @@ ms.date: 11/19/2018
 ms.author: twooley
 ms.custom: include file
 ms.openlocfilehash: 51b76e2d5feb2b194ba472c2982ca0ace0f6f5fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91571951"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001730"
 ---
 |Category | Datenspeicher |  
 | :-------- | :----- |  

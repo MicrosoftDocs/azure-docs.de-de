@@ -2,21 +2,21 @@
 title: Azure Monitor-Metriken für Application Gateway
 description: Erfahren Sie, wie Sie mit Metriken die Leistung von Application Gateway überwachen.
 services: application-gateway
-author: abshamsft
+author: surajmb
 ms.service: application-gateway
 ms.topic: article
 ms.date: 06/06/2020
-ms.author: absha
-ms.openlocfilehash: ce349a0539986d88f689c53fc2099877df8030bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: surmb
+ms.openlocfilehash: be629d9f8441ad40fe15f005f4aeb0ec5565a7ec
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87424391"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437064"
 ---
 # <a name="metrics-for-application-gateway"></a>Metriken für Application Gateway
 
-Application Gateway veröffentlicht Datenpunkte, sogenannte Metriken, für die Leistung Ihrer Application Gateway- und Back-End-Instanzen bei [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview). Diese Metriken sind numerische Werte in einer geordneten Menge von Zeitreihendaten, die einen Aspekt Ihrer Application Gateway-Instanz zu einem bestimmten Zeitpunkt beschreiben. Wenn Anforderungen durch Application Gateway geleitet werden, werden die Metriken in 60-Sekunden-Intervallen gemessen und gesendet. Wenn keine Anforderungen durch Application Gateway oder keine Daten für eine Metrik geleitet werden, wird die Metrik nicht gemeldet. Weitere Informationen finden Sie unter [Azure Monitor-Metriken](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Application Gateway veröffentlicht Datenpunkte, sogenannte Metriken, für die Leistung Ihrer Application Gateway- und Back-End-Instanzen bei [Azure Monitor](../azure-monitor/overview.md). Diese Metriken sind numerische Werte in einer geordneten Menge von Zeitreihendaten, die einen Aspekt Ihrer Application Gateway-Instanz zu einem bestimmten Zeitpunkt beschreiben. Wenn Anforderungen durch Application Gateway geleitet werden, werden die Metriken in 60-Sekunden-Intervallen gemessen und gesendet. Wenn keine Anforderungen durch Application Gateway oder keine Daten für eine Metrik geleitet werden, wird die Metrik nicht gemeldet. Weitere Informationen finden Sie unter [Azure Monitor-Metriken](../azure-monitor/platform/data-platform-metrics.md).
 
 ## <a name="metrics-supported-by-application-gateway-v2-sku"></a>Von der Application Gateway V2-SKU unterstützte Metriken
 
@@ -162,7 +162,7 @@ Für Application Gateway werden folgende Metriken unterstützt:
 
 - **Anforderungsfehler**
 
-  Anzahl von Anforderungen, die von Application Gateway mit 5xx-Serverfehlercodes verarbeitet wurden. Dies umfasst die 5xx-Codes, die von Application Gateway generiert werden, sowie die 5xx-Codes, die vom Back-End generiert werden. Die Anzahl der Anforderungen kann weiter gefiltert werden, um die Anzahl für die einzelnen/spezifischen Kombinationen aus Back-End-Pools und HTTP-Einstellungen anzuzeigen.
+  Die Anzahl von Anforderungen, für die aufgrund von Verbindungsproblemen ein Fehler aufgetreten ist. In dieser Anzahl sind auch Anforderungen enthalten, für die aufgrund einer Überschreitung der HTTP-Einstellung „Anforderungstimeout“ ein Fehler aufgetreten ist, sowie Anforderungen, die aufgrund von Verbindungsproblemen zwischen dem Anwendungsgateway und dem Back-End nicht erfolgreich waren. Diese Anzahl umfasst keine Fehler, die aufgetreten sind, weil kein fehlerfreies Back-End verfügbar war. Back-End-Antworten vom Typ „4xx“ und „5xx“ werden im Rahmen dieser Metrik ebenfalls nicht berücksichtigt.
 
 - **Antwortstatus**
 
@@ -230,7 +230,7 @@ Nach dem Erstellen einer Metrikwarnung wird eine Liste mit Warnungen angezeigt. 
 
 ![Liste mit Warnungen und Regeln][9]
 
-Weitere Informationen zu Warnungsbenachrichtigungen finden Sie unter [Empfangen von Warnungsbenachrichtigungen](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Weitere Informationen zu Warnungsbenachrichtigungen finden Sie unter [Empfangen von Warnungsbenachrichtigungen](../azure-monitor/platform/alerts-overview.md).
 
 Weitere Informationen zu Webhooks und deren Verwendung mit Warnungen finden Sie unter [Konfigurieren eines Webhooks für eine Azure-Metrikwarnung](../azure-monitor/platform/alerts-webhooks.md).
 

@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: a33ff6b927045389c3692201fa70839c6a466ede
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2761b97e595f5e11b00e75cd778ee269b12bfcae
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90887665"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917799"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migration einer SQL Server-Instanz zu Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Dieser Artikel enthält Informationen zu den Methoden, mit denen eine SQL Server 2005-Instanz (oder eine höhere Version) zu [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) migriert wird. Informationen zum Migrieren zu einer Einzeldatenbank oder einem Pool für elastische Datenbanken finden Sie unter [Migrieren zu SQL-Datenbank](../database/migrate-to-database-from-sql-server.md). Weitere Informationen zum Migrieren von anderen Plattformen finden Sie im [Leitfaden zur Azure-Datenbankmigration](https://datamigration.microsoft.com/).
+Dieser Artikel enthält Informationen zu den Methoden, mit denen eine SQL Server 2005-Instanz (oder eine höhere Version) zu [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) migriert wird. Informationen im Zusammenhang mit der Migration zu einer Einzeldatenbank oder zu einem Pool für elastische Datenbanken finden Sie unter [Migrationsübersicht: SQL Server zu SQL-Datenbank](../migration-guides/database/sql-server-to-sql-database-overview.md). Informationen im Zusammenhang mit der Migration von anderen Plattformen sowie Informationen zu Tools und Optionen finden Sie unter [Migrieren zu Azure SQL](../migration-guides/index.yml).
 
 > [!NOTE]
 > Wenn Sie Azure SQL Managed Instance schnell ausprobieren möchten, ist es vielleicht besser, zum [Leitfaden für den Schnellstart](quickstart-content-reference-guide.md) zu wechseln, statt diese Seite zu lesen.
@@ -45,7 +45,7 @@ Die Datenbankmigration sieht im Allgemeinen folgendermaßen aus:
 
 Stellen Sie zunächst fest, ob SQL Managed Instance mit den Datenbankanforderungen Ihrer Anwendung kompatibel ist. SQL Managed Instance wurde konzipiert, um eine einfache Migration per Lift & Shift für die meisten bestehenden Anwendungen zu ermöglichen, die SQL Server verwenden. Es kann jedoch vorkommen, dass Sie Features oder Funktionen benötigen, die noch nicht unterstützt werden, und die Kosten für die Implementierung eines Workarounds zu hoch sind.
 
-Verwenden Sie den [Datenmigrations-Assistenten](https://docs.microsoft.com/sql/dma/dma-overview), um mögliche Kompatibilitätsprobleme zu erkennen, die die Datenbankfunktionalität der Azure SQL-Datenbank beeinträchtigen. Wenn einige blockierende Probleme gemeldet werden, müssen Sie möglicherweise eine andere Option in Betracht ziehen, z. B. [SQL Server auf Azure-VMs](https://azure.microsoft.com/services/virtual-machines/sql-server/). Im Folgenden finden Sie einige Beispiele:
+Verwenden Sie den [Datenmigrations-Assistenten](/sql/dma/dma-overview), um mögliche Kompatibilitätsprobleme zu erkennen, die die Datenbankfunktionalität der Azure SQL-Datenbank beeinträchtigen. Wenn einige blockierende Probleme gemeldet werden, müssen Sie möglicherweise eine andere Option in Betracht ziehen, z. B. [SQL Server auf Azure-VMs](https://azure.microsoft.com/services/virtual-machines/sql-server/). Im Folgenden finden Sie einige Beispiele:
 
 - Wenn Sie direkten Zugriff auf das Betriebssystem oder das Dateisystem benötigen, z. B. um Drittanbieter- oder benutzerdefinierte Agents auf demselben virtuellen SQL Server-Computer zu installieren.
 - Wenn Sie unbedingt von Features abhängig sind, die noch nicht unterstützt werden, wie z. B. FileStream/FileTable, PolyBase und instanzübergreifende Transaktionen.
@@ -69,8 +69,8 @@ Die Leistungsbaseline ist eine Gruppe von Parametern, z. B. durchschnittliche/m
 Die folgenden Parameter sind einige der Parameter, die Sie in Ihrer SQL Server-Instanz messen müssen:
 
 - [Überwachen der CPU-Nutzung in Ihrer SQL Server-Instanz](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) und Aufzeichnen der durchschnittlichen und der maximalen CPU-Nutzung.
-- [Überwachen der Arbeitsspeichernutzung in Ihrer SQL Server-Instanz](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) und Bestimmen der Menge von Arbeitsspeicher, die von verschiedenen Komponenten, z. B. Pufferpool, Plancache, Columnstorepool, [In-Memory-OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017) usw., verwendet wird. Darüber hinaus sollten Sie die durchschnittlichen und maximalen Werte des Speicherleistungsindikators „Seitenlebenserwartung“ ermitteln.
-- Überwachen der Datenträger-E/A-Nutzung in der SQL Server-Instanz mit der [sys.dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)-Sicht oder mit [Leistungsindikatoren](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
+- [Überwachen der Arbeitsspeichernutzung in Ihrer SQL Server-Instanz](/sql/relational-databases/performance-monitor/monitor-memory-usage) und Bestimmen der Menge von Arbeitsspeicher, die von verschiedenen Komponenten, z. B. Pufferpool, Plancache, Columnstorepool, [In-Memory-OLTP](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017) usw., verwendet wird. Darüber hinaus sollten Sie die durchschnittlichen und maximalen Werte des Speicherleistungsindikators „Seitenlebenserwartung“ ermitteln.
+- Überwachen der Datenträger-E/A-Nutzung in der SQL Server-Instanz mit der [sys.dm_io_virtual_file_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)-Sicht oder mit [Leistungsindikatoren](/sql/relational-databases/performance-monitor/monitor-disk-usage).
 - Überwachen der Workload- und Abfrageleistung in Ihrer SQL Server-Instanz durch Auswerten von dynamischen Verwaltungssichten oder „Abfragespeicher“, wenn Sie von SQL Server 2016 oder einer höheren Version migrieren. Ermitteln Sie die durchschnittliche Dauer und CPU-Nutzung für die wichtigsten Abfragen in Ihrer Workload, um die entsprechenden Werte mit denen der Abfragen zu vergleichen, die in der verwalteten Instanz ausgeführt werden.
 
 > [!Note]
@@ -116,7 +116,7 @@ SQL Managed Instance unterstützt die folgenden Datenbankmigrationsoptionen (der
 
 [Azure Database Migration Service](../../dms/dms-overview.md) ist ein vollständig verwalteter Dienst, der die nahtlose Migration von mehreren Datenbankquellen zu Azure-Datenplattformen bei minimaler Ausfallzeit ermöglicht. Dieser Dienst optimiert die Aufgaben, die erforderlich sind, um bestehende Drittanbieter- und SQL Server-Datenbanken in Azure zu verschieben. Zu den Bereitstellungsoptionen während der öffentlichen Vorschau gehören Datenbanken in Azure SQL-Datenbank und SQL Server-Datenbanken auf einem virtuellen Azure-Computer. Database Migration Service ist die empfohlene Migrationsmethode für Ihre Unternehmensworkloads.
 
-Wenn Sie SQL Server Integration Services (SSIS) in lokalem SQL Server verwenden, unterstützt Database Migration Service noch nicht die Migration des SSIS-Katalogs (SSISDB), in dem SSIS-Pakete gespeichert werden. Sie können jedoch die Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF) bereitstellen, mit der eine neue SSISDB in einer verwalteten Instanz erstellt wird. Anschließend können Sie dort das Paket erneut bereitstellen. Weitere Informationen finden Sie unter [Erstellen von Azure-SSIS IR in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
+Wenn Sie SQL Server Integration Services (SSIS) in lokalem SQL Server verwenden, unterstützt Database Migration Service noch nicht die Migration des SSIS-Katalogs (SSISDB), in dem SSIS-Pakete gespeichert werden. Sie können jedoch die Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF) bereitstellen, mit der eine neue SSISDB in einer verwalteten Instanz erstellt wird. Anschließend können Sie dort das Paket erneut bereitstellen. Weitere Informationen finden Sie unter [Erstellen von Azure-SSIS IR in Azure Data Factory](../../data-factory/create-azure-ssis-integration-runtime.md).
 
 Weitere Informationen zu diesem Szenario und zu Konfigurationsschritten für Database Migration Service finden Sie unter [Migrieren Ihrer lokalen Datenbank zu einer verwalteten Instanz mit Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md).  
 
@@ -133,8 +133,8 @@ In der folgenden Tabelle finden Sie weitere Informationen über die Methoden, di
 |Schritt|SQL-Engine und -Version|Sicherungs- und Wiederherstellungsmethode|
 |---|---|---|
 |Sicherung auf Azure Storage legen|Vor 2012 SP1 CU2|Direkter Upload der BAK-Datei in Azure Storage|
-||2012 SP1 CU2 – 2016|Direkte Sicherung mit veralteter [WITH CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)-Syntax|
-||Ab 2016|Direkte Sicherung mit [WITH SAS CREDENTIAL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
+||2012 SP1 CU2 – 2016|Direkte Sicherung mit veralteter [WITH CREDENTIAL](/sql/t-sql/statements/restore-statements-transact-sql)-Syntax|
+||Ab 2016|Direkte Sicherung mit [WITH SAS CREDENTIAL](/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
 |Wiederherstellung aus Azure Storage in eine verwaltete Instanz|[RESTORE FROM URL mit SAS CREDENTIAL](restore-sample-database-quickstart.md)|
 
 > [!IMPORTANT]
@@ -164,7 +164,7 @@ Eine Voraussetzung hierfür ist, dass Sie die folgenden Aktivitäten ausgeführt
 - Passen Sie Ihre Einstellungen in der verwalteten Instanz entsprechend den Einstellungen der SQL Server-Quellinstanz an, indem Sie verschiedene Instanz-, Datenbank- und tempdb-Einstellungen sowie Konfigurationen untersuchen. Sie sollten keine Einstellungen, etwa Kompatibilitätsgrade oder Verschlüsselung, ändern, bevor Sie den ersten Leistungsvergleich durchführen. Andernfalls müssen Sie das Risiko akzeptieren, dass sich einige der von Ihnen aktivierten neuen Features auf einige Abfragen auswirken können. Um Migrationsrisiken zu minimieren, sollten Sie den Kompatibilitätsgrad der Datenbank erst nach der Leistungsüberwachung ändern.
 - Setzen Sie die [Richtlinien für bewährte Speichermethoden für „Universell“](https://techcommunity.microsoft.com) um, so z. B. Vorabzuordnung der Größe der Dateien, um eine bessere Leistung zu erzielen.
 - Erfahren Sie mehr über die [wichtigsten Umgebungsunterschiede, die zu Leistungsunterschieden zwischen einer verwalteten Instanz und SQL Server führen können](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/), und bestimmen Sie die Risiken, die die Leistung beeinträchtigen können.
-- Belassen Sie „Abfragespeicher“ und „Automatische Optimierung“ für Ihre verwaltete Instanz aktiviert. Diese Features ermöglichen es Ihnen, die Workloadleistung zu messen und die möglichen Leistungsprobleme automatisch zu beheben. Erfahren Sie, wie Sie „Abfragespeicher“ als optimales Tool verwenden, um Informationen über die Workloadleistung vor und nach einer Änderung des Datenbankkompatibilitätsgrads zu erhalten. Erläuterungen hierzu finden Sie unter [Aufrechterhalten einer stabilen Leistung während des Upgrades auf eine neuere SQL Server-Version](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
+- Belassen Sie „Abfragespeicher“ und „Automatische Optimierung“ für Ihre verwaltete Instanz aktiviert. Diese Features ermöglichen es Ihnen, die Workloadleistung zu messen und die möglichen Leistungsprobleme automatisch zu beheben. Erfahren Sie, wie Sie „Abfragespeicher“ als optimales Tool verwenden, um Informationen über die Workloadleistung vor und nach einer Änderung des Datenbankkompatibilitätsgrads zu erhalten. Erläuterungen hierzu finden Sie unter [Aufrechterhalten einer stabilen Leistung während des Upgrades auf eine neuere SQL Server-Version](/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
 Sobald Sie die Umgebung vorbereitet haben, die so weit wie möglich mit Ihrer lokalen Umgebung vergleichbar ist, können Sie damit beginnen, Ihre Workload auszuführen und die Leistung zu messen. Der Messungsumfang sollte genau die Parameter enthalten, die Sie [während der Erstellung der Leistungsbaseline Ihrer Workload für die SQL Server-Quellinstanz](#create-a-performance-baseline) gemessen haben.
 Danach vergleichen Sie die Leistungsparameter mit den Baselinewerten, und ermitteln Sie auffallende Unterschiede.
 
@@ -194,16 +194,16 @@ SQL Managed Instance bietet eine Menge an erweiterten Tools zur Überwachung und
 
 Sobald Sie sich auf einer vollständig verwalteten Plattform befinden und sich vergewissert haben, dass die Workloadleistungen mit der SQL Server-Workloadleistung übereinstimmen, können Sie die Vorteile nutzen, die automatisch als Teil des Diensts bereitgestellt werden.
 
-Selbst wenn Sie während der Migration keine Änderungen an der verwalteten Instanz vornehmen, ist es sehr wahrscheinlich, dass Sie im laufenden Betrieb Ihrer Instanz einige der neuen Features aktivieren, um die Vorteile der letzten Verbesserungen der Datenbank-Engine zu nutzen. Einige Änderungen werden erst übernommen, wenn der [Kompatibilitätsgrad der Datenbank geändert wurde](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database).
+Selbst wenn Sie während der Migration keine Änderungen an der verwalteten Instanz vornehmen, ist es sehr wahrscheinlich, dass Sie im laufenden Betrieb Ihrer Instanz einige der neuen Features aktivieren, um die Vorteile der letzten Verbesserungen der Datenbank-Engine zu nutzen. Einige Änderungen werden erst übernommen, wenn der [Kompatibilitätsgrad der Datenbank geändert wurde](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database).
 
 Beispielsweise müssen Sie keine Sicherungen für den Managed Instance-Dienst erstellen, da dieser automatische Sicherungen für Sie durchführt. Sie müssen sich auch nicht mehr darum kümmern, Sicherungen zu planen, zu erstellen und zu verwalten. SQL Managed Instance bietet Ihnen die Möglichkeit, mithilfe der [Zeitpunktwiederherstellung](../database/recovery-using-backups.md#point-in-time-restore) eine Wiederherstellung gemäß jedem beliebigen Zeitpunkt innerhalb des Aufbewahrungszeitraums durchzuführen. Darüber hinaus müssen Sie sich keine Gedanken über die Einrichtung von [Hochverfügbarkeit](../database/high-availability-sla.md) machen, da diese integriert ist.
 
-Um die Sicherheit zu erhöhen, sollten Sie [Azure Active Directory-Authentifizierung](../database/security-overview.md), [Überwachung](auditing-configure.md), [Bedrohungserkennung](../database/azure-defender-for-sql.md), [Sicherheit auf Zeilenebene](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) und [dynamische Datenmaskierung](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) verwenden.
+Um die Sicherheit zu erhöhen, sollten Sie [Azure Active Directory-Authentifizierung](../database/security-overview.md), [Überwachung](auditing-configure.md), [Bedrohungserkennung](../database/azure-defender-for-sql.md), [Sicherheit auf Zeilenebene](/sql/relational-databases/security/row-level-security) und [dynamische Datenmaskierung](/sql/relational-databases/security/dynamic-data-masking) verwenden.
 
-Zusätzlich zu erweiterten Verwaltungs- und Sicherheitsfeatures stellt die verwaltete Instanz eine Reihe von erweiterten Tools bereit, mit denen Sie Ihre [Workload überwachen und optimieren](../database/monitor-tune-overview.md) können. [Azure SQL-Analyse](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) ermöglicht Ihnen, eine große Menge verwalteter Instanzen zu überwachen und die Überwachung einer großen Anzahl von Instanzen und Datenbanken zu zentralisieren. [Automatische Optimierung](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) in verwalteten Instanzen bewirkt, dass die Ausführungsleistung Ihres SQL-Plans kontinuierlich statistisch überwacht wird und die erkannten Leistungsprobleme automatisch behoben werden.
+Zusätzlich zu erweiterten Verwaltungs- und Sicherheitsfeatures stellt die verwaltete Instanz eine Reihe von erweiterten Tools bereit, mit denen Sie Ihre [Workload überwachen und optimieren](../database/monitor-tune-overview.md) können. [Azure SQL-Analyse](../../azure-monitor/insights/azure-sql.md) ermöglicht Ihnen, eine große Menge verwalteter Instanzen zu überwachen und die Überwachung einer großen Anzahl von Instanzen und Datenbanken zu zentralisieren. [Automatische Optimierung](/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) in verwalteten Instanzen bewirkt, dass die Ausführungsleistung Ihres SQL-Plans kontinuierlich statistisch überwacht wird und die erkannten Leistungsprobleme automatisch behoben werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Informationen zu Azure SQL Managed Instance finden Sie unter [Was ist Azure SQL Managed Instance?](sql-managed-instance-paas-overview.md).
 - Ein Tutorial zu einer Wiederherstellung aus einer Sicherung finden Sie unter [Erstellen einer verwalteten Instanz](instance-create-quickstart.md).
-- Ein Tutorial zur Migration mit Database Migration Service finden Sie unter [Migrieren Ihrer lokalen Datenbank zu Azure SQL Managed Instance mit Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md).  
+- Ein Tutorial zur Migration mit Database Migration Service finden Sie unter [Migrieren Ihrer lokalen Datenbank zu Azure SQL Managed Instance mit Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md).

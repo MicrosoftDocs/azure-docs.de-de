@@ -1,17 +1,17 @@
 ---
 title: Anpassen von Bewertungen für Azure Migrate-Serverbewertung | Microsoft-Dokumentation
 description: Es wird beschrieben, wie Sie mit der Azure Migrate-Serverbewertung erstellte Bewertungen anpassen.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 07/15/2019
-ms.author: raynew
-ms.openlocfilehash: bcc6f41d7cc08764266ffb6705d1b8937d355199
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de90cffe8760a55aafebf079678d139c6f6f99e1
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86109721"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751103"
 ---
 # <a name="customize-an-assessment"></a>Anpassen einer Bewertung
 

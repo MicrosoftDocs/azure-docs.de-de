@@ -1,29 +1,29 @@
 ---
 title: Verwalten von Lesereplikaten – Azure-Befehlszeilenschnittstelle, REST-API – Azure Database for MariaDB
 description: In diesem Artikel wird beschrieben, wie Sie mithilfe der Azure CLI und REST-API Lesereplikate in Azure Database for MariaDB einrichten und verwalten.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f6b53efdf49538476821ddeaed9bbf4278af0728
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70da1e9c70bf80737065362c68781652dd9ab6e5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542409"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023634"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Erstellen und Verwalten von Lesereplikaten in Azure Database for MariaDB mithilfe der Azure CLI und REST-API
 
 In diesem Artikel wird beschrieben, wie Sie mithilfe der Azure CLI und REST-API Lesereplikate in Azure Database for MariaDB erstellen und verwalten.
 
-## <a name="azure-cli"></a>Azure-Befehlszeilenschnittstelle
+## <a name="azure-cli"></a>Azure CLI
 Sie können Lesereplikate mithilfe der Azure CLI erstellen und verwalten.
 
 ### <a name="prerequisites"></a>Voraussetzungen
 
-- [Installieren der Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Installieren der Azure CLI 2.0](/cli/azure/install-azure-cli)
 - Ein [Azure Database for MariaDB-Server](quickstart-create-mariadb-server-database-using-azure-portal.md), der als Quellserver verwendet wird 
 
 > [!IMPORTANT]
@@ -32,7 +32,7 @@ Sie können Lesereplikate mithilfe der Azure CLI erstellen und verwalten.
 ### <a name="create-a-read-replica"></a>Erstellen eines Lesereplikats
 
 > [!IMPORTANT]
-> Wenn Sie ein Replikat für eine Quelle erstellen, die noch nicht über Replikate verfügt, wird die Quelle zur Vorbereitung auf die Replikation zunächst neu gestartet. Beachten Sie dies, und führen Sie diese Vorgänge nicht zu Spitzenzeiten durch.
+> Wenn Sie ein Replikat für eine Quelle erstellen, die keine vorhandenen Replikate hat, startet die Quelle zunächst neu, um sich auf die Replikation vorzubereiten. Beachten Sie dies, und führen Sie diese Vorgänge nicht zu Spitzenzeiten durch.
 
 Ein Lesereplikatserver kann mit dem folgenden Befehl erstellt werden:
 
@@ -42,9 +42,9 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 
 Für den Befehl `az mariadb server replica create` sind folgende Parameter erforderlich:
 
-| Einstellung | Beispielwert | BESCHREIBUNG  |
+| Einstellung | Beispielwert | BESCHREIBUNG  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Die Ressourcengruppe, in der der Replikatserver erstellt wird.  |
+| resource-group |  myresourcegroup |  Die Ressourcengruppe, in der der Replikatserver erstellt wird.  |
 | name | mydemoreplicaserver | Der Name des neuen Replikatservers, der erstellt wird. |
 | source-server | mydemoserver | Der Name oder die ID des vorhandenen Quellservers, der repliziert werden soll |
 
@@ -60,7 +60,7 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 > Weitere Informationen zu den Regionen, in denen Sie ein Replikat erstellen können, finden Sie im [Konzeptartikel zu Lesereplikaten](concepts-read-replicas.md). 
 
 > [!NOTE]
-> Lesereplikate werden mit der gleichen Serverkonfiguration wie der Masterserver erstellt. Die Replikatserverkonfiguration kann nach der Erstellung geändert werden. Für die Konfiguration des Replikatservers sollten die gleichen Werte wie für den Quellserver oder höhere verwendet werden, um sicherzustellen, dass das Replikat mit dem Masterserver mithalten kann.
+> Lesereplikate werden mit der gleichen Serverkonfiguration wie der Masterserver erstellt. Die Replikatserverkonfiguration kann nach der Erstellung geändert werden. Für die Konfiguration des Replikatservers sollten mindestens die gleichen Werte verwendet werden wie für den Quellserver, damit das Replikat über genügend Kapazität verfügt.
 
 ### <a name="list-replicas-for-a-source-server"></a>Auflisten von Replikaten für einen Quellserver
 
@@ -72,10 +72,10 @@ az mariadb server replica list --server-name mydemoserver --resource-group myres
 
 Für den Befehl `az mariadb server replica list` sind folgende Parameter erforderlich:
 
-| Einstellung | Beispielwert | BESCHREIBUNG  |
+| Einstellung | Beispielwert | BESCHREIBUNG  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Die Ressourcengruppe, in der der Replikatserver erstellt wird.  |
-| Servername | mydemoserver | Der Name oder die ID des Quellservers |
+| resource-group |  myresourcegroup |  Die Ressourcengruppe, in der der Replikatserver erstellt wird.  |
+| Servername | mydemoserver | Der Name oder die ID des Quellservers. |
 
 ### <a name="stop-replication-to-a-replica-server"></a>Beenden der Replikation auf einem Replikatserver
 
@@ -90,9 +90,9 @@ az mariadb server replica stop --name mydemoreplicaserver --resource-group myres
 
 Für den Befehl `az mariadb server replica stop` sind folgende Parameter erforderlich:
 
-| Einstellung | Beispielwert | BESCHREIBUNG  |
+| Einstellung | Beispielwert | BESCHREIBUNG  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Die Ressourcengruppe, in der der Replikatserver enthalten ist.  |
+| resource-group |  myresourcegroup |  Die Ressourcengruppe, in der der Replikatserver enthalten ist.  |
 | name | mydemoreplicaserver | Der Name des Replikatservers, auf dem die Replikation beendet werden soll. |
 
 ### <a name="delete-a-replica-server"></a>Löschen eines Replikatservers

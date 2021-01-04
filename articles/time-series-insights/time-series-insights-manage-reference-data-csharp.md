@@ -11,19 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: fb0c29fb68d0bcd2405cc031008c1c8e5035476f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6f0e5230fb3c59cab690620e837f476f3392a48
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569396"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020077"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-gen-1-environment-using-c-sharp"></a>Verwalten von Verweisdaten für eine Azure Time Series Insights Gen1-Umgebung mithilfe von C#
 
 > [!CAUTION]
 > Dies ist ein Artikel zu Azure Time Series Insights Gen1.
 
-In diesem Artikel wird veranschaulicht, wie Sie C#, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) und Azure Active Directory kombinieren, um programmgesteuert API-Anforderungen an die [Verweisdatenverwaltungs-API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api) von Azure Time Series Insights Gen1 auszuführen.
+In diesem Artikel wird veranschaulicht, wie Sie C#, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) und Azure Active Directory kombinieren, um programmgesteuert API-Anforderungen an die [Verweisdatenverwaltungs-API](/rest/api/time-series-insights/gen1-reference-data-api) von Azure Time Series Insights Gen1 auszuführen.
 
 > [!TIP]
 > C#-Codebeispiele mit allgemeiner Verfügbarkeit finden Sie unter [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen1-sample/csharp-tsi-gen1-sample).
@@ -33,8 +33,8 @@ In diesem Artikel wird veranschaulicht, wie Sie C#, [MSAL.NET](https://github.co
 Im unten stehenden Beispielcode werden die folgenden Funktionen veranschaulicht:
 
 * Abrufen eines Zugriffstokens mit **PublicClientApplication** für [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)
-* Sequenzielle CREATE-, READ-, UPDATE- und DELETE-Vorgänge für die Gen1-[Verweisdatenverwaltungs-API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api)
-* Allgemeine Antwortcodes, einschließlich [allgemeiner Fehlercodes](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api#validation-and-error-handling)
+* Sequenzielle CREATE-, READ-, UPDATE- und DELETE-Vorgänge für die Gen1-[Verweisdatenverwaltungs-API](/rest/api/time-series-insights/gen1-reference-data-api)
+* Allgemeine Antwortcodes, einschließlich [allgemeiner Fehlercodes](/rest/api/time-series-insights/gen1-reference-data-api#validation-and-error-handling)
 
     Die Verweisdatenverwaltungs-API verarbeitet jedes Element einzeln. Wenn bei einem Element ein Fehler auftritt, verhindert dies nicht den erfolgreichen Abschluss der anderen. Wenn Ihre Anforderung z. B. 100 Elemente umfasst und bei einem Element ein Fehler auftritt, werden 99 Elemente geschrieben, und eines wird zurückgewiesen.
 
@@ -42,7 +42,7 @@ Im unten stehenden Beispielcode werden die folgenden Funktionen veranschaulicht:
 
 Führen Sie vor dem Kompilieren und Ausführen des Beispielcodes die folgenden Schritte aus:
 
-1. [Stellen Sie eine Gen1 Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started
+1. [Stellen Sie eine Gen1 Azure Time Series Insights](./time-series-insights-get-started.md
 )-Umgebung bereit.
 
 1. [Erstellen Sie ein Verweisdataset](time-series-insights-add-reference-data-set.md) in Ihrer Umgebung. Verwenden Sie das folgende Verweisdatenschema:
@@ -313,4 +313,4 @@ namespace CsharpTsiMsalGaSample
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Lesen Sie die Referenzdokumentation zur Gen1-[Verweisdatenverwaltungs-API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api).
+* Lesen Sie die Referenzdokumentation zur Gen1-[Verweisdatenverwaltungs-API](/rest/api/time-series-insights/gen1-reference-data-api).

@@ -4,12 +4,12 @@ description: In diesem Artikel finden Sie Antworten auf häufig gestellte Fragen
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: f318d785fdfa5b72050bdd805ecfe801d307b9a7
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 0f4f990654cc23fde7cf1ad2e37ba1ada76d94e3
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172837"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324787"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Häufig gestellte Fragen – Sicherung von Azure-VMs
 
@@ -77,17 +77,21 @@ Wenn Sie die vom Azure Backup-Dienst erstellte Ressourcengruppe sperren, treten 
 
 Entfernen Sie die Sperre, und löschen Sie die Wiederherstellungspunktsammlung aus dieser Ressourcengruppe, damit zukünftige Sicherungen erfolgreich ausgeführt werden. [Führen Sie diese Schritte aus](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal), um die Wiederherstellungspunktsammlung zu entfernen.
 
+### <a name="i-have-a-lock-at-the-resource-group-level-that-contains-all-the-resources-related-to-my-virtual-machine-will-my-backup-work"></a>Ich verfüge über eine Sperre auf Ressourcengruppenebene, die alle Ressourcen meines virtuellen Computers umfasst. Funktioniert meine Sicherung?
+
+Azure Backup erstellt eine separate Ressourcengruppe im Format `AzureBackupRG_<geo>_<number>`, um ResourcePointCollections-Objekte zu speichern. Da sich diese Ressourcengruppe im Besitz des Diensts befindet, führt das Sperren bei Sicherungen zu einem Fehler. Sperren können nur auf von Kunden erstellte Ressourcengruppen angewandt werden.
+
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>Unterstützt Azure Backup verwaltete SSD Standard-Datenträger?
 
-Ja, Azure Backup unterstützt [verwaltete SSD Standard-Datenträger](https://docs.microsoft.com/azure/virtual-machines/disks-types#standard-ssd).
+Ja, Azure Backup unterstützt [verwaltete SSD Standard-Datenträger](../virtual-machines/disks-types.md#standard-ssd).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Können ich eine VM mit einem Datenträger mit aktivierter Schreibbeschleunigung sichern?
 
-Momentaufnahmen können auf dem Datenträger mit aktivierter Schreibbeschleunigung nicht erstellt werden. Der Azure Backup-Dienst kann den Datenträger mit aktivierter Schreibbeschleunigung jedoch von der Sicherung ausschließen.
+Momentaufnahmen können nur auf Datenträgern für Daten mit aktivierter Schreibbeschleunigung aktiviert werden, nicht auf Betriebssystemdatenträgern. Daher können nur Datenträger mit aktivierter Schreibbeschleunigung geschützt werden.
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Ich verfüge über eine VM mit Datenträgern mit Schreibbeschleunigung und installiertem SAP HANA. Wie kann ich diese sichern?
 
-Azure Backup kann den Datenträger mit aktivierter Schreibbeschleunigung nicht sichern, kann ihn aber von der Sicherung ausschließen. Die Sicherung bietet jedoch keine Datenbankkonsistenz, da die Informationen auf dem Datenträger mit aktivierter Schreibbeschleunigung nicht gesichert werden. Sie können Datenträger mit dieser Konfiguration sichern, wenn Sie eine Sicherung des Betriebssystemdatenträgers möchten, sowie Sicherungen von Datenträgern ohne aktivierte Schreibbeschleunigung durchführen.
+Azure Backup kann Datenträger mit aktivierter Schreibbeschleunigung sichern. Die Sicherung bietet jedoch keine Datenbankkonsistenz.
 
 Azure Backup bietet eine Streamingsicherungslösung für SAP HANA-Datenbanken mit einer RPO von 15 Minuten. Der Dienst ist Backint-zertifiziert durch SAP und bietet native Sicherungsunterstützung durch Verwendung der nativen APIs von SAP HANA. Erfahren Sie mehr über [das Sichern von SAP HANA-Datenbanken auf virtuellen Azure-Computern](./sap-hana-db-about.md).
 

@@ -11,7 +11,7 @@
     - name: 'Rollen, die nicht mit PIM verwaltet werden können'
       href: pim-roles.md
     - name: Schützen des privilegierten Zugriffs
-      href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+      href: ../roles/security-planning.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
     - name: MFA und PIM
       href: pim-how-to-require-mfa.md
     - name: Übersichtsdashboards

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
 ms.date: 01/22/2018
-ms.openlocfilehash: 3db7112516941e53c07e1521f15140a8b9c28e47
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: bed497dfdc25ec2815f51795a1f40847586ce798
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147962"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510310"
 ---
 # <a name="tutorial-copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Tutorial: Kopieren von Daten aus einer SQL Server-Datenbank in Azure Blob Storage
 
@@ -45,20 +45,20 @@ Wenn Sie nicht bereits ein Azure-Abonnement besitzen, können Sie ein [kostenlos
 ### <a name="azure-roles"></a>Azure-Rollen
 Damit Sie Data Factory-Instanzen erstellen können, muss dem Benutzerkonto, mit dem Sie sich bei Azure anmelden, die Rolle *Mitwirkender* oder *Besitzer* zugewiesen sein, oder es muss ein *Administrator* des Azure-Abonnements sein.
 
-Wählen Sie im Azure-Portal in der oberen rechten Ecke Ihren Benutzernamen und dann **Berechtigungen** , um Ihre Berechtigungen im Abonnement anzuzeigen. Wenn Sie Zugriff auf mehrere Abonnements besitzen, wählen Sie das entsprechende Abonnement aus. Beispielanleitungen zum Hinzufügen eines Benutzers zu einer Rolle finden Sie im Artikel [Hinzufügen oder Entfernen von Azure-Rollenzuweisungen über das Azure-Portal](../role-based-access-control/role-assignments-portal.md).
+Wählen Sie im Azure-Portal in der oberen rechten Ecke Ihren Benutzernamen und dann **Berechtigungen**, um Ihre Berechtigungen im Abonnement anzuzeigen. Wenn Sie Zugriff auf mehrere Abonnements besitzen, wählen Sie das entsprechende Abonnement aus. Beispielanleitungen zum Hinzufügen eines Benutzers zu einer Rolle finden Sie im Artikel [Hinzufügen oder Entfernen von Azure-Rollenzuweisungen über das Azure-Portal](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 und 2017
-In diesem Tutorial verwenden Sie eine SQL Server-Datenbank als *Quelldatenspeicher* . Die Pipeline in der in diesem Tutorial erstellten Data Factory kopiert Daten aus dieser SQL Server-Datenbank (Quelle) in Azure Blob Storage (Senke). Anschließend erstellen Sie eine Tabelle mit dem Namen **emp** in Ihrer SQL Server-Datenbank und fügen einige Einträge in die Tabelle ein.
+In diesem Tutorial verwenden Sie eine SQL Server-Datenbank als *Quelldatenspeicher*. Die Pipeline in der in diesem Tutorial erstellten Data Factory kopiert Daten aus dieser SQL Server-Datenbank (Quelle) in Azure Blob Storage (Senke). Anschließend erstellen Sie eine Tabelle mit dem Namen **emp** in Ihrer SQL Server-Datenbank und fügen einige Einträge in die Tabelle ein.
 
-1. Starten Sie SQL Server Management Studio. Falls die Installation auf Ihrem Computer noch nicht vorhanden ist, helfen Ihnen die Informationen unter [Herunterladen von SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) weiter.
+1. Starten Sie SQL Server Management Studio. Falls die Installation auf Ihrem Computer noch nicht vorhanden ist, helfen Ihnen die Informationen unter [Herunterladen von SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) weiter.
 
 1. Stellen Sie eine Verbindung mit Ihrer SQL Server-Instanz her, indem Sie Ihre Anmeldeinformationen verwenden.
 
-1. Erstellen Sie eine Beispieldatenbank. Klicken Sie in der Strukturansicht mit der rechten Maustaste auf **Datenbanken** , und wählen Sie anschließend **Neue Datenbank** .
+1. Erstellen Sie eine Beispieldatenbank. Klicken Sie in der Strukturansicht mit der rechten Maustaste auf **Datenbanken**, und wählen Sie anschließend **Neue Datenbank**.
 
-1. Geben Sie im Fenster **Neue Datenbank** einen Namen für die Datenbank ein, und wählen Sie dann **OK** .
+1. Geben Sie im Fenster **Neue Datenbank** einen Namen für die Datenbank ein, und wählen Sie dann **OK**.
 
-1. Führen Sie das folgende Abfrageskript für die Datenbank aus, um die Tabelle **emp** zu erstellen und einige Beispieldaten einzufügen. Klicken Sie in der Strukturansicht mit der rechten Maustaste auf die von Ihnen erstellte Datenbank, und wählen Sie anschließend **Neue Abfrage** .
+1. Führen Sie das folgende Abfrageskript für die Datenbank aus, um die Tabelle **emp** zu erstellen und einige Beispieldaten einzufügen. Klicken Sie in der Strukturansicht mit der rechten Maustaste auf die von Ihnen erstellte Datenbank, und wählen Sie anschließend **Neue Abfrage**.
 
     ```sql
     CREATE TABLE dbo.emp
@@ -83,30 +83,30 @@ In diesem Tutorial verwenden Sie Name und Schlüssel Ihres Azure-Speicherkontos.
 
 1. Melden Sie sich mit Ihrem Azure-Benutzernamen und dem dazugehörigen Kennwort am [Azure-Portal](https://portal.azure.com) an.
 
-1. Wählen Sie im linken Bereich die Option **Weitere Dienste** , filtern Sie nach dem Schlüsselwort **Speicher** , und wählen Sie dann **Speicherkonten** aus.
+1. Wählen Sie im linken Bereich die Option **Weitere Dienste**, filtern Sie nach dem Schlüsselwort **Speicher**, und wählen Sie dann **Speicherkonten** aus.
 
     ![Suchen nach einem Speicherkonto](media/doc-common-process/search-storage-account.png)
 
 1. Filtern Sie in der Liste mit den Speicherkonten nach Ihrem Speicherkonto (falls erforderlich), und wählen Sie Ihr Speicherkonto aus.
 
-1. Wählen Sie im Fenster **Speicherkonto** die Option **Zugriffsschlüssel** .
+1. Wählen Sie im Fenster **Speicherkonto** die Option **Zugriffsschlüssel**.
 
 1. Kopieren Sie in den Feldern **Speicherkontoname** und **key1** die Werte, und fügen Sie sie zur späteren Verwendung im Tutorial in einen Editor ein.
 
 #### <a name="create-the-adftutorial-container"></a>Erstellen des Containers „adftutorial“
 In diesem Abschnitt erstellen Sie einen Blobcontainer mit dem Namen **adftutorial** in Ihrer Azure Blob Storage-Instanz.
 
-1. Wechseln Sie im Fenster **Speicherkonto** zu **Übersicht** , und wählen Sie die Option **Blobs** .
+1. Wechseln Sie im Fenster **Speicherkonto** zu **Übersicht**, und wählen Sie die Option **Blobs**.
 
     ![Option zum Auswählen von Blobs](media/tutorial-hybrid-copy-powershell/select-blobs.png)
 
-1. Wählen Sie im Fenster **Blob-Dienst** die Option **Container** .
+1. Wählen Sie im Fenster **Blob-Dienst** die Option **Container**.
 
-1. Geben Sie im Fenster **Neuer Container** im Feld **Name** den Namen **adftutorial** ein, und wählen Sie **OK** .
+1. Geben Sie im Fenster **Neuer Container** im Feld **Name** den Namen **adftutorial** ein, und wählen Sie **OK**.
 
     ![Eingeben des Containernamens](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
 
-1. Wählen Sie in der Liste mit den Containern die Option **adftutorial** .  
+1. Wählen Sie in der Liste mit den Containern die Option **adftutorial**.  
 
 1. Lassen Sie das Fenster **Container** für **adftutorial** geöffnet. Sie überprüfen darauf am Ende des Tutorials die Ausgabe. Data Factory erstellt den Ausgabeordner automatisch in diesem Container, damit Sie ihn nicht selbst erstellen müssen.
 
@@ -201,7 +201,7 @@ In diesem Abschnitt erstellen Sie eine selbstgehostete Integration Runtime und o
 
     Hier ist die Beispielausgabe:
 
-    ```json
+    ```console
     Name              : ADFTutorialIR
     Type              : SelfHosted
     ResourceGroupName : <resourceGroupName>
@@ -218,7 +218,7 @@ In diesem Abschnitt erstellen Sie eine selbstgehostete Integration Runtime und o
 
     Hier ist die Beispielausgabe:
 
-    ```json
+    ```console
     State                     : NeedRegistration
     Version                   :
     CreateTime                : 9/10/2019 3:24:09 AM
@@ -257,21 +257,21 @@ In diesem Abschnitt erstellen Sie eine selbstgehostete Integration Runtime und o
 ## <a name="install-the-integration-runtime"></a>Installieren der Integration Runtime
 1. Laden Sie die [Azure Data Factory Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717) auf einen lokalen Windows-Computer herunter, und führen Sie anschließend die Installation aus.
 
-1. Wählen Sie auf der **Willkommensseite des Einrichtungsassistenten für die Microsoft Integration Runtime** die Option **Weiter** .  
+1. Wählen Sie auf der **Willkommensseite des Einrichtungsassistenten für die Microsoft Integration Runtime** die Option **Weiter**.  
 
-1. Stimmen Sie im Fenster mit dem **Endbenutzer-Lizenzvertrag** den Bedingungen bzw. dem Lizenzvertrag zu, und wählen Sie **Weiter** .
+1. Stimmen Sie im Fenster mit dem **Endbenutzer-Lizenzvertrag** den Bedingungen bzw. dem Lizenzvertrag zu, und wählen Sie **Weiter**.
 
-1. Wählen Sie im Fenster **Zielordner** die Option **Weiter** .
+1. Wählen Sie im Fenster **Zielordner** die Option **Weiter**.
 
-1. Wählen Sie im Fenster **Ready to install Microsoft Integration Runtime** (Bereit für Installation der Microsoft Integration Runtime) die Option **Installieren** .
+1. Wählen Sie im Fenster **Ready to install Microsoft Integration Runtime** (Bereit für Installation der Microsoft Integration Runtime) die Option **Installieren**.
 
-1. Wählen Sie unter **Completed the Microsoft Integration Runtime Setup Wizard** (Setup-Assistent für Microsoft Integration Runtime abgeschlossen) die Option **Fertig stellen** .
+1. Wählen Sie unter **Completed the Microsoft Integration Runtime Setup Wizard** (Setup-Assistent für Microsoft Integration Runtime abgeschlossen) die Option **Fertig stellen**.
 
-1. Fügen Sie im Fenster **Integrationslaufzeit (selbstgehostet) registrieren** den Schlüssel ein, den Sie im vorherigen Abschnitt gespeichert haben, und wählen Sie dann die Option **Registrieren** .
+1. Fügen Sie im Fenster **Integrationslaufzeit (selbstgehostet) registrieren** den Schlüssel ein, den Sie im vorherigen Abschnitt gespeichert haben, und wählen Sie dann die Option **Registrieren**.
 
     ![Registrieren der Integration Runtime](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
 
-1. Wählen Sie im Fenster **Neuer Integration Runtime-Knoten (selbstgehostet)** die Option **Fertig stellen** .
+1. Wählen Sie im Fenster **Neuer Integration Runtime-Knoten (selbstgehostet)** die Option **Fertig stellen**.
 
     ![Fenster „Neuer Knoten der Integrationslaufzeit“](media/tutorial-hybrid-copy-powershell/new-integration-runtime-node-page.png)
 
@@ -279,7 +279,7 @@ In diesem Abschnitt erstellen Sie eine selbstgehostete Integration Runtime und o
 
     ![Erfolgreich registriert](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
 
-1. Wählen Sie im Fenster **Integrationslaufzeit (selbstgehostet) registrieren** die Option **Konfigurations-Manager starten** .
+1. Wählen Sie im Fenster **Integrationslaufzeit (selbstgehostet) registrieren** die Option **Konfigurations-Manager starten**.
 
 1. Wenn der Knoten mit dem Clouddienst verbunden ist, wird die folgende Meldung angezeigt:
 
@@ -287,9 +287,9 @@ In diesem Abschnitt erstellen Sie eine selbstgehostete Integration Runtime und o
 
 1. Testen Sie die Verbindung mit Ihrer SQL Server-Datenbank, indem Sie wie folgt vorgehen:
 
-    a. Wechseln Sie im Fenster **Konfigurations-Manager** zur Registerkarte **Diagnose** .
+    a. Wechseln Sie im Fenster **Konfigurations-Manager** zur Registerkarte **Diagnose**.
 
-    b. Wählen Sie im Feld **Datenquellentyp** die Option **SqlServer** .
+    b. Wählen Sie im Feld **Datenquellentyp** die Option **SqlServer**.
 
     c. Geben Sie den Servernamen ein.
 
@@ -301,7 +301,7 @@ In diesem Abschnitt erstellen Sie eine selbstgehostete Integration Runtime und o
 
     g. Geben Sie das Kennwort ein, das dem Benutzernamen zugeordnet ist.
 
-    h. Wählen Sie die Option **Test** , um zu überprüfen, ob die Integration Runtime eine Verbindung mit SQL Server herstellen kann.  
+    h. Wählen Sie die Option **Test**, um zu überprüfen, ob die Integration Runtime eine Verbindung mit SQL Server herstellen kann.  
     ![Konnektivität erfolgreich](media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png)
 
     Wenn die Verbindungsherstellung erfolgreich war, wird ein grünes Häkchen angezeigt. Andernfalls wird eine Fehlermeldung angezeigt. Beheben Sie alle Probleme, und stellen Sie sicher, dass die Integration Runtime eine Verbindung mit Ihrer SQL Server-Instanz herstellen kann.
@@ -314,7 +314,7 @@ Erstellen Sie verknüpfte Dienste in einer Data Factory, um Ihre Datenspeicher u
 ### <a name="create-an-azure-storage-linked-service-destinationsink"></a>Erstellen eines verknüpften Azure Storage-Diensts (Ziel/Senke)
 In diesem Schritt verknüpfen Sie Ihr Azure-Speicherkonto mit der Data Factory.
 
-1. Erstellen Sie im Ordner *C:\ADFv2Tutorial* eine JSON-Datei mit dem Namen *AzureStorageLinkedService.json* und folgendem Code. Erstellen Sie den Ordner *ADFv2Tutorial* , falls er noch nicht vorhanden ist.  
+1. Erstellen Sie im Ordner *C:\ADFv2Tutorial* eine JSON-Datei mit dem Namen *AzureStorageLinkedService.json* und folgendem Code. Erstellen Sie den Ordner *ADFv2Tutorial*, falls er noch nicht vorhanden ist.  
 
     > [!IMPORTANT]
     > Ersetzen Sie \<accountName> und \<accountKey> durch den Namen und Schlüssel Ihres Azure-Speicherkontos, bevor Sie die Datei speichern. Sie haben sich diese Angaben im Abschnitt [Voraussetzungen](#get-storage-account-name-and-account-key) notiert.
@@ -332,7 +332,7 @@ In diesem Schritt verknüpfen Sie Ihr Azure-Speicherkonto mit der Data Factory.
     }
    ```
 
-1. Wechseln Sie in PowerShell zum Ordner *C:\ADFv2Tutorial* .
+1. Wechseln Sie in PowerShell zum Ordner *C:\ADFv2Tutorial*.
    ```powershell
    Set-Location 'C:\ADFv2Tutorial'    
    ```
@@ -345,7 +345,7 @@ In diesem Schritt verknüpfen Sie Ihr Azure-Speicherkonto mit der Data Factory.
 
    Hier ist eine Beispielausgabe:
 
-    ```json
+    ```console
     LinkedServiceName : AzureStorageLinkedService
     ResourceGroupName : <resourceGroup name>
     DataFactoryName   : <dataFactory name>
@@ -357,7 +357,7 @@ In diesem Schritt verknüpfen Sie Ihr Azure-Speicherkonto mit der Data Factory.
 ### <a name="create-and-encrypt-a-sql-server-linked-service-source"></a>Erstellen und Verschlüsseln einen verknüpftes SQL Server-Diensts (Quelle)
 In diesem Schritt verknüpfen Sie Ihre SQL Server-Instanz mit der Data Factory.
 
-1. Erstellen Sie im Ordner *C:\ADFv2Tutorial* eine JSON-Datei mit dem Namen *SqlServerLinkedService.json* , indem Sie den folgenden Code verwenden:
+1. Erstellen Sie im Ordner *C:\ADFv2Tutorial* eine JSON-Datei mit dem Namen *SqlServerLinkedService.json*, indem Sie den folgenden Code verwenden:
 
     > [!IMPORTANT]
     > Wählen Sie basierend auf der Authentifizierung, die Sie zum Herstellen einer Verbindung mit SQL Server verwenden, den Abschnitt aus.
@@ -415,10 +415,10 @@ In diesem Schritt verknüpfen Sie Ihre SQL Server-Instanz mit der Data Factory.
     > - Wählen Sie basierend auf der Authentifizierung, die Sie zum Herstellen einer Verbindung mit Ihrer SQL Server-Instanz verwenden, den Abschnitt aus.
     > - Ersetzen Sie **\<integration runtime name>** durch den Namen Ihrer Integration Runtime.
     > - Ersetzen Sie **\<servername>** , **\<databasename>** , **\<username>** und **\<password>** durch die Werte Ihrer SQL Server-Instanz, bevor Sie die Datei speichern.
-    > - Wenn Ihr Benutzerkonto- oder Servername einen umgekehrten Schrägstrich (\\) enthält, ist es erforderlich, ein Escapezeichen (\\) voranzustellen. Verwenden Sie beispielsweise *mydomain\\\\myuser* .
+    > - Wenn Ihr Benutzerkonto- oder Servername einen umgekehrten Schrägstrich (\\) enthält, ist es erforderlich, ein Escapezeichen (\\) voranzustellen. Verwenden Sie beispielsweise *mydomain\\\\myuser*.
 
 1. Führen Sie zum Verschlüsseln der sensiblen Daten (Benutzername, Kennwort usw.) das `New-AzDataFactoryV2LinkedServiceEncryptedCredential`-Cmdlet aus.  
-    Mit dieser Verschlüsselung wird sichergestellt, dass die Anmeldeinformationen per DPAPI (Data Protection Application Programming Interface) verschlüsselt werden. Die verschlüsselten Anmeldeinformationen werden lokal auf dem selbstgehosteten Integration Runtime-Knoten (lokaler Computer) gespeichert. Die Ausgabenutzlast kann an eine weitere JSON-Datei umgeleitet werden (in diesem Fall *encryptedLinkedService.json* ), die verschlüsselte Anmeldeinformationen enthält.
+    Mit dieser Verschlüsselung wird sichergestellt, dass die Anmeldeinformationen per DPAPI (Data Protection Application Programming Interface) verschlüsselt werden. Die verschlüsselten Anmeldeinformationen werden lokal auf dem selbstgehosteten Integration Runtime-Knoten (lokaler Computer) gespeichert. Die Ausgabenutzlast kann an eine weitere JSON-Datei umgeleitet werden (in diesem Fall *encryptedLinkedService.json*), die verschlüsselte Anmeldeinformationen enthält.
 
    ```powershell
    New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName $integrationRuntimeName -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
@@ -469,7 +469,7 @@ In diesem Schritt definieren Sie ein Dataset, das Daten in der SQL Server-Datenb
 
     Hier ist die Beispielausgabe:
 
-    ```json
+    ```console
     DatasetName       : SqlServerDataset
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -480,7 +480,7 @@ In diesem Schritt definieren Sie ein Dataset, das Daten in der SQL Server-Datenb
 ### <a name="create-a-dataset-for-azure-blob-storage-sink"></a>Erstellen eines Datasets für Azure Blob Storage (Senke)
 In diesem Schritt definieren Sie ein Dataset für Daten, die in Azure Blob Storage kopiert werden sollen. Das Dataset ist vom Typ „AzureBlob“. Es verweist auf den mit Azure Storage verknüpften Dienst, den Sie weiter oben in diesem Tutorial erstellt haben.
 
-Der verknüpfte Dienst enthält die Verbindungsinformationen, die von der Data Factory zur Laufzeit zum Herstellen einer Verbindung mit Ihrem Azure-Speicherkonto verwendet werden. Dieses Dataset gibt den Ordner im Azure-Speicher an, in den die Daten aus der SQL Server-Datenbank kopiert werden. In diesem Tutorial lautet der Ordner *adftutorial/fromonprem* . Hierbei ist `adftutorial` der Blobcontainer und `fromonprem` der Ordner.
+Der verknüpfte Dienst enthält die Verbindungsinformationen, die von der Data Factory zur Laufzeit zum Herstellen einer Verbindung mit Ihrem Azure-Speicherkonto verwendet werden. Dieses Dataset gibt den Ordner im Azure-Speicher an, in den die Daten aus der SQL Server-Datenbank kopiert werden. In diesem Tutorial lautet der Ordner *adftutorial/fromonprem*. Hierbei ist `adftutorial` der Blobcontainer und `fromonprem` der Ordner.
 
 1. Erstellen Sie im Ordner *C:\ADFv2Tutorial* eine JSON-Datei mit dem Namen *AzureBlobDataset.json* und folgendem Code:
 
@@ -522,7 +522,7 @@ Der verknüpfte Dienst enthält die Verbindungsinformationen, die von der Data F
 
     Hier ist die Beispielausgabe:
 
-    ```json
+    ```console
     DatasetName       : AzureBlobDataset
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -602,7 +602,7 @@ In diesem Tutorial erstellen Sie eine Pipeline mit einer Kopieraktivität. Die K
 
     Hier ist die Beispielausgabe:
 
-    ```json
+    ```console
     PipelineName      : SQLServerToBlobPipeline
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -639,7 +639,7 @@ $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -Resou
 
     Hier ist die Ausgabe der Beispielausführung:
 
-    ```JSON
+    ```console
     ResourceGroupName    : <resourceGroupName>
     DataFactoryName      : <dataFactoryName>
     ActivityRunId        : 24af7cf6-efca-4a95-931d-067c5c921c25
@@ -709,7 +709,7 @@ $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -Resou
 ## <a name="verify-the-output"></a>Überprüfen der Ausgabe
 Die Pipeline erstellt den Ausgabeordner *fromonprem* automatisch im Blobcontainer `adftutorial`. Vergewissern Sie sich, dass die Datei *dbo.emp.txt* im Ausgabeordner enthalten ist.
 
-1. Wählen Sie im Azure-Portal im Fenster des Containers **adftutorial** die Option **Aktualisieren** , um den Ausgabeordner anzuzeigen.
+1. Wählen Sie im Azure-Portal im Fenster des Containers **adftutorial** die Option **Aktualisieren**, um den Ausgabeordner anzuzeigen.
 1. Wählen Sie in der Liste mit den Ordnern die Option `fromonprem`.
 1. Vergewissern Sie sich, dass die Datei `dbo.emp.txt` angezeigt wird.
 

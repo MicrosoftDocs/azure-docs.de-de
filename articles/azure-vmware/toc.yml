@@ -42,8 +42,10 @@
       href: concepts-storage.md
     - name: Zugriff und Identität für private Clouds
       href: concepts-identity.md
-    - name: Rollenbasierte Zugriffssteuerung
+    - name: Rollenbasierte Zugriffssteuerung (vSphere)
       href: concepts-role-based-access-control.md
+    - name: Überwachen und Reparieren von privaten Clouds
+      href: concepts-monitor-repair-private-cloud.md
     - name: Upgrades für private Clouds
       href: concepts-upgrades.md
 - name: Anleitungen
@@ -72,6 +74,8 @@
           href: concepts-api-management.md
         - name: Hub-and-Spoke-Modell
           href: concepts-hub-and-spoke.md
+        - name: Azure Security Center
+          href: azure-security-integration.md
         - name: Azure Backup Server
           items:
             - name: Einrichten von Backup Server
@@ -98,11 +102,13 @@
   items:
     - name: Problembehandlung
       items:
-        - name: Hilfe bei Bereitstellungsfehlern
+        - name: Öffnen einer Supportanfrage für Bereitstellungsfehler
           href: fix-deployment-provisioning-failures.md
     - name: Häufig gestellte Fragen
       href: faq.md
 - name: Verweis
   items:
+    - name: Azure CLI
+      href: /cli/azure/ext/vmware/vmware
     - name: Azure PowerShell
-      href: 'https://docs.microsoft.com/powershell/module/az.vmware/'
+      href: /powershell/module/az.vmware/

@@ -3,16 +3,17 @@ title: Oracle-Lösungen auf virtuellen Azure-Computern | Microsoft-Dokumentation
 description: Hier finden Sie Informationen zu unterstützten Konfigurationen und Einschränkungen von VM-Images für Oracle in Microsoft Azure.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 32e79e12eae9997df8163401d2abc5f06bc02fc0
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 093d3c0da0b40f2a287b1cb451a419f71ce4b8d7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993497"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957587"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Oracle VM-Images und deren Bereitstellung in Microsoft Azure
 
@@ -109,10 +110,6 @@ Microsoft Azure ist eine autorisierte Cloudumgebung zum Ausführen von Oracle Da
 Oracle-Datenbanken erfordern grundsätzlich mehr Arbeitsspeicher und E/A. Aus diesem Grund werden für diese Workloads [virtuelle Computer mit optimierter Arbeitsspeichergröße](../../sizes-memory.md) empfohlen. Um die Workloads weiter zu optimieren, werden [vCPUs mit eingeschränkten Kerngrößen](../../constrained-vcpu.md) für Oracle Database-Workloads empfohlen, die viel Arbeitsspeicher, Speicher und E/A-Bandbreite beanspruchen, aber keine hohe Anzahl von Kernen erfordern.
 
 Wenn Oracle-Software und -Workloads aus einer lokalen Umgebung zu Microsoft Azure migriert werden, bietet Oracle Lizenzmobilität, wie sie unter [Oracle and Microsoft Azure: Frequently Asked Questions](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html) beschrieben ist.
-
-## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle Real Application Cluster (Oracle RAC)
-
-Oracle Real Application Cluster (Oracle RAC) ist so konzipiert, dass der Ausfall eines einzelnen Knotens in einer lokalen Clusterkonfiguration mit mehreren Knoten möglichst geringe Auswirkungen hat. RAC beruht auf zwei lokalen Technologien, die in öffentlichen Cloudumgebungen mit Hyperskalierung nicht nativ funktionieren: Netzwerk-Multicast und freigegebene Datenträger. Wenn Ihre Datenbanklösung Oracle RAC in Azure erfordert, benötigen Sie Software von Drittanbietern, um diese Technologien zu aktivieren. Weitere Informationen zu Oracle RAC finden Sie auf der [Seite zu FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>Überlegungen zu Hochverfügbarkeit und Notfallwiederherstellung
 

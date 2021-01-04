@@ -1,27 +1,35 @@
 ---
 title: Optimieren von Hive-Abfragen in Azure HDInsight
-description: In diesem Artikel wird beschrieben, wie Sie Ihre Hive-Abfragen für Apache Hadoop in HDInsight optimieren.
+description: In diesem Artikel wird beschrieben, wie Sie Ihre Apache Hive-Abfragen in HDInsight optimieren.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: how-to
+ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/14/2020
-ms.openlocfilehash: 89c276ffe6059a61323755eaf928d525ab5ea416
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: 840c481a54451e1f8374aec4799df10b96fb2e4d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085292"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910881"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimieren von Apache Hive-Abfragen in Azure HDInsight
 
-In Azure HDInsight gibt es verschiedene Clustertypen und -technologien, auf denen Apache Hive-Abfragen ausgeführt werden können. Wählen Sie den geeigneten Clustertyp zum Optimieren der Leistung für Ihre Workloadanforderungen aus.
+In diesem Artikel werden einige der gängigsten Leistungsoptimierungen beschrieben, mit denen Sie die Leistung Ihrer Apache Hive-Abfragen verbessern können.
 
-Wählen Sie z. B. den Clustertyp **Interaktive Abfrage** für die Optimierung interaktiver `ad hoc`-Abfragen aus. Wählen Sie den Apache **Hadoop**-Clustertyp zur Optimierung für Hive-Abfragen zur Batchverarbeitung aus. Auf den Clustertypen **Spark** und **HBase** können auch Hive-Abfragen ausgeführt werden. Weitere Informationen zum Ausführen von Hive-Abfragen auf verschiedenen Typen von HDInsight-Clustern finden Sie unter [Was sind Apache Hive und HiveQL in Azure HDInsight?](hadoop/hdinsight-use-hive.md).
+## <a name="cluster-type-selection"></a>Auswahl des Clustertyps
 
-HDInsight-Cluster des Clustertyps Hadoop sind standardmäßig nicht für Leistung optimiert. In diesem Artikel werden einige der gängigsten Methoden für die Optimierung der Leistung von Hive beschrieben, die Sie auf Ihre Abfragen anwenden können.
+In Azure HDInsight können Sie Apache Hive-Abfragen auf verschiedene Clustertypen anwenden. 
+
+Wählen Sie den geeigneten Clustertyp zum Optimieren der Leistung für Ihre Workloadanforderungen aus:
+
+* Wählen Sie z. B. den Clustertyp **Interaktive Abfrage** für die Optimierung interaktiver `ad hoc`-Abfragen aus. 
+* Wählen Sie den Apache **Hadoop** -Clustertyp zur Optimierung für Hive-Abfragen zur Batchverarbeitung aus. 
+* Die Clustertypen **Spark** und **HBase** können auch Hive-Abfragen ausführen und sind möglicherweise geeignet, wenn Sie diese Workloads ausführen. 
+
+Weitere Informationen zum Ausführen von Hive-Abfragen auf verschiedenen Typen von HDInsight-Clustern finden Sie unter [Was sind Apache Hive und HiveQL in Azure HDInsight?](hadoop/hdinsight-use-hive.md).
 
 ## <a name="scale-out-worker-nodes"></a>Aufskalieren der Workerknoten
 
@@ -69,11 +77,11 @@ Die Hive-Partitionierung wird durch Neuorganisation der Rohdaten in neue Verzeic
 
 Überlegungen zur Partitionierung:
 
-* **Partitionieren Sie großzügig**: Wenn Sie die Partitionierung für Spalten mit nur wenigen Werte durchführen, erhalten Sie nur wenige Partitionen. Partitionieren Sie zum Beispiel nach dem Geschlecht, so erhalten Sie nur zwei Partitionen (männlich, weiblich), sodass sich die Latenzzeit also höchstens halbiert.
-* **Aber nicht zu großzügig**: Im anderen Extremfall werden bei Erstellung einer Partition anhand einer Spalte mit einem eindeutigen Wert (z. B. userid) mehrere Partitionen erzeugt. Eine zu großzügige Partitionierung verursacht eine große Belastung für den NameNode des Clusters, da dieser mit einer großen Anzahl von Verzeichnissen zurechtkommen muss.
+* **Partitionieren Sie großzügig** : Wenn Sie die Partitionierung für Spalten mit nur wenigen Werte durchführen, erhalten Sie nur wenige Partitionen. Partitionieren Sie zum Beispiel nach dem Geschlecht, so erhalten Sie nur zwei Partitionen (männlich, weiblich), sodass sich die Latenzzeit also höchstens halbiert.
+* **Aber nicht zu großzügig** : Im anderen Extremfall werden bei Erstellung einer Partition anhand einer Spalte mit einem eindeutigen Wert (z. B. userid) mehrere Partitionen erzeugt. Eine zu großzügige Partitionierung verursacht eine große Belastung für den NameNode des Clusters, da dieser mit einer großen Anzahl von Verzeichnissen zurechtkommen muss.
 * **Vermeiden Sie zu unterschiedliche Partitionsgrößen** – Wählen Sie Ihren Partitionsschlüssel so, dass sich etwa gleich große Partitionen ergeben. Beispielsweise kann die Partitionierung nach der Spalte *State* möglicherweise die Verteilung der Daten verzerren. Da der Bundesstaat Kalifornien eine Bevölkerung von fast dem 30-Fachen von Vermont aufweist, ist die Größe der Partition möglicherweise verzerrt und die Leistung kann erheblich schwanken.
 
-Zum Erstellen einer Partitionstabelle verwenden Sie die Klausel *Partitioned By*:
+Zum Erstellen einer Partitionstabelle verwenden Sie die Klausel *Partitioned By* :
 
 ```sql
 CREATE TABLE lineitem_part
@@ -124,9 +132,9 @@ Weitere Informationen finden Sie unter [Partitionierte Tabellen](https://cwiki.a
 
 Hive unterstützt verschiedene Dateiformate. Beispiel:
 
-* **Text**: Das Standarddateiformat, das in den meisten Szenarien funktioniert.
-* **Avro**: Dieses Dateiformat eignet sich besonders für Interoperabilitätsszenarien.
-* **ORC/Parquet**: Dieses Dateiformat ist leistungsorientiert.
+* **Text** : Das Standarddateiformat, das in den meisten Szenarien funktioniert.
+* **Avro** : Dieses Dateiformat eignet sich besonders für Interoperabilitätsszenarien.
+* **ORC/Parquet** : Dieses Dateiformat ist leistungsorientiert.
 
 Das ORC-Format (Optimized Row Columnar) ist eine sehr effiziente Speichermethode für Hive-Daten. Gegenüber anderen Formaten hat ORC die folgenden Vorteile:
 
@@ -135,7 +143,7 @@ Das ORC-Format (Optimized Row Columnar) ist eine sehr effiziente Speichermethode
 * Indizierung aller 10.000 Zeilen, wodurch das Überspringen von Zeilen möglich wird
 * Wesentlich schnellere Laufzeitausführung
 
-Zum Aktivieren von ORC erstellen Sie zunächst eine Tabelle mit der Klausel *Stored as ORC*:
+Zum Aktivieren von ORC erstellen Sie zunächst eine Tabelle mit der Klausel *Stored as ORC* :
 
 ```sql
 CREATE TABLE lineitem_orc_part
@@ -189,15 +197,14 @@ Weitere Informationen finden Sie unter [Vektorisierte Abfrageausführung](https:
 
 Es gibt noch weitere Optimierungsmethoden, die durchaus erwägenswert sind, zum Beispiel die folgenden:
 
-* **Hive-Bucketing**: Ein Verfahren, mit dem große Datenmengen zur Optimierung der Abfrageleistung zusammengefasst bzw. segmentiert werden.
-* **Join-Optimierung**: Optimierung des Hive-Abfrageausführungsplans zur Steigerung der Effizienz von Joins. Außerdem sollen dadurch Benutzerhinweise weitgehend unnötig werden. Weitere Informationen finden Sie unter [Join-Optimierung](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
+* **Hive-Bucketing** : Ein Verfahren, mit dem große Datenmengen zur Optimierung der Abfrageleistung zusammengefasst bzw. segmentiert werden.
+* **Join-Optimierung** : Optimierung des Hive-Abfrageausführungsplans zur Steigerung der Effizienz von Joins. Außerdem sollen dadurch Benutzerhinweise weitgehend unnötig werden. Weitere Informationen finden Sie unter [Join-Optimierung](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
 * **Reducer erhöhen**.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 In diesem Artikel haben Sie mehrere allgemeine Hive-Methoden zur Optimierung von Abfragen kennengelernt. Weitere Informationen erhalten Sie in den folgenden Artikeln:
 
-* [Verwenden von Apache Hive in HDInsight](hadoop/hdinsight-use-hive.md)
 * [Optimieren von Apache Hive](./optimize-hive-ambari.md)
 * [Tutorial: Extrahieren, Transformieren und Laden von Daten mithilfe von Interactive Query in Azure HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 * [Analysieren von Twitter-Daten mit Apache Hive in HDInsight](hdinsight-analyze-twitter-data-linux.md)

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 3940f060209ea5ba55957a3673020656d45de9e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9541320f65060a0b1f2b5c84a131c08e92554e9e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776543"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351706"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Bearbeiten von Frage-Antwort-Paaren in Ihrer Wissensdatenbank
 
@@ -128,11 +128,11 @@ Wählen Sie bei der Bearbeitung regelmäßig **Save and train** (Speichern und t
 
 Mit der [Rich-Text-Bearbeitung](#add-an-editorial-qna-set) von Antworten können Sie als Autor die Formatierungssymbolleiste verwenden, um Text schnell auszuwählen und zu formatieren.
 
-[Markdown](../reference-markdown-format.md) eignet sich besser, wenn Sie Inhalte automatisch generieren müssen, um Wissensdatenbanken zu erstellen, die im Rahmen einer CI/CD-Pipeline oder für [Batchtests](../Quickstarts/batch-testing.md) importiert werden.
+[Markdown](../reference-markdown-format.md) eignet sich besser, wenn Sie Inhalte automatisch generieren müssen, um Wissensdatenbanken zu erstellen, die im Rahmen einer CI/CD-Pipeline oder für [Batchtests](../index.yml) importiert werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 > [!div class="nextstepaction"]
-> [Zusammenarbeiten an einer Wissensdatenbank](./collaborate-knowledge-base.md)
+> [Zusammenarbeiten an einer Wissensdatenbank](../index.yml)
 
 * [Verwalten von QnA Maker-Ressourcen](set-up-qnamaker-service-azure.md)

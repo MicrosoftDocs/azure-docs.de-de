@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 2cd9f01404a4e33303356dd3f452cd7dbc47a747
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d13a6a77ede6277eebc7fdab7cd42165cb602fa
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328563"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746348"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Private Link für Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-Mithilfe von Azure Private Link können Sie eine Verbindung mit verschiedenen PaaS-Bereitstellungen (Platform as a Service) in Azure über einen privaten Endpunkt herstellen. Ein privater Endpunkt ist eine private IP-Adresse in einem bestimmten virtuellen Netzwerk und Subnetz. Eine Liste der PaaS-Bereitstellungen, die die Private Link-Funktionalität unterstützen, finden Sie in der [Dokumentation zu Private Link](https://docs.microsoft.com/azure/private-link/). 
+Mithilfe von Azure Private Link können Sie eine Verbindung mit verschiedenen PaaS-Bereitstellungen (Platform-as-a-Service) in Azure über einen privaten Endpunkt herstellen. Ein privater Endpunkt ist eine private IP-Adresse in einem bestimmten virtuellen Netzwerk und Subnetz. Eine Liste der PaaS-Bereitstellungen, die die Private Link-Funktionalität unterstützen, finden Sie in der [Dokumentation zu Private Link](../private-link/index.yml). 
 
 ## <a name="secure-communication-between-customer-networks-and-azure-data-factory"></a>Sichere Kommunikation zwischen dem Kundennetzwerk und Azure Data Factory 
 Sie können Azure Virtual Network als logische Darstellung Ihres Netzwerks in der Cloud einrichten. Diese Vorgehensweise bietet folgende Vorteile:
@@ -66,27 +66,59 @@ Die Aktivierung des Private Link-Diensts für die genannten Kommunikationskanäl
 > [!WARNING]
 > Wenn Sie einen verknüpften Dienst erstellen, stellen Sie sicher, dass die Anmeldeinformationen in Azure Key Vault gespeichert werden. Andernfalls funktionieren die Anmeldeinformationen nicht, wenn Sie Private Link in Azure Data Factory aktivieren.
 
+## <a name="dns-changes-for-private-endpoints"></a>DNS-Änderungen für private Endpunkte
+Wenn Sie einen privaten Endpunkt erstellen, wird der DNS-CNAME-Ressourceneintrag für die Data Factory auf einen Alias in einer Unterdomäne mit dem Präfix „privatelink“ aktualisiert. Standardmäßig erstellen wir außerdem eine [private DNS-Zone](https://docs.microsoft.com/azure/dns/private-dns-overview), die der Unterdomäne „privatelink“ entspricht, mit den DNS-A-Ressourceneinträgen für die privaten Endpunkte.
+
+Wenn Sie die Endpunkt-URL der Data Factory außerhalb des VNET mit dem privaten Endpunkt auflösen, wird diese in den öffentlichen Endpunkt des Data Factory-Diensts aufgelöst. Bei Auflösung aus dem VNET, das den privaten Endpunkt hostet, wird die Speicherendpunkt-URL in die IP-Adresse des privaten Endpunkts aufgelöst.
+
+Beim oben gezeigten Beispiel lauten die DNS-Ressourceneinträge für die Data Factory „DataFactoryA“ bei Auflösung von außerhalb des VNET, das den privaten Endpunkt hostet, wie folgt:
+
+| Name | type | Wert |
+| ---------- | -------- | --------------- |
+| DataFactoryA.{region}.datafactory.azure.net | CNAME   | DataFactoryA.{region}.privatelink.datafactory.azure.net |
+| DataFactoryA.{region}.privatelink.datafactory.azure.net | CNAME   | < öffentlicher Endpunkt des Data Factory-Diensts > |
+| < öffentlicher Endpunkt des Data Factory-Diensts >  | Ein | < öffentliche IP-Adresse des Data Factory-Diensts > |
+
+Die DNS-Ressourceneinträge für „DataFactoryA“ lauten nach dem Auflösen im VNET, das den privaten Endpunkt hostet, wie folgt:
+
+| Name | type | Wert |
+| ---------- | -------- | --------------- |
+| DataFactoryA.{region}.datafactory.azure.net | CNAME   | DataFactoryA.{region}.privatelink.datafactory.azure.net |
+| DataFactoryA.{region}.privatelink.datafactory.azure.net   | Ein | < IP-Adresse des privaten Endpunkts > |
+
+Wenn Sie einen benutzerdefinierten DNS-Server in Ihrem Netzwerk verwenden, müssen Clients in der Lage sein, den FQDN für den Data Factory-Endpunkt in die IP-Adresse des privaten Endpunkts aufzulösen. Sie sollten den DNS-Server so konfigurieren, dass die Unterdomäne der privaten Verbindung an die private DNS-Zone für das VNET delegiert wird, oder konfigurieren Sie die A-Einträge für „DataFactoryA.{region}.privatelink.datafactory.azure.net“ mit der IP-Adresse des privaten Endpunkts.
+
+Weitere Informationen zum Konfigurieren des eigenen DNS-Servers für die Unterstützung privater Endpunkte finden Sie in den folgenden Artikeln:
+- [Namensauflösung für Ressourcen in virtuellen Azure-Netzwerken](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+- [DNS-Konfiguration für private Endpunkte](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+
+
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Einrichten von Private Link für Azure Data Factory
-Private Endpunkte können über das [Azure-Portal](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal), mithilfe von PowerShell oder über die Azure-Befehlszeilenschnittstelle erstellt werden.
+Private Endpunkte können über das [Azure-Portal](../private-link/create-private-endpoint-portal.md) erstellt werden.
+
+Sie können auswählen, ob Sie die selbstgehostete Integration Runtime über einen öffentlichen Endpunkt oder einen privaten Endpunkt mit Azure Data Factory verbinden möchten. 
+
+![Screenshot des Blockierens des öffentlichen Zugriffs der selbstgehosteten Integration Runtime](./media/data-factory-private-link/disable-public-access-shir.png)
+
 
 Sie können auch im Azure-Portal zu Ihrer Azure Data Factory-Instanz navigieren und einen privaten Endpunkt erstellen, wie im Folgenden dargestellt:
 
 ![Screenshot des Bereichs „Private Endpunktverbindungen“ zum Erstellen eines privaten Endpunkts](./media/data-factory-private-link/create-private-endpoint.png)
 
+Wählen Sie im Schritt **Ressource** für **Ressourcentyp** den Eintrag **Microsoft.Datafactory/factories** aus. Wenn Sie einen privaten Endpunkt für die Befehlskommunikation zwischen der selbstgehosteten Integration Runtime und dem Azure Data Factory-Dienst erstellen möchten, wählen Sie für **Zielunterressource** den Eintrag **datafactory** aus.
 
-Wenn Sie den öffentlichen Zugriff auf diese Azure Data Factory-Instanz blockieren und nur den Zugriff über Private Link zulassen möchten, können Sie den Netzwerkzugriff auf Azure Data Factory im Azure-Portal deaktivieren, wie hier gezeigt:
-
-![Screenshot des Bereichs „Netzwerkzugriff“ zum Erstellen eines privaten Endpunkts](./media/data-factory-private-link/disable-network-access.png)
+![Screenshot des Bereichs „Private Endpunktverbindungen“ zum Auswählen der Ressource](./media/data-factory-private-link/private-endpoint-resource.png)
 
 > [!NOTE]
 > Die Deaktivierung des Zugriffs auf öffentliche Netzwerke gilt nur für die selbstgehostete Integration Runtime, nicht für Azure Integration Runtime und SSIS Integration Runtime (SQL Server Integration Services).
 
+Wenn Sie einen privaten Endpunkt für die Erstellung und Überwachung der Data Factory in Ihrem virtuellen Netzwerk erstellen möchten, wählen Sie für **Zielunterressource** den Eintrag **portal** aus.
+
 > [!NOTE]
-> Sie können nach dem Deaktivieren des Zugriffs auf öffentliche Netzwerke weiterhin über ein öffentliches Netzwerk auf das Azure Data Factory-Portal zugreifen.
+> Sie können nach dem Erstellen eines privaten Endpunkts für das Portal weiterhin über ein öffentliches Netzwerk auf das Azure Data Factory-Portal zugreifen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Erstellen einer Data Factory über die Azure Data Factory-Benutzeroberfläche](quickstart-create-data-factory-portal.md)
 - [Einführung in den Azure Data Factory-Dienst](introduction.md)
 - [Visuelles Erstellen in Azure Data Factory](author-visually.md)
-

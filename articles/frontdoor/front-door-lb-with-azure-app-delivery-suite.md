@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: 50e047325ad17710794b1640715ab1938373fe85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542171"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019462"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Lastenausgleich mit der Azure-Suite für die Anwendungsbereitstellung
 
@@ -82,7 +82,7 @@ Außerdem muss der standardmäßige VM-Pool, der den dynamischen Inhalt bereitst
 
 Das folgende Diagramm zeigt die Architektur dieses Szenarios:
 
-:::image type="content" source="./media/front-door-lb-with-azure-app-delivery-suite/application-delivery-figure2.png" alt-text="Suite für die Anwendungsbereitstellung":::
+:::image type="content" source="./media/front-door-lb-with-azure-app-delivery-suite/application-delivery-figure2.png" alt-text="Detaillierte Architektur der Suite für die Anwendungsbereitstellung":::
 
 > [!NOTE]
 > Dieses Beispiel zeigt nur eine von vielen möglichen Konfigurationen, die Azure für die Lastenausgleichsdienste bietet. Traffic Manager, Azure Front Door Service, Application Gateway und Load Balancer können kombiniert werden, um alle Ihre Anforderungen an den Lastenausgleich optimal zu erfüllen. Wenn beispielsweise eine TLS/SSL-Abladung oder eine Verarbeitung auf Layer 7 nicht notwendig ist, kann Load Balancer anstatt Application Gateway verwendet werden.

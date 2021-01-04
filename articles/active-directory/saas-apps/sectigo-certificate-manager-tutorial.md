@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 905ca5fd92a09b209bf099bfac0862132ec679a4
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: c589db84b6221aa23868b3b49aea84f33623619f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875347"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673867"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>Tutorial: Azure Active Directory-Integration in Sectigo Certificate Manager
 
@@ -28,7 +28,7 @@ Die Integration von Sectigo Certificate Manager in Azure AD bietet Ihnen die fol
 * Benutzer können sich mit ihren Azure AD-Konten automatisch bei Sectigo Certificate Manager anmelden (einmaliges Anmelden; Single Sign-On, SSO).
 * Sie können Ihre Konten an einem zentralen Ort, im Azure-Portal, verwalten.
 
-Weitere Informationen zur Integration von SaaS-Apps (Software-as-a-Service) in Azure AD finden Sie unter [Einmaliges Anmelden bei Anwendungen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Weitere Informationen zur Integration von SaaS-Apps (Software-as-a-Service) in Azure AD finden Sie unter [Einmaliges Anmelden bei Anwendungen in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -38,7 +38,7 @@ Um die Azure AD-Integration mit Sectigo Certificate Manager konfigurieren zu kö
 * Sectigo Certificate Manager-Konto
 
 > [!NOTE]
-> Sectigo führt mehrere Instanzen von Sectigo Certificate Manager aus. Die Hauptinstanz von Sectigo Certificate Manager ist **https:\//cert-manager.com**. Diese URL wird in diesem Tutorial verwendet.  Wenn sich Ihr Konto in einer anderen Instanz befindet, müssen Sie die URLs entsprechend anpassen.
+> Sectigo führt mehrere Instanzen von Sectigo Certificate Manager aus. Die Hauptinstanz von Sectigo Certificate Manager ist **https:\//cert-manager.com** . Diese URL wird in diesem Tutorial verwendet.  Wenn sich Ihr Konto in einer anderen Instanz befindet, müssen Sie die URLs entsprechend anpassen.
 
 ## <a name="scenario-description"></a>Beschreibung des Szenarios
 
@@ -59,7 +59,7 @@ Um Sectigo Certificate Manager in Azure AD zu integrieren, müssen Sie Sectigo C
 
     ![Die Option „Azure Active Directory“](common/select-azuread.png)
 
-1. Wählen Sie **Unternehmensanwendungen** > **Alle Anwendungen**.
+1. Wählen Sie **Unternehmensanwendungen** > **Alle Anwendungen** .
 
     ![Bereich „Unternehmensanwendungen“](common/enterprise-applications.png)
 
@@ -67,13 +67,13 @@ Um Sectigo Certificate Manager in Azure AD zu integrieren, müssen Sie Sectigo C
 
     ![Die Option „Neue Anwendung“](common/add-new-app.png)
 
-1. Geben Sie **Sectigo Certificate Manager** in das Suchfeld ein. Wählen Sie in den Suchergebnissen **Sectigo Certificate Manager** aus, und klicken Sie dann auf **Hinzufügen**.
+1. Geben Sie **Sectigo Certificate Manager** in das Suchfeld ein. Wählen Sie in den Suchergebnissen **Sectigo Certificate Manager** aus, und klicken Sie dann auf **Hinzufügen** .
 
     ![Sectigo Certificate Manager in der Ergebnisliste](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurieren und Testen des einmaligen Anmeldens in Azure AD
 
-In diesem Abschnitt konfigurieren und testen Sie das einmalige Anmelden von Azure AD bei Sectigo Certificate Manager mithilfe eines Testbenutzers namens **Britta Simon**. Damit einmaliges Anmelden funktioniert, muss eine Linkbeziehung zwischen einem Azure AD-Benutzer und dem entsprechenden Benutzer in Sectigo Certificate Manager eingerichtet werden.
+In diesem Abschnitt konfigurieren und testen Sie das einmalige Anmelden von Azure AD bei Sectigo Certificate Manager mithilfe eines Testbenutzers namens **Britta Simon** . Damit einmaliges Anmelden funktioniert, muss eine Linkbeziehung zwischen einem Azure AD-Benutzer und dem entsprechenden Benutzer in Sectigo Certificate Manager eingerichtet werden.
 
 Zum Konfigurieren und Testen des einmaligen Anmeldens von Azure AD bei Sectigo Certificate Manager müssen Sie die folgenden Schritte ausführen:
 
@@ -160,9 +160,9 @@ In diesem Abschnitt erstellen Sie im Azure-Portal eine Testbenutzerin mit dem Na
   
     1. Geben Sie in das Feld **Benutzername** den Namen **brittasimon\@\<your-company-domain>.\<extension\>** ein. Beispiel: **brittasimon\@contoso.com**
 
-    1. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**. Notieren Sie sich den Wert, der im Feld **Kennwort** angezeigt wird.
+    1. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen** . Notieren Sie sich den Wert, der im Feld **Kennwort** angezeigt wird.
 
-    1. Klicken Sie auf **Erstellen**.
+    1. Klicken Sie auf **Erstellen** .
 
     ![Der Bereich „Benutzer“](common/user-properties.png)
 
@@ -182,13 +182,13 @@ In diesem Abschnitt gewähren Sie Britta Simon Zugriff auf Sectigo Certificate M
 
     ![Option „Benutzer und Gruppen“](common/users-groups-blade.png)
 
-1. Klicken Sie auf **Benutzer hinzufügen**. Wählen Sie im Bereich **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
+1. Klicken Sie auf **Benutzer hinzufügen** . Wählen Sie im Bereich **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
 
     ![Bereich „Zuweisung hinzufügen“](common/add-assign-user.png)
 
-1. Wählen Sie im Bereich **Benutzer und Gruppen** in der Benutzerliste **Britta Simon** aus. Wählen Sie **Auswählen**.
+1. Wählen Sie im Bereich **Benutzer und Gruppen** in der Benutzerliste **Britta Simon** aus. Wählen Sie **Auswählen** .
 
-1. Falls Sie in der SAML-Assertion einen Rollenwert erwarten, wählen Sie im Bereich **Rolle auswählen** die entsprechende Rolle für den Benutzer aus der Liste aus. Wählen Sie **Auswählen**.
+1. Falls Sie in der SAML-Assertion einen Rollenwert erwarten, wählen Sie im Bereich **Rolle auswählen** die entsprechende Rolle für den Benutzer aus der Liste aus. Wählen Sie **Auswählen** .
 
 1. Wählen Sie im Bereich **Zuweisung hinzufügen** die Option **Zuweisen** aus.
 
@@ -216,8 +216,6 @@ Wählen Sie im Portal „Meine Apps“ die Option **Sectigo Certificate Manager*
 
 Weitere Informationen finden Sie in den folgenden Artikeln:
 
-- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Einmaliges Anmelden bei Anwendungen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Was ist bedingter Zugriff?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
-
+- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](./tutorial-list.md)
+- [Einmaliges Anmelden bei Anwendungen in Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+- [Was ist bedingter Zugriff?](../conditional-access/overview.md)

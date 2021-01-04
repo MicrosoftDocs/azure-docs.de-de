@@ -9,23 +9,32 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ec7337ad798d586cb93bd13e60ead1ef9f2a4abe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50df3424892594a6817d481aa4a3d540a342854f
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857247"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932318"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Tutorial: Senden von Daten per transparentem Gateway
-
-> [!NOTE]
-> Dieser Artikel ist Teil einer Tutorialreihe zur Verwendung von Azure Machine Learning für IoT Edge. Falls Sie direkt zu diesem Artikel navigiert sind, ist es ratsam, mit dem [ersten Artikel](tutorial-machine-learning-edge-01-intro.md) der Reihe zu beginnen.
 
 In diesem Artikel verwenden wir wieder die Entwicklungs-VM als simuliertes Gerät. Anstatt Daten direkt an IoT Hub zu senden, sendet das Gerät aber Daten an das IoT Edge-Gerät, das als transparentes Gateway konfiguriert ist.
 
 Wir überwachen den Vorgang auf dem IoT Edge-Gerät, während das simulierte Gerät Daten sendet. Nachdem die Ausführung des Geräts abgeschlossen ist, sehen wir uns die Daten in unserem Speicherkonto an, um sicherzustellen, dass alles wie erwartet funktioniert hat.
 
 Dieser Schritt wird normalerweise von einem Cloud- oder Geräteentwickler ausgeführt.
+
+In diesem Abschnitt des Tutorials lernen Sie Folgendes:
+
+> [!div class="checklist"]
+>
+> * Erstellen und Ausführen eines Blattgeräts
+> * Überprüfen, ob generierte Daten in Azure Blob Storage gespeichert werden
+> * Überprüfen, ob die Gerätedaten vom Machine Learning-Modell klassifiziert wurden
+
+## <a name="prerequisites"></a>Voraussetzungen
+
+Dieser Artikel ist Teil einer Tutorialreihe zur Verwendung von Azure Machine Learning für IoT Edge. Jeder Artikel in der Reihe baut auf der Arbeit im vorherigen Artikel auf. Wenn Sie diesen Artikel direkt aufgerufen haben, wechseln Sie zum [ersten Artikel](tutorial-machine-learning-edge-01-intro.md) in der Reihe.
 
 ## <a name="review-device-harness"></a>Überprüfen der Geräteumgebung
 
@@ -236,10 +245,7 @@ Falls Sie die in diesem umfassenden Tutorial verwendeten Ressourcen weiter erkun
 
 In diesem Artikel haben wir unsere Entwicklungs-VM verwendet, um ein Blattgerät zu simulieren, das Sensor- und Betriebsdaten an unser IoT Edge-Gerät sendet. Wir haben überprüft, ob die Module auf dem Gerät die Daten weitergeleitet, klassifiziert, gespeichert und hochgeladen haben, indem wir uns den Echtzeitbetrieb des Edge-Geräts und die Dateien angesehen haben, die in das Speicherkonto hochgeladen wurden.
 
-Weitere Informationen finden Sie auf den folgenden Seiten:
+Wenn Sie mehr über IoT Edge-Funktionen erfahren möchten, fahren Sie mit dem folgenden Tutorial fort:
 
 > [!div class="nextstepaction"]
-> [Verbinden eines nachgeschalteten Geräts mit einem Azure IoT Edge-Gateway](how-to-connect-downstream-device.md)
-
-> [!div class="nextstepaction"]
-> [Speichern von Daten am Edge mit Azure Blob Storage in IoT Edge (Vorschau)](how-to-store-data-blob.md)
+> [Erstellen einer Hierarchie für IoT Edge-Geräte (Vorschauversion)](tutorial-nested-iot-edge.md?view=iotedge-2020-11&preserve-view=true)

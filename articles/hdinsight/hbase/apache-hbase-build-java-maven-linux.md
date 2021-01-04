@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seodec18, devx-track-java
 ms.date: 12/24/2019
-ms.openlocfilehash: 7cd368df1f2a94c8f49454530e7f5997f2659a32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61b8aaf9ea61ebe85eac6708d7390c386dea2696
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323773"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547910"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Erstellen von Java-Anwendungen für die Apache-HBase
 
@@ -25,13 +25,13 @@ Die Schritte in diesem Dokument verwenden [Apache Maven](https://maven.apache.or
 
 * Ein Apache HBase-Cluster in HDInsight. Weitere Informationen finden Sie unter [Erste Schritte mit Apache HBase](./apache-hbase-tutorial-get-started-linux.md).
 
-* [Java Developer Kit (JDK), Version 8](https://aka.ms/azure-jdks)
+* [Java Developer Kit (JDK), Version 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 
 * Ordnungsgemäße [Installation](https://maven.apache.org/install.html) von [Apache Maven](https://maven.apache.org/download.cgi) (gemäß Apache).  Maven ist ein Projekterstellungssystem für Java-Projekte.
 
 * Einen SSH-Client. Weitere Informationen finden Sie unter [Herstellen einer Verbindung mit HDInsight (Hadoop) per SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Bei Verwendung von PowerShell benötigen Sie das [Az-Modul](https://docs.microsoft.com/powershell/azure/).
+* Bei Verwendung von PowerShell benötigen Sie das [Az-Modul](/powershell/azure/).
 
 * Ein Texteditor In diesem Artikel wird der Microsoft-Editor verwendet.
 
@@ -442,7 +442,7 @@ In den folgenden Schritten wird `scp` zum Kopieren der JAR-Datei auf den primär
 
 ## <a name="upload-the-jar-and-run-jobs-powershell"></a>Hochladen der JAR-Datei und Ausführen von Aufträgen (PowerShell)
 
-In den folgenden Schritten wird das Azure PowerShell [AZ-Modul](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) zum Hochladen der JAR-Datei in den Standardspeicher Ihres Apache HBase-Clusters verwendet. HDInsight-Cmdlets werden dann zur Remoteausführung der Beispiele verwendet.
+In den folgenden Schritten wird das Azure PowerShell [AZ-Modul](/powershell/azure/new-azureps-module-az) zum Hochladen der JAR-Datei in den Standardspeicher Ihres Apache HBase-Clusters verwendet. HDInsight-Cmdlets werden dann zur Remoteausführung der Beispiele verwendet.
 
 1. Nachdem Sie das AZ-Modul installiert und konfiguriert haben, erstellen Sie eine Datei mit dem Namen `hbase-runner.psm1`. Verwenden Sie als Inhalt der Datei den folgenden Text:
 

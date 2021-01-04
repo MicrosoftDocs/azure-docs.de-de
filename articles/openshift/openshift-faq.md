@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.openlocfilehash: a8b5ec48b64341ad9eabd087d7ee20bb703198c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a474228776c689dbbd6f15ddd926f29383400ce
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816234"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964710"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Häufig gestellte Fragen zu Azure Red Hat OpenShift
 
@@ -21,7 +21,7 @@ Dieser Artikel beantwortet häufig gestellte Fragen zu Microsoft Azure Red Hat O
 
 ### <a name="which-azure-regions-are-supported"></a>Welche Azure-Regionen werden unterstützt?
 
-Eine Liste der unterstützten Regionen für Azure Red Hat OpenShift 4.x finden Sie unter [Verfügbare Regionen](https://docs.openshift.com/aro/4/welcome/index.html#available-regions).
+Eine Liste der unterstützten Regionen für Azure Red Hat OpenShift 4.x finden Sie unter [Verfügbare Regionen](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all).
 
 Eine Liste der unterstützten Regionen für Azure Red Hat OpenShift 3.11 finden Sie unter [Verfügbare Produkte nach Region](supported-resources.md#azure-regions).
 
@@ -186,13 +186,13 @@ Weitere Informationen finden Sie in der OpenShift-Dokumentation unter dem Thema 
 
 ### <a name="which-unix-rights-in-iaas-are-available-for-mastersinfraapp-nodes"></a>Welche UNIX-Rechte (in IaaS) sind für Master/Infra/App-Knoten verfügbar?
 
-Für Cluster der Version 4.x ist der Knotenzugriff über die Clusteradministratorrolle verfügbar. Weitere Informationen finden Sie unter [Übersicht über RBAC](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
+Für Cluster der Version 4.x ist der Knotenzugriff über die Clusteradministratorrolle verfügbar. Weitere Informationen finden Sie in der [Übersicht über Kubernetes RBAC](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
 
 Bei Clustern der Version 3.11 ist der Knotenzugriff unzulässig.
 
 ### <a name="which-ocp-rights-do-we-have-cluster-admin-project-admin"></a>Welche OCP-Rechte haben wir? Clusteradministrator? Projektadministrator?
 
-Bei Clustern der Version 4.x ist die Clusteradministratorrolle verfügbar. Weitere Informationen finden Sie unter [Übersicht über RBAC](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
+Bei Clustern der Version 4.x ist die Clusteradministratorrolle verfügbar. Weitere Informationen finden Sie in der [Übersicht über Kubernetes RBAC](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
 
 Informationen zu Clustern der Version 3.11 finden Sie in der Übersicht über die [Clusterverwaltung](https://docs.openshift.com/aro/admin_guide/index.html).
 

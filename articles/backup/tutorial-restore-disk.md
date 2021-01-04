@@ -3,13 +3,13 @@ title: 'Tutorial: Wiederherstellen eines virtuellen Computers mit der Azure CLI'
 description: Erfahren Sie, wie Sie mit Backup und Recovery Services einen Datenträger wiederherstellen und eine Wiederherstellung eines virtuellen Computers in Azure erstellen.
 ms.topic: tutorial
 ms.date: 01/31/2019
-ms.custom: mvc
-ms.openlocfilehash: 861c911e84c9de02467d443751902e71d2504422
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 45e171e064cbd8be5418e20784e6034830d27fe9
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324983"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566672"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Wiederherstellen eines virtuellen Computers mit der Azure CLI
 
@@ -23,13 +23,11 @@ Azure Backup erstellt Wiederherstellungspunkte, die in geografisch redundanten R
 
 Informationen dazu, wie Sie mithilfe von PowerShell einen Datenträger wiederherstellen und einen wiederhergestellten virtuellen Computer erstellen, finden Sie unter [Verwenden von AzureRM.RecoveryServices.Backup-Cmdlets zum Sichern virtueller Computer](backup-azure-vms-automation.md#restore-an-azure-vm).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Wenn Sie die CLI lokal installieren und verwenden möchten, müssen Sie für dieses Tutorial mindestens die Azure CLI-Version 2.0.18 ausführen. Führen Sie `az --version` aus, um die Version zu ermitteln. Installations- und Upgradeinformationen finden Sie bei Bedarf unter [Installieren von Azure CLI]( /cli/azure/install-azure-cli).
+ - Für dieses Tutorial ist mindestens Version 2.0.18 der Azure CLI erforderlich. Bei Verwendung von Azure Cloud Shell ist die aktuelle Version bereits installiert.
 
-## <a name="prerequisites"></a>Voraussetzungen
-
-Dieses Tutorial erfordert eine Linux-VM, die mit Azure Backup geschützt wurde. Um ein versehentliches Löschen der VM und den Wiederherstellungsprozess zu simulieren, erstellen Sie einen virtuellen Computer von einem Datenträger in einem Wiederherstellungspunkt. Wenn Sie eine Linux-VM benötigen, die mit Azure Backup geschützt wurde, lesen Sie [Sichern eines virtuellen Computers in Azure per CLI](quick-backup-vm-cli.md).
+ - Dieses Tutorial erfordert eine Linux-VM, die mit Azure Backup geschützt wurde. Um ein versehentliches Löschen der VM und den Wiederherstellungsprozess zu simulieren, erstellen Sie einen virtuellen Computer von einem Datenträger in einem Wiederherstellungspunkt. Wenn Sie eine Linux-VM benötigen, die mit Azure Backup geschützt wurde, lesen Sie [Sichern eines virtuellen Computers in Azure per CLI](quick-backup-vm-cli.md).
 
 ## <a name="backup-overview"></a>Übersicht über Azure Backup
 
@@ -74,7 +72,7 @@ Wenn der gesicherte virtuelle Computer über verwaltete Datenträger verfügt un
         --sku Standard_LRS
     ```
 
-2. Stellen Sie den Datenträger mit [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks) aus dem Wiederherstellungspunkt wieder her. Ersetzen Sie *mystorageaccount* durch den Namen des Speicherkontos, das Sie mit dem vorherigen Befehl erstellt haben. Ersetzen Sie *myRecoveryPointName* durch den Namen des Wiederherstellungspunkts, den Sie über die Ausgabe aus dem vorherigen Befehl [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) erhalten haben. ***Geben Sie auch die Zielressourcengruppe an, in der die verwalteten Datenträger wiederhergestellt werden.***
+2. Stellen Sie den Datenträger mit [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks) aus dem Wiederherstellungspunkt wieder her. Ersetzen Sie *mystorageaccount* durch den Namen des Speicherkontos, das Sie mit dem vorherigen Befehl erstellt haben. Ersetzen Sie *myRecoveryPointName* durch den Namen des Wiederherstellungspunkts, den Sie über die Ausgabe aus dem vorherigen Befehl [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) erhalten haben. ***Geben Sie auch die Zielressourcengruppe an, in der die verwalteten Datenträger wiederhergestellt werden** _.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -88,7 +86,7 @@ Wenn der gesicherte virtuelle Computer über verwaltete Datenträger verfügt un
     ```
 
     > [!WARNING]
-    > Ohne Angabe von **target-resource-group** werden die verwalteten Datenträger als nicht verwaltete Datenträger für das angegebene Speicherkonto wiederhergestellt. Dies hat erhebliche Auswirkungen auf die Wiederherstellungszeit, da die Dauer der Datenträgerwiederherstellung ganz vom angegebenen Speicherkonto abhängt. Nur bei Angabe des Parameters „target-resource-group“ können Sie die Vorteile einer sofortigen Wiederherstellung nutzen. Geben Sie den Parameter **target-resource-group** nicht an, wenn verwaltete Datenträger als nicht verwaltete Datenträger wiederhergestellt werden sollen. In diesem Fall geben Sie stattdessen wie unten gezeigt den Parameter **restore-as-unmanaged-disk** an. Dieser Parameter ist ab Az 3.4.0 verfügbar.
+    > Ohne Angabe von _ *target-resource-group** werden die verwalteten Datenträger als nicht verwaltete Datenträger für das angegebene Speicherkonto wiederhergestellt. Dies hat erhebliche Auswirkungen auf die Wiederherstellungszeit, da die Dauer der Datenträgerwiederherstellung ganz vom angegebenen Speicherkonto abhängt. Nur bei Angabe des Parameters „target-resource-group“ können Sie die Vorteile einer sofortigen Wiederherstellung nutzen. Geben Sie den Parameter **target-resource-group** nicht an, wenn verwaltete Datenträger als nicht verwaltete Datenträger wiederhergestellt werden sollen. In diesem Fall geben Sie stattdessen wie unten gezeigt den Parameter **restore-as-unmanaged-disk** an. Dieser Parameter ist ab Az 3.4.0 verfügbar.
 
     ```azurecli-interactive
     az backup restore restore-disks \

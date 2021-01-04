@@ -96,6 +96,8 @@
               href: connect-barracuda.md
             - name: Barracuda CloudGen Firewall
               href: connect-barracuda-cloudgen-firewall.md
+            - name: Beyond Security beSECURE
+              href: connect-besecure.md
             - name: Citrix Analytics (Security)
               href: connect-citrix-analytics.md
             - name: F5 BIG-IP
@@ -148,6 +150,10 @@
                       href: connect-checkpoint.md
                     - name: Cisco ASA
                       href: connect-cisco.md
+                    - name: Citrix WAF
+                      href: connect-citrix-waf.md
+                    - name: CyberArk Enterprise Password Vault
+                      href: connect-cyberark.md
                     - name: ExtraHop Reveal(x)
                       href: connect-extrahop.md
                     - name: F5 ASM
@@ -172,6 +178,8 @@
           href: connect-threat-intelligence.md
         - name: Herstellen einer Verbindung mit virtuellen Azure Stack-Computern
           href: connect-azure-stack.md
+        - name: Überwachen der Integrität des Datenconnectors
+          href: monitor-data-connector-health.md
     - name: Aktivieren von Verhaltensanalysen für Benutzer und Entitäten
       href: enable-entity-behavior-analytics.md
     - name: Verwalten mehrerer Mandanten (MSSP)
@@ -193,12 +201,14 @@
           href: bookmarks.md
         - name: Suchen mithilfe eines Livestreams
           href: livestream.md
+        - name: Verwalten von Hunting-Abfragen mit der REST-API
+          href: hunting-with-rest-api.md
     - name: Entfernen von Azure Sentinel
       href: offboard.md
 - name: Referenz (Neu!)
   items:
     - name: REST-APIs
-      href: 'https://docs.microsoft.com/rest/api/securityinsights/'
+      href: /rest/api/securityinsights/
     - name: Schema zur Netzwerknormalisierung
       href: normalization-schema.md
 - name: Ressourcen
@@ -208,7 +218,7 @@
     - name: Azure-Roadmap
       href: 'https://azure.microsoft.com/updates/?updateType=security&category=security&query=sentinel'
     - name: 'Azure-Blog zu Sicherheit, Datenschutz und Compliance'
-      href: 'https://docs.microsoft.com/archive/blogs/azuresecurity/'
+      href: /archive/blogs/azuresecurity/
     - name: Regionale Verfügbarkeit
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel'
     - name: Preise

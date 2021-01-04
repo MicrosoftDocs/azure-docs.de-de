@@ -5,13 +5,13 @@ keywords: Azure App Service, Web-App, App-Einstellungen, Umgebungsvariablen
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
-ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 86f9f227c0ea92b7b52a3037759426cc87f6d937
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
+ms.openlocfilehash: 76cfefa3f104ecef69e28fecd1c37fc336b0ce8c
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152066"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854647"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Konfigurieren einer App Service-App im Azure-Portal
 
@@ -29,7 +29,7 @@ Wählen Sie im linken Menü der App **Konfiguration** > **Anwendungseinstellunge
 
 ![Anwendungseinstellungen](./media/configure-common/open-ui.png)
 
-Für ASP.NET- und ASP.NET Core-Entwickler entspricht die Festlegung von App-Einstellungen in App Service der Festlegung in `<appSettings>` in *Web.config* oder *appsettings.json*, aber die Werte in App Service überschreiben die in *Web.config* oder *appsettings.json*. Sie können Entwicklungseinstellungen (z. B. das lokale MySQL-Kennwort) in *Web.config* oder *appsettings.json* beibehalten, aber Produktionsgeheimnisse (z. B. das Azure MySQL-Datenbank-Kennwort) sicher in App Service speichern. Der gleiche Code verwendet Ihre Entwicklungseinstellungen, wenn Sie lokal debuggen, und verwendet Ihre Produktionsgeheimnisse, wenn sie in Azure bereitgestellt werden.
+Für ASP.NET- und ASP.NET Core-Entwickler entspricht die Festlegung von App-Einstellungen in App Service der Festlegung in `<appSettings>` in *Web.config* oder *appsettings.json*, aber die Werte in App Service überschreiben die in *Web.config* oder *appsettings.json*. Sie können Entwicklungseinstellungen (z. B. das lokale MySQL-Kennwort) in *Web.config* oder *appsettings.json* und Produktionsgeheimnisse (z. B. das Azure MySQL-Datenbank-Kennwort) sicher in App Service speichern. Der gleiche Code verwendet Ihre Entwicklungseinstellungen, wenn Sie lokal debuggen, und verwendet Ihre Produktionsgeheimnisse, wenn sie in Azure bereitgestellt werden.
 
 Andere Sprachstapel erhalten die App-Einstellungen ebenfalls als Umgebungsvariablen zur Laufzeit. Sprachstapelspezifische Schritte finden Sie unter:
 

@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
-ms.date: 08/23/2018
+ms.date: 11/19/2020
 tags: connectors
-ms.openlocfilehash: 6c9c54450788a89a7b1aadbb0b4682a60619c061
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 765bb66b572f0c046222cfb617fe4caa80925256
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334598"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967400"
 ---
 # <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Zugreifen auf und Verwalten von IBM DB2-Ressourcen mithilfe von Azure Logic Apps
 
@@ -28,7 +28,7 @@ Der IBM DB2-Connector unterstützt diese IBM DB2-Plattformen und -Versionen sowi
 
 | Plattform | Version | 
 |----------|---------|
-| IBM DB2 für z/OS | 11.1, 10.1 |
+| IBM DB2 für z/OS | 12, 11.1, 10.1 |
 | IBM DB2 für i | 7.3, 7.2, 7.1 |
 | IBM DB2 für LUW 11 | 11, 10.5 |
 |||

@@ -10,12 +10,12 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: d57de4d52ccf3a029a8dd1350635fb65dd3ac829
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 5b98384d4d735f4c124c6af40d6edbff896900ce
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91828271"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320977"
 ---
 # <a name="upgrade-your-data-science-virtual-machine-to-ubuntu-1804"></a>Aktualisieren von Data Science Virtual Machine auf Ubuntu 18.04
 
@@ -40,7 +40,7 @@ Verwenden Sie im Azure-Portal die Suchleiste, um nach der Funktionalität für *
 
 1. Wählen Sie **Hinzufügen** aus. Dadurch gelangen Sie zur Seite **Momentaufnahme erstellen**. Wählen Sie das Abonnement und die Ressourcengruppe des virtuellen Computers aus. Wählen Sie als **Region** die gleiche Region aus, in der der Zielspeicher vorhanden ist. Wählen Sie den DSVM-Speicherdatenträger und zusätzliche Sicherungsoptionen aus. **HDD Standard** ist ein geeigneter Speichertyp für dieses Sicherungsszenario.
 
-:::image type="content" source="media/ubuntu_upgrade/create-snapshot-options.png" alt-text="Screenshot des Azure-Portals und der Suchleiste mit hervorgehobener Option „Momentaufnahmen“":::
+:::image type="content" source="media/ubuntu_upgrade/create-snapshot-options.png" alt-text="Screenshot: Optionen „Momentaufnahme erstellen“":::
 
 2. Nachdem alle Details ausgefüllt und die Überprüfungen bestanden wurden, wählen Sie **Überprüfen und erstellen** aus, um die Momentaufnahme zu validieren und zu erstellen. Nachdem die Momentaufnahme erfolgreich abgeschlossen wurde, wird eine Meldung mit dem Hinweis angezeigt, dass die Bereitstellung abgeschlossen ist.
 
@@ -67,7 +67,12 @@ Nachdem die VM aktualisiert und neu gestartet wurde, versuchen Sie erneut, über
 
 Wenn Sie die Fehlermeldung **REMOTE HOST IDENTIFICATION HAS CHANGED** (Identifizierung des Remotehosts hat sich geändert) erhalten, müssen Sie Ihre SSH-Anmeldeinformationen neu generieren.
 
-:::image type="content" source="media/ubuntu_upgrade/remote-host-warning.png" alt-text="Screenshot des Azure-Portals und der Suchleiste mit hervorgehobener Option „Momentaufnahmen“"
+:::image type="content" source="media/ubuntu_upgrade/remote-host-warning.png" alt-text="PowerShell-Screenshot: Warnung „Identifizierung des Remotehosts hat sich geändert“":::
+
+Führen Sie zu diesem Zweck auf dem lokalen Computer den folgenden Befehl aus:
+
+```bash
+ssh-keygen -R "your server hostname or ip"
 ```
 
 Es sollte nun möglich sein, eine Verbindung mit SSH herzustellen. Wenn weiterhin Probleme auftreten, folgen Sie auf der Seite **Verbinden** dem Link **Beheben von Problemen mit der SSH-Verbindung**.
@@ -98,19 +103,19 @@ Sie können die Betriebssystemkomponenten des Dateisystems aktualisieren und Ben
 
 Wenn Sie noch keine VM-Momentaufnahme wie oben beschrieben erstellt haben, erstellen Sie diese Momentaufnahme jetzt. 
 
-1. Suchen Sie im Azure-Portal nach **Datenträgern**, und wählen Sie **Hinzufügen** aus. Dadurch wird die Seite **Datenträger** geöffnet.
+1. Suchen Sie im Azure-Portal nach **Datenträgern** , und wählen Sie **Hinzufügen** aus. Dadurch wird die Seite **Datenträger** geöffnet.
 
-:::image type="content" source="media/ubuntu_upgrade/portal-disks-search.png" alt-text="Screenshot des Azure-Portals und der Suchleiste mit hervorgehobener Option „Momentaufnahmen“":::
+:::image type="content" source="media/ubuntu_upgrade/portal-disks-search.png" alt-text="Screenshot: Azure-Portal mit der Seite „Nach Datenträgern suchen“ und der Schaltfläche „Hinzufügen“":::
 
-2. Legen Sie das **Abonnement**, die **Ressourcengruppe** und die **Region** auf die Werte Ihrer VM-Momentaufnahme fest. Wählen Sie einen **Namen** für den zu erstellenden Datenträger aus.
+2. Legen Sie das **Abonnement** , die **Ressourcengruppe** und die **Region** auf die Werte Ihrer VM-Momentaufnahme fest. Wählen Sie einen **Namen** für den zu erstellenden Datenträger aus.
 
 3. Wählen Sie **Quelltyp** als **Momentaufnahme** aus, und wählen Sie die VM-Momentaufnahme als **Quellmomentaufnahme** aus. Überprüfen und erstellen Sie den Datenträger. 
 
-:::image type="content" source="media/ubuntu_upgrade/disk-create-options.png" alt-text="Screenshot des Azure-Portals und der Suchleiste mit hervorgehobener Option „Momentaufnahmen“":::
+:::image type="content" source="media/ubuntu_upgrade/disk-create-options.png" alt-text="Screenshot: Dialogfeld zum Erstellen von Datenträgern mit Optionen":::
 
 ### <a name="create-a-new-ubuntu-data-science-virtual-machine"></a>Erstellen einer neuen Data Science Virtual Machine-Instanz für Ubuntu
 
-Erstellen Sie eine neue Data Science Virtual Machine-Instanz für Ubuntu mithilfe des [Azure-Portals](https://portal.azure.com) oder einer [ARM-Vorlage](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager). 
+Erstellen Sie eine neue Data Science Virtual Machine-Instanz für Ubuntu mithilfe des [Azure-Portals](https://portal.azure.com) oder einer [ARM-Vorlage](./dsvm-tutorial-resource-manager.md). 
 
 ### <a name="recreate-user-accounts-on-your-new-data-science-virtual-machine"></a>Neuerstellen von Benutzerkonten in der neuen Data Science Virtual Machine-Instanz
 
@@ -118,7 +123,7 @@ Da Sie nur Daten vom alten Computer kopieren, müssen Sie die Benutzerkonten und
 
 Linux ist flexibel genug, um es Ihnen zu ermöglichen, Verzeichnisse und Pfade Ihrer neuen Installation so anzupassen, dass sie Ihrem alten Computer entsprechen. Im Allgemeinen ist es jedoch einfacher, das bevorzugte Layout des modernen Ubuntu zu verwenden und die Benutzerumgebung und Skripts entsprechend zu ändern.
 
-Weitere Informationen finden Sie unter [Quickstart: Einrichten von Data Science Virtual Machine für Linux (Ubuntu)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
+Weitere Informationen finden Sie unter [Quickstart: Einrichten von Data Science Virtual Machine für Linux (Ubuntu)](./dsvm-ubuntu-intro.md).
 
 ### <a name="mount-the-disk-of-the-snapshotted-vm-as-a-data-disk-on-your-new-data-science-virtual-machine"></a>Einbinden des Datenträgers des virtuellen Computers, von dem die Momentaufnahme erstellt wurde, als Datenträger in die neue Data Science Virtual Machine-Instanz
 
@@ -128,7 +133,7 @@ Weitere Informationen finden Sie unter [Quickstart: Einrichten von Data Science 
 
 3. Wählen Sie in der Dropdownliste **Datenträgername** den Datenträger aus, den Sie aus der Momentaufnahme Ihrer alten VM erstellt haben.
 
-:::image type="content" source="media/ubuntu_upgrade/attach-data-disk.png" alt-text="Screenshot des Azure-Portals und der Suchleiste mit hervorgehobener Option „Momentaufnahmen“":::
+:::image type="content" source="media/ubuntu_upgrade/attach-data-disk.png" alt-text="Screenshot: DSVM-Optionsseite mit Optionen für Datenträgeranfügung":::
 
 4. Wählen Sie **Speichern** aus, um Ihren virtuellen Computer zu aktualisieren.
 
@@ -147,7 +152,7 @@ Weitere Informationen finden Sie unter [Quickstart: Einrichten von Data Science 
     
     Das Ergebnis sollte etwa wie die folgende Abbildung aussehen. In der Abbildung ist Datenträger `sda1` im Stamm eingebunden, und `sdb2` ist der `/mnt`-Ablagedatenträger. Der aus der Momentaufnahme Ihres alten virtuellen Computers erstellte Datenträger wird als `sdc1` identifiziert, ist aber noch nicht verfügbar. Dies wird durch das Fehlen eines Einbindungsorts deutlich. Ihre Ergebnisse haben möglicherweise andere Bezeichner, Sie sollten jedoch ein ähnliches Muster sehen.
     
-    :::image type="content" source="media/ubuntu_upgrade/lsblk-results.png" alt-text="Screenshot des Azure-Portals und der Suchleiste mit hervorgehobener Option „Momentaufnahmen“":::
+    :::image type="content" source="media/ubuntu_upgrade/lsblk-results.png" alt-text="Screenshot:lsblk-Ausgabe, die das nicht eingebundene Datenlaufwerk zeigt":::
     
 3. Um auf das Datenlaufwerk zuzugreifen, erstellen Sie einen Speicherort für das Laufwerk, und binden Sie es ein. Ersetzen Sie `/dev/sdc1` durch den entsprechenden Wert, der von `lsblk` zurückgegeben wird:
 
@@ -157,7 +162,7 @@ Weitere Informationen finden Sie unter [Quickstart: Einrichten von Data Science 
     
 4. Nun enthält `/datadrive` die Verzeichnisse und Dateien Ihrer alten Data Science Virtual Machine-Instanz. Verschieben oder kopieren Sie die gewünschten Verzeichnisse oder Dateien vom Datenlaufwerk auf die neue VM.
 
-Weitere Informationen finden Sie unter [Verwenden des Portals zum Anfügen eines Datenträgers an eine Linux-VM](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk).
+Weitere Informationen finden Sie unter [Verwenden des Portals zum Anfügen eines Datenträgers an eine Linux-VM](../../virtual-machines/linux/attach-disk-portal.md#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 ## <a name="connect-and-confirm-version-upgrade"></a>Herstellen einer Verbindung und Bestätigen des Versionsupgrades
 
@@ -169,13 +174,13 @@ cat /etc/os-release
 
 Außerdem sollte angezeigt werden, dass Sie Ubuntu 18.04 ausführen.
 
-:::image type="content" source="media/ubuntu_upgrade/ssh-os-release.png" alt-text="Screenshot des Azure-Portals und der Suchleiste mit hervorgehobener Option „Momentaufnahmen“":::
+:::image type="content" source="media/ubuntu_upgrade/ssh-os-release.png" alt-text="Screenshot: Ubuntu-Terminal mit Daten zur Betriebssystemversion":::
 
 Die Versionsänderung wird auch im Azure-Portal angezeigt.
 
-:::image type="content" source="media/ubuntu_upgrade/portal-showing-os-version.png" alt-text="Screenshot des Azure-Portals und der Suchleiste mit hervorgehobener Option „Momentaufnahmen“":::
+:::image type="content" source="media/ubuntu_upgrade/portal-showing-os-version.png" alt-text="Screenshot: Portal mit DSVM-Eigenschaften einschließlich Betriebssystemversion":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Data Science mit Ubuntu Data Science Machine-Instanz in Azure](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/linux-dsvm-walkthrough)
-- [Welche Tools sind in Azure Data Science Virtual Machine enthalten?](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/tools-included)
+- [Data Science mit Ubuntu Data Science Machine-Instanz in Azure](./linux-dsvm-walkthrough.md)
+- [Welche Tools sind in Azure Data Science Virtual Machine enthalten?](./tools-included.md)

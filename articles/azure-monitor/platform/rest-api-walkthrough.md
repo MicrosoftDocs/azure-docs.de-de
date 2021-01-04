@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.custom: has-adal-ref
 ms.openlocfilehash: 500d5242d5185a8014283918c1f3a22c5c22cf48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87325592"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012015"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Exemplarische Vorgehensweise für die Azure Monitoring-REST-API
 
@@ -582,7 +582,7 @@ Der resultierende JSON-Antworttext ähnelt folgendem Beispiel:
 Eine weitere Möglichkeit ist das Verwenden von [ARMClient](https://github.com/projectkudu/armclient) auf Ihrem Windows-Computer. ARMClient führt die Azure AD-Authentifizierung automatisch durch (und verwendet das entsprechende JWT-Token). Die folgenden Schritte beschreiben die Verwendung von ARMClient zum Abrufen von Metrikdaten:
 
 1. Installieren Sie [Chocolatey](https://chocolatey.org/) und [ARMClient](https://github.com/projectkudu/armclient).
-2. Geben Sie in einem Terminalfenster *armclient.exe login*ein. Dabei werden Sie dazu aufgefordert, sich bei Azure anzumelden.
+2. Geben Sie in einem Terminalfenster *armclient.exe login* ein. Dabei werden Sie dazu aufgefordert, sich bei Azure anzumelden.
 3. Geben Sie *armclient GET [Ihre_Ressourcen_ID]/providers/microsoft.insights/metricdefinitions?api-version=2016-03-01* ein.
 4. Geben Sie *armclient GET [Ihre_Ressourcen_ID]/providers/microsoft.insights/metrics?api-version=2016-09-01* ein.
 

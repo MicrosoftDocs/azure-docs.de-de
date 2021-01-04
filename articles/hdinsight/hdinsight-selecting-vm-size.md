@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: a21e8d6c76c93b3084619c09f6a7664a25c1929c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d347707b0f48314dd872bc3ad34ac624817d2937
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73682205"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535313"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Auswählen der richtigen VM-Größe für Ihren Azure HDInsight-Cluster
 
@@ -32,7 +32,7 @@ Größe und Typ des virtuellen Computers richten sich nach CPU-Verarbeitungsleis
 
 - RAM: Die VM-Größe bestimmt auch, wie viel RAM die VM bietet. Stellen Sie für Workloads, bei denen Daten eher für die Verarbeitung im Arbeitsspeicher gespeichert als vom Datenträger gelesen werden, sicher, dass Ihre Workerknoten ausreichend Arbeitsspeicher für die Datenmenge aufweisen.
 
-- Netzwerk: Bei den meisten Clustertypen befinden sich die vom Cluster verarbeiteten Daten nicht auf dem lokalen Datenträger, sondern in einem externen Speicherdienst wie Data Lake Storage oder Azure Storage. Berücksichtigen Sie die Netzwerkbandbreite und den Durchsatz zwischen der Knoten-VM und dem Speicherdienst. Die für einen virtuellen Computer verfügbare Netzwerkbandbreite wird bei Erweiterungen in der Regel heraufgesetzt. Weitere Informationen finden Sie unter [Größen für virtuelle Linux-Computer in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+- Netzwerk: Bei den meisten Clustertypen befinden sich die vom Cluster verarbeiteten Daten nicht auf dem lokalen Datenträger, sondern in einem externen Speicherdienst wie Data Lake Storage oder Azure Storage. Berücksichtigen Sie die Netzwerkbandbreite und den Durchsatz zwischen der Knoten-VM und dem Speicherdienst. Die für einen virtuellen Computer verfügbare Netzwerkbandbreite wird bei Erweiterungen in der Regel heraufgesetzt. Weitere Informationen finden Sie unter [Größen für virtuelle Linux-Computer in Azure](../virtual-machines/sizes.md).
 
 ## <a name="understanding-vm-optimization"></a>Grundlegendes zur VM-Optimierung
 
@@ -40,10 +40,10 @@ Die VM-Familien in Azure sind für verschiedene Anwendungsfälle optimiert. In d
 
 | type                     | Größen           |    BESCHREIBUNG       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Einstiegsebene](../virtual-machines/linux/sizes-general.md)          | A, Av2  | CPU-Leistung und Arbeitsspeicherkonfigurationen dieser VM-Serie sind am besten für Workloads wie Entwicklung und Test geeignet. Sie sind wirtschaftlich und bieten eine preiswerte Option für den Einstieg in Azure. |
-| [Allgemeiner Zweck](../virtual-machines/linux/sizes-general.md)          | D, DSv2, Dv2  | Ausgewogenes Verhältnis von CPU zu Arbeitsspeicher. Ideal für Tests und Entwicklung, kleine bis mittlere Datenbanken sowie Webserver mit geringer bis mittlerer Auslastung. |
-| [Computeoptimiert](../virtual-machines/linux/sizes-compute.md)        | F           | Hohes Verhältnis von CPU zu Arbeitsspeicher. Ideal für Webserver, Network Appliances, Stapelverarbeitungsvorgänge und Anwendungsserver mit mittlerer Auslastung.        |
-| [Arbeitsspeicheroptimiert](../virtual-machines/linux/sizes-memory.md)         | Esv3, Ev3  | Hohes Verhältnis von Speicher zu CPU. Hervorragend geeignet für relationale Datenbankserver, mittlere bis große Caches und In-Memory-Analysen.                 |
+| [Einstiegsebene](../virtual-machines/sizes-general.md)          | A, Av2  | CPU-Leistung und Arbeitsspeicherkonfigurationen dieser VM-Serie sind am besten für Workloads wie Entwicklung und Test geeignet. Sie sind wirtschaftlich und bieten eine preiswerte Option für den Einstieg in Azure. |
+| [Allgemeiner Zweck](../virtual-machines/sizes-general.md)          | D, DSv2, Dv2  | Ausgewogenes Verhältnis von CPU zu Arbeitsspeicher. Ideal für Tests und Entwicklung, kleine bis mittlere Datenbanken sowie Webserver mit geringer bis mittlerer Auslastung. |
+| [Computeoptimiert](../virtual-machines/sizes-compute.md)        | F           | Hohes Verhältnis von CPU zu Arbeitsspeicher. Ideal für Webserver, Network Appliances, Stapelverarbeitungsvorgänge und Anwendungsserver mit mittlerer Auslastung.        |
+| [Arbeitsspeicheroptimiert](../virtual-machines/sizes-memory.md)         | Esv3, Ev3  | Hohes Verhältnis von Speicher zu CPU. Hervorragend geeignet für relationale Datenbankserver, mittlere bis große Caches und In-Memory-Analysen.                 |
 
 - Preisinformationen zu den verfügbaren VM-Instanzen in den Regionen mit HDInsight-Unterstützung finden Sie unter [HDInsight – Preise](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -74,4 +74,4 @@ Weitere Informationen zu Benchmarktests für VM-SKUs und Clustergrößen finden 
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Unterstützte Azure HDInsight-Knotenkonfigurationen](hdinsight-supported-node-configuration.md)
-- [Größen für virtuelle Linux-Computer in Azure](../virtual-machines/linux/sizes.md)
+- [Größen für virtuelle Linux-Computer in Azure](../virtual-machines/sizes.md)

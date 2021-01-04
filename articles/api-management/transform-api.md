@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 09/28/2020
 ms.author: apimpm
 ms.openlocfilehash: 979bdaa1e0dac4f45a321abda2a208f46983f9cd
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108132"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010230"
 ---
 # <a name="tutorial-transform-and-protect-your-api"></a>Tutorial: Transformieren und Schützen Ihrer API
 
@@ -58,21 +58,21 @@ So zeigen Sie die ursprüngliche Antwort an
 
 Die ursprüngliche Antwort sollte etwa wie folgt aussehen:
 
-:::image type="content" source="media/transform-api/original-response.png" alt-text="Richtlinien im Portal":::
+:::image type="content" source="media/transform-api/original-response.png" alt-text="Ursprüngliche API-Antwort":::
 
-Wie Sie sehen, enthält die Antwort die Header **X-AspNet-Version** und **X-Powered-By** .
+Wie Sie sehen, enthält die Antwort die Header **X-AspNet-Version** und **X-Powered-By**.
 
 ### <a name="set-the-transformation-policy"></a>Festlegen der Transformationsrichtlinie
 
 1. Wählen Sie **Demo Conference API** > **Entwurf** > **Alle Vorgänge** aus.
 4. Wählen Sie im Abschnitt **Ausgehende Verarbeitung** das Code-Editor-Symbol ( **</>** ) aus.
 
-   :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png" alt-text="Richtlinien im Portal" border="false":::
+   :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png" alt-text="Zu ausgehender Richtlinie navigieren" border="false":::
 
 1. Positionieren Sie den Cursor im Element **&lt;outbound&gt;** , und wählen Sie in der oberen rechten Ecke die Schaltfläche **Codeausschnitte anzeigen** aus.
 1. Wählen Sie im rechten Fenster unter **Transformationsrichtlinien** zweimal die Option **HTTP-Header festlegen** aus (um zwei Richtlinienausschnitte einzufügen).
 
-   :::image type="content" source="media/transform-api/transform-api.png" alt-text="Richtlinien im Portal":::
+   :::image type="content" source="media/transform-api/transform-api.png" alt-text="Richtlinie für HTTP-Header festlegen":::
 
 1. Ändern Sie Ihren **\<outbound>** -Code, sodass er folgendermaßen aussieht:
 
@@ -81,7 +81,7 @@ Wie Sie sehen, enthält die Antwort die Header **X-AspNet-Version** und **X-Powe
    <set-header name="X-AspNet-Version" exists-action="delete" />
    ```
 
-   :::image type="content" source="media/transform-api/set-policy.png" alt-text="Richtlinien im Portal":::
+   :::image type="content" source="media/transform-api/set-policy.png" alt-text="HTTP-Header setzen":::
 
 1. Wählen Sie **Speichern** aus.
 
@@ -98,7 +98,7 @@ So zeigen Sie die ursprüngliche Antwort an
 
     Wie Sie sehen, enthält die Antwort die ursprünglichen Back-End-URLs:
 
-    :::image type="content" source="media/transform-api/original-response2.png" alt-text="Richtlinien im Portal":::
+    :::image type="content" source="media/transform-api/original-response2.png" alt-text="Ursprüngliche URLs in der Antwort":::
 
 
 ### <a name="set-the-transformation-policy"></a>Festlegen der Transformationsrichtlinie
@@ -117,10 +117,10 @@ In diesem Abschnitt wird gezeigt, wie Sie Ihre Back-End-API schützen, indem Sie
 1.  Wählen Sie im Abschnitt **Eingehende Verarbeitung** das Code-Editor-Symbol ( **</>** ) aus.
 1.  Positionieren Sie den Cursor im Element **&lt;inbound&gt;** , und wählen Sie in der oberen rechten Ecke die Schaltfläche **Codeausschnitte anzeigen** aus.
 
-    :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png" alt-text="Richtlinien im Portal" border="false":::
+    :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png" alt-text="Festlegen der Richtlinie für eingehenden Datenverkehr" border="false":::
 
-1.  Wählen Sie im rechten Fenster unter **Richtlinien für die Zugriffsbeschränkung** die Option **+ Aufrufrate pro Schlüssel einschränken** .
-1.  Ändern Sie Ihren **rate-limit-by-key** -Code (im **\<inbound\>** -Element) folgendermaßen ab:
+1.  Wählen Sie im rechten Fenster unter **Richtlinien für die Zugriffsbeschränkung** die Option **+ Aufrufrate pro Schlüssel einschränken**.
+1.  Ändern Sie Ihren **rate-limit-by-key**-Code (im **\<inbound\>** -Element) folgendermaßen ab:
 
     ```
     <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
@@ -160,7 +160,7 @@ Im verbleibenden Teil dieses Abschnitts werden die Richtlinientransformationen g
 
     Wie Sie sehen, wurden die Header entfernt:
 
-    :::image type="content" source="media/transform-api/final-response1.png" alt-text="Richtlinien im Portal":::
+    :::image type="content" source="media/transform-api/final-response1.png" alt-text="Entfernte Antwortheader":::
 
 ### <a name="test-the-replaced-url"></a>Testen der ersetzten URL
 
@@ -169,16 +169,16 @@ Im verbleibenden Teil dieses Abschnitts werden die Richtlinientransformationen g
 
     Wie Sie sehen, wurde die URL ersetzt.
 
-    :::image type="content" source="media/transform-api/final-response2.png" alt-text="Richtlinien im Portal":::
+    :::image type="content" source="media/transform-api/final-response2.png" alt-text="Ersetzte URL":::
 
 ### <a name="test-the-rate-limit-throttling"></a>Testen des Aufruflimits (Drosselung)
 
 1. Wählen Sie **Demo Conference API** > **Testen** aus.
 1. Wählen Sie den Vorgang **GetSpeakers** aus. Wählen Sie dreimal hintereinander **Senden** aus.
 
-    Nachdem Sie die Anforderung dreimal gesendet haben, erhalten Sie die Antwort **429 Zu viele Anforderungen** .
+    Nachdem Sie die Anforderung dreimal gesendet haben, erhalten Sie die Antwort **429 Zu viele Anforderungen**.
 
-    :::image type="content" source="media/transform-api/test-throttling.png" alt-text="Richtlinien im Portal":::
+    :::image type="content" source="media/transform-api/test-throttling.png" alt-text="Zu viele Anforderungen":::
 
 1. Warten Sie etwa 15 Sekunden, und wählen Sie erneut **Senden** aus. Jetzt sollten Sie die Antwort **200 OK** erhalten.
 

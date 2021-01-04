@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 3927133b9cbd59a5d085e7406d9dceb177a47637
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6fe42948ee02170fb7718db5395a7e23480184a7
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268637"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511755"
 ---
 # <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importieren einer Postman-Sammlung mit On-Demand-Streaming-Vorgängen
 
@@ -3253,7 +3253,7 @@ Dieser Artikel enthält eine Definition der **Postman**-Sammlung, die gruppierte
                                     "key": "access-control-expose-headers",
                                     "value": "request-id, x-ms-request-id",
                                     "name": "access-control-expose-headers",
-                                    "description": "Lets a server whitelist headers that browsers are allowed to access."
+                                    "description": "Lets a server allowlist headers that browsers are allowed to access."
                                 },
                                 {
                                     "key": "request-id",
@@ -3456,7 +3456,7 @@ Dieser Artikel enthält eine Definition der **Postman**-Sammlung, die gruppierte
                                     "key": "access-control-expose-headers",
                                     "value": "request-id, x-ms-request-id",
                                     "name": "access-control-expose-headers",
-                                    "description": "Lets a server whitelist headers that browsers are allowed to access."
+                                    "description": "Lets a server allowlist headers that browsers are allowed to access."
                                 },
                                 {
                                     "key": "request-id",
@@ -5591,3 +5591,4 @@ Dieser Artikel enthält eine Definition der **Postman**-Sammlung, die gruppierte
     ]
 }
 ```
+

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 3db9811322d27ab287fa568eeeffcb5f4d57bdf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f490b6f25112ed8a10bbd865070bd07ea3ee84f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86530169"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016943"
 ---
 ## <a name="create-the-webapi-project"></a>Erstellen des WebAPI-Projekts
 
@@ -63,7 +63,7 @@ Gehen Sie zum Erstellen des neuen ASP.NET-WebAPI-Back-Ends wie folgt vor:
 
 ## <a name="authenticate-clients-to-the-webapi-backend"></a>Authentifizieren von Clients beim WebAPI-Back-End
 
-In diesem Abschnitt erstellen Sie für das neue Back-End eine neue Meldungshandlerklasse namens **AuthenticationTestHandler**. Diese Klasse wird von [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) abgeleitet und als Meldungshandler hinzugefügt, damit alle beim Back-End eingehenden Anforderungen verarbeitet werden können.
+In diesem Abschnitt erstellen Sie für das neue Back-End eine neue Meldungshandlerklasse namens **AuthenticationTestHandler**. Diese Klasse wird von [DelegatingHandler](/previous-versions/visualstudio/hh193679(v=vs.118)) abgeleitet und als Meldungshandler hinzugefügt, damit alle beim Back-End eingehenden Anforderungen verarbeitet werden können.
 
 1. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf das Projekt **AppBackend**, und wählen Sie **Hinzufügen** und anschließend **Klasse** aus.
 2. Geben Sie der neuen Klasse den Namen **AuthenticationTestHandler.cs**, und wählen Sie **Hinzufügen** aus, um die Klasse zu generieren. Mit dieser Klasse werden Benutzer der Einfachheit halber unter Verwendung der *Standardauthentifizierung* authentifiziert. Ihre App kann ein beliebiges Authentifizierungsschema verwenden.
@@ -88,7 +88,7 @@ In diesem Abschnitt erstellen Sie für das neue Back-End eine neue Meldungshandl
 
    Andernfalls wird die Anforderung abgelehnt. Diese Authentifizierung ist keine echte Vorgehensweise zur Authentifizierung und Autorisierung. Hierbei handelt es sich lediglich um ein einfaches Beispiel für dieses Tutorial.
 
-   Wenn die Anforderungsnachricht von `AuthenticationTestHandler` authentifiziert und autorisiert wurde, wird der Benutzer der Standardauthentifizierung an die aktuelle Anforderung in [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx) angefügt. Die Benutzerinformationen in „HttpContext“ werden später von einem anderen Controller (RegisterController) verwendet, um der Registrierungsanforderung für die Benachrichtigung ein [Tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) hinzuzufügen.
+   Wenn die Anforderungsnachricht von `AuthenticationTestHandler` authentifiziert und autorisiert wurde, wird der Benutzer der Standardauthentifizierung an die aktuelle Anforderung in [HttpContext](/dotnet/api/system.web.httpcontext.current) angefügt. Die Benutzerinformationen in „HttpContext“ werden später von einem anderen Controller (RegisterController) verwendet, um der Registrierungsanforderung für die Benachrichtigung ein [Tag](/previous-versions/azure/azure-services/dn530749(v=azure.100)) hinzuzufügen.
 
     ```csharp
     public class AuthenticationTestHandler : DelegatingHandler
@@ -333,7 +333,7 @@ In diesem Abschnitt wird ein neuer Controller hinzugefügt, der Clientgeräten d
 
     Mit diesem Code wird ein Benachrichtigungstyp gesendet, der auf dem Parameter `pns` des Plattformbenachrichtigungssystems (Plattform Notification System, PNS) basiert. Der Wert von `to_tag` dient zum Festlegen des *username* -Tags in der Nachricht. Dieses Tag muss mit einem Benutzernamentag einer aktiven Notification Hub-Registrierung übereinstimmen. Die Benachrichtigung wird aus dem Text der POST-Anforderung abgerufen und für den Ziel-PNS formatiert.
 
-    Abhängig von dem PNS, mit dem Ihre unterstützten Geräte Benachrichtigungen empfangen, werden Benachrichtigungen mit unterschiedlichen Formaten unterstützt. Ein Beispiel: Angenommen, Sie verwenden auf Windows-Geräten eine [Popupbenachrichtigung mit WNS](https://msdn.microsoft.com/library/windows/apps/br230849.aspx), die nicht direkt durch ein anderes PNS unterstützt wird. In diesem Fall muss Ihr Back-End die Benachrichtigung so formatieren, dass sie mit dem PNS der zu unterstützenden Geräte kompatibel ist. Verwenden Sie anschließend die entsprechende Sende-API für die [NotificationHubClient-Klasse](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx).
+    Abhängig von dem PNS, mit dem Ihre unterstützten Geräte Benachrichtigungen empfangen, werden Benachrichtigungen mit unterschiedlichen Formaten unterstützt. Ein Beispiel: Angenommen, Sie verwenden auf Windows-Geräten eine [Popupbenachrichtigung mit WNS](/uwp/schemas/tiles/toastschema/schema-root), die nicht direkt durch ein anderes PNS unterstützt wird. In diesem Fall muss Ihr Back-End die Benachrichtigung so formatieren, dass sie mit dem PNS der zu unterstützenden Geräte kompatibel ist. Verwenden Sie anschließend die entsprechende Sende-API für die [NotificationHubClient-Klasse](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient).
 
     ```csharp
     public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)

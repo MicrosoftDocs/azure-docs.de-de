@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Hinzufügen von Ausgaben zur Vorlage'
-description: Fügen Sie Ihrer Azure Resource Manager-Vorlage Ausgaben hinzu, um die Syntax zu vereinfachen.
+description: Fügen Sie Ihrer Azure Resource Manager-Vorlage (ARM-Vorlage) Ausgaben hinzu, um die Syntax zu vereinfachen.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: abd5fbed4ab19135fb30ec5adda387d839df3ab6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7acfb168462354017168ee333ea0b1ecaea434c1
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613865"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107123"
 ---
 # <a name="tutorial-add-outputs-to-your-arm-template"></a>Tutorial: Hinzufügen von Ausgaben zu Ihrer ARM-Vorlage
 
-In diesem Tutorial wird beschrieben, wie Sie einen Wert aus Ihrer ARM-Vorlage (Azure Resource Manager) zurückgeben. Sie verwenden Ausgaben, wenn Sie einen Wert von einer bereitgestellten Ressource benötigen. Dieses Tutorial dauert ungefähr **7 Minuten**.
+In diesem Tutorial wird beschrieben, wie Sie einen Wert aus Ihrer ARM-Vorlage (Azure Resource Manager-Vorlage) zurückgeben. Sie verwenden Ausgaben, wenn Sie einen Wert von einer bereitgestellten Ressource benötigen. Dieses Tutorial dauert ungefähr **7 Minuten**.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -41,17 +41,17 @@ Im folgenden Beispiel ist die Änderung hervorgehoben, die Sie vornehmen, um Ihr
 
 Beachten Sie bezüglich des von Ihnen hinzugefügten Ausgabewerts folgende wichtige Punkte.
 
-Der Typ des Rückgabewerts ist auf **object** festgelegt, d. h. es wird ein JSON-Objekt zurückgegeben.
+Der Typ des Rückgabewerts ist auf `object` festgelegt, d. h. es wird ein JSON-Objekt zurückgegeben.
 
 Der Laufzeitstatus des Speicherkontos wird mithilfe der Funktion [reference](template-functions-resource.md#reference) abgerufen. Um den Laufzeitstatus einer Ressource abzurufen, übergeben Sie den Namen oder die ID der Ressource. In diesem Fall verwenden Sie die Variable, die Sie zum Erstellen des Speicherkontonamens verwendet haben.
 
-Am Ende wird die Eigenschaft **primaryEndpoints** des Speicherkontos zurückgegeben.
+Am Ende wird die Eigenschaft `primaryEndpoints` des Speicherkontos zurückgegeben.
 
 ## <a name="deploy-template"></a>Bereitstellen der Vorlage
 
 Jetzt können Sie die Vorlage bereitstellen und sich den zurückgegebenen Wert ansehen.
 
-Falls Sie die Ressourcengruppe noch nicht erstellt haben, folgen Sie den Anweisungen unter [Erstellen einer Ressourcengruppe](template-tutorial-create-first-template.md#create-resource-group). Dieses Beispiel setzt voraus, dass Sie die Variable **templateFile** wie im [ersten Tutorial](template-tutorial-create-first-template.md#deploy-template) beschrieben auf den Pfad zur Vorlagendatei festgelegt haben.
+Falls Sie die Ressourcengruppe noch nicht erstellt haben, folgen Sie den Anweisungen unter [Erstellen einer Ressourcengruppe](template-tutorial-create-first-template.md#create-resource-group). Dieses Beispiel setzt voraus, dass Sie die Variable `templateFile` wie im [ersten Tutorial](template-tutorial-create-first-template.md#deploy-template) beschrieben auf den Pfad zur Vorlagendatei festgelegt haben.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -92,7 +92,7 @@ Die Ausgabe für den Bereitstellungsbefehl enthält ein ähnliches Objekt wie im
 ```
 
 > [!NOTE]
-> Wenn bei der Bereitstellung ein Fehler aufgetreten ist, verwenden Sie den Schalter **verbose**, um Informationen zu den erstellten Ressourcen abzurufen. Verwenden Sie den Schalter **debug**, um weitere Informationen zum Debuggen zu erhalten.
+> Wenn bei der Bereitstellung ein Fehler aufgetreten ist, verwenden Sie den Schalter `verbose`, um Informationen zu den erstellten Ressourcen abzurufen. Verwenden Sie den Schalter `debug`, um weitere Informationen zum Debuggen zu erhalten.
 
 ## <a name="review-your-work"></a>Überprüfen Ihrer Arbeit
 

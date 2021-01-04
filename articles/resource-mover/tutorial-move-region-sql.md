@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e3e2c9aa42ff3189e90f57d7c6e92b2a71f46639
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9fe43125c83436f89bf93cbe975317efec2beb46
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061602"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542812"
 ---
 # <a name="tutorial-move-azure-sql-database-resources-to-another-region"></a>Tutorial: Verschieben von Azure SQL-Datenbankressourcen in eine andere Region
 
@@ -43,22 +43,22 @@ Wenn Sie kein Azure-Abonnement besitzen, erstellen Sie ein [kostenloses Konto](h
 -  Überprüfen Sie, ob Sie *Besitzerzugriff* auf das Abonnement haben, das die zu verschiebenden Ressourcen enthält.
     - Wenn Sie zum ersten Mal eine Ressource für ein bestimmtes Quelle-Ziel-Paar in einem Azure-Abonnement hinzufügen, erstellt Resource Mover eine [vom System zugewiesene verwaltete Identität](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (früher als Managed Service Identify (MSI) bezeichnet), die vom Abonnement als vertrauenswürdig eingestuft wird.
     - Zum Erstellen der Identität und zum Zuweisen der erforderlichen Rolle (Mitwirkender oder Benutzerzugriffsadministrator im Quellabonnement) benötigt das Konto, das Sie zum Hinzufügen von Ressourcen verwenden, Berechtigungen als *Besitzer* für das Abonnement. Hier [erfahren Sie mehr](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) zu Azure-Rollen.
-- Das Abonnement benötigt ein ausreichendes Kontingent zum Erstellen der Ressourcen, die Sie in die Zielregion verschieben. Wenn kein ausreichendes Kontingent vorhanden ist, [fordern Sie eine Heraufsetzung des Kontingents an](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+- Das Abonnement benötigt ein ausreichendes Kontingent zum Erstellen der Ressourcen, die Sie in die Zielregion verschieben. Wenn kein ausreichendes Kontingent vorhanden ist, [fordern Sie eine Heraufsetzung des Kontingents an](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Überprüfen Sie die Preise und Gebühren für die Zielregion, in die Sie Ressourcen verschieben. Verwenden Sie hierfür den [Preisrechner](https://azure.microsoft.com/pricing/calculator/).
     
 
 ## <a name="check-sql-requirements"></a>SQL-Anforderungen überprüfen
 
 1. [Überprüfen](support-matrix-move-region-sql.md) Sie, welche Funktionen der Datenbank/des Pools für elastische Datenbanken zum Verschieben in eine andere Region unterstützt werden.
-2. Erstellen Sie in der Zielregion einen Zielserver für jeden Quellserver. [Weitere Informationen](/azure/azure-sql/database/active-geo-replication-security-configure#how-to-configure-logins-and-users)
+2. Erstellen Sie in der Zielregion einen Zielserver für jeden Quellserver. [Weitere Informationen](../azure-sql/database/active-geo-replication-security-configure.md#how-to-configure-logins-and-users)
 4. Wenn Datenbanken mit Transparent Data Encryption (TDE) verschlüsselt sind und Sie Ihren eigenen Verschlüsselungsschlüssel in Azure Key Vault verwenden, [erfahren Sie hier](../key-vault/general/move-region.md), wie Sie Schlüsseltresore in eine andere Region verschieben.
 5. Wenn die SQL-Datensynchronisierung aktiviert ist, wird das Verschieben von Mitgliedsdatenbanken unterstützt. Nach der Verschiebung müssen Sie die SQL-Datensynchronisierung für die neue Zieldatenbank einrichten.
-6. Entfernen Sie vor dem Verschieben die erweiterten Datensicherheitseinstellungen. Konfigurieren Sie nach dem Verschieben die [Einstellungen](/azure/sql-database/sql-database-advanced-data-security) auf SQL Server-Ebene in der Zielregion.
-7. Wenn die Überwachung aktiviert ist, werden Richtlinien nach dem Verschieben auf den Standardwert zurückgesetzt. Richten Sie nach dem Verschieben die [Überwachung](/azure/sql-database/sql-database-auditing) erneut ein.
-7. Sicherungsaufbewahrungsrichtlinien für die Quelldatenbank werden in die Zieldatenbank übertragen. [Erfahren Sie mehr](/azure/sql-database/sql-database-long-term-backup-retention-configure ) über das Ändern von Einstellungen nach dem Verschieben.
-8. Entfernen Sie vor dem Verschieben Firewallregeln auf Serverebene. Firewallregeln auf Datenbankebene werden während des Verschiebens vom Quellserver auf den Zielserver kopiert. Richten Sie nach dem Verschieben [Firewallregeln](/azure/sql-database/sql-database-server-level-firewall-rule) für SQL Server in der Zielregion ein.
-9. Entfernen Sie die Einstellungen für die automatische Optimierung vor dem Verschieben. [Richten Sie die automatische Optimierung](/azure/sql-database/sql-database-automatic-tuning-enable) nach dem Verschieben wieder ein.
-10. Entfernen Sie vor dem Verschieben die Einstellungen für die Datenbankwarnungen. Setzen Sie sie nach dem Verschieben wieder [zurück](/azure/sql-database/sql-database-insights-alerts-portal).
+6. Entfernen Sie vor dem Verschieben die erweiterten Datensicherheitseinstellungen. Konfigurieren Sie nach dem Verschieben die [Einstellungen](../azure-sql/database/azure-defender-for-sql.md) auf SQL Server-Ebene in der Zielregion.
+7. Wenn die Überwachung aktiviert ist, werden Richtlinien nach dem Verschieben auf den Standardwert zurückgesetzt. Richten Sie nach dem Verschieben die [Überwachung](../azure-sql/database/auditing-overview.md) erneut ein.
+7. Sicherungsaufbewahrungsrichtlinien für die Quelldatenbank werden in die Zieldatenbank übertragen. [Erfahren Sie mehr](../azure-sql/database/long-term-backup-retention-configure.md) über das Ändern von Einstellungen nach dem Verschieben.
+8. Entfernen Sie vor dem Verschieben Firewallregeln auf Serverebene. Firewallregeln auf Datenbankebene werden während des Verschiebens vom Quellserver auf den Zielserver kopiert. Richten Sie nach dem Verschieben [Firewallregeln](../azure-sql/database/firewall-create-server-level-portal-quickstart.md) für SQL Server in der Zielregion ein.
+9. Entfernen Sie die Einstellungen für die automatische Optimierung vor dem Verschieben. [Richten Sie die automatische Optimierung](../azure-sql/database/automatic-tuning-enable.md) nach dem Verschieben wieder ein.
+10. Entfernen Sie vor dem Verschieben die Einstellungen für die Datenbankwarnungen. Setzen Sie sie nach dem Verschieben wieder [zurück](../azure-sql/database/alerts-insights-configure-portal.md).
     
 ## <a name="select-resources"></a>Wählen Sie die Ressourcen aus
 

@@ -4,12 +4,12 @@ description: Erfahren Sie, wie Sie einen benutzerdefinierten Container in Azure 
 ms.topic: article
 ms.date: 09/22/2020
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 5b1bf9b205fc1eb90c6eeae3a101def764381213
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7582bbb866a63820abbd959e06628eda5d57e29
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91264574"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007635"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Konfigurieren eines benutzerdefinierten Containers für Azure App Service
 
@@ -139,7 +139,17 @@ Sie können das Verzeichnis *C:\home* im Dateisystem Ihrer App verwenden, damit 
 
 Wenn der beständige Speicher deaktiviert ist, bleiben Schreibvorgänge in das Verzeichnis `C:\home` nicht erhalten. [Docker-Hostprotokolle und -Containerprotokolle](#access-diagnostic-logs) werden in einem standardmäßigen permanenten freigegebenen Speicher gespeichert, der nicht an den Container angefügt ist. Wenn der beständige Speicher aktiviert ist, bleiben alle Schreibvorgänge in das Verzeichnis `C:\home` erhalten, alle Instanzen einer horizontal skalierten App können darauf zugreifen, und das Protokoll ist unter `C:\home\LogFiles` verfügbar.
 
-Standardmäßig ist der beständige Speicher *deaktiviert*, und die Einstellung wird in den Anwendungseinstellungen nicht angezeigt. Um ihn zu aktivieren, legen Sie die App-Einstellung `WEBSITES_ENABLE_APP_SERVICE_STORAGE` über die [Cloud Shell](https://shell.azure.com) fest. In Bash:
+::: zone-end
+
+::: zone pivot="container-linux"
+
+Sie können das Verzeichnis */home* im Dateisystem Ihrer App verwenden, damit Dateien auch nach einem Neustart erhalten bleiben und instanzübergreifend freigegeben werden können. Das `/home` wird in Ihrer App bereitgestellt, damit Ihre Container-App auf den beständigen Speicher zugreifen kann.
+
+Wenn der beständige Speicher deaktiviert ist, bleiben Schreibvorgänge in das Verzeichnis `/home` nicht über App-Neustarts oder mehrere Instanzen hinweg erhalten. Die einzige Ausnahme ist das Verzeichnis `/home/LogFiles`, das zum Speichern der Docker- und Containerprotokolle verwendet wird. Wenn der beständige Speicher aktiviert ist, bleiben alle Schreibvorgänge in das Verzeichnis `/home` erhalten und können von allen Instanzen einer horizontal skalierten App aufgerufen werden.
+
+::: zone-end
+
+Standardmäßig ist der beständige Speicher deaktiviert, und die Einstellung wird in den App-Einstellungen nicht verfügbar gemacht. Um ihn zu aktivieren, legen Sie die App-Einstellung `WEBSITES_ENABLE_APP_SERVICE_STORAGE` über die [Cloud Shell](https://shell.azure.com) fest. In Bash:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=true
@@ -150,28 +160,6 @@ PowerShell:
 ```azurepowershell-interactive
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=true}
 ```
-
-::: zone-end
-
-::: zone pivot="container-linux"
-
-Sie können das Verzeichnis */home* im Dateisystem Ihrer App verwenden, damit Dateien auch nach einem Neustart erhalten bleiben und instanzübergreifend freigegeben werden können. Das `/home` wird in Ihrer App bereitgestellt, damit Ihre Container-App auf den beständigen Speicher zugreifen kann.
-
-Wenn der beständige Speicher deaktiviert ist, bleiben Schreibvorgänge in das Verzeichnis `/home` nicht über App-Neustarts oder mehrere Instanzen hinweg erhalten. Die einzige Ausnahme ist das Verzeichnis `/home/LogFiles`, das zum Speichern der Docker- und Containerprotokolle verwendet wird. Wenn der beständige Speicher aktiviert ist, bleiben alle Schreibvorgänge in das Verzeichnis `/home` erhalten und können von allen Instanzen einer horizontal skalierten App aufgerufen werden.
-
-Standardmäßig ist der persistente Speicher *aktiviert* und die Einstellung wird in den Anwendungseinstellungen nicht angezeigt. Um ihn zu deaktivieren, legen Sie die App-Einstellung `WEBSITES_ENABLE_APP_SERVICE_STORAGE` über die [Cloud Shell](https://shell.azure.com) fest. In Bash:
-
-```azurecli-interactive
-az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
-```
-
-PowerShell:
-
-```azurepowershell-interactive
-Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=false}
-```
-
-::: zone-end
 
 > [!NOTE]
 > Sie können auch [Ihren eigenen beständigen Speicher konfigurieren](configure-connect-to-azure-storage.md).
@@ -272,7 +260,7 @@ Bei den Prozessoren kann es sich um Mehrkern- oder Hyperthreading-Prozessoren ha
 
 ## <a name="customize-health-ping-behavior"></a>Anpassen des Integritäts-Ping-Verhaltens
 
-In App Service wird ein Container als erfolgreich gestartet betrachtet, wenn der Container gestartet wird und auf einen HTTP-Ping antwortet. Der Container der Integritäts-Ping-Anforderung ist der Header `User-Agent= "App Service Hyper-V Container Availability Check"`. Wenn der Container gestartet wird, aber nach einem bestimmten Zeitraum nicht auf einen Ping antwortet, protokolliert App Service ein Ereignis im Docker-Protokoll, das besagt, dass der Container nicht gestartet wurde. 
+In App Service wird ein Container als erfolgreich gestartet betrachtet, wenn der Container gestartet wird und auf einen HTTP-Ping antwortet. Die Integritäts-Ping-Anforderung enthält den Header `User-Agent= "App Service Hyper-V Container Availability Check"`. Wenn der Container gestartet wird, aber nach einem bestimmten Zeitraum nicht auf einen Ping antwortet, protokolliert App Service ein Ereignis im Docker-Protokoll, das besagt, dass der Container nicht gestartet wurde. 
 
 Wenn Ihre Anwendung ressourcenintensiv ist, antwortet der Container möglicherweise nicht rechtzeitig auf den HTTP-Ping. Um die Aktionen zu kontrollieren, wenn HTTP-Pings fehlschlagen, legen Sie die App-Einstellung `CONTAINER_AVAILABILITY_CHECK_MODE` fest. Sie können sie über die [Cloud Shell](https://shell.azure.com) festlegen. In Bash:
 
@@ -357,7 +345,7 @@ SSH ermöglicht die sichere Kommunikation zwischen einem Container und einem Cli
 
 Apps mit mehreren Containern wie WordPress benötigen einen beständigen Speicher, um ordnungsgemäß zu funktionieren. Um dies zu ermöglichen, muss Ihre Docker Compose-Konfiguration auf einen Speicherort *außerhalb* Ihres Containers verweisen. Speicherorte in Ihrem Container bleiben nach dem Neustart der App nicht mehr unverändert.
 
-Aktivieren Sie den beständigen Speicher, indem Sie die App-Einstellung `WEBSITES_ENABLE_APP_SERVICE_STORAGE` mit dem Befehl [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) in der [Cloud Shell](https://shell.azure.com) festlegen.
+Aktivieren Sie den beständigen Speicher, indem Sie die App-Einstellung `WEBSITES_ENABLE_APP_SERVICE_STORAGE` mit dem Befehl [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) in der [Cloud Shell](https://shell.azure.com) festlegen.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE

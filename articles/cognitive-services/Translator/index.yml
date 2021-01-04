@@ -13,12 +13,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/14/2019
   ms.author: erhopf
-  ms.openlocfilehash: 5c25a45e02433ece463198e4cfd4a26758031a27
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.custom: contperf-fy21q2
+  ms.openlocfilehash: f0f2e009220292d298848cf93c479639b2318062
+  ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92368671"
+  ms.lasthandoff: 12/16/2020
+  ms.locfileid: "97588487"
 landingContent:
 - title: Übersetzer
   linkLists:
@@ -33,7 +34,7 @@ landingContent:
     - text: Kompatibilität
       url: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
     - text: Erstellen eines Abonnements
-      url: translator-text-how-to-signup.md
+      url: ./translator-how-to-signup.md
     - text: Häufig gestellte Fragen
       url: https://www.microsoft.com/translator/faq.aspx
 - title: Erste Schritte

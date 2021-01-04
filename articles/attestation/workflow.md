@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 240b27f897d8e7a34026701cf7fdc844eb9d4086
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 09d793f3d8ed544a386a362677f24be6d18673d7
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89236964"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96748727"
 ---
 # <a name="workflow"></a>Workflow
 
@@ -25,18 +25,19 @@ An einem Azure Attestation-Workflow sind folgenden Akteure beteiligt:
 - **Azure Attestation:** Die Komponente, die den Enclave-Nachweis vom Client entgegennimmt, ihn überprüft und das Nachweistoken an den Client zurückgibt.
 
 
-## <a name="enclave-validation-work-flow"></a>Enclave-Überprüfungsworkflow
+## <a name="intel-software-guard-extensions-sgx-enclave-validation-work-flow"></a>Überprüfungsworkflow für Intel® SGX-Enclave (Software Guard Extensions)
 
 Ein typischer SGX-Enclave-Nachweisworkflow (mit Azure Attestation) umfasst folgende allgemeine Schritte:
 
 1. Der Client sammelt Beweise aus einer Enclave. Beweise sind Informationen zur Enclave-Umgebung und zu der Clientbibliothek, die innerhalb der Enclave ausgeführt wird.
-1. Der Client verfügt über einen URI, der auf eine Azure Attestation-Instanz verweist. Der Client authentifiziert sich bei Azure AD und erhält ein Zugriffstoken.
-1. Der Client sendet Beweise und das Zugriffstoken an Azure Attestation. Welche Informationen genau an den Anbieter übermittelt werden, hängt von der Art der Enclave ab.
+1. Der Client verfügt über einen URI, der auf eine Azure Attestation-Instanz verweist. Der Client sendet Beweise an Azure Attestation. Welche Informationen genau an den Anbieter übermittelt werden, hängt von der Art der Enclave ab.
 1. Azure Attestation überprüft die übermittelten Informationen und wertet sie auf der Grundlage einer konfigurierten Richtlinie aus. War die Überprüfung erfolgreich, gibt Azure Attestation ein Nachweistoken an den Client zurück. Andernfalls meldet Azure Attestation einen Fehler an den Client. 
 1. Der Client sendet das Nachweistoken an die vertrauende Seite. Die vertrauende Seite ruft den Azure Attestation-Metadatenendpunkt für den öffentlichen Schlüssel auf, um Signaturzertifikate abzurufen. Die vertrauende Seite überprüft die Signatur des Nachweistokens sowie die Vertrauenswürdigkeit der Enclave. 
 
-![Enclave-Überprüfung](./media/validation-flow.png)
+![Überprüfungsflow für SGX-Enclave](./media/sgx-validation-flow.png)
 
+> [!Note]
+> Wenn Sie Nachweisanforderungen in der API-Version [2018-09-01-preview](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/attestation/data-plane/Microsoft.Attestation/stable/2018-09-01-preview) senden, muss der Client zusammen mit dem Azure AD-Zugriffstoken auch Beweise an Azure Attestation senden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 - [Erstellen und Signieren einer Nachweisrichtlinie](author-sign-policy.md)

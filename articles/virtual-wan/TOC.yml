@@ -67,6 +67,10 @@
           href: virtual-wan-ipsec.md
         - name: 'Mehrere ISP-Links: Azure-Pfadauswahl'
           href: path-selection-multiple-links.md
+    - name: Sicherheit
+      items:
+        - name: Sicherheitsbaseline
+          href: security-baseline.md
     - name: Preiskonzepte
       href: pricing-concepts.md
     - name: Informationen zu NVA in einem virtuellen Hub
@@ -105,6 +109,8 @@
           href: about-vpn-profile-download.md
         - name: Globales und hubbasiertes Profil
           href: global-hub-profile.md
+        - name: "Konfigurieren von Azure VPN Client für Windows\_10"
+          href: openvpn-azure-ad-client.md
         - name: Konfigurieren von OpenVPN-Clients
           href: howto-openvpn-clients.md?
         - name: "Konfigurieren eines Always\_On-VPN-Benutzertunnels"
@@ -115,8 +121,6 @@
           href: openvpn-azure-ad-mfa.md
         - name: Konfigurieren von Azure AD-Authentifizierung
           href: virtual-wan-point-to-site-azure-ad.md
-        - name: "Konfigurieren von Azure VPN Client für Windows\_10"
-          href: openvpn-azure-ad-client.md
         - name: "Konfigurieren der Azure\_AD-Authentifizierung für mehrere Anwendungen"
           href: openvpn-azure-ad-tenant-multi-app.md
     - name: Routing
@@ -137,6 +141,8 @@
           href: howto-firewall.md
         - name: "Konfigurieren von Private\_Link-Konnektivität"
           href: howto-private-link.md
+        - name: 'Verwalten des Zugriffs auf Ressourcen: Spoke-VNET (P2S)'
+          href: manage-secure-access-resources-spoke-p2s.md
     - name: Überwachung
       items:
         - name: Protokolle und Metriken
@@ -147,7 +153,7 @@
       href: /powershell/module/az.network#networking
     - name: REST
       href: /rest/api/azure
-    - name: Azure-Befehlszeilenschnittstelle
+    - name: Azure CLI
       href: /cli/azure/ext/virtual-wan
     - name: Python SDK
       href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-network/10.0.0/azure.mgmt.network.v2019_02_01.operations.html#azure.mgmt.network.v2019_02_01.operations.VirtualWansOperations'

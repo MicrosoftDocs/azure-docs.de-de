@@ -4,12 +4,12 @@ description: Macht Sie auf ungewöhnliche Änderungen bei der Rate fehlgeschlage
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 0f93c7b185b292f8d9792a11807b7c99ad846d37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 978b63d74e6be4104ff53eef66e9633c78b90eb8
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565836"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510633"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Smart Detection – ungewöhnliche fehlgeschlagene Anforderungen
 [Application Insights](./app-insights-overview.md) warnt Sie automatisch und nahezu in Echtzeit, wenn es für Ihre Web-App zu einer ungewöhnlichen Häufung bei den fehlgeschlagenen Anforderungen kommt. Die Lösung erkennt eine ungewöhnliche Zunahme der Rate fehlerhafter HTTP-Anforderungen oder Abhängigkeitsaufrufen. Nicht erfolgreiche Anforderungen weisen normalerweise Antwortcodes im Bereich 400 oder höher auf. Um Sie bei der Selektierung und Diagnose des Problems zu unterstützen, wird in den Warnungsdetails eine Analyse der Merkmale der Fehler und der zugehörigen Anwendungsdaten angegeben. Außerdem werden Links zum Application Insights-Portal zur weiteren Diagnose bereitgestellt. Diese Funktion muss nicht eingerichtet oder konfiguriert werden, da sie Machine Learning-Algorithmen verwendet, um die normale Fehlerrate zu bestimmen.
@@ -73,11 +73,11 @@ Diese Warnungsregel wird mit einer zugehörigen [Aktionsgruppe](../platform/acti
 
 Öffnen Sie die Seite „Warnungen“. Warnungsregeln vom Typ „Fehleranomalien“ werden zusammen mit allen Warnungen aufgeführt, die Sie ggf. manuell festgelegt haben, und Sie können sehen, ob diese derzeit den Status „Warnung“ aufweisen.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/021.png" alt-text="Beispiel für eine intelligente Erkennung mit Clusteranalyse im Umfeld des Fehlers" lightbox="./media/proactive-failure-diagnostics/021.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/021.png" alt-text="Klicken Sie auf der Application Insights-Ressourcenseite auf die Kachel „Warnungen“ und dann auf „Warnungsregeln verwalten“." lightbox="./media/proactive-failure-diagnostics/021.png":::
 
 Klicken Sie auf die Warnung, um sie zu konfigurieren.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="Beispiel für eine intelligente Erkennung mit Clusteranalyse im Umfeld des Fehlers" lightbox="./media/proactive-failure-diagnostics/032.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="Bildschirm „Regelkonfiguration“." lightbox="./media/proactive-failure-diagnostics/032.png":::
 
 Beachten Sie, dass Sie eine Warnungsregel vom Typ „Fehleranomalien“ deaktivieren oder löschen können, aber das Erstellen einer weiteren Warnungsregel unter derselben Application Insights-Ressource nicht möglich ist.
 
@@ -112,175 +112,267 @@ Beachten Sie, dass Sie eine Warnungsregel vom Typ „Fehleranomalien“ deaktivi
             "FormattedOccurenceTime": "2019-10-30T17:50:00Z",
             "DetectedFailureRate": "50.0% (200/400 requests)",
             "NormalFailureRate": "0.0% (over the last 30 minutes)",
-            "FailureRateChart": [["2019-10-30T05:20:00Z",
-            0],
-            ["2019-10-30T05:40:00Z",
-            100],
-            ["2019-10-30T06:00:00Z",
-            0],
-            ["2019-10-30T06:20:00Z",
-            0],
-            ["2019-10-30T06:40:00Z",
-            100],
-            ["2019-10-30T07:00:00Z",
-            0],
-            ["2019-10-30T07:20:00Z",
-            0],
-            ["2019-10-30T07:40:00Z",
-            100],
-            ["2019-10-30T08:00:00Z",
-            0],
-            ["2019-10-30T08:20:00Z",
-            0],
-            ["2019-10-30T08:40:00Z",
-            100],
-            ["2019-10-30T17:00:00Z",
-            0],
-            ["2019-10-30T17:20:00Z",
-            0],
-            ["2019-10-30T09:00:00Z",
-            0],
-            ["2019-10-30T09:20:00Z",
-            0],
-            ["2019-10-30T09:40:00Z",
-            100],
-            ["2019-10-30T10:00:00Z",
-            0],
-            ["2019-10-30T10:20:00Z",
-            0],
-            ["2019-10-30T10:40:00Z",
-            100],
-            ["2019-10-30T11:00:00Z",
-            0],
-            ["2019-10-30T11:20:00Z",
-            0],
-            ["2019-10-30T11:40:00Z",
-            100],
-            ["2019-10-30T12:00:00Z",
-            0],
-            ["2019-10-30T12:20:00Z",
-            0],
-            ["2019-10-30T12:40:00Z",
-            100],
-            ["2019-10-30T13:00:00Z",
-            0],
-            ["2019-10-30T13:20:00Z",
-            0],
-            ["2019-10-30T13:40:00Z",
-            100],
-            ["2019-10-30T14:00:00Z",
-            0],
-            ["2019-10-30T14:20:00Z",
-            0],
-            ["2019-10-30T14:40:00Z",
-            100],
-            ["2019-10-30T15:00:00Z",
-            0],
-            ["2019-10-30T15:20:00Z",
-            0],
-            ["2019-10-30T15:40:00Z",
-            100],
-            ["2019-10-30T16:00:00Z",
-            0],
-            ["2019-10-30T16:20:00Z",
-            0],
-            ["2019-10-30T16:40:00Z",
-            100],
-            ["2019-10-30T17:30:00Z",
-            50]],
+            "FailureRateChart": [
+                [
+                    "2019-10-30T05:20:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T05:40:00Z",
+                    100
+                ],
+                [
+                    "2019-10-30T06:00:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T06:20:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T06:40:00Z",
+                    100
+                ],
+                [
+                    "2019-10-30T07:00:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T07:20:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T07:40:00Z",
+                    100
+                ],
+                [
+                    "2019-10-30T08:00:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T08:20:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T08:40:00Z",
+                    100
+                ],
+                [
+                    "2019-10-30T17:00:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T17:20:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T09:00:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T09:20:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T09:40:00Z",
+                    100
+                ],
+                [
+                    "2019-10-30T10:00:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T10:20:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T10:40:00Z",
+                    100
+                ],
+                [
+                    "2019-10-30T11:00:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T11:20:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T11:40:00Z",
+                    100
+                ],
+                [
+                    "2019-10-30T12:00:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T12:20:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T12:40:00Z",
+                    100
+                ],
+                [
+                    "2019-10-30T13:00:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T13:20:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T13:40:00Z",
+                    100
+                ],
+                [
+                    "2019-10-30T14:00:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T14:20:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T14:40:00Z",
+                    100
+                ],
+                [
+                    "2019-10-30T15:00:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T15:20:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T15:40:00Z",
+                    100
+                ],
+                [
+                    "2019-10-30T16:00:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T16:20:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T16:40:00Z",
+                    100
+                ],
+                [
+                    "2019-10-30T17:30:00Z",
+                    50
+                ]
+            ],
             "ArmSystemEventsRequest": "/subscriptions/4f9b81be-fa32-4f96-aeb3-fc5c3f678df9/resourceGroups/test-group/providers/microsoft.insights/components/test-rule/query?query=%0d%0a++++++++++++++++systemEvents%0d%0a++++++++++++++++%7c+where+timestamp+%3e%3d+datetime(%272019-10-30T17%3a20%3a00.0000000Z%27)+%0d%0a++++++++++++++++%7c+where+itemType+%3d%3d+%27systemEvent%27+and+name+%3d%3d+%27ProactiveDetectionInsight%27+%0d%0a++++++++++++++++%7c+where+dimensions.InsightType+in+(%275%27%2c+%277%27)+%0d%0a++++++++++++++++%7c+where+dimensions.InsightDocumentId+%3d%3d+%27718fb0c3-425b-4185-be33-4311dfb4deeb%27+%0d%0a++++++++++++++++%7c+project+dimensions.InsightOneClassTable%2c+%0d%0a++++++++++++++++++++++++++dimensions.InsightExceptionCorrelationTable%2c+%0d%0a++++++++++++++++++++++++++dimensions.InsightDependencyCorrelationTable%2c+%0d%0a++++++++++++++++++++++++++dimensions.InsightRequestCorrelationTable%2c+%0d%0a++++++++++++++++++++++++++dimensions.InsightTraceCorrelationTable%0d%0a++++++++++++&api-version=2018-04-20",
-            "LinksTable": [{
-                "Link": "<a href=\"https://portal.azure.com/#blade/AppInsightsExtension/ProactiveDetectionFeedBlade/ComponentId/{\"SubscriptionId\":\"4f9b81be-fa32-4f96-aeb3-fc5c3f678df9\",\"ResourceGroup\":\"test-group\",\"Name\":\"test-rule\"}/SelectedItemGroup/718fb0c3-425b-4185-be33-4311dfb4deeb/SelectedItemTime/2019-10-30T17:50:00Z/InsightType/5\" target=\"_blank\">View full details in Application Insights</a>"
-            }],
+            "LinksTable": [
+                {
+                    "Link": "<a href=\"https://portal.azure.com/#blade/AppInsightsExtension/ProactiveDetectionFeedBlade/ComponentId/{\"SubscriptionId\":\"4f9b81be-fa32-4f96-aeb3-fc5c3f678df9\",\"ResourceGroup\":\"test-group\",\"Name\":\"test-rule\"}/SelectedItemGroup/718fb0c3-425b-4185-be33-4311dfb4deeb/SelectedItemTime/2019-10-30T17:50:00Z/InsightType/5\" target=\"_blank\">View full details in Application Insights</a>"
+                }
+            ],
             "SmartDetectorId": "FailureAnomaliesDetector",
             "SmartDetectorName": "Failure Anomalies",
             "AnalysisTimestamp": "2019-10-30T17:52:32.5802978Z"
         },
         "egressConfig": {
-            "displayConfig": [{
-                "rootJsonNode": null,
-                "sectionName": null,
-                "displayControls": [{
-                    "property": "DetectionSummary",
-                    "displayName": "What was detected?",
-                    "type": "Text",
-                    "isOptional": false,
-                    "isPropertySerialized": false
-                },
+            "displayConfig": [
                 {
-                    "property": "FormattedOccurenceTime",
-                    "displayName": "When did this occur?",
-                    "type": "Text",
-                    "isOptional": false,
-                    "isPropertySerialized": false
-                },
-                {
-                    "property": "DetectedFailureRate",
-                    "displayName": "Detected failure rate",
-                    "type": "Text",
-                    "isOptional": false,
-                    "isPropertySerialized": false
-                },
-                {
-                    "property": "NormalFailureRate",
-                    "displayName": "Normal failure rate",
-                    "type": "Text",
-                    "isOptional": false,
-                    "isPropertySerialized": false
-                },
-                {
-                    "chartType": "Line",
-                    "xAxisType": "Date",
-                    "yAxisType": "Percentage",
-                    "xAxisName": "",
-                    "yAxisName": "",
-                    "property": "FailureRateChart",
-                    "displayName": "Failure rate over last 12 hours",
-                    "type": "Chart",
-                    "isOptional": false,
-                    "isPropertySerialized": false
-                },
-                {
-                    "defaultLoad": true,
-                    "displayConfig": [{
-                        "rootJsonNode": null,
-                        "sectionName": null,
-                        "displayControls": [{
+                    "rootJsonNode": null,
+                    "sectionName": null,
+                    "displayControls": [
+                        {
+                            "property": "DetectionSummary",
+                            "displayName": "What was detected?",
+                            "type": "Text",
+                            "isOptional": false,
+                            "isPropertySerialized": false
+                        },
+                        {
+                            "property": "FormattedOccurenceTime",
+                            "displayName": "When did this occur?",
+                            "type": "Text",
+                            "isOptional": false,
+                            "isPropertySerialized": false
+                        },
+                        {
+                            "property": "DetectedFailureRate",
+                            "displayName": "Detected failure rate",
+                            "type": "Text",
+                            "isOptional": false,
+                            "isPropertySerialized": false
+                        },
+                        {
+                            "property": "NormalFailureRate",
+                            "displayName": "Normal failure rate",
+                            "type": "Text",
+                            "isOptional": false,
+                            "isPropertySerialized": false
+                        },
+                        {
+                            "chartType": "Line",
+                            "xAxisType": "Date",
+                            "yAxisType": "Percentage",
+                            "xAxisName": "",
+                            "yAxisName": "",
+                            "property": "FailureRateChart",
+                            "displayName": "Failure rate over last 12 hours",
+                            "type": "Chart",
+                            "isOptional": false,
+                            "isPropertySerialized": false
+                        },
+                        {
+                            "defaultLoad": true,
+                            "displayConfig": [
+                                {
+                                    "rootJsonNode": null,
+                                    "sectionName": null,
+                                    "displayControls": [
+                                        {
+                                            "showHeader": false,
+                                            "columns": [
+                                                {
+                                                    "property": "Name",
+                                                    "displayName": "Name"
+                                                },
+                                                {
+                                                    "property": "Value",
+                                                    "displayName": "Value"
+                                                }
+                                            ],
+                                            "property": "tables[0].rows[0][0]",
+                                            "displayName": "All of the failed requests had these characteristics:",
+                                            "type": "Table",
+                                            "isOptional": false,
+                                            "isPropertySerialized": true
+                                        }
+                                    ]
+                                }
+                            ],
+                            "property": "ArmSystemEventsRequest",
+                            "displayName": "",
+                            "type": "ARMRequest",
+                            "isOptional": false,
+                            "isPropertySerialized": false
+                        },
+                        {
                             "showHeader": false,
-                            "columns": [{
-                                "property": "Name",
-                                "displayName": "Name"
-                            },
-                            {
-                                "property": "Value",
-                                "displayName": "Value"
-                            }],
-                            "property": "tables[0].rows[0][0]",
-                            "displayName": "All of the failed requests had these characteristics:",
+                            "columns": [
+                                {
+                                    "property": "Link",
+                                    "displayName": "Link"
+                                }
+                            ],
+                            "property": "LinksTable",
+                            "displayName": "Links",
                             "type": "Table",
                             "isOptional": false,
-                            "isPropertySerialized": true
-                        }]
-                    }],
-                    "property": "ArmSystemEventsRequest",
-                    "displayName": "",
-                    "type": "ARMRequest",
-                    "isOptional": false,
-                    "isPropertySerialized": false
-                },
-                {
-                    "showHeader": false,
-                    "columns": [{
-                        "property": "Link",
-                        "displayName": "Link"
-                    }],
-                    "property": "LinksTable",
-                    "displayName": "Links",
-                    "type": "Table",
-                    "isOptional": false,
-                    "isPropertySerialized": false
-                }]
-            }]
+                            "isPropertySerialized": false
+                        }
+                    ]
+                }
+            ]
         }
     },
     "id": "/subscriptions/4f9b81be-fa32-4f96-aeb3-fc5c3f678df9/resourcegroups/test-group/providers/microsoft.insights/components/test-rule/providers/Microsoft.AlertsManagement/alerts/7daf8739-ca8a-4562-b69a-ff28db4ba0a5",
@@ -299,7 +391,7 @@ Sie können auch das [Azure-Portal](https://portal.azure.com) öffnen, zur Appli
 
 Wenn Sie auf „Fehlerdiagnose“ klicken, erhalten Sie weitere Details und können das Problem leichter beheben.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/051.png" alt-text="Beispiel für eine intelligente Erkennung mit Clusteranalyse im Umfeld des Fehlers" lightbox="./media/proactive-failure-diagnostics/051.png#lightbox":::
+:::image type="content" source="./media/proactive-failure-diagnostics/051.png" alt-text="Diagnosesuche." lightbox="./media/proactive-failure-diagnostics/051.png#lightbox":::
 
 Anhand des Prozentsatzes der Anforderungen und der Anzahl der betroffenen Benutzer können Sie entscheiden, wie dringend das Problem ist. Im Beispiel oben verdeutlicht die Fehlerrate von 78,5 %, die einer normalen Fehlerrate von 2,2 % gegenübersteht, dass ganz offensichtlich Probleme bestehen. Allerdings sind nur 46 Benutzer betroffen. Wenn es sich um Ihre App handeln würde, könnten Sie beurteilen, wie schwerwiegend dies ist.
 
@@ -307,13 +399,13 @@ In vielen Fällen können Sie das Problem über den Anforderungsnamen, die Ausna
 
 In diesem Beispiel ist eine Ausnahme für die SQL-Datenbank aufgetreten, weil das Anforderungslimit erreicht wurde.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/052.png" alt-text="Beispiel für eine intelligente Erkennung mit Clusteranalyse im Umfeld des Fehlers" lightbox="./media/proactive-failure-diagnostics/052.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/052.png" alt-text="Details zu Anforderungen mit Fehlern." lightbox="./media/proactive-failure-diagnostics/052.png":::
 
 ## <a name="review-recent-alerts"></a>Überprüfen aktueller Warnungen
 
 Klicken Sie auf der Application Insights-Ressourcenseite auf **Warnungen**, um die zuletzt ausgelösten Warnungen anzuzeigen:
 
-:::image type="content" source="./media/proactive-failure-diagnostics/070.png" alt-text="Beispiel für eine intelligente Erkennung mit Clusteranalyse im Umfeld des Fehlers" lightbox="./media/proactive-failure-diagnostics/070.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/070.png" alt-text="Zusammenfassung von Warnungen." lightbox="./media/proactive-failure-diagnostics/070.png":::
 
 ## <a name="whats-the-difference-"></a>Wo liegt der Unterschied?
 Smart Detection für ungewöhnliche fehlgeschlagene Anforderungen ergänzt andere ähnliche, aber doch verschiedene Features von Application Insights.
@@ -356,10 +448,9 @@ Mit den folgenden Diagnosetools können Sie die Daten Ihrer App untersuchen:
 
 * [Metrik-Explorer](../platform/metrics-charts.md)
 * [Suchexplorer](./diagnostic-search.md)
-* [Analytics: Leistungsfähige Abfragesprache](../log-query/get-started-portal.md)
+* [Analytics: Leistungsfähige Abfragesprache](../log-query/log-analytics-tutorial.md)
 
 Intelligente Erkennungen laufen automatisch ab. Vielleicht möchten Sie aber weitere Warnungen einrichten?
 
 * [Einrichten von Warnungen in Application Insights](../platform/alerts-log.md)
 * [Verfügbarkeitswebtests](./monitor-web-app-availability.md)
-

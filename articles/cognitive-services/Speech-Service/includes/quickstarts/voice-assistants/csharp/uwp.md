@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e2d43290946969643b10d2ecad2f076df208a5d0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ea7ea08fc07a895bc038b27701d7038a5f76c26f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88925409"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187602"
 ---
 ## <a name="prerequisites"></a>Voraussetzungen
 
 Führen Sie die folgenden Schritte aus, bevor Sie beginnen:
 
 > [!div class="checklist"]
-> * [Erstellen einer Azure Speech-Ressource](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Erstellen einer Azure Speech-Ressource](../../../../overview.md#try-the-speech-service-for-free)
 > * [Einrichten Ihrer Entwicklungsumgebung und Erstellen eines leeren Projekts](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
-> * Erstellen eines Bots, der mit dem [Direct Line Speech-Kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) verbunden ist
+> * Erstellen eines Bots, der mit dem [Direct Line Speech-Kanal](/azure/bot-service/bot-service-channel-connect-directlinespeech) verbunden ist
 > * Stellen Sie sicher, dass Sie Zugriff auf ein Mikrofon für die Audioaufnahme haben.
 > 
   > [!NOTE]
@@ -277,7 +277,7 @@ Die Designansicht wird aktualisiert und zeigt dann die Benutzeroberfläche der A
    > Beachten Sie [die Liste mit den unterstützten Regionen für Sprach-Assistenten](~/articles/cognitive-services/speech-service/regions.md#voice-assistants), und stellen Sie sicher, dass Ihre Ressourcen in einer dieser Regionen bereitgestellt werden.
 
    > [!NOTE]
-   > Informationen zum Konfigurieren Ihres Bots finden Sie in der Bot Framework-Dokumentation zum [Direct Line Speech-Kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
+   > Informationen zum Konfigurieren Ihres Bots finden Sie in der Bot Framework-Dokumentation zum [Direct Line Speech-Kanal](/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
 1. Ersetzen Sie die Zeichenfolgen `YourSpeechSubscriptionKey` und `YourServiceRegion` durch Ihre eigenen Werte für Speech-Abonnement und [Region](~/articles/cognitive-services/speech-service/regions.md).
 
@@ -371,7 +371,7 @@ Sie können nun Ihre App erstellen und den benutzerdefinierten Sprachassistenten
 
 1. Wählen Sie auf der Menüleiste **Erstellen** > **Projektmappe erstellen** aus, um die Anwendung zu erstellen. Der Code sollte nun ohne Fehler kompiliert werden.
 
-1. Wählen Sie **Debuggen** > **Debuggen starten** aus (oder drücken Sie**F5**), um die Anwendung zu starten. Das Fenster **helloworld** wird angezeigt.
+1. Wählen Sie **Debuggen** > **Debuggen starten** aus (oder drücken Sie **F5**), um die Anwendung zu starten. Das Fenster **helloworld** wird angezeigt.
 
    ![Beispielanwendung für einen UWP-Sprachassistenten in C#: Schnellstart](~/articles/cognitive-services/Speech-Service/media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
 

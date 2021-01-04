@@ -15,12 +15,12 @@ ms.date: 05/08/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 7c6f9203385c47da9803fb05358889d00d77d3e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc3640fecbe1138e46fd0d36975691740bc669dd
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511635"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369258"
 ---
 # <a name="understand-azure-role-definitions"></a>Grundlegendes zu Azure-Rollendefinitionen
 
@@ -339,4 +339,4 @@ Informationen zu `AssignableScopes` für benutzerdefinierte Rollen finden Sie un
 
 * [Integrierte Azure-Rollen](built-in-roles.md)
 * [Benutzerdefinierte Azure-Rollen](custom-roles.md)
-* [Vorgänge für Azure Resource Manager-Ressourcenanbieter](resource-provider-operations.md)
+* [Vorgänge für Azure-Ressourcenanbieter](resource-provider-operations.md)

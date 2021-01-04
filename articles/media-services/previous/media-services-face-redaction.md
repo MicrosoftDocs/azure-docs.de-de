@@ -3,7 +3,7 @@ title: Bearbeiten von Gesichtern mit Azure Media Analytics | Microsoft Docs
 description: Azure Media Redactor ist ein Azure Media Analytics-Medienprozessor, der eine skalierbare Gesichtsbearbeitung in der Cloud ermöglicht. In diesem Artikel wird veranschaulicht, wie Sie Gesichter mit Azure Media Analytics bearbeiten.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,31 +11,34 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 11/17/2020
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a5b5759f0a7fff0f76e8c65cbf879fcd06337712
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: df2962c8d428694a663acddf5922829f8b913b92
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017182"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737488"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Bearbeiten von Gesichtern mit Azure Media Analytics
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## <a name="overview"></a>Übersicht
-**Azure Media Redactor** ist ein [Azure Media Analytics](./legacy-components.md)-Medienprozessor (MP), der eine skalierbare Gesichtsbearbeitung in der Cloud ermöglicht. Mit der Gesichtsbearbeitung können Sie Ihr Video ändern, um Gesichter von ausgewählten Personen unscharf anzuzeigen und so unkenntlich zu machen. Es kann beispielsweise sein, dass Sie den Gesichtsbearbeitungsdienst nutzen möchten, wenn es um die öffentliche Sicherheit oder Medienarbeit geht. Die Bearbeitung von Material mit einer Länge von einigen Minuten, das mehrere Gesichter enthält, kann bei manueller Vorgehensweise Stunden dauern. Mit diesem Dienst sind für den Prozess der Gesichtsbearbeitung aber nur einige einfache Schritte erforderlich. Weitere Informationen finden Sie in [diesem](https://azure.microsoft.com/blog/azure-media-redactor/) Blog.
+
+**Azure Media Redactor** ist ein [Azure Media Analytics](./legacy-components.md)-Medienprozessor (MP), der eine skalierbare Gesichtsbearbeitung in der Cloud ermöglicht. Mit der Gesichtsbearbeitung können Sie Ihr Video ändern, um Gesichter von ausgewählten Personen unscharf anzuzeigen und so unkenntlich zu machen. Es kann beispielsweise sein, dass Sie den Gesichtsbearbeitungsdienst nutzen möchten, wenn es um die öffentliche Sicherheit oder Medienarbeit geht. Die Bearbeitung von Material mit einer Länge von einigen Minuten, das mehrere Gesichter enthält, kann bei manueller Vorgehensweise Stunden dauern. Mit diesem Dienst sind für den Prozess der Gesichtsbearbeitung aber nur einige einfache Schritte erforderlich.
 
 Dieser Artikel enthält Details zu **Azure Media Redactor** und veranschaulicht die Verwendung zusammen mit dem Media Services SDK für .NET.
 
 ## <a name="face-redaction-modes"></a>Modi der Gesichtsbearbeitung
+
 Bei der Gesichtsbearbeitung werden Gesichter in jedem Bild eines Videos erkannt, und gleichzeitig wird das Gesichtsobjekt in Vorwärts- und Rückwärtsrichtung verfolgt, damit eine Person auch aus anderen Winkeln unkenntlich gemacht werden kann. Der automatisierte Prozess der Gesichtsbearbeitung ist komplex und führt nicht immer exakt zum gewünschten Ergebnis. Aus diesem Grund werden unter Media Analytics einige Optionen zum Ändern der Endausgabe bereitgestellt.
 
 Zusätzlich zu einem vollautomatischen Modus ist ein zweistufiger Workflow vorhanden, der die Auswahl bzw. Abwahl von gefundenen Gesichtern anhand einer Liste mit IDs ermöglicht. Für beliebige Anpassungen pro Bild nutzt der Medienprozessor außerdem eine Metadatendatei im JSON-Format. Dieser Workflow ist in die Modi **Analyze** (Analysieren) und **Redact** (Bearbeiten) unterteilt. Sie können die beiden Modi auch zusammen in einem Durchlauf anwenden, bei dem beide Aufgaben als Teil eines Einzelvorgangs ausgeführt werden. Dieser Modus hat die Bezeichnung **Combined** (Kombiniert).
 
 ### <a name="combined-mode"></a>Kombinierter Modus
+
 Hierbei wird eine bearbeitete MP4-Datei ohne manuelle Eingabe automatisch erstellt.
 
 | Phase | Dateiname | Notizen |
@@ -44,13 +47,8 @@ Hierbei wird eine bearbeitete MP4-Datei ohne manuelle Eingabe automatisch erstel
 | Eingabekonfiguration |Vorgangskonfiguration (Voreinstellung) |{'version':'1.0', 'options': {'mode':'combined'}} |
 | Ausgabeasset |foo_redacted.mp4 |Video mit angewendeter Unschärfe |
 
-#### <a name="input-example"></a>Eingabebeispiel:
-[Video anzeigen](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
-
-#### <a name="output-example"></a>Ausgabebeispiel:
-[Video anzeigen](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
-
 ### <a name="analyze-mode"></a>Analysemodus
+
 Im Durchlauf **Analyze** des zweistufigen Workflows wird eine Videoeingabe verwendet, und es werden eine JSON-Datei mit Gesichtspositionen und JPG-Bilder für jedes erkannte Gesicht erstellt.
 
 | Phase | Dateiname | Notizen |
@@ -60,58 +58,59 @@ Im Durchlauf **Analyze** des zweistufigen Workflows wird eine Videoeingabe verwe
 | Ausgabeasset |foo_annotations.json |Anmerkungsdaten von Gesichtspositionen im JSON-Format. Können vom Benutzer bearbeitet werden, um die Begrenzungsrahmen für die unscharfen Bereiche zu ändern. Siehe Beispiel unten. |
 | Ausgabeasset |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |Zugeschnittenes JPG-Bild jedes erkannten Gesichts mit Nummer für die „labelId“ des Gesichts |
 
-#### <a name="output-example"></a>Ausgabebeispiel:
+#### <a name="output-example"></a>Ausgabebeispiel
 
 ```json
+{
+  "version": 1,
+  "timescale": 24000,
+  "offset": 0,
+  "framerate": 23.976,
+  "width": 1280,
+  "height": 720,
+  "fragments": [
     {
-      "version": 1,
-      "timescale": 24000,
-      "offset": 0,
-      "framerate": 23.976,
-      "width": 1280,
-      "height": 720,
-      "fragments": [
-        {
-          "start": 0,
-          "duration": 48048,
-          "interval": 1001,
-          "events": [
-            [],
-            [],
-            [],
-            [],
-            [],
-            [],
-            [],
-            [],
-            [],
-            [],
-            [],
-            [],
-            [],
-            [
-              {
-                "index": 13,
-                "id": 1138,
-                "x": 0.29537,
-                "y": -0.18987,
-                "width": 0.36239,
-                "height": 0.80335
-              },
-              {
-                "index": 13,
-                "id": 2028,
-                "x": 0.60427,
-                "y": 0.16098,
-                "width": 0.26958,
-                "height": 0.57943
-              }
-            ],
+      "start": 0,
+      "duration": 48048,
+      "interval": 1001,
+      "events": [
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [
+          {
+            "index": 13,
+            "id": 1138,
+            "x": 0.29537,
+            "y": -0.18987,
+            "width": 0.36239,
+            "height": 0.80335
+          },
+          {
+            "index": 13,
+            "id": 2028,
+            "x": 0.60427,
+            "y": 0.16098,
+            "width": 0.26958,
+            "height": 0.57943
+          }
+        ],
 
-    … truncated
+    ... truncated
 ```
 
 ### <a name="redact-mode"></a>Bearbeitungsmodus
+
 Im zweiten Durchlauf des Workflows wird eine größere Anzahl von Eingaben verwendet, die zu einem einzelnen Asset zusammengefasst werden müssen.
 
 Hierzu gehören eine Liste mit den IDs für die Anwendung der Unschärfe, das ursprüngliche Video und die JSON-Datei mit den Anmerkungen. In diesem Modus werden die Anmerkungen verwendet, um die Unschärfe auf das Eingabevideo anzuwenden.
@@ -127,13 +126,12 @@ In der Ausgabe des Analysedurchlaufs ist das Originalvideo nicht enthalten. Das 
 | Ausgabeasset |foo_redacted.mp4 |Video mit angewendeter Unschärfe, basierend auf Anmerkungen |
 
 #### <a name="example-output"></a>Beispielausgabe
+
 Dies ist die Ausgabe von IDList mit einer ausgewählten ID.
 
-[Video anzeigen](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
-
 Beispiel: „foo_IDList.txt“
- 
-```output
+
+```
 1
 2
 3
@@ -145,16 +143,22 @@ In den Modi **Kombiniert** und **Bearbeiten** gibt es fünf verschiedene Weichze
 
 Untenstehend finden Sie Beispiele für Weichzeichnertypen.
 
-### <a name="example-json"></a>JSON-Beispiel:
+### <a name="example-json"></a>JSON-Beispiel
 
 ```json
-    {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
+{
+    'version':'1.0',
+    'options': {
+        'Mode': 'Combined',
+        'BlurType': 'High'
+    }
+}
 ```
 
 #### <a name="low"></a>Niedrig
 
 ![Niedrig](./media/media-services-face-redaction/blur1.png)
- 
+
 #### <a name="med"></a>Medium
 
 ![Medium](./media/media-services-face-redaction/blur2.png)
@@ -193,11 +197,11 @@ Das folgende Programm zeigt Ihnen, wie Sie folgendes ausführen:
             }
     ```
 
-3. Herunterladen der JSON-Ausgabedateien. 
+3. Herunterladen der JSON-Ausgabedateien.
 
-#### <a name="create-and-configure-a-visual-studio-project"></a>Erstellen und Konfigurieren eines Visual Studio-Projekts
+### <a name="create-and-configure-a-visual-studio-project"></a>Erstellen und Konfigurieren eines Visual Studio-Projekts
 
-Richten Sie Ihre Entwicklungsumgebung ein, und füllen Sie die Datei „app.config“ mit Verbindungsinformationen, wie unter [Media Services-Entwicklung mit .NET](media-services-dotnet-how-to-use.md) beschrieben. 
+Richten Sie Ihre Entwicklungsumgebung ein, und füllen Sie die Datei „app.config“ mit Verbindungsinformationen, wie unter [Media Services-Entwicklung mit .NET](media-services-dotnet-how-to-use.md) beschrieben.
 
 #### <a name="example"></a>Beispiel
 
@@ -374,9 +378,11 @@ namespace FaceRedaction
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Feedback geben
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Verwandte Links
+
 [Azure Media Services Analytics – Übersicht](./legacy-components.md)
 
 [Azure Media Analytics-Demos](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: f49377743521e27c2312e95491762ca48d8448c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22acfc5095b1ffcad382fa2b665a86d382645e7a
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604324"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861676"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Verwalten von Benutzerzuweisungen für eine App in Azure Active Directory
 
@@ -58,7 +58,7 @@ So fordern Sie eine Benutzerzuweisung für eine Anwendung an
 Weitere Informationen zum Zuweisen eines Benutzers oder einer Gruppe und das Aufheben ihrer Zuweisung über das Azure-Portal finden Sie in der [Schnellstartreihe zur Anwendungsverwaltung](add-application-portal-assign-users.md).
 
 ## <a name="assign-or-unassign-users-and-groups-for-an-app-using-the-graph-api"></a>Zuweisen von Benutzern und Gruppen für eine App und Aufheben ihrer Zuweisung mit der Graph-API
-Mit der Graph-API können Sie einer App Benutzer und Gruppen zuweisen und die Zuweisung aufheben. Weitere Informationen finden Sie unter [App-Rollenzuweisungen](https://docs.microsoft.com/graph/api/resources/approleassignment).
+Mit der Graph-API können Sie einer App Benutzer und Gruppen zuweisen und die Zuweisung aufheben. Weitere Informationen finden Sie unter [App-Rollenzuweisungen](/graph/api/resources/approleassignment).
 
 ## <a name="assign-users-and-groups-to-an-app-using-powershell"></a>Zuweisen von Benutzern und Gruppen zu einer App mithilfe von PowerShell
 1. Öffnen Sie eine Windows PowerShell-Eingabeaufforderung mit erhöhten Rechten.
@@ -81,11 +81,11 @@ Mit der Graph-API können Sie einer App Benutzer und Gruppen zuweisen und die Zu
     # Assign the user to the app role
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
-Weitere Informationen zum Zuweisen eines Benutzers zu einer Anwendungsrolle finden Sie in der Dokumentation zu [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
+Weitere Informationen zum Zuweisen eines Benutzers zu einer Anwendungsrolle finden Sie in der Dokumentation zu [New-AzureADUserAppRoleAssignment](/powershell/module/azuread/new-azureaduserapproleassignment).
 
 Wenn Sie eine Gruppe einer Unternehmens-App zuweisen möchten, müssen Sie `Get-AzureADUser` durch `Get-AzureADGroup` und `New-AzureADUserAppRoleAssignment` durch `New-AzureADGroupAppRoleAssignment` ersetzen.
 
-Weitere Informationen zum Zuweisen einer Gruppe zu einer Anwendungsrolle finden Sie in der Dokumentation zu [New-AzureADGroupAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0).
+Weitere Informationen zum Zuweisen einer Gruppe zu einer Anwendungsrolle finden Sie in der Dokumentation zu [New-AzureADGroupAppRoleAssignment](/powershell/module/azuread/new-azureadgroupapproleassignment).
 
 ### <a name="example"></a>Beispiel
 
@@ -154,6 +154,6 @@ In diesem Beispiel wird die Benutzerin Britta Simon mithilfe von PowerShell der 
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Alle meine Gruppen anzeigen](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Entfernen einer Benutzer- oder Gruppenzuweisung aus einer Unternehmens-App](remove-user-or-group-access-portal.md)
+- [Entfernen einer Benutzer- oder Gruppenzuweisung aus einer Unternehmens-App]()
 - [Deaktivieren von Benutzeranmeldungen für eine Unternehmens-App](disable-user-sign-in-portal.md)
-- [Ändern des Namens oder Logos einer Unternehmens-App](change-name-or-logo-portal.md)
+- [Ändern des Namens oder Logos einer Unternehmens-App](./add-application-portal-configure.md)

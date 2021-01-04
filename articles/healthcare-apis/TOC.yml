@@ -90,10 +90,13 @@
           href: de-identified-export.md
     - name: Ermitteln von Identitätsobjekt-IDs
       href: find-identity-object-ids.md
-    - name: Aktivieren der Diagnoseprotokollierung in Azure API for FHIR®
-      href: enable-diagnostic-logging.md
-    - name: "Exportieren der Metriken von Azure\_IoT-Konnektor für FHIR (Vorschau) über die Diagnoseeinstellungen"
-      href: iot-metrics-diagnostics-export.md
+    - name: Diagnoseprotokollierung und -metriken
+      expanded: false
+      items:
+        - name: Aktivieren der Diagnoseprotokollierung in Azure API for FHIR
+          href: enable-diagnostic-logging.md
+        - name: "Anzeigen und Konfigurieren der Metriken von Azure\_IoT-Konnektor für FHIR (Vorschau)"
+          href: iot-metrics-display.md
     - name: 'Abrufen eines Tokens für die Azure-API für FHIR: CLI'
       href: get-healthcare-apis-access-token-cli.md
     - name: Beheben von Fehlern in Azure IoT-Konnektor für FHIR (Vorschauversion)

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 953430421bd30aaa1df352451b549994aeaa1a70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c13c4410852d97f0bf4548578f40a5cc560804d7
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85556156"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874592"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Aktivieren der Unterstützung mehrerer Namespaces in einem AKS-Cluster mit Application Gateway Ingress Controller
 
@@ -35,7 +35,7 @@ Nach der Bereitstellung von AGIC mit der Funktion zum Überwachen mehrerer Names
   - Auflisten von Eingangsressourcen aus allen zugänglichen Namespaces
   - Filtern nach Eingangsressourcen, die mit `kubernetes.io/ingress.class: azure/application-gateway` kommentiert sind
   - Erstellen einer kombinierten [Application Gateway-Konfiguration](https://github.com/Azure/azure-sdk-for-go/blob/37f3f4162dfce955ef5225ead57216cf8c1b2c70/services/network/mgmt/2016-06-01/network/models.go#L1710-L1744)
-  - Anwenden der Konfiguration auf die zugeordnete Application Gateway-Instanz über [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
+  - Anwenden der Konfiguration auf die zugeordnete Application Gateway-Instanz über [ARM](../azure-resource-manager/management/overview.md)
 
 ## <a name="conflicting-configurations"></a>In Konflikt stehende Konfigurationen
 AGIC kann von mehreren [Eingangsressourcen](https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource) mit Namespaces angewiesen werden, in Konflikt stehende Konfigurationen für eine Application Gateway-Instanz zu erstellen. (Zwei Eingangsressourcen beanspruchen beispielsweise dieselbe Domäne.)
@@ -99,7 +99,7 @@ Wenn Sie beispielsweise `staging` zuerst hinzugefügt haben, wird die Applicatio
 ## <a name="restrict-access-to-namespaces"></a>Beschränken des Zugriffs auf Namespaces
 Standardmäßig wird Application Gateway in AGIC basierend auf einem kommentierten Eingang innerhalb eines beliebigen Namespace konfiguriert. Wenn Sie dieses Verhalten einschränken möchten, haben Sie folgende Möglichkeiten:
   - Beschränken Sie die Namespaces, indem Sie die Namespaces, die in AGIC überwacht werden sollen, über den YAML-Schlüssel `watchNamespace` in der Datei [helm-config.yaml](#sample-helm-config-file) explizit definieren.
-  - Verwenden Sie [Role/RoleBinding](https://docs.microsoft.com/azure/aks/azure-ad-rbac), um AGIC auf bestimmte Namespaces zu beschränken.
+  - Verwenden Sie [Role/RoleBinding](../aks/azure-ad-rbac.md), um AGIC auf bestimmte Namespaces zu beschränken.
 
 ## <a name="sample-helm-config-file"></a>Helm-Beispielkonfigurationsdatei
 
@@ -147,7 +147,7 @@ Standardmäßig wird Application Gateway in AGIC basierend auf einem kommentiert
     #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
     
     ################################################################################
-    # Specify if the cluster is RBAC enabled or not
+    # Specify if the cluster is Kubernetes RBAC enabled or not
     rbac:
         enabled: false # true/false
     
@@ -155,4 +155,3 @@ Standardmäßig wird Application Gateway in AGIC basierend auf einem kommentiert
     aksClusterConfiguration:
         apiServerAddress: <aks-api-server-address>
 ```
-

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: 4ea2f88b02738645af3f8fc32d5fdb99168a1122
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77d756bc0c7bbdfa38bb1262638ef85b051fc234
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82997277"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026487"
 ---
 # <a name="getting-started-with-voice-assistants-on-windows"></a>Erste Schritte mit Sprachassistenten unter Windows
 
@@ -25,17 +25,17 @@ Diese Anleitung führt Sie durch die ersten Schritte beim Entwickeln eines Sprac
 
 Um mit der Entwicklung eines Sprachassistenten für Windows zu beginnen, müssen Sie sicherstellen, dass Sie über die richtige Entwicklungsumgebung verfügen.
 
-- **Visual Studio:**  Sie müssen  [Microsoft Visual Studio 2017](https://visualstudio.microsoft.com/), Community Edition oder höher, installieren
-- **Windows-Version**: Ein PC mit einem Windows-Insider-Fast-Ring-Build von Windows und der Windows-Insider-Version des Windows SDK. Dieser Beispielcode wurde unter Windows Insider Release-Build 19025.vb_release_analog.191112-1600 mit dem Windows SDK 19018 als funktionierend geprüft. Jeder Build oder jedes SDK mit höheren als den angegebenen Versionsnummern sollte kompatibel sein.
-- **UWP-Entwicklungstools**: Die Workload Entwicklung für die universelle Windows-Plattform in Visual Studio. Informationen zum Vorbereiten Ihres Computers für das Entwickeln von UWP-Anwendungen finden Sie auf der UWP-Seite [Einrichtung starten](https://docs.microsoft.com/windows/uwp/get-started/get-set-up).
+- **Visual Studio:** Sie müssen [Microsoft Visual Studio 2017](https://visualstudio.microsoft.com/), Community Edition oder höher, installieren.
+- **Windows-Version**: Ein PC mit einem Windows-Insider-Fast-Ring-Build von Windows und der Windows-Insider-Version des Windows SDK.  Dieser Beispielcode wurde unter Windows Insider Release-Build 19025.vb_release_analog.191112-1600 mit dem Windows SDK 19018 als funktionierend geprüft.  Jeder Build oder jedes SDK mit höheren als den angegebenen Versionsnummern sollte kompatibel sein.
+- **UWP-Entwicklungstools**: Die Workload Entwicklung für die universelle Windows-Plattform in Visual Studio.  Informationen zum Vorbereiten Ihres Computers für das Entwickeln von UWP-Anwendungen finden Sie auf der UWP-Seite [Einrichtung starten](/windows/uwp/get-started/get-set-up).
 - **Ein funktionierendes Mikrofon und eine funktionierende Audioausgabe**
 
 ## <a name="obtain-resources-from-microsoft"></a>Abrufen von Ressourcen von Microsoft
 
 Einige Ressourcen, die für einen vollständig angepassten Sprach-Agent unter Windows erforderlich sind, müssen von Microsoft bezogen werden. Das [UWP Voice Assistant-Beispiel](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample) enthält Beispielversionen dieser Ressourcen für den Einstieg in Entwicklung und Testen, dieser Abschnitt muss also für den Einstieg in die Entwicklung nicht beachtet werden.
 
-- **Schlüsselwortmodell:**  Für die Sprachaktivierung ist ein Schlüsselwortmodell von Microsoft in Form einer BIN-Datei erforderlich. Die im UWP Voice Assistant-Beispiel zur Verfügung stehende BIN-Datei ist mit dem Schlüsselwort „Contoso“ trainiert.
-- **Token für Features mit eingeschränkten Zugriff:** Da die APIs des ConversationalAgent Zugriff auf Audiosignale von einem Mikrofon bereitstellen, sind sie durch Einschränkungen für Features für eingeschränkten Zugriff geschützt. Um ein Feature mit eingeschränktem Zugriff zu verwenden, müssen Sie bei Microsoft ein Token für Features mit eingeschränktem Zugriff erwerben, das mit der Paket-ID Ihrer Anwendung verbunden ist.
+- **Schlüsselwortmodell:** Für die Sprachaktivierung ist ein Schlüsselwortmodell von Microsoft in Form einer BIN-Datei erforderlich. Die im UWP Voice Assistant-Beispiel zur Verfügung stehende BIN-Datei ist mit dem Schlüsselwort „Contoso“ trainiert.
+- **Token für Features mit eingeschränkten Zugriff:** Da die APIs des ConversationalAgent Zugriff auf Audiosignale von einem Mikrofon bereitstellen, sind sie durch Einschränkungen für Features für eingeschränkten Zugriff geschützt.  Um ein Feature mit eingeschränktem Zugriff zu verwenden, müssen Sie bei Microsoft ein Token für Features mit eingeschränktem Zugriff erwerben, das mit der Paket-ID Ihrer Anwendung verbunden ist.
 
 ## <a name="establish-a-dialog-service"></a>Einrichten eines Dialogdiensts
 
@@ -48,8 +48,8 @@ Für eine vollständige Sprachassistenten-Erfahrung benötigt die Anwendung eine
 
 Dies sind die Anforderungen zum Erstellen eines einfachen Dialogdiensts mithilfe von Direct Line Speech.
 
-- **Speech Services-Abonnement:** Ein Abonnement von Cognitive Speech Services für Spracherkennung und Sprachsynthese. Testen Sie Speech Services kostenlos [hier](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started).
-- **Bot Framework-Bot:**  Ein Bot, der mit der Bot Framework-Version 4.2 oder höher erstellt wurde und mit einem [Direct Line Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/direct-line-speech)-Abonnement versehen ist, um die Sprachein- und -ausgabe zu ermöglichen. [Dieser Leitfaden](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk) enthält schrittweise Anleitungen zum Erstellen eines „Echobots“ und dessen Abonnements von Direct Line Speech. Alternativ können Sie die Schritte [hier](https://blog.botframework.com/2018/05/07/build-a-microsoft-bot-framework-bot-with-the-bot-builder-sdk-v4/) ausführen, um einen angepassten Bot zu erstellen, und dann die gleichen Schritten [hier](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk) befolgen, um Direct Line Speech für ihn zu abonnieren, jedoch mit Ihrem eigenen neuen Bot anstelle des „Echobots“.
+- **Speech Services-Abonnement:** Ein Abonnement von Cognitive Speech Services für Spracherkennung und Sprachsynthese. Testen Sie Speech Services kostenlos [hier](./overview.md#try-the-speech-service-for-free).
+- **Bot Framework-Bot:**  Ein Bot, der mit der Bot Framework-Version 4.2 oder höher erstellt wurde und mit einem [Direct Line Speech](./direct-line-speech.md)-Abonnement versehen ist, um die Sprachein- und -ausgabe zu ermöglichen. [Dieser Leitfaden](./tutorial-voice-enable-your-bot-speech-sdk.md) enthält schrittweise Anleitungen zum Erstellen eines „Echobots“ und dessen Abonnements von Direct Line Speech. Alternativ können Sie die Schritte [hier](https://blog.botframework.com/2018/05/07/build-a-microsoft-bot-framework-bot-with-the-bot-builder-sdk-v4/) ausführen, um einen angepassten Bot zu erstellen, und dann die gleichen Schritten [hier](./tutorial-voice-enable-your-bot-speech-sdk.md) befolgen, um Direct Line Speech für ihn zu abonnieren, jedoch mit Ihrem eigenen neuen Bot anstelle des „Echobots“.
 
 ## <a name="try-out-the-sample-app"></a>Ausprobieren der Beispiel-App
 

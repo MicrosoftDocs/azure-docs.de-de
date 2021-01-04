@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 15b69e664ae9a01635afb44d7b6b7c24d7551ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c2dbaf8f65208126c52617d4b89d901b3670dac
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87921417"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025173"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>Worum handelt es sich bei der Konversation mit mehreren Geräten (Vorschauversion)?
 
@@ -105,7 +105,7 @@ Beim Erstellen oder Beitreten zu einer Konversation muss jeder Benutzer eine **p
 Es gibt zwei Arten von Sprachen: **Speech-to-Text-** und **Textformat**:
 - Wenn der Benutzer als primäre Sprache eine **Speech-to-Text**-Sprache auswählt, kann er in der Konversation sowohl Sprach- als auch Texteingaben verwenden.
 
-- Wenn der Benutzer eine **Textformatsprache** auswählt, kann er nur Texteingaben verwenden und Sofortnachrichten in der Konversation senden. Textformatsprachen sind die Sprachen, die für die Textübersetzung unterstützt werden, jedoch nicht für die Spracherkennung (Speech-to-Text). Die verfügbaren Sprachen finden Sie auf der Seite [Sprachunterstützung](supported-languages.md).
+- Wenn der Benutzer eine **Textformatsprache** auswählt, kann er nur Texteingaben verwenden und Sofortnachrichten in der Konversation senden. Textformatsprachen sind die Sprachen, die für die Textübersetzung unterstützt werden, jedoch nicht für die Spracherkennung (Speech-to-Text). Die verfügbaren Sprachen finden Sie auf der Seite [Sprachunterstützung](./language-support.md).
 
 Neben der primären Sprache kann jeder Teilnehmer auch weitere Sprachen zum Übersetzen der Konversation angeben.
 
@@ -119,7 +119,7 @@ Im Folgenden finden Sie eine Zusammenfassung der Aktionen, die ein Benutzer in e
 | Konversation übersetzen | ✔️ | ✔️ |
 
 > [!NOTE]
-> Eine Liste der Spracherkennungs- und Sprachübersetzungssprachen finden Sie unter [Unterstützte Sprachen](supported-languages.md).
+> Eine Liste der Spracherkennungs- und Sprachübersetzungssprachen finden Sie unter [Unterstützte Sprachen](./language-support.md).
 
 
 

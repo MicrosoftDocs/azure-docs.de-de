@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdc0dea825cb32275a2ada3a49d7d622180aa468
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 10bac65fa8b1ed192e2ece1682f22e7feb528431
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166629"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743342"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Konfigurieren und Aktivieren der SMS-basierten Authentifizierung von Benutzern mit Azure Active Directory (Vorschauversion)
 
@@ -45,7 +45,7 @@ Für diesen Artikel benötigen Sie die folgenden Ressourcen und Berechtigungen:
 
 Während der Public Preview der SMS-basierten Authentifizierung gelten die folgenden Einschränkungen:
 
-* Die SMS-basierte Authentifizierung ist zurzeit nicht mit Azure Multi-Factor Authentication kompatibel.
+* Die SMS-basierte Authentifizierung ist zurzeit nicht mit Azure AD Multi-Factor Authentication kompatibel.
 * Mit Ausnahme von Teams ist die SMS-basierte Authentifizierung derzeit nicht mit nativen Office-Anwendungen kompatibel.
 * Die SMS-basierte Authentifizierung wird für B2B-Konten nicht empfohlen.
 * Verbundbenutzer werden nicht im Basismandanten authentifiziert. Sie werden nur in der Cloud authentifiziert.
@@ -62,7 +62,7 @@ Das Aktivieren und Verwenden der SMS-basierten Authentifizierung in Ihrer Organi
 Zunächst aktivieren Sie die SMS-basierte Authentifizierung für Ihren Azure AD-Mandanten.
 
 1. Melden Sie sich als *globaler Administrator* beim [Azure-Portal][azure-portal] an.
-1. Suchen Sie nach **Azure Active Directory** , und wählen Sie diese Option aus.
+1. Suchen Sie nach **Azure Active Directory**, und wählen Sie diese Option aus.
 1. Wählen Sie im Navigationsmenü auf der linken Seite im Fenster „Azure Active Directory“ die Option **Sicherheit > Authentifizierungsmethoden > Authentifizierungsmethodenrichtlinie (Vorschau)** aus.
 
     [![Navigieren Sie im Azure-Portal zum Fenster „Authentifizierungsmethodenrichtlinie (Vorschau)“, und wählen Sie es aus.](media/howto-authentication-sms-signin/authentication-method-policy-cropped.png)](media/howto-authentication-sms-signin/authentication-method-policy.png#lightbox)
@@ -79,7 +79,7 @@ Zunächst aktivieren Sie die SMS-basierte Authentifizierung für Ihren Azure AD
 Nachdem die SMS-basierte Authentifizierung in Ihrem Azure AD Mandanten nun aktiviert ist, wählen Sie einige Benutzer oder Gruppen aus, die diese Authentifizierungsmethode verwenden dürfen.
 
 1. Legen Sie im Fenster der Authentifizierungsrichtlinie für Textnachrichten das **Ziel** auf *Benutzer auswählen* fest.
-1. Wählen Sie **Benutzer oder Gruppen hinzufügen** und dann einen Testbenutzer oder eine Gruppe aus, z. B. *Contoso User* oder *Contoso SMS Users* .
+1. Wählen Sie **Benutzer oder Gruppen hinzufügen** und dann einen Testbenutzer oder eine Gruppe aus, z. B. *Contoso User* oder *Contoso SMS Users*.
 
     [![Wählen Sie Benutzer oder Gruppen im Azure-Portal, die für die SMS-basierte Authentifizierung aktiviert werden sollen.](media/howto-authentication-sms-signin/add-users-or-groups-cropped.png)](media/howto-authentication-sms-signin/add-users-or-groups.png#lightbox)
 
@@ -89,18 +89,18 @@ Jeder Benutzer, der in der Richtlinie für die Authentifizierung per Textnachric
 
 ## <a name="set-a-phone-number-for-user-accounts"></a>Festlegen einer Telefonnummer für Benutzerkonten
 
-Die Benutzer sind jetzt für die SMS-basierte Authentifizierung aktiviert, aber Ihre Telefonnummer muss noch dem Benutzerprofil in Azure AD zugeordnet werden, bevor sie sich anmelden können. Ein Benutzer kann [diese Telefonnummer selbstständig](../user-help/sms-sign-in-explainer.md) unter *Mein Profil* festlegen, oder Sie können die Telefonnummer im Azure-Portal zuweisen. Telefonnummern können von *globalen Administratoren* , *Authentifizierungsadministratoren* oder *privilegierten Authentifizierungsadministratoren* festgelegt werden.
+Die Benutzer sind jetzt für die SMS-basierte Authentifizierung aktiviert, aber Ihre Telefonnummer muss noch dem Benutzerprofil in Azure AD zugeordnet werden, bevor sie sich anmelden können. Ein Benutzer kann [diese Telefonnummer selbstständig](../user-help/sms-sign-in-explainer.md) unter *Mein Profil* festlegen, oder Sie können die Telefonnummer im Azure-Portal zuweisen. Telefonnummern können von *globalen Administratoren*, *Authentifizierungsadministratoren* oder *privilegierten Authentifizierungsadministratoren* festgelegt werden.
 
-Wenn eine Telefonnummer für die SMS-Anmeldung festgelegt ist, kann sie auch für die [Azure Multi-Factor Authentication][tutorial-azure-mfa] und die [Self-Service-Kennwortzurücksetzung][tutorial-sspr] verwendet werden.
+Wenn eine Telefonnummer für SMS-Anmeldung festgelegt ist, kann sie auch für [Azure AD Multi-Factor Authentication][tutorial-azure-mfa] und [Self-Service-Kennwortzurücksetzung][tutorial-sspr] verwendet werden.
 
-1. Suchen Sie nach **Azure Active Directory** , und wählen Sie diese Option aus.
+1. Suchen Sie nach **Azure Active Directory**, und wählen Sie diese Option aus.
 1. Wählen Sie im Navigationsmenü auf der linken Seite im Fenster „Azure Active Directory“ die Option **Benutzer** aus.
-1. Wählen Sie den Benutzer aus, für den Sie im vorherigen Abschnitt die SMS-basierte Authentifizierung aktiviert haben (z. B. *Contoso User* ), und wählen Sie dann **Authentifizierungsmethoden** aus.
+1. Wählen Sie den Benutzer aus, für den Sie im vorherigen Abschnitt die SMS-basierte Authentifizierung aktiviert haben (z. B. *Contoso User*), und wählen Sie dann **Authentifizierungsmethoden** aus.
 1. Wählen Sie **+ Authentifizierungsmethode hinzufügen** und dann im Dropdownmenü *Methode auswählen* die Option **Telefonnummer** aus.
 
-    Geben Sie die Telefonnummer des Benutzers ein, einschließlich des Ländercodes, z. B. *+49 xxxxxxxxx* . Das Azure-Portal überprüft das korrekte Format der Telefonnummer.
+    Geben Sie die Telefonnummer des Benutzers ein, einschließlich des Ländercodes, z. B. *+49 xxxxxxxxx*. Das Azure-Portal überprüft das korrekte Format der Telefonnummer.
 
-    Wählen Sie dann im Dropdownmenü *Telefontyp* die Option *Mobil* , *Alternative Mobiltelefonnummer* oder bei Bedarf *Sonstige* aus.
+    Wählen Sie dann im Dropdownmenü *Telefontyp* die Option *Mobil*, *Alternative Mobiltelefonnummer* oder bei Bedarf *Sonstige* aus.
 
     :::image type="content" source="media/howto-authentication-sms-signin/set-user-phone-number.png" alt-text="Festlegen einer Telefonnummer für einen Benutzer im Azure-Portal für die Verwendung mit der SMS-basierten Authentifizierung":::
 
@@ -132,9 +132,9 @@ Sie können die folgenden Szenarien und Schritte zum Troubleshooting anwenden, w
 
 ### <a name="phone-number-already-set-for-a-user-account"></a>Telefonnummer bereits für ein Benutzerkonto festgelegt
 
-Wenn ein Benutzer bereits für Azure Multi-Factor Authentication oder die Self-Service-Kennwortzurücksetzung (SSPR) registriert ist, wurde seinem Konto bereits eine Telefonnummer zugeordnet. Diese Telefonnummer steht nicht automatisch für die Verwendung bei der SMS-basierten Anmeldung zur Verfügung.
+Wenn ein Benutzer bereits für Azure AD Multi-Factor Authentication oder die Self-Service-Kennwortzurücksetzung (SSPR) registriert ist, wurde seinem Konto bereits eine Telefonnummer zugeordnet. Diese Telefonnummer steht nicht automatisch für die Verwendung bei der SMS-basierten Anmeldung zur Verfügung.
 
-Für Benutzer, in deren Konto bereits eine Telefonnummer festgelegt wurde, wird auf der Seite **Mein Profil** die Schaltfläche *Enable for SMS sign-in* (SMS-Anmeldung aktivieren) angezeigt. Durch Auswählen dieser Schaltfläche wird das Konto für die Verwendung der SMS-basierten Anmeldung und der zuvor bereits erfolgten Registrierung für Azure Multi-Factor Authentication oder SSPR aktiviert.
+Für Benutzer, in deren Konto bereits eine Telefonnummer festgelegt wurde, wird auf der Seite **Mein Profil** die Schaltfläche *Enable for SMS sign-in* (SMS-Anmeldung aktivieren) angezeigt. Durch Auswählen dieser Schaltfläche wird das Konto für die Verwendung der SMS-basierten Anmeldung und der zuvor bereits erfolgten Registrierung für Azure AD Multi-Factor Authentication oder SSPR aktiviert.
 
 Weitere Informationen zum Ablauf für den Endbenutzer finden Sie unter [SMS-Anmeldung mit einer Telefonnummer (Vorschauversion)](../user-help/sms-sign-in-explainer.md).
 
@@ -143,8 +143,8 @@ Weitere Informationen zum Ablauf für den Endbenutzer finden Sie unter [SMS-Anme
 Wenn Sie beim Versuch, im Azure-Portal eine Telefonnummer für ein Benutzerkonto festzulegen, eine Fehlermeldung erhalten, versuchen Sie die folgenden Schritte zum Troubleshooting:
 
 1. Stellen Sie sicher, dass Sie für die SMS-basierte Anmeldung (Vorschauversion) aktiviert wurden.
-1. Vergewissern Sie sich, dass das Benutzerkonto in der *SMS* -Authentifizierungsmethodenrichtlinie aktiviert ist.
-1. Stellen Sie im Azure-Portal sicher, dass Sie die Telefonnummer im richtigen Format festgelegt haben (z. B. *+ 1 4251234567* ).
+1. Vergewissern Sie sich, dass das Benutzerkonto in der *SMS*-Authentifizierungsmethodenrichtlinie aktiviert ist.
+1. Stellen Sie im Azure-Portal sicher, dass Sie die Telefonnummer im richtigen Format festgelegt haben (z. B. *+ 1 4251234567*).
 1. Stellen Sie sicher, dass die Telefonnummer nicht an anderer Stelle in Ihrem Mandanten verwendet wird.
 1. Vergewissern Sie sich, dass für das Konto keine Voicemailnummer festgelegt wurde. Wenn eine Voicemailnummer festgelegt wurde, löschen Sie die Telefonnummer, und versuchen Sie es erneut.
 

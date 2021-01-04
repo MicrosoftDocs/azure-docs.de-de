@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp, mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: bfa8943af16fe62015a4736f561875235e205fc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ada4226500437e7733605a29988ee7cacae40761
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163882"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994311"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Tutorial: Gewähren des Zugriffs auf eine ASP.NET-Web-API unter Verwendung von Azure Active Directory B2C
 
@@ -40,7 +40,7 @@ Führen Sie die erforderlichen Schritte unter [Tutorial: Aktivieren der Authenti
 
 Web-API-Ressourcen müssen bei Ihrem Mandanten registriert werden, damit sie geschützte Ressourcenanforderungen von Clientanwendungen, die ein Zugriffstoken bereitstellen, akzeptieren und darauf reagieren können.
 
-Zum Registrieren einer Anwendung in Ihrem Azure AD B2C-Mandanten können Sie unsere neue einheitliche Benutzeroberfläche **App-Registrierungen** oder unsere alte Benutzeroberfläche **Anwendungen (Legacy)** verwenden. [Weitere Informationen zur neuen Oberfläche](https://aka.ms/b2cappregtraining)
+Zum Registrieren einer Anwendung in Ihrem Azure AD B2C-Mandanten können Sie unsere neue einheitliche Benutzeroberfläche **App-Registrierungen** oder unsere alte Benutzeroberfläche **Anwendungen (Legacy)** verwenden. [Weitere Informationen zur neuen Oberfläche](./app-registrations-training-guide.md)
 
 #### <a name="app-registrations"></a>[App-Registrierungen](#tab/app-reg-ga/)
 
@@ -146,7 +146,7 @@ Führen Sie sowohl das Projekt **TaskWebApp** als auch das Projekt **TaskService
 1. Wählen Sie **Mehrere Startprojekte** aus.
 1. Ändern Sie die **Aktion** für beide Projekte in **Start**.
 1. Klicken Sie auf **OK**, um die Konfiguration zu speichern.
-1. Drücken Sie**F5**, um beide Anwendungen auszuführen. Jede Anwendung wird in einem eigenen Browserfenster geöffnet.
+1. Drücken Sie **F5**, um beide Anwendungen auszuführen. Jede Anwendung wird in einem eigenen Browserfenster geöffnet.
     * `https://localhost:44316/` ist die Webanwendung.
     * `https://localhost:44332/` ist die Web-API.
 

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 2f3657feb5a68600e4eb2d7bcaa4891a398c2682
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 528003ac482da6f254bf437321c70c389d23844b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850692"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835015"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>Tutorial: Konfigurieren von Looop für die automatische Benutzerbereitstellung
 
@@ -57,9 +57,9 @@ Bevor Sie Looop für die automatische Benutzerbereitstellung mit Azure AD konfig
 
     :::image type="content" source="media/looop-provisioning-tutorial/admin.png" alt-text="Screenshot der Looop-Verwaltungskonsole. Die Registerkarte „Konto“ ist hervorgehoben und geöffnet. Unter „Kontoeinstellungen“ ist „Authentifizierung“ hervorgehoben." border="false":::
 
-2. Generieren Sie ein neues Token, indem Sie unter **SCIM-Integration**auf **Token zurücksetzen** klicken.
+2. Generieren Sie ein neues Token, indem Sie unter **SCIM-Integration** auf **Token zurücksetzen** klicken.
 
-    :::image type="content" source="media/looop-provisioning-tutorial/resettoken.png" alt-text="Screenshot der Looop-Verwaltungskonsole. Die Registerkarte „Konto“ ist hervorgehoben und geöffnet. Unter „Kontoeinstellungen“ ist „Authentifizierung“ hervorgehoben." border="false":::
+    :::image type="content" source="media/looop-provisioning-tutorial/resettoken.png" alt-text="Screenshot des Abschnitts „SCIM-Integration“ einer Seite in der Looop-Verwaltungskonsole. Die Schaltfläche „Token zurücksetzen“ ist hervorgehoben." border="false":::
 
 3. Kopieren Sie die Werte für **SCIM Endpoint** (SCIM-Endpunkt) und **Access Token** (Zugriffstoken). Diese Werte werden im Azure-Portal auf der Registerkarte „Bereitstellung“ Ihrer Looop-Anwendung in das Feld **Mandanten-URL** bzw. **Geheimes Token** eingegeben. 
 
@@ -85,7 +85,7 @@ Bevor Sie Looop für die automatische Benutzerbereitstellung mit Azure AD konfig
 
     ![Looop in der Ergebnisliste](common/search-new-app.png)
 
-5. Wählen Sie die Schaltfläche **Anmeldung bei Looop** aus, über die Sie an die Anmeldeseite von Looop umgeleitet werden. 
+5. Wählen Sie die Schaltfläche **Anmeldung bei Looop** aus, über die Sie auf die Anmeldeseite von Looop umgeleitet werden. 
 
     ![Looop: Hinzufügen von OIDC](media/looop-provisioning-tutorial/signup.png)
 
@@ -107,7 +107,7 @@ In diesem Abschnitt werden die Schritte erläutert, mit denen Sie den Azure AD-
 
     ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
 
-2. Wählen Sie in der Anwendungsliste **Looop**aus.
+2. Wählen Sie in der Anwendungsliste **Looop** aus.
 
     ![Der Looop-Link in der Anwendungsliste](common/all-applications.png)
 
@@ -135,7 +135,23 @@ In diesem Abschnitt werden die Schritte erläutert, mit denen Sie den Azure AD-
 
 9. Überprüfen Sie im Abschnitt **Attributzuordnungen** die Benutzerattribute, die von Azure AD mit Looop synchronisiert werden. Beachten Sie, dass die als **übereinstimmende** Eigenschaften ausgewählten Attribute für den Abgleich der Benutzerkonten in Looop für Updatevorgänge verwendet werden. Wählen Sie die Schaltfläche **Speichern**, um alle Änderungen zu übernehmen.
 
-    ![Benutzerattribute in Looop](media/looop-provisioning-tutorial/userattributes.png)
+   |attribute|type|Unterstützung für das Filtern|
+   |---|---|---|
+   |userName|String|&check;|
+   |aktiv|Boolean|
+   |emails[type eq "work"].value|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |externalId|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:area|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:custom_1|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:custom_2|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:custom_3|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:employee_id|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:location|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:position|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:startAt|String|
 
 10. Wählen Sie im Abschnitt **Zuordnungen** die Option **Azure Active Directory-Gruppen mit Meta Networks Connector synchronisieren** aus.
 
@@ -143,7 +159,12 @@ In diesem Abschnitt werden die Schritte erläutert, mit denen Sie den Azure AD-
 
 11. Überprüfen Sie im Abschnitt **Attributzuordnungen** die Gruppenattribute, die von Azure AD mit Meta Networks Connector synchronisiert werden. Die als **übereinstimmende** Eigenschaften ausgewählten Attribute werden für den Abgleich der Gruppen in Meta Networks Connector für Aktualisierungsvorgänge verwendet. Wählen Sie die Schaltfläche **Speichern**, um alle Änderungen zu übernehmen.
 
-    ![Gruppenattribute in Looop](media/looop-provisioning-tutorial/groupattributes.png)
+    |attribute|type|Unterstützung für das Filtern|
+    |---|---|---|
+    |displayName|String|&check;|
+    |members|Verweis|
+    |externalId|String|
+
 
 10. Wenn Sie Bereichsfilter konfigurieren möchten, lesen Sie die Anweisungen unter [Attributbasierte Anwendungsbereitstellung mit Bereichsfiltern](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

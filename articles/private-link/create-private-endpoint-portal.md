@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: allensu
 ms.openlocfilehash: 395912ae70c5a01bd7de9a80cf8a507dd516028e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895200"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018068"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-the-azure-portal"></a>Schnellstart: Erstellen eines privaten Endpunkts mit dem Azure-Portal
 
@@ -39,7 +39,7 @@ In diesem Abschnitt erstellen Sie ein virtuelles Netzwerk, ein Subnetz und einen
 
 Der Bastion-Host wird verwendet, um eine sichere Verbindung mit dem virtuellen Computer herzustellen, um den privaten Endpunkt zu testen.
 
-1. Wählen Sie links oben auf dem Bildschirm **Ressource erstellen > Netzwerk > Virtuelles Netzwerk** aus, oder suchen Sie über das Suchfeld nach **Virtuelles Netzwerk** .
+1. Wählen Sie links oben auf dem Bildschirm **Ressource erstellen > Netzwerk > Virtuelles Netzwerk** aus, oder suchen Sie über das Suchfeld nach **Virtuelles Netzwerk**.
 
 2. Geben Sie unter **Virtuelles Netzwerk erstellen** auf der Registerkarte **Grundlegende Einstellungen** die folgenden Informationen ein, oder wählen Sie sie aus:
 
@@ -79,18 +79,18 @@ Der Bastion-Host wird verwendet, um eine sichere Verbindung mit dem virtuellen C
     |--------------------|----------------------------|
     | Bastion-Name | Geben Sie **myBastionHost** ein. |
     | AzureBastionSubnet-Adressraum | Geben Sie **10.1.1.0/24** ein. |
-    | Öffentliche IP-Adresse | Wählen Sie **Neu erstellen** . </br> Geben Sie **myBastionIP** als **Name** ein. </br> Klicken Sie auf **OK** . |
+    | Öffentliche IP-Adresse | Wählen Sie **Neu erstellen**. </br> Geben Sie **myBastionIP** als **Name** ein. </br> Klicken Sie auf **OK**. |
 
 
 8. Wählen Sie die Registerkarte **Überprüfen + erstellen** oder die Schaltfläche **Überprüfen + erstellen** aus.
 
-9. Klicken Sie auf **Erstellen** .
+9. Klicken Sie auf **Erstellen**.
 
 ## <a name="create-a-virtual-machine"></a>Erstellen eines virtuellen Computers
 
 In diesem Abschnitt erstellen Sie einen virtuellen Computer zum Testen des privaten Endpunkts.
 
-1. Wählen Sie oben links im Portal die Option **Ressource erstellen** > **Compute** > **Virtueller Computer** aus, oder suchen Sie über das Suchfeld nach **Virtueller Computer** .
+1. Wählen Sie oben links im Portal die Option **Ressource erstellen** > **Compute** > **Virtueller Computer** aus, oder suchen Sie über das Suchfeld nach **Virtueller Computer**.
    
 2. Geben Sie unter **Virtuellen Computer erstellen** auf der Registerkarte **Grundlagen** die folgenden Werte ein, oder wählen Sie sie aus:
 
@@ -122,11 +122,11 @@ In diesem Abschnitt erstellen Sie einen virtuellen Computer zum Testen des priva
     | Subnet | **mySubnet** |
     | Öffentliche IP-Adresse | Wählen Sie **Keine** aus. |
     | NIC-Netzwerksicherheitsgruppe | **Grundlegend**|
-    | Öffentliche Eingangsports | Wählen Sie **Keine** . |
+    | Öffentliche Eingangsports | Wählen Sie **Keine**. |
    
-5. Klicken Sie auf **Überprüfen + erstellen** . 
+5. Klicken Sie auf **Überprüfen + erstellen**. 
   
-6. Überprüfen Sie die Einstellungen, und wählen Sie dann die Option **Erstellen** .
+6. Überprüfen Sie die Einstellungen, und wählen Sie dann die Option **Erstellen**.
 
 ## <a name="create-a-private-endpoint"></a>Erstellen eines privaten Endpunkts
 
@@ -173,14 +173,14 @@ In diesem Abschnitt erstellen Sie einen privaten Endpunkt für die Web-App, die 
     | Virtuelles Netzwerk | Wählen Sie **myVNet** aus. |
     | Subnet | Wählen Sie **mySubnet** aus. |
     | **Private DNS-Integration** |  |
-    | Integration in eine private DNS-Zone | Übernehmen Sie den Standardwert **Ja** . |
+    | Integration in eine private DNS-Zone | Übernehmen Sie den Standardwert **Ja**. |
     | Subscription | Wählen Sie Ihr Abonnement aus. |
-    | Private DNS-Zonen | Belassen Sie den Standardwert **(New) privatelink.azurewebsites.net** .
+    | Private DNS-Zonen | Belassen Sie den Standardwert **(New) privatelink.azurewebsites.net**.
     
 
-13. Klicken Sie auf **Überprüfen + erstellen** .
+13. Klicken Sie auf **Überprüfen + erstellen**.
 
-14. Klicken Sie auf **Erstellen** .
+14. Klicken Sie auf **Erstellen**.
 
 ## <a name="test-connectivity-to-private-endpoint"></a>Testen der Verbindung mit dem privaten Endpunkt
 
@@ -216,13 +216,13 @@ In diesem Abschnitt verwenden Sie den virtuellen Computer, den Sie im vorherigen
 
 11. Öffnen Sie in der Bastionhostverbindung mit **myVM** den Internet Explorer.
 
-12. Geben Sie die URL Ihrer Web-App ein: **https://\<your-webapp-name>.azurewebsites.net** .
+12. Geben Sie die URL Ihrer Web-App ein: **https://\<your-webapp-name>.azurewebsites.net**.
 
 13. Sie erhalten die Standardseite der Web-App, wenn Ihre Anwendung noch nicht bereitgestellt wurde:
 
     :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Standardseite der Web-App." border="true":::
 
-18. Trennen Sie die Verbindung zu **myVM** .
+18. Trennen Sie die Verbindung zu **myVM**.
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
@@ -232,11 +232,11 @@ Falls Sie diese Anwendung nicht mehr benötigen, löschen Sie die das virtuelle 
 
 2. Wählen Sie **CreatePrivateEndpointQS-rg** aus.
 
-3. Klicken Sie auf **Ressourcengruppe löschen** .
+3. Klicken Sie auf **Ressourcengruppe löschen**.
 
 4. Geben Sie **CreatePrivateEndpointQS-rg** in **GEBEN SIE DEN RESSOURCENGRUPPENNAMEN EIN** ein.
 
-5. Klicken Sie auf **Löschen** .
+5. Klicken Sie auf **Löschen**.
 
 
 ## <a name="next-steps"></a>Nächste Schritte

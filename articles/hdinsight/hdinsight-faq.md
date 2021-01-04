@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: c0efdda24ae47ae65f0d469b50feaefdf6350678
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0240510a2232bd12a94d5cdd59672270289e5e8f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84022213"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011828"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Häufig gestellte Fragen
 
@@ -24,7 +24,7 @@ Dieser Artikel bietet Antworten auf einige der häufigsten Fragen zur Ausführun
 
 ### <a name="how-do-i-provision-an-hdinsight-cluster"></a>Wie stelle ich einen HDInsight-Cluster bereit?
 
-Die verfügbaren HDInsight-Clustertypen und die Bereitstellungsmethoden finden Sie unter [Einrichten von Clustern in HDInsight mit Apache Hadoop, Apache Spark, Apache Kafka usw.](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)
+Die verfügbaren HDInsight-Clustertypen und die Bereitstellungsmethoden finden Sie unter [Einrichten von Clustern in HDInsight mit Apache Hadoop, Apache Spark, Apache Kafka usw.](./hdinsight-hadoop-provision-linux-clusters.md)
 
 ### <a name="how-do-i-delete-an-existing-hdinsight-cluster"></a>Wie lösche ich einen vorhandenen HDInsight-Cluster?
 
@@ -38,7 +38,7 @@ Versuchen Sie, zwischen Erstell- und Löschvorgängen mindestens 30 bis 60 Minu
 
 Die geeignete Anzahl von Kernen und weitere Konfigurationsoptionen hängen von verschiedenen Faktoren ab.
 
-Weitere Informationen finden Sie unter [Kapazitätsplanung für HDInsight-Cluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-capacity-planning).
+Weitere Informationen finden Sie unter [Kapazitätsplanung für HDInsight-Cluster](./hdinsight-capacity-planning.md).
 
 ### <a name="what-are-the-various-types-of-nodes-in-an-hdinsight-cluster"></a>Welche unterschiedlichen Knotentypen gibt es in einem HDInsight-Cluster?
 
@@ -46,11 +46,11 @@ Lesen Sie dazu [Ressourcentypen in Azure HDInsight-Clustern](hdinsight-virtual-n
 
 ### <a name="what-are-the-best-practices-for-creating-large-hdinsight-clusters"></a>Wie lauten die bewährten Methoden zur Erstellung von großen HDInsight-Clustern?
 
-1. Wir empfehlen Ihnen, HDInsight-Cluster mit einer [benutzerdefinierten Ambari-Datenbank](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db) einzurichten, um die Clusterskalierbarkeit zu verbessern.
-2. Verwenden Sie [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) für die Erstellung von HDInsight-Clustern, um die höhere Bandbreite und weitere Leistungsmerkmale von Azure Data Lake Storage Gen2 zu nutzen.
+1. Wir empfehlen Ihnen, HDInsight-Cluster mit einer [benutzerdefinierten Ambari-Datenbank](./hdinsight-custom-ambari-db.md) einzurichten, um die Clusterskalierbarkeit zu verbessern.
+2. Verwenden Sie [Azure Data Lake Storage Gen2](./hdinsight-hadoop-use-data-lake-storage-gen2.md) für die Erstellung von HDInsight-Clustern, um die höhere Bandbreite und weitere Leistungsmerkmale von Azure Data Lake Storage Gen2 zu nutzen.
 3. Hauptknoten sollten eine ausreichende Größe haben, um mehrere Masterdienste abdecken zu können, die auf diesen Knoten ausgeführt werden.
 4. Für einige spezifische Workloads, z. B. Interactive Query, werden ebenfalls größere Zookeeper-Knoten benötigt. Beachten Sie hierbei die Mindestanzahl von acht Kern-VMs.
-5. Verwenden Sie bei Hive und Spark den [externen Hive-Metastore](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-external-metadata-stores).
+5. Verwenden Sie bei Hive und Spark den [externen Hive-Metastore](./hdinsight-use-external-metadata-stores.md).
 
 ## <a name="individual-components"></a>Einzelne Komponenten
 
@@ -58,11 +58,11 @@ Lesen Sie dazu [Ressourcentypen in Azure HDInsight-Clustern](hdinsight-virtual-n
 
 Ja. Zum Installieren zusätzlicher Komponenten oder Anpassen der Clusterkonfiguration können Sie Folgendes verwenden:
 
-- Skripts während oder nach der Erstellung. Skripts werden über [Skriptaktion](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux) aufgerufen. „Skriptaktion“ ist eine Konfigurationsoption, die im Azure-Portal, in HDInsight Windows PowerShell-Cmdlets oder beim HDInsight .NET SDK verwendet werden kann. Diese Konfigurationsoption kann im Azure-Portal, in HDInsight Windows PowerShell-Cmdlets oder mit dem HDInsight .NET SDK verwendet werden.
+- Skripts während oder nach der Erstellung. Skripts werden über [Skriptaktion](./hdinsight-hadoop-customize-cluster-linux.md) aufgerufen. „Skriptaktion“ ist eine Konfigurationsoption, die im Azure-Portal, in HDInsight Windows PowerShell-Cmdlets oder beim HDInsight .NET SDK verwendet werden kann. Diese Konfigurationsoption kann im Azure-Portal, in HDInsight Windows PowerShell-Cmdlets oder mit dem HDInsight .NET SDK verwendet werden.
 
 - [HDInsight-Anwendungsplattform](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) zur Installation von Anwendungen.
 
-Eine Liste der unterstützten Komponenten finden Sie unter [Verfügbare Apache Hadoop-Komponenten in verschiedenen Versionen von HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
+Eine Liste der unterstützten Komponenten finden Sie unter [Verfügbare Apache Hadoop-Komponenten in verschiedenen Versionen von HDInsight](./hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions).
 
 ### <a name="can-i-upgrade-the-individual-components-that-are-pre-installed-on-the-cluster"></a>Kann ich die einzelnen Komponenten aktualisieren, die im Cluster vorinstalliert sind?
 
@@ -129,11 +129,11 @@ Wenn Sie die Ports 22 und 23 blockieren, haben Sie keinen SSH-Zugriff auf den C
 
 Weitere Informationen finden Sie in den folgenden Dokumenten:
 
-- [Steuern des Netzwerkdatenverkehrs](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#networktraffic)
+- [Ports für Apache Hadoop-Dienste in HDInsight](./hdinsight-hadoop-port-settings-for-services.md)
 
 - [Sichern des eingehenden Datenverkehrs für HDInsight-Cluster in einem virtuellen Netzwerk mit privatem Endpunkt](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)
 
-- [HDInsight-Verwaltungs-IP-Adressen](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses)
+- [HDInsight-Verwaltungs-IP-Adressen](./hdinsight-management-ip-addresses.md)
 
 ### <a name="can-i-deploy-an-additional-virtual-machine-within-the-same-subnet-as-an-hdinsight-cluster"></a>Kann ich einen zusätzlichen virtuellen Computer im selben Subnetz wie einen HDInsight-Cluster bereitstellen?
 
@@ -186,7 +186,7 @@ Die Verwendung eines von einer Zertifizierungsstelle ausgestellten Zertifikats w
 
 ### <a name="how-can-i-pull-login-activity-shown-in-ranger"></a>Wie kann ich in Ranger angezeigte Anmeldeaktivitäten abrufen?
 
-Microsoft empfiehlt, Azure Monitor-Protokolle zu aktivieren, wie in [Verwenden von Azure Monitor-Protokollen zum Überwachen von HDInsight-Clustern](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial) beschrieben, um Überwachungsanforderungen zu erfüllen.
+Microsoft empfiehlt, Azure Monitor-Protokolle zu aktivieren, wie in [Verwenden von Azure Monitor-Protokollen zum Überwachen von HDInsight-Clustern](./hdinsight-hadoop-oms-log-analytics-tutorial.md) beschrieben, um Überwachungsanforderungen zu erfüllen.
 
 ### <a name="can-i-disable-clamscan-on-my-cluster"></a>Kann ich `Clamscan` auf meinem Cluster deaktivieren?
 
@@ -258,7 +258,7 @@ Derzeit sind keine Ranger-Plug-Ins für Blob Storage und Azure Data Lake Storage
 Über Azure Storage-Explorer können Sie den Sicherheitsgruppen Ihrer Benutzer Datenzugriffsrichtlinien zuweisen. Weitere Informationen finden Sie unter
 
 - [Wie richte ich Berechtigungen für Azure AD-Benutzer zum Abfragen von Daten in Data Lake Storage Gen2 mit Hive oder anderen Diensten ein?](hdinsight-hadoop-use-data-lake-storage-gen2.md#how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services)
-- [Festlegen von Berechtigungen auf Datei- und Verzeichnisebene mithilfe des Azure Storage-Explorers mit Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)
+- [Festlegen von Berechtigungen auf Datei- und Verzeichnisebene mithilfe des Azure Storage-Explorers mit Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-explorer.md)
 
 ### <a name="can-i-increase-hdfs-storage-on-a-cluster-without-increasing-the-disk-size-of-worker-nodes"></a>Kann ich den HDFS-Speicher in einem Cluster vergrößern, ohne dass die Datenträgergröße von Workerknoten zunimmt?
 
@@ -333,11 +333,11 @@ Die Abrechnung für einen HDInsight-Cluster beginnt, sobald der Cluster erstellt
 
 ### <a name="how-do-i-cancel-my-subscription"></a>Wie kann ich mein Abonnement kündigen?
 
-Informationen zum Kündigen Ihres Abonnements finden Sie unter [Kündigen Ihres Azure-Abonnements](https://docs.microsoft.com/azure/billing/billing-how-to-cancel-azure-subscription).
+Informationen zum Kündigen Ihres Abonnements finden Sie unter [Kündigen Ihres Azure-Abonnements](../cost-management-billing/manage/cancel-azure-subscription.md).
 
 ### <a name="for-pay-as-you-go-subscriptions-what-happens-after-i-cancel-my-subscription"></a>Was geschieht bei Abonnements mit nutzungsbasierter Bezahlung, nachdem ich mein Abonnement gekündigt habe?
 
-Informationen zu Ihrem gekündigten Abonnement finden Sie unter [Was geschieht, nachdem ich mein Abonnement gekündigt habe?](/azure/billing/billing-how-to-cancel-azure-subscription)
+Informationen zu Ihrem gekündigten Abonnement finden Sie unter [Was geschieht, nachdem ich mein Abonnement gekündigt habe?](../cost-management-billing/manage/cancel-azure-subscription.md)
 
 ## <a name="hive"></a>Hive
 

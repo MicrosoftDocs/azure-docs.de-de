@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 991e81c46a0cd6c587ac3366b63ba4da6a07f7e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53f50e98bcec4b8ace342808f0bcfd96770834b0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336512"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002220"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Der Team Data Science-Prozess in Aktion: Verwenden von Azure HDInsight Hadoop-Clustern
 In dieser exemplarischen Vorgehensweise wird der [Team Data Science-Prozess (TDSP)](overview.md) in einem durchgängigen Szenario verwendet. Es wird ein [Azure HDInsight Hadoop-Cluster](https://azure.microsoft.com/services/hdinsight/) verwendet, um Daten aus dem öffentlich zugänglichen [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/)-Dataset zu speichern, zu untersuchen und merkmalbezogen zu analysieren sowie ein Downsampling auf die Daten anzuwenden. Um eine binäre Klassifizierung und eine Multiklassenklassifizierung sowie Regressionsvorhersageaufgaben durchzuführen, werden Modelle der Daten mit Azure Machine Learning entwickelt. 
@@ -85,7 +85,7 @@ Legen Sie die Art der Vorhersagen fest, die Sie anhand von Datenanalysen vornehm
 Sie können in drei Schritten eine Azure-Umgebung für die erweiterte Analyse einrichten, in der ein HDInsight-Cluster verwendet wird:
 
 1. [Erstellen Sie ein Speicherkonto](../../storage/common/storage-account-create.md): Mit diesem Speicherkonto werden Daten in Azure Blob Storage gespeichert. Die in HDInsight-Clustern verwendeten Daten werden ebenfalls hier gespeichert.
-2. [Anpassen von Azure HDInsight Hadoop-Clustern für erweiterte Analyseprozesse und -technologien](customize-hadoop-cluster.md) In diesem Schritt erstellen Sie einen HDInsight Hadoop-Cluster, bei dem auf allen Knoten Anaconda Python 2.7 (64 Bit) installiert ist. Bei der Anpassung Ihres HDInsight-Clusters müssen Sie an zwei wichtige Schritte denken.
+2. [Anpassen von Azure HDInsight Hadoop-Clustern für erweiterte Analyseprozesse und -technologien](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md) In diesem Schritt erstellen Sie einen HDInsight Hadoop-Cluster, bei dem auf allen Knoten Anaconda Python 2.7 (64 Bit) installiert ist. Bei der Anpassung Ihres HDInsight-Clusters müssen Sie an zwei wichtige Schritte denken.
    
    * Verknüpfen Sie das in Schritt 1 erstellte Speicherkonto mit dem HDInsight-Cluster, wenn Sie diesen erstellen. Dieses Speicherkonto greift auf Daten zu, die innerhalb des Clusters verarbeitet werden.
    * Sie müssen nach dem Erstellen den Remotezugriff auf den Hauptknoten des Clusters aktivieren. Navigieren Sie zur Registerkarte **Konfiguration**, und wählen Sie **Remote aktivieren** aus. Mit diesem Schritt werden die Benutzeranmeldeinformationen für die Remoteanmeldung angegeben.
@@ -99,7 +99,7 @@ Sie können in drei Schritten eine Azure-Umgebung für die erweiterte Analyse ei
 
 Wenn Sie das [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/)-Dataset aus seinem öffentlichen Speicherort auf Ihren Computer kopieren möchten, verwenden Sie eine der in [Verschieben von Daten in und aus Azure Blob Storage](move-azure-blob.md) beschriebenen Methoden.
 
-Nachfolgend wird erläutert, wie Sie AzCopy zum Übertragen der Dateien verwenden, die Daten enthalten. Folgen Sie den Anweisungen unter [Erste Schritte mit dem Befehlszeilenprogramm AzCopy](../../storage/common/storage-use-azcopy.md), um AzCopy herunterzuladen und zu installieren.
+Nachfolgend wird erläutert, wie Sie AzCopy zum Übertragen der Dateien verwenden, die Daten enthalten. Folgen Sie den Anweisungen unter [Erste Schritte mit dem Befehlszeilenprogramm AzCopy](../../storage/common/storage-use-azcopy-v10.md), um AzCopy herunterzuladen und zu installieren.
 
 1. Führen Sie über ein Eingabeaufforderungsfenster die folgenden AzCopy-Befehle aus, und ersetzen Sie *\<path_to_data_folder>* durch den gewünschten Speicherort:
 
@@ -117,23 +117,23 @@ Nachfolgend wird erläutert, wie Sie AzCopy zum Übertragen der Dateien verwende
 
 Ersetzen Sie in den folgenden AzCopy-Befehlen die folgenden Parameter durch die tatsächlichen Werte, die Sie beim Erstellen des Hadoop-Clusters und beim Entzippen der Dateien angegeben haben.
 
-* ***\<path_to_data_folder>***: Das Verzeichnis (einschließlich des Pfads) auf Ihrem Computer, das die extrahierten Datendateien enthält.  
-* ***\<storage account name of Hadoop cluster>***: Das Ihrem HDInsight-Cluster zugeordnete Speicherkonto.
-* ***\<default container of Hadoop cluster>***: Der von Ihrem Cluster verwendete Standardcontainer. Der Name des Standardcontainers stimmt üblicherweise mit dem des Clusters überein. Wenn der Cluster beispielsweise den Namen "abc123.azurehdinsight.net" verwendet, heißt der Standardcontainer "abc123".
-* ***\<storage account key>***: Der Schlüssel für das von Ihrem Cluster verwendete Speicherkonto.
+* * **\<path_to_data_folder>** _: Das Verzeichnis (einschließlich des Pfads) auf Ihrem Computer, das die extrahierten Datendateien enthält.  
+_ * **\<storage account name of Hadoop cluster>** _: Das mit Ihrem HDInsight-Cluster verknüpfte Speicherkonto.
+_ * **\<default container of Hadoop cluster>** _: Der von Ihrem Cluster verwendete Standardcontainer. Der Name des Standardcontainers stimmt üblicherweise mit dem des Clusters überein. Wenn der Cluster beispielsweise den Namen "abc123.azurehdinsight.net" verwendet, heißt der Standardcontainer "abc123".
+_ * **\<storage account key>** _: Der Schlüssel für das von Ihrem Cluster verwendete Speicherkonto.
 
 Führen Sie über eine Eingabeaufforderung oder ein Windows PowerShell-Fenster die folgenden beiden AzCopy-Befehle aus.
 
-Dieser Befehl lädt die Fahrtdaten in das Verzeichnis ***nyctaxitripraw*** im Standardcontainer des Hadoop-Clusters.
+Dieser Befehl lädt die Fahrtdaten in das Verzeichnis _*_nyctaxitripraw_*_ im Standardcontainer des Hadoop-Clusters hoch.
 
 ```console
-"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data_*.csv
+"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data__.csv
 ```
 
-Dieser Befehl lädt die Fahrpreisdaten in das Verzeichnis ***nyctaxifareraw*** im Standardcontainer des Hadoop-Clusters.
+Dieser Befehl lädt die Fahrpreisdaten in das Verzeichnis **nyctaxifareraw** _ im Standardcontainer des Hadoop-Clusters hoch.
 
 ```console
-"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare_*.csv
+"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare__.csv
 ```
 
 Die Daten sollten jetzt im Blobspeicher vorliegen und zur Verarbeitung im HDInsight-Cluster genutzt werden können.
@@ -144,7 +144,7 @@ Die Daten sollten jetzt im Blobspeicher vorliegen und zur Verarbeitung im HDInsi
 > 
 > 
 
-Um für eine explorative Datenanalyse und ein Downsampling der Daten auf den Hauptknoten des Clusters zuzugreifen, folgen Sie den Anweisungen unter [Zugreifen auf den Hauptknoten des Hadoop-Clusters](customize-hadoop-cluster.md).
+Um für eine explorative Datenanalyse und ein Downsampling der Daten auf den Hauptknoten des Clusters zuzugreifen, folgen Sie den Anweisungen unter [Zugreifen auf den Hauptknoten des Hadoop-Clusters](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 
 In dieser exemplarischen Vorgehensweise werden vorwiegend in [Hive](https://hive.apache.org/) geschriebene Abfragen verwendet. Hive ist eine SQL-ähnliche Abfragesprache zur Durchführung von Vorabdatenuntersuchungen. Die Hive-Abfragen werden in HQL-Dateien gespeichert. Anschließend komprimieren wir diese Daten, um sie für die Modellentwicklung in Machine Learning zu nutzen.
 
@@ -156,7 +156,7 @@ set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataSc
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 ```
 
-Mit diesen beiden Befehlen werden alle für diese exemplarische Vorgehensweise benötigten HQL-Dateien in das lokale Verzeichnis ***C:\temp&#92;*** auf dem Hauptknoten heruntergeladen.
+Diese beiden Befehlen laden alle für diese exemplarische Vorgehensweise benötigten HQL-Dateien in das lokale Verzeichnis ***C:\temp&#92;** _ auf dem Hauptknoten herunter.
 
 ## <a name="create-hive-database-and-tables-partitioned-by-month"></a><a name="#hive-db-tables"></a>Erstellen von Hive-Datenbank und Tabellen partitioniert nach Monat
 > [!NOTE]
@@ -182,7 +182,7 @@ Führen Sie auf dem Hauptknoten an der Hive-Eingabeaufforderung den folgenden Be
 hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
 ```
 
-Dies ist der Inhalt der Datei **C:\temp\sample\_hive\_create\_db\_and\_tables.hql**, die die Hive-Datenbank **nyctaxidb** und die Tabellen **trip** und **fare** erstellt.
+Dies ist der Inhalt der Datei _ *C:\temp\sample\_hive\_create\_db\_and\_tables.hql**, die die Hive-Datenbank **nyctaxidb** und die Tabellen **trip** und **fare** erstellt.
 
 ```hiveql
 create database if not exists nyctaxidb;
@@ -447,7 +447,7 @@ Die Gesamtanzahl der Datensätze in beiden Tabellen ist ebenfalls identisch, sod
 > 
 > 
 
-In diesem Beispiel werden die Taxinummern („medallions“) mit mehr als 100 Fahrten innerhalb eines bestimmten Zeitraums ermittelt. Die Abfrage profitiert vom Zugriff auf die partitionierte Tabelle, da sie von der Partitionsvariablen **month**abhängig ist. Die Abfrageergebnisse werden in eine lokale Datei namens **queryoutput.tsv** im Verzeichnis `C:\temp` auf dem Hauptknoten geschrieben.
+In diesem Beispiel werden die Taxinummern („medallions“) mit mehr als 100 Fahrten innerhalb eines bestimmten Zeitraums ermittelt. Die Abfrage profitiert vom Zugriff auf die partitionierte Tabelle, da sie von der Partitionsvariablen **month** abhängig ist. Die Abfrageergebnisse werden in eine lokale Datei namens **queryoutput.tsv** im Verzeichnis `C:\temp` auf dem Hauptknoten geschrieben.
 
 ```console
 hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
@@ -935,5 +935,5 @@ Diese exemplarische Vorgehensweise und die zugehörigen Skripts werden von Micro
 [15]: ./media/hive-walkthrough/amlreader.png
 
 <!-- Module References -->
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

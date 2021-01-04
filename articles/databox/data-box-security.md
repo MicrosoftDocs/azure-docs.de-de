@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 132c072ad4cbee5cc3ac49695aa34480dc827400
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9330f99a0473aa38da2fcbb8ae0624a37746613
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565754"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444757"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Azure Data Box – Sicherheit und Schutz von Daten
 
@@ -32,11 +32,11 @@ Die Microsoft Azure Data Box-Lösung besteht aus vier Hauptkomponenten, die mite
 
 Das folgende Diagramm zeigt den Datenfluss durch die Azure Data Box-Lösung vom lokalen Standort zu Azure sowie die verschiedenen verfügbaren Sicherheitsfeatures für die Daten, die die Lösung durchlaufen. Dieser Datenfluss wird für einen Importauftrag für Ihre Data Box verwendet.
 
-![Data Box-Sicherheit beim Importieren](media/data-box-security/data-box-security-2.png)
+![Data Box-Sicherheit beim Importieren](media/data-box-security/data-box-security-import.png)
 
 Das folgende Diagramm veranschaulicht den Exportauftrag für Ihre Data Box.
 
-![Data Box-Sicherheit beim Exportieren](media/data-box-security/data-box-security-3.png)
+![Data Box-Sicherheit beim Exportieren](media/data-box-security/data-box-security-export.png)
 
 Während die Daten diese Lösung durchlaufen, werden Ereignisse protokolliert und Protokolle erstellt. Weitere Informationen finden Sie unter:
 

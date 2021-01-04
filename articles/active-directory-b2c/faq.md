@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4db3c58da791a5cad5fc3b9c98f245202d8119e2
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 30b7788419695db7ee5d4b81714bf55248a41b4a
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054762"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108721"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Häufig gestellte Fragen (FAQ)
 
@@ -90,7 +90,7 @@ Sie können Ihr Migrationstool mithilfe der Microsoft Graph-API schreiben. Weite
 
 ### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>Welcher Kennwortbenutzerflow wird für lokale Konten in Azure AD B2C verwendet?
 
-Der Azure AD B2C-Kennwortbenutzerflow für lokale Konten basiert auf der Richtlinie für Azure AD. Die Azure AD B2C-Benutzerflows zur Registrierung, zur Registrierung oder Anmeldung und zur Kennwortrücksetzung verwenden sichere Kennwörter, die nicht ablaufen. Weitere Informationen finden Sie unter [Kennwortrichtlinien und -einschränkungen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy).
+Der Azure AD B2C-Kennwortbenutzerflow für lokale Konten basiert auf der Richtlinie für Azure AD. Die Azure AD B2C-Benutzerflows zur Registrierung, zur Registrierung oder Anmeldung und zur Kennwortrücksetzung verwenden sichere Kennwörter, die nicht ablaufen. Weitere Informationen finden Sie unter [Kennwortrichtlinien und -einschränkungen in Azure Active Directory](../active-directory/authentication/concept-sspr-policy.md).
 
 Informationen zu Kontosperren und Kennwörtern finden Sie unter [Verwalten von Bedrohungen für Ressourcen und Daten in Azure Active Directory B2C](threat-management.md).
 
@@ -104,7 +104,7 @@ Nein. Aus Sicherheitsgründen können Azure AD B2C-Seiten nicht in einem iFrame 
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Funktioniert Azure AD B2C in Verbindung mit CRM-Systemen wie Microsoft Dynamics?
 
-Die Integration in das Microsoft Dynamics 365-Portal ist möglich. Siehe [Konfigurieren des Dynamics 365-Portals für die Authentifizierung mit Azure AD B2C](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
+Die Integration in das Microsoft Dynamics 365-Portal ist möglich. Siehe [Konfigurieren des Dynamics 365-Portals für die Authentifizierung mit Azure AD B2C](/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>Funktioniert Azure AD B2C in Verbindung mit SharePoint On-Premises 2016 oder früher?
 
@@ -112,7 +112,7 @@ Azure AD B2C ist nicht für das SharePoint-Freigabeszenario für externe Partner
 
 ### <a name="should-i-use-azure-ad-b2c-or-b2b-to-manage-external-identities"></a>Sollte ich Azure AD B2C oder B2B zum Verwalten externer Identitäten verwenden?
 
-Unter [Vergleich von B2B Collaboration und B2C in Azure AD](../active-directory/b2b/compare-with-b2c.md) erfahren Sie mehr über das Anwenden der entsprechenden Features in Ihren Szenarien mit externen Identitäten.
+Unter [Vergleich von B2B Collaboration und B2C in Azure AD](../active-directory/external-identities/compare-with-b2c.md) erfahren Sie mehr über das Anwenden der entsprechenden Features in Ihren Szenarien mit externen Identitäten.
 
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Welche Funktionen für Berichterstellung und Überwachung bietet Azure AD B2C? Sind die Funktionen mit denen in Azure AD Premium identisch?
 
@@ -124,7 +124,7 @@ Nein. Azure AD B2C unterstützt nicht den gleichen Berichtssatz wie Azure AD Pre
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Kann ich die Benutzeroberfläche von Seiten lokalisieren, die von Azure AD B2C bereitgestellt werden? Welche Sprachen werden unterstützt?
 
-Ja, siehe [Sprachanpassung in Azure Active Directory B2C](user-flow-language-customization.md). Wir bieten Übersetzungen für 36 Sprachen an, und Sie können alle Zeichenfolgen gemäß Ihren Anforderungen außer Kraft setzen und anpassen.
+Ja, siehe [Sprachanpassung in Azure Active Directory B2C](language-customization.md). Wir bieten Übersetzungen für 36 Sprachen an, und Sie können alle Zeichenfolgen gemäß Ihren Anforderungen außer Kraft setzen und anpassen.
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-contosob2clogincom-to-logincontosocom"></a>Kann ich auf meinen von Azure AD B2C bereitgestellten Seiten für die Registrierung und Anmeldung meine eigenen URLs verwenden? Kann ich beispielsweise die URL von „contoso.b2clogin.com“ in „login.contoso.com“ ändern?
 
@@ -134,7 +134,7 @@ Derzeit ist dies nicht möglich. Dieses Feature ist aber geplant. Sie erreichen 
 
 Führen Sie die folgenden Schritte aus, um Ihren Azure AD B2C-Mandanten zu löschen.
 
-Sie können die neue einheitliche Benutzeroberfläche für **App-Registrierungen** oder die alte Benutzeroberfläche für **Anwendungen (Legacy)** verwenden. [Weitere Informationen zur neuen Oberfläche](https://aka.ms/b2cappregtraining)
+Sie können die neue einheitliche Benutzeroberfläche für **App-Registrierungen** oder die alte Benutzeroberfläche für **Anwendungen (Legacy)** verwenden. [Weitere Informationen zur neuen Oberfläche](./app-registrations-training-guide.md)
 
 #### <a name="app-registrations"></a>[App-Registrierungen](#tab/app-reg-ga/)
 

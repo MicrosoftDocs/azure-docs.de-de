@@ -8,25 +8,24 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: fae958542f1bc391f285104d80d1e19131470abe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e0309b4c96b2ae25eb568e390717ba76cfd84fa5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87065477"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461309"
 ---
-# <a name="create-a-managed-private-endpoint-to-your-data-source-preview"></a>Erstellen eines verwalteten privaten Endpunkts zu Ihrer Datenquelle (Vorschau)
+# <a name="create-a-managed-private-endpoint-to-your-data-source"></a>Erstellen eines verwalteten privaten Endpunkts zu Ihrer Datenquelle
 
 In diesem Artikel erfahren Sie, wie Sie einen verwalteten privaten Endpunkt zu Ihrer Datenquelle in Azure erstellen. Weitere Informationen finden Sie unter [Verwalten privater Endpunkte](./synapse-workspace-managed-private-endpoints.md).
 
 ## <a name="step-1-open-your-azure-synapse-workspace-in-azure-portal"></a>Schritt 1: Öffnen Ihres Azure Synapse-Arbeitsbereichs im Azure-Portal
 
-Sie können einen verwalteten privaten Endpunkt zu Ihrer Datenquelle aus Azure Synapse Studio erstellen. Wählen Sie im Azure-Portal die Registerkarte **Übersicht** aus, und wählen Sie **Synapse Studio starten** aus.
-![Starten von Azure Synapse Studio](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-1.png)
+Sie können einen verwalteten privaten Endpunkt zu Ihrer Datenquelle aus Azure Synapse Studio erstellen. Wählen Sie im Azure-Portal die Registerkarte **Übersicht** und dann im Abschnitt „Erste Schritte“ auf der Karte „Synapse Studio öffnen“ die Option **Öffnen** aus.
 
 ## <a name="step-2-navigate-to-the-managed-virtual-networks-tab-in-synapse-studio"></a>Schritt 2: Navigieren zur Registerkarte „Verwaltete virtuelle Netzwerke“ in Synapse Studio
 
-Wählen Sie in Azure Synapse Studio im linken Navigationsbereich die Registerkarte **Verwalten** aus. Wählen Sie **Verwaltete virtuelle Netzwerke** und dann **+ Neu** aus.
+Wählen Sie in Azure Synapse Studio im linken Navigationsbereich die Registerkarte **Verwalten** aus. Wählen Sie **Verwaltete private Endpunkte** und dann **+ Neu** aus.
 ![Erstellen eines neuen verwalteten privaten Endpunkts](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-2.png)
 
 ## <a name="step-3-select-the-data-source-type"></a>Schritt 3: Auswählen des Datenquellentyps

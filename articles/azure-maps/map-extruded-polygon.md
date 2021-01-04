@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: eedbbc0126adacc2a9bdc151aa6dbc27c7ba0750
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 211bcbf27f3a9e885a4bc2c4e5edd27db7907edf
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310253"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890767"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map"></a>Hinzufügen einer Polygonextrusionsebene zur Karte
 
-In diesem Artikel erfahren Sie, wie Sie mithilfe der Polygonextrusionsebene Bereiche von `Polygon`- und `MultiPolygon`-Featuregeometrien als extrudierte Formen darstellen. Das Azure Maps-Web-SDK unterstützt das Rendering von Kreisgeometrien gemäß der Definition im [erweiterten GeoJSON-Schema](extend-geojson.md#circle). Diese Kreise können beim Rendern auf der Karte in Polygone umgewandelt werden. Alle Featuregeometrien können ganz einfach aktualisiert werden, wenn sie in der Klasse [atlas.Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape) umschlossen sind.
+In diesem Artikel erfahren Sie, wie Sie mithilfe der Polygonextrusionsebene Bereiche von `Polygon`- und `MultiPolygon`-Featuregeometrien als extrudierte Formen darstellen. Das Azure Maps-Web-SDK unterstützt das Rendering von Kreisgeometrien gemäß der Definition im [erweiterten GeoJSON-Schema](extend-geojson.md#circle). Diese Kreise können beim Rendern auf der Karte in Polygone umgewandelt werden. Alle Featuregeometrien können ganz einfach aktualisiert werden, wenn sie in der Klasse [atlas.Shape](/javascript/api/azure-maps-control/atlas.shape) umschlossen sind.
 
 ## <a name="use-a-polygon-extrusion-layer"></a>Verwenden einer Polygonextrusionsebene
 
-Verbinden Sie die [Polygonextrusionsebene](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer) mit einer Datenquelle. Laden Sie sie anschließend auf die Karte. Die Polygonextrusionsebene stellt die Bereiche eines `Polygon`- und `MultiPolygon`-Features als extrudierte Formen dar. Die Eigenschaften `height` und `base` der Polygonextrusionsebene definieren den Basisabstand vom Boden und die Höhe der extrudierten Form in **Metern**. Der folgende Code zeigt, wie Sie ein Polygon erstellen, dieses einer Datenquelle hinzufügen und dann mit einer Klasse für die Polygonextrusionsebene rendern.
+Verbinden Sie die [Polygonextrusionsebene](/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer) mit einer Datenquelle. Laden Sie sie anschließend auf die Karte. Die Polygonextrusionsebene stellt die Bereiche eines `Polygon`- und `MultiPolygon`-Features als extrudierte Formen dar. Die Eigenschaften `height` und `base` der Polygonextrusionsebene definieren den Basisabstand vom Boden und die Höhe der extrudierten Form in **Metern** . Der folgende Code zeigt, wie Sie ein Polygon erstellen, dieses einer Datenquelle hinzufügen und dann mit einer Klasse für die Polygonextrusionsebene rendern.
 
 > [!Note]
 > Der in der Polygonextrusionsebene definierte Wert `base` sollte kleiner oder gleich dem Wert von `height` sein.
@@ -45,7 +45,7 @@ Weitere Informationen finden Sie unter dem Pen <a href='https://codepen.io/azure
 
 ## <a name="add-a-circle-to-the-map"></a>Hinzufügen eines Kreises zur Karte
 
-Azure Maps verwendet eine erweiterte Version des GeoJSON-Schemas, das eine Definition für Kreise bereitstellt, wie [hier](https://docs.microsoft.com/azure/azure-maps/extend-geojson#circle) beschrieben. Ein extrudierter Kreis kann auf der Karte gerendert werden, indem ein `point`-Feature erstellt wird, das eine `subType`-Eigenschaft dem Wert `Circle` und eine `Radius`-Eigenschaft mit einer Zahl, die den Radius in **Metern** darstellt, aufweist. Beispiel:
+Azure Maps verwendet eine erweiterte Version des GeoJSON-Schemas, das eine Definition für Kreise bereitstellt, wie [hier](./extend-geojson.md#circle) beschrieben. Ein extrudierter Kreis kann auf der Karte gerendert werden, indem ein `point`-Feature erstellt wird, das eine `subType`-Eigenschaft dem Wert `Circle` und eine `Radius`-Eigenschaft mit einer Zahl, die den Radius in **Metern** darstellt, aufweist. Beispiel:
 
 ```javascript
 {
@@ -83,10 +83,10 @@ Die Polygonextrusionsebene hat verschiedene Formatierungsoptionen. Mit dem folge
 Erfahren Sie mehr zu den in diesem Artikel verwendeten Klassen und Methoden:
 
 > [!div class="nextstepaction"]
-> [Polygon](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon)
+> [Polygon](/javascript/api/azure-maps-control/atlas.data.polygon)
 
 > [!div class="nextstepaction"]
-> [Polygonextrusionsebene](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer)
+> [Polygonextrusionsebene](/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer)
 
 Zusätzliche Ressourcen:
 

@@ -3,12 +3,12 @@ title: Antworten auf häufig gestellte Fragen
 description: 'Antworten auf häufig gestellte Fragen zu: Azure Backup-Features wie Azure Recovery Services-Tresoren, zu sicherbaren Elementen sowie zu Funktionsweise, Verschlüsselung und Grenzwerten. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 72a4f805b34ba8a536cd398efd5e6809bd66f0d4
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: d85866e490b2c56abb7de1e94cd0ffaa8f714615
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096622"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327150"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – häufig gestellte Fragen
 
@@ -60,7 +60,7 @@ Wenn Sie die Sicherung bereits konfiguriert haben und von GRS zu LRS wechseln m�
 
 ### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Wie kann ich Daten aus dem Recovery Services-Tresor in eine lokale Umgebung verschieben?
 
-Das direkte Exportieren von Daten aus dem Recovery Services-Tresor in eine lokale Umgebung mithilfe von Data Box wird nicht unterstützt. Die Daten müssen in einem Speicherkonto wiederhergestellt werden und können dann über [Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) oder [Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) in eine lokale Umgebung verschoben werden.
+Das direkte Exportieren von Daten aus dem Recovery Services-Tresor in eine lokale Umgebung mithilfe von Data Box wird nicht unterstützt. Die Daten müssen in einem Speicherkonto wiederhergestellt werden und können dann über [Data Box](../databox/data-box-overview.md) oder [Import/Export](../storage/common/storage-import-export-service.md) in eine lokale Umgebung verschoben werden.
 
 ## <a name="azure-backup-agent"></a>Azure Backup-Agent
 
@@ -175,8 +175,8 @@ Nein. Die Dauer zum Wiederherstellen des ältesten oder neuesten Punkts ist glei
 
 Bei typischen Produkten für die langfristige Aufbewahrung werden Sicherungsdaten als vollständige Punkte gespeichert.
 
-- Die vollständigen Punkte sind im Hinblick auf den Speicher *ineffizient* , aber einfacher und schneller wiederherzustellen.
-- Inkrementelle Kopien sind *speichereffizient* , jedoch muss eine Datenkette wiederhergestellt werden. Dies hat Auswirkungen auf die Wiederherstellungszeit.
+- Die vollständigen Punkte sind im Hinblick auf den Speicher *ineffizient*, aber einfacher und schneller wiederherzustellen.
+- Inkrementelle Kopien sind *speichereffizient*, jedoch muss eine Datenkette wiederhergestellt werden. Dies hat Auswirkungen auf die Wiederherstellungszeit.
 
 Die Speicherarchitektur von Azure Backup bietet Ihnen die Vorteile beider Ansätze, indem die Daten optimal zur schnellen Wiederherstellung und zu geringen Speicherkosten gespeichert werden. Hierdurch wird sichergestellt, dass die Eingangs- und Ausgangsbandbreite effizient genutzt wird. So werden der Umfang der Datenspeicherung und die benötigte Zeit für die Wiederherstellung der Daten möglichst gering gehalten. Erfahren Sie mehr über [inkrementelle Sicherungen](backup-architecture.md#backup-types).
 

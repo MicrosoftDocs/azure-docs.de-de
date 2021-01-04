@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: cb12777a6a4fa1e75cd65bc597c87442d592aad5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8d96d7b5952c020493af278ee1ea8ad5ff46716
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598109"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016784"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Planen Ihrer Azure Time Series Insights Gen2-Umgebung
 
@@ -45,7 +45,7 @@ Im Rahmen des Bereitstellungsprozesses geben Sie an, ob Sie einen Warm Storage a
 Abfragen zum Warm Storage sind kostenlos, während Abfragen zum Cold Storage Kosten verursachen. Es ist wichtig, Ihre Abfragemuster zu verstehen und Ihre Warm Storage-Konfiguration entsprechend zu planen. Es wird empfohlen, dass sich die interaktiven Analysen der aktuellsten Daten in Ihrem Warm Storage und die Musteranalysen sowie langfristigen Trends im Cold Storage befinden.
 
 > [!NOTE]
-> Weitere Informationen zum Abfragen Ihrer warmen Daten finden Sie in der [API-Referenz](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters).
+> Weitere Informationen zum Abfragen Ihrer warmen Daten finden Sie in der [API-Referenz](/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters).
 
 Um zu beginnen, benötigen Sie drei zusätzliche Elemente:
 
@@ -64,7 +64,7 @@ Um eine neue Azure Time Series Insights-Umgebung zu erstellen, wählen Sie eine 
 > [!IMPORTANT]
 > Zeitreihen-IDs können *später nicht mehr geändert werden*. Überprüfen Sie jede vor der endgültigen Auswahl und der ersten Verwendung.
 
-Sie können bis zu drei Schlüssel auswählen, um Ihre Ressourcen eindeutig zu unterscheiden. Weitere Informationen finden Sie unter [Bewährte Methoden für die Auswahl einer Time Series-ID](./time-series-insights-update-how-to-id.md) und [Datenerfassungsregeln](concepts-json-flattening-escaping-rules.md).
+Sie können bis zu drei Schlüssel auswählen, um Ihre Ressourcen eindeutig zu unterscheiden. Weitere Informationen finden Sie unter [Bewährte Methoden für die Auswahl einer Time Series-ID](./how-to-select-tsid.md) und [Datenerfassungsregeln](concepts-json-flattening-escaping-rules.md).
 
 Die **Timestamp**-Eigenschaft ist ebenfalls wichtig. Sie können diese Eigenschaft festlegen, wenn Sie Ereignisquellen hinzufügen. Jede Ereignisquelle besitzt eine optionale Timestamp-Eigenschaft, die zum Nachverfolgen von Ereignisquellen im Laufe der Zeit verwendet wird. Zeitstempelwerte beachten die Groß- und Kleinschreibung und müssen gemäß der individuellen Spezifikation jeder Ereignisquelle formatiert sein.
 
@@ -74,7 +74,7 @@ Wenn dieser Wert leer gelassen wird, wird als Ereigniszeitstempel der Zeitpunkt 
 
 Sie können jetzt das Zeitreihenmodell Ihrer Azure Time Series Insights-Umgebung konfigurieren. Das neue Modell erleichtert das Auffinden und Analysieren von IoT-Daten. Es ermöglicht die Zusammenstellung, Wartung und Anreicherung von Zeitreihendaten und hilft bei der Vorbereitung für Consumer bereiter Datasets. Das Modell verwendet Time Series-IDs, die einer Instanz zugeordnet werden, die die eindeutige Ressource mit Variablen, bekannt als Typen, und Hierarchien verknüpft. Weitere Informationen finden Sie unter [Zeitreihenmodell in Azure Time Series Insights Gen2](./concepts-model-overview.md).
 
-Das Modell ist dynamisch, damit es jederzeit erstellt werden kann. Für den schnellen Einstieg erstellen und laden Sie es hoch, bevor Sie Daten per Push in Azure Time Series Insights übertragen. Informationen zum Erstellen Ihres Modells finden Sie unter [Datenmodellierung in Azure Time Series Insights Preview](/azure/time-series-insights/concepts-model-overview).
+Das Modell ist dynamisch, damit es jederzeit erstellt werden kann. Für den schnellen Einstieg erstellen und laden Sie es hoch, bevor Sie Daten per Push in Azure Time Series Insights übertragen. Informationen zum Erstellen Ihres Modells finden Sie unter [Datenmodellierung in Azure Time Series Insights Preview](./concepts-model-overview.md).
 
 Bei vielen Kunden wird das Zeitreihenmodell einem vorhandenen Ressourcenmodell oder einem bereits eingerichteten ERP-System zugeordnet. Wenn Sie nicht über ein vorhandenes Modell verfügen, ist wird eine vordefinierte Erfahrung [bereitgestellt](https://github.com/Microsoft/tsiclient), um schnell den Betrieb aufnehmen zu können. Um einen Eindruck zu erhalten, wie Ihnen ein Modell helfen könnte, sehen Sie sich die [Beispieldemoumgebung](https://insights.timeseries.azure.com/preview/demo) an.
 

@@ -32,9 +32,9 @@
           href: event-hubs-dotnet-standard-getstarted-send.md
         - name: Java (azure-messaging-eventhubs)
           href: event-hubs-java-get-started-send.md
-        - name: Python (azure-eventhub Version 5)
+        - name: Python (azure-eventhub)
           href: event-hubs-python-get-started-send.md
-        - name: JavaScript (azure/event-hubs Version 5)
+        - name: JavaScript (azure/event-hubs)
           href: event-hubs-node-get-started-send.md
         - name: Go
           href: event-hubs-go-get-started-send.md
@@ -42,7 +42,7 @@
           href: event-hubs-c-getstarted-send.md
         - name: Apache Storm (nur empfangen)
           href: event-hubs-storm-getstarted-receive.md
-    - name: Senden und Empfangen von Ereignissen (alte Versionen/Pakete)
+    - name: Senden und Empfangen von Ereignissen (alte Pakete)
       items:
         - name: .NET (Microsoft.Azure.EventHubs)
           href: event-hubs-dotnet-standard-get-started-send-legacy.md
@@ -89,6 +89,22 @@
       href: event-hubs-availability-and-consistency.md
     - name: Skalierbarkeit
       href: event-hubs-scalability.md
+    - name: Verbund
+      items:
+        - name: 'Verbund: mehrere Standorte und mehrere Regionen'
+          href: event-hubs-federation-overview.md
+        - name: Tasks und Anwendungen für die Ereignisreplikation
+          href: event-hubs-federation-replicator-functions.md
+        - name: Muster für Ereignisreplikationstasks
+          href: event-hubs-federation-patterns.md
+        - name: Konfigurierte Replikationstasks
+          href: event-hubs-federation-configuration.md
+        - name: Replizieren von Ereignissen zwischen Event Hubs
+          href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy'
+        - name: Senden von Ereignissen an Azure Service Bus
+          href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus'
+        - name: Erfassen von Ereignissen aus Azure Service Bus
+          href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub'
     - name: Georedundante Notfallwiederherstellung
       items:
         - name: Georedundante Notfallwiederherstellung und Georeplikation
@@ -151,9 +167,9 @@
               href: 'https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/README.md'
             - name: Java (azure-messaging-eventhubs)
               href: 'https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/README.md'
-            - name: Python (azure-eventhub Version 5)
+            - name: Python (azure-eventhub)
               href: 'https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/README.md'
-            - name: JavaScript (azure/event-hubs Version 5)
+            - name: JavaScript (azure/event-hubs)
               href: 'https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/README.md'
             - name: .NET (Microsoft.Azure.EventHubs)
               href: event-hubs-programming-guide.md
@@ -252,9 +268,9 @@
             - name: Migrieren von azure-eventhubs zu azure-messaging-eventhubs
               href: 'https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md'
             - name: azure-messaging-eventhubs (aktuell)
-              href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-messaging-eventhubs/5.0.0-beta.6/index.html'
+              href: /java/api/overview/azure/messaging-eventhubs-readme?view=azure-java-stable
             - name: azure-eventhubs (Legacy)
-              href: /java/api/overview/azure/eventhubs/client?view=azure-java-stable
+              href: /java/api/overview/azure/eventhubs/client?view=azure-java-legacy
         - name: Verwaltungsbibliothek
           href: /java/api/com.microsoft.azure.management.eventhub?view=azure-java-stable
     - name: Python

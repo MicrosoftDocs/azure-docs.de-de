@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 2d685683bdc359b31a5a6c550c19e8c0d858f12a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8812fd1e6c1efb2aa44c77573bc4b8f1c099834d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84689842"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912020"
 ---
 # <a name="configure-the-review-tool"></a>Konfigurieren des Prüfungstools
 
@@ -35,7 +35,7 @@ In diesem Abschnitt wird erklärt, wie Sie untergeordnete Teams erstellen und Ü
 
 ### <a name="create-a-subteam"></a>Erstellen eines untergeordnetes Teams
 
-Wechseln Sie zum Abschnitt **Untergeordnete Teams**, und klicken Sie auf **Untergeordnetes Team hinzufügen**. Geben Sie den Namen Ihres untergeordneten Teams im Dialogfeld ein, und klicken Sie auf **Speichern**.
+Wechseln Sie zum Abschnitt **Untergeordnete Teams** , und klicken Sie auf **Untergeordnetes Team hinzufügen**. Geben Sie den Namen Ihres untergeordneten Teams im Dialogfeld ein, und klicken Sie auf **Speichern**.
 
 ![Name des untergeordneten Teams](images/1-Teams-2.PNG)
 
@@ -47,7 +47,7 @@ Sie können keine Person einem untergeordneten Team zuweisen, wenn diese Person 
 
 #### <a name="assign-teammates-to-subteam"></a>Teamkollegen zu untergeordneten Teams zuweisen
 
-Klicken Sie auf **Mitglied hinzufügen**, um Mitglieder Ihres Standardteam zu einem oder mehreren untergeordneten Teams hinzuzufügen. Sie können nur vorhandene Benutzer zu einem untergeordneten Team hinzufügen. Um neue Benutzer hinzuzufügen, die noch nicht ins Prüfungstool aufgenommen wurden, laden Sie sie ein, indem Sie auf der Seite mit den Teameinstellungen auf „Einladung“ klicken.
+Klicken Sie auf **Mitglied hinzufügen** , um Mitglieder Ihres Standardteam zu einem oder mehreren untergeordneten Teams hinzuzufügen. Sie können nur vorhandene Benutzer zu einem untergeordneten Team hinzufügen. Um neue Benutzer hinzuzufügen, die noch nicht ins Prüfungstool aufgenommen wurden, laden Sie sie ein, indem Sie auf der Seite mit den Teameinstellungen auf „Einladung“ klicken.
 
 ![Mitglieder zu untergeordneten Teams hinzufügen](images/1-Teams-3.PNG)
 
@@ -66,7 +66,7 @@ Wenn Sie Mitglied mehrerer untergeordneter Teams sind, können Sie zwischen dies
 
 ## <a name="tags"></a>`Tags`
 
-Auf der Registerkarte **Tags** können Sie zusätzlich zu den beiden Standardmoderationstags – &mdash;**isadult** (**a**) and **isracy** (**r**) – benutzerdefinierte Moderationstags definieren. Wenn Sie ein benutzerdefiniertes Tag erstellen, wird es in Überprüfungen neben den Standardtags verfügbar. Sie können ändern, welche Tags in Überprüfungen angezeigt werden, indem Sie deren Sichtbarkeitseinstellungen ändern.
+Auf der Registerkarte **Tags** können Sie zusätzlich zu den beiden Standardmoderationstags – &mdash;**isadult** ( **a** ) and **isracy** ( **r** ) – benutzerdefinierte Moderationstags definieren. Wenn Sie ein benutzerdefiniertes Tag erstellen, wird es in Überprüfungen neben den Standardtags verfügbar. Sie können ändern, welche Tags in Überprüfungen angezeigt werden, indem Sie deren Sichtbarkeitseinstellungen ändern.
 
 ![Ansicht „Tags“, einschließlich der Kontrollkästchen „Ist sichtbar“.](images/tags-4-disable.png)
 
@@ -74,11 +74,11 @@ Auf der Registerkarte **Tags** können Sie zusätzlich zu den beiden Standardmod
 
 Um ein neues Tag zu erstellen, müssen Sie in den entsprechenden Feldern einen kurzen Code, einen Namen und eine Beschreibung eingeben.
 
-- **Kurzer Code**: Geben Sie einen zweistelligen Code für Ihr Tag ein. Beispiel: **cb**
-- **Name**: Geben Sie einen kurzen und aussagekräftigen Tagnamen in Kleinbuchstaben ohne Leerzeichen ein. Beispiel: **isbullying**.
-- **Beschreibung**: (Optional) Geben Sie eine Beschreibung der Art des Inhalts ein, auf den Ihr Tag ausgerichtet ist. Beispiel: **Darstellungen oder Fälle von Cybermobbing**.
+- **Kurzer Code** : Geben Sie einen zweistelligen Code für Ihr Tag ein. Beispiel: **cb**
+- **Name** : Geben Sie einen kurzen und aussagekräftigen Tagnamen in Kleinbuchstaben ohne Leerzeichen ein. Beispiel: **isbullying**.
+- **Beschreibung** : (Optional) Geben Sie eine Beschreibung der Art des Inhalts ein, auf den Ihr Tag ausgerichtet ist. Beispiel: **Darstellungen oder Fälle von Cybermobbing**.
 
-Klicken Sie auf **Hinzufügen**, um ein Tag hinzuzufügen, und klicken Sie auf **Speichern**, wenn Sie die Erstellung von Tags abgeschlossen haben.
+Klicken Sie auf **Hinzufügen** , um ein Tag hinzuzufügen, und klicken Sie auf **Speichern** , wenn Sie die Erstellung von Tags abgeschlossen haben.
 
 ![Prüfungstool – Dialogfeld zum Erstellen neuer Tags](images/settings-3-tags.png)
 
@@ -90,7 +90,7 @@ Sie können benutzerdefinierte Tags löschen, indem Sie das Papierkorbsymbol neb
 
 Auf der Registerkarte **Connectors** können Sie Ihre Connectors verwalten, d. h. dienstabhängige Plug-Ins, die Inhalte als Teil von [Workflows](../review-api.md#workflows) für Inhalte auf unterschiedliche Weise verarbeiten können.
 
-Der Standardconnector beim Erstellen eines Workflows ist der Content Moderator-Connector, der Inhalte als **nicht jugendfrei** oder **freizügig** markieren sowie Obszönitäten finden kann usw. Sie können jedoch auch andere Connectors verwenden, die hier aufgelistet sind, solange Sie über Zugangsdaten für die jeweiligen Dienste verfügen (um z. B. den Gesichtserkennungsconnector zu verwenden, müssen Sie einen Abonnementschlüssel für die [Gesichtserkennung](https://docs.microsoft.com/azure/cognitive-services/face/overview) erhalten).
+Der Standardconnector beim Erstellen eines Workflows ist der Content Moderator-Connector, der Inhalte als **nicht jugendfrei** oder **freizügig** markieren sowie Obszönitäten finden kann usw. Sie können jedoch auch andere Connectors verwenden, die hier aufgelistet sind, solange Sie über Zugangsdaten für die jeweiligen Dienste verfügen (um z. B. den Gesichtserkennungsconnector zu verwenden, müssen Sie einen Abonnementschlüssel für die [Gesichtserkennung](../../face/overview.md) erhalten).
 
 Das [Prüfungstool](./human-in-the-loop.md) umfasst die folgenden Connectors:
 
@@ -125,7 +125,7 @@ Wenn Sie eine [Content Moderator-Ressource](https://ms.portal.azure.com/#create/
 
 ![Content Moderator-Schlüssel im Azure-Portal](images/credentials-azure-portal-keys.PNG)
 
-Wechseln Sie auf der Registerkarte **Anmeldeinformationen** des [Prüfungstools](https://contentmoderator.cognitive.microsoft.com) zum Bereich **Workfloweinstellungen**, wählen Sie **Bearbeiten** aus, und fügen Sie Ihren Schlüssel in das Feld **Ocp-Apim-Subscription-Key** ein. Jetzt verwenden Workflows, die die APIs der Moderation aufrufen, Ihre Azure-Anmeldeinformationen.
+Wechseln Sie auf der Registerkarte **Anmeldeinformationen** des [Prüfungstools](https://contentmoderator.cognitive.microsoft.com) zum Bereich **Workfloweinstellungen** , wählen Sie **Bearbeiten** aus, und fügen Sie Ihren Schlüssel in das Feld **Ocp-Apim-Subscription-Key** ein. Jetzt verwenden Workflows, die die APIs der Moderation aufrufen, Ihre Azure-Anmeldeinformationen.
 
 > [!NOTE]
 > Die beiden anderen Felder im Bereich **Workfloweinstellungen** sind für Listen von benutzerdefinierten Begriffen und Bildern vorgesehen. Weitere Informationen hierzu finden Sie in den Anleitungen [Benutzerdefinierte Begriffe](../try-terms-list-api.md) oder [Benutzerdefinierte Bilder](../try-image-list-api.md).

@@ -16,12 +16,12 @@ ms.date: 09/28/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96106cc1d9f9040f98c7d9201f05b4cff87af7e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1cdf983dc8fed64c7d283ac216eb803746add95
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449863"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029369"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Hinzufügen einer verbundenen Organisation in der Azure AD-Berechtigungsverwaltung
 
@@ -148,9 +148,9 @@ Derzeit gibt es bei der Azure AD-Berechtigungsverwaltung für verbundene Organis
 
 - Wenn sich eine verbundene Organisation im Zustand „Vorgeschlagen“ befindet, wurde sie automatisch erstellt, und die Erstellung oder der Genehmigungsvorgang wurde nicht von einem Administrator durchgeführt. Wenn sich ein Benutzer außerhalb einer konfigurierten verbundenen Organisation für ein Zugriffspaket registriert, befinden sich alle automatisch erstellten verbundenen Organisationen im Zustand **Vorgeschlagen**, da diese Partnerschaft nicht von einem Administrator des Mandanten eingerichtet wurde. 
     
-    Vorgeschlagene verbundene Organisationen werden nicht in den Auswahloptionen für konfigurierte verbundene Organisationen angezeigt und bei der Richtlinieneinstellung „Alle konfigurierten verbundenen Organisationen“ nicht einbezogen. 
+    Vorgeschlagene verbundene Organisationen gehören in keiner Richtlinie zum Bereich der Einstellung „Alle konfigurierten verbundenen Organisationen“, können aber in Richtlinien verwendet werden, die nur auf bestimmte Organisationen abzielen. 
 
-Nur Benutzer aus konfigurierten verbundenen Organisationen können Zugriffspakete anfordern, die für Benutzer aus allen konfigurierten Organisationen verfügbar sind. Für Benutzer aus vorgeschlagenen verbundenen Organisationen erscheint es, als ob keine verbundene Organisation für die Domäne vorhanden ist. Diese Benutzer haben erst dann Zugriff auf das Zugriffspaket, wenn der Zustand von einem Administrator geändert wird.
+Nur Benutzer aus konfigurierten verbundenen Organisationen können Zugriffspakete anfordern, die für Benutzer aus allen konfigurierten Organisationen verfügbar sind. Für Benutzer aus vorgeschlagenen verbundenen Organisationen stellt sich die Nutzung so dar, als gäbe es keine verbundene Organisation für diese Domäne. Diese Benutzer können nur Zugriffspakete anzeigen und anfordern, die speziell für ihre Organisation oder für einen bestimmten Benutzer gelten.
 
 > [!NOTE]
 > Im Rahmen des Rollouts dieses neuen Features wurden alle verbundenen Organisationen, die vor dem 09.09.2020 erstellt wurden, als **Konfiguriert** angesehen. Falls Sie über ein Zugriffspaket verfügt haben, mit dem sich Benutzer aus allen Organisationen registrieren konnten, sollten Sie Ihre Liste mit den verbundenen Organisationen überprüfen, die vor diesem Datum erstellt wurden. Stellen Sie sicher, dass keine falsche Kategorisierung als **Konfiguriert** vorliegt.  Ein Administrator kann die Zustandseigenschaft (**State**) wie gewünscht aktualisieren. Eine Anleitung hierzu finden Sie unter [Aktualisieren einer verbundenen Organisation](#update-a-connected-organization).

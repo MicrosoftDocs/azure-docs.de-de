@@ -5,20 +5,20 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/27/2020
+ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4031356c3a2ff51f6f3da8b53dd0dcc9fd5a426
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: be3947e3de18f8ccaf47382c4035e187521ac710
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373214"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571503"
 ---
 # <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Massenwiederherstellung gelöschter Benutzer in Azure Active Directory
 
@@ -34,7 +34,7 @@ Laden Sie die CSV-Vorlage herunter, und füllen Sie sie aus, um mehrere Azure AD
 
 Die Zeilen der heruntergeladenen CSV-Vorlage lauten wie folgt:
 
-- **Versionsnummer** : Die erste Zeile, die die Versionsnummer enthält, muss in der hochzuladenden CSV-Datei enthalten sein.
+- **Versionsnummer**: Die erste Zeile, die die Versionsnummer enthält, muss in der hochzuladenden CSV-Datei enthalten sein.
 - **Spaltenüberschriften:** Das Format der Spaltenüberschriften lautet &lt;*Elementname*&gt; [Eigenschaftenname] &lt;*Required (erforderlich) oder leer*&gt;. Beispiel: `Object ID [objectId] Required`. Einige ältere Versionen der Vorlage können geringfügige Abweichungen aufweisen.
 - **Beispielzeile:** In der Vorlage ist eine Zeile mit Beispielen für zulässige Werte für alle Spalten enthalten. Sie müssen die Beispielzeile entfernen und durch Ihre eigenen Einträge ersetzen.
 
@@ -53,7 +53,7 @@ Die Zeilen der heruntergeladenen CSV-Vorlage lauten wie folgt:
 
     ![Auf der Seite „Gelöschte Benutzer“ den Benutzer „Massenwiederherstellung“ auswählen](./media/users-bulk-restore/bulk-restore.png)
 
-1. Öffnen Sie die CSV-Vorlage, und fügen Sie eine Zeile für jeden Benutzer hinzu, den Sie wiederherstellen möchten. Der einzige erforderliche Wert ist **ObjectID** . Speichern Sie dann die Datei.
+1. Öffnen Sie die CSV-Vorlage, und fügen Sie eine Zeile für jeden Benutzer hinzu, den Sie wiederherstellen möchten. Der einzige erforderliche Wert ist **ObjectID**. Speichern Sie dann die Datei.
 
     :::image type="content" source="./media/users-bulk-restore/upload-button.png" alt-text="Auswählen einer lokalen CSV-Datei, in der Sie die Benutzer auflisten, die Sie hinzufügen möchten":::
 
@@ -75,7 +75,7 @@ Als Nächstes können Sie entweder im Azure-Portal oder mithilfe von PowerShell 
 ## <a name="view-restored-users-in-the-azure-portal"></a>Anzeigen wiederhergestellter Benutzer im Azure-Portal
 
 1. [Melden Sie sich beim Azure AD Admin Center](https://aad.portal.azure.com) mit einem Konto an, das über Benutzeradministratorberechtigungen in der Organisation verfügt.
-1. Klicken Sie im Navigationsbereich auf **Azure Active Directory** .
+1. Klicken Sie im Navigationsbereich auf **Azure Active Directory**.
 1. Wählen Sie unter **Verwalten** die Option **Benutzer** aus.
 1. Wählen Sie unter **Anzeigen** die Option **Alle Benutzer** aus, und überprüfen Sie, ob die wiederhergestellten Benutzer aufgelistet werden.
 

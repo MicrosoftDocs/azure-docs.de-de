@@ -287,7 +287,7 @@
       href: ../azure-resource-manager/management/overview.md
     - name: Resource Manager-Vorlage
       displayName: ARM
-      href: 'https://docs.microsoft.com/azure/templates/microsoft.network/applicationgateways'
+      href: /azure/templates/microsoft.network/applicationgateways
 - name: Ressourcen
   items:
     - name: Verfassen von Vorlagen

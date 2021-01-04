@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c07ad6e631482b47da674549e976953842cf983e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b59c7d2af33efd82f27af9e13fc9c1f36ca788ee
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855921"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348592"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Erste Schritte mit Azure Queue Storage mit .NET
 
@@ -28,7 +28,7 @@ Azure Queue Storage ermöglicht Cloud-Messaging zwischen Anwendungskomponenten. 
 
 In diesem Tutorial wird gezeigt, wie Sie .NET-Code für einige häufig verwendete Szenarien mit Azure Queue Storage schreiben. Zu den behandelten Szenarien zählen das Erstellen und Löschen von Warteschlangen sowie das Hinzufügen, Lesen und Löschen von Warteschlangennachrichten.
 
-**Geschätzter Zeitaufwand**: 45 Minuten
+**Geschätzter Zeitaufwand** : 45 Minuten
 
 ### <a name="prerequisites"></a>Voraussetzungen
 
@@ -65,7 +65,7 @@ Sie können die Azure Storage-Clientbibliotheken in jeder Art von .NET-Anwendung
 Sie müssen in Ihrem Projekt auf die folgenden vier Pakete verweisen, um dieses Tutorial abzuschließen:
 
 - [Azure Core-Bibliothek für .NET](https://www.nuget.org/packages/Azure.Core/): Dieses Paket bietet freigegebene primitive Typen, Abstraktionen und Hilfsprogramme für moderne .NET Azure SDK-Clientbibliotheken.
-- [Allgemeine Azure Storage-Clientbibliothek für .NET](https://www.nuget.org/packages/Azure.Storage.Common/): Dieses Paket stellt die Infrastruktur bereit, die von anderen Azure Storage-Clientbibliotheken gemeinsam genutzt wird.
+- [Allgemeine Azure Storage-Clientbibliothek für .NET](https://www.nuget.org/packages/Azure.Storage.Common/): Dieses Paket stellt die Infrastruktur bereit, die von den anderen Azure Storage-Clientbibliotheken gemeinsam genutzt wird.
 - [Azure Storage Queue-Bibliothek für .NET](https://www.nuget.org/packages/Azure.Storage.Queues/): Dieses Paket ermöglicht das Arbeiten mit dem Azure Queue Storage-Dienst zum Speichern von Nachrichten, auf die ein Client möglicherweise zugreift.
 - [Configuration Manager-Bibliothek für .NET](https://www.nuget.org/packages/System.Configuration.ConfigurationManager/): Dieses Paket bietet Zugriff auf Konfigurationsdateien für Clientanwendungen.
 
@@ -114,7 +114,7 @@ Der Beispielcode muss den Zugriff auf Ihr Speicherkonto autorisieren. Zur Autori
 1. Navigieren Sie zum [Azure-Portal](https://portal.azure.com).
 2. Suchen Sie nach Ihrem Speicherkonto.
 3. Wählen Sie im Abschnitt **Einstellungen** der Speicherkontoübersicht die Option **Zugriffsschlüssel**. Daraufhin werden Ihre Zugriffsschlüssel zusammen mit der jeweiligen vollständigen Verbindungszeichenfolge angezeigt.
-4. Suchen Sie unter **key1** nach dem Wert für die **Verbindungszeichenfolge**, und klicken Sie dann auf die Schaltfläche **Kopieren**, um die Verbindungszeichenfolge zu kopieren. Der Wert der Verbindungszeichenfolge wird in einem späteren Schritt einer Umgebungsvariablen hinzugefügt.
+4. Suchen Sie unter **key1** nach dem Wert für die **Verbindungszeichenfolge** , und klicken Sie dann auf die Schaltfläche **Kopieren** , um die Verbindungszeichenfolge zu kopieren. Der Wert der Verbindungszeichenfolge wird in einem späteren Schritt einer Umgebungsvariablen hinzugefügt.
 
     ![Screenshot: Kopieren einer Verbindungszeichenfolge aus dem Azure-Portal](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
 
@@ -349,7 +349,7 @@ queue.DeleteMessage(retrievedMessage);
 
 ## <a name="use-async-await-pattern-with-common-queue-storage-apis"></a>Verwenden des Async-Await-Musters mit allgemeinen Warteschlangenspeicher-APIs
 
-In diesem Beispiel wird veranschaulicht, wie das Async-Await-Muster mit allgemeinen Warteschlangenspeicher-APIs verwendet wird. Im Beispiel werden jeweils die asynchronen Versionen der angegebenen Methoden aufgerufen, wie am Suffix *Async* der einzelnen Methoden erkennbar. Wenn eine asynchrone Methode verwendet wird, hält das Async-Await-Muster die lokale Ausführung an, bis der Aufruf abgeschlossen ist. Durch dieses Verhalten kann der aktuelle Thread eine andere Aktion ausführen, wodurch Leistungsengpässe vermieden werden und die allgemeine Reaktionsfähigkeit der Anwendung verbessert wird. Weitere Informationen zur Verwendung des Async-Await-Musters in .NET finden Sie unter [Async und Await (C# und Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
+In diesem Beispiel wird veranschaulicht, wie das Async-Await-Muster mit allgemeinen Warteschlangenspeicher-APIs verwendet wird. Im Beispiel werden jeweils die asynchronen Versionen der angegebenen Methoden aufgerufen, wie am Suffix *Async* der einzelnen Methoden erkennbar. Wenn eine asynchrone Methode verwendet wird, hält das Async-Await-Muster die lokale Ausführung an, bis der Aufruf abgeschlossen ist. Durch dieses Verhalten kann der aktuelle Thread eine andere Aktion ausführen, wodurch Leistungsengpässe vermieden werden und die allgemeine Reaktionsfähigkeit der Anwendung verbessert wird. Weitere Informationen zur Verwendung des Async-Await-Musters in .NET finden Sie unter [Async und Await (C# und Visual Basic)](/previous-versions/hh191443(v=vs.140))
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -489,10 +489,10 @@ queue.Delete();
 Nachdem Sie sich nun mit den Grundlagen des Warteschlangenspeichers vertraut gemacht haben, folgen Sie diesen Links, um zu erfahren, wie komplexere Speicheraufgaben ausgeführt werden.
 
 - Vollständige Informationen zu verfügbaren APIs finden Sie in der Warteschlangendienst-Referenzdokumentation:
-  - [Referenz zur Storage-Clientbibliothek für .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-  - [REST-API-Referenz](https://msdn.microsoft.com/library/azure/dd179355)
+  - [Referenz zur Storage-Clientbibliothek für .NET](/dotnet/api/overview/azure/storage)
+  - [REST-API-Referenz](/rest/api/storageservices/)
 - Weitere Informationen zu zusätzlichen Optionen für das Speichern von Daten in Azure finden Sie in den anderen Featureleitfäden.
-  - [Erste Schritte mit Azure Table Storage mit .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) zum Speichern strukturierter Daten
-  - [Erste Schritte mit Azure Blob Storage mit .NET](../blobs/storage-dotnet-how-to-use-blobs.md) zum Speichern unstrukturierter Daten
+  - [Erste Schritte mit Azure Table Storage mit .NET](../../cosmos-db/tutorial-develop-table-dotnet.md) zum Speichern strukturierter Daten
+  - [Erste Schritte mit Azure Blob Storage mit .NET](../blobs/storage-quickstart-blobs-dotnet.md) zum Speichern unstrukturierter Daten
   - Informationen zum Speichern relationaler Daten finden Sie unter [Herstellen von Verbindungen mit SQL-Datenbank mithilfe von .NET (C#)](../../azure-sql/database/connect-query-dotnet-core.md).
 - Erfahren Sie, wie Sie mithilfe des [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)den geschriebenen Code so vereinfachen, dass er mit Azure Storage funktioniert.

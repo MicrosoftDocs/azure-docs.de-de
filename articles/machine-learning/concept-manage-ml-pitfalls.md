@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: 77b5b52153c552008406b4b85083bcba5542cebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba85bda1e322d3efd467527b48bd4cd90eb7ce8c
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012721"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922629"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Verhindern von Überanpassung und unausgeglichenen Daten durch automatisiertes maschinelles Lernen
 
@@ -84,8 +84,8 @@ Darüber hinaus generieren Durchläufe des automatisierten maschinellen Lernens 
 Diagramm| BESCHREIBUNG
 ---|---
 [Konfusionsmatrix](how-to-understand-automated-ml.md#confusion-matrix)| Bewertet die ordnungsgemäß klassifizierten Bezeichnungen anhand der tatsächlichen Bezeichnungen der Daten. 
-[Genauigkeit-Trefferquote](how-to-understand-automated-ml.md#precision-recall-chart)| Bewertet das Verhältnis der richtigen Bezeichnungen anhand des Verhältnisses der gefundenen Bezeichnungsinstanzen der Daten. 
-[ROC-Kurven](how-to-understand-automated-ml.md#roc)| Bewertet das Verhältnis von richtigen Bezeichnungen anhand des Verhältnisses von falsch positiven Bezeichnungen.
+[Genauigkeit-Trefferquote](how-to-understand-automated-ml.md#precision-recall-curve)| Bewertet das Verhältnis der richtigen Bezeichnungen anhand des Verhältnisses der gefundenen Bezeichnungsinstanzen der Daten. 
+[ROC-Kurven](how-to-understand-automated-ml.md#roc-curve)| Bewertet das Verhältnis von richtigen Bezeichnungen anhand des Verhältnisses von falsch positiven Bezeichnungen.
 
 ## <a name="handle-imbalanced-data"></a>Behandeln von unausgeglichenen Daten 
 

@@ -3,13 +3,13 @@ title: Bereitstellen einer Java-App in einem Service Fabric-Cluster in Azure
 description: In diesem Tutorial wird beschrieben, wie Sie eine Java Service Fabric-Anwendung in einem Azure Service Fabric-Cluster bereitstellen.
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 3e00e478e20fbd0bc4ff6ed17b330f0d16488be6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 89c49ae530b7a4716bc6e8bf0ea6ccb011847eb8
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532057"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738911"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Tutorial: Bereitstellen einer Java-Anwendung in einem Service Fabric-Cluster in Azure
 
@@ -148,13 +148,13 @@ Mit den folgenden Schritten werden die erforderlichen Ressourcen erstellt, die z
     }
     ```
 
-11. Führen Sie das Skript *eventhubssastoken.py* aus, um die SAS-URL für die erstellte EventHubs-Ressource zu generieren. Diese SAS-URL wird vom Service Fabric-Cluster verwendet, um Protokolle an Event Hubs zu senden. Das Ergebnis ist, dass die **sender**-Richtlinie zum Generieren der URL verwendet wird. Das Skript gibt die SAS-URL für die Event Hubs-Ressource zurück, die im folgenden Schritt verwendet wird:
+11. Führen Sie das Skript *eventhubssastoken.py* aus, um die SAS-URL für die erstellte EventHubs-Ressource zu generieren. Diese SAS-URL wird vom Service Fabric-Cluster verwendet, um Protokolle an Event Hubs zu senden. Das Ergebnis ist, dass die **sender** -Richtlinie zum Generieren der URL verwendet wird. Das Skript gibt die SAS-URL für die Event Hubs-Ressource zurück, die im folgenden Schritt verwendet wird:
 
     ```python
     python3 eventhubssastoken.py 'testeventhubs' 'testeventhubs' 'sender' '[PRIMARY-KEY]'
     ```
 
-    Kopieren Sie den Wert des Felds **sr** in der zurückgegebenen JSON-Ausgabe. Der Wert des Felds **sr** ist das SAS-Token für EventHubs. Die folgende URL ist ein Beispiel für das Feld **sr**:
+    Kopieren Sie den Wert des Felds **sr** in der zurückgegebenen JSON-Ausgabe. Der Wert des Felds **sr** ist das SAS-Token für EventHubs. Die folgende URL ist ein Beispiel für das Feld **sr** :
 
     ```output
     https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
@@ -162,7 +162,7 @@ Mit den folgenden Schritten werden die erforderlichen Ressourcen erstellt, die z
 
     Ihre SAS-URL für EventHubs hat die folgende Struktur: `https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>`. Zum Beispiel, `https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender`
 
-12. Öffnen Sie die Datei *sfdeploy.parameters.json*, und ersetzen Sie den folgenden Inhalt aus den vorherigen Schritten: [SAS-URL-STORAGE-ACCOUNT] aus Schritt 8. [SAS-URL-EVENT-HUBS] aus Schritt 11.
+12. Öffnen Sie die Datei *sfdeploy.parameters.json* , und ersetzen Sie den folgenden Inhalt aus den vorherigen Schritten: [SAS-URL-STORAGE-ACCOUNT] aus Schritt 8. [SAS-URL-EVENT-HUBS] aus Schritt 11.
 
     ```json
     "applicationDiagnosticsStorageAccountName": {
@@ -176,8 +176,8 @@ Mit den folgenden Schritten werden die erforderlichen Ressourcen erstellt, die z
     }
     ```
 
-13. Öffnen Sie **sfdeploy.parameters.json**. Ändern Sie die folgenden Parameter, und speichern Sie anschließend die Datei:
-    - **clusterName**. Verwenden Sie nur Kleinbuchstaben und Zahlen.
+13. Öffnen Sie **sfdeploy.parameters.json** . Ändern Sie die folgenden Parameter, und speichern Sie anschließend die Datei:
+    - **clusterName** . Verwenden Sie nur Kleinbuchstaben und Zahlen.
     - **adminUserName** (darf kein leerer Wert sein)
     - **adminPassword** (darf kein leerer Wert sein)
 
@@ -209,7 +209,7 @@ Mit den folgenden Schritten werden die erforderlichen Ressourcen erstellt, die z
     sfctl cluster select --endpoint https://<clustername>.<region>.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
     ```
 
-4. Navigieren Sie zum Bereitstellen Ihrer Anwendung zum Ordner *Voting/Scripts*, und führen Sie das Skript **install.sh** aus.
+4. Navigieren Sie zum Bereitstellen Ihrer Anwendung zum Ordner *Voting/Scripts* , und führen Sie das Skript **install.sh** aus.
 
     ```bash
     ./install.sh

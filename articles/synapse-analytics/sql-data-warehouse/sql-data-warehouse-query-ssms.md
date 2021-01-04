@@ -1,6 +1,6 @@
 ---
-title: Herstellen einer Verbindung mit SSMS
-description: Verwenden Sie SQL Server Management Studio (SSMS), um eine Verbindung mit Azure Synapse Analytics herzustellen und Abfragen auszuführen.
+title: Herstellen einer Verbindung mit einem dedizierten SQL-Pool (früher SQL DW) mit SSMS
+description: Verwenden Sie SQL Server Management Studio (SSMS), um in Azure Synapse Analytics eine Verbindung mit einem dedizierten SQL-Pool (früher SQL DW) herzustellen und Abfragen durchzuführen.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 772e4253244f5e13a60f155549d5f5513695e5fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 950cb4c40a534f252ec8b0daa5a57eb87c098450
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85200748"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450476"
 ---
-# <a name="connect-to-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>Herstellen einer Verbindung mit Azure Synapse Analytics mithilfe von SQL Server Management Studio (SSMS)
+# <a name="connect-to-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>Herstellen einer Verbindung mit einem dedizierten SQL-Pool (früher SQL DW) in Azure Synapse Analytics mithilfe von SQL Server Management Studio (SSMS)
 
 > [!div class="op_single_selector"]
 >
@@ -28,17 +28,17 @@ ms.locfileid: "85200748"
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 
-Verwenden Sie SQL Server Management Studio (SSMS), um in Azure Synapse eine Verbindung mit einem Data Warehouse herzustellen und es abzufragen.
+Verwenden Sie SQL Server Management Studio (SSMS), um eine Verbindung mit einem dedizierten SQL-Pool (früher SQL DW) herzustellen und Abfragen durchzuführen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 Für dieses Tutorial benötigen Sie Folgendes:
 
-* Einen vorhandenen SQL-Pool. Informationen zur Erstellung finden Sie unter [Erstellen eines SQL-Pools](create-data-warehouse-portal.md).
+* Einen vorhandenen dedizierten SQL-Pool. Informationen zu dessen Erstellung finden Sie unter [Erstellen eines dedizierten SQL-Pools (früher SQL DW)](create-data-warehouse-portal.md).
 * SQL Server Management Studio (SSMS) muss installiert sein. [Laden Sie SSMS kostenlos herunter](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), falls Sie noch nicht über die Anwendung verfügen.
-* Den vollqualifizierten SQL-Servernamen. Informationen zur Ermittlung dieser Informationen finden Sie unter [Herstellen einer Verbindung mit dem SQL-Pool](sql-data-warehouse-connect-overview.md).
+* Den vollqualifizierten SQL-Servernamen. Diese Informationen finden Sie unter [Dedizierter SQL-Pool (früher SQL DW)](sql-data-warehouse-connect-overview.md).
 
-## <a name="1-connect-to-your-sql-pool"></a>1. Stellen Sie eine Verbindung mit Ihrem SQL-Pool her.
+## <a name="1-connect-to-your-dedicated-sql-pool-formerly-sql-dw"></a>1. Herstellen einer Verbindung mit Ihrem dedizierten SQL-Pool (früher SQL DW)
 
 1. Öffnen Sie SSMS.
 2. Öffnen Sie den Objekt-Explorer, indem Sie **Datei**  > **Objekt-Explorer verbinden** auswählen.
@@ -79,4 +79,4 @@ Nachdem jetzt eine Verbindung mit Ihrer Datenbank hergestellt wurde, schreiben w
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Nun da Sie eine Verbindung hergestellt haben und Abfragen senden können, versuchen Sie, [die Daten mit Power BI zu visualisieren](sql-data-warehouse-get-started-visualize-with-power-bi.md). Informationen zum Konfigurieren der Umgebung für die Azure Active Directory-Authentifizierung finden Sie unter [Authentifizieren beim SQL-Pool](sql-data-warehouse-authentication.md).
+Nun da Sie eine Verbindung hergestellt haben und Abfragen senden können, versuchen Sie, [die Daten mit Power BI zu visualisieren](sql-data-warehouse-get-started-visualize-with-power-bi.md). Informationen zum Konfigurieren Ihrer Umgebung für die Azure Active Directory-Authentifizierung finden Sie unter [Authentifizieren beim dedizierten SQL-Pool](sql-data-warehouse-authentication.md).

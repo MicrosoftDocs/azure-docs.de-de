@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05447db97311fb78707079528e0570b3fd42df59
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 244fdbf7cb723fe85e0987d176a13242f0bff064
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977577"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005927"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Bereitstellen von StorSimple Virtual Array – Einrichten als Dateiserver über das Azure-Portal
 ![Abbildung der Schritte, die zur Bereitstellung eines virtuellen Arrays erforderlich sind. Der erste Teil des dritten Schritts heißt „Einrichten als Dateiserver“ und ist hervorgehoben.](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -31,7 +31,7 @@ ms.locfileid: "91977577"
 
 In diesem Artikel wird beschrieben, wie Sie die anfängliche Einrichtung durchführen, Ihren StorSimple-Dateiserver registrieren, die Geräteinstallation durchführen und SMB-Freigaben erstellen und die Verbindung dafür herstellen. Dies ist der letzte Artikel einer Reihe von Tutorials, in denen die vollständige Bereitstellung Ihres virtuellen Arrays als Dateiserver oder iSCSI-Server erläutert wird.
 
-Der Einrichtungs- und Konfigurationsvorgang kann ca. zehn Minuten dauern. Die Informationen in diesem Artikel beziehen sich nur auf das Bereitstellen des StorSimple Virtual Arrays. Informationen zum Bereitstellen von Geräten der StorSimple 8000-Serie finden Sie hier: [Bereitstellen Ihres Gerät der StorSimple 8000-Serie mit Update 2](storsimple-deployment-walkthrough-u2.md).
+Der Einrichtungs- und Konfigurationsvorgang kann ca. zehn Minuten dauern. Die Informationen in diesem Artikel beziehen sich nur auf das Bereitstellen des StorSimple Virtual Arrays. Informationen zum Bereitstellen von Geräten der StorSimple 8000-Serie finden Sie hier: [Bereitstellen Ihres Gerät der StorSimple 8000-Serie mit Update 2](./storsimple-8000-deployment-walkthrough-u2.md).
 
 ## <a name="setup-prerequisites"></a>Voraussetzungen für das Setup
 Überprüfen Sie Folgendes, bevor Sie Ihr StorSimple Virtual Array konfigurieren und einrichten:
@@ -71,7 +71,7 @@ Verwenden Sie die folgende Schritt-für-Schritt-Anleitung, um Ihr StorSimple Vir
    
    1. Weisen Sie Ihrem Gerät einen eindeutigen **Namen** zu. Dieser Name kann 1 bis 15 Zeichen lang sein und Buchstaben, Zahlen und Bindestriche enthalten.
    2. Klicken Sie auf das **Dateiserver**-Symbol :::image type="icon" source="./media/storsimple-virtual-array-deploy3-fs-setup/image6.png"::: für den **Typ** des Geräts, das Sie erstellen. Mit einem Dateiserver können Sie freigegebene Ordner erstellen.
-   3. Da es sich bei Ihrem Gerät um einen Dateiserver handelt, müssen Sie dafür den Beitritt zu einer Domäne durchführen. Geben Sie einen **Domänennamen**ein.
+   3. Da es sich bei Ihrem Gerät um einen Dateiserver handelt, müssen Sie dafür den Beitritt zu einer Domäne durchführen. Geben Sie einen **Domänennamen** ein.
    4. Klicken Sie auf **Anwenden**.
 7. Ein Dialogfeld wird angezeigt. Geben Sie die Anmeldeinformationen für die Domäne im angegebenen Format ein. Klicken Sie auf das Häkchensymbol. Die Anmeldeinformationen für die Domäne werden überprüft. Es wird eine Fehlermeldung angezeigt, wenn die Anmeldeinformationen falsch sind.
    
@@ -138,7 +138,7 @@ Führen Sie die folgenden Schritte im [Azure-Portal](https://portal.azure.com/) 
     
    3. Für die Verschlüsselung wird ein 256-Bit-AES-Schlüssel zusammen mit dem benutzerdefinierten Schlüssel verwendet. Geben Sie einen Schlüssel mit 32 Zeichen an, und geben Sie den Schlüssel anschließend zur Bestätigung erneut ein. Hinterlegen Sie den Schlüssel in einer App zur Schlüsselverwaltung für zukünftige Verwendungen.
     
-   4. Klicken Sie auf **Erforderliche Einstellungen konfigurieren**, um anzugeben, welche Anmeldeinformationen des Speicherkontos mit Ihrem Gerät verwendet werden sollen. Klicken Sie auf **Neue hinzufügen**, wenn noch keine Anmeldeinformationen des Speicherkontos konfiguriert wurden. **Stellen Sie sicher, dass das von Ihnen verwendete Speicherkonto Blockblobs unterstützt. Seitenblobs werden nicht unterstützt.** Weitere Informationen zu [Blockblobs und Seitenblobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+   4. Klicken Sie auf **Erforderliche Einstellungen konfigurieren**, um anzugeben, welche Anmeldeinformationen des Speicherkontos mit Ihrem Gerät verwendet werden sollen. Klicken Sie auf **Neue hinzufügen**, wenn noch keine Anmeldeinformationen des Speicherkontos konfiguriert wurden. **Stellen Sie sicher, dass das von Ihnen verwendete Speicherkonto Blockblobs unterstützt. Seitenblobs werden nicht unterstützt.** Weitere Informationen zu [Blockblobs und Seitenblobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
       ![Konfigurieren eines Dateiservers 3](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. Gehen Sie auf dem Blatt **Anmeldeinformationen des Speicherkontos hinzufügen** wie folgt vor: 
@@ -213,4 +213,3 @@ Als Nächstes müssen Sie eine Verbindung mit einer oder mehreren Freigaben hers
 
 ## <a name="next-steps"></a>Nächste Schritte
 Erfahren Sie, wie Sie die lokale Webbenutzeroberfläche verwenden, um [Ihr StorSimple Virtual Array zu verwalten](storsimple-ova-web-ui-admin.md).
-

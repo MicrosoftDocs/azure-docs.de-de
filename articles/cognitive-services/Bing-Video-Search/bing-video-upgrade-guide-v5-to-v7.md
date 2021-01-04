@@ -10,14 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 3f02b671d73f49fd085cf4486e0fe5887e499fcd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e47691c82d43a35a7235eb5c3fd3cf7bca081aee
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316595"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351911"
 ---
 # <a name="video-search-api-upgrade-guide"></a>Leitfaden zur Durchführung eines Upgrades für die Videosuche-API
+
+> [!WARNING]
+> Die APIs der Bing-Suche werden von Cognitive Services auf Bing-Suchdienste umgestellt. Ab dem **30. Oktober 2020** müssen alle neuen Instanzen der Bing-Suche mit dem [hier](/bing/search-apis/bing-web-search/create-bing-search-service-resource) dokumentierten Prozess bereitgestellt werden.
+> APIs der Bing-Suche, die mit Cognitive Services bereitgestellt wurden, werden noch drei Jahre lang oder bis zum Ablauf Ihres Enterprise Agreement unterstützt (je nachdem, was zuerst geschieht).
+> Eine Anleitung zur Migration finden Sie unter [Bing-Suchdienste](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 In diesem Upgradeleitfaden sind die Änderungen zwischen Version 5 und Version 7 der Bing-Videosuche-API angegeben. Anhand dieses Leitfadens können Sie die Teile Ihrer Anwendung ermitteln, die Sie zur Verwendung von Version 7 aktualisieren müssen.
 
@@ -71,11 +76,10 @@ Blockiert|InvalidRequest.Blocked
 
 ### <a name="query-parameters"></a>Abfrageparameter
 
-- Der Abfrageparameter `modulesRequested` wurde in [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested) umbenannt.  
+- Der Abfrageparameter `modulesRequested` wurde in [modules](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested) umbenannt.  
 
 ### <a name="object-changes"></a>Änderungen an Objekten
 
-- Das Feld `nextOffsetAddCount` von [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) wurde in `nextOffset` umbenannt. Die Art und Weise, wie Sie das Offset verwenden, wurde ebenfalls geändert. Vorher hätten Sie den Abfrageparameter [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) auf den Wert `nextOffset`, den vorherigen Offsetwert sowie die Anzahl der Videos im Ergebnis festlegen müssen. Nun legen Sie den Abfrageparameter `offset` ganz einfach auf den Wert `nextOffset` fest.  
+- Das Feld `nextOffsetAddCount` von [Videos](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) wurde in `nextOffset` umbenannt. Die Art und Weise, wie Sie das Offset verwenden, wurde ebenfalls geändert. Vorher hätten Sie den Abfrageparameter [offset](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) auf den Wert `nextOffset`, den vorherigen Offsetwert sowie die Anzahl der Videos im Ergebnis festlegen müssen. Nun legen Sie den Abfrageparameter `offset` ganz einfach auf den Wert `nextOffset` fest.  
   
-- Der Datentyp des Felds `relatedVideos` wurde von `Video[]` in [VideosModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videosmodule) geändert (siehe [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videodetails)).
-
+- Der Datentyp des Felds `relatedVideos` wurde von `Video[]` in [VideosModule](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videosmodule) geändert (siehe [VideoDetails](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videodetails)).

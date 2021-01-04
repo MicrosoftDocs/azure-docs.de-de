@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/12/2020
+ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: e67b507baf1c3271a7fe32318597722e52fd3890
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de41bd030ea73ac68bfac5fbfbd03ae14cf7980f
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891379"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874235"
 ---
 # <a name="certificate-requirements"></a>Zertifikatanforderungen
 
@@ -30,12 +30,13 @@ Die Anforderungen für die ausstellende Zertifizierungsstelle sind wie folgt:
 * Das Feld *Ausgestellt für:* darf nicht mit dem Feld *Ausgestellt von:* identisch sein, ausgenommen bei Zertifikaten von Stammzertifizierungsstellen.
 
 
-
 ## <a name="certificate-algorithms"></a>Zertifikatsalgorithmen
 
 Für Zertifikatsalgorithmen gelten die folgenden Anforderungen:
 
 * Zertifikate müssen den RSA-Schlüsselalgorithmus verwenden.
+
+* Es werden nur RSA-Zertifikate mit „Microsoft RSA/SChannel Cryptographic Provider“ unterstützt.
 
 * Der Zertifikatsignaturalgorithmus darf nicht SHA1 sein.
 
@@ -53,7 +54,7 @@ Zertifikate müssen die folgenden Anforderungen in Bezug auf den Namen des Zerti
 
 * Verwenden Sie die folgende Tabelle beim Erstellen eines Endpunktzertifikats:
 
-    |type |Antragstellername (SN)  |Alternativer Antragstellername (SAN)  |Beispiel für Antragstellername |
+    |type |Antragstellername  |Alternativer Antragstellername  |Beispiel für Antragstellername |
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Blob Storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
@@ -81,6 +82,8 @@ Die auf Ihrem Azure Stack Edge Pro-Gerät installierten PFX-Zertifikate müssen 
 * Bei Verwendung des Azure Stack Readiness Checker-Tools müssen die Kennwörter aller PFX-Zertifikatdateien zum Zeitpunkt der Bereitstellung identisch sein. Weitere Informationen finden Sie unter [Erstellen von Zertifikaten für Azure Stack Edge Pro-Geräte mit dem Azure Stack Hub Readiness Checker-Tool](azure-stack-edge-j-series-create-certificates-tool.md).
 
 * Für die PFX-Zertifikatdatei muss ein komplexes Kennwort verwendet werden. Notieren Sie sich dieses Kennwort, da es später als Bereitstellungsparameter benötigt wird.
+
+* Verwenden Sie nur RSA-Zertifikate mit „Microsoft RSA/SChannel Cryptographic Provider“.
 
 Weitere Informationen finden Sie unter [Exportieren von PFX-Zertifikaten mit privatem Schlüssel](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-pfx-format-with-private-key).
 

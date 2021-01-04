@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 55a49ac13cdfd3f6157ae7495403f76056e734ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be49d56d301c23791777f4d89e8c6c6fd35d7035
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86184095"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636305"
 ---
 # <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>Bereitstellen der Enterprise-Edition für die Azure-SSIS Integration Runtime
 
@@ -38,7 +38,7 @@ Für einige dieser Features müssen Sie zusätzliche Komponenten installieren, u
 | Oracle-Connectors | Der Oracle-Verbindungs-Manager, die Quelle und das Ziel sind für die Enterprise Edition der Azure-SSIS-Integrationslaufzeit vorinstalliert. Sie müssen auch den OCI-Treiber (Oracle Call Interface) installieren und, falls erforderlich, die Oracle Transport Network Substrate-Komponente (TNS) für die Azure-SSIS-Integrationslaufzeit konfigurieren. Weitere Informationen finden Sie unter [Benutzerdefiniertes Setup von Azure-SSIS Integration Runtime](how-to-configure-azure-ssis-ir-custom-setup.md). |
 | Teradata-Connectors | Sie müssen den Teradata-Verbindungs-Manager, die Quelle und das Ziel sowie die TPT-API (Teradata Parallel Transporter) und den Teradata-ODBC-Treiber für die Enterprise Edition der Azure-SSIS-Integrationslaufzeit installieren. Weitere Informationen finden Sie unter [Benutzerdefiniertes Setup von Azure-SSIS Integration Runtime](how-to-configure-azure-ssis-ir-custom-setup.md). |
 | SAP BW-Connectors | Der SAP BW-Verbindungs-Manager, die Quelle und das Ziel sind für die Enterprise Edition der Azure-SSIS-Integrationslaufzeit vorinstalliert. Außerdem müssen Sie den SAP BW-Treiber für die Azure-SSIS-Integrationslaufzeit installieren. Diese Connectors unterstützen SAP BW 7.0 oder früher. Zum Herstellen einer Verbindung mit höheren Versionen von SAP BW oder anderen SAP-Produkten können Sie SAP-Connectors von Drittanbietern für die Azure-SSIS-Integrationslaufzeit erwerben und installieren. Weitere Informationen zur Installation der zusätzlichen Komponenten finden Sie unter [Benutzerdefiniertes Setup von Azure-SSIS Integration Runtime](how-to-configure-azure-ssis-ir-custom-setup.md). |
-| Analysis Services-Komponenten               | Das Data Mining-Modelltraining-Ziel, das Ziel für die Dimensionsverarbeitung und das Ziel für die Partitionsverarbeitung sowie die Data Mining-Abfragetransformation sind für die Enterprise Edition der Azure-SSIS-Integrationslaufzeit vorinstalliert. Alle diese Komponenten unterstützen SQL Server Analysis Services (SSAS), aber nur das Ziel für die Partitionsverarbeitung unterstützt Azure Analysis Services (AAS). Zum Herstellen einer Verbindung mit SSAS müssen Sie außerdem [Anmeldeinformationen für die Windows-Authentifizierung in SSISDB konfigurieren](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth). Zusätzlich zu diesen Komponenten sind auch der Analysis Services-Task „DDL ausführen“, der Task für die Analysis Services-Verarbeitung und der Data Mining-Abfragetask für die Standard bzw. Enterprise Edition der Azure-SSIS-Integrationslaufzeit vorinstalliert. |
+| Analysis Services-Komponenten               | Das Data Mining-Modelltraining-Ziel, das Ziel für die Dimensionsverarbeitung und das Ziel für die Partitionsverarbeitung sowie die Data Mining-Abfragetransformation sind für die Enterprise Edition der Azure-SSIS-Integrationslaufzeit vorinstalliert. Alle diese Komponenten unterstützen SQL Server Analysis Services (SSAS), aber nur das Ziel für die Partitionsverarbeitung unterstützt Azure Analysis Services (AAS). Zum Herstellen einer Verbindung mit SSAS müssen Sie außerdem [Anmeldeinformationen für die Windows-Authentifizierung in SSISDB konfigurieren](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth). Zusätzlich zu diesen Komponenten sind auch der Analysis Services-Task „DDL ausführen“, der Task für die Analysis Services-Verarbeitung und der Data Mining-Abfragetask für die Standard bzw. Enterprise Edition der Azure-SSIS-Integrationslaufzeit vorinstalliert. |
 | Transformationen für Fuzzygruppierung und Fuzzysuche  | Die Transformationen für die Fuzzygruppierung und Fuzzysuche sind für die Enterprise Edition der Azure-SSIS-Integrationslaufzeit vorinstalliert. Diese Komponenten unterstützen für die Speicherung von Verweisdaten sowohl SQL Server als auch Azure SQL-Datenbank. |
 | Transformationen für Ausdrucksextrahierung und Ausdruckssuche | Die Transformationen für die Ausdrucksextrahierung und Ausdruckssuche sind für die Enterprise Edition der Azure-SSIS-Integrationslaufzeit vorinstalliert. Diese Komponenten unterstützen für die Speicherung von Verweisdaten sowohl SQL Server als auch Azure SQL-Datenbank. |
 

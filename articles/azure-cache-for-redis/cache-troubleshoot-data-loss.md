@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 29492ee6b7bce50c4807a36d0c252e18e6aadf87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6db036752bab7b84b72a37b148eaec7aa5765ef3
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88008949"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538594"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Problembehandlung bei Datenverlust in Azure Cache for Redis
 
@@ -36,7 +36,7 @@ Wenn Sie feststellen, dass Schlüssel aus dem Cache verschwunden sind, sollten S
 
 ### <a name="key-expiration"></a>Ablauf von Schlüsseln
 
-Azure Cache for Redis entfernt einen Schlüssel automatisch, wenn dem Schlüssel ein Timeout zugewiesen und der zugehörige Zeitraum abgelaufen ist. Weitere Informationen zum Ablauf von Redis-Schlüsseln finden Sie in der Dokumentation des Befehls [EXPIRE](https://redis.io/commands/expire). Timeoutwerte können auch über die Befehle [SET](https://redis.io/commands/set), [SETEX](https://redis.io/commands/setex) und [GETSET](https://redis.io/commands/getset) sowie weitere **\*STORE**-Befehle festgelegt werden.
+Azure Cache for Redis entfernt einen Schlüssel automatisch, wenn dem Schlüssel ein Timeout zugewiesen und der zugehörige Zeitraum abgelaufen ist. Weitere Informationen zum Ablauf von Redis-Schlüsseln finden Sie in der Dokumentation des Befehls [EXPIRE](https://redis.io/commands/expire). Timeoutwerte können auch über die Befehle [SET](https://redis.io/commands/set), [SETEX](https://redis.io/commands/setex) und [GETSET](https://redis.io/commands/getset) sowie weitere **\*STORE** -Befehle festgelegt werden.
 
 Wenn Sie Statistiken abrufen möchten, wie viele Schlüssel abgelaufen sind, verwenden Sie den Befehl [INFO](https://redis.io/commands/info). Im Abschnitt `Stats` wird die Gesamtzahl abgelaufener Schlüssel angezeigt. Der Abschnitt `Keyspace` enthält weitere Informationen zur Anzahl der Schlüssel mit Timeouts und zum durchschnittlichen Timeoutwert.
 
@@ -68,7 +68,7 @@ Außerdem können Sie die Diagnosemetriken für Ihren Cache überprüfen, um fes
 
 ### <a name="key-deletion"></a>Löschen von Schlüsseln
 
-Redis-Clients können den Befehl [DEL](https://redis.io/commands/del) oder [HDEL](https://redis.io/commands/hdel) ausgeben, um Schlüssel explizit aus Azure Cache for Redis zu entfernen. Mit dem Befehl [INFO](https://redis.io/commands/info) können Sie die Anzahl der Löschvorgänge verfolgen. Aufrufe von **DEL**- oder **HDEL**-Befehlen werden im Abschnitt `Commandstats` aufgelistet.
+Redis-Clients können den Befehl [DEL](https://redis.io/commands/del) oder [HDEL](https://redis.io/commands/hdel) ausgeben, um Schlüssel explizit aus Azure Cache for Redis zu entfernen. Mit dem Befehl [INFO](https://redis.io/commands/info) können Sie die Anzahl der Löschvorgänge verfolgen. Aufrufe von **DEL** - oder **HDEL** -Befehlen werden im Abschnitt `Commandstats` aufgelistet.
 
 ```
 # Commandstats
@@ -94,7 +94,7 @@ Sind die meisten oder alle Schlüssel aus dem Cache verschwunden, sollten Sie au
 
 ### <a name="key-flushing"></a>Leeren von Schlüsseln
 
-Clients können den Befehl [FLUSHDB](https://redis.io/commands/flushdb) aufrufen, um alle Schlüssel in einer *einzelnen* Datenbank zu entfernen. Mit dem Befehl [FLUSHALL](https://redis.io/commands/flushall) werden alle Schlüssel aus *allen* Datenbanken in einem Redis-Cache entfernt. Wenn Sie feststellen möchten, ob Schlüssel geleert (entfernt) wurden, verwenden Sie den Befehl [INFO](https://redis.io/commands/info). Im `Commandstats`-Abschnitt ist zu sehen, ob **FLUSH**-Befehle aufgerufen wurden:
+Clients können den Befehl [FLUSHDB](https://redis.io/commands/flushdb) aufrufen, um alle Schlüssel in einer *einzelnen* Datenbank zu entfernen. Mit dem Befehl [FLUSHALL](https://redis.io/commands/flushall) werden alle Schlüssel aus *allen* Datenbanken in einem Redis-Cache entfernt. Wenn Sie feststellen möchten, ob Schlüssel geleert (entfernt) wurden, verwenden Sie den Befehl [INFO](https://redis.io/commands/info). Im `Commandstats`-Abschnitt ist zu sehen, ob **FLUSH** -Befehle aufgerufen wurden:
 
 ```
 # Commandstats
@@ -106,7 +106,7 @@ cmdstat_flushdb:calls=1,usec=110,usec_per_call=52.00
 
 ### <a name="incorrect-database-selection"></a>Falsche Datenbankauswahl
 
-Azure Cache for Redis verwendet standardmäßig die Datenbank **db0**. Wenn Sie zu einer anderen Datenbank wechseln (z. B. **db1**) und versuchen, Schlüssel aus ihr zu lesen, kann Azure Cache for Redis dort keine Schlüssel finden. Jede Datenbank ist eine logisch separate Einheit und enthält ein anderes Dataset. Wählen Sie mit dem Befehl [SELECT](https://redis.io/commands/select) andere verfügbare Datenbanken aus, und suchen Sie dort jeweils nach Schlüsseln.
+Azure Cache for Redis verwendet standardmäßig die Datenbank **db0** . Wenn Sie zu einer anderen Datenbank wechseln (z. B. **db1** ) und versuchen, Schlüssel aus ihr zu lesen, kann Azure Cache for Redis dort keine Schlüssel finden. Jede Datenbank ist eine logisch separate Einheit und enthält ein anderes Dataset. Wählen Sie mit dem Befehl [SELECT](https://redis.io/commands/select) andere verfügbare Datenbanken aus, und suchen Sie dort jeweils nach Schlüsseln.
 
 ### <a name="redis-instance-failure"></a>Redis-Instanzausfall
 
@@ -114,7 +114,7 @@ Redis ist ein In-Memory-Datenspeicher. Daten verbleiben auf dem physischen oder 
 
 Caches der Tarife „Standard“ und „Premium“ bieten eine wesentlich höhere Resilienz vor Datenverlusten, da zwei virtuelle Computer in einer replizierten Konfiguration verwendet werden. Wenn der primäre Knoten für einen solchen Cache ausfällt, übernimmt der Replikatknoten automatisch die Bereitstellung der Daten. Diese virtuellen Computer befinden sich in getrennten Domänen für Ausfälle und Updates, um das Risiko zu minimieren, dass beide gleichzeitig nicht verfügbar sind. Kommt es zu einem größeren Ausfall des Rechenzentrums, können die virtuellen Computer dennoch gemeinsam ausfallen. In diesen seltenen Fällen gehen Ihre Daten verloren.
 
-Um dies zu verhindern, können Sie [Redis-Datenpersistenz](https://redis.io/topics/persistence) und [Georeplikation](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-geo-replication) verwenden, um den Schutz Ihrer Daten vor derartigen Infrastrukturausfällen zu erhöhen.
+Um dies zu verhindern, können Sie [Redis-Datenpersistenz](https://redis.io/topics/persistence) und [Georeplikation](./cache-how-to-geo-replication.md) verwenden, um den Schutz Ihrer Daten vor derartigen Infrastrukturausfällen zu erhöhen.
 
 ## <a name="additional-information"></a>Zusätzliche Informationen
 

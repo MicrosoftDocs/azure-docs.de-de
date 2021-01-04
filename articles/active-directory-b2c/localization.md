@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 27a00c69a4423e45b46b9c3d0340bb7cd1a35d65
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 88244ec3ba4bbebe7d6096fa3ac49bd4f1b8f661
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92095898"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108619"
 ---
 # <a name="localization-element"></a>Localization-Element
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Mithilfe des **Localization** -Elements können Sie mehrere Gebietsschemas oder Sprachen in der Richtlinie für die User Journeys unterstützen. Die Unterstützung der Lokalisierung in den Richtlinien ermöglicht Folgendes:
+Mithilfe des **Localization**-Elements können Sie mehrere Gebietsschemas oder Sprachen in der Richtlinie für die User Journeys unterstützen. Die Unterstützung der Lokalisierung in den Richtlinien ermöglicht Folgendes:
 
 - Einrichten einer expliziten Liste der unterstützten Sprachen in einer Richtlinie und Auswählen einer Standardsprache
 - Angeben von sprachspezifischen Zeichenfolgen und Sammlungen
@@ -37,13 +37,13 @@ Mithilfe des **Localization** -Elements können Sie mehrere Gebietsschemas oder 
   ...
 ```
 
-Das **Localization** -Element enthält die folgenden Attribute:
+Das **Localization**-Element enthält die folgenden Attribute:
 
-| attribute | Erforderlich | BESCHREIBUNG |
+| attribute | Erforderlich | Beschreibung |
 | --------- | -------- | ----------- |
 | Aktiviert | Nein | Mögliche Werte: `true` oder `false`. |
 
-Das **Localization** -Element enthält die folgenden XML-Elemente:
+Das **Localization**-Element enthält die folgenden XML-Elemente:
 
 | Element | Vorkommen | BESCHREIBUNG |
 | ------- | ----------- | ----------- |
@@ -52,7 +52,7 @@ Das **Localization** -Element enthält die folgenden XML-Elemente:
 
 ## <a name="supportedlanguages"></a>SupportedLanguages
 
-Das **SupportedLanguages** -Element enthält die folgenden Attribute:
+Das **SupportedLanguages**-Element enthält die folgenden Attribute:
 
 | attribute | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
@@ -61,7 +61,7 @@ Das **SupportedLanguages** -Element enthält die folgenden Attribute:
 
 ### <a name="supportedlanguages"></a>SupportedLanguages
 
-Das **SupportedLanguages** -Element enthält die folgenden Elemente:
+Das **SupportedLanguages**-Element enthält die folgenden Elemente:
 
 | Element | Vorkommen | BESCHREIBUNG |
 | ------- | ----------- | ----------- |
@@ -69,13 +69,13 @@ Das **SupportedLanguages** -Element enthält die folgenden Elemente:
 
 ## <a name="localizedresources"></a>LocalizedResources
 
-Das **LocalizedResources** -Element enthält die folgenden Attribute:
+Das **LocalizedResources**-Element enthält die folgenden Attribute:
 
 | attribute | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
 | Id | Ja | Ein Bezeichner, der zur eindeutigen Identifizierung von lokalisierten Ressourcen verwendet wird. |
 
-Das **LocalizedResources** -Element enthält die folgenden Elemente:
+Das **LocalizedResources**-Element enthält die folgenden Elemente:
 
 | Element | Vorkommen | BESCHREIBUNG |
 | ------- | ----------- | ----------- |
@@ -84,7 +84,7 @@ Das **LocalizedResources** -Element enthält die folgenden Elemente:
 
 ### <a name="localizedcollections"></a>LocalizedCollections
 
-Das **LocalizedCollections** -Element enthält die folgenden Elemente:
+Das **LocalizedCollections**-Element enthält die folgenden Elemente:
 
 | Element | Vorkommen | BESCHREIBUNG |
 | ------- | ----------- | ----------- |
@@ -92,7 +92,7 @@ Das **LocalizedCollections** -Element enthält die folgenden Elemente:
 
 #### <a name="localizedcollection"></a>LocalizedCollection
 
-Das **LocalizedCollection** -Element enthält die folgenden Attribute:
+Das **LocalizedCollection**-Element enthält die folgenden Attribute:
 
 | attribute | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
@@ -100,13 +100,13 @@ Das **LocalizedCollection** -Element enthält die folgenden Attribute:
 | ElementId | Ja | Eine Zeichenfolge mit einem Verweis auf einen Anspruchstyp, der bereits in dem ClaimsSchema-Abschnitt, der bei Festlegung von **ElementType** auf einen Anspruchstyp verwendet wird, definiert wurde. |
 | TargetCollection | Ja | Die Zielsammlung. |
 
-Das **LocalizedCollection** -Element enthält die folgenden Elemente:
+Das **LocalizedCollection**-Element enthält die folgenden Elemente:
 
 | Element | Vorkommen | BESCHREIBUNG |
 | ------- | ----------- | ----------- |
 | Element | 0:n | Definiert eine verfügbare Option für den Benutzer, über die dieser einen Anspruch in der Benutzeroberfläche auswählen kann, z.B. einen Wert in einer Dropdownliste. |
 
-Das **Item** -Element enthält die folgenden Attribute:
+Das **Item**-Element enthält die folgenden Attribute:
 
 | attribute | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
@@ -114,7 +114,7 @@ Das **Item** -Element enthält die folgenden Attribute:
 | Wert | Ja | Der Wert des Zeichenfolgenanspruchs, der der Auswahl dieser Option zugeordnet ist. |
 | SelectByDefault | Nein | Gibt an, ob diese Option auf der Benutzeroberfläche standardmäßig ausgewählt werden soll. Mögliche Werte: „True“ oder „False“. |
 
-Das folgende Beispiel zeigt die Verwendung des **LocalizedCollections** -Elements. Es enthält zwei **LocalizedCollection** -Elemente, eines für Englisch und ein anderes für Spanisch. Beide legen die **Restriction** -Sammlung des Anspruchs `Gender` auf eine Liste von Elementen für Englisch und Spanisch fest.
+Das folgende Beispiel zeigt die Verwendung des **LocalizedCollections**-Elements. Es enthält zwei **LocalizedCollection**-Elemente, eines für Englisch und ein anderes für Spanisch. Beide legen die **Restriction**-Sammlung des Anspruchs `Gender` auf eine Liste von Elementen für Englisch und Spanisch fest.
 
 ```xml
 <LocalizedResources Id="api.selfasserted.en">
@@ -136,13 +136,13 @@ Das folgende Beispiel zeigt die Verwendung des **LocalizedCollections** -Element
 
 ### <a name="localizedstrings"></a>LocalizedStrings
 
-Das **LocalizedStrings** -Element enthält die folgenden Elemente:
+Das **LocalizedStrings**-Element enthält die folgenden Elemente:
 
 | Element | Vorkommen | BESCHREIBUNG |
 | ------- | ----------- | ----------- |
 | LocalizedString | 1:n | Eine lokalisierte Zeichenfolge. |
 
-Das **LocalizedString** -Element enthält die folgenden Attribute:
+Das **LocalizedString**-Element enthält die folgenden Attribute:
 
 | attribute | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
@@ -354,5 +354,5 @@ Im Abschnitt „Metadaten“ eines selbstbestätigten technischen Profils muss f
 
 Die folgenden Artikel enthalten Lokalisierungsbeispiele:
 
-- [Sprachanpassung mit benutzerdefinierter Richtlinie in Azure Active Directory B2C](custom-policy-localization.md)
-- [Sprachanpassung mit Benutzerflows in Azure Active Directory B2C](user-flow-language-customization.md)
+- [Sprachanpassung mit benutzerdefinierter Richtlinie in Azure Active Directory B2C](language-customization.md)
+- [Sprachanpassung mit Benutzerflows in Azure Active Directory B2C](language-customization.md)

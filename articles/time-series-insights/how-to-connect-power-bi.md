@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: 105faf796583eb0f272eea7a316648993fdafd0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 680b3c5a9548fa06d0139bd441b5583c27427a77
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653773"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020775"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Visualisieren der Daten von Azure Time Series Insights in Power BI
 
@@ -32,7 +32,7 @@ Stellen Sie sicher, dass Sie sich für ein [kostenloses Azure-Abonnement](https:
 ## <a name="prerequisites"></a>Voraussetzungen
 
 * Herunterladen und Installieren der aktuellen Version von [Power BI Desktop](https://powerbi.microsoft.com/downloads/)
-* [Azure Time Series Insights Gen2-Umgebung](time-series-insights-update-how-to-manage.md). Erstellen Sie eine, falls Sie nicht über eine solche Umgebung verfügen.
+* [Azure Time Series Insights Gen2-Umgebung](./how-to-provision-manage.md). Erstellen Sie eine, falls Sie nicht über eine solche Umgebung verfügen.
 
 > [!IMPORTANT]
 >
@@ -76,7 +76,7 @@ Erste Schritte:
        [![Warm Storage-Warnung](media/how-to-connect-power-bi/connect-to-power-bi-warning.png)](media/how-to-connect-power-bi/connect-to-power-bi-warning.png#lightbox)
 
        > [!TIP]
-       > Sie können Ihre bestehende Instanz im Azure-Portal für **Warm Storage**konfigurieren.
+       > Sie können Ihre bestehende Instanz im Azure-Portal für **Warm Storage** konfigurieren.
 
 1. Wählen Sie **Abfrage in Zwischenablage kopieren** aus.
 1. Starten Sie jetzt Power BI Desktop.
@@ -130,7 +130,7 @@ Nachdem Sie Ihren Bericht erstellt haben, können Sie ihn in Power BI Reporting 
 
 ## <a name="advanced-editing"></a>Erweiterte Bearbeitung
 
-Wenn Sie bereits ein Dataset in Power BI geladen haben, die Abfrage aber ändern möchten (z. B. Datum/Uhrzeit oder Umgebungs-ID-Parameter), können Sie dies über die „Erweiterter Editor“-Funktion von Power BI erreichen. Weitere Informationen finden Sie in der [Dokumentation zu Power BI](https://docs.microsoft.com/power-bi/desktop-query-overview).
+Wenn Sie bereits ein Dataset in Power BI geladen haben, die Abfrage aber ändern möchten (z. B. Datum/Uhrzeit oder Umgebungs-ID-Parameter), können Sie dies über die „Erweiterter Editor“-Funktion von Power BI erreichen. Weitere Informationen finden Sie in der [Dokumentation zu Power BI](/power-bi/desktop-query-overview).
 
 Als Übersicht:
 
@@ -146,6 +146,6 @@ Die Benutzeroberfläche zeigt nun die gewünschten Änderungen an, die Sie angew
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Weitere Informationen zu Azure Time Series Insights finden Sie unter [Power BI-Connectorkonzepte](https://docs.microsoft.com/power-bi/desktop-query-overview).
+* Weitere Informationen zu Azure Time Series Insights finden Sie unter [Power BI-Connectorkonzepte](/power-bi/desktop-query-overview).
 
-* Weitere Informationen zu [Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-query-overview).
+* Weitere Informationen zu [Power BI Desktop](/power-bi/desktop-query-overview).

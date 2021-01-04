@@ -1,17 +1,17 @@
 ---
 title: 'Gewährleisten der Überprüfung von Azure Database for PostgreSQL: Datenverschlüsselung'
 description: Erfahren Sie, wie Sie die Verschlüsselung von Azure Database for PostgreSQL (Datenverschlüsselung) mit kundenseitig verwalteten Schlüssel überprüfen.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: 0a1b8eaee0a483fb4ce09a33d3c7ca9fe6f980e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ec27cc4f28151214ca97ffb5113607d6b60ee36
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90884341"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240578"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-postgresql"></a>Überprüfen der Datenverschlüsselung für Azure Database for PostgreSQL
 
@@ -27,11 +27,11 @@ Dieser Artikel unterstützt Sie bei der Überprüfung, ob die Datenverschlüssel
     * Wählen Sie den für Serververschlüsselung verwendeten Schlüssel aus.
     * Legen Sie den Status des Schlüssels **Aktiviert** auf **Nein** fest.
   
-       Nach einiger Zeit (**ungefähr 15 Minuten**) sollte der **Status** des Azure Database for PostgreSQL-Servers **Zugriff nicht möglich** lauten. Bei allen E/A-Vorgängen, die auf dem Server ausgeführt werden, tritt ein Fehler auf, der bestätigt, dass der Server tatsächlich mit dem Kundenschlüssel verschlüsselt wurde und der Schlüssel aktuell ungültig ist.
+       Nach einiger Zeit ( **ungefähr 15 Minuten** ) sollte der **Status** des Azure Database for PostgreSQL-Servers **Zugriff nicht möglich** lauten. Bei allen E/A-Vorgängen, die auf dem Server ausgeführt werden, tritt ein Fehler auf, der bestätigt, dass der Server tatsächlich mit dem Kundenschlüssel verschlüsselt wurde und der Schlüssel aktuell ungültig ist.
     
         Um den Server erneut **Verfügbar** zu machen, können Sie den Schlüssel erneut überprüfen. 
     
-    * Legen Sie den Status des Schlüssels in Key Vault auf **Ja**fest.
+    * Legen Sie den Status des Schlüssels in Key Vault auf **Ja** fest.
     * Wählen Sie auf dem Server **Datenverschlüsselung** die Option **Schlüssel erneut überprüfen** aus.
     * Wenn die erneute Überprüfung des Schlüssels erfolgreich war, ändert sich der **Status** des Servers in **Verfügbar**.
 

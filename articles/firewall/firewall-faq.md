@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 75435155ba1dad798d301006a30a5d5b6e96226a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e6ea6692a81a06bbf3180904dfb465a88b105d1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88611176"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653418"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall – Häufig gestellte Fragen
 
@@ -50,7 +50,7 @@ Azure Firewall unterstützt Filter für eingehenden und ausgehenden Datenverkehr
 
 ## <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Welche Protokollierungs- und Analysedienste werden von Azure Firewall unterstützt?
 
-Azure Firewall ist zum Anzeigen und Analysieren von Firewallprotokollen in Azure Monitor integriert. Protokolle können an Log Analytics, Azure Storage oder Event Hubs gesendet werden. Sie können in Log Analytics oder von anderen Tools, wie Excel und Power BI, analysiert werden. Weitere Informationen finden Sie im [Tutorial: Überwachen von Azure Firewall-Protokollen](tutorial-diagnostics.md).
+Azure Firewall ist zum Anzeigen und Analysieren von Firewallprotokollen in Azure Monitor integriert. Protokolle können an Log Analytics, Azure Storage oder Event Hubs gesendet werden. Sie können in Log Analytics oder von anderen Tools, wie Excel und Power BI, analysiert werden. Weitere Informationen finden Sie im [Tutorial: Überwachen von Azure Firewall-Protokollen](./firewall-diagnostics.md).
 
 ## <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>Wie unterscheidet sich die Funktionsweise von Azure Firewall von vorhandenen Diensten wie NVAs im Marketplace?
 
@@ -139,9 +139,9 @@ Nein. Mit NAT-Regeln wird implizit eine entsprechende Netzwerkregel hinzugefügt
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Wie funktionieren Platzhalter in einem FQDN eines Anwendungsregelziels?
 
-Platzhalter können derzeit nur auf der linken Seite des FQDN verwendet werden. Beispiel: „* **.contoso.com**“ und „***contoso.com**“.
+Platzhalter können derzeit nur auf der linken Seite des FQDN verwendet werden. Beispiel: **_.contoso.com_* und **_contoso.com_*.
 
-Wenn Sie * **.contoso.com** konfigurieren, ist *anyvalue*.contoso.com, aber nicht „contoso.com“ (Domäne an der Spitze der Zone) zulässig. Wenn Sie die Domäne an der Spitze der Zone zulassen möchten, müssen Sie sie explizit als Ziel-FQDN konfigurieren.
+Wenn Sie **_.contoso.com_* konfigurieren, ist „*anyvalue*.contoso.com“ zulässig, nicht aber „contoso.com“ (Domänenapex). Wenn Sie die Domäne an der Spitze der Zone zulassen möchten, müssen Sie sie explizit als Ziel-FQDN konfigurieren.
 
 ## <a name="what-does-provisioning-state-failed-mean"></a>Was bedeutet *Bereitstellungsstatus: Fehler*?
 
@@ -205,7 +205,7 @@ Set-AzFirewall -AzureFirewall $fw
 
 ## <a name="why-can-a-tcp-ping-and-similar-tools-successfully-connect-to-a-target-fqdn-even-when-no-rule-on-azure-firewall-allows-that-traffic"></a>Warum kann ein TCP-Ping und können ähnliche Tools eine Verbindung mit einem Ziel-FQDN erfolgreich herstellen, auch wenn keine Regel von Azure Firewall diesen Datenverkehr zulässt?
 
-Ein TCP-Ping stellt tatsächlich keine Verbindung mit dem Ziel-FQDN her. Der Grund dafür: Der transparente Proxy von Azure Firewall lauscht an Port 80/443 für ausgehenden Datenverkehr. Der TCP-Ping stellt eine Verbindung mit der Firewall her, die das Paket dann löscht und die Verbindung protokolliert. Dieses Verhalten hat keinerlei Auswirkung auf die Sicherheit. Um ein Durcheinander zu vermeiden, untersuchen wir jedoch mögliche Änderungen an diesem Verhalten.
+Ein TCP-Ping stellt tatsächlich keine Verbindung mit dem Ziel-FQDN her. Der Grund dafür: Der transparente Proxy von Azure Firewall lauscht an Port 80/443 für ausgehenden Datenverkehr. Das TCP-Pingsignal stellt eine Verbindung mit der Firewall her, die das Paket dann verwirft. Dieses Verhalten hat keinerlei Auswirkung auf die Sicherheit. Um ein Durcheinander zu vermeiden, untersuchen wir jedoch mögliche Änderungen an diesem Verhalten.
 
 ## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>Gibt es Beschränkungen bei der Anzahl von IP-Adressen, die von IP-Gruppen unterstützt werden?
 
@@ -217,7 +217,7 @@ Nein, das Verschieben einer IP-Gruppe in eine andere Ressourcengruppe wird zurze
 
 ## <a name="what-is-the-tcp-idle-timeout-for-azure-firewall"></a>Was ist das TCP-Leerlauftimeout für Azure Firewall?
 
-Das Standardverhalten einer Netzwerkfirewall besteht darin, TCP-Verbindungen aufrechtzuerhalten und sie sofort zu schließen, wenn es keine Aktivität gibt. Das TCP-Leerlauftimeout von Azure Firewall beträgt vier Minuten. Diese Einstellung ist nicht konfigurierbar. Wenn die Dauer einer Inaktivitätsperiode den Timeoutwert überschreitet, gibt es keine Garantie dafür, dass die TCP- oder HTTP-Sitzung aufrechterhalten wird. Eine gängige Methode zur Aufrechterhaltung von Verbindungen ist TCP-Keep-Alive. Dadurch bleibt die Verbindung länger aktiv. Weitere Informationen finden Sie in den [.NET-Beispielen](https://docs.microsoft.com/dotnet/api/system.net.servicepoint.settcpkeepalive?redirectedfrom=MSDN&view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
+Das Standardverhalten einer Netzwerkfirewall besteht darin, TCP-Verbindungen aufrechtzuerhalten und sie sofort zu schließen, wenn es keine Aktivität gibt. Das TCP-Leerlauftimeout von Azure Firewall beträgt vier Minuten. Diese Einstellung ist nicht konfigurierbar. Wenn die Dauer einer Inaktivitätsperiode den Timeoutwert überschreitet, gibt es keine Garantie dafür, dass die TCP- oder HTTP-Sitzung aufrechterhalten wird. Eine gängige Methode zur Aufrechterhaltung von Verbindungen ist TCP-Keep-Alive. Dadurch bleibt die Verbindung länger aktiv. Weitere Informationen finden Sie in den [.NET-Beispielen](/dotnet/api/system.net.servicepoint.settcpkeepalive?view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
 
 ## <a name="can-i-deploy-azure-firewall-without-a-public-ip-address"></a>Kann ich die Azure Firewall ohne eine öffentliche IP-Adresse bereitstellen?
 

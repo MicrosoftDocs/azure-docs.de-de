@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 3a5489241aa15ce105dbe4d89086aff00373ca55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f21db00ecc9ff2668698f53a4d20f5bae525721
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90603967"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95520440"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>Tutorial: Verschieben von Azure-VMs zwischen Regionen
 
@@ -44,7 +44,7 @@ Wenn Sie kein Azure-Abonnement besitzen, erstellen Sie ein [kostenloses Konto](h
 -  Überprüfen Sie, ob Sie *Besitzerzugriff* auf das Abonnement haben, das die zu verschiebenden Ressourcen enthält.
     - Wenn Sie zum ersten Mal eine Ressource für ein bestimmtes Quelle-Ziel-Paar in einem Azure-Abonnement hinzufügen, erstellt Resource Mover eine [vom System zugewiesene verwaltete Identität](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (früher als Managed Service Identify (MSI) bezeichnet), die vom Abonnement als vertrauenswürdig eingestuft wird.
     - Zum Erstellen der Identität und zum Zuweisen der erforderlichen Rolle (Mitwirkender oder Benutzerzugriffsadministrator im Quellabonnement) benötigt das Konto, das Sie zum Hinzufügen von Ressourcen verwenden, Berechtigungen als *Besitzer* für das Abonnement. Hier [erfahren Sie mehr](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) zu Azure-Rollen.
-- Das Abonnement benötigt ein ausreichendes Kontingent zum Erstellen der Ressourcen, die Sie in die Zielregion verschieben. Wenn kein ausreichendes Kontingent vorhanden ist, [fordern Sie eine Heraufsetzung des Kontingents an](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+- Das Abonnement benötigt ein ausreichendes Kontingent zum Erstellen der Ressourcen, die Sie in die Zielregion verschieben. Wenn kein ausreichendes Kontingent vorhanden ist, [fordern Sie eine Heraufsetzung des Kontingents an](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Überprüfen Sie die Preise und Gebühren für die Zielregion, in die Sie virtuelle Computer verschieben. Verwenden Sie hierfür den [Preisrechner](https://azure.microsoft.com/pricing/calculator/).
     
 
@@ -103,7 +103,7 @@ Wählen Sie die Ressourcen aus, die Sie verschieben möchten.
 
 ## <a name="resolve-dependencies"></a>Auflösen von Abhängigkeiten
 
-1. Wenn für Ressourcen in der Spalte **Probleme**die Meldung *Abhängigkeiten überprüfen* angezeigt wird, klicken Sie auf die Schaltfläche **Abhängigkeiten überprüfen**. Der Überprüfungsprozess wird daraufhin begonnen.
+1. Wenn für Ressourcen in der Spalte **Probleme** die Meldung *Abhängigkeiten überprüfen* angezeigt wird, klicken Sie auf die Schaltfläche **Abhängigkeiten überprüfen**. Der Überprüfungsprozess wird daraufhin begonnen.
 2. Wenn Abhängigkeiten gefunden werden, klicken Sie auf **Abhängigkeiten hinzufügen**. 
 3. Wählen Sie unter **Abhängigkeiten hinzufügen** die abhängigen Ressourcen und **Abhängigkeiten hinzufügen** aus. Überwachen Sie den Fortschritt in den Benachrichtigungen.
 
@@ -129,7 +129,7 @@ Beim Vorbereitungsprozess generiert Resource Mover Azure Resource Manager-Vorlag
 
 Gehen Sie zur Vorbereitung wie folgt vor:
 
-1. Wählen Sie unter**Across regions** (Regionsübergreifend) die Quellressourcengruppe und anschließend **Vorbereiten** aus.
+1. Wählen Sie unter **Across regions** (Regionsübergreifend) die Quellressourcengruppe und anschließend **Vorbereiten** aus.
 2. Klicken Sie unter **Ressourcen vorbereiten** auf **Vorbereiten**.
 
     ![Vorbereiten der Ressourcengruppe](./media/tutorial-move-region-virtual-machines/prepare-resource-group.png)
@@ -142,7 +142,7 @@ Gehen Sie zur Vorbereitung wie folgt vor:
 
 Initiieren Sie die Verschiebung wie folgt:
 
-1. Wählen Sie unter**Across regions** (Regionsübergreifend) die Quellressourcengruppe und anschließend **Initiate Move** (Verschiebung initiieren) aus.
+1. Wählen Sie unter **Across regions** (Regionsübergreifend) die Quellressourcengruppe und anschließend **Initiate Move** (Verschiebung initiieren) aus.
 2. Klicken Sie unter **Ressourcen verschieben** auf **Initiate Move** (Verschiebung initiieren). Die Ressourcengruppe wechselt in den Status *Initiate move in progress* (Verschiebung wird initiiert).
 3. Nachdem die Verschiebung initiiert wurde, wird die Zielressourcengruppe basierend auf der generierten ARM-Vorlage erstellt. Die Quellressourcengruppe wechselt in den Status *Commit move pending* (Committen der Verschiebung ausstehend).
 
@@ -150,7 +150,7 @@ Initiieren Sie die Verschiebung wie folgt:
 
 So committen Sie die Verschiebung und schließen sie ab:
 
-1. Wählen Sie unter**Across regions** (Regionsübergreifend) die Quellressourcengruppe und anschließend **Commit move** (Verschiebung committen) aus.
+1. Wählen Sie unter **Across regions** (Regionsübergreifend) die Quellressourcengruppe und anschließend **Commit move** (Verschiebung committen) aus.
 2. Klicken Sie unter **Ressourcen verschieben** auf **Commit**.
 
 > [!NOTE]

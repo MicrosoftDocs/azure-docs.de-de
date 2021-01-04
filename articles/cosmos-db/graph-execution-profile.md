@@ -2,21 +2,21 @@
 title: Verwenden des Ausführungsprofils zur Auswertung von Abfragen in der Gremlin-API für Azure Cosmos DB
 description: Es wird beschrieben, wie Sie für Ihre Gremlin-Abfragen die Problembehandlung durchführen und sie verbessern, indem Sie den Schritt „Ausführungsprofil“ verwenden.
 services: cosmos-db
-author: jasonwhowell
-manager: kfile
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 03/27/2019
-ms.author: jasonh
-ms.openlocfilehash: 2d34c91cab157fcd51d58521d739fcb081fe03ea
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.author: chrande
+ms.openlocfilehash: 18cefb1dd80368a8ccdad9f6f3ffc30881a8a889
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490593"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087484"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Gewusst wie: Verwenden des Schritts „Ausführungsprofil“ zum Auswerten Ihrer Gremlin-Abfragen
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Dieser Artikel enthält eine Übersicht über die Verwendung des Schritts „Ausführungsprofil“ für Graphdatenbanken der Gremlin-API für Azure Cosmos DB. In diesem Schritt werden relevante Informationen zur Problembehandlung und zu Abfrageoptimierungen bereitgestellt. Er ist mit allen Gremlin-Abfragen kompatibel, die für ein Cosmos DB-Gremlin-API-Konto ausgeführt werden können.
 
@@ -220,7 +220,7 @@ Angenommen, für einen **partitionierten Graphen** ergibt sich die folgende Antw
 
 Hieraus können die folgenden Schlüsse gezogen werden:
 - Die Abfrage ist eine Suche nach einer einzelnen ID, da die Gremlin-Anweisung das Muster `g.V('id')` aufweist.
-- Anhand der Metrik `time` lässt sich erkennen, dass die Latenz dieser Abfrage wahrscheinlich hoch ist, da sie [für einen einzelnen Punktlesevorgang über 10 ms beträgt](./introduction.md#guaranteed-low-latency-at-99th-percentile-worldwide).
+- Anhand der Metrik `time` lässt sich erkennen, dass die Latenz dieser Abfrage wahrscheinlich hoch ist, da sie [für einen einzelnen Punktlesevorgang über 10 ms beträgt](./introduction.md#guaranteed-speed-at-any-scale).
 - Wenn wir uns das `storeOps`-Objekt ansehen, ist erkennbar, dass `fanoutFactor` den Wert `5` hat. Dies bedeutet, dass von diesem Vorgang auf [5 Partitionen](./partitioning-overview.md) zugegriffen wurde.
 
 Als Schlussfolgerung dieser Analyse können wir festhalten, dass von der ersten Abfrage auf mehr Partitionen als nötig zugegriffen wird. Dies kann geändert werden, indem der Partitionierungsschlüssel in der Abfrage als Prädikat angegeben wird. Dies führt zu einer niedrigeren Latenz und zu geringeren Kosten pro Abfrage. Informieren Sie sich eingehender über die [Graphpartitionierung](graph-partitioning.md). Eine besser geeignete Abfrage ist `g.V('tt0093640').has('partitionKey', 't1001')`.

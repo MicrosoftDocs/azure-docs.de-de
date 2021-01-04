@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: b90f86576928e44e00c548f4f3ad3c22c27b8bb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 235efc550fd47d4244a5bf081c75d5e824a8e4b4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85829432"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793431"
 ---
 # <a name="split-merge-security-configuration"></a>Split-Merge-Sicherheitskonfiguration
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,18 +32,18 @@ Zertifikate werden auf zwei Arten konfiguriert.
 
 ## <a name="to-obtain-certificates"></a>So rufen Sie Zertifikate ab
 
-Zertifikate können von öffentlichen Zertifizierungsstellen (CAs) oder vom [Windows-Zertifikatdienst](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx)abgerufen werden. Dies sind die bevorzugten Methoden für den Erhalt von Zertifikaten.
+Zertifikate können von öffentlichen Zertifizierungsstellen (CAs) oder vom [Windows-Zertifikatdienst](/windows/win32/seccrypto/certificate-services)abgerufen werden. Dies sind die bevorzugten Methoden für den Erhalt von Zertifikaten.
 
-Wenn diese Optionen nicht verfügbar sind, können Sie **selbstsignierte Zertifikate**generieren.
+Wenn diese Optionen nicht verfügbar sind, können Sie **selbstsignierte Zertifikate** generieren.
 
 ## <a name="tools-to-generate-certificates"></a>Tools zum Erstellen von Zertifikaten
 
-* [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
-* [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
+* [makecert.exe](/previous-versions/dotnet/netframework-4.0/bfsktky3(v=vs.100))
+* [pvk2pfx.exe](/windows-hardware/drivers/devtest/pvk2pfx)
 
 ### <a name="to-run-the-tools"></a>So führen Sie die Tools aus
 
-* An einer Developer-Eingabeaufforderung für Visual Studio; weitere Einzelheiten finden Sie unter [Visual Studio-Eingabeaufforderung](https://msdn.microsoft.com/library/ms229859.aspx) 
+* An einer Developer-Eingabeaufforderung für Visual Studio; weitere Einzelheiten finden Sie unter [Visual Studio-Eingabeaufforderung](/dotnet/framework/tools/developer-command-prompt-for-vs) 
   
     Falls installiert, gehen Sie zu:
   
@@ -441,31 +441,31 @@ Folgen Sie diesen Schritten:
 
 1. Führen Sie "mmc.exe" aus.
 2. Datei -> Snap-In hinzufügen/entfernen…
-3. Wählen Sie **Zertifikate**aus.
-4. Klicken Sie auf **Hinzufügen**.
+3. Wählen Sie **Zertifikate** aus.
+4. Klicken Sie auf **Hinzufügen** .
 5. Wählen Sie den Speicherort des Zertifikats aus.
-6. Klicken Sie auf **Fertig stellen**.
-7. Klicken Sie auf **OK**.
-8. Erweitern Sie **Zertifikate**.
+6. Klicken Sie auf **Fertig stellen** .
+7. Klicken Sie auf **OK** .
+8. Erweitern Sie **Zertifikate** .
 9. Erweitern Sie den Knoten des Zertifikatspeichers.
 10. Erweitern Sie den untergeordneten Knoten "Zertifikat".
 11. Wählen Sie ein Zertifikat aus der Liste aus.
 
 ## <a name="export-certificate"></a>Exportieren des Zertifikats
-Gehen Sie im **Zertifikatexport-Assistenten**wie folgt vor:
+Gehen Sie im **Zertifikatexport-Assistenten** wie folgt vor:
 
-1. Klicken Sie auf **Weiter**.
+1. Klicken Sie auf **Weiter** .
 2. Wählen Sie Ja **und** dann **Privaten Schlüssel exportieren** aus.
-3. Klicken Sie auf **Weiter**.
+3. Klicken Sie auf **Weiter** .
 4. Wählen Sie das gewünschte Ausgabeformat für die Datei aus.
 5. Aktivieren Sie die gewünschten Optionen.
-6. Aktivieren Sie **Kennwort**.
+6. Aktivieren Sie **Kennwort** .
 7. Geben Sie ein sicheres Kennwort ein, und bestätigen Sie es.
-8. Klicken Sie auf **Weiter**.
+8. Klicken Sie auf **Weiter** .
 9. Geben einen Dateinamen für das Speichern des Zertifikats ein, oder suchen Sie danach (verwenden Sie die Dateierweiterung .PFX).
-10. Klicken Sie auf **Weiter**.
-11. Klicken Sie auf **Fertig stellen**.
-12. Klicken Sie auf **OK**.
+10. Klicken Sie auf **Weiter** .
+11. Klicken Sie auf **Fertig stellen** .
+12. Klicken Sie auf **OK** .
 
 ## <a name="import-certificate"></a>Importieren des Zertifikats
 Gehen Sie im Zertifikatimport-Assistenten wie folgt vor:
@@ -474,26 +474,26 @@ Gehen Sie im Zertifikatimport-Assistenten wie folgt vor:
    
    * Wählen Sie **Aktueller Benutzer** aus, wenn nur Prozesse, die unter dem aktuellen Benutzer ausgeführt werden, auf den Dienst zugreifen.
    * Wählen Sie **Lokaler Computer** aus, wenn andere Prozesse auf diesem Computer auf den Dienst zugreifen.
-2. Klicken Sie auf **Weiter**.
+2. Klicken Sie auf **Weiter** .
 3. Wenn Sie Daten aus einer Datei importieren, bestätigen Sie den Dateipfad.
 4. Beim Importieren einer.PFX-Datei:
    1. Geben Sie das Kennwort ein, das den privaten Schlüssel schützt.
    2. Wählen Sie die Importoptionen aus.
 5. Wählen Sie "Alle Zertifikate in folgendem Speicher speichern" aus.
-6. Klicken Sie auf **Durchsuchen**.
+6. Klicken Sie auf **Durchsuchen** .
 7. Wählen Sie den gewünschten Speicher aus.
-8. Klicken Sie auf **Fertig stellen**.
+8. Klicken Sie auf **Fertig stellen** .
    
-   * Wenn der Speicher vertrauenswürdiger Stammzertifizierungsstellen ausgewählt wurde, klicken Sie auf **Ja**.
+   * Wenn der Speicher vertrauenswürdiger Stammzertifizierungsstellen ausgewählt wurde, klicken Sie auf **Ja** .
 9. Klicken Sie in allen Dialogfeldern auf **OK** .
 
 ## <a name="upload-certificate"></a>Hochladen des Zertifikats
 Gehen Sie im [Azure-Portal](https://portal.azure.com/) wie folgt vor:
 
-1. Wählen Sie **Cloud-Dienste**.
+1. Wählen Sie **Cloud-Dienste** .
 2. Wählen Sie den Clouddienst aus.
-3. Klicken Sie im oberen Menü auf **Zertifikate**.
-4. Klicken Sie auf der unteren Leiste auf **Hochladen**.
+3. Klicken Sie im oberen Menü auf **Zertifikate** .
+4. Klicken Sie auf der unteren Leiste auf **Hochladen** .
 5. Wählen Sie die Zertifikatdatei aus.
 6. Wenn es sich um eine PFX-Datei handelt, geben Sie das Kennwort für den privaten Schlüssel ein.
 7. Nach Abschluss kopieren Sie den Zertifikatfingerabdruck aus dem neuen Eintrag in der Liste.
@@ -508,4 +508,3 @@ Die in diesem Dokument beschriebenen TLS-Einstellungen verschlüsseln die Kommun
 In dieser Datenbank gespeicherte Anmeldeinformationen werden verschlüsselt. Stellen Sie als bewährte Methode außerdem sicher, dass die Web- und Worker-Rollen der Dienstbereitstellungen immer aktualisiert und sicher sind, da beide Zugriff auf die Metadaten-Datenbank und das Zertifikat haben, das für die Verschlüsselung und Entschlüsselung von gespeicherten Anmeldeinformationen verwendet wird. 
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
-

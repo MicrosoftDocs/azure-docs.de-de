@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: fasttrack-edit, iot
 services: iot-dps
-ms.openlocfilehash: 1dc97f92e6139475d0d5ac5ea1201d6ff6b8d470
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45a2b7a64006ab6963290be3ac86a3a5d1e4916d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532323"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010978"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Gewusst wie: Verwalten von Geräteregistrierungen mit Azure Device Provisioning Service-SDKs
 Eine *Geräteregistrierung* erstellt einen Datensatz eines einzelnen Geräts oder einer Gruppe von Geräten, die sich jederzeit beim Device Provisioning-Dienst registrieren können. Der Registrierungsdatensatz enthält die erste gewünschte Konfiguration für die Geräte im Rahmen dieser Registrierung, einschließlich des gewünschten IoT Hubs. In diesem Artikel wird erläutert, wie Geräteregistrierungen für Ihren Bereitstellungsdienst programmgesteuert mithilfe von Azure IoT Provisioning Service-SDKs verwaltet werden.  Die SDKs sind auf GitHub im gleichen Repository wie Azure IoT-SDKs verfügbar.
@@ -21,12 +21,12 @@ Eine *Geräteregistrierung* erstellt einen Datensatz eines einzelnen Geräts ode
 ## <a name="prerequisites"></a>Voraussetzungen
 * Rufen Sie die Verbindungszeichenfolge für die Device Provisioning-Dienstinstanz ab.
 * Rufen Sie die Gerätesicherheitsartefakte für den [Nachweismechanismus](concepts-service.md#attestation-mechanism) ab:
-    * [**Trusted Platform Module (TPM)** ](/azure/iot-dps/concepts-security#trusted-platform-module):
+    * [**Trusted Platform Module (TPM)**](./concepts-tpm-attestation.md):
         * Individuelle Registrierung: Registrierungs-ID und TPM Endorsement Key eines physischen Geräts oder TPM-Simulators
         * Die Registrierungsgruppe gilt nicht als TPM-Nachweis.
-    * [**X.509**](/azure/iot-dps/concepts-security):
-        * Individuelle Registrierung: Das [untergeordnetes Zertifikat](/azure/iot-dps/concepts-security) eines physischen Geräts oder des SDK-[DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)-Emulators.
-        * Registrierungsgruppe: [ZS-/Stammzertifikat](/azure/iot-dps/concepts-security#root-certificate) oder [Zwischenzertifikat](/azure/iot-dps/concepts-security#intermediate-certificate) zum Generieren eines Gerätezertifikats auf einem physischen Gerät.  Dieses kann auch über den SDK-DICE-Emulator generiert werden.
+    * [**X.509**](./concepts-service.md#attestation-mechanism):
+        * Individuelle Registrierung: Das [untergeordnetes Zertifikat](./concepts-service.md#attestation-mechanism) eines physischen Geräts oder des SDK-[DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)-Emulators.
+        * Registrierungsgruppe: [ZS-/Stammzertifikat](./concepts-x509-attestation.md#root-certificate) oder [Zwischenzertifikat](./concepts-x509-attestation.md#intermediate-certificate) zum Generieren eines Gerätezertifikats auf einem physischen Gerät.  Dieses kann auch über den SDK-DICE-Emulator generiert werden.
 * Die genauen API-Aufrufe können aufgrund von Sprachunterschieden voneinander abweichen. Überprüfen Sie die Beispiele, die wir auf GitHub als weitergehende Informationsquelle bereitstellen:
    * [Java Provisioning Service Client samples (Beispiele für den Bereitstellungsdienstclient für Java)](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
    * [Node.js Provisioning Service Client samples (Beispiele für den Bereitstellungsdienstclient für Node.js)](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
@@ -35,7 +35,7 @@ Eine *Geräteregistrierung* erstellt einen Datensatz eines einzelnen Geräts ode
 ## <a name="create-a-device-enrollment"></a>Erstellen einer Geräteregistrierung
 Sie haben zwei Möglichkeiten, Ihre Geräte beim Bereitstellungsdienst zu registrieren:
 
-* Eine **Registrierungsgruppe** ist ein Eintrag für eine Gruppe von Geräten mit einem gemeinsamen Nachweismechanismus von X. 509-Zertifikaten, signiert vom [Stammzertifikat](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) oder [Zwischenzertifikat](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate). Es empfiehlt sich, eine Registrierungsgruppe für eine große Anzahl von Geräten, die eine gewünschte Erstkonfiguration gemeinsam nutzen, oder für Geräte zu verwenden, die alle demselben Mandanten zugeordnet sind. Beachten Sie, dass Sie nur Geräte registrieren können, die den X. 509-Nachweismechanismus als *Registrierungsgruppen* verwenden. 
+* Eine **Registrierungsgruppe** ist ein Eintrag für eine Gruppe von Geräten mit einem gemeinsamen Nachweismechanismus von X. 509-Zertifikaten, signiert vom [Stammzertifikat](./concepts-x509-attestation.md#root-certificate) oder [Zwischenzertifikat](./concepts-x509-attestation.md#intermediate-certificate). Es empfiehlt sich, eine Registrierungsgruppe für eine große Anzahl von Geräten, die eine gewünschte Erstkonfiguration gemeinsam nutzen, oder für Geräte zu verwenden, die alle demselben Mandanten zugeordnet sind. Beachten Sie, dass Sie nur Geräte registrieren können, die den X. 509-Nachweismechanismus als *Registrierungsgruppen* verwenden. 
 
     Anhand des folgenden Workflows können Sie eine Registrierungsgruppe mit den SDKs erstellen:
 

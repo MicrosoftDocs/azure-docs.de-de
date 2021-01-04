@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/19/2020
-ms.openlocfilehash: 6d4d9fd901337b9c05c7d7d7f271974273e9fe37
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.openlocfilehash: 502c48a92f5b41c4434d03139335a0ce05fa451f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170073"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896972"
 ---
 # <a name="tutorial-connect-to-a-web-app-using-an-azure-private-endpoint"></a>Tutorial: Herstellen einer Verbindung mit einer Web-App mithilfe eines privaten Azure-Endpunkts
 
@@ -46,7 +46,7 @@ In diesem Abschnitt erstellen Sie ein virtuelles Netzwerk, ein Subnetz und einen
 
 Der Bastion-Host wird verwendet, um eine sichere Verbindung mit dem virtuellen Computer herzustellen, um den privaten Endpunkt zu testen.
 
-1. Wählen Sie links oben auf dem Bildschirm **Ressource erstellen > Netzwerk > Virtuelles Netzwerk** aus, oder suchen Sie über das Suchfeld nach **Virtuelles Netzwerk** .
+1. Wählen Sie links oben auf dem Bildschirm **Ressource erstellen > Netzwerk > Virtuelles Netzwerk** aus, oder suchen Sie über das Suchfeld nach **Virtuelles Netzwerk**.
 
 2. Geben Sie unter **Virtuelles Netzwerk erstellen** auf der Registerkarte **Grundlegende Einstellungen** die folgenden Informationen ein, oder wählen Sie sie aus:
 
@@ -57,7 +57,7 @@ Der Bastion-Host wird verwendet, um eine sichere Verbindung mit dem virtuellen C
     | Ressourcengruppe   | Wählen Sie **myResourceGroup** aus. |
     | **Instanzendetails** |                                                                 |
     | Name             | Geben Sie **myVNet** ein.                                    |
-    | Region           | Wählen Sie **USA, Osten** aus. |
+    | Region           | Wählen Sie **Europa, Westen** aus. |
 
 3. Wählen Sie die Registerkarte **IP-Adressen** oder die Schaltfläche **Weiter: IP-Adressen** am unteren Seitenrand aus.
 
@@ -86,19 +86,19 @@ Der Bastion-Host wird verwendet, um eine sichere Verbindung mit dem virtuellen C
     |--------------------|----------------------------|
     | Bastion-Name | Geben Sie **myBastionHost** ein. |
     | AzureBastionSubnet-Adressraum | Geben Sie **10.1.1.0/24** ein. |
-    | Öffentliche IP-Adresse | Wählen Sie **Neu erstellen** . </br> Geben Sie **myBastionIP** als **Name** ein. </br> Klicken Sie auf **OK** . |
+    | Öffentliche IP-Adresse | Wählen Sie **Neu erstellen**. </br> Geben Sie **myBastionIP** als **Name** ein. </br> Klicken Sie auf **OK**. |
 
 
 8. Wählen Sie die Registerkarte **Überprüfen + erstellen** oder die Schaltfläche **Überprüfen + erstellen** aus.
 
-9. Klicken Sie auf **Erstellen** .
+9. Klicken Sie auf **Erstellen**.
 
 ## <a name="create-a-virtual-machine"></a>Erstellen eines virtuellen Computers
 
 In diesem Abschnitt erstellen Sie einen virtuellen Computer zum Testen des privaten Endpunkts.
 
 
-1. Wählen Sie oben links im Portal die Option **Ressource erstellen** > **Compute** > **Virtueller Computer** aus, oder suchen Sie über das Suchfeld nach **Virtueller Computer** .
+1. Wählen Sie oben links im Portal die Option **Ressource erstellen** > **Compute** > **Virtueller Computer** aus, oder suchen Sie über das Suchfeld nach **Virtueller Computer**.
    
 2. Geben Sie unter **Virtuellen Computer erstellen** auf der Registerkarte **Grundlagen** die folgenden Werte ein, oder wählen Sie sie aus:
 
@@ -109,7 +109,7 @@ In diesem Abschnitt erstellen Sie einen virtuellen Computer zum Testen des priva
     | Ressourcengruppe | Wählen Sie **myResourceGroup** aus. |
     | **Instanzendetails** |  |
     | Name des virtuellen Computers | Geben Sie **myVM** ein. |
-    | Region | Wählen Sie **USA, Osten** aus. |
+    | Region | Wählen Sie **Europa, Westen** aus. |
     | Verfügbarkeitsoptionen | Wählen Sie **Keine Infrastrukturredundanz erforderlich** aus. |
     | Image | Wählen Sie **Windows Server 2019 Datacenter – Gen1** aus. |
     | Azure Spot-Instanz | Wählen Sie **Nein** aus. |
@@ -130,17 +130,17 @@ In diesem Abschnitt erstellen Sie einen virtuellen Computer zum Testen des priva
     | Subnet | **mySubnet** |
     | Öffentliche IP-Adresse | Wählen Sie **Keine** aus. |
     | NIC-Netzwerksicherheitsgruppe | **Grundlegend**|
-    | Öffentliche Eingangsports | Wählen Sie **Keine** . |
+    | Öffentliche Eingangsports | Wählen Sie **Keine**. |
    
-5. Klicken Sie auf **Überprüfen + erstellen** . 
+5. Klicken Sie auf **Überprüfen + erstellen**. 
   
-6. Überprüfen Sie die Einstellungen, und wählen Sie dann die Option **Erstellen** .
+6. Überprüfen Sie die Einstellungen, und wählen Sie dann die Option **Erstellen**.
 
 ## <a name="create-web-app"></a>Erstellen einer Web-App
 
 In diesem Abschnitt erstellen Sie eine Web-App.
 
-1. Wählen Sie im linken Menü **Ressource erstellen** > **Speicher** > **Web-App** aus, oder suchen Sie über das Suchfeld nach **Web-App** .
+1. Wählen Sie im linken Menü **Ressource erstellen** > **Speicher** > **Web-App** aus, oder suchen Sie über das Suchfeld nach **Web-App**.
 
 2. Geben Sie auf der Registerkarte **Grundlagen** von **Web-App erstellen** die folgenden Informationen ein, bzw. wählen Sie sie aus:
 
@@ -154,14 +154,14 @@ In diesem Abschnitt erstellen Sie eine Web-App.
     | Veröffentlichen | Wählen Sie **Code** aus. |
     | Laufzeitstapel | Wählen Sie **.NET Core 3.1 (LTS)** aus. |
     | Betriebssystem | Wählen Sie **Windows** aus. |
-    | Region | Wählen Sie **USA, Osten** aus. |
+    | Region | Wählen Sie **Europa, Westen** aus. |
     | **App Service-Plan** |  |
-    | Windows-Plan (USA, Osten) | Wählen Sie **Neu erstellen** . </br> Geben Sie **myServicePlan** in **Name** ein. |
-    | SKU und Größe | Wählen Sie **Größe ändern** aus. </br> Wählen Sie **P2V2** im Bildschirm **Spezifikationsauswahl** aus. </br> Wählen Sie **Übernehmen** . |
+    | Windows-Plan (Europa, Westen) | Wählen Sie **Neu erstellen**. </br> Geben Sie **myServicePlan** in **Name** ein. |
+    | SKU und Größe | Wählen Sie **Größe ändern** aus. </br> Wählen Sie **P2V2** im Bildschirm **Spezifikationsauswahl** aus. </br> Wählen Sie **Übernehmen**. |
    
-3. Klicken Sie auf **Überprüfen + erstellen** .
+3. Klicken Sie auf **Überprüfen + erstellen**.
 
-4. Klicken Sie auf **Erstellen** .
+4. Klicken Sie auf **Erstellen**.
 
     :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/create-web-app.png" alt-text="Registerkarte „Grundlagen“ von „Web-App erstellen“ im Azure-Portal." border="true":::
 
@@ -185,7 +185,7 @@ In diesem Abschnitt erstellen Sie eine Web-App.
     | Subnet | Wählen Sie **mySubnet** aus. |
     | Integration in eine private DNS-Zone | Wählen Sie **Ja** aus. |
 
-6. Klicken Sie auf **OK** .
+6. Klicken Sie auf **OK**.
     
 
 ## <a name="test-connectivity-to-private-endpoint"></a>Testen der Verbindung mit dem privaten Endpunkt
@@ -220,21 +220,21 @@ In diesem Abschnitt verwenden Sie den virtuellen Computer, den Sie im vorherigen
 
     Als Name der Web-App wird die private IP-Adresse **10.1.0.5** zurückgegeben.  Diese Adresse befindet sich in dem Subnetz des virtuellen Netzwerks, das Sie zuvor erstellt haben.
 
-9. Öffnen Sie einen Webbrowser auf Ihrem lokalen Computer, und geben Sie die externe URL Ihrer Web-App ein: **https://\<webapp-name>.azurewebsites.net** .
+9. Öffnen Sie einen Webbrowser auf Ihrem lokalen Computer, und geben Sie die externe URL Ihrer Web-App ein: **https://\<webapp-name>.azurewebsites.net**.
 
 10. Vergewissern Sie sich, dass eine Seite **403** angezeigt wird. Diese Seite zeigt an, dass nicht von extern auf die Web-App zugegriffen werden kann.
 
-    :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-ext-403.png" alt-text="Registerkarte „Grundlagen“ von „Web-App erstellen“ im Azure-Portal." border="true":::
+    :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-ext-403.png" alt-text="403-Seite für externe Web-App-Adresse." border="true":::
 
 11. Öffnen Sie in der Bastionhostverbindung mit **myVM** den Internet Explorer.
 
-12. Geben Sie die URL Ihrer Web-App ein: **https://\<webapp-name>.azurewebsites.net** .
+12. Geben Sie die URL Ihrer Web-App ein: **https://\<webapp-name>.azurewebsites.net**.
 
 13. Vergewissern Sie sich, dass die Standardseite der Web-App angezeigt wird.
 
-    :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-default-page.png" alt-text="Registerkarte „Grundlagen“ von „Web-App erstellen“ im Azure-Portal." border="true":::
+    :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-default-page.png" alt-text="Standardseite der Web-App." border="true":::
 
-18. Trennen Sie die Verbindung zu **myVM** .
+18. Trennen Sie die Verbindung zu **myVM**.
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
@@ -244,11 +244,11 @@ Falls Sie diese Anwendung nicht mehr benötigen, löschen Sie die das virtuelle 
 
 2. Wählen Sie **myResourceGroup** aus.
 
-3. Wählen Sie die Option **Ressourcengruppe löschen** .
+3. Wählen Sie die Option **Ressourcengruppe löschen**.
 
 4. Geben Sie unter **RESSOURCENGRUPPENNAMEN EINGEBEN** den Namen **myResourceGroup** ein.
 
-5. Klicken Sie auf **Löschen** .
+5. Klicken Sie auf **Löschen**.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

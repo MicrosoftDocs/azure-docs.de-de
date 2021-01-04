@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2020
+ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 315183040515110a6a21afcd00e12d1b12313170
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 64fa6c72e3bc37276dd108e3981bbefb5a2021a7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341837"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444513"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Häufig gestellte Fragen: Datensammlung, Agents und Arbeitsbereiche
 
@@ -86,9 +86,9 @@ Der Speicherort des standardmäßigen Arbeitsbereichs hängt von Ihrer Azure-Reg
 - Bei virtuellen Computern in Australien befindet sich der Arbeitsbereich in Australien.
 
 
-## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>Welche Daten erfasst der Log Analytics-Agent?
+## <a name="what-security-events-are-collected-by-the-log-analytics-agent"></a>Welche Sicherheitsereignisse werden vom Log Analytics-Agent erfasst?
 
-Eine vollständige Liste der vom Agent überwachten Anwendungen und Dienste finden Sie unter [Was wird von Azure Monitor überwacht?](../azure-monitor/monitor-reference.md#azure-services).
+Eine vollständige Liste mit den Sicherheitsereignissen, die vom Agent gesammelt werden, finden Sie unter [Welche Ereignistypen werden für die Einstellungen „Allgemein“ und „Minimal“ gespeichert?](security-center-enable-data-collection.md#what-event-types-are-stored-for-common-and-minimal).
 
 > [!IMPORTANT]
 > Wenn Sie die Protokollierung aktiviert und eine sehr aktive Ressource zum Protokollieren ausgewählt haben (z. B. das Protokoll auf *ausführlich* festgelegt haben), könnte dies bei einigen Diensten wie Azure-Firewall erhebliche Auswirkungen auf die Speicheranforderungen Ihres Log Analytics-Arbeitsbereichs haben. 
@@ -109,14 +109,19 @@ Sie können einen vorhandenen Log Analytics-Arbeitsbereich zum Speichern der von
 
 So wählen Sie einen vorhandenen Log Analytics-Arbeitsbereich aus:
 
-1. Wählen Sie unter **Sicherheitsrichtlinie – Datensammlung** die Option **Use another workspace** (Anderen Arbeitsbereich verwenden) aus.
+1. Wählen Sie im Menü von Security Center **Preise und Einstellungen** aus.
+1. Wählen Sie das relevante Abonnement aus.
+1. Öffnen Sie die Seite **Automatische Bereitstellung**.
+1. Wählen Sie für den Log Analytics-Agent **Konfiguration bearbeiten** aus. 
 
-    ![Verwenden eines anderen Arbeitsbereichs][4]
+    :::image type="content" source="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png" alt-text="Die Konfiguration des Log Analytics-Agents, der bei Verwendung der automatischen Bereitstellung verwendet werden soll" lightbox="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png":::
 
-1. Wählen Sie im Pulldownmenü einen Arbeitsbereich zum Speichern der gesammelten Daten aus.
+1. Wählen Sie **Azure-VMs mit einem anderen Arbeitsbereich verbinden** und dann den vorhandenen Arbeitsbereich aus.
 
-    > [!NOTE]
-    > Das Pulldownmenü enthält nur Arbeitsbereiche, auf die Sie Zugriff haben und die sich in Ihrem Azure-Abonnement befinden.
+    :::image type="content" source="./media/security-center-enable-data-collection/choose-workspace.png" alt-text="Auswählen eines nicht standardmäßigen Arbeitsbereichs, an den der Log Analytics-Agent berichten soll" lightbox="./media/security-center-enable-data-collection/choose-workspace.png":::
+
+    > [!TIP]
+    > Die Liste enthält nur Arbeitsbereiche, auf die Sie Zugriff haben und die in Ihrem Azure-Abonnement enthalten sind.
 
 1. Wählen Sie **Speichern** aus. Sie werden gefragt, ob Sie überwachte virtuelle Computer neu konfigurieren möchten.
 
@@ -126,7 +131,6 @@ So wählen Sie einen vorhandenen Log Analytics-Arbeitsbereich aus:
     > [!NOTE]
     > Wenn Sie **Ja** auswählen, löschen Sie die von Security Center erstellten Arbeitsbereiche erst, wenn alle virtuellen Computer mit dem neuen Zielarbeitsbereich verbunden sind. Dieser Vorgang ist nicht erfolgreich, wenn ein Arbeitsbereich zu früh gelöscht wird.
 
-    - Wenn Sie den Vorgang abbrechen möchten, klicken Sie auf **Abbrechen**.
 
 ## <a name="what-if-the-log-analytics-agent-was-already-installed-as-an-extension-on-the-vm"></a>Was passiert, wenn der Log Analytics-Agent bereits als Erweiterung auf der VM installiert wurde?<a name="mmaextensioninstalled"></a>
 
@@ -164,12 +168,17 @@ Wenn Sie die Microsoft Monitoring-Erweiterung entfernen, kann Security Center ke
 
 Sie können die automatische Bereitstellung für Ihre Abonnements in der Sicherheitsrichtlinie deaktivieren, dies wird jedoch nicht empfohlen. Die Deaktivierung der automatischen Bereitstellung schränkt die Empfehlungen und Warnungen von Security Center ein. So deaktivieren Sie die automatische Bereitstellung:
 
-1. Wenn für Ihr Abonnement Azure Defender aktiviert ist, öffnen Sie die Sicherheitsrichtlinie für dieses Abonnement, und wählen Sie **Azure Defender aus** aus.
+1. Wählen Sie im Menü von Security Center **Preise und Einstellungen** aus.
+1. Wählen Sie das relevante Abonnement aus.
+1. Wenn für Ihr Abonnement Azure Defender aktiviert ist, öffnen Sie **Azure Defender-Pläne**, und wählen Sie **Azure Defender aus** aus.
 
     :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Aktivieren oder Deaktivieren von Azure Defender":::
 
-1. Deaktivieren Sie als Nächstes die automatische Bereitstellung, indem Sie auf der Seite **Sicherheitsrichtlinie – Datensammlung** auf **Aus** klicken.
-   ![Datensammlung][2]
+1. Wählen Sie auf der Seite **Automatische Bereitstellung** den Stift aus, und deaktivieren Sie die automatische Bereitstellung auf der Seite **Sicherheitsrichtlinie – Datensammlung**.
+
+    :::image type="content" source="./media/security-center-enable-data-collection/agent-toggles.png" alt-text="Aktivieren der automatischen Bereitstellung für den Log Analytics-Agent":::
+
+1. Wählen Sie **Speichern** aus.
 
 
 ## <a name="should-i-opt-out-of-the-automatic-agent-installation-and-workspace-creation"></a>Sollte ich die automatische Agent-Installation und Arbeitsbereicherstellung deaktivieren?
@@ -232,13 +241,11 @@ Die automatische Bereitstellung wird dringend empfohlen, um Sicherheitswarnungen
 
 Wenn Sie sie aktiviert haben, aber jetzt deaktivieren möchten:
 
-1. Öffnen Sie im [Azure-Portal](https://portal.azure.com) das **Security Center**, und wählen Sie **Sicherheitsrichtlinie** aus.
+1. Öffnen Sie im [Azure-Portal](https://portal.azure.com) das **Security Center**, und wählen Sie **Preise und Einstellungen** aus.
 
 1. Wählen Sie das Abonnement aus, für das Sie die automatische Bereitstellung deaktivieren möchten.
 
-    **Sicherheitsrichtlinie – Datensammlung** wird geöffnet.
-
-1. Wählen Sie unter **Automatische Bereitstellung** die Option **Aus** aus.
+1. Schalten Sie unter **Automatische Bereitstellung** die Umschaltfläche	für den Log Analytics-Agent aus.
 
 
 ## <a name="how-do-i-enable-data-collection"></a>Wie aktiviere ich die Datensammlung?

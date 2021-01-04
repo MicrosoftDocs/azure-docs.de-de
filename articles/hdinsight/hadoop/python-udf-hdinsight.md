@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
-ms.openlocfilehash: 9c16b3ff013c2985ea381ed4bb002276b1c3fdb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0179fd10e75af0ced55b4bb41f9525dc26b3efe5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462240"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023073"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Verwenden benutzerdefinierter Python-Funktionen mit Apache Hive und Apache Pig in HDInsight
 
@@ -31,7 +31,7 @@ HDInsight enthält außerdem Jython, eine in Java geschriebene Python-Implementi
 * **SSH-Client**. Weitere Informationen finden Sie unter [Herstellen einer Verbindung mit HDInsight (Hadoop) per SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 * Das [URI-Schema](../hdinsight-hadoop-linux-information.md#URI-and-scheme) für Ihren primären Clusterspeicher. Dies ist `wasb://` für Azure Storage, `abfs://` für Azure Data Lake Storage Gen2 oder adl:// für Azure Data Lake Storage Gen1. Wenn die sichere Übertragung für Azure Storage aktiviert ist, lautet der URI wasbs://.  Siehe auch [Vorschreiben einer sicheren Übertragung in Azure Storage](../../storage/common/storage-require-secure-transfer.md).
 * **Mögliche Änderungen an der Speicherkonfiguration**.  Wenn Sie ein Speicherkonto vom Typ `BlobStorage` verwenden, helfen Ihnen die Informationen unter [Speicherkonfiguration](#storage-configuration) weiter.
-* Optional.  Wenn Sie PowerShell verwenden möchten, müssen Sie das [Az-Modul](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) installieren.
+* Optional.  Wenn Sie PowerShell verwenden möchten, müssen Sie das [Az-Modul](/powershell/azure/new-azureps-module-az) installieren.
 
 > [!NOTE]  
 > Das in diesem Artikel verwendete Speicherkonto war vom Typ „Azure Storage mit aktivierter [sicherer Übertragung](../../storage/common/storage-require-secure-transfer.md)“, und deshalb wird im gesamten Artikel `wasbs` verwendet.
@@ -46,7 +46,7 @@ Es ist keine Aktion erforderlich, wenn das verwendete Speicherkonto vom Typ `Sto
 > * Sie erstellen die Python-Skripts in der lokalen Entwicklungsumgebung.
 > * Sie laden die Skripts entweder mit dem `scp`-Befehl oder dem bereitgestellten PowerShell-Skript in HDInsight hoch.
 >
-> Gehen Sie wie folgt vor, wenn Sie die [Azure Cloud Shell (Bash)](https://docs.microsoft.com/azure/cloud-shell/overview) für die Verwendung von HDInsight verwenden möchten:
+> Gehen Sie wie folgt vor, wenn Sie die [Azure Cloud Shell (Bash)](../../cloud-shell/overview.md) für die Verwendung von HDInsight verwenden möchten:
 >
 > * die Skripts in der Cloud Shell-Umgebung erstellen.
 > * `scp` zum Hochladen der Dateien aus Cloud Shell in HDInsight verwenden.
@@ -594,7 +594,7 @@ Die Fehlerinformationen (STDERR) und das Ergebnis des Auftrags (STDOUT) werden a
 
 ## <a name="next-steps"></a><a name="next"></a>Nächste Schritte
 
-Wenn Sie Python-Module laden müssen, die standardmäßig nicht bereitgestellt werden, lesen Sie [Bereitstellen eines Moduls für Azure HDInsight](https://docs.microsoft.com/archive/blogs/benjguin/how-to-deploy-a-python-module-to-windows-azure-hdinsight).
+Wenn Sie Python-Module laden müssen, die standardmäßig nicht bereitgestellt werden, lesen Sie [Bereitstellen eines Moduls für Azure HDInsight](/archive/blogs/benjguin/how-to-deploy-a-python-module-to-windows-azure-hdinsight).
 
 Informationen zu anderen Möglichkeiten der Verwendung von Pig und Hive sowie Informationen zur Verwendung von MapReduce finden Sie in diesen Dokumenten:
 

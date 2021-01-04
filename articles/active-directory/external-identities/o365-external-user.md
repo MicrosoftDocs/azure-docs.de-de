@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 06/24/2020
+ms.date: 11/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0950c92b5a7bb1e782537aa46acad2e949e565c7
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 35ffae55e749c7493b9cd8af13dfd5216abf5822
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441792"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515505"
 ---
 # <a name="microsoft-365-external-sharing-and-azure-active-directory-azure-ad-b2b-collaboration"></a>Externe Microsoft 365-Freigaben und Azure Active Directory B2B-Zusammenarbeit
 
@@ -32,7 +32,7 @@ OneDrive/SharePoint Online hat einen separaten Einladung-Manager. Unterstützung
 
 - In Azure AD B2B-Zusammenarbeit eingeladene Benutzer können in Freigabedialogfeldern von OneDrive/SharePoint Online ausgewählt werden. Benutzer, die über OneDrive/SharePoint Online eingeladen wurden, werden nach dem Einlösen der Einladung auch in Azure AD angezeigt.
 
-- Die Lizenzbedingungen unterscheiden sich. Für jede kostenpflichtige Azure AD-Lizenz können Sie bis zu 5 Gastbenutzern Zugriff auf Ihre kostenpflichtigen Azure AD-Features gewähren. Weitere Informationen zur Lizenzierung finden Sie unter [Azure AD B2B-Lizenzierung](./external-identities-pricing.md) und [„Was ist ein externer Benutzer?“ in der Übersicht über die externe SharePoint Online-Freigabe](/sharepoint/external-sharing-overview#what-happens-when-users-share).
+- Die Lizenzbedingungen unterscheiden sich. Weitere Informationen zur Lizenzierung finden Sie unter [Azure AD B2B-Lizenzierung](./external-identities-pricing.md) und [„Was ist ein externer Benutzer?“ in der Übersicht über die externe SharePoint Online-Freigabe](/sharepoint/external-sharing-overview#what-happens-when-users-share).
 
 Um externe Freigaben in OneDrive/SharePoint Online mit der Azure AD B2B-Kollaboration zu verwalten, legen Sie die Einstellung für externe OneDrive-/SharePoint Online-Freigaben auf **Freigabe nur für externe Benutzer zulassen, die bereits im Verzeichnis Ihrer Organisation vorhanden sind** fest. Benutzer können zu extern freigegebenen Websites wechseln und aus externen Projektmitarbeitern auswählen, die der Administrator hinzugefügt hat. Ein Administrator kann die externen Projektmitarbeiter über die Einladungs-APIs der B2B-Zusammenarbeit hinzufügen.
 

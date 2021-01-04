@@ -5,23 +5,20 @@ author: djpmsft
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 12/07/2020
 ms.author: daperlov
-ms.openlocfilehash: 3e1c5f3b360960779dd58c8c05b25885df81d2e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 794c9a0768a7b649ce4fb123c85f6cc0120764c8
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276502"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854970"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Deltaformat in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In diesem Artikel erfahren Sie, wie Sie Daten unter Verwendung des Deltaformats in eine bzw. aus einer Delta Lake-Instanz kopieren, die in [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) oder in [Azure Blob Storage](connector-azure-blob-storage.md) gespeichert ist. Dieser Connector ist als [Inlinedataset](data-flow-source.md#inline-datasets) in Zuordnungsdatenflüssen sowohl als Quelle als auch als Senke verfügbar.
-
-> [!NOTE]
-> Der Deltaformatconnector für Zuordnungsdatenflüsse ist zurzeit als Public Preview verfügbar.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4ALTs]
 
@@ -33,7 +30,7 @@ Dieser Connector ist als [Inlinedataset](data-flow-source.md#inline-datasets) in
 
 Die folgende Tabelle enthält die von einer Deltaquelle unterstützten Eigenschaften. Sie können diese Eigenschaften auf der Registerkarte **Quelloptionen** bearbeiten.
 
-| Name | Beschreibung | Erforderlich | Zulässige Werte | Datenflussskript-Eigenschaft |
+| Name | BESCHREIBUNG | Erforderlich | Zulässige Werte | Datenflussskript-Eigenschaft |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Format | Das Format muss `delta` sein | ja | `delta` | format |
 | Dateisystem | Der Container bzw. das Dateisystem der Delta Lake-Instanz. | ja | String | fileSystem |
@@ -43,7 +40,7 @@ Die folgende Tabelle enthält die von einer Deltaquelle unterstützten Eigenscha
 | Zeitreise | Wählen Sie aus, ob eine ältere Momentaufnahme einer Deltatabelle abgefragt werden soll. | nein | Abfragen nach Zeitstempel: Timestamp <br> Abfragen nach Version: Integer | timestampAsOf <br> versionAsOf |
 | Finden keiner Dateien zulässig | „true“ gibt an, dass kein Fehler ausgelöst wird, wenn keine Dateien gefunden werden. | nein | `true` oder `false` | ignoreNoFilesFound |
 
-#### <a name="import-schema"></a>Schema importieren
+#### <a name="import-schema"></a>Importieren des Schemas
 
 Delta ist nur als Inlinedataset verfügbar und verfügt standardmäßig über kein zugeordnetes Schema. Zum Abrufen von Spaltenmetadaten klicken Sie auf der Registerkarte **Projektion** auf die Schaltfläche **Schema importieren**. Auf diese Weise können Sie auf die Spaltennamen und Datentypen verweisen, die durch den Korpus angegeben sind. Zum Importieren des Schemas muss eine [Datenfluss-Debugsitzung](concepts-data-flow-debug-mode.md) aktiv sein, und es muss eine CDM-Entitätsdefinitionsdatei vorhanden sein, auf die verwiesen werden kann.
  
@@ -70,7 +67,7 @@ source(output(movieId as integer,
 
 Die folgende Tabelle enthält die von einer Deltasenke unterstützten Eigenschaften. Sie können diese Eigenschaften auf der Registerkarte **Einstellungen** bearbeiten.
 
-| Name | Beschreibung | Erforderlich | Zulässige Werte | Datenflussskript-Eigenschaft |
+| Name | BESCHREIBUNG | Erforderlich | Zulässige Werte | Datenflussskript-Eigenschaft |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Format | Das Format muss `delta` sein | ja | `delta` | format |
 | Dateisystem | Der Container bzw. das Dateisystem der Delta Lake-Instanz. | ja | String | fileSystem |
@@ -78,7 +75,7 @@ Die folgende Tabelle enthält die von einer Deltasenke unterstützten Eigenschaf
 | Komprimierungstyp | Der Komprimierungstyp der Deltatabelle. | nein | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
 | Komprimierungsgrad | Wählen Sie aus, ob die Komprimierung schnellstmöglich abgeschlossen oder die resultierende Datei optimal komprimiert werden soll. | Erforderlich, wenn `compressedType` angegeben wird. | `Optimal` oder `Fastest` | compressionLevel |
 | Vakuum | Geben Sie für ältere Versionen der Tabelle den Schwellenwert für die Aufbewahrung in Stunden an. Bei einem Wert von Null oder weniger werden standardmäßig 30 Tage verwendet. | ja | Integer | vacuum |
-| Updatemethode | Geben Sie an, welche Updatevorgänge für die Delta Lake-Instanz zulässig sind. Für Methoden, bei denen es sich nicht um Einfügevorgänge handelt, ist zuerst eine Zeilenänderungstransformation erforderlich, um Zeilen zu markieren. | ja | `true` oder `false` | deletable <br> insertable <br> updateable <br> upsertable |
+| Updatemethode | Geben Sie an, welche Updatevorgänge für die Delta Lake-Instanz zulässig sind. Für Methoden, bei denen es sich nicht um Einfügevorgänge handelt, ist zuerst eine Zeilenänderungstransformation erforderlich, um Zeilen zu markieren. | ja | `true` oder `false` | deletable <br> insertable <br> updateable <br> merge |
 
 ### <a name="delta-sink-script-example"></a>Skriptbeispiel für Deltasenke
 

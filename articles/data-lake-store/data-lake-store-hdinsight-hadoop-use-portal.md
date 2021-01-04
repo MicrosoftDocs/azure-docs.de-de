@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 420efd653ef6218b5a1d5a8c70ca268b7185fc30
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 666b39e2a600fe6ca004798ed4f8371cdd1dfe5f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103542"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340253"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Erstellen von HDInsight-Clustern mit Azure Data Lake Storage Gen1 mithilfe des Azure-Portals
 
@@ -85,26 +85,23 @@ In diesem Abschnitt konfigurieren Sie den Data Lake Storage Gen1-Zugriff aus HDI
 Im Azure-Portal können Sie einen vorhandenen Dienstprinzipal verwenden oder einen neuen erstellen.
 
 So erstellen Sie einen Dienstprinzipal im Azure-Portal:
-
-1. Wählen Sie auf dem Blatt „Speicher“ die Option **Data Lake Store-Zugriff** aus.
-1. Wählen Sie auf dem Blatt **Data Lake Storage Gen1-Zugriff** die Option **Neu erstellen** aus.
-1. Wählen Sie **Dienstprinzipal** aus, und befolgen Sie die Anweisungen zum Erstellen eines Dienstprinzipals.
-1. Laden Sie das Zertifikat herunter, wenn Sie es künftig wiederverwenden möchten. Das Herunterladen des Zertifikats ist nützlich, wenn Sie den gleichen Dienstprinzipal beim Erstellen eines zusätzlichen HDInsight-Clusters verwenden möchten.
-
-    ![Dienstprinzipal für HDInsight-Cluster hinzufügen](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.2.png)
-
-1. Wählen Sie **Zugriff** aus, um den Zugriff auf den Ordner zu konfigurieren.  Siehe [Konfigurieren von Dateiberechtigungen](#configure-file-permissions).
+1. Informationen zur Verwendung von Azure Active Directory finden Sie unter [Erstellen von Dienstprinzipalen und Zertifikaten](../active-directory/develop/howto-create-service-principal-portal.md).
 
 So verwenden Sie einen im Azure-Portal vorhandenen Dienstprinzipal:
 
+1. Der Dienstprinzipal sollte Besitzerberechtigungen für das Speicherkonto besitzen. Weitere Informationen finden Sie unter [Einrichten von Berechtigungen für den Dienstprinzipal als Besitzer des Speicherkontos](#configure-serviceprincipal-permissions).
 1. Wählen Sie **Data Lake Store-Zugriff** aus.
 1. Wählen Sie auf dem Blatt **Data Lake Storage Gen1-Zugriff** die Option **Vorhandenen verwenden** aus.
 1. Wählen Sie **Dienstprinzipal** und dann den vorhandenen Dienstprinzipal aus.
 1. Laden Sie das Zertifikat (PFX-Datei) hoch, das dem ausgewählten Dienstprinzipal zugeordnet ist, und geben Sie dann das Zertifikatkennwort ein.
 
-[Hinzufügen eines Dienstprinzipals zu HDInsight-Cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png)
+    ![Dienstprinzipal für HDInsight-Cluster hinzufügen](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png)
 
 1. Wählen Sie **Zugriff** aus, um den Zugriff auf den Ordner zu konfigurieren.  Siehe [Konfigurieren von Dateiberechtigungen](#configure-file-permissions).
+
+### <a name="set-up-permissions-for-the-service-principal-to-be-owner-on-the-storage-account"></a><a name="configure-serviceprincipal-permissions"></a>Einrichten von Berechtigungen für den Dienstprinzipal als Besitzer des Speicherkontos
+1. Klicken Sie auf dem Blatt „Zugriffssteuerung (IAM)“ des Speicherkontos auf „Rollenzuweisung hinzufügen“. 
+2. Wählen Sie auf dem Blatt „Rollenzuweisung hinzufügen“ für die Rolle die Option „Besitzer“ und dann den SPN aus, und klicken Sie auf „Speichern“.
 
 ### <a name="configure-file-permissions"></a><a name="configure-file-permissions"></a>Konfigurieren von Dateiberechtigungen
 
@@ -130,7 +127,7 @@ So weisen Sie die Berechtigung auf Stammebene des Speicherkontos mit Data Lake S
 
 1. Klicken Sie unten auf der Seite auf **Auswählen**.
 1. Wählen Sie **Ausführen** aus, um die Berechtigung zuzuweisen.
-1. Wählen Sie **Fertig**aus.
+1. Wählen Sie **Fertig** aus.
 
 So weisen Sie die Berechtigung auf Stammebene des HDInsight-Clusters zu:
 
@@ -140,7 +137,7 @@ So weisen Sie die Berechtigung auf Stammebene des HDInsight-Clusters zu:
 1. Legen Sie die Berechtigungen für den Ordner fest.  LESEN, SCHREIBEN und AUSFÜHREN sind standardmäßig ausgewählt.
 1. Klicken Sie unten auf der Seite auf **Auswählen**.
 1. Klicken Sie auf **Run** (Ausführen).
-1. Wählen Sie **Fertig**aus.
+1. Wählen Sie **Fertig** aus.
 
 Wenn Sie Data Lake Storage Gen1 als zusätzlichen Speicher verwenden, müssen Sie die Berechtigung nur für die Ordner zuweisen, auf die Sie aus dem HDInsight-Cluster zugreifen möchten. Im folgenden Screenshot wird z. B. nur Zugriff auf den Ordner **mynewfolder** in einem Speicherkonto mit Data Lake Storage Gen1 gewährt.
 
@@ -203,4 +200,4 @@ Sie können das Speicherkonto mit Data Lake Storage Gen1 verwenden, um dort Date
 * [PowerShell: Erstellen eines HDInsight-Clusters für die Verwendung von Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 [makecert]: /windows-hardware/drivers/devtest/makecert
-[pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
+[pvk2pfx]: /windows-hardware/drivers/devtest/pvk2pfx

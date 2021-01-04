@@ -7,94 +7,52 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 09/08/2020
 ms.topic: how-to
-ms.author: a-sakand
-author: skandil
-ms.openlocfilehash: d801971ca62c416c66608b40aab3e8052fe941a1
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.author: nitinme
+author: nitinme
+ms.openlocfilehash: b8382b76496976054ebb452e39866765d986ccbb
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931409"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368176"
 ---
 # <a name="sign-in-to-luis-portal"></a>Anmelden beim LUIS-Portal
 
-Wenn Sie ein neuer Benutzer sind, der sich beim LUIS-Portal anmeldet, wird der Anmeldevorgang je nach Ihrem aktuellen Benutzerkonto leicht abweichen:
-  * Einem Azure-Abonnement zugeordnet
-  * Keinem Azure-Abonnement zugeordnet
+[!INCLUDE [LUIS Free account](includes/luis-portal-note.md)]
 
-## <a name="determine-account-type"></a>Ermitteln des Kontotyps
+Verwenden Sie diesen Artikel für die ersten Schritte mit dem LUIS-Portal, und erstellen Sie eine Erstellungsressource. Nachdem Sie die Schritte in diesem Artikel abgeschlossen haben, können Sie LUIS-Apps erstellen und veröffentlichen.
 
-Wenn Sie sich zum ersten Mal beim LUIS-Portal anmelden, bestimmen Sie mithilfe der folgenden visuellen Indikatoren den Kontotyp.
-
-### <a name="account-without-azure-subscription"></a>Konto ohne Azure-Abonnement
-
-Bei einem Konto, das keinem Azure-Abonnement zugeordnet ist, wird in der Navigationsleiste oben rechts das Azure-Symbol angezeigt. Sobald Sie zu dem zugeordneten Kontotyp migrieren, wird das Symbol nicht mehr angezeigt.
-
-:::image type="content" source="media/sign-in/sign-in-with-account-without-azure-subscription.png" alt-text="Teilscreenshot der LUIS-Navigationsleiste mit Azure-Symbol.":::
-
-### <a name="account-with-azure-subscription"></a>Konto mit Azure-Abonnement
-
-Mit einem Konto, das einem Azure-Abonnement zugeordnet ist, können Sie Ihr Abonnement und die zu verwendende Azure-Ressource auswählen.
-
-:::image type="content" source="media/sign-in/resource-selection.png" alt-text="Teilscreenshot der LUIS-Navigationsleiste mit Azure-Symbol.":::
-
-## <a name="sign-in-with-account-associated-with-an-azure-subscription"></a>Anmelden mit einem Konto, das einem Azure-Abonnement zugeordnet ist
-
-1. Melden Sie sich beim [LUIS-Portal](https://www.luis.ai) an, und stimmen Sie den Nutzungsbedingungen zu.
-
-1. Für die Registrierung haben Sie zwei Möglichkeiten:
-
-    * Fahren Sie mit der Verwendung einer Azure-Ressource fort. Dies ist der empfohlene Pfad und bald der einzig verfügbare Pfad. Dieser Pfad ermöglicht es Ihnen, Ihr LUIS-Konto mit einer Azure-Ressource zu verknüpfen, während Sie sich registrieren, indem Sie entweder eine bestehende Ressource in Ihrem Abonnement auswählen oder eine neue Ressource erstellen. Dies ist gleichbedeutend mit der Registrierung bei bestehender Migration ohne die Notwendigkeit, sich später dem [Migrationsprozess](luis-migration-authoring.md#what-is-migration) zu unterziehen. Alle Benutzer müssen die Migration bis zum 2. November 2020 abgeschlossen haben.
-
-    * Fahren Sie mithilfe des Start- oder Testschlüssels fort. Dieser Pfad ermöglicht es Ihnen, sich mit der bereitgestellten Start- oder Testressource bei LUIS anzumelden, ohne Ressourcen erstellen zu müssen. Wenn Sie diesen Pfad wählen, müssen Sie schließlich [Ihr Konto migrieren](luis-migration-authoring.md#migration-steps) und Ihre Anwendungen mit einer Erstellungsressource verknüpfen. Deshalb wird empfohlen, den Pfad auszuwählen, bei dem Sie mit Ihrer Azure-Ressource fortfahren.
-
-    [Erfahren Sie mehr über Erstellungs- und Startschlüssel](luis-how-to-azure-subscription.md#luis-resources). Beide Ressourcen bieten Ihnen 1 Million kostenlose Erstellungsressourcen und 1000 kostenlose Vorhersageressourcen für Endpunkte.
-
-    :::image type="content" source="media/sign-in/signup-landing-page.png" alt-text="Teilscreenshot der LUIS-Navigationsleiste mit Azure-Symbol.":::
-
-1. Verwenden einer vorhandenen Erstellungsressource
-
-    :::image type="content" source="media/sign-in/signup-choose-resource.png" alt-text="Teilscreenshot der LUIS-Navigationsleiste mit Azure-Symbol.":::
-
-    Wenn Sie bereits LUIS-Erstellungsressourcen in Ihrem Abonnement verwenden und diese während der Anmeldung mit Ihrem LUIS-Konto verknüpfen, wählen Sie die Option **Vorhandene Erstellungsressource verwenden**, und geben Sie die folgenden Informationen an:
-
-    * **Mandant**: der Mandant, dem Ihr Azure-Abonnement zugeordnet ist Sie können die Mandanten nicht über das bestehende Fenster wechseln. Sie können die Mandanten wechseln, indem Sie den äußersten rechten Avatar auswählen, der Ihre Initialen in der oberen Leiste enthält.
-    * **Abonnementname**: Das Abonnement, das der Ressource zugeordnet wird. Wenn Sie über mehr als ein Abonnement verfügen, das zu Ihrem Mandanten gehört, wählen Sie das gewünschte Abonnement aus der Dropdownliste aus.
-    * **Ressourcenname**: Die Erstellungsressource, die Sie Ihrem Konto zuordnen möchten.
-
-    > [!Note]
-    > Wenn die gesuchte Erstellungsressource in der Dropdownliste abgeblendet ist, bedeutet dies, dass Sie sich bei einem anderen regionalen Portal angemeldet haben. [Grundlegendes zum Konzept regionaler Portale](luis-reference-regions.md#luis-authoring-regions).
-
-1. Erstellen einer neuen Erstellungsressource
-
-    :::image type="content" source="media/sign-in/signup-create-resource.png" alt-text="Teilscreenshot der LUIS-Navigationsleiste mit Azure-Symbol.":::
-
-    Geben Sie beim **Erstellen einer neuen Erstellungsressource** die folgenden Informationen an:
-
-    * **Mandant**: der Mandant, dem Ihr Azure-Abonnement zugeordnet ist Sie können die Mandanten nicht über das bestehende Fenster wechseln. Sie können die Mandanten wechseln, indem Sie den äußersten rechten Avatar auswählen, der Ihre Initialen in der oberen Leiste enthält.
-    * **Ressourcenname**: Ein von Ihnen gewählter benutzerdefinierter Name, der als Teil der URL für Ihre Erstellungstransaktionen verwendet wird. Ihr Ressourcenname darf nur alphanumerische Zeichen und „-“ enthalten und darf nicht mit „-“ beginnen oder enden. Wenn andere Symbole im Namen enthalten sind, wird beim Erstellen einer Ressource ein Fehler auftreten.
-    * **Abonnementname**: Das Abonnement, das der Ressource zugeordnet wird. Wenn Sie über mehr als ein Abonnement verfügen, das zu Ihrem Mandanten gehört, wählen Sie das gewünschte Abonnement aus der Dropdownliste aus.
-    * **Ressourcengruppe**: Ein benutzerdefinierter Ressourcengruppenname, den Sie in Ihrem Abonnement auswählen. Mit Ressourcengruppen können Sie Azure-Ressourcen für den Zugriff und die Verwaltung gruppieren. Wenn Sie derzeit nicht über eine Ressourcengruppe in Ihrem Abonnement verfügen, können Sie im LUIS-Portal keine Ressourcengruppe erstellen. Wechseln Sie zum [Azure-Portal](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup), um eine zu erstellen, und wechseln Sie dann zu LUIS, um den Anmeldevorgang fortzusetzen.
-
-1. Nachdem Sie Ihren Pfad ausgewählt haben, kann es einige Sekunden dauern, bis ein Hinweis angezeigt wird, dass Ihr Konto erfolgreich migriert wurde. Schließen Sie den Vorgang durch Auswahl von **Fortfahren** ab.
-
-    :::image type="content" source="media/sign-in/signup-confirm-2.png" alt-text="Teilscreenshot der LUIS-Navigationsleiste mit Azure-Symbol.":::
-
-    > [!Note]
-    > Wenn Sie über ein Abonnement und mindestens eine Erstellungsressource in der Region verfügen, die mit der Region übereinstimmt, für die Sie sich im Portal registrieren, melden Sie sich möglicherweise automatisch migriert und einer Ressource zugeordnet bei LUIS an, ohne dass Sie sich für einen Pfad entscheiden müssen.
+## <a name="access-the-portal"></a>Zugriff auf das Portal
 
 
-## <a name="sign-in-with-user-account-not-associated-with-an-azure-subscription"></a>Anmelden mit einem Benutzerkonto, das keinem Azure-Abonnement zugeordnet ist
+1. Wechseln Sie für die ersten Schritte mit LUIS zum [LUIS-Portal](https://www.luis.ai). Wenn Sie noch nicht über ein Abonnement verfügen, werden Sie aufgefordert, ein [kostenloses Konto](https://azure.microsoft.com//free/cognitive-services/) zu erstellen und zum Portal zurückzukehren.
+2. Aktualisieren Sie die Seite, um sie mit Ihrem neu erstellten Abonnement zu aktualisieren.
+3. Wählen Sie in der Dropdownliste Ihr Abonnement aus.
 
-1. Melden Sie sich beim [LUIS-Portal](https://www.luis.ai) an, und aktivieren Sie die Option, dass Sie den Nutzungsbedingungen zustimmen.
+    > [!div class="mx-imgBorder"]
+    > ![„Abonnements“ auswählen](./media/migrate-authoring-key/select-subscription-sign-in-2.png)
 
-1. Schließen Sie den Vorgang durch Auswahl von **Fortfahren** ab. Sie melden sich automatisch mit einem Test-/Startschlüssel an. Das bedeutet, dass Sie schließlich [Ihr Konto migrieren](luis-migration-authoring.md#migration-steps) und Ihre Anwendungen mit einer Erstellungsressource verknüpfen müssen. Sie müssen sich für eine [kostenlose Azure-Testversion](https://azure.microsoft.com/free/) anmelden, um sich dem Migrationsprozess zu unterziehen.
+4. Wenn sich Ihr Abonnement unter einem anderen Mandanten befindet, können Sie den Mandanten nicht über das vorhandene Fenster wechseln. Sie können den Mandanten wechseln, indem Sie dieses Fenster schließen und in der oberen Leiste den ganz rechten Avatar mit Ihren Initialen auswählen. Klicken Sie oben auf **Andere Erstellungsressource auswählen**, um das Fenster erneut zu öffnen.
 
-    :::image type="content" source="media/sign-in/signup-no-subscription.png" alt-text="Teilscreenshot der LUIS-Navigationsleiste mit Azure-Symbol.":::
+    > [!div class="mx-imgBorder"]
+    > ![Wechseln von Verzeichnissen](./media/migrate-authoring-key/switch-directories.png)
+
+5. Wenn Ihrem Abonnement eine vorhandene LUIS-Erstellungsressource zugeordnet ist, wählen Sie diese aus der Dropdownliste aus. Sie können alle Anwendungen anzeigen, die unter dieser Erstellungsressource erstellt werden.
+6. Wenn dies nicht der Fall ist, dann klicken Sie auf **Neue Erstellungsressource erstellen** am Ende dieses modalen Fensters.
+7.  Geben Sie beim Erstellen einer neuen Erstellungsressource die folgenden Informationen an:
+
+    > [!div class="mx-imgBorder"]
+    > ![Neue Ressource erstellen](./media/migrate-authoring-key/create-new-authoring-resource-2.png)
+
+    * **Mandantenname**: Der Mandant, dem Ihr Azure-Abonnement zugeordnet ist. Sie können die Mandanten nicht über das bestehende Fenster wechseln. Sie können den Mandanten wechseln, indem Sie dieses Fenster schließen und den Avatar mit Ihren Initialen oben rechts auf dem Bildschirm auswählen. Wählen Sie oben die Option **Andere Erstellungsressource auswählen** aus, um das Fenster erneut zu öffnen.
+    * **Azure-Ressourcengruppenname**: Ein benutzerdefinierter Ressourcengruppenname, den Sie in Ihrem Abonnement auswählen. Mit Ressourcengruppen können Sie Azure-Ressourcen für den Zugriff und die Verwaltung gruppieren. Wenn Sie derzeit nicht über eine Ressourcengruppe in Ihrem Abonnement verfügen, können Sie im LUIS-Portal keine Ressourcengruppe erstellen. Wechseln Sie zum [Azure-Portal](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup), um eine zu erstellen, und wechseln Sie dann zu LUIS, um den Anmeldevorgang fortzusetzen.
+    * **Azure-Ressourcenname**: Ein von Ihnen gewählter benutzerdefinierter Name, der als Teil der URL für Ihre Erstellungstransaktionen verwendet wird. Ihr Ressourcenname darf nur alphanumerische Zeichen und „`-`“ enthalten und darf nicht mit „`-`“ beginnen oder enden. Wenn andere Symbole im Namen enthalten sind, wird beim Erstellen einer Ressource ein Fehler auftreten.
+    * **Standort**: Wählen Sie aus, ob Sie Ihre Anwendungen an einem der [drei Erstellungsstandorte](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions) erstellen möchten, die derzeit von LUIS unterstützt werden, einschließlich: „USA, Westen“, „Europa, Westen“ und „Australien, Osten“.
+    * **Tarif**: Standardmäßig ist der Erstellungstarif F0 ausgewählt, da dies der empfohlene Tarif ist. Erstellen Sie einen [kundenseitig verwalteten Schlüssel](https://docs.microsoft.com/azure/cognitive-services/luis/luis-encryption-of-data-at-rest#customer-managed-keys-for-language-understanding) über das Azure-Portal, wenn Sie nach einer zusätzlichen Ebene der Sicherheit suchen.
+8. Jetzt haben Sie sich erfolgreich bei LUIS angemeldet. Sie können jetzt damit beginnen, Anwendungen zu erstellen.
 
 ## <a name="troubleshooting"></a>Problembehandlung
 
-* Wenn Sie eine Erstellungsressource über das Azure-Portal in einer anderen Region erstellen, die nicht dem Portal entspricht, bei dem Sie sich anmelden, wird die Erstellungsressource abgeblendet dargestellt.
 * Achten Sie beim Erstellen einer neuen Ressource darauf, dass der Ressourcenname nur alphanumerische Zeichen und „-“, enthält und weder mit „-“ beginnen oder enden darf. Andernfalls schlägt der Vorgang fehl.
 * Stellen Sie sicher, dass Sie über die [entsprechenden Berechtigungen für Ihr Abonnement verfügen, um eine Azure-Ressource](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) zu erstellen. Wenn Sie nicht über die entsprechenden Berechtigungen verfügen, wenden Sie sich an den Administrator Ihres Abonnements, um ausreichende Berechtigungen zu erhalten.
 

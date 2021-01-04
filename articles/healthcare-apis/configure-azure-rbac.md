@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 03/15/2020
 ms.author: matjazl
 ms.reviewer: dseven
-ms.openlocfilehash: 1df2d112814c93261c364883f4b834e0bdb657bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cadfad445c76726b1b825b131de4016a57979fa
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839910"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93391839"
 ---
 # <a name="configure-azure-rbac-for-fhir"></a>Konfigurieren von Azure RBAC für FHIR 
 
-In diesem Artikel erfahren Sie, wie Sie mithilfe der [rollenbasierten Zugriffssteuerung in Azure (Azure Role-Based Access Control, Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/) Zugriff auf die Azure API for FHIR-Datenebene zuweisen. Azure RBAC ist die bevorzugte Methode zum Zuweisen des Zugriffs auf die Datenebene, wenn Benutzer der Datenebene in dem Azure Active Directory-Mandanten verwaltet werden, der Ihrem Azure-Abonnement zugeordnet ist. Wenn Sie einen externen Azure Active Directory-Mandanten verwenden, finden Sie weitere Informationen in der [Referenz zum Zuweisen der lokalen RBAC](configure-local-rbac.md).
+In diesem Artikel erfahren Sie, wie Sie mithilfe der [rollenbasierten Zugriffssteuerung in Azure (Azure Role-Based Access Control, Azure RBAC)](../role-based-access-control/index.yml) Zugriff auf die Azure API for FHIR-Datenebene zuweisen. Azure RBAC ist die bevorzugte Methode zum Zuweisen des Zugriffs auf die Datenebene, wenn Benutzer der Datenebene in dem Azure Active Directory-Mandanten verwaltet werden, der Ihrem Azure-Abonnement zugeordnet ist. Wenn Sie einen externen Azure Active Directory-Mandanten verwenden, finden Sie weitere Informationen in der [Referenz zum Zuweisen der lokalen RBAC](configure-local-rbac.md).
 
 ## <a name="confirm-azure-rbac-mode"></a>Überprüfen des Azure RBAC-Modus
 
@@ -29,13 +29,13 @@ Die **Autoritative Stelle** muss auf den Azure Active Directory-Mandanten festge
 
 ## <a name="assign-roles"></a>Zuweisen von Rollen
 
-Wenn Sie Benutzern, Dienstprinzipalen oder Gruppen Zugriff auf die FHIR-Datenebene gewähren möchten, klicken Sie auf **Zugriffssteuerung (IAM)** , dann auf **Rollenzuweisungen** und anschließend auf **+ Hinzufügen**:
+Wenn Sie Benutzern, Dienstprinzipalen oder Gruppen Zugriff auf die FHIR-Datenebene gewähren möchten, klicken Sie auf **Zugriffssteuerung (IAM)** , dann auf **Rollenzuweisungen** und anschließend auf **+ Hinzufügen** :
 
-:::image type="content" source="media/rbac/add-azure-rbac-role-assignment.png" alt-text="Überprüfen des Azure RBAC-Modus":::
+:::image type="content" source="media/rbac/add-azure-rbac-role-assignment.png" alt-text="Hinzufügen einer Azure-Rollenzuweisung":::
 
 Suchen Sie im Auswahlfeld **Rollen** nach einer der integrierten Rollen für die FHIR-Datenebene:
 
-:::image type="content" source="media/rbac/built-in-fhir-data-roles.png" alt-text="Überprüfen des Azure RBAC-Modus":::
+:::image type="content" source="media/rbac/built-in-fhir-data-roles.png" alt-text="Integrierte FHIR-Datenrollen":::
 
 Sie können zwischen folgenden Rollen auswählen:
 
@@ -44,7 +44,7 @@ Sie können zwischen folgenden Rollen auswählen:
 * FHIR-Datenexportierer: Kann Daten lesen und exportieren (`$export`-Operator).
 * Mitwirkender an FHIR-Daten: Kann alle Vorgänge auf Datenebene durchführen.
 
-Wenn diese Rollen für Ihre Zwecke nicht ausreichend sind, können Sie auch [benutzerdefinierte Rollen erstellen](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-powershell).
+Wenn diese Rollen für Ihre Zwecke nicht ausreichend sind, können Sie auch [benutzerdefinierte Rollen erstellen](../role-based-access-control/tutorial-custom-role-powershell.md).
 
 Suchen Sie im Feld **Auswählen** nach einem Benutzer, einem Dienstprinzipal oder einer Gruppe, dem bzw. der Sie die Rolle zuweisen möchten.
 

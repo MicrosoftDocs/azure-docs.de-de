@@ -6,12 +6,12 @@ ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: ffec1b0e5fd57a19c5b5c940ec921b43970387e8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: efc785c96c76cca5deeadbd30fa962becb18d25b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372139"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997302"
 ---
 # <a name="azure-event-hubs-trigger-for-azure-functions"></a>Azure Event Hubs-Trigger für Azure Functions
 
@@ -23,4 +23,4 @@ Informationen zu Setup- und Konfigurationsdetails finden Sie in der [Übersicht]
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Schreiben von Ereignissen in einen Ereignisdatenstrom (Ausgabebindungen)](./functions-bindings-storage-blob-output.md)
+- [Schreiben von Ereignissen in einen Ereignisdatenstrom (Ausgabebindungen)](./functions-bindings-event-hubs-output.md)

@@ -12,12 +12,12 @@ metadata:
   author: normesta
   ms.author: normesta
   ms.date: 08/20/2019
-  ms.openlocfilehash: 21736e257a31e65c6cd9ea4a6e1f65cf21bf61d1
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 38cf63766195c1e91662d725aeb1b21c06257ed9
+  ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91715747"
+  ms.lasthandoff: 11/25/2020
+  ms.locfileid: "95912347"
 landingContent:
 - title: Informationen zu Azure-Blobspeicher
   linkLists:
@@ -76,7 +76,7 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Extrahieren, Transformieren und Laden von Daten mit Azure Databricks
-      url: ../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      url: /azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - text: Extrahieren, Transformieren und Laden von Daten mit Apache Hive in Azure HDInsight
       url: data-lake-storage-tutorial-extract-transform-load-hive.md
     - text: Einfügen von Daten in Databricks-Tabellen mithilfe von Event Grid
@@ -86,7 +86,7 @@ landingContent:
     - text: Verwenden mit Azure HDInsight-Clustern
       url: ../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - text: Verwenden von Power BI
-      url: data-lake-storage-use-power-bi.md
+      url: /power-query/connectors/datalakestorage
 - title: Entwickeln von Anwendungen
   linkLists:
   - linkListType: quickstart
@@ -126,7 +126,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Zugreifen auf Blobdaten mit einem Azure AD-Konto
-      url: authorize-blob-access-portal.md
+      url: authorize-data-operations-portal.md
     - text: Verwalten von Zugriffsrechten mit Azure RBAC
       url: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - text: Autorisieren des Zugriffs auf Blobspeicher mithilfe einer verwalteten Identität

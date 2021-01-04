@@ -1,7 +1,7 @@
 ---
 title: Architektur und wichtige Konzepte
 titleSuffix: Azure Machine Learning
-description: Enthält Informationen zu Architektur, Begriffen und Konzepten von Azure Machine Learning.
+description: Dieser Artikel enthält eine allgemeine Beschreibung der Grundlagen in Bezug auf die Architektur, Begriffe und Konzepte von Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 71032c49ac5164f13189baf64668f8998fdc186a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a36481b2496060cb12bd755f56680915ec1074bb
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276083"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540203"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>So funktioniert Azure Machine Learning: Architektur und Konzepte
 
@@ -46,6 +46,19 @@ Ein Arbeitsbereich enthält andere Azure-Ressourcen, die er verwendet:
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Speichert Geheimnisse, die von Computezielen verwendet werden, sowie andere vertrauliche Informationen, die vom Arbeitsbereich benötigt werden.
 
 Sie können einen Arbeitsbereich mit anderen Benutzern teilen.
+
+### <a name="create-workspace"></a>Arbeitsbereich erstellen
+
+Das folgende Diagramm zeigt den Workflow des Erstellens des Arbeitsbereichs.
+
+* Sie melden sich von einem der unterstützten Azure Machine Learning-Clients (Azure CLI, Python, SDK, Azure-Portal) aus bei Azure AD an und fordern das entsprechende Azure Resource Manager-Token an.
+* Sie rufen Azure Resource Manager auf, um den Arbeitsbereich zu erstellen. 
+* Der Azure Resource Manager fordert den Azure Machine Learning-Ressourcenanbieter auf, den Arbeitsbereich bereitzustellen.
+* Wenn Sie keine vorhandenen Ressourcen angeben, werden zusätzliche erforderliche Ressourcen in Ihrem Abonnement erstellt.
+
+Sie können bei Bedarf auch andere Computeziele bereitstellen, die an einen Arbeitsbereich angefügt sind (wie Azure Kubernetes Service oder VMs).
+
+[![Erstellen eines Arbeitsbereichs-Workflows](media/concept-azure-machine-learning-architecture/create-workspace.png)](media/concept-azure-machine-learning-architecture/create-workspace.png#lightbox)
 
 ## <a name="computes"></a>Berechnungen
 
@@ -102,7 +115,7 @@ Eine Ausführung wird ausgelöst, wenn Sie ein Skript zum Trainieren eines Model
 
 [Arbeitsbereich](#workspace) > [Experimente](#experiments) > [Ausführen](#runs) > **Ausführen der Konfiguration**
 
-Eine Ausführungskonfiguration definiert, wie ein Skript in einem bestimmten Computeziel ausgeführt werden sollte. Verwenden Sie die Konfiguration, um das Skript, das Computeziel und die Azure ML-Umgebung für die Ausführung, alle verteilten auftragsspezifischen Konfigurationen und einige zusätzliche Eigenschaften anzugeben. Weitere Informationen zum vollständigen Satz konfigurierbarer Optionen für Ausführungen finden Sie unter [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true).
+Eine Ausführungskonfiguration definiert, wie ein Skript in einem bestimmten Computeziel ausgeführt werden sollte. Verwenden Sie die Konfiguration, um das Skript, das Computeziel und die Azure ML-Umgebung für die Ausführung, alle verteilten auftragsspezifischen Konfigurationen und einige zusätzliche Eigenschaften anzugeben. Weitere Informationen zum vollständigen Satz konfigurierbarer Optionen für Ausführungen finden Sie unter [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py).
 
 Eine Laufzeitkonfiguration kann in einer Datei in dem Verzeichnis, in dem Ihr Trainingsskript enthalten ist, beständig gespeichert werden.   Alternativ kann sie als Objekt im Arbeitsspeicher erstellt und zum Übermitteln einer Ausführung verwendet werden.
 
@@ -113,6 +126,10 @@ Beispiele für Ausführungskonfigurationen finden Sie unter [Konfigurieren einer
 [Arbeitsbereich](#workspace) > [Experimente](#experiments) > [Ausführen](#runs) > **Momentaufnahme**
 
 Beim Übermitteln einer Ausführung komprimiert Azure Machine Learning das Verzeichnis, in dem das Skript als ZIP-Datei enthalten ist, und sendet es an das Computeziel. Die ZIP-Datei wird dann extrahiert, und das Skript wird ausgeführt. Azure Machine Learning speichert die ZIP-Datei im Rahmen der Ausführungsaufzeichnung zudem als Momentaufnahme. Alle Benutzer mit Zugriff auf den Arbeitsbereich können eine Ausführungsaufzeichnung durchsuchen und die Momentaufnahme herunterladen.
+
+Das folgende Diagramm zeigt den Workflow der Codemomentaufnahme.
+
+[![Workflow der Codemomentaufnahme](media/concept-azure-machine-learning-architecture/code-snapshot.png)](media/concept-azure-machine-learning-architecture/code-snapshot.png#lightbox)
 
 ### <a name="logging"></a>Protokollierung
 
@@ -129,6 +146,31 @@ Es gibt mehrere Möglichkeiten zum Anzeigen ihrer Protokolle: Überwachen des Au
 Wenn Sie eine Trainingsausführung starten, bei der das Quellverzeichnis ein lokales Git-Repository ist, werden Informationen über das Repository im Ausführungsverlauf gespeichert. Dies funktioniert für Ausführungen, die über eine Skriptausführungskonfiguration oder eine ML-Pipeline übermittelt werden. Dies funktioniert auch für Ausführungen, die aus dem SDK oder der Machine Learning-CLI übermittelt wurden.
 
 Weitere Informationen finden Sie unter [Git-Integration für Azure Machine Learning](concept-train-model-git-integration.md).
+
+### <a name="training-workflow"></a>Trainingsworkflow
+
+Wenn Sie ein Experiment ausführen, um ein Modell zu trainieren, werden die folgenden Schritte ausgeführt. Diese werden im folgenden Diagramm zum Trainingsworkflow veranschaulicht:
+
+* Azure Machine Learning wird mit der Momentaufnahmen-ID für die im vorherigen Abschnitt gespeicherte Codemomentaufnahme aufgerufen.
+* Azure Machine Learning erstellt eine Ausführungs-ID (optional) und ein Azure Machine Learning-Token, das später von Computezielen wie Machine Learning Compute/VMs für die Kommunikation mit Machine Learning verwendet wird.
+* Sie können entweder ein verwaltetes Computeziel (wie Machine Learning Compute) oder ein nicht verwaltetes Computeziel (wie VMs) auswählen, um Trainingsaufträge auszuführen. Im Folgenden finden Sie die Datenflüsse für beide Szenarien:
+   * VMs/HDInsight, Zugriff erfolgt über SSH-Anmeldeinformationen in einem Schlüsseltresor im Microsoft-Abonnement. Azure Machine Learning führt verwalteten Code auf dem Computeziel aus, der die folgenden Aktionen ausführt:
+
+   1. Vorbereiten der Umgebung (Docker ist eine Option für VMs und lokale Computer. In den folgenden Schritten für Machine Learning Compute erfahren Sie, wie die Ausführung eines Experiments in Docker-Containern funktioniert.)
+   1. Herunterladen des Codes
+   1. Einrichten von Umgebungsvariablen und Konfigurationen
+   1. Ausführen von Benutzerskripts (die im vorherigen Abschnitt genannte Codemomentaufnahme)
+
+   * Machine Learning Compute, Zugriff erfolgt über eine vom Arbeitsbereich verwaltete Identität.
+Da Machine Learning Compute ein verwaltetes Computeziel ist (d. h. es wird von Microsoft verwaltet), wird es unter Ihrem Microsoft-Abonnement ausgeführt.
+
+   1. Starten der Docker-Remotekonstruktion (sofern erforderlich)
+   1. Schreiben des Verwaltungscodes in die Azure Files-Freigabe des Benutzers
+   1. Starten des Containers mit einem ersten Befehl. Dies ist der Verwaltungscode, der im vorherigen Schritt beschrieben wurde.
+
+* Nachdem die Ausführung abgeschlossen ist, können Sie Ausführungen und Metriken abfragen. Im folgenden Flussdiagramm wird dieser Schritt ausgeführt, wenn das Trainingscomputeziel die Ausführungsmetriken aus dem Speicher in der Cosmos DB-Datenbank an Azure Machine Learning zurückschreibt. Clients können Azure Machine Learning aufrufen. Machine Learning pullt wiederum die Metriken aus der Cosmos DB-Datenbank und gibt sie an den Client zurück.
+
+[![Trainingsworkflow](media/concept-azure-machine-learning-architecture/training-and-metrics.png)](media/concept-azure-machine-learning-architecture/training-and-metrics.png#lightbox)
 
 ## <a name="models"></a>Modelle
 
@@ -178,9 +220,21 @@ Ein Endpunkt ist eine Instanziierung Ihres Modells in einem Webdienst, der in de
 
 Wenn Sie ein Modell als Webdienst bereitstellen, kann der Endpunkt auf Azure Container Instances, Azure Kubernetes Service oder FPGAs bereitgestellt werden. Sie erstellen den Dienst aus Ihrem Modell, dem Skript und zugeordneten Dateien. Diese werden in ein Basiscontainerimage eingefügt, das die Ausführungsumgebung für das Modell enthält. Das Image verfügt über einen HTTP-Endpunkt mit Lastenausgleich, der die an den Webdienst gesendeten Bewertungsanforderungen empfängt.
 
-Sie können Application Insights-Telemetrie oder Modelltelemetrie aktivieren, um den Webdienst zu überwachen. Die Telemetriedaten sind nur für Sie zugänglich.  Sie werden in Ihren Application Insights- und Speicherkontoinstanzen gespeichert.
+Sie können Application Insights-Telemetrie oder Modelltelemetrie aktivieren, um den Webdienst zu überwachen. Die Telemetriedaten sind nur für Sie zugänglich.  Sie werden in Ihren Application Insights- und Speicherkontoinstanzen gespeichert. Wenn Sie die automatische Skalierung aktiviert haben, führt Azure für Ihre Bereitstellung automatisch eine Skalierung durch.
 
-Wenn Sie die automatische Skalierung aktiviert haben, führt Azure für Ihre Bereitstellung automatisch eine Skalierung durch.
+Das folgende Diagramm zeigt den Workflow zum Ziehen von Rückschlüssen für ein Modell, das als Webdienstendpunkt bereitgestellt wird:
+
+Es folgen die Details:
+
+* Der Benutzer registriert ein Modell, indem er einen Client wie das Azure Machine Learning-SDK verwendet.
+* Der Benutzer erstellt das Image mit einem Modell, einer Bewertungsdatei und anderen Modellabhängigkeiten.
+* Das Docker-Image wird erstellt und in Azure Container Registry gespeichert.
+* Der Webdienst wird auf dem Computeziel (Container Instances/AKS) mithilfe des Images bereitgestellt, das im vorherigen Schritt erstellt wurde.
+* Details der Bewertung werden in Application Insights gespeichert (im Abonnement des Benutzers enthalten).
+* Telemetriedaten werden ebenfalls per Push an das Microsoft/Azure-Abonnement übertragen.
+
+[![Rückschlussworkflow](media/concept-azure-machine-learning-architecture/inferencing.png)](media/concept-azure-machine-learning-architecture/inferencing.png#lightbox)
+
 
 Ein Beispiel für die Bereitstellung eines Modells als Webdienst finden Sie unter [Bereitstellen eines Bildklassifizierungsmodells in Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
@@ -214,6 +268,18 @@ Die [Azure Machine Learning-CLI](reference-azure-machine-learning-cli.md) ist ei
 
 Pipelineschritte sind wiederverwendbar und können ohne erneute Ausführung der vorherigen Schritte ausgeführt werden, wenn sich die Ausgabe dieser Schritte nicht geändert hat. Beispielsweise können Sie ein Modell erneut trainieren, ohne teure Schritte zur Datenvorbereitung erneut auszuführen, wenn sich die Daten nicht geändert haben. Pipelines ermöglichen Data Scientists auch, bei der Arbeit an separaten Bereichen eines Machine Learning-Workflows zusammenzuarbeiten.
 
+## <a name="monitoring-and-logging"></a>Überwachung und Protokollierung
+
+Azure Machine Learning verfügt über die folgenden Funktionen für die Überwachung und Protokollierung:
+
+* __Data Scientists__ (Wissenschaftliche Fachkräfte für Daten) können ihre Experimente und Protokollinformationen über unsere Trainingsausführungen überwachen. Weitere Informationen finden Sie in den folgenden Artikeln:
+   * [Starten, Überwachen und Abbrechen von Trainingsausführungen in Python](how-to-manage-runs.md)
+   * [Protokollieren von Metriken für Trainingsausführungen](how-to-track-experiments.md)
+   * [Nachverfolgen von Experimenten mit MLflow](how-to-use-mlflow.md)
+   * [Visualisieren von Experimentausführungen und -metriken mit TensorBoard und Azure Machine Learning](how-to-monitor-tensorboard.md)
+* __Administratoren__ können ihre Informationen zum Arbeitsbereich und zu den relevanten Azure-Ressourcen und Ereignissen, z. B. Erstellen und Löschen von Ressourcen, mit Azure Monitor überwachen. Weitere Informationen finden Sie unter [Überwachen von Azure Machine Learning](monitor-azure-machine-learning.md).
+* Für den __DevOps__- bzw. __MLOps__-Bereich können generierte Informationen von Modellen, die als Webdienste oder IoT Edge-Module bereitgestellt werden, überwacht werden. Dies ermöglicht das Identifizieren von Problemen mit den Bereitstellungen und das Sammeln der an den Dienst übermittelten Daten. Weitere Informationen finden Sie unter [Sammeln von Modelldaten](how-to-enable-data-collection.md) und [Überwachen mit Application Insights](how-to-enable-app-insights.md).
+
 ## <a name="interacting-with-your-workspace"></a>Interaktion mit Ihrem Arbeitsbereich
 
 ### <a name="studio"></a>Studio
@@ -233,10 +299,10 @@ In Studio greifen Sie auch auf die interaktiven Tools zu, die Teil von Azure Mac
 > Die unten markierten Tools (Vorschau) sind aktuell als öffentliche Vorschau verfügbar.
 > Die Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar. Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-+  Interagieren Sie mit dem Dienst in einer beliebigen Python-Umgebung, indem Sie das [Azure Machine Learning SDK für Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) verwenden.
++  Interagieren Sie mit dem Dienst in einer beliebigen Python-Umgebung, indem Sie das [Azure Machine Learning SDK für Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) verwenden.
 + Interagieren Sie mit dem Dienst in einer beliebigen R-Umgebung, indem Sie das [Azure Machine Learning SDK für R](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (Vorschauversion) verwenden.
 + Verwenden Sie den [Azure Machine Learning-Designer](concept-designer.md), um die Workflowschritte auszuführen – ganz ohne Programmierung. 
-+ Verwenden Sie die [Azure Machine Learning-CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) zur Automatisierung.
++ Verwenden Sie die [Azure Machine Learning-CLI](./reference-azure-machine-learning-cli.md) zur Automatisierung.
 + Der [Many Models Solution Accelerator](https://aka.ms/many-models) (Preview) (Projektmappenbeschleuniger für viele Modelle (Vorschau)) baut auf Azure Machine Learning auf und ermöglicht Ihnen Training, Betrieb und Verwaltung von hunderten oder sogar tausenden von Machine Learning-Modellen.
 
 ## <a name="next-steps"></a>Nächste Schritte

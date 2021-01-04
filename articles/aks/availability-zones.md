@@ -2,15 +2,15 @@
 title: Verwenden von Verfügbarkeitszonen in Azure Kubernetes Service (AKS)
 description: Erfahren Sie, wie Sie in Azure Kubernetes Service (AKS) einen Cluster erstellen, der Knoten über Verfügbarkeitszonen verteilt.
 services: container-service
-ms.custom: fasttrack-edit, references_regions
+ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: 5d2c670bc862dadf289171fbf53318e876eff3d3
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 15f66e836a2900349007fb5068a172b89f39d4de
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165807"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352795"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Erstellen eines Azure Kubernetes Service-Clusters (AKS), der Verfügbarkeitszonen verwendet
 
@@ -22,7 +22,7 @@ Dieser Artikel zeigt Ihnen, wie Sie einen AKS-Cluster erstellen und die Knotenko
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
-Azure CLI-Version 2.0.76 oder höher muss installiert und konfiguriert sein. Führen Sie  `az --version` aus, um die Version zu ermitteln. Wenn Sie eine Installation oder ein Upgrade ausführen müssen, finden Sie weitere Informationen unter  [Installieren der Azure CLI][install-azure-cli].
+Azure CLI-Version 2.0.76 oder höher muss installiert und konfiguriert sein. Führen Sie `az --version` aus, um die Version zu ermitteln. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sie bei Bedarf unter [Installieren der Azure CLI][install-azure-cli].
 
 ## <a name="limitations-and-region-availability"></a>Einschränkungen und regionale Verfügbarkeit
 
@@ -31,8 +31,8 @@ AKS-Cluster können derzeit über Verfügbarkeitszonen in den folgenden Regionen
 * Australien (Osten)
 * Kanada, Mitte
 * USA (Mitte)
+* East US 
 * USA (Ost) 2
-* East US
 * Frankreich, Mitte
 * Japan, Osten
 * Nordeuropa
@@ -52,11 +52,11 @@ Die folgenden Einschränkungen gelten, wenn Sie einen AKS-Cluster mit Verfügbar
 
 Volumes, die von Azure verwaltete Datenträger verwenden, sind derzeit keine zonenredundanten Ressourcen. Volumes können nicht Zonen übergreifend angefügt werden und müssen in derselben Zone wie ein bestimmter Knoten zusammengestellt werden, der den Zielpod hostet.
 
-Wenn Sie zustandsbehaftete Workloads ausführen müssen, verwenden Sie Knotenpooltaints und -toleranzen in Podspezifikationen, um die Podplanung in der gleichen Zone wie Ihre Datenträger zu gruppieren. Alternativ können Sie auch netzwerkbasierten Speicher wie Azure Files verwenden, der sich an Pods anhängen kann, da sie zwischen den Zonen geplant sind.
+Kubernetes kennt Azure-Verfügbarkeitszonen seit Version 1.12. Wenn Sie ein PersistentVolumeClaim-Objekt bereitstellen, das auf einen verwalteten Azure-Datenträger in einem AKS-Cluster mit mehreren Zonen verweist, [kümmert sich Kubernetes um die Planung](https://kubernetes.io/docs/setup/best-practices/multiple-zones/#storage-access-for-zones) aller Pods, die diesen PVC in der richtigen Verfügbarkeitszone beanspruchen.
 
 ## <a name="overview-of-availability-zones-for-aks-clusters"></a>Übersicht über Verfügbarkeitszonen für AKS-Cluster
 
-Verfügbarkeitszonen sind ein Hochverfügbarkeitsangebot, das Anwendungen und Daten vor Ausfällen von Rechenzentren schützt. Zonen sind eindeutige physische Standorte in einer Azure-Region. Jede Zone besteht aus mindestens einem Rechenzentrum, dessen Stromversorgung, Kühlung und Netzwerkbetrieb unabhängig funktionieren. Zur Gewährleistung der Resilienz sind in allen Regionen, in denen Zonen aktiviert sind, mindestens drei separate Zonen vorhanden. Die physische Trennung von Verfügbarkeitszonen innerhalb einer Region schützt Anwendungen und Daten vor Ausfällen von Rechenzentren.
+Verfügbarkeitszonen sind ein Hochverfügbarkeitsangebot, das Anwendungen und Daten vor Ausfällen von Rechenzentren schützt. Zonen sind eindeutige physische Standorte in einer Azure-Region. Jede Zone besteht aus mindestens einem Rechenzentrum, dessen Stromversorgung, Kühlung und Netzwerkbetrieb unabhängig funktionieren. Zur Gewährleistung der Resilienz ist in allen für Zonen aktivierten Regionen immer mehr als eine Zone aktiviert. Die physische Trennung von Verfügbarkeitszonen innerhalb einer Region schützt Anwendungen und Daten vor Ausfällen von Rechenzentren.
 
 Weitere Informationen finden Sie unter [Was sind Verfügbarkeitszonen in Azure?][az-overview].
 
@@ -68,7 +68,7 @@ Wenn eine einzelne Zone nicht mehr verfügbar ist, werden Ihre Anwendungen weite
 
 ## <a name="create-an-aks-cluster-across-availability-zones"></a>Erstellen eines AKS-Clusters über Verfügbarkeitszonen hinweg
 
-Wenn Sie einen Cluster mit dem Befehl [az aks create][az-aks-create] erstellen, definiert der Parameter `--zones`, in welchen Zonen Agent-Knoten eingesetzt werden. Die Komponenten der Steuerungsebene, z. B. etcd, sind auf drei Zonen verteilt, wenn Sie den `--zones`-Parameter zum Zeitpunkt der Clustererstellung definieren. Die spezifischen Zonen, auf die die Komponenten der Steuerungsebene verteilt werden, sind unabhängig davon, welche expliziten Zonen für den anfänglichen Knotenpool ausgewählt werden.
+Wenn Sie einen Cluster mit dem Befehl [az aks create][az-aks-create] erstellen, definiert der Parameter `--zones`, in welchen Zonen Agent-Knoten eingesetzt werden. Die Komponenten der Steuerungsebene, z. B. etcd oder die API, sind auf die verfügbaren Zonen in der Region verteilt, wenn Sie den `--zones`-Parameter zum Zeitpunkt der Clustererstellung definieren. Die spezifischen Zonen, auf die die Komponenten der Steuerungsebene verteilt werden, sind unabhängig davon, welche expliziten Zonen für den anfänglichen Knotenpool ausgewählt werden.
 
 Wenn Sie beim Erstellen eines AKS-Clusters keine Zonen für den Standard-Agentpool definieren, ist die Verteilung der Steuerungsebenenkomponenten auf Verfügbarkeitszonen nicht garantiert. Sie können zwar zusätzliche Knotenpools mit dem Befehl [az aks nodepool add][az-aks-nodepool-add] hinzufügen und `--zones` für neue Knoten angeben, doch ändert dies nichts an der Verteilung der Steuerungsebene auf Zonen. Verfügbarkeitszoneneinstellungen können nur zum Zeitpunkt der Erstellung des Clusters oder Knotenpools definiert werden.
 
@@ -120,7 +120,20 @@ Name:       aks-nodepool1-28993262-vmss000002
 
 Wenn Sie einem Agentpool zusätzliche Knoten hinzufügen, verteilt die Azure-Plattform die zugrunde liegenden VMs automatisch auf die angegebenen Verfügbarkeitszonen.
 
-Beachten Sie, dass in neueren Kubernetes-Versionen (ab 1.17.0) in AKS `topology.kubernetes.io/zone`zusätzlich zur veralteten Bezeichnung`failure-domain.beta.kubernetes.io/zone` die neuere Bezeichnung verwendet wird.
+Beachten Sie, dass in neueren Kubernetes-Versionen (ab 1.17.0) in AKS `topology.kubernetes.io/zone`zusätzlich zur veralteten Bezeichnung`failure-domain.beta.kubernetes.io/zone` die neuere Bezeichnung verwendet wird. Sie können dasselbe Ergebnis wie oben auch durch Ausführen des folgenden Skripts erreichen:
+
+```console
+kubectl get nodes -o custom-columns=NAME:'{.metadata.name}',REGION:'{.metadata.labels.topology\.kubernetes\.io/region}',ZONE:'{metadata.labels.topology\.kubernetes\.io/zone}'
+```
+
+Dabei erhalten Sie eine kompaktere Ausgabe:
+
+```console
+NAME                                REGION   ZONE
+aks-nodepool1-34917322-vmss000000   eastus   eastus-1
+aks-nodepool1-34917322-vmss000001   eastus   eastus-2
+aks-nodepool1-34917322-vmss000002   eastus   eastus-3
+```
 
 ## <a name="verify-pod-distribution-across-zones"></a>Überprüfen der Verteilung der Pods auf die Zonen
 

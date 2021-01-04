@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e55526e0a63a0c603e2b62ccb3ac0efed911cff
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91295225"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996626"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect-Synchronisierung: Grundlegendes zur Standardkonfiguration
 In diesem Artikel werden die standardmäßigen Konfigurationsregeln erläutert. Er dokumentiert die Regeln und deren Auswirkungen auf die Konfiguration. Außerdem wird die Standardkonfiguration der Azure AD Connect-Synchronisierung beschrieben. Der Leser soll verstehen, wie das als deklarative Bereitstellung bezeichnete Konfigurationsmodell in einem realistischen Beispiel funktioniert. Dieser Artikel setzt voraus, dass die Azure AD Connect-Synchronisierung bereits mit dem Installations-Assistenten installiert und konfiguriert wurde.
@@ -96,7 +96,7 @@ Ein Gruppenobjekt muss Folgendes erfüllen, um synchronisiert zu werden:
   * Sind vor dem Start der ersten Synchronisierung mehr Mitglieder vorhanden, wird die Gruppe nicht synchronisiert.
   * Sollte die Mitgliederanzahl später 50.000 erreichen, wird die Synchronisierung so lange ausgesetzt, bis die Anzahl der Mitglieder wieder unter 50.000 liegt.
   * Hinweis: Die Mitgliederanzahl von 50.000 wird auch von Azure AD erzwungen. Gruppen mit einer höheren Mitgliederanzahl können auch dann nicht synchronisiert werden, wenn Sie diese Regel ändern oder entfernen.
-* Falls es sich bei der Gruppe um eine **Verteilergruppe**handelt, muss sie zudem E-Mail-aktiviert sein. Informationen zur Erzwingung dieser Regel finden Sie unter [Standardregeln für Kontakte](#contact-out-of-box-rules) .
+* Falls es sich bei der Gruppe um eine **Verteilergruppe** handelt, muss sie zudem E-Mail-aktiviert sein. Informationen zur Erzwingung dieser Regel finden Sie unter [Standardregeln für Kontakte](#contact-out-of-box-rules) .
 
 Die folgenden Gruppenobjekte werden **nicht** mit Azure AD synchronisiert:
 
@@ -169,7 +169,7 @@ Der Bereichsfilter verfügt über Gruppen und Klauseln, die geschachtelt werden 
 Diese Regel wird zur Definition verwendet, welche Gruppen für Azure AD bereitgestellt werden sollen. Verteilergruppen müssen E-Mail-aktiviert sein, damit sie mit Azure AD synchronisiert werden können, aber für Sicherheitsgruppen ist keine E-Mail erforderlich.
 
 #### <a name="join-rules"></a>Verknüpfungsregeln
-Der dritte Bereich wird für die Konfiguration verwendet, wie sich Objekte im Connectorbereich auf Objekte im Metaverse beziehen. Die zuvor betrachtete Regel verfügt über keine Konfiguration für Verknüpfungsregeln, sodass wir stattdessen die Regel **Ein von AD – Benutzerverknüpfung**betrachten.
+Der dritte Bereich wird für die Konfiguration verwendet, wie sich Objekte im Connectorbereich auf Objekte im Metaverse beziehen. Die zuvor betrachtete Regel verfügt über keine Konfiguration für Verknüpfungsregeln, sodass wir stattdessen die Regel **Ein von AD – Benutzerverknüpfung** betrachten.
 
 ![Registerkarte „Verknüpfungsregeln“ im Synchronisierungsregel-Editor](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
 

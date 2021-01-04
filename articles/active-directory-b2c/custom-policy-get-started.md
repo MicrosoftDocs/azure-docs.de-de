@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 54d92da469625a3b81d0027558ec14166d916b80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae3865c1ee5e656fc4feda48de9ab67995619593
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163185"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936368"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Erste Schritte für benutzerdefinierte Richtlinien in Azure Active Directory B2C
 
@@ -213,6 +213,6 @@ Wie unter [Voraussetzungen](#prerequisites) erwähnt, ist Facebook *nicht* erfor
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Fügen Sie als Nächstes Azure Active Directory (Azure AD) als Identitätsanbieter hinzu. Die in diesem Leitfaden für erste Schritte verwendete Basisdatei enthält bereits einige Inhalte, die Sie zum Hinzufügen anderer Identitätsanbieter, z. B. Azure AD, benötigen. Informationen zum Einrichten von Azure AD als Identitätsanbieter finden Sie unter [Einrichten von Registrierung und Anmeldung mit einem Azure Active Directory-Konto mithilfe benutzerdefinierter Richtlinien in Azure Active Directory B2C](identity-provider-azure-ad-single-tenant-custom.md). 
+Fügen Sie als Nächstes Azure Active Directory (Azure AD) als Identitätsanbieter hinzu. Die in diesem Leitfaden für erste Schritte verwendete Basisdatei enthält bereits einige Inhalte, die Sie zum Hinzufügen anderer Identitätsanbieter, z. B. Azure AD, benötigen. Informationen zum Einrichten von Azure AD als Identitätsanbieter finden Sie unter [Einrichten von Registrierung und Anmeldung mit einem Azure Active Directory-Konto mithilfe benutzerdefinierter Richtlinien in Azure Active Directory B2C](identity-provider-azure-ad-single-tenant.md). 
 
 In unserem [Partnerkatalog](partner-gallery.md) erfahren Sie mehr über die Implementierung der ISV-Integration mithilfe von benutzerdefinierten Richtlinien. 

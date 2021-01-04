@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 zone_pivot_groups: programming-languages-set-sixteen
-ms.openlocfilehash: 36a38c69c68613e912e7c598495b9370044f13a6
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: d9e984d4384b59fa13bc59e09e29939457dad37c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777445"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351014"
 ---
 # <a name="quickstart-qna-maker-client-library"></a>Schnellstart: QnA Maker-Clientbibliothek
 
@@ -52,9 +52,8 @@ Wenn Sie ein Cognitive Services-Abonnement bereinigen und entfernen möchten, k�
 ## <a name="next-steps"></a>Nächste Schritte
 
 > [!div class="nextstepaction"]
->[Tutorial: Testen der Wissensdatenbank mit Batchfragen und erwarteten Antworten](./batch-testing.md)
+>[Tutorial: Testen der Wissensdatenbank mit Batchfragen und erwarteten Antworten](../index.yml)
 
 * [Was ist die QnA Maker-API?](../Overview/overview.md)
 * [Bearbeiten einer Knowledge Base](../how-to/edit-knowledge-base.md)
 * [Abrufen von Nutzungsanalysen](../how-to/get-analytics-knowledge-base.md)
-

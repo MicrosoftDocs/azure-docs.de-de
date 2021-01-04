@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 7ff1e2f00b20344fc19d797ed5bafdfbc2113b66
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 49b7bae1a0cc224b92f292b891fae210f2cffa4e
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044665"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400606"
 ---
 # <a name="what-is-azure-digital-twins"></a>Was ist Azure Digital Twins?
 
@@ -88,21 +88,14 @@ Eine umfassende Lösung mit Azure Digital Twins könnte folgende Elemente beinha
 
 Die folgende Abbildung zeigt, wie sich Azure Digital Twins im Kontext einer größeren Azure IoT-Lösung einfügt.
 
-:::image type="content" source="media/overview/solution-context.png" alt-text="Screenshot der Beispielanwendung für den Azure Digital Twins-Explorer mit einem Diagramm von Knoten, die digitale Zwillinge darstellen" border="false" lightbox="media/overview/solution-context.png":::
+:::image type="content" source="media/overview/solution-context.png" alt-text="Abbildung mit Eingabequellen, Ausgabediensten und bidirektionaler Kommunikation mit Client-Apps und externen Computeressourcen." border="false" lightbox="media/overview/solution-context.png":::
 
-## <a name="service-limits-in-public-preview"></a>Diensteinschränkungen der öffentlichen Vorschauversion
+## <a name="service-limits"></a>Diensteinschränkungen
 
-> [!IMPORTANT]
-> Azure Digital Twins ist zurzeit als öffentliche Vorschau verfügbar.
-> Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar. Weitere Informationen finden Sie in den [*zusätzlichen Nutzungsbestimmungen für Microsoft Azure-Vorschauen*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Eine Liste der Einschränkungen, die während der öffentlichen Vorschau für Azure Digital Twins gelten, finden Sie in der [*Referenz: Diensteinschränkungen der öffentlichen Vorschauversion*](reference-service-limits.md).
+Eine Liste mit den Einschränkungen für Azure Digital Twins finden Sie unter [*Referenz: Diensteinschränkungen*](reference-service-limits.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Wenn Sie bereits mit der vorherigen Vorschauversion von Azure Digital Twins gearbeitet haben, finden Sie hier weitere Informationen zu den Unterschieden zwischen diesen beiden Versionen:
-* [*Übersicht: Unterschiede zur vorherigen Version*](overview-differences.md)
+Wenn Sie bereits mit der ersten Vorschauversion von Azure Digital Twins (Oktober 2018) gearbeitet haben, können Sie hier auf weitere Informationen zu den Unterschieden zwischen diesen beiden Versionen zugreifen: [*Übersicht: Unterschiede zum vorherigen Release*](overview-differences.md).
 
-Alternativ können Sie das erste Tutorial zu Azure Digital Twins durcharbeiten, um sich näher mit der Funktionsweise vertraut zu machen:
-
-[*Tutorial: Codieren einer Client-App*](tutorial-code.md)
+Alternativ können Sie sich mit dem Schnellstart zu Azure Digital Twins mit der Funktionsweise vertraut machen: [*Schnellstart: Erkunden eines Beispielszenarios*](quickstart-adt-explorer.md).

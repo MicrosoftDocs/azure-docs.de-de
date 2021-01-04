@@ -9,15 +9,15 @@ ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 4678ab34de169a8406f0d73b63906152ef1185f0
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 4b62b591c408f663fd28d5077af924f785ee66c8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281912"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090408"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Schnellstart: Erstellen einer Java-App zum Verwalten von Azure Cosmos DB-SQL-API-Daten
-
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -43,15 +43,15 @@ In dieser Schnellstartanleitung erstellen und verwalten Sie ein Azure Cosmos DB-
 
 ## <a name="introductory-notes"></a>Einführende Hinweise
 
-*Die Struktur eines Cosmos DB-Kontos.* Ein Cosmos DB-*Konto* enthält unabhängig von der API oder der Programmiersprache null oder mehr *Datenbanken*, eine *Datenbank* (DB) enthält null oder mehr *Container*, und ein *Container* enthält null oder mehr Elemente, wie im folgenden Diagramm zu sehen:
+*Die Struktur eines Cosmos DB-Kontos.* Ein Cosmos DB- *Konto* enthält unabhängig von der API oder der Programmiersprache null oder mehr *Datenbanken* , eine *Datenbank* (DB) enthält null oder mehr *Container* , und ein *Container* enthält null oder mehr Elemente, wie im folgenden Diagramm zu sehen:
 
 :::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Entitäten in einem Azure Cosmos-Konto" border="false":::
 
 Weitere Informationen zu Datenbanken, Containern und Elementen finden Sie [hier](account-databases-containers-items.md). Einige wichtige Eigenschaften werden auf der Containerebene definiert. Hierzu zählen unter anderem der *bereitgestellte Durchsatz* und der *Partitionsschlüssel*. 
 
-Der bereitgestellte Durchsatz wird in Anforderungseinheiten (Request Units, *RUs*) gemessen. Diese haben einen Preis und wirken sich erheblich auf die Betriebskosten des Kontos aus. Der bereitgestellte Durchsatz kann container- oder datenbankspezifisch ausgewählt werden. In der Regel wird jedoch die containerspezifische Durchsatzangabe bevorzugt. Weitere Informationen zur Durchsatzbereitstellung finden Sie [hier](set-throughput.md).
+Der bereitgestellte Durchsatz wird in Anforderungseinheiten (Request Units, *RUs* ) gemessen. Diese haben einen Preis und wirken sich erheblich auf die Betriebskosten des Kontos aus. Der bereitgestellte Durchsatz kann container- oder datenbankspezifisch ausgewählt werden. In der Regel wird jedoch die containerspezifische Durchsatzangabe bevorzugt. Weitere Informationen zur Durchsatzbereitstellung finden Sie [hier](set-throughput.md).
 
-Wenn Elemente in einen Cosmos DB-Container eingefügt werden, wird die Datenbank horizontal skaliert, indem weitere Speicher- und Computeressourcen zur Bewältigung der Anforderungen hinzugefügt werden. Speicher- und Computekapazität werden in diskreten Einheiten (*Partitionen*) hinzugefügt. In Ihren Dokumenten muss ein Feld als Partitionsschlüssel ausgewählt werden, durch den jedes Dokument einer Partition zugeordnet wird. Zur Verwaltung von Partitionen wird jeder Partition ein ungefähr gleicher Slice aus dem Bereich der Partitionsschlüsselwerte zugewiesen. Es empfiehlt sich daher, einen relativ zufälligen oder gleichmäßig verteilten Partitionsschlüssel zu wählen. Andernfalls fallen für einige Partitionen deutlich mehr Anforderungen an als für andere. Diese werden als *heiße Partitionen* bzw. *kalte Partitionen* bezeichnet und sollten vermieden werden. Weitere Informationen zur Partitionierung finden Sie [hier](partitioning-overview.md).
+Wenn Elemente in einen Cosmos DB-Container eingefügt werden, wird die Datenbank horizontal skaliert, indem weitere Speicher- und Computeressourcen zur Bewältigung der Anforderungen hinzugefügt werden. Speicher- und Computekapazität werden in diskreten Einheiten ( *Partitionen* ) hinzugefügt. In Ihren Dokumenten muss ein Feld als Partitionsschlüssel ausgewählt werden, durch den jedes Dokument einer Partition zugeordnet wird. Zur Verwaltung von Partitionen wird jeder Partition ein ungefähr gleicher Slice aus dem Bereich der Partitionsschlüsselwerte zugewiesen. Es empfiehlt sich daher, einen relativ zufälligen oder gleichmäßig verteilten Partitionsschlüssel zu wählen. Andernfalls fallen für einige Partitionen deutlich mehr Anforderungen an als für andere. Diese werden als *heiße Partitionen* bzw. *kalte Partitionen* bezeichnet und sollten vermieden werden. Weitere Informationen zur Partitionierung finden Sie [hier](partitioning-overview.md).
 
 ## <a name="create-a-database-account"></a>Erstellen eines Datenbankkontos
 

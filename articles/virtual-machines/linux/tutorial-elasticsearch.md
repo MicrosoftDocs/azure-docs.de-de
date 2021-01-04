@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 10/11/2017
 ms.author: routlaw
-ms.openlocfilehash: 1b7b4d3c25794a62bc19925ade278159ebb37615
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54ef051b7d8778e2eecd85bef2e57b62239ba114
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80066543"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435313"
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>Installieren des Elastic Stack auf einem virtuellen Azure-Computer
 
@@ -35,9 +35,9 @@ In diesem Tutorial lernen Sie Folgendes:
 
  Diese Bereitstellung eignet sich für einfache Entwicklungsszenarien mit dem Elastic Stack. Weitere Informationen zum Elastic Stack (einschließlich Empfehlungen für eine Produktionsumgebung) finden Sie in der [Elastic-Dokumentation](https://www.elastic.co/guide/index.html) sowie im [Azure-Architekturcenter](/azure/architecture/elasticsearch/).
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Wenn Sie die CLI lokal installieren und verwenden möchten, müssen Sie für dieses Tutorial die Azure CLI-Version 2.0.4 oder höher ausführen. Führen Sie `az --version` aus, um die Version zu finden. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sei bei Bedarf unter [Installieren der Azure CLI]( /cli/azure/install-azure-cli). 
+- Für diesen Artikel ist mindestens Version 2.0.4 der Azure CLI erforderlich. Bei Verwendung von Azure Cloud Shell ist die aktuelle Version bereits installiert.
 
 ## <a name="create-a-resource-group"></a>Erstellen einer Ressourcengruppe
 
@@ -211,7 +211,7 @@ Die Syslog-Einträge werden während der Übermittlung an Elasticsearch in Ihrem
 Bearbeiten Sie `/etc/kibana/kibana.yml`, und ändern Sie die IP-Adresse, an der Kibana lauscht, damit Sie darauf über Ihren Webbrowser zugreifen können.
 
 ```bash
-server.host:"0.0.0.0"
+server.host: "0.0.0.0"
 ```
 
 Führen Sie den folgenden Befehl aus, um Kibana zu starten:
@@ -228,7 +228,7 @@ az vm open-port --port 5601 --resource-group myResourceGroup --name myVM
 
 Öffnen Sie die Kibana-Konsole, und klicken Sie auf **Erstellen**, um auf der Grundlage der zuvor an Elasticsearch gesendeten Syslog-Daten einen Standardindex zu generieren. 
 
-![Durchsuchen von Syslog-Ereignissen in Kibana](media/elasticsearch-install/kibana-index.png)
+![Der Screenshot zeigt die Kibana-Konsole und hebt die Schaltfläche „Erstellen“ hervor.](media/elasticsearch-install/kibana-index.png)
 
 Klicken Sie in der Kibana-Konsole auf **Discover** (Entdecken), um die Syslog-Ereignisse zu durchsuchen und zu filtern.
 

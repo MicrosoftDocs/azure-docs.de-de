@@ -5,12 +5,12 @@ author: MSEvanhi
 ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: evanhi
-ms.openlocfilehash: 541d140716e52b4fe1db4bc999682914a380a5f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23ae69f49d37a210dd9fa1bfeedeca6c1b461e20
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85368106"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888860"
 ---
 # <a name="quickstart-create-a-custom-provider-and-deploy-custom-resources"></a>Schnellstart: Erstellen eines benutzerdefinierten Anbieters und Bereitstellen von benutzerdefinierten Ressourcen
 
@@ -23,8 +23,11 @@ In dieser Schnellstartanleitung erstellen Sie Ihren eigenen Ressourcenanbieter u
 
 # <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
-- Die [custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider)-Befehle erfordern eine Erweiterung. Weitere Informationen finden Sie unter [Verwenden von Erweiterungen mit der Azure CLI](/cli/azure/azure-cli-extensions-overview).
-- In Azure CLI-Beispielen wird `az rest` für Anforderungen vom Typ `REST` verwendet. Weitere Informationen finden Sie unter [az rest](/cli/azure/reference-index#az-rest).
+Bereiten Sie die Umgebung für die Azure CLI vor.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+In Azure CLI-Beispielen wird `az rest` für Anforderungen vom Typ `REST` verwendet. Weitere Informationen finden Sie unter [az rest](/cli/azure/reference-index#az-rest).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -33,8 +36,6 @@ In dieser Schnellstartanleitung erstellen Sie Ihren eigenen Ressourcenanbieter u
 - Nach der Installation von **ARMClient** können Sie die Nutzungsinformationen über einen PowerShell-Befehl anzeigen, indem Sie Folgendes eingeben: `armclient.exe`. Sie können auch im [ARMClient-Wiki](https://github.com/projectkudu/ARMClient/wiki) nachsehen.
 
 ---
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="deploy-custom-provider"></a>Bereitstellen eines benutzerdefinierten Anbieters
 

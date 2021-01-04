@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-js
 ms.date: 06/16/2020
-ms.openlocfilehash: 7df244ee024b0d67ba678e296b882fbb08c3e16b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 092e07ed01fb870cdcd9a3fd63d46d30cef96007
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317717"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780840"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Benutzerdefinierte JavaScript-Funktionen in Azure Stream Analytics
  
@@ -55,7 +55,7 @@ Anschließend müssen Sie die folgenden Eigenschaften angeben und **Speichern** 
 
 ## <a name="test-and-troubleshoot-javascript-udfs"></a>Tests und Problembehandlung für JavaScript-UDFs 
 
-Sie können Ihre JavaScript-UDF-Logik in einem beliebigen Browser testen und debuggen. Das Debuggen und Testen der Logik dieser benutzerdefinierten Funktionen wird im Stream Analytics-Portal derzeit nicht unterstützt. Sobald die Funktion wie gewünscht funktioniert, können Sie sie wie oben beschrieben dem Stream Analytics-Auftrag hinzufügen und dann direkt über Ihre Abfrage aufrufen. Sie können Ihre Abfragelogik mit der JavaScript-UDF auch mithilfe von [Stream Analytics-Tools für Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) testen.
+Sie können Ihre JavaScript-UDF-Logik in einem beliebigen Browser testen und debuggen. Das Debuggen und Testen der Logik dieser benutzerdefinierten Funktionen wird im Stream Analytics-Portal derzeit nicht unterstützt. Sobald die Funktion wie gewünscht funktioniert, können Sie sie wie oben beschrieben dem Stream Analytics-Auftrag hinzufügen und dann direkt über Ihre Abfrage aufrufen. Sie können Ihre Abfragelogik mit der JavaScript-UDF auch mithilfe von [Stream Analytics-Tools für Visual Studio](./stream-analytics-tools-for-visual-studio-install.md) testen.
 
 JavaScript-Laufzeitfehler werden als schwerwiegend angesehen und im Aktivitätsprotokoll aufgezeichnet. Navigieren Sie im Azure-Portal zu Ihrem Auftrag, und wählen Sie **Aktivitätsprotokoll** aus, um das Protokoll abzurufen.
 
@@ -186,7 +186,36 @@ FROM
     input A
 ```
 
+### <a name="tolocalestring"></a>toLocaleString()
+Mit der Methode **toLocaleString** in JavaScript kann eine sprachabhängige Zeichenfolge zurückgegeben werden, die die Datums-/Uhrzeitdaten des Orts darstellt, von dem aus diese Methode aufgerufen wird.
+Obwohl Azure Stream Analtyics als Systemzeitstempel nur Datums- und Uhrzeitangaben im UTC-Format akzeptiert, kann mithilfe dieser Methode der Systemzeitstempel in ein anderes Gebietsschema und eine andere Zeitzone konvertiert werden.
+Diese Methode verhält sich bei der Implementierung genau so wie die in Internet Explorer verfügbare Methode.
+
+**Definition von benutzerdefinierten JavaScript-Funktionen:**
+
+```javascript
+function main(datetime){
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    return event.toLocaleDateString('de-DE', options);
+}
+```
+
+**Beispielabfrage: Übergeben eines datetime-Werts als Eingabewert**
+```SQL
+SELECT
+    udf.toLocaleString(input.datetime) as localeString
+INTO
+    output
+FROM
+    input
+```
+
+Bei der Ausgabe dieser Abfrage handelt es sich um den datetime-Eingabewert in **de-DE** mit den bereitgestellten Optionen.
+```
+Samstag, 28. Dezember 2019
+```
+
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Machine Learning-UDF](https://docs.microsoft.com/azure/stream-analytics/machine-learning-udf)
-* [C#-UDF](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf-methods)
+* [Machine Learning-UDF](./machine-learning-udf.md)
+* [C#-UDF](./stream-analytics-edge-csharp-udf-methods.md)

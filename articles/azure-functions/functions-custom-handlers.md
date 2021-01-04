@@ -1,18 +1,18 @@
 ---
-title: Benutzerdefinierte Azure Functions-Handler (Vorschau)
+title: Benutzerdefinierte Azure Functions-Handler
 description: Erfahren Sie, wie Sie Azure Functions mit einer beliebigen Sprache oder Laufzeitversion verwenden.
 author: anthonychu
 ms.author: antchu
-ms.date: 8/18/2020
+ms.date: 12/1/2020
 ms.topic: article
-ms.openlocfilehash: 402ce1e9e92ab87689abe9c18a503a479d7421f9
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 099f90ba8c5d9dabb6c4c505e50d8c077e3eaf0f
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164549"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746028"
 ---
-# <a name="azure-functions-custom-handlers-preview"></a>Benutzerdefinierte Azure Functions-Handler (Vorschau)
+# <a name="azure-functions-custom-handlers"></a>Benutzerdefinierte Azure Functions-Handler
 
 Jede Functions-App wird von einem sprachspezifischen Handler ausgeführt. Von Azure Functions werden zwar standardmäßig zahlreiche [Sprachhandler](./supported-languages.md) unterstützt, es gibt jedoch Fälle, in denen Sie möglicherweise andere Sprachen oder Runtimes verwenden möchten.
 
@@ -20,10 +20,12 @@ Benutzerdefinierte Handler sind schlanke Webserver, die Ereignisse vom Functions
 
 Benutzerdefinierte Handler eignen sich am besten für Situationen, in denen Sie Folgendes ausführen möchten:
 
-- Implementieren einer Funktions-App in einer derzeit nicht unterstützten Sprache wie Go oder Rust
+- Implementieren einer Funktions-App in einer derzeit nicht unterstützten Sprache wie Go oder Rust.
 - Implementieren einer Funktions-App in einer derzeit nicht unterstützten Runtime wie Deno
 
 Mit benutzerdefinierten Handlern können Sie alle [Trigger sowie Ein- und Ausgabebindungen](./functions-triggers-bindings.md) über [Erweiterungspakete](./functions-bindings-register.md) verwenden.
+
+Machen Sie sich mit den ersten Schritten mit benutzerdefinierten Azure Functions-Handlern mit [Schnellstarts in Go und Rust](create-first-function-vs-code-other.md) vertraut.
 
 ## <a name="overview"></a>Übersicht
 
@@ -60,7 +62,7 @@ Das folgende Diagramm zeigt, wie diese Dateien für eine Funktion namens „MyQu
 
 ### <a name="configuration"></a>Konfiguration
 
-Die Anwendung wird über die Dateien*host.json* und *local.settings.json* konfiguriert.
+Die Anwendung wird über die Dateien *host.json* und *local.settings.json* konfiguriert.
 
 #### <a name="hostjson"></a>host.json
 
@@ -583,3 +585,7 @@ Benutzerdefinierte Handler werden in der gleichen Umgebung ausgeführt wie eine 
 Sollten Sie Hilfe im Zusammenhang mit einer Funktions-App mit benutzerdefinierten Handlern benötigen, können Sie eine Anfrage über die reguläre Supportkanäle stellen. Aufgrund des breiten Spektrums an möglichen Sprachen, die zur Erstellung von Apps mit benutzerdefinierten Handlern verwendet werden können, unterliegt der Support jedoch gewissen Einschränkungen.
 
 Support wird bereitgestellt, wenn der Functions-Host Probleme beim Start oder bei der Kommunikation mit dem benutzerdefinierten Handlerprozess hat. Bei spezifischen Problemen im Zusammenhang mit Komponenten Ihres benutzerdefinierten Handlerprozesses (beispielsweise bei Problemen mit der gewählten Sprache oder dem gewählten Framework) kann Ihnen unser Supportteam in diesem Kontext leider nicht weiterhelfen.
+
+## <a name="next-steps"></a>Nächste Schritte
+
+Erste Schritte beim Entwickeln einer Azure Functions-App in Go oder Rust mit dem [Schnellstart für benutzerdefinierte Handler](create-first-function-vs-code-other.md).

@@ -3,17 +3,19 @@ title: SQL-Konstanten in Azure Cosmos DB
 description: Erfahren Sie, wie die SQL-Abfragekonstanten in Azure Cosmos DB verwendet werden, um einen bestimmten Datenwert darzustellen.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
-ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0973dca980b65b85ac66cc1b3c9ed45f0f9c779
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74873419"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339200"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>SQL-Abfragekonstanten in Azure Cosmos DB  
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  Eine Konstante, gelegentlich auch als Literal- oder Skalarwert bezeichnet, ist ein Symbol, das einen bestimmten Datenwert repräsentiert. Das Format einer Konstante ist abhängig vom Datentyp des Werts, den sie repräsentiert.  
   
@@ -23,7 +25,7 @@ ms.locfileid: "74873419"
 |-|-|  
 |**Undefiniert**|Einzelner Wert: **undefiniert**|  
 |**NULL**|Einzelner Wert: **NULL**|  
-|**Boolescher Wert**|Werte: **false**, **true**.|  
+|**Boolescher Wert**|Werte: **false** , **true**.|  
 |**Number**|Eine Gleitkommazahl mit doppelter Genauigkeit, IEEE 754-Standard.|  
 |**String**|Eine Sequenz von null (0) oder mehr Unicode-Zeichen. Zeichenfolgen müssen in einfache oder doppelte Anführungszeichen eingeschlossen sein.|  
 |**Array**|Eine Sequenz von null (0) oder mehr Elementen. Jedes Element kann einen Wert eines beliebigen skalaren Datentyps mit Ausnahme von **Undefiniert** aufweisen.|  
@@ -67,7 +69,7 @@ ms.locfileid: "74873419"
   
 * `<null_constant>; null`  
   
-  Stellt einen **NULL**-Wert des Typs **NULL** dar.  
+  Stellt einen **NULL** -Wert des Typs **NULL** dar.  
   
 * `<boolean_constant>`  
   
@@ -75,11 +77,11 @@ ms.locfileid: "74873419"
   
 * `false`  
   
-  Stellt einen **false**-Wert des Typs „Boolesch“ dar.  
+  Stellt einen **false** -Wert des Typs „Boolesch“ dar.  
   
 * `true`  
   
-  Stellt einen **true**-Wert des Typs „Boolesch“ dar.  
+  Stellt einen **true** -Wert des Typs „Boolesch“ dar.  
   
 * `<number_constant>`  
   

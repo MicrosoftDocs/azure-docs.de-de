@@ -3,12 +3,12 @@ title: Azure VMware Solution-Netzwerkbetrieb und -Konnektivität
 description: Beschreibung von Azure VMware Solution-Netzwerkbetrieb und -Konnektivität
 ms.topic: include
 ms.date: 09/28/2020
-ms.openlocfilehash: 1d43a8a49fc56a6a5b534a89fd1dfc2f5ae2d478
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47b5fab8430f4e462f1e4a0e8cb6ddb69ec38c02
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91574454"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925032"
 ---
 <!-- Used in introduction.md and concepts-networking.md -->
 
@@ -16,7 +16,4 @@ Azure VMware Solution stellt eine private Cloud bereit, auf die aus lokalen und 
 
 Wenn eine private Cloud bereitgestellt wird, werden private Netzwerke für Verwaltung, Bereitstellung und vMotion erstellt. Verwenden Sie diese privaten Netzwerke, um auf vCenter und NSX-T Manager zuzugreifen sowie vMotion oder Bereitstellung virtueller Computer umzusetzen.  ExpressRoute Global Reach wird verwendet, um private Clouds mit lokalen Umgebungen zu verbinden. Die Verbindung erfordert ein virtuelles Netzwerk mit einer ExpressRoute-Leitung in Ihrem Abonnement.
 
-
-
->[!NOTE]
->Zugriff auf das Internet und Azure-Dienste werden bereitgestellt, damit VMs in Produktionsnetzwerken diese nutzen können, wenn eine private Cloud bereitgestellt wird.  Der Internetzugriff ist für neue private Clouds standardmäßig deaktiviert und kann jederzeit aktiviert oder deaktiviert werden.
+Ressourcen, etwa Webserver und virtuelle Computer, sind über die öffentliche IP-Adresse von Azure Virtual WAN für das Internet zugänglich.  Der Internetzugriff ist für neue private Clouds standardmäßig deaktiviert. Weitere Informationen finden Sie unter [Verwenden der Funktion „öffentliche IP-Adresse“ in Azure VMware Solution](../public-ip-usage.md).

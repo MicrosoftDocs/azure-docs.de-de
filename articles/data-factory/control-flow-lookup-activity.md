@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.openlocfilehash: 66a17b61fef652160dc6d4a02bf330adbf0c7362
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425689"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006820"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Lookup-Aktivität in Azure Data Factory
 
@@ -58,8 +58,8 @@ Die Lookup-Aktivität kann bis zu 5.000 Zeilen zurückgeben. Wenn das Resultset
 
 Name | Beschreibung | type | Erforderlich?
 ---- | ----------- | ---- | --------
-dataset | Enthält die Datasetreferenz für die Lookupaktivität. Details finden Sie in den entsprechenden Connectorartikeln im Abschnitt **Dataset-Eigenschaften** . | Schlüssel-Wert-Paar | Ja
-source | Enthält spezifische Quelleneigenschaften für das Dataset, identisch mit der Quelle der Kopieraktivität. Details finden Sie in jedem entsprechenden Connectorartikel im Abschnitt **Eigenschaften der Kopieraktivität** . | Schlüssel-Wert-Paar | Ja
+dataset | Enthält die Datasetreferenz für die Lookupaktivität. Details finden Sie in den entsprechenden Connectorartikeln im Abschnitt **Dataset-Eigenschaften**. | Schlüssel-Wert-Paar | Ja
+source | Enthält spezifische Quelleneigenschaften für das Dataset, identisch mit der Quelle der Kopieraktivität. Details finden Sie in jedem entsprechenden Connectorartikel im Abschnitt **Eigenschaften der Kopieraktivität**. | Schlüssel-Wert-Paar | Ja
 firstRowOnly | Gibt an, ob nur die erste Zeile oder alle Zeilen zurückgegeben werden sollen. | Boolean | Nein. Der Standardwert lautet `true`.
 
 > [!NOTE]
@@ -72,7 +72,7 @@ firstRowOnly | Gibt an, ob nur die erste Zeile oder alle Zeilen zurückgegeben w
 
 Das Lookupergebnis wird im Abschnitt `output` des Ergebnisses der Aktivitätsausführung zurückgegeben.
 
-* **Wenn `firstRowOnly` auf `true` (Standardwert) gesetzt ist** , wird das Ausgabeformat wie im folgenden Code gezeigt. Das Lookupergebnis befindet sich unter dem festen Schlüssel `firstRow`. Wenn Sie das Ergebnis in nachfolgenden Aktivitäten nutzen möchten, verwenden Sie das Muster `@{activity('LookupActivity').output.firstRow.table}`.
+* **Wenn `firstRowOnly` auf `true` (Standardwert) gesetzt ist**, wird das Ausgabeformat wie im folgenden Code gezeigt. Das Lookupergebnis befindet sich unter dem festen Schlüssel `firstRow`. Wenn Sie das Ergebnis in nachfolgenden Aktivitäten nutzen möchten, verwenden Sie das Muster `@{activity('LookupActivity').output.firstRow.table}`.
 
     ```json
     {
@@ -85,7 +85,7 @@ Das Lookupergebnis wird im Abschnitt `output` des Ergebnisses der Aktivitätsaus
     }
     ```
 
-* **Wenn `firstRowOnly` auf `false` festgelegt ist** , wird das Ausgabeformat wie im folgenden Code gezeigt. Ein Feld `count` gibt an, wie viele Datensätze zurückgegeben werden. Detaillierte Werte werden unter einem festen `value`-Array angezeigt. In diesem Fall folgt auf die Lookup-Aktivität eine [ForEach-Aktivität](control-flow-for-each-activity.md). Um das Array `value` an das Feld `items` der ForEach-Aktivität zu übergeben, verwenden Sie das Muster `@activity('MyLookupActivity').output.value`. Für den Zugriff auf Elemente in Array `value` verwenden Sie die folgende Syntax: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. z. B. `@{activity('lookupActivity').output.value[0].schema}`.
+* **Wenn `firstRowOnly` auf `false` festgelegt ist**, wird das Ausgabeformat wie im folgenden Code gezeigt. Ein Feld `count` gibt an, wie viele Datensätze zurückgegeben werden. Detaillierte Werte werden unter einem festen `value`-Array angezeigt. In diesem Fall folgt auf die Lookup-Aktivität eine [ForEach-Aktivität](control-flow-for-each-activity.md). Um das Array `value` an das Feld `items` der ForEach-Aktivität zu übergeben, verwenden Sie das Muster `@activity('MyLookupActivity').output.value`. Für den Zugriff auf Elemente in Array `value` verwenden Sie die folgende Syntax: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. z. B. `@{activity('lookupActivity').output.value[0].schema}`.
 
     ```json
     {
@@ -107,7 +107,7 @@ Das Lookupergebnis wird im Abschnitt `output` des Ergebnisses der Aktivitätsaus
 
 ## <a name="example"></a>Beispiel
 
-In diesem Beispiel enthält die Pipeline zwei Aktivitäten: **Lookup** und **Kopieren** . Mit der Kopieraktivität kopieren Sie Daten aus einer SQL-Tabelle in Ihrer Azure SQL-Datenbank-Instanz nach Azure Blob Storage. Der Name der SQL-Tabelle wird in einer JSON-Datei in Blob Storage gespeichert. Die Lookup-Aktivität sucht den Tabellennamen zur Runtime. Durch diesen Ansatz wird die JSON-Datei dynamisch geändert. Pipelines oder Datasets müssen nicht erneut bereitgestellt werden. 
+In diesem Beispiel enthält die Pipeline zwei Aktivitäten: **Lookup** und **Kopieren**. Mit der Kopieraktivität kopieren Sie Daten aus einer SQL-Tabelle in Ihrer Azure SQL-Datenbank-Instanz nach Azure Blob Storage. Der Name der SQL-Tabelle wird in einer JSON-Datei in Blob Storage gespeichert. Die Lookup-Aktivität sucht den Tabellennamen zur Runtime. Durch diesen Ansatz wird die JSON-Datei dynamisch geändert. Pipelines oder Datasets müssen nicht erneut bereitgestellt werden. 
 
 Dieses Beispiel zeigt nur das Lookup für die erste Zeile. Wenn Sie weitere Informationen zum Lookup für alle Zeilen und dem Verketten von Ergebnissen mit der ForEach-Aktivität benötigen, lesen Sie die Beispiele in [Massenkopieren von mehreren Tabellen mithilfe von Azure Data Factory](tutorial-bulk-copy.md).
 
@@ -115,7 +115,7 @@ Dieses Beispiel zeigt nur das Lookup für die erste Zeile. Wenn Sie weitere Info
 ### <a name="pipeline"></a>Pipeline
 
 - Die Lookup-Aktivität ist für die Verwendung von **LookupDataset** konfiguriert, das auf einen Speicherort in Azure Blob Storage verweist. Der Name der SQL-Tabelle wird von der Lookup-Aktivität aus einer JSON-Datei an diesem Speicherort gelesen. 
-- Die Kopieraktivität verwendet die Ausgabe der Lookup-Aktivität, also den Namen der SQL-Tabelle. Die **tableName** -Eigenschaft in **SourceDataset** ist für die Verwendung der Ausgabe der Lookup-Aktivität konfiguriert. Die Kopieraktivität kopiert Daten aus der SQL-Tabelle an einen Speicherort in Azure Blob Storage. Der Speicherort wird durch die **SinkDataset** -Eigenschaft festgelegt. 
+- Die Kopieraktivität verwendet die Ausgabe der Lookup-Aktivität, also den Namen der SQL-Tabelle. Die **tableName**-Eigenschaft in **SourceDataset** ist für die Verwendung der Ausgabe der Lookup-Aktivität konfiguriert. Die Kopieraktivität kopiert Daten aus der SQL-Tabelle an einen Speicherort in Azure Blob Storage. Der Speicherort wird durch die **SinkDataset**-Eigenschaft festgelegt. 
 
 ```json
 {
@@ -244,7 +244,7 @@ Dieses Beispiel zeigt nur das Lookup für die erste Zeile. Wenn Sie weitere Info
 
 ### <a name="lookup-dataset"></a>Suchdataset
 
-Das **lookup** -Dataset verweist auf die Datei **sourcetable.json** im Lookup-Ordner von Azure Storage, der durch den Typ **AzureBlobStorageLinkedService** angegeben wird. 
+Das **lookup**-Dataset verweist auf die Datei **sourcetable.json** im Lookup-Ordner von Azure Storage, der durch den Typ **AzureBlobStorageLinkedService** angegeben wird. 
 
 ```json
 {
@@ -267,9 +267,9 @@ Das **lookup** -Dataset verweist auf die Datei **sourcetable.json** im Lookup-Or
 }
 ```
 
-### <a name="source-dataset-for-copy-activity"></a>**source** -Dataset für die Kopieraktivität
+### <a name="source-dataset-for-copy-activity"></a>**source**-Dataset für die Kopieraktivität
 
-Das **source** -Dataset verwendet die Ausgabe der Lookup-Aktivität, also den Namen der SQL-Tabelle. Die Kopieraktivität kopiert Daten aus dieser SQL-Tabelle an einen Speicherort in Azure Blob Storage. Der Speicherort wird durch das **sink** -Dataset festgelegt. 
+Das **source**-Dataset verwendet die Ausgabe der Lookup-Aktivität, also den Namen der SQL-Tabelle. Die Kopieraktivität kopiert Daten aus dieser SQL-Tabelle an einen Speicherort in Azure Blob Storage. Der Speicherort wird durch das **sink**-Dataset festgelegt. 
 
 ```json
 {
@@ -304,7 +304,7 @@ Das **source** -Dataset verwendet die Ausgabe der Lookup-Aktivität, also den Na
 }
 ```
 
-### <a name="sink-dataset-for-copy-activity"></a>**sink** -Dataset für die Kopieraktivität
+### <a name="sink-dataset-for-copy-activity"></a>**sink**-Dataset für die Kopieraktivität
 
 Die Kopieraktivität kopiert Daten aus der SQL-Tabelle in die Datei **filebylookup.csv** im Ordner **csv** in Azure Storage. Die Datei wird durch die Eigenschaft **AzureBlobStorageLinkedService** festgelegt. 
 

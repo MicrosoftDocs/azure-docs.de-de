@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 28232981d007e7be04d520ec46739408d03d90b4
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1394cf6511a65a0e406e51229953e8666d4d4d8d
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124012"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337677"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Tutorial: Verwenden von Data Box zum Importieren von Daten als verwaltete Datenträger in Azure
 
@@ -76,11 +76,11 @@ Wenn Sie einen Windows Server-Hostcomputer verwenden, führen Sie die folgenden 
     > [!NOTE]
     > Sie sind für alle Freigaben für verwaltete Datenträger identisch.
 
-    ![Abrufen der Anmeldeinformationen für die Freigabe](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
+    ![Option „Verbindung herstellen und Daten kopieren“, Abrufen der Anmeldeinformationen für Freigaben](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
 
-2. Kopieren Sie im Dialogfeld „Auf Freigabe zugreifen und Daten kopieren“ die Werte für **Benutzername** und **Kennwort** für die Freigabe. Klicken Sie auf **OK**.
+2. Kopieren Sie im Dialogfeld **Auf Freigabe zugreifen und Daten kopieren** die Werte für **Benutzername** und **Kennwort** für die Freigabe. Klicken Sie auf **OK**.
     
-    ![Abrufen der Anmeldeinformationen für Freigaben 2](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
+    ![Option „Verbindung herstellen und Daten kopieren“, Kopieren der Anmeldeinformationen für Freigaben](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
 
 3. Öffnen Sie ein Befehlsfenster, um über Ihren Hostcomputer auf die Freigaben zuzugreifen, die mit Ihrer Ressource (*mydbmdrg1* im folgenden Beispiel) verknüpft sind. Geben Sie an der Eingabeaufforderung Folgendes ein:
 
@@ -100,26 +100,26 @@ Wenn Sie einen Windows Server-Hostcomputer verwenden, führen Sie die folgenden 
     C: \>
     ```
 
-4. Drücken Sie WINDOWS-TASTE+R. Geben Sie im Fenster **Ausführen** die `\\<device IP address>\<ShareName>` an. Klicken Sie auf **OK**, um den Datei-Explorer zu öffnen.
+5. Drücken Sie WINDOWS-TASTE+R. Geben Sie im Fenster **Ausführen** die `\\<device IP address>\<ShareName>` an. Klicken Sie auf **OK**, um den Datei-Explorer zu öffnen.
     
     ![Herstellen einer Verbindung mit der Freigabe über den Datei-Explorer](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
 
     In jeder Freigabe sollten nun die folgenden vorab erstellten Ordner vorhanden sein.
     
-    ![Herstellen einer Verbindung mit der Freigabe über den Datei-Explorer 2](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer2.png)
+    ![Herstellen einer Verbindung mit der Freigabe über den Datei-Explorer, Ordner für eine Freigabe](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer2.png)
 
 
 ### <a name="connect-to-data-box-via-nfs"></a>Herstellen einer Verbindung mit der Data Box über NFS
 
 Wenn Sie einen Linux-Hostcomputer verwenden, führen Sie die folgenden Schritte aus, um Data Box zum Zulassen des Zugriffs auf NFS-Clients zu konfigurieren.
 
-1. Geben Sie die IP-Adressen der zulässigen Clients an, die auf die Freigabe zugreifen können. Wechseln Sie in der lokalen Webbenutzeroberfläche zur Seite **Verbindung herstellen und Daten kopieren**. Klicken Sie unter **NFS-Einstellungen** auf **NFS-Clientzugriff**.
+1. Geben Sie die IP-Adressen der zulässigen Clients an, die auf die Freigabe zugreifen können. Wechseln Sie auf der lokalen Webbenutzeroberfläche zur Seite **Verbindung herstellen und Daten kopieren**. Klicken Sie unter **NFS-Einstellungen** auf **NFS-Clientzugriff**.
 
     ![Konfigurieren des NFS-Clientzugriffs](media/data-box-deploy-copy-data-from-vhds/nfs-client-access1.png)
 
 2. Geben Sie die IP-Adresse des NFS-Clients an, und klicken Sie auf **Hinzufügen**. Sie können den Zugriff für mehrere NFS-Clients konfigurieren, indem Sie diesen Schritt wiederholen. Klicken Sie auf **OK**.
 
-    ![Konfigurieren des NFS-Clientzugriffs 2](media/data-box-deploy-copy-data-from-vhds/nfs-client-access2.png)
+    ![Konfigurieren der IP-Adresse des NFS-Clients](media/data-box-deploy-copy-data-from-vhds/nfs-client-access2.png)
 
 2. Stellen Sie sicher, dass auf dem Linux-Hostcomputer eine [unterstützte Version](data-box-system-requirements.md) des NFS-Clients installiert ist. Verwenden Sie die jeweilige Version für Ihre Linux-Distribution.
 

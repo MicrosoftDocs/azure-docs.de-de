@@ -7,6 +7,7 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
+ms.subservice: migration
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -14,12 +15,12 @@ ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4252528020dde731dd7bf14ae8f7a03467ba953a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 789554121af1c83d9077e6153ca9db01477bde25
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91298575"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360151"
 ---
 # <a name="move-a-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery"></a>Verschieben einer SQL Server-VM in eine andere Azure-Region mit Azure Site Recovery
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -64,7 +65,7 @@ Bereiten Sie sowohl die Quell-SQL Server-VM als auch die Zielregion für die Ver
     - Azure Site Recovery erkennt und erstellt automatisch ein virtuelles Netzwerk, wenn Sie die Replikation für den virtuellen Quellcomputer aktivieren. Sie können auch vorab ein Netzwerk erstellen und es der VM im Benutzerflow zum Aktivieren der Replikation zuweisen. Alle weiteren Ressourcen in der Zielregion müssen manuell erstellt werden.
 - Informationen zum Erstellen der für Sie relevanten und am häufigsten verwendeten Netzwerkressourcen auf Grundlage der Konfiguration des virtuellen Quellcomputers finden Sie in der folgenden Dokumentation: 
     - [Netzwerksicherheitsgruppen](../../../virtual-network/tutorial-filter-network-traffic.md) 
-    - [Load Balancer](../../../load-balancer/tutorial-load-balancer-standard-internal-portal.md)
+    - [Load Balancer](../../../load-balancer/quickstart-load-balancer-standard-internal-portal.md)
     - [Öffentliche IP-Adresse](../../../virtual-network/virtual-network-public-ip-address.md)
     - Informationen zu weiteren Netzwerkkomponenten finden Sie in der [Netzwerkdokumentation](../../../virtual-network/virtual-networks-overview.md).
 - Erstellen Sie manuell ein nicht für die Produktion vorgesehenes Netzwerk in der Zielregion, wenn Sie die Konfiguration vor dem endgültigen Verschieben in die Zielregion testen möchten. Dieser Schritt wird empfohlen, weil dadurch das Produktionsnetzwerk möglichst wenig beeinträchtigt wird. 
@@ -131,7 +132,7 @@ In den folgenden Schritten wird gezeigt, wie Sie die SQL Server-VM aus der Quell
 1. Sie können den Failovervorgang auf der gleichen Seite **Site Recovery-Aufträge** überwachen, die Sie beim Überwachen des Failovertests im vorherigen Abschnitt verwendet haben. 
 1. Vergewissern Sie sich nach Abschluss des Auftrags, dass die SQL Server-VM wie erwartet in der Zielregion angezeigt wird. 
 1. Navigieren Sie zurück zum Tresor, wählen Sie **Replizierte Elemente**, anschließend die SQL Server-VM und dann **Commit** aus, um den Verschiebungsvorgang in die Zielregion abzuschließen. Warten Sie, bis der Commitauftrag abgeschlossen ist. 
-1. Registrieren Sie Ihre SQL Server-VM beim SQL-VM-Ressourcenanbieter, um die Verwaltbarkeit von **virtuellen SQL-Computern** im Azure-Portal sowie Features, die dem Ressourcenanbieter zugeordnet sind, zu aktivieren. Weitere Informationen finden Sie unter [Registrieren der SQL Server-VM beim SQL-VM-Ressourcenanbieter](sql-vm-resource-provider-register.md). 
+1. Registrieren Sie Ihre SQL Server-VM mit der Erweiterung für den SQL-IaaS-Agent, um die Verwaltbarkeit von **virtuellen SQL-Computern** im Azure-Portal sowie die Nutzung von Features zu ermöglichen, die der Erweiterung zugeordnet sind. Weitere Informationen finden Sie unter [Registrieren der SQL Server-VM mit der Erweiterung für den SQL-IaaS-Agent](sql-agent-extension-manually-register-single-vm.md). 
 
   > [!WARNING]
   > SQL Server-Datenkonsistenz ist nur bei App-konsistenten Momentaufnahmen sichergestellt. Die Momentaufnahme **Letzte Verarbeitung** kann nicht für SQL Server-Failover verwendet werden, da mit einer Momentaufnahme der Wiederherstellung nach einem Absturz keine SQL Server-Datenkonsistenz gewährleistet werden kann. 
@@ -156,5 +157,3 @@ Weitere Informationen finden Sie in den folgenden Artikeln:
 * [Häufig gestellte Fragen zu SQL Server auf virtuellen Windows-Computern in Azure](frequently-asked-questions-faq.md)
 * [Preisinformationen für Azure-VMs mit SQL Server](pricing-guidance.md)
 * [SQL Server on Azure Virtual Machine release notes](doc-changes-updates-release-notes.md) (SQL Server auf virtuellem Azure-Computer – Versionshinweise)
-
-

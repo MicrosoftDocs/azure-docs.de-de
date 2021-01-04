@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2f1c703f2bd2e90e15c566b7e04e8a878c16f6de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b73fa80085cc0491c8b4d0856d0baacfef1b51c0
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91772820"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301540"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Ausführen von Runbooks in einer Hybrid Runbook Worker-Instanz
 
@@ -22,7 +22,7 @@ Wenn Sie ein Runbook zur Ausführung auf einem Hybrid Runbook Worker erstellen, 
 
 Azure Automation behandelt Aufträge in Hybrid Runbook Workern anders als Aufträge, die in Azure-Sandboxes ausgeführt werden. Bei einem zeitintensiven Runbook müssen Sie sicherstellen, dass das Runbook auch nach einem möglichen Neustart stabil läuft. Ausführliche Informationen zum Auftragsverhalten finden Sie unter [Hybrid Runbook Worker-Aufträge](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-jobs).
 
-Aufträge für Hybrid Runbook Worker werden unter Windows mit dem lokalen Konto **System** oder unter Linux mit dem Konto **nxautomation** ausgeführt. Stellen Sie unter Linux sicher, dass das Konto **nxautomation** Zugriff auf den Speicherort der Runbookmodule hat. Wenn Sie das Cmdlet [Install-Module](/powershell/module/powershellget/install-module) verwenden, stellen Sie sicher, dass Sie „AllUsers“ für den Parameter `Scope` angeben, um sicherzustellen, dass das Konto **nxautomation** Zugriff hat. Weitere Informationen zu PowerShell unter Linux finden Sie unter [Bekannte Probleme bei PowerShell auf anderen Plattformen als Windows](/powershell/scripting/whats-new/known-issues-ps6#known-issues-for-powershell-on-non-windows-platforms).
+Aufträge für Hybrid Runbook Worker werden unter Windows mit dem lokalen Konto **System** oder unter Linux mit dem Konto **nxautomation** ausgeführt. Stellen Sie unter Linux sicher, dass das Konto **nxautomation** Zugriff auf den Speicherort der Runbookmodule hat. Wenn Sie das Cmdlet [Install-Module](/powershell/module/powershellget/install-module) verwenden, stellen Sie sicher, dass Sie „AllUsers“ für den Parameter `Scope` angeben, um sicherzustellen, dass das Konto **nxautomation** Zugriff hat. Weitere Informationen zu PowerShell unter Linux finden Sie unter [Bekannte Probleme bei PowerShell auf anderen Plattformen als Windows](/powershell/scripting/whats-new/what-s-new-in-powershell-70?view=powershell-7.1).
 
 ## <a name="configure-runbook-permissions"></a>Konfigurieren von Runbookberechtigungen
 

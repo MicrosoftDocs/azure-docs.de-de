@@ -5,16 +5,16 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 11/16/2020
 ms.author: cherylmc
-ms.openlocfilehash: 016741606bad5536985a38b0e0664b39006e1df5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62ceafad0210065700e5c9734cfe9a055208ef35
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776560"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657889"
 ---
-# <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering-preview"></a>Konfigurieren einer Site-to-Site-VPN-Verbindung über privates ExpressRoute-Peering (Vorschau)
+# <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering"></a>Konfigurieren einer Site-to-Site-VPN-Verbindung über privates ExpressRoute-Peering
 
 Sie können ein Site-to-Site-VPN über ein privates ExpressRoute-Peering mithilfe einer RFC 1918-IP-Adresse zu einem virtuellen Netzwerkgateway konfigurieren. Diese Konfiguration bietet die folgenden Vorteile:
 
@@ -76,14 +76,14 @@ In diesen beiden Beispielen sendet Azure den Datenverkehr über die VPN-Verbindu
 
    Zonenredundante SKUs enthalten „AZ“ am Ende der SKUs. Zum Beispiel **VpnGw1AZ**. Zonenredundante Gateways sind nur in Regionen verfügbar, in denen der Verfügbarkeitszonendienst verfügbar ist. Informationen über die Regionen, in denen Verfügbarkeitszonen unterstützt werden, finden Sie unter [Regionen, die Verfügbarkeitszonen in Azure unterstützen](../availability-zones/az-region.md).
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway.png" alt-text="Abbildung 1":::
+   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway.png" alt-text="Private Gateway-IP-Adressen":::
 1. Aktivieren Sie private IP-Adressen für das Gateway. Wählen Sie **Konfiguration** aus, und legen Sie dann **Private Gateway-IP-Adressen** auf **Aktiviert** fest. Wählen Sie **Speichern**, um Ihre Änderungen zu speichern.
 1. Wählen Sie auf der Seite **Übersicht** die Option **Mehr anzeigen**, um die private IP-Adresse anzuzeigen. Notieren Sie sich diese Informationen zur späteren Verwendung in den Konfigurationsschritten.
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway-overview.png" alt-text="Abbildung 1" lightbox="media/site-to-site-vpn-private-peering/gateway-overview.png":::
+   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway-overview.png" alt-text="Seite „Übersicht“" lightbox="media/site-to-site-vpn-private-peering/gateway-overview.png":::
 1. Wählen Sie **Konfiguration** aus, um **Private Azure-IP-Adresse verwenden** für die Verbindung zu aktivieren. Legen Sie **Private Azure-IP-Adresse verwenden** auf **Aktiviert** fest, und wählen Sie dann **Speichern** aus.
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/connection.png" alt-text="Abbildung 1":::
+   :::image type="content" source="media/site-to-site-vpn-private-peering/connection.png" alt-text="Private Gateway-IP-Adressen – Aktiviert":::
 1. Pingen Sie von Ihrer Firewall aus die private IP-Adresse an, die Sie in Schritt 3 notiert haben. Die private IP-Adresse sollte über das private ExpressRoute-Peering erreichbar sein.
 1. Verwenden Sie diese private IP-Adresse als Remote-IP-Adresse für Ihre lokale Firewall, um den Site-to-Site-Tunnel über das private ExpressRoute-Peering einzurichten.
 

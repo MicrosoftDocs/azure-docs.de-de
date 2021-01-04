@@ -1,123 +1,211 @@
 ---
-title: 'Schnellstart: Verwenden von Azure Service Bus-Warteschlangen mit Python'
-description: In diesem Artikel erfahren Sie, wie Sie mithilfe von Python Azure Service Bus-Warteschlangen erstellen, Nachrichten an sie senden und Nachrichten von ihnen empfangen können.
+title: Verwenden von Azure Service Bus-Warteschlangen mit dem Python-Paket „azure/service-bus“ (Version 7.0.0)
+description: In diesem Artikel erfahren Sie, wie Sie mithilfe von Python Nachrichten an Azure Service Bus-Warteschlangen senden und Nachrichten aus ihnen empfangen.
 author: spelluru
 documentationcenter: python
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 11/18/2020
 ms.author: spelluru
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: a09f20b2c392dbf219750a76e9570239227dc865
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7275e33e44c20ece6eb7d620e2c1e8032be41a7b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89458560"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498658"
 ---
-# <a name="quickstart-use-azure-service-bus-queues-with-python"></a>Schnellstart: Verwenden von Azure Service Bus-Warteschlangen mit Python
-
-[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-
-In diesem Artikel erfahren Sie, wie Sie mithilfe von Python Azure Service Bus-Warteschlangen erstellen, Nachrichten an sie senden und Nachrichten von ihnen empfangen können. 
-
-Weitere Informationen zu den Python-Bibliotheken von Azure Service Bus finden Sie unter [Service Bus-Bibliotheken für Python-](/python/api/overview/azure/servicebus?view=azure-python).
+# <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-python"></a>Senden und Empfangen von Nachrichten für Azure Service Bus-Warteschlangen (Python)
+In diesem Artikel erfahren Sie, wie Sie mithilfe von Python Nachrichten an Azure Service Bus-Warteschlangen senden und Nachrichten aus ihnen empfangen. 
 
 ## <a name="prerequisites"></a>Voraussetzungen
 - Ein Azure-Abonnement. Sie können [Ihre Visual Studio-oder MSDN-Abonnentenvorteile aktivieren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) oder [sich für ein kostenloses Konto anmelden](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Ein Service Bus-Namespace, der mithilfe der Schritte unter [Schnellstart: Verwenden des Azure-Portals zum Erstellen eines Service Bus-Themas und von Abonnements](service-bus-quickstart-topics-subscriptions-portal.md) erstellt wurde. Kopieren Sie die primäre Verbindungszeichenfolge aus dem Bildschirm **SAS-Richtlinien**, um sie später in diesem Artikel zu verwenden. 
-- Python 3.4x oder höher mit installiertem [Python Azure Service Bus][Python Azure Service Bus package]-Paket. Weitere Informationen finden Sie im [Python-Installationshandbuch](/azure/developer/python/azure-sdk-install). 
-
-## <a name="create-a-queue"></a>Erstellen einer Warteschlange
-
-Ein **ServiceBusClient**-Objekt ermöglicht es Ihnen, mit Warteschlangen zu arbeiten. Um programmgesteuert auf Service Bus zuzugreifen, fügen Sie die folgende Zeile oben in Ihrer Python-Datei ein:
-
-```python
-from azure.servicebus import ServiceBusClient
-```
-
-Fügen Sie den folgenden Code hinzu, um ein **ServiceBusClient**-Objekt zu erstellen. Ersetzen Sie `<connectionstring>` durch den Wert der primären Service Bus-Verbindungszeichenfolge. Sie finden diesen Wert unter **SAS-Richtlinien** in Ihrem Service Bus-Namespace im [Azure-Portal][Azure portal].
-
-```python
-sb_client = ServiceBusClient.from_connection_string('<connectionstring>')
-```
-
-Der folgende Code verwendet die Methode `create_queue` von **ServiceBusClient**, um eine Warteschlange namens `taskqueue` mit Standardeinstellungen zu erstellen:
-
-```python
-sb_client.create_queue("taskqueue")
-```
-
-Mithilfe von Optionen können Sie die Warteschlangenstandardeinstellungen überschreiben, z.B. die Gültigkeitsdauer (Time to Live, TTL) oder die maximale Themagröße. Der folgende Code erstellt eine Warteschlange mit dem Namen `taskqueue` mit einer maximalen Warteschlangengröße von 5 GB und einem TTL-Wert von einer Minute:
-
-```python
-sb_client.create_queue("taskqueue", max_size_in_megabytes=5120,
-                       default_message_time_to_live=datetime.timedelta(minutes=1))
-```
+- Wenn Sie über keine Warteschlange verfügen, führen Sie die Schritte im Artikel [Schnellstart: Erstellen einer Service Bus-Warteschlange mithilfe des Azure-Portals](service-bus-quickstart-portal.md) aus, um eine Warteschlange zu erstellen. Notieren Sie sich die **Verbindungszeichenfolge** für Ihren Service Bus-Namespace sowie den Namen der **Warteschlange**, die Sie erstellt haben.
+- Python (ab Version 2.7) mit installiertem Paket [Python Azure Service Bus](https://pypi.python.org/pypi/azure-servicebus). Weitere Informationen finden Sie im [Python-Installationshandbuch](/azure/developer/python/azure-sdk-install). 
 
 ## <a name="send-messages-to-a-queue"></a>Senden von Nachrichten an eine Warteschlange
 
-Um eine Nachricht an eine Service Bus-Warteschlange zu senden, ruft eine Anwendung die Methode `send` für das **ServiceBusClient**-Objekt auf. Im folgenden Codebeispiel wird ein Warteschlangenclient erstellt und eine Testnachricht an die `taskqueue`-Warteschlange gesendet. Ersetzen Sie `<connectionstring>` durch den Wert der primären Service Bus-Verbindungszeichenfolge. 
+1. Fügen Sie die folgende import-Anweisung hinzu: 
 
-```python
-from azure.servicebus import QueueClient, Message
+    ```python
+    from azure.servicebus import ServiceBusClient, ServiceBusMessage
+    ```
+2. Fügen Sie die folgenden Konstanten hinzu: 
 
-# Create the QueueClient
-queue_client = QueueClient.from_connection_string("<connectionstring>", "taskqueue")
+    ```python
+    CONNECTION_STR = "<NAMESPACE CONNECTION STRING>"
+    QUEUE_NAME = "<QUEUE NAME>"
+    ```
 
-# Send a test message to the queue
-msg = Message(b'Test Message')
-queue_client.send(msg)
-```
+    > [!IMPORTANT]
+    > - Ersetzen Sie `<NAMESPACE CONNECTION STRING>` durch die Verbindungszeichenfolge für Ihren Service Bus-Namespace.
+    > - Ersetzen Sie `<QUEUE NAME>` durch den Namen der Warteschlange. 
+3. Fügen Sie eine Methode zum Senden einer einzelnen Nachricht hinzu:
 
-### <a name="message-size-limits-and-quotas"></a>Größenbeschränkungen und Kontingente für Nachrichten
+    ```python
+    def send_single_message(sender):
+        # create a Service Bus message
+        message = ServiceBusMessage("Single Message")
+        # send the message to the queue
+        sender.send_messages(message)
+        print("Sent a single message")
+    ```
 
-Service Bus-Warteschlangen unterstützen eine maximale Nachrichtengröße von 256 KB für den [Standard-Tarif](service-bus-premium-messaging.md) und 1 MB für den [Premium-Tarif](service-bus-premium-messaging.md). Der Header, der die standardmäßigen und benutzerdefinierten Anwendungseigenschaften enthält, kann eine maximale Größe von 64 KB haben. Bei der Anzahl der Nachrichten, die in einer Warteschlange enthalten sein können, besteht keine Beschränkung. Allerdings gilt eine Obergrenze für die Gesamtgröße der Nachrichten, die eine Warteschlange enthalten kann. Sie können die Warteschlangengröße bei der Erstellung festlegen. Dabei gilt eine Obergrenze von 5 GB. 
+    Der Absender ist ein Objekt, das als Client für die von Ihnen erstellte Warteschlange fungiert. Es wird später erstellt und als Argument an diese Funktion gesendet. 
+4. Fügen Sie eine Methode zum Senden einer Liste mit Nachrichten hinzu:
 
-Weitere Informationen zu Kontingenten finden Sie unter [Service Bus-Kontingente][Service Bus quotas].
+    ```python
+    def send_a_list_of_messages(sender):
+        # create a list of messages
+        messages = [ServiceBusMessage("Message in list") for _ in range(5)]
+        # send the list of messages to the queue
+        sender.send_messages(messages)
+        print("Sent a list of 5 messages")
+    ```
+5. Fügen Sie eine Methode zum Senden eines Batchs mit Nachrichten hinzu:
 
+    ```python
+    def send_batch_message(sender):
+        # create a batch of messages
+        batch_message = sender.create_message_batch()
+        for _ in range(10):
+            try:
+                # add a message to the batch
+                batch_message.add_message(ServiceBusMessage("Message inside a ServiceBusMessageBatch"))
+            except ValueError:
+                # ServiceBusMessageBatch object reaches max_size.
+                # New ServiceBusMessageBatch object can be created here to send more data.
+                break
+        # send the batch of messages to the queue
+        sender.send_messages(batch_message)
+        print("Sent a batch of 10 messages")
+    ```
+6. Erstellen Sie einen Service Bus-Client und dann ein Absenderobjekt für die Warteschlange, um Nachrichten senden zu können:
+
+    ```python
+    # create a Service Bus client using the connection string
+    servicebus_client = ServiceBusClient.from_connection_string(conn_str=CONNECTION_STR, logging_enable=True)
+    with servicebus_client:
+        # get a Queue Sender object to send messages to the queue
+        sender = servicebus_client.get_queue_sender(queue_name=QUEUE_NAME)
+        with sender:
+            # send one message        
+            send_single_message(sender)
+            # send a list of messages
+            send_a_list_of_messages(sender)
+            # send a batch of messages
+            send_batch_message(sender)
+    
+    print("Done sending messages")
+    print("-----------------------")
+    ```
+ 
 ## <a name="receive-messages-from-a-queue"></a>Empfangen von Nachrichten aus einer Warteschlange
-
-Der Warteschlangenclient empfängt Nachrichten aus einer Warteschlange mithilfe der `get_receiver`-Methode für das **ServiceBusClient**-Objekt. Im folgenden Codebeispiel wird ein Warteschlangenclient erstellt und eine Testnachricht aus der `taskqueue`-Warteschlange empfangen. Ersetzen Sie `<connectionstring>` durch den Wert der primären Service Bus-Verbindungszeichenfolge. 
+Fügen Sie nach der print-Anweisung den folgenden Code hinzu. Mit diesem Code werden fortlaufend neue Nachrichten empfangen, bis fünf Sekunden lang (`max_wait_time`) keine neuen Nachrichten mehr empfangen werden. 
 
 ```python
-from azure.servicebus import QueueClient
-
-# Create the QueueClient
-queue_client = QueueClient.from_connection_string("<connectionstring>", "taskqueue")
-
-# Receive the message from the queue
-with queue_client.get_receiver() as queue_receiver:
-    messages = queue_receiver.fetch_next(timeout=3)
-    for message in messages:
-        print(message)
-        message.complete()
+with servicebus_client:
+    # get the Queue Receiver object for the queue
+    receiver = servicebus_client.get_queue_receiver(queue_name=QUEUE_NAME, max_wait_time=5)
+    with receiver:
+        for msg in receiver:
+            print("Received: " + str(msg))
+            # complete the message so that the message is removed from the queue
+            receiver.complete_message(msg)
 ```
 
-### <a name="use-the-peek_lock-parameter"></a>Verwenden des peek_lock-Parameters
+## <a name="full-code"></a>Vollständiger Code
 
-Der optionale `peek_lock`-Parameter von `get_receiver` bestimmt, ob Service Bus Nachrichten aus der Warteschlange löscht, nachdem sie gelesen wurden. Der Standardmodus für den Empfang von Nachrichten ist *PeekLock* oder `peek_lock` auf **TRUE** festgelegt. Dabei werden Nachrichten gelesen („peek“) und gesperrt, ohne sie aus der Warteschlange zu löschen. Anschließend muss jede Nachricht explizit abgeschlossen werden, um sie aus der Warteschlange zu entfernen.
+```python
+# import os
+from azure.servicebus import ServiceBusClient, ServiceBusMessage
 
-Zum Löschen von Nachrichten aus der Warteschlange nach dem Lesen können Sie den `peek_lock`-Parameter von `get_receiver` auf **FALSE**festlegen. Das Löschen von Nachrichten im Rahmen des Empfangsvorgangs ist das einfachste Modell, es funktioniert aber nur, wenn die Anwendung fehlende Nachrichten im Falle eines Fehlers tolerieren kann. Um dieses Verfahren zu verstehen, stellen Sie sich ein Szenario vor, in dem der Consumer eine Empfangsanforderung ausstellt und dann abstürzt, bevor diese verarbeitet wird. Wenn die Nachricht beim Empfang gelöscht wurde, hat die Anwendung beim Neustart und der Wiederaufnahme der Nachrichtenverarbeitung die Nachricht verpasst, die sie vor dem Absturz empfangen hat.
+CONNECTION_STR = "<NAMESPACE CONNECTION STRING>"
+QUEUE_NAME = "<QUEUE NAME>"
 
-Wenn Ihre Anwendung fehlende Nachrichten nicht tolerieren kann, ist der Empfangsvorgang ein zweistufiger Vorgang. PeekLock ermittelt die nächste zu verarbeitende Nachricht, sperrt diese, um zu verhindern, dass andere Consumer sie erhalten, und sendet sie dann an die Anwendung zurück. Nach der Verarbeitung oder Speicherung der Nachricht schließt die Anwendung die zweite Stufe des Empfangsprozesses ab, indem sie die `complete`-Methode für das **Message**-Objekt aufruft.  Die Methode `complete` markiert die Nachricht als verarbeitet und entfernt sie aus der Warteschlange.
+def send_single_message(sender):
+    message = ServiceBusMessage("Single Message")
+    sender.send_messages(message)
+    print("Sent a single message")
 
-## <a name="handle-application-crashes-and-unreadable-messages"></a>Umgang mit Anwendungsabstürzen und nicht lesbaren Nachrichten
+def send_a_list_of_messages(sender):
+    messages = [ServiceBusMessage("Message in list") for _ in range(5)]
+    sender.send_messages(messages)
+    print("Sent a list of 5 messages")
 
-Service Bus stellt Funktionen zur Verfügung, die Sie bei der ordnungsgemäßen Behandlung von Fehlern in der Anwendung oder bei Problemen beim Verarbeiten einer Nachricht unterstützen. Wenn eine Empfängeranwendung eine Nachricht aus einem bestimmten Grund nicht verarbeiten kann, kann sie die Methode `unlock` für das **Message**-Objekt aufrufen. Service Bus entsperrt die Nachricht innerhalb der Warteschlange und stellt sie zum erneuten Empfang bereit, entweder von derselben oder einer anderen verarbeitenden Anwendung.
+def send_batch_message(sender):
+    batch_message = sender.create_message_batch()
+    for _ in range(10):
+        try:
+            batch_message.add_message(ServiceBusMessage("Message inside a ServiceBusMessageBatch"))
+        except ValueError:
+            # ServiceBusMessageBatch object reaches max_size.
+            # New ServiceBusMessageBatch object can be created here to send more data.
+            break
+    sender.send_messages(batch_message)
+    print("Sent a batch of 10 messages")
 
-Außerdem gibt es ein Timeout für Nachrichten, die innerhalb der Warteschlange gesperrt sind. Wenn eine Anwendung eine Nachricht nicht verarbeiten kann, bevor das Timeout der Sperre abläuft (z.B. wenn die Anwendung abstürzt), entsperrt Service Bus die Nachricht automatisch und macht sie verfügbar, sodass sie erneut empfangen werden kann.
+servicebus_client = ServiceBusClient.from_connection_string(conn_str=CONNECTION_STR, logging_enable=True)
 
-Falls die Anwendung nach der Verarbeitung der Nachricht, aber vor dem Aufruf der Methode `complete` abstürzt, wird die Nachricht der Anwendung erneut zugestellt, wenn diese neu gestartet wird. Dies wird häufig als *At-Least-Once Processing* (Mindestens einmalige Verarbeitung) bezeichnet. Jede Nachricht wird mindestens ein Mal verarbeitet, wobei eine Nachricht in bestimmten Situationen unter Umständen erneut zugestellt wird. Wenn Ihr Szenario keine doppelte Verarbeitung tolerieren kann, können Sie die Eigenschaft **MessageId** der Nachricht verwenden, die über die Zustellversuche hinweg konstant bleibt, um die doppelte Zustellung von Nachrichten zu verarbeiten. 
+with servicebus_client:
+    sender = servicebus_client.get_queue_sender(queue_name=QUEUE_NAME)
+    with sender:
+        send_single_message(sender)
+        send_a_list_of_messages(sender)
+        send_batch_message(sender)
 
-> [!TIP]
-> Sie können Service Bus-Ressourcen mit dem [Service Bus-Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/) verwalten. Mit dem Service Bus-Explorer können Sie eine Verbindung mit einem Service Bus-Namespace herstellen und Messagingentitäten einfach verwalten. Das Tool stellt erweiterte Features wie Import-/Exportfunktionen und Testmöglichkeiten für Themen, Warteschlangen, Abonnements, Relaydienste, Notification Hubs und Event Hubs zur Verfügung.
+print("Done sending messages")
+print("-----------------------")
+
+with servicebus_client:
+    receiver = servicebus_client.get_queue_receiver(queue_name=QUEUE_NAME, max_wait_time=5)
+    with receiver:
+        for msg in receiver:
+            print("Received: " + str(msg))
+            receiver.complete_message(msg)
+```
+
+## <a name="run-the-app"></a>Ausführen der App
+Wenn Sie die Anwendung ausführen, sollte die folgende Ausgabe angezeigt werden: 
+
+```console
+Sent a single message
+Sent a list of 5 messages
+Sent a batch of 10 messages
+Done sending messages
+-----------------------
+Received: Single Message
+Received: Message in list
+Received: Message in list
+Received: Message in list
+Received: Message in list
+Received: Message in list
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+```
+
+Navigieren Sie im Azure-Portal zu Ihrem Service Bus-Namespace. Vergewissern Sie sich auf der Seite **Übersicht**, dass die Anzahl für die **eingehenden** und **ausgehenden** Nachrichten „16“ beträgt. Falls diese Zahlen nicht angezeigt werden, warten Sie einige Minuten, und aktualisieren Sie dann die Seite. 
+
+:::image type="content" source="./media/service-bus-python-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Anzahl ein- und ausgehender Nachrichten":::
+
+Wählen Sie auf der Seite **Übersicht** die Warteschlange aus, um zur Seite **Service Bus-Warteschlange** zu navigieren. Auf dieser Seite wird auch die Anzahl **eingehender** und **ausgehender** Nachrichten angezeigt. Darüber hinaus werden noch weitere Informationen wie etwa die **aktuelle Größe** der Warteschlange und die **Anzahl aktiver Nachrichten** angezeigt. 
+
+:::image type="content" source="./media/service-bus-python-how-to-use-queues/queue-details.png" alt-text="Warteschlangendetails":::
+
 
 ## <a name="next-steps"></a>Nächste Schritte
+Weitere Informationen finden Sie in der folgenden Dokumentation bzw. unter den folgenden Beispielen: 
 
-Nachdem Sie nun mit den Grundlagen von Service Bus-Warteschlangen vertraut sind, finden Sie weitere Informationen unter [Warteschlangen, Themen und Abonnements][Queues, topics, and subscriptions].
-
-[Azure portal]: https://portal.azure.com
-[Python Azure Service Bus package]: https://pypi.python.org/pypi/azure-servicebus  
-[Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[Service Bus quotas]: service-bus-quotas.md
+- [Azure Service Bus-Clientbibliothek für Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus)
+- [Beispiele:](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus/samples) 
+    - Der Ordner **sync_samples** enthält Beispiele zur synchronen Interaktion mit Service Bus. In dieser Schnellstartanleitung haben Sie diese Methode verwendet. 
+    - Der Ordner **async_samples** enthält Beispiele zur asynchronen Interaktion mit Service Bus. 
+- [azure-servicebus: Referenzdokumentation](/python/api/azure-servicebus/azure.servicebus?preserve-view=true&view=azure-python-preview)

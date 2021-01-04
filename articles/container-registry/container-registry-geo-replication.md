@@ -5,12 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: a26a3a0902b76359dc7441d97fa2516989ec7f0b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 636896edf8180052508f366bcc548efe13dec1e2
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486871"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95810046"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Georeplikation in Azure Container Registry
 
@@ -18,9 +18,9 @@ Unternehmen, die eine lokale Umgebung oder ein Hotbackup wünschen, entscheiden 
 
 Eine Registrierung mit Georeplikation bietet folgende Vorteile:
 
-* Einzelner Registrierungs-/Image-/Tagname in mehreren Regionen verwendbar
-* Netzwerknaher Registrierungszugriff in regionalen Bereitstellungen
-* Keine zusätzlichen Ausgangsgebühren, da Images aus einer lokalen, replizierten Registrierung in der gleichen Region wie Ihr Containerhost abgerufen werden
+* Einzelne Registrierungs-, Image- und Tagnamen sind in mehreren Regionen verwendbar
+* Verbessern der Leistung und Zuverlässigkeit regionaler Bereitstellungen mit netzwerknahem Registrierungszugriff
+* Senken Sie die Kosten für die Datenübertragung, indem Sie Imageebenen aus einer lokalen, replizierten Registrierung in derselben Region, in der sich Ihr Containerhost befindet, oder einer nahegelegenen pullen.
 * Zentrale Verwaltung einer Registrierung über mehrere Regionen hinweg
 
 > [!NOTE]
@@ -57,7 +57,8 @@ Die Georeplikationsfunktion von Azure Container Registry bietet die folgenden Vo
 
 * Verwalten einer einzelnen Registrierung in allen Regionen: `contoso.azurecr.io`
 * Verwalten einer einzelnen Konfiguration von Imagebereitstellungen, da alle Regionen die gleiche Image-URL verwenden: `contoso.azurecr.io/public/products/web:1.2`
-* Übertragung per Push in eine einzelne Registrierung, während ACR die Georeplikation verwaltet. Sie können regionale [Webhooks](container-registry-webhook.md) konfigurieren, um über Ereignisse in bestimmten Replikaten benachrichtigt zu werden.
+* Übertragung per Push in eine einzelne Registrierung, während ACR die Georeplikation verwaltet. ACR repliziert nur eindeutige Ebenen, wodurch die Regionen übergreifende Datenübertragung reduziert wird. 
+* Konfigurieren Sie regionale [Webhooks](container-registry-webhook.md), um über Ereignisse in bestimmten Replikaten benachrichtigt zu werden.
 
 ## <a name="configure-geo-replication"></a>Konfigurieren der Georeplikation
 
@@ -81,11 +82,11 @@ Eine Karte mit allen aktuellen Azure-Regionen wird angezeigt:
 * Grüne Sechsecke stellen mögliche Replikatregionen dar.
 * Graue Sechsecke stellen Azure-Regionen dar, die noch nicht für die Replikation verfügbar sind.
 
-Um ein Replikat konfigurieren, wählen Sie ein grünes Sechseck aus und klicken dann auf **Erstellen** :
+Um ein Replikat konfigurieren, wählen Sie ein grünes Sechseck aus und klicken dann auf **Erstellen**:
 
  ![Benutzeroberfläche zum Erstellen von Replikaten im Azure-Portal](media/container-registry-geo-replication/create-replication.png)
 
-Um zusätzliche Replikate zu konfigurieren, wählen Sie die grünen Sechsecke für andere Regionen aus und klicken dann auf **Erstellen** .
+Um zusätzliche Replikate zu konfigurieren, wählen Sie die grünen Sechsecke für andere Regionen aus und klicken dann auf **Erstellen**.
 
 ACR beginnt, Images in den konfigurierten Replikaten zu synchronisieren. Sobald der Vorgang abgeschlossen ist, gibt das Portal *Bereit* zurück. Der Status des Replikats im Portal wird nicht automatisch aktualisiert. Klicken Sie auf die Schaltfläche „Aktualisieren“, um den aktualisierten Status anzuzeigen.
 
@@ -131,7 +132,7 @@ Um die DNS-Auflösung beim Pushen von Images auf das nächstgelegene Replikat zu
 
 Zum Troubleshooting von Vorgängen mit einer georeplizierten Registrierung sollten Sie das Traffic Manager-Routing zu einer oder mehreren Replikationen vorrübergehend deaktivieren. Ab der Azure CLI-Version 2.8 können Sie eine `--region-endpoint-enabled`-Option (Vorschau) konfigurieren, wenn Sie eine replizierte Region erstellen oder aktualisieren. Wenn Sie die `--region-endpoint-enabled`-Option einer Replikation auf `false` festlegen, leitet der Traffic Manager Pushanforderungen oder Pull Requests von Docker nicht mehr in diese Region weiter. Standardmäßig ist das Routing für alle Replikationen aktiviert. Die Datensynchronisierung wird für alle Replikationen ausgeführt, unabhängig davon, ob das Routing aktiviert oder deaktiviert ist.
 
-Zum Deaktivieren des Routings zu einer vorhandenen Replikation führen Sie zuerst [az acr replication list][az-acr-replication-list] aus, um die Replikationen in der Registrierung aufzuführen. Führen Sie dann [az acr replication update][az-acr-replication-update] aus, und legen Sie `--region-endpoint-enabled false` für eine bestimmte Replikation fest. Das Konfigurieren der Einstellung für die *westus* -Replikation in *myregistry* sieht beispielsweise folgendermaßen aus:
+Zum Deaktivieren des Routings zu einer vorhandenen Replikation führen Sie zuerst [az acr replication list][az-acr-replication-list] aus, um die Replikationen in der Registrierung aufzuführen. Führen Sie dann [az acr replication update][az-acr-replication-update] aus, und legen Sie `--region-endpoint-enabled false` für eine bestimmte Replikation fest. Das Konfigurieren der Einstellung für die *westus*-Replikation in *myregistry* sieht beispielsweise folgendermaßen aus:
 
 ```azurecli
 # Show names of existing replications

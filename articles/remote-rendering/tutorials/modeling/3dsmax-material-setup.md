@@ -6,11 +6,11 @@ ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
 ms.openlocfilehash: 12407d6344c69c747230e9db6fa4d53b4520dc82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331810"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020278"
 ---
 # <a name="tutorial-set-up-physically-based-rendering-materials-in-3ds-max"></a>Tutorial: Einrichten von Materialien für Rendern auf physikalischer Grundlage in 3ds Max
 
@@ -214,7 +214,7 @@ Nachdem wir die Texturpfade nun relativ gemacht haben, können wir uns dem FBX-E
 
 1. Wählen Sie im Fenster für den FBX-Export die Option **Embed Media** (Medien einbetten) aus, wenn Sie die Szene mit den darin enthaltenen Texturen exportieren möchten. 
 
-1. Wählen Sie die restlichen Einstellungen und dann **OK**aus:
+1. Wählen Sie die restlichen Einstellungen und dann **OK** aus:
 
     ![Screenshot: Einstellungen für FBX-Export](media/3dsmax/fbx-settings.jpg)
 

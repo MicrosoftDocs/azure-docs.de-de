@@ -4,12 +4,12 @@ description: Weitere Informationen zur Azure Database for PostgreSQL-Sicherung m
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3c326ff197f18333812438719908daced2b268bb
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: edbfdb6ea741cdb344a121acdbee3b8bd4bc743c
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173579"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927888"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Azure Database for PostgreSQL-Sicherung mit Langzeitaufbewahrung (Vorschau)
 
@@ -32,7 +32,7 @@ Sie können diese Lösung unabhängig oder zusätzlich zur nativen Sicherungslö
 |Support  |Details  |
 |---------|---------|
 |Unterstützte Bereitstellungen   |  Eigenständiger Azure Database for PostgreSQL-Einzelserver     |
-|Unterstützte Azure-Regionen |  „USA, Osten“, „USA, Osten 2“, „USA, Süden-Mitte“, „USA, Westen“ |
+|Unterstützte Azure-Regionen |  USA, Osten, USA, Osten 2, USA, Mitte, USA, Süden-Mitte, USA, Westen, USA, Westen 2; USA, Westen-Mitte, Brasilien, Süden; Kanada, Mitte, Europa, Norden, Europa, Westen, Vereinigtes Königreich, Süden, Vereinigtes Königreich, Westen, Deutschland, Westen-Mitte, Schweiz, Norden, Schweiz, Westen, Asien, Osten,Asien, Südosten, Japan, Osten, Japan, Westen, Südkorea, Mitte, Südkorea, Süden, Indien, Mitte, Australien, Osten, Australien, Mitte, Australien, Mitte 2, VAE, Norden  |
 |Unterstützte Azure PostgreSQL-Versionen    |   9.5, 9.6, 10, 11      |
 
 ## <a name="feature-considerations-and-limitations"></a>Überlegungen und Einschränkungen in Bezug auf Features
@@ -71,7 +71,7 @@ Die folgenden Anweisungen stellen eine Schrittanleitung zum Konfigurieren der Si
 
 1. Es gibt zwei Möglichkeiten, um den Prozess zu starten:
 
-    1. Wechseln Sie zu [Backup Center](backup-center-overview.md) -> **Übersicht** -> **Sicherung** .
+    1. Wechseln Sie zu [Backup Center](backup-center-overview.md) -> **Übersicht** -> **Sicherung**.
 
         ![Wechseln zu „Backup Center“](./media/backup-azure-database-postgresql/backup-center.png)
 
@@ -121,7 +121,7 @@ Die folgenden Anweisungen stellen eine Schrittanleitung zum Konfigurieren der Si
 
 ## <a name="create-backup-policy"></a>Erstellen der Sicherungsrichtlinie
 
-1. Wechseln Sie zu **Backup Center** -> **Sicherungsrichtlinien** -> **Hinzufügen** . Alternativ können Sie direkt zu **Sicherungstresor** -> **Sicherungsrichtlinie** -> **Hinzufügen** wechseln.
+1. Wechseln Sie zu **Backup Center** -> **Sicherungsrichtlinien** -> **Hinzufügen**. Alternativ können Sie direkt zu **Sicherungstresor** -> **Sicherungsrichtlinie** -> **Hinzufügen** wechseln.
 
     ![Hinzufügen einer Sicherungsrichtlinie](./media/backup-azure-database-postgresql/add-backup-policy.png)
 
@@ -148,7 +148,7 @@ Die folgenden Anweisungen stellen eine Schrittanleitung zum Konfigurieren der Si
     ![Bearbeiten der Aufbewahrungsdauer](./media/backup-azure-database-postgresql/edit-retention.png)
 
 >[!NOTE]
->Die Aufbewahrungsregeln werden in einer vordefinierten Reihenfolge ausgewertet. Die oberste Priorität hat die Regel **Jährlich** , gefolgt von der Regel **Monatlich** und dann von der Regel **Wöchentlich** . Die Standardeinstellungen für die Aufbewahrung werden angewendet, wenn keine anderen Regeln zutreffen. Beispielsweise kann derselbe Wiederherstellungspunkt sowohl die erste erfolgreiche Sicherung, die jede Woche erstellt wird, als auch die erste erfolgreiche Sicherung, die jeden Monat erstellt wird, sein. Da die Priorität der monatlichen Regel jedoch höher als die der wöchentlichen Regel ist, gilt die Aufbewahrungsregel, die der ersten erfolgreichen, monatlich erstellten Sicherung entspricht.
+>Die Aufbewahrungsregeln werden in einer vordefinierten Reihenfolge ausgewertet. Die oberste Priorität hat die Regel **Jährlich** , gefolgt von der Regel **Monatlich** und dann von der Regel **Wöchentlich**. Die Standardeinstellungen für die Aufbewahrung werden angewendet, wenn keine anderen Regeln zutreffen. Beispielsweise kann derselbe Wiederherstellungspunkt sowohl die erste erfolgreiche Sicherung, die jede Woche erstellt wird, als auch die erste erfolgreiche Sicherung, die jeden Monat erstellt wird, sein. Da die Priorität der monatlichen Regel jedoch höher als die der wöchentlichen Regel ist, gilt die Aufbewahrungsregel, die der ersten erfolgreichen, monatlich erstellten Sicherung entspricht.
 
 ## <a name="restore"></a>Restore
 
@@ -157,7 +157,7 @@ Sie können eine Datenbank auf jedem beliebigen Azure PostgreSQL-Server innerhal
 Führen Sie diese Schrittanleitung aus, um eine Wiederherstellung auszulösen:
 
 1. Es gibt zwei Möglichkeiten, den Wiederherstellungsvorgang zu starten:
-    1. Wechseln Sie zu [Backup Center](backup-center-overview.md) -> **Übersicht** -> **Wiederherstellen** .
+    1. Wechseln Sie zu [Backup Center](backup-center-overview.md) -> **Übersicht** -> **Wiederherstellen**.
 
     ![Auswählen von „Wiederherstellen“ in Backup Center](./media/backup-azure-database-postgresql/backup-center-restore.png)
 
@@ -173,13 +173,13 @@ Führen Sie diese Schrittanleitung aus, um eine Wiederherstellung auszulösen:
 
     ![Auswählen von „Wiederherstellen“](./media/backup-azure-database-postgresql/select-restore.png)
 
-1. Klicken Sie in der Liste der vollständigen Sicherungen, die für die ausgewählte Sicherungsinstanz verfügbar sind, auf **Wiederherstellungspunkt auswählen** . Standardmäßig ist der letzte Wiederherstellungspunkt ausgewählt.
+1. Klicken Sie in der Liste der vollständigen Sicherungen, die für die ausgewählte Sicherungsinstanz verfügbar sind, auf **Wiederherstellungspunkt auswählen**. Standardmäßig ist der letzte Wiederherstellungspunkt ausgewählt.
 
     ![Auswählen eines Wiederherstellungspunkts](./media/backup-azure-database-postgresql/select-recovery-point.png)
 
     ![Liste der Wiederherstellungspunkte](./media/backup-azure-database-postgresql/list-recovery-points.png)
 
-1. Geben Sie die **Wiederherstellungsparameter** ein. Nun können Sie sich für eine von zwei Wegen für die Wiederherstellung entscheiden: **Wiederherstellen als Datenbank** und **Wiederherstellen als Dateien** .
+1. Geben Sie die **Wiederherstellungsparameter** ein. Nun können Sie sich für eine von zwei Wegen für die Wiederherstellung entscheiden: **Wiederherstellen als Datenbank** und **Wiederherstellen als Dateien**.
 
 1. **Wiederherstellen als Datenbank** :  Stellen Sie die Sicherungsdaten wieder her, um eine neue Datenbank auf dem PostgreSQL-Zielserver zu erstellen.
 
@@ -211,7 +211,7 @@ Dies sind die Verwaltungsvorgänge, die Sie für die **Sicherungsinstanzen** aus
 
 ### <a name="on-demand-backup"></a>Bedarfsgesteuerte Sicherung
 
-Um eine Sicherung ohne den in der Richtlinie angegebenen Zeitplan zu starten, wechseln Sie zu **Sicherungsinstanzen** -> **Jetzt sichern** .
+Um eine Sicherung ohne den in der Richtlinie angegebenen Zeitplan zu starten, wechseln Sie zu **Sicherungsinstanzen** -> **Jetzt sichern**.
 Wählen Sie Aufbewahrungsregeln in der Liste aus, die in der zugehörigen Sicherungsrichtlinie definiert wurden.
 
 ![Auslösen von „Jetzt sichern“](./media/backup-azure-database-postgresql/backup-now.png)
@@ -303,7 +303,7 @@ Richten Sie die Netzwerkleitung ein, indem Sie in der Serveransicht das Flag **Z
 #### <a name="permission-to-restore-to-a-storage-account-container-when-restoring-as-files"></a>Berechtigung zur Wiederherstellung in einem Speicherkontocontainer bei der Wiederherstellung als Dateien
 
 1. Erteilen Sie der Sicherungstresor-MSI die Berechtigung für den Zugriff auf die Speicherkontocontainer über das Azure-Portal.
-    1. Wechseln Sie zu **Speicherkonto** -> **Zugriffssteuerung** -> **Rollenzuweisung hinzufügen** .
+    1. Wechseln Sie zu **Speicherkonto** -> **Zugriffssteuerung** -> **Rollenzuweisung hinzufügen**.
     1. Weisen Sie Ihrer Sicherungstresor-MSI zunächst die Rolle **Mitwirkender an Storage-Blobdaten** zu.
 
     ![Zuweisen der Rolle „Mitwirkender an Storage-Blobdaten“](./media/backup-azure-database-postgresql/assign-storage-blog-data-contributor-role.png)

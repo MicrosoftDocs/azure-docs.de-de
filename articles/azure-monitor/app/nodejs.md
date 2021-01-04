@@ -4,12 +4,12 @@ description: Es wird beschrieben, wie Sie die Leistung überwachen und Probleme 
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 982adf6c6d7cd825d185802321ce30a04bd2f216
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7aea6c03b0ce35fa0e74c39ff5f94f714447ad6f
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323293"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920585"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Überwachen Ihrer Node.js-Dienste und -Apps mit Application Insights
 
@@ -40,6 +40,9 @@ Stellen Sie zuerst sicher, dass Sie über ein Azure-Abonnement verfügen, oder [
 ### <a name="set-up-the-nodejs-sdk"></a><a name="sdk"></a>Einrichten des Node.js-SDK
 
 Fügen Sie das SDK in Ihre App ein, damit Daten gesammelt werden können.
+
+> [!IMPORTANT]
+> Neue Azure-Regionen **erfordern** die Verwendung von Verbindungszeichenfolgen anstelle von Instrumentierungsschlüsseln. Die [Verbindungszeichenfolge](./sdk-connection-string.md?tabs=nodejs) identifiziert die Ressource, der Sie Ihre Telemetriedaten zuordnen möchten. Hier können Sie die Endpunkte ändern, die Ihre Ressource als Ziel für die Telemetrie verwendet. Sie müssen die Verbindungszeichenfolge kopieren und dem Code Ihrer Anwendung oder einer Umgebungsvariable hinzufügen.
 
 1. Kopieren Sie den Instrumentierungsschlüssel der Ressource (auch *iKey* genannt) aus der neu erstellten Ressource. Der ikey wird von Application Insights verwendet, um Ihrer Azure-Ressource Daten zuzuordnen. Bevor Ihr ikey vom SDK verwendet werden kann, müssen Sie ihn in einer Umgebungsvariablen oder im Code angeben.  
 
@@ -416,10 +419,9 @@ Diese Eigenschaften sind clientspezifisch, d. h. dass Sie `appInsights.defaultC
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Überwachen Ihrer Telemetriedaten im Portal](./overview-dashboard.md)
-* [Schreiben von Analytics-Abfragen über Ihre Telemetriedaten](../log-query/get-started-portal.md)
+* [Schreiben von Analytics-Abfragen über Ihre Telemetriedaten](../log-query/log-analytics-tutorial.md)
 
 <!--references-->
 
 [portal]: https://portal.azure.com/
 [FAQ]: ../faq.md
-

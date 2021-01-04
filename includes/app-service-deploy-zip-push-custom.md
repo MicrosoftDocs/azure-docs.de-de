@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 0019e50615f3e66778709ad8cb28f92967c66e2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86050328"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018428"
 ---
 ## <a name="deployment-customization"></a>Anpassung von Bereitstellungen
 

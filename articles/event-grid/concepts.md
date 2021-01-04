@@ -2,13 +2,13 @@
 title: Azure Event Grid – Begriffe
 description: In diesem Artikel werden Azure Event Grid und die zugehörigen Begriffe beschrieben. Zudem werden verschiedene Schlüsselkomponenten von Event Grid definiert.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 003139374a056da6ddc22dd1453d28761ff58871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/29/2020
+ms.openlocfilehash: 6cfb8b3aaf16a0080b9864ce5198b8a7232e8bc8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86116487"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075108"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Begriffe in Azure Event Grid
 
@@ -37,11 +37,11 @@ Informationen zum Implementieren der unterstützten Event Grid-Quellen finden Si
 
 Das Event Grid-Thema stellt einen Endpunkt bereit, an den die Ereignisquelle Ereignisse sendet. Der Herausgeber erstellt das Thema und legt fest, ob eine Ereignisquelle ein Thema oder mehrere Themen benötigt. Ein Event Grid-Thema wird für eine Sammlung ähnlicher Ereignisse verwendet. Um auf bestimmte Arten von Ereignissen zu reagieren, legen Abonnenten fest, welche Themen sie abonnieren.
 
-Systemthemen sind integrierte Themen, die von Azure-Diensten bereitgestellt werden, z. B. von Azure Storage, Azure Event Hubs und Azure Service Bus. Sie können Systemthemen in Ihrem Azure-Abonnement erstellen und sie abonnieren. Weitere Informationen finden Sie in der [Übersicht über Systemthemen](system-topics.md). 
+**Systemthemen** sind integrierte Themen, die von Azure-Diensten bereitgestellt werden, z. B. von Azure Storage, Azure Event Hubs und Azure Service Bus. Sie können Systemthemen in Ihrem Azure-Abonnement erstellen und sie abonnieren. Weitere Informationen finden Sie in der [Übersicht über Systemthemen](system-topics.md). 
 
-Benutzerdefinierte Themen sind Anwendungs- und Drittanbieterthemen. Wenn Sie ein benutzerdefiniertes Thema erstellen oder Zugriff darauf erhalten, wird das benutzerdefinierte Thema in Ihrem Abonnement angezeigt. Weitere Informationen finden Sie unter [Benutzerdefinierte Themen](custom-topics.md).
+**Benutzerdefinierte Themen** sind Anwendungs- und Drittanbieterthemen. Wenn Sie ein benutzerdefiniertes Thema erstellen oder Zugriff darauf erhalten, wird das benutzerdefinierte Thema in Ihrem Abonnement angezeigt. Weitere Informationen finden Sie unter [Benutzerdefinierte Themen](custom-topics.md). Beim Entwerfen Ihrer Anwendung können Sie flexibel entscheiden, wie viele Themen erstellt werden sollen. Erstellen Sie für große Lösungen ein benutzerdefiniertes Thema für jede Kategorie von verwandten Ereignissen. Denken Sie beispielsweise an eine Anwendung, die Ereignisse im Zusammenhang mit der Änderung von Benutzerkonten und der Verarbeitung von Bestellungen sendet. Es ist unwahrscheinlich, dass ein Ereignishandler beide Ereigniskategorien benötigt. Erstellen Sie zwei benutzerdefinierte Themen, und lassen Sie Ereignishandler das jeweils relevante Thema abonnieren. Für kleine Lösungen empfiehlt es sich ggf., alle Ereignisse an ein Thema zu senden. Ereignisabonnenten können nach den gewünschten Ereignistypen filtern.
 
-Beim Entwerfen Ihrer Anwendung können Sie flexibel entscheiden, wie viele Themen erstellt werden sollen. Erstellen Sie für große Lösungen ein benutzerdefiniertes Thema für jede Kategorie von verwandten Ereignissen. Denken Sie beispielsweise an eine Anwendung, die Ereignisse im Zusammenhang mit der Änderung von Benutzerkonten und der Verarbeitung von Bestellungen sendet. Es ist unwahrscheinlich, dass ein Ereignishandler beide Ereigniskategorien benötigt. Erstellen Sie zwei benutzerdefinierte Themen, und lassen Sie Ereignishandler das jeweils relevante Thema abonnieren. Für kleine Lösungen empfiehlt es sich ggf., alle Ereignisse an ein Thema zu senden. Ereignisabonnenten können nach den gewünschten Ereignistypen filtern.
+Es gibt eine weitere Art von Thema: das **Partnerthema**. Mit dem Feature [Partnerereignisse](partner-events-overview.md) kann ein SaaS-Drittanbieter Ereignisse aus seinen Diensten veröffentlichen, um Sie für Consumer verfügbar zu machen, die diese Ereignisse abonnieren können. Der SaaS-Anbieter stellt einen Thementyp bereit (ein **Partnerthema** ), der von Abonnenten verwendet wird, um Ereignisse zu verarbeiten. Außerdem bietet dieser Typ ein sauberes Pub-Sub-Modell, indem es die Belange und den Besitz von Ressourcen trennt, die von Ereignisherausgebern und -abonnenten verwendet werden.
 
 ## <a name="event-subscriptions"></a>Ereignisabonnements
 

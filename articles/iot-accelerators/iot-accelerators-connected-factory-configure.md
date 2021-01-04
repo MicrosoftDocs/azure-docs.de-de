@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: e015c6761b920ef37af2bbfd67ced5fc3218d532
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91290686"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002237"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Konfigurieren des Solution Accelerators für Connected Factory
 
@@ -88,7 +88,7 @@ Der folgende Ausschnitt zeigt die Gliederung der Konfigurationsdatei `ContosoTop
 }
 ```
 
-Die gemeinsamen Eigenschaften von  `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>` und `<station_configuration>` lauten:
+Die gemeinsamen Eigenschaften von `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>` und `<station_configuration>` lauten:
 
 * **Name** (Zeichenfolgentyp)
 
@@ -337,7 +337,7 @@ Diese Konfiguration ermöglicht eine Abfrage der Telemetriewerte für diesen Kno
 * Durchschnitt aller Werte
 * Summe aller Werte für alle eindeutigen **OpcUri**- (**ApplicationUri**) und **NodeId**-Paare in einem vorgegebenen Zeitraum
 
-Ein Merkmal des **NumberOfManufactureredProducts**-Knotens ist, dass der zugehörige Wert ausschließlich ansteigt. Um die Anzahl von Produkten zu berechnen, die innerhalb des vorgegebenen Zeitraums hergestellt wurden, verwendet die Connected Factory-Simulation für **OpCode den Wert ** **SubMaxMin**. Bei der Berechnung werden der Mindestwert zu Beginn des angegebenen Zeitraums und der Höchstwert am Ende des Zeitraums abgerufen.
+Ein Merkmal des **NumberOfManufactureredProducts**-Knotens ist, dass der zugehörige Wert ausschließlich ansteigt. Um die Anzahl von Produkten zu berechnen, die innerhalb des vorgegebenen Zeitraums hergestellt wurden, verwendet die Connected Factory-Simulation für **OpCode den Wert** **SubMaxMin**. Bei der Berechnung werden der Mindestwert zu Beginn des angegebenen Zeitraums und der Höchstwert am Ende des Zeitraums abgerufen.
 
 **OpCode** konfiguriert die Berechnungslogik so, dass die Differenz zwischen Höchst- und Mindestwert als Ergebnis ausgegeben wird. Diese Ergebnisse werden anschließend von der niedrigsten bis zur (globalen) Stammebene akkumuliert und im Dashboard angezeigt.
 

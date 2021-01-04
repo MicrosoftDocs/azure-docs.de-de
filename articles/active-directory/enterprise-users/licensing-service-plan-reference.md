@@ -8,29 +8,29 @@ author: kkern
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.topic: reference
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 04/27/2020
+ms.date: 12/02/2020
 ms.author: kakern
 ms.reviewer: kakern
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7b74fe368e10a0cd6ee63196d4330c456d56ea
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 78da02a5312a45026e28f1749606186a783af976
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373384"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545859"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Produktnamen und Serviceplanbezeichner für die Lizenzierung
 
-Bei der Verwaltung von Lizenzen im [Azure-Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) oder im [Microsoft 365 Admin Center](https://admin.microsoft.com) werden Ihnen Produktnamen wie *Office 365 E3* angezeigt. Wenn Sie PowerShell-Cmdlets (PowerShell 1.0) verwenden, wird dasselbe Produkt über einen konkreten, jedoch weniger benutzerfreundlichen Namen identifiziert: *ENTERPRISEPACK* . Wenn Sie PowerShell-Cmdlets (PowerShell 2.0) oder Microsoft Graph verwenden, wird dasselbe Produkt über einen GUID-Wert identifiziert: *6fd2c87f-b296-42f0-b197-1e91e994b900* . In der folgenden Tabelle sind die am häufigsten verwendeten Microsoft-Onlinedienstprodukte sowie ihre verschiedenen ID-Werte aufgeführt. Diese Tabellen dienen zur Referenz und sind nur zum Datum der letzten Aktualisierung dieses Artikels zutreffend. Microsoft plant keine regelmäßige Aktualisierung mit neu hinzugefügten Diensten.
+Bei der Verwaltung von Lizenzen im [Azure-Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) oder im [Microsoft 365 Admin Center](https://admin.microsoft.com) werden Ihnen Produktnamen wie *Office 365 E3* angezeigt. Wenn Sie PowerShell-Cmdlets (PowerShell 1.0) verwenden, wird dasselbe Produkt über einen konkreten, jedoch weniger benutzerfreundlichen Namen identifiziert: *ENTERPRISEPACK*. Wenn Sie PowerShell-Cmdlets (PowerShell 2.0) oder Microsoft Graph verwenden, wird dasselbe Produkt über einen GUID-Wert identifiziert: *6fd2c87f-b296-42f0-b197-1e91e994b900*. In der folgenden Tabelle sind die am häufigsten verwendeten Microsoft-Onlinedienstprodukte sowie ihre verschiedenen ID-Werte aufgeführt. Diese Tabellen dienen zur Referenz und sind nur zum Datum der letzten Aktualisierung dieses Artikels zutreffend. Microsoft plant keine regelmäßige Aktualisierung mit neu hinzugefügten Diensten.
 
-- **Produktname** : wird in Verwaltungsportalen verwendet
-- **Zeichenfolgen-ID** : wird von PowerShell v1.0-Cmdlets verwendet, wenn Vorgänge für Lizenzen durchgeführt werden
-- **GUID** : Von der Microsoft Graph-API verwendete GUID
-- **Enthaltene Dienstpläne** : Eine Liste der im Produkt enthaltenen Dienstpläne, die der Zeichenfolgen-ID und der GUID entsprechen
+- **Produktname**: wird in Verwaltungsportalen verwendet
+- **Zeichenfolgen-ID**: wird von PowerShell v1.0-Cmdlets verwendet, wenn Vorgänge für Lizenzen durchgeführt werden
+- **GUID**: Von der Microsoft Graph-API verwendete GUID
+- **Enthaltene Dienstpläne**: Eine Liste der im Produkt enthaltenen Dienstpläne, die der Zeichenfolgen-ID und der GUID entsprechen
 - **Enthaltene Dienstpläne (Anzeigenamen)** : Eine Liste der im Produkt enthaltenen Dienstpläne (Anzeigenamen), die der Zeichenfolgen-ID und der GUID entsprechen
 
 >[!NOTE]

@@ -6,11 +6,11 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 04/30/2018
 ms.openlocfilehash: ba69098f32e131714a15923aef64c3f6ba17e18f
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219495"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013308"
 ---
 # <a name="manage-azure-data-lake-analytics-using-account-policies"></a>Verwalten von Azure Data Lake Analytics mithilfe von Kontorichtlinien
 

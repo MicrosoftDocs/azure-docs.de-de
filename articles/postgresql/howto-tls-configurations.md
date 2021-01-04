@@ -1,17 +1,17 @@
 ---
 title: TLS-Konfiguration – Azure-Portal – Azure Database for PostgreSQL (Einzelserver)
 description: Erfahren Sie, wie Sie im Azure-Portal die TLS-Konfiguration für Ihren Azure Database for PostgreSQL-Einzelserver festlegen.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/02/2020
-ms.openlocfilehash: 26470709b37c2623c581499ec55572da402e96cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25be6b3c4e3172fc8ee14b97fd890b5948c284ba
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906451"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242363"
 ---
 # <a name="configuring-tls-settings-in-azure-database-for-postgresql-single---server-using-azure-portal"></a>Konfigurieren von TLS-Einstellungen in Azure Database for PostgreSQL (Einzelserver) im Azure-Portal
 
@@ -31,7 +31,7 @@ Befolgen Sie diese Schritte, um die TLS-Mindestversion für PostgreSQL festzuleg
 
 1. Wählen Sie im [Azure-Portal](https://portal.azure.com/) Ihren vorhandenen Azure Database for PostgreSQL-Server aus.
 
-1.  Klicken Sie auf der Seite „Azure Database for PostgreSQL (Einzelserver)“ unter **Einstellungen** auf **Verbindungssicherheit**, um die Seite zur Konfiguration der Verbindungssicherheit zu öffnen.
+1.  Klicken Sie auf der Seite „Azure Database for PostgreSQL (Einzelserver)“ unter **Einstellungen** auf **Verbindungssicherheit** , um die Seite zur Konfiguration der Verbindungssicherheit zu öffnen.
 
 1. Wählen Sie in **TLS-Mindestversion** die Option **1.2** aus, um Verbindungen mit TLS-Versionen vor TLS 1.2 für Ihren PostgreSQL-Einzelserver abzulehnen.
 
@@ -41,7 +41,7 @@ Befolgen Sie diese Schritte, um die TLS-Mindestversion für PostgreSQL festzuleg
 
 1. Eine Benachrichtigung bestätigt, dass die Verbindungssicherheitseinstellung erfolgreich aktiviert wurde.
 
-    :::image type="content" source="./media/howto-tls-configurations/setting-tls-value-success.png" alt-text="TLS-Konfigurationen für Azure Database for PostgreSQL (Einzelserver)":::
+    :::image type="content" source="./media/howto-tls-configurations/setting-tls-value-success.png" alt-text="Erfolgreiche TLS-Konfigurationen für Azure Database for PostgreSQL (Einzelserver)":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 

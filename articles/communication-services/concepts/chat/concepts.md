@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f33d7efd1c136619767c3eadd93740442ae7239a
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: f0e69e3f62d3b9e4debb5761d877dcdfdd246f60
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91762041"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886021"
 ---
 # <a name="chat-concepts"></a>Chatkonzepte
 
@@ -120,7 +120,7 @@ Die Echtzeitsignalisierung ermöglicht es Ihren Benutzern, in Echtzeit zu chatte
 
 ## <a name="using-cognitive-services-with-chat-client-library-to-enable-intelligent-features"></a>Verwenden von Cognitive Services mit der Clientbibliothek für Chats zum Aktivieren intelligenter Features
 
-Sie können [Azure Cognitive-APIs](https://docs.microsoft.com/azure/cognitive-services/) zusammen mit der Clientbibliothek für Chats verwenden, um intelligente Features zu Ihren Anwendungen hinzuzufügen. Beispielsweise können Sie folgende Aktionen ausführen:
+Sie können [Azure Cognitive-APIs](../../../cognitive-services/index.yml) zusammen mit der Clientbibliothek für Chats verwenden, um intelligente Features zu Ihren Anwendungen hinzuzufügen. Beispielsweise können Sie folgende Aktionen ausführen:
 
 - Ermöglichen Sie es Benutzern, miteinander in verschiedenen Sprachen zu chatten. 
 - Helfen Sie einem Support-Agent bei der Priorisierung von Tickets, indem Sie eine negative Stimmung in einem eingehenden Problem eines Kunden erkennen.
@@ -128,9 +128,9 @@ Sie können [Azure Cognitive-APIs](https://docs.microsoft.com/azure/cognitive-se
 
 Eine Möglichkeit, um dies zu erreichen, besteht darin, dass Ihr vertrauenswürdiger Dienst als Mitglied eines Chatthreads fungiert. Angenommen, Sie möchten die Sprachübersetzung aktivieren. Dieser Dienst ist dafür zuständig, auf Nachrichten zu lauschen, die von anderen Mitgliedern ausgetauscht werden [1], Cognitive-APIs aufzurufen, um den Inhalt in die gewünschte Sprache zu übersetzen [2,3] und das übersetzte Ergebnis als Nachricht im Chatthread zu senden [4]. 
 
-So enthält der Nachrichtenverlauf sowohl die ursprünglichen als auch übersetzte Nachrichten. In der Clientanwendung können Sie Logik hinzufügen, um die ursprüngliche oder die übersetzte Nachricht anzuzeigen. Informationen zur Verwendung von Cognitive APIs zum Übersetzen von Text in verschiedene Sprachen finden Sie in [diesem Schnellstart](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translator). 
+So enthält der Nachrichtenverlauf sowohl die ursprünglichen als auch übersetzte Nachrichten. In der Clientanwendung können Sie Logik hinzufügen, um die ursprüngliche oder die übersetzte Nachricht anzuzeigen. Informationen zur Verwendung von Cognitive APIs zum Übersetzen von Text in verschiedene Sprachen finden Sie in [diesem Schnellstart](../../../cognitive-services/translator/quickstart-translator.md). 
 
-:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagramm, das die Chatarchitektur von Communication Services zeigt":::
+:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagramm, das zeigt, wie Cognitive Services mit Communication Services interagieren":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 

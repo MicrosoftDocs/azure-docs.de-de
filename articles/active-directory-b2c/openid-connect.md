@@ -11,12 +11,12 @@ ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e1e300f2e18d7103cde374c5eba6877602ac3721
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: dbfeefc14059785ba82cbf245a60e5e72759db76
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961220"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840405"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Webanmeldungen mit OpenID Connect in Azure Active Directory B2C
 
@@ -124,7 +124,7 @@ Es gibt auch einige weitere Überprüfungen, die Sie durchführen sollten. Diese
 
 - Sicherstellen, dass sich der Benutzer/die Organisation für die Anwendung registriert hat.
 - Sicherstellen, dass der Benutzer über eine ordnungsgemäße Autorisierung und die richtigen Berechtigungen verfügt.
-- Sicherstellen, dass eine bestimmte Authentifizierungsmethode verwendet wird, z. B. Azure Multi-Factor Authentication.
+- Sicherstellen, dass eine bestimmte Authentifizierungsmethode verwendet wird, z. B. Azure AD Multi-Factor Authentication.
 
 Nachdem Sie das ID-Token vollständig überprüft haben, können Sie eine Sitzung mit dem Benutzer beginnen. Verwenden Sie die Ansprüche im ID-Token, um Informationen über den Benutzer in Ihrer Anwendung zu erhalten. Die Verwendung dieser Information umfasst die Anzeige, Datensätze und Autorisierung.
 

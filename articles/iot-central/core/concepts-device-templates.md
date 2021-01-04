@@ -3,17 +3,17 @@ title: Gerätevorlagen in Azure IoT Central | Microsoft-Dokumentation
 description: Mit Azure IoT Central-Gerätevorlagen können Sie das Verhalten der mit Ihrer Anwendung verbundenen Geräte festlegen. Eine Gerätevorlage legt die Telemetrie, Eigenschaften und Befehle fest, die das Gerät implementieren muss. Außerdem definiert eine Gerätevorlage die Benutzeroberfläche für das Gerät in IoT Central, z. B. die von einem Operator verwendeten Formulare und Dashboards.
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/21/2020
+ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 75317b5c6af2d0ce89d2db32f4343d9cc73a1a81
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 1a352849cb5bb8563a7e09500f081139a24e97ea
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91813167"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750695"
 ---
 # <a name="what-are-device-templates"></a>Was sind Gerätevorlagen?
 
@@ -25,86 +25,99 @@ Ein Lösungsgenerator fügt einer IoT Central-Anwendung Gerätevorlagen hinzu. E
 
 Eine Gerätevorlage enthält die folgenden Abschnitte:
 
-- _Ein Gerätefunktionsmodell_. In diesem Teil der Gerätevorlage wird definiert, wie das Gerät mit Ihrer Anwendung interagiert. Ein Geräteentwickler setzt die im Gerätefunktionsmodell definierten Verhalten um.
-    - _Schnittstellen_. Ein Gerätefunktionsmodell enthält eine oder mehrere Schnittstelle(n) zum Definieren der Telemetrie, Eigenschaften und Befehle, die das Gerät implementieren muss.
-- _Cloudeigenschaften_. In diesem Teil der Gerätevorlage kann der Entwickler der Lösung alle zu speichernden Gerätemetadaten angeben. Cloudeigenschaften werden nicht mit Geräten synchronisiert und sind ausschließlich in der Anwendung vorhanden. Cloudeigenschaften haben keinen Einfluss auf den Code, den ein Geräteentwickler zur Umsetzung des Gerätefunktionsmodells schreibt.
-- _Anpassungen_. In diesem Teil der Gerätevorlage kann der Lösungsentwickler einige der Definitionen im Gerätefunktionsmodell überschreiben. Anpassungen sind nützlich, wenn der Lösungsentwickler präzisieren möchte, wie die Anwendung mit einem Wert umgeht, z. B. wenn der Anzeigename für eine Eigenschaft oder die zur Anzeige eines Telemetriewerts verwendete Farbe geändert werden soll. Anpassungen wirken sich nicht auf den Code aus, der von einem Geräteentwickler zur Umsetzung des Gerätefunktionsmodells geschrieben wird.
-- _Ansichten_. In diesem Teil der Gerätevorlage kann der Lösungsentwickler Visualisierungen zum Anzeigen von Daten aus dem Gerät und Formulare zur Verwaltung und Steuerung eines Geräts definieren. Die Ansichten enthalten das Gerätefunktionsmodell, die Cloudeigenschaften und Anpassungen. Ansichten haben keinen Einfluss auf den Code, den ein Geräteentwickler zur Umsetzung des Gerätefunktionsmodells schreibt.
+- _Ein Gerätemodell_. In diesem Teil der Gerätevorlage wird definiert, wie das Gerät mit Ihrer Anwendung interagiert. Ein Geräteentwickler setzt die im Modell definierten Verhalten um.
+    - _Standardkomponente_. Jedes Gerätemodell hat eine Standardkomponente. Die Schnittstelle der Standardkomponente beschreibt die spezifischen Funktionen des Gerätemodells.
+    - _Komponenten_. Ein Gerätemodell kann neben der Standardkomponente auch Komponenten enthalten, um Gerätefunktionen zu beschreiben. Jede Komponente verfügt über eine Schnittstelle, mit der die Funktionen der Komponente beschrieben werden. Komponentenschnittstellen können in anderen Gerätemodellen wiederverwendet werden. Beispielsweise können mehrere Telefongerätemodelle dieselbe Kameraschnittstelle verwenden.
+    - _Geerbte Schnittstellen_. Ein Gerätemodell enthält eine oder mehrere Schnittstellen, mit denen die Funktionen der Standardkomponente erweitert werden.
+- _Cloudeigenschaften_. In diesem Teil der Gerätevorlage kann der Entwickler der Lösung alle zu speichernden Gerätemetadaten angeben. Cloudeigenschaften werden nicht mit Geräten synchronisiert und sind ausschließlich in der Anwendung vorhanden. Cloudeigenschaften haben keinen Einfluss auf den Code, den ein Geräteentwickler zum Implementieren des Gerätemodells schreibt.
+- _Anpassungen_. In diesem Teil der Gerätevorlage kann der Lösungsentwickler einige der Definitionen im Gerätemodell überschreiben. Anpassungen sind nützlich, wenn der Lösungsentwickler präzisieren möchte, wie die Anwendung mit einem Wert umgeht, z. B. wenn der Anzeigename für eine Eigenschaft oder die zur Anzeige eines Telemetriewerts verwendete Farbe geändert werden soll. Anpassungen wirken sich nicht auf den Code aus, den ein Geräteentwickler zum Implementieren des Gerätemodells schreibt.
+- _Ansichten_. In diesem Teil der Gerätevorlage kann der Lösungsentwickler Visualisierungen zum Anzeigen von Daten aus dem Gerät und Formulare zur Verwaltung und Steuerung eines Geräts definieren. Die Ansichten enthalten das Gerätemodell, Cloudeigenschaften und Anpassungen. Ansichten haben keinen Einfluss auf den Code, den ein Geräteentwickler zum Implementieren des Gerätemodells schreibt.
 
-## <a name="device-capability-models"></a>Gerätefunktionsmodelle
+## <a name="device-models"></a>Gerätemodelle
 
-Ein Gerätefunktionsmodell definiert, wie ein Gerät mit ihrer IoT Central-Anwendung interagiert. Der Geräteentwickler muss sicherstellen, dass das Gerät die im Gerätefunktionsmodell definierten Verhaltensweisen umsetzt, damit IoT Central das Gerät überwachen und verwalten kann. Ein Gerätefunktionsmodell besteht aus einer oder mehreren _Schnittstellen_. Jede Schnittstelle kann eine Sammlung von _Telemetrietypen_, _Geräteeigenschaften_ und _Befehlen_ definieren. Ein Lösungsentwickler kann eine JSON-Datei mit der Definition des Gerätefunktionsmodells in eine Gerätevorlage importieren oder ein Gerätefunktionsmodell auf der Webbenutzeroberfläche von IoT Central erstellen oder bearbeiten. Änderungen an einem Gerätefunktionsmodell, die auf der Webbenutzeroberfläche vorgenommen werden, erfordern eine [Versionsverwaltung der Gerätevorlage](./howto-version-device-template.md).
+Ein Gerätemodell definiert, wie ein Gerät mit Ihrer IoT Central-Anwendung interagiert. Der Geräteentwickler muss sicherstellen, dass das Gerät die im Gerätemodell definierten Verhaltensweisen umsetzt, damit IoT Central das Gerät überwachen und verwalten kann. Ein Gerätemodell besteht aus einer oder mehreren _Schnittstellen_. Jede Schnittstelle kann eine Sammlung von _Telemetrietypen_, _Geräteeigenschaften_ und _Befehlen_ definieren. Ein Lösungsentwickler kann eine JSON-Datei mit der Definition des Gerätemodells in eine Gerätevorlage importieren oder ein Gerätemodell auf der Webbenutzeroberfläche von IoT Central erstellen oder bearbeiten. Änderungen an einem Gerätemodell, die auf der Webbenutzeroberfläche vorgenommen werden, erfordern eine [Versionsverwaltung der Gerätevorlage](./howto-version-device-template.md).
 
-Ein Lösungsentwickler kann auch eine JSON-Datei exportieren, die das Gerätefunktionsmodell enthält. Ein Geräteentwickler kann anhand dieses JSON-Dokuments verstehen, wie das Gerät mit der IoT Central-Anwendung kommunizieren soll.
+Ein Lösungsentwickler kann auch eine JSON-Datei exportieren, die das Gerätemodell enthält. Ein Geräteentwickler kann anhand dieses JSON-Dokuments verstehen, wie das Gerät mit der IoT Central-Anwendung kommunizieren soll.
 
-Die JSON-Datei mit der Definition des Gerätefunktionsmodells verwendet [Digital Twin Definition Language (DTDL) V1](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). IoT Central erwartet, dass die JSON-Datei das Gerätefunktionsmodell mit inline und nicht in separaten Dateien definierten Schnittstellen enthält.
+Die JSON-Datei mit der Definition des Gerätemodells verwendet [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central erwartet, dass die JSON-Datei das Gerätemodell mit inline und nicht in separaten Dateien definierten Schnittstellen enthält.
 
 Ein typisches IoT-Gerät besteht aus folgenden Komponenten:
 
 - Benutzerdefinierte Komponenten, die Ihr Gerät einzigartig machen
 - Standardkomponenten, die bei allen Geräten identisch sind
 
-Diese Komponenten werden in einem Gerätefunktionsmodell als _Schnittstellen_ bezeichnet. Schnittstellen definieren die Details der einzelnen mit Ihrem Gerät implementierten Komponenten. Schnittstellen lassen sich in mehreren Gerätefunktionsmodellen wiederverwenden.
+Diese Komponenten werden in einem Gerätemodell als _Schnittstellen_ bezeichnet. Schnittstellen definieren die Details der einzelnen mit Ihrem Gerät implementierten Komponenten. Schnittstellen lassen sich in mehreren Gerätemodellen wiederverwenden. In der DTDL verweist eine Komponente auf eine Schnittstelle, die in einer separaten DTDL-Datei definiert ist.
 
-Das folgende Beispiel zeigt den Entwurf eines Gerätefunktionsmodells für ein Umgebungssensorgerät mit zwei Schnittstellen:
+Das folgende Beispiel zeigt die Gliederung des Gerätemodells für ein Temperatursteuerungsgerät. Die Standardkomponente enthält Definitionen für `workingSet`, `serialNumber`und `reboot`. Das Gerätemodell umfasst auch die Schnittstellen `thermostat` und `deviceInformation`:
 
 ```json
 {
-  "@id": "urn:contoso:sensor_device:1",
-  "@type": "CapabilityModel",
-  "displayName": "Environment Sensor Capability Model",
-  "implements": [
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:com:example:TemperatureController;1",
+  "@type": "Interface",
+  "displayName": "Temperature Controller",
+  "description": "Device with two thermostats and remote reboot.",
+  "contents": [
     {
-      "@type": "InterfaceInstance",
-      "name": "deviceinfo",
-      "schema": {
-        "@id": "urn:azureiot:DeviceManagement:DeviceInformation:1",
-        "@type": "Interface",
-        "displayName": "Device Information",
-        "@context": "http://azureiot.com/v1/contexts/IoTModel.json",
-        "contents": [
-          ...
-        ]
+      "@type": [
+        "Telemetry", "DataSize"
+      ],
+      "name": "workingSet",
+      "displayName": "Working Set",
+      "description": "Current working set of the device memory in KiB.",
+      "schema": "double",
+      "unit" : "kibibyte"
+    },
+    {
+      "@type": "Property",
+      "name": "serialNumber",
+      "displayName": "Serial Number",
+      "description": "Serial number of the device.",
+      "schema": "string"
+    },
+    {
+      "@type": "Command",
+      "name": "reboot",
+      "displayName": "Reboot",
+      "description": "Reboots the device after waiting the number of seconds specified.",
+      "request": {
+        "name": "delay",
+        "displayName": "Delay",
+        "description": "Number of seconds to wait before rebooting the device.",
+        "schema": "integer"
       }
     },
     {
-      "@type": "InterfaceInstance",
-      "name": "sensor",
-      "schema": {
-        "@id": "urn:contoso:EnvironmentalSensor:1",
-        "@type": "Interface",
-        "displayName": "Environmental Sensor",
-        "@context": "http://azureiot.com/v1/contexts/IoTModel.json",
-        "contents": [
-          ...
-        ]
-      }
+      "@type" : "Component",
+      "schema": "dtmi:com:example:Thermostat;1",
+      "name": "thermostat",
+      "displayName": "Thermostat",
+      "description": "Thermostat One."
+    },
+    {
+      "@type": "Component",
+      "schema": "dtmi:azure:DeviceManagement:DeviceInformation;1",
+      "name": "deviceInformation",
+      "displayName": "Device Information interface",
+      "description": "Optional interface with basic device hardware information."
     }
-  ],
-  "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
+  ]
 }
 ```
-
-Ein Funktionsmodell umfasst einige Pflichtfelder:
-
-- `@id`: eine eindeutige ID im Format eines einfachen Uniform Resource Name
-- `@type`: deklariert dieses Objekt als Funktionsmodell
-- `@context`: gibt die für das Funktionsmodell verwendete DTDL-Version an
-- `implements`: listet die Schnittstellen auf, die das Gerät implementiert
-
-Jeder Eintrag in der Liste der Schnittstellen im Abschnitt „implements“ enthält jeweils Folgendes:
-
-- `name`: der Programmiername der Schnittstelle
-- `schema`: die Schnittstelle, die mit dem Funktionsmodell implementiert wird
 
 Eine Schnittstelle umfasst einige Pflichtfelder:
 
 - `@id`: eine eindeutige ID im Format eines einfachen Uniform Resource Name
 - `@type`: deklariert dieses Objekt als Schnittstelle
 - `@context`: gibt die für die Schnittstelle verwendete DTDL-Version an
-- `contents`: listet die Eigenschaften, Telemetriedaten und Befehle auf, die das Gerät ausmachen
+- `contents`: listet die Eigenschaften, Telemetriedaten und Befehle auf, die das Gerät ausmachen Die Funktionen können in mehreren Schnittstellen definiert werden.
 
 Es gibt einige optionale Felder, über die Sie dem Funktionsmodell weitere Details hinzufügen können, z. B. den Anzeigenamen und eine Beschreibung.
+
+Jeder Eintrag in der Liste der Schnittstellen im Abschnitt „implements“ enthält jeweils Folgendes:
+
+- `name`: der Programmiername der Schnittstelle
+- `schema`: die Schnittstelle, die mit dem Funktionsmodell implementiert wird
 
 ## <a name="interfaces"></a>Schnittstellen
 
@@ -114,55 +127,105 @@ Mit DTDL beschreiben Sie die Funktionen Ihres Geräts. Zusammengehörige Funktio
 - `Telemetry`. Telemetriefelder stellen Messungen von Sensoren dar. Immer wenn das Gerät eine Sensormessung vornimmt, sollte ein Telemetrieereignis mit den Sensordaten gesendet werden.
 - `Commands`. Befehle stellen Methoden dar, die Benutzer des Geräts auf dem Gerät ausführen können, beispielsweise ein Befehl zum Zurücksetzen oder ein Befehl zum Ein- oder Ausschalten eines Lüfters.
 
-Das folgende Beispiel zeigt die Definition der Schnittstelle „Environmental Sensor“ (Umgebungssensor):
+Das folgende Beispiel zeigt die Definition für eine Thermostatschnittstelle:
 
 ```json
 {
-  "@type": "Property",
-  "displayName": "Device State",
-  "description": "The state of the device. Two states online/offline are available.",
-  "name": "state",
-  "schema": "boolean"
-},
-{
-  "@type": "Property",
-  "displayName": "Customer Name",
-  "description": "The name of the customer currently operating the device.",
-  "name": "name",
-  "schema": "string",
-  "writable": true
-},
-{
-  "@type": [
-    "Telemetry",
-    "SemanticType/Temperature"
-  ],
-  "description": "Current temperature on the device",
-  "displayName": "Temperature",
-  "name": "temp",
-  "schema": "double",
-  "unit": "Units/Temperature/fahrenheit"
-},
-{
-  "@type": "Command",
-  "name": "turnon",
-  "comment": "This Commands will turn-on the LED light on the device.",
-  "commandType": "synchronous"
-},
-{
-  "@type": "Command",
-  "name": "turnoff",
-  "comment": "This Commands will turn-off the LED light on the device.",
-  "commandType": "synchronous"
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:com:example:Thermostat;1",
+  "@type": "Interface",
+  "displayName": "Thermostat",
+  "description": "Reports current temperature and provides desired temperature control.",
+  "contents": [
+    {
+      "@type": [
+        "Telemetry",
+        "Temperature"
+      ],
+      "name": "temperature",
+      "displayName" : "Temperature",
+      "description" : "Temperature in degrees Celsius.",
+      "schema": "double",
+      "unit": "degreeCelsius"
+    },
+    {
+      "@type": [
+        "Property",
+        "Temperature"
+      ],
+      "name": "targetTemperature",
+      "schema": "double",
+      "displayName": "Target Temperature",
+      "description": "Allows to remotely specify the desired target temperature.",
+      "unit" : "degreeCelsius",
+      "writable": true
+    },
+    {
+      "@type": [
+        "Property",
+        "Temperature"
+      ],
+      "name": "maxTempSinceLastReboot",
+      "schema": "double",
+      "unit" : "degreeCelsius",
+      "displayName": "Max temperature since last reboot.",
+      "description": "Returns the max temperature since last device reboot."
+    },
+    {
+      "@type": "Command",
+      "name": "getMaxMinReport",
+      "displayName": "Get Max-Min report.",
+      "description": "This command returns the max, min and average temperature from the specified time to the current time.",
+      "request": {
+        "name": "since",
+        "displayName": "Since",
+        "description": "Period to return the max-min report.",
+        "schema": "dateTime"
+      },
+      "response": {
+        "name" : "tempReport",
+        "displayName": "Temperature Report",
+        "schema": {
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "maxTemp",
+              "displayName": "Max temperature",
+              "schema": "double"
+            },
+            {
+              "name": "minTemp",
+              "displayName": "Min temperature",
+              "schema": "double"
+            },
+            {
+              "name" : "avgTemp",
+              "displayName": "Average Temperature",
+              "schema": "double"
+            },
+            {
+              "name" : "startTime",
+              "displayName": "Start Time",
+              "schema": "dateTime"
+            },
+            {
+              "name" : "endTime",
+              "displayName": "End Time",
+              "schema": "dateTime"
+            }
+          ]
+        }
+      }
+    }
+  ]
 }
 ```
 
-Dieses Beispiel zeigt zwei Eigenschaften (eine schreibgeschützte und eine beschreibbare), einen Telemetrietyp und zwei Befehle. Eine minimale Feldbeschreibung umfasst Folgendes:
+Dieses Beispiel zeigt zwei Eigenschaften (eine schreibgeschützte und eine beschreibbare), einen Telemetrietyp und einen Befehl. Eine minimale Feldbeschreibung umfasst Folgendes:
 
 - `@type` zum Angeben des Typs der Funktion (`Telemetry`, `Property` oder `Command`).  In einigen Fällen enthält der Typ einen semantischen Typ, damit IoT Central einige Annahmen darüber treffen kann, wie der Wert zu behandeln ist.
 - `name` für den Telemetriewert.
-- `schema` zum Angeben des Datentyps der Telemetrie oder Eigenschaft. Dieser Wert kann ein primitiver Typ sein, z. B. „double“, „integer“, „boolean“ oder „string“. Komplexe Objekttypen, Arrays und Zuordnungen werden ebenfalls unterstützt.
-- `commandType` zum Angeben, wie der Befehl behandelt werden soll.
+- `schema` zum Angeben des Datentyps der Telemetrie oder Eigenschaft. Dieser Wert kann ein primitiver Typ sein, z. B. „double“, „integer“, „boolean“ oder „string“. Komplexe Objekttypen und Zuordnungen werden ebenfalls unterstützt.
 
 Über optionale Felder, z. B. Anzeigename und Beschreibung, können Sie der Schnittstelle und den Funktionen weitere Details hinzufügen.
 
@@ -180,33 +243,36 @@ Bei beschreibbaren Eigenschaften gibt die Geräteanwendung den Statuscode, die V
 
 ## <a name="telemetry"></a>Telemetrie
 
-Mit IoT Central können Sie Telemetrie auf Dashboards und in Diagrammen anzeigen und Regeln verwenden, um Aktionen auszulösen, wenn Schwellenwerte erreicht werden. IoT Central verwendet die Informationen im Gerätefunktionsmodell wie Datentypen, Einheiten und Anzeigenamen, um zu bestimmen, wie Telemetriewerte angezeigt werden sollen.
+Mit IoT Central können Sie Telemetrie auf Dashboards und in Diagrammen anzeigen und Regeln verwenden, um Aktionen auszulösen, wenn Schwellenwerte erreicht werden. IoT Central verwendet die Informationen im Gerätemodell wie Datentypen, Einheiten und Anzeigenamen, um zu bestimmen, wie Telemetriewerte angezeigt werden sollen.
 
 Sie können die Datenexportfunktion von IoT Central nutzen, um Telemetrie an andere Ziele wie Azure Storage oder Event Hubs zu streamen.
 
 ## <a name="commands"></a>Befehle
 
-Befehle sind entweder synchron oder asynchron. Ein synchroner Befehl muss standardmäßig innerhalb von 30 Sekunden ausgeführt werden, und das Gerät muss beim Eingehen des Befehls verbunden sein. Wenn das Gerät nicht rechtzeitig antwortet oder nicht verbunden ist, wird der Befehl nicht ausgeführt.
+Ein Befehl muss standardmäßig innerhalb von 30 Sekunden ausgeführt werden, und das Gerät muss beim Eingehen des Befehls verbunden sein. Wenn das Gerät nicht rechtzeitig antwortet oder nicht verbunden ist, wird der Befehl nicht ausgeführt.
 
-Verwenden Sie asynchrone Befehle für Vorgänge mit langer Ausführungszeit. Das Gerät sendet Statusinformationen unter Verwendung von Telemetrienachrichten. Diese Statusmeldungen enthalten die folgenden Headereigenschaften:
+Befehle können Anforderungsparameter aufweisen und eine Antwort zurückgeben.
 
-- `iothub-command-name`: der Befehlsname, z. B. `UpdateFirmware`
-- `iothub-command-request-id`: die Anforderungs-ID, die serverseitig generiert und beim ersten Aufruf an das Gerät gesendet wurde
-- `iothub-interface-id`:  die ID der Schnittstelle, für die dieser Befehl definiert ist, z. B. `urn:example:AssetTracker:1`
- `iothub-interface-name`: der Instanzname der Schnittstelle, z. B. `myAssetTracker`
-- `iothub-command-statuscode`: der vom Gerät zurückgegebene Statuscode, z. B. `202`
+### <a name="offline-commands"></a>Offlinebefehle
+
+Wenn ein Gerät zurzeit offline ist, können Sie Warteschlangenbefehle auswählen, indem Sie in der Gerätevorlage die Option **Warteschlange (falls offline)** für einen Befehl aktivieren.
+
+Offlinebefehle sind unidirektionale Benachrichtigungen aus Ihrer Lösung an das Gerät. Offlinebefehle können Anforderungsparameter aufweisen, geben aber keine Antwort zurück.
+
+> [!NOTE]
+> Diese Option steht nur in der IoT Central-Webbenutzeroberfläche zur Verfügung. Diese Einstellung ist nicht enthalten, wenn Sie ein Modell oder eine Schnittstelle aus der Gerätevorlage exportieren.
 
 ## <a name="cloud-properties"></a>Cloudeigenschaften
 
-Cloudeigenschaften sind Teil der Gerätevorlage, aber nicht des Gerätefunktionsmodells. Mit Cloudeigenschaften kann der Lösungsentwickler Gerätemetadaten angeben, die in der IoT Central-Anwendung gespeichert werden sollen. Cloudeigenschaften haben keinen Einfluss auf den Code, den ein Geräteentwickler zur Umsetzung des Gerätefunktionsmodells schreibt.
+Cloudeigenschaften sind Teil der Gerätevorlage, aber nicht des Gerätemodells. Mit Cloudeigenschaften kann der Lösungsentwickler Gerätemetadaten angeben, die in der IoT Central-Anwendung gespeichert werden sollen. Cloudeigenschaften haben keinen Einfluss auf den Code, den ein Geräteentwickler zum Implementieren des Gerätemodells schreibt.
 
 Ein Lösungsentwickler kann neben den Geräteeigenschaften auch Cloudeigenschaften zu Dashboards und Ansichten hinzufügen, um einen Bediener in die Lage zu versetzen, die mit der Anwendung verbundenen Geräte zu verwalten. Ein Lösungsentwickler kann Cloudeigenschaften auch als Teil einer Regeldefinition verwenden, damit ein Schwellenwert von einem Bediener bearbeitet werden kann.
 
 ## <a name="customizations"></a>Anpassungen
 
-Anpassungen sind Teil der Gerätevorlage, jedoch nicht des Gerätefunktionsmodells. Durch Anpassungen kann der Lösungsentwickler einige der Definitionen im Gerätefunktionsmodell optimieren oder überschreiben. Beispielsweise kann ein Lösungsentwickler den Anzeigenamen für einen Telemetrietyp oder eine Eigenschaft ändern. Ein Lösungsentwickler kann auch Anpassungen verwenden, um eine Überprüfung hinzuzufügen, z. B. eine minimale oder maximale Länge für eine Geräteeigenschaft in Form einer Zeichenfolge.
+Anpassungen sind Teil der Gerätevorlage, jedoch nicht des Gerätemodells. Durch Anpassungen kann der Lösungsentwickler einige der Definitionen im Gerätemodell optimieren oder überschreiben. Beispielsweise kann ein Lösungsentwickler den Anzeigenamen für einen Telemetrietyp oder eine Eigenschaft ändern. Ein Lösungsentwickler kann auch Anpassungen verwenden, um eine Überprüfung hinzuzufügen, z. B. eine minimale oder maximale Länge für eine Geräteeigenschaft in Form einer Zeichenfolge.
 
-Anpassungen wirken sich ggf. auf den Code aus, der von einem Geräteentwickler zum Umsetzen des Gerätefunktionsmodells geschrieben wird. Eine Anpassung kann beispielsweise minimale und maximale Zeichenfolgenlängen oder minimale und maximale numerische Werte für Telemetrie festlegen.
+Anpassungen wirken sich ggf. auf den Code aus, den ein Geräteentwickler zum Implementieren des Gerätemodells schreibt. Eine Anpassung kann beispielsweise minimale und maximale Zeichenfolgenlängen oder minimale und maximale numerische Werte für Telemetrie festlegen.
 
 ## <a name="views"></a>Ansichten
 
@@ -219,7 +285,7 @@ Ein Lösungsentwickler erstellt Ansichten, mit denen Bediener angeschlossene Ger
 - Kacheln, damit der Bediener Befehle aufrufen kann, darunter solche, die eine Nutzlast erwarten
 - Kacheln zum Anzeigen von Beschriftungen, Bildern oder Markdowntext
 
-Die Telemetrie, Eigenschaften und Befehle, die Sie einer Ansicht hinzufügen können, werden durch das Gerätefunktionsmodell, die Cloudeigenschaften und benutzerdefinierte Anpassungen in der Gerätevorlage bestimmt.
+Die Telemetrie, Eigenschaften und Befehle, die Sie einer Ansicht hinzufügen können, werden durch das Gerätemodell, die Cloudeigenschaften und benutzerdefinierte Anpassungen in der Gerätevorlage bestimmt.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

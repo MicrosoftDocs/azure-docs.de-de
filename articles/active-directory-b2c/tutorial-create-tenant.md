@@ -7,19 +7,22 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/01/2020
+ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fbccbcf1ac85b63c5610b9904a84e5e6e3fb6c63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5229175af618f897caeae7310338cbe51966a48d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87922192"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859591"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Erstellen eines Azure Active Directory B2C-Mandanten
 
-Bevor Ihre Anwendungen mit Azure Active Directory B2C (Azure AD B2C) interagieren können, müssen sie in einem von Ihnen verwalteten Mandanten registriert werden.
+Bevor Ihre Anwendungen mit Azure Active Directory B2C (Azure AD B2C) interagieren können, müssen sie in einem von Ihnen verwalteten Mandanten registriert werden. 
+
+> [!NOTE]
+> Sie können bis zu 20 Mandanten pro Abonnement erstellen. Diese Beschränkung schützt vor Bedrohungen für Ihre Ressourcen, etwa vor Denial-of-Service-Angriffen, und wird sowohl im Azure-Portal als auch in der zugrunde liegenden Mandantenerstellungs-API erzwungen. Wenn Sie mehr als 20 Mandanten erstellen müssen, wenden Sie sich an den [Microsoft-Support](support-options.md).
 
 In diesem Artikel werden folgende Vorgehensweisen behandelt:
 
@@ -46,8 +49,11 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
     ![Abonnementmandant, Filter „Verzeichnis und Abonnement“ mit ausgewähltem Abonnementmandanten](media/tutorial-create-tenant/portal-01-pick-directory.png)
 
 1. Wählen Sie im Menü des Azure-Portals oder auf der **Startseite** die Option **Ressource erstellen** aus.
+
+   ![Auswählen der Schaltfläche „Ressource erstellen“](media/tutorial-create-tenant/create-a-resource.png)
+
 1. Suchen Sie nach **Azure Active Directory B2C**, und wählen Sie dann **Erstellen** aus.
-1. Wählen Sie **Neuen Azure AD B2C-Mandanten erstellen**.
+2. Wählen Sie **Neuen Azure AD B2C-Mandanten erstellen**.
 
     ![„Neuen Azure AD B2C-Mandanten erstellen“ im Azure-Portal ausgewählt](media/tutorial-create-tenant/portal-02-create-tenant.png)
 
@@ -57,7 +63,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
    - **Name der Anfangsdomäne**: Geben Sie einen Domänennamen für Ihren Azure AD B2C-Mandanten ein.
    - **Land oder Region**: Wählen Sie in der Liste Ihr Land oder Ihre Region aus. Diese Auswahl kann später nicht mehr geändert werden.
    - **Abonnement**: Wählen Sie in der Liste Ihr Abonnement aus.
-   - **Ressourcengruppe**: Wählen Sie eine Ressourcengruppe aus, die den Mandanten enthalten soll. Oder wählen Sie **Neu erstellen** aus, geben Sie unter **Name** einen Namen für die Ressourcengruppe ein, wählen Sie den **Standort der Ressourcengruppe** aus, und wählen Sie dann **OK** aus.
+   - **Ressourcengruppe**: Wählen Sie die Ressourcengruppe aus, die den Mandanten enthalten soll, oder suchen Sie nach der Ressourcengruppe.
 
     ![Formular „Mandanten erstellen“ mit Beispielwerten im Azure-Portal](media/tutorial-create-tenant/review-and-create-tenant.png)
 

@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/15/2020
-ms.openlocfilehash: a0f081e0f8df00bbc99d2163fb54a2f15d92a159
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1031c34a44a253c7458ef78c6371b88014e882ed
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006431"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746467"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Tutorial: Erstellen einer End-to-End-Datenpipeline zum Gewinnen von Erkenntnissen aus Vertriebsdaten in Azure HDInsight
 
@@ -27,13 +27,13 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* Mindestens Version 2.2.0 der Azure CLI. Weitere Informationen finden Sie unter [Installieren der Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Mindestens Version 2.2.0 der Azure CLI. Weitere Informationen finden Sie unter [Installieren der Azure CLI](/cli/azure/install-azure-cli).
 
 * jq, ein JSON-Befehlszeilenprozessor.  Siehe [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
 * Mitglied der [integrierten Azure-Rolle „Besitzer“](../role-based-access-control/built-in-roles.md)
 
-* Wenn Sie PowerShell zum Auslösen der Data Factory-Pipeline verwenden, benötigen Sie das [Az-Modul](https://docs.microsoft.com/powershell/azure/).
+* Wenn Sie PowerShell zum Auslösen der Data Factory-Pipeline verwenden, benötigen Sie das [Az-Modul](/powershell/azure/).
 
 * [Power BI Desktop](https://aka.ms/pbiSingleInstaller), um am Ende dieses Tutorials geschäftliche Erkenntnisse zu visualisieren
 
@@ -93,7 +93,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
     ./scripts/resources.sh $resourceGroup LOCATION
     ```
 
-    Falls Sie nicht wissen, welche Region Sie angeben sollen, können Sie mit dem Befehl [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list-locations) eine Liste der unterstützten Regionen für Ihr Abonnement abrufen.
+    Falls Sie nicht wissen, welche Region Sie angeben sollen, können Sie mit dem Befehl [az account list-locations](/cli/azure/account#az-account-list-locations) eine Liste der unterstützten Regionen für Ihr Abonnement abrufen.
 
     Mit dem Befehl werden die folgenden Ressourcen bereitgestellt:
 
@@ -252,19 +252,19 @@ Weitere Möglichkeiten zum Transformieren von Daten mithilfe von HDInsight finde
 
 1. Öffnen Sie Power BI Desktop.
 
-1. Navigieren Sie im Menü zu **Daten abrufen** > **Mehr...**  > **Azure** > **HDInsight Interactive Query**.
+1. Navigieren Sie im Menü zu **Daten abrufen** > **Mehr...**  > **Azure** > **HDInsight Interactive Query** .
 
-1. Wählen Sie **Verbinden**.
+1. Wählen Sie **Verbinden** .
 
 1. Führen Sie im Dialogfeld **HDInsight Interactive Query** die folgenden Schritte aus:
     1. Geben Sie im Textfeld **Server** den Namen Ihres LLAP-Clusters im folgenden Format ein: `https://LLAPCLUSTERNAME.azurehdinsight.net`.
     1. Geben Sie im Textfeld **Datenbank** die Zeichenfolge `default` ein.
-    1. Klicken Sie auf **OK**.
+    1. Klicken Sie auf **OK** .
 
 1. Führen Sie im Dialogfeld **AzureHive** die folgenden Schritte aus:
     1. Geben Sie im Textfeld **Benutzername** den Namen `admin` ein.
     1. Geben Sie in das Textfeld **Kennwort** das Kennwort `Thisisapassword1` ein.
-    1. Wählen Sie **Verbinden**.
+    1. Wählen Sie **Verbinden** .
 
 1. Wählen Sie im **Navigator** den Eintrag `sales` und/oder `sales_raw` aus, um eine Vorschau der Daten anzuzeigen. Nachdem die Daten geladen wurden, können Sie mit dem Dashboard experimentieren, das Sie erstellen möchten. Informationen zu den ersten Schritten mit Power BI-Dashboards finden Sie unter den folgenden Links:
 

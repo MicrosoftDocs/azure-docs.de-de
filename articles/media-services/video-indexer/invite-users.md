@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: e9a4575ce2f353d61654263aea8d968c650a689e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4023f8584e7b901a19906235d98982abbbfbaaf8
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "79499743"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364138"
 ---
 # <a name="quickstart-invite-users-to-video-indexer"></a>Schnellstart: Einladen von Benutzern zu Video Indexer
 
@@ -27,10 +27,9 @@ Um mit Ihren Kollegen zusammenzuarbeiten, können Sie sie zu Ihrem Video Indexer
 ## <a name="invite-new-users"></a>Einladen neuer Benutzer
 
 1. Melden Sie sich bei der [Video Indexer](https://www.videoindexer.ai/)-Website an. Achten Sie darauf, dass Sie mit einem Administratorkonto verbunden sind.
-1. Klicken Sie auf die Schaltfläche **Andere einladen** im oberen Menü:
+1. Wenn Sie Administrator sind, sehen Sie oben rechts in der Ecke die Schaltfläche **Konto freigeben**. Klicken Sie auf die Schaltfläche. Anschließend können Sie Benutzer einladen. 
 
-   ![Einladen neuer Benutzer](./media/invite-users/invite-users.png)
-
+   ![Einladen neuer Benutzer](./media/invite-users/share-account.png)
 1. Fügen Sie die E-Mail-Adressen von Personen hinzu, die Sie zu Ihrem Video Indexer-Konto einladen möchten:
 
     ![Benutzer zu diesem Konto einladen](./media/invite-users/invite-to-account.png)
@@ -45,7 +44,7 @@ Um mit Ihren Kollegen zusammenzuarbeiten, können Sie sie zu Ihrem Video Indexer
 
 ## <a name="removing-existing-users"></a>Entfernen vorhandener Benutzer
 
-Wenn Sie Benutzer entfernen möchten, die Zugriff auf Ihr Konto haben, können Sie auf das **X**-Zeichen neben ihrem Namen klicken:
+Wenn Sie Benutzer entfernen möchten, die Zugriff auf Ihr Konto haben, können Sie auf das **X** -Zeichen neben ihrem Namen klicken:
 
 ![Benutzer entfernen](./media/invite-users/remove-users.png)
 

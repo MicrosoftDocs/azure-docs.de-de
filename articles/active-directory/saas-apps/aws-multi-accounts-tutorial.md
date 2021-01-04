@@ -8,15 +8,15 @@ ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
-ms.date: 08/07/2020
+ms.topic: tutorial
+ms.date: 09/30/2020
 ms.author: jeedes
-ms.openlocfilehash: 24814ede954980e3a9fc3c3ba60546cedad4e8fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 246eba24f42baacf264c1c6d39ea63a51c62c51f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91713433"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457434"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Tutorial: Azure Active Directory-Integration mit Amazon Web Services (AWS) (altes Tutorial)
 
@@ -28,12 +28,10 @@ Die Integration von Amazon Web Services (AWS) in Azure AD bietet die folgenden V
 - Sie können es Benutzern ermöglichen, sich mit ihren Azure AD-Konten automatisch für Amazon Web Services (AWS) anzumelden (einmaliges Anmelden).
 - Sie können Ihre Konten über das Azure-Portal an einem zentralen Ort verwalten.
 
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
-
-![Diagramm: Azure AD mit AWS-App, die über durch IDP initiiertes SSO mit drei AWS-Konten verbunden ist.](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
+![Amazon Web Services (AWS) in der Ergebnisliste](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
 > [!NOTE]
-> Beachten Sie bitte, dass das Verbinden einer AWS-App mit allen Ihren AWS-Konten nicht der von uns empfohlene Ansatz ist. Stattdessen empfehlen wir Ihnen die Verwendung [dieses](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) Ansatzes, um mehrere Instanzen von AWS-Konten mit mehreren Instanzen von AWS-Apps in Azure AD zu konfigurieren. Sie sollten diese Vorgehensweise nur anwenden, wenn Sie über wenige AWS-Konten und -Rollen verfügen. Dieses Modell ist nicht skalierbar, wenn die AWS-Konten und -Rollen innerhalb dieser Konten anwachsen. Bei diesem Ansatz wird nicht die AWS-Rollenimportfunktion über die Azure AD-Benutzerbereitstellung verwendet, sodass Sie die Rollen manuell hinzufügen/aktualisieren/löschen müssen. Weitere Einschränkungen bei diesem Ansatz finden Sie in den Details unten.
+> Beachten Sie bitte, dass das Verbinden einer AWS-App mit allen Ihren AWS-Konten nicht der von uns empfohlene Ansatz ist. Stattdessen empfehlen wir Ihnen die Verwendung [dieses](./amazon-web-service-tutorial.md) Ansatzes, um mehrere Instanzen von AWS-Konten mit mehreren Instanzen von AWS-Apps in Azure AD zu konfigurieren. Sie sollten diese Vorgehensweise nur anwenden, wenn Sie über wenige AWS-Konten und -Rollen verfügen. Dieses Modell ist nicht skalierbar, wenn die AWS-Konten und -Rollen innerhalb dieser Konten anwachsen. Bei diesem Ansatz wird nicht die AWS-Rollenimportfunktion über die Azure AD-Benutzerbereitstellung verwendet, sodass Sie die Rollen manuell hinzufügen/aktualisieren/löschen müssen. Weitere Einschränkungen bei diesem Ansatz finden Sie in den Details unten.
 
 **Beachten Sie bitte, dass wir aus folgenden Gründen nicht empfehlen, diesen Ansatz zu verwenden:**
 
@@ -65,22 +63,21 @@ Um die Schritte in diesem Tutorial zu testen, sollten Sie folgende Empfehlungen 
 In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure AD in einer Testumgebung.
 
 * Amazon Web Services (AWS) unterstützt **SP- und IDP-initiiertes** einmaliges Anmelden.
-* Nach dem Konfigurieren von Amazon Web Services (AWS) können Sie die Sitzungssteuerung erzwingen, die in Echtzeit vor der Exfiltration und Infiltration vertraulicher Unternehmensdaten schützt. Die Sitzungssteuerung basiert auf bedingtem Zugriff. [Hier](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad) erfahren Sie, wie Sie die Sitzungssteuerung mit Microsoft Cloud App Security erzwingen.
 
 ## <a name="adding-amazon-web-services-aws-from-the-gallery"></a>Hinzufügen von Amazon Web Services (AWS) aus dem Katalog
 
 Zum Konfigurieren der Integration von Amazon Web Services (AWS) in Azure AD müssen Sie Amazon Web Services (AWS) aus dem Katalog der Liste mit den verwalteten SaaS-Apps hinzufügen.
 
-1. Melden Sie sich mit einem Geschäfts-, Schul- oder Unikonto oder mit einem persönlichen Microsoft-Konto beim [Azure-Portal](https://portal.azure.com) an.
+1. Melden Sie sich mit einem Geschäfts-, Schul- oder Unikonto oder mit einem persönlichen Microsoft-Konto beim Azure-Portal an.
 1. Wählen Sie im linken Navigationsbereich den Dienst **Azure Active Directory** aus.
-1. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie dann **Alle Anwendungen** aus.
+1. Navigieren Sie zu **Unternehmensanwendungen** , und wählen Sie dann **Alle Anwendungen** aus.
 1. Wählen Sie zum Hinzufügen einer neuen Anwendung **Neue Anwendung** aus.
 1. Geben Sie im Abschnitt **Aus Katalog hinzufügen** den Suchbegriff **Amazon Web Services (AWS)** in das Suchfeld ein.
 1. Wählen Sie im Ergebnisbereich die Option **Amazon Web Services (AWS)** aus, und fügen Sie dann die App hinzu. Warten Sie einige Sekunden, während die App Ihrem Mandanten hinzugefügt wird.
 
-1. Nachdem die Anwendung hinzugefügt wurde, wechseln Sie zur Seite **Eigenschaften**, und kopieren Sie die **Objekt-ID**.
+1. Nachdem die Anwendung hinzugefügt wurde, wechseln Sie zur Seite **Eigenschaften** , und kopieren Sie die **Objekt-ID**.
 
-    ![Amazon Web Services (AWS) in der Ergebnisliste](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-properties.png)
+    ![ObjectID](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-properties.png)
 
 ## <a name="configure-and-test-azure-ad-sso"></a>Konfigurieren und Testen des einmaligen Anmeldens (Single Sign-On, SSO) von Azure AD
 
@@ -90,7 +87,7 @@ Damit das einmalige Anmelden funktioniert, muss Azure AD wissen, welcher Benutze
 
 Weisen Sie in Amazon Web Services (AWS) den Wert für **Benutzername** in Azure AD als Wert für **Benutzername** zu, um eine Linkbeziehung herzustellen.
 
-Zum Konfigurieren und Testen des einmaligen Anmeldens in Azure AD bei Amazon Web Services (AWS) müssen Sie die folgenden Bausteine ausführen:
+Führen Sie die folgenden Schritte aus, um das einmalige Anmelden von Azure AD bei Amazon Web Services (AWS) zu konfigurieren und zu testen:
 
 1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)** , um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
 2. **[Konfigurieren des einmaligen Anmeldens für Amazon Web Services (AWS)](#configure-amazon-web-services-aws-single-sign-on)** , um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren.
@@ -102,7 +99,7 @@ In diesem Abschnitt aktivieren Sie das einmalige Anmelden von Azure AD im Azure-
 
 **Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD in Amazon Web Services (AWS) die folgenden Schritte aus:**
 
-1. Wählen Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **Amazon Web Services (AWS)** die Option **Einmaliges Anmelden** aus.
+1. Wählen Sie im Azure-Portal auf der Anwendungsintegrationsseite für **Amazon Web Services (AWS)** die Option **Einmaliges Anmelden**.
 
     ![Konfigurieren des Links für einmaliges Anmelden](common/select-sso.png)
 
@@ -110,13 +107,13 @@ In diesem Abschnitt aktivieren Sie das einmalige Anmelden von Azure AD im Azure-
 
     ![Auswahlmodus für einmaliges Anmelden](common/select-saml-option.png)
 
-3. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Symbol **Bearbeiten**, um das Dialogfeld **Grundlegende SAML-Konfiguration** zu öffnen.
+3. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Symbol **Bearbeiten** , um das Dialogfeld **Grundlegende SAML-Konfiguration** zu öffnen.
 
     ![Bearbeiten der SAML-Basiskonfiguration](common/edit-urls.png)
 
 4. Im Abschnitt **Basic SAML Configuration** (SAML-Basiskonfiguration) muss der Benutzer keine Schritte ausführen, weil die App bereits mit Azure integriert ist, und lediglich auf **Speichern** klicken.
 
-5. Die AWS-Anwendung (Amazon Web Services) erwartet die SAML-Assertionen in einem bestimmten Format. Konfigurieren Sie die folgenden Ansprüche für diese Anwendung. Sie können die Werte dieser Attribute im Abschnitt **Benutzerattribute und Ansprüche** auf der Anwendungsintegrationsseite verwalten. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf die Schaltfläche **Bearbeiten**, um das Dialogfeld **Benutzerattribute und Ansprüche** zu öffnen.
+5. Die AWS-Anwendung (Amazon Web Services) erwartet die SAML-Assertionen in einem bestimmten Format. Konfigurieren Sie die folgenden Ansprüche für diese Anwendung. Sie können die Werte dieser Attribute im Abschnitt **Benutzerattribute und Ansprüche** auf der Anwendungsintegrationsseite verwalten. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf die Schaltfläche **Bearbeiten** , um das Dialogfeld **Benutzerattribute und Ansprüche** zu öffnen.
 
     ![Screenshot der Benutzerattribute, auf dem das Bearbeitungssteuerelement hervorgehoben ist](common/edit-attribute.png)
 
@@ -128,7 +125,7 @@ In diesem Abschnitt aktivieren Sie das einmalige Anmelden von Azure AD im Azure-
     | Role            | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes`|
     | SessionDuration             | „Geben Sie einen Wert zwischen 900 Sekunden (15 Minuten) und 43.200 Sekunden (12 Stunden) an“ |  `https://aws.amazon.com/SAML/Attributes` |
 
-    a. Klicken Sie auf **Neuen Anspruch hinzufügen**, um das Dialogfeld **Benutzeransprüche verwalten** zu öffnen.
+    a. Klicken Sie auf **Neuen Anspruch hinzufügen** , um das Dialogfeld **Benutzeransprüche verwalten** zu öffnen.
 
     ![Screenshot von „Benutzeransprüche“, auf dem „Neuen Anspruch hinzufügen“ und „Speichern“ hervorgehoben sind](common/new-save-attribute.png)
 
@@ -146,7 +143,7 @@ In diesem Abschnitt aktivieren Sie das einmalige Anmelden von Azure AD im Azure-
 
     g. Klicken Sie auf **Speichern**.
 
-7. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** auf **Herunterladen**, um die **Verbundmetadaten-XML** herunterzuladen, und speichern Sie sie auf Ihrem Computer.
+7. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** auf **Herunterladen** , um die **Verbundmetadaten-XML** herunterzuladen, und speichern Sie sie auf Ihrem Computer.
 
     ![Downloadlink für das Zertifikat](common/metadataxml.png)
 
@@ -162,7 +159,7 @@ In diesem Abschnitt aktivieren Sie das einmalige Anmelden von Azure AD im Azure-
 
     ![Einmaliges Anmelden konfigurieren – Identität][12]
 
-1. Klicken Sie auf **Identitätsanbieter**, und klicken Sie dann auf **Anbieter erstellen**.
+1. Klicken Sie auf **Identitätsanbieter** , und klicken Sie dann auf **Anbieter erstellen**.
 
     ![Einmaliges Anmelden konfigurieren – Anbieter][13]
 
@@ -172,9 +169,9 @@ In diesem Abschnitt aktivieren Sie das einmalige Anmelden von Azure AD im Azure-
 
     a. Wählen Sie für **Anbietertyp** die Option **SAML** aus.
 
-    b. Geben Sie im Textfeld **Anbietername** einen Anbieternamen ein (zum Beispiel: *WAAD*).
+    b. Geben Sie im Textfeld **Anbietername** einen Anbieternamen ein (zum Beispiel: *WAAD* ).
 
-    c. Klicken Sie auf **Datei auswählen**, um die aus dem Azure-Portal heruntergeladene **Metadatendatei** hochzuladen.
+    c. Klicken Sie auf **Datei auswählen** , um die aus dem Azure-Portal heruntergeladene **Metadatendatei** hochzuladen.
 
     d. Klicken Sie auf **Nächster Schritt**.
 
@@ -182,9 +179,12 @@ In diesem Abschnitt aktivieren Sie das einmalige Anmelden von Azure AD im Azure-
 
     ![Einmaliges Anmelden konfigurieren – Überprüfen][15]
 
-1. Klicken Sie auf **Rollen**, und klicken Sie dann auf **Rolle erstellen**.
+1. Klicken Sie auf **Rollen** , und klicken Sie dann auf **Rolle erstellen**.
 
     ![Einmaliges Anmelden konfigurieren – Rollen][16]
+
+    > [!NOTE]
+    > Der Rollen-ARN und der SAML-Anbieter-ARN für eine zu importierende Rolle dürfen zusammen maximal 240 Zeichen lang sein.
 
 1. Führen Sie auf der Seite **Rolle erstellen** die folgenden Schritte aus:  
 
@@ -192,19 +192,19 @@ In diesem Abschnitt aktivieren Sie das einmalige Anmelden von Azure AD im Azure-
 
     a. Wählen Sie **SAML 2.0-Verbund** unter **Typ der vertrauenswürdige Entität auswählen**.
 
-    b. Wählen Sie im**Abschnitt zum Auswählen eines SAML 2.0-Anbieters** den **SAML-Anbieter** aus, den Sie zuvor erstellt haben (Beispiel: *WAAD*).
+    b. Wählen Sie im **Abschnitt zum Auswählen eines SAML 2.0-Anbieters** den **SAML-Anbieter** aus, den Sie zuvor erstellt haben (Beispiel: *WAAD* ).
 
     c. Wählen Sie **Programmgesteuerten und AWS Management Console-Zugriff zulassen** aus.
   
     d. Klicken Sie auf **Weiter: Permissions** (Weiter: Berechtigungen).
 
-1. Suchen Sie in der Suchleiste nach **Administrator Access** (Administratorzugriff), aktivieren Sie das Kontrollkästchen für **AdministratorAccess**, und klicken Sie auf **Weiter: Tags**.
+1. Suchen Sie in der Suchleiste nach **Administrator Access** (Administratorzugriff), aktivieren Sie das Kontrollkästchen für **AdministratorAccess** , und klicken Sie auf **Weiter: Tags**.
 
     ![Screenshot: „AdministratorAccess“ als Richtlinienname ausgewählt.](./media/aws-multi-accounts-tutorial/administrator-access.png)
 
 1. Führen Sie im Abschnitt **Add tags (optional)** (Tags hinzufügen (optional)) die folgenden Schritte aus:
 
-    ![Screenshot des Bereichs „Tags hinzufügen“, in dem Sie Schlüssel-Wert-Paare hinzufügen können.](./media/aws-multi-accounts-tutorial/config2.png)
+    ![Hinzufügen von Tags](./media/aws-multi-accounts-tutorial/config2.png)
 
     a. Geben Sie in das Textfeld **Key** (Schlüssel) den Namen des Schlüssels ein, z. B.: Azureadtest.
 
@@ -235,7 +235,7 @@ In diesem Abschnitt aktivieren Sie das einmalige Anmelden von Azure AD im Azure-
 
 1. Erstellen Sie neue Gruppen mit den gleichen Namen wie die IAM-Rollen, die Sie vorhin erstellt haben, und notieren Sie sich die **Objekt-IDs** für diese neuen Gruppen.
 
-    ![Dieser Screenshot zeigt, wo Sie die Konto-ID im Übersichtsbereich eingeben. ](./media/aws-multi-accounts-tutorial/copy-objectids.png)
+    ![Administratorzugriff1 auswählen](./media/aws-multi-accounts-tutorial/copy-objectids.png)
 
 1. Melden Sie sich vom aktuellen AWS-Konto ab, und melden Sie sich mit einem anderen Konto an, für das Sie das einmalige Anmelden mit Azure AD konfigurieren möchten.
 
@@ -247,7 +247,7 @@ In diesem Abschnitt aktivieren Sie das einmalige Anmelden von Azure AD im Azure-
 
 1. Klicken Sie auf die Rollen, um die Werte **Rollen-ARN** und **Vertrauenswürdige Entitäten** zu kopieren. Sie benötigen diese Werte für alle Rollen, die Sie in Azure AD erstellen müssen.
 
-    ![Screenshot: Zusammenfassungsbereich mit ausgewählter Registerkarte „Vertrauensstellungen“.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-role-summary.png)
+    ![Rollen-Einrichtung2](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-role-summary.png)
 
 1. Führen Sie den obigen Schritt für alle Rollen in allen Konten aus, und speichern Sie alle im Format **Rollen-ARN, vertrauenswürdige Entitäten** in Editor.
 
@@ -255,13 +255,13 @@ In diesem Abschnitt aktivieren Sie das einmalige Anmelden von Azure AD im Azure-
 
     a. Melden Sie sich bei der Microsoft Graph-Tester-Website mit den Anmeldeinformationen des globalen Administrators/Co-Admins für Ihren Mandanten an.
 
-    b. Sie müssen über ausreichende Berechtigungen zum Erstellen der Rollen verfügen. Klicken Sie auf **Berechtigungen ändern**, um die erforderlichen Berechtigungen zu erhalten.
+    b. Sie müssen über ausreichende Berechtigungen zum Erstellen der Rollen verfügen. Klicken Sie auf **Berechtigungen ändern** , um die erforderlichen Berechtigungen zu erhalten.
 
-    ![Screenshot: Fenster für die Graph Explorer-Authentifizierung mit Link zum Ändern von Berechtigungen.](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
+    ![Dialogfeld1 „Microsoft Graph-Explorer“](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
 
     c. Wählen Sie in der Liste die folgenden Berechtigungen aus (sofern Sie noch nicht darüber verfügen), und klicken Sie auf „Berechtigungen ändern“. 
 
-    ![Screenshot mit drei ausgewählten Berechtigungen: „Directory.AccessAsUser.All“, „Directory.Read.All“ und „Directory.ReadWrite.All“](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
+    ![Dialogfeld2 „Microsoft Graph-Explorer“](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
 
     d. Darin werden Sie aufgefordert, sich erneut anzumelden und die Zustimmungserklärung zu akzeptieren. Nachdem Sie die Zustimmungserklärung akzeptiert haben, werden Sie erneut bei Microsoft Graph-Tester angemeldet.
 
@@ -271,17 +271,17 @@ In diesem Abschnitt aktivieren Sie das einmalige Anmelden von Azure AD im Azure-
 
     Wenn Sie mehrere Verzeichnisse verwenden, können Sie das folgende Muster nutzen, das Ihre primäre Domäne enthält: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`.
 
-    ![Screenshot mit ausgewählten Optionen „GET“, „Beta“ und „Abfrage ausführen“.](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
-
+    ![Dialogfeld3 „Microsoft Graph-Explorer“](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
+  
     f. Entnehmen Sie der Liste der abgerufenen Dienstprinzipale den Namen, den Sie ändern möchten. Sie können auch mit STRG+F die Anwendung in den aufgeführten Dienstprinzipalen suchen. Sie können die folgende Abfrage mit der **Objekt-ID des Dienstprinzipals** verwenden, die Sie auf der Seite mit den Azure AD-Eigenschaften kopiert haben, um zum entsprechenden Dienstprinzipal zu gelangen.
 
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
-    ![Screenshot: Verwenden der Abfrage zum Abrufen des Dienstprinzipalobjekts.](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
+    ![Dialogfeld4 „Microsoft Graph-Explorer“](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
     g. Extrahieren Sie die appRoles-Eigenschaft aus dem Dienstprinzipalobjekt.
 
-    ![Screenshot: Details des Dienstprinzipalobjekts.](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
+    ![Dialogfeld5 „Microsoft Graph-Explorer“](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
 
     h. Jetzt müssen Sie neue Rollen für Ihre Anwendung generieren. 
 
@@ -329,9 +329,9 @@ In diesem Abschnitt aktivieren Sie das einmalige Anmelden von Azure AD im Azure-
     > [!Note]
     > Neue Rollen können nur nach der Rolle **msiam_access** für den Patchvorgang hinzugefügt werden. Darüber hinaus können Sie je nach Bedarf Ihrer Organisation beliebig viele Rollen hinzufügen. Azure AD sendet den **Wert** dieser Rollen als Anspruchswert in der SAML-Antwort.
 
-    j. Wechseln Sie wieder zu Microsoft Graph-Tester, und ändern Sie die Methode von **GET** in **PATCH**. Patchen Sie das Dienstprinzipalobjekt so, dass es über die gewünschten Rollen verfügt, indem Sie die appRoles-Eigenschaft entsprechend der oben im Beispiel gezeigten Eigenschaft aktualisieren. Klicken Sie auf **Abfrage ausführen**, um den Patchvorgang auszuführen. In einer Erfolgsmeldung wird die Erstellung der Rolle für Ihre Amazon Web Services-Anwendung bestätigt.
+    j. Wechseln Sie wieder zu Microsoft Graph-Tester, und ändern Sie die Methode von **GET** in **PATCH**. Patchen Sie das Dienstprinzipalobjekt so, dass es über die gewünschten Rollen verfügt, indem Sie die appRoles-Eigenschaft entsprechend der oben im Beispiel gezeigten Eigenschaft aktualisieren. Klicken Sie auf **Abfrage ausführen** , um den Patchvorgang auszuführen. In einer Erfolgsmeldung wird die Erstellung der Rolle für Ihre Amazon Web Services-Anwendung bestätigt.
 
-    ![Screenshot: Graph Explorer mit ausgewählter Methode „Patch“.](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
+    ![Dialogfeld6 „Microsoft Graph-Explorer“](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
 
 1. Nachdem der Dienstprinzipal mit weiteren Rollen gepatcht wurde, können Sie den jeweiligen Rollen Benutzer/Gruppen zuweisen. Wechseln Sie zu diesem Zweck zum Portal, und navigieren Sie zur Amazon Web Services-Anwendung. Klicken Sie oben auf die Registerkarte **Benutzer und Gruppen**.
 
@@ -339,14 +339,14 @@ In diesem Abschnitt aktivieren Sie das einmalige Anmelden von Azure AD im Azure-
 
 1. Nachdem die Gruppen erstellt wurden, können Sie die Gruppe auswählen und der Anwendung zuweisen.
 
-    ![Screenshot: „Zuweisung hinzufügen“ mit ausgewählten Benutzern und Gruppen zum Öffnen des Bereichs „Benutzer und Gruppen“.](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
+    ![Einmaliges Anmelden konfigurieren, Hinzufügen1](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
 
     > [!Note]
     > Geschachtelte Gruppen werden beim Zuweisen von Gruppen nicht unterstützt.
 
 1. Um der Gruppe die Rolle zuzuweisen, wählen Sie die Rolle aus, und klicken Sie unten auf der Seite auf die Schaltfläche **Zuweisen**.
 
-    ![Screenshot: „Zuweisung hinzufügen“ mit einer ausgewählten Gruppe.](./media/aws-multi-accounts-tutorial/graph-explorer-new6.png)
+    ![Einmaliges Anmelden konfigurieren, Hinzufügen2](./media/aws-multi-accounts-tutorial/graph-explorer-new6.png)
 
     > [!Note]
     > Beachten Sie, dass Sie die Sitzung im Azure-Portal aktualisieren müssen, damit neue Rollen angezeigt werden.
@@ -357,21 +357,17 @@ In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmeld
 
 Wenn Sie im Zugriffsbereich auf die Kachel „Amazon Web Services (AWS)“ klicken, sollte die Amazon Web Services-Anwendungsseite mit der Option zum Auswählen der Rolle angezeigt werden.
 
-![Screenshot: AWS-Anwendungsseite, auf der Sie eine Rolle auswählen können.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-screen.png)
+![Einmaliges Anmelden testen1](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-screen.png)
 
 Sie können auch die SAML-Antwort überprüfen, um die als Ansprüche übergebenen Rollen anzuzeigen.
 
-![Screenshot: Teil der SAML-Antwort mit Attributwerten.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-saml.png)
+![Einmaliges Anmelden testen2](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-saml.png)
 
-Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](../active-directory-saas-access-panel-introduction.md).
+Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zusätzliche Ressourcen
+## <a name="next-steps"></a>Nächste Schritte
 
-* [Konfigurieren der Bereitstellung mithilfe von Microsoft Graph-APIs](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-configure-api)
-* [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](tutorial-list.md)
-* [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Was ist Sitzungssteuerung in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-* [Schützen von Apps mit der App-Steuerung für bedingten Zugriff von Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/protect-aws)
+Nach dem Konfigurieren von Amazon Web Services (AWS) können Sie die Sitzungssteuerung erzwingen, die in Echtzeit vor der Exfiltration und Infiltration vertraulicher Unternehmensdaten schützt. Die Sitzungssteuerung basiert auf bedingtem Zugriff. [Hier](/cloud-app-security/proxy-deployment-aad) erfahren Sie, wie Sie die Sitzungssteuerung mit Microsoft Cloud App Security erzwingen.
 
 <!--Image references-->
 

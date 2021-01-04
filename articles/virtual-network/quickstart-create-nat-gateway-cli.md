@@ -15,23 +15,22 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a44a3af7be214aa2ed000eb824b63c0bf7a95aee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4d034aefe59a661bfb0694feba36a669aa274ac
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88054019"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007272"
 ---
 # <a name="create-a-nat-gateway-using-azure-cli"></a>Erstellen eines NAT-Gateways mithilfe der Azure CLI
 
 In diesem Tutorial erfahren Sie, wie Sie den Azure Virtual Network NAT-Dienst verwenden. Sie erstellen ein NAT-Gateway, um ausgehende Konnektivität für einen virtuellen Computer in Azure bereitzustellen. 
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Sie können dieses Tutorial mithilfe von Azure Cloud Shell absolvieren oder die entsprechenden Befehle lokal ausführen.  Falls Sie Azure Cloud Shell noch nie verwendet haben, [melden Sie sich jetzt an](https://shell.azure.com), um die Ersteinrichtung vorzunehmen.
-Wenn Sie diese Befehle lokal ausführen möchten, müssen Sie die CLI installieren.  Für dieses Tutorial müssen Sie mindestens Version 2.0.71 der Azure CLI ausführen. Führen Sie `az --version` aus, um die Version zu finden. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sie bei Bedarf unter [Installieren der Azure CLI]( /cli/azure/install-azure-cli).
-
+- Für diesen Artikel ist mindestens Version 2.0.71 der Azure CLI erforderlich. Bei Verwendung von Azure Cloud Shell ist die aktuelle Version bereits installiert.
 
 ## <a name="create-a-resource-group"></a>Erstellen einer Ressourcengruppe
 

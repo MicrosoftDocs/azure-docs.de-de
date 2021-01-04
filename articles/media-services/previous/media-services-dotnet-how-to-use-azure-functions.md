@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 90cd9605a166a00412ed77caf3727ffb3ad3e1fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 520ad8f68e0f995ea05456ebcf6de4c1ba3f9418
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89262110"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030304"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Entwickeln von Azure Functions mit Media Services
 
@@ -67,11 +67,11 @@ Nachdem die Funktionen-App bereitgestellt wurde, wird sie unter den Azure Functi
 2. Wählen Sie die Sprache **C#** und das Szenario **Datenverarbeitung** aus.
 3. Wählen Sie die Vorlage **BlobTrigger** aus. Diese Funktion wird ausgelöst, wenn ein Blob in den **input**-Container hochgeladen wird. Der Name **input** wird unter **Path** im nächsten Schritt festgelegt.
 
-    ![files](./media/media-services-azure-functions/media-services-azure-functions004.png)
+    ![Screenshot: Dialogfeld „Vorlage auswählen“ mit ausgewählter Option „BlobTrigger“](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
 4. Nachdem Sie **BlobTrigger** ausgewählt haben, werden auf der Seite einige weitere Steuerelemente angezeigt.
 
-    ![files](./media/media-services-azure-functions/media-services-azure-functions005.png)
+    ![Screenshot: Dialogfeld „Funktion benennen“](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
 4. Klicken Sie auf **Erstellen**. 
 
@@ -79,7 +79,7 @@ Nachdem die Funktionen-App bereitgestellt wurde, wird sie unter den Azure Functi
 
 Ihre Azure-Funktion ist Codedateien und anderen Dateien zugeordnet, die in diesem Abschnitt beschrieben werden. Bei Verwendung des Azure-Portals zum Erstellen einer Funktion werden **function.json** und **run.csx** für Sie erstellt. Sie müssen die Datei **project.json** hinzufügen oder hochladen. Der restliche Teil dieses Abschnitts enthält eine kurze Erläuterung der einzelnen Dateien und zeigt ihre Definitionen.
 
-![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![Screenshot: Die JSON-Dateien in Ihrem Projekt](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 ### <a name="functionjson"></a>function.json
 

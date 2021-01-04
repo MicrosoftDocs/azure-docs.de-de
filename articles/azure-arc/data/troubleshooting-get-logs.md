@@ -1,6 +1,6 @@
 ---
-title: Abrufen von Protokollen für die Problembehandlung bei Azure Arc-fähigen Datencontrollern
-description: Rufen Sie Dienstprotokolle für die Problembehandlung bei Azure Arc-fähigen Datencontrollern ab.
+title: Abrufen von Protokollen für die Problembehandlung Azure Arc-fähiger Datendienste
+description: Erfahren Sie, wie Sie Protokolldateien von einem Datencontroller für die Problembehandlung Azure Arc-fähiger Datendienste abrufen.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -9,27 +9,27 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 625092e0557d40051e1ffd538a496c20edc0222f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0c4cff7583f08fe27649cee464fcef802cddd88f
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320207"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93234041"
 ---
-# <a name="get-azure-arc-enabled-data-services-logs"></a>Abrufen von Protokollen für Azure Arc-fähige Datendienste
+# <a name="get-logs-to-troubleshoot-azure-arc-enabled-data-services"></a>Abrufen von Protokollen für die Problembehandlung Azure Arc-fähiger Datendienste
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Bevor Sie fortfahren, benötigen Sie Folgendes:
+Stellen Sie Folgendes sicher, bevor Sie fortfahren:
 
-* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. [Installationsanweisungen](./install-client-tools.md)
-* Administratorkonto zum Anmelden beim Azure Arc-fähigen Data Services-Controller
+* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. Weitere Informationen finden Sie unter [Installieren von Clienttools zum Bereitstellen und Verwalten von Azure Arc-fähigen Datendiensten](./install-client-tools.md).
+* Administratorkonto zum Anmelden beim Azure Arc-fähigen Datencontroller.
 
-## <a name="get-azure-arc-enabled-data-services-logs"></a>Abrufen von Protokollen für Azure Arc-fähige Datendienste
+## <a name="get-log-files"></a>Abrufen von Protokolldateien
 
-Zur Problembehandlung können Sie die Protokolle für Azure Arc-fähige Datendienste zu allen Pods oder bestimmten Pods abrufen. Dazu können Sie Kubernetes-Standardtools wie den Befehl `kubectl logs` verwenden. In diesem Artikel verwenden Sie alternativ das [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]-Tool, das das Abrufen sämtlicher Protokolle auf einmal erleichtert.
+Zur Problembehandlung können Sie die Protokolle zu allen oder nur zu bestimmten Pods abrufen. Eine Möglichkeit besteht in der Verwendung von Kubernetes-Standardtools wie dem Befehl `kubectl logs`. In diesem Artikel verwenden Sie das [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]-Tool, das das gleichzeitige Abrufen aller Protokolle erleichtert.
 
 1. Melden Sie sich mit einem Administratorkonto beim Datencontroller an.
 
@@ -53,15 +53,15 @@ Der Datencontroller erstellt die Protokolldateien im aktuellen Arbeitsverzeichni
 
 ## <a name="options"></a>Optionen
 
-`azdata arc dc debug copy-logs` bietet die folgenden Optionen zum Verwalten der Ausgabe.
+Der Befehl `azdata arc dc debug copy-logs` bietet die folgenden Optionen zum Verwalten der Ausgabe:
 
 * Mithilfe des Parameters `--target-folder` geben Sie die Protokolldateien in ein anderes Verzeichnis aus.
 * Sie komprimieren die Dateien, indem Sie den Parameter `--skip-compress` weglassen.
-* Sie lösen Speicherabbilder aus und schließen diese ein, indem Sie `--exclude-dumps` weglassen. Diese Methode wird nur empfohlen, wenn der Microsoft-Support die Speicherabbilder angefordert hat. Zum Erstellen eines Speicherabbilds muss die Einstellung `allowDumps` des Datencontrollers zum Zeitpunkt der Erstellung des Datencontrollers auf `true` festgelegt sein.
+* Sie lösen Speicherabbilder aus und schließen diese ein, indem Sie `--exclude-dumps` weglassen. Diese Methode wird nur empfohlen, wenn der Microsoft-Support die Speicherabbilder angefordert hat. Zum Abrufen eines Speicherabbilds muss die Einstellung `allowDumps` des Datencontrollers zum Zeitpunkt der Erstellung des Datencontrollers auf `true` festgelegt sein.
 * Durch Filtern nach Namen erfassen Sie nur Protokolle für einen bestimmten Pod (`--pod`) oder Container (`--container`).
-* Durch Filtern erfassen Sie Protokolle für eine bestimmte benutzerdefinierte Ressource, indem Sie die Parameter `--resource-kind` und `--resource-name` übergeben. Der Parameterwert `resource-kind` muss einem der Namen der benutzerdefinierten Ressourcendefinitionen entsprechen, die mit dem Befehl `kubectl get customresourcedefinition` abgerufen werden können.
+* Durch Filtern erfassen Sie Protokolle für eine bestimmte benutzerdefinierte Ressource, indem Sie die Parameter `--resource-kind` und `--resource-name` übergeben. Der Parameterwert `resource-kind` muss einem der Namen der benutzerdefinierten Ressourcendefinitionen entsprechen. Sie können diese Namen mit dem Befehl `kubectl get customresourcedefinition` abrufen.
 
-Mit diesen Parametern können Sie die `<parameters>` im folgenden Beispiel ersetzen. 
+Mit diesen Parametern können Sie die `<parameters>` im folgenden Beispiel ersetzen: 
 
 ```console
 azdata arc dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name> --namespace <namespace name>
@@ -73,7 +73,7 @@ Beispiel:
 #azdata arc dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 --namespace arc
 ```
 
-Beispiel für eine Ordnerhierarchie. Die Ordnerhierarchie wird nach Podnamen, dann nach Containern und dann nach der Verzeichnishierarchie innerhalb des Containers organisiert.
+Die folgende Ordnerhierarchie ist ein Beispiel. Sie ist nach Podnamen, dann nach Containern und dann nach der Verzeichnishierarchie innerhalb des Containers organisiert.
 
 ```output
 <export directory>

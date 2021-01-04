@@ -10,12 +10,12 @@ metadata:
   author: cjgronlund
   ms.author: cgronlun
   ms.date: 11/04/2019
-  ms.openlocfilehash: 0453213dd1433989869899d1e886bd87d02340b6
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 29a87a9977c647af7f93e62e48bc493f579a1959
+  ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "82930334"
+  ms.lasthandoff: 11/20/2020
+  ms.locfileid: "94986231"
 landingContent:
 - title: Informationen zu Azure Open Datasets
   linkLists:
@@ -30,12 +30,12 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Erstellen eines Regressionsmodells mit automatisiertem maschinellem Lernen
-      url: /azure/machine-learning/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context
+      url: ../machine-learning/tutorial-auto-train-models.md?context=%2fazure%2fopen-datasets%2fcontext%2fopen-datasets-context
     - text: Anreichern eines Bildklassifizierungsmodells in Azure Machine Learning
-      url: /azure/machine-learning/tutorial-train-models-with-aml?context=azure/open-datasets/context/open-datasets-context
+      url: ../machine-learning/tutorial-train-models-with-aml.md?context=%2fazure%2fopen-datasets%2fcontext%2fopen-datasets-context
 - title: Erkunden des Referenzinhalts
   linkLists:
   - linkListType: reference
     links:
     - text: Python-API
-      url: https://docs.microsoft.com/python/api/azureml-opendatasets/?view=azure-ml-py
+      url: /python/api/azureml-opendatasets/?view=azure-ml-py

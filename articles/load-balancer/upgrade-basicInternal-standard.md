@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 08/07/2020
 ms.author: irenehua
-ms.openlocfilehash: a6d2b69b0b498601497c4b33fb6bdfede87002df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59bf5eb22289238633b1f07c29a878bd0a9ae620
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500248"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696165"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Aktualisieren einer internen Azure Load Balancer-Instanz: keine ausgehende Verbindung erforderlich
-[Azure Load Balancer Standard](load-balancer-overview.md) bietet umfangreiche Funktionen sowie Hochverfügbarkeit durch Zonenredundanz. Weitere Informationen zu Load Balancer-SKUs finden Sie in der [Vergleichstabelle](https://docs.microsoft.com/azure/load-balancer/skus#skus).
+[Azure Load Balancer Standard](load-balancer-overview.md) bietet umfangreiche Funktionen sowie Hochverfügbarkeit durch Zonenredundanz. Weitere Informationen zu Load Balancer-SKUs finden Sie in der [Vergleichstabelle](./skus.md#skus).
 
 In diesem Artikel wird ein PowerShell-Skript eingeführt, das einen Load Balancer Standard mit derselben Konfiguration erstellt wie der des Load Balancers Basic zusammen mit der Migration von Datenverkehr vom Load Balancer Basic zum Load Balancer Standard.
 
@@ -23,14 +23,14 @@ In diesem Artikel wird ein PowerShell-Skript eingeführt, das einen Load Balance
 
 Es gibt ein Azure PowerShell-Skript, in dem folgende Vorgänge ausgeführt werden:
 
-* Erstellt einen internen SKU-Lastenausgleich im Tarif „Standard“ an dem von Ihnen angegebenen Standort. Beachten Sie, dass keine [ausgehende Verbindung](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) durch den internen Lastenausgleich im Tarif „Standard“ bereitgestellt wird.
+* Erstellt einen internen SKU-Lastenausgleich im Tarif „Standard“ an dem von Ihnen angegebenen Standort. Beachten Sie, dass keine [ausgehende Verbindung](./load-balancer-outbound-connections.md) durch den internen Lastenausgleich im Tarif „Standard“ bereitgestellt wird.
 * Nahtloses Kopieren der Konfigurationen der Load Balancer-Instanz mit Basic-SKU in die neu erstellte Load Balancer Standard-Instanz.
 * Nahtloses Verschieben der privaten IPs vom Load Balancer Basic in den neu erstellten Load Balancer Standard.
 * Nahtloses Verschieben der VMs aus dem Back-End-Pool des Load Balancers Basic in den Back-End-Pool des Load Balancers Standard
 
 ### <a name="caveatslimitations"></a>Vorbehalte/Einschränkungen
 
-* Das Skript unterstützt nur das Upgrade des internen Lastenausgleichs, wenn keine ausgehende Verbindung erforderlich ist. Wenn Sie für einige Ihrer VMs eine [ausgehende Verbindung](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) benötigen, finden Sie auf dieser [Seite](upgrade-InternalBasic-To-PublicStandard.md) entsprechende Anweisungen. 
+* Das Skript unterstützt nur das Upgrade des internen Lastenausgleichs, wenn keine ausgehende Verbindung erforderlich ist. Wenn Sie für einige Ihrer VMs eine [ausgehende Verbindung](./load-balancer-outbound-connections.md) benötigen, finden Sie auf dieser [Seite](upgrade-InternalBasic-To-PublicStandard.md) entsprechende Anweisungen. 
 * Load Balancer Basic muss sich in derselben Ressourcengruppe wie die virtuellen Back-End-VMs und -NICs befinden.
 * Wenn die Load Balancer Standard-Instanz in einer anderen Region erstellt wird, können die virtuellen Computer aus der alten Region nicht der neu erstellten Load Balancer Standard-Instanz zugeordnet werden. Erstellen Sie zur Umgehung dieser Einschränkung einen neuen virtuellen Computer in der neuen Region.
 * Wenn Ihre Load Balancer-Instanz über keine Front-End-IP-Konfiguration oder über keinen Back-End-Pool verfügt, tritt beim Ausführen des Skripts wahrscheinlich ein Fehler auf. Stellen Sie sicher, dass die Angaben vorhanden sind.
@@ -39,7 +39,7 @@ Es gibt ein Azure PowerShell-Skript, in dem folgende Vorgänge ausgeführt werde
 
 1. Wählen Sie im linken Menü **Alle Dienste** > **Alle Ressourcen** und anschließend Ihren Load Balancer Basic in der Ressourcenliste aus.
 
-2. Wählen Sie unter **Einstellungen** die Option **Front-End-IP-Konfigurations**aus, und wählen Sie dann die erste Front-End-IP-Konfiguration aus. 
+2. Wählen Sie unter **Einstellungen** die Option **Front-End-IP-Konfigurations** aus, und wählen Sie dann die erste Front-End-IP-Konfiguration aus. 
 
 3. Wählen Sie als **Zuweisung** die Option **Statisch** aus.
 

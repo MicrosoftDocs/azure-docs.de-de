@@ -1,20 +1,20 @@
 ---
 title: Erstellen einer Azure AD Domain Services-Ressourcengesamtstruktur mithilfe von Azure PowerShell | Microsoft-Dokumentation
 description: In diesem Artikel erfahren Sie, wie Sie mithilfe von Azure PowerShell eine Azure Active Directory Domain Services-Ressourcengesamtstruktur und eine ausgehende Gesamtstruktur zu einer lokalen Active Directory Domain Services-Umgebung erstellen und konfigurieren.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.author: joflore
-ms.openlocfilehash: e914c273adc632449ed31915127fe6d261a8d56c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: ebfc2476b7955b926f86094de03973155386eb8f
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960948"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619966"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Erstellen einer Azure Active Directory Domain Services-Ressourcengesamtstruktur und einer ausgehenden Gesamtstruktur-Vertrauensstellung zu einer lokalen Domäne mithilfe von Azure PowerShell
 
@@ -74,12 +74,12 @@ Bevor Sie beginnen, vergewissern Sie sich, dass Ihnen die [Überlegungen zum Net
 
 Azure AD DS erfordert, dass ein Dienstprinzipal die Daten von Azure AD synchronisiert. Dieser Prinzipal muss in Ihrem Azure AD-Mandanten erstellt werden, bevor Sie die Ressourcengesamtstruktur der verwalteten Domäne erstellen.
 
-Erstellen Sie einen Azure AD-Dienstprinzipal für Azure AD DS für die Kommunikation und Authentifizierung. Es wird eine bestimmte Anwendungs-ID namens *Domänen Controller Services* mit der ID *2565bd9d-DA50-47d4-8B85-4c97f669dc36* verwendet. Ändern Sie diese Anwendungs-ID nicht.
+Erstellen Sie einen Azure AD-Dienstprinzipal für Azure AD DS für die Kommunikation und Authentifizierung. Es wird eine bestimmte Anwendungs-ID namens *Domain Controller Services* mit der ID *6ba9a5d4-8456-4118-b521-9c5ca10cdf84* verwendet. Ändern Sie diese Anwendungs-ID nicht.
 
 Erstellen Sie mit dem Cmdlet [New-AzureADServicePrincipal][New-AzureADServicePrincipal] einen Azure AD-Dienstprinzipal:
 
 ```powershell
-New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 ```
 
 ## <a name="create-a-managed-domain-resource-forest"></a>Erstellen einer Ressourcengesamtstruktur der verwalteten Domäne

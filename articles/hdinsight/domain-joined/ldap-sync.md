@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 99bd1ac156b12a5be7b8c5c17eb5b568b7070a25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0779ac261fbb4ee91bf63021bb0cc685a371c2b2
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77465667"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93234068"
 ---
 # <a name="ldap-sync-in-ranger-and-apache-ambari-in-azure-hdinsight"></a>LDAP-Synchronisierung in Ranger und Apache Ambari in Azure HDInsight
 
@@ -20,16 +20,19 @@ Cluster des HDInsight-Enterprise-Sicherheitspakets (ESP) verwenden Ranger für d
 
 ## <a name="general-guidelines"></a>Allgemeine Richtlinien
 
-* Stellen Sie Cluster immer mit Gruppen bereit.
-* Anstatt Gruppenfilter in Ambari und Ranger zu ändern, versuchen Sie, diese in Azure AD zu verwalten und die erforderlichen Benutzer mithilfe geschachtelter Gruppen einzubinden.
-* Sobald ein Benutzer synchronisiert ist, wird er auch dann nicht entfernt, wenn er nicht Bestandteil der Gruppen ist.
-* Wenn Sie die LDAP-Filter direkt ändern müssen, verwenden Sie zuerst die Benutzeroberfläche, da Sie einige Überprüfungen enthält.
+* Stellen Sie Cluster immer mit einer oder mehreren Gruppen bereit.
+* Wenn Sie weitere Gruppen im Cluster verwenden möchten, prüfen Sie, ob es sinnvoll ist, die Gruppenmitgliedschaften im Azure Active Directory (Azure AD) zu aktualisieren.
+* Wenn Sie die Clustergruppen ändern möchten, können Sie die Synchronisierungsfilter mithilfe von Ambari ändern.
+* Alle Änderungen der Gruppenmitgliedschaft in Azure AD spiegeln sich im Cluster in den nachfolgenden Synchronisierungen wider. Die Änderungen müssen zuerst mit Azure AD Domain Services (Azure AD DS) und dann mit den Clustern synchronisiert werden.
+* HDInsight-Cluster verwenden Samba/Winbind, um die Gruppenmitgliedschaften auf die Clusterknoten zu projizieren.
+* Gruppenmitglieder werden transitiv (alle Untergruppen und deren Mitglieder) sowohl mit Ambari als auch mit Ranger synchronisiert. 
 
 ## <a name="users-are-synced-separately"></a>Benutzer werden getrennt synchronisiert
 
-Ambari und Ranger nutzen die Benutzerdatenbank nicht gemeinsam, da Sie zwei unterschiedlichen Zwecken dienen. Wenn ein Benutzer die Ambari-Benutzeroberfläche verwenden muss, muss er mit Ambari synchronisiert werden. Ist der Benutzer nicht mit Ambari synchronisiert, wird er von der Ambari-Benutzeroberfläche/API abgelehnt, doch andere Teile des Systems funktionieren (diese werden von Ranger oder Resource Manager und nicht von Ambari geschützt). Wenn Sie den Benutzer in eine Ranger-Richtlinie einschließen möchten, synchronisieren Sie ihn mit Ranger.
-
-Wenn ein sicherer Cluster bereitgestellt wird, werden Gruppenmitglieder transitiv (alle Untergruppen und deren Mitglieder) sowohl mit Ambari als auch mit Ranger synchronisiert. 
+ * Ambari und Ranger nutzen die Benutzerdatenbank nicht gemeinsam, da Sie zwei unterschiedlichen Zwecken dienen. 
+   * Wenn ein Benutzer die Ambari-Benutzeroberfläche verwenden muss, muss er mit Ambari synchronisiert werden. 
+   * Ist der Benutzer nicht mit Ambari synchronisiert, wird er von der Ambari-Benutzeroberfläche/API abgelehnt, doch andere Teile des Systems funktionieren (diese werden von Ranger oder Resource Manager und nicht von Ambari geschützt).
+   * Um Benutzer oder Gruppen in Ranger-Richtlinien einzubeziehen, müssen die Prinzipale in Ranger explizit synchronisiert werden.
 
 ## <a name="ambari-user-sync-and-configuration"></a>Synchronisierung und Konfiguration von Ambari-Benutzern
 
@@ -37,28 +40,20 @@ Auf den Hauptknoten wird stündlich ein Cron-Auftrag (`/opt/startup_scripts/star
 
 Die Protokolle müssen sich in `/var/log/ambari-server/ambari-server.log` befinden. Weitere Informationen finden Sie im Artikel zum [Konfigurieren des Ambari-Protokolliergrads](https://docs.cloudera.com/HDPDocuments/Ambari-latest/administering-ambari/content/amb_configure_ambari_logging_level.html).
 
-In Data Lake-Clustern werden mit dem Hook nach der Benutzererstellung die Basisordner für die synchronisierten Benutzer erstellt und diese werden als Besitzer der Basisordner festgelegt. Wenn der Benutzer nicht ordnungsgemäß mit Ambari synchronisiert wird, können beim Zugriff auf Staging- und andere temporäre Ordner Fehler auftreten.
-
-### <a name="update-groups-to-be-synced-to-ambari"></a>Aktualisieren von Gruppen für die Synchronisierung mit Ambari
-
-Wenn Sie Gruppenmitgliedschaften nicht in Azure AD verwalten können, haben Sie zwei Möglichkeiten:
-
-* Führen Sie eine einmalige Synchronisierung aus, wie es im Artikel zum [Synchronisieren von LDAP-Benutzern und -Gruppen](https://docs.cloudera.com/HDPDocuments/HDP3/latest/ambari-authentication-ldap-ad/content/authe_ldapad_synchronizing_ldap_users_and_groups.html) genauer beschrieben ist. Sobald sich die Gruppenmitgliedschaft ändert, müssen Sie diese Synchronisierung erneut durchführen.
-
-* Schreiben Sie einen Cron-Auftrag, und rufen Sie die [Ambari-API regelmäßig](https://community.cloudera.com/t5/Support-Questions/How-do-I-automate-the-Ambari-LDAP-sync/m-p/96634) mit den neuen Gruppen auf.
+In Data Lake-Clustern werden mit dem Hook nach der Benutzererstellung die Basisordner für die synchronisierten Benutzer erstellt und diese werden als Besitzer der Basisordner festgelegt. Wenn der Benutzer nicht ordnungsgemäß mit Ambari synchronisiert wird, kann es bei aktiven Aufträgen zu Fehlern kommen, da der Basisordner möglicherweise nicht ordnungsgemäß eingerichtet ist.
 
 ## <a name="ranger-user-sync-and-configuration"></a>Synchronisierung und Konfiguration von Ranger-Benutzern
 
 Ranger verfügt über ein integriertes Synchronisierungsmodul, das stündlich zur Synchronisierung der Benutzer ausgeführt wird. Die Benutzerdatenbank wird nicht mit Ambari gemeinsam genutzt. HDInsight konfiguriert den Suchfilter so, dass der Administratorbenutzer, der Watchdog-Benutzer und die Mitglieder der Gruppe, die während der Clustererstellung angegeben wird, synchronisiert werden. Die Gruppenmitglieder werden transitiv synchronisiert:
 
-* Deaktivieren Sie die inkrementelle Synchronisierung.
-* Aktivieren Sie die Zuordnung zur Benutzergruppensynchronisierung.
-* Geben Sie den Suchfilter an, um die transitiven Gruppenmitglieder einzubeziehen.
-* Synchronisieren Sie sAMAccountName für Benutzer und das Namensattribut für Gruppen.
+1. Deaktivieren Sie die inkrementelle Synchronisierung.
+1. Aktivieren Sie die Zuordnung zur Benutzergruppensynchronisierung.
+1. Geben Sie den Suchfilter an, um die transitiven Gruppenmitglieder einzubeziehen.
+1. Synchronisieren Sie das Attribut „sAMAccountName“ für Benutzer und das Namensattribut für Gruppen.
 
 ### <a name="group-or-incremental-sync"></a>Gruppen- oder inkrementelle Synchronisierung
 
-Ranger unterstützt eine Gruppensynchronisierungsoption. Diese funktioniert aber als Schnittmenge mit dem Benutzerfilter und stellt keine Zusammenfassung von Gruppenmitgliedschaften und Benutzerfilter dar. Ein typischer Anwendungsfall für den Gruppensynchronisierungsfilter in Ranger ist Gruppenfilter: (dn=clusteradmingroup), Benutzerfilter: (city=seattle).
+Ranger unterstützt eine Option zur Gruppensynchronisierung, aber sie funktioniert als Schnittmenge mit dem Benutzerfilter, nicht als Vereinigung zwischen Gruppenmitgliedschaften und Benutzerfilter. Ein typischer Anwendungsfall für den Gruppensynchronisierungsfilter in Ranger ist Gruppenfilter: (dn=clusteradmingroup), Benutzerfilter: (city=seattle).
 
 Die inkrementelle Synchronisierung funktioniert nur für die Benutzer, die bereits synchronisiert wurden (zum ersten Mal). Die inkrementelle Synchronisierung erfolgt nicht für neue Benutzer, die den Gruppen nach der ersten Synchronisierung hinzugefügt wurden.
 
@@ -73,8 +68,12 @@ Die Ranger-Benutzersynchronisierung kann über einen der Hauptknoten erfolgen. D
 1. Melden Sie sich bei Ambari an.
 1. Wechseln Sie zum Abschnitt mit der Ranger-Konfiguration.
 1. Wechseln Sie zum erweiterten Abschnitt **usersync-log4j**.
-1. Ändern Sie `log4j.rootLogger` in `DEBUG` (nach der Änderung sollte dies `log4j.rootLogger = DEBUG,logFile,FilterLog` ähneln).
+1. Ändern Sie die Ebene `log4j.rootLogger` in `DEBUG`. (Nach der Änderung sollte sie wie `log4j.rootLogger = DEBUG,logFile,FilterLog` aussehen).
 1. Speichern Sie die Konfiguration, und starten Sie Ranger neu.
+
+## <a name="known-issues-with-ranger-user-sync"></a>Bekannte Probleme bei der Synchronisierung von Ranger-Benutzern
+* Wenn der Gruppenname Unicode-Zeichen enthält, kann die Ranger-Synchronisierung dieses Objekt nicht synchronisieren. Wenn ein Benutzer zu einer Gruppe gehört, die internationale Zeichen enthält, synchronisiert Ranger die Gruppenzugehörigkeit teilweise.
+* Benutzername (sAMAccountName) und Gruppenname (Name) dürfen maximal 20 Zeichen lang sein. Wenn der Gruppenname länger ist, wird der Benutzer bei der Berechnung der Berechtigungen so behandelt, als gehöre er nicht zu der Gruppe.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 13923596b7ad0f6d3fdef24e847f469645b448ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb66d8a4bf97a6f8a10534c9c4459123ad6a2654
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119928"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107918"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migrieren von Anwendungen zu MSAL für iOS und macOS
 
@@ -136,7 +136,7 @@ MSAL unterscheidet deutlicher zwischen Fehlern, die von Ihrer App behandelt werd
 
 Die Behandlung aller anderen Fehler in der [`MSALError`-Liste](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128) ist optional. Sie können die Informationen in diesen Fehlern verwenden, um die Servicequalität für Benutzer zu verbessern.
 
-Weitere Informationen zur MSAL-Fehlerbehandlung finden Sie unter [Behandeln von Fehlern und Ausnahmen in MSAL](msal-handling-exceptions.md).
+Weitere Informationen zur MSAL-Fehlerbehandlung finden Sie unter [Behandeln von Fehlern und Ausnahmen in MSAL](msal-error-handling-ios.md).
 
 ### <a name="broker-support"></a>Brokerunterstützung
 

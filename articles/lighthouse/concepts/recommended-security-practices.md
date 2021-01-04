@@ -3,12 +3,12 @@ title: Empfohlene Sicherheitsmaßnahmen
 description: Beim Verwenden von Azure Lighthouse müssen Sicherheit und Zugriffssteuerung berücksichtigt werden.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 097611837e3bba2d1a44ec521862e03cc467d707
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef2c41cf052e5f79ecf4abf01c8f3fab3dd1de14
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399379"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843722"
 ---
 # <a name="recommended-security-practices"></a>Empfohlene Sicherheitsmaßnahmen
 
@@ -17,11 +17,11 @@ Beim Verwenden von [Azure Lighthouse](../overview.md) müssen Sicherheit und Zug
 > [!TIP]
 > Diese Empfehlungen gelten auch für [Unternehmen, die mehrere Mandanten mit Azure Lighthouse verwalten](enterprise.md).
 
-## <a name="require-azure-multi-factor-authentication"></a>Anfordern von Azure Multi-Factor Authentication
+## <a name="require-azure-ad-multi-factor-authentication"></a>Anfordern von Azure AD Multi-Factor Authentication
 
-[Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (auch als zweistufige Überprüfung bezeichnet) trägt dazu bei, Angreifer daran zu hindern, Zugriff auf ein Konto zu erlangen, indem mehrere Authentifizierungsschritte erforderlich sind. Sie sollten Multi-Factor Authentication für alle Benutzer in Ihrem Verwaltungsmandanten anfordern, einschließlich Benutzer, die Zugriff auf delegierte Kundenressourcen haben werden.
+[Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (auch als zweistufige Überprüfung bezeichnet) trägt dazu bei, Angreifer daran zu hindern, Zugriff auf ein Konto zu erlangen, indem mehrere Authentifizierungsschritte erforderlich sind. Sie sollten Multi-Factor Authentication für alle Benutzer in Ihrem Verwaltungsmandanten anfordern, einschließlich Benutzer, die Zugriff auf delegierte Kundenressourcen haben werden.
 
-Wir schlagen vor, dass Sie Ihre Kunden auffordern, Azure Multi-Factor Authentication auch in ihren Mandanten zu implementieren.
+Wir schlagen vor, dass Sie Ihre Kunden auffordern, Azure AD Multi-Factor Authentication auch in ihren Mandanten zu implementieren.
 
 ## <a name="assign-permissions-to-groups-using-the-principle-of-least-privilege"></a>Zuweisen von Berechtigungen an Gruppen unter Verwendung des Prinzips der geringsten Rechte
 
@@ -47,5 +47,5 @@ Bedenken Sie, dass jede Gruppe (bzw. jeder Benutzer oder Dienstprinzipal), wenn 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Bereitstellen der Azure Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
+- [Bereitstellen von Azure AD Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
 - Erfahren Sie über [Mandantenübergreifende Verwaltungsmöglichkeiten](cross-tenant-management-experience.md).

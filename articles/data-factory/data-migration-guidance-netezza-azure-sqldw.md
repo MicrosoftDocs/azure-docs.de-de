@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 9/03/2019
-ms.openlocfilehash: 2197136b86d0bfbb2de79af6712c953339d46371
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/09/2020
+ms.openlocfilehash: e65c8c8574edc10f9366611c5b41ba93f609c7e3
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442836"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008270"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Verwenden von Azure Data Factory zum Migrieren von Daten von einem lokalen Netezza-Server zu Azure 
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Azure Data Factory stellt einen leistungsstarken, stabilen und kostengünstigen Mechanismus bereit, um Daten bedarfsabhängig von einem lokalen Netezza-Server zu Ihrem Azure Storage-Konto oder Ihrer Azure Synapse Analytics- (vormals SQL Data Warehouse)-Datenbank zu migrieren. 
+Azure Data Factory stellt einen leistungsstarken, stabilen und kostengünstigen Mechanismus bereit, um Daten bedarfsabhängig von einem lokalen Netezza-Server zu Ihrem Azure Storage-Konto oder der Azure Synapse Analytics-Datenbank zu migrieren. 
 
 Dieser Artikel enthält für Datentechniker und Entwickler Informationen zu den folgenden Bereichen:
 
@@ -41,13 +41,13 @@ Azure Data Factory bietet eine serverlose Architektur, die Parallelität auf ver
 
 Das vorhergehende Diagramm kann wie folgt interpretiert werden:
 
-- Eine einzelne Kopieraktivität kann skalierbare Computeressourcen nutzen. Wenn Sie Azure Integration Runtime verwenden, können Sie [bis zu 256 DIUs](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#data-integration-units) für jede Kopieraktivität serverlos angeben. Bei einer selbstgehosteten Integration Runtime (selbstgehostete IR) können Sie den Computer manuell hochskalieren oder das Aufskalieren auf mehrere Computer durchführen ([bis zu vier Knoten](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)). Eine einzelne Kopieraktivität verteilt ihre Partition auf alle Knoten. 
+- Eine einzelne Kopieraktivität kann skalierbare Computeressourcen nutzen. Wenn Sie Azure Integration Runtime verwenden, können Sie [bis zu 256 DIUs](./copy-activity-performance.md#data-integration-units) für jede Kopieraktivität serverlos angeben. Bei einer selbstgehosteten Integration Runtime (selbstgehostete IR) können Sie den Computer manuell hochskalieren oder das Aufskalieren auf mehrere Computer durchführen ([bis zu vier Knoten](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)). Eine einzelne Kopieraktivität verteilt ihre Partition auf alle Knoten. 
 
 - Für eine Kopieraktivität werden mehrere Threads genutzt, um für den Datenspeicher Lese- und Schreibvorgänge durchzuführen. 
 
-- Mit der Azure Data Factory-Ablaufsteuerung können mehrere Kopieraktivitäten parallel gestartet werden. Sie kann sie z. B. mit einer [For-Each-Schleife](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity) starten. 
+- Mit der Azure Data Factory-Ablaufsteuerung können mehrere Kopieraktivitäten parallel gestartet werden. Sie kann sie z. B. mit einer [For-Each-Schleife](./control-flow-for-each-activity.md) starten. 
 
-Weitere Informationen finden Sie unter [Handbuch zur Leistung und Skalierbarkeit der Kopieraktivität](https://docs.microsoft.com/azure/data-factory/copy-activity-performance).
+Weitere Informationen finden Sie unter [Handbuch zur Leistung und Skalierbarkeit der Kopieraktivität](./copy-activity-performance.md).
 
 ## <a name="resilience"></a>Resilienz
 
@@ -95,33 +95,33 @@ Das vorhergehende Diagramm kann wie folgt interpretiert werden:
 
 ### <a name="manage-authentication-and-credentials"></a>Verwalten von Authentifizierung und Anmeldeinformationen 
 
-- Zum Authentifizieren bei Netezza können Sie die [ODBC-Authentifizierung über eine Verbindungszeichenfolge](https://docs.microsoft.com/azure/data-factory/connector-netezza#linked-service-properties) verwenden. 
+- Zum Authentifizieren bei Netezza können Sie die [ODBC-Authentifizierung über eine Verbindungszeichenfolge](./connector-netezza.md#linked-service-properties) verwenden. 
 
 - So authentifizieren Sie sich für Azure Blob Storage 
 
-   - Wir empfehlen dringend die Verwendung von [verwalteten Identitäten für Azure-Ressourcen](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#managed-identity). Verwaltete Identitäten basieren auf einer automatisch verwalteten Azure Data Factory-Identität in Azure Active Directory (Azure AD) und ermöglichen Ihnen die Konfiguration von Pipelines, ohne dass in der Definition des verknüpften Diensts Anmeldeinformationen angegeben werden müssen.  
+   - Wir empfehlen dringend die Verwendung von [verwalteten Identitäten für Azure-Ressourcen](./connector-azure-blob-storage.md#managed-identity). Verwaltete Identitäten basieren auf einer automatisch verwalteten Azure Data Factory-Identität in Azure Active Directory (Azure AD) und ermöglichen Ihnen die Konfiguration von Pipelines, ohne dass in der Definition des verknüpften Diensts Anmeldeinformationen angegeben werden müssen.  
 
-   - Alternativ können Sie die Authentifizierung für Azure Blob Storage auch per [Dienstprinzipal](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#service-principal-authentication), [Shared Access Signature](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#shared-access-signature-authentication) oder [Speicherkontoschlüssel](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#account-key-authentication) durchführen. 
+   - Alternativ können Sie die Authentifizierung für Azure Blob Storage auch per [Dienstprinzipal](./connector-azure-blob-storage.md#service-principal-authentication), [Shared Access Signature](./connector-azure-blob-storage.md#shared-access-signature-authentication) oder [Speicherkontoschlüssel](./connector-azure-blob-storage.md#account-key-authentication) durchführen. 
 
 - So authentifizieren Sie sich für Azure Data Lake Storage Gen2 
 
-   - Wir empfehlen dringend die Verwendung von [verwalteten Identitäten für Azure-Ressourcen](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#managed-identity).
+   - Wir empfehlen dringend die Verwendung von [verwalteten Identitäten für Azure-Ressourcen](./connector-azure-data-lake-storage.md#managed-identity).
    
-   - Sie können auch einen [Dienstprinzipal](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) oder [Speicherkontoschlüssel](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication) verwenden. 
+   - Sie können auch einen [Dienstprinzipal](./connector-azure-data-lake-storage.md#service-principal-authentication) oder [Speicherkontoschlüssel](./connector-azure-data-lake-storage.md#account-key-authentication) verwenden. 
 
 - So authentifizieren Sie sich bei Azure Synapse Analytics:
 
-   - Wir empfehlen dringend die Verwendung von [verwalteten Identitäten für Azure-Ressourcen](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#managed-identity).
+   - Wir empfehlen dringend die Verwendung von [verwalteten Identitäten für Azure-Ressourcen](./connector-azure-sql-data-warehouse.md#managed-identity).
    
-   - Sie können auch einen [Dienstprinzipal](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#service-principal-authentication) oder die [SQL-Authentifizierung](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#sql-authentication) verwenden.
+   - Sie können auch einen [Dienstprinzipal](./connector-azure-sql-data-warehouse.md#service-principal-authentication) oder die [SQL-Authentifizierung](./connector-azure-sql-data-warehouse.md#sql-authentication) verwenden.
 
-- Wenn Sie keine verwalteten Identitäten für Azure-Ressourcen nutzen, ist das [Speichern der Anmeldeinformationen in Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) dringend zu empfehlen, um das zentrale Verwalten und Rotieren von Schlüsseln ohne Änderung der verknüpften Azure Data Factory-Dienste zu vereinfachen. Dies ist auch eine der [bewährten Methoden für CI/CD](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd). 
+- Wenn Sie keine verwalteten Identitäten für Azure-Ressourcen nutzen, ist das [Speichern der Anmeldeinformationen in Azure Key Vault](./store-credentials-in-key-vault.md) dringend zu empfehlen, um das zentrale Verwalten und Rotieren von Schlüsseln ohne Änderung der verknüpften Azure Data Factory-Dienste zu vereinfachen. Dies ist auch eine der [bewährten Methoden für CI/CD](./continuous-integration-deployment.md#best-practices-for-cicd). 
 
 ### <a name="migrate-initial-snapshot-data"></a>Migrieren der Daten der Anfangsmomentaufnahme 
 
 Bei kleinen Tabellen (d. h. Tabellen mit einem Volumen von weniger als 100 GB oder Tabellen, die innerhalb von zwei Stunden zu Azure migriert werden können) können mit jedem Kopierauftrag die Daten pro Tabelle geladen werden. Bei größeren Durchsätzen können Sie mehrere Azure Data Factory-Kopieraufträge ausführen, um separate Tabellen gleichzeitig zu laden. 
 
-Innerhalb jedes Kopierauftrags können Sie, um parallele Abfragen auszuführen und Daten nach Partitionen zu kopieren, auch einen gewissen Grad an Parallelität erreichen, indem Sie die [`parallelCopies`-Eigenschaftseinstellung](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#parallel-copy) mit einer der folgenden Datenpartitionsoptionen verwenden:
+Innerhalb jedes Kopierauftrags können Sie, um parallele Abfragen auszuführen und Daten nach Partitionen zu kopieren, auch einen gewissen Grad an Parallelität erreichen, indem Sie die [`parallelCopies`-Eigenschaftseinstellung](./copy-activity-performance.md#parallel-copy) mit einer der folgenden Datenpartitionsoptionen verwenden:
 
 - Um eine höhere Effizienz zu erreichen, empfehlen wir Ihnen, von einem Datenslice auszugehen.  Stellen Sie sicher, dass der Wert in der Einstellung `parallelCopies` kleiner ist als die Gesamtzahl der Datenslicepartitionen in Ihrer Tabelle auf dem Netezza-Server.  
 
@@ -192,18 +192,18 @@ Basierend auf den vorhergehenden Annahmen, ist hier der geschätzte Preis:
 Weitere Informationen finden Sie in den folgenden Artikeln und Leitfäden:
 
 - [Migrieren von Daten aus einer lokalen relationalen Data Warehouse-Datenbank zu Azure mithilfe von Azure Data Factory](https://azure.microsoft.com/resources/data-migration-from-on-premise-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/)
-- [Netezza-Connector](https://docs.microsoft.com/azure/data-factory/connector-netezza)
-- [ODBC-Connector](https://docs.microsoft.com/azure/data-factory/connector-odbc)
-- [Azure Blob Storage-Connector](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
-- [Azure Data Lake Storage Gen2-Connector](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-- [Azure Synapse Analytics-Connector](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse)
-- [Handbuch zur Leistung und Optimierung der Kopieraktivität](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
-- [Erstellen und Konfigurieren einer selbstgehosteten Integration Runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
-- [Selbstgehostete Integration Runtime: Hochverfügbarkeit und Skalierbarkeit](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
-- [Sicherheitsüberlegungen für Datenverschiebung in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
-- [Speichern von Anmeldeinformationen in Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
-- [Inkrementelles Kopieren von Daten aus einer einzelnen Tabelle](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-portal)
-- [Inkrementelles Kopieren von Daten aus mehreren Tabellen](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-multiple-tables-portal)
+- [Netezza-Connector](./connector-netezza.md)
+- [ODBC-Connector](./connector-odbc.md)
+- [Azure Blob Storage-Connector](./connector-azure-blob-storage.md)
+- [Azure Data Lake Storage Gen2-Connector](./connector-azure-data-lake-storage.md)
+- [Azure Synapse Analytics-Connector](./connector-azure-sql-data-warehouse.md)
+- [Handbuch zur Leistung und Optimierung der Kopieraktivität](./copy-activity-performance.md)
+- [Erstellen und Konfigurieren einer selbstgehosteten Integration Runtime](./create-self-hosted-integration-runtime.md)
+- [Selbstgehostete Integration Runtime: Hochverfügbarkeit und Skalierbarkeit](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)
+- [Sicherheitsüberlegungen für Datenverschiebung in Azure Data Factory](./data-movement-security-considerations.md)
+- [Speichern von Anmeldeinformationen in Azure Key Vault](./store-credentials-in-key-vault.md)
+- [Inkrementelles Kopieren von Daten aus einer einzelnen Tabelle](./tutorial-incremental-copy-portal.md)
+- [Inkrementelles Kopieren von Daten aus mehreren Tabellen](./tutorial-incremental-copy-multiple-tables-portal.md)
 - [Azure Data Factory – Preise](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
 ## <a name="next-steps"></a>Nächste Schritte

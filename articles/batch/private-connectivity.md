@@ -4,12 +4,12 @@ description: Erfahren Sie, wie Sie eine private Verbindung mit einem Azure Batch
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7dba3dd1d34421666821c6bc7320ef76ab77bb7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38d92d787a8d01dd3f87e1cdcacd336982c8c910
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542137"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579554"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Verwenden privater Endpunkte mit Azure Batch-Konten
 
@@ -35,22 +35,27 @@ Gehen Sie wie folgt vor, um ein privates Batch-Konto über das Azure-Portal zu e
    :::image type="content" source="media/private-connectivity/private-endpoint-connections.png" alt-text="Private Endpunktverbindungen":::
 5. Geben Sie im Bereich **Grundlagen** das Abonnement, die Ressourcengruppe, den Ressourcennamen des privaten Endpunkts und die Regionsdetails ein, oder wählen Sie diese aus, und wählen Sie dann **Weiter: Ressource** aus.
 6. Legen Sie im Bereich **Ressource** den **Ressourcentyp** auf **Microsoft.Batch/batchAccounts** fest. Wählen Sie das private Batch-Konto aus, auf das Sie zugreifen möchten, und wählen Sie dann **Weiter: Konfiguration** aus.
-   :::image type="content" source="media/private-connectivity/create-private-endpoint.png" alt-text="Private Endpunktverbindungen":::
+   :::image type="content" source="media/private-connectivity/create-private-endpoint.png" alt-text="Erstellen eines privaten Endpunkts: Bereich „Ressourcen“":::
 7. Geben Sie diese Informationen im Bereich **Konfiguration** ein, oder wählen Sie sie aus:
    - **Virtuelles Netzwerk:** Wählen Sie Ihr virtuelles Netzwerk aus.
    - **Subnetz**: Wählen Sie das Subnetz aus.
    - **Integration in eine private DNS-Zone**:   Wählen Sie **Ja** aus. Für die Herstellung einer privaten Verbindung mit Ihrem privaten Endpunkt benötigen Sie einen DNS-Eintrag. Es wird empfohlen, den privaten Endpunkt in eine private DNS-Zone zu integrieren. Sie können auch Ihre eigenen DNS-Server verwenden oder DNS-Einträge mithilfe der Hostdateien auf Ihren virtuellen Computern erstellen.
-   - **Private DNS-Zone**:  Wählen Sie „privatelink.<region>.batch.azure.com“ aus. Die private DNS-Zone wird automatisch bestimmt. Sie können sie nicht über das Azure-Portal ändern.
+   - **Private DNS-Zone**:  Wählen Sie „privatelink.\<region\>.batch.azure.com“ aus. Die private DNS-Zone wird automatisch bestimmt. Sie können sie nicht über das Azure-Portal ändern.
 8. Wählen Sie **Überprüfen + erstellen** aus, und warten Sie, bis Azure Ihre Konfiguration überprüft hat.
 9. Wenn die Meldung **Überprüfung erfolgreich** angezeigt wird, wählen Sie **Erstellen** aus.
 
-Nachdem der private Endpunkt bereitgestellt wurde, können Sie über den privaten Endpunkt von VMs im selben virtuellen Netzwerk auf das Batch-Konto zugreifen. Zum Anzeigen der IP-Adresse im Azure-Portal führen Sie die folgenden Schritte aus:
+Nachdem der private Endpunkt bereitgestellt wurde, können Sie über den privaten Endpunkt von VMs im selben virtuellen Netzwerk auf das Batch-Konto zugreifen.
+
+> [!IMPORTANT]
+> Die Durchführung von Operationen außerhalb des virtuellen Netzwerks, in dem der private Endpunkt bereitgestellt wird, führt zu einer „AuthorizationFailure“-Meldung im Azure-Portal.
+
+Zum Anzeigen der IP-Adresse im Azure-Portal führen Sie die folgenden Schritte aus:
 
 1. Wählen Sie **Alle Ressourcen**.
 2. Suchen Sie nach dem privaten Endpunkt, den Sie zuvor erstellt haben.
 3. Wählen Sie die Registerkarte **Übersicht** aus, um die DNS-Einstellungen und IP-Adressen anzuzeigen.
 
-:::image type="content" source="media/private-connectivity/access-private.png" alt-text="Private Endpunktverbindungen":::
+:::image type="content" source="media/private-connectivity/access-private.png" alt-text="DNS-Einstellungen und IP-Adressen des privaten Endpunkts":::
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager-Vorlage
 

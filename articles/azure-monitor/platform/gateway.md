@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
 ms.openlocfilehash: dc4d1b852b0a498de0834731b2b1cd1225b9748b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107775"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008853"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Verbinden von Computern ohne Internetzugriff über das Log Analytics-Gateway in Azure Monitor
 
@@ -141,7 +141,7 @@ Führen Sie zum Installieren des Gateways mit dem Setup-Assistenten die folgende
    ![Screenshot der Konfiguration für den Gatewayproxy](./media/gateway/gateway-wizard02.png)
 
 1. Falls Microsoft Update nicht aktiviert ist, wird die Seite „Microsoft Update“ angezeigt, auf der Sie Microsoft Update aktivieren können. Treffen Sie eine Auswahl, und klicken Sie anschließend auf **Weiter**. Fahren Sie andernfalls mit dem nächsten Schritt fort.
-1. Übernehmen Sie auf der Seite **Zielordner** entweder den Standardordner „C:\Programme\OMS Gateway“, oder geben Sie den Speicherort ein, an dem Sie das Gateway installieren möchten. Wählen Sie **Weiter**aus.
+1. Übernehmen Sie auf der Seite **Zielordner** entweder den Standardordner „C:\Programme\OMS Gateway“, oder geben Sie den Speicherort ein, an dem Sie das Gateway installieren möchten. Wählen Sie **Weiter** aus.
 1. Wählen Sie auf der Seite **Bereit zur Installation** die Option **Installieren** aus. Wenn die Benutzerkontensteuerung eine Installationsberechtigung anfordert, wählen Sie **Ja** aus.
 1. Klicken Sie nach Abschluss des Setups auf **Fertig stellen**. Überprüfen Sie, ob der Dienst ausgeführt wird: Öffnen Sie dazu das Snap-In „services.msc“, und überprüfen Sie, ob **OMS-Gateway** in der Liste mit den Diensten angezeigt wird und den Status **Wird ausgeführt** aufweist.
 
@@ -285,7 +285,7 @@ So konfigurieren Sie bestimmte Server oder Gruppen für die Verwendung des Log A
 1. Öffnen Sie die Operations Manager-Konsole, und wählen Sie den Arbeitsbereich **Erstellen** aus.  
 1. Klicken Sie im Arbeitsbereich „Erstellen“ auf **Regeln**. 
 1. Klicken Sie auf der Operations Manager-Symbolleiste auf die Schaltfläche **Bereich**. Sollte diese Schaltfläche nicht verfügbar sein, vergewissern Sie sich, dass im Bereich **Überwachung** kein Ordner, sondern ein Objekt ausgewählt ist. Im Dialogfeld **Management Pack-Objekte in Bereiche einteilen** wird eine Liste mit allgemeinen Zielklassen, Gruppen oder Objekten angezeigt. 
-1. Geben Sie in das **Suchfeld**den Suchbegriff **Integritätsdienst** ein, und wählen Sie den Dienst in der Liste aus. Klicken Sie auf **OK**.  
+1. Geben Sie in das **Suchfeld** den Suchbegriff **Integritätsdienst** ein, und wählen Sie den Dienst in der Liste aus. Klicken Sie auf **OK**.  
 1. Suchen Sie nach **Advisor Proxy Setting Rule** (Proxyeinstellungsregel für Ratgeber). 
 1. Wählen Sie auf der Operations Manager-Symbolleiste **Außerkraftsetzungen** aus, und zeigen Sie anschließend auf **Regel außer Kraft setzen\Für ein bestimmtes Objekt der Klasse: Integritätsdienst**, und wählen Sie ein Objekt in der Liste aus.  Sie können auch eine benutzerdefinierte Gruppe mit dem Integritätsdienstobjekt der Server, auf die Sie diese Außerkraftsetzung anwenden möchten, erstellen. Wenden Sie die Außerkraftsetzung anschließend auf Ihre benutzerdefinierte Gruppe an.
 1. Fügen Sie im Dialogfeld **Außerkraftsetzungseigenschaften** in der Spalte **Außerkraftsetzung** neben dem Parameter **WebProxyAddress** ein Häkchen hinzu.  Geben Sie im Feld **Außerkraftsetzungswert** die URL des Log Analytics-Gatewayservers ein. Achten Sie darauf, dass Sie mit dem Präfix `http://` beginnen.  

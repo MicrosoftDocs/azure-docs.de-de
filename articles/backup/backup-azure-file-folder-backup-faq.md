@@ -3,12 +3,12 @@ title: Microsoft Azure Recovery Services-Agent (MARS) – häufig gestellte Frag
 description: Hierin geht es um häufig gestellte Fragen zum Sichern von Dateien und Ordnern mit Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 9fb9e3993d6f56833e43a4d451c0865b7fd732d3
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 1edfaed99e60409774496c5ae75df8be99a8fe1f
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172506"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917357"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Häufig gestellte Fragen – Microsoft Azure Recovery Services-Agent (MARS)
 
@@ -71,6 +71,10 @@ Ja. Der MARS-Agent konvertiert die deduplizierten Daten bei der Vorbereitung des
 ### <a name="do-i-need-administrator-permissions-to-install-and-configure-the-mars-agent"></a>Benötige ich Administratorberechtigungen zum Installieren und Konfigurieren des MARS-Agents?
 
 Ja, die Installation des MARS-Agents und die Konfiguration von Sicherungen mithilfe der MARS-Konsole erfordern, dass der Benutzer ein lokaler Administrator auf dem geschützten Server ist.
+
+### <a name="what-is-the-impact-on-mars-agent-backups-of-transferring-the-vault-subscription-to-a-different-azure-ad-directory"></a>Welche Auswirkung hat das Übertragen des Tresorabonnements in ein anderes Azure AD-Verzeichnis auf MARS-Agent-Sicherungen?
+
+Die Änderung des Azure AD-Verzeichnisses hat keine Auswirkung auf MARS-Agent-Sicherungen. 
 
 ## <a name="manage-backups"></a>Verwalten von Sicherungen
 

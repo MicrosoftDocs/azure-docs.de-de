@@ -2,13 +2,13 @@
 title: Verschieben virtueller Azure-Computer in ein neues Abonnement oder in eine neue Ressourcengruppe
 description: Verwenden Sie Azure Resource Manager, um virtuelle Computer in eine neue Ressourcengruppe oder ein neues Abonnement zu verschieben.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 219a8b438d2715f6e97085a527b386e51759ec2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/01/2020
+ms.openlocfilehash: b1032b5a632bcac82cb9ae1f1b3df7b49f5463f5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317105"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456311"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Anleitung zum Verschieben virtueller Computer
 
@@ -19,8 +19,8 @@ In diesem Artikel werden Szenarien beschrieben, die derzeit nicht unterstützt w
 Folgende Szenarios werden noch nicht unterstützt:
 
 * Eine Virtual Machine Scale Sets-Instanz mit Load Balancer der Standard-SKU oder einer öffentlichen IP-Adresse der Standard-SKU kann nicht verschoben werden.
-* Von Marketplace-Ressourcen erstellte virtuelle Computer, an die Pläne angefügt sind, können nicht abonnementübergreifend verschoben werden. Heben Sie die Bereitstellung des virtuellen Computers im aktuellen Abonnement auf, und stellen Sie ihn im neuen Abonnement erneut bereit.
 * Virtuelle Computer in einem vorhandenen virtuellen Netzwerk können nicht zu einem neuen Abonnement verschoben werden, wenn Sie nicht alle Ressourcen im virtuellen Netzwerk verschieben.
+* Von Marketplace-Ressourcen erstellte virtuelle Computer, an die Pläne angefügt sind, können nicht abonnementübergreifend verschoben werden. Eine mögliche Problemumgehung finden Sie unter [Virtuelle Computer mit Marketplace-Plänen](#virtual-machines-with-marketplace-plans).
 * Virtuelle Computer mit niedriger Priorität und VM-Skalierungsgruppen mit niedriger Priorität können nicht ressourcengruppen- oder abonnementübergreifend verschoben werden.
 * Virtuelle Computer in einer Verfügbarkeitsgruppe können nicht einzeln verschoben werden.
 
@@ -35,6 +35,24 @@ az vm encryption disable --resource-group demoRG --name myVm1
 ```azurepowershell-interactive
 Disable-AzVMDiskEncryption -ResourceGroupName demoRG -VMName myVm1
 ```
+
+## <a name="virtual-machines-with-marketplace-plans"></a>Virtuelle Computer mit Marketplace-Plänen
+
+Von Marketplace-Ressourcen erstellte virtuelle Computer, an die Pläne angefügt sind, können nicht abonnementübergreifend verschoben werden. Um diese Einschränkung zu umgehen, können Sie die Bereitstellung der virtuellen Computer im aktuellen Abonnement aufheben und sie im neuen Abonnement erneut bereitstellen. Die folgenden Schritte helfen Ihnen, den virtuellen Computer im neuen Abonnement neu zu erstellen. Möglicherweise funktionieren sie jedoch nicht für alle Szenarien. Wenn der Plan nicht mehr im Marketplace verfügbar ist, werden diese Schritte nicht funktionieren.
+
+1. Kopieren Sie die Informationen zum Plan.
+
+1. Klonen Sie entweder den Datenträger des Betriebssystems in das Zielabonnement, oder verschieben Sie den ursprünglichen Datenträger, nachdem Sie den virtuellen Computer aus dem Quellabonnement gelöscht haben.
+
+1. Akzeptieren Sie im Zielabonnement die Marketplace-Geschäftsbedingungen für Ihren Plan. Sie können die Geschäftsbedingungen akzeptieren, indem Sie den folgenden PowerShell-Befehl ausführen:
+
+   ```azurepowershell
+   Get-AzMarketplaceTerms -Publisher {publisher} -Product {product/offer} -Name {name/SKU} | Set-AzMarketplaceTerms -Accept
+   ```
+
+   Oder Sie können eine neue Instanz eines virtuellen Computers mit dem Plan über das Portal erstellen. Sie können den virtuellen Computer löschen, nachdem Sie die Geschäftsbedingungen des neuen Abonnements akzeptiert haben.
+
+1. Im Zielabonnement erstellen Sie den virtuellen Computer von dem geklonten Betriebssystemdatenträger mithilfe von PowerShell, der Befehlszeilenschnittstelle oder einer Azure Resource Manager-Vorlage neu. Schließen Sie den Marketplace-Plan ein, der dem Datenträger angefügt ist. Die Informationen zum Plan sollten mit dem Plan übereinstimmen, den Sie für das neue Abonnement erworben haben.
 
 ## <a name="virtual-machines-with-azure-backup"></a>Virtuelle Computer mit Azure Backup
 

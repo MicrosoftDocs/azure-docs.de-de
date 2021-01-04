@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 09/30/2020
-ms.openlocfilehash: 44dafd1b0043c2daa7065069f571f13529303a73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4473ea304176615c35205494f342922869b71ea
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614426"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793142"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Übersicht über das Modell für virtuelle Kerne – Azure SQL-Datenbank und Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -34,7 +34,7 @@ Als Optionen für die Dienstebene stehen im V-Kern-Modell „Universell“, „U
 |-|**Allgemeiner Zweck**|**Unternehmenskritisch**|**Hyperscale**|
 |---|---|---|---|
 |Am besten geeignet für:|Die meisten geschäftlichen Workloads. Bietet budgetorientierte, ausgewogene und skalierbare Compute- und Speicheroptionen. |Bietet Geschäftsanwendungen die höchste Resilienz gegenüber Fehlern durch die Verwendung mehrerer isolierter Replikate sowie die höchste E/A-Leistung pro Datenbankreplikat.|Die meisten geschäftlichen Workloads mit hohen Anforderungen an skalierbaren Speicher und Leseskalierung.  Bietet eine höhere Ausfallsicherheit, da mehrere isolierte Datenbankreplikate konfiguriert werden können. |
-|Storage|Verwendet Remotespeicher.<br/>**Bereitgestelltes SQL-Datenbank-Computing:**<br/>5 GB – 4 TB<br/>**Serverloses Computing**:<br/>5 GB bis 3 TB<br/>**SQL Managed Instance:** 32 GB – 8 TB |Verwendet lokalen SSD-Speicher.<br/>**Bereitgestelltes SQL-Datenbank-Computing:**<br/>5 GB – 4 TB<br/>**SQL Managed Instance:**<br/>32 GB – 4 TB |Flexible automatische Speichervergrößerung nach Bedarf. Unterstützt bis zu 100 TB Speicher. Verwendet lokalen SSD-Speicher für den lokalen Pufferpoolcache und den lokalen Datenspeicher. Verwendet Azure-Remotespeicher als endgültigen langfristigen Datenspeicher. |
+|Storage|Verwendet Remotespeicher.<br/>**Bereitgestelltes SQL-Datenbank-Computing:**<br/>5 GB – 4 TB<br/>**Serverloses Computing** :<br/>5 GB bis 3 TB<br/>**SQL Managed Instance:** 32 GB – 8 TB |Verwendet lokalen SSD-Speicher.<br/>**Bereitgestelltes SQL-Datenbank-Computing:**<br/>5 GB – 4 TB<br/>**SQL Managed Instance:**<br/>32 GB – 4 TB |Flexible automatische Speichervergrößerung nach Bedarf. Unterstützt bis zu 100 TB Speicher. Verwendet lokalen SSD-Speicher für den lokalen Pufferpoolcache und den lokalen Datenspeicher. Verwendet Azure-Remotespeicher als endgültigen langfristigen Datenspeicher. |
 |IOPS und Durchsatz (ungefähr)|**SQL-Datenbank:** Weitere Informationen finden Sie in den Ressourcenlimits für [Einzeldatenbanken](resource-limits-vcore-single-databases.md) und [Pools für elastische Datenbanken](resource-limits-vcore-elastic-pools.md).<br/>**SQL Managed Instance:** Weitere Informationen finden Sie in der [Übersicht über die Ressourcenlimits von Azure SQL Managed Instance](../managed-instance/resource-limits.md#service-tier-characteristics).|Weitere Informationen finden Sie in den Ressourcenlimits für [Einzeldatenbanken](resource-limits-vcore-single-databases.md) und [Pools für elastische Datenbanken](resource-limits-vcore-elastic-pools.md).|Hyperscale ist eine mehrstufige Architektur mit Caching auf mehreren Ebenen. Die tatsächlichen Werte für IOPS und Durchsatz hängen vom Workload ab.|
 |Verfügbarkeit|Einzelnes Replikat, keine Replikate mit Leseskalierung|3 Replikate, 1 [Replikat, Leseskalierung](read-scale-out.md),<br/>zonenredundante Hochverfügbarkeit (High Availability, HA)|Einzelnes Replikat mit Lese-/Schreibzugriff sowie bis zu vier [Replikate mit Leseskalierung](read-scale-out.md)|
 |Backups|[Georedundanter Speicher mit Lesezugriff (RA-GRS)](../../storage/common/geo-redundant-design.md), sieben bis 35 Tage (standardmäßig sieben Tage)|[RA-GRS](../..//storage/common/geo-redundant-design.md), 7-35 Tage (standardmäßig 7 Tage)|Auf Momentaufnahmen basierende Sicherungen in Azure-Remotespeicher. Bei Wiederherstellungen werden diese Momentaufnahmen zur schnellen Wiederherstellung verwendet. Sicherungen werden sofort ausgeführt und haben keine Auswirkungen auf die E/A-Computeleistung. Wiederherstellungen sind schnell und nicht datenintensiv (dauern also nicht Stunden oder Tage, sondern nur Minuten).|
@@ -107,11 +107,11 @@ To enable M-series hardware for a subscription and region, a support request mus
 |Hardwaregeneration  |Compute  |Arbeitsspeicher  |
 |:---------|:---------|:---------|
 |Gen4     |– Intel E5-2673 v3-Prozessoren (Haswell) mit 2,4 GHz<br>- Bereitstellung von bis zu 24 virtuellen Kernen (1 virtueller Kern = 1 physischer Kern)  |- 7 GB pro virtuellem Kern<br>- Bereitstellung von bis zu 168 GB|
-|Gen5     |**Bereitgestelltes Computing**<br>– Intel® E5-2673 v4-Prozessoren (Broadwell) mit 2,3 GHz, Intel® SP-8160-Prozessoren (Skylake)\* und Intel® 8272CL-Prozessoren (Cascade Lake) mit 2,5 GHz\*<br>- Bereitstellung von bis zu 80 virtuellen Kernen (1 virtueller Kern = 1 Hyperthread)<br><br>**Serverloses Computing**:<br>– Intel E5-2673 v4-Prozessoren (Broadwell) und Intel SP-8160-Prozessoren (Skylake)* mit 2,3 GHz<br>– Automatisches Hochskalieren auf bis zu 40 virtuelle Kerne (1 virtueller Kern = 1 Hyperthread)|**Bereitgestelltes Computing**<br>- 5,1 GB pro virtuellem Kern<br>- Bereitstellung von bis zu 408 GB<br><br>**Serverloses Computing**:<br>- Automatische Skalierung auf bis zu 24 GB pro V-Kern<br>– Automatisches Hochskalieren auf bis zu 120 GB|
+|Gen5     |**Bereitgestelltes Computing**<br>– Intel® E5-2673 v4-Prozessoren (Broadwell) mit 2,3 GHz, Intel® SP-8160-Prozessoren (Skylake)\* und Intel® 8272CL-Prozessoren (Cascade Lake) mit 2,5 GHz\*<br>- Bereitstellung von bis zu 80 virtuellen Kernen (1 virtueller Kern = 1 Hyperthread)<br><br>**Serverloses Computing** :<br>– Intel E5-2673 v4-Prozessoren (Broadwell) und Intel SP-8160-Prozessoren (Skylake)* mit 2,3 GHz<br>– Automatisches Hochskalieren auf bis zu 40 virtuelle Kerne (1 virtueller Kern = 1 Hyperthread)|**Bereitgestelltes Computing**<br>- 5,1 GB pro virtuellem Kern<br>- Bereitstellung von bis zu 408 GB<br><br>**Serverloses Computing** :<br>- Automatische Skalierung auf bis zu 24 GB pro V-Kern<br>– Automatisches Hochskalieren auf bis zu 120 GB|
 |Fsv2-Serie     |– Intel® 8168-Prozessoren (Skylake)<br>- Kontinuierliche Turbo-Taktfrequenz von 3,4 GHz für alle Kerne und maximale Turbo-Taktfrequenz für Einzelkerne von 3,7 GHz<br>– Bereitstellung von bis zu 72 virtuellen Kernen (1 virtueller Kern = 1 Hyperthread)|- 1,9 GB pro virtuellem Kern<br>– Bereitstellung von bis zu 136 GB|
 |M-Serie     |– Intel® E7-8890 v3-Prozessoren mit 2,5 GHz und Intel® 8280M-Prozessoren mit 2,7 GHz (Cascade Lake)<br>– Bereitstellung von bis zu 128 virtuellen Kernen (1 virtueller Kern = 1 Hyperthread)|- 29 GB pro virtuellem Kern<br>– Bereitstellung von bis zu 3,7 GB|
 
-\* In der dynamischen Verwaltungssicht [sys. dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) wird die Hardwaregenerierung für Datenbanken mit Intel® SP-8160-Prozessoren (Skylake) als „Gen6“ und die für Datenbanken mit Intel® 8272CL-Prozessoren (Cascade Lake) als „Gen7“ angezeigt. Ressourcenlimits für alle Gen5-Datenbanken sind unabhängig vom Prozessortyp (Broadwell, Skylake oder Cascade Lake) identisch.
+\* In der dynamischen Verwaltungssicht [sys. dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) wird die Hardwaregenerierung für Datenbanken mit Intel® SP-8160-Prozessoren (Skylake) als „Gen6“ und die für Datenbanken mit Intel® 8272CL-Prozessoren (Cascade Lake) als „Gen7“ angezeigt. Ressourcenlimits für alle Gen5-Datenbanken sind unabhängig vom Prozessortyp (Broadwell, Skylake oder Cascade Lake) identisch.
 
 Weitere Informationen zu Ressourcenlimits finden Sie unter [Ressourcenlimits für Singletons (V-Kern)](resource-limits-vcore-single-databases.md) oder [Ressourcenlimits für Pools für elastische Datenbanken (V-Kern)](resource-limits-vcore-elastic-pools.md).
 
@@ -154,7 +154,7 @@ Wählen Sie auf der Registerkarte **Grundlagen** im Abschnitt **Compute und Spei
 
 # <a name="the-azure-portal"></a>[Azure-Portal](#tab/azure-portal)
 
-Klicken Sie auf der SQL Managed Instance-Seite im Abschnitt „Einstellungen“ auf den Link **Tarif**.
+Klicken Sie auf der SQL Managed Instance-Seite im Abschnitt „Einstellungen“ auf den Link **Tarif** .
 
 ![SQL Managed Instance-Hardware ändern](./media/service-tiers-vcore/change-managed-instance-hardware.png)
 
@@ -168,7 +168,7 @@ Verwenden Sie das folgende PowerShell-Skript:
 Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" -ComputeGeneration Gen5
 ```
 
-Weitere Informationen finden Sie unter dem Befehl [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance).
+Weitere Informationen finden Sie unter dem Befehl [Set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance).
 
 # <a name="the-azure-cli"></a>[Die Azure-CLI](#tab/azure-cli)
 
@@ -178,7 +178,7 @@ Verwenden Sie den folgenden CLI-Befehl:
 az sql mi update -g mygroup -n myinstance --family Gen5
 ```
 
-Weitere Informationen finden Sie unter dem Befehl [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update).
+Weitere Informationen finden Sie unter dem Befehl [az sql mi update](/cli/azure/sql/mi#az-sql-mi-update).
 
 ---
 
@@ -238,5 +238,4 @@ Ausführliche Informationen zu den spezifischen Compute- und Speichergrößen de
 
 - [Ressourcenlimits des auf virtuellen Kernen basierenden Kaufmodells für Azure SQL-Datenbank](resource-limits-vcore-single-databases.md)
 - [Ressourcenlimits des auf virtuellen Kernen basierenden Kaufmodells für Azure SQL-Datenbank](resource-limits-vcore-elastic-pools.md)
-- [Ressourcenlimits des auf virtuellen Kernen basierenden Kaufmodells für Azure SQL Managed Instance](../managed-instance/resource-limits.md) 
-
+- [Ressourcenlimits des auf virtuellen Kernen basierenden Kaufmodells für Azure SQL Managed Instance](../managed-instance/resource-limits.md)

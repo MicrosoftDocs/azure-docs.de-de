@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: bf6691310ec964a1d6293f3a60c151e3d6f8e641
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fde0afcd37cd464b0b87e5ccd257d4a7a684eeb0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76277359"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021587"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Bereitstellen von Azure Log Analytics Nozzle zur Überwachung des Cloud Foundry-Systems
 
@@ -67,7 +67,7 @@ Sie können den Log Analytics-Arbeitsbereich manuell oder mit einer Vorlage erst
    * **Standort**: Geben Sie den Standort ein.
    * **Tarif:** Wählen Sie **OK** aus, um den Vorgang abzuschließen.
 
-Weitere Informationen finden Sie unter [Erste Schritte mit Azure Monitor-Protokolle](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
+Weitere Informationen finden Sie unter [Erste Schritte mit Azure Monitor-Protokolle](../azure-monitor/overview.md).
 
 #### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Gehen Sie wie folgt vor, um den Log Analytics-Arbeitsbereich über die Überwachungsvorlage aus dem Azure Marketplace zu erstellen:
 
@@ -191,7 +191,7 @@ Sie können diese Ansichten über den **Ansicht-Designer** anpassen oder neue An
 
 ### <a name="2-create-alert-rules"></a>2. Erstellen von Warnungsregeln
 
-Sie können [die Warnungen erstellen](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts) und die Abfragen und Schwellenwerte nach Bedarf anpassen. Hier sind empfohlene Warnungen angegeben:
+Sie können [die Warnungen erstellen](../azure-monitor/platform/alerts-overview.md) und die Abfragen und Schwellenwerte nach Bedarf anpassen. Hier sind empfohlene Warnungen angegeben:
 
 | Suchabfrage                                                                  | Warnung generieren basierend auf | BESCHREIBUNG                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |

@@ -1,6 +1,6 @@
 ---
 title: Verwenden von Unterdrückungsregeln für Warnungen, um falsch positive oder andere unerwünschte Sicherheitswarnungen in Azure Security Center zu unterdrücken.
-description: In diesem Artikel wird erläutert, wie Sie mithilfe der Unterdrückungsregeln von Azure Security Center unerwünschte Azure Defender-Warnungen ausblenden.
+description: In diesem Artikel wird erläutert, wie Sie mithilfe der Unterdrückungsregeln von Azure Security Center unerwünschte Sicherheitswarnungen ausblenden können.
 author: memildin
 manager: rkarlin
 services: security-center
@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 50426e0b0920e89cf83dc5a81c515b06c06c09c5
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 1ca2ded69b0279a60d8ed83cf310a58dadf1a337
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342092"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751987"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Unterdrücken von Warnungen von Azure Defender
 
@@ -23,7 +23,7 @@ Auf dieser Seite wird erläutert, wie Sie mithilfe von Unterdrückungsregeln fü
 
 |Aspekt|Details|
 |----|:----|
-|Status des Release:|Vorschau|
+|Status des Release:| Allgemein verfügbar |
 |Preise:|Kostenlos<br>(Die meisten Sicherheitswarnungen sind nur in Azure Defender verfügbar.)|
 |Erforderliche Rollen und Berechtigungen:|**Sicherheitsadministrator** und **Besitzer** können Regeln erstellen und löschen.<br>**Sicherheitsleseberechtigter** und **Leser** können Regeln anzeigen.|
 |Clouds:|![Ja](./media/icons/yes-icon.png) Kommerzielle Clouds<br>![Ja](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, andere Gov)|

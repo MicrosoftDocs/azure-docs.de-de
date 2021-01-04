@@ -1,9 +1,9 @@
 - name: Dokumentation zur Sprechererkennung
-  href: Home.md
+  href: ../speech-service/speaker-recognition-overview.md
 - name: Übersicht
   items:
     - name: Informationen zur Sprechererkennung
-      href: Home.md
+      href: ../speech-service/speaker-recognition-overview.md
 - name: Verweis
   items:
     - name: API-Referenz

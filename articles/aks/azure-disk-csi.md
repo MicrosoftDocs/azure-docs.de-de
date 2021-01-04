@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 68a892768e5cfa5be7fe6f9ad99fc4cded68b02d
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 2dba9fbcbddbc7a66763636986f3d98f4f95332c
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071811"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683130"
 ---
 # <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Verwenden von Container Storage Interface-Treibern (CSI) von Azure-Datenträgern in Azure Kubernetes Service (AKS) (Vorschauversion)
 Der Container Storage Interface-Treiber (CSI) von Azure-Datenträgern ist ein mit der [CSI-Spezifikation](https://github.com/container-storage-interface/spec/blob/master/spec.md) konformer Treiber, der von Azure Kubernetes Service (AKS) zum Verwalten des Lebenszyklus von Azure-Datenträgern verwendet wird.
@@ -275,7 +275,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 
 ## <a name="shared-disk"></a>Freigegebener Datenträger
 
-[Freigegebene Azure-Datenträger](../virtual-machines/windows/disks-shared.md) sind ein Feature verwalteter Azure-Datenträger, mit dem ein Azure-Datenträger gleichzeitig an mehrere Agent-Knoten angefügt werden kann. Durch das Anfügen eines verwalteten Datenträgers an mehrere Agent-Knoten können Sie z. B. neue gruppierte Anwendungen in Azure bereitstellen oder bereits vorhandene gruppierte Anwendungen zu Azure migrieren.
+[Freigegebene Azure-Datenträger](../virtual-machines/disks-shared.md) sind ein Feature verwalteter Azure-Datenträger, mit dem ein Azure-Datenträger gleichzeitig an mehrere Agent-Knoten angefügt werden kann. Durch das Anfügen eines verwalteten Datenträgers an mehrere Agent-Knoten können Sie z. B. neue gruppierte Anwendungen in Azure bereitstellen oder bereits vorhandene gruppierte Anwendungen zu Azure migrieren.
 
 > [!IMPORTANT] 
 > Zurzeit wird nur das Blockgerät (`volumeMode: Block`) vom CSI-Treiber für Azure-Datenträger unterstützt. Anwendungen sollten die Koordination und Steuerung von Schreibvorgängen, Lesevorgängen, Sperren, Caches, Bereitstellungen und Fencing auf dem freigegebenen Datenträger verwalten, der als einfaches Blockgerät verfügbar gemacht wird.
@@ -339,7 +339,7 @@ spec:
     spec:
       containers:
         - name: deployment-azuredisk
-          image: nginx
+          image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
           volumeDevices:
             - name: azuredisk
               devicePath: /dev/sdx
@@ -360,11 +360,10 @@ deployment/deployment-azuredisk created
 Überprüfen Sie abschließend das Blockgerät im Pod:
 
 ```console
-# kubectl exec -it deployment-sharedisk-7454978bc6-xh7jp bash
-root@deployment-sharedisk-7454978bc6-xh7jp:/# dd if=/dev/zero of=/dev/sdx bs=1024k count=100
+# kubectl exec -it deployment-sharedisk-7454978bc6-xh7jp sh
+/ # dd if=/dev/zero of=/dev/sdx bs=1024k count=100
 100+0 records in
-100+0 records out
-104857600 bytes (105 MB, 100 MiB) copied, 0.0502999 s, 2.1 GB/s
+100+0 records out/s
 ```
 
 ## <a name="windows-containers"></a>Windows-Container

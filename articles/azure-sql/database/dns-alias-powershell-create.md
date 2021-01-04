@@ -2,7 +2,7 @@
 title: DNS-Alias (PowerShell und Azure-Befehlszeilenschnittstelle)
 description: Mit Cmdlets in PowerShell und der Azure-Befehlszeilenschnittstelle können Sie neue Clientverbindungen an einen anderen SQL-Server in Azure umleiten, ohne Clientkonfigurationen bearbeiten zu müssen.
 keywords: dns sql database
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, amagarwa, maboja, jrasnick, vanto
 ms.date: 05/14/2019
-ms.openlocfilehash: c1006cce4125adf67b9e3009bf8e27c0123acfd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02cfd839ed1b75fd85553f2e5a5150cadc29ff8e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443637"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790456"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>PowerShell für den DNS-Alias für Azure SQL-Datenbank
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -52,14 +52,14 @@ Um den Code auszuführen, ändern Sie die Platzhalterwerte in die entsprechenden
 
 Die folgenden Cmdlets werden verwendet:
 
-- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): Erstellt einen DNS-Alias im Dienstsystem von Azure SQL-Datenbank. Der Alias verweist auf Server 1.
-- [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): Ruft alle Aliase auf, die Server 1 zugewiesen sind, und listet diese auf.
-- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): Ändert den Servernamen, für dessen Referenzierung der Alias konfiguriert ist, aus Server 1 in Server 2.
-- [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Entfernt den Alias von Server 2 anhand des Aliasnamens.
+- [New-AzSqlServerDNSAlias](/powershell/module/az.Sql/New-azSqlServerDnsAlias): Erstellt einen DNS-Alias im Dienstsystem von Azure SQL-Datenbank. Der Alias verweist auf Server 1.
+- [Get-AzSqlServerDNSAlias](/powershell/module/az.Sql/Get-azSqlServerDnsAlias): Ruft alle Aliase auf, die Server 1 zugewiesen sind, und listet diese auf.
+- [Set-AzSqlServerDNSAlias](/powershell/module/az.Sql/Set-azSqlServerDnsAlias): Ändert den Servernamen, für dessen Referenzierung der Alias konfiguriert ist, aus Server 1 in Server 2.
+- [Remove-AzSqlServerDNSAlias](/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Entfernt den Alias von Server 2 anhand des Aliasnamens.
 
 Informationen zum Installieren oder Upgraden finden Sie unter [Installieren und Konfigurieren von Azure PowerShell](/powershell/azure/install-az-ps).
 
-Verwenden Sie `Get-Module -ListAvailable Az` in der Datei *powershell\_ise.exe*, um die entsprechende Version zu ermitteln.
+Verwenden Sie `Get-Module -ListAvailable Az` in der Datei *powershell\_ise.exe* , um die entsprechende Version zu ermitteln.
 
 ```powershell
 $subscriptionName = '<subscriptionName>';
@@ -98,10 +98,10 @@ Remove-AzSqlServerDnsAlias –ResourceGroupName $resourceGroupName2 -ServerName 
 
 Die folgenden Befehle werden verwendet:
 
-- [az sql server dns-alias create](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): Erstellt einen DNS-Alias für einen Server. Der Alias verweist auf Server 1.
-- [az sql server dns-alias show](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): Ruft alle Aliase auf, die Server 1 zugewiesen sind, und listet diese auf.
-- [az sql server dns-alias set](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): Ändert den Servernamen, für dessen Referenzierung der Alias konfiguriert ist, aus Server 1 in Server 2.
-- [az sql server dns-alias delete](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Entfernt den Alias von Server 2 anhand des Aliasnamens.
+- [az sql server dns-alias create](/powershell/module/az.Sql/New-azSqlServerDnsAlias): Erstellt einen DNS-Alias für einen Server. Der Alias verweist auf Server 1.
+- [az sql server dns-alias show](/powershell/module/az.Sql/Get-azSqlServerDnsAlias): Ruft alle Aliase auf, die Server 1 zugewiesen sind, und listet diese auf.
+- [az sql server dns-alias set](/powershell/module/az.Sql/Set-azSqlServerDnsAlias): Ändert den Servernamen, für dessen Referenzierung der Alias konfiguriert ist, aus Server 1 in Server 2.
+- [az sql server dns-alias delete](/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Entfernt den Alias von Server 2 anhand des Aliasnamens.
 
 Informationen zum Ausführen einer Installation oder eines Upgrades finden Sie unter [Installieren der Azure CLI](/cli/azure/install-azure-cli).
 
@@ -142,4 +142,4 @@ az sql server dns-alias delete –-resource-group $resourceGroupName2 --server $
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Eine vollständige Erläuterung des DNS-Aliasfeatures für SQL-Datenbank finden Sie unter [DNS-Alias für Azure SQL-Datenbank](../../sql-database/dns-alias-overview.md).
+Eine vollständige Erläuterung des DNS-Aliasfeatures für SQL-Datenbank finden Sie unter [DNS-Alias für Azure SQL-Datenbank](./dns-alias-overview.md).

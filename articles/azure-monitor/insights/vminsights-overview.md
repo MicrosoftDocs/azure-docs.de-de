@@ -6,14 +6,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/22/2020
-ms.openlocfilehash: 5c3cb13d0b2da9370f402083d82397679f2c9343
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5eaf2d7075ca09aeb3cfaa2dfea81fd0f8d65ad
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022495"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685306"
 ---
-# <a name="what-is-azure-monitor-for-vms"></a>Was ist Azure Monitor for VMs?
+# <a name="overview-of-azure-monitor-for-vms"></a>Übersicht über Azure Monitor für VMs
 
 Azure Monitor für VMs überwacht die Leistung und Integrität Ihrer virtuellen Computer und VM-Skalierungsgruppen, einschließlich ihrer ausgeführten Prozesse und Abhängigkeiten von anderen Ressourcen. Dieser Dienst kann die Bereitstellung von Vorhersagen zu Leistung und Verfügbarkeit wichtiger Anwendungen unterstützen, indem Leistungsengpässe und Netzwerkprobleme erkannt werden, und auch Informationen dazu liefern, ob ein Problem im Zusammenhang mit anderen Abhängigkeiten steht.
 
@@ -26,8 +26,6 @@ Azure Monitor für VMs unterstützt Windows- und Linux-Betriebssysteme auf folge
 - In einer anderen Cloudumgebung gehostete virtuelle Computer
   
 
-
-
 Azure Monitor für VMs speichert die Daten in Azure Monitor-Protokollen und ermöglicht dadurch leistungsstarke Aggregation und Filterung sowie die Analyse von Datentrends im zeitlichen Verlauf. Sie können diese Daten direkt in einer einzelnen VM anzeigen, oder Sie können eine aggregierte Ansicht mehrerer VMs mit Azure Monitor bereitstellen.
 
 ![VM-Insights-Perspektive im Azure-Portal](media/vminsights-overview/vminsights-azmon-directvm.png)
@@ -37,6 +35,7 @@ Azure Monitor für VMs speichert die Daten in Azure Monitor-Protokollen und erm�
 Es fallen keine direkten Kosten für Azure Monitor für VMs an, doch werden Ihnen die Aktivitäten im Log Analytics-Arbeitsbereich in Rechnung gestellt. Basierend auf den Preisen, die auf der [Seite mit der Azure Monitor-Preisübersicht](https://azure.microsoft.com/pricing/details/monitor/) veröffentlicht sind, wird Azure Monitor für VMs für Folgendes abgerechnet:
 
 - Von Agents erfasste und im Arbeitsbereich gespeicherte Daten
+- Von der Gastintegrität gesammelte Integritätsstatusdaten (Vorschau)
 - Warnungsregeln basierend auf Protokoll- und Integritätsdaten
 - Von Warnungsregeln gesendete Benachrichtigungen
 

@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/10/2019
   ms.author: aahi
-  ms.openlocfilehash: 4bce0b354d1daffccfea108b5668f33fd429f075
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: 67424b05a9368876c6721d7f454ea632f77f2d24
+  ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92371238"
+  ms.lasthandoff: 11/08/2020
+  ms.locfileid: "94363577"
 landingContent:
 - title: Informationen zur Anomalieerkennungs-API
   linkLists:
@@ -119,6 +119,6 @@ landingContent:
     - text: Node.js SDK
       url: https://go.microsoft.com/fwlink/?linkid=2090788
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
-    - text: Azure CLI
+      url: /powershell/module/az.cognitiveservices/#cognitive_services
+    - text: Azure-Befehlszeilenschnittstelle
       url: /cli/azure/cognitiveservices#az-cognitiveservices-list

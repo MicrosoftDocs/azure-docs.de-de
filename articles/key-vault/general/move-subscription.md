@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: 2a06fd55d73c37caaa35797131d2b31817bf90f0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: e0cd4cad74257dbf83ec8d30405eacca341a8d31
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042404"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289531"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Verschieben einer Azure Key Vault-Instanz in ein anderes Abonnement
 
@@ -80,7 +80,7 @@ Wenn Sie Ihren Schlüsseltresor in ein Abonnement in einem neuen Mandanten versc
 ```azurepowershell
 Select-AzSubscription -SubscriptionId <your-subscriptionId>                # Select your Azure Subscription
 $vaultResourceId = (Get-AzKeyVault -VaultName myvault).ResourceId          # Get your key vault's Resource ID 
-$vault = Get-AzResource –ResourceId $vaultResourceId -ExpandProperties     # Get the properties for your key vault
+$vault = Get-AzResource -ResourceId $vaultResourceId -ExpandProperties     # Get the properties for your key vault
 $vault.Properties.TenantId = (Get-AzContext).Tenant.TenantId               # Change the Tenant that your key vault resides in
 $vault.Properties.AccessPolicies = @()                                     # Access policies can be updated with real
                                                                            # applications/users/rights so that it does not need to be                             # done after this whole activity. Here we are not setting 
@@ -100,9 +100,9 @@ az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Upd
 
 Nachdem Sie Ihren Tresor nun der richtigen Mandanten-ID zugeordnet haben und alte Zugriffsrichtlinieneinträge entfernt wurden, können Sie neue Zugriffsrichtlinieneinträge mit dem Azure PowerShell-Cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) oder dem Azure CLI-Befehl [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) festlegen.
 
-Wenn Sie eine verwaltete Identität für Azure-Ressourcen verwenden, müssen Sie sie ebenfalls auf den neuen Azure Active Directory-Mandanten aktualisieren. Weitere Informationen zu verwalteten Identitäten finden Sie unter [Verwaltete Identitäten: Übersicht](/azure/active-directory/managed-identities-azure-resources/overview).
+Wenn Sie eine verwaltete Identität für Azure-Ressourcen verwenden, müssen Sie sie ebenfalls auf den neuen Azure Active Directory-Mandanten aktualisieren. Weitere Informationen zu verwalteten Identitäten finden Sie unter [Verwaltete Identitäten: Übersicht](../../active-directory/managed-identities-azure-resources/overview.md).
 
 Wenn Sie verwaltete Identitäten verwenden, müssen Sie auch die Identität aktualisieren, weil sich die alte Identität nicht mehr im richtigen Azure Active Directory-Mandanten befindet. Informationen zum Beheben dieses Problems finden Sie in den folgenden Dokumenten. 
 
-* [Aktualisieren von MSI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories)
-* [Übertragen eines Abonnements in ein neues Verzeichnis](https://docs.microsoft.com/azure/role-based-access-control/transfer-subscription)
+* [Aktualisieren von MSI](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)
+* [Übertragen eines Abonnements in ein neues Verzeichnis](../../role-based-access-control/transfer-subscription.md)

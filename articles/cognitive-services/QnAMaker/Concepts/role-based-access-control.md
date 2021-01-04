@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: c3d6e21b45bccbdaeeee350bac79be680783eb24
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ecf81152605d77e1036c9fbf5d3308af2b1fb988
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147524"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346154"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>Zusammenarbeiten mit anderen Autoren und Redakteuren
 
@@ -42,11 +42,11 @@ Das folgende Diagramm zeigt den Ablauf für die Anmeldung beim QnA Maker-Portal
 |3|Das Token wird von der QnA Maker-API überprüft.|
 |4 |Von der QnA Maker-API wird der QnAMaker-Dienst aufgerufen.|
 
-Wenn Sie die [Erstellungs-APIs](../How-To/collaborate-knowledge-base.md) aufrufen möchten, informieren Sie sich ausführlicher über die Einrichtung der Authentifizierung.
+Wenn Sie die [Erstellungs-APIs](../index.yml) aufrufen möchten, informieren Sie sich ausführlicher über die Einrichtung der Authentifizierung.
 
 ## <a name="authenticate-by-qna-maker-portal"></a>Authentifizieren über das QnA Maker-Portal
 
-Wenn Sie das QnA Maker-Portal verwenden, um Inhalte zu erstellen und mit anderen zusammenzuarbeiten, werden sämtliche Zugriffsberechtigungen durch das QnA Maker-Portal verwaltet, nachdem Sie [der Ressource die entsprechende Rolle für einen Projektmitarbeiter hinzugefügt](../How-To/collaborate-knowledge-base.md) haben.
+Wenn Sie das QnA Maker-Portal verwenden, um Inhalte zu erstellen und mit anderen zusammenzuarbeiten, werden sämtliche Zugriffsberechtigungen durch das QnA Maker-Portal verwaltet, nachdem Sie [der Ressource die entsprechende Rolle für einen Projektmitarbeiter hinzugefügt](../index.yml) haben.
 
 ## <a name="authenticate-by-qna-maker-apis-and-sdks"></a>Authentifizieren über QnA Maker-APIs und -SDKs
 
@@ -54,4 +54,4 @@ Wenn Sie zum Erstellen von Inhalten sowie für die Zusammenarbeit mit anderen di
 
 ## <a name="next-step"></a>Nächster Schritt
 
-* Entwerfen Sie eine Wissensdatenbank für [Sprachen](design-language-culture.md) und für [Clientanwendungen](integration-with-other-applications.md).
+* Entwerfen Sie eine Wissensdatenbank für [Sprachen](../index.yml) und für [Clientanwendungen](../index.yml).

@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 65dc9f556a9b7c257273349c056cf997973e942f
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 8f19ccc90c44ef90cee7bb1ae881086321e863b6
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328282"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902033"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Excel-Format in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -33,13 +33,14 @@ Eine vollständige Liste mit den Abschnitten und Eigenschaften, die zum Definier
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | Die type-Eigenschaft des Datasets muss auf **Excel** festgelegt werden.   | Ja      |
 | location         | Speicherorteinstellungen der Datei(en) Jeder dateibasierte Connector verfügt unter `location` über seinen eigenen Speicherorttyp und unterstützte Eigenschaften. | Ja      |
-| sheetName        | Der Name des Excel-Arbeitsblatts zum Lesen der Daten.                       | Ja      |
+| sheetName        | Der Name des Excel-Arbeitsblatts zum Lesen der Daten.                       | Geben Sie `sheetName` oder `sheetIndex` an. |
+| sheetIndex | Der Excel-Arbeitsblattindex zum Lesen von Daten, beginnend bei 0 (null). | Geben Sie `sheetName` oder `sheetIndex` an. |
 | range            | Der Zellenbereich im jeweiligen Arbeitsblatt zum Ermitteln der selektiven Daten, z. B.:<br>Nicht angegeben: Das gesamte Arbeitsblatt wird als Tabelle ab der ersten nicht leeren Zeile und Spalte gelesen.<br>- `A3`: Eine Tabelle wird ab der angegebenen Zelle gelesen, wobei alle Zeilen darunter und alle Spalten rechts davon dynamisch erkannt werden.<br>- `A3:H5`: Dieser feste Bereich wird als Tabelle gelesen.<br>- `A3:A3`: Diese einzelne Zelle wird gelesen. | Nein       |
 | firstRowAsHeader | Gibt an, ob die erste Zeile des jeweiligen Arbeitsblatts bzw. Bereichs als Headerzeile mit den Namen der Spalten behandelt werden soll.<br>Zulässige Werte sind **true** und **false** (Standard). | Nein       |
-| nullValue        | Gibt eine Zeichenfolgendarstellung von Null-Werten an. <br>Der Standardwert ist eine **leere Zeichenfolge** . | Nein       |
+| nullValue        | Gibt eine Zeichenfolgendarstellung von Null-Werten an. <br>Der Standardwert ist eine **leere Zeichenfolge**. | Nein       |
 | compression | Gruppe von Eigenschaften zum Konfigurieren der Dateikomprimierung. Konfigurieren Sie diesen Abschnitt, wenn Sie während der Aktivitätsausführung eine Komprimierung/Dekomprimierung durchführen möchten. | Nein |
-| type<br/>( *unter `compression`* ) | Der zum Lesen und Schreiben von JSON-Dateien verwendete Komprimierungscodec. <br>Zulässige Werte sind **bzip2** , **gzip** , **deflate** , **ZipDeflate** , **TarGzip** , **snappy** und **lz4** . Standardmäßig erfolgt keine Komprimierung.<br>**Hinweis** Die Kopieraktivität unterstützt zurzeit nicht „snappy“ und „lz4“ und der Zuordnungsdatenfluss nicht „ZipDeflate“.<br>**Hinweis** : Bei Verwendung der Kopieraktivität zum Dekomprimieren einer oder mehrerer **ZipDeflate** -Dateien und zum Schreiben in den dateibasierten Senkendatenspeicher werden Dateien in den folgenden Ordner extrahiert: `<path specified in dataset>/<folder named as source zip file>/`. | Nein.  |
-| level<br/>( *unter `compression`* ) | Das Komprimierungsverhältnis. <br>Zulässige Werte sind **Optimal** oder **Sehr schnell** .<br>- **Sehr schnell:** Der Komprimierungsvorgang wird schnellstmöglich abgeschlossen, auch wenn die resultierende Datei nicht optimal komprimiert ist.<br>- **Optimal** : Die Daten sollten optimal komprimiert sein, auch wenn der Vorgang eine längere Zeit in Anspruch nimmt. Weitere Informationen finden Sie im Thema [Komprimierungsstufe](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Nein       |
+| type<br/>(*unter `compression`* ) | Der zum Lesen und Schreiben von JSON-Dateien verwendete Komprimierungscodec. <br>Zulässige Werte sind **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **TarGzip**, **Tar**, **snappy** und **lz4**. Standardmäßig erfolgt keine Komprimierung.<br>**Beachten Sie**, dass die Kopieraktivität zurzeit „snappy“ und „lz4“ und der Zuordnungsdatenfluss „ZipDeflate“, „TarGzip“ und „Tar“ nicht unterstützt.<br>**Hinweis**: Bei Verwendung der Kopieraktivität zum Dekomprimieren einer oder mehrerer **ZipDeflate**-Dateien und zum Schreiben in den dateibasierten Senkendatenspeicher werden Dateien in den folgenden Ordner extrahiert: `<path specified in dataset>/<folder named as source zip file>/`. | Nein.  |
+| level<br/>(*unter `compression`* ) | Das Komprimierungsverhältnis. <br>Zulässige Werte sind **Optimal** oder **Sehr schnell**.<br>- **Sehr schnell:** Der Komprimierungsvorgang wird schnellstmöglich abgeschlossen, auch wenn die resultierende Datei nicht optimal komprimiert ist.<br>- **Optimal**: Die Daten sollten optimal komprimiert sein, auch wenn der Vorgang eine längere Zeit in Anspruch nimmt. Weitere Informationen finden Sie im Thema [Komprimierungsstufe](/dotnet/api/system.io.compression.compressionlevel) . | Nein       |
 
 Unten ist ein Beispiel für ein Excel-Dataset in Azure Blob Storage angegeben:
 

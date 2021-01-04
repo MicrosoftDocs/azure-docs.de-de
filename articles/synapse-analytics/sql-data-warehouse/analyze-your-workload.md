@@ -1,6 +1,6 @@
 ---
-title: Analysieren Ihrer Workload
-description: Lernen Sie Techniken zum Analysieren von Abfrageprioritäten für Ihre Workload in Azure Synapse Analytics kennen.
+title: Analysieren Ihrer Workload für dedizierte SQL-Pools
+description: Lernen Sie Techniken zum Analysieren von Abfrageprioritäten für dedizierte SQL-Pools in Azure Synapse Analytics kennen.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,20 +11,20 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c547263be8c61d75491d1517b58c03b6365ef929
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14c3ad30bac7cec4c11822d825323bb9db2ba440
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85208398"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454526"
 ---
-# <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Analysieren Ihrer Workload in Azure Synapse Analytics
+# <a name="analyze-your-workload-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Analysieren Ihrer Workload für dedizierte SQL-Pools in Azure Synapse Analytics
 
-Lernen Sie Techniken zum Analysieren Ihrer Synapse-SQL-Workload in Azure Synapse Analytics kennen. 
+Lernen Sie Techniken zum Analysieren Ihrer Workload für dedizierte SQL-Pools in Azure Synapse Analytics kennen. 
 
 ## <a name="resource-classes"></a>Ressourcenklassen
 
-Synapse SQL stellt Ressourcenklassen zum Zuweisen von Systemressourcen zu Abfragen bereit.  Weitere Informationen zu Ressourcenklassen finden Sie unter [Ressourcenklassen und Workloadverwaltung](resource-classes-for-workload-management.md).  Abfragen warten, wenn die einer Abfrage zugeordnete Ressourcenklasse mehr Ressourcen benötigt, als zurzeit verfügbar sind.
+Ein dedizierter SQL-Pool stellt Ressourcenklassen zum Zuweisen von Systemressourcen zu Abfragen bereit.  Weitere Informationen zu Ressourcenklassen finden Sie unter [Ressourcenklassen und Workloadverwaltung](resource-classes-for-workload-management.md).  Abfragen warten, wenn die einer Abfrage zugeordnete Ressourcenklasse mehr Ressourcen benötigt, als zurzeit verfügbar sind.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Erkennung von Abfragen in der Warteschlange und andere DMVs
 
@@ -63,7 +63,7 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-Synapse SQL verfügt über die folgenden Wartetypen:
+Ein dedizierter SQL-Pool hat die folgenden Wartetypen:
 
 * **LocalQueriesConcurrencyResourceType:** Bezieht sich auf Abfragen, die sich außerhalb des Parallelitätsslot-Frameworks befinden. DMV-Abfragen und Systemfunktionen wie `SELECT @@VERSION` sind Beispiele für lokale Abfragen.
 * **UserConcurrencyResourceType:** Bezieht sich auf Abfragen, die sich innerhalb des Parallelitätsslot-Frameworks befinden. Abfragen für Endbenutzertabellen sind ein Beispiel für die Verwendung dieses Ressourcentyps.
@@ -153,4 +153,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zum Verwalten von Datenbankbenutzern und der Sicherheit finden Sie unter [Schützen einer Datenbank in Azure Synapse](sql-data-warehouse-overview-manage-security.md). Weitere Informationen dazu, wie größere Ressourcenklassen die Qualität von gruppierten Columnstore-Indizes verbessern können, finden Sie unter [Neuerstellen von Indizes zur Verbesserung der Segmentqualität](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Weitere Informationen zum Verwalten von Datenbankbenutzern und der Sicherheit finden Sie unter [Sichern eines dedizierten SQL-Pools (früher SQL DW)](sql-data-warehouse-overview-manage-security.md). Weitere Informationen dazu, wie größere Ressourcenklassen die Qualität von gruppierten Columnstore-Indizes verbessern können, finden Sie unter [Neuerstellen von Indizes zur Verbesserung der Segmentqualität](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).

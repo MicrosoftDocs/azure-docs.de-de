@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: 1e5253d617c87d5869cebc817da6d265ebfdfa7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45a7a146dd929408b50a0045fe2598726ee05505
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77539466"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544308"
 ---
 # <a name="troubleshoot-azure-private-link-connectivity-problems"></a>Problembehandlung bei Konnektivitätsproblemen bei Azure Private Link
 
@@ -37,7 +37,7 @@ Die folgenden Konnektivitätsszenarios sind mit Private Link verfügbar:
 
 ## <a name="deployment-troubleshooting"></a>Problembehandlung für Bereitstellungen
 
-Informationen zur Problembehandlung in Fällen, bei denen Sie die Quell-IP-Adresse nicht aus dem Subnetz Ihrer Wahl für Ihren Private Link-Dienst auswählen können, finden Sie unter [Deaktivieren von Netzwerkrichtlinien für die Quell-IP-Adresse eines Private Link-Diensts](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy).
+Informationen zur Problembehandlung in Fällen, bei denen Sie die Quell-IP-Adresse nicht aus dem Subnetz Ihrer Wahl für Ihren Private Link-Dienst auswählen können, finden Sie unter [Deaktivieren von Netzwerkrichtlinien für die Quell-IP-Adresse eines Private Link-Diensts](./disable-private-link-service-network-policy.md).
 
 Stellen Sie sicher, dass die Einstellung **privateLinkServiceNetworkPolicies** für das Subnetz deaktiviert ist, aus dem Sie die Quell-IP-Adresse auswählen.
 
@@ -99,7 +99,7 @@ Falls Konnektivitätsprobleme mit Ihrem Private Link-Setup auftreten, vergewisse
        - Wenn gemäß der Lastenausgleichsregeln eine Verbindung mit dem Back-End-Pool hergestellt wird, ist Ihr Lastenausgleich betriebsbereit.
        - Sie können außerdem die Lastenausgleichsmetrik über Azure Monitor überprüfen, um zu überprüfen, ob Daten über den Lastenausgleich geleitet werden.
 
-1. Überprüfen Sie mithilfe von [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview), ob Daten übermittelt werden.
+1. Überprüfen Sie mithilfe von [Azure Monitor](../azure-monitor/overview.md), ob Daten übermittelt werden.
 
     a. Wählen Sie bei der Ressource für den Private Link-Dienst die Option **Metriken** aus.
      - Wählen Sie **Eingehende Bytes** oder **Ausgehende Bytes** aus.
@@ -111,5 +111,5 @@ Falls Konnektivitätsprobleme mit Ihrem Private Link-Setup auftreten, vergewisse
 
 ## <a name="next-steps"></a>Nächste Schritte
 
- * [Erstellen eines Private Link-Diensts mithilfe der Azure CLI](https://docs.microsoft.com/azure/private-link/create-private-link-service-cli)
+ * [Erstellen eines Private Link-Diensts mithilfe der Azure CLI](./create-private-link-service-cli.md)
  * [Leitfaden zur Problembehandlung bei privaten Azure-Endpunkten](troubleshoot-private-endpoint-connectivity.md)

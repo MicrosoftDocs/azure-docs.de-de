@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: contperfq1
-ms.openlocfilehash: cb310861edc2ba1ee183bc6f996cb1593457e3c7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 31fe62aabfff77342726158c3b72b61afb518682
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972032"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031520"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Einführung in verwaltete Azure-Datenträger
 
@@ -59,7 +59,7 @@ Informationen zur Übertragung Ihrer VHD in Azure finden Sie im Artikel zur [CLI
 
 ### <a name="private-links"></a>Private Links
 
-Die Private Link-Unterstützung für verwaltete Datenträger befindet sich derzeit in der Vorschauphase. Der Dienst kann zum Importieren und Exportieren eines verwalteten Datenträgers innerhalb Ihres Netzwerks verwendet werden. Mit privaten Links können Sie einen zeitgebundenen SAS-URI (Shared Access Signature) für nicht angefügte verwaltete Datenträger und Momentaufnahmen generieren, um die Daten zur regionalen Erweiterung, zur Notfallwiederherstellung und für die forensische Analyse in eine andere Region zu exportieren. Sie können den SAS-URI auch verwenden, um eine VHD aus der lokalen Umgebung direkt auf einen leeren Datenträger hochzuladen. Jetzt können Sie [Private Links](../private-link/private-link-overview.md) verwenden, um den Export und Import von verwalteten Datenträgern einzuschränken, sodass er nur innerhalb Ihres virtuellen Azure-Netzwerks erfolgen kann. Mit privaten Links können Sie sicherstellen, dass Ihre Daten nur innerhalb des sicheren Microsoft-Backbone-Netzwerks übertragen werden.
+Die Private Link-Unterstützung für verwaltete Datenträger kann zum Importieren und Exportieren eines verwalteten Datenträgers innerhalb Ihres Netzwerks verwendet werden. Mit privaten Links können Sie einen zeitgebundenen SAS-URI (Shared Access Signature) für nicht angefügte verwaltete Datenträger und Momentaufnahmen generieren, um die Daten zur regionalen Erweiterung, zur Notfallwiederherstellung und für die forensische Analyse in eine andere Region zu exportieren. Sie können den SAS-URI auch verwenden, um eine VHD aus der lokalen Umgebung direkt auf einen leeren Datenträger hochzuladen. Jetzt können Sie [Private Links](../private-link/private-link-overview.md) verwenden, um den Export und Import von verwalteten Datenträgern einzuschränken, sodass er nur innerhalb Ihres virtuellen Azure-Netzwerks erfolgen kann. Mit privaten Links können Sie sicherstellen, dass Ihre Daten nur innerhalb des sicheren Microsoft-Backbone-Netzwerks übertragen werden.
 
 Wie Sie private Links zum Importieren oder Exportieren eines verwalteten Datenträgers aktivieren können, erfahren Sie in den Artikeln zur [CLI](linux/disks-export-import-private-links-cli.md) oder zum [Portal](disks-enable-private-links-for-import-export-portal.md).
 
@@ -71,7 +71,7 @@ Verwaltete Datenträger bieten zwei verschiedene Arten der Verschlüsselung. Die
 
 Die serverseitige Verschlüsselung bietet eine Verschlüsselung ruhender Daten und schützt Ihre Daten, um die Sicherheits- und Compliancevorgaben Ihrer Organisation zu erfüllen. Die serverseitige Verschlüsselung ist standardmäßig für alle verwalteten Datenträger, Momentaufnahmen und Images in allen Regionen aktiviert, in denen Managed Disks verfügbar ist. (Temporäre Datenträger werden dagegen nicht durch serverseitige Verschlüsselung verschlüsselt, es sei denn, Sie aktivieren die Verschlüsselung beim Host. Siehe [Datenträgerrollen: temporäre Datenträger](#temporary-disk)).
 
-Sie können zulassen, dass Azure die Schlüssel für Sie verwaltet. Dies sind von der Plattform verwaltete Schlüssel. Alternativ können Sie die Schlüssel selbst verwalten. Dabei handelt es sich um vom Kunden verwaltete Schlüssel. Weitere Informationen finden Sie im Artikel [Serverseitige Verschlüsselung von Azure Disk Storage](windows/disk-encryption.md).
+Sie können zulassen, dass Azure die Schlüssel für Sie verwaltet. Dies sind von der Plattform verwaltete Schlüssel. Alternativ können Sie die Schlüssel selbst verwalten. Dabei handelt es sich um vom Kunden verwaltete Schlüssel. Weitere Informationen finden Sie im Artikel [Serverseitige Verschlüsselung von Azure Disk Storage](./disk-encryption.md).
 
 
 #### <a name="azure-disk-encryption"></a>Azure Disk Encryption
@@ -96,7 +96,7 @@ Dieser Datenträger weist eine maximale Kapazität von 4.095 GiB auf.
 
 ### <a name="temporary-disk"></a>Temporärer Datenträger
 
-Die meisten VMs enthalten einen temporären Datenträger, der kein verwalteter Datenträger ist. Der temporäre Datenträger bietet kurzfristigen Speicher für Anwendungen und Prozesse und ist ausschließlich dafür ausgelegt, Daten wie z. B. Seiten- oder Auslagerungsdateien zu speichern. Daten auf dem temporären Datenträger können während eines [Wartungsereignisses](./manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#understand-vm-reboots---maintenance-vs-downtime) verloren gehen, oder wenn Sie [eine VM erneut bereitstellen](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Während eines erfolgreichen standardmäßigen Neustarts der VM bleiben die Daten auf dem temporären Datenträger erhalten. Weitere Informationen zu VMs ohne temporäre Datenträger finden Sie unter [Azure-VM-Größen ohne lokalen temporären Datenträger](azure-vms-no-temp-disk.md).
+Die meisten VMs enthalten einen temporären Datenträger, der kein verwalteter Datenträger ist. Der temporäre Datenträger bietet kurzfristigen Speicher für Anwendungen und Prozesse und ist ausschließlich dafür ausgelegt, Daten wie z. B. Seiten- oder Auslagerungsdateien zu speichern. Daten auf dem temporären Datenträger können während eines [Wartungsereignisses](./manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) verloren gehen, oder wenn Sie [eine VM erneut bereitstellen](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Während eines erfolgreichen standardmäßigen Neustarts der VM bleiben die Daten auf dem temporären Datenträger erhalten. Weitere Informationen zu VMs ohne temporäre Datenträger finden Sie unter [Azure-VM-Größen ohne lokalen temporären Datenträger](azure-vms-no-temp-disk.md).
 
 Bei Azure Linux-VMs ist der temporäre Datenträger standardmäßig „/dev/sdb“, und bei Windows-VMs wird standardmäßig „D:“ verwendet. Der temporäre Datenträger wird nicht durch serverseitige Verschlüsselung verschlüsselt, es sei denn, Sie aktivieren die Verschlüsselung auf dem Host.
 

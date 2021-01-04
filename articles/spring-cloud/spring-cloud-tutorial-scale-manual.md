@@ -1,24 +1,24 @@
 ---
-title: 'Tutorial: Skalieren einer Anwendung in Azure Spring Cloud | Microsoft-Dokumentation'
+title: Skalieren einer Anwendung in Azure Spring Cloud | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie im Azure-Portal eine Anwendung mit Azure Spring Cloud skalieren.
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 33d25edafa9249300406365699930ded1c8ec75b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5632f9a6126615255306cc89425bd08a9ffa9753
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906846"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531801"
 ---
-# <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Tutorial: Skalieren einer Anwendung in Azure Spring Cloud
+# <a name="scale-an-application-in-azure-spring-cloud"></a>Skalieren einer Anwendung in Azure Spring Cloud
 
 **Dieser Artikel gilt für:** ✔️ Java ✔️ C#
 
-In diesem Tutorial wird veranschaulicht, wie Sie mithilfe des Azure Spring Cloud-Dashboards im Azure-Portal eine beliebige Microserviceanwendung skalieren.
+In dieser Dokumentation wird veranschaulicht, wie Sie mithilfe des Azure Spring Cloud-Dashboards im Azure-Portal eine beliebige Microserviceanwendung skalieren.
 
 Skalieren Sie Ihre Anwendung zentral hoch und herunter, indem Sie die Anzahl der virtuellen CPUs (vCPUs) und die Arbeitsspeichermenge ändern. Sie können Ihre Anwendung horizontal herunterskalieren oder erweitern, indem Sie die Anzahl von Anwendungsinstanzen ändern.
 
@@ -67,7 +67,7 @@ Wenn Sie sich im Tarif „Basic“ befinden und durch eins oder mehrere dieser [
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In diesem Tutorial haben Sie erfahren, wie Sie eine Azure Spring Cloud-Anwendung manuell skalieren. Informationen zur Überwachung einer Anwendung durch Einrichten von Warnungen finden Sie im nächsten Tutorial.
+In diesem Beispiel wurde erläutert, wie Sie eine Azure Spring Cloud-Anwendung manuell skalieren. Informationen zur Überwachung einer Anwendung durch Einrichten von Warnungen finden Sie unter [Einrichten der Autoskalierung für Microserviceanwendungen](spring-cloud-tutorial-setup-autoscale.md).
 
 > [!div class="nextstepaction"]
 > [Informationen zum Einrichten von Warnungen](spring-cloud-tutorial-alerts-action-groups.md)

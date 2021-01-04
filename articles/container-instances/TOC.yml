@@ -72,7 +72,7 @@
           href: container-instances-vnet.md
         - name: Bereitstellen aus Azure Container Registry
           href: container-instances-using-azure-container-registry.md
-        - name: Bereitstellen mit GitHub Actions (Vorschauversion)
+        - name: Bereitstellen mit GitHub-Aktionen
           href: container-instances-github-action.md
         - name: Verschlüsseln von Bereitstellungsdaten
           href: container-instances-encrypt-data.md
@@ -136,7 +136,7 @@
           href: container-instances-troubleshooting.md
 - name: Verweis
   items:
-    - name: Azure CLI
+    - name: Azure-Befehlszeilenschnittstelle
       href: /cli/azure/container
     - name: REST
       href: /rest/api/container-instances

@@ -4,12 +4,12 @@ description: 'Schnellstart: Verwenden Sie Azure Event Grid und die Azure CLI, um
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e2c017b95493000b3c206aa7b2398bbf7ef464ee
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4de7aa1c111b5b21a27b155474ae10f78feba083
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87497340"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566315"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Schnellstart: Weiterleiten benutzerdefinierter Ereignisse an Azure Queue Storage mit Azure-CLI und Event Grid
 
@@ -17,12 +17,11 @@ Azure Event Grid ist ein Ereignisdienst für die Cloud. Azure Queue Storage ist 
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Wenn Sie die Azure CLI oder Azure PowerShell auf Ihrem lokalen Computer anstatt Cloud Shell im Azure-Portal verwenden, stellen Sie sicher, dass Sie über die folgenden Versionen der Azure CLI und von Azure PowerShell verfügen. 
+- Für diesen Artikel ist mindestens Version 2.0.56 der Azure CLI erforderlich. Bei Verwendung von Azure Cloud Shell ist die aktuelle Version bereits installiert.
 
-- Azure CLI Version 2.0.56 oder höher. Anweisungen zum Installieren der aktuellen Version der Azure CLI finden Sie unter [Installieren der Azure CLI](/cli/azure/install-azure-cli). 
-- Azure PowerShell Version 1.1.0 oder höher. Laden Sie die aktuelle Version von Azure PowerShell [Azure-Downloads – Befehlszeilentools](https://azure.microsoft.com/downloads/) auf Ihren Windows-Computer herunter. 
+- Wenn Sie Azure PowerShell auf Ihrem lokalen Computer anstatt Cloud Shell im Azure-Portal verwenden, stellen Sie sicher, dass Sie mindestens über Version 1.1.0 von Azure PowerShell verfügen. Laden Sie die aktuelle Version von Azure PowerShell [Azure-Downloads – Befehlszeilentools](https://azure.microsoft.com/downloads/) auf Ihren Windows-Computer herunter. 
 
 In diesem Artikel finden Sie Befehle für die Verwendung der Azure CLI. 
 

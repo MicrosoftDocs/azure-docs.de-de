@@ -1,15 +1,18 @@
 ---
 title: Informationen zu Azure Migrate
 description: Erfahren Sie mehr über den Azure Migrate-Dienst.
+author: ms-psharma
+ms.author: panshar
+ms.manager: abhemraj
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 48447959f0a60baf8802a9939612bf0d536c2557
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: b42aa3bfaeaa454b5d870dbae3bce539b682028f
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314770"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754078"
 ---
 # <a name="about-azure-migrate"></a>Informationen zu Azure Migrate
 
@@ -18,7 +21,7 @@ Dieser Artikel enthält eine kurze Übersicht über den Azure Migrate-Dienst.
 Azure Migrate verfügt über einen zentralisierten Hub für die Bewertung und die Migration von lokalen Servern sowie der lokalen Infrastruktur, Anwendungen und Daten zu Azure. Er bietet Folgendes:
 
 - **Vereinheitlichte Migrationsplattform**: Ein einzelnes Portal zum Starten, Ausführen und Nachverfolgen Ihrer Migration zu Azure
-- **Verfügbare Tools**: Eine Reihe von Tools für Bewertung und Migration. Azure Migrate-Tools umfassen Serverbewertung und Azure Migrate: Servermigration. Azure Migrate kann auch in andere Azure-Dienste und -Tools sowie Angebote von unabhängigen Softwareanbietern (Independent Software Vendors, ISVs) integriert werden.
+- **Verfügbare Tools**: Eine Reihe von Tools für Bewertung und Migration. Azure Migrate-Tools enthalten Azure Migrate: Serverbewertung und Azure Migrate: Servermigration. Azure Migrate kann auch in andere Azure-Dienste und -Tools sowie Angebote von unabhängigen Softwareanbietern (Independent Software Vendors, ISVs) integriert werden.
 - **Bewertung und Migration**: Im Azure Migrate-Hub können Sie Folgendes bewerten und migrieren:
     - **Server**: Bewerten Sie lokale Server, und migrieren Sie sie zu virtuellen Azure-Computern oder Azure VMware Solution (AVS) (Vorschau).
     - **Datenbanken**: Bewerten Sie lokale Datenbanken, und migrieren Sie sie zu Azure SQL-Datenbank oder zu einer verwalteten SQL-Instanz.
@@ -82,9 +85,9 @@ Azure Migrate: Servermigration unterstützt Sie bei der Migration zu Azure:
 
 **Migrieren** | **Details**
 --- | ---
-Lokale VMware-VMs | Migrieren von virtuellen Computern zu Azure mit oder ohne Agents.<br/><br/> Für die Migration ohne Agents wird bei der Servermigration eine Azure Migrate-Appliance verwendet, die Sie lokal bereitstellen. Dabei handelt es sich um denselben Typ von Appliance, den Sie für die Serverbewertung verwenden.<br/><br/> Für die Migration mit Agent verwendet die Serverbewertung eine Replikationsappliance.
-Lokale Hyper-V-VMs | Migrieren von VMs zu Azure.<br/><br/> Die Serverbewertung verwendet Anbieter-Agents, die auf dem Hyper-V-Host für die Migration installiert sind.
-Lokale physische Server | Sie können physische Computer zu Azure migrieren. Sie können auch andere virtualisierte Computer und VMs aus anderen öffentlichen Clouds migrieren, indem Sie sie für den Zweck der Migration als virtuelle Computer behandeln. | Die Serverbewertung verwendet für die Migration eine Replikationsappliance.
+Lokale VMware-VMs | Migrieren von virtuellen Computern zu Azure mit oder ohne Agents.<br/><br/> Bei der Migration ohne Agent wird von der Servermigration die gleiche Azure Migrate-Appliance verwendet, die auch von der Serverbewertung zur Ermittlung und Bewertung virtueller VMware-Computer verwendet werden kann.<br/><br/> Bei der Agent-basierten Migration wird von der Servermigration eine Replikationsappliance verwendet.
+Lokale Hyper-V-VMs | Migrieren von VMs zu Azure.<br/><br/> Von der Servermigration werden Anbieter-Agents verwendet, die auf dem Hyper-V-Host für die Migration installiert sind.
+Lokale physische Server | Sie können physische Computer zu Azure migrieren. Sie können auch andere virtualisierte Computer sowie virtuelle Computer aus anderen öffentlichen Clouds migrieren, indem Sie sie für die Migration als physische Server behandeln. | Von der Servermigration wird für die Migration eine Replikationsappliance verwendet.
 
 
 ## <a name="selecting-assessment-and-migration-tools"></a>Auswählen von Bewertungs- und Migrationstools

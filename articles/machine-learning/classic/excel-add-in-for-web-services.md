@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 69eefce50cefe9f54ed931c96ccbe94b2057cae4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb87afcc6edc02d241dca763aff9ecdd594e4711
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362366"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310086"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Excel-Add-In für (klassische) Azure Machine Learning Studio-Webdienste
 
-**GILT FÜR:**  ![Gilt für ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic) ![Gilt nicht für ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**GILT FÜR:**  ![Gilt für ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic) ![Gilt nicht für ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Mit Excel können Webdienste auf einfache Weise direkt aufgerufen werden, ohne dafür Code erstellen zu müssen.
@@ -49,7 +49,7 @@ Rufen Sie den API-Schlüssel Ihres Webdiensts ab. Wo diese Aktion durchgeführt 
 
 **Verwenden eines klassischen Webdiensts** 
 
-1. Klicken Sie in Machine Learning Studio (klassisch) im linken Bereich auf den Abschnitt **WEBDIENSTE**, und wählen Sie den Webdienst aus.
+1. Klicken Sie in Machine Learning Studio (klassisch) im linken Bereich auf den Abschnitt **WEBDIENSTE** , und wählen Sie den Webdienst aus.
    
     ![Studio – Webdienst auswählen](./media/excel-add-in-for-web-services/image4.png)
 2. Kopieren Sie den API-Schlüssel für den Webdienst.
@@ -78,8 +78,8 @@ Rufen Sie den API-Schlüssel Ihres Webdiensts ab. Wo diese Aktion durchgeführt 
    
     ![Webdienstauswahl aufrufen](./media/excel-add-in-for-web-services/image3.png)
 5. Klicken Sie auf **Webdienst hinzufügen**.
-6. Fügen Sie die URL in das Textfeld des Excel-Add-Ins mit der Beschriftung **URL**ein.
-7. Fügen Sie die API/den Primärschlüssel in das Textfeld mit der Beschriftung **API key**ein.
+6. Fügen Sie die URL in das Textfeld des Excel-Add-Ins mit der Beschriftung **URL** ein.
+7. Fügen Sie die API/den Primärschlüssel in das Textfeld mit der Beschriftung **API key** ein.
 8. Klicken Sie auf **Hinzufügen**.
    
     ![URL und API-Schlüssel für einen klassischen Webdienst.](./media/excel-add-in-for-web-services/image6.png)
@@ -88,4 +88,4 @@ Rufen Sie den API-Schlüssel Ihres Webdiensts ab. Wo diese Aktion durchgeführt 
 ## <a name="sharing-your-workbook"></a>Freigeben Ihrer Arbeitsmappe
 Wenn Sie Ihre Arbeitsmappe speichern, werden auch die API/der Primärschlüssel der hinzugefügten Webdienste gespeichert. Das bedeutet, dass Sie die Arbeitsmappe nur für Personen freigeben sollten, denen Sie vertrauen.
 
-Im nachstehenden Kommentarabschnitt oder in unserem [Forum](https://docs.microsoft.com/answers/topics/azure-machine-learning.html) können Sie Fragen stellen.
+Im nachstehenden Kommentarabschnitt oder in unserem [Forum](/answers/topics/azure-machine-learning.html) können Sie Fragen stellen.

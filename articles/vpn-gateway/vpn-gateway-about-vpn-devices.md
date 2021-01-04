@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/01/2020
+ms.date: 12/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 92f589e6a587febc10a4b407fe3616aca42d27d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae498b39a421db19f0d4e0a8daca58730321b58c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89318946"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546810"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Informationen zu VPN-Geräten und IPsec-/IKE-Parametern für VPN-Gatewayverbindungen zwischen Standorten.
 
@@ -112,13 +112,11 @@ Nachdem Sie die bereitgestellte Konfigurationsvorlage für das VPN-Gerät herunt
 | &lt;SP_AzureGatewayIpAddress&gt; |Diese Informationen gelten nur für Ihr virtuelles Netzwerk und befinden sich im Verwaltungsportal unter **Gateway-IP-Adresse**. |
 | &lt;SP_PresharedKey&gt; |Diese Informationen gelten nur für Ihr virtuelles Netzwerk und befinden sich im Verwaltungsportal unter "Schlüssel verwalten". |
 
-## <a name="ipsecike-parameters"></a><a name="ipsec"></a>IPsec-/IKE-Parameter
+## <a name="default-ipsecike-parameters"></a><a name="ipsec"></a>IPsec-/IKE-Standardparameter
 
-> [!IMPORTANT]
-> 1. Die folgenden Tabellen enthalten die Kombinationen aus Algorithmen und Parametern, die Azure-VPN-Gateways in einer Standardkonfiguration verwenden. Für routenbasierte VPN-Gateways, die mit dem Azure Resource Manager-Bereitstellungsmodell erstellt wurden, können Sie für jede einzelne Verbindung eine benutzerdefinierte Richtlinie angeben. Ausführliche Anweisungen finden Sie unter [Konfigurieren der IPsec/IKE-Richtlinie für S2S-VPN- oder VNet-zu-VNet-Verbindungen](vpn-gateway-ipsecikepolicy-rm-powershell.md).
->
-> 2. Darüber hinaus müssen Sie TCP **MSS** mit **1350** verknüpfen. Wenn Ihre VPN-Geräte MSS-Clamping nicht unterstützen, können Sie stattdessen alternativ den **MTU**-Wert der Tunnelschnittstelle auf **1400** Byte festlegen.
->
+Die folgenden Tabellen enthalten die Kombinationen aus Algorithmen und Parametern, die von Azure-VPN-Gateways in der Standardkonfiguration verwendet werden (**Standardrichtlinien**). Für routenbasierte VPN-Gateways, die mit dem Azure Resource Manager-Bereitstellungsmodell erstellt wurden, können Sie für jede einzelne Verbindung eine benutzerdefinierte Richtlinie angeben. Ausführliche Anweisungen finden Sie unter [Konfigurieren der IPsec/IKE-Richtlinie für S2S-VPN- oder VNet-zu-VNet-Verbindungen](vpn-gateway-ipsecikepolicy-rm-powershell.md).
+
+Darüber hinaus müssen Sie TCP **MSS** mit **1350** verknüpfen. Wenn Ihre VPN-Geräte MSS-Clamping nicht unterstützen, können Sie stattdessen alternativ den **MTU**-Wert der Tunnelschnittstelle auf **1400** Byte festlegen.
 
 Für die folgenden Tabellen gilt:
 

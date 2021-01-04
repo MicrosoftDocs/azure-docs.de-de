@@ -82,9 +82,9 @@
     - name: Gewähren des Datenzugriffs
       href: concepts-access-policies.md
     - name: Herstellen einer Verbindung mit Event Hubs
-      href: time-series-insights-how-to-add-an-event-source-eventhub.md
+      href: ./how-to-ingest-data-event-hub.md
     - name: Herstellen einer Verbindung mit IoT Hub
-      href: time-series-insights-how-to-add-an-event-source-iothub.md
+      href: ./how-to-ingest-data-iot-hub.md
     - name: Verwalten von Ressourcen mithilfe von Vorlagen
       href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
     - name: Azure Time Series Insights Gen2
@@ -97,12 +97,10 @@
           items:
             - name: Bereitstellung und Verwaltung
               href: how-to-provision-manage.md
-            - name: Diagnostizierung und Problembehandlung
-              href: how-to-diagnose-troubleshoot.md
-        - name: Eingang und Speicher
-          items:
             - name: Auswählen einer TSID
               href: how-to-select-tsid.md
+            - name: Diagnostizierung und Problembehandlung
+              href: how-to-diagnose-troubleshoot.md
         - name: Modell
           items:
             - name: Bearbeiten Ihres Modells
@@ -135,50 +133,50 @@
           href: time-series-insights-environment-mitigate-latency.md
         - name: Diagnostizieren und Behandeln von Problemen
           href: time-series-insights-diagnose-and-solve-problems.md
-- name: Verweis
+- name: Referenz
   items:
     - name: Time Series Insights
       items:
         - name: Übersicht über REST-APIs
-          href: 'https://docs.microsoft.com/rest/api/time-series-insights/'
+          href: /rest/api/time-series-insights/
         - name: Data Access Gen2
           items:
             - name: Übersicht
-              href: 'https://docs.microsoft.com/rest/api/time-series-insights/reference-data-access-overview'
+              href: /rest/api/time-series-insights/reference-data-access-overview
             - name: Umgebungs-APIs
-              href: 'https://docs.microsoft.com/rest/api/time-series-insights/reference-environments-apis'
+              href: /rest/api/time-series-insights/reference-environments-apis
             - name: Modell-APIs
-              href: 'https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis'
+              href: /rest/api/time-series-insights/reference-model-apis
             - name: Abfrage-APIs
-              href: 'https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis'
+              href: /rest/api/time-series-insights/reference-query-apis
             - name: Time Series-Ausdrucks (TSX)
-              href: 'https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax'
+              href: /rest/api/time-series-insights/reference-time-series-expression-syntax
             - name: Grenzwerte für API-Anforderungen
-              href: 'https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits'
+              href: /rest/api/time-series-insights/reference-api-limits
         - name: Data Access Gen1
           items:
             - name: Übersicht
-              href: 'https://docs.microsoft.com/rest/api/time-series-insights/gen1'
+              href: /rest/api/time-series-insights/gen1
             - name: Abfrage
               items:
                 - name: Abfrage
-                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/gen1-query'
+                  href: /rest/api/time-series-insights/gen1-query
                 - name: API
-                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api'
+                  href: /rest/api/time-series-insights/gen1-query-api
                 - name: Syntax
-                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-syntax'
+                  href: /rest/api/time-series-insights/gen1-query-syntax
             - name: Verweisdaten-API
-              href: 'https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api'
+              href: /rest/api/time-series-insights/gen1-reference-data-api
     - name: Client-SDK
       items:
         - name: JavaScript Client SDK
           href: 'https://github.com/microsoft/tsiclient/blob/master/docs/API.md'
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/timeseriesinsights?view=azure-cli-latest'
+      href: /cli/azure/ext/timeseriesinsights/timeseriesinsights?view=azure-cli-latest
 - name: Ressourcen
   items:
     - name: Support- und Hilfeoptionen
-      href: 'https://docs.microsoft.com/azure/iot-fundamentals/iot-support-help'
+      href: ../iot-fundamentals/iot-support-help.md
     - name: Kundendatenanforderungen
       href: time-series-insights-customer-data-requests.md
     - name: Entwicklerressourcen
@@ -190,7 +188,7 @@
         - name: Beispiele für gehostete Clients
           href: 'https://tsiclientsample.azurewebsites.net/'
         - name: "Azure\_IoT-Codebeispiele"
-          href: 'https://docs.microsoft.com/samples/browse/?term=iot'
+          href: /samples/browse/?term=iot
     - name: Preise und Verfügbarkeit
       items:
         - name: Preise
@@ -204,7 +202,7 @@
         - name: Azure-Supportoptionen
           href: 'https://azure.microsoft.com/support/options/'
         - name: "Support- und Hilfeoptionen für Azure\_IoT"
-          href: 'https://docs.microsoft.com/azure/iot-fundamentals/iot-support-help'
+          href: ../iot-fundamentals/iot-support-help.md
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/azure-timeseries-insights'
         - name: MSDN-Forum

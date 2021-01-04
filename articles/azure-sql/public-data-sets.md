@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: 30f6bf7629152050bc1249a1e22aff0aa30642de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e836a175b45c6fca46f9c76760e1cbaef305a47
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88209543"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792581"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Öffentliche Datasets zum Testen und Erstellen von Prototypen
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -45,7 +45,7 @@ Durchsuchen Sie diese Liste mit öffentlichen Datasets nach Daten, mit denen Sie
 | [Open Science Data Cloud-Daten](https://www.opensciencedatacloud.org/projects/) | „Open Science Data Cloud stellt der wissenschaftlichen Gemeinschaft Ressourcen zum Speichern, Teilen und Analysieren von wissenschaftlichen Datasets im Tera- und Petabytebereich zur Verfügung.“| Die Datasets liegen in verschiedenen Formaten vor. |
 | [Globale Klimadaten – WorldcLIM](https://worldclim.org/) | „Das WorldClim-Dataset enthält eine Reihe von globalen Klimastufen (gerasterte Klimadaten) mit einer räumlichen Auflösung von etwa einem Quadratkilometer. Diese Daten können für Kartierung und Raummodelle verwendet werden.“ | Diese Dateien enthalten Geodaten. Weitere Informationen finden Sie unter [Datenformat](https://worldclim.org/formats1). |
 | [Daten zur menschlichen Gesellschaft – The GDELT Project](https://www.gdeltproject.org/data.html) | „The GDELT Project ist die größte, umfangreichste und detaillierteste offene Datenbank zur menschlichen Gesellschaft, die je erstellt wurde.“ | Die Rohdatendateien liegen im CSV-Format vor. |
-| [Daten zur Werbungsklickvorhersage für Machine Learning von Criteo](https://labs.criteo.com/2013/12/download-terabyte-click-logs/) | „Das größte jemals öffentlich freigegebene ML-Dataset.“ Weitere Informationen finden Sie unter [Criteo's 1 TB Click Prediction Dataset](https://blogs.technet.microsoft.com/machinelearning/20../../now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/) (1-TB-Klickvorhersage-Dataset von Criterio). | |
+| [Daten zur Werbungsklickvorhersage für Machine Learning von Criteo](https://labs.criteo.com/2013/12/download-terabyte-click-logs/) | „Das größte jemals öffentlich freigegebene ML-Dataset.“ Weitere Informationen finden Sie unter [Criteo's 1 TB Click Prediction Dataset](/archive/blogs/machinelearning/now-available-on-azure-ml-criteos-1tb-click-prediction-dataset) (1-TB-Klickvorhersage-Dataset von Criterio). | |
 | [Text Mining-ClueWeb09-Dataset von The Lemur Project](https://www.lemurproject.org/clueweb09.php/) | „Das ClueWeb09-Dataset wurde entwickelt, um die Erforschung des Informationsabrufs und verwandter Technologien für die menschliche Sprache zu unterstützen. Es besteht aus etwa einer Milliarde Webseiten in zehn Sprachen, die im Januar und Februar 2009 erfasst wurden.“ | Informationen finden Sie unter [Dataset Information](https://www.lemurproject.org/clueweb09/datasetInformation.php) (Datasetinformationen).|
 
 ## <a name="online-service-data"></a>Onlinedienstdaten

@@ -9,9 +9,9 @@
 - name: Lernprogramm
   items:
     - name: Regression mit automatisiertem maschinellem Lernen
-      href: /azure/machine-learning/tutorial-auto-train-models?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
+      href: ../machine-learning/tutorial-auto-train-models.md?bc=%2fazure%2fopen-datasets%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fopen-datasets%2ftoc.json
     - name: Anreichern eines Bildklassifizierungsmodells
-      href: /azure/machine-learning/tutorial-train-models-with-aml?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
+      href: ../machine-learning/tutorial-train-models-with-aml.md?bc=%2fazure%2fopen-datasets%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fopen-datasets%2ftoc.json
 - name: Anleitungen
   items:
     - name: Datasets in Azure Machine Learning
@@ -40,6 +40,6 @@
     - name: Regionale Verfügbarkeit
       href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/?products=open-datasets&regions=non-regional'
     - name: Microsoft – Fragen und Antworten
-      href: 'https://docs.microsoft.com/answers/topics/azure-open-datasets.html'
+      href: /answers/topics/azure-open-datasets.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-open-datasets'

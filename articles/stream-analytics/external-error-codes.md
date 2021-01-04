@@ -6,12 +6,12 @@ author: mamccrea
 ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: f963f4c3538146b7f9929960092a18294659be5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61d6556467bc6f1494e11ce3a01bf5266b740f3f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045245"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305784"
 ---
 # <a name="azure-stream-analytics-external-error-codes"></a>Externe Fehlercodes in Azure Stream Analytics
 
@@ -48,12 +48,12 @@ Unerwartetes Verhalten Ihres Azure Stream Analytics-Auftrags können Sie mithilf
 ## <a name="azurefunctionhttptimeouterror"></a>AzureFunctionHttpTimeOutError
 
 * **Ursache:** Fehler beim Schreiben an Azure Functions, weil die HTTP-Anforderung das Timeout überschritten hat. 
-* **Empfehlung**: Überprüfen Sie die Azure Functions-Protokolle auf mögliche Verzögerungen.
+* **Empfehlung** : Überprüfen Sie die Azure Functions-Protokolle auf mögliche Verzögerungen.
 
 ## <a name="eventhubargumenterror"></a>EventHubArgumentError
 
 * **Ursache:** Die Eingabeoffsets sind ungültig. Dies kann auf ein Failover zurückzuführen sein.
-* **Empfehlung**: Starten Sie den Stream Analytics-Auftrag ab dem letzten Ausgabezeitpunkt neu.
+* **Empfehlung** : Starten Sie den Stream Analytics-Auftrag ab dem letzten Ausgabezeitpunkt neu.
 
 ## <a name="eventhubfailedtowriteevents"></a>EventHubFailedToWriteEvents
 
@@ -85,11 +85,11 @@ Unerwartetes Verhalten Ihres Azure Stream Analytics-Auftrags können Sie mithilf
 
 ## <a name="sqldwoutputinitializationerror"></a>SQLDWOutputInitializationError
 
-* **Ursache:** Fehler beim Initialisieren einer Synapse SQL-Poolausgabe.
+* **Ursache:** Fehler beim Initialisieren einer dedizierten SQL-Poolausgabe.
 
 ## <a name="sqldwoutputwriteerror"></a>SQLDWOutputWriteError
 
-* **Ursache:** Fehler beim Schreiben der Ausgabe in einen Synapse SQL-Pool.
+* **Ursache:** Fehler beim Schreiben der Ausgabe in einen dedizierten SQL-Pool.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 78165e9c14d4a83dbc20cbccd2f31dc8ac4c79ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53b8d74d6eb35347d6ac5b27d12fa5b5eaed2582
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440873"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566366"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Azure Virtual WAN-Protokolle und -Metriken
 
@@ -66,7 +66,7 @@ Führen Sie die folgenden Schritte aus, um Metriken zu suchen und anzuzeigen:
 
 4. Auf der Seite **Metriken** können Sie die Metriken anzeigen, an denen Sie interessiert sind.
 
-   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="Screenshot zeigt den Bereich „VPN (Site-to-Site)“ mit ausgewähltem „In Azure Monitor anzeigen“.":::
+   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="Screenshot der Seite „Metriken“ mit hervorgehobenen Kategorien.":::
 
 ## <a name="diagnostic-logs"></a><a name="diagnostic"></a>Diagnoseprotokolle
 
@@ -93,15 +93,15 @@ Führen Sie die folgenden Schritte aus, um Diagnosen zu suchen und anzuzeigen:
 
 1. Navigieren Sie im Portal zu Ihrer Virtual WAN-Ressource. Wählen Sie im Portal im Abschnitt **Übersicht** der Virtual WAN-Seite **Zusammenfassung** aus, um die Ansicht zu erweitern und Informationen zu Ressourcengruppen abzurufen. Kopieren Sie die Ressourcengruppeninformationen.
 
-   :::image type="content" source="./media/logs-metrics/3.png" alt-text="Screenshot zeigt den Bereich „VPN (Site-to-Site)“ mit ausgewähltem „In Azure Monitor anzeigen“.":::
+   :::image type="content" source="./media/logs-metrics/3.png" alt-text="Screenshot des Abschnitts „Übersicht“ mit einem Pfeil, der auf die Schaltfläche „Kopieren“ zeigt.":::
 
 2. Navigieren Sie im Abschnitt „Überwachung“ zur Ressourcengruppe. Wählen Sie **Diagnoseeinstellungen** aus, und geben Sie dann die Ressourceninformationen ein. Dabei handelt es sich um die Ressourceninformationen, die Sie in Schritt 2 im Abschnitt [Anzeigen von Gatewaymetriken](#metrics-steps) weiter oben in diesem Artikel kopiert haben.
 
-   :::image type="content" source="./media/logs-metrics/4.png" alt-text="Screenshot zeigt den Bereich „VPN (Site-to-Site)“ mit ausgewähltem „In Azure Monitor anzeigen“.":::
+   :::image type="content" source="./media/logs-metrics/4.png" alt-text="Screenshot des Abschnitts „Überwachung“ mit einem Pfeil, der auf die Dropdownliste „Ressource“ zeigt.":::
 
 3. Wählen Sie auf der Seite mit den Ergebnissen **+ Diagnoseeinstellung hinzufügen** und dann eine Option aus. Sie können die Daten an Log Analytics senden, an einen Event Hub streamen oder einfach in einem Speicherkonto archivieren.
 
-   :::image type="content" source="./media/logs-metrics/5.png" alt-text="Screenshot zeigt den Bereich „VPN (Site-to-Site)“ mit ausgewähltem „In Azure Monitor anzeigen“.":::
+   :::image type="content" source="./media/logs-metrics/5.png" alt-text="Seite „Metriken“":::
 
 ### <a name="log-analytics-sample-query"></a><a name="sample-query"></a>Log Analytics-Beispielabfrage
 
@@ -123,5 +123,5 @@ Einträge im **Aktivitätsprotokoll** werden standardmäßig erfasst und können
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Informationen zum Überwachen von Azure Firewall-Protokollen und Metriken finden Sie unter [Tutorial: Überwachen von Azure Firewall-Protokollen](../firewall/tutorial-diagnostics.md).
+* Informationen zum Überwachen von Azure Firewall-Protokollen und Metriken finden Sie unter [Tutorial: Überwachen von Azure Firewall-Protokollen](../firewall/firewall-diagnostics.md).
 * Weitere Informationen zu Metriken in Azure Monitor finden Sie unter [Metriken in Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).

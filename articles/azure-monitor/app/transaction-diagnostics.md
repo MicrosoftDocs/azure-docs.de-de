@@ -4,12 +4,12 @@ description: Application Insights-End-to-End-Transaktionsdiagnose
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 552e80d6c90a18180ab41dce72e995b6804a91bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7623b7131e6344a67c468d0436884ebfef9b0058
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318911"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746096"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Einheitliche komponentenübergreifende Transaktionsdiagnose
 
@@ -80,9 +80,7 @@ Mögliche Ursachen:
 
 * Sind die anderen Komponenten mit Application Insights instrumentiert?
 * Verwenden sie das neueste stabile Application Insights-SDK?
-* Wenn es sich bei diesen Komponenten um separate Application Insights-Ressourcen handelt, haben Sie den erforderlichen Zugriff auf ihre Telemetrie?
-
-Wenn Sie Zugriff haben und die Komponenten mit den neuesten Application Insights-SDKs instrumentiert sind, informieren Sie uns über den Feedbackkanal in der oberen rechten Ecke.
+* Wenn es sich bei diesen Komponenten um separate Application Insights-Ressourcen handelt, haben Sie den erforderlichen [Zugriff](resources-roles-access-control.md)? Wenn Sie Zugriff haben und die Komponenten mit den neuesten Application Insights-SDKs instrumentiert sind, informieren Sie uns über den Feedbackkanal in der oberen rechten Ecke.
 
 *Ich sehe doppelte Zeilen für die Abhängigkeiten. Entspricht dies dem erwarteten Verhalten?*
 

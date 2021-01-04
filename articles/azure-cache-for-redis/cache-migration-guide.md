@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: yegu
-ms.openlocfilehash: 4b196818ade1e703e24ed1ced6ebac1b44d0b083
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5de4e1b465cfc3ced59f8fe34a7f397324b4a225
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372067"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537625"
 ---
 # <a name="migrate-to-azure-cache-for-redis"></a>Migrieren zu Azure Cache for Redis
 In diesem Artikel werden verschiedene Vorgehensweisen zum Migrieren einer vorhandenen, lokal oder in einem anderen Clouddienst ausgeführten Redis Cache-Instanz zu Azure Cache for Redis beschrieben.
@@ -19,10 +19,10 @@ In diesem Artikel werden verschiedene Vorgehensweisen zum Migrieren einer vorhan
 ## <a name="migration-scenarios"></a>Migrationsszenarios
 Open-Source-Redis kann in einer Vielzahl von Compute-Umgebungen ausgeführt werden. Häufige Beispiele sind:
 
-- **Lokal**: Redis Cache-Instanzen, die in privaten Rechenzentren ausgeführt werden.
-- **Cloudbasierte VMs**: Redis Cache-Instanzen, die auf Azure-VMs, AWS EC2 usw. ausgeführt werden.
-- **Hostingdienste**: Verwaltete Redis-Dienste wie z. B. AWS ElastiCache.
-- **Verschiedene Regionen**: Redis Cache-Instanzen, die sich in einer anderen Azure-Region befinden.
+- **Lokal** : Redis Cache-Instanzen, die in privaten Rechenzentren ausgeführt werden.
+- **Cloudbasierte VMs** : Redis Cache-Instanzen, die auf Azure-VMs, AWS EC2 usw. ausgeführt werden.
+- **Hostingdienste** : Verwaltete Redis-Dienste wie z. B. AWS ElastiCache.
+- **Verschiedene Regionen** : Redis Cache-Instanzen, die sich in einer anderen Azure-Region befinden.
 
 Wenn Sie über einen solchen Cache verfügen, können Sie diesen möglicherweise mit minimalen Unterbrechungen oder Ausfallzeiten zu Azure Cache for Redis verlagern.
 
@@ -64,12 +64,12 @@ Hier finden Sie die allgemeinen Schritte zum Implementieren dieser Option:
 2. Speichern Sie eine Momentaufnahme des vorhandenen Redis-Caches. Sie können [Redis für die regelmäßige Speicherung von Momentaufnahmen konfigurieren](https://redis.io/topics/persistence) oder den Prozess mithilfe der Befehle [SAVE](https://redis.io/commands/save) oder [BGSAVE](https://redis.io/commands/bgsave) manuell ausführen. Die RDB-Datei erhält standardmäßig den Namen „dump.rdb“ und wird in dem Pfad gespeichert, der in der Konfigurationsdatei *redis.conf* angegeben ist.
 
     > [!NOTE]
-    > Wenn Sie Daten innerhalb von Azure Cache for Redis migrieren, lesen Sie [diese Anweisungen zum Exportieren einer RDB-Datei](cache-how-to-import-export-data.md), oder verwenden Sie stattdessen das [PowerShell-Cmdlet für den Export](https://docs.microsoft.com/powershell/module/azurerm.rediscache/export-azurermrediscache?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.4.0).
+    > Wenn Sie Daten innerhalb von Azure Cache for Redis migrieren, lesen Sie [diese Anweisungen zum Exportieren einer RDB-Datei](cache-how-to-import-export-data.md), oder verwenden Sie stattdessen das [PowerShell-Cmdlet für den Export](/powershell/module/azurerm.rediscache/export-azurermrediscache?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.4.0).
     >
 
 3. Kopieren Sie die RDB-Datei in ein Azure-Speicherkonto in der Region, in der sich Ihr neuer Cache befindet. Hierfür können Sie AzCopy verwenden.
 
-4. Importieren Sie die RDB-Datei mit diesen [Importanweisungen](cache-how-to-import-export-data.md) oder dem [PowerShell-Cmdlet für den Import](https://docs.microsoft.com/powershell/module/azurerm.rediscache/import-azurermrediscache?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.4.0) in den neuen Cache.
+4. Importieren Sie die RDB-Datei mit diesen [Importanweisungen](cache-how-to-import-export-data.md) oder dem [PowerShell-Cmdlet für den Import](/powershell/module/azurerm.rediscache/import-azurermrediscache?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.4.0) in den neuen Cache.
 
 5. Aktualisieren Sie Ihre Anwendung, sodass die neue Cache-Instanz verwendet wird.
 

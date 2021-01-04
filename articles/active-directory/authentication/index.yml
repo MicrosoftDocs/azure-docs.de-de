@@ -8,16 +8,16 @@ metadata:
   ms.service: active-directory
   ms.subservice: authentication
   ms.topic: landing-page
-  author: MicrosoftGuyJFlo
-  ms.author: joflore
+  author: justinha
+  ms.author: justinha
   ms.date: 02/11/2020
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 17775be39e534d0825596973452dabc13054ee8d
-  ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+  ms.openlocfilehash: 5cec477161aa9a54e3338bdadc1823715e1f9488
+  ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/13/2020
-  ms.locfileid: "91968224"
+  ms.lasthandoff: 12/06/2020
+  ms.locfileid: "96741443"
 landingContent:
 - title: Informationen zur Authentifizierung
   linkLists:
@@ -51,21 +51,21 @@ landingContent:
       url: howto-sspr-deployment.md
     - text: Aktivieren der Kennwortzurücksetzung über den Windows-Anmeldebildschirm
       url: howto-sspr-windows.md
-- title: Aktivieren von Azure Multi-Factor Authentication
+- title: Aktivieren von Azure AD Multi-Factor Authentication
   linkLists:
   - linkListType: concept
     links:
-    - text: Funktionsweise von Azure Multi-Factor Authentication
+    - text: Funktionsweise von Azure AD Multi-Factor Authentication
       url: concept-mfa-howitworks.md
   - linkListType: tutorial
     links:
-    - text: Aktivieren von Azure Multi-Factor Authentication
+    - text: Aktivieren von Azure AD Multi-Factor Authentication
       url: tutorial-enable-azure-mfa.md
-    - text: Aktivieren von risikobasierter Azure Multi-Factor Authentication
+    - text: Aktivieren von Azure Multi-Factor Authentication (risikobasiert)
       url: tutorial-risk-based-sspr-mfa.md
   - linkListType: deploy
     links:
-    - text: Bereitstellungshandbuch für Azure Multi-Factor Authentication
+    - text: Bereitstellungshandbuch für Azure AD Multi-Factor Authentication
       url: howto-mfa-getstarted.md
     - text: Verwenden der NPS-Erweiterung für die Integration lokaler Anwendungen
       url: howto-mfa-nps-extension.md

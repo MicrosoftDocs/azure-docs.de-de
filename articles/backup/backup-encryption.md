@@ -4,12 +4,12 @@ description: Hier erfahren Sie mehr darüber, wie Verschlüsselungsfeatures in A
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.custom: references_regions
-ms.openlocfilehash: 47ecf5c16682691bd9ff7014400ea6e8ab658a92
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: c9b1b2782a34285ae194f2998a7cd053cf3c0c70
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173943"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325676"
 ---
 # <a name="encryption-in-azure-backup"></a>Verschlüsselung in Azure Backup
 
@@ -24,7 +24,7 @@ Azure Backup umfasst Verschlüsselung auf zwei Ebenen:
   - **Verwendung kundenseitig verwalteter Schlüssel:** Wenn Sie Ihre Azure-VMs sichern, können Sie Ihre Daten mithilfe von Verschlüsselungsschlüsseln verschlüsseln, die Sie besitzen und verwalten. Mit Azure Backup können Sie die in Azure Key Vault gespeicherten RSA-Schlüssel zum Verschlüsseln Ihrer Sicherungen verwenden. Der Verschlüsselungsschlüssel, der zum Verschlüsseln von Sicherungen verwendet wird, kann sich von dem für die Quelle verwendeten Verschlüsselungsschlüssel unterscheiden. Die Daten werden mithilfe eines AES-256 basierten Datenverschlüsselungsschlüssels (DEK) geschützt, der wiederum mit Ihren Schlüsseln geschützt wird. Dadurch erhalten Sie vollständige Kontrolle über die Daten und Schlüssel. Sie müssen dem Recovery Services-Tresor Zugriff auf den Verschlüsselungsschlüssel in Azure Key Vault gewähren, um eine Verschlüsselung zu ermöglichen. Bei Bedarf können Sie den Schlüssel deaktivieren oder den Zugriff widerrufen. Sie müssen jedoch die Verschlüsselung mit ihren Schlüsseln aktivieren, bevor Sie versuchen, Elemente im Tresor zu schützen. [Hier erhalten Sie weitere Informationen](encryption-at-rest-with-cmk.md).
   - **Verschlüsselung auf Infrastrukturebene:** Neben der Verschlüsselung Ihrer Daten im Recovery Services-Tresor unter Verwendung kundenseitig verwalteter Schlüssel können Sie auch eine zusätzliche, für die Speicherinfrastruktur konfigurierte Verschlüsselungsebene verwenden. Diese Infrastrukturverschlüsselung wird von der Plattform verwaltet. In Kombination mit der Verschlüsselung von ruhenden Daten unter Verwendung kundenseitig verwalteter Schlüssel ermöglicht sie eine zweischichtige Verschlüsselung Ihrer Sicherungsdaten. Die Infrastrukturverschlüsselung kann nur konfiguriert werden, wenn Sie sich zuvor dafür entscheiden, Ihre eigenen Schlüssel für die Verschlüsselung von ruhenden Daten zu verwenden. Bei der Infrastrukturverschlüsselung werden plattformseitig verwaltete Schlüssel für die Datenverschlüsselung verwendet.
 - **Spezifische Verschlüsselung für die gesicherte Workload**  
-  - **Sicherung von Azure-VMs:** Azure Backup unterstützt die Sicherung von VMs mit Datenträgern, die mit [plattformseitig verwalteten Schlüsseln](../virtual-machines/windows/disk-encryption.md#platform-managed-keys) verschlüsselt werden sowie mit [kundenseitig verwalteten Schlüsseln](../virtual-machines/windows/disk-encryption.md#customer-managed-keys), die Sie besitzen und verwalten. Darüber hinaus können Sie auch virtuelle Azure-Computer sichern, deren Datenträger für Betriebssystem oder Daten mithilfe von [Azure Disk Encryption](backup-azure-vms-encryption.md#encryption-support-using-ade) verschlüsselt werden. ADE verwendet BitLocker für Windows-VMs bzw. DM-Crypt für Linux-VMs, um eine Verschlüsselung auf Gastsystemen durchzuführen.
+  - **Sicherung von Azure-VMs:** Azure Backup unterstützt die Sicherung von VMs mit Datenträgern, die mit [plattformseitig verwalteten Schlüsseln](../virtual-machines/disk-encryption.md#platform-managed-keys) verschlüsselt werden sowie mit [kundenseitig verwalteten Schlüsseln](../virtual-machines/disk-encryption.md#customer-managed-keys), die Sie besitzen und verwalten. Darüber hinaus können Sie auch virtuelle Azure-Computer sichern, deren Datenträger für Betriebssystem oder Daten mithilfe von [Azure Disk Encryption](backup-azure-vms-encryption.md#encryption-support-using-ade) verschlüsselt werden. ADE verwendet BitLocker für Windows-VMs bzw. DM-Crypt für Linux-VMs, um eine Verschlüsselung auf Gastsystemen durchzuführen.
 
 >[!NOTE]
 >Die Infrastrukturverschlüsselung ist derzeit als eingeschränkte Vorschau in den Regionen „USA, Osten“, „USA, Westen 2“, „USA, Süden-Mitte“, „US Gov Arizona“ und „US Gov Virginia“ verfügbar. Wenn Sie das Feature in einer dieser Regionen verwenden möchten, füllen Sie [dieses Formular](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) aus, und senden Sie es per E-Mail an [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).

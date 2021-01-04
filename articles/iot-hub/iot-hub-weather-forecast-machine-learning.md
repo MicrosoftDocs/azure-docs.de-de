@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
-ms.openlocfilehash: 8ba68e56d2475b1ff2fb3e63f291f76063ca62e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab9e122ba0b2b50203a2d66ae14f03f3b6300f96
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777155"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452346"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>Wettervorhersage mithilfe von Sensordaten Ihres IoT-Hubs in Azure Machine Learning Studio (klassisch)
 
@@ -46,7 +46,7 @@ Sie erfahren, wie Sie Azure Machine Learning Studio (klassisch) für eine Wetter
   - Ein Azure IoT Hub in Ihrem Abonnement.
   - Eine Clientanwendung, die Nachrichten an Ihren Azure IoT Hub sendet.
 - Ein [Azure Machine Learning Studio-Konto (klassisch)](https://studio.azureml.net/).
-- Ein [Azure Storage-Konto](https://docs.microsoft.com/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json#types-of-storage-accounts): Ein Konto vom Typ **Universell V2** wird empfohlen, aber es funktionieren auch alle Azure Storage-Konten, die Azure Blob Storage unterstützen.
+- Ein [Azure Storage-Konto](../storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-storage-accounts): Ein Konto vom Typ **Universell V2** wird empfohlen, aber es funktionieren auch alle Azure Storage-Konten, die Azure Blob Storage unterstützen.
 
 > [!Note]
 > In diesem Artikel werden Azure Stream Analytics und mehrere andere kostenpflichtige Dienste genutzt. Zusätzliche Gebühren fallen in Azure Stream Analytics an, wenn Daten über mehrere Azure-Regionen hinweg übertragen werden müssen. Aus diesem Grund sollten Sie sicherstellen, dass sich Ihre Ressourcengruppe, Ihr IoT-Hub und Ihr Azure Storage-Konto – sowie der Arbeitsbereich für Azure Machine Learning Studio (klassisch) und der Azure Stream Analytics-Auftrag, die später in diesem Tutorial hinzugefügt werden – alle in derselben Azure-Region befinden. Sie können die Regionsunterstützung für Azure Machine Learning Studio (klassisch) und andere Azure-Dienste auf der Seite [Verfügbare Produkte nach Region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all) überprüfen.
@@ -189,7 +189,7 @@ In diesem Abschnitt überprüfen Sie das Modell, richten einen Vorhersagewebdien
 
    ![Hinzufügen einer Ausgabe zum Stream Analytics-Auftrag in Azure](media/iot-hub-weather-forecast-machine-learning/add-output-stream-analytics-job.png)
 
-1. Wählen Sie **Speichern**.
+1. Klicken Sie auf **Speichern**.
 
 ### <a name="add-a-function-to-the-stream-analytics-job-to-call-the-web-service-you-deployed"></a>Hinzufügen einer Funktion zum Stream Analytics-Auftrag, um den von Ihnen bereitgestellten Webdienst aufzurufen
 
@@ -215,7 +215,7 @@ In diesem Abschnitt überprüfen Sie das Modell, richten einen Vorhersagewebdien
    WITH machinelearning AS (
       SELECT EventEnqueuedUtcTime, temperature, humidity, machinelearning(temperature, humidity) as result from [YourInputAlias]
    )
-   Select System.Timestamp time, CAST (result.[temperature] AS FLOAT) AS temperature, CAST (result.[humidity] AS FLOAT) AS humidity, CAST (result.[scored probabilities] AS FLOAT ) AS 'probabalities of rain'
+   Select System.Timestamp time, CAST (result.[temperature] AS FLOAT) AS temperature, CAST (result.[humidity] AS FLOAT) AS humidity, CAST (result.[scored probabilities] AS FLOAT ) AS 'probabalities of rain'
    Into [YourOutputAlias]
    From machinelearning
    ```

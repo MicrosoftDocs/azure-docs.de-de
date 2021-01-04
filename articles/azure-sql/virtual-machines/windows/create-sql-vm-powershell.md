@@ -8,6 +8,7 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: 98d50dd8-48ad-444f-9031-5378d8270d7b
 ms.service: virtual-machines-sql
+ms.subservice: deployment
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -15,12 +16,12 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bb3fd9136f78a332a22f973d211dec748c4fb260
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3f51a07b274320d1cd9f12b33703d8ec7f21f49
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317071"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359658"
 ---
 # <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>Bereitstellen von SQL Server auf virtuellen Azure-Computern mit Azure PowerShell
 
@@ -143,7 +144,7 @@ Definieren Sie mithilfe der folgenden Variablen das SQL Server-Image, das für d
 
 ## <a name="create-a-resource-group"></a>Erstellen einer Ressourcengruppe
 
-Bei Verwendung des Resource Manager-Bereitstellungsmodells wird als erstes Objekt die Ressourcengruppe erstellt. Verwenden Sie das Cmdlet [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup), um eine Azure-Ressourcengruppe und die zugehörigen Ressourcen zu erstellen. Geben Sie die zuvor initialisierten Variablen für den Namen der Ressourcengruppe und den Speicherort an.
+Bei Verwendung des Resource Manager-Bereitstellungsmodells wird als erstes Objekt die Ressourcengruppe erstellt. Verwenden Sie das Cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup), um eine Azure-Ressourcengruppe und die zugehörigen Ressourcen zu erstellen. Geben Sie die zuvor initialisierten Variablen für den Namen der Ressourcengruppe und den Speicherort an.
 
 Führen Sie dieses Cmdlet aus, um Ihre neue Ressourcengruppe zu erstellen.
 
@@ -153,7 +154,7 @@ New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 
 ## <a name="create-a-storage-account"></a>Speicherkonto erstellen
 
-Der virtuelle Computer benötigt Speicherressourcen für den Betriebssystemdatenträger sowie für die SQL Server-Daten und -Protokolldateien. Der Einfachheit halber erstellen Sie für beides einen einzelnen Datenträger. Zusätzliche Datenträger können später mithilfe des Cmdlets [Add-Azure Disk](/powershell/module/servicemanagement/azure.service/add-azuredisk) angefügt werden, um Ihre SQL Server-Daten und -Protokolldateien auf dedizierten Datenträgern zu platzieren. Erstellen Sie mit dem Cmdlet [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) ein Standardspeicherkonto in der neuen Ressourcengruppe. Geben Sie die zuvor initialisierten Variablen für den Namen des Speicherkontos, den Namen der Speicher-SKU und den Speicherort an.
+Der virtuelle Computer benötigt Speicherressourcen für den Betriebssystemdatenträger sowie für die SQL Server-Daten und -Protokolldateien. Der Einfachheit halber erstellen Sie für beides einen einzelnen Datenträger. Zusätzliche Datenträger können später mithilfe des Cmdlets [Add-Azure Disk](/powershell/module/servicemanagement/azure.service/add-azuredisk) angefügt werden, um Ihre SQL Server-Daten und -Protokolldateien auf dedizierten Datenträgern zu platzieren. Erstellen Sie mit dem Cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) ein Standardspeicherkonto in der neuen Ressourcengruppe. Geben Sie die zuvor initialisierten Variablen für den Namen des Speicherkontos, den Namen der Speicher-SKU und den Speicherort an.
 
 Führen Sie dieses Cmdlet aus, um Ihr neues Speicherkonto zu erstellen.
 
@@ -176,7 +177,7 @@ Der virtuelle Computer benötigt für die Netzwerkkonnektivität eine Reihe von 
 
 ### <a name="create-a-virtual-network-subnet-configuration"></a>Erstellen einer Subnetzkonfiguration für ein virtuelles Netzwerk
 
-Erstellen Sie zunächst eine Subnetzkonfiguration für das virtuelle Netzwerk. Erstellen Sie für dieses Tutorial mithilfe des Cmdlets [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) ein Standardsubnetz. Geben Sie die zuvor initialisierten Variablen für den Subnetznamen und das Adresspräfix an.
+Erstellen Sie zunächst eine Subnetzkonfiguration für das virtuelle Netzwerk. Erstellen Sie für dieses Tutorial mithilfe des Cmdlets [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) ein Standardsubnetz. Geben Sie die zuvor initialisierten Variablen für den Subnetznamen und das Adresspräfix an.
 
 > [!NOTE]
 > Mit dem Cmdlet können auch weitere Eigenschaften der Subnetzkonfiguration für das virtuelle Netzwerk definiert werden. Darauf wird in diesem Tutorial jedoch nicht weiter eingegangen.
@@ -189,7 +190,7 @@ $SubnetConfig = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefi
 
 ### <a name="create-a-virtual-network"></a>Erstellen eines virtuellen Netzwerks
 
-Erstellen Sie als Nächstes mithilfe des Cmdlets [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) Ihr virtuelles Netzwerk in der neuen Ressourcengruppe. Geben Sie die zuvor initialisierten Variablen für Name, Speicherort und Adresspräfix an. Verwenden Sie die Sie im vorherigen Schritt definierten Subnetzkonfiguration.
+Erstellen Sie als Nächstes mithilfe des Cmdlets [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) Ihr virtuelles Netzwerk in der neuen Ressourcengruppe. Geben Sie die zuvor initialisierten Variablen für Name, Speicherort und Adresspräfix an. Verwenden Sie die Sie im vorherigen Schritt definierten Subnetzkonfiguration.
 
 Führen Sie dieses Cmdlet aus, um Ihr virtuelles Netzwerk zu erstellen.
 
@@ -201,7 +202,7 @@ $VNet = New-AzVirtualNetwork -Name $VNetName `
 
 ### <a name="create-the-public-ip-address"></a>Erstellen der öffentlichen IP-Adresse
 
-Nachdem Ihre virtuelles Netzwerk jetzt definiert ist, müssen sie eine IP-Adresse für die Verbindung mit dem virtuellen Computer konfigurieren. Für dieses Tutorial erstellen Sie eine öffentliche IP-Adresse mit dynamischer IP-Adressierung, um Internetverbindungen zu unterstützen. Erstellen Sie mit dem Cmdlet [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) die öffentliche IP-Adresse in der neuen Ressourcengruppe. Geben Sie die zuvor initialisierten Variablen für Name, Speicherort, Zuordnungsmethode und DNS-Domänennamensbezeichnung an.
+Nachdem Ihre virtuelles Netzwerk jetzt definiert ist, müssen sie eine IP-Adresse für die Verbindung mit dem virtuellen Computer konfigurieren. Für dieses Tutorial erstellen Sie eine öffentliche IP-Adresse mit dynamischer IP-Adressierung, um Internetverbindungen zu unterstützen. Erstellen Sie mit dem Cmdlet [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) die öffentliche IP-Adresse in der neuen Ressourcengruppe. Geben Sie die zuvor initialisierten Variablen für Name, Speicherort, Zuordnungsmethode und DNS-Domänennamensbezeichnung an.
 
 > [!NOTE]
 > Mit dem Cmdlet können auch weitere Eigenschaften der öffentlichen IP-Adresse definiert werden. Darauf wird in diesem Einstiegstutorial jedoch nicht weiter eingegangen. Sie können auch eine private Adresse oder eine Adresse mit einer statischen Adresse erstellen, aber auch das wird in diesem Tutorial nicht behandelt.
@@ -243,7 +244,7 @@ Erstellen Sie eine Netzwerksicherheitsgruppe, um den Datenverkehr von virtuellem
 
 ### <a name="create-the-network-interface"></a>Erstellen der Netzwerkschnittstelle
 
-Nun können Sie die Netzwerkschnittstelle für Ihren virtuellen Computer erstellen. Erstellen Sie mit dem Cmdlet [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) die Netzwerkschnittstelle in Ihrer neuen Ressourcengruppe. Geben Sie den Namen, Speicherort, das Subnetz und die öffentliche IP-Adresse an, die zuvor Sie definiert haben.
+Nun können Sie die Netzwerkschnittstelle für Ihren virtuellen Computer erstellen. Erstellen Sie mit dem Cmdlet [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) die Netzwerkschnittstelle in Ihrer neuen Ressourcengruppe. Geben Sie den Namen, Speicherort, das Subnetz und die öffentliche IP-Adresse an, die zuvor Sie definiert haben.
 
 Führen Sie dieses Cmdlet aus, um Ihre Netzwerkschnittstelle zu erstellen.
 
@@ -265,7 +266,7 @@ Nachdem die Speicher- und Netzwerkressourcen jetzt definiert sind, können Sie C
 
 ### <a name="create-the-vm-object"></a>Erstellen des VM-Objekts
 
-Legen Sie zunächst die Größe des virtuellen Computers fest. Geben Sie für dieses Tutorial DS13 an. Erstellen Sie mit dem Cmdlet [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) ein konfigurierbares VM-Objekt. Geben Sie die zuvor initialisierten Variablen für Name und Größe an.
+Legen Sie zunächst die Größe des virtuellen Computers fest. Geben Sie für dieses Tutorial DS13 an. Erstellen Sie mit dem Cmdlet [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) ein konfigurierbares VM-Objekt. Geben Sie die zuvor initialisierten Variablen für Name und Größe an.
 
 Führen Sie dieses Cmdlet aus, um das VM-Objekt zu erstellen.
 
@@ -275,7 +276,7 @@ $VirtualMachine = New-AzVMConfig -VMName $VMName -VMSize $VMSize
 
 ### <a name="create-a-credential-object-to-hold-the-name-and-password-for-the-local-administrator-credentials"></a>Erstellen eines Anmeldeinformationsobjekts zum Speichern von Name und Kennwort für die lokalen Administratoranmeldeinformationen
 
-Bevor Sie die Betriebssystemeigenschaften für den virtuellen Computer festlegen können, müssen Sie die Anmeldeinformationen für das lokale Administratorkonto als sichere Zeichenfolge angeben. Verwenden Sie hierzu das Cmdlet [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx).
+Bevor Sie die Betriebssystemeigenschaften für den virtuellen Computer festlegen können, müssen Sie die Anmeldeinformationen für das lokale Administratorkonto als sichere Zeichenfolge angeben. Verwenden Sie hierzu das Cmdlet [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential).
 
 Führen Sie das folgende Cmdlet aus. Sie müssen den Namen und das Kennwort des lokalen Administrators der VM im PowerShell-Anforderungsfenster für Anmeldeinformationen eingeben.
 
@@ -285,7 +286,7 @@ $Credential = Get-Credential -Message "Type the name and password of the local a
 
 ### <a name="set-the-operating-system-properties-for-the-virtual-machine"></a>Festlegen der Betriebssystemeigenschaften für den virtuellen Computer
 
-Nun können Sie die Betriebssystemeigenschaften des virtuellen Computers mit dem Cmdlet [Set-AzVMOperatingSystem](https://docs.microsoft.com/powershell/module/az.compute/set-azvmoperatingsystem) festlegen.
+Nun können Sie die Betriebssystemeigenschaften des virtuellen Computers mit dem Cmdlet [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) festlegen.
 
 - Legen Sie „Windows“ als Art des Betriebssystems fest.
 - Legen Sie fest, dass der [Agent für virtuelle Computer](../../../virtual-machines/extensions/agent-windows.md) installiert werden muss.
@@ -302,7 +303,7 @@ $VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine `
 
 ### <a name="add-the-network-interface-to-the-virtual-machine"></a>Hinzufügen der Netzwerkschnittstelle zum virtuellen Computer
 
-Verwenden Sie dann das Cmdlet [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface), um die Netzwerkschnittstelle mit der zuvor definierten Variable hinzuzufügen.
+Verwenden Sie dann das Cmdlet [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface), um die Netzwerkschnittstelle mit der zuvor definierten Variable hinzuzufügen.
 
 Führen Sie dieses Cmdlet aus, um die Netzwerkschnittstelle für Ihren virtuellen Computer festzulegen.
 
@@ -322,7 +323,7 @@ $OSDiskUri = $StorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $OSDis
 
 ### <a name="set-the-operating-system-disk-properties-for-the-virtual-machine"></a>Festlegen der Eigenschaften des Betriebssystemdatenträgers für den virtuellen Computer
 
-Legen Sie als Nächstes mit dem Cmdlet [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk) die Eigenschaften des Betriebssystemdatenträgers für den virtuellen Computer fest. 
+Legen Sie als Nächstes mit dem Cmdlet [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) die Eigenschaften des Betriebssystemdatenträgers für den virtuellen Computer fest. 
 
 - Geben Sie an, dass das Betriebssystem für den virtuellen Computer auf einem Image basiert.
 - Legen Sie eine schreibgeschützte Zwischenspeicherung fest (da SQL Server auf dem selben Datenträger installiert wird).
@@ -337,7 +338,7 @@ $VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name `
 
 ### <a name="specify-the-platform-image-for-the-virtual-machine"></a>Angeben des Plattformimage für den virtuellen Computer
 
-Im letzten Konfigurationsschritt wird das Plattformimage für den virtuellen Computer angegeben. Für dieses Tutorial verwenden Sie das aktuelle SQL Server 2016 CTP-Image. Verwenden Sie das Cmdlet [Set-AzVMSourceImage](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsourceimage), um dieses Image mit den zuvor definierten Variablen zu verwenden.
+Im letzten Konfigurationsschritt wird das Plattformimage für den virtuellen Computer angegeben. Für dieses Tutorial verwenden Sie das aktuelle SQL Server 2016 CTP-Image. Verwenden Sie das Cmdlet [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage), um dieses Image mit den zuvor definierten Variablen zu verwenden.
 
 Führen Sie dieses Cmdlet aus, um das Plattformimage für Ihren virtuellen Computer festzulegen.
 
@@ -349,7 +350,7 @@ $VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine `
 
 ## <a name="create-the-sql-vm"></a>Erstellen des virtuellen SQL-Computers
 
-Nach Abschluss der Konfigurationsschritte können Sie den virtuellen Computer nun erstellen. Verwenden Sie das Cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm), um den virtuellen Computer mithilfe der zuvor definierten Variablen zu erstellen.
+Nach Abschluss der Konfigurationsschritte können Sie den virtuellen Computer nun erstellen. Verwenden Sie das Cmdlet [New-AzVM](/powershell/module/az.compute/new-azvm), um den virtuellen Computer mithilfe der zuvor definierten Variablen zu erstellen.
 
 > [!TIP]
 > Das Erstellen des virtuellen Computers kann einige Minuten dauern.
@@ -367,12 +368,17 @@ Der virtuelle Computer wird erstellt.
 
 ## <a name="install-the-sql-iaas-agent"></a>Installieren des SQL-IaaS-Agents
 
-SQL Server-VMs unterstützen mit der [Erweiterung für SQL Server-IaaS-Agent](sql-server-iaas-agent-extension-automate-management.md) automatische Verwaltungsfunktionen. Um den Agent auf der neuen VM zu installieren und beim Ressourcenanbieter zu registrieren, führen Sie den Befehl [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) aus, nachdem der virtuelle Computer erstellt wurde. Geben Sie den Lizenztyp für Ihre SQL Server-VM an, und wählen Sie über den [Azure-Hybridvorteil](https://azure.microsoft.com/pricing/hybrid-benefit/) eine Lizenz mit nutzungsbasierter Bezahlung oder eine BYOL-Lizenz (Bring Your Own License) aus. Weitere Informationen zur Lizenzierung finden Sie unter [Lizenzierungsmodell](licensing-model-azure-hybrid-benefit-ahb-change.md). 
+SQL Server-VMs unterstützen mit der [Erweiterung für SQL Server-IaaS-Agent](sql-server-iaas-agent-extension-automate-management.md) automatische Verwaltungsfunktionen. Führen Sie nach der Erstellung des virtuellen Computers den Befehl [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) aus, um Ihre SQL Server-VM mit der Erweiterung zu registrieren. Geben Sie den Lizenztyp für Ihre SQL Server-VM an, und wählen Sie über den [Azure-Hybridvorteil](https://azure.microsoft.com/pricing/hybrid-benefit/) eine Lizenz mit nutzungsbasierter Bezahlung oder eine BYOL-Lizenz (Bring Your Own License) aus. Weitere Informationen zur Lizenzierung finden Sie unter [Lizenzierungsmodell](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
 
    ```powershell
    New-AzSqlVM -ResourceGroupName $ResourceGroupName -Name $VMName -Location $Location -LicenseType <PAYG/AHUB> 
    ```
+
+Es gibt drei Möglichkeiten, VMs mit der Erweiterung zu registrieren: 
+- [Automatisch für alle aktuellen und zukünftigen VMs in einem Abonnement](sql-agent-extension-automatic-registration-all-vms.md)
+- [Manuell für eine einzelne VM](sql-agent-extension-manually-register-single-vm.md)
+- [Manuell für mehrere VMs in einem Massenvorgang](sql-agent-extension-manually-register-vms-bulk.md)
 
 
 ## <a name="stop-or-remove-a-vm"></a>Beenden oder Entfernen eines virtuellen Computers

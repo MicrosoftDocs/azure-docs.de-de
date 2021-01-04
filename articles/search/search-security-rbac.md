@@ -1,26 +1,26 @@
 ---
 title: Festlegen von Azure-Rollen für den Azure-Administratorzugriff
 titleSuffix: Azure Cognitive Search
-description: Rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC) im Azure-Portal zum Steuern und Delegieren von administrativen Aufgaben für die Verwaltung von Azure Cognitive Search.
+description: Rollenbasierte Zugriffssteuerung in Azure (Azure Role-Based Access Control, Azure RBAC) im Azure-Portal zum Steuern und Delegieren von administrativen Aufgaben für die Verwaltung von Azure Cognitive Search.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.openlocfilehash: 2f9f979e5871a4888978ff14362a7fb0082917d5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ee122727100ec0abad0dfe93b9e5f1be0276cb8e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151204"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519498"
 ---
 # <a name="set-azure-roles-for-administrative-access-to-azure-cognitive-search"></a>Festlegen von Azure-Rollen für den Administratorzugriff auf Azure Cognitive Search
 
 In Azure wird ein [globales Modell für die rollenbasierte Autorisierung](../role-based-access-control/role-assignments-portal.md) für alle Dienste bereitgestellt, die über das Portal oder mit Resource Manager-APIs verwaltet werden. Die Rollen „Besitzer“, „Mitwirkender“ und „Leser“ bestimmen die Ebene der *Dienstverwaltung* für Active Directory-Benutzer, -Gruppen und -Dienstprinzipale, die einer Rolle jeweils zugewiesen sind. 
 
 > [!Note]
-> Zum Sichern von Inhalten im Dienst gibt es keine rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC). Sie müssen entweder einen Administrator-API-Schlüssel oder einen Abfrage-API-Schlüssel für authentifizierte Anforderungen an den Dienst selbst verwenden. Für den identitätsbasierten Zugriff über Suchergebnisse können Sie Sicherheitsfilter erstellen, um die Ergebnisse anhand der Identität einzugrenzen. Auf diese Weise werden Dokumente entfernt, auf die der Anforderer keinen Zugriff haben sollte. Weitere Informationen finden Sie unter [Sicherheitsfilter](search-security-trimming-for-azure-search.md).
+> Zum Sichern von Inhalten im Dienst gibt es keine rollenbasierte Zugriffssteuerung in Azure. Sie müssen entweder einen Administrator-API-Schlüssel oder einen Abfrage-API-Schlüssel für authentifizierte Anforderungen an den Dienst selbst verwenden. Für den identitätsbasierten Zugriff über Suchergebnisse können Sie Sicherheitsfilter erstellen, um die Ergebnisse anhand der Identität einzugrenzen. Auf diese Weise werden Dokumente entfernt, auf die der Anforderer keinen Zugriff haben sollte. Weitere Informationen finden Sie unter [Sicherheitsfilter](search-security-trimming-for-azure-search.md).
 
 ## <a name="management-tasks-by-role"></a>Verwaltungsaufgaben nach Rolle
 
@@ -38,22 +38,22 @@ Rollen erteilen keine Zugriffsrechte für den Dienstendpunkt. Suchdienstoperatio
 
 Die folgende Tabelle enthält eine Zusammenfassung der in der kognitiven Azure-Suche zulässigen Vorgänge sowie Informationen dazu, welcher Schlüssel für den jeweiligen Vorgang erforderlich ist.
 
-RBAC-Berechtigungen gelten für Portalvorgänge und die Dienstverwaltung (Erstellen, Löschen oder Ändern eines Diensts oder der zugehörigen API-Schlüssel). API-Schlüssel werden erstellt, wenn der Dienst bereits vorhanden ist, und gelten für Inhaltsvorgänge im Dienst. Darüber hinaus interagiert ein RBAC-Besitzer oder -Mitwirkender bei inhaltsbezogenen Vorgängen im Portal (z. B. beim Erstellen oder Löschen von Objekten) über einen impliziten Administrator-API-Schlüssel mit dem Dienst.
+Azure RBAC-Berechtigungen gelten für Portalvorgänge und die Dienstverwaltung (Erstellen, Löschen oder Ändern eines Diensts oder der zugehörigen API-Schlüssel). API-Schlüssel werden erstellt, wenn der Dienst bereits vorhanden ist, und gelten für Inhaltsvorgänge im Dienst. Darüber hinaus interagiert ein Azure RBAC-Besitzer oder -Mitwirkender bei inhaltsbezogenen Vorgängen im Portal (z. B. beim Erstellen oder Löschen von Objekten) über einen impliziten Administrator-API-Schlüssel mit dem Dienst.
 
 | Vorgang | Gesteuert von |
 |-----------|-------------------------|
-| Erstellen von Diensten | RBAC-Berechtigungen: „Besitzer“ oder „Mitwirkender“ |
-| Skalieren von Diensten | RBAC-Berechtigungen: „Besitzer“ oder „Mitwirkender“|
-| Löschen von Diensten | RBAC-Berechtigungen: „Besitzer“ oder „Mitwirkender“ |
-| Verwalten von Administrator- oder Abfrageschlüsseln | RBAC-Berechtigungen: „Besitzer“ oder „Mitwirkender“|
-| Anzeigen von Dienstinformationen im Portal oder einer Verwaltungs-API | RBAC-Berechtigungen: „Besitzer“, „Mitwirkender“ oder „Leser“  |
-| Anzeigen von Objektinformationen und Metriken im Portal oder einer Verwaltungs-API | RBAC-Berechtigungen: „Besitzer“ oder „Mitwirkender“ |
-| Erstellen/Ändern/Löschen von Objekten für den Dienst: <br>Indizes und Komponententeile (einschließlich Analysedefinitionen, Bewertungsprofile und CORS-Optionen), Indexer, Datenquellen, Synonyme und Vorschläge | Administratorschlüssel bei Verwendung einer API, „RBAC-Besitzer“ oder „RBAC-Mitwirkender“ bei Verwendung des Portals |
-| Abfragen von Indizes | Administrator- oder Abfrageschlüssel bei Verwendung einer API, „RBAC-Besitzer“ oder „RBAC-Mitwirkender“ bei Verwendung des Portals |
-| Abfragen von Systeminformationen zu Objekten, beispielsweise zum Zurückgeben von Statistiken, Zählungen und Objektlisten | Administratorschlüssel bei Verwendung einer API, „RBAC-Besitzer“ oder „RBAC-Mitwirkender“ bei Verwendung des Portals |
+| Erstellen von Diensten | Azure RBAC-Berechtigungen: „Besitzer“ oder „Mitwirkender“ |
+| Skalieren von Diensten | Azure RBAC-Berechtigungen: „Besitzer“ oder „Mitwirkender“|
+| Löschen von Diensten | Azure RBAC-Berechtigungen: „Besitzer“ oder „Mitwirkender“ |
+| Verwalten von Administrator- oder Abfrageschlüsseln | Azure RBAC-Berechtigungen: „Besitzer“ oder „Mitwirkender“|
+| Anzeigen von Dienstinformationen im Portal oder einer Verwaltungs-API | Azure RBAC-Berechtigungen: „Besitzer“, „Mitwirkender“ oder „Leser“  |
+| Anzeigen von Objektinformationen und Metriken im Portal oder einer Verwaltungs-API | Azure RBAC-Berechtigungen: „Besitzer“ oder „Mitwirkender“ |
+| Erstellen/Ändern/Löschen von Objekten für den Dienst: <br>Indizes und Komponententeile (einschließlich Analysedefinitionen, Bewertungsprofile und CORS-Optionen), Indexer, Datenquellen, Synonyme und Vorschläge | Administratorschlüssel bei Verwendung einer API, „Azure RBAC-Besitzer“ oder „Azure RBAC-Mitwirkender“ bei Verwendung des Portals |
+| Abfragen von Indizes | Administrator- oder Abfrageschlüssel bei Verwendung einer API, „Azure RBAC-Besitzer“ oder „Azure RBAC-Mitwirkender“ bei Verwendung des Portals |
+| Abfragen von Systeminformationen zu Objekten, beispielsweise zum Zurückgeben von Statistiken, Zählungen und Objektlisten | Administratorschlüssel bei Verwendung einer API, „Azure RBAC-Besitzer“ oder „Azure RBAC-Mitwirkender“ bei Verwendung des Portals |
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 + [Verwalten mit PowerShell](search-manage-powershell.md) 
 + [Leistung und Optimierung in der kognitiven Azure-Suche](search-performance-optimization.md)
-+ [Erste Schritte mit der rollenbasierten Zugriffssteuerung im Azure-Portal](../role-based-access-control/overview.md)
++ [Was ist die rollenbasierte Zugriffssteuerung in Azure (Azure Role-Based Access Control, Azure RBAC)?](../role-based-access-control/overview.md)

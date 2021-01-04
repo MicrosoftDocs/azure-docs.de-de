@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 71629ebf1397c00face500f0bfd9c8e92deacc5e
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5d27a09f0ff38ec7422636ef0933552aa310c387
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173060"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911765"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Beschreiben eines Service Fabric-Clusters in Azure mithilfe des Clusterressourcen-Managers
 
@@ -47,9 +47,7 @@ In der Azure-Umgebung nutzt Service Fabric die von der Umgebung bereitgestellten
 
 In der Grafik unten sind alle Entitäten farbig markiert, die die Struktur von Fehlerdomänen beeinflussen, und alle unterschiedlichen Fehlerdomänen aufgeführt, die sich ergeben. Dieses Beispiel enthält Datencenter („DC“), Racks („R“) und Blades („B“). Wenn jedes Blade mehrere virtuelle Computer enthält, kann die Fehlerdomänenhierarchie eine weitere Ebene umfassen.
 
-<center>
 ![Mithilfe von Fehlerdomänen strukturierte Knoten][Image1]
-</center>
 
 Zur Laufzeit berücksichtigt der Clusterressourcen-Manager von Service Fabric die Fehlerdomänen im Cluster und plant Layouts. Die zustandsbehafteten Replikate oder zustandslosen Instanzen für einen Dienst werden so verteilt, dass sie sich in separaten Fehlerdomänen befinden. Das Verteilen des Diensts in mehreren Fehlerdomänen stellt sicher, dass seine Verfügbarkeit nicht beeinträchtigt wird, wenn eine Fehlerdomäne auf einer beliebigen Ebene der Hierarchie ausfällt.
 
@@ -62,9 +60,7 @@ Es empfiehlt sich, dass jede Ebene der Fehlerdomänenhierarchie die gleiche Anza
 
 Wie sehen nicht ausgeglichene Domänen aus? Im folgenden Diagramm werden zwei verschiedene Clusterlayouts abgebildet. Im ersten Beispiel werden die Knoten gleichmäßig auf die Fehlerdomänen verteilt. Im zweiten Beispiel verfügt eine Fehlerdomäne über mehr Knoten als die anderen Fehlerdomänen.
 
-<center>
 ![Zwei unterschiedliche Clusterlayouts][Image2]
-</center>
 
 In Azure wird die Zuordnung eines Knotens zu einer bestimmten Fehlerdomäne automatisch vorgenommen. Je nach der Anzahl der Knoten, die Sie bereitstellen, kann es aber dennoch dazu kommen, dass einige Fehlerdomänen mehr Knoten als andere enthalten.
 
@@ -78,9 +74,7 @@ Upgradedomänen sind mit Fehlerdomänen vergleichbar. Es gibt jedoch einige wich
 
 Das folgende Diagramm zeigt drei Upgradedomänen, die auf drei Fehlerdomänen verteilt sind. Außerdem ist eine mögliche Platzierung für drei unterschiedliche Replikate eines zustandsbehafteten Diensts dargestellt, die jeweils in unterschiedlichen Fehler- und Upgradedomänen angeordnet werden. Bei dieser Platzierung ist selbst bei einem Ausfall einer Fehlerdomäne während eines Dienstupgrades eine Kopie des Codes und der Daten vorhanden.  
 
-<center>
 ![Platzierung mit Fehler- und Upgradedomänen][Image3]
-</center>
 
 Die Verwendung einer größeren Anzahl von Upgradedomänen hat Vor- und Nachteile. Mit einer größeren Anzahl von Upgradedomänen wird jeder Schritt des Upgrades präziser und wirkt sich daher auf eine kleinere Anzahl von Knoten oder Diensten aus. Da weniger Dienste auf einmal verschoben werden müssen, sind weniger Systemänderungen erforderlich. Dies bewirkt meist eine Verbesserung der Zuverlässigkeit, da ein kleinerer Bereich des Diensts von Problemen betroffen ist, die während des Upgrades auftreten. Eine höhere Anzahl von Upgradedomänen bedeutet auch, dass Sie einen geringeren verfügbaren Puffer auf anderen Knoten vorhalten müssen, um die Auswirkungen des Upgrades verarbeiten zu können.
 
@@ -98,9 +92,7 @@ Es gibt keine tatsächliche Beschränkung bei der Gesamtanzahl der Fehler- oder 
 * Eine Upgradedomäne pro Knoten (physische oder virtuelle Betriebssysteminstanz)
 * Ein „Stripeset“- oder „Matrix“-Modell, bei dem die Fehler- und Upgradedomänen eine Matrix bilden, in der die Computer normalerweise entlang der Diagonalen angeordnet sind
 
-<center>
 ![Layouts von Fehler- und Upgradedomänen][Image4]
-</center>
 
 Es gibt keine allgemeingültige Empfehlung für die Auswahl des Layouts. Jede Möglichkeit hat ihre Vor- und Nachteile. Das 1FD:1U-Modell ist beispielsweise einfach einzurichten. Das Modell „Eine Upgradedomäne pro Knoten“ ist wahrscheinlich das gängigste Modell. Während eines Upgrades wird jeder Knoten unabhängig aktualisiert. Dies ähnelt früheren Situationen, in denen für kleine Gruppen von Computern manuell ein Upgrade ausgeführt wurde.
 
@@ -187,7 +179,7 @@ Der Clusterressourcen-Manager unterstützt für Fehler- und Upgradedomänen eine
 > [!NOTE]
 > Für einen zustandsbehafteten Dienst definieren wir den *Quorumsverlust* in einer Situation, wo der überwiegende Teil der Partitionsreplikate zur gleichen Zeit außer Betrieb ist. Wenn z. B. **TargetReplicaSetSize** fünf beträgt, stellt eine Gruppe mit drei Replikaten das Quorum dar. Wenn **TargetReplicaSetSize** sechs beträgt, sind dementsprechend vier Replikate für das Quorum erforderlich. In beiden Fällen können nicht mehr als zwei Replikate zur gleichen Zeit außer Betrieb sein, damit die Partition noch ordnungsgemäß funktioniert.
 >
-> Im Fall eines zustandslosen Diensts gibt es keinen *Quorumverlust* . Zustandslose Dienste werden auch dann weiterhin ordnungsgemäß ausgeführt, wenn mehr als die Hälfte der Instanzen gleichzeitig ausfällt. Darum konzentrieren wir uns im weiteren Verlauf des Artikels auf zustandsbehaftete Dienste.
+> Im Fall eines zustandslosen Diensts gibt es keinen *Quorumverlust*. Zustandslose Dienste werden auch dann weiterhin ordnungsgemäß ausgeführt, wenn mehr als die Hälfte der Instanzen gleichzeitig ausfällt. Darum konzentrieren wir uns im weiteren Verlauf des Artikels auf zustandsbehaftete Dienste.
 >
 
 Wir kehren zum vorherigen Beispiel zurück. Mit der „quorumsicheren“ Version der Einschränkung würden alle drei Layouts gültig sein. Selbst bei einem Ausfall von FD0 im zweiten Layout oder UD1 im dritten Layout würde die Partition noch über ein Quorum verfügen würde, und der überwiegende Teil der Replikate wäre noch funktionsfähig. Mit dieser Version der Einschränkung kann N6 fast immer genutzt werden.
@@ -359,9 +351,7 @@ In Service Fabric wird davon ausgegangen, dass Situationen eintreten, in denen b
 
 Service Fabric unterstützt diese Konfigurationen durch Tags, die Sie auf Knoten anwenden können. Diese Tags werden als *Knoteneigenschaften* bezeichnet. *Platzierungseinschränkungen* sind die Anweisungen, die an einzelne Dienste angefügt sind. Diese Anweisungen wählen Sie für mindestens eine Knoteneigenschaft aus. Platzierungseinschränkungen definieren, an welcher Stelle Dienste ausgeführt werden sollen. Die Einschränkungen sind erweiterbar. Dafür können beliebige Schlüssel-Wert-Paare verwendet werden.
 
-<center>
 ![Verschiedene Workloads für ein Clusterlayout][Image5]
-</center>
 
 ### <a name="built-in-node-properties"></a>Integrierte Knoteneigenschaften
 
@@ -369,9 +359,7 @@ In Service Fabric werden einige Standardknoteneigenschaften definiert, die autom
 
 Sie können beispielsweise folgende Platzierungseinschränkung schreiben: `"(NodeType == NodeType03)"`. **NodeType** ist eine häufig verwendete Eigenschaft. Sie ist hilfreich, da sie eindeutig dem Typ eines Computers entspricht. Jeder Computertyp wiederum entspricht einem Typ von Workload in einer herkömmlichen n-schichtigen Anwendung.
 
-<center>
 ![Platzierungseinschränkungen und Knoteneigenschaften][Image6]
-</center>
 
 ## <a name="placement-constraints-and-node-property-syntax"></a>Syntax von Platzierungseinschränkungen und Knoteneigenschaften
 
@@ -479,7 +467,7 @@ Zusätzlich sind Lastenausgleiche und Optimierungen erforderlich. Diese sind unv
 
 Service Fabric stellt Ressourcen als *Metriken* dar. Bei Metriken handelt es sich um alle logischen oder physischen Ressourcen, die Sie für Service Fabric beschreiben möchten. Beispiele für Metriken sind „WorkQueueDepth“ oder „MemoryInMb“. Informationen zu den physischen Ressourcen, die von Service Fabric auf Knoten verwaltet werden können, finden Sie unter [Ressourcenkontrolle](service-fabric-resource-governance.md). Informationen zu den Standardmetriken, die vom Clusterressourcen-Manager verwendet werden, sowie zum Konfigurieren von benutzerdefinierten Metriken finden Sie in [diesem Artikel](service-fabric-cluster-resource-manager-metrics.md).
 
-Metriken unterscheiden sich von Platzierungseinschränkungen und Knoteneigenschaften. Knoteneigenschaften sind statische Deskriptoren der Knoten. Metriken beschreiben die Ressourcen, über die Knoten verfügen und die von Diensten genutzt werden, wenn sie auf einem Knoten ausgeführt werden. Eine Knoteneigenschaft ist beispielsweise **HasSSD** . Diese kann auf „true“ oder „false“ festgelegt werden. Die Menge des verfügbaren Speicherplatzes auf dieser SSD und der von Diensten verwendete Speicher kann eine Metrik wie „DriveSpaceInMb“ sein.
+Metriken unterscheiden sich von Platzierungseinschränkungen und Knoteneigenschaften. Knoteneigenschaften sind statische Deskriptoren der Knoten. Metriken beschreiben die Ressourcen, über die Knoten verfügen und die von Diensten genutzt werden, wenn sie auf einem Knoten ausgeführt werden. Eine Knoteneigenschaft ist beispielsweise **HasSSD**. Diese kann auf „true“ oder „false“ festgelegt werden. Die Menge des verfügbaren Speicherplatzes auf dieser SSD und der von Diensten verwendete Speicher kann eine Metrik wie „DriveSpaceInMb“ sein.
 
 Der Clusterressourcen-Manager von Service Fabric kann die Namen von Metriken ebenso wenig interpretieren wie Platzierungseinschränkungen und Knoteneigenschaften. Bei Namen von Metriken handelt es sich lediglich um Zeichenfolgen. Falls die Gefahr von Mehrdeutigkeiten besteht, sollten Sie Einheiten als Teil der von Ihnen erstellten Metriknamen deklarieren.
 
@@ -491,9 +479,7 @@ Sowohl die Kapazität als auch der Verbrauch auf Dienstebene werden als Metrik a
 
 Während der Laufzeit verfolgt der Clusterressourcen-Manager die verbleibende Kapazität im Cluster und auf den Knoten nach. Dazu subtrahiert er den Verbrauch jedes Diensts von der Kapazität des Knotens, auf dem der Dienst ausgeführt wird. Mit diesen Informationen kann der Clusterressourcen-Manager ermitteln, wo Replikate platziert oder wohin diese verschoben werden sollen, um die Kapazität der Knoten nicht zu überschreiten.
 
-<center>
 ![Clusterknoten und -kapazität][Image7]
-</center>
 
 ```csharp
 StatefulServiceDescription serviceDescription = new StatefulServiceDescription();

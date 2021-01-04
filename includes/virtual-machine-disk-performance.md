@@ -8,40 +8,60 @@ ms.topic: include
 ms.date: 09/25/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 9f5a1010959658e75dcc809b2ee1d6d9222af056
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4770ac0181c64ef800aa02ba87284c8add357e36
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540003"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518058"
 ---
-Dieser Artikel hilft dabei, die Leistung von Datenträgern zu verdeutlichen und zu erläutern, wie sie damit umgeht, wenn Sie Azure Virtual Machines und Azure-Datenträger kombinieren. Es wird auch beschrieben, wie Sie Engpässe für Ihre Datenträger-E/A diagnostizieren können und welche Änderungen Sie zur Leistungsoptimierung vornehmen können.
+In diesem Artikel wird die Leistung von Datenträgern verdeutlicht und beschrieben, wie Sie Azure Virtual Machines und Azure-Datenträger kombinieren. Es wird auch beschrieben, wie Sie Engpässe für Ihre Datenträger-E/A diagnostizieren können und welche Änderungen Sie zur Leistungsoptimierung vornehmen können.
 
 ## <a name="how-does-disk-performance-work"></a>Wie funktioniert die Datenträgerleistung?
-Virtuelle Azure-Computer weisen Leistungsgrenzwerte für IOPS und Durchsatz auf, die auf dem Typ und der Größe des virtuellen Computers basieren. Betriebssystemdatenträger und Datenträger für Daten, die an virtuelle Computer angefügt werden können, weisen eigene Grenzwerte für IOPS und Durchsatz auf. Wenn die auf Ihren virtuellen Computern ausgeführte Anwendung mehr IOPS oder Durchsatz anfordert, als für den virtuellen Computer oder die angeschlossenen Datenträger vorgesehen ist, wird die Leistung Ihrer Anwendung begrenzt. In diesem Fall erreicht die Anwendung eine suboptimale Leistung, was zu einigen negativen Auswirkungen wie einer erhöhten Wartezeit führen kann. Lassen Sie uns einige Beispiele durchgehen, um dies zu verdeutlichen. Damit diese Beispiele leicht nachvollziehbar sind, betrachten wir nur die IOPS, aber dieselbe Logik gilt auch für den Durchsatz.
+Virtuelle Azure-Computer weisen Leistungsgrenzwerte für E/A-Vorgänge pro Sekunde (Disk Input/Output Operations per Second, IOPS) und Durchsatz auf, die auf dem Typ und der Größe des virtuellen Computers basieren. Betriebssystemdatenträger und reguläre Datenträger können an virtuelle Computer angefügt werden. Die Datenträger verfügen über eigene Grenzwerte für IOPS und Durchsatz.
+
+Die Leistung Ihrer Anwendung wird begrenzt, wenn sie eine höhere IOPS- oder Durchsatzmenge anfordert, als für die virtuellen Computer oder angefügten Datenträger zugeordnet ist. Bei einer Begrenzung ist die Leistung der Anwendung nicht optimal. Dies kann negative Auswirkungen haben, z. B. eine höhere Latenz. Wir gehen nun einige Beispiele durch, um dieses Konzept zu verdeutlichen. Es geht nur um IOPS, um die Beispiele einfach zu halten. Dieselbe Logik gilt aber auch für den Durchsatz.
 
 ## <a name="disk-io-capping"></a>Obergrenzen der Datenträger-E/A
-Einrichten:
-- Standard_D8s_v3 
-    - Nicht zwischengespeicherte IOPS: 12.800
+
+**Setup:**
+
+- Standard_D8s_v3
+  - Nicht zwischengespeicherte IOPS: 12.800
 - E30-Betriebssystemdatenträger
-    - IOPS: 500 
-- 2 E30-Datenträger für Daten
-    - IOPS: 500
+  - IOPS: 500
+- Zwei E30-Datenträger × 2
+  - IOPS: 500
 
-![Obergrenzen der Datenträgerebene](media/vm-disk-performance/disk-level-throttling.jpg)
+![Diagramm: Begrenzung für Datenträgerebene](media/vm-disk-performance/disk-level-throttling.jpg)
 
-Die auf dem virtuellen Computer ausgeführte Anwendung stellt eine Anforderung, die 10.000 IOPS an den virtuellen Computer erfordert. Alle sind gemäß des virtuellen Computers zulässig, da der virtuelle Computer vom Typ „Standard_D8s_v3“ bis zu 12.800 IOPS ausführen kann. Diese 10.000 IOPS-Anforderungen werden dann in drei verschiedene Anforderungen für die verschiedenen Datenträger unterteilt. 1\.000 IOPS werden für den Betriebssystemdatenträger und 4.500 IOPS für jeden Datenträger für Daten angefordert. Da alle angeschlossenen Datenträger den Typ „E30“ aufweisen und nur 500 IOPS verarbeiten können, antworten sie mit jeweils 500 IOPS. Die Leistung der Anwendung wird dann durch die angeschlossenen Datenträger begrenzt und kann nur 1.500 IOPs verarbeiten. Sie könnte mit einer Spitzenleistung von 10.000 IOPS arbeiten, wenn Datenträger mit besserer Leistung verwendet würden, z. B. Datenträger vom Typ „SSD Premium P30“.
+Die auf dem virtuellen Computer ausgeführte Anwendung stellt eine Anforderung, für die 10.000 IOPS für den virtuellen Computer erforderlich sind. Alle Vorgänge sind für den virtuellen Computer zulässig, da er den Typ „Standard_D8s_v3“ aufweist und bis zu 12.800 IOPS ausführen kann.
+
+Die 10.000 IOPS-Anforderungen werden in drei verschiedene Anforderungen für die verschiedenen Datenträger unterteilt:
+
+- 1\.000 IOPS werden vom Betriebssystemdatenträger angefordert.
+- 4\.500 IOPS werden von jedem regulären Datenträger angefordert.
+
+Bei allen angefügten Datenträgern handelt es sich um E30-Datenträger, die nur 500 IOPS verarbeiten können. Sie antworten daher jeweils mit 500 IOPS. Die Leistung der Anwendung wird durch die angeschlossenen Datenträger begrenzt, und es können nur 1.500 IOPS verarbeitet werden. Für die Anwendung können bei höchster Leistung 10.000 IOPS erzielt werden, wenn leistungsstärkere Datenträger verwendet werden, z. B. P30-Datenträger vom Typ „SSD Premium“.
 
 ## <a name="virtual-machine-io-capping"></a>Obergrenzen der E/A der virtuellen Computer
-Einrichten:
-- Standard_D8s_v3 
-    - Nicht zwischengespeicherte IOPS: 12.800
+
+**Setup:**
+
+- Standard_D8s_v3
+  - Nicht zwischengespeicherte IOPS: 12.800
 - P30-Betriebssystemdatenträger
-    - IOPS: 5.000 
-- 2 P30-Datenträger für Daten 
-    - IOPS: 5.000
+  - IOPS: 5.000
+- Zwei P30-Datenträger × 2
+  - IOPS: 5.000
 
-![Obergrenzen der VM-Ebene](media/vm-disk-performance/vm-level-throttling.jpg)
+![Diagramm: Obergrenzen der VM-Ebene](media/vm-disk-performance/vm-level-throttling.jpg)
 
-Die auf dem virtuellen Computer ausgeführte Anwendung stellt eine Anforderung, die 15.000 IOPS erfordert. Leider ist der virtuelle Computer vom Typ „Standard_D8s_v3“ nur für die Verarbeitung von 12.800 IOPs vorgesehen. Davon ausgehend wird die Anwendung durch die Grenzwerte der virtuellen Computer begrenzt und muss dann die zugeteilten 12.800 IOPs zuweisen. Diese angeforderten 12.800 IOPS werden dann in drei verschiedene Anforderungen für die verschiedenen Datenträger unterteilt. 4\.267 IOPS werden für den Betriebssystemdatenträger und 4.266 IOPS für jeden Datenträger für Daten angefordert. Da es sich bei allen angeschlossenen Datenträgern um P30-Datenträger handelt, die 5.000 IOPS verarbeiten können, antworten sie mit ihren angeforderten Mengen.
+Die auf dem virtuellen Computer ausgeführte Anwendung sendet eine Anforderung, für die 15.000 IOPS erforderlich sind. Leider ist der virtuelle Computer vom Typ „Standard_D8s_v3“ nur für die Verarbeitung von 12.800 IOPS vorgesehen. Die Anwendung ist durch die VM-Grenzwerte begrenzt und muss die zugeteilten 12.800 IOPS zuordnen.
+
+Diese angeforderten 12.800 IOPS werden in drei verschiedene Anforderungen für die verschiedenen Datenträger unterteilt:
+
+- 4\.267 IOPS werden vom Betriebssystemdatenträger angefordert.
+- 4\.266 IOPS werden von jedem regulären Datenträger angefordert.
+
+Bei allen angefügten Datenträgern handelt es sich um P30-Datenträger, die 5.000 IOPS verarbeiten können. Sie antworten also mit den angeforderten Mengen.

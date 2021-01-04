@@ -4,18 +4,18 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: d6bad1ec584b28fee77bc654eba8a2d0c7b5df30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f1c30b303bd1fe02e0685c7d848be92073ca2f6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67178154"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016867"
 ---
 #### <a name="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service"></a>So fügen Sie Anmeldeinformationen für ein Speicherkonto hinzu, das zum gleichen Azure-Abonnement wie der StorSimple-Geräte-Manager-Dienst gehört
 
 1. Wechseln Sie zu Ihrem StorSimple-Geräte-Manager-Dienst. Klicken Sie im Abschnitt **Konfiguration** auf **Anmeldeinformationen des Speicherkontos**.
 
-    ![Anmeldeinformationen des Speicherkontos](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct1.png)
+    ![Navigieren zu den Anmeldeinformationen von Speicherkonten](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct1.png)
 
 2. Klicken Sie auf dem Blatt **Anmeldeinformationen des Speicherkontos** auf **+ Hinzufügen**.
 
@@ -39,5 +39,5 @@ ms.locfileid: "67178154"
 
 Die neu erstellten Anmeldeinformationen des Speicherkontos werden unter der Liste der **Anmeldeinformationen für Speicherkonten** angezeigt.
 
-![Liste der Anmeldeinformationen für Speicherkonten](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct6.png)
+![Auflisten der Anmeldeinformationen für Speicherkonten](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct6.png)
 

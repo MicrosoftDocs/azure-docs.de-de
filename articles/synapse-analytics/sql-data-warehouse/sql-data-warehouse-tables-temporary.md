@@ -1,6 +1,6 @@
 ---
 title: Temporäre Tabellen
-description: Wichtige Anleitungen zur Verwendung von temporären Tabellen in einem Synapse SQL-Pool mit besonderem Fokus auf den Grundsätzen von temporären Tabellen auf Sitzungsebene.
+description: Wichtige Anleitungen zur Verwendung von temporären Tabellen in einem dedizierten SQL-Pool mit besonderem Fokus auf den Grundsätzen von temporären Tabellen auf Sitzungsebene.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,30 +10,32 @@ ms.subservice: sql-dw
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 61cc351470c0446b58d83d2d7f9c998d959c3649
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 077782099d6d61982052dc1690d545e58e928d8c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85414401"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310688"
 ---
-# <a name="temporary-tables-in-synapse-sql-pool"></a>Temporäre Tabellen in einem Synapse SQL-Pool
+# <a name="temporary-tables-in-dedicated-sql-pool"></a>Temporäre Tabellen im dedizierten SQL-Pool
+
 Dieser Artikel enthält wichtige Anleitungen zur Verwendung von temporären Tabellen. Zudem werden die Grundsätze von temporären Tabellen auf Sitzungsebene behandelt. 
 
 Mit den Informationen in diesem Artikel können Sie Ihren Code modularisieren und sowohl die Wiederverwendbarkeit als auch die Einfachheit der Verwaltung verbessern.
 
 ## <a name="what-are-temporary-tables"></a>Was sind temporäre Tabellen?
-Temporäre Tabellen sind nützlich bei der Verarbeitung von Daten – vor allem bei Transformationen, bei denen die Zwischenergebnisse vorübergehend sind. In einem Synapse SQL-Pool befinden sich temporäre Tabellen auf Sitzungsebene.  
+
+Temporäre Tabellen sind nützlich bei der Verarbeitung von Daten – vor allem bei Transformationen, bei denen die Zwischenergebnisse vorübergehend sind. In einem dedizierten SQL-Pool befinden sich temporäre Tabellen auf Sitzungsebene.  
 
 Temporäre Tabellen sind nur für die Sitzung sichtbar, in der sie erstellt wurden, und sie werden automatisch verworfen, wenn die Sitzung abgemeldet wird.  
 
 Temporäre Tabellen verfügen über einen Leistungsvorteil, da ihre Ergebnisse nicht in den Remotespeicher geschrieben werden, sondern in den lokalen Speicher.
 
-Temporäre Tabellen sind nützlich bei der Verarbeitung von Daten – vor allem bei Transformationen, bei denen die Zwischenergebnisse vorübergehend sind. In einem SQL-Pool befinden sich temporäre Tabellen auf Sitzungsebene.  Sie sind nur für die Sitzung sichtbar, in der sie erstellt wurden. Daher werden sie automatisch gelöscht, wenn diese Sitzung abgemeldet wird. 
+Temporäre Tabellen sind nützlich bei der Verarbeitung von Daten – vor allem bei Transformationen, bei denen die Zwischenergebnisse vorübergehend sind. In einem dedizierten SQL-Pool befinden sich temporäre Tabellen auf Sitzungsebene.  Sie sind nur für die Sitzung sichtbar, in der sie erstellt wurden. Daher werden sie automatisch gelöscht, wenn diese Sitzung abgemeldet wird. 
 
-## <a name="temporary-tables-in-sql-pool"></a>Temporäre Tabellen im SQL-Pool
+## <a name="temporary-tables-in-dedicated-sql-pool"></a>Temporäre Tabellen im dedizierten SQL-Pool
 
-In der SQL-Poolressource verfügen temporäre Tabellen über einen Leistungsvorteil, da ihre Ergebnisse nicht in den Remotespeicher geschrieben werden, sondern in den lokalen Speicher.
+In der Ressource des dedizierten SQL-Pools bieten temporäre Tabellen einen Leistungsvorteil, weil deren Ergebnisse nicht in den Remotespeicher, sondern in den lokalen Speicher geschrieben werden.
 
 ### <a name="create-a-temporary-table"></a>Erstellen einer temporären Tabelle
 
@@ -205,7 +207,7 @@ Diese gespeicherte Prozedur verwirft eine vorhandene #stats_ddl, um sicherzustel
 
 Da am Ende der gespeicherten Prozedur keine `DROP TABLE`-Anweisung vorhanden ist, wird die erstellte Tabelle nach Abschluss der gespeicherten Prozedur beibehalten, damit sie außerhalb der gespeicherten Prozedur gelesen werden kann.  
 
-In einem SQL-Pool ist es im Gegensatz zu anderen SQL Server-Datenbanken möglich, diese temporäre Tabelle außerhalb der Prozedur zu verwenden, mit der sie erstellt wurde.  Temporäre SQL-Pooltabellen können innerhalb der Sitzung **überall** verwendet werden. Diese Funktion kann zu modularerem und besser verwaltbarem Code führen, wie im folgenden Beispiel dargestellt:
+In einem dedizierten SQL-Pool ist es im Gegensatz zu anderen SQL Server-Datenbanken möglich, diese temporäre Tabelle außerhalb der Prozedur zu verwenden, mit der sie erstellt wurde.  Temporäre Tabellen im dedizierten SQL-Pool können innerhalb der Sitzung **überall** verwendet werden. Diese Funktion kann zu modularerem und besser verwaltbarem Code führen, wie im folgenden Beispiel dargestellt:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -227,11 +229,11 @@ DROP TABLE #stats_ddl;
 ```
 
 ## <a name="temporary-table-limitations"></a>Einschränkungen der temporären Tabelle
-SQL-Pools weisen eine Reihe von Einschränkungen bei der Implementierung von temporären Tabellen auf.  Derzeit werden nur temporäre Tabellen für den Sitzungsbereich unterstützt.  Globale temporäre Tabellen werden nicht unterstützt.  
+Dedizierte SQL-Pools weisen eine Reihe von Einschränkungen bei der Implementierung von temporären Tabellen auf.  Derzeit werden nur temporäre Tabellen für den Sitzungsbereich unterstützt.  Globale temporäre Tabellen werden nicht unterstützt.  
 
 Darüber hinaus können Sichten nicht in temporären Tabellen erstellt werden.  Temporäre Tabellen können nur mit Hash- oder Roundrobin-Verteilung erstellt werden.  Die Verteilung replizierter temporärer Tabellen wird nicht unterstützt. 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zum Entwickeln von Tabellen finden Sie im Artikel [Entwerfen von Tabellen mithilfe von Synapse SQL-Ressourcen](sql-data-warehouse-tables-overview.md).
+Weitere Informationen zum Entwickeln von Tabellen finden Sie im Artikel [Entwerfen von Tabellen mithilfe eines dedizierten SQL-Pools](sql-data-warehouse-tables-overview.md).
 

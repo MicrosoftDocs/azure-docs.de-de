@@ -6,12 +6,12 @@ metadata:
   title: Dokumentation zu Microsoft Azure-Containerdiensten | Microsoft-Dokumentation
   description: Erfahren Sie, wie Sie mit Azure-Containerdiensten cloudbasierte Containeranwendungen verwalten und entwickeln.
   ms.topic: hub-page
-  ms.openlocfilehash: d62fbbd19c56e64f254037574c69ce6c949239ef
-  ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+  ms.openlocfilehash: a1ed2769438208b422907dcb8758bd6f3c130986
+  ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/17/2020
-  ms.locfileid: "92151279"
+  ms.lasthandoff: 11/30/2020
+  ms.locfileid: "96349230"
 highlightedContent:
   items:
   - itemType: whats-new
@@ -151,7 +151,7 @@ conceptualContent:
     - url: ../azure-functions/functions-overview.md
       itemType: overview
       text: Einführung in Azure Functions
-    - url: ../azure-functions/functions-create-first-function-vs-code.md
+    - url: ../azure-functions/create-first-function-vs-code-csharp.md
       itemType: quickstart
       text: Erstellen Ihrer ersten Funktion
     - url: ../azure-functions/functions-triggers-bindings.md

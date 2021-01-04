@@ -8,18 +8,19 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f312b690ac7743b1574dbbec9d408b3fafbb0194
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60bb5ac652a80b5ae52c91f91fa0c80440e9cc82
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263180"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359080"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Konfigurieren einer SQL Server Always On-Verfügbarkeitsgruppe in verschiedenen Azure-Regionen
 
@@ -31,7 +32,7 @@ Dieser Artikel gilt für Azure Virtual Machines im Resource Manager-Modus.
 
 Die folgende Abbildung zeigt eine typische Bereitstellung einer Verfügbarkeitsgruppe für virtuelle Azure-Computer:
 
-   ![Verfügbarkeitsgruppe](./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic.png)
+   ![Diagramm: Azure-Lastenausgleich und Verfügbarkeitsgruppe mit Windows Server-Failovercluster und Always On-Verfügbarkeitsgruppen](./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic.png)
 
 In dieser Bereitstellung befinden sich alle virtuellen Computer in einer einzelnen Azure-Region. Die Verfügbarkeitsgruppenreplikate können über synchrone Commits mit automatischem Failover an SQL-1 und SQL-2 verfügen. Informationen zum Erstellen dieser Architektur finden Sie unter [Einführung in SQL Server Always On-Verfügbarkeitsgruppen auf virtuellen Azure-Computern](availability-group-overview.md).
 
@@ -53,7 +54,7 @@ Wenn sich Verfügbarkeitsgruppenreplikate auf virtuellen Azure-Computern in vers
 
 Das folgende Diagramm zeigt die Netzwerkkommunikation zwischen Rechenzentren:
 
-   ![Verfügbarkeitsgruppe](./media/availability-group-manually-configure-multiple-regions/01-vpngateway-example.png)
+   ![Diagramm: Zwei virtuelle Netzwerke in verschiedenen Azure-Regionen, die mithilfe von VPN-Gateways kommunizieren](./media/availability-group-manually-configure-multiple-regions/01-vpngateway-example.png)
 
 >[!IMPORTANT]
 >Bei dieser Architektur fallen Gebühren für ausgehende Daten an, die zwischen Azure-Regionen repliziert werden. Weitere Informationen finden Sie unter [Preisübersicht Bandbreite](https://azure.microsoft.com/pricing/details/bandwidth/).  
@@ -69,7 +70,7 @@ Gehen Sie wie folgt vor, um ein Replikat in einem Remoterechenzentrum zu erstell
    >[!NOTE]
    >In bestimmten Fällen muss die VNet-zu-VNet-Verbindung mithilfe von PowerShell erstellt werden. Wenn Sie beispielsweise verschiedene Azure-Konten verwenden, kann die Verbindung nicht über das Portal konfiguriert werden. Lesen Sie in diesem Fall den Artikel [Konfigurieren einer VNet-zu-VNet-Verbindung mithilfe von PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 
-1. [Erstellen Sie einen Domänencontroller in der neuen Region.](../../../active-directory/active-directory-new-forest-virtual-machine.md)
+1. [Erstellen Sie einen Domänencontroller in der neuen Region.](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100)
 
    Dieser Domänencontroller ermöglicht die Authentifizierung für den Fall, dass der Domänencontroller am primären Standort nicht verfügbar ist.
 
@@ -84,7 +85,7 @@ Gehen Sie wie folgt vor, um ein Replikat in einem Remoterechenzentrum zu erstell
    - Er muss über einen Back-End-Pool verfügen, der nur die virtuellen Computer aus der Region enthält, in der sich auch der Lastenausgleich befindet.
    - Er muss einen spezifischen TCP-Porttest für die IP-Adresse verwenden.
    - Er muss über eine spezifische Lastenausgleichsregel für die SQL Server-Instanz in der gleichen Region verfügen.  
-   - Es muss sich um einen Load Balancer Standard handeln, wenn die virtuellen Computer im Back-End-Pool nicht entweder Teil einer einzelnen Verfügbarkeitsgruppe oder einer VM-Skalierungsgruppe sind. Weitere Informationen finden Sie unter [Übersicht über Azure Load Balancer Standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+   - Es muss sich um einen Load Balancer Standard handeln, wenn die virtuellen Computer im Back-End-Pool nicht entweder Teil einer einzelnen Verfügbarkeitsgruppe oder einer VM-Skalierungsgruppe sind. Weitere Informationen finden Sie unter [Übersicht über Azure Load Balancer Standard](../../../load-balancer/load-balancer-overview.md).
 
 1. [Fügen Sie der neuen SQL Server-Instanz das Failoverclustering-Feature hinzu.](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms)
 
@@ -98,7 +99,7 @@ Gehen Sie wie folgt vor, um ein Replikat in einem Remoterechenzentrum zu erstell
 
    Die IP-Adressressource kann im Failovercluster-Manager erstellt werden. Wählen Sie den Namen des Clusters aus, klicken Sie mit der rechten Maustaste unter **Hauptressourcen des Clusters** auf den Clusternamen, und wählen Sie dann **Eigenschaften** aus: 
 
-   ![Clustereigenschaften](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
+   ![Screenshot: Failovercluster-Manager, in dem ein Clustername, „Servername“ und „Eigenschaften“ ausgewählt ist](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
 
    Wählen Sie im Dialogfeld **Eigenschaften** die Option **Hinzufügen** unter **IP-Adresse** aus, und fügen Sie dann die IP-Adresse des Clusternamens aus der Remotenetzwerkregion hinzu. Klicken Sie im Dialogfeld **IP-Adresse** auf **OK**, und wählen Sie dann im Dialogfeld **Clustereigenschaften** erneut **OK** aus, um die neue IP-Adresse zu speichern. 
 
@@ -161,7 +162,7 @@ Gehen Sie wie folgt vor, um ein Replikat in einem Remoterechenzentrum zu erstell
 
 Das Replikat im Remoterechenzentrum ist Teil der Verfügbarkeitsgruppe, befindet sich aber in einem anderen Subnetz. Wenn dieses Replikat zum primären Replikat wird, treten unter Umständen Verbindungstimeouts für Anwendungen auf. Dieses Verhalten entspricht dem Verhalten einer lokalen Verfügbarkeitsgruppe in einer Bereitstellung mit mehreren Subnetzen. Aktualisieren Sie entweder die Clientverbindung, oder konfigurieren Sie den Namensauflösungs-Cache für die Clusternetzwerknamen-Ressource, um Verbindungen von Clientanwendungen zu ermöglichen.
 
-Aktualisieren Sie vorzugsweise die Clientverbindungszeichenfolgen, um `MultiSubnetFailover=Yes` festzulegen. Weitere Informationen finden Sie unter [Verbinden mit MultiSubnetFailover](https://msdn.microsoft.com/library/gg471494#Anchor_0).
+Aktualisieren Sie vorzugsweise die Clientverbindungszeichenfolgen, um `MultiSubnetFailover=Yes` festzulegen. Weitere Informationen finden Sie unter [Verbinden mit MultiSubnetFailover](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#Anchor_0).
 
 Falls Sie die Verbindungszeichenfolgen nicht ändern können, können Sie den Namensauflösungs-Cache konfigurieren. Weitere Informationen finden Sie unter [Timeoutfehler, und Sie können keine Verbindung mit einem SQL Server 2012 AlwaysOn-Verfügbarkeitsgruppenlistener in einer Umgebung mit mehreren Subnetzen herstellen](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
 
@@ -194,12 +195,12 @@ Verschieben Sie das primäre Replikat nach dem Testen der Verbindung wieder in I
 
 Weitere Informationen finden Sie in den folgenden Themen:
 
-- [Ausführen eines geplanten manuellen Failovers einer Verfügbarkeitsgruppe (SQL Server)](https://msdn.microsoft.com/library/hh231018.aspx)
-- [Ausführen eines erzwungenen manuellen Failovers einer Verfügbarkeitsgruppe (SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)
+- [Ausführen eines geplanten manuellen Failovers einer Verfügbarkeitsgruppe (SQL Server)](/sql/database-engine/availability-groups/windows/perform-a-planned-manual-failover-of-an-availability-group-sql-server)
+- [Ausführen eines erzwungenen manuellen Failovers einer Verfügbarkeitsgruppe (SQL Server)](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [AlwaysOn-Verfügbarkeitsgruppen](https://msdn.microsoft.com/library/hh510230.aspx)
-* [Dokumentation zu virtuellen Computern](https://docs.microsoft.com/azure/virtual-machines/windows/)
+* [AlwaysOn-Verfügbarkeitsgruppen](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
+* [Dokumentation zu virtuellen Computern](../../../virtual-machines/windows/index.yml)
 * [Azure Load Balancer-Instanzen](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer)
-* [Azure-Verfügbarkeitsgruppen](../../../virtual-machines/linux/manage-availability.md)
+* [Azure-Verfügbarkeitsgruppen](../../../virtual-machines/manage-availability.md)

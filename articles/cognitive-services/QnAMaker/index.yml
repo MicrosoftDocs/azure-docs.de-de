@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: QnA Maker-Dokumentation
   description: QnA Maker ist ein cloudbasierter API-Dienst, mit dem eine Frage-und-Antwort-Ebene im Konversationsstil für Ihre Daten erstellt wird. Mit QnA Maker können Sie einen Frage-und-Antwort-Dienst auf der Grundlage Ihrer teilweise strukturierten Inhalte bereitstellen. Bei solchen Inhalten kann es sich beispielsweise um FAQ-Dokumente, URLs und Produkthandbücher handeln. Mit dem QnA Maker-Dienst werden die von Ihren Benutzern in natürlicher Sprache gestellten Fragen beantwortet, indem aus den Fragen und Antworten in Ihrer Wissensdatenbank die bestmögliche Antwort zugewiesen wird.
-  ms.openlocfilehash: d82dcd03ce64c76a84811b5789ee5460ba089641
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: d1236b8a40d43ac5203cd4cac8aa607c925a04d7
+  ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92372071"
+  ms.lasthandoff: 12/09/2020
+  ms.locfileid: "96932726"
 landingContent:
 - title: Informationen zu QnA Maker
   linkLists:
@@ -34,18 +34,12 @@ landingContent:
     links:
     - text: Lebenszyklus der Entwicklung
       url: concepts/development-lifecycle-knowledge-base.md
-    - text: Datenquellen
-      url: concepts/knowledge-base.md
   - linkListType: video
     links:
     - text: Erstellen eines Bots in wenigen Minuten
       url: https://channel9.msdn.com/Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker
 - title: Erstellen und Bearbeiten einer Wissensdatenbank
   linkLists:
-  - linkListType: concept
-    links:
-    - text: Was ist eine Wissensdatenbank?
-      url: concepts/knowledge-base.md
   - linkListType: get-started
     links:
     - text: 'Schnellstart: Erstellen einer neuen Wissensdatenbank'
@@ -56,7 +50,7 @@ landingContent:
     links:
     - text: Erstellen von Mehrfachdurchläufen einer Konversation mit Folgeaufforderungen
       url: how-to/multiturn-conversation.md
-    - text: Chit-Chit hinzufügen
+    - text: Hinzufügen von Smalltalk
       url: how-to/chit-chat-knowledge-base.md
     - text: Hinzufügen einer gesicherten SharePoint-Datenquelle
       url: how-to/add-sharepoint-datasources.md
@@ -95,11 +89,11 @@ landingContent:
   - linkListType: get-started
     links:
     - text: 'Portal: Erstellen eines Azure Bot Service-Bots'
-      url: tutorials/create-qna-bot.md
+      url: ./quickstarts/create-publish-knowledge-base.md#create-a-bot
     - text: 'Power Apps: Erstellen eines QnA Maker-basierten Bots'
       url: tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
     - text: 'Bot Framework: Verteilung zwischen LUIS- und QnA Maker-Apps'
-      url: https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=cs
+      url: /azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0
     - text: Andere Botbeispiele
       url: https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md
 - title: Verweis
@@ -109,15 +103,15 @@ landingContent:
     - text: Grenzwerte der Wissensdatenbank
       url: limits.md
     - text: Erstellen von APIs
-      url: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase
+      url: /rest/api/cognitiveservices/qnamaker/knowledgebase
     - text: Generieren von Antwort-APIs
-      url: https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime
+      url: /rest/api/cognitiveservices/qnamaker4.0/Runtime
     - text: .NET SDK-Referenzdokumentation
-      url: https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
+      url: /dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
+      url: /powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
     - text: Azure-Befehlszeilenschnittstelle (CLI)
-      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+      url: /cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
 - title: Hilfe und Feedback
   linkLists:
   - linkListType: reference

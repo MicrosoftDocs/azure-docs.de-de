@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c02a2658325fdd88ef1052937edc3b84c4545872
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e0a45bde32fed651c4b38d203b3c75a6d928e7c5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91296836"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327082"
 ---
 # <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Übersicht über Schlüssel, Geheimnisse und Zertifikate in Azure Key Vault
 
@@ -74,6 +75,7 @@ In Key Vault gespeicherte Objekte werden versioniert, wenn eine neue Instanz ein
 
 Für die Adressierung von Objekten in Key Vault können Sie eine Version angeben oder bei Vorgängen für die aktuelle Version des Objekts die Version weglassen. Bei einem Schlüssel mit dem Namen `MasterKey` führt das Durchführen von Vorgängen ohne Angabe einer Version beispielsweise dazu, dass die neueste verfügbare Version verwendet wird. Das Ausführen von Vorgängen mit dem versionsspezifischen Bezeichner veranlasst das System, die spezifische Version des Objekts zu verwenden.  
 
+### <a name="vault-name-and-object-name"></a>Tresorname und Objektname
 Objekte werden in Key Vault über eine URL eindeutig identifiziert. Unabhängig vom geografischen Standort dürfen keine zwei Objekte im System die gleiche URL aufweisen. Die vollständige URL zu einem Objekt wird Objektbezeichner genannt. Die URL besteht aus einem Präfix, das den Schlüsseltresor, den Objekttyp, den vom Benutzer bereitgestellten Objektnamen und eine Objektversion identifiziert. Beim Objektnamen wird Groß-/Kleinschreibung nicht unterschieden, und er ist unveränderlich. Bezeichner, die nicht die Objektversion enthalten, heißen Basisbezeichner.  
 
 Weitere Informationen finden Sie unter [Authentifizierung, Anforderungen und Antworten](authentication-requests-and-responses.md).
@@ -89,7 +91,7 @@ Ein Objektbezeichner hat das folgende allgemeine Format (abhängig vom Container
 
 Hierbei gilt:  
 
-| Element | Beschreibung |  
+| Element | BESCHREIBUNG |  
 |-|-|  
 |`vault-name` oder `hsm-name`|Der Name eines Schlüsseltresors oder Pools verwalteter HSMs im Microsoft Azure Key Vault-Dienst.<br /><br />Schlüsseltresornamen und Namen von Pools verwalteter HSMs werden vom Benutzer ausgewählt und sind global eindeutig.<br /><br />Der Name des Schlüsseltresors und des Pools verwalteter HSMs muss zwischen 3 und 24 Zeichen lang sein und darf nur die Ziffern 0-9, die Buchstaben a-z und A-Z sowie das Minuszeichen („-“) enthalten.|  
 |`object-type`|Die Art des Objekts (Schlüssel, Geheimnisse oder Zertifikate)|  

@@ -2,8 +2,8 @@
 title: Verzweigungen in Azure Data Factory-Pipeline
 description: Erfahren Sie, wie Sie den Datenfluss in Azure Data Factory, durch die Verkettung und Verzweigung von Aktivitäten steuern.
 services: data-factory
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 6eaf00679566aa8dfb7a90db95228349c81fcfec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab7d17ee61d733483b6d3573e9bd69b1628c7940
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983413"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496941"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Verzweigen und Verketten von Aktivitäten in einer Data Factory-Pipeline
 
@@ -40,7 +40,7 @@ Dieses Tutorial beschreibt, wie die folgenden Aufgaben ausgeführt werden:
 > * Starten einer Pipelineausführung.
 > * Überwachen der Pipeline- und Aktivitätsausführungen.
 
-Dieses Tutorial verwendet .NET SDK. Sie können andere Mechanismen zur Interaktion mit Azure Data Factory verwenden. Data Factory-Schnellstarts finden Sie unter [Schnellstarts](/azure/data-factory/quickstart-create-data-factory-portal).
+Dieses Tutorial verwendet .NET SDK. Sie können andere Mechanismen zur Interaktion mit Azure Data Factory verwenden. Data Factory-Schnellstarts finden Sie unter [Schnellstarts](./quickstart-create-data-factory-portal.md).
 
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 
@@ -610,7 +610,7 @@ Creating linked service AzureStorageLinkedService...
 {
   "type": "AzureStorage",
   "typeProperties": {
-    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***"
+    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=**_"
   }
 }
 Creating dataset SourceStorageDataset...
@@ -753,7 +753,7 @@ Press any key to exit...
 In diesem Tutorial haben Sie folgende Aufgaben ausgeführt:
 
 > [!div class="checklist"]
-> * Erstellen einer Data Factory
+> Erstellen einer Data Factory
 > * Erstellen eines verknüpften Azure Storage-Diensts
 > * Erstellen eines Azure-Blobdatasets.
 > * Erstellen einer Pipeline, die eine Kopieraktivität und eine Webaktivität enthält.

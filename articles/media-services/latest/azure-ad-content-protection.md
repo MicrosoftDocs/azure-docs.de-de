@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: a6f1a5b532ba3d8d5ce24d6f9856d86719d35c6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9415d66c49992bc31f773dec908a861f1126e714
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839536"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427212"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Tutorial: End-to-End-Inhaltsschutz mithilfe von Azure AD
 
@@ -155,7 +155,7 @@ Wählen Sie einen Azure AD-Mandanten für das End-to-End-Beispiel aus. Sie habe
 1. Wählen Sie die Menüoption **App-Registrierungen** aus.
 1. Klicken Sie auf **+ Neue Registrierung**.
 1. Nennen Sie die App *LicenseDeliveryResource2*. („2“ steht hier für AAD-Endpunkte der Version 2.)
-1. Wählen Sie **Nur Konten in diesem Organisationsverzeichnis (nur "[*Name Ihres Mandanten*]" – einzelner Mandant)** aus. Falls Sie Zugriff auf mehrere Mandanten ermöglichen möchten, wählen Sie eine der anderen Optionen für mehrere Mandanten aus.
+1. Wählen Sie **Nur Konten in diesem Organisationsverzeichnis (nur "[ *Name Ihres Mandanten* ]" – einzelner Mandant)** aus. Falls Sie Zugriff auf mehrere Mandanten ermöglichen möchten, wählen Sie eine der anderen Optionen für mehrere Mandanten aus.
 1. Der **Umleitungs-URI** ist optional und kann später geändert werden.
 1. Klicken Sie auf **Registrieren**. Die Ansicht für App-Registrierungen wird angezeigt.
 1. Wählen Sie die Menüoption **Manifest** aus. Die Manifestansicht wird angezeigt.
@@ -163,7 +163,7 @@ Wählen Sie einen Azure AD-Mandanten für das End-to-End-Beispiel aus. Sie habe
 1. Ändern Sie den Wert von `groupMembershipClaims` in *"SecurityGroup"* (mit Anführungszeichen).
 1. Klicken Sie auf **Speichern**.
 1. Wählen Sie die Menüoption **Eine API verfügbar machen** aus. Die Ansicht „Bereich hinzufügen“ wird angezeigt. (Azure stellt einen Anwendungs-ID-URI bereit. Dieser kann bei Bedarf durch Bearbeiten des entsprechenden Felds geändert werden.)
-1. Klicken Sie auf **Speichern und fortfahren**. Die Ansicht ändert sich. Geben Sie auf der Grundlage der folgenden Tabelle für jede Einstellung aus der Spalte „Einstellung“ den Wert aus der Spalte „Wert“ ein, und klicken Sie anschließend auf **Bereich hinzufügen**:
+1. Klicken Sie auf **Speichern und fortfahren**. Die Ansicht ändert sich. Geben Sie auf der Grundlage der folgenden Tabelle für jede Einstellung aus der Spalte „Einstellung“ den Wert aus der Spalte „Wert“ ein, und klicken Sie anschließend auf **Bereich hinzufügen** :
 
 | Einstellung | Wert | Beschreibung |
 | ------- | ----- | ----------- |
@@ -181,8 +181,8 @@ Wählen Sie einen Azure AD-Mandanten für das End-to-End-Beispiel aus. Sie habe
 1. Wählen Sie die Menüoption **Azure Active Directory** aus.
 1. Wählen Sie die Menüoption **App-Registrierungen** aus.
 1. Klicken Sie auf **+ Neue Registrierung**.
-1. Geben Sie der Client-App einen Namen (beispielsweise *AMS AAD Content Protection*).
-1. Wählen Sie **Nur Konten in diesem Organisationsverzeichnis (nur "[*Name Ihres Mandanten*]" – einzelner Mandant)** aus. Falls Sie Zugriff auf mehrere Mandanten ermöglichen möchten, wählen Sie eine der anderen Optionen für mehrere Mandanten aus.
+1. Geben Sie der Client-App einen Namen (beispielsweise *AMS AAD Content Protection* ).
+1. Wählen Sie **Nur Konten in diesem Organisationsverzeichnis (nur "[ *Name Ihres Mandanten* ]" – einzelner Mandant)** aus. Falls Sie Zugriff auf mehrere Mandanten ermöglichen möchten, wählen Sie eine der anderen Optionen für mehrere Mandanten aus.
 1. Der **Umleitungs-URI** ist optional und kann später geändert werden.
 1. Klicken Sie auf **Registrieren**.
 1. Wählen Sie die Menüoption **API-Berechtigungen** aus.
@@ -247,10 +247,10 @@ return objContentKeyPolicyRestriction;
 
 Ändern Sie im obigen Code die Werte für `ida_AADOpenIdDiscoveryDocument`, `ida_audience` und `ida_issuer`. Die Werte für diese Elemente finden Sie im Azure-Portal wie folgt:
 
-1. Wählen Sie den zuvor verwendeten AAD-Mandanten aus, klicken Sie im Menü auf **App-Registrierungen**, und klicken Sie anschließend auf den Link **Endpunkte**.
-1. Kopieren Sie den Wert des Felds **OpenIdConnect-Metadatendokument**, und fügen Sie ihn als Wert von `ida_AADOpenIdDiscoveryDocument` in den Code ein.
+1. Wählen Sie den zuvor verwendeten AAD-Mandanten aus, klicken Sie im Menü auf **App-Registrierungen** , und klicken Sie anschließend auf den Link **Endpunkte**.
+1. Kopieren Sie den Wert des Felds **OpenIdConnect-Metadatendokument** , und fügen Sie ihn als Wert von `ida_AADOpenIdDiscoveryDocument` in den Code ein.
 1. Bei dem Wert `ida_audience` handelt es sich um die Anwendungs-ID (Client-ID) der registrierten App *LicenseDeliveryResource2*.
-1. Der Wert `ida_issuer` ist die URL `https://login.microsoftonline.com/[tenant_id]/v2.0`. Ersetzen Sie „[*tenant_id*]“ durch die Mandanten-ID.
+1. Der Wert `ida_issuer` ist die URL `https://login.microsoftonline.com/[tenant_id]/v2.0`. Ersetzen Sie „[ *tenant_id* ]“ durch die Mandanten-ID.
 
 ## <a name="set-up-the-sample-player-app"></a>Einrichten der exemplarischen Player-App
 
@@ -264,12 +264,12 @@ Bei der Einrichtung der Player-App haben Sie zwei Optionen:
 ### <a name="option-1"></a>Option 1:
 
 1. Starten Sie Visual Studio Code.
-1. Klicken Sie zum Öffnen des Projekts auf „Datei“ > „Ordner öffnen“, navigieren Sie zum übergeordneten Ordner der Datei *package.json*, und wählen Sie ihn aus.
+1. Klicken Sie zum Öffnen des Projekts auf „Datei“ > „Ordner öffnen“, navigieren Sie zum übergeordneten Ordner der Datei *package.json* , und wählen Sie ihn aus.
 1. Öffnen Sie die JavaScript-Datei *public/javascript/constants.js*.
 1. Ersetzen Sie `OAUTH2_CONST.CLIENT_ID` durch die Client-ID (`client_id`) Ihrer registrierten Client-App im AAD-Mandanten.  Die Client-ID (`client_id`) finden Sie im Azure-Portal im Abschnitt „Übersicht“ der registrierten App. Hinweis: Hierbei handelt es sich um die Client-ID, nicht um die Objekt-ID.
 1. Ersetzen Sie `OAUTH2_CONST.TENANT_ID` durch die Mandanten-ID (`tenant_id`) Ihres Azure AD-Mandanten. Klicken Sie zum Ermitteln Ihrer Mandanten-ID (`tenant_id`) auf das Azure Active Directory-Menü. Die Mandanten-ID wird im Abschnitt „Übersicht“ angezeigt.
 1. Ersetzen Sie `OAUTH2_CONST.SCOPE` durch den Bereich, den Sie in Ihrer registrierten Client-App hinzugefügt haben. Navigieren Sie zum Ermitteln des Bereichs im Menü **App-Registrierungen** zu der registrierten Client-App, und wählen Sie sie aus:
-    1. Wählen Sie Ihre Client-App aus, klicken Sie auf das Menü **API-Berechtigungen**, und wählen Sie anschließend unter der API-Berechtigung *LicenseDeliveryResource2* den Bereich *DRM.License.Delivery* aus. Das Format der Berechtigung sollte in etwa wie folgt aussehen: *api://df4ed433-dbf0-4da6-b328-e1fe05786db5/DRM.License.Delivery*. **Wichtig**: Behalten Sie in `OAUTH2_CONST.SCOPE` das Leerzeichen vor `offline_access` bei.
+    1. Wählen Sie Ihre Client-App aus, klicken Sie auf das Menü **API-Berechtigungen** , und wählen Sie anschließend unter der API-Berechtigung *LicenseDeliveryResource2* den Bereich *DRM.License.Delivery* aus. Das Format der Berechtigung sollte in etwa wie folgt aussehen: *api://df4ed433-dbf0-4da6-b328-e1fe05786db5/DRM.License.Delivery*. **Wichtig** : Behalten Sie in `OAUTH2_CONST.SCOPE` das Leerzeichen vor `offline_access` bei.
 1. Ersetzen Sie die beiden konstanten Zeichenfolgen für `AMS_CONST` wie im Anschluss gezeigt. Eine ist die geschützte Streaming-URL Ihres Testmedienobjekts, die andere ist die FPS-Anwendungszertifikat-URL für den Fall, dass Sie den FairPlay-Testfall einschließen möchten. Andernfalls können Sie `AMS_CONST.APP_CERT_URL` unverändert lassen. Klicken Sie dann auf **Speichern**.
 
 ```javascript
@@ -313,7 +313,7 @@ Wenn Sie eine andere IDE/Webplattform und/oder einen auf Ihrem Entwicklungscompu
 
 Nachdem Sie das Tutorial nun abgeschlossen haben und über ein funktionierendes Subsystem verfügen, können Sie es für die folgenden Kundenszenarien ändern:
 
-### <a name="role-based-access-control-rbac-for-license-delivery-via-azure-ad-group-membership"></a>Rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC) für die Lizenzbereitstellung per Azure AD-Gruppenmitgliedschaft
+### <a name="azure-role-based-access-control-azure-rbac-for-license-delivery-via-azure-ad-group-membership"></a>Rollenbasierte Zugriffssteuerung in Azure (Azure Role-Based Access Control, Azure RBAC) für die Lizenzbereitstellung per Azure AD-Gruppenmitgliedschaft
 
 Bislang kann jeder Benutzer, der sich anmelden kann, eine gültige Lizenz erhalten und die geschützten Inhalte wiedergeben.
 
@@ -323,7 +323,7 @@ Eine gängige Kundenanforderung ist, dass Inhalte nur von einem Teil der authent
 
 1. Richten Sie in Ihrem Mandanten zwei Konten ein. Diese können beispielsweise *premium_user* und *basic_user* heißen.
 1. Erstellen Sie eine Benutzergruppe, und nennen Sie sie *PremiumGroup*.
-1. Fügen Sie der Gruppe *PremiumGroup* das Konto *premium_user* (aber nicht das Konto *basic_user*) als Mitglied hinzu.
+1. Fügen Sie der Gruppe *PremiumGroup* das Konto *premium_user* (aber nicht das Konto *basic_user* ) als Mitglied hinzu.
 1. Notieren Sie sich die **Objekt-ID** von *PremiumGroup*.
 
 #### <a name="set-up-the-media-services-account"></a>Einrichten des Media Services-Kontos

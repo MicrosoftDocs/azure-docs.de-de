@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 11/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 8a7fa295bdc8881c0c1ba58c95872a9380231b81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db1a8238cf9ddae57d73438d43daa54294ce6860
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85558026"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686224"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Verwenden von verwalteten Identitäten in Azure API Management
 
@@ -123,9 +123,9 @@ Die `tenantId`-Eigenschaft gibt an, zu welchem Azure AD-Mandanten die Identitä
 > [!NOTE]
 > Eine API Management-Instanz kann gleichzeitig über systemseitig und über benutzerseitig zugewiesene Identitäten verfügen. In diesem Fall hat die `type`-Eigenschaft den Wert `SystemAssigned,UserAssigned`.
 
-### <a name="supported-scenarios"></a>Unterstützte Szenarios
+## <a name="supported-scenarios-using-system-assigned-identity"></a>Unterstützte Szenarien mit systemseitig zugewiesener Identität
 
-#### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault"></a>Abrufen eines benutzerdefinierten TLS/SSL-Zertifikats von Azure Key Vault für die API Management-Instanz
+### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault"></a>Abrufen eines benutzerdefinierten TLS/SSL-Zertifikats von Azure Key Vault für die API Management-Instanz
 Sie können die systemseitig zugewiesene Identität einer API Management-Instanz verwenden, um benutzerdefinierte TLS/SSL-Zertifikate abzurufen, die in Azure Key Vault gespeichert werden. Anschließend können Sie diese Zertifikate den benutzerdefinierten Domänen in der API Management-Instanz zuweisen. Berücksichtigen Sie dabei Folgendes:
 
 - Der Inhaltstyp des Geheimnisses muss *application/x-pkcs12* lauten.
@@ -262,7 +262,7 @@ Das folgende Beispiel zeigt eine Azure Resource Manager-Vorlage mit den folgende
 }
 ```
 
-#### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>Authentifizieren beim Back-End mithilfe einer API Management-Identität
+### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>Authentifizieren beim Back-End mithilfe einer API Management-Identität
 
 Sie können die systemseitig zugewiesene Identität verwenden, um sich über die Richtlinie [authentication-managed-identity](api-management-authentication-policies.md#ManagedIdentity) beim Back-End zu authentifizieren.
 
@@ -281,7 +281,7 @@ Erstellen Sie zunächst wie gewohnt eine API Management-Instanz, und aktivieren 
 3. Wählen Sie auf der Registerkarte **Benutzerseitig zugewiesen** die Option **Hinzufügen** aus.
 4. Suchen Sie nach der zuvor erstellten Identität, und wählen Sie sie aus. Wählen Sie **Hinzufügen**.
 
-   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Auswahl zum Aktivieren einer systemseitig zugewiesenen verwalteten Identität" border="true":::
+   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Auswahl zum Aktivieren einer benutzerseitig zugewiesenen verwalteten Identität" border="true":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -387,9 +387,32 @@ Die `principalId`-Eigenschaft ist ein eindeutiger Bezeichner für die Identität
 > [!NOTE]
 > Eine API Management-Instanz kann gleichzeitig über systemseitig und über benutzerseitig zugewiesene Identitäten verfügen. In diesem Fall hat die `type`-Eigenschaft den Wert `SystemAssigned,UserAssigned`.
 
-### <a name="supported-scenarios"></a>Unterstützte Szenarios
+## <a name="supported-scenarios-using-user-assigned-managed-identity"></a>Unterstützte Szenarien mit benutzerseitig zugewiesener verwalteter Identität
 
-#### <a name="authenticate-to-the-back-end-by-using-a-user-assigned-identity"></a>Authentifizieren beim Back-End mithilfe einer benutzerseitig zugewiesenen Identität
+### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault-ua"></a>Abrufen eines benutzerdefinierten TLS/SSL-Zertifikats von Azure Key Vault für die API Management-Instanz
+Sie können eine beliebige benutzerseitig zugewiesene Identität verwenden, um eine Vertrauensstellung zwischen einer API Management-Instanz und Key Vault einzurichten. Diese Vertrauensstellung kann dann verwendet werden, um benutzerdefinierte TLS/SSL-Zertifikate abzurufen, die in Azure Key Vault gespeichert sind. Anschließend können Sie diese Zertifikate den benutzerdefinierten Domänen in der API Management-Instanz zuweisen. 
+
+Berücksichtigen Sie dabei Folgendes:
+
+- Der Inhaltstyp des Geheimnisses muss *application/x-pkcs12* lauten.
+- Verwenden Sie den geheimen Endpunkt des Key Vault-Zertifikats, das das Geheimnis enthält.
+
+> [!Important]
+> Wenn Sie die Objektversion des Zertifikats nicht angeben, ruft API Management innerhalb von vier Stunden, nachdem sie in Key Vault hochgeladen wurde, die neuere Version des Zertifikats ab.
+
+Die vollständige Vorlage finden Sie unter [API Management mit SSL auf Key Vault-Basis und benutzerseitig zugewiesener Identität](https://github.com/Azure/azure-quickstart-templates/blob/master/101-api-management-key-vault-create/azuredeploy.json).
+
+In dieser Vorlage stellen Sie Folgendes bereit:
+
+* Azure API Management
+* Von Azure verwaltete benutzerseitig zugewiesene Identität
+* Azure Key Vault zur Speicherung des SSL/TLS-Zertifikats
+
+Klicken Sie auf folgende Schaltfläche, um die Bereitstellung automatisch auszuführen:
+
+[![In Azure bereitstellen](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-api-management-key-vault-create%2Fazuredeploy.json)
+
+### <a name="authenticate-to-the-back-end-by-using-a-user-assigned-identity"></a>Authentifizieren beim Back-End mithilfe einer benutzerseitig zugewiesenen Identität
 
 Sie können die benutzerseitig zugewiesene Identität verwenden, um sich über die Richtlinie [authentication-managed-identity](api-management-authentication-policies.md#ManagedIdentity) beim Back-End zu authentifizieren.
 

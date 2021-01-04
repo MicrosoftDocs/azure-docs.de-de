@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: quickstart
-ms.date: 09/03/2019
+ms.date: 11/04/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 9eda54ad23e06149910fe69ec16588f49829a5a5
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 3a7f9179822720b0e5ffc21bc560b4c6ccad9463
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122822"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347421"
 ---
 ::: zone target = "docs"
 
@@ -60,6 +60,8 @@ Melden Sie sich unter [https://portal.azure.com](https://portal.azure.com) beim 
 
 ## <a name="order"></a>Order
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 Dieser Schritt dauert ungefähr fünf Minuten.
 
 1. Erstellen Sie im Azure-Portal eine neue Azure Data Box-Ressource.
@@ -68,6 +70,77 @@ Dieser Schritt dauert ungefähr fünf Minuten.
 4. Geben Sie die Auftragsdetails und Versandinformationen ein. Wenn der Dienst in Ihrer Region verfügbar ist, können Sie E-Mail-Adressen für Benachrichtigungen angeben, die Zusammenfassung prüfen und anschließend den Auftrag erstellen.
 
 Nachdem der Auftrag erstellt wurde, wird das Gerät für den Versand vorbereitet.
+
+### <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
+
+Verwenden Sie die folgenden Azure CLI-Befehle, um einen Data Box Heavy-Auftrag zu erstellen.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+1. Führen Sie den Befehl [az group create](/cli/azure/group#az_group_create) aus, um eine Ressourcengruppe zu erstellen, oder verwenden Sie eine vorhandene Ressourcengruppe:
+
+   ```azurecli
+   az group create --name databox-rg --location westus 
+   ```
+
+1. Verwenden Sie den Befehl [az storage account create](/cli/azure/storage/account#az_storage_account_create), um ein Speicherkonto zu erstellen, oder verwenden Sie ein vorhandenes Speicherkonto:
+
+   ```azurecli
+   az storage account create --resource-group databox-rg --name databoxtestsa
+   ```
+
+1. Führen Sie den Befehl [az databox job create](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_create) aus, um einen Data Box-Auftrag mit dem Wert `DataBoxHeavy` für **--sku** zu erstellen:
+
+   ```azurecli
+   az databox job create --resource-group databox-rg --name databoxheavy-job \
+       --location westus --sku DataBoxHeavy --contact-name "Jim Gan" --phone 4085555555 \
+       --city Sunnyvale --email-list JimGan@contoso.com --street-address1 "1020 Enterprise Way" \
+       --postal-code 94089 --country US --state-or-province CA --storage-account databoxtestsa \
+       --staging-storage-account databoxtestsa --resource-group-for-managed-disk rg-for-md
+   ```
+
+   > [!NOTE]
+   > Stellen Sie sicher, dass Ihr Abonnement Data Box Heavy unterstützt.
+
+1. Führen Sie den Befehl [az databox job update](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_update) aus, um einen Auftrag zu aktualisieren, wie im folgenden Beispiel zum Ändern des Namens und der E-Mail-Adresse des Kontakts gezeigt:
+
+   ```azurecli
+   az databox job update -g databox-rg --name databox-job --contact-name "Robert Anic" --email-list RobertAnic@contoso.com
+   ```
+
+   Führen Sie den Befehl [az databox job show](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_show) aus, um Informationen zum Auftrag abzurufen:
+
+   ```azurecli
+   az databox job show --resource-group databox-rg --name databox-job
+   ```
+
+   Verwenden Sie den Befehl [az databox job list]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list), um alle Data Box-Aufträge für eine Ressourcengruppe anzuzeigen:
+
+   ```azurecli
+   az databox job list --resource-group databox-rg
+   ```
+
+   Führen Sie den Befehl [az databox job cancel](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_cancel) aus, um einen Auftrag abzubrechen:
+
+   ```azurecli
+   az databox job cancel –resource-group databox-rg --name databox-job --reason "Cancel job."
+   ```
+
+   Führen Sie den Befehl [az databox job delete](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_delete) aus, um einen Auftrag zu löschen:
+
+   ```azurecli
+   az databox job delete –resource-group databox-rg --name databox-job
+   ```
+
+1. Verwenden Sie den Befehl [az databox job list-credentials]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list_credentials), um Anmeldeinformationen für einen Data Box-Auftrag aufzulisten:
+
+   ```azurecli
+   az databox job list-credentials --resource-group "databox-rg" --name "databoxdisk-job"
+   ```
+
+Nachdem der Auftrag erstellt wurde, wird das Gerät für den Versand vorbereitet.
+
+---
 
 ::: zone-end
 
@@ -133,7 +206,7 @@ Die Dauer dieses Vorgangs hängt von der Datenmenge und der Geschwindigkeit des 
 
 Der Zeitraum, der für die Durchführung dieses Vorgangs erforderlich ist, hängt von Ihrer Datengröße ab.
 
-1. Nachdem das Kopieren der Daten ohne Fehler abgeschlossen wurde, wechseln Sie auf der lokalen Webbenutzeroberfläche zur Seite **Für den Versand vorbereiten**, und beginnen Sie mit der Versandvorbereitung.
+1. Nachdem das Kopieren der Daten ohne Fehler abgeschlossen wurde, wechseln Sie auf der lokalen Webbenutzeroberfläche zur Seite **Für den Versand vorbereiten** , und beginnen Sie mit der Versandvorbereitung.
 2. Nachdem **Für den Versand vorbereiten** auf beiden Knoten erfolgreich abgeschlossen wurde, deaktivieren Sie das Gerät auf der lokalen Webbenutzeroberfläche.
 
 ## <a name="ship-to-azure"></a>Senden an Azure
@@ -159,9 +232,9 @@ Der Zeitraum, der für die Durchführung dieses Vorgangs erforderlich ist, häng
 
 Dieser Schritt dauert zwei bis drei Minuten.
 
-- Im Azure-Portal können Sie den Data Box Heavy-Auftrag stornieren, bevor er verarbeitet wurde. Nachdem der Auftrag verarbeitet wurde, kann er nicht mehr storniert werden. Der Auftrag wird abgearbeitet, bis er den Status „Abgeschlossen“ erreicht hat. Navigieren Sie zum Stornieren des Auftrags zu **Übersicht**, und klicken Sie in der Befehlsleiste auf **Stornieren**.
+- Im Azure-Portal können Sie den Data Box Heavy-Auftrag stornieren, bevor er verarbeitet wurde. Nachdem der Auftrag verarbeitet wurde, kann er nicht mehr storniert werden. Der Auftrag wird abgearbeitet, bis er den Status „Abgeschlossen“ erreicht hat. Navigieren Sie zum Stornieren des Auftrags zu **Übersicht** , und klicken Sie in der Befehlsleiste auf **Stornieren**.
 
-- Sie können einen Auftrag löschen, wenn im Azure-Portal dafür der Status **Abgeschlossen** oder **Abgebrochen** angezeigt wird. Navigieren Sie zum Löschen des Auftrags zu **Übersicht**, und klicken dann in der Befehlsleiste auf **Löschen**.
+- Sie können einen Auftrag löschen, wenn im Azure-Portal dafür der Status **Abgeschlossen** oder **Abgebrochen** angezeigt wird. Navigieren Sie zum Löschen des Auftrags zu **Übersicht** , und klicken dann in der Befehlsleiste auf **Löschen**.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

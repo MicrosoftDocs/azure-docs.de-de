@@ -7,12 +7,12 @@ author: seanmck
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 2b0078f1aff3ef81ee270f67de0fffddec3abab9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7730146f30487eb5d20f0d3138e9e5ba799daa99
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86255250"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681515"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Überprüfen auf Best Practices von Kubernetes in Ihrem Cluster
 
@@ -29,7 +29,7 @@ Das kube-advisor-Tool kann Berichte zur Ressourcenanforderung und zu Grenzwerten
 
 ## <a name="running-kube-advisor"></a>Ausführung von kube-advisor
 
-Um das Tool auf einem Cluster auszuführen, der für die [rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC)](./azure-ad-integration-cli.md) konfiguriert ist, verwenden Sie die folgenden Befehle. Der erste Befehl erstellt ein Kubernetes-Dienstkonto. Der zweite Befehl führt das Tool unter Verwendung dieses Dienstkontos in einem Pod aus und konfiguriert den Pod für die Löschung nach dem Beenden. 
+Verwenden Sie die folgenden Befehle, um das Tool in einem Cluster auszuführen, der für die [rollenbasierte Zugriffssteuerung für Kubernetes (Kubernetes Role-Based Access Control, Kubernetes RBAC)](./azure-ad-integration-cli.md) konfiguriert ist. Der erste Befehl erstellt ein Kubernetes-Dienstkonto. Der zweite Befehl führt das Tool unter Verwendung dieses Dienstkontos in einem Pod aus und konfiguriert den Pod für die Löschung nach dem Beenden. 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
@@ -37,7 +37,7 @@ kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.
 kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"serviceAccountName\": \"kube-advisor\" } }" --namespace default
 ```
 
-Wenn Sie keine rollenbasierte Zugriffssteuerung verwenden, können Sie den Befehl wie folgt ausführen:
+Falls Sie Kubernetes RBAC nicht verwenden, können Sie den Befehl wie folgt ausführen:
 
 ```bash
 kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never
@@ -59,13 +59,13 @@ Standardmäßig werden keine Anforderungen oder Einschränkungen in den Podspezi
 
 ## <a name="cleaning-up"></a>Bereinigen
 
-Wenn in Ihrem Cluster RBAC aktiviert ist, können Sie die `ClusterRoleBinding` nach dem Ausführen des Tools mit folgendem Befehl bereinigen:
+Wenn Kubernetes RBAC für Ihren Cluster aktiviert ist, können Sie die Clusterrollenbindung (`ClusterRoleBinding`) nach dem Ausführen des Tools mithilfe des folgenden Befehls bereinigen:
 
 ```bash
 kubectl delete -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
 ```
 
-Wenn Sie das Tool für einen Cluster ausführen, in dem RBAC nicht aktiviert ist, ist keine Bereinigung erforderlich.
+Wenn Sie das Tool für einen Cluster ausführen, in dem Kubernetes RBAC nicht aktiviert ist, ist keine Bereinigung erforderlich.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

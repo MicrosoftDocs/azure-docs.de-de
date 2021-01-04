@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
-ms.openlocfilehash: 52cb1f144608202739dc46f2053950b38d810631
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 8163fcb3b349e298bc89f06523e3e784bdc4ed49
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330154"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965668"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>So schützen Sie DNS-Zonen und -Ressourceneintragssätze
 
@@ -65,9 +65,9 @@ az role assignment create \
 
 Azure-RBAC-Regeln können auf ein Abonnement, eine Ressourcengruppe oder eine einzelne Ressource angewendet werden. Bei dieser Ressource kann es sich um eine einzelne DNS-Zone oder einen einzelnen Eintragssatz handeln.
 
-Die Ressourcengruppe *myResourceGroup* enthält beispielsweise die Zone *contoso.com* und die Teilzone *customers.contoso.com* . Für jedes Kundenkonto werden CNAME-Einträge erstellt. Dem Administratorkonto, das zum Verwalten der CNAME-Einträge verwendet wird, werden Berechtigungen zum Erstellen von Einträgen in der Zone *customers.contoso.com* zugewiesen. Das Konto kann nur *customers.contoso.com* verwalten.
+Die Ressourcengruppe *myResourceGroup* enthält beispielsweise die Zone *contoso.com* und die Teilzone *customers.contoso.com*. Für jedes Kundenkonto werden CNAME-Einträge erstellt. Dem Administratorkonto, das zum Verwalten der CNAME-Einträge verwendet wird, werden Berechtigungen zum Erstellen von Einträgen in der Zone *customers.contoso.com* zugewiesen. Das Konto kann nur *customers.contoso.com* verwalten.
 
-Azure RBAC-Berechtigungen auf Zonenebene können über das Azure-Portal erteilt werden.  Öffnen Sie **Zugriffssteuerung (IAM)** für die Zone, klicken Sie auf **Hinzufügen** , und wählen Sie anschließend die Rolle **Mitwirkender für DNS-Zone** sowie die erforderlichen Benutzer oder Gruppen aus, um Berechtigungen zu erteilen.
+Azure RBAC-Berechtigungen auf Zonenebene können über das Azure-Portal erteilt werden.  Öffnen Sie **Zugriffssteuerung (IAM)** für die Zone, klicken Sie auf **Hinzufügen**, und wählen Sie anschließend die Rolle **Mitwirkender für DNS-Zone** sowie die erforderlichen Benutzer oder Gruppen aus, um Berechtigungen zu erteilen.
 
 ![Azure RBAC auf DNS-Zonenebene über das Azure-Portal](./media/dns-protect-zones-recordsets/rbac2.png)
 
@@ -192,7 +192,7 @@ Weitere Informationen zum Erstellen, Verwalten und Zuweisen von benutzerdefinier
 
 Azure Resource Manager unterstützt eine andere Art der Sicherheitssteuerung: die Möglichkeit zum Sperren von Ressourcen. Ressourcensperren werden auf die Ressource angewendet und gelten für alle Benutzer und Rollen. Weitere Informationen finden Sie unter [Sperren von Ressourcen mit dem Azure-Ressourcen-Manager](../azure-resource-manager/management/lock-resources.md).
 
-Es gibt zwei Arten von Ressourcensperren: **CanNotDelete** und **ReadOnly** . Diese Arten von Sperren können entweder auf eine private DNS-Zone oder auf einen einzelnen Eintragssatz angewendet werden. In den folgenden Abschnitten werden einige häufige Szenarios sowie Vorgehensweisen zu deren Unterstützung mithilfe von Ressourcensperren beschrieben.
+Es gibt zwei Arten von Ressourcensperren: **CanNotDelete** und **ReadOnly**. Diese Arten von Sperren können entweder auf eine private DNS-Zone oder auf einen einzelnen Eintragssatz angewendet werden. In den folgenden Abschnitten werden einige häufige Szenarios sowie Vorgehensweisen zu deren Unterstützung mithilfe von Ressourcensperren beschrieben.
 
 ### <a name="protecting-against-all-changes"></a>Schutz vor jeglichen Änderungen
 
@@ -202,7 +202,7 @@ Ressourcensperren auf Zonenebene können über das Azure-Portal erstellt werden.
 
 ![Ressourcensperren auf Zonenebene über das Azure-Portal](./media/dns-protect-zones-recordsets/locks1.png)
 
-Ressourcensperren auf Zonenebene können auch über [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock?view=latest) erstellt werden:
+Ressourcensperren auf Zonenebene können auch über [Azure PowerShell](/powershell/module/az.resources/new-azresourcelock?view=latest) erstellt werden:
 
 ```azurepowershell
 # Lock a DNS zone
@@ -216,7 +216,7 @@ $rsg = "<resource group name>"
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceType $rty -ResourceGroupName $rsg
 ```
 
-Der entsprechende Befehl ist auch [über die Azure-Befehlszeilenschnittstelle verfügbar](https://docs.microsoft.com/cli/azure/lock?view=azure-cli-latest#az-lock-create):
+Der entsprechende Befehl ist auch [über die Azure-Befehlszeilenschnittstelle verfügbar](/cli/azure/lock?view=azure-cli-latest#az-lock-create):
 
 ```azurecli
 # Lock a DNS zone

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: f7dca7352a49e668231f64632371a445985e4de3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68bb4e2ac525270004a698471cd44955cd25fefc
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83634663"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146108"
 ---
 # <a name="create-and-manage-multiple-dashboards"></a>Erstellen und Verwalten mehrerer Dashboards
 
@@ -42,7 +42,7 @@ Sie können beispielsweise eine Kachel **Telemetrie** für die aktuelle Temperat
 
 1. Wählen Sie eine **Gerätevorlage** aus.
 1. Wählen Sie in **Geräte** das Gerät aus, das auf einer Dashboardkachel angezeigt werden soll. Dann wird eine Liste der Geräteeigenschaften angezeigt, die auf der Kachel verwendet werden können.
-1. Wenn Sie die Kachel auf dem Dashboard erstellen möchten, klicken Sie auf **Temperatur**, und ziehen Sie sie auf den Dashboardbereich. Sie können auch auf das Kontrollkästchen neben **Temperatur** und dann auf **Kachel hinzufügen** klicken. Der folgende Screenshot zeigt das Auswählen einer Gerätevorlage und eines Geräts und dann das Erstellen der Kachel „Temperaturtelemetrie“ auf dem Dashboard.
+1. Wenn Sie die Kachel auf dem Dashboard erstellen möchten, klicken Sie auf **Temperatur** , und ziehen Sie sie auf den Dashboardbereich. Sie können auch auf das Kontrollkästchen neben **Temperatur** und dann auf **Kachel hinzufügen** klicken. Der folgende Screenshot zeigt das Auswählen einer Gerätevorlage und eines Geräts und dann das Erstellen der Kachel „Temperaturtelemetrie“ auf dem Dashboard.
 1. Wählen Sie oben links **Speichern** aus, um die Änderungen des Dashboards zu speichern.
 
 > [!div class="mx-imgBorder"]
@@ -51,7 +51,7 @@ Sie können beispielsweise eine Kachel **Telemetrie** für die aktuelle Temperat
 Wenn Sie jetzt Ihr persönliches Dashboard öffnen, wird die neue Kachel mit der Einstellung **Temperatur** für das Gerät angezeigt:
 
 > [!div class="mx-imgBorder"]
-> ![Registerkarte „Dashboard“ mit Details zur Kachel „Temperatur“](media/howto-create-personal-dashboards/temperature-tile-complete.png)
+> ![Screenshot der neuen Kachel mit den Temperatureinstellungen für das Gerät](media/howto-create-personal-dashboards/temperature-tile-complete.png)
 
 Sie können andere Kacheltypen in der Bibliothek ausprobieren, um herauszufinden, wie Sie Ihre persönlichen Dashboards weiter anpassen können.
 

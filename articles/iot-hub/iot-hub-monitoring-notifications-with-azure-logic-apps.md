@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: 37f8016e087642ae0a7455e35f3ce18d7229e169
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cd14ff0688f4230aeedac748ca4b32609bdd2938
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146645"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490321"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>IoT-Remoteüberwachung und -Benachrichtigungen mit Azure Logic Apps zum Herstellen einer Verbindung zwischen Ihrem IoT Hub und Postfach
 
@@ -74,13 +74,13 @@ Erstellen Sie einen Service Bus-Namespace und eine Service Bus-Warteschlange. Im
 
 1. Geben Sie im Bereich **Namespace erstellen** folgende Informationen an:
 
-   **Name**: Der Name des Service Bus-Namespace. Der Namespace muss innerhalb von Azure eindeutig sein.
+   **Name** : Der Name des Service Bus-Namespace. Der Namespace muss innerhalb von Azure eindeutig sein.
 
    **Tarif:** Wählen Sie **Basic** aus der Dropdownliste aus. Der Tarif „Basic“ ist für dieses Tutorial ausreichend.
 
-   **Ressourcengruppe**: Verwenden Sie dieselbe Ressourcengruppe wie für Ihren IoT Hub.
+   **Ressourcengruppe** : Verwenden Sie dieselbe Ressourcengruppe wie für Ihren IoT Hub.
 
-   **Standort**: Verwenden Sie denselben Speicherort, den Ihr IoT-Hub verwendet.
+   **Standort** : Verwenden Sie denselben Speicherort, den Ihr IoT-Hub verwendet.
 
    ![Erstellen eines Service Bus-Namespaces im Azure-Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1-create-service-bus-namespace-azure-portal.png)
 
@@ -88,7 +88,7 @@ Erstellen Sie einen Service Bus-Namespace und eine Service Bus-Warteschlange. Im
 
 ### <a name="add-a-service-bus-queue-to-the-namespace"></a>Hinzufügen einer Service Bus-Warteschlange zum Namespace
 
-1. Öffnen Sie den Service Bus-Namespace. Wählen Sie dazu am besten im Ressourcenbereich die Option **Ressourcengruppen**, Ihre Ressourcengruppe und anschließend in der Ressourcenliste den Service Bus-Namespace aus.
+1. Öffnen Sie den Service Bus-Namespace. Wählen Sie dazu am besten im Ressourcenbereich die Option **Ressourcengruppen** , Ihre Ressourcengruppe und anschließend in der Ressourcenliste den Service Bus-Namespace aus.
 
 1. Wählen Sie im Bereich **Service Bus-Namespace** die Option **+ Warteschlange** aus.
 
@@ -98,7 +98,7 @@ Erstellen Sie einen Service Bus-Namespace und eine Service Bus-Warteschlange. Im
 
 1. Wählen Sie im Bereich **Service Bus-Namespace** unter **Entitäten** die Option **Warteschlangen** aus. Öffnen Sie die Service Bus-Warteschlange über die Liste, und wählen Sie anschließend **Freigegebene Zugriffsrichtlinien** >  **+ Hinzufügen** aus.
 
-1. Geben Sie einen Namen für die Richtlinie ein, aktivieren Sie **Verwalten**, und wählen Sie dann **Erstellen** aus.
+1. Geben Sie einen Namen für die Richtlinie ein, aktivieren Sie **Verwalten** , und wählen Sie dann **Erstellen** aus.
 
    ![Hinzufügen einer Service Bus-Richtlinie im Azure-Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/2-add-service-bus-queue-azure-portal.png)
 
@@ -108,19 +108,19 @@ Fügen Sie Ihrem IoT-Hub einen benutzerdefinierten Endpunkt für die Service Bu
 
 ### <a name="add-a-custom-endpoint"></a>Hinzufügen eines benutzerdefinierten Endpunkts
 
-1. Öffnen Sie Ihren IoT Hub. Wählen Sie dazu am besten im Ressourcenbereich die Option **Ressourcengruppen**, Ihre Ressourcengruppe und anschließend in der Ressourcenliste Ihren IoT-Hub aus.
+1. Öffnen Sie Ihren IoT Hub. Wählen Sie dazu am besten im Ressourcenbereich die Option **Ressourcengruppen** , Ihre Ressourcengruppe und anschließend in der Ressourcenliste Ihren IoT-Hub aus.
 
 1. Wählen Sie unter **Messaging** die Option **Nachrichtenrouting** aus. Wählen Sie im Bereich **Nachrichtenrouting** die Registerkarte **Benutzerdefinierte Endpunkte** und anschließend **+ Hinzufügen** aus. Wählen Sie in der Dropdownliste die Option **Service Bus-Warteschlange** aus.
 
-   ![Hinzufügen eines Endpunkts zu Ihren IoT Hub im Azure-Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
+   ![Screenshot der Option „Service Bus-Warteschlange“](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
 
 1. Geben Sie im Bereich **Service Bus-Endpunkt hinzufügen** folgende Informationen ein:
 
-   **Endpunktname**: Der Name des Endpunkts.
+   **Endpunktname** : Der Name des Endpunkts.
 
-   **Service Bus-Namespace**: Wählen Sie den erstellten Namespace aus.
+   **Service Bus-Namespace** : Wählen Sie den erstellten Namespace aus.
 
-   **Service Bus-Warteschlange**: Wählen Sie die erstellte Warteschlange aus.
+   **Service Bus-Warteschlange** : Wählen Sie die erstellte Warteschlange aus.
 
    ![Hinzufügen eines Endpunkts zu Ihren IoT Hub im Azure-Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/3-add-iot-hub-endpoint-azure-portal.png)
 
@@ -132,13 +132,13 @@ Fügen Sie Ihrem IoT-Hub einen benutzerdefinierten Endpunkt für die Service Bu
 
 1. Geben Sie im Bereich **Route hinzufügen** folgende Informationen ein:
 
-   **Name**: Der Name der Routingregel.
+   **Name** : Der Name der Routingregel.
 
-   **Endpunkt**: Wählen Sie den erstellten Endpunkt aus.
+   **Endpunkt** : Wählen Sie den erstellten Endpunkt aus.
 
-   **Datenquelle**: Wählen Sie **Gerätetelemetrienachrichten** aus.
+   **Datenquelle** : Wählen Sie **Gerätetelemetrienachrichten** aus.
 
-   **Routingabfrage**: Geben Sie `temperatureAlert = "true"` ein.
+   **Routingabfrage** : Geben Sie `temperatureAlert = "true"` ein.
 
    ![Hinzufügen einer Routingregel im Azure-Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4-add-routing-rule-azure-portal.png)
 
@@ -154,11 +154,11 @@ Im vorherigen Abschnitt haben Sie Ihren IoT-Hub eingerichtet, um Nachrichten, di
 
 1. Geben Sie Folgendes ein:
 
-   **Name**: Der Name der Logik-App.
+   **Name** : Der Name der Logik-App.
 
-   **Ressourcengruppe**: Verwenden Sie dieselbe Ressourcengruppe wie für Ihren IoT Hub.
+   **Ressourcengruppe** : Verwenden Sie dieselbe Ressourcengruppe wie für Ihren IoT Hub.
 
-   **Standort**: Verwenden Sie denselben Speicherort, den Ihr IoT-Hub verwendet.
+   **Standort** : Verwenden Sie denselben Speicherort, den Ihr IoT-Hub verwendet.
 
    ![Erstellen einer Logik-App im Azure-Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-a-logic-app.png)
 
@@ -166,9 +166,9 @@ Im vorherigen Abschnitt haben Sie Ihren IoT-Hub eingerichtet, um Nachrichten, di
 
 ### <a name="configure-the-logic-app-trigger"></a>Konfigurieren des Logik-App-Triggers
 
-1. Öffnen Sie die Logik-App. Wählen Sie dazu am besten im Ressourcenbereich die Option **Ressourcengruppen**, Ihre Ressourcengruppe und anschließend in der Ressourcenliste Ihre Logik-App aus. Wenn Sie die Logik-App auswählen, wird der Logic Apps-Designer geöffnet.
+1. Öffnen Sie die Logik-App. Wählen Sie dazu am besten im Ressourcenbereich die Option **Ressourcengruppen** , Ihre Ressourcengruppe und anschließend in der Ressourcenliste Ihre Logik-App aus. Wenn Sie die Logik-App auswählen, wird der Logic Apps-Designer geöffnet.
 
-1. Scrollen Sie im Logic Apps-Designer nach unten zu **Vorlagen**, und wählen Sie **Leere Logik-App** aus.
+1. Scrollen Sie im Logic Apps-Designer nach unten zu **Vorlagen** , und wählen Sie **Leere Logik-App** aus.
 
    ![Beginnen Sie im Azure-Portal mit einer leeren Logik-App.](media/iot-hub-monitoring-notifications-with-azure-logic-apps/5-start-with-blank-logic-app-azure-portal.png)
 
@@ -183,7 +183,7 @@ Im vorherigen Abschnitt haben Sie Ihren IoT-Hub eingerichtet, um Nachrichten, di
 1. Erstellen Sie eine Service Bus-Verbindung.
    1. Geben Sie einen Verbindungsnamen ein, und wählen Sie Ihren Service Bus-Namespace aus der Liste aus. Der nächste Bildschirm wird geöffnet.
 
-      ![Erstellen einer Service Bus-Verbindung für Ihre Logik-App im Azure-Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
+      ![Screenshot der Option „Bei Empfang mindestens einer Nachricht in der Warteschlange (autom. abschließen)“](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
 
    1. Wählen Sie die Service Bus-Richtlinie (RootManageSharedAccessKey) aus. Wählen Sie anschließend **Erstellen** aus.
 
@@ -214,7 +214,7 @@ Im vorherigen Abschnitt haben Sie Ihren IoT-Hub eingerichtet, um Nachrichten, di
       > [!NOTE]
       > Möglicherweise müssen Sie TLS/SSL deaktivieren, um die Verbindung herstellen zu können. Wenn dies der Fall ist und Sie TLS nach dem Herstellen der Verbindung wieder aktivieren möchten, führen Sie den optionalen Schritt am Ende dieses Abschnitts aus.
 
-   1. Wählen Sie in der Dropdownliste **Neuen Parameter hinzufügen** des Schritts **E-Mail senden** die Optionen **Von**, **An**, **Betreff** und **Text** aus. Klicken oder tippen Sie auf eine beliebige Stelle des Bildschirms, um das Auswahlfeld zu schließen.
+   1. Wählen Sie in der Dropdownliste **Neuen Parameter hinzufügen** des Schritts **E-Mail senden** die Optionen **Von** , **An** , **Betreff** und **Text** aus. Klicken oder tippen Sie auf eine beliebige Stelle des Bildschirms, um das Auswahlfeld zu schließen.
 
       ![Auswählen der E-Mail-Felder für die SMTP-Verbindung](media/iot-hub-monitoring-notifications-with-azure-logic-apps/smtp-connection-choose-fields.png)
 

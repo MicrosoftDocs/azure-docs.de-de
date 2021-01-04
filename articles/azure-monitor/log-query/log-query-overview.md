@@ -1,101 +1,82 @@
 ---
-title: Übersicht über Protokollabfragen in Azure Monitor | Microsoft-Dokumentation
-description: Antworten auf häufig zu Protokollabfragen gestellte Fragen und erste Schritte zur Verwendung dieser Abfragen
+title: Protokollabfragen in Azure Monitor
+description: Referenzinformationen für die in Azure Monitor verwendete Abfragesprache Kusto. Enthält zusätzliche Elemente, die spezifisch für Azure Monitor sind, und Elemente, die in Azure Monitor-Protokollabfragen nicht unterstützt werden.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/19/2019
-ms.openlocfilehash: 55463f6af47ef8eda712b1787a89a710c08c1fe6
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.date: 10/09/2020
+ms.openlocfilehash: 6174bcbe5a014cff8dbd8dff242880d7f0ef7aa0
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995209"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491391"
 ---
-# <a name="overview-of-log-queries-in-azure-monitor"></a>Übersicht über Protokollabfragen in Azure Monitor
-Mithilfe von Protokollabfragen können Sie die Daten, die in [Azure Monitor-Protokollen](../platform/data-platform-logs.md) erfasst werden, in vollem Umfang nutzen. Eine leistungsstarke Abfragesprache ermöglicht es Ihnen, Daten aus mehreren Tabellen zusammenzufügen, größere Mengen an Daten zu aggregieren und komplexe Vorgänge mit möglichst wenig Code auszuführen. Beinahe jede Frage kann beantwortet und jede Analyse durchgeführt werden, solange unterstützende Daten erfasst wurden und Sie wissen, wie die richtige Abfrage erstellt werden muss.
+# <a name="log-queries-in-azure-monitor"></a>Protokollabfragen in Azure Monitor
+Azure Monitor-Protokolle basieren auf Azure Data Explorer, und Protokollabfragen werden in der Abfragesprache Kusto (Kusto Query Language, KQL) geschrieben. Hierbei handelt es sich um eine umfangreiche Sprache, die einfach zu lesen und zu verwenden ist, sodass Sie nach einer grundlegenden Einarbeitung mit dem Schreiben von Abfragen beginnen können.
 
-Einige Features in Azure Monitor (z. B. [Einblicke](../insights/insights-overview.md) und [Lösungen](../monitor-reference.md)) verarbeiten Protokolldaten, ohne die zugrunde liegenden Abfragen für Sie offenzulegen. Sie sollten wissen, wie Abfragen aufgebaut sind und wie Sie sie verwenden können, um Daten auf interaktive Weise in Azure Monitor-Protokollen analysieren zu können, damit Sie auch die anderen Features von Azure Monitor in vollem Umfang nutzen können.
+Abfragen werden beispielsweise in den folgenden Bereichen in Azure Monitor verwendet:
 
-Verwenden Sie diesen Artikel als Ausgangspunkt, um sich über Protokollabfragen in Azure Monitor zu informieren. Im Laufe des Artikels werden häufig gestellte Fragen beantwortet sowie Links zu anderen Dokumentationen angegeben, die weitere Informationen sowie Lerneinheiten umfassen.
+- [Log Analytics:](../log-query/log-analytics-overview.md) Das primäre Tool im Azure-Portal zum Bearbeiten von Protokollabfragen und interaktiven Analysieren von deren Ergebnissen. Auch wenn Sie an anderer Stelle in Azure Monitor eine Protokollabfrage verwenden möchten, schreiben und testen Sie diese normalerweise in Log Analytics, bevor Sie sie an den endgültigen Speicherort kopieren.
+- [Protokollwarnungsregeln:](../platform/alerts-overview.md) Proaktives Identifizieren von Problemen anhand von Daten in Ihrem Arbeitsbereich.  Jede Warnungsregel basiert auf einer Protokollabfrage, die in regelmäßigen Abständen automatisch ausgeführt wird.  Die Ergebnisse werden überprüft, um zu ermitteln, ob eine Warnung erstellt werden soll.
+- [Arbeitsmappen:](../platform/workbooks-overview.md) Einfügen der Ergebnisse von Protokollabfragen mithilfe verschiedener Visualisierungen in interaktiven visuellen Berichten im Azure-Portal.
+- [Azure-Dashboards:](../learn/tutorial-logs-dashboards.md) Anheften der Ergebnisse beliebiger Abfragen in einem Azure-Dashboard, wodurch Protokoll- und Metrikdaten gemeinsam visualisiert und optional mit anderen Azure-Benutzern geteilt werden können.
+- [Logic Apps:](../platform/logicapp-flow-connector.md)  Verwenden der Ergebnisse einer Protokollabfrage in einem automatisierten Workflow mithilfe von Logic Apps.
+- [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult): Verwenden der Ergebnisse einer Protokollabfrage in einem PowerShell-Skript über eine Befehlszeile oder ein Azure Automation-Runbook, das „Get-AzOperationalInsightsSearchResults“ verwendet.
+- [Azure Monitor-Protokolle-API](https://dev.loganalytics.io). Abrufen von Protokolldaten aus dem Arbeitsbereich von einem beliebigen REST-API-Client.  Die API-Anforderung enthält eine Abfrage, die für Azure Monitor ausgeführt wird, um die abzurufenden Daten zu ermitteln.
 
-## <a name="how-can-i-learn-how-to-write-queries"></a>Wie erfahre ich, wie ich Abfragen schreiben kann?
-Wenn Sie direkt loslegen möchten, können Sie mit den folgenden Tutorials beginnen:
+## <a name="getting-started"></a>Erste Schritte
+Die beste Methode für den Einstieg in das Schreiben von Protokollabfragen mithilfe von KQL bieten die verfügbaren Tutorials und Beispiele.
 
-- [Get started with Log Analytics in Azure Monitor (Erste Schritte mit Log Analytics in Azure Monitor)](get-started-portal.md)
-- [Get started with log queries in Azure Monitor (Erste Schritte mit Abfragen in Azure Monitor)](get-started-queries.md)
-
-Sobald Sie die Grundlagen kennen, können Sie einige Lerneinheiten durchgehen, für die Sie entweder Ihre eigenen Daten oder Daten aus unserer Demoumgebung verwenden. Beginnen Sie mit der folgenden Einheit: 
-
-- [Arbeiten mit Zeichenfolgen in Azure Monitor-Protokollabfragen](string-operations.md)
- 
-## <a name="what-language-do-log-queries-use"></a>Welche Sprache verwenden Protokollabfragen?
-Azure Monitor-Protokolle basieren auf [Azure Data Explorer](/azure/data-explorer), und Protokollabfragen werden in der Abfragesprache Kusto (Kusto Query Language, KQL) geschrieben. Es handelt sich dabei um eine umfangreiche Sprache, die einfach zu lesen und zu verwenden ist. Sie sollten sie nach kurzer Einarbeitung verwenden können.
-
-Die vollständige Dokumentation zur Verwendung von KQL mit Azure Data Explorer und Verweise auf die verschiedenen verfügbaren Funktionen [finden Sie hier](/azure/kusto/query).<br>
-Eine kurze exemplarische Vorgehensweise für die Sprache bei der Verwendung von Daten aus Azure Monitor-Protokollen finden Sie unter [Erste Schritte mit Azure Monitor-Protokollabfragen](get-started-queries.md).
-Informationen zu kleineren Unterschieden bei der KQL-Version, die von Azure Monitor verwendet wird, finden Sie unter [Azure Monitor – Unterschiede in der Protokollabfragesprache](data-explorer-difference.md).
-
-## <a name="what-data-is-available-to-log-queries"></a>Welchen Daten stehen für Protokollabfragen zur Verfügung?
-Sämtliche Daten, die in Azure Monitor-Protokollen erfasst werden, können bei Protokollabfragen abgerufen und analysiert werden. Verschiedene Datenquellen schreiben ihre Daten auch in unterschiedliche Tabellen. Sie können aber auch mehrere Tabellen in einer einzelnen Abfrage zusammenfassen, um Daten über mehrere Quellen hinweg zu analysieren. Wenn Sie eine Abfrage erstellen, legen Sie zuerst fest, welche Tabellen die gesuchten Daten aufweisen. Eine Erklärung zur Strukturierung der Daten finden Sie unter [Structure of Azure Monitor Logs (Struktur von Azure Monitor-Protokollen)](../platform/data-platform-logs.md).
-
-## <a name="what-does-a-log-query-look-like"></a>Wie sieht eine Protokollabfrage aus?
-Eine Abfrage kann beispielsweise aus einem einfachen Tabellennamen bestehen, über den alle Einträge einer Tabelle abgerufen werden können:
-
-```Kusto
-Syslog
-```
-
-Alternativ kann auch nach bestimmten Einträgen gefiltert werden, die anschließend zusammengefasst und die Ergebnisse in einem Diagramm dargestellt werden:
-
-```
-SecurityEvent
-| where TimeGenerated > ago(7d)
-| where EventID == 4625
-| summarize count() by Computer, bin(TimeGenerated, 1h)
-| render timechart 
-```
-
-Bei komplexeren Analysen können Sie Daten aus mehreren Tabellen abrufen und eine Verknüpfung verwenden, um die Ergebnisse zusammen zu analysieren.
-
-```Kusto
-app("ContosoRetailWeb").requests
-| summarize count() by bin(timestamp,1hr)
-| join kind= inner (Perf
-    | summarize avg(CounterValue) 
-      by bin(TimeGenerated,1hr))
-on $left.timestamp == $right.TimeGenerated
-```
-Auch wenn Sie nicht mit KQL vertraut sind, sollten Sie zumindest die zugrunde liegende Logik ermitteln können, die von diesen Abfragen verwendet wird. Diese Abfragen beginnen mit dem Namen einer Tabelle und fügen anschließend mehrere Befehle hinzu, um die Daten zu filtern und zu verarbeiten. Eine Abfrage kann beliebig viele Befehle verwenden, und Sie können komplexere Abfragen schreiben, wenn Sie erst einmal mit den verschiedenen verfügbaren KQL-Befehlen vertraut sind.
-
-Ein Tutorial zu Protokollabfragen, in dem die Sprache sowie allgemeine Funktionen erläutert werden, finden Sie unter [Erste Schritte mit Azure Monitor-Protokollabfragen](get-started-queries.md).<br>
+- [Log Analytics-Tutorial](log-analytics-tutorial.md): Tutorial zur Verwendung der Funktionen von Log Analytics, dem Tool, das Sie im Azure-Portal zum Bearbeiten und Ausführen von Abfragen verwenden. Es ermöglicht zudem das Schreiben einfacher Abfragen, ohne direkt mit der Abfragesprache zu arbeiten. Wenn Sie Log Analytics bisher noch nicht verwendet haben, beginnen Sie hier, damit Sie das Tool verstehen, das Sie dann in den anderen Tutorials und Beispielen verwenden.
+- [KQL-Tutorial](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor): Einführung in grundlegende KQL-Konzepte und gängige Operatoren. Dies ist der beste Ausgangspunkt, um sich mit der Sprache selbst und der Struktur von Protokollabfragen vertraut zu machen. 
+- [Beispielabfragen](example-queries.md): Beschreibung der in Log Analytics verfügbaren Beispielabfragen. Sie können die Abfragen ohne Änderungen verwenden oder als Beispiele zum Erlernen von KQL nutzen.
+- [Abfragebeispiele](/azure/data-explorer/kusto/query/samples?pivots=azuremonitor): Beispielabfragen, die eine Vielzahl verschiedener Konzepte veranschaulichen.
 
 
-## <a name="what-is-log-analytics"></a>Was ist Log Analytics?
-Log Analytics ist das wichtigste Tool, das im Azure-Portal zum Schreiben von Protokollabfragen und interaktiven Analysieren von deren Ergebnissen verwendet wird. Auch wenn eine Protokollabfrage an einer anderen Stelle in Azure Monitor verwendet wird, sollten Sie die Abfrage in der Regel zunächst mithilfe von Log Analytics schreiben und testen.
 
-Sie können Log Analytics über verschiedene Orte im Azure-Portal starten. Der Umfang der Daten, die für Log Analytics verfügbar sind, ist von der Art und Weise abhängig, wie Sie das Tool starten. Weitere Informationen finden Sie unter [Query Scope (Abfrageumfang)](scope.md).
+## <a name="reference-documentation"></a>Referenzdokumentation
+Eine [Dokumentation für KQL](/azure/data-explorer/kusto/query/), einschließlich der Referenz für alle Befehle und Operatoren, ist in der Dokumentation zu Azure Data Explorer enthalten. Auch nachdem Sie sich mit der Verwendung von KQL vertraut gemacht haben, nutzen Sie die Referenz noch regelmäßig, um sich mit neuen Befehlen und Szenarien zu befassen, die Sie bisher noch nicht verwendet haben.
 
-- Klicken Sie im Menü **Azure Monitor** oder im Menü **Log Analytics-Arbeitsbereiche** auf **Protokolle**.
-- Klicken Sie in einer Application Insights-Anwendung auf der Seite **Übersicht** auf **Protokolle**.
-- Klicken Sie im Menü einer Azure-Ressource auf **Protokolle**.
 
-![Log Analytics](media/log-query-overview/log-analytics.png)
+## <a name="language-differences"></a>Sprachunterschiede
+Zwar verwendet Azure Monitor dieselbe KQL wie Azure Data Explorer, doch gibt es einige Unterschiede. In der KQL-Dokumentation sind die Operatoren angegeben, die nicht von Azure Monitor unterstützt werden oder über unterschiedliche Funktionen verfügen. Azure Monitor-spezifische Operatoren sind im Azure Monitor-Inhalt dokumentiert. In den folgenden Abschnitten finden Sie eine Liste der Unterschiede zwischen den Sprachversionen zur schnellen Übersicht.
 
-Ein Tutorial zu Log Analytics, in dem verschiedene Features vorgestellt werden, finden Sie unter [Get started with Log Analytics in Azure Monitor (Erste Schritte mit Log Analytics in Azure Monitor)](get-started-portal.md).
+### <a name="statements-not-supported-in-azure-monitor"></a>In Azure Monitor nicht unterstützte Anweisungen
 
-## <a name="where-else-are-log-queries-used"></a>Wofür werden Protokollabfragen außerdem noch verwendet?
-Neben dem interaktiven Arbeiten mit Protokollabfragen und deren Ergebnissen in Log Analytics können Sie außerdem in den folgenden Bereichen in Azure Monitor Abfragen verwenden:
+* [Alias](/azure/kusto/query/aliasstatement)
+* [Abfrageparameter](/azure/kusto/query/queryparametersstatement)
 
-- **Warnungsregeln.** [Warnungsregeln](../platform/alerts-overview.md) identifizieren proaktiv Probleme durch die Daten in Ihrem Arbeitsbereich.  Jede Warnungsregel basiert auf einer Protokollsuche, die in regelmäßigen Abständen automatisch ausgeführt wird.  Die Ergebnisse werden überprüft, um zu ermitteln, ob eine Warnung erstellt werden soll.
-- **Dashboards.** Sie können die Ergebnisse beliebiger Abfragen in einem [Azure-Dashboard](../learn/tutorial-logs-dashboards.md) anheften, was es Ihnen ermöglicht, Protokoll- und Metrikdaten gemeinsam zu visualisieren und optional mit anderen Azure-Benutzern zu teilen.
-- **Ansichten.**  Sie können mit [Ansicht-Designer](../platform/view-designer.md) Visualisierungen von Daten erstellen, die in Benutzerdashboards einbezogen werden sollen.  Protokollabfragen stellen die von [Kacheln](../platform/view-designer-tiles.md) und [Visualisierungsparts](../platform/view-designer-parts.md) in jeder Ansicht verwendeten Daten bereit.  
-- **Export:**  Wenn Sie Protokolldaten aus Azure Monitor nach Excel oder [Power BI](../platform/powerbi.md) importieren, erstellen Sie eine Protokollabfrage, um die zu exportierenden Daten zu definieren.
-- **PowerShell.** Sie können ein PowerShell-Skript über eine Befehlszeile oder ein Azure Automation-Runbook ausführen, das Protokolldaten mithilfe von [Get-AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult) aus Azure Monitor abruft.  Dieses Cmdlet erfordert eine Abfrage, um die abzurufenden Daten festzulegen.
-- **Azure Monitor-Protokolle-API.**  Die [Azure Monitor-Protokolle-API](https://dev.loganalytics.io) ermöglicht einem beliebigen REST-API-Client, Protokolldaten aus dem Arbeitsbereich abzurufen.  Die API-Anforderung enthält eine Abfrage, die für Azure Monitor ausgeführt wird, um die abzurufenden Daten zu ermitteln.
+### <a name="functions-not-supported-in-azure-monitor"></a>In Azure Monitor nicht unterstützte Funktionen
 
+* [cluster()](/azure/kusto/query/clusterfunction)
+* [cursor_after()](/azure/kusto/query/cursorafterfunction)
+* [cursor_before_or_at()](/azure/kusto/query/cursorbeforeoratfunction)
+* [cursor_current(), current_cursor()](/azure/kusto/query/cursorcurrent)
+* [database()](/azure/kusto/query/databasefunction)
+* [current_principal()](/azure/kusto/query/current-principalfunction)
+* [extent_id()](/azure/kusto/query/extentidfunction)
+* [extent_tags()](/azure/kusto/query/extenttagsfunction)
+
+### <a name="operators-not-supported-in-azure-monitor"></a>In Azure Monitor nicht unterstützte Operatoren
+
+* [Clusterübergreifender Join-Vorgang](/azure/kusto/query/joincrosscluster)
+
+### <a name="plugins-not-supported-in-azure-monitor"></a>In Azure Monitor nicht unterstützte Plug-Ins
+
+* [Python-Plug-In](/azure/kusto/query/pythonplugin)
+* [Plug-In „sql_request“](/azure/kusto/query/sqlrequestplugin)
+
+
+### <a name="additional-operators-in-azure-monitor"></a>Zusätzliche Operatoren in Azure Monitor
+Die folgenden Operatoren unterstützen für Azure Monitor spezifische Features und stehen außerhalb von Azure Monitor nicht zur Verfügung.
+
+* [app()](app-expression.md)
+* [resource()](resource-expression.md)
+* [workspace()](workspace-expression.md)
 
 ## <a name="next-steps"></a>Nächste Schritte
-- Weitere Informationen erhalten Sie im [Tutorial zum Verwenden von Log Analytics im Azure-Portal](get-started-portal.md).
-- Weitere Informationen erhalten Sie im [Tutorial zum Schreiben von Abfragen](get-started-queries.md).
+- Weitere Informationen erhalten Sie im [Tutorial zum Schreiben von Abfragen](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor).
+- Greifen Sie auf die vollständige [Referenzdokumentation für die Abfragesprache Kusto](/azure/kusto/query/) zu.
+

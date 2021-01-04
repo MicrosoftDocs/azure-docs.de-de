@@ -9,12 +9,12 @@ metadata:
   ms.service: postgresql
   ms.subservice: hyperscale-citus
   ms.topic: landing-page
-  ms.openlocfilehash: 20e99db5f380ee24cf88987a7884292ca47f7e1e
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: e2734332e6ec99c19b5cb45256a5c96fb03258d0
+  ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "90928844"
+  ms.lasthandoff: 11/21/2020
+  ms.locfileid: "95025122"
 landingContent:
 - title: Erste Schritte
   linkLists:
@@ -56,8 +56,8 @@ landingContent:
       url: ../concepts-hyperscale-choose-distribution-column.md
   - linkListType: how-to-guide
     links:
-    - text: Größe der Servergruppe
-      url: ../howto-hyperscale-scaling.md
+    - text: Skalieren einer Servergruppe
+      url: ../howto-hyperscale-scale-grow.md
     - text: Verteilen von Tabellen
       url: ../howto-hyperscale-modify-distributed-tables.md
     - text: Erstellen von Warnungen zu Metriken

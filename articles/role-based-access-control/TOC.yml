@@ -9,7 +9,7 @@
       href: rbac-and-directory-admin-roles.md
 - name: Schnellstarts
   items:
-    - name: Anzeigen des Zugriffs für einen Benutzer
+    - name: Überprüfen des Zugriffs für einen Benutzer
       href: check-access.md
     - name: ARM-Vorlage
       displayName: Resource Manager
@@ -82,7 +82,7 @@
           href: deny-assignments-powershell.md
         - name: REST-API
           href: deny-assignments-rest.md
-    - name: Erstellen oder Aktualisieren von benutzerdefinierten Rollen
+    - name: Erstellen von benutzerdefinierten Rollen
       items:
         - name: Übersicht
           href: custom-roles.md

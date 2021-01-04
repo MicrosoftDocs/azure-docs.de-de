@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: ad26fe0d869a2e892a419b1732727c3ff1d1e9a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9356cbb6eb210d6745d90e8ad001917e73592cd3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88870713"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96021984"
 ---
 # <a name="about-the-speech-sdk"></a>Informationen zum Speech SDK
 
@@ -29,7 +29,7 @@ Das Speech SDK macht eine Vielzahl von Features aus dem Spracherkennungsdienst v
 
 ### <a name="speech-to-text"></a>Spracherkennung
 
-Die [Spracherkennung](speech-to-text.md) (auch als *Speech-to-Text* bezeichnet) wandelt Audiodatenströme in Text um, der von Ihren Anwendungen, Tools oder Geräten genutzt oder angezeigt werden kann. In Kombination mit [Language Understanding (LUIS)](../luis/index.yml) können Sie Benutzerabsichten aus transkribierter Sprache ableiten und auf Sprachbefehle reagieren. Verwenden Sie die [Sprachübersetzung](speech-translation.md), um Spracheingaben mit einem einzigen Aufruf in eine andere Sprache zu übersetzen. Weitere Informationen finden Sie unter [Spracherkennung – Grundlagen](speech-to-text-basics.md).
+Die [Spracherkennung](speech-to-text.md) (auch als *Speech-to-Text* bezeichnet) wandelt Audiodatenströme in Text um, der von Ihren Anwendungen, Tools oder Geräten genutzt oder angezeigt werden kann. In Kombination mit [Language Understanding (LUIS)](../luis/index.yml) können Sie Benutzerabsichten aus transkribierter Sprache ableiten und auf Sprachbefehle reagieren. Verwenden Sie die [Sprachübersetzung](speech-translation.md), um Spracheingaben mit einem einzigen Aufruf in eine andere Sprache zu übersetzen. Weitere Informationen finden Sie unter [Spracherkennung – Grundlagen](./get-started-speech-to-text.md).
 
 **Spracherkennung (SR), Begriffsliste, Absicht, Übersetzung und lokale Container** sind auf den folgenden Plattformen verfügbar:
 
@@ -68,7 +68,7 @@ Die [Spracherkennung](speech-to-text.md) (auch als *Speech-to-Text* bezeichnet) 
 
 #### <a name="keyword-spotting"></a>Schlüsselworterkennung
 
-Das Konzept der [-Schlüsselworterkennung](speech-devices-sdk-create-kws.md) wird im Speech SDK unterstützt. Bei der Schlüsselworterkennung wird ein Schlüsselwort in der Sprache erkannt, und nach der Erfassung des Schlüsselworts folgt eine Aktion. Mit dem Schlüsselwort „Hey Cortana“ wird beispielsweise der Cortana-Assistent aktiviert.
+Das Konzept der [-Schlüsselworterkennung](./custom-keyword-basics.md) wird im Speech SDK unterstützt. Bei der Schlüsselworterkennung wird ein Schlüsselwort in der Sprache erkannt, und nach der Erfassung des Schlüsselworts folgt eine Aktion. Mit dem Schlüsselwort „Hey Cortana“ wird beispielsweise der Cortana-Assistent aktiviert.
 
 **Schlüsselworterkennung** ist auf den folgenden Plattformen verfügbar:
 
@@ -180,4 +180,4 @@ Bei der benutzerdefinierten Sprachsynthese (auch als Custom Voice bezeichnet) ha
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Erstellen Sie ein kostenloses Azure-Konto.](https://azure.microsoft.com/free/cognitive-services/)
-* [Erkennen von Sprache in C#](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+* [Erkennen von Sprache in C#](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet)

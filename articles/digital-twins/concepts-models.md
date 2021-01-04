@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7b404d05f512449c99e60c0bfdc93aab22c399ef
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0a38f9b8135fed08a95df68f108e44c34fec6325
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019017"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955326"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Grundlegendes zu Zwillingsmodellen in Azure Digital Twins
 
@@ -20,9 +20,9 @@ Ein Hauptmerkmal von Azure Digital Twins ist die Fähigkeit, Ihr eigenes Vokabul
 
 Ein Modell ähnelt einer **Klasse** einer objektorientierten Programmiersprache und definiert eine Datenform für ein bestimmtes Konzept in Ihrer realen Arbeitsumgebung. Modelle haben Namen (wie z. B. *Raum* oder *Temperatursensor*) und enthalten Elemente wie Eigenschaften, Telemetrie/Ereignisse und Befehle, die beschreiben, welche Möglichkeiten dieser Entitätstyp in Ihrer Umgebung hat. Später nutzen Sie diese Modelle, um [**Digital Twins**](concepts-twins-graph.md) zu erstellen, die bestimmte dieser Typbeschreibung entsprechende Entitäten darstellen.
 
-Modelle werden in der auf JSON-LD basierenden Sprache **Digital Twins Definition Language (DTDL)** geschrieben.  
+Azure Digital Twins-Modelle werden in der auf JSON-LD basierenden Sprache **Digital Twin Definition Language (DTDL)** dargestellt.  
 
-## <a name="digital-twin-definition-language-dtdl-for-writing-models"></a>Digital Twin Definition Language (DTDL) zum Schreiben von Modellen
+## <a name="digital-twin-definition-language-dtdl-for-models"></a>Digital Twin Definition Language (DTDL) für Modelle
 
 Modelle für Azure Digital Twins werden mithilfe von DTDL (Digital Twins Definition Language) definiert. DTDL basiert auf JSON-LD und ist von der Programmiersprache unabhängig. DTDL ist nicht ausschließlich für Azure Digital Twins bestimmt, sondern wird auch zur Darstellung von Gerätedaten in anderen IoT-Diensten wie [IoT Plug & Play](../iot-pnp/overview-iot-plug-and-play.md) verwendet. 
 
@@ -158,7 +158,7 @@ Zusätzlich zu den einfachen Typen können die Felder *Eigenschaft* und *Telemet
 * `Map`
 * `Enum`
 
-*Telemetrie*felder unterstützen auch `Array`.
+*Telemetrie* felder unterstützen auch `Array`.
 
 ### <a name="model-inheritance"></a>Vererbung im Modell
 
@@ -224,13 +224,29 @@ Nach Anwendung der Vererbung macht die erweiternde Schnittstelle alle Eigenschaf
 
 Die erweiternde Schnittstelle kann keine Definitionen der übergeordneten Schnittstellen ändern, sondern sie nur ergänzen. Sie kann auch keine Fähigkeit neu definieren, die bereits in einer ihrer übergeordneten Schnittstellen definiert ist (selbst wenn die Fähigkeiten als gleich definiert sind). Wenn beispielsweise eine übergeordnete Schnittstelle die `double`-Eigenschaft *Masse* definiert, kann die erweiternde Schnittstelle keine Deklaration von *Masse* enthalten, selbst wenn es sich ebenfalls um eine `double`-Eigenschaft handelt.
 
-## <a name="validating-models"></a>Validieren von Modellen
+## <a name="best-practices-for-designing-models"></a>Bewährte Methoden für das Entwerfen von Modellen
+
+Wenn Sie beim Entwerfen von Modellen die Entitäten in Ihrer Umgebung wiedergeben möchten, kann es hilfreich sein, vorauszuschauen und die Implikationen zu betrachten, die Ihr Entwurf hinsichtlich [Abfragen](concepts-query-language.md) beinhaltet. Sie können Eigenschaften so entwerfen, dass Diagrammdurchläufe bei großen Resultsets vermieden werden. Sie können Beziehungen, die in einer einzelnen Abfrage beantwortet werden müssen, auch als einstufige Beziehungen modellieren.
+
+### <a name="validating-models"></a>Validieren von Modellen
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
+## <a name="integrating-with-industry-standard-models"></a>Integrieren von Branchenstandardmodellen
+
+Die Verwendung von Modellen, die auf Branchenstandards basieren oder eine standardmäßige Ontologiedarstellung nutzen (z. B. RDF oder OWL), bietet einen guten Ausgangspunkt für den Entwurf Ihrer Azure Digital Twins-Modelle. Die Verwendung von Branchenmodellen unterstützt außerdem die Standardisierung und Informationsfreigabe.
+
+Für die Verwendung in Azure Digital Twins muss ein Modell in der auf JSON-LD basierenden Sprache [**DTDL (Digital Twins Definition Language)**](concepts-models.md) dargestellt werden. Deshalb wird in diesem Artikel beschrieben, wie Sie die Branchenstandardmodelle in DTDL darstellen und die vorhandenen Branchenkonzepte in die DTDL-Semantik integrieren, sodass diese von Azure Digital Twins verwendet werden können. Das DTDL-Modell dient dann als allgemeingültige Datenbasis für das Modell in Azure Digital Twins.
+
+Es gibt zwei Hauptmethoden zur Integration von Branchenstandardmodellen in DTDL, die von Ihrer jeweiligen Situation abhängen:
+* Wenn Sie die Modelle noch nicht erstellt haben, können Sie diese auf Grundlage **vorhandener DTDL-Anfangsontologien** entwerfen, die eine für Ihre Branche spezifische Sprache enthalten.
+* Wenn Sie bereits über vorhandene Modelle verfügen, die auf einem Branchenstandard basieren, müssen Sie diese **in DTDL konvertieren**, um Sie in Azure Digital Twins zu übernehmen.
+
+Weitere Informationen zu diesen beiden Prozessen finden Sie unter [*Vorgehensweise: Integrieren von Branchenstandardmodellen*](how-to-integrate-models.md).
+
 ## <a name="next-steps"></a>Nächste Schritte
 
-Erfahren Sie, wie Modelle mit den DigitalTwinsModels-APIs verwaltet werden:
+Erfahren Sie, wie Modelle mit den DigitalTwinModels-APIs verwaltet werden:
 * [*Verwenden Verwalten von Azure Digital Twins-Modellen*](how-to-manage-model.md)
 
 Oder erfahren Sie, wie Digital Twins auf Grundlage von Modellen erstellt werden:

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.custom: devx-track-python
-ms.openlocfilehash: 402a61b4b5335c19d75cd1182243783453a0e7fa
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a7117d30eb1774753f21e82ad5f812a7309d8386
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974854"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483095"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Erstellen und Verwalten von Windows-VMs in Azure mithilfe von Python
 
@@ -492,7 +492,7 @@ Viele Aspekte der Bereitstellung müssen berücksichtigt werden, wenn Sie die Gr
 
 ### <a name="add-a-data-disk-to-the-vm"></a>Hinzufügen eines Datenträgers zur VM
 
-Virtuelle Computer können über einen oder mehrere [Datenträger](../managed-disks-overview.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) verfügen, die als VHDs gespeichert werden.
+Virtuelle Computer können über einen oder mehrere [Datenträger](../managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) verfügen, die als VHDs gespeichert werden.
 
 1. Um einen Datenträger zum virtuellen Computer hinzuzufügen, fügen Sie diese Funktion nach den Variablen in der PY-Datei hinzu: 
 

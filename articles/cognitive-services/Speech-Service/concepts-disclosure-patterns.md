@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: fe4f0cdcdb863582560b0eba3a22e95b93ff858b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 348277d42c543bc45cf98bfeaf7ea8313afe8f6f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150948"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021982"
 ---
 # <a name="disclosure-design-patterns"></a>Entwurfsmuster für die Offenlegung
 Nachdem Sie die richtige [Offenlegungsstufe](concepts-disclosure-guidelines.md#disclosure-assessment) für die Erfahrung mit Ihrer synthetischen Stimme festgelegt haben, ist es an der Zeit, mögliche Entwurfsmuster zu untersuchen.
@@ -184,7 +184,7 @@ Berücksichtigen Sie die verschiedenen Interaktionsmodi Ihrer Benutzererfahrung,
 
 Die Offenlegung kann implizit erreicht werden, indem genaue Erwartungen an das, was der digitale Assistent kann, gestellt werden. Stellen Sie Beispielbefehle bereit, damit Benutzer lernen können, wie sie mit dem digitalen Assistenten interagieren, und bieten Sie eine kontextbezogene Hilfe, um mehr über die synthetische Stimme in den frühen Phasen der Benutzererfahrung zu erfahren.
 
-![Visuelle Hinweise und Feedback](media/responsible-ai/disclosure-patterns/capability-disclosure.png)<br/>
+![Beispiel der Standardantworten auf eine Unterhaltung, die Sie gestalten können.](media/responsible-ai/disclosure-patterns/capability-disclosure.png)<br/>
 
 ### <a name="conversational-transparency"></a>Interaktive Transparenz
 
@@ -241,17 +241,17 @@ Nutzen Sie die Offenlegung als Gelegenheit, um in angemessener Weise zu scheiter
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 - [Microsoft Bot-Richtlinien](https://www.microsoft.com/research/uploads/prod/2018/11/Bot_Guidelines_Nov_2018.pdf)
-- [Cortana-Entwurfsrichtlinien](https://docs.microsoft.com/cortana/voice-commands/voicecommand-design-guidelines)
-- [Microsoft Windows UWP Speech – Entwurfsrichtlinien](https://docs.microsoft.com/windows/uwp/design/input/speech-interactions)
-- [Microsoft Windows Mixed Reality – Richtlinien zur Sprachsteuerung](https://docs.microsoft.com/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
+- [Cortana-Entwurfsrichtlinien](/cortana/voice-commands/voicecommand-design-guidelines)
+- [Microsoft Windows UWP Speech – Entwurfsrichtlinien](/windows/uwp/design/input/speech-interactions)
+- [Microsoft Windows Mixed Reality – Richtlinien zur Sprachsteuerung](/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
 
 ## <a name="reference-docs"></a>Referenz
 
-* [Offenlegung für Sprecher](https://aka.ms/disclosure-voice-talent)
+* [Offenlegung für Sprecher](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [Richtlinien für die verantwortungsvolle Bereitstellung von Technologien mit künstlicher Sprache](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Kontrollübersicht](concepts-gating-overview.md)
 * [Vorgehensweise zum Offenlegen](concepts-disclosure-guidelines.md)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Offenlegung für Sprecher](https://aka.ms/disclosure-voice-talent)
+* [Offenlegung für Sprecher](/legal/cognitive-services/speech-service/disclosure-voice-talent)

@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d8ec8eec28d66cf93608393ddca45f78460d831
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6c8be064ade8182355c320e948b3b60b846033d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279770"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348057"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect-Synchronisierung: Funktionsreferenz
 In der Azure AD Connect-Synchronisierung werden Funktionen verwendet, um Attributwerte während der Synchronisierung zu ändern.  
@@ -478,7 +478,7 @@ Dieses Format wird von Azure Active Directory als DN verwendet.
 
 **Beispiel:**  
 `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")`  
-Gibt*Hello world!* zurück.
+Gibt *Hello world!* zurück.
 
 ---
 ### <a name="converttobase64"></a>ConvertToBase64
@@ -703,7 +703,7 @@ Die InStr-Funktion sucht nach dem ersten Vorkommen einer Teilzeichenfolge in ein
 
 `num InStr(str stringcheck, str stringmatch)`  
 `num InStr(str stringcheck, str stringmatch, num start)`  
-`num InStr(str stringcheck, str stringmatch, num start , enum compare)`
+`num InStr(str stringcheck, str stringmatch, num start, enum compare)`
 
 * stringcheck: Zu durchsuchende Zeichenfolge
 * stringmatch: Zu findende Zeichenfolge

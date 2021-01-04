@@ -11,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 97b872c5fe0a155bb6e474f327f8d0c65e22b21f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: bf7a35e8cedbe62aafb29aa6d9dc8fcb42e90b2e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317449"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693765"
 ---
 # <a name="azure-load-balancer-components"></a>Azure Load Balancer-Komponenten
 
 Azure Load Balancer umfasst ein paar Hauptkomponenten. Diese Komponenten können in Ihrem Abonnement auf folgende Weise konfiguriert werden:
 
 * Azure-Portal
-* Azure CLI
+* Azure-Befehlszeilenschnittstelle
 * Azure PowerShell
 * Resource Manager-Vorlagen
 
@@ -128,7 +128,7 @@ Vom Lastenausgleich im Tarif „Basic“ werden keine Ausgangsregeln unterstütz
 
 ## <a name="limitations"></a>Einschränkungen
 
-- Informationen zu Load Balancer-[Grenzwerten](https://aka.ms/lblimits) 
+- Informationen zu Load Balancer-[Grenzwerten](../azure-resource-manager/management/azure-subscription-service-limits.md) 
 - Load Balancer ermöglicht den Lastenausgleich und die Portweiterleitung für bestimmte TCP- oder UDP-Protokolle. Für Lastenausgleichsregeln und NAT-Regeln für eingehenden Datenverkehr werden TCP und UDP unterstützt, aber keine anderen IP-Protokolle, z. B. ICMP.
 - Für den ausgehenden Datenfluss von einer Back-End-VM zum Front-End einer internen Load Balancer-Instanz tritt ein Fehler auf.
 - Eine Lastenausgleichsregel kann sich nicht über zwei virtuelle Netzwerke erstrecken.  Front-Ends und ihre Back-End-Instanzen müssen sich im gleichen virtuellen Netzwerk befinden.  
@@ -138,12 +138,12 @@ Vom Lastenausgleich im Tarif „Basic“ werden keine Ausgangsregeln unterstütz
 
 - Informationen zu den ersten Schritten mit einer Load Balancer-Instanz finden Sie unter [Schnellstart: Erstellen einer Load Balancer Standard-Instanz für den Lastenausgleich virtueller Computer im Azure-Portal](quickstart-load-balancer-standard-public-portal.md).
 - Weitere Informationen zu [Azure Load Balancer](load-balancer-overview.md).
-- Informieren Sie sich über [öffentliche IP-Adressen](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
-- Informieren Sie sich über [private IP-Adressen](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses).
+- Informieren Sie sich über [öffentliche IP-Adressen](../virtual-network/virtual-network-public-ip-address.md).
+- Informieren Sie sich über [private IP-Adressen](../virtual-network/private-ip-addresses.md).
 - Informationen zu [Standard Load Balancer und Verfügbarkeitszonen](load-balancer-standard-availability-zones.md)
 - Weitere Informationen zu [Diagnosen für Standard Load Balancer](load-balancer-standard-diagnostics.md).
 - Informationen zur [TCP-Zurücksetzung bei Leerlauf](load-balancer-tcp-reset.md).
 - Informationen zu [Load Balancer Standard mit Lastenausgleichsregeln für HA-Ports](load-balancer-ha-ports-overview.md)
-- Weitere Informationen zu [Netzwerksicherheitsgruppen](../virtual-network/security-overview.md).
-- Lesen Sie weitere Informationen zu [Load Balancer-Grenzwerten](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer).
-- Erfahren Sie mehr über die Verwendung der [Portweiterleitung](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal).
+- Weitere Informationen zu [Netzwerksicherheitsgruppen](../virtual-network/network-security-groups-overview.md).
+- Lesen Sie weitere Informationen zu [Load Balancer-Grenzwerten](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer).
+- Erfahren Sie mehr über die Verwendung der [Portweiterleitung](./tutorial-load-balancer-port-forwarding-portal.md).

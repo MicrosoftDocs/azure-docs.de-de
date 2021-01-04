@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 0830a8b552283b5b39fa78c505ed177d1959989f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8f40808834c64ad74673f1c5f0c19892607fdcc
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83640032"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127472"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Grundlegendes zur Behandlung von Zeitangaben in Azure Stream Analytics
 
@@ -46,7 +46,7 @@ Die Eingangszeit wird standardmäßig verwendet und eignet sich am besten für D
 
 Die Anwendungszeit wird bei Erstellung des Ereignisses zugewiesen und ist Teil der Ereignisnutzlast. Verwenden Sie zur Verarbeitung von Ereignissen anhand der Anwendungszeit die **Timestamp by**-Klausel in der SELECT-Abfrage. Wenn **Timestamp by** nicht vorhanden ist, werden Ereignisse basierend auf der Eingangszeit verarbeitet.
 
-Es ist wichtig, einen Zeitstempel in der Nutzlast zu verwenden, wenn Zeitlogik eine Rolle spielt, um Verzögerungen im Quellsystem oder im Netzwerk zu berücksichtigen. Die Zeit, die einem Ereignis zugeordnet ist steht in [SYSTEM.TIMESTAMP](https://docs.microsoft.com/stream-analytics-query/system-timestamp-stream-analytics) zur Verfügung.
+Es ist wichtig, einen Zeitstempel in der Nutzlast zu verwenden, wenn Zeitlogik eine Rolle spielt, um Verzögerungen im Quellsystem oder im Netzwerk zu berücksichtigen. Die Zeit, die einem Ereignis zugeordnet ist steht in [SYSTEM.TIMESTAMP](/stream-analytics-query/system-timestamp-stream-analytics) zur Verfügung.
 
 ## <a name="how-time-progresses-in-azure-stream-analytics"></a>Zeitverlauf in Azure Stream Analytics
 
@@ -222,5 +222,5 @@ In dieser Illustration werden die folgenden Toleranzen verwendet:
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Überlegungen zur Ereignisreihenfolge in Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md)
+- [Überlegungen zur Ereignisreihenfolge in Azure Stream Analytics]()
 - [Stream Analytics-Auftragsmetriken](stream-analytics-monitoring.md)

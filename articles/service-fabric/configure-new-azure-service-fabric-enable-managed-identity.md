@@ -3,13 +3,12 @@ title: Konfigurieren von Unterstützung der verwalteten Identität für einen ne
 description: 'Vorgehensweise: Aktivieren der Unterstützung der verwalteten Identität in einem neuen Azure Service Fabric-Cluster'
 ms.topic: article
 ms.date: 12/09/2019
-ms.custom: sfrev
-ms.openlocfilehash: dd0cbd3251185a7831852ead47ca0b120126cf55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae4fec452a2342a68843d874ba955b594014c46d
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81415669"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574665"
 ---
 # <a name="configure-managed-identity-support-for-a-new-service-fabric-cluster"></a>Konfigurieren von Unterstützung der verwalteten Identität für einen neuen Service Fabric-Cluster
 

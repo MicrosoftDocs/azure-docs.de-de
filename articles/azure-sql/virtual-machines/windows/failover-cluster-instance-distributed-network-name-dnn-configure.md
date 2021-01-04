@@ -7,6 +7,7 @@ author: MashaMSFT
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -14,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: dff6d69a107091a0ce030065da0f70a3d68c5841
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 8549592ace00e712929ebc76045a32531b9db659
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168708"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358315"
 ---
 # <a name="configure-a-dnn-for-failover-cluster-instance"></a>Konfigurieren eines DNN für eine Failoverclusterinstanz
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -131,9 +132,9 @@ Um mögliche Besitzer zu aktualisieren, führen Sie die folgenden Schritte aus:
 
 1. Deaktivieren Sie das Kontrollkästchen für alle Knoten, die nicht an der Failoverclusterinstanz teilnehmen. Die Liste möglicher Besitzer für die DNN-Ressource sollte mit der Liste möglicher Besitzer für die SQL Server-Instanzressource übereinstimmen. Wenn z. B. Data3 nicht an der FCI teilnimmt, ist die folgende Abbildung ein Beispiel für das Entfernen von Data3 aus der Liste möglicher Besitzer für die DNN-Ressource: 
 
-   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Kontextmenü für die DNN-Ressource mit hervorgehobenem Befehl „Eigenschaften“.":::
+   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Deaktivieren Sie das Kontrollkästchen neben den Knoten, die nicht an der FCI beteiligt sind, für mögliche Besitzer der DNN-Ressource.":::
 
-1. Klicken Sie auf **OK** , um die Einstellungen zu speichern. 
+1. Klicken Sie auf **OK**, um die Einstellungen zu speichern. 
 
 
 ## <a name="restart-sql-server-instance"></a>Neustarten der SQL Server-Instanz 
@@ -159,7 +160,7 @@ Testen Sie das Failover der Clusterressource, um die Clusterfunktionalität zu v
 Führen Sie die folgenden Schritte aus, um das Failover zu testen: 
 
 1. Stellen Sie mithilfe von RDP eine Verbindung mit einem der SQL Server-Clusterknoten her.
-1. Öffnen Sie den **Failovercluster-Manager** . Wählen Sie **Rollen** aus. Achten Sie darauf, welcher Knoten im Besitz der SQL Server-FCI-Rolle ist.
+1. Öffnen Sie den **Failovercluster-Manager**. Wählen Sie **Rollen** aus. Achten Sie darauf, welcher Knoten im Besitz der SQL Server-FCI-Rolle ist.
 1. Klicken Sie mit der rechten Maustaste auf die SQL Server-FCI-Rolle. 
 1. Wählen Sie **Verschieben** aus, und wählen Sie dann **Bestmöglicher Knoten** aus.
 
@@ -167,7 +168,7 @@ Unter **Failovercluster-Manager** wird die Rolle angezeigt, und die Ressourcen w
 
 ## <a name="test-connectivity"></a>Testen der Konnektivität
 
-Melden Sie sich zum Testen der Konnektivität an einem anderen virtuellen Computer in demselben virtuellen Netzwerk an. Öffnen Sie **SQL Server Management Studio** , und stellen Sie eine Verbindung mit der SQL Server-FCI mithilfe des DNN-DNS-Namens her.
+Melden Sie sich zum Testen der Konnektivität an einem anderen virtuellen Computer in demselben virtuellen Netzwerk an. Öffnen Sie **SQL Server Management Studio**, und stellen Sie eine Verbindung mit der SQL Server-FCI mithilfe des DNN-DNS-Namens her.
 
 Bei Bedarf können Sie [SQL Server Management Studio herunterladen](/sql/ssms/download-sql-server-management-studio-ssms).
 

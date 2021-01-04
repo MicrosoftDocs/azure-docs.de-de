@@ -3,12 +3,12 @@ title: Azure Lab Services – Hochladen eines benutzerdefinierten Images in Shar
 description: Beschreibt das Hochladen eines benutzerdefinierten Images in Shared Image Gallery. Die IT-Abteilungen von Universitäten werden das Importieren von Images besonders vorteilhaft finden.
 ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: cd701215eb375b7f9b867ba05082afc7ed348ff7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93b4141636b629168e9bb7a73e71a9fe4bfc39f5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91712369"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654642"
 ---
 # <a name="upload-a-custom-image-to-shared-image-gallery"></a>Hochladen eines benutzerdefiniertes Image in Shared Image Gallery
 
@@ -35,36 +35,36 @@ Viele Optionen sind für das Erstellen einer virtuellen Festplatte aus einer phy
        
         :::image type="content" source="./media/upload-custom-image-shared-image-gallery/connect-virtual-hard-disk.png" alt-text="Virtuelle Festplatte verbinden":::   
     1. Stellen Sie wie gewohnt ein Image der VM her.
-1. [Vorbereiten einer Windows-VHD oder -VHDX zum Hochladen in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image)
-    1. [Festlegen der Windows-Konfigurationen für Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#set-windows-configurations-for-azure)
-    1. [Überprüfen der Windows-Dienste](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#check-the-windows-services)
-    1. [Aktualisieren der Remotedesktop-Registrierungseinstellungen](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#update-remote-desktop-registry-settings)
-    1. [Konfigurieren von Windows-Firewallregeln](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#configure-windows-firewall-rules)
+1. [Vorbereiten einer Windows-VHD oder -VHDX zum Hochladen in Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md)
+    1. [Festlegen der Windows-Konfigurationen für Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md#set-windows-configurations-for-azure)
+    1. [Überprüfen der Windows-Dienste](../virtual-machines/windows/prepare-for-upload-vhd-image.md#check-the-windows-services)
+    1. [Aktualisieren der Remotedesktop-Registrierungseinstellungen](../virtual-machines/windows/prepare-for-upload-vhd-image.md#update-remote-desktop-registry-settings)
+    1. [Konfigurieren von Windows-Firewallregeln](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules)
     1. Installieren von Windows-Updates
-    1. [Abschließen empfohlener Konfigurationen](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#complete-the-recommended-configurations) 
+    1. [Abschließen empfohlener Konfigurationen](../virtual-machines/windows/prepare-for-upload-vhd-image.md#complete-the-recommended-configurations) 
     
-    In den obigen Schritten wird ein spezialisiertes Image erstellt. Wenn Sie ein generalisiertes Image erstellen, müssen Sie auch [Sysprep](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#determine-when-to-use-sysprep) ausführen. <br/>
+    In den obigen Schritten wird ein spezialisiertes Image erstellt. Wenn Sie ein generalisiertes Image erstellen, müssen Sie auch [Sysprep](../virtual-machines/windows/prepare-for-upload-vhd-image.md#determine-when-to-use-sysprep) ausführen. <br/>
         Sie sollten ein spezialisiertes Image erstellen, wenn Sie das (möglicherweise Dateien, Benutzerkontoinformationen usw. enthaltende) Benutzerverzeichnis verwalten möchten, das für die im Image enthaltene Software erforderlich ist.
 1. Da **Hyper-V** standardmäßig eine **VHDX**-Datei erstellt, müssen Sie diese in eine VHD-Datei konvertieren.
     1. Navigieren Sie zu **Hyper-V-Manager** -> **Aktion** -> **Datenträger bearbeiten**.
     1. Hier haben Sie die Möglichkeit, den Datenträger von einer VHDX-Datei in eine VHD-Datei zu **konvertieren**.
     1. Wenn Sie versuchen, die Datenträgergröße zu erweitern, achten Sie darauf, dass Sie 128 GB nicht überschreiten.        
-        :::image type="content" source="./media/upload-custom-image-shared-image-gallery/choose-action.png" alt-text="Virtuelle Festplatte verbinden":::   
+        :::image type="content" source="./media/upload-custom-image-shared-image-gallery/choose-action.png" alt-text="Aktion auswählen":::   
 1. Laden Sie die VHD-Datei in Azure hoch, um einen verwalteten Datenträger zu erstellen.
-    1. Sie können entweder Storage-Explorer oder AzCopy von der Befehlszeile aus verwenden, wie in [Hochladen einer VHD in Azure oder Kopieren eines verwalteten Datenträgers in eine andere Region](https://docs.microsoft.com/azure/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell) beschrieben.        
+    1. Sie können entweder Storage-Explorer oder AzCopy von der Befehlszeile aus verwenden, wie in [Hochladen einer VHD in Azure oder Kopieren eines verwalteten Datenträgers in eine andere Region](../virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md) beschrieben.        
     Wenn Ihr Computer in den Standbymodus wechselt oder gesperrt wird, wird der Uploadvorgang möglicherweise unterbrochen und ein Fehler tritt auf.
     1. Das Ergebnis dieses Schritts ist, dass Sie nun über einen verwalteten Datenträger verfügen, der im Azure-Portal angezeigt wird. 
         Sie können auf der Registerkarte „Größe\Leistung“ des Azure-Portals die Größe des Datenträgers auswählen. Wie bereits erwähnt, darf die Größe 128 GB nicht überschreiten.
 1. Erstellen Sie eine Momentaufnahme des verwalteten Datenträgers.
-    Dies kann entweder über PowerShell, mithilfe des Azure-Portals oder vom Storage-Explorer aus erfolgen, wie unter [Erstellen einer Momentaufnahme mithilfe des Portals oder PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk) beschrieben.
+    Dies kann entweder über PowerShell, mithilfe des Azure-Portals oder vom Storage-Explorer aus erfolgen, wie unter [Erstellen einer Momentaufnahme mithilfe des Portals oder PowerShell](../virtual-machines/windows/snapshot-copy-managed-disk.md) beschrieben.
 1. Erstellen Sie in Shared Image Gallery eine Imagedefinition:
-    1. [Erstellen Sie eine Imagedefinition](https://docs.microsoft.com/azure/virtual-machines/windows/shared-images-portal#create-an-image-definition).
+    1. [Erstellen Sie eine Imagedefinition](../virtual-machines/windows/shared-images-portal.md#create-an-image-definition).
     1. Sie müssen hier auch angeben, ob Sie ein spezialisiertes/generalisiertes Image erstellen.
 1. Erstellen Sie das Lab in Azure Lab Services, und wählen Sie das benutzerdefinierte Image in der Shared Image Gallery aus.
 
-    Wenn Sie den Datenträger nach der Installation des Betriebssystems auf der ursprünglichen Hyper-V-VM erweitert haben, müssen Sie auch das Laufwerk C in Windows so erweitern, dass der nicht zugeordnete Datenträger-Speicherplatz verwendet wird. Melden Sie sich zu diesem Zweck bei der Vorlagen-VM an, nachdem das Lab erstellt wurde, und befolgen Sie die Schritte, die dem ähneln, was in [Erweitern eines Basisvolumes](https://docs.microsoft.com/windows-server/storage/disk-management/extend-a-basic-volume) dargestellt wird. Es gibt Optionen, dies sowohl über die Benutzeroberfläche als auch mit PowerShell durchzuführen.
+    Wenn Sie den Datenträger nach der Installation des Betriebssystems auf der ursprünglichen Hyper-V-VM erweitert haben, müssen Sie auch das Laufwerk C in Windows so erweitern, dass der nicht zugeordnete Datenträger-Speicherplatz verwendet wird. Melden Sie sich zu diesem Zweck bei der Vorlagen-VM an, nachdem das Lab erstellt wurde, und befolgen Sie die Schritte, die dem ähneln, was in [Erweitern eines Basisvolumes](/windows-server/storage/disk-management/extend-a-basic-volume) dargestellt wird. Es gibt Optionen, dies sowohl über die Benutzeroberfläche als auch mit PowerShell durchzuführen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Übersicht über den Katalog mit freigegebenen Images](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)
+* [Übersicht über den Katalog mit freigegebenen Images](../virtual-machines/windows/shared-image-galleries.md)
 * [Verwenden eines Katalogs mit freigegebenen Images in Azure Lab Services](how-to-use-shared-image-gallery.md)

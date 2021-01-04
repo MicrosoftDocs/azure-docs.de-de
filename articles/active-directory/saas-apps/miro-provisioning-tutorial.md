@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: Zhchia
-ms.openlocfilehash: 164b2915d3085ff765635b10e97f7552df1bf4c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3dee76ada7a9ed48813928937f8f8da8be4add1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91256357"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348040"
 ---
 # <a name="tutorial-configure-miro-for-automatic-user-provisioning"></a>Tutorial: Konfigurieren von Miro für die automatische Benutzerbereitstellung
 
@@ -79,7 +79,7 @@ Vor dem Konfigurieren von Miro für die automatische Benutzerbereitstellung mit 
 In diesem Abschnitt werden die Schritte zum Konfigurieren des Azure AD-Bereitstellungsdiensts zum Erstellen, Aktualisieren und Deaktivieren von Benutzern und/oder Gruppen in Miro auf der Grundlage von Benutzer- bzw. Gruppenzuweisungen in Azure AD erläutert.
 
 > [!TIP]
-> Sie können auch das SAML-basierte einmalige Anmelden für Miro aktivieren. Befolgen Sie hierzu die Anweisungen im [Miro-Tutorial für einmaliges Anmelden](https://docs.microsoft.com/azure/active-directory/saas-apps/miro-tutorial). Einmaliges Anmelden kann unabhängig von der automatischen Benutzerbereitstellung konfiguriert werden, obwohl diese beiden Features einander ergänzen.
+> Sie können auch das SAML-basierte einmalige Anmelden für Miro aktivieren. Befolgen Sie hierzu die Anweisungen im [Miro-Tutorial für einmaliges Anmelden](./miro-tutorial.md). Einmaliges Anmelden kann unabhängig von der automatischen Benutzerbereitstellung konfiguriert werden, obwohl diese beiden Features einander ergänzen.
 
 > [!NOTE]
 > Weitere Informationen zum SCIM-Endpunkt von Miro finden Sie [hier](https://help.miro.com/hc/en-us/articles/360036777814).
@@ -90,7 +90,7 @@ In diesem Abschnitt werden die Schritte zum Konfigurieren des Azure AD-Bereitst
 
     ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
 
-2. Wählen Sie in der Anwendungsliste die Option **Miro**aus.
+2. Wählen Sie in der Anwendungsliste die Option **Miro** aus.
 
     ![Miro-Link in der Anwendungsliste](common/all-applications.png)
 
@@ -158,4 +158,3 @@ Weitere Informationen zum Lesen von Azure AD-Bereitstellungsprotokollen finden S
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Erfahren Sie, wie Sie Protokolle überprüfen und Berichte zu Bereitstellungsaktivitäten abrufen.](../app-provisioning/check-status-user-account-provisioning.md)
-

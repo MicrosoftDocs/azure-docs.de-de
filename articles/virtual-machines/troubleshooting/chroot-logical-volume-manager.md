@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
 ms.openlocfilehash: 390443874ea63a8661ef8baea627015fcf679719
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167915"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002696"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Problembehandlung bei einem virtuellen Linux-Computer ohne Zugriff auf die serielle Azure-Konsole und bei Verwendung von LVM (Logical Volume Manager) im Datenträgerlayout
 
@@ -29,7 +29,7 @@ Dieser Leitfaden zur Problembehandlung ist von Vorteil für Szenarien, in denen 
 
 Erstellen Sie eine Momentaufnahme des betroffenen virtuellen Computers. 
 
-Die Momentaufnahme wird dann an einen virtuellen **Rettungscomputer** angefügt. Befolgen Sie die Anweisungen [hier](../linux/snapshot-copy-managed-disk.md#use-azure-portal) zum Erstellen einer **Momentaufnahme** .
+Die Momentaufnahme wird dann an einen virtuellen **Rettungscomputer** angefügt. Befolgen Sie die Anweisungen [hier](../linux/snapshot-copy-managed-disk.md#use-azure-portal) zum Erstellen einer **Momentaufnahme**.
 
 ## <a name="create-a-rescue-vm"></a>Erstellen eines virtuellen Rettungscomputers
 Normalerweise empfiehlt sich die Verwendung eines virtuellen Rettungscomputers mit derselben oder einer vergleichbaren Betriebssystemversion. Verwenden Sie dieselbe **Region** und **Ressourcengruppe** wie die des betroffenen virtuellen Computers.
@@ -49,7 +49,7 @@ Wählen Sie im Azure-Portal den virtuellen **Rettungscomputer** und dann **Daten
 Füllen Sie die Felder aus. Weisen Sie dem neuen Datenträger einen Namen zu, und wählen Sie dieselbe Ressourcengruppe wie die der Momentaufnahme, den betroffenen virtuellen Computer und den virtuellen Rettungscomputer aus.
 
 Als **Quelltyp** wird **Momentaufnahme** verwendet.
-**Quellmomentaufnahme** ist der Name der zuvor erstellten **Momentaufnahme** .
+**Quellmomentaufnahme** ist der Name der zuvor erstellten **Momentaufnahme**.
 
 ![Erstellen eines Datenträgers 2](./media/chroot-logical-volume-manager/create-disk-from-snap-2.png)
 
@@ -65,9 +65,9 @@ In den meisten Szenarien wird der angefügte Momentaufnahmendatenträger als **/
 
 ![fdisk](./media/chroot-logical-volume-manager/fdisk-output-sdc.png)
 
-Das Sternchen **\*** gibt eine Startpartition an. Beide Partitionen sind einzubinden.
+Das * *\** _ gibt eine Startpartition an. Beide Partitionen sind einzubinden.
 
-Führen Sie den Befehl **lsblk** aus, um die LVMs des betroffenen virtuellen Computers anzuzeigen.
+Führen Sie den Befehl _ *lsblk** aus, um die LVMs des betroffenen virtuellen Computers anzuzeigen.
 
 `lsblk`
 
@@ -88,9 +88,9 @@ lsblk
 
 Suchen Sie den Pfad zum Einbinden des logischen Volumes, das die Partition „/“ (root) enthält. Diese enthält die Konfigurationsdateien, z. B. „/etc/default/grub“.
 
-In diesem Beispiel ist die Ausgabe **rootvg-rootlv** des vorherigen Befehls **lsblk** das richtige einzubindende logische **root** -Volume und kann im nächsten Befehl verwendet werden.
+In diesem Beispiel ist die Ausgabe **rootvg-rootlv** des vorherigen Befehls **lsblk** das richtige einzubindende logische **root**-Volume und kann im nächsten Befehl verwendet werden.
 
-Mit der Ausgabe des nächsten Befehls wird der einzubindende Pfad für das logische **root** -Volume angezeigt.
+Mit der Ausgabe des nächsten Befehls wird der einzubindende Pfad für das logische **root**-Volume angezeigt.
 
 `pvdisplay -m | grep -i rootlv`
 
@@ -106,7 +106,7 @@ Binden Sie die Partition ein, bei der das **Boot-Flag** auf „/rescue/boot“ f
 mount /dev/sdc1 /rescue/boot
 `
 
-Überprüfen Sie mit dem Befehl **lsblk** , ob die Dateisysteme des angefügten Datenträgers ordnungsgemäß eingebunden sind.
+Überprüfen Sie mit dem Befehl **lsblk**, ob die Dateisysteme des angefügten Datenträgers ordnungsgemäß eingebunden sind.
 
 ![Ausführen von lsblk](./media/chroot-logical-volume-manager/lsblk-output-1.png)
 
@@ -116,7 +116,7 @@ Alternativ können Sie den Befehl **df -Th** ausführen.
 
 ## <a name="gaining-chroot-access"></a>Festlegen des chroot-Zugriffs
 
-Legen Sie den **chroot** -Zugriff fest, über den Sie verschiedene Korrekturen ausführen können. Für die einzelnen Linux-Distributionen bestehen geringe Abweichungen.
+Legen Sie den **chroot**-Zugriff fest, über den Sie verschiedene Korrekturen ausführen können. Für die einzelnen Linux-Distributionen bestehen geringe Abweichungen.
 
 ```
  cd /rescue
@@ -131,14 +131,14 @@ Wenn beispielsweise folgende Fehlermeldung angezeigt wird:
 
 **chroot: failed to run command ‘/bin/bash’: No such file or directory** (chroot: Fehler beim Ausführen des Befehls „/bin/bash“: Datei oder Verzeichnis nicht vorhanden),
 
-sollten Sie versuchen, das logische **usr** -Volume einzubinden.
+sollten Sie versuchen, das logische **usr**-Volume einzubinden.
 
 `
 mount  /dev/mapper/rootvg-usrlv /rescue/usr
 `
 
 > [!TIP]
-> Beachten Sie beim Ausführen von Befehlen in einer **chroot** -Umgebung, dass sie für den angefügten Betriebssystemdatenträger und nicht für den lokalen virtuellen **Rettungscomputer** ausgeführt werden. 
+> Beachten Sie beim Ausführen von Befehlen in einer **chroot**-Umgebung, dass sie für den angefügten Betriebssystemdatenträger und nicht für den lokalen virtuellen **Rettungscomputer** ausgeführt werden. 
 
 Befehle können zum Installieren, Entfernen und Aktualisieren von Software verwendet werden. Führen Sie eine Problembehandlung für die virtuellen Computer aus, um Fehler zu beheben.
 
@@ -188,11 +188,11 @@ Binden Sie alle logischen Volumes ein, sodass Pakete entfernt oder neu installie
 
 Führen Sie den Befehl **lvs** aus, um zu überprüfen, welche **logischen Volumes**  für die Einbindung verfügbar sind. Jeder virtuelle Computer, der migriert wurde oder von einem anderen Cloudanbieter stammt, weist eine unterschiedliche Konfiguration auf.
 
-Beenden Sie die **chroot** -Umgebung, und binden Sie das erforderliche **logische Volume**  ein.
+Beenden Sie die **chroot**-Umgebung, und binden Sie das erforderliche **logische Volume**  ein.
 
 ![Screenshot: Konsolenfenster mit dem Befehl „lvs“, Einbinden des logischen Volumes](./media/chroot-logical-volume-manager/advanced.png)
 
-Greifen Sie dann erneut auf die **chroot** -Umgebung zu, indem Sie folgenden Befehl ausführen:
+Greifen Sie dann erneut auf die **chroot**-Umgebung zu, indem Sie folgenden Befehl ausführen:
 
 `chroot /rescue`
 
@@ -204,7 +204,7 @@ Fragen Sie den installierten **Kernel** ab.
 
 ![Screenshot: Abfragen des installierten Kernels](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
-Entfernen oder upgraden Sie bei Bedarf den **Kernel** .
+Entfernen oder upgraden Sie bei Bedarf den **Kernel**.
 ![Erweitert](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)
 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 83afdf7e9dc50e50d747db99cd8439d75e6f7804
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 27372207df66b4198bd9c785ecc099fa88cbe548
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167813"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335693"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Problembehandlung: Fehler beim Löschen eines virtuellen Netzwerks in Azure.
 
@@ -31,10 +31,11 @@ Wenn Sie versuchen, in Microsoft Azure ein virtuelles Netzwerk zu löschen, kön
 
 1. [Überprüfen, ob im virtuellen Netzwerk ein virtuelles Netzwerkgateway ausgeführt wird](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network)
 2. [Überprüfen, ob im virtuellen Netzwerk ein Anwendungsgateway ausgeführt wird](#check-whether-an-application-gateway-is-running-in-the-virtual-network)
-3. [Überprüfen, ob im virtuellen Netzwerk Azure Active Directory Domain Services aktiviert ist](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network)
-4. [Überprüfen, ob das virtuelle Netzwerk mit anderen Ressourcen verbunden ist](#check-whether-the-virtual-network-is-connected-to-other-resource)
-5. [Überprüfen, ob im virtuellen Netzwerk noch ein virtueller Computer ausgeführt wird](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network)
-6. [Überprüfen, ob das virtuelle Netzwerk im Migrationsprozess hängengeblieben ist](#check-whether-the-virtual-network-is-stuck-in-migration)
+3. [Überprüfen, ob im virtuellen Netzwerk noch Azure-Containerinstanzen vorhanden sind](#check-whether-azure-container-instances-still-exist-in-the-virtual-network)
+4. [Überprüfen, ob im virtuellen Netzwerk Azure Active Directory Domain Services aktiviert ist](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network)
+5. [Überprüfen, ob das virtuelle Netzwerk mit anderen Ressourcen verbunden ist](#check-whether-the-virtual-network-is-connected-to-other-resource)
+6. [Überprüfen, ob im virtuellen Netzwerk noch ein virtueller Computer ausgeführt wird](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network)
+7. [Überprüfen, ob das virtuelle Netzwerk im Migrationsprozess hängengeblieben ist](#check-whether-the-virtual-network-is-stuck-in-migration)
 
 ## <a name="troubleshooting-steps"></a>Schritte zur Problembehandlung
 
@@ -59,6 +60,19 @@ Wechseln Sie zur **Übersichtsseite** des virtuellen Netzwerks. Überprüfen Sie
 ![Screenshot der Liste der verbundenen Geräte für ein virtuelles Netzwerk im Azure-Portal. Das Anwendungsgateway in der Liste ist hervorgehoben.](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
 Wenn ein Anwendungsgateway vorhanden ist, müssen Sie dieses entfernen, bevor Sie das virtuelle Netzwerk löschen können.
+
+### <a name="check-whether-azure-container-instances-still-exist-in-the-virtual-network"></a>Überprüfen, ob im virtuellen Netzwerk noch Azure-Containerinstanzen vorhanden sind
+
+1. Navigieren Sie im Azure-Portal zur Seite **Übersicht** der Ressourcengruppe.
+1. Wählen Sie in der Kopfzeile der Liste der Ressourcen in der Ressourcengruppe **Ausgeblendete Typen anzeigen** aus. Der Netzwerkprofiltyp wird im Azure-Portal standardmäßig ausgeblendet.
+1. Wählen Sie das Netzwerkprofil aus, das mit den Containergruppen verknüpft ist.
+1. Klicken Sie auf **Löschen**.
+
+   ![Screenshot der Liste der ausgeblendeten Netzwerkprofile](media/virtual-network-troubleshoot-cannot-delete-vnet/container-instances.png)
+
+1. Löschen Sie das Subnetz oder das virtuelle Netzwerk erneut.
+
+Wenn das Problem durch diese Schritte nicht behoben wurde, verwenden Sie diese [Azure CLI-Befehle](https://docs.microsoft.com/azure/container-instances/container-instances-vnet#clean-up-resources), um die Ressourcen zu bereinigen. 
 
 ### <a name="check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network"></a>Überprüfen, ob im virtuellen Netzwerk Azure Active Directory Domain Services aktiviert ist
 

@@ -2,13 +2,13 @@
 title: Einrichten der Diagnoseprotokolle – Azure Event Hubs | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie Aktivitäts- und Diagnoseprotokolle für Event Hubs in Azure einrichten.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: ccd38d8924765df7bfd91b4fc26bb5304f6f180d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/27/2020
+ms.openlocfilehash: a7230746dc4225b04b0507c872416368aa14442b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88927730"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912598"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Einrichten von Diagnoseprotokollen für Azure Event Hubs
 
@@ -188,7 +188,6 @@ Die JSON-Zeichenfolge im Kafka-Benutzerfehlerprotokoll enthält Elemente, die in
 | `Message` | Informationsmeldung, die Details zu einem Fehler enthält. |
 
 ## <a name="event-hubs-virtual-network-connection-event-schema"></a>Schema für Event Hubs-Verbindungsereignis mit virtuellem Netzwerk
-
 Die JSON-Zeichenfolge für das Event Hubs-Verbindungsereignis mit virtuellem Netzwerk enthält Elemente, die in der folgenden Tabelle aufgeführt werden:
 
 | Name | BESCHREIBUNG |
@@ -200,6 +199,8 @@ Die JSON-Zeichenfolge für das Event Hubs-Verbindungsereignis mit virtuellem Net
 | `Reason` | Gibt einen Grund an, warum die Aktion durchgeführt wurde. |
 | `Count` | Anzahl von Vorkommen für die angegebene Aktion. |
 | `ResourceId` | Azure Resource Manager-Ressourcen-ID |
+
+Protokolle virtueller Netzwerke werden nur dann generiert, wenn der Namespace Zugriff aus **ausgewählten Netzwerken** oder über **spezifische IP-Adressen** (IP-Filterregeln) erlaubt. Wenn Sie den Zugriff auf Ihren Namespace mit diesen Features nicht einschränken möchten und dennoch Protokolle virtueller Netzwerke erhalten möchten, um IP-Adressen von Clients zu verfolgen, die sich mit dem Namespace der Event Hubs verbinden, können Sie die folgende Umgehungslösung verwenden. Aktivieren Sie die IP-Filterung, und fügen Sie den gesamten adressierbaren IPv4-Bereich (1.0.0.0/1 bis 255.0.0.0/1) hinzu. Event Hubs unterstützt keine IPv6-Adressbereiche. 
 
 ### <a name="example"></a>Beispiel
 

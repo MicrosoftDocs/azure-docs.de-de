@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ca3b218da7835ee9f3e9e8653f4829767a1ffb07
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f8900db8ed43b8c255915bf5429e1211f04e7338
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783469"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491960"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Schnellstart: Azure Queue Storage-Clientbibliothek v12 für .NET
 
@@ -21,26 +21,26 @@ Beginnen Sie mit dem Einsatz der Azure Queue Storage-Clientbibliothek v12 für .
 
 Mit der Azure Queue Storage-Clientbibliothek v12 für .NET können Sie Folgendes ausführen:
 
-* Erstellen einer Warteschlange
-* Hinzufügen von Nachrichten zu einer Warteschlange
-* Einsehen von Nachrichten in einer Warteschlange
-* Aktualisieren einer Nachricht in einer Warteschlange
-* Empfangen von Nachrichten aus einer Warteschlange
-* Löschen von Nachrichten aus einer Warteschlange
-* Löschen einer Warteschlange
+- Erstellen einer Warteschlange
+- Hinzufügen von Nachrichten zu einer Warteschlange
+- Einsehen von Nachrichten in einer Warteschlange
+- Aktualisieren einer Nachricht in einer Warteschlange
+- Empfangen von Nachrichten aus einer Warteschlange
+- Löschen von Nachrichten aus einer Warteschlange
+- Löschen einer Warteschlange
 
 Zusätzliche Ressourcen:
 
-* [API-Referenzdokumentation](/dotnet/api/azure.storage.queues)
-* [Quellcode der Bibliothek](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
-* [Paket (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
-* [Beispiele](../common/storage-samples-dotnet.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
+- [API-Referenzdokumentation](/dotnet/api/azure.storage.queues)
+- [Quellcode der Bibliothek](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
+- [Paket (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
+- [Beispiele](../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* Azure-Abonnement – [Erstellen eines kostenlosen Kontos](https://azure.microsoft.com/free/)
-* Azure Storage-Konto – [Erstellen eines Speicherkontos](../common/storage-account-create.md)
-* Aktuelles [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) für Ihr Betriebssystem. Laden Sie unbedingt das SDK und nicht die Runtime herunter.
+- Azure-Abonnement – [Erstellen eines kostenlosen Kontos](https://azure.microsoft.com/free/)
+- Azure Storage-Konto – [Erstellen eines Speicherkontos](../common/storage-account-create.md)
+- Aktuelles [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) für Ihr Betriebssystem. Laden Sie unbedingt das SDK und nicht die Runtime herunter.
 
 ## <a name="setting-up"></a>Einrichten
 
@@ -48,15 +48,15 @@ In diesem Abschnitt wird beschrieben, wie Sie ein Projekt zur Verwendung mit der
 
 ### <a name="create-the-project"></a>Erstellen des Projekts
 
-Erstellen Sie eine .NET Core-Anwendung mit dem Namen *QueuesQuickstartV12* .
+Erstellen Sie eine .NET Core-Anwendung mit dem Namen *QueuesQuickstartV12*.
 
-1. Verwenden Sie in einem Konsolenfenster (z. B. cmd, PowerShell oder Bash) den Befehl `dotnet new` zum Erstellen einer neuen Konsolen-App mit dem Namen *QueuesQuickstartV12* . Dieser Befehl erstellt ein einfaches „Hallo Welt“-C#-Projekt mit einer einzigen Quelldatei: *Program.cs* .
+1. Verwenden Sie in einem Konsolenfenster (z. B. cmd, PowerShell oder Bash) den Befehl `dotnet new` zum Erstellen einer neuen Konsolen-App mit dem Namen *QueuesQuickstartV12*. Dieser Befehl erstellt ein einfaches „Hallo Welt“-C#-Projekt mit einer einzigen Quelldatei: *Program.cs*.
 
    ```console
    dotnet new console -n QueuesQuickstartV12
    ```
 
-1. Wechseln Sie zum neu erstellten Verzeichnis *QueuesQuickstartV12* .
+1. Wechseln Sie zum neu erstellten Verzeichnis *QueuesQuickstartV12*.
 
    ```console
    cd QueuesQuickstartV12
@@ -78,8 +78,6 @@ dotnet add package Azure.Storage.Queues
 1. Entfernen Sie die Anweisung `Console.WriteLine("Hello World!");`.
 1. Fügen Sie Anweisungen vom Typ `using` hinzu.
 1. Aktualisieren der `Main`-Methodendeklaration zur [Unterstützung von asynchronem Code](/dotnet/csharp/whats-new/csharp-7#async-main)
-
-
 
 Der Code lautet wie folgt:
 
@@ -107,9 +105,9 @@ namespace QueuesQuickstartV12
 
 Azure Queue Storage ist ein Dienst für die Speicherung einer großen Anzahl von Nachrichten. Eine Warteschlangennachricht kann bis zu 64 KB groß sein. Eine Warteschlange kann Millionen Nachrichten enthalten, bis die maximale Kapazität eines Speicherkontos erreicht ist. Warteschlangen werden häufig verwendet, um ein Arbeits-Backlog zur asynchronen Verarbeitung zu erstellen. Queue Storage bietet drei Arten von Ressourcen:
 
-* Das Speicherkonto
-* Eine Warteschlange im Speicherkonto
-* Nachrichten in der Warteschlange
+- Das Speicherkonto
+- Eine Warteschlange im Speicherkonto
+- Nachrichten in der Warteschlange
 
 Im folgenden Diagramm ist die Beziehung zwischen diesen Ressourcen dargestellt.
 
@@ -117,22 +115,22 @@ Im folgenden Diagramm ist die Beziehung zwischen diesen Ressourcen dargestellt.
 
 Verwenden Sie die folgenden .NET-Klassen zur Interaktion mit folgenden Ressourcen:
 
-* [QueueServiceClient](/dotnet/api/azure.storage.queues.queueserviceclient): Mit dem `QueueServiceClient` können Sie alle Warteschlangen in Ihrem Speicherkonto verwalten.
-* [QueueClient](/dotnet/api/azure.storage.queues.queueclient): Mit der `QueueClient`-Klasse können Sie eine einzelne Warteschlange und die darin enthaltenen Nachrichten verwalten und bearbeiten.
-* [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage): Die `QueueMessage`-Klasse repräsentiert die einzelnen Objekte, die beim Aufrufen von [ReceiveMessages](/dotnet/api/azure.storage.queues.queueclient.receivemessages) in einer Warteschlange zurückgegeben werden.
+- [QueueServiceClient](/dotnet/api/azure.storage.queues.queueserviceclient): Mit dem `QueueServiceClient` können Sie alle Warteschlangen in Ihrem Speicherkonto verwalten.
+- [QueueClient](/dotnet/api/azure.storage.queues.queueclient): Mit der `QueueClient`-Klasse können Sie eine einzelne Warteschlange und die darin enthaltenen Nachrichten verwalten und bearbeiten.
+- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage): Die `QueueMessage`-Klasse repräsentiert die einzelnen Objekte, die beim Aufrufen von [ReceiveMessages](/dotnet/api/azure.storage.queues.queueclient.receivemessages) in einer Warteschlange zurückgegeben werden.
 
 ## <a name="code-examples"></a>Codebeispiele
 
 Diese Beispielcodeausschnitte veranschaulichen, wie folgende Vorgänge mit der Azure Queue Storage-Clientbibliothek für .NET ausgeführt werden:
 
-* [Abrufen der Verbindungszeichenfolge](#get-the-connection-string)
-* [Erstellen einer Warteschlange](#create-a-queue)
-* [Hinzufügen von Nachrichten zu einer Warteschlange](#add-messages-to-a-queue)
-* [Einsehen von Nachrichten in einer Warteschlange](#peek-at-messages-in-a-queue)
-* [Aktualisieren einer Nachricht in einer Warteschlange](#update-a-message-in-a-queue)
-* [Empfangen von Nachrichten aus einer Warteschlange](#receive-messages-from-a-queue)
-* [Löschen von Nachrichten aus einer Warteschlange](#delete-messages-from-a-queue)
-* [Löschen einer Warteschlange](#delete-a-queue)
+- [Abrufen der Verbindungszeichenfolge](#get-the-connection-string)
+- [Erstellen einer Warteschlange](#create-a-queue)
+- [Hinzufügen von Nachrichten zu einer Warteschlange](#add-messages-to-a-queue)
+- [Einsehen von Nachrichten in einer Warteschlange](#peek-at-messages-in-a-queue)
+- [Aktualisieren einer Nachricht in einer Warteschlange](#update-a-message-in-a-queue)
+- [Empfangen von Nachrichten aus einer Warteschlange](#receive-messages-from-a-queue)
+- [Löschen von Nachrichten aus einer Warteschlange](#delete-messages-from-a-queue)
+- [Löschen einer Warteschlange](#delete-a-queue)
 
 ### <a name="get-the-connection-string"></a>Abrufen der Verbindungszeichenfolge
 
@@ -158,7 +156,6 @@ Legen Sie einen Namen für die neue Warteschlange fest. Der folgende Code hängt
 
 > [!IMPORTANT]
 > Warteschlangennamen dürfen nur Kleinbuchstaben, Ziffern und Bindestriche enthalten und müssen mit einem Buchstaben oder einer Ziffer beginnen. Vor und nach jedem Bindestrich muss ein Zeichen stehen, das kein Bindestrich ist. Der Name muss außerdem zwischen 3 und 63 Zeichen lang sein. Weitere Informationen zum Benennen von Warteschlangen finden Sie unter [Benennen von Warteschlangen und Metadaten](/rest/api/storageservices/naming-queues-and-metadata).
-
 
 Erstellen Sie eine Instanz der [QueueClient](/dotnet/api/azure.storage.queues.queueclient)-Klasse. Rufen Sie dann die [CreateAsync](/dotnet/api/azure.storage.queues.queueclient.createasync)-Methode auf, um die Warteschlange in Ihrem Speicherkonto zu erstellen.
 
@@ -325,7 +322,7 @@ Done
 
 Wenn die App vor dem Empfangen von Nachrichten angehalten wird, überprüfen Sie Ihr Speicherkonto im [Azure-Portal](https://portal.azure.com). Überprüfen Sie, ob sich in der Warteschlange Nachrichten befinden.
 
-Drücken Sie die **EINGABETASTE** , um Nachrichten zu empfangen und zu löschen. Wenn Sie dazu aufgefordert werden, drücken Sie erneut die **EINGABETASTE** , um die Warteschlange zu löschen und die Demo zu beenden.
+Drücken Sie die **EINGABETASTE**, um Nachrichten zu empfangen und zu löschen. Wenn Sie dazu aufgefordert werden, drücken Sie erneut die **EINGABETASTE**, um die Warteschlange zu löschen und die Demo zu beenden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
@@ -336,6 +333,6 @@ Tutorials, Beispiele, Schnellstartanleitungen und weiteres Dokumentationsmateria
 > [!div class="nextstepaction"]
 > [Azure für .NET- und .NET Core-Entwickler](/dotnet/azure/)
 
-* Weitere Informationen finden Sie unter [Azure Storage libraries for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage) (Azure Storage-Bibliotheken für .NET).
-* Weitere Beispiel-Apps für Azure Queue Storage finden Sie bei den [Azure.Storage.Queues Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples) (Azure.Storage.Queues-Beispielen).
-* Weitere Informationen zu .NET Core finden Sie unter [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/) (Einstieg in .NET in 10 Minuten).
+- Weitere Informationen finden Sie unter [Azure Storage libraries for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage) (Azure Storage-Bibliotheken für .NET).
+- Weitere Beispiel-Apps für Azure Queue Storage finden Sie bei den [Azure.Storage.Queues Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples) (Azure.Storage.Queues-Beispielen).
+- Weitere Informationen zu .NET Core finden Sie unter [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/) (Einstieg in .NET in 10 Minuten).

@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: a058e7a23c36dcaca16c3cce1be1ca826d472bc0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: eb06d101170685bea5ff231612e9ffbf8df467da
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476993"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079290"
 ---
 # <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Gesamtkosten mit Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB ist mit differenzierter Mehrinstanzenfähigkeit und Ressourcenkontrolle konzipiert. Dank dieses Designs kann Azure Cosmos DB zu deutlich niedrigeren Kosten betrieben werden und hilft so dem Benutzer, Geld zu sparen. Azure Cosmos DB unterstützt derzeit mehr als 280 Kundenworkloads auf einem einzelnen Computer (wobei sich die Dichte ständig erhöht) und zigtausend Kundenworkloads innerhalb eines Clusters. Für Replikate von Kundenworkloads wird ein Lastenausgleich über verschiedene Computer in einem Cluster und über mehrere Cluster in einem Rechenzentrum hinweg vorgenommen. Weitere Informationen finden Sie unter [Azure Cosmos DB: Erweitern der Grenzen global verteilter Datenbanken](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/). Aufgrund der Ressourcenkontrolle, der Mehrinstanzenfähigkeit und der nativen Integration in die übrige Azure-Infrastruktur ist Azure Cosmos DB im Durchschnitt um das 4- bis 6-Fache günstiger als MongoDB, Cassandra oder andere OSS-NoSQL-Datenbanken, die über IaaS ausgeführt werden, und bis um das 10-Fache günstiger als lokal ausgeführte Datenbank-Engines. Lesen Sie hierzu das Whitepaper [Total Cost of (Non) Ownership of a NoSQL Database Cloud Service](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf) (Gesamtkosten eines NoSQL-Datenbank-Clouddiensts).
 

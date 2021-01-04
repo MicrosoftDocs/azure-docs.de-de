@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: c92351131a60b571a102b85f7d11b79ab29d939e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 059b521461969d8148ced90cb3ceffd14a00c4bb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883119"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322263"
 ---
 # <a name="what-is-azure-machine-learning-designer"></a>Was ist der Azure Machine Learning-Designer? 
 
@@ -41,9 +41,9 @@ Der Designer bietet Ihnen einen visuellen Zeichenbereich zum Erstellen, Testen u
 + Verbinden der Module, um einen [Pipelineentwurf](#pipeline-draft) zu erstellen
 + Übermitteln einer [Pipelineausführung](#pipeline-run) mithilfe der Computeressourcen in Ihrem Azure Machine Learning-Arbeitsbereich
 + Konvertieren Ihrer **Trainingspipelines** in die **Rückschlusspipelines**
-+ [Veröffentlichen](#publish) Ihrer Pipelines an einem REST-basierten **Pipelineendpunkt**, um eine neue Pipeline zu übermitteln, die mit anderen Parametern und Datasets ausgeführt wird
-    + Veröffentlichen einer **Trainingspipeline**, um beim Ändern von Parametern und Datasets eine einzelnen Pipeline zum Trainieren mehrerer Modelle nochmal zu verwenden
-    + Veröffentlichen einer **Batchrückschlusspipeline**, um Vorhersage zu neuen Daten zu treffen, indem ein zuvor trainiertes Modell verwendet wird
++ [Veröffentlichen](#publish) Ihrer Pipelines an einem REST-basierten **Pipelineendpunkt** , um eine neue Pipeline zu übermitteln, die mit anderen Parametern und Datasets ausgeführt wird
+    + Veröffentlichen einer **Trainingspipeline** , um beim Ändern von Parametern und Datasets eine einzelnen Pipeline zum Trainieren mehrerer Modelle nochmal zu verwenden
+    + Veröffentlichen einer **Batchrückschlusspipeline** , um Vorhersage zu neuen Daten zu treffen, indem ein zuvor trainiertes Modell verwendet wird
 + [Bereitstellen](#deploy) einer **Echtzeit-Rückschlusspipeline** für einen Echtzeitendpunkt, um in Echtzeit Vorhersagen zu neuen Daten zu treffen
 
 ![Workflowdiagramm für Training, Batchrückschluss und Echtzeitrückschluss im Designer](./media/concept-designer/designer-workflow-diagram.png)
@@ -54,7 +54,7 @@ Eine [Pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) bes
 
 ### <a name="pipeline-draft"></a>Pipelineentwurf
 
-Wenn Sie eine Pipeline im Designer bearbeiten, wird der Fortschritt als **Pipelineentwurf**gespeichert. Sie können einen Pipelineentwurf jederzeit bearbeiten, indem Sie Module hinzufügen oder entfernen, Computeziele konfigurieren, Parameter erstellen usw.
+Wenn Sie eine Pipeline im Designer bearbeiten, wird der Fortschritt als **Pipelineentwurf** gespeichert. Sie können einen Pipelineentwurf jederzeit bearbeiten, indem Sie Module hinzufügen oder entfernen, Computeziele konfigurieren, Parameter erstellen usw.
 
 Eine gültige Pipeline weist diese Merkmale auf:
 
@@ -114,7 +114,7 @@ Veröffentlichte Pipelines sind flexibel und können zum Trainieren oder erneute
 
 Eine veröffentliche Pipeline wird auf den Computeressourcen ausgeführt, die Sie im Pipelineentwurf für jedes Modul definieren.
 
-Der Designer erstellt dasselbe [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py&preserve-view=true)-Objekt wie das SDK.
+Der Designer erstellt dasselbe [PublishedPipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?preserve-view=true&view=azure-ml-py)-Objekt wie das SDK.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

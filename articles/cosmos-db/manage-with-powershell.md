@@ -3,18 +3,20 @@ title: Verwalten von Ressourcen für die Core-API (SQL) von Azure Cosmos DB mit 
 description: Verwalten Sie Ressourcen für die Core-API (SQL) von Azure Cosmos DB mit PowerShell.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: c56f3b561dbced9f00bb2616f5709a51fa02fbcb
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2d99a760e3bf44febcee05bf9827479616bf7bd6
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92481005"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333425"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-using-powershell"></a>Verwalten von Ressourcen für die Core-API (SQL) von Azure Cosmos DB mit PowerShell
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In der folgenden Anleitung erfahren Sie, wie Sie PowerShell-Skripts verwenden und die Verwaltung von Ressourcen für die Core-API (SQL) von Azure Cosmos DB (einschließlich Cosmos-Konten, Datenbanken, Container und Durchsatz) automatisieren. PowerShell-Cmdlets für andere APIs finden Sie unter [Azure PowerShell-Beispiele für Azure Cosmos DB: Cassandra-API](powershell-samples-cassandra.md), [Azure PowerShell-Beispiele für Azure Cosmos DB: MongoDB-API](powershell-samples-mongodb.md), [Azure PowerShell-Beispiele für Azure Cosmos DB: Gremlin-API](powershell-samples-gremlin.md) und [Azure PowerShell-Beispiele für Azure Cosmos DB: Tabellen-API](powershell-samples-table.md).
 
@@ -78,7 +80,7 @@ New-AzCosmosDBAccount `
 * `$resourceGroupName`: Die Azure-Ressourcengruppe, in der das Cosmos-Konto bereitgestellt werden soll. Es muss bereits vorhanden sein.
 * `$locations`: Die Regionen für das Datenbankkonto. Die Region mit `FailoverPriority 0` ist die Schreibregion.
 * `$accountName`: der Name des Azure Cosmos DB-Kontos. Der Name muss eindeutig sein, darf nur alphanumerische Kleinbuchstaben bzw. Zeichen und den Bindestrich enthalten und muss eine Länge von 3 bis 31 Zeichen haben.
-* `$apiKind`: Der Typ des zu erstellenden Cosmos-Kontos. Weitere Informationen finden Sie unter [APIs in Cosmos DB](introduction.md#develop-applications-on-cosmos-db-using-popular-open-source-software-oss-apis).
+* `$apiKind`: Der Typ des zu erstellenden Cosmos-Kontos. Weitere Informationen finden Sie unter [APIs in Cosmos DB](introduction.md#simplified-application-development).
 * `$consistencyPolicy`, `$maxStalenessInterval` und `$maxStalenessPrefix`: Die Standardkonsistenzebene und die Einstellungen des Azure Cosmos-Kontos. Weitere Informationen finden Sie unter [Konsistenzebenen in Azure Cosmos DB](consistency-levels.md).
 
 Für Azure Cosmos-Konten können eine IP-Firewall, VNET-Dienstendpunkte und private Endpunkte konfiguriert werden. Informationen zum Konfigurieren der IP-Firewall für Azure Cosmos DB finden Sie unter [Konfigurieren der IP-Firewall](how-to-configure-firewall.md). Informationen zum Aktivieren von Dienstendpunkten für Azure Cosmos DB finden Sie unter [Konfigurieren des Zugriffs über virtuelle Netzwerke](how-to-configure-vnet-service-endpoint.md). Informationen zum Aktivieren von privaten Endpunkten für Azure Cosmos DB finden Sie unter [Konfigurieren des Zugriffs über private Endpunkte](how-to-configure-private-endpoints.md).

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59f83d232874a7702598b6ea5fdd458c101e7e79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7585c91e42b2d3591532756c1ead9ea60b7035e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266577"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837582"
 ---
 # <a name="custom-controls-preview"></a>Benutzerdefinierte Steuerelemente (Vorschau)
 
@@ -53,7 +53,7 @@ Um ein benutzerdefiniertes Steuerelement zu bearbeiten, müssen Sie das aktuelle
 
 ## <a name="known-limitations"></a>Bekannte Einschränkungen
 
-Es ist nicht möglich, benutzerdefinierte Steuerelemente mit der Identity Protection-Automatisierung zu verwenden, für die Azure Multi-Factor Authentication erforderlich ist. Sie können auch nicht mit der Self-Service-Kennwortzurücksetzung (SSPR) in Azure AD, bei der Anspruchsanforderungen der mehrstufigen Authentifizierung erfüllt werden, zum Heraufstufen von Rollen in Privileged Identity Management (PIM) oder im Rahmen der Registrierung von Intune-Geräten oder beim Einbinden von Geräten in Azure AD eingesetzt werden.
+Es ist nicht möglich, benutzerdefinierte Steuerelemente mit der Identity Protection-Automatisierung zu verwenden, für die Azure AD Multi-Factor Authentication erforderlich ist. Sie können auch nicht mit der Self-Service-Kennwortzurücksetzung (SSPR) in Azure AD, bei der Anspruchsanforderungen der mehrstufigen Authentifizierung erfüllt werden, zum Heraufstufen von Rollen in Privileged Identity Management (PIM) oder im Rahmen der Registrierung von Intune-Geräten oder beim Einbinden von Geräten in Azure AD eingesetzt werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

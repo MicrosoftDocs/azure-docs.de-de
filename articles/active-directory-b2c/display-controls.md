@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/12/2020
+ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 49626d418f90f8b4bc7288a6d2f7d195cd906f7a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 441a77823c77305e567e9e1436715bc51ca48c11
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961356"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387053"
 ---
 # <a name="display-controls"></a>Anzeigesteuerelemente
 
@@ -27,8 +27,6 @@ Ein **Anzeigesteuerelement** ist ein Benutzeroberflächenelement mit spezieller 
 In der folgenden Abbildung wird eine selbstbestätigte Registrierungsseite mit zwei Anzeigesteuerelementen veranschaulicht, die eine primäre und sekundäre E-Mail-Adresse überprüfen.
 
 ![Beispiel: gerendertes Anzeigesteuerelement](media/display-controls/display-control-email.png)
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -55,9 +53,9 @@ Das **DisplayControl**-Element enthält die folgenden Elemente:
 
 | Element | Vorkommen | BESCHREIBUNG |
 | ------- | ----------- | ----------- |
-| InputClaims | 0:1 | **InputClaims** wird verwendet, um den Wert der Ansprüche, die vom Benutzer erfasst werden sollen, vorab auszufüllen. Weitere Informationen finden Sie unter dem Element [Input Claims](technicalprofiles.md#inputclaims). |
+| InputClaims | 0:1 | **InputClaims** wird verwendet, um den Wert der Ansprüche, die vom Benutzer erfasst werden sollen, vorab auszufüllen. Weitere Informationen finden Sie unter dem Element [Input Claims](technicalprofiles.md#input-claims). |
 | DisplayClaims | 0:1 | **DisplayClaims** wird verwendet, um die Ansprüche darzustellen, die vom Benutzer erfasst werden sollen. Weitere Informationen finden Sie unter dem Element [DisplayClaim](technicalprofiles.md#displayclaim).|
-| OutputClaims | 0:1 | **OutputClaims** wird verwendet, um die Ansprüche darzustellen, die temporär für **DisplayControl** gespeichert werden sollen. Weitere Informationen finden Sie unter dem Element [OutputClaims](technicalprofiles.md#outputclaims).|
+| OutputClaims | 0:1 | **OutputClaims** wird verwendet, um die Ansprüche darzustellen, die temporär für **DisplayControl** gespeichert werden sollen. Weitere Informationen finden Sie unter dem Element [OutputClaims](technicalprofiles.md#output-claims).|
 | Aktionen | 0:1 | **Actions** wird verwendet, um die technischen Validierungsprofile aufzulisten, die für Benutzeraktionen am Front-End aufgerufen werden sollen. |
 
 ### <a name="input-claims"></a>Eingabeansprüche

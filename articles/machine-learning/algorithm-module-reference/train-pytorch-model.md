@@ -1,7 +1,7 @@
 ---
 title: Trainieren eines PyTorch-Modells
 titleSuffix: Azure Machine Learning
-description: In diesem Artikel erfahren Sie, wie Sie ein PyTorch-Modell von Grund auf neu trainieren oder optimieren.
+description: Verwenden Sie das Train Pytorch Models-Modul im Azure Machine Learning-Designer, um Modelle von Grund auf neu zu trainieren oder vorhandene Modelle zu optimieren.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
-ms.openlocfilehash: 9127df2805a7eef5b119a64fd8d8ccdab52f22f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d88069f33995bdbe9dd479afe9a4e72ab9939b6
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439095"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420664"
 ---
 # <a name="train-pytorch-model"></a>Trainieren eines PyTorch-Modells
 
@@ -29,7 +29,7 @@ In diesem Artikel wird beschrieben, wie Sie mit dem Modul **Train Pytorch Model*
    > [!NOTE]
    > Das Modul **Train Pytorch Model** sollte besser unter **GPU**-Compute für große Datasets ausgeführt werden, andernfalls tritt in der Pipeline ein Fehler auf. Sie können im rechten Bereich des Moduls Compute für ein bestimmtes Modul auswählen, indem Sie **Anderes Computeziel verwenden** festlegen.
 
-3.  Fügen Sie in der linken Eingabe ein untrainiertes Modell an. Fügen Sie das Trainingsdataset und das Validierungsdataset in der mittleren und der rechten Eingabe von **Train Pytorch Model**an.
+3.  Fügen Sie in der linken Eingabe ein untrainiertes Modell an. Fügen Sie das Trainingsdataset und das Validierungsdataset in der mittleren und der rechten Eingabe von **Train Pytorch Model** an.
 
     Bei einem untrainierten Modell muss es sich um ein PyTorch-Modell wie DenseNet handeln; andernfalls wird der Fehler „InvalidModelDirectoryError“ ausgelöst.
 

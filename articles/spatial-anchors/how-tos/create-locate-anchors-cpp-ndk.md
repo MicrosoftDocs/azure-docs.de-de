@@ -1,19 +1,19 @@
 ---
 title: Erstellen und Suchen von Ankern in C++/NDK
 description: Hier erhalten Sie detaillierte Informationen dazu, wie Sie mit Azure Spatial Anchors in C++/NDK Anker erstellen und nach ihnen suchen.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 445528b7d4f8d0b50270dfd775f6453252396f4c
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 8c25b337447a0b5d2eab777cd2c9df69efeed0bb
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097540"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96022512"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cndk"></a>Erstellen von und Suchen nach Ankern mit Azure Spatial Anchors in C++/NDK
 

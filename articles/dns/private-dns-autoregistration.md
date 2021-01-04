@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
-ms.openlocfilehash: 9da94f80f9a9c1b3cba7b8e3ac4fef7e717918c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e976199730ec74f9e76b9f4199e90e192916474
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88042750"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966716"
 ---
 # <a name="what-is-the-autoregistration-feature-of-azure-dns-private-zones"></a>Was ist die Funktion zur automatischen Registrierung von privaten Azure DNS-Zonen?
 
@@ -29,7 +29,7 @@ Sie können die automatische Registrierung aktivieren, indem Sie beim Erstellen 
 
 * Die automatische Registrierung funktioniert nur für virtuelle Computer. Für alle anderen Ressourcen wie interne Lastenausgleichsmodule usw., können Sie DNS-Einträge manuell in der privaten DNS-Zone erstellen, die mit dem virtuellen Netzwerk verknüpft ist.
 * DNS-Einträge werden nur für die primäre NIC des virtuellen Computers automatisch erstellt. Wenn Ihre virtuellen Computer über mehr als eine Netzwerkkarte verfügen, können Sie die DNS-Einträge für andere Netzwerkschnittstellen manuell erstellen.
-* DNS-Einträge werden nur dann automatisch erstellt, wenn die primäre NIC des virtuellen Computers DHCP verwendet. Wenn statische IP-Adressen konfiguriert sind (z. B. zur Verwendung von [mehreren IP-Adressen in Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-multiple-ip-addresses-portal#os-config)), werden bei der automatischen Registrierung keine Einträge für diesen virtuellen Computer erstellt.
+* DNS-Einträge werden nur dann automatisch erstellt, wenn die primäre NIC des virtuellen Computers DHCP verwendet. Wenn statische IP-Adressen konfiguriert sind (z. B. zur Verwendung von [mehreren IP-Adressen in Azure](../virtual-network/virtual-network-multiple-ip-addresses-portal.md#os-config)), werden bei der automatischen Registrierung keine Einträge für diesen virtuellen Computer erstellt.
 * Die automatische Registrierung für IPv6 (AAAA-Einträge) wird nicht unterstützt.
 
 ## <a name="next-steps"></a>Nächste Schritte

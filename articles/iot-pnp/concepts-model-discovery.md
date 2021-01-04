@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: caaa4499cbed1dce1a858c33a9488650649a5a44
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5f82206a7c86c5ae1e6477419faee0dca88ef883
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042914"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495286"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Verwenden von IoT Plug & Play-Modellen in einer IoT-Lösung
 
@@ -121,11 +121,11 @@ Lösungen können das [Modellrepository](concepts-model-repository.md) zum Abruf
 
 Nachdem Sie die Modell-ID für eine neue Geräteverbindung identifiziert haben, führen Sie die folgenden Schritte aus:
 
-1. Rufen Sie die Modelldefinition mithilfe der Modell-ID aus dem Modellrepository ab. Weitere Informationen finden Sie unter [Abrufen von Modellen](/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync).
+1. Rufen Sie die Modelldefinition mithilfe der Modell-ID aus dem Modellrepository ab. Weitere Informationen finden Sie unter [Gerätemodellrepository](concepts-model-repository.md).
 
 1. Mithilfe der Modelldefinition des verbundenen Geräts können Sie die Funktionen des Geräts auflisten.
 
-1. Mithilfe der aufgelisteten Funktionen des Geräts können Sie Benutzern gestatten, [mit dem Gerät zu interagieren](quickstart-service-node.md).
+1. Mithilfe der aufgelisteten Funktionen des Geräts können Sie Benutzern gestatten, [mit dem Gerät zu interagieren](quickstart-service.md).
 
 ### <a name="custom-store"></a>Benutzerdefinierter Speicher
 
@@ -137,12 +137,12 @@ Nachdem Sie die Modell-ID für eine neue Geräteverbindung identifiziert haben, 
 
 1. Mithilfe der Modelldefinition des verbundenen Geräts können Sie die Funktionen des Geräts auflisten. 
 
-1. Mithilfe der aufgelisteten Funktionen des Geräts können Sie Benutzern gestatten, [mit dem Gerät zu interagieren](quickstart-service-node.md).  
+1. Mithilfe der aufgelisteten Funktionen des Geräts können Sie Benutzern gestatten, [mit dem Gerät zu interagieren](quickstart-service.md).  
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 Nachdem Sie gelernt haben, wie IoT Plug & Play-Modelle in eine IoT-Lösung integriert werden, finden Sie hier einige der empfohlenen nächsten Schritte:
 
-- [Interagieren mit einem Gerät über Ihre Lösung](quickstart-service-node.md)
+- [Interagieren mit einem Gerät über Ihre Lösung](quickstart-service.md)
 - [IoT-REST-API für digitale Zwillinge](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT-Explorer](howto-use-iot-explorer.md)

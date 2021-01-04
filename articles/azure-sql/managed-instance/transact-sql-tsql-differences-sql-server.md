@@ -9,14 +9,14 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 06/02/2020
+ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 36377d34a03150fefb8332bcfbe7bb6633ccc606
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 610ab649d64351b0897ef7358cdaf9280fe3ba55
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973307"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684917"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Unterschiede bei T-SQL zwischen SQL Server und Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -159,6 +159,8 @@ SQL Managed Instance kann nicht auf Dateien zugreifen. Daher können keine Krypt
     - EXECUTE AS USER
     - EXECUTE AS LOGIN
 
+  - Um die Identität eines Benutzers mit einer EXECUTE AS-Anweisung anzunehmen, muss der Benutzer dem Azure AD-Serverprinzipal (Anmeldung) direkt zugeordnet werden. Die Identität von Benutzern, die Mitglieder von Azure AD-Gruppen sind, die Azure AD-Serverprinzipalen zugeordnet sind, kann mit der EXECUTE AS-Anweisung nicht effektiv angenommen werden. Dies gilt selbst dann, wenn der Aufrufer über IMPERSONATE-Berechtigungen für den angegebenen Benutzernamen verfügt.
+
 - Das Exportieren/Importieren von Datenbanken mithilfe von BACPAC-Dateien wird für Azure AD-Benutzer in SQL Managed Instance per [SSMS V18.4 oder höher](/sql/ssms/download-sql-server-management-studio-ssms) oder [SQLPackage.exe](/sql/tools/sqlpackage-download) unterstützt.
   - Die folgenden Konfigurationen werden mit einer BACPAC-Datei für die Datenbank unterstützt: 
     - Exportieren/Importieren einer Datenbank zwischen verschiedenen verwalteten Instanzen in derselben Azure AD-Domäne
@@ -220,7 +222,7 @@ Weitere Informationen finden Sie unter [ALTER DATABASE SET PARTNER und SET WITNE
 
 - Mehrere Protokolldateien werden nicht unterstützt.
 - In-Memory-Objekte werden in der Dienstebene „Universell“ nicht unterstützt. 
-- Es gilt ein Grenzwert von 280 Dateien pro universeller Instanz, d.h. maximal 280 Dateien pro Datenbank. Auf der Dienstebene „Universell“ zählen sowohl Datendateien als auch Protokolldateien für diesen Grenzwert. [Die Dienstebene „Unternehmenskritisch“ unterstützt 32.767 Dateien pro Datenbank](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+- Es gilt ein Grenzwert von 280 Dateien pro universeller Instanz, d.h. maximal 280 Dateien pro Datenbank. Auf der Dienstebene „Universell“ zählen sowohl Datendateien als auch Protokolldateien für diesen Grenzwert. [Die Dienstebene „Unternehmenskritisch“ unterstützt 32.767 Dateien pro Datenbank](./resource-limits.md#service-tier-characteristics).
 - Eine Datenbank darf keine Dateigruppen mit Filestreamdaten enthalten. Es kann keine Wiederherstellung durchgeführt werden, wenn die BAK-Datei `FILESTREAM`-Daten enthält. 
 - Jede Datei wird in Azure Blob Storage gespeichert. E/A und Durchsatz pro Datei hängen von der Größe der jeweiligen Datei ab.
 
@@ -300,6 +302,7 @@ Weitere Informationen finden Sie unter [ALTER DATABASE](/sql/t-sql/statements/al
   - Warnungen werden noch nicht unterstützt.
   - Proxys werden nicht unterstützt.
 - EventLog wird nicht unterstützt.
+- Der Benutzer muss dem Azure AD-Serverprinzipal (Anmeldung) direkt zugeordnet sein, um SQL-Agent-Aufträge zu erstellen, zu ändern oder auszuführen. Benutzer, die nicht direkt zugeordnet sind, z. B. Benutzer, die einer Azure AD-Gruppe angehören, die über die Berechtigungen zum Erstellen, Ändern oder Ausführen von SQL-Agent-Aufträgen verfügt, können diese Aktionen nicht effektiv ausführen. Dies liegt an Einschränkungen beim Identitätswechsel für verwaltete Instanzen und bei [EXECUTE AS](#logins-and-users).
 
 Die folgenden SQL-Agent-Funktionen werden derzeit nicht unterstützt:
 
@@ -354,7 +357,7 @@ Nicht dokumentierte DBCC-Anweisungen, die in SQL Server aktiviert sind, werden i
 ### <a name="distributed-transactions"></a>Verteilte Transaktionen
 
 Derzeit werden [verteilte Transaktionen](../database/elastic-transactions-overview.md) teilweise in der öffentlichen Vorschau unterstützt. Folgende Szenarios werden unterstützt:
-* Transaktionen, an denen nur Azure SQL Managed Instances beteiligt sind, die zur [Serververtrauensgruppe](https://aka.ms/mitrusted-groups) gehören.
+* Transaktionen, an denen nur Azure SQL Managed Instances beteiligt sind, die zur [Serververtrauensgruppe](./server-trust-group-overview.md) gehören.
 * Von .NET (TransactionScope-Klasse) und Transact-SQL initiierte Transaktionen.
 
 Azure SQL Managed Instance unterstützt derzeit keine anderen Szenarios, die regelmäßig von MSDTC lokal oder in Azure Virtual Machines unterstützt werden.
@@ -407,7 +410,7 @@ Vorgänge:
 
 ### <a name="polybase"></a>PolyBase
 
-Externe Tabellen, die auf Dateien in HDFS oder Azure Blob Storage verweisen, werden nicht unterstützt. Informationen zu PolyBase finden Sie unter [PolyBase](/sql/relational-databases/polybase/polybase-guide).
+Der einzige unterstützte Typ externer Quellen für Azure SQL-Datenbank und andere Azure SQL Managed Instance-Instanzen ist RDBMS. Informationen zu PolyBase finden Sie unter [PolyBase](/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Replikation
 
@@ -482,7 +485,7 @@ Der instanzübergreifende Service Broker wird nicht unterstützt:
   - `remote proc trans`
 - `sp_execute_external_scripts` wird nicht unterstützt. Siehe [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - `xp_cmdshell` wird nicht unterstützt. Siehe [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
-- `Extended stored procedures` werden nicht unterstützt. Hierzu gehören `sp_addextendedproc` und `sp_dropextendedproc`. Siehe [Erweiterte gespeicherte Prozeduren](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
+- `Extended stored procedures` werden nicht unterstützt. Hierzu gehören `sp_addextendedproc` und `sp_dropextendedproc`. Siehe [Erweiterte gespeicherte Prozeduren](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`, `sp_attach_single_file_db` und `sp_detach_db` werden nicht unterstützt. Siehe [sp_attach_db](/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) und [sp_detach_db](/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
 ### <a name="system-functions-and-variables"></a>Systemfunktionen und Variablen
@@ -514,12 +517,11 @@ Die folgenden Variablen, Funktionen und Sichten geben abweichende Ergebnisse zur
 ### <a name="failover-groups"></a>Failovergruppen
 Systemdatenbanken werden nicht auf die sekundäre Instanz in einer Failovergruppe repliziert. Daher sind Szenarien, die von Objekten aus den Systemdatenbanken abhängen, auf der sekundären Instanz nicht möglich, es sei denn, die Objekte werden manuell auf der sekundären Instanz erstellt.
 
-### <a name="failover-groups"></a>Failovergruppen
-Systemdatenbanken werden nicht auf die sekundäre Instanz in einer Failovergruppe repliziert. Daher sind Szenarien, die von Objekten aus den Systemdatenbanken abhängen, auf der sekundären Instanz nicht möglich, es sei denn, die Objekte werden manuell auf der sekundären Instanz erstellt.
-
 ### <a name="tempdb"></a>TEMPDB
-
-Die maximale Dateigröße von `tempdb` darf in der Dienstebene „Universell“ 24 GB pro Kern nicht überschreiten. Die maximale Größe von `tempdb` ist in der Dienstebene „Unternehmenskritisch“ auf die Speichergröße von SQL Managed Instance begrenzt. Die Größe der Protokolldatei `Tempdb` ist bei der Dienstebene „Universell“ auf 120 GB begrenzt. Einige Abfragen geben möglicherweise einen Fehler zurück, wenn für sie mehr als 24 GB pro Kern in `tempdb` erforderlich sind oder die erstellten Protokolldaten mehr als 120 GB benötigen.
+- Die maximale Dateigröße von `tempdb` darf in der Dienstebene „Universell“ 24 GB pro Kern nicht überschreiten. Die maximale Größe von `tempdb` ist in der Dienstebene „Unternehmenskritisch“ auf die Speichergröße von SQL Managed Instance begrenzt. Die Größe der Protokolldatei `Tempdb` ist bei der Dienstebene „Universell“ auf 120 GB begrenzt. Einige Abfragen geben möglicherweise einen Fehler zurück, wenn für sie mehr als 24 GB pro Kern in `tempdb` erforderlich sind oder die erstellten Protokolldaten mehr als 120 GB benötigen.
+- `Tempdb` wird immer in 12 Datendateien aufgeteilt: 1 primäre Datendatei (auch als Masterdatei bezeichnet) und 11 nicht primäre Datendateien. Die Dateistruktur kann nicht geändert werden, und es können auch keine neuen Dateien zu `tempdb` hinzugefügt werden. 
+- [Speicheroptimierte `tempdb`-Metadaten](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#memory-optimized-tempdb-metadata), ein neues In-Memory Database-Feature von SQL Server 2019, wird nicht unterstützt.
+- In der Modelldatenbank erstellte Objekte können in `tempdb` nach einem Neustart oder Failover nicht automatisch erstellt werden, weil `tempdb` die anfängliche Objektliste nicht aus der Modelldatenbank abruft. Sie müssen Objekte in `tempdb` nach jedem Neustart oder Failover manuell erstellen.
 
 ### <a name="msdb"></a>MSDB
 
@@ -527,13 +529,13 @@ Die folgenden MSDB-Schemas in SQL Managed Instance müssen ihren jeweiligen vord
 
 - Allgemeine Rollen
   - TargetServersRole
-- [Feste Datenbankrollen](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+- [Feste Datenbankrollen](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
   - SQLAgentUserRole
   - SQLAgentReaderRole
   - SQLAgentOperatorRole
-- [DatabaseMail-Rollen](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
+- [DatabaseMail-Rollen](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
   - DatabaseMailUserRole
-- [Integration Services-Rollen](https://docs.microsoft.com/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
+- [Integration Services-Rollen](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
   - db_ssisadmin
   - db_ssisltduser
   - db_ssisoperator
@@ -543,7 +545,7 @@ Die folgenden MSDB-Schemas in SQL Managed Instance müssen ihren jeweiligen vord
 
 ### <a name="error-logs"></a>Fehlerprotokolle
 
-SQL Managed Instance stellt ausführliche Informationen in Fehlerprotokollen zur Verfügung. Es gibt viele interne Systemereignisse, die im Fehlerprotokoll protokolliert werden. Verwenden Sie zum Lesen von Fehlerprotokollen eine benutzerdefinierte Prozedur, die einige nicht relevante Einträge herausfiltert. Weitere Informationen finden Sie unter [SQL Managed Instance: sp_readmierrorlog ](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) oder [SQL Managed Instance-Erweiterung (Vorschauversion)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) für Azure Data Studio.
+SQL Managed Instance stellt ausführliche Informationen in Fehlerprotokollen zur Verfügung. Es gibt viele interne Systemereignisse, die im Fehlerprotokoll protokolliert werden. Verwenden Sie zum Lesen von Fehlerprotokollen eine benutzerdefinierte Prozedur, die einige nicht relevante Einträge herausfiltert. Weitere Informationen finden Sie unter [SQL Managed Instance: sp_readmierrorlog ](/archive/blogs/sqlcat/azure-sql-db-managed-instance-sp_readmierrorlog) oder [SQL Managed Instance-Erweiterung (Vorschauversion)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) für Azure Data Studio.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

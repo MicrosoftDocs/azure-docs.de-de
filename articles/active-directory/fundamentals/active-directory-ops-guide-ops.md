@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 74ebd25cb48276f76cdf379eaa596f4ec1f3a2b9
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d5a8fe4192c3778e259ed18239a4198398d8807b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312609"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836834"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Allgemeiner Betriebsleitfaden für Azure Active Directory – Referenz
 
@@ -43,13 +43,13 @@ Für die Verwaltung von Azure Active Directory ist die kontinuierliche Ausführu
 | Überwachen von Hybrid-Protokollen: Passthrough-Authentifizierungs-Agents | Team für IAM-Vorgänge (Identity & Access Management, Identitäts- und Zugriffsverwaltung) |
 | Überwachen von Hybrid-Protokollen: Dienst für das Kennwortrückschreiben | Team für IAM-Vorgänge (Identity & Access Management, Identitäts- und Zugriffsverwaltung) |
 | Überwachen von Hybrid-Protokollen: Lokales Kennwortschutzgateway | Team für IAM-Vorgänge (Identity & Access Management, Identitäts- und Zugriffsverwaltung) |
-| Überwachen von Hybrid-Protokollen: Azure MFA NPS-Erweiterung (falls zutreffend) | Team für IAM-Vorgänge (Identity & Access Management, Identitäts- und Zugriffsverwaltung) |
+| Überwachen von Hybrid-Protokollen: Azure AD MFA NPS-Erweiterung (falls zutreffend) | Team für IAM-Vorgänge (Identity & Access Management, Identitäts- und Zugriffsverwaltung) |
 
 Beim Überprüfen Ihrer Liste stellen Sie ggf. fest, dass Sie entweder einen Besitzer für Aufgaben zuweisen müssen, denen kein Besitzer zugeteilt ist, oder Aufgaben anpassen müssen, deren Besitzer nicht den obigen Empfehlungen entspricht.
 
 #### <a name="owners-recommended-reading"></a>Empfohlene Artikel für Besitzer
 
-- [Zuweisen von Administratorrollen in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Zuweisen von Administratorrollen in Azure Active Directory](../roles/permissions-reference.md)
 - [Governance in Azure](../../governance/index.yml)
 
 ## <a name="hybrid-management"></a>Hybridverwaltung
@@ -86,7 +86,7 @@ Wenn Sie den Zustand Ihrer Umgebung überwachen, müssen Sie sofort alle Warnung
 
 ### <a name="on-premises-agents-logs"></a>Lokale Agent-Protokolle
 
-Einige Identitäts- und Zugriffsverwaltungsdienste erfordern lokale Agents, um Hybridszenarien zu ermöglichen. Beispiele sind Kennwortzurücksetzung, Passthrough-Authentifizierung (PTA), Azure AD-Anwendungsproxy und Azure MFA NPS-Erweiterung. Es ist von entscheidender Bedeutung, dass die Baseline des Betriebsteams die Integrität dieser Komponenten überwacht, indem sie die Protokolle der Komponenten-Agents mit Lösungen wie System Center Operations Manager oder SIEM archiviert und analysiert. Es ist ebenso wichtig, dass Ihr Team für Vorgänge im Bereich Informationssicherheit oder Ihr Helpdesk versteht, wie Sie Fehlermuster beheben können.
+Einige Identitäts- und Zugriffsverwaltungsdienste erfordern lokale Agents, um Hybridszenarien zu ermöglichen. Beispiele sind Kennwortzurücksetzung, Passthrough-Authentifizierung (PTA), Azure AD-Anwendungsproxy und die Azure AD MFA NPS-Erweiterung. Es ist von entscheidender Bedeutung, dass die Baseline des Betriebsteams die Integrität dieser Komponenten überwacht, indem sie die Protokolle der Komponenten-Agents mit Lösungen wie System Center Operations Manager oder SIEM archiviert und analysiert. Es ist ebenso wichtig, dass Ihr Team für Vorgänge im Bereich Informationssicherheit oder Ihr Helpdesk versteht, wie Sie Fehlermuster beheben können.
 
 #### <a name="on-premises-agents-logs-recommended-reading"></a>Empfohlene Artikel für lokale Agent-Protokolle
 
@@ -94,7 +94,7 @@ Einige Identitäts- und Zugriffsverwaltungsdienste erfordern lokale Agents, um H
 - [Problembehandlung bei der Self-Service-Kennwortzurücksetzung – Azure Active Directory](../authentication/troubleshoot-sspr.md)
 - [Grundlegendes zu Azure AD-Anwendungsproxyconnectors](../manage-apps/application-proxy-connectors.md)
 - [Azure AD Connect: Behandeln von Passthrough-Authentifizierungsproblemen](../hybrid/tshoot-connect-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)
-- [Fehlercodes zur Problembehandlung für die Azure MFA NPS-Erweiterung](../authentication/howto-mfa-nps-extension-errors.md)
+- [Fehlercodes zur Problembehandlung für die Azure AD MFA NPS-Erweiterung](../authentication/howto-mfa-nps-extension-errors.md)
 
 ### <a name="on-premises-agents-management"></a>Verwaltung lokaler Agents
 
@@ -154,7 +154,7 @@ In der folgenden Tabelle erfahren Sie, welche Art von Benachrichtigungen gesende
 
 ### <a name="ad-fs-lockdown"></a>AD FS-Sperre
 
-Organisationen, die Anwendungen für die direkte Authentifizierung in Azure AD konfigurieren, profitieren von der  [intelligenten Kennwortsperrung von Azure AD](../authentication/concept-sspr-howitworks.md). Wenn Sie AD FS in Windows Server 2012 R2 verwenden, implementieren Sie den  [Extranetsperrschutz](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection) von AD FS. Wenn Sie AD FS in Windows Server 2016 oder höher verwenden, implementieren Sie die  [intelligente Extranetsperre](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). Wir empfehlen Ihnen, mindestens die Extranetsperre zu aktivieren, um das Risiko von Brute-Force-Angriffen für das lokale Active Directory einzugrenzen. Wenn Sie jedoch AD FS unter Windows 2016 oder höher verwenden, sollten Sie auch die intelligente Extranetsperre aktivieren, die dazu beiträgt, das Risiko von [Kennwortspray](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/)-Angriffen zu verringern.
+Organisationen, die Anwendungen für die direkte Authentifizierung in Azure AD konfigurieren, profitieren von der [intelligenten Kennwortsperrung von Azure AD](../authentication/concept-sspr-howitworks.md). Wenn Sie AD FS unter Windows Server 2012 R2 verwenden, implementieren Sie den [Extranetsperrschutz](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection) von AD FS. Wenn Sie AD FS unter Windows Server 2016 oder höher verwenden, implementieren Sie [Extranet Smart Lockout](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). Wir empfehlen Ihnen, mindestens die Extranetsperre zu aktivieren, um das Risiko von Brute-Force-Angriffen für das lokale Active Directory einzugrenzen. Wenn Sie jedoch AD FS unter Windows 2016 oder höher verwenden, sollten Sie auch die intelligente Extranetsperre aktivieren, die dazu beiträgt, das Risiko von [Kennwortspray](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/)-Angriffen zu verringern.
 
 Wenn AD FS nur für den Azure AD-Verbund verwendet wird, können einige Endpunkte deaktiviert werden, um die Angriffsfläche zu minimieren. Wenn AD FS z. B. nur für Azure AD verwendet wird, sollten Sie andere WS-Trust-Endpunkte als die für **usernamemixed** und **windowstransport** aktivierten Endpunkte deaktivieren.
 
@@ -166,9 +166,9 @@ Das Active Directory-Verwaltungsebenenmodell wurde entwickelt, um Identitätssys
 
 Das [Ebenenmodell](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) besteht aus drei Ebenen und umfasst nur Verwaltungskonten, nicht Standardbenutzerkonten.
 
-- **Ebene 0** : Direkte Steuerung von Unternehmensidentitäten in der Umgebung. Ebene 0 umfasst Konten, Gruppen und andere Ressourcen, die direkt oder indirekt über die administrative Steuerung der Active Directory-Gesamtstruktur, Domänen oder Domänencontroller und aller darin enthaltenen Ressourcen verfügen. Die Sicherheitsempfindlichkeit aller Ressourcen der Ebene 0 ist gleichwertig, da sie sich effektiv alle gegenseitig kontrollieren.
-- **Ebene 1** : Steuerung von Unternehmensservern und -anwendungen. Zu den Ressourcen der Ebene 1 gehören Serverbetriebssysteme, Clouddienste und Unternehmensanwendungen. Administratorkonten der Ebene 1 haben die administrative Kontrolle über einen erheblichen Teil des Geschäftswerts, der auf diesen Ressourcen gehostet wird. Eine allgemeine Beispielrolle sind Serveradministratoren, die diese Betriebssysteme mit der Möglichkeit pflegen, auf alle Unternehmensdienste einwirken zu können.
-- **Ebene 2** : Steuerung von Benutzerarbeitsstationen und -geräten. Administratorkonten der Ebene 2 haben die administrative Kontrolle über einen erheblichen Teil des Geschäftswerts, der auf Benutzerarbeitsstationen und -geräten gehostet wird. Beispiele sind Helpdesk- und Computersupport-Administratoren, da sie auf die Integrität fast aller Benutzerdaten Einfluss nehmen können.
+- **Ebene 0**: Direkte Kontrolle von Unternehmensidentitäten innerhalb der Umgebung. Ebene 0 umfasst Konten, Gruppen und andere Ressourcen, die direkt oder indirekt über die administrative Steuerung der Active Directory-Gesamtstruktur, Domänen oder Domänencontroller und aller darin enthaltenen Ressourcen verfügen. Die Sicherheitsempfindlichkeit aller Ressourcen der Ebene 0 ist gleichwertig, da sie sich effektiv alle gegenseitig kontrollieren.
+- **Ebene 1**: Kontrolle von Unternehmensservern und -anwendungen. Zu den Ressourcen der Ebene 1 gehören Serverbetriebssysteme, Clouddienste und Unternehmensanwendungen. Administratorkonten der Ebene 1 haben die administrative Kontrolle über einen erheblichen Teil des Geschäftswerts, der auf diesen Ressourcen gehostet wird. Eine allgemeine Beispielrolle sind Serveradministratoren, die diese Betriebssysteme mit der Möglichkeit pflegen, auf alle Unternehmensdienste einwirken zu können.
+- **Ebene 2**: Kontrolle von Benutzerarbeitsstationen und -geräten. Administratorkonten der Ebene 2 haben die administrative Kontrolle über einen erheblichen Teil des Geschäftswerts, der auf Benutzerarbeitsstationen und -geräten gehostet wird. Beispiele sind Helpdesk- und Computersupport-Administratoren, da sie auf die Integrität fast aller Benutzerdaten Einfluss nehmen können.
 
 Sperren Sie den Zugriff auf lokale Identitätskomponenten wie Azure AD Connect, AD FS und SQL-Dienste auf dieselbe Weise wie bei Domänencontrollern.
 

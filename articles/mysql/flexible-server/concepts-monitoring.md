@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: f3a58a6766c42385dd6611c2014ba36fd1078710
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fe1d5a5a472b47abd364a89d1a65f1249c67c0d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90931368"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538662"
 ---
 # <a name="monitor-azure-database-for-mysql-flexible-servers-with-built-in-metrics"></a>Überwachen von Azure Database for MySQL Flexible Server mit integrierten Metriken
 
@@ -24,9 +24,9 @@ In diesem Artikel erfahren Sie mehr über die verschiedenen Metriken, die für I
 
 ## <a name="available-metrics"></a>Verfügbare Metriken
 
-Azure Database for MySQL Flexible Server bietet verschiedene Metriken, um die Leistung Ihrer Workload zu verstehen. Anhand dieser Daten können Sie die Auswirkungen auf Ihren Server und Ihre Anwendung nachvollziehen. Sie können z. B. bei flexiblen Servern **Host-CPU in Prozent**, **Aktive Verbindungen**, **E/A in Prozent** und **Hostarbeitsspeicher in Prozent** überwachen, um festzustellen, wann eine Leistungsbeeinträchtigung auftritt. Von dort aus müssen Sie möglicherweise Ihre Workload optimieren, vertikal skalieren, indem Sie die Computeebenen ändern, oder horizontal skalieren, indem Sie ein Lesereplikat verwenden.
+Azure Database for MySQL Flexible Server bietet verschiedene Metriken, um die Leistung Ihrer Workload zu verstehen. Anhand dieser Daten können Sie die Auswirkungen auf Ihren Server und Ihre Anwendung nachvollziehen. Sie können z. B. bei flexiblen Servern **Host-CPU in Prozent** , **Aktive Verbindungen** , **E/A in Prozent** und **Hostarbeitsspeicher in Prozent** überwachen, um festzustellen, wann eine Leistungsbeeinträchtigung auftritt. Von dort aus müssen Sie möglicherweise Ihre Workload optimieren, vertikal skalieren, indem Sie die Computeebenen ändern, oder horizontal skalieren, indem Sie ein Lesereplikat verwenden.
 
-Alle Azure-Metriken werden im Minutentakt erfasst, und für jede Metrik steht ein Verlauf von 30 Tagen zur Verfügung. Sie können Warnungen für die Metriken konfigurieren. Eine Schritt-für-Schritt-Anleitung finden Sie unter [Einrichten von Warnungen](./how-to-alert-on-metric.md). Darüber hinaus können weitere Aufgaben wie das Einrichten automatisierter Aktionen, das Durchführen erweiterter Analysen und das Archivieren des Verlaufs ausgeführt werden. Weitere Informationen finden Sie unter [Überblick über Metriken in Microsoft Azure](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Alle Azure-Metriken werden im Minutentakt erfasst, und für jede Metrik steht ein Verlauf von 30 Tagen zur Verfügung. Sie können Warnungen für die Metriken konfigurieren. Eine Schritt-für-Schritt-Anleitung finden Sie unter [Einrichten von Warnungen](./how-to-alert-on-metric.md). Darüber hinaus können weitere Aufgaben wie das Einrichten automatisierter Aktionen, das Durchführen erweiterter Analysen und das Archivieren des Verlaufs ausgeführt werden. Weitere Informationen finden Sie unter [Überblick über Metriken in Microsoft Azure](../../azure-monitor/platform/data-platform.md).
 
 ### <a name="list-of-metrics"></a>Liste der Metriken
 Für Azure Database for MySQL sind folgende Metriken verfügbar:

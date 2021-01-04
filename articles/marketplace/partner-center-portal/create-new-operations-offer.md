@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: a7a77cc18ddc1ab8664d49aa3c2ac049a683ed3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c28b4edab1e1033bf9ac7df6b1249b549bb4fe1
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710633"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131512"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Erstellen eines Angebots für Dynamics 365 for Operations
 
@@ -74,7 +74,7 @@ Sammeln Sie über Ihr CRM-System (Customer Relationship Management) Kundenkontak
 
 Eine Testversion ist eine hervorragende Möglichkeit, Ihr Angebot potenziellen Kunden zu präsentieren, indem Sie ihnen die Möglichkeit geben, das Produkt vor dem Kauf zu testen. Dies führt zu einer höheren Konversionsrate und zur Generierung von aussichtsreichen Leads. Um mehr zu erfahren, lesen Sie zunächst [Was ist die Testversion?](../what-is-test-drive.md)
 
-Aktivieren Sie das Kontrollkästchen **Testversion aktivieren**, um eine Testversion für einen festen Zeitraum zu aktivieren. Deaktivieren Sie dieses Kontrollkästchen, um die Testversion aus Ihrem Angebot zu entfernen.
+Aktivieren Sie das Kontrollkästchen **Testversion aktivieren** , um eine Testversion für einen festen Zeitraum zu aktivieren. Deaktivieren Sie dieses Kontrollkästchen, um die Testversion aus Ihrem Angebot zu entfernen.
 
 ### <a name="customer-leads"></a>Kundenleads
 
@@ -227,7 +227,7 @@ Auf dieser Seite finden Sie Optionen, mit denen Sie festlegen können, wo und wi
 
 In diesem Abschnitt können Sie angeben, in welchen Märkten das Angebot verfügbar sein soll. Wählen Sie hierzu **Märkte bearbeiten** aus. Dadurch wird das Popupfenster **Marktauswahl** angezeigt.
 
-Standardmäßig sind keine Märkte ausgewählt. Wählen Sie mindestens einen Markt aus, um Ihr Angebot zu veröffentlichen. Klicken Sie auf **Alle auswählen**, um Ihr Angebot in allen möglichen Märkten verfügbar zu machen, oder wählen Sie die gewünschten Märkte aus, die Sie hinzufügen möchten. Wenn Sie fertig sind, wählen Sie **Speichern** aus.
+Standardmäßig sind keine Märkte ausgewählt. Wählen Sie mindestens einen Markt aus, um Ihr Angebot zu veröffentlichen. Klicken Sie auf **Alle auswählen** , um Ihr Angebot in allen möglichen Märkten verfügbar zu machen, oder wählen Sie die gewünschten Märkte aus, die Sie hinzufügen möchten. Wenn Sie fertig sind, wählen Sie **Speichern** aus.
 
 Ihre hier getroffene Auswahl gilt nur für neue Käufe. Wenn Ihre App bereits von einem Benutzer in einem bestimmten Markt verwendet wird und Sie den Markt später entfernen, können Benutzer, die in diesem Markt bereits über Ihr Angebot verfügen, es weiterhin nutzen, aber Ihr Angebot ist nicht für neue Kunden in diesem Markt erhältlich.
 
@@ -267,7 +267,7 @@ Wählen Sie **Entwurf speichern** aus, bevor Sie fortfahren.
 
 Auf dieser Seite können Sie eine Demonstration („Testversion“) einrichten, mit der Kunden Ihr Angebot vor dem Erwerb ausprobieren können. Weitere Informationen finden Sie unter [Was ist die Testversion?](../what-is-test-drive.md).
 
-Aktivieren Sie auf der Registerkarte [Angebotseinrichtung](#test-drive) das Kontrollkästchen **Testversion aktivieren**, um eine Testversion zu aktivieren. Deaktivieren Sie dieses Kontrollkästchen, um die Testversion aus Ihrem Angebot zu entfernen.
+Aktivieren Sie auf der Registerkarte [Angebotseinrichtung](#test-drive) das Kontrollkästchen **Testversion aktivieren** , um eine Testversion zu aktivieren. Deaktivieren Sie dieses Kontrollkästchen, um die Testversion aus Ihrem Angebot zu entfernen.
 
 Sobald Sie die Einrichtung der Testversion abgeschlossen haben, wählen Sie **Entwurf speichern** aus, bevor Sie fortfahren.
 
@@ -277,7 +277,7 @@ Auf dieser Seite können Sie zusätzliche Informationen zu Ihrem Angebot bereits
 
 ### <a name="validation-assets"></a>Validierungsressourcen
 
-Laden Sie in diesem Abschnitt einen [Bericht zur Anpassungsanalyse](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/dev-tools/customization-analysis-report) hoch. Dieser Bericht wird durch die Analyse der Anpassungs- und Erweiterungsmodelle basierend auf einem vordefinierten Satz von Regeln für bewährte Methoden generiert.
+Laden Sie in diesem Abschnitt einen [Bericht zur Anpassungsanalyse](/dynamics365/unified-operations/dev-itpro/dev-tools/customization-analysis-report) hoch. Dieser Bericht wird durch die Analyse der Anpassungs- und Erweiterungsmodelle basierend auf einem vordefinierten Satz von Regeln für bewährte Methoden generiert.
 
 Diese Datei muss im XLS- oder XLSX-Format vorliegen. Wenn Sie über mehr als einen Bericht verfügen, können Sie eine ZIP-Datei mit allen Berichten hochladen.
 
@@ -287,7 +287,7 @@ Wählen Sie **Ja** aus, wenn die Lösung die Verwendung lokaler Standards und Ri
 
 ### <a name="does-solution-enable-translations"></a>Ermöglicht die Lösung die Übersetzungen?
 
-Antworten Sie **Ja**, wenn der Text in Ihrer Lösung in andere Sprachen übersetzt werden kann. Klicken Sie andernfalls auf **Nein**.
+Antworten Sie **Ja** , wenn der Text in Ihrer Lösung in andere Sprachen übersetzt werden kann. Klicken Sie andernfalls auf **Nein**.
 
 Wählen Sie **Entwurf speichern** aus, bevor Sie fortfahren.
 
@@ -303,7 +303,7 @@ Wenn Sie das Angebot zum ersten Mal veröffentlichen, haben Sie folgende Möglic
     - **Nicht gestartet:** Der Abschnitt wurde nicht bearbeitet und sollte ausgefüllt werden.
     - **Unvollständig:** Der Abschnitt enthält Fehler, die behoben werden müssen, oder erfordert eine Ergänzung der Informationen. Kehren Sie zu den Abschnitten zurück, und nehmen Sie eine Aktualisierung vor.
     - **Vollständig:** Der Abschnitt ist vollständig. Alle erforderlichen Daten wurden angegeben, und es sind keine Fehler vorhanden. Alle Abschnitte des Angebots müssen abgeschlossen sein, bevor Sie das Angebot einreichen können.
-- Geben Sie dem Zertifizierungsteam im Abschnitt **Hinweise zur Zertifizierung** Testanweisungen, um sicherzustellen, dass Ihre App ordnungsgemäß getestet wird, sowie ergänzende Hinweise, die das Verständnis Ihrer App erleichtern. Weitere Informationen zu Testanweisungen und zum Abschließen einer ersten Veröffentlichung finden Sie unter [Funktionale Überprüfung von AppSource Dynamics 365 Finance and Operations](https://docs.microsoft.com/azure/marketplace/dynamics-365-finance-operations-functional-validation).
+- Geben Sie dem Zertifizierungsteam im Abschnitt **Hinweise zur Zertifizierung** Testanweisungen, um sicherzustellen, dass Ihre App ordnungsgemäß getestet wird, sowie ergänzende Hinweise, die das Verständnis Ihrer App erleichtern. Weitere Informationen zu Testanweisungen und zum Abschließen einer ersten Veröffentlichung finden Sie unter [Funktionale Überprüfung von AppSource Dynamics 365 Finance and Operations](../dynamics-365-finance-operations-functional-validation.md).
 - Senden Sie dazu das Angebot zur Veröffentlichung, indem Sie auf **Senden** klicken. Wir senden Ihnen eine E-Mail, um Ihnen mitzuteilen, wann eine Vorschauversion des Angebots verfügbar ist, damit Sie es überprüfen und genehmigen können. Kehren Sie zu Partner Center zurück, und wählen Sie **Live schalten** aus, um das Angebot für eine öffentliche Zielgruppe zu veröffentlichen.
 
 ## <a name="next-step"></a>Nächster Schritt

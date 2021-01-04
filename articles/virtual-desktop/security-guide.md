@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a194074b75a404e5a28e86015b0d0bcea2619fc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3033af32229be238831740c11a1112513259a43
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88002295"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023155"
 ---
 # <a name="security-best-practices"></a>Bewährte Sicherheitsmethoden
 
@@ -62,7 +62,7 @@ Weitere Informationen finden Sie unter [Einbinden Ihres Azure-Abonnements in Sec
 
 ### <a name="improve-your-secure-score"></a>Verbessern Ihrer Sicherheitsbewertung
 
-Die Sicherheitsbewertung bietet Empfehlungen und Ratschläge zu bewährten Methoden zur Verbesserung Ihrer allgemeinen Sicherheit. Diese Empfehlungen sind nach Prioritäten geordnet, um Ihnen bei der Auswahl der wichtigsten Empfehlungen zu helfen, und die Optionen für die schnelle Problembehebung helfen Ihnen, potenzielle Sicherheitsrisiken schnell zu beheben. Zudem werden diese Empfehlungen im Laufe der Zeit aktualisiert, sodass Sie immer auf dem Laufenden sind, wie Sie die Sicherheit Ihrer Umgebung am besten sicherstellen können. Weitere Informationen finden Sie unter [Verbessern der Sicherheitsbewertung in Azure Security Center](../security-center/security-center-secure-score.md).
+Die Sicherheitsbewertung bietet Empfehlungen und Ratschläge zu bewährten Methoden zur Verbesserung Ihrer allgemeinen Sicherheit. Diese Empfehlungen sind nach Prioritäten geordnet, um Ihnen bei der Auswahl der wichtigsten Empfehlungen zu helfen, und die Optionen für die schnelle Problembehebung helfen Ihnen, potenzielle Sicherheitsrisiken schnell zu beheben. Zudem werden diese Empfehlungen im Laufe der Zeit aktualisiert, sodass Sie immer auf dem Laufenden sind, wie Sie die Sicherheit Ihrer Umgebung am besten sicherstellen können. Weitere Informationen finden Sie unter [Verbessern der Sicherheitsbewertung in Azure Security Center](../security-center/secure-score-security-controls.md).
 
 ## <a name="windows-virtual-desktop-security-best-practices"></a>Bewährte Sicherheitsmethoden für Windows Virtual Desktop
 
@@ -70,17 +70,17 @@ Windows Virtual Desktop verfügt über viele integrierte Sicherheitskontrollen. 
 
 ### <a name="require-multi-factor-authentication"></a>Mehrstufige Authentifizierung erforderlich
 
-Die Anforderung einer mehrstufigen Authentifizierung für alle Benutzer und Administratoren in Windows Virtual Desktop verbessert die Sicherheit Ihrer gesamten Bereitstellung. Weitere Informationen finden Sie unter [Aktivieren von Azure Multi-Factor Authentication für Windows Virtual Desktop](set-up-mfa.md).
+Die Anforderung einer mehrstufigen Authentifizierung für alle Benutzer und Administratoren in Windows Virtual Desktop verbessert die Sicherheit Ihrer gesamten Bereitstellung. Weitere Informationen finden Sie unter [Aktivieren von Azure AD Multi-Factor Authentication für Windows Virtual Desktop](set-up-mfa.md).
 
 ### <a name="enable-conditional-access"></a>Aktivieren des bedingten Zugriffs
 
-Durch die Aktivierung des [bedingten Zugriffs](../active-directory/conditional-access/best-practices.md) können Sie Risiken verwalten, bevor Sie Benutzern Zugriff auf Ihre Windows Virtual Desktop-Umgebung gewähren. Bei der Entscheidung, welchen Benutzern der Zugriff gewährt werden soll, sollten Sie auch berücksichtigen, wer der Benutzer ist, wie er sich anmeldet und welches Gerät er verwendet.
+Durch die Aktivierung des [bedingten Zugriffs](../active-directory/conditional-access/overview.md) können Sie Risiken verwalten, bevor Sie Benutzern Zugriff auf Ihre Windows Virtual Desktop-Umgebung gewähren. Bei der Entscheidung, welchen Benutzern der Zugriff gewährt werden soll, sollten Sie auch berücksichtigen, wer der Benutzer ist, wie er sich anmeldet und welches Gerät er verwendet.
 
 ### <a name="collect-audit-logs"></a>Sammeln von Überwachungsprotokollen
 
 Wenn Sie das Sammeln von Überwachungsprotokollen aktivieren, können Sie Benutzer- und Verwaltungsaktivitäten im Zusammenhang mit Windows Virtual Desktop anzeigen. Einige Beispiele für wichtige Überwachungsprotokolle sind:
 
--   [Azure-Aktivitätsprotokoll](../azure-monitor/platform/activity-log-collect.md)
+-   [Azure-Aktivitätsprotokoll](../azure-monitor/platform/activity-log.md)
 -   [Azure Active Directory-Aktivitätsprotokoll](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 -   [Sitzungshosts](../azure-monitor/platform/agent-windows.md)
@@ -93,7 +93,7 @@ Wenn Sie sich für ein Bereitstellungsmodell entscheiden, können Sie Remotebenu
 
 ### <a name="monitor-usage-with-azure-monitor"></a>Überwachen der Nutzung mit Azure Monitor
 
-Überwachen Sie die Nutzung und Verfügbarkeit Ihres Windows Virtual Desktop-Diensts mit [Azure Monitor](https://azure.microsoft.com/services/monitor/). Ziehen Sie in Erwägung, [Warnungen zur Dienstintegrität](../service-health/alerts-activity-log-service-notifications.md) für den Windows Virtual Desktop-Dienst zu erstellen, um Benachrichtigungen zu erhalten, wann immer ein Ereignis auftritt, das sich auf den Dienst auswirkt.
+Überwachen Sie die Nutzung und Verfügbarkeit Ihres Windows Virtual Desktop-Diensts mit [Azure Monitor](https://azure.microsoft.com/services/monitor/). Ziehen Sie in Erwägung, [Warnungen zur Dienstintegrität](../service-health/alerts-activity-log-service-notifications-portal.md) für den Windows Virtual Desktop-Dienst zu erstellen, um Benachrichtigungen zu erhalten, wann immer ein Ereignis auftritt, das sich auf den Dienst auswirkt.
 
 ## <a name="session-host-security-best-practices"></a>Bewährte Sicherheitsmethoden für den Sitzungshost
 

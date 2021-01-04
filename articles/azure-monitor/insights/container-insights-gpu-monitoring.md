@@ -3,12 +3,12 @@ title: Konfigurieren der GPU-Überwachung mit Azure Monitor für Container | Mic
 description: In diesem Artikel wird beschrieben, wie Sie die Überwachung von Kubernetes-Clustern mit NVIDIA- und AMD-GPU-fähigen Knoten mit Azure Monitor für Container konfigurieren können.
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 4c6044d407dc4abd0e69bac0190cc19c901022c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e391117ab57211aa5d178d11c27b934b4ccd37f8
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569695"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905586"
 ---
 # <a name="configure-gpu-monitoring-with-azure-monitor-for-containers"></a>Konfigurieren der GPU-Überwachung mit Azure Monitor für Container
 
@@ -39,7 +39,7 @@ Azure Monitor für Container beginnt automatisch mit der Überwachung der GPU-Nu
 
 ## <a name="gpu-performance-charts"></a>GPU-Leistungsdiagramme 
 
-Azure Monitor für Container enthält vorkonfigurierte Diagramme für die Metriken, die weiter oben in der Tabelle als GPU-Arbeitsmappe für jeden Cluster aufgeführt sind. Sie finden die GPU-Arbeitsmappe **Node GPU** direkt von einem AKS-Cluster aus, indem Sie **Arbeitsmappen** im linken Bereich und in der Dropdownliste in Insight **Arbeitsmappen anzeigen** auswählen.
+Azure Monitor für Container enthält vorkonfigurierte Diagramme für die Metriken, die weiter oben in der Tabelle als GPU-Arbeitsmappe für jeden Cluster aufgeführt sind. Eine Beschreibung der für Azure Monitor für Container verfügbaren Arbeitsmappen finden Sie unter [Arbeitsmappen in Azure Monitor für Container](container-insights-reports.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

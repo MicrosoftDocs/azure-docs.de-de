@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 53309023a838f4b256327a37866408f556c81d29
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: ac87d5040cd572635d81be51308f48a57ddd38e3
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924155"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335467"
 ---
 ::: zone target="docs"
 
@@ -119,7 +119,7 @@ Führen Sie die folgenden Schritte aus, um Ihr Gerät über die lokale Webbenutz
 2. Stellen Sie eine Verbindung mit dem MGMT-Port des Geräts her, und greifen Sie über „https\://192.168.100.10“ auf die lokale Webbenutzeroberfläche des Geräts zu. Dies kann nach dem Einschalten des Geräts bis zu 5 Minuten dauern.
 3. Klicken Sie auf **Details** und anschließend auf **Webseite trotzdem laden**.
 
-   ![Herstellen einer Verbindung mit der lokalen Webbenutzeroberfläche](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png) 
+   ![Herstellen einer Verbindung mit der lokalen Webbenutzeroberfläche](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png)
 
 4. Eine Seite **Anmelden** für die lokale Webbenutzeroberfläche wird angezeigt. Stellen Sie sicher, dass die Seriennummer des Geräts in der Benutzeroberfläche des Portals und der lokalen Webbenutzeroberfläche übereinstimmt. Das Gerät ist zu diesem Zeitpunkt gesperrt.
 5. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
@@ -129,9 +129,9 @@ Führen Sie die folgenden Schritte aus, um Ihr Gerät über die lokale Webbenutz
     
     
 7. Geben Sie das Gerätekennwort an, das Sie im vorherigen Schritt aus dem Azure-Portal kopiert haben, um sich bei der lokalen Webbenutzeroberfläche des Geräts anzumelden. Klicken Sie auf **Anmelden**.
-8. Überprüfen Sie im **Dashboard**, ob die Netzwerkschnittstellen konfiguriert sind. 
+8. Überprüfen Sie im **Dashboard** , ob die Netzwerkschnittstellen konfiguriert sind. 
    - Falls DHCP in Ihrer Umgebung aktiviert ist, werden Netzwerkschnittstellen automatisch konfiguriert. 
-   - Wenn DHCP nicht aktiviert ist, wechseln Sie zu **Netzwerkschnittstellen festlegen**, und weisen Sie ggf. statische IP-Adressen zu.
+   - Wenn DHCP nicht aktiviert ist, wechseln Sie zu **Netzwerkschnittstellen festlegen** , und weisen Sie ggf. statische IP-Adressen zu.
 
      ![Gerätedashboard](media/data-box-deploy-set-up/data-box-dashboard-1.png)
 

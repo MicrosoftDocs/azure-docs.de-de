@@ -3,12 +3,12 @@ title: Verwalten von gesicherten SAP HANA-Datenbanken für Azure-VMs
 description: In diesem Artikel erfahren Sie mehr über allgemeine Aufgaben zum Verwalten und Überwachen von SAP HANA-Datenbanken, die auf virtuellen Azure-Computern ausgeführt werden.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: e257aa7771f6f76a4d53f16255c2f3cbb80c8967
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c8dc80c7b48217e40d5325b75752e21174ecaae
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89377453"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95811950"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Verwalten und Überwachen gesicherter SAP HANA-Datenbanken
 
@@ -86,20 +86,39 @@ Diese bedarfsgesteuerten Sicherungen werden auch in der Liste der Wiederherstell
 
 Von nativen HANA-Clients (unter Verwendung von **Backint**) ausgelöste Wiederherstellungen auf denselben Computer können von der Seite **Sicherungsaufträge** aus [überwacht](#monitor-manual-backup-jobs-in-the-portal) werden.
 
-### <a name="run-sap-hana-native-client-backup-on-a-database-with-azure-backup-enabled"></a>Ausführen einer Sicherung des nativen SAP HANA-Clients für eine Datenbank, für die Azure Backup aktiviert ist
+### <a name="run-sap-hana-native-client-backup-to-local-disk-on-a-database-with-azure-backup-enabled"></a>Ausführen einer Sicherung des nativen SAP HANA-Clients auf einem lokalen Datenträger für eine Datenbank, für die Azure Backup aktiviert ist
 
 Führen Sie die folgenden Schritte aus, wenn Sie (mit HANA Studio/Cockpit) eine lokale Sicherung einer Datenbank ausführen möchten, die mit Azure Backup gesichert wird:
 
 1. Warten Sie, bis alle vollständigen Sicherungen oder Protokollsicherungen für die Datenbank abgeschlossen sind. Überprüfen Sie den Status in SAP HANA Studio/Cockpit.
-2. Deaktivieren Sie Protokollsicherungen, und legen Sie den Sicherungskatalog auf das Dateisystem für die entsprechende Datenbank fest.
-3. Doppelklicken Sie hierzu auf **systemdb** > **Konfiguration** > **Datenbank auswählen** > **Filter (Protokoll)** .
-4. Legen Sie **enable_auto_log_backup** auf **No** fest.
-5. Legen Sie **log_backup_using_backint** auf **False** fest.
-6. Erstellen Sie eine bedarfsgesteuerte vollständige Sicherung der Datenbank.
-7. Warten Sie, bis die vollständige Sicherung und die Katalogsicherung abgeschlossen sind.
-8. Stellen Sie die vorherigen Einstellungen für Azure wieder her:
-   * Legen Sie **enable_auto_log_backup** auf **Yes** fest.
-   * Legen Sie **log_backup_using_backint** auf **True** fest.
+2. für die relevante Datenbank.
+    1. Heben Sie die Festlegung der backint-Parameter auf. Doppelklicken Sie hierzu auf **systemdb** > **Konfiguration** > **Datenbank auswählen** > **Filter (Protokoll)** .
+        * enable_auto_log_backup: Nein
+        * log_backup_using_backint: False
+        * catalog_backup_using_backint:False
+3. Erstellen Sie eine bedarfsgesteuerte vollständige Sicherung der Datenbank.
+4. Kehren Sie dann die Schritte um. Aktivieren Sie für dieselbe relevante DB, die oben erwähnt wurde,
+    1. die backint-Parameter neu.
+        1. catalog_backup_using_backint:True
+        1. log_backup_using_backint: True
+        1. enable_auto_log_backup: Ja
+
+### <a name="manage-or-clean-up-the-hana-catalog-for-a-database-with-azure-backup-enabled"></a>Verwalten oder Bereinigen des HANA-Katalogs für eine Datenbank mit aktiviertem Azure Backup
+
+Wenn Sie den Sicherungskatalog bearbeiten oder bereinigen möchten, gehen Sie folgendermaßen vor:
+
+1. Warten Sie, bis alle vollständigen Sicherungen oder Protokollsicherungen für die Datenbank abgeschlossen sind. Überprüfen Sie den Status in SAP HANA Studio/Cockpit.
+2. für die relevante Datenbank.
+    1. Heben Sie die Festlegung der backint-Parameter auf. Doppelklicken Sie hierzu auf **systemdb** > **Konfiguration** > **Datenbank auswählen** > **Filter (Protokoll)** .
+        * enable_auto_log_backup: Nein
+        * log_backup_using_backint: False
+        * catalog_backup_using_backint:False
+3. Bearbeiten Sie den Katalog, und entfernen Sie ältere Einträge.
+4. Kehren Sie dann die Schritte um. Aktivieren Sie für dieselbe relevante DB, die oben erwähnt wurde,
+    1. die backint-Parameter neu.
+        1. catalog_backup_using_backint:True
+        1. log_backup_using_backint: True
+        1. enable_auto_log_backup: Ja
 
 ### <a name="change-policy"></a>Ändern einer Richtlinie
 
@@ -217,6 +236,10 @@ Erfahren Sie, wie Sie nach einem [Upgrade von SDC auf MDC](backup-azure-sap-hana
 ### <a name="upgrading-from-sdc-to-mdc-without-a-sid-change"></a>Aktualisieren von SDC auf MDC ohne SID-Änderung
 
 Erfahren Sie, wie Sie die Sicherung einer SAP HANA-Datenbank fortsetzen, deren [SID sich nach dem Upgrade von SDC auf MDC nicht geändert hat](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-no-change-in-sid).
+
+### <a name="upgrading-to-a-new-version-in-either-sdc-or-mdc"></a>Aktualisieren auf eine neue Version in SDC oder MDC
+
+Erfahren Sie, wie Sie die Sicherung einer SAP HANA-Datenbank fortsetzen, deren [Version aktualisiert wird](backup-azure-sap-hana-database-troubleshoot.md#sdc-version-upgrade-or-mdc-version-upgrade-on-the-same-vm).
 
 ### <a name="unregister-an-sap-hana-instance"></a>Aufheben der Registrierung einer SAP HANA-Instanz
 

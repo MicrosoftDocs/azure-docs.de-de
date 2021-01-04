@@ -12,13 +12,13 @@ ms.date: 02/12/2020
 ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
-titleSuffix: Microsoft identity platform
-ms.openlocfilehash: 7865fbe758b35ae9ff1ffe526da5e7100e83c966
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: a4bb9151e9d4b76507b0c7f8ab5aaa7f5f1820b8
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88117548"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608196"
 ---
 # <a name="azure-active-directory-developer-platform-videos"></a>Videos zur Azure Active Directory-Entwicklerplattform
 

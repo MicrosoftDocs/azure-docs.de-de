@@ -3,14 +3,14 @@ title: 'Schnellstart: Erstellen einer C#-ASP.NET-App'
 description: Hier erfahren Sie, wie Sie Web-Apps in Azure App Service ausführen, indem Sie die standardmäßige C#-ASP.NET-Web-App-Vorlage über Visual Studio bereitstellen.
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
-ms.date: 08/06/2020
+ms.date: 11/20/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seodec18
-ms.openlocfilehash: 5bf774f2b5cf4a6275dc04248aadfd9a94f5122d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a4f7ba288bc27d6079deea9caf0ea315a55d0745
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88212556"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004060"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Erstellen einer ASP.NET Framework-Web-App in Azure
 
@@ -55,20 +55,21 @@ Führen Sie zum Erstellen einer ASP.NET-Web-App die folgenden Schritte aus:
 
 1. Klicken Sie im **Projektmappen-Explorer** mit der rechten Maustaste auf das Projekt **myFirstAzureWebApp**, und wählen Sie **Veröffentlichen** aus.
 
-1. Wählen Sie **App Service** und anschließend **Profil erstellen** aus.
+1. Wählen Sie unter **Veröffentlichen** die Option **Azure** aus, und klicken Sie auf **Weiter**.
 
-   ![Veröffentlichen über die Projektübersichtsseite](./media/quickstart-dotnet-framework/publish-app-framework-vs2019.png)
+1. Wählen Sie **Azure App Service (Windows)** aus, und klicken Sie auf **Weiter**.
 
-1. Unter **App Service – Neues Element erstellen** hängen Ihre Optionen davon ab, ob Sie bereits bei Azure angemeldet sind und ob Sie über ein Visual Studio-Konto verfügen, das mit einem Azure-Konto verknüpft ist. Wählen Sie entweder **Konto hinzufügen** oder **Anmelden** aus, um sich bei Ihrem Azure-Abonnement anzumelden. Wenn Sie bereits angemeldet sind, wählen Sie das gewünschte Konto aus.
+   <!-- ![Publish from project overview page](./media/quickstart-dotnet-framework/publish-app-framework-vs2019.png) -->
 
-   > [!NOTE]
-   > Wenn Sie bereits angemeldet sind, wählen Sie noch nicht **Erstellen** aus.
-   >
-   >
+1. Ihre Optionen hängen davon ab, ob Sie bereits bei Azure angemeldet sind und ob Sie über ein Visual Studio-Konto verfügen, das mit einem Azure-Konto verknüpft ist. Wählen Sie entweder **Konto hinzufügen** oder **Anmelden** aus, um sich bei Ihrem Azure-Abonnement anzumelden. Wenn Sie bereits angemeldet sind, wählen Sie das gewünschte Konto aus.
 
    ![Anmelden bei Azure](./media/quickstart-dotnet-framework/sign-in-azure-framework-vs2019.png)
 
    [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
+
+1. Klicken Sie rechts von **App Service-Instanzen** auf **+** .
+
+   ![Neue App Service-App](./media/quickstart-dotnet-framework/publish-new-app-service.png)
 
 1. Wählen Sie unter **Ressourcengruppe** die Option **Neu** aus.
 
@@ -78,7 +79,7 @@ Führen Sie zum Erstellen einer ASP.NET-Web-App die folgenden Schritte aus:
 
 1. Wählen Sie unter **Hostingplan** die Option **Neu** aus.
 
-1. Geben Sie im Dialogfeld **Hostingplan konfigurieren** die Werte aus der folgenden Tabelle ein, und wählen Sie dann **OK** aus.
+1. Geben Sie im Dialogfeld **Hostingplan** die Werte aus der folgenden Tabelle ein, und wählen Sie anschließend **OK** aus:
 
    | Einstellung | Empfohlener Wert | BESCHREIBUNG |
    |-|-|-|
@@ -90,11 +91,13 @@ Führen Sie zum Erstellen einer ASP.NET-Web-App die folgenden Schritte aus:
 
 1. Geben Sie unter **Name** einen eindeutigen App-Namen ein, der nur aus den folgenden zulässigen Zeichen besteht: `a-z`, `A-Z`, `0-9` und `-`. Sie können den automatisch generierten eindeutigen Namen übernehmen. Die URL der Web-App lautet `http://<app-name>.azurewebsites.net`, wobei `<app-name>` der Name Ihrer App ist.
 
-2. Wählen Sie **Erstellen** aus, um mit der Erstellung der Azure-Ressourcen zu beginnen.
+2. Wählen Sie **Erstellen** aus, um die Azure-Ressourcen zu erstellen.
 
    ![Konfigurieren des App-Namens](./media/quickstart-dotnet-framework/web-app-name-framework-vs2019.png)
 
     Nach dem Abschluss des Assistenten werden die Azure-Ressourcen für Sie erstellt, und Sie können sie veröffentlichen.
+
+3. Wählen Sie **Fertig stellen** aus, um den Assistenten zu schließen.
 
 3. Klicken Sie auf der Seite **Veröffentlichen** auf **Veröffentlichen**. Visual Studio erstellt, packt und veröffentlicht die App in Azure und startet sie anschließend im Standardbrowser.
 

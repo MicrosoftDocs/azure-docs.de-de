@@ -11,14 +11,14 @@ ms.date: 05/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 691cdcb525f8e9e3d1fb914372b9f62366f4bfba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4c761404ab5a95bc0189407cc97ce779b66356fe
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85213022"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460683"
 ---
-# <a name="quickstart-create-a-synapse-sql-pool-workload-classifier-using-the-azure-portal"></a>Schnellstart: Erstellen eines Workloadklassifizierers für Synapse SQL-Pools mithilfe des Azure-Portals
+# <a name="quickstart-create-a-dedicated-sql-pool-workload-classifier-using-the-azure-portal"></a>Schnellstart: Erstellen eines Workloadklassifizierers für dedizierte SQL-Pools mithilfe des Azure-Portals
 
 In dieser Schnellstartanleitung erstellen Sie einen [Workloadklassifizierer](sql-data-warehouse-workload-classification.md) zum Zuweisen von Abfragen zu einer Workloadgruppe.  Der Klassifizierer weist der Workloadgruppe `DataLoads` Anforderungen vom `ELTLogin`-SQL-Benutzer zu.   Führen Sie die Schritte unter [Schnellstart: Konfigurieren der Workloadisolation für Synapse SQL-Pools mithilfe einer Workloadgruppe im Azure-Portal](quickstart-configure-workload-isolation-portal.md) aus, um die Workloadgruppe `DataLoads` zu erstellen.  In diesem Tutorial wird ein Workloadklassifizierer mit der Option „WLM_LABEL“ erstellt, um die korrekte weitere Klassifizierung von Anforderungen zu unterstützen.  Der Klassifizierer weist diesen Anforderungen ebenfalls die [Workloadprioriät](sql-data-warehouse-workload-importance.md) `HIGH` zu.
 
@@ -31,16 +31,16 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.
 
 > [!NOTE]
-> Das Erstellen einer SQL-Poolinstanz in Azure Synapse Analytics führt möglicherweise zu einem neuen abrechenbaren Dienst.  Weitere Informationen finden Sie unter [Azure Synapse Analytics – Preise](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Das Erstellen einer Instanz des dedizierten SQL-Pools in Azure Synapse Analytics führt möglicherweise zu einem neuen abrechenbaren Dienst.  Weitere Informationen finden Sie unter [Azure Synapse Analytics – Preise](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-In dieser Schnellstartanleitung wird vorausgesetzt, dass Sie bereits über eine SQL-Poolinstanz in Synapse SQL und über CONTROL DATABASE-Berechtigungen verfügen. Wenn Sie ein Data Warehouse erstellen müssen, verwenden Sie die Anweisungen unter [Erstellen und Verbinden – Portal](create-data-warehouse-portal.md), um ein Data Warehouse namens **mySampleDataWarehouse** zu erstellen.
+In dieser Schnellstartanleitung wird vorausgesetzt, dass Sie bereits über eine Instanz des dedizierten SQL-Pools und über CONTROL DATABASE-Berechtigungen verfügen. Verwenden Sie die Anleitung unter [Erstellen und Verbinden – Portal](create-data-warehouse-portal.md), um bei Bedarf einen dedizierten SQL-Pool namens **mySampleDataWarehouse** zu erstellen.
 <br><br>
 Die Workloadgruppe `DataLoads` ist vorhanden.  Informationen zum Erstellen der Workloadgruppe finden Sie unter [Schnellstart: Konfigurieren der Workloadisolation für Synapse SQL-Pools mithilfe einer Workloadgruppe im Azure-Portal](quickstart-configure-workload-isolation-portal.md).
 <br><br>
 >[!IMPORTANT] 
->Der SQL-Pool muss online sein, damit die Workloadverwaltung konfiguriert werden kann. 
+>Der dedizierte SQL-Pool muss online sein, damit die Workloadverwaltung konfiguriert werden kann. 
 
 
 ## <a name="create-a-login-for-eltlogin"></a>Erstellen einer Anmeldung für „ELTLogin“
@@ -72,18 +72,17 @@ END
 Mithilfe der Klassifizierung können Sie Anforderungen, die auf verschiedenen Regeln basieren, an eine Workloadgruppe weiterleiten.  Im Tutorial [Schnellstart: Konfigurieren der Workloadisolation für Synapse SQL-Pools mithilfe einer Workloadgruppe im Azure-Portal](quickstart-configure-workload-isolation-portal.md) wurde die Workloadgruppe `DataLoads` erstellt.  Nun erstellen Sie einen Workloadklassifizierer, um Abfragen an die Workloadgruppe `DataLoads` weiterzuleiten.
 
 
-1.  Klicken Sie auf der linken Seite des Azure-Portals auf **Azure Synapse Analytics (vormals SQL DW)** .
-2.  Wählen Sie auf der Seite **Azure Synapse Analytics (vormals SQL DW)** die Option **mySampleDataWarehouse** aus. Der SQL-Pool wird geöffnet.
-3.  Klicken Sie auf **Workloadverwaltung**.
+1.  Navigieren Sie zur Seite des dedizierten SQL-Pools **mySampleDataWarehouse**.
+3.  Wählen Sie **Workloadverwaltung** aus.
 
     ![Klicken auf das Menü](./media/quickstart-create-a-workload-classifier-portal/menu.png)
 
-4.  Klicken Sie rechts neben der Workloadgruppe `DataLoads` auf **Einstellungen und Klassifizierer**.
+4.  Wählen Sie rechts neben der Workloadgruppe `DataLoads` die Option **Einstellungen und Klassifizierer** aus.
 
     ![Klicken Sie auf „Erstellen“.](./media/quickstart-create-a-workload-classifier-portal/settings-classifiers.png)
 
-5. Klicken Sie auf **Klassifizierer**.
-6. Klicken Sie auf **Klassifizierer hinzufügen**.
+5. Wählen Sie in der Spalte „Klassifizierer“ die Option **Nicht konfiguriert** aus.
+6. Wählen Sie **+ Klassifizierer hinzufügen** aus.
 
     ![Klicken Sie auf "Hinzufügen".](./media/quickstart-create-a-workload-classifier-portal/add-wc.png)
 
@@ -91,8 +90,8 @@ Mithilfe der Klassifizierung können Sie Anforderungen, die auf verschiedenen Re
 8.  Geben Sie unter **Mitglied** die Zeichenfolge `ELTLogin` ein.
 9.  Wählen Sie unter **Anforderungsrelevanz** die Option `High` aus.  Dies ist *optional*. Standardmäßig ist normale Relevanz festgelegt.
 10. Geben Sie unter **Bezeichnung** die Zeichenfolge `fact_loads` ein.
-11. Klicken Sie auf **Hinzufügen**.
-12. Klicken Sie auf **Speichern**.
+11. Wählen Sie **Hinzufügen**.
+12. Wählen Sie **Speichern** aus.
 
     ![Klicken auf Konfiguration](./media/quickstart-create-a-workload-classifier-portal/config-wc.png)
 
@@ -135,8 +134,6 @@ WHERE [label] = 'fact_loads'
 ORDER BY submit_time DESC
 ```
 
-
-
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
 So löschen Sie den in diesem Tutorial erstellten Workloadklassifizierer `ELTLoginDataLoads`:
@@ -152,24 +149,20 @@ So löschen Sie den in diesem Tutorial erstellten Workloadklassifizierer `ELTLog
 
     ![Klicken Sie auf Speichern.](./media/quickstart-create-a-workload-classifier-portal/delete-save-wc.png)
 
-Ihnen werden Gebühren für Ihre Data Warehouse-Einheiten und die in Ihrem Data Warehouse gespeicherten Daten berechnet. Diese Compute- und Speicherressourcen werden separat in Rechnung gestellt.
+Ihnen werden Gebühren für Data Warehouse-Einheiten und die in Ihrem dedizierten SQL-Pool gespeicherten Daten in Rechnung gestellt. Diese Compute- und Speicherressourcen werden separat in Rechnung gestellt.
 
-- Falls Sie die Daten im Speicher belassen möchten, können Sie Computeressourcen anhalten, wenn Sie das Data Warehouse nicht verwenden. Wenn Sie Computeressourcen anhalten, werden Ihnen nur die Datenspeichergebühren in Rechnung gestellt. Sie können die Computeressourcen fortsetzen, wenn Sie mit den Daten arbeiten möchten.
-- Wenn zukünftig keine Gebühren anfallen sollen, können Sie das Data Warehouse löschen.
+- Falls Sie die Daten im Speicher belassen möchten, können Sie Computeressourcen anhalten, wenn Sie den dedizierten SQL-Pool nicht verwenden. Wenn Sie Computeressourcen anhalten, werden Ihnen nur die Datenspeichergebühren in Rechnung gestellt. Sie können die Computeressourcen fortsetzen, wenn Sie mit den Daten arbeiten möchten.
+- Wenn künftig keine Gebühren mehr anfallen sollen, können Sie den dedizierten SQL-Pool löschen.
 
 Führen Sie die folgenden Schritte aus, um Ressourcen zu bereinigen.
 
-1. Melden Sie sich am [Azure-Portal](https://portal.azure.com) an, und wählen Sie Ihre Data Warehouse-Instanz aus.
+1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an, und wählen Sie Ihren dedizierten SQL-Pool aus.
 
     ![Bereinigen von Ressourcen](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Wählen Sie zum Anhalten von Computeressourcen die Schaltfläche **Anhalten**. Wenn das Data Warehouse angehalten ist, wird die Schaltfläche **Starten** angezeigt.  Wählen Sie zum Fortsetzen der Computeressourcen die Option **Starten**.
+2. Wählen Sie zum Anhalten von Computeressourcen die Schaltfläche **Anhalten**. Wenn der dedizierte SQL-Pool angehalten ist, wird die Schaltfläche **Starten** angezeigt.  Wählen Sie zum Fortsetzen der Computeressourcen die Option **Starten**.
 
-3. Wählen Sie **Löschen**, wenn Sie die Data Warehouse-Instanz entfernen möchten, damit keine Gebühren für Compute- oder Speicherressourcen anfallen.
-
-4. Wählen Sie zum Entfernen des von Ihnen erstellten SQL-Servers die Option **sqlpoolservername.database.windows.net** (siehe Abbildung oben) und dann **Löschen** aus.  Seien Sie bei diesem Löschvorgang vorsichtig, da beim Löschen des Servers auch alle Datenbanken gelöscht werden, die dem Server zugewiesen sind.
-
-5. Wählen Sie zum Entfernen der Ressourcengruppe die Option **myResourceGroup** und dann **Ressourcengruppe löschen**.
+3. Wenn Sie den dedizierten SQL-Pool entfernen möchten, damit keine Gebühren für Compute- oder Speicherressourcen anfallen, wählen Sie **Löschen** aus.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

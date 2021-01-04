@@ -5,20 +5,22 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.openlocfilehash: 41dc4e97e847e9e7d9863631cdb20b72d3f35d9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/25/2020
+ms.openlocfilehash: 4df9543e5e747de640562b7e5be224e257e0cfd1
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269368"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676101"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Verwalten Ihrer Integrationsdienstumgebung (Integration Service Environment, ISE) in Azure Logic Apps
 
 In diesem Artikel wird beschrieben, wie Sie Verwaltungsaufgaben für Ihre [Integrationsdienstumgebung (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) ausführen. Beispiel:
 
 * Verwalten von Ressourcen, z. B. Logik-Apps, Verbindungen, Integrationskonten und Connectors in Ihrer ISE.
+
 * Überprüfen der Integrität des Netzwerks Ihrer ISE.
+
 * Hinzufügen von Kapazität, Neustarten oder Löschen der ISE der gemäß den Schritten in diesem Thema. Um diese Artefakte Ihrer ISE hinzuzufügen, lesen Sie [Hinzufügen von Artefakten zu Ihrer Integrationsdienstumgebung](../logic-apps/add-artifacts-integration-service-environment-ise.md).
 
 ## <a name="view-your-ise"></a>Anzeigen Ihrer Integrationsdienstumgebung
@@ -42,6 +44,14 @@ In diesem Artikel wird beschrieben, wie Sie Verwaltungsaufgaben für Ihre [Integ
 Wählen Sie im ISE-Menü unter **Einstellungen** die Option **Netzwerkintegrität** aus. In diesem Bereich wird der Integritätsstatus für Ihre Subnetze und ausgehenden Abhängigkeiten von anderen Diensten angezeigt.
 
 ![Überprüfen der Netzwerkintegrität](./media/ise-manage-integration-service-environment/ise-check-network-health.png)
+
+> [!CAUTION]
+> Wenn das Netzwerk Ihrer ISE fehlerhaft ist, kann die interne ASE (App Service-Umgebung), die von Ihrer ISE verwendet wird, ebenfalls fehlerhaft sein. Wenn die ASE länger als sieben Tage fehlerhaft ist, wird die ASE gesperrt. Überprüfen Sie das Setup Ihres virtuellen Netzwerks, um diesen Zustand aufzulösen. Beheben Sie alle Probleme, die Sie finden, und starten Sie Ihre ISE dann neu. Andernfalls wird die gesperrte ASE nach 90 Tagen gelöscht, und Ihre ISE wird unbrauchbar. Stellen Sie also sicher, dass Sie Ihre ISE fehlerfrei halten, um den erforderlichen Datenverkehr zuzulassen.
+> 
+> Weitere Informationen finden Sie in den folgenden Themen:
+>
+> * [Übersicht: Azure App Service-Diagnose](../app-service/overview-diagnostics.md)
+> * [Nachrichtenprotokollierung für eine Azure App Service-Umgebung](../app-service/environment/using-an-ase.md#logging)
 
 <a name="find-logic-apps"></a>
 
@@ -132,7 +142,7 @@ Die Premium-ISE-Basiseinheit hat eine feste Kapazität. Falls Sie mehr Durchsatz
 
    ![Auswählen des gewünschten Skalierungstyps](./media/ise-manage-integration-service-environment/select-manual-scale-out-units.png)
 
-1. Klicken Sie auf **Speichern**, wenn Sie fertig sind.
+1. Klicken Sie auf **Speichern** , wenn Sie fertig sind.
 
 <a name="custom-autoscale"></a>
 
@@ -142,7 +152,7 @@ Die Premium-ISE-Basiseinheit hat eine feste Kapazität. Falls Sie mehr Durchsatz
 
    ![Angeben eines Namens für die Einstellung für die automatische Skalierung und Auswählen der Ressourcengruppe](./media/ise-manage-integration-service-environment/select-custom-autoscale.png)
 
-1. Wählen Sie als **Standard**bedingung entweder **Basierend auf einer Metrik skalieren** oder **Auf eine bestimmte Anzahl von Instanzen skalieren** aus.
+1. Wählen Sie als **Standard** bedingung entweder **Basierend auf einer Metrik skalieren** oder **Auf eine bestimmte Anzahl von Instanzen skalieren** aus.
 
    * Wenn Sie die instanzbasierte Option auswählen, geben Sie die Anzahl der Verarbeitungseinheiten ein, wobei es sich um einen Wert zwischen 0 und 10 handelt.
 
@@ -154,8 +164,8 @@ Die Premium-ISE-Basiseinheit hat eine feste Kapazität. Falls Sie mehr Durchsatz
 
      1. Geben Sie als **Instanzgrenzwerte** folgende Werte an:
 
-        * **Minimum**: Die Mindestanzahl der zu verwendenden Verarbeitungseinheiten.
-        * **Maximum**: Die Höchstanzahl der zu verwendenden Verarbeitungseinheiten.
+        * **Minimum** : Die Mindestanzahl der zu verwendenden Verarbeitungseinheiten.
+        * **Maximum** : Die Höchstanzahl der zu verwendenden Verarbeitungseinheiten.
         * **Standard:** Falls Probleme beim Lesen der Ressourcenmetriken auftreten, und die aktuelle Kapazität unterhalb der Standardkapazität liegt, wird von der automatischen Skalierung das horizontale Hochskalieren auf den Standardwert von Verarbeitungseinheiten durchgeführt. Wenn die aktuelle Kapazität jedoch die Standardkapazität überschreitet, wird die automatische Abskalierung nicht aktiviert.
 
 1. Um eine weitere Bedingung hinzuzufügen, wählen Sie **Skalierungsbedingung hinzufügen** aus.

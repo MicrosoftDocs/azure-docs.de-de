@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: f24c9c372ff91db5836a62ac2d08b569434ff253
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 4fbac2c2d77d838ac7fc4f3caaa73983633c3e03
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761578"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366044"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Schnellstart: Erstellen, Bereitstellen und Verwenden eines benutzerdefinierten Modells für die Übersetzung
 
@@ -22,14 +22,14 @@ Dieser Artikel enthält ausführliche Anweisungen zum Erstellen eines Übersetzu
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-1. Für die Verwendung des [Custom Translator](https://portal.customtranslator.azure.ai)-Portals benötigen Sie ein [Microsoft-Konto](https://signup.live.com) oder [Azure AD-Konto](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (in Azure gehostetes Organisationskonto), um sich anzumelden.
+1. Für die Verwendung des [Custom Translator](https://portal.customtranslator.azure.ai)-Portals benötigen Sie ein [Microsoft-Konto](https://signup.live.com) oder [Azure AD-Konto](../../../active-directory/fundamentals/active-directory-whatis.md) (in Azure gehostetes Organisationskonto), um sich anzumelden.
 
-2. Abonnement für die Textübersetzungs-API über das Azure-Portal. Sie benötigen den Abonnementschlüssel der Textübersetzungs-API für die Zuordnung zu Ihrem Arbeitsbereich in Custom Translator. [Hier](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup) erfahren Sie, wie Sie sich für die Textübersetzungs-API registrieren.
+2. Abonnement für die Textübersetzungs-API über das Azure-Portal. Sie benötigen den Abonnementschlüssel der Textübersetzungs-API für die Zuordnung zu Ihrem Arbeitsbereich in Custom Translator. [Hier](../translator-how-to-signup.md) erfahren Sie, wie Sie sich für die Textübersetzungs-API registrieren.
 
 3. Sind die beiden Komponenten oben vorhanden, melden Sie sich beim Portal für den [benutzerdefinierten Translator](https://portal.customtranslator.azure.ai) an, um Arbeitsbereiche und Projekte zu erstellen, Dateien hochzuladen sowie Modelle zu erstellen und bereitzustellen.
 
 >[!Note]
->Der benutzerdefinierte Translator unterstützt nicht das Erstellen eines Arbeitsbereichs für eine Textübersetzungs-API-Ressource, die innerhalb von [Enabled VNET](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet) erstellt wurde.
+>Der benutzerdefinierte Translator unterstützt nicht das Erstellen eines Arbeitsbereichs für eine Textübersetzungs-API-Ressource, die innerhalb von [Enabled VNET](../../../api-management/api-management-using-with-vnet.md) erstellt wurde.
 
 ## <a name="create-a-workspace"></a>Erstellen eines Arbeitsbereichs
 
@@ -92,7 +92,7 @@ Klicken Sie auf die Schaltfläche „Austauschen“ neben einem bereitgestellten
 
 ## <a name="use-a-deployed-model"></a>Verwenden eines bereitgestellten Modells
 
-Auf bereitgestellte Modelle kann über die [Microsoft-Textübersetzungs-API V3 durch Angabe der Kategorie-ID](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) zugegriffen werden. Weitere Informationen zur Textübersetzungs-API finden Sie auf der Webseite mit der [API-Referenz](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
+Auf bereitgestellte Modelle kann über die [Microsoft-Textübersetzungs-API V3 durch Angabe der Kategorie-ID](../reference/v3-0-translate.md?tabs=curl) zugegriffen werden. Weitere Informationen zur Textübersetzungs-API finden Sie auf der Webseite mit der [API-Referenz](../reference/v3-0-reference.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

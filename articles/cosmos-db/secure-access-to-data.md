@@ -4,17 +4,19 @@ description: Informationen zu Zugriffssteuerungskonzepten in Azure Cosmos DB, da
 author: thomasweiss
 ms.author: thweiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 11/30/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 30444523bfc26fc0f4eb410957bcc9ee46aff725
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dd95fc8fd0ab0099ac7404d4ca4e4b1851f650f
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760868"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359607"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Sicherer Zugriff auf Daten in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Dieser Artikel bietet eine Übersicht über den sicheren Zugriff auf in [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) gespeicherte Daten.
 
@@ -29,20 +31,7 @@ Azure Cosmos DB verwendet zwei Arten von Schlüsseln, um Benutzer zu authentifiz
 
 ## <a name="primary-keys"></a>Primärschlüssel
 
-Primärschlüssel ermöglichen den Zugriff auf alle Verwaltungsressourcen für das Datenbankkonto. Primärschlüssel:
-
-- Ermöglichen den Zugriff auf Konten, Datenbanken, Benutzer und Berechtigungen. 
-- Können nicht zur präzisen Steuerung des Zugriffs auf Container und Dokumente verwendet werden.
-- Werden im Zuge der Kontoerstellung erstellt.
-- Können jederzeit neu generiert werden.
-
-Jedes Konto umfasst zwei Primärschlüssel: einen primären und einen sekundären Schlüssel. Dank der Verwendung von zwei Schlüsseln können Sie Schlüssel neu generieren oder ersetzen und trotzdem ohne Unterbrechung auf Ihr Konto und Ihre Daten zugreifen.
-
-Neben den beiden Primärschlüsseln für das Cosmos DB-Konto stehen noch zwei schreibgeschützte Schlüssel zur Verfügung. Diese schreibgeschützten Schlüssel ermöglichen ausschließlich Lesevorgänge für das Konto. Schreibgeschützte Schlüssel bieten keinen Zugriff auf Leseberechtigungsressourcen.
-
-Primäre, sekundäre und schreibgeschützte Primärschlüssel sowie Primärschlüssel mit Lese-/Schreibzugriff können über das Azure-Portal abgerufen und neu generiert werden. Eine entsprechende Anleitung finden Sie unter [Anzeigen, Kopieren und erneutes Generieren von Zugriffsschlüsseln](manage-with-cli.md#regenerate-account-key).
-
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Zugriffssteuerung (IAM) im Azure-Portal: Veranschaulichung der NoSQL-Datenbanksicherheit":::
+Primärschlüssel ermöglichen den Zugriff auf alle Verwaltungsressourcen für das Datenbankkonto. Jedes Konto umfasst zwei Primärschlüssel: einen primären und einen sekundären Schlüssel. Dank der Verwendung von zwei Schlüsseln können Sie Schlüssel neu generieren oder ersetzen und trotzdem ohne Unterbrechung auf Ihr Konto und Ihre Daten zugreifen. Weitere Informationen zu Primärschlüsseln finden Sie im Artikel zur [Datenbanksicherheit](database-security.md#primary-keys).
 
 ### <a name="key-rotation"></a>Schlüsselrotation<a id="key-rotation"></a>
 
@@ -54,7 +43,7 @@ Der Primärschlüssel kann ganz einfach gewechselt werden.
 4. Überprüfen Sie, ob der neue Primärschlüssel mit allen Ressourcen funktioniert. Der Schlüsselrotationsvorgang kann je nach Größe des Cosmos DB-Kontos unterschiedlich lange dauern – von weniger als einer Minute bis hin zu mehreren Stunden.
 5. Ersetzen Sie den sekundären Schlüssel durch den neuen Primärschlüssel.
 
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Zugriffssteuerung (IAM) im Azure-Portal: Veranschaulichung der NoSQL-Datenbanksicherheit" border="false":::
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Rotation des Primärschlüssels im Azure-Portal: Veranschaulichung der NoSQL-Datenbanksicherheit" border="false":::
 
 ### <a name="code-sample-to-use-a-primary-key"></a>Codebeispiel für die Verwendung eines Primärschlüssels
 
@@ -102,11 +91,11 @@ Hier sehen Sie ein typisches Design, bei dem Ressourcentoken angefordert, generi
 7. Die Phoneapp kann weiterhin den Ressourcentoken für direkten Zugriff auf Cosmos DB-Ressourcen mit den Berechtigungen verwenden, die durch das Ressourcentoken für einen bestimmten Zeitraum definiert sind.
 8. Wenn das Ressourcentoken abläuft, tritt bei anschließenden Anforderungen die Ausnahme 401 (nicht autorisierter Zugriff) auf.  An dieser Stelle richtet die Phoneapp die Identität erneut ein und fordert ein neues Ressourcentoken an.
 
-    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Zugriffssteuerung (IAM) im Azure-Portal: Veranschaulichung der NoSQL-Datenbanksicherheit" border="false":::
+    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Workflow der Azure Cosmos DB-Ressourcentoken" border="false":::
 
-Die Generierung und Verwaltung von Ressourcentoken wird von den nativen Cosmos DB-Clientbibliotheken übernommen. Bei Verwendung von REST müssen Sie allerdings die Anforderungs-/Authentifizierungsheader erstellen. Weitere Informationen zum Erstellen von Authentifizierungsheadern für REST finden Sie unter [Zugriffssteuerung in der SQL-API von Azure Cosmos DB](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) oder im Quellcode für unser [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/Authorization/AuthorizationHelper.cs) oder [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
+Die Generierung und Verwaltung von Ressourcentoken wird von den nativen Cosmos DB-Clientbibliotheken übernommen. Bei Verwendung von REST müssen Sie allerdings die Anforderungs-/Authentifizierungsheader erstellen. Weitere Informationen zum Erstellen von Authentifizierungsheadern für REST finden Sie unter [Zugriffssteuerung in der SQL-API von Azure Cosmos DB](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) oder im Quellcode für unser [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/Authorization/AuthorizationHelper.cs) oder [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
 
-Ein Beispiel für einen Dienst der mittleren Ebene, der zum Generieren oder Vermitteln von Ressourcentoken dient, finden Sie unter der [ResourceTokenBroker-App](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
+Ein Beispiel für einen Dienst der mittleren Ebene, der zum Generieren oder Vermitteln von Ressourcentoken dient, finden Sie unter der [ResourceTokenBroker-App](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
 ## <a name="users"></a>Benutzer<a id="users"></a>
 
@@ -131,6 +120,12 @@ Eine Berechtigungsressource ist einem Benutzer zugeordnet und sowohl auf der Con
 
 > [!NOTE]
 > Zum Ausführen von gespeicherten Prozeduren muss der Benutzer über uneingeschränkte Berechtigung für den Container verfügen, in dem die gespeicherte Prozedur ausgeführt wird.
+
+Wenn Sie die [Diagnoseprotokolle für Anforderungen auf Datenebene](cosmosdb-monitor-resource-logs.md) aktivieren, werden die beiden folgenden Eigenschaften entsprechend der Berechtigung protokolliert:
+
+* **resourceTokenPermissionId**: Diese Eigenschaft gibt die von Ihnen festgelegten Ressourcentokenberechtigungs-ID an. 
+
+* **resourceTokenPermissionMode**: Diese Eigenschaft gibt den Berechtigungsmodus an, den Sie beim Erstellen des Ressourcentokens festgelegt haben. Der Berechtigungsmodus kann Werte wie „Alle“ oder „Lesen“ aufweisen.
 
 ### <a name="code-sample-to-create-permission"></a>Codebeispiel für die Berechtigungserstellung
 
@@ -174,7 +169,7 @@ Die Entität kann jetzt Azure Cosmos DB-Ressourcen lesen.
 
 ## <a name="delete-or-export-user-data"></a>Löschen oder Exportieren von Benutzerdaten
 
-Mithilfe von Azure Cosmos DB können Sie alle personenbezogenen Daten, die sich in einer Datenbank oder in Sammlungen befinden, durchsuchen, auswählen, ändern und löschen. Azure Cosmos DB stellt APIs für das Auffinden und Löschen von personenbezogenen Daten bereit, die Nutzung der APIs und die Entwicklung der erforderlichen Logik zum Löschen der personenbezogenen Daten liegt jedoch in Ihrer Verantwortung. Jede API für mehrere Modelle (SQL, MongoDB, Gremlin, Cassandra, Tabelle) stellt SDKs für verschiedene Sprachen bereit, die Methoden zum Durchsuchen und Löschen von personenbezogenen Daten enthalten. Sie können darüber hinaus die [TTL-Funktion (time-to-live)](time-to-live.md) verwenden, um Daten nach einem festgelegten Zeitraum automatisch zu löschen, wodurch keine weiteren Kosten anfallen.
+Mithilfe des Datenbankdiensts Azure Cosmos DB können Sie alle Daten, die sich in einer Datenbank oder Containern befinden, durchsuchen, auswählen, ändern und löschen. Es liegt jedoch in Ihrer Verantwortung, mithilfe der bereitgestellten APIs die Logik zu definieren, die erforderlich ist, um personenbezogene Daten zu finden und ggf. zu löschen. Jede API für mehrere Modelle (SQL, MongoDB, Gremlin, Cassandra, Tabelle) stellt SDKs für verschiedene Sprachen bereit, die Methoden zum Durchsuchen und Löschen von Daten basierend auf benutzerdefinierten Prädikaten bieten. Sie können darüber hinaus die [TTL-Funktion (time-to-live)](time-to-live.md) verwenden, um Daten nach einem festgelegten Zeitraum automatisch zu löschen, wodurch keine weiteren Kosten anfallen.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 

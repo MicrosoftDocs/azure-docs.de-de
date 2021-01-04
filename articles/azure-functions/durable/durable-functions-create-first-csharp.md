@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
-ms.openlocfilehash: f5eb5f5ce6c6ded3fffc95b73d3ac86ae9e94ba2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d5b6ecc12cee983cee0772da8b6f8f26a3b5a8ae
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88055461"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008181"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Erstellen Ihrer ersten dauerhaften Funktion in C\#
 
@@ -21,7 +21,7 @@ ms.locfileid: "88055461"
 
 In diesem Artikel erfahren Sie, wie Sie Visual Studio Code verwenden, um eine dauerhafte Funktion vom Typ „hello world“ lokal zu erstellen und zu testen.  Mit dieser Funktion werden Aufrufe anderer Funktionen orchestriert und miteinander verkettet. Anschließend veröffentlichen Sie den Funktionscode in Azure. Diese Tools sind Teil der [Azure Functions-Erweiterung](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) für VS Code.
 
-![Ausführen einer dauerhaften Funktion in Azure](./media/durable-functions-create-first-csharp/functions-vscode-complete.png)
+![Screenshot: Visual Studio Code-Fenster mit einer dauerhaften Funktion.](./media/durable-functions-create-first-csharp/functions-vscode-complete.png)
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -136,7 +136,7 @@ Mit Azure Functions Core-Tools können Sie ein Azure Functions-Projekt auf dem l
     }
     ```
 
-1. Drücken Sie in VS Code**UMSCHALT+F5**, um das Debuggen zu beenden.
+1. Drücken Sie in VS Code **UMSCHALT+F5**, um das Debuggen zu beenden.
 
 Nachdem Sie sichergestellt haben, dass die Funktion auf Ihrem lokalen Computer richtig ausgeführt wird, können Sie das Projekt in Azure veröffentlichen.
 
@@ -165,7 +165,7 @@ Sie haben Visual Studio Code verwendet, um eine dauerhafte C#-Funktions-App zu e
 
 In diesem Artikel erfahren Sie, wie Sie Visual Studio 2019 verwenden, um eine dauerhafte Funktion vom Typ „hello world“ lokal zu erstellen und zu testen.  Mit dieser Funktion werden Aufrufe anderer Funktionen orchestriert und miteinander verkettet. Anschließend veröffentlichen Sie den Funktionscode in Azure. Diese Tools sind als Teil der Azure-Entwicklungsworkload in Visual Studio 2019 verfügbar.
 
-![Ausführen einer dauerhaften Funktion in Azure](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
+![Screenshot: Visual Studio 2019-Fenster mit einer dauerhaften Funktion.](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -237,7 +237,7 @@ Mit Azure Functions Core-Tools können Sie ein Azure Functions-Projekt auf dem l
 
 3. Fügen Sie die URL der HTTP-Anforderung in die Adresszeile des Browsers ein, und führen Sie die Anforderung aus. Hier ist die Antwort des Browsers auf die von der Funktion zurückgegebene lokale GET-Anforderung abgebildet:
 
-    ![localhost-Antwort der Funktion im Browser](./media/durable-functions-create-first-csharp/functions-vs-status.png)
+    ![Screenshot: Browserfenster mit statusQueryGetUri.](./media/durable-functions-create-first-csharp/functions-vs-status.png)
 
     Die Antwort ist das erste Ergebnis der HTTP-Funktion, um mitzuteilen, dass die dauerhafte Orchestrierung erfolgreich gestartet wurde.  Es ist noch nicht das Endergebnis der Orchestrierung.  Die Antwort enthält einige nützliche URLs.  Zunächst fragen wir den Status der Orchestrierung ab.
 

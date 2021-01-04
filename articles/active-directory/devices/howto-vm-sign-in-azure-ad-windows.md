@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27ffc176fc890d90e4201069ec1728eed69d4011
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 134148fa3ea73212d85393cc433d60f7ddeecd17
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91826656"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837123"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Anmelden bei einem virtuellen Windows-Computer in Azure mit der Azure Active Directory-Authentifizierung (Vorschau)
 
@@ -203,7 +203,7 @@ Sie können Richtlinien für bedingten Zugriff erzwingen, z. B. die mehrstufige
 > Wenn Sie „Mehrstufige Authentifizierung erforderlich“ als Zugriffssteuerung für das Anfordern des Zugriffs auf die App Azure Windows VM Sign-In verwenden, müssen Sie den Anspruch der mehrstufigen Authentifizierung als Teil des Clients angeben, der die RDP-Sitzung für den virtuellen Windows-Zielcomputer in Azure initiiert. Dies kann auf einem Windows 10-Client nur durch Verwendung der Windows Hello for Business-PIN oder der biometrischen Authentifizierung mit dem RDP-Client erreicht werden. Die Unterstützung für die biometrische Authentifizierung wurde dem RDP-Client in Windows 10 Version 1809 hinzugefügt. Remotedesktop unter Verwendung der Windows Hello for Business-Authentifizierung ist nur für Bereitstellungen verfügbar, die das Modell der Zertifikatvertrauensstellung verwenden und derzeit nicht für das Modell der schlüsselbasierten Vertrauensstellung verfügbar sind.
 
 > [!WARNING]
-> Eine aktivierte/erzwungene Authentifizierung über Microsoft Azure Multi-Factor Authentication pro Benutzer wird für VM-Anmeldungen nicht unterstützt.
+> Eine aktivierte/erzwungene Authentifizierung über Azure AD Multi-Factor Authentication pro Benutzer wird für VM-Anmeldungen nicht unterstützt.
 
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Anmelden bei einem virtuellen Windows-Computer mithilfe von Azure AD-Anmeldeinformationen
 

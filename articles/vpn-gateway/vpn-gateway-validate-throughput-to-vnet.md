@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: d2347c0688ca58698831019a193d03fe2c6721e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d5b51e8cfbfcb5f771e9da524231f8ddfc40a9e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398506"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660932"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Überprüfen des VPN-Durchsatzes zu einem virtuellen Netzwerk
 
@@ -119,7 +119,7 @@ Laden Sie [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip) her
 1. Führen Sie nach Abschluss der vorherigen Schritte dieselben Schritte mit den vertauschten Rollen aus, damit der Serverknoten jetzt zum Clientknoten wird und umgekehrt.
 
 > [!Note]
-> Iperf ist nicht das einzige Tool. [NTTTCP ist eine alternative Lösung für Tests](https://docs.microsoft.com/azure/virtual-network/virtual-network-bandwidth-testing).
+> Iperf ist nicht das einzige Tool. [NTTTCP ist eine alternative Lösung für Tests](../virtual-network/virtual-network-bandwidth-testing.md).
 
 ## <a name="test-vms-running-windows"></a>Testen von virtuellen Computern unter Windows
 
@@ -225,7 +225,7 @@ Insbesondere die Analyse von Paketerfassungsverfolgungen (Wireshark/Netzwerkmoni
 
 Auch wenn der Gesamtdurchsatz, der in den vorherigen Schritten (iPERF/NTTTCP/usw.) ermittelt wurde, gut war, kann es bei der Verwendung des Windows Explorers oder beim Drag & Drop durch eine RDP-Sitzung zu einer langsamen Dateibewältigung kommen. Dieses Problem ergibt sich normalerweise aufgrund eines oder der beiden folgenden Faktoren:
 
-* Anwendungen zum Kopieren von Dateien, z. B. Windows-Explorer und RDP, verwenden beim Kopieren von Dateien nicht mehrere Threads. Verwenden Sie eine Anwendung mit mehreren Threads zum Kopieren von Dateien, z. B. [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx), damit Dateien mithilfe von 16 oder 32 Threads kopiert werden. Um die Threadanzahl für das Kopieren von Dateien in Richcopy zu ändern, klicken Sie auf **Action** > **Copy options** > **File copy**.
+* Anwendungen zum Kopieren von Dateien, z. B. Windows-Explorer und RDP, verwenden beim Kopieren von Dateien nicht mehrere Threads. Verwenden Sie eine Anwendung mit mehreren Threads zum Kopieren von Dateien, z. B. [Richcopy](/previous-versions/technet-magazine/dd547088(v=msdn.10)), damit Dateien mithilfe von 16 oder 32 Threads kopiert werden. Um die Threadanzahl für das Kopieren von Dateien in Richcopy zu ändern, klicken Sie auf **Action** > **Copy options** > **File copy**.
 
    ![Probleme durch langsames Kopieren von Dateien](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 
@@ -233,7 +233,7 @@ Auch wenn der Gesamtdurchsatz, der in den vorherigen Schritten (iPERF/NTTTCP/usw
    > Nicht alle Anwendungen funktionieren gleich, und nicht alle Anwendungen/Prozesse nutzen alle Threads. Wenn Sie den Test ausführen, können Sie sehen, dass einige Threads leer sind und keine genauen Durchsatzergebnisse liefern.
    > Um die Leistung Ihrer Anwendungsdateiübertragung zu überprüfen, verwenden Sie Multithread, indem Sie die Anzahl der Threads nacheinander erhöhen oder verringern, um den optimalen Durchsatz der Anwendung oder der Dateiübertragung zu ermitteln.
 
-* Unzureichende Lese-/Schreibgeschwindigkeiten des Datenträgers des virtuellen Computers. Weitere Informationen finden Sie unter [Problembehandlung für Azure Storage](../storage/common/storage-e2e-troubleshooting.md).
+* Unzureichende Lese-/Schreibgeschwindigkeiten des Datenträgers des virtuellen Computers. Weitere Informationen finden Sie unter [Problembehandlung für Azure Storage](/previous-versions/azure/storage/common/storage-e2e-troubleshooting).
 
 ## <a name="on-premises-device-external-facing-interface"></a>Nach außen gerichtete Schnittstelle für lokale Geräte
 

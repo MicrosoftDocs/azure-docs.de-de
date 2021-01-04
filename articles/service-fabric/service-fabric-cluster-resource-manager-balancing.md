@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: b6df25b525975f2d4fe6a02064e81f359a804c58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 192aca589c3b1e660667dbe8377afe7802b56f17
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81416269"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146193"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Lastenausgleich für Service Fabric-Cluster
 Der Clusterressourcen-Manager von Service Fabric unterstützt dynamische Laständerungen und reagiert auf hinzugefügte oder entfernte Knoten oder Dienste. Er korrigiert Einschränkungsverletzungen automatisch und gleicht die Last des Clusters proaktiv aus. Doch wie oft werden diese Aktionen ausgeführt, und was löst sie aus?
@@ -79,7 +79,7 @@ Wenn beispielsweise Knoten ausfallen, kann dies nacheinander für gesamte Fehler
 Der Clusterressourcen-Manager benötigt außerdem einige zusätzliche Informationen, um zu ermitteln, ob der Cluster unausgeglichen ist. Hierfür gibt es zwei weitere Konfigurationseinstellungen: *Ausgleichsschwellenwerte* (BalancingThresholds) und *Aktivitätsschwellenwerte* (ActivityThresholds).
 
 ## <a name="balancing-thresholds"></a>Ausgleichsschwellenwerte
-Ein Ausgleichsschwellenwert ist das Hauptsteuerinstrument für das Auslösen eines erneuten Ausgleichs. Der Ausgleichsschwellenwert für eine Metrik ist ein _Verhältnis_. Wenn die Last für eine Metrik auf dem am stärksten ausgelasteten Knoten dividiert durch die Last auf dem am wenigsten ausgelasteten Knoten den *Ausgleichsschwellenwert* dieser Metrik überschreitet, ist der Cluster unausgeglichen. Bei der nächsten Ausführung des Clusterressourcen-Managers wird deshalb ein Ausgleich ausgelöst. Der *MinLoadBalancingInterval*-Timer bestimmt, wie oft der Clusterressourcen-Manager prüfen soll, ob ein erneuter Ausgleich erforderlich ist. Die Überprüfung bedeutet nicht, dass etwas passiert. 
+Ein Ausgleichsschwellenwert ist das Hauptsteuerinstrument für das Auslösen eines erneuten Ausgleichs. Der Ausgleichsschwellenwert für eine Metrik ist ein _Verhältnis_. Wenn die Last für eine Metrik auf dem am stärksten ausgelasteten Knoten dividiert durch die Last auf dem am wenigsten ausgelasteten Knoten den *Ausgleichsschwellenwert* dieser Metrik überschreitet, ist der Cluster unausgeglichen. Bei der nächsten Ausführung des Clusterressourcen-Managers wird deshalb ein Ausgleich ausgelöst. Der *MinLoadBalancingInterval* -Timer bestimmt, wie oft der Clusterressourcen-Manager prüfen soll, ob ein erneuter Ausgleich erforderlich ist. Die Überprüfung bedeutet nicht, dass etwas passiert. 
 
 Ausgleichsschwellenwerte werden als Teil der Clusterdefinition metrikbezogen definiert. Weitere Informationen zu Metriken finden Sie in [diesem Artikel](service-fabric-cluster-resource-manager-metrics.md).
 
@@ -189,7 +189,7 @@ Sicherlich können Sie erkennen, was hier vorliegt: eine Kette! Wir verfügen ni
 
 <center>
 
-![Gemeinsames Ausgleichen von Diensten][Image4]
+![Diagramm der gleichmäßigen Verteilung von Diensten][Image4]
 </center>
 
 Aufgrund dieser Kette ist es möglich, dass ein Ungleichgewicht bei den Metriken 1-4 bewirken kann, dass Replikate oder Instanzen, die zu den Diensten 1-3 gehören, verschoben werden. Wir wissen auch, dass ein Ungleichgewicht bei der Metrik 1, 2 oder 3 keine Verschiebungen in „Service4“ bewirkt. Das wäre sinnlos, da das Verschieben von Replikaten oder Instanzen, die zu „Service4“ gehören, keinerlei Auswirkung auf die Ausgeglichenheit der Metriken 1-3 hat.
@@ -198,7 +198,7 @@ Der Clusterressourcen-Manager ermittelt automatisch, welche Dienste verknüpft s
 
 <center>
 
-![Gemeinsames Ausgleichen von Diensten][Image5]
+![Diagramm, das zeigt, wie der Clusterressourcen-Manager festlegt, welche Dienste verwandt sind][Image5]
 </center>
 
 ## <a name="next-steps"></a>Nächste Schritte

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: e5eff13c9ec672937258cf35274d2f5f7bc66f18
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: a9289fad6f7ae1030628bedcf1a62cacc0b1e23a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164243"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564470"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Vorbereiten virtueller Computer für eine FCI (SQL Server auf Azure-VMs)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -58,6 +58,8 @@ Wählen Sie die VM-Verfügbarkeitsoption sorgfältig aus, die Ihrer beabsichtigt
 
 Nachdem Sie die VM-Verfügbarkeit konfiguriert haben, können Sie Ihre virtuellen Computer erstellen. Sie können wählen, ob Sie ein Azure Marketplace-Image einsetzen möchten, bei dem SQL Server bereits installiert ist oder nicht. Wenn Sie jedoch ein Image für SQL Server auf Azure-VMs wählen, müssen Sie SQL Server vom virtuellen Computer deinstallieren, ehe Sie die Failoverclusterinstanz konfigurieren können. 
 
+### <a name="considerations"></a>Überlegungen
+In einem Azure IaaS-VM-Gast-Failovercluster werden eine einzelne Netzwerkkarte pro Server (Clusterknoten) und ein einzelnes Subnetz empfohlen. Azure-Netzwerktechnologie bietet physische Redundanz, die zusätzliche Netzwerkkarten und Subnetze in einem Azure IaaS-VM-Gastcluster überflüssig macht. Obwohl im Clustervalidierungsbericht eine Warnung ausgegeben wird, dass die Knoten nur in einem einzigen Netzwerk erreichbar sind, kann diese Warnung für Azure IaaS-VM-Gast-Failovercluster einfach ignoriert werden.
 
 Platzieren Sie beide virtuellen Computer wie folgt:
 
@@ -71,15 +73,15 @@ Sie können einen virtuellen Azure-Computer erstellen, indem Sie ein Image [mit]
 
 ## <a name="uninstall-sql-server"></a>Deinstallieren von SQL Server
 
-Im Rahmen des Prozesses der FCI-Erstellung installieren Sie SQL Server als Clusterinstanz im Failovercluster. *Wenn Sie einen virtuellen Computer mit Azure Marketplace-Image ohne SQL Server bereitgestellt haben, können Sie diesen Schritt überspringen.* Wenn Sie ein Image mit vorinstalliertem SQL Server bereitstellen, müssen Sie die Registrierung der SQL Server-VM beim Ressourcenanbieter für SQL Server-VMs aufheben und SQL Server anschließend deinstallieren. 
+Im Rahmen des Prozesses der FCI-Erstellung installieren Sie SQL Server als Clusterinstanz im Failovercluster. *Wenn Sie einen virtuellen Computer mit Azure Marketplace-Image ohne SQL Server bereitgestellt haben, können Sie diesen Schritt überspringen.* Wenn Sie ein Image mit vorinstallierter SQL Server-Instanz bereitgestellt haben, müssen Sie die Registrierung der SQL-IaaS-Agent-Erweiterung für die SQL Server-VM aufheben und SQL Server anschließend deinstallieren. 
 
-### <a name="unregister-from-the-sql-vm-resource-provider"></a>Aufheben der Registrierung beim SQL Server-VM-Ressourcenanbieter
+### <a name="unregister-from-the-sql-iaas-agent-extension"></a>Aufheben der Registrierung der SQL-IaaS-Agent-Erweiterung für die VM
 
-SQL Server-VM-Images aus Azure Marketplace werden automatisch beim SQL Server-VM-Ressourcenanbieter registriert. Bevor Sie die vorinstallierte SQL Server-Instanz deinstallieren, müssen Sie zuvor [die Registrierung jeder SQL Server-VM beim SQL Server-VM-Ressourcenanbieter aufheben](sql-vm-resource-provider-register.md#unregister-from-rp). 
+SQL Server-VM-Images aus Azure Marketplace werden automatisch mit der SQL-IaaS-Agent-Erweiterung registriert. Bevor Sie die vorinstallierte SQL Server-Instanz deinstallieren, müssen Sie zuerst [die Registrierung der SQL-IaaS-Agent-Erweiterung für jede SQL Server-VM aufheben](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension). 
 
 ### <a name="uninstall-sql-server"></a>Deinstallieren von SQL Server
 
-Nachdem Sie die Registrierung beim Ressourcenanbieter aufgehoben haben, können Sie SQL Server deinstallieren. Befolgen Sie dazu auf jedem virtuellen Computer diese Schritte: 
+Nachdem Sie die Registrierung der Erweiterung aufgehoben haben, können Sie SQL Server deinstallieren. Befolgen Sie dazu auf jedem virtuellen Computer diese Schritte: 
 
 1. Verbindung mit diesem virtuellen Computer über RDP herstellen
 

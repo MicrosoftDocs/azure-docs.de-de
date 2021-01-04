@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 06/05/2020
-ms.openlocfilehash: 7573abbbee479bfb0d1710beba3b95d084a5e657
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/26/2020
+ms.openlocfilehash: a5db3935ae445ee7dcf8129eb1d4c75fcb64302f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898877"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003904"
 ---
 # <a name="apply-transformation-module"></a>Apply Transformation-Modul
 
 In diesem Artikel wird ein Modul im Azure Machine Learning-Designer beschrieben.
 
-Verwenden Sie dieses Modul, um einen Eingabedatensatz basierend auf einer zuvor berechneten Transformation zu ändern.
+Verwenden Sie dieses Modul, um einen Eingabedatensatz basierend auf einer zuvor berechneten Transformation zu ändern. Dieses Modul ist erforderlich, wenn Sie Transformationen in Rückschlusspipelines aktualisieren müssen.
 
 Wenn Sie beispielsweise Z-Ergebnisse zum Normalisieren Ihrer Trainingsdaten mit dem Modul **Normalize Data** (Normalisieren Sie Daten) verwendet haben, möchten Sie auch den Z-Ergebniswert verwenden, der für das Training während der Bewertungsphase berechnet wurde. In Azure Machine Learning können Sie die Normalisierungsmethode als Transformation speichern und dann **Apply Transformation** (Anwenden einer Transformation) verwenden, um das Z-Ergebnis vor der Bewertung auf die Eingabedaten anzuwenden.
 
@@ -46,7 +46,14 @@ Mit dem Designer können Sie Datentransformationen als **Datasets** speichern, d
   
 1. Verbinden Sie die Datasetausgabe des gewünschten Moduls mit dem rechten Eingangsport des Moduls **Apply Transformation** (Transformation anwenden).
   
-1. Um eine Transformation auf das neue Dataset anzuwenden, führen Sie die Pipeline aus.  
+1. Um eine Transformation auf das neue Dataset anzuwenden, übermitteln Sie die Pipeline.  
+
+> [!IMPORTANT]
+> Um sicherzustellen, dass die aktualisierte Transformation in Trainingspipelines auch für Rückschlusspipelines möglich ist, befolgen Sie die nachstehenden Schritte jedes Mal, wenn in der Trainingspipeline eine Transformation aktualisiert wird:
+> 1. Registrieren Sie in der Trainingspipeline die Ausgabe von [Select Columns Transform](select-columns-transform.md) als Dataset.
+> ![Registrieren eines Datasets einer Modulausgabe](media/module/select-columns-transform-register-dataset.png)
+> 1. Entfernen Sie in der Rückschlusspipeline das **TD-** Modul, und ersetzen Sie es durch das im vorherigen Schritt registrierte Dataset.
+> ![Ersetzen des TD-Moduls](media/module/replace-tranformation-directory.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

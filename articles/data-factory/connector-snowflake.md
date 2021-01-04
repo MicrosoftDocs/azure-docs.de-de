@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/28/2020
-ms.openlocfilehash: 5bb5599c6ab6e630e0f26c6d4a13e9c9af8a15a7
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.date: 12/08/2020
+ms.openlocfilehash: 49e4a6f7f8c268669a94796257d5740ec6f4e6ff
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91405172"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902084"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Kopieren und Transformieren von Daten in Snowflake mithilfe von Azure Data Factory
 
@@ -37,8 +37,6 @@ Für die Kopieraktivität unterstützt dieser Snowflake-Connector die folgenden 
 - Kopieren von Daten aus Snowflake unter Verwendung des Snowflake-Befehls [COPY into [Speicherort]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html), um optimale Leistung zu erzielen.
 - Kopieren von Daten in Snowflake unter Verwendung des Snowflake-Befehls [COPY into [Tabelle]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html), um optimale Leistung zu erzielen. Snowflake in Azure wird unterstützt. 
 
-Snowflake als Senke wird nicht unterstützt, wenn Sie den Azure Synapse Analytics-Arbeitsbereich verwenden.
-
 ## <a name="get-started"></a>Erste Schritte
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -49,7 +47,7 @@ Die folgenden Abschnitte enthalten Details zu Eigenschaften, die zum Definieren 
 
 Die folgenden Eigenschaften werden für den mit Snowflake verknüpften Dienst unterstützt.
 
-| Eigenschaft         | BESCHREIBUNG                                                  | Erforderlich |
+| Eigenschaft         | Beschreibung                                                  | Erforderlich |
 | :--------------- | :----------------------------------------------------------- | :------- |
 | type             | Die „type“-Eigenschaft muss auf **Snowflake** festgelegt werden.              | Ja      |
 | connectionString | Gibt die erforderlichen Informationen für Verbindungen mit der Snowflake-Instanz an. Sie können das Kennwort oder die gesamte Verbindungszeichenfolge in Azure Key Vault speichern. Ausführlichere Informationen finden Sie in den Beispielen unter der Tabelle sowie im Artikel [Speichern von Anmeldeinformationen in Azure Key Vault](store-credentials-in-key-vault.md).<br><br>Einige typische Einstellungen:<br>- **Kontoname:** Der [vollständige Kontoname](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) Ihres Snowflake-Kontos (einschließlich zusätzlicher Segmente zur Identifizierung von Region und Cloudplattform), z. B. „xy12345.east-us-2.azure“.<br/>- **Benutzername:** Der Anmeldename des Benutzers für die Verbindung.<br>- **Kennwort:** Das Kennwort für den Benutzer.<br>- **Datenbank:** Die Standarddatenbank, die nach dem Herstellen der Verbindung verwendet werden soll. Dabei sollte es sich um eine vorhandene Datenbank handeln, für die die angegebene Rolle über die erforderlichen Berechtigungen verfügt.<br>- **Warehouse:** Das virtuelle Warehouse, das nach dem Herstellen der Verbindung verwendet werden soll. Dabei sollte es sich um ein vorhandenes Warehouse handeln, für das die angegebene Rolle über die erforderlichen Berechtigungen verfügt.<br>- **Rolle:** Die Standardrolle aus der Zugriffssteuerung, die in der Snowflake-Sitzung verwendet werden soll. Die angegebene Rolle sollte vorhanden und dem angegebenen Benutzer bereits zugewiesen sein. Die Standardrolle ist PUBLIC. | Ja      |
@@ -109,7 +107,7 @@ Eine vollständige Liste mit den Abschnitten und Eigenschaften, die zum Definier
 
 Folgende Eigenschaften werden für das Snowflake-Dataset unterstützt.
 
-| Eigenschaft  | BESCHREIBUNG                                                  | Erforderlich                    |
+| Eigenschaft  | Beschreibung                                                  | Erforderlich                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | Die „type“-Eigenschaft des Datasets muss auf **SnowflakeTable** festgelegt werden. | Ja                         |
 | schema | Name des Schemas. Beim Schemanamen wird Groß-/Kleinschreibung beachtet. |Quelle: Nein, Senke: Ja  |
@@ -147,13 +145,13 @@ Wenn der Senkendatenspeicher und das Format vom Snowflake-Befehl „COPY“ nati
 
 Beim Kopieren von Daten aus Snowflake werden die folgenden Eigenschaften im Abschnitt **source** der Kopieraktivität unterstützt.
 
-| Eigenschaft                     | BESCHREIBUNG                                                  | Erforderlich |
+| Eigenschaft                     | Beschreibung                                                  | Erforderlich |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | Die „type“-Eigenschaft der Quelle der Kopieraktivität muss auf **SnowflakeSource** festgelegt werden. | Ja      |
 | Abfrage          | Gibt die SQL-Abfrage an, mit der Daten aus Snowflake gelesen werden. Wenn der Name des Schemas, der Tabelle und Spalten Kleinbuchstaben enthält, geben Sie den Objektbezeichner in der Abfrage an, z. B. `select * from "schema"."myTable"`.<br>Die Ausführung der gespeicherten Prozedur wird nicht unterstützt. | Nein       |
 | exportSettings | Erweiterte Einstellungen, die zum Abrufen von Daten aus Snowflake verwendet werden. Sie können die vom Befehl „COPY into“ unterstützten Einstellungen konfigurieren, die Data Factory beim Aufrufen der Anweisung durchläuft. | Nein       |
-| ***Unter `exportSettings`:*** |  |  |
-| type | Der Typ des Exportbefehls, festgelegt auf **SnowflakeExportCopyCommand**. | Ja |
+| ***Unter `exportSettings`:** _ |  |  |
+| type | Die Art des Exportbefehls. Legen Sie diese Option auf _*SnowflakeExportCopyCommand** fest. | Ja |
 | additionalCopyOptions | Zusätzliche Kopieroptionen, die als Wörterbuch mit Schlüssel-Wert-Paaren bereitgestellt werden. Beispiele: MAX_FILE_SIZE, OVERWRITE. Weitere Informationen finden Sie unter [Snowflake Copy Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions) (Snowflake-Kopieroptionen). | Nein |
 | additionalFormatOptions | Zusätzliche Dateiformatoptionen, die im Befehl „COPY“ als Wörterbuch mit Schlüssel-Wert-Paaren bereitgestellt werden. Beispiele: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Weitere Informationen finden Sie unter [Snowflake Format Type Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions) (Snowflake-Formattypoptionen). | Nein |
 
@@ -161,7 +159,7 @@ Beim Kopieren von Daten aus Snowflake werden die folgenden Eigenschaften im Absc
 
 Wenn der Senkendatenspeicher und das Format die in diesem Abschnitt beschriebenen Kriterien erfüllen, können Sie mit der Kopieraktivität Kopiervorgänge direkt aus Snowflake in die Senke durchführen. Data Factory überprüft die Einstellungen und gibt bei der Ausführung der Kopieraktivität einen Fehler aus, wenn die folgenden Kriterien nicht erfüllt werden:
 
-- Der **verknüpfte Senkendienst** ist [**Azure Blob Storage**](connector-azure-blob-storage.md) mit **SAS**-Authentifizierung.
+- Der **verknüpfte Senkendienst** ist [**Azure Blob Storage**](connector-azure-blob-storage.md) mit **SAS**-Authentifizierung. Wenn Sie Daten direkt im folgenden unterstützten Format in Azure Data Lake Storage Gen2 kopieren möchten, können Sie einen verknüpften Azure Blob-Dienst mit SAS-Authentifizierung für Ihr ADLS Gen2-Konto erstellen. Damit vermeiden Sie [gestaffelte Kopiervorgänge aus Snowflake](#staged-copy-from-snowflake).
 
 - Das **Senkendatenformat** lautet **Parquet**, **Durch Trennzeichen getrennter Text** oder **JSON** mit den folgenden Konfigurationen:
 
@@ -175,7 +173,6 @@ Wenn der Senkendatenspeicher und das Format die in diesem Abschnitt beschriebene
         - `compression` kann auf **keine Komprimierung** oder auf **gzip**, **bzip2** oder **deflate** festgelegt sein.
         - `encodingName` wird als Standardwert übernommen oder ist auf **utf-8** festgelegt.
         - `filePattern` in der Senke der Kopieraktivität wird auf dem Standardwert belassen oder auf **setOfObjects** festgelegt.
-
 - In der Quelle der Kopieraktivität ist `additionalColumns` nicht angegeben.
 - Die Spaltenzuordnung ist nicht angegeben.
 
@@ -283,8 +280,8 @@ Beim Kopieren von Daten in Snowflake werden die folgenden Eigenschaften im Absch
 | type              | Die „type“-Eigenschaft der Senke der Kopieraktivität, festgelegt auf **SnowflakeSink**. | Ja                                           |
 | preCopyScript     | Geben Sie eine SQL-Abfrage an, die bei jeder Ausführung von der Kopieraktivität ausgeführt werden soll, bevor Daten in Snowflake geschrieben werden. Sie können diese Eigenschaft nutzen, um vorab geladene Daten zu bereinigen. | Nein                                            |
 | importSettings | Erweiterte Einstellungen, die zum Schreiben von Daten in Snowflake verwendet werden. Sie können die vom Befehl „COPY into“ unterstützten Einstellungen konfigurieren, die Data Factory beim Aufrufen der Anweisung durchläuft. | Nein |
-| ***Unter `importSettings`:*** |                                                              |  |
-| type | Der Typ des Importbefehls, festgelegt auf **SnowflakeImportCopyCommand**. | Ja |
+| **_Unter `importSettings`:_* _ |                                                              |  |
+| type | Die Art des Importbefehls. Legen Sie diese Option auf _*SnowflakeImportCopyCommand** fest. | Ja |
 | additionalCopyOptions | Zusätzliche Kopieroptionen, die als Wörterbuch mit Schlüssel-Wert-Paaren bereitgestellt werden. Beispiele: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. Weitere Informationen finden Sie unter [Snowflake Copy Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions) (Snowflake-Kopieroptionen). | Nein |
 | additionalFormatOptions | Zusätzliche Dateiformatoptionen, die im Befehl „COPY“ als Wörterbuch mit Schlüssel-Wert-Paaren bereitgestellt werden. Beispiele: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Weitere Informationen finden Sie unter [Snowflake Format Type Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions) (Snowflake-Formattypoptionen). | Nein |
 
@@ -292,7 +289,7 @@ Beim Kopieren von Daten in Snowflake werden die folgenden Eigenschaften im Absch
 
 Wenn der Quelldatenspeicher und das Format die in diesem Abschnitt beschriebenen Kriterien erfüllen, können Sie mit der Kopieraktivität Kopiervorgänge direkt aus der Quelle in Snowflake durchführen. Azure Data Factory überprüft die Einstellungen und gibt bei der Ausführung der Kopieraktivität einen Fehler aus, wenn die folgenden Kriterien nicht erfüllt werden:
 
-- Der **verknüpfte Quelldienst** ist [**Azure Blob Storage**](connector-azure-blob-storage.md) mit **SAS**-Authentifizierung.
+- Der **verknüpfte Quelldienst** ist [**Azure Blob Storage**](connector-azure-blob-storage.md) mit **SAS**-Authentifizierung. Wenn Sie Daten direkt im folgenden unterstützten Format aus Azure Data Lake Storage Gen2 kopieren möchten, können Sie einen verknüpften Azure Blob-Dienst mit SAS-Authentifizierung für Ihr ADLS Gen2-Konto erstellen. Damit vermeiden Sie [gestaffelte Kopiervorgänge nach Snowflake](#staged-copy-to-snowflake).
 
 - Das **Quelldatenformat** lautet **Parquet**, **Durch Trennzeichen getrennter Text** oder **JSON** mit den folgenden Konfigurationen:
 

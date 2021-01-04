@@ -2,9 +2,11 @@
   href: cut-planes.md
 - name: Debuggen des Renderings
   href: debug-rendering.md
+- name: Fresnel-Effekt
+  href: fresnel-effect.md
 - name: Hierarchische Zustandsüberschreibung
   href: override-hierarchical-state.md
-- name: Kamera
+- name: Camera
   href: camera.md
 - name: Stagebereich
   href: stage-space.md
@@ -18,6 +20,8 @@
   href: color-materials.md
 - name: Konturenrendering
   href: outlines.md
+- name: Shell-Rendering
+  href: shell-effect.md
 - name: Einseitiges Rendering
   href: single-sided-rendering.md
 - name: Räumliche Abfragen

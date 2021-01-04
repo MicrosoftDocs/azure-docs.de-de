@@ -3,18 +3,20 @@ title: Erstellen mehrerer unabhängiger Azure Functions-Trigger für Cosmos DB
 description: Hier erfahren Sie, wie Sie mehrere unabhängige Azure Functions-Trigger für Cosmos DB zum Erstellen ereignisgesteuerter Architekturen konfigurieren.
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5be1cfc097da4f1f10bb775c9b20043096b9fb8b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 78fff48a97965f0b80456cd3e56ed1507bc784fc
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279633"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336672"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Erstellen mehrerer Azure Functions-Trigger für Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Dieser Artikel beschreibt, wie Sie mehrere Azure Functions-Trigger für Cosmos DB konfigurieren können, die parallel verwendet werden können und unabhängig voneinander auf Änderungen reagieren.
 
@@ -24,7 +26,7 @@ Dieser Artikel beschreibt, wie Sie mehrere Azure Functions-Trigger für Cosmos 
 
 Beim Erstellen serverloser Architekturen mit [Azure Functions](../azure-functions/functions-overview.md) gilt die [Empfehlung](../azure-functions/functions-best-practices.md#avoid-long-running-functions), kleine zusammenarbeitende Funktionsgruppen anstelle umfangreicher, zeitintensiver Funktionen zu erstellen.
 
-Wenn Sie ereignisbasierte serverlose Flows mithilfe des [Azure Functions-Triggers für Cosmos DB](./change-feed-functions.md) erstellen, entsteht ein Szenario, in dem Sie immer dann mehrere Aktionen ausführen möchten, wenn in einem bestimmten [Azure Cosmos-Container](./account-databases-containers-items.md#azure-cosmos-containers) ein neues Ereignis auftritt. Wenn auszulösende Aktionen voneinander unabhängig sind, wäre die ideale Lösung, **pro auszuführende Aktion einen Azure Functions-Trigger für Cosmos DB zu erstellen**, wobei alle Trigger in demselben Azure Cosmos-Container auf Änderungen lauschen.
+Wenn Sie ereignisbasierte serverlose Flows mithilfe des [Azure Functions-Triggers für Cosmos DB](./change-feed-functions.md) erstellen, entsteht ein Szenario, in dem Sie immer dann mehrere Aktionen ausführen möchten, wenn in einem bestimmten [Azure Cosmos-Container](./account-databases-containers-items.md#azure-cosmos-containers) ein neues Ereignis auftritt. Wenn auszulösende Aktionen voneinander unabhängig sind, wäre die ideale Lösung, **pro auszuführende Aktion einen Azure Functions-Trigger für Cosmos DB zu erstellen** , wobei alle Trigger in demselben Azure Cosmos-Container auf Änderungen lauschen.
 
 ## <a name="optimizing-containers-for-multiple-triggers"></a>Optimieren von Containern für mehrere Trigger
 
@@ -32,7 +34,7 @@ Unter Berücksichtigung der *Anforderungen* des Azure Functions-Triggers für C
 
 Hier haben Sie zwei Möglichkeiten:
 
-* Sie erstellen **einen Leasescontainer pro Funktion**: Dieser Ansatz kann zusätzliche Kosten nach sich ziehen, es sei denn, Sie verwenden eine [Datenbank mit gemeinsam genutztem Durchsatz](./set-throughput.md#set-throughput-on-a-database). Beachten Sie, dass der minimale Durchsatz auf Containerebene 400 [Anforderungseinheiten](./request-units.md) beträgt, und bei den Leasescontainern wird er nur verwendet, um den Fortschritt zu prüfen und den Zustand beizubehalten.
+* Sie erstellen **einen Leasescontainer pro Funktion** : Dieser Ansatz kann zusätzliche Kosten nach sich ziehen, es sei denn, Sie verwenden eine [Datenbank mit gemeinsam genutztem Durchsatz](./set-throughput.md#set-throughput-on-a-database). Beachten Sie, dass der minimale Durchsatz auf Containerebene 400 [Anforderungseinheiten](./request-units.md) beträgt, und bei den Leasescontainern wird er nur verwendet, um den Fortschritt zu prüfen und den Zustand beizubehalten.
 * Sie verwenden einen **Leasescontainer und nutzen ihn gemeinsam** für alle Ihre Funktionen: Diese zweite Option nutzt die für den Container bereitgestellten Anforderungseinheiten besser, da sie mehreren Azure-Funktionen ermöglicht, denselben bereitgestellten Durchsatz gemeinsam zu verwenden.
 
 Dieser Artikel soll Sie durch die Realisierung der zweiten Option führen.

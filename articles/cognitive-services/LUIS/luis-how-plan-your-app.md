@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 69f2048da0b4690d9de72e96e296edbd55c4cd9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66df23466694fe8b9caea4e56565cde6d8fd7416
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309454"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018955"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planen Ihres LUIS-App-Schemas mit Motivdomäne und Datenextraktion
 
@@ -21,7 +21,7 @@ Ein LUIS-App-Schema enthält [Absichten](luis-glossary.md#intent) und [Entitäte
 Eine LUIS-App baut auf einer Motivdomäne auf. Beispielsweise könnten Sie eine Reise-App erstellen, die Buchungen von Tickets, Flügen, Hotels und Mietwagen ausführt. Eine andere App könnte Inhalte im Zusammenhang mit Sportaktivitäten, dem Nachverfolgen von Fitnessübungen und dem Festlegen von Zielen bereitstellen. Durch die Identifizierung der Domäne können Sie Wörter oder Ausdrücke finden, die für Ihre Domäne relevant sind.
 
 > [!TIP]
-> LUIS bietet [vordefinierte Domänen](luis-how-to-use-prebuilt-domains.md) für viele häufige Szenarien. Überprüfen Sie, ob Sie eine vordefinierte Domäne als Ausgangspunkt für Ihre App verwenden können.
+> LUIS bietet [vordefinierte Domänen](./howto-add-prebuilt-models.md) für viele häufige Szenarien. Überprüfen Sie, ob Sie eine vordefinierte Domäne als Ausgangspunkt für Ihre App verwenden können.
 
 ## <a name="identify-your-intents"></a>Identifizieren Ihrer Absichten
 
@@ -49,7 +49,7 @@ Identifizieren Sie in den Beispieläußerungen die Entitäten, die extrahiert we
 Wenn Sie festlegen, welche Entitäten in Ihrer App verwendet werden sollen, bedenken Sie, dass es verschiedene Typen von Entitäten zum Aufzeichnen der Beziehungen zwischen Objekttypen gibt. Unter [Entitäten in LUIS](luis-concept-entity-types.md) finden Sie weitere Details zu den verschiedenen Typen.
 
 > [!TIP]
-> LUIS bietet [vordefinierte Entitäten](luis-prebuilt-entities.md) für gängige, interaktive Benutzerszenarios. Verwenden Sie vorgefertigte Entitäten als Ausgangspunkt für die Anwendungsentwicklung.
+> LUIS bietet [vordefinierte Entitäten](./howto-add-prebuilt-models.md) für gängige, interaktive Benutzerszenarios. Verwenden Sie vorgefertigte Entitäten als Ausgangspunkt für die Anwendungsentwicklung.
 
 ## <a name="resolution-with-intent-or-entity"></a>Absicht oder Entität?
 
@@ -79,4 +79,3 @@ Fügen Sie den Subentitäten einige Eigenschaften hinzu, um die Extraktion zu op
 
 > [!div class="nextstepaction"]
 > [Einführung in den Entwicklungslebenszyklus von LUIS](luis-concept-app-iteration.md)
-

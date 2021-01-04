@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 361b27ce84417b30fe58ac7651f70f8c72f8a16a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a4e8ec75d6610e19f241d2047518c3a43132a6e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627371"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079018"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Beheben von Problemen mit Geräten mit Hybrideinbindung in Azure Active Directory 
 
@@ -55,7 +55,7 @@ Dieser Artikel enthält Anleitungen zur Problembehandlung zum Beheben potenziell
 
 Dieser Befehl zeigt ein Dialogfeld an, das Ihnen ausführliche Informationen zum Einbindungsstatus bietet.
 
-![Workplace Join für Windows](./media/troubleshoot-hybrid-join-windows-legacy/01.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/01.png" alt-text="Screenshot: Dialogfeld „Workplace Join for Windows“. Im Text, der eine E-Mail-Adresse enthält, ist angegeben, dass ein bestimmtes Gerät einem Arbeitsplatz hinzugefügt wurde." border="false":::
 
 ## <a name="step-2-evaluate-the-hybrid-azure-ad-join-status"></a>Schritt 2: Bewerten des Status des Azure AD-Hybridbeitritts 
 
@@ -65,7 +65,7 @@ Wenn das Gerät nicht in Azure AD Hybrid eingebunden war, können Sie versuchen,
 
 - AD FS oder Azure AD ist falsch konfiguriert
 
-    ![Workplace Join für Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/02.png" alt-text="Screenshot: Dialogfeld „Workplace Join for Windows“. Im Text ist angegeben, dass während der Kontoauthentifizierung ein Fehler aufgetreten ist." border="false":::
     
    - „Autoworkplace.exe“ kann sich nicht unbeaufsichtigt bei Azure AD oder AD FS authentifizieren. Die Fehlerursache können eine fehlende bzw. falsche Konfiguration von AD FS (für Verbunddomänen) oder des nahtlosen einmaligen Azure AD-Anmeldens (für verwaltete Domänen) oder aber Netzwerkprobleme sein. 
    - Möglicherweise ist die mehrstufige Authentifizierung (Multi-Factor Authentication, MFA) für den Benutzer aktiviert/konfiguriert, und „WIAORMULTIAUTHN“ nicht auf dem AD FS-Server konfiguriert. 
@@ -76,7 +76,7 @@ Wenn das Gerät nicht in Azure AD Hybrid eingebunden war, können Sie versuchen,
    - Ihre Organisation verwendet nahtloses einmaliges Azure AD-Anmelden, `https://autologon.microsoftazuread-sso.com` oder `https://aadg.windows.net.nsatc.net` ist nicht in den IE-Intraneteinstellungen des Geräts vorhanden, und **Updates der Statusleiste über ein Skript zulassen** ist nicht für die Intranetzone aktiviert.
 - Sie sind nicht als Domänenbenutzer angemeldet
 
-   ![Workplace Join für Windows](./media/troubleshoot-hybrid-join-windows-legacy/03.png)
+   :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/03.png" alt-text="Screenshot: Dialogfeld „Workplace Join for Windows“. Im Text ist angegeben, dass während der Kontoüberprüfung ein Fehler aufgetreten ist." border="false":::
 
    Dieses Problem kann aus verschiedenen Gründen auftreten:
 
@@ -84,11 +84,11 @@ Wenn das Gerät nicht in Azure AD Hybrid eingebunden war, können Sie versuchen,
    - Der Client kann keine Verbindung mit einem Domänencontroller herstellen.    
 - Ein Kontingent wurde erreicht
 
-    ![Workplace Join für Windows](./media/troubleshoot-hybrid-join-windows-legacy/04.png)
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/04.png" alt-text="Screenshot: Dialogfeld „Workplace Join for Windows“. Im Text ist ein Fehler angegeben, da der Benutzer die maximale Anzahl von eingebundenen Geräten erreicht hat." border="false":::
 
 - Der Dienst antwortet nicht 
 
-    ![Workplace Join für Windows](./media/troubleshoot-hybrid-join-windows-legacy/05.png)
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/05.png" alt-text="Screenshot: Dialogfeld „Workplace Join for Windows“. Im Text ist angegeben, dass ein Fehler aufgetreten ist, weil der Server nicht reagiert hat." border="false":::
 
 Die Statusinformationen finden Sie auch im Ereignisprotokoll unter **Anwendungs- und Dienstprotokolle\Microsoft-Workplace Join**.
   

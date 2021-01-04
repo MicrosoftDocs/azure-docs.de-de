@@ -8,54 +8,55 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 11/23/2019
 ms.author: juliako
-ms.openlocfilehash: 1c3326456fefbbef9228cf26b5821f306cd21601
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1ca7c677e5f1eb55d74cca45e757676674f303c
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80127909"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030535"
 ---
 # <a name="search-for-exact-moments-in-videos-with-video-indexer"></a>Suchen nach bestimmten Momenten in Videos mit Video Indexer
 
-In diesem Thema lernen Sie die Suchoptionen kennen, mit denen Sie in Videos nach bestimmten Momenten suchen können.
+In diesem Thema erfahren Sie, wie Sie die Video Indexer-Website verwenden, um in Videos nach bestimmten Momenten zu suchen.
 
 1. Navigieren Sie zur [Video Indexer](https://www.videoindexer.ai/)-Website, und melden Sie sich an.
-2. Sie können alle Videos Ihres Kontos durchsuchen.
+1. Geben Sie Suchwörter an – die Suche wird in allen Videos in der Bibliothek Ihres Kontos durchgeführt. 
 
-    Im folgenden Beispiel suchen wir nach allen Videos, die sich mit Sicherheit befassen und in denen Satya auftritt.
+    Sie können **Filter** auswählen, um Ihre Suche zu filtern. Im folgenden Beispiel suchen wir nach dem Begriff „Microsoft“, der nur als Bildschirmtext (optische Zeichenerkennung) angezeigt wird.
 
-    ![Suchen nach Videos in Video Indexer](./media/video-indexer-search/video-indexer-search01.png)
+    :::image type="content" source="./media/video-indexer-search/filter.png" alt-text="Filter, nur Text":::
+1. Klicken Sie auf **Suchen**, um das Ergebnis anzuzeigen.
 
-3. Durchsuchen Sie die zusammengefassten Informationen des Videos.
+    :::image type="content" source="./media/video-indexer-search/results.png" alt-text="Ergebnis der Videosuche":::
 
-    Anschließend können Sie in einem Video suchen, indem Sie für das Video die Schaltfläche für die **Wiedergabe** auswählen. Wenn Sie dann die Registerkarte **Suche** wählen, können Sie im Video nach bestimmten Momenten suchen.
+    Wenn Sie ein Ergebnis auswählen, gelangen Sie im Player im Video zum entsprechenden Moment.
+1. Klicken Sie im Video auf **Wiedergeben**, oder wählen Sie eins der ursprünglichen Suchergebnisse aus, um die zusammengefassten Erkenntnisse aus dem Video anzuzeigen und zu durchsuchen. 
 
-    Im folgenden Beispiel suchen wir im ausgewählten Video nach dem Begriff „sicher“.
+    Sie können die **Erkenntnisse** anzeigen, durchsuchen und bearbeiten. Wenn Sie eine Erkenntnis auswählen, springt der Player im Video zu genau diesem Moment.  
 
-    ![Suchen in einem Video mit Video Indexer](./media/video-indexer-search/video-indexer-search02.png)
+    :::image type="content" source="./media/video-indexer-search/insights.png" alt-text="Anzeigen, Durchsuchen und Bearbeiten der Erkenntnisse aus dem Video":::
 
-    Wenn Sie ein Ergebnis auswählen, gelangen Sie im Player im Video zum entsprechenden Moment. Sie können die Player-Ansicht bzw. die Ansicht für Informationen und die Synchronisierung in Ihrer App einrichten. Weitere Informationen finden Sie unter [Einbetten von Video Indexer-Widgets in Ihre App](video-indexer-embed-widgets.md).
+    Wenn Sie das Video mithilfe von Video Indexer-Widgets einbetten, können Sie die Ansicht für Player/Erkenntnisse in Ihrer App anzeigen und Synchronisierungen durchführen. Weitere Informationen finden Sie unter [Einbetten von Video Indexer-Widgets in Ihre App](video-indexer-embed-widgets.md).
+1. Klicken Sie auf die Registerkarte **Zeitachse**, um Transkripte anzuzeigen, zu durchsuchen und zu bearbeiten. 
 
-4. Durchsuchen Sie die ausführliche Aufstellung des Videos.
+    :::image type="content" source="./media/video-indexer-search/timeline.png" alt-text="Anzeigen, Durchsuchen und Bearbeiten der Transkripte des Videos":::
 
-    Wenn Sie anhand des gefundenen Videos Ihren eigenen Clip erstellen möchten, wählen Sie die Schaltfläche **Bearbeiten** aus. Auf dieser Seite wird das Video zusammen mit den Informationen darüber als Filter gezeigt. Weitere Informationen finden Sie unter [Anzeigen und Bearbeiten von Video Indexer-Erkenntnissen](video-indexer-view-edit.md).
+    Zum Bearbeiten des Texts wählen Sie in der oberen rechten Ecke **Bearbeiten** aus und ändern den Text nach Bedarf. 
 
-    Sie können innerhalb des Videos nach bestimmten Momenten suchen, um nur die gewünschten Ausschnitte anzuzeigen. Verwenden Sie die seitlichen Informationen, um die Ausschnitte zu filtern, die Sie anzeigen möchten. Wenn Sie damit fertig sind, können Sie eine Vorschau Ihres Clips anzeigen und **Veröffentlichen** auswählen, um den neuen Clip zu erstellen, der dann in Ihrem Katalog aufgeführt wird.
+    Sie können die Transkripte auch übersetzen und herunterladen, indem Sie oben rechts die entsprechende Option auswählen. 
 
-    Im folgenden Beispiel haben wir nach dem Begriff „Mixed Reality“ gesucht. Außerdem haben wir zusätzliche Filter angewendet. Dies ist unten im Screenshot zu sehen.
+## <a name="embed-download-create-projects"></a>Einbetten, Herunterladen und Erstellen von Projekten
 
-    ![Suchen nach einem bestimmten Moment in Video Indexer](./media/video-indexer-search/video-indexer-search03.png)
+Sie können Ihr Video einbetten, indem Sie unter dem Video die Option **</>Einbetten** auswählen. Weitere Informationen finden Sie unter [Einbetten von visuellen Widgets in Ihre Anwendung](video-indexer-embed-widgets.md).
+
+Sie können das Quellvideo, Erkenntnisse aus dem Video sowie Transkripte herunterladen, indem Sie unter dem Video auf **Download** klicken.
+
+Sie können basierend auf bestimmten Textzeilen und Momenten einen Clip aus Ihrem Video erstellen, indem Sie auf **In Editor öffnen** klicken. Bearbeiten das Video, und speichern Sie das Projekt. Weitere Informationen finden Sie unter [Verwenden des Video Indexer-Editors zum Erstellen von Projekten](use-editor-create-project.md).
+
+:::image type="content" source="./media/video-indexer-search/embed-download-create-projects.png" alt-text="Einbetten, Herunterladen und Erstellen von Projekten aus dem Video":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Nachdem Sie den bestimmten Moment im Video gefunden haben, können Sie mit dem Verarbeiten des Videos fortfahren. Weitere Informationen finden Sie in den folgenden Themen:
-
-- [Verwenden der tiefen Einblicke Ihrer Videos](use-editor-create-project.md)
-- [Verarbeiten von Inhalten mit der Video Indexer-REST-API](video-indexer-use-apis.md)
-- [Einbetten von visuellen Widgets in Ihre Anwendung](video-indexer-embed-widgets.md)
-
-## <a name="see-also"></a>Weitere Informationen
-
-[What is Video Indexer? (preview)](video-indexer-overview.md) (Was ist Video Indexer? (Vorschauversion))
+[Verarbeiten von Inhalten mit der Video Indexer-REST-API](video-indexer-use-apis.md)

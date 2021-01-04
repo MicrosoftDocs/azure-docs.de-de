@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 51c611b2565ae0a5a054a45f0aedcb039351b46b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 582dafba40012e9ff9c59bc09adb1a0831e999f5
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88208367"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491221"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Überwachen von Azure Functions mit Azure Monitor-Protokollen
 
@@ -22,7 +22,7 @@ Azure Monitor-Protokolle bieten Ihnen die Möglichkeit, Protokolle aus unterschi
 Azure Monitor verwendet eine Version der von Azure Data Explorer verwendeten [Abfragesprache Kusto](/azure/kusto/query/), die für einfache Protokollabfragen geeignet ist, aber auch erweiterte Funktionen enthält, z.B. Aggregationen, Verknüpfungen und intelligente Analysen. Sie können die Abfragesprache schnell erlernen, indem Sie [mehrere Lektionen](../azure-monitor/log-query/get-started-queries.md) nutzen.
 
 > [!NOTE]
-> Die Integration in Azure Monitor-Protokolle befindet sich derzeit in der öffentlichen Vorschauphase für Funktions-Apps, die unter den Windows-Hostingplänen „Nutzung“, „Premium“ und „Dedicated“ ausgeführt werden.
+> Die Integration mit Azure Monitor-Protokollen befindet sich derzeit in der öffentlichen Vorschauphase für Funktions-Apps der Version 2 und Version 3, die unter den Windows-Hostingplänen „Nutzung“, „Premium“ und „Dedicated“ ausgeführt werden.
 
 ## <a name="setting-up"></a>Einrichten
 
@@ -38,7 +38,7 @@ Azure Monitor verwendet eine Version der von Azure Data Explorer verwendeten [Ab
 
 1. Geben Sie einen **Namen für die Diagnoseeinstellungen** ein, und wählen Sie dann **Speichern** aus.
 
-   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="Auswählen der Diagnoseeinstellungen":::
+   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="Hinzufügen einer Diagnoseeinstellung":::
 
 ## <a name="user-generated-logs"></a>Benutzergenerierte Protokolle
 
@@ -89,7 +89,7 @@ So fragen Sie die generierten Protokolle ab:
 
    Azure Functions schreibt alle Protokolle in die Tabelle **FunctionAppLogs** unter **LogManagement**. 
 
-   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Auswählen der Diagnoseeinstellungen":::
+   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Abfragefenster im Log Analytics-Arbeitsbereich":::
 
 Im Folgenden finden Sie einige Beispielabfragen:
 

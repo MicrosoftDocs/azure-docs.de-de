@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a2eafd6bb34b897f3492ddcffd6841f0fabc4ca7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28609ad27330ae4ea5ea7c0d02d5a61181fbe0df
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73034545"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95559336"
 ---
 Beim Entwerfen eines Systems ist es wichtig zu verstehen, welche potenziellen Bedrohungen es für das System gibt. Anschließend müssen beim Entwerfen und Zusammenstellen des Systems die richtigen Abwehrmaßnahmen ergriffen werden. Es ist besonders wichtig, schon zu Beginn des Entwurfsprozesses für das Produkt an die Sicherheit zu denken. Indem ein Verständnis entwickelt wird, wie Angreifer ein System unter Umständen kompromittieren können, wird sichergestellt, dass von Anfang an für geeignete Lösungen gesorgt ist.
 
@@ -72,7 +72,7 @@ Die vier Kernelemente eines Bedrohungsmodells sind:
 
 * Externe Entitäten (alle Elemente, die mit dem System interagieren, aber nicht von der Anwendung kontrolliert werden, z.B. Benutzer und Satelliten-Feeds)
 
-Alle Elemente im Architekturdiagramm unterliegen verschiedenen Bedrohungen. In diesem Artikel wird der mnemonische STRIDE-Code verwendet. Weitere Informationen zu den STRIDE-Elementen finden Sie unter [Threat Modeling Again, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) (Noch einmal Bedrohungsmodellierung: STRIDE).
+Alle Elemente im Architekturdiagramm unterliegen verschiedenen Bedrohungen. In diesem Artikel wird der mnemonische STRIDE-Code verwendet. Weitere Informationen zu den STRIDE-Elementen finden Sie unter [Threat Modeling Again, STRIDE](/archive/blogs/larryosterman/threat-modeling-again-stride) (Noch einmal Bedrohungsmodellierung: STRIDE).
 
 Verschiedene Elemente des Anwendungsdiagramms unterliegen bestimmten STRIDE-Bedrohungen:
 

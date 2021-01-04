@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d72b70248e317d1caee4527be38fe304cfe7f16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f757d8f59c06d573d71099941530dfc28174ac42
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658342"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420483"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Nahtloses einmaliges Anmelden mit Azure Active Directory: Häufig gestellte Fragen
 
@@ -107,6 +107,9 @@ Führen Sie diese Schritte auf dem lokalen Server durch, auf dem Azure AD Connec
    >Wenn Sie kein Domänenadministrator sind und der Domänenadministrator Ihnen Berechtigungen zugewiesen hat, sollten Sie `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount` aufrufen.
    
    3. Wiederholen Sie die oben stehenden Schritte für jede AD-Gesamtstruktur, für die Sie das Feature eingerichtet haben.
+   
+  >[!NOTE]
+   >Wenn Sie eine andere Gesamtstruktur als die von Azure AD Connect aktualisieren, stellen Sie sicher, dass Konnektivität zum globalen Katalogserver (TCP 3268 und TCP 3269) gegeben ist.
 
    >[!IMPORTANT]
    >Stellen Sie sicher, dass Sie den `Update-AzureADSSOForest`-Befehl _nur_ einmal ausführen. Andernfalls funktioniert das Feature erst wieder, wenn die Kerberos-Tickets Ihrer Benutzer ablaufen und von Ihrem lokalen Active Directory neu ausgestellt werden.
@@ -158,4 +161,4 @@ Führen Sie diese Schritte auf dem lokalen Server durch, auf dem Azure AD Connec
 - [**Schnellstart**](how-to-connect-sso-quick-start.md): Einrichten und Ausführen des nahtlosen einmaligen Anmeldens von Azure AD
 - [**Technische Einzelheiten**](how-to-connect-sso-how-it-works.md) – Funktionsweise dieses Features verstehen
 - [**Problembehandlung**](tshoot-connect-sso.md) – Beheben von häufig auftretenden Problemen mit diesem Feature
-- [**UserVoice:** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) Verfassen neuer Feature-Anforderungen
+- [**UserVoice:**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) Verfassen neuer Feature-Anforderungen

@@ -9,18 +9,18 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: f4c3d23f6abbdc20d210e5ddda6c527d27654bb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14ff76e090e628a880290bb0e9f90026260de0c7
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510758"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368983"
 ---
 # <a name="what-is-a-dictionary"></a>Definition: Wörterbuch
 
 Ein Wörterbuch umfasst Dokumente, die paarweise zugeordnet sind, und gibt Ausdrücke oder Sätze mit ihren entsprechenden Übersetzungen an. Verwenden Sie ein Wörterbuch in Ihrem Training, wenn Sie Microsoft Translator für alle Instanzen des Ausgangssatzes bzw. -ausdrucks immer die Übersetzung verwenden soll, die Sie im Wörterbuch angegeben haben. Wörterbücher werden auch als Glossare oder Terminologiedatenbanken bezeichnet. Sie können sich das so vorstellen, dass das Wörterbuch für alle Begriffe, die Sie angeben, den Ansatz „Kopieren und Ersetzen“ verfolgt. Darüber hinaus erstellt der Microsoft Custom Translator-Dienst eigene Universalwörterbücher und verwendet sie, um die Qualität seiner Übersetzung zu steigern. Ein vom Kunden bereitgestelltes Wörterbuch hat jedoch Vorrang und wird zuerst nach Wörtern oder Sätzen durchsucht.
 
-Wörterbücher eignen sich nur für Projekte mit Sprachpaaren, die auf einem vollständig unterstützten allgemeinen neuronalen Netzwerkmodell von Microsoft basieren. [Vollständige Liste der Sprachen anzeigen](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
+Wörterbücher eignen sich nur für Projekte mit Sprachpaaren, die auf einem vollständig unterstützten allgemeinen neuronalen Netzwerkmodell von Microsoft basieren. [Vollständige Liste der Sprachen anzeigen](../language-support.md#customization).
 
 ## <a name="phrase-dictionary"></a>Ausdruckswörterbuch
 Beim Ausdruckswörterbuch wird die Groß-/Kleinschreibung unterschieden. Es handelt sich um einen exakten Such- und Ersetzungsvorgang. Wenn Sie ein Ausdruckswörterbuch für das Training Ihres Modells verwenden, wird jedes aufgeführte Wort bzw. jeder aufgeführte Ausdruck wie von Ihnen angegeben übersetzt. Der Rest des Satzes wird wie gewohnt übersetzt. Sie können mithilfe eines Ausdruckswörterbuchs Ausdrücke angeben, die nicht mit dem gleichen unübersetzten Ausdruck in der Quell- und Zieldatei im Wörterbuch übersetzt werden sollen.

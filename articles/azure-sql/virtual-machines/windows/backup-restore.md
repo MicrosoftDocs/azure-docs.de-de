@@ -8,17 +8,18 @@ editor: ''
 tags: azure-resource-management
 ms.assetid: 95a89072-0edf-49b5-88ed-584891c0e066
 ms.service: virtual-machines-sql
+ms.subservice: backup
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: a4965c587cb2f42c8411d48af2417dd3fe3d5edb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a102fc805750f7dd460c1878a730b9ca4ce1c37
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360785"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359369"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Sicherung und Wiederherstellung für SQL Server auf Azure-VMs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -60,7 +61,7 @@ Informationen zum Konfigurieren der automatisierten Sicherung für SQL-VMs finde
 
 ## <a name="azure-backup-for-sql-vms"></a><a id="azbackup"></a> Azure Backup für SQL-VMs
 
-[Azure Backup](/azure/backup/) bietet Sicherungsfunktionen auf Unternehmensniveau für SQL Server auf Azure-VMs. Alle Sicherungen werden in einem Recovery Services-Tresor gespeichert und verwaltet. Diese Lösung bietet insbesondere für Unternehmen viele Vorteile:
+[Azure Backup](../../../backup/index.yml) bietet Sicherungsfunktionen auf Unternehmensniveau für SQL Server auf Azure-VMs. Alle Sicherungen werden in einem Recovery Services-Tresor gespeichert und verwaltet. Diese Lösung bietet insbesondere für Unternehmen viele Vorteile:
 
 - **Sicherungen ohne Infrastruktur**: Sie müssen keine Sicherungsserver oder Speicherorte verwalten.
 - **Skalierung**: Sie können eine Vielzahl von SQL-VMs und Tausende von Datenbanken schützen.
@@ -71,7 +72,7 @@ Informationen zum Konfigurieren der automatisierten Sicherung für SQL-VMs finde
 - **Recovery Point Objective (RPO) von 15 Minuten**: Konfigurieren Sie Sicherungen der SQL-Transaktionsprotokolle so, dass die Sicherung alle 15 Minuten erfolgt.
 - **Point-in-Time-Wiederherstellung**: Verwenden Sie das Portal, um für Datenbanken den Stand zu einem bestimmten Zeitpunkt wiederherzustellen, ohne mehrere vollständige, differenzielle und Protokollsicherungen manuell wiederherstellen zu müssen.
 - **Konsolidierte E-Mail-Benachrichtigungen bei Fehlern**: Konfigurieren Sie konsolidierte E-Mail-Benachrichtigungen für jede Art von Fehler.
-- **Rollenbasierte Zugriffssteuerung**: Legen Sie fest, wer Sicherungs- und Wiederherstellungsvorgänge über das Portal verwalten darf.
+- **Rollenbasierte Zugriffssteuerung in Azure:** Legen Sie fest, wer Sicherungs- und Wiederherstellungsvorgänge über das Portal verwalten darf.
 
 Eine kurze Übersicht und Demo der Funktionsweise finden Sie im folgenden Video:
 
@@ -83,19 +84,19 @@ Diese Azure Backup-Lösung für SQL-VMs ist allgemein verfügbar. Weitere Inform
 
 Wenn Sie Sicherungs- und Wiederherstellungsvorgänge auf Ihren SQL-VMs manuell verwalten möchten, stehen Ihnen je nach SQL Server-Version verschiedene Optionen zur Verfügung. Eine Übersicht über die Sicherung und Wiederherstellung finden Sie in einem der folgenden Artikel, je nachdem, welche Version von SQL Server Sie verwenden:
 
-- SQL Server 2016 und höher: [Sichern und Wiederherstellen von SQL Server-Datenbanken](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)
-- SQL Server 2014: [Sichern und Wiederherstellen von Datenbanken in SQL Server](https://msdn.microsoft.com/library/ms187048%28v=sql.120%29.aspx)
-- SQL Server 2012: [Sichern und Wiederherstellen von Datenbanken in SQL Server](https://msdn.microsoft.com/library/ms187048%28v=sql.110%29.aspx)
-- SQL Server 2008 R2: [Sichern und Wiederherstellen von Datenbanken in SQL Server](https://msdn.microsoft.com/library/ms187048%28v=sql.105%29.aspx)
-- SQL Server 2008: [Sichern und Wiederherstellen von Datenbanken in SQL Server](https://msdn.microsoft.com/library/ms187048%28v=sql.100%29.aspx)
+- SQL Server 2016 und höher: [Sichern und Wiederherstellen von SQL Server-Datenbanken](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)
+- SQL Server 2014: [Sichern und Wiederherstellen von Datenbanken in SQL Server](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases?viewFallbackFrom=sql-server-2014)
+- SQL Server 2012: [Sichern und Wiederherstellen von Datenbanken in SQL Server](/previous-versions/sql/sql-server-2012/ms187048(v=sql.110))
+- SQL Server 2008 R2: [Sichern und Wiederherstellen von Datenbanken in SQL Server](/previous-versions/sql/sql-server-2008-r2/ms187048(v=sql.105))
+- SQL Server 2008: [Sichern und Wiederherstellen von Datenbanken in SQL Server](/previous-versions/sql/sql-server-2008/ms187048(v=sql.100))
 
 In den folgenden Abschnitten werden verschiedene Optionen für die manuelle Sicherung und Wiederherstellung detailliert beschrieben.
 
 ### <a name="backup-to-attached-disks"></a>Sicherung auf angefügten Datenträgern
 
-Für SQL Server auf Azure-VMs können Sie native Sicherungs- und Wiederherstellungsverfahren mit angefügten Datenträgern auf der VM als Ziel der Sicherungsdateien verwenden. Die Anzahl von Datenträgern, die an einen virtuellen Azure-Computer angefügt werden können, ist allerdings je nach [Größe des virtuellen Computers](../../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) begrenzt. Zudem muss der Mehraufwand für die Datenträgerverwaltung berücksichtigt werden.
+Für SQL Server auf Azure-VMs können Sie native Sicherungs- und Wiederherstellungsverfahren mit angefügten Datenträgern auf der VM als Ziel der Sicherungsdateien verwenden. Die Anzahl von Datenträgern, die an einen virtuellen Azure-Computer angefügt werden können, ist allerdings je nach [Größe des virtuellen Computers](../../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) begrenzt. Zudem muss der Mehraufwand für die Datenträgerverwaltung berücksichtigt werden.
 
-Ein Beispiel für die manuelle Erstellung einer vollständigen Datenbanksicherung mithilfe von SQL Server Management Studio (SSMS) oder Transact-SQL finden Sie unter [Erstellen einer vollständigen Datenbanksicherung](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server).
+Ein Beispiel für die manuelle Erstellung einer vollständigen Datenbanksicherung mithilfe von SQL Server Management Studio (SSMS) oder Transact-SQL finden Sie unter [Erstellen einer vollständigen Datenbanksicherung](/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server).
 
 ### <a name="backup-to-url"></a>Sicherung über URLs
 
@@ -104,13 +105,13 @@ Ab SQL Server 2012 SP1 CU2 können Sie Sicherungen und Wiederherstellungen direk
 | 2016-Erweiterung | Details |
 | --- | --- |
 | **Striping** |Für Sicherungen in Microsoft Azure Blob Storage unterstützt SQL Server 2016 das Sichern in mehreren Blobs, um die Sicherung großer Datenbanken mit bis zu 12,8 TB zu ermöglichen. |
-| **Momentaufnahmesicherung** |Durch die Verwendung von Azure-Momentaufnahmen ermöglicht die Dateimomentaufnahme-Sicherung von SQL Server nahezu sofortige Backups und schnelle Wiederherstellungen für Datenbankdateien, die mit dem Azure Blob Storage-Dienst gespeichert werden. Sicherungs- und Wiederherstellungsrichtlinien lassen sich dank dieser Funktion vereinfachen. Die Dateimomentaufnahme-Sicherung unterstützt auch Point-in-Time-Wiederherstellungen. Weitere Informationen finden Sie im Artikel zu [Momentaufnahmesicherungen für Datenbankdateien in Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure). |
+| **Momentaufnahmesicherung** |Durch die Verwendung von Azure-Momentaufnahmen ermöglicht die Dateimomentaufnahme-Sicherung von SQL Server nahezu sofortige Backups und schnelle Wiederherstellungen für Datenbankdateien, die mit dem Azure Blob Storage-Dienst gespeichert werden. Sicherungs- und Wiederherstellungsrichtlinien lassen sich dank dieser Funktion vereinfachen. Die Dateimomentaufnahme-Sicherung unterstützt auch Point-in-Time-Wiederherstellungen. Weitere Informationen finden Sie im Artikel zu [Momentaufnahmesicherungen für Datenbankdateien in Azure](/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure). |
 
 Weitere Informationen finden Sie in einem der folgenden Artikel, je nachdem, welche Version von SQL Server Sie verwenden:
 
-- **SQL Server 2016/2017**: [SQL Server-Sicherung über URLs](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
-- **SQL Server 2014**: [SQL Server 2014-Sicherung über URLs](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx)
-- **SQL Server 2012**: [SQL Server 2012-Sicherung über URLs](https://msdn.microsoft.com/library/jj919148%28v=sql.110%29.aspx)
+- **SQL Server 2016/2017**: [SQL Server-Sicherung über URLs](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
+- **SQL Server 2014**: [SQL Server 2014-Sicherung über URLs](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service?viewFallbackFrom=sql-server-2014)
+- **SQL Server 2012**: [SQL Server 2012-Sicherung über URLs](/previous-versions/sql/sql-server-2012/jj919148(v=sql.110))
 
 ### <a name="managed-backup"></a>Managed Backup
 
@@ -120,8 +121,8 @@ Ab SQL Server 2016 wurde Managed Backup um zusätzliche Optionen für die Planu
 
 Weitere Informationen finden Sie in einem der folgenden Artikel, je nachdem, welche Version von SQL Server Sie verwenden:
 
-- SQL Server 2016 und höher: [SQL Server Managed Backup für Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure)
-- SQL Server 2014: [SQL Server Managed Backup für Microsoft Azure](https://msdn.microsoft.com/library/dn449496%28v=sql.120%29.aspx)
+- SQL Server 2016 und höher: [SQL Server Managed Backup für Microsoft Azure](/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure)
+- SQL Server 2014: [SQL Server Managed Backup für Microsoft Azure](/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure?viewFallbackFrom=sql-server-2014)
 
 ## <a name="decision-matrix"></a>Entscheidungsmatrix
 

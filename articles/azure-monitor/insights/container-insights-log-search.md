@@ -3,12 +3,12 @@ title: Abfragen von Protokollen aus Azure Monitor für Container | Microsoft-Dok
 description: Azure Monitor für Container erfasst Metriken und Protokolldaten. In diesem Artikel werden die Datensätze und einige Beispielabfragen beschrieben.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: a540ae828b14f231b3b327b714876550cc744a7e
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 08c42fab84cb5180497f8da4f077b9bd82283ad4
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994015"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95747678"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Abfragen von Protokollen aus Azure Monitor für Container
 
@@ -16,7 +16,7 @@ Azure Monitor erfasst für Container Leistungsmetriken, Inventurdaten und Integr
 
 ## <a name="container-records"></a>Containerdatensätze
 
-In der folgenden Tabelle finden Sie Informationen zu den von Azure Monitor erfassten Datensätzen für Container. 
+In der folgenden Tabelle finden Sie Informationen zu Datensätzen, die von Azure Monitor für Container erfasst werden. Eine Auflistung der Spaltenbeschreibungen finden Sie in der Referenz zu den Tabellen [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) und [ContainerLog](/azure/azure-monitor/reference/tables/containerlog).
 
 | Daten | Datenquelle | Datentyp | Felder |
 |------|-------------|-----------|--------|

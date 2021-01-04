@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6f2608dafb77aeba98f188ec04f78649656ef969
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: b74de2bdf1f6239f1006c820579a336946939421
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089654"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949580"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Benutzerdefinierte E-Mail-Überprüfung mit Mailjet
 
 Verwenden Sie benutzerdefinierte E-Mails in Azure Active Directory B2C (Azure AD B2C), um angepasste E-Mails an Benutzer zu senden, die sich für die Verwendung Ihrer Anwendungen registrieren. Mithilfe von [Anzeigesteuerelementen](display-controls.md) (derzeit in der Vorschauphase) und dem E-Mail-Drittanbieter Mailjet können Sie eigene E-Mail-Vorlagen sowie *Absenderadressen* und Betreffzeilentexte verwenden. Darüber hinaus werden die Lokalisierung und benutzerdefinierte Einstellungen für Einmalkennwörter (One-Time Password, OTP) unterstützt.
 
-Für die benutzerdefinierte E-Mail-Überprüfung ist die Verwendung eines E-Mail-Drittanbieters wie [Mailjet](https://Mailjet.com), [SendGrid](custom-email.md) oder [SparkPost](https://sparkpost.com), einer benutzerdefinierten REST-API oder eines HTTP-basierten E-Mail-Anbieters (einschließlich Ihres eigenen Anbieters) erforderlich. In diesem Artikel wird das Einrichten einer Lösung beschrieben, bei der Mailjet verwendet wird.
+Für die benutzerdefinierte E-Mail-Überprüfung ist die Verwendung eines E-Mail-Drittanbieters wie [Mailjet](https://Mailjet.com), [SendGrid](./custom-email-sendgrid.md) oder [SparkPost](https://sparkpost.com), einer benutzerdefinierten REST-API oder eines HTTP-basierten E-Mail-Anbieters (einschließlich Ihres eigenen Anbieters) erforderlich. In diesem Artikel wird das Einrichten einer Lösung beschrieben, bei der Mailjet verwendet wird.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -40,20 +40,20 @@ Speichern Sie als Nächstes den Mailjet-API-Schlüssel in einem Azure AD B2C-R
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.
 1. Stellen Sie sicher, dass Sie das Verzeichnis verwenden, das Ihren Azure AD B2C-Mandanten enthält. Wählen Sie im Hauptmenü den Filter **Verzeichnis und Abonnement** und dann Ihr Azure AD B2C-Verzeichnis aus.
-1. Wählen Sie links oben im Azure-Portal die Option **Alle Dienste** aus, suchen Sie nach **Azure AD B2C** , und wählen Sie dann diese Option aus.
+1. Wählen Sie links oben im Azure-Portal die Option **Alle Dienste** aus, suchen Sie nach **Azure AD B2C**, und wählen Sie dann diese Option aus.
 1. Wählen Sie auf der Seite **Übersicht** die Option **Identity Experience Framework** aus.
 1. Wählen Sie **Richtlinienschlüssel** aus, und wählen Sie dann **Hinzufügen** aus.
 1. Wählen Sie unter **Optionen** die Option **Manuell** aus.
 1. Geben Sie einen **Namen** für den Richtlinienschlüssel ein. Beispiel: `MailjetApiKey`. Dem Namen Ihres Schlüssels wird automatisch das Präfix `B2C_1A_` hinzugefügt.
-1. Geben Sie im Feld **Geheimnis** den Mailjet- **API-Schlüssel** ein, den Sie zuvor notiert haben.
+1. Geben Sie im Feld **Geheimnis** den Mailjet-**API-Schlüssel** ein, den Sie zuvor notiert haben.
 1. Wählen Sie unter **Schlüsselverwendung** **Signatur** aus.
-1. Klicken Sie auf **Erstellen** .
-1. Klicken Sie erst auf **Richtlinienschlüssel** und anschließend auf **Hinzufügen** .
+1. Klicken Sie auf **Erstellen**.
+1. Klicken Sie erst auf **Richtlinienschlüssel** und anschließend auf **Hinzufügen**.
 1. Wählen Sie unter **Optionen** die Option **Manuell** aus.
 1. Geben Sie einen **Namen** für den Richtlinienschlüssel ein. Beispiel: `MailjetSecretKey`. Dem Namen Ihres Schlüssels wird automatisch das Präfix `B2C_1A_` hinzugefügt.
 1. Geben Sie im Feld **Geheimnis** den **geheimen Schlüssel** von Mailjet ein, den Sie zuvor notiert haben.
 1. Wählen Sie unter **Schlüsselverwendung** **Signatur** aus.
-1. Klicken Sie auf **Erstellen** .
+1. Klicken Sie auf **Erstellen**.
 
 ## <a name="create-a-mailjet-template"></a>Erstellen einer Mailjet-Vorlage
 
@@ -158,7 +158,7 @@ Wenn Sie ein Mailjet-Konto erstellt und den Mailjet-API-Schlüssel in einem Azur
     </html>
     ```
 
-1. Erweitern Sie im linken oberen Bereich die Option **Betreff bearbeiten** .
+1. Erweitern Sie im linken oberen Bereich die Option **Betreff bearbeiten**.
     1. Geben Sie für **Betreff** einen Standardwert ein. Mailjet verwendet diesen Wert, wenn die API keinen Betreffzeilenparameter enthält.
     1. Geben Sie im Feld **Name** den Namen Ihres Unternehmens ein.
     1. Wählen Sie für **Adresse** Ihre E-Mail-Adresse aus.

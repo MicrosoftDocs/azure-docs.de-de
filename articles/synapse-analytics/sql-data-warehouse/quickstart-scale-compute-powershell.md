@@ -1,6 +1,6 @@
 ---
-title: 'Schnellstart: Skalieren von Computeressourcen für den Synapse-SQL-Pool (Azure PowerShell)'
-description: Sie können Computeressourcen für den Synapse-SQL-Pool (Data Warehouse) per Azure PowerShell skalieren.
+title: 'Schnellstart: Skalieren von Computeressourcen für einen dedizierten SQL-Pool (vormals SQL DW) (Azure PowerShell)'
+description: Sie können Computeressourcen für einen dedizierten SQL-Pool (vormals SQL DW) mithilfe von Azure PowerShell skalieren.
 services: synapse-analytics
 author: Antvgski
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: 8077b1a52e44ce3a5160309c92288f756bed1014
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 87e10740e6081431bad96daa930f61238ca495bd
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91566141"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921902"
 ---
-# <a name="quickstart-scale-compute-for-synapse-sql-pool-with-azure-powershell"></a>Schnellstart: Skalieren von Computeressourcen für den Synapse-SQL-Pool mit Azure PowerShell
+# <a name="quickstart-scale-compute-for-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Schnellstart: Skalieren von Computeressourcen für einen dedizierten SQL-Pool (vormals SQL DW) mithilfe von Azure PowerShell
 
-Sie können Computeressourcen für den Synapse-SQL-Pool (Data Warehouse) per Azure PowerShell skalieren. [Skalieren Sie Computeressourcen auf](sql-data-warehouse-manage-compute-overview.md), um eine bessere Leistung zu erzielen, oder skalieren Sie sie ab, um Kosten einzusparen.
+Sie können Computeressourcen für einen dedizierten SQL-Pool (vormals SQL DW) mithilfe von Azure PowerShell skalieren. [Skalieren Sie Computeressourcen auf](sql-data-warehouse-manage-compute-overview.md), um eine bessere Leistung zu erzielen, oder skalieren Sie sie ab, um Kosten einzusparen.
 
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 
@@ -28,7 +28,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-In dieser Schnellstartanleitung wird vorausgesetzt, dass Sie bereits über einen SQL-Pool verfügen, den Sie skalieren können. Verwenden Sie die Anleitung unter [Erstellen und Verbinden – Portal](create-data-warehouse-portal.md), um bei Bedarf einen SQL-Pool namens **mySampleDataWarehouse** zu erstellen.
+In dieser Schnellstartanleitung wird vorausgesetzt, dass Sie bereits über einen dedizierten SQL-Pool (vormals SQL DW) verfügen, den Sie skalieren können. Verwenden Sie die Anleitung unter [Erstellen und Verbinden – Portal](create-data-warehouse-portal.md), um bei Bedarf einen dedizierten SQL-Pool (vormals SQL DW) namens **mySampleDataWarehouse** zu erstellen.
 
 ## <a name="log-in-to-azure"></a>Anmelden an Azure
 
@@ -67,7 +67,7 @@ Führen Sie die folgenden Schritte aus, um nach Informationen zu Ihrem Data Ware
 
 ## <a name="scale-compute"></a>Skalieren von Computeressourcen
 
-Im SQL-Pool können Sie die Menge der Computeressourcen durch das Anpassen der Data Warehouse-Einheiten (DWUs) erhöhen oder verringern. Mit dem [Schnellstart: Erstellen und Abfragen einer Azure SQL Data Warehouse-Instanz im Azure-Portal](create-data-warehouse-portal.md) wurde **mySampleDataWarehouse** erstellt und mit 400 DWUs initialisiert. In den folgenden Schritten werden die DWUs für **mySampleDataWarehouse** angepasst.
+Im dedizierten SQL-Pool (vormals SQL DW) können Sie die Menge der Computeressourcen durch das Anpassen der Data Warehouse-Einheiten erhöhen oder verringern. Mit dem [Schnellstart: Erstellen und Abfragen einer Azure SQL Data Warehouse-Instanz im Azure-Portal](create-data-warehouse-portal.md) wurde **mySampleDataWarehouse** erstellt und mit 400 DWUs initialisiert. In den folgenden Schritten werden die DWUs für **mySampleDataWarehouse** angepasst.
 
 Um die Data Warehouse-Einheiten zu ändern, verwenden Sie das PowerShell-Cmdlet [Set AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Im folgenden Beispiel werden die Data Warehouse-Einheiten für die Datenbank **mySampleDataWarehouse**, die sich in der Ressourcengruppe **resourcegroupname** auf dem Server **sqlpoolservername** befindet, auf DW300c festgelegt.
 
@@ -121,7 +121,7 @@ $database | Select-Object DatabaseName,Status
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Sie haben gelernt, wie Sie Computeressourcen für Ihren SQL-Pool skalieren. Weitere Informationen zum SQL-Pool finden Sie im Tutorial zum Laden von Daten.
+Sie wissen nun, wie Sie Computeressourcen für einen dedizierten SQL-Pool (vormals SQL DW) skalieren. Weitere Informationen zum dedizierten SQL-Pool (vormals SQL DW) finden Sie im Tutorial zum Laden von Daten.
 
 > [!div class="nextstepaction"]
->[Tutorial: Laden von Daten zu New Yorker Taxis in Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+>[Tutorial: Laden des Datasets „New York Taxis“](load-data-from-azure-blob-storage-using-copy.md)

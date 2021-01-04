@@ -11,18 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 369f79a436d76e6a1bf1a1ce64f7754f25a5abc5
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 5504b9bc87f78682ff584006255d4e75e5e69fa7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058045"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793346"
 ---
 # <a name="distributed-transactions-across-cloud-databases-preview"></a>Verteilte Transaktionen über Clouddatenbanken (Vorschau)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Mithilfe elastischer Datenbanktransaktionen für Azure SQL-Datenbank und Azure SQL Managed Instance können Sie Transaktionen ausführen, die sich über mehrere Datenbanken erstrecken. Elastische Datenbanktransaktionen stehen für .NET-Anwendungen über ADO.NET zur Verfügung und lassen sich mithilfe der [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx)-Klassen in die vertraute Programmierumgebung integrieren. Informationen zum Abrufen der Bibliothek finden Sie unter [.NET Framework 4.6.1 (Webinstaller)](https://www.microsoft.com/download/details.aspx?id=49981).
-Darüber hinaus sind verteilte Transaktionen für verwaltete Instanz in [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql) verfügbar.
+Mithilfe elastischer Datenbanktransaktionen für Azure SQL-Datenbank und Azure SQL Managed Instance können Sie Transaktionen ausführen, die sich über mehrere Datenbanken erstrecken. Elastische Datenbanktransaktionen stehen für .NET-Anwendungen über ADO.NET zur Verfügung und lassen sich mithilfe der [System.Transaction](/dotnet/api/system.transactions)-Klassen in die vertraute Programmierumgebung integrieren. Informationen zum Abrufen der Bibliothek finden Sie unter [.NET Framework 4.6.1 (Webinstaller)](https://www.microsoft.com/download/details.aspx?id=49981).
+Darüber hinaus sind verteilte Transaktionen für verwaltete Instanz in [Transact-SQL](/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql) verfügbar.
 
 Lokal muss für ein solches Szenario normalerweise MSDTC (Microsoft Distributed Transaction Coordinator) ausgeführt werden. Da MSDTC in Azure nicht als Platform-as-a-Service-Anwendung verfügbar ist, wurde die Koordinierung verteilter Transaktionen nun direkt in Azure SQL-Datenbank oder verwaltete SQL-Datenbank-Instanz integriert. Anwendungen können eine Verbindung mit einer beliebigen Datenbank herstellen, um verteilte Transaktionen zu starten, und eine der Datenbanken oder der Server koordiniert auf transparente Weise die verteilte Transaktion, wie in der folgenden Abbildung zu sehen.
 
@@ -32,7 +32,7 @@ In diesem Dokument werden die Begriffe „verteilte Transaktionen“ und „elas
 
 ## <a name="common-scenarios"></a>Häufige Szenarios
 
-Mit elastischen Datenbanktransaktionen können Anwendungen unteilbare Änderungen an Daten vornehmen, die in mehreren verschiedenen Datenbanken gespeichert sind. Die Vorschau konzentriert sich auf clientseitige Entwicklungsoptionen in C# und .NET. Eine serverseitige Entwicklungsoption (Code, der in gespeicherten Prozeduren oder serverseitigen Skripts geschrieben ist), für die [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql) verwendet wird, ist nur für verwaltete SQL-Datenbank-Instanz verfügbar.
+Mit elastischen Datenbanktransaktionen können Anwendungen unteilbare Änderungen an Daten vornehmen, die in mehreren verschiedenen Datenbanken gespeichert sind. Die Vorschau konzentriert sich auf clientseitige Entwicklungsoptionen in C# und .NET. Eine serverseitige Entwicklungsoption (Code, der in gespeicherten Prozeduren oder serverseitigen Skripts geschrieben ist), für die [Transact-SQL](/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql) verwendet wird, ist nur für verwaltete SQL-Datenbank-Instanz verfügbar.
 > [!IMPORTANT]
 > In der Vorschau wird das Ausführen elastischer Datenbanktransaktionen zwischen Azure SQL-Datenbank und Azure SQL Managed Instance derzeit nicht unterstützt. Eine elastische Datenbanktransaktion kann sich nur über eine Gruppe von SQL-Datenbanken oder verwalteten SQL-Datenbank-Instanzen erstrecken.
 
@@ -136,9 +136,9 @@ Das folgende Codebeispiel veranschaulicht diese Vorgehensweise. Hierbei wird dav
 
 ## <a name="transact-sql-development-experience"></a>Transact-SQL-Entwicklung
 
-Serverseitige verteilte Transaktionen, in denen Transact-SQL verwendet wird, sind nur für Azure SQL Managed Instance verfügbar. Verteilte Transaktionen können nur zwischen verwalteten SQL-Datenbank-Instanzen ausgeführt werden, die zur selben [Serververtrauensstellungsgruppe](https://aka.ms/mitrusted-groups) gehören. In diesem Szenario müssen für verwaltete SQL-Datenbank-Instanzen [Verbindungsserver](https://docs.microsoft.com/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine#TsqlProcedure) verwendet werden, um wechselseitig auf sich zu verweisen.
+Serverseitige verteilte Transaktionen, in denen Transact-SQL verwendet wird, sind nur für Azure SQL Managed Instance verfügbar. Verteilte Transaktionen können nur zwischen verwalteten SQL-Datenbank-Instanzen ausgeführt werden, die zur selben [Serververtrauensstellungsgruppe](../managed-instance/server-trust-group-overview.md) gehören. In diesem Szenario müssen für verwaltete SQL-Datenbank-Instanzen [Verbindungsserver](/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine#TsqlProcedure) verwendet werden, um wechselseitig auf sich zu verweisen.
 
-Im folgenden Transact-SQL-Beispielcode wird [BEGIN DISTRIBUTED TRANSACTION](https://docs.microsoft.com/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql) verwendet, um eine verteilte Transaktion zu starten.
+Im folgenden Transact-SQL-Beispielcode wird [BEGIN DISTRIBUTED TRANSACTION](/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql) verwendet, um eine verteilte Transaktion zu starten.
 
 ```Transact-SQL
 
@@ -192,7 +192,7 @@ Es folgt ein Beispiel, in dem die Transaktion mit Transact-SQL explizit zu einer
             Helper.ExecuteNonQueryOnOpenConnection(conn, "BEGIN DISTRIBUTED TRAN");
             // ...
         }
-     
+     
         using (SqlConnection conn2 = new SqlConnection(DB1_ConnectionString)
         {
             conn2.Open();
@@ -232,7 +232,7 @@ Das folgende Beispiel zeigt eine Transaktion, die implizit zu einer verteilten T
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Das PowerShell Azure Resource Manager-Modul wird von Azure SQL-Datenbank weiterhin unterstützt, aber alle zukünftigen Entwicklungen erfolgen für das Az.Sql-Modul. Informationen zu diesen Cmdlets finden Sie unter [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Die Argumente für die Befehle im Az-Modul und den AzureRm-Modulen sind im Wesentlichen identisch.
+> Das PowerShell Azure Resource Manager-Modul wird von Azure SQL-Datenbank weiterhin unterstützt, aber alle zukünftigen Entwicklungen erfolgen für das Az.Sql-Modul. Informationen zu diesen Cmdlets finden Sie unter [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Die Argumente für die Befehle im Az-Modul und den AzureRm-Modulen sind im Wesentlichen identisch.
 
 Elastische Datenbanktransaktionen werden auf verschiedenen Servern in Azure SQL-Datenbank unterstützt. Bei Transaktionen über die Grenzen Server hinweg müssen die beteiligten Server zuerst in eine Beziehung mit gegenseitiger Kommunikation gebracht werden. Sobald die Kommunikationsbeziehung eingerichtet wurde, kann eine Datenbank in einem der beiden Server an elastischen Transaktionen mit Datenbanken auf dem anderen Server teilnehmen. Mit Transaktionen über mehr als zwei Server hinweg muss eine Kommunikationsbeziehung für jedes Serverpaar vorhanden sein.
 
@@ -244,7 +244,7 @@ Verwenden Sie die folgenden PowerShell-Cmdlets, um serverübergreifende Kommunik
 
 ## <a name="transactions-across-multiple-servers-for-azure-sql-managed-instance"></a>Transaktionen über mehrere Server für Azure SQL Managed Instance
 
-Verteilte Transaktionen werden auf verschiedenen Servern in Azure SQL Managed Instance unterstützt. Überschreiten Transaktionen Azure SQL Managed Instance-Grenzen, müssen die beteiligten Instanzen zunächst in eine gegenseitige Sicherheits- und Kommunikationsbeziehung gebracht werden. Dies erfolgt, indem im Azure-Portal eine [Serververtrauensstellungsgruppe](https://aka.ms/mitrusted-groups) erstellt wird. Wenn sich verwaltete Instanzen nicht im selben virtuellen Netzwerk befinden, muss [Peering virtueller Netzwerke](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) eingerichtet werden, und in den Eingangs- und Ausgangsregeln der Netzwerksicherheitsgruppe müssen die Ports 5024 und 11000 bis 12000 in allen beteiligten virtuellen Netzwerken geöffnet sein.
+Verteilte Transaktionen werden auf verschiedenen Servern in Azure SQL Managed Instance unterstützt. Überschreiten Transaktionen Azure SQL Managed Instance-Grenzen, müssen die beteiligten Instanzen zunächst in eine gegenseitige Sicherheits- und Kommunikationsbeziehung gebracht werden. Dies erfolgt, indem im Azure-Portal eine [Serververtrauensstellungsgruppe](../managed-instance/server-trust-group-overview.md) erstellt wird. Wenn sich verwaltete Instanzen nicht im selben virtuellen Netzwerk befinden, muss [Peering virtueller Netzwerke](../../virtual-network/virtual-network-peering-overview.md) eingerichtet werden, und in den Eingangs- und Ausgangsregeln der Netzwerksicherheitsgruppe müssen die Ports 5024 und 11000 bis 12000 in allen beteiligten virtuellen Netzwerken geöffnet sein.
 
   ![Serververtrauensstellungsgruppe im Azure-Portal][3]
 
@@ -254,13 +254,13 @@ Das folgende Diagramm zeigt die Serververtrauensstellungsgruppe mit verwalteten 
 
 ## <a name="monitoring-transaction-status"></a>Überwachen des Transaktionsstatus
 
-Verwenden Sie DMVs (Dynamic Management Views), um Status und Fortschritt laufender elastischer Datenbanktransaktionen zu überwachen. Für verteilte Transaktionen in Azure SQL-Datenbank und Azure SQL Managed Instance sind alle transaktionsbezogenen DMVs relevant. Die entsprechende DMV-Liste finden Sie hier: [Dynamische Verwaltungssichten für Transaktionen und Funktionen (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
+Verwenden Sie DMVs (Dynamic Management Views), um Status und Fortschritt laufender elastischer Datenbanktransaktionen zu überwachen. Für verteilte Transaktionen in Azure SQL-Datenbank und Azure SQL Managed Instance sind alle transaktionsbezogenen DMVs relevant. Die entsprechende DMV-Liste finden Sie hier: [Dynamische Verwaltungssichten für Transaktionen und Funktionen (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/transaction-related-dynamic-management-views-and-functions-transact-sql).
 
 Folgende DMVs sind besonders hilfreich:
 
-* **sys.dm\_tran\_active\_transactions**: Führt die derzeit aktiven Transaktionen und deren Status auf. Die UOW-Spalte (Arbeitseinheit) gibt die verschiedenen untergeordneten Transaktionen an, die zur gleichen verteilten Transaktion gehören. Alle Transaktionen innerhalb einer verteilten Transaktion haben den gleichen UOW-Wert. Weitere Informationen finden Sie in der [DMV-Dokumentation](https://msdn.microsoft.com/library/ms174302.aspx).
-* **sys.dm\_tran\_database\_transactions**: Liefert zusätzliche Informationen zu Transaktionen (wie etwa die Position der Transaktion im Protokoll). Weitere Informationen finden Sie in der [DMV-Dokumentation](https://msdn.microsoft.com/library/ms186957.aspx).
-* **sys.dm\_tran\_locks**: Enthält Informationen zu den Sperren, die derzeit für laufende Transaktionen aktiv sind. Weitere Informationen finden Sie in der [DMV-Dokumentation](https://msdn.microsoft.com/library/ms190345.aspx).
+* **sys.dm\_tran\_active\_transactions** : Führt die derzeit aktiven Transaktionen und deren Status auf. Die UOW-Spalte (Arbeitseinheit) gibt die verschiedenen untergeordneten Transaktionen an, die zur gleichen verteilten Transaktion gehören. Alle Transaktionen innerhalb einer verteilten Transaktion haben den gleichen UOW-Wert. Weitere Informationen finden Sie in der [DMV-Dokumentation](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-active-transactions-transact-sql).
+* **sys.dm\_tran\_database\_transactions** : Liefert zusätzliche Informationen zu Transaktionen (wie etwa die Position der Transaktion im Protokoll). Weitere Informationen finden Sie in der [DMV-Dokumentation](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-database-transactions-transact-sql).
+* **sys.dm\_tran\_locks** : Enthält Informationen zu den Sperren, die derzeit für laufende Transaktionen aktiv sind. Weitere Informationen finden Sie in der [DMV-Dokumentation](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql).
 
 ## <a name="limitations"></a>Einschränkungen
 
@@ -268,19 +268,19 @@ Derzeit gelten für elastische Datenbanktransaktionen in Azure SQL-Datenbank fol
 
 * Es werden nur datenbankübergreifende Transaktionen in Azure SQL-Datenbank unterstützt. Andere Ressourcenanbieter für [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) sowie Datenbanken außerhalb von Azure SQL-Datenbank können nicht an elastischen Datenbanktransaktionen beteiligt werden. Das bedeutet, dass sich elastische Datenbanktransaktionen nicht über lokale SQL Server- und Azure SQL-Datenbanken erstrecken können. Für lokale verteilte Transaktionen muss weiterhin MSDTC verwendet werden.
 * Nur clientkoordinierte Transaktionen einer .NET-Anwendung werden unterstützt. Die serverseitige Unterstützung für T-SQL (etwa „BEGIN DISTRIBUTED TRANSACTION“) ist zwar geplant, aber noch nicht verfügbar.
-* Transaktionen über WCF-Dienste werden nicht unterstützt. Nehmen wir beispielsweise eine WCF-Dienstmethode, die eine Transaktion ausführt. Das Umschließen des Aufrufs innerhalb eines Transaktionsbereichs schlägt als [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception)fehl.
+* Transaktionen über WCF-Dienste werden nicht unterstützt. Nehmen wir beispielsweise eine WCF-Dienstmethode, die eine Transaktion ausführt. Das Umschließen des Aufrufs innerhalb eines Transaktionsbereichs schlägt als [System.ServiceModel.ProtocolException](/dotnet/api/system.servicemodel.protocolexception)fehl.
 
 Derzeit gelten für verteilte Transaktionen in Azure SQL Managed Instance die folgenden Einschränkungen:
 
 * Datenbankübergreifende Transaktionen werden nur in Azure SQL Managed Instance unterstützt. Andere [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA)-Ressourcenanbieter und -Datenbanken außerhalb von Azure SQL Managed Instance können nicht an verteilten Transaktionen beteiligt werden. Das bedeutet, dass sich verteilte Transaktionen nicht über lokale SQL Server-Datenbanken und Azure SQL Managed Instance erstrecken können. Für lokale verteilte Transaktionen muss weiterhin MSDTC verwendet werden.
-* Transaktionen über WCF-Dienste werden nicht unterstützt. Nehmen wir beispielsweise eine WCF-Dienstmethode, die eine Transaktion ausführt. Das Umschließen des Aufrufs innerhalb eines Transaktionsbereichs schlägt als [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception)fehl.
-* Azure SQL Managed Instance muss Bestandteil einer [Serververtrauensstellungsgruppe](https://aka.ms/mitrusted-groups) sein, um an einer verteilten Transaktion teilnehmen zu können.
-* Einschränkungen von [Serververtrauensstellungsgruppen](https://aka.ms/mitrusted-groups) wirken sich auf verteilte Transaktionen aus.
+* Transaktionen über WCF-Dienste werden nicht unterstützt. Nehmen wir beispielsweise eine WCF-Dienstmethode, die eine Transaktion ausführt. Das Umschließen des Aufrufs innerhalb eines Transaktionsbereichs schlägt als [System.ServiceModel.ProtocolException](/dotnet/api/system.servicemodel.protocolexception)fehl.
+* Azure SQL Managed Instance muss Bestandteil einer [Serververtrauensstellungsgruppe](../managed-instance/server-trust-group-overview.md) sein, um an einer verteilten Transaktion teilnehmen zu können.
+* Einschränkungen von [Serververtrauensstellungsgruppen](../managed-instance/server-trust-group-overview.md) wirken sich auf verteilte Transaktionen aus.
 * Azure SQL Managed Instances, die an verteilten Transaktionen teilnehmen, müssen über private Endpunkte (mit einer privaten IP-Adresse des virtuellen Netzwerks, in dem sie bereitgestellt werden) verbunden sein und müssen über private vollqualifizierte Domänennamen aufeinander verweisen. Clientanwendungen können verteilte Transaktionen auf privaten Endpunkten verwenden. Außerdem können Clientanwendungen auch verteilte Transaktionen auf öffentlichen Endpunkten verwenden, wenn in Transact-SQL Verbindungsserver genutzt werden, die auf private Endpunkte verweisen. Diese Einschränkung ist im folgenden Diagramm erläutert.
   ![Verbindungseinschränkung für private Endpunkte][4]
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Fragen können Sie über die [Microsoft F&A-Seite für SQL-Datenbank](https://docs.microsoft.com/answers/topics/azure-sql-database.html) an uns richten.
+* Fragen können Sie über die [Microsoft F&A-Seite für SQL-Datenbank](/answers/topics/azure-sql-database.html) an uns richten.
 * Wenn Sie Featurevorschläge haben, fügen Sie diese im [SQL-Datenbank-Feedbackforum](https://feedback.azure.com/forums/217321-sql-database/) oder im [SQL Managed Instance-Forum](https://feedback.azure.com/forums/915676-sql-managed-instance) hinzu.
 
 
@@ -290,4 +290,3 @@ Derzeit gelten für verteilte Transaktionen in Azure SQL Managed Instance die fo
 [2]: ./media/elastic-transactions-overview/sql-mi-distributed-transactions.png
 [3]: ./media/elastic-transactions-overview/server-trust-groups-azure-portal.png
 [4]: ./media/elastic-transactions-overview/managed-instance-distributed-transactions-private-endpoint-limitations.png
- 

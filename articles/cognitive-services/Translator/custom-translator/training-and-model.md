@@ -9,17 +9,17 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: swmachan
-ms.openlocfilehash: d8713d20503dc788175a408f5ec652505090396e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1765aaed3c0562da13c539845bfe19f6f85ed4ef
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510826"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369017"
 ---
 # <a name="what-are-trainings-and-models"></a>Definition: Training und Modelle
 
 Ein Modell ist das System, das die Übersetzung für ein bestimmtes Sprachenpaar bereitstellt.
-Das Ergebnis eines erfolgreichen Trainings ist ein Modell. Beim Trainieren eines Modells sind drei sich gegenseitig ausschließende Dokumenttypen erforderlich: Training, Optimieren und Testen. Auch der Dokumenttyp „Wörterbuch“ kann bereitgestellt werden. Weitere Informationen finden Sie unter [Satzzuordnung](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences).
+Das Ergebnis eines erfolgreichen Trainings ist ein Modell. Beim Trainieren eines Modells sind drei sich gegenseitig ausschließende Dokumenttypen erforderlich: Training, Optimieren und Testen. Auch der Dokumenttyp „Wörterbuch“ kann bereitgestellt werden. Weitere Informationen finden Sie unter [Satzzuordnung](./sentence-alignment.md#suggested-minimum-number-of-sentences).
 
 Wenn beim Queuing eines Trainings nur ein Trainingsdataset angegeben wird, erstellt Benutzerdefinierter Translator automatisch Optimierungs- und Testdaten. Er verwendet eine zufällige Teilmenge von Sätzen aus den Trainingsdokumenten und schließt diese Sätze aus den eigentlichen Trainingsdaten aus.
 

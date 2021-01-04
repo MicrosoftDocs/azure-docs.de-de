@@ -79,6 +79,46 @@
               href: sync-ldap.md
             - name: SCIM-Synchronisierung
               href: sync-scim.md
+        - name: Erstellen resilienter Lösungen
+          items:
+            - name: Übersicht
+              href: resilience-overview.md
+            - name: Infrastrukturleitfaden
+              items:
+                - name: Infrastrukturübersicht
+                  href: resilience-in-infrastructure.md
+                - name: Verwaltung von Anmeldeinformationen
+                  href: resilience-in-credentials.md
+                - name: Gerätestatus
+                  href: resilience-with-device-states.md
+                - name: Fortlaufende Zugriffsevaluierung
+                  href: resilience-with-continuous-access-evaluation.md
+                - name: Authentifizierung von externen Benutzern
+                  href: resilience-b2b-authentication.md
+                - name: Hybridauthentifizierung
+                  href: resilience-in-hybrid.md
+                - name: Anwendungsproxy
+                  href: resilience-on-premises-access.md
+            - name: Leitfaden zu Azure AD B2C
+              items:
+                - name: 'Azure AD B2C: Einführung in die Resilienz'
+                  href: resilience-b2c.md
+                - name: Ablauf für Endbenutzer
+                  href: resilient-end-user-experience.md
+                - name: Schnittstellen mit externen Prozessen
+                  href: resilient-external-processes.md
+                - name: Best Practices für Azure AD B2C-Entwickler
+                  href: resilience-b2c-developer-best-practices.md
+                - name: Überwachung und Analyse
+                  href: resilience-with-monitoring-alerting.md
+            - name: Leitfaden für die Anwendungsentwicklung
+              items:
+                - name: Entwicklung – Übersicht
+                  href: resilience-app-development-overview.md
+                - name: Clientanwendungen
+                  href: resilience-client-app.md
+                - name: Daemonanwendungen
+                  href: resilience-daemon-app.md
         - name: In Azure verwendete Zertifizierungsstellen
           href: certificate-authorities.md
     - name: Bereitstellungshandbuch
@@ -120,6 +160,8 @@
           href: customize-branding.md
         - name: Konfigurieren von „Angemeldet bleiben?“
           href: keep-me-signed-in.md
+        - name: Ermitteln der Mandanten-ID
+          href: active-directory-how-to-find-tenant.md
         - name: Zuordnen eines Azure-Abonnements
           href: active-directory-how-subscriptions-associated-directory.md
         - name: Hinzufügen Ihrer Datenschutzinformationen

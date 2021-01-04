@@ -7,15 +7,15 @@ ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 08/20/2020
+ms.topic: how-to
+ms.date: 10/28/2020
 ms.author: banders
-ms.openlocfilehash: c24af5a9fb1367e00d9a014b1e10f750a38ad30b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e380aa1f4d50e6ced34254ceca9d899022142f6d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270898"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911289"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Herunterladen oder Anzeigen Ihrer Azure-Rechnungen und täglichen Nutzungsdaten
 
@@ -85,7 +85,7 @@ Sie können die entsprechende Option aktivieren und zusätzliche Empfänger konf
 
     ![Screenshot mit dem Ablauf der Aktivierung](./media/download-azure-invoice-daily-usage-date/invoicesdeeplink01.png)
 
-2. Klicken Sie auf **Aktivieren**, und stimmen Sie den Bedingungen zu.
+2. Klicken Sie auf **Aktivieren** , und stimmen Sie den Bedingungen zu.
 
     ![Screenshot mit dem Ablauf von Schritt 2 der Aktivierung](./media/download-azure-invoice-daily-usage-date/invoicearticlestep02.png)
 
@@ -136,9 +136,7 @@ Sie müssen Unternehmensadministrator, Kontobesitzer oder Abteilungsadministrato
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 1. Suchen Sie nach *Kostenverwaltung + Abrechnung*.
-
-    ![Screenshot, der die Suche im Azure-Portal zeigt](./media/download-azure-invoice-daily-usage-date/portal-cm-billing-search.png)
-
+1. Wenn Sie über Zugriff auf mehrere Abrechnungskonten verfügen, wählen Sie den Abrechnungsbereich für Ihr EA-Abrechnungskonto aus.
 1. Wählen Sie **Verbrauch + Gebühren** aus.
 1. Wählen Sie für den Monat, den Sie herunterladen möchten, **Herunterladen** aus.
 
@@ -165,10 +163,6 @@ Sie können ebenfalls die Monat-bis-Datum-Nutzung für den aktuellen Abrechnungs
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Überprüfen des Zugriffs auf eine Microsoft-Kundenvereinbarung
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
-
-## <a name="need-help-contact-us"></a>Sie brauchen Hilfe? Kontakt
-
-Wenn Sie weitere Fragen haben oder Hilfe benötigen, [erstellen Sie eine Supportanfrage](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

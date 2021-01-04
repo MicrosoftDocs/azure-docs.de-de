@@ -3,17 +3,17 @@ title: Analysieren der Azure-Kosten mit der Power BI-App
 description: In diesem Artikel wird erläutert, wie Sie die Azure Cost Management-Power BI-App installieren und verwenden.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2020
+ms.date: 11/09/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 7282ef9269c1168214fe57d3faa5488e531af8da
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 1c5adf58f670f3cadcedbe710568551004b77b78
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131121"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413240"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analysieren der Kosten mit der Azure Cost Management-Power BI-App für Enterprise Agreements (EA)
 
@@ -44,9 +44,9 @@ So installieren Sie die App:
 7. Wählen Sie **Zu App wechseln** aus.
 8. Wählen Sie unter **Erste Schritte mit Ihrer neuen App** unter **Ihre Daten verbinden** die Option **Verbinden** aus.  
   ![Erste Schritte mit Ihrer neuen App: Verbinden](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-data2.png)
-9. Geben Sie im angezeigten Dialogfeld unter **BillingProfileIdOrEnrollmentNumber** Ihre EA-Registrierungsnummer ein. Geben Sie die Anzahl von Monaten ein, für die Daten abgerufen werden sollen. Übernehmen Sie den Standardwert **Registrierungsnummer** für **Bereich** , und wählen Sie dann **Weiter** aus.  
+9. Geben Sie im angezeigten Dialogfeld unter **BillingProfileIdOrEnrollmentNumber** Ihre EA-Registrierungsnummer ein. Geben Sie die Anzahl von Monaten ein, für die Daten abgerufen werden sollen. Übernehmen Sie den Standardwert **Registrierungsnummer** für **Bereich**, und wählen Sie dann **Weiter** aus.  
   ![Eingeben der EA-Registrierungsinformationen](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
-10. Im nächsten Dialogfeld wird eine Verbindung mit Azure hergestellt, und die für Empfehlungen für reservierte Instanzen erforderlichen Daten werden abgerufen. *Lassen Sie die konfigurierten Standardwerte unverändert* , und wählen Sie **Anmelden** aus.  
+10. Im nächsten Dialogfeld wird eine Verbindung mit Azure hergestellt, und die für Empfehlungen für reservierte Instanzen erforderlichen Daten werden abgerufen. *Lassen Sie die konfigurierten Standardwerte unverändert*, und wählen Sie **Anmelden** aus.  
   ![Screenshot des Dialogfelds „Connect to Azure Cost Management App“ (Verbindung mit Azure Cost Management-App herstellen) mit Standardwerten](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
 11. Im letzten Installationsschritt wird eine Verbindung mit ihrer EA-Registrierung hergestellt und ein [Unternehmensadministratorkonto](../manage/understand-ea-roles.md) benötigt. Wählen Sie **Anmelden** aus, um sich bei Ihrer EA-Registrierung zu authentifizieren. In diesem Schritt wird auch eine Datenaktualisierungsaktion in Power BI gestartet.  
   ![Herstellen einer Verbindung mit der EA-Registrierung](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png)  
@@ -61,9 +61,9 @@ Wählen Sie nach Abschluss der Datenaktualisierung die Azure Cost Management-App
 
 Die folgenden Berichte sind in der App verfügbar:
 
-**Erste Schritte** : Enthält nützliche Links zur Dokumentation und Links zum Abgeben von Feedback.
+**Erste Schritte**: Enthält nützliche Links zur Dokumentation und Links zum Abgeben von Feedback.
 
-**Kontoübersicht** : Der Bericht enthält eine monatliche Zusammenfassung der Informationen, u. a.:
+**Kontoübersicht**: Der Bericht enthält eine monatliche Zusammenfassung der Informationen, u. a.:
 
 - Gebühren für Guthaben
 - Neue Einkäufe
@@ -126,7 +126,7 @@ Ausführliche Informationen zur Verwendung des Berichts finden Sie im Abschnitt 
 
 **RI purchases** (Käufe reservierter Instanzen): Der Bericht zeigt die Käufe reservierter Instanzen im angegebenen Zeitraum.
 
-**Preisblatt** : Der Bericht enthält eine detaillierte Liste der Preise für ein Abrechnungskonto oder eine EA-Registrierung.
+**Preisblatt**: Der Bericht enthält eine detaillierte Liste der Preise für ein Abrechnungskonto oder eine EA-Registrierung.
 
 ## <a name="troubleshoot-problems"></a>Behandeln von Problemen
 
@@ -204,8 +204,8 @@ Nachfolgend sind die über die App verfügbaren Daten zusammengefasst. Die Tabel
 | [**Budgets**](/rest/api/consumption/budgets/get#definitions) | Budgetdetails zum Anzeigen der tatsächlichen Kosten oder Nutzung für vorhandene Budgetziele |
 | [**Preisblätter**](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet#see-also) | Geltende Verbrauchseinheitenpreise für das angegebene Abrechnungsprofil oder die angegebene EA-Registrierung |
 | [**Gebühren für reservierte Instanzen**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges#response) | Gebühren im Zusammenhang mit Ihren reservierten Instanzen in den letzten 24 Monaten |
-| [**Empfehlungen für reservierte Instanzen (gemeinsame Nutzung)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response) | Empfehlungen für den Kauf reservierter Instanzen, basierend auf den Nutzungstrends für alle Ihre Abonnements für die letzten 7, 30 oder 60 Tage |
-| [**Empfehlungen für reservierte Instanzen (Einzelnutzung)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response-1) | Empfehlungen für den Kauf reservierter Instanzen, basierend auf den Nutzungstrends für Ihr Einzelabonnement für die letzten 7, 30 oder 60 Tage |
+| [**Empfehlungen für reservierte Instanzen (gemeinsame Nutzung)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response) | Empfehlungen für den Kauf reservierter Instanzen, basierend auf den Nutzungstrends für alle Ihre Abonnements für die letzten sieben Tage |
+| [**Empfehlungen für reservierte Instanzen (Einzelnutzung)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response-1) | Empfehlungen für den Kauf reservierter Instanzen, basierend auf den Nutzungstrends für Ihr Einzelabonnement für die letzten sieben Tage |
 | [**Nutzungsdetails zu reservierten Instanzen**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#response) | Nutzungsdetails zu Ihren vorhandenen reservierten Instanzen im letzten Monat |
 | [**Nutzungszusammenfassung für reservierte Instanzen**](/rest/api/consumption/reservationssummaries/list) | Tägliche Azure-Reservierungsnutzung in Prozent |
 | [**Nutzungsdetails**](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#usage-details-field-definitions) | Eine Aufschlüsselung der verbrauchten Menge und der geschätzten Gebühren für das jeweilige Abrechnungsprofil in der EA-Registrierung |

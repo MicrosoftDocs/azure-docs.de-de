@@ -2,13 +2,13 @@
 title: Metrikwarnungen von Azure Monitor für Container
 description: In diesem Artikel werden die empfohlenen Metrikwarnungen erläutert, die in Azure Monitor für Container in der öffentlichen Vorschauversion verfügbar sind.
 ms.topic: conceptual
-ms.date: 10/09/2020
-ms.openlocfilehash: 7d9e6cb9a89dfe65777f8bcf507186e24d38a422
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 10/28/2020
+ms.openlocfilehash: 16995246578dc8d3c009253d8384c6d7ff3911d3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308641"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186880"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Empfohlene Metrikwarnungen (Vorschau) aus Azure Monitor für Container
 
@@ -24,7 +24,7 @@ Vergewissern Sie sich, dass folgende Voraussetzungen erfüllt sind, bevor Sie be
 
 * Benutzerdefinierte Metriken sind nur in einigen Azure-Regionen verfügbar. Eine Liste der unterstützten Regionen finden Sie im Abschnitt [Unterstützte Regionen](../platform/metrics-custom-overview.md#supported-regions).
 
-* Zur Unterstützung von Metrikwarnungen und für die Einführung zusätzlicher Metriken ist für Kubernetes-Cluster, die AKS unterstützen, mindestens die Agent-Version **microsoft/oms:ciprod05262020** erforderlich. Für Kubernetes-Cluster, die Azure Arc unterstützen, ist hingegen mindestens die Version **microsoft/oms:ciprod09252020** erforderlich.
+* Zur Unterstützung von Metrikwarnungen und für die Einführung zusätzlicher Metriken ist für Kubernetes-Cluster, die AKS unterstützen, mindestens die Agent-Version **mcr.microsoft.com/azuremonitor/containerinsights/ciprod:ciprod05262020** erforderlich. Für Kubernetes-Cluster, die Azure Arc unterstützen, ist hingegen mindestens die Version **mcr.microsoft.com/azuremonitor/containerinsights/ciprod:ciprod09252020** erforderlich.
 
     Sie haben folgende Möglichkeiten, um zu überprüfen, ob in Ihrem Cluster die neuere Version des Agents ausgeführt wird:
 
@@ -68,15 +68,15 @@ Es gibt allgemeine Eigenschaften für alle diese Warnungsregeln:
 
 Die folgenden warnungsbasierten Metriken weisen im Vergleich zu den anderen Metriken besondere Verhaltensmerkmale auf:
 
-* Die *completedJobsCount* -Metrik wird nur gesendet, wenn Aufträge vorhanden sind, die vor mehr als sechs Stunden abgeschlossen wurden.
+* Die *completedJobsCount*-Metrik wird nur gesendet, wenn Aufträge vorhanden sind, die vor mehr als sechs Stunden abgeschlossen wurden.
 
-* Die *containerRestartCount* -Metrik wird nur gesendet, wenn Container neu gestartet werden.
+* Die *containerRestartCount*-Metrik wird nur gesendet, wenn Container neu gestartet werden.
 
-* Die *oomKilledContainerCount* -Metrik wird nur gesendet, wenn Container aufgrund von Arbeitsspeichermangel beendet wurden.
+* Die *oomKilledContainerCount*-Metrik wird nur gesendet, wenn Container aufgrund von Arbeitsspeichermangel beendet wurden.
 
-* Die Metriken *cpuExceededPercentage* , *memoryRssExceededPercentage* und *memoryWorkingSetExceededPercentage* werden gesendet, wenn die Werte für die CPU-Nutzung, den Arbeitsspeicher-RSS und den Arbeitssatz für Arbeitsspeicher den konfigurierten Schwellenwert (Standardschwellenwert: 95 %) überschreiten. Bei diesen Schwellenwerten ist der für die entsprechende Warnungsregel angegebene Schwellenwert für die Warnungsbedingung nicht enthalten. Das heißt, wenn Sie diese Metriken sammeln und aus dem [Metrik-Explorer](../platform/metrics-getting-started.md) heraus analysieren möchten, empfiehlt es sich, den Schwellenwert in der Konfiguration auf einen niedrigeren Wert als den Schwellenwert für Warnungen festzulegen. Die Konfiguration in Bezug auf die Sammlungseinstellungen für die Schwellenwerte der Containerressourcenauslastung kann in der Datei „ConfigMaps“ im Abschnitt `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` überschrieben werden. Weitere Informationen zum Konfigurieren der Konfigurationsdatei „ConfigMap“ finden Sie im Abschnitt [Konfigurieren von Warnungsmetriken in „ConfigMaps“](#configure-alertable-metrics-in-configmaps).
+* Die Metriken *cpuExceededPercentage*, *memoryRssExceededPercentage* und *memoryWorkingSetExceededPercentage* werden gesendet, wenn die Werte für die CPU-Nutzung, den Arbeitsspeicher-RSS und den Arbeitssatz für Arbeitsspeicher den konfigurierten Schwellenwert (Standardschwellenwert: 95 %) überschreiten. Bei diesen Schwellenwerten ist der für die entsprechende Warnungsregel angegebene Schwellenwert für die Warnungsbedingung nicht enthalten. Das heißt, wenn Sie diese Metriken sammeln und aus dem [Metrik-Explorer](../platform/metrics-getting-started.md) heraus analysieren möchten, empfiehlt es sich, den Schwellenwert in der Konfiguration auf einen niedrigeren Wert als den Schwellenwert für Warnungen festzulegen. Die Konfiguration in Bezug auf die Sammlungseinstellungen für die Schwellenwerte der Containerressourcenauslastung kann in der Datei „ConfigMaps“ im Abschnitt `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` überschrieben werden. Weitere Informationen zum Konfigurieren der Konfigurationsdatei „ConfigMap“ finden Sie im Abschnitt [Konfigurieren von Warnungsmetriken in „ConfigMaps“](#configure-alertable-metrics-in-configmaps).
 
-* Die *pvUsageExceededPercentage* -Metrik wird gesendet, wenn der Nutzungsprozentsatz des persistenten Volumes den konfigurierten Schwellenwert (Standardschwellenwert: 60 %) überschreitet. Bei diesem Schwellenwert ist der für die entsprechende Warnungsregel angegebene Schwellenwert für die Warnungsbedingung nicht enthalten. Das heißt, wenn Sie diese Metriken sammeln und aus dem [Metrik-Explorer](../platform/metrics-getting-started.md) heraus analysieren möchten, empfiehlt es sich, den Schwellenwert in der Konfiguration auf einen niedrigeren Wert als den Schwellenwert für Warnungen festzulegen. Die Konfiguration in Bezug auf die Sammlungseinstellungen für die Schwellenwerte der Nutzung des persistenten Volumes kann in der Datei „ConfigMaps“ im Abschnitt `[alertable_metrics_configuration_settings.pv_utilization_thresholds]` überschrieben werden. Weitere Informationen zum Konfigurieren der Konfigurationsdatei „ConfigMap“ finden Sie im Abschnitt [Konfigurieren von Warnungsmetriken in „ConfigMaps“](#configure-alertable-metrics-in-configmaps). Die Sammlung von Metriken zum persistenten Volume mit Ansprüchen im Namespace *kube-system* ist standardmäßig ausgeschlossen. Um die Sammlung in diesem Namespace zu aktivieren, verwenden Sie den Abschnitt `[metric_collection_settings.collect_kube_system_pv_metrics]` in der Datei „ConfigMap“. Weitere Informationen finden Sie unter [Einstellungen für Metriksammlung](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-agent-config#metric-collection-settings).
+* Die *pvUsageExceededPercentage*-Metrik wird gesendet, wenn der Nutzungsprozentsatz des persistenten Volumes den konfigurierten Schwellenwert (Standardschwellenwert: 60 %) überschreitet. Bei diesem Schwellenwert ist der für die entsprechende Warnungsregel angegebene Schwellenwert für die Warnungsbedingung nicht enthalten. Das heißt, wenn Sie diese Metriken sammeln und aus dem [Metrik-Explorer](../platform/metrics-getting-started.md) heraus analysieren möchten, empfiehlt es sich, den Schwellenwert in der Konfiguration auf einen niedrigeren Wert als den Schwellenwert für Warnungen festzulegen. Die Konfiguration in Bezug auf die Sammlungseinstellungen für die Schwellenwerte der Nutzung des persistenten Volumes kann in der Datei „ConfigMaps“ im Abschnitt `[alertable_metrics_configuration_settings.pv_utilization_thresholds]` überschrieben werden. Weitere Informationen zum Konfigurieren der Konfigurationsdatei „ConfigMap“ finden Sie im Abschnitt [Konfigurieren von Warnungsmetriken in „ConfigMaps“](#configure-alertable-metrics-in-configmaps). Die Sammlung von Metriken zum persistenten Volume mit Ansprüchen im Namespace *kube-system* ist standardmäßig ausgeschlossen. Um die Sammlung in diesem Namespace zu aktivieren, verwenden Sie den Abschnitt `[metric_collection_settings.collect_kube_system_pv_metrics]` in der Datei „ConfigMap“. Weitere Informationen finden Sie unter [Einstellungen für Metriksammlung](./container-insights-agent-config.md#metric-collection-settings).
 
 ## <a name="metrics-collected"></a>Gesammelte Metriken
 
@@ -148,9 +148,9 @@ Die grundlegenden Schritte lauten wie folgt:
 
 2. Wählen Sie zum Bereitstellen einer benutzerdefinierten Vorlage über das Portal die Option **Ressource erstellen** im [Azure-Portal](https://portal.azure.com) aus.
 
-3. Suchen Sie nach **Vorlage** , und wählen Sie dann **Vorlagenbereitstellung** aus.
+3. Suchen Sie nach **Vorlage**, und wählen Sie dann **Vorlagenbereitstellung** aus.
 
-4. Klicken Sie auf **Erstellen** .
+4. Klicken Sie auf **Erstellen**.
 
 5. Es werden mehrere Optionen zum Erstellen einer Vorlage angezeigt. Wählen Sie **Eigene Vorlage im Editor erstellen** aus.
 

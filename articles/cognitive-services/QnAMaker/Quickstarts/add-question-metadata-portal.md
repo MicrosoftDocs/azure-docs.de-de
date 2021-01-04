@@ -1,18 +1,18 @@
 ---
-title: 'Schnellstart: Hinzufügen von Fragen und Antworten im QnA Maker-Portal'
-description: In diesem Schnellstart erfahren Sie, wie Sie Frage-Antwort-Paare mit Metadaten hinzufügen, damit Ihre Benutzer die richtige Antwort auf ihre Frage finden können.
+title: Hinzufügen von Fragen und Antworten im QnA Maker-Portal
+description: In diesem Artikel erfahren Sie, wie Sie Frage-Antwort-Paare mit Metadaten hinzufügen, damit Ihre Benutzer die richtige Antwort auf ihre Frage finden können.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: 930acbd3bbdb8f63b6aa888b292025a76435b289
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 53c0afa1cdb8c9920875b7ba694339107714bd54
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776747"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462203"
 ---
-# <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Schnellstart: Hinzufügen von Fragen und Antworten im QnA Maker-Portal
+# <a name="add-questions-and-answer-with-qna-maker-portal"></a>Hinzufügen von Fragen und Antworten im QnA Maker-Portal
 
 Fügen Sie nach der Erstellung einer Wissensdatenbank Frage-Antwort-Paare (Question and Answer, QnA) mit Metadaten zum Filtern der Antwort hinzu. Die Fragen in der folgenden Tabelle hängen alle mit Azure-Diensteinschränkungen zusammen, wobei sich aber jede auf einen anderen Azure-Suchdienst bezieht.
 
@@ -20,7 +20,7 @@ Fügen Sie nach der Erstellung einer Wissensdatenbank Frage-Antwort-Paare (Quest
 
 |Paar|Fragen|Antwort|Metadaten|
 |--|--|--|--|
-|1|`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`|`service=qna_maker`<br>`link_in_answer=true`|
+|1|`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](../concepts/azure-resources.md) for more details.`|`service=qna_maker`<br>`link_in_answer=true`|
 |2|`How many knowledge bases can I have for my QnA Maker service?`<br><br>`I selected a Azure Cognitive Search tier that holds 15 knowledge bases, but I can only create 14 - what is going on?`<br><br>`What is the connection between the number of knowledge bases in my QnA Maker service and the Azure Cognitive Search service size?` |`Each knowledge base uses 1 index, and all the knowledge bases share a test index. You can have N-1 knowledge bases where N is the number of indexes your Azure Cognitive Search tier supports.`|`service=search`<br>`link_in_answer=false`|
 
 Sobald Metadaten zu einem Frage-Antwort-Paar hinzugefügt wurden, kann die Clientanwendung folgende Aktionen ausführen:
@@ -37,7 +37,7 @@ Sobald Metadaten zu einem Frage-Antwort-Paar hinzugefügt wurden, kann die Clien
 
 1. Melden Sie sich beim [QnA Maker-Portal](https://www.qnamaker.ai) an.
 
-1. Wählen Sie die vorhandene Wissensdatenbank aus der [vorherigen Schnellstartanleitung](../how-to/create-knowledge-base.md) aus.
+1. Wählen Sie die vorhandene Wissensdatenbank aus der [vorherigen Schnellstartanleitung](./create-publish-knowledge-base.md) aus.
 
 ## <a name="add-additional-alternatively-phrased-questions"></a>Hinzufügen zusätzlicher Fragen mit alternativen Formulierungen
 
@@ -62,7 +62,7 @@ Beim Importieren dieser URL wurde nur eine Frage mit einer Antwort erstellt. Fü
 
     Die richtige Antwort wird im Markdownformat zurückgegeben:
 
-    `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`
+    `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](../concepts/azure-resources.md) for more details.`
 
     Wenn Sie unter der zurückgegebenen Antwort **Inspect** (Überprüfen) auswählen, sehen Sie, dass mehrere Antworten zur Frage passen, aber nicht mit der gleichen hohen Zuverlässigkeit.
 

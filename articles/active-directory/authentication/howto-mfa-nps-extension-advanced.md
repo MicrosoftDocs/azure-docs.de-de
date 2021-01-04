@@ -1,36 +1,39 @@
 ---
-title: Konfigurieren der NPS-Erweiterung für Azure MFA – Azure Active Directory
+title: Konfigurieren der NPS-Erweiterung für Azure AD MFA – Azure Active Directory
 description: Befolgen Sie nach dem Installieren der NPS-Erweiterung diese Schritte für die erweiterte Konfigurierung wie zulässige IP-Listen und UPN-Ersetzung.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a9156f84e5189b38a2c15f257bd6a47ac3db130
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6d436414393d77c83acc835110f17e55e491dce1
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964399"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503488"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Erweiterte Konfigurationsoptionen für die NPS-Erweiterung für Multi-Factor Authentication
 
-Die Erweiterung für den Netzwerkrichtlinienserver (Network Policy Server, NPS) erweitert Ihre cloudbasierten Funktionen von Azure Multi-Factor Authentication in Ihre lokale Infrastruktur. In diesem Artikel wird davon ausgegangen, dass Sie die Erweiterung bereits installiert haben und sie nun an Ihre Anforderungen anpassen möchten. 
+Die Erweiterung für den Netzwerkrichtlinienserver (Network Policy Server, NPS) erweitert Ihre cloudbasierten Funktionen von Azure AD Multi-Factor Authentication auf Ihre lokale Infrastruktur. In diesem Artikel wird davon ausgegangen, dass Sie die Erweiterung bereits installiert haben und sie nun an Ihre Anforderungen anpassen möchten.
+
+> [!NOTE]
+> Dieser Artikel enthält Verweise auf den Begriff *Whitelist*, den Microsoft nicht länger verwendet. Sobald der Begriff aus der Software entfernt wurde, wird er auch aus diesem Artikel entfernt.
 
 ## <a name="alternate-login-id"></a>Alternative Anmelde-ID
 
 Da die NPS-Erweiterung eine Verbindung zu Ihren lokalen Verzeichnissen und zu Ihren Cloudverzeichnissen herstellt, tritt möglicherweise ein Problem auf, wenn Ihre lokalen Benutzerprinzipalnamen (User Principal Names, UPNs) nicht mit den Namen in der Cloud übereinstimmen. Verwenden Sie alternative Anmelde-IDs, um dieses Problem zu beheben. 
 
-In der NPS-Erweiterung können Sie ein Active Directory-Attribut festlegen, das anstatt des UPN für Multi-Factor Authentication verwendet wird. Dadurch können Sie Ihre lokalen Ressourcen mit einer zweistufigen Überprüfung schützen, ohne Ihre lokalen UPNs zu ändern. 
+In der NPS-Erweiterung können Sie ein Active Directory-Attribut festlegen, das anstelle des UPN für Azure AD Multi-Factor Authentication verwendet wird. Dadurch können Sie Ihre lokalen Ressourcen mit einer zweistufigen Überprüfung schützen, ohne Ihre lokalen UPNs zu ändern. 
 
 Wechseln Sie zum Konfigurieren alternativer Anmelde-IDs zu `HKLM\SOFTWARE\Microsoft\AzureMfa`, und bearbeiten Sie die folgenden Registrierungswerte:
 
-| Name | type | Standardwert | BESCHREIBUNG |
+| Name | Typ | Standardwert | BESCHREIBUNG |
 | ---- | ---- | ------------- | ----------- |
 | LDAP_ALTERNATE_LOGINID_ATTRIBUTE | string | Leer | Legen Sie den Namen des Active Directory-Attributs fest, das Sie anstelle des UPN verwenden möchten. Dieses Attribut wird als AlternateLoginId-Attribut verwendet. Wenn dieser Registrierungswert auf ein [gültiges Active Directory-Attribut](/windows/win32/adschema/attributes-all) (z.B. mail oder displayName) festgelegt wird, wird der Wert des Attributs anstelle des UPN des Benutzers zur Authentifizierung verwendet. Wenn dieser Registrierungswert leer oder nicht konfiguriert ist, wird AlternateLoginId deaktiviert und der UPN des Benutzers wird zur Authentifizierung verwendet. |
 | LDAP_FORCE_GLOBAL_CATALOG | boolean | False | Verwenden Sie dieses Flag, um die Verwendung des globalen Katalogs für LDAP-Suchvorgänge beim Suchen nach AlternateLoginId zu erzwingen. Konfigurieren Sie einen Domänencontroller als globalen Katalog, fügen Sie das AlternateLoginId-Attribut zum globalen Katalog hinzu, und aktivieren Sie dann dieses Flag. <br><br> Wenn LDAP_LOOKUP_FORESTS konfiguriert (nicht leer) ist, wird **dieses Flag als TRUE erzwungen**, unabhängig vom Wert der Registrierungseinstellung. In diesem Fall erfordert die NPS-Erweiterung, dass der globale Katalog mit dem AlternateLoginId-Attribut für jede Gesamtstruktur konfiguriert werden kann. |
@@ -44,7 +47,7 @@ Wenn Sie die Verfügbarkeit von Servern überwachen müssen, z.B. wenn durch Las
 
 Wechseln Sie zu `HKLM\SOFTWARE\Microsoft\AzureMfa`, um eine Liste zulässiger IP-Adressen zu konfigurieren, und konfigurieren Sie den folgenden Registrierungswert:
 
-| Name | type | Standardwert | BESCHREIBUNG |
+| Name | Typ | Standardwert | BESCHREIBUNG |
 | ---- | ---- | ------------- | ----------- |
 | IP_WHITELIST | string | Leer | Stellen Sie eine durch Semikolons getrennte Liste mit IP-Adressen bereit. Darunter sollten die IP-Adressen der Computer sein, von denen Serviceanforderungen stammen, wie der NAS/VPN-Server. IP-Adressbereiche und Subnetze werden nicht unterstützt. <br><br> Beispiel: *10.0.0.1;10.0.0.2;10.0.0.3*.
 
@@ -55,4 +58,4 @@ Wenn eine Anforderung von einer IP-Adresse eingeht, die in `IP_WHITELIST` enthal
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Auflösen von Fehlermeldungen in der NPS-Erweiterung für Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md)
+[Auflösen von Fehlermeldungen in der NPS-Erweiterung für Azure AD Multi-Factor Authentication](howto-mfa-nps-extension-errors.md)

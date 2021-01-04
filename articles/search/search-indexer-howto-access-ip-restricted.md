@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 0be69b72cc068d017202b0694e24fb4573172dba
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 12943d5d22a9e81c7e99522fa4728f4798549682
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101391"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499950"
 ---
 # <a name="configure-ip-firewall-rules-to-allow-indexer-connections-azure-cognitive-search"></a>Konfigurieren von IP-Firewallregeln zum Zulassen von Indexerverbindungen (Azure Cognitive Search)
 
@@ -77,7 +77,7 @@ Für /32-IP-Adressen lassen Sie das „/32“ weg (52.253.133.74/32 -> 52.253.13
 
 ## <a name="add-the-ip-address-ranges-to-ip-firewall-rules"></a>Hinzufügen von IP-Adressbereichen zu IP-Firewallregeln
 
-Der einfachste Weg, IP-Adressbereiche zur Firewallregel eines Speicherkontos hinzuzufügen, ist über das Azure-Portal. Suchen Sie das Speicherkonto auf dem Portal, und navigieren Sie zur Registerkarte **Firewalls und virtuelle Netzwerke** .
+Der einfachste Weg, IP-Adressbereiche zur Firewallregel eines Speicherkontos hinzuzufügen, ist über das Azure-Portal. Suchen Sie das Speicherkonto auf dem Portal, und navigieren Sie zur Registerkarte **Firewalls und virtuelle Netzwerke**.
 
    ![Firewall und virtuelle Netzwerke](media\search-indexer-howto-secure-access\storage-firewall.png "Firewall und virtuelle Netzwerke")
 
@@ -90,5 +90,5 @@ Die Firewallregeln benötigen 5–10 Minuten für die Aktualisierung. Danach sol
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Konfigurieren von Azure Storage-Firewalls](../storage/common/storage-network-security.md)
-- [Konfigurieren der IP-Firewall für Cosmos DB](../cosmos-db/firewall-support.md)
+- [Konfigurieren der IP-Firewall für Cosmos DB](../cosmos-db/how-to-configure-firewall.md)
 - [Konfigurieren der IP-Firewall für Azure SQL Server](../azure-sql/database/firewall-configure.md)

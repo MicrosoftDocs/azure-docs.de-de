@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: d8a6ead23e080b5e1e17403873e2dbaedc0ce177
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31a1169ca6c2194b8d5564e5d0df50116dd25084
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620357"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505664"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Erste Schritte bei der Azure SQL Managed Instance-Überwachung
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -39,7 +39,7 @@ Der folgende Abschnitt beschreibt die Konfiguration der Überwachung für Ihre v
 
       > [!IMPORTANT]
       > - Verwenden Sie ein Speicherkonto in derselben Region, in der sich auch die verwaltete Instanz befindet, um regionsübergreifende Lese-/Schreibvorgänge zu vermeiden. 
-      > - Wenn sich das Speicherkonto hinter einem virtuellen Netzwerk oder einer Firewall befindet, finden Sie weitere Informationen unter [Gewähren von Zugriff aus einem virtuellen Netzwerk](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network).
+      > - Wenn sich das Speicherkonto hinter einem virtuellen Netzwerk oder einer Firewall befindet, finden Sie weitere Informationen unter [Gewähren von Zugriff aus einem virtuellen Netzwerk](../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network).
       > - Wenn Sie die Beibehaltungsdauer von „0“ (unbegrenzte Aufbewahrung) in einen anderen Wert ändern, beachten Sie, dass die Beibehaltung nur auf Protokolle angewendet wird, die nach dem Ändern des Beibehaltungswerts geschrieben wurden (Protokolle, die in dem Zeitraum geschrieben wurden, in dem die Beibehaltung auf unbegrenzt festgelegt war, bleiben auch nach Aktivieren der Beibehaltung erhalten).
 
    1. Wechseln Sie im Speicherkonto zu **Übersicht**, und klicken Sie auf **Blobs**.
@@ -55,11 +55,11 @@ Der folgende Abschnitt beschreibt die Konfiguration der Überwachung für Ihre v
       ![Symbol zum Erstellen einer Blobcontainerkonfiguration](./media/auditing-configure/3_create_container_config.png)
 
     > [!IMPORTANT]
-    > Kunden, die eine unveränderliche Protokollspeicherung für Überwachungsereignisse auf Server- oder Datenbankebene konfigurieren möchten, sollten den [Anweisungen in Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes) folgen. (Stellen Sie sicher, dass Sie beim Konfigurieren des unveränderlichen Blobspeichers **Weitere Anfügungen zulassen** ausgewählt haben.)
+    > Kunden, die eine unveränderliche Protokollspeicherung für Überwachungsereignisse auf Server- oder Datenbankebene konfigurieren möchten, sollten den [Anweisungen in Azure Storage](../../storage/blobs/storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes) folgen. (Stellen Sie sicher, dass Sie beim Konfigurieren des unveränderlichen Blobspeichers **Weitere Anfügungen zulassen** ausgewählt haben.)
   
 3. Nach dem Erstellen des Containers für die Überwachungsprotokolle gibt es zwei Möglichkeiten, ihn als Ziel für die Überwachungsprotokolle zu konfigurieren: [mit T-SQL](#blobtsql) oder [mithilfe der Benutzeroberfläche von SQL Server Management Studio (SSMS)](#blobssms):
 
-   - <a id="blobtsql"></a>Konfigurieren von Blobspeicher für Überwachungsprotokolle mit T-SQL:
+   - <a id="blobtsql"></a>**Konfigurieren von Blobspeicher für Überwachungsprotokolle mit T-SQL:**
 
      1. Klicken Sie in der Liste der Container auf den neu erstellten Container und dann auf **Containereigenschaften**.
 
@@ -118,9 +118,9 @@ Der folgende Abschnitt beschreibt die Konfiguration der Überwachung für Ihre v
         GO
         ```
 
-        Erstellen Sie als Nächstes eine [Spezifikation für die Serverüberwachung oder die Datenbanküberwachung](#createspec).
+     1. Erstellen Sie als Nächstes eine [Spezifikation für die Serverüberwachung oder die Datenbanküberwachung](#createspec).
 
-   - <a id="blobssms"></a>Konfigurieren von Blobspeicher für Überwachungsprotokolle mit SQL Server Management Studio (SSMS) 18 (Vorschau):
+   - <a id="blobssms"></a>**Konfigurieren von Blobspeicher für Überwachungsprotokolle mit SQL Server Management Studio 18:**
 
      1. Stellen Sie mithilfe der Benutzeroberfläche von SQL Server Management Studio (SSMS) eine Verbindung mit der verwalteten Instanz her.
 
@@ -143,11 +143,11 @@ Der folgende Abschnitt beschreibt die Konfiguration der Überwachung für Ihre v
         ![Auswählen von Azure-Abonnement, Speicherkonto und Blobcontainer](./media/auditing-configure/13_mi_SSMS_select_subscription_account_container.png)
 
      1. Klicken Sie im Dialogfeld **Überwachung erstellen** auf **OK**.
+     
+     1. <a id="createspec"></a>Erstellen und aktivieren Sie nach dem Konfigurieren des Blobcontainers als Ziel für die Überwachungsprotokolle eine Spezifikation für die Serverüberwachung oder die Datenbanküberwachung. Die Vorgehensweise entspricht der für SQL Server:
 
-4. <a id="createspec"></a>Erstellen und aktivieren Sie nach dem Konfigurieren des Blobcontainers als Ziel für die Überwachungsprotokolle eine Spezifikation für die Serverüberwachung oder die Datenbanküberwachung. Die Vorgehensweise entspricht der für SQL Server:
-
-   - [Erstellen einer Spezifikation für die Serverüberwachung – T-SQL-Anleitung](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
-   - [Erstellen einer Spezifikation für die Datenbanküberwachung – T-SQL-Anleitung](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+   - [Erstellen einer Spezifikation für die Serverüberwachung – T-SQL-Anleitung](/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+   - [Erstellen einer Spezifikation für die Datenbanküberwachung – T-SQL-Anleitung](/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
 5. Aktivieren Sie die Serverüberwachung, die Sie in Schritt 3 erstellt haben:
 
@@ -160,8 +160,8 @@ Der folgende Abschnitt beschreibt die Konfiguration der Überwachung für Ihre v
 Weitere Informationen:
 
 - [Überwachungsunterschiede zwischen Datenbanken in Azure SQL Managed Instance und Datenbanken in SQL Server](#auditing-differences-between-databases-in-azure-sql-managed-instance-and-databases-in-sql-server)
-- [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
-- [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
+- [CREATE SERVER AUDIT](/sql/t-sql/statements/create-server-audit-transact-sql)
+- [ALTER SERVER AUDIT](/sql/t-sql/statements/alter-server-audit-transact-sql)
 
 ## <a name="set-up-auditing-for-your-server-to-event-hubs-or-azure-monitor-logs"></a>Einrichten der Überwachung für Ihren Server in Event Hubs oder Azure Monitor-Protokollen
 
@@ -192,8 +192,8 @@ Weitere Informationen:
 
 9. Erstellen und aktivieren Sie eine Spezifikation für die Serverüberwachung oder die Datenbanküberwachung wie für SQL Server:
 
-   - [Erstellen einer Spezifikation für die Serverüberwachung – T-SQL-Anleitung](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
-   - [Erstellen einer Spezifikation für die Datenbanküberwachung – T-SQL-Anleitung](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+   - [Erstellen einer Spezifikation für die Serverüberwachung – T-SQL-Anleitung](/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+   - [Erstellen einer Spezifikation für die Datenbanküberwachung – T-SQL-Anleitung](/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
 10. Aktivieren Sie die Serverüberwachung, die Sie in Schritt 8 erstellt haben:
 
@@ -209,9 +209,9 @@ Weitere Informationen:
 
 Es gibt verschiedene Methoden zum Anzeigen von Blobüberwachungsprotokollen.
 
-- Verwenden Sie die Systemfunktion `sys.fn_get_audit_file` (T-SQL), um die Daten der Überwachungsprotokolle im Tabellenformat zurückzugeben. Weitere Informationen zur Verwendung dieser Funktion finden Sie in der [Dokumentation zu „sys.fn_get_audit_file“](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
+- Verwenden Sie die Systemfunktion `sys.fn_get_audit_file` (T-SQL), um die Daten der Überwachungsprotokolle im Tabellenformat zurückzugeben. Weitere Informationen zur Verwendung dieser Funktion finden Sie in der [Dokumentation zu „sys.fn_get_audit_file“](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
-- Sie können Überwachungsprotokolle mithilfe eines Tools wie [Azure Storage-Explorer](https://azure.microsoft.com/features/storage-explorer/) untersuchen. In Azure Storage werden Überwachungsprotokolle als Sammlung von Blobdateien in einem Container gespeichert, der als Speicher für die Überwachungsprotokolle definiert wurde. Weitere Informationen zur Hierarchie des Speicherordners, zu Namenskonventionen und zum Protokollformat finden Sie in der [Formatreferenz für Blobüberwachungsprotokolle](https://go.microsoft.com/fwlink/?linkid=829599).
+- Sie können Überwachungsprotokolle mithilfe eines Tools wie [Azure Storage-Explorer](https://azure.microsoft.com/features/storage-explorer/) untersuchen. In Azure Storage werden Überwachungsprotokolle als Sammlung von Blobdateien in einem Container gespeichert, der als Speicher für die Überwachungsprotokolle definiert wurde. Weitere Informationen zur Hierarchie des Speicherordners, zu Namenskonventionen und zum Protokollformat finden Sie in der [Formatreferenz für Blobüberwachungsprotokolle](../database/audit-log-format.md).
 
 - Eine vollständige Liste der Nutzungsmethoden für Überwachungsprotokolle finden Sie unter [Erste Schritte bei der Azure SQL-Datenbank-Überwachung](../../azure-sql/database/auditing-overview.md).
 
@@ -223,7 +223,7 @@ Um die Überwachungsprotokolldaten aus Event Hubs zu nutzen, müssen Sie einen S
 
 Wenn die Überwachungsprotokolle in Azure Monitor-Protokolle geschrieben werden, stehen sie im Log Analytics-Arbeitsbereich bereit. Sie können dort erweiterte Suchvorgänge über die Überwachungsdaten ausführen. Navigieren Sie zunächst zum Log Analytics-Arbeitsbereich. Klicken Sie im Abschnitt **Allgemein** auf **Protokolle**, und geben Sie eine einfache Abfrage wie z. B. `search "SQLSecurityAuditEvents"` ein, um die Überwachungsprotokolle anzuzeigen.  
 
-Mithilfe integrierter Suchfunktionen und benutzerdefinierter Dashboards bieten Azure Monitor-Protokolle Ihnen in Echtzeit Erkenntnisse zu Betriebsabläufen, sodass Sie Millionen von Datensätzen für alle Ihre Workloads und Server analysieren können. Weitere nützliche Informationen zur Suchsprache und den Befehlen in Azure Monitor-Protokolle finden Sie unter [Referenz zur Suche in Azure Monitor-Protokolle](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Mithilfe integrierter Suchfunktionen und benutzerdefinierter Dashboards bieten Azure Monitor-Protokolle Ihnen in Echtzeit Erkenntnisse zu Betriebsabläufen, sodass Sie Millionen von Datensätzen für alle Ihre Workloads und Server analysieren können. Weitere nützliche Informationen zur Suchsprache und den Befehlen in Azure Monitor-Protokolle finden Sie unter [Referenz zur Suche in Azure Monitor-Protokolle](../../azure-monitor/log-query/log-query-overview.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 

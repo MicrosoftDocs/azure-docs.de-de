@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 2f61fef58485a905b96bdada32b915106e60d1a8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c2ee32b3ced8fdcd5f9f889c4fd0183e46ad5d8d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425127"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346008"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Verwenden des Warteschlangenspeichers mit Java
 
@@ -152,7 +152,8 @@ final String storageConnectionString =
     "AccountName=your_storage_account;" +
     "AccountKey=your_storage_account_key";
 ```
-Sie können diese Zeichenfolge in der Dienstkonfigurationsdatei namens *ServiceConfiguration.cscfg* speichern. Für eine App, die innerhalb einer Microsoft Azure-Rolle ausgeführt wird, greifen Sie auf die Verbindungszeichenfolge zu, indem Sie **RoleEnvironment.getConfigurationSettings** aufrufen. Dieses Beispiel zeigt, wie die Verbindungszeichenfolge von einem **Setting** -Element mit der Bezeichnung *StorageConnectionString* abgerufen wird:
+
+Sie können diese Zeichenfolge in der Dienstkonfigurationsdatei namens *ServiceConfiguration.cscfg* speichern. Rufen Sie für eine App, die im Rahmen einer Microsoft Azure-Rolle ausgeführt wird, **RoleEnvironment.getConfigurationSettings** auf, um auf die Verbindungszeichenfolge zuzugreifen. Dieses Beispiel zeigt, wie die Verbindungszeichenfolge von einem **Setting** -Element mit der Bezeichnung *StorageConnectionString* abgerufen wird:
 
 ```java
 // Retrieve storage account from connection-string.
@@ -174,7 +175,7 @@ Ein **QueueClient** -Objekt enthält die Vorgänge für die Interaktion mit eine
 
 # <a name="java-v8"></a>[Java v8](#tab/java8)
 
-Mit einem **CloudQueueClient** -Objekt können Sie Referenzobjekte für Warteschlangen abrufen. Der folgende Code erstellt ein **CloudQueueClient** -Objekt. (Hinweis: **CloudStorageAccount** -Objekte können auch noch auf andere Weise erstellt werden. Weitere Informationen finden Sie in der [Referenz für Azure Storage-Client-SDKs] unter **CloudStorageAccount** .
+Mit einem **CloudQueueClient** -Objekt können Sie Referenzobjekte für Warteschlangen abrufen. Der folgende Code erstellt ein **CloudQueueClient** -Objekt. (Hinweis: **CloudStorageAccount** -Objekte können auch noch auf andere Weise erstellt werden. Weitere Informationen finden Sie in der [Referenz für Azure Storage-Client-SDKs] unter **CloudStorageAccount**.
 
 Mithilfe des **CloudQueueClient** -Objekts können Sie einen Verweis auf die Warteschlange abrufen, die Sie verwenden möchten. Sie können die Warteschlange erstellen, wenn sie nicht vorhanden ist.
 
@@ -600,10 +601,10 @@ catch (Exception e)
 
 Nachdem Sie sich nun mit den Grundlagen des Warteschlangenspeichers vertraut gemacht haben, folgen Sie diesen Links, um zu erfahren, wie komplexere Speicheraufgaben ausgeführt werden.
 
-* [Azure Storage-SDK für Java][Azure Storage SDK for Java]
-* [Referenz für Azure Storage-Client-SDKs][Azure Storage Client SDK Reference]
-* [REST-API für Azure-Speicherdienste][Azure Storage Services REST API]
-* [Azure Storage-Teamblog][Azure Storage Team Blog]
+- [Azure Storage-SDK für Java][Azure Storage SDK for Java]
+- [Referenz für Azure Storage-Client-SDKs][Azure Storage Client SDK Reference]
+- [REST-API für Azure-Speicherdienste][Azure Storage Services REST API]
+- [Azure Storage-Teamblog][Azure Storage Team Blog]
 
 [Azure SDK for Java]: https://github.com/azure/azure-sdk-for-java
 [Azure Storage SDK for Java]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage

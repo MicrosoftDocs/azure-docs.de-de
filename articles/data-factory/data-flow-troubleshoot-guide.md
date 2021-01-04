@@ -8,12 +8,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 09/11/2020
-ms.openlocfilehash: 47d1f3c78a303f7a45457a435fa11f074c41d7aa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5f29474705919f402b1c114c3fd2df0df037cdae
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316153"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696063"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Problembehandlung bei Zuordnungsdatenflüssen in Azure Data Factory
 
@@ -118,6 +118,14 @@ Wenn Sie den Datenfluss in einer Debugtestausführung über eine Debugpipelineau
 - **Ursachen**: Die Verknüpfungsbedingung wurde von keiner Zeile erfüllt oder bewirkte eine hohe Anzahl von NULL-Werten in der Datenvorschau.
 - **Empfehlung**: Wechseln Sie zu den Debugeinstellungen, und erhöhen Sie die maximale Anzahl der Quellzeilen. Stellen Sie sicher, dass Sie für Azure IR einen ausreichend großen Datenflusscluster auswählen, um mehr Daten verarbeiten zu können.
 
+### <a name="error-code-validation-error-at-source-with-multiline-csv-files"></a>Fehlercode: Überprüfungsfehler auf Quelle mit mehrzeiligen CSV-Dateien 
+
+- **Meldung**: Unter Umständen wird eine der folgenden Fehlermeldungen angezeigt:
+   - Die letzte Spalte ist NULL oder fehlt.
+   - Fehler bei der Schemaüberprüfung auf der Quelle.
+   - Der Schemaimport kann auf der Benutzeroberfläche nicht richtig angezeigt werden, und der Name der letzten Spalte enthält ein Neue-Zeile-Zeichen.
+- **Ursachen**: Im Zuordnungsdatenfluss funktioniert die mehrzeilige CSV-Quelle derzeit nicht mit „\r\n“ als Zeilentrennzeichen. Zusätzliche Zeilen bei Wagenrückläufen können ggf. zu einer Beschädigung der Quellenwerte führen. 
+- **Empfehlung**: Generieren Sie die Datei auf der Quelle mit „\n“ als Zeilentrennzeichen (anstelle von „\r\n“). Alternativ können Sie die Kopieraktivität nutzen, um in der CSV-Datei „\r\n“ durch „\n“ als Zeilentrennzeichen zu ersetzen.
 
 ## <a name="general-troubleshooting-guidance"></a>Allgemeine Anleitungen zur Problembehandlung
 
@@ -131,7 +139,7 @@ Weitere Informationen zur Problembehandlung finden Sie in diesen Ressourcen:
 *  [Data Factory-Blog](https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog)
 *  [Data Factory-Funktionsanfragen](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure-Videos](https://www.youtube.com/channel/UC2S0k7NeLcEm5_IhHUwpN0g/videos)
-*  [Frageseite von Microsoft Q&A (Fragen und Antworten)](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+*  [Frageseite von Microsoft Q&A (Fragen und Antworten)](/answers/topics/azure-data-factory.html)
 *  [Stack Overflow-Forum für Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter-Informationen über Data Factory](https://twitter.com/hashtag/DataFactory)
 *  [Anleitung zur Leistung und Optimierung der Mapping Data Flow-Funktion](concepts-data-flow-performance.md)

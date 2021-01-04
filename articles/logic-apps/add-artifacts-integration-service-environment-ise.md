@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: dc4798df05b760074ff06d95d9712204a3cf3e5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 147247c663311cfb3e05a986c6fb2bffbb41158b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269742"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675199"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Hinzufügen von Ressourcen zu Ihrer Integrationsdienstumgebung (Integration Service Environment, ISE) in Azure Logic Apps
 
@@ -47,10 +47,10 @@ Führen Sie die folgenden Schritte aus, um Logik-Apps zu erstellen, die in Ihrer
    | **Name** | Ja | Der Name der zu erstellenden Logik-App. |
    | **Abonnement** | Ja | Der Name des zu verwendenden Azure-Abonnements |
    | **Ressourcengruppe** | Ja | Der Name der (neuen oder vorhandenen) zu verwendenden Ressourcengruppe in Azure. |
-   | **Location** | Ja | Wählen Sie unter **Integrationsdienstumgebungen** die zu verwendende ISE aus, sofern diese nicht bereits ausgewählt ist. <p><p> **Wichtig**: Um Ihre Logik-Apps mit einem Integrationskonto zu verwenden, müssen beide dieselbe ISE verwenden. |
+   | **Location** | Ja | Wählen Sie unter **Integrationsdienstumgebungen** die zu verwendende ISE aus, sofern diese nicht bereits ausgewählt ist. <p><p> **Wichtig** : Um Ihre Logik-Apps mit einem Integrationskonto zu verwenden, müssen beide dieselbe ISE verwenden. |
    ||||
 
-1. Wählen Sie **Erstellen**, wenn Sie fertig sind.
+1. Wählen Sie **Erstellen** , wenn Sie fertig sind.
 
 1. Fahren Sie wie gewohnt mit der [Erstellung Ihrer Logik-App](../logic-apps/quickstart-create-first-logic-app-workflow.md) fort.
 
@@ -80,10 +80,10 @@ Führen Sie die folgenden Schritte aus, um ein Integrationskonto zu erstellen, d
    | **Abonnement** | Ja | Der Name des zu verwendenden Azure-Abonnements. |
    | **Ressourcengruppe** | Ja | Der Name der (neuen oder vorhandenen) zu verwendenden Ressourcengruppe in Azure. |
    | **Preisstufe** | Ja | Der für das Integrationskonto zu verwendende Tarif. |
-   | **Location** | Ja | Wählen Sie unter **Integrationsdienstumgebungen** dieselbe ISE aus, die Ihre Logik-Apps verwenden, sofern diese nicht bereits ausgewählt ist. <p><p> **Wichtig**: Um Ihr Integrationskonto mit Logik-Apps zu verwenden, müssen beide dieselbe ISE verwenden. |
+   | **Location** | Ja | Wählen Sie unter **Integrationsdienstumgebungen** dieselbe ISE aus, die Ihre Logik-Apps verwenden, sofern diese nicht bereits ausgewählt ist. <p><p> **Wichtig** : Um Ihr Integrationskonto mit Logik-Apps zu verwenden, müssen beide dieselbe ISE verwenden. |
    ||||
 
-1. Wählen Sie **Erstellen**, wenn Sie fertig sind.
+1. Wählen Sie **Erstellen** , wenn Sie fertig sind.
 
 1. [Verknüpfen Sie Ihre Logik-App wie gewohnt mit Ihrem Integrationskonto.](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account)
 
@@ -95,7 +95,21 @@ Führen Sie die folgenden Schritte aus, um ein Integrationskonto zu erstellen, d
 
 ## <a name="add-ise-connectors"></a>Hinzufügen von ISE-Connectors
 
-Von Microsoft verwaltete ISE-Connectors, die nach dem Erstellen der ISE verfügbar werden, werden nicht automatisch in der Connectorauswahl im Logik-App-Designer angezeigt. Bevor Sie diese ISE-Connectors verwenden können, müssen Sie diese Connectors manuell Ihrer ISE hinzufügen und bereitstellen, damit Sie im Logik-App-Designer angezeigt werden.
+Nach dem Erstellen der ISE werden die verwalteten ISE-Connectors nicht automatisch in der Connectorauswahl im Logik-App-Designer aufgeführt. Bevor Sie diese ISE-Connectors verwenden können, müssen Sie diese Connectors manuell Ihrer ISE hinzufügen und bereitstellen, damit Sie im Logik-App-Designer angezeigt werden.
+
+> [!IMPORTANT]
+> Verwaltete ISE-Connectors unterstützen zurzeit keine [Tags](../azure-resource-manager/management/tag-support.md). Wenn Sie eine Richtlinie einrichten, die Tagging erzwingt, tritt beim Versuch, ISE-Connectors hinzuzufügen, möglicherweise ein Fehler ähnlich dem folgenden Beispiel auf:
+> 
+> ```json
+> {
+>    "error": { 
+>       "code": "IntergrationServiceEnvironmentManagedApiDefinitionTagsNotSupported", 
+>       "message": "The tags are not supported in the managed API 'azureblob'."
+>    }
+> }
+> ```
+> 
+> Zum Hinzufügen von ISE-Connectors müssen Sie daher Ihre Richtlinie entweder deaktivieren oder entfernen. 
 
 1. Wählen Sie im ISE-Menü unter **Einstellungen** die Option **Verwaltete Connectors** aus. Wählen Sie auf der Symbolleiste **Hinzufügen** aus.
 

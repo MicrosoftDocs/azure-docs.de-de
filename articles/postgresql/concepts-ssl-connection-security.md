@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/08/2020
 ms.openlocfilehash: c98ee8f747975d4237c2906be2060eddbc7b9990
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123268"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000945"
 ---
 # <a name="configure-tls-connectivity-in-azure-database-for-postgresql---single-server"></a>Konfigurieren der TLS-Konnektivität in Azure Database for PostgreSQL (Einzelserver)
 
@@ -20,7 +20,7 @@ Azure Database for PostgreSQL bevorzugt das Herstellen einer Verbindung zwischen
 Standardmäßig ist der PostgreSQL-Datenbankdienst so konfiguriert, dass TLS-Verbindungen erforderlich sind. Sie können das Erfordern von TLS deaktivieren, wenn Ihre Clientanwendung keine TLS-Verbindungen unterstützt.
 
 >[!NOTE]
-> Basierend auf dem Feedback von Kunden haben wir die eingestellte Unterstützung des Stammzertifikats für unsere vorhandene Baltimore-Stamm Zertifizierungsstelle bis zum 15. Februar 2021 (15.02.2021) verlängert.
+> Basierend auf dem Feedback von Kunden haben wir die eingestellte Unterstützung des Stammzertifikats für unsere vorhandene Baltimore-Stammzertifizierungsstelle bis zum 15. Februar 2021 (15.02.2021) verlängert.
 
 > [!IMPORTANT] 
 > Das SSL-Stammzertifikat wird ab dem 15. Februar 2021 (15.02.2021) auslaufen. Aktualisieren Sie Ihre Anwendung bitte mithilfe des [neuen Zertifikats](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). Weitere Informationen finden Sie unter [Geplante Zertifikatupdates](concepts-certificate-rotation.md)
@@ -38,11 +38,11 @@ Sie können die Erzwingung von TLS-Verbindungen optional deaktivieren. Microsoft
 
 ### <a name="using-the-azure-portal"></a>Verwenden des Azure-Portals
 
-Rufen Sie Ihren Azure-Datenbank für PostgreSQL-Server auf, und klicken Sie auf **Verbindungssicherheit** . Verwenden Sie die Umschaltfläche, um die Einstellung **SSL-Verbindung erzwingen** zu aktivieren/deaktivieren. Klicken Sie dann auf **Speichern** .
+Rufen Sie Ihren Azure-Datenbank für PostgreSQL-Server auf, und klicken Sie auf **Verbindungssicherheit**. Verwenden Sie die Umschaltfläche, um die Einstellung **SSL-Verbindung erzwingen** zu aktivieren/deaktivieren. Klicken Sie dann auf **Speichern**.
 
 :::image type="content" source="./media/concepts-ssl-connection-security/1-disable-ssl.png" alt-text="Verbindungssicherheit: Erzwingung von TLS/SSL deaktivieren":::
 
-Bestätigen Sie die Einstellung auf der Seite **Übersicht** , indem Sie den Indikator für den **SSL-Erzwingungsstatus** anzeigen.
+Bestätigen Sie die Einstellung auf der Seite **Übersicht**, indem Sie den Indikator für den **SSL-Erzwingungsstatus** anzeigen.
 
 ### <a name="using-azure-cli"></a>Verwenden der Azure-Befehlszeilenschnittstelle
 
@@ -81,7 +81,7 @@ Azure Database for PostgreSQL (Einzelserver) unterstützt Verschlüsselung für 
 
 ### <a name="tls-settings"></a>TLS-Einstellungen
 
-Azure Database for PostgreSQL (Einzelserver) bietet die Möglichkeit, die TLS-Version für die Clientverbindungen vorzuschreiben. Um die TLS-Version zu erzwingen, verwenden Sie die Optionseinstellung **TLS-Mindestversion** . Für diese Optionseinstellung sind die folgenden Werte zulässig:
+Azure Database for PostgreSQL (Einzelserver) bietet die Möglichkeit, die TLS-Version für die Clientverbindungen vorzuschreiben. Um die TLS-Version zu erzwingen, verwenden Sie die Optionseinstellung **TLS-Mindestversion**. Für diese Optionseinstellung sind die folgenden Werte zulässig:
 
 |  TLS-Mindesteinstellung             | Unterstützte Client-TLS-Version                |
 |:---------------------------------|-------------------------------------:|
@@ -102,9 +102,9 @@ Informationen zum Festlegen der TLS-Einstellung für Ihren Azure Database for Po
 
 ## <a name="cipher-support-by-azure-database-for-postgresql-single-server"></a>Unterstützung für Verschlüsselungsverfahren durch Azure Database for PostgreSQL – Einzelserver
 
-Im Rahmen der SSL/TLS-Kommunikation werden die Verschlüsselungssammlungen überprüft. Nur Sammlungen, die mit dem Datenbankserver kommunizieren dürfen, werden zugelassen. Die Überprüfung der Verschlüsselungssammlungen wird in der [Gatewayschicht](concepts-connectivity-architecture.md#connectivity-architecture) gesteuert, nicht explizit auf dem Knoten selbst. Wenn die Sammlungen keiner der unten aufgeführten Sammlungen entsprechen, werden eingehende Clientverbindungen abgelehnt.
+Im Rahmen der SSL/TLS-Kommunikation werden die Verschlüsselungssammlungen überprüft. Nur Sammlungen, die mit dem Datenbankserver kommunizieren dürfen, werden zugelassen. Die Überprüfung der Verschlüsselungssammlungen wird in der [Gatewayschicht](concepts-connectivity-architecture.md#connectivity-architecture) gesteuert, nicht explizit im Knoten selbst. Wenn die Sammlungen keiner der unten aufgeführten Sammlungen entsprechen, werden eingehende Clientverbindungen abgelehnt.
 
-### <a name="cipher-suite-supported"></a>Unterstützte Verschlüsselungssammlung
+### <a name="cipher-suite-supported"></a>Unterstützte Verschlüsselungssammlungen
 
 *   TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 *   TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256

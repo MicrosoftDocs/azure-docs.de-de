@@ -1,6 +1,6 @@
 ---
-title: Entwerfen einer Strategie zum Laden von PolyBase-Daten für einen SQL-Pool
-description: Entwerfen Sie einen ELT- (Extrahieren, Laden und Transformieren) anstelle eines ETL-Prozesses zum Laden von Daten oder für den SQL-Pool.
+title: Entwerfen einer Strategie zum Laden von PolyBase-Daten für einen dedizierten SQL-Pool
+description: Entwerfen Sie einen ELT-Prozess (Extrahieren, Laden und Transformieren) anstelle eines ETL-Prozesses zum Laden von Daten mit dediziertem SQL.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d96604cd23f49ff61dce2087fde2c13b8fa2069d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a57abd080bdbbaefbe07258a2b241c093dc8c441
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89483727"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308735"
 ---
-# <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Entwerfen einer Strategie für den Azure Synapse SQL-Pool zum Laden von PolyBase-Daten
+# <a name="design-a-polybase-data-loading-strategy-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Entwerfen einer Strategie zum Laden von PolyBase-Daten für einen dedizierten SQL-Pool in Azure Synapse Analytics
 
-In herkömmlichen SMP-Data Warehouses wird zum Laden von Daten ein ETL-Prozess (Extrahieren, Transformieren und Laden) verwendet. Der Azure SQL-Pool ist eine Architektur mit massiver Parallelverarbeitung (MPP), die die Vorteile der Skalierbarkeit und Flexibilität von Compute- und Speicherressourcen nutzt. Ein ELT-Prozess (Extrahieren, Laden, Transformieren) kann die Vorteile von MPP nutzen und Ressourcen entfernen, die vor dem Laden zum Transformieren der Daten erforderlich sind.
+In herkömmlichen SMP-Data Warehouses wird zum Laden von Daten ein ETL-Prozess (Extrahieren, Transformieren und Laden) verwendet. Der Azure SQL-Pool ist eine Architektur mit massiver Parallelverarbeitung (MPP), die die Vorteile der Skalierbarkeit und Flexibilität von Compute- und Speicherressourcen nutzt. Ein ELT-Prozess (Extrahieren, Laden, Transformieren) kann die Vorteile von integrierten verteilten Abfrageverarbeitungsfunktionen nutzen und Ressourcen beseitigen, die vor dem Laden zum Transformieren der Daten erforderlich sind.
 
 Auch wenn der SQL-Pool viele Lademethoden unterstützt (u. a. Nicht-PolyBase-Optionen wie BCP und die SQL-BulkCopy-API), stellt PolyBase die schnellste und am besten skalierbare Möglichkeit zum Laden von Daten dar.  PolyBase ist eine Technologie, die über die T-SQL-Sprache auf externe Daten zugreift, die in Azure Blob Storage oder Azure Data Lake Storage gespeichert sind.
 
@@ -29,12 +29,12 @@ Auch wenn der SQL-Pool viele Lademethoden unterstützt (u. a. Nicht-PolyBase-Op
 
 ELT (Extrahieren, Laden und Transformieren) ist ein Prozess, bei dem Daten aus einem Quellsystem extrahiert, in ein Data Warehouse geladen und anschließend transformiert werden.
 
-Die grundlegenden Schritte zum Implementieren eines PolyBase-ETL-Prozesses für den SQL-Pool sind:
+Grundlegende Schritte zum Implementieren eines PolyBase-ELT-Prozesses für den dedizierten SQL-Pool:
 
 1. Extrahieren Sie die Quelldaten in Textdateien.
 2. Legen Sie die Daten in Azure Blob Storage oder Azure Data Lake Store ab.
 3. Bereiten Sie die Daten für das Laden vor.
-4. Laden Sie die Daten mit PolyBase in Stagingtabellen des SQL-Pools.
+4. Laden Sie die Daten mithilfe von PolyBase in die Stagingtabellen des dedizierten SQL-Pools.
 5. Transformieren Sie die Daten.
 6. Fügen Sie die Daten in Produktionstabellen ein.
 
@@ -85,11 +85,11 @@ Tools und Dienste, mit denen Sie Daten in Azure Storage verschieben können:
 
 - Der [Azure ExpressRoute](../../expressroute/expressroute-introduction.md)-Dienst verbessert Netzwerkdurchsatz, Leistung und Vorhersagbarkeit. ExpressRoute ist ein Dienst, der Ihre Daten über eine dedizierte private Verbindung zu Azure weiterleitet. Bei ExpressRoute-Verbindungen werden Daten nicht über das öffentliche Internet weitergeleitet. Die Verbindungen bieten mehr Zuverlässigkeit, eine höhere Geschwindigkeit, niedrigere Latenzzeiten und mehr Sicherheit als herkömmliche Verbindungen über das öffentliche Internet.
 - Das Hilfsprogramm [AZCopy](../../storage/common/storage-use-azcopy-v10.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) verschiebt Daten über das öffentliche Internet in Azure Storage. Dies funktioniert, wenn Ihre Datenmengen weniger als 10 TB umfassen. Wenn Sie Ladevorgänge in regelmäßigen Abständen mit AZCopy ausführen möchten, testen Sie die Netzwerkgeschwindigkeit, um festzustellen, ob sie geeignet ist.
-- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) verfügt über ein Gateway, das Sie auf dem lokalen Server installieren können. Anschließend können Sie eine Pipeline erstellen, um Daten vom lokalen Server in Azure Storage zu verschieben. Weitere Informationen zum Verwenden der Data Factory mit dem SQL-Pool finden Sie unter [Laden von Daten in den SQL-Pool](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) verfügt über ein Gateway, das Sie auf dem lokalen Server installieren können. Anschließend können Sie eine Pipeline erstellen, um Daten vom lokalen Server in Azure Storage zu verschieben. Weitere Informationen zum Verwenden der Data Factory mit dem dedizierten SQL-Pool finden Sie unter [Laden von Daten in Azure Synapse Analytics mithilfe von Azure Data Factory](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ## <a name="3-prepare-the-data-for-loading"></a>3. Vorbereiten der Daten für das Laden
 
-Möglicherweise müssen Sie die Daten in Ihrem Speicherkonto vorbereiten und bereinigen, bevor Sie sie in den SQL-Pool laden. Die Datenvorbereitung kann durchgeführt werden, während sich Ihre Daten in der Quelle befinden, während Sie die Daten in Textdateien exportieren oder nachdem sich die Daten in Azure Storage befinden.  Am einfachsten ist es, so früh wie möglich im Prozess mit den Daten zu arbeiten.  
+Möglicherweise müssen Sie die Daten in Ihrem Speicherkonto vorbereiten und bereinigen, bevor Sie sie in den dedizierten SQL-Pool laden. Die Datenvorbereitung kann durchgeführt werden, während sich Ihre Daten in der Quelle befinden, während Sie die Daten in Textdateien exportieren oder nachdem sich die Daten in Azure Storage befinden.  Am einfachsten ist es, so früh wie möglich im Prozess mit den Daten zu arbeiten.  
 
 ### <a name="define-external-tables"></a>Definieren externer Tabellen
 
@@ -110,9 +110,9 @@ So formatieren Sie die Textdateien
 - Formatieren Sie die Daten in der Textdatei so, dass sie mit den Spalten und Datentypen in der Zieltabelle des SQL-Pools übereinstimmen. Eine Nichtübereinstimmung zwischen den Datentypen in den externen Textdateien und der Data Warehouse-Tabelle führt dazu, dass Zeilen beim Laden zurückgewiesen werden.
 - Trennen Sie Felder in der Textdatei mit einem Abschlusszeichen.  Stellen Sie sicher, dass Sie ein Zeichen oder eine Zeichenfolge verwenden, die nicht in Ihren Quelldaten enthalten ist. Verwenden Sie das durch [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) angegebene Abschlusszeichen.
 
-## <a name="4-load-the-data-into-sql-pool-staging-tables-using-polybase"></a>4. Laden der Daten in die Stagingtabellen des SQL-Pools mithilfe von PolyBase
+## <a name="4-load-the-data-into-dedicated-sql-pool-staging-tables-using-polybase"></a>4. Laden der Daten in die Stagingtabellen des dedizierten SQL-Pools mithilfe von PolyBase
 
-Es hat sich bewährt, die Daten in eine Stagingtabelle zu laden. Stagingtabellen ermöglichen das Behandeln von Fehlern, ohne die Produktionstabellen zu beeinträchtigen. Eine Stagingtabelle bietet Ihnen außerdem die Möglichkeit, Datentransformationen mit SQL Pool-MPP durchzuführen, bevor die Daten in Produktionstabellen eingefügt werden.
+Es hat sich bewährt, die Daten in eine Stagingtabelle zu laden. Stagingtabellen ermöglichen das Behandeln von Fehlern, ohne die Produktionstabellen zu beeinträchtigen. Eine Stagingtabelle bietet Ihnen außerdem die Möglichkeit, in SQL-Pool integrierte verteilte Abfrageverarbeitungsfunktionen für Datentransformationen zu verwenden, bevor die Daten in Produktionstabellen eingefügt werden.
 
 ### <a name="options-for-loading-with-polybase"></a>Optionen beim Laden mit PolyBase
 
@@ -125,7 +125,7 @@ Um Daten mit PolyBase zu laden, können Sie eine der folgenden Ladeoptionen nutz
 
 ### <a name="non-polybase-loading-options"></a>Nicht von PolyBase stammende Ladeoptionen
 
-Wenn Ihre Daten nicht mit PolyBase kompatibel sind, können Sie [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) oder die [SQLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) verwenden. Mit „bcp“ werden Daten direkt in den SQL-Pool geladen, ohne Azure Blob Storage zu durchlaufen. Daher ist es nur für kleine Workloads konzipiert. Beachten Sie, dass die Leistung dieser Optionen beim Laden wesentlich langsamer ist als bei PolyBase.
+Wenn Ihre Daten nicht mit PolyBase kompatibel sind, können Sie [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) oder die [SQLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) verwenden. Mit „bcp“ werden Daten direkt in den dedizierten SQL-Pool geladen, ohne Azure Blob Storage zu durchlaufen. Daher ist es nur für kleine Lasten konzipiert. Beachten Sie, dass die Leistung dieser Optionen beim Laden wesentlich langsamer ist als bei PolyBase.
 
 ## <a name="5-transform-the-data"></a>5. Transformieren der Daten
 

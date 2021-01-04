@@ -16,12 +16,12 @@ ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9411c22183620f883b4d2819eb3078e49837e578
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ec05c4160c6502904644bf7035bda0bed66cc33
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016077"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413189"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-Synchronisierung: Mit Azure Active Directory synchronisierte Attribute
 In diesem Thema werden die Attribute aufgelistet, die bei der Azure AD Connect-Synchronisierung synchronisiert werden.  
@@ -373,7 +373,7 @@ In diesem Fall beginnen Sie mit der in diesem Thema angegebenen Liste von Attrib
 Diese Gruppe umfasst einen Satz von Attributen. Es handelt sich um die Attribute, die für eine generische Workload oder Anwendung mindestens benötigt werden. Dieser Attributsatz kann für eine oben nicht aufgeführte Workload oder für eine Nicht-Microsoft-App verwendet werden. Der Satz wird explizit für Folgendes verwendet:
 
 * Yammer (nur „Benutzer“ wird genutzt)
-* [Organisationsübergreifende Hybrid-B2B-Zusammenarbeit über Ressourcen wie SharePoint (siehe SharePoint Business to Business Collaboration: Extranet for Partners with Office 365 (SharePoint Business-to-Business-Zusammenarbeit: Extranet für Partner mit Office 365))](https://go.microsoft.com/fwlink/?LinkId=747036)
+* [Organisationsübergreifende Hybrid-B2B-Zusammenarbeit über Ressourcen wie SharePoint (siehe SharePoint Business to Business Collaboration: Extranet for Partners with Office 365 (SharePoint Business-to-Business-Zusammenarbeit: Extranet für Partner mit Office 365))](/sharepoint/create-b2b-extranet)
 
 Diese Gruppe umfasst mehrere Attribute, die verwendet werden können, wenn das Azure AD-Verzeichnis nicht zur Unterstützung von Microsoft 365, Dynamics oder Intune verwendet wird. Er umfasst eine kleine Gruppe von Kernattributen. Beachten Sie, dass für das einmalige Anmelden oder die Bereitstellung für einige Drittanbieteranwendungen zusätzlich zu den hier beschriebenen Attributen das Konfigurieren der Synchronisierung von Attributen erforderlich ist. Die Anwendungsanforderungen werden im [Tutorial zur Saas-Anwendung](../saas-apps/tutorial-list.md) für jede Anwendung beschrieben.
 
@@ -420,7 +420,7 @@ Diese Attribute für **Benutzer** ergänzen die anderen Apps, die Sie ausgewähl
 | msDS-KeyCredentialLink |X |Nach der Registrierung des Benutzers in Windows Hello für Business | 
 
 ## <a name="exchange-hybrid-writeback"></a>Exchange-Hybridrückschreiben
-Diese Attribute werden vom Azure AD in das lokale Active Directory zurückgeschrieben, wenn Sie **Exchange-Hybrid**aktivieren. Abhängig von Ihrer Exchange-Version werden möglicherweise weniger Attribute synchronisiert.
+Diese Attribute werden vom Azure AD in das lokale Active Directory zurückgeschrieben, wenn Sie **Exchange-Hybrid** aktivieren. Abhängig von Ihrer Exchange-Version werden möglicherweise weniger Attribute synchronisiert.
 
 | Attributname (lokales AD) | Attributname (Connect-Benutzeroberfläche) | Benutzer | Kontakt | Group | Comment |
 | --- |:---:|:---:|:---:| --- |---|

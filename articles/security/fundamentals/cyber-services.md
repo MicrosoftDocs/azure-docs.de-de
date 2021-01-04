@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: terrylan
-ms.openlocfilehash: fa873baa2d2006164536dd26e040ffbf5cdd51cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14ff56c32fb1fb6ef2fef862e50277e8ef3e5b81
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85123982"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412883"
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>Microsoft-Dienste in der Sicherheit im Internet
 
@@ -37,7 +37,7 @@ Hier erfahren Sie mehr über die Leistungen von Microsoft-Dienste:
 * [Offline Assessment for Active Directory Security](https://download.microsoft.com/download/1/C/1/1C15BA51-840E-498D-86C6-4BD35D33C79E/Prerequisites_Offline_AD.pdf)
 * [Enhanced Security Administration Environment](https://download.microsoft.com/download/A/C/5/AC5D21A6-E04B-4DC4-B1F2-AE060319A4D7/Premier_Support_for_Security/Popis/Enhanced-Security-Admin-Environment-Solution-Datasheet-%5BEN%5D.pdf)
 * [Azure Active Directory Implementation Services](https://download.microsoft.com/download/0/7/F/07FA8BFC-17D5-4F55-AD4F-3A987A7324AA/azure-active-directory-implementation-services-solution-brief.pdf)
-* [POP - Securing Lateral Account Movement (SLAM) Credential Theft Mitigation](https://docs.microsoft.com/azure-advanced-threat-protection/use-case-lateral-movement-path)
+* [POP - Securing Lateral Account Movement (SLAM) Credential Theft Mitigation](/azure-advanced-threat-protection/use-case-lateral-movement-path)
 * [Respond and recover after a security incident](/microsoft-365/compliance/gdpr-breach-microsoft-support-professional-services#data-protection-incident-response-overview)
 
 [Erfahren Sie mehr](https://aka.ms/cyberserv) über die Sicherheits-Consulting Services der Microsoft-Dienste.

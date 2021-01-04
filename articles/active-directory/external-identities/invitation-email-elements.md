@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1e1bbdfe1cb83f9b479861840081cd0bb138957
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: bb134a2fb784e02f5e00c9e88ab0df1794489e0c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441877"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860591"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Die Elemente der Einladungs-E-Mail für die B2B-Zusammenarbeit – Azure Active Directory
 
@@ -85,10 +85,10 @@ Sie können als Gastbenutzer die folgenden Schritte ausführen, um die von Ihnen
 
 Die den Gastbenutzern in der Einladungs-E-Mail angezeigte Sprache richtet sich nach den folgenden Einstellungen. Diese Einstellungen sind in der Reihenfolge ihres Auftretens aufgeführt. Wenn eine Einstellung nicht konfiguriert ist, bestimmt die nächste Einstellung in der Liste die Sprache.
 
-- Die **messageLanguage** -Eigenschaft des [invitedUserMessageInfo](/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0)-Objekts, wenn die API zum Erstellen von Einladungen verwendet wird
--   Die **preferredLanguage** -Eigenschaft, die im [user-Objekt](/graph/api/resources/user?view=graph-rest-1.0) des Gasts angegeben ist
--   Die **Benachrichtigungssprache** , die in den Eigenschaften des Stammmandanten des Gastbenutzers (nur bei Azure AD-Mandanten) festgelegt wurde
--   Die **Benachrichtigungssprache** , die in den Eigenschaften des Ressourcenmandanten festgelegt ist
+- Die **messageLanguage**-Eigenschaft des [invitedUserMessageInfo](/graph/api/resources/invitedusermessageinfo)-Objekts, wenn die API zum Erstellen von Einladungen verwendet wird
+-   Die **preferredLanguage**-Eigenschaft, die im [user-Objekt](/graph/api/resources/user) des Gasts angegeben ist
+-   Die **Benachrichtigungssprache**, die in den Eigenschaften des Stammmandanten des Gastbenutzers (nur bei Azure AD-Mandanten) festgelegt wurde
+-   Die **Benachrichtigungssprache**, die in den Eigenschaften des Ressourcenmandanten festgelegt ist
 
 Wenn keine dieser Einstellungen konfiguriert wurde, wird als Standardsprache „Englisch (USA)“ verwendet.
 

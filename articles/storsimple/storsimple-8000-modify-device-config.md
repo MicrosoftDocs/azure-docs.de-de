@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: a08ddae1d10cc8b26f3aa7ee85e731c2cea15f93
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5eb5c351462279fe5c4f790e052f73201d211cfb
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962886"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961174"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Verwenden des StorSimple-Geräte-Manager-Diensts zum Ändern der StorSimple-Gerätekonfiguration
 
@@ -65,7 +65,7 @@ Ihr Gerät muss die Zeit synchronisieren, damit es sich beim Cloudspeicher-Diens
 
  Wählen Sie in der Dropdownliste Ihre Zeitzone aus. Sie können bis zu zwei NTP-Server (Network Time Protocol, Netzwerkzeitprotokoll) angeben:
 
- - **Primärer NTP-Server**: Die Konfiguration ist erforderlich und wird angegeben, wenn Sie das Gerät über Windows PowerShell für StorSimple konfigurieren. Sie können den standardmäßigen Windows-Server **time.windows.com** als Ihren NTP-Server angeben. Sie können die Konfiguration des primären NTP-Servers zwar über das Azure-Portal anzeigen, wenn Sie die Konfiguration ändern möchten, müssen Sie aber die Windows PowerShell-Schnittstelle verwenden. Verwenden Sie das Cmdlet `Set-HcsNTPClientServerAddress`, um den primären NTP-Server Ihres Geräts zu ändern. Weitere Informationen zur Syntax finden Sie unter dem Cmdlet [Set-HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx).
+ - **Primärer NTP-Server**: Die Konfiguration ist erforderlich und wird angegeben, wenn Sie das Gerät über Windows PowerShell für StorSimple konfigurieren. Sie können den standardmäßigen Windows-Server **time.windows.com** als Ihren NTP-Server angeben. Sie können die Konfiguration des primären NTP-Servers zwar über das Azure-Portal anzeigen, wenn Sie die Konfiguration ändern möchten, müssen Sie aber die Windows PowerShell-Schnittstelle verwenden. Verwenden Sie das Cmdlet `Set-HcsNTPClientServerAddress`, um den primären NTP-Server Ihres Geräts zu ändern. Weitere Informationen zur Syntax finden Sie unter dem Cmdlet [Set-HcsNTPClientServerAddress](/previous-versions/windows/powershell-scripting/dn688138(v=wps.630)).
 
 - **Sekundärer NTP-Server**: Die Konfiguration ist optional. Sie können mit dem Azure-Portal einen sekundären NTP-Server konfigurieren.
 
@@ -85,7 +85,7 @@ Ein DNS-Server wird verwendet, wenn das Gerät versucht, mit dem Cloudspeicher-D
 
 Für Hochverfügbarkeit müssen Sie bei der ersten Gerätebereitstellung sowohl den primären als auch den sekundäre DNS-Server konfigurieren.
 
-**Primärer DNS-Server**: Sie verwenden Windows PowerShell für StorSimple zur ersten Angabe des primären DNS-Servers während des Einrichtung. Sie können die Konfiguration des primären DNS-Servers nur über die Windows PowerShell-Schnittstelle ändern. Verwenden Sie das Cmdlet `Set-HcsDNSClientServerAddress`, um den primären DNS-Server Ihres Geräts zu ändern. Weitere Informationen zur Syntax finden Sie unter dem Cmdlet [Set-HcsDNSClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx).
+**Primärer DNS-Server**: Sie verwenden Windows PowerShell für StorSimple zur ersten Angabe des primären DNS-Servers während des Einrichtung. Sie können die Konfiguration des primären DNS-Servers nur über die Windows PowerShell-Schnittstelle ändern. Verwenden Sie das Cmdlet `Set-HcsDNSClientServerAddress`, um den primären DNS-Server Ihres Geräts zu ändern. Weitere Informationen zur Syntax finden Sie unter dem Cmdlet [Set-HcsDNSClientServerAddress](/previous-versions/windows/powershell-scripting/dn688138(v=wps.630)).
 
 **Sekundärer DNS-Server**: Verwenden Sie zum Ändern des sekundären DNS-Servers das Cmdlet `Set-HcsDNSClientServerAddress` in der Windows PowerShell-Schnittstelle des Geräts oder das Blatt **Netzwerkeinstellungen** Ihres StorSimple-Geräts im Azure-Portal.
 
@@ -169,4 +169,3 @@ Führen Sie die folgenden Schritte aus, wenn Sie die VIPs für eine der Netzwerk
 
 * Informationen zum [Konfigurieren von MPIO für Ihr StorSimple-Gerät](storsimple-8000-configure-mpio-windows-server.md).
 * Erfahren Sie, wie Sie [Ihr StorSimple-Gerät mithilfe des StorSimple-Geräte-Manager-Diensts verwalten](storsimple-8000-manager-service-administration.md).
-

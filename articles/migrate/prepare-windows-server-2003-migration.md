@@ -1,18 +1,26 @@
 ---
 title: Vorbereiten von Windows Server 2003-Server auf die Migration mit Azure Migrate
 description: Hier erfahren Sie, wie Sie Windows Server 2003-Server auf die Migration mit Azure Migrate vorbereiten.
+author: rahulg1190
+ms.author: rahugup
+ms.manager: bsiva
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: 5e33742d59972d491c1efb8d0f1453c1226d4625
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8d3dea970d07d951467a44661e12000ba413f72
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86103941"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753745"
 ---
 # <a name="prepare-windows-server-2003-machines-for-migration"></a>Vorbereiten von Windows Server 2003-Computer auf die Migration
 
 In diesem Artikel wird beschrieben, wie Sie Computer mit Windows Server 2003 auf die Migration zu Azure vorbereiten. 
+
+
+> [!NOTE]
+> [Der erweiterte Support für Windows Server 2003](/troubleshoot/azure/virtual-machines/run-win-server-2003#microsoft-windows-server-2003-end-of-support) wurde am 14. Juli 2015 beendet.  Das Azure-Supportteam hilft weiterhin bei der Behebung von Problemen, die sich auf die Ausführung von Windows Server 2003 in Azure beziehen. Diese Unterstützung ist jedoch auf Probleme beschränkt, die keine Problembehandlung oder Patches auf Betriebssystemebene erfordern. Die Migration Ihrer Anwendungen zu Azure-Instanzen, die eine neuere Version von Windows Server ausführen, ist die empfohlene Vorgehensweise, um sicherzustellen, dass Sie die Flexibilität und Zuverlässigkeit der Azure-Cloud effektiv nutzen. Wenn Sie sich dennoch für die Migration von Windows Server 2003 zu Azure entscheiden, können Sie das Azure Migrate: Servermigrationstool verwenden, wenn es sich bei Ihrem Windows-Server um eine VM unter VMware oder Hyper-V handelt.
+
 
 - Sie können die Migration ohne Agent verwenden, um [Hyper-V-VMs](tutorial-migrate-hyper-v.md) und [VMware-VMs](tutorial-migrate-vmware.md) zu Azure zu migrieren.
 - Zum Herstellen einer Verbindung mit Azure-VMs nach der Migration muss Hyper-V Integration Services auf der Azure-VM installiert sein. Dies ist auf Windows Server 2003-Computern standardmäßig nicht installiert.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 64dfc7400380505c882979e68a3bf0adcb8942a0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 048068a74151bb986392b5cb27787385fc0f5363
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107962"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95315531"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Datensammlungsregeln in Azure Monitor (Vorschau)
 Mit Datensammlungsregeln werden die in Azure Monitor eingehenden Daten definiert, und es wird angegeben, wohin die Daten gesendet bzw. wo sie gespeichert werden sollen. Dieser Artikel enthält eine Übersicht über die Datensammlungsregeln, z. B. zu Inhalt und Struktur und zur Erstellung und Nutzung.
@@ -49,19 +49,7 @@ Jede Datenquelle hat einen Datenquellentyp. Mit jedem Typ wird eine eindeutige G
 
 
 ## <a name="limits"></a>Grenzwerte
-In der folgenden Tabelle sind die Grenzwerte angegeben, die derzeit für die einzelnen Datensammlungsregeln gelten.
-
-| Begrenzung | Wert |
-|:---|:---|
-| Maximale Anzahl von Datenquellen | 10 |
-| Maximale Anzahl von Indikatorwerten für den Leistungsindikator | 100 |
-| Maximale Anzahl von Umgebungsnamen in Syslog | 20 |
-| Maximale Anzahl von XPath-Abfragen im Ereignisprotokoll | 100 |
-| Maximale Anzahl von Datenflüssen | 10 |
-| Maximale Anzahl von Datenströmen | 10 |
-| Maximale Anzahl von Erweiterungen | 10 |
-| Maximale Größe von Erweiterungseinstellungen | 32 KB |
-| Maximale Anzahl von Log Analytics-Arbeitsbereichen | 10 |
+Informationen zu Grenzwerten, die für die einzelnen Datensammlungsregeln gelten, finden Sie unter [Azure Monitor-Diensteinschränkungen](../service-limits.md#data-collection-rules).
 
 
 ## <a name="create-a-dcr"></a>Erstellen einer Datensammlungsregel

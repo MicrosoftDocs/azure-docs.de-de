@@ -10,6 +10,10 @@
       href: overview-iot-central-developer.md
     - name: Neueste Updates
       items:
+        - name: "November\_2020: neue und aktualisierte Features"
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-november-2020/'
+        - name: "Oktober\_2020: neue und aktualisierte Features"
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-upadates-october-2020/'
         - name: "September\_2020: neue und aktualisierte Features"
           href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-september-2020/'
         - name: "August\_2020: neue und aktualisierte Features"
@@ -45,10 +49,8 @@
   items:
     - name: Verbinden und Entwickeln von Geräten
       items:
-        - name: Herstellen einer Verbindung mit einem Gerät (Node.js)
-          href: tutorial-connect-device-nodejs.md
-        - name: Herstellen einer Verbindung mit einem Gerät (Python)
-          href: tutorial-connect-device-python.md
+        - name: Erstellen eines Geräts und Herstellen einer Verbindung mit ihm
+          href: tutorial-connect-device.md
         - name: Erstellen einer Gatewaygerätevorlage
           href: tutorial-define-gateway-device-type.md
         - name: Verbinden mit einem IoT Edge-Gerät
@@ -221,6 +223,8 @@
           href: ../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
     - name: API-Referenz für IoT Central
       href: /rest/api/iotcentral/
+    - name: Data Residency für Kundendaten
+      href: iot-central-customer-data-residency.md
     - name: Kundendatenanforderungen
       href: iot-central-customer-data-requests.md
     - name: Unterstützte Browser

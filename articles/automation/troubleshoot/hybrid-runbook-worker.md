@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4fcd3d143cf2dbb529a8c9c78a769165621e2e89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1386dd820b10b63862ddab38c441f251bea1d83d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400416"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428399"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Beheben von Hybrid Runbook Worker-Problemen
 
@@ -46,7 +46,7 @@ Folgende Ursachen kommen in Betracht:
 
 #### <a name="resolution"></a>Lösung
 
-Stellen Sie sicher, dass der Computer über einen ausgehenden Zugriff auf * **.azure-automation.net** über Port 443 verfügt.
+Stellen Sie sicher, dass der Computer an Port 443 über ausgehenden Zugriff auf **\*.azure-automation.net** verfügt.
 
 Computer, auf denen der Hybrid Runbook Worker ausgeführt werden soll, müssen die Mindestanforderungen an die Hardware erfüllen, damit sie als Host für dieses Feature konfiguriert werden können. Runbooks und die von ihnen verwendeten Hintergrundprozesse führen möglicherweise zu einer Überlastung des Systems sowie zu Verzögerungen und Timeouts bei Runbookaufträgen.
 
@@ -156,13 +156,13 @@ Wenn Sie den Befehl `sudo` für einen Linux-Hybrid Runbook Worker ausführen, wi
 
 #### <a name="cause"></a>Ursache
 
-Das **nxautomationuser**-Konto für den Log Analytics-Agent für Linux ist in der **sudoers**-Datei nicht ordnungsgemäß konfiguriert. Der Hybrid Runbook Worker benötigt die entsprechende Konfiguration der Kontobenachrichtigungen und anderer Daten, damit Runbooks auf dem Linux-Runbook Worker signiert werden können.
+Das **nxautomationuser** -Konto für den Log Analytics-Agent für Linux ist in der **sudoers** -Datei nicht ordnungsgemäß konfiguriert. Der Hybrid Runbook Worker benötigt die entsprechende Konfiguration der Kontobenachrichtigungen und anderer Daten, damit Runbooks auf dem Linux-Runbook Worker signiert werden können.
 
 #### <a name="resolution"></a>Lösung
 
 * Stellen Sie sicher, dass der Hybrid Runbook Worker auf dem Computer über die ausführbare Datei „GnuPG (GPG)“ verfügt.
 
-* Überprüfen Sie die Konfiguration des **nxautomationuser**-Kontos in der **sudoers**-Datei. Lesen Sie sich den Artikel [Ausführen von Runbooks auf einem Hybrid Runbook Worker](../automation-hrw-run-runbooks.md) durch.
+* Überprüfen Sie die Konfiguration des **nxautomationuser** -Kontos in der **sudoers** -Datei. Lesen Sie sich den Artikel [Ausführen von Runbooks auf einem Hybrid Runbook Worker](../automation-hrw-run-runbooks.md) durch.
 
 ### <a name="scenario-log-analytics-agent-for-linux-isnt-running"></a><a name="oms-agent-not-running"></a>Szenario: Der Log Analytics-Agent für Linux wird nicht ausgeführt
 
@@ -226,7 +226,7 @@ Im Ereignisprotokoll unter **Anwendungs- und Dienstprotokolle\Operations Manager
 
 #### <a name="cause"></a>Ursache
 
-Dieses Problem kann auftreten, wenn Ihr Proxy oder Ihre Netzwerkfirewall die Kommunikation mit Microsoft Azure blockiert. Stellen Sie sicher, dass der Computer über einen ausgehenden Zugriff auf * **.azure-automation.net** über Port 443 verfügt.
+Dieses Problem kann auftreten, wenn Ihr Proxy oder Ihre Netzwerkfirewall die Kommunikation mit Microsoft Azure blockiert. Stellen Sie sicher, dass der Computer an Port 443 über ausgehenden Zugriff auf **\*.azure-automation.net** verfügt.
 
 #### <a name="resolution"></a>Lösung
 
@@ -293,7 +293,7 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 Start-Service -Name HealthService
 ```
 
-### <a name="scenario-you-cant-add-a-hybrid-runbook-worker"></a><a name="already-registered"></a>Szenario: Sie können keinen Hybrid Runbook Worker hinzufügen
+### <a name="scenario-you-cant-add-a-windows-hybrid-runbook-worker"></a><a name="already-registered"></a>Szenario: Sie können keinen Windows Hybrid Runbook Worker hinzufügen
 
 #### <a name="issue"></a>Problem
 
@@ -312,6 +312,46 @@ Dies kann dadurch verursacht werden, dass der Computer bereits bei einem anderen
 Entfernen Sie den folgenden Registrierungsschlüssel, starten Sie `HealthService` neu, und versuchen Sie, das Cmdlet `Add-HybridRunbookWorker` noch mal auszuführen, um dieses Problem zu lösen.
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
+
+### <a name="scenario-you-cant-add-a-linux-hybrid-runbook-worker"></a><a name="already-registered"></a>Szenario: Sie können keinen Linux Hybrid Runbook Worker hinzufügen
+
+#### <a name="issue"></a>Problem
+
+Die folgende Nachricht wird angezeigt, wenn Sie versuchen, einen Hybrid Runbook Worker mithilfe des Python-Skripts `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` hinzuzufügen:
+
+```error
+Unable to register, an existing worker was found. Please deregister any existing worker and try again.
+```
+
+Darüber hinaus wird versucht, die Registrierung eines Hybrid Runbook Worker mithilfe des Python-Skripts `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` aufzuheben:
+
+```error
+Failed to deregister worker. [response_status=404]
+```
+
+#### <a name="cause"></a>Ursache
+
+Dieses Problem kann auftreten, wenn der Computer bereits bei einem anderen Automation-Konto registriert ist, die Azure Hybrid Worker-Gruppe gelöscht wurde oder Sie versuchen, den Hybrid Runbook Worker nach dem Entfernen vom Computer wieder hinzuzufügen.
+
+#### <a name="resolution"></a>Lösung
+
+So lösen Sie das Problem:
+
+1. Entfernen Sie den Agent `sudo sh onboard_agent.sh --purge`.
+
+1. Führen Sie diese Befehle aus:
+
+   ```
+   sudo mv -f /home/nxautomation/state/worker.conf /home/nxautomation/state/worker.conf_old
+   sudo mv -f /home/nxautomation/state/worker_diy.crt /home/nxautomation/state/worker_diy.crt_old
+   sudo mv -f /home/nxautomation/state/worker_diy.key /home/nxautomation/state/worker_diy.key_old
+   ```
+
+1. Integrieren Sie den Agent `sudo sh onboard_agent.sh -w <workspace id> -s <workspace key> -d opinsights.azure.com` wieder.
+
+1. Warten Sie, bis der Ordner `/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker` aufgefüllt wurde.
+
+1. Versuchen Sie erneut, das Python-Skript `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` auszuführen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 37faf5d8e6292844245f475d9fcf0f832a0cca10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ba7b8af9b50b9173f5e2040bb8b623eeafdd538
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439996"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453859"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plattformen und Tools für Data Science-Projekte
 
@@ -25,7 +25,7 @@ Für Data Science-Teams, die den TDSP nutzen, stehen unter anderem folgende Anal
 
 - Data Science-VMs (Windows und Linux CentOS)
 - HDInsight Spark-Cluster
-- Synapse Analytics
+- Azure Synapse Analytics
 - Azure Data Lake
 - HDInsight Hive-Cluster
 - Azure File Storage
@@ -92,16 +92,16 @@ Weitere Informationen zu Azure HDInsight Hive-Clustern finden Sie unter [Was sin
 
 Beim Azure File Storage-Dienst werden Dateifreigaben in der Cloud unter Verwendung des standardmäßigen SMB-Protokolls (Server Message Block) bereitgestellt. Sowohl SMB 2.1 als auch SMB 3.0 werden unterstützt. Mit Azure File Storage können Sie Legacyanwendungen, für die Dateifreigaben benötigt werden, schnell und ohne teures Umschreiben zu Azure migrieren. Anwendungen, die auf virtuellen Azure-Maschinen, in Clouddiensten oder auf lokalen Clients ausgeführt werden, können eine Dateifreigabe genauso in der Cloud bereitstellen, wie eine Desktopanwendung eine normale SMB-Freigabe bereitstellt. Die File Storage-Freigaben können dann von beliebig vielen Anwendungskomponenten gleichzeitig eingebunden und genutzt werden.
 
-Besonders nützlich für Data Science-Projekte ist die Möglichkeit, einen Azure-Dateispeicher für den Austausch von Projektdaten mit den Mitgliedern des Projektteams zu erstellen. Dadurch hat jedes Mitglied Zugriff auf die gleiche Kopie der Daten im Azure-Dateispeicher. Über diesen Dateispeicher können auch Featuregruppen geteilt werden, die im Zuge der Projektdurchführung generiert werden. Wenn es sich bei dem Projekt um einen Kundenauftrag handelt, können Ihre Kunden einen Azure-Dateispeicher unter ihrem eigenen Azure-Abonnement erstellen, um die Projektdaten und -features mit Ihnen zu teilen. Dadurch hat der Kunde die volle Kontrolle über die Datenressourcen des Projekts. Weitere Informationen zu Azure File Storage finden Sie unter [Entwickeln für Azure Files mit .NET](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files) sowie unter [Verwenden von Azure Files mit Linux](../../storage/files/storage-how-to-use-files-linux.md).
+Besonders nützlich für Data Science-Projekte ist die Möglichkeit, einen Azure-Dateispeicher für den Austausch von Projektdaten mit den Mitgliedern des Projektteams zu erstellen. Dadurch hat jedes Mitglied Zugriff auf die gleiche Kopie der Daten im Azure-Dateispeicher. Über diesen Dateispeicher können auch Featuregruppen geteilt werden, die im Zuge der Projektdurchführung generiert werden. Wenn es sich bei dem Projekt um einen Kundenauftrag handelt, können Ihre Kunden einen Azure-Dateispeicher unter ihrem eigenen Azure-Abonnement erstellen, um die Projektdaten und -features mit Ihnen zu teilen. Dadurch hat der Kunde die volle Kontrolle über die Datenressourcen des Projekts. Weitere Informationen zu Azure File Storage finden Sie unter [Entwickeln für Azure Files mit .NET](../../storage/files/storage-dotnet-how-to-use-files.md) sowie unter [Verwenden von Azure Files mit Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
 
 ## <a name="sql-server-2019-r-and-python-services"></a>SQL Server 2019 R- und Python-Dienste
 
 R Services (datenbankintern) bietet eine Plattform zum Entwickeln und Bereitstellen von intelligenten Anwendungen zur Gewinnung neuer Erkenntnisse. Sie können die umfangreiche und leistungsfähige R-Sprache (einschließlich der vielen Pakete aus der R-Community) zum Erstellen von Modellen und Generieren von Vorhersagen auf der Grundlage Ihrer SQL Server-Daten nutzen. Da R Services (datenbankintern) die R-Sprache in SQL Server integriert, besteht eine enge Verbindung zwischen Analysen und Daten. Dadurch lassen sich die Kosten und Sicherheitsrisiken vermeiden, die mit dem Verschieben von Daten einhergehen.
 
-R Services (datenbankintern) unterstützt die Open Source-R-Sprache mit einem umfassenden Satz von SQL Server-Tools und -Technologien. Dadurch profitieren Sie von überragender Leistung, Sicherheit, Zuverlässigkeit und Verwaltbarkeit. Sie können R-Lösungen mithilfe von praktischen und vertrauten Tools bereitstellen. Ihre Produktionsanwendungen können die R-Laufzeit aufrufen und Vorhersagen und visuelle Elemente mit Transact-SQL abrufen. Mit den ScaleR-Bibliotheken können Sie außerdem die Skalierung und Leistung Ihrer R-Lösungen verbessern. Weitere Informationen finden Sie unter [SQL Server R Services](https://docs.microsoft.com/sql/advanced-analytics/r/sql-server-r-services).
+R Services (datenbankintern) unterstützt die Open Source-R-Sprache mit einem umfassenden Satz von SQL Server-Tools und -Technologien. Dadurch profitieren Sie von überragender Leistung, Sicherheit, Zuverlässigkeit und Verwaltbarkeit. Sie können R-Lösungen mithilfe von praktischen und vertrauten Tools bereitstellen. Ihre Produktionsanwendungen können die R-Laufzeit aufrufen und Vorhersagen und visuelle Elemente mit Transact-SQL abrufen. Mit den ScaleR-Bibliotheken können Sie außerdem die Skalierung und Leistung Ihrer R-Lösungen verbessern. Weitere Informationen finden Sie unter [SQL Server R Services](/sql/advanced-analytics/r/sql-server-r-services).
 
-Das TDSP-Team von Microsoft hat zwei umfassende exemplarische Vorgehensweisen zur Erstellung von Data Science-Lösungen in SQL Server 2016 R Services veröffentlicht: eine für R-Programmierer und eine für SQL-Entwickler. Die umfassende exemplarische Vorgehensweise zu Data Science für **R-Programmierer** befindet sich [hier](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). Das Tutorial zu erweiterten datenbankinternen Analysen für **SQL-Entwickler** befindet sich [hier](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
+Das TDSP-Team von Microsoft hat zwei umfassende exemplarische Vorgehensweisen zur Erstellung von Data Science-Lösungen in SQL Server 2016 R Services veröffentlicht: eine für R-Programmierer und eine für SQL-Entwickler. Die umfassende exemplarische Vorgehensweise zu Data Science für **R-Programmierer** befindet sich [hier](/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). Das Tutorial zu erweiterten datenbankinternen Analysen für **SQL-Entwickler** befindet sich [hier](/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
 
 
 ## <a name="appendix-tools-to-set-up-data-science-projects"></a><a name="appendix"></a>Anhang: Tools zum Einrichten von Data Science-Projekten
@@ -153,4 +153,4 @@ Wenn Sie die Git-Befehle auf einem Computer unter Linux (CentOS) ausführen, mü
 
 Vollständige exemplarische Vorgehensweisen, in denen sämtliche Schritte im Prozess für **bestimmte Szenarien** gezeigt werden, sind ebenfalls verfügbar. Sie sind im Thema [Exemplarische Vorgehensweisen](walkthroughs.md) aufgeführt und mit Miniaturansichtsbeschreibungen verlinkt. Sie zeigen, wie Cloud- und lokale Tools und Dienste in einem Workflow oder einer Pipeline zum Erstellen einer intelligenten Anwendung kombiniert werden. 
 
-Beispiele, die zeigen, wie Sie die Schritte im Team Data Science-Prozess mithilfe von Azure Machine Learning Studio (klassisch) ausführen, finden Sie im Lernpfad [Mit Azure ML](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Beispiele, die zeigen, wie Sie die Schritte im Team Data Science-Prozess mithilfe von Azure Machine Learning Studio (klassisch) ausführen, finden Sie im Lernpfad [Mit Azure ML](./index.yml).

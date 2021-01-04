@@ -5,17 +5,17 @@ author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
-ms.date: 04/15/2020
+ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: e3c2b2ce5bd9af60d6d1fd4ac066681ee8473521
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5506a54193efc813927663533ddfd89be3ddf40a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249449"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461303"
 ---
-# <a name="azure-synapse-workspace-managed-identity-preview"></a>Azure Synapse-Arbeitsbereich – verwaltete Identität (Vorschau)
+# <a name="azure-synapse-workspace-managed-identity"></a>Azure Synapse-Arbeitsbereich – verwaltete Identität
 
 In diesem Artikel lernen Sie das Konzept der verwalteten Identität im Azure Synapse-Arbeitsbereich kennen.
 
@@ -32,7 +32,7 @@ Ein systemseitig zugewiesene verwaltete Identität wird für Ihren Azure Synapse
 >[!NOTE]
 >Diese verwaltete Identität für den Arbeitsbereich wird im Rest dieses Dokuments als „verwaltete Identität“ bezeichnet.
 
-Azure Synapse verwendet die verwaltete Identität zum Orchestrieren von Pipelines. Der Lebenszyklus der verwalteten Identität ist direkt an den Azure Synapse-Arbeitsbereich geknüpft. Wenn Sie den Azure Synapse-Arbeitsbereich löschen, wird auch die verwaltete Identität bereinigt.
+Azure Synapse verwendet die verwaltete Identität zum Integrieren von Pipelines. Der Lebenszyklus der verwalteten Identität ist direkt an den Azure Synapse-Arbeitsbereich geknüpft. Wenn Sie den Azure Synapse-Arbeitsbereich löschen, wird auch die verwaltete Identität bereinigt.
 
 Die verwaltete Identität des Arbeitsbereichs benötigt Berechtigungen zum Ausführen von Vorgängen in den Pipelines. Sie können die Objekt-ID oder den Namen Ihres Azure Synapse-Arbeitsbereichs verwenden, um die verwaltete Identität zu suchen, wenn Sie Berechtigungen erteilen.
 

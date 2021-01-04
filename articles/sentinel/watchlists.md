@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: 25252b73f25a96f85d5e2cf1d68b76f9eaa3ca75
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: fd3c8a08e5512d15be4dfb26ca3eff151d08386f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979292"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651361"
 ---
 # <a name="use-azure-sentinel-watchlists"></a>Verwenden von Azure Sentinel-Watchlists
 
@@ -27,13 +27,13 @@ Häufige Szenarien für die Verwendung von Watchlists umfassen Folgendes:
 
 - **Importieren von Geschäftsdaten** als Watchliste. Importieren Sie z. B. Benutzerlisten mit privilegiertem Systemzugriff oder ehemaligen Mitarbeitern, und verwenden Sie dann die Watchlist, um Zulassungs- und Verweigerungslisten zu erstellen, mit denen eine Anmeldung dieser Benutzer beim Netzwerk ermittelt oder verhindert wird.
 
-- **Reduzieren von Warnungsmüdigkeit** . Erstellen Sie Zulassungslisten, um Warnungen von einer Gruppe von Benutzern zu unterdrücken (z. B. Benutzer von autorisierten IP-Adressen, die Aufgaben ausführen, durch die normalerweise die Warnung ausgelöst wird) und zu verhindern, dass legitime Ereignisse zu Warnungen führen.
+- **Reduzieren von Warnungsmüdigkeit**. Erstellen Sie Zulassungslisten, um Warnungen von einer Gruppe von Benutzern zu unterdrücken (z. B. Benutzer von autorisierten IP-Adressen, die Aufgaben ausführen, durch die normalerweise die Warnung ausgelöst wird) und zu verhindern, dass legitime Ereignisse zu Warnungen führen.
 
-- **Erweitern von Ereignisdaten** . Verwenden Sie Watchlists, um Ihre Ereignisdaten mit Name-Wert-Kombinationen zu erweitern, die aus externen Datenquellen stammen.
+- **Erweitern von Ereignisdaten**. Verwenden Sie Watchlists, um Ihre Ereignisdaten mit Name-Wert-Kombinationen zu erweitern, die aus externen Datenquellen stammen.
 
 ## <a name="create-a-new-watchlist"></a>Erstellen einer neuen Watchlist
 
-1. Navigieren Sie im Azure-Portal zu **Azure Sentinel** > **Konfiguration** > **Watchlist** , und wählen Sie dann **Neu hinzufügen** aus.
+1. Navigieren Sie im Azure-Portal zu **Azure Sentinel** > **Konfiguration** > **Watchlist**, und wählen Sie dann **Neu hinzufügen** aus.
 
     > [!div class="mx-imgBorder"]
     > ![Neue Watchlist](./media/watchlists/sentinel-watchlist-new.png)
@@ -47,6 +47,9 @@ Häufige Szenarien für die Verwendung von Watchlists umfassen Folgendes:
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-source.png" alt-text="Seite „Quelle“ für die Watchlist" lightbox="./media/watchlists/sentinel-watchlist-source.png":::
 
+    > [!NOTE]
+    >
+    > Dateiuploads sind aktuell auf Dateien mit einer Größe von bis zu 3,8 MB beschränkt.
 
 1. Sehen Sie sich die Informationen an, überprüfen Sie, ob sie korrekt sind, und wählen Sie dann **Erstellen** aus.
 
@@ -55,33 +58,30 @@ Häufige Szenarien für die Verwendung von Watchlists umfassen Folgendes:
 
     Sobald die Watchlist erstellt wurde, wird eine Benachrichtigung angezeigt.
 
-    :::image type="content" source="./media/watchlists/sentinel-watchlist-complete.png" alt-text="Seite „Quelle“ für die Watchlist" lightbox="./media/watchlists/sentinel-watchlist-complete.png":::
-
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-complete.png" alt-text="Benachrichtigung über erfolgreiche Erstellung der Watchlist" lightbox="./media/watchlists/sentinel-watchlist-complete.png":::
 
 ## <a name="use-watchlists-in-queries"></a>Verwenden von Watchlists in Abfragen
 
-1. Navigieren Sie im Azure-Portal zu **Azure Sentinel** > **Konfiguration** > **Watchlist** , wählen Sie die gewünschte Watchlist aus, und wählen Sie dann **In Log Analytics anzeigen** aus.
+1. Navigieren Sie im Azure-Portal zu **Azure Sentinel** > **Konfiguration** > **Watchlist**, wählen Sie die gewünschte Watchlist aus, und wählen Sie dann **In Log Analytics anzeigen** aus.
 
-    :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-list.png" alt-text="Seite „Quelle“ für die Watchlist" lightbox="./media/watchlists/sentinel-watchlist-queries-list.png":::
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-list.png" alt-text="Verwenden von Watchlists in Abfragen" lightbox="./media/watchlists/sentinel-watchlist-queries-list.png":::
 
-
-1. Die Elemente in Ihrer Watchlist werden automatisch für Ihre Abfrage extrahiert und auf der Registerkarte **Ergebnisse** angezeigt. Das folgende Beispiel zeigt die Ergebnisse der Extraktion für die Felder **ServerName** und **IpAddress** .
+1. Die Elemente in Ihrer Watchlist werden automatisch für Ihre Abfrage extrahiert und auf der Registerkarte **Ergebnisse** angezeigt. Das folgende Beispiel zeigt die Ergebnisse der Extraktion für die Felder **ServerName** und **IpAddress**.
 
     > [!NOTE]
     > Der Zeitstempel Ihrer Abfragen wird sowohl auf der Benutzeroberfläche der Abfrage als auch in geplanten Benachrichtigungen ignoriert.
 
-    :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-fields.png" alt-text="Seite „Quelle“ für die Watchlist" lightbox="./media/watchlists/sentinel-watchlist-queries-fields.png":::
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-fields.png" alt-text="Abfragen mit Feldern der Watchlist" lightbox="./media/watchlists/sentinel-watchlist-queries-fields.png":::
     
 ## <a name="use-watchlists-in-analytics-rules"></a>Verwenden von Watchlists in Analyseregeln
 
-Um Watchlists in Analyseregeln zu verwenden, navigieren Sie im Azure-Portal zu **Azure Sentinel** > **Konfiguration** > **Analysen** , und erstellen Sie eine Regel mithilfe der Funktion `_GetWatchlist('<watchlist>')` in der Abfrage.
+Um Watchlists in Analyseregeln zu verwenden, navigieren Sie im Azure-Portal zu **Azure Sentinel** > **Konfiguration** > **Analysen**, und erstellen Sie eine Regel mithilfe der Funktion `_GetWatchlist('<watchlist>')` in der Abfrage.
 
-:::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule.png" alt-text="Seite „Quelle“ für die Watchlist" lightbox="./media/watchlists/sentinel-watchlist-analytics-rule.png":::
-
+:::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule.png" alt-text="Verwenden von Watchlists in Analyseregeln" lightbox="./media/watchlists/sentinel-watchlist-analytics-rule.png":::
 
 ## <a name="view-list-of-watchlists-aliases"></a>Anzeigen der Liste von Watchlist-Aliasen
 
-Um eine Liste von Watchlist-Aliasen abzurufen, navigieren Sie im Azure-Portal zu **Azure Sentinel** > **Allgemein** > **Protokolle** , und führen Sie die Abfrage `_GetWatchlistAlias` aus. Die Liste der Aliase wird auf der Registerkarte **Ergebnisse** angezeigt.
+Um eine Liste von Watchlist-Aliasen abzurufen, navigieren Sie im Azure-Portal zu **Azure Sentinel** > **Allgemein** > **Protokolle**, und führen Sie die Abfrage `_GetWatchlistAlias` aus. Die Liste der Aliase wird auf der Registerkarte **Ergebnisse** angezeigt.
 
 > [!div class="mx-imgBorder"]
 > ![Auflisten von Watchlists](./media/watchlists/sentinel-watchlist-alias.png)
@@ -89,6 +89,5 @@ Um eine Liste von Watchlist-Aliasen abzurufen, navigieren Sie im Azure-Portal zu
 ## <a name="next-steps"></a>Nächste Schritte
 In diesem Dokument haben Sie erfahren, wie Sie Watchlists in Azure Sentinel verwenden, um Daten zu erweitern und Untersuchungen zu verbessern. Weitere Informationen zu Azure Sentinel finden Sie in den folgenden Artikeln:
 - Erfahren Sie, wie Sie [Einblick in Ihre Daten und potenzielle Bedrohungen erhalten](quickstart-get-visibility.md).
-- Beginnen Sie mit der [Erkennung von Bedrohungen mithilfe von Azure Sentinel](tutorial-detect-threats.md).
+- Beginnen Sie mit der [Erkennung von Bedrohungen mithilfe von Azure Sentinel](./tutorial-detect-threats-built-in.md).
 - [Verwenden Sie Arbeitsmappen](tutorial-monitor-your-data.md), um Ihre Daten zu überwachen.
-

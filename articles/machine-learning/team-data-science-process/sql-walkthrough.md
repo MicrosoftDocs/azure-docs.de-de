@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d7c02e413fdaa54db431cdac7a3cf7af0bddeb98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 580181aaaea975ee07bcec8108297079c5373b92
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331895"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007408"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Der Team Data Science-Prozess in Aktion: Verwenden von SQL Server
 In diesem Tutorial werden Sie durch die Erstellung und Bereitstellung eines Machine Learning-Modells geleitet. Hierfür werden SQL Server und das öffentlich zugängliche Dataset [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) verwendet. Die Prozedur entspricht dem standardmäßigen Data Science-Workflow: Erfassen und Durchsuchen der Daten, Entwickeln von Features zur Vereinfachung des Lernens und anschließendes Erstellen und Bereitstellen eines Modells.
@@ -84,7 +84,7 @@ So richten Sie Ihre Azure Data Science-Umgebung ein:
 
 1. [Erstellen eines Speicherkontos](../../storage/common/storage-account-create.md)
 2. [Erstellen eines Azure Machine Learning-Arbeitsbereichs](../classic/create-workspace.md)
-3. [Stellen Sie einen virtuellen Computer für Data Science bereit](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), der als Server für SQL Server und ein IPython Notebook fungiert.
+3. [Stellen Sie einen virtuellen Computer für Data Science bereit](../data-science-virtual-machine/overview.md), der als Server für SQL Server und ein IPython Notebook fungiert.
    
    > [!NOTE]
    > Die Beispielskripts und IPython Notebooks werden während der Einrichtung auf den virtuellen Computer für Data Science heruntergeladen. Nach Abschluss der VM-Nachinstallationsskripts finden Sie die Beispiele in der Dokumentbibliothek auf Ihrem virtuellen Computer:  
@@ -585,7 +585,7 @@ cursor.commit()
 ```
 
 #### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Funktionsverarbeitung: Extrahieren von Ortsfunktionen aus den Dezimalwerten für „latitude“ und „longitude“
-In diesem Beispiel wird die dezimale Darstellung eines Felds "latitude" und/oder "longitude" in mehrere Regionsfelder unterschiedlicher Granularität aufgeteilt, wie z.B. Land, Stadt/Region, Stadtteil, Straße usw. Die neuen Geocode-Felder sind keinen tatsächlichen Positionen zugeordnet. Informationen über die Zuordnung von Geocode-Positionen finden Sie in den [REST-Diensten für Bing Maps](https://msdn.microsoft.com/library/ff701710.aspx).
+In diesem Beispiel wird die dezimale Darstellung eines Felds "latitude" und/oder "longitude" in mehrere Regionsfelder unterschiedlicher Granularität aufgeteilt, wie z.B. Land, Stadt/Region, Stadtteil, Straße usw. Die neuen Geocode-Felder sind keinen tatsächlichen Positionen zugeordnet. Informationen über die Zuordnung von Geocode-Positionen finden Sie in den [REST-Diensten für Bing Maps](/bingmaps/rest-services/locations/find-a-location-by-point).
 
 ```sql
 nyctaxi_one_percent_insert_col = '''
@@ -650,7 +650,7 @@ Sie haben in dieser Übung bereits die Daten in SQL Server untersucht und bearbe
 1. Erfassen Sie die Daten in Azure Machine Learning mithilfe des [Import Data][import-data]-Moduls, das im Abschnitt **Data Input and Output** (Datenein- und -ausgabe) verfügbar ist. Weitere Informationen finden Sie auf der Referenzseite zum [Import Data][import-data]-Modul.
    
     ![Azure Machine Learning: Importieren von Daten][17]
-2. Wählen Sie **Azure SQL-Datenbank** als **Datenquelle** im **Eigenschaften**bereich aus.
+2. Wählen Sie **Azure SQL-Datenbank** als **Datenquelle** im **Eigenschaften** bereich aus.
 3. Geben Sie den DNS-Namen für die Datenbank im Feld **Datenbankservername** ein. Format: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Geben Sie den **Datenbanknamen** in das entsprechende Feld ein.
 5. Geben Sie den **SQL-Benutzernamen** unter **Server user account name** und das **Kennwort** unter **Server user account password** ein.
@@ -661,7 +661,7 @@ Ein Beispiel für ein binäres Klassifizierungsexperiment zum Lesen von Daten di
 ![Azure Machine Learning: Training][10]
 
 > [!IMPORTANT]
-> In den Modellierungsbeispielen für Datenextraktion und Stichprobengenerierung in den vorherigen Abschnitten sind **alle Bezeichner für die drei Modellierungsübungen in der Abfrage enthalten**. Ein wichtiger (erforderlicher) Schritt in den einzelnen Modellierungsübungen ist das **Ausschließen** unnötiger Bezeichner für die anderen beiden Probleme und alle anderen **Zielverluste**. Wenn Sie z.B. eine binäre Klassifizierung nutzen, verwenden Sie den Bezeichner **tipped** und schließen die Felder **tip\_class**, **tip\_amount**und **total\_amount** aus. Letztere sind Zielverluste, da sie das bezahlte Trinkgeld beinhalten.
+> In den Modellierungsbeispielen für Datenextraktion und Stichprobengenerierung in den vorherigen Abschnitten sind **alle Bezeichner für die drei Modellierungsübungen in der Abfrage enthalten**. Ein wichtiger (erforderlicher) Schritt in den einzelnen Modellierungsübungen ist das **Ausschließen** unnötiger Bezeichner für die anderen beiden Probleme und alle anderen **Zielverluste**. Wenn Sie z.B. eine binäre Klassifizierung nutzen, verwenden Sie den Bezeichner **tipped** und schließen die Felder **tip\_class**, **tip\_amount** und **total\_amount** aus. Letztere sind Zielverluste, da sie das bezahlte Trinkgeld beinhalten.
 > 
 > Um nicht benötigte Spalten und/oder Zielverluste auszuschließen, können Sie das [Select Columns in Dataset][select-columns]- (Spalten im Dataset auswählen) oder [Edit Metadata][edit-metadata]-Modul (Bearbeiten von Metadaten) verwenden. Weitere Informationen finden Sie auf den Referenzseiten zu [Select Columns in Dataset][select-columns] und [Edit Metadata][edit-metadata].
 > 
@@ -722,6 +722,6 @@ Diese exemplarische Vorgehensweise und die zugehörigen Skripts und IPython Note
 
 
 <!-- Module References -->
-[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

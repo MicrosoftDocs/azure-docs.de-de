@@ -6,21 +6,21 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 5bd637f4e4a786cd4cba0f70c4b2349e354469fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa4be5852b4f8af00346a3ea9a86b13a85f99824
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657465"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358455"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Erstellen von Schleifen in Azure Logic Apps, die Workflowaktionen wiederholen oder Arrays verarbeiten
 
-Um ein Array in Ihrer Logik-App zu verarbeiten, können Sie eine [„ForEach“-Schleife](#foreach-loop) erstellen. Diese Schleife wiederholt eine oder mehrere Aktionen für jedes Element im Array. Informationen über die maximale Anzahl der Arrayelemente, die „ForEach“-Schleifen verarbeiten können, finden Sie unter [Grenzwerte und -Konfiguration](../logic-apps/logic-apps-limits-and-config.md). 
+Um ein Array in Ihrer Logik-App zu verarbeiten, können Sie eine [„ForEach“-Schleife](#foreach-loop) erstellen. Diese Schleife wiederholt eine oder mehrere Aktionen für jedes Element im Array. Informationen zum Grenzwert für die Anzahl von Arrayelementen, die von einer ForEach-Schleife verarbeitet werden kann, finden Sie unter [Grenzwerte für Parallelität, Schleifen und Auflösen von Batches](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-Um Aktionen zu wiederholen, bis eine Bedingung erfüllt ist oder sich ein Zustand ändert, können Sie eine [„Until“-Schleife](#until-loop) erstellen. Ihre Logik-App führt zuerst alle Aktionen innerhalb der Schleife aus und überprüft anschließend die Bedingung oder den Status. Wenn die Bedingung erfüllt ist, wird die Schleife beendet. Andernfalls wird die Schleife wiederholt. Informationen über die maximale Anzahl der „Until“-Schleifen in einer Logik-App-Ausführung finden Sie unter [Grenzwerte und -Konfiguration](../logic-apps/logic-apps-limits-and-config.md). 
+Um Aktionen zu wiederholen, bis eine Bedingung erfüllt ist oder sich ein Zustand ändert, können Sie eine [„Until“-Schleife](#until-loop) erstellen. Ihre Logik-App führt zuerst alle Aktionen innerhalb der Schleife aus und überprüft anschließend die Bedingung oder den Status. Wenn die Bedingung erfüllt ist, wird die Schleife beendet. Andernfalls wird die Schleife wiederholt. Informationen zu den Standard- und Höchstwerten für die Anzahl von Until-Schleifen in einer Logik-App-Ausführung finden Sie unter [Grenzwerte für Parallelität, Schleifen und Auflösen von Batches](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 > [!TIP]
-> Wenn Sie einen Auslöser verwenden, der ein Array empfängt, und für jedes Arrayelement einen Workflow ausführen möchten, können Sie dieses Array mit der [**Auslösereigenschaft** SplitOn](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)*aus dem Batch lösen*. 
+> Wenn Sie einen Auslöser verwenden, der ein Array empfängt, und für jedes Arrayelement einen Workflow ausführen möchten, können Sie dieses Array mit der [**Auslösereigenschaft** SplitOn](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)*aus dem Batch lösen*.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -32,7 +32,9 @@ Um Aktionen zu wiederholen, bis eine Bedingung erfüllt ist oder sich ein Zustan
 
 ## <a name="foreach-loop"></a>„ForEach“-Schleife
 
-Eine „Foreach-Schleife“ wiederholt eine oder mehrere Aktionen für jedes Arrayelement und funktioniert nur für Arrays. Hier sind einige Aspekte angegeben, die beim Verwenden von „ForEach“-Schleifen berücksichtigt werden sollten:
+Eine ForEach-Schleife wiederholt eine oder mehrere Aktionen für jedes Arrayelement und funktioniert nur für Arrays. Hier sind einige Aspekte angegeben, die beim Verwenden von „ForEach“-Schleifen berücksichtigt werden sollten:
+
+* Die ForEach-Schleife kann eine begrenzte Anzahl von Arrayelementen verarbeiten. Informationen zu diesem Grenzwert finden Sie unter [Grenzwerte für Parallelität, Schleifen und Auflösen von Batches](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 * Standardmäßig werden Iterationen in einer „Foreach“-Schleife gleichzeitig bzw. parallel ausgeführt. Dieses Verhalten unterscheidet sich von der [**Apply to each**-Schleife von Power Automate](/power-automate/apply-to-each), bei der Iterationen einzeln bzw. nacheinander ausgeführt werden. Sie können jedoch [sequenzielle Iterationen für „Foreach“-Schleifen](#sequential-foreach-loop) einrichten. Wenn Sie beispielsweise die nächste Iteration in einer „Foreach“-Schleife mithilfe der Verzögerungsaktion ([Delay](../connectors/connectors-native-delay.md)) anhalten möchten, müssen Sie die Schleife so einrichten, dass sie sequenziell ausgeführt wird.
 
@@ -150,7 +152,7 @@ Wenn Sie mit der JSON-Definition Ihrer Logik-App arbeiten, können Sie die Optio
 
 ## <a name="until-loop"></a>„Until“-Schleife
   
-Wenn Sie Aktionen ausführen und wiederholen möchten, bis eine Bedingung erfüllt ist oder sich ein Status ändert, können Sie diese Aktionen in eine „Until“-Schleife verlegen. Ihre Logik-App führt zuerst alle Aktionen innerhalb der Schleife aus und überprüft anschließend die Bedingung oder den Status. Wenn die Bedingung erfüllt ist, wird die Schleife beendet. Andernfalls wird die Schleife wiederholt.
+Wenn Sie Aktionen ausführen und wiederholen möchten, bis eine Bedingung erfüllt ist oder sich ein Status ändert, können Sie diese Aktionen in eine „Until“-Schleife verlegen. Ihre Logik-App führt zuerst alle Aktionen innerhalb der Schleife aus und überprüft anschließend die Bedingung oder den Status. Wenn die Bedingung erfüllt ist, wird die Schleife beendet. Andernfalls wird die Schleife wiederholt. Informationen zu den Standard- und Höchstwerten für die Anzahl von Until-Schleifen in einer Logik-App-Ausführung finden Sie unter [Grenzwerte für Parallelität, Schleifen und Auflösen von Batches](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 Hier sind einige gängige Szenarios für eine „Until“-Schleife:
 
@@ -189,7 +191,7 @@ Diese beispielhafte Logik-App inkrementiert täglich um 8:00 Uhr eine Variable, 
 
    ![Variableneigenschaften festlegen](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
-   | Eigenschaft | Wert | BESCHREIBUNG |
+   | Eigenschaft | Wert | Beschreibung |
    | -------- | ----- | ----------- |
    | **Name** | Begrenzung | Name Ihrer Variablen | 
    | **Typ** | Integer | Datentyp Ihrer Variablen | 
@@ -243,17 +245,19 @@ Diese beispielhafte Logik-App inkrementiert täglich um 8:00 Uhr eine Variable, 
 
       ![Empfangene E-Mail](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
+<a name="prevent-endless-loops"></a>
+
 ## <a name="prevent-endless-loops"></a>Verhindern von Endlosschleifen
 
-Standardeinschränkungen beenden die Ausführung einer „Until“-Schleife, wenn eine dieser Bedingungen vorliegt:
+Die Ausführung der Until-Schleife wird basierend auf diesen Eigenschaften beendet. Gehen Sie daher beim Festlegen dieser Werte entsprechend sorgfältig vor:
 
-| Eigenschaft | Standardwert | BESCHREIBUNG | 
-| -------- | ------------- | ----------- | 
-| **Count** | 60 | Die höchste Anzahl von Schleifen, die ausgeführt werden, bevor die Schleife beendet wird. Der Standardwert sind 60 Zyklen. | 
-| **Timeout** | PT1H | Der maximale Zeitraum, für den eine Schleife ausgeführt wird, bevor sie beendet wird. Der Standardwert beträgt eine Stunde und wird im ISO 8601-Format angegeben. <p>Der Timeoutwert wird für jeden Schleifendurchlauf ausgewertet. Wenn eine Aktion in der Schleife länger als die Zeitüberschreitung dauert, wird der aktuelle Zyklus nicht beendet. Der nächste Zyklus beginnt jedoch nicht, weil die Grenzwertbedingung nicht erfüllt ist. | 
-|||| 
+* **Count**: Dieser Wert ist die höchste Anzahl von Schleifen, die ausgeführt werden, bevor die Schleife beendet wird. Informationen zu den Standard- und Höchstwerten für die Anzahl von Until-Schleifen in einer Logik-App-Ausführung finden Sie unter [Grenzwerte für Parallelität, Schleifen und Auflösen von Batches](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-Um diese Standardlimits zu ändern, wählen Sie **Erweiterte Optionen anzeigen** in der Schleifenaktionsform.
+* **Timeout**: Dieser Wert ist die maximale Zeitspanne, die die Schleife ausgeführt wird, bevor sie beendet wird. Die Angabe erfolgt im [ISO 8601-Format](https://en.wikipedia.org/wiki/ISO_8601). Informationen zu den Standard- und Höchstwerten für den **Timeout**-Wert finden Sie unter [Grenzwerte für Parallelität, Schleifen und Auflösen von Batches](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+
+  Der Timeoutwert wird für jeden Schleifendurchlauf ausgewertet. Wenn eine Aktion in der Schleife länger als die Zeitüberschreitung dauert, wird der aktuelle Zyklus nicht beendet. Der nächste Zyklus beginnt jedoch nicht, weil die Grenzwertbedingung nicht erfüllt ist.
+
+Um diese Grenzwerte zu ändern, wählen Sie in der Schleifenaktion die Option **Grenzwerte ändern** aus.
 
 <a name="until-json"></a>
 

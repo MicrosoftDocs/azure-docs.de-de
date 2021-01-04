@@ -3,18 +3,20 @@ title: Zertifikatbasierte Authentifizierung mit Azure Cosmos DB und Active Direc
 description: Erfahren Sie, wie Sie eine Azure AD-Identität für die zertifikatbasierte Authentifizierung für den Zugriff auf Schlüssel aus Azure Cosmos DB konfigurieren.
 author: voellm
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 3f787840422e61d6f43081d991ffc3ef28da6976
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e0913351d40cd75da17d16cca119b4ad5ce20de0
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486530"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334700"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Zertifikatbasierte Authentifizierung für eine Azure AD-Identität für den Zugriff auf Schlüssel aus einem Azure Cosmos DB-Konto
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Mithilfe der zertifikatbasierten Authentifizierung kann Ihre Clientanwendung mit Azure Active Directory (Azure AD) und einem Clientzertifikat authentifiziert werden. Sie können eine zertifikatbasierte Authentifizierung auf einem Computer durchführen, auf dem Sie eine Identität benötigen, wie beispielsweise einem lokalen Computer oder einem virtuellen Computer in Azure. Ihre Anwendung kann dann Azure Cosmos DB-Schlüssel lesen, ohne dass sich die Schlüssel direkt in der Anwendung befinden. Dieser Artikel beschreibt, wie Sie eine Azure AD-Beispielanwendung erstellen, sie für die zertifikatbasierte Authentifizierung konfigurieren, sich mit der neuen Anwendungsidentität bei Azure anmelden und dann die Schlüssel von Ihrem Azure Cosmos-Konto abrufen. In diesem Artikel werden die Identitäten mit Azure PowerShell eingerichtet und eine C#-Beispiel-App bereitgestellt, die Schlüssel aus Ihrem Azure Cosmos-Konto authentifiziert und darauf zugreift.  
 
@@ -40,13 +42,13 @@ In diesem Schritt registrieren Sie eine Beispielwebanwendung in Ihrem Azure AD-K
    * **Unterstützte Kontotypen** – Wählen Sie **Nur Konten nur in diesem Organisationsverzeichnis (Standardverzeichnis)** aus, um Ressourcen in Ihrem aktuellen Verzeichnis den Zugriff auf diese Anwendung zu ermöglichen. 
    * **Umleitungs-URL** – Wählen Sie eine Anwendung vom Typ **Web** , und geben Sie eine URL an, unter der Ihre Anwendung gehostet wird. Es kann eine beliebige URL sein. Für dieses Beispiel können Sie eine Test-URL wie `https://sampleApp.com` angeben. Dies ist kein Problem, auch wenn die App nicht existiert.
 
-   :::image type="content" source="./media/certificate-based-authentication/register-sample-web-app.png" alt-text="Registrierung einer neuen Anwendung in Active Directory":::
+   :::image type="content" source="./media/certificate-based-authentication/register-sample-web-app.png" alt-text="Registrieren einer Beispielwebanwendung":::
 
 1. Wählen Sie nach dem Ausfüllen des Formulars **Registrieren** aus.
 
-1. Nachdem die App registriert ist, notieren Sie sich die **Anwendungs-ID (Client)** und **Objekt-ID** . Diese Informationen werden in den nächsten Schritten verwendet. 
+1. Nachdem die App registriert ist, notieren Sie sich die **Anwendungs-ID (Client)** und **Objekt-ID**. Diese Informationen werden in den nächsten Schritten verwendet. 
 
-   :::image type="content" source="./media/certificate-based-authentication/get-app-object-ids.png" alt-text="Registrierung einer neuen Anwendung in Active Directory":::
+   :::image type="content" source="./media/certificate-based-authentication/get-app-object-ids.png" alt-text="Abrufen der Anwendungs- und Objekt-IDs":::
 
 ## <a name="install-the-azuread-module"></a>Installieren des Azure AD-Moduls
 
@@ -99,7 +101,7 @@ New-AzureADApplicationKeyCredential -ObjectId $application.ObjectId -CustomKeyId
 
 Der obige Befehl führt zu einer Ausgabe ähnlich dem Screenshot unten:
 
-:::image type="content" source="./media/certificate-based-authentication/certificate-based-credential-output.png" alt-text="Registrierung einer neuen Anwendung in Active Directory":::
+:::image type="content" source="./media/certificate-based-authentication/certificate-based-credential-output.png" alt-text="Ausgabe der Erstellung von zertifikatbasierten Anmeldeinformationen":::
 
 ## <a name="configure-your-azure-cosmos-account-to-use-the-new-identity"></a>Konfigurieren Ihres Azure Cosmos-Kontos für die Verwendung der neuen Identität
 
@@ -109,7 +111,7 @@ Der obige Befehl führt zu einer Ausgabe ähnlich dem Screenshot unten:
 
 1. Wählen Sie **Auswählen** und dann **Rollenzuweisung hinzufügen** aus. Fügen Sie die Beispiel-App, die Sie im vorherigen Schritt erstellt haben, mit der Rolle **Mitwirkender** hinzu, wie im folgenden Screenshot gezeigt:
 
-   :::image type="content" source="./media/certificate-based-authentication/configure-cosmos-account-with-identify.png" alt-text="Registrierung einer neuen Anwendung in Active Directory":::
+   :::image type="content" source="./media/certificate-based-authentication/configure-cosmos-account-with-identify.png" alt-text="Konfigurieren des Azure Cosmos-Kontos für die Verwendung der neuen Identität":::
 
 1. Wählen Sie nach dem Ausfüllen des Formulars **Speichern** aus.
 
@@ -125,7 +127,7 @@ In der Azure-App-Registrierung für die Clientanwendung:
 
 1. Wählen Sie **Zertifikate & Geheimnisse** und dann **Zertifikat hochladen** aus. Suchen Sie nach der im vorherigen Schritt erstellten Zertifikatdatei, die Sie hochladen möchten.
 
-1. Wählen Sie **Hinzufügen** . Nachdem das Zertifikat hochgeladen wurde, werden der Fingerabdruck, das Startdatum und der Ablaufzeitpunkt angezeigt.
+1. Wählen Sie **Hinzufügen**. Nachdem das Zertifikat hochgeladen wurde, werden der Fingerabdruck, das Startdatum und der Ablaufzeitpunkt angezeigt.
 
 ## <a name="access-the-keys-from-powershell"></a>Zugriff auf Schlüssel über PowerShell
 
@@ -150,7 +152,7 @@ In diesem Schritt melden Sie sich bei Azure an, indem Sie die Anwendung und das 
 
 Mit dem vorherigen Befehl werden der primäre und sekundäre Primärschlüssel Ihres Azure Cosmos-Kontos angezeigt. Sie können das Aktivitätsprotokoll Ihres Azure Cosmos-Kontos einsehen, um zu überprüfen, ob die Anfrage zum Abrufen von Schlüsseln erfolgreich war und das Ereignis von der Anwendung „sampleApp“ ausgelöst wird.
 
-:::image type="content" source="./media/certificate-based-authentication/activity-log-validate-results.png" alt-text="Registrierung einer neuen Anwendung in Active Directory":::
+:::image type="content" source="./media/certificate-based-authentication/activity-log-validate-results.png" alt-text="Überprüfen des Aufrufs zum Abrufen der Schlüssel in Azure AD":::
 
 ## <a name="access-the-keys-from-a-c-application"></a>Zugreifen auf die Schlüssel aus einer C#-Anwendung 
 
@@ -238,7 +240,7 @@ namespace TodoListDaemonWithCert
 
 Dieses Skript gibt den primären und sekundären Primärschlüssel aus, wie im folgenden Screenshot gezeigt:
 
-:::image type="content" source="./media/certificate-based-authentication/csharp-application-output.png" alt-text="Registrierung einer neuen Anwendung in Active Directory":::
+:::image type="content" source="./media/certificate-based-authentication/csharp-application-output.png" alt-text="csharp-Anwendungsausgabe":::
 
 Wie im vorherigen Abschnitt können Sie das Aktivitätsprotokoll Ihres Azure Cosmos-Kontos einsehen, um zu überprüfen, ob die Anfrage zum Abrufen von Schlüsseln von der Anwendung „sampleApp“ ausgelöst wird. 
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: fa144c7ebd68e6f5dd192fca83dc6f306d7b8d63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 599ec041837460c30b4655531b822eab5f0eafa3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81254103"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778913"
 ---
 # <a name="china-content-delivery-with-azure-cdn"></a>Inhaltsübermittlung nach China mit Azure CDN
 
@@ -40,7 +40,7 @@ Azure CDN global und Azure CDN China weisen die folgenden Features auf:
 
      - Vier Tarife: Microsoft Standard, Verizon Standard, Verizon Premium und Akamai Standard
 
-     - [Dokumentation](https://docs.microsoft.com/azure/cdn/)
+     - [Dokumentation](./index.yml)
 
 - Azure CDN China:
 
@@ -63,7 +63,4 @@ Weitere Informationen zu Azure CDN China finden Sie unter:
 
 - [Verwenden von Azure CDN](https://docs.azure.cn/en-us/cdn/cdn-how-to-use)
 
-- [Azure-Dienstverfügbarkeit in China](https://docs.microsoft.com/azure/china/concepts-service-availability)
-
-
-
+- [Azure-Dienstverfügbarkeit in China](/azure/china/concepts-service-availability)

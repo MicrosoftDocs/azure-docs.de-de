@@ -9,12 +9,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 06/26/2020
   ms.author: 
-  ms.openlocfilehash: bc12e75904f375e2e40bce01d102186ec0d39f13
-  ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+  ms.openlocfilehash: 9eeddfefe451eb524484df8a1986c7ec736c4c0f
+  ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/14/2020
-  ms.locfileid: "92014255"
+  ms.lasthandoff: 12/18/2020
+  ms.locfileid: "97674371"
 landingContent:
 - title: Verbinden von Kubernetes-Clustern mit Azure mithilfe von Azure Arc
   linkLists:
@@ -36,6 +36,12 @@ landingContent:
       url: use-azure-policy.md
     - text: Bereitstellen von Azure IoT Edge-Workloads
       url: deploy-azure-iot-edge-workloads.md
+- title: Proof of Concept
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: Schnelleinstieg
+      url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/
 - title: Referenzarchitektur
   linkLists:
   - linkListType: architecture

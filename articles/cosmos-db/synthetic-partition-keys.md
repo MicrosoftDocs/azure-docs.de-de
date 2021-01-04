@@ -2,18 +2,20 @@
 title: Erstellen eines synthetischen Partitionsschlüssels in Azure Cosmos DB
 description: Hier erfahren Sie, wie Sie synthetische Partitionsschlüssel in Azure Cosmos-Containern verwenden, um die Daten und die Arbeitsauslastung gleichmäßig auf die Partitionsschlüssel zu verteilen.
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/03/2019
 author: markjbrown
 ms.author: mjbrown
-ms.openlocfilehash: a50de7154bd768f5cc4c25062ec3ce05c0f37328
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6b8bc44f1ba5624c37620205aaa574e618ef395f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279858"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340650"
 ---
 # <a name="create-a-synthetic-partition-key"></a>Erstellen eines synthetischen Partitionsschlüssels
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Es hat sich bewährt, mit einem Partitionsschlüssel mit vielen (hunderten oder tausenden) unterschiedlichen Werten zu arbeiten. Ziel ist es, Ihre Daten und die Workload gleichmäßig auf die Elemente zu verteilen, die diesen Partitionsschlüsselwerten zugeordnet sind. Wenn in den Daten keine solche Eigenschaft enthalten ist, können Sie einen *synthetischen Partitionsschlüssel* erstellen. In diesem Artikel werden einige grundlegende Verfahren zum Generieren synthetischer Partitionsschlüssel für Ihre Cosmos-Container beschrieben.
 

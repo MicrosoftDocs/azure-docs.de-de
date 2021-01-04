@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 0534c85548b1d8b6203aaac4911dc851dd49d81a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d122cedbad41d6984614a0edccb2fd98269710f2
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460353"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618075"
 ---
 # <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Behandeln von Problemen beim kennwortbasierten einmaligen Anmelden in Azure AD
 
@@ -36,7 +36,7 @@ Dieses Problem tritt normalerweise auf, wenn der Anwendungsanbieter vor Kurzem d
 
 Microsoft verfügt zwar über Technologie, mit der automatisch erkannt werden kann, wenn es für Integrationen zu Fehlern kommt. Unter Umständen ist es aber nicht möglich, die Probleme sofort zu finden, oder die Lösung des Problems dauert einige Zeit. Falls eine dieser Integrationen nicht richtig funktioniert, können Sie eine Supportanfrage erstellen, damit der Fehler so schnell wie möglich behoben werden kann.
 
-**Falls Sie Kontakt zum Hersteller der Anwendung haben**, können Sie ihn an Microsoft verweisen, damit wir mit ihm zusammenarbeiten können, um die Anwendung in Azure Active Directory zu integrieren. Verweisen Sie den Hersteller als Einstieg an [Ihre Anwendung im Azure Active Directory-Anwendungskatalog auflisten](../azuread-dev/howto-app-gallery-listing.md).
+**Falls Sie Kontakt zum Hersteller der Anwendung haben**, können Sie ihn an Microsoft verweisen, damit wir mit ihm zusammenarbeiten können, um die Anwendung in Azure Active Directory zu integrieren. Verweisen Sie den Hersteller als Einstieg an [Ihre Anwendung im Azure Active Directory-Anwendungskatalog auflisten](../develop/v2-howto-app-gallery-listing.md).
 
 ## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>Die Anmeldeinformationen wurden angegeben und gesendet, die Seite gibt jedoch an, dass die Anmeldeinformationen falsch sind
 
@@ -62,7 +62,7 @@ Sollten die obigen Vorschläge nicht funktionieren, wurde unter Umständen auf A
 
 Microsoft verfügt zwar über Technologie, mit der automatisch erkannt werden kann, wenn es für Anwendungsintegrationen zu Fehlern kommt. Unter Umständen ist es aber nicht möglich, die Probleme sofort zu finden, oder die Lösung des Problems dauert einige Zeit. Wenn eine Integration nicht richtig funktioniert, können Sie eine Supportanfrage öffnen, damit das Problem so schnell wie möglich behoben werden kann. 
 
-Falls Sie darüber hinaus **Kontakt zum Hersteller der Anwendung haben,** **verweisen Sie ihn an uns**, damit wir mit ihm zusammenarbeiten können, um die Anwendung in Azure Active Directory zu integrieren. Verweisen Sie den Hersteller als Einstieg an [Ihre Anwendung im Azure Active Directory-Anwendungskatalog auflisten](../azuread-dev/howto-app-gallery-listing.md).
+Falls Sie darüber hinaus **Kontakt zum Hersteller der Anwendung haben,** **verweisen Sie ihn an uns**, damit wir mit ihm zusammenarbeiten können, um die Anwendung in Azure Active Directory zu integrieren. Verweisen Sie den Hersteller als Einstieg an [Ihre Anwendung im Azure Active Directory-Anwendungskatalog auflisten](../develop/v2-howto-app-gallery-listing.md).
 
 ## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Überprüfen Sie, ob die Anmeldeseite der Anwendung vor Kurzem geändert wurde oder ein zusätzliches Feld erfordert.
 
@@ -70,7 +70,7 @@ Wenn die Anmeldeseite der Anwendung erheblich geändert wurde, kann dies in eini
 
 Microsoft verfügt zwar über Technologie, mit der automatisch erkannt werden kann, wenn es für Anwendungsintegrationen zu Fehlern kommt. Unter Umständen ist es aber nicht möglich, die Probleme sofort zu finden, oder die Lösung des Problems dauert einige Zeit. Wenn eine Integration nicht richtig funktioniert, können Sie eine Supportanfrage öffnen, damit das Problem so schnell wie möglich behoben werden kann. 
 
-Falls Sie darüber hinaus **Kontakt zum Hersteller der Anwendung haben,** **verweisen Sie ihn an uns**, damit wir mit ihm zusammenarbeiten können, um die Anwendung in Azure Active Directory zu integrieren. Verweisen Sie den Hersteller als Einstieg an [Ihre Anwendung im Azure Active Directory-Anwendungskatalog auflisten](../azuread-dev/howto-app-gallery-listing.md).
+Falls Sie darüber hinaus **Kontakt zum Hersteller der Anwendung haben,** **verweisen Sie ihn an uns**, damit wir mit ihm zusammenarbeiten können, um die Anwendung in Azure Active Directory zu integrieren. Verweisen Sie den Hersteller als Einstieg an [Ihre Anwendung im Azure Active Directory-Anwendungskatalog auflisten](../develop/v2-howto-app-gallery-listing.md).
 
 ## <a name="capture-sign-in-fields-for-an-app"></a>Erfassen von Anmeldefeldern für eine Anwendung
 
@@ -150,6 +150,13 @@ Wenn bei Ihnen eines dieser Probleme auftritt, gehen Sie folgendermaßen vor:
 - Stellen Sie sicher, dass sich Ihre Benutzer nicht über „Meine Apps“ bei der App anzumelden versuchen, während sie sich im Modus *Inkognito*, *InPrivate* oder *Privat* befinden.
 - Versuchen Sie erneut die manuelle Erfassung. Stellen Sie sicher, dass sich die roten Marker über den richtigen Feldern befinden.
 - Wenn die manuelle Erfassung oder die Anmeldeseite nicht mehr reagiert, versuchen Sie, die manuelle Erfassung erneut durchzuführen. Drücken Sie dieses Mal nach Abschluss des Vorgangs jedoch die Taste F12, um die Entwicklerkonsole des Browsers zu öffnen. Wählen Sie die Registerkarte **Konsole** aus. Geben Sie **window.location=" *&lt;die Anmelde-URL, die Sie beim Konfigurieren der App angegeben haben&gt;* "** ein. Drücken Sie dann die EINGABETASTE. So erzwingen Sie eine Seitenumleitung, die den Erfassungsprozess beendet und die erfassten Felder speichert.
+
+### <a name="i-cant-add-another-user-to-my-password-based-sso-app"></a>Ich kann meiner kennwortbasierten SSO-App keinen weiteren Benutzer hinzufügen.
+
+Kennwortbasierte SSO-Apps sind auf 48 Benutzer beschränkt. Daher gilt pro App eine Beschränkung auf 48 Schlüssel für Benutzername-Kennwort-Paare.
+Wenn Sie zusätzliche Benutzer hinzufügen möchten, haben Sie folgende Möglichkeiten:
+-   Hinzufügen einer zusätzlichen Instanz der App
+-   Entfernen von Benutzern, die die App nicht mehr verwenden
 
 ## <a name="request-support"></a>Anfordern von Support 
 Wenn Sie beim Einrichten von SSO und Zuweisen von Benutzern eine Fehlermeldung erhalten, öffnen Sie ein Supportticket. Fügen Sie so viele der folgenden Informationen wie möglich hinzu:

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 06d71713075b401c876edd87f0ec884bcb252589
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b7f6d30ffa849f78b0f7baa2d84e4fb01f3bf192
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977747"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500341"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Sichern und Verwenden von Richtlinien auf virtuellen Computern in Azure
 
@@ -41,7 +41,7 @@ Die Verschlüsselung wirkt sich nicht auf die Leistung verwalteter Datenträger 
 
 Sie können von der Plattform verwaltete Schlüssel für die Verschlüsselung der verwalteten Datenträger verwenden oder die Verschlüsselung mit eigenen Schlüsseln verwalten. Wenn Sie die Verschlüsselung mit eigenen Schlüsseln verwalten möchten, können Sie einen *vom Kunden verwalteten Schlüssel* angeben, der zum Verschlüsseln und Entschlüsseln aller Daten in verwalteten Datenträgern verwendet werden soll. 
 
-Weitere Informationen zur serverseitigen Verschlüsselung finden Sie in den Artikeln für [Windows](windows/disk-encryption.md) oder [Linux](linux/disk-encryption.md).
+Weitere Informationen zur serverseitigen Verschlüsselung finden Sie in den Artikeln für [Windows](./disk-encryption.md) oder [Linux](./disk-encryption.md).
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
@@ -67,10 +67,10 @@ Die Funktion für verwaltete Identitäten für Azure-Ressourcen in Azure Active 
 
 Mit [Azure-Richtlinien](../governance/policy/overview.md) kann das gewünschte Verhalten für die [Windows-VMs](./windows/policy.md) und [Linux-VMs](./linux/policy.md) Ihrer Organisation definiert werden. Mithilfe von Richtlinien kann eine Organisation verschiedene Konventionen und Regeln im gesamten Unternehmen durchsetzen. Die Durchsetzung des gewünschten Verhaltens hilft dabei, Risiken zu mindern, und trägt gleichzeitig zum Erfolg des Unternehmens bei.
 
-## <a name="role-based-access-control"></a>Rollenbasierte Zugriffssteuerung
+## <a name="azure-role-based-access-control"></a>Rollenbasierte Zugriffssteuerung in Azure
 
 Mithilfe der [rollenbasierten Zugriffssteuerung von Azure (Azure Role-Based Access Control, Azure-RBAC)](../role-based-access-control/overview.md) können Sie Aufgabenbereiche in Ihrem Team trennen und Benutzern nur das Maß an Zugriff auf Ihre VM gewähren, das sie zur Ausführung ihrer Aufgaben benötigen. Anstatt allen Benutzern den uneingeschränkten Zugriff auf die VM zu gewähren, können Sie auch nur bestimmte Aktionen zulassen. Sie können die Zugriffssteuerung für die VM im [Azure-Portal](../role-based-access-control/role-assignments-portal.md), per [Azure CLI](/cli/azure/role) oder mit [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md) konfigurieren.
 
 
 ## <a name="next-steps"></a>Nächste Schritte
-- Führen Sie die Schritte aus, um die VM-Sicherheit mit dem Azure Security Center für [Linux](../security/fundamentals/overview.md) oder [Windows](windows/tutorial-azure-security.md) zu überwachen.
+- Führen Sie die Schritte aus, um die VM-Sicherheit mit dem Azure Security Center für [Linux](../security/fundamentals/overview.md) oder [Windows](./tutorial-azure-security.md) zu überwachen.

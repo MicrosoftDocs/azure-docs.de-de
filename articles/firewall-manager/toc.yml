@@ -28,6 +28,8 @@
       href: deployment-overview.md
     - name: Sicherheitspartneranbieter
       href: trusted-security-partners.md
+    - name: Schützen von Hubs mithilfe von Check Point Cloudguard Connect
+      href: check-point-overview.md
     - name: IP-Adressgruppen
       href: ip-groups.md
     - name: Regelverarbeitungslogik
@@ -38,6 +40,10 @@
       href: threat-intelligence-settings.md
     - name: FQDN in Netzwerkregeln
       href: fqdn-filtering-network-rules.md
+    - name: Sicherheit
+      items:
+        - name: Sicherheitsbaseline
+          href: security-baseline.md
 - name: Anleitungen
   items:
     - name: Bereitstellen von Sicherheitspartneranbietern

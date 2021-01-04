@@ -8,13 +8,13 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
-ms.date: 08/21/2020
-ms.openlocfilehash: fd74bfca73323209012dfd1fda61bbaada84092f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/17/2020
+ms.openlocfilehash: e8c16f02cf6b77fa54d2a19abac48e9914aa99bd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530691"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008564"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Tutorial: Abfragen eines Cognitive Search-Index über Power Apps
 
@@ -33,7 +33,7 @@ Sollten Sie über kein Azure-Abonnement verfügen, können Sie ein [kostenloses 
 
 * [Power Apps-Konto](https://make.powerapps.com)
 
-* [Index „hotels-sample“](search-get-started-portal.md)
+* Im Suchdienst gehosteter [Index „hotels-sample“](search-get-started-portal.md)
 
 * [Abfrage-API-Schlüssel](search-security-api-keys.md#find-existing-keys)
 
@@ -49,7 +49,7 @@ Ein Connector in Power Apps ist eine Datenquellenverbindung. In diesem Schritt 
 
 1. Wählen Sie **+ Neuer benutzerdefinierter Connector** und dann **Ohne Vorlage erstellen** aus.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-3-create-blank.png" alt-text="Menü „Benutzerdefinierte Connectors“" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-3-create-blank.png" alt-text="Menü „Ohne Vorlage erstellen“" border="true":::
 
 1. Geben Sie einen Namen für Ihren benutzerdefinierten Connector ein (z. B. *AzureSearchQuery*), und klicken Sie dann auf **Weiter**.
 
@@ -60,15 +60,15 @@ Ein Connector in Power Apps ist eine Datenquellenverbindung. In diesem Schritt 
    * Unter „Host“ müssen Sie die URL des Suchdiensts eingeben (z. B. `<yourservicename>.search.windows.net`).
    * Geben Sie für „Basis-URL“ einfach „/“ ein.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-5-general-info.png" alt-text="Menü „Benutzerdefinierte Connectors“" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-5-general-info.png" alt-text="Dialogfeld „Allgemeine Informationen“" border="true":::
 
 1. Legen Sie auf der Seite „Sicherheit“ den **Authentifizierungstyp** auf *API-Schlüssel* und „Parameterbezeichnung“ sowie „Parametername“ auf *api-key* fest. Wählen Sie für **Parameterstandort** *Header* aus, wie unten dargestellt.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-6-authentication-type.png" alt-text="Menü „Benutzerdefinierte Connectors“" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-6-authentication-type.png" alt-text="Option „Authentifizierungstyp“" border="true":::
 
 1. Wählen Sie auf der Seite „Definitionen“ **+ Neue Aktion** aus, um eine Aktion zu erstellen, mit der der Index abgefragt wird. Geben Sie für die Zusammenfassung und den Namen der Vorgangs-ID den Wert „Abfrage“ ein. Geben Sie als Beschreibung z. B. *„Fragt den Suchindex ab“* ein.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-7-new-action.png" alt-text="Menü „Benutzerdefinierte Connectors“" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-7-new-action.png" alt-text="Optionen für „Neue Aktion“" border="true":::
 
 1. Scrollen Sie nach unten. Klicken Sie unter „Anforderungen“ auf die Schaltfläche **+ Aus Beispiel importieren**, um eine Abfrageanforderung an Ihren Suchdienst zu konfigurieren:
 
@@ -76,27 +76,27 @@ Ein Connector in Power Apps ist eine Datenquellenverbindung. In diesem Schritt 
 
    * Geben Sie unter „URL“ eine Beispielabfrage für Ihren Suchindex ein (`search=*` gibt alle Dokumente zurück, `$select=` ermöglicht die Auswahl von Feldern). Die API-Version muss angegeben werden. Eine vollständige URL sieht beispielsweise wie folgt aus: `https://mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2020-06-30`
 
-   * Geben Sie unter „Header“ `Content-Type` ein. 
+   * Geben Sie unter „Header“ `Content-Type` ein. Sie legen den Wert später auf `application/json` fest.
 
-     **Power Apps** verwendet die Syntax, um Parameter aus der Abfrage zu extrahieren. Beachten Sie, dass das Suchfeld explizit definiert wurde. 
+     **Power Apps** nutzt die Syntax in der URL, um Parameter aus der Abfrage zu extrahieren: Die Parameter „search“, „select“ und „api-version“ können beim Durchlaufen des Assistenten konfiguriert werden.
 
-       :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="Menü „Benutzerdefinierte Connectors“" border="true":::
+       :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="Aus Beispiel importieren" border="true":::
 
 1. Klicken Sie auf **Importieren**, um die Anforderung automatisch auszufüllen. Klicken Sie neben den einzelnen Parametern auf das Symbol **...** , um die Parametermetadaten abschließend festzulegen. Klicken Sie nach jeder Parameteraktualisierung auf **Zurück**, um zur Seite „Anforderung“ zurückzukehren.
 
-   :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Menü „Benutzerdefinierte Connectors“" border="true":::
+   :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Dialogfeld „Aus Beispiel importieren“" border="true":::
 
 1. Für *search*: Legen Sie `*` als **Standardwert** fest, wählen Sie unter **Erforderlich** die Option *Nein* aus und unter **Sichtbarkeit** die Option *Keine*. 
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-1-parameter-metadata-search.png" alt-text="Menü „Benutzerdefinierte Connectors“" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-1-parameter-metadata-search.png" alt-text="Suchparametermetadaten" border="true":::
 
 1. Für *select*: Legen Sie `HotelName,Description,Address/City` als **Standardwert** fest, wählen Sie unter **Erforderlich** die Option *Nein* aus und unter **Sichtbarkeit** die Option *Keine*.  
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Menü „Benutzerdefinierte Connectors“" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Auswählen der Parametermetadaten" border="true":::
 
 1. Für *api-version*: Legen Sie `2020-06-30` als **Standardwert** fest, wählen Sie unter **Erforderlich** die Option *Ja* aus und unter **Sichtbarkeit** die Option *Intern*.  
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="Menü „Benutzerdefinierte Connectors“" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="Metadaten des Versionsparameters" border="true":::
 
 1. Für *Content-Type*: Legen Sie diese Option auf `application/json` fest.
 
@@ -111,11 +111,11 @@ Ein Connector in Power Apps ist eine Datenquellenverbindung. In diesem Schritt 
       - {name: Content-Type, in: header, required: false, type: string}
     ```
 
-1. Kehren Sie zum Schritt **3. Anforderung** zurück, und scrollen Sie nach unten zum Abschnitt „Antwort“. Klicken Sie auf **Standardantwort hinzufügen**. Dies ist wichtig, da Power Apps dadurch das Schema der Antwort verstehen kann. 
+1. Wechseln Sie zurück zum Assistenten und zu Schritt **3. Anfordern**. Scrollen Sie nach unten zum Abschnitt „Antwort“. Klicken Sie auf **Standardantwort hinzufügen**. Dies ist wichtig, da Power Apps dadurch das Schema der Antwort verstehen kann. 
 
 1. Fügen Sie eine Beispielantwort ein. Eine einfache Möglichkeit zum Erfassen einer Beispielantwort ist die Verwendung des Suchexplorers im Azure-Portal. Geben Sie im Suchexplorer die gleiche Abfrage wie für die Anforderung ein, fügen Sie jedoch **$top=2** hinzu, um die Ergebnisse auf zwei Dokumente zu beschränken: `search=*&$select=HotelName,Description,Address/City&$top=2` 
 
-   Power Apps benötigt nur einige wenige Ergebnisse, um das Schema zu erkennen.
+   Power Apps benötigt nur einige wenige Ergebnisse, um das Schema zu erkennen. Sie können die folgende Antwort nun in den Assistenten kopieren, vorausgesetzt, Sie verwenden „hotels-sample-index“.
 
     ```JSON
     {
@@ -144,7 +144,11 @@ Ein Connector in Power Apps ist eine Datenquellenverbindung. In diesem Schritt 
     > [!TIP] 
     > Sie können für die JSON-Antwort nur eine begrenzte Anzahl von Zeichen eingeben. Vereinfachen Sie den JSON-Code daher ggf., bevor Sie ihn einfügen. Das Schema und das Format der Antwort sind wichtiger als die Werte selbst. Beispielsweise könnte der Text für das Beschreibungsfeld auf den ersten Satz beschränkt werden.
 
-1. Klicken Sie oben rechts auf **Connector erstellen**.
+1. Klicken Sie auf **Importieren**, um die Standardantwort hinzuzufügen.
+
+1. Klicken Sie oben rechts auf **Connector erstellen**, um die Definition zu speichern.
+
+1. Klicken Sie auf **Schließen**, um den Connector zu schließen.
 
 ## <a name="2---test-the-connection"></a>Schritt 2: Testen der Verbindung
 
@@ -154,11 +158,11 @@ Für diese Aufgabe benötigen Sie einen [Abfrage-API-Schlüssel](search-security
 
 1. Klicken Sie ganz links auf **Benutzerdefinierte Connectors**.
 
-1. Suchen Sie anhand des Namens nach dem Connector (in diesem Tutorial „AzureSearchQuery“).
+1. Suchen Sie in der Liste nach dem Connector (in diesem Tutorial „AzureSearchQuery“).
 
 1. Wählen Sie den Connector aus, erweitern Sie die Liste mit den Aktionen, und wählen Sie **Eigenschaften anzeigen** aus.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-11-1-test-connector.png" alt-text="Menü „Benutzerdefinierte Connectors“" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-11-1-test-connector.png" alt-text="Anzeigen von Eigenschafte" border="true":::
 
 1. Wählen Sie oben rechts die Option **Bearbeiten** aus.
 
@@ -170,7 +174,7 @@ Für diese Aufgabe benötigen Sie einen [Abfrage-API-Schlüssel](search-security
 
 1. Klicken Sie unter „Vorgänge“ auf die Schaltfläche **Vorgang testen**. Wenn der Vorgang erfolgreich ausgeführt wurde, sollte der Status 200 angezeigt werden, und im Text der Antwort sollte JSON-Code zu sehen sein, der die Suchergebnisse beschreibt.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-11-2-test-connector.png" alt-text="Menü „Benutzerdefinierte Connectors“" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-11-2-test-connector.png" alt-text="JSON-Antwort" border="true":::
 
 ## <a name="3---visualize-results"></a>Schritt 3: Visualisieren der Ergebnisse
 
@@ -178,7 +182,7 @@ In diesem Schritt erstellen Sie eine Power App mit einem Suchfeld, einer Suchsc
 
 1. Erweitern Sie auf der linken Seite **Apps** >  **+ Neue App** > **Canvas**.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-1-create-canvas.png" alt-text="Menü „Benutzerdefinierte Connectors“" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-1-create-canvas.png" alt-text="Erstellen einer Canvas-App" border="true":::
 
 1. Wählen Sie den Anwendungstyp aus. Erstellen Sie für dieses Tutorial eine **Leere App** mit **Telefonlayout**. **Power Apps Studio** wird angezeigt.
 
@@ -186,13 +190,13 @@ In diesem Schritt erstellen Sie eine Power App mit einem Suchfeld, einer Suchsc
 
    Geben Sie den Abfrage-API-Schlüssel ein.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-3-connect-connector.png" alt-text="Menü „Benutzerdefinierte Connectors“" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-3-connect-connector.png" alt-text="Verbinden des Connectors" border="true":::
 
     *AzureSearchQuery* ist nun eine Datenquelle, die für die Verwendung in Ihrer Anwendung verfügbar ist.
 
 1. Fügen Sie der Canvas auf der Registerkarte **Einfügen** einige Steuerelemente hinzu.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-4-add-controls.png" alt-text="Menü „Benutzerdefinierte Connectors“" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-4-add-controls.png" alt-text="Einfügen von Steuerelementen" border="true":::
 
 1. Fügen Sie die folgenden Elemente ein:
 
@@ -203,7 +207,7 @@ In diesem Schritt erstellen Sie eine Power App mit einem Suchfeld, einer Suchsc
 
     Die Canvas sollte in etwa wie folgt aussehen:
 
-    :::image type="content" source="./media/search-howto-powerapps/2-5-controls-layout.png" alt-text="Menü „Benutzerdefinierte Connectors“" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-5-controls-layout.png" alt-text="Layout der Steuerelemente" border="true":::
 
 1. Damit die **Schaltfläche „Suchen“** eine Abfrage sendet, fügen Sie die folgende Aktion in **OnSelect** ein:
 
@@ -214,7 +218,7 @@ In diesem Schritt erstellen Sie eine Power App mit einem Suchfeld, einer Suchsc
 
    Der folgende Screenshot zeigt die Bearbeitungsleiste für die **OnSelect**-Aktion.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-6-search-button-event.png" alt-text="Menü „Benutzerdefinierte Connectors“" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-6-search-button-event.png" alt-text="OnSelect für Schaltfläche" border="true":::
 
    Diese Aktion bewirkt, dass die Schaltfläche eine neue Sammlung mit dem Namen *azResult* mit dem Ergebnis der Suchabfrage aktualisiert. Dabei wird der Text im Textfeld *txtQuery* als Abfragebegriff verwendet.
 
@@ -236,17 +240,17 @@ In diesem Schritt erstellen Sie eine Power App mit einem Suchfeld, einer Suchsc
 
     Da wir beim Definieren des Connectors ein Beispielergebnis angegeben haben, erkennt die App die im Index verfügbaren Felder.
     
-    :::image type="content" source="./media/search-howto-powerapps/2-7-gallery-select-fields.png" alt-text="Menü „Benutzerdefinierte Connectors“" border="true":::   
+    :::image type="content" source="./media/search-howto-powerapps/2-7-gallery-select-fields.png" alt-text="Katalogfelder" border="true":::   
  
 1. Drücken Sie **F5**, um eine Vorschau der App anzuzeigen.  
 
-    :::image type="content" source="./media/search-howto-powerapps/2-8-3-final.png" alt-text="Menü „Benutzerdefinierte Connectors“" border="true":::    
+    :::image type="content" source="./media/search-howto-powerapps/2-8-3-final.png" alt-text="Fertiggestellte App" border="true":::    
 
 <!--     Remember that the fields can be set to calculated values.
 
     For the example, setting using the *"Image, Title and Subtitle"* layout and specifying the *Image* function as the concatenation of the root path for the data and the file name (for instance, `"https://mystore.blob.core.windows.net/multilang/" & ThisItem.metadata_storage_name`) will produce the result below.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-8-2-final.png" alt-text="Menü „Benutzerdefinierte Connectors“" border="true":::         -->
+    :::image type="content" source="./media/search-howto-powerapps/2-8-2-final.png" alt-text="Final app" border="true":::         -->
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 

@@ -25,22 +25,12 @@
           href: spring-cloud-quickstart-logs-metrics-tracing.md
 - name: Tutorials
   items:
-    - name: Manuelles Skalieren einer App
-      href: spring-cloud-tutorial-scale-manual.md
-    - name: Autoskalierung einer App
-      href: spring-cloud-tutorial-setup-autoscale.md
     - name: Warnungen und Aktionsgruppen
       href: spring-cloud-tutorial-alerts-action-groups.md
-    - name: Verwenden von IntelliJ zum Bereitstellen von Apps
-      href: spring-cloud-tutorial-intellij-deploy-apps.md
     - name: Dashboard für Leistungsschutzschalter
       href: spring-cloud-tutorial-circuit-breaker.md
     - name: Benutzerdefinierter DNS-Name
       href: spring-cloud-tutorial-custom-domain.md
-    - name: "Bereitstellen einer Azure\_Spring\_Cloud-Instanz mit Terraform"
-      href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
-    - name: CI/CD mit Jenkins
-      href: /azure/developer/jenkins/deploy-to-azure-spring-cloud-using-azure-cli
     - name: 'Verwenden einer verwalteten Identität, um eine Verbindung zwischen Key Vault und einer Azure Spring Cloud-App herzustellen'
       href: spring-cloud-tutorial-managed-identities-key-vault.md
     - name: Bereitstellen von Azure Spring Cloud im virtuellen Netzwerk
@@ -65,41 +55,86 @@
       href: disaster-recovery.md
 - name: Anleitungen
   items:
-    - name: Vorbereiten einer Java Spring-App für die Bereitstellung
-      href: spring-cloud-tutorial-prepare-app-deployment.md
-    - name: Starten einer Java-App über Quellcode
-      href: spring-cloud-howto-launch-from-source.md
-    - name: Einrichten eines Konfigurationsservers
-      href: spring-cloud-tutorial-config-server.md
-    - name: Aktivieren der Dienstregistrierung
-      href: spring-cloud-service-registration.md
-    - name: Binden einer App an Azure CosmosDB
-      href: spring-cloud-tutorial-bind-cosmos.md
-    - name: Binden einer App an Azure Cache for Redis
-      href: spring-cloud-tutorial-bind-redis.md
-    - name: Binden einer App an Azure MySQL
-      href: spring-cloud-tutorial-bind-mysql.md
-    - name: 'Starten, Beenden und Löschen einer App'
-      href: spring-cloud-howto-start-stop-delete.md
-    - name: Einrichten einer Stagingumgebung
-      href: spring-cloud-howto-staging-environment.md
-    - name: Verwenden von beständigem Speicher
-      href: spring-cloud-howto-persistent-storage.md
-    - name: Integrieren in Azure-Lastenausgleichslösungen
-      href: spring-cloud-howto-integrate-azure-load-balancers.md
-    - name: Aktivieren einer systemseitig zugewiesenen verwalteten Identität
-      href: spring-cloud-howto-enable-system-assigned-managed-identity.md
-    - name: Selbstdiagnose und Problembehandlung
-      href: spring-cloud-howto-self-diagnose-solve.md
+    - name: Entwickeln
+      items:
+        - name: Vorbereiten einer Java Spring-App für die Bereitstellung
+          href: spring-cloud-tutorial-prepare-app-deployment.md
+        - name: Einrichten eines Konfigurationsservers
+          href: spring-cloud-tutorial-config-server.md
+        - name: Aktivieren der Dienstregistrierung
+          href: spring-cloud-service-registration.md
+    - name: Bereitstellen
+      items:
+        - name: Einrichten einer Stagingumgebung
+          href: spring-cloud-howto-staging-environment.md
+        - name: Starten einer Java-App über Quellcode
+          href: spring-cloud-howto-launch-from-source.md
+        - name: Verwenden von IntelliJ zum Bereitstellen von Apps
+          href: spring-cloud-tutorial-intellij-deploy-apps.md
+        - name: Bereitstellen von Azure Spring Cloud mit Azure PowerShell
+          href: spring-cloud-howto-deploy-powershell.md
+    - name: Konfigurieren
+      items:
+        - name: 'Starten, Beenden und Löschen einer App'
+          href: spring-cloud-howto-start-stop-delete.md
+        - name: Verwenden von beständigem Speicher
+          href: spring-cloud-howto-persistent-storage.md
+    - name: Skalieren
+      items:
+        - name: Manuelles Skalieren einer App
+          href: spring-cloud-tutorial-scale-manual.md
+        - name: Autoskalierung einer App
+          href: spring-cloud-tutorial-setup-autoscale.md
+        - name: Ermitteln öffentlicher IP-Ausgangsadressen
+          href: spring-cloud-howto-outbound-public-ip.md
     - name: Überwachen
-    - name: Erstellen von Rollen und Berechtigungen
-      href: spring-cloud-howto-permissions.md
-    - name: Verteilte Ablaufverfolgung und App Insights
-      href: spring-cloud-tutorial-distributed-tracing.md
-    - name: Analysieren von Protokollen und Metriken
-      href: diagnostic-services.md
-    - name: Streamen von Protokollen in Echtzeit
-      href: spring-cloud-howto-log-streaming.md
+      items:
+        - name: Verteilte Ablaufverfolgung und App Insights
+          href: spring-cloud-tutorial-distributed-tracing.md
+        - name: Analysieren von Protokollen und Metriken
+          href: diagnostic-services.md
+        - name: Streamen von Protokollen in Echtzeit
+          href: spring-cloud-howto-log-streaming.md
+    - name: Sicher
+      items:
+        - name: Aktivieren einer systemseitig zugewiesenen verwalteten Identität
+          href: spring-cloud-howto-enable-system-assigned-managed-identity.md
+        - name: Erstellen von Rollen und Berechtigungen
+          href: spring-cloud-howto-permissions.md
+    - name: Integrieren
+      items:
+        - name: Binden einer App an Azure CosmosDB
+          href: spring-cloud-tutorial-bind-cosmos.md
+        - name: Binden einer App an Azure Cache for Redis
+          href: spring-cloud-tutorial-bind-redis.md
+        - name: Binden einer App an Azure MySQL
+          href: spring-cloud-tutorial-bind-mysql.md
+        - name: Integrieren in Azure-Lastenausgleichslösungen
+          href: spring-cloud-howto-integrate-azure-load-balancers.md
+    - name: Automatisieren
+      items:
+        - name: CI/CD mit Azure DevOps
+          href: spring-cloud-howto-cicd.md
+        - name: CI/CD mit GitHub Actions
+          href: spring-cloud-howto-github-actions.md
+        - name: Authentifizierung mit Key Vault in GitHub-Aktionen
+          href: spring-cloud-github-actions-key-vault.md
+        - name: "Bereitstellen einer Azure\_Spring\_Cloud-Instanz mit Terraform"
+          href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
+    - name: Problembehandlung
+      items:
+        - name: Selbstdiagnose und Problembehandlung
+          href: spring-cloud-howto-self-diagnose-solve.md
+        - name: Handbuch zur Problembehandlung
+          href: spring-cloud-troubleshoot.md
+    - name: Migrieren
+      items:
+        - name: Spring Cloud
+          href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud
+        - name: Spring Boot
+          href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
+        - name: Tomcat
+          href: 'https://docs.microsoft.com/azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud'
 - name: DevOps-Bereitstellung
   items:
     - name: CI/CD mit Azure DevOps
@@ -123,7 +158,7 @@
     - name: Häufig gestellte Fragen
       href: spring-cloud-faq.md
     - name: REST-API-Referenz
-      href: /rest/api/azurespringclould/
+      href: /rest/api/azurespringcloud/
     - name: Azure Policy-Integrationen
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

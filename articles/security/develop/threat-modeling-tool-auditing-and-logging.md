@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bac17073650736df9ec48e951290852e082e9417
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d3f3ca7b5d4516c2ad5dc9cb19a2eaed0a8a4a8
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87542992"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518276"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Sicherheitsrahmen: Überwachung und Protokollierung | Gegenmaßnahmen 
 
@@ -131,7 +131,7 @@ ms.locfileid: "87542992"
 | **SDL-Phase**               | Entwickeln |  
 | **Zutreffende Technologien** | Allgemein |
 | **Attribute**              | –  |
-| **Referenzen**              | [Konfigurieren der Anmeldungsüberwachung](https://msdn.microsoft.com/library/ms175850.aspx) |
+| **Referenzen**              | [Konfigurieren der Anmeldungsüberwachung](/sql/ssms/configure-login-auditing-sql-server-management-studio) |
 | **Schritte** | <p>Die Anmeldungsüberwachung für Datenbankserver muss aktiviert sein, um Angriffe zu erkennen/bestätigen, bei denen das Kennwort erraten wird. Es ist wichtig, fehlgeschlagene Anmeldeversuche zu erfassen. Das Erfassen erfolgreicher und fehlgeschlagener Anmeldeversuche bietet zusätzliche Vorteile während der forensischen Untersuchung.</p>|
 
 ## <a name="enable-threat-detection-on-azure-sql"></a><a id="threat-detection"></a>Aktivieren der Bedrohungserkennung in Azure SQL
@@ -142,7 +142,7 @@ ms.locfileid: "87542992"
 | **SDL-Phase**               | Entwickeln |  
 | **Zutreffende Technologien** | SQL Azure |
 | **Attribute**              | SQL-Version: V12 |
-| **Referenzen**              | [Erste Schritte mit der Bedrohungserkennung von SQL-Datenbank](https://azure.microsoft.com/documentation/articles/sql-database-threat-detection-get-started/)|
+| **Referenzen**              | [Erste Schritte mit der Bedrohungserkennung von SQL-Datenbank](../../azure-sql/database/threat-detection-configure.md)|
 | **Schritte** |<p>Die Bedrohungserkennung erkennt anomale Datenbankaktivitäten, die auf potenzielle Sicherheitsrisiken für die Datenbank hindeuten. Sie bietet eine neue Sicherheitsebene und ermöglicht es den Kunden, auf erkannte potenzielle Bedrohungen zu reagieren. Zu diesem Zweck werden Sicherheitswarnungen zu anormalen Aktivitäten bereitgestellt.</p><p>Die Benutzer können die verdächtigen Ereignisse mithilfe der Überwachung von Azure SQL-Datenbank untersuchen, um zu ermitteln, ob sie auf einen Zugriffsversuch zurückzuführen sind oder die Verletzung der Datensicherheit oder den Missbrauch von Daten zum Ziel haben.</p><p>Die Bedrohungserkennung vereinfacht den Umgang mit potenziellen Bedrohungen für die Datenbank, ohne das Fachwissen eines Sicherheitsexperten besitzen oder komplexe Sicherheitsüberwachungssysteme verwalten zu müssen.</p>|
 
 ## <a name="use-azure-storage-analytics-to-audit-access-of-azure-storage"></a><a id="analytics"></a>Verwenden der Azure-Speicheranalyse zum Überwachen des Zugriffs auf Azure Storage
@@ -153,7 +153,7 @@ ms.locfileid: "87542992"
 | **SDL-Phase**               | Bereitstellung |  
 | **Zutreffende Technologien** | Allgemein |
 | **Attribute**              | – |
-| **Referenzen**              | [Verwenden der Speicheranalyse zur Überwachung des Autorisierungstyps](https://azure.microsoft.com/documentation/articles/storage-security-guide/#storage-analytics) |
+| **Referenzen**              | [Verwenden der Speicheranalyse zur Überwachung des Autorisierungstyps](../../storage/blobs/security-recommendations.md#loggingmonitoring) |
 | **Schritte** | <p>Für jedes Speicherkonto kann die Azure-Speicheranalyse zur Protokollierung und Speicherung von Metrikdaten aktiviert werden. Bei der Speicheranalyse werden wichtige Informationen bereitgestellt, z. B. die Authentifizierungsmethode, die von einem Benutzer verwendet wird, wenn er auf den Speicher zugreift.</p><p>Dies kann sehr hilfreich sein, wenn Sie den Zugriff auf den Speicher sehr genau beobachten. In Blob Storage können Sie z. B. alle Container als privat festlegen und die Verwendung eines SAS-Diensts in allen Anwendungen implementieren. Anschließend können Sie die Protokolle regelmäßig überprüfen, um festzustellen, ob der Zugriff auf Ihre Blobs über die Schlüssel des Speicherkontos erfolgt, was auf eine Sicherheitslücke hinweisen könnte, oder ob die Blobs öffentlich sind, obwohl sie es nicht sein sollten.</p>|
 
 ## <a name="implement-sufficient-logging"></a><a id="sufficient-logging"></a>Implementieren einer ausreichenden Protokollierung
@@ -164,7 +164,7 @@ ms.locfileid: "87542992"
 | **SDL-Phase**               | Entwickeln |  
 | **Zutreffende Technologien** | .NET Framework |
 | **Attribute**              | –  |
-| **Referenzen**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
+| **Referenzen**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
 | **Schritte** | <p>Das Fehlen eines richtigen Audit-Trails nach einem Sicherheitsincident kann die forensische Untersuchung behindern. Windows Communication Foundation (WCF) bietet die Möglichkeit, erfolgreiche und/oder fehlgeschlagene Authentifizierungsversuche zu protokollieren.</p><p>Die Protokollierung fehlgeschlagener Authentifizierungsversuche kann Administratoren vor Brute-Force-Angriffen warnen. Die Protokollierung von Ereignissen für eine erfolgreiche Authentifizierung können einen nützlichen Audit-Trail bereitstellen, wenn ein berechtigtes Konto gefährdet wird. Aktivieren Sie die Funktion für die Sicherheitsüberwachung von Diensten in WCF. |
 
 ### <a name="example"></a>Beispiel
@@ -193,7 +193,7 @@ Im Folgenden wird eine Beispielkonfiguration mit aktivierter Überwachung verans
 | **SDL-Phase**               | Entwickeln |  
 | **Zutreffende Technologien** | .NET Framework |
 | **Attribute**              | –  |
-| **Referenzen**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
+| **Referenzen**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
 | **Schritte** | <p>Die entwickelte Lösung wird so konfiguriert, dass keine Ausnahme generiert wird, wenn nicht in ein Überwachungsprotokoll geschrieben werden kann. Wenn WCF so konfiguriert ist, dass keine Ausnahme ausgelöst wird, wenn nicht in ein Überwachungsprotokoll geschrieben werden kann, wird das Programm nicht über den Fehler benachrichtigt, und es findet möglicherweise keine Überwachung auf kritische Sicherheitsereignisse statt.</p>|
 
 ### <a name="example"></a>Beispiel
@@ -242,5 +242,5 @@ Konfigurieren Sie WCF so, dass das Programm benachrichtigt wird, wenn nicht in e
 | **SDL-Phase**               | Entwickeln |  
 | **Zutreffende Technologien** | Allgemein |
 | **Attribute**              | –  |
-| **Referenzen**              | [Einführung in die IoT Hub-Vorgangsüberwachung](https://azure.microsoft.com/documentation/articles/iot-hub-operations-monitoring/) |
+| **Referenzen**              | [Einführung in die IoT Hub-Vorgangsüberwachung](../../iot-hub/iot-hub-operations-monitoring.md) |
 | **Schritte** | <p>Berücksichtigen Sie im Entwurf das Sammeln und Speichern von Überwachungsdaten, die durch die IoT Hub-Vorgangsüberwachung erfasst werden. Aktivieren Sie die folgenden Kategorien für die Überwachung:</p><ul><li>Geräte-Identitätsvorgänge</li><li>Gerät-zu-Cloud-Kommunikation</li><li>Cloud-zu-Gerät-Kommunikation</li><li>Verbindungen</li><li>Dateiuploads</li></ul>|

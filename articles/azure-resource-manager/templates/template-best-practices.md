@@ -2,13 +2,13 @@
 title: Bewährte Methoden für Vorlagen
 description: Beschreibt die empfohlenen Vorgehensweisen zum Erstellen von Azure Resource Manager-Vorlagen. Bietet Vorschläge zur Vermeidung häufig auftretender Probleme bei der Verwendung von Vorlagen.
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: 1121c66e0bcd7de39afd5bea85866fd9ad007ce4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/01/2020
+ms.openlocfilehash: c62bde8fc8cfc79330d13b7b2ff4f778dadf1339
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87809254"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497978"
 ---
 # <a name="arm-template-best-practices"></a>Bewährte Methoden für ARM-Vorlagen
 
@@ -87,8 +87,6 @@ Die Informationen in diesem Abschnitt können bei der Verwendung von [Parametern
    },
    ```
 
-* Verwenden Sie keinen Parameter für die API-Version eines Ressourcentyps. Ressourceneigenschaften und -werte können je nach Versionsnummer variieren. Mithilfe von IntelliSense kann in Code-Editoren nicht das richtige Schema ermittelt werden, wenn die API-Version auf einen Parameter festgelegt ist. Stattdessen sollten Sie die API-Version in der Vorlage hartcodieren.
-
 * Setzen Sie `allowedValues` sparsam ein. Verwenden sie dies nur, wenn Sie sicherstellen müssen, dass einige Werte nicht in die zulässigen Optionen eingeschlossen werden. Wenn Sie `allowedValues` zu großzügig verwenden, werden möglicherweise gültige Bereitstellungen blockiert, wenn Ihre Liste nicht auf dem neuesten Stand gehalten wird.
 
 * Wenn ein Parametername in Ihrer Vorlage einem Parameter im PowerShell-Bereitstellungsbefehl entspricht, löst Resource Manager diesen Namenskonflikt auf, indem dem Vorlagenparameter das Postfix **FromTemplate** hinzugefügt wird. Beispiel: Falls Sie einen Parameter namens **ResourceGroupName** in Ihrer Vorlage einfügen, wird ein Konflikt mit dem Parameter **ResourceGroupName** im Cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) verursacht. Während der Bereitstellung werden Sie zur Eingabe eines Werts für **ResourceGroupNameFromTemplate** aufgefordert.
@@ -146,8 +144,6 @@ Die folgenden Informationen können bei der Arbeit mit [Variablen](template-vari
 
 * Verwenden Sie Variablen für Werte, die Sie aus einer komplexen Anordnung von Vorlagenfunktionen erstellen. Die Vorlage ist einfacher zu lesen, wenn der komplexe Ausdruck nur in Variablen angezeigt wird.
 
-* Verwenden Sie keine Variablen für `apiVersion` für eine Ressource. Die API-Version legt das Schema der Ressource fest. Häufig kann die Version nicht geändert werden, ohne die Eigenschaften für die Ressource zu ändern.
-
 * Im Vorlagenabschnitt **variables** können Sie die [reference](template-functions-resource.md#reference)-Funktion nicht nutzen. Die **reference**-Funktion leitet ihren Wert aus dem Laufzeitstatus der Ressource ab. Variablen werden jedoch während der ersten Analyse der Vorlage aufgelöst. Erstellen Sie Werte, die die **reference**-Funktion direkt in den Abschnitten **resources** oder **outputs** der Vorlage benötigen.
 
 * Beziehen Sie Variablen für Ressourcennamen ein, die eindeutig sein müssen.
@@ -155,6 +151,16 @@ Die folgenden Informationen können bei der Arbeit mit [Variablen](template-vari
 * Verwenden Sie eine [copy-Schleife in Variablen](copy-variables.md), um ein wiederholtes Muster von JSON-Objekten zu erstellen.
 
 * Entfernen Sie nicht verwendete Variablen.
+
+## <a name="api-version"></a>API-Version
+
+Legen Sie die `apiVersion`-Eigenschaft auf eine hartcodierte API-Version für den Ressourcentyp fest. Wenn Sie eine neue Vorlage erstellen, empfehlen wir Ihnen, die neueste API-Version für einen Ressourcentyp zu verwenden. Informationen zum Bestimmen verfügbarer Werte finden Sie in der [Vorlagenreferenz](/azure/templates/).
+
+Wenn Ihre Vorlage wie erwartet funktioniert, empfehlen wir Ihnen, weiterhin dieselbe API-Version zu verwenden. Durch die Verwendung derselben API-Version müssen Sie sich keine Sorgen über Änderungen mit Auswirkung auf die Lauffähigkeit machen, die in späteren Versionen eingeführt werden könnten.
+
+Verwenden Sie keinen Parameter für die API-Version. Ressourceneigenschaften und -werte können je nach API-Version variieren. Mithilfe von IntelliSense kann in Code-Editoren nicht das richtige Schema ermittelt werden, wenn die API-Version auf einen Parameter festgelegt ist. Wenn Sie eine API-Version übergeben, die nicht mit den Eigenschaften in Ihrer Vorlage übereinstimmt, tritt bei der Bereitstellung ein Fehler auf.
+
+Verwenden Sie keine Variablen für die API-Version. Verwenden Sie insbesondere nicht die [providers-Funktion](template-functions-resource.md#providers), um während der Bereitstellung dynamisch API-Versionen abzurufen. Die dynamisch abgerufene API-Version stimmt möglicherweise nicht mit den Eigenschaften in Ihrer Vorlage überein.
 
 ## <a name="resource-dependencies"></a>Ressourcenabhängigkeiten
 

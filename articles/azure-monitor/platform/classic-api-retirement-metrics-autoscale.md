@@ -4,12 +4,12 @@ description: Metriken und klassische APIs für Autoskalierung, auch Azure Servic
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 38a30f2adc0de7ccb9a9a3a4ba7ed53fd5fda3f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8900d238e7542864e3dc53f9d192e579e2c96d1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87317381"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536692"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor: Einstellung der APIs des klassischen Bereitstellungsmodells für Metriken und Autoskalierung
 
@@ -53,7 +53,7 @@ Wenn Sie sich nicht sicher sind, ob Ihr Code oder Ihre benutzerdefinierten Tools
 
 Alle vorhandenen Funktionen für Autoskalierung und Metriken funktionieren über die neuen APIs weiterhin.  
 
-Die Migration zu neueren APIs bietet Resource Manager-basierte Funktionen, z.B. Unterstützung einer konsistenten rollenbasierten Zugriffssteuerung (RBAC) über alle Ihre Überwachungsdienste hinweg. Sie erhalten auch zusätzliche Funktionen für Metriken: 
+Die Migration zu neueren APIs bietet Resource Manager-basierte Funktionen, z. B. Unterstützung einer konsistenten rollenbasierten Zugriffssteuerung in Azure (Azure RBAC) in allen Ihren Überwachungsdiensten. Sie erhalten auch zusätzliche Funktionen für Metriken: 
 
 - Unterstützung für Dimensionen
 - Konsistente Metrikgranularität von einer Minute für alle Dienste 

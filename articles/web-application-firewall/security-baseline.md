@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: edb184fa286eb6212f714c18830540e105ea3305
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: cb5fae022957dd5fdc56058ed08b92734929d13e
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92021163"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562297"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Azure-Sicherheitsbaseline für Azure Web Application Firewall
 
@@ -81,9 +81,9 @@ Konfigurieren Sie die Azure WAF so, dass Sie im Präventionsmodus ausgeführt wi
 
 Anwenden von Regeln und Regelgruppen auf Azure Web Application Firewall (WAF)-Richtlinien, basierend auf den angewendeten Tagmetadaten.
 
-- [WAF-Richtlinie für Application Gateway](https://docs.microsoft.com/cli/azure/network/application-gateway/waf-policy?view=azure-cli-latest) 
+- [WAF-Richtlinie für Application Gateway](/cli/azure/network/application-gateway/waf-policy?view=azure-cli-latest) 
 
-- [WAF-Richtlinie für Front Door](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest)
+- [WAF-Richtlinie für Front Door](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -97,7 +97,7 @@ Verwenden Sie eine der integrierten Azure Policy-Definitionen zum Tagging, z. B
 
 Wählen Sie Azure PowerShell oder die Azure CLI, um basierend auf ihren Tags nach Ressourcen zu suchen oder Aktionen für diese Ressourcen auszuführen.
 
-- [Erstellen und Verwenden von Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [Erstellen und Verwenden von Tags](../azure-resource-manager/management/tag-resources.md)
 
 - [Erstellen eines virtuellen Netzwerks](../virtual-network/quick-create-portal.md)
 
@@ -111,7 +111,7 @@ Wählen Sie Azure PowerShell oder die Azure CLI, um basierend auf ihren Tags nac
 
 **Leitfaden**: Verwenden Sie das Azure-Aktivitätsprotokoll zum Überwachen der Konfigurationen bzw. Erkennen von Änderungen für Netzwerkeinstellungen und -ressourcen, die mit Ihren Azure Web Application Firewall (WAF)-Bereitstellungen in Zusammenhang stehen. Erstellen Sie Warnungen in Azure Monitor, die bei Änderungen an wichtigen Netzwerkeinstellungen oder -ressourcen ausgelöst werden.
 
-- [Anzeigen und Abrufen von Azure-Aktivitätsprotokollereignissen](/azure/azure-monitor/platform/activity-log-view)
+- [Anzeigen und Abrufen von Azure-Aktivitätsprotokollereignissen](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Erstellen von Warnungen in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -141,7 +141,7 @@ Azure Sentinel verfügt über eine integrierte Azure WAF-Arbeitsmappe, die einen
 
 - [Diagnoseprotokolle für Application Gateway](../application-gateway/application-gateway-diagnostics.md)
 
-- [Verbinden von Daten von Microsoft Web Application Firewall mit Azure Sentinel](/azure/sentinel/connect-microsoft-waf)
+- [Verbinden von Daten von Microsoft Web Application Firewall mit Azure Sentinel](../sentinel/connect-azure-waf.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -178,7 +178,7 @@ Azure WAF-Instanzen sind in das Security Center integriert, um Warnungen und Int
 
 Azure Sentinel verfügt über eine integrierte Arbeitsmappe „WAF – Firewallereignisse“, die einen Überblick über die Sicherheitsereignisse in der WAF bietet. Hierzu gehören Ereignisse, abgeglichene und blockierte Regeln sowie alle anderen Daten, die in den Firewallprotokollen aufgezeichnet werden.
 
-- [Erfassen und Analysieren des Azure-Aktivitätsprotokolls in Azure Monitor](/azure/azure-monitor) 
+- [Erfassen und Analysieren des Azure-Aktivitätsprotokolls in Azure Monitor](../azure-monitor/index.yml) 
 
 - [Back-End-Integrität und Diagnoseprotokolle für Application Gateway](../application-gateway/application-gateway-diagnostics.md)
 
@@ -192,9 +192,9 @@ Azure Sentinel verfügt über eine integrierte Arbeitsmappe „WAF – Firewalle
 
 **Leitfaden**: Aktivieren Sie die Diagnoseeinstellungen für Azure-Aktivitätsprotokolle sowie die Diagnoseeinstellungen für Ihre Azure WAF, und senden Sie die Protokolle an einen Log Analytics-Arbeitsbereich. Führen Sie Abfragen in Log Analytics durch, um nach Begriffen zu suchen, Trends zu identifizieren, Muster zu analysieren und viele andere Erkenntnisse zu gewinnen, die auf den erfassten Daten basieren. Erstellen Sie Warnungen für anormale Aktivitäten auf Grundlage von WAF-Metriken. Beispiel: wenn die blockierte Anzahl von Anforderungen den Wert „X“ überschreitet, mache „Y“.
 
-- [Erfassen und Analysieren des Azure-Aktivitätsprotokolls in Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Erfassen und Analysieren des Azure-Aktivitätsprotokolls in Azure Monitor](../azure-monitor/platform/activity-log.md)
 
-- [Reagieren auf Ereignisse mit Azure Monitor-Warnungen](/azure/azure-monitor/learn/tutorial-response)
+- [Reagieren auf Ereignisse mit Azure Monitor-Warnungen](../azure-monitor/learn/tutorial-response.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -220,9 +220,9 @@ Azure WAF bietet zentralisierten Schutz für Ihre Webanwendungen vor gängigen E
 
 **Leitfaden**: Azure Active Directory (Azure AD) umfasst integrierte Rollen, die abgefragt werden können und explizit zugewiesen werden müssen. Verwenden Sie das Azure AD PowerShell-Modul, um Ad-hoc-Abfragen zum Ermitteln von Konten auszuführen, die Mitglieder von administrativen Gruppen sind.
 
-- [Abrufen einer Verzeichnisrolle in Azure AD mit PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Abrufen einer Verzeichnisrolle in Azure AD mit PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [Abrufen von Mitgliedern einer Verzeichnisrolle in Azure AD mit PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Abrufen von Mitgliedern einer Verzeichnisrolle in Azure AD mit PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -271,7 +271,7 @@ Es ist eine bewährte Methode, Standardbetriebsvorgänge für die Verwendung ded
 
 **Leitfaden**: Verwenden Sie Azure Active Directory-Sicherheitsberichte (Azure AD) für die Generierung von Protokollen und Warnungen bei verdächtigen oder sicherheitsrelevanten Aktivitäten in der Umgebung. Verwenden Sie Security Center zum Überwachen von identitäts- und zugriffsbezogenen Aktivitäten.
 
-- [Identifizieren von Azure AD-Benutzern, die aufgrund riskanter Aktivitäten gekennzeichnet wurden](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Identifizieren von Azure AD-Benutzern, die aufgrund riskanter Aktivitäten gekennzeichnet wurden](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Überwachen der identitäts- und zugriffsbezogenen Aktivitäten von Benutzern in Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -304,7 +304,7 @@ Erstellen Sie logische Gruppierungen von IP-Adressbereichen oder Ländern und Re
 
 **Leitfaden**: Azure Active Directory (Azure AD) enthält Protokolle zum Ermitteln von veralteten Konten. Verwenden Sie Zugriffsüberprüfungen für Azure-Identitäten, um Gruppenmitgliedschaften, den Zugriff auf Unternehmensanwendungen sowie Rollenzuweisungen effizient zu verwalten. Überprüfen Sie den Benutzerzugriff regelmäßig, um sicherzustellen, dass nur aktive Benutzer fortwährenden Zugriff haben.
 
-- [Grundlegendes zur Azure AD-Berichterstellung](/azure/active-directory/reports-monitoring)
+- [Grundlegendes zur Azure AD-Berichterstellung](../active-directory/reports-monitoring/index.yml)
 
 - [Verwenden von Zugriffsüberprüfungen für Azure-Identitäten](../active-directory/governance/access-reviews-overview.md)
 
@@ -318,7 +318,7 @@ Erstellen Sie logische Gruppierungen von IP-Adressbereichen oder Ländern und Re
 
 Optimieren Sie diesen Prozess, indem Sie Diagnoseeinstellungen für Azure Active Directory-Benutzerkonten (Azure AD) erstellen und die Überwachungs- und Anmeldeprotokolle an einen Log Analytics-Arbeitsbereich senden. Konfigurieren Sie die gewünschten Warnungen im Log Analytics-Arbeitsbereich.
 
-- [Integrieren von Azure-Aktivitätsprotokollen in Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Integrieren von Azure-Aktivitätsprotokollen in Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -328,7 +328,7 @@ Optimieren Sie diesen Prozess, indem Sie Diagnoseeinstellungen für Azure Active
 
 **Leitfaden**: Mit Azure Active Directory-Funktionen (Azure AD) zum Risiko- und Identitätsschutz können Sie automatische Antworten auf erkannte verdächtige Aktionen im Zusammenhang mit Benutzeridentitäten konfigurieren. Erfassen Sie Daten zur weiteren Untersuchung in Azure Sentinel.
 
-- [Anzeigen riskanter Azure AD-Anmeldungen](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Anzeigen riskanter Azure AD-Anmeldungen](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Konfigurieren und Aktivieren von Risikorichtlinien für den Identitätsschutz](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -345,7 +345,7 @@ Optimieren Sie diesen Prozess, indem Sie Diagnoseeinstellungen für Azure Active
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Verwalten eines Bestands an vertraulichen Informationen
 
 **Leitfaden**: Verwenden Sie Tags für die Nachverfolgung von Azure Web Application Firewall (WAF) und der zugehörigen Ressourcen, die vertrauliche Informationen speichern oder verarbeiten.
-- [Erstellen und Verwenden von Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [Erstellen und Verwenden von Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -355,13 +355,13 @@ Optimieren Sie diesen Prozess, indem Sie Diagnoseeinstellungen für Azure Active
 
 **Leitfaden**: Implementieren Sie eine Isolation mit separaten Abonnements und Verwaltungsgruppen für einzelne Sicherheitsdomänen wie Umgebungstyp und Datenvertraulichkeitsstufe, z. B. Entwicklungs-, Test- und Produktionsumgebungen. 
 
-Kontrollieren Sie den Zugriff auf Azure-Ressourcen mit rollenbasierter Zugriffssteuerung (Role-Based Access Control, RBAC) von Azure Active Directory (Azure AD).
+Sie können den Zugriff auf Azure-Ressourcen über die rollenbasierte Zugriffssteuerung in Azure (Azure RBAC) steuern.
 
-- [Erstellen zusätzlicher Azure-Abonnements](/azure/billing/billing-create-subscription)
+- [Erstellen zusätzlicher Azure-Abonnements](../cost-management-billing/manage/create-subscription.md)
 
-- [Erstellen von Verwaltungsgruppen](/azure/governance/management-groups/create)
+- [Erstellen von Verwaltungsgruppen](../governance/management-groups/create-management-group-portal.md)
 
-- [Erstellen und Verwenden von Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [Erstellen und Verwenden von Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -379,10 +379,10 @@ Befolgen Sie ggf. die Empfehlungen von Security Center zur Verschlüsselung ruhe
 
 **Verantwortlichkeit**: Shared
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Verwenden der rollenbasierten Zugriffssteuerung zum Steuern des Zugriffs auf Ressourcen
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Verwenden von Azure RBAC zum Steuern des Zugriffs auf Ressourcen
 
-**Leitfaden**: Kontrollieren Sie den Zugriff auf Azure-Ressourcen mit rollenbasierter Zugriffssteuerung (Role-Based Access Control, RBAC) von Azure Active Directory (Azure AD).
-- [Konfigurieren von RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+**Leitfaden**: Sie können den Zugriff auf Azure-Ressourcen über die rollenbasierte Zugriffssteuerung in Azure (Azure RBAC) steuern.
+- [Konfigurieren von Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -394,7 +394,7 @@ Befolgen Sie ggf. die Empfehlungen von Security Center zur Verschlüsselung ruhe
 
 - [Grundlegendes zur Verschlüsselung ruhender Daten in Azure](../security/fundamentals/encryption-atrest.md)
 
-- [Konfigurieren der von Kunden verwalteten Verschlüsselungsschlüssel](/azure/storage/common/storage-encryption-keys-portal)
+- [Konfigurieren der von Kunden verwalteten Verschlüsselungsschlüssel](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -428,7 +428,7 @@ Stellen Sie entsprechende (Lese-) Berechtigungen in Ihrem Mandanten sicher, und 
 
 - [Erstellen von Abfragen mit Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Anzeigen Ihrer Azure-Abonnements](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Anzeigen Ihrer Azure-Abonnements](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Grundlegendes zu Azure RBAC](../role-based-access-control/overview.md)
 
@@ -440,7 +440,7 @@ Stellen Sie entsprechende (Lese-) Berechtigungen in Ihrem Mandanten sicher, und 
 
 **Leitfaden**: Verwenden Sie Tags mit Azure Web Application Firewall (WAF)-Richtlinien. Tags können Ressourcen zugeordnet und logisch angewendet werden, um den Zugriff auf diese Ressourcen in einem Kundenabonnement zu organisieren. 
 
-- [Erstellen und Verwenden von Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [Erstellen und Verwenden von Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -450,11 +450,11 @@ Stellen Sie entsprechende (Lese-) Berechtigungen in Ihrem Mandanten sicher, und 
 
 **Leitfaden**: Verwenden Sie nach Bedarf Tags, Verwaltungsgruppen und separate Abonnements, um die Ressourcen im Zusammenhang mit Azure WAF zu organisieren und nachzuverfolgen. Stimmen Sie den Bestand regelmäßig ab, und stellen Sie sicher, dass nicht autorisierte Ressourcen rechtzeitig aus dem Abonnement gelöscht werden.
 
-- [Erstellen zusätzlicher Azure-Abonnements](/azure/billing/billing-create-subscription)
+- [Erstellen zusätzlicher Azure-Abonnements](../cost-management-billing/manage/create-subscription.md)
 
-- [Erstellen von Verwaltungsgruppen](/azure/governance/management-groups/create)
+- [Erstellen von Verwaltungsgruppen](../governance/management-groups/create-management-group-portal.md)
 
-- [Erstellen und Verwenden von Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [Erstellen und Verwenden von Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -501,7 +501,7 @@ Verwenden Sie Azure Resource Graph, um Azure Web Application Firewall (WAF)-Ress
 
 - [Konfigurieren und Verwalten von Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Ablehnen eines bestimmten Ressourcentyps mit Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Ablehnen eines bestimmten Ressourcentyps mit Azure Policy](../governance/policy/samples/index.md)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -540,7 +540,7 @@ Verwenden Sie Azure Resource Graph, um Azure Web Application Firewall (WAF)-Ress
 **Leitfaden**: Definieren und implementieren Sie Standardsicherheitskonfigurationen für die Netzwerkeinstellungen Ihrer Azure Web Application Firewall (WAF)-Bereitstellungen.
 Verwenden Sie Azure Policy-Aliase im Namespace „Microsoft.Network“, um benutzerdefinierte Richtlinien zum Überwachen oder Erzwingen der Netzwerkkonfiguration Ihrer Azure Application Gateways, Ihrer virtuellen Netzwerke und Ihrer Netzwerksicherheitsgruppen zu erstellen, und verwenden Sie integrierte Richtliniendefinitionen.
 
-- [Anzeigen verfügbarer Azure Policy-Aliase](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Anzeigen verfügbarer Azure Policy-Aliase](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Konfigurieren und Verwalten von Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -570,7 +570,7 @@ Verwenden Sie Azure Resource Manager-Vorlagen, um die Sicherheitskonfiguration d
 
 Erteilen oder verweigern Sie bestimmten Benutzern, integrierten Sicherheitsgruppen oder in Azure AD definierten Gruppen (bei Integration mit Azure DevOps) oder in Active Directory definierten Gruppen (bei Integration mit Team Foundation Server, TFS) Berechtigungen.
 
-- [Speichern von Code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Speichern von Code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
 - [Informationen über Berechtigungen und Gruppen in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -584,7 +584,7 @@ Erteilen oder verweigern Sie bestimmten Benutzern, integrierten Sicherheitsgrupp
 
 - [Konfigurieren und Verwalten von Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Dokumentation zu Azure Policy](/azure/governance/policy)
+- [Dokumentation zu Azure Policy](../governance/policy/index.yml)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -598,7 +598,7 @@ Verwenden Sie die Azure Policy-Auswirkungen [audit] (überwachen), [deny] (verwe
 
 - [Konfigurieren und Verwalten von Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Dokumentation zu Azure Policy](/azure/governance/policy)
+- [Dokumentation zu Azure Policy](../governance/policy/index.yml)
 
 **Azure Security Center-Überwachung**: Nicht verfügbar
 
@@ -633,7 +633,7 @@ Azure Application Gateway unterstützt die Integration mit Key Vault für Server
 
 **Anleitung:** Stellen Sie sicher, dass das vorläufige Löschen für Azure Key Vault aktiviert ist. Vorläufiges Löschen ermöglicht die Wiederherstellung gelöschter Schlüsseltresore und Tresorobjekte, z. B. Schlüssel, Geheimnisse und Zertifikate.
 
-- [Verwenden des vorläufigen Löschens in Azure Key Vault](/azure/key-vault/key-vault-soft-delete-powershell)
+- [Verwenden des vorläufigen Löschens in Azure Key Vault](../key-vault/general/key-vault-recovery.md)
 
 **Azure Security Center-Überwachung**: Ja
 
@@ -723,5 +723,5 @@ Markieren Sie Abonnements aussagekräftig (z. B. „Produktion“, „Nicht-Pro
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Lesen Sie den [Vergleichstest für die Azure-Sicherheit](/azure/security/benchmarks/overview).
-- Erfahren Sie mehr über [Azure-Sicherheitsbaselines](/azure/security/benchmarks/security-baselines-overview).
+- Lesen Sie den [Vergleichstest für die Azure-Sicherheit](../security/benchmarks/overview.md).
+- Erfahren Sie mehr über [Azure-Sicherheitsbaselines](../security/benchmarks/security-baselines-overview.md).

@@ -5,15 +5,15 @@ description: Dieser Artikel enthält eine Übersicht über Web Application Firew
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 09/16/2020
+ms.date: 12/04/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 659e7fcdbd2284110282d14fc89bd4d8d5ac2472
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36f04b02774a01814811ea131388629de27e9f07
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267022"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621024"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Was ist Azure Web Application Firewall in Azure Application Gateway?
 
@@ -22,9 +22,6 @@ Die Azure Web Application Firewall (WAF) für Application Gateway bietet zentral
 Die WAF für Application Gateway basiert auf der Version 3.1, 3.0 oder 2.2.9 des [Kernregelsatzes (Core Rule Set, CRS)](https://owasp.org/www-project-modsecurity-core-rule-set/) aus dem Open Web Application Security Project (OWASP). Die WAF wird automatisch aktualisiert und bietet Schutz vor neuen Sicherheitsrisiken, ohne dass zusätzliche Konfiguration erforderlich ist. 
 
 Alle unten aufgeführten WAF-Features befinden sich innerhalb einer WAF-Richtlinie. Sie können mehrere Richtlinien erstellen, und diese können einer Application Gateway-Instanz, einzelnen Listenern oder pfadbasierten Routingregeln für eine Application Gateway-Instanz zugeordnet werden. Dadurch können Sie bei Bedarf separate Richtlinien für jede Website hinter Ihrer Application Gateway-Instanz verwenden. Weitere Informationen zu WAF-Richtlinien finden Sie unter [Erstellen von Web Application Firewall-Richtlinien für Application Gateway](create-waf-policy-ag.md).
-
-   > [!NOTE]
-   > WAF-Richtlinien für einzelne URIs sind als Public Preview verfügbar. Das bedeutet, dass diese Funktion den zusätzlichen Nutzungsbedingungen von Microsoft unterliegt. Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Application Gateway-WAF-Diagramm](../media/ag-overview/waf1.png)
 
@@ -65,8 +62,8 @@ In diesem Abschnitt werden die wichtigsten Vorteile der WAF für Application Gat
 - Schutz vor der Einschleusung von SQL-Befehlen.
 - Schutz vor websiteübergreifendem Skripting.
 - Schutz vor anderen allgemeinen Webangriffen wie Befehlseinschleusung, HTTP Request Smuggling, HTTP Response Splitting und Remote File Inclusion.
-- Schutz vor Verletzungen des HTTP-Protokolls.
-- Schutz vor HTTP-Protokollanomalien, z.B. fehlenden user-agent- und accept-Headern des Hosts.
+- Schutz vor Verletzungen des HTTP-Protokolls
+- Schutz vor HTTP-Protokollanomalien, z.B. fehlende user-agent- und accept-Header des Hosts
 - Schutz vor Crawlern und Scannern.
 - Erkennung häufiger Fehler bei der Anwendungskonfiguration (z.B. Apache und IIS).
 - Konfigurierbare Einschränkungen der Anforderungsgröße mit Unter- und Obergrenzen.
@@ -74,6 +71,7 @@ In diesem Abschnitt werden die wichtigsten Vorteile der WAF für Application Gat
 - Erstellen Sie benutzerdefinierte Regeln, um die spezifischen Anforderungen Ihrer Anwendungen zu erfüllen.
 - Führen Sie für Ihren Datenverkehr eine Geofilterung durch, um für bestimmte Länder/Regionen den Zugriff auf Ihre Anwendungen zuzulassen bzw. zu blockieren. (Vorschauversion)
 - Schützen Sie Ihre Anwendungen vor Bots, indem Sie den Regelsatz für die Risikominderung für Bots verwenden. (Vorschauversion)
+- Untersuchen von JSON und XML im Textteil der Anforderung
 
 ## <a name="waf-policy-and-rules"></a>WAF-Richtlinien und -Regeln
 
@@ -145,7 +143,7 @@ Im Anomaliebewertungsmodus wird Datenverkehr, der einer beliebigen Regel entspri
 Ab einem Schwellenwert von 5 blockiert die Anomaliebewertung den Datenverkehr. Eine Übereinstimmung mit einer einzelnen *kritischen* Regel reicht also aus, damit die Application Gateway-WAF auch im Schutzmodus eine Anforderung blockiert. Aber eine Übereinstimmung mit einer *Warnungsregel* setzt die Anomaliebewertung nur um 3 herauf, was allein nicht ausreicht, um den Datenverkehr zu blockieren.
 
 > [!NOTE]
-> Die Meldung, die protokolliert wird, wenn eine WAF-Regel dem Datenverkehr entspricht, enthält den Aktionswert „Blockiert“. Aber der Datenverkehr ist tatsächlich nur bei einer Anomaliebewertung von 5 oder höher blockiert.  
+> Die Meldung, die protokolliert wird, wenn eine WAF-Regel dem Datenverkehr entspricht, enthält den Aktionswert „Blockiert“. Aber der Datenverkehr ist tatsächlich nur bei einer Anomaliebewertung von 5 oder höher blockiert. Weitere Informationen finden Sie unter [Problembehandlung für die Web Application Firewall (WAF) für Azure Application Gateway](web-application-firewall-troubleshoot.md#understanding-waf-logs). 
 
 ### <a name="waf-monitoring"></a>WAF-Überwachung
 
@@ -159,7 +157,7 @@ Application Gateway-Protokolle sind in [Azure Monitor](../../azure-monitor/overv
 
 #### <a name="azure-security-center"></a>Azure Security Center
 
-Mit [Security Center](../../security-center/security-center-intro.md) können Sie Bedrohungen verhindern, erkennen und beheben. Security Center sorgt für eine größere Transparenz und bessere Kontrolle der Sicherheit Ihrer Azure-Ressourcen. Application Gateway ist [in Azure Security Center](../../application-gateway/application-gateway-integration-security-center.md) integriert. Security Center scannt die Umgebung, um ungeschützte Webanwendungen zu ermitteln. Security Center kann der Application Gateway-WAF die Empfehlung geben, diese ungeschützten Ressourcen zu schützen. Sie erstellen die Firewalls direkt von Security Center aus. Diese WAF-Instanzen sind in Security Center integriert. Sie senden Warnungen und Integritätsinformationen für die Berichterstellung an Security Center.
+Mit [Security Center](../../security-center/security-center-introduction.md) können Sie Bedrohungen verhindern, erkennen und beheben. Security Center sorgt für eine größere Transparenz und bessere Kontrolle der Sicherheit Ihrer Azure-Ressourcen. Application Gateway ist [in Azure Security Center](../../application-gateway/application-gateway-integration-security-center.md) integriert. Security Center scannt die Umgebung, um ungeschützte Webanwendungen zu ermitteln. Security Center kann der Application Gateway-WAF die Empfehlung geben, diese ungeschützten Ressourcen zu schützen. Sie erstellen die Firewalls direkt von Security Center aus. Diese WAF-Instanzen sind in Security Center integriert. Sie senden Warnungen und Integritätsinformationen für die Berichterstellung an Security Center.
 
 ![Security Center-Übersichtsfenster](../media/ag-overview/figure1.png)
 

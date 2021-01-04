@@ -5,12 +5,12 @@ author: Rajeswari-Mamilla
 ms.topic: how-to
 ms.date: 2/5/2020
 ms.author: ramamill
-ms.openlocfilehash: f24d321e882024d324435498adf11694037547f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2159ab8c2639f0f87fd53e8559dad518a3daa663
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77252226"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544816"
 ---
 # <a name="automate-mobility-service-installation"></a>Automatisieren der Mobility Service-Installation
 
@@ -18,9 +18,9 @@ In diesem Artikel wird beschrieben, wie Sie Installation und Updates für den Mo
 
 Wenn Sie Site Recovery für die Notfallwiederherstellung von lokalen VMware-VMs und physischen Servern in Azure bereitstellen, wird der Mobility Service-Agent auf jedem Computer installiert, den Sie replizieren möchten. Der Mobility Service erfasst Datenschreibvorgänge auf dem Computer und leitet sie zur Replikation an den Site Recovery-Prozessserver weiter. Es gibt mehrere Möglichkeiten, den Mobility Service bereitzustellen:
 
-- **Pushinstallation**: Der Mobility Service-Agent wird von Site Recovery installiert, wenn Sie die Replikation für einen Computer im Azure-Portal aktivieren.
-- **Manuelle Installation**: Der Mobility Service wird manuell auf den einzelnen Computern installiert. Weitere Informationen zur Pushinstallation und manuellen Installation finden Sie [hier](vmware-physical-mobility-service-overview.md).
-- **Automatisierte Bereitstellung**: Automatisieren Sie die Installation mithilfe von Softwarebereitstellungstools wie Microsoft Endpoint Configuration Manager oder Tools von Drittanbietern wie JetPatch.
+- **Pushinstallation** : Der Mobility Service-Agent wird von Site Recovery installiert, wenn Sie die Replikation für einen Computer im Azure-Portal aktivieren.
+- **Manuelle Installation** : Der Mobility Service wird manuell auf den einzelnen Computern installiert. Weitere Informationen zur Pushinstallation und manuellen Installation finden Sie [hier](vmware-physical-mobility-service-overview.md).
+- **Automatisierte Bereitstellung** : Automatisieren Sie die Installation mithilfe von Softwarebereitstellungstools wie Microsoft Endpoint Configuration Manager oder Tools von Drittanbietern wie JetPatch.
 
 Die automatisierte Installation und Aktualisierung kommen in folgenden Fällen als Lösung infrage:
 
@@ -78,7 +78,7 @@ Die folgende Tabelle enthält eine Übersicht über die Tools und Prozesse zum A
 1. Kopieren Sie die folgenden Installationsdateien in die Netzwerkfreigabe:
 
    - Für Windows: Kopieren Sie _Microsoft-ASR_UA_version_Windows_GA_date_Release.exe_ in _MobSvcWindows_.
-   - Für Linux: Kopieren Sie die folgenden Dateien in _MobSvcLinux_:
+   - Für Linux: Kopieren Sie die folgenden Dateien in _MobSvcLinux_ :
      - _Microsoft-ASR_UARHEL6-64release.tar.gz_
      - _Microsoft-ASR_UARHEL7-64release.tar.gz_
      - _Microsoft-ASR_UASLES11-SP3-64release.tar.gz_
@@ -342,13 +342,13 @@ cd /tmp
 1. Klicken Sie mit der rechten Maustaste auf **Pakete** > **Paket erstellen**.
 1. Geben Sie Paketdetails wie Name, Beschreibung, Hersteller, Sprache und Version an.
 1. Wählen Sie **Dieses Paket enthält Quelldateien** aus.
-1. Klicken Sie auf **Durchsuchen**, und wählen Sie die Netzwerkfreigabe aus, die das entsprechende Installationsprogramm enthält (_MobSvcWindows_ oder _MobSvcLinux_). Klicken Sie anschließend auf **Weiter**.
+1. Klicken Sie auf **Durchsuchen** , und wählen Sie die Netzwerkfreigabe aus, die das entsprechende Installationsprogramm enthält ( _MobSvcWindows_ oder _MobSvcLinux_ ). Klicken Sie anschließend auf **Weiter**.
 
    ![Screenshot des Assistenten zum Erstellen von Paketen und Programmen](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package.png)
 
 1. Wählen Sie **Standardprogramm** > **Weiter** auf der Seite **Typ des zu erstellenden Programms auswählen** aus.
 
-   ![Screenshot des Assistenten zum Erstellen von Paketen und Programmen](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
+   ![Screenshot des Assistenten zum Erstellen von Paketen und Programmen mit der Option „Standardprogramm“](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
 
 1. Geben Sie auf der Seite **Informationen zu diesem Standardprogramm angeben** die folgenden Werte an:
 
@@ -359,12 +359,12 @@ cd /tmp
     **Programm kann ausgeführt werden** | Unabhängig von Benutzeranmeldung | Unabhängig von Benutzeranmeldung
     **Weitere Parameter** | Standardeinstellung verwenden | Standardeinstellung verwenden
 
-   ![Screenshot des Assistenten zum Erstellen von Paketen und Programmen](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
+   ![Screenshot der Informationen, die Sie für das Standardprogramm angeben können](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
 
 1. Führen Sie in **Anforderungen für dieses Standardprogramm anzugeben** die folgenden Aufgaben aus:
 
    - Wählen Sie für Windows-Computer **Dieses Programm kann nur auf bestimmten Plattformen ausgeführt werden** aus. Wählen Sie die [unterstützten Windows-Betriebssysteme](vmware-physical-azure-support-matrix.md#replicated-machines) und anschließend **Weiter** aus.
-   - Wählen Sie für Linux-Computer **Dieses Programm kann auf jeder Plattform ausgeführt werden** aus. Wählen Sie **Weiter**aus.
+   - Wählen Sie für Linux-Computer **Dieses Programm kann auf jeder Plattform ausgeführt werden** aus. Wählen Sie **Weiter** aus.
 
 1. Beenden Sie den Assistenten.
 
@@ -378,7 +378,7 @@ cd /tmp
 1. Schließen Sie den Assistenten ab. Dann beginnt die Replikation des Pakets auf die angegebenen Verteilungspunkte.
 1. Klicken Sie nach Abschluss der Paketverteilung mit der rechten Maustaste auf das Paket und wählen Sie **Bereitstellen** aus.
 
-   ![Screenshot der Configuration Manager-Konsole](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
+   ![Screenshot der Configuration Manager-Konsole mit der Menüoption „Bereitstellen“](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
 
 1. Wählen Sie die zuvor erstellte Windows- oder Linux-Gerätesammlung aus.
 1. Wählen Sie auf der Seite **Das Inhaltsziel angeben** die **Verteilungspunkte** aus.

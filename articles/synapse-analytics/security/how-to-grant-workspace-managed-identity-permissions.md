@@ -8,27 +8,27 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5c07943d517f893e67eed5103660a953b508cc87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46fe27205a2c30d6cb2319bf620c6fe1ee34c31e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87535041"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459010"
 ---
-# <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Erteilen von Berechtigungen für die verwaltete Identität eines Arbeitsbereichs (Vorschau)
+# <a name="grant-permissions-to-workspace-managed-identity"></a>Erteilen von Berechtigungen für die verwaltete Identität eines Arbeitsbereichs (Vorschau)
 
-In diesem Artikel erfahren Sie, wie Sie der verwalteten Identität in einem Azure Synapse-Arbeitsbereich Berechtigungen gewähren. Berechtigungen ermöglichen wiederum den Zugriff auf SQL-Pools im Arbeitsbereich und im ADLS Gen2-Speicherkonto über das Azure-Portal.
+In diesem Artikel erfahren Sie, wie Sie der verwalteten Identität in einem Azure Synapse-Arbeitsbereich Berechtigungen gewähren. Berechtigungen ermöglichen wiederum den Zugriff auf dedizierte SQL-Pools im Arbeitsbereich und im ADLS Gen2-Speicherkonto über das Azure-Portal.
 
 >[!NOTE]
 >Diese verwaltete Identität für den Arbeitsbereich wird im Rest dieses Dokuments als „verwaltete Identität“ bezeichnet.
 
-## <a name="grant-managed-identity-permissions-to-the-sql-pool"></a>Gewähren von Berechtigungen für die verwaltete Identität für den SQL-Pool
+## <a name="grant-managed-identity-permissions-to-the-dedicated-sql-pool"></a>Gewähren von Berechtigungen für die verwaltete Identität für den dedizierten SQL-Pool
 
-Die verwaltete Identität gewährt Berechtigungen für die SQL-Pools im Arbeitsbereich. Mit gewährten Berechtigungen können Sie Pipelines orchestrieren, die auf SQL-Pools bezogene Aktivitäten ausführen. Wenn Sie über das Azure-Portal einen Azure Synapse-Arbeitsbereich erstellen, können Sie der verwalteten Identität CONTROL-Berechtigungen für SQL-Pools erteilen.
+Die verwaltete Identität gewährt Berechtigungen für die dedizierten SQL-Pools im Arbeitsbereich. Mit gewährten Berechtigungen können Sie Pipelines orchestrieren, die auf dedizierte SQL-Pools bezogene Aktivitäten ausführen. Wenn Sie über das Azure-Portal einen Azure Synapse-Arbeitsbereich erstellen, können Sie der verwalteten Identität CONTROL-Berechtigungen für dedizierte SQL-Pools erteilen.
 
-Wählen Sie beim Erstellen Ihres Azure Synapse-Arbeitsbereichs **Sicherheit + Netzwerk** aus. Wählen Sie dann **Der verwalteten Identität des Arbeitsbereichs die CONTROL-Berechtigung für SQL-Pools erteilen** aus.
+Wählen Sie beim Erstellen Ihres Azure Synapse-Arbeitsbereichs **Sicherheit** aus. Aktivieren Sie dann **Pipelines (die als systemseitig zugewiesene Identität eines Arbeitsbereichs ausgeführt werden) den Zugriff auf SQL-Pools gestatten**.
 
-![CONTROL-Berechtigung für SQL-Pools](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
+![CONTROL-Berechtigung für dedizierte SQL-Pools](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
 
 ## <a name="grant-the-managed-identity-permissions-to-adls-gen2-storage-account"></a>Gewähren von Berechtigungen für die verwaltete Identität für das ADLS Gen2-Speicherkonto
 
@@ -60,7 +60,7 @@ Wenn Sie bei der Erstellung eines Arbeitsbereichs der verwalteten Identität nic
 
 #### <a name="step-1-navigate-to-the-adls-gen2-storage-account-in-azure-portal"></a>Schritt 1: Navigieren zum ADLS Gen2-Speicherkonto im Azure-Portal
 
-Öffnen Sie im Azure-Portal das ADLS Gen2-Speicherkonto, und klicken Sie im linken Navigationsbereich auf **Übersicht**. Sie müssen die Rolle *Mitwirkender an Storage-Blobdaten* nur auf Container- oder Dateisystemebene zuweisen. Wählen Sie **Container**aus.  
+Öffnen Sie im Azure-Portal das ADLS Gen2-Speicherkonto, und klicken Sie im linken Navigationsbereich auf **Übersicht**. Sie müssen die Rolle *Mitwirkender an Storage-Blobdaten* nur auf Container- oder Dateisystemebene zuweisen. Wählen Sie **Container** aus.  
 ![ADLS Gen2-Speicherkonto – Übersicht](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-5.png)
 
 #### <a name="step-2-select-the-container"></a>Schritt 2: Auswählen des Containers
@@ -70,7 +70,7 @@ Die verwaltete Identität sollte über Datenzugriff auf den Container (das Datei
 
 
 Wählen Sie denselben Container oder dasselbe Dateisystem aus, um der verwalteten Identität die Rolle *Mitwirkender an Storage-Blobdaten* zu gewähren.
-![Auswahl des ADLS Gen2-Speicherkontocontainers](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
+![Screenshot, der den Container oder das Dateisystem zeigt, den/das Sie auswählen sollten.](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
 
 #### <a name="step-3-navigate-to-access-control"></a>Schritt 3: Navigieren zur Zugriffssteuerung
 

@@ -3,12 +3,12 @@ title: Aktivieren des grafischen Remotedesktops für Linux in Azure Lab Services
 description: Es wird beschrieben, wie Sie Remotedesktop für virtuelle Linux-Computer in einem Lab in Azure Lab Services aktivieren.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b8db01ca57d90739a57cd9bbb3caf63ada5f26fe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 34c940fec388bb0e79ab5e1db9be6d52fb223873
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91251608"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647952"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Aktivieren des grafischen Remotedesktops für Linux-VMs in Azure Lab Services
 In diesem Artikel wird gezeigt, wie Sie Folgendes durchführen:
@@ -38,7 +38,7 @@ X2Go nutzt denselben Port, der bereits für SSH aktiviert ist.  Daher ist keine 
 > In einigen Fällen, z. B. bei Ubuntu LTS 18.04, bietet X2Go bessere Leistung.  Wenn Sie RDP verwenden und Verzögerungen bei der Interaktion mit der grafischen Desktopumgebung bemerken, sollten Sie X2Go testen, da Sie möglicherweise eine bessere Leistung erzielen.
 
 > [!IMPORTANT]
->  Auf einigen Marketplace-Images sind bereits eine grafische Desktopumgebung und ein Remotedesktopserver installiert.  Beispielsweise ist auf dem Produkt [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) bereits [XFCE und X2Go-Server installiert und zum Akzeptieren von Clientverbindungen konfiguriert](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro#x2go).
+>  Auf einigen Marketplace-Images sind bereits eine grafische Desktopumgebung und ein Remotedesktopserver installiert.  Beispielsweise ist auf dem Produkt [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) bereits [XFCE und X2Go-Server installiert und zum Akzeptieren von Clientverbindungen konfiguriert](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#x2go).
 
 ## <a name="enable-remote-desktop-connection-for-rdp"></a>Aktivieren der Remotedesktopverbindung für RDP
 
@@ -73,7 +73,7 @@ Führen Sie die folgenden Schritte aus, um die Vorlagen-VM einzurichten:
     ![SSH-Verbindungszeichenfolge](./media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
 
 4. Installieren Sie RDP oder X2Go sowie eine grafische Desktopumgebung Ihrer Wahl.  Anweisungen finden Sie in den folgenden Artikeln:
-    - [Installieren und Konfigurieren des RDPs](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop)
+    - [Installieren und Konfigurieren des RDPs](../virtual-machines/linux/use-remote-desktop.md)
     - [Installieren und Konfigurieren von X2Go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/X2GoRemoteDesktop)
 
 ## <a name="connect-to-the-template-vm-via-the-gui"></a>Herstellen einer Verbindung mit der Vorlagen-VM über die GUI
@@ -82,7 +82,7 @@ Sobald die Vorlagen-VM eingerichtet ist, kann der Kursleiter über die GUI mit d
 
 ### <a name="microsoft-remote-desktop-rdp-client"></a>Microsoft-Remotedesktopclient (RDP)
 
-Der Microsoft-Remotedesktopclient wird zum Herstellen einer Verbindung mit einer Vorlagen-VM verwendet, für die das RDP konfiguriert wurde.  Der Remotedesktopclient kann unter Windows, auf Chromebooks, auf Macs und weiteren Geräten verwendet werden.  Ausführliche Informationen finden Sie im Artikel zu [Remotedesktopclients](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).
+Der Microsoft-Remotedesktopclient wird zum Herstellen einer Verbindung mit einer Vorlagen-VM verwendet, für die das RDP konfiguriert wurde.  Der Remotedesktopclient kann unter Windows, auf Chromebooks, auf Macs und weiteren Geräten verwendet werden.  Ausführliche Informationen finden Sie im Artikel zu [Remotedesktopclients](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).
 
 Führen Sie die Schritte für den jeweiligen Computer aus, den Sie zum Herstellen einer Verbindung mit der Vorlagen-VM verwendet haben:
 

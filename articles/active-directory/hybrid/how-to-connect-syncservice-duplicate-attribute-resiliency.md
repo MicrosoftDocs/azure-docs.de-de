@@ -16,17 +16,17 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1d364089d5df24cfc4e7a75c3fd6b81248f0cd6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e09dd6a127bd04ae698cb6cad2ffd7f35e3b51c3
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91313313"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413427"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Identitätssynchronisierung und Resilienz bei doppelten Attributen
-Die Resilienz bei doppelten Attributen ist ein Feature von Azure Active Directory, das der Beseitigung von Konflikten zwischen **UserPrincipalName** und SMTP-**ProxyAddress** dient, die beim Ausführen eines Synchronisierungstools von Microsoft auftreten können.
+Die Resilienz bei doppelten Attributen ist ein Feature von Azure Active Directory, das der Beseitigung von Konflikten zwischen **UserPrincipalName** und SMTP- **ProxyAddress** dient, die beim Ausführen eines Synchronisierungstools von Microsoft auftreten können.
 
-Die beiden Attribute müssen generell für alle Objekte des Typs **User**, **Group** oder **Contact** eines bestimmten Azure Active Directory-Mandanten eindeutig sein.
+Die beiden Attribute müssen generell für alle Objekte des Typs **User** , **Group** oder **Contact** eines bestimmten Azure Active Directory-Mandanten eindeutig sein.
 
 > [!NOTE]
 > Nur Benutzer können über UPNs verfügen.
@@ -42,9 +42,9 @@ Beim Versuch, ein neues Objekt mit einem UPN- oder ProxyAddress-Wert bereitzuste
 Das Bereitstellen oder Aktualisieren eines Objekts mit doppeltem Attribut ist nicht einfach ohne Erfolg. Stattdessen wird das doppelte Attribut, das gegen die Eindeutigkeitsanforderung verstößt, von Azure Active Directory isoliert. Ist dieses Attribut für die Bereitstellung erforderlich (wie etwa im Falle von UserPrincipalName), weist der Dienst einen Platzhalterwert zu. Diese temporären Werte weisen folgendes Format auf:  
 _**\<OriginalPrefix>+\<4DigitNumber>\@\<InitialTenantDomain>.onmicrosoft.com**_.
 
-Der Prozess für die Resilienz von Attributen verarbeitet nur UPN- und SMTP-**ProxyAddress**-Werte.
+Der Prozess für die Resilienz von Attributen verarbeitet nur UPN- und SMTP- **ProxyAddress** -Werte.
 
-Ist das Attribut nicht erforderlich (etwa im Falle von **ProxyAddress**), wird das Konfliktattribut einfach von Azure Active Directory unter Quarantäne gestellt, und die Objekterstellung oder -aktualisierung wird fortgesetzt.
+Ist das Attribut nicht erforderlich (etwa im Falle von **ProxyAddress** ), wird das Konfliktattribut einfach von Azure Active Directory unter Quarantäne gestellt, und die Objekterstellung oder -aktualisierung wird fortgesetzt.
 
 Im Falle einer Attributisolierung werden Informationen zum Konflikt in der gleichen Fehlerbericht-E-Mail gesendet, die auch im Rahmen des alten Verhaltens verwendet wurde. Diese Informationen werden aber nur einmal (zum Zeitpunkt der Isolierung) in den Fehlerbericht aufgenommen und in zukünftigen E-Mails nicht immer wieder erneut protokolliert. Da der Export für das Objekt erfolgreich war, protokolliert der Synchronisierungsclient keinen Fehler, und es wird in den folgenden Synchronisierungszyklen nicht erneut versucht, die Erstellung/Aktualisierung durchzuführen.
 
@@ -75,7 +75,7 @@ Objekte mit Fehlern aufgrund von Konflikten mit doppelten Eigenschaften können 
 Für die PowerShell-Cmdlets in diesem Thema gilt Folgendes:
 
 * Bei allen der folgenden Cmdlets muss die Groß-/Kleinschreibung beachtet werden.
-* **–ErrorCategory PropertyConflict** muss immer eingeschlossen werden. Derzeit sind keine anderen Arten von **ErrorCategory**vorhanden, dies kann sich jedoch in Zukunft ändern.
+* **–ErrorCategory PropertyConflict** muss immer eingeschlossen werden. Derzeit sind keine anderen Arten von **ErrorCategory** vorhanden, dies kann sich jedoch in Zukunft ändern.
 
 Führen Sie zunächst **Connect-MsolService** aus, und geben Sie Anmeldeinformationen für einen Mandantenadministrator ein.
 
@@ -111,7 +111,7 @@ Wenn Sie Fehler für eine bestimmte Eigenschaft anzeigen möchten, fügen Sie da
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -PropertyValue User@domain.com -PropertyName UserPrincipalName`
 
 #### <a name="using-a-string-search"></a>Mithilfe einer Zeichenfolgensuche
-Verwenden Sie für eine allgemeine Zeichenfolgensuche das Flag **-SearchString** . Dieses Flag kann unabhängig von den weiter oben genannten Flags verwendet werden – mit Ausnahme von **-ErrorCategory PropertyConflict**, das immer erforderlich ist:
+Verwenden Sie für eine allgemeine Zeichenfolgensuche das Flag **-SearchString** . Dieses Flag kann unabhängig von den weiter oben genannten Flags verwendet werden – mit Ausnahme von **-ErrorCategory PropertyConflict** , das immer erforderlich ist:
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -SearchString User`
 
@@ -122,7 +122,7 @@ Verwenden Sie für eine allgemeine Zeichenfolgensuche das Flag **-SearchString**
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -MaxResults 5`
 
 ## <a name="microsoft-365-admin-center"></a>Microsoft 365 Admin Center
-Sie können Fehler bei der Verzeichnissynchronisierung im Microsoft 365 Admin Center anzeigen. Der Bericht im Microsoft 365 Admin Center enthält nur Objekte vom Typ **User**, für die diese Fehler vorliegen. Er enthält keine Informationen zu Konflikten zwischen Objekten des Typs **Gruppen** und **Kontakte**.
+Sie können Fehler bei der Verzeichnissynchronisierung im Microsoft 365 Admin Center anzeigen. Der Bericht im Microsoft 365 Admin Center enthält nur Objekte vom Typ **User** , für die diese Fehler vorliegen. Er enthält keine Informationen zu Konflikten zwischen Objekten des Typs **Gruppen** und **Kontakte**.
 
 ![Screenshot: Fehler bei der Verzeichnissynchronisierung im Microsoft 365 Admin Center](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "Aktive Benutzer")
 
@@ -140,7 +140,7 @@ Zur Behandlung von Fehlern aufgrund von doppelten Attributen werden die gleichen
 Der folgende Artikel beschäftigt sich mit verschiedenen Strategien zur Problembehandlung und -behebung: [Duplizierte oder ungültige Attribute verhindern die Verzeichnissynchronisierung in Office 365](https://support.microsoft.com/kb/2647098).
 
 ## <a name="known-issues"></a>Bekannte Probleme
-Keines dieser bekannten Probleme führt zu Datenverlusten oder Dienstbeeinträchtigungen. Einige sind kosmetischer Natur, andere führen dazu, dass das in Konflikt stehende Attribut nicht isoliert und stattdessen ein Standardfehler wie*vor der Resilienz*bei doppelten Attributen ausgelöst wird, und wieder ein anderer bewirkt, dass bei bestimmten Fehlern zusätzliche manuelle Korrekturen erforderlich sind.
+Keines dieser bekannten Probleme führt zu Datenverlusten oder Dienstbeeinträchtigungen. Einige sind kosmetischer Natur, andere führen dazu, dass das in Konflikt stehende Attribut nicht isoliert und stattdessen ein Standardfehler wie *vor der Resilienz* bei doppelten Attributen ausgelöst wird, und wieder ein anderer bewirkt, dass bei bestimmten Fehlern zusätzliche manuelle Korrekturen erforderlich sind.
 
 **Grundverhalten:**
 
@@ -167,15 +167,14 @@ Keines dieser bekannten Probleme führt zu Datenverlusten oder Dienstbeeinträch
    
     d. Die Fehlermeldung für **Benutzer B** sollte angeben, dass **Benutzer A** bereits den UPN-Wert **User\@contoso.com** besitzt, aber den displayName-Wert von **Benutzer B** anzeigt.
 
-**Fehlerbericht für die Identitätssynchronisierung**:
+**Fehlerbericht für die Identitätssynchronisierung** :
 
 Der Link zur *Anleitung zum Beheben dieses Problems* ist nicht korrekt:  
     ![Aktive Benutzer](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/6.png "Aktive Benutzer")  
 
-Er sollte auf [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency) verweisen.
+Er sollte auf [https://aka.ms/duplicateattributeresiliency]() verweisen.
 
 ## <a name="see-also"></a>Weitere Informationen
 * [Azure AD Connect-Synchronisierung](how-to-connect-sync-whatis.md)
 * [Integrieren lokaler Identitäten in Azure Active Directory](whatis-hybrid-identity.md)
 * [Ermitteln von Fehlern der Verzeichnissynchronisierung in Microsoft 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
-

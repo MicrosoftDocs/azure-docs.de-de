@@ -7,13 +7,13 @@ ms.date: 03/12/2020
 author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
-ms.custom: mvc
-ms.openlocfilehash: 2cb54c202af04996080cda970b3d327145f0e72b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 1b9e4d1f1b989caa317384292d013af255530f11
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469880"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748067"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>Konfigurieren der Azure Active Directory-Authentifizierung für einen Azure Red Hat OpenShift 4-Cluster (Portal)
 
@@ -34,17 +34,17 @@ echo "OAuth callback URL: https://oauth-openshift.apps.$domain.$location.aroapp.
 
 ## <a name="create-an-azure-active-directory-application-for-authentication"></a>Erstellen einer Azure Active Directory-Anwendung für die Authentifizierung
 
-Melden Sie sich beim Azure-Portal an, navigieren Sie zum Blatt [App-Registrierungen](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade), und klicken Sie dann auf **Neue Registrierungs**, um eine neue Anwendung zu erstellen.
+Melden Sie sich beim Azure-Portal an, navigieren Sie zum Blatt [App-Registrierungen](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade), und klicken Sie dann auf **Neue Registrierungs** , um eine neue Anwendung zu erstellen.
 
-Geben Sie einen Namen für die Anwendung ein, z. B. **aro-azuread-auth**, und fügen Sie den **Umleitungs-URI** ein. Verwenden Sie dafür den Wert der zuvor abgerufenen OAuth-Rückruf-URL.
+Geben Sie einen Namen für die Anwendung ein, z. B. **aro-azuread-auth** , und fügen Sie den **Umleitungs-URI** ein. Verwenden Sie dafür den Wert der zuvor abgerufenen OAuth-Rückruf-URL.
 
 ![Registrierung einer neuen Anwendung](media/aro4-ad-registerapp.png)
 
-Navigieren Sie zu **Certificates & secrets** (Zertifikate und Geheimnisse), klicken Sie auf **Neuer geheimer Clientschlüssel**, und geben Sie die Details ein. Notieren Sie sich den Schlüsselwert, da Sie ihn später noch benötigen. Sie können Sie ihn danach nicht noch einmal abrufen.
+Navigieren Sie zu **Certificates & secrets** (Zertifikate und Geheimnisse), klicken Sie auf **Neuer geheimer Clientschlüssel** , und geben Sie die Details ein. Notieren Sie sich den Schlüsselwert, da Sie ihn später noch benötigen. Sie können Sie ihn danach nicht noch einmal abrufen.
 
 ![Erstellen eines Geheimnisses](media/aro4-ad-clientsecret.png)
 
-Navigieren Sie zur **Übersicht**, und notieren Sie sich die **Anwendungs-ID (Client)** sowie die **Verzeichnis-ID (Mandant)** . Sie benötigen diese in einem späteren Schritt.
+Navigieren Sie zur **Übersicht** , und notieren Sie sich die **Anwendungs-ID (Client)** sowie die **Verzeichnis-ID (Mandant)** . Sie benötigen diese in einem späteren Schritt.
 
 ![Abrufen der Anwendungs-ID (Client) und der Verzeichnis-ID (Mandant)](media/aro4-ad-ids.png)
 
@@ -60,9 +60,9 @@ Sie können optionale Ansprüche zu folgenden Zwecken verwenden:
 
 Wir konfigurieren OpenShift so, dass der `email`-Anspruch verwendet wird und ein Fallback auf `upn` erfolgt, um den bevorzugten Benutzernamen festzulegen, indem der `upn` als Teil des von Azure Active Directory zurückgegebenen ID-Tokens hinzugefügt wird.
 
-Navigieren Sie zu **Tokenkonfiguration (Vorschau)** , und klicken Sie auf **Optionalen Anspruch hinzufügen**. Klicken Sie auf **ID**, und überprüfen Sie anschließend die Ansprüche **email** und **upn**.
+Navigieren Sie zu **Tokenkonfiguration (Vorschau)** , und klicken Sie auf **Optionalen Anspruch hinzufügen**. Klicken Sie auf **ID** , und überprüfen Sie anschließend die Ansprüche **email** und **upn**.
 
-![Erstellen eines Geheimnisses](media/aro4-ad-tokens.png)
+![Screenshot: Hinzugefügte E-Mail- und upn-Ansprüche](media/aro4-ad-tokens.png)
 
 ## <a name="assign-users-and-groups-to-the-cluster-optional"></a>Zuweisen von Benutzern und Gruppen zum Cluster (optional)
 
@@ -100,16 +100,16 @@ Sie können die URL der Clusterkonsole über den folgenden Befehl abrufen. Diese
 
 Starten Sie die Konsolen-URL in einem Browser, und melden Sie sich mit den `kubeadmin`-Anmeldeinformationen an.
 
-Navigieren Sie zu **Verwaltung**, und klicken Sie erst auf **Clustereinstellungen** und anschließend auf die Registerkarte **Globale Konfiguration**. Scrollen Sie, um **OAuth** auszuwählen.
+Navigieren Sie zu **Verwaltung** , und klicken Sie erst auf **Clustereinstellungen** und anschließend auf die Registerkarte **Globale Konfiguration**. Scrollen Sie, um **OAuth** auszuwählen.
 
 Scrollen Sie nach unten, und klicken Sie unter **Identitätsanbieter** erst auf **Hinzufügen** und dann auf **OpenID Connect**.
 ![Auswählen der Option „OpenID Connect“ im Dropdownfeld „Identitätsanbieter“](media/aro4-oauth-idpdrop.png)
 
-Geben Sie den Namen **ADD**, die **Client-ID** als **Anwendungs-ID** und den **Geheimen Clientschlüssel** ein. Die **Aussteller-URL** wird wie folgt formatiert: `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. Ersetzen Sie den Platzhalter durch die Mandanten-ID, die Sie zuvor abgerufen haben.
+Geben Sie den Namen **ADD** , die **Client-ID** als **Anwendungs-ID** und den **Geheimen Clientschlüssel** ein. Die **Aussteller-URL** wird wie folgt formatiert: `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. Ersetzen Sie den Platzhalter durch die Mandanten-ID, die Sie zuvor abgerufen haben.
 
 ![OAuth-Details ausfüllen](media/aro4-oauth-idp-1.png)
 
-Scrollen Sie nach unten zum Abschnitt **Ansprüche**, und aktualisieren Sie den **Bevorzugten Benutzernamen**, um den Wert des Anspruchs **upn** zu verwenden.
+Scrollen Sie nach unten zum Abschnitt **Ansprüche** , und aktualisieren Sie den **Bevorzugten Benutzernamen** , um den Wert des Anspruchs **upn** zu verwenden.
 
 ![Angeben der Details zu Ansprüchen](media/aro4-oauth-idp-2.png)
 

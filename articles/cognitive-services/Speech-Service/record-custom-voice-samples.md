@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: 2897fe2e0cc8aeb929b0a33f5cdaba9c60f2a244
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dae7b8e0485c1a2456b85e0910f60b2164d4e41c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81261583"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026317"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Aufzeichnen von Sprachbeispielen zum Erstellen einer benutzerdefinierten Stimme
 
@@ -211,7 +211,7 @@ Hören Sie sich jede Datei genau an. Sie können in dieser Phase kleine, unerwü
 
 Konvertieren Sie vor dem Speichern jede Datei in 16 Bit und eine Samplingrate von 16 kHz. Falls Sie die Gespräche im Studio aufgezeichnet haben, entfernen Sie den zweiten Kanal. Speichern Sie jede Datei im WAV-Format, und benennen Sie die Dateien mit der Nummer der Äußerung aus Ihrem Skript.
 
-Erstellen Sie abschließend das *Transkript*, mit dem die WAV-Datei mit einer Textversion der entsprechenden Äußerung verknüpft wird. [Erstellen benutzerdefinierter Voicefonts](how-to-customize-voice-font.md) enthält Details zum erforderlichen Format. Sie können den Text direkt aus Ihrem Skript kopieren. Erstellen Sie eine ZIP-Datei der WAV-Dateien und des Texttranskripts.
+Erstellen Sie abschließend das *Transkript*, mit dem die WAV-Datei mit einer Textversion der entsprechenden Äußerung verknüpft wird. [Erstellen benutzerdefinierter Voicefonts](./how-to-custom-voice-create-voice.md) enthält Details zum erforderlichen Format. Sie können den Text direkt aus Ihrem Skript kopieren. Erstellen Sie eine ZIP-Datei der WAV-Dateien und des Texttranskripts.
 
 Archivieren Sie die Originalaufzeichnungen an einem sicheren Ort, falls Sie sie später noch benötigen. Bewahren Sie auch Ihr Skript und die Notizen auf.
 
@@ -220,4 +220,4 @@ Archivieren Sie die Originalaufzeichnungen an einem sicheren Ort, falls Sie sie 
 Sie können nun Ihre Aufzeichnungen hochladen und Ihre benutzerdefinierte Stimme erstellen.
 
 > [!div class="nextstepaction"]
-> [Erstellen benutzerdefinierter Voicefonts](how-to-customize-voice-font.md)
+> [Erstellen benutzerdefinierter Voicefonts](./how-to-custom-voice-create-voice.md)

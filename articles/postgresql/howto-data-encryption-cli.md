@@ -1,18 +1,18 @@
 ---
 title: 'Datenverschlüsselung: Azure-Befehlszeilenschnittstelle – Azure Database for PostgreSQL-Einzelserver'
 description: Erfahren Sie, wie Sie über die Azure-Befehlszeilenschnittstelle die Datenverschlüsselung für Azure Database for PostgreSQL-Einzelserver einrichten und verwalten.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7494135cd4912ec8e59a32592ebcca0e0a6813b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 757782e8842fbcaca9c8d95ec8086dd5791a817b
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87797813"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240612"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Datenverschlüsselung für Azure Database for PostgreSQL-Einzelserver mithilfe der Azure-Befehlszeilenschnittstelle
 
@@ -49,7 +49,7 @@ Erfahren Sie, wie Sie mithilfe der Azure-Befehlszeilenschnittstelle die Datenver
 * Der Schlüssel muss die folgenden Attribute aufweisen, damit er als vom Kunden verwalteter Schlüssel verwendet werden kann:
   * Kein Ablaufdatum
   * Nicht deaktiviert
-  * Ausführen der Vorgänge **get**, **wrap** und **unwrap**
+  * Ausführen der Vorgänge **get** , **wrap** und **unwrap**
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Festlegen der richtigen Berechtigungen für Schlüsselvorgänge
 
@@ -67,7 +67,7 @@ Erfahren Sie, wie Sie mithilfe der Azure-Befehlszeilenschnittstelle die Datenver
     az postgres server update --resource-group <resource_group> --name <server_name> --assign-identity
     ```
 
-2. Legen Sie die **Schlüsselberechtigungen** (**Get**, **Wrap**, **Unwrap**) für den **Prinzipal** (Name des PostgreSQL-Einzelservers) fest.
+2. Legen Sie die **Schlüsselberechtigungen** ( **Get** , **Wrap** , **Unwrap** ) für den **Prinzipal** (Name des PostgreSQL-Einzelservers) fest.
 
     ```azurecli-interactive
     az keyvault set-policy --name -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principal id of the server>
@@ -147,7 +147,7 @@ Sie können die Datenverschlüsselung nicht nur im Azure-Portal, sondern auch au
 
 Verwenden Sie eine der vorab erstellten Azure Resource Manager-Vorlagen, um den Server mit aktivierter Datenverschlüsselung bereitzustellen: [Beispiel mit Datenverschlüsselung](https://github.com/Azure/azure-postgresql/tree/master/arm-templates/ExampleWithDataEncryption)
 
-Diese Azure Resource Manager-Vorlage erstellt einen Azure Database for PostgreSQL-Einzelserver und verwendet **KeyVault** und **Key**, die als Parameter übergeben werden, um die Datenverschlüsselung auf dem Server zu aktivieren.
+Diese Azure Resource Manager-Vorlage erstellt einen Azure Database for PostgreSQL-Einzelserver und verwendet **KeyVault** und **Key** , die als Parameter übergeben werden, um die Datenverschlüsselung auf dem Server zu aktivieren.
 
 ### <a name="for-an-existing-server"></a>Vorhandener Server
 Sie können Azure Resource Manager-Vorlagen auch verwenden, um die Datenverschlüsselung auf vorhandenen Azure Database for PostgreSQL-Einzelservern zu aktivieren.

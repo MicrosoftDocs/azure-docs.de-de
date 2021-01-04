@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
-ms.openlocfilehash: aa3c190912c0fbd62b08182018c99b985354811b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a226682c2580a871e1b2fc4db71f369f3bcc3abb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86201806"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010162"
 ---
 # <a name="how-caching-works"></a>Funktionsweise der Zwischenspeicherung
 
@@ -65,7 +65,7 @@ Zum Definieren der Cacheaktualität können zwei Header verwendet werden: `Cache
 ## <a name="cache-directive-headers"></a>Header mit Cacheanweisungen
 
 > [!IMPORTANT]
-> Standardmäßig ignoriert ein für die DSA optimierter Azure CDN-Endpunkt Header mit Cacheanweisungen und umgeht die Zwischenspeicherung. Für die Profile **Azure CDN Standard von Verizon** und **Azure CDN Standard von Akamai** können Sie die Behandlung dieser Header durch einen Azure CDN-Endpunkt anpassen, indem Sie [CDN-Cacheregeln](cdn-caching-rules.md) verwenden, um die Zwischenspeicherung zu aktivieren. Nur bei **Azure CDN Premium von Verizon**-Profilen verwenden Sie die [Regel-Engine](cdn-rules-engine.md), um die Zwischenspeicherung zu aktivieren.
+> Standardmäßig ignoriert ein für die DSA optimierter Azure CDN-Endpunkt Header mit Cacheanweisungen und umgeht die Zwischenspeicherung. Für die Profile **Azure CDN Standard von Verizon** und **Azure CDN Standard von Akamai** können Sie die Behandlung dieser Header durch einen Azure CDN-Endpunkt anpassen, indem Sie [CDN-Cacheregeln](cdn-caching-rules.md) verwenden, um die Zwischenspeicherung zu aktivieren. Nur bei **Azure CDN Premium von Verizon**-Profilen verwenden Sie die [Regel-Engine](./cdn-verizon-premium-rules-engine.md), um die Zwischenspeicherung zu aktivieren.
 
 Azure CDN unterstützt die folgenden HTTP-Header mit Cacheanweisungen, die die Cachedauer und die -freigabe definieren.
 
@@ -137,6 +137,3 @@ In der folgenden Tabelle wird das Standardverhalten beim Zwischenspeichern bei d
 
 - Informationen zum Anpassen und Überschreiben des Standardverhaltens beim Zwischenspeichern im CDN anhand von Cacheregeln finden Sie unter [Steuern des Verhaltens beim Zwischenspeichern im Azure CDN mit Cacheregeln](cdn-caching-rules.md). 
 - Weitere Informationen zur Steuerung des Verhaltens beim Zwischenspeichern mithilfe von Abfragezeichenfolgen finden Sie unter [Steuern des Azure Content Delivery Network-Zwischenspeicherverhaltens mit Abfragezeichenfolgen](cdn-query-string.md).
-
-
-

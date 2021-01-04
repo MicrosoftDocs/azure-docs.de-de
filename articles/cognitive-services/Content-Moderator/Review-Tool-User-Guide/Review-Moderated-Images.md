@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
-ms.openlocfilehash: b02324923e3f004395105b8e04165390cb950fe7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77d7b8a0bf4d7fe9a94a61ea3f2f4279246ffb69
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73044115"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903886"
 ---
 # <a name="create-human-reviews"></a>Erstellen von Überprüfungen durch Personen
 
@@ -56,4 +56,4 @@ Die Funktion für Textüberprüfungen ist der Funktion für Bildüberprüfungen 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In diesem Artikel wurde erläutert, wie Sie Überprüfungen über das [Prüfungstool](https://contentmoderator.cognitive.microsoft.com) von Content Moderator einrichten und verwenden. Sehen Sie sich als Nächstes die [Anleitung für die REST-API](../try-review-api-review.md) oder den [.NET SDK-Schnellstart](../dotnet-sdk-quickstart.md) an, um zu erfahren, wie Überprüfungen programmgesteuert erstellt werden können.
+In diesem Artikel wurde erläutert, wie Sie Überprüfungen über das [Prüfungstool](https://contentmoderator.cognitive.microsoft.com) von Content Moderator einrichten und verwenden. Sehen Sie sich als Nächstes die [Anleitung für die API-Konsole](../try-review-api-review.md) oder den [.NET SDK-Schnellstart](../client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) an, um zu erfahren, wie Überprüfungen programmgesteuert erstellt werden können.

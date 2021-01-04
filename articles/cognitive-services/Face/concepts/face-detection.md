@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 15e39eb9f5b8dd3556ea9ff8240bc2c9d252cd31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92b19941f34b9bf5656c9beb188a68d2cf01f674
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73743058"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504128"
 ---
 # <a name="face-detection-and-attributes"></a>Gesichtserkennung und -attribute
 
@@ -47,7 +47,7 @@ Attribute sind ein Satz von Merkmalen, die optional durch die API [Face – Dete
 * **Geschlecht:** Das geschätzte Geschlecht des jeweiligen Gesichts. Mögliche Werte sind „male“, „female“ und „genderless“.
 * **Brille:** Gibt an, ob das Gesicht eine Brille aufweist. Mögliche Werte sind NoGlasses, ReadingGlasses, SunGlasses und SwimmingGoggles.
 * **Haare:** Die Art der Haare des Gesichts. Dieses Attribut zeigt an, ob die Haare sichtbar sind, ob Haarausfall erkannt wurde und welche Farbe die Haare haben.
-* **Kopfhaltung:** Die Ausrichtung des Gesichts im dreidimensionalen Raum. Dieses Attribut wird durch die Roll-Nick-Gier-Winkel in Grad beschrieben. Als Wertebereiche gelten –90 Grad bis 90 Grad, –180 Grad bis 180 Grad bzw. –90 Grad bis 90 Grad. Die Winkelzuordnungen sind im folgenden Diagramm dargestellt:
+* **Kopfhaltung:** Die Ausrichtung des Gesichts im dreidimensionalen Raum. Dieses Attribut wird durch die Roll-Nick-Gier-Winkel in Grad beschrieben. Als Wertebereiche gelten –90 Grad bis 90 Grad, –90 Grad bis 90 Grad bzw. –90 Grad bis 90 Grad. Die Winkelzuordnungen sind im folgenden Diagramm dargestellt:
 
     ![Kopf mit Bezeichnungen für Roll-, Nick- und Gierachse](../Images/headpose.1.jpg)
 * **Makeup:** Gibt an, ob das Gesicht Makeup trägt. Dieses Attribut gibt einen booleschen Wert für eyeMakeup und lipMakeup zurück.
@@ -63,7 +63,7 @@ Attribute sind ein Satz von Merkmalen, die optional durch die API [Face – Dete
 Anhand der folgenden Tipps können Sie sicherstellen, dass Ihre Eingabebilder möglichst genaue Erkennungsergebnisse liefern:
 
 * Als Eingabebildformate werden JPEG, PNG, GIF (der erste Frame) und BMP unterstützt.
-* Die Bilddateien dürfen maximal 4 MB groß sein.
+* Die Bilddateien dürfen maximal 6 MB groß sein.
 * Die erkennbare Gesichtsgröße reicht von 36 x 36 bis 4.096 x 4.096 Pixel. Außerhalb dieses Bereichs liegende Gesichter werden nicht erkannt.
 * Einige Gesichter können möglicherweise aufgrund technischer Probleme nicht erkannt werden. Extreme Gesichtswinkel (Kopfhaltung) oder verdeckte Gesichter (Objekte wie Sonnenbrille oder Hände bedecken Teile des Gesichts) können die Erkennung beeinträchtigen. Frontalansichten und nahezu der Frontalansicht entsprechende Ansichten von Gesichtern führen zu den besten Ergebnissen.
 

@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 08/07/2020
-ms.openlocfilehash: 48f178a74dea0403ff8926cf34fd64cdd9c6839f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 416e6cb29ab2816d53cb837f72233a9fe098f659
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071998"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011420"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Datenfehler in Azure Stream Analytics
 
@@ -168,7 +168,7 @@ Weitere Informationen zum Schema für Ressourcenprotokolle finden Sie unter [Pro
 * Ursache: Der Unterschied zwischen der Anwendungszeit und der Eingangszeit ist größer als das Toleranzfenster für Eingangsverzögerung.
 * Benachrichtigung im Portal: Nein
 * Ressourcenprotokollebene: Information
-* Auswirkung:  Späte Eingabeereignisse werden entsprechend der Einstellung „Handle other events“ (Andere Ereignisse verarbeiten) im Abschnitt „Ereignisreihenfolge“ der Auftragskonfiguration verarbeitet. Weitere Informationen finden Sie unter [Time Handling Policies (Richtlinien zur Behandlung von Zeitangaben)](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Auswirkung:  Späte Eingabeereignisse werden entsprechend der Einstellung „Handle other events“ (Andere Ereignisse verarbeiten) im Abschnitt „Ereignisreihenfolge“ der Auftragskonfiguration verarbeitet. Weitere Informationen finden Sie unter [Time Handling Policies (Richtlinien zur Behandlung von Zeitangaben)](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Protokolldetails
    * Anwendungszeit und Eingangszeit 
    * Tatsächliche Nutzlast bis auf einige Kilobytes genau.
@@ -184,7 +184,7 @@ Weitere Informationen zum Schema für Ressourcenprotokolle finden Sie unter [Pro
 * Ursache: Der Unterschied zwischen der Anwendungszeit und der Eingangszeit beträgt mehr als fünf Minuten.
 * Benachrichtigung im Portal: Nein
 * Ressourcenprotokollebene: Information
-* Auswirkung:  Frühe Eingabeereignisse werden entsprechend der Einstellung „Handle other events“ (Andere Ereignisse verarbeiten) im Abschnitt „Ereignisreihenfolge“ der Auftragskonfiguration verarbeitet. Weitere Informationen finden Sie unter [Time Handling Policies (Richtlinien zur Behandlung von Zeitangaben)](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Auswirkung:  Frühe Eingabeereignisse werden entsprechend der Einstellung „Handle other events“ (Andere Ereignisse verarbeiten) im Abschnitt „Ereignisreihenfolge“ der Auftragskonfiguration verarbeitet. Weitere Informationen finden Sie unter [Time Handling Policies (Richtlinien zur Behandlung von Zeitangaben)](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Protokolldetails
    * Anwendungszeit und Eingangszeit 
    * Tatsächliche Nutzlast bis auf einige Kilobytes genau.
@@ -200,7 +200,7 @@ Weitere Informationen zum Schema für Ressourcenprotokolle finden Sie unter [Pro
 * Ursache: Das Ereignis wird entsprechend des definierten Toleranzfensters für Fehlordnung als fehlgeordnet angesehen.
 * Benachrichtigung im Portal: Nein
 * Ressourcenprotokollebene: Information
-* Auswirkung:  Eingabeereignisse, die in falscher Reihenfolge stattfinden, werden entsprechend der Einstellung „Handle other events“ (Andere Ereignisse verarbeiten) im Abschnitt „Ereignisreihenfolge“ der Auftragskonfiguration verarbeitet. Weitere Informationen finden Sie unter [Time Handling Policies (Richtlinien zur Behandlung von Zeitangaben)](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Auswirkung:  Eingabeereignisse, die in falscher Reihenfolge stattfinden, werden entsprechend der Einstellung „Handle other events“ (Andere Ereignisse verarbeiten) im Abschnitt „Ereignisreihenfolge“ der Auftragskonfiguration verarbeitet. Weitere Informationen finden Sie unter [Time Handling Policies (Richtlinien zur Behandlung von Zeitangaben)](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Protokolldetails
    * Tatsächliche Nutzlast bis auf einige Kilobytes genau.
 
@@ -221,7 +221,7 @@ Es gibt mehrere Datenfehler, die nur nach Aufrufen der Ausgabesenke erkannt werd
 * Ursache: Die für die Ausgabe erforderliche Spalte ist nicht vorhanden. Ein Beispiel: Eine Spalte, die als PartitionKey für eine Azure-Tabelle definiert wurde, ist nicht vorhanden.
 * Benachrichtigung im Portal: Ja
 * Ressourcenprotokollebene: Warnung
-* Auswirkung:  Alle anderen Fehler bei der Datenkonvertierung, einschließlich Fehlern aufgrund von fehlenden Pflichtspalten, werden entsprechend der Einstellung [Output Data Policy](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) (Richtlinie für Ausgabedaten) verarbeitet.
+* Auswirkung:  Alle anderen Fehler bei der Datenkonvertierung, einschließlich Fehlern aufgrund von fehlenden Pflichtspalten, werden entsprechend der Einstellung [Output Data Policy](./stream-analytics-output-error-policy.md) (Richtlinie für Ausgabedaten) verarbeitet.
 * Protokolldetails
    * Name der Spalte und entweder der Zeilenbezeichner oder der Teil der Zeile.
 
@@ -236,7 +236,7 @@ Es gibt mehrere Datenfehler, die nur nach Aufrufen der Ausgabesenke erkannt werd
 * Ursache: Der Spaltenwert entspricht nicht der Ausgabe. Ein Beispiel: Der Spaltenname ist keine gültige Azure-Tabellenspalte.
 * Benachrichtigung im Portal: Ja
 * Ressourcenprotokollebene: Warnung
-* Auswirkung:  Alle anderen Fehler bei der Datenkonvertierung, einschließlich Fehlern aufgrund von ungültigen Spaltennamen, werden entsprechend der Einstellung [Output Data Policy](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) (Richtlinie für Ausgabedaten) verarbeitet.
+* Auswirkung:  Alle anderen Fehler bei der Datenkonvertierung, einschließlich Fehlern aufgrund von ungültigen Spaltennamen, werden entsprechend der Einstellung [Output Data Policy](./stream-analytics-output-error-policy.md) (Richtlinie für Ausgabedaten) verarbeitet.
 * Protokolldetails
    * Name der Spalte und entweder der Zeilenbezeichner oder der Teil der Zeile.
 
@@ -251,7 +251,7 @@ Es gibt mehrere Datenfehler, die nur nach Aufrufen der Ausgabesenke erkannt werd
 * Ursache: Eine Spalte kann in der Ausgabe nicht in einen gültigen Typ konvertiert werden. Ein Beispiel: Der Wert einer Spalte ist nicht kompatibel mit Einschränkungen oder Typen, die in der SQL-Tabelle definiert wurden.
 * Benachrichtigung im Portal: Ja
 * Ressourcenprotokollebene: Warnung
-* Auswirkung:  Alle anderen Fehler bei der Datenkonvertierung, einschließlich Fehlern bei der Typkonvertierung, werden entsprechend der Einstellung [Output Data Policy](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) (Richtlinie für Ausgabedaten) verarbeitet.
+* Auswirkung:  Alle anderen Fehler bei der Datenkonvertierung, einschließlich Fehlern bei der Typkonvertierung, werden entsprechend der Einstellung [Output Data Policy](./stream-analytics-output-error-policy.md) (Richtlinie für Ausgabedaten) verarbeitet.
 * Protokolldetails
    * Name der Spalte.
    * Entweder der Zeilenbezeichner oder der Teil der Zeile.
@@ -267,7 +267,7 @@ Es gibt mehrere Datenfehler, die nur nach Aufrufen der Ausgabesenke erkannt werd
 * Ursache: Der Wert der Nachricht ist größer als die unterstützte Ausgabegröße. Ein Beispiel: Eine Zeile für eine Event Hub-Ausgabe ist größer als 1 MB.
 * Benachrichtigung im Portal: Ja
 * Ressourcenprotokollebene: Warnung
-* Auswirkung:  Alle anderen Fehler bei der Datenkonvertierung, einschließlich Fehlern aufgrund von Überschreitungen der Maximalgröße von Datensätzen, werden entsprechend der Einstellung [Output Data Policy](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) (Richtlinie für Ausgabedaten) verarbeitet.
+* Auswirkung:  Alle anderen Fehler bei der Datenkonvertierung, einschließlich Fehlern aufgrund von Überschreitungen der Maximalgröße von Datensätzen, werden entsprechend der Einstellung [Output Data Policy](./stream-analytics-output-error-policy.md) (Richtlinie für Ausgabedaten) verarbeitet.
 * Protokolldetails
    * Entweder der Zeilenbezeichner oder der Teil der Zeile.
 
@@ -282,7 +282,7 @@ Es gibt mehrere Datenfehler, die nur nach Aufrufen der Ausgabesenke erkannt werd
 * Ursache: Eine Zeile enthält bereits eine Spalte mit demselben Namen wie eine Systemspalte. Ein Beispiel: Eine CosmosDB-Ausgabe mit einer Spalte namens ID, obwohl dieser Spaltenname bereits für eine andere Spalte verwendet wird.
 * Benachrichtigung im Portal: Ja
 * Ressourcenprotokollebene: Warnung
-* Auswirkung:  Alle anderen Fehler bei der Datenkonvertierung, einschließlich Fehlern aufgrund von Duplikatschlüsseln, werden entsprechend der Einstellung [Output Data Policy](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) (Richtlinie für Ausgabedaten) verarbeitet.
+* Auswirkung:  Alle anderen Fehler bei der Datenkonvertierung, einschließlich Fehlern aufgrund von Duplikatschlüsseln, werden entsprechend der Einstellung [Output Data Policy](./stream-analytics-output-error-policy.md) (Richtlinie für Ausgabedaten) verarbeitet.
 * Protokolldetails
    * Name der Spalte.
    * Entweder der Zeilenbezeichner oder der Teil der Zeile.

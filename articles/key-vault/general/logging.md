@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 162e40555e11dff716b58eec4b1168728257693e
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: eef4f6b8ee5821e54b5b7709eee7f8dad8749e63
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131172"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488535"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault-Protokollierung
 
@@ -26,7 +26,7 @@ Sie können auf Ihre Protokollinformationen (spätestens) zehn Minuten nach dem 
 * Verwenden Sie zum Schützen der Protokolle standardmäßige Azure-Zugriffssteuerungsmethoden, indem Sie einschränken, wer darauf zugreifen kann.
 * Löschen Sie Protokolle, die im Speicherkonto nicht mehr aufbewahrt werden sollen.
 
-Eine Übersicht über Key Vault finden Sie unter [Was ist Azure Key Vault?](overview.md). Informationen dazu, wo Key Vault verfügbar ist, finden Sie auf der [Seite mit der Preisübersicht](https://azure.microsoft.com/pricing/details/key-vault/). Informationen zur Verwendung von Azure Monitor für Key Vault finden Sie [hier](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview).
+Eine Übersicht über Key Vault finden Sie unter [Was ist Azure Key Vault?](overview.md). Informationen dazu, wo Key Vault verfügbar ist, finden Sie auf der [Seite mit der Preisübersicht](https://azure.microsoft.com/pricing/details/key-vault/). Informationen zur Verwendung von Azure Monitor für Key Vault finden Sie [hier](../../azure-monitor/insights/key-vault-insights-overview.md).
 
 ## <a name="interpret-your-key-vault-logs"></a>Interpretieren der Key Vault-Protokolle
 
@@ -73,47 +73,91 @@ In der folgenden Tabelle sind die Feldnamen und Beschreibungen aufgeführt:
 | **callerIpAddress** |Die IP-Adresse des Clients, der die Anforderung gestellt hat. |
 | **correlationId** |Optionale GUID, die vom Client zum Korrelieren von clientseitigen Protokollen mit dienstseitigen Protokollen (Schlüsseltresor) übergeben werden kann |
 | **Identität** |Identität des Tokens, das in der REST-API-Anforderung angegeben wurde. Dies ist normalerweise ein „Benutzer“, ein „Dienstprinzipal“ oder die Kombination „Benutzer + App-ID“, wie bei einer Anforderung, die auf einem Azure PowerShell-Cmdlet basiert. |
-| **properties** |Informationen, die je nach Vorgang ( **operationName** ) variieren. In den meisten Fällen enthält dieses Feld Clientinformationen (vom Client übergebene Zeichenfolge „useragent“), den genauen REST-API-Anforderungs-URI und den HTTP-Statuscode. Wenn ein Objekt als Ergebnis einer Anforderung (z. B. **KeyCreate** oder **VaultGet** ) zurückgegeben wird, enthält es außerdem den Schlüssel-URI (als `id`), den Tresor-URI oder den URI des Geheimnisses. |
+| **properties** |Informationen, die je nach Vorgang (**operationName**) variieren. In den meisten Fällen enthält dieses Feld Clientinformationen (vom Client übergebene Zeichenfolge „useragent“), den genauen REST-API-Anforderungs-URI und den HTTP-Statuscode. Wenn ein Objekt als Ergebnis einer Anforderung (z. B. **KeyCreate** oder **VaultGet**) zurückgegeben wird, enthält es außerdem den Schlüssel-URI (als `id`), den Tresor-URI oder den URI des Geheimnisses. |
 
-Die Feldwerte unter **operationName** liegen im *ObjectVerb* -Format vor. Beispiel:
+Die Feldwerte unter **operationName** liegen im *ObjectVerb*-Format vor. Beispiel:
 
 * Alle Schlüsseltresorvorgänge verfügen über das Format `Vault<action>`, z. B. `VaultGet` und `VaultCreate`.
 * Alle Schlüsselvorgänge verfügen über das Format `Key<action>`, z. B. `KeySign` und `KeyList`.
 * Alle Geheimnisvorgänge verfügen über das Format `Secret<action>`, z. B. `SecretGet` und `SecretListVersions`.
 
-Die folgende Tabelle enthält die **operationName** -Werte und die entsprechenden REST-API-Befehle:
+Die folgende Tabelle enthält die **operationName**-Werte und die entsprechenden REST-API-Befehle:
 
 ### <a name="operation-names-table"></a>Tabelle mit Vorgangsnamen
 
 | operationName | REST-API-Befehl |
 | --- | --- |
 | **Authentifizierung** |Authentifizieren über Azure Active Directory-Endpunkt |
-| **VaultGet** |[Abrufen von Informationen über einen Schlüsseltresor](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
-| **VaultPut** |[Erstellen oder Aktualisieren eines Schlüsseltresors](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| **VaultDelete** |[Löschen eines Schlüsseltresors](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
-| **VaultPatch** |[Erstellen oder Aktualisieren eines Schlüsseltresors](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| **VaultList** |[Auflisten aller Schlüsseltresore in einer Ressourcengruppe](https://msdn.microsoft.com/library/azure/mt620027.aspx) |
-| **KeyCreate** |[Erstellen eines Schlüssels](https://msdn.microsoft.com/library/azure/dn903634.aspx) |
-| **KeyGet** |[Abrufen von Informationen zu einem Schlüssel](https://msdn.microsoft.com/library/azure/dn878080.aspx) |
-| **KeyImport** |[Importieren eines Schlüssels in einen Tresor](https://msdn.microsoft.com/library/azure/dn903626.aspx) |
-| **KeyBackup** |[Sichern eines Schlüssels](https://msdn.microsoft.com/library/azure/dn878058.aspx) |
-| **KeyDelete** |[Löschen eines Schlüssels](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
-| **KeyRestore** |[Wiederherstellen eines Schlüssels](https://msdn.microsoft.com/library/azure/dn878106.aspx) |
-| **KeySign** |[Signieren mit einem Schlüssel](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
-| **KeyVerify** |[Überprüfen mit einem Schlüssel](https://msdn.microsoft.com/library/azure/dn878082.aspx) |
-| **KeyWrap** |[Umschließen eines Schlüssels](https://msdn.microsoft.com/library/azure/dn878066.aspx) |
-| **KeyUnwrap** |[Aufheben der Umschließung eines Schlüssels](https://msdn.microsoft.com/library/azure/dn878079.aspx) |
-| **KeyEncrypt** |[Verschlüsseln mit einem Schlüssel](https://msdn.microsoft.com/library/azure/dn878060.aspx) |
-| **KeyDecrypt** |[Mit einem Schlüssel entschlüsseln](https://msdn.microsoft.com/library/azure/dn878097.aspx) |
-| **KeyUpdate** |[Aktualisieren eines Schlüssels](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
-| **KeyList** |[Auflisten der Schlüssel in einem Tresor](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
-| **KeyListVersions** |[Auflisten der Versionen eines Schlüssels](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
-| **SecretSet** |[Erstellen eines geheimen Schlüssels](https://msdn.microsoft.com/library/azure/dn903618.aspx) |
-| **SecretGet** |[Abrufen eines Geheimnisses](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
-| **SecretUpdate** |[Aktualisieren eines Geheimnisses](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
-| **SecretDelete** |[Löschen eines Geheimnisses](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
-| **SecretList** |[Auflisten von Geheimnissen in einem Tresor](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
-| **SecretListVersions** |[Auflisten von Versionen eines Geheimnisses](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
+| **VaultGet** |[Abrufen von Informationen über einen Schlüsseltresor](/rest/api/keyvault/vaults) |
+| **VaultPut** |[Erstellen oder Aktualisieren eines Schlüsseltresors](/rest/api/keyvault/vaults) |
+| **VaultDelete** |[Löschen eines Schlüsseltresors](/rest/api/keyvault/vaults) |
+| **VaultPatch** |[Erstellen oder Aktualisieren eines Schlüsseltresors](/rest/api/keyvault/vaults) |
+| **VaultList** |[Auflisten aller Schlüsseltresore in einer Ressourcengruppe](/rest/api/keyvault/vaults) |
+| **VaultPurge** |[Gelöschten Tresor endgültig löschen](/rest/api/keyvault/vaults/purgedeleted) |
+| **VaultRecover** |Gelöschten Tresor wiederherstellen|
+| **VaultGetDeleted** |[Gelöschten Tresor abrufen](/rest/api/keyvault/vaults/getdeleted) |
+| **VaultListDeleted** |[Gelöschten Tresor auflisten](/rest/api/keyvault/vaults/listdeleted) |
+| **KeyCreate** |[Erstellen eines Schlüssels](/rest/api/keyvault/createkey) |
+| **KeyGet** |[Abrufen von Informationen zu einem Schlüssel](/rest/api/keyvault/getkey) |
+| **KeyImport** |[Importieren eines Schlüssels in einen Tresor](/rest/api/keyvault/vaults) |
+| **KeyDelete** |[Löschen eines Schlüssels](/rest/api/keyvault/deletekey) |
+| **KeySign** |[Signieren mit einem Schlüssel](/rest/api/keyvault/sign) |
+| **KeyVerify** |[Überprüfen mit einem Schlüssel](/rest/api/keyvault/vaults) |
+| **KeyWrap** |[Umschließen eines Schlüssels](/rest/api/keyvault/wrapkey) |
+| **KeyUnwrap** |[Aufheben der Umschließung eines Schlüssels](/rest/api/keyvault/unwrapkey) |
+| **KeyEncrypt** |[Verschlüsseln mit einem Schlüssel](/rest/api/keyvault/encrypt) |
+| **KeyDecrypt** |[Mit einem Schlüssel entschlüsseln](/rest/api/keyvault/decrypt) |
+| **KeyUpdate** |[Aktualisieren eines Schlüssels](/rest/api/keyvault/updatekey) |
+| **KeyList** |[Auflisten der Schlüssel in einem Tresor](/rest/api/keyvault/getkeys) |
+| **KeyListVersions** |[Auflisten der Versionen eines Schlüssels](/rest/api/keyvault/getkeyversions) |
+| **KeyPurge** |[Einen Schlüssel endgültig löschen](/rest/api/keyvault/purgedeletedkey) |
+| **KeyBackup** |[Einen Schlüssel sichern](/rest/api/keyvault/backupkey) |
+| **KeyRestore** |[Wiederherstellen eines Schlüssels](/rest/api/keyvault/restorekey) |
+| **KeyRecover** |[Einen Schlüssel wiederherstellen](/rest/api/keyvault/recoverdeletedkey) |
+| **KeyGetDeleted** |[Gelöschten Schlüssel abrufen](/rest/api/keyvault/getdeletedkey) |
+| **KeyListDeleted** |[Gelöschte Schlüssel in einem Tresor auflisten](/rest/api/keyvault/getdeletedkeys) |
+| **CertificateGet** |[Abrufen von Informationen zu einem Zertifikat](/rest/api/keyvault/getcertificate) |
+| **CertificateCreate** |[Ein Zertifikat erstellen](/rest/api/keyvault/createcertificate) |
+| **CertificateImport** |[Ein Zertifikat in einen Tresor importieren](/rest/api/keyvault/importcertificate) |
+| **CertificateUpdate** |[Ein Zertifikat aktualisieren](/rest/api/keyvault/updatecertificate) |
+| **CertificateList** |[Die Zertifikate in einem Tresor auflisten](/rest/api/keyvault/getcertificates) |
+| **CertificateListVersions** |[Die Versionen eines Zertifikats auflisten](/rest/api/keyvault/getcertificateversions) |
+| **CertificateDelete** |[Ein Zertifikat löschen](/rest/api/keyvault/deletecertificate) |
+| **CertificatePurge** |[Ein Zertifikat endgültig löschen](/rest/api/keyvault/purgedeletedcertificate) |
+| **CertificateBackup** |[Ein Zertifikat sichern](/rest/api/keyvault/backupcertificate) |
+| **CertificateRestore** |[Ein Zertifikat wiederherstellen](/rest/api/keyvault/restorecertificate) |
+| **CertificateRecover** |[Ein Zertifikat wiederherstellen](/rest/api/keyvault/recoverdeletedcertificate) |
+| **CertificateGetDeleted** |[Gelöschtes Zertifikat abrufen](/rest/api/keyvault/getdeletedcertificate) |
+| **CertificateListDeleted** |[Die gelöschten Zertifikate in einem Tresor auflisten](/rest/api/keyvault/getdeletedcertificates) |
+| **CertificatePolicyGet** |[Zertifikatrichtlinie abrufen](/rest/api/keyvault/getcertificatepolicy) |
+| **CertificatePolicyUpdate** |[Zertifikatrichtlinie aktualisieren](/rest/api/keyvault/updatecertificatepolicy) |
+| **CertificatePolicySet** |[Zertifikatrichtlinie erstellen](/rest/api/keyvault/createcertificate) |
+| **CertificateContactsGet** |[Zertifikatkontakte abrufen](/rest/api/keyvault/getcertificatecontacts) |
+| **CertificateContactsSet** |[Zertifikatkontakte festlegen](/rest/api/keyvault/setcertificatecontacts) |
+| **CertificateContactsDelete** |[Zertifikatkontakte löschen](/rest/api/keyvault/deletecertificatecontacts) |
+| **CertificateIssuerGet** |[Zertifikataussteller abrufen](/rest/api/keyvault/getcertificateissuer) |
+| **CertificateIssuerSet** |[Zertifikataussteller festlegen](/rest/api/keyvault/setcertificateissuer) |
+| **CertificateIssuerUpdate** |[Zertifikataussteller aktualisieren](/rest/api/keyvault/updatecertificateissuer) |
+| **CertificateIssuerDelete** |[Zertifikataussteller löschen](/rest/api/keyvault/deletecertificateissuer) |
+| **CertificateIssuersList** |[Zertifikataussteller auflisten](/rest/api/keyvault/getcertificateissuers) |
+| **CertificateEnroll** |Ein Zertifikat registrieren |
+| **CertificateRenew** |Erneuern eines Zertifikats |
+| **CertificatePendingGet** |Ausstehendes Zertifikat abrufen |
+| **CertificatePendingMerge** |Ausstehende Zertifikatzusammenführung |
+| **CertificatePendingUpdate** |Ausstehende Zertifikataktualisierung |
+| **CertificatePendingDelete** |Ausstehendes Zertifikat löschen |
+| **SecretSet** |[Erstellen eines geheimen Schlüssels](/rest/api/keyvault/updatecertificate) |
+| **SecretGet** |[Abrufen eines Geheimnisses](/rest/api/keyvault/getsecret) |
+| **SecretUpdate** |[Aktualisieren eines Geheimnisses](/rest/api/keyvault/updatesecret) |
+| **SecretDelete** |[Löschen eines Geheimnisses](/rest/api/keyvault/deletesecret) |
+| **SecretList** |[Auflisten von Geheimnissen in einem Tresor](/rest/api/keyvault/getsecrets) |
+| **SecretListVersions** |[Auflisten von Versionen eines Geheimnisses](/rest/api/keyvault/getsecretversions) |
+| **SecretPurge** |[Geheimnis endgültig löschen](/rest/api/keyvault/purgedeletedsecret) |
+| **SecretBackup** |[Geheimnis sichern](/rest/api/keyvault/backupsecret) |
+| **SecretRestore** |[Geheimnis wiederherstellen](/rest/api/keyvault/restoresecret) |
+| **SecretRecover** |[Geheimnis wiederherstellen](/rest/api/keyvault/recoverdeletedsecret) |
+| **SecretGetDeleted** |[Gelöschtes Geheimnis abrufen](/rest/api/keyvault/getdeletedsecret) |
+| **SecretListDeleted** |[Die gelöschten Geheimnisse in einem Tresor auflisten](/rest/api/keyvault/getdeletedsecrets) |
 | **VaultAccessPolicyChangedEventGridNotification** | Ereignis „Tresorzugriffsrichtlinie geändert“ veröffentlicht |
 | **SecretNearExpiryEventGridNotification** |Ereignis „Geheimnis läuft demnächst ab“ veröffentlicht |
 | **SecretExpiredEventGridNotification** |Ereignis „Geheimnis abgelaufen“ veröffentlicht |

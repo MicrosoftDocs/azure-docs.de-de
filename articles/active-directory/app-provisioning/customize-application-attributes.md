@@ -1,5 +1,5 @@
 ---
-title: Anpassen von Azure AD-Attributzuordnungen | Microsoft-Dokumentation
+title: 'Tutorial: Anpassen von Attributzuordnungen in Azure Active Directory'
 description: Erfahren Sie, was Attributzuordnungen für SaaS-Apps in Azure Active Directory sind und wie Sie sie an Ihre geschäftlichen Anforderungen anpassen können.
 services: active-directory
 author: kenwith
@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: how-to
-ms.date: 09/16/2020
+ms.topic: tutorial
+ms.date: 11/10/2020
 ms.author: kenwith
-ms.openlocfilehash: 159a473b2b164d1f0692864e26f6127d9faf8287
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 012038399796a0f2dc87acfb350043542268379a
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069873"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936980"
 ---
-# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Anpassen von Attributzuordnungen für die Benutzerbereitstellung für SaaS-Anwendungen in Azure Active Directory
+# <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial: Anpassen von Attributzuordnungen für die Benutzerbereitstellung für SaaS-Anwendungen in Azure Active Directory
 
 Microsoft Azure AD bietet Unterstützung für die Benutzerbereitstellung für SaaS-Anwendungen von Drittanbietern wie Salesforce, G Suite usw. Wenn Sie die Benutzerbereitstellung für eine SaaS-Anwendung eines Drittanbieters aktivieren, steuert das Azure-Portal deren Attributwerte mithilfe von Attributzuordnungen.
 
@@ -107,12 +107,15 @@ Folgende Anwendungen und Systeme unterstützen die Anpassung der Attributliste:
 
 - Salesforce
 - ServiceNow
-- Workday
+- Workday in Active Directory/Workday in Azure Active Directory
+- SuccessFactors in Active Directory/SuccessFactors in Azure Active Directory
 - Azure Active Directory ([Azure AD Graph-API-Standardattribute](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) und benutzerdefinierte Verzeichniserweiterungen werden unterstützt)
-- Apps, die [SCIM 2.0](https://tools.ietf.org/html/rfc7643) unterstützen und das Hinzufügen von Attributen erfordern, die im [Kernschema](https://tools.ietf.org/html/rfc7643) definiert sind
+- Apps, die [SCIM 2.0](https://tools.ietf.org/html/rfc7643) unterstützen
+- Für das Azure Active Directory-Rückschreiben in Workday oder SuccessFactors wird das Aktualisieren relevanter Metadaten für unterstützte Attribute (XPATH und JSONPath) unterstützt. Das Hinzufügen neuer Workday- oder SuccessFactors-Attribute, die über die im Standardschema enthaltenen Attribute hinausgehen, wird jedoch nicht unterstützt.
+
 
 > [!NOTE]
-> Das Bearbeiten der Liste unterstützter Attribute wird nur für Administratoren empfohlen, die das Schema ihrer Anwendungen und Systeme angepasst haben und aus erster Hand wissen, wie ihre benutzerdefinierten Attribute definiert wurden. Dies erfordert mitunter Kenntnisse der von einer Anwendung oder einem System bereitgestellten APIs und Entwicklertools.
+> Das Bearbeiten der Liste unterstützter Attribute wird nur für Administratoren empfohlen, die das Schema ihrer Anwendungen und Systeme angepasst haben und aus erster Hand wissen, wie ihre benutzerdefinierten Attribute definiert wurden. Dies erfordert mitunter Kenntnisse der von einer Anwendung oder einem System bereitgestellten APIs und Entwicklertools. Die Möglichkeit zum Bearbeiten der Liste unterstützter Attribute ist standardmäßig gesperrt, aber Kunden können die Funktion aktivieren, indem sie zur folgenden URL navigieren: https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true. Anschließend können Sie zu Ihrer Anwendung navigieren, um die Attributliste wie [oben](https://docs.microsoft.com/azure/active-directory/app-provisioning/customize-application-attributes#editing-the-list-of-supported-attributes) beschrieben anzuzeigen. 
 
 Beim Bearbeiten der Liste unterstützter Attribute sind die folgenden Eigenschaften verfügbar:
 
@@ -139,14 +142,11 @@ Die SCIM-RFC definiert ein zentrales Benutzer- und Gruppenschema, erlaubt aber g
    4. Wählen Sie **Attributliste für Anwendungsname bearbeiten** aus.
    5. Geben Sie unten in der Attributliste Informationen zum benutzerdefinierten Attribut in den angezeigten Feldern ein. Wählen Sie dann **Attribut hinzufügen** aus.
 
-Für SCIM-Anwendungen muss der Attributname dem Muster im folgenden Beispiel folgen. „CustomExtensionName“ und „CustomAttribute“ können in Abstimmung auf die Anforderungen Ihrer Anwendung angepasst werden, beispielsweise:  
- * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
- * urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute  
- * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User.CustomAttributeName:value
+Für SCIM-Anwendungen muss der Attributname dem Muster im folgenden Beispiel folgen. „CustomExtensionName“ und „CustomAttribute“ können gemäß den Anforderungen Ihrer Anwendung angepasst werden. Beispiel: urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
 
 Diese Anweisungen gelten nur für SCIM-konforme Anwendungen. Anwendungen wie ServiceNow und Salesforce sind nicht per SCIM mit Azure AD integriert. Aus diesem Grund benötigen sie nicht diesen spezifischen Namespace, wenn ein benutzerdefiniertes Attribut hinzugefügt wird.
 
-Benutzerdefinierte Attribute können keine referenziellen Attribute oder Attribute mit mehreren Werten sein. Benutzerdefinierte Erweiterungsattribute mit mehreren Werten werden zurzeit nur für Anwendungen im Katalog unterstützt.  
+Benutzerdefinierte Attribute können keine referenziellen Attribute, komplexe Attribute oder Attribute mit mehreren Werten sein. Benutzerdefinierte Erweiterungsattribute, die komplex sind oder mehrere Werten beinhalten, werden derzeit nur für Anwendungen im Katalog unterstützt.  
  
 **Beispieldarstellung eines Benutzers mit einem Erweiterungsattribut:**
 
@@ -174,7 +174,7 @@ Benutzerdefinierte Attribute können keine referenziellen Attribute oder Attribu
        "displayName": "John Smith"
      }
    },
-     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User": {
+     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User": {
      "CustomAttribute": "701984",
    },
    "meta": {
@@ -202,7 +202,7 @@ Führen Sie die folgenden Schritte aus, um für Ihre Anwendung Rollen für einen
   - **Zu beachtende Aspekte**
     - Stellen Sie sicher, dass einem Benutzer nicht mehrere Rollen zugeordnet sind. Wir können nicht garantieren, welche Rolle bereitgestellt wird.
     
-  - **Beispielausgabe** 
+  - **Beispielanforderung (POST)** 
 
    ```json
     {
@@ -226,6 +226,21 @@ Führen Sie die folgenden Schritte aus, um für Ihre Anwendung Rollen für einen
    }
    ```
   
+  - **Beispielausgabe (PATCH)** 
+    
+   ```
+   "Operations": [
+   {
+   "op": "Add",
+   "path": "roles",
+   "value": [
+   {
+   "value": "{\"id\":\"06b07648-ecfe-589f-9d2f-6325724a46ee\",\"value\":\"25\",\"displayName\":\"Role1234\"}"
+   }
+   ]
+   ```  
+Die PATCH- und die POST-Anforderung haben ein unterschiedliches Anforderungsformat. Um sicherzustellen, dass die PATCH- und die POST-Anforderung im selben Format gesendet werden, können Sie das Featureflag verwenden, das [hier](./application-provisioning-config-problem-scim-compatibility.md#flags-to-alter-the-scim-behavior) beschrieben ist. 
+
 - **AppRoleAssignmentsComplex** 
   - **Einsatzgebiete:** Verwenden Sie den Ausdruck „AppRoleAssignmentsComplex“, um mehrere Rollen für einen Benutzer bereitzustellen. 
   - **Vorgehensweise zur Konfiguration:** Bearbeiten Sie die Liste der unterstützten Attribute, wie oben beschrieben, um ein neues Attribut für Rollen einzubeziehen: 

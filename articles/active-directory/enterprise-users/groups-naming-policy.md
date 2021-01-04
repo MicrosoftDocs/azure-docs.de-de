@@ -6,20 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 08/13/2019
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9456d663eb1600bf73b1fe253560c2d9f29205ae
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a4c1c30e4651136ada7264cad8ff4d3921c3aeeb
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373328"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547915"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Durchsetzen einer Benennungsrichtlinie für Microsoft 365-Gruppen in Azure Active Directory
 
@@ -48,7 +48,7 @@ Präfixe und Suffixe können alle Sonderzeichen enthalten, die bei Gruppennamen 
 
 #### <a name="fixed-strings"></a>Feste Zeichenfolgen
 
-Sie können Zeichenfolgen verwenden, damit Gruppen in der globalen Adressliste und in den Navigationslinks auf der linken Seite der Gruppenworkloads einfacher überprüft und unterschieden werden können. Einige der häufig verwendeten Präfixe sind Schlüsselwörter wie „Gruppe\_Name“, „\#Name“, „\_Name“.
+Sie können Zeichenfolgen verwenden, damit Gruppen in der globalen Adressliste und in den Navigationslinks auf der linken Seite der Gruppenworkloads einfacher überprüft und unterschieden werden können. Einige der häufig verwendeten Präfixe sind Schlüsselwörter wie „Grp\_Name“, „\#Name“, „\_Name“.
 
 #### <a name="user-attributes"></a>Benutzerattribute
 
@@ -80,7 +80,6 @@ Ausgewählte Administratoren können von diesen Richtlinien für alle Gruppenwor
 - Partnersupport der Ebene 1
 - Partnersupport der Ebene 2
 - Benutzeradministrator
-- Verzeichnis schreiben
 
 ## <a name="configure-naming-policy-in-azure-portal"></a>Konfigurieren einer Benennungsrichtlinie im Azure-Portal
 
@@ -249,7 +248,6 @@ Mobile Groups-App | In der mobilen Groups-App erstellte Gruppen sind mit der Ben
 Planner | Planner ist mit der Benennungsrichtlinie konform. Planner zeigt bei der Eingabe des Plannamens eine Vorschau des durch die Benennungsrichtlinie erzwungenen Namens an. Wenn ein Benutzer ein benutzerdefiniertes blockiertes Wort eingibt, wird beim Erstellen des Plans eine Fehlermeldung angezeigt.
 Dynamics 365 for Customer Engagement | Dynamics 365 for Customer Engagement ist mit der Benennungsrichtlinie konform. Dynamics 365 zeigt den durch die Benennungsrichtlinie erzwungenen Namen an, wenn der Benutzer einen Gruppennamen oder den E-Mail-Alias einer Gruppe eingibt. Wenn ein Benutzer ein benutzerdefiniertes blockiertes Wort eingibt, wird eine Fehlermeldung mit dem blockierten Wort angezeigt, damit der Benutzer es entfernen kann.
 School Data Sync (SDS) | Gruppen, die mit SDS erstellt werden, sind mit der Benennungsrichtlinie konform, die Benennungsrichtlinie wird jedoch nicht automatisch angewendet. SDS-Administratoren müssen die Präfixe und Suffixe an Klassennamen, für die Gruppen erstellt und hochgeladen werden müssen, anfügen. Das Erstellen oder Bearbeiten der Gruppe würde andernfalls zu einem Fehler führen.
-Outlook Customer Manager (OCM) | Outlook Customer Manager ist mit der Benennungsrichtlinie konform, die automatisch auf die in Outlook Customer Manager erstellte Gruppe angewendet wird. Wenn ein benutzerdefiniertes blockiertes Wort erkannt wird, wird die Erstellung der Gruppe in OCM blockiert und der Benutzer für die Verwendung der OCM-App gesperrt.
 Classroom-App | Die in der Classroom-App erstellten Gruppen sind mit der Benennungsrichtlinie konform, die jedoch nicht automatisch angewendet wird. Den Benutzern wird während der Eingabe des Classroom-Gruppennamens auch keine Vorschau des durch die Benennungsrichtlinie erzwungenen Namens angezeigt. Die Benutzer müssen den erzwungenen Classroom-Gruppennamen inklusive Präfixen und Suffixen eingeben. Andernfalls tritt beim Erstellen oder Bearbeiten der Classroom-Gruppe ein Fehler auf.
 Power BI | Power BI-Arbeitsbereiche sind mit der Benennungsrichtlinie konform.    
 Yammer | Wenn ein Benutzer, der sich mit seinem Azure Active Directory-Konto bei Yammer angemeldet hat, eine Gruppe erstellt oder einen Gruppennamen bearbeitet, entspricht der Gruppenname der Benennungsrichtlinie. Dies gilt sowohl für mit Microsoft 365 verbundene Gruppen als auch für alle anderen Yammer-Gruppen.<br>Wenn eine mit Microsoft 365 verbundene Gruppe erstellt wurde, bevor die Benennungsrichtlinie vorhanden war, entspricht der Gruppenname nicht automatisch den Benennungsrichtlinien. Wenn ein Benutzer den Gruppennamen bearbeitet, wird er aufgefordert, das Präfix und das Suffix hinzuzufügen.

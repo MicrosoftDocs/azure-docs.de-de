@@ -3,12 +3,12 @@ title: 'Schnellstart: Ihre erste REST-API-Abfrage'
 description: In dieser Schnellstartanleitung führen Sie die Schritte zum Aufrufen des Resource Graph-Endpunkts für die REST-API und zum Ausführen Ihrer ersten Abfrage aus.
 ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 8be0556b6aa2fd234c0f3e25d83c0239c8f674bb
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: eafbd0b408ab50f901d52e59efcfbd5f89b46fe5
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057211"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566077"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>Schnellstart: Ausführen Ihrer ersten Resource Graph-Abfrage per REST-API
 
@@ -76,7 +76,6 @@ Im Anforderungstext jedes REST-API-Aufrufs ist eine Variable enthalten, die Sie 
              "{subscriptionID}"
          ],
          "query": "Resources | project name, type | limit 5"
-         }
      }
      ```
 
@@ -99,7 +98,6 @@ Im Anforderungstext jedes REST-API-Aufrufs ist eine Variable enthalten, die Sie 
              "{subscriptionID}"
          ],
          "query": "Resources | project name, type | limit 5 | order by name asc"
-         }
      }
      ```
 
@@ -122,7 +120,6 @@ Im Anforderungstext jedes REST-API-Aufrufs ist eine Variable enthalten, die Sie 
              "{subscriptionID}"
          ],
          "query": "Resources | project name, type | order by name asc | limit 5"
-         }
      }
      ```
 

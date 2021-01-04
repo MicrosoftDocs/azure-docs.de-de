@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: e008bad2043d8cd633f0849aefc62c4ed7a7e89d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0efcdfd1b14479edf84dc1892e7e1d9afabd5a81
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86104876"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913554"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Bewährte Methoden zur Verwendung von Azure Data Lake Storage Gen2
 
@@ -21,7 +21,7 @@ In diesem Artikel erfahren Sie mehr über die bewährten Methoden und Aspekte be
 
 ## <a name="security-considerations"></a>Sicherheitshinweise
 
-Azure Data Lake Storage Gen2 ermöglicht POSIX-Zugriffssteuerungen für Azure Active Directory-Benutzer, -Gruppen und -Dienstprinzipale. Diese Zugriffssteuerungen können für vorhandene Dateien und Verzeichnisse festgelegt werden. Außerdem können die Zugriffssteuerungen zum Erstellen von Standardberechtigungen verwendet werden, die auf neue Dateien oder Verzeichnisse automatisch angewendet werden können. Weitere Details zu Data Lake Storage Gen2-Zugriffssteuerungslisten finden Sie unter [Zugriffssteuerung in Azure Data Lake Storage Gen2](storage-data-lake-storage-access-control.md).
+Azure Data Lake Storage Gen2 ermöglicht POSIX-Zugriffssteuerungen für Azure Active Directory-Benutzer, -Gruppen und -Dienstprinzipale. Diese Zugriffssteuerungen können für vorhandene Dateien und Verzeichnisse festgelegt werden. Außerdem können die Zugriffssteuerungen zum Erstellen von Standardberechtigungen verwendet werden, die auf neue Dateien oder Verzeichnisse automatisch angewendet werden können. Weitere Details zu Data Lake Storage Gen2-Zugriffssteuerungslisten finden Sie unter [Zugriffssteuerung in Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
 
 ### <a name="use-security-groups-versus-individual-users"></a>Vergleich der Verwendung von Sicherheitsgruppen und einzelnen Benutzern
 
@@ -41,7 +41,7 @@ Azure Active Directory-Dienstprinzipale werden normalerweise von Diensten wie Az
 
 Data Lake Storage Gen2 unterstützt die Option zum Aktivieren einer Firewall und Beschränken des Zugriffs auf ausschließlich Azure-Dienste, was zum Begrenzen der Angriffsfläche für externe Angriffe empfohlen wird. Die Firewall kann im Azure-Portal für das Speicherkonto über die Option **Firewall** > **Firewall aktivieren (EIN)**  > **Zugriff auf Azure-Dienste erlauben** aktiviert werden.
 
-Wenn Sie über Azure Databricks auf Ihr Speicherkonto zugreifen möchten, stellen Sie Azure Databricks in Ihrem virtuellen Netzwerk bereit, und fügen Sie dann Ihrer Firewall das virtuelle Netzwerk hinzu. Weitere Informationen finden Sie unter [Konfigurieren von Azure Storage-Firewalls und virtuellen Netzwerken](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Wenn Sie über Azure Databricks auf Ihr Speicherkonto zugreifen möchten, stellen Sie Azure Databricks in Ihrem virtuellen Netzwerk bereit, und fügen Sie dann Ihrer Firewall das virtuelle Netzwerk hinzu. Weitere Informationen finden Sie unter [Konfigurieren von Azure Storage-Firewalls und virtuellen Netzwerken](../common/storage-network-security.md).
 
 ## <a name="resiliency-considerations"></a>Überlegungen zur Resilienz
 

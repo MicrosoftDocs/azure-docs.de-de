@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1052ad06400eb70fe41617421b54978bddd9e50
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4c97958add682a4c49d7832843c0b95ffd2663bf
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441367"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859630"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Eigenschaften eines Azure Active Directory B2B-Zusammenarbeitsbenutzers
 
@@ -71,6 +71,8 @@ Diese Eigenschaft gibt die Beziehung des Benutzers zum Hostmandanten an. Diese E
   > [!NOTE]
   > Die Eigenschaft „UserType“ steht in keinem Zusammenhang damit, wie sich der Benutzer anmeldet, welche Verzeichnisrolle er hat usw. Die Eigenschaft gibt einfach nur die Beziehung des Benutzers zur Hostorganisation an und ermöglicht der Organisation, Richtlinien basierend auf dieser Eigenschaft zu erzwingen.
 
+Ausführliche Informationen zu Preisen finden Sie unter [Azure Active Directory – Preise](https://azure.microsoft.com/pricing/details/active-directory).
+
 ### <a name="source"></a>`Source`
 Diese Eigenschaft gibt an, wie sich der Benutzer anmeldet.
 
@@ -108,7 +110,7 @@ Ja. Gastobjekte sind in der globalen Adressliste Ihres Unternehmens standardmä�
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>Kann ich die E-Mail-Adresse eines Gastbenutzers aktualisieren?
 
-Wenn ein Gastbenutzer Ihre Einladung annimmt und danach seine E-Mail-Adresse ändert, wird die neue Adresse nicht automatisch im Gastbenutzerobjekt in Ihrem Verzeichnis synchronisiert. Die E-Mail-Eigenschaft wird über die [Microsoft Graph-API](/graph/api/resources/user?view=graph-rest-1.0) erstellt. Sie können die Maileigenschaft über die Microsoft Graph-API, das Admin Center von Exchange oder [Exchange Online-PowerShell](/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps) aktualisieren. Die Änderung wird im Azure AD-Gastbenutzerobjekt widergespiegelt.
+Wenn ein Gastbenutzer Ihre Einladung annimmt und danach seine E-Mail-Adresse ändert, wird die neue Adresse nicht automatisch im Gastbenutzerobjekt in Ihrem Verzeichnis synchronisiert. Die E-Mail-Eigenschaft wird über die [Microsoft Graph-API](/graph/api/resources/user) erstellt. Sie können die Maileigenschaft über die Microsoft Graph-API, das Admin Center von Exchange oder [Exchange Online-PowerShell](/powershell/module/exchange/users-and-groups/set-mailuser) aktualisieren. Die Änderung wird im Azure AD-Gastbenutzerobjekt widergespiegelt.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -1,6 +1,6 @@
 ---
 title: Speicher- und Parallelitätsgrenzwerte
-description: Zeigen Sie die Speicher- und Parallelitätsgrenzwerte an, die den verschiedenen Leistungsstufen und Ressourcenklassen in Azure Synapse Analytics zugewiesen sind.
+description: Zeigen Sie die Speicher- und Parallelitätsgrenzwerte an, die den verschiedenen Leistungsstufen und Ressourcenklassen für einen dedizierten SQL-Pool in Azure Synapse Analytics zugewiesen sind.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 5b72694f93ed5b712a0f684887df5b69a7b35c72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb0ad93fb4a1269b4cca02b114c0427f0c44a31b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441679"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455356"
 ---
-# <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Speicher- und Parallelitätsgrenzwerte für Azure Synapse Analytics
+# <a name="memory-and-concurrency-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Speicher- und Parallelitätsgrenzwerte für einen dedizierten SQL-Pool in Azure Synapse Analytics
 
 Zeigen Sie die Speicher- und Parallelitätsgrenzwerte an, die den verschiedenen Leistungsstufen und Ressourcenklassen in Azure Synapse Analytics zugewiesen sind.  
 

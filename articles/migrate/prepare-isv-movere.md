@@ -1,14 +1,17 @@
 ---
 title: Vorbereiten von Azure Migrate für die Arbeit mit einem ISV-Tool/Movere
 description: In diesem Artikel wird beschrieben, wie Sie Azure Migrate für die Arbeit mit einem ISV-Tool oder Movere vorbereiten, sowie die ersten Schritte bei der Verwendung des Tools.
+author: ms-psharma
+ms.author: panshar
+ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/10/2020
-ms.openlocfilehash: 885e64536e516e4fd96233c37a68f6e77fb84e33
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1716db0476169e12822b3f47f7199bf6e2c4ee92
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369147"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753772"
 ---
 # <a name="prepare-to-work-with-an-isv-tool-or-movere"></a>Vorbereiten der Verwendung eines ISV-Tools oder von Movere
 
@@ -31,9 +34,9 @@ Ihr Azure-Benutzerkonto benötigt die folgenden Berechtigungen:
 
 ### <a name="set-permissions-to-assign-a-role-to-an-azure-ad-app"></a>Festlegen von Berechtigungen zum Zuweisen einer Rolle zu einer Azure AD-App
  
-In Ihrem Azure-Abonnement muss Ihr Konto über **Microsoft.Authorization/*/Write** -Zugriff verfügen, um einer Azure AD-App eine Rolle zuzuweisen. 
+In Ihrem Azure-Abonnement muss Ihr Konto über **Microsoft.Authorization/*/Write**-Zugriff verfügen, um einer Azure AD-App eine Rolle zuzuweisen. 
 
-1. Öffnen Sie im Azure-Portal **Abonnements** .
+1. Öffnen Sie im Azure-Portal **Abonnements**.
 2. Wählen Sie das relevante Abonnement aus. Wenn es nicht angezeigt wird, wählen Sie den Filter **globale Abonnements** aus. 
 3. Wählen Sie **My permissions** (Meine Berechtigungen). Wählen Sie anschließend **Klicken Sie hier, um die vollständigen Zugangsdaten für dieses Abonnement anzuzeigen** aus.
 4. Überprüfen Sie in **Rollenzuweisungen** > **Ansicht** die Berechtigungen. Wenn Ihr Konto keine Berechtigungen besitzt, bitten Sie den Abonnementadministrator, Sie der Rolle [Benutzerzugriffsadministrator](../role-based-access-control/built-in-roles.md#user-access-administrator) oder [Besitzer](../role-based-access-control/built-in-roles.md#owner) hinzuzufügen.

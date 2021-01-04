@@ -9,16 +9,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/17/2020
 ms.author: jingwang
-ms.openlocfilehash: 587cdd54f09be2761026c25ccd80fb67d3eb6bb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4207c4ddfcbab325b1ae119dcd200af30fc59f58
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84987041"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844937"
 ---
-# <a name="copy-data-from-hive-using-azure-data-factory"></a>Kopieren von Daten aus Hive mithilfe von Azure Data Factory 
+# <a name="copy-and-transform-data-from-hive-using-azure-data-factory"></a>Kopieren und Transformieren von Daten aus Hive mithilfe von Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In diesem Artikel wird beschrieben, wie Sie die Kopieraktivität in Azure Data Factory verwenden, um Daten aus Hive zu kopieren. Er baut auf dem Artikel zur [Übersicht über die Kopieraktivität](copy-activity-overview.md) auf, der eine allgemeine Übersicht über die Kopieraktivität enthält.
@@ -68,6 +68,7 @@ Folgende Eigenschaften werden für den mit Hive verknüpften Dienst unterstützt
 | allowHostNameCNMismatch | Gibt an, ob der Name eines von der Zertifizierungsstelle ausgestellten TLS-/SSL-Zertifikats mit dem Hostnamen des Servers übereinstimmen muss, wenn eine Verbindung über TLS hergestellt wird. Der Standardwert ist „FALSE“.  | Nein |
 | allowSelfSignedServerCert | Gibt an, ob vom Server selbstsignierte Zertifikate zugelassen werden. Der Standardwert ist „FALSE“.  | Nein |
 | connectVia | Die [Integrationslaufzeit](concepts-integration-runtime.md), die zum Herstellen einer Verbindung mit dem Datenspeicher verwendet werden muss. Weitere Informationen finden Sie im Abschnitt [Voraussetzungen](#prerequisites). Wenn keine Option angegeben ist, wird die standardmäßige Azure Integration Runtime verwendet. |Nein |
+| storageReference | Ein Verweis auf den verknüpften Dienst des Speicherkontos, das für das Staging von Daten im Zuordnungsdatenfluss verwendet wird. Nur erforderlich, wenn im Zuordnungsdatenfluss der verknüpfte Hive-Dienst verwendet wird. | Nein |
 
 **Beispiel:**
 
@@ -96,7 +97,7 @@ Eine vollständige Liste mit den Abschnitten und Eigenschaften, die zum Definier
 
 Legen Sie zum Kopieren von Daten aus HTTP die „type“-Eigenschaft des Datasets auf **HiveObject** fest. Folgende Eigenschaften werden unterstützt:
 
-| Eigenschaft | BESCHREIBUNG | Erforderlich |
+| Eigenschaft | Beschreibung | Erforderlich |
 |:--- |:--- |:--- |
 | type | Die type-Eigenschaft des Datasets muss auf folgenden Wert festgelegt werden: **HiveObject** | Ja |
 | schema | Name des Schemas. |Nein (wenn „query“ in der Aktivitätsquelle angegeben ist)  |
@@ -128,7 +129,7 @@ Eine vollständige Liste mit den Abschnitten und Eigenschaften zum Definieren vo
 
 Legen Sie zum Kopieren von Daten aus einem Hive den Quelltyp in der Kopieraktivität auf **HiveSource** fest. Folgende Eigenschaften werden im Abschnitt **source** der Kopieraktivität unterstützt:
 
-| Eigenschaft | BESCHREIBUNG | Erforderlich |
+| Eigenschaft | Beschreibung | Erforderlich |
 |:--- |:--- |:--- |
 | type | Die type-Eigenschaft der Quelle der Kopieraktivität muss auf Folgendes festgelegt werden: **HiveSource** | Ja |
 | Abfrage | Verwendet die benutzerdefinierte SQL-Abfrage zum Lesen von Daten. Beispiel: `"SELECT * FROM MyTable"`. | Nein (wenn „tableName“ im Dataset angegeben ist) |
@@ -164,6 +165,53 @@ Legen Sie zum Kopieren von Daten aus einem Hive den Quelltyp in der Kopieraktivi
     }
 ]
 ```
+
+## <a name="mapping-data-flow-properties"></a>Eigenschaften von Mapping Data Flow
+
+Der Hive-Connector wird als Quelle vom Typ [Inlinedataset](data-flow-source.md#inline-datasets) in Zuordnungsdatenflüssen unterstützt. Daten können mithilfe einer Abfrage oder direkt aus einer Hive-Tabelle in HDInsight gelesen werden. Hive-Daten werden in einem Speicherkonto als Parquet-Dateien gestaged, bevor sie im Rahmen eines Datenflusses transformiert werden. 
+
+### <a name="source-properties"></a>Quelleigenschaften
+
+Die folgende Tabelle enthält die von einer Hive-Quelle unterstützten Eigenschaften. Sie können diese Eigenschaften auf der Registerkarte **Quelloptionen** bearbeiten.
+
+| Name | Beschreibung | Erforderlich | Zulässige Werte | Datenflussskript-Eigenschaft |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Speicher | Als Speicher muss `hive` verwendet werden. | ja |  `hive` | store | 
+| Format | Gibt an, ob Daten aus einer Tabelle oder per Abfrage gelesen werden. | ja | `table` oder `query` | format |
+| Schemaname | Das Schema der Quelltabelle (beim Lesen aus einer Tabelle). |  Ja, wenn das Format `table` lautet. | String | schemaName |
+| Tabellenname | Der Tabellenname (beim Lesen aus einer Tabelle). |   Ja, wenn das Format `table` lautet. | String | tableName |
+| Abfrage | Die Quellabfrage für den verknüpften Hive-Dienst, wenn das Format `query` lautet. | Ja, wenn das Format `query` lautet. | String | Abfrage |
+| Gestaffelt | Die Hive-Tabelle wird immer in einem Stagingbereich bereitgestellt. | ja | `true` | staged |
+| Speichercontainer | Speichercontainer, der vor dem Lesen aus bzw. dem Schreiben in Hive zum Stagen von Daten verwendet wird. Der Hive-Cluster muss Zugriff auf diesen Container haben. | ja | String | storageContainer |
+| Stagingdatenbank | Das Schema bzw. die Datenbank, auf das bzw. auf die das im verknüpften Dienst angegebene Benutzerkonto Zugriff hat. Dient zum Erstellen externer Tabellen während des Stagings und wird hinterher gelöscht. | nein | `true` oder `false` | stagingDatabaseName |
+| SQL-Skripts vor Vorgang | SQL-Code, der vor dem Lesen der Daten für die Hive-Tabelle ausgeführt werden soll. | nein | String | preSQLs |
+
+#### <a name="source-example"></a>Quellbeispiel
+
+Im Anschluss finden Sie ein Beispiel für eine Hive-Quellkonfiguration:
+
+![Beispiel für Hive-Quelle](media/data-flow/hive-source.png "[Beispiel für Hive-Quelle")
+
+Aus diesen Einstellungen ergibt sich das folgende Datenflussskript:
+
+```
+source(
+    allowSchemaDrift: true,
+    validateSchema: false,
+    ignoreNoFilesFound: false,
+    format: 'table',
+    store: 'hive',
+    schemaName: 'default',
+    tableName: 'hivesampletable',
+    staged: true,
+    storageContainer: 'khive',
+    storageFolderPath: '',
+    stagingDatabaseName: 'default') ~> hivesource
+```
+### <a name="known-limitations"></a>Bekannte Einschränkungen
+
+* Komplexe Typen wie Arrays, Zuordnungen, Strukturen und Unions werden für Lesevorgänge nicht unterstützt. 
+* Der Hive-Connector unterstützt nur Hive-Tabellen in Azure HDInsight ab Version 4.0 (Apache Hive 3.1.0).
 
 ## <a name="lookup-activity-properties"></a>Eigenschaften der Lookup-Aktivität
 

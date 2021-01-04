@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 9ffa35e158d34a1fc6945ee2730dcf136d13edb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a15ebd43861e2116ddbb2d9055b289645962e203
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85504337"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573917"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Lösungen für eine regelmäßige Datenübertragung
  
@@ -57,7 +57,7 @@ In der folgenden Tabelle werden die Unterschiede der Schlüsselfunktionen zusamm
 | Formfaktor                                   | Virtuelles Gerät             | Physisches Gerät          | Dienst im Azure-Portal, Agent lokal                                                            |
 | Hardware                                      | Ihr Hypervisor            | Bereitgestellt von Microsoft    | Nicht verfügbar                                                            |
 | Für Anfangskonfiguration erforderlicher Aufwand                          | Niedrig (< 30 Minuten)            | Mittel (mehrere Stunden) | Groß (mehrere Tage)                                                 |
-| Datenformat                                   | Azure-Blobs, Azure Files   | Azure-Blobs, Azure Files | [Unterstützt mehr als 70 Datenconnectors für Datenspeicher und Formate](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
+| Datenformat                                   | Azure-Blobs, Azure Files   | Azure-Blobs, Azure Files | [Unterstützt mehr als 70 Datenconnectors für Datenspeicher und Formate](../../data-factory/copy-activity-overview.md#supported-data-stores-and-formats)|
 | Datenvorverarbeitung                           | Nein                         | Ja, über Edge-Compute    | Ja                                                           |
 | Lokaler Cache<br>(zum Speichern lokaler Daten)    | Ja                        | Ja                      | Nein                                                            |
 | Übertragung aus anderen Clouds                    | Nein                         | Nein                       | Ja                                                           |
@@ -65,9 +65,9 @@ In der folgenden Tabelle werden die Unterschiede der Schlüsselfunktionen zusamm
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Übertragen von Daten mit AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
-- [Weitere Informationen zu Datenübertragungen mit Storage REST-APIs](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet).
+- [Übertragen von Daten mit AzCopy](./storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
+- [Weitere Informationen zu Datenübertragungen mit Storage REST-APIs](/dotnet/api/overview/azure/storage).
 - Informationen zum
-    - [Übertragen von Daten mit Data Box Gateway](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares)
-    - [Transformieren von Daten mit Data Box Edge vor dem Senden an Azure](https://docs.microsoft.com/azure/databox-online/data-box-edge-deploy-configure-compute).
-- [Informationen zum Übertragen von Daten mit Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-bulk-copy-portal).
+    - [Übertragen von Daten mit Data Box Gateway](../../databox-gateway/data-box-gateway-deploy-add-shares.md)
+    - [Transformieren von Daten mit Data Box Edge vor dem Senden an Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
+- [Informationen zum Übertragen von Daten mit Azure Data Factory](../../data-factory/tutorial-bulk-copy-portal.md).

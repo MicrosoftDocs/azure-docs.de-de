@@ -1,15 +1,18 @@
 ---
 title: Bewerten virtueller VMware-Computer für die Migration zu Azure-VMs mit Serverbewertung in Azure Migrate
 description: Es wird beschrieben, wie Sie VMware-VMs für die Migration zu Azure-VMs bewerten, indem Sie die Serverbewertung verwenden.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: 01db7128cd990098caa25ba2cd79f2f2a2b28d78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aad1e2a1c8d7ce6a1b6219c42893b1f4a59c6f42
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90108307"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753143"
 ---
 # <a name="tutorial-assess-vmware-vms-for-migration-to-azure-vms"></a>Tutorial: Bewerten von virtuellen VMware-Computern für die Migration zu virtuellen Azure-Computern
 

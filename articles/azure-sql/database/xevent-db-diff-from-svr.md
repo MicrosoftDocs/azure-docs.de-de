@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: reference
-author: MightyPen
-ms.author: genemi
-ms.reviewer: jrasnik
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: c8f73c0789cd0211deeb66af5c7300a81d7b1be0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 139673e46421aa0dc19298697872fbff5fe587af
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619813"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501208"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Erweiterte Ereignisse in Azure SQL-Datenbank 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -71,7 +71,7 @@ In verwandten Themen werden zwei Codebeispiele geboten:
 
 ## <a name="new-catalog-views"></a>Neue Katalogsichten
 
-Das Feature "Erweiterte Ereignisse" wird von mehreren [Katalogsichten](https://msdn.microsoft.com/library/ms174365.aspx)unterstützt. Katalogsichten informieren Sie über *Metadaten oder Definitionen* von vom Benutzer erstellten Ereignissitzungen in der aktuellen Datenbank. Die Sichten geben keine Informationen zu Instanzen aktiver Ereignissitzungen zurück.
+Das Feature "Erweiterte Ereignisse" wird von mehreren [Katalogsichten](/sql/relational-databases/system-catalog-views/catalog-views-transact-sql)unterstützt. Katalogsichten informieren Sie über *Metadaten oder Definitionen* von vom Benutzer erstellten Ereignissitzungen in der aktuellen Datenbank. Die Sichten geben keine Informationen zu Instanzen aktiver Ereignissitzungen zurück.
 
 | Name der<br/>Katalogsicht | BESCHREIBUNG |
 |:--- |:--- |
@@ -83,9 +83,9 @@ Das Feature "Erweiterte Ereignisse" wird von mehreren [Katalogsichten](https://m
 
 In Microsoft SQL Server haben ähnliche Katalogsichten Namen, die *.server\_* anstelle von *.database\_* enthalten. Das Namensmuster entspricht **sys.server_event_%** .
 
-## <a name="new-dynamic-management-views-dmvs"></a>Neue dynamische Verwaltungssichten [(DMVs)](https://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvs"></a>Neue dynamische Verwaltungssichten [(DMVs)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)
 
-Azure SQL-Datenbank hat [dynamische Verwaltungsansichten (DMVs)](https://msdn.microsoft.com/library/bb677293.aspx) , die erweiterte Ereignisse unterstützen. DMVs informieren Sie über *aktive* Ereignissitzungen.
+Azure SQL-Datenbank hat [dynamische Verwaltungsansichten (DMVs)](/sql/relational-databases/system-dynamic-management-views/extended-events-dynamic-management-views) , die erweiterte Ereignisse unterstützen. DMVs informieren Sie über *aktive* Ereignissitzungen.
 
 | DMV-Name | BESCHREIBUNG |
 |:--- |:--- |
@@ -140,11 +140,11 @@ SELECT
 
 Im Folgenden werden Ziele aufgeführt, die Ergebnisse aus Ihren Ereignissitzungen in Azure SQL-Datenbank erfassen können:
 
-- [Ringpuffer](https://msdn.microsoft.com/library/ff878182.aspx) : Enthält für kurze Zeit Ereignisdaten im Arbeitsspeicher.
-- [Ereigniszähler](https://msdn.microsoft.com/library/ff878025.aspx) : Zählt alle Ereignisse, die während einer Sitzung mit erweiterter Ereignissen auftreten.
-- [Ereignisdatei](https://msdn.microsoft.com/library/ff878115.aspx) : Schreibt vollständige Puffer in einen Azure Storage-Container.
+- [Ringpuffer](/previous-versions/sql/sql-server-2016/bb630339(v=sql.130)) : Enthält für kurze Zeit Ereignisdaten im Arbeitsspeicher.
+- [Ereigniszähler](/previous-versions/sql/sql-server-2016/ff878025(v=sql.130)) : Zählt alle Ereignisse, die während einer Sitzung mit erweiterter Ereignissen auftreten.
+- [Ereignisdatei](/previous-versions/sql/sql-server-2016/ff878115(v=sql.130)) : Schreibt vollständige Puffer in einen Azure Storage-Container.
 
-Die [ETW](https://msdn.microsoft.com/library/ms751538.aspx)-API (Event Tracing for Windows) ist für erweiterte Ereignisse in Azure SQL-Datenbank nicht verfügbar.
+Die [ETW](/dotnet/framework/wcf/samples/etw-tracing)-API (Event Tracing for Windows) ist für erweiterte Ereignisse in Azure SQL-Datenbank nicht verfügbar.
 
 ## <a name="restrictions"></a>Beschränkungen
 
@@ -183,11 +183,11 @@ Beim Ziel **Ereignisdatei** können Netzwerklatenz oder -fehler auftreten, währ
 ## <a name="related-links"></a>Verwandte Links
 
 - [Verwenden von Azure PowerShell mit Azure Storage](/powershell/module/az.storage/)
-- [Azure Storage-Cmdlets](https://docs.microsoft.com/powershell/module/Azure.Storage)
+- [Azure Storage-Cmdlets](/powershell/module/Azure.Storage)
 - [Verwenden von Azure PowerShell mit Azure Storage](/powershell/module/az.storage/)
 - [Verwenden des Blob-Speichers mit .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [CREATE CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
-- [CREATE EVENT SESSION (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
+- [CREATE CREDENTIAL (Transact-SQL)](/sql/t-sql/statements/create-credential-transact-sql)
+- [CREATE EVENT SESSION (Transact-SQL)](/sql/t-sql/statements/create-event-session-transact-sql)
 - [Jonathan Kehayias' Blogbeiträge zu erweiterten Ereignissen in Microsoft SQL Server](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 - Die Webseite mit *Azure-Dienstupdates* wird mittels Parameter auf „Azure SQL-Datenbank“ festgelegt:
   - [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
@@ -195,6 +195,6 @@ Beim Ziel **Ereignisdatei** können Netzwerklatenz oder -fehler auftreten, währ
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](/sql/relational-databases/extended-events/determine-which-queries-are-holding-locks)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](/sql/relational-databases/extended-events/find-the-objects-that-have-the-most-locks-taken-on-them)
 -->

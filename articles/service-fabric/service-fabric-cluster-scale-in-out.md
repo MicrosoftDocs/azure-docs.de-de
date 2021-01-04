@@ -3,12 +3,12 @@ title: Horizontales Herunter- oder Hochskalieren eines Service Fabric-Clusters
 description: Skalieren Sie ein Service Fabric-Cluster bedarfsgesteuert horizontal herunter oder hoch, indem Sie die Regeln für das automatische Skalierung für jeden Knotentyp bzw. jede VM-Skalierungsgruppe festlegen. Hinzufügen oder Entfernen von Knoten für einen Service Fabric-Cluster
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: c9393ca4531dea58859a4fc60509524e9c4a0b7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ee04c73b75d6b335e450ff816c51f0a3089b918
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246485"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409959"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Horizontales Herunter- oder Hochskalieren eines Clusters
 
@@ -54,7 +54,6 @@ Befolgen Sie diese Anweisungen, um eine [automatische Skalierung für jede VM-Sk
 > [!NOTE]
 > In einem Abskalierungsszenario müssen Sie das Cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate) mit dem Namen des entsprechenden Knotens aufrufen, es sei denn, Ihr Knotentyp besitzt die [Dauerhaftigkeitsstufe][durability] „Gold“ oder „Silber“. Für die Dauerhaftigkeitsstufe „Bronze“wird nicht empfohlen, mehrere Knoten gleichzeitig abzuskalieren.
 > 
-> 
 
 ## <a name="manually-add-vms-to-a-node-typevirtual-machine-scale-set"></a>Manuelles Hinzufügen von virtuellen Computern zu einem Knotentyp oder einer VM-Skalierungsgruppe
 
@@ -97,6 +96,9 @@ Für einen zustandsbehafteten Dienst muss eine bestimmte Anzahl von Knoten stets
 ### <a name="remove-the-service-fabric-node"></a>Entfernen des Service Fabric-Knotens
 
 Die Schritte für das manuelle Korrigieren des Knotenstatus gelten nur für Knotentypen mit der Dauerhaftigkeitsstufe *Bronze*.  Für die Dauerhaftigkeitsstufen *Silber* und *Gold* werden diese Schritte automatisch von der Plattform ausgeführt. Weitere Informationen zur Dauerhaftigkeit finden Sie unter [Überlegungen zur Kapazitätsplanung für Service Fabric-Cluster][durability].
+
+>[!NOTE]
+> Verwalten Sie mindestens fünf Knoten für alle VM-Skalierungsgruppen, für die die Dauerhaftigkeitsstufen „Gold“ oder „Silber“ aktiviert wurden. Der Cluster wechselt in den Fehlerzustand, wenn Sie ihn auf einen Wert unterhalb dieses Schwellenwerts abskalieren, und Sie müssen die entfernten Knoten manuell bereinigen.
 
 Der zuletzt erstellte Knoten sollte zuerst entfernt werden, damit die Knoten des Clusters über die Upgrade- und Fehlerdomänen gleichmäßig verteilt bleiben und die gleichmäßige Nutzung sichergestellt ist. Anders ausgedrückt: Die Knoten sollten in der umgekehrten Reihenfolge ihrer Erstellung entfernt werden. Der zuletzt erstellte Knoten verfügt über den höchsten `virtual machine scale set InstanceId`-Eigenschaftswert. In den unten angegebenen Codebeispielen wird der zuletzt erstellte Knoten zurückgegeben.
 
@@ -239,6 +241,9 @@ Sie verfügen über zwei Optionen, um sicherzustellen, dass ein Knoten beim Entf
 
 1. Wählen Sie die Dauerhaftigkeitsstufe „Gold“ oder „Silber“ für die Knotentypen in Ihrem Cluster aus, die die Infrastrukturintegration für Sie bereitstellt. Wenn Sie abskalieren, werden so automatisch die Knoten aus den Systemdiensten (FM) entfernt.
 [hier mit den Details der Dauerhaftigkeitsstufen](service-fabric-cluster-capacity.md)
+
+> [!NOTE]
+> Verwalten Sie mindestens fünf Knoten für alle VM-Skalierungsgruppen, für die die Dauerhaftigkeitsstufen „Gold“ oder „Silber“ aktiviert wurden. Der Cluster wechselt in den Fehlerzustand, wenn Sie ihn auf einen Wert unterhalb dieses Schwellenwerts abskalieren, und Sie müssen die entfernten Knoten manuell bereinigen.
 
 2. Sobald die VM-Instanz abskaliert wurde, müssen Sie das Cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate) aufrufen.
 

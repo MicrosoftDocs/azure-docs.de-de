@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: efae9cd2a73bf6df89007ac313ca6dfe6efe6ddd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f04a20b347e2672d9699551885f5dd16ceaa99c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87075948"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785594"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Behandeln von Latenzproblemen mithilfe von Storage Analytics-Protokollen
 
@@ -27,7 +27,7 @@ In den folgenden Schritten wird veranschaulicht, wie Sie Latenzprobleme mithilfe
 
 ## <a name="recommended-steps"></a>Empfohlene Schritte
 
-1. Laden Sie die [Storage Analytics-Protokolle](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging#download-storage-logging-log-data) herunter.
+1. Laden Sie die [Storage Analytics-Protokolle](./storage-analytics-logging.md#download-storage-logging-log-data) herunter.
 
 2. Verwenden Sie das folgende PowerShell-Skript, um die Protokolle im Rohdatenformat in ein Tabellenformat zu konvertieren:
 
@@ -165,4 +165,3 @@ Wenn bei einem **PutBlob-Vorgang** mit **RequestStatus = (SAS)NetworkError** der
 
 * Untersuchen Sie den Code in Ihrem Client, um herauszufinden, warum und wann der Client die Verbindung zum Speicherdienst abbricht.
 * Verwenden Sie Wireshark, Microsoft Message Analyzer oder TCPing, um Netzwerkverbindungsprobleme des Client zu untersuchen.
-

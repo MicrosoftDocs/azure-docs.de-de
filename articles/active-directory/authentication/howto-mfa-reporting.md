@@ -1,27 +1,27 @@
 ---
-title: Einzelheiten zu Anmeldeereignissen für Azure Multi-Factor Authentication – Azure Active Directory
-description: Erfahren Sie, wie Sie Anmeldeaktivitäten für Azure Multi-Factor Authentication-Ereignisse und Statusmeldungen anzeigen.
+title: Einzelheiten zu Anmeldeereignissen für Azure AD Multi-Factor Authentication – Azure Active Directory
+description: Erfahren Sie, wie Sie Anmeldeaktivitäten für Azure AD Multi-Factor Authentication-Ereignisse und Statusmeldungen anzeigen.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 05/15/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 676b8b6fbb56536ec3a49100f5de1419ac417bb6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5f78b70599d6d0ae8825accf4cc55cdc1c01d9ce
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964144"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861237"
 ---
-# <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>Verwenden des Anmeldeberichts zum Überprüfen von Azure Multi-Factor Authentication-Ereignissen
+# <a name="use-the-sign-ins-report-to-review-azure-ad-multi-factor-authentication-events"></a>Verwenden des Anmeldeberichts zum Überprüfen von Azure AD Multi-Factor Authentication-Ereignissen
 
-Zum Überprüfen von Azure Multi-Factor Authentication-Ereignissen und zum besseren Verständnis können Sie den Azure Active Directory (Azure AD)-Anmeldebericht verwenden. Dieser Bericht zeigt Authentifizierungsdetails für Ereignisse, bei denen ein Benutzer zur mehrstufigen Authentifizierung aufgefordert wird. Er zeigt auch, ob Richtlinien für bedingten Zugriff verwendet wurden. Ausführliche Informationen zum Anmeldebericht finden Sie unter [Berichte zu Anmeldeaktivitäten in Azure AD](../reports-monitoring/concept-sign-ins.md).
+Zum Überprüfen von Azure AD Multi-Factor Authentication-Ereignissen und zum besseren Verständnis können Sie den Azure Active Directory-Anmeldebericht (Azure AD) verwenden. Dieser Bericht zeigt Authentifizierungsdetails für Ereignisse, bei denen ein Benutzer zur mehrstufigen Authentifizierung aufgefordert wird. Er zeigt auch, ob Richtlinien für bedingten Zugriff verwendet wurden. Ausführliche Informationen zum Anmeldebericht finden Sie unter [Berichte zu Anmeldeaktivitäten in Azure AD](../reports-monitoring/concept-sign-ins.md).
 
 In diesem Artikel erfahren Sie, wie Sie den Azure AD-Anmeldebericht im Azure-Portal und dann das PowerShell-Modul „MSOnline V1“ anzeigen.
 
@@ -91,7 +91,7 @@ Im Fenster *Authentifizierungsdetails* werden die folgenden Einzelheiten für ei
 
 ## <a name="powershell-reporting-on-users-registered-for-mfa"></a>PowerShell-Berichte über für MFA registrierte Benutzer
 
-Stellen Sie zunächst sicher, dass das [MSOnline-V1-PowerShell-Modul](/powershell/azure/active-directory/overview?view=azureadps-1.0) installiert ist.
+Stellen Sie zunächst sicher, dass das [MSOnline-V1-PowerShell-Modul](/powershell/azure/active-directory/overview) installiert ist.
 
 Identifizieren Sie mithilfe des folgenden PowerShell-Befehls Benutzer, die sich für MFA registriert haben. Mit dieser Reihe von Befehlen werden deaktivierte Benutzer ausgeschlossen, da sich diese Konten nicht bei Azure AD authentifizieren können:
 
@@ -121,34 +121,34 @@ Mithilfe der Version des Aktivitätsberichts, die Sie in den vorherigen Schritte
 
 | Anrufergebnis | BESCHREIBUNG | Genauere Beschreibung |
 | --- | --- | --- |
-| SUCCESS_WITH_PIN | PIN wurde eingegeben | Der Benutzer hat eine PIN eingegeben.  Wenn die Authentifizierung erfolgreich war, wurde die richtige PIN eingegeben.  Falls die Authentifizierung verweigert wird, wurde eine falsche PIN eingegeben, oder für den Benutzer ist der Modus „Standard“ festgelegt. |
+| SUCCESS_WITH_PIN | PIN wurde eingegeben | Der Benutzer hat eine PIN eingegeben.   Wenn die Authentifizierung erfolgreich war, wurde die richtige PIN eingegeben.   Falls die Authentifizierung verweigert wird, wurde eine falsche PIN eingegeben, oder für den Benutzer ist der Modus „Standard“ festgelegt. |
 | SUCCESS_NO_PIN | Nur # wurde eingegeben | Wenn der Benutzer auf den Modus „PIN“ festgelegt ist und die Authentifizierung verweigert wird, bedeutet dies Folgendes: Der Benutzer hat seine PIN nicht eingegeben, sondern nur #.  Wenn der Benutzer auf den Modus „Standard“ festgelegt ist und die Authentifizierung erfolgreich ist, bedeutet dies, dass der Benutzer nur # eingegeben hat. Dies ist im Modus „Standard“ die richtige Vorgehensweise. |
-| SUCCESS_WITH_PIN_BUT_TIMEOUT | # nach Eingabe nicht gedrückt | Der Benutzer hat keine DTMF-Ziffern gesendet, weil # nicht eingegeben wurde.  Andere eingegebene Ziffern werden nur gesendet, wenn # eingegeben wird, um den Abschluss der Eingabe anzugeben. |
-|SUCCESS_NO_PIN_BUT_TIMEOUT | Keine Telefoneingabe: Zeitüberschreitung | Der Anruf wurde angenommen, aber es ist keine Antwort vorhanden.  Dies deutet normalerweise darauf hin, dass der Anruf per Voicemail angenommen wurde. |
+| SUCCESS_WITH_PIN_BUT_TIMEOUT | # nach Eingabe nicht gedrückt | Der Benutzer hat keine DTMF-Ziffern gesendet, weil # nicht eingegeben wurde.   Andere eingegebene Ziffern werden nur gesendet, wenn # eingegeben wird, um den Abschluss der Eingabe anzugeben. |
+|SUCCESS_NO_PIN_BUT_TIMEOUT | Keine Telefoneingabe: Zeitüberschreitung | Der Anruf wurde angenommen, aber es ist keine Antwort vorhanden.   Dies deutet normalerweise darauf hin, dass der Anruf per Voicemail angenommen wurde. |
 | SUCCESS_PIN_EXPIRED | PIN ist abgelaufen und wurde nicht geändert | Die PIN des Benutzers ist abgelaufen, und er wurde zum Ändern aufgefordert, aber die Änderung der PIN war nicht erfolgreich. |
 | SUCCESS_USED_CACHE | Cache wurde verwendet | Die Authentifizierung war ohne Multi-Factor Authentication-Anruf erfolgreich, weil eine vorherige erfolgreiche Authentifizierung für denselben Benutzernamen innerhalb des konfigurierten Cachezeitrahmens durchgeführt wurde. |
-| SUCCESS_BYPASSED_AUTH | Authentifizierung wurde umgangen | Die Authentifizierung war erfolgreich, indem für den Benutzer eine Einmalumgehung initiiert wurde.  Ausführlichere Informationen zur Umgehung finden Sie im Bericht „Verlauf – Umgangene Benutzer“. |
+| SUCCESS_BYPASSED_AUTH | Authentifizierung wurde umgangen | Die Authentifizierung war erfolgreich, indem für den Benutzer eine Einmalumgehung initiiert wurde.  Einzelheiten zur Umgehung enthält der Bericht „Verlauf – Benutzer mit umgangener Authentifizierung“. |
 | SUCCESS_USED_IP_BASED_CACHE | IP-basierter Cache wurde verwendet | Die Authentifizierung war ohne Multi-Factor Authentication-Anruf erfolgreich, weil eine vorherige erfolgreiche Authentifizierung für denselben Benutzernamen, Authentifizierungstyp, Anwendungsnamen und dieselbe IP-Adresse innerhalb des konfigurierten Cachezeitrahmens durchgeführt wurde. |
 | SUCCESS_USED_APP_BASED_CACHE | App-basierter Cache wurde verwendet | Die Authentifizierung war ohne Multi-Factor Authentication-Anruf erfolgreich, weil eine vorherige erfolgreiche Authentifizierung für denselben Benutzernamen, Authentifizierungstyp und Anwendungsnamen innerhalb des konfigurierten Cachezeitrahmens durchgeführt wurde. |
-| SUCCESS_INVALID_INPUT | Ungültige Telefoneingabe | Die vom Telefon gesendete Antwort ist ungültig.  Dies kann daran liegen, dass die Antwort von einem Faxgerät oder Modem stammt oder der Benutzer als Teil der PIN „*“ eingegeben hat. |
-| SUCCESS_USER_BLOCKED | Benutzer ist gesperrt | Die Telefonnummer des Benutzers wird blockiert.  Eine blockierte Nummer kann vom Benutzer während eines Authentifizierungsanrufs oder von einem Administrator über das Azure-Portal initiiert werden. <br> HINWEIS:   Eine gesperrte Nummer ist auch ein Nebenprodukt einer Betrugswarnung. |
+| SUCCESS_INVALID_INPUT | Ungültige Telefoneingabe | Die vom Telefon gesendete Antwort ist ungültig.   Dies kann daran liegen, dass die Antwort von einem Faxgerät oder Modem stammt oder der Benutzer als Teil der PIN „*“ eingegeben hat. |
+| SUCCESS_USER_BLOCKED | Benutzer ist gesperrt | Die Telefonnummer des Benutzers wird blockiert.   Eine blockierte Nummer kann vom Benutzer während eines Authentifizierungsanrufs oder von einem Administrator über das Azure-Portal initiiert werden. <br> HINWEIS:   Eine gesperrte Nummer ist auch ein Nebenprodukt einer Betrugswarnung. |
 | SUCCESS_SMS_AUTHENTICATED | SMS wurde authentifiziert | Der Benutzer hat auf eine bidirektionale Testnachricht richtig mit seiner Einmalkennung (One-Time Passcode, OTP) bzw. OTP + PIN geantwortet. |
-| SUCCESS_SMS_SENT | SMS wurde gesendet | Das Senden der SMS mit der Einmalkennung (One-Time Passcode, OTP) war erfolgreich.  Der Benutzer gibt die Einmalkennung bzw. OTP + PIN in die Anwendung ein, um die Authentifizierung abzuschließen. |
+| SUCCESS_SMS_SENT | SMS wurde gesendet | Das Senden der SMS mit der Einmalkennung (One-Time Passcode, OTP) war erfolgreich.   Der Benutzer gibt die Einmalkennung bzw. OTP + PIN in die Anwendung ein, um die Authentifizierung abzuschließen. |
 | SUCCESS_PHONE_APP_AUTHENTICATED | Mobile App wurde authentifiziert | Die Authentifizierung des Benutzers über die mobile App war erfolgreich. |
 | SUCCESS_OATH_CODE_PENDING | OATH-Code ausstehend | Der Benutzer wurde zum Eingeben seines OATH-Codes aufgefordert, aber er hat nicht geantwortet. |
 | SUCCESS_OATH_CODE_VERIFIED | OATH-Code wurde überprüft | Der Benutzer hat nach der entsprechenden Aufforderung einen gültigen OATH-Code eingegeben. |
 | SUCCESS_FALLBACK_OATH_CODE_VERIFIED | OATH-Fallbackcode wurde verifiziert | Für den Benutzer wurde die Authentifizierung mit seinem Hauptverfahren für Multi-Factor Authentication verweigert, und dann hat er als Fallbacklösung einen gültigen OATH-Code angegeben. |
 | SUCCESS_FALLBACK_SECURITY_QUESTIONS_ANSWERED | Sicherheitsfragen für Fallback wurden beantwortet | Für den Benutzer wurde die Authentifizierung mit seinem Hauptverfahren für Multi-Factor Authentication verweigert, und dann hat er die Fallback-Sicherheitsfragen richtig beantwortet. |
-| FAILED_PHONE_BUSY | Authentifizierung bereits in Bearbeitung | Der Multi-Factor Authentication-Vorgang verarbeitet bereits eine Authentifizierung für diesen Benutzer.  Die Ursache hierfür sind häufig RADIUS-Clients, die während desselben Anmeldungsvorgangs mehrere Authentifizierungsanforderungen senden. |
-| CONFIG_ISSUE | Telefonnummer nicht erreichbar | Es wurde versucht, den Anruf zu tätigen, aber er war nicht erfolgreich oder wurde nicht angenommen.  Hierzu gehören Fälle wie Besetztzeichen, schnell aufeinander folgendes Besetztzeichen (Verbindung getrennt), Dreifach-Ton (Nummer nicht mehr gültig), Zeitüberschreitung beim Klingeln usw. |
-| FAILED_INVALID_PHONENUMBER | Ungültiges Format der Telefonnummer | Die Telefonnummer hat ein ungültiges Format.  Telefonnummern müssen numerisch sein und für den Ländercode „+1“ (USA und Kanada) zehn Stellen haben. |
+| FAILED_PHONE_BUSY | Authentifizierung bereits in Bearbeitung | Der Multi-Factor Authentication-Vorgang verarbeitet bereits eine Authentifizierung für diesen Benutzer.   Die Ursache hierfür sind häufig RADIUS-Clients, die während desselben Anmeldungsvorgangs mehrere Authentifizierungsanforderungen senden. |
+| CONFIG_ISSUE | Telefonnummer nicht erreichbar | Es wurde versucht, den Anruf zu tätigen, aber er war nicht erfolgreich oder wurde nicht angenommen.   Hierzu gehören Fälle wie Besetztzeichen, schnell aufeinander folgendes Besetztzeichen (Verbindung getrennt), Dreifach-Ton (Nummer nicht mehr gültig), Zeitüberschreitung beim Klingeln usw. |
+| FAILED_INVALID_PHONENUMBER | Ungültiges Format der Telefonnummer | Die Telefonnummer hat ein ungültiges Format.   Telefonnummern müssen numerisch sein und für den Ländercode „+1“ (USA und Kanada) zehn Stellen haben. |
 | FAILED_USER_HUNGUP_ON_US | Benutzer hat aufgelegt | Der Benutzer hat den Anruf angenommen und dann aufgelegt, ohne Tasten zu drücken. |
-| FAILED_INVALID_EXTENSION | Ungültige Durchwahlnummer | Die Durchwahlnummer enthält ungültige Zeichen.  Es sind nur Ziffern, Kommas, „*“ und „#“ zulässig.  Das Präfix „@“ kann auch verwendet werden. |
+| FAILED_INVALID_EXTENSION | Ungültige Durchwahlnummer | Die Durchwahlnummer enthält ungültige Zeichen.   Es sind nur Ziffern, Kommas, „*“ und „#“ zulässig.   Das Präfix „@“ kann auch verwendet werden. |
 | FAILED_FRAUD_CODE_ENTERED | Betrugscode wurde eingegeben | Der Benutzer hat während des Anrufs einen Betrugsfall gemeldet, sodass die Authentifizierung verweigert und die Telefonnummer gesperrt wurde.| 
 | FAILED_SERVER_ERROR | Anruf nicht möglich | Der Multi-Factor Authentication-Dienst konnte den Anruf nicht tätigen. |
-| FAILED_SMS_NOT_SENT | SMS konnte nicht gesendet werden | Die SMS konnte nicht gesendet werden.  Die Authentifizierung wurde verweigert. |
-| FAILED_SMS_OTP_INCORRECT | OTP für SMS fehlerhaft | Der Benutzer hat eine falsche Einmalkennung (One-Time Passcode, OTP) aus der empfangenen SMS eingegeben.  Die Authentifizierung wurde verweigert. |
-| FAILED_SMS_OTP_PIN_INCORRECT | OTP + PIN für SMS fehlerhaft | Der Benutzer hat eine falsche Einmalkennung (One-Time Passcode, OTP) bzw. eine falsche Benutzer-PIN eingegeben.  Die Authentifizierung wurde verweigert. |
+| FAILED_SMS_NOT_SENT | SMS konnte nicht gesendet werden | Die SMS konnte nicht gesendet werden.   Die Authentifizierung wurde verweigert. |
+| FAILED_SMS_OTP_INCORRECT | OTP für SMS fehlerhaft | Der Benutzer hat eine falsche Einmalkennung (One-Time Passcode, OTP) aus der empfangenen SMS eingegeben.   Die Authentifizierung wurde verweigert. |
+| FAILED_SMS_OTP_PIN_INCORRECT | OTP + PIN für SMS fehlerhaft | Der Benutzer hat eine falsche Einmalkennung (One-Time Passcode, OTP) bzw. eine falsche Benutzer-PIN eingegeben.   Die Authentifizierung wurde verweigert. |
 | FAILED_SMS_MAX_OTP_RETRY_REACHED | Maximale Anzahl von Versuchen für SMS-OTP überschritten | Der Benutzer hat die maximale Anzahl von Versuchen zur Eingabe der Einmalkennung (One-Time Passcode, OTP) überschritten. |
 | FAILED_PHONE_APP_DENIED | Mobile App verweigert | Der Benutzer hat die Authentifizierung in der mobilen App verweigert, indem er die Schaltfläche „Verweigern“ betätigt hat. |
 | FAILED_PHONE_APP_INVALID_PIN | Mobile App: ungültige PIN | Der Benutzer hat bei der Authentifizierung in der mobilen App eine ungültige PIN eingegeben. |

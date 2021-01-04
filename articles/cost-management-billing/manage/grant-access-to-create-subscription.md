@@ -8,12 +8,12 @@ ms.reviewer: amberb
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: banders
-ms.openlocfilehash: 02919cf2e35fdd4d981f3fde53085c2174f11bd1
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: c13670df26e5d0f7774b5a2aac81f656de94c960
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132566"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844709"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Gewähren des Zugriffs zum Erstellen von Azure Enterprise-Abonnements (Vorschau)
 
@@ -23,7 +23,7 @@ Als Azure-Kunde mit einem [Enterprise Agreement (EA)](https://azure.microsoft.co
 
 ## <a name="grant-access"></a>Gewähren von Zugriff
 
-Benutzer müssen in einem Registrierungskonto über die [Azure RBAC-Rolle „Besitzer“](../../role-based-access-control/built-in-roles.md#owner) verfügen, um [Abonnements in diesem Konto zu erstellen](programmatically-create-subscription.md). Sie können einem Benutzer oder einer Gruppe von Benutzern die Azure RBAC-Rolle „Besitzer“ in einem Registrierungskonto zuweisen, indem Sie folgende Schritte ausführen:
+Benutzer müssen in einem Registrierungskonto über die [Azure RBAC-Rolle „Besitzer“](../../role-based-access-control/built-in-roles.md#owner) verfügen, um [Abonnements in diesem Konto zu erstellen](programmatically-create-subscription-enterprise-agreement.md). Sie können einem Benutzer oder einer Gruppe von Benutzern die Azure RBAC-Rolle „Besitzer“ in einem Registrierungskonto zuweisen, indem Sie folgende Schritte ausführen:
 
 1. Abrufen der Objekt-ID des Registrierungskontos, dem Sie den Zugriff gewähren möchten
 
@@ -174,7 +174,7 @@ Benutzer müssen in einem Registrierungskonto über die [Azure RBAC-Rolle „Bes
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
     ```
 
-    Sobald ein Benutzer ein Azure RBAC-Besitzer für Ihr Registrierungskonto ist, kann er darunter [programmgesteuert Abonnements erstellen](programmatically-create-subscription.md). Ein Abonnement, das von einem delegierten Benutzer erstellt wurde, weist weiterhin den ursprünglichen Kontobesitzer als Dienstadministrator auf, verfügt aber standardmäßig auch über den delegierten Benutzer als Azure RBAC-Besitzer.
+    Sobald ein Benutzer ein Azure RBAC-Besitzer für Ihr Registrierungskonto ist, kann er darunter [programmgesteuert Abonnements erstellen](programmatically-create-subscription-enterprise-agreement.md). Ein Abonnement, das von einem delegierten Benutzer erstellt wurde, weist weiterhin den ursprünglichen Kontobesitzer als Dienstadministrator auf, verfügt aber standardmäßig auch über den delegierten Benutzer als Azure RBAC-Besitzer.
 
     ---
 
@@ -193,7 +193,7 @@ Um diese API bequem über die Befehlszeile aufzurufen, verwenden Sie [ARMClient]
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Da der Benutzer oder Dienstprinzipal nun über die Berechtigung verfügt, ein Abonnement zu erstellen, können Sie diese Identität verwenden, um [programmgesteuert Azure Enterprise-Abonnements zu erstellen](programmatically-create-subscription.md).
+* Da der Benutzer oder Dienstprinzipal nun über die Berechtigung verfügt, ein Abonnement zu erstellen, können Sie diese Identität verwenden, um [programmgesteuert Azure Enterprise-Abonnements zu erstellen](programmatically-create-subscription-enterprise-agreement.md).
 * Ein Beispiel zum Erstellen von Abonnements mithilfe von .NET finden Sie im [Beispielcode auf GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
 * Weitere Informationen zu Azure Resource Manager und den zugehörigen APIs finden Sie unter [Übersicht über Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 * Weitere Informationen zum Verwalten einer großen Anzahl von Abonnements mithilfe von Verwaltungsgruppen finden Sie unter [Organize your resources with Azure Management Groups](../../governance/management-groups/overview.md) (Organisieren von Ressourcen mit Azure-Verwaltungsgruppen).

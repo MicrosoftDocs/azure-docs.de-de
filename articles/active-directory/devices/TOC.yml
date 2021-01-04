@@ -30,8 +30,6 @@
       href: azuread-join-sso.md
     - name: Primäre Aktualisierungstoken
       href: concept-primary-refresh-token.md
-    - name: Mit Azure verwaltete Arbeitsstationen
-      href: concept-azure-managed-workstation.md
 - name: Anleitungen
   expanded: false
   items:
@@ -55,8 +53,6 @@
       href: howto-vm-sign-in-azure-ad-windows.md
     - name: Virtuelle Desktopinfrastruktur
       href: howto-device-identity-virtual-desktop-infrastructure.md
-    - name: Bereitstellen der mit Azure verwalteten Arbeitsstationen
-      href: howto-azure-managed-workstation.md
     - name: Problembehandlung für Geräteidentitäten
       items:
         - name: Problembehandlung für in Azure AD eingebundene aktuelle Windows-Hybridgeräte

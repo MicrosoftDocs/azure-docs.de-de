@@ -5,16 +5,18 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 09/03/2019
-author: jasonwhowell
-ms.author: jasonh
-ms.openlocfilehash: 4b082c89684bc06346fa933aad6be97dc371bc3f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+author: christopheranderson
+ms.author: chrande
+ms.openlocfilehash: 3f5996b281c1985747f754e3796e9fb84f90fdd3
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490576"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356959"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Azure Cosmos DB: Gremlin-Serverantwortheader
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+
 In diesem Artikel werden Header behandelt, die der Cosmos DB Gremlin-Server bei der Anforderungsausführung an den Aufrufer zurückgibt. Diese Header sind nützlich für die Problembehandlung der Anforderungsleistung, beim Erstellen von Anwendungen, die sich nativ in den Cosmos DB-Dienst integrieren lassen, und bei der Vereinfachung des Kundensupports.
 
 Beachten Sie, dass Sie die Portierbarkeit Ihrer Anwendung auf andere Gremlin-Implementierungen einschränken, wenn Sie eine Abhängigkeit von diesen Headern schaffen. Andererseits erhalten Sie eine engere Integration in Cosmos DB Gremlin. Diese Header sind kein TinkerPop-Standard.

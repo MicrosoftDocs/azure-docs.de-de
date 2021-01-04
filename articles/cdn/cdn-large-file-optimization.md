@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
 ms.openlocfilehash: ed5768e89482d32bb140e9ba7064de2d20809892
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148718"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020720"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Optimierung großer Dateidownloads mit Azure CDN
 
@@ -81,7 +81,7 @@ Die Optimierung großer Dateien ist effektiv, wenn bestimmte Bedingungen erfüll
 
 ### <a name="configure-an-akamai-cdn-endpoint-to-optimize-delivery-of-large-files"></a>Konfigurieren eines Akamai-CDN-Endpunkts zur Optimierung der Übermittlung großer Dateien
 
-Sie können Ihren Endpunkt vom Typ **Azure CDN Standard von Akamai** über das Azure-Portal für die Übertragung großer Dateien optimieren. Sie können dafür auch die REST-APIs oder eines der Client-SDKs verwenden. Die folgenden Schritte veranschaulichen die Vorgehensweise im Azure-Portal für ein Profil vom Typ **Azure CDN Standard von Akamai** :
+Sie können Ihren Endpunkt vom Typ **Azure CDN Standard von Akamai** über das Azure-Portal für die Übertragung großer Dateien optimieren. Sie können dafür auch die REST-APIs oder eines der Client-SDKs verwenden. Die folgenden Schritte veranschaulichen die Vorgehensweise im Azure-Portal für ein Profil vom Typ **Azure CDN Standard von Akamai**:
 
 1. Wählen Sie zum Hinzufügen eines neuen Endpunkts auf der Akamai-Seite **CDN-Profil** die Option **Endpunkt** aus.
 

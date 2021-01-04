@@ -4,15 +4,15 @@ description: In diesem Artikel werden die Anforderungen und Leitfäden für das 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 09/04/2020
-ms.openlocfilehash: 51f226443e6f21b6c333cacf6c88f0d00208f5f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08c5b5d8351105744f7a912b352a940df3b4baa7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89484271"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462130"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Richtlinien für die Azure Marketplace-Auflistung
 
@@ -91,7 +91,7 @@ In diesem Artikel werden die Anforderungen und Richtlinien für die Auflistung n
 ## <a name="next-steps"></a>Nächste Schritte
 
 * Erfahren Sie mehr über die verschiedenen Angebotstypen im Azure Marketplace:
-  * [SaaS-Apps](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide)
-  * [Container](https://docs.microsoft.com/azure/marketplace/marketplace-containers)
-  * [Beratungsdienste](https://docs.microsoft.com/azure/marketplace/consulting-services)
-* [Bestimmung Ihrer Veröffentlichungsoption](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
+  * [SaaS-Apps](./plan-saas-offer.md)
+  * [Container](./marketplace-containers.md)
+  * [Beratungsdienste](./plan-consulting-service-offer.md)
+* [Bestimmung Ihrer Veröffentlichungsoption](./determine-your-listing-type.md)

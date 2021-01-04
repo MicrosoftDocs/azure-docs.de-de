@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
-ms.openlocfilehash: 164560fff27adc2d4e63cc8471a26d1d710b89a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdb609a243656e2c75159cd2d4e70e2f965ae896
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88191280"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352115"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Diagnoseprotokolle: Azure Content Delivery Network
 
@@ -52,14 +52,14 @@ Befolgen Sie diese Schritte, um die Protokollierung für Ihren Azure CDN-Endpunk
 
 3. Wählen Sie im Abschnitt **Überwachung** die Option **Diagnoseprotokolle** aus:
 
-    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Wählen Sie den CDN-Endpunkt aus." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Wählen Sie Diagnoseprotokolle aus." border="true":::
 
 ### <a name="enable-logging-with-azure-storage"></a>Aktivieren der Protokollierung mit Azure Storage
 
 Führen Sie die folgenden Schritte aus, um ein Speicherkonto zum Speichern der Protokolle zu verwenden:
 
  >[!NOTE] 
- >Zur Durchführung dieser Schritte ist ein Speicherkonto erforderlich. Weitere Informationen finden Sie unter: Weitere Informationen finden Sie unter **[Erstellen eines Azure Storage-Kontos](https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)** .
+ >Zur Durchführung dieser Schritte ist ein Speicherkonto erforderlich. Weitere Informationen finden Sie unter: Weitere Informationen finden Sie unter **[Erstellen eines Azure Storage-Kontos](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)** .
     
 1. Geben Sie für **Name der Diagnoseeinstellung** einen Namen für Ihre Diagnoseprotokolleinstellungen ein.
  
@@ -69,7 +69,7 @@ Führen Sie die folgenden Schritte aus, um ein Speicherkonto zum Speichern der P
 
 4. Wählen Sie das Abonnement und Speicherkonto für die Protokolle aus.
 
-    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Wählen Sie den CDN-Endpunkt aus." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Diagnoseprotokolle – Speicher." border="true":::
 
 3. Wählen Sie **Speichern** aus.
 
@@ -78,7 +78,7 @@ Führen Sie die folgenden Schritte aus, um ein Speicherkonto zum Speichern der P
 Führen Sie die folgenden Schritte aus, um Log Analytics für die Protokolle zu verwenden:
 
 >[!NOTE] 
->Zum Ausführen dieser Schritte ist ein Log Analytics-Arbeitsbereich erforderlich. Weitere Informationen finden Sie unter: Weitere Informationen finden Sie unter **[Erstellen eines Log Analytics-Arbeitsbereichs im Azure-Portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)** .
+>Zum Ausführen dieser Schritte ist ein Log Analytics-Arbeitsbereich erforderlich. Weitere Informationen finden Sie unter: Weitere Informationen finden Sie unter **[Erstellen eines Log Analytics-Arbeitsbereichs im Azure-Portal](../azure-monitor/learn/quick-create-workspace.md)** .
     
 1. Geben Sie für **Name der Diagnoseeinstellung** einen Namen für Ihre Diagnoseprotokolleinstellungen ein.
 
@@ -86,7 +86,7 @@ Führen Sie die folgenden Schritte aus, um Log Analytics für die Protokolle zu 
 
 3. Wählen Sie das Abonnement und den Log Analytics-Arbeitsbereich für die Protokolle aus.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Wählen Sie den CDN-Endpunkt aus." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Diagnoseprotokolle – Log Analytics." border="true":::
 
 4. Wählen Sie **Speichern** aus.
 
@@ -95,7 +95,7 @@ Führen Sie die folgenden Schritte aus, um Log Analytics für die Protokolle zu 
 Gehen Sie folgendermaßen vor, um einen Event Hub für die Protokolle zu verwenden:
 
 >[!NOTE] 
->Zur Durchführung dieser Schritte ist ein Event Hub erforderlich. Weitere Informationen finden Sie unter: **[Schnellstart: Erstellen eines Event Hubs mithilfe des Azure-Portals](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)** .
+>Zur Durchführung dieser Schritte ist ein Event Hub erforderlich. Weitere Informationen finden Sie unter: **[Schnellstart: Erstellen eines Event Hubs mithilfe des Azure-Portals](../event-hubs/event-hubs-create.md)** .
     
 1. Geben Sie für **Name der Diagnoseeinstellung** einen Namen für Ihre Diagnoseprotokolleinstellungen ein.
 
@@ -103,7 +103,7 @@ Gehen Sie folgendermaßen vor, um einen Event Hub für die Protokolle zu verwend
 
 3. Wählen Sie das Abonnement und den Event Hub-Namespace für die Protokolle aus.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Wählen Sie den CDN-Endpunkt aus." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Diagnoseprotokolle – Event Hub." border="true":::
 
 4. Wählen Sie **Speichern** aus.
 
@@ -369,14 +369,7 @@ Beispiele für Eigenschaften:
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Azure-Diagnoseprotokolle](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
-* [Analysieren von Azure CDN-Verwendungsmustern](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Azure Monitor-Protokolle](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
-* [Azure Log Analytics-REST-API](https://docs.microsoft.com/rest/api/loganalytics)
-
-
-
-
-
-
-
+* [Azure-Diagnoseprotokolle](../azure-monitor/platform/platform-logs-overview.md)
+* [Analysieren von Azure CDN-Verwendungsmustern](./cdn-analyze-usage-patterns.md)
+* [Azure Monitor-Protokolle](../azure-monitor/log-query/log-query-overview.md)
+* [Azure Log Analytics-REST-API](/rest/api/loganalytics)

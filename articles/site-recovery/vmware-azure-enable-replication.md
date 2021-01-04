@@ -7,11 +7,11 @@ ms.date: 04/01/2020
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 74870d10348421bf726b9bdc58504a74cf4105a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86129922"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004210"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Aktivieren der Replikation in Azure für VMware-VMs
 
@@ -73,16 +73,16 @@ Führen Sie zum Aktivieren der Replikation die folgenden Schritte aus:
 
    Wählen Sie **Jetzt für die ausgewählten Computer konfigurieren** aus, um die Netzwerkeinstellung auf alle virtuellen Computer anzuwenden, die geschützt werden sollen. Wählen Sie **Später konfigurieren** aus, um das Azure-Netzwerk über einzelne virtuelle Computer auszuwählen. Wenn Sie über kein Netzwerk verfügen, müssen Sie ein Netzwerk erstellen. Wählen Sie zum Erstellen eines Netzwerks mit Azure Resource Manager **Neu erstellen** aus. Wählen Sie ein Subnetz aus (falls zutreffend), und wählen Sie dann **OK** aus.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/enable-rep3.png" alt-text="Fenster „Replikation aktivieren: Quelle“":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/enable-rep3.png" alt-text="Fenster „Replikation aktivieren: Ziel“":::
 
 1. Wählen Sie unter **Virtuelle Computer** > **Virtuelle Computer auswählen** die virtuellen Computer aus, die Sie replizieren möchten. Sie können nur virtuelle Computer auswählen, für welche die Replikation aktiviert werden kann. Klicken Sie anschließend auf **OK**. Wenn Sie keinen bestimmten virtuellen Computer finden bzw. auswählen können, finden Sie unter [Quellcomputer ist nicht im Azure-Portal aufgeführt](vmware-azure-troubleshoot-replication.md#step-3-troubleshoot-source-machines-that-arent-available-for-replication) eine Lösung für dieses Problem.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication5.png" alt-text="Fenster „Replikation aktivieren: Quelle“":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication5.png" alt-text="Fenster „Replikation aktivieren: Virtuelle Computer auswählen“":::
 
 1. Wählen Sie unter **Eigenschaften** > **Eigenschaften konfigurieren** das Konto aus, das der Prozessserver zum automatischen Installieren des Site Recovery Mobility-Diensts auf der VM verwenden soll. Wählen Sie außerdem den Typ des verwalteten Zieldatenträgers aus, auf den anhand Ihrer Datenänderungsmuster die Replikation erfolgen soll.
 1. Standardmäßig werden alle Datenträger eines virtuellen Quellcomputers repliziert. Wenn Sie Datenträger von der Replikation ausschließen möchten, deaktivieren Sie das Kontrollkästchen **Einschließen** für alle Datenträger, die nicht repliziert werden sollen. Klicken Sie anschließend auf **OK**. Sie können später weitere Eigenschaften festlegen. [Weitere Informationen](vmware-azure-exclude-disk.md) zum Ausschließen von Datenträgern.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication6.png" alt-text="Fenster „Replikation aktivieren: Quelle“":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication6.png" alt-text="Fenster „Replikation aktivieren: Eigenschaften konfigurieren“":::
 
 1. Überprüfen Sie unter **Replikationseinstellungen** > **Replikationseinstellungen konfigurieren**, ob die richtige Replikationsrichtlinie ausgewählt ist. Sie können die Replikationsrichtlinieneinstellungen unter **Einstellungen** > **Replikationsrichtlinien** > _Richtlinienname_ > **Einstellungen bearbeiten** ändern. Änderungen, die Sie an einer Richtlinie vornehmen, werden auch auf die Replikation und neue virtuelle Computer angewendet.
 1. Wenn Sie virtuelle Computer in einer Replikationsgruppe zusammenfassen möchten, aktivieren Sie **Multi-VM-Konsistenz**. Geben Sie einen Namen für die Gruppe ein, und wählen Sie dann **OK** aus.
@@ -91,7 +91,7 @@ Führen Sie zum Aktivieren der Replikation die folgenden Schritte aus:
    > - Die virtuellen Computer in einer Replikationsgruppe werden gemeinsam repliziert und verfügen beim Failover über gemeinsame ausfallsichere und App-konsistente Wiederherstellungspunkte.
    > - Fassen Sie VMs und physische Server zusammen, damit sie Ihre Workloads widerspiegeln. Das Aktivieren von Multi-VM-Konsistenz kann die Workloadleistung beeinträchtigen. Nutzen Sie diese Option nur, wenn mehrere Computer dieselbe Workload ausführen und Konsistenz erforderlich ist.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication7.png" alt-text="Fenster „Replikation aktivieren: Quelle“":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication7.png" alt-text="Fenster „Replikation aktivieren“":::
 
 1. Klicken Sie auf **Replikation aktivieren**. Sie können den Fortschritt des Auftrags **Schutz aktivieren** unter **Einstellungen** > **Aufträge** > **Site Recovery-Aufträge** verfolgen. Nachdem der Auftrag **Schutz abschließen** ausgeführt wurde, ist der virtuelle Computer bereit zum Failover.
 
@@ -103,7 +103,7 @@ Führen Sie zum Aktivieren der Replikation die folgenden Schritte aus:
 1. Unter **Eigenschaften** können Sie die Informationen zur Replikation und zum Failover für den virtuellen Computer anzeigen.
 1. Unter **Compute und Netzwerk** > **Compute-Eigenschaften** können Sie mehrere Eigenschaften von virtuellen Computern ändern.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/vmproperties.png" alt-text="Fenster „Replikation aktivieren: Quelle“":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/vmproperties.png" alt-text="Fenster „Compute- und Netzwerkeigenschaften“":::
 
    - **Name des virtuellen Azure-Computers**: Ändern Sie ggf. den Namen, damit er den Azure-Anforderungen entspricht.
    - **Größe oder Typ des virtuellen Zielcomputers**: Die Standard-VM-Größe wird basierend auf einigen Parametern ausgewählt, zu denen Anzahl der Datenträger, NIC-Anzahl, Anzahl der CPU-Kerne, Arbeitsspeicher und verfügbare VM-Rollengrößen in der Azure-Zielregion zählen. Azure Site Recovery wählt die erste verfügbare VM-Größe aus, die alle Kriterien erfüllt. Sie können je nach Bedarf jederzeit vor dem Failover eine andere VM-Größe auswählen. Die VM-Datenträgergröße basiert auch auf der Größe des Quelldatenträgers. Diese kann nur nach einem Failover geändert werden. Weitere Informationen zu Datenträgergrößen und IOPS-Raten finden Sie unter [Skalierbarkeits- und Leistungsziele für VM-Datenträger unter Windows](../virtual-machines/windows/disk-scalability-targets.md).

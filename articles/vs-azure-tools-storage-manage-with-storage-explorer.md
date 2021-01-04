@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
-ms.openlocfilehash: 9922601d67393d103b95da7286d8db71d913434a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be9b2d9a31d4affc9615f5d2f4b2585b7533a0f6
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235244"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545906"
 ---
 # <a name="get-started-with-storage-explorer"></a>Erste Schritte mit dem Storage-Explorer
 
@@ -61,7 +61,7 @@ Storage-Explorer ist auch als *.tar.gz*-Download verfügbar. Sie müssen die Abh
 
 Die *.tar.gz*-Installation könnte auch bei anderen Distributionen funktionieren, wird aber nur für diese aufgeführten Distributionen offiziell unterstützt.
 
-Weitere Hilfe bei der Installation von Storage-Explorer unter Linux finden Sie unter [Linux-Abhängigkeiten](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies) im Leitfaden zur Problembehandlung für Azure Storage-Explorer.
+Weitere Hilfe bei der Installation von Storage-Explorer unter Linux finden Sie unter [Linux-Abhängigkeiten](./storage/common/storage-explorer-troubleshooting.md#linux-dependencies) im Leitfaden zur Problembehandlung für Azure Storage-Explorer.
 
 ---
 
@@ -79,7 +79,7 @@ Es gibt verschiedene Möglichkeiten, wie Sie den Storage-Explorer mit Speicherko
 ### <a name="sign-in-to-azure"></a>Anmelden bei Azure
 
 > [!NOTE]
-> Um nach der Anmeldung Vollzugriff auf Ressourcen zu haben, benötigt Storage-Explorer Berechtigungen für sowohl die Verwaltung (Azure Resource Manager) als auch Datenebenen. Das bedeutet, dass Sie Azure Active Directory-Berechtigungen (Azure AD) benötigen, die Ihnen Zugriff auf Ihr Speicherkonto, die Container im Konto und Daten in den Containern gewähren. Wenn Sie nur über Berechtigungen auf Datenebene verfügen, erwägen Sie das [Hinzufügen einer Ressource über Azure AD](#add-a-resource-via-azure-ad). Weitere Informationen zu den spezifischen Berechtigungen, die Storage-Explorer benötigt, finden Sie unter [Azure Storage-Explorer – Leitfaden zur Problembehandlung](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#rbac-permissions-issues).
+> Um nach der Anmeldung Vollzugriff auf Ressourcen zu haben, benötigt Storage-Explorer Berechtigungen für sowohl die Verwaltung (Azure Resource Manager) als auch Datenebenen. Das bedeutet, dass Sie Azure Active Directory-Berechtigungen (Azure AD) benötigen, die Ihnen Zugriff auf Ihr Speicherkonto, die Container im Konto und Daten in den Containern gewähren. Wenn Sie nur über Berechtigungen auf Datenebene verfügen, erwägen Sie das [Hinzufügen einer Ressource über Azure AD](#add-a-resource-via-azure-ad). Weitere Informationen zu den spezifischen Berechtigungen, die Storage-Explorer benötigt, finden Sie unter [Azure Storage-Explorer – Leitfaden zur Problembehandlung](./storage/common/storage-explorer-troubleshooting.md#azure-rbac-permissions-issues).
 
 1. Wählen Sie in Storage-Explorer **Anzeigen** > **Kontoverwaltung** aus, oder klicken Sie auf die Schaltfläche **Konten verwalten**.
 
@@ -106,8 +106,8 @@ Es gibt verschiedene Möglichkeiten, wie Sie den Storage-Explorer mit Speicherko
 Es gibt mehrere Möglichkeiten des Anfügens an eine Ressource in Storage-Explorer:
 
 * [Ressource über Azure AD hinzufügen](#add-a-resource-via-azure-ad). Wenn Sie nur auf Datenebene über Berechtigungen verfügen, wählen Sie diese Option, um einen Blobcontainer oder einen Azure Data Lake Storage Gen2 Blob-Speichercontainer hinzuzufügen.
-* [Verbindungszeichenfolge verwenden](#use-a-connection-string). Wählen Sie diese Option, wenn Sie eine Verbindungszeichenfolge für ein Speicherkonto haben. Storage-Explorer unterstützt sowohl Schlüssel- als auch [Shared Access Signature](storage/common/storage-dotnet-shared-access-signature-part-1.md)-Verbindungszeichenfolgen.
-* [Verwenden eines Shared Access Signature-URIs](#use-a-shared-access-signature-uri). Wenn Sie einen [Shared Access Signature-URI](storage/common/storage-dotnet-shared-access-signature-part-1.md) für einen Blobcontainer, eine Dateifreigabe, eine Warteschlange oder eine Tabelle haben, führen Sie damit das Anfügen an die Ressource durch. Sie können [Storage-Explorer](#generate-a-sas-in-storage-explorer) oder das [Azure-Portal](https://portal.azure.com) verwenden, um einen Shared Access Signature-URI zu erhalten.
+* [Verbindungszeichenfolge verwenden](#use-a-connection-string). Wählen Sie diese Option, wenn Sie eine Verbindungszeichenfolge für ein Speicherkonto haben. Storage-Explorer unterstützt sowohl Schlüssel- als auch [Shared Access Signature](./storage/common/storage-sas-overview.md)-Verbindungszeichenfolgen.
+* [Verwenden eines Shared Access Signature-URIs](#use-a-shared-access-signature-uri). Wenn Sie einen [Shared Access Signature-URI](./storage/common/storage-sas-overview.md) für einen Blobcontainer, eine Dateifreigabe, eine Warteschlange oder eine Tabelle haben, führen Sie damit das Anfügen an die Ressource durch. Sie können [Storage-Explorer](#generate-a-sas-in-storage-explorer) oder das [Azure-Portal](https://portal.azure.com) verwenden, um einen Shared Access Signature-URI zu erhalten.
 * [Namen und Schlüssel verwenden](#use-a-name-and-key). Wenn Sie einen der Kontoschlüssel für Ihr Speicherkonto kennen, können Sie sich damit schneller verbinden. Suchen Sie Ihre Schlüssel auf der Seite „Speicherkonto“, indem Sie im [Azure-Portal](https://portal.azure.com)**Einstellungen** > **Zugriffsschlüssel** auswählen.
 * [An lokalen Emulator anfügen](#attach-to-a-local-emulator). Wenn Sie einen der verfügbaren Azure Storage-Emulatoren verwenden, können Sie diese Option nutzen, um sich leichter mit Ihrem Emulator zu verbinden.
 * [Herstellen einer Verbindung mit einem Azure Cosmos DB-Konto mithilfe einer Verbindungszeichenfolge](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string). Wählen Sie diese Option, wenn Sie eine Verbindungszeichenfolge für eine CosmosDB-Instanz haben.
@@ -131,7 +131,7 @@ Es gibt mehrere Möglichkeiten des Anfügens an eine Ressource in Storage-Explor
 
 1. Überprüfen Sie in der **Verbindungszusammenfassung** alle Informationen auf Richtigkeit. Wenn alles stimmt, wählen Sie **Verbinden** aus. Klicken Sie andernfalls auf **Zurück**, um zu den vorherigen Seiten zurückzukehren und falsche Informationen zu korrigieren.
 
-Nachdem die Verbindung erfolgreich hinzugefügt wurde, wechselt die Ressourcenstruktur zum Knoten, der die Verbindung darstellt. Die Ressource wird unter **Lokal und angefügt** > **Speicherkonten** >  **(Angefügte Container)**  > **Blobcontainer** angezeigt. Wenn Storage-Explorer Ihre Verbindung nicht hinzufügen konnte oder Sie nach erfolgreichem Hinzufügen der Verbindung nicht auf Ihre Daten zugreifen können, lesen Sie die Informationen unter [Azure Storage-Explorer – Leitfaden zur Problembehandlung](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
+Nachdem die Verbindung erfolgreich hinzugefügt wurde, wechselt die Ressourcenstruktur zum Knoten, der die Verbindung darstellt. Die Ressource wird unter **Lokal und angefügt** > **Speicherkonten** >  **(Angefügte Container)**  > **Blobcontainer** angezeigt. Wenn Storage-Explorer Ihre Verbindung nicht hinzufügen konnte oder Sie nach erfolgreichem Hinzufügen der Verbindung nicht auf Ihre Daten zugreifen können, lesen Sie die Informationen unter [Azure Storage-Explorer – Leitfaden zur Problembehandlung](./storage/common/storage-explorer-troubleshooting.md).
 
 #### <a name="use-a-connection-string"></a>Verwenden einer Verbindungszeichenfolge
 
@@ -145,7 +145,7 @@ Nachdem die Verbindung erfolgreich hinzugefügt wurde, wechselt die Ressourcenst
 
 1. Überprüfen Sie in der **Verbindungszusammenfassung** alle Informationen auf Richtigkeit. Wenn alles stimmt, wählen Sie **Verbinden** aus. Klicken Sie andernfalls auf **Zurück**, um zu den vorherigen Seiten zurückzukehren und falsche Informationen zu korrigieren.
 
-Nachdem die Verbindung erfolgreich hinzugefügt wurde, wechselt die Ressourcenstruktur zum Knoten, der die Verbindung darstellt. Die Ressource wird unter **Lokal & angefügt** > **Speicherkonten** angezeigt. Wenn Storage-Explorer Ihre Verbindung nicht hinzufügen konnte oder Sie nach erfolgreichem Hinzufügen der Verbindung nicht auf Ihre Daten zugreifen können, lesen Sie die Informationen unter [Azure Storage-Explorer – Leitfaden zur Problembehandlung](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
+Nachdem die Verbindung erfolgreich hinzugefügt wurde, wechselt die Ressourcenstruktur zum Knoten, der die Verbindung darstellt. Die Ressource wird unter **Lokal & angefügt** > **Speicherkonten** angezeigt. Wenn Storage-Explorer Ihre Verbindung nicht hinzufügen konnte oder Sie nach erfolgreichem Hinzufügen der Verbindung nicht auf Ihre Daten zugreifen können, lesen Sie die Informationen unter [Azure Storage-Explorer – Leitfaden zur Problembehandlung](./storage/common/storage-explorer-troubleshooting.md).
 
 #### <a name="use-a-shared-access-signature-uri"></a>Verwenden eines Shared Access Signature-URIs
 
@@ -159,7 +159,7 @@ Nachdem die Verbindung erfolgreich hinzugefügt wurde, wechselt die Ressourcenst
 
 1. Überprüfen Sie in der **Verbindungszusammenfassung** alle Informationen auf Richtigkeit. Wenn alles stimmt, wählen Sie **Verbinden** aus. Klicken Sie andernfalls auf **Zurück**, um zu den vorherigen Seiten zurückzukehren und falsche Informationen zu korrigieren.
 
-Nachdem die Verbindung erfolgreich hinzugefügt wurde, wechselt die Ressourcenstruktur zum Knoten, der die Verbindung darstellt. Die Ressource wird unter **Lokal und angefügt** > **Speicherkonten** >  **(Angefügte Container)**  > *der Dienstknoten für den Containertyp, den Sie angefügt haben* angezeigt. Wenn Storage-Explorer die Verbindung nicht hinzufügen konnten, finden Sie weitere Informationen unter [Azure Storage-Explorer – Leitfaden zur Problembehandlung](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting). Wenn Sie nach dem erfolgreichen Hinzufügen der Verbindung nicht auf Ihre Daten zugreifen können, finden Sie weitere Informationen im Leitfaden zur Problembehandlung.
+Nachdem die Verbindung erfolgreich hinzugefügt wurde, wechselt die Ressourcenstruktur zum Knoten, der die Verbindung darstellt. Die Ressource wird unter **Lokal und angefügt** > **Speicherkonten** >  **(Angefügte Container)**  > *der Dienstknoten für den Containertyp, den Sie angefügt haben* angezeigt. Wenn Storage-Explorer die Verbindung nicht hinzufügen konnten, finden Sie weitere Informationen unter [Azure Storage-Explorer – Leitfaden zur Problembehandlung](./storage/common/storage-explorer-troubleshooting.md). Wenn Sie nach dem erfolgreichen Hinzufügen der Verbindung nicht auf Ihre Daten zugreifen können, finden Sie weitere Informationen im Leitfaden zur Problembehandlung.
 
 #### <a name="use-a-name-and-key"></a>Verwenden eines Namens und Schlüssels
 
@@ -177,7 +177,7 @@ Nachdem die Verbindung erfolgreich hinzugefügt wurde, wechselt die Ressourcenst
 
 1. Überprüfen Sie in der **Verbindungszusammenfassung** alle Informationen auf Richtigkeit. Wenn alles stimmt, wählen Sie **Verbinden** aus. Klicken Sie andernfalls auf **Zurück**, um zu den vorherigen Seiten zurückzukehren und falsche Informationen zu korrigieren.
 
-Nachdem die Verbindung erfolgreich hinzugefügt wurde, wechselt die Ressourcenstruktur zum Knoten, der die Verbindung darstellt. Die Ressource wird unter **Lokal & angefügt** > **Speicherkonten** angezeigt. Wenn Storage-Explorer Ihre Verbindung nicht hinzufügen konnte oder Sie nach erfolgreichem Hinzufügen der Verbindung nicht auf Ihre Daten zugreifen können, lesen Sie die Informationen unter [Azure Storage-Explorer – Leitfaden zur Problembehandlung](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
+Nachdem die Verbindung erfolgreich hinzugefügt wurde, wechselt die Ressourcenstruktur zum Knoten, der die Verbindung darstellt. Die Ressource wird unter **Lokal & angefügt** > **Speicherkonten** angezeigt. Wenn Storage-Explorer Ihre Verbindung nicht hinzufügen konnte oder Sie nach erfolgreichem Hinzufügen der Verbindung nicht auf Ihre Daten zugreifen können, lesen Sie die Informationen unter [Azure Storage-Explorer – Leitfaden zur Problembehandlung](./storage/common/storage-explorer-troubleshooting.md).
 
 #### <a name="attach-to-a-local-emulator"></a>Anfügen an einen lokalen Emulator
 
@@ -205,7 +205,7 @@ Wenn Sie einen anderen Namen für Ihre Verbindung verwenden möchten oder Ihr Em
 
 1. Überprüfen Sie in der **Verbindungszusammenfassung** alle Informationen auf Richtigkeit. Wenn alles stimmt, wählen Sie **Verbinden** aus. Klicken Sie andernfalls auf **Zurück**, um zu den vorherigen Seiten zurückzukehren und falsche Informationen zu korrigieren.
 
-Nachdem die Verbindung erfolgreich hinzugefügt wurde, wechselt die Ressourcenstruktur zum Knoten, der die Verbindung darstellt. Der Knoten sollte unter **Lokal & angefügt** > **Speicherkonten** angezeigt werden. Wenn Storage-Explorer Ihre Verbindung nicht hinzufügen konnte oder Sie nach erfolgreichem Hinzufügen der Verbindung nicht auf Ihre Daten zugreifen können, lesen Sie die Informationen unter [Azure Storage-Explorer – Leitfaden zur Problembehandlung](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
+Nachdem die Verbindung erfolgreich hinzugefügt wurde, wechselt die Ressourcenstruktur zum Knoten, der die Verbindung darstellt. Der Knoten sollte unter **Lokal & angefügt** > **Speicherkonten** angezeigt werden. Wenn Storage-Explorer Ihre Verbindung nicht hinzufügen konnte oder Sie nach erfolgreichem Hinzufügen der Verbindung nicht auf Ihre Daten zugreifen können, lesen Sie die Informationen unter [Azure Storage-Explorer – Leitfaden zur Problembehandlung](./storage/common/storage-explorer-troubleshooting.md).
 
 #### <a name="connect-to-an-azure-cosmos-db-account-by-using-a-connection-string"></a>Herstellen einer Verbindung mit einem Azure Cosmos DB-Konto mithilfe einer Verbindungszeichenfolge
 
@@ -215,7 +215,7 @@ Anstatt Azure Cosmos DB-Konten über ein Azure-Abonnement zu verwalten, können 
 
     ![Herstellen einer Verbindung mit Azure Cosmos DB mithilfe einer Verbindungszeichenfolge][21]
 
-1. Wählen Sie die Azure Cosmos DB-API aus, fügen Sie Ihre **Verbindungszeichenfolge** ein, und klicken Sie dann auf **OK**, um eine Verbindung mit dem Azure Cosmos DB-Konto herzustellen. Informationen zum Abrufen der Verbindungszeichenfolge finden Sie unter [Verwalten eines Azure Cosmos-Kontos](https://docs.microsoft.com/azure/cosmos-db/manage-account).
+1. Wählen Sie die Azure Cosmos DB-API aus, fügen Sie Ihre **Verbindungszeichenfolge** ein, und klicken Sie dann auf **OK**, um eine Verbindung mit dem Azure Cosmos DB-Konto herzustellen. Informationen zum Abrufen der Verbindungszeichenfolge finden Sie unter [Verwalten eines Azure Cosmos-Kontos](./cosmos-db/how-to-manage-database-account.md).
 
     ![Verbindungszeichenfolge][22]
 

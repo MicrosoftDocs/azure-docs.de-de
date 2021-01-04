@@ -1,33 +1,33 @@
 ---
 title: 'Hinzufügen und Auflisten von Rollen im Bereich von Verwaltungseinheiten: Azure Active Directory | Microsoft-Dokumentation'
-description: Verwenden Sie Verwaltungseinheiten, um den Bereich der Rollenzuweisungen in Azure Active Directory einzuschränken
+description: Verwenden Sie Verwaltungseinheiten, um den Geltungsbereich von Rollenzuweisungen in Azure Active Directory einzuschränken.
 services: active-directory
 documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66a4810b3a84cac55a49744025b6ac71c3f1c0a7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 73ed2741c7dd754127a57642703b650a70637c63
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373849"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393437"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Zuweisen von bereichsbezogenen Rollen zu einer Verwaltungseinheit
 
-In Azure Active Directory (Azure AD) können Sie Benutzer einer Azure AD-Rolle zuweisen und den Geltungsbereich auf eine oder mehrere Verwaltungseinheiten (VEs) beschränken, um eine präzisere administrative Steuerung zu erhalten.
+Um in Azure Active Directory (Azure AD) eine präzisere administrative Steuerung zu ermöglichen, können Sie Benutzer einer Azure AD-Rolle mit einem auf einzelne oder mehrere Verwaltungseinheiten beschränkten Bereich zuweisen.
 
-Die Schritte zum Vorbereiten auf den Einsatz von PowerShell und Microsoft Graph für die Verwaltung von Verwaltungseinheiten sind unter [Erste Schritte](admin-units-manage.md#get-started) beschrieben.
+Informationen zur Vorbereitung auf den Einsatz von PowerShell und Microsoft Graph für die Verwaltung von Verwaltungseinheiten finden Sie unter [Erste Schritte](admin-units-manage.md#get-started).
 
-## <a name="roles-available"></a>Verfügbare Rollen
+## <a name="available-roles"></a>Verfügbare Rollen
 
 Role  |  BESCHREIBUNG
 ----- |  -----------
@@ -43,26 +43,33 @@ Benutzeradministrator  |  Kann nur in der zugewiesenen Verwaltungseinheit alle A
 Die folgenden Sicherheitsprinzipale können einer Rolle im Bereich von Verwaltungseinheiten zugewiesen werden:
 
 * Benutzer
-* Cloudgruppen, die einer Rolle zugewiesen werden können (Vorschau)
+* Cloudgruppen, die einer Rolle zugewiesen werden können (Vorschauversion)
 * Dienstprinzipalname (Service Principal Name, SPN)
 
 ## <a name="assign-a-scoped-role"></a>Zuweisen einer bereichsbezogenen Rolle
 
-### <a name="azure-portal"></a>Azure-Portal
+Eine bereichsbezogene Rolle kann über das Azure-Portal, mithilfe von PowerShell oder per Microsoft Graph zugewiesen werden.
 
-Wechseln Sie im Portal zu **Azure AD > Verwaltungseinheiten** . Wählen Sie die Verwaltungseinheit aus, über die Sie die Rolle einem Benutzer zuweisen möchten. Wählen Sie im linken Bereich „Rollen und Administratoren“ aus, um alle verfügbaren Rollen aufzulisten.
+### <a name="use-the-azure-portal"></a>Verwenden des Azure-Portals
 
-![Auswählen einer Verwaltungseinheit zum Ändern des Rollenbereichs](./media/admin-units-assign-roles/select-role-to-scope.png)
+1. Navigieren Sie im Azure-Portal zu **Azure AD**.
 
-Wählen Sie die zuzuweisende Rolle und dann **Zuweisungen hinzufügen** aus. Es wird ein Bereich auf der rechten Seite geöffnet, in dem Sie einen oder mehrere Benutzer auswählen können, die der Rolle zugewiesen werden sollen.
+1. Wählen Sie **Verwaltungseinheiten** und anschließend die Verwaltungseinheit aus, der Sie einen Benutzerrollenbereich zuweisen möchten. 
 
-![Auswählen der Rolle für den Bereich und dann Auswählen von „Zuweisungen hinzufügen“](./media/admin-units-assign-roles/select-add-assignment.png)
+1. Wählen Sie im linken Bereich die Option **Rollen und Administratoren** aus, um alle verfügbaren Rollen aufzulisten.
+
+   ![Screenshot: Bereich „Rollen und Administratoren“ zum Auswählen einer Verwaltungseinheit, deren Rollenbereich zugewiesen werden soll](./media/admin-units-assign-roles/select-role-to-scope.png)
+
+1. Wählen Sie die zuzuweisende Rolle und anschließend **Zuweisungen hinzufügen** aus. 
+
+1. Wählen Sie im Bereich **Zuweisungen hinzufügen** mindestens einen Benutzer aus, dem die Rolle zugewiesen werden soll.
+
+   ![Auswählen der Rolle für den Bereich und dann Auswählen von „Zuweisungen hinzufügen“](./media/admin-units-assign-roles/select-add-assignment.png)
 
 > [!Note]
->
-> Führen Sie zum Zuweisen einer Rolle für eine Verwaltungseinheit mithilfe von PIM die [hier](../privileged-identity-management/pim-how-to-add-role-to-user.md?tabs=new#assign-a-role-with-restricted-scope) beschriebenen Schritte aus.
+> Informationen zum Zuweisen einer Rolle für eine Verwaltungseinheit unter Verwendung von Azure AD Privileged Identity Management (PIM) finden Sie unter [Zuweisen von Azure AD-Rollen in Privileged Identity Management](../privileged-identity-management/pim-how-to-add-role-to-user.md?tabs=new#assign-a-role-with-restricted-scope).
 
-### <a name="powershell"></a>PowerShell
+### <a name="use-powershell"></a>Verwenden von PowerShell
 
 ```powershell
 $AdminUser = Get-AzureADUser -ObjectId "Use the user's UPN, who would be an admin on this unit"
@@ -73,9 +80,9 @@ $RoleMember.ObjectId = $AdminUser.ObjectId
 Add-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId -RoleObjectId $Role.ObjectId -RoleMemberInfo $RoleMember
 ```
 
-Der markierte Abschnitt kann nach Bedarf für die jeweilige Umgebung geändert werden.
+Der hervorgehobene Abschnitt kann nach Bedarf für die jeweilige Umgebung geändert werden.
 
-### <a name="microsoft-graph"></a>Microsoft Graph
+### <a name="use-microsoft-graph"></a>Verwenden von Microsoft Graph
 
 ```http
 Http request
@@ -90,22 +97,30 @@ Request body
 }
 ```
 
-## <a name="list-the-scoped-admins-on-an-au"></a>Auflisten der bereichsbezogenen Administratoren in einer Verwaltungseinheit
+## <a name="view-a-list-of-the-scoped-admins-in-an-administrative-unit"></a>Anzeigen einer Liste mit den bereichsbezogenen Administratoren in einer Verwaltungseinheit
 
-### <a name="azure-portal"></a>Azure-Portal
+Eine Liste mit bereichsbezogenen Administratoren kann über das Azure-Portal, mithilfe von PowerShell oder per Microsoft Graph angezeigt werden.
 
-Alle Rollenzuweisungen, die auf Verwaltungseinheiten bezogen sind, können im Abschnitt [Verwaltungseinheiten von Azure AD](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit) angezeigt werden. Wechseln Sie im Portal zu **Azure AD > Verwaltungseinheiten** . Wählen Sie die Verwaltungseinheit für die Rollenzuweisungen aus, die Sie auflisten möchten. Wählen Sie **Rollen und Administratoren** aus, und öffnen Sie eine Rolle, um die Zuweisungen in der Verwaltungseinheit anzuzeigen.
+### <a name="use-the-azure-portal"></a>Verwenden des Azure-Portals
 
-### <a name="powershell"></a>PowerShell
+Alle Rollenzuweisungen, die mit einem auf Verwaltungseinheiten bezogenen Bereich erstellt wurden, können im Abschnitt [Verwaltungseinheiten von Azure AD](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit) angezeigt werden. 
+
+1. Navigieren Sie im Azure-Portal zu **Azure AD**.
+
+1. Wählen Sie im linken Bereich die Option **Verwaltungseinheiten** und dann die Verwaltungseinheit für die Liste mit den Rollenzuweisungen aus, die Sie anzeigen möchten. 
+
+1. Wählen Sie **Rollen und Administratoren** aus, und öffnen Sie anschließend eine Rolle, um die Zuweisungen in der Verwaltungseinheit anzuzeigen.
+
+### <a name="use-powershell"></a>Verwenden von PowerShell
 
 ```powershell
 $administrativeUnit = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
 Get-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId | fl *
 ```
 
-Der markierte Abschnitt kann nach Bedarf für die jeweilige Umgebung geändert werden.
+Der hervorgehobene Abschnitt kann nach Bedarf für Ihre individuelle Umgebung geändert werden.
 
-### <a name="microsoft-graph"></a>Microsoft Graph
+### <a name="use-microsoft-graph"></a>Verwenden von Microsoft Graph
 
 ```http
 Http request

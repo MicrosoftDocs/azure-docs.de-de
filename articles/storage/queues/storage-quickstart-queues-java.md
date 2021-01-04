@@ -4,16 +4,16 @@ description: Erfahren Sie, wie Sie die Azure Queue Storage-Bibliothek v12 für J
 author: mhopkins-msft
 ms.custom: devx-track-java
 ms.author: mhopkins
-ms.date: 09/10/2020
+ms.date: 12/01/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: b6be3c0f3b7ff8e44bd9dda089c803a27e883383
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4c96b84aa53d2a9f4d6e44ac84cf0ce9e0ecac04
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783435"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491926"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>Schnellstart: Azure Queue Storage-Clientbibliothek v12 für Java
 
@@ -21,26 +21,26 @@ Beginnen Sie mit dem Einsatz der Azure Queue Storage-Clientbibliothek v12 für J
 
 Mit der Azure Queue Storage-Clientbibliothek v12 für Java können Sie Folgendes ausführen:
 
-* Erstellen einer Warteschlange
-* Hinzufügen von Nachrichten zu einer Warteschlange
-* Einsehen von Nachrichten in einer Warteschlange
-* Aktualisieren einer Nachricht in einer Warteschlange
-* Empfangen und Löschen von Nachrichten aus einer Warteschlange
-* Löschen einer Warteschlange
+- Erstellen einer Warteschlange
+- Hinzufügen von Nachrichten zu einer Warteschlange
+- Einsehen von Nachrichten in einer Warteschlange
+- Aktualisieren einer Nachricht in einer Warteschlange
+- Empfangen und Löschen von Nachrichten aus einer Warteschlange
+- Löschen einer Warteschlange
 
 Zusätzliche Ressourcen:
 
-* [API-Referenzdokumentation](/java/api/overview/azure/storage-queue-readme)
-* [Quellcode der Bibliothek](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
-* [Maven-Paket](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
-* [Beispiele](../common/storage-samples-java.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
+- [API-Referenzdokumentation](/java/api/overview/azure/storage-queue-readme)
+- [Quellcode der Bibliothek](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
+- [Maven-Paket](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
+- [Beispiele](../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* [Java Development Kit (JDK)](/java/azure/jdk/), Version 8 oder höher
-* [Apache Maven](https://maven.apache.org/download.cgi)
-* Azure-Abonnement – [Erstellen eines kostenlosen Kontos](https://azure.microsoft.com/free/)
-* Azure Storage-Konto – [Erstellen eines Speicherkontos](../common/storage-account-create.md)
+- [Java Development Kit (JDK)](/java/azure/jdk/), Version 8 oder höher
+- [Apache Maven](https://maven.apache.org/download.cgi)
+- Azure-Abonnement – [Erstellen eines kostenlosen Kontos](https://azure.microsoft.com/free/)
+- Azure Storage-Konto – [Erstellen eines Speicherkontos](../common/storage-account-create.md)
 
 ## <a name="setting-up"></a>Einrichten
 
@@ -48,17 +48,33 @@ In diesem Abschnitt wird beschrieben, wie Sie ein Projekt zur Verwendung mit der
 
 ### <a name="create-the-project"></a>Erstellen des Projekts
 
-Erstellen Sie eine Java-Anwendung mit dem Namen *queues-quickstart-v12* .
+Erstellen Sie eine Java-Anwendung mit dem Namen *queues-quickstart-v12*.
 
-1. Verwenden Sie Maven in einem Konsolenfenster (z. B. der Befehlszeile, PowerShell oder Bash), um eine neue Konsolen-App mit dem Namen *queues-quickstart-v12* zu erstellen. Geben Sie den folgenden **mvn** -Befehl ein, um ein „Hallo Welt!“ -Java-Projekt zu erstellen.
+1. Verwenden Sie Maven in einem Konsolenfenster (z. B. der Befehlszeile, PowerShell oder Bash), um eine neue Konsolen-App mit dem Namen *queues-quickstart-v12* zu erstellen. Geben Sie den folgenden **mvn**-Befehl ein, um ein „Hallo Welt!“ -Java-Projekt zu erstellen.
 
-   ```console
-   mvn archetype:generate -DgroupId=com.queues.quickstart \
-                          -DartifactId=queues-quickstart-v12 \
-                          -DarchetypeArtifactId=maven-archetype-quickstart \
-                          -DarchetypeVersion=1.4 \
-                          -DinteractiveMode=false
-   ```
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```powershell
+    mvn archetype:generate `
+        --define interactiveMode=n `
+        --define groupId=com.queues.quickstart `
+        --define artifactId=queues-quickstart-v12 `
+        --define archetypeArtifactId=maven-archetype-quickstart `
+        --define archetypeVersion=1.4
+    ```
+
+    # <a name="bash"></a>[Bash](#tab/bash)
+
+    ```bash
+    mvn archetype:generate \
+        --define interactiveMode=n \
+        --define groupId=com.queues.quickstart \
+        --define artifactId=queues-quickstart-v12 \
+        --define archetypeArtifactId=maven-archetype-quickstart \
+        --define archetypeVersion=1.4
+    ```
+
+    ---
 
 1. Die Ausgabe der Erstellung des Projekts sollte in etwa wie folgt aussehen:
 
@@ -97,7 +113,7 @@ Erstellen Sie eine Java-Anwendung mit dem Namen *queues-quickstart-v12* .
     [INFO] ------------------------------------------------------------------------
     ```
 
-1. Wechseln Sie zum neu erstellten Verzeichnis *queues-quickstart-v12* .
+1. Wechseln Sie zum neu erstellten Verzeichnis *queues-quickstart-v12*.
 
    ```console
    cd queues-quickstart-v12
@@ -119,7 +135,7 @@ Erstellen Sie eine Java-Anwendung mit dem Namen *queues-quickstart-v12* .
 
 Über das Projektverzeichnis:
 
-1. Navigieren Sie zum Verzeichnis */src/main/java/com/queues/quickstart* .
+1. Navigieren Sie zum Verzeichnis */src/main/java/com/queues/quickstart*.
 1. Öffnen Sie die Datei *App.java* im Editor.
 1. Löschen Sie die Anweisung `System.out.println("Hello world!");`.
 1. Fügen Sie Anweisungen vom Typ `import` hinzu.
@@ -151,9 +167,9 @@ public class App
 
 Azure Queue Storage ist ein Dienst für die Speicherung einer großen Anzahl von Nachrichten. Eine Warteschlangennachricht kann bis zu 64 KB groß sein. Eine Warteschlange kann Millionen Nachrichten enthalten, bis die maximale Kapazität eines Speicherkontos erreicht ist. Warteschlangen werden häufig verwendet, um ein Arbeits-Backlog zur asynchronen Verarbeitung zu erstellen. Queue Storage bietet drei Arten von Ressourcen:
 
-* Das Speicherkonto
-* Eine Warteschlange im Speicherkonto
-* Nachrichten in der Warteschlange
+- Das Speicherkonto
+- Eine Warteschlange im Speicherkonto
+- Nachrichten in der Warteschlange
 
 Im folgenden Diagramm ist die Beziehung zwischen diesen Ressourcen dargestellt.
 
@@ -161,22 +177,22 @@ Im folgenden Diagramm ist die Beziehung zwischen diesen Ressourcen dargestellt.
 
 Verwenden Sie die folgenden Java-Klassen zur Interaktion mit folgenden Ressourcen:
 
-* [QueueClientBuilder](/java/api/com.azure.storage.queue.queueclientbuilder): Die `QueueClientBuilder`-Klasse konfiguriert und instanziiert ein `QueueClient`-Objekt.
-* [QueueServiceClient](/java/api/com.azure.storage.queue.queueserviceclient): Mit dem `QueueServiceClient` können Sie alle Warteschlangen in Ihrem Speicherkonto verwalten.
-* [QueueClient](/java/api/com.azure.storage.queue.queueclient): Mit der `QueueClient`-Klasse können Sie eine einzelne Warteschlange und die darin enthaltenen Nachrichten verwalten und bearbeiten.
-* [QueueMessageItem](/java/api/com.azure.storage.queue.models.queuemessageitem): Die `QueueMessageItem`-Klasse repräsentiert die einzelnen Objekte, die beim Aufrufen von [receiveMessages](/java/api/com.azure.storage.queue.queueclient.receivemessages) in einer Warteschlange zurückgegeben werden.
+- [QueueClientBuilder](/java/api/com.azure.storage.queue.queueclientbuilder): Die `QueueClientBuilder`-Klasse konfiguriert und instanziiert ein `QueueClient`-Objekt.
+- [QueueServiceClient](/java/api/com.azure.storage.queue.queueserviceclient): Mit dem `QueueServiceClient` können Sie alle Warteschlangen in Ihrem Speicherkonto verwalten.
+- [QueueClient](/java/api/com.azure.storage.queue.queueclient): Mit der `QueueClient`-Klasse können Sie eine einzelne Warteschlange und die darin enthaltenen Nachrichten verwalten und bearbeiten.
+- [QueueMessageItem](/java/api/com.azure.storage.queue.models.queuemessageitem): Die `QueueMessageItem`-Klasse repräsentiert die einzelnen Objekte, die beim Aufrufen von [receiveMessages](/java/api/com.azure.storage.queue.queueclient.receivemessages) in einer Warteschlange zurückgegeben werden.
 
 ## <a name="code-examples"></a>Codebeispiele
 
 Diese Beispielcodeausschnitte veranschaulichen, wie folgende Vorgänge mit der Azure Queue Storage-Clientbibliothek für Java ausgeführt werden:
 
-* [Abrufen der Verbindungszeichenfolge](#get-the-connection-string)
-* [Erstellen einer Warteschlange](#create-a-queue)
-* [Hinzufügen von Nachrichten zu einer Warteschlange](#add-messages-to-a-queue)
-* [Einsehen von Nachrichten in einer Warteschlange](#peek-at-messages-in-a-queue)
-* [Aktualisieren einer Nachricht in einer Warteschlange](#update-a-message-in-a-queue)
-* [Empfangen und Löschen von Nachrichten aus einer Warteschlange](#receive-and-delete-messages-from-a-queue)
-* [Löschen einer Warteschlange](#delete-a-queue)
+- [Abrufen der Verbindungszeichenfolge](#get-the-connection-string)
+- [Erstellen einer Warteschlange](#create-a-queue)
+- [Hinzufügen von Nachrichten zu einer Warteschlange](#add-messages-to-a-queue)
+- [Einsehen von Nachrichten in einer Warteschlange](#peek-at-messages-in-a-queue)
+- [Aktualisieren einer Nachricht in einer Warteschlange](#update-a-message-in-a-queue)
+- [Empfangen und Löschen von Nachrichten aus einer Warteschlange](#receive-and-delete-messages-from-a-queue)
+- [Löschen einer Warteschlange](#delete-a-queue)
 
 ### <a name="get-the-connection-string"></a>Abrufen der Verbindungszeichenfolge
 
@@ -202,7 +218,6 @@ Legen Sie einen Namen für die neue Warteschlange fest. Der folgende Code hängt
 
 > [!IMPORTANT]
 > Warteschlangennamen dürfen nur Kleinbuchstaben, Ziffern und Bindestriche enthalten und müssen mit einem Buchstaben oder einer Ziffer beginnen. Vor und nach jedem Bindestrich muss ein Zeichen stehen, das kein Bindestrich ist. Der Name muss außerdem zwischen 3 und 63 Zeichen lang sein. Weitere Informationen zum Benennen von Warteschlangen finden Sie unter [Benennen von Warteschlangen und Metadaten](/rest/api/storageservices/naming-queues-and-metadata).
-
 
 Erstellen Sie eine Instanz der [QueueClient](/java/api/com.azure.storage.queue.queueclient)-Klasse. Rufen Sie dann die [create](/java/api/com.azure.storage.queue.queueclient.create)-Methode auf, um die Warteschlange in Ihrem Speicherkonto zu erstellen.
 
@@ -266,7 +281,7 @@ System.out.println("\nUpdating the third message in the queue...");
 // Update a message using the result that
 // was saved when sending the message
 queueClient.updateMessage(result.getMessageId(),
-                          result.getPopReceipt(), 
+                          result.getPopReceipt(),
                           "Third message has been updated",
                           Duration.ofSeconds(1));
 ```
@@ -363,7 +378,7 @@ Done
 
 Wenn die App vor dem Empfangen von Nachrichten angehalten wird, überprüfen Sie Ihr Speicherkonto im [Azure-Portal](https://portal.azure.com). Überprüfen Sie, ob sich in der Warteschlange Nachrichten befinden.
 
-Drücken Sie die **EINGABETASTE** , um Nachrichten zu empfangen und zu löschen. Wenn Sie dazu aufgefordert werden, drücken Sie erneut die **EINGABETASTE** , um die Warteschlange zu löschen und die Demo zu beenden.
+Drücken Sie die **EINGABETASTE**, um Nachrichten zu empfangen und zu löschen. Wenn Sie dazu aufgefordert werden, drücken Sie erneut die **EINGABETASTE**, um die Warteschlange zu löschen und die Demo zu beenden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
@@ -374,5 +389,5 @@ Tutorials, Beispiele, Schnellstartanleitungen und weiteres Dokumentationsmateria
 > [!div class="nextstepaction"]
 > [Azure für Java-Cloudentwickler](/azure/developer/java/)
 
-* Weitere Beispiel-Apps für Azure Queue Storage finden Sie bei den [
+- Weitere Beispiel-Apps für Azure Queue Storage finden Sie bei den [
 Beispielen für die Azure Queue Storage SDK-Clientbibliothek v12 für Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue).

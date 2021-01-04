@@ -2,7 +2,7 @@
   href: index.yml
 - name: Übersicht
   items:
-    - name: Was ist Stream Analytics?
+    - name: Willkommen bei Stream Analytics
       href: stream-analytics-introduction.md
     - name: "Stream\_Analytics-Cluster"
       href: cluster-overview.md
@@ -189,10 +189,13 @@
             - name: Blob Storage
               href: blob-output-managed-identity.md
               displayName: 'managed identity, identities, authenticate'
+            - name: Event Hubs
+              href: event-hubs-managed-identity.md
+              displayName: 'managed identity, identities, authenticate'
             - name: Power BI
               href: powerbi-output-managed-identity.md
               displayName: 'managed identity, identities, authenticate'
-            - name: Azure SQL-Datenbank
+            - name: Azure SQL und Azure Synapse
               href: sql-database-output-managed-identity.md
               displayName: 'managed identity, identities, authenticate'
         - name: Verschlüsseln Ihrer Daten
@@ -224,7 +227,7 @@
           href: ../event-hubs/process-data-azure-stream-analytics.md
           maintainContext: true
         - name: Verarbeiten von Azure SQL-Datenbank
-          href: ../sql-database/sql-database-stream-analytics.md
+          href: ../azure-sql/database/stream-data-stream-analytics-integration.md
           maintainContext: true
         - name: Szenarien für Geodaten
           href: geospatial-scenarios.md
@@ -686,7 +689,7 @@
     - name: Feedbackforum
       href: 'https://feedback.azure.com/forums/270577-azure-stream-analytics'
     - name: "Frageseite von Microsoft\_Q&A (Fragen und Antworten)"
-      href: 'https://docs.microsoft.com/answers/topics/azure-stream-analytics.html'
+      href: /answers/topics/azure-stream-analytics.html
     - name: Preise
       href: 'https://azure.microsoft.com/pricing/details/stream-analytics/'
     - name: Preisrechner

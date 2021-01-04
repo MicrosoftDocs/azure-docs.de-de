@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
-ms.openlocfilehash: bc84c8ef27b86244a7f467109525bdcb14bd030b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92e94c911acb701b1ccf8e39636d152cc5bfb575
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087536"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534803"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-hdinsight"></a>Visualisieren von Interactive Query Apache Hive-Daten mit Microsoft Power BI mithilfe direkter Abfragen in HDInsight
 
@@ -21,12 +21,12 @@ In diesem Artikel wird beschrieben, wie Sie Microsoft Power BI mithilfe von dire
 
 ![HDInsight Power BI Kartenbericht](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 
-Sie können den [Apache Hive-ODBC-Treiber](../hadoop/apache-hadoop-connect-hive-power-bi.md) verwenden, um Importe über den generischen ODBC-Connector in Power BI Desktop durchzuführen. Aufgrund der fehlenden Interaktivität der Hive-Abfrage-Engine wird die Verwendung für BI-Workloads jedoch nicht empfohlen. Aus Leistungsgründen sind der [HDInsight Interactive Query-Connector](./apache-hadoop-connect-hive-power-bi-directquery.md) und der [HDInsight Apache Spark-Connector](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) die bessere Wahl.
+Sie können den [Apache Hive-ODBC-Treiber](../hadoop/apache-hadoop-connect-hive-power-bi.md) verwenden, um Importe über den generischen ODBC-Connector in Power BI Desktop durchzuführen. Aufgrund der fehlenden Interaktivität der Hive-Abfrage-Engine wird die Verwendung für BI-Workloads jedoch nicht empfohlen. Aus Leistungsgründen sind der [HDInsight Interactive Query-Connector](./apache-hadoop-connect-hive-power-bi-directquery.md) und der [HDInsight Apache Spark-Connector](/power-bi/spark-on-hdinsight-with-direct-connect) die bessere Wahl.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 Bevor Sie diesen Artikel durchgehen können, benötigen Sie Folgendes:
 
-* **HDInsight-Cluster**. Bei dem Cluster kann es sich entweder um einen HDInsight-Cluster mit Apache Hive oder um einen neu veröffentlichten Interactive Query-Cluster handeln. Informationen zum Erstellen von Clustern finden Sie unter [Cluster erstellen](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* **HDInsight-Cluster** . Bei dem Cluster kann es sich entweder um einen HDInsight-Cluster mit Apache Hive oder um einen neu veröffentlichten Interactive Query-Cluster handeln. Informationen zum Erstellen von Clustern finden Sie unter [Cluster erstellen](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)** . Sie können eine Kopie aus dem [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45331) herunterladen.
 
 ## <a name="load-data-from-hdinsight"></a>Laden von Daten aus HDInsight
@@ -49,13 +49,13 @@ Die Hive-Tabelle `hivesampletable` ist in allen HDInsight-Clustern enthalten.
 
     |Eigenschaft | value |
     |---|---|
-    |Server |Geben Sie den Namen des Clusters ein, z.B. *myiqcluster.azurehdinsight.net*.|
+    |Server |Geben Sie den Namen des Clusters ein, z.B. *myiqcluster.azurehdinsight.net* .|
     |Datenbank |Geben Sie für diesen Artikel **Standard** ein.|
     |Datenkonnektivitätsmodus |Wählen Sie für diesen Artikel **DirectQuery** aus.|
 
     ![HDInsight Interactive Query – Verbindung mit Power BI DirectQuery](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-connect.png)
 
-7. Geben Sie die HTTP-Anmeldeinformationen ein, und wählen Sie dann **Verbinden** aus. Der Standardbenutzername lautet **admin**.
+7. Geben Sie die HTTP-Anmeldeinformationen ein, und wählen Sie dann **Verbinden** aus. Der Standardbenutzername lautet **admin** .
 
 8. Wählen Sie im Fenster **Navigator** im linken Bereich **hivesampletable** aus.
 

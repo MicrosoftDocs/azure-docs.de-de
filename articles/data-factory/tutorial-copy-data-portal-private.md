@@ -12,21 +12,21 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 953dae3c264e76b1e40f0dc07ccea0c00a7464c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f5d691ef99ac4647d2031d6588d0b3922edd8cf
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90024416"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505987"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Sicheres Kopieren von Daten aus Azure Blob Storage in eine SQL-Datenbank mithilfe von privaten Endpunkten
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In diesem Tutorial erstellen Sie eine Data Factory über die Azure Data Factory-Benutzeroberfläche (User Interface, UI). *Die Pipeline in dieser Data Factory kopiert Daten sicher aus Azure Blob Storage in eine Azure SQL-Datenbank (beide lassen nur den Zugriff auf ausgewählte Netzwerke zu). Dazu werden private Endpunkte in einem [verwalteten virtuellen Azure Data Factory-Netzwerk](managed-virtual-network-private-endpoint.md) verwendet.* Das Konfigurationsmuster in diesem Tutorial gilt für Kopiervorgänge aus einem dateibasierten Datenspeicher in einen relationalen Datenspeicher. Eine Liste der Datenspeicher, die als Quellen und Senken unterstützt werden, finden Sie in der Tabelle [Unterstützte Datenspeicher und Formate](https://docs.microsoft.com/azure/data-factory/copy-activity-overview).
+In diesem Tutorial erstellen Sie eine Data Factory über die Azure Data Factory-Benutzeroberfläche (User Interface, UI). *Die Pipeline in dieser Data Factory kopiert Daten sicher aus Azure Blob Storage in eine Azure SQL-Datenbank (beide lassen nur den Zugriff auf ausgewählte Netzwerke zu). Dazu werden private Endpunkte in einem [verwalteten virtuellen Azure Data Factory-Netzwerk](managed-virtual-network-private-endpoint.md) verwendet.* Das Konfigurationsmuster in diesem Tutorial gilt für Kopiervorgänge aus einem dateibasierten Datenspeicher in einen relationalen Datenspeicher. Eine Liste der Datenspeicher, die als Quellen und Senken unterstützt werden, finden Sie in der Tabelle [Unterstützte Datenspeicher und Formate](./copy-activity-overview.md).
 
 > [!NOTE]
-> Falls Sie noch nicht mit Data Factory vertraut sind, ist es ratsam, den Artikel [Einführung in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) zu lesen.
+> Falls Sie noch nicht mit Data Factory vertraut sind, ist es ratsam, den Artikel [Einführung in Azure Data Factory](./introduction.md) zu lesen.
 
 In diesem Tutorial führen Sie die folgenden Schritte aus:
 
@@ -36,8 +36,8 @@ In diesem Tutorial führen Sie die folgenden Schritte aus:
 
 ## <a name="prerequisites"></a>Voraussetzungen
 * **Azure-Abonnement**. Wenn Sie über kein Azure-Abonnement verfügen, können Sie ein [kostenloses Azure-Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
-* **Azure-Speicherkonto**. Sie verwenden Blob Storage als *Quelldatenspeicher*. Wenn Sie kein Speicherkonto besitzen, finden Sie unter [Informationen zu Azure-Speicherkonten](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal) Schritte zum Erstellen eines solchen Kontos. *Stellen Sie sicher, dass das Speicherkonto nur den Zugriff über ausgewählte Netzwerke zulässt.* 
-* **Azure SQL-Datenbank**. Sie verwenden die Datenbank als *Senkendatenspeicher*. Wenn Sie keine Azure SQL-Datenbank besitzen, finden Sie Schritte zum Erstellen einer solchen Datenbank unter [Erstellen einer SQL-Datenbank](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). *Stellen Sie sicher, dass das SQL-Datenbank-Konto nur den Zugriff über ausgewählte Netzwerke zulässt.* 
+* **Azure-Speicherkonto**. Sie verwenden Blob Storage als *Quelldatenspeicher*. Wenn Sie kein Speicherkonto besitzen, finden Sie unter [Informationen zu Azure-Speicherkonten](../storage/common/storage-account-create.md?tabs=azure-portal) Schritte zum Erstellen eines solchen Kontos. *Stellen Sie sicher, dass das Speicherkonto nur den Zugriff über ausgewählte Netzwerke zulässt.* 
+* **Azure SQL-Datenbank**. Sie verwenden die Datenbank als *Senkendatenspeicher*. Wenn Sie keine Azure SQL-Datenbank besitzen, finden Sie Schritte zum Erstellen einer solchen Datenbank unter [Erstellen einer SQL-Datenbank](../azure-sql/database/single-database-create-quickstart.md). *Stellen Sie sicher, dass das SQL-Datenbank-Konto nur den Zugriff über ausgewählte Netzwerke zulässt.* 
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Erstellen eines Blobs und einer SQL-Tabelle
 
@@ -45,7 +45,7 @@ Bereiten Sie nun Ihren Blobspeicher und Ihre SQL-Datenbank-Instanz durch Ausfüh
 
 #### <a name="create-a-source-blob"></a>Erstellen eines Quellblobs
 
-1. Öffnen Sie Notepad. Kopieren Sie den folgenden Text, und speichern Sie ihn als **emp.txt**-Datei auf einem Datenträger:
+1. Öffnen Sie Notepad. Kopieren Sie den folgenden Text, und speichern Sie ihn als **emp.txt** -Datei auf einem Datenträger:
 
     ```
     FirstName,LastName
@@ -59,17 +59,17 @@ Bereiten Sie nun Ihren Blobspeicher und Ihre SQL-Datenbank-Instanz durch Ausfüh
 
 Verwenden Sie das folgende SQL-Skript, um die Tabelle **dbo.emp** in Ihrer SQL-Datenbank zu erstellen:
 
-    ```sql
-    CREATE TABLE dbo.emp
-    (
-        ID int IDENTITY(1,1) NOT NULL,
-        FirstName varchar(50),
-        LastName varchar(50)
-    )
-    GO
+```sql
+CREATE TABLE dbo.emp
+(
+    ID int IDENTITY(1,1) NOT NULL,
+    FirstName varchar(50),
+    LastName varchar(50)
+)
+GO
 
-    CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
-    ```
+CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
+```
 
 ## <a name="create-a-data-factory"></a>Erstellen einer Data Factory
 In diesem Schritt erstellen Sie eine Data Factory und starten die Data Factory-Benutzeroberfläche, um eine Pipeline in der Data Factory zu erstellen.
@@ -80,16 +80,16 @@ In diesem Schritt erstellen Sie eine Data Factory und starten die Data Factory-B
 
 1. Geben Sie auf der Seite **Neue Data Factory** unter **Name** den Namen **ADFTutorialDataFactory** ein.
 
-   Der Name der Azure Data Factory muss *global eindeutig*sein. Wenn eine Fehlermeldung zum Namenswert angezeigt wird, geben Sie einen anderen Namen für die Data Factory ein (z. B. yournameADFTutorialDataFactory). Benennungsregeln für Data Factory-Artefakte finden Sie im Thema [Azure Data Factory – Benennungsregeln](https://docs.microsoft.com/azure/data-factory/naming-rules).
+   Der Name der Azure Data Factory muss *global eindeutig* sein. Wenn eine Fehlermeldung zum Namenswert angezeigt wird, geben Sie einen anderen Namen für die Data Factory ein (z. B. yournameADFTutorialDataFactory). Benennungsregeln für Data Factory-Artefakte finden Sie im Thema [Azure Data Factory – Benennungsregeln](./naming-rules.md).
 
 1. Wählen Sie das **Azure-Abonnement** aus, in dem die Data Factory erstellt werden soll.
 
 1. Führen Sie unter **Ressourcengruppe** einen der folgenden Schritte aus:
 
-    - Wählen Sie die Option **Use existing**(Vorhandene verwenden) und dann in der Dropdownliste eine vorhandene Ressourcengruppe.
-    - Wählen Sie **Neu erstellen**, und geben Sie den Namen einer Ressourcengruppe ein. 
+    - Wählen Sie die Option **Use existing** (Vorhandene verwenden) und dann in der Dropdownliste eine vorhandene Ressourcengruppe.
+    - Wählen Sie **Neu erstellen** , und geben Sie den Namen einer Ressourcengruppe ein. 
      
-    Weitere Informationen zu Ressourcengruppen finden Sie unter [Verwenden von Ressourcengruppen zum Verwalten von Azure-Ressourcen](https://docs.microsoft.com/azure/azure-resource-manager/management/overview). 
+    Weitere Informationen zu Ressourcengruppen finden Sie unter [Verwenden von Ressourcengruppen zum Verwalten von Azure-Ressourcen](../azure-resource-manager/management/overview.md). 
 
 1. Wählen Sie unter **Version** die Option **V2**.
 
@@ -99,12 +99,12 @@ In diesem Schritt erstellen Sie eine Data Factory und starten die Data Factory-B
 
 1. Nach Abschluss der Erstellung wird der Hinweis im Benachrichtigungscenter angezeigt. Wählen Sie **Zu Ressource wechseln** aus, um zur Seite **Data Factory** zu navigieren.
 
-1. Klicken Sie auf **Erstellen und überwachen**, um die Data Factory-Benutzeroberfläche auf einer separaten Registerkarte zu starten.
+1. Klicken Sie auf **Erstellen und überwachen** , um die Data Factory-Benutzeroberfläche auf einer separaten Registerkarte zu starten.
 
 ## <a name="create-an-azure-integration-runtime-in-data-factory-managed-virtual-network"></a>Erstellen einer Azure Integration Runtime-Instanz in einem verwalteten virtuellen Data Factory-Netzwerk
 In diesem Schritt erstellen Sie eine Azure Integration Runtime-Instanz und aktivieren ein verwaltetes virtuelles Data Factory-Netzwerk.
 
-1. Navigieren Sie im Data Factory-Portal zu **Verwalten**, und wählen Sie **Neu** aus, um eine neue Azure Integration Runtime-Instanz zu erstellen.
+1. Navigieren Sie im Data Factory-Portal zu **Verwalten** , und wählen Sie **Neu** aus, um eine neue Azure Integration Runtime-Instanz zu erstellen.
 
    ![Screenshot, der das Erstellen einer neuen Azure Integration Runtime-Instanz zeigt.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
 1. Wählen Sie die Erstellung einer **Azure** Integration Runtime-Instanz.
@@ -116,7 +116,7 @@ In diesem Schritt erstellen Sie eine Azure Integration Runtime-Instanz und aktiv
 1. Klicken Sie auf **Erstellen**.
 
 ## <a name="create-a-pipeline"></a>Erstellen einer Pipeline
-In diesem Schritt erstellen Sie eine Pipeline mit einer Copy-Aktivität in der Data Factory. Die Copy-Aktivität kopiert Daten aus Blob Storage in SQL-Datenbank. Im [Schnellstarttutorial](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal) haben Sie anhand der folgenden Schritte eine Pipeline erstellt:
+In diesem Schritt erstellen Sie eine Pipeline mit einer Copy-Aktivität in der Data Factory. Die Copy-Aktivität kopiert Daten aus Blob Storage in SQL-Datenbank. Im [Schnellstarttutorial](./quickstart-create-data-factory-portal.md) haben Sie anhand der folgenden Schritte eine Pipeline erstellt:
 
 1. 1\. Erstellen des verknüpften Diensts
 1. Erstellen von Eingabe- und Ausgabedatasets
@@ -129,20 +129,20 @@ In diesem Tutorial beginnen Sie mit dem Erstellen einer Pipeline. Verknüpfte Di
    ![Screenshot, der das Erstellen einer Pipeline zeigt.](./media/doc-common-process/get-started-page.png)
 1. Geben Sie im Eigenschaftenbereich der Pipeline als Name der Pipeline **CopyPipeline** ein.
 
-1. Erweitern Sie in der Toolbox **Aktivitäten** die Kategorie **Verschieben und transformieren**, und ziehen Sie die Aktivität **Daten kopieren** aus der Toolbox auf die Oberfläche des Pipeline-Designers. Geben Sie als Namen **CopyFromBlobToSql** ein.
+1. Erweitern Sie in der Toolbox **Aktivitäten** die Kategorie **Verschieben und transformieren** , und ziehen Sie die Aktivität **Daten kopieren** aus der Toolbox auf die Oberfläche des Pipeline-Designers. Geben Sie als Namen **CopyFromBlobToSql** ein.
 
     ![Screenshot, der die Kopieraktivität zeigt.](./media/tutorial-copy-data-portal-private/drag-drop-copy-activity.png)
 
 ### <a name="configure-a-source"></a>Konfigurieren einer Quelle
 
 >[!TIP]
->In diesem Tutorial verwenden Sie **Kontoschlüssel** als Authentifizierungstyp für Ihren Quelldatenspeicher. Sie können bei Bedarf auch andere unterstützte Authentifizierungsmethoden auswählen, z. B. **SAS-URI**, **Dienstprinzipal** und **Verwaltete Identität**. Weitere Informationen finden Sie in den entsprechenden Abschnitten in [Kopieren und Transformieren von Daten in Azure Blob Storage mithilfe von Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#linked-service-properties).
+>In diesem Tutorial verwenden Sie **Kontoschlüssel** als Authentifizierungstyp für Ihren Quelldatenspeicher. Sie können bei Bedarf auch andere unterstützte Authentifizierungsmethoden auswählen, z. B. **SAS-URI** , **Dienstprinzipal** und **Verwaltete Identität**. Weitere Informationen finden Sie in den entsprechenden Abschnitten in [Kopieren und Transformieren von Daten in Azure Blob Storage mithilfe von Azure Data Factory](./connector-azure-blob-storage.md#linked-service-properties).
 >
->Zum sicheren Speichern von Geheimnissen für Datenspeicher sollten Sie auch Azure Key Vault verwenden. Weitere Informationen und Abbildungen finden Sie unter [Speichern von Anmeldeinformationen in Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
+>Zum sicheren Speichern von Geheimnissen für Datenspeicher sollten Sie auch Azure Key Vault verwenden. Weitere Informationen und Abbildungen finden Sie unter [Speichern von Anmeldeinformationen in Azure Key Vault](./store-credentials-in-key-vault.md).
 
 #### <a name="create-a-source-dataset-and-linked-service"></a>Erstellen eines Quelldataset und eines verknüpften Diensts
 
-1. Wechseln Sie zur Registerkarte **Quelle**. Klicken Sie auf **+ Neu**, um ein Quelldataset zu erstellen.
+1. Wechseln Sie zur Registerkarte **Quelle**. Klicken Sie auf **+ Neu** , um ein Quelldataset zu erstellen.
 
 1. Wählen Sie im Dialogfeld **Neues Dataset** die Option **Azure Blob Storage** und dann **Weiter** aus. Da sich die Quelldaten in Blob Storage befinden, wählen Sie **Azure Blob Storage** als Quelldataset aus.
 
@@ -168,7 +168,7 @@ In diesem Tutorial beginnen Sie mit dem Erstellen einer Pipeline. Verknüpfte Di
 
 1. Nach der Erstellung des verknüpften Diensts wird wieder die Seite **Eigenschaften festlegen** angezeigt. Klicken Sie neben **Dateipfad** auf **Durchsuchen**.
 
-1. Navigieren Sie zum Ordner **adftutorial/input**, und wählen Sie die Datei **emp.txt** und dann **OK** aus.
+1. Navigieren Sie zum Ordner **adftutorial/input** , und wählen Sie die Datei **emp.txt** und dann **OK** aus.
 
 1. Klicken Sie auf **OK**. Die Pipelineseite wird automatisch aufgerufen. Vergewissern Sie sich, dass auf der Registerkarte **Quelle** die Option **SourceBlobDataset** ausgewählt ist. Wenn Sie auf dieser Seite eine Vorschau der Daten anzeigen möchten, klicken Sie auf **Datenvorschau**.
 
@@ -215,12 +215,12 @@ Wenn Sie beim Testen der Verbindung nicht den Hyperlink ausgewählt haben, folge
 
 ### <a name="configure-a-sink"></a>Konfigurieren einer Senke
 >[!TIP]
->In diesem Tutorial verwenden Sie **SQL Authentifizierung** als Authentifizierungstyp für Ihren Senkendatenspeicher. Sie können bei Bedarf auch andere unterstützte Authentifizierungsmethoden auswählen, z. B. **Dienstprinzipal** und **Verwaltete Identität**. Weitere Informationen finden Sie in den entsprechenden Abschnitten in [Kopieren und Transformieren von Daten in Azure SQL-Datenbank mithilfe von Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#linked-service-properties).
+>In diesem Tutorial verwenden Sie **SQL Authentifizierung** als Authentifizierungstyp für Ihren Senkendatenspeicher. Sie können bei Bedarf auch andere unterstützte Authentifizierungsmethoden auswählen, z. B. **Dienstprinzipal** und **Verwaltete Identität**. Weitere Informationen finden Sie in den entsprechenden Abschnitten in [Kopieren und Transformieren von Daten in Azure SQL-Datenbank mithilfe von Azure Data Factory](./connector-azure-sql-database.md#linked-service-properties).
 >
->Zum sicheren Speichern von Geheimnissen für Datenspeicher sollten Sie auch Azure Key Vault verwenden. Weitere Informationen und Abbildungen finden Sie unter [Speichern von Anmeldeinformationen in Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
+>Zum sicheren Speichern von Geheimnissen für Datenspeicher sollten Sie auch Azure Key Vault verwenden. Weitere Informationen und Abbildungen finden Sie unter [Speichern von Anmeldeinformationen in Azure Key Vault](./store-credentials-in-key-vault.md).
 
 #### <a name="create-a-sink-dataset-and-linked-service"></a>Erstellen eines Senkendatasets und eines verknüpften Diensts
-1. Wechseln Sie zur Registerkarte **Senke**, und klicken Sie auf **+ Neu**, um ein Senkendataset zu erstellen.
+1. Wechseln Sie zur Registerkarte **Senke** , und klicken Sie auf **+ Neu** , um ein Senkendataset zu erstellen.
 
 1. Geben Sie im Dialogfeld **Neues Dataset** **SQL** in das Suchfeld ein, um die Connectors zu filtern. Wählen Sie **Azure SQL-Datenbank** und dann **Weiter** aus. In diesem Tutorial kopieren Sie Daten in eine SQL-Datenbank.
 
@@ -245,7 +245,7 @@ Wenn Sie beim Testen der Verbindung nicht den Hyperlink ausgewählt haben, folge
 
     ![Screenshot, der die Pipeline-Registerkarte zeigt.](./media/tutorial-copy-data-portal-private/pipeline-tab-2.png)
 
-Optional können Sie das Schema der Quelle dem entsprechenden Zielschema zuordnen. Befolgen Sie dazu die Anweisungen unter [Schemazuordnung in Kopieraktivität](https://docs.microsoft.com/azure/data-factory/copy-activity-schema-and-type-mapping).
+Optional können Sie das Schema der Quelle dem entsprechenden Zielschema zuordnen. Befolgen Sie dazu die Anweisungen unter [Schemazuordnung in Kopieraktivität](./copy-activity-schema-and-type-mapping.md).
 
 #### <a name="create-a-managed-private-endpoint"></a>Erstellen eines verwalteten privaten Endpunkts
 
@@ -275,7 +275,7 @@ Wenn Sie beim Testen der Verbindung nicht den Hyperlink ausgewählt haben, folge
 
 Sie können vor dem Veröffentlichen von Artefakten (verknüpfte Dienste, Datasets und Pipeline) in Data Factory oder Ihrem eigenen Azure DevOps-Git-Repository eine Pipeline debuggen.
 
-1. Klicken Sie auf der Symbolleiste auf **Debuggen**, um die Pipeline zu debuggen. Der Status der Pipelineausführung wird unten im Fenster auf der Registerkarte **Ausgabe** angezeigt.
+1. Klicken Sie auf der Symbolleiste auf **Debuggen** , um die Pipeline zu debuggen. Der Status der Pipelineausführung wird unten im Fenster auf der Registerkarte **Ausgabe** angezeigt.
 1. Sobald die Pipeline erfolgreich ausgeführt werden kann, wählen Sie in der oberen Symbolleiste **Alle veröffentlichen** aus. Mit dieser Aktion werden erstellte Entitäten (Datasets und Pipelines) in Data Factory veröffentlicht.
 1. Warten Sie, bis die Meldung **Erfolgreich veröffentlicht** angezeigt wird. Um Benachrichtigungsmeldungen anzuzeigen, wählen Sie in der oberen rechten Ecke **Benachrichtigungen anzeigen** (Glockenschaltfläche) aus.
 
@@ -285,4 +285,3 @@ Die Pipeline in diesem Beispiel kopiert mithilfe privater Endpunkte in einem ver
 
 * Erstellen einer Data Factory.
 * Erstellen einer Pipeline mit einer Copy-Aktivität
-

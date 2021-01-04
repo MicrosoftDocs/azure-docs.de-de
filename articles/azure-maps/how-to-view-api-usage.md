@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 3f5dfcafe1c7b08a2c8320f807bf809107197d40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9b732bd25e7ef8aa084c98d5b059d422f86a4b0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335278"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003513"
 ---
 # <a name="view-azure-maps-api-usage-metrics"></a>Anzeigen der Azure Maps-API-Nutzungsmetriken
 
@@ -21,7 +21,7 @@ In diesem Artikel erfahren Sie, wie Sie die API-Nutzungsmetriken für Ihr Azure 
 
 ## <a name="view-metric-snapshot"></a>Anzeigen der Metrikenmomentaufnahme
 
-Sie sehen einige gängige Metriken auf der **Übersicht**-Seite Ihres Maps-Kontos. Derzeit werden *Anforderungen gesamt*, *Fehler gesamt * und *Verfügbarkeit* für einen auswählbaren Zeitraum angezeigt.
+Sie sehen einige gängige Metriken auf der **Übersicht**-Seite Ihres Maps-Kontos. Derzeit werden *Anforderungen gesamt*, *Fehler gesamt* und *Verfügbarkeit* für einen auswählbaren Zeitraum angezeigt.
 
 ![Übersicht zu Nutzungsmetriken von Azure Maps](media/how-to-view-api-usage/portal-overview.png)
 
@@ -66,4 +66,4 @@ Erfahren Sie mehr über die Azure Maps-APIs, für die Sie die Nutzung verfolgen 
 > [Azure Maps Android SDK: Anleitung](how-to-use-android-map-control-library.md)
 
 > [!div class="nextstepaction"]
-> [Dokumentation zur REST API von Azure Maps](https://docs.microsoft.com/rest/api/maps)
+> [Dokumentation zur REST API von Azure Maps](/rest/api/maps)

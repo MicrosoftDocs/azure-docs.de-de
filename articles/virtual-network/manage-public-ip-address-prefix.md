@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
-ms.openlocfilehash: 90fc35249daea51a08cb83143c6be024e78964a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b86f9bcbc863a78fd5f8f748e973a20ea709636
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804009"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573169"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Erstellen, Ändern oder Löschen des Präfix einer öffentlichen IP-Adresse
 
@@ -60,6 +60,9 @@ Für Präfixe öffentlicher IP-Adressen fällt eine Gebühr an. Weitere Informat
 |---|---|
 |Befehlszeilenschnittstelle (CLI)|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
 |PowerShell|[New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix)|
+
+>[!NOTE]
+>In Regionen mit Verfügbarkeitszonen können Sie PowerShell- oder CLI-Befehle verwenden, um ein Präfix für eine öffentliche IP-Adresse zu erstellen: nicht zonal, mit einer bestimmten Zone verknüpft oder zur Verwendung von Zonenredundanz.  Wenn kein Zonenparameter bereitgestellt wird, wird für API-Version 2020-08-01 oder höher ein nicht zonales öffentliches IP-Adresspräfix erstellt. Für ältere API-Versionen als 2020-08-01 wird ein zonenredundantes öffentliches IP-Adresspräfix erstellt. 
 
 ## <a name="create-a-static-public-ip-address-from-a-prefix"></a>Erstellen einer statischen öffentlichen IP-Adresse aus einem Präfix
 Sobald Sie ein Präfix erstellt haben, müssen Sie statische IP-Adressen aus dem Präfix erstellen. Führen Sie dazu die folgenden Schritte aus.

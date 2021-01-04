@@ -7,74 +7,76 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 8a503a5456fc28bd1b3ebb69c784fc59b3c6e7df
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: dd29b18dda46a00966a0e5adea7e06be8f43ad35
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92049577"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444965"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Abfragen von Daten in Azure Monitor mit Azure Data Explorer (Vorschau)
-Der Azure Data Explorer-Proxycluster ermöglicht Ihnen das Ausführen produktübergreifender Abfragen zwischen Azure Data Explorer, Log Analytics-Arbeitsbereichen und klassischen Application Insights-Anwendungen in Azure Monitor. Sie können Log Analytics-Arbeitsbereiche in Azure Monitor oder klassische Application Insights-Apps als Proxycluster zuordnen. Anschließend können Sie den Proxycluster mit Azure Data Explorer-Tools abfragen und in einer clusterübergreifenden Abfrage auf ihn verweisen. In dem Artikel wird erläutert, wie eine Verbindung mit einem Proxycluster hergestellt wird, der Azure Data Explorer-Webbenutzeroberfläche ein Proxycluster hinzugefügt wird und über Azure Data Explorer Abfragen für Ihre Log Analytics-Arbeitsbereiche oder klassischen Application Insights-Apps ausgeführt werden.
 
-Die folgende Abbildung zeigt den Azure Data Explorer-Proxyflow:
+Azure Data Explorer unterstützt dienstübergreifende Abfragen zwischen Azure Data Explorer, [Application Insights (AI)](/azure/azure-monitor/app/app-insights-overview) und [Log Analytics (LA)](/azure/azure-monitor/platform/data-platform-logs). Anschließend können Sie den Log Analytics/Application Insights-Arbeitsbereich mithilfe von Azure Data Explorer-Tools abfragen und in einer dienstübergreifenden Abfrage darauf verweisen. In diesem Artikel wird gezeigt, wie Sie eine dienstübergreifende Abfrage erstellen und den Log Analytics/Application Insights-Arbeitsbereich zur Azure Data Explorer-Webbenutzeroberfläche hinzufügen.
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-data-explorer-monitor-proxy-flow.png" alt-text="Azure Data Explorer-Proxyflow":::
-
+Ablauf dienstübergreifender Abfragen mit Azure Data Explorer: :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-monitor-flow.png" alt-text="Azure Data Explorer-Proxyflow":::
 
 > [!NOTE]
-> Der Azure Data Explorer-Proxy befindet sich in der Public Preview. [Stellen Sie eine Verbindung mit dem Proxy her](#connect-to-the-proxy), um das Proxyfeature für Ihre Cluster zu aktivieren. 
+> * Die Funktion zum Abfragen von Azure Monitor-Daten in Azure Data Explorer, entweder direkt über Azure Data Explorer-Clienttools oder indirekt durch Ausführen einer Abfrage in einem Azure Data Explorer-Cluster, befindet sich im Vorschaumodus.
+>* Wenden Sie sich bei Fragen an das [Team für dienstübergreifende Abfragen](mailto:adxproxy@microsoft.com).
 
-## <a name="connect-to-the-proxy"></a>Herstellen einer Verbindung mit dem Proxy
-Öffnen Sie die [Azure Data Explorer-Webbenutzeroberfläche](https://dataexplorer.azure.com/clusters), um eine Verbindung mit Ihrem Log Analytics-Arbeitsbereich oder Ihrer klassischen Application Insights-App herzustellen. Überprüfen Sie vor dem Herstellen der Verbindung mit dem Log Analytics- oder Application Insights-Cluster, ob im linken Menü der native Azure Data Explorer-Cluster (z. B. der *Hilfecluster*) angezeigt wird.
+## <a name="add-a-log-analyticsapplication-insights-workspace-to-azure-data-explorer-client-tools"></a>Hinzufügen eines Log Analytics/Application Insights-Arbeitsbereichs zu Azure Data Explorer-Clienttools
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-data-explorer-web-ui-help-cluster.png" alt-text="Azure Data Explorer-Proxyflow":::
+1. Überprüfen Sie vor dem Herstellen der Verbindung mit dem Log Analytics- oder Application Insights-Cluster, ob im linken Menü der native Azure Data Explorer-Cluster (z. B. der *Hilfecluster*) angezeigt wird.
 
-Klicken Sie auf **Add Cluster** (Cluster hinzufügen), und fügen Sie dann die URL des Log Analytics- oder Application Insights-Clusters in einem der folgenden Formate hinzu. 
-    
-* Für Log Analytics: `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
-* Für Application Insights: `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-data-explorer-web-ui-help-cluster.png" alt-text="Nativer Azure Data Explorer-Cluster":::
 
-Klicken Sie auf **Hinzufügen**, um die Verbindung herzustellen.
+ Wählen Sie auf der Azure Data Explorer-Benutzeroberfläche (https://dataexplorer.azure.com/clusters)**Cluster hinzufügen** aus.
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-add-cluster.png" alt-text="Azure Data Explorer-Proxyflow":::
+2. Fügen Sie im Fenster **Cluster hinzufügen** dem LA- oder AI-Cluster die URL hinzu.
+
+    * Für LA: `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
+    * Für AI: `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`
+
+    * Wählen Sie **Hinzufügen**.
+
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-add-cluster.png" alt-text="Schaltfläche „Add Cluster“ (Cluster hinzufügen)":::
  
-> [!NOTE]
-> Wenn Sie eine Verbindung mit mehreren Proxyclustern hinzufügen, geben Sie jedem Cluster einen anderen Namen. Andernfalls haben alle Cluster im linken Bereich den gleichen Namen.
+>[!NOTE]
+>Wenn Sie eine Verbindung zu mehreren Log Analytics/Application Insights-Arbeitsbereichen hinzufügen, geben Sie jedem einen anderen Namen. Andernfalls haben alle Cluster im linken Bereich den gleichen Namen.
 
-Nachdem die Verbindung hergestellt wurde, wird Ihr Log Analytics- oder Application Insights-Cluster im linken Bereich mit Ihrem nativen Azure Data Explorer-Cluster angezeigt. 
+ Nachdem die Verbindung hergestellt wurde, wird Ihr Log Analytics- oder Application Insights-Arbeitsbereich im linken Bereich mit Ihrem nativen Azure Data Explorer-Cluster angezeigt.
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-azure-data-explorer-clusters.png" alt-text="Azure Data Explorer-Proxyflow":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-azure-data-explorer-clusters.png" alt-text="Log Analytics- und Azure Data Explorer-Cluster":::
  
 > [!NOTE]
 > Die Anzahl von Azure Monitor-Arbeitsbereichen, die zugeordnet werden können, ist auf 100 beschränkt.
 
 ## <a name="create-queries-using-azure-monitor-data"></a>Erstellen von Abfragen mithilfe von Azure Monitor-Daten
 
-Sie können die Abfragen mithilfe von Clienttools ausführen, die Kusto-Abfragen unterstützen, z. B.: Kusto Explorer, Azure Data Explorer-Webbenutzeroberfläche, Jupyter Kqlmagic, Flow, PowerQuery, PowerShell, Jarvis, Lens und REST-API.
+Sie können die Abfragen mithilfe von Clienttools ausführen, die Kusto-Abfragen unterstützen, z. B.: Kusto Explorer, Azure Data Explorer-Webbenutzeroberfläche, Jupyter Kqlmagic, Flow, PowerQuery, PowerShell, Lens und REST-API.
 
 > [!NOTE]
-> Das Azure Data Explorer-Proxyfeature wird nur für den Datenabruf verwendet. Weitere Informationen finden Sie unter [Funktionsunterstützbarkeit](#function-supportability).
+> Die Funktion für dienstübergreifende Abfragen wird nur für den Datenabruf verwendet. Weitere Informationen finden Sie unter [Funktionsunterstützbarkeit](#function-supportability).
 
 > [!TIP]
-> * Datenbanknamen müssen den gleichen Namen wie die im Proxycluster angegebene Ressource haben. Bei Namen wird die Groß-/Kleinschreibung beachtet.
+> * Datenbanken müssen den gleichen Namen wie die in der dienstübergreifenden Abfrage angegebene Ressource haben. Bei Namen wird die Groß-/Kleinschreibung beachtet.
 > * Achten Sie bei clusterübergreifenden Abfragen auf eine korrekte Benennung der Application Insights-Apps und Log Analytics-Arbeitsbereiche.
->     * Wenn Namen Sonderzeichen enthalten, werden diese im Proxyclusternamen durch URL-Codierung ersetzt. 
->     * Wenn Namen Zeichen enthalten, die nicht den [KQL-Regeln für Bezeichnernamen](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/entity-names) entsprechen, werden sie durch einen Bindestrich ( **-** ) ersetzt.
+> * Wenn Namen Sonderzeichen enthalten, werden diese in der dienstübergreifenden Abfrage durch URL-Codierung ersetzt.
+> * Wenn Namen Zeichen enthalten, die nicht den [KQL-Regeln für Bezeichnernamen](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/entity-names) entsprechen, werden sie durch einen Bindestrich ( **-** ) ersetzt.
 
-### <a name="direct-query-from-your-log-analytics-or-application-insights-proxy-cluster"></a>Direkte Abfrage über Log Analytics- oder Application Insights-Proxycluster
+### <a name="direct-query-on-your-log-analytics-or-application-insights-workspaces-from-azure-data-explorer-client-tools"></a>Direkte Abfrage der Log Analytics- oder Application Insights-Arbeitsbereiche über Azure Data Explorer-Clienttools
 
-Führen Sie Abfragen für Ihre Log Analytics- oder Application Insights-Cluster aus. Vergewissern Sie sich, dass Ihr Cluster im linken Bereich ausgewählt ist. 
+Führen Sie Abfragen für Ihre Log Analytics- oder Application Insights-Arbeitsbereiche aus. Vergewissern Sie sich, dass Ihr Arbeitsbereich im linken Bereich ausgewählt ist.
  
 ```kusto
-Perf | take 10 // Demonstrate query through the proxy on the Log Analaytics workspace
+Perf | take 10 // Demonstrate cross service query on the Log Analytics workspace
 ```
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-query-la.png" alt-text="Azure Data Explorer-Proxyflow":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-query-la.png" alt-text="Abfragen eines Log Analytics-Arbeitsbereichs":::
 
-### <a name="cross-query-of-your-log-analytics-or-application-insights-proxy-cluster-and-the-azure-data-explorer-native-cluster"></a>Übergreifende Abfrage des Log Analytics- oder Application Insights-Proxyclusters und des nativen Azure Data Explorer-Clusters
+### <a name="cross-query-of-your-log-analytics-or-application-insights-and-the-azure-data-explorer-native-cluster"></a>Übergreifende Abfrage von Log Analytics oder Application Insights und des nativen Azure Data Explorer-Clusters
 
-Wenn Sie über den Proxy clusterübergreifende Abfragen ausführen, überprüfen Sie, ob der native Azure Data Explorer-Cluster im linken Bereich ausgewählt ist. In den folgenden Beispielen wird veranschaulicht, wie Sie Azure Data Explorer-Clustertabellen mithilfe des [union](/azure/data-explorer/kusto/query/unionoperator)-Operators mit einem Log Analytics-Arbeitsbereich kombinieren.
+Wenn Sie clusterübergreifende Dienstabfragen ausführen, überprüfen Sie, ob der native Azure Data Explorer-Cluster im linken Bereich ausgewählt ist. In den folgenden Beispielen wird veranschaulicht, wie Sie Azure Data Explorer-Clustertabellen mithilfe von [union](/azure/data-explorer/kusto/query/unionoperator) mit einem Log Analytics-Arbeitsbereich kombinieren.
 
 ```kusto
 union StormEvents, cluster('https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>').Perf
@@ -85,38 +87,38 @@ union StormEvents, cluster('https://ade.loganalytics.io/subscriptions/<subscript
 let CL1 = 'https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>';
 union <Azure Data Explorer table>, cluster(CL1).database(<workspace-name>).<table name>
 ```
-Wenn Sie anstelle von „union“ den [`join`-Operator](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer) verwenden, ist möglicherweise ein [Hinweis](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer#join-hints) erforderlich, um die Abfrage für den nativen Azure Data Explorer-Cluster (und nicht für den Proxy) auszuführen. 
+
+:::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-cross-query-proxy.png" alt-text="Dienstübergreifende Abfrage über Azure Data Explorer":::
+
+Wenn Sie anstelle von „union“ den [`join`-Operator](https://docs.microsoft.com/azure/data-explorer/kusto/query/joinoperator) verwenden, ist möglicherweise ein [`hint`](https://docs.microsoft.com/azure/data-explorer/kusto/query/joinoperator#join-hints) erforderlich, um die Abfrage für einen nativen Azure Data Explorer-Cluster auszuführen.
 
 ### <a name="join-data-from-an-azure-data-explorer-cluster-in-one-tenant-with-an-azure-monitor-resource-in-another"></a>Verknüpfen von Daten eines Azure Data Explorer-Clusters in einem Mandanten mit einer Azure Monitor-Ressource in einem anderen Mandanten
 
-Mandantenübergreifende Abfragen werden vom Azure Data Explorer-Proxy nicht unterstützt. Sie sind nur bei einem Mandanten angemeldet, um die Abfrage für beide Ressourcen auszuführen.
+Mandantenübergreifende Abfragen zwischen den Diensten werden nicht unterstützt. Sie sind nur bei einem Mandanten angemeldet, um die Abfrage für beide Ressourcen auszuführen.
 
 Wenn sich die Azure Data Explorer-Ressource im Mandanten „A“ und der Log Analytics-Arbeitsbereich im Mandanten „B“ befindet, sollten Sie eine der beiden folgenden Methoden verwenden:
 
-- Mit Azure Data Explorer können Sie Rollen für Prinzipale auf unterschiedlichen Mandanten hinzufügen. Fügen Sie Ihre Benutzer-ID auf Mandant „B“ als autorisierten Benutzer im Azure Data Explorer-Cluster hinzu. Vergewissern Sie sich, dass die Eigenschaft *[ExternalTrustedTenant](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster)* im Azure Data Explorer-Cluster den Mandanten „B“ enthält. Führen Sie die übergreifende Abfrage vollständig auf Mandant „B“ aus.
+1. Mit Azure Data Explorer können Sie Rollen für Prinzipale auf unterschiedlichen Mandanten hinzufügen. Fügen Sie Ihre Benutzer-ID auf Mandant „B“ als autorisierten Benutzer im Azure Data Explorer-Cluster hinzu. Vergewissern Sie sich, dass die Eigenschaft *[ExternalTrustedTenant](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster)* im Azure Data Explorer-Cluster den Mandanten „B“ enthält. Führen Sie die übergreifende Abfrage vollständig auf Mandant „B“ aus.
 
-- Verwenden Sie [Lighthouse](/azure/lighthouse/), um die Azure Monitor-Ressource auf Mandant „A“ zu projizieren.
-
+2. Verwenden Sie [Lighthouse](https://docs.microsoft.com/azure/lighthouse/), um die Azure Monitor-Ressource auf Mandant „A“ zu projizieren.
 ### <a name="connect-to-azure-data-explorer-clusters-from-different-tenants"></a>Herstellen einer Verbindung mit Azure Data Explorer-Clustern von unterschiedlichen Mandanten
 
 Bei Kusto-Explorer werden Sie automatisch bei dem Mandanten angemeldet, zu dem das Benutzerkonto ursprünglich gehört. Für den Zugriff auf Ressourcen in anderen Mandanten mit demselben Benutzerkonto muss `tenantId` explizit in der Verbindungszeichenfolge angegeben werden: `Data Source=https://ade.applicationinsights.io/subscriptions/SubscriptionId/resourcegroups/ResourceGroupName;Initial Catalog=NetDefaultDB;AAD Federated Security=True;Authority ID=`**TenantId**
 
 ## <a name="function-supportability"></a>Funktionsunterstützbarkeit
 
-Der Azure Data Explorer-Proxycluster unterstützt Funktionen sowohl für Log Analytics als auch für Application Insights. Dadurch können clusterübergreifende Abfragen direkt auf eine tabellarische Azure Monitor-Funktion verweisen.
-
-Der Proxy unterstützt die folgenden Befehle:
+Dienstübergreifende Abfragen mit Azure Data Explorer unterstützen Funktionen sowohl für Application Insights als auch für Log Analytics.
+Dadurch können clusterübergreifende Abfragen direkt auf eine tabellarische Azure Monitor-Funktion verweisen.
+Die folgenden Befehle werden bei dienstübergreifenden Abfragen unterstützt:
 
 * `.show functions`
 * `.show function {FunctionName}`
 * `.show database {DatabaseName} schema as json`
 
-Die folgende Abbildung enthält ein Beispiel für das Abfragen einer tabellarischen Funktion über die Webbenutzeroberfläche von Azure Data Explorer. Führen Sie zur Verwendung der Funktion den Namen im Abfragefenster aus.
+Die folgende Abbildung enthält ein Beispiel für das Abfragen einer tabellarischen Funktion über die Webbenutzeroberfläche von Azure Data Explorer.
+Führen Sie zur Verwendung der Funktion den Namen im Abfragefenster aus.
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-function-query.png" alt-text="Azure Data Explorer-Proxyflow":::
- 
-> [!NOTE]
-> Azure Monitor unterstützt nur Tabellenfunktionen, die keine Parameter unterstützen.
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-function-query.png" alt-text="Abfragen einer tabellarischen Funktion über die Webbenutzeroberfläche von Azure Data Explorer":::
 
 ## <a name="additional-syntax-examples"></a>Zusätzliche Syntaxbeispiele
 

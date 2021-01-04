@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/01/2020
-ms.openlocfilehash: 615e23dc388f36f5ae1cd7e0d846acc14ffa2236
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cfc2abad828a3974c04074a4cde062a479f673f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086414"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533562"
 ---
 # <a name="how-to-monitor-cluster-availability-with-apache-ambari-in-azure-hdinsight"></a>Überwachen der Clusterverfügbarkeit mit Apache Ambari in Azure HDInsight
 
@@ -62,7 +62,6 @@ Ambari bietet viele vordefinierte Warnungen in Bezug auf Verfügbarkeit, wie z.B
 | Percent JournalNodes Available (Prozentsatz verfügbarer JournalNodes)    | Diese Warnung wird ausgelöst, wenn die Anzahl der ausgefallenen JournalNodes im Cluster höher ist als der konfigurierte kritische Schwellenwert. Sie aggregiert die Ergebnisse der JournalNode-Prozessüberprüfungen. |
 | Percent DataNodes Available (Prozentsatz verfügbarer DataNodes)       | Diese Warnung wird ausgelöst, wenn die Anzahl der ausgefallenen DataNodes im Cluster höher ist als der konfigurierte kritische Schwellenwert. Sie aggregiert die Ergebnisse der DataNode-Prozessüberprüfungen.|
 
-Eine vollständige Liste der Ambari-Warnungen, die helfen, die Verfügbarkeit eines Clusters zu überwachen, finden Sie [hier](https://docs.microsoft.com/azure/hdinsight/hdinsight-high-availability-linux#ambari-web-ui).
 
 Um Details zu einer Warnung anzuzeigen oder Kriterien zu ändern, wählen Sie den **Namen** der Warnung aus. Nehmen Sie **DataNode Health Summary** (DataNode-Integritätszusammenfassung) als Beispiel. Sie sehen eine Beschreibung der Warnung sowie die spezifischen Kriterien, die eine „Warnung“ oder „kritische“ Warnung auslösen, und das Überprüfungsintervall für die Kriterien. Um die Konfiguration zu bearbeiten, wählen Sie rechts oben im Konfigurationsfeld die Schaltfläche **Edit** (Bearbeiten) aus.
 
@@ -87,7 +86,7 @@ Ein Dialogfeld für die Verwaltung von Benachrichtigungen zu Warnungen wird geö
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Verfügbarkeit und Zuverlässigkeit von Apache Hadoop-Clustern in HDInsight](hdinsight-high-availability-linux.md)
+- [Verfügbarkeit und Zuverlässigkeit von Apache Hadoop-Clustern in HDInsight](./hdinsight-business-continuity.md)
 - [Clusterverfügbarkeit – Azure Monitor-Protokolle](./cluster-availability-monitor-logs.md)
 - [Verwenden von Azure Monitor-Protokollen](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 - [Apache Ambari-E-Mail-Benachrichtigungen](apache-ambari-email.md)

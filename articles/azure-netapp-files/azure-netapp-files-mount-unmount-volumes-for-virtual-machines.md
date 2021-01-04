@@ -6,13 +6,13 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: eebb0a8dc23a6a442a170dcc6e19495f96ce2921
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.date: 11/17/2020
+ms.openlocfilehash: 83d6e051f520737e750e6c46c192eb698e7bf0e3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930592"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842256"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Einbinden oder Aufheben der Einbindung eines Volumes auf virtuellen Windows- oder Linux-Computern 
 
@@ -22,11 +22,11 @@ Volumes für virtuelle Windows- oder Linux-Computer lassen sich nach Bedarf einb
 
 * Sie benötigen mindestens eine Exportrichtlinie, um auf ein NFS-Volume zugreifen zu können.
 * Um ein NFS-Volume erfolgreich einzubinden, stellen Sie sicher, dass die folgenden NFS-Ports zwischen den Client- und NFS-Volumes geöffnet sind:
-    * 111 = `RPCBIND/Portmapper`
-    * 635 = `mountd`
-    * 2049 = `nfs`
-    * 4045 = `nlockmgr` (nur NFSv3)
-    * 4046 = `status` (nur NFSv3)
+    * 111 TCP/UDP = `RPCBIND/Portmapper`
+    * 635 TCP/UDP = `mountd`
+    * 2049 TCP/UDP = `nfs`
+    * 4045 TCP/UDP = `nlockmgr` (nur NFSv3)
+    * 4046 TCP/UDP = `status` (nur NFSv3)
 
 ## <a name="steps"></a>Schritte
 

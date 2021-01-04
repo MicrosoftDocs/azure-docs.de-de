@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: v-umha
-ms.openlocfilehash: 6ccc29422c6abf1120d13c05d10125efd0871ca6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2769e97dde7f0b99bd29da9c6eb65954bc84dd2
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79502067"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677555"
 ---
 # <a name="manage-users"></a>Verwalten von Benutzern
 
@@ -26,12 +26,12 @@ Azure FarmBeats umfasst die Benutzerverwaltung für Personen, die Teil Ihres Azu
 Azure FarmBeats verwendet Azure AD für Authentifizierung, Zugriffssteuerung und Rollen. Sie können Benutzer im Azure AD-Mandanten als Benutzer in Azure FarmBeats hinzufügen.
 
 > [!NOTE]
-> Wenn ein Benutzer kein Azure AD-Mandantenbenutzer ist, befolgen Sie die Anweisungen im Abschnitt **Hinzufügen von Azure AD-Benutzern**, um das Setup abzuschließen.
+> Wenn ein Benutzer kein Azure AD-Mandantenbenutzer ist, befolgen Sie die Anweisungen im Abschnitt **Hinzufügen von Azure AD-Benutzern** , um das Setup abzuschließen.
 
 Azure FarmBeats unterstützt zwei Arten von Benutzerrollen:
 
- - **Administrator**: Der Administrator hat vollständigen Zugriff auf Azure FarmBeats-Datenhub-APIs. Benutzer mit dieser Rolle können alle Datenhub-Objekte von Azure FarmBeats abfragen und alle Vorgänge vom FarmBeats-Accelerator aus durchführen.
- - **Schreibgeschützt**: Schreibgeschützter Zugriff auf FarmBeats-Datenhub-APIs. Benutzer können die Datenhub-APIs, die Accelerator-Dashboards und die Karten anzeigen. Benutzer mit schreibgeschütztem Zugriff können keine Vorgänge wie das Erstellen von Karten, das Zuordnen von Geräten oder das Erstellen von landwirtschaftlichen Betrieben durchführen.
+ - **Administrator** : Der Administrator hat vollständigen Zugriff auf Azure FarmBeats-Datenhub-APIs. Benutzer mit dieser Rolle können alle Datenhub-Objekte von Azure FarmBeats abfragen und alle Vorgänge vom FarmBeats-Accelerator aus durchführen.
+ - **Schreibgeschützt** : Schreibgeschützter Zugriff auf FarmBeats-Datenhub-APIs. Benutzer können die Datenhub-APIs, die Accelerator-Dashboards und die Karten anzeigen. Benutzer mit schreibgeschütztem Zugriff können keine Vorgänge wie das Erstellen von Karten, das Zuordnen von Geräten oder das Erstellen von landwirtschaftlichen Betrieben durchführen.
 
 ## <a name="add-users-to-azure-farmbeats"></a>Hinzufügen von Benutzern zu Azure FarmBeats
 
@@ -43,7 +43,7 @@ So fügen Sie Benutzer zu Azure FarmBeats hinzu
     ![Bereich für Farmeinstellungen](./media/create-farms-in-azure-farmbeats/settings-users-1.png)
 
 3. Geben Sie die E-Mail-ID des Benutzers ein, dem Sie Zugriff gewähren möchten.
-4. Wählen Sie die gewünschte Rolle aus – **Administrator** oder **Schreibgeschützt**.
+4. Wählen Sie die gewünschte Rolle aus – **Administrator** oder **Schreibgeschützt** .
 5. Wählen Sie **Rolle hinzufügen** aus.
 
 Die hinzugefügten Benutzer können jetzt auf Azure FarmBeats (sowohl Datenhub als auch Accelerator) zugreifen.
@@ -54,7 +54,7 @@ So entfernen Sie Benutzer aus dem Azure FarmBeats-System
 
 1. Melden Sie sich beim Accelerator an, und wählen Sie dann das Symbol **Einstellungen** aus.
 2. Wählen Sie **Zugriffssteuerung** aus.
-3. Klicken Sie auf **Löschen**.
+3. Klicken Sie auf **Löschen** .
 
    Der Benutzer wurde aus dem System gelöscht. Sie erhalten die folgende Bestätigungsmeldung:
 
@@ -78,9 +78,9 @@ Führen Sie die Schritte aus, um Benutzer zu Azure AD hinzuzufügen:
     ![Bereich „Alle Benutzer“](./media/create-farms-in-azure-farmbeats/manage-users-3.png)
 
 5. Wählen Sie den Namen des neuen Benutzers aus und füllen Sie dann die erforderlichen Felder für diesen Benutzer aus.
-6. Klicken Sie auf **Erstellen**.
+6. Klicken Sie auf **Erstellen** .
 
-Weitere Informationen zum Verwalten von Azure AD-Benutzern finden Sie unter [Hinzufügen oder Löschen von Benutzern in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory/).
+Weitere Informationen zum Verwalten von Azure AD-Benutzern finden Sie unter [Hinzufügen oder Löschen von Benutzern in Azure AD](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

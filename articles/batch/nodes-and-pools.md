@@ -2,13 +2,13 @@
 title: Knoten und Pools in Azure Batch
 description: Erfahren Sie mehr über Computeknoten und Pools und deren Verwendung in einem Azure Batch-Workflow aus Entwicklersicht.
 ms.topic: conceptual
-ms.date: 06/16/2020
-ms.openlocfilehash: 16a5309711b9c8633da9ba473c1b55bc2e54c334
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/20/2020
+ms.openlocfilehash: 880a956a2d839483c59578afad1b62146799578a
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87385754"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95243068"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Knoten und Pools in Azure Batch
 
@@ -26,7 +26,7 @@ Alle Computeknoten in Batch enthalten außerdem Folgendes:
 
 - Eine standardmäßige [Ordnerstruktur](files-and-directories.md) und die dazugehörigen [Umgebungsvariablen](jobs-and-tasks.md), die zur Referenzierung durch Tasks verfügbar sind.
 - **Firewalleinstellungeneinstellungen** .
-- [Remotezugriff](error-handling.md#connect-to-compute-nodes) auf Windows-Knoten (Remotedesktopprotokoll, RDP) und Linux-Knoten (Secure Shell, SSH).
+- [Remotezugriff](error-handling.md#connect-to-compute-nodes) auf Windows-Knoten (Remotedesktopprotokoll, RDP) und Linux-Knoten (Secure Shell, SSH), es sei denn, Sie [erstellen einen Pool mit deaktiviertem Remotezugriff](pool-endpoint-configuration.md)
 
 Standardmäßig können Knoten miteinander kommunizieren, sie können jedoch nicht mit virtuellen Computern kommunizieren, die nicht Teil desselben Pools sind. Um die sichere Kommunikation zwischen Knoten und anderen VMs oder einem lokalen Netzwerk zu ermöglichen, können Sie den Pool in einem [Subnetz eines virtuellen Azure-Netzwerks (VNet)](batch-virtual-network.md) bereitstellen. Sie können dann über öffentliche IP-Adressen auf Ihre Knoten zugreifen. Diese öffentlichen IP-Adressen werden von Batch erstellt und können sich im Laufe der Lebensdauer des Pools ändern. Sie können auch einen [Pool mit statischen öffentlichen IP-Adressen erstellen](create-pool-public-ip.md), die von Ihnen gesteuert werden, sodass sichergestellt ist, dass sie sich nicht unerwartet ändern.
 
@@ -40,7 +40,7 @@ Jedem Knoten, der einem Pool hinzugefügt wird, werden ein eindeutiger Name und 
 
 Ein Pool kann nur von dem Batch-Konto verwendet werden, unter dem er erstellt wurde. In einem Batch-Konto können mehrere Pools erstellt werden, um die Ressourcenanforderungen der Anwendungen zu erfüllen, die ausgeführt werden sollen.
 
-Der Pool kann manuell oder automatisch vom Batch-Dienst erstellt werden, wenn Sie die zu erledigenden Aufgaben angeben. Wenn Sie einen Pool erstellen, können Sie die folgenden Attribute angeben:
+Der Pool kann manuell oder [automatisch vom Batch-Dienst](#autopools) erstellt werden, wenn Sie die zu erledigenden Aufgaben angeben. Wenn Sie einen Pool erstellen, können Sie die folgenden Attribute angeben:
 
 - [Betriebssystem und Version von Knoten](#operating-system-and-version)
 - [Knotentyp und Zielanzahl der Knoten](#node-type-and-target)
@@ -68,13 +68,13 @@ In Batch sind zwei Arten von Poolkonfigurationen verfügbar.
 
 Die **Konfiguration „Virtueller Computer“** gibt an, dass der Pool aus virtuellen Azure-Computern besteht. Diese virtuellen Computer können aus Linux- oder Windows-Images erstellt werden.
 
-Beim Erstellen eines Pools auf Basis der Konfiguration „Virtueller Computer“ müssen Sie nicht nur die Knotengröße und die Quelle der Images für deren Erstellen angeben, sondern auch die **VM-Imagereferenz** und die **Knoten-Agent-SKU** von Batch, die auf den Knoten installiert werden soll. Weitere Informationen zum Angeben dieser Pooleigenschaften finden Sie unter [Bereitstellen von Linux-Computeknoten in Azure Batch-Pools](batch-linux-nodes.md). Sie können optional leere Datenträger an virtuelle Poolcomputer anfügen, die auf der Grundlage von Marketplace-Images erstellt wurden, oder Datenträger in benutzerdefinierte Images einschließen, die zum Erstellen der virtuellen Computer verwendet werden. Wenn Sie Datenträger einbeziehen, müssen Sie sie innerhalb eines virtuellen Computers einbinden und formatieren, um sie zu verwenden.
+Der [Batch-Knoten-Agent](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) ist ein Programm, das auf jedem Knoten im Pool ausgeführt wird. Er stellt die Befehls- und Steuerungsschnittstelle zwischen dem Knoten und dem Batch-Dienst dar. Es gibt verschiedene Implementierungen des Knoten-Agents (SKUs) für verschiedene Betriebssysteme. Beim Erstellen eines Pools auf Basis der Konfiguration „Virtueller Computer“ müssen Sie nicht nur die Knotengröße und die Quelle der Images für deren Erstellen angeben, sondern auch die **VM-Imagereferenz** und die **Knoten-Agent-SKU** von Batch, die auf den Knoten installiert werden soll. Weitere Informationen zum Angeben dieser Pooleigenschaften finden Sie unter [Bereitstellen von Linux-Computeknoten in Azure Batch-Pools](batch-linux-nodes.md). Sie können optional leere Datenträger an virtuelle Poolcomputer anfügen, die auf der Grundlage von Marketplace-Images erstellt wurden, oder Datenträger in benutzerdefinierte Images einschließen, die zum Erstellen der virtuellen Computer verwendet werden. Wenn Sie Datenträger einbeziehen, müssen Sie sie innerhalb eines virtuellen Computers einbinden und formatieren, um sie zu verwenden.
 
 ### <a name="cloud-services-configuration"></a>Konfiguration „Cloud Services“
 
-Die **Konfiguration „Cloud Services“** gibt an, dass der Pool aus Azure Cloud Services-Knoten besteht. Bei Cloud Services werden *ausschließlich* Windows-Computeknoten bereitgestellt.
+Die **Konfiguration „Cloud Services“** gibt an, dass der Pool aus Azure Cloud Services-Knoten besteht. Cloud Services stellt nur Windows-Computeknoten bereit.
 
-Verfügbare Betriebssysteme für Pools vom Typ „Clouddienstkonfiguration“ sind unter [Azure-Gastbetriebssystemversionen und SDK-Kompatibilitätsmatrix](../cloud-services/cloud-services-guestos-update-matrix.md)aufgeführt. Beim Erstellen eines Pools, der Cloud Services-Knoten enthält, müssen Sie die Knotengröße und *Betriebssystemfamilie* angeben (die bestimmt, welche Versionen von .NET mit dem Betriebssystem installiert werden). Cloud Services wird in Azure schneller bereitgestellt als virtuelle Computer mit Windows. Wenn Sie Pools von Windows-Serverknoten benötigen, werden Sie möglicherweise feststellen, dass die Konfiguration „Cloud Services“ im Hinblick auf die Bereitstellungszeit einen Leistungsvorteil bietet.
+Die verfügbaren Betriebssysteme für Pools zur Konfiguration der Clouddienste sind unter [Azure-Gastbetriebssystemversionen und SDK-Kompatibilitätsmatrix](../cloud-services/cloud-services-guestos-update-matrix.md) aufgeführt, und die verfügbaren Größen für Computeknoten sind unter [Größen für Clouddienste](../cloud-services/cloud-services-sizes-specs.md) aufgelistet. Beim Erstellen eines Pools, der Cloud Services-Knoten enthält, geben Sie die Knotengröße und *Betriebssystemfamilie* an (die bestimmt, welche Versionen von .NET mit dem Betriebssystem installiert werden). Cloud Services wird in Azure schneller bereitgestellt als virtuelle Computer mit Windows. Wenn Sie Pools von Windows-Serverknoten benötigen, werden Sie möglicherweise feststellen, dass die Konfiguration „Cloud Services“ im Hinblick auf die Bereitstellungszeit einen Leistungsvorteil bietet.
 
 Genau wie bei Workerrollen innerhalb von Cloud Services können Sie eine *Betriebssystemversion* angeben. (Weitere Informationen zu Workerrollen finden Sie unter [Übersicht über Cloud Services](../cloud-services/cloud-services-choose-me.md).) Es empfiehlt sich auch bei der *Betriebssystemversion* die Angabe von `Latest (*)`, damit die Knoten automatisch per Upgrade aktualisiert werden und für neue Versionen kein Zusatzaufwand entsteht. Mit der Wahl einer bestimmten Betriebssystemversion wird in erster Linie die Anwendungskompatibilität sichergestellt. Hierzu wird die Überprüfung der Abwärtskompatibilität vor der Versionsaktualisierung ermöglicht. Nach der Überprüfung können die *Betriebssystemversion* für den Pool aktualisiert und das neue Betriebssystemimage installiert werden. Alle laufenden Tasks werden unterbrochen und erneut in die Warteschlange gestellt.
 
@@ -184,6 +184,10 @@ An einem Ende des Spektrums können Sie einen Pool für jeden Auftrag erstellen,
 Falls dagegen der sofortige Start von Aufträgen höchste Priorität hat, können Sie bereits vorab einen Pool erstellen und die zugehörigen Knoten vor der Auftragsübermittlung verfügbar machen. Dieses Szenario ermöglicht zwar den sofortigen Start von Tasks, führt aber unter Umständen auch dazu, dass sich Knoten im Leerlauf befinden, während sie auf die Zuteilung warten.
 
 Zur Bewältigung einer variablen, kontinuierlichen Auslastung wird in der Regel ein kombinierter Ansatz verfolgt. Sie können über einen Pool verfügen, an den mehrere Aufträge übermittelt werden, und die Anzahl von Knoten mittels Skalierung flexibel an die jeweilige Auftragslast anpassen. Dies kann reaktiv auf der Grundlage der aktuellen Auslastung oder proaktiv erfolgen, sofern die Auslastung vorausgesagt werden kann. Weitere Informationen finden Sie unter [Richtlinie für automatische Skalierung](#automatic-scaling-policy).
+
+## <a name="autopools"></a>Automatische Pools
+
+Ein [automatischer Pool](/rest/api/batchservice/job/add#autopoolspecification) ist ein Pool, der vom Batch-Dienst erstellt wird, wenn ein Auftrag übermittelt wird. Er wird also nicht vor den Pool ausgeführten Aufträgen erstellt. Der Batch-Dienst verwaltet die Lebensdauer eines automatischen Pools gemäß den angegebenen Eigenschaften. In den meisten Fällen sind diese Pools auch so festgelegt, dass sie nach Abschluss ihrer Aufträge automatisch gelöscht werden.
 
 ## <a name="security-with-certificates"></a>Sicherheit mit Zertifikaten
 

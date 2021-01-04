@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 05/13/2019
 ms.author: kenwith
-ms.openlocfilehash: 00c4dec329456409bc8d5b77dca72f25daf9f5c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cecdda27139aa1dd0733b50898db9db70aa34dc3
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84781072"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040991"
 ---
 # <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>Synchronisieren eines Attributs aus lokalen Active Directory Domain Services mit Azure AD für die Bereitstellung einer Anwendung
 
-Beim Anpassen von Attributzuordnungen für die Benutzerbereitstellung wird das Attribut, das Sie zuordnen möchten, möglicherweise nicht in der **Quellattribut**-Liste angezeigt. In diesem Artikel wird veranschaulicht, wie Sie das fehlende Attribut hinzufügen, indem Sie es aus Ihren lokalen Active Directory Domain Services mit Azure Active Directory synchronisieren.
+Beim Anpassen von Attributzuordnungen für die Benutzerbereitstellung wird das Attribut, das Sie zuordnen möchten, möglicherweise nicht in der **Quellattribut** -Liste angezeigt. In diesem Artikel wird veranschaulicht, wie Sie das fehlende Attribut hinzufügen, indem Sie es aus Ihren lokalen Active Directory Domain Services mit Azure Active Directory synchronisieren.
 
 Azure AD muss bei der Bereitstellung eines Benutzerkontos aus Azure AD in eine SaaS-App alle erforderlichen Daten zum Erstellen eines Benutzerprofils enthalten. In einigen Fällen müssen Sie möglicherweise Attribute aus Ihren lokalen AD-Instanzen mit Azure AD synchronisieren, um die Daten verfügbar zu machen. Azure AD Connect synchronisiert zwar automatisch bestimmte Attribute mit Azure AD, allerdings nicht alle. Darüber hinaus werden einige standardmäßig synchronisierte Attribute (z. B. SAMAccountName) nicht über die Microsoft Graph-API verfügbar gemacht. In diesen Fällen können Sie die Verzeichniserweiterungsfunktion von Azure AD Connect verwenden, um das Attribut mit Azure AD zu synchronisieren. Auf diese Weise wird das Attribut über die Microsoft Graph-API und den Azure AD-Bereitstellungsdienst angezeigt.
 
@@ -41,7 +41,7 @@ Führen Sie die folgenden Schritte aus, wenn sich die für die Bereitstellung be
    > [!NOTE]
    > Bei der Suche im Feld **Verfügbare Attribute** wird die Groß-/Kleinschreibung berücksichtigt.
 
-   ![Seite „Directory extensions selection“ (Verzeichniserweiterungsauswahl) des Azure Active Directory Connect-Assistenten](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extensions.png)
+   ![Screenshot der Auswahlseite „Verzeichniserweiterungen“](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extensions.png)
 
 5. Beenden Sie den Azure AD Connect-Assistenten, und führen Sie einen vollständigen Synchronisierungszyklus aus. Nach Abschluss des Synchronisierungszyklus wird das Schema erweitert, und die neuen Werte werden zwischen Ihrem lokalen AD und Azure AD synchronisiert.
  
@@ -50,7 +50,7 @@ Führen Sie die folgenden Schritte aus, wenn sich die für die Bereitstellung be
    ![Seite „Directory extensions selection“ (Verzeichniserweiterungsauswahl) des Azure Active Directory Connect-Assistenten](./media/user-provisioning-sync-attributes-for-mapping/attribute-mapping-extensions.png)
 
 > [!NOTE]
-> Die Möglichkeit des Bereitstellens von Verweisattributen aus lokalen AD-Instanzen (z. B. **managedBy** oder **DN/DistinguishedName**) wird derzeit nicht unterstützt. Sie können dieses Feature über [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory) anfordern. 
+> Die Möglichkeit des Bereitstellens von Verweisattributen aus lokalen AD-Instanzen (z. B. **managedBy** oder **DN/DistinguishedName** ) wird derzeit nicht unterstützt. Sie können dieses Feature über [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory) anfordern. 
 
 ## <a name="next-steps"></a>Nächste Schritte
 

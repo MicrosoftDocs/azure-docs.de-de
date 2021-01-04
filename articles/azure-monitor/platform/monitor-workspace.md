@@ -6,22 +6,23 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: a4f578ca2e9fc448fb85b803cce46974a8c2e4dc
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 3cb01a8f1c06bad618ae5c7930920ee0f067038c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92325939"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184534"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Überwachen der Integrität des Log Analytics-Arbeitsbereichs in Azure Monitor
-Um die Leistung und Verfügbarkeit Ihres Log Analytics-Arbeitsbereichs in Azure Monitor zu gewährleisten, müssen Sie in der Lage sein, jedes auftretende Probleme proaktiv zu erkennen. In diesem Artikel wird beschrieben, wie Sie die Integrität Ihres Log Analytics-Arbeitsbereichs mithilfe von Daten in der Tabelle [Operation](/azure-monitor/reference/tables/operation) überwachen. Diese Tabelle ist in jedem Log Analytics-Arbeitsbereich enthalten und enthält Fehler und Warnungen, die im Arbeitsbereich auftreten. Sie sollten diese Daten regelmäßig überprüfen und Warnungen erstellen, damit Sie proaktiv benachrichtigt werden, wenn im Arbeitsbereich wichtige Vorfälle auftreten.
+Um die Leistung und Verfügbarkeit Ihres Log Analytics-Arbeitsbereichs in Azure Monitor zu gewährleisten, müssen Sie in der Lage sein, jedes auftretende Probleme proaktiv zu erkennen. In diesem Artikel wird beschrieben, wie Sie die Integrität Ihres Log Analytics-Arbeitsbereichs mithilfe von Daten in der Tabelle [Operation](/azure/azure-monitor/reference/tables/operation) überwachen. Diese Tabelle ist in jedem Log Analytics-Arbeitsbereich enthalten und enthält Fehler und Warnungen, die im Arbeitsbereich auftreten. Sie sollten diese Daten regelmäßig überprüfen und Warnungen erstellen, damit Sie proaktiv benachrichtigt werden, wenn im Arbeitsbereich wichtige Vorfälle auftreten.
 
-## <a name="_logsoperation-function"></a>Funktion „_LogsOperation“
-Azure Monitor-Protokolle senden Details zu einem Problem an die Tabelle [Operation](/azure-monitor/reference/tables/operation) in dem Arbeitsbereich, in dem das Problem aufgetreten ist. Die Systemfunktion **_LogsOperation** basiert auf der Tabelle **Operation** und bietet einen vereinfachten Satz von Informationen für die Analyse und Warnungen.
+## <a name="_logoperation-function"></a>_LogOperation-Funktion
+
+Azure Monitor-Protokolle senden Details zu einem Problem an die Tabelle [Operation](/azure/azure-monitor/reference/tables/operation) in dem Arbeitsbereich, in dem das Problem aufgetreten ist. Die Systemfunktion **_LogOperation** basiert auf der Tabelle **Operation** und bietet vereinfachte Informationen für Analysen und Warnungen.
 
 ## <a name="columns"></a>Spalten
 
-Die Funktion **_LogsOperation** gibt die Spalten in der folgenden Tabelle zurück.
+Die Funktion **_LogOperation** gibt die Spalten in der folgenden Tabelle zurück.
 
 | Column | BESCHREIBUNG |
 |:---|:---|
@@ -36,7 +37,8 @@ Die Funktion **_LogsOperation** gibt die Spalten in der folgenden Tabelle zurüc
 
 
 ## <a name="categories"></a>Kategorien
-In der folgenden Tabelle werden die Kategorien der Funktion „_LogsOperations“ beschrieben. 
+
+In der folgenden Tabelle werden die Kategorien der Funktion „_LogOperation“ beschrieben. 
 
 | Kategorie | BESCHREIBUNG |
 |:---|:---|
@@ -55,19 +57,19 @@ Erfassungsvorgänge sind Probleme, die während der Datenerfassung aufgetreten s
 |:---|:---|:---|:---|
 | Benutzerdefiniertes Protokoll | Fehler   | Das Spaltenlimit für benutzerdefinierte Felder wurde erreicht. | [Azure Monitor-Diensteinschränkungen](../service-limits.md#log-analytics-workspaces) |
 | Benutzerdefiniertes Protokoll | Fehler   | Fehler beim Erfassen von benutzerdefinierten Protokollen. | |
-| Benutzerdefiniertes Protokoll | Fehler   | Metadaten | |
-| Daten | Fehler   | Daten wurden verworfen, da die Anforderung vor der festgelegten Anzahl von Tagen erstellt wurde. | [Verwalten von Nutzung und Kosten mit Azure Monitor-Protokollen](manage-cost-storage.md#alert-when-daily-cap-reached)
+| Metadaten | Fehler | Ein Konfigurationsfehler wurde erkannt. | |
+| Datensammlung | Fehler   | Daten wurden verworfen, da die Anforderung vor der festgelegten Anzahl von Tagen erstellt wurde. | [Verwalten von Nutzung und Kosten mit Azure Monitor-Protokollen](manage-cost-storage.md#alert-when-daily-cap-reached)
 | Datensammlung | Info    | Die Konfiguration des Sammlungscomputers wurde erkannt.| |
-| Datensammlung | Info    | Die Datensammlung wurde aufgrund eines neuen Tags gestartet. | [Verwalten von Nutzung und Kosten mit Azure Monitor-Protokollen](/manage-cost-storage.md#alert-when-daily-cap-reached) |
-| Datensammlung | Warnung | Die Datensammlung wurde beendet, da das Tageslimit erreicht wurde.| [Verwalten von Nutzung und Kosten mit Azure Monitor-Protokollen](/manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Datensammlung | Info    | Die Datensammlung wurde aufgrund eines neuen Tags gestartet. | [Verwalten von Nutzung und Kosten mit Azure Monitor-Protokollen](./manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Datensammlung | Warnung | Die Datensammlung wurde beendet, da das Tageslimit erreicht wurde.| [Verwalten von Nutzung und Kosten mit Azure Monitor-Protokollen](./manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Datenverarbeitung | Fehler   | Ungültiges JSON-Format. | [Senden von Protokolldaten an Azure Monitor mit der HTTP-Datensammler-API (Public Preview)](data-collector-api.md#request-body) | 
+| Datenverarbeitung | Warnung | Der Wert wurde auf die maximal zulässige Größe gekürzt. | [Azure Monitor-Diensteinschränkungen](../service-limits.md#log-analytics-workspaces) |
+| Datenverarbeitung | Warnung | Der Feldwert wurde abgeschnitten, da das Größenlimit erreicht wurde. | [Azure Monitor-Diensteinschränkungen](../service-limits.md#log-analytics-workspaces) | 
 | Erfassungsrate | Info | Der Grenzwert für die Erfassungsrate nähert sich 70 %. | [Azure Monitor-Diensteinschränkungen](../service-limits.md#log-analytics-workspaces) |
 | Erfassungsrate | Warnung | Der Grenzwert für die Erfassungsrate nähert sich dem Limit. | [Azure Monitor-Diensteinschränkungen](../service-limits.md#log-analytics-workspaces) |
 | Erfassungsrate | Fehler   | Das Ratenlimit wurde erreicht. | [Azure Monitor-Diensteinschränkungen](../service-limits.md#log-analytics-workspaces) |
-| JSON-Analyse | Fehler   | Ungültiges JSON-Format. | [Senden von Protokolldaten an Azure Monitor mit der HTTP-Datensammler-API (Public Preview)](data-collector-api.md#request-body) | 
-| JSON-Analyse | Warnung | Der Wert wurde auf die maximal zulässige Größe gekürzt. | [Azure Monitor-Diensteinschränkungen](../service-limits.md#log-analytics-workspaces) |
-| Limit für maximale Spaltengröße | Warnung | Der Feldwert wurde abgeschnitten, da das Größenlimit erreicht wurde. | [Azure Monitor-Diensteinschränkungen](../service-limits.md#log-analytics-workspaces) | 
 | Storage | Fehler   | Es kann nicht auf das Speicherkonto zugegriffen werden, da die verwendeten Anmeldeinformationen ungültig sind.  |
-| Tabelle   | Fehler   | Das Limit für maximale benutzerdefinierte Felder wurde erreicht. | [Azure Monitor-Diensteinschränkungen](../service-limits.md#log-analytics-workspaces)|
+
 
 
    
@@ -82,8 +84,8 @@ Zum Erstellen der Protokollwarnungsregeln folgenden Sie der Vorgehensweise unter
 
 | Abfrage | Schwellenwert | Zeitraum | Häufigkeit |
 |:---|:---|:---|:---|
-| `_LogsOperation | where Level == "Error"`   | 0 | 5 | 5 |
-| `_LogsOperation | where Level == "Warning"` | 0 | 1440 | 1440 |
+| `_LogOperation | where Level == "Error"`   | 0 | 5 | 5 |
+| `_LogOperation | where Level == "Warning"` | 0 | 1440 | 1440 |
 
 Mit diesen Warnungsregeln wird bei allen Vorgängen auf gleiche Weise mit einem Fehler oder einer Warnung reagiert. Sobald Sie mit den Vorgängen, die Warnungen generieren, besser vertraut sind, können Sie auf bestimmte Vorgänge anders reagieren. Beispielsweise können Sie Benachrichtigungen für bestimmte Vorgänge an verschiedene Personen senden. 
 
@@ -91,21 +93,32 @@ Um eine Warnungsregel für einen bestimmten Vorgang zu erstellen, verwenden Sie 
 
 Im folgenden Beispiel wird eine Warnung erstellt, wenn die Rate für das Erfassungsvolumen 80 % des Limits erreicht hat.
 
-```kusto
-_LogsOperation
-| where Category == "Ingestion"
-| where Operation == "Ingestion rate"
-| where Level == "Warning"
-```
+- Ziel: Auswählen Ihres Log Analytics-Arbeitsbereichs
+- Kriterien:
+  - Signalname: Benutzerdefinierte Protokollsuche
+  - Suchabfrage: `_LogOperation | where Category == "Ingestion" | where Operation == "Ingestion rate" | where Level == "Warning"`
+  - Basierend auf: Anzahl der Ergebnisse
+  - Bedingung: Größer als
+  - Schwellenwert: 0
+  - Zeitraum: 5 (Minuten)
+  - Häufigkeit: 5 (Minuten)
+- Name der Warnungsregel: Daily data limit reached
+- Schweregrad: Warnung (Schweregrad 1)
+
 
 Im folgenden Beispiel wird eine Warnung erstellt, wenn die Datensammlung das Tageslimit erreicht hat. 
-```kusto
-Operation 
-| where OperationCategory == "Ingestion" 
-|where OperationKey == "Data Collection" 
-| where OperationStatus == "Warning"
-```
 
+- Ziel: Auswählen Ihres Log Analytics-Arbeitsbereichs
+- Kriterien:
+  - Signalname: Benutzerdefinierte Protokollsuche
+  - Suchabfrage: `_LogOperation | where Category == "Ingestion" | where Operation == "Data Collection" | where Level == "Warning"`
+  - Basierend auf: Anzahl der Ergebnisse
+  - Bedingung: Größer als
+  - Schwellenwert: 0
+  - Zeitraum: 5 (Minuten)
+  - Häufigkeit: 5 (Minuten)
+- Name der Warnungsregel: Daily data limit reached
+- Schweregrad: Warnung (Schweregrad 1)
 
 
 

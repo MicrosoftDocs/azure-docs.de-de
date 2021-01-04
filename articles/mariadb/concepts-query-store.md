@@ -1,17 +1,17 @@
 ---
 title: Abfragespeicher – Azure Database for MariaDB
 description: Erfahren Sie mehr über das Feature „Abfragespeicher“ in Azure Database for MariaDB zum Nachverfolgen der Leistung im Zeitverlauf.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: a502638744009fc34a7f0a27f8034b89d2c8fa26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bca995f8b2cea33266e032b543abb18ee7140f3f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79527808"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541180"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Überwachen der Leistung von Azure Database for MariaDB mit dem Abfragespeicher
 

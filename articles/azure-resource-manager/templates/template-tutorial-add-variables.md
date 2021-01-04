@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Hinzufügen einer Variablen zur Vorlage'
-description: Fügen Sie Ihrer Azure Resource Manager-Vorlage Variablen hinzu, um die Syntax zu vereinfachen.
+description: Fügen Sie Ihrer Azure Resource Manager-Vorlage (ARM-Vorlage) Variablen hinzu, um die Syntax zu vereinfachen.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 482608172ac9e6e2b9765f236a4b6d655e2455fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d259510d880cbfc60e9ae80b533af6792cc95536
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613151"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930727"
 ---
 # <a name="tutorial-add-variables-to-your-arm-template"></a>Tutorial: Hinzufügen von Variablen zu Ihrer ARM-Vorlage
 
-In diesem Tutorial wird beschrieben, wie Sie Ihrer ARM-Vorlage (Azure Resource Manager) eine Variable hinzufügen. Variablen vereinfachen Ihre Vorlagen, da sie es Ihnen ermöglichen, einen Ausdruck einmal zu schreiben und dann in der gesamten Vorlage wiederzuverwenden. Dieses Tutorial dauert ungefähr **7 Minuten**.
+In diesem Tutorial wird beschrieben, wie Sie Ihrer ARM-Vorlage (Azure Resource Manager-Vorlage) eine Variable hinzufügen. Variablen vereinfachen Ihre Vorlagen, da sie es Ihnen ermöglichen, einen Ausdruck einmal zu schreiben und dann in der gesamten Vorlage wiederzuverwenden. Dieses Tutorial dauert ungefähr **7 Minuten**.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 

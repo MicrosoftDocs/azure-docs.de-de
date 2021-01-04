@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/19/2020
-ms.openlocfilehash: 77dda42b27aa6f5fb505fe65667876523cb3f5d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/22/2020
+ms.openlocfilehash: 9ca5ea5cdebe297af5081ae6e219935c56ba942e
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88650892"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004868"
 ---
 # <a name="monitor-data-flows"></a>Überwachen von Datenflüssen
 
@@ -23,15 +23,15 @@ Nachdem Sie den Aufbau und das Debugging Ihres Datenflusses abgeschlossen haben,
 
 Bei der Ausführung können Sie die Pipeline und alle darin enthaltenen Aktivitäten, einschließlich der Datenflussaktivität, überwachen. Klicken Sie auf das Symbol „Überwachen“ im linken Bereich der Azure Data Factory-Benutzeroberfläche. Daraufhin wird ein Bildschirm angezeigt, der dem folgenden ähnelt. Über die hervorgehobenen Symbole können Sie einen Drilldown in die Aktivitäten der Pipeline ausführen, einschließlich der Datenflussaktivität.
 
-![Datenflussüberwachung](media/data-flow/mon001.png "Datenflussüberwachung")
+![Screenshot: Symbole zur Auswahl von Pipelines für weitere Informationen](media/data-flow/mon001.png "Datenflussüberwachung")
 
 Auf dieser Ebene werden sowohl Statistikdaten als auch die Laufzeiten und der Status angezeigt. Die Ausführungs-ID auf der Aktivitätsebene unterscheidet sich von der Ausführungs-ID auf der Pipelineebene. Die Ausführungs-ID der vorherigen Ebene ist für die Pipeline. Durch Auswählen der Brille erhalten Sie detaillierte Informationen zu Ihrer Datenflussausführung.
 
-![Datenflussüberwachung](media/data-flow/monitoring-details.png "Datenflussüberwachung")
+![Screenshot mit dem Brillensymbol zur Anzeige von Details zur Datenflussausführung](media/data-flow/monitoring-details.png "Datenflussüberwachung")
 
 Wenn Sie sich in der grafischen Knotenüberwachungsansicht befinden, wird eine vereinfachte reine Ansichtsversion Ihres Datenflussdiagramms angezeigt.
 
-![Datenflussüberwachung](media/data-flow/mon003.png "Datenflussüberwachung")
+![Screenshot der schreibgeschützten Version des Diagramms](media/data-flow/mon003.png "Datenflussüberwachung")
 
 Hier sehen Sie ein Video mit einer Übersicht über die Überwachungsleistung Ihre Datenflüsse auf dem ADF-Überwachungsbildschirm:
 
@@ -41,7 +41,7 @@ Hier sehen Sie ein Video mit einer Übersicht über die Überwachungsleistung Ih
 
 Wenn Ihr Datenfluss in Spark ausgeführt wird, bestimmt Azure Data Factory basierend auf Ihrem gesamten Datenfluss die optimalen Codepfade. Darüber hinaus können die Ausführungspfade auf verschiedenen horizontalen Skalierungsknoten und Datenpartitionen auftreten. Daher stellt das Überwachungsdiagramm den Entwurf Ihres Flusses dar, wobei der Ausführungspfad Ihrer Transformationen berücksichtigt wird. Wenn Sie einzelne Knoten auswählen, werden „Gruppierungen“ angezeigt, die den auf dem Cluster gemeinsam ausgeführten Code darstellen. Die angezeigten Zeitangaben und Zählungen stellen diese Gruppen im Gegensatz zu den einzelnen Schritten in Ihrem Entwurf dar.
 
-![Datenflussüberwachung](media/data-flow/mon004.png "Datenflussüberwachung")
+![Screenshot der Seite für eine Datenfluss](media/data-flow/mon004.png "Datenflussüberwachung")
 
 * Wenn Sie das freie Feld im Überwachungsfenster auswählen, zeigen die Statistiken im unteren Bereich die Zeitangabe und die Anzahl der Zeilen für jede Senke und die Transformationen an, die zu den Senkendaten für die Transformationsherkunft geführt haben.
 
@@ -56,7 +56,7 @@ Wenn Ihr Datenfluss in Spark ausgeführt wird, bestimmt Azure Data Factory basie
   * „Cluster startup time“ (Startzeit des Clusters): Zeitraum zum Abrufen der JIT-Spark-Computeumgebung für Ihre Datenflussausführung.
   * „Number of transforms“ (Anzahl von Transformationen): Die Anzahl von Transformationsschritten, die in Ihrem Fluss ausgeführt werden.
   
-![Datenflussüberwachung](media/data-flow/monitornew.png "Datenflussüberwachung (neu)")
+![Screenshot der Option „Aktualisieren“](media/data-flow/monitornew.png "Datenflussüberwachung (neu)")
 
 ## <a name="total-sink-processing-time-vs-transformation-processing-time"></a>Gegenüberstellung der Gesamtverarbeitungszeit für die Senke und der Verarbeitungszeit für die Transformation
 
@@ -81,10 +81,20 @@ Wenn Sie die JSON-Ausgabe Ihrer Datenflussaktivität in der ADF-Pipelineüberwac
 
 Wenn Sie in der Zuordnung ein Symbol für eine Senkentransformation auswählen, zeigt das Flyout-Panel auf der rechten Seite unten einen zusätzlichen Datenpunkt namens „Nachbearbeitungszeit“. Dies ist die Zeitspanne, die für die Ausführung des Auftrags im Spark-Cluster benötigt wurde, *nachdem* die Daten geladen, transformiert und geschrieben wurden. Dieser Zeitraum kann das Schließen von Verbindungspools, das Herunterfahren von Treibern, das Löschen von Dateien, dass Zusammenfügen von Dateien und weitere Aufgaben umfassen. Wenn Sie in Ihrem Flow Aktionen wie „Dateien verschieben“ und „Ausgabe in einer einzelnen Datei“ ausführen, werden Sie vermutlich einen Anstieg des Werts für die Nachbearbeitungszeit bemerken.
   
+## <a name="error-rows"></a>Fehlerzeilen
+
+Die Aktivierung der Fehlerzeilenbehandlung in der Datenflusssenke wird in der Überwachungsausgabe berücksichtigt. Wenn Sie die Senke auf „Bericht bei Fehler als erfolgreich markieren“ festlegen, wird in der Überwachungsausgabe die Anzahl der erfolgreichen und fehlerhaften Zeilen angezeigt, wenn Sie auf den Überwachungsknoten der Senke klicken.
+
+![Screenshot mit Fehlerzeilen](media/data-flow/error-row-2.png "Fehlerzeilenüberwachung (erfolgreich)")
+
+Wenn Sie „Bericht bei Fehler als erfolgreich markieren“ auswählen, wird dieselbe Ausgabe nur im Ausgabetext der Aktivitätsüberwachung angezeigt. Dies liegt daran, dass die Datenflussaktivität für die Ausführung einen Fehler zurückgibt und die ausführliche Überwachungsansicht nicht verfügbar ist.
+
+![Screenshot mit Fehlerzeilen in Aktivität](media/data-flow/error-rows-4.png "Fehlerzeilenüberwachung (fehlerhaft)")
+
 ## <a name="monitor-icons"></a>Symbole für die Überwachung
 
 Dieses Symbol bedeutet, dass die Transformationsdaten bereits auf dem Cluster zwischengespeichert wurden, sodass die Zeitangaben und der Ausführungspfad dies berücksichtigt haben:
 
-![Datenflussüberwachung](media/data-flow/mon005.png "Datenflussüberwachung")
+![Screenshot mit Datenträgersymbol](media/data-flow/mon005.png "Datenflussüberwachung")
 
 In der Transformation werden auch grüne Kreissymbole angezeigt. Sie stellen die Anzahl von Senken dar, in die der Datenfluss geleitet wird.

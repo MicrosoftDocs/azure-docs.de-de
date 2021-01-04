@@ -4,15 +4,15 @@ description: Erfahren Sie mehr über Ihre Supportoptionen im Partner Center, ein
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: navits09
+ms.author: navits
 ms.date: 09/18/2020
-ms.openlocfilehash: 983f7e400a33cb36f30505e5a8a28811d9d4cdfb
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b042d1e1f38b2a4a84522d58ad482d4262f69a4a
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283187"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488892"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Support für das Programm „Kommerzieller Marketplace“ in Partner Center
 
@@ -67,7 +67,7 @@ Die folgenden Optionen werden zur Verfügung gestellt:
 
 ![Empfohlene Lösungen](./media/support/recommended-solutions.png)
 
-Falls Sie Ihre Antwort nicht unter **Empfohlene Lösungen** finden, klicken Sie auf **Provide issue details** (Problemdetails angeben). Füllen Sie alle erforderlichen Felder aus, um den Lösungsprozess zu beschleunigen, und klicken Sie dann auf **Übermitteln** .
+Falls Sie Ihre Antwort nicht unter **Empfohlene Lösungen** finden, klicken Sie auf **Provide issue details** (Problemdetails angeben). Füllen Sie alle erforderlichen Felder aus, um den Lösungsprozess zu beschleunigen, und klicken Sie dann auf **Übermitteln**.
 
 >[!Note]
 >Wenn Sie sich nicht im Partner Center angemeldet haben und das Thema eine Authentifizierung erfordert, werden Sie aufgefordert, sich anzumelden, bevor Sie fortfahren können.  Für öffentliche Themen ist keine Authentifizierung erforderlich.

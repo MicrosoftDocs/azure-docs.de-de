@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: f0fcdf7aab5f43a0412cd28a1c15188b19770dc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d420bf45cd705f518df0d52929a331d23537184
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888097"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395171"
 ---
 # <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Erstellen eines Datenstreamingauftrags in Azure SQL Edge 
 
@@ -24,13 +24,13 @@ In diesem Artikel wird das Erstellen eines T-SQL-Streamingauftrags in Azure SQL�
 
 T-SQL-Streaming verwendet die Funktionen der externen Datenquelle von SQL Server, um die Datenquellen zu definieren, die den externen Streameingaben und -ausgaben des Streamingauftrags zugeordnet sind. Verwenden Sie die folgenden T-SQL-Befehle, um ein externes Streameingabe- oder -ausgabeobjekt zu erstellen:
 
-- [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql)
+- [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](/sql/t-sql/statements/create-external-file-format-transact-sql)
 
-- [CREATE EXTERNAL DATA SOURCE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql)
+- [CREATE EXTERNAL DATA SOURCE (Transact-SQL)](/sql/t-sql/statements/create-external-data-source-transact-sql)
 
 - [CREATE EXTERNAL STREAM (Transact-SQL)](#example-create-an-external-stream-object-to-azure-sql-database)
 
-Wenn Azure SQL Edge, SQL Server oder Azure SQL-Datenbank als Ausgabestream verwendet wird, benötigen Sie außerdem den Befehl [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql). Dieser T-SQL-Befehl definiert die Anmeldeinformationen für den Zugriff auf die Datenbank.
+Wenn Azure SQL Edge, SQL Server oder Azure SQL-Datenbank als Ausgabestream verwendet wird, benötigen Sie außerdem den Befehl [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](/sql/t-sql/statements/create-database-scoped-credential-transact-sql). Dieser T-SQL-Befehl definiert die Anmeldeinformationen für den Zugriff auf die Datenbank.
 
 ### <a name="supported-input-and-output-stream-data-sources"></a>Unterstützte Datenquellen für Eingabe- und Ausgabestreams
 
@@ -38,7 +38,7 @@ Azure SQL Edge unterstützt derzeit nur die folgenden Datenquellen als Streamein
 
 | Datenquellentyp | Eingabe | Output | BESCHREIBUNG |
 |------------------|-------|--------|------------------|
-| Azure IoT Edge Hub | J | J | Datenquelle zum Lesen und Schreiben von Streamingdaten in einen Azure IoT Edge Hub. Weitere Informationen finden Sie unter [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
+| Azure IoT Edge Hub | J | J | Datenquelle zum Lesen und Schreiben von Streamingdaten in einen Azure IoT Edge Hub. Weitere Informationen finden Sie unter [IoT Edge Hub](../iot-edge/iot-edge-runtime.md#iot-edge-hub).|
 | SQL-Datenbank | N | J | Datenquellenverbindung, um Streamingdaten in SQL-Datenbank zu schreiben. Die Datenbank kann eine lokale Datenbank in Azure SQL Edge oder eine Remotedatenbank in SQL Server oder Azure SQL-Datenbank sein.|
 | Kafka | J | N | Datenquelle zum Lesen von Streamingdaten aus einem Kafka-Thema. Dieser Adapter ist zurzeit nur für Intel- oder AMD-Versionen von Azure SQL Edge verfügbar. Er ist für die ARM64-Version von Azure SQL Edge nicht verfügbar.|
 
@@ -173,7 +173,7 @@ Im folgenden Beispiel wird ein externes Streamobjekt für die lokale Datenbank i
 Verwenden Sie die gespeicherte Systemprozedur `sys.sp_create_streaming_job`, um die Streamingabfragen zu definieren und den Streamingauftrag zu erstellen. Die gespeicherte Prozedur `sp_create_streaming_job` nimmt die folgenden Parameter an:
 
 - `job_name`: Der Name des Streamingauftrags. Die Namen von Streamingaufträgen sind in der gesamten Instanz eindeutig.
-- `statement`: Auf der [Stream Analytics-Abfragesprache](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?) basierende Streamingabfrageanweisungen.
+- `statement`: Auf der [Stream Analytics-Abfragesprache](/stream-analytics-query/stream-analytics-query-language-reference) basierende Streamingabfrageanweisungen.
 
 Im folgenden Beispiel wird ein einfacher Streamingauftrag mit einer Streamingabfrage erstellt. Diese Abfrage liest die Eingaben aus dem IoT Edge Hub und schreibt in `dbo.TemperatureMeasurements` in der Datenbank.
 
@@ -233,7 +233,8 @@ exec sys.sp_get_streaming_job @name=N'StreamingJob1'
 (
        (
        name nvarchar(256),
-       status nvarchar(256)
+       status nvarchar(256),
+       error nvarchar(256)
        )
 )
 ```

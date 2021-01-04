@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: c8b4102968e4b6b633216e29d5e993a1c98fa1c6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 478f3454a728871040cdbbf9f817394cffe6b82f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89071719"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660252"
 ---
 # <a name="quickstart-deploy-azure-firewall-with-availability-zones---arm-template"></a>Schnellstart: Bereitstellen von Azure Firewall mit Verfügbarkeitszonen – ARM-Vorlage
 
@@ -93,4 +93,4 @@ Entfernen Sie die Ressourcengruppe und die Firewall nicht, wenn Sie mit dem Tuto
 Als Nächstes können Sie die Azure Firewall-Protokolle überwachen.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Überwachen von Azure Firewall-Protokollen](tutorial-diagnostics.md)
+> [Tutorial: Überwachen von Azure Firewall-Protokollen](./firewall-diagnostics.md)

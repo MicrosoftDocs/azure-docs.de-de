@@ -7,11 +7,11 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.openlocfilehash: 85ad78eeb095b427b1a6334f57c351e926022dff
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217812"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021876"
 ---
 # <a name="tutorial-add-cluster-nodes-to-an-azure-fxt-edge-filer-cluster"></a>Tutorial: Hinzufügen von Clusterknoten zu einem Azure FXT Edge Filer-Cluster
 
@@ -73,7 +73,7 @@ Weitere Informationen zu den Optionen auf dieser Seite finden Sie in der Anleitu
 
 ## <a name="3-click-the-allow-to-join-button"></a>3. Klicken auf die Schaltfläche „Allow to Join“ (Beitritt zulassen)
 
-Klicken Sie für den Knoten, den Sie hinzufügen möchten, in der Spalte **Aktionen** auf die Schaltfläche **Allow To Join*** (Beitritt zulassen).
+Klicken Sie für den Knoten, den Sie hinzufügen möchten, in der Spalte *Aktionen** auf die Schaltfläche **Allow To Join** (Beitritt zulassen).
 
 Nachdem Sie auf die Schaltfläche geklickt haben, ändert sich der Status möglicherweise, wenn seine Software als Vorbereitung zum Hinzufügen zum Cluster aktualisiert wird.
 

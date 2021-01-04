@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: 33d1be493cba9fd9f01ecdbad10afb5330256aa0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 076adbfd4cecf7dae9ffc490e911fcb7ffce48e6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045345"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394831"
 ---
 # <a name="move-vms-to-another-azure-region"></a>Verschieben von VMs in eine andere Azure-Region
 
@@ -68,7 +68,7 @@ In diesem Tutorial lernen Sie Folgendes:
 - Befolgen Sie bei virtuellen Linux-Computern die Anleitung Ihres Linux-Distributors, um die aktuellen vertrauenswürdigen Stammzertifikate und die Zertifikatsperrliste für den virtuellen Computer abzurufen.
 - Stellen Sie sicher, dass Sie keinen Authentifizierungsproxy zum Steuern der Netzwerkkonnektivität für die VMs verwenden, die Sie verschieben möchten.
 
-- Wenn der virtuelle Computer, den Sie verschieben möchten, keinen Zugriff auf das Internet hat oder einen Firewallproxy zum Steuern des ausgehenden Zugriffs verwendet, [überprüfen Sie die Anforderungen](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
+- Wenn der virtuelle Computer, den Sie verschieben möchten, keinen Zugriff auf das Internet hat oder einen Firewallproxy zum Steuern des ausgehenden Zugriffs verwendet, [überprüfen Sie die Anforderungen](azure-to-azure-tutorial-enable-replication.md#set-up-vm-connectivity).
 
 - Identifizieren Sie das Layout des Quellnetzwerks und alle Ressourcen, die Sie aktuell verwenden. Dies schließt unter anderem Lastenausgleichsmodule, Netzwerksicherheitsgruppen (NSGs) und öffentliche IP-Adressen ein.
 
@@ -104,7 +104,7 @@ Die folgenden Schritte zeigen, wie Sie den virtuellen Computer mithilfe von Azur
 1. Wählen Sie in der Dropdownliste **Azure Virtual Machines** aus.
 1. Wählen Sie unter **Quellstandort** die Azure-Quellregion aus, in der Ihre VMs derzeit ausgeführt werden.
 1. Wählen Sie das Ressourcen-Manager-Bereitstellungsmodell. Wählen Sie dann das **Quellabonnement** und die **Quellressourcengruppe** aus.
-1. Wählen Sie **OK**, um die Einstellungen zu speichern.
+1. Wählen Sie **OK** , um die Einstellungen zu speichern.
 
 ### <a name="enable-replication-for-azure-vms-and-start-copying-the-data"></a>Aktivieren der Replikation für Azure-VMs und Starten des Kopiervorgangs für die Daten
 
@@ -116,7 +116,7 @@ Site Recovery ruft eine Liste der VMs ab, die dem Abonnement und der Ressourcen
 1. Übernehmen Sie für dieses Tutorial die anderen Standardwerte.
 1. Wählen Sie **Replikation aktivieren** aus. Durch diesen Schritt wird ein Auftrag gestartet, um die Replikation des virtuellen Computers zu aktivieren.
 
-    ![Aktivieren der Replikation](media/tutorial-migrate-azure-to-azure/settings.png)
+
 
 ## <a name="move"></a>Move
 

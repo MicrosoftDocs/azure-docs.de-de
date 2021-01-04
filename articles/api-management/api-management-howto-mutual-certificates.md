@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 419de27ad87b113de62dacb0dc384702420afbd6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 980d3ca52016c65301ea72e4e669c4bafea4c053
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071114"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077190"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Sichern von Back-End-Diensten über eine Clientzertifikatauthentifizierung in Azure API Management
 
@@ -44,7 +44,7 @@ Gehen Sie folgendermaßen vor, um ein neues Clientzertifikat hochzuladen. Falls 
 1. Navigieren Sie im Azure-Portal zu Ihrer Azure API Management-Dienstinstanz.
 2. Wählen Sie **Zertifikate** im Menü aus.
 3. Klicken Sie auf die Schaltfläche **+ Hinzufügen**.
-    ![Hinzufügen von Clientzertifikaten](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)
+    ![Screenshot: Hervorgehobene Schaltfläche „+ Hinzufügen“](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)
 4. Suchen Sie nach dem Zertifikat, und geben Sie dessen ID und Kennwort an.
 5. Klicken Sie auf **Erstellen**.
 
@@ -68,12 +68,12 @@ Falls das Zertifikat von einer API verwendet wird, wird ein Warnbildschirm angez
 
 ## <a name="configure-an-api-to-use-a-client-certificate-for-gateway-authentication"></a><a name="step2"> </a>Konfigurieren einer API zum Verwenden eines Clientzertifikats für die Gatewayauthentifizierung
 
-1. Klicken Sie auf der linken Seite im Menü **API Management** auf **APIs**, und navigieren Sie zur API.
+1. Klicken Sie auf der linken Seite im Menü **API Management** auf **APIs** , und navigieren Sie zur API.
     ![Aktivieren von Clientzertifikaten](media/api-management-howto-mutual-certificates/apim-client-cert-enable.png)
 
 2. Klicken Sie in der Registerkarte **Entwurf** auf ein Stiftsymbol des Abschnitts **Back-End**.
-3. Ändern Sie die **Gateway-Anmeldeinformationen** in **Clientzertifikat**, und wählen Sie das Zertifikat aus der Dropdownliste aus.
-    ![Aktivieren von Clientzertifikaten](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
+3. Ändern Sie die **Gateway-Anmeldeinformationen** in **Clientzertifikat** , und wählen Sie das Zertifikat aus der Dropdownliste aus.
+    ![Screenshot: Zeigt, wo Sie die Gatewayanmeldeinformationen ändern und Ihr Zertifikat auswählen können](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
 
 4. Klicken Sie auf **Speichern**.
 

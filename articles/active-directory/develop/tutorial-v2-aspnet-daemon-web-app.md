@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 72b72959f7b5c89bfad4495c8534de5dfaaefe8b
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 031ee9a6d945d923279fd3025c32212c3ead98ed
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611094"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95406598"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutorial: Erstellen eines mehrinstanzenfähigen Daemons, der Microsoft Identity Platform verwendet
 
-In diesem Tutorial erfahren Sie, wie Sie mithilfe von Microsoft Identity Plattform auf die Daten von Microsoft-Geschäftskunden in einem nicht interaktiven Prozess mit langer Ausführungsdauer zugreifen. Der Beispiel-Daemon verwendet die [Gewährung von OAuth 2.0-Clientanmeldeinformationen](v2-oauth2-client-creds-grant-flow.md), um ein Zugriffstoken abzurufen. Dieses Token wird dann vom Daemon verwendet, um [Microsoft Graph](https://graph.microsoft.io) aufzurufen und auf Organisationsdaten zuzugreifen.
+In diesem Tutorial laden Sie eine ASP.NET-Daemon-Web-App herunter, die die Verwendung der Genehmigung von OAuth 2.0-Clientanmeldeinformationen zum Abrufen eines Zugriffstokens zum Aufrufen der Microsoft Graph-API veranschaulicht. Diese Web-App führen Sie dann auch aus.
+
+Dieses Tutorial umfasst folgende Punkte:
 
 > [!div class="checklist"]
 > * Integrieren einer Daemon-App in Microsoft Identity Platform
@@ -219,7 +221,7 @@ Dieses Projekt enthält Web-App- und Web-API-Projekte. Führen Sie jeweils die f
    1. Navigieren Sie zum Projekt **dotnet-web-daemon-v2**.
    1. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf das Projekt, und wählen Sie **Veröffentlichen** aus.
    1. Wählen Sie auf der unteren Leiste die Option **Profil importieren** aus, und importieren Sie das zuvor heruntergeladene Veröffentlichungsprofil.
-1. Wählen Sie **Konfigurieren**aus.
+1. Wählen Sie **Konfigurieren** aus.
 1. Aktualisieren Sie auf der Registerkarte **Verbindung** die Ziel-URL, sodass sie HTTPS verwendet. Verwenden Sie z. B. `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`. Wählen Sie **Weiter** aus.
 1. Vergewissern Sie sich auf der Registerkarte **Einstellungen**, dass die Option **Organisationsauthentifizierung aktivieren** deaktiviert ist.
 1. Wählen Sie **Speichern** aus. Wählen Sie im Hauptbildschirm **Veröffentlichen** aus.

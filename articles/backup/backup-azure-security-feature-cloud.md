@@ -3,12 +3,12 @@ title: Vorläufiges Löschen für Azure Backup
 description: In diesem Artikel wird erläutert, wie Sie mit den Azure Backup-Sicherheitsfunktionen für mehr Sicherheit für Ihre Sicherungen sorgen können.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: d7998c7f9def6ce9965ded3b6ec700f7975891eb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: da473b1d886ec2fe95a7baae76b09aff38fb3cd7
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91271544"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95254048"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Vorläufiges Löschen für Azure Backup
 
@@ -87,11 +87,11 @@ Folgen Sie diesen Schritten:
 
 5. Wählen Sie **Sicherungsdaten löschen** aus, um die Sicherungsdaten endgültig zu löschen.
 
-   ![Auswählen von „Sicherungsdaten löschen“](/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![Auswählen von „Sicherungsdaten löschen“](./media/backup-azure-manage-vms/delete-backup-button.png)
 
 6. Geben Sie den Namen des Sicherungselements ein, um zu bestätigen, dass Sie die Wiederherstellungspunkte löschen möchten.
 
-   ![Eingeben des Namens des Sicherungselements](/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![Eingeben des Namens des Sicherungselements](./media/backup-azure-manage-vms/delete-backup-data.png)
 
 7. Wählen Sie **Löschen** aus, um die Sicherungsdaten des Elements zu löschen. Sie erhalten einer Benachrichtigung, dass die Sicherungsdaten gelöscht wurden.
 

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: fe1caca11ec0a3d89ddae140d00cd3556b9d3d89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0788d8b4f659364fcedc690185c9159a24434125
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044463"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123913"
 ---
 # <a name="test-live-data-locally-using-azure-stream-analytics-tools-for-visual-studio-preview"></a>Lokales Testen von Livedaten mithilfe von Azure Stream Analytics-Tools für Visual Studio (Vorschauversion)
 
@@ -59,7 +59,7 @@ Die folgenden lokalen Testoptionen werden unterstützt:
 
 * Power BI und Azure Data Lake Storage werden aufgrund von Einschränkungen des Authentifizierungsmodells nicht als Ausgabesenken unterstützt.
 
-* Nur Cloudeingabeoptionen unterstützen [Zeitrichtlinien](stream-analytics-out-of-order-and-late-events.md), lokale Eingabeoptionen nicht.
+* Nur Cloudeingabeoptionen unterstützen [Zeitrichtlinien](./stream-analytics-time-handling.md), lokale Eingabeoptionen nicht.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

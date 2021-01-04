@@ -3,12 +3,12 @@ title: Erstellen einer Inhaltsbibliothek zum Bereitstellen von VMs in Azure VMwa
 description: Erstellen Sie eine Inhaltsbibliothek zum Bereitstellen einer VM in einer privaten Azure VMware Solution-Cloud.
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: 3a1b0a091dcdf9a225b4bf91ec83f542c2310285
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57db8ac4da8eef826d85feb11680c9c87823ee36
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575812"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461684"
 ---
 # <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Erstellen einer Inhaltsbibliothek zum Bereitstellen von VMs in Azure VMware Solution
 
@@ -18,7 +18,7 @@ In diesem Artikel werden die Schritte zum Erstellen einer Inhaltsbibliothek erl�
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Für dieses Tutorial sind ein logisches NSX-T-Switchsegment und ein verwalteter DHCP-Dienst erforderlich.  Weitere Informationen dazu finden Sie im Artikel [Verwalten von DHCP in der Azure-VMware-Lösung (Vorschauversion)](manage-dhcp.md).
+Für dieses Tutorial sind ein logisches NSX-T-Switchsegment und ein verwalteter DHCP-Dienst erforderlich.  Weitere Informationen dazu finden Sie im Artikel [Verwalten von DHCP in Azure VMware Solution](manage-dhcp.md).
 
 ## <a name="create-a-content-library"></a>Erstellen einer Inhaltsbibliothek
 
@@ -79,7 +79,7 @@ Nachdem Sie die Inhaltsbibliothek erstellt haben, können Sie ein ISO-Image hinz
 
 1. Wählen Sie das im vorherigen Abschnitt hochgeladene ISO-Image und dann **OK** aus.
 
-1. Aktivieren Sie das Kontrollkästchen **Verbinden**, damit das ISO-Image beim Einschalten bereitgestellt wird.
+1. Aktivieren Sie das Kontrollkästchen **Verbinden** , damit das ISO-Image beim Einschalten bereitgestellt wird.
 
 1. Wählen Sie **Neues Netzwerk > Dropdownliste auswählen > Durchsuchen** aus.
 
@@ -92,7 +92,7 @@ Nachdem Sie die Inhaltsbibliothek erstellt haben, können Sie ein ISO-Image hinz
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Wenn Sie beabsichtigen, Hybrid Cloud Extension (HCX) zum Migrieren von VM-Workloads zu Ihrer privaten Cloud zu verwenden, führen Sie das Verfahren unter [Installieren von HCX für eine Azure-VMware-Lösung](tutorial-deploy-vmware-hcx.md) aus.
+Wenn Sie VMware HCX zum Migrieren von VM-Workloads zu Ihrer privaten Cloud verwenden möchten, nutzen Sie das unter [Bereitstellen und Konfigurieren von VMware HCX](tutorial-deploy-vmware-hcx.md) beschriebene Verfahren.
 
 <!-- LINKS - external-->
 

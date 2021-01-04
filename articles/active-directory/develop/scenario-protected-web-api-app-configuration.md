@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 613ba527c8f86257dd271d3cc9e43c97fc475068
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bfbfb1ff5b6cb9c711d987608226c51822dfc935
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257451"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442955"
 ---
 # <a name="protected-web-api-code-configuration"></a>Geschützte Web-API: Codekonfiguration
 
@@ -119,7 +119,7 @@ _Microsoft.Identity.Web_ ist die verbindende Komponente zwischen ASP.NET Core, d
 
 #### <a name="using-microsoftidentityweb-templates"></a>Verwenden von Microsoft.Identity.Web-Vorlagen
 
-Mithilfe von Microsoft.Identity.Web-Projektvorlagen können Sie eine Web-API von Grund auf neu erstellen. Weitere Informationen finden Sie unter [Microsoft.Identity.Web – Web-API-Projektvorlage](https://aka.ms/ms-id-web/webapi-project-templates).
+Mithilfe von Microsoft.Identity.Web-Projektvorlagen können Sie eine Web-API von Grund auf neu erstellen. Weitere Informationen finden Sie unter [Microsoft.Identity.Web – Web-API-Projektvorlage](https://aka.ms/ms-id-web/webapi-project-templates).
 
 #### <a name="starting-from-an-existing-aspnet-core-31-application"></a>Verwenden einer vorhandenen ASP.NET Core 3.1-Anwendung
 
@@ -242,5 +242,4 @@ Eingehende Zugriffstoken können auch in Azure Functions überprüft werden. Bei
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-> [!div class="nextstepaction"]
-> [Verifizieren von Bereichen und App-Rollen in Ihrem Code](scenario-protected-web-api-verification-scope-app-roles.md)
+Fahren Sie mit dem nächsten Artikel in diesem Szenario fort: [Überprüfen der Geltungsbereiche und App-Rollen in Ihrem Code](scenario-protected-web-api-verification-scope-app-roles.md).

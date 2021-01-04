@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Azure, Kinect, SDK, Update herunterladen, aktuell, verfügbar, installieren
-ms.openlocfilehash: 48cdd35a80d68a7ec0d900639c0fca3a2c66787e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fd14781c42192c713d826729f8fab6c698d6321
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86171787"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505476"
 ---
 # <a name="azure-kinect-sensor-sdk-download"></a>Download des Sensor-SDK für Azure Kinect
 
@@ -26,20 +26,20 @@ Diese Seite enthält die Downloadlinks für alle Versionen des Sensor-SDK für A
 - [Azure Kinect-Rekorder](azure-kinect-recorder.md)
 - [Azure Kinect-Firmwaretool](azure-kinect-firmware-tool.md)
 
-## <a name="windows-download-link"></a>Windows-Downloadlink
+## <a name="windows-installation-instructions"></a>Windows-Installationsanweisungen
 
-[Microsoft Installer](https://download.microsoft.com/download/3/d/6/3d6d9e99-a251-4cf3-8c6a-8e108e960b4b/Azure%20Kinect%20SDK%201.4.1.exe) | [GitHub-Quellcode](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1093)
+Details zur Installation für die aktuelle und die vorherigen Versionen des Sensor-SDK und die Firmware für Azure Kinect finden Sie [hier](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/docs/usage.md).
+
+Sie finden die Quelldatei [hier](https://github.com/microsoft/Azure-Kinect-Sensor-SDK).
 
 > [!NOTE]
 > Merken Sie sich bei der Installation des SDK den Installationspfad. Beispiel: C:\Program Files\Azure Kinect SDK 1.2. Die Tools, auf die in diesem Artikel verwiesen wird, befinden sich in diesem Pfad.
-
-Frühere Versionen des Azure Kinect Sensor SDK und der Firmware finden Sie auf [GitHub](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/docs/usage.md).
 
 ## <a name="linux-installation-instructions"></a>Linux-Installationsanweisungen
 
 Derzeit wird nur die Distribution Ubuntu 18.04 unterstützt. Weitere Informationen zum Anfordern der Unterstützung für andere Distributionen finden Sie auf [dieser Seite](https://aka.ms/azurekinectfeedback).
 
-Zunächst müssen Sie das [Paketrepository von Microsoft](https://packages.microsoft.com/) gemäß [diesen Anweisungen](https://docs.microsoft.com/windows-server/administration/linux-package-repository-for-microsoft-software) konfigurieren.
+Zunächst müssen Sie das [Paketrepository von Microsoft](https://packages.microsoft.com/) gemäß [diesen Anweisungen](/windows-server/administration/linux-package-repository-for-microsoft-software) konfigurieren.
 
 Nun können Sie die erforderlichen Pakete installieren. Das Paket `k4a-tools` enthält [Azure Kinect Viewer](azure-kinect-viewer.md), den [Azure Kinect-Rekorder](record-sensor-streams-file.md) und das [Azure Kinect-Firmwaretool](azure-kinect-firmware-tool.md). Führen Sie zum Installieren Folgendes aus:
 

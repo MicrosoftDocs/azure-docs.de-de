@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/20/2020
+ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1e6965e15b7482935148ae7fcd2edf0f3cc722b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85030285810433dc77d1f466d160c50d1f89770e
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83738556"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750406"
 ---
 # <a name="user-profile-attributes"></a>Benutzerprofilattribute
 
@@ -26,7 +26,7 @@ Ihr Azure Active Directory (Azure AD) B2C-Verzeichnisbenutzerprofil umfasst eine
 
 Sie können auch externe Systeme integrieren. Sie können z. B. Azure AD B2C für die Authentifizierung verwenden und eine externe Datenbank für Kundenbeziehungsmanagement (Customer Relationship Management, CRM) oder Kundendatenbank als autoritative Quelle der Kundendaten nutzen. Weitere Informationen finden Sie unter [Lösung für Remoteprofile](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile).
 
-In der nachstehenden Tabelle sind die Attribute von [Benutzerressourcentypen](https://docs.microsoft.com/graph/api/resources/user) aufgeführt, die vom Azure AD B2C-Verzeichnisbenutzerprofil unterstützt werden. Darin sind die folgenden Informationen zu den einzelnen Attributen enthalten:
+In der nachstehenden Tabelle sind die Attribute von [Benutzerressourcentypen](/graph/api/resources/user) aufgeführt, die vom Azure AD B2C-Verzeichnisbenutzerprofil unterstützt werden. Darin sind die folgenden Informationen zu den einzelnen Attributen enthalten:
 
 - Der von Azure AD B2C verwendete Attributname (gefolgt vom Microsoft Graph-Namen in Klammern, falls dieser anders lautet)
 - Attributdatentyp
@@ -75,16 +75,22 @@ In der nachstehenden Tabelle sind die Attribute von [Benutzerressourcentypen](ht
 |streetAddress   |String|Die Straße in der geschäftlichen Anschrift des Benutzers. Maximale Länge: 1024 Zeichen.|Ja|Ja|Persistent, Ausgabe|
 |strongAuthentication AlternativePhoneNumber<sup>1</sup>|String|Die sekundäre Telefonnummer des Benutzers, die für die mehrstufige Authentifizierung verwendet wird.|Ja|Nein|Persistent, Ausgabe|
 |strongAuthenticationEmailAddress<sup>1</sup>|String|Die SMTP-Adresse für den Benutzer. Beispiel: „bob@contoso.com“. Dieses Attribut wird für die Anmeldung mit der Benutzernamenrichtlinie verwendet, um die E-Mail-Adresse des Benutzers zu speichern. Die E-Mail-Adresse wird dann in einem Kennwortzurücksetzungsflow verwendet.|Ja|Nein|Persistent, Ausgabe|
-|strongAuthenticationPhoneNumber<sup>1</sup>|String|Die primäre Telefonnummer des Benutzers, die für die mehrstufige Authentifizierung verwendet wird.|Ja|Nein|Persistent, Ausgabe|
+|strongAuthenticationPhoneNumber<sup>2</sup>|String|Die primäre Telefonnummer des Benutzers, die für die mehrstufige Authentifizierung verwendet wird.|Ja|Nein|Persistent, Ausgabe|
 |surname         |String|Der Nachname (oder Familienname) des Benutzers. Maximale Länge: 64 Zeichen.|Ja|Ja|Persistent, Ausgabe|
 |telephoneNumber (erster Eintrag von „businessPhones“)|String|Die primäre geschäftliche Telefonnummer des Benutzers.|Ja|Nein|Persistent, Ausgabe|
 |userPrincipalName    |String|Der Benutzerprinzipalname (User Principal Name, UPN) des Benutzers. Der UPN ist ein Anmeldename im Internetformat für den Benutzer basierend auf dem Internetstandard RFC 822. Die Domäne muss in der Sammlung der überprüften Domänen des Mandanten enthalten sein. Diese Eigenschaft ist beim Erstellen eines Kontos erforderlich. Unveränderlich.|Nein|Nein|Eingabe, Persistent, Ausgabe|
 |usageLocation   |String|Erforderlich für Benutzer, denen aufgrund gesetzlicher Anforderungen Lizenzen zugewiesen werden, um die Verfügbarkeit von Diensten in den jeweiligen Ländern/Regionen zu überprüfen. Lässt keine NULL-Werte zu. Ein aus zwei Buchstaben bestehender Länder-/Regionscode (ISO-Standard 3166). Beispiele: „US“, „JP“ und „GB“.|Ja|Nein|Persistent, Ausgabe|
 |userType        |String|Ein Zeichenfolgenwert, der zum Klassifizieren von Benutzertypen in Ihrem Verzeichnis verwendet werden kann. Der Wert muss „Member“ (Mitglied) lauten. Schreibgeschützt.|Nur Lesezugriff|Nein|Persistent, Ausgabe|
-|userState (externalUserState)<sup>2</sup>|String|Gilt nur für das Azure AD B2B-Konto. Gibt an, ob der Status der Einladung „PendingAcceptance“ (Annahme ausstehend) oder „Accepted“ (Angenommen) lautet.|Nein|Nein|Persistent, Ausgabe|
+|userState (externalUserState)<sup>3</sup>|String|Gilt nur für das Azure AD B2B-Konto. Gibt an, ob der Status der Einladung „PendingAcceptance“ (Annahme ausstehend) oder „Accepted“ (Angenommen) lautet.|Nein|Nein|Persistent, Ausgabe|
 |userStateChangedOn (externalUserStateChangeDateTime)<sup>2</sup>|Datetime|Zeigt den Zeitstempel der letzten Änderung der „UserState“-Eigenschaft an.|Nein|Nein|Persistent, Ausgabe|
-|<sup>1 </sup>Wird von Microsoft Graph nicht unterstützt<br><sup>2 </sup>Sollte in Azure AD B2C nicht verwendet werden||||||
 
+<sup>1 </sup>Wird von Microsoft Graph nicht unterstützt<br><sup>2 </sup>Weitere Informationen finden Sie unter [MFA-Attribut „Telefonnummer“](#mfa-phone-number-attribute)<br><sup>3 </sup>Sollte mit Azure AD B2C nicht verwendet werden
+
+## <a name="mfa-phone-number-attribute"></a>MFA-Attribut „Telefonnummer“
+
+Wenn Sie für die mehrstufige Authentifizierung (Multi-Factor Authentication, MFA) ein Telefon verwenden, wird die Benutzeridentität anhand des Mobiltelefons überprüft. Wenn Sie programmgesteuert eine Telefonnummer [neu hinzufügen](https://docs.microsoft.com/graph/api/authentication-post-phonemethods), [aktualisieren](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update), [abrufen](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get) oder [löschen](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete) möchten, verwenden Sie die [Authentifizierungsmethode per Telefon](https://docs.microsoft.com/graph/api/resources/phoneauthenticationmethod) der Microsoft Graph-API.
+
+In den [benutzerdefinierten Richtlinien](custom-policy-overview.md) von Azure AD B2C ist die Telefonnummer über den Anspruchstyp `strongAuthenticationPhoneNumber` verfügbar.
 
 ## <a name="extension-attributes"></a>Erweiterungsattribute
 
@@ -94,7 +100,7 @@ Sie müssen häufig Ihre eigenen Attribute erstellen, beispielsweise in den folg
 - Ein Identitätsanbieter verfügt über eine eindeutige Benutzer-ID, die gespeichert werden muss, z.B. **uniqueUserGUID**.
 - Für eine benutzerdefinierte User Journey muss ein Status eines Benutzers (z. B. **migrationStatus**) beibehalten werden.
 
-Azure AD B2C erweitert die für die einzelnen Benutzerkonten gespeicherten Attribute. Erweiterungsattribute [erweitern das Schema](https://docs.microsoft.com/graph/extensibility-overview#schema-extensions) der Benutzerobjekte im Verzeichnis. Die Erweiterungsattribute können nur für ein Anwendungsobjekt registriert werden, obwohl sie Daten für einen Benutzer enthalten können. Das Erweiterungsattribut wird an die Anwendung namens b2c-extensions-app angefügt. Nehmen Sie keine Änderungen an dieser Anwendung vor. Sie wird von Azure AD B2C zum Speichern von Benutzerdaten verwendet. Sie finden diese Anwendung in Azure Active Directory unter „App-Registrierungen“.
+Azure AD B2C erweitert die für die einzelnen Benutzerkonten gespeicherten Attribute. Erweiterungsattribute [erweitern das Schema](/graph/extensibility-overview#schema-extensions) der Benutzerobjekte im Verzeichnis. Die Erweiterungsattribute können nur für ein Anwendungsobjekt registriert werden, obwohl sie Daten für einen Benutzer enthalten können. Das Erweiterungsattribut wird an die Anwendung namens b2c-extensions-app angefügt. Nehmen Sie keine Änderungen an dieser Anwendung vor. Sie wird von Azure AD B2C zum Speichern von Benutzerdaten verwendet. Sie finden diese Anwendung in Azure Active Directory unter „App-Registrierungen“.
 
 > [!NOTE]
 > - Für jedes Benutzerkonto können bis zu 100 Erweiterungsattribute geschrieben werden.
@@ -113,6 +119,6 @@ Für das Definieren einer Eigenschaft in einer Schemaerweiterung werden die folg
 
 ## <a name="next-steps"></a>Nächste Schritte
 Erfahren Sie mehr über Erweiterungsattribute:
-- [Schemaerweiterungen](https://docs.microsoft.com/graph/extensibility-overview#schema-extensions)
+- [Schemaerweiterungen](/graph/extensibility-overview#schema-extensions)
 - [Definieren von benutzerdefinierten Attributen in einem Benutzerflow](user-flow-custom-attributes.md)
 - [Definieren von benutzerdefinierten Attributen in einer benutzerdefinierten Richtlinie](custom-policy-custom-attributes.md)

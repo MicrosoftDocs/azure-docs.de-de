@@ -1,14 +1,17 @@
 ---
 title: Unterstützung der Bewertung physischer Server in Azure Migrate
 description: Informationen zur Unterstützung der Bewertung physischer Server mit der Azure Migrate-Serverbewertung
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: d9f7dea69c78bb038c06e5cb276628eba0381bb2
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: cfbbc1d218f590241fab804e389acd689c009dac
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319304"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754010"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Unterstützungsmatrix für die Bewertung physischer Server 
 
@@ -31,11 +34,21 @@ Zum Bewerten von physischen Servern erstellen Sie ein Azure Migrate-Projekt, und
 
 ## <a name="physical-server-requirements"></a>Anforderungen für physische Server
 
-| **Unterstützung**                | **Details**               
-| :-------------------       | :------------------- |
-| **Physische Serverbereitstellung**       | Der physische Server kann eigenständig sein oder in einem Cluster bereitgestellt werden. |
-| **Berechtigungen**           | **Windows:** Verwenden Sie ein Domänenkonto für Computer, die in eine Domäne eingebunden sind, sowie ein lokales Konto für Computer, die in keine Domäne eingebunden sind. Das Benutzerkonto sollte diesen Gruppen hinzugefügt werden: Remoteverwaltungsbenutzer, Leistungsüberwachungsbenutzer und Leistungsprotokollbenutzer. <br/><br/> **Linux:** Sie benötigen ein root-Konto auf den Linux-Servern, die Sie ermitteln möchten. <br/> Stellen Sie alternativ sicher, dass die erforderlichen Funktionen mithilfe der folgenden Befehle festgelegt werden. <br/> setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br/> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk (wenn „/usr/sbin/fdisk“ nicht vorhanden ist) <br/> setcap "cap_dac_override, cap_dac_read_search, cap_fowner,cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap=+eip" /sbin/lvm <br/> setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode <br/> chmod a+r /sys/class/dmi/id/product_uuid
-| **Betriebssystem** | Alle Windows- und Linux-Betriebssysteme können für die Migration bewertet werden. |
+**Bereitstellung des physischen Servers**: Der physische Server kann eigenständig sein oder in einem Cluster bereitgestellt werden.
+
+**Betriebssystem:** Alle Windows- und Linux-Betriebssysteme können für die Migration bewertet werden.
+
+**Berechtigungen:**
+- Verwenden Sie für Windows-Server ein Domänenkonto für in die Domäne eingebundene Computer und ein lokales Konto für nicht in die Domäne eingebundene Computer. Das Benutzerkonto sollte diesen Gruppen hinzugefügt werden: Remoteverwaltungsbenutzer, Leistungsüberwachungsbenutzer und Leistungsprotokollbenutzer.
+- Linux-Server: Sie benötigen ein root-Konto auf den Linux-Servern, die Sie ermitteln möchten. Alternativ dazu können Sie auch mithilfe der folgenden Befehle ein Konto mit den erforderlichen Funktionen festlegen, bei dem es sich nicht um das root-Konto handelt:
+
+**Befehl** | **Zweck**
+--- | --- |
+setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk _(wenn „/usr/sbin/fdisk“ nicht vorhanden ist)_ | Erfassen der Daten zur Datenträgerkonfiguration
+setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<br>cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br>cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | Erfassen der Daten zur Datenträgerleistung
+setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | Erfassen der BIOS-Seriennummer
+chmod a+r /sys/class/dmi/id/product_uuid | Erfassen der BIOS-GUID
+
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Anforderungen für die Azure Migrate-Appliance

@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/10/2019
-ms.openlocfilehash: c0e35b94b4322d9273e5793c85792eb2bbd34d05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07bd92e17b827dfeede5958587cecbdc97694329
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536068"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003921"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Erstellen und Konfigurieren von Clustern mit dem Enterprise-Sicherheitspaket in Azure HDInsight
 
@@ -82,7 +82,7 @@ In diesem Abschnitt erstellen Sie die Benutzer, die nach Abschluss dieses Leitfa
 
         ![Erstellen eines neuen Active Directory-Benutzers](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-active-directory-user.png)
 
-    1. Geben Sie auf der Seite **Neues Objekt – Benutzer** für **Vorname** und **Nachname** die Zeichenfolge `HDIUser` ein. Die anderen Felder werden automatisch ausgefüllt. Wählen Sie **Weiter**aus.
+    1. Geben Sie auf der Seite **Neues Objekt – Benutzer** für **Vorname** und **Nachname** die Zeichenfolge `HDIUser` ein. Die anderen Felder werden automatisch ausgefüllt. Wählen Sie **Weiter** aus.
 
         ![Erstellen des ersten Administratorbenutzerobjekts](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0020.png)
 
@@ -190,11 +190,11 @@ Erstellen Sie einen Active Directory-Mandantenadministrator.
 
 1. Wählen Sie die Option **Express-Einstellungen verwenden** aus.
 
-1. Geben Sie auf der Seite **Mit Azure AD verbinden** den Benutzernamen und das Kennwort des globalen Administrators für Azure AD ein. Verwenden Sie den Benutzernamen `fabrikamazureadmin@hdifabrikam.com`, den Sie beim Konfigurieren Ihres Active Directory-Mandanten erstellt haben. Wählen Sie **Weiter**aus.
+1. Geben Sie auf der Seite **Mit Azure AD verbinden** den Benutzernamen und das Kennwort des globalen Administrators für Azure AD ein. Verwenden Sie den Benutzernamen `fabrikamazureadmin@hdifabrikam.com`, den Sie beim Konfigurieren Ihres Active Directory-Mandanten erstellt haben. Wählen Sie **Weiter** aus.
 
     ![Seite „Mit Azure AD verbinden“.](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
 
-1. Geben Sie auf der Seite **Mit Active Directory Domain Services verbinden** den Benutzernamen und das Kennwort für ein Unternehmensadministratorkonto ein. Verwenden Sie den Benutzernamen `HDIFabrikam\HDIFabrikamAdmin` und das zugehörige Kennwort, die Sie zuvor erstellt haben. Wählen Sie **Weiter**aus.
+1. Geben Sie auf der Seite **Mit Active Directory Domain Services verbinden** den Benutzernamen und das Kennwort für ein Unternehmensadministratorkonto ein. Verwenden Sie den Benutzernamen `HDIFabrikam\HDIFabrikamAdmin` und das zugehörige Kennwort, die Sie zuvor erstellt haben. Wählen Sie **Weiter** aus.
 
    ![Seite „Mit AD DS verbinden“.](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
 1. Wählen Sie auf der Seite **Azure AD-Anmeldungskonfiguration** die Option **Weiter** aus.
@@ -227,7 +227,7 @@ Erstellen Sie eine benutzerseitig zugewiesene verwaltete Identität, die Sie zum
 
 ### <a name="enable-azure-ad-ds"></a>Aktivieren von Azure AD DS
 
-Gehen Sie wie folgt vor, um Azure AD DS zu aktivieren. Weitere Informationen finden Sie im Thema zum [Aktivieren von Azure AD DS über das Azure-Portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
+Gehen Sie wie folgt vor, um Azure AD DS zu aktivieren. Weitere Informationen finden Sie im Thema zum [Aktivieren von Azure AD DS über das Azure-Portal](../../active-directory-domain-services/tutorial-create-instance.md).
 
 1. Erstellen Sie ein virtuelles Netzwerk zum Hosten von Azure AD DS. Führen Sie den folgenden PowerShell-Code aus.
 
@@ -302,7 +302,7 @@ In unserem Szenario wurde Azure AD DS für die Verwendung der IP-Adressen 10.0.
 
 Das Lightweight Directory Access Protocol (LDAP) wird zum Lesen und Schreiben in Azure Active Directory verwendet. Sie können die Vertraulichkeit und Sicherheit von LDAP-Datenverkehr mithilfe der Secure Sockets Layer (SSL)- oder Transport Layer Security (TLS)-Technologie gewährleisten. Sie können LDAP über SSL (Secure LDAP, LDAPS) aktivieren, indem Sie ein korrekt formatiertes Zertifikat installieren.
 
-Weitere Informationen zu Secure LDAP finden Sie unter [Konfigurieren von Secure LDAP (LDAPS) für eine verwaltete Azure AD Domain Services-Domäne](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap).
+Weitere Informationen zu Secure LDAP finden Sie unter [Konfigurieren von Secure LDAP (LDAPS) für eine verwaltete Azure AD Domain Services-Domäne](../../active-directory-domain-services/tutorial-configure-ldaps.md).
 
 In diesem Abschnitt erstellen Sie ein selbstsigniertes Zertifikat, laden das Zertifikat herunter und konfigurieren LDAPS für die verwaltete Azure AD DS-Domäne **HDIFabrikam**.
 
@@ -333,7 +333,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
     ![Seite „Privaten Schlüssel exportieren“ des Zertifikatexport-Assistenten](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0103.png)
 
 1. Übernehmen Sie auf der Seite **Format der zu exportierenden Datei** die Standardwerte, und wählen Sie dann **Weiter** aus.
-1. Geben Sie auf der Seite **Kennwort** ein Kennwort für den privaten Schlüssel ein. Wählen Sie als **Verschlüsselung** den Typ **TripleDES-SHA1** aus. Wählen Sie **Weiter**aus.
+1. Geben Sie auf der Seite **Kennwort** ein Kennwort für den privaten Schlüssel ein. Wählen Sie als **Verschlüsselung** den Typ **TripleDES-SHA1** aus. Wählen Sie **Weiter** aus.
 1. Geben Sie auf der Seite **Exportdatei** den Pfad und Namen der exportierten Zertifikatdatei ein, und wählen Sie dann **Weiter** aus. Der Dateiname muss die Erweiterung „.pfx“ aufweisen. Die Datei wird im Azure-Portal konfiguriert, um eine sichere Verbindung herzustellen.
 1. Aktivieren Sie LDAPS für eine verwaltete Azure AD DS-Domäne.
     1. Wählen Sie im Azure-Portal die Domäne `HDIFabrikam.com` aus.

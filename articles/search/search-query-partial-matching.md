@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 357f44149cb17976556c1e4609f6f2af531b80ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/03/2020
+ms.openlocfilehash: 79ba186351cc145e012658abc30572e99b123dbb
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935771"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573985"
 ---
-# <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Suche nach Teilausdrücken und Mustern mit Sonderzeichen (Platzhalter, reguläre Ausdrücke, Muster)
+# <a name="partial-term-search-and-patterns-with-special-characters-hyphens-wildcard-regex-patterns"></a>Suche nach Teilausdrücken und Mustern mit Sonderzeichen (Bindestriche, Platzhalter, reguläre Ausdrücke, Muster)
 
-Eine *Suche nach Teilausdrücken*  ist eine Abfrage, die aus einem Begriffsfragment besteht, d. h. anstelle eines ganzen Begriffs nur den Beginn, das Mittelteil oder Ende des Begriffs enthält (manchmal auch als Präfix-, Infix- oder Suffixabfrage bezeichnet). Eine Suche nach Teilausdrücken kann eine Kombination von Fragmenten sein, wobei oft Sonderzeichen wie Bindestriche oder Schrägstriche Teil der Abfragezeichenfolge sind. Häufige Anwendungsfälle sind Teile von Telefonnummern, URLs, Codes oder mit Bindestrichen zusammengesetzten Wörtern.
+Eine *Suche nach Teilausdrücken*  ist eine Abfrage, die aus einem Begriffsfragment besteht, d. h. anstelle eines ganzen Begriffs nur den Beginn, das Mittelteil oder Ende des Begriffs enthält (manchmal auch als Präfix-, Infix- oder Suffixabfrage bezeichnet). Eine Suche nach Teilausdrücken kann eine Kombination von Fragmenten sein, wobei oft Sonderzeichen wie Bindestriche, Gedankenstriche oder Schrägstriche Teil der Abfragezeichenfolge sind. Häufige Anwendungsfälle sind Teile von Telefonnummern, URLs, Codes oder mit Bindestrichen zusammengesetzten Wörtern.
 
 Suchen nach Teilausdrücken und Abfragezeichenfolgen, die Sonderzeichen enthalten, können problematisch sein, wenn der Index keine Token im erwarteten Format enthält. Während der [Phase der lexikalischen Analyse](search-lucene-query-architecture.md#stage-2-lexical-analysis) der Indizierung werden (bei Verwendung des Standardanalysetools) Sonderzeichen verworfen, zusammengesetzte Wörter aufgeteilt und Leerzeichen gelöscht. Dies alles kann bewirken, dass bei Abfragen Fehler auftreten, wenn keine Übereinstimmung gefunden wird. Beispielsweise wird die Telefonnummer `+1 (425) 703-6214` (tokenisiert als `"1"`, `"425"`, `"703"`, `"6214"`) in der Abfrage `"3-62"` nicht angezeigt, da dieser Inhalt nicht im Index vorhanden ist. 
 
@@ -26,7 +26,7 @@ Die Lösung besteht darin, während der Indizierung ein Analysetool aufzurufen, 
 > [!TIP]
 > Wenn Sie mit Postman und REST-APIs vertraut sind, [laden Sie die Sammlung von Abfragebeispielen herunter](https://github.com/Azure-Samples/azure-search-postman-samples/), um die in diesem Artikel beschriebenen Teilausdrücke und Sonderzeichen abzufragen.
 
-## <a name="what-is-partial-term-search-in-azure-cognitive-search"></a>Was ist die Suche nach Teilausdrücken in Azure Cognitive Search?
+## <a name="about-partial-term-search"></a>Informationen zur Teilausdrucksuche
 
 Azure Cognitive Search sucht im Index nach vollständigen tokenisierten Begriffen und findet keine Entsprechung für einen Teilausdruck, sofern Sie keine Platzhalteroperatoren (`*` und `?`) einbeziehen oder die Abfrage als regulären Ausdruck formatieren. Teilausdrücke werden mithilfe der folgenden Methoden angegeben:
 
@@ -45,15 +45,15 @@ Bei der Suche nach Teilausdrücken oder Mustern und einigen anderen Abfrageforme
 
 Wenn Sie nach Fragmenten, Mustern oder Sonderzeichen suchen müssen, können Sie das Standardanalysetool mit einem benutzerdefinierten Analysetool überschreiben, das einfachere Tokenisierungsregeln befolgt und die gesamte Zeichenfolge im Index beibehält. Der grundsätzliche Ansatz ist wie folgt:
 
-+ Definieren Sie ein Feld zum Speichern einer intakten Version der Zeichenfolge (unter der Voraussetzung, dass Sie analysierten und nicht analysierten Text zum Abfragezeitpunkt benötigen).
-+ Evaluieren Sie verschiedene Analysetools, die Token mit dem richtigen Grad an Granularität ausgeben, und wählen Sie eines aus.
-+ Zuweisen des Analysetools zum Feld
-+ Erstellen und Testen des Index
+1. Definieren Sie ein Feld zum Speichern einer intakten Version der Zeichenfolge (unter der Voraussetzung, dass Sie analysierten und nicht analysierten Text zum Abfragezeitpunkt benötigen).
+1. Evaluieren Sie verschiedene Analysetools, die Token mit dem richtigen Grad an Granularität ausgeben, und wählen Sie eines aus.
+1. Zuweisen des Analysetools zum Feld
+1. Erstellen und Testen des Index
 
 > [!TIP]
 > Die Auswertung von Analysetools ist ein iterativer Prozess, bei dem der Index häufig neu erstellt werden muss. Sie können diesen Schritt vereinfachen, indem Sie Postman und die REST-APIs für [Index erstellen](/rest/api/searchservice/create-index), [Index löschen](/rest/api/searchservice/delete-index),[Dokumente laden](/rest/api/searchservice/addupdate-or-delete-documents) und [Dokumente durchsuchen](/rest/api/searchservice/search-documents) verwenden. Für „Dokumente laden“ sollte der Anforderungstext ein kleines repräsentatives Dataset enthalten, das getestet werden soll (z. B. ein Feld mit Telefonnummern oder Produktcodes). Wenn diese APIs in derselben Postman-Sammlung enthalten sind, können Sie diese Schritte schnell durchlaufen.
 
-## <a name="duplicate-fields-for-different-scenarios"></a>Doppelte Felder für unterschiedliche Szenarien
+## <a name="1---create-a-dedicated-field"></a>1 – Erstellen eines dedizierten Felds
 
 Analysetools bestimmen, wie Begriffe in einem Index tokenisiert werden. Da Analysetools pro Feld zugewiesen werden, können Sie Felder in Ihrem Index erstellen, die für verschiedene Szenarien optimiert werden können. Sie können beispielsweise „featureCode“ und „featureCodeRegex“ definieren, um für ein Szenario eine reguläre Volltextsuche und für ein anderes Szenario einen erweiterten Musterabgleich zu unterstützen. Die den einzelnen Feldern zugewiesenen Analysetools bestimmen, wie die Inhalte der einzelnen Felder im Index tokenisiert werden.  
 
@@ -74,7 +74,9 @@ Analysetools bestimmen, wie Begriffe in einem Index tokenisiert werden. Da Analy
 },
 ```
 
-## <a name="choose-an-analyzer"></a>Auswählen einer Analyse
+<a name="set-an-analyzer"></a>
+
+## <a name="2---set-an-analyzer"></a>2 – Festlegen eines Analysetools
 
 Für die Generierung von Token mit vollständigen Ausdrücken werden häufig die folgenden Analysetools ausgewählt:
 
@@ -98,7 +100,7 @@ Sie müssen über einen ausgefüllten Index verfügen, den Sie verwenden. Bei Ve
    }
     ```
 
-1. Werten Sie die Antwort aus, um zu ermitteln, wie der Text im Index tokenisiert wird. Beachten Sie, dass jeder Ausdruck nur Kleinbuchstaben enthält und unterteilt wird. Nur die Abfragen, die mit diesen Token übereinstimmen, geben dieses Dokument in den Ergebnissen zurück. Eine Abfrage, die „10-NOR“ umfasst, erzeugt einen Fehler.
+1. Werten Sie die Antwort aus, um zu ermitteln, wie der Text im Index tokenisiert wird. Beachten Sie, wie jeder Begriff in Kleinschreibung umgewandelt, Bindestriche entfernt und Teilzeichenfolgen in einzelne Token aufgeschlüsselt werden. Nur die Abfragen, die mit diesen Token übereinstimmen, geben dieses Dokument in den Ergebnissen zurück. Eine Abfrage, die „10-NOR“ umfasst, erzeugt einen Fehler.
 
     ```json
     {
@@ -152,7 +154,7 @@ Sie müssen über einen ausgefüllten Index verfügen, den Sie verwenden. Bei Ve
 > [!Important]
 > Hierbei ist zu beachten, dass Abfrageparser beim Erstellen der Abfragestruktur die Ausdrücke eines Suchbegriffs häufig in Kleinbuchstaben umwandeln. Bei Verwendung eines Analysetools, bei dem Texteingaben während der Indizierung nicht in Kleinbuchstaben umgewandelt werden, kann dies der Grund dafür sein, warum Sie nicht die erwarteten Ergebnisse erhalten. Die Lösung besteht darin, einen Kleinbuchstaben-Tokenfilter hinzuzufügen, wie im Abschnitt „Verwenden von benutzerdefinierten Analysetools“ weiter unten beschrieben.
 
-## <a name="configure-an-analyzer"></a>Konfigurieren eines Analysetools
+## <a name="3---configure-an-analyzer"></a>3 – Konfigurieren eines Analysetools
  
 Unabhängig davon, ob Sie Analysetools auswerten oder eine bestimmte Konfiguration einsetzen, gilt Folgendes: Sie müssen das Analysetool in der Felddefinition angeben und ggf. das Analysetool selbst konfigurieren, falls Sie keine integrierte Version nutzen. Beim Austauschen von Analysetools müssen Sie in der Regel den Index neu erstellen (löschen, neu erstellen und neu laden). 
 
@@ -160,7 +162,7 @@ Unabhängig davon, ob Sie Analysetools auswerten oder eine bestimmte Konfigurati
 
 Integrierte oder vordefinierte Analysetools können anhand des Namens in einer `analyzer`-Eigenschaft einer Felddefinition angegeben werden, ohne dass im Index eine zusätzliche Konfiguration erforderlich ist. Im folgenden Beispiel wird veranschaulicht, wie Sie das Analysetool `whitespace` für ein Feld festlegen. 
 
-Weitere Szenarios und weitere Informationen zu anderen integrierten Analysemodulen finden Sie unter [Vordefinierte Analysetoolreferenz](/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
+Weitere Szenarios und weitere Informationen zu anderen integrierten Analysemodulen finden Sie unter [Vordefinierte Analysetoolreferenz](./index-add-custom-analyzers.md#predefined-analyzers-reference). 
 
 ```json
     {
@@ -216,7 +218,7 @@ Im folgenden Beispiel ist ein benutzerdefiniertes Analysetool dargestellt, das �
 > [!NOTE]
 > Der Tokenizer `keyword_v2` und der Tokenfilter `lowercase` sind dem System bekannt, und es werden die entsprechenden Standardkonfigurationen verwendet. Daher können Sie darauf anhand des Namens verweisen, ohne sie zuerst definieren zu müssen.
 
-## <a name="build-and-test"></a>Erstellen und Testen
+## <a name="4---build-and-test"></a>4 – Erstellen und Testen
 
 Nachdem Sie einen Index mit Analysetools und Felddefinitionen definiert haben, die Ihr Szenario unterstützen, laden Sie Dokumente mit repräsentativen Zeichenfolgen, sodass Sie Abfragen von Teilzeichenfolgen testen können. 
 
@@ -228,7 +230,7 @@ In den vorherigen Abschnitten wurde die Logik erläutert. In diesem Abschnitt we
 
 + [Laden von Dokumenten](/rest/api/searchservice/addupdate-or-delete-documents): Importiert Dokumente, die dieselbe Struktur wie der Index aufweisen, sowie durchsuchbare Inhalte. Nach diesem Schritt kann der Index abgefragt oder getestet werden.
 
-+ [Testen des Analysetools](/rest/api/searchservice/test-analyzer) wurde in [Auswählen einer Analyse](#choose-an-analyzer) beschrieben. Testen Sie einige der Zeichenfolgen im Index mithilfe verschiedener Analysetools, um zu verstehen, wie Ausdrücke tokenisiert werden.
++ [Testen des Analysetools](/rest/api/searchservice/test-analyzer) wurde in [Festlegen eines Analysetools](#set-an-analyzer) beschrieben. Testen Sie einige der Zeichenfolgen im Index mithilfe verschiedener Analysetools, um zu verstehen, wie Ausdrücke tokenisiert werden.
 
 + [Durchsuchen von Dokumenten](/rest/api/searchservice/search-documents): Erläutert, wie eine Abfrageanforderung mithilfe [einfacher Syntax](query-simple-syntax.md) oder der [vollständigen Lucene-Syntax](query-lucene-syntax.md) für Platzhalter und reguläre Ausdrücke erstellt wird.
 

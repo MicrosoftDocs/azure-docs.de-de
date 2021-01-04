@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 05/18/2019
-ms.openlocfilehash: 83d3bb78ef27af377b0a8c5edf75f658a0ca93e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8250fc39fe58168ddc13b7bcf5c040b57d5e92fb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450233"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782619"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Langzeitaufbewahrung: Azure SQL-Datenbank und Azure SQL Managed Instance
 
@@ -26,7 +26,7 @@ Viele Anwendungen dienen gesetzlichen, compliancebedingten oder anderen geschäf
 Die Langzeitaufbewahrung kann für Azure SQL-Datenbank aktiviert werden und befindet sich für Azure SQL Managed Instance in der eingeschränkten öffentlichen Vorschauphase. Dieser Artikel enthält eine konzeptionelle Übersicht über die Langzeitaufbewahrung. Informationen zum Konfigurieren der Langzeitaufbewahrung finden Sie unter [Konfigurieren der Langzeitaufbewahrung von Azure SQL-Datenbank](long-term-backup-retention-configure.md) und [Konfigurieren der Langzeitaufbewahrung von Azure SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md). 
 
 > [!NOTE]
-> Sie können SQL-Agent-Aufträge verwenden, um [Kopiesicherungen von Datenbanken](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) als Alternative zur Langzeitaufbewahrung über 35 Tage hinaus zu planen.
+> Sie können SQL-Agent-Aufträge verwenden, um [Kopiesicherungen von Datenbanken](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) als Alternative zur Langzeitaufbewahrung über 35 Tage hinaus zu planen.
 
 
 ## <a name="how-long-term-retention-works"></a>Funktionsweise der Langzeitaufbewahrung
@@ -36,7 +36,7 @@ Die langfristige Sicherungsaufbewahrung (LTR) nutzt die [automatischen](automate
 Um von LTR zu profitieren, können Sie eine Richtlinie mit einer Kombination aus vier Parametern definieren: wöchentliche Sicherungsaufbewahrung (W), monatliche Sicherungsaufbewahrung (M), jährliche Sicherungsaufbewahrung (Y) und Woche des Jahres (WeekOfYear). Wenn Sie den Parameter „W“ angeben, wird eine wöchentliche Sicherung in den langfristigen Speicher kopiert. Wenn Sie den Parameter „M“ angeben, wird die erste Sicherung jedes Monats in den langfristigen Speicher kopiert. Wenn Sie den Parameter „Y“ angeben, wird eine Sicherung, die in der durch „WeekOfYear“ angegebenen Woche erstellt wird, in den langfristigen Speicher kopiert. Wenn die angegebene WeekOfYear beim Konfigurieren der Richtlinie in der Vergangenheit liegt, wird die erste LTR-Sicherung im Folgejahr erstellt. Jede Sicherung wird entsprechend den Richtlinienparametern, die beim Erstellen der LTR-Sicherung konfiguriert werden, im langfristigen Speicher aufbewahrt.
 
 > [!NOTE]
-> Jede Änderung der LTR-Richtlinie gilt nur für zukünftige Sicherungen. Wenn Sie beispielsweise die wöchentliche Sicherungsaufbewahrung (W), monatliche Sicherungsaufbewahrung (M) oder jährliche Sicherungsaufbewahrung (Y) ändern, gilt die Aufbewahrungseinstellung nur für neue Sicherungen. Die Aufbewahrung vorhandener Sicherungen wird nicht geändert. Wenn Sie ältere LTR-Sicherungen vor Ablauf des Aufbewahrungszeitraums löschen möchten, müssen Sie die [Sicherungen manuell löschen](https://docs.microsoft.com/azure/sql-database/sql-database-long-term-backup-retention-configure#delete-ltr-backups).
+> Jede Änderung der LTR-Richtlinie gilt nur für zukünftige Sicherungen. Wenn Sie beispielsweise die wöchentliche Sicherungsaufbewahrung (W), monatliche Sicherungsaufbewahrung (M) oder jährliche Sicherungsaufbewahrung (Y) ändern, gilt die Aufbewahrungseinstellung nur für neue Sicherungen. Die Aufbewahrung vorhandener Sicherungen wird nicht geändert. Wenn Sie ältere LTR-Sicherungen vor Ablauf des Aufbewahrungszeitraums löschen möchten, müssen Sie die [Sicherungen manuell löschen](./long-term-backup-retention-configure.md#delete-ltr-backups).
 > 
 
 Beispiele für die LTR-Richtlinie:
@@ -81,7 +81,7 @@ Wenn Sie aktive Georeplikation oder Failovergruppen als Geschäftskontinuitätsl
 
 Für die Verwendung der langfristigen Sicherungsaufbewahrung mit Azure SQL Managed Instance gelten die folgenden Einschränkungen:
 
-- **Eingeschränkte öffentliche Vorschau**: Diese Vorschauversion ist nur für EA- und CSP-Abonnements verfügbar. Es gelten die Bestimmungen der eingeschränkten Verfügbarkeit.  
+- **Eingeschränkte öffentliche Vorschau** : Diese Vorschauversion ist nur für EA- und CSP-Abonnements verfügbar. Es gelten die Bestimmungen der eingeschränkten Verfügbarkeit.  
 - [**Nur PowerShell**](../managed-instance/long-term-backup-retention-configure.md), das Azure-Portal wird derzeit nicht unterstützt. Die Langzeitaufbewahrung muss über PowerShell aktiviert werden. 
 
 Wenn Sie eine Registrierung anfordern möchten, erstellen Sie ein [Azure-Supportticket](https://azure.microsoft.com/support/create-ticket/). Wählen Sie als Issuetyp die Option „Technisches Problem“, als Dienst „SQL Managed Instance“ und als Problemtyp die Option **Sicherung, Wiederherstellung und Geschäftskontinuität/Langfristige Sicherungsaufbewahrung** aus. Geben Sie in Ihrer Anforderung an, dass Sie in der eingeschränkten öffentlichen Vorschau von LTR für SQL Managed Instance registriert werden möchten.
@@ -99,4 +99,3 @@ Zum Wiederherstellen einer Datenbank aus dem LTR-Speicher können Sie eine besti
 ## <a name="next-steps"></a>Nächste Schritte
 
 Datenbanksicherungen sind ein wesentlicher Bestandteil jeder Strategie für Geschäftskontinuität und Notfallwiederherstellung, da Ihre Daten vor versehentlichen Beschädigungen und Löschungen geschützt werden. Weitere Informationen zu den anderen Geschäftskontinuitätslösungen von SQL-Datenbank finden Sie unter [Übersicht über die Geschäftskontinuität](business-continuity-high-availability-disaster-recover-hadr-overview.md).
- 

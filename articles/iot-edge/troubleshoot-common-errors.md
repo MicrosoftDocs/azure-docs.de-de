@@ -4,19 +4,19 @@ description: Mithilfe dieses Artikels können Sie häufige Probleme beheben, die
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/27/2020
+ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: ed93d24bc06a6622a8ace2b0ab6b44582da001c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98ee865a3ddf6c26ffe9cb77767f3872b42018d8
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82782619"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442360"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Häufig auftretende Probleme und Lösungen für Azure IoT Edge
 
@@ -331,6 +331,25 @@ Wenn eine automatische Bereitstellung ein Gerät zum Ziel hat, hat sie Vorrang v
 Verwenden Sie nur eine Art von Bereitstellungsmechanismus pro Gerät, entweder eine automatische Bereitstellung oder individuelle Gerätebereitstellungen. Bei mehreren automatischen Bereitstellungen, die ein Gerät zum Ziel haben, können Sie die Priorität oder Zielbeschreibungen ändern, um sicherzustellen, dass die richtige Beschreibung für ein bestimmtes Gerät zutrifft. Sie können auch den Gerätezwilling aktualisieren, sodass er nicht mehr der Zielbeschreibung der automatischen Bereitstellung entspricht.
 
 Weitere Informationen finden Sie unter [Grundlegendes zu automatischen IoT Edge-Bereitstellungen für einzelne Geräte oder nach Bedarf](module-deployment-monitoring.md).
+
+<!-- <1.2> -->
+::: moniker range=">=iotedge-2020-11"
+
+## <a name="iot-edge-behind-a-gateway-cannot-perform-http-requests-and-start-edgeagent-module"></a>IoT Edge hinter einem Gateway kann keine HTTP-Anforderungen ausführen und das edgeAgent-Modul nicht starten.
+
+**Beobachtetes Verhalten:**
+
+Der IoT Edge-Daemon ist bei einer gültigen Konfigurationsdatei aktiv, kann aber das edgeAgent-Modul nicht starten. Der Befehl `iotedge list` gibt eine leere Liste zurück. Der IoT Edge-Daemon protokolliert den Bericht `Could not perform HTTP request`.
+
+**Grundursache:**
+
+IoT Edge-Geräte hinter einem Gateway erhalten ihre Modulimages von dem übergeordneten IoT Edge-Gerät, das im Feld `parent_hostname` der Datei „config.yaml“ angegeben ist. Der `Could not perform HTTP request` Fehler bedeutet, dass das untergeordnete Gerät sein übergeordnetes Gerät über HTTP nicht erreichen kann.
+
+**Lösung:**
+
+Stellen Sie sicher, dass das übergeordnete IoT Edge-Gerät eingehende Anforderungen vom untergeordneten IoT Edge-Gerät empfangen kann. Öffnen Sie Netzwerkdatenverkehr an den Ports 443 und 6617 für Anforderungen vom untergeordneten Gerät.
+
+:::moniker-end
 
 ## <a name="next-steps"></a>Nächste Schritte
 

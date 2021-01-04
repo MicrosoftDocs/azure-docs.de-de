@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: f124eb24dcdc9e6437c803d1066d6ca86d5c32ab
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 6559de2b94879ac8643f4945fd5adcf4fc7e1045
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440806"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350822"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Weiterleiten von Ereignissen innerhalb und außerhalb von Azure Digital Twins
 
 Azure Digital Twins verwendet **Ereignisrouten** zum Senden von Daten an Consumer außerhalb des Diensts. 
 
-Während der Vorschauphase gibt es zwei Hauptfälle für das Senden von Daten aus Azure Digital Twins:
+Es gibt zwei Hauptfälle für das Senden von Azure Digital Twins-Daten:
 * Der erste Fall ist das Senden von Daten von einem Zwilling im Azure Digital Twins-Graph an einen anderen. Wenn sich beispielsweise eine Eigenschaft in einem digitalen Zwilling ändert, sollten Sie einen anderen digitalen Zwilling entsprechend benachrichtigen und aktualisieren.
 * Der zweite Fall ist das Senden von Daten an Downstreamdatendienste zur zusätzlichen Speicherung oder Verarbeitung (auch als *ausgehende Daten* bezeichnet). Beispiel:
   - Ein Krankenhaus möchte möglicherweise Azure Digital Twins-Ereignisdaten an [Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md) senden, um Zeitreihendaten von Ereignissen im Zusammenhang mit Händewaschen für eine Massenanalyse aufzuzeichnen.
@@ -38,7 +38,7 @@ Typische Downstreamziele für Ereignisrouten sind Ressourcen wie TSI und Azure M
 
 ### <a name="event-routes-for-internal-digital-twin-events"></a>Ereignisrouten für interne Ereignisse in Bezug auf digitale Zwillinge
 
-In der aktuellen Vorschauversion werden Ereignisrouten auch verwendet, um Ereignisse innerhalb des Zwillingsgraphen zu verarbeiten und Daten von einem digitalen Zwilling an einen anderen zu senden. Dies erfolgt durch Herstellen einer Verbindung zwischen Ereignisrouten und Computeressourcen wie [Azure Functions](../azure-functions/functions-overview.md) über Event Grid. Diese Funktionen definieren dann, wie Zwillinge Ereignisse empfangen und auf diese reagieren sollen. 
+Ereignisrouten werden auch verwendet, um Ereignisse innerhalb des Zwillingsgraphen zu verarbeiten und Daten von einem digitalen Zwilling an einen anderen zu senden. Dies erfolgt durch Herstellen einer Verbindung zwischen Ereignisrouten und Computeressourcen wie [Azure Functions](../azure-functions/functions-overview.md) über Event Grid. Diese Funktionen definieren dann, wie Zwillinge Ereignisse empfangen und auf diese reagieren sollen. 
 
 Wenn eine Computeressource den Zwillingsgraphen auf Grundlage eines über die Ereignisroute empfangenen Ereignisses ändern möchte, ist es hilfreich, wenn sie im Voraus weiß, welcher Zwilling geändert werden soll. 
 
@@ -50,7 +50,7 @@ Eine Anleitung für das Einrichten einer Azure-Funktion zum Verarbeiten von Erei
 
 ## <a name="create-an-endpoint"></a>Erstellen eines Endpunkts
 
-Entwickler müssen erst Endpunkte definieren, um eine Ereignisroute definieren zu können. Ein **Endpunkt** ist ein Ziel außerhalb von Azure Digital Twins, das eine Routenverbindung unterstützt. In der aktuellen Vorschauversion werden folgende Ziele unterstützt:
+Entwickler müssen erst Endpunkte definieren, um eine Ereignisroute definieren zu können. Ein **Endpunkt** ist ein Ziel außerhalb von Azure Digital Twins, das eine Routenverbindung unterstützt. Unterstützte Ziele sind beispielsweise:
 * Benutzerdefinierte Event Grid-Themen
 * Event Hub
 * Service Bus
@@ -73,19 +73,19 @@ In der Steuerungsebene sind Endpunkt-APIs für Folgendes verfügbar:
  
 Um eine Ereignisroute zu erstellen, können Sie die [**Datenebenen-APIs**](how-to-manage-routes-apis-cli.md#create-an-event-route) von Azure Digital Twins, [**CLI-Befehle**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli) oder das [**Azure-Portal**](how-to-manage-routes-portal.md#create-an-event-route) verwenden. 
 
-Im Folgenden finden Sie ein Beispiel für das Erstellen einer Ereignisroute in einer Clientanwendung mithilfe des [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview)-Aufrufs `CreateEventRoute`: 
+Im Folgenden finden Sie ein Beispiel für das Erstellen einer Ereignisroute in einer Clientanwendung mithilfe des [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)-Aufrufs `CreateOrReplaceEventRouteAsync`: 
 
 ```csharp
-EventRoute er = new EventRoute("endpointName");
-er.Filter("true"); //Filter allows all messages
-await client.CreateEventRoute("routeName", er);
+string eventFilter = "$eventType = 'DigitalTwinTelemetryMessages' or $eventType = 'DigitalTwinLifecycleNotification'";
+var er = new DigitalTwinsEventRoute("endpointName", eventFilter);
+await client.CreateOrReplaceEventRouteAsync("routeName", er);
 ```
 
-1. Zuerst wird ein `EventRoute`-Objekt erstellt, und der-Konstruktor nimmt den Namen eines Endpunkts an. Dieses Feld `endpointName` identifiziert einen Endpunkt, z. B. einen Event Hub, ein Event Grid oder einen Service Bus. Diese Endpunkte müssen vor diesem Registrierungsaufruf in Ihrem Abonnement erstellt und mithilfe von Steuerungsebenen-APIs an Azure Digital Twins angehängt werden.
+1. Zunächst wird ein `DigitalTwinsEventRoute`-Objekt erstellt, und der-Konstruktor nimmt den Namen eines Endpunkts an. Dieses Feld `endpointName` identifiziert einen Endpunkt, z. B. einen Event Hub, ein Event Grid oder einen Service Bus. Diese Endpunkte müssen vor diesem Registrierungsaufruf in Ihrem Abonnement erstellt und mithilfe von Steuerungsebenen-APIs an Azure Digital Twins angehängt werden.
 
 2. Das Ereignisroutenobjekt verwendet auch ein Feld [**Filter**](how-to-manage-routes-apis-cli.md#filter-events), das zum Einschränken der Arten von Ereignissen für diese Route verwendet werden kann. Ein Filter `true` aktiviert die Route ohne zusätzliche Filterung (ein Filter mit dem Wert `false` deaktiviert die Route). 
 
-3. Dieses Ereignisroutenobjekt wird dann zusammen mit einem Namen für die Route an `CreateEventRoute` übergeben.
+3. Dieses Ereignisroutenobjekt wird dann zusammen mit einem Namen für die Route an `CreateOrReplaceEventRouteAsync` übergeben.
 
 > [!TIP]
 > Alle SDK-Funktionen sind in synchronen und asynchronen Versionen enthalten.
@@ -99,11 +99,11 @@ Wenn ein Endpunkt innerhalb eines bestimmten Zeitraums oder nach einer bestimmte
 * Das Ereignis wird nicht innerhalb der Gültigkeitsdauer übermittelt.
 * Die Anzahl der Übermittlungsversuche hat den Grenzwert überschritten.
 
-Wenn eine der Bedingungen erfüllt ist, wird das Ereignis gelöscht oder als unzustellbare Nachricht gespeichert. Endpunkte aktivieren unzustellbare Nachrichten standardmäßig **nicht** . Wenn Sie das Feature aktivieren möchten, müssen Sie bei der Erstellung des Endpunkts ein Speicherkonto zum Speichern nicht übermittelter Ereignisse angeben. Ereignisse werden dann aus diesem Speicherkonto gepullt, um Übermittlungsprobleme zu beheben.
+Wenn eine der Bedingungen erfüllt ist, wird das Ereignis gelöscht oder als unzustellbare Nachricht gespeichert. Endpunkte aktivieren unzustellbare Nachrichten standardmäßig **nicht**. Wenn Sie das Feature aktivieren möchten, müssen Sie bei der Erstellung des Endpunkts ein Speicherkonto zum Speichern nicht übermittelter Ereignisse angeben. Ereignisse werden dann aus diesem Speicherkonto gepullt, um Übermittlungsprobleme zu beheben.
 
 Wenn Sie den Speicherort für unzustellbare Nachrichten festlegen möchten, benötigen Sie ein Speicherkonto mit einem Container. Sie geben die URL für diesen Container an, wenn Sie den Endpunkt erstellen. Die unzustellbaren Nachrichten werden als Container-URL mit einem SAS-Token bereitgestellt. Dieses Token benötigt nur die `write`-Berechtigung für den Zielcontainer innerhalb des Speicherkontos. Die vollständig formatierte URL weist das folgende Format auf: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
-Weitere Informationen zu SAS-Token finden Sie hier: [*Gewähren von eingeschränktem Zugriff auf Azure Storage-Ressourcen mithilfe von SAS (Shared Access Signature)*](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+Weitere Informationen zu SAS-Token finden Sie hier: [*Gewähren von eingeschränktem Zugriff auf Azure Storage-Ressourcen mithilfe von SAS (Shared Access Signature)*](../storage/common/storage-sas-overview.md)
 
 Informationen zum Einrichten eines Endpunkts mit unzustellbaren Nachrichten finden Sie unter [*Vorgehensweise: Verwalten von Endpunkten und Routen in Azure Digital Twins (APIs und CLI)*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
 

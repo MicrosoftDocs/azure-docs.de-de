@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 09/06/2020
 ms.author: barclayn
-ms.openlocfilehash: 64ff2a2a7ad6f07aac959422eadec7f24b210d88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19f88da6a678221cde66bf61668d16ba9ab998a4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505774"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677319"
 ---
 # <a name="use-azure-active-directory-azure-ad-identity-governance-to-review-and-remove-external-users-who-no-longer-have-resource-access"></a>Verwenden von Azure AD (Azure Active Directory) Identity Governance, um externe Benutzer zu überprüfen und zu entfernen, wenn sie keinen Ressourcenzugriff mehr haben
 
@@ -67,7 +67,7 @@ Wenn die Überprüfung abgeschlossen ist, werden auf der Seite **Ergebnisse** di
 
 ## <a name="disable-and-delete-external-identities-with-azure-ad-access-reviews-preview"></a>Deaktivieren und Löschen externer Identitäten mit Azure AD-Zugriffsüberprüfungen (Vorschau)
 
-Neben der Option zum Entfernen unerwünschter externer Identitäten aus Ressourcen wie Gruppen oder Anwendungen haben Sie die Möglichkeit, externe Identitäten durch Azure AD-Zugriffsüberprüfungen daran zu hindern, dass sie sich bei Ihrem Mandanten anmelden, und nach 30 Tagen aus Ihrem Mandanten zu löschen.
+Neben der Option zum Entfernen unerwünschter externer Identitäten aus Ressourcen wie Gruppen oder Anwendungen haben Sie die Möglichkeit, externe Identitäten durch Azure AD-Zugriffsüberprüfungen daran zu hindern, dass sie sich bei Ihrem Mandanten anmelden, und nach 30 Tagen aus Ihrem Mandanten zu löschen. Sobald Sie **Anmeldung des Benutzers für 30 Tage blockieren und den Benutzer anschließend vom Mandanten entfernen** aktiviert haben, gilt der Status „Wird übernommen“ für die Überprüfung 30 Tage lang. Während dieses Zeitraums können Einstellungen, Ergebnisse, Prüfer oder Überwachungsprotokolle, die Teil der aktuellen Prüfung sind, nicht angezeigt oder konfiguriert werden. 
 
 ![Einstellungen nach Abschluss](media/access-reviews-external-users/upon-completion-settings.png)
 

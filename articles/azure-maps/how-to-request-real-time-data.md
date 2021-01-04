@@ -1,24 +1,29 @@
 ---
-title: Anfordern von Echtzeitdaten für den öffentlichen Nahverkehr | Microsoft Azure Maps
-description: Erfahren Sie, wie Sie Echtzeitdaten des öffentlichen Nahverkehrs wie Ankünfte an einer Umsteigehaltestelle anfordern. Sehen Sie, wie Sie den Azure Maps-Mobilitätsdienst zu diesem Zweck verwenden.
+title: Anfordern von Echtzeitdaten für den öffentlichen Nahverkehr mit Microsoft Azure Maps-Mobilitätsdiensten (Vorschau)
+description: Erfahren Sie, wie Sie Echtzeitdaten des öffentlichen Nahverkehrs wie Ankünfte an einer Umsteigehaltestelle anfordern. Erfahren Sie, wie Sie die Azure Maps-Mobilitätsdienste (Vorschau) zu diesem Zweck verwenden.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/06/2019
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 6f0cf663b42c8487495602e4cdbf1a88427f9daf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3e3dc4b0e3bc64a38856da8344583b744ea62b6
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310933"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906045"
 ---
-# <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-service"></a>Anfordern von Echtzeitdaten für den öffentlichen Nahverkehr mithilfe des Mobility Service von Azure Maps
+# <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-services-preview"></a>Anfordern von Echtzeitdaten für den öffentlichen Nahverkehr mithilfe der Azure Maps-Mobilitätsdienste (Vorschau) 
 
-Dieser Artikel zeigt, wie Sie Azure Maps [Mobility Service](https://aka.ms/AzureMapsMobilityService) verwenden, um Echtzeitdaten für den öffentlichen Nahverkehr anzufordern.
+> [!IMPORTANT]
+> Mobilitätsdienste von Azure Maps befinden sich derzeit in der öffentlichen Vorschau.
+> Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar. Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+In diesem Artikel wird erläutert, wie Sie Azure Maps-[Mobilitätsdienste](/rest/api/maps/mobility) verwenden, um Echtzeitdaten für den öffentlichen Nahverkehr anzufordern.
 
 In diesem Artikel erfahren Sie, wie Sie die nächsten Ankunftszeiten für alle Linien anfordern, die an der angegebenen Haltestelle ankommen (in Echtzeit).
 
@@ -30,7 +35,7 @@ In diesem Artikel wird die [Postman-App](https://www.getpostman.com/apps) zum Er
 
 ## <a name="request-real-time-arrivals-for-a-stop"></a>Anfordern der Ankunftszeiten für eine Haltestelle in Echtzeit
 
-Um für eine bestimmte Haltestelle von öffentlichen Verkehrsmitteln Ankunftszeiten in Echtzeit anzufordern, müssen Sie eine Anforderung an die [API für Ankunftszeiten in Echtzeit](https://aka.ms/AzureMapsMobilityRealTimeArrivals) von Azure Maps [Mobility Service](https://aka.ms/AzureMapsMobilityService) richten. Für die Anforderung benötigen Sie die ID der Stadt (**metroID**) und die ID der Haltestelle (**stopID**). Weitere Informationen zum Anfordern dieser Parameter finden Sie in der Anleitung zum [Anfordern von Routen für den öffentlichen Nahverkehr](https://aka.ms/AMapsHowToGuidePublicTransitRouting).
+Um für eine bestimmte Haltestelle von öffentlichen Verkehrsmitteln Ankunftszeiten in Echtzeit anzufordern, müssen Sie eine Anforderung an die [API für Ankunftszeiten in Echtzeit](/rest/api/maps/mobility/getrealtimearrivalspreview) des Azure Maps-[Mobilitätsdiensts (Vorschau) ](/rest/api/maps/mobility) richten. Für die Anforderung benötigen Sie die ID der Stadt (**metroID**) und die ID der Haltestelle (**stopID**). Weitere Informationen zum Anfordern dieser Parameter finden Sie in der Anleitung zum [Anfordern von Routen für den öffentlichen Nahverkehr](./how-to-request-transit-data.md).
 
 Wir verwenden „522“ als Metro-ID. Dies ist die Metro-ID für das Gebiet „Seattle – Tacoma – Bellevue, WA“. Verwenden Sie „522---2060603“ als Haltestellen-ID. Dies ist die Bushaltestelle mit der Adresse „Ne 24th St & 162nd Ave Ne, Bellevue WA“. Gehen Sie wie folgt vor, um Echtzeitdaten zu den nächsten fünf Ankunftszeiten dieser Haltestelle anzufordern:
 
@@ -113,12 +118,12 @@ Wir verwenden „522“ als Metro-ID. Dies ist die Metro-ID für das Gebiet „S
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Informieren Sie sich, wie Sie mithilfe von Mobility Service Daten zu öffentlichen Verkehrsmitteln bzw. Routen anfordern:
+Erfahren Sie, wie Sie mithilfe von Mobilitätsdiensten (Vorschau) Daten zu öffentlichen Verkehrsmitteln bzw. Routen anfordern:
 
 > [!div class="nextstepaction"]
 > [Anfordern von Daten zu öffentlichen Verkehrsmitteln bzw. Routen](how-to-request-transit-data.md)
 
-Machen Sie sich mit der API-Dokumentation für Azure Maps Mobility Service vertraut:
+Machen Sie sich mit der API-Dokumentation für Azure Maps-Mobilitätsdienste (Vorschau) vertraut:
 
 > [!div class="nextstepaction"]
-> [API-Dokumentation für Mobility Service](https://aka.ms/AzureMapsMobilityService)
+> [API-Dokumentation zu Mobilitätsdiensten](/rest/api/maps/mobility)

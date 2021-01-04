@@ -29,10 +29,6 @@
           href: learn/quick-collect-windows-computer.md
     - name: Überwachen von Anwendungen
       items:
-        - name: .NET-Anwendung
-          href: learn/quick-monitor-portal.md
-        - name: .NET Core-Anwendung
-          href: learn/dotnetcore-quick-start.md
         - name: Node.js-Anwendung
           href: learn/nodejs-quick-start.md
         - name: Mobile Anwendung
@@ -89,6 +85,8 @@
               href: samples/resource-manager-web-app.md
             - name: Azure-Funktionen
               href: samples/resource-manager-function-app.md
+        - name: Regeln für die Datensammlung
+          href: samples/resource-manager-data-collection-rules.md
         - name: Diagnoseeinstellungen
           href: samples/resource-manager-diagnostic-settings.md
         - name: Log Analytics-Arbeitsbereiche
@@ -114,17 +112,7 @@
     - name: Datenquellen
       href: platform/data-sources.md
     - name: Datenplattform
-      items:
-        - name: Übersicht
-          href: platform/data-platform.md
-        - name: Protokolle
-          href: platform/data-platform-logs.md
-        - name: Metriken
-          href: platform/data-platform-metrics.md
-        - name: Streamen von Daten an Event Hubs
-          href: platform/stream-monitoring-data-event-hubs.md
-    - name: Einblicke
-      href: insights/insights-overview.md
+      href: platform/data-platform.md
     - name: Datensicherheit
       items:
         - name: Protokolldaten
@@ -174,6 +162,7 @@
         - name: Bereitstellen von Azure Monitor
           href: deploy.md
         - name: Bedarfsorientiertes Bereitstellen
+          displayName: 'Azure Policy, Policy'
           href: deploy-scale.md
     - name: Verwalten und Konfigurieren
       items:
@@ -190,100 +179,30 @@
               href: app/pricing.md
             - name: Protokolldatennutzung und -kosten
               href: platform/manage-cost-storage.md
-    - name: Plattformprotokolle
+    - name: Azure Monitor-Metriken
       items:
         - name: Übersicht
-          displayName: 'Platform logs, Resource logs, Activity log'
-          href: platform/platform-logs-overview.md
-        - name: Aktivitätsprotokoll
-          href: platform/activity-log.md
-        - name: Ressourcenprotokolle
-          href: platform/resource-logs.md
-        - name: Diagnoseeinstellungen
-          displayName: 'Platform logs, Resource logs, Activity log'
-          href: platform/diagnostic-settings.md
-    - name: Log Analytics
+          displayname: Metrics
+          href: platform/data-platform-metrics.md
+        - name: Metrik-Explorer
+          items:
+            - name: Erste Schritte mit Metrik-Explorer
+              href: platform/metrics-getting-started.md
+            - name: Erweiterte Funktionen von Metrik-Explorer
+              href: platform/metrics-charts.md
+            - name: Anzeigen mehrerer Ressourcen im Metrik-Explorer
+              href: platform/metrics-dynamic-scope.md
+            - name: Beispiele für Metrikdiagramme
+              href: platform/metric-chart-samples.md
+            - name: Problembehandlung für Metrikdiagramme
+              href: platform/metrics-troubleshoot.md
+    - name: Azure Monitor-Protokolle
       items:
         - name: Übersicht
-          displayname: 'Log Analytics, log query, log queries, query, queries'
-          href: log-query/log-query-overview.md
-        - name: Lernprogramm
-          displayname: 'Log Analytics workspace, log query, log queries, query, queries'
-          href: log-query/get-started-portal.md
-        - name: Abfragebereich
-          href: log-query/scope.md
-        - name: Einfache Oberfläche für Protokolle
-          href: log-query/simple-logs.md
-        - name: Abfragen mit Azure Data Explorer
-          href: platform/azure-data-explorer-monitor-proxy.md
-        - name: Protokollabfragen
-          items:
-            - name: Standardspalten
-              href: platform/log-standard-columns.md
-            - name: Überwachen von Abfragen
-              href: log-query/query-audit.md
-            - name: Optimieren von Abfragen
-              href: log-query/query-optimization.md
-            - name: Functions
-              href: log-query/functions.md
-            - name: Analysieren von Textdaten
-              href: log-query/parse-text.md
-            - name: Beispielabfragen
-              href: log-query/saved-queries.md
-            - name: Computergruppen
-              href: platform/computer-groups.md
-        - name: Abfragesprache
-          items:
-            - name: KQL-Referenz
-              href: /azure/data-explorer/kusto/query/
-            - name: Unterschied zu Azure Data Explorer
-              href: log-query/data-explorer-difference.md
-            - name: Beispiele
-              href: log-query/examples.md
-            - name: Beispiele für intelligente Analysen
-              href: log-query/smart-analytics.md
-            - name: Lektionen
-              items:
-                - name: Zeichenfolgenvorgänge
-                  href: log-query/string-operations.md
-                - name: Datums- und Uhrzeitvorgänge
-                  href: log-query/datetime-operations.md
-                - name: Aggregationsfunktionen
-                  href: log-query/aggregations.md
-                - name: Erweiterte Aggregationen
-                  href: log-query/advanced-aggregations.md
-                - name: Joins
-                  href: log-query/joins.md
-                - name: JSON und Datenstrukturen
-                  href: log-query/json-data-structures.md
-                - name: Schreiben von erweiterten Abfragen
-                  href: log-query/advanced-query-writing.md
-                - name: Charts und Diagramme
-                  href: log-query/charts.md
-                - name: Suchabfragen
-                  href: log-query/search-queries.md
-            - name: Spickzettel
-              items:
-                - name: SQL
-                  href: log-query/sql-cheatsheet.md
-                - name: Splunk
-                  href: log-query/splunk-cheatsheet.md
-        - name: Ressourcenübergreifende Abfragen
-          items:
-            - name: Übersicht
-              href: log-query/cross-workspace-query.md
-            - name: App-Ausdruck
-              href: log-query/app-expression.md
-            - name: Arbeitsbereichsausdruck
-              href: log-query/workspace-expression.md
-            - name: Ressourcenausdruck
-              href: log-query/resource-expression.md
-            - name: Vereinheitlichen von Anwendungsressourcendaten
-              href: log-query/unify-app-resource-data.md
+          displayname: 'Azure Monitor Logs, Logs, Log Analytics, log query, log queries, query, queries'
+          href: platform/data-platform-logs.md
         - name: Arbeitsbereiche und Cluster
           items:
-            - name: Entwerfen einer Arbeitsbereichsbereitstellung
-              href: platform/design-logs-deployment.md
             - name: Erstellen eines Arbeitsbereichs
               items:
                 - name: Azure-Portal
@@ -292,6 +211,8 @@
                   href: learn/quick-create-workspace-cli.md
                 - name: PowerShell
                   href: platform/powershell-workspace-configuration.md
+            - name: Entwerfen einer Arbeitsbereichsbereitstellung
+              href: platform/design-logs-deployment.md
             - name: Überwachen eines Arbeitsbereichs
               href: platform/monitor-workspace.md
             - name: Löschen und Wiederherstellen eines Arbeitsbereichs
@@ -305,24 +226,80 @@
               href: platform/service-providers.md
             - name: Dedicated-Cluster
               href: log-query/logs-dedicated-clusters.md
+        - name: Log Analytics
+          items:
+            - name: Übersicht
+              displayname: 'Log Analytics, log query, log queries, query, queries'
+              href: log-query/log-analytics-overview.md
+            - name: Lernprogramm
+              displayname: 'Log Analytics workspace, log query, log queries, query, queries'
+              href: log-query/log-analytics-tutorial.md
+            - name: Abfragebereich
+              href: log-query/scope.md
+            - name: Beispielabfragen
+              href: log-query/example-queries.md
+        - name: Protokollabfragen
+          items:
+            - name: Übersicht
+              displayname: 'log query, log queries, query, queries'
+              href: log-query/log-query-overview.md
+            - name: KQL-Referenz
+              href: /azure/data-explorer/kusto/query/
+            - name: Beispielabfragen
+              href: /azure/data-explorer/kusto/query/samples?&pivots=azuremonitor
+            - name: Standardspalten
+              href: platform/log-standard-columns.md
+            - name: Überwachen von Abfragen
+              href: log-query/query-audit.md
+            - name: Optimieren von Abfragen
+              href: log-query/query-optimization.md
+            - name: Functions
+              href: log-query/functions.md
+            - name: Analysieren von Textdaten
+              href: log-query/parse-text.md
+            - name: Computergruppen
+              href: platform/computer-groups.md
+            - name: Ressourcenübergreifende Abfragen
+              items:
+                - name: Übersicht
+                  displayname: cross-resource queries
+                  href: log-query/cross-workspace-query.md
+                - name: App-Ausdruck
+                  href: log-query/app-expression.md
+                - name: Arbeitsbereichsausdruck
+                  href: log-query/workspace-expression.md
+                - name: Ressourcenausdruck
+                  href: log-query/resource-expression.md
+                - name: Vereinheitlichen von Anwendungsressourcendaten
+                  href: log-query/unify-app-resource-data.md
+                - name: Übersicht über dienstübergreifende Abfragen zwischen Azure Monitor und Azure Data Explorer
+                  href: platform/azure-data-explorer-monitor-cross-service-query.md
+                - name: Azure Data Explorer von Azure Monitor abfragen
+                  href: platform/azure-monitor-data-explorer-proxy.md
         - name: Datenexport
           items:
             - name: Exportieren von Arbeitsbereichsdaten
               href: platform/logs-data-export.md
             - name: Exportieren mit Logic Apps
               href: platform/logs-export-logic-app.md
-            - name: Abfragen exportierter Daten mit Data Explorer
+            - name: Abfragen von Daten mit Azure Data Explorer
               href: platform/azure-data-explorer-query-storage.md
-    - name: Metrik-Explorer
+            - name: Senden an Excel
+              href: log-query/log-excel.md
+            - name: Senden an Power BI
+              href: log-query/log-powerbi.md
+    - name: Plattformprotokolle
       items:
-        - name: Erste Schritte mit Metrik-Explorer
-          href: platform/metrics-getting-started.md
-        - name: Erweiterte Funktionen von Metrik-Explorer
-          href: platform/metrics-charts.md
-        - name: Beispiele für Metrikdiagramme
-          href: platform/metric-chart-samples.md
-        - name: Problembehandlung für Metrikdiagramme
-          href: platform/metrics-troubleshoot.md
+        - name: Übersicht
+          displayName: 'Platform logs, Resource logs, Activity log'
+          href: platform/platform-logs-overview.md
+        - name: Aktivitätsprotokoll
+          href: platform/activity-log.md
+        - name: Ressourcenprotokolle
+          href: platform/resource-logs.md
+        - name: Diagnoseeinstellungen
+          displayName: 'Platform logs, Resource logs, Activity log'
+          href: platform/diagnostic-settings.md
     - name: Datensammlung
       items:
         - name: Regeln für die Datensammlung
@@ -381,6 +358,9 @@
             - name: Übersicht
               displayname: Azure Monitor agent
               href: platform/azure-monitor-agent-overview.md
+            - name: Installieren
+              displayname: Azure Monitor agent
+              href: platform/azure-monitor-agent-install.md
             - name: Datensammlung
               displayname: 'data collection rule,Azure Monitor agent'
               href: platform/data-collection-rule-azure-monitor-agent.md
@@ -568,12 +548,14 @@
               href: platform/itsmc-overview.md
             - name: IT Service Management-Verbindungen
               href: platform/itsmc-connections.md
-            - name: Integrieren mit sicherem Export
-              href: platform/it-service-management-connector-secure-webhook-connections.md
+            - name: 'ITSM-Connector: Definition'
+              href: platform/itsmc-definition.md
             - name: Erstellen von Service Manager-Web-Apps
               href: platform/itsmc-service-manager-script.md
-            - name: Beheben von ServiceNow-ITSM-Synchronisierungsproblemen
+            - name: Problembehandlung in ITSM-Connector
               href: platform/itsmc-resync-servicenow.md
+            - name: Integrieren mit sicherem Export
+              href: platform/it-service-management-connector-secure-webhook-connections.md
         - name: Migrieren klassischer Warnungsregeln
           items:
             - name: Informationen zu klassischen Warnungen
@@ -609,12 +591,16 @@
                   displayname: 'ilogger, logging, log'
                   href: app/ilogger.md
             - name: ASP.NET
-              displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
-              href: app/asp-net.md
-            - name: Nicht-HTTP-Apps/Hintergrund-Apps
+              items:
+                - name: ASP.NET-App-Überwachung
+                  displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
+                  href: app/asp-net.md
+                - name: Troubleshooting bei ASP.NET
+                  href: app/asp-net-troubleshoot-no-data.md
+            - name: Nicht-HTTP-/Hintergrund-Apps
               displayname: 'console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host'
               href: app/worker-service.md
-            - name: .NET-Konsole
+            - name: ASP.NET-Konsole
               displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
               href: app/console.md
             - name: Java
@@ -622,22 +608,12 @@
                 - name: Web-Apps
                   displayname: java
                   href: app/java-get-started.md
-                - name: Docker-Apps
-                  href: app/docker.md
                 - name: Protokollablaufverfolgungen
                   href: app/java-trace-logs.md
-                - name: UNIX-Metriken
-                  href: app/java-collectd.md
                 - name: Abhängigkeiten
                   href: app/java-agent.md
                 - name: Filtern von Telemetriedaten
                   href: app/java-filter-telemetry.md
-                - name: Mikrometer-Metriken
-                  displayname: java
-                  href: app/micrometer-java.md
-                - name: Spring Boot-App
-                  displayname: java
-                  href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
                 - name: Problembehandlung
                   href: app/java-troubleshoot.md
             - name: Node.js
@@ -673,8 +649,6 @@
             - name: Application Insights-API-Zusammenfassung
               displayname: 'SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency'
               href: app/api-custom-events-metrics.md
-            - name: Troubleshooting bei ASP.NET
-              href: app/asp-net-troubleshoot-no-data.md
             - name: Entfernen von Application Insights
               href: app/remove-application-insights.md
         - name: Überwachung ohne Code
@@ -696,14 +670,20 @@
               href: app/kubernetes-codeless.md
             - name: 'Eigenständig: beliebige Umgebung'
               items:
-                - name: Java (Vorschau)
+                - name: Java
                   items:
                     - name: Übersicht
                       href: app/java-in-process-agent.md
                     - name: Konfigurationsoptionen
                       href: app/java-standalone-config.md
+                    - name: Telemetrieprozessoren
+                      href: app/java-standalone-telemetry-processors.md
                     - name: Setup von JVM-Argumenten
                       href: app/java-standalone-arguments.md
+                    - name: "Upgraden vom 2.x\_SDK"
+                      href: app/java-standalone-upgrade-from-2x.md
+                    - name: Problembehandlung
+                      href: app/java-standalone-troubleshoot.md
             - name: Lokale Server
               items:
                 - name: ASP.NET
@@ -776,6 +756,8 @@
               href: app/pre-aggregated-metrics-log-metrics.md
             - name: Protokollbasierte Metrikdefinitionen
               href: platform/app-insights-metrics.md
+            - name: Standardmetriken
+              href: app/standard-metrics.md
         - name: 'Suchen,'
           href: app/diagnostic-search.md
         - name: Profiler
@@ -912,8 +894,6 @@
               items:
                 - name: Eingehende Diagnose für Web-Apps und Dienste
                   href: app/devops.md
-                - name: Leistung in Webanwendungen überwachen
-                  href: app/web-monitor-performance.md
                 - name: 'Trennen von Entwicklung, Test und Produktion'
                   href: app/separate-resources.md
                 - name: Gewusst wie – in Application Insights
@@ -980,14 +960,28 @@
           href: insights/vminsights-maps.md
         - name: Überwachen der Leistung
           href: insights/vminsights-performance.md
-        - name: Überwachen von Änderungen
-          href: insights/vminsights-change-analysis.md
+        - name: Überwachen der Gastintegrität (Vorschau)
+          items:
+            - name: Übersicht
+              href: insights/vminsights-health-overview.md
+            - name: Aktivieren
+              href: insights/vminsights-health-enable.md
+            - name: Alerts
+              href: insights/vminsights-health-alerts.md
+            - name: Konfigurieren von Monitoren im Portal
+              href: insights/vminsights-health-configure.md
+            - name: Konfigurieren von Monitoren im großen Stil
+              href: insights/vminsights-health-configure-dcr.md
+            - name: Problembehandlung
+              href: insights/vminsights-health-troubleshoot.md
         - name: Analysieren von Daten mit Protokollabfragen
           href: insights/vminsights-log-search.md
+        - name: Überwachen der Leistung
+          href: insights/vminsights-alerts.md
+        - name: Überwachen von Änderungen
+          href: insights/vminsights-change-analysis.md
         - name: Visualisieren von Daten mit Arbeitsmappen
           href: insights/vminsights-workbooks.md
-        - name: Erstellen von Warnungsregeln
-          href: insights/vminsights-alerts.md
         - name: Deaktivieren der Überwachung
           href: insights/vminsights-optout.md
     - name: Azure Monitor für Container
@@ -1024,6 +1018,8 @@
           href: insights/container-insights-deployment-hpa-metrics.md
         - name: Überwachen persistenter Volumes (PVs)
           href: insights/container-insights-persistent-volumes.md
+        - name: Registerkarte „Berichte“
+          href: insights/container-insights-reports.md
         - name: Anzeigen von Livedaten
           items:
             - name: Übersicht über Livedaten (Vorschau)
@@ -1064,7 +1060,7 @@
               href: insights/container-insights-optout-hybrid.md
         - name: Problembehandlung
           href: insights/container-insights-troubleshoot.md
-    - name: Weitere Erkenntnisse
+    - name: Einblicke
       items:
         - name: Azure Cache for Redis (Vorschauversion)
           href: insights/redis-cache-insights-overview.md
@@ -1081,61 +1077,61 @@
           href: insights/resource-group-insights.md
         - name: Problembehandlung für Erkenntnisse
           href: insights/troubleshoot-workbooks.md
-    - name: Lösungen
-      items:
-        - name: Übersicht
-          href: insights/solutions.md
-          displayName: 'Azure CLI, az monitor log-analytics'
-        - name: Ziellösungen
-          href: insights/solution-targeting.md
-        - name: Verfügbare Lösungen
+        - name: Lösungen
           items:
-            - name: AD-Integritätsbewertung
-              href: insights/ad-assessment.md
-            - name: AD Replication Status
-              href: insights/ad-replication-status.md
-            - name: Lösung „Kapazität und Leistung“
-              href: insights/capacity-performance.md
-            - name: Überwachen von Docker- und Windows-Containern
-              href: insights/containers.md
-            - name: Netzwerke
+            - name: Übersicht
+              href: insights/solutions.md
+              displayName: 'Azure CLI, az monitor log-analytics'
+            - name: Ziellösungen
+              href: insights/solution-targeting.md
+            - name: Verfügbare Lösungen
               items:
-                - name: Netzwerkanalysen
-                  href: insights/azure-networking-analytics.md
-                - name: DNS
-                  href: insights/dns-analytics.md
-                - name: Netzwerkleistungsmonitor
+                - name: AD-Integritätsbewertung
+                  href: insights/ad-assessment.md
+                - name: AD Replication Status
+                  href: insights/ad-replication-status.md
+                - name: Lösung „Kapazität und Leistung“
+                  href: insights/capacity-performance.md
+                - name: Überwachen von Docker- und Windows-Containern
+                  href: insights/containers.md
+                - name: Netzwerke
                   items:
-                    - name: Lösungsübersicht
-                      href: insights/network-performance-monitor.md
-                    - name: Systemmonitor
-                      href: insights/network-performance-monitor-performance-monitor.md
-                    - name: Dienstkonnektivitätsmonitor
-                      href: insights/network-performance-monitor-service-connectivity.md
-                    - name: ExpressRoute
-                      href: insights/network-performance-monitor-expressroute.md
-                    - name: Preise
-                      href: insights/network-performance-monitor-pricing-faq.md
-                    - name: Häufig gestellte Fragen
-                      href: insights/network-performance-monitor-faq.md
-            - name: Office 365
-              href: insights/solution-office-365.md
-            - name: Dienstzuordnungslösung
-              href: insights/service-map.md
-            - name: Dienstzuordnung und Operations Manager
-              href: insights/service-map-scom.md
-            - name: Azure SQL
-              href: insights/azure-sql.md
-            - name: SQL Server
-              href: insights/sql-assessment.md
-            - name: Surface Hub
-              href: insights/surface-hubs.md
-            - name: VMware Analytics-Lösung
-              href: insights/vmware.md
-            - name: Wire Data-Lösung
-              href: insights/wire-data.md
-            - name: Lösung Warnungsverwaltung
-              href: platform/alert-management-solution.md
+                    - name: Netzwerkanalysen
+                      href: insights/azure-networking-analytics.md
+                    - name: DNS
+                      href: insights/dns-analytics.md
+                    - name: Netzwerkleistungsmonitor
+                      items:
+                        - name: Lösungsübersicht
+                          href: insights/network-performance-monitor.md
+                        - name: Systemmonitor
+                          href: insights/network-performance-monitor-performance-monitor.md
+                        - name: Dienstkonnektivitätsmonitor
+                          href: insights/network-performance-monitor-service-connectivity.md
+                        - name: ExpressRoute
+                          href: insights/network-performance-monitor-expressroute.md
+                        - name: Preise
+                          href: insights/network-performance-monitor-pricing-faq.md
+                        - name: Häufig gestellte Fragen
+                          href: insights/network-performance-monitor-faq.md
+                - name: Office 365
+                  href: insights/solution-office-365.md
+                - name: Dienstzuordnungslösung
+                  href: insights/service-map.md
+                - name: Dienstzuordnung und Operations Manager
+                  href: insights/service-map-scom.md
+                - name: Azure SQL
+                  href: insights/azure-sql.md
+                - name: SQL Server
+                  href: insights/sql-assessment.md
+                - name: Surface Hub
+                  href: insights/surface-hubs.md
+                - name: VMware Analytics-Lösung
+                  href: insights/vmware.md
+                - name: Wire Data-Lösung
+                  href: insights/wire-data.md
+                - name: Lösung Warnungsverwaltung
+                  href: platform/alert-management-solution.md
     - name: Arbeitsmappen
       items:
         - name: Übersicht
@@ -1155,6 +1151,8 @@
               href: platform/workbooks-tree-visualizations.md
             - name: Graph
               href: platform/workbooks-graph-visualizations.md
+            - name: Zuordnung
+              href: platform/workbooks-map-visualizations.md
             - name: Wabenförmig
               href: platform/workbooks-honey-comb.md
             - name: Gestapelte Säule
@@ -1183,6 +1181,8 @@
               href: platform/workbooks-automate.md
             - name: Gruppen
               href: platform/workbooks-groups.md
+            - name: Bring Your Own Storage (BYOS)
+              href: platform/workbooks-bring-your-own-storage.md
             - name: Transformieren von JSON-Daten mit JSONPath
               href: platform/workbooks-jsonpath.md
             - name: Verschieben von Arbeitsmappen in eine andere Region
@@ -1275,6 +1275,8 @@
               href: app/release-notes.md
             - name: Web-App-Erweiterung
               href: app/web-app-extension-release-notes.md
+            - name: Debuggen von Momentaufnahmen
+              href: app/snapshot-collector-release-notes.md
         - name: Datenmodell
           items:
             - name: Übersicht
@@ -1348,10 +1350,6 @@
           href: insights/azure-web-apps-analytics.md
         - name: Application Insights-Connector
           href: platform/app-insights-connector.md
-        - name: Application Insights für AKS ohne Code
-          href: app/kubernetes.md
-        - name: Überwachen von Docker-Anwendungen
-          href: app/docker.md
         - name: Einstellung des OMS-Portals
           href: platform/oms-portal-transition.md
         - name: Einstellung von Datenträgermetriken
@@ -1361,6 +1359,11 @@
           href: platform/resource-logs-blob-format.md
         - name: Key Vault-Analyse (veraltet)
           href: insights/azure-key-vault-deprecated.md
+        - name: UNIX-Metriken
+          href: app/java-collectd.md
+        - name: Mikrometer-Metriken
+          displayname: java
+          href: app/micrometer-java.md
         - name: Sichten
           items:
             - name: Sicht-Designer

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 9303d84b2862b556a9ccc286ffa118bf1e52b715
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a646ffe1d306d7ea13da002715d5bd9b907107b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84034651"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793465"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Verschieben von Daten zwischen horizontal hochskalierten Clouddatenbanken
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -49,7 +49,7 @@ Das Split-Merge-Tool wird als Azure-Webdienst ausgeführt. Ein Administrator ode
 
 - **Teilen, um zu wachsen**
 
-  Wenn die Gesamtkapazität erhöht werden soll, um explosionsartiges Wachstum in den Griff zu bekommen, schaffen Sie zusätzliche Kapazität durch Partitionieren der Daten und deren Verteilung über eine zunehmend größere Anzahl von Datenbanken, bis die Kapazitätsanforderungen erfüllt sind. Dies ist ein hervorragendes Beispiel für das **Split**-Feature.
+  Wenn die Gesamtkapazität erhöht werden soll, um explosionsartiges Wachstum in den Griff zu bekommen, schaffen Sie zusätzliche Kapazität durch Partitionieren der Daten und deren Verteilung über eine zunehmend größere Anzahl von Datenbanken, bis die Kapazitätsanforderungen erfüllt sind. Dies ist ein hervorragendes Beispiel für das **Split** -Feature.
 
 - **Zusammenführen zum Verkleinern**
 
@@ -220,7 +220,7 @@ Der Split-Merge-Dienst verwendet die Azure-Diagnose basierend auf Azure SDK 2.5 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Das Azure Resource Manager-Modul von PowerShell wird weiterhin unterstützt, aber alle zukünftigen Entwicklungen erfolgen für das Az.Sql-Modul. Informationen zu diesen Cmdlets finden Sie unter [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Die Argumente für die Befehle im Az-Modul und den AzureRm-Modulen sind im Wesentlichen identisch.
+> Das Azure Resource Manager-Modul von PowerShell wird weiterhin unterstützt, aber alle zukünftigen Entwicklungen erfolgen für das Az.Sql-Modul. Informationen zu diesen Cmdlets finden Sie unter [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Die Argumente für die Befehle im Az-Modul und den AzureRm-Modulen sind im Wesentlichen identisch.
 
 Führen Sie die folgenden Befehle mit Azure PowerShell aus, um die Überwachung und Diagnose anhand der mit dem NuGet-Paket bereitgestellten Diagnosekonfiguration für die Web- und Workerrolle zu aktivieren:
 
@@ -244,7 +244,7 @@ Weitere Informationen zum Konfigurieren und Bereitstellen von Diagnoseeinstellun
 
 ## <a name="retrieve-diagnostics"></a>Abrufen der Diagnose
 
-Sie können im Server-Explorer von Visual Studio im Azure-Teil der Server-Explorer-Struktur ganz einfach auf die Diagnose zugreifen. Öffnen Sie eine Visual Studio-Instanz, und klicken Sie in der Menüleiste auf "Ansicht" und "Server-Explorer". Klicken Sie auf das Azure-Symbol, um eine Verbindung mit Ihrem Azure-Abonnement herzustellen. Navigieren Sie dann zu „Azure“ -> „Speicher“ -> „`<your storage account>`“ -> „Tabellen“ -> „WADLogsTable“. Weitere Informationen finden Sie unter [Server-Explorer](https://msdn.microsoft.com/library/x603htbk.aspx).
+Sie können im Server-Explorer von Visual Studio im Azure-Teil der Server-Explorer-Struktur ganz einfach auf die Diagnose zugreifen. Öffnen Sie eine Visual Studio-Instanz, und klicken Sie in der Menüleiste auf "Ansicht" und "Server-Explorer". Klicken Sie auf das Azure-Symbol, um eine Verbindung mit Ihrem Azure-Abonnement herzustellen. Navigieren Sie dann zu „Azure“ -> „Speicher“ -> „`<your storage account>`“ -> „Tabellen“ -> „WADLogsTable“. Weitere Informationen finden Sie unter [Server-Explorer](/previous-versions/x603htbk(v=vs.140)).
 
 ![WADLogsTable][2]
 

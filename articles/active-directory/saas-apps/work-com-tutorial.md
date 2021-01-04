@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 5fe8697327203a84f91b42e8742db75150b6cb19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a77b6472ea91a6ba4b6e31d1b7739aae236a1783
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88541447"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636152"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Tutorial: Azure Active Directory-Integration mit Work.com
 
@@ -27,7 +27,7 @@ Die Integration von Work.com in Azure AD bietet die folgenden Vorteile:
 * Sie können es Ihren Benutzern ermöglichen, sich mit ihren Azure AD-Konten automatisch bei Work.com anzumelden (einmaliges Anmelden; Single Sign-On, SSO).
 * Sie können Ihre Konten über das Azure-Portal an einem zentralen Ort verwalten.
 
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
@@ -53,15 +53,15 @@ Zum Konfigurieren der Integration von Work.com in Azure AD müssen Sie Work.com 
 
     ![Schaltfläche „Azure Active Directory“](common/select-azuread.png)
 
-2. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie die Option **Alle Anwendungen** aus.
+2. Navigieren Sie zu **Unternehmensanwendungen** , und wählen Sie die Option **Alle Anwendungen** aus.
 
     ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
 
-3. Klicken Sie oben im Dialogfeld auf die Schaltfläche **Neue Anwendung**, um eine neue Anwendung hinzuzufügen.
+3. Klicken Sie oben im Dialogfeld auf die Schaltfläche **Neue Anwendung** , um eine neue Anwendung hinzuzufügen.
 
     ![Schaltfläche „Neue Anwendung“](common/add-new-app.png)
 
-4. Geben Sie im Suchfeld **Work.com** ein, wählen Sie im Ergebnisbereich **Work.com** aus, und klicken Sie dann auf die Schaltfläche **Hinzufügen**, um die Anwendung hinzuzufügen.
+4. Geben Sie im Suchfeld **Work.com** ein, wählen Sie im Ergebnisbereich **Work.com** aus, und klicken Sie dann auf die Schaltfläche **Hinzufügen** , um die Anwendung hinzuzufügen.
 
     ![Work.com in der Ergebnisliste](common/search-new-app.png)
 
@@ -96,7 +96,7 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit Work.co
 
     ![Auswahlmodus für einmaliges Anmelden](common/select-saml-option.png)
 
-3. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Symbol **Bearbeiten**, um das Dialogfeld **Grundlegende SAML-Konfiguration** zu öffnen.
+3. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Symbol **Bearbeiten** , um das Dialogfeld **Grundlegende SAML-Konfiguration** zu öffnen.
 
     ![Bearbeiten der SAML-Basiskonfiguration](common/edit-urls.png)
 
@@ -109,7 +109,7 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit Work.co
     > [!NOTE]
     > Dieser Wert entspricht nicht dem tatsächlichen Wert. Ersetzen Sie diesen Wert durch die tatsächliche Anmelde-URL. Den Wert erhalten Sie vom [Supportteam für den Work.com-Client](https://help.salesforce.com/articleView?id=000159855&type=3). Sie können sich auch die Muster im Abschnitt **Grundlegende SAML-Konfiguration** im Azure-Portal ansehen.
 
-5. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** auf **Herunterladen**, um das Ihrer Anforderung entsprechende **Zertifikat (Base64)** aus den angegebenen Optionen herunterzuladen und auf Ihrem Computer zu speichern.
+5. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** auf **Herunterladen** , um das Ihrer Anforderung entsprechende **Zertifikat (Base64)** aus den angegebenen Optionen herunterzuladen und auf Ihrem Computer zu speichern.
 
     ![Downloadlink für das Zertifikat](common/certificatebase64.png)
 
@@ -129,11 +129,11 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit Work.co
 
 2. Wechseln Sie zu **Setup**.
    
-    ![Einrichtung](./media/work-com-tutorial/ic794108.png "Einrichten")
+    ![Screenshot der ausgewählten Option „Setup“ im Benutzermenü](./media/work-com-tutorial/ic794108.png "Einrichten")
 
-3. Klicken Sie im linken Navigationsbereich im Abschnitt **Verwalten** auf **Domänenverwaltung**, um den entsprechenden Abschnitt zu erweitern, und klicken Sie anschließend auf **Meine Domäne**, um die Seite **Meine Domäne** zu öffnen. 
+3. Klicken Sie im linken Navigationsbereich im Abschnitt **Verwalten** auf **Domänenverwaltung** , um den entsprechenden Abschnitt zu erweitern, und klicken Sie anschließend auf **Meine Domäne** , um die Seite **Meine Domäne** zu öffnen. 
    
-    ![Meine Domäne](./media/work-com-tutorial/ic767825.png "Meine Domäne")
+    ![Screenshot der ausgewählten Option „Meine Domäne“ unter „Domänenverwaltung“ im Bereich „Verwalten“](./media/work-com-tutorial/ic767825.png "Meine Domäne")
 
 4. Um zu überprüfen, ob Ihre Domäne richtig eingerichtet wurde, stellen Sie sicher, dass sich die Domäne in **Schritt 4 – bereitgestellt für Benutzer** befindet, und überprüfen Sie die **Domäneneinstellungen**.
    
@@ -143,9 +143,9 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit Work.co
 
 6. Wechseln Sie zu **Setup**.
     
-    ![Einrichtung](./media/work-com-tutorial/ic794108.png "Einrichten")
+    ![Screenshot der ausgewählten Option „Setup“ im Benutzermenü](./media/work-com-tutorial/ic794108.png "Einrichten")
 
-7. Erweitern Sie das Menü **Sicherheitskontrollen**, und klicken Sie anschließend auf **Single Sign-On Settings** (Einstellungen für einmaliges Anmelden).
+7. Erweitern Sie das Menü **Sicherheitskontrollen** , und klicken Sie anschließend auf **Single Sign-On Settings** (Einstellungen für einmaliges Anmelden).
     
     ![SSO-Einstellungen](./media/work-com-tutorial/ic794113.png "Einstellungen für einmaliges Anmelden")
 
@@ -153,7 +153,7 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit Work.co
     
     ![SAML aktiviert](./media/work-com-tutorial/ic781026.png "SAML aktiviert")
     
-    a. Wählen Sie **SAML aktiviert**aus.
+    a. Wählen Sie **SAML aktiviert** aus.
     
     b. Klicken Sie auf **Neu**.
 
@@ -184,23 +184,23 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit Work.co
     
     j. Klicken Sie auf **Speichern**.
 
-10. Klicken Sie im linken Navigationsbereich des klassischen Work.com-Portals auf **Domänenverwaltung**, um den entsprechenden Abschnitt zu erweitern, und klicken Sie anschließend auf **Meine Domäne**, um die Seite **Meine Domäne** zu öffnen. 
+10. Klicken Sie im linken Navigationsbereich des klassischen Work.com-Portals auf **Domänenverwaltung** , um den entsprechenden Abschnitt zu erweitern, und klicken Sie anschließend auf **Meine Domäne** , um die Seite **Meine Domäne** zu öffnen. 
     
-    ![Meine Domäne](./media/work-com-tutorial/ic794115.png "Meine Domäne")
+    ![Screenshot der ausgewählten Option „Meine Domäne“ unter „Domänenverwaltung“](./media/work-com-tutorial/ic794115.png "Meine Domäne")
 
 11. Klicken Sie auf der Seite **Meine Domäne** im Abschnitt **Anmeldeseitenbranding** auf **Bearbeiten**.
     
-    ![Anmeldeseitenbranding](./media/work-com-tutorial/ic767826.png "Anmeldeseitenbranding")
+    ![Screenshot des Abschnitts „Anmeldeseitenbranding“ zum Auswählen der Bearbeitungsoption](./media/work-com-tutorial/ic767826.png "Anmeldeseitenbranding")
 
 12. Im Abschnitt **Authentifizierungsdienst** der Seite **Anmeldeseitenbranding** wird der Name Ihrer **SAML-SSO-Einstellungen** angezeigt. Wählen Sie den Namen aus, und klicken Sie auf **Speichern**.
     
-    ![Anmeldeseitenbranding](./media/work-com-tutorial/ic784366.png "Anmeldeseitenbranding")
+    ![Screenshot der Seite „Anmeldeseitenbranding“ zum Auswählen des Einstellungsnamens (hier PPE)](./media/work-com-tutorial/ic784366.png "Anmeldeseitenbranding")
 
 ### <a name="create-an-azure-ad-test-user"></a>Erstellen eines Azure AD-Testbenutzers 
 
 Das Ziel dieses Abschnitts ist das Erstellen eines Testbenutzers namens Britta Simon im Azure-Portal.
 
-1. Wählen Sie im Azure-Portal im linken Bereich die Option **Azure Active Directory**, **Benutzer** und dann **Alle Benutzer** aus.
+1. Wählen Sie im Azure-Portal im linken Bereich die Option **Azure Active Directory** , **Benutzer** und dann **Alle Benutzer** aus.
 
     ![Links „Benutzer und Gruppen“ und „Alle Benutzer“](common/users.png)
 
@@ -216,7 +216,7 @@ Das Ziel dieses Abschnitts ist das Erstellen eines Testbenutzers namens Britta S
   
     b. Geben Sie im Feld **Benutzername** den Namen `brittasimon@yourcompanydomain.extension` ein. Zum Beispiel, BrittaSimon@contoso.com
 
-    c. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den Wert, der im Feld „Kennwort“ angezeigt wird.
+    c. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen** , und notieren Sie sich den Wert, der im Feld „Kennwort“ angezeigt wird.
 
     d. Klicken Sie auf **Erstellen**.
 
@@ -236,7 +236,7 @@ In diesem Abschnitt ermöglichen Sie Britta Simon die Verwendung des einmaligen 
 
     ![Link „Benutzer und Gruppen“](common/users-groups-blade.png)
 
-4. Klicken Sie auf die Schaltfläche **Benutzer hinzufügen**, und wählen Sie dann im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
+4. Klicken Sie auf die Schaltfläche **Benutzer hinzufügen** , und wählen Sie dann im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
 
     ![Bereich „Zuweisung hinzufügen“](common/add-assign-user.png)
 
@@ -256,7 +256,7 @@ Damit sich Azure Active Directory-Benutzer anmelden können, müssen sie in Work
 
 2. Wechseln Sie zu **Setup**.
    
-    ![Einrichtung](./media/work-com-tutorial/IC794108.png "Einrichten")
+    ![Screenshot der ausgewählten Option „Setup“ im Benutzermenü](./media/work-com-tutorial/ic794108.png "Einrichten")
 
 3. Navigieren Sie zu **Benutzer verwalten \> Benutzer**.
    
@@ -282,7 +282,7 @@ Damit sich Azure Active Directory-Benutzer anmelden können, müssen sie in Work
     
     f. Geben Sie im Textfeld **Nick Name** den **Spitznamen** der Benutzerin **Simon** ein.
     
-    g. Wählen Sie **Rolle**, **Benutzerlizenz** und **Profil** aus.
+    g. Wählen Sie **Rolle** , **Benutzerlizenz** und **Profil** aus.
     
     h. Klicken Sie auf **Speichern**.  
       
@@ -294,13 +294,12 @@ Damit sich Azure Active Directory-Benutzer anmelden können, müssen sie in Work
 
 In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich.
 
-Wenn Sie im Zugriffsbereich auf die Kachel „Work.com“ klicken, sollten Sie automatisch bei der Work.com-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Wenn Sie im Zugriffsbereich auf die Kachel „Work.com“ klicken, sollten Sie automatisch bei der Work.com-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Weitere Ressourcen
 
-- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](./tutorial-list.md)
 
-- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Was ist bedingter Zugriff?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Was ist bedingter Zugriff?](../conditional-access/overview.md)

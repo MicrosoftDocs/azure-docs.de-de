@@ -7,18 +7,18 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 12/04/2020
 ms.author: erhopf
-ms.openlocfilehash: c7dd916b27cd8005162c09f7e6a090293e336719
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4746aad2d7cd62cb309a1823f8c50487e6f7e87c
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83590637"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032965"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Benutzerdefinierte Unterdomänennamen für Cognitive Services
 
-Azure Cognitive Services verwenden benutzerdefinierte Unterdomänennamen für jede Ressource, die über das [Azure-Portal](https://portal.azure.com), [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) oder die [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) erstellt wurde. Anders als bei regionalen Endpunkten, die für alle Kunden in einer bestimmten Azure-Region üblich waren, sind benutzerdefinierte Unterdomänennamen für die Ressource eindeutig. Benutzerdefinierte Unterdomänennamen sind erforderlich, um Funktionen wie Azure Active Directory (Azure AD) für die Authentifizierung zu aktivieren.
+Azure Cognitive Services verwenden benutzerdefinierte Unterdomänennamen für jede Ressource, die über das [Azure-Portal](https://portal.azure.com), [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) oder die [Azure CLI](/cli/azure/install-azure-cli) erstellt wurde. Anders als bei regionalen Endpunkten, die für alle Kunden in einer bestimmten Azure-Region üblich waren, sind benutzerdefinierte Unterdomänennamen für die Ressource eindeutig. Benutzerdefinierte Unterdomänennamen sind erforderlich, um Funktionen wie Azure Active Directory (Azure AD) für die Authentifizierung zu aktivieren.
 
 ## <a name="how-does-this-impact-existing-resources"></a>Wie wirkt sich dies auf vorhandene Ressourcen aus?
 
@@ -39,7 +39,7 @@ Nein. Der regionale Endpunkt funktioniert weiterhin für neue und vorhandene Cog
 ## <a name="what-if-an-sdk-asks-me-for-the-region-for-a-resource"></a>Was geschieht, wenn ein SDK die Region für eine Ressource anfordert?
 
 > [!WARNING]
-> Benutzerdefinierte Unterdomänen werden zurzeit **nicht** von Speech-Diensten unterstützt. Verwenden Sie die regionalen Endpunkte bei Verwendung der Speech-Dienste und der zugeordneten SDKs.
+> Die Speech-Dienste nutzen **ausschließlich** benutzerdefinierte Subdomänen mit [privaten Endpunkten](Speech-Service/speech-services-private-link.md). Verwenden Sie in allen anderen Fällen die **regionalen Endpunkte** bei Verwendung der Speech-Dienste und der dazugehörigen SDKs.
 
 Regionale Endpunkte und benutzerdefinierte Unterdomänennamen werden unterstützt und können austauschbar verwendet werden. Dennoch ist der vollständige Endpunkt erforderlich.
 
@@ -98,5 +98,5 @@ Ja. Dies ist eine Liste der regionalen Endpunkte, die Sie mit Azure Cognitive Se
 
 ## <a name="see-also"></a>Weitere Informationen
 
-* [Was ist Cognitive Services?](Welcome.md)
+* [Was ist Cognitive Services?](./what-are-cognitive-services.md)
 * [Authentifizierung](authentication.md)

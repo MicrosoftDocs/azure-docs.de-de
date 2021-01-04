@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 11/02/2020
 ms.author: inhenkel
-ms.openlocfilehash: c03950d64c9ead17dfa5c07ef70ab2b7ee0e90bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed436336b9b1f9f5815938d13315e821694e5f1c
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89296650"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685170"
 ---
-# <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Überwachen von Media Services-Metriken und -Diagnoseprotokollen über Azure Monitor
+# <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Überwachen von Media Services-Metriken und -Diagnoseprotokollen mit Azure Monitor
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -67,8 +67,10 @@ Die folgenden [Streamingendpunkte](/rest/api/media/streamingendpoints) von Media
 |Requests|Requests|Gibt die Gesamtzahl der HTTP-Anforderungen an, die vom Streamingendpunkt behandelt werden.|
 |Ausgehende Daten|Ausgehende Daten|Ausgehende Bytes gesamt pro Minute pro Streamingendpunkt.|
 |SuccessE2ELatency|End-to-End-Wartezeit bei Erfolg|Die Zeitspanne zwischen dem Empfang der Anforderung durch den Streamingendpunkt und dem Senden des letzten Bytes der Antwort.|
+|CPU-Auslastung| | CPU-Auslastung für Premium-Streamingendpunkte. Diese Daten stehen für Standard-Streamingendpunkte nicht zur Verfügung. |
+|Ausgangsbandbreite | | Ausgangsbandbreite in Bits pro Sekunde.|
 
-### <a name="why-would-i-want-to-use-metrics"></a>Warum sollte ich Metriken verwenden?
+### <a name="metrics-are-useful"></a>Praktische Metriken
 
 Hier sind Beispiele dafür, wie Sie durch das Überwachen von Media Services-Metriken Informationen über die Leistung Ihrer Anwendungen erhalten. Media Services-Metriken können beispielsweise für folgende Fragen genutzt werden:
 
@@ -79,6 +81,8 @@ Hier sind Beispiele dafür, wie Sie durch das Überwachen von Media Services-Met
 * Wie kann ich die Aufschlüsselung der fehlgeschlagenen Anforderungen und die Fehlerursachen anzeigen?
 * Wie kann ich erkennen, wie viele HLS- oder DASH-Anforderungen aus dem Objekt-Manager abgerufen werden?
 * Wie lege ich eine Warnung fest, um zu wissen, wann der Schwellenwert für die Anzahl fehlgeschlagener Anforderungen erreicht wurde?
+
+Parallelität wird für die Anzahl von Streamingendpunkten relevant, die im Laufe der Zeit in einem einzelnen Konto verwendet werden. Behalten Sie die Beziehung zwischen der Anzahl paralleler Datenströme mit komplexen Veröffentlichungsparametern wie dynamischer Paketerstellung in mehrere Protokolle, mehrere DRM-Verschlüsselungen usw. im Hinterkopf. Jeder weitere veröffentlichte Livestream beansprucht zusätzliche CPU- und Ausgabebandbreite des Streamingendpunkts. Vor diesem Hintergrund empfiehlt es sich, die Auslastung des Streamingendpunkts (CPU- und Ausgangskapazität) mithilfe von Azure Monitor genau zu überwachen, um eine angemessene Skalierung sicherzustellen. Im Falle von sehr hoher Parallelität können Sie den Datenverkehr alternativ auf mehrere Streamingendpunkte aufteilen.
 
 ### <a name="example"></a>Beispiel
 

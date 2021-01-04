@@ -7,11 +7,11 @@ ms.date: 02/12/2020
 ms.topic: sample
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: cb8cc98a020cb382a6941c1e410eab4543594629
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279009"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009754"
 ---
 # <a name="example-powershell-scripts"></a>PowerShell-Beispielskripts
 
@@ -127,19 +127,19 @@ Gehen Sie wie folgt vor, um eine **andere Konfigurationsdatei** zu verwenden:
 .\RenderingSession.ps1 -ConfigFile D:\arr\myotherconfigFile.json
 ```
 
-Sie können **einzelne Einstellungen der Konfigurationsdatei außer Kraft setzen** :
+Sie können **einzelne Einstellungen der Konfigurationsdatei außer Kraft setzen**:
 
 ```PowerShell
 .\RenderingSession.ps1 -Region <region> -VmSize <vmsize> -MaxLeaseTime <hh:mm:ss>
 ```
 
-Sie können Folgendes verwenden, um eine **Sitzung ohne Abruf zu starten** :
+Sie können Folgendes verwenden, um eine **Sitzung ohne Abruf zu starten**:
 
 ```PowerShell
 .\RenderingSession.ps1 -CreateSession
 ```
 
-Die *sessionId* , die mit dem Skript abgerufen wird, muss an die meisten anderen Sitzungsbefehle übergeben werden.
+Die *sessionId*, die mit dem Skript abgerufen wird, muss an die meisten anderen Sitzungsbefehle übergeben werden.
 
 ### <a name="retrieve-session-properties"></a>Abrufen von Sitzungseigenschaften
 
@@ -225,13 +225,13 @@ Gehen Sie wie folgt vor, um eine **andere Konfigurationsdatei** zu verwenden:
 .\Conversion.ps1 -ConfigFile D:\arr\myotherconfigFile.json
 ```
 
-Sie können Folgendes verwenden, um nur die **Modellkonvertierung ohne Abruf zu starten** :
+Sie können Folgendes verwenden, um nur die **Modellkonvertierung ohne Abruf zu starten**:
 
 ```PowerShell
 .\Conversion.ps1 -ConvertAsset
 ```
 
-Sie können in der Konfigurationsdatei **einzelne Einstellungen außer Kraft setzen** , indem Sie die folgenden Befehlszeilenschalter verwenden:
+Sie können in der Konfigurationsdatei **einzelne Einstellungen außer Kraft setzen**, indem Sie die folgenden Befehlszeilenschalter verwenden:
 
 * **Id:** Für „GetConversionStatus“ verwendete „ConversionId“
 * **ArrAccountId:** „arrAccountId“ von „accountSettings“

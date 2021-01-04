@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: e322135cfdb7aaff331367e84c603e8344436528
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a086d9fe150766c6b31210f29bf802a75e0ee4ec
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906250"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491731"
 ---
 # <a name="azure-cosmos-db-output-from-azure-stream-analytics"></a>Azure Cosmos DB-Ausgabe von Azure Stream Analytics
 
@@ -39,7 +39,7 @@ In der folgenden Tabelle werden die Eigenschaften zum Erstellen einer Azure Cosm
 
 ## <a name="partitioning"></a>Partitionierung
 
-Der Partitionsschlüssel basiert auf der PARTITION BY-Klausel in der Abfrage. Die Anzahl der Ausgabeschreiber folgt der Eingabepartitionierung für [vollständig parallelisierte Abfragen](stream-analytics-scale-jobs.md). Stream Analytics konvertiert den Cosmos DB-Ausgabepartitionsschlüssel in eine Zeichenfolge. Wenn Sie z. B. einen Partitionsschlüssel mit einem Wert von 1 vom Typ „bigint“ verwenden, wird er in „1“ vom Typ „string“ konvertiert.
+Der Partitionsschlüssel basiert auf der PARTITION BY-Klausel in der Abfrage. Die Anzahl der Ausgabeschreiber folgt der Eingabepartitionierung für [vollständig parallelisierte Abfragen](stream-analytics-scale-jobs.md). Stream Analytics konvertiert den Cosmos DB-Ausgabepartitionsschlüssel in eine Zeichenfolge. Wenn Sie z. B. einen Partitionsschlüssel mit einem Wert von 1 vom Typ „bigint“ verwenden, wird er in „1“ vom Typ „string“ konvertiert. Diese Konvertierung erfolgt immer unabhängig davon, ob die Partitionseigenschaft in Cosmos DB geschrieben wird.
 
 ## <a name="output-batch-size"></a>Ausgabebatchgröße
 

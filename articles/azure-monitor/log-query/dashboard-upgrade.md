@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 07/01/2020
-ms.openlocfilehash: a029dcbebf6dfe7a2b6cb517641c824a5937ca95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96aea35a4796eae9d31062cedaf917a736f0fe82
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90988255"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547128"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Aktualisieren von Log Analytics-Dashboardvisualisierungen
 
@@ -47,7 +47,7 @@ Wenn ein angehefteter Log Analytics-Bereich aktualisiert werden kann, wird eine 
  
 ![Seitenleiste](media/dashboard-upgrade/update-message-1.png)
  
-![Seitenleiste](media/dashboard-upgrade/update-message-2.png)
+![Screenshot einer Aktualisierung der Kachelvisualisierung](media/dashboard-upgrade/update-message-2.png)
 
 > [!WARNING]
 > Nach dem Veröffentlichen des Dashboards kann die Aktualisierung nicht mehr rückgängig gemacht werden. Änderungen werden jedoch verworfen, wenn Sie das Dashboard verlassen, ohne es neu zu veröffentlichen.  
@@ -56,7 +56,7 @@ Nach dem Klicken auf die Schaltfläche wird die Visualisierung auf die neue Tech
 
 Nach dem Aktualisieren der Visualisierungen müssen Sie das Dashboard neu veröffentlichen, damit die Änderungen wirksam werden.
 
-![Seitenleiste](media/dashboard-upgrade/update-message-3.png)
+![Screenshot mit aktualisierten Visualisierungen](media/dashboard-upgrade/update-message-3.png)
 
 ## <a name="stage-2---migration-of-all-dashboards"></a>Phase 2: Migration aller Dashboards
 
@@ -74,7 +74,7 @@ Da Dashboards mehrere Visualisierungen aus verschiedenen Abfragen enthalten kön
 
 Dashboards können visuell kompakt und komplex sein. Um die Anzeige in einem Dashboard nicht zu überfrachten, haben wir die Visualisierungen optimiert und die Anzeige auf 25 unterschiedliche Datentypen beschränkt. Bei mehr als 25 Datentypen werden die Daten in Log Analytics optimiert. Die 25 Datentypen mit den meisten Daten werden separat angezeigt, die restlichen Werte werden unter dem Wert „Andere“ gruppiert. Ein Beispiel dafür ist im folgenden Diagramm dargestellt.  
 
-![Seitenleiste](media/dashboard-upgrade/values-25-limit.png)
+![Screenshot eines Dashboards mit 25 verschiedenen Datentypen](media/dashboard-upgrade/values-25-limit.png)
 
 ### <a name="dashboard-refresh-on-load"></a>Dashboardaktualisierung beim Laden
 

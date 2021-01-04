@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 10/15/2020
 ms.author: duau
 ms.openlocfilehash: 29b3cdde328a994e5806df810db15b529a6da9af
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208112"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188665"
 ---
 # <a name="tutorial-configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Tutorial: Konfigurieren der geografischen Routingmethode für Datenverkehr mithilfe von Traffic Manager
 
@@ -37,7 +37,7 @@ In diesem Tutorial lernen Sie, wie die folgenden Aufgaben ausgeführt werden:
 
 1. Melden Sie sich im Browser beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Wählen Sie im linken Bereich **+ Ressource erstellen** aus. Suchen Sie nach **Traffic Manager-Profil** , und wählen Sie **Erstellen** aus.
+1. Wählen Sie im linken Bereich **+ Ressource erstellen** aus. Suchen Sie nach **Traffic Manager-Profil**, und wählen Sie **Erstellen** aus.
 
     :::image type="content" source="./media/traffic-manager-geographic-routing-method/create-traffic-manager.png" alt-text="Erstellen eines Traffic Manager-Profils":::
 
@@ -48,21 +48,21 @@ In diesem Tutorial lernen Sie, wie die folgenden Aufgaben ausgeführt werden:
     | Name            | Geben Sie einen Namen für Ihr Profil an. Dieser Name muss innerhalb der Zone trafficmanager.net eindeutig sein. Um auf das Traffic Manager-Profil zuzugreifen, verwenden Sie den DNS-Namen `<profilename>.trafficmanager.net`. |    
     | Routingmethode  | Wählen Sie **Geografisch** aus. |
     | Subscription    | Wählen Sie Ihr Abonnement aus. |
-    | Resource group   | Verwenden Sie eine vorhandene Ressourcengruppe, oder erstellen Sie eine neue Ressourcengruppe, unter der Sie das Profil platzieren möchten. Wenn Sie sich für die Erstellung einer neuen Ressourcengruppe entscheiden, verwenden Sie die Dropdownliste *Ressourcengruppenstandort* , um den Speicherort der Ressourcengruppe anzugeben. Diese Einstellung bezieht sich auf den Speicherort der Ressourcengruppe und hat keine Auswirkungen auf das global bereitgestellte Traffic Manager-Profil. |
+    | Resource group   | Verwenden Sie eine vorhandene Ressourcengruppe, oder erstellen Sie eine neue Ressourcengruppe, unter der Sie das Profil platzieren möchten. Wenn Sie sich für die Erstellung einer neuen Ressourcengruppe entscheiden, verwenden Sie die Dropdownliste *Ressourcengruppenstandort*, um den Speicherort der Ressourcengruppe anzugeben. Diese Einstellung bezieht sich auf den Speicherort der Ressourcengruppe und hat keine Auswirkungen auf das global bereitgestellte Traffic Manager-Profil. |
 
 1. Wählen Sie **Erstellen** aus, um Ihr Traffic Manager-Profil zu erstellen.
 
-    :::image type="content" source="./media/traffic-manager-geographic-routing-method/create-traffic-manager-profile.png" alt-text="Erstellen eines Traffic Manager-Profils":::
+    :::image type="content" source="./media/traffic-manager-geographic-routing-method/create-traffic-manager-profile.png" alt-text="Seite für die Erstellung eines Traffic Manager-Profils":::
 
 ## <a name="add-endpoints"></a>Hinzufügen von Endpunkten
 
 1. Wählen Sie das Traffic Manager-Profil in der Liste aus.
 
-    :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-list-geographic.png" alt-text="Erstellen eines Traffic Manager-Profils":::
+    :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-list-geographic.png" alt-text="Traffic Manager: Liste „Geografisch“":::
 
 1. Wählen Sie unter *Einstellungen* die Option **Endpunkte** und dann **+ Hinzufügen** aus, um einen neuen Endpunkt hinzuzufügen.
 
-    :::image type="content" source="./media/traffic-manager-geographic-routing-method/add-geographic-endpoint.png" alt-text="Erstellen eines Traffic Manager-Profils":::
+    :::image type="content" source="./media/traffic-manager-geographic-routing-method/add-geographic-endpoint.png" alt-text="Hinzufügen von Endpunkten":::
 
 1. Wählen Sie die folgenden Einstellungen aus, oder geben Sie sie ein: 
 
@@ -83,23 +83,23 @@ In diesem Tutorial lernen Sie, wie die folgenden Aufgaben ausgeführt werden:
 
 1. Wiederholen Sie den letzten Schritt für alle Endpunkte, die Sie unter diesem Profil hinzufügen möchten, und wählen Sie dann **Speichern** aus.
 
-    :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-add-endpoint.png" alt-text="Erstellen eines Traffic Manager-Profils":::
+    :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-add-endpoint.png" alt-text="Hinzufügen eines Traffic Manager-Endpunkts":::
 
 ## <a name="use-the-traffic-manager-profile"></a>Verwenden des Traffic Manager-Profils
 
-1.  Suchen Sie in der Suchleiste des Portals nach dem Namen des **Traffic Manager-Profils** , das Sie im vorherigen Abschnitt erstellt haben, und wählen Sie in den angezeigten Ergebnissen das Traffic Manager-Profil aus.
+1.  Suchen Sie in der Suchleiste des Portals nach dem Namen des **Traffic Manager-Profils**, das Sie im vorherigen Abschnitt erstellt haben, und wählen Sie in den angezeigten Ergebnissen das Traffic Manager-Profil aus.
     
-    :::image type="content" source="./media/traffic-manager-geographic-routing-method/search-traffic-manager-profile.png" alt-text="Erstellen eines Traffic Manager-Profils":::
+    :::image type="content" source="./media/traffic-manager-geographic-routing-method/search-traffic-manager-profile.png" alt-text="Suchen nach einem Traffic Manager-Profil":::
 
 1. Unter **Traffic Manager-Profil** wird der DNS-Name Ihres neu erstellten Traffic Manager-Profils angezeigt. Der Name kann von beliebigen Clients (z. B. per Zugriff mit einem Webbrowser) für das Routing zum richtigen Endpunkt anhand des Routingtyps verwendet werden. Beim geografischen Routing untersucht Traffic Manager die IP-Quelladresse der eingehenden Anforderung und ermittelt die Region, aus der sie stammt. Wenn diese Region einem Endpunkt zugeordnet ist, wird der Datenverkehr dorthin geroutet. Wenn diese Region keinem Endpunkt zugeordnet ist, gibt Traffic Manager die Abfrageantwort NODATA zurück.
 
-    :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-geographic-overview.png" alt-text="Erstellen eines Traffic Manager-Profils":::
+    :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-geographic-overview.png" alt-text="Übersicht über geografisches Routing mit Traffic Manager":::
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
 Wenn Sie das Traffic Manager-Profil nicht mehr benötigen, können Sie nach dem Profil suchen und **Profil löschen** auswählen.
 
-:::image type="content" source="./media/traffic-manager-geographic-routing-method/delete-traffic-manager-profile.png" alt-text="Erstellen eines Traffic Manager-Profils":::
+:::image type="content" source="./media/traffic-manager-geographic-routing-method/delete-traffic-manager-profile.png" alt-text="Löschen des Traffic Manager-Profils":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 

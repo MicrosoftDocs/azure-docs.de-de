@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.openlocfilehash: e8a3183e1fcac3f1a71d07835cacc37c2f57fb06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ca8980123240a90f73a4866c37a79800ce403d1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839043"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538016"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Verwenden des Redis-Befehlszeilentools mit Azure Cache for Redis
 
@@ -27,8 +27,8 @@ Wenn Sie das Befehlszeilentool auf einer anderen Plattform ausführen möchten, 
 
 Sie können die benötigten Informationen zum Zugriff auf den Cache mithilfe von drei Methoden sammeln:
 
-1. Über Azure CLI mit [az redis list-keys](https://docs.microsoft.com/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
-2. Azure PowerShell mithilfe von [Get-AzRedisCacheKey](https://docs.microsoft.com/powershell/module/az.rediscache/Get-AzRedisCacheKey)
+1. Über Azure CLI mit [az redis list-keys](/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
+2. Azure PowerShell mithilfe von [Get-AzRedisCacheKey](/powershell/module/az.rediscache/Get-AzRedisCacheKey)
 3. Über das Azure-Portal.
 
 In diesem Abschnitt rufen Sie die Schlüssel aus dem Azure-Portal ab.
@@ -40,7 +40,7 @@ In diesem Abschnitt rufen Sie die Schlüssel aus dem Azure-Portal ab.
 
 Mit Azure Cache for Redis ist nur der TLS-Port (6380) standardmäßig aktiviert. Vom Befehlszeilentool `redis-cli.exe` wird TSL nicht unterstützt. Sie können zu seiner Verwendung zwischen zwei Konfigurationsoptionen wählen:
 
-1. [Aktivieren Sie den TLS-fremden Port (6379):](cache-configure.md#access-ports) **Diese Konfiguration wird nicht empfohlen**, da in dieser Konfiguration die Zugriffsschlüssel über TCP als Klartext gesendet werden. Diese Änderung kann den Zugriff auf Ihren Cache beeinträchtigen. Das einzige Szenario, in dem Sie diese Konfiguration berücksichtigen könnten, ist der Zugriff auf einen Testcache.
+1. [Aktivieren Sie den TLS-fremden Port (6379):](cache-configure.md#access-ports) **Diese Konfiguration wird nicht empfohlen** , da in dieser Konfiguration die Zugriffsschlüssel über TCP als Klartext gesendet werden. Diese Änderung kann den Zugriff auf Ihren Cache beeinträchtigen. Das einzige Szenario, in dem Sie diese Konfiguration berücksichtigen könnten, ist der Zugriff auf einen Testcache.
 
 2. Laden Sie [stunnel](https://www.stunnel.org/downloads.html) herunter, und installieren Sie die Anwendung.
 
@@ -74,7 +74,7 @@ redis-cli.exe -p 6380 -a YourAccessKey
 
 ![Screenshot, der zeigt, dass die Verbindung mit dem Cache erfolgreich hergestellt wurde.](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
 
-Bei Verwendung eines Testcaches mit dem **unsicheren** TSL-fremden Port führen Sie `redis-cli.exe` aus, und übergeben Sie Ihren *Hostnamen*, *Port* und *Zugriffsschlüssel* (primär oder sekundär) für die Herstellung der Verbindung mit dem Testcache.
+Bei Verwendung eines Testcaches mit dem **unsicheren** TSL-fremden Port führen Sie `redis-cli.exe` aus, und übergeben Sie Ihren *Hostnamen* , *Port* und *Zugriffsschlüssel* (primär oder sekundär) für die Herstellung der Verbindung mit dem Testcache.
 
 ```
 redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey
@@ -88,4 +88,3 @@ redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey
 ## <a name="next-steps"></a>Nächste Schritte
 
 Weitere Informationen zur Verwendung der [Redis-Konsole](cache-configure.md#redis-console) zur Befehlsausgabe.
-

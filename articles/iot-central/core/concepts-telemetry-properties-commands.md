@@ -3,17 +3,17 @@ title: Telemetrie-, Eigenschaften- und Befehlsnutzlasten in Azure IoT Central | 
 description: Mithilfe von Azure IoT Central-Gerätevorlagen können Sie die Telemetriedaten, Eigenschaften und Befehle angeben, die ein Gerät implementieren muss. Hier erfahren Sie Grundlegendes zum Format der Daten, die ein Gerät mit IoT Central austauschen kann.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/12/2020
+ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 9e5288bb177d5827f05003e4561bc79240a71b59
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5b1bbce68be19c2dbb08f7d69611b719b450a370
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427862"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96121762"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Telemetrie-, Eigenschaften- und Befehlsnutzlasten
 
@@ -29,14 +29,14 @@ In diesem Artikel werden für Geräteentwickler die JSON-Nutzlasten beschrieben,
 
 Zwar wird nicht jeder mögliche Typ von Telemetrie-, Eigenschaften- und Befehlsnutzlast beschrieben, aber die Beispiele veranschaulichen alle wichtigen Typen.
 
-Jedes Beispiel zeigt einen Ausschnitt aus dem Gerätefunktionsmodell (Device Capability Model, DCM), das den Typ und die JSON-Beispielnutzlasten definiert, um zu veranschaulichen, wie das Gerät mit der IoT Central-Anwendung interagieren sollte.
+Jedes Beispiel zeigt einen Ausschnitt aus dem Gerätemodell, das den Typ und die JSON-Beispielnutzlasten definiert, um zu veranschaulichen, wie das Gerät mit der IoT Central-Anwendung interagieren sollte.
 
 > [!NOTE]
-> IoT Central akzeptiert jeden beliebigen gültigen JSON-Code, kann für Visualisierungen aber nur dann verwendet werden, wenn er mit einer Definition im DCM übereinstimmt. Sie können Daten exportieren, die keiner Definition entsprechen. Weitere Informationen finden Sie unter [Exportieren von IoT-Daten zu Zielen in Azure](howto-export-data.md).
+> IoT Central akzeptiert jeden gültigen JSON-Code, dieser kann aber nur dann für Visualisierungen verwendet werden, wenn er mit einer Definition im Gerätemodell übereinstimmt. Sie können Daten exportieren, die keiner Definition entsprechen. Weitere Informationen finden Sie unter [Exportieren von IoT-Daten zu Zielen in Azure](howto-export-data.md).
 
-Die JSON-Datei mit der Definition des Gerätefunktionsmodells verwendet [Digital Twin Definition Language (DTDL) V1](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/dtdlv1.md). Diese Spezifikation enthält die Definition des Eigenschaftsformats `@id`.
+Die JSON-Datei mit der Definition des Gerätemodells verwendet [Digital Twin Definition Language (DTDL) v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
-Ein Beispiel für Gerätecode, der einige dieser gerade verwendeten Nutzlasten zeigt, finden Sie in den Tutorials [Erstellen einer Clientanwendung und Verbinden der Anwendung mit Ihrer Azure IoT Central-Anwendung (Node.js)](tutorial-connect-device-nodejs.md) und [Erstellen einer Clientanwendung und Verbinden der Anwendung mit Ihrer Azure IoT Central-Anwendung (Python)](tutorial-connect-device-python.md).
+Ein Beispiel für einen Gerätecode, der einige dieser verwendeten Nutzlasten anzeigt, finden Sie im Tutorial [Erstellen einer Clientanwendung und Verbinden der Anwendung mit Ihrer Azure IoT Central-Anwendung](tutorial-connect-device.md).
 
 ## <a name="view-raw-data"></a>Anzeigen von Rohdaten
 
@@ -56,11 +56,10 @@ In IoT Central können Sie die Rohdaten anzeigen, die ein Gerät an eine Anwendu
 
 In diesem Abschnitt werden Beispiele für einfache Telemetrietypen gezeigt, die ein Gerät an eine IoT Central-Anwendung streamt.
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `boolean`-Telemetrietyps:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition einer Telemetrie vom Typ `boolean`:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "BooleanTelemetry"
@@ -76,11 +75,10 @@ Ein Geräteclient sollte die Telemetriedaten als JSON-Code senden, der wie im fo
 { "BooleanTelemetry": true }
 ```
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `string`-Telemetrietyps:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition einer Telemetrie vom Typ `string`:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "StringTelemetry"
@@ -96,11 +94,10 @@ Ein Geräteclient sollte die Telemetriedaten als JSON-Code senden, der wie im fo
 { "StringTelemetry": "A string value - could be a URL" }
 ```
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `integer`-Telemetrietyps:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition einer Telemetrie vom Typ `integer`:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "IntegerTelemetry"
@@ -117,11 +114,10 @@ Ein Geräteclient sollte die Telemetriedaten als JSON-Code senden, der wie im fo
 { "IntegerTelemetry": 23 }
 ```
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `double`-Telemetrietyps:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition einer Telemetrie vom Typ `double`:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "DoubleTelemetry"
@@ -137,11 +133,10 @@ Ein Geräteclient sollte die Telemetriedaten als JSON-Code senden, der wie im fo
 { "DoubleTelemetry": 56.78 }
 ```
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `dateTime`-Telemetrietyps:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition einer Telemetrie vom Typ `dateTime`:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "DateTimeTelemetry"
@@ -151,17 +146,16 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `dateTime`-
 }
 ```
 
-Ein Geräteclient sollte die Telemetriedaten als JSON-Code senden, der wie im folgenden Beispiel aussieht. Dabei müssen `DateTime`-Typen ISO 8061-kompatibel sein:
+Ein Geräteclient sollte die Telemetriedaten wie im folgenden Beispiel dargestellt als JSON-Code senden. Dabei müssen `DateTime`-Typen im ISO 8061-Format angegeben werden:
 
 ```json
 { "DateTimeTelemetry": "2020-08-30T19:16:13.853Z" }
 ```
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `duration`-Telemetrietyps:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition einer Telemetrie vom Typ `duration`:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "DurationTelemetry"
@@ -171,7 +165,7 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `duration`-
 }
 ```
 
-Ein Geräteclient sollte die Telemetriedaten als JSON-Code senden, der wie im folgenden Beispiel aussieht. Dabei müssen Zeitspannen ISO 8601-kompatibel sein:
+Ein Geräteclient sollte die Telemetriedaten wie im folgenden Beispiel dargestellt als JSON-Code senden. Dabei müssen Zeitspannen im ISO 8061-Format angegeben werden:
 
 ```json
 { "DurationTelemetry": "PT10H24M6.169083011336625S" }
@@ -181,11 +175,10 @@ Ein Geräteclient sollte die Telemetriedaten als JSON-Code senden, der wie im fo
 
 In diesem Abschnitt werden Beispiele für komplexe Telemetrietypen gezeigt, die ein Gerät an eine IoT Central-Anwendung streamt.
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `geopoint`-Telemetrietyps:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition einer Telemetrie vom Typ `geopoint`:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "GeopointTelemetry"
@@ -207,18 +200,16 @@ Ein Geräteclient sollte die Telemetriedaten als JSON-Code senden, der wie im fo
 }
 ```
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `Enum`-Telemetrietyps:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition einer Telemetrie vom Typ `Enum`:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "EnumTelemetry"
   },
   "name": "EnumTelemetry",
   "schema": {
-    "@id": "<element id>",
     "@type": "Enum",
     "displayName": {
       "en": "Enum"
@@ -226,8 +217,6 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `Enum`-Tele
     "valueSchema": "integer",
     "enumValues": [
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item1"
         },
@@ -235,8 +224,6 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `Enum`-Tele
         "name": "Item1"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item2"
         },
@@ -244,8 +231,6 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `Enum`-Tele
         "name": "Item2"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item3"
         },
@@ -263,26 +248,22 @@ Ein Geräteclient sollte die Telemetriedaten als JSON-Code senden, der wie im fo
 { "EnumTelemetry": 1 }
 ```
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `Object`-Telemetrietyps. Dieses Objekt enthält drei Felder mit den Typen `dateTime`, `integer` und `Enum`:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition einer Telemetrie vom Typ `Object`. Dieses Objekt enthält drei Felder mit den Typen `dateTime`, `integer` und `Enum`:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "ObjectTelemetry"
   },
   "name": "ObjectTelemetry",
   "schema": {
-    "@id": "<element id>",
     "@type": "Object",
     "displayName": {
       "en": "Object"
     },
     "fields": [
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Property1"
         },
@@ -290,8 +271,6 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `Object`-Te
         "schema": "dateTime"
       },
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Property2"
         },
@@ -299,14 +278,11 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `Object`-Te
         "schema": "integer"
       },
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Property3"
         },
         "name": "Property3",
         "schema": {
-          "@id": "<element id>",
           "@type": "Enum",
           "displayName": {
             "en": "Enum"
@@ -314,8 +290,6 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `Object`-Te
           "valueSchema": "integer",
           "enumValues": [
             {
-              "@id": "<element id>",
-              "@type": "EnumValue",
               "displayName": {
                 "en": "Item1"
               },
@@ -323,8 +297,6 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `Object`-Te
               "name": "Item1"
             },
             {
-              "@id": "<element id>",
-              "@type": "EnumValue",
               "displayName": {
                 "en": "Item2"
               },
@@ -332,8 +304,6 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `Object`-Te
               "name": "Item2"
             },
             {
-              "@id": "<element id>",
-              "@type": "EnumValue",
               "displayName": {
                 "en": "Item3"
               },
@@ -360,11 +330,10 @@ Ein Geräteclient sollte die Telemetriedaten als JSON-Code senden, der wie im fo
 }
 ```
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `vector`-Telemetrietyps:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition einer Telemetrie vom Typ `vector`:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "VectorTelemetry"
@@ -390,14 +359,13 @@ Ein Geräteclient sollte die Telemetriedaten als JSON-Code senden, der wie im fo
 
 In diesem Abschnitt werden Beispiele für Telemetrieereignisse und -zustände gezeigt, die ein Gerät an eine IoT Central-Anwendung sendet.
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `integer`-Ereignistyps:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition eines `integer`-Ereignistyps:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": [
     "Telemetry",
-    "SemanticType/Event"
+    "Event"
   ],
   "displayName": {
     "en": "IntegerEvent"
@@ -413,27 +381,23 @@ Ein Geräteclient sollte die Ereignisdaten als JSON-Code senden, der wie im folg
 { "IntegerEvent": 74 }
 ```
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `integer`-Zustandstyps:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition eines `integer`-Zustandstyps:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": [
     "Telemetry",
-    "SemanticType/State"
+    "State"
   ],
   "displayName": {
     "en": "IntegerState"
   },
   "name": "IntegerState",
   "schema": {
-    "@id": "<element id>",
     "@type": "Enum",
     "valueSchema": "integer",
     "enumValues": [
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Level1"
         },
@@ -441,8 +405,6 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `integer`-Z
         "name": "Level1"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Level2"
         },
@@ -450,8 +412,6 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `integer`-Z
         "name": "Level2"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Level3"
         },
@@ -478,17 +438,17 @@ Ein Geräteclient sollte den Zustand als JSON-Code senden, der wie im folgenden 
 
 In diesem Abschnitt werden Beispiele für einfache Eigenschaftstypen gezeigt, die ein Gerät an eine IoT Central-Anwendung sendet.
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `boolean`-Eigenschaftstyps:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition eines `boolean`-Eigenschaftstyps:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "BooleanProperty"
   },
   "name": "BooleanProperty",
-  "schema": "boolean"
+  "schema": "boolean",
+  "writable": false
 }
 ```
 
@@ -498,17 +458,17 @@ Ein Geräteclient sollte eine JSON-Nutzlast, die wie im folgenden Beispiel aussi
 { "BooleanProperty": false }
 ```
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `boolean`-Eigenschaftstyps:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition eines `boolean`-Eigenschaftstyps:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "LongProperty"
   },
   "name": "LongProperty",
-  "schema": "long"
+  "schema": "long",
+  "writable": false
 }
 ```
 
@@ -518,17 +478,17 @@ Ein Geräteclient sollte eine JSON-Nutzlast, die wie im folgenden Beispiel aussi
 { "LongProperty": 439 }
 ```
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `date`-Eigenschaftstyps:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition eines `date`-Eigenschaftstyps:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "DateProperty"
   },
   "name": "DateProperty",
-  "schema": "date"
+  "schema": "date",
+  "writable": false
 }
 ```
 
@@ -538,17 +498,17 @@ Ein Geräteclient sollte eine JSON-Nutzlast, die wie im folgenden Beispiel aussi
 { "DateProperty": "2020-05-17" }
 ```
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `duration`-Eigenschaftstyps:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition eines `duration`-Eigenschaftstyps:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "DurationProperty"
   },
   "name": "DurationProperty",
-  "schema": "duration"
+  "schema": "duration",
+  "writable": false
 }
 ```
 
@@ -558,17 +518,17 @@ Ein Geräteclient sollte eine JSON-Nutzlast, die wie im folgenden Beispiel aussi
 { "DurationProperty": "PT10H24M6.169083011336625S" }
 ```
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `float`-Eigenschaftstyps:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition eines `float`-Eigenschaftstyps:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "FloatProperty"
   },
   "name": "FloatProperty",
-  "schema": "float"
+  "schema": "float",
+  "writable": false
 }
 ```
 
@@ -578,17 +538,17 @@ Ein Geräteclient sollte eine JSON-Nutzlast, die wie im folgenden Beispiel aussi
 { "FloatProperty": 1.9 }
 ```
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `string`-Eigenschaftstyps:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition eines `string`-Eigenschaftstyps:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "StringProperty"
   },
   "name": "StringProperty",
-  "schema": "string"
+  "schema": "string",
+  "writable": false
 }
 ```
 
@@ -602,17 +562,17 @@ Ein Geräteclient sollte eine JSON-Nutzlast, die wie im folgenden Beispiel aussi
 
 In diesem Abschnitt werden Beispiele für komplexe Eigenschaftstypen gezeigt, die ein Gerät an eine IoT Central-Anwendung sendet.
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `geopoint`-Eigenschaftstyps:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition eines `geopoint`-Eigenschaftstyps:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "GeopointProperty"
   },
   "name": "GeopointProperty",
-  "schema": "geopoint"
+  "schema": "geopoint",
+  "writable": false
 }
 ```
 
@@ -628,18 +588,17 @@ Ein Geräteclient sollte eine JSON-Nutzlast, die wie im folgenden Beispiel aussi
 }
 ```
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `Enum`-Eigenschaftstyps:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition eines `Enum`-Eigenschaftstyps:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "EnumProperty"
   },
   "name": "EnumProperty",
+  "writable": false,
   "schema": {
-    "@id": "<element id>",
     "@type": "Enum",
     "displayName": {
       "en": "Enum"
@@ -647,8 +606,6 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `Enum`-Eige
     "valueSchema": "integer",
     "enumValues": [
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item1"
         },
@@ -656,8 +613,6 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `Enum`-Eige
         "name": "Item1"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item2"
         },
@@ -665,8 +620,6 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `Enum`-Eige
         "name": "Item2"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item3"
         },
@@ -684,26 +637,23 @@ Ein Geräteclient sollte eine JSON-Nutzlast, die wie im folgenden Beispiel aussi
 { "EnumProperty": 1 }
 ```
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `Object`-Eigenschaftstyps. Dieses Objekt enthält zwei Felder mit den Typen `string` und `integer`:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition eines `Object`-Eigenschaftstyps. Dieses Objekt enthält zwei Felder mit den Typen `string` und `integer`:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "ObjectProperty"
   },
   "name": "ObjectProperty",
+  "writable": false,
   "schema": {
-    "@id": "<element id>",
     "@type": "Object",
     "displayName": {
       "en": "Object"
     },
     "fields": [
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Field1"
         },
@@ -711,8 +661,6 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `Object`-Ei
         "schema": "integer"
       },
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Field2"
         },
@@ -735,17 +683,17 @@ Ein Geräteclient sollte eine JSON-Nutzlast, die wie im folgenden Beispiel aussi
 }
 ```
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines `vector`-Eigenschaftstyps:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition eines `vector`-Eigenschaftstyps:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "VectorProperty"
   },
   "name": "VectorProperty",
-  "schema": "vector"
+  "schema": "vector",
+  "writable": false
 }
 ```
 
@@ -780,11 +728,10 @@ IoT Central erwartet vom Gerät eine Antwort zu Aktualisierungen von schreibbare
 
 `ad` ist eine Beschreibung der Optionszeichenfolge.
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines schreibbaren `string`-Eigenschaftstyps:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition eines schreibbaren `string`-Eigenschaftstyps:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "StringPropertyWritable"
@@ -803,7 +750,7 @@ Das Gerät empfängt die folgende Nutzlast von IoT Central:
 }
 ```
 
-Das Gerät sollte nach Verarbeitung des Updates die folgende JSON-Nutzlast an IoT Central senden. Diese Nachricht enthält die Versionsnummer des ursprünglichen Updates, das von IoT Central empfangen wurde. Wenn IoT Central diese Nachricht empfängt, kennzeichnet es die Eigenschaft in der Benutzeroberfläche als **synchronisiert** :
+Das Gerät sollte nach Verarbeitung des Updates die folgende JSON-Nutzlast an IoT Central senden. Diese Nachricht enthält die Versionsnummer des ursprünglichen Updates, das von IoT Central empfangen wurde. Wenn IoT Central diese Nachricht empfängt, kennzeichnet es die Eigenschaft in der Benutzeroberfläche als **synchronisiert**:
 
 ```json
 {
@@ -816,11 +763,10 @@ Das Gerät sollte nach Verarbeitung des Updates die folgende JSON-Nutzlast an Io
 }
 ```
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines schreibbaren `Enum`-Eigenschaftstyps:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition eines schreibbaren `Enum`-Eigenschaftstyps:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "EnumPropertyWritable"
@@ -828,7 +774,6 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines schreibbare
   "name": "EnumPropertyWritable",
   "writable": true,
   "schema": {
-    "@id": "<element id>",
     "@type": "Enum",
     "displayName": {
       "en": "Enum"
@@ -836,8 +781,6 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines schreibbare
     "valueSchema": "integer",
     "enumValues": [
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item1"
         },
@@ -845,8 +788,6 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines schreibbare
         "name": "Item1"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item2"
         },
@@ -854,8 +795,6 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines schreibbare
         "name": "Item2"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item3"
         },
@@ -875,7 +814,7 @@ Das Gerät empfängt die folgende Nutzlast von IoT Central:
 }
 ```
 
-Das Gerät sollte nach Verarbeitung des Updates die folgende JSON-Nutzlast an IoT Central senden. Diese Nachricht enthält die Versionsnummer des ursprünglichen Updates, das von IoT Central empfangen wurde. Wenn IoT Central diese Nachricht empfängt, kennzeichnet es die Eigenschaft in der Benutzeroberfläche als **synchronisiert** :
+Das Gerät sollte nach Verarbeitung des Updates die folgende JSON-Nutzlast an IoT Central senden. Diese Nachricht enthält die Versionsnummer des ursprünglichen Updates, das von IoT Central empfangen wurde. Wenn IoT Central diese Nachricht empfängt, kennzeichnet es die Eigenschaft in der Benutzeroberfläche als **synchronisiert**:
 
 ```json
 {
@@ -890,36 +829,30 @@ Das Gerät sollte nach Verarbeitung des Updates die folgende JSON-Nutzlast an Io
 
 ## <a name="commands"></a>Befehle
 
-### <a name="synchronous-command-types"></a>Synchrone Befehlstypen
+> [!NOTE]
+> In der IOT Central-Webbenutzeroberfläche können Sie die Option **Warteschlange (falls offline)** für einen Befehl auswählen. Diese Einstellung ist nicht enthalten, wenn Sie ein Modell oder eine Schnittstelle aus der Gerätevorlage exportieren.
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines synchronen Befehls, der keine Parameter hat und nicht erwartet, dass das Gerät etwas zurückgibt:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition eines Befehls, der weder Parameter aufweist noch eine Rückgabe vom Gerät erwartet:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Command",
-  "commandType": "synchronous",
-  "durable": false,
   "displayName": {
-    "en": "SynchronousCommandBasic"
+    "en": "CommandBasic"
   },
-  "name": "SynchronousCommandBasic"
+  "name": "CommandBasic"
 }
 ```
 
 Das Gerät empfängt in der Anforderung eine leere Nutzlast und sollte in der Antwort eine leere Nutzlast mit dem HTTP-Antwortcode `200` zur Angabe von Erfolg zurückgeben.
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines synchronen Befehls, der einen ganzzahligen Parameter hat und erwartet, dass das Gerät einen ganzzahligen Wert zurückgibt:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition eines Befehls, der einen Parameter vom Typ „integer“ aufweist und die Rückgabe eines ganzzahligen Werts vom Gerät erwartet:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Command",
-  "commandType": "synchronous",
-  "durable": false,
   "request": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "RequestParam"
     },
@@ -927,8 +860,7 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines synchronen 
     "schema": "integer"
   },
   "response": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "ResponseParam"
     },
@@ -936,39 +868,32 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines synchronen 
     "schema": "integer"
   },
   "displayName": {
-    "en": "SynchronousCommandSimple"
+    "en": "CommandSimple"
   },
-  "name": "SynchronousCommandSimple"
+  "name": "CommandSimple"
 }
 ```
 
 Das Gerät empfängt einen ganzzahligen Wert als Anforderungsnutzlast. Das Gerät sollte einen ganzzahligen Wert als Antwortnutzlast mit dem HTTP-Antwortcode `200` zur Angabe von Erfolg zurückgeben.
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines synchronen Befehls, der einen Objektparameter hat und erwartet, dass das Gerät ein Objekt zurückgibt. In diesem Beispiel enthalten beide Objekte ganzzahlige Felder und Zeichenfolgenfelder:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition eines Befehls, der einen Parameter vom Typ „Object“ aufweist und die Rückgabe eines Objekts vom Gerät erwartet. In diesem Beispiel enthalten beide Objekte ganzzahlige Felder und Zeichenfolgenfelder:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Command",
-  "commandType": "synchronous",
-  "durable": false,
   "request": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "RequestParam"
     },
     "name": "RequestParam",
     "schema": {
-      "@id": "<element id>",
       "@type": "Object",
       "displayName": {
         "en": "Object"
       },
       "fields": [
         {
-          "@id": "<element id>",
-          "@type": "SchemaField",
           "displayName": {
             "en": "Field1"
           },
@@ -976,8 +901,6 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines synchronen 
           "schema": "integer"
         },
         {
-          "@id": "<element id>",
-          "@type": "SchemaField",
           "displayName": {
             "en": "Field2"
           },
@@ -988,22 +911,18 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines synchronen 
     }
   },
   "response": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "ResponseParam"
     },
     "name": "ResponseParam",
     "schema": {
-      "@id": "<element id>",
       "@type": "Object",
       "displayName": {
         "en": "Object"
       },
       "fields": [
         {
-          "@id": "<element id>",
-          "@type": "SchemaField",
           "displayName": {
             "en": "Field1"
           },
@@ -1011,8 +930,6 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines synchronen 
           "schema": "integer"
         },
         {
-          "@id": "<element id>",
-          "@type": "SchemaField",
           "displayName": {
             "en": "Field2"
           },
@@ -1023,9 +940,9 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines synchronen 
     }
   },
   "displayName": {
-    "en": "SynchronousCommandComplex"
+    "en": "CommandComplex"
   },
-  "name": "SynchronousCommandComplex"
+  "name": "CommandComplex"
 }
 ```
 
@@ -1041,19 +958,15 @@ Der folgende Codeausschnitt zeigt ein Beispiel für eine Antwortnutzlast, die vo
 { "Field1": 87, "Field2": "Another string value" }
 ```
 
-### <a name="asynchronous-command-types"></a>Asynchrone Befehlstypen
+### <a name="long-running-commands"></a>Zeitintensive Befehle
 
-Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines asynchronen Befehls. Der Befehl hat einen ganzzahligen Parameter und erwartet, dass das Gerät einen ganzzahligen Wert zurückgibt:
+Der folgende Codeausschnitt aus einem Gerätemodell zeigt die Definition eines Befehls. Der Befehl hat einen ganzzahligen Parameter und erwartet, dass das Gerät einen ganzzahligen Wert zurückgibt:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Command",
-  "commandType": "asynchronous",
-  "durable": false,
   "request": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "RequestParam"
     },
@@ -1061,8 +974,7 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines asynchronen
     "schema": "integer"
   },
   "response": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "ResponseParam"
     },
@@ -1070,19 +982,19 @@ Der folgende Codeausschnitt aus einem DCM zeigt die Definition eines asynchronen
     "schema": "integer"
   },
   "displayName": {
-    "en": "AsynchronousCommandSimple"
+    "en": "LongRunningCommandSimple"
   },
-  "name": "AsynchronousCommandSimple"
+  "name": "LongRunningCommandSimple"
 }
 ```
 
-Das Gerät empfängt einen ganzzahligen Wert als Anforderungsnutzlast. Das Gerät sollte eine leere Antwortnutzlast mit dem HTTP-Antwortcode `202` zurückgeben, um anzugeben, dass das Gerät die Anforderung für asynchrone Verarbeitung akzeptiert hat.
+Das Gerät empfängt einen ganzzahligen Wert als Anforderungsnutzlast. Wenn das Gerät Zeit zum Verarbeiten dieses Befehls benötigt, sollte es eine leere Antwortnutzlast mit dem HTTP-Antwortcode `202` zurückgeben, um anzugeben, dass es die Anforderung zur Verarbeitung akzeptiert hat.
 
 Wenn das Gerät die Verarbeitung der Anforderung abgeschlossen hat, sollte es eine Eigenschaft an IoT Central senden, die wie im folgenden Beispiel aussieht. Der Eigenschaftsname muss mit dem Befehlsnamen identisch sein:
 
 ```json
 {
-  "AsynchronousCommandSimple": {
+  "LongRunningCommandSimple": {
     "value": 87
   }
 }

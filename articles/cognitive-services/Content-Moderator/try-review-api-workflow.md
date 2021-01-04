@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 3e58be4b94457d95d28cf6528b9151e4be1802cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79749533d636f4b73ff3bef6b12d9e842ac485ea
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72754181"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905158"
 ---
-# <a name="define-and-use-moderation-workflows-rest"></a>Definieren und Verwenden von Moderationsworkflows (REST)
+# <a name="define-and-use-moderation-workflows-api-console"></a>Definieren und Verwenden von Moderationsworkflows (API-Konsole)
 
 Workflows sind cloudbasierte benutzerdefinierte Filter, mit denen Sie Inhalte effizienter verwalten können. Workflows lassen sich mit einer Vielzahl von Diensten verbinden, sodass Inhalte auf unterschiedliche Weise gefiltert und dann entsprechende Aktionen ausgeführt werden können. In dieser Anleitung wird erläutert, wie Sie mithilfe der REST-APIs für Workflows über die API-Konsole Workflows erstellen und verwenden können. Nachdem Sie sich mit der Struktur der APIs vertraut gemacht haben, können Sie diese Aufrufe bequem zu jeder REST-kompatiblen Plattform portieren.
 
@@ -27,7 +27,7 @@ Workflows sind cloudbasierte benutzerdefinierte Filter, mit denen Sie Inhalte ef
 
 ## <a name="create-a-workflow"></a>Erstellen eines Workflows
 
-Navigieren Sie zum Erstellen oder Aktualisieren eines Workflows zur API-Referenzseite, und wählen Sie unter **[Workflow – Create Or Update](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** (Workflow – erstellen oder aktualisieren) die Schaltfläche für Ihre Schlüsselregion aus (diese finden Sie in der Endpunkt-URL auf der Seite **Anmeldeinformationen**  des [Prüfungstools](https://contentmoderator.cognitive.microsoft.com/)). Dadurch wird die API-Konsole gestartet, über die Sie ganz einfach REST-API-Aufrufe erstellen und ausführen können.
+Um einen Workflow zu erstellen oder zu aktualisieren, wechseln Sie zur API-Referenzseite **[Workflow – Erstellen oder Aktualisieren](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** , und wählen Sie die Schaltfläche für Ihre Schlüsselregion aus. Sie können Ihre Region in der Endpunkt-URL auf der Seite **Anmeldeinformationen** des [Prüfungstools](https://contentmoderator.cognitive.microsoft.com/) finden. Dadurch wird die API-Konsole gestartet, über die Sie ganz einfach REST-API-Aufrufe erstellen und ausführen können.
 
 ![Regionsauswahl auf der Seite „Workflow – Erstellen oder aktualisieren“](images/test-drive-region.png)
 
@@ -37,7 +37,7 @@ Geben Sie Werte für **team**, **workflowname** und **Ocp-Apim-Subscription-Key*
 
 - **team**: Die Team-ID, die Sie beim Einrichten Ihres Kontos für das [Prüfungstool](https://contentmoderator.cognitive.microsoft.com/) erstellt haben (zu finden im Feld **ID** auf der Seite „Anmeldeinformationen“ des Prüfungstools).
 - **workflowname**: Der Name eines neuen hinzuzufügenden Workflows (oder ein vorhandener Name, wenn Sie einen vorhandenen Workflow aktualisieren möchten).
-- **Ocp-Apim-Subscription-Key**: Ihr Content Moderator-Schlüssel. Diesen finden Sie auf der Registerkarte **Einstellungen** des [Prüfungstools](https://contentmoderator.cognitive.microsoft.com).
+- **Ocp-Apim-Subscription-Key**: Ihr Content Moderator-Schlüssel. Diesen Schlüssel finden Sie auf der Registerkarte **Einstellungen** des [Prüfungstools](https://contentmoderator.cognitive.microsoft.com).
 
 ![Abfrageparameter und Header in der Konsole „Workflow – Erstellen oder aktualisieren“](images/workflow-console-parameters.PNG)
 
@@ -80,7 +80,7 @@ Geben Sie Werte für **team**, **workflowname** und **Ocp-Apim-Subscription-Key*
 
 ### <a name="submit-your-request"></a>Senden der Anforderung
   
-Wählen Sie **Senden** aus. Wenn der Vorgang erfolgreich ist, lautet der **Antwortstatus**`200 OK`, und im Feld **Antwortinhalt** wird `true` angezeigt.
+Wählen Sie **Send** (Senden) aus. Wenn der Vorgang erfolgreich ist, lautet der **Antwortstatus**`200 OK`, und im Feld **Antwortinhalt** wird `true` angezeigt.
 
 ### <a name="examine-the-new-workflow"></a>Prüfen des neuen Workflows
 
@@ -102,7 +102,7 @@ Geben Sie die REST-Aufrufparameter wie im obigen Abschnitt ein. Stellen Sie sich
 
 ![Abrufen allgemeiner Parameter und Header](images/workflow-get-default.PNG)
 
-Wählen Sie **Senden** aus. Wenn der Vorgang erfolgreich ist, lautet der **Antwortstatus**`200 OK`, und im Feld **Antwortinhalt** wird der Workflow im JSON-Format wie folgt angezeigt:
+Wählen Sie **Send** (Senden) aus. Wenn der Vorgang erfolgreich ist, lautet der **Antwortstatus**`200 OK`, und im Feld **Antwortinhalt** wird der Workflow im JSON-Format wie im folgenden Beispiel angezeigt:
 
 ```json
 {

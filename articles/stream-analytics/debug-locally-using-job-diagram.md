@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: e9d6bbdf325c0da96b81c1f2146da284ea744def
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: c32ba468979e4566d8e349d481eddca7d407b659
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218254"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130985"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Lokales Debuggen von Azure Stream Analytics-Abfragen mithilfe eines Auftragsdiagramms in Visual Studio
 
@@ -119,7 +119,7 @@ In der Popupkonsole werden weiter Metriken auf Auftragsebene angezeigt. Drücken
 
 * Power BI- und Azure Data Lake Storage Gen1-Ausgabesenken werden aufgrund von Einschränkungen des Authentifizierungsmodells nicht unterstützt.
 
-* Nur Cloudeingabeoptionen unterstützen [Zeitrichtlinien](stream-analytics-out-of-order-and-late-events.md), lokale Eingabeoptionen nicht.
+* Nur Cloudeingabeoptionen unterstützen [Zeitrichtlinien](./stream-analytics-time-handling.md), lokale Eingabeoptionen nicht.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

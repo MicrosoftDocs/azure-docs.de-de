@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 2bdfdd31e2cc9bc964abc040d0631c4760fca283
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86bff161e29384b10030ed3d524301f6dea6037e
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984883"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634163"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Verwenden von verwalteten Azure SQL-Instanzen mit SQL Server Integration Services (SSIS) in Azure Data Factory
 
@@ -41,7 +41,7 @@ Sie können Ihre SQL Server Integration Services-Projekte, -Pakete und -Workload
     - Über einen privaten Endpunkt (bevorzugt)
 
         1. Wählen Sie das virtuelle Netzwerk aus, das mit der Azure-SSIS IR verknüpft werden soll:
-            - Im selben virtuellen Netzwerk wie die verwaltete Instanz mit **unterschiedlichen Subnetzen**.
+            - Im selben virtuellen Netzwerk wie die verwaltete Instanz mit **unterschiedlichen Subnetzen** .
             - In einem anderen virtuellen Netzwerk als die verwaltete Instanz über Peering virtueller Netzwerke (das aufgrund von Einschränkungen für globales VNET-Peering auf dieselbe Region beschränkt ist) oder eine Verbindung zwischen den virtuellen Netzwerken.
 
             Weitere Informationen zu SQL Managed Instance-Verbindungen finden Sie unter [Herstellen einer Verbindung zwischen einer Anwendung und Azure SQL Managed Instance](https://review.docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app).
@@ -50,7 +50,7 @@ Sie können Ihre SQL Server Integration Services-Projekte, -Pakete und -Workload
 
     - Über einen öffentlichen Endpunkt
 
-        Verwaltete Azure SQL-Instanzen können Konnektivität über [öffentliche Endpunkte](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) bereitstellen. Eingangs- und Ausgangsanforderungen, die erfüllt werden müssen, um Datenverkehr zwischen SQL Managed Instance und der Azure-SSIS IR zuzulassen:
+        Verwaltete Azure SQL-Instanzen können Konnektivität über [öffentliche Endpunkte](../azure-sql/managed-instance/public-endpoint-configure.md) bereitstellen. Eingangs- und Ausgangsanforderungen, die erfüllt werden müssen, um Datenverkehr zwischen SQL Managed Instance und der Azure-SSIS IR zuzulassen:
 
         - Wenn sich die Azure-SSIS IR nicht in einem virtuellen Netzwerk befindet (bevorzugt)
 
@@ -60,7 +60,7 @@ Sie können Ihre SQL Server Integration Services-Projekte, -Pakete und -Workload
             |---|---|---|---|---|
             |TCP|Azure-Clouddiensttag|*|VirtualNetwork|3342|
 
-            Weitere Informationen finden Sie unter [Zulassen von Datenverkehr auf dem öffentlichen Endpunkt in der Netzwerksicherheitsgruppe](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure#allow-public-endpoint-traffic-on-the-network-security-group).
+            Weitere Informationen finden Sie unter [Zulassen von Datenverkehr auf dem öffentlichen Endpunkt in der Netzwerksicherheitsgruppe](../azure-sql/managed-instance/public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group).
 
         - Wenn sich die Azure-SSIS IR in einem virtuellen Netzwerk befindet
 
@@ -76,16 +76,16 @@ Sie können Ihre SQL Server Integration Services-Projekte, -Pakete und -Workload
 
                 | Transportprotokoll | `Source` | Quellportbereich | Destination |Destination port range |
                 |---|---|---|---|---|
-                |TCP|VirtualNetwork|*|[IP-Adresse des öffentlichen Endpunkts von SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-find-management-endpoint-ip-address)|3342|
+                |TCP|VirtualNetwork|*|[IP-Adresse des öffentlichen Endpunkts von SQL Managed Instance](../azure-sql/managed-instance/management-endpoint-find-ip-address.md)|3342|
 
 ### <a name="configure-virtual-network"></a>Konfigurieren eines virtuellen Netzwerks
 
-1. **Benutzerberechtigung**. Der Benutzer, der die Azure-SSIS IR erstellt, muss über die [Rollenzuweisung](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-portal#list-role-assignments-for-a-user-at-a-scope) mindestens für die Azure Data Factory-Ressource verfügen, und zwar mit einer der folgenden Optionen:
+1. **Benutzerberechtigung** . Der Benutzer, der die Azure-SSIS IR erstellt, muss über die [Rollenzuweisung](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope) mindestens für die Azure Data Factory-Ressource verfügen, und zwar mit einer der folgenden Optionen:
 
     - Verwenden Sie die integrierte Rolle „Netzwerkmitwirkender“. Diese Rolle umfasst die Berechtigung _Microsoft.Network/\*_ , die jedoch einen deutlich größeren Umfang als erforderlich hat.
     - Erstellen Sie eine benutzerdefinierte Rolle, die nur die erforderliche Berechtigung _Microsoft.Network/virtualNetworks/\*/join/action_ aufweist. Wenn Sie beim Verknüpfen der Azure-SSIS IR mit einem virtuellen Azure Resource Manager-Netzwerk Ihre eigenen öffentlichen IP-Adressen verwenden möchten, beziehen Sie auch die Berechtigung _Microsoft.Network/publicIPAddresses/*/join/action_ mit in die Rolle ein.
 
-1. **Virtuelles Netzwerk**.
+1. **Virtuelles Netzwerk** .
 
     1. Stellen Sie sicher, dass bestimmte Azure-Netzwerkressourcen durch die Ressourcengruppe des virtuellen Netzwerks erstellt und gelöscht werden können.
 
@@ -96,7 +96,7 @@ Sie können Ihre SQL Server Integration Services-Projekte, -Pakete und -Workload
 
         Diese Ressourcen werden beim Start Ihrer Azure-SSIS IR erstellt. Sie werden gelöscht, wenn die Azure-SSIS IR beendet wird. Damit Ihre Azure-SSIS IR ordnungsgemäß beendet werden kann, sollten Sie diese Netzwerkressourcen nicht in anderen Ressourcen wiederverwenden.
 
-    1. Stellen Sie sicher, dass für die Ressourcengruppe/das Abonnement, zu der bzw. dem das virtuelle Netzwerk gehört, keine [Ressourcensperre](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) besteht. Wenn Sie eine Schreibschutzsperre oder eine Löschsperre konfigurieren, kann beim Starten und Beenden Ihrer Azure-SSIS IR ein Fehler auftreten oder die IR nicht mehr reagieren.
+    1. Stellen Sie sicher, dass für die Ressourcengruppe/das Abonnement, zu der bzw. dem das virtuelle Netzwerk gehört, keine [Ressourcensperre](../azure-resource-manager/management/lock-resources.md) besteht. Wenn Sie eine Schreibschutzsperre oder eine Löschsperre konfigurieren, kann beim Starten und Beenden Ihrer Azure-SSIS IR ein Fehler auftreten oder die IR nicht mehr reagieren.
 
     1. Stellen Sie sicher, dass Sie keine Azure-Richtlinie haben, die verhindert, dass die folgenden Ressourcen unter der Ressourcengruppe/dem Abonnement erstellt werden, zu der bzw. dem das virtuelle Netzwerk gehört:
         - Microsoft.Network/LoadBalancers
@@ -115,7 +115,7 @@ Sie können Ihre SQL Server Integration Services-Projekte, -Pakete und -Workload
         |---|---|---|---|---|---|
         | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000–11999 |Lassen Sie ausgehenden Datenverkehr an SQL Managed Instance zu. Wenn die Verbindungsrichtlinie auf **Proxy** anstelle von **Redirect** festgelegt ist, wird nur Port 1433 benötigt. |
         | TCP | VirtualNetwork | * | AzureCloud | 443 | Die Knoten Ihrer Azure-SSIS IR im virtuellen Netzwerk verwenden diesen Port für den Zugriff auf Azure-Dienste wie Azure Storage und Azure Event Hubs. |
-        | TCP | VirtualNetwork | * | Internet | 80 | (Optional) Die Knoten Ihrer Azure-SSIS IR im virtuellen Netzwerk verwenden diesen Port zum Herunterladen einer Zertifikatssperrliste aus dem Internet. Wenn Sie diesen Datenverkehr blockieren, kann es beim Starten der IR zu einer Leistungsherabstufung kommen und die Möglichkeit zum Überprüfen der Zertifikatssperrliste im Hinblick auf die Zertifikatverwendung verloren gehen. Wenn Sie das Ziel weiter auf bestimmte FQDNs eingrenzen möchten, finden Sie entsprechende Informationen im Abschnitt [Verwenden von Azure ExpressRoute oder UDR](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#route).|
+        | TCP | VirtualNetwork | * | Internet | 80 | (Optional) Die Knoten Ihrer Azure-SSIS IR im virtuellen Netzwerk verwenden diesen Port zum Herunterladen einer Zertifikatssperrliste aus dem Internet. Wenn Sie diesen Datenverkehr blockieren, kann es beim Starten der IR zu einer Leistungsherabstufung kommen und die Möglichkeit zum Überprüfen der Zertifikatssperrliste im Hinblick auf die Zertifikatverwendung verloren gehen. Wenn Sie das Ziel weiter auf bestimmte FQDNs eingrenzen möchten, finden Sie entsprechende Informationen im Abschnitt [Verwenden von Azure ExpressRoute oder UDR](./join-azure-ssis-integration-runtime-virtual-network.md#route).|
         | TCP | VirtualNetwork | * | Storage | 445 | (Optional) Diese Regel ist nur erforderlich, wenn Sie das in Azure Files gespeicherte SSIS-Paket ausführen möchten. |
         |||||||
 
@@ -163,7 +163,7 @@ Weitere Informationen zum Erstellen einer Azure-SSIS IR finden Sie im Artikel [E
 
 ## <a name="clean-up-ssisdb-logs"></a>Bereinigen der SSISDB-Protokolle
 
-Die Beibehaltungsrichtlinie für SSISDB-Protokolle wird durch die nachstehenden Eigenschaften in [catalog.catalog_properties](https://docs.microsoft.com/sql/integration-services/system-views/catalog-catalog-properties-ssisdb-database?view=sql-server-ver15) definiert:
+Die Beibehaltungsrichtlinie für SSISDB-Protokolle wird durch die nachstehenden Eigenschaften in [catalog.catalog_properties](/sql/integration-services/system-views/catalog-catalog-properties-ssisdb-database?view=sql-server-ver15) definiert:
 
 - OPERATION_CLEANUP_ENABLED
 

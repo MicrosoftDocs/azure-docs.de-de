@@ -6,12 +6,12 @@ author: su-jie
 ms.author: sujie
 ms.date: 11/14/2019
 ms.topic: how-to
-ms.openlocfilehash: 944c1a8cc4606c5e614f17cd0590331826527a7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd4966ee75e9dc0ff401823e4291f8d299c8893c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892182"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122893"
 ---
 # <a name="test-stream-analytics-queries-locally-against-live-stream-input-by-using-visual-studio-code"></a>Lokales Testen von Stream Analytics-Abfragen unter Verwendung einer Livestreameingabe mithilfe von Visual Studio Code
 
@@ -29,7 +29,7 @@ Mit Azure Stream Analytics-Tools für Visual Studio Code können Sie Ihre Stream
 
    ![Hinzufügen einer Eingabe aus dem Ordner „Inputs“](./media/quick-create-visual-studio-code/add-input-from-inputs-folder.png)
 
-   Drücken Sie alternativ **STRG+UMSCHALT+P**, um die Befehlspalette zu öffnen, und geben Sie **ASA: Eingabe hinzufügen** ein.
+   Drücken Sie alternativ **STRG+UMSCHALT+P** , um die Befehlspalette zu öffnen, und geben Sie **ASA: Eingabe hinzufügen** ein.
 
    ![Hinzufügen einer Stream Analytics-Eingabe in Visual Studio Code](./media/quick-create-visual-studio-code/add-input.png)
 
@@ -73,4 +73,4 @@ Die Standardzeit für den Beginn der Ausgabeerstellung des Auftrags ist auf **Je
 
 * [Erkunden von Azure Stream Analytics mit Visual Studio Code (Vorschauversion)](visual-studio-code-explore-jobs.md)
 
-* [Verwenden des CI/CD-npm-Pakets von Stream Analytics](setup-cicd-vs-code.md)
+* [Verwenden des CI/CD-npm-Pakets von Stream Analytics](./cicd-overview.md)

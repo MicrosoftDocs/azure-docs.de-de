@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
-ms.openlocfilehash: 999966192d92481a9d3eec68cfe804566a27f71e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c446a7f05dce2ea6979e9810e729bdac479ae153
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513467"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910490"
 ---
 # <a name="how-to-add-a-recipient-to-an-existing-data-share-in-azure-data-share"></a>Hinzufügen eines Empfängers zu einer vorhandenen Datenfreigabe in Azure Data Share
 
@@ -23,11 +23,11 @@ Informationen zum Hinzufügen von Empfängern beim Erstellen einer Freigabe find
 
 Navigieren Sie in Azure Data Share zur gesendeten Freigabe, und wählen Sie die Registerkarte **Einladungen** aus. Hier werden alle Empfänger von Einladungen zu dieser Datenfreigabe aufgeführt. Um einen neuen Empfänger hinzuzufügen, klicken Sie auf **Empfänger hinzufügen**.
 
-![Hinzufügen eines Empfängers](./media/how-to/how-to-add-recipients/add-recipient.png)
+![Screenshot mit ausgewählter Option „Empfänger hinzufügen“.](./media/how-to/how-to-add-recipients/add-recipient.png)
 
-Im rechten Bereich der Seite wird ein Panel geöffnet. Klicken Sie auf **Empfänger hinzufügen**, und geben Sie in der leeren Zeile die E-Mail-Adresse Ihres neuen Empfängers ein. Fügen Sie die gewünschte Anzahl neuer Empfänger hinzu.
+Im rechten Bereich der Seite wird ein Panel geöffnet. Klicken Sie auf **Empfänger hinzufügen** , und geben Sie in der leeren Zeile die E-Mail-Adresse Ihres neuen Empfängers ein. Fügen Sie die gewünschte Anzahl neuer Empfänger hinzu.
 
-![Hinzufügen eines Empfängers](./media/how-to/how-to-add-recipients/add-recipient-side.png)
+![Screenshot des Bereichs „Empfänger hinzufügen“, in dem Sie eine Einladung hinzufügen und senden können.](./media/how-to/how-to-add-recipients/add-recipient-side.png)
 
 Klicken Sie auf **Bestätigen und Einladung senden**. Die neuen Empfänger erhalten Einladungs-E-Mails für diese Datenfreigabe.
 

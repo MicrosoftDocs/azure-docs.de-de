@@ -10,12 +10,12 @@ metadata:
   author: tfitzmac
   ms.author: tomfitz
   ms.date: 01/02/2020
-  ms.openlocfilehash: 34c22ad96b8d70023270d293541f0ea6b5411509
-  ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+  ms.openlocfilehash: ba787d1ec1cd3283ab76d631c6ca79281b9cf599
+  ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/12/2020
-  ms.locfileid: "91951824"
+  ms.lasthandoff: 12/01/2020
+  ms.locfileid: "96433907"
 landingContent:
 - title: Informationen zu Managed Applications
   linkLists:
@@ -44,7 +44,7 @@ landingContent:
     - text: Erstellen von Definitionsdateien
       url: publish-service-catalog-app.md
     - text: Veröffentlichen der Marketplace-Anwendung
-      url: ../../marketplace/partner-center-portal/create-new-azure-apps-offer.md
+      url: ../../marketplace/create-new-azure-apps-offer.md
     - text: Erstellen einer verwalteten Anwendung mit einem benutzerdefinierten Anbieter
       url: tutorial-create-managed-app-with-custom-provider.md
   - linkListType: how-to-guide

@@ -13,12 +13,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 6971e62b20dc1155b875f69eb1d4da9d7b6e6887
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f4e1def81fc79ec159ce6be825793a9bd8d0ce7
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627005"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286958"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory-App-Manifest
 
@@ -33,7 +33,7 @@ Sie können die Attribute einer App über das Azure-Portal oder programmgesteuer
 
 Konfigurieren Sie das Anwendungsmanifest wie folgt:
 
-1. Öffnen Sie das [Azure-Portal](https://portal.azure.com). Suchen Sie nach dem **Azure Active Directory**-Dienst, und wählen Sie ihn aus.
+1. Öffnen Sie das [Azure-Portal](https://portal.azure.com). Suchen Sie nach dem **Azure Active Directory** -Dienst, und wählen Sie ihn aus.
 1. Wählen Sie **App-Registrierungen** aus.
 1. Wählen Sie die App aus, die Sie konfigurieren möchten.
 1. Wählen Sie auf der Seite **Übersicht** der App den Abschnitt **Manifest**. Ein webbasierter Manifest-Editor wird geöffnet, mit dem Sie das Manifest im Portal bearbeiten können. Optional können Sie **Herunterladen** wählen, um das Manifest lokal zu bearbeiten, und dann **Hochladen** verwenden, um es wieder auf Ihre Anwendung anzuwenden.
@@ -194,6 +194,7 @@ Konfiguriert den in einem Benutzer- oder OAuth 2.0-Zugriffstoken ausgegebenen An
 
 - `"None"`
 - `"SecurityGroup"` (für Sicherheitsgruppen und Azure AD-Rollen)
+- `"ApplicationGroup"` (diese Option umfasst nur Gruppen, die der Anwendung zugewiesen sind)
 - `"All"` (damit werden alle Sicherheitsgruppen, Verteilergruppen und Azure AD-Verzeichnisrollen abgerufen, in denen der angemeldete Benutzer ein Mitglied ist)
 
 Beispiel:
@@ -663,11 +664,11 @@ Die Beschreibung dieser Attribute finden Sie im Abschnitt [Manifestreferenz](#ma
 
 Wenn Sie versuchen, ein zuvor heruntergeladenes Manifest hochzuladen, wird möglicherweise eine der folgenden Fehlermeldungen angezeigt. Die Ursache dieses Fehlers ist wahrscheinlich, dass der Manifest-Editor dann eine neuere Version des Schemas unterstützt, die nicht mit der übereinstimmt, die Sie hochladen möchten.
 
-* „Fehler beim Aktualisieren der Anwendung xxxxxx“. Fehlerdetail: Ungültiger Objektbezeichner ‚nicht definiert‘. [].“
-* „Fehler beim Aktualisieren der Anwendung xxxxxx.“ Fehlerdetail: Mindestens ein Eigenschaftswert ist ungültig. [].“
-* „Fehler beim Aktualisieren der Anwendung xxxxxx.“ Fehlerdetail: „availableToOtherTenants“ darf in dieser API-Version nicht zur Aktualisierung festgelegt werden. [].“
-* „Fehler beim Aktualisieren der Anwendung xxxxxx.“ Fehlerdetail: Aktualisierungen der replyUrls-Eigenschaft sind für diese Anwendung nicht zulässig. Verwenden Sie stattdessen die Eigenschaft ‚replyUrlsWithType‘. [].“
-* „Fehler beim Aktualisieren der Anwendung xxxxxx.“ Fehlerdetail: Es wurde ein Wert ohne einen Typnamen gefunden, und es ist kein erwarteter Typ verfügbar. Wenn das Modell angegeben wird, muss jeder Wert in der Nutzlast einen Typ haben. Dieser kann entweder in der Nutzlast oder explizit durch den Aufrufer angegeben oder implizit aus dem übergeordneten Wert abgeleitet werden. []“
+* „Fehler beim Aktualisieren der Anwendung xxxxxx“. Fehlerdetail: Ungültiger Objektbezeichner ‚nicht definiert‘. []."
+* „Fehler beim Aktualisieren der Anwendung xxxxxx.“ Fehlerdetail: Mindestens ein Eigenschaftswert ist ungültig. []."
+* „Fehler beim Aktualisieren der Anwendung xxxxxx.“ Fehlerdetail: „availableToOtherTenants“ darf in dieser API-Version nicht zur Aktualisierung festgelegt werden. []."
+* „Fehler beim Aktualisieren der Anwendung xxxxxx.“ Fehlerdetail: Aktualisierungen der replyUrls-Eigenschaft sind für diese Anwendung nicht zulässig. Verwenden Sie stattdessen die Eigenschaft ‚replyUrlsWithType‘. []."
+* „Fehler beim Aktualisieren der Anwendung xxxxxx.“ Fehlerdetail: Es wurde ein Wert ohne einen Typnamen gefunden, und es ist kein erwarteter Typ verfügbar. Wenn das Modell angegeben wird, muss jeder Wert in der Nutzlast einen Typ haben. Dieser kann entweder in der Nutzlast oder explizit durch den Aufrufer angegeben oder implizit aus dem übergeordneten Wert abgeleitet werden. []"
 
 Wenn eine dieser Fehlermeldungen angezeigt wird, werden folgende Aktionen empfohlen:
 

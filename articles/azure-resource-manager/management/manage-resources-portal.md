@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 266ad613a4966b26fc4a6ddffbb7b4196aa937b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2274a551542b06996941b49e7d047baf3e8b3ca
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372101"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92894031"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Verwalten von Azure-Ressourcen über das Azure-Portal
 
@@ -40,11 +40,11 @@ So öffnen Sie eine Ressource nach Diensttyp:
 
 3. Wählen Sie die Ressource aus, die Sie öffnen möchten.
 
-    ![Azure Ressource im Portal öffnen](./media/manage-resources-portal/manage-azure-resources-portal-open-resource.png)
+    ![Screenshot: Ausgewählte Ressource](./media/manage-resources-portal/manage-azure-resources-portal-open-resource.png)
 
     Ein Speicherkonto sieht folgendermaßen aus:
 
-    ![Azure Ressource im Portal öffnen](./media/manage-resources-portal/manage-azure-resources-portal-open-resource-storage.png)
+    ![Screenshot: Speicherkonto](./media/manage-resources-portal/manage-azure-resources-portal-open-resource-storage.png)
 
 So öffnen Sie eine Ressource nach Ressourcengruppe:
 

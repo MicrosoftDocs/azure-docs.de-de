@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: e22511717b6a86f9e0cf53986152c4d6bab68780
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 2a4d3f3f9465b8813cdf6ee26760d819d73a08c1
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101765"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353103"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: Konfigurieren von Salesforce für die automatische Benutzerbereitstellung
 
@@ -31,13 +31,13 @@ Das in diesem Tutorial verwendete Szenario setzt voraus, dass Sie bereits über 
 > [!IMPORTANT]
 > Bei Verwendung eines Salesforce.com-Testkontos können Sie die automatisierte Benutzerbereitstellung nicht konfigurieren. Bei Testkonten ist der erforderliche API-Zugriff erst nach dem Erwerb aktiviert. Sie können diese Einschränkung umgehen, indem Sie für dieses Tutorial ein [kostenloses Entwicklerkonto](https://developer.salesforce.com/signup) verwenden.
 
-Wenn Sie eine Salesforce Sandbox-Umgebung verwenden, rufen Sie das [Tutorial: Azure Active Directory-Integration in Salesforce Sandbox](https://go.microsoft.com/fwLink/?LinkID=521879)auf.
+Wenn Sie eine Salesforce Sandbox-Umgebung verwenden, rufen Sie das [Tutorial: Azure Active Directory-Integration in Salesforce Sandbox](./salesforce-sandbox-tutorial.md)auf.
 
 ## <a name="assigning-users-to-salesforce"></a>Zuweisen von Benutzern zu Salesforce
 
 Azure Active Directory ermittelt anhand von Zuweisungen, welche Benutzer Zugriff auf bestimmte Apps erhalten sollen. Im Kontext der automatischen Bereitstellung von Benutzerkonten werden nur die Benutzer und Gruppen synchronisiert, die einer Anwendung in Azure AD zugewiesen wurden.
 
-Vor dem Konfigurieren und Aktivieren des Bereitstellungsdiensts müssen Sie entscheiden, welche Benutzer oder Gruppen in Azure AD Zugriff auf Ihre Salesforce-App benötigen. Nach dieser Entscheidung können Sie die entsprechenden Benutzer und Gruppen gemäß der Anleitung unter [Zuweisen eines Benutzers oder einer Gruppe zu einer Unternehmens-App in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) Ihrer Salesforce-App zuweisen.
+Vor dem Konfigurieren und Aktivieren des Bereitstellungsdiensts müssen Sie entscheiden, welche Benutzer oder Gruppen in Azure AD Zugriff auf Ihre Salesforce-App benötigen. Nach dieser Entscheidung können Sie die entsprechenden Benutzer und Gruppen gemäß der Anleitung unter [Zuweisen eines Benutzers oder einer Gruppe zu einer Unternehmens-App in Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md) Ihrer Salesforce-App zuweisen.
 
 ### <a name="important-tips-for-assigning-users-to-salesforce"></a>Wichtige Tipps zum Zuweisen von Benutzern zu Salesforce
 
@@ -59,9 +59,9 @@ Dieser Abschnitt führt Sie durch das Herstellen einer Verbindung von Azure AD m
 
 In diesem Abschnitt wird erläutert, wie Sie die Bereitstellung von Active Directory-Benutzerkonten für Salesforce aktivieren.
 
-1. Wechseln Sie im [Azure-Portal](https://portal.azure.com) zum Abschnitt **Azure Active Directory > Unternehmens-Apps > Alle Anwendungen** .
+1. Wechseln Sie im [Azure-Portal](https://portal.azure.com) zum Abschnitt **Azure Active Directory > Unternehmens-Apps > Alle Anwendungen**.
 
-2. Wenn Sie Salesforce bereits für einmaliges Anmelden konfiguriert haben, suchen Sie über das Suchfeld nach Ihrer Salesforce-Instanz. Wählen Sie andernfalls **Hinzufügen** aus, und suchen Sie im Anwendungskatalog nach **Salesforce** . Wählen Sie „Salesforce“ in den Suchergebnissen aus, und fügen Sie die Anwendung Ihrer Anwendungsliste hinzu.
+2. Wenn Sie Salesforce bereits für einmaliges Anmelden konfiguriert haben, suchen Sie über das Suchfeld nach Ihrer Salesforce-Instanz. Wählen Sie andernfalls **Hinzufügen** aus, und suchen Sie im Anwendungskatalog nach **Salesforce**. Wählen Sie „Salesforce“ in den Suchergebnissen aus, und fügen Sie die Anwendung Ihrer Anwendungsliste hinzu.
 
 3. Wählen Sie Ihre Salesforce-Instanz aus, und wählen Sie dann die Registerkarte **Bereitstellung** aus.
 
@@ -75,15 +75,15 @@ In diesem Abschnitt wird erläutert, wie Sie die Bereitstellung von Active Direc
 
     b. Geben Sie im Textfeld **Administratorkennwort** das Kennwort für dieses Konto ein.
 
-6. Um Ihr Salesforce-Sicherheitstoken abzurufen, öffnen Sie eine neue Registerkarte, und melden Sie sich mit dem gleichen Salesforce-Administratorkonto an. Klicken Sie in der rechten oberen Ecke der Seite auf Ihren Namen und dann auf **Meine Einstellungen** .
+6. Um Ihr Salesforce-Sicherheitstoken abzurufen, öffnen Sie eine neue Registerkarte, und melden Sie sich mit dem gleichen Salesforce-Administratorkonto an. Klicken Sie in der rechten oberen Ecke der Seite auf Ihren Namen und dann auf **Meine Einstellungen**.
 
     ![Screenshot: Ausgewählter Link „Einstellungen“](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Automatische Benutzerbereitstellung aktivieren")
 
-7. Klicken Sie im linken Navigationsbereich auf **Meine persönlichen Informationen** , um den entsprechenden Abschnitt zu erweitern, und dann auf **Mein Sicherheitstoken zurücksetzen** .
+7. Klicken Sie im linken Navigationsbereich auf **Meine persönlichen Informationen** , um den entsprechenden Abschnitt zu erweitern, und dann auf **Mein Sicherheitstoken zurücksetzen**.
   
     ![Screenshot: Ausgewählte Option „Reset My Security Token“ (Mein Sicherheitstoken zurücksetzen) unter „My Personal Information“ (Meine persönlichen Informationen)](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Automatische Benutzerbereitstellung aktivieren")
 
-8. Klicken Sie auf der Seite **Sicherheitstoken zurücksetzen** auf die Schaltfläche **Sicherheitstoken zurücksetzen** .
+8. Klicken Sie auf der Seite **Sicherheitstoken zurücksetzen** auf die Schaltfläche **Sicherheitstoken zurücksetzen**.
 
     ![Screenshot: Seite „Reset Security Token“ (Sicherheitstoken zurücksetzen) mit erklärendem Text und der Option „Reset Security Token“ (Sicherheitstoken zurücksetzen)](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Automatische Benutzerbereitstellung aktivieren")
 
@@ -97,15 +97,15 @@ In diesem Abschnitt wird erläutert, wie Sie die Bereitstellung von Active Direc
 
 13. Geben Sie im Feld **Benachrichtigungs-E-Mail** die E-Mail-Adresse einer Person oder einer Gruppe ein, die Benachrichtigungen zu Bereitstellungsfehlern erhalten soll, und aktivieren Sie das unten gezeigte Kontrollkästchen.
 
-14. Klicken Sie auf **Speichern** .  
+14. Klicken Sie auf **Speichern**.  
 
 15. Wählen Sie im Abschnitt „Zuordnungen“ die Option **Azure Active Directory-Benutzer mit Salesforce synchronisieren** aus.
 
 16. Überprüfen Sie im Abschnitt **Attributzuordnungen** die Benutzerattribute, die von Azure AD mit Salesforce synchronisiert werden. Beachten Sie, dass die als **übereinstimmende** Eigenschaften ausgewählten Attribute für den Abgleich der Benutzerkonten in Salesforce für Updatevorgänge verwendet werden. Wählen Sie die Schaltfläche „Speichern“, um alle Änderungen zu übernehmen.
 
-17. Um den Azure AD-Bereitstellungsdienst für Salesforce zu aktivieren, ändern Sie den **Bereitstellungsstatus** im Abschnitt „Einstellungen“ in **Ein** .
+17. Um den Azure AD-Bereitstellungsdienst für Salesforce zu aktivieren, ändern Sie den **Bereitstellungsstatus** im Abschnitt „Einstellungen“ in **Ein**.
 
-18. Klicken Sie auf **Speichern** .
+18. Klicken Sie auf **Speichern**.
 
 > [!NOTE]
 > Nachdem die Benutzer in der Salesforce-Anwendung bereitgestellt wurden, muss der Administrator die sprachspezifischen Einstellungen für diese Benutzer konfigurieren. Weitere Informationen zur Sprachkonfiguration finden Sie in [diesem Artikel](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5).
@@ -122,7 +122,7 @@ Weitere Informationen zum Lesen von Azure AD-Bereitstellungsprotokollen finden S
 * Der Azure AD-Bereitstellungsdienst unterstützt die Sprache, das Gebietsschema und die Zeitzone der Bereitstellung für einen Benutzer. Diese Attribute befinden sich in den Standardattributzuordnungen, verfügen jedoch über kein Standardquellattribut. Stellen Sie sicher, dass Sie das Standardquellattribut auswählen und dass das Quellattribut das Format hat, das von Salesforce erwartet wird. Beispielsweise hat „localeSidKey“ für „english(UnitedStates)“ den Wert „en_US“. Überprüfen Sie die [hier](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5) bereitgestellte Anleitung, um das richtige localeSidKey-Format zu ermitteln. Die languageLocaleKey-Formate finden Sie [hier](https://help.salesforce.com/articleView?id=faq_getstart_what_languages_does.htm&type=5). Zusätzlich zum richtigen Format müssen Sie möglicherweise auch sicherstellen, dass die Sprache für die Benutzer aktiviert ist, wie [hier](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5) beschrieben. 
 * **SalesforceLicenseLimitExceeded:** Der Benutzer konnte in der Zielanwendung nicht erstellt werden, da für diesen Benutzer keine Lizenzen verfügbar sind. Erwerben Sie entweder zusätzliche Lizenzen für die Zielanwendung, oder überprüfen Sie die Konfiguration der Benutzerzuweisungen und Attributzuordnungen, um sicherzustellen, dass die richtigen Attribute den richtigen Benutzern zugewiesen sind.
 * **SalesforceDuplicateUserName:** Der Benutzer kann nicht bereitgestellt werden, da sein Salesforce.com-Benutzername bereits in einem anderen Salesforce.com-Mandanten vorhanden ist.  In Salesforce.com müssen Werte für das Username-Attribut für alle Salesforce.com-Mandanten eindeutig sein.  Standardmäßig wird der „userPrincipalName“ eines Benutzers in Azure Active Directory sein „Username“ in Salesforce.com.   Sie haben zwei Möglichkeiten.  Eine Möglichkeit besteht darin, den Benutzer mit dem doppelten „Username“ im anderen Salesforce.com-Mandanten zu suchen und umzubenennen, wenn Sie diesen anderen Mandanten ebenfalls verwalten.  Die andere Möglichkeit ist das Entfernen des Zugriffs des Azure Active Directory-Benutzers auf den Salesforce.com-Mandanten, in dem Ihr Verzeichnis integriert ist. Dieser Vorgang wird beim nächsten Synchronisierungsversuch wiederholt. 
-* **SalesforceRequiredFieldMissing:** Für Salesforce müssen bestimmte Attribute des Benutzers vorhanden sein, damit der Benutzer erfolgreich erstellt oder aktualisiert werden kann. Für diesen Benutzer fehlt eines der erforderlichen Attribute. Stellen Sie sicher, dass Attribute wie „email“ und „alias“ für alle Benutzer aufgefüllt werden, die Sie in Salesforce bereitstellen möchten. Sie können Benutzer, für die diese Attribute nicht vorhanden sind, mithilfe [attributbasierter Bereichsfilter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts) ausschließen. 
+* **SalesforceRequiredFieldMissing:** Für Salesforce müssen bestimmte Attribute des Benutzers vorhanden sein, damit der Benutzer erfolgreich erstellt oder aktualisiert werden kann. Für diesen Benutzer fehlt eines der erforderlichen Attribute. Stellen Sie sicher, dass Attribute wie „email“ und „alias“ für alle Benutzer aufgefüllt werden, die Sie in Salesforce bereitstellen möchten. Sie können Benutzer, für die diese Attribute nicht vorhanden sind, mithilfe [attributbasierter Bereichsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) ausschließen. 
 * Die Standardattributzuordnung für die Bereitstellung in Salesforce enthält den Ausdruck „SingleAppRoleAssignments“, um „appRoleAssignments“in Azure AD zu „ProfileName“ in Salesforce zuzuordnen. Stellen Sie sicher, dass die Benutzer nicht über mehrere Anwendungsrollenzuweisungen in Azure AD verfügen, da die Attributzuordnung nur die Bereitstellung einer Rolle unterstützt. 
 * Salesforce erfordert, dass E-Mail-Updates manuell genehmigt werden, bevor sie geändert werden. Folglich werden möglicherweise mehrere Einträge in den Bereitstellungsprotokollen angezeigt, um die E-Mail des Benutzers zu aktualisieren (bis die E-Mail-Änderung genehmigt wurde).
 
@@ -131,4 +131,4 @@ Weitere Informationen zum Lesen von Azure AD-Bereitstellungsprotokollen finden S
 
 * [Verwalten der Benutzerkontobereitstellung für Unternehmens-Apps](tutorial-list.md)
 * [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Konfigurieren des einmaligen Anmeldens](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-tutorial)
+* [Konfigurieren des einmaligen Anmeldens](./salesforce-tutorial.md)

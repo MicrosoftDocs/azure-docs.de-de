@@ -2,17 +2,17 @@
 title: Behandeln vorübergehender Konnektivitätsfehler (Azure Database for MariaDB)
 description: Erfahren Sie, wie Sie vorübergehende Konnektivitätsfehler für Azure Database for MariaDB behandeln.
 keywords: MySQL-Verbindung, Verbindungszeichenfolge, Verbindungsprobleme, vorübergehender Fehler, Verbindungsfehler
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 3e6c5c8b6c3f118f1b19c5e2b3455f1f66f7e70e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a651d87411654f1a52c4a097f115ba848ce569c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82100803"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541673"
 ---
 # <a name="handling-of-transient-connectivity-errors-for-azure-database-for-mariadb"></a>Behandeln vorübergehender Konnektivitätsfehler für Azure Database for MariaDB
 

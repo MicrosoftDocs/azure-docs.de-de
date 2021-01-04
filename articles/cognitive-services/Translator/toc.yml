@@ -23,7 +23,7 @@
     - name: Anleitungen
       items:
         - name: Registrieren für Translator
-          href: translator-text-how-to-signup.md
+          href: ./translator-how-to-signup.md
         - name: Migrieren zu Version 3 der Text-API
           href: migrate-to-v3.md
         - name: Hinzufügen der Filterung für anstößige Ausdrücke

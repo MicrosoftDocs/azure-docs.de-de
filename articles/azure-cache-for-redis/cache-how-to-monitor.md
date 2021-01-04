@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
-ms.openlocfilehash: 7d703c63ebdc5b70987ead3ed2ccbe5f4843a06f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d19d8f1b6a44f32e92f82e861471ca9b5c8fa41
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88004858"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327337"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Überwachen von Azure Cache for Redis
 
@@ -23,7 +23,7 @@ Metriken für Azure Cache for Redis-Instanzen werden über den Redis-Befehl [INF
 
 Zum Anzeigen von Cachemetriken klicken Sie im [Azure-Portal](https://portal.azure.com) auf [Durchsuchen](cache-configure.md#configure-azure-cache-for-redis-settings), um zu Ihrer Cache-Instanz zu navigieren.  Azure Cache for Redis bietet auf den Blättern **Übersicht** und **Redis-Metriken** einige integrierte Diagramme. Sie können jedes Diagramm benutzerdefiniert anpassen, indem Sie Metriken hinzufügen oder entfernen oder das Berichtsintervall ändern.
 
-![Redis-Metriken](./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png)
+![Es werden sechs Graphen angezeigt. Einer von Ihnen ist „Cachetreffer und Cachefehler in der letzten Stunde“.](./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png)
 
 ## <a name="view-pre-configured-metrics-charts"></a>Anzeigen von vorkonfigurierten Metrikdiagrammen
 
@@ -50,15 +50,15 @@ Der Bereich **Tarif** zeigt den Tarif für den Cache an und kann zum [Skalieren]
 
 Um Redis-Metriken anzuzeigen und benutzerdefinierte Diagramme mit Azure Monitor zu erstellen, klicken Sie im **Ressourcenmenü** auf **Metriken**, und passen Sie das Diagramm mit den gewünschten Metriken, dem Berichtsintervall, dem Diagrammtyp usw. an.
 
-![Redis-Metriken](./media/cache-how-to-monitor/redis-cache-monitor.png)
+![Im linken Navigationsbereich von contoso55 ist „Metriken“ eine Option unter „Überwachung“, die hervorgehoben ist. Unter „Metriken“ gibt es eine Liste von Metriken. Cachetreffer und Cachefehler sind ausgewählt.](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
-Weitere Informationen zum Verwenden von Metriken mit Azure Monitor finden Sie unter [Übersicht über Metriken in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Weitere Informationen zum Verwenden von Metriken mit Azure Monitor finden Sie unter [Übersicht über Metriken in Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>Exportieren von Cachemetriken
 
-Cachemetriken werden in Azure Monitor standardmäßig [30 Tage lang gespeichert](../azure-monitor/platform/data-platform-metrics.md) und anschließend gelöscht. Um Cachemetriken länger als 30 Tage beizubehalten, können Sie [ein Speicherkonto festlegen](../azure-monitor/platform/archive-diagnostic-logs.md) und eine Richtlinie **Aufbewahrung (Tage)** für die Cachemetriken angeben. 
+Cachemetriken werden in Azure Monitor standardmäßig [30 Tage lang gespeichert](../azure-monitor/platform/data-platform-metrics.md) und anschließend gelöscht. Um Cachemetriken länger als 30 Tage beizubehalten, können Sie [ein Speicherkonto festlegen](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) und eine Richtlinie **Aufbewahrung (Tage)** für die Cachemetriken angeben. 
 
 So konfigurieren Sie ein Speicherkonto für die Cachemetriken
 
@@ -129,7 +129,7 @@ Klicken Sie zum Konfigurieren von Warnungsregeln für den Cache im **Ressourcenm
 
 ![Überwachung](./media/cache-how-to-monitor/redis-cache-monitoring.png)
 
-Weitere Informationen zum Konfigurieren und Verwenden von Warnungen finden Sie unter [Übersicht über Warnungen](../monitoring-and-diagnostics/insights-alerts-portal.md).
+Weitere Informationen zum Konfigurieren und Verwenden von Warnungen finden Sie unter [Übersicht über Warnungen](../azure-monitor/platform/alerts-classic-portal.md).
 
 ## <a name="activity-logs"></a>Aktivitätsprotokolle
 Aktivitätsprotokolle geben Einblick in die Vorgänge, die für Ihre Azure Cache for Redis-Instanzen ausgeführt wurden. Sie wurden zuvor als „Überwachungsprotokolle“ oder „Betriebsprotokolle“ bezeichnet. Mit Aktivitätsprotokollen können Sie die Antworten auf die Fragen „Was“, „Wer“ und „Wann“ für alle Schreibvorgänge (PUT, POST, DELETE) ermitteln, die für die Azure Cache for Redis-Instanzen durchgeführt wurden. 

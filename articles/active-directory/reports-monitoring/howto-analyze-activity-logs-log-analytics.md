@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a48a72aa021a17c59adb86bece66cec966e234bd
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0c4fde22b1b8d72ae8ae775c090e0da25ce0665f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056139"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181168"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analysieren von Azure AD-Aktivitätsprotokollen mithilfe von Azure Monitor-Protokollen
 
@@ -98,15 +98,15 @@ Sie können auch Benachrichtigungen für Ihre Abfrage einrichten. So konfigurier
 
 4. Wählen Sie die **Aktionsgruppe** aus, die benachrichtigt wird, wenn das Signal auftritt. Sie können auch auswählen, Ihr Team per E-Mail oder SMS zu benachrichtigen, oder Sie könnten die Aktion mithilfe von Webhooks, Azure-Funktionen oder Logik-Apps automatisieren. Erfahren Sie mehr über das [Erstellen und Verwalten von Benachrichtigungen im Azure-Portal](../../azure-monitor/platform/action-groups.md).
 
-5. Nachdem Sie die Benachrichtigung konfiguriert haben, wählen Sie **Benachrichtigung erstellen**aus, um sie zu aktivieren. 
+5. Nachdem Sie die Benachrichtigung konfiguriert haben, wählen Sie **Benachrichtigung erstellen** aus, um sie zu aktivieren. 
 
 ## <a name="use-pre-built-workbooks-for-azure-ad-activity-logs"></a>Verwenden von vorgefertigten Arbeitsmappen für Azure AD-Aktivitätsprotokolle
 
 Die Arbeitsmappen bieten mehrere Berichte, die im Zusammenhang mit allgemeinen Szenarien mit Überwachungs-, Anmelde- und Bereitstellungsereignissen stehen. Sie können auch aufgrund jeglicher Daten benachrichtigen, die in den Berichten bereitgestellt werden, indem Sie die im vorherigen Abschnitt beschriebenen Schritte verwenden.
 
-* **Bereitstellungsanalyse:** In dieser [Arbeitsmappe](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) werden Berichte im Zusammenhang mit der Überwachung von Bereitstellungsaktivitäten angezeigt, also z. B. die Anzahl neuer bereitgestellter Benutzer und die Bereitstellungsfehler, die Anzahl aktualisierter Benutzer und die Aktualisierungsfehler sowie die Anzahl aufgehobener Benutzerbereitstellungen und der entsprechenden Fehler.    
+* **Bereitstellungsanalyse:** In dieser [Arbeitsmappe](../app-provisioning/application-provisioning-log-analytics.md) werden Berichte im Zusammenhang mit der Überwachung von Bereitstellungsaktivitäten angezeigt, also z. B. die Anzahl neuer bereitgestellter Benutzer und die Bereitstellungsfehler, die Anzahl aktualisierter Benutzer und die Aktualisierungsfehler sowie die Anzahl aufgehobener Benutzerbereitstellungen und der entsprechenden Fehler.    
 * **Anmeldeereignisse**: In dieser Arbeitsmappe werden die relevantesten Berichte zur Überwachung von Anmeldeaktivitäten angezeigt, z. B. Anmeldungen nach Anwendungen, Benutzern, Geräten sowie eine Zusammenfassungsansicht, in der die Anzahl der Anmeldungen im Lauf der Zeit nachverfolgt wird.
-* **Erkenntnisse zum bedingten Zugriff:** Mithilfe der [Arbeitsmappe](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting) für Erkenntnisse und Berichterstellung für den bedingten Zugriff können Sie die Auswirkungen von Richtlinien für den bedingten Zugriff in Ihrer Organisation im zeitlichen Verlauf nachvollziehen. 
+* **Erkenntnisse zum bedingten Zugriff:** Mithilfe der [Arbeitsmappe](../conditional-access/howto-conditional-access-insights-reporting.md) für Erkenntnisse und Berichterstellung für den bedingten Zugriff können Sie die Auswirkungen von Richtlinien für den bedingten Zugriff in Ihrer Organisation im zeitlichen Verlauf nachvollziehen. 
 
 ## <a name="next-steps"></a>Nächste Schritte
 

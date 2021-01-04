@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 99595e27b17db716b09325d5dd80633bf44ffb02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e66bd0a4e56f63185d8361355d6cf8e0e29bc30b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336648"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305939"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Der Team Data Science-Prozess in Aktion: Verwenden von Azure HDInsight Hadoop-Clustern für ein Dataset mit 1 TB
 
@@ -50,7 +50,7 @@ Sowohl in den numerischen als auch den Kategoriespalten dieses DataSets fehlen W
 ## <a name="examples-of-prediction-tasks"></a><a name="mltasks"></a>Beispiele für Vorhersageaufgaben
 In dieser exemplarischen Vorgehensweise werden zwei beispielhafte Vorhersageprobleme behandelt:
 
-1. **Binäre Klassifizierung**: Sagt vorher, ob ein Benutzer auf eine Anzeige geklickt hat:
+1. **Binäre Klassifizierung** : Sagt vorher, ob ein Benutzer auf eine Anzeige geklickt hat:
 
    * Klasse 0: Kein Klick
    * Klasse 1: Klicken Sie auf 
@@ -63,7 +63,7 @@ In dieser exemplarischen Vorgehensweise werden zwei beispielhafte Vorhersageprob
 Richten Sie Ihre Azure Data Science-Umgebung ein, um in drei Schritten Lösungen für Vorhersageanalysen mit HDInsight-Clustern zu erstellen:
 
 1. [Erstellen Sie ein Speicherkonto](../../storage/common/storage-account-create.md): Mit diesem Speicherkonto werden Daten in Azure Blob Storage gespeichert. Die in HDInsight-Clustern verwendeten Daten werden hier gespeichert.
-2. [Passen Sie Azure HDInsight Hadoop-Cluster für Data Science an](customize-hadoop-cluster.md): In diesem Schritt erstellen Sie einen Azure HDInsight Hadoop-Cluster, bei dem auf allen Knoten 64-Bit-Anaconda Python 2.7 installiert ist. Beim Anpassen des HDInsight-Clusters müssen zwei (in diesem Thema beschriebene) wichtige Schritte durchgeführt werden.
+2. [Passen Sie Azure HDInsight Hadoop-Cluster für Data Science an](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md): In diesem Schritt erstellen Sie einen Azure HDInsight Hadoop-Cluster, bei dem auf allen Knoten 64-Bit-Anaconda Python 2.7 installiert ist. Beim Anpassen des HDInsight-Clusters müssen zwei (in diesem Thema beschriebene) wichtige Schritte durchgeführt werden.
 
    * Verknüpfen Sie das in Schritt 1 erstellte Speicherkonto mit Ihrem HDInsight-Cluster. Mit diesem Speicherkonto wird auf Daten zugegriffen, die innerhalb des Clusters verarbeitet werden können.
    * Aktivieren Sie nach dem Erstellen den Remotezugriff auf den Hauptknoten des Clusters. Merken Sie sich die hier angegebenen RAS-Anmeldeinformationen (die sich von den beim Erstellen des Clusters angegebenen unterscheiden): Führen Sie die folgenden Schritte aus.
@@ -76,7 +76,7 @@ Um auf das [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-lo
 
 Klicken Sie auf **Download fortsetzen** , um weitere Informationen über das DataSet und seine Verfügbarkeit zu erhalten.
 
-Die Daten befinden sich an einem [Azure Blob Storage](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)-Speicherort: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. „wasb“ bezieht sich auf den Speicherort in Azure Blob Storage.
+Die Daten befinden sich an einem [Azure Blob Storage](../../storage/blobs/storage-quickstart-blobs-dotnet.md)-Speicherort: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. „wasb“ bezieht sich auf den Speicherort in Azure Blob Storage.
 
 1. Die Daten in dieser Azure Blob Storage-Instanz bestehen aus drei untergeordneten Ordnern mit entzippten Daten.
 
@@ -88,7 +88,7 @@ Die Daten befinden sich an einem [Azure Blob Storage](../../storage/blobs/storag
 Ein alternativer Ansatz für das Zugreifen, Untersuchen und Modellieren, der keine lokalen Downloads erfordert, wird später in dieser exemplarischen Vorgehensweise erläutert, wenn wir die Hive-Tabellen erstellen.
 
 ## <a name="log-in-to-the-cluster-headnode"></a><a name="login"></a>Anmelden beim Cluster-Hauptknoten
-Um sich beim Hauptknoten des Clusters anzumelden, suchen Sie im [Azure-Portal](https://ms.portal.azure.com) den Cluster. Klicken Sie links auf das HDInsight-Elefantensymbol, und doppelklicken Sie anschließend auf den Namen des Clusters. Navigieren Sie zur Registerkarte **Konfiguration**, doppelklicken Sie unten auf der Seite auf das Verbindungssymbol, und geben Sie Ihre RAS-Anmeldeinformationen ein, wenn Sie dazu aufgefordert werden. Sie gelangen daraufhin zum Hauptknoten des Clusters.
+Um sich beim Hauptknoten des Clusters anzumelden, suchen Sie im [Azure-Portal](https://ms.portal.azure.com) den Cluster. Klicken Sie links auf das HDInsight-Elefantensymbol, und doppelklicken Sie anschließend auf den Namen des Clusters. Navigieren Sie zur Registerkarte **Konfiguration** , doppelklicken Sie unten auf der Seite auf das Verbindungssymbol, und geben Sie Ihre RAS-Anmeldeinformationen ein, wenn Sie dazu aufgefordert werden. Sie gelangen daraufhin zum Hauptknoten des Clusters.
 
 Im Folgenden wird eine typische Erstanmeldung auf dem Clusterhauptknoten dargestellt:
 
@@ -99,7 +99,7 @@ Auf der linken Seite sehen Sie die „Hadoop-Befehlszeile“, mit der wir die Da
 Nun sind Sie bereit für den ersten Teil der exemplarischen Vorgehensweise: Das Untersuchen der Daten mithilfe von Hive und das Vorbereiten der Daten für Azure Machine Learning.
 
 ## <a name="create-hive-database-and-tables"></a><a name="hive-db-tables"></a> Erstellen von Hive-Datenbanken und -Tabellen
-Öffnen Sie zum Erstellen von Hive-Tabellen für das Criteo-DataSet auf dem Desktopcomputer des Hauptknotens die ***Hadoop-Befehlszeile***, und wechseln Sie mithilfe des folgenden Befehls zum Hive-Verzeichnis.
+Öffnen Sie zum Erstellen von Hive-Tabellen für das Criteo-DataSet auf dem Desktopcomputer des Hauptknotens die * *_Hadoop-Befehlszeile_* _, und wechseln Sie mithilfe des folgenden Befehls zum Hive-Verzeichnis.
 
 ```console
 cd %hive_home%\bin
@@ -118,7 +118,7 @@ Wenn Hive REPL mit dem Symbol "hive >" angezeigt wird, können Sie die Abfrage e
 
 Mit dem folgendem Code werden die Datenbank „criteo“ und dann vier Tabellen erstellt:
 
-* eine *Zahlentabelle anhand der Tage* „day\_00“ bis „day\_20“,
+eine *Zahlentabelle anhand der Tage* „day\_00“ bis „day\_20“,
 * eine auf „day\_21“ *beruhende Trainingstabelle* und
 * zwei auf „day\_22“ und „day\_23“ *beruhende Testtabellen*.
 
@@ -169,7 +169,7 @@ Da alle diese Tabellen extern sind, können Sie auf ihre Azure Blob Storage-Spei
   ```
 
      Wenn Sie die Abfrage nun in der REPL-Befehlszeile ausschneiden und einfügen, wird sie ausgeführt.
-* **Speichern von Abfragen in einer Datei und Ausführen des Befehls**: Die zweite Methode besteht im Speichern der Abfragen in einer HQL-Datei ([sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) und Ausgeben des folgenden Befehls zum Ausführen der Abfrage:
+* **Speichern von Abfragen in einer Datei und Ausführen des Befehls** : Die zweite Methode besteht im Speichern der Abfragen in einer HQL-Datei ( [sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) und Ausgeben des folgenden Befehls zum Ausführen der Abfrage:
 
   ```console
   hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
@@ -354,7 +354,7 @@ Dies ergibt:
 Time taken: 448.116 seconds, Fetched: 1 row(s)
 ```
 
-„Col15“ enthält 19 Millionen eindeutige Werte! Mit systemeigenen Techniken wie z. B. „one-hot-encoding“ können derartige Mengen an Kategorievariablen nicht sinnvoll codiert werden. Die leistungsfähige, zuverlässige Technik [Lernen durch Anzahl](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) erläutert und veranschaulicht den effizienten Umgang mit diesem Problem.
+„Col15“ enthält 19 Millionen eindeutige Werte! Mit systemeigenen Techniken wie z. B. „one-hot-encoding“ können derartige Mengen an Kategorievariablen nicht sinnvoll codiert werden. Die leistungsfähige, zuverlässige Technik [Lernen durch Anzahl](/archive/blogs/machinelearning/big-learning-made-easy-with-counts) erläutert und veranschaulicht den effizienten Umgang mit diesem Problem.
 
 Prüfen Sie zum Schluss die Anzahl von eindeutigen Werten für einige weitere Kategoriespalten. Die Inhalte von [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;multiple&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) lauten:
 
@@ -472,7 +472,7 @@ Hiermit können Sie die komprimierten Trainings- und Testdatasets nun zum Erstel
 Bevor Sie in Azure Machine Learning fortfahren, müssen Sie eine letzte wichtige Komponente in Bezug auf die Zahlentabelle beachten. Im nächsten Unterabschnitt wird die Zahlentabelle ausführlich erläutert.
 
 ## <a name="a-brief-discussion-on-the-count-table"></a><a name="count"></a> Eine kurze Erläuterung der Zahlentabelle
-Wie Sie gesehen haben, sind mehrere Kategorievariablen sehr umfangreich. In dieser exemplarischen Vorgehensweise wird die leistungsfähige Technik [Lernen durch Anzahl](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) vorgestellt, mit der diese Variablen effizient und stabil codiert werden. Weitere Informationen zu dieser Technik finden Sie über den angegebenen Link.
+Wie Sie gesehen haben, sind mehrere Kategorievariablen sehr umfangreich. In dieser exemplarischen Vorgehensweise wird die leistungsfähige Technik [Lernen durch Anzahl](/archive/blogs/machinelearning/big-learning-made-easy-with-counts) vorgestellt, mit der diese Variablen effizient und stabil codiert werden. Weitere Informationen zu dieser Technik finden Sie über den angegebenen Link.
 
 >[!NOTE]
 >Der Schwerpunkt dieser exemplarischen Vorgehensweise liegt auf der Verwendung von Zahlentabellen zum Erstellen kompakter Darstellungen umfangreicher Kategoriefunktionen. Dies ist nicht die einzige Möglichkeit, Kategoriefunktionen zu codieren. Interessierte Benutzer können sich über anderen Verfahren wie [One-hot-encoding](https://en.wikipedia.org/wiki/One-hot) und [Feature hashing](https://en.wikipedia.org/wiki/Feature_hashing) (beide Artikel in englischer Sprache) informieren.
@@ -489,7 +489,7 @@ Beim Erstellen von Modellen in Azure Machine Learning führen wir diese Schritte
 4. [Bewerten des Modells](#step4)
 5. [Veröffentlichen des Modells als Webdienst](#step5)
 
-Nun können Sie Modelle in Azure Machine Learning Studio erstellen. Unsere komprimierten Daten wurden als Hive-Tabellen im Cluster gespeichert. Verwenden Sie zum Lesen dieser Daten das **Import Data**-Modul von Azure Machine Learning. Im Folgenden finden Sie die Anmeldeinformationen für den Zugriff auf das Speicherkonto für diesen Cluster.
+Nun können Sie Modelle in Azure Machine Learning Studio erstellen. Unsere komprimierten Daten wurden als Hive-Tabellen im Cluster gespeichert. Verwenden Sie zum Lesen dieser Daten das **Import Data** -Modul von Azure Machine Learning. Im Folgenden finden Sie die Anmeldeinformationen für den Zugriff auf das Speicherkonto für diesen Cluster.
 
 ### <a name="step-1-get-data-from-hive-tables-into-azure-machine-learning-using-the-import-data-module-and-select-it-for-a-machine-learning-experiment"></a><a name="step1"></a>Schritt 1: Abrufen von Daten aus den Hive-Tabellen in Azure Machine Learning mit dem „Import Data“-Modul und Auswählen für ein Computerexperiment
 Starten Sie durch Auswählen von **+NEW** -> **EXPERIMENT** -> **Blank Experiment**. Suchen Sie dann über das Feld **Suche** oben links nach „Daten importieren“. Legen Sie das Modul **Daten importieren** durch Drag &amp; Drop auf der Experimentcanvas ab (der mittlere Teil des Bildschirms), um das Modul für den Datenzugriff zu verwenden.
@@ -502,13 +502,13 @@ Für das Modul **Daten importieren** sind die Werte der in der Grafik enthaltene
 
 1. Auswählen von „Hive-Abfrage“ als **Datenquelle**
 2. Im Feld **Hive database query** reicht „SELECT * FROM <Name_Ihrer_\_Datenbank\_.Name_Ihrer\_Tabelle\_> -“ aus.
-3. **Hcatalog server URI**: Wenn Ihr Cluster „abc“ heißt, ist dies einfach: https:\//abc.azurehdinsight.net
-4. **Hadoop user account name**: Der bei der Bereitstellung des Clusters ausgewählte Benutzername. (NICHT der Benutzername für den Remotezugriff!)
-5. **Hadoop user account password**: Das bei der Bereitstellung des Clusters für den Benutzernamen ausgewählte Kennwort. (NICHT das Kennwort für den Remotezugriff!)
-6. **Location of output data**: Wählen Sie „Azure“ aus.
+3. **Hcatalog server URI** : Wenn Ihr Cluster „abc“ heißt, ist dies einfach: https:\//abc.azurehdinsight.net
+4. **Hadoop user account name** : Der bei der Bereitstellung des Clusters ausgewählte Benutzername. (NICHT der Benutzername für den Remotezugriff!)
+5. **Hadoop user account password** : Das bei der Bereitstellung des Clusters für den Benutzernamen ausgewählte Kennwort. (NICHT das Kennwort für den Remotezugriff!)
+6. **Location of output data** : Wählen Sie „Azure“ aus.
 7. **Azure Storage-Kontoname:** Das Speicherkonto, das dem Cluster zugeordnet ist.
 8. **Azure Storage-Kontoschlüssel:** Der dem Cluster zugeordnete Speicherschlüssel.
-9. **Azure container name**: Wenn der Clustername „abc“ ist, gilt in der Regel einfach „abc“.
+9. **Azure container name** : Wenn der Clustername „abc“ ist, gilt in der Regel einfach „abc“.
 
 Sobald **Import Data** das Abrufen von Daten beendet (das grüne Häkchen für das Modul wird angezeigt), speichern Sie diese Daten als DataSet (mit einem Namen Ihrer Wahl). Dies sieht folgendermaßen aus:
 
@@ -533,7 +533,7 @@ Unser (klassisches) Azure Machine Learning Studio-Experiment sieht folgendermaß
 Prüfen Sie nun die Hauptkomponenten dieses Experiments. Ziehen Sie zuerst unsere gespeicherten Trainings- und Testdatasets in den Experimentbereich.
 
 #### <a name="clean-missing-data"></a>Fehlende Daten bereinigen
-Das anpassbare **Clean Missing Data**-Modul bereinigt fehlende Daten. Die Methode wird vom Benutzer festgelegt. In diesem Modul sehen Sie dies:
+Das anpassbare **Clean Missing Data** -Modul bereinigt fehlende Daten. Die Methode wird vom Benutzer festgelegt. In diesem Modul sehen Sie dies:
 
 ![Fehlende Daten bereinigen](./media/hive-criteo-walkthrough/0ycXod6.png)
 
@@ -543,7 +543,7 @@ Ersetzen Sie hier alle fehlenden Werte durch „0“. Es gibt weitere Optionen, 
 Für einige kategorische Features von großen DataSets können Millionen von eindeutigen Werten vorhanden sein. Die Verwendung naiver Methoden wie One-Hot-Codierung für die Darstellung solcher hochdimensionaler Funktionen ist völlig unmöglich. In dieser exemplarischen Vorgehensweise wird demonstriert, wie in Azure Machine Learning integrierte Zählfunktionen zum Generieren von kompakten Darstellungen dieser hochdimensionalen kategorischen Variablen verwendet werden. Das Endergebnis sind eine geringere Modellgröße, kürzere Trainingszeiten und Leistungsmetriken, die mit denen anderer Techniken vergleichbar sind.
 
 ##### <a name="building-counting-transforms"></a>Erstellen von Zähltransformationen
-Zum Erstellen von Zählfunktionen verwenden Sie das **Build Counting Transform**-Modul in Azure Machine Learning. Das Modul sieht wie folgt aus:
+Zum Erstellen von Zählfunktionen verwenden Sie das **Build Counting Transform** -Modul in Azure Machine Learning. Das Modul sieht wie folgt aus:
 
 ![Build Counting Transform-Moduleigenschaften](./media/hive-criteo-walkthrough/e0eqKtZ.png)
 ![Build Counting Transform-Modul](./media/hive-criteo-walkthrough/OdDN0vw.png)
@@ -558,21 +558,21 @@ Zur Verwendung des Moduls im MapReduce-Modus (geeignet für große DataSets) ben
 
 In der Abbildung oben wird das Eingeben des Eingabe-Blob-Speicherorts gezeigt. Dieser Speicherort enthält die Daten, die zum Erstellen von Zähltabellen reserviert sind.
 
-Speichern Sie die Transformation, wenn die Ausführung des Moduls abgeschlossen ist. Klicken Sie dazu mit der rechten Maustaste auf das Modul, und wählen Sie die Option **Als Transformation speichern**:
+Speichern Sie die Transformation, wenn die Ausführung des Moduls abgeschlossen ist. Klicken Sie dazu mit der rechten Maustaste auf das Modul, und wählen Sie die Option **Als Transformation speichern** :
 
 ![Option „Als Transformation speichern“](./media/hive-criteo-walkthrough/IcVgvHR.png)
 
-In unserer oben gezeigten Experimentarchitektur entspricht das DataSet „ytransform2“ genau einer gespeicherten Zähltransformation. Für den Rest dieses Experiments wird angenommen, dass der Reader ein **Build Counting Transform**-Modul für einige Daten zum Generieren von Zahlen verwendet und mit diesen dann Zählfunktionen für die Trainings- und Testdatasets generiert.
+In unserer oben gezeigten Experimentarchitektur entspricht das DataSet „ytransform2“ genau einer gespeicherten Zähltransformation. Für den Rest dieses Experiments wird angenommen, dass der Reader ein **Build Counting Transform** -Modul für einige Daten zum Generieren von Zahlen verwendet und mit diesen dann Zählfunktionen für die Trainings- und Testdatasets generiert.
 
 ##### <a name="choosing-what-count-features-to-include-as-part-of-the-train-and-test-datasets"></a>Auswählen der Zählfunktionen, die in Trainings- und Test-DataSets aufgenommen werden
-Sobald eine Zähltransformation bereitsteht kann der Benutzer auswählen, welche Funktionen mithilfe des **Modify Count Table Parameters**-Moduls in seine Trainings- und Testdatasets aufgenommen werden. Dieses Modul wird der Vollständigkeit halber hier angezeigt. Aus Gründen der Einfachheit verwenden Sie es jedoch nicht in unserem Experiment.
+Sobald eine Zähltransformation bereitsteht kann der Benutzer auswählen, welche Funktionen mithilfe des **Modify Count Table Parameters** -Moduls in seine Trainings- und Testdatasets aufgenommen werden. Dieses Modul wird der Vollständigkeit halber hier angezeigt. Aus Gründen der Einfachheit verwenden Sie es jedoch nicht in unserem Experiment.
 
 ![Modify Count Table Parameters](./media/hive-criteo-walkthrough/PfCHkVg.png)
 
 In diesem Fall gesehen müssen die LoggOdds verwendet werden, und die „back off“-Spalte wird ignoriert. Sie können auch Parameter festlegen, z.B. den Schwellenwert für Papierkorb, die Anzahl der hinzuzufügenden vorhergehenden Pseudobeispiele für die Glättung, und ob Laplace-Rauschen verwendet wird. Dabei handelt es sich um erweiterte Funktionen, und es ist darauf hinzuweisen, dass die Standardwerte ein guter Ausgangspunkt für Benutzer sind, die noch nicht mit dieser Art von Funktionsgenerierung vertraut sind.
 
 ##### <a name="data-transformation-before-generating-the-count-features"></a>Datentransformation vor dem Generieren der Zählfunktionen
-Jetzt liegt der Fokus auf einem wichtigen Aspekt der Transformation unserer Trainings- und Testdaten vor dem tatsächlichen Generieren der Zählfunktionen. Zwei **Execute R Script**-Module werden verwendet, bevor die Zähltransformation auf unsere Daten angewandt wird.
+Jetzt liegt der Fokus auf einem wichtigen Aspekt der Transformation unserer Trainings- und Testdaten vor dem tatsächlichen Generieren der Zählfunktionen. Zwei **Execute R Script** -Module werden verwendet, bevor die Zähltransformation auf unsere Daten angewandt wird.
 
 ![Execute R Script-Module](./media/hive-criteo-walkthrough/aF59wbc.png)
 
@@ -612,12 +612,12 @@ Zunächst müssen Sie einen Lerner auswählen. Verwenden Sie eine verstärkte En
 Wählen Sie die Standardwerte für das Experiment. Die Standardwerte sind aussagekräftig und eine gute Möglichkeit zum schnellen Erhalten einer Leistungsbasis. Sie können die Leistung verbessern, indem Sie Parameter auswählen, sobald Sie eine Basislinie haben.
 
 #### <a name="train-the-model"></a>Trainieren des Modells
-Für das Training rufen Sie einfach ein **Train Model**-Modul auf. Bei den zwei Eingaben handelt es sich um die  verstärkte Entscheidungsstruktur mit zwei Klassen und unser Trainings-DataSet. Dies wird hier gezeigt:
+Für das Training rufen Sie einfach ein **Train Model** -Modul auf. Bei den zwei Eingaben handelt es sich um die  verstärkte Entscheidungsstruktur mit zwei Klassen und unser Trainings-DataSet. Dies wird hier gezeigt:
 
 ![Train Model-Modul](./media/hive-criteo-walkthrough/2bZDZTy.png)
 
 #### <a name="score-the-model"></a>Bewertung des Modells
-Sobald Sie über ein Trainingsmodell verfügen, können Sie das Testdataset und dessen Leistung bewerten. Verwenden Sie dazu das nachfolgend gezeigte **Score Model**-Modul mit einem **Evaluate Model**-Modul:
+Sobald Sie über ein Trainingsmodell verfügen, können Sie das Testdataset und dessen Leistung bewerten. Verwenden Sie dazu das nachfolgend gezeigte **Score Model** -Modul mit einem **Evaluate Model** -Modul:
 
 ![Modul Modell bewerten](./media/hive-criteo-walkthrough/fydcv6u.png)
 
@@ -654,12 +654,12 @@ Da die Zahlentabelle groß ist, wählen Sie einige Zeilen mit Testdaten aus, und
 ![BDT-Eingangsdaten erstellen](./media/hive-criteo-walkthrough/OEJMmst.png)
 
 > [!NOTE]
-> Für das Eingabedatenformat verwenden Sie die AUSGABE des **Count Featurizer**-Moduls. Nach Abschluss der Ausführung dieses Experiments speichern Sie die Ausgabe des **Count Featurizer** -Moduls als DataSet. Dieses DataSet wird für die Eingabedaten des Webdiensts verwendet.
+> Für das Eingabedatenformat verwenden Sie die AUSGABE des **Count Featurizer** -Moduls. Nach Abschluss der Ausführung dieses Experiments speichern Sie die Ausgabe des **Count Featurizer** -Moduls als DataSet. Dieses DataSet wird für die Eingabedaten des Webdiensts verwendet.
 >
 >
 
 #### <a name="scoring-experiment-for-publishing-webservice"></a>Abstimmung des Experiments für den Veröffentlichungswebdienst
-Die grundlegende Struktur ist zunächst ein Modul **Score Model**, das unser Objekt des trainierten Modells und einige Zeilen Eingabedaten akzeptiert, die zuvor mit dem Modul **Count Featurizer** generiert wurden. Verwenden Sie „Select Columns in Dataset“, um die „Scored Labels“ sowie die „Scored Probabilities“ auszublenden.
+Die grundlegende Struktur ist zunächst ein Modul **Score Model** , das unser Objekt des trainierten Modells und einige Zeilen Eingabedaten akzeptiert, die zuvor mit dem Modul **Count Featurizer** generiert wurden. Verwenden Sie „Select Columns in Dataset“, um die „Scored Labels“ sowie die „Scored Probabilities“ auszublenden.
 
 ![Select Columns in Dataset](./media/hive-criteo-walkthrough/kRHrIbe.png)
 
@@ -677,8 +677,8 @@ Nach dem Veröffentlichen des der Webdienstes werden Sie auf eine Seite weiterge
 
 Auf der linken Seite befinden sich zwei Links zu Webdiensten:
 
-* Der **REQUEST/RESPONSE**-Dienst (RRS) für einzelne Vorhersagen, der in diesem Workshop verwendet wurde.
-* Der **BATCH EXECUTION**-Dienst (BES) wird für Stapelvorhersagen verwendet und setzt voraus, dass sich die Eingabedaten für Vorhersagen in Azure Blob Storage befinden.
+* Der **REQUEST/RESPONSE** -Dienst (RRS) für einzelne Vorhersagen, der in diesem Workshop verwendet wurde.
+* Der **BATCH EXECUTION** -Dienst (BES) wird für Stapelvorhersagen verwendet und setzt voraus, dass sich die Eingabedaten für Vorhersagen in Azure Blob Storage befinden.
 
 Wenn Sie auf den Link **REQUEST/RESPONSE** klicken, gelangen Sie zu einer Seite mit vorprogrammiertem Code in C#, Python und R. Dieser Code kann problemlos für Aufrufe an den Webdienst verwendet werden. Der API-Schlüssel auf dieser Seite muss für die Authentifizierung verwendet werden.
 

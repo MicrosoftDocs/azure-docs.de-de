@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 643b28b2e88f233d2924270511d3c87fa4d9b767
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 974418a1b3c1e7fe93b2f6839c16169e5bd5abc5
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631629"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696998"
 ---
 # <a name="step-3-validate-connectivity"></a>SCHRITT 3: Überprüfen der Konnektivität
 
@@ -29,8 +29,10 @@ Nachdem Sie Ihre Protokollweiterleitung bereitgestellt haben (in Schritt 1) und
 
 - Sie müssen über erhöhte Berechtigungen (sudo) auf dem Computer mit der Protokollweiterleitung verfügen.
 
-- Auf dem Computer mit der Protokollweiterleitung muss Python installiert sein.<br>
+- Auf dem Computer mit der Protokollweiterleitung muss **Python 2.7** oder **3** installiert sein.<br>
 Verwenden Sie den Befehl `python –version` zum Überprüfen dieser Voraussetzung.
+
+- Möglicherweise benötigen Sie während dieses Vorgangs die ID und den Primärschlüssel des Arbeitsbereichs. Sie finden diese in der Arbeitsbereichsressource unter **Agent-Verwaltung**.
 
 ## <a name="how-to-validate-connectivity"></a>Überprüfen der Konnektivität
 
@@ -39,8 +41,15 @@ Achten Sie darauf, dass es etwa 20 Minuten dauern kann, bis Ihre Protokolle in 
 
 1. Wenn keine Ergebnisse der Abfrage angezeigt werden, vergewissern Sie sich, dass von Ihrer Sicherheitslösung Ereignisse generiert werden, oder versuchen Sie, einige Ergebnisse zu generieren, und vergewissern Sie sich, dass sie an den von Ihnen festgelegten Syslog-Weiterleitungscomputer weitergeleitet werden. 
 
-1. Führen Sie das folgende Skript für die Protokollweiterleitung aus, um die Konnektivität zwischen Ihrer Sicherheitslösung, der Protokollweiterleitung und Azure Sentinel zu überprüfen. Das Skript überprüft, ob der Daemon an den richtigen Ports lauscht, die Weiterleitung ordnungsgemäß konfiguriert ist und die Kommunikation zwischen dem Daemon und dem Log Analytics-Agent nicht blockiert wird. Außerdem sendet es auch TestCommonEventFormat-Pseudonachrichten, um die End-to-End-Konnektivität zu überprüfen. <br>
- `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]`
+1. Führen Sie das folgende Skript für die Protokollweiterleitung aus (geben Sie die Arbeitsbereichs-ID anstelle des Platzhalters ein), um die Konnektivität zwischen Ihrer Sicherheitslösung, der Protokollweiterleitung und Azure Sentinel zu überprüfen. Das Skript überprüft, ob der Daemon an den richtigen Ports lauscht, die Weiterleitung ordnungsgemäß konfiguriert ist und die Kommunikation zwischen dem Daemon und dem Log Analytics-Agent nicht blockiert wird. Außerdem sendet es auch TestCommonEventFormat-Pseudonachrichten, um die End-to-End-Konnektivität zu überprüfen. <br>
+
+    ```bash
+    sudo wget -O https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]` 
+    ```
+
+   - Möglicherweise werden Sie in einer Meldung aufgefordert, einen Befehl auszuführen, um ein Problem mit der **Zuordnung im Feld *Computer*** zu beheben. Ausführliche Informationen finden Sie in der [Erläuterung im Validierungsskript](#mapping-command).
+
+    - Möglicherweise werden Sie in einer Meldung aufgefordert, einen Befehl auszuführen, um ein Problem mit der **Analyse von Cisco ASA-Firewallprotokollen** zu beheben. Ausführliche Informationen finden Sie in der [Erläuterung im Validierungsskript](#parsing-command).
 
 ## <a name="validation-script-explained"></a>Erläuterung des Überprüfungsskripts
 
@@ -72,21 +81,31 @@ Das Überprüfungsskript führt die folgenden Überprüfungen durch:
     </filter>
     ```
 
-1. Überprüft, ob die Cisco ASA-Analyse für Firewallereignisse wie erwartet konfiguriert ist:
+1. Überprüft anhand des folgenden Befehls, ob die Analyse für Cisco ASA-Firewallereignisse wie erwartet konfiguriert ist: 
 
     ```bash
-    sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" 
-        /opt/microsoft/omsagent/plugin/security_lib.rb && 
-        sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    grep -i "return ident if ident.include?('%ASA')" /opt/microsoft/omsagent/plugin/security_lib.rb
     ```
 
-1. Überprüft, ob das Feld *Computer* in der Syslog-Quelle ordnungsgemäß im Log Analytics-Agent zugeordnet ist:
+    - <a name="parsing-command"></a>Wenn ein Problem mit der Analyse vorliegt, generiert das Skript eine Fehlermeldung, in der Sie aufgefordert werden, **den folgenden Befehl manuell auszuführen** (ersetzen Sie den Platzhalter durch die Arbeitsbereichs-ID). Mit dem Befehl wird die korrekte Analyse sichergestellt, und der Agent wird neu gestartet.
+    
+        ```bash
+        # Cisco ASA parsing fix
+        sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" /opt/microsoft/omsagent/plugin/security_lib.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
+
+1. Überprüft anhand des folgenden Befehls, ob das Feld *Computer* in der Syslog-Quelle im Log Analytics-Agent ordnungsgemäß zugeordnet ist: 
 
     ```bash
-    sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
-        -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
-        filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
     ```
+
+    - <a name="mapping-command"></a>Wenn ein Problem mit der Zuordnung vorliegt, generiert das Skript eine Fehlermeldung, in der Sie aufgefordert werden, **den folgenden Befehl manuell auszuführen** (ersetzen Sie den Platzhalter durch die Arbeitsbereichs-ID). Mit dem Befehl wird die korrekte Zuordnung sichergestellt, und der Agent wird neu gestartet.
+
+        ```bash
+        # Computer field mapping fix
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
 
 1. Überprüft, ob auf dem Computer Sicherheitsverbesserungen vorhanden sind, die möglicherweise den Netzwerkverkehr blockieren (z. B. eine Hostfirewall).
 
@@ -155,21 +174,31 @@ Das Überprüfungsskript führt die folgenden Überprüfungen durch:
     </filter>
     ```
 
-1. Überprüft, ob die Cisco ASA-Analyse für Firewallereignisse wie erwartet konfiguriert ist:
+1. Überprüft anhand des folgenden Befehls, ob die Analyse für Cisco ASA-Firewallereignisse wie erwartet konfiguriert ist: 
 
     ```bash
-    sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" 
-        /opt/microsoft/omsagent/plugin/security_lib.rb && 
-        sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    grep -i "return ident if ident.include?('%ASA')" /opt/microsoft/omsagent/plugin/security_lib.rb
     ```
 
-1. Überprüft, ob das Feld *Computer* in der Syslog-Quelle ordnungsgemäß im Log Analytics-Agent zugeordnet ist:
+    - <a name="parsing-command"></a>Wenn ein Problem mit der Analyse vorliegt, generiert das Skript eine Fehlermeldung, in der Sie aufgefordert werden, **den folgenden Befehl manuell auszuführen** (ersetzen Sie den Platzhalter durch die Arbeitsbereichs-ID). Mit dem Befehl wird die korrekte Analyse sichergestellt, und der Agent wird neu gestartet.
+    
+        ```bash
+        # Cisco ASA parsing fix
+        sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" /opt/microsoft/omsagent/plugin/security_lib.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
+
+1. Überprüft anhand des folgenden Befehls, ob das Feld *Computer* in der Syslog-Quelle im Log Analytics-Agent ordnungsgemäß zugeordnet ist: 
 
     ```bash
-    sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
-        -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
-        filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
     ```
+
+    - <a name="mapping-command"></a>Wenn ein Problem mit der Zuordnung vorliegt, generiert das Skript eine Fehlermeldung, in der Sie aufgefordert werden, **den folgenden Befehl manuell auszuführen** (ersetzen Sie den Platzhalter durch die Arbeitsbereichs-ID). Mit dem Befehl wird die korrekte Zuordnung sichergestellt, und der Agent wird neu gestartet.
+
+        ```bash
+        # Computer field mapping fix
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
 
 1. Überprüft, ob auf dem Computer Sicherheitsverbesserungen vorhanden sind, die möglicherweise den Netzwerkverkehr blockieren (z. B. eine Hostfirewall).
 
@@ -216,8 +245,8 @@ Das Überprüfungsskript führt die folgenden Überprüfungen durch:
 ---
 
 ## <a name="next-steps"></a>Nächste Schritte
+
 In diesem Artikel haben Sie gelernt, wie Sie CEF-Appliances mit Azure Sentinel verbinden. Weitere Informationen zu Azure Sentinel finden Sie in den folgenden Artikeln:
 - Erfahren Sie, wie Sie [Einblick in Ihre Daten und potenzielle Bedrohungen erhalten](quickstart-get-visibility.md).
-- Beginnen Sie mit der [Erkennung von Bedrohungen mithilfe von Azure Sentinel](tutorial-detect-threats.md).
+- Beginnen Sie mit der [Erkennung von Bedrohungen mithilfe von Azure Sentinel](./tutorial-detect-threats-built-in.md).
 - [Verwenden Sie Arbeitsmappen](tutorial-monitor-your-data.md), um Ihre Daten zu überwachen.
-

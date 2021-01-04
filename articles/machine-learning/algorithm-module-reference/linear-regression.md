@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 51a9b0ec0fc19b6b6efa0453d698a5a978dacabc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 809b1be4f9f12e1963ff5caeaacd109c84db154f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907832"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323656"
 ---
 # <a name="linear-regression-module"></a>Modul „Linear Regression“
 In diesem Artikel wird ein Modul im Azure Machine Learning-Designer beschrieben.
@@ -63,13 +63,13 @@ Dieses Modul unterstützt zwei Methoden zur Anpassung eines Regressionsmodells m
 
 1. Fügen Sie im Designer Ihrer Pipeline das Modul **Linear Regression Model** hinzu.
 
-    Sie finden dieses Modul in der Kategorie **Machine Learning**. Erweitern Sie **Modell initialisieren**, dann **Regression**, und ziehen Sie das Modul **Linear Regression Model** in Ihre Pipeline.
+    Sie finden dieses Modul in der Kategorie **Machine Learning**. Erweitern Sie **Modell initialisieren** , dann **Regression** , und ziehen Sie das Modul **Linear Regression Model** in Ihre Pipeline.
 
 2. Wählen Sie im Bereich **Properties** (Eigenschaften) in der Dropdownliste **Solution method** (Lösungsmethode) **Ordinary Least Squares** (Methode der kleinsten Quadrate) aus. Diese Option gibt die Berechnungsmethode an, mit der die Regressionslinie ermittelt wird.
 
 3. Geben Sie unter **L2 regularization weight** (L2-Regularisierungsgewichtung) den Wert ein, der zur Gewichtung der L2-Regularisierung verwendet werden soll. Wir empfehlen, einen Wert ungleich 0 zu verwenden, um eine Überpassung zu vermeiden.
 
-     Wenn Sie mehr darüber erfahren möchten, wie sich die Regularisierung auf die Modellanpassung auswirkt, lesen Sie diesen Artikel: [L1- und L2-Regularisierung für Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
+     Wenn Sie mehr darüber erfahren möchten, wie sich die Regularisierung auf die Modellanpassung auswirkt, lesen Sie diesen Artikel: [L1- und L2-Regularisierung für Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning)
 
 4. Aktivieren Sie die Option **Include intercept term** (Term des Schnittpunkts einbeziehen), wenn Sie den Term für den Schnittpunkt anzeigen möchten.
 
@@ -96,7 +96,7 @@ Nach Abschluss des Trainings:
 
 1. Fügen Sie im Designer Ihrer Pipeline das Modul **Linear Regression Model** hinzu.
 
-    Sie finden dieses Modul in der Kategorie **Machine Learning**. Erweitern Sie **Modell initialisieren**, dann **Regression**, und ziehen Sie das Modul **Linear Regression Model** in Ihre Pipeline.
+    Sie finden dieses Modul in der Kategorie **Machine Learning**. Erweitern Sie **Modell initialisieren** , dann **Regression** , und ziehen Sie das Modul **Linear Regression Model** in Ihre Pipeline.
 
 2. Wählen Sie im Bereich **Properties** (Eigenschaften) in der Dropdown-Liste **Solution method** (Lösungsmethode) **Online Gradient Descent** (Onlinegradientenabstieg) als Berechnungsmethode zum Auffinden der Regressionslinie.
 
@@ -119,7 +119,7 @@ Nach Abschluss des Trainings:
 
 7. Geben Sie unter **L2 regularization weight** (L2-Regularisierungsgewichtung) den Wert ein, der zur Gewichtung der L2-Regularisierung verwendet werden soll. Wir empfehlen, einen Wert ungleich 0 zu verwenden, um eine Überpassung zu vermeiden.
 
-    Wenn Sie mehr darüber erfahren möchten, wie sich die Regularisierung auf die Modellanpassung auswirkt, lesen Sie diesen Artikel: [L1- und L2-Regularisierung für Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
+    Wenn Sie mehr darüber erfahren möchten, wie sich die Regularisierung auf die Modellanpassung auswirkt, lesen Sie diesen Artikel: [L1- und L2-Regularisierung für Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning)
 
 
 9. Aktivieren Sie die Option **Decrease learning rate** (Lernrate verringern), wenn Sie möchten, dass die Lernrate im weiteren Verlauf der Iterationen abnimmt.  
@@ -152,4 +152,4 @@ Nach Abschluss des Trainings:
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Sehen Sie sich den [Satz der verfügbaren Module](module-reference.md) für Azure Machine Learning an. 
+Sehen Sie sich den [Satz der verfügbaren Module](module-reference.md) für Azure Machine Learning an.

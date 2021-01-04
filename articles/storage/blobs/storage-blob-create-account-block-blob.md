@@ -5,25 +5,22 @@ author: tamram
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/10/2020
+ms.date: 10/30/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0af98993cc4b3c7d19cdaa61cd7a35e3b444a3df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 9350f9aeff90b75a4e1362f6fa2fa1b0d07f20cf
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613797"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95997085"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Erstellen eines BlockBlobStorage-Kontos
 
 Mit der Kontoart BlockBlobStorage können Sie Blockblobs mit Premium-Leistungsmerkmalen erstellen. Diese Art von Speicherkonto ist für Workloads optimiert, die hohe Transaktionsraten aufweisen oder äußerst kurze Zugriffszeiten erfordern. In diesem Artikel wird gezeigt, wie Sie ein BlockBlobStorage-Konto über das Azure-Portal, mit der Azure CLI oder in Azure PowerShell erstellen.
 
-> [!NOTE]
-> Das Feature für hierarchische Namespaces in einem Blockblob-Speicherkonto befindet sich in der öffentlichen Vorschau und ist in den Regionen „USA, Osten“, „USA, Osten 2“, „USA, Mitte“, „USA, Süden-Mitte“, „USA, Westen 2“, „Vereinigtes Königreich, Süden“, „Kanada, Mitte“ und „Australien, Osten“ verfügbar. Weitere Informationen zu den Einschränkungen finden Sie unter [Verfügbare Blob Storage-Features in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) sowie unter [Bekannte Probleme](data-lake-storage-known-issues.md). Wie Sie sich für die Vorschau registrieren, erfahren Sie in [diesem Formular](https://aka.ms/adlspremiumonboard).
-
-Weitere Informationen zu BlockBlobStorage-Konten finden Sie unter [Azure-Speicherkonto – Übersicht](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+Weitere Informationen zu BlockBlobStorage-Konten finden Sie unter [Azure-Speicherkonto – Übersicht](../common/storage-account-overview.md).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -119,12 +116,7 @@ Wenn Sie ein BlockBlobStorage-Konto über das Azure-Portal erstellen möchten, g
 
 8. Wählen Sie die Registerkarte **Erweitert** aus.
 
-9. Wenn Sie Ihr Speicherkonto für Datenanalyse optimieren möchten, legen Sie **Hierarchischer Namespace** auf **Aktiviert** fest. Andernfalls belassen Sie den Standardwert für diese Option.
-
-   Weitere Informationen finden Sie unter [Einführung in Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
-
-   > [!NOTE]
-   > Das Feature für hierarchische Namespaces in einem Blockblob-Speicherkonto befindet sich in der öffentlichen Vorschau und ist in den Regionen „USA, Osten“, „USA, Osten 2“, „USA, Mitte“, „USA, Süden-Mitte“, „USA, Westen 2“, „Vereinigtes Königreich, Süden“, „Kanada, Mitte“ und „Australien, Osten“ verfügbar. Weitere Informationen zu den Einschränkungen finden Sie unter [Verfügbare Blob Storage-Features in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) sowie unter [Bekannte Probleme](data-lake-storage-known-issues.md). Wie Sie sich für die Vorschau registrieren, erfahren Sie in [diesem Formular](https://aka.ms/adlspremiumonboard).
+9. Wenn Sie Ihr Speicherkonto für Datenanalyse optimieren möchten, legen Sie **Hierarchischer Namespace** auf **Aktiviert** fest. Andernfalls belassen Sie den Standardwert für diese Option. Wenn Sie diese Einstellung mit Ihrem BlockBlobStorage-Konto aktivieren, erhalten Sie den [Premium-Tarif für Data Lake Storage](premium-tier-for-data-lake-storage.md).  Weitere Informationen zu Data Lake Storage finden Sie in der [Einführung in Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
 
 8. Wählen Sie **Überprüfen + erstellen** aus, um die Speicherkontoeinstellungen zu überprüfen.
 
@@ -165,10 +157,7 @@ Wenn Sie ein BlockBlobStorage-Konto über das Azure-Portal erstellen möchten, g
 
    New-AzStorageAccount -ResourceGroupName $resourcegroup -Name $storageaccount -Location $location -Kind "BlockBlobStorage" -SkuName "Premium_LRS"
    ```
-   Wenn Sie Ihr Speicherkonto für Datenanalyse optimieren möchten, fügen Sie dem Befehl `-EnableHierarchicalNamespace $True` hinzu. Weitere Informationen finden Sie unter [Einführung in Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
-
-   > [!NOTE]
-   > Das Feature für hierarchische Namespaces in einem Blockblob-Speicherkonto befindet sich in der öffentlichen Vorschau und ist in den Regionen „USA, Osten“, „USA, Osten 2“, „USA, Mitte“, „USA, Süden-Mitte“, „USA, Westen 2“, „Vereinigtes Königreich, Süden“, „Kanada, Mitte“ und „Australien, Osten“ verfügbar. Weitere Informationen zu den Einschränkungen finden Sie unter [Verfügbare Blob Storage-Features in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) sowie unter [Bekannte Probleme](data-lake-storage-known-issues.md). Wie Sie sich für die Vorschau registrieren, erfahren Sie in [diesem Formular](https://aka.ms/adlspremiumonboard).
+   Wenn Sie Ihr Speicherkonto für Datenanalyse optimieren möchten, fügen Sie dem Befehl `-EnableHierarchicalNamespace $True` hinzu. Wenn Sie diese Einstellung mit Ihrem BlockBlobStorage-Konto aktivieren, erhalten Sie den [Premium-Tarif für Data Lake Storage](premium-tier-for-data-lake-storage.md).  Weitere Informationen zu Data Lake Storage finden Sie in der [Einführung in Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
 
 ## <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
@@ -199,15 +188,12 @@ Zum Erstellen eines Blockblob-Speicherkontos mithilfe der Azure-Befehlszeilensch
     --sku "Premium_LRS"
    ```
 
-   Wenn Sie Ihr Speicherkonto für Datenanalyse optimieren möchten, fügen Sie dem Befehl `--hierarchical-namespace true` hinzu. Weitere Informationen finden Sie unter [Einführung in Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
+   Wenn Sie Ihr Speicherkonto für Datenanalyse optimieren möchten, fügen Sie dem Befehl `--hierarchical-namespace true` hinzu. Wenn Sie diese Einstellung mit Ihrem BlockBlobStorage-Konto aktivieren, erhalten Sie den [Premium-Tarif für Data Lake Storage](premium-tier-for-data-lake-storage.md).  Weitere Informationen zu Data Lake Storage finden Sie in der [Einführung in Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
 
-   > [!NOTE]
-   > Das Feature für hierarchische Namespaces in einem Blockblob-Speicherkonto befindet sich in der öffentlichen Vorschau und ist in den Regionen „USA, Osten“, „USA, Osten 2“, „USA, Mitte“, „USA, Süden-Mitte“, „USA, Westen 2“, „Vereinigtes Königreich, Süden“, „Kanada, Mitte“ und „Australien, Osten“ verfügbar. Weitere Informationen zu den Einschränkungen finden Sie unter [Verfügbare Blob Storage-Features in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) sowie unter [Bekannte Probleme](data-lake-storage-known-issues.md). Wie Sie sich für die Vorschau registrieren, erfahren Sie in [diesem Formular](https://aka.ms/adlspremiumonboard).
-   
 ---
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Weitere Informationen zu Speicherkonten finden Sie unter [Azure-Speicherkonto – Übersicht](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+- Weitere Informationen zu Speicherkonten finden Sie unter [Azure-Speicherkonto – Übersicht](../common/storage-account-overview.md).
 
-- Weitere Informationen zu Ressourcengruppen finden Sie unter [Azure Resource Manager – Übersicht](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+- Weitere Informationen zu Ressourcengruppen finden Sie unter [Azure Resource Manager – Übersicht](../../azure-resource-manager/management/overview.md).

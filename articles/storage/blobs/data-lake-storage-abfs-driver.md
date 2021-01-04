@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: e9c56f59d6dd64002632a5f74e9f39c51293caab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13228ec762db195d0c460e84871b75323f6b98e5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836359"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913707"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Der ABFS-Treiber (Azure Blob Filesystem, Azure-Blobdateisystem): Ein dedizierter Azure Storage-Treiber für Hadoop
 
@@ -25,7 +25,7 @@ Die ursprüngliche Unterstützung von Azure Blob Storage wurde durch den Windows
 
 ## <a name="the-azure-blob-file-system-driver"></a>Der Azure-Blobdateisystemtreiber
 
-Die [Azure Data Lake Storage-REST-Schnittstelle](https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2) unterstützt Dateisystemsemantik über Azure Blob Storage. Da das Hadoop-Dateisystem die gleiche Semantik unterstützt, ist keine komplexe Zuordnung im Treiber erforderlich. Der ABFS-Treiber (Azure Blob File System, Azure-Blobdateisystem) ist daher lediglich ein Client-Shim für die REST-API.
+Die [Azure Data Lake Storage-REST-Schnittstelle](/rest/api/storageservices/data-lake-storage-gen2) unterstützt Dateisystemsemantik über Azure Blob Storage. Da das Hadoop-Dateisystem die gleiche Semantik unterstützt, ist keine komplexe Zuordnung im Treiber erforderlich. Der ABFS-Treiber (Azure Blob File System, Azure-Blobdateisystem) ist daher lediglich ein Client-Shim für die REST-API.
 
 Es gibt jedoch einige Funktionen, die der Treiber weiterhin ausführen muss:
 

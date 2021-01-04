@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: da49d1c94584393bfef066d61c1caf360b249c3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6253deb53229172cd499a6aa14b8d8f19bc07b63
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515329"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629256"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-windows-for-use-with-azure-files"></a>Konfigurieren eines P2S-VPN (Point-to-Site) unter Windows zur Verwendung mit Azure Files
 Sie können eine P2S-VPN-Verbindung (Point-to-Site) verwenden, um Ihre Azure-Dateifreigaben außerhalb von Azure über SMB einzubinden, ohne Port 445 zu öffnen. Eine P2S-VPN-Verbindung ist eine VPN-Verbindung zwischen Azure und einem einzelnen Client. Um eine P2S-VPN-Verbindung mit Azure Files zu verwenden, muss für jeden Client, der eine Verbindung herstellen möchte, eine P2S-VPN-Verbindung konfiguriert werden. Wenn Sie über viele Clients verfügen, die sich über Ihr lokales Netzwerk mit Ihren Azure-Dateifreigaben verbinden müssen, können Sie anstelle einer P2S-Verbindung für jeden Client eine S2S-VPN-Verbindung (Site-to-Site) verwenden. Weitere Informationen finden Sie unter [Konfigurieren eines S2S-VPN (Site-to-Site) zur Verwendung mit Azure Files](storage-files-configure-s2s-vpn.md).
@@ -22,7 +22,7 @@ Es wird dringend empfohlen, vor der Lektüre des vorliegenden Artikels den Artik
 Der Artikel beschreibt die Schritte zur Konfiguration eines P2S-VPN unter Windows (Windows-Client und Windows-Server), um Azure-Dateifreigaben direkt lokal einzubinden. Wenn Sie den Datenverkehr zur Azure-Dateisynchronisierung über ein VPN leiten möchten, lesen Sie den Artikel [Konfigurieren der Proxy- und Firewalleinstellungen der Dateisynchronisierung](storage-sync-files-firewall-and-proxy.md).
 
 ## <a name="prerequisites"></a>Voraussetzungen
-- Die neueste Version des Azure PowerShell-Moduls. Informationen zum Installieren des Azure PowerShell-Moduls finden Sie unter [Installieren des Azure PowerShell-Moduls](https://docs.microsoft.com/powershell/azure/install-az-ps) im Abschnitt zu Ihrem Betriebssystem. Wenn Sie lieber mit der Azure CLI unter Windows arbeiten möchten, können Sie dies tun, die folgenden Anweisungen beziehen sich jedoch auf Azure PowerShell.
+- Die neueste Version des Azure PowerShell-Moduls. Informationen zum Installieren des Azure PowerShell-Moduls finden Sie unter [Installieren des Azure PowerShell-Moduls](/powershell/azure/install-az-ps) im Abschnitt zu Ihrem Betriebssystem. Wenn Sie lieber mit der Azure CLI unter Windows arbeiten möchten, können Sie dies tun, die folgenden Anweisungen beziehen sich jedoch auf Azure PowerShell.
 
 - Eine Azure-Dateifreigabe, die Sie lokal einbinden möchten. Azure-Dateifreigaben werden in Speicherkonten bereitgestellt. Hierbei handelt es sich um Verwaltungskonstrukte, die einen gemeinsam genutzten Speicherpool darstellen, in dem Sie mehrere Dateifreigaben sowie weitere Speicherressourcen wie Blobcontainer oder Warteschlangen bereitstellen können. Weitere Informationen zum Bereitstellen von Azure-Dateifreigaben und Speicherkonten finden Sie unter [Erstellen einer Azure-Dateifreigabe](storage-how-to-create-file-share.md).
 
@@ -212,7 +212,7 @@ Export-PfxCertificate `
 ```
 
 ## <a name="configure-the-vpn-client"></a>Konfigurieren des VPN-Clients
-Das Azure-Gateway für virtuelle Netzwerke erstellt ein herunterladbares Paket mit Konfigurationsdateien, die für die Initialisierung der VPN-Verbindung auf Ihrem lokalen Windows-Computer erforderlich sind. Die VPN-Verbindung wird mit dem [Always On-VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/)-Feature von Windows 10/Windows Server 2016+ konfiguriert. Dieses Paket enthält auch ausführbare Pakete, mit denen auf Wunsch der Legacy-Windows-VPN-Client konfiguriert wird. Dieser Leitfaden verwendet anstelle des Legacy-Windows-VPN-Clients das Always On-VPN-Feature, weil es den Endbenutzern ermöglicht, sich ohne Administratorrechte für den Computer mit dem Azure-VPN zu verbinden bzw. die VPN-Verbindung zu trennen. 
+Das Azure-Gateway für virtuelle Netzwerke erstellt ein herunterladbares Paket mit Konfigurationsdateien, die für die Initialisierung der VPN-Verbindung auf Ihrem lokalen Windows-Computer erforderlich sind. Die VPN-Verbindung wird mit dem [Always On-VPN](/windows-server/remote/remote-access/vpn/always-on-vpn/)-Feature von Windows 10/Windows Server 2016+ konfiguriert. Dieses Paket enthält auch ausführbare Pakete, mit denen auf Wunsch der Legacy-Windows-VPN-Client konfiguriert wird. Dieser Leitfaden verwendet anstelle des Legacy-Windows-VPN-Clients das Always On-VPN-Feature, weil es den Endbenutzern ermöglicht, sich ohne Administratorrechte für den Computer mit dem Azure-VPN zu verbinden bzw. die VPN-Verbindung zu trennen. 
 
 Das folgende Skript installiert das Clientzertifikat, das für die Authentifizierung beim Gateway für virtuelle Netzwerke erforderlich ist, lädt das VPN-Paket herunter und installiert es. Denken Sie daran, `<computer1>` und `<computer2>` durch die gewünschten Computer zu ersetzen. Sie können dieses Skript auf beliebig vielen Computern ausführen, indem Sie weitere PowerShell-Sitzungen in das `$sessions`-Array einfügen. Das verwendete Konto muss als Administrator auf jedem dieser Computer festgelegt sein. Wenn einer dieser Computer der lokale Computer ist, von dem aus Sie das Skript ausführen, müssen Sie das Skript aus einer PowerShell-Sitzung mit erhöhten Rechten ausführen. 
 

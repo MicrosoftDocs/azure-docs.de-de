@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: e54e8e9de1df4c8a1c870285d36e4580daaa698a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c38c57a8480ef2addde494b94d70bd2eb679373
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667825"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016767"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-gen2"></a>Bereitstellen und Verwalten von Azure Time Series Insights Gen2
 
@@ -31,8 +31,8 @@ Wenn Sie eine Azure Time Series Insights Gen2-Umgebung bereitstellen, erstellen 
 
 > [!TIP]
 >
-> * Erfahren Sie, [wie Sie Ihre Umgebung planen](./time-series-insights-update-plan.md).
-> * Hier finden Sie weitere Informationen zum [Hinzufügen einer Event Hub-Quelle](./time-series-insights-how-to-add-an-event-source-eventhub.md) und zum [Hinzufügen einer IoT Hub-Quelle](./time-series-insights-how-to-add-an-event-source-iothub.md).
+> * Erfahren Sie, [wie Sie Ihre Umgebung planen](./how-to-plan-your-environment.md).
+> * Hier finden Sie weitere Informationen zum [Hinzufügen einer Event Hub-Quelle](./how-to-ingest-data-event-hub.md) und zum [Hinzufügen einer IoT Hub-Quelle](./how-to-ingest-data-iot-hub.md).
 
 Sie lernen Folgendes:
 
@@ -59,16 +59,16 @@ So erstellen Sie eine Azure Time Series Insights Gen2-Umgebung
     >
     > * Bei der Time Series-ID muss die *Groß-/Kleinschreibung* beachtet werden. Sie ist zudem *unveränderlich*. (Nach dem Festlegen kann sie nicht mehr geändert werden.)
     > * Time Series-IDs können aus bis zu *drei* Schlüsseln bestehen. Stellen Sie sich dies als einen Primärschlüssel in einer Datenbank vor, der eindeutig jeden Gerätesensor darstellt, der Daten an Ihre Umgebung senden würde. Dabei könnte es sich um eine Eigenschaft oder eine Kombination aus bis zu drei Eigenschaften handeln.
-    > * Hier finden Sie weitere Informationen zum [Auswählen einer Time Series-ID](time-series-insights-update-how-to-id.md)
+    > * Hier finden Sie weitere Informationen zum [Auswählen einer Time Series-ID](./how-to-select-tsid.md)
 
-1. Erstellen Sie ein Azure-Speicherkonto, indem Sie einen Speicherkontonamen und Kontotyp auswählen und eine [Replikations](https://docs.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)auswahl treffen. Hierdurch wird automatisch ein Azure Storage-Konto erstellt. Standardmäßig wird ein Konto vom Typ [Universell v2](https://docs.microsoft.com/azure/storage/common/storage-account-overview) erstellt. Das Konto wird in derselben Region wie die Azure Time Series Insights Gen2-Umgebung erstellt, die Sie zuvor ausgewählt haben.
+1. Erstellen Sie ein Azure-Speicherkonto, indem Sie einen Speicherkontonamen und Kontotyp auswählen und eine [Replikations](../storage/common/redundancy-migration.md?tabs=portal)auswahl treffen. Hierdurch wird automatisch ein Azure Storage-Konto erstellt. Standardmäßig wird ein Konto vom Typ [Universell v2](../storage/common/storage-account-overview.md) erstellt. Das Konto wird in derselben Region wie die Azure Time Series Insights Gen2-Umgebung erstellt, die Sie zuvor ausgewählt haben.
 Alternativ können Sie auch Ihren eigenen Speicher (BYOS) über eine [ARM-Vorlage](./time-series-insights-manage-resources-using-azure-resource-manager-template.md) verwenden, wenn Sie eine neue Azure Time Series Gen2-Umgebung erstellen.
 
 1. **(Optional)** Aktivieren Sie den warmen Speicher für Ihre Umgebung, wenn Sie schnellere und unbegrenzte Abfragen über die neuesten Daten in Ihrer Umgebung wünschen. Sie können auch einen warmen Speicher über die Option **Speicherkonfiguration** im linken Navigationsbereich erstellen oder löschen, nachdem Sie eine Azure Time Series Insights Gen2-Umgebung erstellt haben.
 
 1. **(Optional)** Sie können jetzt eine Ereignisquelle hinzufügen. Sie können aber auch warten, bis die Instanz bereitgestellt wurde.
 
-   * Azure Time Series Insights unterstützt [Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md) und [Azure Event Hubs](./time-series-insights-how-to-add-an-event-source-eventhub.md) als Ereignisquellenoptionen. Zwar können Sie bei der Erstellung der Umgebung nur eine einzelne Ereignisquelle hinzufügen, doch können Sie später eine weitere Ereignisquelle hinzufügen.
+   * Azure Time Series Insights unterstützt [Azure IoT Hub](./how-to-ingest-data-iot-hub.md) und [Azure Event Hubs](./how-to-ingest-data-event-hub.md) als Ereignisquellenoptionen. Zwar können Sie bei der Erstellung der Umgebung nur eine einzelne Ereignisquelle hinzufügen, doch können Sie später eine weitere Ereignisquelle hinzufügen.
 
      Sie können eine vorhandene Consumergruppe auswählen oder eine neue Consumergruppe erstellen, wenn Sie die Ereignisquelle hinzufügen. Beachten Sie, dass die Ereignisquelle immer eine eindeutige Consumergruppe erfordert, damit Ihre Umgebung Daten in diese einlesen kann.
 
@@ -92,19 +92,19 @@ Sie können Ihre Azure Time Series Insights Gen2-Umgebung über das Azure-Portal
   * Die Kapazität wird entfernt, da sie nicht für Gen2-Umgebungen gilt.
   * Die Eigenschaft **Time Series-ID** wird hinzugefügt. Sie bestimmt, wie Ihre Daten partitioniert werden.
   * Verweisdatasets wurden entfernt.
-  * Die angezeigte URL leitet Sie zum [Azure Time Series Insights-Explorer](./time-series-insights-update-explorer.md) weiter.
+  * Die angezeigte URL leitet Sie zum [Azure Time Series Insights-Explorer](./concepts-ux-panels.md) weiter.
   * Der Name Ihres Azure-Speicherkontos wird aufgeführt.
 
 * Das Blatt **Konfigurieren** im Azure-Portal wurde entfernt, weil Skalierungseinheiten nicht für Azure Time Series Insights Gen2-Umgebungen gelten. Sie können jedoch **Speicherkonfiguration** verwenden, um den neu eingeführten warmen Speicher zu konfigurieren.
 
-* Das Blatt **Verweisdaten** im Azure-Portal wurde in Azure Time Series Insights Gen2 entfernt, da das Konzept von Verweisdaten durch das [Zeitreihenmodell (Time Series Model, TSM)](/azure/time-series-insights/concepts-model-overview) ersetzt wurde.
+* Das Blatt **Verweisdaten** im Azure-Portal wurde in Azure Time Series Insights Gen2 entfernt, da das Konzept von Verweisdaten durch das [Zeitreihenmodell (Time Series Model, TSM)](./concepts-model-overview.md) ersetzt wurde.
 
 [![Azure Time Series Insights Gen2-Umgebung im Azure-Portal](media/v2-update-manage/create-and-manage-overview-confirm.png)](media/v2-update-manage/create-and-manage-overview-confirm.png#lightbox)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Erfahren Sie mehr über allgemein verfügbare Umgebungen sowie Gen2-Umgebungen von Azure Time Series Insights, indem Sie [Planen Ihrer Umgebung](./time-series-insights-update-plan.md) lesen.
+* Erfahren Sie mehr über allgemein verfügbare Umgebungen sowie Gen2-Umgebungen von Azure Time Series Insights, indem Sie [Planen Ihrer Umgebung](./how-to-plan-your-environment.md) lesen.
 
-* Informieren Sie sich über das [Hinzufügen einer Event Hub-Quelle](./time-series-insights-how-to-add-an-event-source-eventhub.md).
+* Informieren Sie sich über das [Hinzufügen einer Event Hub-Quelle](./how-to-ingest-data-event-hub.md).
 
-* Konfigurieren [einer IoT-Hub-Quelle](./time-series-insights-how-to-add-an-event-source-iothub.md).
+* Konfigurieren [einer IoT-Hub-Quelle](./how-to-ingest-data-iot-hub.md).

@@ -1,6 +1,6 @@
 ---
-title: Migrieren eines verwalteten Images zu einem Katalog mit freigegebenen Images
-description: Erfahren Sie, wie Sie ein verwaltetes Image mithilfe von Azure PowerShell zu einer Imageversion in einem Katalog mit freigegebenen Images migrieren.
+title: Klonen eines verwalteten Images zu einer Shared Image Gallery
+description: Erfahren Sie, wie Sie ein verwaltetes Image mithilfe von Azure PowerShell zu einer Imageversion in einer Shared Image Gallery klonen.
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: c1b40cc8d52ffe5655401f7698790cdc05898331
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92cae59978b172993c779e9a486ff67d82309800
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88225539"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349921"
 ---
-# <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>Migrieren von einem verwalteten Image zu einem Image in einem Katalog mit freigegebenen Images
+# <a name="clone-a-managed-image-to-a-shared-image-gallery-image"></a>Klonen eines verwalteten Images zu einem Shared Image Gallery-Image
 
-Wenn Sie über ein vorhandenes verwaltetes Image verfügen, das Sie zu einem Katalog mit freigegebenen Images migrieren möchten, können Sie direkt aus dem verwalteten Image ein Image im Katalog erstellen. Nachdem Sie das neue Image getestet haben, können Sie das verwaltete Quellimage löschen. Sie können auch mithilfe der [Azure-Befehlszeilenschnittstelle](image-version-managed-image-cli.md) von einem verwalteten Image zu einem Katalog mit freigegebenen Images migrieren.
+Wenn Sie über ein vorhandenes verwaltetes Image verfügen, das Sie in eine Shared Image Gallery klonen und verschieben möchten, können Sie direkt aus dem verwalteten Image ein Image in der Shared Image Gallery erstellen. Nachdem Sie das neue Image getestet haben, können Sie das verwaltete Quellimage löschen. Sie können auch mithilfe der [Azure-Befehlszeilenschnittstelle](image-version-managed-image-cli.md) von einem verwalteten Image zu einem Katalog mit freigegebenen Images migrieren.
 
 Images in Imagekatalogen weisen zwei Komponenten auf, die in diesem Beispiel erstellt werden:
 - Eine **Imagedefinition** enthält Informationen zum Image und zu den Anforderungen für dessen Verwendung. Dies umfasst Angaben dazu, ob es sich um ein Windows- oder Linux-Image handelt, ob es spezialisiert oder generalisiert ist sowie welche Mindest- und Höchstanforderungen für den Arbeitsspeicher gelten. Außerdem sind Versionshinweise enthalten. Es ist eine Definition eines Imagetyps. 
@@ -88,7 +88,7 @@ Erstellen Sie mit [New-AzGalleryImageVersion](/powershell/module/az.compute/new-
 
 Zulässige Zeichen für die Imageversion sind Zahlen und Punkte. Zahlen müssen im Bereich einer ganzen 32-Bit-Zahl liegen. Format: *Hauptversion*.*Nebenversion*.*Patch*.
 
-In diesem Beispiel lautet die Imageversion *1.0.0*. Sie wird in den Rechenzentren *USA, Westen-Mitte* und *USA, Süden-Mitte* repliziert. Bei der Auswahl der Zielregionen für die Replikation ist zu beachten, dass Sie auch die *Quell*region als Ziel für die Replikation angeben müssen. 
+In diesem Beispiel lautet die Imageversion *1.0.0*. Sie wird in den Rechenzentren *USA, Westen-Mitte* und *USA, Süden-Mitte* repliziert. Bei der Auswahl der Zielregionen für die Replikation ist zu beachten, dass Sie auch die *Quell* region als Ziel für die Replikation angeben müssen. 
 
 
 ```azurepowershell-interactive
@@ -102,7 +102,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -ResourceGroupName $imageDefinition.ResourceGroupName `
    -Location $imageDefinition.Location `
    -TargetRegion $targetRegions  `
-   -Source $managedImage.Id.ToString() `
+   -SourceImageId $managedImage.Id.ToString() `
    -PublishingProfileEndOfLifeDate '2020-12-31' `
    -asJob 
 ```

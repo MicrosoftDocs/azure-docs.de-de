@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 978d1de158f93b06d08ff93605405573000b6b6e
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7d2734d386f1e49e2227058b148ee6b591d14a42
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123714"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336425"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Verwalten von Azure Data Box und Azure Data Box Heavy über das Azure-Portal
 
@@ -34,11 +34,11 @@ Führen Sie die folgenden Schritte aus, um einen Auftrag zu stornieren.
 
 1.  Navigieren Sie zu **Übersicht > Abbrechen**.
 
-    ![Abbrechen eines Auftrags (1)](media/data-box-portal-admin/cancel-order1.png)
+    ![Befehl „Abbrechen“ auf der Registerkarte „Übersicht“ für einen Auftrag](media/data-box-portal-admin/portal-admin-cancel-command.png)
 
 2.  Geben Sie einen Grund für den Abbruch an.  
 
-    ![Abbrechen eines Auftrags (2)](media/data-box-portal-admin/cancel-order2.png)
+    ![Dialogfeld „Auftrag stornieren“](media/data-box-portal-admin/portal-admin-cancel-order-dbox.png)
 
 3.  Nach Abbruch des Auftrags aktualisiert das Portal den Status des Auftrags und zeigt **Abgebrochen** an.
 
@@ -53,7 +53,7 @@ Führen Sie die folgenden Schritte aus, um einen Importauftrag zu klonen.
 
 1.  Navigieren Sie zu **Übersicht > Klonen**. 
 
-    ![Klonen eines Auftrags (1)](media/data-box-portal-admin/clone-order1.png)
+    ![Befehl „Klonen“ auf der Registerkarte „Übersicht“ für einen Auftrag](media/data-box-portal-admin/portal-admin-clone-command.png)
 
 2.  Die Auftragsdetails bleiben unverändert. Als Auftragsname wird der Name des ursprünglichen Auftrags mit dem Zusatz *-Clone* verwendet. Aktivieren Sie das Kontrollkästchen, um zu bestätigen, dass Sie die Datenschutzinformationen gelesen haben. Klicken Sie auf **Erstellen**.
 
@@ -70,7 +70,7 @@ Sie können nur Aufträge löschen, die abgeschlossen sind oder abgebrochen wurd
 
 2. Klicken Sie auf den Auftrag, den Sie löschen möchten, und navigieren zu **Übersicht**. Klicken Sie auf der Befehlsleiste auf **Löschen**.
 
-    ![Löschen eines Data Box Disk-Auftrags (1)](media/data-box-portal-admin/delete-order1.png)
+    ![Befehl „Löschen“ auf der Registerkarte „Übersicht“ für einen Auftrag](media/data-box-portal-admin/portal-admin-delete-command.png)
 
 3. Geben Sie bei entsprechender Aufforderung den Namen des Auftrags ein, um die Auftragslöschung zu bestätigen. Klicken Sie auf **Löschen**.
 
@@ -82,11 +82,11 @@ Führen Sie die folgenden Schritte aus, um ein Adressetikett herunterzuladen.
 
 1.  Navigieren Sie zu **Übersicht > Versandetikett herunterladen**. Diese Option steht erst zur Verfügung, nachdem das Gerät versendet wurde. 
 
-    ![Versandetikett herunterladen](media/data-box-portal-admin/download-shipping-label.png)
+    ![Versandetikett herunterladen](media/data-box-portal-admin/portal-admin-download-shipping-label.png)
 
 2.  Dadurch wird das folgende Rücksendeetikett heruntergeladen. Speichern Sie das Etikett, und drucken Sie es aus. Falten Sie das Etikett, und stecken Sie es in die Klarsichthülle am Gerät. Vergewissern Sie sich, dass das Etikett sichtbar ist. Entfernen Sie alle Etiketten, die vom vorherigen Versand noch auf dem Gerät vorhanden sind.
 
-    ![Beispiel für Versandetikett](media/data-box-portal-admin/example-shipping-label.png)
+    ![Beispiel für Versandetikett](media/data-box-portal-admin/portal-admin-example-shipping-label.png)
 
 ## <a name="edit-shipping-address"></a>Bearbeiten der Lieferadresse
 
@@ -96,11 +96,11 @@ Führen Sie die folgenden Schritte aus, um den Auftrag zu bearbeiten.
 
 1. Navigieren Sie zu **Auftragsdetails > Lieferadresse bearbeiten**.
 
-    ![Bearbeiten der Lieferadresse (1)](media/data-box-portal-admin/edit-shipping-address1.png)
+    ![Befehl „Lieferadresse bearbeiten“ in „Auftragsdetails“](media/data-box-portal-admin/portal-admin-edit-shipping-address-command.png)
 
 2. Bearbeiten und bestätigen Sie die Lieferadresse, und speichern Sie die Änderungen.
 
-    ![Bearbeiten der Lieferadresse (2)](media/data-box-portal-admin/edit-shipping-address2.png)
+    ![Dialogfeld „Lieferadresse bearbeiten“](media/data-box-portal-admin/portal-admin-edit-shipping-address-dbox.png)
 
 ## <a name="edit-notification-details"></a>Bearbeiten der Benachrichtigungsdetails
 
@@ -110,11 +110,11 @@ Führen Sie die folgenden Schritte aus, um die Benachrichtigungsdetails zu bearb
 
 1. Navigieren Sie zu **Auftragsdetails > Benachrichtigungsdetails bearbeiten**.
 
-    ![Bearbeiten der Benachrichtigungsdetails (1)](media/data-box-portal-admin/edit-notification-details1.png)
+    ![Befehl „Benachrichtigungsdetails bearbeiten“ in „Auftragsdetails“](media/data-box-portal-admin/portal-admin-edit-notification-details-command.png)
 
 2. Nun können Sie die Benachrichtigungsdetails bearbeiten und die Änderungen speichern.
  
-    ![Bearbeiten der Benachrichtigungsdetails (2)](media/data-box-portal-admin/edit-notification-details2.png)
+    ![Dialogfeld „Benachrichtigungsdetails bearbeiten“](media/data-box-portal-admin/portal-admin-edit-notification-details-dbox.png)
 
 
 ## <a name="download-order-history"></a>Herunterladen des Auftragsverlaufs
@@ -125,7 +125,7 @@ Führen Sie die folgenden Schritte aus, um den Auftragsverlauf herunterzuladen:
 
 1. Navigieren Sie in Ihrem Data Box-Auftrag zu **Übersicht**. Vergewissern Sie sich, dass der Auftrag abgeschlossen ist. Sind Auftrag und Gerätebereinigung abgeschlossen, navigieren Sie zu **Auftragsdetails**. Die Option **Bestellverlauf herunterladen** ist verfügbar.
 
-    ![Herunterladen des Auftragsverlaufs](media/data-box-portal-admin/download-order-history-1.png)
+    ![Herunterladen des Auftragsverlaufs](media/data-box-portal-admin/portal-admin-download-order-history.png)
 
 2. Klicken Sie auf **Bestellverlauf herunterladen**. Im heruntergeladenen Verlauf sehen Sie einen Eintrag für die Sendungsverfolgungsprotokolle des Zustelldiensts. Den zwei Knoten auf einer Data Box Heavy-Instanz entsprechend gibt es zwei Protokollgruppen. Unten in diesem Protokoll finden Sie Links zu den folgenden Elementen:
     
@@ -198,11 +198,11 @@ Führen Sie die folgenden Schritte aus, um den Auftragsverlauf herunterzuladen:
 
     Anschließend können Sie zu Ihrem Speicherkonto navigieren und die Kopierprotokolle anzeigen.
 
-![Protokolle in Speicherkonten](media/data-box-portal-admin/logs-in-storage-acct-2.png)
+   ![Die Kopierprotokolle für ein Speicherkonto](media/data-box-portal-admin/portal-admin-storage-account-copy-logs.png)
 
-Sie können auch die Protokolle zur Rückverfolgbarkeit anzeigen, zu denen die Überwachungsprotokolle und die BOM-Dateien zählen.
+   Sie können auch die Protokolle zur Rückverfolgbarkeit anzeigen, zu denen die Überwachungsprotokolle und die BOM-Dateien zählen.
 
-![Protokolle in Speicherkonten 2](media/data-box-portal-admin/logs-in-storage-acct-1.png)
+   ![Rückverfolgbarkeitsprotokolle für ein Speicherkonto](media/data-box-portal-admin/portal-admin-storage-account-chain-of-custody-logs.png)
 
 ## <a name="view-order-status"></a>Anzeigen des Auftragsstatus
 

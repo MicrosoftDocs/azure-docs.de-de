@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 04/08/2019
 ms.author: kwill
-ms.openlocfilehash: 9c427982854e1d328b5d1553aa86866ad298eea1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d29c98ecbbb6c9da18e6356a0e38122e253a34b6
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461313"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026461"
 ---
 #    <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Workflow der klassischen Windows-Azure-VM-Architektur 
 Dieser Artikel bietet eine Übersicht über die Workflowprozesse, die beim Bereitstellen oder Aktualisieren einer Azure-Ressource (z. B. einer VM) stattfinden. 
@@ -54,7 +54,7 @@ Das folgende Diagramm zeigt die Architektur von Azure-Ressourcen.
 2. Überwachen aller untergeordneten Prozesse
 3. Auslösen des StatusCheck-Ereignisses im Rollenhostprozess
 
-**F**. IISConfigurator wird ausgeführt, wenn die Rolle als Webrolle mit der IIS-Vollversion konfiguriert ist (für SDK 1.2-HWC-Rollen wird der Prozess nicht ausgeführt). IISConfigurator ist für Folgendes zuständig:
+**F**. IISConfigurator wird ausgeführt, wenn die Rolle als Webrolle mit der IIS-Vollversion konfiguriert ist. IISConfigurator ist für Folgendes zuständig:
 
 1. Starten der IIS-Standarddienste
 2. Konfigurieren des Rewrite-Moduls in der Webkonfiguration
@@ -65,11 +65,11 @@ Das folgende Diagramm zeigt die Architektur von Azure-Ressourcen.
 
 **G**. Startaufgaben werden durch das Rollenmodell definiert und von WaHostBootstrapper gestartet. Startaufgaben können zur asynchronen Ausführung im Hintergrund konfiguriert werden. Der Hostbootstrapper startet in diesem Fall die Startaufgabe und fährt dann mit der Verarbeitung anderer Startaufgaben fort. Startaufgaben können auch zur Ausführung im einfachen Modus (Standard) konfiguriert werden. Der Hostbootstrapper wartet in diesem Fall auf den Abschluss der Startaufgabe und gibt einen Erfolgs-Exitcode (0) zurück, bevor er mit der nächsten Startaufgabe fortfährt.
 
-**H**. Diese Aufgaben sind Teil des SDK und als Plug-Ins in der Dienstdefinition (.csdef) der Rolle definiert. Werden sie in Startaufgaben erweitert, weisen **DiagnosticsAgent** und **RemoteAccessAgent** die Besonderheit auf, dass sie jeweils zwei Startaufgaben definieren: eine normale und eine mit dem Parameter **/blockStartup**. Die normale Startaufgabe wird als Hintergrundstartaufgabe definiert, sodass sie im Hintergrund laufen kann, während die Rolle selbst ausgeführt wird. Die **/blockStartup**-Startaufgabe wird als einfache Startaufgabe definiert, sodass WaHostBootstrapper auf ihre Beendigung wartet, bevor er mit anderen Aufgaben fortfährt. Die **/blockStartup**-Aufgabe wartet, bis die Initialisierung der normalen Aufgabe abgeschlossen ist, und anschließend wird sie beendet, wodurch der Hostbootstrapper die Verarbeitung fortsetzen kann. Dadurch können die Diagnose und der RDP-Zugriff vor dem Start der Rollenprozesse konfiguriert werden (über die „/blockStartup“-Aufgabe). Zudem können die Diagnose und der RDP-Zugriff so weiter ausgeführt werden, nachdem der Hostbootstrapper die Startaufgaben abgeschlossen hat (über die normale Aufgabe).
+**H**. Diese Aufgaben sind Teil des SDK und als Plug-Ins in der Dienstdefinition (.csdef) der Rolle definiert. Werden sie in Startaufgaben erweitert, weisen **DiagnosticsAgent** und **RemoteAccessAgent** die Besonderheit auf, dass sie jeweils zwei Startaufgaben definieren: eine normale und eine mit dem Parameter **/blockStartup**. Die normale Startaufgabe wird als Hintergrundstartaufgabe definiert, sodass sie im Hintergrund laufen kann, während die Rolle selbst ausgeführt wird. Die **/blockStartup** -Startaufgabe wird als einfache Startaufgabe definiert, sodass WaHostBootstrapper auf ihre Beendigung wartet, bevor er mit anderen Aufgaben fortfährt. Die **/blockStartup** -Aufgabe wartet, bis die Initialisierung der normalen Aufgabe abgeschlossen ist, und anschließend wird sie beendet, wodurch der Hostbootstrapper die Verarbeitung fortsetzen kann. Dadurch können die Diagnose und der RDP-Zugriff vor dem Start der Rollenprozesse konfiguriert werden (über die „/blockStartup“-Aufgabe). Zudem können die Diagnose und der RDP-Zugriff so weiter ausgeführt werden, nachdem der Hostbootstrapper die Startaufgaben abgeschlossen hat (über die normale Aufgabe).
 
 **I**. WaWorkerHost ist der Standardhostprozess für normale Workerrollen. Dieser Hostprozess hostet alle DLLs sowie den Code für den Einstiegspunkt der Rolle (z. B. „OnStart“ und „Run“).
 
-**J**. WaIISHost ist für Webrollen, die die IIS-Vollversion verwenden, der Hostprozess für den Code für den Einstiegspunkt der Rolle. Der Prozess lädt die erste gefundene DLL mit der **RoleEntryPoint**-Klasse und führt den Code über diese Klasse aus (OnStart, Run, OnStop). Alle in der RoleEntryPoint-Klasse erstellten **RoleEnvironment**-Ereignisse (z. B. „StatusCheck“ und „Changed“) werden in diesem Prozess ausgelöst.
+**J**. WaIISHost ist für Webrollen, die die IIS-Vollversion verwenden, der Hostprozess für den Code für den Einstiegspunkt der Rolle. Der Prozess lädt die erste gefundene DLL mit der **RoleEntryPoint** -Klasse und führt den Code über diese Klasse aus (OnStart, Run, OnStop). Alle in der RoleEntryPoint-Klasse erstellten **RoleEnvironment** -Ereignisse (z. B. „StatusCheck“ und „Changed“) werden in diesem Prozess ausgelöst.
 
 **K**. W3WP ist der IIS-Standardworkerprozess, der verwendet wird, wenn die Rolle zur Verwendung der IIS-Vollversion konfiguriert ist. Dieser Prozess führt den über IISConfigurator konfigurierten AppPool aus. Alle RoleEnvironment-Ereignisse (z. B. „StatusCheck“ und „Changed“), die hier erstellt werden, werden in diesem Prozess ausgelöst. Beachten Sie, dass RoleEnvironment-Ereignisse sowohl in WaIISHost als auch „w3wp.exe“ ausgelöst werden, wenn Sie Ereignisse in beiden Prozessen abonnieren.
 
@@ -84,8 +84,8 @@ Das folgende Diagramm zeigt die Architektur von Azure-Ressourcen.
 7. WaHostBootstrapper liest die **Startaufgaben** aus „E:\RoleModel.xml“ und beginnt mit ihrer Ausführung. WaHostBootstrapper wartet, bis alle einfachen Aufgaben abgeschlossen sind und eine Erfolgsmeldung zurückgegeben haben.
 8. Für Webrollen mit der IIS-Vollversion weist WaHostBootstrapper IISConfigurator an, den IIS-AppPool zu konfigurieren, und verweist die Website auf `E:\Sitesroot\<index>`, wobei `<index>` ein 0-basierter Index für die Anzahl von `<Sites>`-Elementen ist, die für den Dienst definiert sind.
 9. WaHostBootstrapper startet den Hostprozess je nach Rollentyp:
-    1. **Workerrolle**: „WaWorkerHost.exe“ wird gestartet. WaHostBootstrapper führt die OnStart()-Methode aus. Nach Abschluss dieser Methode startet WaHostBootstrapper die Ausführung der Run()-Methode. Danach markiert er die Rolle als „Bereit“ und fügt sie gleichzeitig der Lastenausgleichsrotation hinzu (falls Eingabeendpunkte definiert sind). Anschließend überprüft WaHostBootstrapper in einer Schleife den Rollenstatus.
-    2. **Webrolle mit der IIS-Vollversion**: aIISHost wird gestartet. WaHostBootstrapper führt die OnStart()-Methode aus. Nach Abschluss dieser Methode startet er die Ausführung der Run()-Methode. Danach markiert er die Rolle als „Bereit“ und fügt sie gleichzeitig der Lastenausgleichsrotation hinzu. Anschließend überprüft WaHostBootstrapper in einer Schleife den Rollenstatus.
+    1. **Workerrolle** : „WaWorkerHost.exe“ wird gestartet. WaHostBootstrapper führt die OnStart()-Methode aus. Nach Abschluss dieser Methode startet WaHostBootstrapper die Ausführung der Run()-Methode. Danach markiert er die Rolle als „Bereit“ und fügt sie gleichzeitig der Lastenausgleichsrotation hinzu (falls Eingabeendpunkte definiert sind). Anschließend überprüft WaHostBootstrapper in einer Schleife den Rollenstatus.
+    2. **Webrolle mit der IIS-Vollversion** : aIISHost wird gestartet. WaHostBootstrapper führt die OnStart()-Methode aus. Nach Abschluss dieser Methode startet er die Ausführung der Run()-Methode. Danach markiert er die Rolle als „Bereit“ und fügt sie gleichzeitig der Lastenausgleichsrotation hinzu. Anschließend überprüft WaHostBootstrapper in einer Schleife den Rollenstatus.
 10. Eingehende Webanforderungen an eine Webrolle mit der IIS-Vollversion lösen wie in einer lokalen IIS-Umgebung IIS aus, um den W3WP-Prozess zu starten und die Anforderung zu verarbeiten.
 
 ## <a name="log-file-locations"></a>Speicherort der Protokolldateien

@@ -9,14 +9,15 @@ ms.topic: quickstart
 ms.date: 10/09/2020
 ms.author: masoucou
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ffa8e473fb084b2d5f0e7f59a07b3de50e04752e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 339c6177de6e83f463efbc97e88a36ed4c52d97b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475858"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349094"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Schnellstart: Erstellen einer Xamarin.Forms-App mit dem .NET-SDK und der API für MongoDB von Azure Cosmos DB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -163,9 +164,9 @@ Die folgenden Codeausschnitte stammen alle aus der `MongoService`-Klasse, die si
 
 Wechseln Sie nun zurück zum Azure-Portal, um die Informationen der Verbindungszeichenfolge abzurufen und in die App zu kopieren.
 
-1. Klicken Sie im [Azure-Portal](https://portal.azure.com/) in Ihrem Azure Cosmos DB-Konto im linken Navigationsbereich auf **Verbindungszeichenfolge** , und klicken Sie anschließend auf **Lese-/Schreibschlüssel** . In den nächsten Schritten verwenden Sie die Schaltflächen zum Kopieren auf der rechten Seite des Bildschirms, um die primäre Verbindungszeichenfolge zu kopieren.
+1. Klicken Sie im [Azure-Portal](https://portal.azure.com/) in Ihrem Azure Cosmos DB-Konto im linken Navigationsbereich auf **Verbindungszeichenfolge**, und klicken Sie anschließend auf **Lese-/Schreibschlüssel**. In den nächsten Schritten verwenden Sie die Schaltflächen zum Kopieren auf der rechten Seite des Bildschirms, um die primäre Verbindungszeichenfolge zu kopieren.
 
-2. Öffnen Sie die Datei **APIKeys.cs** im Verzeichnis **Helpers** (Hilfsprogramme) des Projekts **TaskList.Core** .
+2. Öffnen Sie die Datei **APIKeys.cs** im Verzeichnis **Helpers** (Hilfsprogramme) des Projekts **TaskList.Core**.
 
 3. Kopieren Sie den Wert Ihrer **primären Verbindungszeichenfolge** aus dem Portal (mithilfe der Schaltfläche zum Kopieren), und legen Sie ihn als Wert des Felds **ConnectionString** in der Datei **APIKeys.cs** fest.
 
@@ -180,12 +181,12 @@ Sie haben die App nun mit allen erforderlichen Informationen für die Kommunikat
 
 ### <a name="visual-studio-2019"></a>Visual Studio 2019
 
-1. Klicken Sie in Visual Studio mit der rechten Maustaste auf das Projekt im **Projektmappen-Explorer** , und klicken Sie anschließend auf **NuGet-Pakete verwalten** .
+1. Klicken Sie in Visual Studio mit der rechten Maustaste auf das Projekt im **Projektmappen-Explorer**, und klicken Sie anschließend auf **NuGet-Pakete verwalten**.
 2. Klicken Sie auf **Restore all NuGet packages** (Alle NuGet-Pakete wiederherstellen).
-3. Klicken Sie mit der rechten Maustaste auf **TaskList.Android** , und wählen Sie **Als Startprojekt festlegen** aus.
+3. Klicken Sie mit der rechten Maustaste auf **TaskList.Android**, und wählen Sie **Als Startprojekt festlegen** aus.
 4. Drücken Sie die F5-TASTE, um das Debuggen der Anwendung zu starten.
 5. Wenn Sie die App unter iOS ausführen möchten, müssen Sie Ihren Computer zunächst mit einem Mac-Gerät verbinden (Anweisungen finden Sie [hier](/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio)).
-6. Klicken Sie mit der rechten Maustaste auf das Projekt **TaskList.iOS** , und wählen Sie **Als Startprojekt festlegen** aus.
+6. Klicken Sie mit der rechten Maustaste auf das Projekt **TaskList.iOS**, und wählen Sie **Als Startprojekt festlegen** aus.
 7. Drücken Sie die F5-TASTE, um das Debuggen der Anwendung zu starten.
 
 ### <a name="visual-studio-for-mac"></a>Visual Studio für Mac
@@ -206,4 +207,4 @@ Sie haben die App nun mit allen erforderlichen Informationen für die Kommunikat
 In diesem Schnellstart haben Sie gelernt, wie Sie ein Azure Cosmos DB-Konto erstellen und eine Xamarin.Forms-App mithilfe der API für MongoDB ausführen. Jetzt können Sie zusätzliche Daten in Ihr Cosmos DB-Konto importieren.
 
 > [!div class="nextstepaction"]
-> [Importieren von Daten in Azure Cosmos DB, konfiguriert mit der API für MongoDB von Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)
+> [Importieren von Daten in Azure Cosmos DB, konfiguriert mit der API für MongoDB von Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

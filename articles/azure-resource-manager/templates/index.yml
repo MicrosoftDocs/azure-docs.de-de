@@ -11,13 +11,13 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 10/26/2020
-  ms.openlocfilehash: e69daf8f2756a165b000df271bffa73f8b14a979
-  ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+  ms.date: 11/06/2020
+  ms.openlocfilehash: 72129eb10de042252c33784d7d98081f0f22a8b9
+  ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/27/2020
-  ms.locfileid: "92747260"
+  ms.lasthandoff: 12/11/2020
+  ms.locfileid: "97346621"
 landingContent:
 - title: Über ARM-Vorlagen
   linkLists:
@@ -55,26 +55,18 @@ landingContent:
     links:
     - text: Tutorial für Anfänger
       url: template-tutorial-create-first-template.md
-    - text: Bereitstellung
-      url: deployment-tutorial-local-template.md
-    - text: Vorlagenspezifikationen
-      url: template-specs-create-linked.md
-    - text: Erweiterte Vorlagen
-      url: template-tutorial-use-template-reference.md
-    - text: Bereitstellungs-Manager
-      url: deployment-manager-tutorial.md
   - linkListType: learn
     links:
-    - text: Konsistente Infrastruktur
-      url: /learn/modules/create-azure-resource-manager-template-vs-code/
-    - text: Mehrere Umgebungen
-      url: /learn/modules/modify-azure-resource-manager-template-reuse/
-    - text: Überprüfen von Bereitstellungen
-      url: /learn/modules/arm-template-test/
-    - text: Bereitstellen von Vorlagen
-      url: /learn/modules/deploy-templates-command-line-github-actions/
+    - text: Bereitstellen mit ARM-Vorlagen
+      url: /learn/paths/deploy-manage-resource-manager-templates/
 - title: Entwickeln von Vorlagen
   linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Erweiterte Vorlagen
+      url: template-tutorial-use-template-reference.md
+    - text: Vorlagenspezifikationen
+      url: template-specs-create-linked.md
   - linkListType: how-to-guide
     links:
     - text: Verwenden von Funktionen
@@ -95,6 +87,10 @@ landingContent:
       url: https://azure.microsoft.com/resources/templates/
 - title: Bereitstellen von Vorlagen
   linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Bereitstellung
+      url: deployment-tutorial-local-template.md
   - linkListType: how-to-guide
     links:
     - text: PowerShell

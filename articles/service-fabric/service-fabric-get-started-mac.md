@@ -4,12 +4,12 @@ description: Installieren Sie Laufzeit, SDK und Tools, und erstellen Sie einen l
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: adec05a4d8e34374fe260343c73b1ecd14ba04f1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: d08046c8f29901dd9650a1edc886efa2ff226e00
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168170"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086776"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Einrichten Ihrer Entwicklungsumgebung unter Mac OS X
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Führen Sie die folgenden Schritte aus, um einen lokalen Docker-Container einzur
     >
 
     >[!TIP]
-    >Es empfiehlt sich, Docker beim Testen großer Anwendungen mehr Ressourcen zuzuordnen. Klicken Sie hierzu auf das **Docker-Symbol** und anschließend auf **Erweitert**, um die Anzahl von Kernen und die Speichermenge anzupassen.
+    >Es empfiehlt sich, Docker beim Testen großer Anwendungen mehr Ressourcen zuzuordnen. Klicken Sie hierzu auf das **Docker-Symbol** und anschließend auf **Erweitert** , um die Anzahl von Kernen und die Speichermenge anzupassen.
 
 2. Starten Sie den Cluster.<br/>
     <b>Ubuntu 18.04 LTS:</b>
@@ -63,7 +63,7 @@ Führen Sie die folgenden Schritte aus, um einen lokalen Docker-Container einzur
     ```
 
     >[!TIP]
-    > Standardmäßig wird dann das Image mit der aktuellen Version von Service Fabric per Pullvorgang bereitgestellt. Bestimmte Revisionen finden Sie auf der Seite [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/).
+    > Standardmäßig wird dann das Image mit der aktuellen Version von Service Fabric per Pullvorgang bereitgestellt. Informationen zu bestimmten Revisionen finden Sie auf der Seite [Service Fabric Onebox](https://hub.docker.com/_/microsoft-service-fabric-onebox) von Docker Hub.
 
 
 

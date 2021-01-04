@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: sfrev, devx-track-azurepowershell
-ms.openlocfilehash: f32bc444ba753f48955de4a4c16bde8dfb7a05fc
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c252a1dc86c50327e32816abd99bc206f3b74608
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316649"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902883"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Vorbereiten Ihrer Entwicklungsumgebung unter Windows
 
@@ -54,12 +54,6 @@ Zudem müssen Sie das Microsoft Azure Service Fabric SDK und die Laufzeit mithil
 
 * [Installieren Sie das Microsoft Azure Service Fabric-SDK][core-sdk].
 
-### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>So verwenden Sie Visual Studio 2015 (erfordert mindestens Visual Studio 2015 Update 2)
-
-Für Visual Studio 2015 werden die Service Fabric-Tools zusammen mit dem SDK und der Laufzeit mithilfe des Webplattform-Installers installiert:
-
-* [Installieren des Microsoft Azure Service Fabric-SDKs und der Tools][full-bundle-vs2015]
-
 ### <a name="sdk-installation-only"></a>Nur SDK-Installation
 
 Wenn Sie nur das SDK benötigen, können Sie dieses Paket installieren:
@@ -68,8 +62,8 @@ Wenn Sie nur das SDK benötigen, können Sie dieses Paket installieren:
 
 Aktuelle Versionen:
 
-* Service Fabric SDK und Tools 4.1.458
-* Service Fabric-Runtime 7.1.458
+* Service Fabric SDK und Tools 4.2.445
+* Service Fabric-Runtime 7.2.445
 
 Eine Liste mit unterstützten Versionen finden Sie unter [Unterstützte Service Fabric-Versionen](service-fabric-versions.md).
 

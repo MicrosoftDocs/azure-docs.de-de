@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: bed196d1be101ffa75affc389d390ec0fa764b05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0e79e42c7c004638336ada23de663bbe74b7e48
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930323"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532644"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---flexible-server"></a>Sicherung und Wiederherstellung in Azure Database for PostgreSQL – Flexible Server
 
@@ -28,7 +28,7 @@ Wenn die Datenbank mit Hochverfügbarkeit konfiguriert ist, werden auf dem prim�
 > [!IMPORTANT]
 >Auf angehaltenen Servern werden keine Sicherungen durchgeführt. Die Sicherungen werden jedoch fortgesetzt, wenn die Datenbank entweder automatisch nach 7 Tagen oder vom Benutzer gestartet wird.
 
-Die Sicherungen können nur für Wiederherstellungsvorgänge in der Flexible Server-Instanz verwendet werden. Wenn Sie Daten aus der Flexible Server-Instanz exportieren oder in diese importieren möchten, befolgen Sie die Methodik zur  [Sicherung und Wiederherstellung](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore) .
+Die Sicherungen können nur für Wiederherstellungsvorgänge in der Flexible Server-Instanz verwendet werden. Wenn Sie Daten vom flexiblen Server exportieren oder auf diesem importieren möchten, befolgen Sie die Methodik zur [Sicherung und Wiederherstellung](../howto-migrate-using-dump-and-restore.md).
 
 
 ### <a name="backup-retention"></a>die Aufbewahrung der Sicherung
@@ -40,9 +40,9 @@ Der Aufbewahrungszeit für Sicherung bestimmt auch, für welchen zurückliegende
 
 ### <a name="backup-storage-cost"></a>Kosten für Sicherungsspeicher
 
-Für die Flexible Server-Instanz werden bis zu 100 % Ihres bereitgestellten Serverspeichers ohne zusätzliche Kosten als Sicherungsspeicher zur Verfügung gestellt. Wenn zusätzlicher Sicherungsspeicher verwendet wird, wird dies in GB pro Monat berechnet. Wenn Sie beispielsweise einen Server mit 250 GiB Speicherkapazität bereitgestellt haben, stehen Ihnen 250 GiB Sicherungsspeicher ohne zusätzliche Kosten zur Verfügung. Wenn die Größe der tägliche Sicherung 25 GiB beträgt, steht Ihnen kostenloser Sicherungsspeicher für bis zu 10 Tage bereit. Die Nutzung des Sicherungsspeichers über 250 GiB hinaus wird Ihnen gemäß dem  [Preismodell](https://azure.microsoft.com/pricing/details/postgresql/) in Rechnung gestellt.
+Für die Flexible Server-Instanz werden bis zu 100 % Ihres bereitgestellten Serverspeichers ohne zusätzliche Kosten als Sicherungsspeicher zur Verfügung gestellt. Wenn zusätzlicher Sicherungsspeicher verwendet wird, wird dies in GB pro Monat berechnet. Wenn Sie beispielsweise einen Server mit 250 GiB Speicherkapazität bereitgestellt haben, stehen Ihnen 250 GiB Sicherungsspeicher ohne zusätzliche Kosten zur Verfügung. Wenn die Größe der tägliche Sicherung 25 GiB beträgt, steht Ihnen kostenloser Sicherungsspeicher für bis zu 10 Tage bereit. Die Nutzung des Sicherungsspeichers über 250 GiB hinaus wird Ihnen gemäß dem [Preismodell](https://azure.microsoft.com/pricing/details/postgresql/) in Rechnung gestellt.
 
-Sie können die im Azure-Portal verfügbare Metrik für den  [belegten Sicherungsspeicher](https://docs.microsoft.com/azure/postgresql/concepts-monitoring) zum Überwachen des von einem Server belegten Sicherungsspeichers verwenden. Die Metrik für den belegten Sicherungsspeicher stellt den gesamten Speicherplatz dar, der von allen Datenbank- und Protokollsicherungen beansprucht wurde, die auf Grundlage des für den Server festgelegten Aufbewahrungszeitraums für Sicherungen aufbewahrt wurden.  Eine hohe Transaktionsaktivität auf dem Server kann dazu führen, dass die Sicherungsspeicherauslastung unabhängig von der Gesamtgröße der Datenbank zunimmt.
+Sie können die im Azure-Portal verfügbare Metrik für den [verwendeten Sicherungsspeicher](../concepts-monitoring.md) zum Überwachen des von einem Server belegten Sicherungsspeichers verwenden. Die Metrik für den belegten Sicherungsspeicher stellt den gesamten Speicherplatz dar, der von allen Datenbank- und Protokollsicherungen beansprucht wurde, die auf Grundlage des für den Server festgelegten Aufbewahrungszeitraums für Sicherungen aufbewahrt wurden.  Eine hohe Transaktionsaktivität auf dem Server kann dazu führen, dass die Sicherungsspeicherauslastung unabhängig von der Gesamtgröße der Datenbank zunimmt.
 
 Das primäre Mittel zum Steuern der Sicherungsspeicherkosten besteht darin, den geeigneten Aufbewahrungszeitraum festzulegen und die richtige Sicherungsredundanzoptionen auszuwählen, um die gewünschten Wiederherstellungsziele zu erreichen.
 
@@ -71,15 +71,15 @@ Die Point-in-Time-Wiederherstellung ist für viele Szenarien hilfreich. Beispiel
 
 Sie können zwischen einem frühesten und einem benutzerdefinierten Wiederherstellungspunkt wählen.
 
--   **Frühester Wiederherstellungspunkt**: Je nach Aufbewahrungszeitraum ist dies der früheste Zeitpunkt, den Sie wiederherstellen können. Der älteste Sicherungszeitpunkt wird automatisch ausgewählt und im Portal angezeigt. Dies ist nützlich, wenn Sie ab diesem Zeitpunkt Untersuchungen oder Tests durchführen möchten.
+-   **Frühester Wiederherstellungspunkt** : Je nach Aufbewahrungszeitraum ist dies der früheste Zeitpunkt, den Sie wiederherstellen können. Der älteste Sicherungszeitpunkt wird automatisch ausgewählt und im Portal angezeigt. Dies ist nützlich, wenn Sie ab diesem Zeitpunkt Untersuchungen oder Tests durchführen möchten.
 
--   **Benutzerdefinierter Wiederherstellungspunkt**: Mithilfe dieser Option können Sie einen beliebigen Zeitpunkt innerhalb des für diese Flexible Server-Instanz definierten Aufbewahrungszeitraums wählen. Standardmäßig wird der späteste Zeitpunkt in UTC automatisch ausgewählt, was nützlich ist, wenn Sie zu Testzwecken die letzte Transaktion wiederherstellen möchten, für die ein Commit durchgeführt wurde. Sie können optional auch andere Tage und Uhrzeiten wählen. 
+-   **Benutzerdefinierter Wiederherstellungspunkt** : Mithilfe dieser Option können Sie einen beliebigen Zeitpunkt innerhalb des für diese Flexible Server-Instanz definierten Aufbewahrungszeitraums wählen. Standardmäßig wird der späteste Zeitpunkt in UTC automatisch ausgewählt, was nützlich ist, wenn Sie zu Testzwecken die letzte Transaktion wiederherstellen möchten, für die ein Commit durchgeführt wurde. Sie können optional auch andere Tage und Uhrzeiten wählen. 
 
 Die geschätzte Wiederherstellungsdauer hängt von verschiedenen Faktoren ab, z. B. Datenbankgröße, Umfang der zu verarbeitenden Transaktionsprotokolle, Netzwerkbandbreite und der Gesamtanzahl der Datenbanken, die gleichzeitig in derselben Region wiederhergestellt werden müssen. Die gesamte Wiederherstellungsdauer beträgt normalerweise mehrere Minuten bis zu mehrere Stunden.
 
 
 > [!IMPORTANT]
-> Gelöschte Server **können nicht** wiederhergestellt werden. Wenn Sie den Server löschen, werden auch alle Datenbanken gelöscht, die zum Server gehören, und können nicht wiederhergestellt werden. Um Serverressourcen nach der Bereitstellung vor versehentlichem Löschen oder unerwarteten Änderungen zu schützen, können Administratoren  [Verwaltungssperren](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) nutzen.
+> Gelöschte Server **können nicht** wiederhergestellt werden. Wenn Sie den Server löschen, werden auch alle Datenbanken gelöscht, die zum Server gehören, und können nicht wiederhergestellt werden. Um Serverressourcen nach der Bereitstellung vor versehentlichem Löschen oder unerwarteten Änderungen zu schützen, können Administratoren [Verwaltungssperren](../../azure-resource-manager/management/lock-resources.md) nutzen.
 
 ## <a name="perform-post-restore-tasks"></a>Durchführen der Aufgaben nach der Wiederherstellung
 
@@ -101,6 +101,5 @@ Nach der Wiederherstellung der Datenbank können Sie die folgenden Aufgaben durc
 ## <a name="next-steps"></a>Nächste Schritte
 
 -   Weitere Informationen zur [Geschäftskontinuität](./concepts-business-continuity.md)
--   Weitere Informationen zur  [zonenredundanten Hochverfügbarkeit](./concepts-high-availability.md)
+-   Weitere Informationen zur [zonenredundanten Hochverfügbarkeit](./concepts-high-availability.md)
 -   Weitere Informationen zur [Wiederherstellung](./how-to-restore-server-portal.md)
-

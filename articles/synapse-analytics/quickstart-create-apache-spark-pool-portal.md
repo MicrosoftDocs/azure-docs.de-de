@@ -1,6 +1,6 @@
 ---
-title: 'Schnellstart: Erstellen eines Apache Spark-Pools mithilfe des Azure-Portals'
-description: Erstellen Sie anhand der Schritte in diesem Leitfaden einen neuen Apache Spark-Pool mithilfe des Azure-Portals.
+title: 'Schnellstart: Erstellen eines serverlosen Apache Spark-Pools über das Azure-Portal'
+description: Erstellen Sie anhand der Schritte in diesem Leitfaden einen serverlosen Apache Spark-Pool mithilfe des Azure-Portals.
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: ea32126e19c4520a6d5a40f38f60ec44e9a119cd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3fc7a7f137701590e4bddd791a3fdd2d1eaeca4a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91260868"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461607"
 ---
-# <a name="quickstart-create-a-new-apache-spark-pool-using-the-azure-portal"></a>Schnellstart: Erstellen eines neuen Apache Spark-Pools über das Azure-Portal
+# <a name="quickstart-create-a-new-serverless-apache-spark-pool-using-the-azure-portal"></a>Schnellstart: Erstellen eines neuen serverlosen Apache Spark-Pools über das Azure-Portal
 
 Azure Synapse Analytics beinhaltet verschiedene Analysemodule, mit denen Sie Ihre Daten erfassen, transformieren, modellieren, analysieren und verteilen können. Ein Apache Spark-Pool bietet Open-Source-Computefunktionen für Big Data. Nach der Erstellung eines Apache Spark-Pools in Ihrem Synapse-Arbeitsbereich können Daten geladen, modelliert, verarbeitet und verteilt werden, um schneller analytische Erkenntnisse zu gewinnen.
 
@@ -62,7 +62,7 @@ Melden Sie sich beim [Azure-Portal](https://portal.azure.com/)
     > Beachten Sie, dass für die Namen, die von Apache Spark-Pools verwendet werden können, bestimmte Einschränkungen gelten. Namen dürfen nur Buchstaben oder Ziffern enthalten und höchstens 15 Zeichen lang sein, müssen mit einem Buchstaben beginnen, dürfen keine reservierten Wörter enthalten und müssen im Arbeitsbereich eindeutig sein.
 
 3. Wählen Sie **Weiter: Zusätzliche Einstellungen** aus, und überprüfen Sie die Standardeinstellungen. Ändern Sie keine Standardeinstellungen.
-    ![Flow für die Apache Spark-Poolerstellung: Registerkarte „Zusätzliche Einstellungen“](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-03.png)
+    ![Screenshot: Seite „Apache Spark-Pool erstellen“, auf der die Registerkarte „Zusätzliche Einstellungen“ ausgewählt ist](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-03.png)
 
 4. Wählen Sie **Weiter: Tags** aus. Fügen Sie keine Tags hinzu.
     ![Flow für die Apache Spark-Poolerstellung: Registerkarte „Zusätzliche Einstellungen“](media/quickstart-create-apache-spark-pool/create-spark-pool-03-tags.png)
@@ -73,7 +73,7 @@ Melden Sie sich beim [Azure-Portal](https://portal.azure.com/)
     ![Flow für die Apache Spark-Poolerstellung: Registerkarte zum Überprüfen der Einstellungen](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-05.png)
 
 7. Der Flow für die Ressourcenbereitstellung wird nun gestartet. Er zeigt an, wenn er abgeschlossen ist.
-    ![Flow für die Apache Spark-Poolerstellung: Ressourcenbereitstellung](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-06.png)
+    ![Screenshot: Seite „Übersicht“, auf der die Meldung angezeigt wird, dass die Bereitstellung abgeschlossen wurde](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-06.png)
 
 8. Wenn Sie nach Abschluss der Bereitstellung zurück zum Arbeitsbereich navigieren, wird ein neuer Eintrag für den neu erstellten Apache Spark-Pool angezeigt.
     ![Flow für die Apache Spark-Poolerstellung: Ressourcenbereitstellung](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-07.png)
@@ -99,4 +99,4 @@ Gehen Sie zum Löschen des Apache Spark-Pools wie folgt vor:
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Weitere Informationen finden Sie unter [Schnellstart: Erstellen eines Apache Spark-Notebooks](quickstart-apache-spark-notebook.md).
-- Weitere Informationen finden Sie unter [Schnellstart: Erstellen eines Synapse SQL-Pools](quickstart-create-sql-pool-portal.md).
+- Weitere Informationen finden Sie unter [Schnellstart: Erstellen eines dedizierten SQL-Pools mithilfe des Azure-Portals](quickstart-create-sql-pool-portal.md).

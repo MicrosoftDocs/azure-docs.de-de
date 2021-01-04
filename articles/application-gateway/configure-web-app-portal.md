@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: victorh
-ms.openlocfilehash: df92e08e91761d77c606ccb5389eee7dc219c101
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a72f0106088d26eb2ff53456840c598c3d9619a7
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323373"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397551"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Konfigurieren von App Service mit Application Gateway
 
@@ -30,13 +30,13 @@ In diesem Artikel werden folgende Vorgehensweisen behandelt:
 
 - Anwendungsgateway: Erstellen eines Anwendungsgateways ohne ein Back-End-Poolziel. Weitere Informationen finden Sie unter [Quickstart: Weiterleiten von Webdatenverkehr per Azure Application Gateway – Azure-Portal](quick-create-portal.md)
 
-- App-Dienst: Wenn Sie noch keinen App-Dienst haben, finden Sie in der [App Service-Dokumentation](https://docs.microsoft.com/azure/app-service/) weitere Informationen.
+- App-Dienst: Wenn Sie noch keinen App-Dienst haben, finden Sie in der [App Service-Dokumentation](../app-service/index.yml) weitere Informationen.
 
 ## <a name="add-app-service-as-backend-pool"></a>Hinzufügen eines App-Diensts als Back-End-Pool
 
 1. Wählen Sie im Azure-Portal Ihr Anwendungsgateway aus.
 
-2. Wählen Sie unter **Back-End-Pools**den Back-End-Pool aus.
+2. Wählen Sie unter **Back-End-Pools** den Back-End-Pool aus.
 
 4. Wählen Sie unter **Zieltyp** die Option **App Services** aus.
 
@@ -56,13 +56,13 @@ In diesem Artikel werden folgende Vorgehensweisen behandelt:
 3. Wählen Sie unter **Hostnamen überschreiben** die Option **Hostnamen aus Back-End-Ziel auswählen** aus.
 4. Wählen Sie **Speichern** aus.
 
-   :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="Screenshot: App-Dienst-Backend":::
+   :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="Hostnamen aus Back-End auswählen: HTTP-Einstellungen":::
 
 ## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>Zusätzliche Konfiguration bei einer Umleitung an den relativen App Service-Pfad
 
 Wenn der App Service eine Umleitungsantwort an den Client sendet, um eine Umleitung zum relativen Pfad durchzuführen (z. B. eine Umleitung von `contoso.azurewebsites.net/path1` zu `contoso.azurewebsites.net/path2`), wird im Adressheader der Antwort der gleiche Hostname wie in der Anforderung verwendet, die vom Anwendungsgateway gesendet wurde. So sendet der Client die Anforderung direkt an `contoso.azurewebsites.net/path2` und durchläuft nicht das Anwendungsgateway (`contoso.com/path2`). Das Umgehen des Anwendungsgateways ist nicht wünschenswert.
 
-Wenn in Ihrem Fall Szenarien vorhanden sind, in denen der App Service eine Umleitungsantwort an den Client senden muss, sollten Sie die [zusätzlichen Schritte zum erneuten Generieren des Adressheaders](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url#sample-configuration) ausführen.
+Wenn in Ihrem Fall Szenarien vorhanden sind, in denen der App Service eine Umleitungsantwort an den Client senden muss, sollten Sie die [zusätzlichen Schritte zum erneuten Generieren des Adressheaders](./troubleshoot-app-service-redirection-app-service-url.md#sample-configuration) ausführen.
 
 ## <a name="restrict-access"></a>Beschränken des Zugriffs
 
@@ -72,4 +72,4 @@ Eine Möglichkeit, wie Sie den Zugriff auf Ihre Web-Apps einschränken können, 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[In diesem Artikel](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview) finden Sie weitere Informationen zu App Service und anderen Möglichkeiten der Application Gateway-Unterstützung für mehrinstanzenfähige Back-Ends.
+[In diesem Artikel](./application-gateway-web-app-overview.md) finden Sie weitere Informationen zu App Service und anderen Möglichkeiten der Application Gateway-Unterstützung für mehrinstanzenfähige Back-Ends.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 7b92c84234432320aa08017a15fbf8a5a4630eb3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 141daa485fae5aba2db23647fada30ba5b621cd0
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019731"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854613"
 ---
 # <a name="data-encryption-models"></a>Datenverschlüsselungsmodelle
 
@@ -91,7 +91,7 @@ Wenn die serverseitige Verschlüsselung mit vom Dienst verwalteten Schlüsseln v
 
 In Szenarien, in denen es erforderlich ist, die ruhenden Daten zu verschlüsseln und die Verschlüsselungsschlüssel zu steuern, können Kunden die serverseitige Verschlüsselung mit vom Kunden verwalteten Schlüsseln in Key Vault verwenden. Einige Diensten speichern möglicherweise nur den Stamm-KEK in Azure Key Vault und speichern den verschlüsselten DEK in einem internen Speicherort, der sich näher an den Daten befindet. In diesem Szenario können Kunden Ihre eigenen Schlüssel in Key Vault mitbringen (BYOK: Bring Your Own Key) oder neue Schlüssel generieren und diese verwenden, um die gewünschten Ressourcen zu verschlüsseln. Während der Ressourcenanbieter die Ver- und Entschlüsselungsvorgänge durchführt, verwendet er den konfigurierten KEK als Stammschlüssel für alle Verschlüsselungsvorgänge.
 
-Der Verlust von KEKs bedeutet, dass Daten verloren gehen. Aus diesem Grund sollten Schlüssel nicht gelöscht werden. Schlüssel sollten immer dann gesichert werden, wenn sie erstellt oder gedreht werden. [Vorläufiges Löschen](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) sollte in jedem Tresor aktiviert werden, in dem KEKs gespeichert werden. Anstatt einen Schlüssel zu löschen, legen Sie die Aktivierungsoption auf „False“ fest, oder legen Sie das Ablaufdatum fest.
+Der Verlust von KEKs bedeutet, dass Daten verloren gehen. Aus diesem Grund sollten Schlüssel nicht gelöscht werden. Schlüssel sollten immer dann gesichert werden, wenn sie erstellt oder gedreht werden. [Vorläufiges Löschen](../../key-vault/general/soft-delete-overview.md) sollte in jedem Tresor aktiviert werden, in dem KEKs gespeichert werden. Anstatt einen Schlüssel zu löschen, legen Sie die Aktivierungsoption auf „False“ fest, oder legen Sie das Ablaufdatum fest.
 
 ### <a name="key-access"></a>Schlüsselzugriff
 
@@ -159,7 +159,7 @@ Die Azure-Dienste, die die einzelnen Verschlüsselungsmodelle unterstützen:
 | Textübersetzung                  | Ja                | Ja                | -                  |
 | Power BI                         | Ja                | Ja, RSA 4.096 Bit  | -                  |
 | **Analyse**                    |                    |                    |                    |
-| Azure Stream Analytics           | Ja                | N/V\*              | -                  |
+| Azure Stream Analytics           | Ja                | Ja\*\*            | -                  |
 | Event Hubs                       | Ja                | Ja                | -                  |
 | Functions                        | Ja                | Ja                | -                  |
 | Azure Analysis Services          | Ja                | -                  | -                  |
@@ -215,7 +215,7 @@ Die Azure-Dienste, die die einzelnen Verschlüsselungsmodelle unterstützen:
 | Azure Site Recovery              | Ja                | -                  | -                  |
 | Azure Migrate                    | Ja                | Ja                | -                  |
 | **Medien**                        |                    |                    |                    |
-| Media Services                   | Ja                | -                  | Ja                |
+| Media Services                   | Ja                | Ja                | Ja                |
 | **Security**                     |                    |                    |                    |
 | Azure Security Center für IoT    | Ja                | Ja                | -                  |
 | Azure Sentinel                   | Ja                | Ja                | -                  |

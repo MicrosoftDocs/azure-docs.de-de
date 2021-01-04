@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure-Datenverschlüsselung ruhender Daten | Microsoft-Dokumentation
-description: In diesem Artikel erhalten Sie einen Überblick über die Datenverschlüsselung ruhender Daten von Microsoft Azure, die Hauptfunktionen und allgemeine Überlegungen.
+title: Datenverschlüsselung ruhender Azure-Daten – Azure Security
+description: In diesem Artikel erhalten Sie einen Überblick über die Azure-Datenverschlüsselung ruhender Daten, die Hauptfunktionen und allgemeine Überlegungen.
 services: security
 documentationcenter: na
 author: msmbaldwin
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: ec81a8f7f9d9f45f1d068a415a599ce30a0d4581
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 092320db9b7fe2b1f3fe142f84ad201d40dc6e2e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397248"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492283"
 ---
-# <a name="azure-data-encryption-at-rest"></a>Datenverschlüsselung ruhender Azure-Daten
+# <a name="azure-data-encryption-at-rest"></a>Azure-Datenverschlüsselung ruhender Daten
 
 Microsoft Azure bietet Tools, um Daten den Sicherheits- und Konformitätsanforderungen Ihres Unternehmens entsprechend zu schützen. In diesem Artikel geht es um folgende Themen:
 
@@ -48,7 +48,7 @@ Die Verschlüsselung ruhender Daten bietet Schutz für gespeicherte Daten (im Ru
 
 Die Verschlüsselung ruhender Daten wurde entwickelt, um dem Angreifer den Zugriff auf die unverschlüsselten Daten zu verwehren, indem die Daten auf der Festplatte verschlüsselt sind. Wenn ein Angreifer sich Zugriff auf eine Festplatte mit verschlüsselten Daten verschafft, aber nicht über die Verschlüsselungsschlüssel verfügt, muss er die Verschlüsselung zum Lesen der Daten umgehen. Dieser Angriff ist weitaus komplexer und ressourcenintensiver als der Zugriff auf nicht verschlüsselte Daten auf einer Festplatte. Aus diesem Grund wird die Verschlüsselung ruhender Daten dringend empfohlen und stellt für viele Organisationen eine Anforderung höchster Priorität dar.
 
-Die Verschlüsselung ruhender Daten ist ggf. auch erforderlich, um die Anforderungen einer Organisation an Datengovernance und Konformität zu erfüllen. Branchenspezifische und gesetzliche Vorschriften wie HIPAA, PCI und FedRAMP geben spezifische Sicherheitsmechanismen für Datenschutz- und Verschlüsselungsanforderungen vor. Die Verschlüsselung ruhender Daten ist eine verpflichtende Maßnahme, die für die Erfüllung dieser Vorschriften erforderlich ist. Weitere Informationen über den Ansatz von Microsoft zur FIPS 140-2-Validierung finden Sie in der [Publikation 140-2 des Federal Information Processing Standard (FIPS)](https://docs.microsoft.com/microsoft-365/compliance/offering-fips-140-2).
+Die Verschlüsselung ruhender Daten ist ggf. auch erforderlich, um die Anforderungen einer Organisation an Datengovernance und Konformität zu erfüllen. Branchenspezifische und gesetzliche Vorschriften wie HIPAA, PCI und FedRAMP geben spezifische Sicherheitsmechanismen für Datenschutz- und Verschlüsselungsanforderungen vor. Die Verschlüsselung ruhender Daten ist eine verpflichtende Maßnahme, die für die Erfüllung dieser Vorschriften erforderlich ist. Weitere Informationen über den Ansatz von Microsoft zur FIPS 140-2-Validierung finden Sie in der [Publikation 140-2 des Federal Information Processing Standard (FIPS)](/microsoft-365/compliance/offering-fips-140-2).
 
 Zusätzlich zur Erfüllung von Konformitäts- und rechtlichen Anforderungen bietet die Verschlüsselung im Ruhezustand einen umfassenden Schutz. Microsoft Azure stellt eine konforme Plattform für Dienste, Anwendungen und Daten bereit. Darüber hinaus bietet Azure umfassende Sicherheit für Einrichtungen, physische Sicherheit, Datenzugriffskontrolle und Überwachung. Es ist jedoch wichtig, für zusätzliche sich „überschneidende“ Sicherheitsmaßnahmen zu sorgen, falls eine der anderen Sicherheitsmaßnahmen fehlschlägt und die Verschlüsselung der ruhenden Daten eine solche Sicherheitsmaßnahme bereitstellt.
 
@@ -115,22 +115,22 @@ Microsoft Azure-Dienste unterstützen alle mindestens ein Modell zur Verschlüss
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-Jeder Kunde, der Funktionen von Azure-IaaS verwendet, kann die Verschlüsselung ruhender Daten für seine IaaS-VMs und -Datenträger mit Azure Disk Encryption erreichen. Weitere Informationen zu Azure Disk Encryption finden Sie in der [Dokumentation zu Azure Disk Enryption](../azure-security-disk-encryption-overview.md).
+Jeder Kunde, der Funktionen von Azure-IaaS verwendet, kann die Verschlüsselung ruhender Daten für seine IaaS-VMs und -Datenträger mit Azure Disk Encryption erreichen. Weitere Informationen zu Azure Disk Encryption finden Sie in der [Dokumentation zu Azure Disk Enryption](./azure-disk-encryption-vms-vmss.md).
 
 #### <a name="azure-storage"></a>Azure-Speicher
 
 Alle Azure Storage-Dienste (Blob Storage, Queue Storage, Table Storage und Azure Files) unterstützen die serverseitige Verschlüsselung im Ruhezustand. Einige Dienste unterstützen außerdem vom Kunden verwaltete Schlüssel und clientseitige Verschlüsselung.
 
-- Serverseitig: Alle Azure Storage-Dienste ermöglichen standardmäßig die serverseitige Verschlüsselung mithilfe von dienstverwalteten Schlüsseln – transparent für die Anwendung. Weitere Informationen finden Sie unter [Azure Storage Service Encryption für ruhende Daten](../../storage/common/storage-service-encryption.md). Azure Blob Storage und Azure Files unterstützen auch von Kunden verwaltete RSA-Schlüssel mit 2048 Bit in Azure Key Vault. Weitere Informationen finden Sie unter [Azure Storage Service Encryption mit von Kunden verwalteten Schlüsseln in Azure Key Vault](../../storage/common/storage-encryption-keys-portal.md).
+- Serverseitig: Alle Azure Storage-Dienste ermöglichen standardmäßig die serverseitige Verschlüsselung mithilfe von dienstverwalteten Schlüsseln – transparent für die Anwendung. Weitere Informationen finden Sie unter [Azure Storage Service Encryption für ruhende Daten](../../storage/common/storage-service-encryption.md). Azure Blob Storage und Azure Files unterstützen auch von Kunden verwaltete RSA-Schlüssel mit 2048 Bit in Azure Key Vault. Weitere Informationen finden Sie unter [Azure Storage Service Encryption mit von Kunden verwalteten Schlüsseln in Azure Key Vault](../../storage/common/customer-managed-keys-configure-key-vault.md).
 - Clientseitig: Azure-Blobs, -Tabellen und -Warteschlangen unterstützen die clientseitige Verschlüsselung. Beim Verwenden der clientseitigen Verschlüsselung verschlüsseln Kunden die Daten und laden die Daten als verschlüsselte Blobs hoch. Der Kunde ist für die Schlüsselverwaltung verantwortlich. Weitere Informationen finden Sie unter [Clientseitige Verschlüsselung und Azure Key Vault für Microsoft Azure Storage](../../storage/common/storage-client-side-encryption.md).
 
 #### <a name="azure-sql-database"></a>Azure SQL-Datenbank
 
 Azure SQL-Datenbank unterstützt aktuell die Verschlüsselung ruhender Daten für von Microsoft verwaltete serverseitige und clientseitige Verschlüsselungsszenarien.
 
-Die Unterstützung für die Serververschlüsselung wird aktuell mit dem SQL-Feature „Transparent Data Encryption“ bereitgestellt. Sobald ein Azure SQL-Datenbank-Kunde TDE aktiviert, werden Schlüssel automatisch für ihn erstellt und verwaltet. Die Verschlüsselung ruhender Daten kann auf Datenbank- und Serverebene aktiviert werden. Seit Juni 2017 ist [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) standardmäßig in neu erstellten Datenbanken aktiviert. Die Azure SQL-Datenbank unterstützt von Kunden verwaltete RSA-Schlüssel mit 2048 Bit in Azure Key Vault. Weitere Informationen finden Sie unter [Transparent Data Encryption mit BYOK-Unterstützung (Bring Your Own Key) für Azure SQL-Datenbank und Data Warehouse](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
+Die Unterstützung für die Serververschlüsselung wird aktuell mit dem SQL-Feature „Transparent Data Encryption“ bereitgestellt. Sobald ein Azure SQL-Datenbank-Kunde TDE aktiviert, werden Schlüssel automatisch für ihn erstellt und verwaltet. Die Verschlüsselung ruhender Daten kann auf Datenbank- und Serverebene aktiviert werden. Seit Juni 2017 ist [Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) standardmäßig in neu erstellten Datenbanken aktiviert. Die Azure SQL-Datenbank unterstützt von Kunden verwaltete RSA-Schlüssel mit 2048 Bit in Azure Key Vault. Weitere Informationen finden Sie unter [Transparent Data Encryption mit BYOK-Unterstützung (Bring Your Own Key) für Azure SQL-Datenbank und Data Warehouse](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql).
 
-Die clientseitige Verschlüsselung von Daten von Azure SQL-Datenbank wird durch die Funktion [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) unterstützt. Always Encrypted verwendet einen Schlüssel, der vom Client erstellt und gespeichert wird. Kunden können den Masterschlüssel in einem Windows-Zertifikatspeicher, Azure Key Vault oder einem lokalen Hardwaresicherheitsmodul speichern. Mit SQL Server Management Studio können SQL-Benutzer auswählen, welchen Schlüssel sie zum Verschlüsseln welcher Spalte verwenden möchten.
+Die clientseitige Verschlüsselung von Daten von Azure SQL-Datenbank wird durch die Funktion [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) unterstützt. Always Encrypted verwendet einen Schlüssel, der vom Client erstellt und gespeichert wird. Kunden können den Masterschlüssel in einem Windows-Zertifikatspeicher, Azure Key Vault oder einem lokalen Hardwaresicherheitsmodul speichern. Mit SQL Server Management Studio können SQL-Benutzer auswählen, welchen Schlüssel sie zum Verschlüsseln welcher Spalte verwenden möchten.
 
 ## <a name="conclusion"></a>Zusammenfassung
 
@@ -140,3 +140,4 @@ Der Schutz von Kundendaten, die in Azure-Diensten gespeichert sind, ist für Mic
 
 - Weitere Informationen zu dienstseitig und kundenseitig verwalteten Schlüsseln finden Sie unter [Datenverschlüsselungsmodelle](encryption-models.md).
 - Erfahren Sie, wie Azure [doppelte Verschlüsselung](double-encryption.md) verwendet, um Bedrohungen zu minimieren, die bei der Verschlüsselung von Daten auftreten.
+- Erfahren Sie, was Microsoft unternimmt, um die [Plattformintegrität und -sicherheit](platform.md) von Hosts beim Durchlaufen von Hardware- und Firmwareentwicklungs-, Integration-s, Operationalisierungs- und Reparaturpipelines zu gewährleisten.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: longl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d250fc005c5760a3eecc2793d02b6f2a9161e663
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 016b8bf010f597e963e0901d1ec48486f79bbb35
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91283036"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913125"
 ---
 # <a name="specify-a-face-recognition-model"></a>Angeben eines Gesichtserkennungsmodells
 
@@ -53,7 +53,7 @@ Wenn Sie die API [Face – Detect] (Gesicht – Erkennen) verwenden, weisen Sie 
 * recognition_03
 
 
-Optional können Sie den Parameter _returnRecognitionModel_ (Standardwert **false**) angeben, um festzulegen, ob _recognitionModel_ als Antwort zurückgegeben werden soll. Eine Anforderungs-URL für die REST-API [Face – Detect] sieht also wie folgt aus:
+Optional können Sie den Parameter _returnRecognitionModel_ (Standardwert **false** ) angeben, um festzulegen, ob _recognitionModel_ als Antwort zurückgegeben werden soll. Eine Anforderungs-URL für die REST-API [Face – Detect] sieht also wie folgt aus:
 
 `https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]&subscription-key=<Subscription key>`
 
@@ -66,9 +66,9 @@ var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recog
 
 ## <a name="identify-faces-with-specified-model"></a>Identifizieren von Gesichtern mit dem angegebenen Modell
 
-Der Gesichtserkennungsdienst kann Gesichtsdaten aus einem Bild extrahieren und sie mit einem **Person**-Objekt verknüpfen (z. B. über den API-Aufruf [Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)). Mehrere **Person**-Objekte können zusammen in einem **PersonGroup**-Objekt gespeichert werden. Dann kann ein neues Gesicht mit einem **PersonGroup**-Objekt (mit dem Aufruf [Face - Identify]) verglichen und die entsprechende Person innerhalb dieser Gruppe identifiziert werden.
+Der Gesichtserkennungsdienst kann Gesichtsdaten aus einem Bild extrahieren und sie mit einem **Person** -Objekt verknüpfen (z. B. über den API-Aufruf [Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)). Mehrere **Person** -Objekte können zusammen in einem **PersonGroup** -Objekt gespeichert werden. Dann kann ein neues Gesicht mit einem **PersonGroup** -Objekt (mit dem Aufruf [Face - Identify]) verglichen und die entsprechende Person innerhalb dieser Gruppe identifiziert werden.
 
-Ein **PersonGroup**-Objekt sollte ein eindeutiges Erkennungsmodell für alle **Person**-Objekte aufweisen, und Sie können dies mit dem Parameter `recognitionModel` beim Erstellen der Gruppe ([PersonGroup - Create] oder [LargePersonGroup - Create]) angeben. Wenn Sie diesen Parameter nicht angeben, wird das ursprüngliche `recognition_01`-Modell verwendet. Eine Gruppe verwendet immer das Erkennungsmodell, mit dem sie erstellt wurde, und neue Gesichter werden diesem Modell beim Hinzufügen zugeordnet. Dies kann nach der Erstellung einer Gruppe nicht mehr geändert werden. Verwenden Sie die API [PersonGroup – Get] mit dem Parameter _returnRecognitionModel_, der auf **true** festgelegt ist, um festzustellen, mit welchem Modell ein **PersonGroup**-Objekt konfiguriert ist.
+Ein **PersonGroup** -Objekt sollte ein eindeutiges Erkennungsmodell für alle **Person** -Objekte aufweisen, und Sie können dies mit dem Parameter `recognitionModel` beim Erstellen der Gruppe ( [PersonGroup - Create] oder [LargePersonGroup - Create]) angeben. Wenn Sie diesen Parameter nicht angeben, wird das ursprüngliche `recognition_01`-Modell verwendet. Eine Gruppe verwendet immer das Erkennungsmodell, mit dem sie erstellt wurde, und neue Gesichter werden diesem Modell beim Hinzufügen zugeordnet. Dies kann nach der Erstellung einer Gruppe nicht mehr geändert werden. Verwenden Sie die API [PersonGroup – Get] mit dem Parameter _returnRecognitionModel_ , der auf **true** festgelegt ist, um festzustellen, mit welchem Modell ein **PersonGroup** -Objekt konfiguriert ist.
 
 Nachfolgend ist ein Codebeispiel für die .NET-Clientbibliothek aufgeführt.
 
@@ -78,15 +78,15 @@ string personGroupId = "mypersongroupid";
 await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
 ```
 
-In diesem Code wird ein **PersonGroup**-Objekt mit der ID `mypersongroupid` erstellt, das so eingerichtet ist, dass es das Modell _recognition_02_ zum Extrahieren von Gesichtsmerkmalen verwendet.
+In diesem Code wird ein **PersonGroup** -Objekt mit der ID `mypersongroupid` erstellt, das so eingerichtet ist, dass es das Modell _recognition_02_ zum Extrahieren von Gesichtsmerkmalen verwendet.
 
-Dementsprechend müssen Sie angeben, welches Modell bei der Gesichtserkennung verwendet werden soll, um es mit diesem **PersonGroup**-Objekt zu vergleichen (über die API [Face – Detect]). Das von Ihnen verwendete Modell sollte immer mit der Konfiguration des **PersonGroup**-Objekts übereinstimmen, da bei der Operation andernfalls aufgrund inkompatibler Modelle Fehler auftreten können.
+Dementsprechend müssen Sie angeben, welches Modell bei der Gesichtserkennung verwendet werden soll, um es mit diesem **PersonGroup** -Objekt zu vergleichen (über die API [Face – Detect]). Das von Ihnen verwendete Modell sollte immer mit der Konfiguration des **PersonGroup** -Objekts übereinstimmen, da bei der Operation andernfalls aufgrund inkompatibler Modelle Fehler auftreten können.
 
 Es gibt keine Änderung bei der API [Face - Identify]. Sie müssen nur die Modellversion bei der Erkennung angeben.
 
 ## <a name="find-similar-faces-with-specified-model"></a>Suchen ähnlicher Gesichter mit dem angegebenen Modell
 
-Sie können auch ein Erkennungsmodell für die Ähnlichkeitssuche angeben. Sie können die Modellversion mit `recognitionModel` beim Erstellen der Liste der Gesichter mit der API [FaceList – Create] oder [LargeFaceList – Create] zuweisen. Wenn Sie diesen Parameter nicht angeben, wird standardmäßig Modell `recognition_01` verwendet. Eine Gesichterliste verwendet immer das Erkennungsmodell, mit dem sie erstellt wurde, und neue Gesichter werden diesem Modell beim Hinzufügen zur Liste zugeordnet. Dies kann nach der Erstellung nicht mehr geändert werden. Verwenden Sie die API [FaceList – Get] mit dem Parameter _returnRecognitionModel_, der auf **true** festgelegt ist, um festzustellen, mit welchem Modell eine Gesichterliste konfiguriert ist.
+Sie können auch ein Erkennungsmodell für die Ähnlichkeitssuche angeben. Sie können die Modellversion mit `recognitionModel` beim Erstellen der Liste der Gesichter mit der API [FaceList – Create] oder [LargeFaceList – Create] zuweisen. Wenn Sie diesen Parameter nicht angeben, wird standardmäßig Modell `recognition_01` verwendet. Eine Gesichterliste verwendet immer das Erkennungsmodell, mit dem sie erstellt wurde, und neue Gesichter werden diesem Modell beim Hinzufügen zur Liste zugeordnet. Dies kann nach der Erstellung nicht mehr geändert werden. Verwenden Sie die API [FaceList – Get] mit dem Parameter _returnRecognitionModel_ , der auf **true** festgelegt ist, um festzustellen, mit welchem Modell eine Gesichterliste konfiguriert ist.
 
 Nachfolgend ist ein Codebeispiel für die .NET-Clientbibliothek aufgeführt.
 
@@ -94,7 +94,7 @@ Nachfolgend ist ein Codebeispiel für die .NET-Clientbibliothek aufgeführt.
 await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_03");
 ```
 
-Dieser Code erstellt eine Gesichterliste namens `My face collection`, die das Modell _recognition_03_ zum Extrahieren der Merkmale verwendet. Wenn Sie diese Gesichterliste für ein neu erkanntes Gesicht nach ähnlichen Gesichtern durchsuchen, dann muss dieses Gesicht mit dem Modell _recognition_03_ erkannt worden sein ([Face – Detect]). Wie im vorherigen Abschnitt muss das Modell konsistent sein.
+Dieser Code erstellt eine Gesichterliste namens `My face collection`, die das Modell _recognition_03_ zum Extrahieren der Merkmale verwendet. Wenn Sie diese Gesichterliste für ein neu erkanntes Gesicht nach ähnlichen Gesichtern durchsuchen, dann muss dieses Gesicht mit dem Modell _recognition_03_ erkannt worden sein ( [Face – Detect]). Wie im vorherigen Abschnitt muss das Modell konsistent sein.
 
 Es gibt keine Änderung bei der API [Face – Find Similar]. Sie geben nur die Modellversion bei der Erkennung an.
 
@@ -105,10 +105,10 @@ Die API [Face – Verify] prüft, ob zwei Gesichter zu derselben Person gehören
 ## <a name="evaluate-different-models"></a>Auswerten unterschiedlicher Modelle
 
 Wenn Sie die Leistungen verschiedener Erkennungsmodelle mit Ihren eigenen Daten vergleichen möchten, müssen Sie wie folgt vorgehen:
-1. Erstellen Sie drei Personengruppen, für die Sie _recognition_01_, _recognition_02_ bzw. _recognition_03_ verwenden.
+1. Erstellen Sie drei Personengruppen, für die Sie _recognition_01_ , _recognition_02_ bzw. _recognition_03_ verwenden.
 1. Verwenden Sie Ihre Bilddaten, um Gesichter zu erkennen und sie für **Personen** innerhalb dieser drei **Personengruppen** zu registrieren. 
 1. Trainieren Sie Ihre Personengruppen mithilfe der API „PersonGroup – Train“.
-1. Testen Sie mit „Face – Identify“ alle diese drei **Personengruppen**, und vergleichen Sie die Ergebnisse.
+1. Testen Sie mit „Face – Identify“ alle diese drei **Personengruppen** , und vergleichen Sie die Ergebnisse.
 
 
 Wenn Sie normalerweise einen Übereinstimmungsschwellenwert angeben (ein Wert zwischen Null und Eins, der bestimmt, wie sicher das Modell sein muss, um ein Gesicht zu identifizieren), müssen Sie möglicherweise verschiedene Schwellenwerte für unterschiedlichen Modelle verwenden. Ein Schwellenwert für ein Modell ist nicht dazu vorgesehen, mit einem anderen geteilt zu werden und führt nicht unbedingt zu denselben Ergebnissen.
@@ -117,9 +117,9 @@ Wenn Sie normalerweise einen Übereinstimmungsschwellenwert angeben (ein Wert zw
 
 In diesem Artikel haben Sie gelernt, wie Sie das Erkennungsmodell für die Verwendung mit verschiedenen APIs für den Gesichtserkennungsdienst festlegen. Als nächstes befolgen Sie einen Schnellstart zu den ersten Schritten mit der Gesichtserkennung.
 
-* [.NET SDK zur Gesichtserkennung](../Quickstarts/csharp-sdk.md)
-* [Python SDK zur Gesichtserkennung](../Quickstarts/python-sdk.md)
-* [Go SDK zur Gesichtserkennung](../Quickstarts/go-sdk.md)
+* [.NET SDK zur Gesichtserkennung](../quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
+* [Python SDK zur Gesichtserkennung](../quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)
+* [Go SDK zur Gesichtserkennung](../quickstarts/client-libraries.md?pivots=programming-language-go%253fpivots%253dprogramming-language-go)
 
 [Face – Detect]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
 [Face – Find Similar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237

@@ -16,12 +16,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77895fd81bd37e304d422aea64da0298fc1673ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a0c8a42edad08308095469039c048f8dd8552af
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85356473"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413461"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Beheben von Problemen mit einem Objekt, das nicht mit Azure Active Directory synchronisiert wird
 
@@ -89,7 +89,7 @@ Wenn Fehler auftreten, werden in Synchronization Service Manager sowohl das fehl
 ![Screenshot von Fehlern in Synchronization Service Manager](./media/tshoot-connect-object-not-syncing/errorsync.png)  
 Wählen Sie zunächst die Fehlerzeichenfolge aus. (In der Abbildung oben lautet die Fehlerzeichenfolge **sync-rule-error-function-triggered**.) Eine Übersicht über das Objekt wird angezeigt. Wählen Sie zum Anzeigen des tatsächlichen Fehlers **Stapelüberwachung** aus. Dadurch werden für den Fehler Informationen der Debugebene angezeigt.
 
-Klicken Sie im Feld **Call Stack Information** (Aufruflisteninformationen) mit der rechten Maustaste auf **Alle auswählen**, und wählen Sie anschließend **Kopieren** aus. Sie können dann den Stapel kopieren und den Fehler in Ihrem bevorzugten Editor, z. B. Windows-Editor, anzeigen.
+Klicken Sie im Feld **Call Stack Information** (Aufruflisteninformationen) mit der rechten Maustaste auf **Alle auswählen** , und wählen Sie anschließend **Kopieren** aus. Sie können dann den Stapel kopieren und den Fehler in Ihrem bevorzugten Editor, z. B. Windows-Editor, anzeigen.
 
 Wenn der Fehler aus **SyncRulesEngine** stammt, beginnen die Aufruflisteninformationen mit einer Liste aller Attribute für das Objekt. Scrollen Sie nach unten, bis Sie die Überschrift **InnerException = >** sehen.  
 
@@ -104,7 +104,7 @@ Wenn auf der Registerkarte [**Vorgänge**](#operations) keine Fehler angezeigt w
 
 ### <a name="searching-for-an-object-in-the-cs"></a>Suchen eines Objekts im Connectorbereich
 
-Wählen Sie in Synchronization Service Manager die Option **Connectors**, anschließend den Active Directory-Connector und dann **Connectorbereich durchsuchen** aus.
+Wählen Sie in Synchronization Service Manager die Option **Connectors** , anschließend den Active Directory-Connector und dann **Connectorbereich durchsuchen** aus.
 
 Wählen Sie im Feld **Bereich** entweder **RDN** (wenn Sie nach dem CN-Attribut suchen möchten) oder **DN oder Anker** (wenn Sie auf dem Attribut **distinguishedName** suchen möchten) aus. Geben Sie einen Wert ein, und wählen Sie **Suchen** aus. 
  
@@ -116,7 +116,7 @@ Sie können eine weitere nützliche Suche ausführen, indem Sie den Azure AD-Co
 
 ![Screenshot einer Suche nach verwaisten Elementen im Connectorbereich](./media/tshoot-connect-object-not-syncing/cssearchorphan.png) 
  
-Diese Objekte wurden von einem anderen Synchronisierungsmodul oder einem Synchronisierungsmodul mit einer anderen Filterkonfiguration erstellt. Diese verwaisten Objekte werden nicht mehr verwaltet. Sie sollten diese Liste überprüfen, und diese Objekte mit den [Azure ADPowerShell](https://aka.ms/aadposh)-Cmdlets entfernen.
+Diese Objekte wurden von einem anderen Synchronisierungsmodul oder einem Synchronisierungsmodul mit einer anderen Filterkonfiguration erstellt. Diese verwaisten Objekte werden nicht mehr verwaltet. Sie sollten diese Liste überprüfen, und diese Objekte mit den [Azure ADPowerShell](/previous-versions/azure/jj151815(v=azure.100))-Cmdlets entfernen.
 
 ### <a name="cs-import"></a>Importieren aus dem Connectorbereich
 Beim Öffnen eines Connectorbereichsobjekts befinden sich oben mehrere Registerkarten. Auf der Registerkarte **Importieren** werden die Daten angezeigt, die nach einem Import bereitgestellt werden.  
@@ -158,7 +158,7 @@ Wählen Sie neben der Schaltfläche **Vorschau** die Schaltfläche **Protokoll**
 Es ist in der Regel besser, mit der Suche im Active Directory-Connectorbereich zu starten. Aber Sie können die Suche auch aus der Metaverse starten.
 
 ### <a name="searching-for-an-object-in-the-mv"></a>Suchen eines Objekts in der Metaverse
-Wählen Sie in Synchronization Service Manager **Metaverse Search** (Metaversesuche) aus, wie in der folgenden Abbildung gezeigt. Erstellen Sie eine Abfrage, bei der Sie wissen, dass sie den Benutzer findet. Suchen Sie nach allgemeinen Attributen, z. B. **accountName** (**sAMAccountName**) und **userPrincipalName**. Weitere Informationen finden Sie unter [Synchronization Service Manager – Metaverse Search](how-to-connect-sync-service-manager-ui-mvsearch.md).
+Wählen Sie in Synchronization Service Manager **Metaverse Search** (Metaversesuche) aus, wie in der folgenden Abbildung gezeigt. Erstellen Sie eine Abfrage, bei der Sie wissen, dass sie den Benutzer findet. Suchen Sie nach allgemeinen Attributen, z. B. **accountName** ( **sAMAccountName** ) und **userPrincipalName**. Weitere Informationen finden Sie unter [Synchronization Service Manager – Metaverse Search](how-to-connect-sync-service-manager-ui-mvsearch.md).
 
 ![Screenshot von Synchronization Service Manager mit ausgewählter Registerkarte „Metaverse Search“ (Metaversesuche)](./media/tshoot-connect-object-not-syncing/mvsearch.png)  
 
@@ -192,7 +192,7 @@ Auf der Registerkarte **Attribute** werden die Werte und der Connectors, von den
 
 Wenn ein Objekt nicht synchronisiert wird, stellen Sie die folgenden Fragen zum Attributstatus in der Metaverse:
 - Ist das Attribut **cloudFiltered** vorhanden und auf **True** festgelegt? Wenn dies zutrifft, wurde es anhand der Schritte zur [attributbasierten Filterung](how-to-connect-sync-configure-filtering.md#attribute-based-filtering) gefiltert.
-- Ist das Attribut **sourceAnchor** vorhanden? Wenn dies nicht der Fall ist, haben Sie eine Topologie mit Kontoressourcengesamtstruktur? Wenn ein Objekt als ein verknüpftes Postfach identifiziert wird (das Attribut **msExchRecipientTypeDetails** hat den Wert **2**), dann wird **sourceAnchor** von der Gesamtstruktur mit einem aktivierten Active Directory-Konto bereitgestellt. Stellen Sie sicher, dass das Hauptkonto ordnungsgemäß importiert und synchronisiert wurde. Das Hauptkonto muss bei den [Connectors](#mv-connectors) für das Objekt aufgelistet sein.
+- Ist das Attribut **sourceAnchor** vorhanden? Wenn dies nicht der Fall ist, haben Sie eine Topologie mit Kontoressourcengesamtstruktur? Wenn ein Objekt als ein verknüpftes Postfach identifiziert wird (das Attribut **msExchRecipientTypeDetails** hat den Wert **2** ), dann wird **sourceAnchor** von der Gesamtstruktur mit einem aktivierten Active Directory-Konto bereitgestellt. Stellen Sie sicher, dass das Hauptkonto ordnungsgemäß importiert und synchronisiert wurde. Das Hauptkonto muss bei den [Connectors](#mv-connectors) für das Objekt aufgelistet sein.
 
 ### <a name="mv-connectors"></a>Metaverseconnectors
 Auf der Registerkarte **Connectors** werden alle Connectorbereiche angezeigt, die über eine Darstellung des Objekts verfügen. 

@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: 5c51649e742f6e314e0e324ae19c38f1a83b02ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c4248246be845aa8608aac8b8a3ce761ea1ef86
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016859"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004771"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Verbinden eines Azure IoT Edge-Geräts mit einer Azure IoT Central-Anwendung
 
@@ -63,9 +63,9 @@ In Azure IoT Central können Sie ein Bereitstellungsmanifest importieren, um ein
 
 IoT Central modelliert ein IoT Edge-Gerät wie folgt:
 
-* Jede IoT Edge-Gerätevorlage verfügt über ein Gerätefunktionsmodell.
+* Jede IoT Edge-Gerätevorlage enthält ein Gerätemodell.
 * Für jedes benutzerdefinierte Modul im Bereitstellungsmanifest wird ein Modulfunktionsmodell generiert.
-* Zwischen den einzelnen Modulfunktionsmodellen und einem Gerätefunktionsmodell wird eine Beziehung eingerichtet.
+* Zwischen den einzelnen Modulfunktionsmodellen und einem Gerätemodell wird eine Beziehung eingerichtet.
 * Im Modulfunktionsmodell werden Modulschnittstellen implementiert.
 * Jede Modulschnittstelle enthält Telemetrie, Eigenschaften und Befehle.
 
@@ -73,7 +73,7 @@ IoT Central modelliert ein IoT Edge-Gerät wie folgt:
 
 ## <a name="iot-edge-gateway-devices"></a>IoT Edge-Gatewaygeräte
 
-Wenn Sie angegeben haben, dass es sich bei dem IoT Edge-Gerät um ein Gatewaygerät handelt, können Sie für Geräte, die eine Verbindung mit dem Gatewaygerät herstellen sollen, Downstreambeziehungen mit Gerätefunktionsmodellen hinzufügen.
+Wenn Sie ausgewählt haben, dass das IoT Edge-Gerät ein Gatewaygerät ist, können Sie für Geräte, die eine Verbindung mit dem Gatewaygerät herstellen sollen, Downstreambeziehungen mit Gerätemodellen hinzufügen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

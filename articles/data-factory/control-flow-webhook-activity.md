@@ -3,20 +3,20 @@ title: Webhook-Aktivität in Azure Data Factory
 description: Die Webhook-Aktivität setzt die Ausführung der Pipeline erst fort, nachdem sie das angefügte Dataset mit bestimmten vom Benutzer angegebenen Kriterien überprüft hat.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 4056550ae0a71138d136878fc7e3aa5f6f8f4180
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 144006c3d0722bc3211f542b7059bba0bb0cbdbf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417877"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499406"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Webhook-Aktivität in Azure Data Factory
 
@@ -60,8 +60,8 @@ Eigenschaft | BESCHREIBUNG | Zulässige Werte | Erforderlich
 **method** | Die REST-API-Methode für den Zielendpunkt. | Eine Zeichenfolge. Der unterstützte Typ ist „POST“. | Ja |
 **url** | Der Zielendpunkt und Pfad. | Eine Zeichenfolge oder ein Ausdruck mit dem **resultType**-Wert einer Zeichenfolge. | Ja |
 **headers** | Header, die in der Anforderung gesendet werden. Hier sehen Sie ein Beispiel für das Festlegen von Sprache und Typ für eine Anforderung: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Eine Zeichenfolge oder ein Ausdruck mit dem **resultType**-Wert einer Zeichenfolge. | Ja. Ein `Content-Type`-Header wie `"headers":{ "Content-Type":"application/json"}` ist erforderlich. |
-**body** | Stellt die an den Endpunkt gesendete Nutzlast dar. | Gültiges JSON-Format oder ein Ausdruck mit dem **resultType**-JSON-Wert. Weitere Informationen zum Schema der Anforderungsnutzlast finden Sie unter [Schema der Anforderungsnutzlast](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema). | Ja |
-**Authentifizierung** | Die zum Aufrufen des Endpunkts verwendete Authentifizierungsmethode. Unterstützte Typen sind „Basic“ und „ClientCertificate“. Weitere Informationen finden Sie unter [Authentifizierung](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication). Wenn keine Authentifizierung erforderlich ist, schließen Sie diese Eigenschaft aus. | Eine Zeichenfolge oder ein Ausdruck mit dem **resultType**-Wert einer Zeichenfolge. | Nein |
+**body** | Stellt die an den Endpunkt gesendete Nutzlast dar. | Gültiges JSON-Format oder ein Ausdruck mit dem **resultType**-JSON-Wert. Weitere Informationen zum Schema der Anforderungsnutzlast finden Sie unter [Schema der Anforderungsnutzlast](./control-flow-web-activity.md#request-payload-schema). | Ja |
+**Authentifizierung** | Die zum Aufrufen des Endpunkts verwendete Authentifizierungsmethode. Unterstützte Typen sind „Basic“ und „ClientCertificate“. Weitere Informationen finden Sie unter [Authentifizierung](./control-flow-web-activity.md#authentication). Wenn keine Authentifizierung erforderlich ist, schließen Sie diese Eigenschaft aus. | Eine Zeichenfolge oder ein Ausdruck mit dem **resultType**-Wert einer Zeichenfolge. | Nein |
 **timeout** | Legt fest, wie lange die Aktivität darauf warten soll, dass der mittels **callBackUri** festgelegte Rückruf aufgerufen wird. Der Standardwert ist 10 Minuten („00:10:00“). Werte haben das TimeSpan-Format *t*.*hh*:*mm*:*ss*. | String | Nein |
 **Status bei Rückruf melden** | Ermöglicht einem Benutzer, den Fehlerstatus einer Webhook-Aktivität zu melden. | Boolean | Nein |
 
@@ -99,7 +99,7 @@ Geben Sie die Base64-codierten Inhalte einer PFX-Datei und ein Kennwort an.
 
 ### <a name="managed-identity"></a>Verwaltete Identität
 
-Geben Sie den Ressourcen-URI, für den das Zugriffstoken angefordert wird, mithilfe der verwalteten Identität der Data Factory an. Verwenden Sie zum Aufrufen der Azure-Ressourcenverwaltungs-API `https://management.azure.com/`. Weitere Informationen zur Funktion verwalteter Identitäten finden Sie unter [Was sind verwaltete Identitäten für Azure-Ressourcen?](/azure/active-directory/managed-identities-azure-resources/overview).
+Geben Sie den Ressourcen-URI, für den das Zugriffstoken angefordert wird, mithilfe der verwalteten Identität der Data Factory an. Verwenden Sie zum Aufrufen der Azure-Ressourcenverwaltungs-API `https://management.azure.com/`. Weitere Informationen zur Funktion verwalteter Identitäten finden Sie unter [Was sind verwaltete Identitäten für Azure-Ressourcen?](../active-directory/managed-identities-azure-resources/overview.md).
 
 ```json
 "authentication": {

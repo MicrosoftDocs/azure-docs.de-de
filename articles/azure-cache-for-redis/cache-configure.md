@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 22025e7be9a0ff276336511a906055dc31a67230
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: f0d0742994b14f692c2aea9130edc73d779cff52
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089722"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92544765"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Konfigurieren von Azure Cache for Redis
 In diesem Thema sind die für Ihre Azure Cache for Redis-Instanzen verfügbaren Konfigurationen beschrieben. Darüber hinaus wird in diesem Thema die standardmäßige Redis-Serverkonfiguration für Azure Cache for Redis-Instanzen behandelt.
@@ -117,7 +117,7 @@ Die folgenden Einstellungen werden auf dem Blatt **Erweiterte Einstellungen** ko
 * [Keyspacebenachrichtigungen (Erweiterte Einstellungen)](#keyspace-notifications-advanced-settings)
 
 #### <a name="access-ports"></a>Zugriffsports
-TLS-/SSL-fremder Zugriff ist für neue Caches standardmäßig deaktiviert. Klicken Sie zum Aktivieren des TLS-fremden Ports auf dem Blatt **Erweiterte Einstellungen** für **Nur Zugriff über SSL zulassen** auf **Nein** und anschließend auf **Speichern** .
+TLS-/SSL-fremder Zugriff ist für neue Caches standardmäßig deaktiviert. Klicken Sie zum Aktivieren des TLS-fremden Ports auf dem Blatt **Erweiterte Einstellungen** für **Nur Zugriff über SSL zulassen** auf **Nein** und anschließend auf **Speichern**.
 
 > [!NOTE]
 > Für den TLS-Zugriff auf Azure Cache for Redis werden derzeit TLS 1.0, 1.1 und 1.2 unterstützt. Die Versionen 1.0 und 1.1 werden jedoch bald eingestellt.  Weitere Informationen finden Sie auf unserer Seite [Entfernen von TLS 1.0 und 1.1](cache-remove-tls-10-11.md).
@@ -201,11 +201,11 @@ Klicken Sie auf **Staffelung** , um den Tarif für Ihren Cache anzuzeigen oder z
 <a name="cluster-size"></a>
 
 ### <a name="redis-cluster-size"></a>Redis-Clustergröße
-Klicken Sie zum Ändern der Clustergröße für einen aktiven Premium-Cache mit aktiviertem Clustering auf **Clustergröße** .
+Klicken Sie zum Ändern der Clustergröße für einen aktiven Premium-Cache mit aktiviertem Clustering auf **Clustergröße**.
 
 ![Clustergröße](./media/cache-configure/redis-cache-redis-cluster-size.png)
 
-Um die Clustergröße zu ändern, verwenden Sie den Schieberegler, oder geben Sie im Textfeld **Shardanzahl** eine Zahl zwischen 1 und 10 ein, und klicken Sie zum Speichern auf **OK** .
+Um die Clustergröße zu ändern, verwenden Sie den Schieberegler, oder geben Sie im Textfeld **Shardanzahl** eine Zahl zwischen 1 und 10 ein, und klicken Sie zum Speichern auf **OK**.
 
 > [!IMPORTANT]
 > Redis-Clustering ist nur für Premium-Caches verfügbar. Weitere Informationen finden Sie unter [Konfigurieren von Clustern für Azure Cache for Redis vom Typ „Premium“](cache-how-to-premium-clustering.md).
@@ -234,7 +234,7 @@ Auf dem Blatt **Updates planen** können Sie ein Wartungsfenster für Redis-Serv
 
 ![Planen von Updates](./media/cache-configure/redis-schedule-updates.png)
 
-Aktivieren Sie zum Angeben eines Wartungsfensters die Kontrollkästchen der gewünschten Tage, geben Sie jeweils die Startzeit des Wartungsfensters an, und klicken Sie auf **OK** . Das Wartungsfenster wird als UTC angegeben.
+Aktivieren Sie zum Angeben eines Wartungsfensters die Kontrollkästchen der gewünschten Tage, geben Sie jeweils die Startzeit des Wartungsfensters an, und klicken Sie auf **OK**. Das Wartungsfenster wird als UTC angegeben.
 
 > [!IMPORTANT]
 > Die Funktion **Zeitplanaktualisierungen** ist nur für Caches im Premium-Tarif verfügbar. Weitere Informationen und Anweisungen finden Sie unter [Azure Cache for Redis-Verwaltung – Planen von Updates](cache-administration.md#schedule-updates).
@@ -316,7 +316,7 @@ Wenn Sie über einen Premium-Cache mit aktiviertem Clustering verfügen, können
 
 ![Screenshot: Auswählen der Shards des Caches, die neu gestartet werden sollen.](./media/cache-configure/redis-cache-reboot-cluster.png)
 
-Zum Neustarten eines oder mehrerer Knoten Ihres Caches wählen Sie die gewünschten Knoten aus und klicken auf **Neustart** . Wenn Sie über einen Premium-Cache mit aktiviertem Clustering verfügen, wählen Sie die Shards aus, die neu gestartet werden sollen, und klicken Sie dann auf **Neustart** . Nach einigen Minuten werden die ausgewählten Knoten neu gestartet, die paar Minuten später wieder online sind.
+Zum Neustarten eines oder mehrerer Knoten Ihres Caches wählen Sie die gewünschten Knoten aus und klicken auf **Neustart**. Wenn Sie über einen Premium-Cache mit aktiviertem Clustering verfügen, wählen Sie die Shards aus, die neu gestartet werden sollen, und klicken Sie dann auf **Neustart**. Nach einigen Minuten werden die ausgewählten Knoten neu gestartet, die paar Minuten später wieder online sind.
 
 > [!IMPORTANT]
 > Ein Neustart ist nun für alle Tarife verfügbar. Weitere Informationen und Anweisungen finden Sie unter [Azure Cache for Redis-Verwaltung – Neustart](cache-administration.md#reboot).
@@ -360,7 +360,7 @@ Die Einstellungen im Abschnitt **Support und Problembehandlung** bieten Optionen
 * [Neue Supportanfrage](#new-support-request)
 
 ### <a name="resource-health"></a>Ressourcenintegrität
-**Ressourcenintegrität** dienen zum Überwachen Ihrer Ressource und informieren Sie darüber, ob sie wie erwartet ausgeführt wird. Weitere Informationen zum Azure Resource Health-Dienst finden Sie in der [Übersicht über Azure Resource Health](../resource-health/resource-health-overview.md).
+**Ressourcenintegrität** dienen zum Überwachen Ihrer Ressource und informieren Sie darüber, ob sie wie erwartet ausgeführt wird. Weitere Informationen zum Azure Resource Health-Dienst finden Sie in der [Übersicht über Azure Resource Health](../service-health/resource-health-overview.md).
 
 > [!NOTE]
 > Die Ressourcenintegrität kann derzeit keine Informationen zur Integrität der in einem virtuellen Netzwerk gehosteten Azure Cache for Redis-Instanzen liefern. Weitere Informationen finden Sie unter [Funktionieren alle Cachefeatures beim Hosten eines Cache in einem VNET?](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
@@ -472,7 +472,7 @@ Weitere Informationen zu Redis-Befehlen finden Sie unter [https://redis.io/comma
 >
 >
 
-Um auf die Redis-Konsole zuzugreifen, klicken Sie auf dem Blatt **Azure Cache for Redis** auf **Konsole** .
+Um auf die Redis-Konsole zuzugreifen, klicken Sie auf dem Blatt **Azure Cache for Redis** auf **Konsole**.
 
 ![Screenshot mit hervorgehobener Schaltfläche „Konsole“.](./media/cache-configure/redis-console-menu.png)
 

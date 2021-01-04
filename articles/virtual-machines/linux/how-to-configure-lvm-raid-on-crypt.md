@@ -7,13 +7,13 @@ ms.subservice: security
 ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
-ms.custom: seodec18
-ms.openlocfilehash: b65c37ab06092be63cbb2ad9fb5e23cdb8324e80
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 46d2c039806e4e6a72e091458d44e7b21b3dfa70
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476160"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843518"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Konfigurieren von LVM und RAID auf verschlüsselten Geräten
 
@@ -368,7 +368,7 @@ mount -a
 lsblk -fs
 df -h
 ```
-![Informationen für eingebundene Dateisysteme](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
+![Screenshot mit einem Konsolenfenster mit Dateisystemen, die als data0 und data1 eingebunden sind.](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
 
 Bei dieser Variation von **lsblk** werden die Geräte aufgelistet, auf denen die Abhängigkeiten in umgekehrter Reihenfolge angezeigt werden. Mit dieser Option können die Geräte, die nach dem logischen Volume gruppiert sind, anstelle der ursprünglichen Gerätenamen in der Form „/dev/sd[Datenträgernummer]“ identifiziert werden.
 
@@ -437,7 +437,7 @@ done
 lsblk -fs
 df -h
 ```
-![Informationen für eingebundene Dateisysteme](./media/disk-encryption/lvm-raid-on-crypt/021-lvm-raid-lsblk-md-details.png)
+![Screenshot mit einem Konsolenfenster mit einem Dateisystem, das als raiddata eingebunden ist.](./media/disk-encryption/lvm-raid-on-crypt/021-lvm-raid-lsblk-md-details.png)
 
 Es ist wichtig, dass Sie sicherstellen, dass die Option **nofail** zu den Bereitstellungspunktoptionen der RAID-Volumes hinzugefügt wird, die auf einem mit Azure Disk Encryption verschlüsselten Gerät erstellt wurden. Sie verhindert, dass das Betriebssystem beim Startvorgang (oder im Wartungsmodus) hängen bleibt.
 

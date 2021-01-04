@@ -2,19 +2,22 @@
 title: Azure Event Grid – Übermittlung und Wiederholung
 description: Beschreibt, wie Azure Event Grid Ereignisse übermittelt und wie nicht übermittelte Nachrichten verarbeitet werden.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 924abaa1e5c12c4477bddf888541e7414b7bdbec
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/29/2020
+ms.openlocfilehash: 51473cf457a1c713e6694edd23c344be8c4d439e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324092"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463239"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid – Übermittlung und Wiederholung von Nachrichten
 
 In diesem Artikel wird beschrieben, wie Azure Event Grid Ereignisse verarbeitet, wenn die Übermittlung nicht bestätigt wird.
 
-Event Grid bietet permanente Übermittlung. Jede Nachricht wird für jedes Abonnement mindestens einmal übermittelt. Ereignisse werden sofort an den registrierten Endpunkt des jeweiligen Abonnements gesendet. Wenn ein Endpunkt den Eingang eines Ereignisses nicht bestätigt, wiederholt Event Grid die Übermittlung des Ereignisses.
+Event Grid bietet permanente Übermittlung. Jede Nachricht wird für jedes Abonnement **mindestens einmal** übermittelt. Ereignisse werden sofort an den registrierten Endpunkt des jeweiligen Abonnements gesendet. Wenn ein Endpunkt den Eingang eines Ereignisses nicht bestätigt, wiederholt Event Grid die Übermittlung des Ereignisses.
+
+> [!NOTE]
+> Bei der Ereignisübermittlung durch Event Grid wird unter Umständen die Reihenfolge nicht eingehalten, sodass der Abonnent die Ereignisse ggf. nicht in der richtigen Reihenfolge erhält. 
 
 ## <a name="batched-event-delivery"></a>Batchübermittlung von Ereignissen
 
@@ -52,6 +55,22 @@ Weitere Informationen zur Verwendung von Azure CLI mit Event Grid finden Sie unt
 
 ## <a name="retry-schedule-and-duration"></a>Wiederholungszeitplan und Dauer
 
+Wenn EventGrid einen Fehler für einen Ereignisbereitstellungsversuch erhält, entscheidet EventGrid je nach Art des Fehlers, ob die Bereitstellung erneut versucht oder ob das Ereignis abgebrochen oder gelöscht werden soll. 
+
+Wenn es sich bei dem vom abonnierten Endpunkt zurückgegebenen Fehler um einen konfigurationsbedingten Fehler handelt, der nicht durch Wiederholungsversuche behoben werden kann (z. B. wenn der Endpunkt gelöscht wird), markiert EventGrid das Ereignis als unzustellbare Nachricht oder löscht das Ereignis, wenn die unzustellbare Nachricht nicht konfiguriert ist.
+
+Im folgenden sind die Typen von Endpunkten aufgeführt, für die der Wiederholungsversuch nicht ausgeführt wird:
+
+| Endpunkttyp | Fehlercodes |
+| --------------| -----------|
+| Azure-Ressourcen | 400 – Ungültige Anforderung, 413 – Anforderungsentität zu groß, 403 – Unzulässig | 
+| Webhook | 400 – Ungültige Anforderung, 413 – Anforderungsentität zu groß, 403 – Unzulässig, 404 – Nicht gefunden, 401 – Nicht autorisiert |
+ 
+> [!NOTE]
+> Wenn unzustellbare Nachrichten nicht für den Endpunkt konfiguriert sind, werden Ereignisse gelöscht, wenn die obigen Fehler auftreten. Daher sollten Sie die Konfiguration von unzustellbaren Nachrichten in Erwägung ziehen, wenn diese Arten von Ereignissen nicht gelöscht werden sollen.
+
+Wenn der vom abonnierten Endpunkt zurückgegebene Fehler nicht in der obigen Liste enthalten ist, führt EventGrid die Wiederholung mithilfe der unten beschriebenen Richtlinien durch:
+
 Event Grid wartet nach der Zustellung einer Nachricht 30 Sekunden auf eine Antwort. Nach 30 Sekunden, wenn der Endpunkt nicht geantwortet hat, wird die Nachricht zur Wiederholung in die Warteschlange eingereiht. Event Grid verwendet exponentiell ansteigende Wartezeiten für Wiederholungsversuche für die Ereignisübermittlung. Event Grid wiederholt die Zustellung nach folgendem Zeitplan auf Basis der besten Leistung:
 
 - 10 Sekunden
@@ -80,12 +99,14 @@ Der funktionale Zweck der verzögerten Übermittlung besteht darin, sowohl fehle
 ## <a name="dead-letter-events"></a>„Unzustellbare Nachrichten“-Ereignisse
 Wenn ein Ereignis innerhalb eines bestimmten Zeitraums oder nach einer bestimmten Anzahl von Übermittlungsversuchen nicht übermittelt werden kann, kann Event Grid das nicht übermittelte Ereignis an ein Speicherkonto senden. Dieser Prozess wird als Speicherung **unzustellbarer Nachrichten** bezeichnet. Von Event Grid werden unzustellbare Nachrichten gespeichert, wenn **eine der folgenden** Bedingungen erfüllt ist. 
 
-- Das Ereignis wird nicht innerhalb der Gültigkeitsdauer übermittelt.
-- Die Anzahl der Übermittlungsversuche hat den Grenzwert überschritten.
+- Das Ereignis wird nicht innerhalb der **Gültigkeitsdauer** übermittelt. 
+- Die **Anzahl der Versuche** hat den Grenzwert überschritten.
 
 Wenn eine der Bedingungen erfüllt ist, wird das Ereignis gelöscht oder als unzustellbare Nachricht gespeichert.  Die Speicherung unzustellbarer Nachrichten ist standardmäßig nicht aktiviert. Wenn Sie das Feature aktivieren möchten, müssen Sie bei der Erstellung des Ereignisabonnements ein Speicherkonto zum Speichern nicht übermittelter Ereignisse angeben. Ereignisse werden aus diesem Speicherkonto gepullt, um Übermittlungsprobleme zu beheben.
 
 Event Grid sendet ein Ereignis an den Speicherort für unzustellbare Nachrichten, wenn alle Wiederholungsversuche ausgeführt wurden. Wenn Event Grid den Antwortcode 400 (Ungültige Anforderung) oder 413 (Anforderungsentität zu groß) erhält, sendet der Dienst das Ereignis sofort an den Endpunkt für unzustellbare Nachrichten. Diese Antwortcodes geben an, dass die Übermittlung des Ereignisses nie erfolgreich ausgeführt wird.
+
+Der Ablauf der Gültigkeitsdauer wird ERST beim nächsten geplanten Übermittlungsversuch geprüft. Aus diesem Grund gilt Folgendes: Auch wenn die Gültigkeitsdauer vor dem nächsten geplanten Übermittlungsversuch abläuft, wird der Ablauf eines Ereignisses erst zum Zeitpunkt der nächsten Übermittlung überprüft. Anschließend wird das Ereignis als unzustellbar markiert. 
 
 Es gibt eine fünfminütige Verzögerung zwischen dem letzten Versuch, ein Ereignis zu übermitteln, und der Übermittlung an den Speicherort für unzustellbare Nachrichten. Diese Verzögerung dient dazu, die Anzahl der Blob Storage-Vorgänge zu reduzieren. Wenn der Speicherort für unzustellbare Nachrichten vier Stunden lang nicht verfügbar ist, wird das Ereignis gelöscht.
 
@@ -251,16 +272,16 @@ Event Grid berücksichtigt **nur** die folgenden HTTP-Antwortcodes als erfolgrei
 
 ### <a name="failure-codes"></a>Fehlercodes
 
-Alle anderen Codes, die nicht zur obigen Gruppe (200-204) gehören, werden als Fehler angesehen, und es wird ein neuer Versuch unternommen. Für einige gelten spezifische Wiederholungsrichtlinien, die im Folgenden beschrieben werden, alle anderen folgen dem standardmäßigen exponentiellen Backoffmodell. Es ist wichtig zu beachten, dass aufgrund der stark parallelisierten Architektur von Event Grid das Wiederholungsverhalten nicht deterministisch ist. 
+Alle anderen Codes, die nicht zur obigen Gruppe (200-204) gehören, werden als Fehler angesehen, und es wird (bei Bedarf) ein neuer Versuch unternommen. Für einige gelten spezifische Wiederholungsrichtlinien, die im Folgenden beschrieben werden, alle anderen folgen dem standardmäßigen exponentiellen Backoffmodell. Es ist wichtig zu beachten, dass aufgrund der stark parallelisierten Architektur von Event Grid das Wiederholungsverhalten nicht deterministisch ist. 
 
 | Statuscode | Wiederholungsverhalten |
 | ------------|----------------|
-| 400 – Ungültige Anforderung | Wiederholen Sie den Vorgang nach mindestens 5 Minuten (das Verschieben in die Warteschlange für unzustellbare Nachrichten erfolgt sofort, wenn dies eingerichtet ist). |
-| 401 – Nicht autorisiert | Wiederholen Sie den Vorgang nach mindestens 5 Minuten. |
-| 403 Verboten | Wiederholen Sie den Vorgang nach mindestens 5 Minuten. |
-| 404 – Nicht gefunden | Wiederholen Sie den Vorgang nach mindestens 5 Minuten. |
+| 400 – Ungültige Anforderung | Nicht erneut versucht |
+| 401 – Nicht autorisiert | Wiederholung nach fünf Minuten oder mehr für Azure-Ressourcenendpunkte |
+| 403 Verboten | Nicht erneut versucht |
+| 404 – Nicht gefunden | Wiederholung nach fünf Minuten oder mehr für Azure-Ressourcenendpunkte |
 | 408 Anforderungstimeout | Wiederholen Sie den Vorgang nach mindestens 2 Minuten. |
-| 413 – Anforderungsentität zu groß | Wiederholen Sie den Vorgang nach mindestens 10 Sekunden (das Verschieben in die Warteschlange für unzustellbare Nachrichten erfolgt sofort, wenn dies eingerichtet ist). |
+| 413 – Anforderungsentität zu groß | Nicht erneut versucht |
 | 503 Dienst nicht verfügbar | Wiederholen Sie den Vorgang nach mindestens 30 Sekunden. |
 | Alle anderen | Wiederholen Sie den Vorgang nach mindestens 10 Sekunden. |
 

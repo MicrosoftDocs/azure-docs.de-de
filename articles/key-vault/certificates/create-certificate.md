@@ -10,20 +10,20 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 71d8961af372f927fab909073daa715766542f87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9545c040809331a5556b11f6cc7536931e2d421
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88606675"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289576"
 ---
 # <a name="certificate-creation-methods"></a>Methoden für die Zertifikaterstellung
 
  Ein Key Vault (KV)-Zertifikat kann entweder erstellt oder in einen Schlüsseltresor importiert werden. Wenn ein KV-Zertifikat erstellt wird, wird der private Schlüssel innerhalb des Schlüsseltresors erstellt und nie dem Zertifikatsinhaber verfügbar gemacht. Im Folgenden finden Sie Möglichkeiten, ein Zertifikat in Key Vault zu erstellen:  
 
--   **Erstellen eines selbstsignierten Zertifikats**: Dadurch wird ein öffentlich-privates Schlüsselpaar erstellt und mit einem Zertifikat verknüpft. Das Zertifikat wird mit einem eigenen Schlüssel signiert.  
+-   **Erstellen eines selbstsignierten Zertifikats** : Dadurch wird ein öffentlich-privates Schlüsselpaar erstellt und mit einem Zertifikat verknüpft. Das Zertifikat wird mit einem eigenen Schlüssel signiert.  
 
--    **Manuelles Erstellen eines neuen Zertifikats**: Dadurch wird ein öffentlich-privates Schlüsselpaar erstellt und eine X.509-Zertifikatsignatur angefordert. Die Signaturanforderung kann von Ihrer Registrierungs- oder Zertifizierungsstelle signiert werden. Das signierte x509-Zertifikat lässt sich dann mit dem ausstehenden Schlüsselpaar zusammenführen, um das KV-Zertifikat in Key Vault zu vervollständigen. Obwohl diese Methode mehr Schritte erfordert, bietet sie Ihnen mehr Sicherheit, da der private Schlüssel in Key Vault erstellt und darauf beschränkt wird. Dies wird im folgenden Diagramm erläutert.  
+-    **Manuelles Erstellen eines neuen Zertifikats** : Dadurch wird ein öffentlich-privates Schlüsselpaar erstellt und eine X.509-Zertifikatsignatur angefordert. Die Signaturanforderung kann von Ihrer Registrierungs- oder Zertifizierungsstelle signiert werden. Das signierte x509-Zertifikat lässt sich dann mit dem ausstehenden Schlüsselpaar zusammenführen, um das KV-Zertifikat in Key Vault zu vervollständigen. Obwohl diese Methode mehr Schritte erfordert, bietet sie Ihnen mehr Sicherheit, da der private Schlüssel in Key Vault erstellt und darauf beschränkt wird. Dies wird im folgenden Diagramm erläutert.  
 
 ![Erstellen eines Zertifikats mit Ihrer eigenen Zertifizierungsstelle](../media/certificate-authority-1.png)  
 
@@ -82,7 +82,7 @@ Die Zertifikatserstellung kann manuell oder über einen „Self“-Zertifikataus
 
 |Anbieter|Zertifikattyp|Konfigurationssetup  
 |--------------|----------------------|------------------|  
-|DigiCert|Key Vault bietet OV- oder EV-SSL-Zertifikate mit DigiCert| [Integrationsleitfaden](https://docs.microsoft.com/azure/key-vault/certificates/how-to-integrate-certificate-authority)
+|DigiCert|Key Vault bietet OV- oder EV-SSL-Zertifikate mit DigiCert| [Integrationsleitfaden](./how-to-integrate-certificate-authority.md)
 |GlobalSign|Key Vault bietet OV- oder EV-SSL-Zertifikate mit GlobalSign| [Integrationsleitfaden](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
 
  Ein Zertifikataussteller ist eine Entität, die in Azure Key Vault (KV) als eine CertificateIssuer-Ressource dargestellt wird. Sie dient zur Bereitstellung von Informationen zur Quelle eines KV-Zertifikats: Ausstellername, Anbieter, Anmeldeinformationen und andere administrative Details.

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: bc90389e9f600f1411699700989e38c78bee99cc
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: dc6412a85beba67551e7683c8127a65730f9218f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103338"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535466"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Konfigurieren des ausgehenden Netzwerkdatenverkehrs für Azure HDInsight-Cluster mittels Firewall
 
@@ -23,7 +23,7 @@ In diesem Artikel werden die Schritte beschrieben, mit denen Sie aus Ihrem HDIns
 
 HDInsight-Cluster werden normalerweise in einem virtuellen Netzwerk bereitgestellt. Der Cluster weist Abhängigkeiten mit Diensten außerhalb dieses virtuellen Netzwerks auf.
 
-Der eingehende Verwaltungsdatenverkehr kann nicht durch eine Firewall gesendet werden. Sie können NSG-Diensttags für den eingehenden Datenverkehr verwenden, wie [hier](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags) beschrieben wird. 
+Der eingehende Verwaltungsdatenverkehr kann nicht durch eine Firewall gesendet werden. Sie können NSG-Diensttags für den eingehenden Datenverkehr verwenden, wie [hier](./hdinsight-service-tags.md) beschrieben wird. 
 
 Die Abhängigkeiten des ausgehenden HDInsight-Datenverkehrs werden fast ausschließlich mit FQDNs definiert. Hinter diesen FQDNs stehen keine statischen IP-Adressen. Das Fehlen statischer Adressen bedeutet, dass keine Netzwerksicherheitsgruppen (NSGs) verwendet werden können, um den ausgehenden Datenverkehr eines Clusters einzuschränken. Die IP-Adressen ändern sich häufig, sodass keine Regeln auf Grundlage der aktuellen Auflösung aufgestellt werden können.
 
@@ -160,7 +160,7 @@ Wenn Ihre Anwendungen andere Abhängigkeiten aufweisen, müssen diese Ihrer Azur
 
 ## <a name="logging-and-scale"></a>Protokollierung und Skalierung
 
-Azure Firewall kann Protokolle an ein paar andere Speichersysteme senden. Anweisungen zum Konfigurieren der Protokollierung für Ihre Firewall finden Sie in den Schritten von [Tutorial: Überwachen von Azure Firewall-Protokollen und -Metriken](../firewall/tutorial-diagnostics.md).
+Azure Firewall kann Protokolle an ein paar andere Speichersysteme senden. Anweisungen zum Konfigurieren der Protokollierung für Ihre Firewall finden Sie in den Schritten von [Tutorial: Überwachen von Azure Firewall-Protokollen und -Metriken](../firewall/firewall-diagnostics.md).
 
 Nachdem Sie die Protokollierung eingerichtet haben, können Sie bei Verwendung von Log Analytics den blockierten Datenverkehr mit einer Abfrage wie der folgenden anzeigen:
 

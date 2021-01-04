@@ -6,24 +6,24 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 08/13/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63b754886d88e97134b30e4a2bee7bdf5ac5a9d3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3b40171d87ccffa7c5c4fb72d2e79af015b1d16f
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373294"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859962"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Zuweisen von Vertraulichkeitsbezeichnungen zu Microsoft 365-Gruppen in Azure Active Directory
 
-Azure Active Directory (Azure AD) unterstützt das Anwenden von Vertraulichkeitsbezeichnungen, die vom [Microsoft 365 Compliance Center](https://sip.protection.office.com/homepage) für Microsoft 365-Gruppen veröffentlicht werden. Vertraulichkeitsbezeichnungen gelten für Gruppen über Dienste wie Outlook, Microsoft Teams und SharePoint hinweg. Dieses Feature ist aktuell in der allgemein verfügbaren Version erhältlich. Weitere Informationen zur Unterstützung von Microsoft 365-Apps finden Sie unter [Microsoft 365-Unterstützung für Vertraulichkeitsbezeichnungen](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
+Azure Active Directory (Azure AD) unterstützt das Anwenden von Vertraulichkeitsbezeichnungen, die vom [Microsoft 365 Compliance Center](https://sip.protection.office.com/homepage) für Microsoft 365-Gruppen veröffentlicht werden. Vertraulichkeitsbezeichnungen gelten für Gruppen über Dienste wie Outlook, Microsoft Teams und SharePoint hinweg. Weitere Informationen zur Unterstützung von Microsoft 365-Apps finden Sie unter [Microsoft 365-Unterstützung für Vertraulichkeitsbezeichnungen](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
 
 > [!IMPORTANT]
 > Um dieses Feature zu konfigurieren, muss mindestens eine aktive Azure Active Directory Premium P1-Lizenz in Ihrer Azure AD-Organisation vorhanden sein.
@@ -68,7 +68,7 @@ Damit veröffentlichte Bezeichnungen auf Gruppen angewendet werden können, müs
     Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
     ```
 
-Außerdem müssen Sie Ihre Vertraulichkeitsbezeichnungen mit Azure AD synchronisieren. Entsprechende Anweisungen finden Sie unter [Aktivieren von Vertraulichkeitsbezeichnungen für Container und Synchronisieren von Bezeichnungen](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).
+Außerdem müssen Sie Ihre Vertraulichkeitsbezeichnungen mit Azure AD synchronisieren. Entsprechende Anweisungen finden Sie unter [Aktivieren von Vertraulichkeitsbezeichnungen für Container und Synchronisieren von Bezeichnungen](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).
 
 ## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>Zuweisen einer Bezeichnung zu einer neuen Gruppe im Azure-Portal
 
@@ -91,7 +91,7 @@ Ihre Gruppe wird erstellt, und die mit der ausgewählten Bezeichnung verbundenen
 
    ![Zuweisen einer Vertraulichkeitsbezeichnung auf der Übersichtsseite für eine Gruppe](./media/groups-assign-sensitivity-labels/assign-to-existing.png)
 
-1. Wählen Sie **Speichern** , um Ihre Änderungen zu speichern.
+1. Wählen Sie **Speichern**, um Ihre Änderungen zu speichern.
 
 ## <a name="remove-a-label-from-an-existing-group-in-azure-portal"></a>Entfernen einer Bezeichnung von einer vorhandenen Gruppe im Azure-Portal
 
@@ -99,8 +99,8 @@ Ihre Gruppe wird erstellt, und die mit der ausgewählten Bezeichnung verbundenen
 1. Wählen Sie **Gruppen** aus.
 1. Wählen Sie auf der Seite **Alle Gruppen** die Gruppe aus, deren Bezeichnung Sie entfernen möchten.
 1. Wählen Sie auf der Seite **Gruppe** die Option **Eigenschaften** aus.
-1. Wählen Sie **Entfernen** .
-1. Klicken Sie zum Übernehmen der Änderungen auf **Speichern** .
+1. Wählen Sie **Entfernen**.
+1. Klicken Sie zum Übernehmen der Änderungen auf **Speichern**.
 
 ## <a name="using-classic-azure-ad-classifications"></a>Verwenden klassischer Azure AD-Klassifizierungen
 

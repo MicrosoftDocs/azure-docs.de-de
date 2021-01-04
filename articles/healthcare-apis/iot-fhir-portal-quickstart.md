@@ -6,18 +6,18 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart
-ms.date: 09/08/2020
+ms.date: 11/13/2020
 ms.author: punagpal
-ms.openlocfilehash: 3b6db74d637ac17ef5d09e1d9c5d3dac30ba8ba9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f36d842e14c91850bfeba47e9fef61d4747c33a9
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89594372"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630565"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>Schnellstart: Bereitstellen von Azure IoT-Konnektor für FHIR (Vorschauversion) mithilfe des Azure-Portals
 
-Azure IoT-Konnektor für FHIR* ist ein optionales Feature von Azure API for FHIR, das die Erfassung der Daten von IoMT-Geräten (Internet of Medical Things) ermöglicht. Während der Vorschauphase steht das Feature „Azure IoT-Konnektor für FHIR“ kostenlos zur Verfügung. In diesem Schnellstart erfahren Sie, wie die folgenden Aufgaben ausgeführt werden:
+Azure IoT-Konnektor für FHIR&#174; (Fast Healthcare Interoperability Resources)* ist ein optionales Feature von Azure API for FHIR, das die Erfassung der Daten von IoMT-Geräten (Internet of Medical Things) ermöglicht. Während der Vorschauphase steht das Feature „Azure IoT-Konnektor für FHIR“ kostenlos zur Verfügung. In diesem Schnellstart erfahren Sie, wie die folgenden Aufgaben ausgeführt werden:
 - Bereitstellen und Konfigurieren von Azure IoT-Konnektor für FHIR über das Azure-Portal
 - Verwenden eines simulierten Geräts zum Senden von Daten an Azure IoT-Konnektor für FHIR
 - Anzeigen von Ressourcen, die von Azure IoT-Konnektor für FHIR in Azure API for FHIR erstellt wurden
@@ -163,16 +163,16 @@ Speichern Sie diese Verbindungszeichenfolge für einen späteren Schritt.
 
 Azure bietet eine umfangreiche Sammlung von IoT-Produkten zum Herstellen einer Verbindung mit und zum Verwalten von IoT-Geräten. Sie können mithilfe von Azure IoT Hub eigene PaaS-basierte Lösungen erstellen oder mit Azure IoT Central mit einer verwalteten IoT-App-Plattform beginnen. In diesem Tutorial nutzen Sie Azure IoT Central. Diese Lösung bietet branchenspezifische Lösungsvorlagen, die Ihnen den Einstieg erleichtern.
 
-Stellen Sie die [Anwendungsvorlage für die ständige Überwachung von Patienten](https://docs.microsoft.com/azure/iot-central/healthcare/tutorial-continuous-patient-monitoring#create-an-application-template) bereit. Diese Vorlage enthält zwei simulierte Geräte, die Echtzeitdaten erzeugen, um Ihnen den Einstieg zu erleichtern: **Smart Vitals Patch** und **Smart Knee Brace**.
+Stellen Sie die [Anwendungsvorlage für die ständige Überwachung von Patienten](../iot-central/healthcare/tutorial-continuous-patient-monitoring.md#create-an-application-template) bereit. Diese Vorlage enthält zwei simulierte Geräte, die Echtzeitdaten erzeugen, um Ihnen den Einstieg zu erleichtern: **Smart Vitals Patch** und **Smart Knee Brace**.
 
 > [!NOTE]
-> Wenn Ihre echten Geräte bereit sind, können Sie dieselbe IoT Central-Anwendung verwenden, um das [Onboarding für Ihre Geräte durchzuführen](https://docs.microsoft.com/azure/iot-central/core/howto-set-up-template) und Gerätesimulatoren zu ersetzen. Ihre Gerätedaten werden ebenfalls automatisch an FHIR übermittelt. 
+> Wenn Ihre echten Geräte bereit sind, können Sie dieselbe IoT Central-Anwendung verwenden, um das [Onboarding für Ihre Geräte durchzuführen](../iot-central/core/howto-set-up-template.md) und Gerätesimulatoren zu ersetzen. Ihre Gerätedaten werden ebenfalls automatisch an FHIR übermittelt. 
 
 ## <a name="connect-your-iot-data-with-the-azure-iot-connector-for-fhir-preview"></a>Verbinden Ihrer IoT-Daten mit Azure IoT-Konnektor für FHIR (Vorschauversion)
 > [!WARNING]
 > Die in dieser Schnellstartanleitung bereitgestellte Vorlage für die Gerätezuordnung ist für den Datenexport (Legacy) in IoT Central konzipiert.
 
-Nach der Bereitstellung Ihrer IoT Central-Anwendung beginnen Ihre beiden vordefinierten simulierten Geräte mit dem Generieren von Telemetriedaten. In diesem Tutorial erfassen Sie die Telemetriedaten vom Simulator *Smart Vitals Patch* in FHIR über Azure IoT-Konnektor für FHIR. Wenn Sie Ihre IoT-Daten in Azure IoT-Konnektor für FHIR exportieren möchten, sollten Sie einen [fortlaufenden Datenexport in IoT Central einrichten](https://docs.microsoft.com/azure/iot-central/core/howto-export-data-legacy). Gehen Sie auf der Seite für den kontinuierlichen Datenexport wie folgt vor:
+Nach der Bereitstellung Ihrer IoT Central-Anwendung beginnen Ihre beiden vordefinierten simulierten Geräte mit dem Generieren von Telemetriedaten. In diesem Tutorial erfassen Sie die Telemetriedaten vom Simulator *Smart Vitals Patch* in FHIR über Azure IoT-Konnektor für FHIR. Wenn Sie Ihre IoT-Daten in Azure IoT-Konnektor für FHIR exportieren möchten, sollten Sie einen [fortlaufenden Datenexport in IoT Central einrichten](../iot-central/core/howto-export-data-legacy.md). Gehen Sie auf der Seite für den kontinuierlichen Datenexport wie folgt vor:
 - Wählen Sie als Exportziel *Azure Event Hubs* aus.
 - Wählen Sie für das Feld **Event Hubs-Namespace** den Wert *Verbindungszeichenfolge verwenden* aus.
 - Geben Sie die Verbindungszeichenfolge von Azure IoT-Konnektor für FHIR an, die Sie in einem vorherigen Schritt für das Feld **Verbindungszeichenfolge** abgerufen haben.
@@ -207,6 +207,4 @@ Erfahren Sie, wie Sie IoT Connector mithilfe von Geräte- und FHIR-Zuordnungsvo
 >[!div class="nextstepaction"]
 >[Zuordnungsvorlagen im Azure IoT-Konnektor für FHIR](iot-mapping-templates.md)
 
-*Im Azure-Portal wird Azure IoT-Konnektor für FHIR als IoT-Konnektor (Vorschauversion) bezeichnet.
-
-FHIR ist ein eingetragenes Markenzeichen von HL7 und wird mit Erlaubnis von HL7 verwendet.
+*Im Azure-Portal wird Azure IoT-Konnektor für FHIR als „IoT-Konnektor (Vorschau)“ bezeichnet. FHIR ist eine eingetragene Marke von HL7 und wird mit Genehmigung von HL7 verwendet.

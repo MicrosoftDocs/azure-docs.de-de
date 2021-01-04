@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d9a7d7db93e00b9fcccab08522b3363935badf26
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 48c835070329b5cb0892b10760d37708e46bfa1d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203839"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559132"
 ---
 # <a name="tutorial-manipulating-models"></a>Tutorial: Bearbeiten von Modellen
 
@@ -176,7 +176,7 @@ In diesem Tutorial wird MRTK für die Objektinteraktion verwendet. Der größte 
 1. Betätigen Sie die Wiedergabeschaltfläche von Unity, um die Szene wiederzugeben, und öffnen Sie das Menü **Model Tools** (Modelltools) innerhalb von **AppMenu**.
 ![Ansichtscontroller](./media/model-with-view-controller.png)
 
-**AppMenu** verfügt über ein Untermenü **Model Tools** (Modelltools), das einen Ansichtscontroller für die Bindung mit dem Modell implementiert. Wenn das GameObject-Element eine **RemoteBounds**-Komponente enthält, fügt der Ansichtscontroller eine [**BoundingBox**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html)-Komponente hinzu. Dabei handelt es sich um eine MRTK-Komponente, die einen Begrenzungsrahmen um ein Objekt mit einem **BoxCollider**-Element rendert. Ein [**ObjectManipulator**](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/api/Microsoft.MixedReality.Toolkit.Experimental.UI.ObjectManipulator.html?q=ObjectManipulator)-Element ist für Handinteraktionen zuständig. Diese Skripts ermöglichen es uns, das per Remotezugriff gerenderte Modell zu verschieben, zu drehen und zu skalieren.
+**AppMenu** verfügt über ein Untermenü **Model Tools** (Modelltools), das einen Ansichtscontroller für die Bindung mit dem Modell implementiert. Wenn das GameObject-Element eine **RemoteBounds**-Komponente enthält, fügt der Ansichtscontroller eine [**BoundingBox**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html)-Komponente hinzu. Dabei handelt es sich um eine MRTK-Komponente, die einen Begrenzungsrahmen um ein Objekt mit einem **BoxCollider**-Element rendert. Ein [**ObjectManipulator**](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/api/Microsoft.MixedReality.Toolkit.UI.ObjectManipulator.html)-Element ist für Handinteraktionen zuständig. Diese Skripts ermöglichen es uns, das per Remotezugriff gerenderte Modell zu verschieben, zu drehen und zu skalieren.
 
 1. Bewegen Sie die Maus in den Spielbereich, und klicken Sie darauf, um den Fokus zu legen.
 1. Halten Sie die linke UMSCHALTTASTE mithilfe der [MRTK-Handsimulation](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/InputSimulation/InputSimulationService.html#hand-simulation) gedrückt.
@@ -308,7 +308,7 @@ Die Methode `OnPointerClicked` von **RemoteRayCastPointerHandler** wird von MRTK
 
 Das Senden von Anforderungen für Raycasting auf Klick ist eine effiziente Strategie zum Abfragen von Remoteobjekten. Die Benutzererfahrung ist dabei jedoch nicht ideal, da der Cursor auf den Box-Collider und nicht auf das eigentliche Modell trifft.
 
-Sie können auch einen neuen MRTK-Zeiger erstellen, der seine Strahlen in der Remotesitzung häufiger umwandelt. Dieser Ansatz ist zwar komplexer, die Benutzererfahrung ist dabei jedoch besser. Diese Strategie ist nicht Gegenstand dieses Tutorials, ein Beispiel für diesen Ansatz finden Sie jedoch in der Showcase-App, die im [ARR-Beispielrepository](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/AzureRemoteRenderingShowcase) zu finden ist.
+Sie können auch einen neuen MRTK-Zeiger erstellen, der seine Strahlen in der Remotesitzung häufiger umwandelt. Dieser Ansatz ist zwar komplexer, die Benutzererfahrung ist dabei jedoch besser. Diese Strategie ist nicht Gegenstand dieses Tutorials, ein Beispiel für diesen Ansatz finden Sie jedoch in der Showcase-App, die im [ARR-Beispielrepository](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/Showcase) zu finden ist.
 
 Wenn ein Raycast im **RemoteRayCastPointerHandler**-Element erfolgreich abgeschlossen ist, wird der Treffer `Entity` aus dem Unity-Ereignis`OnRemoteEntityClicked` ausgegeben. Um auf dieses Ereignis zu reagieren, erstellen wir ein Hilfsskript, das `Entity` akzeptiert und eine Aktion dafür durchführt. Beginnen wir mit dem Erstellen des Skripts, um den Namen von `Entity` im Debugprotokoll auszugeben.
 

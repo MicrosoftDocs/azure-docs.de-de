@@ -14,12 +14,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 07/07/2020
-  ms.openlocfilehash: f1cecfbf23e8982e6a86cb2c98e5b9a90506d563
-  ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+  ms.openlocfilehash: b44b23f96c9a13d67cfdd3ae2a865e60ddd3cac9
+  ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/27/2020
-  ms.locfileid: "92677407"
+  ms.lasthandoff: 12/10/2020
+  ms.locfileid: "97092107"
 conceptualContent:
   title: Complianceangebote
   items:
@@ -51,7 +51,7 @@ conceptualContent:
     - url: /microsoft-365/compliance/offering-iso-20000-1-2011
       itemType: concept
       text: ISO 20000-1
-    - url: /microsoft-365/compliance/offering-iso-22301
+    - url: /compliance/regulatory/offering-iso-22301
       itemType: concept
       text: ISO 22301
     - url: /microsoft-365/compliance/offering-iso-27001
@@ -196,7 +196,7 @@ conceptualContent:
     - url: /microsoft-365/compliance/offering-hds-france
       itemType: concept
       text: HDS (Frankreich)
-    - url: /microsoft-365/compliance/offering-hipaa-hitech
+    - url: /compliance/regulatory/offering-hipaa-hitech
       itemType: concept
       text: HIPAA und HITECH (USA)
     - url: /microsoft-365/compliance/offering-hitrust

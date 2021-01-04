@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: b0c1a91df30ee6a88f055dc47cfdef339e2ee2b2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5ad40ca051677ced0c6d8b5c35e8563272ff598f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151057"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183973"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Ressourcenprotokolle für Azure SignalR Service
 
@@ -122,7 +122,7 @@ Führen Sie folgende Schritte aus, um die Ressourcenprotokolle anzuzeigen:
 
     ![Log Analytics-Menüelement](./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png)
 
-2. Geben Sie `SignalRServiceDiagnosticLogs` ein, und wählen Sie den Zeitraum für die Abfrage der Ressourcenprotokolle aus. Informationen zu komplexeren Abfragen finden Sie unter [Erste Schritte mit Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
+2. Geben Sie `SignalRServiceDiagnosticLogs` ein, und wählen Sie den Zeitraum für die Abfrage der Ressourcenprotokolle aus. Informationen zu komplexeren Abfragen finden Sie unter [Erste Schritte mit Log Analytics in Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
 
     ![Abfragen des Protokolls in Log Analytics](./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png)
 
@@ -182,7 +182,7 @@ Wenn Sie bei Clientanforderungen die Rückgabe „401 – Nicht autorisiert“ 
 
 #### <a name="throttling"></a>Drosselung
 
-Wenn Sie feststellen, dass Sie keine SignalR-Clientverbindungen mit dem Azure SignalR Service herstellen können, überprüfen Sie Ihre Ressourcenprotokolle. Wenn im Ressourcenprotokoll `Connection count reaches limit` auftritt, stellen Sie zu viele Verbindungen mit dem SignalR Service her, die das Limit für die Verbindungsanzahl erreichen. Erwägen Sie, Ihren SignalR Service zentral hochzuskalieren. Wenn im Ressourcenprotokoll `Message count reaches limit` auftritt, bedeutet dies, dass Sie den kostenlosen Tarif verwenden und das Kontingent der Nachrichten verbrauchen. Wenn Sie weitere Nachrichten senden möchten, sollten Sie einen Wechsel für den SignalR Service in den Standardtarif erwägen, um zusätzliche Nachrichten zu senden. Weitere Informationen finden Sie unter [Azure SignalR Service – Preise](https://azure.microsoft.com/pricing/details/signalr-service/).
+Wenn Sie feststellen, dass Sie keine SignalR-Clientverbindungen mit dem Azure SignalR Service herstellen können, überprüfen Sie Ihre Ressourcenprotokolle. Wenn im Ressourcenprotokoll `Connection count reaches limit` auftritt, stellen Sie zu viele Verbindungen mit dem SignalR Service her, die das Limit für die Verbindungsanzahl erreichen. Erwägen Sie, Ihren SignalR Service zentral hochzuskalieren. Wenn im Ressourcenprotokoll `Message count reaches limit` auftritt, bedeutet dies, dass Sie den kostenlosen Tarif verwenden und das Kontingent der Nachrichten verbrauchen. Wenn Sie weitere Nachrichten senden möchten, sollten Sie einen Wechsel für den SignalR Service in den Standardtarif erwägen, um zusätzliche Nachrichten zu senden. Weitere Informationen finden Sie unter [Azure SignalR Service – Preise](https://azure.microsoft.com/pricing/details/signalr-service/).
 
 ### <a name="get-help"></a>Hier erhalten Sie Hilfe
 

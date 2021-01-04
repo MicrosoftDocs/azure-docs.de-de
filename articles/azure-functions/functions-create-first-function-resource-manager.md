@@ -5,12 +5,12 @@ ms.date: 3/5/2020
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs
-ms.openlocfilehash: 362ff5cd59982c1d848ed59af8381090344f5c5e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1e623405faa89ff41eccdaa57578bc8ac94cd78c
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88642264"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422823"
 ---
 # <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>Schnellstart: Erstellen und Bereitstellen von Azure Functions-Ressourcen aus einer ARM-Vorlage
 
@@ -38,7 +38,14 @@ Wählen Sie eine der folgenden Registerkarten aus, folgen Sie dem Link, und füh
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-[Erstellen Ihres lokalen Funktionsprojekts in Visual Studio Code](functions-create-first-function-vs-code.md#create-an-azure-functions-project)
+Erstellen des lokalen Funktionsprojekts in Ihrer ausgewählten Sprache in Visual Studio Code:  
+
++ [C#](create-first-function-vs-code-csharp.md)
++ [Java](create-first-function-vs-code-java.md)
++ [JavaScript](create-first-function-vs-code-node.md)
++ [PowerShell](create-first-function-vs-code-powershell.md)
++ [Python](create-first-function-vs-code-python.md)
++ [TypeScript](create-first-function-vs-code-typescript.md)
 
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -46,7 +53,14 @@ Wählen Sie eine der folgenden Registerkarten aus, folgen Sie dem Link, und füh
 
 # <a name="command-line"></a>[Befehlszeile](#tab/command-line)
 
-[Erstellen Ihres lokalen Funktionsprojekts über die Befehlszeile](functions-create-first-azure-function-azure-cli.md#create-a-local-function-project)
+Erstellen Ihres lokalen Funktionsprojekts in Ihrer ausgewählten Sprache über die Befehlszeile:
+
++ [C#](create-first-function-cli-csharp.md)
++ [Java](create-first-function-cli-java.md)
++ [JavaScript](create-first-function-cli-node.md)
++ [PowerShell](create-first-function-cli-powershell.md)
++ [Python](create-first-function-cli-python.md)
++ [TypeScript](create-first-function-cli-typescript.md)
 
 ---
 
@@ -109,7 +123,7 @@ Kopieren Sie in der Ausgabe die URL des HTTP-Triggers. Mit dieser testen Sie die
 
 1. Klicken Sie im **Projektmappen-Explorer** mit der rechten Maustaste auf das Projekt, und wählen Sie **Veröffentlichen** aus.
 
-1. Wählen Sie in **Veröffentlichungsziel auswählen** die Option **Azure Functions-Verbrauch** mit **Vorhandenen auswählen**, und wählen Sie dann **Profil erstellen** aus.
+1. Wählen Sie in **Veröffentlichungsziel auswählen** die Option **Azure Functions-Verbrauch** mit **Vorhandenen auswählen** , und wählen Sie dann **Profil erstellen** aus.
 
     :::image type="content" source="media/functions-create-first-function-arm/choose-publish-target-visual-studio.png" alt-text="Vorhandenes Veröffentlichungsziel auswählen":::
 
@@ -117,7 +131,7 @@ Kopieren Sie in der Ausgabe die URL des HTTP-Triggers. Mit dieser testen Sie die
 
 1. Nachdem die Veröffentlichung abgeschlossen ist, kopieren Sie die **Site-URL**.
 
-    :::image type="content" source="media/functions-create-first-function-arm/publish-summary-site-url.png" alt-text="Vorhandenes Veröffentlichungsziel auswählen":::
+    :::image type="content" source="media/functions-create-first-function-arm/publish-summary-site-url.png" alt-text="Kopieren der Site-URL aus der Veröffentlichungszusammenfassung":::
 
 1. Fügen Sie den Pfad `/api/<FUNCTION_NAME>?name=Functions` an, wobei `<FUNCTION_NAME>` der Name Ihrer Funktion ist. Die URL, über die Ihre Funktion mit HTTP-Trigger aufgerufen wird, hat das folgende Format:
 

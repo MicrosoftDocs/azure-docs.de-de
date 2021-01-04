@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/05/2020
-ms.openlocfilehash: bda186f6bb45250763e439b77b4d3af988574401
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/05/2020
+ms.openlocfilehash: e763dbd15ea443ad3c8f6295b37999c748db7e6c
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935880"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422330"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Hinzufügen von Sprachanalysetools zu Zeichenfolgenfeldern in einem Azure Cognitive Search-Index
 
@@ -133,4 +133,4 @@ Weitere Informationen zu Indexeigenschaften finden Sie unter [Erstellen eines In
 
 + [Erstellen eines Index &#40;REST-API für die kognitive Azure-Suche&#41;](/rest/api/searchservice/create-index)  
 
-+ [AnalyzerName-Klasse](/dotnet/api/microsoft.azure.search.models.analyzername)
++ [LexicalAnalyzerName-Klasse](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername)

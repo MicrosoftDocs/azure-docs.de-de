@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
-ms.openlocfilehash: 95386f36340aca470769c920e40bbb70e09d34fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67d3fafb9b4b93ae52bdb09d673bf65cad30b816
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80397878"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966155"
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>Versionsanmerkungen zu Update 0.2 und Update 0.1 für das StorSimple Virtual Array
 ## <a name="overview"></a>Übersicht
@@ -83,5 +83,4 @@ Die folgende Tabelle enthält eine Zusammenfassung der bekannten Probleme für S
 | **14.** |Dateiserver* |Wenn einer Datei in einem Ordner ein alternativer Datenstrom (Alternate Data Stream, ADS) zugeordnet ist, wird dieser nicht gesichert oder mittels Notfallwiederherstellung, Klonen oder Wiederherstellung auf Elementebene wiederhergestellt. | |
 
 ## <a name="next-step"></a>Nächster Schritt
-[Installieren Sie Updates](storsimple-ova-install-update-01.md) auf Ihrem StorSimple Virtual Array.
-
+[Installieren Sie Updates](./storsimple-virtual-array-install-update-06.md) auf Ihrem StorSimple Virtual Array.

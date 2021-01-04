@@ -10,16 +10,16 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f800c11bb878ca1788c7258cde25266847e2a90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd1c7f5dec57127f92da52be908bd6faa2c90e85
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89278580"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500222"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrieren zur Cloudauthentifizierung mithilfe eines gestaffelten Rollouts (Vorschau)
 
-Gestaffelte Rollouts ermöglichen Ihnen das selektive Testen von Benutzergruppen mit Cloudauthentifizierungsfunktionen (wie Azure Multi-Factor Authentication (MFA), bedingter Zugriff, Identity Protection für kompromittierte Anmeldeinformationen, Identity Governance usw.) vor der Umstellung Ihrer Domänen.  In diesem Artikel wird erläutert, wie Sie den Umstieg vornehmen. Bevor Sie mit dem gestaffelten Rollout beginnen, sollten Sie jedoch die Auswirkungen berücksichtigen, wenn mindestens eine der folgenden Bedingungen zutrifft:
+Gestaffelte Rollouts ermöglichen Ihnen das selektive Testen von Benutzergruppen mit Cloudauthentifizierungsfunktionen (wie Azure AD Multi-Factor Authentication (MFA), bedingter Zugriff, Identity Protection für kompromittierte Anmeldeinformationen, Identity Governance usw.) vor der Umstellung Ihrer Domänen.  In diesem Artikel wird erläutert, wie Sie den Umstieg vornehmen. Bevor Sie mit dem gestaffelten Rollout beginnen, sollten Sie jedoch die Auswirkungen berücksichtigen, wenn mindestens eine der folgenden Bedingungen zutrifft:
     
 -  Sie verwenden zurzeit einen lokalen Server für mehrstufige Authentifizierung. 
 -  Sie verwenden Smartcards für die Authentifizierung. 
@@ -45,7 +45,7 @@ Einen Überblick über das Feature finden Sie hier: „Azure Active Directory: W
 
 -   Sie haben alle geeigneten Richtlinien für Mandantenbranding und für bedingten Zugriff konfiguriert, die Sie für Benutzer benötigen, die zur Cloudauthentifizierung migriert werden.
 
--   Wenn Sie Azure Multi-Factor Authentication verwenden möchten, empfehlen wir die Verwendung der [kombinierten Registrierung für die Self-Service-Kennwortzurücksetzung (Self-Service Password Reset, SSPR) und Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md), damit Ihre Benutzer ihre Authentifizierungsmethoden einmalig registrieren können.
+-   Wenn Sie Azure AD Multi-Factor Authentication verwenden möchten, wird empfohlen, die [kombinierte Registrierung für die Self-Service-Kennwortzurücksetzung (Self-Service Password Reset, SSPR) und Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) zu verwenden, damit Ihre Benutzer ihre Authentifizierungsmethoden einmalig registrieren können. Hinweis: Bei Verwendung von SSPR zum Zurücksetzen oder Ändern des Kennworts mithilfe der Seite MyProfile im gestaffeltem Rollout muss Azure AD Connect den neuen Kennworthash synchronisieren, was nach dem Zurücksetzen bis zu 2 Minuten dauern kann.
 
 -   Um dieses Feature für gestaffelten Rollout verwenden zu können, müssen Sie globaler Administrator für Ihren Mandanten sein.
 
@@ -66,6 +66,8 @@ Die folgenden Szenarien werden für gestaffelten Rollout unterstützt. Das Featu
 ## <a name="unsupported-scenarios"></a>Nicht unterstützte Szenarien
 
 Die folgenden Szenarien werden für gestaffelten Rollout nicht unterstützt:
+
+- Für Anwendungen oder Clouddienste wird die Legacyauthentifizierung verwendet, z. B. POP3 und SMTP.
 
 - Bestimmte Anwendungen senden bei der Authentifizierung den Abfrageparameter „domain_hint“ an Azure AD. Diese Flows werden fortgesetzt, und für den gestaffelten Rollout aktivierte Benutzer verwenden weiterhin den Verbund für die Authentifizierung.
 
@@ -95,7 +97,7 @@ Weitere Informationen dazu, welche PowerShell-Cmdlets verwendet werden sollten, 
 
 ## <a name="pre-work-for-password-hash-sync"></a>Vorbereitende Schritte für die Kennworthashsynchronisierung
 
-1. Aktivieren Sie  *Kennworthashsynchronisierung* über die Seite [Optionale Features](how-to-connect-install-custom.md#optional-features) in Azure AD Connect. 
+1. Aktivieren Sie die *Kennworthashsynchronisierung* über die Seite [Optionale Features](how-to-connect-install-custom.md#optional-features) in Azure AD Connect. 
 
    ![Screenshot der Seite „Optionale Features“ in Azure Active Directory Connect](media/how-to-connect-staged-rollout/sr1.png)
 
@@ -109,11 +111,11 @@ Wenn Sie *Passthrough-Authentifizierung* testen möchten, melden Sie sich mithil
 
 1. Identifizieren Sie einen Server unter Windows Server 2012 R2 (oder höher), auf dem der *Passthrough-Authentifizierungs-Agent* ausgeführt werden soll. 
 
-   Wählen Sie *nicht* den Azure AD Connect-Server aus. Stellen Sie sicher, dass der Server in die Domäne eingebunden ist, die ausgewählten Benutzer bei Active Directory authentifizieren und mit Azure AD über ausgehende Ports/URLs kommunizieren kann. Weitere Informationen finden Sie im Abschnitt „Schritt 1: Überprüfen der Voraussetzungen“ in [Schnellstart: Nahtloses einmaliges Anmelden mit Azure AD](how-to-connect-sso-quick-start.md).
+   Wählen Sie *nicht* den Azure AD Connect-Server aus.  Stellen Sie sicher, dass der Server in die Domäne eingebunden ist, die ausgewählten Benutzer bei Active Directory authentifizieren und mit Azure AD über ausgehende Ports/URLs kommunizieren kann. Weitere Informationen finden Sie im Abschnitt „Schritt 1: Überprüfen der Voraussetzungen“ in [Schnellstart: Nahtloses einmaliges Anmelden mit Azure AD](how-to-connect-sso-quick-start.md).
 
-1. [Laden Sie den Microsoft Azure AD Connect-Authentifizierungs-Agent herunter](https://aka.ms/getauthagent), und installieren Sie ihn auf dem Server. 
+1. [Laden Sie den Microsoft Azure AD Connect-Authentifizierungs-Agent herunter](https://aka.ms/getauthagent), und installieren Sie ihn auf dem Server. 
 
-1. Installieren Sie zusätzliche Authentifizierungs-Agents auf anderen Servern, um  [Hochverfügbarkeit](how-to-connect-sso-quick-start.md) zu ermöglichen.
+1. Installieren Sie zusätzliche Authentifizierungs-Agents auf anderen Servern, um [Hochverfügbarkeit](how-to-connect-sso-quick-start.md) zu ermöglichen.
 
 1. Stellen Sie sicher, dass Sie die Einstellungen für die intelligente Sperre ([Smart Lockout](../authentication/howto-password-smart-lockout.md)) entsprechend konfiguriert haben. Dadurch wird sichergestellt, dass die lokalen Active Directory-Konten Ihrer Benutzer nicht von böswilligen Akteuren gesperrt werden.
 
@@ -121,25 +123,25 @@ Es wird empfohlen, *nahtloses einmaliges Anmelden* unabhängig von der für den 
 
 ## <a name="pre-work-for-seamless-sso"></a>Vorbereitende Schritte für nahtloses einmaliges Anmelden
 
-Aktivieren Sie  *nahtloses einmaliges Anmelden*  für die Active Directory-Gesamtstrukturen mithilfe von PowerShell. Wenn Sie mehrere Active Directory-Gesamtstrukturen verwenden, aktivieren Sie das Feature für jede Gesamtstruktur einzeln.  *Nahtloses einmaliges Anmelden* wird nur für Benutzer ausgelöst, die für gestaffelten Rollout ausgewählt sind. Dies wirkt sich nicht auf Ihre vorhandene Verbundeinrichtung aus.
+Aktivieren Sie *nahtloses einmaliges Anmelden* für die Active Directory-Gesamtstrukturen mithilfe von PowerShell. Wenn Sie über mehrere Active Directory-Gesamtstrukturen verfügen, aktivieren Sie das gleiche Feature für jede Gesamtstruktur einzeln. *Nahtloses einmaliges Anmelden* wird nur für Benutzer ausgelöst, die für das gestaffelte Rollout ausgewählt wurden. Dies wirkt sich nicht auf Ihre vorhandene Verbundeinrichtung aus.
 
 Aktivieren Sie *nahtloses einmaliges Anmelden*, indem Sie die folgenden Schritte ausführen:
 
 1. Melden Sie sich beim Azure AD Connect-Server an.
 
-2. Navigieren Sie zum Ordner  *%programfiles%\\Microsoft Azure Active Directory Connect* .
+2. Navigieren Sie zum Ordner *%Programme%\\Microsoft Azure Active Directory Connect*.
 
-3. Importieren Sie das PowerShell-Modul für *nahtloses SSO*, indem Sie den folgenden Befehl ausführen: 
+3. Importieren Sie das PowerShell-Modul für *nahtloses SSO*, indem Sie den folgenden Befehl ausführen: 
 
    `Import-Module .\AzureADSSO.psd1`
 
-4. Führen Sie PowerShell als Administrator aus. Rufen Sie in PowerShell den Befehl `New-AzureADSSOAuthenticationContext` auf. Mit diesem wird ein Bereich geöffnet, in dem Sie die Anmeldeinformationen des globalen Administrators Ihres Mandanten eingeben können.
+4. Führen Sie PowerShell als Administrator aus. Rufen Sie in PowerShell `New-AzureADSSOAuthenticationContext` auf. Mit diesem wird ein Bereich geöffnet, in dem Sie die Anmeldeinformationen des globalen Administrators Ihres Mandanten eingeben können.
 
-5. Rufen Sie `Get-AzureADSSOStatus | ConvertFrom-Json` auf. Dieser Befehl zeigt eine Liste der Active Directory-Gesamtstrukturen (siehe Liste „Domänen“) an, für die diese Funktion aktiviert wurde. Standardmäßig ist die Option auf der Mandantenebene auf „false“ festgelegt.
+5. Rufen Sie `Get-AzureADSSOStatus | ConvertFrom-Json` auf. Dieser Befehl zeigt eine Liste der Active Directory-Gesamtstrukturen (siehe Liste „Domänen“) an, für die diese Funktion aktiviert wurde. Standardmäßig ist die Option auf der Mandantenebene auf „false“ festgelegt.
 
    ![Beispiel der Windows PowerShell-Ausgabe](./media/how-to-connect-staged-rollout/sr3.png)
 
-6. Rufen Sie `$creds = Get-Credential` auf. Geben Sie an der Eingabeaufforderung die Anmeldeinformationen des Domänenadministrators für die vorgesehene Active Directory-Gesamtstruktur ein.
+6. Rufen Sie `$creds = Get-Credential` auf. Geben Sie an der Eingabeaufforderung die Anmeldeinformationen des Domänenadministrators für die vorgesehene Active Directory-Gesamtstruktur ein.
 
 7. Rufen Sie `Enable-AzureADSSOForest -OnPremCredentials $creds` auf. Mit diesem Befehl wird das Computerkonto „AZUREADSSOACC“ vom lokalen Domänencontroller für die Active Directory-Gesamtstruktur erstellt, das für *nahtloses SSO* erforderlich ist.
 
@@ -178,6 +180,7 @@ Gehen Sie folgendermaßen vor:
    >[!NOTE]
    >Die Mitglieder einer Gruppe werden automatisch für den gestaffelten Rollout aktiviert. Geschachtelte und dynamische Gruppen werden für gestaffelte Rollouts nicht unterstützt.
    >Wenn Sie eine neue Gruppe hinzufügen, werden die Benutzer in der Gruppe (bis zu 200 Benutzer für eine neue Gruppe) aktualisiert, damit die verwaltete Authentifizierung sofort verwendet werden kann. Wenn Sie eine Gruppe bearbeiten (Benutzer hinzufügen oder entfernen), kann es bis zu 24 Stunden dauern, bis die Änderungen wirksam werden.
+   >Das nahtlose einmalige Anmelden gilt nur, wenn sich Benutzer in der Gruppe „Nahtloses einmaliges Anmelden“ und auch in einer PTA- oder Kennworthashsynchronisierungs-Gruppe befinden.
 
 ## <a name="auditing"></a>Überwachung
 
@@ -239,7 +242,7 @@ A: Ja, Sie können dieses Feature in Ihrem Produktionsmandanten verwendet werden
 
 **F: Kann dieses Feature verwendet werden, um eine permanente „Koexistenz“ aufrechtzuerhalten, bei der einige Benutzer Verbundauthentifizierung und andere Cloudauthentifizierung verwenden?**
 
-A: Nein, dieses Feature ist für die Migration von der Verbund- zur Cloudauthentifizierung in Phasen und dann schließlich zur Umstellung auf die Cloudauthentifizierung konzipiert. Von der Verwendung eines dauerhaften gemischten Zustands wird abgeraten, weil dieser Ansatz zu unerwarteten Authentifizierungsflows führen könnte.
+A: Nein, dieses Feature ist für das Testen der Cloudauthentifizierung konzipiert. Nachdem Sie einige Gruppen von Benutzern erfolgreich getestet haben, sollten Sie zur Cloudauthentifizierung wechseln. Von der Verwendung eines dauerhaften gemischten Zustands wird abgeraten, weil dieser Ansatz zu unerwarteten Authentifizierungsflows führen könnte.
 
 **F: Kann PowerShell verwendet werden, um einen gestaffelten Rollout auszuführen?**
 

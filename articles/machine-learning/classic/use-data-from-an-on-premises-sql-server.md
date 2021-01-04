@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 695539e4739002480b3622eb217ef920d4cb34e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 279c07ff892cb261c8bda1937c6e9f8f1b6c6793
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357487"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325703"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-a-sql-server-database"></a>Durchführen von Analysen mit Azure Machine Learning Studio (Classic) mit einer SQL Server-Datenbank
 
-**GILT FÜR:**  ![Gilt für ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic) ![Gilt nicht für ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**GILT FÜR:**  ![Gilt für ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic) ![Gilt nicht für ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Unternehmen, die mit lokalen Daten arbeiten, möchten häufig die Vorteile der Skalierung und Flexibilität der Cloud für ihre Machine Learning-Workloads nutzen. Sie möchten jedoch nicht ihre aktuellen Geschäftsprozesse und Workflows durch Verschieben ihrer lokalen Daten in die Cloud unterbrechen. Azure Machine Learning Studio (Classic) unterstützt jetzt das Lesen von Daten aus einer SQL Server-Datenbank und das anschließende Trainieren und Bewerten von Modellen mit diesen Daten. Sie müssen die Daten zwischen der Cloud und dem lokalen Server nicht mehr manuell kopieren und synchronisieren. Stattdessen kann das Modul **Import Data** in Azure Machine Learning Studio (Classic) jetzt direkt aus einer SQL Server-Datenbank für Ihre Trainings- und Bewertungsaufträge lesen.
@@ -91,7 +91,7 @@ Der erste Schritt besteht im Erstellen und Einrichten des Gateways für den Zugr
     ![Herunterladen und Registrieren des Datengateways](./media/use-data-from-an-on-premises-sql-server/download-and-register-data-gateway.png)
 6. <span id="note-1" class="anchor"></span>Wenn Sie das Microsoft-Datenverwaltungsgateway noch nicht heruntergeladen und installiert haben, klicken Sie auf **Download data management gateway**. So gelangen Sie zum Microsoft Download Center, in dem Sie die benötigte Gatewayversion auswählen können, um sie herunterzuladen und zu installieren. Ausführliche Informationen zu Installationsvoraussetzungen, Installationsschritten und Tipps zur Problembehandlung finden Sie in den Anfangsabschnitten des Artikels [Verschieben von Daten zwischen lokalen Quellen und der Cloud mit dem Datenverwaltungsgateway](../../data-factory/tutorial-hybrid-copy-portal.md).
 7. Nachdem das Gateway installiert ist, wird der Konfigurations-Manager des Datenverwaltungsgateways geöffnet und das Dialogfeld **Gateway registrieren** angezeigt. Fügen Sie den **Gatewayregistrierungsschlüssel** ein, den Sie in die Zwischenablage kopiert haben, und klicken Sie auf **Registrieren**.
-8. Wenn Sie bereits ein Gateway installiert haben, führen Sie den Konfigurations-Manager für Datenverwaltungsgateways aus. Klicken Sie auf **Schlüssel ändern**, fügen Sie den **Gatewayregistrierungsschlüssel** ein, den Sie im vorherigen Schritt in die Zwischenablage kopiert haben, und klicken Sie auf **OK**.
+8. Wenn Sie bereits ein Gateway installiert haben, führen Sie den Konfigurations-Manager für Datenverwaltungsgateways aus. Klicken Sie auf **Schlüssel ändern** , fügen Sie den **Gatewayregistrierungsschlüssel** ein, den Sie im vorherigen Schritt in die Zwischenablage kopiert haben, und klicken Sie auf **OK**.
 9. Wenn die Installation abgeschlossen ist, wird das Dialogfeld **Gateway registrieren** für den Konfigurations-Manager des Microsoft-Datenverwaltungsgateways angezeigt. Fügen Sie den GATEWAYREGISTRIERUNGSSCHLÜSSEL ein, den Sie im vorherigen Schritt in die Zwischenablage kopiert haben, und klicken Sie auf **Registrieren**.
 
     ![Registrieren des Gateways](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-register-gateway.png)
@@ -113,7 +113,7 @@ Der erste Schritt besteht im Erstellen und Einrichten des Gateways für den Zugr
 12. Wechseln Sie im Konfigurations-Managers des Microsoft-Datenverwaltungsgateways zur Registerkarte **Zertifikat** . Das auf dieser Registerkarte angegebene Zertifikat wird zum Verschlüsseln/Entschlüsseln von Anmeldeinformationen für den lokalen Datenspeicher verwendet, den Sie im Portal angeben. Dieses Zertifikat ist das Standardzertifikat. Microsoft empfiehlt Ihnen, dies in Ihr persönliches Zertifikat zu ändern, das Sie in Ihrem Zertifikatsverwaltungssystem sichern. Klicken Sie auf **Ändern** , um Ihr eigenes Zertifikat zu verwenden.
 
     ![Ändern des Gatewayzertifikats](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-certificate.png)
-13. (Optional) Wenn Sie die ausführliche Protokollierung aktivieren möchten, um Probleme mit dem Gateway behandeln zu können, wechseln Sie im Konfigurations-Manager des Microsoft-Datenverwaltungsgateways zur Registerkarte **Diagnose**, und aktivieren Sie die Option **Ausführliche Protokollierung für die Problembehandlung aktivieren**. Die Protokollinformationen finden Sie in der Windows-Ereignisanzeige unter dem Knoten **Anwendungs- und Dienstprotokolle** -&gt; **Datenverwaltungsgateway**. Sie können die Verbindung mit einer lokalen Datenquelle über das Gateway auch über die Registerkarte **Diagnose** testen.
+13. (Optional) Wenn Sie die ausführliche Protokollierung aktivieren möchten, um Probleme mit dem Gateway behandeln zu können, wechseln Sie im Konfigurations-Manager des Microsoft-Datenverwaltungsgateways zur Registerkarte **Diagnose** , und aktivieren Sie die Option **Ausführliche Protokollierung für die Problembehandlung aktivieren**. Die Protokollinformationen finden Sie in der Windows-Ereignisanzeige unter dem Knoten **Anwendungs- und Dienstprotokolle** -&gt; **Datenverwaltungsgateway**. Sie können die Verbindung mit einer lokalen Datenquelle über das Gateway auch über die Registerkarte **Diagnose** testen.
 
     ![Ausführliche Protokollierung aktivieren](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-verbose-logging.png)
 
@@ -123,19 +123,19 @@ Nun können Sie Ihre lokalen Daten nutzen.
 Sie können in Studio (klassisch) mehrere Gateways für jeden Arbeitsbereich erstellen und einrichten. Nehmen Sie an, Sie haben ein Gateway, das Sie während der Entwicklung mit den Testdatenquellen verbinden möchten, und ein anderes Gateway für Ihre Produktionsdatenquellen. Azure Machine Learning Studio (klassisch) bietet Ihnen die Flexibilität, abhängig von Ihrer Unternehmensumgebung mehrere Gateways einzurichten. Derzeit kann ein Gateway nicht in verschiedenen Arbeitsbereichen genutzt werden, und auf einem einzelnen Computer kann nur ein einzelnes Gateway installiert werden. Weitere Informationen finden Sie unter [Verschieben von Daten zwischen lokalen Quellen und der Cloud mit dem Datenverwaltungsgateway](../../data-factory/tutorial-hybrid-copy-portal.md).
 
 ### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>Schritt 2: Verwenden des Gateways zum Lesen von Daten aus einer lokalen Datenquelle
-Nachdem Sie das Gateway eingerichtet haben, können Sie einem Experiment, das die Daten aus einer SQL Server-Datenbank eingibt, ein **Import Data**-Modul hinzufügen.
+Nachdem Sie das Gateway eingerichtet haben, können Sie einem Experiment, das die Daten aus einer SQL Server-Datenbank eingibt, ein **Import Data** -Modul hinzufügen.
 
-1. Wählen Sie in Machine Learning Studio (klassisch) die Registerkarte **EXPERIMENTS**, klicken Sie in der linken unteren Ecke auf **+NEW**, und wählen Sie **Blank Experiment** (oder eines von mehreren verfügbaren Beispielexperimenten).
+1. Wählen Sie in Machine Learning Studio (klassisch) die Registerkarte **EXPERIMENTS** , klicken Sie in der linken unteren Ecke auf **+NEW** , und wählen Sie **Blank Experiment** (oder eines von mehreren verfügbaren Beispielexperimenten).
 2. Suchen Sie das Modul **Import Data** , und ziehen Sie es in den Experimentbereich.
-3. Klicken Sie unter dem Bereich auf **Save as** . Geben Sie „Azure Machine Learning Studio (classic) On-Premises SQL Server Tutorial“ als Namen des Experiments ein, wählen Sie den Arbeitsbereich, und klicken Sie auf das **OK**-Häkchen.
+3. Klicken Sie unter dem Bereich auf **Save as** . Geben Sie „Azure Machine Learning Studio (classic) On-Premises SQL Server Tutorial“ als Namen des Experiments ein, wählen Sie den Arbeitsbereich, und klicken Sie auf das **OK** -Häkchen.
 
    ![Speichern des Experiments unter einem neuen Namen](./media/use-data-from-an-on-premises-sql-server/experiment-save-as.png)
-4. Klicken Sie auf das **Import Data**-Modul, um es auszuwählen, wählen Sie dann rechts neben dem Bereich in **Properties** in der Dropdownliste **Data source** „On-Premises SQL Database“ aus.
+4. Klicken Sie auf das **Import Data** -Modul, um es auszuwählen, wählen Sie dann rechts neben dem Bereich in **Properties** in der Dropdownliste **Data source** „On-Premises SQL Database“ aus.
 5. Wählen Sie das **Data gateway** , das sie installiert und registriert haben. Sie können ein weiteres Gateway einrichten, indem Sie „(add new Data Gateway…)“ auswählen.
 
    ![Auswählen des Datengateways für das Modul „Import Data“](./media/use-data-from-an-on-premises-sql-server/import-data-select-on-premises-data-source.png)
-6. Geben Sie **Database server name** und **Database name** der SQL-Datenbank ein, zusammen mit der SQL-**Database query**, die Sie ausführen möchten.
-7. Klicken Sie unter **User name and password** auf **Enter values**, und geben Sie Ihre Datenbank-Anmeldeinformationen ein. Je nach Ihrer SQL Server-Konfiguration können Sie die integrierte Windows-Authentifizierung oder die SQL Server-Authentifizierung verwenden.
+6. Geben Sie **Database server name** und **Database name** der SQL-Datenbank ein, zusammen mit der SQL- **Database query** , die Sie ausführen möchten.
+7. Klicken Sie unter **User name and password** auf **Enter values** , und geben Sie Ihre Datenbank-Anmeldeinformationen ein. Je nach Ihrer SQL Server-Konfiguration können Sie die integrierte Windows-Authentifizierung oder die SQL Server-Authentifizierung verwenden.
 
    ![Eingeben der Anmeldeinformationen für die Datenbank](./media/use-data-from-an-on-premises-sql-server/database-credentials.png)
 
@@ -144,6 +144,6 @@ Nachdem Sie das Gateway eingerichtet haben, können Sie einem Experiment, das di
    ![Eigenschaften des Moduls „Import Data“](./media/use-data-from-an-on-premises-sql-server/import-data-properties-entered.png)
 8. Klicken Sie auf **RUN** , um das Experiment auszuführen.
 
-Nach Abschluss der Ausführung des Experiments können Sie die Daten, die Sie aus der Datenbank importiert haben, durch Klicken auf den Ausgabeport des **Import Data**-Moduls und Auswählen von **Visualize** visuell darstellen.
+Nach Abschluss der Ausführung des Experiments können Sie die Daten, die Sie aus der Datenbank importiert haben, durch Klicken auf den Ausgabeport des **Import Data** -Moduls und Auswählen von **Visualize** visuell darstellen.
 
-Wenn Sie die Entwicklung des Experiments abgeschlossen haben, können Sie Ihr Modell bereitstellen und in Betrieb nehmen. Mit dem Batchausführungsdienst werden Daten aus der im **Import Data**-Modul konfigurierten SQL Server-Datenbank gelesen und für die Bewertung verwendet. Sie können zwar den Request Response Service zur Bewertung lokaler Daten verwenden, aber Microsoft empfiehlt stattdessen die Verwendung des [Excel-Add-Ins](excel-add-in-for-web-services.md) . Derzeit wird das Schreiben in eine SQL Server-Datenbank über **Export Data** weder in Ihren Experimenten noch in veröffentlichten Webdiensten unterstützt.
+Wenn Sie die Entwicklung des Experiments abgeschlossen haben, können Sie Ihr Modell bereitstellen und in Betrieb nehmen. Mit dem Batchausführungsdienst werden Daten aus der im **Import Data** -Modul konfigurierten SQL Server-Datenbank gelesen und für die Bewertung verwendet. Sie können zwar den Request Response Service zur Bewertung lokaler Daten verwenden, aber Microsoft empfiehlt stattdessen die Verwendung des [Excel-Add-Ins](excel-add-in-for-web-services.md) . Derzeit wird das Schreiben in eine SQL Server-Datenbank über **Export Data** weder in Ihren Experimenten noch in veröffentlichten Webdiensten unterstützt.

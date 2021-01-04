@@ -3,17 +3,17 @@ title: Einrichten der AWS-Integration mit Azure Cost Management
 description: Dieser Artikel erläutert das Einrichten und Konfigurieren der Integration von AWS-Kosten- und Nutzungsberichten in Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/28/2020
+ms.date: 10/23/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: 8bf3df25d4702b4a0cc6361f20ad08e618e7d62b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 2b8a008decc41a5686fb2c8d9fee271f95f0fef3
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266082"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122404"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Einrichten und Konfigurieren der Integration von AWS-Kosten- und Nutzungsberichten
 
@@ -39,14 +39,12 @@ Verwenden Sie die Seite **Cost & Usage Reports** (Kosten- und Nutzungsberichte) 
 6. Wählen Sie für **Data refresh settings** (Datenaktualisierungseinstellungen) aus, ob der AWS-Kosten- und Nutzungsbericht aktualisiert werden soll, wenn AWS nach der abschließenden Bearbeitung Ihrer Rechnung Rückerstattungen, Gutschriften oder Supportgebühren auf Ihrem Konto verbucht. Wenn ein Bericht aktualisiert wird, wird ein neuer Bericht auf Amazon S3 hochgeladen. Es wird empfohlen, die Einstellung aktiviert zu lassen.
 7. Wählen Sie **Weiter** aus.
 8. Wählen Sie für **S3 bucket** (S3-Bucket) die Option **Configure** (Konfigurieren) aus.
-9. Führen Sie im Dialogfeld „Configure S3 Bucket“ (S3-Bucket konfigurieren) eine der folgenden Aufgaben aus:
-    1. Wählen Sie aus der Dropdownliste einen vorhandenen Bucket aus, und wählen Sie dann **Next** (Weiter) aus.
-    2. Geben Sie einen Bucketnamen und die Region ein, in der Sie einen neuen Bucket erstellen möchten, und wählen Sie dann **Next** aus.
-10.    Wählen Sie **I have confirmed that this policy is correct** (Ich habe bestätigt, dass diese Richtlinie richtig ist) aus, und klicken Sie dann auf **Save** (Speichern).
-11.    (Optional) Geben Sie unter „Report path prefix“ (Berichtspfadpräfix) das Berichtspfadpräfix ein, das dem Namen Ihres Berichts vorangestellt werden soll.
+9. Geben Sie im Dialogfeld „Configure S3 Bucket“ (S3-Bucket konfigurieren) einen Bucketnamen und die Region ein, in der Sie einen neuen Bucket erstellen möchten, und wählen Sie **Next** (Weiter) aus.
+10. Wählen Sie **I have confirmed that this policy is correct** (Ich habe bestätigt, dass diese Richtlinie richtig ist) aus, und klicken Sie dann auf **Save** (Speichern).
+11. (Optional) Geben Sie unter „Report path prefix“ (Berichtspfadpräfix) das Berichtspfadpräfix ein, das dem Namen Ihres Berichts vorangestellt werden soll.
 Wenn Sie kein Präfix angeben, ist das Standardpräfix der Name, den Sie für den Bericht angegeben haben. Der Datumsbereich hat das Format `/report-name/date-range/`.
 12. Für **Zeiteinheit** wählen Sie **Stündlich** aus.
-13.    Wählen Sie für **Report versioning** (Berichtsversionsverwaltung) aus, ob neue Berichtsversionen die vorherigen Berichtsversionen überschreiben oder ob zusätzliche neue Berichte erstellt werden sollen.
+13. Wählen Sie für **Report versioning** (Berichtsversionsverwaltung) aus, ob neue Berichtsversionen die vorherigen Berichtsversionen überschreiben oder ob zusätzliche neue Berichte erstellt werden sollen.
 14. Für **Enable data integration for** (Datenintegration aktivieren für) ist keine Auswahl erforderlich.
 15. Für **Komprimierung** wählen Sie die Option **GZIP** aus.
 16. Wählen Sie **Weiter** aus.
@@ -152,7 +150,8 @@ Der JSON-Code der Richtlinie sollte wie im folgenden Beispiel aussehen: Ersetzen
 Verwenden Sie die folgenden Informationen, um einen AWS-Connector zu erstellen und mit der Überwachung Ihrer AWS-Kosten zu beginnen:
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
-2. Navigieren Sie zu **Cost Management + Abrechnung** > **Cost Management**.
+2. Rufen Sie die Azure-Startseite auf, indem Sie im Menü auf der linken Seite auf **Start** klicken („Hamburger“-Menüsymbol mit drei Strichen).
+3. Navigieren Sie zu **Tools** > **Cost Management** unten auf der Seite.
 3. Wählen Sie unter **Einstellungen** die Option **Connectors für AWS** aus.  
 4. Wählen Sie **+ Hinzufügen** oben auf der Seite aus, um einen Connector zu erstellen.  
     :::image type="content" source="./media/aws-integration-setup-configure/aws-connector.png" alt-text="Beispiel für die Einstellung „Connectors für AWS“" :::

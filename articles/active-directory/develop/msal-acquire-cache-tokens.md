@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/28/2020
+ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 47af4015fa5c6d9a73ee597146890a29b4b9ef9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da79a74121318993f807ec3bde101b652a8b49da
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119894"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628134"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Abrufen und Zwischenspeichern von Token mithilfe der Microsoft-Authentifizierungsbibliothek (Microsoft Authentication Library, MSAL)
 
@@ -115,6 +115,10 @@ Wenn Ihr Client ein Zugriffstoken anfordert, gibt Azure AD auch ein Authentifiz
 - Die Mandanten-ID enthält den Mandanten, in dem der Benutzer gefunden wurde. Bei Gastbenutzern (Azure AD-B2B-Szenarien) entspricht die Mandanten-ID dem Gastmandanten und nicht dem eindeutigen Mandanten. Wenn das Token im Namen eines Benutzers gesendet wird, enthält das Authentifizierungsergebnis auch Informationen über diesen Benutzer. Bei Flows für vertrauliche Clients, in denen Token ohne Benutzer (für die Anwendung) angefordert werden, wird für diese Benutzerinformationen NULL zurückgegeben.
 - Die Geltungsbereiche, für die das Token ausgegeben wurde
 - Die eindeutige ID für den Benutzer
+
+## <a name="advanced-accessing-the-users-cached-tokens-in-background-apps-and-services"></a>(Erweitert) Zugreifen auf die zwischengespeicherten Token des Benutzers in Hintergrund-Apps und Diensten
+
+[!INCLUDE [advanced-token-caching](../../../includes/advanced-token-cache.md)]
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Dokumentation zu Azure IoT Solution Accelerators
-summary: Die Azure IoT Solution Accelerators sind vollständige, sofort bereitstellbare IoT-Lösungen, die allgemeine IoT-Szenarien wie Remoteüberwachung implementieren.
+summary: Bei Azure IoT Solution Accelerators handelt es sich um vollständige, sofort bereitstellbare IoT-Lösungen zur Implementierung gängiger IoT-Szenarien wie etwa verbundene Factorys.
 metadata:
   title: Dokumentation zu Azure IoT Solution Accelerators
-  description: Die IoT Solution Accelerators sind vollständige, sofort bereitstellbare IoT-Lösungen, die allgemeine IoT-Szenarien implementieren. Zu den Szenarien zählen Remoteüberwachung, verbundene Factory, Predictive Maintenance und Gerätesimulation. Wenn Sie einen Solution Accelerator bereitstellen, enthält die Bereitstellung alle erforderlichen cloudbasierten Dienste sowie den gesamten erforderlichen Anwendungscode.
+  description: Die IoT Solution Accelerators sind vollständige, sofort bereitstellbare IoT-Lösungen, die allgemeine IoT-Szenarien implementieren. Zu den Szenarien zählen verbundene Factory und Gerätesimulation. Wenn Sie einen Solution Accelerator bereitstellen, enthält die Bereitstellung alle erforderlichen cloudbasierten Dienste sowie den gesamten erforderlichen Anwendungscode.
   services: iot-accelerators
   ms.service: iot-accelerators
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   ms.author: dobett
   manager: philmea
   ms.date: 09/16/2019
-  ms.openlocfilehash: cdad55cb8972e54f613319e890f052c26d94f0ef
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 8f1b539e7201ffc31956ef48b4a155674385b97f
+  ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "84687037"
+  ms.lasthandoff: 12/08/2020
+  ms.locfileid: "96854545"
 landingContent:
 - title: Informationen zu Azure IoT Solution Accelerators
   linkLists:
@@ -26,22 +26,6 @@ landingContent:
       url: about-iot-accelerators.md
     - text: Die Website AzureIoTSolutions.com
       url: iot-accelerators-permissions.md
-- title: Erste Schritte mit Remoteüberwachung
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: 'Solution Accelerator für die Remoteüberwachung: Übersicht'
-      url: iot-accelerators-remote-monitoring-sample-walkthrough.md
-  - linkListType: quickstart
-    links:
-    - text: Testen einer cloudbasierten Remoteüberwachungslösung
-      url: quickstart-remote-monitoring-deploy.md
-  - linkListType: tutorial
-    links:
-    - text: Überwachen Ihrer Geräte
-      url: iot-accelerators-remote-monitoring-monitor.md
-    - text: Erkennen von Problemen mit Geräten
-      url: iot-accelerators-remote-monitoring-automate.md
 - title: Erste Schritte mit Industrial IoT
   linkLists:
   - linkListType: overview
@@ -66,23 +50,9 @@ landingContent:
     links:
     - text: Übersicht über den Solution Accelerator für die Gerätesimulation
       url: iot-accelerators-device-simulation-overview.md
-  - linkListType: quickstart
-    links:
-    - text: Testen einer Gerätesimulationslösung
-      url: quickstart-device-simulation-deploy.md
   - linkListType: tutorial
     links:
     - text: Erstellen und Ausführen einer IoT-Gerätesimulation
       url: iot-accelerators-device-simulation-create-simulation.md
     - text: Erstellen eines benutzerdefinierten simulierten Geräts
       url: iot-accelerators-device-simulation-create-custom-device.md
-- title: Erste Schritte mit Predictive Maintenance
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: Übersicht über den Solution Accelerator für Predictive Maintenance
-      url: iot-accelerators-predictive-walkthrough.md
-  - linkListType: quickstart
-    links:
-    - text: Testen einer Predictive Maintenance-Lösung
-      url: quickstart-predictive-maintenance-deploy.md

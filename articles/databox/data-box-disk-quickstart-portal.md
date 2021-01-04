@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 09/03/2019
+ms.date: 11/04/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: fcc7c6ff74e17db2066d97597849c985f5a961e9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 23615daf4a07e02b01bbd5a9cdf57ec9a81a2b76
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76514067"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347392"
 ---
 ::: zone target="docs"
 
@@ -24,7 +24,7 @@ In dieser Schnellstartanleitung wird beschrieben, wie Sie den Azure Data Box-Dat
 
 Eine ausführliche Anleitung zur Schritt-für-Schritt-Bereitstellung und zur Nachverfolgung finden Sie unter [Tutorial: Bestellen von Azure Data Box Disk](data-box-disk-deploy-ordered.md). 
 
-Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen.
+Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F&preserve-view=true) erstellen.
 
 ::: zone-end
 
@@ -65,6 +65,8 @@ Melden Sie sich unter [https://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/a
 
 ## <a name="order"></a>Order
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 Dieser Schritt dauert ungefähr fünf Minuten.
 
 1. Erstellen Sie im Azure-Portal eine neue Azure Data Box-Ressource. 
@@ -73,6 +75,74 @@ Dieser Schritt dauert ungefähr fünf Minuten.
 4. Geben Sie die Auftragsdetails und Versandinformationen ein. Wenn der Dienst in Ihrer Region verfügbar ist, können Sie E-Mail-Adressen für Benachrichtigungen angeben, die Zusammenfassung prüfen und anschließend den Auftrag erstellen.
 
 Nachdem der Auftrag erstellt wurde, werden die Datenträger für den Versand vorbereitet.
+
+### <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
+
+Verwenden Sie die folgenden Azure CLI-Befehle, um einen Data Box Disk-Auftrag zu erstellen.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+1. Führen Sie den Befehl [az group create](/cli/azure/group#az_group_create) aus, um eine Ressourcengruppe zu erstellen, oder verwenden Sie eine vorhandene Ressourcengruppe:
+
+   ```azurecli
+   az group create --name databox-rg --location westus
+   ```
+
+1. Verwenden Sie den Befehl [az storage account create](/cli/azure/storage/account#az_storage_account_create), um ein Speicherkonto zu erstellen, oder verwenden Sie ein vorhandenes Speicherkonto:
+
+   ```azurecli
+   az storage account create --resource-group databox-rg --name databoxtestsa
+   ```
+
+1. Führen Sie den Befehl [az databox job create](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_create) aus, um einen Data Box-Auftrag mit der SKU „DataBoxDisk“ zu erstellen:
+
+   ```azurecli
+   az databox job create --resource-group databox-rg --name databoxdisk-job \
+       --location westus --sku DataBoxDisk --contact-name "Jim Gan" --phone=4085555555 \
+       –-city Sunnyvale --email-list JimGan@contoso.com --street-address1 "1020 Enterprise Way" \
+       --postal-code 94089 --country US --state-or-province CA \
+       --storage-account databoxtestsa --expected-data-size 1
+   ```
+
+1. Führen Sie den Befehl [az databox job update](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_update) aus, um einen Auftrag zu aktualisieren, wie im folgenden Beispiel zum Ändern des Namens und der E-Mail-Adresse des Kontakts gezeigt:
+
+   ```azurecli
+   az databox job update -g databox-rg --name databox-job --contact-name "Robert Anic" --email-list RobertAnic@contoso.com
+   ```
+
+   Führen Sie den Befehl [az databox job show](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_show) aus, um Informationen zum Auftrag abzurufen:
+
+   ```azurecli
+   az databox job show --resource-group databox-rg --name databox-job
+   ```
+
+   Verwenden Sie den Befehl [az databox job list]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list), um alle Data Box-Aufträge für eine Ressourcengruppe anzuzeigen:
+
+   ```azurecli
+   az databox job list --resource-group databox-rg
+   ```
+
+   Führen Sie den Befehl [az databox job cancel](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_cancel) aus, um einen Auftrag abzubrechen:
+
+   ```azurecli
+   az databox job cancel –resource-group databox-rg --name databox-job --reason "Cancel job."
+   ```
+
+   Führen Sie den Befehl [az databox job delete](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_delete) aus, um einen Auftrag zu löschen:
+
+   ```azurecli
+   az databox job delete –resource-group databox-rg --name databox-job
+   ```
+
+1. Verwenden Sie den Befehl [az databox job list-credentials]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list_credentials), um Anmeldeinformationen für einen Data Box-Auftrag aufzulisten:
+
+   ```azurecli
+   az databox job list-credentials --resource-group "databox-rg" --name "databoxdisk-job"
+   ```
+
+Nachdem der Auftrag erstellt wurde, wird das Gerät für den Versand vorbereitet.
+
+---
 
 ## <a name="unpack"></a>Auspacken
 
@@ -91,7 +161,7 @@ Dieser Schritt dauert ungefähr fünf Minuten.
 1. Verwenden Sie das beigefügte Kabel, um den Datenträger mit einem Windows-/Linux-Computer zu verbinden, auf dem eine unterstützte Version ausgeführt wird. Weitere Informationen zu unterstützten Betriebssystemversionen finden Sie unter den [Systemanforderungen für Azure Data Box-Datenträger](data-box-disk-system-requirements.md). 
 2. Entsperren Sie den Datenträger wie folgt:
 
-    1. Wechseln Sie im Azure-Portal zu **Allgemein > Gerätedetails**, und rufen Sie den Hauptschlüssel ab.
+    1. Wechseln Sie im Azure-Portal zu **Allgemein > Gerätedetails** , und rufen Sie den Hauptschlüssel ab.
     2. Laden Sie das Tool zum Entsperren von betriebssystemspezifischen Data Box-Datenträgern herunter, und extrahieren Sie es auf dem Computer, den Sie zum Kopieren der Daten auf die Datenträger verwenden möchten. 
     3. Führen Sie das Tool zum Entsperren von Data Box-Datenträgern aus, und geben Sie den Hauptschlüssel an. Führen Sie für alle neu eingelegten Datenträger erneut das Entsperrungstool aus, und geben Sie den Hauptschlüssel an. **Verwenden Sie zum Entsperren des Datenträgers nicht das BitLocker-Dialogfeld oder den BitLocker-Schlüssel.** Weitere Informationen zum Entsperren von Datenträgern finden Sie unter [Entsperren von Datenträgern auf einem Windows-Client](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) bzw. [Entsperren von Datenträgern auf einem Linux-Client](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client).
     4. Der Laufwerkbuchstabe, der dem Datenträger zugewiesen ist, wird vom Tool angezeigt. Notieren Sie sich den Laufwerkbuchstaben des Datenträgers. Er wird in den nachfolgenden Schritten verwendet.
@@ -100,7 +170,7 @@ Dieser Schritt dauert ungefähr fünf Minuten.
 
 Der Zeitraum, der für die Durchführung dieses Vorgangs erforderlich ist, hängt von Ihrer Datengröße ab.
 
-1. Das Laufwerk enthält die Ordner *PageBlob*, *BlockBlob*, *AzureFile*, *ManagedDisk* und *DataBoxDiskImport*. Kopieren Sie die zu importierenden Daten per Drag & Drop als Blockblobs in den Ordner *BlockBlob*. Ziehen Sie auf VHDs/VHDXs gespeicherte Daten per Drag & Drop in den Ordner *PageBlob* und geeignete Daten in den Ordner *AzureFile*. Kopieren Sie die VHDs, die Sie als verwaltete Datenträger hochladen möchten, in einen Ordner unter *ManagedDisk*.
+1. Das Laufwerk enthält die Ordner *PageBlob* , *BlockBlob* , *AzureFile* , *ManagedDisk* und *DataBoxDiskImport*. Kopieren Sie die zu importierenden Daten per Drag & Drop als Blockblobs in den Ordner *BlockBlob*. Ziehen Sie auf VHDs/VHDXs gespeicherte Daten per Drag & Drop in den Ordner *PageBlob* und geeignete Daten in den Ordner *AzureFile*. Kopieren Sie die VHDs, die Sie als verwaltete Datenträger hochladen möchten, in einen Ordner unter *ManagedDisk*.
 
     Im Azure-Speicherkonto wird für jeden Unterordner der Ordner *BlockBlob* und *PageBlob* ein Container erstellt. Für einen Unterordner in *AzureFile* wird eine Dateifreigabe erstellt.
 
@@ -117,7 +187,7 @@ Der Zeitraum, der für die Durchführung dieses Vorgangs erforderlich ist, häng
 
 Dieser Schritt dauert ungefähr 5 bis 7 Minuten.
 
-1. Legen Sie alle Datenträger zusammen in das Originalpaket. Verwenden Sie das beigefügte Versandetikett. Falls das Etikett beschädigt oder nicht mehr vorhanden ist, können Sie es über das Portal herunterladen. Wechseln Sie zu **Übersicht**, und klicken Sie in der Befehlsleiste auf **Versandetikett herunterladen**.
+1. Legen Sie alle Datenträger zusammen in das Originalpaket. Verwenden Sie das beigefügte Versandetikett. Falls das Etikett beschädigt oder nicht mehr vorhanden ist, können Sie es über das Portal herunterladen. Wechseln Sie zu **Übersicht** , und klicken Sie in der Befehlsleiste auf **Versandetikett herunterladen**.
 2. Geben Sie das sicher verschlossene Paket beim Paketdienst ab.  
 
 Der Data Box-Dienst sendet eine E-Mail-Benachrichtigung und aktualisiert den Auftragsstatus im Azure-Portal.
@@ -140,11 +210,11 @@ Sie können den Data Box-Auftrag stornieren und dann löschen, um die Bereinigun
 
 - Im Azure-Portal können Sie den Data Box-Auftrag stornieren, bevor er verarbeitet wurde. Nachdem der Auftrag verarbeitet wurde, kann er nicht mehr storniert werden. Der Auftrag wird abgearbeitet, bis er den Status „Abgeschlossen“ erreicht hat.
 
-    Navigieren Sie zum Stornieren des Auftrags zu **Übersicht**, und klicken Sie in der Befehlsleiste auf **Stornieren**.  
+    Navigieren Sie zum Stornieren des Auftrags zu **Übersicht** , und klicken Sie in der Befehlsleiste auf **Stornieren**.  
 
 - Sie können einen Auftrag löschen, wenn im Azure-Portal dafür der Status **Abgeschlossen** oder **Abgebrochen** angezeigt wird.
 
-    Navigieren Sie zum Löschen des Auftrags zu **Übersicht**, und klicken dann in der Befehlsleiste auf **Löschen**.
+    Navigieren Sie zum Löschen des Auftrags zu **Übersicht** , und klicken dann in der Befehlsleiste auf **Löschen**.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

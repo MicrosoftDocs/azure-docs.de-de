@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 02274bacb66a33ef54e07bc8113d7db46d4d5296
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3bff61cfbf89aee3566d677ccf593b102cff36d
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67178281"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376093"
 ---
 #### <a name="to-add-a-storsimple-backup-policy"></a>So fügen Sie eine StorSimple-Sicherungsrichtlinie hinzu
 
@@ -27,11 +27,11 @@ ms.locfileid: "67178281"
        
    3. Zum Hinzufügen von Volumes zu dieser Sicherungsrichtlinie wählen Sie **Volumes hinzufügen**, und klicken dann in der tabellarischen Volumeauflistung auf das bzw. die Kontrollkästchen, um dieser Sicherungsrichtlinie ein oder mehrere Volumes zuzuweisen.
 
-       ![Sicherungsrichtlinie hinzufügen](./media/storsimple-8000-add-backup-policy-u2/addbupol2.png)
+       ![Hinzufügen einer Sicherungsrichtlinie 2](./media/storsimple-8000-add-backup-policy-u2/addbupol2.png)
 
    4. Zum Definieren eines Zeitplans für diese Sicherungsrichtlinie klicken Sie auf **Erster Zeitplan** und ändern dann die folgenden Parameter:
 
-       ![Sicherungsrichtlinie hinzufügen](./media/storsimple-8000-add-backup-policy-u2/addbupol3.png)
+       ![Hinzufügen einer Sicherungsrichtlinie 3](./media/storsimple-8000-add-backup-policy-u2/addbupol3.png)
 
        1. Wählen Sie als **Momentaufnahmetyp** die Option **Cloud** oder **Lokal** aus.
 
@@ -45,9 +45,9 @@ ms.locfileid: "67178281"
 
    5. Klicken Sie auf **Erstellen**, um eine Sicherungsrichtlinie zu erstellen.
 
-       ![Sicherungsrichtlinie hinzufügen](./media/storsimple-8000-add-backup-policy-u2/addbupol4.png)
+       ![Hinzufügen einer Sicherungsrichtlinie 4](./media/storsimple-8000-add-backup-policy-u2/addbupol4.png)
    
    6. Sie werden benachrichtigt, wenn die Sicherungsrichtlinie erstellt wurde. Die neu hinzugefügte Richtlinie wird in der Tabellenansicht auf dem Blatt **Sicherungsrichtlinie** angezeigt.
 
-       ![Sicherungsrichtlinie hinzufügen](./media/storsimple-8000-add-backup-policy-u2/addbupol7.png)
+       ![Hinzufügen einer Sicherungsrichtlinie 5](./media/storsimple-8000-add-backup-policy-u2/addbupol7.png)
 

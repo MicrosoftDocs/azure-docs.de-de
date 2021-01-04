@@ -8,11 +8,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 07/03/2018
 ms.openlocfilehash: 706457a602e20dd37e64e5f389948b351ac8ebcf
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219240"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015246"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Entwickeln einer U-SQL-Datenbank für Azure Data Lake mithilfe eines U-SQL-Datenbankprojekts
 
@@ -24,13 +24,13 @@ Das U-SQL-Datenbankprojekt ist ein Projekttyp in Visual Studio, mit dem Entwickl
 
 ## <a name="create-a-u-sql-database-project"></a>Erstellen eines U-SQL-Datenbankprojekts
 
-In Azure Data Lake Tools für Visual Studio nach Version 2.3.3000.0 wurde eine neue Projektvorlage für U-SQL-Datenbankprojekte hinzugefügt. Klicken Sie zum Erstellen eines U-SQL-Projekts auf **Datei > Neu > Projekt** . Das U-SQL-Datenbankprojekt befindet sich unter **Azure Data Lake > Knoten „U-SQL“** .
+In Azure Data Lake Tools für Visual Studio nach Version 2.3.3000.0 wurde eine neue Projektvorlage für U-SQL-Datenbankprojekte hinzugefügt. Klicken Sie zum Erstellen eines U-SQL-Projekts auf **Datei > Neu > Projekt**. Das U-SQL-Datenbankprojekt befindet sich unter **Azure Data Lake > Knoten „U-SQL“** .
 
 ![Data Lake Tools für Visual Studio: Erstellen eines U-SQL-Datenbankprojekts](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-create-usql-database-project-creation.png)
 
 ## <a name="develop-u-sql-database-objects-by-using-a-database-project"></a>Entwickeln von U-SQL-Datenbankobjekten mithilfe eines Datenbankprojekts
 
-Klicken Sie mit der rechten Maustaste auf das U-SQL-Datenbankprojekt. Klicken Sie anschließend auf **Hinzufügen > Neues Element** . Sie finden alle neuen unterstützten Objekttypen im Assistenten **Neues Element hinzufügen** .
+Klicken Sie mit der rechten Maustaste auf das U-SQL-Datenbankprojekt. Klicken Sie anschließend auf **Hinzufügen > Neues Element**. Sie finden alle neuen unterstützten Objekttypen im Assistenten **Neues Element hinzufügen**.
 
 Für ein Nicht-Assemblyobjekt (etwa eine Tabellenwertfunktion) wird nach dem Hinzufügen eines neuen Elements ein neues U-SQL-Skript erstellt. Dann können Sie die DDL-Anweisung für das Objekt im Editor entwickeln.
 
@@ -52,7 +52,7 @@ Für ein Assemblyobjekt umfasst das Tool einen benutzerfreundlichen Benutzerober
 
 ## <a name="build-a-u-sql-database-project"></a>Erstellen eines U-SQL-Datenbankprojekts
 
-Die Buildausgabe für ein U-SQL-Datenbankprojekt ist ein U-SQL-Datenbankbereitstellungspaket, das mit dem Suffix `.usqldbpack` benannt ist. Das Paket `.usqldbpack` ist eine ZIP-Datei und enthält alle DDL-Anweisungen in einem einzelnen U-SQL-Skript im Ordner **DDL** sowie alle DLLs und zusätzlichen Dateien für Assemblys im Ordner **Temp** .
+Die Buildausgabe für ein U-SQL-Datenbankprojekt ist ein U-SQL-Datenbankbereitstellungspaket, das mit dem Suffix `.usqldbpack` benannt ist. Das Paket `.usqldbpack` ist eine ZIP-Datei und enthält alle DDL-Anweisungen in einem einzelnen U-SQL-Skript im Ordner **DDL** sowie alle DLLs und zusätzlichen Dateien für Assemblys im Ordner **Temp**.
 
 Erfahren Sie mehr über das [Erstellen eines U-SQL-Datenbankprojekts mit der MSBuild-Befehlszeile und einer Azure DevOps Services-Buildaufgabe](data-lake-analytics-cicd-overview.md).
 
@@ -74,7 +74,7 @@ Sie können eine U-SQL-Datenbank über ein U-SQL-Datenbankprojekt oder ein .usql
 
 1. Geben Sie unter **Datenbankname** einen Namen ein, um eine Datenbank zu erstellen. Wenn bereits eine Datenbank mit demselben Namen im Azure Data Lake Analytics-Zielkonto vorhanden ist, werden alle im Datenbankprojekt definierten Objekte erstellt, ohne dass die Datenbank neu erstellt wird.
 
-1. Klicken Sie auf **Senden** , um die U-SQL-Datenbank bereitzustellen. Alle Ressourcen (Assemblys und zusätzliche Dateien) werden hochgeladen, und ein U-SQL-Auftrag mit allen gesendeten DDL-Anweisungen wird gesendet.
+1. Klicken Sie auf **Senden**, um die U-SQL-Datenbank bereitzustellen. Alle Ressourcen (Assemblys und zusätzliche Dateien) werden hochgeladen, und ein U-SQL-Auftrag mit allen gesendeten DDL-Anweisungen wird gesendet.
 
    ![Data Lake Tools für Visual Studio: Bereitstellen eines U-SQL-Datenbankprojekts](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-deploy-usql-database-project.png)
 
@@ -82,9 +82,9 @@ Sie können eine U-SQL-Datenbank über ein U-SQL-Datenbankprojekt oder ein .usql
 
 #### <a name="deploy-through-a-u-sql-database-deployment-package"></a>Bereitstellen über ein U-SQL-Datenbankbereitstellungspaket
 
-1. Öffnen Sie **Server-Explorer** . Erweitern Sie anschließend das **Azure Data Lake Analytics-Konto** , in dem Sie die Datenbank bereitstellen möchten.
+1. Öffnen Sie **Server-Explorer**. Erweitern Sie anschließend das **Azure Data Lake Analytics-Konto**, in dem Sie die Datenbank bereitstellen möchten.
 
-1. Klicken Sie mit der rechten Maustaste auf **U-SQL-Datenbanken** , und wählen Sie **Datenbank bereitstellen** aus.
+1. Klicken Sie mit der rechten Maustaste auf **U-SQL-Datenbanken**, und wählen Sie **Datenbank bereitstellen** aus.
 
 1. Legen Sie **Datenbankquelle** auf den Pfad des U-SQL-Datenbankbereitstellungspakets (.usqldbpack-Datei) fest.
 

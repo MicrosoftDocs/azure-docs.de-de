@@ -7,12 +7,12 @@ author: gitralf
 ms.author: ralfwi
 ms.service: germany
 ms.custom: bfdocs
-ms.openlocfilehash: ff258e4d13b3e39f5a22d4142a73922d77fa3147
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: e631c37123c375ac3005aceb6c51289f07d9a22d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123502"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018608"
 ---
 # <a name="azure-germany-developer-guide"></a>Microsoft Azure Deutschland – Entwickler- und Benutzerhandbuch
 
@@ -30,7 +30,7 @@ Dieses Handbuch fasst die Unterschiede zusammen. Es ergänzt die Informationen, 
 Offizielle Informationen sind möglicherweise auch an anderer Stelle verfügbar, z.B.:
 * [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/ "Microsoft Azure Trust Center") 
 * [Azure-Blog](https://azure.microsoft.com/blog/ "Azure-Blog")
-* [Azure Deutschland-Blog](https://blogs.msdn.microsoft.com/azuregermany/ "Azure Deutschland-Blog")
+* [Azure Deutschland-Blog](/archive/blogs/azuregermany/ "Azure Deutschland-Blog")
 
 ## <a name="guidance-for-developers"></a>Leitfaden für Entwickler
 Bei den meisten der derzeit verfügbaren technischen Inhalte wird davon ausgegangen, dass Anwendungen für die globale Azure-Umgebung und nicht für Azure Deutschland entwickelt werden. Aus diesem Grund ist es wichtig, zwei Hauptunterschiede bei Anwendungen zu kennen, die Sie zum Hosten in Azure Deutschland entwickeln:
@@ -69,6 +69,5 @@ Weitere Informationen zu Azure Deutschland finden Sie in den folgenden Ressource
 * [Microsoft Azure Deutschland](https://azure.microsoft.com/overview/clouds/germany/)
 * Wenn Sie schon ein Azure Deutschland-Konto haben, können Sie diese [Anmeldeseite](https://portal.microsoftazure.de/) nutzen.
 * [Welcome to Azure Germany](./germany-welcome.md) (Willkommen bei Azure Deutschland)
-* [Azure Deutschland-Blog](https://blogs.msdn.microsoft.com/azuregermany/)
+* [Azure Deutschland-Blog](/archive/blogs/azuregermany/)
 * [Microsoft Trust Center (Azure-Konformität)](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings)
-

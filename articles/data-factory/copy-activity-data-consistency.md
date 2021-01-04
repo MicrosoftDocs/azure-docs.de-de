@@ -11,23 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-ms.openlocfilehash: d52d172fa4cc435235079cd88999766df93bfdf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3591bfe046fa1c3e1e55aa49a0ae3ad698bc57b3
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86522906"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593670"
 ---
-#  <a name="data-consistency-verification-in-copy-activity-preview"></a>Datenkonsistenzprüfung in der Kopieraktivität (Vorschau)
+#  <a name="data-consistency-verification-in-copy-activity"></a>Datenkonsistenzprüfung in der Kopieraktivität
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Wenn Sie Daten aus dem Quell- in den Zielspeicher verschieben, bietet die Azure Data Factory-Kopieraktivität eine Option, mit der Sie eine zusätzliche Datenkonsistenzprüfung durchführen können. Damit stellen Sie sicher, dass die Daten nicht nur erfolgreich aus dem Quell- in den Zielspeicher kopiert werden, sondern auch dass überprüft wird, ob sie zwischen Quell- und Zielspeicher konsistent sind. Wenn während der Datenverschiebung inkonsistente Dateien gefunden werden, können Sie entweder die Kopieraktivität abbrechen oder auch noch die restlichen Dateien kopieren. Hierzu aktivieren Sie die Einstellung für Fehlertoleranz, damit inkonsistente Daten übersprungen werden. Die Namen der übersprungenen Dateien können Sie durch Aktivieren der Einstellung für das Sitzungsprotokoll in der Kopieraktivität abrufen. 
-
-> [!IMPORTANT]
-> Dieses Feature befindet sich zurzeit in der Vorschauphase mit den folgenden Einschränkungen, an denen wir aktiv arbeiten:
->- Wenn Sie die Einstellung „Sitzungsprotokoll“ in der Kopieraktivität aktivieren, um die übersprungenen inkonsistenten Dateien zu protokollieren, kann die Vollständigkeit der Protokolldatei bei einem Fehlschlagen der Aktivität nicht 100%-ig garantiert werden.
->- Das Sitzungsprotokoll enthält nur inkonsistente Dateien, bei denen die erfolgreich kopierten Dateien bisher nicht protokolliert werden.
+Wenn Sie Daten aus dem Quell- in den Zielspeicher verschieben, bietet die Azure Data Factory-Kopieraktivität eine Option, mit der Sie eine zusätzliche Datenkonsistenzprüfung durchführen können. Damit stellen Sie sicher, dass die Daten nicht nur erfolgreich aus dem Quell- in den Zielspeicher kopiert werden, sondern auch dass überprüft wird, ob sie zwischen Quell- und Zielspeicher konsistent sind. Wenn während der Datenverschiebung inkonsistente Dateien gefunden werden, können Sie entweder die Kopieraktivität abbrechen oder auch noch die restlichen Dateien kopieren. Hierzu aktivieren Sie die Einstellung für Fehlertoleranz, damit inkonsistente Daten übersprungen werden. Die Namen der übersprungenen Dateien können Sie durch Aktivieren der Einstellung für das Sitzungsprotokoll in der Kopieraktivität abrufen. Weitere Informationen finden Sie im [Sitzungsprotokoll in der Kopieraktivität](copy-activity-log.md).
 
 ## <a name="supported-data-stores-and-scenarios"></a>Unterstützte Datenspeicher und Szenarien
 
@@ -60,13 +55,20 @@ Das folgende Beispiel zeigt eine JSON-Definition, mit der die Datenkonsistenzpr�
     "skipErrorFile": { 
         "dataInconsistency": true 
     }, 
-    "logStorageSettings": { 
-        "linkedServiceName": { 
-            "referenceName": "ADLSGen2_storage", 
-            "type": "LinkedServiceReference" 
-        }, 
-        "path": "/sessionlog/" 
-} 
+    "logSettings": {
+        "enableCopyActivityLog": true,
+        "copyActivityLogSettings": {
+            "logLevel": "Warning",
+            "enableReliableLogging": false
+        },
+        "logLocationSettings": {
+            "linkedServiceName": {
+               "referenceName": "ADLSGen2",
+               "type": "LinkedServiceReference"
+            },
+            "path": "sessionlog/"
+        }
+    }
 } 
 ```
 
@@ -74,12 +76,12 @@ Eigenschaft | BESCHREIBUNG | Zulässige Werte | Erforderlich
 -------- | ----------- | -------------- | -------- 
 validateDataConsistency | Wenn Sie diese Eigenschaft auf TRUE festlegen, prüft die Kopieraktivität beim Kopieren von Binärdateien die Dateigröße, das Datum der letzten Änderung und die MD5-Prüfsumme für jede aus dem Quell- in den Zielspeicher kopierte Binärdatei, um die Datenkonsistenz zwischen den beiden Speichern sicherzustellen. Beim Kopieren von Tabellendaten überprüft die Kopieraktivität nach Abschluss des Auftrags die Gesamtzeilenzahl, um sicherzustellen, dass die Gesamtanzahl der aus der Quelle gelesenen Zeilen mit der Anzahl der in das Ziel kopierten Zeilen plus der Anzahl der inkompatiblen und übersprungenen Zeilen übereinstimmt. Beachten Sie, dass die Kopierleistung durch Aktivieren dieser Option beeinträchtigt wird.  | True<br/>False (Standardwert) | Nein
 dataInconsistency | Eines der Schlüssel-Wert-Paare in der skipErrorFile-Eigenschaftensammlung zur Bestimmung, ob Sie die inkonsistenten Dateien überspringen möchten. <br/> – TRUE: Sie möchten den Rest kopieren, indem Sie inkonsistente Dateien überspringen.<br/> – FALSE: Sie möchten die Kopieraktivität abbrechen, sobald inkonsistente Dateien gefunden wurden.<br/>Beachten Sie, dass diese Eigenschaft nur gültig ist, wenn Sie Binärdateien kopieren und „validateDataConsistency“ auf TRUE festlegen.  | True<br/>False (Standardwert) | Nein
-logStorageSettings | Eine Gruppe von Eigenschaften, die angegeben werden können, um das Sitzungsprotokoll zum Protokollieren übersprungener Dateien zu aktivieren. | | Nein
+logSettings | Eine Gruppe von Eigenschaften, die angegeben werden können, um das Sitzungsprotokoll zum Protokollieren übersprungener Dateien zu aktivieren. | | Nein
 linkedServiceName | Der verknüpfte Dienst von [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) oder [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) zum Speichern der Sitzungsprotokolldateien. | Die Namen eines verknüpften Diensts vom Typ `AzureBlobStorage` oder `AzureBlobFS`, der auf die Instanz verweist, in der Sie die Protokolldateien speichern. | Nein
 path | Der Pfad der Protokolldateien. | Geben Sie den Pfad an, in dem die Protokolldateien gespeichert werden sollen. Wenn Sie keinen Pfad angeben, erstellt der Dienst automatisch einen Container. | Nein
 
 >[!NOTE]
->- Beim Kopieren von Binärdateien aus oder in Azure-Blobs oder Azure Data Lake Storage Gen2 überprüft ADF unter Verwendung der [Azure-Blob-API](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) und der [Azure Data Lake Storage Gen2-API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update#request-headers) die MD5-Prüfsumme auf Blockebene. Wenn ContentMD5 in Dateien im Azure-Blob oder in Azure Data Lake Storage Gen2 als Datenquelle vorhanden ist, führt ADF nach dem Lesen der Dateien auch eine Überprüfung der MD5-Prüfsumme auf Dateiebene durch. Nach dem Kopieren von Dateien in das Azure-Blob oder in Azure Data Lake Storage Gen2 als Datenziel schreibt ADF ContentMD5 in das Ziel. Dies kann in Downstreamanwendungen zur Überprüfung der Datenkonsistenz weiterverwendet werden.
+>- Beim Kopieren von Binärdateien aus oder in Azure-Blobs oder Azure Data Lake Storage Gen2 überprüft ADF unter Verwendung der [Azure-Blob-API](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) und der [Azure Data Lake Storage Gen2-API](/rest/api/storageservices/datalakestoragegen2/path/update#request-headers) die MD5-Prüfsumme auf Blockebene. Wenn ContentMD5 in Dateien im Azure-Blob oder in Azure Data Lake Storage Gen2 als Datenquelle vorhanden ist, führt ADF nach dem Lesen der Dateien auch eine Überprüfung der MD5-Prüfsumme auf Dateiebene durch. Nach dem Kopieren von Dateien in das Azure-Blob oder in Azure Data Lake Storage Gen2 als Datenziel schreibt ADF ContentMD5 in das Ziel. Dies kann in Downstreamanwendungen zur Überprüfung der Datenkonsistenz weiterverwendet werden.
 >- Beim Kopieren von Binärdateien zwischen Speichern führt ADF eine Überprüfung der Dateigröße durch.
 
 ## <a name="monitoring"></a>Überwachung
@@ -95,7 +97,7 @@ Nach Abschluss aller Kopieraktivitätsausführungen wird das Ergebnis der Datenk
             "filesWritten": 1, 
             "filesSkipped": 2, 
             "throughput": 297,
-            "logPath": "https://myblobstorage.blob.core.windows.net//myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
+            "logFilePath": "myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
             "dataConsistencyVerification": 
            { 
                 "VerificationResult": "Verified", 
@@ -144,5 +146,3 @@ Weitere Informationen finden Sie in den anderen Artikeln zur Kopieraktivität:
 
 - [Kopieraktivität – Übersicht](copy-activity-overview.md)
 - [Copy activity fault tolerance (Fehlertoleranz der Kopieraktivität)](copy-activity-fault-tolerance.md)
-
-

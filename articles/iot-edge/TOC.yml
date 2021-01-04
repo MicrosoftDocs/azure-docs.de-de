@@ -1,5 +1,7 @@
 - name: Azure IoT Edge-Dokumentation
   href: index.yml
+- name: Azure IoT Edge-Versionen
+  href: version-history.md
 - name: Übersicht
   items:
     - name: About Azure IoT Edge (Informationen zu Azure IoT Edge)
@@ -13,13 +15,13 @@
       href: quickstart.md
 - name: Tutorials
   items:
-    - name: 1. Einrichten der Entwicklungsumgebung
+    - name: Einrichten der Entwicklungsumgebung
       items:
         - name: Entwickeln für Linux-Geräte
           href: tutorial-develop-for-linux.md
         - name: Entwickeln für Windows-Geräte
           href: tutorial-develop-for-windows.md
-    - name: 2. Entwickeln von benutzerdefinierten Codemodulen
+    - name: Entwickeln von benutzerdefinierten Codemodulen
       items:
         - name: C
           items:
@@ -39,7 +41,7 @@
           href: tutorial-node-module.md
         - name: Python
           href: tutorial-python-module.md
-    - name: 3. Bereitstellen von Azure-Diensten als Module
+    - name: Bereitstellen von Azure-Diensten als Module
       items:
         - name: Filtern von Daten mit Azure Functions
           href: tutorial-deploy-function.md
@@ -51,7 +53,11 @@
           href: tutorial-deploy-custom-vision.md
         - name: Lokales Speichern von Daten mit SQL
           href: tutorial-store-data-sql-server.md
-    - name: 4. End-to-End-Beispiel für maschinelles Lernen im Edge-Bereich
+    - name: Verwenden von IoT Edge als Gateway
+      items:
+        - name: Erstellen von Hierarchien von IoT Edge-Geräten
+          href: tutorial-nested-iot-edge.md
+    - name: End-to-End-Beispiel für maschinelles Lernen im Edge-Bereich
       items:
         - name: Einführung
           href: tutorial-machine-learning-edge-01-intro.md
@@ -161,7 +167,7 @@
           items:
             - name: Azure-Portal
               href: how-to-deploy-modules-portal.md
-            - name: Azure-Befehlszeilenschnittstelle
+            - name: Azure CLI
               href: how-to-deploy-modules-cli.md
             - name: Visual Studio Code
               href: how-to-deploy-modules-vscode.md
@@ -169,7 +175,7 @@
           items:
             - name: Azure-Portal
               href: how-to-deploy-at-scale.md
-            - name: Azure-Befehlszeilenschnittstelle
+            - name: Azure CLI
               href: how-to-deploy-cli-at-scale.md
             - name: Visual Studio Code
               href: how-to-deploy-vscode-at-scale.md
@@ -187,16 +193,26 @@
           href: how-to-access-built-in-metrics.md
     - name: Verwenden von IoT Edge-Geräten als Gateways
       items:
-        - name: Konfigurieren eines transparenten Gateways
-          href: how-to-create-transparent-gateway.md
-        - name: Authentifizieren eines nachgeschalteten Geräts
-          href: how-to-authenticate-downstream-device.md
-        - name: Verbinden eines nachgeschalteten Geräts
-          href: how-to-connect-downstream-device.md
-        - name: ModBus-Protokollgateway
-          href: deploy-modbus-gateway.md
+        - name: Gateways für IoT-Geräte
+          items:
+            - name: Konfigurieren eines transparenten Gateways
+              href: how-to-create-transparent-gateway.md
+            - name: Authentifizieren eines nachgeschalteten Geräts
+              href: how-to-authenticate-downstream-device.md
+            - name: Verbinden eines nachgeschalteten Geräts
+              href: how-to-connect-downstream-device.md
+            - name: ModBus-Protokollgateway
+              href: deploy-modbus-gateway.md
+        - name: Gateways für IoT Edge-Geräte
+          items:
+            - name: Konfigurieren von Gateways für IoT Edge-Geräte
+              href: how-to-connect-downstream-iot-edge-device.md
+            - name: Konfigurieren des API-Proxymoduls
+              href: how-to-configure-api-proxy-module.md
     - name: Konfigurieren der Proxyunterstützung
       href: how-to-configure-proxy-support.md
+    - name: Veröffentlichen und Abonnieren mit IoT Edge
+      href: how-to-publish-subscribe.md
     - name: Azure Blob Storage auf IoT Edge
       items:
         - name: Grundlegendes zu Blobspeicher im Edge-Bereich

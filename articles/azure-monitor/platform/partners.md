@@ -4,12 +4,12 @@ description: Erfahren Sie mehr über die Partnerlösungen für Azure Monitor und
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: b56b2386422d9f7f2fa598ff804a2206bf4b4d83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e707e77f4618d71cb2fa3f32b05895b97658f76
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460089"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500239"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor – integrierte Partnerlösungen
 
@@ -46,6 +46,16 @@ Application Performance Management (APM) von AppDynamics ermöglicht Anwendungsb
 Sie können für Azure Monitor-Warnungen JIRA-Tickets erstellen.
 
 [Atlassian-Dokumentation für Azure Monitor](https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/)
+
+## <a name="bmc-helix"></a>BMC Helix
+
+![BMC Helix-Logo](./media/partners/BMCHelix.png)
+
+BMC Helix ist eine autonome SaaS-Plattform für Unternehmensdienste und -abläufe. Dank der umfassenden Intelligence-Funktionen können Unternehmen proaktiv und vorhersagbar mehrkanalige Umgebungen für IT und andere Branchen ermitteln, überwachen, warten, reparieren, optimieren und bereitstellen.
+Da BMC Helix zudem über eine nahtlose ITSM- und ITOM-Integration (IT Operations Management) verfügt, können IT- und Business-Benutzer IT-Silos beseitigen, datengesteuerte Geschäftsentscheidungen treffen und branchenführende Kundenumgebungen bereitstellen.
+Kunden können für die BMC Helix-Plattform die bevorzugte Cloudbereitstellung wählen: öffentlich, privat oder hybrid. Darüber hinaus können Kunden zwischen verschiedenen KI/ML-Lösungen führender Anbieter wählen.
+
+[Erfahren Sie mehr zu BMC Helix](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix).
 
 ## <a name="botmetric"></a>Botmetric
 
@@ -300,6 +310,21 @@ Sumo Logic ist ein sicherer, nativ cloudbasierter Dienst für die Computerdatena
 Turbonomic automatisiert Workloads für Hybrid Clouds durch gleichzeitige Optimierung von Leistung, Kosten und Compliance in Echtzeit. Turbonomic unterstützt Unternehmen dabei, in ihrer Azure-Umgebung flexibel zu bleiben, indem der Bestand kontinuierlich optimiert wird. So wird sichergestellt, dass Anwendungen stets nur die Ressourcen für Computing, Speicher und Netzwerk auf IaaS- und PaaS-Ebene erhalten, die sie für die Erfüllung ihrer SLAs benötigen. Organisationen können Migrationen simulieren, Workloads richtig skalieren und lokale Rechenzentren außer Betrieb nehmen, um im Rahmen des Zeitplans und des Budgets verlässlich zu Azure zu migrieren – und gleichzeitig können sie sicher sein, dass die Leistung stimmt und alle Standards und gesetzlichen Vorgaben eingehalten werden. Turbonomic ist API-gesteuert und wird als virtueller Computer ohne Agents in Azure und im lokalen System ausgeführt.
 
 [Einführung in Turbonomic](https://turbonomic.com/)
+
+## <a name="partner-tools-with-event-hub-integration"></a>Partnertools mit Event Hub-Integration
+
+Die Verwendung von Azure Monitor zur Weiterleitung Ihrer Überwachungsdaten an einen Azure Event Hub ermöglicht eine einfache Integration in einige externe SIEM- und Überwachungstools. Die folgenden Partner sind für die Integration über Event Hub bekannt. 
+
+| Tool | In Azure gehostet | BESCHREIBUNG |
+|:---|:---| :---|
+|  IBM QRadar | Nein | Das DSM und Event Hub-Protokoll von Microsoft Azure sind zum Download auf der [Website des IBM-Supports](https://www.ibm.com/support) erhältlich. Weitere Informationen zur Integration in Azure finden Sie unter [QRadar DSM configuration (QRadar DSM-Konfiguration)](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
+| Splunk | Nein | Das [Microsoft Azure-Add-On für Splunk](https://splunkbase.splunk.com/app/3757/) steht als Open-Source-Projekt in der Splunkbase zur Verfügung. <br><br> Falls Sie kein Add-On in Ihrer Splunk-Instanz installieren können, z. B. bei Verwendung eines Proxys oder bei Ausführung in Splunk Cloud, können Sie diese Ereignisse an die HTTP-Ereignissammlung von Splunk weiterleiten. Verwenden Sie dazu die [Azure-Funktion für Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), die durch neue Nachrichten im Event Hub ausgelöst wird. |
+| sumologic | Nein | Anweisungen zum Einrichten von SumoLogic für die Nutzung von Daten aus einem Event Hub finden Sie unter [Collect Logs for the Azure Audit App from Event Hub (Sammeln von Protokollen für die Azure Audit App aus einem Event Hub)](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
+| ArcSight | Nein | Der intelligente Azure Event Hub-Connector von ArcSight wird im Rahmen dieser [ArcSight-Sammlung von intelligenten Connectors](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852) zur Verfügung gestellt. |
+| Syslog-Server | Nein | Wenn Sie Azure Monitor-Daten direkt an einen Syslog-Server streamen möchten, können Sie eine [auf einer Azure-Funktion basierende Lösung](https://github.com/miguelangelopereira/azuremonitor2syslog/) nutzen.
+| LogRhythm | Nein| Anweisungen zum Einrichten von LogRhythm zum Erfassen von Protokollen aus einem Event Hub sind [hier](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/) verfügbar. 
+|Logz.io | Ja | Weitere Informationen finden Sie unter [Erste Schritte bei der Überwachung und Protokollierung mithilfe von Logz.io für in Azure ausgeführte Java-Apps](/azure/developer/java/fundamentals/java-get-started-with-logzio).
+
 
 ## <a name="next-steps"></a>Nächste Schritte
 

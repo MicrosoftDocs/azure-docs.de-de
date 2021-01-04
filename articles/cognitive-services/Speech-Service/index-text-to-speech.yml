@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: trbye
-  ms.openlocfilehash: 8a58079f44fb4d78c2d3f652a5f3b61dae9c8991
-  ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+  ms.openlocfilehash: d9491c43382def26ca9106675997e1dc4f071535
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 05/22/2020
-  ms.locfileid: "83800821"
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92756897"
 landingContent:
 - title: Informationen zur Sprachsynthese
   linkLists:
@@ -24,28 +24,20 @@ landingContent:
     links:
     - text: Was ist Text-zu-Sprache?
       url: text-to-speech.md
-    - text: Grundlagen der Sprachsynthese
-      url: text-to-speech-basics.md
     - text: Verwenden der Speech-Befehlszeilenschnittstelle für Sprachsynthese ohne Code
       url: spx-overview.md
   - linkListType: quickstart
     links:
-    - text: Synthetisieren von Sprache über einen Lautsprecher
-      url: quickstarts/text-to-speech.md
-    - text: Synthetisieren von Sprache in eine Audiodatei
-      url: quickstarts/text-to-speech-audio-file.md
-    - text: Synthetisieren von Sprache mit langen Audioinhalten
-      url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
+    - text: Erste Schritte bei der Sprachsynthese
+      url: get-started-text-to-speech.md
 - title: Entwickeln mit der Sprachsynthese
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Verbessern der Synthese mit SSML
       url: speech-synthesis-markup.md
-    - text: Abrufen einer Liste von Stimmen mit REST (Python)
-      url: quickstart-python-get-text-to-speech-voices.md
-    - text: Konvertieren von Text in Sprache mit REST (Python)
-      url: quickstart-python-text-to-speech.md
+    - text: Synthese langer Textausschnitte mit der API für lange Audioinhalte
+      url: long-audio-api.md
   - linkListType: concept
     links:
     - text: Erste Schritte mit Custom Voice
@@ -66,3 +58,9 @@ landingContent:
       url: speech-ssml-phonetic-sets.md
     - text: Preise der Sprachsynthese
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+- title: Hilfe und Feedback
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Support- und Hilfeoptionen
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context

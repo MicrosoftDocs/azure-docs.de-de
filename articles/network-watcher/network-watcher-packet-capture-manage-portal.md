@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: damendo
-ms.openlocfilehash: 28d5ae1451b97c19576baa3f9760b8f784db3175
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 099ead37b8d6b46b767ef59ff24a7e7ff9dc9e3c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84736729"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966444"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Verwalten von Paketerfassungen mit Azure Network Watcher über das Portal
 
@@ -74,7 +74,7 @@ Nachdem das für die Paketerfassung festgelegte Zeitlimit abgelaufen ist, wird d
 > [!NOTE]
 > Im Portal werden folgende Vorgänge automatisch durchgeführt:
 >  * Erstellen einer Network Watcher-Instanz in der Region, in der sich der ausgewählte virtuelle Computer befindet, sofern in der Region noch keine Network Watcher-Instanz vorhanden ist.
->  * Hinzufügen der Erweiterung *AzureNetworkWatcherExtension* für virtuelle [Linux](../virtual-machines/linux/extensions-nwa.md)- oder [Windows](../virtual-machines/windows/extensions-nwa.md)-Computer, sofern sie noch nicht installiert ist.
+>  * Hinzufügen der Erweiterung *AzureNetworkWatcherExtension* für virtuelle [Linux](../virtual-machines/extensions/network-watcher-linux.md)- oder [Windows](../virtual-machines/extensions/network-watcher-windows.md)-Computer, sofern sie noch nicht installiert ist.
 
 ## <a name="delete-a-packet-capture"></a>Löschen einer Paketerfassung
 

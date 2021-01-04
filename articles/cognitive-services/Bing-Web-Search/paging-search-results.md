@@ -11,14 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: aahi
-ms.openlocfilehash: ea883bb294a8769b3c9be1e0eafc2e3e7c811b48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 670460759a9495de735da35ae9f3d8388e59e0e5
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73481738"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350618"
 ---
 # <a name="how-to-page-through-results-from-the-bing-search-apis"></a>Durchblättern der Suchergebnisse der Bing-Suche-APIs
+
+> [!WARNING]
+> Die APIs der Bing-Suche werden von Cognitive Services auf Bing-Suchdienste umgestellt. Ab dem **30. Oktober 2020** müssen alle neuen Instanzen der Bing-Suche mit dem [hier](/bing/search-apis/bing-web-search/create-bing-search-service-resource) dokumentierten Prozess bereitgestellt werden.
+> APIs der Bing-Suche, die mit Cognitive Services bereitgestellt wurden, werden noch drei Jahre lang bzw. bis zum Ablauf Ihres Enterprise Agreement unterstützt (je nachdem, was zuerst geschieht).
+> Eine Anleitung zur Migration finden Sie unter [Bing-Suchdienste](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Wenn Sie einen Aufruf an die Bing-Suche-APIs Web, Custom, Image, News oder Video senden, gibt Bing eine Teilmenge der Gesamtzahl der Ergebnisse zurück, die für die Abfrage relevant sein können. Um die geschätzte Gesamtzahl der verfügbaren Ergebnisse abzurufen, greifen Sie auf das `totalEstimatedMatches`-Feld des Antwortobjekts zu. 
 
@@ -44,7 +49,7 @@ Um durch die verfügbaren Ergebnisse zu blättern, verwenden Sie beim Senden Ihr
 > * Das Durchblättern beschränkt sich bei den Bing-APIs Video, Image und News nur auf allgemeine Video- (`/video/search`), Nachrichten- (`/news/search`) und Bildsuchen (`/image/search`). Das Durchblättern von Trendthemen und Kategorien wird nicht unterstützt.  
 > * Das Feld `TotalEstimatedMatches` gibt eine Schätzung der Gesamtzahl der Suchergebnisse für die aktuelle Abfrage an. Wenn Sie die Parameter `count` und `offset` festlegen, ändert sich diese Schätzung möglicherweise.
 
-| Parameter | BESCHREIBUNG                                                                                                                                                                |
+| Parameter | Beschreibung                                                                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `count`   | Gibt die Anzahl der Ergebnisse an, die in der Antwort zurückgegeben werden sollen. Beachten Sie, dass sich der Standardwert von `count` und die maximale Zahl der Ergebnisse, die abgerufen werden können, bei den einzelnen APIs unterscheiden. Sie finden diese Werte in der Referenzdokumentation unter [Nächste Schritte](#next-steps). |
 | `offset`  | Gibt die Anzahl der zu überspringenden Ergebnisse an. Der `offset`-Parameter ist nullbasiert und sollte kleiner sein als (`totalEstimatedMatches` - `count`).                                           |
@@ -68,15 +73,15 @@ Host: api.cognitive.microsoft.com
 Wenn Sie die Bing-Bildersuche- und Bing-Videosuche-APIs verwenden, können Sie mit dem Wert `nextOffset` doppelte Suchergebnisse vermeiden. Rufen Sie den Wert aus den Antwortobjekten `Images` oder `Videos` ab, und verwenden Sie ihn in Ihren Anforderungen mit dem `offset`-Parameter.  
 
 > [!NOTE]
-> Die Bing-Websuche-API gibt Suchergebnisse zurück, die Webseiten, Bilder, Videos und Nachrichten enthalten können. Wenn Sie durch die Suchergebnisse aus dem Bing-Websuche-API blättern, werden nur [Webseiten](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage) angezeigt, keine anderen Antworttypen, wie etwa Bilder oder Nachrichten. Suchergebnisse in `WebPage`-Objekten enthalten möglicherweise Ergebnisse, die auch in anderen Antworttypen angezeigt werden.
+> Die Bing-Websuche-API gibt Suchergebnisse zurück, die Webseiten, Bilder, Videos und Nachrichten enthalten können. Wenn Sie durch die Suchergebnisse aus dem Bing-Websuche-API blättern, werden nur [Webseiten](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage) angezeigt, keine anderen Antworttypen, wie etwa Bilder oder Nachrichten. Suchergebnisse in `WebPage`-Objekten enthalten möglicherweise Ergebnisse, die auch in anderen Antworttypen angezeigt werden.
 >
 > Wenn Sie den `responseFilter`-Abfrageparameter ohne Angabe von Filterwerten verwenden, verwenden Sie die Parameter `count` und `offset` nicht. 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Was sind die Bing-Websuche-APIs?](bing-api-comparison.md)
-* [Referenz zur Bing-Websuche-API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
-* [Bing-API v7 für die benutzerdefinierte Suche – Referenz](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
-* [Bing-API v7 für die Nachrichtensuche – Referenz](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)
-* [Bing-API v7 für die Videosuche – Referenz](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)
-* [Bing-API v7 für die Bildsuche – Referenz](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Referenz zur Bing-Websuche-API v7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
+* [Bing-API v7 für die benutzerdefinierte Suche – Referenz](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
+* [Bing-API v7 für die Nachrichtensuche – Referenz](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)
+* [Bing-API v7 für die Videosuche – Referenz](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)
+* [Bing-API v7 für die Bildsuche – Referenz](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

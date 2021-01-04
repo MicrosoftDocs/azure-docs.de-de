@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 178c54b9726f21775603d67cb0911237aa4caf01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90e215ea445c8c700e351149e9c7a91d9a595252
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601363"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859520"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Referenzleitfaden zur Authentifizierungsverwaltung von Azure Active Directory-Vorgänge
 
@@ -42,13 +42,13 @@ Für die Verwaltung von Azure Active Directory ist die kontinuierliche Ausführu
 | Triage und Untersuchung von Benutzern, die von Azure AD Identity Protection für Risiko- und Sicherheitsberichte gekennzeichnet wurden | Team für Informationssicherheitvorgänge |
 
 > [!NOTE]
-> Für Azure AD Identity Protection ist eine Azure AD Premium P2-Lizenz erforderlich. Die richtige Lizenz für Ihre Anforderungen finden Sie im  [Vergleich allgemein verfügbarer Features von Azure AD Free und Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/).
+> Für Azure AD Identity Protection ist eine Azure AD Premium P2-Lizenz erforderlich. Die richtige Lizenz für Ihre Anforderungen finden Sie unter [Azure Active Directory – Preise](https://azure.microsoft.com/pricing/details/active-directory/).
 
 Beim Überprüfen Ihrer Liste stellen Sie ggf. fest, dass Sie entweder einen Besitzer für Aufgaben zuweisen müssen, denen kein Besitzer zugeteilt ist, oder Aufgaben anpassen müssen, deren Besitzer nicht den obigen Empfehlungen entspricht.
 
 #### <a name="owner-recommended-reading"></a>Empfohlene Artikel für Besitzer
 
-- [Zuweisen von Administratorrollen in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Zuweisen von Administratorrollen in Azure Active Directory](../roles/permissions-reference.md)
 - [Governance in Azure](../../governance/index.yml)
 
 ## <a name="credentials-management"></a>Verwaltung von Anmeldeinformationen
@@ -95,7 +95,7 @@ Kennwörter allein sind nicht sicher genug, um böswillige Akteure davon abzuhal
 
 ### <a name="on-premises-outage-authentication-resiliency"></a>Lokale Authentifizierungsresilienz für Ausfälle
 
-Abgesehen von der Einfachheit und der Aktivierung der Ermittlung kompromittierter Anmeldeinformationen, bieten die Azure AD-Kennworthashsynchronisierung und Azure MFA Benutzern die vorteilhafte Möglichkeit, trotz Ausfällen aufgrund von Cyberangriffen wie [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/) auf SaaS-Anwendungen und Microsoft 365 zugreifen zu können. Es ist auch möglich, die Kennworthashsynchronisierung im Zusammenhang mit Verbunddiensten zu aktivieren. Das Aktivieren der Kennworthashsynchronisierung ermöglicht ein Fallback für die Authentifizierung, wenn Verbunddienste nicht verfügbar sind.
+Abgesehen von der Einfachheit und der Aktivierung der Ermittlung kompromittierter Anmeldeinformationen, bieten die Azure AD-Kennworthashsynchronisierung und Azure AD MFA Benutzern die vorteilhafte Möglichkeit, trotz Ausfällen aufgrund von Cyberangriffen wie [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/) auf SaaS-Anwendungen und Microsoft 365 zugreifen zu können. Es ist auch möglich, die Kennworthashsynchronisierung im Zusammenhang mit Verbunddiensten zu aktivieren. Das Aktivieren der Kennworthashsynchronisierung ermöglicht ein Fallback für die Authentifizierung, wenn Verbunddienste nicht verfügbar sind.
 
 Wenn Ihre lokale Organisation nicht über eine Resilienzstrategie für Ausfälle oder über eine Strategie verfügt, die nicht mit Azure AD integriert ist, sollten Sie die Azure AD-Kennworthashsynchronisierung bereitstellen und einen Notfallwiederherstellungsplan definieren, der die Kennworthashsynchronisierung enthält. Indem Sie die Azure AD-Kennworthashsynchronisierung aktivieren, ermöglichen Sie Benutzern die Authentifizierung bei Azure AD, wenn Ihre lokale Active Directory-Lösung nicht verfügbar ist.
 
@@ -119,7 +119,7 @@ Verbundauthentifizierung mit der integrierten Windows-Authentifizierung oder der
 
 ### <a name="device-trust-access-policies"></a>Zugriffsrichtlinien für Geräte mit Vertrauensstellung
 
-Ähnlich wie ein Benutzer in Ihrer Organisation ist auch ein Gerät eine zentrale Identität, die Sie schützen möchten. Über die Identität eines Geräts können Sie Ihre Ressourcen jederzeit und von überall aus schützen. Die Authentifizierung des Geräts und die Rücksichtnahme auf dessen Vertrauenstyps verbessert Ihren Sicherheitsstatus und die Benutzerfreundlichkeit wie folgt:
+Ähnlich wie ein Benutzer in Ihrer Organisation ist auch ein Gerät eine zentrale Identität, die Sie schützen möchten. Über die Identität eines Geräts können Sie Ihre Ressourcen jederzeit und von überall aus schützen.  Die Authentifizierung des Geräts und die Rücksichtnahme auf dessen Vertrauenstyps verbessert Ihren Sicherheitsstatus und die Benutzerfreundlichkeit wie folgt:
 
 - Wenn das Gerät über eine Vertrauensstellung verfügt, werden diverse Schwierigkeiten vermieden, beispielsweise mit MFA.
 - Der Zugriff über nicht vertrauenswürdige Geräte wird blockiert.
@@ -128,7 +128,7 @@ Verbundauthentifizierung mit der integrierten Windows-Authentifizierung oder der
 Dafür können Sie Geräteidentitäten mit einer der folgenden Methoden in Azure AD bereitstellen und verwalten:
 
 - Organisationen können [Microsoft Intune](/intune/what-is-intune) verwenden, um das Gerät zu verwalten und Konformitätsrichtlinien zu erzwingen, die Geräteintegrität zu überprüfen und Richtlinien für bedingten Zugriff anhand der Konformität des Geräts festzulegen. Microsoft Intune kann iOS-Geräte, Mac-Computer (per JAMF-Integration), Windows-Computer (nativ per mobile Geräteverwaltung bei Windows 10 und per Co-Verwaltung mit Microsoft Endpoint Configuration Manager) und mobile Android-Geräte verwalten.
-- [Azure AD Hybrid Join](../devices/hybrid-azuread-join-managed-domains.md) bietet Verwaltung mit Gruppenrichtlinien oder Microsoft Endpoint Configuration Manager in einer Umgebung mit in einer Azure Active Directory-Domäne eingebundenen Computern. Organisationen können eine verwaltete Umgebung entweder über Kennworthashsynchronisierung oder Pass-Through-Authentifizierung mit nahtlosem SSO bereitstellen. Die Migration Ihrer Geräte zu Azure AD maximiert die Produktivität der Benutzer mithilfe von SSO für Ihre Cloud- und lokalen Ressourcen, während Ihnen gleichzeitig das Sichern Ihres Zugriffs auf diese Ressourcen mithilfe des  [bedingten Zugriffs](../conditional-access/overview.md)  ermöglicht wird.
+- [Azure AD Hybrid Join](../devices/hybrid-azuread-join-managed-domains.md) bietet Verwaltung mit Gruppenrichtlinien oder Microsoft Endpoint Configuration Manager in einer Umgebung mit in einer Azure Active Directory-Domäne eingebundenen Computern. Organisationen können eine verwaltete Umgebung entweder über Kennworthashsynchronisierung oder Pass-Through-Authentifizierung mit nahtlosem SSO bereitstellen. Die Migration Ihrer Geräte zu Azure AD maximiert die Produktivität der Benutzer mithilfe von SSO für Ihre Cloud- und lokalen Ressourcen, während Ihnen gleichzeitig das Sichern Ihres Zugriffs auf diese Ressourcen mithilfe des [bedingten Zugriffs](../conditional-access/overview.md) ermöglicht wird.
 
 Gehen Sie wie folgt vor, falls Sie über in eine Domäne eingebundene Windows-Geräte verfügen, die nicht in der Cloud registriert sind, oder über in eine Domäne eingebundene Windows-Geräte, die in der Cloud registriert sind, aber keine Richtlinien für bedingten Zugriff aufweisen: Registrieren Sie die nicht registrierten Geräte, und verwenden Sie in beiden Fällen in Ihren Richtlinien für bedingten Zugriff [Azure AD Hybrid Join als Kontrolle](../conditional-access/require-managed-devices.md).
 
@@ -160,7 +160,7 @@ Ein standardisiertes Verfahren für das einmalige Anmelden im gesamten Unternehm
 > [!NOTE]
 > Wenn Sie nicht über einen Mechanismus zum Ermitteln nicht verwalteter Anwendungen in Ihrer Organisation verfügen, empfehlen wir Ihnen, einen Ermittlungsprozess mithilfe einer CASB-Lösung (Cloud Access Security Broker) wie [Microsoft Cloud App Security](https://www.microsoft.com/enterprise-mobility-security/cloud-app-security) zu implementieren.
 
-Letztlich wird empfohlen, dass Sie Ihre [Anwendungen im App-Katalog aufführen](../azuread-dev/howto-app-gallery-listing.md), wenn Sie über einen Azure AD-App-Katalog verfügen und Anwendungen verwenden, die SSO mit Azure AD unterstützen.
+Letztlich wird empfohlen, dass Sie Ihre [Anwendungen im App-Katalog aufführen](../develop/v2-howto-app-gallery-listing.md), wenn Sie über einen Azure AD-App-Katalog verfügen und Anwendungen verwenden, die SSO mit Azure AD unterstützen.
 
 #### <a name="single-sign-on-recommended-reading"></a>Empfohlene Artikel zu SSO
 
@@ -177,7 +177,7 @@ Die [Migration von AD FS-Apps zu Azure AD](../manage-apps/migrate-adfs-apps-to-a
 
 ### <a name="assign-users-to-applications"></a>Zuweisen von Benutzern zu Anwendungen
 
-Das [Zuweisen von Benutzern zu Anwendungen](../manage-apps/assign-user-or-group-access-portal.md) erfolgt am besten mithilfe von Gruppen, da sie mehr Flexibilität sowie die Möglichkeit zu einer bedarfsorientierten Verwaltung bieten. Zu den Vorteilen der Verwendung von Gruppen gehören [attributbasierte dynamische Gruppenmitgliedschaften](../users-groups-roles/groups-dynamic-membership.md) und die [Delegierung an App-Besitzer](../fundamentals/active-directory-accessmanagement-managing-group-owners.md). Wenn Sie bereits Gruppen verwenden und verwalten, wird daher empfohlen, dass Sie die folgenden Aktionen durchführen, um die bedarfsorientierte Verwaltung zu verbessern:
+Das [Zuweisen von Benutzern zu Anwendungen](../manage-apps/assign-user-or-group-access-portal.md) erfolgt am besten mithilfe von Gruppen, da sie mehr Flexibilität sowie die Möglichkeit zu einer bedarfsorientierten Verwaltung bieten. Zu den Vorteilen der Verwendung von Gruppen gehören [attributbasierte dynamische Gruppenmitgliedschaften](../enterprise-users/groups-dynamic-membership.md) und die [Delegierung an App-Besitzer](../fundamentals/active-directory-accessmanagement-managing-group-owners.md). Wenn Sie bereits Gruppen verwenden und verwalten, wird daher empfohlen, dass Sie die folgenden Aktionen durchführen, um die bedarfsorientierte Verwaltung zu verbessern:
 
 - Delegieren Sie die Verwaltung und Governance von Gruppen an Anwendungsbesitzer.
 - Erlauben Sie den Self-Service-Zugriff auf die Anwendung.
@@ -189,8 +189,8 @@ Wenn Sie jedoch Anwendungen finden, die individuellen Benutzern zugewiesen sind,
 #### <a name="assign-users-to-applications-recommended-reading"></a>Empfohlene Artikel zum Zuweisen von Benutzern zu Anwendungen
 
 - [Zuweisen von Benutzern und Gruppen zu einer Anwendung in Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md)
-- [Delegieren von App-Registrierungsberechtigungen in Azure Active Directory](../users-groups-roles/roles-delegate-app-roles.md)
-- [Regeln für eine dynamische Mitgliedschaft für Gruppen in Azure Active Directory](../users-groups-roles/groups-dynamic-membership.md)
+- [Delegieren von App-Registrierungsberechtigungen in Azure Active Directory](../roles/delegate-app-roles.md)
+- [Regeln für eine dynamische Mitgliedschaft für Gruppen in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md)
 
 ## <a name="access-policies"></a>Zugriffsrichtlinien
 
@@ -248,14 +248,14 @@ Der bedingte Zugriff ist ein wichtiges Tool zur Verbesserung der Sicherheit Ihre
 - Verwenden Sie Richtlinien für bedingten Zugriff, um [MFA zu implementieren](../conditional-access/plan-conditional-access.md), anstatt eine **MFA pro Benutzer** zu verwenden.
 - Nutzen Sie eine kleine Gruppe wichtiger Richtlinien an, die auf mehrere Anwendungen angewendet werden können.
 - Definieren Sie leere Ausnahmegruppen, und fügen Sie diese zu den Richtlinien hinzu, um eine Ausnahmestrategie zu erhalten.
-- Planen Sie Konten ohne MFA-Kontrollen für den [Notfallzugriff](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency).
+- Planen Sie Konten ohne MFA-Kontrollen für den [Notfallzugriff](../roles/security-planning.md#break-glass-what-to-do-in-an-emergency).
 - Stellen Sie eine konsistente Umgebung zwischen Microsoft 365-Clientanwendungen (z. B. Teams, OneDrive, Outlook usw.) sicher, indem Sie dieselben Kontrollen für Dienste wie Exchange Online und SharePoint Online implementieren.
 - Die Zuweisung zu Richtlinien sollte nur über Gruppen erfolgen, nicht über Einzelpersonen.
 - Führen Sie regelmäßige Überprüfungen der Ausnahmegruppen durch, die in Richtlinien verwendet werden, um die Zeit zu begrenzen, in der die Benutzer nicht durch die errichtete Sicherheit geschützt werden. Wenn Sie über Azure AD Premium P2 verfügen, können Sie Zugriffsüberprüfungen verwenden, um diesen Prozess zu automatisieren.
 
 #### <a name="conditional-access-recommended-reading"></a>Empfohlene Artikel zum bedingten Zugriff
 
-- [Best Practices für den bedingten Zugriff in Azure Active Directory](../conditional-access/best-practices.md)
+- [Best Practices für den bedingten Zugriff in Azure Active Directory](../conditional-access/overview.md)
 - [Konfigurationen für den Identitäts- und Gerätezugriff](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Referenz zu den Einstellungen für den bedingten Azure Active Directory-Zugriff](../conditional-access/concept-conditional-access-conditions.md)
 - [Allgemeine Richtlinien für bedingten Zugriff](../conditional-access/concept-conditional-access-policy-common.md)
@@ -288,7 +288,7 @@ Wenn die Legacyauthentifizierung in Ihrer Umgebung umfassend verwendet wird, sol
 
 #### <a name="legacy-authentication-recommended-reading"></a>Empfohlene Artikel zur Legacyauthentifizierung
 
-- [Aktivieren und Deaktivieren des POP3- oder IMAP4-Zugriffs auf E-Mail-Postfächer in Exchange Server](/exchange/clients/pop3-and-imap4/configure-mailbox-access?view=exchserver-2019)
+- [Aktivieren und Deaktivieren des POP3- oder IMAP4-Zugriffs auf E-Mail-Postfächer in Exchange Server](/exchange/clients/pop3-and-imap4/configure-mailbox-access)
 
 ### <a name="consent-grants"></a>Zuweisung von Einwilligungen
 
@@ -347,7 +347,7 @@ Im Folgenden sind Benutzer- und Gruppeneinstellungen aufgeführt, die gesperrt w
 - [Integrieren von Anwendungen in Azure Active Directory](../develop/quickstart-register-app.md)
 - [Apps, Berechtigungen und Einwilligung in Azure Active Directory](../develop/quickstart-register-app.md)
 - [Verwenden von Gruppen zum Verwalten des Zugriffs auf Ressourcen in Azure Active Directory](./active-directory-manage-groups.md)
-- [Einrichten der Self-Service-Verwaltung des Anwendungszugriffs in Azure Active Directory](../users-groups-roles/groups-self-service-management.md)
+- [Einrichten der Self-Service-Verwaltung des Anwendungszugriffs in Azure Active Directory](../enterprise-users/groups-self-service-management.md)
 
 ### <a name="traffic-from-unexpected-locations"></a>Datenverkehr von unerwarteten Standorten
 

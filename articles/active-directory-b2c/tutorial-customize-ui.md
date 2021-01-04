@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a9ca6d91be95bfb1a47f85b20f3775a57518ffcf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 036e9e6bf58d837c698a6092770ef581f77bc20c
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87922131"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108245"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Tutorial: Anpassen der Benutzeroberfläche in Azure Active Directory B2C
 
-Für weitere gängige Benutzerfunktionen wie etwa Registrierung, Anmeldung und Profilbearbeitung können Sie [Benutzerflows](user-flow-overview.md) in Azure Active Directory B2C (Azure AD B2C) verwenden. Die Informationen in diesem Tutorial helfen Ihnen beim [Anpassen der Benutzeroberfläche (UI)](customize-ui-overview.md) dieser Erfahrungen unter Verwendung Ihrer eigenen HTML- und CSS-Dateien.
+Für weitere gängige Benutzerfunktionen wie etwa Registrierung, Anmeldung und Profilbearbeitung können Sie [Benutzerflows](user-flow-overview.md) in Azure Active Directory B2C (Azure AD B2C) verwenden. Die Informationen in diesem Tutorial helfen Ihnen beim [Anpassen der Benutzeroberfläche (UI)](customize-ui-with-html.md) dieser Erfahrungen unter Verwendung Ihrer eigenen HTML- und CSS-Dateien.
 
 In diesem Artikel werden folgende Vorgehensweisen behandelt:
 
@@ -166,4 +166,4 @@ In diesem Artikel haben Sie Folgendes gelernt:
 > * Testen der angepassten Benutzeroberfläche
 
 > [!div class="nextstepaction"]
-> [Anpassen der Benutzeroberfläche in Azure Active Directory B2C](customize-ui-overview.md)
+> [Anpassen der Benutzeroberfläche in Azure Active Directory B2C](customize-ui-with-html.md)

@@ -11,12 +11,12 @@ ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 334d37ad36336d1aa737894482fd8f66e929c822
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f66efb9112a9342122f5b56ab11b862ce3c7c61b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87077682"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314438"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Überwachen der Ressourcennutzung und Abfrageaktivität in Azure Synapse Analytics
 
@@ -53,7 +53,7 @@ Beim Anzeigen von Metriken und Festlegen von Warnungen zu berücksichtigende Asp
 
 Für eine programmgesteuerte Benutzeroberfläche bei der Überwachung von Synapse SQL über T-SQL bietet der Dienst verschiedene dynamische Verwaltungssichten (Dynamic Management Views, DMVs). Diese Sichten sind nützlich für die aktive Problembehandlung und das Identifizieren von Leistungsengpässen in Ihrer Workload.
 
-Eine Liste der DMVs, die für Synapse SQL gelten, finden Sie in dieser [Dokumentation](../sql/reference-tsql-system-views.md#sql-pool-dynamic-management-views-dmvs). 
+Eine Liste der DMVs, die für Synapse SQL gelten, finden Sie in dieser [Dokumentation](../sql/reference-tsql-system-views.md#dedicated-sql-pool-dynamic-management-views-dmvs). 
 
 ## <a name="metrics-and-diagnostics-logging"></a>Protokollierung von Metriken und Diagnosedaten 
 

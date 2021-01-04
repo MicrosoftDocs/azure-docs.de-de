@@ -3,12 +3,12 @@ title: Einrichten eines Azure Service Fabric-Linux-Clusters unter Windows
 description: In diesem Artikel wird beschrieben, wie Sie Service Fabric-Linux-Cluster einrichten, die auf Windows-Entwicklungscomputern ausgeführt werden. Dieser Ansatz ist für plattformübergreifende Entwicklung von Nutzen.
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.openlocfilehash: e25c6adf5e5f5101025aa883ef2ff9750c113a76
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 7b25a84e76773baea9f17430df1b7ba13aa661aa
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164107"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087076"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Einrichten eines Linux-Service Fabric-Clusters auf Ihrem Windows-Entwicklungscomputer
 
@@ -57,7 +57,7 @@ Führen Sie die folgenden Schritte aus, um einen lokalen Docker-Container einzur
     ```
 
     >[!TIP]
-    > Standardmäßig wird dann das Image mit der aktuellen Version von Service Fabric per Pullvorgang bereitgestellt. Bestimmte Revisionen finden Sie auf der Seite [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/).
+    > Standardmäßig wird dann das Image mit der aktuellen Version von Service Fabric per Pullvorgang bereitgestellt. Informationen zu bestimmten Revisionen finden Sie auf der Seite [Service Fabric Onebox](https://hub.docker.com/_/microsoft-service-fabric-onebox) von Docker Hub.
 
 
 

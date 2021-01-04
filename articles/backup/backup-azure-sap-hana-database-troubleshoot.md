@@ -3,12 +3,12 @@ title: Problembehandlung bei Sicherungsfehlern in SAP HANA-Datenbanken
 description: Beschreibt, wie häufige Fehler behoben werden, die auftreten können, wenn Sie SAP HANA-Datenbanken mithilfe von Azure Backup sichern.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 5cdad55ef849b9ced31646466e2c2c170ebf0827
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9fa73ee38e337a547816432212bc68d419f40bb
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89377683"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95411324"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Behandeln von Problemen beim Sichern von SAP HANA-Datenbanken in Azure
 
@@ -153,7 +153,7 @@ Upgrades des Betriebssystems oder Änderungen der SDC- oder MDC-Version, die kei
 - Stellen Sie sicher, dass die neue Betriebssystem-, SDC- oder MDC-Version aktuell von [Azure Backup unterstützt wird](sap-hana-backup-support-matrix.md#scenario-support).
 - [Beenden Sie den Schutz](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) mit Beibehaltung der Daten für die Datenbank.
 - Führen Sie das Upgrade oder Update durch.
-- Führen Sie das Vorregistrierungsskript erneut aus. Beim Upgradeprozess werden in der Regel die erforderlichen Rollen entfernt. Durch Ausführen des Vorregistrierungsskripts werden alle erforderlichen Rollen überprüft.
+- Führen Sie das Vorregistrierungsskript erneut aus. Beim Upgradeprozess werden häufig die [erforderlichen Rollen](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) entfernt. Durch Ausführen des Vorregistrierungsskripts werden alle erforderlichen Rollen überprüft.
 - Setzen Sie den Schutz für die Datenbank fort.
 
 ## <a name="sdc-to-mdc-upgrade-with-no-change-in-sid"></a>Upgrade von SDC zu MDC ohne SID-Änderung

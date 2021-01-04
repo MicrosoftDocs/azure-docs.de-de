@@ -8,13 +8,13 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: e1abc26296b1e3bd16bebf95d3489a4e95595e1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 9557ada8001022d460c35a091fdac7699ac5e5ec
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336716"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289392"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>Tutorial: Verwenden von Azure Key Vault mit einem virtuellen Windows in .NET
 
@@ -136,7 +136,7 @@ dotnet add package Azure.Identity
 
 ## <a name="edit-the-console-app"></a>Bearbeiten der Konsolen-App
 
-Öffnen Sie die Datei *Program.cs*, und fügen Sie die folgenden Pakete hinzu:
+Öffnen Sie die Datei *Program.cs* , und fügen Sie die folgenden Pakete hinzu:
 
 ```csharp
 using System;
@@ -204,4 +204,4 @@ Löschen Sie den virtuellen Computer und Ihren Schlüsseltresor, wenn diese nich
 ## <a name="next-steps"></a>Nächste Schritte
 
 > [!div class="nextstepaction"]
-> [Azure Key Vault-REST-API](https://docs.microsoft.com/rest/api/keyvault/)
+> [Azure Key Vault-REST-API](/rest/api/keyvault/)

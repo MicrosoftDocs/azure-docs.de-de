@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 19db4fb0d75369a0f272eef1180e86f47d45d284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db7006c01f59e8a11872d99b3a16f24f65ef7588
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335329"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413376"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Verwenden des Azure Maps-Kartensteuerelements
 
@@ -26,7 +26,7 @@ Zur Verwendung des Kartensteuerelements auf einer Webseite müssen Sie eine der 
 
 * [Erstellen eines Azure Maps-Kontos](quick-demo-map-app.md#create-an-azure-maps-account) und [Abrufen eines Primärschlüssels](quick-demo-map-app.md#get-the-primary-key-for-your-account) (auch primärer Schlüssel oder Abonnementschlüssel genannt)
 
-* Abrufen Ihrer Azure Active Directory-Anmeldeinformationen (AAD) mit [Authentifizierungsoptionen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions)
+* Abrufen Ihrer Azure Active Directory-Anmeldeinformationen (AAD) mit [Authentifizierungsoptionen](/javascript/api/azure-maps-control/atlas.authenticationoptions)
 
 ## <a name="create-a-new-map-in-a-web-page"></a>Erstellen einer neuen Karte auf einer Webseite
 
@@ -83,7 +83,7 @@ Sie können eine Karte in eine Webseite einbetten, indem Sie die clientseitige J
     </body>
    ```
 
-5. Dann wird das Kartensteuerelement initialisiert. Zur Authentifizierung des Steuerelements müssen Sie entweder Besitzer eines Azure Maps-Abonnementschlüssels sein oder Azure Active Directory-Anmeldeinformationen (AAD) mit [Authentifizierungsoptionen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions) nutzen.
+5. Dann wird das Kartensteuerelement initialisiert. Zur Authentifizierung des Steuerelements müssen Sie entweder Besitzer eines Azure Maps-Abonnementschlüssels sein oder Azure Active Directory-Anmeldeinformationen (AAD) mit [Authentifizierungsoptionen](/javascript/api/azure-maps-control/atlas.authenticationoptions) nutzen.
 
     Wenn Sie einen Abonnementschlüssel für die Authentifizierung nutzen, kopieren Sie das folgende Skriptelement und fügen Sie es innerhalb des `<head>`-Elements und unterhalb des ersten `<script>`-Elements ein. Ersetzen Sie `<Your Azure Maps Key>` durch Ihren primären Abonnementschlüssel für Azure Maps.
 
@@ -99,8 +99,8 @@ Sie können eine Karte in eine Webseite einbetten, indem Sie die clientseitige J
                     authType: 'subscriptionKey',
                     subscriptionKey: '<Your Azure Maps Key>'
                 }
-            }
-        });
+            });
+       }
     </script>
     ```
 
@@ -120,8 +120,8 @@ Sie können eine Karte in eine Webseite einbetten, indem Sie die clientseitige J
                     aadAppId: '<Your AAD App Id>',
                     aadTenant: '<Your AAD Tenant Id>'
                 }
-            }
-        });
+            });
+        }
     </script>
    ```
 
@@ -279,7 +279,7 @@ So fügen Sie Ihrer Karte weitere Daten hinzu:
 > [Erstellen einer Karte](map-create.md)
 
 > [!div class="nextstepaction"]
-> [Codebeispiele](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Codebeispiele](/samples/browse/?products=azure-maps)
 
 Eine Liste mit Beispielen zur Integration von Azure Active Directory (AAD) in Azure Maps finden Sie hier:
 

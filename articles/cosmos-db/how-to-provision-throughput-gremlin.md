@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 70eecc7843867a5832d962b7efaecda1b6ab4ae4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 3c2af7f33135a8c6621db233451231ffa89c2d64
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283061"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086158"
 ---
 # <a name="provision-database-container-or-autoscale-throughput-on-azure-cosmos-db-gremlin-api-resources"></a>Bereitstellen des Durchsatzes für Container, Datenbank und Autoskalierung in Ressourcen der Gremlin-API für Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 In diesem Artikel wird erläutert, wie Sie den Durchsatz in der Azure Cosmos DB-Gremlin-API bereitstellen. Sie können Standarddurchsatz (manuell) oder automatsch skalierten Durchsatz für einen Container oder eine Datenbank bereitstellen und gemeinsam für die Container in der Datenbank verwenden. Der Durchsatz kann über das Azure-Portal, über die Azure-Befehlszeilenschnittstelle oder mithilfe der Azure Cosmos DB SDKs bereitgestellt werden.
 
@@ -33,7 +34,7 @@ Wenn Sie eine andere API verwenden, finden Sie Informationen zum Bereitstellen d
    * Geben Sie eine Diagramm-ID ein.
    * Geben Sie einen Partitionsschlüsselwert ein (etwa `/ItemID`).
    * Geben Sie den bereitzustellenden Durchsatz an (etwa 1.000 RUs).
-   * Klicken Sie auf **OK** .
+   * Klicken Sie auf **OK**.
 
     :::image type="content" source="./media/how-to-provision-throughput-gremlin/provision-database-throughput-portal-gremlin-api.png" alt-text="Screenshot von Daten-Explorer beim Erstellen eines neuen Graphen mit Durchsatz auf Datenbankebene":::
 

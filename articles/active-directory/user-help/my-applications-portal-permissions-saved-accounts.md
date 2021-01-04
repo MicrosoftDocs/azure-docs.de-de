@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 993e75f6a5a39e076a9e7161b62abba85d9b0eab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb162231c8cf2bf733c992de0c4aa56bf1fd1be2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031091"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791085"
 ---
 # <a name="edit-or-revoke-application-permissions-in-the-my-apps-portal"></a>Bearbeiten oder Widerrufen von Anwendungsberechtigungen im Portal „Meine Apps“
 
@@ -32,7 +32,7 @@ Wenn Sie Organisationsanwendungen im Portal **Meine Apps** verwenden, erteilen S
 
 Wählen Sie zum Anzeigen der Apps, denen Sie oder Ihr Administrator zugestimmt haben/hat, das Auslassungszeichen ( **...** ) aus, das angezeigt wird, wenn Sie im Portal **Meine Apps** auf eine App zeigen, und wählen Sie dann **Anwendungen verwalten** aus:
 
-![Verwalten einer Anwendung im Portal „Meine Apps“](media/my-applications-portal-permissions-saved-accounts/manage-your-application.png)
+![Verwalten einer Anwendung im Portal „Meine Apps“](media/my-applications-portal-permissions-saved-accounts/my-apps-home-woodgrove.png)
 
 Im oberen Bereich des Berechtigungsfensters wird angezeigt, welche Einwilligungen Sie persönlich gegeben haben. Beispiele für App-Berechtigungen sind die Möglichkeit des Zugriffs auf Ihren Kalender, Ihre Kontakte oder Ihre Kamera.
 

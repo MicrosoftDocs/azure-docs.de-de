@@ -9,13 +9,13 @@ ms.subservice: billing
 ms.topic: tutorial
 ms.date: 10/26/2020
 ms.author: banders
-ms.custom: contentperfq2
-ms.openlocfilehash: c4a9a981017becd0d9343d9c287a4fe9341d7c43
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: ef04c964f0037fcf36fe376084df75ffa0034957
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678132"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027559"
 ---
 # <a name="tutorial-review-your-individual-azure-subscription-bill"></a>Tutorial: Überprüfen Ihrer individuellen Rechnung für das Azure-Abonnement
 
@@ -33,7 +33,7 @@ In diesem Tutorial lernen Sie Folgendes:
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Sie benötigen ein kostenpflichtiges Abrechnungskonto für das *Microsoft Online Services-Programm* . Das Konto wird erstellt, wenn Sie sich über die Azure-Website für Azure registrieren. Dies ist beispielsweise der Fall, wenn Sie über ein Konto mit nutzungsbasierter Bezahlung verfügen oder Visual Studio-Abonnent sind.
+Sie benötigen ein kostenpflichtiges Abrechnungskonto für das *Microsoft Online Services-Programm*. Das Konto wird erstellt, wenn Sie sich über die Azure-Website für Azure registrieren. Dies ist beispielsweise der Fall, wenn Sie über ein Konto mit nutzungsbasierter Bezahlung verfügen oder Visual Studio-Abonnent sind.
 
 Rechnungen für kostenlose Azure-Konten werden nur bei Überschreitung des monatlichen Guthabens erstellt.
 
@@ -49,19 +49,19 @@ Seit dem Abschluss des Azure-Abonnements müssen mehr als 30 Tage vergangen sei
 
 Für einen Nutzungs- und Kostenvergleich müssen Sie zunächst Ihre Rechnungs- und Nutzungsdateien herunterladen. Die CSV-Datei mit ausführlichen Nutzungsdaten enthält Ihre Gebühren nach Abrechnungszeitraum und Daten zur täglichen Nutzung. Sie enthält keine Steuerinformationen. Zum Herunterladen der Dateien müssen Sie Kontoadministrator sein oder über die Rolle „Besitzer“ verfügen.
 
-Geben Sie im Azure-Portal den Suchbegriff *Abonnements* in das Suchfeld ein, und klicken Sie anschließend auf **Abonnements** .
+Geben Sie im Azure-Portal den Suchbegriff *Abonnements* in das Suchfeld ein, und klicken Sie anschließend auf **Abonnements**.
 
 [![Navigieren zu Abonnements](./media/review-individual-bill/navigate-subscriptions.png)](./media/review-individual-bill/navigate-subscriptions.png#lightbox)
 
 Klicken Sie in der Abonnementliste auf das Abonnement.
 
-Klicken Sie unter **Abrechnung** auf **Rechnungen** .
+Klicken Sie unter **Abrechnung** auf **Rechnungen**.
 
 Suchen Sie in der Rechnungsliste nach der Rechnung, die Sie herunterladen möchten, und klicken Sie auf das Downloadsymbol. Ändern Sie ggf. die Zeitspanne, um ältere Rechnungen anzuzeigen. Es kann einige Minuten dauern, bis die Datei mit den Nutzungsdetails und die Rechnung generiert werden.
 
 ![Screenshot mit Abrechnungszeiträumen, der Option „Herunterladen“ und den Gesamtgebühren für jeden Abrechnungszeitraum](./media/review-individual-bill/download-invoice.png)
 
-Klicken Sie im Fenster „Nutzung und Gebühren herunterladen“ auf **CSV herunterladen** und auf **Rechnung herunterladen** .
+Klicken Sie im Fenster „Nutzung und Gebühren herunterladen“ auf **CSV herunterladen** und auf **Rechnung herunterladen**.
 
 ![Screenshot mit der Option „Rechnung herunterladen“ und Nutzungsseite](./media/review-individual-bill/usageandinvoice.png)
 
@@ -110,7 +110,7 @@ Der für *Cost* (Kosten) addierte Wert muss exakt den *Nutzungsgebühren* für d
 
 ## <a name="compare-billed-charges-and-usage-in-cost-analysis"></a>Vergleichen der abgerechneten Gebühren und Nutzung in der Kostenanalyse
 
-Gebühren können auch mithilfe der Kostenanalyse im Azure-Portal überprüft werden. Wenn Sie sich einen schnellen Überblick über die in Rechnung gestellte Nutzung und Gebühren verschaffen möchten, wählen Sie im Azure-Portal auf der Seite Abonnements Ihr Abonnement aus. Klicken Sie als Nächstes auf **Kostenanalyse** und anschließend in der Ansichtsliste auf **Rechnungsdetails** .
+Gebühren können auch mithilfe der Kostenanalyse im Azure-Portal überprüft werden. Wenn Sie sich einen schnellen Überblick über die in Rechnung gestellte Nutzung und Gebühren verschaffen möchten, wählen Sie im Azure-Portal auf der Seite Abonnements Ihr Abonnement aus. Klicken Sie als Nächstes auf **Kostenanalyse** und anschließend in der Ansichtsliste auf **Rechnungsdetails**.
 
 ![Beispiel: Auswählen von „Rechnungsdetails“](./media/review-individual-bill/cost-analysis-select-invoice-details.png)
 
@@ -157,7 +157,7 @@ Die zur Berechnung Ihrer Rechnung verwendeten Verbrauchseinheiten werden in der 
 
 <a name="payment"></a>
 
-Wenn Sie eine Kreditkarte als Zahlungsmethode eingerichtet haben, wird die Zahlung automatisch zehn Tage nach Abschluss des Abrechnungszeitraums berechnet. Auf Ihrem Kreditkartenbeleg lautet die Postenzeile dann **MSFT Azure** .
+Wenn Sie eine Kreditkarte als Zahlungsmethode eingerichtet haben, wird die Zahlung automatisch zehn Tage nach Abschluss des Abrechnungszeitraums berechnet. Auf Ihrem Kreditkartenbeleg lautet die Postenzeile dann **MSFT Azure**.
 
 Informationen zum Ändern der abgerechneten Kreditkarte finden Sie unter [Hinzufügen, Aktualisieren oder Entfernen einer Kreditkarte für Azure](../manage/change-credit-card.md).
 

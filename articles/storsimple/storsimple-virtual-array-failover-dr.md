@@ -15,19 +15,19 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24eb03069689d6dc89d8e237e0e65c71af6c6173
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 509a3ac383cebd91821e9c4b872c253ab3b0a947
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88184719"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005859"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Notfallwiederherstellung und Gerätefailover für StorSimple Virtual Array über das Azure-Portal
 
 ## <a name="overview"></a>Übersicht
 Dieser Artikel beschreibt die Notfallwiederherstellung für Ihr Microsoft Azure StorSimple Virtual Array sowie die ausführlichen Schritte für ein Failover auf ein anderes virtuelles Array. Durch ein Failover können Sie Ihre Daten von einem *Quellgerät* im Datencenter auf ein *Zielgerät* verschieben. Das Zielgerät kann sich am gleichen Speicherort oder einem anderen geografischen Ort befinden. Das Gerätefailover gilt für das gesamte Gerät. Während des Failovers gehen die Clouddaten für das Quellgerät in den Besitz des Zielgeräts über.
 
-Dieser Artikel gilt nur für StorSimple Virtual Arrays. Informationen zum Failover für ein Gerät der 8000er-Serie finden Sie unter [Ausführen eines Failovers und einer Notfallwiederherstellung für das StorSimple-Gerät](storsimple-device-failover-disaster-recovery.md).
+Dieser Artikel gilt nur für StorSimple Virtual Arrays. Informationen zum Failover für ein Gerät der 8000er-Serie finden Sie unter [Ausführen eines Failovers und einer Notfallwiederherstellung für das StorSimple-Gerät](./storsimple-8000-device-failover-disaster-recovery.md).
 
 ## <a name="what-is-disaster-recovery-and-device-failover"></a>Was ist Notfallwiederherstellung und Gerätefailover?
 
@@ -181,4 +181,3 @@ Wenn StorSimple-Geräte direkt vor einem Notfall registriert wurden, müssen die
 ## <a name="next-steps"></a>Nächste Schritte
 
 Erfahren Sie mehr darüber, wie Sie das [StorSimple Virtual Array mit der lokalen Webbenutzeroberfläche verwalten](storsimple-ova-web-ui-admin.md).
-

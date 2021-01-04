@@ -1,6 +1,6 @@
 ---
 title: Hinzufügen von Google als Identitätsanbieter für B2B – Azure AD
-description: Erstellen eines Verbunds mit Google, um Gastbenutzern die Anmeldung bei Ihren Azure AD-Apps mit ihren eigenen Gmail-Konten zu ermöglichen
+description: Erstellen eines Verbunds mit Google, um Gastbenutzern die Anmeldung bei Ihren Azure AD-Apps mit ihren eigenen Gmail-Konten zu ermöglichen
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,26 +12,26 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8c07a6a67e97deafa2f611b297574a801aa356d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: ff8912794169cf61f394a097248a8476b2e0c0f3
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441945"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926234"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Hinzufügen von Google als Identitätsanbieter für B2B-Gastbenutzer
 
-Durch die Einrichtung eines Verbunds mit Google können Sie eingeladenen Benutzern ermöglichen, sich bei Ihren freigegebenen Apps und Ressourcen mit ihren eigenen Gmail-Konten anzumelden, ohne dass sie Microsoft-Konten (Microsoft Accounts, MSAs) erstellen müssen. 
+Durch die Einrichtung eines Verbunds mit Google können Sie eingeladenen Benutzern ermöglichen, sich bei Ihren freigegebenen Apps und Ressourcen mit ihren eigenen Gmail-Konten anzumelden, ohne dass sie Microsoft-Konten erstellen müssen. 
 
 > [!NOTE]
-> Der Google-Verbund wurde speziell für Gmail-Benutzer konzipiert. Um einen Verbund mit G Suite-Domänen herzustellen, verwenden Sie das [Feature „Direkter Verbund“](direct-federation.md).
+> Der Google-Verbund wurde speziell für Gmail-Benutzer konzipiert. Um einen Verbund mit G Suite-Domänen einzurichten, verwenden Sie den [direkten Verbund](direct-federation.md).
 
 ## <a name="what-is-the-experience-for-the-google-user"></a>Wie läuft der Vorgang für Google-Benutzer ab?
-Wenn Sie eine Einladung an einen Google Gmail-Benutzer senden, sollte der Gastbenutzer auf Ihre freigegebenen Apps oder Ressourcen über einen Link, der den Mandantenkontext enthält, zugreifen. Der Ablauf hängt davon ab, ob er bereits bei Google angemeldet ist:
-  - Wenn der Gastbenutzer nicht bei Google angemeldet ist, wird er aufgefordert, sich bei Google anzumelden.
-  - Wenn der Gastbenutzer bereits bei Google angemeldet ist, wird er aufgefordert, das Konto auszuwählen, das er verwenden möchte. Er muss das Konto auswählen, das Sie für die Einladung verwendet haben.
+Wenn Sie eine Einladung an Google Gmail-Benutzer senden, sollten die Gastbenutzer auf Ihre freigegebenen Apps oder Ressourcen über einen Link zugreifen, der den Mandantenkontext enthält. Der Ablauf hängt davon ab, ob er bereits bei Google angemeldet ist:
+  - Gastbenutzer, die nicht bei Google angemeldet sind, werden aufgefordert, sich anzumelden.
+  - Gastbenutzer, die bereits bei Google angemeldet sind, werden aufgefordert, das zu verwendende Konto auszuwählen. Er muss das Konto auswählen, das Sie für die Einladung verwendet haben.
 
-Wenn dem Gastbenutzer ein Fehler aufgrund eines zu langen Headers angezeigt wird, sollte er versuchen, seine Cookies zu löschen. Er kann auch ein privates oder Inkognitofenster öffnen und sich erneut anzumelden.
+Gastbenutzer, bei denen ein Fehler aufgrund eines zu langen Headers angezeigt wird, können Cookies löschen oder ein privates oder Inkognito-Fenster öffnen und sich erneut anmelden.
 
 ![Screenshot der Google-Anmeldeseite](media/google-federation/google-sign-in.png)
 
@@ -39,92 +39,92 @@ Wenn dem Gastbenutzer ein Fehler aufgrund eines zu langen Headers angezeigt wird
 
 Teams unterstützt Google-Gastbenutzer vollständig auf allen Geräten. Google-Benutzer können sich über einen allgemeinen Endpunkt wie `https://teams.microsoft.com` bei Teams anmelden.
 
-Die allgemeinen Endpunkte anderer Anwendungen unterstützen Google-Benutzer möglicherweise nicht. Google-Gastbenutzer müssen sich über einen Link anmelden, der Mandanteninformationen enthält. Hier finden Sie einige Beispiele:
-  * `https://myapps.microsoft.com/?tenantid=<your tenant id>`
-  * `https://portal.azure.com/<your tenant id>`
+Die allgemeinen Endpunkte anderer Anwendungen unterstützen Google-Benutzer möglicherweise nicht. Google-Gastbenutzer müssen sich über einen Link anmelden, der Mandanteninformationen enthält. Hier einige Beispiele:
+  * `https://myapps.microsoft.com/?tenantid=<your tenant ID>`
+  * `https://portal.azure.com/<your tenant ID>`
   * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
 
    Wenn Google-Gastbenutzer versuchen, einen Link wie `https://myapps.microsoft.com` oder `https://portal.azure.com` zu verwenden, erhalten sie eine Fehlermeldung.
 
-Sie können Google-Gastbenutzern auch einen direkten Link zu einer Anwendung oder Ressource zur Verfügung stellen, sofern dieser Link Ihre Mandanteninformationen enthält, z. B. `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`. 
+Sie können Google-Gastbenutzern auch einen direkten Link zu einer Anwendung oder Ressource zur Verfügung stellen, sofern dieser Link Ihre Mandanteninformationen enthält. Beispiel: `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`. 
 
 ## <a name="step-1-configure-a-google-developer-project"></a>Schritt 1: Konfigurieren eines Google-Entwicklerprojekts
-Erstellen Sie zunächst ein neues Projekt in der Google Developers Console, um eine Client-ID und einen geheimen Clientschlüssel abzurufen. Beides fügen Sie später in Azure AD hinzu. 
+Erstellen Sie zunächst ein neues Projekt in der Google Developers Console, um eine Client-ID und einen geheimen Clientschlüssel abzurufen. Beide fügen Sie später in Azure Active Directory (Azure AD) hinzu. 
 1. Wechseln Sie zur Google-APIs unter https://console.developers.google.com, und melden Sie sich mit Ihrem Google-Konto an. Es wird empfohlen, ein freigegebenes Google-Teamkonto zu verwenden.
 2. Stimmen Sie den Vertragsbedingungen zu, wenn Sie dazu aufgefordert werden.
-3. Erstellen eines neuen Projekts: Wählen Sie im Dashboard **Projekt erstellen** aus, geben Sie dem Projekt einen Namen (z. B. „Azure AD B2B“), und wählen Sie dann **Erstellen** aus. 
+3. Erstellen eines neuen Projekts: Wählen Sie im Dashboard die Option **Projekt erstellen** aus, geben Sie dem Projekt einen Namen (z. B. **Azure AD B2B** ), und wählen Sie dann **Erstellen** aus: 
    
-   ![Screenshot mit einer Seite „Neues Projekt“ für Google](media/google-federation/google-new-project.png)
+   ![Screenshot der Seite „Neues Projekt“](media/google-federation/google-new-project.png)
 
-4. Klicken Sie auf der Seite **APIs und Dienste** , die jetzt angezeigt wird, unter dem neuen Projekt auf **Anzeigen** .
+4. Wählen Sie auf der Seite **APIs & Dienste** unter dem neuen Projekt die Option **Anzeigen** aus.
 
-5. Klicken Sie auf der Karte „APIs“ auf **Go to APIs overview** (Zur API-Übersicht wechseln). Wählen Sie **OAuth-Zustimmungsbildschirm** aus.
+5. Wählen Sie auf der Karte „APIs“die Option **Go to APIs overview** (Zur API-Übersicht wechseln) aus. Wählen Sie **OAuth-Zustimmungsbildschirm** aus.
 
 6. Wählen Sie **Extern** und anschließend **Erstellen** aus. 
 
-7. Geben Sie im **OAuth-Zustimmungsbildschirm** einen **Anwendungsnamen** ein. 
+7. Geben Sie im **OAuth-Einwilligungsbildschirm** einen **Anwendungsnamen** ein:
 
-   ![Screenshot der Option „Google-OAuth-Einwilligungsbildschirm“](media/google-federation/google-oauth-consent-screen.png)
+   ![Screenshot des Google-OAuth-Einwilligungsbildschirms](media/google-federation/google-oauth-consent-screen.png)
 
-8. Scrollen Sie zum Abschnitt **Authorized domains** (Autorisierte Domänen), und geben Sie „microsoftonline.com“ ein.
+8. Scrollen Sie zum Abschnitt **Authorized domains** (Autorisierte Domänen), und geben Sie **microsoftonline.com** ein:
 
-   ![Screenshot des Abschnitts „Autorisierte Domänen“](media/google-federation/google-oauth-authorized-domains.PNG)
+   ![Screenshot des Abschnitts „Authorized domains“ (Autorisierte Domänen)](media/google-federation/google-oauth-authorized-domains.PNG)
 
 9. Wählen Sie **Speichern** aus.
 
-10. Wählen Sie **Anmeldeinformationen** aus. Wählen Sie im Menü **Anmeldedaten erstellen** die Option **OAuth-Client-ID** aus.
+10. Wählen Sie **Credentials** aus. Wählen Sie im Menü **Anmeldedaten erstellen** die Option **OAuth-Client-ID** aus:
 
-    ![Screenshot der Google-API-Option zum Erstellen von Anmeldeinformationen](media/google-federation/google-api-credentials.png)
+    ![Screenshot des Google APIs-Menüs „Anmeldedaten erstellen“](media/google-federation/google-api-credentials.png)
 
-11. Wählen Sie unter **Anwendungstyp** die Option **Webanwendung** aus, und versehen Sie die Anwendung mit einem geeigneten Namen, z. B. „Azure AD B2B“. Geben Sie dann unter **Autorisierte Weiterleitungs-URIs** die folgenden URIs ein:
-    - `https://login.microsoftonline.com` 
-    - `https://login.microsoftonline.com/te/<tenant id>/oauth2/authresp` <br>(`<tenant id>` ist Ihre Mandanten-ID.)
+11. Wählen Sie unter **Anwendungstyp** die Option **Webanwendung** aus. Geben Sie der Anwendung einen geeigneten Namen, z. B. **Azure AD B2B**. Geben Sie unter **Autorisierte Weiterleitungs-URIs** die folgenden URIs ein:
+    - `https://login.microsoftonline.com`
+    - `https://login.microsoftonline.com/te/<tenant ID>/oauth2/authresp` <br>(`<tenant ID>` ist Ihre Mandanten-ID.)
    
     > [!NOTE]
-    > Sie finden Ihre Mandanten-ID unter https://portal.azure.com. Wählen Sie dort unter **Azure Active Directory** die Option **Eigenschaften** aus, und kopieren Sie die **Mandanten-ID** .
+    > Ihre Mandanten-ID finden Sie im [Azure-Portal](https://portal.azure.com). Wählen Sie dort unter **Azure Active Directory** die Option **Eigenschaften** aus, und kopieren Sie die **Mandanten-ID**.
 
     ![Screenshot des Abschnitts „Autorisierte Umleitungs-URIs“](media/google-federation/google-create-oauth-client-id.png)
 
-12. Klicken Sie auf **Erstellen** . Kopieren Sie die Client-ID und den geheimen Clientschlüssel, die Sie verwenden möchten, um den Identitätsanbieter im Azure AD-Portal hinzuzufügen.
+12. Klicken Sie auf **Erstellen**. Kopieren Sie die Client-ID und den geheimen Clientschlüssel. Sie verwenden diese Informationen, wenn Sie den Identitätsanbieter im Azure-Portal hinzufügen.
 
-    ![Screenshot der OAuth-Client-ID und des Clientgeheimnisses](media/google-federation/google-auth-client-id-secret.png)
+    ![Screenshot von OAuth-Client-ID und geheimem Clientschlüssel](media/google-federation/google-auth-client-id-secret.png)
 
 ## <a name="step-2-configure-google-federation-in-azure-ad"></a>Schritt 2: Konfigurieren des Google-Verbunds in Azure AD 
-Nun legen Sie die Google-Client-ID und den geheimen Clientschlüssel entweder durch Eingabe im Azure AD-Portal oder mithilfe von PowerShell fest. Testen Sie unbedingt die Konfiguration des Google-Verbunds, indem Sie sich selbst unter Verwendung einer Gmail-Adresse einladen und versuchen, die Einladung mit dem eingeladenen Google-Konto einzulösen. 
+Sie legen nun die Google-Client-ID und den geheimen Clientschlüssel fest. Dazu können Sie das Azure-Portal oder PowerShell verwenden. Testen Sie unbedingt die Konfiguration des Google-Verbunds, indem Sie sich selbst einladen. Verwenden Sie eine Gmail-Adresse, und versuchen Sie, die Einladung mit Ihrem eingeladenen Google-Konto einzulösen. 
 
-#### <a name="to-configure-google-federation-in-the-azure-ad-portal"></a>So konfigurieren Sie den Google-Verbund im Azure AD-Portal 
+**So konfigurieren Sie den Google-Verbund im Azure-Portal** 
 1. Öffnen Sie das [Azure-Portal](https://portal.azure.com). Wählen Sie im linken Bereich **Azure Active Directory** aus. 
 2. Wählen Sie **Externe Identitäten** aus.
-3. Wählen Sie **Alle Identitätsanbieter** aus, und klicken Sie dann auf die Schaltfläche **Google** .
-4. Geben Sie dann die Client-ID und den geheimen Clientschlüssel ein, die Sie zuvor erhalten haben. Wählen Sie **Speichern** aus. 
+3. Wählen Sie **Alle Identitätsanbieter** und dann die Schaltfläche **Google** aus.
+4. Geben Sie die Client-ID und den geheimen Clientschlüssel ein, die Sie zuvor erhalten haben. Wählen Sie **Speichern** aus: 
 
    ![Screenshot der Seite „Google als Identitätsanbieter hinzufügen“](media/google-federation/google-identity-provider.png)
 
-#### <a name="to-configure-google-federation-by-using-powershell"></a>So konfigurieren Sie den Google-Verbund mithilfe von PowerShell
+**So konfigurieren Sie den Google-Verbund mithilfe von PowerShell**
 1. Installieren Sie die neueste Version des Azure AD PowerShell für Graph-Moduls ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
-2. Führen Sie den folgenden Befehl aus: `Connect-AzureAD`.
+2. Führen Sie den folgenden Befehl aus: `Connect-AzureAD`
 3. Melden Sie sich an der Anmeldeaufforderung mit dem verwalteten globalen Administratorkonto an.  
 4. Führen Sie den folgenden Befehl aus: 
    
-   `New-AzureADMSIdentityProvider -Type Google -Name Google -ClientId [Client ID] -ClientSecret [Client secret]`
+   `New-AzureADMSIdentityProvider -Type Google -Name Google -ClientId <client ID> -ClientSecret <client secret>`
  
    > [!NOTE]
-   > Verwenden Sie die Client-ID und den geheimen Clientschlüssel der App, die Sie hier erstellt haben: „Schritt 1: Konfigurieren eines Google-Entwicklerprojekts“. Weitere Informationen finden Sie im Artikel zu [New-AzureADMSIdentityProvider](/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview). 
+   > Verwenden Sie die Client-ID und den geheimen Clientschlüssel der App, die Sie hier erstellt haben: „Schritt 1: Konfigurieren eines Google-Entwicklerprojekts“. Weitere Informationen finden Sie unter [New-AzureADMSIdentityProvider](/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview). 
  
 ## <a name="how-do-i-remove-google-federation"></a>Wie entferne ich einen Google Verbund?
-Sie können Ihre Google-Verbundeinrichtung löschen. Wenn Sie dies tun, können Google-Gastbenutzer, die bereits seine Einladung eingelöst haben, sich nicht mehr anmelden. Sie können ihnen aber erneut Zugriff auf Ihre Ressourcen erteilen, indem Sie sie aus dem Verzeichnis löschen und erneut einladen. 
+Sie können Ihre Google-Verbundeinrichtung löschen. Wenn Sie dies tun, können sich Google-Gastbenutzer, die ihre Einladungen bereits eingelöst haben, nicht mehr anmelden. Sie können ihnen aber erneut Zugriff auf Ihre Ressourcen gewähren, indem Sie sie aus dem Verzeichnis löschen und erneut einladen. 
  
-### <a name="to-delete-google-federation-in-the-azure-ad-portal"></a>So löschen Sie den Google-Verbund im Azure AD-Portal 
+**So löschen Sie den Google-Verbund im Azure AD-Portal**
 1. Öffnen Sie das [Azure-Portal](https://portal.azure.com). Wählen Sie im linken Bereich **Azure Active Directory** aus. 
 2. Wählen Sie **Externe Identitäten** aus.
 3. Wählen Sie **Alle Identitätsanbieter** aus.
-4. Wählen Sie in der Zeile **Google** das Kontextmenü ( **...** ) aus, und wählen Sie dann **Löschen** aus. 
+4. Wählen Sie in der Zeile **Google** die Schaltfläche mit den Auslassungspunkten ( **...** ) und dann **Löschen** aus. 
    
-   ![Screenshot der Option „Löschen“ für den Identitätsanbieter für soziale Netzwerke](media/google-federation/google-social-identity-providers.png)
+   ![Screenshot der Schaltfläche „Löschen“ für den Identitätsanbieter für soziale Netzwerke](media/google-federation/google-social-identity-providers.png)
 
 1. Wählen Sie **Ja** aus, um den Löschvorgang zu bestätigen. 
 
-### <a name="to-delete-google-federation-by-using-powershell"></a>So löschen Sie den Google-Verbund mithilfe von PowerShell 
+**So löschen Sie den Google-Verbund mithilfe von PowerShell** 
 1. Installieren Sie die neueste Version des Azure AD PowerShell für Graph-Moduls ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
 2. Führen Sie `Connect-AzureAD` aus.  
 4. Melden Sie sich an der Anmeldeaufforderung mit dem verwalteten globalen Administratorkonto an.  

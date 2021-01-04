@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: mayg
-ms.openlocfilehash: 1790ac666d77f14ccadfde56f7b86e05b2c563dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e1008f7acbfe0685b7a171176c7dc54592d1491
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604681"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019241"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installieren eines Linux-Masterzielservers für Failbacks
 Nach dem Failover Ihrer virtuellen Computer zu Azure können Sie für die virtuellen Computer ein Failback zum lokalen Standort durchführen. Für ein Failback müssen Sie den virtuellen Computer von Azure zum lokalen Standort erneut schützen. Für diesen Prozess benötigen Sie einen lokalen Masterzielserver, der den Datenverkehr empfängt. 
@@ -111,7 +111,7 @@ Legen Sie den Datenträger mit dem ISO-Image für Ubuntu 16.04.2 minimal 64 Bit 
 
 1.  Wählen Sie in der Auswahl für die Proxykonfiguration die Standardoption, und wählen Sie dann **Continue**, und drücken Sie die **EINGABETASTE**.
      
-     ![Option zum Verwalten von Upgrades auswählen](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
+     ![Screenshot: Auswählen von „Continue“ und Drücken der EINGABETASTE](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
 1.  Wählen Sie in der Auswahl zur Verwaltung von Upgrades auf Ihrem System die Option **No automatic updates**, und drücken Sie die **EINGABETASTE**.
 

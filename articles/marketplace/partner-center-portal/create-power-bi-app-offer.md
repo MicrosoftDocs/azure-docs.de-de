@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
-ms.openlocfilehash: e0dcd5db36e41093bf1cd75779770b04df2fc26a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99c60cf541b3997f2aeca2ccef5a5af6b9c88e08
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710650"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131495"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Erstellen eines Power BI-App-Angebots
 
@@ -55,10 +55,10 @@ Diese Seite zeigt eine visuelle Darstellung der zum Veröffentlichen dieses Ange
 
 Sie enthält Links zum Durchführen von Vorgängen für dieses Angebot auf der Grundlage der von Ihnen ausgewählten Optionen. Beispiel:
 
-- Wenn das Angebot einen Entwurf darstellt: [Delete draft offer](update-existing-offer.md#delete-a-draft-offer) (Angebotsentwurf löschen)
+- Wenn das Angebot einen Entwurf darstellt: Delete draft offer (Angebotsentwurf löschen)
 - Wenn es sich um ein Liveangebot handelt: [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan) (Angebot nicht mehr verkaufen)
-- Wenn das Angebot in der Vorschau ist: [Go-live](publishing-status.md#publisher-approval) (Live schalten)
-- Wenn Sie die Veröffentlichung nicht abgeschlossen haben: [Veröffentlichung abbrechen](update-existing-offer.md#cancel-publishing)
+- Wenn das Angebot in der Vorschau ist: [Go-live](../review-publish-offer.md#previewing-and-approving-your-offer) (Live schalten)
+- Wenn Sie die Abmeldung beim Herausgeber nicht abgeschlossen haben: [Cancel publishing](../review-publish-offer.md#cancel-publishing) (Veröffentlichung abbrechen).
 
 ## <a name="offer-setup"></a>Angebotseinrichtung
 
@@ -234,7 +234,7 @@ Weitere Informationen zum Erstellen von Angebotslistungen finden Sie unter [Bew�
 
 ## <a name="technical-configuration"></a>Technische Konfiguration
 
-Stufen Sie Ihre App im Power BI Dienst zur Produktionsreife hoch, und stellen Sie den Link zum Power BI-App-Installationsprogramm bereit, mit dem Kunden Ihre App installieren können. Weitere Informationen finden Sie unter [Veröffentlichen von Apps mit Dashboards und Berichten in Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps).
+Stufen Sie Ihre App im Power BI Dienst zur Produktionsreife hoch, und stellen Sie den Link zum Power BI-App-Installationsprogramm bereit, mit dem Kunden Ihre App installieren können. Weitere Informationen finden Sie unter [Veröffentlichen von Apps mit Dashboards und Berichten in Power BI](/power-bi/service-create-distribute-apps).
 
 ## <a name="supplemental-content"></a>Ergänzender Inhalt
 
@@ -253,9 +253,9 @@ Wählen Sie in der oberen rechten Ecke des Portals **Überprüfen und veröffent
 Auf der Überprüfungsseite haben Sie folgende Möglichkeiten:
 
 - Anzeigen des Abschlussstatus für die einzelnen Abschnitte des Angebots. Sie können erst veröffentlichen, wenn alle Abschnitte des Angebots als abgeschlossen gekennzeichnet sind.
-  - **Nicht gestartet**: Die Überprüfung des Abschnitts wurde nicht gestartet und muss abgeschlossen werden.
-  - **Unvollständig**: Der Abschnitt enthält Fehler, die behoben werden müssen, oder erfordert eine Ergänzung der Informationen. Anweisungen dazu finden Sie in den Abschnitten weiter oben in diesem Dokument.
-  - **Abgeschlossen**: Der Abschnitt enthält alle erforderlichen Daten, und es sind keine Fehler aufgetreten. Sie können das Angebot erst einreichen, wenn alle Abschnitte des Angebots abgeschlossen sind.
+  - **Nicht gestartet** : Die Überprüfung des Abschnitts wurde nicht gestartet und muss abgeschlossen werden.
+  - **Unvollständig** : Der Abschnitt enthält Fehler, die behoben werden müssen, oder erfordert eine Ergänzung der Informationen. Anweisungen dazu finden Sie in den Abschnitten weiter oben in diesem Dokument.
+  - **Abgeschlossen** : Der Abschnitt enthält alle erforderlichen Daten, und es sind keine Fehler aufgetreten. Sie können das Angebot erst einreichen, wenn alle Abschnitte des Angebots abgeschlossen sind.
 - Stellen Sie dem Zertifizierungsteam Testanweisungen zur Verfügung, um sicherzustellen, dass Ihre App ordnungsgemäß getestet wird. Stellen Sie außerdem alle ergänzenden Anmerkungen bereit, die das Verständnis Ihres Angebots unterstützen.
 
 Um das Angebot zur Veröffentlichung einzureichen, wählen Sie **Veröffentlichen** aus.

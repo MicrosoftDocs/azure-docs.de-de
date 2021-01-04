@@ -10,13 +10,13 @@ ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
-ms.custom: how-to
-ms.openlocfilehash: 116dd65bf04c01f513e196a2f1b37d54aacbf1fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, data4ml
+ms.openlocfilehash: 554c815e6384115d56611e497f49a2c97ed15e38
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841355"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461438"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Herstellen einer Verbindung mit Daten in Azure Machine Learning Studio
 
@@ -31,7 +31,7 @@ In der folgenden Tabelle werden die Vorteile von Datenspeichern und Datasets def
 
 Informationen dazu, welche Rolle Datenspeicher und Datasets im Workflow für Datenzugriff in Azure Machine Learning spielen, finden Sie im Artikel [Sicherer Zugriff auf Daten](concept-data.md#data-workflow).
 
-Informationen zu einer Code First-Funktion finden Sie in den folgenden Artikeln, um das [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) für Folgendes zu verwenden:
+Informationen zu einer Code First-Funktion finden Sie in den folgenden Artikeln, um das [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py) für Folgendes zu verwenden:
 * [Herstellen einer Verbindung mit Azure-Speicherdiensten mit Datenspeichern](how-to-access-data.md). 
 * [Erstellen von Azure Machine Learning-Datasets](how-to-create-register-datasets.md). 
 
@@ -50,17 +50,15 @@ Informationen zu einer Code First-Funktion finden Sie in den folgenden Artikeln,
 
 Aus diesen [Azure-Speicherlösungen](how-to-access-data.md#matrix) können Sie Datenspeicher erstellen. **Für nicht unterstützte Speicherlösungen** sowie zur Einsparung von Kosten für ausgehende Daten bei ML-Experimenten müssen Sie [Ihre Daten in eine unterstützte Azure-Speicherlösung verschieben](how-to-access-data.md#move). [Weitere Informationen zu Datenspeichern](how-to-access-data.md). 
 
-
-
 Erstellen Sie einen neuen Datenspeicher in wenigen Schritten mit Azure Machine Learning Studio.
 
 > [!IMPORTANT]
-> Wenn sich Ihr Datenspeicherkonto in einem virtuellen Netzwerk befindet, sind zusätzliche Konfigurationsschritte erforderlich, um sicherzustellen, dass von Studio auf Ihre Daten zugegriffen werden kann. Stellen Sie wie unter [Netzwerkisolation und Datenschutz](how-to-enable-virtual-network.md#machine-learning-studio) beschrieben sicher, dass die erforderlichen Konfigurationsschritte ausgeführt wurden.
+> Wenn sich Ihr Datenspeicherkonto in einem virtuellen Netzwerk befindet, sind zusätzliche Konfigurationsschritte erforderlich, um sicherzustellen, dass von Studio auf Ihre Daten zugegriffen werden kann. Stellen Sie wie unter [Netzwerkisolation und Datenschutz](how-to-enable-studio-virtual-network.md) beschrieben sicher, dass die erforderlichen Konfigurationsschritte ausgeführt wurden.
 
 1. Melden Sie sich bei [Azure Machine Learning Studio](https://ml.azure.com/) an.
 1. Wählen Sie im linken Bereich unter **Verwalten** die Option **Datenspeicher** aus.
 1. Wählen Sie **+ Neuer Datenspeicher** aus.
-1. Füllen Sie das Formular für einen neuen Datenspeicher aus. Das Formular aktualisiert sich ausgehend von den ausgewählten Optionen für den Azure-Speichertyp und den Authentifizierungstyp intelligent selbst. Lesen Sie den Abschnitt [Speicherzugriff und Berechtigungen](#access-validation), um zu erfahren, wo Sie die erforderlichen Anmeldeinformationen zum Ausfüllen dieses Formulars finden.
+1. Füllen Sie das Formular aus, um einen neuen Datenspeicher zu erstellen und zu registrieren. Das Formular aktualisiert sich ausgehend von den ausgewählten Optionen für den Azure-Speichertyp und den Authentifizierungstyp intelligent selbst. Lesen Sie den Abschnitt [Speicherzugriff und Berechtigungen](#access-validation), um zu erfahren, wo Sie die erforderlichen Anmeldeinformationen zum Ausfüllen dieses Formulars finden.
 
 Das folgende Beispiel zeigt, wie das Formular aussieht, wenn Sie einen **Azure-Blobdatenspeicher** erstellen:
 
@@ -86,7 +84,7 @@ So erstellen Sie ein Dataset im Studio
 1. Wählen Sie **Dataset erstellen** aus, um die Quelle Ihres Datasets auszuwählen. Bei dieser Quelle kann es sich um lokale Dateien, einen Datenspeicher, öffentliche URLs oder [Azure Open Datasets](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md) handeln.
 1. Wählen Sie **Tabellarisch** oder **Datei** als Datasettyp aus.
 1. Wählen Sie **Weiter** aus, um das Formular **Datenspeicher- und Dateiauswahl** zu öffnen. In diesem Formular wählen Sie aus, wo das Dataset nach dem Erstellen aufbewahrt werden soll, sowie welche Datendateien für Ihr Dataset verwendet werden sollen.
-    1. Aktivieren Sie das Überspringen der Überprüfung, wenn sich Ihre Daten in einem virtuellen Netzwerk befinden. Weitere Informationen finden Sie unter [Isolierung virtueller Netzwerke und Datenschutz](how-to-enable-virtual-network.md#machine-learning-studio).
+    1. Aktivieren Sie das Überspringen der Überprüfung, wenn sich Ihre Daten in einem virtuellen Netzwerk befinden. Weitere Informationen finden Sie unter [Isolierung virtueller Netzwerke und Datenschutz](how-to-enable-studio-virtual-network.md).
     1. Für Tabellendatasets können Sie das Merkmal „timeseries angeben, um Datums- und Uhrzeitvorgänge für Ihr Dataset zu ermöglichen. Informieren Sie sich darüber, wie Sie [Ihrem Dataset das Merkmal „timeseries“ hinzufügen](how-to-monitor-datasets.md#studio-dataset).
 1. Wählen Sie **Weiter** aus, um die Formulare **Einstellungen und Vorschau** und **Schema** auszufüllen. Sie werden basierend auf dem Dateityp auf intelligente Weise aufgefüllt, und Sie können das Dataset in diesen Formularen vor der Erstellung weiter konfigurieren. 
 1. Wählen Sie **Weiter** aus, um das Formular **Details bestätigen** zu überprüfen. Überprüfen Sie Ihre Auswahl, und erstellen Sie ein optionales Datenprofil für das Dataset. Weitere Informationen zur [Datenprofilerstellung](#profile).
@@ -136,7 +134,7 @@ Um sicherzustellen, dass eine sichere Verbindung mit Ihrem Azure-Speicherdienst 
 
 ### <a name="virtual-network"></a>Virtuelles Netzwerk
 
-Wenn sich Ihr Datenspeicherkonto in einem **virtuellen Netzwerk** befindet, sind zusätzliche Konfigurationsschritte erforderlich, um sicherzustellen, dass Azure Machine Learning auf Ihre Daten zugreifen kann. Stellen Sie wie unter [Netzwerkisolation und Datenschutz](how-to-enable-virtual-network.md#machine-learning-studio) beschrieben sicher, dass die erforderlichen Konfigurationsschritte ausgeführt werden, wenn Sie Ihren Datenspeicher erstellen und registrieren.  
+Wenn sich Ihr Datenspeicherkonto in einem **virtuellen Netzwerk** befindet, sind zusätzliche Konfigurationsschritte erforderlich, um sicherzustellen, dass Azure Machine Learning auf Ihre Daten zugreifen kann. Stellen Sie wie unter [Netzwerkisolation und Datenschutz](how-to-enable-studio-virtual-network.md) beschrieben sicher, dass die erforderlichen Konfigurationsschritte ausgeführt werden, wenn Sie Ihren Datenspeicher erstellen und registrieren.  
 
 ### <a name="access-validation"></a>Zugriffsüberprüfung
 
@@ -153,15 +151,19 @@ Informationen zu Kontoschlüssel, SAS-Token und Dienstprinzipal finden Sie im [A
       1. Wechseln Sie für Kontoschlüssel zu **Kontoschlüssel** im Bereich **Einstellungen**.
       1. Für SAS-Token wechseln Sie zu **Shared Access Signatures** im Bereich **Einstellungen**.
 
-* Wenn Sie einen [Dienstprinzipal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) für die Authentifizierung verwenden möchten, navigieren Sie zu Ihren **App-Registrierungen**, und wählen Sie die gewünschte App aus.
+* Wenn Sie einen [Dienstprinzipal](../active-directory/develop/howto-create-service-principal-portal.md) für die Authentifizierung verwenden möchten, navigieren Sie zu Ihren **App-Registrierungen**, und wählen Sie die gewünschte App aus.
     * Auf der entsprechenden Übersichtsseite werden erforderliche Informationen wie Mandanten-ID und Client-ID angezeigt.
 
 > [!IMPORTANT]
-> Aus Sicherheitsgründen müssen möglicherweise Ihre Zugriffsschlüssel für ein Azure Storage-Konto geändert werden (Kontoschlüssel oder SAS-Token). Denken Sie in diesem Fall daran, die neuen Anmeldeinformationen mit Ihrem Arbeitsbereich und den damit verbundenen Datenspeichern zu synchronisieren. Eine Anleitung zum Synchronisieren Ihrer aktualisierten Anmeldeinformationen finden Sie [hier](how-to-change-storage-access-key.md).
+> * Wenn Sie Ihre Zugriffsschlüssel für ein Azure Storage-Konto (Kontoschlüssel oder SAS-Token) ändern müssen, stellen Sie sicher, dass die neuen Anmeldeinformationen mit Ihrem Arbeitsbereich und den damit verbundenen Datenspeichern synchronisiert werden. Eine Anleitung zum Synchronisieren Ihrer aktualisierten Anmeldeinformationen finden Sie [hier](how-to-change-storage-access-key.md). <br> <br>
+> * Wenn Sie die Registrierung aufheben und einen Datenspeicher mit dem gleichen Namen erneut registrieren und dabei ein Fehler auftritt, ist bei dem Azure Key Vault für Ihren Arbeitsbereich vorläufiges Löschen möglicherweise nicht aktiviert. Standardmäßig ist vorläufiges Löschen für die Key Vault-Instanz aktiviert, die von Ihrem Arbeitsbereich erstellt wurde. Es ist jedoch möglicherweise nicht aktiviert, wenn Sie einen vorhandenen Schlüsseltresor verwendet haben oder einen Arbeitsbereich vor Oktober 2020 erstellt haben. Informationen zum Aktivieren des vorläufigen Löschens finden Sie unter [Aktivieren des vorläufigen Löschens für einen vorhandenen Schlüsseltresor]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault).
 
 ### <a name="permissions"></a>Berechtigungen
 
-Stellen Sie für Azure-Blobcontainer und Azure Data Lake Gen2-Speicher sicher, dass Ihre Anmeldeinformationen über den Zugriff **Storage-Blobdatenleser** verfügen. Erfahren Sie mehr über [Storage-Blobdatenleser](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). 
+Stellen Sie für Azure-Blobcontainer und Azure Data Lake Gen2-Speicher sicher, dass Ihre Anmeldeinformationen für die Authentifizierung über den Zugriff **Storage-Blobdatenleser** verfügen. Erfahren Sie mehr über [Storage-Blobdatenleser](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Ein Konto-SAS-Token besitzt standardmäßig keine Berechtigungen. 
+* Für den **Lesezugriff** auf Daten müssen Ihre Anmeldeinformationen für die Authentifizierung mindestens die Berechtigungen zum Auflisten und Lesen für Container und Objekte besitzen. 
+
+* Für den **Schreibzugriff** auf Daten sind auch Berechtigungen zum Schreiben und Hinzufügen erforderlich.
 
 ## <a name="train-with-datasets"></a>Trainieren mit Datasets
 

@@ -8,17 +8,17 @@ author: KumudD
 manager: twooley
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: d676d891683cc11dd8c1999c26464373d17e97be
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 3ee9e165ce9c24968b072d19367e0285f5438259
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932021"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938799"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network – häufig gestellte Fragen
 
@@ -228,6 +228,9 @@ Ja. Sie können ein [virtuelles Netzwerkgerät für eine Firewall](https://azure
 ### <a name="is-there-information-available-about-securing-vnets"></a>Sind Informationen zum Schützen von VNets verfügbar?
 Ja. Ausführliche Informationen finden Sie im Artikel [Die Netzwerksicherheit in Azure im Überblick](../security/fundamentals/network-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
+### <a name="do-virtual-networks-store-customer-data"></a>Werden in virtuellen Netzwerken Kundendaten gespeichert?
+Nein. In virtuellen Netzwerken werden keine Kundendaten gespeichert. 
+
 ## <a name="apis-schemas-and-tools"></a>APIs, Schemas und Tools
 
 ### <a name="can-i-manage-vnets-from-code"></a>Können VNets programmgesteuert verwaltet werden?
@@ -279,11 +282,14 @@ Ja. Sie können Peeringverbindungen zwischen VNETs Abonnements und Regionen übe
 ### <a name="can-i-peer-two-vnets-with-matching-or-overlapping-address-ranges"></a>Kann ich eine Peeringverbindung zwischen zwei VNETs mit übereinstimmenden oder sich überlappenden Adressbereichen herstellen?
 Nein. Bei sich überlappenden Adressbereichen ist kein VNET-Peering möglich.
 
+### <a name="can-i-peer-a-vnet-to-two-different-vnets-with-the-the-use-remote-gateway-option-enabled-on-both-the-peerings"></a>Kann ich ein VNET per Peering mit zwei verschiedenen VNETs koppeln, wenn die Option „Remotegateway verwenden“ für beide Peerings aktiviert ist?
+Nein. Sie können die Option „Remotegateway verwenden“ nur bei einem Peering in einem der VNETs aktivieren.
+
 ### <a name="how-much-do-vnet-peering-links-cost"></a>Was kosten Links für das VNET-Peering?
 Für das Erstellen einer VNET-Peeringverbindung fallen keine Gebühren an. Die Datenübertragung über Peeringverbindungen wird in Rechnung gestellt. [Siehe hier](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ### <a name="is-vnet-peering-traffic-encrypted"></a>Wird VNET-Peeringdatenverkehr verschlüsselt?
-Nein. Datenverkehr zwischen Ressourcen in per Peering verknüpften VNETs ist privat und isoliert. Er bleibt vollständig im Microsoft-Backbone.
+Wenn Azure-Datenverkehr zwischen Rechenzentren (außerhalb physischer Grenzen, die nicht von Microsoft oder im Auftrag von Microsoft kontrolliert werden) bewegt wird, wird auf der zugrunde liegenden Netzwerkhardware eine [MACsec-Verschlüsselung der Sicherungsschicht](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit) verwendet.  Dies gilt für VNET-Peeringdatenverkehr.
 
 ### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>Warum hat meine Peeringverbindung den Status *Getrennt*?
 VNET-Peeringverbindungen wechseln in den Status *Getrennt*, wenn ein VNET-Peeringlink gelöscht wird. Sie müssen beide Links löschen, um erfolgreich eine Peeringverbindung wiederherzustellen.
@@ -326,7 +332,7 @@ Das Schützen einer Azure-Dienstressource über Dienstendpunkte erfolgt in zwei 
 1. Aktivieren von Dienstendpunkten für den Azure-Dienst
 2. Einrichten von VNET-ACLs für den Azure-Dienst
 
-Der erste Schritt ist ein netzwerkseitiger Vorgang, und der zweite Schritt ist ein Vorgang auf der Seite der Dienstressource. Beide Schritte können durch denselben oder verschiedene Administratoren erfolgen, basierend auf den RBAC-Berechtigungen der Administratorrolle. Es wird empfohlen, zunächst Dienstendpunkte für Ihr virtuelles Netzwerk zu aktivieren, bevor Sie VNET-ACLs auf der Seite des Azure-Diensts einrichten. Die Schritte müssen daher in der oben angegebenen Reihenfolge ausgeführt werden, um VNET-Dienstendpunkte einzurichten.
+Der erste Schritt ist ein netzwerkseitiger Vorgang, und der zweite Schritt ist ein Vorgang auf der Seite der Dienstressource. Beide Schritte können durch denselben oder verschiedene Administratoren erfolgen, basierend auf den Azure RBAC-Berechtigungen der Administratorrolle. Es wird empfohlen, zunächst Dienstendpunkte für Ihr virtuelles Netzwerk zu aktivieren, bevor Sie VNET-ACLs auf der Seite des Azure-Diensts einrichten. Die Schritte müssen daher in der oben angegebenen Reihenfolge ausgeführt werden, um VNET-Dienstendpunkte einzurichten.
 
 >[!NOTE]
 > Beide der oben beschriebenen Verfahren müssen ausgeführt werden, bevor Sie den Zugriff auf den Azure-Dienst auf das zulässige VNET und Subnetz einschränken können. Wenn Sie nur die Dienstendpunkte für den Azure-Dienst auf der Netzwerkseite aktivieren, erhalten Sie noch keinen eingeschränkten Zugriff. Sie müssen zusätzlich auch VNET-ACLs auf der Seite des Azure-Diensts festlegen.

@@ -1,20 +1,20 @@
 ---
 title: 'Preprocess Text: Modulreferenz'
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Sie das Modul „Preprocess Text“ (Text vorverarbeiten) in Azure Machine Learning verwenden, um Text zu bereinigen und zu vereinfachen.
+description: Erfahren Sie, wie Sie mit dem Modul Preprocess Text im Azure Machine Learning-Designer Text bereinigen und vereinfachen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/01/2019
-ms.openlocfilehash: 4112d26d6a21ac800e20bb67ce24a35ca9d09a13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/16/2020
+ms.openlocfilehash: 366b30df677a5b74bc7d70e1aea60e05b4df0152
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905243"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659282"
 ---
 # <a name="preprocess-text"></a>Preprocess Text
 
@@ -53,7 +53,7 @@ Das Modul **Preprocess Text** (Text vorverarbeiten) unterstützt zurzeit nur Eng
 
     Dieses Modul verwendet drei senkrechte Striche (`|||`), um das Satzendezeichen darzustellen.
 
-1. Führen Sie optionale Suchen- und Ersetzen-Vorgänge mithilfe regulärer Ausdrücke aus.
+1. Führen Sie optionale Suchen- und Ersetzen-Vorgänge mithilfe regulärer Ausdrücke aus. Der reguläre Ausdruck wird vor allen anderen integrierten Optionen zuerst verarbeitet.
 
     * **Custom regular expression** (Benutzerdefinierter regulärer Ausdruck): Definieren Sie den Text, nach dem Sie suchen.
     * **Custom replacement string** (Benutzerdefinierte Ersatzzeichenfolge): Definieren Sie einen einzelnen Ersatzwert.
@@ -64,7 +64,7 @@ Das Modul **Preprocess Text** (Text vorverarbeiten) unterstützt zurzeit nur Eng
 
 1. Sie können auch die folgenden Typen von Zeichen oder Zeichensequenzen aus dem verarbeiteten Ausgabetext entfernen:
 
-    * **Remove numbers** (Zahlen entfernen): Wählen Sie diese Option aus, um alle numerischen Zeichen für die angegebene Sprache zu entfernen. Identifikationsnummern sind vom Fachgebiet und von der Sprache abhängig. Wenn numerische Zeichen ein integraler Bestandteil eines bekannten Worts sind, wird die Zahl möglicherweise nicht entfernt.
+    * **Remove numbers** (Zahlen entfernen): Wählen Sie diese Option aus, um alle numerischen Zeichen für die angegebene Sprache zu entfernen. Identifikationsnummern sind vom Fachgebiet und von der Sprache abhängig. Wenn numerische Zeichen ein integraler Bestandteil eines bekannten Worts sind, wird die Zahl möglicherweise nicht entfernt. Weitere Informationen finden Sie unter [Technische Hinweise](#technical-notes).
     
     * **Remove special characters** (Sonderzeichen entfernen): Verwenden Sie diese Option, um alle nicht alphanumerischen Sonderzeichen zu entfernen.
     
@@ -84,6 +84,25 @@ Das Modul **Preprocess Text** (Text vorverarbeiten) unterstützt zurzeit nur Eng
     Beispielsweise würde die Zeichenfolge `MS---WORD` in drei Token aufgeteilt: `MS`, `-` und `WORD`.
 
 1. Übermitteln Sie die Pipeline.
+
+## <a name="technical-notes"></a>Technische Hinweise
+
+Für das Modul **preprocess-text** in Studio (klassisch) und im Designer werden unterschiedliche Sprachmodelle genutzt. Für den Designer wird ein mehrstufiges Modell mit CNN-Training von [spaCy](https://spacy.io/models/en) verwendet. Bei der Verwendung unterschiedlicher Modelle werden verschiedene Tokenizer und Verfahren für die Satzteilmarkierung genutzt, und dies führt zu anderen Ergebnissen.
+
+Nachstehend sind einige Beispiele aufgeführt:
+
+| Konfiguration | Ausgabeergebnis |
+| --- | --- |
+|Mit Auswahl aller Optionen </br> Erläuterung: </br> Für Fälle wie „3test“ in „WC-3 3test 4test“ wird vom Designer das gesamte Wort „3test“ entfernt. Der Grund ist, dass das Token „3test“ von der Satzteilmarkierung in diesem Kontext als Zahl markiert wird und vom Modul entsprechend entfernt wird.| :::image type="content" source="./media/module/preprocess-text-all-options-selected.png" alt-text="Mit Auswahl aller Optionen" border="True"::: |
+|Nur Auswahl von `Removing number` </br> Erläuterung: </br> „3test“ und „4-EC“ werden vom Tokenizer des Designers nicht unterteilt und als gesamte Token behandelt. Daher werden die Zahlen in diesen Wörtern nicht entfernt.| :::image type="content" source="./media/module/preprocess-text-removing-numbers-selected.png" alt-text="Nur Auswahl von „Removing number“" border="True"::: |
+
+Sie können auch einen regulären Ausdruck verwenden, um angepasste Ergebnisse auszugeben:
+
+| Konfiguration | Ausgabeergebnis |
+| --- | --- |
+|Mit Auswahl aller Optionen </br> Benutzerdefinierter regulärer Ausdruck: `(\s+)*(-|\d+)(\s+)*` </br> Benutzerdefinierte Ersatzzeichenfolge: `\1 \2 \3`| :::image type="content" source="./media/module/preprocess-text-regular-expression-all-options-selected.png" alt-text="Mit Auswahl aller Optionen und regulärem Ausdruck" border="True"::: |
+|Nur Auswahl von `Removing number` </br> Benutzerdefinierter regulärer Ausdruck: `(\s+)*(-|\d+)(\s+)*` </br> Benutzerdefinierte Ersatzzeichenfolge: `\1 \2 \3`| :::image type="content" source="./media/module/preprocess-text-regular-expression-removing-numbers-selected.png" alt-text="Auswahl von „Removing number“ und regulärer Ausdruck" border="True"::: |
+
 
 ## <a name="next-steps"></a>Nächste Schritte
 

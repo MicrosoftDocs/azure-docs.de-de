@@ -4,12 +4,12 @@ description: In diesem Artikel erfahren Sie, wie Sie Ihren Cluster mithilfe der 
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 7368745d3b6bf9731f987d6f4fc36b81d354fed8
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: e644a931152c83a5232c8233d519f7807ab708af
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103865"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542640"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Automatisches Skalieren eines Clusters zur Erfüllung von Anwendungsanforderungen in Azure Kubernetes Service (AKS)
 
@@ -19,7 +19,7 @@ In diesem Artikel wird gezeigt, wie Sie die Autoskalierung für Cluster in einem
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
-Der Artikel setzt voraus, dass Sie mindestens Version 2.0.76 der Azure-Befehlszeilenschnittstelle (Azure CLI) ausführen. Führen Sie `az --version` aus, um die Version zu ermitteln. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sie bei Bedarf unter [Installieren der Azure CLI][azure-cli-install].
+Der Artikel setzt voraus, dass Sie mindestens Version 2.0.76 der Azure-Befehlszeilenschnittstelle (Azure CLI) ausführen. Führen Sie `az --version` aus, um die Version zu ermitteln. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sie bei Bedarf unter [Installieren der Azure CLI][azure-cli-install].
 
 ## <a name="about-the-cluster-autoscaler"></a>Grundlegendes zur Autoskalierung für Cluster
 
@@ -47,7 +47,7 @@ Die automatische Clusterskalierung und die horizontale automatische Podskalierun
 
 ## <a name="create-an-aks-cluster-and-enable-the-cluster-autoscaler"></a>Erstellen eines AKS-Clusters und Aktivieren der Autoskalierung für Cluster
 
-Wenn Sie einen AKS-Cluster erstellen müssen, verwenden Sie den Befehl [az aks create][az-aks-create]. Um die automatische Clusterskalierung im Knotenpool für den Cluster zu aktivieren und zu konfigurieren, verwenden Sie den Parameter *--enable-cluster-autoscaler* und geben einen *--min-count* - und einen *--max-count* -Wert für die Knoten an.
+Wenn Sie einen AKS-Cluster erstellen müssen, verwenden Sie den Befehl [az aks create][az-aks-create]. Um die automatische Clusterskalierung im Knotenpool für den Cluster zu aktivieren und zu konfigurieren, verwenden Sie den Parameter `--enable-cluster-autoscaler` und geben einen `--min-count`- und einen `--max-count`-Wert für die Knoten an.
 
 > [!IMPORTANT]
 > Bei der automatischen Clusterskalierungsfunktion handelt es sich um eine Kubernetes-Komponente. Obwohl der AKS-Cluster eine VM-Skalierungsgruppe für die Knoten verwendet, sollten Sie die Einstellungen für die automatische Skalierung für die Skalierungsgruppe im Azure-Portal oder über die Azure CLI nicht manuell aktivieren oder bearbeiten. Lassen Sie die automatische Skalierungsfunktion für den Kubernetes-Cluster die erforderlichen Skalierungseinstellungen verwalten. Weitere Informationen finden Sie unter [Kann ich die AKS-Ressourcen in der Knotenressourcengruppe ändern?][aks-faq-node-resource-group]
@@ -74,7 +74,7 @@ Die Erstellung des Clusters und die Konfiguration der Einstellungen für die Aut
 
 ## <a name="update-an-existing-aks-cluster-to-enable-the-cluster-autoscaler"></a>Aktualisieren eines vorhandenen AKS-Clusters zur Aktivierung der Autoskalierung für Cluster
 
-Verwenden Sie den Befehl [az aks update][az-aks-update], um die Autoskalierung für den vorhandenen Cluster im Knotenpool zu aktivieren und zu konfigurieren. Verwenden Sie den Parameter *--enable-cluster-autoscaler* , und geben Sie einen *--min-count* - und einen *--max-count* -Wert für die Knoten an.
+Verwenden Sie den Befehl [az aks update][az-aks-update], um die Autoskalierung für den vorhandenen Cluster im Knotenpool zu aktivieren und zu konfigurieren. Verwenden Sie den Parameter `--enable-cluster-autoscaler`, und geben Sie einen `--min-count`- und einen `--max-count`-Wert für die Knoten an.
 
 > [!IMPORTANT]
 > Bei der automatischen Clusterskalierungsfunktion handelt es sich um eine Kubernetes-Komponente. Obwohl der AKS-Cluster eine VM-Skalierungsgruppe für die Knoten verwendet, sollten Sie die Einstellungen für die automatische Skalierung für die Skalierungsgruppe im Azure-Portal oder über die Azure CLI nicht manuell aktivieren oder bearbeiten. Lassen Sie die automatische Skalierungsfunktion für den Kubernetes-Cluster die erforderlichen Skalierungseinstellungen verwalten. Weitere Informationen finden Sie unter [Kann ich die AKS-Ressourcen in der Knotenressourcengruppe ändern?][aks-faq-node-resource-group]
@@ -131,12 +131,19 @@ Sie können auch differenziertere Details der Clusterautoskalierung konfiguriere
 | scale-down-unready-time          | Wie lange ein nicht bereiter Knoten nicht benötigt werden sollte, bevor er für das zentrale Herunterskalieren geeignet ist         | 20 Minuten    |
 | scale-down-utilization-threshold | Auslastungsgrad des Knotens, definiert als Summe der angeforderten Ressourcen dividiert durch die Kapazität, unterhalb derer ein Knoten für das zentrale Herunterskalieren in Betracht gezogen werden kann | 0.5 |
 | max-graceful-termination-sec     | Maximale Anzahl von Sekunden, die die Clusterautoskalierung beim Versuch, einen Knoten herunterzuskalieren, auf die Beendigung des Pods wartet | 600 Sekunden   |
-| balance-similar-node-groups | Erkennt ähnliche Knotenpools und gleicht die Anzahl der Knoten zwischen ihnen aus | false |
+| balance-similar-node-groups      | Erkennt ähnliche Knotenpools und gleicht die Anzahl der Knoten zwischen ihnen aus                 | false         |
+| Erweiterung                         | Der Typ der Knotenpool[erweiterung](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders), die bei der zentralen Hochskalierung zu verwenden ist. Mögliche Werte: `most-pods`, `random`, `least-waste` | random | 
+| skip-nodes-with-local-storage    | Wenn „true“, löscht die Cluster-Autoskalierung nie Knoten mit Pods mit lokalem Speicher, z. B. „EmptyDir“ oder „HostPath“. | true |
+| skip-nodes-with-system-pods      | Wenn „true“, löscht die Cluster-Autoskalierung nie Knoten mit Pods aus kube-system (außer bei „DaemonSet“ oder Spiegelpods). | true | 
+| max-empty-bulk-delete            | Maximale Anzahl leerer Knoten, die gleichzeitig gelöscht werden können.                      | 10 Knoten      |
+| new-pod-scale-up-delay           | Für Szenarien wie Burst-/Batchskalierung, bei denen die Zertifizierungsstelle nicht agieren soll, bevor der Kubernetes-Scheduler alle Pods planen konnte, können Sie die Zertifizierungsstelle anweisen, nicht geplante Pods zu ignorieren, bevor sie ein bestimmtes Alter erreicht haben.                                                                                                                | 10 Sekunden    |
+| max-total-unready-percentage     | Maximaler Prozentsatz der nicht fertigen Knoten im Cluster. Wenn dieser Prozentsatz überschritten wird, hält die Zertifizierungsstelle alle Vorgänge an. | 45 % | 
+| ok-total-unready-count           | Anzahl der zulässigen nicht fertigen Knoten, unabhängig von „max-total-unready-percentage“.            | 3 Knoten       |
 
 > [!IMPORTANT]
 > Das Profil der Clusterautoskalierung betrifft alle Knotenpools, die die Clusterautoskalierung verwenden. Sie können kein Autoskalierungsprofil pro Knotenpool festlegen.
 >
-> Für das Clusterautoskalierungsprofil ist die Azure CLI-Version  *2.11.1* oder höher erforderlich. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sei bei Bedarf unter [Installieren der Azure CLI][azure-cli-install].
+> Für das Clusterautoskalierungsprofil ist die Azure CLI-Version  *2.11.1* oder höher erforderlich. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sie bei Bedarf unter [Installieren der Azure CLI][azure-cli-install].
 
 ### <a name="set-the-cluster-autoscaler-profile-on-an-existing-aks-cluster"></a>Festlegen des Profils für die Clusterautoskalierung in einem vorhandenen AKS-Cluster
 
@@ -194,7 +201,7 @@ az aks update \
 
 ## <a name="disable-the-cluster-autoscaler"></a>Deaktivieren der Autoskalierung für Cluster
 
-Wenn Sie die automatische Clusterskalierung nicht mehr verwenden möchten, können Sie sie mit dem Befehl [az aks update][az-aks-update-preview] unter Angabe des Parameters *--disable-cluster-autoscaler* deaktivieren. Beim Deaktivieren der Autoskalierung für Cluster werden keine Knoten entfernt.
+Wenn Sie die automatische Clusterskalierung nicht mehr verwenden möchten, können Sie sie mit dem Befehl [az aks update][az-aks-update-preview] unter Angabe des Parameters `--disable-cluster-autoscaler` deaktivieren. Beim Deaktivieren der Autoskalierung für Cluster werden keine Knoten entfernt.
 
 ```azurecli-interactive
 az aks update \
@@ -207,18 +214,18 @@ Nachdem Sie die automatische Clusterskalierung deaktiviert haben, können Sie de
 
 ## <a name="re-enable-a-disabled-cluster-autoscaler"></a>Erneutes Aktivieren der deaktivierten automatischen Clusterskalierung
 
-Wenn Sie die automatische Clusterskalierung für einen vorhandenen Cluster wieder aktivieren möchten, können Sie sie mit dem Befehl [az aks update][az-aks-update-preview] unter Angabe der Parameter *--enable-cluster-autoscaler* , *--min-count* und *--max-count* wieder aktivieren.
+Wenn Sie die automatische Clusterskalierung für einen vorhandenen Cluster wieder aktivieren möchten, können Sie sie mit dem Befehl [az aks update][az-aks-update-preview] unter Angabe des Parameter `--enable-cluster-autoscaler`, `--min-count` und `--max-count` wieder aktivieren.
 
 ## <a name="retrieve-cluster-autoscaler-logs-and-status"></a>Abrufen von Protokollen und Status der automatischen Clusterskalierung
 
 Zum Diagnostizieren und Debuggen von Ereignissen der automatischen Skalierung können Protokolle und Status aus dem AutoScaler-Add-On abgerufen werden.
 
-AKS verwaltet die automatische Clusterskalierung in Ihrem Namen und führt sie in der verwalteten Steuerungsebene aus. Masterknotenprotokolle müssen so konfiguriert sein, dass Sie als Ergebnis angezeigt werden.
+AKS verwaltet die automatische Clusterskalierung in Ihrem Namen und führt sie in der verwalteten Steuerungsebene aus. Sie können den Knoten auf Steuerungsebene aktivieren, um die Protokolle und Vorgänge der Zertifizierungsstelle anzuzeigen.
 
 Führen Sie die folgenden Schritte aus, um zu konfigurieren, dass Protokolle per Push aus der automatischen Clusterskalierung in Log Analytics übertragen werden.
 
 1. Richten Sie eine Regel für Ressourcenprotokolle ein, um Protokolle der automatischen Clusterskalierung per Push in Log Analytics zu übertragen. [Die Anweisungen werden hier erläutert][aks-view-master-logs]. Stellen Sie sicher, dass Sie das Kontrollkästchen für `cluster-autoscaler` aktivieren, wenn Sie Optionen für „Protokolle“ auswählen.
-1. Klicken Sie im Azure-Portal in Ihrem Cluster auf den Abschnitt „Protokolle“.
+1. Wählen Sie auf Ihrem Cluster im Azure-Portal den Abschnitt „Protokolle“ aus.
 1. Geben Sie die folgende Beispielabfrage in Log Analytics ein:
 
 ```
@@ -230,7 +237,7 @@ Sofern Protokolle zum Abrufen vorhanden sind, sollten diese in etwa dem folgende
 
 ![Log Analytics-Protokolle](media/autoscaler/autoscaler-logs.png)
 
-Die automatische Clusterskalierung schreibt auch den Integritätsstatus in ein ConfigMap-Element mit dem Namen `cluster-autoscaler-status`. Führen Sie den folgenden `kubectl`-Befehl aus, um diese Protokolle abzurufen. Für jeden mit der automatischen Clusterskalierung konfigurierten Knotenpool wird ein Integritätsstatus angezeigt.
+Die Cluster-Autoskalierung schreibt auch den Integritätsstatus in eine `configmap` namens `cluster-autoscaler-status`. Führen Sie den folgenden `kubectl`-Befehl aus, um diese Protokolle abzurufen. Für jeden mit der automatischen Clusterskalierung konfigurierten Knotenpool wird ein Integritätsstatus angezeigt.
 
 ```
 kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml
@@ -264,7 +271,7 @@ az aks nodepool update \
   --disable-cluster-autoscaler
 ```
 
-Wenn Sie die automatische Clusterskalierung für einen vorhandenen Cluster wieder aktivieren möchten, können Sie sie mit dem Befehl [az aks nodepool update][az-aks-nodepool-update] unter Angabe der Parameter *--enable-cluster-autoscaler* , *--min-count* und *--max-count* wieder aktivieren.
+Wenn Sie die automatische Clusterskalierung für einen vorhandenen Cluster wieder aktivieren möchten, können Sie sie mit dem Befehl [az aks nodepool update][az-aks-nodepool-update] unter Angabe der Parameter `--enable-cluster-autoscaler`, `--min-count` und `--max-count` wieder aktivieren.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

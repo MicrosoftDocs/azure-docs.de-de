@@ -1,22 +1,22 @@
 ---
 title: Erstellen und Anfügen eines Azure Kubernetes Service
 titleSuffix: Azure Machine Learning
-description: Azure Kubernetes Service (AKS) kann zum Bereitstellen eines Machine Learning-Modells als Webdienst verwendet werden. Hier erfahren Sie, wie Sie über Azure Machine Learning einen neuen AKS-Cluster erstellen. Außerdem erfahren Sie, wie Sie einen vorhandenen AKS-Cluster an Ihren Azure Machine Learning-Arbeitsbereich anfügen.
+description: Erfahren Sie, wie Sie mit Azure Machine Learning einen neuen Azure Kubernetes Service-Cluster erstellen oder einen bestehenden AKS-Cluster an Ihren Arbeitsbereich anfügen können.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: cade5a4329cdfc11c1b256ba01e9764f60a476a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e773c2db9c7849dd9680f8ae0c600405f422d7e1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667859"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463179"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Erstellen und Anfügen eines Azure Kubernetes Service-Clusters
 
@@ -26,25 +26,27 @@ Mit Azure Machine Learning kann ein trainiertes Machine Learning-Modell im Azure
 
 - Ein Azure Machine Learning-Arbeitsbereich. Weitere Informationen finden Sie unter [Erstellen eines Azure Machine Learning-Arbeitsbereichs](how-to-manage-workspace.md).
 
-- Die [Azure CLI-Erweiterung für Machine Learning Service](reference-azure-machine-learning-cli.md), das [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) oder die [Visual Studio Code-Erweiterung für Azure Machine Learning](tutorial-setup-vscode-extension.md).
+- Die [Azure CLI-Erweiterung für Machine Learning Service](reference-azure-machine-learning-cli.md), das [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) oder die [Visual Studio Code-Erweiterung für Azure Machine Learning](tutorial-setup-vscode-extension.md).
 
-- Wenn Sie die Verwendung eines Azure-Virtual Network zum Sichern der Kommunikation zwischen Ihrem Azure ML-Arbeitsbereich und dem AKS-Cluster beabsichtigen, lesen Sie den Artikel [Netzwerkisolation während Training und Rückschluss](how-to-enable-virtual-network.md).
+- Wenn Sie die Verwendung eines Azure-Virtual Network zum Sichern der Kommunikation zwischen Ihrem Azure ML-Arbeitsbereich und dem AKS-Cluster beabsichtigen, lesen Sie den Artikel [Netzwerkisolation während Training und Rückschluss](./how-to-network-security-overview.md).
 
 ## <a name="limitations"></a>Einschränkungen
 
 - Wenn in Ihrem Cluster anstelle eines Load Balancer Basic (BLB) ein **Load Balancer Standard (SLB)** bereitgestellt werden muss, erstellen Sie im AKS-Portal, mit der CLI oder über das SDK einen Cluster, den Sie dann an den AML-Arbeitsbereich **anfügen**.
 
-- Wenn Sie über eine Azure Policy verfügen, die die Erstellung von öffentlichen IP-Adressen einschränkt, tritt bei der AKS-Clustererstellung ein Fehler auf. AKS erfordert eine öffentliche IP-Adresse für [ausgehenden Datenverkehr](/azure/aks/limit-egress-traffic). Der Artikel zum ausgehenden Datenverkehr enthält außerdem Anleitungen zum Sperren von aus dem Cluster über die öffentliche IP-Adresse ausgehenden Datenverkehr mit Ausnahme einiger vollqualifizierter Domänennamen. Es gibt 2 Möglichkeiten, eine öffentliche IP-Adresse zu aktivieren:
+- Wenn Sie über eine Azure Policy verfügen, die die Erstellung von öffentlichen IP-Adressen einschränkt, tritt bei der AKS-Clustererstellung ein Fehler auf. AKS erfordert eine öffentliche IP-Adresse für [ausgehenden Datenverkehr](../aks/limit-egress-traffic.md). Der Artikel zum ausgehenden Datenverkehr enthält außerdem Anleitungen zum Sperren von aus dem Cluster über die öffentliche IP-Adresse ausgehenden Datenverkehr mit Ausnahme einiger vollqualifizierter Domänennamen. Es gibt 2 Möglichkeiten, eine öffentliche IP-Adresse zu aktivieren:
     - Der Cluster kann die öffentliche IP-Adresse verwenden, die standardmäßig mit dem BLB oder SLB erstellt wird, oder
-    - der Cluster kann ohne öffentliche IP-Adresse erstellt werden, und anschließend wird eine öffentliche IP-Adresse mit einer Firewall mit einer benutzerdefinierten Route konfiguriert. Weitere Informationen finden Sie unter [Anpassen des ausgehenden Clusterdatenverkehrs mit einer benutzerdefinierten Route](/azure/aks/egress-outboundtype).
+    - der Cluster kann ohne öffentliche IP-Adresse erstellt werden, und anschließend wird eine öffentliche IP-Adresse mit einer Firewall mit einer benutzerdefinierten Route konfiguriert. Weitere Informationen finden Sie unter [Anpassen des ausgehenden Clusterdatenverkehrs mit einer benutzerdefinierten Route](../aks/egress-outboundtype.md).
     
     Die AML-Steuerungsebene kommuniziert nicht mit dieser öffentlichen IP-Adresse. Sie kommuniziert mit der AKS-Steuerungsebene für Bereitstellungen. 
 
-- Wenn Sie einen AKS-Cluster **anfügen**, der über einen [autorisierten IP-Adressbereich mit Zugriff auf den API-Server](/azure/aks/api-server-authorized-ip-ranges) verfügt, aktivieren Sie die IP-Adressbereiche der AML-Steuerungsebene für den AKS-Cluster. Die AML-Steuerungsebene wird für Regionspaare bereitgestellt und stellt Rückschlusspods im AKS-Cluster bereit. Ohne Zugriff auf den API-Server können die Rückschlusspods nicht bereitgestellt werden. Verwenden Sie die [IP-Adressbereiche](https://www.microsoft.com/download/confirmation.aspx?id=56519) für beide [Regionspaare](/azure/best-practices-availability-paired-regions), wenn Sie die IP-Adressbereiche in einem AKS-Cluster aktivieren.
+- Wenn Sie einen AKS-Cluster **anfügen**, der über einen [autorisierten IP-Adressbereich mit Zugriff auf den API-Server](../aks/api-server-authorized-ip-ranges.md) verfügt, aktivieren Sie die IP-Adressbereiche der AML-Steuerungsebene für den AKS-Cluster. Die AML-Steuerungsebene wird für Regionspaare bereitgestellt und stellt Rückschlusspods im AKS-Cluster bereit. Ohne Zugriff auf den API-Server können die Rückschlusspods nicht bereitgestellt werden. Verwenden Sie die [IP-Adressbereiche](https://www.microsoft.com/download/confirmation.aspx?id=56519) für beide [Regionspaare](../best-practices-availability-paired-regions.md), wenn Sie die IP-Adressbereiche in einem AKS-Cluster aktivieren.
 
     Autorisierte IP-Adressbereiche funktionieren nur mit Load Balancer Standard.
 
-- Wenn Sie einen privaten AKS-Cluster (mit Azure Private Link) verwenden möchten, müssen Sie zuerst den Cluster erstellen und diesen dann **an den Arbeitsbereich anfügen**. Weitere Informationen finden Sie unter [Erstellen eines privaten Azure Kubernetes Service-Clusters](/azure/aks/private-clusters).
+- Beim **Anfügen** eines AKS-Clusters muss dieser sich im selben Azure-Abonnement befinden wie Ihr Azure Machine Learning-Arbeitsbereich.
+
+- Wenn Sie einen privaten AKS-Cluster (mit Azure Private Link) verwenden möchten, müssen Sie zuerst den Cluster erstellen und diesen dann **an den Arbeitsbereich anfügen**. Weitere Informationen finden Sie unter [Erstellen eines privaten Azure Kubernetes Service-Clusters](../aks/private-clusters.md).
 
 - Der Computename für den AKS-Cluster MUSS innerhalb Ihres Azure ML-Arbeitsbereichs eindeutig sein.
     - Der Name ist erforderlich und muss zwischen 3 und 24 Zeichen lang sein.
@@ -70,7 +72,7 @@ Mit Azure Machine Learning kann ein trainiertes Machine Learning-Modell im Azure
 
 ## <a name="azure-kubernetes-service-version"></a>Version von Azure Kubernetes Service
 
-Mit Azure Kubernetes Service können Sie einen Cluster mit einer Vielzahl von Kubernetes-Versionen erstellen. Weitere Informationen zu verfügbaren Versionen finden Sie unter [Unterstützte Kubernetes-Versionen in Azure Kubernetes Service](/azure/aks/supported-kubernetes-versions).
+Mit Azure Kubernetes Service können Sie einen Cluster mit einer Vielzahl von Kubernetes-Versionen erstellen. Weitere Informationen zu verfügbaren Versionen finden Sie unter [Unterstützte Kubernetes-Versionen in Azure Kubernetes Service](../aks/supported-kubernetes-versions.md).
 
 Wenn Sie einen Azure Kubernetes Service-Cluster mithilfe einer der folgenden Methoden **erstellen**, *können Sie die Version des Clusters nicht auswählen*, der erstellt wird:
 
@@ -124,7 +126,7 @@ Result
 1.16.13
 ```
 
-Wenn Sie die **verfügbaren Versionen programmgesteuert überprüfen** möchten, verwenden Sie die [Container Service Client – List Orchestrators](https://docs.microsoft.com/rest/api/container-service/container%20service%20client/listorchestrators)-REST-API. Um die verfügbaren Versionen zu finden, sehen Sie sich die Einträge an, in denen `orchestratorType` den Wert `Kubernetes` hat. Die zugehörigen `orchestrationVersion`-Einträge enthalten die verfügbaren Versionen, die an Ihren Arbeitsbereich **angefügt** werden können.
+Wenn Sie die **verfügbaren Versionen programmgesteuert überprüfen** möchten, verwenden Sie die [Container Service Client – List Orchestrators](/rest/api/container-service/container%20service%20client/listorchestrators)-REST-API. Um die verfügbaren Versionen zu finden, sehen Sie sich die Einträge an, in denen `orchestratorType` den Wert `Kubernetes` hat. Die zugehörigen `orchestrationVersion`-Einträge enthalten die verfügbaren Versionen, die an Ihren Arbeitsbereich **angefügt** werden können.
 
 Um die Standardversion zu ermitteln, die beim **Erstellen** eines Clusters über Azure Machine Learning verwendet wird, suchen Sie den Eintrag, bei dem `orchestratorType` den Wert `Kubernetes` und `default` den Wert `true` hat. Der zugeordnete `orchestratorVersion`-Wert ist die Standardversion. Der folgende JSON-Codeausschnitt zeigt einen Beispieleintrag:
 
@@ -183,10 +185,10 @@ aks_target.wait_for_completion(show_output = True)
 
 Weitere Informationen zu den in diesem Beispiel verwendeten Klassen, Methoden und Parametern finden Sie in den folgenden Referenzdokumenten:
 
-* [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py&preserve-view=true)
+* [AksCompute.ClusterPurpose](/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?preserve-view=true&view=azure-ml-py)
 * [AksCompute.provisioning_configuration](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
-* [ComputeTarget.create](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py&preserve-view=true#create-workspace--name--provisioning-configuration-)
-* [ComputeTarget.wait_for_completion](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py&preserve-view=true#wait-for-completion-show-output-false-)
+* [ComputeTarget.create](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#create-workspace--name--provisioning-configuration-)
+* [ComputeTarget.wait_for_completion](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#wait-for-completion-show-output-false-)
 
 # <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
@@ -194,7 +196,7 @@ Weitere Informationen zu den in diesem Beispiel verwendeten Klassen, Methoden un
 az ml computetarget create aks -n myaks
 ```
 
-Weitere Informationen finden Sie unter [az ml computetarget create aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks).
+Weitere Informationen finden Sie unter [az ml computetarget create aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-aks).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -215,12 +217,12 @@ Wenn Sie in Ihrem Azure-Abonnement bereits über einen AKS-Cluster verfügen und
 > [!WARNING]
 > Erstellen Sie nicht mehrere gleichzeitige Verknüpfungen für einen AKS-Cluster in Ihrem Arbeitsbereich. Verwenden Sie beispielsweise beim Verknüpfen eines AKS-Clusters mit einem Arbeitsbereich nicht zwei unterschiedliche Namen. Jede neue Verknüpfung führt zu einem Fehler der vorherigen vorhandenen Verknüpfungen.
 >
-> Falls Sie einen AKS-Cluster erneut verknüpfen möchten (etwa zum Ändern der TLS-Einstellung oder einer anderen Clusterkonfigurationseinstellung), müssen Sie zuerst die vorhandene Verknüpfung mithilfe von [AksCompute.detach()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#detach--) entfernen.
+> Falls Sie einen AKS-Cluster erneut verknüpfen möchten (etwa zum Ändern der TLS-Einstellung oder einer anderen Clusterkonfigurationseinstellung), müssen Sie zuerst die vorhandene Verknüpfung mithilfe von [AksCompute.detach()](/python/api/azureml-core/azureml.core.compute.akscompute?preserve-view=true&view=azure-ml-py#detach--) entfernen.
 
 Weitere Informationen zum Erstellen eines AKS-Clusters mithilfe der Azure-CLI oder des Portals finden Sie in den folgenden Artikeln:
 
-* [Erstellen eines AKS-Clusters (CLI)](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest&preserve-view=true#az-aks-create)
-* [Schnellstart: Bereitstellen eines AKS-Clusters (Azure Kubernetes Service) über das Azure-Portal](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest&preserve-view=true)
+* [Erstellen eines AKS-Clusters (CLI)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&preserve-view=true&toc=%2fazure%2faks%2fTOC.json&view=azure-cli-latest#az-aks-create)
+* [Schnellstart: Bereitstellen eines AKS-Clusters (Azure Kubernetes Service) über das Azure-Portal](../aks/kubernetes-walkthrough-portal.md?preserve-view=true&view=azure-cli-latest)
 * [Erstellen eines AKS-Clusters (ARM-Vorlage auf Azure-Schnellstartvorlagen)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute)
 
 Das folgende Beispiel veranschaulicht das Anfügen eines vorhandenen AKS-Clusters an Ihren Arbeitsbereich:
@@ -248,8 +250,8 @@ aks_target.wait_for_completion(show_output = True)
 Weitere Informationen zu den in diesem Beispiel verwendeten Klassen, Methoden und Parametern finden Sie in den folgenden Referenzdokumenten:
 
 * [AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
-* [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py&preserve-view=true)
-* [AksCompute.attach](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py&preserve-view=true#attach-workspace--name--attach-configuration-)
+* [AksCompute.ClusterPurpose](/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?preserve-view=true&view=azure-ml-py)
+* [AksCompute.attach](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#attach-workspace--name--attach-configuration-)
 
 # <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
@@ -271,7 +273,7 @@ Um den vorhandenen Cluster an Ihren Arbeitsbereich anzufügen, verwenden Sie den
 az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w myworkspace
 ```
 
-Weitere Informationen finden Sie unter [az ml computetarget attach aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-attach-aks).
+Weitere Informationen finden Sie unter [az ml computetarget attach aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-attach-aks).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -284,7 +286,7 @@ Informationen zum Anfügen eines AKS-Clusters im Portal finden Sie unter [Erstel
 Verwenden Sie eine der folgenden Methoden, um einen Cluster von Ihrem Arbeitsbereich zu trennen:
 
 > [!WARNING]
-> Wenn Sie einen AKS-Cluster mit dem Azure Machine Learning Studio, dem SDK oder der Azure CLI-Erweiterung für maschinelles Lernen trennen, **wird der AKS-Cluster nicht gelöscht**. Informationen zum Löschen des Clusters finden Sie unter [Schnellstart: Bereitstellen eines Azure Kubernetes Service-Clusters über die Azure-Befehlszeilenschnittstelle](/azure/aks/kubernetes-walkthrough#delete-the-cluster).
+> Wenn Sie einen AKS-Cluster mit dem Azure Machine Learning Studio, dem SDK oder der Azure CLI-Erweiterung für maschinelles Lernen trennen, **wird der AKS-Cluster nicht gelöscht**. Informationen zum Löschen des Clusters finden Sie unter [Schnellstart: Bereitstellen eines Azure Kubernetes Service-Clusters über die Azure-Befehlszeilenschnittstelle](../aks/kubernetes-walkthrough.md#delete-the-cluster).
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -306,5 +308,6 @@ Wählen Sie im Azure Machine Learning Studio __Compute__, __Rückschlusscluster_
 
 ## <a name="next-steps"></a>Nächste Schritte
 
+* [Verwenden von Azure RBAC für die Kubernetes-Autorisierung](../aks/manage-azure-rbac.md)
 * [Wie und wo Modelle bereitgestellt werden](how-to-deploy-and-where.md)
 * [Bereitstellen eines Modells in einem Azure Kubernetes Service-Cluster](how-to-deploy-azure-kubernetes-service.md)

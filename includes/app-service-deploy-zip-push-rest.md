@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/12/2019
 ms.author: cephalin
 ms.openlocfilehash: 92e39f128e90ba83a919388e217f0edc86f81770
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75769664"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018427"
 ---
 ## <a name="deploy-zip-file-with-rest-apis"></a><a name="rest"></a>Bereitstellen einer ZIP-Datei mit REST-APIs 
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: dddcdd52709c634f0dcf67cb982804f5556e88b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39a0830806d2d9c7358d175cae703e9c81c45b02
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548334"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130016"
 ---
 # <a name="register-a-saas-application"></a>Registrieren einer SaaS-Anwendung
 
@@ -20,7 +20,7 @@ In diesem Artikel erfahren Sie, wie Sie eine SaaS-Anwendung über das [Azure-Por
 
 Von Azure Marketplace werden keinerlei Vorgaben hinsichtlich der Authentifizierungsmethode gemacht, die von Ihrem SaaS-Dienst für Endbenutzer verwendet wird. Der folgende Flow ist nur zum Authentifizieren des SaaS-Diensts in Azure Marketplace erforderlich.
 
-Weitere Informationen zu Azure Active Directory (AD) finden Sie unter [Was ist Authentifizierung?](../../active-directory/develop/authentication-scenarios.md).
+Weitere Informationen zu Azure Active Directory (AD) finden Sie unter [Was ist Authentifizierung?](../../active-directory/develop/authentication-vs-authorization.md).
 
 ## <a name="register-an-azure-ad-secured-app"></a>Registrieren einer über Azure AD geschützten App
 
@@ -28,15 +28,15 @@ Jede Anwendung muss zunächst in einem Azure AD-Mandanten registriert werden, um
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.
 2. Wenn Sie unter Ihrem Konto mehrere Zugriffsmöglichkeiten haben, können Sie oben rechts auf Ihr Konto klicken und Ihre Portalsitzung auf den gewünschten Azure AD-Mandanten festlegen.
-3. Klicken Sie im linken Navigationsbereich auf den **Azure Active Directory**-Dienst und dann auf **App-Registrierungen** und **Registrierung einer neuen Anwendung**.
+3. Klicken Sie im linken Navigationsbereich auf den **Azure Active Directory** -Dienst und dann auf **App-Registrierungen** und **Registrierung einer neuen Anwendung**.
 
     ![SaaS: AD-App-Registrierungen](./media/saas-offer-app-registration-v1.png)
 
 4. Geben Sie auf der Seite „Erstellen“ die Registrierungsinformationen\' für Ihre Anwendung ein:
-    -   **Name**: Geben Sie einen aussagekräftigen Anwendungsnamen ein.
-    -   **Anwendungstyp**:  
+    -   **Name** : Geben Sie einen aussagekräftigen Anwendungsnamen ein.
+    -   **Anwendungstyp** :  
         
-        Wählen Sie die Option **Web-App/API** für [Clientanwendungen](../../active-directory/develop/active-directory-dev-glossary.md#client-application) und [Ressourcen-/API-Anwendungen](../../active-directory/develop/active-directory-dev-glossary.md#resource-server) aus, die auf einem sicheren Server installiert sind. Diese Einstellung wird für vertrauliche OAuth-[Webclients](../../active-directory/develop/active-directory-dev-glossary.md#web-client) und für öffentliche [Clients auf Basis von Benutzer-Agents](../../active-directory/develop/active-directory-dev-glossary.md#user-agent-based-client) verwendet.
+        Wählen Sie die Option **Web-App/API** für [Clientanwendungen](../../active-directory/develop/developer-glossary.md#client-application) und [Ressourcen-/API-Anwendungen](../../active-directory/develop/developer-glossary.md#resource-server) aus, die auf einem sicheren Server installiert sind. Diese Einstellung wird für vertrauliche OAuth-[Webclients](../../active-directory/develop/developer-glossary.md#web-client) und für öffentliche [Clients auf Basis von Benutzer-Agents](../../active-directory/develop/developer-glossary.md#user-agent-based-client) verwendet.
         Außerdem kann dieselbe Anwendung sowohl einen Client als auch eine Ressource/API verfügbar machen.
 
         Spezifische Beispiele für Webanwendungen finden Sie in den Schnellstart-Einrichtungsanleitungen, die im Abschnitt [Erste Schritte](../../active-directory/develop/quickstart-create-new-tenant.md) des [Azure AD-Entwicklerleitfadens](../../active-directory/develop/index.yml) zur Verfügung stehen.

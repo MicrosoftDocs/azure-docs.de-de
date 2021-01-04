@@ -12,12 +12,12 @@ ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0c5abf345fda9db4cc5123360245e42ea0ef40e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94c34e6f7cb24ff749e5de95f1c28a496700af80
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88115032"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348720"
 ---
 # <a name="whats-new-for-authentication"></a>Neuerungen bei der Authentifizierung
 
@@ -65,7 +65,7 @@ Weitere Einzelheiten finden Sie im [Azure Government-Blogbeitrag zu dieser Migra
 
 **Betroffenes Protokoll:** Alle Benutzerflows
 
-Benutzer, die sich mit Kennwörtern mit mehr als 256 Zeichen direkt bei Azure AD (im Gegensatz zu einem Verbundidentitätsanbieter wie AD FS) anmelden, können sich ab dem 13. März 2020 nicht mehr anmelden und werden stattdessen aufgefordert, ihr Kennwort zurückzusetzen.  Administratoren erhalten möglicherweise Anforderungen zum Zurücksetzen der Kennwörter der Benutzer.
+Benutzer, die sich mit Kennwörtern mit mehr als 256 Zeichen direkt bei Azure AD (im Gegensatz zu einem Verbundidentitätsanbieter wie AD FS) anmelden, können sich ab dem 13. März 2020 nicht mehr anmelden und werden stattdessen aufgefordert, ihr Kennwort zurückzusetzen.  Administratoren erhalten möglicherweise Anforderungen zum Zurücksetzen der Benutzerkennwörter.
 
 Der Fehler in den Anmeldeprotokollen lautet: AADSTS 50052: InvalidPasswordExceedsMaxLength
 

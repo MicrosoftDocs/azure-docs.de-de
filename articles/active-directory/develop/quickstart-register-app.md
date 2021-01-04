@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, identityplatformtop40, contperfq1
+ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 9cd59d6bf5b9bf6e17cba0786bfac27ed12d7638
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4e9e6c9179c7fbf405cf8fc661a209da3c9d3b61
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258131"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031265"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Schnellstart: Registrieren einer Anwendung bei Microsoft Identity Platform
 
@@ -37,9 +37,9 @@ Beim Registrieren Ihrer Anwendung wird eine Vertrauensstellung zwischen Ihrer Ap
 Führen Sie die folgenden Schritte aus, um die App-Registrierung zu erstellen:
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
-1. Wenn Sie Zugriff auf mehrere Mandanten haben, verwenden Sie im Menü am oberen Rand den Filter **Verzeichnis + Abonnement** :::image type="icon" source="./media/quickstart-register-app/portal-01-directory-subscription-filter.png" border="false":::, um den Mandanten auszuwählen, für den Sie eine Anwendung registrieren möchten.
+1. Wenn Sie Zugriff auf mehrere Mandanten haben, verwenden Sie im Menü am oberen Rand den Filter **Verzeichnis + Abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::, um den Mandanten auszuwählen, für den Sie eine Anwendung registrieren möchten.
 1. Suchen Sie nach **Azure Active Directory**, und wählen Sie diese Option aus.
-1. Wählen Sie unter **Verwalten** die Option **App-Registrierungen** und dann **Neue Registrierung** aus.
+1. Wählen Sie unter **Verwalten** Folgendes aus: **App-Registrierungen** > **Neue Registrierung**.
 1. Geben Sie einen **Namen** für Ihre Anwendung ein. Benutzern Ihrer App wird wahrscheinlich dieser Namen angezeigt. Sie können ihn später ändern.
 1. Geben Sie an, wer die Anwendung verwenden kann (wird manchmal auch als *Zielgruppe für die Anmeldung* bezeichnet).
 
@@ -59,7 +59,7 @@ Wenn die Registrierung abgeschlossen ist, wird im Azure-Portal für die App-Regi
 
 Die Client-ID wird auch vom Code Ihrer Anwendung (oder üblicherweise von einer in Ihrer Anwendung verwendeten Authentifizierungsbibliothek) als ein Kriterium bei der Überprüfung der von Microsoft Identity Platform empfangenen Sicherheitstoken verwendet.
 
-:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Screenshot des Azure-Portals in einem Webbrowser mit dem Bereich „Anwendung registrieren“.":::
+:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Screenshot des Azure-Portals in einem Webbrowser mit dem Bereich „Übersicht“ einer App-Registrierung.":::
 
 ## <a name="add-a-redirect-uri"></a>Hinzufügen eines Umleitungs-URI
 
@@ -80,7 +80,7 @@ So konfigurieren Sie Anwendungseinstellungen auf Basis der Zielplattform oder de
 1. Wählen Sie unter **Plattformkonfigurationen** die Option **Plattform hinzufügen** aus.
 1. Wählen Sie unter **Plattformen konfigurieren** die Kachel für Ihren Anwendungstyp (Plattform) aus, um die Einstellungen zu konfigurieren.
 
-    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Screenshot des Azure-Portals in einem Webbrowser mit dem Bereich „Anwendung registrieren“." border="false":::
+    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Screenshot des Plattformkonfigurationsbereichs im Azure-Portal" border="false":::
 
     | Plattform | Konfigurationseinstellungen |
     | -------- | ---------------------- |
@@ -101,7 +101,7 @@ Anmeldeinformationen werden von vertraulichen Clientanwendungen verwendet, die a
 
 Sie können Ihrer vertraulichen Client-App-Registrierung sowohl Zertifikate als auch geheime Clientschlüssel (Zeichenfolge) als Anmeldeinformationen hinzufügen.
 
-:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Screenshot des Azure-Portals in einem Webbrowser mit dem Bereich „Anwendung registrieren“.":::
+:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Screenshot des Azure-Portals mit dem Bereich „Zertifikate und Geheimnisse“ einer App-Registrierung":::
 
 ### <a name="add-a-certificate"></a>Hinzufügen eines Zertifikats
 

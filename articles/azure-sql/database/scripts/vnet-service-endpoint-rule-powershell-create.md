@@ -12,12 +12,12 @@ ms.reviewer: vanto
 ms.date: 04/17/2019
 ms.custom: sqldbrb=1
 tags: azure-synapse
-ms.openlocfilehash: ae92d2000bb2c0dfd7e7a42c6070c143e5b787e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f32599c9d289c8fc5e86eb8c7b0574d9703a6dd4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84170867"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792666"
 ---
 # <a name="powershell-create-a-virtual-service-endpoint-and-vnet-rule-for-azure-sql-database"></a>Mit PowerShell: Erstellen eines virtuellen Dienstendpunkts und einer VNet-Regel für Azure SQL-Datenbank
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
@@ -40,19 +40,19 @@ Weitere Informationen finden Sie unter [Virtuelle Dienstendpunkte für Azure SQL
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Das Azure Resource Manager-Modul von PowerShell wird von Azure SQL-Datenbank weiterhin unterstützt, aber alle zukünftigen Entwicklungen erfolgen für die [`Az.Sql`-Cmdlets](/powershell/module/az.sql). Informationen zum älteren Modul finden Sie unter [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Die Argumente für die Befehle im Az-Modul und den AzureRm-Modulen sind im Wesentlichen identisch.
+> Das Azure Resource Manager-Modul von PowerShell wird von Azure SQL-Datenbank weiterhin unterstützt, aber alle zukünftigen Entwicklungen erfolgen für die [`Az.Sql`-Cmdlets](/powershell/module/az.sql). Informationen zum älteren Modul finden Sie unter [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Die Argumente für die Befehle im Az-Modul und den AzureRm-Modulen sind im Wesentlichen identisch.
 
 ## <a name="major-cmdlets"></a>Wichtige Cmdlets
 
-Dieser Artikel befasst sich überwiegend mit dem [**New-AzSqlServerVirtualNetworkRule**-Cmdlet](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule), das den Subnetzendpunkt zu Zugriffssteuerungsliste Ihres Servers hinzufügt und dadurch eine Regel erstellt.
+Dieser Artikel befasst sich überwiegend mit dem [**New-AzSqlServerVirtualNetworkRule** -Cmdlet](/powershell/module/az.sql/new-azsqlservervirtualnetworkrule), das den Subnetzendpunkt zu Zugriffssteuerungsliste Ihres Servers hinzufügt und dadurch eine Regel erstellt.
 
 Die folgende Liste zeigt die Abfolge von anderen *wichtigen* Cmdlets, die Sie ausführen müssen, um den Aufruf von **New-AzSqlServerVirtualNetworkRule** vorzubereiten. In diesem Artikel werden diese Aufrufe in [script 3 "Virtual network rule" (Skript 3: VNET-Regel)](#a-script-30) ausgeführt.
 
-1. [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig): Erstellt ein Subnetzobjekt.
-2. [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork): Erstellt Ihr virtuelles Netzwerk und weist diesem das Subnetz zu.
-3. [Set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetworkSubnetConfig): Weist Ihrem Subnetz einen virtuellen Dienstendpunkt zu.
-4. [Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetwork): Behält Updates bei, die für Ihr virtuelles Netzwerk vorgenommen wurden.
-5. [New-AzSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule): Sobald Ihr Subnetz ein Endpunkt ist, wird dieses als VNET-Regel zur Zugriffssteuerungsliste Ihres Servers hinzugefügt.
+1. [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig): Erstellt ein Subnetzobjekt.
+2. [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork): Erstellt Ihr virtuelles Netzwerk und weist diesem das Subnetz zu.
+3. [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Set-azVirtualNetworkSubnetConfig): Weist Ihrem Subnetz einen virtuellen Dienstendpunkt zu.
+4. [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork): Behält Updates bei, die für Ihr virtuelles Netzwerk vorgenommen wurden.
+5. [New-AzSqlServerVirtualNetworkRule](/powershell/module/az.sql/new-azsqlservervirtualnetworkrule): Sobald Ihr Subnetz ein Endpunkt ist, wird dieses als VNET-Regel zur Zugriffssteuerungsliste Ihres Servers hinzugefügt.
    - Dieses Cmdlet bietet den Parameter **-IgnoreMissingVNetServiceEndpoint** ab Azure RM PowerShell-Modul Version 5.1.1.
 
 ## <a name="prerequisites-for-running-powershell"></a>Voraussetzungen für das Ausführen von PowerShell
@@ -390,7 +390,7 @@ Im Folgenden finden Sie die Phasen des PowerShell-Skripts:
 
 1. Melden Sie sich bei Ihrem Azure-Konto an. Dies ist nur einmal pro PowerShell-Sitzung nötig.  Weisen Sie die Variablen zu.
 2. Suchen Sie Ihr virtuelles Netzwerk und dann Ihr Subnetz.
-3. Ist Ihr Subnetz als **Microsoft.Sql**-Endpunktservertyp markiert?
+3. Ist Ihr Subnetz als **Microsoft.Sql** -Endpunktservertyp markiert?
 4. Fügen Sie Ihrem Subnetz einen virtuellen Dienstendpunkt des Typnamens **Microsoft.Sql** zu.
 
 > [!IMPORTANT]

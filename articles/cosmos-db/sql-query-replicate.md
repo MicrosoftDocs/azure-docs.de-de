@@ -3,18 +3,21 @@ title: REPLICATE in der Abfragesprache für Azure Cosmos DB
 description: Erfahren Sie mehr über die SQL-Systemfunktion REPLICATE in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: aea29cfff6b3827cfb9169722e48120e3a5a3709
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c0f1673c620ceadeb5ccca2a15cc9b7ce8d7685
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88794319"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341602"
 ---
 # <a name="replicate-azure-cosmos-db"></a>REPLICATE (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Wiederholt einen Zeichenfolgenwert mit einer angegebenen Anzahl.
   
 ## <a name="syntax"></a>Syntax
@@ -37,7 +40,7 @@ REPLICATE(<str_expr>, <num_expr>)
   
 ## <a name="remarks"></a>Bemerkungen
 
-  Die maximale Länge des Ergebnisses beträgt 10.000 Zeichen ((length(*str_expr*)  *  *num_expr*) <= 10.000). Der Index wird von dieser Systemfunktion nicht verwendet.
+  Die maximale Länge des Ergebnisses beträgt 10.000 Zeichen ((length( *str_expr* )  *  *num_expr* ) <= 10.000). Der Index wird von dieser Systemfunktion nicht verwendet.
 
 ## <a name="examples"></a>Beispiele
   

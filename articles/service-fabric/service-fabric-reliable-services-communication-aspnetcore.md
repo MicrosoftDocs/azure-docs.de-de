@@ -1,17 +1,15 @@
 ---
 title: Dienstkommunikation mit ASP.NET Core
 description: Hier erfahren Sie, wie Sie ASP.NET Core in zustandslosen und zustandsbehafteten Azure Service Fabric-Reliable Services-Anwendungen verwenden.
-author: vturecek
 ms.topic: conceptual
 ms.date: 10/12/2018
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 69423e7545178fd74ad44f5cab7b37b6f24b3577
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba5626d477bbd6aa07d89703cc37b157f4cfd4d5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022189"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576790"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core in Azure Service Fabric Reliable Services
 

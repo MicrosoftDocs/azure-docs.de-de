@@ -8,6 +8,7 @@ editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -15,12 +16,12 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7d18273d07cda3a6fe3517c47c9be12a2d236438
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd58f18959df3aa290083f907be8ab703366a7c6
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316935"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360100"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Preisinformationen für Azure-VMs mit SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -136,7 +137,7 @@ Um unnötige Kosten zu vermeiden, wählen Sie eine optimale Größe für virtuel
 
 ### <a name="correctly-size-your-vm"></a><a id="machinesize"></a>Richtige Größe Ihres virtuellen Computers
 
-Die Kosten der Lizenzierung für SQL Server sind direkt von der Anzahl der vCPUs abhängig. Wählen Sie eine Größe der virtuellen Computer aus, die mit den erwarteten Anforderungen für CPU, Arbeitsspeicher, Speicher und E/A-Bandbreite übereinstimmt. Eine vollständige Liste der Computergrößenoptionen finden Sie unter [Größen virtueller Windows-Computer](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) und [Größen virtueller Linux-Computer](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Die Kosten der Lizenzierung für SQL Server sind direkt von der Anzahl der vCPUs abhängig. Wählen Sie eine Größe der virtuellen Computer aus, die mit den erwarteten Anforderungen für CPU, Arbeitsspeicher, Speicher und E/A-Bandbreite übereinstimmt. Eine vollständige Liste der Computergrößenoptionen finden Sie unter [Größen virtueller Windows-Computer](../../../virtual-machines/sizes.md) und [Größen virtueller Linux-Computer](../../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Es sind neue Größen für Computer verfügbar, die für bestimmte Arten von SQL Server-Arbeitsauslastungen gut geeignet sind. Dieser Computergrößen verwalten einen hohen Grad an Arbeitsspeicher, Speicher und E/A-Bandbreite, verfügen jedoch über eine niedrigere Anzahl virtualisierter Kerne. Betrachten Sie etwa das folgende Beispiel:
 
@@ -167,7 +168,7 @@ Bei anderen Workflows sollten Sie eine Skriptlösung wie z.B. [Azure Automation]
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Allgemeine Informationen zu den Preisen in Azure finden Sie unter [Vermeiden unerwarteter Kosten bei der Azure-Abrechnung und -Kostenverwaltung](../../../cost-management-billing/manage/getting-started.md). Die neuesten Preisinformationen für Azure Virtual Machines (einschließlich SQL Server) finden Sie auf der Azure Virtual Machines-Preisseite für [Windows-VMs](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) und [Linux-VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+Allgemeine Informationen zu den Preisen in Azure finden Sie unter [Vermeiden unerwarteter Kosten bei der Azure-Abrechnung und -Kostenverwaltung](../../../cost-management-billing/cost-management-billing-overview.md). Die neuesten Preisinformationen für Azure Virtual Machines (einschließlich SQL Server) finden Sie auf der Azure Virtual Machines-Preisseite für [Windows-VMs](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) und [Linux-VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 Eine Übersicht über SQL Server in Azure Virtual Machines finden Sie in den folgenden Artikeln:
 

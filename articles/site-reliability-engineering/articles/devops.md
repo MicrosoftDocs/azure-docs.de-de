@@ -8,12 +8,12 @@ ms.service: site-reliability-engineering
 ms.topic: article
 ms.date: 09/14/2020
 ms.author: dnb
-ms.openlocfilehash: 3d0698f2780a4ccc41eedbde70fddea1766c5f21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62872443c386c45d9821053dc901ad8e0055b74f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090328"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674277"
 ---
 # <a name="frequently-asked-questions-whats-the-relationship-between-sre-and-devops"></a>Häufig gestellte Fragen: In welcher Beziehung stehen SRE und DevOps zueinander?
 
@@ -38,7 +38,7 @@ Die Ähnlichkeiten zwischen SRE und DevOps sind eindeutig. Interessanter ist es,
 
 ### <a name="class-sre-implements-interface-devops"></a>„class SRE implements interface DevOps“
 
-Im ersten Kapitel des Buchs _The Site Reliability Workbook_, das in unserer [Ressourcenbuchliste](../resources/books.md) enthalten ist, werden SRE und DevOps erläutert. In diesem Kapitel wird der Satz „class SRE implements interface DevOps“ als Untertitel verwendet. Dieser (von Entwicklern geprägte) Satz bedeutet, dass SRE als bestimmte Implementierung der DevOps-Philosophie betrachtet werden kann. Im Kapitel wird erläutert, dass es im Gegensatz zu den präskriptiven Anweisungen beim SRE im Zusammenhang mit „DevOps keine detaillierten Informationen zum Ausführen von Vorgängen gibt.“ Eine mögliche Antwort auf die Frage hinsichtlich der Beziehung zwischen den beiden ist also, dass SRE als eine von vielen möglichen Implementierungen von DevOps angesehen werden kann.
+Im ersten Kapitel des Buchs _The Site Reliability Workbook_ , das in unserer [Ressourcenbuchliste](../resources/books.md) enthalten ist, werden SRE und DevOps erläutert. In diesem Kapitel wird der Satz „class SRE implements interface DevOps“ als Untertitel verwendet. Dieser (von Entwicklern geprägte) Satz bedeutet, dass SRE als bestimmte Implementierung der DevOps-Philosophie betrachtet werden kann. Im Kapitel wird erläutert, dass es im Gegensatz zu den präskriptiven Anweisungen beim SRE im Zusammenhang mit „DevOps keine detaillierten Informationen zum Ausführen von Vorgängen gibt.“ Eine mögliche Antwort auf die Frage hinsichtlich der Beziehung zwischen den beiden ist also, dass SRE als eine von vielen möglichen Implementierungen von DevOps angesehen werden kann.
 
 ### <a name="sre-is-to-reliability-as-devops-is-to-delivery"></a>Zuverlässigkeit ist für SRE das, was die Bereitstellung für DevOps ist
 
@@ -50,7 +50,7 @@ In der [Dokumentation zum Websitezuverlässigkeits-Engineering](../index.yml) fi
 
 Infolgedessen könnte man einfach sagen, dass der Kerngedanke beim SRE die Zuverlässigkeit ist. Dies wird noch deutlicher, da dieses Wort auch in der vollständigen Bezeichnung vorkommt.
 
-Im [Azure DevOps-Ressourcencenter](https://docs.microsoft.com/azure/devops/learn/) lautet die Definition für DevOps wie folgt:
+Im [Azure DevOps-Ressourcencenter](/azure/devops/learn/) lautet die Definition für DevOps wie folgt:
 
 > DevOps vereint Personen, Prozesse und Technologien, damit Kunden kontinuierlich hochwertige Produkte erhalten.
 
@@ -60,7 +60,7 @@ Aus diesem Grund „ist SRE für die Zuverlässigkeit das, was DevOps für die B
 
 ### <a name="direction-of-attention"></a>Fokussierung
 
-Diese Antwort ist ein Zitat bzw. eine Paraphrase aus einem Beitrag von Thomas Limoncelli in dem in unserer [Ressourcenbuchliste](../resources/books.md) aufgeführten Buch _Seeking SRE_. Er merkt an, dass sich DevOps-Techniker größtenteils auf die SDLC-Pipeline (Vorgehensmodell zur Softwareentwicklung) und gelegentlich die Verantwortlichkeiten in Bezug auf Produktionsvorgänge konzentrieren, während das Hauptaugenmerk beim SRE auf Produktionsvorgängen und gelegentlich auf der SDLC-Pipeline liegt.
+Diese Antwort ist ein Zitat bzw. eine Paraphrase aus einem Beitrag von Thomas Limoncelli in dem in unserer [Ressourcenbuchliste](../resources/books.md) aufgeführten Buch _Seeking SRE_ . Er merkt an, dass sich DevOps-Techniker größtenteils auf die SDLC-Pipeline (Vorgehensmodell zur Softwareentwicklung) und gelegentlich die Verantwortlichkeiten in Bezug auf Produktionsvorgänge konzentrieren, während das Hauptaugenmerk beim SRE auf Produktionsvorgängen und gelegentlich auf der SDLC-Pipeline liegt.
 
 Noch wichtiger ist jedoch das von ihm erstellte Diagramm mit dem Softwareentwicklungsprozess auf der einen und den Produktionsvorgängen auf der anderen Seite. Beide sind durch die übliche Pipeline verbunden, die erstellt wurde, um den Code von einem Entwickler zu übermitteln, die gewünschte Anzahl von Tests und Phasen zu durchlaufen und diesen Code dann in die Produktionsumgebung zu verschieben.
 
@@ -80,4 +80,4 @@ Wir hoffen, dass diese Antworten deutlich gemacht haben, inwiefern sich die beid
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Möchten Sie noch mehr über SRE oder DevOps erfahren? Lesen Sie die [Dokumentation zum Websitezuverlässigkeits-Engineering](../index.yml) und die Informationen im [Azure DevOps-Ressourcencenter](https://docs.microsoft.com/azure/devops/learn/).
+Möchten Sie noch mehr über SRE oder DevOps erfahren? Lesen Sie die [Dokumentation zum Websitezuverlässigkeits-Engineering](../index.yml) und die Informationen im [Azure DevOps-Ressourcencenter](/azure/devops/learn/).

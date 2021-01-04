@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: bca960100ee0c9d7e2a779dc86030fc59949dca5
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: e3503a9eef5c11db35684ca61fb1ee39525a465d
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055969"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427597"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Konfigurieren der Objektreplikation für Blockblobs
 
@@ -65,19 +65,19 @@ Führen Sie die folgenden Schritte aus, um eine Replikationsrichtlinie im Azure-
 
     Die folgende Abbildung zeigt Filter, die einschränken, welche Blobs als Teil einer Replikationsregel kopiert werden.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="Screenshot von Replikationsregeln im Azure-Portal":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="Screenshot von Filtern für eine Replikationsregel":::
 
 1. Standardmäßig wird der Kopierumfang so festgelegt, dass nur neue Objekte kopiert werden. Um alle Objekte im Container oder Objekte ab einem benutzerdefinierten Datum und Zeitpunkt zu kopieren, wählen Sie den Link **Ändern** aus, und konfigurieren Sie den Kopierumfang für das Containerpaar.
 
     Die folgende Abbildung zeigt einen benutzerdefinierten Kopierbereich, mit dem Objekte ab einem bestimmten Datum und einer bestimmten Uhrzeit kopiert werden.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Screenshot von Replikationsregeln im Azure-Portal":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Screenshot mit benutzerdefiniertem Kopierumfang für die Objektreplikation":::
 
 1. Wählen Sie **Speichern und anwenden** aus, um die Replikationsrichtlinie zu erstellen und mit der Replikation von Daten zu beginnen.
 
 Nachdem Sie die Objektreplikation konfiguriert haben, werden die Replikationsrichtlinie und die Regeln im Azure-Portal angezeigt, wie in der folgenden Abbildung dargestellt.
 
-:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Screenshot von Replikationsregeln im Azure-Portal":::
+:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Screenshot der Richtlinie für die Objektreplikation im Azure-Portal":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -284,7 +284,7 @@ Führen Sie die folgenden Schritte aus, um die Objektreplikation für das Zielko
 1. Wählen Sie **Replikationsregeln hochladen** aus.
 1. Laden Sie die JSON-Datei hoch. Im Azure-Portal werden die Richtlinie und die Regeln angezeigt, die erstellt werden, wie in der folgenden Abbildung dargestellt.
 
-    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Screenshot von Replikationsregeln im Azure-Portal":::
+    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Screenshot des Hochladens einer JSON-Datei zum Definieren einer Replikationsrichtlinie":::
 
 1. Wählen Sie **Hochladen** aus, um die Replikationsrichtlinie für das Zielkonto zu erstellen.
 
@@ -293,7 +293,7 @@ Sie können dann eine JSON-Datei mit der Richtliniendefinition herunterladen, di
 1. Navigieren Sie im Azure-Portal zu den Einstellungen für die **Objektreplikation** für das Zielkonto.
 1. Wählen Sie neben der Richtlinie, die Sie herunterladen möchten, die Schaltfläche **Mehr** und dann **Regeln herunterladen** aus, wie in der folgenden Abbildung dargestellt.
 
-    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Screenshot von Replikationsregeln im Azure-Portal":::
+    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Screenshot des Herunterladens von Replikationsregeln in eine JSON-Datei":::
 
 1. Speichern Sie die JSON-Datei auf Ihrem lokalen Computer, um sie für andere Benutzer freizugeben, die die Richtlinie für das Quellkonto konfigurieren.
 
@@ -361,7 +361,7 @@ Führen Sie die folgenden Schritte aus, um den Replikationsstatus für ein Blob 
 1. Suchen Sie den Container, der das Quellblob enthält.
 1. Wählen Sie das Blob aus, um seine Eigenschaften anzuzeigen. Wenn das Blob erfolgreich repliziert wurde, sehen Sie im Abschnitt **Objektreplikation**, dass der Status auf *Vollständig* festgelegt ist. Die ID der Replikationsrichtlinie und die ID der Regel, die die Objektreplikation für diesen Container regelt, sind ebenfalls aufgeführt.
 
-:::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Screenshot von Replikationsregeln im Azure-Portal":::
+:::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Der Screenshot zeigt den Replikationsstatus für ein Blob im Quellkonto.":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -391,6 +391,12 @@ az storage blob show \
 ```
 
 ---
+
+Wenn der Replikationsstatus für ein Blob im Quellkonto auf einen Fehler hinweist, untersuchen Sie die folgenden möglichen Ursachen:
+
+- Stellen Sie sicher, dass die Objektreplikationsrichtlinie im Zielkonto konfiguriert ist.
+- Überprüfen Sie, ob der Zielcontainer noch vorhanden ist.
+- Wenn das Quellblob im Rahmen eines Schreibvorgangs mit einem vom Kunden bereitgestellten Schlüssel verschlüsselt wurde, tritt bei der Objektreplikation ein Fehler auf. Weitere Informationen zu vom Kunden bereitgestellten Schlüsseln finden Sie unter [Angeben eines Verschlüsselungsschlüssels bei Stellen einer Anforderung für Blob Storage](encryption-customer-provided-keys.md).
 
 ## <a name="remove-a-replication-policy"></a>Entfernen einer Replikationsrichtlinie
 

@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 7e7a1de24e5032b2dade2f325560fd6964c892d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbbb5328f2d7e814be9b5b94ec522bbb01df39e5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86145693"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658246"
 ---
 # <a name="debug-application-proxy-connector-issues"></a>Debuggen von Problemen mit Anwendungsproxyconnectors 
 
@@ -44,7 +44,7 @@ In diesem Flussdiagramm werden die Schritte zum Debuggen von einigen häufigeren
 |---------|---------|---------|
 |1 | Ermitteln der Connectorgruppe, die der App zugewiesen ist | Vermutlich haben Sie einen Connector auf mehreren Servern installiert. In diesem Fall sollten die Connectors [Connectorgruppen zugewiesen sein](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups). Weitere Informationen zu Connectorgruppen finden Sie unter [Veröffentlichen von Anwendungen in getrennten Netzwerken und an getrennten Standorten mithilfe von Connectorgruppen](application-proxy-connector-groups.md). |
 |2 | Installieren des Connectors und Zuweisen einer Gruppe | Wenn Sie keinen Connector installiert haben, helfen Ihnen die Informationen unter [Installieren und Registrieren eines Connectors](application-proxy-add-on-premises-application.md#install-and-register-a-connector) weiter.<br></br> Wenn Probleme beim Installieren des Connectors auftreten, lesen Sie [Problem beim Installieren des Anwendungsproxy-Agent-Connectors](application-proxy-connector-installation-problem.md).<br></br> Lesen Sie den Abschnitt [Erstellen von Connectorgruppen](application-proxy-connector-groups.md#create-connector-groups), wenn der Connector keiner Gruppe zugewiesen ist.<br></br>Lesen Sie den Abschnitt [Zuweisen von Anwendungen zu Ihren Connectorgruppen](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups), wenn die Anwendung keiner Connectorgruppe zugewiesen ist.|
-|3 | Ausführen eines Porttests auf dem Connectorserver | Führen Sie auf dem Connectorserver einen Porttest aus, indem Sie [telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) oder ein anderes Tool zum Testen von Ports verwenden, um zu überprüfen, ob die [Ports 443 und 80 geöffnet](application-proxy-add-on-premises-application.md#open-ports) sind.|
+|3 | Ausführen eines Porttests auf dem Connectorserver | Führen Sie auf dem Connectorserver einen Porttest aus, indem Sie [telnet](/windows-server/administration/windows-commands/telnet) oder ein anderes Tool zum Testen von Ports verwenden, um zu überprüfen, ob die [Ports 443 und 80 geöffnet](application-proxy-add-on-premises-application.md#open-ports) sind.|
 |4 | Konfigurieren der Domänen und Ports | [Stellen Sie sicher, dass Ihre Domänen und Ports richtig konfiguriert sind](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment). Damit der Connector richtig funktioniert, müssen bestimmte Ports geöffnet sein, und Ihr Server muss auf einige URLs zugreifen können. |
 |5 | Überprüfen, ob ein Back-End-Proxy verwendet wird | Überprüfen Sie, ob für die Connectors Back-End-Proxyserver genutzt oder umgangen werden. Ausführliche Informationen finden Sie unter [Problembehandlung für Proxyprobleme des Connectors und Verbindungsprobleme von Diensten](application-proxy-configure-connectors-with-proxy-servers.md#troubleshoot-connector-proxy-problems-and-service-connectivity-issues). |
 |6 | Aktualisieren des Connectors und Updaters zur Verwendung des Back-End-Proxys | Wenn ein Back-End-Proxy verwendet wird, sollten Sie sicherstellen, dass für den Connector derselbe Proxy genutzt wird. Ausführliche Informationen zur Problembehandlung und Konfiguration für Connectors in Bezug auf die Zusammenarbeit mit Proxyservern finden Sie unter [Verwenden von vorhandenen lokalen Proxyservern](application-proxy-configure-connectors-with-proxy-servers.md). |

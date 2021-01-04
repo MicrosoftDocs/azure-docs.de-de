@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: def394369ebcb8b457d78ad6537830487e8049f7
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 8021d659c144bfb68c2714f1680b6ad27a51b56a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277511"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522344"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Was ist privater Endpunkt in Azure?
 
@@ -28,7 +28,7 @@ Ein privater Endpunkt in Azure ist eine Netzwerkschnittstelle, die Sie privat un
 |Subnet    |  Das Subnetz, dem private IP-Adressen aus einem virtuellen Netzwerk bereitgestellt und zugeordnet werden. Anforderungen an das Subnetz finden Sie im Abschnitt „Einschränkungen“ in diesem Artikel.         |
 |Private Link-Ressource    |   Die Private Link-Ressource, mit der anhand der Liste verfügbarer Typen eine Verbindung über die Ressourcen-ID oder den Alias hergestellt werden soll. Für den gesamten Datenverkehr an diese Ressource wird ein eindeutiger Netzwerkbezeichner generiert.       |
 |Unterressource des Ziels   |      Die Unterressource, mit der eine Verbindung hergestellt wird. Jeder Private Link-Ressourcentyp verfügt über verschiedene Optionen, die je nach Präferenz ausgewählt werden können.    |
-|Methode zur Genehmigung der Verbindung    |  Automatisch oder manuell. Je nach Berechtigungen gemäß rollenbasierter Zugriffssteuerung (RBAC) kann Ihr privater Endpunkt automatisch genehmigt werden. Wenn Sie versuchen, sich mit einer Private Link-Ressource ohne RBAC zu verbinden, verwenden Sie die manuelle Methode, um dem Besitzer der Ressource zu ermöglichen, die Verbindung zu genehmigen.        |
+|Methode zur Genehmigung der Verbindung    |  Automatisch oder manuell. Je nach Berechtigungen gemäß rollenbasierter Zugriffssteuerung (Azure RBAC) kann Ihr privater Endpunkt automatisch genehmigt werden. Wenn Sie versuchen, sich mit einer Private Link-Ressource ohne Azure RBAC zu verbinden, verwenden Sie die manuelle Methode, um dem Besitzer der Ressource zu ermöglichen, die Verbindung zu genehmigen.        |
 |Anforderungsnachricht     |  Sie können eine Nachricht für angeforderte Verbindungen angeben, die manuell genehmigt werden sollen. Mithilfe dieser Nachricht kann eine bestimmte Anforderung identifiziert werden.        |
 |Verbindungsstatus   |   Eine schreibgeschützte Eigenschaft, die angibt, ob der private Endpunkt aktiv ist. Nur private Endpunkte in genehmigtem Zustand können zum Senden von Datenverkehr verwendet werden. Weitere verfügbare Zustände: <br>-**Genehmigt**: Die Verbindung wurde automatisch oder manuell genehmigt und ist zur Verwendung bereit.</br><br>-**Ausstehend**: Die Verbindung wurde manuell erstellt, wobei die Genehmigung des Besitzers der Private Link-Ressource aussteht.</br><br>-**Abgelehnt**: Die Verbindung wurde vom Besitzer der Private Link-Ressource abgelehnt.</br><br>-**Getrennt**: Die Verbindung wurde vom Besitzer der Private Link-Ressource entfernt. Der private Endpunkt dient nur noch Informationszwecken und sollte zur Bereinigung gelöscht werden. </br>|
 
@@ -45,9 +45,9 @@ Im Folgenden finden Sie einige wichtige Details zu privaten Endpunkten:
  
 - Mehrere private Endpunkte können mithilfe derselben Private Link-Ressource erstellt werden. Für ein einzelnes Netzwerk mit einer herkömmlichen DNS-Serverkonfiguration wird empfohlen, einen einzigen privaten Endpunkt für eine bestimmte Private Link-Ressource zu verwenden, um doppelte Einträge oder Konflikte bei der DNS-Auflösung zu vermeiden. 
  
-- Mehrere private Endpunkte können im gleichen oder in verschiedenen Subnetzen innerhalb desselben virtuellen Netzwerks erstellt werden. Die Anzahl der privaten Endpunkte, die Sie in einem Abonnement anlegen können, ist begrenzt. Ausführliche Informationen finden Sie im Artikel zu  [Azure-Grenzwerten](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Mehrere private Endpunkte können im gleichen oder in verschiedenen Subnetzen innerhalb desselben virtuellen Netzwerks erstellt werden. Die Anzahl der privaten Endpunkte, die Sie in einem Abonnement anlegen können, ist begrenzt. Ausführliche Informationen finden Sie im Artikel zu  [Azure-Grenzwerten](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
-- Das Abonnement der Private Link-Ressource muss ebenfalls beim Ressourcenanbieter „Micosoft.Network“ registriert werden. Weitere Informationen finden Sie unter  [Azure-Ressourcenanbieter](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+- Das Abonnement der Private Link-Ressource muss ebenfalls beim Ressourcenanbieter „Micosoft.Network“ registriert werden. Weitere Informationen finden Sie unter  [Azure-Ressourcenanbieter](../azure-resource-manager/management/resource-providers-and-types.md).
 
  
 ## <a name="private-link-resource"></a>Private Link-Ressource 
@@ -133,15 +133,16 @@ Die folgende Tabelle enthält eine Liste der bekannten Einschränkungen bei Verw
 
 
 ## <a name="next-steps"></a>Nächste Schritte
-- [Schnellstart: Erstellen eines privaten Endpunkts mit dem Azure-Portal](create-private-endpoint-portal.md)
-- [Erstellen eines privaten Endpunkts mit Azure PowerShell](create-private-endpoint-powershell.md)
-- [Schnellstart: Erstellen eines privaten Endpunkts mit Azure CLI](create-private-endpoint-cli.md)
-- [Erstellen eines privaten Endpunkts für das Speicherkonto im Portal](create-private-endpoint-storage-portal.md)
+- [Erstellen eines privaten Endpunkts für Azure SQL-Datenbank im Portal](create-private-endpoint-portal.md)
+- [Erstellen eines privaten Endpunkts für Azure SQL-Datenbank mit PowerShell](create-private-endpoint-powershell.md)
+- [Erstellen eines privaten Endpunkts für Azure SQL-Datenbank mit der CLI](create-private-endpoint-cli.md)
+- [Erstellen eines privaten Endpunkts für das Speicherkonto im Portal](./tutorial-private-endpoint-storage-portal.md)
 - [Erstellen eines privaten Endpunkts für das Azure Cosmos-Konto im Portal](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Erstellen eines eigenen Private Link-Diensts mit Azure PowerShell](create-private-link-service-powershell.md)
-- [Erstellen eines eigenen Private Link für Azure Database for PostgreSQL – Einzelserver über das Portal](../postgresql/howto-configure-privatelink-portal.md)
+- [Erstellen eines eigenen Private Link für Azure Database for PostgreSQL – Einzelserver im Portal](../postgresql/howto-configure-privatelink-portal.md)
 - [Erstellen eines eigenen Private Link für Azure Database for PostgreSQL – Einzelserver über die Befehlszeilenschnittstelle](../postgresql/howto-configure-privatelink-cli.md)
-- [Erstellen eines eigenen Private Link für Azure Database for MySQL über das Portal](../mysql/howto-configure-privatelink-portal.md)
+- [Erstellen eines eigenen Private Link für Azure Database for MySQL im Portal](../mysql/howto-configure-privatelink-portal.md)
 - [Erstellen eines eigenen Private Link für Azure Database for MySQL über die Befehlszeilenschnittstelle](../mysql/howto-configure-privatelink-cli.md)
-- [Erstellen eines eigenen Private Link für Azure Database for MariaDB über das Portal](../mariadb/howto-configure-privatelink-portal.md)
+- [Erstellen eines eigenen Private Link für Azure Database for MariaDB im Portal](../mariadb/howto-configure-privatelink-portal.md)
 - [Erstellen eines eigenen Private Link für Azure Database for MariaDB über die Befehlszeilenschnittstelle](../mariadb/howto-configure-privatelink-cli.md)
+- [Erstellen eines eigenen Private Link für Azure Key Vault im Portal und mit der CLI](../key-vault/general/private-link-service.md)

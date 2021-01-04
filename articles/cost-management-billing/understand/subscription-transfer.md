@@ -10,13 +10,13 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
-ms.custom: contperfq1
-ms.openlocfilehash: f4dd6d67d60603ed6cad7056cff4bb07dcb1c2e5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 163bd7dbdac4de7b7d9c1657ac3debf45382a27a
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149371"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027270"
 ---
 # <a name="about-transferring-billing-ownership-for-an-azure-subscription"></a>Informationen zum Übertragen des Abrechnungsbesitzes für ein Azure-Abonnement
 

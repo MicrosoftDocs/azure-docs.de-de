@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ab42acbc07072f48d28b3adb5bc4c65672f257bc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8e12a74ee689ba7b013b1c4a6881deac78680be0
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314316"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701047"
 ---
 # <a name="security-control-v2-data-protection"></a>Sicherheitskontrolle V2: Datenschutz
 
@@ -32,7 +32,7 @@ Sie können Azure SQL Information Protection verwenden, um die Klassifizierung u
 
 - [Markieren vertraulicher Informationen mit Azure Information Protection](/azure/information-protection/what-is-information-protection) 
 
-- [Implementieren von Azure SQL Data Discovery](/azure/sql-database/sql-database-data-discovery-and-classification)
+- [Implementieren von Azure SQL Data Discovery](../../azure-sql/database/data-discovery-and-classification-overview.md)
 
 **Verantwortlichkeit**: Shared
 
@@ -50,13 +50,13 @@ Sie können Azure SQL Information Protection verwenden, um die Klassifizierung u
 |--|--|--|--|
 | DP-2 | 13.2, 2.10 | SC-7, AC-4 |
 
-Schützen Sie vertrauliche Daten, indem Sie den Zugriff mithilfe der rollenbasierten Zugriffssteuerung in Azure (Azure RBAC), der netzwerkbasierten Zugriffssteuerungen und bestimmter Steuerungen in Azure-Diensten (z. B. Verschlüsselung in SQL und anderen Datenbanken) einschränken. 
+Schützen Sie vertrauliche Daten, indem Sie den Zugriff mithilfe der rollenbasierten Zugriffssteuerung von Azure (Azure RBAC), der netzwerkbasierten Zugriffssteuerungen und bestimmter Steuerungen in Azure-Diensten (z. B. Verschlüsselung in SQL und anderen Datenbanken) einschränken. 
 
 Um eine konsistente Zugriffssteuerung sicherzustellen, sollten alle Zugriffssteuerungstypen an der Segmentierungsstrategie des Unternehmens ausgerichtet werden. Bei der Segmentierungsstrategie des Unternehmens sollte auch der Speicherort vertraulicher und unternehmenskritischer Daten und Systeme berücksichtigt werden.
 
 Für die zugrunde liegende Plattform, die von Microsoft verwaltet wird, behandelt Microsoft alle Kundeninhalte als vertraulich und schützt Kundendaten vor Verlust und Gefährdung. Um die Sicherheit von Kundendaten innerhalb von Azure zu gewährleisten, hat Microsoft eine Reihe von Standard-Datenschutzsteuerungen und -funktionen implementiert.
 
-- [Rollenbasierte Zugriffssteuerung in Azure (Role-Based Access Control, RBAC)](../../role-based-access-control/overview.md)
+- [Rollenbasierte Zugriffssteuerung von Azure (Azure RBAC)](../../role-based-access-control/overview.md)
 
 - [Grundlegendes zum Schutz von Kundendaten in Azure](../fundamentals/protection-customer-data.md)
 
@@ -86,7 +86,7 @@ Wenn Compliance hinsichtlich Datenverlust (Data Loss Prevention, DLP) erforderli
 
 - [Aktivieren von Azure SQL ATP](../../azure-sql/database/threat-detection-overview.md)
 
-- [Aktivieren von Azure Storage ATP](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-security-center)
+- [Aktivieren von Azure Storage ATP](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
 **Verantwortlichkeit**: Shared
 
@@ -140,7 +140,7 @@ Azure bietet standardmäßig Verschlüsselung für ruhende Daten. Bei streng ver
 
 - [Grundlegendes zur Verschlüsselung ruhender Daten in Azure](../fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services)
 
-- [Konfigurieren der von Kunden verwalteten Verschlüsselungsschlüssel](../../storage/common/storage-encryption-keys-portal.md)
+- [Konfigurieren der von Kunden verwalteten Verschlüsselungsschlüssel](../../storage/common/customer-managed-keys-configure-key-vault.md)
 
 - [Tabelle für Verschlüsselungsmodell und Schlüsselverwaltung](../fundamentals/encryption-models.md)
 
@@ -157,4 +157,3 @@ Azure bietet standardmäßig Verschlüsselung für ruhende Daten. Bei streng ver
 - [Anwendungssicherheit und DevOps-Funktionen](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Datensicherheit](/azure/cloud-adoption-framework/organize/cloud-security-data-security)
-

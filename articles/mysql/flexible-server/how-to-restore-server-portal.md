@@ -1,17 +1,17 @@
 ---
 title: Wiederherstellen – Azure-Portal – Azure Database for MySQL – Flexible Server
 description: In diesem Artikel wird beschrieben, wie Sie Wiederherstellungsvorgänge in Azure Database for MySQL im Azure-Portal durchführen.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: 1c81ddad8a11cbad361ff84caf6f7200a0c010d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 062d53fcb122ebacd004d7dca5e11f5a883354cd
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930363"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241955"
 ---
 # <a name="point-in-time-restore-of-a-azure-database-for-mysql---flexible-server-preview"></a>Zeitpunktwiederherstellung von Azure Database for MySQL – Flexible Server (Vorschau)
 
@@ -31,7 +31,7 @@ Zum Durcharbeiten dieses Leitfadens benötigen Sie Folgendes:
 
 Führen Sie die folgenden Schritte aus, um Ihre Flexible Server-Instanz mit der frühesten vorhandenen Sicherung wiederherzustellen.
 
-1.  Wählen Sie im [Azure-Portal](https://portal.azure.com/) Ihre Flexible Server-Instanz aus, von der aus Sie die Sicherung wiederherstellen möchten.
+1.  Wählen Sie im [Azure-Portal](https://portal.azure.com/) Ihre Flexible Server-Instanz aus, von der aus Sie die Sicherung wiederherstellen möchten.
 
 2.  Klicken Sie im linken Bereich auf **Übersicht**.
 
@@ -56,7 +56,7 @@ Führen Sie die folgenden Schritte aus, um Ihre Flexible Server-Instanz mit der 
 
 Führen Sie die folgenden Schritte aus, um Ihre Flexible Server-Instanz mit der frühesten vorhandenen Sicherung wiederherzustellen.
 
-1.  Wählen Sie im [Azure-Portal](https://portal.azure.com/) Ihre Flexible Server-Instanz aus, von der aus Sie die Sicherung wiederherstellen möchten.
+1.  Wählen Sie im [Azure-Portal](https://portal.azure.com/) Ihre Flexible Server-Instanz aus, von der aus Sie die Sicherung wiederherstellen möchten.
 
 2.  Klicken Sie auf der Seite „Übersicht“ auf **Wiederherstellen**.
 
@@ -72,7 +72,7 @@ Führen Sie die folgenden Schritte aus, um Ihre Flexible Server-Instanz mit der 
 
 6.  Geben Sie einen neuen Servernamen im Feld **Auf neuem Server wiederherstellen** ein. 
    
-    :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="Frühester Wiederherstellungszeitpunkt":::
+    :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="Übersicht anzeigen":::
  
 7.  Klicken Sie auf **OK**.
 

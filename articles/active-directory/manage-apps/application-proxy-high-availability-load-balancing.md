@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ab3b340654fd6d824edef0a33d1ea363a913654
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 403fa4cab94ad6149e388b10acccd9d5e7a2b7a8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764586"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658161"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Hochverfügbarkeit und Lastenausgleich von Anwendungsproxy-Connectors und -Anwendungen
 
@@ -39,7 +39,7 @@ Connectors richten Verbindungen basierend auf den Prinzipien für Hochverfügbar
 
 1. Ein Benutzer auf einem Clientgerät versucht, auf eine lokale Anwendung zuzugreifen, die über den Anwendungsproxy veröffentlicht wurde.
 2. Die Anforderung durchläuft eine Azure Load Balancer-Instanz, die bestimmt, welche Dienstinstanzen von Anwendungsproxy die Anforderung übernehmen sollen. Pro Region sind Dutzende Instanzen verfügbar, die die Anforderung akzeptieren können. Mit dieser Methode kann der Datenverkehr gleichmäßig auf die Dienstinstanzen verteilt werden.
-3. Die Anforderung wird an [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/) gesendet.
+3. Die Anforderung wird an [Service Bus](../../service-bus-messaging/index.yml) gesendet.
 4. Service Bus sendet ein Signal an einen verfügbaren Connector. Der Connector übernimmt die Anforderung dann von Service Bus.
    - In Schritt 2 werden Anforderungen an verschiedene Anwendungsproxy-Dienstinstanzen gesendet, sodass Verbindungen eher mit unterschiedlichen Connectors hergestellt werden. Folglich werden Connectors fast gleichmäßig innerhalb der Gruppe verwendet.
 5. Der Connector übergibt die Anforderung an den Back-End-Server der Anwendung. Die Anwendung sendet dann die Antwort an den Connector zurück.
@@ -98,4 +98,4 @@ Informationen zu den Anforderungen für den Lastenausgleich der Back-End-Anwendu
 - [Aktivieren der einmaligen Anmeldung](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Aktivieren des bedingten Zugriffs](application-proxy-integrate-with-sharepoint-server.md)
 - [Problembehandlung von Anwendungsproxys](application-proxy-troubleshoot.md)
-- [Erfahren Sie, wie die Azure AD-Architektur Hochverfügbarkeit unterstützt](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture).
+- [Erfahren Sie, wie die Azure AD-Architektur Hochverfügbarkeit unterstützt](../fundamentals/active-directory-architecture.md).

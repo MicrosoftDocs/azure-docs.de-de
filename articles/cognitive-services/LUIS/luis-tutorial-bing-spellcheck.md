@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/19/2019
-ms.openlocfilehash: 120852c3e66594b1cf5cd28bb52ce06634211060
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d2a1702ea131e9b1b4bf5e586f4290db3aff7ff
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541090"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018768"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Korrigieren falsch geschriebener Wörter mit der Bing-Rechtschreibprüfung
 
@@ -97,4 +97,4 @@ Zwei Lösungen sind:
 Die Seite [Veröffentlichen](luis-how-to-publish-app.md) enthält das Kontrollkästchen **Enable Bing spell checker** (Bing-Rechtschreibprüfung aktivieren). Dieses vereinfacht das Erstellen des Schlüssels und hilft zu verstehen, wie sich die Endpunkt-URL ändert. Sie müssen trotzdem die richtigen Endpunktparameter verwenden, damit die Rechtschreibung für jede Äußerung korrigiert wird.
 
 > [!div class="nextstepaction"]
-> [Weitere Informationen zu Beispieläußerungen](luis-how-to-add-example-utterances.md)
+> [Weitere Informationen zu Beispieläußerungen](./luis-how-to-add-entities.md)

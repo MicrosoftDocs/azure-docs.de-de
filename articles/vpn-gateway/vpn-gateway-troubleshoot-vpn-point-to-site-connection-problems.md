@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: dbf0d096827ec1af16e6d38d405709e48175ae89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c316aaf02979008b9d2ebc691d54c0fb95a5a52d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88035946"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994858"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Problembehandlung: Azure Point-to-Site-Verbindungsprobleme
 
@@ -298,7 +298,7 @@ Dieses Problem kann auftreten, wenn der VPN-Client nicht die Routen vom Azure-VP
 
 ### <a name="solution"></a>Lösung
 
-Um dieses Problem zu lösen, [setzen Sie das Azure-VPN-Gateway zurück](vpn-gateway-resetgw-classic.md). Wenn Sie sicherstellen möchten, dass die neuen Routen verwendet werden, müssen die Point-to-Site-VPN-Clients nach der erfolgreichen Konfiguration des Peerings in virtuellen Netzwerken erneut heruntergeladen werden.
+Um dieses Problem zu lösen, [setzen Sie das Azure-VPN-Gateway zurück](./reset-gateway.md). Wenn Sie sicherstellen möchten, dass die neuen Routen verwendet werden, müssen die Point-to-Site-VPN-Clients nach der erfolgreichen Konfiguration des Peerings in virtuellen Netzwerken erneut heruntergeladen werden.
 
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Error: „Die Sperrfunktion konnte die Sperre nicht überprüfen, weil der Sperrserver offline war. (Fehler 0x80092013)“
 
@@ -317,7 +317,7 @@ Dieser Fehler tritt auf, wenn der für die Authentifizierung des VPN-Clients ver
 
 ### <a name="solution"></a>Lösung
 
-Stellen Sie sicher, dass der RADIUS-Server ordnungsgemäß konfiguriert ist. Weitere Informationen finden Sie unter [Integration der RADIUS-Authentifizierung mit dem Azure Multi-Factor Authentication-Server](../active-directory/authentication/howto-mfaserver-dir-radius.md).
+Stellen Sie sicher, dass der RADIUS-Server ordnungsgemäß konfiguriert ist. Weitere Informationen finden Sie unter [Integration der RADIUS-Authentifizierung mit dem Azure AD Multi-Factor Authentication-Server](../active-directory/authentication/howto-mfaserver-dir-radius.md).
 
 ## <a name="error-405-when-you-download-root-certificate-from-vpn-gateway"></a>„Fehler 405“ beim Herunterladen des Stammzertifikats aus VPN Gateway
 

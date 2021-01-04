@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/29/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b571b2b8e0d334a02631e3f443ec54398117ee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cd1fb7f33c56aefe76bc55181ae92ca3d149754
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532668"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006961"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Tutorial: Verwenden der systemseitig zugewiesenen verwalteten Identität eines virtuellen Windows-Computers für den Zugriff auf Azure Cosmos DB
 
@@ -82,7 +82,7 @@ New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Read
 ```
 
 >[!NOTE]
-> Beachten Sie, dass Sie möglicherweise nicht über die richtigen Berechtigungen verfügen, wenn Sie keinen Vorgang ausführen können. Wenn Sie Schreibzugriff auf Schlüssel haben möchten, müssen Sie eine RBAC-Rolle (z. B. Mitwirkender des DocumentDB-Kontos) verwenden oder eine benutzerdefinierte Rolle erstellen. Weitere Informationen finden Sie unter [Rollenbasierte Zugriffssteuerung in Azure Cosmos DB](../../cosmos-db/role-based-access-control.md).
+> Beachten Sie, dass Sie möglicherweise nicht über die richtigen Berechtigungen verfügen, wenn Sie keinen Vorgang ausführen können. Wenn Sie Schreibzugriff auf Schlüssel haben möchten, müssen Sie eine Azure-Rolle (z. B. Mitwirkender des DocumentDB-Kontos) verwenden oder eine benutzerdefinierte Rolle erstellen. Weitere Informationen finden Sie unter [Rollenbasierte Azure-Zugriffssteuerung in Azure Cosmos DB](../../cosmos-db/role-based-access-control.md).
 
 ## <a name="access-data"></a>Zugreifen auf Daten
 

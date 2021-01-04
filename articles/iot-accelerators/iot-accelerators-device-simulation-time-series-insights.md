@@ -8,12 +8,12 @@ ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: db9ba3efe60af830c0e15310b6127c18130f00b9
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: e1409b43f0ce1fc0d8c622dda79e857ac6abdd33
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076248"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854562"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Verwenden von Time Series Insights zum Visualisieren der Telemetriedaten, die vom Solution Accelerator für Gerätesimulation gesendet wurden
 
@@ -23,7 +23,7 @@ Mithilfe des Solution Accelerators für Gerätesimulation können Sie Telemetrie
 
 Um die in dieser Anleitung aufgeführten Schritte ausführen zu können, benötigen Sie ein aktives Azure-Abonnement. Wenn Sie kein Azure-Abonnement besitzen, erstellen Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), bevor Sie beginnen.
 
-Bei den Schritten in dieser Anleitung wird angenommen, dass Sie den Solution Accelerator für Gerätesimulation im Rahmen Ihres Azure-Abonnements bereitgestellt haben. Falls Sie den Solution Accelerator für Gerätesimulation noch nicht bereitgestellt haben, führen Sie die Schritte im Schnellstart [Bereitstellen und Ausführen einer cloudbasierten Lösung für Gerätesimulation](quickstart-device-simulation-deploy.md) aus.
+Bei den Schritten in dieser Anleitung wird angenommen, dass Sie den Solution Accelerator für Gerätesimulation im Rahmen Ihres Azure-Abonnements bereitgestellt haben. Wenn Sie die Gerätesimulation noch nicht bereitgestellt haben, finden Sie weitere Informationen auf GitHub unter [Device Simulation deployment](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) (Bereitstellen der Gerätesimulation).
 
 In diesem Artikel wird angenommen, dass der Name Ihres Solution Accelerators **Contoso-Simulation** lautet. Ersetzen Sie **Contoso-Simulation** durch den Namen Ihres Solution Accelerators, während Sie die nachstehenden Schritte ausführen.
 

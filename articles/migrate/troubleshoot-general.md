@@ -1,18 +1,18 @@
 ---
 title: Behandeln von Problemen bei Azure Migrate | Microsoft-Dokumentation
 description: Bietet eine Übersicht über bekannte Probleme im Azure Migrate-Dienst sowie Problembehandlungstipps für häufige Fehler.
-author: musa-57
+author: ms-psharma
+ms.author: panshar
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: hamusa
-ms.openlocfilehash: 433f3cc29e334a9034fa073d4ace735fc7e7e3ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00802f53f973ad9b5a80b265006943121a0fa763
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75722171"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753398"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problembehandlung für Azure Migrate
 
@@ -28,7 +28,7 @@ Lesen Sie [Antworten für häufige Probleme](troubleshoot-appliance-discovery.md
 
 ## <a name="machines-arent-discovered"></a>Computer werden nicht ermittelt
 
-Sehen Sie sich häufige Probleme bei der Ermittlung an.
+Sehen Sie sich [häufige Probleme bei der Ermittlung](common-questions-discovery-assessment.md) an.
 
 ## <a name="app-discovery-isnt-working"></a>Die App-Ermittlung funktioniert nicht
 

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
 ms.openlocfilehash: cad12a55332a6c7898f9709776c58d7dba8dd81a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86526434"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022835"
 ---
 # <a name="common-errors-within-the-azure-serial-console"></a>Häufige Fehler in der seriellen Azure-Konsole
 In der seriellen Azure-Konsole können mehrere bekannte Fehler auftreten. Diese Fehler und die jeweils entsprechenden Lösungsschritte sind nachfolgend aufgeführt.

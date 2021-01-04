@@ -5,24 +5,27 @@ description: Hier erfahren Sie, wie Sie eine Azure SQL-Datenbank und Azure Syna
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: e2cdf7d5213f1667b0b588cc5bfa9f105245b6b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4480f3d28cb89165a6ba3c5b26b10b1aba9765c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619116"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461850"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell und die Azure-Befehlszeilenschnittstelle: Aktivieren von Transparent Data Encryption mithilfe eines vom Kunden verwalteten Azure Key Vault-Schlüssels
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-In diesem Artikel wird die Verwendung eines Schlüssels aus Azure Key Vault für Transparent Data Encryption (TDE) in Azure SQL-Datenbank oder Azure Synapse Analytics (ehemals SQL Data Warehouse) erläutert. Weitere Informationen zur Integration von TDE mit Azure Key Vault und BYOK-Unterstützung (Bring Your Own Key) finden Sie unter [TDE mit vom Kunden verwalteten Schlüsseln in Azure Key Vault](transparent-data-encryption-byok-overview.md).
+In diesem Artikel wird die Verwendung eines Schlüssels aus Azure Key Vault für Transparent Data Encryption (TDE) in Azure SQL-Datenbank oder Azure Synapse Analytics erläutert. Weitere Informationen zur Integration von TDE mit Azure Key Vault und BYOK-Unterstützung (Bring Your Own Key) finden Sie unter [TDE mit vom Kunden verwalteten Schlüsseln in Azure Key Vault](transparent-data-encryption-byok-overview.md).
+
+> [!NOTE] 
+> Azure SQL unterstützt nun die Verwendung eines RSA-Schlüssels, der in einem verwalteten HSM als TDE-Schutzvorrichtung gespeichert ist. Dieses Feature befindet sich in der **Public Preview**. Verwaltetes HSM von Azure Key Vault ist ein vollständig verwalteter, hochverfügbarer, Einzelmandanten- und standardkonformer Clouddienst, der es Ihnen ermöglicht, kryptografische Schlüssel für Ihre Cloudanwendungen über HSMs zu schützen, die mit FIPS 140-2 Level 3 validiert sind. Erfahren Sie mehr über [verwaltete HSMs](../../key-vault/managed-hsm/index.yml).
 
 ## <a name="prerequisites-for-powershell"></a>Voraussetzungen für PowerShell
 
@@ -37,12 +40,13 @@ In diesem Artikel wird die Verwendung eines Schlüssels aus Azure Key Vault für
   - Kein Ablaufdatum
   - Nicht deaktiviert
   - Fähigkeit zum Ausführen des *get*-, *wrap key*- und *unwrap key*-Vorgangs
+- **(In der Vorschau)** Um einen Managed HSM-Schlüssel zu verwenden, befolgen Sie die Anweisungen zum [Erstellen und Aktivieren eines Managed HSM mit Azure CLI](../../key-vault/managed-hsm/quick-create-cli.md).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Anweisungen zur Installation des Az-Moduls finden Sie unter [Install Azure PowerShell](/powershell/azure/install-az-ps) (Installieren von Azure PowerShell). Spezifische Cmdlets finden Sie unter [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
+Anweisungen zur Installation des Az-Moduls finden Sie unter [Install Azure PowerShell](/powershell/azure/install-az-ps) (Installieren von Azure PowerShell). Spezifische Cmdlets finden Sie unter [AzureRM.Sql](/powershell/module/AzureRM.Sql/).
 
-Weitere Informationen zu Key Vault finden Sie im Artikel zu [PowerShell-Anweisungen von Key Vault](../../key-vault/secrets/quick-create-powershell.md) und unter [Verwenden des vorläufigen Löschens in Key Vault mit PowerShell](../../key-vault/general/soft-delete-powershell.md).
+Weitere Informationen zu Key Vault finden Sie im Artikel zu [PowerShell-Anweisungen von Key Vault](../../key-vault/secrets/quick-create-powershell.md) und unter [Verwenden des vorläufigen Löschens in Key Vault mit PowerShell](../../key-vault/general/key-vault-recovery.md).
 
 > [!IMPORTANT]
 > Das Azure Resource Manager-Modul (RM) von PowerShell wird weiterhin unterstützt, aber alle zukünftigen Entwicklungen erfolgen für das Az.Sql-Modul. Das AzureRM-Modul erhält mindestens bis Dezember 2020 weiterhin Fehlerbehebungen.  Die Argumente für die Befehle im Az-Modul und den AzureRm-Modulen sind im Wesentlichen identisch. Weitere Informationen zur Kompatibilität finden Sie in der [Einführung in das neue Azure PowerShell Az-Modul](/powershell/azure/new-azureps-module-az).
@@ -70,6 +74,8 @@ Verwenden Sie das Cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyv
    Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> `
        -ObjectId $server.Identity.PrincipalId -PermissionsToKeys get, wrapKey, unwrapKey
    ```
+Um Ihrem Server Berechtigungen für eine Managed HSM-Instanz hinzuzufügen, fügen Sie dem Server die lokale RBAC-Rolle „Kryptografiedienstverschlüsselung für Managed HSM“ hinzu. Dies ermöglicht dem Server, „get“-, „wrap key“- und „unwrap key“-Vorgänge für die Schlüssel in der Managed HSM-Instanz auszuführen.
+[Rollenverwaltung für Managed HSM](../../key-vault/managed-hsm/role-management.md)
 
 ## <a name="add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Hinzufügen eines Key Vault-Schlüssels zum Server und Festlegen der TDE-Schutzvorrichtung
 
@@ -79,10 +85,15 @@ Verwenden Sie das Cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyv
 - Vergewissern Sie sich mit dem Cmdlet [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector), dass die TDE-Schutzvorrichtung wie vorgesehen konfiguriert wurde.
 
 > [!NOTE]
+> **(In der Vorschau)** Verwenden Sie für Managed HSM-Schlüssel Version Az.Sql 2.11.1 von PowerShell.
+
+> [!NOTE]
 > Die kombinierte Länge für den Schlüsseltresornamen und Schlüsselnamen darf 94 Zeichen nicht überschreiten.
 
 > [!TIP]
-> Beispiel für die KeyId-Eigenschaft in Key Vault: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+> Beispiel für die KeyId-Eigenschaft in Key Vault: <br/>https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+>
+> Beispiel für die KeyId-Eigenschaft von Managed HSM:<br/>https://contosoMHSM.managedhsm.azure.net/keys/myrsakey
 
 ```powershell
 # add the key from Key Vault to the server
@@ -123,9 +134,9 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 # <a name="the-azure-cli"></a>[Die Azure-CLI](#tab/azure-cli)
 
-Informationen zum Installieren der erforderlichen Version der Azure-Befehlszeilenschnittstelle (2.0 oder höher) sowie zum Herstellen der Verbindung mit Ihrem Azure-Abonnement finden Sie unter [Installieren und Konfigurieren der plattformübergreifenden Azure-Befehlszeilenschnittstelle 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Informationen zum Installieren der erforderlichen Version der Azure-Befehlszeilenschnittstelle (2.0 oder höher) sowie zum Herstellen der Verbindung mit Ihrem Azure-Abonnement finden Sie unter [Installieren und Konfigurieren der plattformübergreifenden Azure-Befehlszeilenschnittstelle 2.0](/cli/azure/install-azure-cli).
 
-Spezifische Informationen zu Key Vault finden Sie unter [Verwalten von Key Vault mit der Azure CLI](../../key-vault/general/manage-with-cli2.md) und unter [Verwenden des vorläufigen Löschens in Key Vault mit der CLI](../../key-vault/general/soft-delete-cli.md).
+Spezifische Informationen zu Key Vault finden Sie unter [Verwalten von Key Vault mit der Azure CLI](../../key-vault/general/manage-with-cli2.md) und unter [Verwenden des vorläufigen Löschens in Key Vault mit der CLI](../../key-vault/general/key-vault-recovery.md).
 
 ## <a name="assign-an-azure-ad-identity-to-your-server"></a>Zuweisen einer Azure AD-Identität zu einem Server
 

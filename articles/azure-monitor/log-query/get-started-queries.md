@@ -6,17 +6,17 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: d43a72db385d282ee189c179254cfc270929dbbf
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a949c9b34e299e0dc4eccbb62f4b4ebb38d6ccb9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207188"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186710"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Erste Schritte mit Protokollabfragen in Azure Monitor
 
 > [!NOTE]
-> Sie können diese Übung in Ihrer eigenen Umgebung durcharbeiten, wenn Sie Daten von mindestens einem virtuellen Computer sammeln. Andernfalls verwenden Sie die [Demoumgebung](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), die eine Vielzahl von Beispieldaten enthält.  Falls Sie bereits wissen, wie Sie Abfragen in KQL ausführen, und nur schnell nützliche Abfragen basierend auf Ressourcentypen erstellen möchten, hilft Ihnen der [Bereich mit den gespeicherten Beispielabfragen](saved-queries.md) weiter.
+> Sie können diese Übung in Ihrer eigenen Umgebung durcharbeiten, wenn Sie Daten von mindestens einem virtuellen Computer sammeln. Andernfalls verwenden Sie die [Demoumgebung](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), die eine Vielzahl von Beispieldaten enthält.  Falls Sie bereits wissen, wie Sie Abfragen in KQL ausführen, und nur schnell nützliche Abfragen basierend auf Ressourcentypen erstellen möchten, hilft Ihnen der [Bereich mit den gespeicherten Beispielabfragen](./example-queries.md) weiter.
 
 In diesem Tutorial erfahren Sie, wie Sie Protokollabfragen in Azure Monitor schreiben. Es wird Folgendes vermittelt:
 
@@ -28,7 +28,7 @@ In diesem Tutorial erfahren Sie, wie Sie Protokollabfragen in Azure Monitor schr
 - Definieren und Verwenden von benutzerdefinierten Feldern
 - Aggregieren und Gruppieren von Ergebnissen
 
-Ein Tutorial zur Verwendung von Log Analytics im Azure-Portal finden Sie unter [Erste Schritte mit Azure Monitor Log Analytics](get-started-portal.md).<br>
+Ein Tutorial zur Verwendung von Log Analytics im Azure-Portal finden Sie unter [Erste Schritte mit Azure Monitor Log Analytics](./log-analytics-tutorial.md).<br>
 Weitere Informationen zu Protokollabfragen in Azure Monitor finden Sie unter [Übersicht über Protokollabfragen in Azure Monitor](log-query-overview.md).
 
 Sehen Sie sich die Videoversion dieses Tutorials an:
@@ -37,7 +37,7 @@ Sehen Sie sich die Videoversion dieses Tutorials an:
 
 ## <a name="writing-a-new-query"></a>Schreiben einer neuen Abfrage
 
-Abfragen können entweder mit einem Tabellennamen oder dem *search* -Befehl beginnen. Sie sollten mit einem Tabellennamen beginnen, da er einen klaren Gültigkeitsbereich für die Abfrage definiert und die Abfrageleistung und -relevanz der Ergebnisse verbessert.
+Abfragen können entweder mit einem Tabellennamen oder dem *search*-Befehl beginnen. Sie sollten mit einem Tabellennamen beginnen, da er einen klaren Gültigkeitsbereich für die Abfrage definiert und die Abfrageleistung und -relevanz der Ergebnisse verbessert.
 
 > [!NOTE]
 > Bei der in Azure Monitor verwendeten Abfragesprache Kusto wird die Groß-/Kleinschreibung berücksichtigt. Programmiersprachen-Schlüsselwörter werden in der Regel in Kleinbuchstaben geschrieben. Verwenden Sie die richtige Schreibweise bei Tabellen- oder Spaltennamen in einer Abfrage, wie im Schemabereich angezeigt wird.
@@ -51,11 +51,11 @@ SecurityEvent
 | take 10
 ```
 
-Die oben gezeigte Abfrage gibt in keiner bestimmten Reihenfolge 10 Ergebnisse aus der *SecurityEvent* -Tabelle zurück. Dies ist eine gängige Methode, um eine Tabelle zu untersuchen und sich mit deren Struktur und Inhalt vertraut zu machen. Werfen wir einen Blick darauf, wie sie erstellt wird:
+Die oben gezeigte Abfrage gibt in keiner bestimmten Reihenfolge 10 Ergebnisse aus der *SecurityEvent*-Tabelle zurück. Dies ist eine gängige Methode, um eine Tabelle zu untersuchen und sich mit deren Struktur und Inhalt vertraut zu machen. Werfen wir einen Blick darauf, wie sie erstellt wird:
 
-* Die Abfrage beginnt mit dem Tabellennamen *SecurityEvent* , dem Teil, der den Gültigkeitsbereich der Abfrage definiert.
+* Die Abfrage beginnt mit dem Tabellennamen *SecurityEvent*, dem Teil, der den Gültigkeitsbereich der Abfrage definiert.
 * Der senkrechte Strich (|) trennt Befehle, d.h. die Ausgabe des ersten Befehls in der Eingabe vom folgenden Befehl. Sie können eine beliebige Anzahl von durch senkrechte Striche getrennten Elementen hinzufügen.
-* Nach dem senkrechten Strich folgt der **take** -Befehl, der eine bestimmte Anzahl von beliebigen Datensätzen aus der Tabelle zurückgibt.
+* Nach dem senkrechten Strich folgt der **take**-Befehl, der eine bestimmte Anzahl von beliebigen Datensätzen aus der Tabelle zurückgibt.
 
 Die Abfrage könnte sogar ohne Hinzufügen von `| take 10` ausgeführt werden. Dies wäre zwar eine gültige Abfrage, könnte jedoch bis zu 10.000 Ergebnisse zurückgeben.
 
@@ -68,13 +68,13 @@ search in (SecurityEvent) "Cryptographic"
 | take 10
 ```
 
-Diese Abfrage sucht die *SecurityEvent* -Tabelle für Datensätze, die den Ausdruck „Cryptographic“ enthalten. Von diesen Datensätzen werden 10 Datensätze zurückgegeben und angezeigt. Wenn wir den Teil `in (SecurityEvent)` auslassen und nur `search "Cryptographic"` ausführen, geht die Suche *alle* Tabellen durch, was mehr Zeit in Anspruch nehmen würde und weniger effizient wäre.
+Diese Abfrage sucht die *SecurityEvent*-Tabelle für Datensätze, die den Ausdruck „Cryptographic“ enthalten. Von diesen Datensätzen werden 10 Datensätze zurückgegeben und angezeigt. Wenn wir den Teil `in (SecurityEvent)` auslassen und nur `search "Cryptographic"` ausführen, geht die Suche *alle* Tabellen durch, was mehr Zeit in Anspruch nehmen würde und weniger effizient wäre.
 
 > [!WARNING]
 > Suchabfragen sind in der Regel langsamer als tabellengestützte Abfragen, da sie mehr Daten verarbeiten müssen. 
 
 ## <a name="sort-and-top"></a>„sort“ und „top“
-Zwar können mit **take** einige Datensätze abgerufen werden, allerdings werden die Ergebnisse in keiner bestimmten Reihenfolge ausgewählt und angezeigt. Um eine sortierte Ansicht zu erhalten, können Sie diese nach der bevorzugten Spalte **sortieren** :
+Zwar können mit **take** einige Datensätze abgerufen werden, allerdings werden die Ergebnisse in keiner bestimmten Reihenfolge ausgewählt und angezeigt. Um eine sortierte Ansicht zu erhalten, können Sie diese nach der bevorzugten Spalte **sortieren**:
 
 ```Kusto
 SecurityEvent   
@@ -90,7 +90,7 @@ SecurityEvent
 | top 10 by TimeGenerated
 ```
 
-Die Standardsortierreihenfolge ist absteigend. Daher wird das **desc** -Argument in der Regel ausgelassen. Die Ausgabe sieht wie folgt aus:
+Die Standardsortierreihenfolge ist absteigend. Daher wird das **desc**-Argument in der Regel ausgelassen. Die Ausgabe sieht wie folgt aus:
 
 ![Die ersten 10 Ergebnisse](media/get-started-queries/top10.png)
 
@@ -98,7 +98,7 @@ Die Standardsortierreihenfolge ist absteigend. Daher wird das **desc** -Argument
 ## <a name="where-filtering-on-a-condition"></a>where: Filtern nach einer Bedingung
 Wie der Name schon angibt, filtern Filter die Daten nach einer bestimmten Bedingung. Dies ist die gängigste Methode, um Abfrageergebnisse auf relevante Informationen zu beschränken.
 
-Verwenden Sie zum Hinzufügen eines Filters zu einer Abfrage den **where** -Operator gefolgt von einer oder mehreren Bedingungen. Die folgende Abfrage gibt beispielsweise nur *SecurityEvent* -Datensätze zurück, bei denen _Level_ _8_ entspricht:
+Verwenden Sie zum Hinzufügen eines Filters zu einer Abfrage den **where**-Operator gefolgt von einer oder mehreren Bedingungen. Die folgende Abfrage gibt beispielsweise nur *SecurityEvent*-Datensätze zurück, bei denen _Level_ _8_ entspricht:
 
 ```Kusto
 SecurityEvent
@@ -112,7 +112,7 @@ Beim Schreiben von Filterbedingungen können Sie folgende Ausdrücke verwenden:
 | == | Überprüfung auf Gleichheit<br>(mit Berücksichtigung der Groß-/Kleinschreibung) | `Level == 8` |
 | =~ | Überprüfung auf Gleichheit<br>(ohne Berücksichtigung der Groß-/Kleinschreibung) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
 | !=, <> | Überprüfung auf Ungleichheit<br>(beide Ausdrücke sind identisch) | `Level != 4` |
-| *and* , *or* | Zwischen Bedingungen erforderlich| `Level == 16 or CommandLine != ""` |
+| *and*, *or* | Zwischen Bedingungen erforderlich| `Level == 16 or CommandLine != ""` |
 
 Zum Filtern nach mehreren Bedingungen können Sie einerseits **und** verwenden:
 
@@ -121,7 +121,7 @@ SecurityEvent
 | where Level == 8 and EventID == 4672
 ```
 
-Alternativ können Sie hintereinander mehrere **where** -Elemente übergeben:
+Alternativ können Sie hintereinander mehrere **where**-Elemente übergeben:
 
 ```Kusto
 SecurityEvent
@@ -172,7 +172,7 @@ Sie können über **project** auch Spalten umbenennen und neue definieren. Im fo
 
 * Wählen Sie nur die ursprünglichen Spalten *Computer* und *TimeGenerated* aus.
 * Zeigt die Spalte *Activity* als *EventDetails* an.
-* Erstellen Sie eine neue Spalte mit dem Namen *EventCode* . Die Funktion **substring()** wird verwendet, um nur die ersten vier Zeichen aus dem Feld „Activity“ abzurufen.
+* Erstellen Sie eine neue Spalte mit dem Namen *EventCode*. Die Funktion **substring()** wird verwendet, um nur die ersten vier Zeichen aus dem Feld „Activity“ abzurufen.
 
 
 ```Kusto
@@ -181,7 +181,7 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-**extend** behält alle ursprünglichen Spalten im Resultset bei und definiert weitere Typen. Die folgende Abfrage verwendet **extend** zum Hinzufügen der Spalte *EventCode* . Beachten Sie, dass diese Spalte möglicherweise nicht am Ende der Tabellenergebnisse angezeigt wird. In diesem Fall müssen Sie zum Anzeigen die Details eines Datensatzes erweitern.
+**extend** behält alle ursprünglichen Spalten im Resultset bei und definiert weitere Typen. Die folgende Abfrage verwendet **extend** zum Hinzufügen der Spalte *EventCode*. Beachten Sie, dass diese Spalte möglicherweise nicht am Ende der Tabellenergebnisse angezeigt wird. In diesem Fall müssen Sie zum Anzeigen die Details eines Datensatzes erweitern.
 
 ```Kusto
 SecurityEvent
@@ -192,7 +192,7 @@ SecurityEvent
 ## <a name="summarize-aggregate-groups-of-rows"></a>„summarize“: Aggregieren von Zeilengruppen
 Identifizieren Sie mit **summarize** Gruppen von Datensätzen entsprechend einer oder mehrerer Spalten, und wenden Sie Aggregationen auf diese an. Am häufigsten wird **summarize** mit *count* verwendet, womit die Anzahl von Ergebnissen in jeder Gruppe zurückgegeben wird.
 
-Die folgende Abfrage überprüft alle *Perf* -Datensätze aus der letzten Stunde, gruppiert diese nach *ObjectName* und zählt die Datensätze in jeder Gruppe: 
+Die folgende Abfrage überprüft alle *Perf*-Datensätze aus der letzten Stunde, gruppiert diese nach *ObjectName* und zählt die Datensätze in jeder Gruppe: 
 ```Kusto
 Perf
 | where TimeGenerated > ago(1h)
@@ -226,7 +226,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>Zusammenfassen nach einer Zeitspalte
 Die Gruppierung von Ergebnissen kann auch auf einer Zeitspalte oder einem anderen kontinuierlichen Wert basieren. Durch das bloße Zusammenfassen von `by TimeGenerated` würden Gruppen für jede einzelne Millisekunde für den Zeitbereich erstellt werden, da es sich um eindeutige Werte handelt. 
 
-Zum Erstellen von Gruppen, die auf kontinuierlichen Werten basieren, wird empfohlen, den Bereich mittels **bin** in verwaltbare Einheiten zu unterteilen. Die folgende Abfrage analysiert *Perf* -Datensätze, die den freien Arbeitsspeicher ( *MBytes* ) auf einem bestimmten Computer ermitteln. Sie berechnet den Durchschnittswert für jeden Zeitraum von einer Stunde über die letzten sieben Tage:
+Zum Erstellen von Gruppen, die auf kontinuierlichen Werten basieren, wird empfohlen, den Bereich mittels **bin** in verwaltbare Einheiten zu unterteilen. Die folgende Abfrage analysiert *Perf*-Datensätze, die den freien Arbeitsspeicher (*MBytes*) auf einem bestimmten Computer ermitteln. Sie berechnet den Durchschnittswert für jeden Zeitraum von einer Stunde über die letzten sieben Tage:
 
 ```Kusto
 Perf 
@@ -244,7 +244,7 @@ Um die Ausgabe übersichtlicher zu gestalten, wählen Sie das jeweilige Zeitdiag
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Weitere Informationen zur Verwendung von Zeichenfolgendaten in einer Protokollabfrage finden Sie unter [Arbeiten mit Zeichenfolgen in Azure Monitor-Protokollabfragen](string-operations.md).
-- Weitere Informationen zum Aggregieren von Daten in einer Protokollabfrage finden Sie unter [Erweiterte Aggregationen in Azure Monitor-Protokollabfragen](advanced-aggregations.md).
-- Unter [Joins in Azure Monitor-Protokollabfragen](joins.md) erfahren Sie, wie Sie Daten aus mehreren Tabellen verknüpfen.
+- Weitere Informationen zur Verwendung von Zeichenfolgendaten in einer Protokollabfrage finden Sie unter [Arbeiten mit Zeichenfolgen in Azure Monitor-Protokollabfragen](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#string-operations).
+- Weitere Informationen zum Aggregieren von Daten in einer Protokollabfrage finden Sie unter [Erweiterte Aggregationen in Azure Monitor-Protokollabfragen](/azure/data-explorer/write-queries#advanced-aggregations).
+- Unter [Joins in Azure Monitor-Protokollabfragen](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins) erfahren Sie, wie Sie Daten aus mehreren Tabellen verknüpfen.
 - Eine Dokumentation zur gesamten Kusto-Abfragesprache finden Sie in der [KQL-Sprachreferenz](/azure/kusto/query/).

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
 ms.custom: devx-track-java
-ms.openlocfilehash: fac992ba0d6be945fcb3184d27394ff58d98c44c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 62f31d8426e86cc20e957f3a47b30109dee0a634
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151030"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185673"
 ---
 # <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Schnellstart: Erstellen eines Chatraums mit Azure Functions und SignalR Service mithilfe von Java
 
@@ -37,21 +37,21 @@ Mit Azure SignalR Service können Sie Ihrer Anwendung ganz einfach Echtzeitfunkt
 > [!NOTE]
 > Dieser Schnellstart kann unter MacOS, Windows oder Linux ausgeführt werden.
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/asrs/qsjava)
+Treten Probleme auf? Verwenden Sie den [Leitfaden zur Problembehandlung](signalr-howto-troubleshoot-guide.md), oder [informieren Sie uns](https://aka.ms/asrs/qsjava).
 
 ## <a name="log-in-to-azure"></a>Anmelden an Azure
 
 Melden Sie sich unter <https://portal.azure.com/> mit Ihrem Azure-Konto beim Azure-Portal an.
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/asrs/qsjava)
+Treten Probleme auf? Verwenden Sie den [Leitfaden zur Problembehandlung](signalr-howto-troubleshoot-guide.md), oder [informieren Sie uns](https://aka.ms/asrs/qsjava).
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/asrs/qsjava)
+Treten Probleme auf? Verwenden Sie den [Leitfaden zur Problembehandlung](signalr-howto-troubleshoot-guide.md), oder [informieren Sie uns](https://aka.ms/asrs/qsjava).
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/asrs/qsjava)
+Treten Probleme auf? Verwenden Sie den [Leitfaden zur Problembehandlung](signalr-howto-troubleshoot-guide.md), oder [informieren Sie uns](https://aka.ms/asrs/qsjava).
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Konfigurieren und Ausführen der Azure Functions-App
 
@@ -87,21 +87,20 @@ Melden Sie sich unter <https://portal.azure.com/> mit Ihrem Azure-Konto beim Azu
     ```bash
     mvn azure-functions:run
     ```
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/asrs/qsjava)
+    
+Treten Probleme auf? Verwenden Sie den [Leitfaden zur Problembehandlung](signalr-howto-troubleshoot-guide.md), oder [informieren Sie uns](https://aka.ms/asrs/qsjava).
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/asrs/qsjava)
+Treten Probleme auf? Verwenden Sie den [Leitfaden zur Problembehandlung](signalr-howto-troubleshoot-guide.md), oder [informieren Sie uns](https://aka.ms/asrs/qsjava).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/asrs/qsjava)
+Treten Probleme auf? Verwenden Sie den [Leitfaden zur Problembehandlung](signalr-howto-troubleshoot-guide.md), oder [informieren Sie uns](https://aka.ms/asrs/qsjava).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 In diesem Schnellstart haben Sie eine serverlose Echtzeitanwendung mithilfe von Maven erstellt und ausgeführt. Als Nächstes erfahren Sie, wie Sie Java Azure Functions von Grund auf erstellen.
 
 > [!div class="nextstepaction"]
-> [Erstellen Ihrer ersten Funktion mit Java und Maven](../azure-functions/functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java%252cprogramming-language-java)
-
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/asrs/qsjava)
+> [Erstellen Ihrer ersten Funktion mit Java und Maven](../azure-functions/create-first-function-cli-csharp.md?pivots=programming-language-java%2cprogramming-language-java)

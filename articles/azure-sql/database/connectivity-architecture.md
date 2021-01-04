@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: 71bd250cbfb2642a291d495273c4cd66ebb2c350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0242ceec62db6548d91e5e58c21981a4f0246a0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325384"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672496"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Verbindungsarchitektur von Azure SQL-Datenbank und Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -31,7 +31,7 @@ In diesem Artikel wird die Architektur verschiedener Komponenten erläutert, die
 
 Das folgende Diagramm bietet einen allgemeinen Überblick über die Verbindungsarchitektur.
 
-![Architekturübersicht](./media/connectivity-architecture/connectivity-overview.png)
+![Diagramm mit einer allgemeinen Übersicht über die Konnektivitätsarchitektur](./media/connectivity-architecture/connectivity-overview.png)
 
 In den folgenden Schritten wird das Herstellen einer Verbindung mit einer Azure SQL-Datenbank-Instanz beschrieben:
 
@@ -51,7 +51,7 @@ Server in Azure SQL-Datenbank und Azure Synapse unterstützen diese drei Optione
 
 - **Standardwert:** Diese Verbindungsrichtlinie ist nach dem Erstellen auf allen Servern aktiv, es sei denn, Sie ändern sie explizit in `Proxy` oder `Redirect`. Die Standardrichtlinie für alle Clientverbindungen, die innerhalb von Azure hergestellt werden (z. B. über einen virtuellen Azure-Computer), ist `Redirect`. Für alle Clientverbindungen, die außerhalb von Azure hergestellt werden (z. B. über Ihre lokale Arbeitsstation), lautet sie `Proxy`.
 
-Es wird empfohlen, die Verbindungsrichtlinie `Redirect` statt der Verbindungsrichtlinie `Proxy` zu verwenden, um die niedrigste Latenz und den höchsten Durchsatz zu erzielen. Allerdings müssen Sie die zusätzlichen Anforderungen erfüllen, um Netzwerkdatenverkehr wie oben beschrieben zu ermöglichen. Wenn es sich bei dem Client um einen virtuellen Azure-Computer handelt, lässt sich dies mithilfe von Netzwerksicherheitsgruppen (NSG) mit [Diensttags](../../virtual-network/security-overview.md#service-tags) erreichen. Wenn der Client eine Verbindung über eine lokale Arbeitsstation herstellt, müssen Sie sich möglicherweise an den Netzwerkadministrator wenden, um Netzwerkdatenverkehr über die Unternehmensfirewall zuzulassen.
+Es wird empfohlen, die Verbindungsrichtlinie `Redirect` statt der Verbindungsrichtlinie `Proxy` zu verwenden, um die niedrigste Latenz und den höchsten Durchsatz zu erzielen. Allerdings müssen Sie die zusätzlichen Anforderungen erfüllen, um Netzwerkdatenverkehr wie oben beschrieben zu ermöglichen. Wenn es sich bei dem Client um einen virtuellen Azure-Computer handelt, lässt sich dies mithilfe von Netzwerksicherheitsgruppen (NSG) mit [Diensttags](../../virtual-network/network-security-groups-overview.md#service-tags) erreichen. Wenn der Client eine Verbindung über eine lokale Arbeitsstation herstellt, müssen Sie sich möglicherweise an den Netzwerkadministrator wenden, um Netzwerkdatenverkehr über die Unternehmensfirewall zuzulassen.
 
 ## <a name="connectivity-from-within-azure"></a>Verbindung aus Azure
 
@@ -63,10 +63,10 @@ Wenn Sie eine Verbindung aus Azure herstellen, verfügen Ihre Verbindungen stand
 
 Wenn Sie von außerhalb von Azure eine Verbindung herstellen, verfügen Ihre Verbindungen standardmäßig über die Verbindungsrichtlinie `Proxy`. Die Richtlinie `Proxy` bedeutet, dass die TCP-Sitzung über das Gateway von Azure SQL-Datenbank hergestellt wird und dass alle nachfolgenden Pakete über das Gateway fließen. Das folgende Diagramm veranschaulicht diesen Datenverkehrfluss.
 
-![Architekturübersicht](./media/connectivity-architecture/connectivity-onprem.png)
+![Diagramm der Einrichtung der TCP-Sitzung über das Gateway von Azure SQL-Datenbank und des gesamten nachfolgenden Paketflusses über das Gateway](./media/connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
-> Öffnen Sie zusätzlich die TCP-Ports 1434 und 14000 bis 14999, um das [Herstellen einer dedizierten Administratorverbindung](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac) zu ermöglichen.
+> Öffnen Sie zusätzlich die TCP-Ports 1434 und 14000 bis 14999, um das [Herstellen einer dedizierten Administratorverbindung](/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac) zu ermöglichen.
 
 ## <a name="gateway-ip-addresses"></a>Gateway-IP-Adressen
 
@@ -124,6 +124,6 @@ Details zum Migrieren von Datenverkehr zu neuen Gateways in bestimmten Regionen 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Informationen zum Ändern der Verbindungsrichtlinie von Azure SQL-Datenbank für einen Server finden Sie unter [az sql server conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
+- Informationen zum Ändern der Verbindungsrichtlinie von Azure SQL-Datenbank für einen Server finden Sie unter [az sql server conn-policy](/cli/azure/sql/server/conn-policy).
 - Weitere Informationen zum Verbindungsverhalten von Azure SQL-Datenbank für Kunden, die ADO.NET 4.5 oder höher verwenden, finden Sie unter [Andere Ports als 1433 für ADO.NET 4.5](adonet-v12-develop-direct-route-ports.md).
 - Einen allgemeinen Überblick über die Anwendungsentwicklung finden Sie unter [SQL-Datenbankanwendungsentwicklung – Übersicht](develop-overview.md).

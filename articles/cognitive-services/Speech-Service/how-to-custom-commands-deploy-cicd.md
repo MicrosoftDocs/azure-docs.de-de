@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: bd1ab5110313380c90e71ed161935c7274a845b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dda50a443babca88a0a650fde60df0744d0a1d2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839247"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021829"
 ---
 # <a name="continuous-deployment-with-azure-devops"></a>Continuous Deployment mit Azure DevOps
 
@@ -25,7 +25,7 @@ In diesem Artikel erfahren Sie, wie Sie eine Continuous Deployment für Ihre Anw
 > [!div class = "checklist"]
 > * Eine Anwendung für benutzerdefinierte Befehle für die Entwicklung (DEV)
 > * Eine Anwendung für benutzerdefinierte Befehle für die Produktion (PROD)
-> * Registrieren Sie sich für [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops).
+> * Registrieren Sie sich für [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops).
 
 ## <a name="exportimportpublish"></a>Exportieren/Importieren/Veröffentlichen
 
@@ -99,7 +99,7 @@ Die Skripts werden unter [Sprachassistent für Cognitive Services – benutzerde
 
 ## <a name="deploy-from-source-code"></a>Bereitstellen aus dem Quellcode
 
-Für den Fall, dass Sie die Definition Ihrer Anwendung in einem Repository aufbewahren möchten, stellen wir die Skripts für Bereitstellungen aus dem Quellcode zur Verfügung. Da sich die Skripts in Bash befinden, müssen Sie, wenn Sie Windows verwenden, das [Linux-Subsystem](https://docs.microsoft.com/windows/wsl/install-win10) installieren.
+Für den Fall, dass Sie die Definition Ihrer Anwendung in einem Repository aufbewahren möchten, stellen wir die Skripts für Bereitstellungen aus dem Quellcode zur Verfügung. Da sich die Skripts in Bash befinden, müssen Sie, wenn Sie Windows verwenden, das [Linux-Subsystem](/windows/wsl/install-win10) installieren.
 
 Die Skripts werden unter [Sprachassistent für Cognitive Services – benutzerdefinierte Befehle](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/master/custom-commands) gehostet. Klonen Sie die Skripts im bash-Verzeichnis in Ihr Repository. Achten Sie darauf, dass Sie denselben Pfad beibehalten.
 

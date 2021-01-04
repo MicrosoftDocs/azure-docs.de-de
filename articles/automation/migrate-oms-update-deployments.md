@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: dabe914ffd4e84e8ded5c0e3b519036479fe33ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2226f55c829afa4316a92888d16f6dc68e1f931
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987603"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183599"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Migrieren der Updatebereitstellungen für Azure Monitor-Protokolle zum Azure-Portal
 
@@ -19,7 +19,7 @@ Das Portal der Operations Management Suite (OMS) wird gerade [eingestellt](../az
 ## <a name="key-information"></a>Wichtige Informationen
 
 * Vorhandene Bereitstellungen sind weiterhin funktionsfähig. Nachdem Sie die Bereitstellung in Azure neu erstellt haben, können Sie die alte Bereitstellung löschen.
-* Alle vorhandenen Funktionen aus OMS sind nun in Azure verfügbar. Weitere Informationen zur Updateverwaltung finden Sie unter [Übersicht über die Updateverwaltung](update-management/update-mgmt-overview.md).
+* Alle vorhandenen Funktionen aus OMS sind nun in Azure verfügbar. Weitere Informationen zur Updateverwaltung finden Sie unter [Übersicht über die Updateverwaltung](./update-management/overview.md).
 
 ## <a name="access-the-azure-portal"></a>Zugriff auf fas Azure-Portal
 
@@ -43,7 +43,7 @@ Das Portal der Operations Management Suite (OMS) wird gerade [eingestellt](../az
 
 Alle im OMS-Portal erstellten Updatebereitstellungen verfügen über eine [gespeicherte Suche](../azure-monitor/platform/computer-groups.md), auch Computergruppe genannt. Diese weist denselben Namen wie die vorhandene Updatebereitstellung auf. Die gespeicherte Suche enthält die Liste der Computer, für die die Updatebereitstellung geplant wurde.
 
-:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Screenshot der Seite „Updateverwaltung“.":::
+:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Screenshot der Seite „Updatebereitstellungen“ mit hervorgehobenen Feldern „Name“ und „Server“.":::
 
 Wenn Sie diese vorhandene gespeicherte Suche verwenden möchten, gehen Sie folgendermaßen vor:
 
@@ -74,4 +74,4 @@ Wenn Sie diese vorhandene gespeicherte Suche verwenden möchten, gehen Sie folge
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zur Updateverwaltung in Azure Automation finden Sie unter [Übersicht über die Updateverwaltung](update-management/update-mgmt-overview.md).
+Weitere Informationen zur Updateverwaltung in Azure Automation finden Sie unter [Übersicht über die Updateverwaltung](./update-management/overview.md).

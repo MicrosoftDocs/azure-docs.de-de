@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 31fc6fe02559c356f072761c024308f158ae4d9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a7d3992ecd2c74947eaa1071b97b2032000c749
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085445"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547604"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Analysieren und Verarbeiten von JSON-Dokumenten mithilfe von Apache Hive in Azure HDInsight
 
@@ -90,11 +90,11 @@ Die unformatierte JSON-Datei befindet sich unter `wasb://processjson@hditutorial
 
 Die Hive-Tabelle **StudentsOneLine** speichert die Daten im HDInsight-Standarddateisystem unter dem Pfad **/json/students/** .
 
-Die **INSERT**-Anweisung füllt die Tabelle **StudentOneLine** mit den vereinfachten JSON-Daten.
+Die **INSERT** -Anweisung füllt die Tabelle **StudentOneLine** mit den vereinfachten JSON-Daten.
 
-Die **SELECT**-Anweisung gibt nur eine Zeile zurück.
+Die **SELECT** -Anweisung gibt nur eine Zeile zurück.
 
-Dies ist die Ausgabe der **SELECT**-Anweisung:
+Dies ist die Ausgabe der **SELECT** -Anweisung:
 
 ![Vereinfachen des JSON-Dokuments mit HDInsight](./media/using-json-in-hive/hdinsight-flatten-json.png)
 
@@ -127,7 +127,7 @@ Dies ist die Ausgabe, wenn diese Abfrage im Konsolenfenster ausgeführt wurde:
 Für die get-json_object-UDF gibt es Einschränkungen:
 
 * Da für jedes Feld in der Abfrage eine erneute Analyse der Abfrage erforderlich ist, wird die Leistung beeinträchtigt.
-* \_GET**JSON_OBJECT()** gibt die Zeichenfolgendarstellung eines Arrays zurück. Zum Umwandeln dieses Arrays in ein Hive-Array müssen Sie reguläre Ausdrücke verwenden, um die eckigen Klammern „[“ und „]“ zu ersetzen, und Sie müssen die Funktion „Call Split“ verwenden, um das Array zu erhalten.
+* \_GET **JSON_OBJECT()** gibt die Zeichenfolgendarstellung eines Arrays zurück. Zum Umwandeln dieses Arrays in ein Hive-Array müssen Sie reguläre Ausdrücke verwenden, um die eckigen Klammern „[“ und „]“ zu ersetzen, und Sie müssen die Funktion „Call Split“ verwenden, um das Array zu erhalten.
 
 Aufgrund dieser Umwandlung wird im Hive-Wiki die Verwendung von **json_tuple** empfohlen.  
 
@@ -154,11 +154,11 @@ SerDe ist die beste Wahl für das Analysieren von geschachtelten JSON-Dokumenten
 
 ## <a name="summary"></a>Zusammenfassung
 
-Der Typ des JSON-Operators in Hive, den Sie auswählen, hängt vom Szenario ab. Wählen Sie für die Suche nach einem einzigen Feld in einem einfachen JSON-Dokument die Hive-UDF **get_json_object** aus. Wenn mehrere Suchschlüssel vorliegen, können Sie die UDF **json_tuple** verwenden. Verwenden Sie für geschachtelte Dokumente das **JSON-SerDe**.
+Der Typ des JSON-Operators in Hive, den Sie auswählen, hängt vom Szenario ab. Wählen Sie für die Suche nach einem einzigen Feld in einem einfachen JSON-Dokument die Hive-UDF **get_json_object** aus. Wenn mehrere Suchschlüssel vorliegen, können Sie die UDF **json_tuple** verwenden. Verwenden Sie für geschachtelte Dokumente das **JSON-SerDe** .
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 Verwandte Artikel finden Sie unter:
 
-* [Verwenden von Apache Hive und HiveQL mit Apache Hadoop in HDInsight zum Analysieren einer Apache Log4j-Beispieldatei](../hdinsight-use-hive.md)
+* [Verwenden von Apache Hive und HiveQL mit Apache Hadoop in HDInsight zum Analysieren einer Apache Log4j-Beispieldatei](./hdinsight-use-hive.md)
 * [Tutorial: Extrahieren, Transformieren und Laden von Daten mithilfe von Interactive Query in Azure HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)

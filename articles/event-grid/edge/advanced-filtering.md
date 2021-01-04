@@ -8,11 +8,11 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 64b8956c47cbdbf31bb8253dac0c1e1f12833bf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86171770"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001047"
 ---
 # <a name="advanced-filtering"></a>Erweiterte Filterung
 In Event Grid können Filter für eine beliebige Eigenschaft in der JSON-Nutzlast angegeben werden. Diese Filter werden als Gruppe von `AND`-Bedingungen erstellt, wobei jede äußere Bedingung über optionale innere `OR`-Bedingungen verfügt. Für jede `AND`-Bedingung geben Sie die folgenden Werte an:

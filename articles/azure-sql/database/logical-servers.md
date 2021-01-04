@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: abb8f42e7fe4ffe6e933f466202247c73ece129a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e0736e58983d4c28b8f2f4a20241cd36ac84fdfa
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441713"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445378"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Was ist ein logischer SQL-Server in Azure SQL-Datenbank und Azure Synapse?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -26,7 +26,7 @@ In Azure SQL-Datenbank und Azure Synapse Analytics ist ein Server ein logisches 
 
 Dieser Server unterscheidet sich von einer SQL Server-Instanz, mit der Sie möglicherweise in der lokalen Umgebung vertraut sind. Es gibt keine Garantien für den Standort der Datenbanken oder Data Warehouse-Datenbanken im Zusammenhang mit dem Server, der diese verwaltet. Darüber hinaus stellen weder Azure SQL-Datenbank noch Azure Synapse Zugriff oder Features auf Instanzebene zur Verfügung. Im Gegensatz dazu werden die Instanzdatenbanken in einer verwalteten Instanz alle an einem gemeinsamen physischen Standort eingerichtet. Dies erfolgt auf dieselbe Weise wie bei SQL Server in lokalen Umgebungen oder bei virtuellen Computern.
 
-Beim Erstellen eines Servers geben Sie ein Serveranmeldekonto und ein dazugehöriges Kennwort an, das über Administratorrechte für die Masterdatenbank auf dem Server und für alle Datenbanken verfügt, die auf diesem Server erstellt werden. Bei diesem anfänglichen Konto handelt es sich um ein SQL-Anmeldekonto. Azure SQL-Datenbank und Synapse Analytics unterstützen die SQL-Authentifizierung und die Azure Active Directory-Authentifizierung. Weitere Informationen zu Anmeldungen und Authentifizierungen finden Sie unter [Verwalten von Datenbanken und Anmeldungen in der Azure SQL-Datenbank](logins-create-manage.md). Windows-Authentifizierung wird nicht unterstützt.
+Beim Erstellen eines Servers geben Sie ein Serveranmeldekonto und ein dazugehöriges Kennwort an, das über Administratorrechte für die Masterdatenbank auf dem Server und für alle Datenbanken verfügt, die auf diesem Server erstellt werden. Bei diesem anfänglichen Konto handelt es sich um ein SQL-Anmeldekonto. Azure SQL-Datenbank und Azure Synapse Analytics unterstützen die SQL-Authentifizierung und die Azure Active Directory-Authentifizierung. Weitere Informationen zu Anmeldungen und Authentifizierungen finden Sie unter [Verwalten von Datenbanken und Anmeldungen in der Azure SQL-Datenbank](logins-create-manage.md). Windows-Authentifizierung wird nicht unterstützt.
 
 Ein Server in SQL-Datenbank und Azure Synapse:
 
@@ -34,7 +34,7 @@ Ein Server in SQL-Datenbank und Azure Synapse:
 - ist die übergeordnete Ressource für Datenbanken, Pools für elastische Datenbanken und Data Warehouses
 - stellt einen Namespace für Datenbanken, Pools für elastische Datenbanken und Data Warehouse-Datenbanken bereit
 - ist ein Container mit Semantik von hoher Lebensdauer – beim Löschen eines Servers werden die enthaltenen Datenbanken, Pools für elastische Datenbanken und SQK-Pools gelöscht
-- beteiligt sich an der [rollenbasierten Zugriffssteuerung in Azure (Role-Based Access Control, Azure RBAC)](/azure/role-based-access-control/overview) – Datenbanken, Pools für elastische Datenbanken und Data Warehouse-Datenbanken innerhalb eines Servers erben dessen Zugriffsrechte
+- beteiligt sich an der [rollenbasierten Zugriffssteuerung in Azure (Role-Based Access Control, Azure RBAC)](../../role-based-access-control/overview.md) – Datenbanken, Pools für elastische Datenbanken und Data Warehouse-Datenbanken innerhalb eines Servers erben dessen Zugriffsrechte
 - ist ein übergeordnetes Element der Identität von Datenbanken, Pools für elastische Datenbanken und Data Warehouse-Datenbanken für Zwecke der Azure-Ressourcenverwaltung (siehe das URL-Schema für Datenbanken und Pools)
 - stellt in einer Region Ressourcen zusammen
 - bietet eine Verbindungsendpunkt für den Datenbankzugriff (`<serverName>`.database.windows.net)
@@ -83,7 +83,7 @@ Um eine vorhandene Datenbank zu verwalten, navigieren Sie zu der Seite **SQL-Dat
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Das Azure Resource Manager-Modul von PowerShell wird weiterhin unterstützt, aber alle zukünftigen Entwicklungen erfolgen für das Az.Sql-Modul. Informationen zu diesen Cmdlets finden Sie unter [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Die Argumente für die Befehle im Az-Modul und den AzureRm-Modulen sind im Wesentlichen identisch.
+> Das Azure Resource Manager-Modul von PowerShell wird weiterhin unterstützt, aber alle zukünftigen Entwicklungen erfolgen für das Az.Sql-Modul. Informationen zu diesen Cmdlets finden Sie unter [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Die Argumente für die Befehle im Az-Modul und den AzureRm-Modulen sind im Wesentlichen identisch.
 
 Verwenden Sie zum Erstellen und Verwalten von Servern, Datenbanken und Firewalls mithilfe von Azure PowerShell die folgenden PowerShell-Cmdlets. Wenn Sie PowerShell installieren oder aktualisieren müssen, helfen Ihnen die Informationen unter [Installieren des Azure PowerShell-Moduls](/powershell/azure/install-az-ps) weiter. Informationen zum Erstellen und Verwalten von Pools für elastische Datenbanken finden Sie unter [Pools für elastische Datenbanken](elastic-pool-overview.md).
 
@@ -96,7 +96,7 @@ Verwenden Sie zum Erstellen und Verwalten von Servern, Datenbanken und Firewalls
 |[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)|Erstellt eine Ressourcengruppe|
 |[New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver)|Erstellt einen Server|
 |[Get-AzSqlServer](/powershell/module/az.sql/get-azsqlserver)|Gibt Informationen zu Servern zurück|
-|[Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver)|Ändert die Eigenschaften eines Servers|
+|[Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver)|Ändert die Eigenschaften eines Servers|
 |[Remove-AzSqlServer](/powershell/module/az.sql/remove-azsqlserver)|Entfernt einen Server|
 |[New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule)|Erstellt eine Firewallregel auf Serverebene |
 |[Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule)|Ruft Firewallregeln für einen Server ab|
@@ -110,7 +110,7 @@ Verwenden Sie zum Erstellen und Verwalten von Servern, Datenbanken und Firewalls
 
 ## <a name="manage-servers-databases-and-firewalls-using-the-azure-cli"></a>Verwalten von Servern, Datenbanken und Firewalls mithilfe der Azure CLI
 
-Verwenden Sie zum Erstellen und Verwalten von Servern, Datenbanken und Firewalls mithilfe der [Azure CLI](/cli/azure) die folgenden [Azure CLI-Befehle für SQL-Datenbank](/cli/azure/sql/db). Führen Sie die CLI mithilfe von [Cloud Shell](/azure/cloud-shell/overview) in Ihrem Browser aus, oder [installieren](/cli/azure/install-azure-cli) Sie sie unter macOS, Linux oder Windows. Informationen zum Erstellen und Verwalten von Pools für elastische Datenbanken finden Sie unter [Pools für elastische Datenbanken](elastic-pool-overview.md).
+Verwenden Sie zum Erstellen und Verwalten von Servern, Datenbanken und Firewalls mithilfe der [Azure CLI](/cli/azure) die folgenden [Azure CLI-Befehle für SQL-Datenbank](/cli/azure/sql/db). Führen Sie die CLI mithilfe von [Cloud Shell](../../cloud-shell/overview.md) in Ihrem Browser aus, oder [installieren](/cli/azure/install-azure-cli) Sie sie unter macOS, Linux oder Windows. Informationen zum Erstellen und Verwalten von Pools für elastische Datenbanken finden Sie unter [Pools für elastische Datenbanken](elastic-pool-overview.md).
 
 | Cmdlet | BESCHREIBUNG |
 | --- | --- |
@@ -150,7 +150,7 @@ Verwenden Sie zum Erstellen der Server, Datenbanken und Firewalls mithilfe von T
 |[CREATE DATABASE (Azure SQL-Datenbank)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Mit diesem Befehl wird eine neue Datenbank in Azure SQL-Datenbank erstellt. Es muss eine Verbindung mit der master-Datenbank bestehen, um eine neue Datenbank zu erstellen.|
 |[CREATE DATABASE (Azure Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Mit diesem Befehl wird eine neue Data Warehouse-Datenbank in Azure Synapse erstellt. Es muss eine Verbindung mit der master-Datenbank bestehen, um eine neue Datenbank zu erstellen.|
 | [ALTER DATABASE (Azure SQL-Datenbank)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Mit diesem Befehl kann eine Datenbank oder ein Pool für elastische Datenbanken geändert werden. |
-|[ALTER DATABASE (Azure Synapse Analytics)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Mit diesem Befehl kann eine Data Warehouse-Datenbank in Azure Synapse geändert werden.|
+|[ALTER DATABASE (Azure Synapse Analytics)](/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Mit diesem Befehl kann eine Data Warehouse-Datenbank in Azure Synapse geändert werden.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Löscht eine Datenbank.|
 |[sys.database_service_objectives (Azure SQL-Datenbank)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Dieser Befehl gibt die Edition (Dienstebene), das Dienstziel (Tarif) und den Namen des Pools für elastische Datenbanken für eine Datenbank zurück, sofern diese vorhanden sind. Wenn eine Anmeldung bei der Masterdatenbank für einen Server besteht, werden Informationen zu allen Datenbanken zurückgegeben. Für Azure Synapse müssen Sie mit der Masterdatenbank verbunden sein, um eine Anmeldung erstellen zu können.|
 |[sys.dm_db_resource_stats (Azure SQL-Datenbank)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Mit diesem Befehl werden die CPU-, E/A- und Arbeitsspeichernutzung für eine Datenbank in Azure SQL-Datenbank zurückgegeben. Jede Zeile wird für 15 Sekunden beibehalten, auch wenn keine Aktivität in der Datenbank vorhanden ist.|
@@ -173,22 +173,22 @@ Verwenden Sie zum Erstellen und Verwalten der Server, Datenbanken und Firewalls 
 
 | Get-Help | BESCHREIBUNG |
 | --- | --- |
-|[Servers - Create oder Update](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Erstellt oder aktualisiert einen neuen Server.|
-|[Servers - Delete](https://docs.microsoft.com/rest/api/sql/servers/delete)|Mit diesem Befehl wird ein Server gelöscht.|
-|[Servers - Get](https://docs.microsoft.com/rest/api/sql/servers/get)|Ruft einen Server ab.|
-|[Servers - List](https://docs.microsoft.com/rest/api/sql/servers/list)|Gibt eine Liste mit Servern zurück.|
-|[Servers - List by resource group](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Gibt eine Liste aller Server in einer Ressourcengruppe zurück.|
-|[Server - Update](https://docs.microsoft.com/rest/api/sql/servers/update)|Aktualisiert einen vorhandenen Server.|
-|[Databases - Create oder update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Erstellt eine neue Datenbank oder aktualisiert eine bereits vorhandene Datenbank|
-|[Datenbanken – Löschen](https://docs.microsoft.com/rest/api/sql/databases/delete)|Löscht eine Datenbank.|
-|[Datenbanken – Abrufen](https://docs.microsoft.com/rest/api/sql/databases/get)|Ruft eine Datenbank ab|
-|[Databases - List by elastic pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Gibt eine Liste der Datenbanken in einem Pool für elastische Datenbanken zurück.|
-|[Databases - List by server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Gibt eine Liste der Datenbanken auf einem Server zurück|
-|[Datenbanken – Aktualisieren](https://docs.microsoft.com/rest/api/sql/databases/update)|Aktualisiert eine vorhandene Datenbank|
-|[Firewall rules - Create oder update](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|Erstellt oder aktualisiert eine Firewallregel.|
-|[Firewall rules - Delete](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|Löscht eine Firewallregel.|
-|[Firewall rules - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Ruft eine Firewallregel ab.|
-|[Firewall rules - List by server](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Gibt eine Liste von Firewallregeln zurück.|
+|[Servers - Create oder Update](/rest/api/sql/servers/createorupdate)|Erstellt oder aktualisiert einen neuen Server.|
+|[Servers - Delete](/rest/api/sql/servers/delete)|Mit diesem Befehl wird ein Server gelöscht.|
+|[Servers - Get](/rest/api/sql/servers/get)|Ruft einen Server ab.|
+|[Servers - List](/rest/api/sql/servers/list)|Gibt eine Liste mit Servern zurück.|
+|[Servers - List by resource group](/rest/api/sql/servers/listbyresourcegroup)|Gibt eine Liste aller Server in einer Ressourcengruppe zurück.|
+|[Server - Update](/rest/api/sql/servers/update)|Aktualisiert einen vorhandenen Server.|
+|[Databases - Create oder update](/rest/api/sql/databases/createorupdate)|Erstellt eine neue Datenbank oder aktualisiert eine bereits vorhandene Datenbank|
+|[Datenbanken – Löschen](/rest/api/sql/databases/delete)|Löscht eine Datenbank.|
+|[Datenbanken – Abrufen](/rest/api/sql/databases/get)|Ruft eine Datenbank ab|
+|[Databases - List by elastic pool](/rest/api/sql/databases/listbyelasticpool)|Gibt eine Liste der Datenbanken in einem Pool für elastische Datenbanken zurück.|
+|[Databases - List by server](/rest/api/sql/databases/listbyserver)|Gibt eine Liste der Datenbanken auf einem Server zurück|
+|[Datenbanken – Aktualisieren](/rest/api/sql/databases/update)|Aktualisiert eine vorhandene Datenbank|
+|[Firewall rules - Create oder update](/rest/api/sql/firewallrules/createorupdate)|Erstellt oder aktualisiert eine Firewallregel.|
+|[Firewall rules - Delete](/rest/api/sql/firewallrules/delete)|Löscht eine Firewallregel.|
+|[Firewall rules - Get](/rest/api/sql/firewallrules/get)|Ruft eine Firewallregel ab.|
+|[Firewall rules - List by server](/rest/api/sql/firewallrules/listbyserver)|Gibt eine Liste von Firewallregeln zurück.|
 
 ## <a name="next-steps"></a>Nächste Schritte
 

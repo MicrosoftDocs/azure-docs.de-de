@@ -1,6 +1,6 @@
 ---
 title: Unterstützung für Sortierungen
-description: In Azure Synapse SQL unterstützte Sortierungstypen
+description: In Azure Synapse Analytics unterstützte Sortierungstypen für Synapse SQL
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: reference
@@ -8,25 +8,25 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5e46cd744be609adff764edfe5a506b710e9d788
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 436dbac814197556385a33d956928f97fd4716bf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288068"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311923"
 ---
-# <a name="database-collation-support-for-synapse-sql"></a>Unterstützung der Datenbanksortierung für Synapse SQL
+# <a name="database-collation-support-for-synapse-sql-in-azure-synapse-analytics"></a>In Azure Synapse Analytics unterstützte Typen für die Datenbanksortierung für Synapse SQL 
 
 Sortierungen geben das Gebietsschema, die Codepage, die Sortierreihenfolge und Regeln für die Groß-/Kleinschreibung von Zeichen für zeichenbasierte Datentypen an. Nach dem Auswählen erben alle Spalten und Ausdrücke, für die Sortierungsinformationen erforderlich sind, die gewählte Sortierung aus der Datenbankeinstellung. Die Standardvererbung kann durch explizites Angeben einer anderen Sortierung für einen zeichenbasierten Datentyp überschrieben werden.
 
-Sie können die standardmäßige Datenbanksortierung im Azure-Portal ändern, wenn Sie eine neue SQL-Pool-Datenbank erstellen. Diese Funktion macht das Erstellen einer neuen Datenbank mit einer der 3.800 unterstützten Datenbanksortierungen noch einfacher.
+Sie können die standardmäßige Datenbanksortierung im Azure-Portal ändern, wenn Sie eine neue dedizierte SQL-Pool-Datenbank erstellen. Diese Funktion macht das Erstellen einer neuen Datenbank mit einer der 3.800 unterstützten Datenbanksortierungen noch einfacher.
 
-Mit der CREATE DATABASE-Anweisung können Sie die standardmäßige Datenbanksortierung von Synapse SQL On-Demand zur Erstellungszeit angeben.
+Mit der CREATE DATABASE-Anweisung können Sie die standardmäßige Datenbanksortierung im serverlosen SQL-Pool zur Erstellungszeit angeben.
 
 ## <a name="change-collation"></a>Ändern der Sortierung
-Aktualisieren Sie zum Ändern der Standardsortierung für die SQL-Pooldatenbank das Feld „Sortierung“ auf der Bereitstellungsoberfläche. Beispiel: Wenn Sie die Standardsortierung so ändern möchten, dass die Groß-/Kleinschreibung beachtet wird, ändern Sie den Namen „SQL_Latin1_General_CP1_CI_AS“ der Sortierung in „SQL_Latin1_General_CP1_CS_AS“. 
+Aktualisieren Sie zum Ändern der Standardsortierung für die dedizierte SQL-Pooldatenbank das Feld „Sortierung“ auf der Bereitstellungsoberfläche. Beispiel: Wenn Sie die Standardsortierung so ändern möchten, dass die Groß-/Kleinschreibung beachtet wird, ändern Sie den Namen „SQL_Latin1_General_CP1_CI_AS“ der Sortierung in „SQL_Latin1_General_CP1_CS_AS“. 
 
-Um die Standardsortierung für eine SQL On-Demand-Datenbank zu ändern, können Sie die ALTER DATABASE-Anweisung verwenden.
+Um die Standardsortierung für eine Datenbank in einem serverlosen SQL-Pool zu ändern, können Sie die ALTER DATABASE-Anweisung verwenden.
 
 ## <a name="list-of-unsupported-collation-types"></a>Liste mit nicht unterstützten Sortierungstypen
 *    Japanese_Bushu_Kakusu_140_BIN
@@ -98,7 +98,7 @@ Um die Standardsortierung für eine SQL On-Demand-Datenbank zu ändern, können 
 *    Japanese_XJIS_140_CS_AS_KS
 *    Japanese_XJIS_140_CS_AS_KS_WS
 
-Außerdem unterstützt der SQL-Pool die folgenden Sortierungstypen nicht:
+Außerdem unterstützt der dedizierte SQL-Pool die folgenden Sortierungstypen nicht:
 
 *    SQL_EBCDIC1141_CP1_CS_AS
 *    SQL_EBCDIC277_2_CP1_CS_AS
@@ -113,9 +113,9 @@ Wenn „Collation“ als Eigenschaftenparameter übergeben wird, gibt die Funkti
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zu bewährten Methoden für SQL-Pool- und SQL On-Demand-Instanzen finden Sie in den folgenden Artikeln:
+Weitere Informationen zu bewährten Methoden für dedizierte SQL-Pools und serverlose SQL-Pools finden Sie in den folgenden Artikeln:
 
-- [Bewährte Methoden für SQL-Pools in Azure Synapse Analytics](best-practices-sql-pool.md)
-- [Bewährte Methoden für SQL On-Demand (Vorschauversion) in Azure Synapse Analytics](best-practices-sql-on-demand.md)
+- [Best Practices für dedizierte SQL-Pools](best-practices-sql-pool.md)
+- [Best Practices für serverlose SQL-Pools](best-practices-sql-on-demand.md)
 
 

@@ -6,6 +6,7 @@ documentationcenter: ''
 author: MashaMSFT
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -13,12 +14,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 48288ed3765fa939fc56a4469f64070315c4c6aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c25adc16d14b4a5fb72ae0103ca05b193b40499
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84668745"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359165"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Verlängerung des Supports für SQL Server 2008 und SQL Server 2008 R2 mit Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -45,33 +46,34 @@ Bei über den Azure Marketplace bereitgestellten Images ist die SQL-IaaS-Erweite
 ## <a name="licensing"></a>Lizenzierung
 Bereitstellungen von SQL Server 2008 R2 mit nutzungsbasierter Bezahlung können in den [Azure-Hybridvorteil](https://azure.microsoft.com/pricing/hybrid-benefit/) konvertiert werden.
 
-Kunden, die eine Software Assurance-basierte Lizenz in nutzungsbasierte Bezahlung konvertieren möchten, müssen sich beim SQL-VM-[Ressourcenanbieter](sql-vm-resource-provider-register.md) registrieren. Nach dieser Registrierung kann beim SQL-Lizenztyp zwischen Azure-Hybridvorteil und nutzungsbasierter Bezahlung gewechselt werden.
+Kunden, die eine Software Assurance-basierte Lizenz in nutzungsbasierte Bezahlung umwandeln möchten, müssen den virtuellen Computer mit der [SQL-IaaS-Agent-Erweiterung](sql-agent-extension-manually-register-single-vm.md) registrieren. Nach dieser Registrierung kann beim SQL-Lizenztyp zwischen Azure-Hybridvorteil und nutzungsbasierter Bezahlung gewechselt werden.
 
-Selbst installierte SQL Server 2008- oder SQL Server 2008 R2-Instanzen auf einem virtuellen Azure-Computer können beim SQL-VM-Ressourcenanbieter registriert werden, um ihren Lizenztyp auf die nutzungsbasierte Bezahlung umzustellen.
+Selbst installierte SQL Server 2008- oder SQL Server 2008 R2-Instanzen auf einem virtuellen Azure-Computer können mit der SQL-IaaS-Agent-Erweiterung registriert werden, und ihr Lizenztyp kann dann auf die nutzungsbasierte Bezahlung umgestellt werden.
 
 ## <a name="migration"></a>Migration
 SQL Server-Instanzen am Ende des Supportlebenszyklus können mit manuellen Sicherungs-/Wiederherstellungsmethoden zu einem virtuellen Azure-Computer migriert werden. Dies ist die gängigste Methode für eine Migration von einer lokalen Instanz zu einem virtuellen Azure-Computer.
 
 ### <a name="azure-site-recovery"></a>Azure Site Recovery
 
-Für Massenmigrationsvorgänge empfehlen wir den Dienst [Azure Site Recovery](/azure/site-recovery/site-recovery-overview). Mit Azure Site Recovery können Kunden den gesamten virtuellen Computer replizieren – einschließlich SQL Server von einer lokalen Instanz zu einem virtuellen Azure-Computer.
+Für Massenmigrationsvorgänge empfehlen wir den Dienst [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md). Mit Azure Site Recovery können Kunden den gesamten virtuellen Computer replizieren – einschließlich SQL Server von einer lokalen Instanz zu einem virtuellen Azure-Computer.
 
 SQL Server erfordert App-konsistente Azure Site Recovery-Momentaufnahmen, um die Wiederherstellung zu gewährleisten. Azure Site Recovery unterstützt App-konsistente Momentaufnahmen mit einem Mindestintervall von einer Stunde. Die kleinstmögliche Recovery Point Objective (RPO) für SQL Server mit Azure Site Recovery-Migrationen beträgt eine Stunde. Die Recovery Time Objective (RTO) beträgt zwei Stunden plus SQL Server-Wiederherstellungszeit.
 
 ### <a name="database-migration-service"></a>Database Migration Service
 
-[Azure Database Migration Service](/azure/dms/dms-overview) ist eine Option für Kunden, die von einer lokalen Instanz zu einem virtuellen Azure-Computer migrieren, indem sie SQL Server auf Version 2012 (oder eine höhere Version) upgraden.
+[Azure Database Migration Service](../../../dms/dms-overview.md) ist eine Option für Kunden, die von einer lokalen Instanz zu einem virtuellen Azure-Computer migrieren, indem sie SQL Server auf Version 2012 (oder eine höhere Version) upgraden.
 
 ## <a name="disaster-recovery"></a>Notfallwiederherstellung
 
 Für die Notfallwiederherstellung von SQL Server am Ende des Supportlebenszyklus auf einem virtuellen Azure-Computer stehen folgende Lösungen zur Verfügung:
 
-- **SQL Server-Sicherungen:** Verwenden Sie Azure Backup, um Ihre SQL Server 2008- und 2008 R2-Instanzen am Ende des Supportlebenszyklus mit einem RPO von 15 Minuten und Point-in-Time-Wiederherstellung vor Ransomware, unbeabsichtigtem Löschen und Beschädigungen zu schützen. Ausführlichere Informationen finden Sie in [diesem Artikel](https://docs.microsoft.com/azure/backup/sql-support-matrix#scenario-support).
+- **SQL Server-Sicherungen:** Verwenden Sie Azure Backup, um Ihre SQL Server 2008- und 2008 R2-Instanzen am Ende des Supportlebenszyklus mit einem RPO von 15 Minuten und Point-in-Time-Wiederherstellung vor Ransomware, unbeabsichtigtem Löschen und Beschädigungen zu schützen. Ausführlichere Informationen finden Sie in [diesem Artikel](../../../backup/sql-support-matrix.md#scenario-support).
 - **Protokollversand:** Sie können ein Protokollversandreplikat in einer anderen Zone oder Azure-Region mit fortlaufenden Wiederherstellungen erstellen, um das RTO zu verringern. Der Protokollversand muss manuell konfiguriert werden.
 - **Azure Site Recovery**: Sie können Ihren virtuellen Computer mithilfe der Azure Site Recovery-Replikation zonen- und regionsübergreifend replizieren. SQL Server erfordert App-konsistente Momentaufnahmen, um die Wiederherstellung im Notfall zu gewährleisten. Azure Site Recovery bietet für die Notfallwiederherstellung von SQL Server am Ende des Supportlebenszyklus eine RPO von mindestens einer Stunde und eine RTO von mindestens zwei Stunden (plus SQL Server-Wiederherstellungszeit).
 
 ## <a name="security-patching"></a>Sicherheitspatches
-Erweiterte Sicherheitsupdates für virtuelle SQL Server-Computer werden über die Microsoft Update-Kanäle bereitgestellt, sobald die der virtuelle SQL Server-Computer beim SQL-VM-[Ressourcenanbieter](sql-vm-resource-provider-register.md) registriert wurde. Patches können manuell oder automatisch heruntergeladen werden.
+
+Erweiterte Sicherheitsupdates für virtuelle SQL Server-Computer werden über die Microsoft Update-Kanäle bereitgestellt, nachdem der virtuelle SQL Server-Computer mit der [SQL-IaaS-Agent-Erweiterung](sql-agent-extension-manually-register-single-vm.md) registriert wurde. Patches können manuell oder automatisch heruntergeladen werden.
 
 *Automatisiertes Patchen* ist standardmäßig aktiviert. Beim automatisierten Patchen kann Azure automatisch Patches für SQL Server und das Betriebssystem anwenden. Sie können einen Wochentag, eine Uhrzeit und eine Dauer für ein Wartungsfenster angeben, wenn die SQL Server-IaaS-Erweiterung installiert wurde. Azure führt das Patchen in diesem Wartungsfenster durch. Für die Zeitplanung des Wartungsfensters wird die Uhrzeit des VM-Gebietsschemas verwendet. Weitere Informationen finden Sie unter [Automatisches Patchen für SQL Server auf virtuellen Azure-Computern](automated-patching.md).
 

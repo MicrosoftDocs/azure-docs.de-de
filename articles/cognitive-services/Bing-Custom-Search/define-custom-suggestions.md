@@ -10,14 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: 5b2b8871d868e827532f23c7ef4f14fb00afb5bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 986a7c8f1282b76c2ae94eebcc2c31dc3b3e7cad
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74072801"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352013"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Konfigurieren der benutzerdefinierten Vorschlagssuche
+
+> [!WARNING]
+> Die APIs der Bing-Suche werden von Cognitive Services auf Bing-Suchdienste umgestellt. Ab dem **30. Oktober 2020** müssen alle neuen Instanzen der Bing-Suche mit dem [hier](/bing/search-apis/bing-web-search/create-bing-search-service-resource) dokumentierten Prozess bereitgestellt werden.
+> APIs der Bing-Suche, die mit Cognitive Services bereitgestellt wurden, werden noch drei Jahre lang bzw. bis zum Ablauf Ihres Enterprise Agreement unterstützt (je nachdem, was zuerst geschieht).
+> Eine Anleitung zur Migration finden Sie unter [Bing-Suchdienste](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Die benutzerdefinierte Vorschlagssuche gibt eine Liste der für Ihre Suche relevanten vorgeschlagenen Suchabfragezeichenfolgen zurück. Die vorgeschlagenen Abfragezeichenfolgen basieren auf einer partiellen Abfragezeichenfolge, die der Benutzer in das Suchfeld eingibt. Die Liste enthält maximal 10 Vorschläge. 
 
@@ -88,6 +93,6 @@ Wenn der Benutzer in der Dropdownliste eine vorgeschlagene Abfragezeichenfolge a
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Abrufen von benutzerdefinierten Vorschlägen](./get-custom-suggestions.md)
+- [Abrufen von benutzerdefinierten Vorschlägen]()
 - [Suchen der benutzerdefinierten Instanz](./search-your-custom-view.md)
 - [Konfigurieren und Verwenden der benutzerdefinierten gehosteten Benutzeroberfläche](./hosted-ui.md)

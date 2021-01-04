@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b8cc59b805cd757edce79a14d124ea244b4652a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03c71664769f1518ba80d36867c71ef35b2ca026
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267481"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461463"
 ---
 # <a name="scenario-route-to-shared-services-vnets"></a>Szenario: Routen zu VNETs für gemeinsame Dienste
 
@@ -24,17 +24,19 @@ Weitere Informationen zum Routing für virtuelle Hubs finden Sie unter [Informat
 
 ## <a name="design"></a><a name="design"></a>Entwurf
 
-Wir können eine Konnektivitätsmatrix verwenden, um die Anforderungen dieses Szenarios zusammenzufassen. Jede Zelle in der Matrix beschreibt, ob eine Virtual WAN-Verbindung (die Seite „From“ des Flows, die Zeilenheader in der Tabelle) ein Zielpräfix (die Seite „To“ des Flows, die kursiv gesetzten Spaltenheader in der Tabelle) für einen bestimmten Datenverkehrsfluss lernt. Ein „X“ bedeutet, dass die Konnektivität von Virtual WAN bereitgestellt wird:
+Wir können eine Konnektivitätsmatrix verwenden, um die Anforderungen dieses Szenarios zusammenzufassen:
 
 **Konnektivitätsmatrix**
 
-| From             | Nach:   |*Isolierte VNETs*|*Gemeinsam genutzte VNETs*|*Branches*|
+| Von             | Zu:   |*Isolierte VNETs*|*Gemeinsam genutzte VNETs*|*Branches*|
 |---|---|---|---|---|
-|**Isolierte VNETs**|&#8594;|                |        X        |       X      |
-|**Gemeinsam genutzte VNETs**  |&#8594;|       X        |        X        |       X      |
-|**Branches**      |&#8594;|       X        |        X        |       X      |
+|**Isolierte VNETs**|&#8594;|        | Direkt | Direkt |
+|**Gemeinsam genutzte VNETs**  |&#8594;| Direkt | Direkt | Direkt |
+|**Branches**      |&#8594;| Direkt | Direkt | Direkt |
 
-Ähnlich wie das [Szenario mit isolierten VNETs](scenario-isolate-vnets.md) bietet diese Konnektivitätsmatrix zwei verschiedene Zeilenmuster, die sich in zwei Routingtabellen übersetzen lassen (die VNETs und die Branches für gemeinsame Dienste weisen dieselben Konnektivitätsanforderungen auf). Ein Virtual WAN verfügt bereits über eine Standardroutingtabelle, wir benötigen also eine weitere benutzerdefinierte Routingtabelle. Diese wird in diesem Beispiel als **RT_SHARED** bezeichnet.
+Jede Zelle in der vorstehenden Tabelle beschreibt, ob eine Virtual WAN-Verbindung (die Seite „Von“ des Flows, die Zeilenüberschriften) mit einem Ziel (die Seite „Zu“ des Flows, die kursiv gesetzten Spaltenüberschriften) kommuniziert. In diesem Szenario gibt es keine Firewalls oder virtuellen Netzwerkgeräte, sodass die Kommunikation direkt über Virtual WAN erfolgt (daher das Wort „direkt“ in der Tabelle).
+
+Ähnlich wie das [Szenario mit isolierten VNETs](scenario-isolate-vnets.md) bietet diese Konnektivitätsmatrix zwei Zeilenmuster, die sich in zwei Routingtabellen übersetzen lassen (die VNETs für gemeinsame Dienste und Filialen weisen dieselben Konnektivitätsanforderungen auf). Ein Virtual WAN verfügt bereits über eine Standardroutingtabelle, wir benötigen also eine weitere benutzerdefinierte Routingtabelle. Diese wird in diesem Beispiel als **RT_SHARED** bezeichnet.
 
 VNETs werden der Routingtabelle **RT_SHARED** zugeordnet. Da Konnektivität mit Branches und den VNETs für gemeinsame Dienste gegeben sein muss, ist deren Weitergabe an **RT_SHARED** erforderlich (andernfalls haben die VNETs keine Kenntnis über Präfixe für Branches und gemeinsam genutzte VNETs). Die Branches sind immer der Standardroutingtabelle zugeordnet, und die Konnektivitätsanforderungen entsprechen denen für VNETs für gemeinsame Dienste. Daher ordnen wir auch die VNETs für gemeinsame Dienste der Standardroutingtabelle zu.
 

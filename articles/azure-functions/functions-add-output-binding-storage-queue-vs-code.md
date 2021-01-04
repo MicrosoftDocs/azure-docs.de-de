@@ -5,18 +5,18 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 4f4733a52d1d58cbec4413140a613a93c8074188
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1729e0b27dd50519359cf6a39bfa81ba7b3b41e9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91323412"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185146"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Verbinden von Azure Functions mit Azure Storage mithilfe von Visual Studio Code
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
-In diesem Artikel wird beschrieben, wie Sie die Funktion, die Sie im [vorherigen Schnellstartartikel](functions-create-first-function-vs-code.md) erstellt haben, mithilfe von Visual Studio Code mit Azure Storage verbinden. Die Ausgabebindung, die Sie dieser Funktion hinzufügen, schreibt Daten aus der HTTP-Anforderung in eine Nachricht in einer Azure Queue Storage-Warteschlange. 
+In diesem Artikel wird gezeigt, wie Sie Visual Studio Code verwenden, um Azure Storage mit der Funktion zu verbinden, die Sie im vorherigen Schnellstartartikel erstellt haben. Die Ausgabebindung, die Sie dieser Funktion hinzufügen, schreibt Daten aus der HTTP-Anforderung in eine Nachricht in einer Azure Queue Storage-Warteschlange. 
 
 Die meisten Bindungen erfordern eine gespeicherte Verbindungszeichenfolge, die Functions verwendet, um auf den gebundenen Dienst zuzugreifen. Um dies zu vereinfachen, verwenden Sie das Speicherkonto, das Sie mit Ihrer Funktions-App erstellt haben. Die Verbindung mit diesem Konto ist bereits in einer App-Einstellung namens `AzureWebJobsStorage` gespeichert.  
 
@@ -32,13 +32,30 @@ Zunächst müssen Sie die folgenden Schritte ausführen:
 * Installieren Sie [.NET Core-CLI-Tools](/dotnet/core/tools/?tabs=netcore2x).
 ::: zone-end
 
-* Führen Sie die Schritte in [Teil 1 des Schnellstarts für Visual Studio Code](functions-create-first-function-vs-code.md) aus. 
+::: zone pivot="programming-language-csharp"  
+* Führen Sie die Schritte in [Teil 1 des Schnellstarts für Visual Studio Code](create-first-function-vs-code-csharp.md) aus. 
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+* Führen Sie die Schritte in [Teil 1 des Schnellstarts für Visual Studio Code](create-first-function-vs-code-node.md) aus. 
+::: zone-end   
+::: zone pivot="programming-language-java"  
+* Führen Sie die Schritte in [Teil 1 des Schnellstarts für Visual Studio Code](create-first-function-vs-code-java.md) aus. 
+::: zone-end   
+::: zone pivot="programming-language-typescript"  
+* Führen Sie die Schritte in [Teil 1 des Schnellstarts für Visual Studio Code](create-first-function-vs-code-typescript.md) aus. 
+::: zone-end   
+::: zone pivot="programming-language-python"  
+* Führen Sie die Schritte in [Teil 1 des Schnellstarts für Visual Studio Code](create-first-function-vs-code-python.md) aus. 
+::: zone-end   
+::: zone pivot="programming-language-powershell"  
+* Führen Sie die Schritte in [Teil 1 des Schnellstarts für Visual Studio Code](create-first-function-vs-code-powershell.md) aus. 
+::: zone-end   
 
 In diesem Artikel wird davon ausgegangen, dass Sie bereits über Visual Studio Code bei Ihrem Azure-Abonnement angemeldet sind. Sie können sich anmelden, indem Sie `Azure: Sign In` in der Befehlspalette ausführen. 
 
 ## <a name="download-the-function-app-settings"></a>Herunterladen der Funktions-App-Einstellungen
 
-Im [vorherigen Schnellstartartikel](functions-create-first-function-vs-code.md) haben Sie zusammen mit dem erforderlichen Storage-Konto eine Funktions-App in Azure erstellt. Die Verbindungszeichenfolge für dieses Konto wird sicher in App-Einstellungen in Azure gespeichert. In diesem Artikel schreiben Sie Nachrichten in eine Speicherwarteschlange in demselben Konto. Um eine Verbindung mit Ihrem Speicherkonto herzustellen, wenn die Funktion lokal ausgeführt wird, müssen Sie App-Einstellungen in die Datei „local.settings.json“ herunterladen. 
+Im [vorherigen Schnellstartartikel](./create-first-function-vs-code-csharp.md) haben Sie zusammen mit dem erforderlichen Storage-Konto eine Funktions-App in Azure erstellt. Die Verbindungszeichenfolge für dieses Konto wird sicher in App-Einstellungen in Azure gespeichert. In diesem Artikel schreiben Sie Nachrichten in eine Speicherwarteschlange in demselben Konto. Um eine Verbindung mit Ihrem Speicherkonto herzustellen, wenn die Funktion lokal ausgeführt wird, müssen Sie App-Einstellungen in die Datei „local.settings.json“ herunterladen. 
 
 1. Drücken Sie die F1-Taste, um die Befehlspalette zu öffnen. Suchen Sie dann den Befehl `Azure Functions: Download Remote Settings....`, und führen Sie ihn aus. 
 
@@ -205,33 +222,42 @@ In Azure wird die Bezeichnung *Ressourcen* für Funktions-Apps, Funktionen, Spei
 
 Im Rahmen dieser Schnellstartanleitungen haben Sie Ressourcen erstellt. Für diese Ressourcen fallen je nach [Kontostatus](https://azure.microsoft.com/account/) und [Dienstpreisen](https://azure.microsoft.com/pricing/) unter Umständen Kosten an. Nicht mehr benötigte Ressourcen können wie folgt gelöscht werden:
 
-[!INCLUDE [functions-cleanup-resources-vs-code.md](../../includes/functions-cleanup-resources-vs-code.md)]
+[!INCLUDE [functions-cleanup-resources-vs-code-inner.md](../../includes/functions-cleanup-resources-vs-code-inner.md)]
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 Sie haben Ihre mittels HTTP ausgelöste Funktion so aktualisiert, dass sie Daten in eine Speicherwarteschlange schreibt. Nun können Sie sich ausführlicher über die Entwicklung von Funktionen mit Visual Studio Code informieren:
 
 + [Entwickeln von Azure Functions mithilfe von Visual Studio Code](functions-develop-vs-code.md)
+
++ [Konzepte für Azure Functions-Trigger und -Bindungen](functions-triggers-bindings.md)
 ::: zone pivot="programming-language-csharp"  
 + [Beispiele für vollständige Functions-Projekte in C#](/samples/browse/?products=azure-functions&languages=csharp).
+
 + [C#-Entwicklerreferenz zu Azure Functions](functions-dotnet-class-library.md)  
 ::: zone-end 
 ::: zone pivot="programming-language-javascript"  
 + [Beispiele für vollständige Functions-Projekte in JavaScript](/samples/browse/?products=azure-functions&languages=javascript).
+
 + [JavaScript-Entwicklerhandbuch für Azure Functions](functions-reference-node.md)  
+::: zone-end  
+::: zone pivot="programming-language-java"  
++ [Beispiele für vollständige Functions-Projekte in Java](/samples/browse/?products=azure-functions&languages=java).
+
++ [Java-Entwicklerhandbuch für Azure Functions](functions-reference-java.md)  
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 + [Beispiele für vollständige Functions-Projekte in TypeScript](/samples/browse/?products=azure-functions&languages=typescript).
+
 + [TypeScript-Entwicklerhandbuch für Azure Functions](functions-reference-node.md#typescript)  
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 + [Beispiele für vollständige Functions-Projekte in Python](/samples/browse/?products=azure-functions&languages=python).
+
 + [Python-Entwicklerhandbuch für Azure Functions](functions-reference-python.md)  
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 + [Beispiele für vollständige Functions-Projekte in PowerShell](/samples/browse/?products=azure-functions&languages=azurepowershell).
+
 + [PowerShell-Entwicklerhandbuch für Azure Functions](functions-reference-powershell.md) 
 ::: zone-end
-+ [Konzepte für Azure Functions-Trigger und -Bindungen](functions-triggers-bindings.md)
-+ [Azure Functions – Preise](https://azure.microsoft.com/pricing/details/functions/)
-+ [Abschätzen der Kosten des Verbrauchstarifs](functions-consumption-costs.md)

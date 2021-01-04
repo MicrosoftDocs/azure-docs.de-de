@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: b-juche
-ms.openlocfilehash: 4df96f1c508df22e98a9c611ed04fecf6734970a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db1e8ce2e4fe9ae81bc2299ae70e9ff83941b5b4
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278293"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95245873"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Regionsübergreifende Replikation von Azure NetApp Files-Volumes
 
@@ -111,10 +111,11 @@ Die reguläre Gebühr für die Azure NetApp Files-Speicherkapazität für Monat 
 
 ## <a name="next-steps"></a>Nächste Schritte
 * [Regionsübergreifende Replikation: Anforderungen und Überlegungen](cross-region-replication-requirements-considerations.md)
-* [Erstellen eines Replikationspeerings](cross-region-replication-create-peering.md)
+* [Erstellen der Volumereplikation](cross-region-replication-create-peering.md)
 * [Anzeigen des Integritätsstatus der Replikationsbeziehung](cross-region-replication-display-health-status.md)
 * [Verwalten der Notfallwiederherstellung](cross-region-replication-manage-disaster-recovery.md)
 * [Metriken für die Volumereplikation](azure-netapp-files-metrics.md#replication)
+* [Löschen von Volumereplikationen oder Volumes](cross-region-replication-delete.md)
 * [Problembehandlung für die regionsübergreifende Replikation](troubleshoot-cross-region-replication.md)
 
 

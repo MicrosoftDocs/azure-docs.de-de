@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 59eb2e320a828b644af6f740cf9f8381370a0dda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 849236b9ac33cec92cc145bb32b4271b73476057
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88527280"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608815"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timeoffmanager"></a>Tutorial: Integration des einmaligen Anmeldens (Single Sign-On, SSO) von Azure Active Directory mit TimeOffManager
 
@@ -26,7 +26,7 @@ In diesem Tutorial erfahren Sie, wie Sie TimeOffManager in Azure Active Director
 * Ermöglichen Sie es Ihren Benutzern, sich mit ihren Azure AD-Konten automatisch bei TimeOffManager anzumelden.
 * Verwalten Sie Ihre Konten zentral im Azure-Portal.
 
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -146,11 +146,11 @@ In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anm
 
 2. Wechseln Sie zu **Konto \> Kontooptionen \> Einstellungen für einmaliges Anmelden**.
    
-    ![SSO-Einstellungen](./media/timeoffmanager-tutorial/ic795917.png "Einstellungen für einmaliges Anmelden")
+    ![Screenshot: Option „Single sign-on settings“ (Einstellungen für einmaliges Anmelden), die unter „Account Options“ (Kontooptionen) ausgewählt ist](./media/timeoffmanager-tutorial/ic795917.png "Einstellungen für einmaliges Anmelden")
 
 3. Führen Sie im Abschnitt **Einstellungen für einmaliges Anmelden** die folgenden Schritte aus:
    
-    ![SSO-Einstellungen](./media/timeoffmanager-tutorial/ic795918.png "Einstellungen für einmaliges Anmelden")
+    ![Screenshot: Abschnitt „Single Sign-On Settings“ (Einstellungen für einmaliges Anmelden), in dem Sie die beschriebenen Werte eingeben können](./media/timeoffmanager-tutorial/ic795918.png "Einstellungen für einmaliges Anmelden")
    
     a. Öffnen Sie das Base-64-codierte Zertifikat im Editor, kopieren Sie den Inhalt des Zertifikats in die Zwischenablage, und fügen Sie anschließend das gesamte Zertifikat in das Textfeld **X.509-Zertifikat** ein.
    
@@ -168,7 +168,7 @@ In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anm
 
 4. Kopieren Sie auf der Seite **Single Sign on settings** (Einstellungen für einmaliges Anmelden) den Wert unter **Assertion Consumer Service URL** (Assertionsverbraucherdienst-URL), und fügen Sie ihn im Azure-Portal im Abschnitt **Grundlegende SAML-Konfiguration** in das Textfeld **Antwort-URL** ein. 
 
-      ![SSO-Einstellungen](./media/timeoffmanager-tutorial/ic795915.png "Einstellungen für einmaliges Anmelden")
+    ![Screenshot: Link zur Assertionsverbraucherdienst-URL](./media/timeoffmanager-tutorial/ic795915.png "Einstellungen für einmaliges Anmelden")
 
 ### <a name="create-timeoffmanager-test-user"></a>Erstellen eines TimeOffManager-Testbenutzers
 
@@ -181,15 +181,14 @@ In diesem Abschnitt wird in TimeOffManager ein Benutzer mit dem Namen „Britta 
 
 In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich.
 
-Wenn Sie im Zugriffsbereich auf die Kachel „TimeOffManager“ klicken, sollten Sie automatisch bei der TimeOffManager-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Wenn Sie im Zugriffsbereich auf die Kachel „TimeOffManager“ klicken, sollten Sie automatisch bei der TimeOffManager-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Liste mit den Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste mit den Tutorials zur Integration von SaaS-Apps in Azure Active Directory](./tutorial-list.md)
 
-- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Was ist der bedingte Zugriff in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Was ist der bedingte Zugriff in Azure Active Directory?](../conditional-access/overview.md)
 
 - [TimeOffManager mit Azure AD ausprobieren](https://aad.portal.azure.com/)
-

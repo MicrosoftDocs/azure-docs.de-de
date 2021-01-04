@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 17531c6e38447fba7fe8761a963be39ecfc8f489
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 4064acd6d2857ebc00a38ea7f6ff5d5e30bbd699
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044155"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041381"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Vorbereiten Ihrer Entwicklungs- und Testumgebung für IoT Edge
 
@@ -83,7 +83,7 @@ Für Produktionsbereitstellungen wird nur die IoT Edge-Runtime unterstützt, mit
 | Tool | Andere Bezeichnung | Unterstützte Plattformen | Am besten geeignet für: |
 | ---- | ------------- | ------------------- | --------- |
 | IoT EdgeHub Dev Tool  | iotedgehubdev | Windows, Linux, macOS | Simulieren eines Geräts zum Debuggen von Modulen. |
-| IoT Edge Dev-Container | microsoft/iotedgedev | Windows, Linux, macOS | Entwickeln ohne die Installation von Abhängigkeiten. |
+| IoT Edge Dev-Container | iotedgedev | Windows, Linux, macOS | Entwickeln ohne die Installation von Abhängigkeiten. |
 | IoT Edge Runtime in einem Container | iotedgec | Windows, Linux, macOS, ARM | Testen auf einem Gerät, das die Runtime möglicherweise nicht unterstützt. |
 | IoT Edge-Gerätecontainer | toolboc/azure-iot-edge-device-container | Windows, Linux, macOS, ARM | Testen in einem Szenario mit vielen IoT Edge-Geräten in großem Maßstab. |
 
@@ -99,7 +99,7 @@ Weitere Informationen, auch zur Installation, finden Sie unter [Azure IoT EdgeHu
 
 Der Azure IoT Edge Dev-Container ist ein Docker-Container, der alle Abhängigkeiten enthält, die Sie für die IoT Edge-Entwicklung benötigen. Dieser Container macht den Einstieg leicht, ganz gleich, in welcher Sprache Sie entwickeln möchten, einschließlich C#, Python, Node.js und Java. Sie brauchen lediglich eine Containerengine zu installieren, wie Docker oder Moby, um die Inhalte auf Ihren Entwicklungscomputer herunterzuladen.
 
-Weitere Informationen finden Sie unter [Azure IoT Edge Dev-Container](https://hub.docker.com/r/microsoft/iotedgedev/).
+Weitere Informationen finden Sie unter [Azure IoT Edge Dev-Container](https://github.com/Azure/iotedgedev/wiki/quickstart-with-iot-edge-dev-container).
 
 ### <a name="iot-edge-runtime-in-a-container"></a>IoT Edge Runtime in einem Container
 

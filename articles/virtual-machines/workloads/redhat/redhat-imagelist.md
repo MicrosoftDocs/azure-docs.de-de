@@ -3,16 +3,17 @@ title: Verfügbare RHEL-Images (Red Hat Enterprise Linux) in Azure
 description: Erfahren Sie etwas über Red Hat Enterprise Linux-Images in Microsoft Azure.
 author: asinn826
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 628e9098eefa311f3ee5603b9eaf633d67d60c5f
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: ea0e8c148a847ecc23bab5e87a1dc60a626cf0c1
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994338"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95411613"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Verfügbare RHEL-Images (Red Hat Enterprise Linux) in Azure
 Azure bietet eine Vielzahl von RHEL-Images für verschiedene Anwendungsfälle.
@@ -28,10 +29,10 @@ Die folgende Liste enthält die in Azure verfügbaren RHEL-Images. Sofern nicht 
 
 Angebot| SKU | Partitionierung | Bereitstellung | Notizen
 :----|:----|:-------------|:-------------|:-----
-RHEL          | 6.7      | RAW    | Linux-Agent |
-|             | 6,8      | RAW    | Linux-Agent |
-|             | 6.9      | RAW    | Linux-Agent |
-|             | 6.10     | RAW    | Linux-Agent |
+RHEL          | 6.7      | RAW    | Linux-Agent | Die erweiterte Lebenszyklusunterstützung ist ab dem 1. Dezember verfügbar. [Ausführlichere Informationen finden Sie hier.](redhat-extended-lifecycle-support.md)
+|             | 6,8      | RAW    | Linux-Agent | Die erweiterte Lebenszyklusunterstützung ist ab dem 1. Dezember verfügbar. [Ausführlichere Informationen finden Sie hier.](redhat-extended-lifecycle-support.md)
+|             | 6.9      | RAW    | Linux-Agent | Die erweiterte Lebenszyklusunterstützung ist ab dem 1. Dezember verfügbar. [Ausführlichere Informationen finden Sie hier.](redhat-extended-lifecycle-support.md)
+|             | 6.10     | RAW    | Linux-Agent | Die erweiterte Lebenszyklusunterstützung ist ab dem 1. Dezember verfügbar. [Ausführlichere Informationen finden Sie hier.](redhat-extended-lifecycle-support.md)
 |             | 7-RAW    | RAW    | Linux-Agent | RHEL 7.x-Imagefamilie. <br> Standardmäßig mit regulären Repositorys verknüpft (nicht EUS).
 |             | 7-LVM    | LVM    | Linux-Agent | RHEL 7.x-Imagefamilie. <br> Standardmäßig mit regulären Repositorys verknüpft (nicht EUS). Wenn Sie ein RHEL-Standardimage für die Bereitstellung suchen, verwenden Sie diese Gruppe von Images oder deren Entsprechung für die Generation 2.
 |             | 7lvm-gen2| LVM    | Linux-Agent | Images der Generation 2, RHEL 7.x-Familie. <br> Standardmäßig mit regulären Repositorys verknüpft (nicht EUS). Wenn Sie ein RHEL-Standardimage für die Bereitstellung suchen, verwenden Sie diese Gruppe von Images oder deren Entsprechung für die Generation 1.
@@ -48,16 +49,20 @@ RHEL          | 6.7      | RAW    | Linux-Agent |
 |             | 77-gen2  | LVM    | Linux-Agent | Standardmäßig mit EUS-Repositorys verknüpft.
 |             | 7,8      | LVM    | Linux-Agent | An reguläre Repositorys angefügt (EUS nicht für RHEL 7.8 verfügbar)
 |             | 78-gen2  | LVM    | Linux-Agent | An reguläre Repositorys angefügt (EUS nicht für RHEL 7.8 verfügbar)
+|             | 7.9      | LVM    | Linux-Agent | An reguläre Repositorys angefügt (EUS nicht für RHEL 7.9 verfügbar)
+|             | 79-gen2  | LVM    | Linux-Agent | An reguläre Repositorys angefügt (EUS nicht für RHEL 7.9 verfügbar)
 |             | 8-LVM    | LVM    | Linux-Agent | RHEL 8.x-Imagefamilie. An reguläre Repositorys angefügt.
 |             | 8-lvm-gen2| LVM    | Linux-Agent | Hyper-V Generation 2 – RHEL 8.x-Imagefamilie. An reguläre Repositorys angefügt.
 |             | 8        | LVM    | Linux-Agent | RHEL 8.0-Images.
 |             | 8-gen2   | LVM    | Linux-Agent | Hyper-V-Generation 2: RHEL 8.0-Images.
-|             | 8.1      | LVM    | Linux-Agent | RHEL 8.2-Images. Derzeit an reguläre Repositorys angefügt.
-|             | 81gen2   | LVM    | Linux-Agent | Hyper-V-Generation 2: RHEL 8.1-Images. Derzeit an reguläre Repositorys angefügt.
-|             | 8.1-ci   | LVM    | Linux-Agent | RHEL 8.1-Images unter Verwendung von cloud-init als Bereitstellungs-Agent. Derzeit an reguläre Repositorys angefügt.
-|             | 81-ci-gen2| LVM    | Linux-Agent | Hyper-V Generation 2 – RHEL 8.1-Images unter Verwendung von cloud-init als Bereitstellungs-Agent. Derzeit an reguläre Repositorys angefügt.
-|             | 8,2      | LVM    | Linux-Agent | RHEL 8.2-Images. Derzeit an reguläre Repositorys angefügt.
-|             | 82gen2   | LVM    | Linux-Agent | Hyper-V-Generation 2: RHEL 8.1-Images. Derzeit an reguläre Repositorys angefügt.
+|             | 8.1      | LVM    | Linux-Agent | Standardmäßig mit EUS-Repositorys verknüpft.
+|             | 81gen2   | LVM    | Linux-Agent | Hyper-V Generation 2: seit November 2020 an EUS-Repositorys angefügt.
+|             | 8.1-ci   | LVM    | Linux-Agent | Seit November 2020 an EUS-Repositorys angefügt.
+|             | 81-ci-gen2| LVM    | Linux-Agent | Hyper-V Generation 2: seit November 2020 an EUS-Repositorys angefügt.
+|             | 8,2      | LVM    | Linux-Agent | Seit November 2020 an EUS-Repositorys angefügt.
+|             | 82gen2   | LVM    | Linux-Agent | Hyper-V Generation 2: seit November 2020 an EUS-Repositorys angefügt.
+|             | 8.3   | LVM    | Linux-Agent |  An reguläre Repositorys angefügt (EUS nicht für RHEL 8.3 verfügbar)
+|             | 83-gen2   | LVM    | Linux-Agent |Hyper-V Generation 2: an reguläre Repositorys angefügt (EUS nicht für RHEL 8.3 verfügbar)
 RHEL-SAP      | 7.4      | LVM    | Linux-Agent | RHEL 7.4 for SAP HANA und Geschäfts-Apps. An E4S-Repositorys angefügt, Premium-Berechnung für SAP und RHEL sowie Grundgebühr für Computekapazität.
 |             | 74sap-gen2| LVM    | Linux-Agent | RHEL 7.4 for SAP HANA und Geschäfts-Apps. Image der Generation 2. An E4S-Repositorys angefügt, Premium-Berechnung für SAP und RHEL sowie Grundgebühr für Computekapazität.
 |             | 7,5       | LVM    | Linux-Agent | RHEL 7.5 for SAP HANA und Geschäfts-Apps. An E4S-Repositorys angefügt, Premium-Berechnung für SAP und RHEL sowie Grundgebühr für Computekapazität.
@@ -65,14 +70,22 @@ RHEL-SAP      | 7.4      | LVM    | Linux-Agent | RHEL 7.4 for SAP HANA und Gesc
 |             | 7.6       | LVM    | Linux-Agent | RHEL 7.6 for SAP HANA und Geschäfts-Apps. An E4S-Repositorys angefügt, Premium-Berechnung für SAP und RHEL sowie Grundgebühr für Computekapazität.
 |             | 76sap-gen2| LVM    | Linux-Agent | RHEL 7.6 for SAP HANA und Geschäfts-Apps. Image der Generation 2. An E4S-Repositorys angefügt, Premium-Berechnung für SAP und RHEL sowie Grundgebühr für Computekapazität.
 |             | 7,7       | LVM    | Linux-Agent | RHEL 7.7 for SAP HANA und Geschäfts-Apps. An E4S-Repositorys angefügt, Premium-Berechnung für SAP und RHEL sowie Grundgebühr für Computekapazität.
-RHEL-SAP-HANA | 6.7       | RAW    | Linux-Agent | RHEL 6.7 for SAP HANA. Veraltet zugunsten der RHEL-SAP-Images.
-|             | 7.2       | LVM    | Linux-Agent | RHEL 7.2 for SAP HANA. Veraltet zugunsten der RHEL-SAP-Images.
-|             | 7.3       | LVM    | Linux-Agent | RHEL 7.3 for SAP HANA. Veraltet zugunsten der RHEL-SAP-Images.
+RHEL-SAP-HANA (wird im November 2020 entfernt) | 6.7       | RAW    | Linux-Agent | RHEL 6.7 for SAP HANA. Veraltet zugunsten der RHEL-SAP-Images. Dieses Image wird im November 2020 entfernt. Weitere Informationen zu den SAP-Cloud-Angeboten von Red Hat finden Sie [hier](https://access.redhat.com/articles/3751271).
+|             | 7.2       | LVM    | Linux-Agent | RHEL 7.2 for SAP HANA. Veraltet zugunsten der RHEL-SAP-Images. Dieses Image wird im November 2020 entfernt. Weitere Informationen zu den SAP-Cloud-Angeboten von Red Hat finden Sie [hier](https://access.redhat.com/articles/3751271).
+|             | 7.3       | LVM    | Linux-Agent | RHEL 7.3 for SAP HANA. Veraltet zugunsten der RHEL-SAP-Images. Dieses Image wird im November 2020 entfernt. Weitere Informationen zu den SAP-Cloud-Angeboten von Red Hat finden Sie [hier](https://access.redhat.com/articles/3751271).
 RHEL-SAP-APPS | 6,8       | RAW    | Linux-Agent | RHEL 6.8 for SAP Business Applications. Veraltet zugunsten der RHEL-SAP-Images.
 |             | 7.3       | LVM    | Linux-Agent | RHEL 7.3 for SAP Business Applications. Veraltet zugunsten der RHEL-SAP-Images.
-RHEL-Hochverfügbarkeit       | 7.4       | LVM    | Linux-Agent | RHEL 7.4 mit Hochverfügbarkeits-Add-On. Premium-Berechnung für HANA und RHEL zusätzlich zur Grundgebühr für Computekapazität.
-|             | 7,5       | LVM    | Linux-Agent | RHEL 7.5 mit Hochverfügbarkeits-Add-On. Premium-Berechnung für HANA und RHEL zusätzlich zur Grundgebühr für Computekapazität.
-|             | 7.6       | LVM    | Linux-Agent | RHEL 7.6 mit Hochverfügbarkeits-Add-On. Premium-Berechnung für HANA und RHEL zusätzlich zur Grundgebühr für Computekapazität.
+|             | 7.4       | LVM    | Linux-Agent | RHEL 7.4 for SAP Business Applications
+|             | 7.6       | LVM    | Linux-Agent | RHEL 7.6 for SAP Business Applications
+|             | 7,7       | LVM    | Linux-Agent | RHEL 7.7 for SAP Business Applications
+|             | 77-gen2       | LVM    | Linux-Agent | RHEL 7.7 for SAP Business Applications Image der Generation 2
+|             | 8.1       | LVM    | Linux-Agent | RHEL 8.1 für SAP Business Applications.
+|             | 81-gen2      | LVM    | Linux-Agent | RHEL 8.1 für SAP Business Applications. Image der Generation 2.
+|             | 8,2       | LVM    | Linux-Agent | RHEL 8.2 für SAP Business Applications.
+|             | 82-gen2      | LVM    | Linux-Agent | RHEL 8.2 für SAP Business Applications. Image der Generation 2.
+RHEL-Hochverfügbarkeit       | 7.4       | LVM    | Linux-Agent | RHEL 7.4 mit Hochverfügbarkeits-Add-On. Premium-Berechnung für HANA und RHEL zusätzlich zur Grundgebühr für Computekapazität. Veraltet zugunsten der RHEL-SAP-HA-Images
+|             | 7,5       | LVM    | Linux-Agent | RHEL 7.5 mit Hochverfügbarkeits-Add-On. Premium-Berechnung für HANA und RHEL zusätzlich zur Grundgebühr für Computekapazität. Veraltet zugunsten der RHEL-SAP-HA-Images
+|             | 7.6       | LVM    | Linux-Agent | RHEL 7.6 mit Hochverfügbarkeits-Add-On. Premium-Berechnung für HANA und RHEL zusätzlich zur Grundgebühr für Computekapazität. Veraltet zugunsten der RHEL-SAP-HA-Images
 RHEL-SAP-HA   | 7.4          | LVM    | Linux-Agent | RHEL 7.4 für SAP mit Hochverfügbarkeit und Update Services. An E4S-Repositorys angefügt. Premium-Berechnung für SAP- und Hochverfügbarkeitsrepositorys sowie RHEL zusätzlich zur Grundgebühr für Computekapazität.
 |             | 74sapha-gen2 | LVM    | Linux-Agent | RHEL 7.4 für SAP mit Hochverfügbarkeit und Update Services. Image der Generation 2. An E4S-Repositorys angefügt. Premium-Berechnung für SAP- und Hochverfügbarkeitsrepositorys sowie RHEL zusätzlich zur Grundgebühr für Computekapazität.
 |             | 7,5          | LVM    | Linux-Agent | RHEL 7.5 für SAP mit Hochverfügbarkeit und Update Services. An E4S-Repositorys angefügt. Premium-Berechnung für SAP- und Hochverfügbarkeitsrepositorys sowie RHEL zusätzlich zur Grundgebühr für Computekapazität.
@@ -80,6 +93,10 @@ RHEL-SAP-HA   | 7.4          | LVM    | Linux-Agent | RHEL 7.4 für SAP mit Hoc
 |             | 76sapha-gen2 | LVM    | Linux-Agent | RHEL 7.6 für SAP mit Hochverfügbarkeit und Update Services. Image der Generation 2. An E4S-Repositorys angefügt. Premium-Berechnung für SAP- und Hochverfügbarkeitsrepositorys sowie RHEL zusätzlich zur Grundgebühr für Computekapazität.
 |             | 7,7          | LVM    | Linux-Agent | RHEL 7.7 für SAP mit Hochverfügbarkeit und Update Services. An E4S-Repositorys angefügt. Premium-Berechnung für SAP- und Hochverfügbarkeitsrepositorys sowie RHEL zusätzlich zur Grundgebühr für Computekapazität.
 |             | 77sapha-gen2 | LVM    | Linux-Agent | RHEL 7.7 für SAP mit Hochverfügbarkeit und Update Services. Image der Generation 2. An E4S-Repositorys angefügt. Premium-Berechnung für SAP- und Hochverfügbarkeitsrepositorys sowie RHEL zusätzlich zur Grundgebühr für Computekapazität.
+|             | 8.1          | LVM    | Linux-Agent | RHEL 8.1 für SAP mit Hochverfügbarkeit und Update Services. An E4S-Repositorys angefügt. Premium-Berechnung für SAP- und Hochverfügbarkeitsrepositorys sowie RHEL zusätzlich zur Grundgebühr für Computekapazität.
+|             | 81sapha-gen2          | LVM    | Linux-Agent | RHEL 8.1 für SAP mit Hochverfügbarkeit und Update Services. Images der Generation 2: an E4S-Repositorys angefügt. Premium-Berechnung für SAP- und Hochverfügbarkeitsrepositorys sowie RHEL zusätzlich zur Grundgebühr für Computekapazität.
+|             | 8,2          | LVM    | Linux-Agent | RHEL 8.2 für SAP mit Hochverfügbarkeit und Update Services. Premium-Berechnung für SAP- und Hochverfügbarkeitsrepositorys sowie RHEL zusätzlich zur Grundgebühr für Computekapazität.
+|             | 82sapha-gen2          | LVM    | Linux-Agent | RHEL 8.2 für SAP mit Hochverfügbarkeit und Update Services. Images der Generation 2: an E4S-Repositorys angefügt. Premium-Berechnung für SAP- und Hochverfügbarkeitsrepositorys sowie RHEL zusätzlich zur Grundgebühr für Computekapazität.
 rhel-byos     |rhel-lvm74| LVM    | Linux-Agent | Bei RHEL 7.4 BYOS-Images, die nicht an eine Quelle für Updates angefügt sind, erfolgt keine Premium-Berechnung für RHEL.
 |             |rhel-lvm75| LVM    | Linux-Agent | Bei RHEL 7.5 BYOS-Images, die nicht an eine Quelle für Updates angefügt sind, erfolgt keine Premium-Berechnung für RHEL.
 |             |rhel-lvm76| LVM    | Linux-Agent | Bei RHEL 7.6 BYOS-Images, die nicht an eine Quelle für Updates angefügt sind, erfolgt keine Premium-Berechnung für RHEL.

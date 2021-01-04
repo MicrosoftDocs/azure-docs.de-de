@@ -10,19 +10,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/09/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq2
-ms.openlocfilehash: d27c65938d10f9061961ebb585327bc77d8b2859
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.custom: how-to, contperfq2, automl
+ms.openlocfilehash: fcbe0fc5049f6e892f80f048a885c75420bc636e
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092459"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359084"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Auswerten der Ergebnisse von Experimenten des automatisierten maschinellen Lernens
 
-In diesem Artikel erfahren Sie, wie Sie die Ergebnisse Ihrer Experimente des automatisierten maschinellen Lernens (AutoML) anzeigen und auswerten. Diese Experimente bestehen aus mehreren Ausführungen. Bei jeder Ausführung wird ein Modell erstellt. Um Sie bei der Auswertung der Modelle zu unterstützen, generiert AutoML automatisch Leistungsmetriken und Diagramme für Ihren jeweiligen Experimenttyp. 
+In diesem Artikel erfahren Sie, wie Sie die Ergebnisse Ihrer Experimente des automatisierten maschinellen Lernens (automatisiertes ML) anzeigen und auswerten. Diese Experimente bestehen aus mehreren Ausführungen. Bei jeder Ausführung wird ein Modell erstellt. Um Sie bei der Auswertung der Modelle zu unterstützen, generiert automatisiertes ML automatisch Leistungsmetriken und Diagramme für Ihren jeweiligen Experimenttyp. 
 
-AutoML stellt beispielsweise verschiedene Diagramme für Klassifizierungs- und Regressionsmodelle bereit. 
+Automatisiertes ML stellt beispielsweise verschiedene Diagramme für Klassifizierungs- und Regressionsmodelle bereit. 
 
 |Klassifizierung|Regression
 |---|---|
@@ -41,7 +41,7 @@ AutoML stellt beispielsweise verschiedene Diagramme für Klassifizierungs- und R
 
 Nach dem Ausführen Ihres Experiments für automatisiertes maschinelles Lernen finden Sie über [Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md) einen Verlauf der Ausführungen in Ihrem Machine Learning-Arbeitsbereich. 
 
-Bei SDK-Experimenten können Sie diese Ergebnisse auch während einer Ausführung anzeigen, wenn Sie das [Jupyter-Widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true) `RunDetails` verwenden.
+Bei SDK-Experimenten können Sie diese Ergebnisse auch während einer Ausführung anzeigen, wenn Sie das [Jupyter-Widget](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) `RunDetails` verwenden.
 
 Die folgende Animation und die anschließenden Schritte zeigen, wie Sie den Ausführungsverlauf sowie die Leistungsmetriken und Diagramme eines bestimmten Modells im Studio anzeigen.
 
@@ -61,7 +61,7 @@ So zeigen Sie den Ausführungsverlauf und die Leistungsmetriken und Diagramme ei
 
 ## <a name="classification-performance-metrics"></a>Leistungsmetriken für Klassifizierungen
 
-In der folgenden Tabelle sind die Modellleistungsmetriken zusammengefasst, die AutoML für jedes Klassifizierungsmodell berechnet, das für Ihr Experiment generiert wird. 
+In der folgenden Tabelle sind die Modellleistungsmetriken zusammengefasst, die automatisiertes ML für jedes Klassifizierungsmodell berechnet, das für Ihr Experiment generiert wird. 
 
 Metrik|BESCHREIBUNG|Berechnung|Zusätzliche Parameter
 --|--|--|--
@@ -88,7 +88,7 @@ weighted_accuracy|Die gewichtete Genauigkeit ist die Genauigkeit, bei der die Ge
 
 ### <a name="binary-vs-multiclass-metrics"></a>Gegenüberstellung von Binär- und Multiklassenmetriken
 
-AutoML unterscheidet nicht zwischen Binär- und Multiklassenmetriken. Für Datasets mit zwei Klassen werden die gleichen Validierungsmetriken gemeldet wie für Datasets mit mehr als zwei Klassen. Einige Metriken sind jedoch für die Klassifizierung mit mehreren Klassen vorgesehen. Wenn eine solche Metrik auf ein binäres Dataset angewendet wird, wird keine Klasse als `true` behandelt. Metriken, die eindeutig für mehrere Klassen vorgesehen sind, sind mit dem Suffix `micro`, `macro`oder `weighted` gekennzeichnet. Beispiele hierfür sind etwa `average_precision_score`, `f1_score`, `precision_score`, `recall_score` und `AUC`.
+Automatisiertes ML unterscheidet nicht zwischen Binär- und Multiklassenmetriken. Für Datasets mit zwei Klassen werden die gleichen Validierungsmetriken gemeldet wie für Datasets mit mehr als zwei Klassen. Einige Metriken sind jedoch für die Klassifizierung mit mehreren Klassen vorgesehen. Wenn eine solche Metrik auf ein binäres Dataset angewendet wird, wird keine Klasse als `true` behandelt. Metriken, die eindeutig für mehrere Klassen vorgesehen sind, sind mit dem Suffix `micro`, `macro`oder `weighted` gekennzeichnet. Beispiele hierfür sind etwa `average_precision_score`, `f1_score`, `precision_score`, `recall_score` und `AUC`.
 
 Anstatt beispielsweise den Abruf als `tp / (tp + fn)` zu berechnen, wird beim Durchschnittsabruf mit mehreren Klassen (`micro`, `macro` oder `weighted`) für beide Klassen eines Datasets mit Binärklassifizierung ein Durchschnitt gebildet. Dies entspricht der separaten Berechnung des Abrufs für die Klassen `true` und `false` und der anschließenden Bildung des Durchschnitts der beiden Klassen.
 
@@ -159,7 +159,7 @@ Sie können die Prognosegüte des automatisch mit Azure Machine Learning erstell
 
 ### <a name="what-does-a-good-model-look-like"></a>Wie sieht ein gutes Modell aus?
 
-Eine höhere Prognosegütekurve – also je höher Ihr Modell über der Baseline liegt – weist auf ein Modell mit besserer Leistung hin. 
+Ein Modell mit besserer Leistung weist im Graph eine höhere Prognosegütekurve auf, die weiter von der Grundlinie entfernt ist. 
 
 #### <a name="example-1-a-classification-model-that-performs-poorly-compared-to-a-random-selection-model"></a>Beispiel 1: Ein Klassifizierungsmodell, das schlechter abschneidet als ein Zufallsauswahlmodell.
 ![Ein Klassifizierungsmodell, das schlechter abschneidet als ein Zufallsauswahlmodell.](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
@@ -209,7 +209,7 @@ Ein gut kalibriertes Modell ist an der y=x-Linie ausgerichtet, wo es die Wahrsch
 
 ## <a name="regression-performance-metrics"></a>Leistungsmetriken für Regression
 
-In der folgenden Tabelle sind die Modellleistungsmetriken zusammengefasst, die AutoML für jedes Regressions- oder Vorhersagemodell berechnet, das für Ihr Experiment generiert wird. 
+In der folgenden Tabelle sind die Modellleistungsmetriken zusammengefasst, die automatisiertes ML für jedes Regressions- oder Vorhersagemodell berechnet, das für Ihr Experiment generiert wird. 
 
 |Metrik|BESCHREIBUNG|Berechnung|Zusätzliche Parameter
 --|--|--|--|
@@ -234,12 +234,12 @@ Vorhergesagt im Vergleich zu TRUE zeigt die Beziehung zwischen einem vorhergesag
 Nach jeder Ausführung wird für jedes Regressionsmodell ein Diagramm mit den vorhergesagten im Vergleich zu den wahren Werten angezeigt. Zum Schutz der Privatsphäre werden die Werte in Behältern zusammengeführt, und die Größe jedes Behälters wird als Balkendiagramm im unteren Teil des Diagrammbereichs angezeigt. Sie können das Vorhersagemodell (mit dem helleren Farbbereich, der die Fehlergrenzen anzeigt) mit dem Idealwert des Modells vergleichen.
 
 ### <a name="what-does-a-good-model-look-like"></a>Wie sieht ein gutes Modell aus?
-Dieses Diagramm kann verwendet werden, um die Leistung eines Modells zu messen, da Folgendes gilt: Je näher die vorhergesagten Werte an der y=x-Linie liegen, desto besser ist die Genauigkeit eines Vorhersagemodells.
+Mit diesem Graphen kann die Leistung eines Modells gemessen werden, da Folgendes gilt: Je näher die vorhergesagten Werte an der y=x-Linie liegen, desto besser ist die Leistung eines Vorhersagemodells.
 
-#### <a name="example-1-a-classification-model-with-low-accuracy"></a>Beispiel 1: Ein Klassifizierungsmodell mit niedriger Genauigkeit.
+#### <a name="example-1-a-regression-model-with-low-performance"></a>Beispiel 1: Ein Regressionsmodell mit niedriger Leistung
 ![Ein Regressionsmodell mit niedriger Genauigkeit bei Vorhersagen.](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
 
-#### <a name="example-2-a-regression-model-with-high-accuracy"></a>Beispiel 2: Ein Regressionsmodell mit hoher Genauigkeit. 
+#### <a name="example-2-a-regression-model-with-high-performance"></a>Beispiel 2: Ein Regressionsmodell mit hoher Leistung
 ![Ein Regressionsmodell mit hoher Genauigkeit bei seinen Vorhersagen.](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)
 
 <a name="histo"></a> 
@@ -254,7 +254,7 @@ Um eine Fehlerspanne mit geringer Verzerrung darzustellen, sollte das Histogramm
 #### <a name="example-1-a-regression-model-with-bias-in-its-errors"></a>Beispiel 1: Ein Regressionsmodell mit Verzerrung bei seinen Fehlern.
 ![Ein Regressionsmodell mit Verzerrung bei seinen Fehlern.](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
 
-#### <a name="example-2-a-regression-model-with-more-even-distribution-of-errors"></a>Beispiel 2: Ein Regressionsmodell mit gleichmäßigerer Verteilung von Fehlern.
+#### <a name="example-2-a-regression-model-with-a-more-even-distribution-of-errors"></a>Beispiel 2: Ein Regressionsmodell mit gleichmäßigerer Verteilung von Fehlern
 ![Ein Regressionsmodell mit gleichmäßigerer Verteilung von Fehlern.](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
 
 <a name="explain-model"></a>

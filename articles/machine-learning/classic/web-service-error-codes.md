@@ -11,16 +11,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: c48c59db2d9b830367276d39a82bc7fc8fdc34d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24e0fa530b370782af730a2383df1240bbf5c859
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357249"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308654"
 ---
 # <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Azure Machine Learning Studio (klassisch): Fehlercodes der REST-API
 
-**GILT FÜR:**  ![Gilt für ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic) ![Gilt nicht für ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**GILT FÜR:**  ![Gilt für ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic) ![Gilt nicht für ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Die folgenden Fehlercodes können für den Vorgang eines Azure Machine Learning Studio-Webdiensts (klassisch) zurückgegeben werden.
@@ -252,4 +252,3 @@ Der Vorgang konnte nicht innerhalb der zulässigen Zeit abgeschlossen werden.
 | ---------- |--------------|
 | BackendInitializationTimeout | The web service initialization could not be completed within the permitted time. (Die Webdienstinitialisierung konnte nicht innerhalb der zulässigen Dauer abgeschlossen werden.) |
 | BackendScoreTimeout | The web service request execution could not be completed within the permitted time. (Die Ausführung der Webdienstanforderung konnte nicht innerhalb der zulässigen Dauer abgeschlossen werden.) |
- 

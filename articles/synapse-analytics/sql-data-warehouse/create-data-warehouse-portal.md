@@ -1,6 +1,6 @@
 ---
-title: 'Schnellstart: Erstellen und Abfragen eines Synapse-SQL-Pools (Azure-Portal)'
-description: Erstellen und Abfragen eines Synapse-SQL-Pools mit dem Azure-Portal
+title: 'Schnellstart: Erstellen und Abfragen eines dedizierten SQL-Pools (vormals SQL DW) (Azure-Portal)'
+description: Hier erfahren Sie, wie Sie einen dedizierten SQL-Pool (vormals SQL DW) über das Azure-Portal erstellen und abfragen.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -8,26 +8,26 @@ ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 05/28/2019
-ms.author: Kevin
+ms.author: pimorano
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 878b272e2a1a0e1d5a00a9c2028a6803b6d95383
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 78a0982081b8e34461fb2910cc7ce21be622cb6a
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91568959"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922809"
 ---
-# <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Schnellstart: Erstellen und Abfragen eines Synapse-SQL-Pools mit dem Azure-Portal
+# <a name="quickstart-create-and-query-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-the-azure-portal"></a>Schnellstart: Erstellen und Abfragen eines dedizierten SQL-Pools (vormals SQL DW) in Azure Synapse Analytics über das Azure-Portal
 
-Hier wird beschrieben, wie Sie schnell über das Azure-Portal einen Synapse-SQL-Pool (Data Warehouse) in Azure Synapse Analytics (vormals SQL DW) erstellen und abfragen.
+Hier erfahren Sie, wie Sie über das Azure-Portal schnell einen dedizierten SQL-Pool (vormals SQL DW) in Azure Synapse Analytics erstellen und abfragen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 1. Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 
    > [!NOTE]
-   > Die Erstellung eines SQL-Pools in Azure Synapse kann zu einem neuen kostenpflichtigen Dienst führen. Weitere Informationen finden Sie unter [Azure Synapse Analytics – Preise](https://azure.microsoft.com/pricing/details/synapse-analytics/).
+   > Die Erstellung eines dedizierten SQL-Pools (vormals SQL DW) in Azure Synapse führt möglicherweise zu einem neuen abrechenbaren Dienst. Weitere Informationen finden Sie unter [Azure Synapse Analytics – Preise](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
 2. Laden Sie die aktuelle Version von [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) herunter, und installieren Sie sie.
 
@@ -37,25 +37,25 @@ Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.
 
 ## <a name="create-a-sql-pool"></a>Erstellen eines SQL-Pools
 
-Data Warehouse-Instanzen werden erstellt, indem in Azure Synapse Analytics ein SQL-Pool verwendet wird. Ein SQL-Pool wird mit einem definierten Satz von [Computeressourcen](memory-concurrency-limits.md) erstellt. Die Datenbank wird innerhalb einer [Azure-Ressourcengruppe](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) und auf einem [logischen SQL-Server](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) erstellt.
+Data Warehouses werden unter Verwendung eines dedizierten SQL-Pools (vormals SQL DW) in Azure Synapse Analytics erstellt. Ein dedizierter SQL-Pool (vormals SQL DW) wird mit einem definierten Satz von [Computeressourcen](memory-concurrency-limits.md) erstellt. Die Datenbank wird innerhalb einer [Azure-Ressourcengruppe](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) und auf einem [logischen SQL-Server](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) erstellt.
 
-Führen Sie diese Schritte aus, um einen SQL-Pool mit den **AdventureWorksDW**-Beispieldaten zu erstellen.
+Gehen Sie wie folgt vor, um einen dedizierten SQL-Pool (vormals SQL DW) mit den Beispieldaten von **AdventureWorksDW** zu erstellen:
 
-1. Wählen Sie im Azure-Portal oben links die Option **Ressource erstellen** aus.
+1. Klicken Sie im Azure-Portal links oben auf **Ressource erstellen**.
 
    ![Erstellen einer Ressource im Azure-Portal](./media/create-data-warehouse-portal/create-a-resource.png)
 
-2. Wählen Sie auf der Seite **Neu** die Option **Datenbanken** und dann in der Liste **Empfohlen** die Option **Azure Synapse Analytics (vormals SQL DW)** aus.
+2. Geben Sie auf der Suchleiste „dedizierter SQL-Pool“ ein, und wählen Sie die Option „Dedizierter SQL-Pool (vormals SQL DW)“ aus. Wählen Sie auf der daraufhin angezeigten Seite die Option **Erstellen** aus.
 
    ![Erstellen eines Data Warehouse](./media/create-data-warehouse-portal/create-a-data-warehouse.png)
 
-3. Geben Sie unter **Grundlagen** Ihr Abonnement, die Ressourcengruppe, den Namen des SQL-Pools und den Servernamen an:
+3. Geben Sie unter **Basiseinstellungen** Ihr Abonnement, Ihre Ressourcengruppe, den Namen des dedizierten SQL-Pools (vormals SQL DW) und den Servernamen an:
 
    | Einstellung | Vorgeschlagener Wert | BESCHREIBUNG |
    | :------ | :-------------- | :---------- |
    | **Abonnement** | Ihr Abonnement | Ausführliche Informationen zu Ihren Abonnements finden Sie unter [Abonnements](https://account.windowsazure.com/Subscriptions). |
    | **Ressourcengruppe** | myResourceGroup | Gültige Ressourcengruppennamen finden Sie unter [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Benennungsregeln und Einschränkungen). |
-   | **Name des SQL-Pools** | Beliebiger global eindeutiger Name (Beispiel: *mySampleDataWarehouse*) | Gültige Datenbanknamen finden Sie unter [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Datenbankbezeichner). Beachten Sie, dass ein SQL-Pool ein Datenbanktyp ist. |
+   | **Name des SQL-Pools** | Beliebiger global eindeutiger Name (Beispiel: *mySampleDataWarehouse*) | Gültige Datenbanknamen finden Sie unter [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Datenbankbezeichner).  |
    | **Server** | Ein global eindeutiger Name | Wählen Sie einen vorhandenen Server aus, oder erstellen Sie einen neuen Servernamen, indem Sie **Neu erstellen** auswählen. Gültige Servernamen finden Sie unter [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Benennungsregeln und Einschränkungen). |
 
    ![Erstellen einer Data Warehouse-Instanz: Grundlegende Details](./media/create-data-warehouse-portal/create-sql-pool-basics.png)
@@ -68,7 +68,7 @@ Führen Sie diese Schritte aus, um einen SQL-Pool mit den **AdventureWorksDW**-B
 
 5. Wählen Sie **Zusätzliche Einstellungen** und dann unter **Vorhandene Daten verwenden** die Option **Beispiel** aus, damit AdventureWorksDW als Beispieldatenbank erstellt wird.
 
-    ![„Vorhandene Daten verwenden“ auswählen](./media/create-data-warehouse-portal/create-sql-pool-additional-1.png) 
+    ![„Vorhandene Daten verwenden“ auswählen](./media/create-data-warehouse-portal/create-sql-pool-additional-1.png)
 
 6. Wählen Sie nach dem Ausfüllen der Registerkarte „Grundlagen“ im Azure Synapse Analytics-Formular die Option **Bewerten + erstellen** und dann **Erstellen** aus, um den SQL-Pool zu erstellen. Die Bereitstellung dauert einige Minuten.
 
@@ -124,7 +124,7 @@ Rufen Sie den vollqualifizierten Servernamen für Ihren Server im Azure-Portal a
 
 3. Suchen Sie im Azure-Portal auf der Seite für Ihre Datenbank unter **Zusammenfassung** nach Ihrer Datenbank, und kopieren Sie den **Servernamen**. In diesem Beispiel lautet der vollqualifizierte Name „sqlpoolservername.database.windows.net“.
 
-    ![Verbindungsinformationen](./media/create-data-warehouse-portal/find-server-name-copy.png)
+    ![Verbindungsinformationen](./media/create-data-warehouse-portal/find-server-name.png)
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Herstellen einer Verbindung mit dem Server als Serveradministrator
 
@@ -180,21 +180,21 @@ Azure Synapse Analytics nutzt T-SQL als Abfragesprache. Führen Sie die folgende
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-Ihnen werden Gebühren für Data Warehouse-Einheiten und für in Ihrem SQL-Pool gespeicherte Daten in Rechnung gestellt. Diese Compute- und Speicherressourcen werden separat in Rechnung gestellt.
+Ihnen werden Gebühren für Data Warehouse-Einheiten und die in Ihrem dedizierten SQL-Pool (vormals SQL DW) gespeicherten Daten in Rechnung gestellt. Diese Compute- und Speicherressourcen werden separat in Rechnung gestellt.
 
-- Falls Sie die Daten im Speicher belassen möchten, können Sie Computeressourcen anhalten, wenn Sie den SQL-Pool nicht verwenden. Wenn Sie Computeressourcen anhalten, werden Ihnen nur die Datenspeichergebühren in Rechnung gestellt. Sie können Computeressourcen fortsetzen, wenn Sie mit den Daten arbeiten möchten.
+- Falls Sie die Daten im Speicher belassen möchten, können Sie Computeressourcen anhalten, wenn Sie den dedizierten SQL-Pool (vormals SQL DW) nicht verwenden. Wenn Sie Computeressourcen anhalten, werden Ihnen nur die Datenspeichergebühren in Rechnung gestellt. Sie können Computeressourcen fortsetzen, wenn Sie mit den Daten arbeiten möchten.
 
-- Wenn künftig keine Gebühren mehr anfallen sollen, können Sie den SQL-Pool löschen.
+- Wenn künftig keine Gebühren mehr anfallen sollen, können Sie den dedizierten SQL-Pool (vormals SQL DW) löschen.
 
 Führen Sie die folgenden Schritte aus, um nicht länger benötigte Ressourcen zu bereinigen.
 
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an, und wählen Sie Ihren SQL-Pool aus.
+1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an, und wählen Sie Ihren dedizierten SQL-Pool (vormals SQL DW) aus.
 
    ![Bereinigen von Ressourcen](./media/create-data-warehouse-portal/clean-up-resources.png)
 
-2. Wählen Sie zum Anhalten von Computeressourcen die Schaltfläche **Anhalten**. Wenn der SQL-Pool angehalten ist, wird die Schaltfläche **Fortsetzen** angezeigt. Wählen Sie zum Fortsetzen der Computeressourcen die Option **Fortsetzen** aus.
+2. Wählen Sie zum Anhalten von Computeressourcen die Schaltfläche **Anhalten**. Wenn der dedizierte SQL-Pool (vormals SQL DW) angehalten ist, wird die Schaltfläche **Fortsetzen** angezeigt. Wählen Sie zum Fortsetzen der Computeressourcen die Option **Fortsetzen** aus.
 
-3. Wählen Sie **Löschen** aus, wenn Sie den SQL-Pool entfernen möchten, damit keine Gebühren für Compute- oder Speicherressourcen anfallen.
+3. Wenn Sie den dedizierten SQL-Pool (vormals SQL DW) entfernen möchten, damit keine Gebühren für Compute- oder Speicherressourcen anfallen, wählen Sie **Löschen** aus.
 
 4. Wählen Sie zum Entfernen des von Ihnen erstellten Servers die Option **sqlpoolservername.database.windows.net** (siehe Abbildung oben) und dann **Löschen** aus. Seien Sie bei diesem Löschvorgang vorsichtig, da beim Löschen des Servers auch alle Datenbanken gelöscht werden, die dem Server zugewiesen sind.
 
@@ -206,4 +206,4 @@ Möchten Sie Ihre Cloudausgaben optimieren und Geld sparen?
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zum Laden von Daten in den SQL-Pool finden Sie im Artikel zum [Laden von Daten in den SQL-Pool](load-data-from-azure-blob-storage-using-polybase.md).
+Weitere Informationen zum Laden von Daten in Ihren dedizierten SQL-Pool (vormals SQL DW) finden Sie im [Artikel zum Laden von Daten in einen dedizierten SQL-Pool](load-data-from-azure-blob-storage-using-copy.md).

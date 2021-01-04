@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: fc12d1359ab7b6f664326cd3be448b79809c53e2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 2343800f8801105ca75f285972b441ecb027d1a0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332177"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793244"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Bereitstellen und Katalogisieren neuer Mandanten mithilfe des SaaS-Musters für eine Anwendung pro Mandant
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ Dieser Artikel setzt sich aus zwei Hauptteilen zusammen:
 
 ## <a name="standalone-application-per-tenant-pattern"></a>Muster mit einer eigenständigen Anwendung pro Mandant
 
-Das Muster für eine eigenständige Anwendung pro Mandant ist eines von mehreren Mustern für mehrinstanzenfähige SaaS-Anwendungen.  Bei diesem Muster wird für jeden Mandanten eine eigenständige Anwendung bereitgestellt. Die Anwendung besteht aus Komponenten auf Anwendungsebene und einer Azure SQL-Datenbank-Instanz.  Jede Mandantenanwendung kann im Abonnement des Anbieters bereitgestellt werden.  Alternativ bietet Azure ein [Programm für verwaltete Anwendungen](https://docs.microsoft.com/azure/managed-applications/overview), in dem eine Anwendung im Abonnement eines Mandanten bereitgestellt und vom Anbieter im Auftrag des Mandanten verwaltet werden kann.
+Das Muster für eine eigenständige Anwendung pro Mandant ist eines von mehreren Mustern für mehrinstanzenfähige SaaS-Anwendungen.  Bei diesem Muster wird für jeden Mandanten eine eigenständige Anwendung bereitgestellt. Die Anwendung besteht aus Komponenten auf Anwendungsebene und einer Azure SQL-Datenbank-Instanz.  Jede Mandantenanwendung kann im Abonnement des Anbieters bereitgestellt werden.  Alternativ bietet Azure ein [Programm für verwaltete Anwendungen](../../azure-resource-manager/managed-applications/overview.md), in dem eine Anwendung im Abonnement eines Mandanten bereitgestellt und vom Anbieter im Auftrag des Mandanten verwaltet werden kann.
 
    ![Muster für eine Anwendung pro Mandant](./media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
 
@@ -72,8 +72,8 @@ Am Ende dieses Tutorials verfügen Sie über eine Reihe eigenständiger Mandante
 
 Stellen Sie zum Durchführen dieses Tutorials sicher, dass die folgenden Voraussetzungen erfüllt sind:
 
-* Azure PowerShell wurde installiert. Weitere Informationen hierzu finden Sie unter [Erste Schritte mit Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
-* Die drei Beispielmandantenanwendungen sind bereitgestellt. Informationen zum Bereitstellen dieser Anwendungen in weniger als fünf Minuten finden Sie unter [Bereitstellen und Untersuchen des Musters der eigenständigen SaaS-Anwendung Wingtip Tickets](../../sql-database/saas-standaloneapp-get-started-deploy.md).
+* Azure PowerShell wurde installiert. Weitere Informationen hierzu finden Sie unter [Erste Schritte mit Azure PowerShell](/powershell/azure/get-started-azureps).
+* Die drei Beispielmandantenanwendungen sind bereitgestellt. Informationen zum Bereitstellen dieser Anwendungen in weniger als fünf Minuten finden Sie unter [Bereitstellen und Untersuchen des Musters der eigenständigen SaaS-Anwendung Wingtip Tickets](./saas-standaloneapp-get-started-deploy.md).
 
 ## <a name="provision-the-catalog"></a>Bereitstellen des Katalogs
 
@@ -92,7 +92,7 @@ In dieser Aufgabe erfahren Sie, wie Sie den Katalog bereitstellen, der zum Regis
 1. Führen Sie das Skript durch Drücken von **F5** aus.
 1.  Nachdem die Skriptausführung am Haltepunkt beendet wurde, drücken Sie **F11** , um das Skript „New-Catalog.ps1“ schrittweise auszuführen.
 1.  Verfolgen Sie die Ausführung des Skripts mit den Optionen (F10 und F11) im Menü „Debug“ nach, um aufgerufene Funktionen zu überspringen oder einzeln auszuführen.
-    *   Weitere Informationen zum Debuggen von PowerShell-Skripts finden Sie unter [Tipps zum Arbeiten mit und Debuggen von PowerShell-Skripts](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
+    *   Weitere Informationen zum Debuggen von PowerShell-Skripts finden Sie unter [Tipps zum Arbeiten mit und Debuggen von PowerShell-Skripts](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 Nach Abschluss des Skripts ist der Katalog vorhanden, und alle Beispielmandanten sind registriert.
 
@@ -156,4 +156,4 @@ In diesem Tutorial haben Sie Folgendes gelernt:
 > * Informationen zu Servern und Datenbanken, aus denen sich die App zusammensetzt
 > * Löschen von Beispielressourcen, um die zugehörige Abrechnung einzustellen
 
-Sie können untersuchen, wie der Katalog verwendet wird, um verschiedene mandantenübergreifende Szenarien mithilfe der Version für eine Datenbank pro Mandant der [Wingtip Tickets SaaS-Anwendung](../../sql-database/saas-dbpertenant-wingtip-app-overview.md) zu unterstützen.
+Sie können untersuchen, wie der Katalog verwendet wird, um verschiedene mandantenübergreifende Szenarien mithilfe der Version für eine Datenbank pro Mandant der [Wingtip Tickets SaaS-Anwendung](./saas-dbpertenant-wingtip-app-overview.md) zu unterstützen.

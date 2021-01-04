@@ -4,12 +4,12 @@ description: Überwachung der Anwendungsleistung für Azure App Services. Ladeze
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: e326f9764147b882a5009c53b9f13a3c3bd0bfc1
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: c0ee68659f4729ed8f63b9ea990343adf51513bd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875604"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186370"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Überwachen der Leistung von Azure App Service
 
@@ -36,7 +36,7 @@ Es gibt zwei Methoden, um die Überwachung für in Azure App Services gehostete 
 
 ## <a name="enable-agent-based-monitoring"></a>Aktivieren der Agent-basierten Überwachung
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="aspnet"></a>[ASP.NET](#tab/net)
 
 > [!NOTE]
 > Die Kombination von APPINSIGHTS_JAVASCRIPT_ENABLED und urlCompression wird nicht unterstützt. Weitere Informationen enthält die Erläuterung im [Problembehandlungsabschnitt](#troubleshooting).
@@ -59,7 +59,7 @@ Es gibt zwei Methoden, um die Überwachung für in Azure App Services gehostete 
  
  Es folgt eine Übersicht über die gesammelten Daten für jede Route:
         
-| Daten | .NET – Basissammlung | .NET – Empfohlene Sammlung |
+| Daten | ASP.NET: Basissammlung | ASP.NET: Empfohlene Sammlung |
 | --- | --- | --- |
 | Fügt CPU-, Speicher- und E/A-Nutzungstrends hinzu. |Ja |Ja |
 | Sammelt Nutzungstrends und ermöglicht die Korrelation von Verfügbarkeitsergebnissen und Transaktionen. | Ja |Ja |
@@ -73,11 +73,11 @@ Es gibt zwei Methoden, um die Überwachung für in Azure App Services gehostete 
 
     * Eine Liste der unterstützten Einstellungen des Telemetrieprozessors für die adaptive Stichprobenerstellung finden Sie im [Code](https://github.com/microsoft/ApplicationInsights-dotnet/blob/master/BASE/Test/ServerTelemetryChannel.Test/TelemetryChannel.Tests/AdaptiveSamplingTelemetryProcessorTest.cs) und der [zugehörigen Dokumentation](./sampling.md).
 
-# <a name="net-core"></a>[.NET Core](#tab/netcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
-Unterstützte .NET Core-Versionen: ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0, ASP.NET Core 3.1
+Unterstützte ASP.NET Core-Versionen: ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0, ASP.NET Core 3.1
 
-Die Agent-/Erweiterung-basierte Überwachung für das vollständige Framework aus .NET Core, eigenständiger Bereitstellung und Linux-basierten Anwendungen wird derzeit **nicht unterstützt**. (Die [manuelle Instrumentierung](./asp-net-core.md) über Code kann in allen zuvor genannten Szenarien verwendet werden.)
+Die Agent-/Erweiterung-basierte Überwachung für das vollständige Framework aus ASP.NET Core, eigenständiger Bereitstellung und Linux-basierten Anwendungen wird derzeit **nicht unterstützt**. (Die [manuelle Instrumentierung](./asp-net-core.md) über Code kann in allen zuvor genannten Szenarien verwendet werden.)
 
 1. In der Azure-Systemsteuerung für Ihre App Service-Instanz können Sie **Application Insights auswählen**.
 
@@ -90,7 +90,7 @@ Die Agent-/Erweiterung-basierte Überwachung für das vollständige Framework au
 
      ![Instrumentieren Ihrer Web-App](./media/azure-web-apps/create-resource-01.png)
 
-2. Nach Angabe der zu verwendenden Ressource können Sie plattformspezifisch auswählen, wie Application Insights Daten für Ihre Anwendung erfassen soll. .NET Core bietet die Optionen **Empfohlene Sammlung**  oder **Deaktiviert** für ASP.NET Core 2.1, 2.2, 3.0 und 3.1.
+2. Nach Angabe der zu verwendenden Ressource können Sie plattformspezifisch auswählen, wie Application Insights Daten für Ihre Anwendung erfassen soll. ASP.NET Core bietet die Optionen **Empfohlene Sammlung**  oder **Deaktiviert** für ASP.NET Core 2.1, 2.2, 3.0 und 3.1.
 
     ![Auswählen plattformspezifischer Optionen](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -100,7 +100,8 @@ Wählen Sie in Ihrer App Service-Web-App die Option **Einstellungen** > **Applic
 
 # <a name="java"></a>[Java](#tab/java)
 
-Auf App Service basierende Java-Webanwendungen unterstützen derzeit keine automatische Überwachung mit Agents/Erweiterungen. Um die Überwachung für Ihre Java-Anwendung zu aktivieren, müssen Sie [Ihre Anwendung manuell instrumentieren](./java-get-started.md).
+Befolgen Sie die Anweisungen für den [Application Insights Java 3.0-Agent](./java-in-process-agent.md), um die automatische Instrumentierung für Ihre Java-Apps zu aktivieren, ohne den Code zu ändern.
+Die automatische Integration ist für App Service noch nicht verfügbar.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -110,7 +111,7 @@ Auf App Service basierende Python-Webanwendungen unterstützen derzeit keine aut
 
 ## <a name="enable-client-side-monitoring"></a>Aktivieren der clientseitigen Überwachung
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="aspnet"></a>[ASP.NET](#tab/net)
 
 Die clientseitige Überwachung für ASP.NET ist optional. Zum Aktivieren der clientseitigen Überwachung gehen Sie folgendermaßen vor:
 
@@ -125,9 +126,9 @@ Die clientseitige Überwachung für ASP.NET ist optional. Zum Aktivieren der cli
 
 Zum Deaktivieren der clientseitigen Überwachung entfernen Sie entweder das zugeordnete Schlüssel-Wert-Paar aus den Anwendungseinstellungen oder legen Sie den Wert auf „false“ fest.
 
-# <a name="net-core"></a>[.NET Core](#tab/netcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
-Die clientseitige Überwachung für .NET Core-Apps ist mit **Empfohlene Sammlung** **standardmäßig aktiviert**, unabhängig davon, ob die App-Einstellung „APPINSIGHTS_JAVASCRIPT_ENABLED“ vorhanden ist.
+Die clientseitige Überwachung für ASP.NET Core-Apps ist **standardmäßig aktiviert** mit **Empfohlene Sammlung**, unabhängig davon, ob die App-Einstellung „APPINSIGHTS_JAVASCRIPT_ENABLED“ vorhanden ist.
 
 Wenn Sie aus irgendeinem Grund die clientseitige Überwachung deaktivieren möchten, gehen Sie folgendermaßen vor:
 
@@ -347,10 +348,11 @@ Wenn das Upgrade für eine frühere Version als 2.5.1 ausgeführt wird, vergewis
 
 ## <a name="troubleshooting"></a>Problembehandlung
 
-Nachfolgend finden Sie schrittweise Anleitungen zur Problembehandlung für die Erweiterung/Agent-basierte Überwachung für Anwendungen, die auf .NET und .NET Core basieren und unter Azure App Services ausgeführt werden.
+Nachfolgend finden Sie schrittweise Anleitungen zur Problembehandlung für die Erweiterung/Agent-basierte Überwachung für Anwendungen, die auf ASP.NET und ASP.NET Core basieren und unter Azure App Services ausgeführt werden.
 
 > [!NOTE]
-> Java-Anwendungen werden unter Azure App Services nur über die manuelle SDK-basierte Instrumentierung unterstützt. Daher gelten die folgenden Schritte nicht für diese Szenarien.
+> Der empfohlene Ansatz zur Überwachung von Java-Anwendungen ist die automatische Instrumentierung ohne Änderung des Codes. Befolgen Sie die Leitlinien für den [Application Insights Java 3.0-Agent](./java-in-process-agent.md).
+
 
 1. Überprüfen Sie, ob die Anwendung über `ApplicationInsightsAgent` überwacht wird.
     * Überprüfen Sie, ob die App-Einstellung `ApplicationInsightsAgent_EXTENSION_VERSION` auf den Wert „~2“ festgelegt ist.
@@ -370,16 +372,31 @@ Nachfolgend finden Sie schrittweise Anleitungen zur Problembehandlung für die E
 
     * Stellen Sie sicher, dass keine Einträge für `AppAlreadyInstrumented`, `AppContainsDiagnosticSourceAssembly` und `AppContainsAspNetTelemetryCorrelationAssembly` vorhanden sind.
         * Wenn einer dieser Einträge vorhanden ist, entfernen Sie die folgenden Pakete aus Ihrer Anwendung: `Microsoft.ApplicationInsights`, `System.Diagnostics.DiagnosticSource` und `Microsoft.AspNet.TelemetryCorrelation`.
+        * Nur für ASP.NET Core-Apps: Falls sich Ihre Anwendung auf Application Insights Pakete bezieht, wenn Sie Ihre App z. B. bereits zuvor mit dem [ASP.NET Core SDK](./asp-net-core.md) instrumentiert (oder dieses versucht) haben, ist das Aktivieren der App Service-Integration unter Umständen nicht wirksam, und die Daten werden möglicherweise nicht in Application Insights angezeigt. Um das Problem zu beheben, aktivieren Sie im Portal die Option „Interoperabel mit Application Insights SDK“, und Sie sehen die Daten in Application Insights. 
+        > [!IMPORTANT]
+        > Diese Funktion befindet sich in der Vorschauphase. 
+
+        ![Aktivieren der Einstellung der vorhandenen App](./media/azure-web-apps/netcore-sdk-interop.png)
+
+        Die Daten werden jetzt mithilfe eines codelosen Ansatzes gesendet, auch wenn Application Insights SDK ursprünglich verwendet wurde oder versucht wurde, es zu verwenden.
+
+        > [!IMPORTANT]
+        > Wenn die Anwendung das Application Insights SDK verwendet hat, um Telemetriedaten zu senden, werden diese Telemetriedaten deaktiviert – anders ausgedrückt: Benutzerdefinierte Telemetriedaten, sofern vorhanden, z. B. alle Track*()-Methoden und alle benutzerdefinierten Einstellungen, wie z. B. Sampling, werden deaktiviert. 
+
+
+### <a name="php-and-wordpress-are-not-supported"></a>PHP und WordPress werden nicht unterstützt.
+
+PHP- und WordPress-Sites werden nicht unterstützt. Zurzeit ist kein offiziell unterstütztes SDK/unterstützter Agent für die serverseitige Überwachung dieser Workloads verfügbar. Das manuelle Instrumentieren clientseitiger Transaktionen auf einer PHP- oder WordPress-Website durch Hinzufügen von clientseitigem JavaScript zu Ihren Webseiten kann jedoch mithilfe des [JavaScript SDK](./javascript.md) erreicht werden.
 
 Die folgende Tabelle enthält eine ausführlichere Beschreibung der Bedeutung dieser Werte, der zugrunde liegenden Ursachen und der empfohlenen Problembehebungen:
 
 |Problemwert|Erklärung|Fix
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Dieser Wert zeigt an, dass die Erweiterung erkannt hat, dass ein Teil des SDK bereits in der Anwendung vorhanden ist, und der Vorgang wird abgebrochen. Mögliche Ursache ist ein Verweis auf `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation` oder `Microsoft.ApplicationInsights`.  | Entfernen Sie die Verweise. Einige dieser Verweise werden standardmäßig aus bestimmten Visual Studio-Vorlagen hinzugefügt, und ältere Versionen von Visual Studio können Verweise zu `Microsoft.ApplicationInsights` hinzufügen.
-|`AppAlreadyInstrumented:true` | Wenn die Anwendung auf .NET Core 2.1 oder 2.2 abzielt und auf das [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All)-Metapaket verweist, dann bringt sie Application Insights ein, und die Erweiterung wird zurückgesetzt. | Kunden mit .NET Core 2.1, 2.2 wird [empfohlen](https://github.com/aspnet/Announcements/issues/287), stattdessen das Microsoft.AspNetCore.App-Metapaket zu verwenden.|
+|`AppAlreadyInstrumented:true` | Wenn die Anwendung auf ASP.NET Core 2.1 oder 2.2 ausgerichtet ist, zeigt dieser Wert an, dass die Erweiterung erkannt hat, dass ein Teil des SDK bereits in der Anwendung vorhanden ist, und der Vorgang wird abgebrochen. | Kunden mit .NET Core 2.1, 2.2 wird [empfohlen](https://github.com/aspnet/Announcements/issues/287), stattdessen das Microsoft.AspNetCore.App-Metapaket zu verwenden. Aktivieren Sie außerdem „Interoperabel mit Application Insights SDK“ im Portal (siehe die obigen Anweisungen).|
 |`AppAlreadyInstrumented:true` | Dieser Wert kann auch durch Vorhandensein der oben genannten DLLs im App-Ordner aus einer früheren Bereitstellung verursacht werden. | Bereinigen Sie den App-Ordner, um sicherzustellen, dass diese DLLs entfernt werden. Überprüfen Sie sowohl das Verzeichnis „bin“ Ihrer lokalen App als auch das Verzeichnis „wwwroot“ im App Service. (Überprüfen des Verzeichnisses „wwwroot“ Ihrer App Service-Web-App: Erweiterte Tools (Kudu) > Debugging-Konsole > CMD > home\site\wwwroot).
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | Dieser Wert gibt an, dass die Erweiterung Verweise auf `Microsoft.AspNet.TelemetryCorrelation` in der Anwendung gefunden hat, und der Vorgang wird abgebrochen. | Entfernen Sie den Verweis.
-|`AppContainsDiagnosticSourceAssembly**:true`|Dieser Wert gibt an, dass die Erweiterung Verweise auf `System.Diagnostics.DiagnosticSource` in der Anwendung gefunden hat, und der Vorgang wird abgebrochen.| Entfernen Sie den Verweis.
+|`AppContainsDiagnosticSourceAssembly**:true`|Dieser Wert gibt an, dass die Erweiterung Verweise auf `System.Diagnostics.DiagnosticSource` in der Anwendung gefunden hat, und der Vorgang wird abgebrochen.| Entfernen Sie für ASP.NET den Verweis. 
 |`IKeyExists:false`|Dieser Wert gibt an, dass der Instrumentierungsschlüssel nicht in der App-Einstellung `APPINSIGHTS_INSTRUMENTATIONKEY` vorhanden ist. Mögliche Ursachen: Die Werte wurden möglicherweise versehentlich entfernt, nicht im Automatisierungsskript festgelegt usw. | Stellen Sie sicher, dass die Einstellung in den App Service-Anwendungseinstellungen vorhanden ist.
 
 ### <a name="appinsights_javascript_enabled-and-urlcompression-is-not-supported"></a>Die Kombination von APPINSIGHTS_JAVASCRIPT_ENABLED und urlCompression wird nicht unterstützt.
@@ -395,13 +412,9 @@ Aktuelle Informationen zu Application Insights-Agent/Erweiterung finden Sie in d
 
 ### <a name="default-website-deployed-with-web-apps-does-not-support-automatic-client-side-monitoring"></a>Die mit Web-Apps bereitgestellte Standardwebsite unterstützt keine automatische clientseitige Überwachung
 
-Wenn Sie eine Web-App mit der `ASP.NET`- oder `.NET Core`-Runtime in Azure App Services erstellen, wird eine einzelne statische HTML-Seite als Starter-Website bereitgestellt. Die statische Webseite lädt auch ein .NET-verwaltetes Webpart in IIS. Dies ermöglicht das Testen der serverseitigen Überwachung ohne Code, unterstützt jedoch nicht die automatische clientseitige Überwachung.
+Wenn Sie eine Web-App mit der `ASP.NET`- oder `ASP.NET Core`-Runtime in Azure App Services erstellen, wird eine einzelne statische HTML-Seite als Starter-Website bereitgestellt. Die statische Webseite lädt auch ein ASP.NET-verwaltetes Webpart in IIS. Dies ermöglicht das Testen der serverseitigen Überwachung ohne Code, unterstützt jedoch nicht die automatische clientseitige Überwachung.
 
 Wenn Sie die server- und clientseitige Überwachung ohne Code für ASP.NET oder ASP.NET Core in einer Azure App Services-Web-App testen möchten, wird empfohlen, den offiziellen Anleitungen zum [Erstellen einer ASP.NET Core-Web-App](../../app-service/quickstart-dotnetcore.md) und [Erstellen einer ASP.NET Framework-Web-App](../../app-service/quickstart-dotnet-framework.md) zu folgen und anschließend die Anweisungen im aktuellen Artikel zum Aktivieren der Überwachung zu verwenden.
-
-### <a name="php-and-wordpress-are-not-supported"></a>PHP und WordPress werden nicht unterstützt.
-
-PHP- und WordPress-Sites werden nicht unterstützt. Zurzeit ist kein offiziell unterstütztes SDK/unterstützter Agent für die serverseitige Überwachung dieser Workloads verfügbar. Das manuelle Instrumentieren clientseitiger Transaktionen auf einer PHP- oder WordPress-Site durch Hinzufügen des clientseitigen JavaScripts zu Ihren Webseiten kann jedoch mithilfe des [JavaScript SDK](./javascript.md) erreicht werden.
 
 ### <a name="connection-string-and-instrumentation-key"></a>Verbindungszeichenfolge und Instrumentierungsschlüssel
 
@@ -419,4 +432,3 @@ Informationen zu den neuesten Updates und Fehlerbehebungen [finden Sie in den Ve
 * [Empfangen von Warnbenachrichtigungen](../platform/alerts-overview.md) , wenn ein Vorgangsereignis auftritt oder Metriken einen Schwellenwert überschreiten.
 * Verwenden von [Application Insights für JavaScript-Apps und Webseiten](javascript.md), um Clienttelemetriedaten von den Browsern zu erhalten, mit denen auf eine Webseite zugegriffen wird
 * [Einrichten von Verfügbarkeitswebtests](monitor-web-app-availability.md), um benachrichtigt zu werden, wenn Ihre Website nicht verfügbar ist
-

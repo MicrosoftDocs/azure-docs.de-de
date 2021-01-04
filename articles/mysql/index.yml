@@ -3,17 +3,17 @@ title: Dokumentation zu Azure Database for MySQL
 summary: Azure Database for MySQL ist ein relationaler Datenbankdienst, der von der MySQL Community-Edition unterstützt wird. Sie können entweder Single Server oder Flexible Server (Vorschau) verwenden, um eine MySQL-Datenbank in Azure zu hosten. Das vollständig verwaltete Database-as-a-Service-Angebot kann geschäftskritische Workloads mit vorhersagbarer Leistung und dynamischer Skalierung verarbeiten.
 metadata:
   description: Azure Database for MySQL ist ein relationaler Datenbankdienst in Microsoft Cloud für Entwickler, der von der MySQL Community-Edition unterstützt wird. Sie können entweder Single Server oder Flexible Server (Vorschau) auswählen, um Ihre MySQL-Datenbank in Azure bereitzustellen.
-  author: ajlam
-  ms.author: andrela
+  author: savjani
+  ms.author: pariks
   ms.date: 09/03/2019
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 9ac045aac0587f7080ab7df277522674ca603040
-  ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+  ms.openlocfilehash: 82c736b3256a099aa0dbd2edca14f402a3b935be
+  ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/26/2020
-  ms.locfileid: "92546295"
+  ms.lasthandoff: 11/12/2020
+  ms.locfileid: "94543033"
 landingContent:
 - title: Informationen zu Azure Database for MySQL
   linkLists:
@@ -111,7 +111,7 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: Verbindungsstabilität
+    - text: Verbindungsresilienz
       url: concepts-connectivity.md
     - text: Bewährte Methoden
       url: app-development-best-practices.md

@@ -8,12 +8,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: overview
 ms.date: 09/01/2020
-ms.openlocfilehash: 90d3cb106fa93649f7d6dda5ab5755061d118f66
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1734128384d63749d3c777cf6315278fced9d140
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268382"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025139"
 ---
 # <a name="what-is-azure-database-for-postgresql---hyperscale-citus"></a>Was ist Azure Database for PostgreSQL Hyperscale (Citus)?
 
@@ -33,4 +33,4 @@ Bei der Option „Hyperscale (Citus)“ können für PostgreSQL erstellte Anwend
 
 - [Erstellen Sie zunächst Ihre erste](./quickstart-create-hyperscale-portal.md) Azure Database for PostgreSQL Hyperscale (Citus)-Servergruppe.
 - Auf der Seite mit der [Preisgestaltung](https://azure.microsoft.com/pricing/details/postgresql/) finden Sie Kostenvergleiche und Rechner. Hyperscale (Citus) bietet auch Rabatte für reservierte Instanzen. Weitere Informationen finden Sie unter [Vorauszahlung für Azure Database for PostgreSQL – Hyperscale (Citus)-Computeressourcen mit reservierter Kapazität](concepts-hyperscale-reserved-pricing.md).
-- Bestimmen der besten [Anfangsgröße](howto-hyperscale-scaling.md#picking-initial-size) für Ihre Servergruppe
+- Bestimmen der besten [Anfangsgröße](howto-hyperscale-scale-initial.md) für Ihre Servergruppe

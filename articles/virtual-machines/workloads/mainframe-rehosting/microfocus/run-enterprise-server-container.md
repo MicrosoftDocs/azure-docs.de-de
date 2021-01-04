@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: bfd40d39907c4e69ded0fa257305d346ca261836
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f34767c160c8229eb5b63806924926a46ea00cc2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319995"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127194"
 ---
 # <a name="run-micro-focus-enterprise-server-50-in-a-docker-container-on-azure"></a>Ausführen von Micro Focus Enterprise Server 5.0 in einem Docker-Container auf Azure
 
@@ -25,7 +25,7 @@ Sie können Micro Focus Enterprise Server 5.0 in einem Docker-Container auf Azur
 
 Durch Docker werden Anwendungen portabel und isoliert. Beispielsweise können Sie ein Docker-Image von einer Windows-VM exportieren, um es auf einer anderen auszuführen, oder aus einem Repository auf einen Windows-Server mit Docker exportieren. Das Docker-Image wird am neuen Speicherort mit der gleichen Konfiguration ausgeführt – ohne dass Enterprise Server installiert werden muss. Er ist Bestandteil des Images. Lizenzierungsaspekte sind aber nach wie vor zu beachten.
 
-In diesem Tutorial wird die **Windows 2016 Datacenter mit Containern**-VM aus dem Azure Marketplace installiert. Dieser virtuelle Computer beinhaltet **Docker 18.09.0**. In den Schritten weiter unten erfahren Sie, wie Sie den Container bereitstellen, ihn ausführen und anschließend mit einem 3270-Emulator eine Verbindung mit ihm herstellen.
+In diesem Tutorial wird die **Windows 2016 Datacenter mit Containern** -VM aus dem Azure Marketplace installiert. Dieser virtuelle Computer beinhaltet **Docker 18.09.0**. In den Schritten weiter unten erfahren Sie, wie Sie den Container bereitstellen, ihn ausführen und anschließend mit einem 3270-Emulator eine Verbindung mit ihm herstellen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -36,7 +36,7 @@ In diesem Tutorial wird die **Windows 2016 Datacenter mit Containern**-VM aus de
 -   Die Micro Focus-Software und eine gültige Lizenz (oder Testlizenz). Wenn Sie ein Micro Focus-Bestandskunde sind, wenden Sie sich an Ihren Micro Focus-Vertreter. Andernfalls können Sie [eine Testversion anfordern](https://www.microfocus.com/products/enterprise-suite/enterprise-server/trial/).
 
     > [!Note] 
-    > Die Docker-Demodateien sind im Lieferumfang von Enterprise Server 5.0 enthalten. In diesem Tutorial wird „ent\_server\_dockerfiles\_5.0\_windows.zip“ verwendet. Greifen Sie darauf von dem gleichen Ort zu, an dem Sie auch auf die Enterprise Server-Installationsdatei zugegriffen haben, oder navigieren Sie zu *Micro Focus*, um anzufangen.
+    > Die Docker-Demodateien sind im Lieferumfang von Enterprise Server 5.0 enthalten. In diesem Tutorial wird „ent\_server\_dockerfiles\_5.0\_windows.zip“ verwendet. Greifen Sie darauf von dem gleichen Ort zu, an dem Sie auch auf die Enterprise Server-Installationsdatei zugegriffen haben, oder navigieren Sie zu *Micro Focus* , um anzufangen.
 
 -   Die Dokumentation für [Enterprise Server und Enterprise Developer](https://www.microfocus.com/documentation/enterprise-developer/#%22).
 
@@ -50,7 +50,7 @@ In diesem Tutorial wird die **Windows 2016 Datacenter mit Containern**-VM aus de
 
 3.  Um die Eigenschaften der VM zu konfigurieren, wählen Sie die Instanzdetails aus:
 
-    1.  Wählen Sie eine VM-Größe aus. Erwägen Sie für dieses Tutorial die Verwendung einer **Standard DS2\_v3**-VM mit 2 vCPUs und 16 GB Arbeitsspeicher.
+    1.  Wählen Sie eine VM-Größe aus. Erwägen Sie für dieses Tutorial die Verwendung einer **Standard DS2\_v3** -VM mit 2 vCPUs und 16 GB Arbeitsspeicher.
 
     2.  Wählen Sie die **Region** und **Ressourcengruppe** aus, in denen Sie die Bereitstellung vornehmen möchten.
 
@@ -85,7 +85,7 @@ An diesem Punkt wird die VM ausgeführt und mithilfe von RDP verbunden. Sie sind
 
 2.  Laden Sie **ent\_server\_dockerfiles\_5.0\_windows.zip** und die Datei **ES-Docker-Prod-XXXXXXXX.mflic** in das erstellte Verzeichnis hoch.
 
-3.  Extrahieren Sie den Inhalt der ZIP-Datei in das Verzeichnis **ent\_server\_dockerfiles\_5.0\_windows**, das vom Extrahierungsvorgang erstellt wird. Dieses Verzeichnis enthält eine Infodatei (in Form einer HTML- und einer TXT-Datei) und zwei Unterverzeichnisse, **EnterpriseServer** und **Examples**.
+3.  Extrahieren Sie den Inhalt der ZIP-Datei in das Verzeichnis **ent\_server\_dockerfiles\_5.0\_windows** , das vom Extrahierungsvorgang erstellt wird. Dieses Verzeichnis enthält eine Infodatei (in Form einer HTML- und einer TXT-Datei) und zwei Unterverzeichnisse, **EnterpriseServer** und **Examples**.
 
 4.  Kopieren Sie **ES-Docker-Prod-XXXXXXXX.mflic** in das Verzeichnis „C:\\Sandbox\\ent\_server\_dockerfiles\_5.0\_windows\\EnterpriseServer“ und das Verzeichnis „C:\\Sandbox\\ent\_server\_dockerfiles\_5.0\_windows\\Examples\\CICS“.  
       
@@ -129,7 +129,7 @@ An diesem Punkt wird die VM ausgeführt und mithilfe von RDP verbunden. Sie sind
 
 2.  Rufen Sie die IP-Adresse des acctdemo-Containers ab, damit Docker als DHCP-Server (Dynamic Host Configuration Protocol) für die von ihm verwalteten Container fungieren kann:
 
-    1.  Rufen Sie die ID des ausgeführten Containers ab. Geben Sie an der Eingabeaufforderung **Docker ps** ein, und halten Sie die ID fest (in diesem Beispiel **22a0fe3159d0**). Speichern Sie sie für den nächsten Schritt.
+    1.  Rufen Sie die ID des ausgeführten Containers ab. Geben Sie an der Eingabeaufforderung **Docker ps** ein, und halten Sie die ID fest (in diesem Beispiel **22a0fe3159d0** ). Speichern Sie sie für den nächsten Schritt.
 
     2.  Um die IP-Adresse für den acctdemo-Container abzurufen, verwenden Sie die Container-ID aus dem vorherigen Schritt in folgender Weise:
 
@@ -157,11 +157,11 @@ An diesem Punkt wird die VM ausgeführt und mithilfe von RDP verbunden. Sie sind
 
 8. Geben Sie **ACCT** ein, um die acctdemo-Anwendung zu starten. Der Startbildschirm der Anwendung wird angezeigt.
 
-     ![Screenshot von Konto-Demo (acctdemo)](./media/run-image-7.png)
+     ![Der Screenshot zeigt ein Konsolenfenster, in dem die Anwendung angezeigt wird.](./media/run-image-7.png)
 
 9. Experimentieren Sie mit Typen von Anzeigekonten. Geben Sie z.B. **D** als Anforderung und **11111** für das **KONTO** ein. Andere Kontonummern, die Sie ausprobieren können, sind 22222, 33333 usw.
 
-    ![Screenshot von Konto-Demo (acctdemo)](./media/run-image-8.png)
+    ![Der Screenshot zeigt die Bearbeitung verschiedener Werte in der Anwendung.](./media/run-image-8.png)
 
 10. Um die Enterprise Server-Verwaltungskonsole anzuzeigen, wechseln Sie zur Eingabeaufforderung, und geben Sie **start http:172.19.202.52:86** ein.
 

@@ -2,13 +2,13 @@
 title: Aufträge und Tasks in Azure Batch
 description: Erfahren Sie mehr über Aufträge und Tasks und deren Verwendung in einem Azure Batch-Workflow aus Entwicklersicht.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: 5120b76f34e81c2ceeba88767a656b5ee0d40c2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/23/2020
+ms.openlocfilehash: e1ca721ec7527d9d042c129c22cf0266e57c32e9
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85955368"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808587"
 ---
 # <a name="jobs-and-tasks-in-azure-batch"></a>Aufträge und Tasks in Azure Batch
 
@@ -18,15 +18,17 @@ In Azure Batch stellt ein *Task* eine Berechnungseinheit dar. Ein *Auftrag* ents
 
 Ein Auftrag ist eine Sammlung von Aufgaben. Er verwaltet, wie die Berechnung der Tasks auf Computeknoten in einem Pool durchgeführt wird.
 
-Ein Auftrag gibt den [Pool](nodes-and-pools.md#pools) an, in dem der Task ausgeführt werden soll. Sie können einen neuen Pool für jeden Auftrag erstellen oder einen Pool für viele Aufträge verwenden. Sie können einen Pool für jeden Auftrag erstellen, der einem Auftragszeitplan zugeordnet ist, oder für alle dem Auftragszeitplan zugeordneten Aufträge gemeinsam.
+Ein Auftrag gibt den [Pool](nodes-and-pools.md#pools) an, in dem der Task ausgeführt werden soll. Sie können einen neuen Pool für jeden Auftrag erstellen oder einen Pool für viele Aufträge verwenden. Sie können einen Pool für jeden Auftrag erstellen, der einem [Auftragszeitplan](#scheduled-jobs) zugeordnet ist, oder einen Pool für alle dem Auftragszeitplan zugeordneten Aufträge gemeinsam.
 
 ### <a name="job-priority"></a>Auftragspriorität
 
-Sie können den von Ihnen erstellten Aufträgen eine optionale Auftragspriorität zuweisen. Der Batch-Dienst verwendet den Prioritätswert des Auftrags, um die Reihenfolge der Auftragszeitplanung in einem Konto zu bestimmen (dies darf nicht mit einem [geplanten Auftrag](#scheduled-jobs)verwechselt werden). Die Prioritätswerte reichen von -1000 bis 1000, wobei -1000 die niedrigste und 1000 die höchste Priorität darstellt. Rufen Sie zum Aktualisieren der Priorität eines Auftrags den Vorgang [Eigenschaften eines Auftrags aktualisieren](/rest/api/batchservice/job/update) (Batch REST) auf, oder ändern Sie die Eigenschaft [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob) (Batch .NET).
+Sie können den von Ihnen erstellten Aufträgen eine optionale Auftragspriorität zuweisen. Der Batch-Dienst verwendet den Prioritätswert des Auftrags, um die Reihenfolge der Planung (für alle Tasks innerhalb des Auftrags) für jeden Pool zu bestimmen.
 
-Innerhalb eines Kontos haben Aufträge mit höherer Priorität bei der Planung Vorrang vor Aufträgen mit niedrigerer Priorität. Ein Auftrag mit einem höheren Prioritätswert hat bei der Planung keinen Vorrang vor einem anderen Auftrag mit einem niedrigeren Prioritätswert, wenn sich dieser in einem anderen Konto befindet. Tasks in Aufträgen mit niedrigerer Priorität, die bereits ausgeführt werden, werden nicht zeitlich nach hinten verschoben.
+Rufen Sie zum Aktualisieren der Priorität eines Auftrags den Vorgang [Eigenschaften eines Auftrags aktualisieren](/rest/api/batchservice/job/update) (Batch REST) auf, oder ändern Sie die [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob) (Batch .NET). Prioritätswerte liegen zwischen -1000 (niedrigste Priorität) und 1000 (höchste Priorität).
 
-Die Auftragsplanung erfolgt über Pools hinweg unabhängig. Poolübergreifend wird nicht sichergestellt, dass ein Auftrag mit einer höheren Priorität zuerst geplant wird, wenn der ihm zugeordnete Pool nicht über ausreichend Knoten verfügt, die sich im Leerlauf befinden. Innerhalb eines Pools verfügen Aufträge mit gleicher Prioritätsstufe über eine identische Planungswahrscheinlichkeit.
+Innerhalb eines Pools haben Aufträge mit höherer Priorität bei der Planung Vorrang vor Aufträgen mit niedrigerer Priorität. Aufgaben in Aufträgen mit niedrigerer Priorität, die bereits ausgeführt werden, werden für Aufgaben in einem Auftrag mit höherer Priorität nicht zurückgestellt. Aufträge mit gleicher Prioritätsstufe verfügen über eine identische Planungswahrscheinlichkeit, und die Reihenfolge der Aufgabenausführung ist nicht definiert.
+
+Ein Auftrag mit hohem Prioritätswert, der in einem Pool ausgeführt wird, hat keine Auswirkungen auf die Planung von Aufträgen, die in einem separaten Pool oder einem anderen Batch-Konto ausgeführt werden. Die Auftragspriorität gilt nicht für [automatische Pools](nodes-and-pools.md#autopools), die erstellt werden, wenn der Auftrag übermittelt wird.
 
 ### <a name="job-constraints"></a>Auftragseinschränkungen
 
@@ -39,9 +41,9 @@ Mithilfe von Einschränkungen für Aufträge können Sie bestimmte Grenzwerte f�
 
 Ihre Clientanwendung kann einem Auftrag Tasks hinzufügen. Alternativ können Sie einen [Auftrags-Manager-Task](#job-manager-task) angeben. Ein Auftrags-Manager-Task enthält die Informationen, die zum Erstellen der erforderlichen Tasks für einen Auftrag benötigt werden, wobei der Auftrags-Manager-Task auf einem der Computeknoten innerhalb des Pools ausgeführt wird. Der Auftrags-Manager-Task wird von Batch speziell behandelt. Er wird sofort nach der Auftragserstellung der Warteschlange hinzugefügt und erneut gestartet, falls er nicht erfolgreich ausgeführt werden konnte. Ein Auftrags-Manager-Task ist für durch einen [Auftragszeitplan](#scheduled-jobs) erstellte Aufträge obligatorisch da sich Tasks nur so vor der Auftragsinstanziierung definieren lassen.
 
-Standardmäßig bleiben Aufträge im aktiven Zustand, wenn alle Tasks innerhalb des Auftrags abgeschlossen sind. Sie können dieses Verhalten ändern, sodass der Auftrag automatisch beendet wird, wenn alle Aufgaben im Auftrag abgeschlossen sind. Legen Sie die Eigenschaft **onAllTasksComplete** des Auftrags ([OnAllTasksComplete](/dotnet/api/microsoft.azure.batch.cloudjob) in Batch .NET) auf *terminatejob* fest, damit der Auftrag automatisch beendet wird, wenn alle Tasks abgeschlossen sind.
+Standardmäßig bleiben Aufträge im aktiven Zustand, wenn alle Tasks innerhalb des Auftrags abgeschlossen sind. Sie können dieses Verhalten ändern, sodass der Auftrag automatisch beendet wird, wenn alle Aufgaben im Auftrag abgeschlossen sind. Legen Sie die Eigenschaft **onAllTasksComplete** des Auftrags ([OnAllTasksComplete](/dotnet/api/microsoft.azure.batch.cloudjob) in Batch .NET) auf `terminatejob`*` fest, damit der Auftrag automatisch beendet wird, wenn alle Aufgaben abgeschlossen sind.
 
-Ein Auftrag *ohne* Tasks wird vom Batch-Dienst als Auftrag angesehen, bei dem alle Tasks abgeschlossen sind. Diese Option wird daher mit einer [Auftrags-Manager-Aufgabe](#job-manager-task)am häufigsten verwendet. Wenn Sie die automatische Autragsbeendigung ohne einen Auftrags-Manager verwenden möchten, müssen Sie zunächst die Eigenschaft **onAllTasksComplete** des Auftrags auf *noaction* festlegen und erst nachdem Sie Tasks zum Auftrag hinzugefügt haben, auf *terminatejob*.
+Ein Auftrag *ohne* Tasks wird vom Batch-Dienst als Auftrag angesehen, bei dem alle Tasks abgeschlossen sind. Diese Option wird daher mit einer [Auftrags-Manager-Aufgabe](#job-manager-task)am häufigsten verwendet. Wenn Sie die automatische Autragsbeendigung ohne Auftrags-Manager verwenden möchten, müssen Sie zunächst die Eigenschaft **onAllTasksComplete** des Auftrags auf `noaction` festlegen, und erst nachdem Sie dem Auftrag Aufgaben hinzugefügt haben, auf `terminatejob`*`.
 
 ### <a name="scheduled-jobs"></a>Geplante Aufträge
 

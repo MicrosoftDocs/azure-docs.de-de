@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 4bae9e28a22a99d092db2bf887f0cd790e04c52a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 23ec79b7e3989c9749edf98d930ad8305324c9da
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91318557"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454003"
 ---
 # <a name="what-is-the-azure-stack-edge-mini-r"></a>Was ist Azure Stack Edge Mini R?
 
@@ -38,23 +38,23 @@ Azure Stack Edge Mini R weist die folgenden Merkmale auf:
 |Modus „Getrennt“|  Gerät und Dienst können optional über Azure Stack Hub verwaltet werden. Bereitstellen, Ausführen und Verwalten von Anwendungen im Offlinemodus. <br> Der Modus „Getrennt“ unterstützt Szenarien für das Hochladen von Daten im Offlinemodus.|
 |Unterstützte Dateiübertragungsprotokolle      |Unterstützt für die Datenerfassung die Standardprotokolle SMB, NFS und REST. <br> Weitere Informationen zu unterstützten Versionen finden Sie unter [Systemanforderungen für Azure Stack Edge Mini R](azure-stack-edge-gpu-system-requirements.md).|
 |Datenaktualisierung     | Möglichkeit, lokale Dateien mit den neuesten Informationen aus der Cloud zu aktualisieren.|
-|Doppelte Verschlüsselung    | Das sich selbst verschlüsselnde Laufwerk stellt die erste Verschlüsselungsebene dar. VPN bietet die zweite Verschlüsselungsebene. BitLocker-Unterstützung zur lokalen Verschlüsselung von Daten und zur sicheren Datenübertragung in die Cloud über *HTTPS* .|
+|Doppelte Verschlüsselung    | Das sich selbst verschlüsselnde Laufwerk stellt die erste Verschlüsselungsebene dar. VPN bietet die zweite Verschlüsselungsebene. BitLocker-Unterstützung zur lokalen Verschlüsselung von Daten und zur sicheren Datenübertragung in die Cloud über *HTTPS*.|
 |Bandbreiteneinschränkung| Drosselung, um die Bandbreitennutzung während der Spitzenzeiten einzuschränken.|
 
 ## <a name="use-cases"></a>Anwendungsfälle
 
 Dies sind die verschiedenen Szenarien, in denen Azure Stack Edge Mini R für schnelle Machine Learning-Rückschlüsse (ML) am Edge sowie für die Vorverarbeitung von Daten verwendet werden kann, bevor diese an Azure gesendet werden.
 
-- **Rückschluss mit Azure Machine Learning** : Mit Azure Stack Edge Mini R können Sie ML-Modelle ausführen, um schnell Ergebnisse zu erzielen, auf die Sie reagieren können, bevor die Daten in die Cloud übertragen werden. Das gesamte Dataset kann optional übertragen werden, um Ihre ML-Modelle weiter zu trainieren und zu verbessern. Weitere Informationen zur Verwendung der Azure ML-Modelle mit Hardwarebeschleunigung auf dem Azure Stack Edge Mini R-Gerät finden Sie unter [Bereitstellen von Azure ML-Modellen mit Hardwarebeschleunigung auf Azure Stack Edge Mini R](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+- **Rückschluss mit Azure Machine Learning**: Mit Azure Stack Edge Mini R können Sie ML-Modelle ausführen, um schnell Ergebnisse zu erzielen, auf die Sie reagieren können, bevor die Daten in die Cloud übertragen werden. Das gesamte Dataset kann optional übertragen werden, um Ihre ML-Modelle weiter zu trainieren und zu verbessern. Weitere Informationen zur Verwendung der Azure ML-Modelle mit Hardwarebeschleunigung auf dem Azure Stack Edge Mini R-Gerät finden Sie unter [Bereitstellen von Azure ML-Modellen mit Hardwarebeschleunigung auf Azure Stack Edge Mini R](../machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server).
 
-- **Vorverarbeiten von Daten** : Transformieren Sie Daten mithilfe von Computeoptionen wie Containern oder virtuellen Computern, ehe Sie sie an Azure senden, um ein besser verwertbares Dataset zu erstellen. Die Vorverarbeitung ermöglicht Folgendes:
+- **Vorverarbeiten von Daten**: Transformieren Sie Daten mithilfe von Computeoptionen wie Containern oder virtuellen Computern, ehe Sie sie an Azure senden, um ein besser verwertbares Dataset zu erstellen. Die Vorverarbeitung ermöglicht Folgendes:
 
     - Aggregieren von Daten.
     - Ändern von Daten, um beispielsweise persönliche Daten zu entfernen.
     - Teilmengen von Daten zur Optimierung von Speicher und Bandbreite oder für die weitere Analyse.
     - Analysieren von und Reagieren auf IoT-Ereignisse.
 
-- **Übertragen von Daten über das Netzwerk an Azure** : Verwenden Sie Azure Stack Edge Mini R, um Daten einfach und schnell in Azure zu übertragen. Dadurch werden weitere Compute- und Analysenvorgänge oder eine Archivierung ermöglicht.
+- **Übertragen von Daten über das Netzwerk an Azure**: Verwenden Sie Azure Stack Edge Mini R, um Daten einfach und schnell in Azure zu übertragen. Dadurch werden weitere Compute- und Analysenvorgänge oder eine Archivierung ermöglicht.
 
 ## <a name="components"></a>Komponenten
 
@@ -73,15 +73,13 @@ Die Azure Stack Edge Mini R-Lösung umfasst eine Azure Stack Edge Pro R-Ressou
 
 Das physische Azure Stack Edge Mini R-Gerät, die Azure-Ressource und das Zielspeicherkonto, an das Sie Daten übertragen, müssen sich nicht in derselben Region befinden.
 
-- **Ressourcenverfügbarkeit** : Eine Liste aller Regionen, in denen die Azure Stack Edge-Ressource verfügbar ist, finden Sie unter [Verfügbare Produkte nach Region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). 
+- **Ressourcenverfügbarkeit**: Eine Liste aller Regionen, in denen die Azure Stack Edge-Ressource verfügbar ist, finden Sie unter [Verfügbare Produkte nach Region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). 
 
 - **Geräteverfügbarkeit:** Eine Liste aller Länder/Regionen, in denen das Azure Stack Edge Mini R-Gerät verfügbar ist, finden Sie auf der Seite [Azure Stack Edge – Preise](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgeMiniR) auf der Registerkarte „Azure Stack Edge Mini R“ im Abschnitt „Verfügbarkeit“.
 
-- **Zielspeicherkonten** : Die Speicherkonten, in denen die Daten gespeichert werden, sind in allen Azure-Regionen verfügbar. Die Regionen, in denen die Speicherkonten Azure Stack Edge Mini R-Daten speichern, sollten sich in der Nähe des Gerätestandorts befinden, um optimale Leistung zu erzielen. Ein weit entfernt vom Gerät befindliches Speicherkonto führt zu langen Wartezeiten und einer langsameren Leistung.
+- **Zielspeicherkonten**: Die Speicherkonten, in denen die Daten gespeichert werden, sind in allen Azure-Regionen verfügbar. Die Regionen, in denen die Speicherkonten Azure Stack Edge Mini R-Daten speichern, sollten sich in der Nähe des Gerätestandorts befinden, um optimale Leistung zu erzielen. Ein weit entfernt vom Gerät befindliches Speicherkonto führt zu langen Wartezeiten und einer langsameren Leistung.
 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Prüfen Sie die [Systemanforderungen für Azure Stack Edge Mini R](azure-stack-edge-gpu-system-requirements.md).
-
-

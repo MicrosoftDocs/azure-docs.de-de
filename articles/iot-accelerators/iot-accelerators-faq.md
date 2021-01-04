@@ -8,39 +8,48 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 40c1fb314a2dea653740e7f87b5caa14c759fffb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1fd2b8461bd66c826dc4890c331b740c4703f896
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078220"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903988"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Häufig gestellte Fragen zu IoT-Solution Accelerators
 
-Sehen Sie sich auch die [häufig gestellten Fragen zu verbundenen Factorys](iot-accelerators-faq-cf.md) und die [häufig gestellten Fragen zur Remoteüberwachung](iot-accelerators-faq-rm-v2.md) an.
+Informationen finden Sie auch in den [häufig gestellten Fragen zur verbundenen Factory](iot-accelerators-faq-cf.md).
 
 ### <a name="where-can-i-find-the-source-code-for-the-solution-accelerators"></a>Wo finde ich den Quellcode für die Solution Accelerators?
 
 Der Quellcode wird in den folgenden GitHub-Repositorys gespeichert:
 
-* [Solution Accelerator für die Remoteüberwachung (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
-* [Solution Accelerator für die Remoteüberwachung (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
-* [Solution Accelerator für Predictive Maintenance](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [Solution Accelerator für verbundene Factorys](https://github.com/Azure/azure-iot-connected-factory)
+* [Solution Accelerator für die Gerätesimulation](https://github.com/Azure/device-simulation-dotnet)
+
+### <a name="where-can-i-find-the-remote-monitoring-and-predictive-maintenance-solution-accelerators"></a>Wo finde ich die Solution Accelerators für Remoteüberwachung und Predictive Maintenance?
+
+Mit Stand vom 10. Dezember 2020 wurden die Accelerators für Remoteüberwachung und Predictive Maintenance von der Website der [Azure IoT Solution Accelerators](https://www.azureiotsolutions.com/Accelerators) entfernt und stehen nicht mehr für neue Bereitstellungen zur Verfügung. Die GitHub-Repository für die beiden Accelerators wurden archiviert. Der Code ist weiterhin für alle zugänglich, aber die Repositorys nehmen keine neuen Beiträge an.
+
+### <a name="what-happens-to-my-existing-remote-monitoring-and-predictive-maintenance-deployments"></a>Was geschieht mit meinen vorhandenen Remoteüberwachungs- und Predictive Maintenance-Bereitstellungen?
+
+Auf vorhandene Bereitstellungen hat das Entfernen der Solution Accelerators für Remoteüberwachung und Predictive Maintenance keine Auswirkungen, sie funktionieren weiterhin. Auch geforkte Repositorys sind nicht betroffen. Die Masterrepositorys auf GitHub wurden archiviert.
+
+### <a name="how-do-i-deploy-device-simulation-solution-accelerator"></a>Wie stelle ich den Solution Accelerator für die Gerätesimulation bereit?
+
+Informationen zum Bereitstellen des Solution Accelerators für die Gerätesimulation finden Sie im GitHub-Repository zur [Gerätesimulation](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md).
+
+### <a name="where-can-i-find-information-about-the-removed-solution-accelerators"></a>Wo finde ich Informationen zu den entfernten Solution Accelerators?
+
+Weitere Informationen finden Sie auf den folgenden Seiten der Website für die früheren Versionen:
+
+* [Remoteüberwachung](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
+* [Predictive Maintenance](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
 
 ### <a name="what-sdks-can-i-use-to-develop-device-clients-for-the-solution-accelerators"></a>Welche SDKs kann ich zum Entwickeln von Geräteclients für die Solution Accelerators verwenden?
 
 Links zu den IoT-Geräte-SDKs in verschiedenen Sprachen (C, .NET, Java, Node.js, Python) finden Sie im GitHub-Repository [Microsoft Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks).
 
 Wenn Sie das DevKit-Gerät verwenden, finden Sie Ressourcen und Beispiele im GitHub-Repository [IoT DevKit SDK](https://github.com/Microsoft/devkit-sdk).
-
-### <a name="is-the-new-microservices-architecture-available-for-all-the-three-solution-accelerators"></a>Ist die neue Microservicearchitektur für alle drei Solution Accelerators verfügbar?
-
-Derzeit wird die Microservices-Architektur nur in der Remoteüberwachungslösung verwendet, da sie das umfangreichste Szenario abdeckt.
-
-### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>Welche Vorteile bietet die neue auf Microservices basierende Open-Source-Architektur im neuen Update?
-
-In den letzten beiden Jahren hat sich die Cloudarchitektur stark weiterentwickelt. Microservices haben sich als hervorragendes Muster für mehr Skalierbarkeit und Flexibilität ohne Einbußen bei der Entwicklungsgeschwindigkeit erwiesen. Mehrere Microsoft-Dienste nutzen dieses Architekturmuster intern mit hervorragenden Ergebnissen bei Zuverlässigkeit und Skalierbarkeit. Microsoft hat diese Erfahrungen mit dem Solution Accelerator umgesetzt, sodass auch die Kunden von diesen profitieren können.
 
 ### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-azure-ad-tenant-how-do-i-complete-this-task"></a>Ich bin Dienstadministrator und möchte die Verzeichniszuordnung zwischen meinem Abonnement und einen bestimmten Azure AD-Mandanten ändern. Wie führe ich diese Aufgabe aus?
 
@@ -57,19 +66,11 @@ Orientieren Sie sich an folgendem Diagramm:
 ![Flussdiagramm für Berechtigungen](media/iot-accelerators-faq/flowchart.png)
 
 > [!NOTE]
-> Wenn der Fehler auch nach der Überprüfung noch angezeigt wird und Sie globaler Administrator des Azure AD-Mandanten und Co-Administrator des Abonnements sind, können Sie Ihren Kontoadministrator bitten, den Benutzer zu entfernen und die erforderlichen Berechtigungen in dieser Reihenfolge neu zuzuweisen. Fügen Sie zuerst den Benutzer als globalen Administrator hinzu, und fügen Sie den Benutzer dann als Co-Administrator für das Azure-Abonnement hinzu. Falls die Probleme weiterhin bestehen, nutzen Sie die Option [Hilfe und Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> Wenn der Fehler auch nach der Überprüfung noch angezeigt wird und Sie globaler Administrator des Azure AD-Mandanten und Co-Administrator des Abonnements sind, können Sie Ihren Kontoadministrator bitten, den Benutzer zu entfernen und die erforderlichen Berechtigungen in dieser Reihenfolge neu zuzuweisen. Fügen Sie zuerst den Benutzer als globalen Administrator hinzu, und fügen Sie den Benutzer dann als Co-Administrator für das Azure-Abonnement hinzu. Verwenden Sie [Hilfe und Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade), falls die Probleme weiterhin bestehen.
 
 ### <a name="why-am-i-seeing-this-error-when-i-have-an-azure-subscription-an-azure-subscription-is-required-to-create-pre-configured-solutions-you-can-create-a-free-trial-account-in-just-a-couple-of-minutes"></a>Weshalb wird dieser Fehler angezeigt, wenn ich ein Azure-Abonnement habe? „Zum Erstellen vorkonfigurierter Lösungen ist ein Azure-Abonnement erforderlich. In nur wenigen Minuten können Sie ein kostenloses Testkonto erstellen.“
 
 Wenn Sie sicher sind, dass Sie über ein Azure-Abonnement verfügen, überprüfen Sie die Mandantenzuordnung für Ihr Abonnement, und prüfen Sie, ob der richtige Mandant in der Dropdownliste ausgewählt wurde. Überprüfen Sie anschließend anhand des obigen Diagramms die Zuordnung Ihres Abonnements und dieses Azure AD-Mandanten.
-
-### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Wo finde ich Informationen über die Vorgängerversion der Remoteüberwachungslösung?
-
-Die Vorversion des Solution Accelerators für die Remoteüberwachung war als vorkonfigurierte IoT Suite-Lösung für die Remoteüberwachung bekannt. Sie finden die archivierte Dokumentation unter [https://docs.microsoft.com/previous-versions/azure/iot-suite/](/previous-versions/azure/iot-suite/).
-
-### <a name="is-the-new-solution-accelerator-available-in-the-same-geographic-region-as-the-existing-solution"></a>Ist der neue Solution Accelerator in derselben geografischen Region wie die vorhandene Lösung verfügbar?
-
-Ja, die neue Remoteüberwachung ist in den gleichen geografischen Regionen verfügbar.
 
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>Was ist der Unterschied zwischen dem Löschen einer Ressourcengruppe im Azure-Portal und dem Klicken auf „Löschen“ für einen Solution Accelerator unter azureiotsolutions.com?
 
@@ -88,10 +89,6 @@ Standardmäßig können Sie [10 IoT Hubs pro Abonnement](../azure-resource-manag
 
 50. Sie können ein [Azure-Supportticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) erstellen, um dieses Limit zu erhöhen. Standardmäßig können Sie jedoch nur 50 Cosmos DB-Instanzen pro Abonnement bereitstellen.
 
-### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>Wie viele Bing Maps-APIs im Tarif „Free“ kann ich in einem Abonnement bereitstellen?
-
-Zwei. In einem Azure-Abonnement können für Bing Karten für Unternehmen nur zwei Tarife für die erste interne Transaktionsebene erstellt werden. Die Remoteüberwachungslösung wird standardmäßig mit dem Tarif für die erste interne Transaktionsebene bereitgestellt. Daher können Sie in einem Abonnement nur bis zu zwei vorkonfigurierte Remoteüberwachungslösungen ohne Modifikationen bereitstellen.
-
 ### <a name="can-i-create-a-solution-accelerator-if-i-have-microsoft-azure-for-dreamspark"></a>Kann ich einen Solution Accelerator erstellen, wenn ich Microsoft Azure für DreamSpark besitze?
 
 > [!NOTE]
@@ -107,7 +104,5 @@ Informationen hierzu finden Sie im Blogbeitrag von Eric Golpe: [Walkthrough of D
 
 Sie können auch einige andere Features und Funktionen der IoT-Solution Accelerators ausprobieren:
 
-* [Erkunden der Funktionen des Solution Accelerators für die Remoteüberwachung](quickstart-remote-monitoring-deploy.md)
-* [Übersicht über den Solution Accelerator für Predictive Maintenance](./iot-accelerators-predictive-walkthrough.md)
 * [Bereitstellen des Solution Accelerators für Connected Factory](quickstart-connected-factory-deploy.md)
 * [Sicherheit im Internet der Dinge von Anfang an](../iot-fundamentals/iot-security-ground-up.md)

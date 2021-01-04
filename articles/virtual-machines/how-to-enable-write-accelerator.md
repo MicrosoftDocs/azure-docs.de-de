@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 2/20/2019
 ms.author: raiye
 ms.subservice: disks
-ms.openlocfilehash: fd0f489bd6109a5dcd6625eb26286e0d40c50c63
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e4f6cefd56c12162b370c78b6df2cd29ece030f1
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962325"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515711"
 ---
 # <a name="enable-write-accelerator"></a>Aktivieren der Schreibbeschleunigung
 
@@ -57,7 +57,7 @@ Die Anzahl von Azure Storage Premium-VHDs pro VM, die von der Schreibbeschleunig
 | M16ms, M16s | 2 | 2500 |
 | M8ms, M8s | 1 | 1250 |
 
-Die IOPS-Grenzwerte gelten pro VM und *nicht* pro Datenträger. Alle Datenträger mit Schreibbeschleunigung verwenden denselben IOPS-Grenzwert pro VM.
+Die IOPS-Grenzwerte gelten pro VM und *nicht* pro Datenträger. Alle Datenträger mit Schreibbeschleunigung verwenden denselben IOPS-Grenzwert pro VM. Angefügte Datenträger dürfen die IOPS-Begrenzung des Schreibbeschleunigers für eine VM nicht überschreiten. Beispiel: Obwohl die angefügten Festplatten 30.000 IOPS bewältigen können, lässt das System nicht zu, dass die Datenträger für M416ms_v2 20.000 IOPS überschreiten.
 
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>Aktivieren der Schreibbeschleunigung auf einem bestimmten Datenträger
 

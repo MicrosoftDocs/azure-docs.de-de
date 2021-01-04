@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 880ee0a4a1eb396312ea9692b7586d724d6fd410
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8789050257b8bc67649233760baefe7e2ee9adf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75864093"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320141"
 ---
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>Exemplarische Vorgehensweisen zu Data Science in SQL Server unter Verwendung von R, Python und T-SQL
 
@@ -32,21 +32,21 @@ Die exemplarische Vorgehensweise [Verwenden von SQL Server](sql-walkthrough.md) 
 
 ## <a name="predict-taxi-tips-using-microsoft-r-with-sql-server"></a>Vorhersagen von Taxifahrten unter Verwendung von Microsoft R mit SQL Server 
 
-Die exemplarische Vorgehensweise [Verwenden von SQL Server R Services](https://msdn.microsoft.com/library/mt612857.aspx) zeigt, wie ein R-Modell für SQL Server erstellt und bereitgestellt wird. Die exemplarische Vorgehensweise dient R-Entwicklern zur Einführung in R Services (datenbankintern).
+Die exemplarische Vorgehensweise [Verwenden von SQL Server R Services](/sql/machine-learning/tutorials/walkthrough-data-science-end-to-end-walkthrough) zeigt, wie ein R-Modell für SQL Server erstellt und bereitgestellt wird. Die exemplarische Vorgehensweise dient R-Entwicklern zur Einführung in R Services (datenbankintern).
 
 
 ## <a name="predict-taxi-tips-using-r-from-t-sql-or-stored-procedures-with-sql-server"></a>Vorhersagen von Taxifahrten unter Verwendung von R von T-SQL oder gespeicherten Prozeduren mit SQL Server
 
-In der [exemplarischen Vorgehensweise zu Data Science für R und SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) können SQL-Programmierer Erfahrungen bei der Erstellung einer erweiterten Analyselösung mit Transact-SQL unter Verwendung von SQL Server R Services sammeln, um eine R-Lösung zu operationalisieren. 
+In der [exemplarischen Vorgehensweise zu Data Science für R und SQL Server](/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) können SQL-Programmierer Erfahrungen bei der Erstellung einer erweiterten Analyselösung mit Transact-SQL unter Verwendung von SQL Server R Services sammeln, um eine R-Lösung zu operationalisieren. 
 
 
 ## <a name="predict-taxi-tips-using-python-in-sql-server-stored-procedures"></a>Vorhersagen von Taxifahrten unter Verwendung von Python in gespeicherten SQL Server-Prozeduren
 
-In der exemplarischen Vorgehensweise [In-Database Python Analytics for SQL Developers](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) (Datenbankinterne Python-Analyse für SQL-Entwickler) können SQL-Programmierer Erfahrungen mit der Erstellung einer Machine Learning-Lösung in SQL Server sammeln. Sie veranschaulicht, wie Python in eine Anwendung integriert werden kann, indem gespeicherten Prozeduren Python-Code hinzugefügt wird.
+In der exemplarischen Vorgehensweise [In-Database Python Analytics for SQL Developers](/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) (Datenbankinterne Python-Analyse für SQL-Entwickler) können SQL-Programmierer Erfahrungen mit der Erstellung einer Machine Learning-Lösung in SQL Server sammeln. Sie veranschaulicht, wie Python in eine Anwendung integriert werden kann, indem gespeicherten Prozeduren Python-Code hinzugefügt wird.
 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 Eine Erläuterung der Hauptkomponenten, die den Team Data Science-Prozess bilden, finden Sie unter [Übersicht über den Team Data Science-Prozess](overview.md).
 
-Eine Erläuterung des Team Data Science-Prozesslebenszyklus, mit dem Sie Ihre Data Science-Projekte strukturieren können, finden Sie unter [Team Data Science-Prozesslebenszyklus](lifecycle.md). Im Lebenszyklus sind die gesamten Schritte aufgeführt, die bei Projekten bei der Ausführung normalerweise durchlaufen werden. 
+Eine Erläuterung des Team Data Science-Prozesslebenszyklus, mit dem Sie Ihre Data Science-Projekte strukturieren können, finden Sie unter [Team Data Science-Prozesslebenszyklus](lifecycle.md). Im Lebenszyklus sind die gesamten Schritte aufgeführt, die bei Projekten bei der Ausführung normalerweise durchlaufen werden.

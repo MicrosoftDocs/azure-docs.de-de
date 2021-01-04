@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: 08a3b72bb137713721345ecb52cf4e1bb7afcdc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a225d4ea19cccea114e47cc61a8055d28e8cd99
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310763"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895289"
 ---
 # <a name="add-controls-to-a-map"></a>Hinzufügen von Steuerelementen zu einer Karte
 
-In diesem Artikel wird gezeigt, wie Sie einer Karte Steuerelemente hinzufügen. Außerdem erfahren Sie, wie Sie eine Karte mit allen Steuerelementen und einer [Stilauswahl](https://docs.microsoft.com/azure/azure-maps/choose-map-style) erstellen.
+In diesem Artikel wird gezeigt, wie Sie einer Karte Steuerelemente hinzufügen. Außerdem erfahren Sie, wie Sie eine Karte mit allen Steuerelementen und einer [Stilauswahl](./choose-map-style.md) erstellen.
 
 ## <a name="add-zoom-control"></a>Hinzufügen eines Zoomsteuerelements
 
@@ -142,4 +142,3 @@ Die folgenden Artikel enthalten den vollständigen Code:
 
 > [!div class="nextstepaction"]
 > [Hinzufügen einer Blasenebene](map-add-bubble-layer.md)
-

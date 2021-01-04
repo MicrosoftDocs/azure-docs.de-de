@@ -3,28 +3,29 @@ title: 'Azure Service Bus: Anhalten von Messagingentitäten'
 description: In diesem Artikel wird erläutert, wie Sie Azure Service Bus-Messagingentitäten (Warteschlangen, Themen und Abonnements) vorübergehend anhalten und reaktivieren.
 ms.topic: article
 ms.date: 09/29/2020
-ms.openlocfilehash: f89e17e494cc777691b7f7ca47538cd29114d2dc
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: ea1acab3d0a86b0064f8b3eef7bfd1496bd17041
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575237"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543050"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Anhalten und Reaktivieren von Messagingentitäten (deaktiviert)
 
 Warteschlangen, Themen und Abonnements können vorübergehend angehalten werden. Das Anhalten versetzt die Entität in einen deaktivierten Zustand, in dem alle Nachrichten im Speicher beibehalten werden. Es können jedoch keine Nachrichten entfernt oder hinzugefügt werden, und die entsprechenden Protokollvorgänge führen zu Fehlern.
 
-Das Anhalten einer Entität wird üblicherweise aus dringenden administrativen Gründen durchgeführt. Ein Szenario ist, dass ein fehlerhafter Empfänger bereitgestellt wurde, der Nachrichten aus der Warteschlange nimmt, diese fehlerhaft verarbeitet, falsch vervollständigt und schließlich entfernt. Wenn dieses Verhalten diagnostiziert wird, kann die Warteschlange für den Empfang deaktiviert werden, bis der korrigierte Code bereitgestellt ist, sodass weiterer Datenverlust durch den fehlerhaften Code verhindert werden kann.
+Möglicherweise möchten Sie eine Entität aus dringenden administrativen Gründen anhalten. Ein fehlerhafter Empfänger nimmt z. B. Nachrichten aus der Warteschlange, verarbeitet diese nicht, vervollständigt die Nachrichten jedoch falsch und entfernt sie. In diesem Fall können Sie die Warteschlange für Empfangsvorgänge deaktivieren, bis Sie den Code korrigiert haben und bereitstellen. 
 
-Das Anhalten oder Reaktivieren kann entweder vom Benutzer oder vom System durchgeführt werden. Das System hält Entitäten nur aufgrund von schwerwiegenden administrativen Gründen an, z.B. das Erreichen des Ausgabenlimits des Abonnements. Vom System deaktivierte Entitäten können nicht vom Benutzer reaktiviert werden, sondern werden wiederhergestellt, wenn die Ursache des Anhaltens behandelt wurde.
+Das Anhalten oder Reaktivieren kann entweder vom Benutzer oder vom System durchgeführt werden. Das System hält Entitäten nur aufgrund von schwerwiegenden administrativen Gründen an, z. B. das Erreichen des Ausgabenlimits des Abonnements. Vom System deaktivierte Entitäten können nicht vom Benutzer reaktiviert werden, sondern werden wiederhergestellt, wenn die Ursache des Anhaltens behandelt wurde.
 
 ## <a name="queue-status"></a>Warteschlangenstatus 
-Folgende Zustände können für eine Warteschlange festgelegt werden:
+Folgende Zustände können für eine **Warteschlange** festgelegt werden:
 
--   **Aktiv:** Die Warteschlange ist aktiv.
+-   **Aktiv:** Die Warteschlange ist aktiv. Sie können Nachrichten an die Warteschlange senden und aus dieser empfangen. 
 -   **Disabled**: Die Warteschlange wurde angehalten. Dies entspricht dem Festlegen von **SendDisabled** und **ReceiveDisabled**. 
--   **SendDisabled**: Die Warteschlange ist teilweise angehalten, der Empfang ist zulässig.
--   **ReceiveDisabled**: Die Warteschlange ist teilweise angehalten, das Senden ist zulässig.
+-   **SendDisabled**: Sie können keine Nachrichten an die Warteschlange senden, aber Sie können Nachrichten aus der Warteschlange empfangen. Sie erhalten eine Ausnahme, wenn Sie versuchen, Nachrichten an die Warteschlange zu senden. 
+-   **ReceiveDisabled**: Sie können Nachrichten an die Warteschlange senden, aber Sie können keine Nachrichten aus der Warteschlange empfangen. Sie erhalten eine Ausnahme, wenn Sie versuchen, Nachrichten aus der Warteschlange zu empfangen.
+
 
 ### <a name="change-the-queue-status-in-the-azure-portal"></a>Ändern des Warteschlangenstatus im Azure-Portal: 
 
@@ -35,9 +36,9 @@ Folgende Zustände können für eine Warteschlange festgelegt werden:
     :::image type="content" source="./media/entity-suspend/select-state.png" alt-text="Auswählen des Warteschlangenstatus":::
 4. Wählen Sie den neuen Status für die Warteschlange und dann **OK** aus. 
 
-    :::image type="content" source="./media/entity-suspend/entity-state-change.png" alt-text="Auswählen des Warteschlangenstatus":::
+    :::image type="content" source="./media/entity-suspend/entity-state-change.png" alt-text="Festlegen des Warteschlangenstatus":::
     
-Das Portal ermöglicht nur das vollständige Deaktivieren von Warteschlangen. Sie können die Vorgänge „Senden“ und „Empfangen“ auch separat deaktivieren, indem Sie die [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager)-APIs von Service Bus im .NET Framework SDK oder mit einer Azure Resource Manager-Vorlage über die Azure CLI oder Azure PowerShell verwenden.
+Sie können die Vorgänge „Senden“ und „Empfangen“ auch deaktivieren, indem Sie die [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager)-APIs von Service Bus im .NET SDK oder mit einer Azure Resource Manager-Vorlage über die Azure CLI oder Azure PowerShell verwenden.
 
 ### <a name="change-the-queue-status-using-azure-powershell"></a>Ändern des Warteschlangenstatus mithilfe von Azure PowerShell
 Der PowerShell-Befehl zum Deaktivieren einer Warteschlange wird im folgenden Beispiel gezeigt. Der Befehl für die Reaktivierung ist identisch und legt `Status` auf **Active** fest.
@@ -51,24 +52,31 @@ Set-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueu
 ```
 
 ## <a name="topic-status"></a>Themenstatus
-Das Ändern des Themenstatus im Azure-Portal ähnelt dem Ändern des Status einer Warteschlange. Wenn Sie den aktuellen Status eines Themas auswählen, wird die folgende Seite angezeigt, auf der Sie den Status ändern können. 
+Sie können den Themastatus im Azure-Portal ändern. Wählen Sie den aktuellen Status des Themas aus, um die folgende Seite anzuzeigen, auf der Sie den Status ändern können. 
 
-:::image type="content" source="./media/entity-suspend/topic-state-change.png" alt-text="Auswählen des Warteschlangenstatus":::
+:::image type="content" source="./media/entity-suspend/topic-state-change.png" alt-text="Ändern des Themenstatus":::
 
-Folgende Zustände können für ein Thema festgelegt werden:
-- **Aktiv:** Das Thema ist aktiv.
-- **Disabled**: Das Thema wurde angehalten.
-- **SendDisabled**: Dieselbe Auswirkung wie **Deaktiviert**.
+Folgende Status können für ein **Thema** festgelegt werden:
+- **Aktiv:** Das Thema ist aktiv. Sie können Nachrichten an das Thema senden. 
+- **Disabled**: Das Thema wurde angehalten. Sie können keine Nachrichten an das Thema senden. 
+- **SendDisabled**: Dieselbe Auswirkung wie **Deaktiviert**. Sie können keine Nachrichten an das Thema senden. Sie erhalten eine Ausnahme, wenn Sie versuchen, Nachrichten an das Thema zu senden. 
 
 ## <a name="subscription-status"></a>Abonnementstatus
-Das Ändern des Abonnementstatus im Azure-Portal ähnelt dem Ändern des Status eines Themas oder einer Warteschlange. Wenn Sie den aktuellen Status eines Abonnements auswählen, wird die folgende Seite angezeigt, auf der Sie den Status ändern können. 
+Sie können den Abonnementstatus im Azure-Portal ändern. Wählen Sie den aktuellen Status des Abonnements aus, um die folgende Seite anzuzeigen, auf der Sie den Status ändern können. 
 
-:::image type="content" source="./media/entity-suspend/subscription-state-change.png" alt-text="Auswählen des Warteschlangenstatus":::
+:::image type="content" source="./media/entity-suspend/subscription-state-change.png" alt-text="Ändern des Abonnementstatus":::
 
-Folgende Zustände können für ein Thema festgelegt werden:
-- **Aktiv:** Das Thema ist aktiv.
-- **Disabled**: Das Thema wurde angehalten.
-- **ReceiveDisabled**: Dieselbe Auswirkung wie **Deaktiviert**.
+Folgende Status können für ein **Abonnement** festgelegt werden:
+- **Aktiv:** Das Abonnement ist aktiv. Sie können Nachrichten aus dem Abonnement empfangen.
+- **Disabled**: Das Abonnement wurde angehalten. Sie können keine Nachrichten aus dem Abonnement empfangen. 
+- **ReceiveDisabled**: Dieselbe Auswirkung wie **Deaktiviert**. Sie können keine Nachrichten aus dem Abonnement empfangen. Sie erhalten eine Ausnahme, wenn Sie versuchen, Nachrichten aus dem Abonnement zu empfangen.
+
+| Themenstatus | Abonnementstatus | Verhalten | 
+| ------------ | ------------------- | -------- | 
+| Aktiv | Aktiv | Sie können Nachrichten an das Thema senden und aus dem Abonnement empfangen. | 
+| Aktiv | Deaktiviert oder Empfangen deaktiviert | Sie können Nachrichten an das Thema senden, aber keine Nachrichten aus dem Abonnement empfangen. | 
+| Deaktiviert oder Senden deaktiviert | Aktiv | Sie können keine Nachrichten an das Thema senden, aber Nachrichten aus dem Abonnement empfangen, die sich bereits im Abonnement befinden. | 
+| Deaktiviert oder Senden deaktiviert | Deaktiviert oder Empfangen deaktiviert | Sie können keine Nachrichten an das Thema senden und auch nicht aus dem Abonnement empfangen. | 
 
 ## <a name="other-statuses"></a>Andere Status
 Die Enumeration [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) definiert ebenfalls eine Reihe von Übergangszuständen, die nur vom System festgelegt werden können. 

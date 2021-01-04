@@ -6,42 +6,36 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 05/05/2020
+ms.date: 10/30/2020
 ms.topic: include
-ms.openlocfilehash: fda9df6c7e9651bbd3b0b70ad9d47f23c0c19d01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e006f804b8ab6411f4949424147acf567dc2ed24
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541429"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97371309"
 ---
 ## <a name="sign-in-to-luis-portal"></a>Anmelden beim LUIS-Portal
 
+[!INCLUDE [Note about portal deprecation](luis-portal-note.md)]
+
 Als neuer LUIS-Benutzer müssen Sie wie folgt vorgehen:
 
-1. Melden Sie sich beim [LUIS-Portal](https://www.luis.ai) an, wählen Sie Ihr Land/Ihre Region aus, und stimmen Sie den Nutzungsbedingungen zu. Wenn stattdessen **Meine Apps** angezeigt wird, ist bereits eine LUIS-Ressource vorhanden, und Sie können mit dem Erstellen einer App fortfahren. Eine Liste der unterstützten Regionen finden Sie unter [Erstellungs- und Veröffentlichungsregionen und die dazugehörigen Schlüssel](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions).
+1. Melden Sie sich beim [LUIS-Portal](https://www.luis.ai) an, wählen Sie Ihr Land bzw. Ihre Region aus, und stimmen Sie den Nutzungsbedingungen zu. Wenn stattdessen **Meine Apps** angezeigt wird, ist bereits eine LUIS-Ressource vorhanden, und Sie können mit dem Erstellen einer App fortfahren. Für die Registrierung haben Sie zwei Möglichkeiten:
 
-1. Wählen Sie **Azure-Ressource erstellen** und anschließend **Create an authoring resource to migrate your apps to** (Erstellen einer Erstellungsressource für die Migration Ihrer Apps) aus.
+    * Verwendung einer Azure-Ressource (empfohlen): Ermöglicht es Ihnen, Ihr LUIS-Konto mit einer neuen oder vorhandenen Azure-Erstellungsressource zu verknüpfen. Dies entspricht einer Registrierung mit bereits enthaltener Migration. Sie müssen den [Migrationsprozess](../luis-migration-authoring.md#what-is-migration) später nicht mehr durchlaufen.
 
-    ![Typ der Language Understanding-Erstellungsressource auswählen](../media/luis-how-to-azure-subscription/sign-in-create-resource.png)
+    * Verwendung eines Testschlüssels: Hiermit können Sie sich bei LUIS mit einer Testressource anmelden, die Sie nicht einrichten müssen. Wenn Sie diese Option auswählen, müssen Sie später dann [Ihr Konto migrieren](../luis-migration-authoring.md#migration-steps) und Ihre Anwendungen mit einer Erstellungsressource verknüpfen.
 
-1. Füllen Sie die Details für Ihre Ressource aus.
+1. Suchen Sie im angezeigten Fenster zum Auswählen einer Erstellungsressource nach Ihrem Azure-Abonnement und der LUIS-Erstellungsressource. Wenn keine Ressource vorhanden ist, können Sie eine neue erstellen.
 
-    ![Der Screenshot zeigt den Bereich „Create a new resource for authoring“ (Neue Ressource für die Erstellung erstellen).](../media/migrate-authoring-key/choose-authoring-resource-form.png)
-
-    Geben Sie beim **Erstellen einer neuen Erstellungsressource** die folgenden Informationen an:
-
-    * **Ressourcenname**: ein von Ihnen gewählter benutzerdefinierter Name, der als Teil der URL für Ihre Abfragen für Erstellungs- und Vorhersageendpunkte verwendet wird
-    * **Mandant**: der Mandant, dem Ihr Azure-Abonnement zugeordnet ist
-    * **Abonnementname**: das Abonnement, unter dem die Ressource abgerechnet wird.
-    * **Ressourcengruppe**: ein benutzerdefinierter Ressourcengruppenname, den Sie auswählen oder erstellen. Mit Ressourcengruppen können Sie Azure-Ressourcen für den Zugriff und die Verwaltung gruppieren.
-    * **Standort**: Die Auswahl des Standorts hängt von der Auswahl der **Ressourcengruppe** ab.
+    :::image type="content" source="../media/luis-how-to-azure-subscription/choose-authoring-resource.png" alt-text="Typ der Language Understanding-Erstellungsressource auswählen":::
+    
+    Geben Sie beim Erstellen einer neuen Erstellungsressource die folgenden Informationen an:
+    * **Mandantenname**: Der Mandant, dem Ihr Azure-Abonnement zugeordnet ist.
+    * **Azure-Abonnementname**: Das Abonnement, unter dem die Ressource abgerechnet wird.
+    * **Name der Azure-Ressourcengruppe**: Ein benutzerdefinierter Ressourcengruppenname, den Sie auswählen oder erstellen. Mit Ressourcengruppen können Sie Azure-Ressourcen für den Zugriff und die Verwaltung gruppieren.
+    * **Azure-Ressourcenname**: Ein von Ihnen gewählter benutzerdefinierter Name, der als Teil der URL für Ihre Abfragen für Erstellungs- und Vorhersageendpunkte verwendet wird.
     * **Tarif**: Der Tarif bestimmt die maximale Anzahl von Transaktionen pro Sekunde und Monat.
 
-1. Eine Zusammenfassung der zu erstellenden Ressource wird angezeigt. Wählen Sie **Weiter** aus.
 
-    ![Der Screenshot zeigt die Begrüßungsseite mit der Option zum Verknüpfen mit dem Azure-Konto.](../media/sign-in/sign-in-confirm-key-selection.png)
-
-1. Bestätigen Sie durch Auswahl von **Fortfahren**.
-
-    ![Der Screenshot zeigt die Begrüßungsseite nach dem Verknüpfen mit dem Azure-Konto.](../media/sign-in/sign-in-confirm-continue.png)

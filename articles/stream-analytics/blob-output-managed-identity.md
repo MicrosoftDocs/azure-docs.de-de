@@ -6,16 +6,16 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/11/2020
-ms.openlocfilehash: 99b23b65a0ce1693bcd04d5828fe062f2f43ea73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1aad2464e4979ecbf35deceaad4de70e05b3004
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044225"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573662"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Verwendung von verwalteten Identitäten zum Authentifizieren von Azure Stream Analytics-Aufträgen für die Azure Blob Storage-Ausgabe
+# <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Verwendung von verwalteten Identitäten (Vorschau) zum Authentifizieren von Azure Stream Analytics-Aufträgen für die Azure Blob Storage-Ausgabe
 
-Durch die [Authentifizierung der verwalteten Identität](../active-directory/managed-identities-azure-resources/overview.md) für die Ausgabe an Azure Blob Storage erhalten Stream Analytics-Aufträge direkten Zugriff auf ein Speicherkonto, anstatt eine Verbindungszeichenfolge zu verwenden. Neben der verbesserten Sicherheit ermöglicht Ihnen diese Funktion auch das Schreiben von Daten auf ein Speicherkonto in einem virtuellen Netzwerk (VNET) in Azure.
+Durch die [Authentifizierung mittels verwalteter Identität](../active-directory/managed-identities-azure-resources/overview.md) (Vorschau) für die Ausgabe an Azure Blob Storage erhalten Stream Analytics-Aufträge direkten Zugriff auf ein Speicherkonto, anstatt eine Verbindungszeichenfolge zu verwenden. Neben der verbesserten Sicherheit ermöglicht Ihnen diese Funktion auch das Schreiben von Daten auf ein Speicherkonto in einem virtuellen Netzwerk (VNET) in Azure.
 
 Dieser Artikel zeigt Ihnen, wie Sie verwaltete Identitäten für die Blobausgabe(n) eines Stream Analytics-Auftrags über das Azure-Portal und mit einer Azure Resource Manager-Bereitstellung aktivieren.
 
@@ -33,7 +33,7 @@ Dieser Artikel zeigt Ihnen, wie Sie verwaltete Identitäten für die Blobausgabe
 
 ## <a name="azure-resource-manager-deployment"></a>Azure Resource Manager-Bereitstellung
 
-Mit dem Azure Resource Manager können Sie die Bereitstellung Ihres Stream Analytics-Auftrags vollständig automatisieren. Sie können Resource Manager-Vorlagen entweder mit Azure PowerShell oder der [Azure-Befehlszeilenschnittstelle](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) bereitstellen. In den folgenden Beispielen wird die Azure-Befehlszeilenschnittstelle verwendet.
+Mit dem Azure Resource Manager können Sie die Bereitstellung Ihres Stream Analytics-Auftrags vollständig automatisieren. Sie können Resource Manager-Vorlagen entweder mit Azure PowerShell oder der [Azure-Befehlszeilenschnittstelle](/cli/azure/) bereitstellen. In den folgenden Beispielen wird die Azure-Befehlszeilenschnittstelle verwendet.
 
 
 1. Sie können eine **Microsoft.StreamAnalytics/streamingjobs**-Ressource mit einer verwalteten Identität erstellen, indem Sie die folgende Eigenschaft in den Ressourcenabschnitt Ihrer Resource Manager-Vorlage einfügen:
@@ -218,11 +218,15 @@ Um Zugriff auf das gesamte Konto zu erhalten, führen Sie den folgenden Befehl m
 
 Bei der Konfiguration der **Firewalls und virtuellen Netzwerke** Ihres Speicherkonto können Sie optional den Netzwerkdatenverkehr von anderen vertrauenswürdigen Microsoft-Diensten zulassen. Wenn Stream Analytics mit einer verwalteten Identität authentifiziert wird, ist der Nachweis erbracht, dass die Anforderung von einem vertrauenswürdigen Dienst stammt. Nachfolgend finden Sie Anweisungen, um diese VNET-Zugriffsausnahme zu aktivieren.
 
-1.  Navigieren Sie im Konfigurationsbereich des Speicherkonten zum Bereich „Firewalls und virtuelle Netzwerke“.
-2.  Sorgen Sie dafür, dass die Option „Vertrauenswürdigen Microsoft-Diensten den Zugriff auf dieses Speicherkonto erlauben“ aktiviert ist.
-3.  Wenn Sie sie aktiviert haben, klicken Sie auf **Speichern**.
+1.    Navigieren Sie im Konfigurationsbereich des Speicherkontos zum Bereich „Firewalls und virtuelle Netzwerke“.
+2.    Stellen Sie sicher, dass die Option „Vertrauenswürdigen Microsoft-Diensten den Zugriff auf dieses Speicherkonto erlauben“ aktiviert ist.
+3.    Wenn Sie sie aktiviert haben, klicken Sie auf **Speichern**.
 
    ![Aktivieren des VNET-Zugriffs](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-vnet-exception.png)
+
+## <a name="remove-managed-identity"></a>Entfernen der verwalteten Identität
+
+Die für einen Stream Analytics-Auftrag erstellte verwaltete Identität wird nur gelöscht, wenn der Auftrag gelöscht wird. Es gibt keine Möglichkeit, die verwaltete Identität zu löschen, ohne den Auftrag zu löschen. Wenn Sie die verwaltete Identität nicht mehr verwenden möchten, können Sie die Authentifizierungsmethode für die Ausgabe ändern. Die verwaltete Identität bleibt weiterhin bestehen, bis der Auftrag gelöscht wird, und wird verwendet, wenn Sie sich noch einmal mithilfe einer verwalteten Identität authentifizieren.
 
 ## <a name="limitations"></a>Einschränkungen
 Nachfolgend finden Sie die aktuellen Einschränkungen dieses Features:

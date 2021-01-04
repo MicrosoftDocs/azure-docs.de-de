@@ -15,12 +15,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e78efd71943332e8a40e5b44b6b78f88e516649a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99fb466debd5a2ee4bb659aea3494469a8bbe8e1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84759962"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658416"
 ---
 # <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Entfernen persönlicher Daten für Azure Active Directory-Anwendungsproxy
 
@@ -35,7 +35,7 @@ Der Anwendungsproxy kann persönliche Daten in die folgenden Protokolltypen schr
 
 ## <a name="remove-personal-data-from-windows-event-logs"></a>Entfernen persönlicher Daten aus Windows-Ereignisprotokollen
 
-Informationen zum Konfigurieren der Datenaufbewahrung für die Windows-Ereignisprotokolle finden Sie unter [Settings for event logs](https://technet.microsoft.com/library/cc952132.aspx) (Einstellungen für Ereignisprotokolle). Weitere Informationen zu Windows-Ereignisprotokollen finden Sie unter [Verwenden von Windows-Ereignisprotokollen](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx) (in englischer Sprache).
+Informationen zum Konfigurieren der Datenaufbewahrung für die Windows-Ereignisprotokolle finden Sie unter [Settings for event logs](https://technet.microsoft.com/library/cc952132.aspx) (Einstellungen für Ereignisprotokolle). Weitere Informationen zu Windows-Ereignisprotokollen finden Sie unter [Verwenden von Windows-Ereignisprotokollen](/windows/win32/wes/using-windows-event-log) (in englischer Sprache).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
@@ -54,7 +54,7 @@ Im Folgenden erfahren Sie, wie Sie persönliche Daten aus Connector-Ereignisprot
 
 Suchen Sie nach ähnlichen Einträgen in jedem Connector-Ereignisprotokoll, um bestimmte Daten anzuzeigen oder zu exportieren. Die Protokolle befinden sich hier: `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace`.
 
-Da die Protokolle Textdateien sind, können Sie mit dem Befehl [findstr](https://docs.microsoft.com/windows-server/administration/windows-commands/findstr) nach Texteinträgen mit Bezug zu einem Benutzer suchen.  
+Da die Protokolle Textdateien sind, können Sie mit dem Befehl [findstr](/windows-server/administration/windows-commands/findstr) nach Texteinträgen mit Bezug zu einem Benutzer suchen.  
 
 Suchen Sie in Protokolldateien nach „UserID“, um persönliche Daten zu finden.
 

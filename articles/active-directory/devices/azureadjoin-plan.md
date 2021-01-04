@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de383bfa9f943cd5644d35ed83db8a80ec8017bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3acaf4929158b24ff50655aa18c05b41aeec4b53
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653212"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435449"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Gewusst wie: Planen der Implementierung Ihrer Azure AD-Einbindung
 
@@ -95,6 +95,8 @@ Bei der Erstellung von Benutzern in:
 
 Lokale UPNs, die sich von Azure AD-UPNs unterscheiden, werden auf in Azure AD eingebundenen Geräten nicht unterstützt. Wenn Ihre Benutzer einen lokalen UPN verwenden, sollten Sie auf die Verwendung ihres primären UPN in Azure AD umstellen.
 
+UPN-Änderungen werden erst ab dem Windows 10-Update 2004 unterstützt. Bei Benutzern, die Geräte mit diesem Update verwenden, kann der UPN problemlos geändert werden. Auf Geräten vor dem Windows 10-Update 2004 haben Benutzer Probleme mit SSO und dem bedingten Zugriff. Sie müssen sich über die Kachel „Anderer Benutzer“ mit ihrem neuen UPN bei Windows anmelden, um dieses Problem zu beheben. 
+
 ## <a name="assess-your-device-management"></a>Bewerten Ihrer Geräteverwaltung
 
 ### <a name="supported-devices"></a>Unterstützte Geräte
@@ -119,7 +121,7 @@ Es gibt zwei Ansätze für die Verwaltung von in Azure AD eingebundenen Geräten
 - **Nur MDM**: Ein Gerät wird ausschließlich von einem MDM-Anbieter wie Intune verwaltet. Alle Richtlinien werden im Rahmen des MDM-Registrierungsprozesses bereitgestellt. Für Azure AD Premium- oder EMS-Kunden ist die MDM-Registrierung ein automatisierter Schritt, der Teil einer Azure AD-Einbindung ist.
 - **Co-Verwaltung**: Ein Gerät wird von einem MDM-Anbieter und SCCM verwaltet. Bei diesem Ansatz ist der SCCM-Agent auf einem MDM-verwalteten Gerät zur Verwaltung bestimmter Aspekte installiert.
 
-Werten Sie bei Verwendung von Gruppenrichtlinien die MDM-Richtlinienparität mit dem [MDM Migration Analysis Tool (MMAT)](https://github.com/WindowsDeviceManagement/MMAT) aus. 
+Überprüfen Sie bei Verwendung von Gruppenrichtlinien mithilfe der [Analyse von Gruppenrichtlinien](/mem/intune/configuration/group-policy-analytics) in Microsoft Endpoint Manager die Parität von GPO- und MDM-Richtlinien. 
 
 Überprüfen Sie die unterstützten und nicht unterstützten Richtlinien, um zu bestimmen, ob Sie statt Gruppenrichtlinien eine MDM-Lösung verwenden können. In Bezug auf nicht unterstützte Richtlinien ist Folgendes zu berücksichtigen:
 
@@ -249,7 +251,7 @@ Bevor Sie Ihre Mobilitätseinstellungen konfigurieren können, müssen Sie mögl
 1. Klicken Sie auf **Anwendung hinzufügen**.
 1. Wählen Sie Ihren MDM-Anbieter aus der Liste aus.
 
-   ![Hinzufügen einer Anwendung](./media/azureadjoin-plan/04.png)
+   :::image type="content" source="./media/azureadjoin-plan/04.png" alt-text="Screenshot der Seite „Anwendung hinzufügen“ in Azure Active Directory. Mehrere MDM-Anbieter sind aufgelistet." border="false":::
 
 Wählen Sie Ihren MDM-Anbieter aus, um die entsprechenden Einstellungen zu konfigurieren. 
 
@@ -272,7 +274,7 @@ Es gibt drei URLs, die sich auf die MDM-Konfiguration beziehen:
 - URL für MDM-Ermittlung 
 - MDM Compliance-URL
 
-![Hinzufügen einer Anwendung](./media/azureadjoin-plan/06.png)
+:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="Screenshot: Teil des MDM-Konfigurationsbereichs in Azure Active Directory mit den URL-Feldern für MDM-Nutzungsbedingungen, Ermittlung und Compliance" border="false":::
 
 Jede URL verfügt über einen vordefinierten Standardwert. Wenn diese Felder leer sind, wenden Sie sich an Ihren MDM-Anbieter, um weitere Informationen zu erhalten.
 

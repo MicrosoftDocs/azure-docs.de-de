@@ -1,5 +1,5 @@
 ---
-title: Vorbereiten der Notfallwiederherstellung von Azure VMware Solution-VMs mit Azure Site Recovery
+title: Vorbereiten von Azure VMware Solution für die Notfallwiederherstellung zu Azure Site Recovery
 description: Hier erfahren Sie, wie Sie Azure VMware Solution-Server für die Notfallwiederherstellung in Azure mithilfe des Azure Site Recovery-Diensts vorbereiten.
 author: Harsha-CS
 manager: rochakm
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: harshacs
 ms.custom: MVC
-ms.openlocfilehash: 9b04faf6797d04404dc0c5d617af2fd62a68c49a
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 8e77ede7b04c95bfd6b6b8f660c8d811e7434c0f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91814275"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395443"
 ---
-# <a name="prepare-azure-vmware-solution-servers-for-disaster-recovery-to-azure"></a>Vorbereiten von Azure VMware Solution-Servern für die Notfallwiederherstellung in Azure
+# <a name="prepare-azure-vmware-solution-for-disaster-recovery-to-azure-site-recovery"></a>Vorbereiten von Azure VMware Solution für die Notfallwiederherstellung zu Azure Site Recovery
 
 In diesem Artikel wird beschrieben, wie Azure VMware Solution-Server mithilfe der [Azure Site Recovery](site-recovery-overview.md)-Dienste für die Notfallwiederherstellung in Azure vorbereitet werden. 
 
@@ -68,8 +68,8 @@ Bereiten Sie das Konto wie folgt vor:
 
 Bereiten Sie ein Domänen- oder lokales Konto mit den Berechtigungen zum Installieren auf dem virtuellen Computer vor.
 
-- **Virtuelle Windows-Computer**: Wenn Sie kein Domänenkonto verwenden, deaktivieren Sie für die Installation auf Windows-VMs die Remote-Benutzerzugriffssteuerung auf dem lokalen Computer. Dazu fügen Sie in der Registrierung unter **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** den DWORD-Eintrag **LocalAccountTokenFilterPolicy** mit dem Wert 1 hinzu.
-- **Virtuelle Linux-Computer**: Für die Installation auf virtuellen Linux-Computern bereiten Sie einen Superuser auf dem Linux-Quellserver vor.
+- **Virtuelle Windows-Computer** : Wenn Sie kein Domänenkonto verwenden, deaktivieren Sie für die Installation auf Windows-VMs die Remote-Benutzerzugriffssteuerung auf dem lokalen Computer. Dazu fügen Sie in der Registrierung unter **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** den DWORD-Eintrag **LocalAccountTokenFilterPolicy** mit dem Wert 1 hinzu.
+- **Virtuelle Linux-Computer** : Für die Installation auf virtuellen Linux-Computern bereiten Sie einen Superuser auf dem Linux-Quellserver vor.
 
 
 ## <a name="check-vmware-requirements"></a>Überprüfen der VMware-Anforderungen
@@ -92,12 +92,12 @@ Nach einem Failover sollten Sie eine Verbindung mit den Azure-VMs über Ihr Azur
 Gehen Sie wie folgt vor, wenn Sie die Verbindung mit Windows-VMs nach dem Failover per RDP herstellen möchten:
 
 - **Zugriff auf das Internet**. Aktivieren Sie RDP auf der Azure VMware Solution-VM, bevor das Failover durchgeführt wird. Stellen Sie sicher, dass TCP- und UDP-Regeln für das Profil **Öffentlich** hinzugefügt werden und dass RDP unter **Windows-Firewall** > **Zugelassene Apps** für alle Profile zugelassen ist.
-- **Standort-zu-Standort-VPN-Zugriff**:
+- **Standort-zu-Standort-VPN-Zugriff** :
     - Aktivieren Sie RDP auf der Azure VMware Solution-VM, bevor das Failover durchgeführt wird.
     - RDP sollte unter **Windows-Firewall** -> **Zugelassene Apps und Feature** für **private und Domänennetzwerke** zugelassen werden.
     - Achten Sie darauf, dass die SAN-Richtlinie des Betriebssystems auf **OnlineAll** festgelegt ist. [Weitere Informationen](https://support.microsoft.com/kb/3031135)
 - Auf dem virtuellen Computer sollten keine ausstehenden Windows-Updates vorhanden sein, wenn Sie ein Failover auslösen. Andernfalls können Sie sich nach Abschluss des Updates nicht mehr bei dem virtuellen Computer anmelden.
-- Aktivieren Sie nach dem Failover auf der Windows-Azure-VM die **Startdiagnose**, um einen Screenshot des virtuellen Computers anzuzeigen. Wenn Sie keine Verbindung herstellen können, überprüfen Sie, ob der virtuelle Computer ausgeführt wird, und sehen sich dann diese [Tipps zur Problembehandlung](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx) an.
+- Aktivieren Sie nach dem Failover auf der Windows-Azure-VM die **Startdiagnose** , um einen Screenshot des virtuellen Computers anzuzeigen. Wenn Sie keine Verbindung herstellen können, überprüfen Sie, ob der virtuelle Computer ausgeführt wird, und sehen sich dann diese [Tipps zur Problembehandlung](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx) an.
 
 Gehen Sie wie folgt vor, wenn Sie die Verbindung mit Linux-VMs nach dem Failover per SSH herstellen möchten:
 

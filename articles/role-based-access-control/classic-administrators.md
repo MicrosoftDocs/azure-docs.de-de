@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/22/2020
+ms.date: 11/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: dc8a23d8cdb923f86d581d1af2967112d226c847
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4c758dca9f6020fd948ad8c3a8cdf014306e8ae7
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370626"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96343995"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Verwaltung von Azure-Abonnements im klassischem Bereitstellungsmodell
 
@@ -40,15 +40,15 @@ In diesem Artikel wird das Hinzufügen oder Ändern der Azure-Rollen „Co-Admin
 
 1. Klicken Sie auf **Zugriffssteuerung (IAM)** .
 
-1. Klicken Sie auf die Registerkarte **Klassische Administratoren** .
+1. Klicken Sie auf die Registerkarte **Klassische Administratoren**.
 
     ![Screenshot des Öffnens von „Klassische Administratoren“](./media/classic-administrators/classic-administrators.png)
 
-1. Klicken Sie auf **Hinzufügen** > **Co-Administrator hinzufügen** , um den Bereich „Co-Administratoren hinzufügen“ zu öffnen.
+1. Klicken Sie auf **Hinzufügen** > **Co-Administrator hinzufügen**, um den Bereich „Co-Administratoren hinzufügen“ zu öffnen.
 
     Wenn die Schaltfläche „Co-Administrator hinzufügen“ deaktiviert ist, fehlen Ihnen Berechtigungen.
 
-1. Wählen Sie den Benutzer aus, den Sie hinzufügen möchten, und klicken Sie auf **Hinzufügen** .
+1. Wählen Sie den Benutzer aus, den Sie hinzufügen möchten, und klicken Sie auf **Hinzufügen**.
 
     ![Screenshot, auf dem der Co-Administrator hinzugefügt wird](./media/classic-administrators/add-coadmin.png)
 
@@ -58,7 +58,7 @@ Wenn Sie einen Gastbenutzer als Co-Administrator hinzufügen möchten, führen S
 
 - Der Gastbenutzer muss in Ihrem Verzeichnis vorhanden sein. Dies bedeutet, dass der Benutzer eine Einladung zu Ihrem Verzeichnis erhalten und diese akzeptiert haben muss.
 
-Weitere Informationen zum Hinzufügen eines Gastbenutzers zu Ihrem Verzeichnis finden Sie unter [Hinzufügen von Azure Active Directory B2B-Zusammenarbeitsbenutzern über das Azure-Portal](../active-directory/b2b/add-users-administrator.md).
+Weitere Informationen zum Hinzufügen eines Gastbenutzers zu Ihrem Verzeichnis finden Sie unter [Hinzufügen von Azure Active Directory B2B-Zusammenarbeitsbenutzern über das Azure-Portal](../active-directory/external-identities/add-users-administrator.md).
 
 ### <a name="differences-for-guest-users"></a>Unterschiede für Gastbenutzer
 
@@ -85,13 +85,13 @@ Eine vergleichende Betrachtung zu Mitglieds- und Gastbenutzern finden Sie unter 
 
 1. Klicken Sie auf **Zugriffssteuerung (IAM)** .
 
-1. Klicken Sie auf die Registerkarte **Klassische Administratoren** .
+1. Klicken Sie auf die Registerkarte **Klassische Administratoren**.
 
 1. Fügen Sie ein Häkchen neben dem Co-Administrator hinzu, den Sie entfernen möchten.
 
-1. Klicken Sie auf **Entfernen** .
+1. Klicken Sie auf **Entfernen**.
 
-1. Klicken Sie im angezeigten Meldungsfeld auf **Ja** .
+1. Klicken Sie im angezeigten Meldungsfeld auf **Ja**.
 
     ![Screenshot, auf dem der Co-Administrator entfernt wird](./media/classic-administrators/remove-coadmin.png)
 
@@ -99,25 +99,25 @@ Eine vergleichende Betrachtung zu Mitglieds- und Gastbenutzern finden Sie unter 
 
 Nur der Kontoadministrator kann den Dienstadministrator für ein Abonnement ändern. Wenn Sie sich für ein Azure-Abonnement registrieren, ist der Dienstadministrator standardmäßig mit dem Kontoadministrator identisch. Der Benutzer mit der Rolle „Kontoadministrator“ kann nicht auf das Azure-Portal zugreifen. Der Benutzer mit der Rolle „Dienstadministrator“ hat Vollzugriff auf das Azure-Portal. Wenn Kontoadministrator und Dienstadministrator identisch sind und Sie den Dienstadministrator in einen anderen Benutzer ändern, verliert der Kontoadministrator den Zugriff auf das Azure-Portal. Der Kontoadministrator kann aber immer das Kontocenter verwenden, um den Dienstadministrator wieder auf sich selbst festzulegen.
 
-Befolgen Sie diese Schritte, um den Dienstadministrator im **Kontocenter** zu ändern.
-
-### <a name="account-center"></a>Kontocenter
+Befolgen Sie diese Schritte, um den Dienstadministrator im Azure-Portal zu ändern.
 
 1. Stellen Sie sicher, dass Ihr Szenario unterstützt wird, indem Sie die [Einschränkungen beim Ändern des Dienstadministrators](#limitations-for-changing-the-service-administrator) überprüfen.
 
-1. Melden Sie sich beim [Kontocenter](https://account.windowsazure.com/subscriptions) als Kontoadministrator an.
+1. Melden Sie sich als Kontoadministrator beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Klicken Sie auf ein Abonnement.
+1. Öffnen Sie **Cost Management + Billing**, und wählen Sie ein Abonnement aus.
 
-1. Klicken Sie auf der rechten Seite auf **Abonnementdetails bearbeiten** .
+1. Klicken Sie im linken Navigationsbereich auf **Eigenschaften**.
 
-    ![Screenshot mit der Schaltfläche „Abonnementdetails bearbeiten“ im Kontocenter](./media/classic-administrators/editsub.png)
+1. Klicken Sie auf **Dienstadministrator**.
 
-1. Geben Sie im Feld **DIENSTADMINISTRATOR** die E-Mail-Adresse des neuen Dienstadministrators ein.
+    ![Screenshot der Abonnementeigenschaften im Azure-Portal](./media/classic-administrators/service-admin.png)
 
-    ![Screenshot mit dem Feld zum Ändern der E-Mail-Adresse des Dienstadministrators](./media/classic-administrators/change-service-admin.png)
+1. Geben Sie auf der Seite **Dienstadministrator bearbeiten** die E-Mail-Adresse des neuen Dienstadministrators ein.
 
-1. Klicken Sie auf das Häkchen, um die Änderung zu speichern.
+    ![Screenshot der Seite „Dienstadministrator bearbeiten“](./media/classic-administrators/service-admin-edit.png)
+
+1. Klicken Sie auf **OK** , um die Änderung zu speichern.
 
 ### <a name="limitations-for-changing-the-service-administrator"></a>Einschränkungen beim Ändern des Dienstadministrators
 
@@ -140,9 +140,9 @@ Gehen Sie folgendermaßen vor, um den Kontoadministrator anzuzeigen.
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), und wählen Sie ein Abonnement aus.
+1. Öffnen Sie **Cost Management + Billing**, und wählen Sie ein Abonnement aus.
 
-1. Klicken Sie auf **Eigenschaften** .
+1. Klicken Sie im linken Navigationsbereich auf **Eigenschaften**.
 
     Der Kontoadministrator des Abonnements wird im Feld **Kontoadministrator** angezeigt.
 

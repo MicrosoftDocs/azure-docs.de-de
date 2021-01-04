@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 921d9e2138c8aa9c09535a673a7cd2d32e9cddad
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b17706f908613336714bb7daf08fdf3bfd5eaf64
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89270700"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928391"
 ---
 # <a name="identity-protection-and-conditional-access-for-azure-ad-b2c"></a>Identity Protection und bedingter Zugriff für Azure AD B2C
 
@@ -60,7 +60,7 @@ In Azure AD B2C können Bedingungen für bedingten Zugriff über integrierte B
 
 ## <a name="microsoft-graph-api"></a>Microsoft Graph-API
 
-Richtlinien für bedingten Zugriff in Azure AD B2C können auch mit der Microsoft Graph-API verwaltet werden. Ausführliche Informationen finden Sie unter [Was ist bedingter Zugriff?](../active-directory/conditional-access/overview.md) und in der [Microsoft Graph-Referenz](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md).
+Richtlinien für bedingten Zugriff in Azure AD B2C können auch mit der Microsoft Graph-API verwaltet werden. Ausführliche Informationen finden Sie unter [Was ist bedingter Zugriff?](../active-directory/conditional-access/overview.md) und in der [Microsoft Graph-Referenz](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

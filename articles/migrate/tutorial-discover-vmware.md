@@ -1,15 +1,18 @@
 ---
 title: Ermitteln von VMware-VMs mit der Azure Migrate-Serverbewertung
 description: Hier erfahren Sie, wie Sie lokale virtuelle VMware-Computer mit dem Azure Migrate-Serverbewertungstool ermitteln.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: f3e8f61c898b08cc0638597e77fd3260cb4593b2
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: ff82b90189e134db7d39b259c2c135489d14595d
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311299"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752786"
 ---
 # <a name="tutorial-discover-vmware-vms-with-server-assessment"></a>Tutorial: Ermitteln virtueller VMware-Computer mit der Serverbewertung
 
@@ -174,7 +177,7 @@ Vergewissern Sie sich vor der Bereitstellung, dass die OVA-Datei sicher ist:
     
         **Algorithmus** | **Download** | **SHA256**
         --- | --- | ---
-        VMware (11,9 GB) | [Aktuelle Version](https://go.microsoft.com/fwlink/?linkid=2140333) | bd5c19eec93a62d52cc507a6b7b408d07f33f92b7d39b8a1e3dfec4ec62830d7
+        VMware (11,9 GB) | [Aktuelle Version](https://go.microsoft.com/fwlink/?linkid=2140333) | e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
 
     - Azure Government:
     

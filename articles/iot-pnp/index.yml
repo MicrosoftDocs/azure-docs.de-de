@@ -11,12 +11,12 @@ metadata:
   ms.author: dobett
   manager: philmea
   ms.date: 10/31/2019
-  ms.openlocfilehash: 5b01154fa3e5821ca577e4a910facff8d9cb968a
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 75aa276fb41ebe717caa5c2f0dbdab5f9709237e
+  ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91598049"
+  ms.lasthandoff: 11/23/2020
+  ms.locfileid: "95495235"
 landingContent:
 - title: Grundlegendes zu IoT Plug & Play
   linkLists:
@@ -30,20 +30,12 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Verbinden eines Beispielgeräts mit IoT Hub (C)
-      url: quickstart-connect-device-c.md
-    - text: Verbinden eines Beispielgeräts mit IoT Hub (C#)
-      url: quickstart-connect-device-csharp.md
-    - text: Verbinden eines Beispielgeräts mit IoT Hub (Java)
-      url: quickstart-connect-device-java.md
-    - text: Verbinden eines Beispielgeräts mit IoT Hub (Node.js)
-      url: quickstart-connect-device-node.md
-    - text: Verbinden eines Beispielgeräts mit IoT Hub (Python)
-      url: quickstart-connect-device-python.md
+    - text: Verbinden eines Beispielgeräts mit IoT Hub
+      url: quickstart-connect-device.md
   - linkListType: concept
     links:
     - text: Entwicklerhandbuch
-      url: concepts-developer-guide-device-csharp.md
+      url: concepts-developer-guide-device.md
     - text: Komponenten
       url: concepts-components.md
     - text: IoT Plug & Play-Konventionen
@@ -54,10 +46,8 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Interagieren mit einem Gerät über Ihre Lösung (Node.js)
-      url: quickstart-service-node.md
-    - text: Interagieren mit einem Gerät über Ihre Lösung (Python)
-      url: quickstart-service-python.md
+    - text: Interagieren mit einem Gerät über Ihre Lösung
+      url: quickstart-service.md
   - linkListType: concept
     links:
     - text: Aufbau

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2cc2f954f4255c00b7c3549ab5d33d71b240fb70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 980ba86a9916e13dd2ac7639bd06d3ab8546d2f1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86507668"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424696"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Optimieren der privaten CloudSimple-Cloud für die Installation von Oracle RAC
 
@@ -79,7 +79,7 @@ Jeder virtuelle Oracle-Computer wird mit mehreren Datenträgern für Hostbetrieb
 * Die Freigabe wird auf **Keine Freigabe** festgelegt.
 * Die Redundanz wird im Speicher mithilfe von vSAN-Richtlinien definiert.  
 
-![Konfiguration der Oracle RAC-Datenträgergruppe für Daten](media/oracle-vm-os-disks.png)
+![Diagramm: Physische Konfiguration des Oracle RAC-Betriebssystemdatenträgers](media/oracle-vm-os-disks.png)
 
 ### <a name="data-disk-configuration"></a>Konfiguration der Datenträger für Daten
 
@@ -148,7 +148,7 @@ Der Bereich für schnelle Wiederherstellung (Fast Recovery Area, FRA) ist ein Da
 * Die Datenträger müssen als eine ASM-Datenträgergruppe konfiguriert werden.  
 * ASM-Redundanz ist auf **externe Redundanz** festgelegt.
 
-![Konfiguration der Oracle RAC-Gruppe mit Abstimmungsdatenträgern](media/oracle-vm-fra-disks.png)
+![Diagramm: Konfiguration der Oracle RAC-Gruppe mit Abstimmungsdatenträgern](media/oracle-vm-fra-disks.png)
 
 ## <a name="deploy-cloudsimple-private-cloud-vsphere-cluster"></a>Bereitstellen des vSphere-Clusters für die private CloudSimple-Cloud
 
@@ -196,9 +196,9 @@ Zum Erstellen eines virtuellen Computers für Oracle klonen Sie eine vorhandene 
 9. Wählen Sie die Festplattengröße aus, die für die Installation des Betriebssystems erforderlich ist.
 10. Wenn Sie die Anwendung auf einem anderen Gerät installieren möchten, klicken Sie auf **Neues Gerät hinzufügen**.
 11. Wählen Sie Netzwerkoptionen aus, und weisen Sie die für das öffentliche Netzwerk erstellte verteilte Portgruppe zu.
-12. Wenn Sie zusätzliche Netzwerkschnittstellen hinzufügen möchten, klicken Sie auf **Neues Gerät hinzufügen**, und wählen Sie die für das private Netzwerk erstellte verteilte Portgruppe aus.
+12. Wenn Sie zusätzliche Netzwerkschnittstellen hinzufügen möchten, klicken Sie auf **Neues Gerät hinzufügen** , und wählen Sie die für das private Netzwerk erstellte verteilte Portgruppe aus.
 13. Wählen Sie für das neue CD/DVD-Laufwerk die Datenspeicher-ISO-Datei aus, die die ISO-Datei für die Installation des bevorzugten Betriebssystems enthält. Wählen Sie die Datei aus, die Sie zuvor in den Ordner „ISO-Dateien und Vorlagen“ hochgeladen haben, und klicken Sie auf **OK**.
-14. Überprüfen Sie die Einstellungen, und klicken Sie auf **OK**, um den neuen virtuellen Computer zu erstellen.
+14. Überprüfen Sie die Einstellungen, und klicken Sie auf **OK** , um den neuen virtuellen Computer zu erstellen.
 15. Schalten Sie die VM ein. Installieren des Betriebssystems und aller erforderlichen Updates
 
 Nachdem das Betriebssystem installiert wurde, können Sie einen zweiten virtuellen Computer klonen. Klicken Sie mit der rechten Maustaste auf den Eintrag der VM, und wählen Sie die Option zum Klonen aus.
@@ -220,7 +220,7 @@ Oracle verwendet freigegebene Datenträger zum Speichern der Daten-, Protokoll- 
 9. Geben Sie für die Freigabe **Multi-writer** (Mehrfachschreibvorgänge) an.
 10. Wählen Sie für den Knoten virtueller Gerät den neuen SCSI-Controller aus, der in Schritt 2 erstellt wurde.
 
-    ![Erstellen von Datenträgern auf der ersten VM](media/oracle-rac-new-hard-disk.png)
+    ![Screenshot, auf dem die erforderlichen Felder zum Erstellen von Datenträgern auf dem ersten virtuellen Computer hervorgehoben sind](media/oracle-rac-new-hard-disk.png)
 
 Wiederholen Sie die Schritte 2 bis 10 für alle neuen Datenträger, die für die Oracle-Dateien für Daten, Protokolle und Wiederholungsprotokolle erforderlich sind.
 
@@ -248,8 +248,8 @@ Durch VM-zu-Host-Affinitätsregeln wird sichergestellt, dass die VM auf dem gew�
 3. Wählen Sie im vSphere-Client den Cluster aus, auf dem Oracle-VMs bereitgestellt werden, und klicken Sie auf **Configure** (Konfigurieren).
 4. Wählen Sie unter „Configure“ (Konfigurieren) die Option **VM/Host Groups** (VM-/Hostgruppen) aus.
 5. Klicken Sie unten auf der Seite auf **+** .
-6. Fügen Sie eine VM-Gruppe hinzu. Wählen Sie als Typ **VM group** (VM-Gruppe) aus. Geben Sie den Namen der Gruppe ein. Wählen Sie die VMs aus, und klicken Sie auf **OK**, um die Gruppe zu erstellen.
-6. Fügen Sie eine Hostgruppe hinzu. Wählen Sie als Typ **Host Group** (Hostgruppe) aus. Geben Sie den Namen der Gruppe ein. Wählen Sie die Hosts aus, auf denen die VMs ausgeführt werden, und klicken Sie auf **OK**, um die Gruppe zu erstellen.
+6. Fügen Sie eine VM-Gruppe hinzu. Wählen Sie als Typ **VM group** (VM-Gruppe) aus. Geben Sie den Namen der Gruppe ein. Wählen Sie die VMs aus, und klicken Sie auf **OK** , um die Gruppe zu erstellen.
+6. Fügen Sie eine Hostgruppe hinzu. Wählen Sie als Typ **Host Group** (Hostgruppe) aus. Geben Sie den Namen der Gruppe ein. Wählen Sie die Hosts aus, auf denen die VMs ausgeführt werden, und klicken Sie auf **OK** , um die Gruppe zu erstellen.
 7. Um eine Regel zu erstellen, klicken Sie auf **VM/Host rules** (VM-/Hostregeln).
 8. Klicken Sie unten auf der Seite auf **+** .
 9. Geben Sie einen Namen für die Regel ein, und wählen Sie **Enable** (Aktivieren) aus.

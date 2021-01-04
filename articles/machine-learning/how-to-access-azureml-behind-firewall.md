@@ -1,7 +1,7 @@
 ---
 title: Verwenden einer Firewall
 titleSuffix: Azure Machine Learning
-description: Steuern Sie den Zugriff auf Azure Machine Learning-Arbeitsbereiche mit Azure Firewall. Erfahren Sie mehr über die Hosts, die Sie über die Firewall zulassen müssen, damit Azure Machine Learning ordnungsgemäß funktioniert.
+description: Steuern Sie den Zugriff auf Azure Machine Learning-Arbeitsbereiche mit Azure Firewall. Erfahren Sie mehr über die Hosts, die Sie durch die Firewall zulassen müssen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,95 +9,180 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 07/17/2020
+ms.date: 11/18/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 081c07be49178be2415edccbfc2026336eb8a8a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8560acd9c5a11004c5144441d395863c8b85edba
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604409"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461402"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Verwenden des Arbeitsbereichs hinter einer Firewall für Azure Machine Learning
 
-In diesem Artikel erfahren Sie, wie Sie Azure Firewall konfigurieren, um den Zugriff auf Ihren Azure Machine Learning-Arbeitsbereich und das öffentliche Internet zu steuern.   Weitere Informationen zum Schützen von Azure Machine Learning finden Sie unter [Unternehmenssicherheit für Azure Machine Learning](concept-enterprise-security.md).
+In diesem Artikel erfahren Sie, wie Sie Azure Firewall konfigurieren, um den Zugriff auf Ihren Azure Machine Learning-Arbeitsbereich und das öffentliche Internet zu steuern. Weitere Informationen zum Schützen von Azure Machine Learning finden Sie unter [Unternehmenssicherheit für Azure Machine Learning](concept-enterprise-security.md).
 
-Die Informationen in diesem Dokument basieren zwar auf [Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md), können aber auch auf andere Firewallprodukte angewendet werden. Wenn Sie Fragen dazu haben, wie Sie die Kommunikation über die Firewall zulassen, lesen Sie die Dokumentation für die von Ihnen verwendete Firewall.
+## <a name="azure-firewall"></a>Azure Firewall
 
-## <a name="application-rules"></a>Anwendungsregeln
+Wenn Sie Azure Firewall verwenden, erstellen Sie mithilfe der __Ziel-Netzwerkadressübersetzung__ (Destination Network Address Translation, DNAT) NAT-Regeln für eingehenden Datenverkehr. Für ausgehenden Datenverkehr erstellen Sie __Netzwerkregeln__ und/oder __Anwendungsregeln__. Diese Regelsammlungen werden unter [Wie lauten einige der Azure Firewall-Konzepte?](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts) ausführlicher beschrieben.
 
-Erstellen Sie in Ihrer Firewall eine _Anwendungsregel_, die Datenverkehr zu und von den Adressen in diesem Artikel zulässt.
+### <a name="inbound-configuration"></a>Konfiguration für eingehenden Datenverkehr
 
-> [!TIP]
-> Legen Sie beim Hinzufügen der Netzwerkregel das __Protokoll__ auf „Beliebig“ und die Ports auf `*` fest.
->
-> Weitere Informationen zum Konfigurieren von Azure Firewall finden Sie unter [Bereitstellen und Konfigurieren von Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
+Wenn Sie eine Azure Machine Learning-__Compute-Instanz__ oder einen Azure Machine Learning-__Computecluster__ verwenden, fügen Sie eine [benutzerdefinierte Route](../virtual-network/virtual-networks-udr-overview.md) (User-Defined Route, UDR) für das Subnetz hinzu, das die Azure Machine Learning-Ressourcen enthält. Diese Route erzwingt die Übertragung des Datenverkehrs __von__ den IP-Adressen der `BatchNodeManagement`- und `AzureMachineLearning`-Ressourcen an die öffentliche IP-Adresse Ihrer Compute-Instanz und Ihres Computeclusters.
 
-## <a name="routes"></a>Routen
+Diese benutzerdefinierten Routen ermöglichen dem Batch-Dienst, für die zeitliche Planung von Tasks mit den Serverknoten zu kommunizieren. Fügen Sie außerdem die IP-Adresse für Azure Machine Learning Service hinzu, in dem die Ressourcen enthalten sind, da dies für den Zugriff auf Computeinstanzen erforderlich ist. Über die folgenden Methoden können Sie eine Liste der IP-Adressen des Batch-Diensts und von Azure Machine Learning Service abrufen:
 
-Wenn Sie die ausgehende Route für das Subnetz konfigurieren, das Azure Machine Learning-Ressourcen enthält, verwenden Sie die Anleitung im Abschnitt [Erzwungenes Tunneln](how-to-secure-training-vnet.md#forced-tunneling) zur Sicherung der Trainingsumgebung.
+* Laden Sie die [Azure-IP-Adressbereiche und Diensttags](https://www.microsoft.com/download/details.aspx?id=56519) herunter, und suchen Sie in der Datei nach `BatchNodeManagement.<region>` und `AzureMachineLearning.<region>`, wobei `<region>` Ihre Azure-Region ist.
 
-## <a name="microsoft-hosts"></a>Microsoft-Hosts
+* Laden Sie die Informationen mithilfe der [Azure-Befehlszeilenschnittstelle](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) herunter. Im folgenden Beispiel werden die IP-Adressinformationen heruntergeladen und die Informationen für die Region „USA, Osten 2“ herausgefiltert:
 
-Wenn sie nicht ordnungsgemäß konfiguriert ist, kann die Firewall Probleme bei der Verwendung Ihres Arbeitsbereichs verursachen. Es gibt eine Vielzahl von Hostnamen, die vom Azure Machine Learning-Arbeitsbereich verwendet werden.
+    ```azurecli-interactive
+    az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
+    az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
+    ```
 
-Die Hosts in diesem Abschnitt befinden sich im Besitz von Microsoft und stellen Dienste bereit, die für die ordnungsgemäße Funktionsweise Ihres Arbeitsbereichs erforderlich sind.
+    > [!TIP]
+    > Wenn Sie die Regionen „USA – Virginia“, „USA – Arizona“ oder „China, Osten 2“ verwenden, geben diese Befehle keine IP-Adressen zurück. Verwenden Sie stattdessen einen der folgenden Links zum Herunterladen einer Liste von IP-Adressen:
+    >
+    > * [Azure IP Ranges and Service Tags for Azure Government](https://www.microsoft.com/download/details.aspx?id=57063) (Azure-IP-Bereiche und -Diensttags für Azure Government)
+    > * [Azure IP Ranges and Service Tags for Azure China](https://www.microsoft.com//download/details.aspx?id=57062) (Azure-IP-Bereiche und -Diensttags für Azure China)
 
-| **Hostname** | **Zweck** |
-| ---- | ---- |
-| **login.microsoftonline.com** | Authentifizierung |
-| **management.azure.com** | Wird zum Abrufen der Arbeitsbereichsinformationen verwendet. |
-| **\*.batchai.core.windows.net** | Trainingscluster |
-| **ml.azure.com** | Azure Machine Learning Studio |
-| **default.exp-tas.com** | Von Azure Machine Learning Studio verwendet |
-| **\*.azureml.ms** | Von Azure Machine Learning-APIs verwendet |
-| **\*.experiments.azureml.net** | Von Experimenten verwendet, die in Azure Machine Learning ausgeführt werden |
-| **\*.modelmanagement.azureml.net** | Zum Registrieren und Bereitstellen von Modellen verwendet|
-| **mlworkspace.azure.ai** | Vom Azure-Portal beim Anzeigen eines Arbeitsbereichs verwendet |
-| **\*.aether.ms** | Beim Ausführen von Azure Machine Learning-Pipelines verwendet |
-| **\*.instances.azureml.net** | Azure Machine Learning-Computeinstanzen |
-| **\*.instances.azureml.ms** | Azure Machine Learning-Computeinstanzen, wenn für den Arbeitsbereich Private Link aktiviert ist |
-| **windows.net** | Azure Blob Storage |
-| **vault.azure.net** | Azure-Schlüsseltresor |
-| **azurecr.io** | Azure Container Registry |
-| **mcr.microsoft.com** | Microsoft Container Registry für Basis-Docker-Images |
-| **your-acr-server-name.azurecr.io** | Nur erforderlich, wenn sich Ihre Azure Container Registry-Instanz hinter dem virtuellen Netzwerk befindet – in dieser Konfiguration wird ein privater Link von der Microsoft-Umgebung zur ACR-Instanz in Ihrem Abonnement erstellt. Verwenden Sie den ACR-Servernamen für Ihren Azure Machine Learning-Arbeitsbereich. |
-| **\*.notebooks.azure.net** | Wird von den Notebooks in Azure Machine Learning Studio benötigt |
-| **graph.windows.net** | Für Notebooks erforderlich |
+Wenn Sie die benutzerdefinierten Routen hinzufügen, definieren Sie die Route für jedes zugehörige Batch-IP-Adresspräfix, und legen Sie den __Typ des nächsten Hops__ auf __Internet__ fest. Die folgende Abbildung zeigt ein Beispiel dieser benutzerdefinierten Route im Azure-Portal:
+
+![Beispiel für eine benutzerdefinierte Route für ein Adresspräfix](./media/how-to-enable-virtual-network/user-defined-route.png)
+
+> [!IMPORTANT]
+> Die IP-Adressen können sich im Laufe der Zeit ändern.
+
+Weitere Informationen finden Sie unter [Erstellen eines Azure Batch-Pools in einem virtuellen Netzwerk](../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling).
+
+### <a name="outbound-configuration"></a>Konfiguration für ausgehenden Datenverkehr
+
+1. Fügen Sie __Netzwerkregeln__ hinzu, um Datenverkehr __zu__ und __von__ den folgenden Diensttags zuzulassen:
+
+    * AzureActiveDirectory
+    * AzureMachineLearning
+    * AzureResourceManager
+    * Storage.region
+    * KeyVault.region
+    * ContainerRegistry.region
+
+    Wenn Sie planen, die von Microsoft bereitgestellten standardmäßigen Docker-Images zu verwenden und vom Benutzer verwaltete Abhängigkeiten zu aktivieren, müssen Sie auch die folgenden Diensttags hinzufügen:
+
+    * MicrosoftContainerRegistry.region
+    * AzureFrontDoor.FirstParty
+
+    Ersetzen Sie `region` in Einträgen, die diesen Wert enthalten, durch die von Ihnen verwendete Azure-Region. Beispiel: `keyvault.westus`.
+
+    Wählen Sie `TCP` als __Protokoll__ aus. Wählen Sie `*` für die __Quell- und Zielports__ aus.
+
+1. Fügen Sie __Anwendungsregeln__ für die folgenden Hosts hinzu:
+
+    > [!NOTE]
+    > Diese Liste ist nicht vollständig. Sie enthält nur die Hosts, die für die am häufigsten verwendeten Python-Ressourcen im Internet erforderlich sind. Wenn Sie z. B. Zugriff auf ein GitHub-Repository oder einen anderen Host benötigen, müssen Sie die erforderlichen Hosts für dieses Szenario ermitteln und hinzufügen.
+
+    | **Hostname** | **Zweck** |
+    | ---- | ---- |
+    | **anaconda.com**</br>**\*.anaconda.com** | Wird verwendet, um Standardpakete zu installieren |
+    | **\*.anaconda.org** | Wird verwendet, um Repositorydaten abzurufen |
+    | **pypi.org** | Wird zum Auflisten von Abhängigkeiten vom Standardindex verwendet, sofern vorhanden, und der Index wird nicht durch Benutzereinstellungen überschrieben. Wenn der Index überschrieben wird, müssen Sie auch **\*.pythonhosted.org** zulassen. |
+    | **cloud.r-project.org** | Wird beim Installieren von CRAN-Paketen für die R-Entwicklung verwendet. |
+    | **\*pytorch.org** | Wird von einigen Beispielen verwendet, die auf PyTorch basieren. |
+    | **\*.tensorflow.org** | Wird von einigen Beispielen verwendet, die auf Tensorflow basieren. |
+
+    Wählen Sie __http, https__ für __Protokoll:Port__ aus.
+
+    Weitere Informationen zum Konfigurieren von Anwendungsregeln finden Sie unter [Bereitstellen und Konfigurieren von Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
+
+1. Informationen zum Einschränken des Zugriffs auf Modelle, die in Azure Kubernetes Service (AKS) bereitgestellt werden, finden Sie unter [Steuern des ausgehenden Datenverkehrs in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
+
+## <a name="other-firewalls"></a>Andere Firewalls
+
+Die Anleitungen in diesem Abschnitt sind generisch, da jede Firewall über eine eigene Terminologie und bestimmte Konfigurationen verfügt. Wenn Sie Fragen dazu haben, wie Sie die Kommunikation über die Firewall zulassen, lesen Sie die Dokumentation für die von Ihnen verwendete Firewall.
+
+Wenn sie nicht ordnungsgemäß konfiguriert ist, kann die Firewall Probleme bei der Verwendung Ihres Arbeitsbereichs verursachen. Es gibt eine Vielzahl von Hostnamen, die vom Azure Machine Learning-Arbeitsbereich verwendet werden. In den folgenden Abschnitten sind Hosts aufgeführt, die für Azure Machine Learning erforderlich sind.
+
+### <a name="microsoft-hosts"></a>Microsoft-Hosts
+
+Die Hosts in diesem Abschnitt befinden sich im Besitz von Microsoft und stellen Dienste bereit, die für die ordnungsgemäße Funktionsweise Ihres Arbeitsbereichs erforderlich sind. In den folgenden Tabellen finden Sie die Hostnamen für die Regionen „Azure (öffentlich)“, „Azure Government“ und „Azure China 21ViaNet“.
+
+**Allgemeine Azure-Hosts**
+
+| **Erforderlich für** | **Azure (öffentlich)** | **Azure Government** | **Azure China 21Vianet** |
+| ----- | ----- | ----- | ----- |
+| Azure Active Directory | login.microsoftonline.com | login.microsoftonline.us | login.chinacloudapi.cn |
+| Azure-Portal | management.azure.com | management.azure.us | management.azure.cn |
+
+**Azure Machine Learning-Hosts**
+
+| **Erforderlich für** | **Azure (öffentlich)** | **Azure Government** | **Azure China 21Vianet** |
+| ----- | ----- | ----- | ----- |
+| Azure Machine Learning Studio | ml.azure.com | ml.azure.us | studio.ml.azure.cn |
+| API |\*.azureml.ms | \*.ml.azure.us | \*.ml.azure.cn |
+| Experimentieren, Verlauf, Hyperdrive, Beschriftung | \*.experiments.azureml.net | \*.ml.azure.us | \*.ml.azure.cn |
+| Modellverwaltung | \*.modelmanagement.azureml.net | \*.ml.azure.us | \*.ml.azure.cn |
+| Pipeline | \*.aether.ms | \*.ml.azure.us | \*.ml.azure.cn |
+| Designer (Studio-Dienst) | \*.studioservice.azureml.com | \*.ml.azure.us | \*.ml.azure.cn |
+| Integriertes Notebook | \*.notebooks.azure.net | \*.notebooks.usgovcloudapi.net |\*.notebooks.chinacloudapi.cn |
+| Integriertes Notebook | \*.file.core.windows.net | \*.file.core.usgovcloudapi.net | \*.file.core.chinacloudapi.cn |
+| Integriertes Notebook | \*.dfs.core.windows.net | \*.dfs.core.usgovcloudapi.net | \*.dfs.core.chinacloudapi.cn |
+| Integriertes Notebook | \*.blob.core.windows.net | \*.blob.core.usgovcloudapi.net | \*.blob.core.chinacloudapi.cn |
+| Integriertes Notebook | graph.microsoft.com | graph.microsoft.us | graph.chinacloudapi.cn |
+| Integriertes Notebook | \*.aznbcontent.net |  | |
+
+**Azure Machine Learning-Compute-Instanz- und -Computeclusterhosts**
+
+| **Erforderlich für** | **Azure (öffentlich)** | **Azure Government** | **Azure China 21Vianet** |
+| ----- | ----- | ----- | ----- |
+| Computecluster/-Instanz | \*.batchai.core.windows.net | \*.batchai.core.usgovcloudapi.net |\*.batchai.ml.azure.cn |
+| Compute-Instanz | \*.instances.azureml.net | \*.instances.azureml.us | \*.instances.azureml.cn |
+| Compute-Instanz | \*.instances.azureml.ms |  |  |
+
+**Zugeordnete Ressourcen, die von Azure Machine Learning verwendet werden**
+
+| **Erforderlich für** | **Azure (öffentlich)** | **Azure Government** | **Azure China 21Vianet** |
+| ----- | ----- | ----- | ----- |
+| Azure Storage-Konto | core.windows.net | core.usgovcloudapi.net | core.chinacloudapi.cn |
+| Azure-Schlüsseltresor | vault.azure.net | vault.usgovcloudapi.net | vault.azure.cn |
+| Azure Container Registry | azurecr.io | azurecr.us | azurecr.cn |
+| Microsoft Container Registry | mcr.microsoft.com | mcr.microsoft.com | mcr.microsoft.com |
+
 
 > [!TIP]
 > Wenn Sie die Verbundidentität verwenden möchten, befolgen Sie die Anleitungen im Artikel [Bewährte Methoden zum Sichern von Active Directory-Verbunddiensten](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs).
 
-## <a name="python-hosts"></a>Python-Hosts
+Informationen zum Hinzufügen von IP-Adressen für `BatchNodeManagement` und `AzureMachineLearning` finden Sie auch unter [Tunnelerzwingung](how-to-secure-training-vnet.md#forced-tunneling).
+
+Informationen zum Einschränken des Zugriffs auf Modelle, die in Azure Kubernetes Service (AKS) bereitgestellt werden, finden Sie unter [Steuern des ausgehenden Datenverkehrs in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
+
+### <a name="python-hosts"></a>Python-Hosts
 
 Die Hosts in diesem Abschnitt werden zum Installieren von Python-Paketen verwendet. Sie sind für Entwicklung, Training und Bereitstellung erforderlich. 
+
+> [!NOTE]
+> Diese Liste ist nicht vollständig. Sie enthält nur die Hosts, die für die am häufigsten verwendeten Python-Ressourcen im Internet erforderlich sind. Wenn Sie z. B. Zugriff auf ein GitHub-Repository oder einen anderen Host benötigen, müssen Sie die erforderlichen Hosts für dieses Szenario ermitteln und hinzufügen.
 
 | **Hostname** | **Zweck** |
 | ---- | ---- |
 | **anaconda.com**</br>**\*.anaconda.com** | Wird verwendet, um Standardpakete zu installieren |
 | **\*.anaconda.org** | Wird verwendet, um Repositorydaten abzurufen |
 | **pypi.org** | Wird zum Auflisten von Abhängigkeiten vom Standardindex verwendet, sofern vorhanden, und der Index wird nicht durch Benutzereinstellungen überschrieben. Wenn der Index überschrieben wird, müssen Sie auch **\*.pythonhosted.org** zulassen. |
+| **\*pytorch.org** | Wird von einigen Beispielen verwendet, die auf PyTorch basieren. |
+| **\*.tensorflow.org** | Wird von einigen Beispielen verwendet, die auf Tensorflow basieren. |
 
-## <a name="r-hosts"></a>R-Hosts
+### <a name="r-hosts"></a>R-Hosts
 
 Die Hosts in diesem Abschnitt werden zum Installieren von R-Paketen verwendet. Sie sind für Entwicklung, Training und Bereitstellung erforderlich.
 
-> [!IMPORTANT]
-> Intern verwendet das R SDK für Azure Machine Learning Python-Pakete. Daher müssen Sie auch Python-Hosts durch die Firewall zulassen.
+> [!NOTE]
+> Diese Liste ist nicht vollständig. Sie enthält nur die Hosts, die für die am häufigsten verwendeten R-Ressourcen im Internet erforderlich sind. Wenn Sie z. B. Zugriff auf ein GitHub-Repository oder einen anderen Host benötigen, müssen Sie die erforderlichen Hosts für dieses Szenario ermitteln und hinzufügen.
 
 | **Hostname** | **Zweck** |
 | ---- | ---- |
 | **cloud.r-project.org** | Beim Installieren von CRAN-Paketen verwendet |
 
-## <a name="azure-government-region"></a>Azure Government-Region
-
-Erforderliche URLs für die Azure Government-Regionen.
-
-| **Hostname** | **Zweck** |
-| ---- | ---- |
-| **usgovarizona.api.ml.azure.us** | Die Region „US-Arizona“ |
-| **usgovvirginia.api.ml.azure.us** | Die Region „US-Virginia“ |
-
+> [!IMPORTANT]
+> Intern verwendet das R SDK für Azure Machine Learning Python-Pakete. Daher müssen Sie auch Python-Hosts durch die Firewall zulassen.
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Tutorial: Bereitstellen und Konfigurieren von Azure Firewall über das Azure-Portal](../firewall/tutorial-firewall-deploy-portal.md)

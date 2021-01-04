@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.openlocfilehash: 7958ef9195c9dcef65fab70fbf48edf2021ff94b
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: ff55528013ac89be48454c25e1fc86deac2bca6f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91355821"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357231"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Tutorial: Konfigurieren von ThousandEyes für die automatische Benutzerbereitstellung
 
@@ -57,7 +57,7 @@ In diesem Abschnitt wird das Herstellen einer Verbindung von Azure AD mit der Th
 
 1. Wechseln Sie im [Azure-Portal](https://portal.azure.com) zum Abschnitt **Azure Active Directory > Unternehmens-Apps > Alle Anwendungen**.
 
-2. Suchen Sie über das Suchfeld nach Ihrer ThousandEyes-Instanz, wenn Sie ThousandEyes bereits für einmaliges Anmelden konfiguriert haben. Wählen Sie andernfalls **Hinzufügen**, und suchen Sie im Anwendungskatalog nach **ThousandEyes**. Wählen Sie ThousandEyes in den Suchergebnissen aus, und fügen Sie es Ihrer Anwendungsliste hinzu.
+2. Suchen Sie über das Suchfeld nach Ihrer ThousandEyes-Instanz, wenn Sie ThousandEyes bereits für einmaliges Anmelden konfiguriert haben. Wählen Sie andernfalls **Hinzufügen** , und suchen Sie im Anwendungskatalog nach **ThousandEyes**. Wählen Sie ThousandEyes in den Suchergebnissen aus, und fügen Sie es Ihrer Anwendungsliste hinzu.
 
 3. Wählen Sie Ihre ThousandEyes-Instanz aus, und wählen Sie dann die Registerkarte **Bereitstellung**.
 
@@ -69,7 +69,7 @@ In diesem Abschnitt wird das Herstellen einer Verbindung von Azure AD mit der Th
 
     ![Screenshot, in dem gezeigt wird, wo der Link „Kontoeinstellungen“ für die aktuelle Kontogruppe zu finden ist.](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 
-6. Klicken Sie im Azure-Portal auf **Verbindung testen**, um sicherzustellen, dass Azure AD eine Verbindung mit Ihrer ThousandEyes-App herstellen kann. Wenn die Verbindung nicht möglich ist, stellen Sie sicher, dass Ihr ThousandEyes-Konto über Teamadministratorberechtigungen verfügt, und wiederholen Sie Schritt 5.
+6. Klicken Sie im Azure-Portal auf **Verbindung testen** , um sicherzustellen, dass Azure AD eine Verbindung mit Ihrer ThousandEyes-App herstellen kann. Wenn die Verbindung nicht möglich ist, stellen Sie sicher, dass Ihr ThousandEyes-Konto über Teamadministratorberechtigungen verfügt, und wiederholen Sie Schritt 5.
 
 7. Geben Sie im Feld **Benachrichtigungs-E-Mail** die E-Mail-Adresse einer Person oder einer Gruppe ein, die Benachrichtigungen zu Bereitstellungsfehlern erhalten soll, und aktivieren Sie das Kontrollkästchen „Bei Fehler E-Mail-Benachrichtigung senden“.
 

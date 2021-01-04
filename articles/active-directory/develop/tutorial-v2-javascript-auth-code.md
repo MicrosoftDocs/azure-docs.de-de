@@ -12,17 +12,18 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 01169f3e73fb1d6ddf0ecaf4958c6121cb21c295
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 79fe821e2da494ab8c9e4cb407e2c2b025f75568
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216129"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169102"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Tutorial: Anmelden von Benutzern und Aufrufen der Microsoft Graph-API aus einer JavaScript-Single-Page-Webanwendung (SPA) mithilfe des Autorisierungscodeflusses
 
-In diesem Tutorial wird gezeigt, wie Sie eine JavaScript-Single-Page-Webanwendung (SPA) erstellen, die die Microsoft-Authentifizierungsbibliothek (Microsoft Authentication Library, MSAL) für JavaScript v2.0 für Folgendes verwendet:
+In diesem Tutorial wird eine JavaScript-SPA (Single-Page-Webanwendung) erstellt, die Benutzer anmeldet und Microsoft Graph über den Autorisierungscodeflow mit PKCE aufruft. Die von Ihnen erstellte SPA verwendet die Microsoft-Authentifizierungsbibliothek (Microsoft Authentication Library, MSAL) für JavaScript v2.0.
 
+Dieses Tutorial umfasst folgende Punkte:
 > [!div class="checklist"]
 > * Ausführen des OAuth 2.0-Autorisierungscodeflusses mit PKCE
 > * Anmelden von persönlichen Microsoft-Konten sowie von Geschäfts-, Schul- oder Unikonten
@@ -350,7 +351,7 @@ const graphConfig = {
 
 - `Enter_the_Graph_Endpoint_Here` ist die Instanz der Microsoft Graph-API, mit der die Anwendung kommunizieren soll.
   - Ersetzen Sie beide Vorkommen dieser Zeichenfolge für den **globalen** Microsoft Graph-API-Endpunkt durch `https://graph.microsoft.com`.
-  - Informationen zu Endpunkten in **nationalen** Cloudbereitstellungen finden Sie in der Microsoft Graph Dokumentation unter [Bereitstellungen nationaler Clouds](https://docs.microsoft.com/graph/deployments).
+  - Informationen zu Endpunkten in **nationalen** Cloudbereitstellungen finden Sie in der Microsoft Graph Dokumentation unter [Bereitstellungen nationaler Clouds](/graph/deployments).
 
 Die Werte `graphMeEndpoint` und `graphMailEndpoint` in Ihrer *graphConfig.js* sollte ähnlich wie folgt aussehen, wenn Sie den globalen Endpunkt verwenden:
 
@@ -619,23 +620,23 @@ Sie haben die Erstellung der Anwendung abgeschlossen und sind nun bereit, den No
 
 Nachdem der Browser die Datei *index.html* geladen hat, klicken Sie auf **Anmelden**. Sie werden aufgefordert, sich mit dem Microsoft Identity Platform-Endpunkt anzumelden:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Diagramm, das den Autorisierungscodefluss in einer Single-Page-Webanwendung darstellt.":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Webbrowser mit dem Anmeldedialogfeld.":::
 
 ### <a name="provide-consent-for-application-access"></a>Zustimmen zum Anwendungszugriff
 
 Wenn Sie sich zum ersten Mal bei Ihrer Anwendung anmelden, werden Sie aufgefordert, ihr Zugriff auf Ihr Profil zu gewähren und sich anzumelden:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Diagramm, das den Autorisierungscodefluss in einer Single-Page-Webanwendung darstellt.":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Im Webbrowser angezeigtes Inhaltsdialogfeld.":::
 
 Wenn Sie den angeforderten Berechtigungen zustimmen, zeigt die Webanwendung Ihren Benutzernamen an, was eine erfolgreiche Anmeldung signalisiert:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-03-signed-in.png" alt-text="Diagramm, das den Autorisierungscodefluss in einer Single-Page-Webanwendung darstellt.":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-03-signed-in.png" alt-text="Ergebnisse einer erfolgreichen Anmeldung im Webbrowser.":::
 
 ### <a name="call-the-graph-api"></a>Aufrufen der Graph-API
 
 Nachdem Sie sich angemeldet haben, wählen Sie **Profil anzeigen** aus, um die Benutzerprofilinformationen anzuzeigen, die in der Antwort des Aufrufs der Microsoft Graph-API zurückgegeben werden:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-04-see-profile.png" alt-text="Diagramm, das den Autorisierungscodefluss in einer Single-Page-Webanwendung darstellt.":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-04-see-profile.png" alt-text="Im Browser angezeigte Profilinformationen aus Microsoft Graph.":::
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Weitere Informationen zu Bereichen und delegierten Berechtigungen
 

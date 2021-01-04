@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 2fb94faacc2bc7d6c3b1e166e617f3f675594cef
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: bcb6e91bba367363385214806077146b1a24fe7b
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101255"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503486"
 ---
 # <a name="indexer-access-to-content-protected-by-azure-network-security-features-azure-cognitive-search"></a>Indexerzugriff auf Inhalte, die durch Azure-Netzwerksicherheitsfeatures geschützt sind (Azure Cognitive Search)
 
@@ -87,7 +87,7 @@ Diese Funktion ist nur in kostenpflichtigen Suchdiensten verfügbar, mit Beschr�
 
 Kunden sollten den Suchverwaltungsvorgang, [CreateOrUpdate-API](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate), in einer **gemeinsam genutzten Private Link-Ressource** aufrufen, um eine Verbindung über einen privaten Endpunkt mit ihrer sicheren Ressource (z. B. einem Speicherkonto) herzustellen. Datenverkehr, der über diese (ausgehende) Verbindung über einen privaten Endpunkt geleitet wird, stammt nur aus dem virtuellen Netzwerk, das sich in der suchdienstspezifischen „privaten“ Indexerausführungsumgebung befindet.
 
-Azure Cognitive Search überprüft, ob Aufrufer dieser API über RBAC-Berechtigungen zum Genehmigen von Anforderungen von Verbindungen über private Endpunkte an die sichere Ressource verfügen. Wenn Sie z. B. eine Verbindung über einen privaten Endpunkt mit einem Speicherkonto mit Leseberechtigungen anfordern, wird dieser Aufruf abgelehnt.
+Azure Cognitive Search überprüft, ob Aufrufer dieser API über Azure RBAC-Berechtigungen zum Genehmigen von Anforderungen von Verbindungen über private Endpunkte an die sichere Ressource verfügen. Wenn Sie z. B. eine Verbindung über einen privaten Endpunkt mit einem Speicherkonto mit Leseberechtigungen anfordern, wird dieser Aufruf abgelehnt.
 
 ### <a name="step-2-approve-the-private-endpoint-connection"></a>Schritt 2: Genehmigen der Verbindung mit einem privaten Endpunkt
 

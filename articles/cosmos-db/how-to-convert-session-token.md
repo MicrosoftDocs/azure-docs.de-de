@@ -3,18 +3,20 @@ title: Konvertieren von Sitzungstokenformaten im .NET SDK – Azure Cosmos DB
 description: Informationen zum Konvertieren von Sitzungstokenformaten, um die Kompatibilität zwischen verschiedenen .NET SDK-Versionen sicherzustellen
 author: vinhms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: vitrinh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ff66c2cb355e2070cdf30444c52d1accacac8964
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7ed06eeb7330989b4a251dc77e516eb8ac578bff
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490440"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342044"
 ---
 # <a name="convert-session-token-formats-in-net-sdk"></a>Konvertieren von Sitzungstokenformaten im .NET SDK
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In diesem Artikel wird erläutert, wie Sie verschiedene Sitzungstokenformate konvertieren, um die Kompatibilität zwischen den SDK-Versionen sicherzustellen.
 
@@ -26,7 +28,7 @@ In diesem Artikel wird erläutert, wie Sie verschiedene Sitzungstokenformate kon
 
 ## <a name="session-token-formats"></a>Sitzungstokenformate
 
-Es gibt zwei Sitzungstokenformate: **Einfach** und **Vektor** .  Diese zwei Formate sind nicht austauschbar, sodass das Format bei der Übergabe an die Clientanwendung mit unterschiedlichen Versionen konvertiert werden muss.
+Es gibt zwei Sitzungstokenformate: **Einfach** und **Vektor**.  Diese zwei Formate sind nicht austauschbar, sodass das Format bei der Übergabe an die Clientanwendung mit unterschiedlichen Versionen konvertiert werden muss.
 - Das Sitzungstokenformat **Einfach** wird von .NET SDK V1 (Microsoft.Azure.DocumentDB-Version 1.x) verwendet.
 - Das Sitzungstokenformat **Vektor** wird von .NET SDK V2 (Microsoft.Azure.DocumentDB-Version 2.x) verwendet.
 
@@ -40,7 +42,7 @@ Ein Vektorsitzungstoken weist das folgende Format auf: `{pkrangeid}:{Version}#{G
 
 ## <a name="convert-to-simple-session-token"></a>Konvertieren in ein einfaches Sitzungstoken
 
-Um ein Sitzungstoken mit .NET SDK V1 an den Client zu übergeben, verwenden Sie das Sitzungstokenformat **Einfach** .  Verwenden Sie z. B. den folgenden Beispielcode, um das Format zu konvertieren.
+Um ein Sitzungstoken mit .NET SDK V1 an den Client zu übergeben, verwenden Sie das Sitzungstokenformat **Einfach**.  Verwenden Sie z. B. den folgenden Beispielcode, um das Format zu konvertieren.
 
 ```csharp
 private static readonly char[] SegmentSeparator = (new[] { '#' });
@@ -74,7 +76,7 @@ else
 
 ## <a name="convert-to-vector-session-token"></a>Konvertieren in ein Vektorsitzungstoken
 
-Um ein Sitzungstoken mit .NET SDK V2 an den Client zu übergeben, verwenden Sie das Sitzungstokenformat **Vektor** .  Verwenden Sie z. B. den folgenden Beispielcode, um das Format zu konvertieren.
+Um ein Sitzungstoken mit .NET SDK V2 an den Client zu übergeben, verwenden Sie das Sitzungstokenformat **Vektor**.  Verwenden Sie z. B. den folgenden Beispielcode, um das Format zu konvertieren.
 
 ```csharp
 

@@ -13,18 +13,18 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04e1d35ab17a49dd1c4e9bd2bd19289de2b8658a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bb138ade0f579a7545c0910646b6adfb7d5ac02a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "89565853"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996660"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Hinzufügen von Branding zur Azure Active Directory-Anmeldeseite Ihrer Organisation
 Verwenden Sie das Logo und benutzerdefinierte Farbschemas Ihrer Organisation, um Ihren Azure Active Directory-Anmeldeseiten (Azure AD) ein konsistentes Aussehen und Verhalten zu verleihen. Ihre Anmeldeseiten werden angezeigt, wenn sich Benutzer bei webbasierten Apps Ihrer Organisation wie Microsoft 365 anmelden, die Azure AD als Identitätsanbieter verwenden.
 
 >[!NOTE]
->Für das Hinzufügen eines benutzerdefinierten Brandings müssen Sie eine der Editionen Azure Active Directory Premium 1, Premium 2 oder Basic verwenden oder eine Microsoft 365-Lizenz besitzen. Weitere Informationen zu Lizenzierung und Editionen finden Sie unter [Registrieren für Azure AD Premium](active-directory-get-started-premium.md).<br><br>Die Azure AD-Editionen Premium und Basic stehen für Kunden in China zur Verfügung, die mit der weltweit verfügbaren Instanz von Azure Active Directory arbeiten. Allerdings werden die Azure AD-Editionen „Premium“ und „Basic“ derzeit nicht durch den Azure-Dienst unterstützt, der in China von 21Vianet betrieben wird. Sollten Sie weitere Informationen benötigen, können Sie sich über das [Azure Active Directory-Forum](https://feedback.azure.com/forums/169401-azure-active-directory/) mit uns in Verbindung setzen.
+>Für das Hinzufügen eines benutzerdefinierten Brandings benötigen Sie eine Azure Active Directory Premium 1- oder Premium 2-Lizenz. Weitere Informationen zu Lizenzierung und Editionen finden Sie unter [Registrieren für Azure AD Premium](active-directory-get-started-premium.md).<br><br>Die Azure AD Premium-Editionen stehen für Kunden in China zur Verfügung, die mit der weltweit verfügbaren Instanz von Azure Active Directory arbeiten. Allerdings werden die Azure AD Premium-Editionen derzeit nicht durch den Azure-Dienst unterstützt, der in China von 21Vianet betrieben wird. Sollten Sie weitere Informationen benötigen, können Sie sich über das [Azure Active Directory-Forum](https://feedback.azure.com/forums/169401-azure-active-directory/) mit uns in Verbindung setzen.
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Anpassen Ihrer Azure AD-Anmeldeseite
 Sie können Ihre Azure AD-Anmeldeseiten anpassen, die angezeigt werden, wenn sich Benutzer bei mandantenspezifischen Apps Ihrer Organisation anmelden, z. B. `https://outlook.com/contoso.com`, oder bei der Übergabe einer Domänenvariablen, z. B. `https://passwordreset.microsoftonline.com/?whr=contoso.com`.
@@ -37,7 +37,7 @@ Ihr benutzerdefiniertes Branding wird nicht sofort angezeigt, wenn Ihre Benutzer
 ### <a name="to-customize-your-branding"></a>So passen Sie Ihr Branding an
 1. Melden Sie sich mit dem Konto eines globalen Administrators für das Verzeichnis beim [Azure-Portal](https://portal.azure.com/) an.
 
-2. Wählen Sie **Azure Active Directory** aus, dann **Unternehmensbranding** und schließlich **Konfigurieren** .
+2. Wählen Sie **Azure Active Directory** aus, dann **Unternehmensbranding** und schließlich **Konfigurieren**.
 
     ![Seite „Contoso – Unternehmensbranding“, Option „Konfigurieren“ hervorgehoben](media/customize-branding/company-branding-configure-button.png)
 
@@ -56,7 +56,7 @@ Ihr benutzerdefiniertes Branding wird nicht sofort angezeigt, wenn Ihre Benutzer
         
             Es wird empfohlen, Bilder zu verwenden, in denen sich die Bildschärfe nicht auf einen Bereich konzentriert (z. B. ein undurchsichtiges weißes Feld, das in der Mitte des Bildschirms angezeigt wird und je nach Abmessungen des sichtbaren Bereichs alle Teile des Bilds verdecken kann).
 
-        - **Bannerlogo.** Wählen Sie eine PNG- oder JPG-Version Ihres Logos aus, das auf der Anmeldeseite angezeigt werden soll, nachdem der Benutzer einen Benutzernamen eingegeben hat, sowie auf der Portalseite **Meine Apps** .
+        - **Bannerlogo.** Wählen Sie eine PNG- oder JPG-Version Ihres Logos aus, das auf der Anmeldeseite angezeigt werden soll, nachdem der Benutzer einen Benutzernamen eingegeben hat, sowie auf der Portalseite **Meine Apps**.
             
             Das Bild darf nicht höher als 60 Pixel oder breiter als 280 Pixel sein. Wir empfehlen, ein transparentes Bild zu verwenden, weil der Hintergrund unter Umständen nicht mit Ihrem Logohintergrund übereinstimmt. Wir empfehlen ferner, um das Bild herum keine Auffüllung vorzunehmen, da Ihr Logo sonst klein wirken könnte.
 
@@ -107,7 +107,7 @@ Nachdem Sie Ihr benutzerdefiniertes Branding erstellt haben, können Sie zurück
 ### <a name="to-edit-your-custom-branding"></a>So bearbeiten Sie Ihr benutzerdefiniertes Branding
 1. Melden Sie sich mit dem Konto eines globalen Administrators für das Verzeichnis beim [Azure-Portal](https://portal.azure.com/) an.
 
-2. Wählen Sie **Azure Active Directory** aus, dann **Unternehmensbranding** und schließlich **Konfigurieren** .
+2. Wählen Sie **Azure Active Directory** aus, dann **Unternehmensbranding** und schließlich **Konfigurieren**.
 
     ![Seite „Contoso – Unternehmensbranding“ mit angezeigter Standardkonfiguration](media/customize-branding/company-branding-default-config.png)
 
@@ -124,7 +124,7 @@ Sie können die Sprache Ihrer ursprünglichen Konfiguration nicht in eine andere
 
 1. Melden Sie sich mit dem Konto eines globalen Administrators für das Verzeichnis beim [Azure-Portal](https://portal.azure.com/) an.
 
-2. Wählen Sie **Azure Active Directory** aus, dann **Unternehmensbranding** und schließlich **Neue Sprache** .
+2. Wählen Sie **Azure Active Directory** aus, dann **Unternehmensbranding** und schließlich **Neue Sprache**.
 
     ![Seite „Contoso – Unternehmensbranding“ mit hervorgehobener Option „Neue Sprache“](media/customize-branding/company-branding-new-language.png)
 

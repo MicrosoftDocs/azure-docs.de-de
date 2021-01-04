@@ -5,18 +5,18 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 01/31/2020
+ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: efd35cfe2660f4597ec0c95dc29bcb4b839da680
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2cc935e81e867609159b5c150b6ee7c346bb9f8e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91306938"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026147"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Steuern von Updates mit der Wartungssteuerung und Azure PowerShell
 
-Mit der Wartungssteuerung können Sie entscheiden, wann Sie Updates auf Ihre isolierten VMs und dedizierten Azure-Hosts anwenden. In diesem Thema werden die Azure PowerShell-Optionen für die Wartungssteuerung behandelt. Weitere Informationen zu den Vorteilen der Verwendung der Wartungssteuerung, ihren Einschränkungen und anderen Verwaltungsoptionen finden Sie unter [Verwalten von Plattformupdates mit der Wartungssteuerung](maintenance-control.md).
+Mit der Wartungssteuerung können Sie entscheiden, wann Sie Plattformupdates der Hostinfrastruktur auf Ihre isolierten VMs und Ihre dedizierten Azure-Hosts anwenden. In diesem Thema werden die Azure PowerShell-Optionen für die Wartungssteuerung behandelt. Weitere Informationen zu den Vorteilen der Verwendung der Wartungssteuerung, ihren Einschränkungen und anderen Verwaltungsoptionen finden Sie unter [Verwalten von Plattformupdates mit der Wartungssteuerung](maintenance-control.md).
  
 ## <a name="enable-the-powershell-module"></a>Aktivieren des PowerShell-Moduls
 
@@ -67,15 +67,9 @@ Sie können verfügbare Wartungskonfigurationen abfragen, indem Sie [Get-AzMaint
 Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 ```
 
-### <a name="create-a-maintenance-configuration-with-scheduled-window-in-preview"></a>Erstellen einer Wartungskonfiguration mit einem geplanten Fenster (in der Vorschau)
+### <a name="create-a-maintenance-configuration-with-scheduled-window"></a>Erstellen einer Wartungskonfiguration mit einem geplanten Fenster
 
-
-> [!IMPORTANT]
-> Die Funktion „Geplantes Fenster“ ist zurzeit als öffentliche Vorschauversion verfügbar.
-> Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar.
-> Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Verwenden Sie New-AzMaintenanceConfiguration, um eine Wartungskonfiguration mit einem geplanten Fenster zu erstellen, in dem Azure die Updates auf Ihre Ressourcen anwendet. In diesem Beispiel wird eine Wartungskonfiguration mit dem Namen myConfig mit einem geplanten Fenster von 5 Stunden am vierten Montag jeden Monats erstellt. Nachdem Sie ein geplantes Fenster erstellt haben, müssen Sie die Updates nicht mehr manuell anwenden.
+Sie können auch ein geplantes Fenster deklarieren, in dem Azure die Updates auf Ihre Ressourcen anwendet. In diesem Beispiel wird eine Wartungskonfiguration mit dem Namen myConfig mit einem geplanten Fenster von 5 Stunden am vierten Montag jeden Monats erstellt. Nachdem Sie ein geplantes Fenster erstellt haben, müssen Sie die Updates nicht mehr manuell anwenden.
 
 ```azurepowershell-interactive
 $config = New-AzMaintenanceConfiguration `
@@ -91,8 +85,11 @@ $config = New-AzMaintenanceConfiguration `
 > [!IMPORTANT]
 > Die **Dauer** der Wartung muss *2 Stunden* oder länger sein. Die Wartung muss mindestens ein Mal in 35 Tagen **wiederholt** werden.
 
-Die **Wiederholung** der Wartung kann mit täglichen, wöchentlichen oder monatlichen Zeitplänen ausgedrückt werden. Beispiele für tägliche Zeitpläne sind recurEvery: Day, recurEvery: 3Days. Beispiele für wöchentliche Zeitpläne sind recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Beispiele für monatliche Zeitpläne sind recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday.
-
+Die **Wiederholung** der Wartung kann täglich, wöchentlich oder monatlich ausgedrückt werden. Beispiele:
+ - **täglich**: RecurEvery „Day“ **oder** „3Days“ 
+ - **wöchentlich**: RecurEvery „3Weeks“ **oder** „Week Saturday,Sunday“ 
+ - **monatlich**: RecurEvery „Month day23,day24“ **oder** „Month Last Sunday“ **oder** „Month Fourth Monday“  
+      
 
 ## <a name="assign-the-configuration"></a>Zuweisen der Konfiguration
 

@@ -8,16 +8,19 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 278fbdf7010fe7b14488bb021ab8a366393ad512
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4a2be6719fdaaa9dc859df21cc030478e474210
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087361"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428236"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Verwenden von MirrorMaker zum Replizieren von Apache Kafka-Themen mit Kafka in HDInsight
 
 Erfahren Sie, wie Sie die Spiegelungsfunktion von Apache Kafka verwenden, um Themen in einen sekundären Cluster zu replizieren. Die Spiegelung kann als fortlaufender Prozess ausgeführt oder zu bestimmten Zeitpunkten als Methode zum Migrieren von Daten aus einem Cluster in einen anderen verwendet werden.
+
+> [!NOTE]
+> Dieser Artikel enthält Verweise auf den Begriff *Whitelist* , einen Begriff, den Microsoft nicht mehr verwendet. Sobald der Begriff aus der Software entfernt wurde, wird er auch aus diesem Artikel entfernt.
 
 In diesem Beispiel wird das Spiegelung zum Replizieren von Themen zwischen zwei HDInsight-Clustern verwendet. Die beiden Cluster befinden sich in verschiedenen virtuellen Netzwerken in verschiedenen Rechenzentren.
 
@@ -28,7 +31,7 @@ In diesem Beispiel wird das Spiegelung zum Replizieren von Themen zwischen zwei 
 
 ## <a name="how-apache-kafka-mirroring-works"></a>Funktionsweise der Apache Kafka-Spiegelung
 
-Für die Spiegelung wird das Tool [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) (Teil von Apache Kafka) verwendet, um Datensätze aus Themen im primären Cluster zu nutzen und anschließend eine lokale Kopie im sekundären Cluster zu erstellen. MirrorMaker nutzt einen (oder mehrere) *Consumer* zum Lesen von Daten aus dem primären Cluster und einen *Producer*, der in den lokalen Cluster (sekundären Cluster) schreibt.
+Für die Spiegelung wird das Tool [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) (Teil von Apache Kafka) verwendet, um Datensätze aus Themen im primären Cluster zu nutzen und anschließend eine lokale Kopie im sekundären Cluster zu erstellen. MirrorMaker nutzt einen (oder mehrere) *Consumer* zum Lesen von Daten aus dem primären Cluster und einen *Producer* , der in den lokalen Cluster (sekundären Cluster) schreibt.
 
 Am sinnvollsten ist es, die Spiegelung für die Notfallwiederherstellung mit Kafka-Clustern in verschiedenen Azure-Regionen einzurichten. Zu diesem Zweck werden die virtuellen Netzwerke, in denen sich die Cluster befinden, zu einem Peeringnetzwerk zusammengeschlossen.
 
@@ -42,13 +45,13 @@ Der primäre und der sekundäre Cluster können sich in Bezug auf die Anzahl von
 
 Wenn Sie eine Spiegelung zwischen Kafka-Clustern in unterschiedlichen Netzwerken durchführen müssen, sollten Sie außerdem Folgendes beachten:
 
-* **Gateways**: Die Netzwerke müssen auf TCP/IP-Ebene kommunizieren können.
+* **Gateways** : Die Netzwerke müssen auf TCP/IP-Ebene kommunizieren können.
 
-* **Serveradresse**: Sie können die IP-Adressen oder die vollqualifizierten Domänennamen verwenden, um Ihre Clusterknoten zu erreichen.
+* **Serveradresse** : Sie können die IP-Adressen oder die vollqualifizierten Domänennamen verwenden, um Ihre Clusterknoten zu erreichen.
 
-    * **IP-Adressen**: Wenn Sie Ihre Kafka-Cluster für die Ankündigung der IP-Adresse konfigurieren, können Sie die Spiegelung mit den IP-Adressen der Brokerknoten und der Zookeeperknoten einrichten.
+    * **IP-Adressen** : Wenn Sie Ihre Kafka-Cluster für die Ankündigung der IP-Adresse konfigurieren, können Sie die Spiegelung mit den IP-Adressen der Brokerknoten und der Zookeeperknoten einrichten.
     
-    * **Domänennamen**: Wenn Sie Ihre Kafka-Cluster nicht für die Ankündigung der IP-Adresse konfigurieren, müssen die Cluster über ihre vollqualifizierten Domänennamen eine Verbindung miteinander herstellen können. Hierfür ist ein DNS-Server (Domain Name System) in jedem Netzwerk erforderlich, der dafür konfiguriert ist, Anforderungen an die anderen Netzwerke weiterzuleiten. Beim Erstellen eines virtuellen Azure-Netzwerks müssen Sie einen benutzerdefinierten DNS-Server und die IP-Adresse für den Server angeben, anstatt das automatisch bereitgestellte DNS des Netzwerks zu verwenden. Nach der Erstellung des virtuellen Netzwerks müssen Sie dann einen virtuellen Azure-Computer erstellen, für den diese IP-Adresse verwendet wird, und anschließend die DNS-Software darauf installieren und konfigurieren.
+    * **Domänennamen** : Wenn Sie Ihre Kafka-Cluster nicht für die Ankündigung der IP-Adresse konfigurieren, müssen die Cluster über ihre vollqualifizierten Domänennamen eine Verbindung miteinander herstellen können. Hierfür ist ein DNS-Server (Domain Name System) in jedem Netzwerk erforderlich, der dafür konfiguriert ist, Anforderungen an die anderen Netzwerke weiterzuleiten. Beim Erstellen eines virtuellen Azure-Netzwerks müssen Sie einen benutzerdefinierten DNS-Server und die IP-Adresse für den Server angeben, anstatt das automatisch bereitgestellte DNS des Netzwerks zu verwenden. Nach der Erstellung des virtuellen Netzwerks müssen Sie dann einen virtuellen Azure-Computer erstellen, für den diese IP-Adresse verwendet wird, und anschließend die DNS-Software darauf installieren und konfigurieren.
 
     > [!WARNING]  
     > Erstellen und konfigurieren Sie den benutzerdefinierten DNS-Server, bevor Sie HDInsight im virtuellen Netzwerk installieren. Es ist keine zusätzliche Konfiguration erforderlich, damit HDInsight den für das virtuelle Netzwerk konfigurierten DNS-Server verwenden kann.
@@ -63,9 +66,9 @@ In dieser Architektur befinden sich zwei Cluster in verschiedenen Ressourcengrup
 
 1. Erstellen Sie zwei neue Ressourcengruppen:
 
-    |Ressourcengruppe | Position |
+    |Ressourcengruppe | Standort |
     |---|---|
-    | kafka-primary-rg | USA (Mitte) |
+    | kafka-primary-rg | USA, Mitte |
     | kafka-secondary-rg | USA Nord Mitte |
 
 1. Erstellen Sie in **kafka-primary-rg** ein neues virtuelles Netzwerk namens **kafka-primary-vnet**. Übernehmen Sie die Standardeinstellungen.
@@ -122,7 +125,7 @@ Konfigurieren Sie die Ankündigung der IP-Adresse, um einem Client das Herstelle
 
     ![Apache Ambari – Ansicht mit IP-Adressknoten](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
 
-1. Wiederholen Sie die vorangegangenen drei Schritte für den zweiten Cluster **kafka-secondary-cluster**: Konfigurieren der Ankündigung von IP-Adressen, Einrichten von Listenern und Notieren der IP-Adressen von Broker und Zookeeper.
+1. Wiederholen Sie die vorangegangenen drei Schritte für den zweiten Cluster **kafka-secondary-cluster** : Konfigurieren der Ankündigung von IP-Adressen, Einrichten von Listenern und Notieren der IP-Adressen von Broker und Zookeeper.
 
 ## <a name="create-topics"></a>Erstellen von Themen
 
@@ -198,7 +201,7 @@ Konfigurieren Sie die Ankündigung der IP-Adresse, um einem Client das Herstelle
 
     In dieser Datei werden die Consumerinformationen beschrieben, die beim Lesen aus dem primären Kafka-Cluster verwendet werden sollten. Weitere Informationen zur Consumerkonfiguration finden Sie unter [Consumer Configs](https://kafka.apache.org/documentation#consumerconfigs) (Consumerkonfigurationen) bei „kafka.apache.org“.
 
-    Drücken Sie zum Speichern der Datei **STRG+X**, **Y** und dann die **EINGABETASTE**.
+    Drücken Sie zum Speichern der Datei **STRG+X** , **Y** und dann die **EINGABETASTE**.
 
 1. Bevor Sie den Producer konfigurieren, der mit dem sekundären Cluster kommuniziert, richten Sie eine Variable für die IP-Adressen der Broker des **sekundären** Clusters ein. Verwenden Sie die folgenden Befehle, um diese Variable zu erstellen:
 
@@ -236,7 +239,7 @@ Konfigurieren Sie die Ankündigung der IP-Adresse, um einem Client das Herstelle
 
 1. Die Standardkonfiguration für Kafka auf HDInsight erlaubt keine automatische Erstellung von Themen. Bevor Sie mit der Spiegelung beginnen, müssen Sie sich für eine der folgenden Optionen entscheiden:
 
-    * **Erstellen der Themen im sekundären Cluster**: Bei dieser Option haben Sie auch die Möglichkeit, die Anzahl von Partitionen und den Replikationsfaktor festzulegen.
+    * **Erstellen der Themen im sekundären Cluster** : Bei dieser Option haben Sie auch die Möglichkeit, die Anzahl von Partitionen und den Replikationsfaktor festzulegen.
 
         Mit folgendem Befehl können Sie Themen vorab erstellen:
 
@@ -246,7 +249,7 @@ Konfigurieren Sie die Ankündigung der IP-Adresse, um einem Client das Herstelle
 
         Ersetzen Sie `testtopic` durch den Namen des zu erstellenden Themas.
 
-    * **Konfigurieren des Clusters für die automatische Themaerstellung**: Bei dieser Option kann MirrorMaker zum automatischen Erstellen von Themen verwendet werden. Die Themen werden jedoch möglicherweise mit einer unterschiedlichen Anzahl von Partitionen bzw. einem anderen Replikationsfaktor als im primären Thema erstellt.
+    * **Konfigurieren des Clusters für die automatische Themaerstellung** : Bei dieser Option kann MirrorMaker zum automatischen Erstellen von Themen verwendet werden. Die Themen werden jedoch möglicherweise mit einer unterschiedlichen Anzahl von Partitionen bzw. einem anderen Replikationsfaktor als im primären Thema erstellt.
 
         Um den sekundären Cluster für das automatische Erstellen von Themen zu konfigurieren, führen Sie die folgenden Schritte aus:
 
@@ -254,7 +257,7 @@ Konfigurieren Sie die Ankündigung der IP-Adresse, um einem Client das Herstelle
         1. Klicken Sie auf **Services** > **Kafka** (Dienste > Kafka). Klicken Sie auf die Registerkarte **Configs** .
         1. Geben Sie in das Feld __Filter__ den Wert `auto.create` ein. Dies filtert die Liste der Eigenschaften und zeigt die Einstellung `auto.create.topics.enable`.
         1. Ändern Sie den Wert von `auto.create.topics.enable` in „true“, und wählen Sie dann __Speichern__. Fügen Sie einen Hinweis hinzu, und wählen Sie dann erneut __Speichern__.
-        1. Wählen Sie den Dienst __Kafka__, dann die Option __Neu starten__ und abschließend die Option __Neustart aller betroffenen__. Klicken Sie bei entsprechender Aufforderung auf __Neustart aller Dienste bestätigen__.
+        1. Wählen Sie den Dienst __Kafka__ , dann die Option __Neu starten__ und abschließend die Option __Neustart aller betroffenen__. Klicken Sie bei entsprechender Aufforderung auf __Neustart aller Dienste bestätigen__.
 
         ![Kafka – Aktivieren der automatischen Erstellung eines Themas](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
 
@@ -268,7 +271,7 @@ Konfigurieren Sie die Ankündigung der IP-Adresse, um einem Client das Herstelle
 
     Die in diesem Beispiel verwendeten Parameter sind:
 
-    |Parameter |BESCHREIBUNG |
+    |Parameter |Beschreibung |
     |---|---|
     |--consumer.config|Gibt die Datei an, in der die Consumereigenschaften enthalten sind. Diese Eigenschaften werden verwendet, um einen Consumer zu erstellen, mit dem aus dem *primären* Kafka-Cluster gelesen wird.|
     |--producer.config|Gibt die Datei an, in der die Producereigenschaften enthalten sind. Diese Eigenschaften werden verwendet, um einen Producer zu erstellen, mit dem in den *sekundären* Kafka-Cluster geschrieben wird.|
@@ -284,9 +287,9 @@ Konfigurieren Sie die Ankündigung der IP-Adresse, um einem Client das Herstelle
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
     ```
 
-     Sobald der Cursor an einer leeren Zeile steht, geben Sie einige Textnachrichten ein. Diese Nachrichten werden an das Thema im **primären** Cluster gesendet. Drücken Sie anschließend **STRG + C**, um den Producer-Prozess zu beenden.
+     Sobald der Cursor an einer leeren Zeile steht, geben Sie einige Textnachrichten ein. Diese Nachrichten werden an das Thema im **primären** Cluster gesendet. Drücken Sie anschließend **STRG + C** , um den Producer-Prozess zu beenden.
 
-3. Drücken Sie über die SSH-Verbindung mit dem **sekundären** Cluster die Tastenkombination **STRG + C**, um den MirrorMaker-Prozess zu beenden. Es kann einige Sekunden in Anspruch nehmen, um den Prozess zu beenden. Um sicherzustellen, dass die Nachrichten im sekundären Cluster repliziert wurden, verwenden Sie den folgenden Befehl:
+3. Drücken Sie über die SSH-Verbindung mit dem **sekundären** Cluster die Tastenkombination **STRG + C** , um den MirrorMaker-Prozess zu beenden. Es kann einige Sekunden in Anspruch nehmen, um den Prozess zu beenden. Um sicherzustellen, dass die Nachrichten im sekundären Cluster repliziert wurden, verwenden Sie den folgenden Befehl:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $SECONDARY_ZKHOSTS --topic testtopic --from-beginning

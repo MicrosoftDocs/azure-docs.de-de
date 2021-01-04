@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: mbullwin
-ms.openlocfilehash: de8d5d8e9fc5ce1df05cfd4c67ef146760e2c7e9
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: fb6eaf44967732d3a41ea92b0896540a40f694e3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043169"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184721"
 ---
 # <a name="how-to-manage-your-data-feeds"></a>Gewusst wie: Verwalten Ihrer Datenfeeds
 
@@ -106,7 +106,7 @@ Die Optionen sind:
 
 Aktionslinkvorlagen werden verwendet, um ausführbare HTTP-URLs vorab zu definieren, die aus den Platzhaltern `%datafeed`, `%metric`, `%timestamp`, `%detect_config`und `%tagset` bestehen. Sie können die Vorlage verwenden, um bei einer Anomalie oder einem Incident eine Weiterleitung zu einer bestimmten URL durchzuführen, um einen Drilldown auszuführen.
 
-:::image type="content" source="../media/action-link-template.png" alt-text="Abgleich des Datenfeeds" lightbox="../media/action-link-template.png":::
+:::image type="content" source="../media/action-link-template.png" alt-text="Aktionslinkvorlage" lightbox="../media/action-link-template.png":::
 
 Nachdem Sie den Aktionslink ausgefüllt haben, klicken Sie auf **Go to action link** (Zu Aktionslink wechseln) in der Aktionsoption des Incidentlinks und im Kontextmenü der Incidentstruktur. Ersetzen Sie die Platzhalter in der Aktionslinkvorlage durch die entsprechenden Werte der Anomalie oder des Incidents.
 

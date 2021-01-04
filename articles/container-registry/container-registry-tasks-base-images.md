@@ -3,12 +3,12 @@ title: Basisimageaktualisierungen – Aufgaben
 description: Erfahren Sie mehr über Basisimages für Anwendungscontainerimages und wie eine Basisimageaktualisierung eine Azure Container Registry-Aufgabe auslösen kann.
 ms.topic: article
 ms.date: 01/22/2019
-ms.openlocfilehash: 35933c4cdbbf2762f7a54bd945f8a8ffa55b9f21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74e5fb81e3ef6f75b5ee2872ee44b99aae096fd8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85918505"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009822"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>Informationen zu Basisimageaktualisierungen für ACR Tasks
 
@@ -22,9 +22,13 @@ Ein Basisimage wird häufig von der für das Image zuständigen Person aktualisi
 
 In einigen Fällen, z. B. bei einem privaten Entwicklungsteam, kann ein Basisimage mehr als BS oder Framework angeben. Beispielsweise könnte ein Basisimage ein gemeinsam genutztes Dienstkomponentenimage sein, das nachverfolgt werden muss. Mitglieder eines Teams müssen dieses Basisimage möglicherweise zu Testzwecken nachverfolgen oder das Image bei der Entwicklung von Anwendungsimages regelmäßig aktualisieren.
 
+## <a name="maintain-copies-of-base-images"></a>Erhalten von Kopien von Basisimages
+
+Für alle Inhalte in Ihren Registrierungen, die von Basisinhalten abhängen, die in einer öffentlichen Registrierung wie Docker Hub verwaltet werden, empfiehlt es sich, den Inhalt in eine Azure Container Registry oder eine andere private Registrierung zu kopieren. Stellen Sie dann sicher, dass Sie Ihre Anwendungsimages erstellen, indem Sie auf die privaten Basisimages verweisen. Azure Container Registry bietet eine Funktion für den [Imageimport](container-registry-import-images.md), um Inhalte aus öffentlichen Registrierungen oder anderen Azure Container Registrys problemlos zu kopieren. Im nächsten Abschnitt wird beschrieben, wie Sie mithilfe von ACR Tasks Basisimageaktualisierungen beim Erstellen von Anwendungsupdates nachverfolgen. Sie können Basisimageupdates in Ihren eigenen Azure Container Registrys und optional in öffentlichen Upstreamregistrierungen nachverfolgen.
+
 ## <a name="track-base-image-updates"></a>Nachverfolgen von Basisimageaktualisierungen
 
-ACR Tasks ermöglicht die automatische Erstellung von Images nach der Aktualisierung eines Containerbasisimages.
+ACR Tasks ermöglicht die automatische Erstellung von Images nach der Aktualisierung eines Containerbasisimages. Sie können diese Möglichkeit zum Verwalten und Aktualisieren von Kopien öffentlicher Basisimages in ihren Azure Container Registrys verwenden und dann zum erneuten Erstellen von Anwendungsimages, die von Basisimages abhängen.
 
 ACR Tasks ermittelt dynamisch Basisimageabhängigkeiten, wenn ein Containerimage erstellt wird. So ist zu erkennen, wenn das Basisimage eines Anwendungsimages aktualisiert wird. Mit einer einzelnen vorkonfigurierten Buildaufgabe kann ACR Tasks automatisch alle Anwendungsimages neu erstellen, die auf das Basisimage verweisen. Die automatische Erkennung und Neuerstellung von ACR Tasks spart Zeit, die ansonsten für die manuelle Nachverfolgung und Aktualisierung der einzelnen Anwendungsimages aufgewendet werden müsste, die auf Ihr aktualisiertes Basisimage verweisen.
 

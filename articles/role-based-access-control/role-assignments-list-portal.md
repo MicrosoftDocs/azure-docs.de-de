@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/16/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 280e5012f7c41a906b5b2e266840ea3c0cc315ba
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a5b019068368f1c0c076f5a1ed157c288bb7169c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151696"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479917"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Auflisten von Azure-Rollenzuweisungen über das Azure-Portal
 
@@ -126,7 +126,7 @@ Sie können Rollenzuweisungen für vom System zugewiesene und vom Benutzer zugew
 
     Es wird eine Liste der Rollen angezeigt, die der ausgewählten benutzerseitig zugewiesenen verwalteten Identität in verschiedenen Bereichen (etwa Verwaltungsgruppe, Abonnement, Ressourcengruppe oder Ressource) zugewiesen sind. Diese Liste enthält alle Rollenzuweisungen, für die Sie über Leseberechtigungen verfügen.
 
-    ![Rollenzuweisungen für eine systemseitig zugewiesene verwaltete Identität](./media/shared/role-assignments-user-assigned.png)
+    ![Screenshot, der Rollenzuweisungen für eine benutzerseitig zugewiesene verwaltete Identität zeigt.](./media/shared/role-assignments-user-assigned.png)
 
 1. Um das Abonnement zu ändern, klicken Sie auf die Liste **Abonnement** .
 
@@ -178,7 +178,7 @@ Führen Sie die folgenden Schritte aus, um Rollenzuweisungen in einem Bereich he
 
     ![Herunterladen von Rollenzuweisungen im CSV-Format](./media/role-assignments-list-portal/download-role-assignments-csv.png)
 
-    ![Herunterladen von Rollenzuweisungen im CSV-Format](./media/role-assignments-list-portal/download-role-assignments-json.png)
+    ![Screenshot der heruntergeladenen Rollenzuweisungen im JSON-Format.](./media/role-assignments-list-portal/download-role-assignments-json.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

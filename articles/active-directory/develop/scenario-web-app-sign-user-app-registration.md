@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b16ee98b44e52482423229a0940c8927a94d4c83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29f5d2960a678204387b2bd1dfd6d4acdc4f9c3d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88118670"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442513"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Web-App für Benutzeranmeldungen: App-Registrierung
 
@@ -51,13 +51,13 @@ Sie können diese Links für den Einstieg in die Erstellung Ihrer Webanwendung v
    1. Wählen Sie die unterstützten Kontotypen für Ihre Anwendung aus. (Weitere Informationen finden Sie unter [Unterstützte Kontotypen](./v2-supported-account-types.md).)
    1. Geben Sie im Abschnitt **Name** einen aussagekräftigen Anwendungsnamen ein, der den Benutzern der App angezeigt wird. Geben Sie beispielsweise **AspNetCore-WebApp** ein.
    1. Fügen Sie in **Umleitungs-URI** den Anwendungstyp und das URI-Ziel hinzu, das nach einer erfolgreichen Authentifizierung zurückgegebene Tokenantworten akzeptiert. Geben Sie z.B. **https://localhost:44321** ein. Wählen Sie dann **Registrieren**.
-   ![Registrierung](media/scenario-webapp/scenario-webapp-app-registration-1.png)
+   ![Screenshot der Seite „Anwendung registrieren“, auf der Sie „Registrieren“ auswählen können.](media/scenario-webapp/scenario-webapp-app-registration-1.png)
 1. Wählen Sie das Menü **Authentifizierung** aus, und fügen Sie dann die folgenden Informationen hinzu:
    1. Fügen Sie in **Antwort-URL** die Zeichenfolge **https://localhost:44321/signin-oidc** vom Typ **Web** hinzu.
    1. Legen Sie im Abschnitt **Erweiterte Einstellungen** die Option **Abmelde-URL** auf **https://localhost:44321/signout-oidc** fest.
    1. Wählen Sie unter **Implizite Genehmigung** die Option **ID-Token** aus.
    1. Klicken Sie auf **Speichern**.
-  ![Registrierung](media/scenario-webapp/scenario-webapp-app-registration-2.png)
+  ![Screenshot der Authentifizierungsoptionen, in denen Sie die beschriebenen Änderungen vornehmen können.](media/scenario-webapp/scenario-webapp-app-registration-2.png)
  
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -101,7 +101,7 @@ Sie können diese Links für den Einstieg in die Erstellung Ihrer Webanwendung v
    1. Ändern Sie **Unterstützte Kontotypen** in **Konten in allen Organisationsverzeichnissen und persönliche Microsoft-Konten (z. B. Skype, Xbox, Outlook.com)** .
    1. Wählen Sie im Abschnitt **Umleitungs-URI (optional)** im Kombinationsfeld die Option **Web** aus, und geben Sie den folgenden Umleitungs-URI ein: **http://localhost:5000/getAToken** .
 1. Wählen Sie **Registrieren** aus, um die Anwendung zu erstellen.
-1. Suchen Sie auf der Seite **Übersicht** der App den Wert **Anwendungsclient-ID**, und notieren Sie ihn zur späteren Verwendung. Sie benötigen diesen Wert, um die Visual Studio-Konfigurationsdatei für dieses Projekt zu konfigurieren.
+1. Suchen Sie auf der Seite **Übersicht** der App den Wert **Anwendungsclient-ID** , und notieren Sie ihn zur späteren Verwendung. Sie benötigen diesen Wert, um die Visual Studio-Konfigurationsdatei für dieses Projekt zu konfigurieren.
 1. Wählen Sie im linken Menü die Option **Zertifikate und Geheimnisse** aus.
 1. Wählen Sie im Abschnitt **Geheime Clientschlüssel** die Option **Neuer geheimer Clientschlüssel** aus, und führen Sie dann folgende Schritte aus:
 
@@ -123,5 +123,4 @@ Sie können diese Links für den Einstieg in die Erstellung Ihrer Webanwendung v
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-> [!div class="nextstepaction"]
-> [Codekonfiguration der App](scenario-web-app-sign-user-app-configuration.md)
+Fahren Sie mit dem nächsten Artikel in diesem Szenario fort: [Codekonfiguration der App](scenario-web-app-sign-user-app-configuration.md).

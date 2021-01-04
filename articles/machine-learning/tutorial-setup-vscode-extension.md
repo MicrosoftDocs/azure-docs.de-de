@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Einrichten der Visual Studio Code-Erweiterung (Vorschauversion)'
 titleSuffix: Azure Machine Learning
-description: Es wird beschrieben, wie Sie die Azure Machine Learning-Erweiterung für Visual Studio Code einrichten.
+description: In diesem Artikel wird beschrieben, wie Sie die Azure Machine Learning-Erweiterung für Visual Studio Code verwenden, um Trainingsskripts zu installieren und auszuführen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 07/09/2020
-ms.openlocfilehash: 48fb2ce3672634af202500ccb256e7730933fff8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/16/2020
+ms.openlocfilehash: f485c12bf82dde798a77175a3fab4d76488150c3
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86199760"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701200"
 ---
 # <a name="set-up-azure-machine-learning-visual-studio-code-extension-preview"></a>Einrichten der Azure Machine Learning-Erweiterung für Visual Studio Code (Vorschauversion)
 

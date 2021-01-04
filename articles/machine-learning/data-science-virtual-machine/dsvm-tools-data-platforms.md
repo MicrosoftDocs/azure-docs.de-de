@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 83c0fd796b7527c6f5e396a813def984b88ee9ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f432b417140440584bf4dfd01ed45814a746953
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440353"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320919"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Unterstützte Datenplattformen für Data Science Virtual Machine
 
@@ -103,5 +103,4 @@ Bibliotheken für den Zugriff auf Daten über Azure Blob Storage oder Azure Data
 
 Damit die Spark-Instanz auf der DSVM auf Daten zugreifen kann, die in Blob Storage oder Azure Data Lake Storage gespeichert sind, müssen Sie die Datei `core-site.xml` basierend auf der Vorlage in „$SPARK_HOME/conf/core-site.xml.template“ erstellen und konfigurieren. Außerdem müssen Sie über die entsprechenden Anmeldeinformationen für den Zugriff auf Blob Storage und Azure Data Lake Storage verfügen. (Beachten Sie, dass die Vorlagendateien Platzhalter für Blob Storage- und Azure Data Lake Storage-Konfigurationen verwenden.)
 
-Ausführlichere Informationen zum Erstellen von Azure Data Lake Storage-Dienstanmeldeinformationen finden Sie unter [Authentifizierung mit Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory). Nach Eingabe der Anmeldeinformationen für Blob Storage oder Azure Data Lake Storage in die Datei „core-site.xml“ können Sie über das URI-Präfix „wasb://“ oder „adl://“ auf die in diesen Quellen gespeicherten Daten verweisen.
-
+Ausführlichere Informationen zum Erstellen von Azure Data Lake Storage-Dienstanmeldeinformationen finden Sie unter [Authentifizierung mit Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md). Nach Eingabe der Anmeldeinformationen für Blob Storage oder Azure Data Lake Storage in die Datei „core-site.xml“ können Sie über das URI-Präfix „wasb://“ oder „adl://“ auf die in diesen Quellen gespeicherten Daten verweisen.

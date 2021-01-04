@@ -4,13 +4,13 @@ ms.service: media-services
 ms.topic: include
 ms.date: 08/17/2020
 ms.author: inhenkel
-ms.custom: CLI
-ms.openlocfilehash: aa76f7b85302651f6874747610c3355f0572a7ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: CLI, devx-track-azurecli
+ms.openlocfilehash: 94df457cc93a059de3f9bb294bd1c568b095781c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88556153"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94884710"
 ---
 <!-- List and set subscriptions -->
 

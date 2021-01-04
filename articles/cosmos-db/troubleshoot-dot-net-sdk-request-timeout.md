@@ -3,19 +3,22 @@ title: Troubleshooting bei HTTP-408- oder Anforderungstimeoutproblemen in Azure 
 description: Hier erfahren Sie, wie Anforderungstimeoutausnahmen im .NET SDK diagnostiziert und behoben werden.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 08/06/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 211121e21502e9cd4929169053a8ad58a9d7b21b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c8d448cf335f328b5ae55579fd30127ef0e37e9d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476925"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340497"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout-exceptions"></a>Diagnose und Troubleshooting bei .NET SDK-Anforderungstimeoutausnahmen in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 Der Fehler „HTTP-408“ tritt auf, wenn das SDK die Anforderung nicht abschließen konnte, bevor das Timeoutlimit überschritten wurde.
 
 ## <a name="customize-the-timeout-on-the-azure-cosmos-db-net-sdk"></a>Anpassen des Timeouts beim Azure Cosmos DB .NET SDK

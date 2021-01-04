@@ -4,16 +4,16 @@ description: Erfahren Sie, wie Sie eine NFS (Network File System)-Freigabe einbi
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 530ae82720e6b4eb6a3e4d1021c0b37b9f4dbf5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a993d9c1de35132198de5e3becc4f16d6a2a437
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707440"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621296"
 ---
 # <a name="how-to-mount-an-nfs-file-share"></a>Einbinden einer NFS-Dateifreigabe
 
@@ -55,9 +55,13 @@ ms.locfileid: "90707440"
 1. Geben Sie den zu verwendenden Einbindungspfad ein, und kopieren Sie dann das Skript.
 1. Stellen Sie eine Verbindung mit dem Client her, und verwenden Sie das bereitgestellte Einbindungsskript.
 
-    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="Screenshot mit dem Konfigurationsbildschirm des Speicherkontos und der deaktivierten Option „Sichere Übertragung erforderlich“":::
+    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="Screenshot mit dem Blatt zum Verbinden einer Dateifreigabe":::
 
 Sie haben nun Ihre NFS-Dateifreigabe eingebunden.
+
+### <a name="validate-connectivity"></a>Überprüfen der Konnektivität
+
+Wenn bei der Installation ein Fehler aufgetreten ist, wurde Ihr privater Endpunkt möglicherweise nicht ordnungsgemäß eingerichtet, oder es kann darauf nicht zugegriffen werden. Ausführliche Informationen zum Bestätigen der Konnektivität finden Sie im Abschnitt [Überprüfen der Konnektivität](storage-files-networking-endpoints.md#verify-connectivity) des Artikels „Networking Endpoints“ (Endpunkte im Netzwerk).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

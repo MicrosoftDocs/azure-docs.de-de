@@ -6,16 +6,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: fffb83fe680572c2448323a61b767a401c9a4834
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7393c36099795bbc989ae4b690100284d53f08e5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323705"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678394"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Auswirkungsanalyse mit Application Insights
 
-Impact analysiert, wie Ladezeiten und andere Eigenschaften Konvertierungsraten für verschiedene Teile Ihrer App beeinflussen. Genauer gesagt, wird ermittelt, wie **eine beliebige Dimension** einer **Seitenansicht**, eines **benutzerdefinierten Ereignisses** oder einer **Anforderung** sich auf die Verwendung anderer **Seitenansichten** oder **benutzerdefinierter Ereignisse** auswirkt. 
+Impact analysiert, wie Ladezeiten und andere Eigenschaften Konvertierungsraten für verschiedene Teile Ihrer App beeinflussen. Genauer gesagt, wird ermittelt, wie **eine beliebige Dimension** einer **Seitenansicht** , eines **benutzerdefinierten Ereignisses** oder einer **Anforderung** sich auf die Verwendung anderer **Seitenansichten** oder **benutzerdefinierter Ereignisse** auswirkt. 
 
 ![Impact-Tool](./media/usage-impact/0001-impact.png)
 
@@ -36,10 +36,10 @@ Die Leistungsanalyse ist jedoch nur ein Teilbereich der Funktionen von Impact. D
 
 Beginnen Sie, Fragen mit dem Impact-Tool zu beantworten, indem Sie eine erste Seitenansicht, ein benutzerdefiniertes Ereignis oder eine Anforderung auswählen.
 
-![Impact-Tool](./media/usage-impact/0002-dropdown.png)
+![Screenshot der Auswahloptionen für eine erste Seitenansicht, ein benutzerdefiniertes Ereignis oder eine Anforderung](./media/usage-impact/0002-dropdown.png)
 
 1. Wählen Sie eine Seitenansicht aus der Dropdownliste **Für die Seitenansicht**.
-2. Behalten Sie für die Dropdownliste **Analysieren der Auswirkungen von** die Standardauswahl **Dauer** bei (in diesem Kontext ist **Dauer** ein Alias für **Seitenladezeit**).
+2. Behalten Sie für die Dropdownliste **Analysieren der Auswirkungen von** die Standardauswahl **Dauer** bei (in diesem Kontext ist **Dauer** ein Alias für **Seitenladezeit** ).
 3. Wählen Sie für die Dropdownliste **auf die Verwendung von** ein benutzerdefiniertes Ereignis aus. Dieses Ereignis sollte einem Element der Benutzeroberfläche auf der Seitenansicht entsprechen, die Sie in Schritt 1 ausgewählt haben.
 
 ![Screenshot der Ergebnisse](./media/usage-impact/0003-results.png)
@@ -56,7 +56,7 @@ Impact unterstützt sowohl standardmäßige als auch benutzerdefinierte Eigensch
 2. Wählen Sie in der Dropdownliste **Analysieren der Auswirkungen von** „Land oder Region“.
 3. Wählen Sie für die Dropdownliste **auf die Verwendung von** ein benutzerdefiniertes Ereignis aus, das einem Element der Benutzeroberfläche in der Seitenansicht entspricht, die Sie in Schritt 1 ausgewählt haben.
 
-In diesem Fall passen die Ergebnisse nicht mehr wie im ersten Beispiel in ein Modell mit fortlaufender X-Achse. Stattdessen wird eine Visualisierung dargestellt, die einem segmentierten Trichter ähnelt. Sortieren Sie nach **Verwendung**, um die Variation der Konvertierung zu Ihrem benutzerdefinierten Ereignis auf Länder-/Regionsbasis anzuzeigen.
+In diesem Fall passen die Ergebnisse nicht mehr wie im ersten Beispiel in ein Modell mit fortlaufender X-Achse. Stattdessen wird eine Visualisierung dargestellt, die einem segmentierten Trichter ähnelt. Sortieren Sie nach **Verwendung** , um die Variation der Konvertierung zu Ihrem benutzerdefinierten Ereignis auf Länder-/Regionsbasis anzuzeigen.
 
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Wie berechnet das Impact-Tool diese Konvertierungsraten?
@@ -65,18 +65,18 @@ Im Hintergrund nutzt das Impact-Tool den [Pearson-Korrelationskoeffizienten](htt
 
 Die grundlegende Aufschlüsselung der Funktionsweise der Auswirkungsanalyse lautet wie folgt:
 
-_A_ = Hauptseitenansicht/benutzerdefiniertes Ereignis/Anforderung Ihrer Wahl in der ersten Dropdownliste. (**Für die Seitenansicht**).
+_A_ = Hauptseitenansicht/benutzerdefiniertes Ereignis/Anforderung Ihrer Wahl in der ersten Dropdownliste. ( **Für die Seitenansicht** ).
 
-_B_ = sekundäre Seitenansicht/sekundäres benutzerdefiniertes Ereignis Ihrer Wahl (**auf die Verwendung von**).
+_B_ = sekundäre Seitenansicht/sekundäres benutzerdefiniertes Ereignis Ihrer Wahl ( **auf die Verwendung von** ).
 
 Impact untersucht ein Beispiel für alle Sitzungen von Benutzern in dem ausgewählten Zeitraum. Für jede Sitzung wird nach jedem Auftreten von _A_ gesucht.
 
 Sitzungen werden dann aufgrund einer von zwei Bedingungen in zwei unterschiedliche Arten von _untergeordneten Sitzungen_ unterteilt:
 
-- Eine konvertierte untergeordnete Sitzung besteht aus einer Sitzung, die mit einem _B_-Ereignis endet, und umfasst alle _A_-Ereignisse, die vor _B_ auftreten.
-- Eine nicht konvertierte untergeordnete Sitzung liegt vor, wenn alle _A_s ohne ein abschließendes _B_ auftreten.
+- Eine konvertierte untergeordnete Sitzung besteht aus einer Sitzung, die mit einem _B_ -Ereignis endet, und umfasst alle _A_ -Ereignisse, die vor _B_ auftreten.
+- Eine nicht konvertierte untergeordnete Sitzung liegt vor, wenn alle _A_ s ohne ein abschließendes _B_ auftreten.
 
-Wie die Auswirkung letztlich berechnet wird, hängt davon ab, ob wir nach Metrik oder Dimension analysieren. Für Metriken wird für alle _A_s in einer untergeordneten Sitzung der Mittelwert gebildet. Für Dimensionen hingegen trägt der Wert von jedem einzelnen _A_ _1/N_ zu dem Wert bei, der _B_ zugewiesen wird, wobei _N_ die Anzahl der _A_s in der untergeordneten Sitzung ist.
+Wie die Auswirkung letztlich berechnet wird, hängt davon ab, ob wir nach Metrik oder Dimension analysieren. Für Metriken wird für alle _A_ s in einer untergeordneten Sitzung der Mittelwert gebildet. Für Dimensionen hingegen trägt der Wert von jedem einzelnen _A_ _1/N_ zu dem Wert bei, der _B_ zugewiesen wird, wobei _N_ die Anzahl der _A_ s in der untergeordneten Sitzung ist.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

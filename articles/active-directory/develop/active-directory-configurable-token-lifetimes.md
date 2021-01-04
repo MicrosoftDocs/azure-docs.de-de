@@ -9,23 +9,65 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 10/29/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperfq1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 1410af4d3c1fb9974818e5c4ebc469eee03a314c
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 4dab75a4e95a7561bc86176816cb402c10de781e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948622"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077420"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Konfigurierbare Tokengültigkeitsdauer in Microsoft Identity Platform (Vorschau)
 
-Sie können die Gültigkeitsdauer eines Tokens angeben, das von Microsoft Identity Platform ausgestellt wird. Die Tokengültigkeitsdauer können Sie für alle Apps Ihrer Organisation, für eine mehrinstanzenfähige Anwendung (Multiorganisationsanwendung) oder für einen bestimmten Dienstprinzipal in Ihrer Organisation festlegen. Allerdings unterstützen wir derzeit nicht das Konfigurieren der Tokenlebensdauer bei [Dienstprinzipalen für verwaltete Identitäten](../managed-identities-azure-resources/overview.md).
-
 > [!IMPORTANT]
-> Aufgrund des Kundenfeedbacks während der Vorschauphase haben wir in „Bedingter Azure AD-Zugriff“ [Funktionen zur Verwaltung von Authentifizierungssitzungen](../conditional-access/howto-conditional-access-session-lifetime.md) implementiert. Mithilfe dieses neuen Features können Sie die Lebensdauer von Aktualisierungstoken durch Festlegen der Anmeldehäufigkeit konfigurieren. Ab dem 30. Mai 2020 kann ein neuer Mandant die Richtlinie für die konfigurierbare Tokengültigkeitsdauer zum Konfigurieren von Sitzungs- und Aktualisierungstoken nicht mehr verwenden. Nach einigen Monaten ab diesem Datum wird die Unterstützung eingestellt, d. h., vorhandene Richtlinien für Sitzungs- und Aktualisierungstoken werden nicht mehr berücksichtigt. Die Gültigkeitsdauer von Zugriffstoken kann jedoch auch nach der Einstellung weiterhin konfiguriert werden.
+> Nach dem 30. Januar 2021 können Mandanten die Lebensdauer von Aktualisierungs- und Sitzungstoken nicht mehr konfigurieren, und die Konfiguration von Aktualisierungs- und Sitzungstoken in Richtlinien wird von Azure Active Directory nach diesem Datum nicht mehr berücksichtigt.
+>
+> Wenn Sie weiterhin definieren möchten, nach welcher Zeit ein Benutzer zur erneuten Anmeldung aufgefordert werden soll, können Sie die Anmeldehäufigkeit im bedingten Zugriff konfigurieren. Weitere Informationen zum bedingten Zugriff finden Sie auf der Seite [Azure Active Directory – Preise](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
+>
+> Bei Mandanten, die nach dem Einstellungsdatum keinen bedingten Zugriff verwenden möchten, wird von Azure AD die im nächsten Abschnitt beschriebene Standardkonfiguration verwendet.
+
+## <a name="configurable-token-lifetime-properties-after-the-retirement"></a>Konfigurierbare Eigenschaften der Tokenlebensdauer nach der Einstellung
+Die folgenden Eigenschaften und die entsprechenden Werte haben Auswirkungen auf die Konfiguration von Aktualisierungs- und Sitzungstoken. Nach der Einstellung der Konfiguration von Aktualisierungs- und Sitzungstoken berücksichtigt Azure AD nur noch den unten angegebenen Standardwert, und zwar unabhängig davon, ob in Richtlinien benutzerdefinierte Werte konfiguriert wurden. Die Lebensdauer von Zugriffstoken kann jedoch auch nach der Einstellung weiterhin konfiguriert werden. 
+
+|Eigenschaft   |Richtlinien-Eigenschaftszeichenfolge    |Betrifft |Standard |
+|----------|-----------|------------|------------|
+|Max. Zeit der Inaktivität für Aktualisierungstoken |MaxInactiveTime  |Aktualisierungstoken |90 Tage  |
+|Max. Alter Single-Factor-Aktualisierungstoken  |MaxAgeSingleFactor  |Aktualisierungstoken (für alle Benutzer)  |Bis zum Widerruf  |
+|Max. Alter Multi-Factor-Aktualisierungstoken  |MaxAgeMultiFactor  |Aktualisierungstoken (für alle Benutzer) |180 Tage  |
+|Max. Alter Single-Factor-Sitzungstoken  |MaxAgeSessionSingleFactor |Sitzungstoken (beständig und nicht beständig)  |Bis zum Widerruf |
+|Max. Alter Multi-Factor-Sitzungstoken  |MaxAgeSessionMultiFactor  |Sitzungstoken (beständig und nicht beständig)  |180 Tage |
+
+## <a name="identify-configuration-in-scope-of-retirement"></a>Identifizieren der von der Einstellung betroffenen Konfiguration
+
+Führen Sie die folgenden Schritte aus, um zu beginnen:
+
+1. Laden Sie die aktuelle [öffentliche Vorschauversion des Azure AD PowerShell-Moduls](https://www.powershellgallery.com/packages/AzureADPreview) herunter.
+1. Führen Sie den Befehl `Connect` aus, um sich an Ihrem Azure AD-Administratorkonto anzumelden. Führen Sie diesen Befehl bei jedem Start einer neuen Sitzung aus.
+
+    ```powershell
+    Connect-AzureAD -Confirm
+    ```
+
+1. Führen Sie das Cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) aus, um alle Richtlinien anzuzeigen, die in Ihrer Organisation erstellt wurden.  Alle Ergebnisse mit definierten Eigenschaftswerten, die sich von den oben aufgeführten Standardwerten unterscheiden, sind von der Einstellung betroffen.
+
+    ```powershell
+    Get-AzureADPolicy -All
+    ```
+
+1. Führen Sie das im Anschluss angegebene Cmdlet [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) aus, und ersetzen Sie dabei **1a37dad8-5da7-4cc8-87c7-efbc0326cf20** durch eine Ihrer Richtlinien-IDs, um zu sehen, welche Apps und Dienstprinzipale mit einer bestimmten Richtlinie verknüpft sind, die Sie identifiziert haben. Anschließend können Sie entscheiden, ob Sie die Anmeldehäufigkeit des bedingten Zugriffs konfigurieren oder die Azure AD-Standardwerte verwenden möchten.
+
+    ```powershell
+    Get-AzureADPolicyAppliedObject -id 1a37dad8-5da7-4cc8-87c7-efbc0326cf20
+    ```
+
+Wenn Ihr Mandant über Richtlinien mit benutzerdefinierten Werten für die Konfigurationen von Aktualisierungs- und Sitzungstoken verfügt, empfiehlt Microsoft, diese Richtlinien auf Werte festzulegen, die den oben beschriebenen Standardwerten entsprechen. Wenn keine Änderungen vorgenommen werden, nutzt Azure AD automatisch die Standardwerte.  
+
+## <a name="overview"></a>Übersicht
+
+Sie können die Gültigkeitsdauer eines Tokens angeben, das von Microsoft Identity Platform ausgestellt wird. Die Tokengültigkeitsdauer können Sie für alle Apps Ihrer Organisation, für eine mehrinstanzenfähige Anwendung (Multiorganisationsanwendung) oder für einen bestimmten Dienstprinzipal in Ihrer Organisation festlegen. Allerdings unterstützen wir derzeit nicht das Konfigurieren der Tokenlebensdauer bei [Dienstprinzipalen für verwaltete Identitäten](../managed-identities-azure-resources/overview.md).
 
 In Azure AD steht ein Richtlinienobjekt für eine Reihe von Regeln, die für einzelne Anwendungen oder alle Anwendungen in einer Organisation erzwungen werden. Jeder Richtlinientyp verfügt über eine eindeutige Struktur mit einem Satz von Eigenschaften, die auf Objekte angewendet werden, denen sie zugewiesen sind.
 
@@ -55,7 +97,7 @@ Die im Element `<SubjectConfirmationData>` angegebene Antragstellerbestätigung 
 
 ### <a name="refresh-tokens"></a>Aktualisierungstoken
 
-Wenn ein Client ein Zugriffstoken für den Zugriff auf eine geschützte Ressource abruft, erhält er auch ein Aktualisierungstoken. Das Aktualisierungstoken wird verwendet, um neue Zugriffs-/Aktualisierungstoken-Paare abzurufen, wenn das aktuelle Zugriffstoken abläuft. Ein Aktualisierungstoken ist an eine Kombination aus Benutzer und Client gebunden. Ein Aktualisierungstoken kann [jederzeit widerrufen werden](access-tokens.md#token-revocation), und die Gültigkeit des Tokens wird bei jeder Verwendung des Tokens geprüft.  Aktualisierungstoken werden nicht widerrufen, wenn sie zum Abrufen neuer Zugriffstoken verwendet werden. Dies ist eine bewährte Methode, um das alte Token beim Abrufen eines neuen Tokens sicher zu löschen. 
+Wenn ein Client ein Zugriffstoken für den Zugriff auf eine geschützte Ressource abruft, erhält er auch ein Aktualisierungstoken. Das Aktualisierungstoken wird verwendet, um neue Zugriffs-/Aktualisierungstoken-Paare abzurufen, wenn das aktuelle Zugriffstoken abläuft. Ein Aktualisierungstoken ist an eine Kombination aus Benutzer und Client gebunden. Ein Aktualisierungstoken kann [jederzeit widerrufen werden](access-tokens.md#token-revocation), und die Gültigkeit des Tokens wird bei jeder Verwendung des Tokens geprüft.  Aktualisierungstoken werden nicht widerrufen, wenn sie zum Abrufen neuer Zugriffstoken verwendet werden. Dies ist eine bewährte Methode, um das alte Token beim Abrufen eines neuen Tokens sicher zu löschen.
 
 Es ist wichtig, zwischen vertraulichen Clients und öffentlichen Clients zu unterscheiden, da dies eine Auswirkung darauf hat, wie lange Aktualisierungstoken verwendet werden können. Weitere Informationen zu den verschiedenen Clienttypen finden Sie unter [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 

@@ -1,19 +1,19 @@
 ---
 title: Supportoptionen
 description: Hier erhalten Sie Informationen dazu, wie Sie eine Anfrage an das Azure Spatial Anchors-Supportteam erstellen.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 371cb9ade54da42af1ed75c3e9857b6d1a7a0f4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f47f07fee70d2fc0ee445c6788a8ccb522b7774e
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74276984"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95494708"
 ---
 # <a name="azure-spatial-anchors-support-options"></a>Supportoptionen für Azure Spatial Anchors
 

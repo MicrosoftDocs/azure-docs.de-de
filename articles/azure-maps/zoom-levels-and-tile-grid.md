@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 618c8597f7f10ce669bb340b9f5ea4c96f5c1d3f
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 21c2329ec58e414ebfedaa4c49d5f690f47cac72
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825300"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913890"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Zoomfaktoren und Linienraster
 
@@ -28,41 +28,41 @@ Um die Leistung beim Abrufen und Anzeigen von Karten zu optimieren, wird die Kar
 
 Der Zoomfaktor 1 verwendet vier Kacheln zum Rendering der Welt: ein Quadrat aus 2 x 2 Kacheln.
 
-:::image type="content" source="./media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png" alt-text="Kachel mit Weltkarte":::
+:::image type="content" source="./media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png" alt-text="Kartenlayout mit 2 × 2 Kacheln":::
 
 Jedes zusätzliche Zoomfaktorquadrat unterteilt die Kacheln des vorherigen Zoomfaktors, wodurch ein Raster mit 2<sup>Zoom</sup> x 2<sup>Zoom</sup> entsteht. Zoomfaktor 22 ist ein Raster aus 2<sup>22</sup> x 2<sup>22</sup> oder 4.194.304 x 4.194.304 Kacheln (insgesamt 17.592.186.044.416 Kacheln).
 
 Die interaktiven Kartensteuerelemente in Azure Maps für Web und Android unterstützen 25 Zoomfaktoren, nummeriert von 0 bis 24. Obwohl Straßendaten bei den Zoomfaktoren nur dann verfügbar sind, wenn die jeweiligen Kacheln verfügbar sind.
 
-In der folgenden Tabelle finden Sie die vollständige Liste der Zoomfaktorwerte für eine Kachelgröße von 512 Pixeln im Quadrat:
+In der folgenden Tabelle finden Sie die vollständige Liste der Zoomfaktorwerte für eine Kachelgröße von 512 Pixeln im Quadrat am Breitengrad 0:
 
 |Zoomfaktor|Meter/Pixel|Seite Meter/Kachel|
 |--- |--- |--- |
-|0|156543|40075008|
-|1|78271,5|20037504|
-|2|39135,8|10018764,8|
-|3|19567,9|5009382,4|
-|4|9783,9|2504678,4|
-|5|4892|1252352|
-|6|2446|626176|
-|7|1223|313088|
-|8|611,5|156544|
-|9|305,7|78259,2|
-|10|152,9|39142,4|
-|11|76,4|19558,4|
-|12|38,2|9779,2|
-|13|19,1|4889,6|
-|14|9,6|2457,6|
-|15|4.8|1228,8|
-|16|2.4|614,4|
-|17|1.2|307,2|
-|18|0,6|152,8|
-|19|0,3|76,4|
-|20|0,15|38,2|
-|21|0,075|19,1|
-|22|0,0375|9,55|
-|23|0,01875|4,775|
-|24|0,009375|2,3875|
+| 0 | 156543 | 40075017 |
+| 1 | 78271,5 | 20037508 |
+| 2 | 39135,8 | 10018754 |
+| 3 | 19567,88 | 5009377,1 |
+| 4 | 9783,94 | 2504688,5 |
+| 5 | 4891,97 | 1252344,3 |
+| 6 | 2445,98 | 626172,1 |
+| 7 | 1222,99 | 313086,1 |
+| 8 | 611,5 | 156543 |
+| 9 | 305,75 | 78271,5 |
+| 10 | 152,87 | 39135,8 |
+| 11 | 76,44 | 19567,9 |
+| 12 | 38,219 | 9783,94 |
+| 13 | 19,109 | 4891,97 |
+| 14 | 9,555 | 2445,98 |
+| 15 | 4,777 | 1222,99 |
+| 16 | 2,3887 | 611,496 |
+| 17 | 1,1943 | 305,748 |
+| 18 | 0,5972 | 152,874 |
+| 19 | 0,14929 | 76,437 |
+| 20 | 0,14929 | 38,2185 |
+| 21 | 0,074646 | 19,10926 |
+| 22 | 0,037323 | 9,55463 |
+| 23 | 0,0186615 | 4,777315 |
+| 24 | 0,00933075 | 2,3886575 |
 
 ## <a name="pixel-coordinates"></a>Pixelkoordinaten
 
@@ -74,9 +74,9 @@ var mapWidth = tileSize * Math.pow(2, zoom);
 var mapHeight = mapWidth;
 ```
 
-Da die Werte für die Höhe und Breite der Karte für jeden Zoomfaktor unterschiedlich sind, gilt dies auch für die Pixelkoordinaten. Das Pixel in der oberen linken Ecke einer Karte weist immer die Pixelkoordinaten (0, 0) auf. Das Pixel in der unteren rechten Ecke einer Karte besitzt die Pixelkoordinaten *(width-1, height-1)* bzw. in Bezug auf die Gleichungen im vorherigen Abschnitt *(tileSize \* 2<sup>zoom</sup>–1, tileSize \* 2<sup>zoom</sup>–1)* . Ein Beispiel: Bei 512 quadratischen Kacheln mit Zoomfaktor 2 reichen die Pixelkoordinaten von (0, 0) bis (2047, 2047), wie hier zu sehen:
+Da die Werte für die Höhe und Breite der Karte für jeden Zoomfaktor unterschiedlich sind, gilt dies auch für die Pixelkoordinaten. Das Pixel in der oberen linken Ecke einer Karte weist immer die Pixelkoordinaten (0, 0) auf. Das Pixel in der unteren rechten Ecke einer Karte besitzt die Pixelkoordinaten *(width-1, height-1)* bzw. in Bezug auf die Gleichungen im vorherigen Abschnitt *(tileSize \* 2 <sup>zoom</sup>–1, tileSize \* 2 <sup>zoom</sup>–1)* . Ein Beispiel: Bei 512 quadratischen Kacheln mit Zoomfaktor 2 reichen die Pixelkoordinaten von (0, 0) bis (2047, 2047), wie hier zu sehen:
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="Kachel mit Weltkarte":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="Karte mit Pixeldimensionen":::
 
 Wenn Breiten- und Längengrad sowie die Detailstufe angegeben sind, wird die XY-Pixelkoordinaten wie folgt berechnet:
 
@@ -100,9 +100,9 @@ var numberOfTilesWide = Math.pow(2, zoom);
 var numberOfTilesHigh = numberOfTilesWide;
 ```
 
-Jede Kachel erhält XY-Koordinaten von (0, 0) in der oberen rechten Ecke bis *(2<sup>zoom</sup>–1, 2<sup>zoom</sup>–1)* in der rechten unteren Ecke. Bei Zoomfaktor 3 reichen die Kachelkoordinaten beispielsweise von (0, 0) bis(7, 7), wie hier zu sehen:
+Jede Kachel erhält XY-Koordinaten von (0, 0) in der oberen rechten Ecke bis *(2 <sup>zoom</sup>–1, 2 <sup>zoom</sup>–1)* in der rechten unteren Ecke. Bei Zoomfaktor 3 reichen die Kachelkoordinaten beispielsweise von (0, 0) bis(7, 7), wie hier zu sehen:
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="Kachel mit Weltkarte":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="Karte mit Kachelkoordinaten":::
 
 Wenn ein XY-Pixelkoordinatenpaar bekannt ist, können Sie ganz einfach die XY-Kachelkoordinaten der Kachel bestimmen, die dieses Pixel enthält:
 
@@ -116,13 +116,13 @@ Kacheln werden durch den Zoomfaktor angegeben. Die x- und y-Koordinaten entsprec
 
 Denken Sie bei der Ermittlung des zu verwendenden Zoomfaktors daran, dass jeder Standort eine feste Position auf der Kachel darstellt. Folglich ist die Anzahl der Kacheln, die für die Darstellung einer bestimmten Fläche des Gebiets erforderlich ist, von der jeweiligen Platzierung des Zoomrasters auf der Weltkarte abhängig. Wenn zwei Punkte z.B. 900 Meter auseinander liegen, sind *möglicherweise* nur drei Kacheln notwendig, um eine Route zwischen diesen im Zoomfaktor 17 anzuzeigen. Wenn sich der westliche Punkt allerdings rechts von der Kachel und der östliche Punkt links von der Kachel befindet, sind möglicherweise vier Kacheln erforderlich:
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/zoomdemo_scaled.png" alt-text="Kachel mit Weltkarte":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/zoomdemo_scaled.png" alt-text="Beispielraster für Zoom":::
 
 Sobald der Zoomfaktor ermittelt wurde, können die x- und y-Werte berechnet werden. Die obere linke Kachel in jedem Zoomraster entspricht x=0, y=0, während die Kachel unten rechts x=2<sup>Zoom -1</sup>, y=2<sup>Zoom-1</sup> entspricht.
 
 Hier wird das Zoomraster für Zoomfaktor 1 dargestellt:
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/api_x_y.png" alt-text="Kachel mit Weltkarte":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/api_x_y.png" alt-text="Zoomraster für Zoomfaktor 1":::
 
 ## <a name="quadkey-indices"></a>Quadkey-Indizes
 
@@ -143,7 +143,7 @@ quadkey = 100111 (base 2) = 213 (base 4) = "213"
 
 `Qquadkeys` weisen einige interessante Eigenschaften auf. Erstens: Die Länge eines `quadkey` (die Anzahl von Stellen) ist gleich dem Zoomfaktor der entsprechenden Kachel. Zweitens: Der `quadkey` jeder Kachel beginnt mit dem `quadkey` der übergeordneten Kachel (der Kachel im vorherigen Zoomfaktor). Wie im Beispiel unten gezeigt, ist Kachel 2 den Kacheln 20 bis 23 übergeordnet:
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png" alt-text="Kachel mit Weltkarte":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png" alt-text="Quadkey-Kachelpyramide":::
 
 Und schließlich stellen `quadkeys` einen eindimensionalen Indexschlüssel bereit, der üblicherweise die Nähe der Kacheln im XY-Raum aufrechterhält. Anders gesagt: Zwei Kacheln mit ähnlichen XY-Koordinaten weisen in der Regel relativ nahe beieinander liegende `quadkeys` auf. Dies ist wichtig für die Optimierung der Datenbankleistung, weil benachbarte Kacheln häufig in Gruppen angefordert werden. Daher ist es wünschenswert, diese Kacheln in denselben Datenträgerblöcken zu speichern, um die Anzahl von Lesevorgängen auf dem Datenträger zu minimieren.
 
@@ -933,20 +933,20 @@ module AzureMaps {
 
 > [!NOTE]
 > Die interaktiven Kartensteuerelemente in den Azure Maps SDKs besitzen Hilfsfunktionen zum Konvertieren zwischen räumlichen Positionen und Viewportpixeln. 
-> - [Web SDK: Kartenpixel und Positionsberechnungen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
+> - [Web SDK: Kartenpixel und Positionsberechnungen](/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 Greifen Sie über die Azure Maps-REST-Dienste direkt auf Kartenkacheln zu:
 
 > [!div class="nextstepaction"]
-> [Get map tiles](https://docs.microsoft.com/rest/api/maps/render/getmaptile) (Abrufen von Kartenkacheln)
+> [Get map tiles](/rest/api/maps/render/getmaptile) (Abrufen von Kartenkacheln)
 
 > [!div class="nextstepaction"]
-> [Get traffic flow tiles](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile) (Abrufen von Kacheln zum Verkehrsfluss)
+> [Get traffic flow tiles](/rest/api/maps/traffic/gettrafficflowtile) (Abrufen von Kacheln zum Verkehrsfluss)
 
 > [!div class="nextstepaction"]
-> [Get traffic incident tiles](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile) (Abrufen von Kacheln zu Verkehrsstörungen)
+> [Get traffic incident tiles](/rest/api/maps/traffic/gettrafficincidenttile) (Abrufen von Kacheln zu Verkehrsstörungen)
 
 Weitere Informationen zu räumlichen Konzepten:
 

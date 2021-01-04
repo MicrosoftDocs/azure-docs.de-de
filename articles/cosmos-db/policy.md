@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 493064bc22b1144df6878d71c99e50fd7c15ba1d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1390f5db6e0f0370788bef60d5a2cafee1e8a96d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482229"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080650"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Verwenden von Azure Policy zum Implementieren von Governance und Kontrollen für Azure Cosmos DB-Ressourcen
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 [Azure Policy](../governance/policy/overview.md) unterstützt das Erzwingen von Governancestandards für eine Organisation, mit denen die Ressourcencompliance bewertet und eine automatische Korrektur implementiert werden kann. Zu den gängigen Anwendungsfällen gehören Sicherheit, Kostenverwaltung und Konfigurationskonsistenz.
 
@@ -39,7 +40,7 @@ Geben Sie im Schritt zur Auswahl der Richtliniendefinition im Suchfeld `Cosmos D
 
 ## <a name="create-a-custom-policy-definition"></a>Erstellen einer benutzerdefinierten Richtliniendefinition
 
-Für bestimmte Szenarien, die nicht durch die integrierten Richtliniendefinitionen abgedeckt werden, können Sie eine [benutzerdefinierte Richtliniendefinition](../governance/policy/tutorials/create-custom-policy-definition.md) erstellen. Später erstellen Sie aus Ihrer benutzerdefinierten _Richtliniendefinition_ eine _Richtlinienzuweisung_ .
+Für bestimmte Szenarien, die nicht durch die integrierten Richtliniendefinitionen abgedeckt werden, können Sie eine [benutzerdefinierte Richtliniendefinition](../governance/policy/tutorials/create-custom-policy-definition.md) erstellen. Später erstellen Sie aus Ihrer benutzerdefinierten _Richtliniendefinition_ eine _Richtlinienzuweisung_.
 
 ### <a name="property-types-and-property-aliases-in-policy-rules"></a>Eigenschaftstypen und Eigenschaftenaliase in Richtlinienregeln
 
@@ -126,7 +127,7 @@ Der Screenshot zeigt die folgenden Ergebnisse der Konformitätsauswertung für A
 - Null von zwei Konten entsprechen einer Richtlinie, die erfordert, dass das Konto für mehrere Schreibstandorte konfiguriert sein muss.
 - Null von zwei Konten entsprechen einer Richtlinie, wonach Ressourcen in zulässigen Azure-Regionen bereitgestellt wurden.
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="Suchen integrierter Richtliniendefinitionen für Azure Cosmos DB":::
+:::image type="content" source="./media/policy/compliance.png" alt-text="Aufgeführte Konformitätsergebnisse für Azure Policy-Zuweisungen":::
 
 Informationen zum Korrigieren nicht konformer Ressourcen finden Sie im Artikel zum [Korrigieren von Ressourcen mit Azure Policy](../governance/policy/how-to/remediate-resources.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Herstellen einer Verbindung mit dem Synapse SQL-Pool
+title: Herstellen einer Verbindung mit einem SQL-Pool in Azure Synapse
 description: Stellen Sie eine Verbindung mit dem SQL-Pool her.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -10,17 +10,17 @@ ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, devx-track-csharp
-ms.openlocfilehash: ab169f7b814dedbc63f3cb6cddbfb822bdb57ab9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: azure-synapse, seo-lt-2019, devx-track-csharp
+ms.openlocfilehash: 3483fa03e8c05101b88bde5c964b74b382d32a52
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016443"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462849"
 ---
-# <a name="connect-to-synapse-sql-pool"></a>Herstellen einer Verbindung mit dem Synapse SQL-Pool
+# <a name="connect-to-a-sql-pool-in-azure-synapse"></a>Herstellen einer Verbindung mit einem SQL-Pool in Azure Synapse 
 
-Stellen Sie eine Verbindung mit dem SQL-Pool her.
+Stellen Sie Verbindung mit einem SQL-Pool in Azure Synapse her.
 
 ## <a name="find-your-server-name"></a>Suchen des Servernamens
 
@@ -70,7 +70,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 Bei der Verbindungs- und Objekterstellung werden vom SQL-Pool einige Einstellungen standardisiert. Diese Einstellungen können nicht überschrieben werden:
 
-| Datenbankeinstellung | Wert |
+| Einstellung für den SQL-Pool | Wert |
 |:--- |:--- |
 | [ANSI_NULLS](/sql/t-sql/statements/set-ansi-nulls-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |EIN |
 | [QUOTED_IDENTIFIERS](/sql/t-sql/statements/set-quoted-identifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |EIN |

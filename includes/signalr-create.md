@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: ba46d4dbe90b696398ed4c78383e127861c1a066
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e5cfc9beb5473917a76f822862ce3d61675d6493
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86050331"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93406747"
 ---
 1. Melden Sie sich zunächst beim [Azure-Portal](https://portal.azure.com) an, um eine Azure SignalR Service-Ressource zu erstellen. Wählen Sie links oben auf der Seite die Option **+ Ressource erstellen** aus. Geben Sie im Textfeld **Marketplace durchsuchen** **SignalR Service** ein.
 
@@ -30,9 +30,11 @@ ms.locfileid: "86050331"
     | Tarif | *Free* | Aktuell sind die Optionen **Free** und **Standard** verfügbar. |
     | An Dashboard anheften | ✔ | Aktivieren Sie dieses Kontrollkästchen, um die Ressource an Ihr Dashboard anzuheften, damit sie einfacher zu finden ist. |
 
-4. Klicken Sie auf **Erstellen**. Die Bereitstellung kann einige Minuten dauern.
+4. Klicken Sie auf **Überprüfen + erstellen**. Warten Sie, bis die Überprüfung abgeschlossen ist. 
 
-5. Nachdem die Bereitstellung abgeschlossen ist, wählen Sie unter **EINSTELLUNGEN** die Option **Schlüssel** aus. Kopieren Sie Ihre Verbindungszeichenfolge für den Primärschlüssel. Sie werden die Zeichenfolge später zum Konfigurieren Ihrer App verwenden, um die Azure SignalR Service-Ressource zu verwenden.
+5. Wählen Sie **Erstellen** aus. Die Bereitstellung kann einige Minuten dauern.
+
+6. Nachdem die Bereitstellung abgeschlossen ist, wählen Sie unter **EINSTELLUNGEN** die Option **Schlüssel** aus. Kopieren Sie Ihre Verbindungszeichenfolge für den Primärschlüssel. Sie werden die Zeichenfolge später zum Konfigurieren Ihrer App verwenden, um die Azure SignalR Service-Ressource zu verwenden.
 
     Die Verbindungszeichenfolge weist das folgende Format auf:
     

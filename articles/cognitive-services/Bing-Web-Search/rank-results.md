@@ -11,18 +11,23 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: 677f6089f649aae720a6303a7e1512e3c7ebeca7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20501d0993cc4566a79d6e916d801911606bea35
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "66390133"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380448"
 ---
 # <a name="how-to-use-ranking-to-display-bing-web-search-api-results"></a>Verwenden von Rangfolgen zur Anzeige von Ergebnissen der Bing-Websuche-API  
 
-Jede Suchantwort enthält eine [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)-Antwort, die angibt, wie die Suchergebnisse angezeigt werden müssen. Anhand der Rangfolgeantwort werden die Ergebnisse für eine herkömmliche Suchergebnisseite nach Hauptbereichsinhalt und Randleisteninhalt gruppiert. Wenn Sie die Ergebnisse nicht in einem herkömmlichen Hauptbereichs- und Randleistenformat anzeigen, müssen Sie dem Hauptbereichsinhalt höhere Sichtbarkeit als dem Randleisteninhalt zuweisen.  
+> [!WARNING]
+> Die APIs der Bing-Suche werden von Cognitive Services auf Bing-Suchdienste umgestellt. Ab dem **30. Oktober 2020** müssen alle neuen Instanzen der Bing-Suche mit dem [hier](/bing/search-apis/bing-web-search/create-bing-search-service-resource) dokumentierten Prozess bereitgestellt werden.
+> APIs der Bing-Suche, die mit Cognitive Services bereitgestellt wurden, werden noch drei Jahre lang bzw. bis zum Ablauf Ihres Enterprise Agreement unterstützt (je nachdem, was zuerst geschieht).
+> Eine Anleitung zur Migration finden Sie unter [Bing-Suchdienste](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-Innerhalb jeder Gruppe (Hauptbereich oder Randleiste) gibt das [Items](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankinggroup-items)-Array die Reihenfolge an, in der die Inhalte angezeigt werden müssen. Jedes Element bietet die beiden folgenden Möglichkeiten zur Angabe des Ergebnisses in einer Antwort.  
+Jede Suchantwort enthält eine [RankingResponse](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)-Antwort, die angibt, wie die Suchergebnisse angezeigt werden müssen. Anhand der Rangfolgeantwort werden die Ergebnisse für eine herkömmliche Suchergebnisseite nach Hauptbereichsinhalt und Randleisteninhalt gruppiert. Wenn Sie die Ergebnisse nicht in einem herkömmlichen Hauptbereichs- und Randleistenformat anzeigen, müssen Sie dem Hauptbereichsinhalt höhere Sichtbarkeit als dem Randleisteninhalt zuweisen.  
+
+Innerhalb jeder Gruppe (Hauptbereich oder Randleiste) gibt das [Items](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankinggroup-items)-Array die Reihenfolge an, in der die Inhalte angezeigt werden müssen. Jedes Element bietet die beiden folgenden Möglichkeiten zur Angabe des Ergebnisses in einer Antwort.  
 
 -   `answerType` und `resultIndex`: Das `answerType`-Feld bezeichnet die Antwort (z.B. Webseite oder News) und `resultIndex` bezeichnet ein Ergebnis in der Antwort (z.B. einen News-Artikel). Der Index ist nullbasiert.  
 
@@ -30,11 +35,11 @@ Innerhalb jeder Gruppe (Hauptbereich oder Randleiste) gibt das [Items](https://d
 
 Die Verwendung der ID ist einfacher, da nur die Rangfolgen-ID mit der ID einer Antwort oder eines ihrer Ergebnisse übereinstimmen muss. Wenn ein Antwortobjekt ein `id`-Feld enthält, werden alle Ergebnisse der Antwort zusammen angezeigt. Enthält beispielsweise das `News`-Objekt das `id`-Feld, werden alle News-Artikel zusammen angezeigt. Wenn das `News`-Objekt das `id`-Feld nicht enthält, weist jeder News-Artikel ein `id`-Feld auf, und in der Rangfolgeantwort sind die News-Artikel mit den Ergebnissen aus anderen Antworten gemischt.  
 
-Die Verwendung von `answerType` und `resultIndex` ist etwas komplizierter. Sie verwenden `answerType`, um die Antwort anzugeben, in der die anzuzeigenden Ergebnisse enthalten sind. Dann verwenden Sie `resultIndex` zum Indizieren über die Ergebnisse der Antwort, um das anzuzeigende Ergebnis abzurufen. (Der Wert für `answerType` ist der Name des Felds im [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse)-Objekt.) Wenn alle Ergebnisse der Antwort zusammen angezeigt werden sollen, weist das Element der Rangfolgeantwort kein `resultIndex`-Feld auf.  
+Die Verwendung von `answerType` und `resultIndex` ist etwas komplizierter. Sie verwenden `answerType`, um die Antwort anzugeben, in der die anzuzeigenden Ergebnisse enthalten sind. Dann verwenden Sie `resultIndex` zum Indizieren über die Ergebnisse der Antwort, um das anzuzeigende Ergebnis abzurufen. (Der Wert für `answerType` ist der Name des Felds im [SearchResponse](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse)-Objekt.) Wenn alle Ergebnisse der Antwort zusammen angezeigt werden sollen, weist das Element der Rangfolgeantwort kein `resultIndex`-Feld auf.  
 
 ## <a name="ranking-response-example"></a>Beispiel einer Rangfolgeantwort
 
-Nachfolgend sehen Sie ein Beispiel für [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse). Da die Webantwort kein `id`-Feld enthält, werden alle Webseiten einzeln basierend auf der Rangfolge angezeigt (jede Webseite enthält ein `id`-Feld). Da die Bilder, Videos und Antworten verwandter Suchvorgänge das `id`-Feld enthalten, werden die Ergebnisse jeder dieser Antworten zusammen basierend auf der Rangfolge angezeigt.
+Nachfolgend sehen Sie ein Beispiel für [RankingResponse](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse). Da die Webantwort kein `id`-Feld enthält, werden alle Webseiten einzeln basierend auf der Rangfolge angezeigt (jede Webseite enthält ein `id`-Feld). Da die Bilder, Videos und Antworten verwandter Suchvorgänge das `id`-Feld enthalten, werden die Ergebnisse jeder dieser Antworten zusammen basierend auf der Rangfolge angezeigt.
 
 ```json
 {  

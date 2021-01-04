@@ -1,22 +1,23 @@
 ---
 title: Befehlszeilen- und PowerShell-Referenz für den Azure Cosmos DB-Emulator
-description: Informieren Sie sich über die Befehlszeilenparameter für den Azure Cosmos DB-Emulator, wie Sie den Emulator mit PowerShell steuern und die Anzahl von Containern ändern, die Sie im Container erstellen können.
+description: Erfahren Sie, welche Befehlszeilenparameter für den Azure Cosmos DB-Emulator es gibt, wie Sie den Emulator mit PowerShell steuern und die Anzahl von Containern ändern, die Sie im Emulator erstellen können.
 ms.service: cosmos-db
 ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
-ms.custom: contperfq1
-ms.openlocfilehash: f8bcadf25ac8e001657f2be012f99ddb507e672d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 2579326e92144149472874611b5307920a93c049
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445178"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031401"
 ---
 # <a name="command-line-and-powershell-reference-for-azure-cosmos-db-emulator"></a>Befehlszeilen- und PowerShell-Referenz für den Azure Cosmos DB-Emulator
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Der Azure Cosmos-Emulator stellt eine lokale Umgebung bereit, die den Azure Cosmos DB-Dienst zu lokalen Entwicklungszwecken emuliert. Nach [Installation des Emulators](local-emulator.md) können Sie ihn mit Befehlszeilen- und PowerShell-Befehlen steuern. In diesem Artikel wird beschrieben, wie Sie mithilfe der Befehlszeilen- und PowerShell-Befehle den Emulator starten und anhalten, Optionen konfigurieren und andere Vorgänge ausführen. Sie müssen die Befehle vom Installationsort aus ausführen.
+Der Azure Cosmos DB-Emulator stellt eine lokale Umgebung bereit, die den Azure Cosmos DB-Dienst zu lokalen Entwicklungszwecken emuliert. Nach [Installation des Emulators](local-emulator.md) können Sie ihn mit Befehlszeilen- und PowerShell-Befehlen steuern. In diesem Artikel wird beschrieben, wie Sie mithilfe der Befehlszeilen- und PowerShell-Befehle den Emulator starten und anhalten, Optionen konfigurieren und andere Vorgänge ausführen. Sie müssen die Befehle vom Installationsort aus ausführen.
 
 ##  <a name="manage-the-emulator-with-command-line-syntax"></a><a id="command-line"></a>Verwalten des Emulators mit Befehlszeilensyntax
 
@@ -28,10 +29,10 @@ Geben Sie zum Anzeigen der Liste der Optionen an der Eingabeaufforderung `Micros
 
 |**Option** | **Beschreibung** | **Befehl**| **Argumente**|
 |---|---|---|---|
-|[Keine Argumente] | Startet den Azure Cosmos-Emulator mit Standardeinstellungen. |Microsoft.Azure.Cosmos.Emulator.exe| |
+|[Keine Argumente] | Startet den Azure Cosmos DB-Emulator mit den Standardeinstellungen. |Microsoft.Azure.Cosmos.Emulator.exe| |
 |[Hilfe] |Zeigt die Liste mit unterstützten Befehlszeilenargumenten an.|Microsoft.Azure.Cosmos.Emulator.exe /? | |
-| GetStatus |Ruft den Status des Azure Cosmos-Emulators ab. Der Status wird durch den Exitcode angegeben: 1 = wird gestartet, 2 = wird ausgeführt, 3 = beendet. Ein negativer Exitcode gibt an, dass ein Fehler aufgetreten ist. Es wird keine andere Ausgabe erzeugt. | Microsoft.Azure.Cosmos.Emulator.exe /GetStatus| |
-| Shutdown| Fährt den Azure Cosmos-Emulator herunter.| Microsoft.Azure.Cosmos.Emulator.exe /Shutdown | |
+| GetStatus |Ruft den Status des Azure Cosmos DB-Emulators ab. Der Status wird durch den Exitcode angegeben: 1 = wird gestartet, 2 = wird ausgeführt, 3 = beendet. Ein negativer Exitcode gibt an, dass ein Fehler aufgetreten ist. Es wird keine andere Ausgabe erzeugt. | Microsoft.Azure.Cosmos.Emulator.exe /GetStatus| |
+| Shutdown| Fährt den Azure Cosmos DB-Emulator herunter.| Microsoft.Azure.Cosmos.Emulator.exe /Shutdown | |
 |DataPath | Gibt den Pfad an, unter dem Datendateien gespeichert werden sollen. Der Standardwert ist „%LocalAppdata%\CosmosDBEmulator“. | Microsoft.Azure.Cosmos.Emulator.exe /DataPath=\<datapath\> | \<datapath\>: Ein zugänglicher Pfad. |
 |Port | Gibt die für den Emulator zu verwendende Portnummer an. Der Standardwert ist 8081. |Microsoft.Azure.Cosmos.Emulator.exe /Port=\<port\> | \<port\>: Einzelne Portnummer. |
 | ComputePort | Geben Sie die Portnummer an, für die der Gatewaydienst für Compute-Interop verwendet werden soll. Der Testport für das Gateway des HTTP-Endpunkt wird als ComputePort + 79 berechnet. Daher müssen ComputePort und ComputePort + 79 offen und verfügbar sein. Der Standardwert lautet 8900. | Microsoft.Azure.Cosmos.Emulator.exe /ComputePort=\<computeport\> | \<computeport\>: Einzelne Portnummer. |
@@ -126,26 +127,26 @@ Das Cmdlet stellt sicher, dass der Emulator vor der Deinstallation beendet wird.
 
 ## <a name="change-the-number-of-default-containers"></a><a id="set-partitioncount"></a>Ändern der Anzahl von Standardcontainern
 
-Sie können standardmäßig bis zu 25 Container mit fester Größe (nur unterstützt durch Azure Cosmos DB SDKs) oder 5 Container mit dem Azure Cosmos-Emulator erstellen. Durch Ändern des Wertes **PartitionCount** können Sie bis zu 250 Container mit fester Größe oder 50 Container mit unbegrenzter Größe oder jede Kombination der beiden erstellen, die 250 Container mit fester Größe nicht überschreitet (wobei ein Container mit unbegrenzter Größe 5 Containern mit fester Größe entspricht). Es wird jedoch nicht empfohlen, den Emulator so einzurichten, dass er mit mehr als 200 Containern fester Größe ausgeführt wird. Wegen des Mehraufwands, der den E/A-Vorgängen des Datenträgers hinzugefügt wird, kann es zu unvorhersehbaren Timeouts bei der Verwendung der Endpunkt-APIs kommen.
+Sie können mit dem Azure Cosmos-Emulator standardmäßig bis zu 25 Container mit fester Größe (nur unterstützt durch Azure Cosmos DB-SDKs) oder 5 Container mit unbegrenzter Größe erstellen. Durch Ändern des Wertes **PartitionCount** können Sie bis zu 250 Container mit fester Größe oder 50 Container mit unbegrenzter Größe oder jede Kombination der beiden erstellen, die 250 Container mit fester Größe nicht überschreitet (wobei ein Container mit unbegrenzter Größe 5 Containern mit fester Größe entspricht). Es wird jedoch nicht empfohlen, den Emulator so einzurichten, dass er mit mehr als 200 Containern fester Größe ausgeführt wird. Wegen des Mehraufwands, der den E/A-Vorgängen des Datenträgers hinzugefügt wird, kann es zu unvorhersehbaren Timeouts bei der Verwendung der Endpunkt-APIs kommen.
 
 Wenn Sie versuchen, einen Container zu erstellen, wenn die aktuelle Anzahl von Partitionen überschritten wurde, löst der Emulator eine ServiceUnavailable-Ausnahme mit der folgenden Meldung aus.
 
 > „Sorry, we are currently experiencing high demand in this region, and cannot fulfill your request at this time. We work continuously to bring more and more capacity online, and encourage you to try again.
 > ActivityId: 12345678-1234-1234-1234-123456789abc
 
-Gehen Sie wie folgt vor, um die Anzahl von Containern zu ändern, die für den Azure Cosmos-Emulator verfügbar sind:
+Gehen Sie wie folgt vor, um die Anzahl von Containern zu ändern, die für den Azure Cosmos DB-Emulator verfügbar sind:
 
-1. Löschen Sie alle lokalen Azure Cosmos-Emulatordaten, indem Sie in der Taskleiste mit der rechten Maustaste auf das Symbol **Azure Cosmos DB-Emulator** klicken. Klicken Sie anschließend auf **Reset Data…** („Daten zurücksetzen...“).
+1. Löschen Sie alle lokalen Azure Cosmos DB-Emulatordaten, indem Sie in der Taskleiste mit der rechten Maustaste auf das Symbol **Azure Cosmos DB-Emulator** klicken, und klicken Sie anschließend auf **Reset Data…** (Daten zurücksetzen...).
 
 1. Löschen Sie alle Emulatordaten in diesem Ordner `%LOCALAPPDATA%\CosmosDBEmulator`.
 
 1. Schließen Sie alle geöffneten Instanzen, indem Sie mit der rechten Maustaste auf der Taskleiste auf das Symbol **Azure Cosmos DB-Emulator** klicken, und klicken Sie anschließend auf **Beenden**. Bis alle Instanzen beendet wurden, kann unter Umständen eine Minute vergehen.
 
-1. Installieren Sie die neueste Version des [Azure Cosmos-Emulators](https://aka.ms/cosmosdb-emulator).
+1. Installieren Sie die neueste Version des [Azure Cosmos DB-Emulators](https://aka.ms/cosmosdb-emulator).
 
 1. Starten Sie den Emulator mit dem PartitionCount-Flag, indem Sie einen Wert <= 250 festlegen. Beispiel: `C:\Program Files\Azure Cosmos DB Emulator> Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=100`.
  
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Exportieren der Azure Cosmos-Emulatorzertifikate zur Verwendung bei Java-, Python- und Node.js-Apps](local-emulator-export-ssl-certificates.md)
+* [Exportieren der Azure Cosmos DB-Emulatorzertifikate für die Verwendung mit Java-, Python- und Node.js-Apps](local-emulator-export-ssl-certificates.md)
 * [Debuggen von Problemen mit dem Emulator](troubleshoot-local-emulator.md)

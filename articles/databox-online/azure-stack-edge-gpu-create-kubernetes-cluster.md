@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: cb783e5da7364f38944ce31ce49a6a6529658fe3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f6d2b126cd9a0acbbbdb8d17ce7345bbf17b556
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903215"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635907"
 ---
 # <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Verbinden mit einem Kubernetes-Cluster und Verwalten des Clusters über kubectl auf Ihrem Azure Stack Edge Pro-GPU-Gerät
 
@@ -44,7 +44,7 @@ Nachdem der Kubernetes-Cluster erstellt wurde, können Sie auf diesen Cluster zu
 [!INCLUDE [Connect to admin runspace](../../includes/azure-stack-edge-gateway-connect-minishell.md)]
 
 
-## <a name="configure-cluster-access-via-rbac"></a>Konfigurieren des Clusterzugriffs über RBAC
+## <a name="configure-cluster-access-via-kubernetes-rbac"></a>Konfigurieren des Clusterzugriffs über Kubernetes RBAC
 
 Nachdem der Kubernetes-Cluster erstellt wurde, können Sie mit *kubectl* über die Befehlszeile auf den Cluster zugreifen. 
 

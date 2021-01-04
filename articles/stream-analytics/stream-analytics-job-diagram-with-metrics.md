@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/01/2017
-ms.openlocfilehash: fdb3c5c12af8e9022f5babc84126badda890dce5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4ee868125ee30d40ef0d9ca5a42881ad003e9a8
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044480"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123981"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Datengesteuertes Debuggen mithilfe des Auftragsdiagramms
 
@@ -20,7 +20,7 @@ Mithilfe des Auftragsdiagramms auf dem Blatt **Überwachung** im Azure-Portal k�
 
 ## <a name="using-the-job-diagram"></a>Verwendung des Auftragsdiagramms
 
-Wählen Sie im Azure-Portal bei geöffnetem Stream Analytics-Auftrag unter **SUPPORT + PROBLEMBEHANDLUNG** die Option **Auftragsdiagramm**:
+Wählen Sie im Azure-Portal bei geöffnetem Stream Analytics-Auftrag unter **SUPPORT + PROBLEMBEHANDLUNG** die Option **Auftragsdiagramm** :
 
 ![Auftragsdiagramm mit Metriken – Speicherort](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-1.png)
 
@@ -75,15 +75,15 @@ Handelt es sich beim vorherigen Abfrageschritt um einen Eingabeprozessor, beantw
  
 ### <a name="are-we-falling-behind-in-reading-data"></a>Gibt es eine Verzögerung beim Lesen der Daten?
 
-*   **Eingabeereignisse im Rückstand (gesamt)** gibt die Anzahl von Nachrichten an, die für Event Hubs- und Azure IoT Hub-Eingaben noch gelesen werden müssen. Wenn diese Zahl größer als 0 ist, bedeutet dies, dass der Auftrag die Daten nicht so schnell verarbeiten kann, wie sie eintreffen. In diesem Fall müssen Sie die Anzahl der Streamingeinheiten erhöhen und/oder sicherstellen, dass Ihr Auftrag parallelisiert werden kann. Weitere Informationen hierzu finden Sie auf der Seite zur [Parallelisierung von Abfragen](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). 
+*   **Eingabeereignisse im Rückstand (gesamt)** gibt die Anzahl von Nachrichten an, die für Event Hubs- und Azure IoT Hub-Eingaben noch gelesen werden müssen. Wenn diese Zahl größer als 0 ist, bedeutet dies, dass der Auftrag die Daten nicht so schnell verarbeiten kann, wie sie eintreffen. In diesem Fall müssen Sie die Anzahl der Streamingeinheiten erhöhen und/oder sicherstellen, dass Ihr Auftrag parallelisiert werden kann. Weitere Informationen hierzu finden Sie auf der Seite zur [Parallelisierung von Abfragen](./stream-analytics-parallelization.md). 
 
 
 ## <a name="get-help"></a>Hier erhalten Sie Hilfe
-Weitere Unterstützung finden Sie auf der [Frageseite von Microsoft Q&A (Fragen und Antworten) zu Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html). 
+Weitere Unterstützung finden Sie auf der [Frageseite von Microsoft Q&A (Fragen und Antworten) zu Azure Stream Analytics](/answers/topics/azure-stream-analytics.html). 
 
 ## <a name="next-steps"></a>Nächste Schritte
 * [Einführung in Azure Stream Analytics](stream-analytics-introduction.md)
 * [Erste Schritte mit Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skalieren von Stream Analytics-Aufträgen](stream-analytics-scale-jobs.md)
-* [Referenz zur Stream Analytics-Abfragesprache](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referenz zur REST-API für die Stream Analytics-Verwaltung](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referenz zur Stream Analytics-Abfragesprache](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referenz zur REST-API für die Stream Analytics-Verwaltung](/rest/api/streamanalytics/)

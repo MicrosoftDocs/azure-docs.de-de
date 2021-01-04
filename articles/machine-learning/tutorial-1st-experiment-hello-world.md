@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 980347c658c65a0c08dfc50c08f50741fb9a00fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 971bac8a0b0951d4e07e139aea6c465a9159b8db
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372543"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96570959"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Tutorial: Ausführen eines Python-Skripts „Hello World!“ (Teil 2 von 4)
 
@@ -61,7 +61,8 @@ tutorial
 └──02-create-compute.py
 ```
 
-### <a name="test-your-script-locally"></a>Lokales Testen des Skripts
+
+### <a name="test-your-script-locally"></a><a name="test"></a>Lokales Testen des Skripts
 
 Sie können Ihren Code lokal ausführen, indem Sie Ihre bevorzugte IDE oder ein Terminal verwenden. Das lokale Ausführen von Code hat den Vorteil, dass Sie Code interaktiv debuggen.
 
@@ -70,7 +71,10 @@ cd <path/to/tutorial>
 python ./src/hello.py
 ```
 
-## <a name="create-a-control-script"></a>Erstellen eines Steuerungsskripts
+> [!div class="nextstepaction"]
+> [Ich habe das Skript lokal ausgeführt.](?success=run-local#control-script) [Es ist ein Problem aufgetreten.](https://www.research.net/r/7C2NTH7?issue=run-local)
+
+## <a name="create-a-control-script"></a><a name="control-script"></a> Erstellen eines Steuerungsskripts
 
 Mithilfe eines *Steuerungsskripts* können Sie ihr `hello.py`-Skript in der Cloud ausführen. Sie verwenden das Steuerungsskript, um zu steuern, wie und wo Ihr Machine Learning-Code ausgeführt wird.  
 
@@ -90,6 +94,8 @@ aml_url = run.get_portal_url()
 print(aml_url)
 ```
 
+
+
 ### <a name="understand-the-code"></a>Grundlegendes zum Code
 
 Eine kurze Beschreibung zur Funktionsweise des Steuerungsskripts:
@@ -99,7 +105,7 @@ Eine kurze Beschreibung zur Funktionsweise des Steuerungsskripts:
       `ws = Workspace.from_config()`
    :::column-end:::
    :::column span="2":::
-      [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) stellt eine Verbindung mit Ihrem Azure Machine Learning-Arbeitsbereich her, so dass Sie mit Ihren Azure Machine Learning-Ressourcen kommunizieren können.
+      [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) stellt eine Verbindung mit Ihrem Azure Machine Learning-Arbeitsbereich her, so dass Sie mit Ihren Azure Machine Learning-Ressourcen kommunizieren können.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -107,7 +113,7 @@ Eine kurze Beschreibung zur Funktionsweise des Steuerungsskripts:
       `experiment =  Experiment( ... )`
    :::column-end:::
    :::column span="2":::
-      [Experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) bietet eine einfache Möglichkeit, mehrere Ausführungen unter einem einzelnen Namen zu ordnen. Später können Sie sehen, wie Experimente den Vergleich von Metriken zwischen Dutzenden von Ausführungen einfach machen.
+      [Experiment](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py) bietet eine einfache Möglichkeit, mehrere Ausführungen unter einem einzelnen Namen zu ordnen. Später können Sie sehen, wie Experimente den Vergleich von Metriken zwischen Dutzenden von Ausführungen einfach machen.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -115,7 +121,7 @@ Eine kurze Beschreibung zur Funktionsweise des Steuerungsskripts:
       `config = ScriptRunConfig( ... )` 
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) umschließt Ihren `hello.py`-Code und übergibt ihn an Ihren Arbeitsbereich. Wie der Name schon nahelegt, können Sie diese Klasse verwenden, um die _Ausführung_ Ihres _Skripts_ in Azure Machine Learning zu _konfigurieren_. Außerdem wird angegeben, auf welchem Computeziel das Skript ausgeführt wird. In diesem Code ist das Ziel der Computecluster, den Sie im [Setup-Tutorial](tutorial-1st-experiment-sdk-setup-local.md) erstellt haben.
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) umschließt Ihren `hello.py`-Code und übergibt ihn an Ihren Arbeitsbereich. Wie der Name schon nahelegt, können Sie diese Klasse verwenden, um die _Ausführung_ Ihres _Skripts_ in Azure Machine Learning zu _konfigurieren_. Außerdem wird angegeben, auf welchem Computeziel das Skript ausgeführt wird. In diesem Code ist das Ziel der Computecluster, den Sie im [Setup-Tutorial](tutorial-1st-experiment-sdk-setup-local.md) erstellt haben.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -123,7 +129,7 @@ Eine kurze Beschreibung zur Funktionsweise des Steuerungsskripts:
       `run = experiment.submit(config)`
    :::column-end:::
    :::column span="2":::
-       Übermittelt Ihr Skript. Diese Übermittlung wird als [Ausführung](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) bezeichnet. Eine Ausführung (Run) verkapselt eine einzelne Ausführung (Execution) Ihres Codes. Verwenden Sie eine Ausführung, um den Status Ihres Skripts zu überwachen, die Ausgabe zu erfassen, die Ergebnisse zu analysieren, die Metriken zu visualisieren und mehr.
+       Übermittelt Ihr Skript. Diese Übermittlung wird als [Ausführung](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) bezeichnet. Eine Ausführung (Run) verkapselt eine einzelne Ausführung (Execution) Ihres Codes. Verwenden Sie eine Ausführung, um den Status Ihres Skripts zu überwachen, die Ausgabe zu erfassen, die Ergebnisse zu analysieren, die Metriken zu visualisieren und mehr.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -135,15 +141,32 @@ Eine kurze Beschreibung zur Funktionsweise des Steuerungsskripts:
    :::column-end:::
 :::row-end:::
 
-## <a name="submit-and-run-your-code-in-the-cloud"></a>Übermitteln und Ausführen Ihres Codes in der Cloud
+> [!div class="nextstepaction"]
+> [Ich habe das Steuerungsskript erstellt.](?success=create-control-script#submit) [Es ist ein Problem aufgetreten.](https://www.research.net/r/7C2NTH7?issue=create-control-script)
+
+## <a name="submit-and-run-your-code-in-the-cloud"></a><a name="submit"></a> Übermitteln und Ausführen Ihres Codes in der Cloud
 
 Führen Sie Ihr Steuerungsskript aus, das seinerseits `hello.py` auf dem Computecluster ausführt, den Sie im [Setup-Tutorial](tutorial-1st-experiment-sdk-setup-local.md) erstellt haben.
+
+Die erste Ausführung dauert fünf bis zehn Minuten. Dies hat folgende Ursachen:
+
+* Ein Docker-Image wird in der Cloud erstellt.
+* Die Größe des Computeclusters wird von 0 in 1 Knoten geändert.
+* Das Docker-Image wird in den Computecluster heruntergeladen. 
+
+Nachfolgende Ausführungen sind wesentlich schneller (etwa 15 Sekunden), da das Docker-Image im Computecluster zwischengespeichert wird. Sie können dies testen, indem Sie den folgenden Code nach Abschluss der ersten Ausführung erneut übermitteln.
 
 ```bash
 python 03-run-hello.py
 ```
 
-## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a>Überwachen Ihres Codes in der Cloud mithilfe von Studio
+> [!TIP]
+> Wenn Sie beim Ausführen dieses Codes den Fehler erhalten, dass Sie keinen Zugriff auf das Abonnement haben, finden Sie Informationen zu Authentifizierungsoptionen unter [Herstellen einer Verbindung mit einem Arbeitsbereich](how-to-manage-workspace.md?tab=python#connect-multi-tenant).
+
+> [!div class="nextstepaction"]
+> [Ich habe Code in der Cloud übermittelt.](?success=submit-to-cloud#monitor) [Es ist ein Problem aufgetreten.](https://www.research.net/r/7C2NTH7?issue=submit-to-cloud)
+
+## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a><a name="monitor"></a>Überwachen Ihres Codes in der Cloud mithilfe von Studio
 
 Die Ausgabe enthält einen Link zu Studio, der etwa wie folgt aussieht: `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`.
 
@@ -174,6 +197,9 @@ Folgen Sie dem Link, und navigieren Sie zur Registerkarte **Ausgaben und Protoko
 In Zeile 8 sehen Sie die Ausgabe „Hallo Welt!“ .
 
 Die Datei `70_driver_log.txt` enthält die Standardausgabe einer Ausführung. Diese Datei kann nützlich sein, wenn Sie Remoteausführungen in der Cloud debuggen.
+
+> [!div class="nextstepaction"]
+> [Ich habe das Protokoll in Studio angezeigt.](?success=monitor-in-studio#next-steps) [Es ist ein Problem aufgetreten.](https://www.research.net/r/7C2NTH7?issue=monitor-in-studio)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

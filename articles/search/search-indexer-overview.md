@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7f6be959bf09cbe20bb37dfa3d17d64467758bd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 305682812896bb74474b5065cfd56a071a73ed15
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397894"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358778"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexer in Azure Cognitive Search
 
@@ -32,7 +32,7 @@ Indexer können mit folgenden Tools erstellt und verwaltet werden:
 
 * [Portal > Datenimport-Assistent ](search-import-data-portal.md)
 * [Dienst-REST-API](/rest/api/searchservice/Indexer-operations)
-* [.NET SDK](/dotnet/api/microsoft.azure.search.iindexersoperations)
+* [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
 
 Ein neuer Indexer wird zunächst als Vorschaufeature angekündigt. Vorschaufeatures werden in APIs (REST und .NET) eingeführt und in das Portal integriert, wenn sie die allgemeine Verfügbarkeit erreicht haben. Planen Sie bei der Bewertung eines neuen Indexers das Schreiben von Code ein.
 
@@ -88,19 +88,19 @@ Wie bei Feldzuordnungen, die Literalwerte aus den Quellfeldern den Zielfeldern z
 
 Die nächste Abbildung zeigt eine Beispieldarstellung einer Indexer-[Debugsitzung](cognitive-search-debug-session.md)der Indexerphasen: Dokumententschlüsselung, Feldzuordnungen, Skillset-Ausführung und Ausgabefeldzuordnungen.
 
-:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="Indexerphasen" lightbox="media/search-indexer-overview/sample-debug-session.png":::
+:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="Beispieldebugsitzung" lightbox="media/search-indexer-overview/sample-debug-session.png":::
 
 ## <a name="basic-configuration-steps"></a>Grundlegende Konfigurationsschritte
 
 Indexer können Features bereitstellen, die für die Datenquelle eindeutig sind. In dieser Hinsicht variieren einige Aspekte von Indexern oder der Datenquellenkonfiguration nach Indexertyp. Für alle Indexer werden aber die gleiche grundlegende Zusammenstellung und die gleichen Anforderungen verwendet. Die Schritte, die für alle Indexer gelten, sind unten beschrieben.
 
 ### <a name="step-1-create-a-data-source"></a>Schritt 1: Erstellen einer Datenquelle
-Ein Indexer ruft eine Datenquellenverbindung aus einem *Datenquelle*-Objekt ab. Die Datenquellendefinition enthält eine Verbindungszeichenfolge und ggf. Anmeldeinformationen. Rufen Sie die REST-API [Datenquelle erstellen](/rest/api/searchservice/create-data-source) oder die [DataSource](/dotnet/api/microsoft.azure.search.models.datasource)-Klasse auf, um die Ressource zu erstellen.
+Ein Indexer ruft eine Datenquellenverbindung aus einem *Datenquelle*-Objekt ab. Die Datenquellendefinition enthält eine Verbindungszeichenfolge und ggf. Anmeldeinformationen. Rufen Sie die REST-API [Datenquelle erstellen](/rest/api/searchservice/create-data-source) oder die [SearchIndexerDataSourceConnection](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection)-Klasse auf, um die Ressource zu erstellen.
 
 Datenquellen werden unabhängig von den Indexern, die darauf zugreifen, konfiguriert und verwaltet. Dies bedeutet, dass eine Datenquelle von mehreren Indexern verwendet werden kann, um mehr als einen Index gleichzeitig zu laden.
 
 ### <a name="step-2-create-an-index"></a>Schritt 2: Erstellen eines Index
-Mit einem Indexer werden einige Aufgaben in Bezug auf die Datenerfassung automatisiert, aber das Erstellen eines Index gehört im Allgemeinen nicht dazu. Als Voraussetzung hierfür müssen Sie über einen vordefinierten Index mit Feldern verfügen, die den Feldern in Ihrer externen Datenquelle entsprechen. Felder müssen nach Name und Datentyp übereinstimmen. Weitere Informationen zum Strukturieren eines Index finden Sie unter [Create Index (Azure Cognitive Search-REST-API)](/rest/api/searchservice/Create-Index) oder [Index-Klasse](/dotnet/api/microsoft.azure.search.models.index). Hilfreiche Informationen zu Feldzuordnungen finden Sie unter [Feldzuordnungen in Azure Cognitive Search-Indexern](search-indexer-field-mappings.md).
+Mit einem Indexer werden einige Aufgaben in Bezug auf die Datenerfassung automatisiert, aber das Erstellen eines Index gehört im Allgemeinen nicht dazu. Als Voraussetzung hierfür müssen Sie über einen vordefinierten Index mit Feldern verfügen, die den Feldern in Ihrer externen Datenquelle entsprechen. Felder müssen nach Name und Datentyp übereinstimmen. Weitere Informationen zum Strukturieren eines Index finden Sie unter [Create Index (Azure Cognitive Search-REST-API)](/rest/api/searchservice/Create-Index) oder der [SearchIndex-Klasse](/dotnet/api/azure.search.documents.indexes.models.searchindex). Hilfreiche Informationen zu Feldzuordnungen finden Sie unter [Feldzuordnungen in Azure Cognitive Search-Indexern](search-indexer-field-mappings.md).
 
 > [!Tip]
 > Indexer können zwar keinen Index für Sie erstellen, diese Aufgabe kann jedoch mit dem Assistenten **Daten importieren** im Portal ausgeführt werden. In den meisten Fällen kann der Assistent ein Indexschema aus vorhandenen Metadaten in der Quelle ableiten und ein vorläufiges Indexschema bereitstellen, das Sie inline bearbeiten können, während der Assistent aktiv ist. Sobald der Index für den Dienst erstellt wurde, ist die weitere Bearbeitung im Portal hauptsächlich auf das Hinzufügen neuer Felder beschränkt. Verwenden Sie den Assistenten zum Erstellen, aber nicht zum Überarbeiten eines Index. Praxisnahe Lerninhalte finden Sie in der [exemplarischen Vorgehensweise zum Portal](search-get-started-portal.md).

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 539145836849bb66bcf1f12a97ea405fe84c47bd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8f27f7532d074428fafe74e4a453628f5c61d2b8
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311375"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895969"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Datengesteuerte Formatvorlagenausdrücke (Web SDK)
 
@@ -475,13 +475,13 @@ Farbausdrücke erleichtern Ihnen das Erstellen und Bearbeiten von Farbwerten.
 
 | Ausdruck | Rückgabetyp | BESCHREIBUNG |
 |------------|-------------|-------------|
-| `['rgb', number, number, number]` | color | Erstellt einen Farbwert aus den Komponenten *red*, *green* und *blue*, die zwischen `0` und `255` liegen müssen und deren Alphakomponente `1` lauten muss. Wenn eine Komponente außerhalb des Bereichs liegt, tritt für den Ausdruck ein Fehler auf. |
-| `['rgba', number, number, number, number]` | color | Erstellt einen Farbwert aus den Komponenten *red*, *green* und *blue*, die zwischen `0` und `255` liegen müssen und deren Alphakomponente zwischen `0` und `1` liegen muss. Wenn eine Komponente außerhalb des Bereichs liegt, tritt für den Ausdruck ein Fehler auf. |
-| `['to-rgba']` | \[number, number, number, number\] | Gibt ein Array mit vier Elementen zurück, das die Komponenten *red*, *green*, *blue* und *alpha* der Eingabefarbe enthält (in dieser Reihenfolge). |
+| `['rgb', number, number, number]` | color | Erstellt einen Farbwert aus den Komponenten *red* , *green* und *blue* , die zwischen `0` und `255` liegen müssen und deren Alphakomponente `1` lauten muss. Wenn eine Komponente außerhalb des Bereichs liegt, tritt für den Ausdruck ein Fehler auf. |
+| `['rgba', number, number, number, number]` | color | Erstellt einen Farbwert aus den Komponenten *red* , *green* und *blue* , die zwischen `0` und `255` liegen müssen und deren Alphakomponente zwischen `0` und `1` liegen muss. Wenn eine Komponente außerhalb des Bereichs liegt, tritt für den Ausdruck ein Fehler auf. |
+| `['to-rgba']` | \[number, number, number, number\] | Gibt ein Array mit vier Elementen zurück, das die Komponenten *red* , *green* , *blue* und *alpha* der Eingabefarbe enthält (in dieser Reihenfolge). |
 
 **Beispiel**
 
-Im folgenden Beispiel wird ein RGB-Farbwert erstellt, der für *red* über den Wert `255` und für *green* und *blue* über Werte verfügt, die per Multiplikation von `2.5` mit dem Wert der `temperature`-Eigenschaft berechnet werden. Wenn sich die Temperatur ändert, ändert sich die Farbe in verschiedene Schattierungen von *red*.
+Im folgenden Beispiel wird ein RGB-Farbwert erstellt, der für *red* über den Wert `255` und für *green* und *blue* über Werte verfügt, die per Multiplikation von `2.5` mit dem Wert der `temperature`-Eigenschaft berechnet werden. Wenn sich die Temperatur ändert, ändert sich die Farbe in verschiedene Schattierungen von *red* .
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -647,7 +647,7 @@ Spezielle Ausdrücke, die nur für bestimmte Ebenen gelten.
 
 ### <a name="heat-map-density-expression"></a>Heatmap Density-Ausdruck
 
-Mit einem Heatmap Density-Ausdruck wird der Wärmebilddichte-Wert für jedes Pixel einer Wärmebildebene abgerufen. Er ist als `['heatmap-density']` definiert. Dieser Wert ist eine Zahl zwischen `0` und `1`. Er wird zusammen mit einem `interpolation`- oder `step`-Ausdruck verwendet, um den Farbverlauf zu definieren, der zum Einfügen der Farben in das Wärmebild genutzt wird. Dieser Ausdruck kann nur in der [color-Option](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions#color) der Wärmebildebene verwendet werden.
+Mit einem Heatmap Density-Ausdruck wird der Wärmebilddichte-Wert für jedes Pixel einer Wärmebildebene abgerufen. Er ist als `['heatmap-density']` definiert. Dieser Wert ist eine Zahl zwischen `0` und `1`. Er wird zusammen mit einem `interpolation`- oder `step`-Ausdruck verwendet, um den Farbverlauf zu definieren, der zum Einfügen der Farben in das Wärmebild genutzt wird. Dieser Ausdruck kann nur in der [color-Option](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions#color) der Wärmebildebene verwendet werden.
 
 > [!TIP]
 > Die Farbe bei Index „0“ in einem interpolation-Ausdruck bzw. die Standardfarbe einer Schrittfarbe definiert die Farbe in einem Bereich ohne Daten. Die Farbe bei Index 0 kann verwendet werden, um eine Hintergrundfarbe zu definieren. Viele Benutzer legen hierfür einen transparenten Wert oder ein halbtransparentes Schwarz fest.
@@ -954,16 +954,16 @@ In den folgenden Artikeln finden Sie weitere Codebeispiele, in denen Ausdrücke 
 Weitere Informationen zu den Ebenenoptionen, die Ausdrücke unterstützen:
 
 > [!div class="nextstepaction"] 
-> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
+> [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [HeatMapLayerOptions-Schnittstelle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
+> [HeatMapLayerOptions-Schnittstelle](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
 > [!div class="nextstepaction"] 
-> [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)
+> [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
+> [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
 
 > [!div class="nextstepaction"] 
-> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions)
+> [SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions)

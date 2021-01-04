@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
-ms.openlocfilehash: 5705eedfb919c792c558384f6309325dcded4b43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26078c3757e42c3e290a5f4122461b287582fb80
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86146611"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518820"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Erstellen von Web Application Firewall-Richtlinien für Application Gateway
 
@@ -22,8 +22,6 @@ Sie können beliebig viele Richtlinien erstellen. Nachdem Sie eine Richtlinie er
 
 Wenn auf Ihre Application Gateway-Instanz eine Richtlinie angewandt wird und Sie dann eine andere Richtlinie auf einen Listener in dieser Application Gateway-Instanz anwenden, gilt die Richtlinie des Listeners – aber nur für die Listener, denen sie zugewiesen ist. Die Application Gateway-Richtlinie gilt weiterhin für alle anderen Listener, denen keine spezielle Richtlinie zugewiesen ist. 
 
-   > [!NOTE]
-   > WAF-Richtlinien für einzelne URIs sind als Public Preview verfügbar. Das bedeutet, dass diese Funktion den zusätzlichen Nutzungsbedingungen von Microsoft unterliegt. Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
    > [!NOTE]
    > Sobald eine Firewallrichtlinie einer WAF zugeordnet wurde, muss dieser WAF immer eine Richtlinie zugeordnet sein. Sie können diese Richtlinie überschreiben, aber das vollständige Aufheben der Zuordnung einer Richtlinie zu einer WAF wird nicht unterstützt. 
 
@@ -42,7 +40,7 @@ Erstellen Sie zuerst im Azure-Portal mithilfe des verwalteten Standardregelsatze
    |Subscription     |Wählen Sie Ihren Abonnementnamen aus.|
    |Resource group     |Ressourcengruppe auswählen|
    |Richtlinienname     |Geben Sie einen eindeutigen Namen für Ihre WAF-Richtlinie ein.|
-3. Geben Sie auf der Registerkarte **Zuordnung** eine der folgenden Einstellungen ein, und wählen Sie dann**Hinzufügen** aus:
+3. Geben Sie auf der Registerkarte **Zuordnung** eine der folgenden Einstellungen ein, und wählen Sie dann **Hinzufügen** aus:
 
    |Einstellung  |Wert  |
    |---------|---------|
@@ -51,7 +49,7 @@ Erstellen Sie zuerst im Azure-Portal mithilfe des verwalteten Standardregelsatze
 
    > [!NOTE]
    > Wenn Sie Ihrer Application Gateway-Instanz (oder Ihrem Listener) eine Richtlinie zuweisen, jedoch gilt dafür bereits eine Richtlinie, wird die ursprüngliche Richtlinie überschrieben und durch die neue Richtlinie ersetzt.
-4. Klicken Sie auf**Überprüfen + erstellen** und dann auf **Erstellen**.
+4. Klicken Sie auf **Überprüfen + erstellen** und dann auf **Erstellen**.
 
    ![Grundlegendes zu WAF-Richtlinien](../media/create-waf-policy-ag/waf-policy-basics.png)
 

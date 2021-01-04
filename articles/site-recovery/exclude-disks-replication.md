@@ -4,11 +4,11 @@ description: Es wird beschrieben, wie Sie Datenträger mit Azure Site Recovery v
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: 15989fbfd65f758eb777c5170c217aba8707e0be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333663"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008258"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Ausschließen von Datenträgern von der Notfallwiederherstellung
 
@@ -56,13 +56,13 @@ Beispiele für Datenänderungen, die gut für den Ausschluss geeignet sind, sind
 
 ## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Beispiel 1: Ausschließen des tempdb-Datenträgers von SQL Server
 
-Wir sehen uns nun an, wie der Ausschluss von Datenträgern, allgemeine Failover und ein Failover für einen virtuellen SQL Server-Windows-Quellcomputer (SalesDB), für den wir „tempdb“ ausschließen möchten, ausgeführt werden. 
+Wir sehen uns nun an, wie der Ausschluss von Datenträgern, allgemeine Failovervorgänge sowie ein Failover für einen virtuellen SQL Server-Windows-Quellcomputer **SalesDB**, für den wir „tempdb“ ausschließen möchten, ausgeführt werden. 
 
 ### <a name="exclude-disks-from-replication"></a>Ausschließen von Datenträgern von der Replikation
 
 Diese Datenträger befinden sich auf dem virtuellen Windows-Quellcomputer „SalesDB“.
 
-**Name des Datenträgers** | **Datenträger mit Gastbetriebssystem** | **Laufwerkbuchstabe** | **Datentyp des Datenträgers**
+*Name des Datenträgers** | **Datenträger mit Gastbetriebssystem** | **Laufwerkbuchstabe** | **Datentyp des Datenträgers**
 --- | --- | --- | ---
 DB-Disk0-OS | Disk0 | C:\ | Betriebssystemdatenträger
 DB-Disk1| Disk1 | D:\ | SQL-Systemdatenbank und Benutzerdatenbank 1

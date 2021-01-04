@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 04/15/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ae5995340640e9cda16634cf76b9953d7d663c2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5ba1e280e3c14a24e33246799ca0d7ef8221294f
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966660"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741693"
 ---
 # <a name="troubleshooting-combined-security-information-registration"></a>Problembehandlung für die kombinierte Registrierung von Sicherheitsinformationen
 
@@ -157,4 +157,4 @@ Benutzer werden nicht mehr aufgefordert, sich bei der aktualisierten Oberfläche
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Erfahren Sie mehr über die kombinierte Registrierung für die Self-Service-Kennwortzurücksetzung und Azure Multi-Factor Authentication](concept-registration-mfa-sspr-combined.md)
+* [Erfahren Sie mehr über die kombinierte Registrierung für die Self-Service-Kennwortzurücksetzung und Azure AD Multi-Factor Authentication](concept-registration-mfa-sspr-combined.md)

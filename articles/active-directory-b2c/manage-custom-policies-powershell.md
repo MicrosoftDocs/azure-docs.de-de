@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 888e2287c869200434e198204881d5bd5014f87d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fcc482e215e646fec20516f35641bd05398d2f2d
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363860"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928714"
 ---
 # <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Verwalten von benutzerdefinierten Azure AD B2C-Richtlinien mit Azure PowerShell
 
@@ -31,7 +31,7 @@ Azure PowerShell stellt mehrere Cmdlets für die befehlszeilen- und skriptgestü
 
 * [Azure AD B2C-Mandant](tutorial-create-tenant.md) und Anmeldeinformationen für einen Benutzer im Verzeichnis mit der Rolle [B2C-IEF-Richtlinienadministrator](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)
 * [Benutzerdefinierte Richtlinien](custom-policy-get-started.md), die in Ihren Mandanten hochgeladen wurden
-* [Azure AD PowerShell-Modul für Graph ( **Vorschauversion**](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0))
+* [Azure AD PowerShell-Modul für Graph (**Vorschauversion**](/powershell/azure/active-directory/install-adv2))
 
 ## <a name="connect-powershell-session-to-b2c-tenant"></a>Verbinden der PowerShell-Sitzung mit dem B2C-Mandanten
 
@@ -191,15 +191,15 @@ Message: Validation failed: 1 validation error(s) found in policy "B2C_1A_SIGNUP
 ...
 ```
 
-Informationen zur Problembehandlung bei benutzerdefinierten Richtlinien finden Sie unter [Beheben von Problemen mit benutzerdefinierten Azure AD B2C-Richtlinien und dem Identity Experience Framework](active-directory-b2c-guide-troubleshooting-custom.md).
+Informationen zur Problembehandlung bei benutzerdefinierten Richtlinien finden Sie unter [Beheben von Problemen mit benutzerdefinierten Azure AD B2C-Richtlinien und dem Identity Experience Framework](./troubleshoot-custom-policies.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 Informationen zur Verwendung von PowerShell zur Bereitstellung benutzerdefinierter Richtlinien im Rahmen einer CI/CD-Pipeline (Continuous Integration/Continuous Delivery) finden Sie unter [Bereitstellen von benutzerdefinierten Richtlinien aus einer Azure DevOps-Pipeline](deploy-custom-policies-devops.md).
 
 <!-- LINKS - External -->
-[Connect-AzureAD]: https://docs.microsoft.com/powershell/module/azuread/get-azureadmstrustframeworkpolicy
-[Get-AzureADMSTrustFrameworkPolicy]: https://docs.microsoft.com/powershell/module/azuread/get-azureadmstrustframeworkpolicy
-[New-AzureADMSTrustFrameworkPolicy]: https://docs.microsoft.com/powershell/module/azuread/new-azureadmstrustframeworkpolicy
-[Remove-AzureADMSTrustFrameworkPolicy]: https://docs.microsoft.com/powershell/module/azuread/remove-azureadmstrustframeworkpolicy
-[Set-AzureADMSTrustFrameworkPolicy]: https://docs.microsoft.com/powershell/module/azuread/set-azureadmstrustframeworkpolicy
+[Connect-AzureAD]: /powershell/module/azuread/get-azureadmstrustframeworkpolicy
+[Get-AzureADMSTrustFrameworkPolicy]: /powershell/module/azuread/get-azureadmstrustframeworkpolicy
+[New-AzureADMSTrustFrameworkPolicy]: /powershell/module/azuread/new-azureadmstrustframeworkpolicy
+[Remove-AzureADMSTrustFrameworkPolicy]: /powershell/module/azuread/remove-azureadmstrustframeworkpolicy
+[Set-AzureADMSTrustFrameworkPolicy]: /powershell/module/azuread/set-azureadmstrustframeworkpolicy

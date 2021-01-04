@@ -68,7 +68,7 @@
             - name: Grundlagen
               href: data-lake-analytics-u-sql-get-started.md
             - name: Sprachreferenz
-              href: /u-sql/
+              href: 'https://docs.microsoft.com/u-sql'
             - name: Katalog
               href: data-lake-analytics-u-sql-catalog.md
             - name: Benutzerdefinierte Operatoren
@@ -79,8 +79,6 @@
               href: data-lake-analytics-u-sql-r-extensions.md
             - name: Cognitive-Erweiterungen
               href: data-lake-analytics-u-sql-cognitive.md
-            - name: Programmierbarkeitshandbuch
-              href: data-lake-analytics-u-sql-programmability-guide.md
         - name: Visual Studio
           items:
             - name: Installieren
@@ -113,8 +111,32 @@
               href: data-lake-analytics-data-lake-tools-for-vscode.md
             - name: Benutzerdefinierter Code
               href: data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md
+            - name: Zugreifen auf Ressourcen
+              href: data-lake-analytics-data-lake-tools-for-vscode-access-resource.md
             - name: Lokales Ausführen und Debuggen
               href: data-lake-tools-for-vscode-local-run-and-debug.md
+        - name: Programmierbarkeitshandbuch
+          items:
+            - name: "Programmierbarkeitshandbuch\_– Übersicht"
+              href: data-lake-analytics-u-sql-programmability-guide.md
+            - name: "Programmierbarkeitshandbuch\_– UDT und UDAGG"
+              href: data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md
+            - name: "Programmierbarkeitshandbuch\_– UDO"
+              items:
+                - name: "Benutzerdefinierte Objekte\_– Übersicht"
+                  href: data-lake-analytics-u-sql-programmability-guide-UDO.md
+                - name: Verwenden eines benutzerdefinierten Extraktors
+                  href: data-lake-analytics-u-sql-programmability-guide-extractor.md
+                - name: Verwenden eines benutzerdefinierten Outputters
+                  href: data-lake-analytics-u-sql-programmability-guide-outputter.md
+                - name: Verwenden eines benutzerdefinierten Prozessors
+                  href: data-lake-analytics-u-sql-programmability-guide-processor.md
+                - name: Verwenden eines benutzerdefinierten Appliers
+                  href: data-lake-analytics-u-sql-programmability-guide-applier.md
+                - name: Verwenden eines benutzerdefinierten Combiners
+                  href: data-lake-analytics-u-sql-programmability-guide-combiner.md
+                - name: Verwenden eines benutzerdefinierten Reducers
+                  href: data-lake-analytics-u-sql-programmability-guide-reducer.md
     - name: Planen von U-SQL-Aufträgen
       items:
         - name: Planen von Aufträgen mithilfe von SSIS
@@ -139,7 +161,7 @@
           href: understand-spark-code-concepts.md
     - name: Problembehandlung für U-SQL-Aufträge
       items:
-        - name: Problembehandlung für U-SQL-Laufzeitfehler
+        - name: Problembehandlung für U-SQL-Laufzeitfehler und bekannte Probleme
           href: runtime-troubleshoot.md
         - name: Problembehandlung für ein .NET-Upgrade
           href: dotnet-upgrade-troubleshoot.md

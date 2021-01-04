@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 11b9c553573d9e6188ba634b4cb966d6a9b850b4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 051f903c0b203045886b80f72d868adc1fa85f73
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944772"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886097"
 ---
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -23,11 +23,11 @@ Melden Sie sich zunächst beim [Azure-Portal](https://portal.azure.com) an, um e
 
 Geben Sie **Communication** in **Search the Marketplace** (Marketplace durchsuchen) oder in die Suchleiste oben im Portal ein.
 
-:::image type="content" source="../media/create-a-communication-resource/searchbar-communication-portal.png" alt-text="Screenshot mit der hervorgehobenen Schaltfläche zum Erstellen einer Ressource im Azure-Portal":::
+:::image type="content" source="../media/create-a-communication-resource/searchbar-communication-portal.png" alt-text="Screenshot, der eine Suche nach Communication Services in der Suchleiste zeigt":::
 
 Wählen Sie in den Ergebnissen **Communication Services** und anschließend **Hinzufügen** aus.
 
-:::image type="content" source="../media/create-a-communication-resource/add-communication-portal.png" alt-text="Screenshot mit der hervorgehobenen Schaltfläche zum Erstellen einer Ressource im Azure-Portal":::
+:::image type="content" source="../media/create-a-communication-resource/add-communication-portal.png" alt-text="Screenshot, der das Azure-Panel mit der hervorgehobenen Schaltfläche „Hinzufügen“ zeigt":::
 
 Sie können Ihre Communication Services-Ressource jetzt konfigurieren. Auf der ersten Seite des Erstellungsprozesses werden Sie aufgefordert, Folgendes anzugeben:
 
@@ -36,7 +36,7 @@ Sie können Ihre Communication Services-Ressource jetzt konfigurieren. Auf der e
 * Den Namen der Communication Services-Ressource
 * Die Geografie, der die Ressource zugeordnet wird
 
-Im nächsten Schritt können Sie der Ressource Tags zuweisen. Tags können verwendet werden, um Azure-Ressourcen zu organisieren. Weitere Informationen zu Tags finden Sie in der [Dokumentation zum Anwenden von Tags auf Ressourcen](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources).
+Im nächsten Schritt können Sie der Ressource Tags zuweisen. Tags können verwendet werden, um Azure-Ressourcen zu organisieren. Weitere Informationen zu Tags finden Sie in der [Dokumentation zum Anwenden von Tags auf Ressourcen](../../../azure-resource-manager/management/tag-resources.md).
 
 Zuletzt können Sie Ihre Konfiguration überprüfen und die Ressource **erstellen**. Beachten Sie, dass die Bereitstellung einige Minuten dauert.
 

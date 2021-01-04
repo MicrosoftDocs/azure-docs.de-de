@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 0ff6d064b6bfabbd8a648c23b5648aae9b12a11d
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 7258b37c9d92f25227eac678dde77963e644e64b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207494"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483316"
 ---
 # <a name="tutorial-creating-a-commercial-ready-azure-remote-rendering-application"></a>Tutorial: Erstellen einer Azure Remote Rendering-Anwendung für gewerbliche Zwecke
 
@@ -54,7 +54,7 @@ Damit dies möglich ist, bietet Azure einen Dienst namens Ressourcenmarkierung, 
 
 Weitere Informationen zum Benennen und Markieren von Ressourcen finden Sie unter:
 
-* [Leitfaden zur Entscheidungsfindung für Ressourcenbenennung und -markierung](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%252fazure%252fazure-resource-manager%252fmanagement%252ftoc.json)
+* [Leitfaden zur Entscheidungsfindung für Ressourcenbenennung und -markierung](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 ### <a name="diagnostics"></a>Diagnose
 
@@ -255,7 +255,7 @@ Viele Unternehmensclients erfordern es aus Sicherheitsgründen, dass Ihr Azure S
 Weitere Informationen finden Sie unter:
 
 * [Azure Marketplace](https://azure.microsoft.com/marketplace/)
-* [Tutorial: Veröffentlichen von verwalteten Azure-Anwendungen im Marketplace](../../../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)
+* [Tutorial: Veröffentlichen von verwalteten Azure-Anwendungen im Marketplace](../../../../marketplace/create-new-azure-apps-offer.md)
 
 ### <a name="security"></a>Sicherheit
 

@@ -8,16 +8,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: how-to
-author: juliemsft
-ms.author: jrasnick
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 04/19/2020
-ms.openlocfilehash: 61160943fc5762fd492f61a75a44159f2ef9cab2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 480e9f9031481621ac9d568a7bd97b942f47b947
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448782"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493640"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Überwachen der Leistung von Microsoft Azure SQL-Datenbank und Azure SQL Managed Instance mithilfe von dynamischen Verwaltungssichten
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -30,7 +30,7 @@ Microsoft Azure SQL-Datenbank und Azure SQL Managed Instance bieten eine Teilunt
 - Dynamische Verwaltungssichten für die Ausführung
 - Dynamische Verwaltungssichten für Transaktionen
 
-Ausführliche Informationen zu dynamischen Verwaltungssichten finden Sie unter [Dynamische Verwaltungssichten und Funktionen (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
+Ausführliche Informationen zu dynamischen Verwaltungssichten finden Sie unter [Dynamische Verwaltungssichten und Funktionen (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
 ## <a name="permissions"></a>Berechtigungen
 
@@ -94,7 +94,7 @@ GO
 
 ### <a name="the-cpu-issue-occurred-in-the-past"></a>Das CPU-Problem ist in der Vergangenheit aufgetreten
 
-Wenn das Problem in der Vergangenheit aufgetreten ist und Sie eine Ursachenanalyse durchführen möchten, verwenden Sie den [Abfragespeicher](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Benutzer mit Datenbankzugriff können T-SQL verwenden, um die Daten aus dem Abfragespeicher abzufragen. Die Standardkonfigurationen des Abfragespeichers verwenden eine Granularität von 1 Stunde. Verwenden Sie die folgende Abfrage, um die Aktivität für Abfragen mit hohem CPU-Verbrauch zu untersuchen. Diese Abfrage gibt die häufigsten 15 Abfragen mit CPU-Ressourcenverbrauch zurück. Denken Sie daran, `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()` zu ändern:
+Wenn das Problem in der Vergangenheit aufgetreten ist und Sie eine Ursachenanalyse durchführen möchten, verwenden Sie den [Abfragespeicher](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Benutzer mit Datenbankzugriff können T-SQL verwenden, um die Daten aus dem Abfragespeicher abzufragen. Die Standardkonfigurationen des Abfragespeichers verwenden eine Granularität von 1 Stunde. Verwenden Sie die folgende Abfrage, um die Aktivität für Abfragen mit hohem CPU-Verbrauch zu untersuchen. Diese Abfrage gibt die häufigsten 15 Abfragen mit CPU-Ressourcenverbrauch zurück. Denken Sie daran, `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()` zu ändern:
 
 ```sql
 -- Top 15 CPU consuming queries by query hash
@@ -131,7 +131,7 @@ Wenn Sie Probleme mit der E/A-Leistung feststellen, sind dies die häufigsten Wa
 
 ### <a name="if-the-io-issue-is-occurring-right-now"></a>Das E/A-Problem tritt jetzt auf
 
-Verwenden Sie [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) oder [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql), um `wait_type` und `wait_time` anzuzeigen.
+Verwenden Sie [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) oder [sys.dm_os_waiting_tasks](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql), um `wait_type` und `wait_time` anzuzeigen.
 
 #### <a name="identify-data-and-log-io-usage"></a>Identifizieren der Daten- und Protokoll-E/A-Nutzung
 
@@ -252,7 +252,7 @@ GO
 
 ## <a name="identify-tempdb-performance-issues"></a>Identifizieren von Problemen mit der `tempdb`-Leistung
 
-Wenn Sie Probleme mit der E/A-Leistung feststellen, ist `PAGELATCH_*` (nicht `PAGEIOLATCH_*`) der häufigste Wartetyp in Zusammenhang mit `tempdb`-Problemen. `PAGELATCH_*`-Wartevorgänge bedeuten jedoch nicht immer, dass ein `tempdb`-Konflikt vorliegt.  Dieser Wartevorgang kann auch auf einen Konflikt mit Benutzerobjekt-Datenseiten aufgrund von gleichzeitigen Anforderungen an dieselbe Datenseite hinweisen. Zur genaueren Ermittlung, ob es sich um einen `tempdb`-Konflikt handelt, verwenden Sie [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql), um zu bestätigen, dass der Wert von „wait_resource“ mit `2:x:y` beginnt, wobei „2“ die `tempdb`-Datenbank-ID, `x` die Datei-ID und `y` die Seiten-ID ist.  
+Wenn Sie Probleme mit der E/A-Leistung feststellen, ist `PAGELATCH_*` (nicht `PAGEIOLATCH_*`) der häufigste Wartetyp in Zusammenhang mit `tempdb`-Problemen. `PAGELATCH_*`-Wartevorgänge bedeuten jedoch nicht immer, dass ein `tempdb`-Konflikt vorliegt.  Dieser Wartevorgang kann auch auf einen Konflikt mit Benutzerobjekt-Datenseiten aufgrund von gleichzeitigen Anforderungen an dieselbe Datenseite hinweisen. Zur genaueren Ermittlung, ob es sich um einen `tempdb`-Konflikt handelt, verwenden Sie [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql), um zu bestätigen, dass der Wert von „wait_resource“ mit `2:x:y` beginnt, wobei „2“ die `tempdb`-Datenbank-ID, `x` die Datei-ID und `y` die Seiten-ID ist.  
 
 Bei tempdb-Konflikten besteht eine gängige Methode darin, den Anwendungscode, der `tempdb` benötigt, zu reduzieren oder neu zu schreiben.  In folgenden Bereichen wird `tempdb` meist genutzt:
 
@@ -521,17 +521,17 @@ WHERE c.session_id = @@SPID;
 
 ## <a name="monitor-resource-use"></a>Überwachen der Ressourcennutzung
 
-Sie können die Azure SQL-Datenbank-Ressourcennutzung mithilfe von [Query Performance Insight für SQL-Datenbank](query-performance-insight-use.md) überwachen. Für Azure SQL-Datenbank und Azure SQL Managed Instance können Sie die Überwachung mit dem [Abfragespeicher](https://msdn.microsoft.com/library/dn817826.aspx) durchführen.
+Sie können die Azure SQL-Datenbank-Ressourcennutzung mithilfe von [Query Performance Insight für SQL-Datenbank](query-performance-insight-use.md) überwachen. Für Azure SQL-Datenbank und Azure SQL Managed Instance können Sie die Überwachung mit dem [Abfragespeicher](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) durchführen.
 
 Außerdem lässt sich die Nutzung über diese Sichten überwachen:
 
 - Azure SQL-Datenbank: [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 - Azure SQL Managed Instance: [sys.server_resource_stats](/sql/relational-databases/system-catalog-views/sys-server-resource-stats-azure-sql-database)
-- Azure SQL-Datenbank und Azure SQL Managed Instance: [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
+- Azure SQL-Datenbank und Azure SQL Managed Instance: [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 
 ### <a name="sysdm_db_resource_stats"></a>sys.dm_db_resource_stats
 
-Sie können die Sicht [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) in jeder Datenbank verwenden. Die Sicht **sys.dm_db_resource_stats** enthält Daten zur Ressourcennutzung in der letzten Zeit relativ zur Dienstebene. Durchschnittliche Prozentsätze für CPU, Dateneingang/-ausgang, Protokollschreibvorgänge und Arbeitsspeicher werden alle 15 Sekunden aufgezeichnet und eine Stunde lang aufbewahrt.
+Sie können die Sicht [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) in jeder Datenbank verwenden. Die Sicht **sys.dm_db_resource_stats** enthält Daten zur Ressourcennutzung in der letzten Zeit relativ zur Dienstebene. Durchschnittliche Prozentsätze für CPU, Dateneingang/-ausgang, Protokollschreibvorgänge und Arbeitsspeicher werden alle 15 Sekunden aufgezeichnet und eine Stunde lang aufbewahrt.
 
 Da diese Ansicht eine detailliertere Darstellung der Ressourcennutzung ist, sollten Sie für alle Analysen des aktuellen Zustands oder für die Problembehandlung zuerst **sys.dm_db_resource_stats** verwenden. Mit dieser Abfrage wird beispielsweise die durchschnittliche und maximale Ressourcennutzung für die aktuelle Datenbank in der letzten Stunde angezeigt:
 
@@ -548,7 +548,7 @@ SELECT
 FROM sys.dm_db_resource_stats;  
 ```
 
-Beispiele für andere Abfragen finden Sie unter [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
+Beispiele für andere Abfragen finden Sie unter [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).
 
 ### <a name="sysserver_resource_stats"></a>sys.server_resource_stats
 
@@ -568,7 +568,7 @@ HAVING AVG(avg_cpu_percent) >= 80
 
 ### <a name="sysresource_stats"></a>sys.resource_stats
 
-Die Sicht [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) in der **master**-Datenbank umfasst zusätzliche Informationen, die beim Überwachen der Leistung Ihrer Datenbank innerhalb der jeweiligen Dienstebene und Computegröße nützlich sind. Die Daten werden alle fünf Minuten gesammelt und c.a. 14 Tage lang aufbewahrt. Diese Sicht ist für eine längere Verlaufsanalyse der Ressourcennutzung Ihrer Datenbank hilfreich.
+Die Sicht [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) in der **master**-Datenbank umfasst zusätzliche Informationen, die beim Überwachen der Leistung Ihrer Datenbank innerhalb der jeweiligen Dienstebene und Computegröße nützlich sind. Die Daten werden alle fünf Minuten gesammelt und c.a. 14 Tage lang aufbewahrt. Diese Sicht ist für eine längere Verlaufsanalyse der Ressourcennutzung Ihrer Datenbank hilfreich.
 
 Der folgende Graph zeigt die CPU-Ressourcennutzung für eine Premium-Datenbank mit der Computegröße P2 für jede Stunde einer Woche. Dieser Graph beginnt mit einem Montag und zeigt fünf Arbeitstage und dann das Wochenende, an dem die Anwendung deutlich weniger gefragt ist.
 
@@ -743,11 +743,11 @@ ORDER BY 2 DESC;
 
 ### <a name="monitoring-blocked-queries"></a>Überwachen blockierter Abfragen
 
-Langsame Abfragen oder Abfragen mit langer Laufzeit können zu einer übermäßigen Ressourcennutzung beitragen und auf blockierte Abfragen zurückzuführen sein. Ursache für das Blockieren kann ein mangelhafter Anwendungsentwurf, fehlerhafte Abfragepläne oder ein Mangel an nützlichen Indizes usw. sein. Verwenden Sie die Sicht „sys.dm_tran_locks“, um Informationen über die aktuellen Sperraktivitäten in der Datenbank abzurufen. Beispielcode finden Sie unter [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx).
+Langsame Abfragen oder Abfragen mit langer Laufzeit können zu einer übermäßigen Ressourcennutzung beitragen und auf blockierte Abfragen zurückzuführen sein. Ursache für das Blockieren kann ein mangelhafter Anwendungsentwurf, fehlerhafte Abfragepläne oder ein Mangel an nützlichen Indizes usw. sein. Verwenden Sie die Sicht „sys.dm_tran_locks“, um Informationen über die aktuellen Sperraktivitäten in der Datenbank abzurufen. Beispielcode finden Sie unter [sys.dm_tran_locks (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql).
 
 ### <a name="monitoring-query-plans"></a>Überwachen von Abfrageplänen
 
-Auch ein ineffizienter Abfrageplan kann die CPU-Auslastung erhöhen. Im folgenden Beispiel wird die Sicht [sys.dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) verwendet, um festzustellen, welche Abfrage die CPU kumulativ am meisten auslastet.
+Auch ein ineffizienter Abfrageplan kann die CPU-Auslastung erhöhen. Im folgenden Beispiel wird die Sicht [sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql) verwendet, um festzustellen, welche Abfrage die CPU kumulativ am meisten auslastet.
 
 ```sql
 SELECT

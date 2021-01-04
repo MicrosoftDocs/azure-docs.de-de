@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6670f654685f8d5cdcaf55d2b1679738a57ecab4
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: eedd19189d1e1ccedd3d505aecf407aca8fca831
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042795"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413359"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>Herstellen einer Verbindung eines IoT Plug & Play-Bridgebeispiels unter Linux oder Windows mit IoT-Hub
 
@@ -54,7 +54,7 @@ Installieren Sie die folgende Software in Ihrer lokalen Windows-Umgebung, um die
 
 ### <a name="azure-iot-explorer"></a>Azure IoT-Explorer
 
-Wenn Sie im zweiten Teil dieses Schnellstarts mit dem Beispielgerät interagieren möchten, verwenden Sie das Tool **Azure IoT-Explorer** . Dazu müssen Sie [die neueste Version von Azure IoT-Explorer für Ihr Betriebssystem herunterladen und installieren](./howto-use-iot-explorer.md).
+Wenn Sie im zweiten Teil dieses Schnellstarts mit dem Beispielgerät interagieren möchten, verwenden Sie das Tool **Azure IoT-Explorer**. Dazu müssen Sie [die neueste Version von Azure IoT-Explorer für Ihr Betriebssystem herunterladen und installieren](./howto-use-iot-explorer.md).
 
 [!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
@@ -79,9 +79,9 @@ Sie verwenden den Azure IoT-Explorer in späteren Schritten zum Anzeigen des Ger
 
 Wenn Sie den Code im folgenden Schritt herunterladen, sind die Dateien des Beispielmodells im Ordner "`pnpbridge/docs/schema`" enthalten. Vorbereiten des Azure-IoT-Explorers:
 
-1. Erstellen Sie auf Ihrem lokalen Computer einen Ordner mit dem Namen *models* .
-1. Zeigen Sie [EnvironmentalSensor.json](https://aka.ms/iot-pnp-bridge-env-model) an, und speichern Sie die JSON-Datei im Ordner *models* .
-1. Zeigen Sie [RootBridgeSampleDevice.json](https://aka.ms/iot-pnp-bridge-root-model) an, und speichern Sie die JSON-Datei im Ordner *models* .
+1. Erstellen Sie auf Ihrem lokalen Computer einen Ordner mit dem Namen *models*.
+1. Zeigen Sie [EnvironmentalSensor.json](https://aka.ms/iot-pnp-bridge-env-model) an, und speichern Sie die JSON-Datei im Ordner *models*.
+1. Zeigen Sie [RootBridgeSampleDevice.json](https://aka.ms/iot-pnp-bridge-root-model) an, und speichern Sie die JSON-Datei im Ordner *models*.
 
 ## <a name="download-the-code"></a>Laden Sie den Code herunter.
 
@@ -107,9 +107,13 @@ Sie sollten damit rechnen, dass die Ausführung dieses Vorgangs mehrere Minuten 
 
 Navigieren Sie nach dem Klonen des IoT Plug & Play-Bridgerepositorys auf Ihren Computer zum Verzeichnis `pnpbridge/docs/schema` des geklonten Repositorys, wo Sie die [Konfigurations-JSON](https://aka.ms/iot-pnp-bridge-env-config) oder `config.json` für das Umgebungssensorbeispiel der Bridge finden. Mehr über Konfigurationsdateien können Sie im [Konzeptdokument zur IoT Plug & Play-Bridge](concepts-iot-pnp-bridge.md) erfahren.
 
-Für das `root-_interface_model_id`-Feld müssen Sie die ID des IoT Plug & Play-Modells, die das Modell für Ihr Gerät identifiziert, kopieren. In diesem Beispiel lautet er `dtmi:com:example:SampleDevice;1`. Ändern Sie die folgenden Parameter unter dem Knoten **pnp_bridge_parameters** in der `config.json`-Datei in der Zeichenfolge:
+Für das `root-_interface_model_id`-Feld müssen Sie die ID des IoT Plug & Play-Modells, die das Modell für Ihr Gerät identifiziert, kopieren. In diesem Beispiel lautet er `dtmi:com:example:SampleDevice;1`. Ändern Sie die folgenden Parameter unter dem Knoten **pnp_bridge_parameters** in der `config.json`-Datei:
 
-  „Using Connection“ (Beachten Sie: Der symmetric_key muss mit dem SAS-Schlüssel in der Verbindungszeichenfolge übereinstimmen):
+* connection_string 
+* symmetric_key 
+
+>[!NOTE]
+> „symmetric_key“ muss mit dem SAS-Schlüssel in der Verbindungszeichenfolge übereinstimmen.
 
   ```JSON
     {
@@ -126,7 +130,7 @@ Für das `root-_interface_model_id`-Feld müssen Sie die ID des IoT Plug & Play-
   }
   ```
 
- Nach der Änderung sollte die `config.json`-Datei etwa so aussehen:
+ Nach der Änderung sollte die `config.json`-Datei etwa wie folgt aussehen:
 
    ```JSON
     {
@@ -172,14 +176,14 @@ cd scripts/linux
  Starten Sie das IoT Plug & Play-Bridgebeispiel für Umgebungssensoren, indem Sie zum Ordner *pnpbridge* navigieren und den folgenden Befehl an einer Eingabeaufforderung ausführen:
 
 ```bash
- cd cmake/pnpbridge_x86/src/adaptors/samples/environmental_sensor/
+ cd cmake/pnpbridge_linux/src/adapters/samples/environmental_sensor/
 ./pnpbridge_environmentalsensor
 
 ```
 
 ```cmd
 REM Windows
-cd cmake\pnpbridge_x86\src\adaptors\samples\environmental_sensor
+cd cmake\pnpbridge_x86\src\adapters\samples\environmental_sensor
 Debug\pnpbridge_environmentalsensor.exe
 ```
 

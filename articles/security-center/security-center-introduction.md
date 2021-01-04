@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: e72d1161f80ad92c1e4cfc7fd2c9fde0d46e77b9
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 0a1cac0fe61ea13a18224ea5992b5c7c1ba69d8a
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332007"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510334"
 ---
 # <a name="what-is-azure-security-center"></a>Was ist Azure Security Center?
 
@@ -54,7 +54,7 @@ Darüber hinaus werden mit Security Center auch Server und virtuelle Computer, d
 
 Die über die Agents und über Azure erfassten Ereignisse werden im Sicherheitsanalysemodul korreliert, um maßgeschneiderte Empfehlungen zur Verbesserung der Workloadsicherheit (Härtung) sowie Sicherheitswarnungen bereitzustellen. Es ist ratsam, die Warnungen schnellstmöglich zu untersuchen, um sicherzustellen, dass es für Ihre Workloads nicht zu schädlichen Angriffen kommt.
 
-Wenn Sie Security Center aktivieren, wird die in Security Center integrierte Sicherheitsrichtlinie in Azure Policy als integrierte Initiative unter der Security Center-Kategorie dargestellt. Die integrierte Initiative wird automatisch allen in Security Center registrierten Abonnements (Tarife „Free“ oder „Standard“) zugewiesen. Die integrierte Initiative enthält nur Überwachungsrichtlinien. Weitere Informationen zu Security Center-Richtlinien in Azure Policy finden Sie unter [Arbeiten mit Sicherheitsrichtlinien](tutorial-security-policy.md).
+Wenn Sie Security Center aktivieren, wird die in Security Center integrierte Sicherheitsrichtlinie in Azure Policy als integrierte Initiative unter der Kategorie „Security Center“ dargestellt. Die integrierte Initiative wird automatisch allen in Security Center registrierten Abonnements zugewiesen (unabhängig davon, ob Azure Defender aktiviert ist oder nicht). Die integrierte Initiative enthält nur Überwachungsrichtlinien. Weitere Informationen zu Security Center-Richtlinien in Azure Policy finden Sie unter [Arbeiten mit Sicherheitsrichtlinien](tutorial-security-policy.md).
 
 ## <a name="strengthen-security-posture"></a>Stärken des Sicherheitsstatus
 
@@ -68,7 +68,7 @@ Es ist eine grundlegende Sicherheitsanforderung, dass Sie Ihre Workloads kennen 
 
 Mit Security Center können Sie **Schatten-IT-Abonnements identifizieren**. Indem Sie sich in Ihrem Dashboard Abonnements mit dem Hinweis **Nicht abgedeckt** ansehen, können Sie sofort erkennen, wann neu erstellte Abonnements vorhanden sind. Sie können dann sicherstellen, dass diese durch Ihre Richtlinien abgedeckt und mit Azure Security Center geschützt sind.
 
-:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Seite für die Richtlinienverwaltung":::
+:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Security Center-Dashboard für Richtlinien":::
 
 ### <a name="continuous-assessments"></a>Fortlaufende Bewertungen
 
@@ -76,13 +76,13 @@ Mit Security Center werden ständig neue Ressourcen erkannt, die für Ihre Workl
 
 Damit Sie besser nachvollziehen können, wie wichtig die einzelnen Empfehlungen für den gesamten Sicherheitsstatus sind, werden die Empfehlungen von Security Center in Sicherheitskontrollelemente gruppiert, und jedem Sicherheitskontrollelement wird eine **Sicherheitsbewertung** hinzugefügt. Dies ist ein entscheidender Faktor beim **Priorisieren Ihrer Sicherheitsmaßnahmen**.
 
-:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Seite für die Richtlinienverwaltung":::
+:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Sicherheitsbewertung von Security Center":::
 
 ### <a name="network-map"></a>Netzwerkübersicht
 
 Eines der leistungsfähigsten Tools, das von Security Center für die ständige Überwachung des Sicherheitsstatus Ihres Netzwerks bereitgestellt wird, ist die **Netzwerkübersicht**. In der Übersicht können Sie die Topologie Ihrer Workloads anzeigen, um zu ermitteln, ob jeder Knoten richtig konfiguriert ist. Sie sehen, wie Ihre Knoten miteinander verbunden sind, und können unerwünschte Verbindungen blockieren, die einem Angreifer unter Umständen die Bewegung durch Ihr Netzwerk erleichtern könnten.
 
-:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Seite für die Richtlinienverwaltung":::
+:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Security Center – Netzwerkübersicht":::
 
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>Optimieren und Verbessern der Sicherheit durch die Konfiguration von empfohlenen Kontrollen
@@ -93,7 +93,7 @@ Auf diese Weise können Sie mit Security Center nicht nur die Sicherheitsrichtli
 
 Mit den Empfehlungen können Sie die Angriffsfläche jeder einzelnen Ressource verkleinern. Dies umfasst virtuelle Azure-Computer, Azure-externe Server und Azure PaaS-Dienste, z.B. SQL und Speicherkonten, und mehr. Hierbei wird jeder Ressourcentyp anders bewertet und verfügt über eigene Standards.
 
-:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Seite für die Richtlinienverwaltung":::
+:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Beispiel für Security Center-Empfehlung":::
 
 ## <a name="protect-against-threats"></a>Schutz vor Bedrohungen
 
@@ -101,11 +101,11 @@ Mit dem Bedrohungsschutz von Security Center können Sie Bedrohungen auf IaaS-Eb
 
 Der Bedrohungsschutz von Security Center enthält eine Fusion-Schrittfolgenanalyse, bei der Warnungen in Ihrer Umgebung basierend auf einer Cyber-Schrittfolgenanalyse automatisch korreliert werden. Hiermit können Sie den gesamten Verlauf eines Angriffs, seinen Ausgangspunkt und die Auswirkungen auf Ihre Ressourcen besser verstehen.
 
-:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Seite für die Richtlinienverwaltung":::
+:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Sicherheitswarnungen":::
 
-### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Integration in Microsoft Defender Advanced Threat Protection
+### <a name="integration-with-microsoft-defender-for-endpoint"></a>Integration in Microsoft Defender für Endpunkt
 
-Security Center beinhaltet die automatische native Integration in Microsoft Defender Advanced Threat Protection. Dies bedeutet, dass Ihre virtuellen Windows- und Linux-Computer ohne Konfigurationsaufwand vollständig in die Empfehlungen und Bewertungen von Security Center integriert sind.
+Security Center beinhaltet die automatische native Integration in Microsoft Defender für Endpunkt. Dies bedeutet, dass Ihre virtuellen Windows- und Linux-Computer ohne Konfigurationsaufwand vollständig in die Empfehlungen und Bewertungen von Security Center integriert sind.
 
 Außerdem können Sie mit Security Center die Anwendungssteuerungsrichtlinien in Serverumgebungen automatisieren. Mit den adaptiven Anwendungssteuerungen in Security Center können Sie das End-to-End-App-Genehmigungslisting für Ihre Windows-Server nutzen. Sie müssen keine Regeln erstellen und keine Prüfung auf Verstöße durchführen. Dies wird alles automatisch für Sie erledigt.
 
@@ -123,7 +123,7 @@ Security Center enthält Funktionen, mit denen Sie eine automatische Klassifizie
 
 ## <a name="get-secure-faster"></a>Schnellerer Aufbau des Schutzes
 
-Dank der Kombination aus nativer Azure-Integration (einschließlich Azure Policy und Azure Monitor-Protokollen) und nahtloser Integration in andere Microsoft-Sicherheitslösungen wie etwa Microsoft Cloud App Security und Windows Defender Advanced Threat Protection können Sie sicherstellen, dass Ihre Sicherheitslösung umfassend ist und einfach eingeführt werden kann (Onboarding und Rollout).
+Dank der Kombination aus nativer Azure-Integration (einschließlich Azure Policy und Azure Monitor-Protokollen) und nahtloser Integration in andere Microsoft-Sicherheitslösungen wie etwa Microsoft Cloud App Security und Microsoft Defender für Endpunkt können Sie sicherstellen, dass Ihre Sicherheitslösung umfassend ist und einfach eingeführt werden kann (Onboarding und Rollout).
 
 Darüber hinaus können Sie die vollständige Lösung über Azure hinaus auf weitere Workloads ausdehnen, die in anderen Clouds und in lokalen Rechenzentren ausgeführt werden.
 
@@ -137,6 +137,6 @@ Umfassende Protokollsammlung: Protokolle von Windows und Linux werden im Sicherh
 
 - Für den Einstieg in Security Center benötigen Sie ein Microsoft Azure-Abonnement. Wenn Sie nicht über ein Abonnement verfügen, können Sie sich für ein [kostenloses Testabonnement](https://azure.microsoft.com/free/)registrieren.
 
-- Der Free-Tarif von Security Center ist für alle aktuellen Azure-Abonnements aktiviert, sobald Sie das Azure Security Center-Dashboard im Azure-Portal zum ersten Mal aufrufen oder wenn es programmgesteuert über die API aktiviert wird. Um die Vorteile der erweiterten Funktionen für die Sicherheitsverwaltung und Bedrohungserkennung nutzen zu können, müssen Sie ein Upgrade auf den Tarif „Standard“ durchführen. Der Tarif „Standard“ kann 30 Tage lang kostenlos getestet werden. Weitere Informationen finden Sie auf der Seite mit den [Preisen für Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+- Der Free-Tarif von Security Center ist für alle aktuellen Azure-Abonnements aktiviert, sobald Sie das Azure Security Center-Dashboard im Azure-Portal zum ersten Mal aufrufen oder wenn es programmgesteuert über die API aktiviert wird. Sie müssen Azure Defender aktivieren, um erweiterte Funktionen für die Sicherheitsverwaltung und Bedrohungserkennung nutzen zu können. Azure Defender kann 30 Tage lang kostenlos getestet werden. Weitere Informationen finden Sie auf der Seite mit den [Preisen für Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
-- Wenn Sie Security Center Standard jetzt aktivieren möchten, helfen Ihnen die Informationen unter [Schnellstart: Einbinden Ihres Azure-Abonnements in Security Center Standard](security-center-get-started.md) weiter.
+- Wenn Sie Azure Defender jetzt aktivieren möchten, finden Sie unter [Schnellstart: Einrichten von Azure Security Center](security-center-get-started.md) die entsprechenden Schritte.

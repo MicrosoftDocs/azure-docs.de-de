@@ -8,11 +8,11 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: f38e23a3af1e2c81ee012a4f3c268cbff3fc1bee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86171464"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002816"
 ---
 # <a name="persist-state-in-windows"></a>Beibehalten des Status in Windows
 
@@ -69,7 +69,7 @@ In diesem Artikel werden die Schritte beschrieben, die zum Bereitstellen des Eve
    ```
 1. Fügen Sie die Gruppe **Benutzer** wie folgt dem Wert hinzu, auf den **Mountpoint** verweist:
     1. Starten Sie den Datei-Explorer.
-    1. Navigieren Sie zu dem Ordner, auf den **Mountpoint**verweist.
+    1. Navigieren Sie zu dem Ordner, auf den **Mountpoint** verweist.
     1. Klicken Sie mit der rechten Maustaste, und wählen Sie **Eigenschaften** aus.
     1. Wählen Sie **Sicherheit** aus.
     1. Wählen Sie unter „Gruppen- oder Benutzernamen“ die Option **Bearbeiten** aus.

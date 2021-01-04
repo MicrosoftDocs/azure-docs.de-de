@@ -3,12 +3,12 @@ title: Aktivieren der Browserverbindung auf Azure DevTest Labs-VMs
 description: DevTest Labs und Azure Bastion sind jetzt integriert. Als Besitzer des Labs können Sie den Zugriff auf alle Lab-VMs über einen Browser aktivieren.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 28a3c11f3df578265f9746a173fcb3029a132b26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d9d631c79c22f1f713cfc4ee7cdd766a4ad8f06
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88870492"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341171"
 ---
 # <a name="enable-browser-connection-on-azure-devtest-labs-virtual-machines"></a>Aktivieren der Browserverbindung auf Azure DevTest Labs-VMs 
 DevTest Labs und [Azure Bastion](../bastion/index.yml) sind integriert, sodass Sie über einen Browser eine Verbindung mit Ihren virtuellen Computern herstellen können. Zuerst müssen Sie die Browserverbindung auf Lab-VMs aktivieren.
@@ -20,7 +20,7 @@ Dieser Artikel erläutert, wie Sie die Browserverbindung auf Lab-VMs aktivieren.
 
 ## <a name="prerequisites"></a>Voraussetzungen 
 - Sie können einen Bastionhost im virtuellen Netzwerk Ihres bestehenden Labs bereitstellen **ODER** Ihr Lab mit einem mit Bastion konfigurierten virtuellen Netzwerk verbinden.
-Informationen zum Bereitstellen eines Bastionhosts in einem virtuellen Netzwerk finden Sie unter [Erstellen eines Azure Bastion-Hosts](../bastion/bastion-create-host-portal.md). Wenn Sie den Bastion-Host erstellen, wählen Sie das virtuelle Netzwerk des Labs aus. 
+Informationen zum Bereitstellen eines Bastionhosts in einem virtuellen Netzwerk finden Sie unter [Erstellen eines Azure Bastion-Hosts](../bastion/tutorial-create-host-portal.md). Wenn Sie den Bastion-Host erstellen, wählen Sie das virtuelle Netzwerk des Labs aus. 
 - Der Labbenutzer muss über eine Rolle **Leser** auf dem Bastionhost und in dem virtuellen Netzwerk verfügen, in dem Bastion konfiguriert ist. 
 
 ## <a name="create-a-second-sub-net-in-the-bastion-virtual-network"></a>Erstellen eines zweiten Subnetzes im virtuellen Bastion-Netzwerk

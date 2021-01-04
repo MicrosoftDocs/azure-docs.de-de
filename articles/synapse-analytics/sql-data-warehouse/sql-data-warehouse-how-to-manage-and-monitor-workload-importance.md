@@ -1,6 +1,6 @@
 ---
-title: Verwalten und Überwachen der Workloadpriorität
-description: Hier erfahren Sie, wie Sie die Priorität für die Anforderungsebene in Azure Synapse Analytics verwalten und überwachen.
+title: Verwalten und Überwachen der Workloadpriorität in dedizierten SQL-Pools
+description: Hier erfahren Sie, wie Sie die Priorität für die Anforderungsebene in dedizierten SQL-Pools für Azure Synapse Analytics verwalten und überwachen können.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 43006456142728287ddf4adba1fbb9b45f5ccc89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb0a5fbf33b48521882646bf8fb5eb3fe5dacca6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85211968"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459201"
 ---
-# <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Verwalten und Überwachen der Workloadpriorität in Azure Synapse Analytics
+# <a name="manage-and-monitor-workload-importance-in-dedicated-sql-pool-for-azure-synapse-analytics"></a>Verwalten und Überwachen der Workloadpriorität in dedizierten SQL-Pools für Azure Synapse Analytics
 
-Verwalten und überwachen Sie die Priorität für die Synapse-SQL-Anforderungsebene in Azure Synapse mithilfe von dynamischen Verwaltungssichten (Dynamic Management Views, DMVs) und Katalogsichten.
+Verwalten und überwachen Sie die Priorität für die Anforderungsebene in dedizierten SQL-Pools für Azure Synapse mithilfe von dynamischen Verwaltungssichten (Dynamic Management Views, DMVs) und Katalogsichten.
 
 ## <a name="monitor-importance"></a>Überwachen der Priorität
 

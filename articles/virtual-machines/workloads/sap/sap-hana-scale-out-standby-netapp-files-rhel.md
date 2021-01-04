@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/15/2020
 ms.author: radeltch
-ms.openlocfilehash: 9978137edb7874a8b93e0c9a5f1f9979ce449277
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2cc8487f9864a27c1a2b02ef6e846bc43727e27
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88893169"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608536"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Bereitstellen eines Systems für horizontale SAP HANA-Skalierung mit Standbyknoten auf Azure-VMs mithilfe von Azure NetApp Files auf Red Hat Enterprise Linux 
 
@@ -58,6 +59,10 @@ ms.locfileid: "88893169"
 Dieser Artikel beschreibt die Bereitstellung eines hochverfügbaren SAP HANA-Systems in einer Konfiguration mit horizontaler Skalierung mit Standby auf virtuellen Azure Red Hat Enterprise Linux-Computern (VMs) mithilfe von [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) für die freigegebenen Speichervolumes.  
 
 In den Beispielkonfigurationen, Installationsbefehlen usw. werden die HANA-Instanz **03** und HANA-System-ID **HN1** verwendet. Die Beispiele basieren auf HANA 2.0 SP4 und Red Hat Enterprise Linux für SAP 7.6. 
+
+> [!NOTE]
+> Dieser Artikel enthält Verweise auf die Begriffe *Master* und *Slave*, die von Microsoft nicht mehr verwendet werden. Sobald diese Begriffe aus der Software entfernt wurden, werden sie auch aus diesem Artikel gelöscht.
+
 
 Bevor Sie beginnen, lesen Sie die folgenden SAP-Hinweise und Dokumente:
 
@@ -531,7 +536,7 @@ In diesem Beispiel für die Bereitstellung von SAP HANA in einer Konfiguration m
     yum install libgcc_s1 libstdc++6 compat-sap-c++-7 libatomic1 
     </code></pre>
 
-4. **[2], [3]** Übertragen Sie den Besitz der SAP HANA-Verzeichnisse `data` und `log` an „**hn1**adm“.   
+4. **[2], [3]** Übertragen Sie den Besitz der SAP HANA-Verzeichnisse `data` und `log` an „**hn1** adm“.   
 
     <pre><code>
     # Execute as root
@@ -730,7 +735,7 @@ In diesem Beispiel für die Bereitstellung von SAP HANA in einer Konfiguration m
 
 1. Simulieren Sie einen Knotenabsturz auf einem SAP HANA-Workerknoten. Gehen Sie folgendermaßen vor: 
 
-   a. Führen Sie die folgenden Befehle als „**hn1**adm“ aus, um den Status der Umgebung zu erfassen, bevor Sie den Knotenabsturz simulieren:  
+   a. Führen Sie die folgenden Befehle als „**hn1** adm“ aus, um den Status der Umgebung zu erfassen, bevor Sie den Knotenabsturz simulieren:  
 
    <pre><code>
     # Check the landscape status
@@ -786,7 +791,7 @@ In diesem Beispiel für die Bereitstellung von SAP HANA in einer Konfiguration m
 
 2. Beenden Sie den Namenserver, indem Sie die folgenden Schritte ausführen:
 
-   a. Führen Sie die folgenden Befehle als „**hn1**adm“ aus, um den Status der Umgebung vor dem Test zu überprüfen:  
+   a. Führen Sie die folgenden Befehle als „**hn1** adm“ aus, um den Status der Umgebung vor dem Test zu überprüfen:  
 
    <pre><code>
     #Landscape status 
@@ -808,7 +813,7 @@ In diesem Beispiel für die Bereitstellung von SAP HANA in einer Konfiguration m
     hanadb1, 3, 50313, 50314, 0.3, HDB|HDB_WORKER, GREEN
    </code></pre>
 
-   b. Führen Sie die folgenden Befehle als „**hn1**adm“ auf dem aktiven Masterknoten aus (in diesem Fall **hanadb1**):  
+   b. Führen Sie die folgenden Befehle als „**hn1** adm“ auf dem aktiven Masterknoten aus (in diesem Fall **hanadb1**):  
 
     <pre><code>
         hn1adm@hanadb1:/usr/sap/HN1/HDB03> HDB kill

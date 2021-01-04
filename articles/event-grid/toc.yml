@@ -106,7 +106,7 @@
       items:
         - name: Übersicht über Systemthemen
           href: system-topics.md
-        - name: Ereignisquellen
+        - name: Ereignisquellen (Herausgeber)
           items:
             - name: Azure App Configuration
               href: event-schema-app-configuration.md
@@ -138,13 +138,15 @@
               href: event-schema-azure-signalr.md
             - name: Azure-Abonnements
               href: event-schema-subscriptions.md
-    - name: Partnerthemen
+    - name: Partnerereignisse
       items:
-        - name: Übersicht über Partnerthemen
-          href: partner-topics-overview.md
-        - name: Auth0
-          href: auth0-overview.md
-        - name: "Registrieren als Event\_Grid-Partner"
+        - name: Übersicht über Partnerereignisse
+          href: partner-events-overview.md
+        - name: Ereignisquellen (Herausgeber)
+          items:
+            - name: Auth0
+              href: auth0-overview.md
+        - name: Übersicht über das Partneronboarding
           href: partner-onboarding-overview.md
     - name: Ereignisdomänen
       href: event-domains.md
@@ -210,12 +212,16 @@
           href: create-view-manage-system-topics-cli.md
         - name: Azure Resource Manager-Vorlage
           href: create-view-manage-system-topics-arm.md
+    - name: Partnerereignisse
+      items:
+        - name: Durchführen des Onboardings als Partner
+          href: onboard-partner.md
+        - name: Abonnieren von Auth0-Ereignissen
+          href: auth0-how-to.md
     - name: Abrufen von Zugriffsschlüsseln für Themen oder Domänen
       href: get-access-keys.md
     - name: Posten eines Beitrags in einem benutzerdefinierten Thema
       href: post-to-custom-topic.md
-    - name: Abonnieren von Auth0-Ereignissen
-      href: auth0-how-to.md
     - name: Empfangen von Ereignissen am HTTP-Endpunkt
       href: receive-events.md
     - name: Festlegen eines Speicherorts und einer Wiederholungsrichtlinie für unzustellbare Nachrichten

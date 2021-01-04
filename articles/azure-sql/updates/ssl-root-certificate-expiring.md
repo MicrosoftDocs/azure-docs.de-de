@@ -7,12 +7,12 @@ ms.service: sql-db-mi
 ms.subservice: service
 ms.topic: conceptual
 ms.date: 09/13/2020
-ms.openlocfilehash: a273b9aaae083bb4566d289e9680b50c686d4e9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0a10744d2b48fa620b48b731144222199f711c7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91339321"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792530"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-sql-database--sql-managed-instance"></a>Grundlegendes zu den Änderungen im Zusammenhang mit der Stammzertifizierungsstelle für Azure SQL-Datenbank und SQL Managed Instance
 
@@ -34,7 +34,7 @@ Wenn Sie SSL/TLS aktuell nicht verwenden, besteht keine Auswirkung auf die Verf�
 
 Wenn Ihr Clienttreiber den Zertifikatspeicher des Betriebssystems verwendet, was bei den meisten Treibern der Fall ist, und wenn Ihr Betriebssystem regelmäßig gewartet wird, wirkt sich diese Änderung vermutlich nicht auf Sie aus, da das Stammzertifikat, das geändert wird, in Ihrem Zertifikatspeicher für vertrauenswürdige Stammzertifikate bereits verfügbar sein sollte. Suchen Sie nach Baltimore CyberDigiCert GlobalRoot G2, und überprüfen Sie, ob es vorhanden ist.
 
-Wenn Ihr Clienttreiber einen Zertifikatspeicher mit lokalen Dateien nutzt, finden Sie unter [**Was muss ich tun, um die Konnektivität aufrechtzuerhalten?** ](./ssl-root-certificate-expiring.md#what-do-i-need-to-do-to-maintain-connectivity) Informationen dazu, wie Sie verhindern, dass die Verfügbarkeit Ihrer Anwendung aufgrund unerwartet widerrufener Zertifikate unterbrochen wird, oder wie Sie ein widerrufenes Zertifikat aktualisieren.
+Wenn Ihr Clienttreiber einen Zertifikatspeicher mit lokalen Dateien nutzt, finden Sie unter [**Was muss ich tun, um die Konnektivität aufrechtzuerhalten?**](./ssl-root-certificate-expiring.md#what-do-i-need-to-do-to-maintain-connectivity) Informationen dazu, wie Sie verhindern, dass die Verfügbarkeit Ihrer Anwendung aufgrund unerwartet widerrufener Zertifikate unterbrochen wird, oder wie Sie ein widerrufenes Zertifikat aktualisieren.
 
 ## <a name="what-do-i-need-to-do-to-maintain-connectivity"></a>Was muss ich tun, um die Konnektivität aufrechtzuerhalten?
 
@@ -79,4 +79,4 @@ Da dieses Update eine clientseitige Änderung ist, müssen Sie die Änderungen a
 Da diese Konfiguration clientseitig ist, liegen auf Seite des Servers keine Informationen vor.
 
 ### <a name="what-if-i-have-further-questions"></a>Wie gehe ich vor, wenn ich weitere Fragen habe?
-Wenn Sie über einen Supportplan verfügen und technische Hilfe benötigen, können Sie eine Anfrage an den Azure-Support einreichen. Wie das funktioniert, erfahren Sie unter [Erstellen einer Azure-Supportanfrage](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+Wenn Sie über einen Supportplan verfügen und technische Hilfe benötigen, können Sie eine Anfrage an den Azure-Support einreichen. Wie das funktioniert, erfahren Sie unter [Erstellen einer Azure-Supportanfrage](../../azure-portal/supportability/how-to-create-azure-support-request.md).

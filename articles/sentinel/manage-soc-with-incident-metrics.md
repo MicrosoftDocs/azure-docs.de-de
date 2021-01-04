@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 9d8d0fc46a463bda31595988d807854ef146d333
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 408913fed864ee5f966b96c81afbfee4b2dc8678
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88761718"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660728"
 ---
 # <a name="manage-your-soc-better-with-incident-metrics"></a>Bessere Verwaltung von SOC mit Incidentmetriken
 
@@ -39,7 +39,7 @@ Die Tabelle **SecurityIncident** ist in Azure Sentinel integriert. Sie finden Si
 
 Jedes Mal, wenn Sie einen Incident erstellen oder aktualisieren, wird der Tabelle ein neuer Protokolleintrag hinzugefügt. So können Sie die Änderungen nachverfolgen, die an Incidents vorgenommen werden, und noch leistungsfähigere SOC-Metriken erstellen. Allerdings müssen Sie diesen Aspekt berücksichtigen, wenn Sie Abfragen für diese Tabelle erstellen, da Sie je nach Abfrage möglicherweise doppelte Einträge für einen Incident entfernen müssen. 
 
-Ein Beispiel: Wenn Sie eine Liste aller Incidents sortiert nach Incidentnummer benötigen, aber für jeden Incident nur das neueste Protokoll zurückgeben möchten, können Sie dafür den [summarize-Operator](https://docs.microsoft.com/azure/data-explorer/kusto/query/summarizeoperator) von KQL mit der [Aggregationsfunktion](https://docs.microsoft.com/azure/data-explorer/kusto/query/arg-max-aggfunction) `arg_max()` verwenden:
+Ein Beispiel: Wenn Sie eine Liste aller Incidents sortiert nach Incidentnummer benötigen, aber für jeden Incident nur das neueste Protokoll zurückgeben möchten, können Sie dafür den [summarize-Operator](/azure/data-explorer/kusto/query/summarizeoperator) von KQL mit der [Aggregationsfunktion](/azure/data-explorer/kusto/query/arg-max-aggfunction) `arg_max()` verwenden:
 
 
 ```Kusto
@@ -82,9 +82,9 @@ Zur Ergänzung der Tabelle **SecurityIncidents** haben wir eine sofort einsatzbe
 
 Sie finden diese neue Arbeitsmappenvorlage, indem Sie im Azure Sentinel-Navigationsmenü **Arbeitsmappen** und dort die Registerkarte **Vorlagen** auswählen. Wählen Sie **Effizienz des Sicherheitsbetriebs** aus dem Katalog, und klicken Sie auf eine der Schaltflächen **Gespeicherte Arbeitsmappe anzeigen** oder **Vorlage anzeigen**.
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Tabelle mit Sicherheitsincidents":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Katalog mit Arbeitsmappen zu Sicherheitsincidents":::
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Tabelle mit Sicherheitsincidents":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Vollständige Arbeitsmappe zu Sicherheitsincidents":::
 
 Sie können die Vorlage verwenden, um eigene, auf Ihre Anforderungen zugeschnittene Arbeitsmappen zu erstellen.
 

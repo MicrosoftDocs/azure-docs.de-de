@@ -4,15 +4,15 @@ description: Erfahren Sie, wie Sie ein tabellarisches Modell mithilfe von Visual
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 45ea75b65e75f9bac4d6d4839ffe7fa095e3b25d
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 9df10760164dcd0d207663c14107f72c46b76d25
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018775"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501242"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Bereitstellen eines Modells mithilfe von Visual Studio
 
@@ -63,4 +63,4 @@ Wenn die Bereitstellung für eine Tabelle fehlschlägt, konnte wahrscheinlich de
 
 Nachdem Sie jetzt das tabellarische Modell auf dem Server bereitgestellt haben, können Sie eine Verbindung mit diesem herstellen. Sie können [mit SQL Server Management Studio (SSMS) eine Verbindung damit herstellen](analysis-services-manage.md), um es zu verwalten. Und Sie können [mithilfe eines Clienttools eine Verbindung mit diesem herstellen](analysis-services-connect.md) (z. B. mit Power BI, Power BI Desktop oder Excel) und mit dem Erstellen von Berichten beginnen.   
 
-Weitere Informationen zu erweiterten Bereitstellungsmethoden finden Sie unter [Bereitstellung von Tabellenmodelllösungen](/analysis-services/deployment/tabular-model-solution-deployment?view=azure-analysis-services-current).
+Weitere Informationen zu erweiterten Bereitstellungsmethoden finden Sie unter [Bereitstellung von Tabellenmodelllösungen](/analysis-services/deployment/tabular-model-solution-deployment?view=azure-analysis-services-current&preserve-view=true).

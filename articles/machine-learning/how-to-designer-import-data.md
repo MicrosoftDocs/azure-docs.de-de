@@ -1,21 +1,21 @@
 ---
 title: Importieren von Daten in den Designer
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Sie Trainingsdaten aus verschiedenen Datenquellen in den Azure Machine Learning-Designer importieren.
+description: Erfahren Sie, wie Sie mithilfe von Azure Machine Learning-Datasets und dem Modul zum Importieren von Daten in Azure Machine Learning-Designer entsprechende Daten importieren können.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 15fca48327c46480546764be1b2ab40c1635e874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5569b625b8f0c4ba890c0cd5b1700ca6fe83d968
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985614"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591987"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Importieren von Daten in den Azure Machine Learning-Designer
 
@@ -53,6 +53,8 @@ Wenn die Modulausgabedaten in einem Tabellenformat vorliegen, müssen Sie die Au
 ### <a name="use-a-dataset"></a>Verwenden eines Datasets
 
 Ihre registrierten Datasets finden Sie in der Modulpalette unter **Datasets**. Um ein Dataset zu verwenden, ziehen Sie es per Drag & Drop auf die Pipelinecanvas. Verbinden Sie dann den Ausgabeport des Datasets mit anderen Modulen auf der Canvas. 
+
+Wenn Sie ein Dateidataset registrieren, ist der Ausgabeporttyp des Datasets **AnyDirectory**. Wenn Sie ein Tabellendataset registrieren, ist der Ausgabeporttyp des Datasets **DataFrameDirectory**. Beachten Sie, dass beim Verbinden des Ausgabeports des Datasets mit anderen Modulen im Designer der Porttyp von Datasets und Modulen ausgerichtet werden muss.
 
 ![Screenshot: Speicherort gespeicherter Datasets in der Designerpalette](media/how-to-designer-import-data/use-datasets-designer.png)
 

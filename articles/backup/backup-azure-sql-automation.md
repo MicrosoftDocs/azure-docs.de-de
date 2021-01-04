@@ -4,12 +4,12 @@ description: Sichern und Wiederherstellen von SQL-Datenbanken auf virtuellen Azu
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 37e2336b262311ea00e833ad91fe5e8c5c1ddf1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b3b943a53c1da0f6f1e938b5b234dc82541b46d
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975190"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92901664"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Sichern und Wiederherstellen von SQL-Datenbanken auf virtuellen Azure-Computern mit PowerShell
 
@@ -38,7 +38,7 @@ Die Objekthierarchie ist im folgenden Diagramm zusammengefasst.
 
 ![Recovery Services-Objekthierarchie](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
-[Sehen Sie sich die ](/powershell/module/az.recoveryservices)Cmdlet-Referenz zu **Az.RecoveryServices** in der Azure-Bibliothek an.
+[Sehen Sie sich die](/powershell/module/az.recoveryservices)Cmdlet-Referenz zu **Az.RecoveryServices** in der Azure-Bibliothek an.
 
 ### <a name="set-up-and-install"></a>Einrichten und Installieren
 
@@ -68,7 +68,7 @@ Richten Sie PowerShell wie folgt ein:
     Select-AzSubscription -SubscriptionName $SubscriptionName
     ```
 
-7. Falls Sie Azure Backup zum ersten Mal verwenden, registrieren Sie den Azure Recovery Services-Anbieter für Ihr Abonnement mithilfe des Cmdlets **Register-AzResourceProvider**.
+7. Falls Sie Azure Backup zum ersten Mal verwenden, registrieren Sie den Azure Recovery Services-Anbieter für Ihr Abonnement mithilfe des Cmdlets **Register-AzResourceProvider** .
 
     ```powershell
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
@@ -172,7 +172,7 @@ $schpol.ScheduleRunTimes[0] = $UtcTime
 > [!IMPORTANT]
 > Sie können die Startzeit nur in 30-Minuten-Einheiten angeben. Im obigen Beispiel kann sie nur „01:00:00“ oder „02:30:00“ lauten. 01:15:00 kann nicht als Startzeit angegeben werden.
 
-Im folgenden Beispiel werden die Zeitplanrichtlinie und die Aufbewahrungsrichtlinie in Variablen gespeichert. Anschließend werden diese Variablen als Parameter für eine neue Richtlinie (**NewSQLPolicy**) verwendet. Mit **NewSQLPolicy** wird täglich eine „vollständige“ Sicherung ausgeführt, diese 180 Tage lang aufbewahrt und alle 2 Stunden eine Protokollsicherung durchgeführt.
+Im folgenden Beispiel werden die Zeitplanrichtlinie und die Aufbewahrungsrichtlinie in Variablen gespeichert. Anschließend werden diese Variablen als Parameter für eine neue Richtlinie ( **NewSQLPolicy** ) verwendet. Mit **NewSQLPolicy** wird täglich eine „vollständige“ Sicherung ausgeführt, diese 180 Tage lang aufbewahrt und alle 2 Stunden eine Protokollsicherung durchgeführt.
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "MSSQL"
@@ -310,7 +310,7 @@ $FullRP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $bkpItem -VaultId $tar
 Wenn Sie die Datenbank auf einen bestimmten Zeitpunkt wiederherstellen möchten, verwenden Sie dazu das PowerShell-Cmdlet [Get-AzRecoveryServicesBackupRecoveryLogChain](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverylogchain). Das Cmdlet gibt eine Liste mit Datumsangaben zurück, die Start- und Endzeiten einer ununterbrochenen, kontinuierlichen Protokollkette für das jeweilige SQL-Sicherungselement darstellen. Der gewünschte Zeitpunkt sollte innerhalb dieses Bereichs liegen.
 
 ```powershell
-Get-AzRecoveryServicesBackupRecoveryLogChain -Item $bkpItem -Item -VaultId $targetVault.ID
+Get-AzRecoveryServicesBackupRecoveryLogChain -Item $bkpItem -VaultId $targetVault.ID
 ```
 
 Die Ausgabe entspricht etwa folgendem Beispiel:
@@ -600,7 +600,7 @@ Zum Abbrechen eines Auftrags in Bearbeitung verwenden Sie das PowerShell-Cmdlet 
 
 Stellen Sie im Fall von SQL-AlwaysOn-Verfügbarkeitsgruppen sicher, dass [alle Knoten der Verfügbarkeitsgruppe registriert werden](#registering-the-sql-vm). Nach der Registrierung aller Knoten wird unter den schützbaren Elementen ein SQL-Verfügbarkeitsgruppenobjekt logisch erstellt. Die Datenbanken unter der SQL-Verfügbarkeitsgruppe werden als „SQLDatabase“ aufgeführt. Die Knoten werden als eigenständige Instanzen angezeigt, und die darunter befindlichen SQL-Standarddatenbanken werden ebenfalls als SQL-Datenbanken aufgeführt.
 
-Angenommen beispielsweise, eine SQL-Verfügbarkeitsgruppe hat zwei Knoten (*sql-server-0* und *sql-server-1*) und eine SQL-Verfügbarkeitsgruppendatenbank. Wenn Sie nach der Registrierung dieser beiden Knoten [die schützbaren Elemente auflisten](#fetching-sql-dbs), sind die folgenden Komponenten enthalten:
+Angenommen beispielsweise, eine SQL-Verfügbarkeitsgruppe hat zwei Knoten ( *sql-server-0* und *sql-server-1* ) und eine SQL-Verfügbarkeitsgruppendatenbank. Wenn Sie nach der Registrierung dieser beiden Knoten [die schützbaren Elemente auflisten](#fetching-sql-dbs), sind die folgenden Komponenten enthalten:
 
 * Ein SQL-Verfügbarkeitsgruppenobjekt – Typ des schützbaren Elements ist „SQLAvailabilityGroup“
 * Eine SQL-Verfügbarkeitsgruppendatenbank – Typ des schützbaren Elements ist „SQLDatabase“

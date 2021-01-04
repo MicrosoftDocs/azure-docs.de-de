@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 34796a435536a48100b7434ed5267802cd2d549f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa7292d423d8b716ffd75a1a20431fb5a79bbf96
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226946"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95237339"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Problembehandlung bei der Cloudbereitstellung
 
@@ -47,11 +47,11 @@ Führen Sie die folgenden Schritte aus, um zu überprüfen, ob der Agent von Azu
 1. Wählen Sie auf der linken Seite **Azure Active Directory** > **Azure AD Connect** aus. Wählen Sie in der Mitte **Bereitstellung verwalten (Vorschau)** aus.
 1. Wählen Sie auf dem Bildschirm **Azure AD-Bereitstellung (Vorschau)** die Option **Alle Agents überprüfen** aus.
 
-   ![Option „Alle Agents überprüfen“](media/how-to-install/install7.png)</br>
+   ![Option „Alle Agents überprüfen“](media/how-to-install/install-7.png)</br>
  
 1. Auf dem Bildschirm **On-premises provisioning agents** (Lokale Bereitstellungs-Agents) werden die von Ihnen installierten Agents angezeigt. Vergewissern Sie sich, dass der betreffende Agent aufgeführt wird und als *Fehlerfrei* markiert ist.
 
-   ![Bildschirm „On-premises provisioning agents“ (Lokale Bereitstellungs-Agents)](media/how-to-install/install8.png)</br>
+   ![Bildschirm „On-premises provisioning agents“ (Lokale Bereitstellungs-Agents)](media/how-to-install/install-8.png)</br>
 
 ### <a name="verify-the-port"></a>Überprüfen des Ports
 
@@ -59,7 +59,7 @@ Stellen Sie sicher, dass Azure an Port 443 lauscht und dass der Agent mit diese
 
 Mithilfe dieses Tests wird überprüft, ob Ihre Agents über Port 443 mit Azure kommunizieren können. Öffnen Sie einen Browser, und navigieren Sie von dem Server, auf dem der Agent installiert ist, zur obigen URL.
 
-![Überprüfung der Porterreichbarkeit](media/how-to-install/verify2.png)
+![Überprüfung der Porterreichbarkeit](media/how-to-install/verify-2.png)
 
 ### <a name="on-the-local-server"></a>Auf dem lokalen Server
 
@@ -124,40 +124,17 @@ Dieses Problem wird in der Regel dadurch verursacht, dass der Agent die PowerShe
 
 ### <a name="log-files"></a>Protokolldateien
 
-Standardmäßig gibt der Agent minimalistische Fehlermeldungen und Überwachungsinformationen aus. Diese Überwachungsprotokolle finden Sie im Ordner *C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace*.
+Standardmäßig gibt der Agent minimalistische Fehlermeldungen und Überwachungsinformationen aus. Diese Überwachungsprotokolle finden Sie im Ordner **C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace**.
 
 Führen Sie die folgenden Schritte aus, um weitere Details zur Behandlung von Problemen mit dem Agent zu sammeln.
 
-1. Beenden Sie den Dienst **Microsoft Azure AD Connect Provisioning Agent**.
-1. Erstellen Sie eine Kopie der ursprünglichen Konfigurationsdatei *C:\Programme\Microsoft Azure AD Connect Provisioning Agent\AADConnectProvisioningAgent.exe.config*.
-1. Ersetzen Sie den vorhandenen Abschnitt `<system.diagnostics>` durch Folgendes, damit alle Überwachungsmeldungen in der Datei *ProvAgentTrace.log* gespeichert werden.
+1.  Installieren Sie das PowerShell-Modul „AADCloudSyncTools“ wie [hier](reference-powershell.md#install-the-aadcloudsynctools-powershell-module) beschrieben.
+2. Verwenden Sie das PowerShell-Cmdlet `Export-AADCloudSyncToolsLogs`, um die Informationen zu erfassen.  Mit den folgenden Switches können Sie Ihre Datensammlung optimieren.
+      - Verwenden Sie „SkipVerboseTrace“, um nur aktuelle Protokolle zu exportieren, ohne ausführliche Protokolle zu erfassen (Standard: false).
+      - Verwenden Sie „TracingDurationMins“, um eine andere Erfassungsdauer anzugeben (Standard: 3 Minuten).
+      - Verwenden Sie „OutputPath“, um einen anderen Ausgabepfad anzugeben (Standard: Ordner „Dokumente“ des Benutzers)
 
-   ```xml
-     <system.diagnostics>
-         <sources>
-         <source name="AAD Connect Provisioning Agent">
-             <listeners>
-             <add name="console"/>
-             <add name="etw"/>
-             <add name="textWriterListener"/>
-             </listeners>
-         </source>
-         </sources>
-         <sharedListeners>
-         <add name="console" type="System.Diagnostics.ConsoleTraceListener" initializeData="false"/>
-         <add name="etw" type="System.Diagnostics.EventLogTraceListener" initializeData="Azure AD Connect Provisioning Agent">
-             <filter type="System.Diagnostics.EventTypeFilter" initializeData="All"/>
-         </add>
-         <add name="textWriterListener" type="System.Diagnostics.TextWriterTraceListener" initializeData="C:/ProgramData/Microsoft/Azure AD Connect Provisioning Agent/Trace/ProvAgentTrace.log"/>
-         </sharedListeners>
-     </system.diagnostics>
-    
-   ```
-1. Starten Sie den Dienst **Microsoft Azure AD Connect Provisioning Agent**.
-1. Mit dem folgenden Befehl können Sie die Datei abrufen, um sie dann zu kürzen und Probleme zu debuggen. 
-    ```
-    Get-Content “C:/ProgramData/Microsoft/Azure AD Connect Provisioning Agent/Trace/ProvAgentTrace.log” -Wait
-    ```
+
 ## <a name="object-synchronization-problems"></a>Objektsynchronisierungsprobleme
 
 Der folgende Abschnitt enthält Informationen zur Behandlung von Problemen bei der Objektsynchronisierung.
@@ -203,6 +180,22 @@ Durch Klicken auf den Status können Sie zusätzliche Informationen zur Quarant�
   Verwenden Sie die folgende Anforderung:
  
   `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
+
+## <a name="repairing-the-the-cloud-sync-service-account"></a>Reparieren des Cloud Sync-Dienstkontos
+Wenn Sie das Cloud Sync-Dienstkonto reparieren müssen, können Sie das Cmdlet `Repair-AADCloudSyncToolsAccount` verwenden.  
+
+
+   1.  Führen Sie zunächst die [hier](reference-powershell.md#install-the-aadcloudsynctools-powershell-module) beschriebenen Installationsschritte aus, und fahren Sie dann mit den verbleibenden Schritten fort.
+   2.  Geben Sie in einer Windows PowerShell-Sitzung mit Administratorrechten den folgenden Befehl ein (Sie können ihn auch kopieren und einfügen): 
+    ```
+    Connect-AADCloudSyncTools
+    ```  
+   3. Geben Sie die Anmeldeinformationen des globalen Azure AD-Administrators ein.
+   4. Geben Sie den folgenden Befehl ein (Sie können ihn auch kopieren und einfügen): 
+    ```
+    Repair-AADCloudSyncToolsAccount
+    ```  
+   5. Nach Abschluss dieses Vorgangs sollten Sie die Meldung erhalten, dass das Konto erfolgreich repariert wurde.
 
 ## <a name="next-steps"></a>Nächste Schritte 
 

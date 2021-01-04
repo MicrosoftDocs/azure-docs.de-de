@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2625698ae1d76dbae3ed8a8855b88dd6ac7bb17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79bc43bb2fa99f95a462dcc4c68d27840199b45c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763685"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658535"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Erweiterte Optionen für die Zertifikatsignatur im SAML-Token für Katalog-Apps in Azure Active Directory
 
@@ -75,5 +75,5 @@ Wählen Sie die gewünschte Anwendung aus, um ihre SAML-Zertifikatsignaturoption
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Konfigurieren des einmaligen Anmeldens für Anwendungen, die nicht im Azure Active Directory-Anwendungskatalog enthalten sind](configure-federated-single-sign-on-non-gallery-applications.md)
-* [Problembehandlung bei SAML-basiertem einmaligem Anmelden](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+* [Konfigurieren des einmaligen Anmeldens für Anwendungen, die nicht im Azure Active Directory-Anwendungskatalog enthalten sind](./configure-saml-single-sign-on.md)
+* [Problembehandlung bei SAML-basiertem einmaligem Anmelden](./debug-saml-sso-issues.md)

@@ -5,20 +5,20 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/19/2020
-ms.author: keferna
-author: keferna
-ms.openlocfilehash: 92fd4d629585ed465e2891be2dce1c1bdc8c88e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: trkeya
+author: trkeya
+ms.openlocfilehash: fd3fa04d2d7e868476838788dd9cf0e27c07aeca
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87287947"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461761"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager-Testversion
 
 Verwenden Sie diesen Typ, wenn Sie über ein Angebot auf Azure Marketplace oder AppSource verfügen, eine Testversion jedoch nur mit Azure-Ressourcen erstellen möchten. Eine ARM-Vorlage (Azure Resource Manager) ist ein codierter Container mit Azure-Ressourcen, den Sie so entwerfen, dass Ihre Lösung optimal präsentiert wird. Die Testversion übernimmt die bereitgestellte ARM-Vorlage und stellt alle erforderlichen Ressourcen in einer Ressourcengruppe bereit. Dies ist die einzige Testversionsoption für VM- und Azure-App-Angebote.
 
-Wenn Sie mit ARM-Vorlagen nicht vertraut sind, lesen Sie [Was ist Azure Resource Manager?](../azure-resource-manager/resource-group-overview.md) und [Verstehen der Struktur und Syntax von ARM-Vorlagen](../azure-resource-manager/resource-group-authoring-templates.md), um zu erfahren, wie Sie Ihre eigenen Vorlagen erstellen und testen können.
+Wenn Sie mit ARM-Vorlagen nicht vertraut sind, lesen Sie [Was ist Azure Resource Manager?](../azure-resource-manager/management/overview.md) und [Verstehen der Struktur und Syntax von ARM-Vorlagen](../azure-resource-manager/templates/template-syntax.md), um zu erfahren, wie Sie Ihre eigenen Vorlagen erstellen und testen können.
 
 Informationen zu einer **gehosteten** oder **Logik-App**-Testversion finden Sie unter [Was ist eine Testversion?](what-is-test-drive.md)
 
@@ -34,7 +34,10 @@ Eine Bereitstellungsvorlage enthält alle Azure-Ressourcen, aus denen Ihre Lösu
 
   - **Kalt**: Dieser Instanztyp stellt die Gesamtzahl von Instanzen dar, die pro Region bereitgestellt werden können. Bei Instanzen des Typs „Kalt“ muss die Bereitstellung der gesamten Resource Manager-Vorlage für die Testversion durchgeführt werden, wenn der Kunde die Testversion anfordert. Daher dauert das Laden von Instanzen des Typs *Kalt* weitaus länger als das Laden von Instanzen des Typs *Heiß*. Sie müssen jedoch nur für die Dauer der Testversion bezahlen. Instanzen vom Typ „Kalt“ werden *nicht* wie Instanzen vom Typ *Heiß* stets im Azure-Abonnement ausgeführt.
 
-- **Azure Resource Manager-Vorlage für Testversion:** Laden Sie die ZIP-Datei mit Ihrer Azure Resource Manager-Vorlage hoch. Im Schnellstartartikel [Erstellen und Bereitstellen von Azure Resource Manager-Vorlagen über das Azure-Portal](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) erhalten Sie weitere Informationen zum Erstellen einer Azure Resource Manager-Vorlage.
+- **Azure Resource Manager-Vorlage für Testversion:** Laden Sie die ZIP-Datei mit Ihrer Azure Resource Manager-Vorlage hoch. Im Schnellstartartikel [Erstellen und Bereitstellen von Azure Resource Manager-Vorlagen über das Azure-Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) erhalten Sie weitere Informationen zum Erstellen einer Azure Resource Manager-Vorlage.
+
+    > [!note]
+    > Für eine erfolgreiche Veröffentlichung ist es wichtig, die Formatierung der Resource Manager-Vorlage zu überprüfen. Hierfür gibt es zwei Möglichkeiten: (1) Verwendung eines [Online-API-Tools](/rest/api/resources/deployments/validate) oder (2) Durchführung einer [Testbereitstellung](../azure-resource-manager/templates/deploy-portal.md).
 
 - **Dauer der Testversion** (erforderlich): Geben Sie die Anzahl von Stunden ein, für die die Testversion aktiv bleiben soll. Nach Ablauf dieses Zeitraums wird die Testversion automatisch beendet. Verwenden Sie nur ganze Zahlen (z. B. „2“ Stunden ist zulässig, „1,5“ hingegen nicht).
 

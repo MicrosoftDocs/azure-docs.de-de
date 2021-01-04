@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 9/3/2020
 ms.author: JenCook
-ms.openlocfilehash: a7e3ade66aa4ebf7584e03b75f85c48b44537d97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 565f4971fffde1cbeb2234b43aaad5cce73b5404
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90993504"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564377"
 ---
 # <a name="azure-confidential-computing-virtual-machines-vms-overview"></a>Virtuelle Azure Confidential Computing-Computer (Virtual Machines, VMs) – Übersicht
 
@@ -29,7 +29,7 @@ Bei virtuellen Azure Confidential Computing-Computern ist ein Teil der CPU-Hardw
 
 Azure Confidential Computing-Infrastruktur umfasst derzeit eine spezielle SKU mit virtuellen Computern (VMs). Diese VMs werden auf Intel-Prozessoren mit Software Guard Extension (Intel SGX) ausgeführt. [Intel SGX](https://intel.com/sgx) ist die Komponente, die den höheren Schutzgrad beim Confidential Computing ermöglicht. 
 
-Azure bietet die [DCsv2-Serie](https://docs.microsoft.com/azure/virtual-machines/dcv2-series), die auf Intel SGX-Technologie basiert, für die Erstellung von hardwarebasierten Enklaven an. Sie können sichere Enklavenanwendungen entwickeln, die auf VMs der DCsv2-Serie ausgeführt werden, um Ihre Anwendungsdaten und den verwendeten Code zu schützen. 
+Azure bietet die [DCsv2-Serie](../virtual-machines/dcv2-series.md), die auf Intel SGX-Technologie basiert, für die Erstellung von hardwarebasierten Enklaven an. Sie können sichere Enklavenanwendungen entwickeln, die auf VMs der DCsv2-Serie ausgeführt werden, um Ihre Anwendungsdaten und den verwendeten Code zu schützen. 
 
 [Lesen Sie mehr](virtual-machine-solutions.md) zur Bereitstellung von virtuellen Azure Confidential Computing-Computern mit hardwarebasierten vertrauenswürdigen Enklaven.
 
@@ -39,7 +39,7 @@ Enklaven sind geschützte Bereiche des Prozessors und Arbeitsspeichers von Hardw
 
 Sie können sich eine Enklave im Wesentlichen wie eine geschützte Box vorstellen. Sie fügen verschlüsselten Code und verschlüsselte Daten in die Blackbox ein. Von außen ist der Blick in das innere der Blackbox nicht möglich. Sie ordnen der Enklave einen Schlüssel zum Entschlüsseln der Daten zu, und die Daten werden dann verarbeitet und wieder verschlüsselt, bevor das Versenden aus der Enklave erfolgt.
 
-Bei jeder Enklave gibt es eine festgelegte Größe von verschlüsseltem Seitencache (Encrypted Page Cache, EPC) zur Bestimmung der Menge an Arbeitsspeicher, die jede Enklave enthalten kann. Größere virtuelle DCsv2-Computer haben mehr EPC-Arbeitsspeicher. Lesen Sie die Seite [DCsv2-Spezifikationen](https://docs.microsoft.com/azure/virtual-machines/dcv2-series), um die maximale EPC-Größe pro VM-Größe zu erfahren.
+Bei jeder Enklave gibt es eine festgelegte Größe von verschlüsseltem Seitencache (Encrypted Page Cache, EPC) zur Bestimmung der Menge an Arbeitsspeicher, die jede Enklave enthalten kann. Größere virtuelle DCsv2-Computer haben mehr EPC-Arbeitsspeicher. Lesen Sie die Seite [DCsv2-Spezifikationen](../virtual-machines/dcv2-series.md), um die maximale EPC-Größe pro VM-Größe zu erfahren.
 
 
 

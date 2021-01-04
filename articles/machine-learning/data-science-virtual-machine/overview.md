@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 04/02/2020
-ms.openlocfilehash: 2bfcdfcb01e7908c199054e793d82cdfa1b726c7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7bcee0f571fe42e4c00499f188e35d0e0ff2ebe7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88816336"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322492"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>Was ist Azure Data Science Virtual Machine für Linux und Windows?
 
@@ -28,7 +28,7 @@ Die DSVM-Instanz ist für folgende Betriebssysteme verfügbar:
 
 ## <a name="comparison-with-azure-machine-learning"></a>Vergleich mit Azure Machine Learning
 
-DSVM ist ein benutzerdefiniertes VM-Image für Data Science, [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml) (AzureML) hingegen ist eine End-to-End-Plattform, die Folgendes umfasst:
+DSVM ist ein benutzerdefiniertes VM-Image für Data Science, [Azure Machine Learning](../overview-what-is-azure-ml.md) (AzureML) hingegen ist eine End-to-End-Plattform, die Folgendes umfasst:
 
 + Vollständig verwaltete Computeressourcen
   + Compute-Instanzen
@@ -44,7 +44,7 @@ DSVM ist ein benutzerdefiniertes VM-Image für Data Science, [Azure Machine Lear
 
 ### <a name="comparison-with-azureml-compute-instances"></a>Vergleich mit AzureML-Compute-Instanzen
 
-Bei [Azure Machine Learning Compute-Instanzen](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance) handelt es sich um ein vollständig konfiguriertes und __verwaltetes__ VM-Image, DSVM hingegen eine __nicht verwaltete__ VM.
+Bei [Azure Machine Learning Compute-Instanzen](../concept-compute-instance.md) handelt es sich um ein vollständig konfiguriertes und __verwaltetes__ VM-Image, DSVM hingegen eine __nicht verwaltete__ VM.
 
 Nachfolgend sind die wichtigsten Unterschiede zwischen diesen beiden Produktangeboten beschrieben:
 

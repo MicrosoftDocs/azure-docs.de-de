@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 11/04/2020
 ms.author: alkohli
-ms.openlocfilehash: ff2a473ca008e9b283d03ebb05f35122473d778a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34165071238ca3edf78ab9cca43639c23ce5ed2a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899269"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448695"
 ---
 # <a name="kubernetes-storage-management-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes-Speicherverwaltung auf dem Azure Stack Edge Pro-GPU-Gerät
 
@@ -41,7 +41,7 @@ Damit Sie nachvollziehen können, wie der Speicher für Kubernetes verwaltet wir
 
 Die Speicherbereitstellung kann statisch oder dynamisch sein. Jeder der Bereitstellungstypen wird in den folgenden Abschnitten erläutert.
 
-## <a name="staticprovisioning"></a>Statische Bereitstellung
+## <a name="static-provisioning"></a>Statische Bereitstellung
 
 Kubernetes-Clusteradministratoren können den Speicher statisch bereitstellen. Zu diesem Zweck können sie ein Speicher-Back-End, das auf SMB/NFS-Dateisystemen basiert, iSCSI-Datenträger, die lokal über das Netzwerk in einer lokalen Umgebung angefügt werden, oder Azure Files oder Azure-Datenträger in der Cloud verwenden. Diese Art von Speicher wird nicht standardmäßig bereitgestellt, und Clusteradministratoren müssen diese Bereitstellung planen und verwalten. 
  
@@ -58,7 +58,7 @@ Dabei werden die folgenden Schritte ausgeführt:
 1. **Einbinden von PVC in den Container**: Sobald das PVC an das PV gebunden ist, können Sie dieses PVC in einem Pfad in Ihrem Container einbinden. Wenn die Anwendungslogik im Container aus diesem Pfad liest bzw. in diesen Pfad schreibt, werden die Daten in den SMB-Speicher geschrieben.
  
 
-## <a name="dynamicprovisioning"></a>Dynamische Bereitstellung
+## <a name="dynamic-provisioning"></a>Dynamische Bereitstellung
 
 Im folgenden Diagramm ist dargestellt, wie statisch bereitgestellter Speicher in Kubernetes genutzt wird: 
 
@@ -104,6 +104,26 @@ spec:
 ```
 
 Weitere Informationen finden Sie unter [Verwenden von kubectl zum Ausführen einer zustandsbehafteten Kubernetes-Anwendung mit PersistentVolume auf einem Azure Stack Edge Pro-Gerät](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md).
+
+Für den Zugriff auf denselben statisch bereitgestellten Speicher lauten die entsprechenden Volumebereitstellungsoptionen für Speicherbindungen für IoT wie folgt. `/home/input` ist der Pfad, über den innerhalb des Containers auf das Volume zugegriffen werden kann.
+
+```
+{
+"HostConfig": {
+"Mounts": [
+{
+"Target": "/home/input",
+"Source": "<nfs-or-smb-share-name-here>",
+"Type": "volume"
+},
+{
+"Target": "/home/output",
+"Source": "<nfs-or-smb-share-name-here>",
+"Type": "volume"
+}]
+}
+}
+```
 
 Azure Stack Edge Pro verfügt auch über ein integriertes `StorageClass`-Element namens `ase-node-local`, das einen an den Kubernetes-Knoten angefügten Datenträgerspeicher verwendet. Dieses `StorageClass`-Element unterstützt die dynamische Bereitstellung. Sie können in den Pod-Anwendungen einen `StorageClass`-Verweis erstellen, und ein PV wird automatisch erstellt. Weitere Informationen finden Sie im [Kubernetes-Dashboard](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md) zum Abfragen nach `ase-node-local StorageClass`.
 

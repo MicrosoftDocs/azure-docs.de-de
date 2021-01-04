@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: c300faf33f57518d26f82234bdff94a37235cd66
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2d65889a841655fe27994d3855f30f7a7e20e1ed
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275787"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647595"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Gewusst wie: Anpassen von in Token ausgegebenen Ansprüchen für eine bestimmte App in einem Mandanten (Vorschau)
 
@@ -38,7 +38,7 @@ Diese Funktion wird von Mandantenadministratoren verwendet, um die in Token ausg
 
 Ein **Richtlinienobjekt** stellt in Azure AD eine Reihe von Regeln dar, die für einzelne Anwendungen oder alle Anwendungen in einer Organisation erzwungen werden. Jede Art von Richtlinie verfügt über eine eindeutige Struktur mit einem Satz von Eigenschaften, die auf Objekte angewendet werden, denen sie zugewiesen sind.
 
-Eine Anspruchszuordnungsrichtlinie ist eine Art von **Richtlinienobjekt** , das die in Token ausgestellten Ansprüche ändert, die für bestimmte Anwendungen ausgegeben wurden.
+Eine Anspruchszuordnungsrichtlinie ist eine Art von **Richtlinienobjekt**, das die in Token ausgestellten Ansprüche ändert, die für bestimmte Anwendungen ausgegeben wurden.
 
 ## <a name="claim-sets"></a>Anspruchsätze
 
@@ -239,6 +239,9 @@ Es gibt bestimmte Sätze von Ansprüchen, die definieren, wie und wann sie in To
 
 Um zu steuern, welche Ansprüche ausgegeben werden und woher die Daten stammen, verwenden Sie die Eigenschaften einer Anspruchszuordnungsrichtlinie. Wenn keine Richtlinie festgelegt ist, stellt das System Token aus, die den Hauptanspruchssatz, den grundlegenden Anspruchssatz und alle [optionalen Ansprüche](active-directory-optional-claims.md) enthält, die die Anwendung empfängt.
 
+> [!NOTE]
+> Ansprüche im Hauptanspruchssatz sind in jedem Token vorhanden, unabhängig davon, wie diese Eigenschaft festgelegt wird.
+
 ### <a name="include-basic-claim-set"></a>Einschließen des grundlegenden Anspruchssatzes
 
 **Zeichenfolge:** IncludeBasicClaimSet
@@ -250,8 +253,7 @@ Um zu steuern, welche Ansprüche ausgegeben werden und woher die Daten stammen, 
 - Wenn der Wert auf TRUE festgelegt wird, werden alle Ansprüche im grundlegenden Anspruchssatz in Token ausgegeben, die von der Richtlinie betroffen sind.
 - Wenn der Wert auf FALSE festgelegt wird, werden die Ansprüche im grundlegenden Anspruchssatz nicht in Token ausgegeben, es sei denn, sie werden einzeln in der Ansprücheschemaeigenschaft derselben Richtlinie hinzugefügt.
 
-> [!NOTE]
-> Ansprüche im Hauptanspruchssatz sind in jedem Token vorhanden, unabhängig davon, wie diese Eigenschaft festgelegt wird.
+
 
 ### <a name="claims-schema"></a>Anspruchsschema
 
@@ -260,7 +262,7 @@ Um zu steuern, welche Ansprüche ausgegeben werden und woher die Daten stammen, 
 **Datentyp:** JSON-Blob mit mindestens einem Anspruchsschemaeintrag
 
 **Zusammenfassung:** Diese Eigenschaft definiert, welche Ansprüche zusätzlich zum grundlegenden und zum Hauptanspruchssatz in den von der Richtlinie betroffenen Token vorhanden sind.
-Für jeden Anspruchsschemaeintrag in dieser Eigenschaft definiert sind bestimmte Informationen erforderlich. Geben Sie an, woher die Daten stammen ( **Wert** oder **Quelle-ID-Paar** oder **Quelle-Erweiterungs-ID-Paar** ) und als welcher Anspruch die Daten ausgegeben werden ( **Anspruchstyp** ).
+Für jeden Anspruchsschemaeintrag in dieser Eigenschaft definiert sind bestimmte Informationen erforderlich. Geben Sie an, woher die Daten stammen (**Wert** oder **Quelle-ID-Paar** oder **Quelle-Erweiterungs-ID-Paar**) und als welcher Anspruch die Daten ausgegeben werden (**Anspruchstyp**).
 
 ### <a name="claim-schema-entry-elements"></a>Elemente eines Anspruchsschemaeintrags
 
@@ -279,7 +281,7 @@ Legen Sie das Quellelement auf einen der folgenden Werte fest:
 - „company“: Die Daten im Anspruch sind eine Eigenschaft des „Company“-Objekts des Ressourcenmandanten.
 - „transformation“: Die Daten im Anspruch stammen aus Anspruchtransformationen (siehe Abschnitt „Transformation von Ansprüchen“ weiter unten in diesem Artikel).
 
-Wenn die Quelle „transformation“ ist, muss das **TransformationID** -Element in dieser Anspruchsdefinition auch enthalten sein.
+Wenn die Quelle „transformation“ ist, muss das **TransformationID**-Element in dieser Anspruchsdefinition auch enthalten sein.
 
 Das ID-Element identifiziert, welche Eigenschaft in der Quelle den Wert für den Anspruch bereitstellt. Die folgende Tabelle listet die ID-Werte auf, die für jeden Wert der Quelle gültig sind.
 
@@ -358,7 +360,7 @@ Das ID-Element identifiziert, welche Eigenschaft in der Quelle den Wert für den
 
 **TransformationMethod:** Das TransformationMethod-Element identifiziert, welcher Vorgang ausgeführt wird, um die Daten für den Anspruch zu generieren.
 
-Auf der Grundlage der ausgewählten Methode wird eine Reihe von Eingaben und Ausgaben erwartet. Definieren Sie die Eingaben und Ausgaben mithilfe von **InputClaims** , **InputParameters** und **OutputClaims** .
+Auf der Grundlage der ausgewählten Methode wird eine Reihe von Eingaben und Ausgaben erwartet. Definieren Sie die Eingaben und Ausgaben mithilfe von **InputClaims**, **InputParameters** und **OutputClaims**.
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabelle 4: Transformationsmethoden und erwartete Ein- und Ausgaben
 
@@ -367,17 +369,17 @@ Auf der Grundlage der ausgewählten Methode wird eine Reihe von Eingaben und Aus
 |Join|string1, string2, separator|outputClaim|Verknüpft Eingabezeichenfolgen mit einer eingefügten Trennzeichen. Zum Beispiel: Zeichenfolge1:"foo@bar.com" , Zeichenfolge2:"sandbox" , Trennzeichen:"." ergibt outputClaim:"foo@bar.com.sandbox"|
 |ExtractMailPrefix|E-Mail oder Benutzerprinzipalname (UPN)|Extrahierte Zeichenfolge|Erweiterungsattribute 1-15 oder sonstige Schemaerweiterungen, die einen UPN- oder E-Mail-Adress-Wert für den Benutzer speichern, z. B. johndoe@contoso.com. Extrahiert den lokalen Teil einer E-Mail-Adresse. Zum Beispiel: mail:"foo@bar.com" ergibt outputClaim: "foo". Wenn kein \@-Zeichen vorhanden ist, wird die ursprüngliche Eingabezeichenfolge unverändert zurückgegeben.|
 
-**InputClaims:** Verwenden Sie ein InputClaims-Element, um die Daten aus einem Anspruchsschemaeintrag an eine Transformation zu übergeben. Es verfügt über zwei Attribute: **ClaimTypeReferenceId** und **TransformationClaimType** .
+**InputClaims:** Verwenden Sie ein InputClaims-Element, um die Daten aus einem Anspruchsschemaeintrag an eine Transformation zu übergeben. Es verfügt über zwei Attribute: **ClaimTypeReferenceId** und **TransformationClaimType**.
 
 - **ClaimTypeReferenceId** ist mit dem ID-Element des Anspruchsschemaeintrags verknüpft, um den entsprechenden Eingabeanspruch zu suchen.
 - **TransformationClaimType** wird verwendet, um dieser Eingabe einen eindeutigen Namen zu geben. Dieser Name muss einem der erwarteten Eingaben für die Transformationsmethode entsprechen.
 
-**InputParameters:** Verwenden Sie ein InputParameters-Element, um einen konstanten Wert an eine Transformation zu übergeben. Es verfügt über zwei Attribute: **Value** und **ID** .
+**InputParameters:** Verwenden Sie ein InputParameters-Element, um einen konstanten Wert an eine Transformation zu übergeben. Es verfügt über zwei Attribute: **Value** und **ID**.
 
 - **Value** ist der tatsächliche, konstante Wert, der übergeben werden soll.
 - **ID** wird verwendet, um der Eingabe einen eindeutigen Namen zu geben. Der Name muss einem der erwarteten Eingaben für die Transformationsmethode entsprechen.
 
-**OutputClaims:** Verwenden Sie ein OutputClaims-Element, um die von einer Transformation generierten Daten zu verwenden und es an einen Anspruchsschemaeintrag zu binden. Es verfügt über zwei Attribute: **ClaimTypeReferenceId** und **TransformationClaimType** .
+**OutputClaims:** Verwenden Sie ein OutputClaims-Element, um die von einer Transformation generierten Daten zu verwenden und es an einen Anspruchsschemaeintrag zu binden. Es verfügt über zwei Attribute: **ClaimTypeReferenceId** und **TransformationClaimType**.
 
 - **ClaimTypeReferenceId** ist mit der ID des Anspruchsschemaeintrags verknüpft, um die entsprechende Ausgabenspalte zu suchen.
 - **TransformationClaimType** wird verwendet, um der Ausgabe einen eindeutigen Namen zu geben. Der Name muss einer der erwarteten Ausgaben für die Transformationsmethode entsprechen.
@@ -439,8 +441,7 @@ Anspruchszuordnungsrichtlinien können nur Dienstprinzipalobjekten zugewiesen we
 
 In Azure AD sind viele Szenarios möglich, in denen Sie in Token ausgegebene Ansprüche für bestimmte Dienstprinzipale anpassen können. In diesem Abschnitt führen wir Sie ausführlich durch einige allgemeine Szenarios, anhand derer veranschaulicht wird, wie Sie den Richtlinientyp „Anspruchszuordnung“ verwenden können.
 
-> [!NOTE]
-> Beim Erstellen einer Richtlinie für die Anspruchszuordnung können Sie auch einen Anspruch aus Erweiterungsattribut eines Verzeichnisschemas in Token ausgeben. Verwenden Sie *ExtensionID* für das Erweiterungsattribut anstelle von *ID* im `ClaimsSchema`-Element.  Weitere Informationen zu Erweiterungsattributen finden Sie unter [Verwenden von Erweiterungsattributen des Verzeichnisschemas](active-directory-schema-extensions.md).
+Beim Erstellen einer Richtlinie für die Anspruchszuordnung können Sie auch einen Anspruch aus Erweiterungsattribut eines Verzeichnisschemas in Token ausgeben. Verwenden Sie *ExtensionID* für das Erweiterungsattribut anstelle von *ID* im `ClaimsSchema`-Element.  Weitere Informationen zu Erweiterungsattributen finden Sie unter [Verwenden von Erweiterungsattributen des Verzeichnisschemas](active-directory-schema-extensions.md).
 
 #### <a name="prerequisites"></a>Voraussetzungen
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 4a397a67c0e40de8be1d42ee56618357cf36c55f
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 96c0242414c67d97fc324977b1259f63c27c3a26
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017725"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696811"
 ---
 # <a name="what-is-azure-load-balancer"></a>Was versteht man unter Azure Load Balancer?
 
@@ -44,29 +44,29 @@ Mit Load Balancer Standard können Sie Ihre Anwendungen skalieren und hochverfü
 
 Im Anschluss finden Sie einige Schlüsselszenarien für Load Balancer Standard:
 
-- Vornehmen eines Lastausgleichs für **[internen](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-internal-portal)** und **[externen](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-manage-portal)** Datenverkehr auf virtuellen Azure-Computern
+- Vornehmen eines Lastausgleichs für **[internen](./quickstart-load-balancer-standard-internal-portal.md)** und **[externen](./tutorial-load-balancer-standard-manage-portal.md)** Datenverkehr auf virtuellen Azure-Computern
 
-- Erhöhen der Verfügbarkeit durch Verteilung von Ressourcen **[innerhalb](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-public-zonal-portal)** von und **[zwischen](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal)** Zonen
+- Erhöhen der Verfügbarkeit durch Verteilung von Ressourcen **[innerhalb](./tutorial-load-balancer-standard-public-zonal-portal.md)** von und **[zwischen](./tutorial-load-balancer-standard-public-zone-redundant-portal.md)** Zonen
 
-- Konfigurieren der **[ausgehenden Konnektivität](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)** für virtuelle Azure-Computer
+- Konfigurieren der **[ausgehenden Konnektivität](./load-balancer-outbound-connections.md)** für virtuelle Azure-Computer
 
-- Verwenden von **[Integritätstests](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)** zur Überwachung von Ressourcen mit Lastenausgleich
+- Verwenden von **[Integritätstests](./load-balancer-custom-probe-overview.md)** zur Überwachung von Ressourcen mit Lastenausgleich
 
-- Verwenden der **[Portweiterleitung](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal)** zum Zugreifen auf virtuelle Computer in einem virtuellen Netzwerk basierend auf der öffentlichen IP-Adresse und dem Port
+- Verwenden der **[Portweiterleitung](./tutorial-load-balancer-port-forwarding-portal.md)** zum Zugreifen auf virtuelle Computer in einem virtuellen Netzwerk basierend auf der öffentlichen IP-Adresse und dem Port
 
-- Aktivieren der Unterstützung für den **[Lastenausgleich](https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell)** für **[IPv6](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)**
+- Aktivieren der Unterstützung für den **[Lastenausgleich](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** für **[IPv6](../virtual-network/ipv6-overview.md)**
 
-- Load Balancer Standard stellt mehrdimensionale Metriken über [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) bereit.  Diese Metriken können für eine bestimmte Dimension gefiltert, gruppiert und unterteilt werden.  Sie liefern aktuelle und vergangenheitsbezogene Einblicke in die Leistung und Integrität Ihres Diensts.  Resource Health (Ressourcenintegrität) wird ebenfalls unterstützt. Ausführlichere Informationen finden Sie unter **[Load Balancer Standard-Diagnose mit Metriken, Warnungen und Ressourcenintegrität](load-balancer-standard-diagnostics.md)** .
+- Load Balancer Standard stellt mehrdimensionale Metriken über [Azure Monitor](../azure-monitor/overview.md) bereit.  Diese Metriken können für eine bestimmte Dimension gefiltert, gruppiert und unterteilt werden.  Sie liefern aktuelle und vergangenheitsbezogene Einblicke in die Leistung und Integrität Ihres Diensts.  Resource Health (Ressourcenintegrität) wird ebenfalls unterstützt. Ausführlichere Informationen finden Sie unter **[Load Balancer Standard-Diagnose mit Metriken, Warnungen und Ressourcenintegrität](load-balancer-standard-diagnostics.md)** .
 
-- Vornehmen eines Lastausgleichs für Dienste an **[mehreren Ports, mehreren IP-Adressen oder beidem](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview)**
+- Vornehmen eines Lastausgleichs für Dienste an **[mehreren Ports, mehreren IP-Adressen oder beidem](./load-balancer-multivip-overview.md)**
 
-- Verschieben der Ressourcen von **[internen](https://docs.microsoft.com/azure/load-balancer/move-across-regions-internal-load-balancer-portal)** und **[externen](https://docs.microsoft.com/azure/load-balancer/move-across-regions-external-load-balancer-portal)** Lastenausgleichsmodulen zwischen Azure-Regionen
+- Verschieben der Ressourcen von **[internen](./move-across-regions-internal-load-balancer-portal.md)** und **[externen](./move-across-regions-external-load-balancer-portal.md)** Lastenausgleichsmodulen zwischen Azure-Regionen
 
-- Vornehmen eines Lastausgleichs für TCP- und UDP-Datenflüsse an allen Ports gleichzeitig mithilfe von **[Hochverfügbarkeitsports](https://docs.microsoft.com/azure/load-balancer/load-balancer-ha-ports-overview)**
+- Vornehmen eines Lastausgleichs für TCP- und UDP-Datenflüsse an allen Ports gleichzeitig mithilfe von **[Hochverfügbarkeitsports](./load-balancer-ha-ports-overview.md)**
 
 ### <a name="secure-by-default"></a><a name="securebydefault"></a>Standardmäßig sicher
 
-Load Balancer Standard basiert auf dem Zero Trust-Netzwerksicherheitsmodell. Load Balancer Standard ist standardmäßig sicher und Bestandteil Ihres virtuellen Netzwerks. Das virtuelle Netzwerk ist ein privates und isoliertes Netzwerk.  Das bedeutet, dass Load Balancer Standard-Instanzen sowie öffentliche Standard-IP-Adressen für eingehende Datenflüsse geschlossen sind, sofern sie nicht durch Netzwerksicherheitsgruppen geöffnet werden. NSGs werden verwendet, um zulässigen Datenverkehr explizit zuzulassen.  Wenn Sie über keine NSG für ein Subnetz oder für eine NIC Ihrer VM-Ressource verfügen, ist diese Ressource für Datenverkehr nicht erreichbar. Weitere Informationen zu NSGs und ihrer Verwendung in Ihrem Szenario finden Sie unter [Netzwerksicherheitsgruppen](../virtual-network/security-overview.md).
+Load Balancer Standard basiert auf dem Zero Trust-Netzwerksicherheitsmodell. Load Balancer Standard ist standardmäßig sicher und Bestandteil Ihres virtuellen Netzwerks. Das virtuelle Netzwerk ist ein privates und isoliertes Netzwerk.  Das bedeutet, dass Load Balancer Standard-Instanzen sowie öffentliche Standard-IP-Adressen für eingehende Datenflüsse geschlossen sind, sofern sie nicht durch Netzwerksicherheitsgruppen geöffnet werden. NSGs werden verwendet, um zulässigen Datenverkehr explizit zuzulassen.  Wenn Sie über keine NSG für ein Subnetz oder für eine NIC Ihrer VM-Ressource verfügen, ist diese Ressource für Datenverkehr nicht erreichbar. Weitere Informationen zu NSGs und ihrer Verwendung in Ihrem Szenario finden Sie unter [Netzwerksicherheitsgruppen](../virtual-network/network-security-groups-overview.md).
 Load Balancer Basic ist standardmäßig für das Internet geöffnet. Außerdem werden von Load Balancer keine Kundendaten gespeichert.
 
 ## <a name="pricing-and-sla"></a>Preise und SLA
@@ -84,4 +84,3 @@ Abonnieren Sie den RSS-Feed, und zeigen Sie die neuesten Azure Load Balancer-Fea
 Informationen zu den ersten Schritten mit einem Lastenausgleich finden Sie unter [Erstellen eines öffentlichen Standardlastenausgleichs](quickstart-load-balancer-standard-public-portal.md).
 
 Weitere Informationen zu den Einschränkungen und Komponenten von Azure Load Balancer finden Sie unter [Azure Load Balancer-Komponenten](./components.md) und [Azure Load Balancer-Konzepte](./concepts.md).
-

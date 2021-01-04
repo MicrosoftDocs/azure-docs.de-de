@@ -1,18 +1,17 @@
 ---
-title: Hinzufügen von Kacheln zu Ihrem Dashboard in Azure IoT Central | Microsoft-Dokumentation
+title: Konfigurieren Ihres Dashboards in Azure IoT Central | Microsoft-Dokumentation
 description: In diesem Artikel erfahren Sie, wie Sie als Ersteller das Standarddashboard Ihrer Azure IoT Central-Anwendung mit Kacheln konfigurieren.
-author: Haley-Rowland
-ms.author: harowl
-ms.date: 05/27/2020
+author: TheJasonAndrew
+ms.author: v-anjaso
+ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
-services: iot-central
-ms.openlocfilehash: beeb771ea5053dd0ad867a7568aa64bbb2d0b4ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ea2dd18cd5816c7c1406ac201421a2983e431a3
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985262"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491997"
 ---
 # <a name="configure-the-application-dashboard"></a>Konfigurieren des Anwendungsdashboards
 
@@ -29,23 +28,26 @@ Der folgende Screenshot zeigt das Dashboard in einer Anwendung, die über die Vo
 
 Nachdem Sie auf **Bearbeiten** oder **Neu** geklickt haben, befindet sich das Dashboard im *Bearbeitungsmodus*. Sie können die Tools im Bereich **Dashboard bearbeiten** verwenden, um dem Dashboard Kacheln hinzuzufügen und Kacheln auf dem Dashboard selbst anzupassen und von dort zu entfernen. Wenn Sie beispielsweise eine Kachel mit **Telemetriedaten** hinzufügen möchten, auf der die von einem oder mehreren Geräten gemeldete aktuelle Temperatur angezeigt wird, gehen Sie folgendermaßen vor:
 
-1. Klicken Sie im Bereich **Dashboard bearbeiten** auf die Option **Gerätegruppe**.
-1. Wählen Sie im Dropdown **Geräte** eines oder mehrere Geräte aus, die auf der Kachel angezeigt werden sollen. Nun werden die verfügbare Telemetrie, die Eigenschaften und die Befehle dieser Geräte angezeigt.
-1. Klicken Sie im Telemetriebereich auf **Temperatur** und dann auf **Kachel hinzufügen**. Die Kachel wird nun auf dem Dashboard angezeigt. Dort können Sie die Visualisierung ändern, die Größe der Kachel ändern und sie konfigurieren:
+1. Wählen Sie eine **Gerätegruppe** und dann Ihre Geräte im Dropdown **Geräte** aus, damit sie auf der Kachel angezeigt werden. Nun werden die verfügbare Telemetrie, die Eigenschaften und die Befehle dieser Geräte angezeigt.
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Dashboard für Anwendungen, die auf der Vorlage „Benutzerdefinierte Anwendung“ basieren":::
+1. Verwenden Sie bei Bedarf das Dropdown, um einen Telemetriewert auszuwählen, der auf der Kachel angezeigt werden soll. Sie können der Kachel weitere Elemente hinzufügen, indem Sie auf **+ Telemetrie**, **+ Eigenschaft** oder **+ Cloudeigenschaft** klicken.
 
-Wenn Sie das Hinzufügen und Anpassen der Kacheln auf dem Dashboard abgeschlossen haben, klicken Sie auf **Speichern**.
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Hinzufügen einer Kachel mit Temperaturtelemetriedaten zum Dashboard":::
+
+Wenn Sie alle Werte ausgewählt haben, die auf der Kachel angezeigt werden sollen, klicken Sie auf **Kachel hinzufügen**. Die Kachel wird nun auf dem Dashboard angezeigt. Dort können Sie die Visualisierung ändern, die Größe der Kachel ändern, sie verschieben und sie konfigurieren.
+
+Wenn Sie das Hinzufügen und Anpassen von Kacheln zu Ihrem Dashboard abgeschlossen haben, klicken Sie auf **Speichern**, damit die Änderungen am Dashboard gespeichert werden. Dadurch verlassen Sie den Bearbeitungsmodus.
 
 ## <a name="customize-tiles"></a>Anpassen von Kacheln
 
-Wenn Sie eine Kachel auf dem Dashboard anpassen möchten, muss sich das Dashboard im Bearbeitungsmodus befinden. Die verfügbaren Anpassungsoptionen hängen vom [Kacheltyp](#tile-types) ab:
+Wenn Sie eine Kachel bearbeiten möchten, müssen Sie sich im Bearbeitungsmodus befinden.  Die verfügbaren Anpassungsoptionen hängen vom [Kacheltyp](#tile-types) ab:
 
-* Über das Linealsymbol auf einer Kachel können Sie die Visualisierung ändern. Zu den Visualisierungen gehören Liniendiagramme, letzte bekannte Werte und Wärmebilder.
+* Über das Linealsymbol auf einer Kachel können Sie die Visualisierung ändern. Zu den Visualisierungen gehören Liniendiagramme, Balkendiagramme, Kreisdiagramme, letzte bekannte Werte, Key Performance Indicators (KPIs), Wärmebilder und Karten.
 
 * Über das quadratische Symbol können Sie die Größe der Kachel ändern.
 
 * Das Zahnradsymbol ermöglicht die Konfiguration der Visualisierung. Bei einer Liniendiagrammvisualisierung können Sie beispielsweise die Legende und Achsen anzeigen und einen Zeitbereich auswählen, der dargestellt werden soll.
+
 
 ## <a name="tile-types"></a>Kacheltypen
 
@@ -71,27 +73,36 @@ Aktuell können Sie Kacheln, die mehrere Geräte unterstützen, bis zu zehn Ger�
 
 ### <a name="customizing-visualizations"></a>Anpassen von Visualisierungen
 
+Liniendiagramme zeigen standardmäßig Daten über einen Zeitraum hinweg. Der gewählte Zeitraum wird in 50 Buckets gleicher Größe aufgeteilt, und die Gerätedaten werden dann pro Bucket aggregiert, sodass für den ausgewählten Zeitbereich 50 Datenpunkte entstehen. Wenn Sie Rohdaten anzeigen möchten, können Sie Ihre Auswahl so ändern, dass die letzten 100 Werte angezeigt werden. Wenn Sie den Zeitbereich ändern oder eine Visualisierung für Rohdaten auswählen möchten, verwenden Sie das Dropdown „Anzeigebereich“ des Panel **Diagramm konfigurieren**.
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/display-range.png" alt-text="Ändern des Anzeigebereichs eines Liniendiagramms":::
+
 Klicken Sie bei Kacheln, die aggregierte Werte anzeigen, auf das Zahnradsymbol neben dem Telemetrietyp im Bereich **Diagramm konfigurieren**, um die Aggregation auszuwählen. Zur Verfügung stehen die Aggregationen für den Durchschnitt, die Summe, das Maximum, das Minimum und die Anzahl.
 
 Bei Liniendiagrammen, Balkendiagrammen und Kreisdiagrammen können Sie die Farbe der verschiedenen Telemetriewerte anpassen. Klicken Sie hierzu auf das Farbpalettensymbol neben den Telemetriedaten, die Sie anpassen möchten:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Dashboard für Anwendungen, die auf der Vorlage „Benutzerdefinierte Anwendung“ basieren":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Ändern der Farbe eines Telemetriewerts":::
 
 Bei Kacheln, die Zeichenfolgeneigenschaften oder Telemetriewerte zeigen, können Sie auswählen, wie der Text angezeigt werden soll. Wenn das Gerät beispielsweise eine URL in einer Zeichenfolgeneigenschaft speichert, können Sie sie als Link anzeigen, auf den geklickt werden kann. Wenn die URL auf ein Bild verweist, können Sie das Bild in einer Kachel mit dem letzten bekannten Wert oder einer Eigenschaftenkachel rendern. Wenn Sie ändern möchten, wie eine Zeichenfolge angezeigt wird, klicken Sie in der Kachelkonfiguration auf das Zahnradsymbol neben dem Telemetrietyp oder der Eigenschaft:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Dashboard für Anwendungen, die auf der Vorlage „Benutzerdefinierte Anwendung“ basieren":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Ändern der Anzeige einer Zeichenfolge auf einer Kachel":::
 
 Für die numerischen Kacheln **KPI**, **Letzter bekannter Wert** und **Eigenschaften** können Sie mithilfe von bedingter Formatierung die Farbe der jeweiligen Kachel basierend auf dem aktuellen Wert anpassen. Um eine bedingte Formatierung anzuwenden, wählen Sie die Kachel **Konfigurieren** und dann neben dem anzupassenden Wert das Symbol **Bedingte Formatierung** aus:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Dashboard für Anwendungen, die auf der Vorlage „Benutzerdefinierte Anwendung“ basieren":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Screenshot der Option „Konfiguration“ für eine Kachel und des Symbols für die bedingte Formatierung":::
 
 Fügen Sie Ihre Regeln für bedingte Formatierung hinzu:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Dashboard für Anwendungen, die auf der Vorlage „Benutzerdefinierte Anwendung“ basieren":::
-
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Screenshot von Regeln für bedingte Formatierung für den durchschnittlichen Fluss. Es gibt drei Regeln: „Kleiner als 20“ wird grün dargestellt, „Kleiner als 50“ gelb und „Größer als 50“ rot.":::
+   
 Der folgende Screenshot zeigt die Auswirkung der Regel für bedingte Formatierung:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Dashboard für Anwendungen, die auf der Vorlage „Benutzerdefinierte Anwendung“ basieren":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Screenshot der Kachel für durchschnittlichen Wasserfluss mit roter Hintergrundfarbe. Die Zahl auf der Kachel lautet 50,54.":::
+
+### <a name="tile-formatting"></a>Kachelformatierung
+Mit diesem Feature, das in KPI, LKV und auf Eigenschaftenkacheln verfügbar ist, können Benutzer den Schriftgrad anpassen, die dezimale Genauigkeit auswählen, numerische Werte abkürzen (z. B. kann 1.700 als 1,7 Tsd. abgekürzt werden) oder Zeichenfolgenwerte in den dazugehörigen Kacheln einschließen.
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/tile-format.png" alt-text="Kachelformat":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 

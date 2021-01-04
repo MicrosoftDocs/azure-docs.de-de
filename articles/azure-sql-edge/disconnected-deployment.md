@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: ff14f8a9f236701889aea95911f2a1e381eabf83
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fce098767fffd36376399bbd9396699e3d9fbfd3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944188"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392077"
 ---
 # <a name="deploy-azure-sql-edge-with-docker"></a>Bereitstellen von Azure SQL Edge mit Docker
 
@@ -28,7 +28,7 @@ Dieses Image besteht aus auf Ubuntu 18.04 basierendem Azure SQL Edge. Es kann u
 - Docker-Speichertreiber **overlay2**. Dies ist die Standardeinstellung für die meisten Benutzer. Wenn Sie feststellen, dass Sie diesen Speichertreiber nicht verwenden und wechseln müssen, finden Sie weitere Informationen und Warnungen in der [Docker-Dokumentation zur Konfiguration von „overlay2“](https://docs.docker.com/storage/storagedriver/overlayfs-driver/#configure-docker-with-the-overlay-or-overlay2-storage-driver).
 - Mindestens 10 GB freier Speicherplatz.
 - Mindestens 1 GB RAM.
-- [Hardwareanforderungen für Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/features#hardware-support).
+- [Hardwareanforderungen für Azure SQL Edge](./features.md#hardware-support).
 
 
 ## <a name="pull-and-run-the-container-image"></a>Übertragen mithilfe von Pull und Ausführen von Containerimages
@@ -70,7 +70,7 @@ Der vorherige Befehl pullt die neuesten Azure SQL Edge-Containerimages. Alle ver
     | Parameter | BESCHREIBUNG |
     |-----|-----|
     | **-e „ACCEPT_EULA = Y“** |  Legen Sie für die Variable **ACCEPT_EULA** einen beliebigen Wert fest, um Ihre Zustimmung zum [End-User Licensing Agreement (Benutzerlizenzvertrag)](https://go.microsoft.com/fwlink/?linkid=2139274) zu geben. Erforderliche Einstellung für das Azure SQL Edge-Image. |
-    | **-e "MSSQL_SA_PASSWORD=yourStrong(!)Password"** | Geben Sie ein sicheres Kennwort ein, das aus mindestens acht Zeichen besteht und den [Kennwortanforderungen von Azure SQL Edge](https://docs.microsoft.com/sql/relational-databases/security/password-policy) entspricht. Erforderliche Einstellung für das Azure SQL Edge-Image. |
+    | **-e "MSSQL_SA_PASSWORD=yourStrong(!)Password"** | Geben Sie ein sicheres Kennwort ein, das aus mindestens acht Zeichen besteht und den [Kennwortanforderungen von Azure SQL Edge](/sql/relational-databases/security/password-policy) entspricht. Erforderliche Einstellung für das Azure SQL Edge-Image. |
     | **-p 1433:1433** | Ordnen Sie einen TCP-Port in der Hostumgebung (erster Wert) einem TCP-Port im Container zu (zweiter Wert). In diesem Beispiel lauscht Azure SQL Edge an TCP 1433 im Container. Diese Informationen werden Port 1433 auf dem Host verfügbar gemacht. |
     | **--name azuresqledge** | Geben Sie dem Container selbst einen Namen, anstatt einen willkürlich generierten zu verwenden. Wenn Sie mehrere Container ausführen, können Sie nicht denselben Namen mehrfach verwenden. |
     | **-d** | Hiermit wird der Container im Hintergrund ausgeführt (Daemon) |
@@ -144,7 +144,7 @@ Die folgenden Abschnitte führen Sie durch die Verwendung von **sqlcmd** und Tra
 
 Mit den folgenden Schritten wird eine neue Datenbank mit dem Namen `TestDB` erstellt.
 
-1. Fügen Sie aus der **sqlcmd**-Eingabeaufforderung den folgenden Transact-SQL-Befehl zur Erstellung einer Testdatenbank ein:
+1. Fügen Sie aus der **sqlcmd** -Eingabeaufforderung den folgenden Transact-SQL-Befehl zur Erstellung einer Testdatenbank ein:
 
    ```sql
    CREATE DATABASE TestDB
@@ -162,7 +162,7 @@ Mit den folgenden Schritten wird eine neue Datenbank mit dem Namen `TestDB` erst
 
 Erstellen Sie als Nächstes eine neue Tabelle, `Inventory`, und fügen Sie zwei neue Zeilen ein.
 
-1. Wechseln Sie den Kontext aus der **sqlcmd**-Eingabeaufforderung zur neuen `TestDB`-Datenbank:
+1. Wechseln Sie den Kontext aus der **sqlcmd** -Eingabeaufforderung zur neuen `TestDB`-Datenbank:
 
    ```sql
    USE TestDB
@@ -190,7 +190,7 @@ Erstellen Sie als Nächstes eine neue Tabelle, `Inventory`, und fügen Sie zwei 
 
 Führen Sie nun eine Abfrage zum Zurückgeben von Daten aus der `Inventory`-Tabelle aus.
 
-1. Geben Sie aus der **sqlcmd**-Eingabeaufforderung eine Abfrage ein, die Reihen aus der `Inventory`-Tabelle zurückgibt, bei denen die Menge größer als 152 ist:
+1. Geben Sie aus der **sqlcmd** -Eingabeaufforderung eine Abfrage ein, die Reihen aus der `Inventory`-Tabelle zurückgibt, bei denen die Menge größer als 152 ist:
 
    ```sql
    SELECT * FROM Inventory WHERE quantity > 152;
@@ -204,7 +204,7 @@ Führen Sie nun eine Abfrage zum Zurückgeben von Daten aus der `Inventory`-Tabe
 
 ### <a name="exit-the-sqlcmd-command-prompt"></a>Beenden der sqlcmd-Eingabeaufforderung
 
-1. Zum Beenden der **sqlcmd**-Sitzung, geben Sie `QUIT` ein:
+1. Zum Beenden der **sqlcmd** -Sitzung, geben Sie `QUIT` ein:
 
    ```sql
    QUIT

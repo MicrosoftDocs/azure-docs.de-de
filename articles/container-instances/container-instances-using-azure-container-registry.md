@@ -4,13 +4,13 @@ description: Erfahren Sie, wie Container in Azure Container Instances durch Pull
 services: container-instances
 ms.topic: article
 ms.date: 07/02/2020
-ms.custom: mvc
-ms.openlocfilehash: d5ba56271950c2d14c7fbf0b9154afb371bcbabc
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: cca1001f0f84f4e4fc87df233f872fc1efdb3267
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173652"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736723"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Bereitstellen in Azure Container Instances aus Azure Container Registry
 
@@ -18,9 +18,9 @@ ms.locfileid: "92173652"
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-**Azure Container Registry**: Sie benötigen eine Azure-Containerregistrierung, die mindestens ein Containerimage enthält, um die Schritte in diesem Artikel auszuführen. Falls Sie eine Registrierung benötigen, siehe [Erstellen einer Containerregistrierung mit der Azure-Befehlszeilenschnittstelle (CLI)](../container-registry/container-registry-get-started-azure-cli.md).
+**Azure Container Registry** : Sie benötigen eine Azure-Containerregistrierung, die mindestens ein Containerimage enthält, um die Schritte in diesem Artikel auszuführen. Falls Sie eine Registrierung benötigen, siehe [Erstellen einer Containerregistrierung mit der Azure-Befehlszeilenschnittstelle (CLI)](../container-registry/container-registry-get-started-azure-cli.md).
 
-**Azure CLI**: Die Befehlszeilenbeispiele in diesem Artikel verwenden die [Azure CLI](/cli/azure/) und sind für die Bash-Shell formatiert. Sie können die [Azure CLI lokal installieren](/cli/azure/install-azure-cli) oder die [Azure Cloud Shell][cloud-shell-bash] nutzen.
+**Azure CLI** : Die Befehlszeilenbeispiele in diesem Artikel verwenden die [Azure CLI](/cli/azure/) und sind für die Bash-Shell formatiert. Sie können die [Azure CLI lokal installieren](/cli/azure/install-azure-cli) oder die [Azure Cloud Shell][cloud-shell-bash] nutzen.
 
 ## <a name="limitations"></a>Einschränkungen
 
@@ -70,9 +70,9 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-Das Argument `--role` im vorhergehenden Befehl konfiguriert den Dienstprinzipal mit der Rolle *acrpull*, die ihm ausschließlich Pullzugriff auf die Registrierung gewährt. Um sowohl Push- als auch Pullzugriff zu gewähren, ändern Sie das Argument `--role` in *acrpush*.
+Das Argument `--role` im vorhergehenden Befehl konfiguriert den Dienstprinzipal mit der Rolle *acrpull* , die ihm ausschließlich Pullzugriff auf die Registrierung gewährt. Um sowohl Push- als auch Pullzugriff zu gewähren, ändern Sie das Argument `--role` in *acrpush* .
 
-Speichern Sie als Nächstes die *appId* des Dienstprinzipals im Tresor. Dies ist der **Benutzername**, den Sie zur Authentifizierung an Azure Container Registry übergeben.
+Speichern Sie als Nächstes die *appId* des Dienstprinzipals im Tresor. Dies ist der **Benutzername** , den Sie zur Authentifizierung an Azure Container Registry übergeben.
 
 ```azurecli
 # Store service principal ID in vault (the registry *username*)
@@ -149,7 +149,7 @@ Wenn Sie Containerimages in einer Azure Container Registry verwalten, können Si
 
 1. Um sicherzustellen, dass das Administratorkonto aktiviert ist, wählen Sie zunächst **Zugriffsschlüssel** und dann unter **Administratorbenutzer** die Option **Aktivieren** aus.
 
-1. Klicken Sie auf **Repositorys**, und wählen Sie dann das Repository aus, über das die Bereitstellung erfolgen soll. Klicken Sie mit der rechten Maustaste auf das Tag für das Containerimage, das Sie bereitstellen möchten, und klicken Sie auf **Instanz ausführen**.
+1. Klicken Sie auf **Repositorys** , und wählen Sie dann das Repository aus, über das die Bereitstellung erfolgen soll. Klicken Sie mit der rechten Maustaste auf das Tag für das Containerimage, das Sie bereitstellen möchten, und klicken Sie auf **Instanz ausführen** .
 
     ![„Instanz ausführen“ in Azure Container Registry im Azure-Portal][acr-runinstance-contextmenu]
 

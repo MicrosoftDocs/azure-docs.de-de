@@ -7,12 +7,12 @@ ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5f1c52b764634f8086763aca67dfc32b507d2edd
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 51bd073b6f84f3378b91091e04f2f278ea2f49b6
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042846"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495268"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>Verwalten von digitalen IoT Plug & Play-Zwillingen
 
@@ -193,6 +193,6 @@ Updates können fehlschlagen, wenn die gemeldeten Werte eines Geräts den [IoT P
 
 Nachdem Sie sich mit digitalen Zwillingen vertraut gemacht haben, finden Sie weitere Informationen in folgenden Artikeln:
 
-- [Interagieren mit einem Gerät über Ihre Lösung](quickstart-service-node.md)
+- [Interagieren mit einem Gerät über Ihre Lösung](quickstart-service.md)
 - [IoT-REST-API für digitale Zwillinge](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT-Explorer](howto-use-iot-explorer.md)

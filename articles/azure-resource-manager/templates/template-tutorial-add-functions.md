@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Hinzufügen von Vorlagenfunktionen'
-description: Fügen Sie Ihrer Azure Resource Manager-Vorlage Vorlagenfunktionen hinzu, um Werte zu erstellen.
+description: Fügen Sie Ihrer Azure Resource Manager-Vorlage (ARM-Vorlage) Vorlagenfunktionen hinzu, um Werte zu erstellen.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: c6ced832cad6809e7cd016eee132713c6b266480
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67c88e98d966a21163aafefcad8363086d5b3bf4
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613848"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931043"
 ---
 # <a name="tutorial-add-template-functions-to-your-arm-template"></a>Tutorial: Hinzufügen von Vorlagenfunktionen zu Ihrer ARM-Vorlage
 
-In diesem Tutorial wird beschrieben, wie Sie Ihrer ARM-Vorlage (Azure Resource Manager) [Vorlagenfunktionen](template-functions.md) hinzufügen. Sie verwenden Funktionen, um dynamisch Werte zu erstellen. Zusätzlich zu diesen vom System bereitgestellten Vorlagenfunktionen können Sie auch [benutzerdefinierte Funktionen](./template-user-defined-functions.md) (User-Defined Functions, UDFs) erstellen. Dieses Tutorial dauert ungefähr **7 Minuten**.
+In diesem Tutorial wird beschrieben, wie Sie Ihrer ARM-Vorlage (Azure Resource Manager-Vorlage) [Vorlagenfunktionen](template-functions.md) hinzufügen. Sie verwenden Funktionen, um dynamisch Werte zu erstellen. Zusätzlich zu diesen vom System bereitgestellten Vorlagenfunktionen können Sie auch [benutzerdefinierte Funktionen](./template-user-defined-functions.md) (User-Defined Functions, UDFs) erstellen. Dieses Tutorial dauert ungefähr **7 Minuten**.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -33,7 +33,7 @@ Der Standort des Speicherkontos ist auf **USA, Osten** hartcodiert. Möglicherwe
 
 ## <a name="use-function"></a>Verwenden einer Funktion
 
-Wenn Sie das vorherige Tutorial dieser Reihe durchgeführt haben, haben Sie bereits eine Funktion verwendet. Beim Hinzufügen von **[parameters('storageName')]** haben Sie die Funktion [parameters](template-functions-deployment.md#parameters) verwendet. Die Klammern geben an, dass es sich bei der Syntax innerhalb der Klammern um einen [Vorlagenausdruck](template-expressions.md) handelt. Resource Manager löst die Syntax auf, anstatt sie als Literalwert zu behandeln.
+Wenn Sie das vorherige Tutorial dieser Reihe durchgeführt haben, haben Sie bereits eine Funktion verwendet. Beim Hinzufügen von `"[parameters('storageName')]"` haben Sie die Funktion [parameters](template-functions-deployment.md#parameters) verwendet. Die Klammern geben an, dass es sich bei der Syntax innerhalb der Klammern um einen [Vorlagenausdruck](template-expressions.md) handelt. Resource Manager löst die Syntax auf, anstatt sie als Literalwert zu behandeln.
 
 Funktionen rufen während der Bereitstellung dynamisch Werte ab und erhöhen dadurch die Flexibilität Ihrer Vorlage. In diesem Tutorial verwenden Sie eine Funktion, um den Standort der Ressourcengruppe abzurufen, die Sie für die Bereitstellung verwenden.
 

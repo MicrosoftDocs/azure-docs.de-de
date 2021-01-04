@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-python
 ms.date: 04/23/2020
-ms.openlocfilehash: 96b2e7deff464f00ced4457a514ac833a90bd42d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16cb8a9c2a951c9f60640248ef74757d1e5ee200
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87873890"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518922"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Installieren von Jupyter Notebook auf Ihrem Computer und Herstellen einer Verbindung mit Apache Spark in HDInsight
 
@@ -150,7 +150,7 @@ In diesem Abschnitt lernen Sie, SparkMagic nach der Installation zu konfiguriere
 
     a. Erstellen Sie ein neues Notebook. Wählen Sie in der rechten Ecke **Neu** aus. Daraufhin sollten der **Python 2**- oder **Python 3**-Standardkernel und die von Ihnen installierten Kernel angezeigt werden. Die tatsächlichen Werte variieren je nach Ihren Installationsentscheidungen.  Wählen Sie **PySpark** aus.
 
-    ![Verfügbare Kernels in Jupyter Notebook](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Kernels in Jupyter Notebook")
+    ![Verfügbare Kernels in Jupyter Notebook](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Kernels im Jupyter Notebook")
 
     > [!IMPORTANT]  
     > Überprüfen Sie Ihre Shell nach der Auswahl von **Neu** auf Fehler.  Wenn der Fehler `TypeError: __init__() got an unexpected keyword argument 'io_loop'` angezeigt wird, ist möglicherweise ein bekanntes Problem mit bestimmten Versionen von Tornado aufgetreten.  Wenn dies der Fall ist, beenden Sie den Kernel, und stufen Sie anschließend die Tornado-Installation mit dem folgenden Befehl herab: `pip install tornado==4.5.3`.
@@ -170,7 +170,7 @@ In diesem Abschnitt lernen Sie, SparkMagic nach der Installation zu konfiguriere
 
 Gründe, um Jupyter auf dem Computer zu installieren und mit einem Apache Spark-Cluster in HDInsight zu verbinden:
 
-* Es bietet Ihnen die Möglichkeit, Ihre Notebooks lokal zu erstellen, Ihre Anwendung in einem Cluster während dessen Betriebs zu testen und die Notebooks dann in den Cluster hochzuladen. Sie können die Notebooks entweder mithilfe des im Cluster ausgeführten Jupyter Notebooks hochladen oder sie im Ordner `/HdiNotebooks` in dem dem Cluster zugeordneten Speicherkonto speichern. Weitere Informationen zum Speichern von Notebooks im Cluster finden Sie unter [Wo werden die Notebooks gespeichert?](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)
+* Es bietet Ihnen die Möglichkeit, Ihre Notebooks lokal zu erstellen, Ihre Anwendung in einem Cluster während dessen Betriebs zu testen und die Notebooks dann in den Cluster hochzuladen. Sie können die Notebooks entweder mithilfe des im Cluster ausgeführten Jupyter Notebooks hochladen, oder sie in dem Speicherkonto, das dem Cluster zugeordnet ist, im Ordner `/HdiNotebooks` speichern. Weitere Informationen zum Speichern von Notebooks im Cluster finden Sie unter [Wo werden die Notebooks gespeichert?](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)
 * Wenn Notebooks lokal verfügbar sind, können Sie basierend auf den Anwendungsanforderungen Verbindungen mit unterschiedlichen Spark-Clustern herstellen.
 * Sie können GitHub verwenden, um ein Quellcodeverwaltungssystem zu implementieren und Versionskontrolle für die Notebooks zu ermöglichen. Sie können auch eine Umgebung für Zusammenarbeit einrichten, in der mehrere Benutzer mit dem gleichen Notebook arbeiten können.
 * Sie können mit Notebooks lokal ohne einen Cluster arbeiten. Sie benötigen einen Cluster nur zum Testen der Notebooks, nicht für das manuelle Verwalten von Notebooks oder einer Entwicklungsumgebung.

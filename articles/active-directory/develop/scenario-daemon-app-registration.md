@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 508101ad615dd96559b1c68a61be7c08772545db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b77cc93385efb0bbb8a9b87d29de9bad5cd4ceb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80885479"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996003"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>Daemon-App, die Web-APIs aufruft – App-Registrierung
 
@@ -50,5 +50,4 @@ Wenn Sie ein unabhängiger Softwarehersteller sind, der eine mehrinstanzenfähig
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-> [!div class="nextstepaction"]
-> [Daemon-App – App-Codekonfiguration](./scenario-daemon-app-configuration.md)
+Fahren Sie mit dem nächsten Artikel in diesem Szenario fort: [App-Codekonfiguration](./scenario-daemon-app-configuration.md).

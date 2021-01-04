@@ -1,6 +1,6 @@
 ---
 title: Behandlung von Konnektivitätsproblemen
-description: Behandlung von Konnektivitätsproblemen im Synapse SQL-Pool.
+description: Behandlung von Konnektivitätsproblemen im dedizierten SQL-Pool (früher SQL DW)
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,47 +11,47 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-csharp
-ms.openlocfilehash: d32a51e391edbfd32cf57265562d4e0cb8fe0681
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea99c2ce1963ec58649fd4c2fbb4d98768da8c6f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362179"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447982"
 ---
-# <a name="troubleshooting-connectivity-issues-in-synapse-sql-pool"></a>Behandeln von Konnektivitätsproblemen im Synapse SQL-Pool
+# <a name="troubleshooting-connectivity-issues-in-dedicated-sql-pool-formerly-sql-dw"></a>Behandlung von Konnektivitätsproblemen im dedizierten SQL-Pool (früher SQL DW)
 
-In diesem Artikel werden allgemeine Troubleshootingverfahren für das Herstellen von Verbindungen mit Ihrer SQL-Pooldatenbank aufgeführt.
+Dieser Artikel enthält allgemeine Problembehandlungsverfahren für das Herstellen von Verbindungen mit Ihrer Datenbank im dedizierten SQL-Pool (früher SQL DW).
 
 ## <a name="check-service-availability"></a>Überprüfen der Verfügbarkeit des Diensts
 
-Überprüfen Sie, ob der Dienst verfügbar ist. Navigieren Sie im Azure-Portal zu dem SQL-Pool, mit dem Sie eine Verbindung herstellen möchten. Klicken Sie im Inhaltsverzeichnis auf der linken Seite auf **Diagnose und Problembehandlung**.
+Überprüfen Sie, ob der Dienst verfügbar ist. Navigieren Sie im Azure-Portal zu dem dedizierten SQL-Pool (früher SQL DW), mit dem Sie eine Verbindung herstellen möchten. Klicken Sie im Inhaltsverzeichnis auf der linken Seite auf **Diagnose und Problembehandlung**.
 
 ![Auswählen der Ressourcenintegrität](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-Der Status Ihres SQL-Pools wird hier angezeigt. Wenn der Dienst nicht als **Verfügbar** angezeigt wird, sind weitere Handlungen erforderlich.
+Der Status Ihres dedizierten SQL-Pools (früher SQL DW) wird hier angezeigt. Wenn der Dienst nicht als **Verfügbar** angezeigt wird, sind weitere Handlungen erforderlich.
 
 ![Dienst verfügbar](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-Wenn die Ressourcenintegrität angibt, dass Ihre Instanz des SQL-Pools angehalten wurde oder skaliert wird, führen Sie die Anleitungen zum Fortsetzen der Instanz aus.
+Wenn die Ressourcenintegrität angibt, dass Ihre Instanz des dedizierten SQL-Pools (früher SQL DW) angehalten wurde oder skaliert wird, führen Sie die Anleitungen zum Fortsetzen Ihrer Instanz aus.
 
-![Screenshot, der eine Instanz von SQL Data Warehouse zeigt, die angehalten ist oder gerade skaliert.](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
+![Der Screenshot zeigt eine Instanz des dedizierten SQL-Pools, der angehalten wurde oder skaliert wird.](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
 Hier finden Sie weitere Informationen zu Resource Health.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Überprüfen auf angehaltene Vorgänge oder Skalierungen
 
-Sehen Sie im Portal nach, ob Ihre Instanz des SQL-Pools angehalten wurde oder skaliert wird.
+Sehen Sie im Portal nach, ob Ihre Instanz des dedizierten SQL-Pools (früher SQL DW) angehalten wurde oder skaliert wird.
 
 ![Screenshot, der zeigt, wie Sie überprüfen können, ob ein Data Warehouse angehalten wurde.](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-Wenn Sie feststellen, dass der Dienst pausiert wurde oder skaliert wird, überprüfen Sie, ob dies im Rahmen eines Wartungszeitplans geschieht. In der *Übersicht* zu Ihrem SQL-Pools im Portal sehen Sie den ausgewählten Wartungszeitplan.
+Wenn Sie feststellen, dass der Dienst pausiert wurde oder skaliert wird, überprüfen Sie, ob dies im Rahmen eines Wartungszeitplans geschieht. In der *Übersicht* zu Ihrem dedizierten SQL-Pool (früher SQL DW) im Portal wird der ausgewählte Wartungszeitplan angezeigt.
 
 ![Übersicht über den Wartungszeitplan](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-Kontaktieren Sie andernfalls Ihren IT-Administrator, um auszuschließen, dass es sich bei der Wartung um ein geplantes Ereignis handelt. Führen Sie zur Fortsetzung der Instanz des SQL-Pools [diese Schritte](pause-and-resume-compute-portal.md) aus.
+Kontaktieren Sie andernfalls Ihren IT-Administrator, um auszuschließen, dass es sich bei der Wartung um ein geplantes Ereignis handelt. Führen Sie zur Fortsetzung der Instanz des dedizierten SQL-Pools (früher SQL DW) [diese Schritte](pause-and-resume-compute-portal.md) aus.
 
 ## <a name="check-your-firewall-settings"></a>Überprüfen der Firewalleinstellungen
 
-Die SQL-Pooldatenbank kommuniziert über Port 1433.  Wenn Sie versuchen, eine Verbindung über ein Unternehmensnetzwerk herzustellen, wird ausgehender Datenverkehr über Port 1433 von der Firewall Ihres Netzwerks unter Umständen nicht zugelassen. In diesem Fall können Sie nur dann eine Verbindung mit Ihrem [logischen Server](../../azure-sql/database/logical-servers.md) herstellen, wenn Ihre IT-Abteilung Port 1433 öffnet. [Hier](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules) finden Sie weitere Informationen zu den Firewallkonfigurationen.
+Die Datenbank im dedizierten SQL-Pool (früher SQL DW) kommuniziert über Port 1433.  Wenn Sie versuchen, eine Verbindung über ein Unternehmensnetzwerk herzustellen, wird ausgehender Datenverkehr über Port 1433 von der Firewall Ihres Netzwerks unter Umständen nicht zugelassen. In diesem Fall können Sie nur dann eine Verbindung mit Ihrem [logischen Server](../../azure-sql/database/logical-servers.md) herstellen, wenn Ihre IT-Abteilung Port 1433 öffnet. [Hier](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules) finden Sie weitere Informationen zu den Firewallkonfigurationen.
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Überprüfen der Einstellungen für VNETs und Dienstendpunkte
 
@@ -61,7 +61,7 @@ Wenn die Fehler 40914 und 40615 bei Ihnen auftreten, finden Sie in diesem Artike
 
 ### <a name="software"></a>Software
 
-Stellen Sie sicher, dass Sie die neuesten Tools verwenden, um eine Verbindung mit dem SQL-Pool herzustellen:
+Stellen Sie sicher, dass Sie die neuesten Tools verwenden, um eine Verbindung mit Ihrem dedizierten SQL-Pool (früher SQL DW) herzustellen:
 
 - SSMS
 - Azure Data Studio
@@ -106,7 +106,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="intermittent-connection-issues"></a>Zeitweilige Verbindungsprobleme
 
-Überprüfen Sie, ob die Auslastung des Servers hoch ist und sich viele Anforderungen in der Warteschlange befinden. Sie müssen Ihren SQL-Pool ggf. für zusätzliche Ressourcen hochskalieren.
+Überprüfen Sie, ob die Auslastung des Servers hoch ist und sich viele Anforderungen in der Warteschlange befinden. Möglicherweise müssen Sie Ihren dedizierten SQL-Pool (früher SQL DW) für zusätzliche Ressourcen hochskalieren.
 
 ## <a name="common-error-messages"></a>Häufige Fehlermeldungen
 

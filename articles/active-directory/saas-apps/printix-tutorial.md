@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: de4962326a06080ff2bf81954cf85d3b6bbfefd5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: dfde9bbbeb7f6b349ecbdc4c2da605d39a0708da
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104783"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357877"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-printix"></a>Tutorial: Azure Active Directory-Integration mit Printix
 
@@ -55,11 +55,11 @@ Zum Konfigurieren der Integration von Printix in Azure AD müssen Sie Printix au
 
 **Um Printix aus dem Katalog hinzuzufügen, führen Sie die folgenden Schritte aus:**
 
-1. Klicken Sie im linken Navigationsbereich des **[Azure-Portals](https://portal.azure.com)** auf das Symbol für **Azure Active Directory** . 
+1. Klicken Sie im linken Navigationsbereich des **[Azure-Portals](https://portal.azure.com)** auf das Symbol für **Azure Active Directory**. 
 
     ![Active Directory][1]
 
-1. Navigieren Sie zu **Unternehmensanwendungen** . Wechseln Sie dann zu **Alle Anwendungen** .
+1. Navigieren Sie zu **Unternehmensanwendungen**. Wechseln Sie dann zu **Alle Anwendungen**.
 
     ![Der Screenshot zeigt das Azure-Portal mit „Unternehmensanwendungen“, ausgewählt unter „Verwalten“, mit ausgewähltem „Alle Anwendungen“.][2]
     
@@ -96,7 +96,7 @@ In diesem Abschnitt ermöglichen Sie das einmalige Anmelden von Azure AD im Azur
 
 **Führen Sie zum Konfigurieren des einmaligen Anmeldens in Azure AD mit Printix die folgenden Schritte aus:**
 
-1. Klicken Sie im Azure-Portal auf der Anwendungsintegrationsseite für **Printix** auf **Einmaliges Anmelden** .
+1. Klicken Sie im Azure-Portal auf der Anwendungsintegrationsseite für **Printix** auf **Einmaliges Anmelden**.
 
     ![Der Screenshot zeigt „Einmaliges Anmelden“, das im Azure-Portal unter „Verwalten“ ausgewählt ist.][4]
 
@@ -123,7 +123,7 @@ In diesem Abschnitt ermöglichen Sie das einmalige Anmelden von Azure AD im Azur
 
 1. Melden Sie sich bei Ihrem Printix-Mandanten als Administrator an.
 
-1. Klicken Sie im Menü am oberen Rand auf das Symbol in der oberen rechten Ecke, und wählen Sie **Authentifizierung** .
+1. Klicken Sie im Menü am oberen Rand auf das Symbol in der oberen rechten Ecke, und wählen Sie **Authentifizierung**.
    
     ![Screenshot, der die im Menü ausgewählte Option „Authentifizierung“ zeigt.](./media/printix-tutorial/tutorial_printix_06.png)
 
@@ -139,11 +139,11 @@ In diesem Abschnitt ermöglichen Sie das einmalige Anmelden von Azure AD im Azur
    
 1. Klicken Sie auf die Schaltfläche **Testen** und dann auf die Schaltfläche **OK** , wenn der Test erfolgreich war.
    
-     Nachdem Sie auf die Schaltfläche **Testen** geklickt haben, wird die Azure Active Directory-Seite angezeigt. Eine Meldung der Art „Der Test war erfolgreich“ bedeutet in diesem Fall, dass nach dem Eingeben der Anmeldeinformationen für Ihr Azure-Testkonto die Meldung „Einstellungen getestet – OK“ angezeigt wird. Klicken Sie anschließend auf die Schaltfläche **OK** .
+     Nachdem Sie auf die Schaltfläche **Testen** geklickt haben, wird die Azure Active Directory-Seite angezeigt. Eine Meldung der Art „Der Test war erfolgreich“ bedeutet in diesem Fall, dass nach dem Eingeben der Anmeldeinformationen für Ihr Azure-Testkonto die Meldung „Einstellungen getestet – OK“ angezeigt wird. Klicken Sie anschließend auf die Schaltfläche **OK**.
    
     ![Screenshot mit den Ergebnissen des Tests.](./media/printix-tutorial/tutorial_printix_09.png)
 
-1. Klicken Sie auf der Seite **Authentifizierung** auf die Schaltfläche **Speichern** .
+1. Klicken Sie auf der Seite **Authentifizierung** auf die Schaltfläche **Speichern**.
 
 
 > [!TIP]
@@ -157,7 +157,7 @@ Das Ziel dieses Abschnitts ist das Erstellen eines Testbenutzers namens Britta S
 
 **Um einen Testbenutzer in Azure AD zu erstellen, führen Sie die folgenden Schritte aus:**
 
-1. Klicken Sie im linken Navigationsbereich des **Azure-Portals** auf das Symbol für **Azure Active Directory** .
+1. Klicken Sie im linken Navigationsbereich des **Azure-Portals** auf das Symbol für **Azure Active Directory**.
 
     ![Screenshot mit einem Namen und einem Benutzernamen, die erstellt werden sollen.](./media/printix-tutorial/create_aaduser_01.png) 
 
@@ -177,9 +177,9 @@ Das Ziel dieses Abschnitts ist das Erstellen eines Testbenutzers namens Britta S
 
     b. Geben Sie in das Textfeld **Benutzername** die **E-Mail-Adresse** von Britta Simon ein.
 
-    c. Wählen Sie **Kennwort anzeigen** aus, und notieren Sie sich den Wert des **Kennworts** .
+    c. Wählen Sie **Kennwort anzeigen** aus, und notieren Sie sich den Wert des **Kennworts**.
 
-    d. Klicken Sie auf **Erstellen** .
+    d. Klicken Sie auf **Erstellen**.
  
 ### <a name="creating-a-printix-test-user"></a>Erstellen eines Printix-Testbenutzers
 
@@ -199,7 +199,7 @@ In diesem Abschnitt ermöglichen Sie Britta Simon das einmalige Anmelden bei Azu
 
 **Um Britta Simon Printix zuzuweisen, führen Sie die folgenden Schritte aus:**
 
-1. Öffnen Sie im Azure-Portal die Anwendungsansicht, navigieren Sie zur Verzeichnisansicht, wechseln Sie dann zu **Unternehmensanwendungen** , und klicken Sie auf **Alle Anwendungen** .
+1. Öffnen Sie im Azure-Portal die Anwendungsansicht, navigieren Sie zur Verzeichnisansicht, wechseln Sie dann zu **Unternehmensanwendungen** , und klicken Sie auf **Alle Anwendungen**.
 
     ![Screenshot, der die unter „Verwalten“ ausgewählte Option „Unternehmensanwendungen“ anzeigt. „Alle Anwendungen“ ist ausgewählt.][201] 
 
@@ -207,19 +207,19 @@ In diesem Abschnitt ermöglichen Sie Britta Simon das einmalige Anmelden bei Azu
 
     ![Screenshot mit der Anwendungsliste, aus der Sie Printix auswählen können.](./media/printix-tutorial/tutorial_printix_app.png) 
 
-1. Klicken Sie im Menü auf der linken Seite auf **Benutzer und Gruppen** .
+1. Klicken Sie im Menü auf der linken Seite auf **Benutzer und Gruppen**.
 
     ![Screenshot, der die im Menü „Verwalten“ ausgewählte Option „Benutzer und Gruppen“ anzeigt.][202] 
 
-1. Klicken Sie auf die Schaltfläche **Hinzufügen** . Wählen Sie dann im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
+1. Klicken Sie auf die Schaltfläche **Hinzufügen**. Wählen Sie dann im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
 
     ![Screenshot, der die Schaltfläche „Hinzufügen“ und die Seite „Zuweisung hinzufügen“ zeigt, auf der Sie „Benutzer und Gruppen“ auswählen können.][203]
 
 1. Wählen Sie im Dialogfeld **Benutzer und Gruppen** in der Benutzerliste **Britta Simon** aus.
 
-1. Klicken Sie im Dialogfeld **Benutzer und Gruppen** auf die Schaltfläche **Auswählen** .
+1. Klicken Sie im Dialogfeld **Benutzer und Gruppen** auf die Schaltfläche **Auswählen**.
 
-1. Klicken Sie im Dialogfeld **Zuweisung hinzufügen** auf **Zuweisen** .
+1. Klicken Sie im Dialogfeld **Zuweisung hinzufügen** auf **Zuweisen**.
     
 ### <a name="testing-single-sign-on"></a>Testen der einmaligen Anmeldung
 

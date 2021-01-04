@@ -3,12 +3,12 @@ title: Automatisieren von Azure Application Insights mit PowerShell | Microsoft-
 description: Automatisieren Sie die Erstellung und Verwaltung von Ressourcen, Warnungen und Verfügbarkeitstests in PowerShell mithilfe einer Azure Resource Manager-Vorlage.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: b5f3ba12fe8a730ce45e64b896ccc9c32b17b30c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c380880845c162a1e8fb38e699a439ac04fb3b5a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760902"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186268"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Verwalten von Application Insights-Ressourcen mithilfe von PowerShell
 
@@ -431,7 +431,6 @@ Um die Erstellung von beliebigen anderen Ressourcen zu automatisieren, erstellen
    
     Jeder Webtest weist eine zugeordnete Warnungsregel auf, die Sie auch kopieren müssen.
    
-    Sie können auch Warnungen für Metriken hinzufügen. [Metriknamen](powershell-alerts.md#metric-names).
 5. Fügen Sie diese Zeile in jede Ressource ein:
    
     `"apiVersion": "2015-05-01",`
@@ -470,8 +469,6 @@ Die Ressourcen sollten in Azure in strikter Reihenfolge eingerichtet werden. Um 
 Andere Artikel zu Automation:
 
 * [Erstellen einer Application Insights-Ressource](./create-new-resource.md#creating-a-resource-automatically) : Schnellverfahren ohne Verwendung einer Vorlage.
-* [Einrichten von Warnungen](powershell-alerts.md)
-* [Erstellen von Webtests](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
+* [Erstellen von Webtests](../samples/resource-manager-alerts-metric.md#availability-test-with-metric-alert)
 * [Senden von Azure-Diagnosedaten an Application Insights](powershell-azure-diagnostics.md)
 * [Erstellen von Versionsanmerkungen](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
-

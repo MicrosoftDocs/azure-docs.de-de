@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: c7c43e02e6bdf75c9551ccdbb9dd8f75bf37a806
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77a8321ba8bac0ecaf577bce6c3c05d10508128e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534980"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96020159"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-Speech-REST-API
 
@@ -34,7 +34,7 @@ Bevor Sie diese API verwenden, müssen Sie Folgendes wissen:
 * Die Text-to-Speech-REST-API erfordert einen Autorisierungsheader. Das bedeutet, dass Sie einen Tokenaustausch ausführen müssen, um auf den Dienst zuzugreifen. Weitere Informationen finden Sie unter [Authentifizierung](#authentication).
 
 > [!TIP]
-> Informationen zu Endpunkten zur Government-Cloud (FairFax) finden Sie in der Azure Government-[Dokumentation](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure).
+> Informationen zu Endpunkten zur Government-Cloud (FairFax) finden Sie in der Azure Government-[Dokumentation](../../azure-government/compare-azure-government-global-azure.md).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -222,9 +222,9 @@ Authorization: Bearer [Base64 access_token]
 
 In unseren Schnellstarts finden Sie sprachspezifische Beispiele:
 
-* [.NET Core, C#](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
-* [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python)
-* [Node.js](quickstart-nodejs-text-to-speech.md)
+* [.NET Core, C#](./get-started-text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
+* [Python](./get-started-text-to-speech.md?pivots=programming-language-python)
+* [Node.js](./get-started-text-to-speech.md)
 
 ### <a name="http-status-codes"></a>HTTP-Statuscodes
 
@@ -245,5 +245,5 @@ Wenn der HTTP-Status `200 OK` ist, enthält der Text der Antwort eine Audiodatei
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Erstellen Sie ein kostenloses Azure-Konto.](https://azure.microsoft.com/free/cognitive-services/)
-- [Asynchrone Synthese für lange Audioinhalte](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
+- [Asynchrone Synthese für lange Audioinhalte](./long-audio-api.md)
 - [Erste Schritte mit Custom Voice](how-to-custom-voice.md)

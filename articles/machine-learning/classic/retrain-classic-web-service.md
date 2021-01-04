@@ -9,23 +9,23 @@ author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: 0064509c1158d8b016413046cb528bfd125b5f2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 158541d34568b7ea02ea82dbfe90f5801824716f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362315"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325788"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Erneutes Trainieren und Bereitstellen eines (klassischen) Studio-Webdiensts
 
-**GILT FÜR:**  ![Grünes Häkchen.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (klassisch) ![X gibt nein an.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**GILT FÜR:**  ![Grünes Häkchen.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (klassisch) ![X gibt nein an. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Das erneute Training von Machine Learning-Modellen ist eine Möglichkeit sicherzustellen, dass sie fehlerfrei bleiben und auf den relevantesten verfügbaren Daten basieren. In diesem Artikel werden das erneute Trainieren eines (klassischen) Studio-Webdiensts erläutert. Eine Anleitung zum erneuten Trainieren eines neues (klassischen) Studio-Webdiensts [finden Sie in dieser Anleitung](retrain-machine-learning-model.md).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-In diesem Artikel wird davon ausgegangen, dass Sie bereits über sowohl ein Experiment zum erneuten Trainieren als auch ein Vorhersageexperiment verfügen. Diese Schritte werden unter [Erneutes Trainieren und Bereitstellen eines Machine Learning-Modells](/azure/machine-learning/studio/retrain-machine-learning-model) erläutert. Anstatt jedoch Ihr Machine Learning-Modell als neuen Webdienst bereitzustellen, werden Sie Ihr Vorhersageexperiment als klassischen Webdienst bereitstellen.
+In diesem Artikel wird davon ausgegangen, dass Sie bereits über sowohl ein Experiment zum erneuten Trainieren als auch ein Vorhersageexperiment verfügen. Diese Schritte werden unter [Erneutes Trainieren und Bereitstellen eines Machine Learning-Modells](./retrain-machine-learning-model.md) erläutert. Anstatt jedoch Ihr Machine Learning-Modell als neuen Webdienst bereitzustellen, werden Sie Ihr Vorhersageexperiment als klassischen Webdienst bereitstellen.
      
 ## <a name="add-a-new-endpoint"></a>Hinzufügen eines neuen Endpunkts
 
@@ -47,7 +47,7 @@ Sie können Bewertungsendpunkte mithilfe des Beispielcodes in diesem [GitHub-Rep
 ### <a name="use-the-azure-web-services-portal-to-add-an-endpoint"></a>Hinzufügen eines Endpunkts im Azure Web Services-Portal
 
 1. Klicken Sie in Machine Learning Studio (klassisch) in der linken Navigationsspalte auf „Webdienste“.
-1. Klicken Sie unten auf dem Dashboards des Webdiensts auf **Manage endpoints preview**(Endpunktvorschau verwalten).
+1. Klicken Sie unten auf dem Dashboards des Webdiensts auf **Manage endpoints preview** (Endpunktvorschau verwalten).
 1. Klicken Sie auf **Hinzufügen**.
 1. Geben Sie einen Namen und eine Beschreibung für den neuen Endpunkt ein. Wählen Sie die Protokollierungsstufe aus, und legen Sie fest, ob Beispieldaten aktiviert sind. Weitere Informationen zur Protokollierung finden Sie unter [Aktivieren der Protokollierung für Machine Learning-Webdienste](web-services-logging.md).
 
@@ -62,7 +62,7 @@ Um im Webportal die richtige PATCH-URL abzurufen, gehen Sie wie folgt vor:
 1. Klicken Sie auf den von Ihnen verwendeten Bewertungswebdienst. (wenn Sie den Standardnamen des Webdiensts nicht geändert haben, endet er auf „[Scoring Exp.]“).
 1. Klicken Sie auf **+NEU**.
 1. Klicken Sie nach dem Hinzufügen des Endpunkts auf dessen Namen.
-1. Klicken Sie unter der **Patch**-URL auf **API-Hilfe**, um die Hilfeseite für das Patching zu öffnen.
+1. Klicken Sie unter der **Patch** -URL auf **API-Hilfe** , um die Hilfeseite für das Patching zu öffnen.
 
 > [!NOTE]
 > Falls Sie den Endpunkt nicht dem Vorhersagewebdienst, sondern dem Trainingswebdienst hinzugefügt haben, tritt beim Klicken auf den Link **Ressource aktualisieren** der folgende Fehler auf: „Sorry, but this feature is not supported or available in this context. This Web Service has no updatable resources. We apologize for the inconvenience and are working on improving this workflow.“ (Dieses Feature wird in diesem Kontext leider nicht unterstützt oder ist nicht verfügbar. Der Webdienst besitzt keine aktualisierbaren Ressourcen. Wir arbeiten bereits an einer Optimierung dieses Workflows.)
@@ -76,7 +76,7 @@ Die PATCH-Hilfeseite enthält die PATCH-URL, die Sie verwenden müssen, und auß
 
 Sie können das trainierte Modell jetzt verwenden, um den zuvor erstellten Bewertungsendpunkt zu aktualisieren.
 
-Der folgende Beispielcode zeigt, wie Sie *BaseLocation*, *RelativeLocation*, *SasBlobToken* und die PATCH-URL zum Aktualisieren des Endpunkts verwenden.
+Der folgende Beispielcode zeigt, wie Sie *BaseLocation* , *RelativeLocation* , *SasBlobToken* und die PATCH-URL zum Aktualisieren des Endpunkts verwenden.
 
 ```csharp
 private async Task OverwriteModel()

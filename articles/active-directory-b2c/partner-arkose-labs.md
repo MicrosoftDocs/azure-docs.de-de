@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a4d8174cd0bfdb2297099b403fb836210c5529ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf0437b985865248393e9f68da264fcae5af7f12
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86170223"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108551"
 ---
 # <a name="tutorial-for-configuring-arkose-labs-with-azure-active-directory-b2c"></a>Tutorial zum Konfigurieren von Arkose Labs mit Azure Active Directory B2C
 
@@ -90,7 +90,7 @@ Azure AD B2C-Code in einem Browser verwendet einen modernen Standardansatz zum L
 
 2. Geben Sie unter  **Zulässige Ursprünge** die URL `https://your-tenant-name.b2clogin.com` ein. Ersetzen Sie „your-tenant-name“ durch den Namen Ihres Azure AD B2C-Mandanten. Beispiel:  `https://fabrikam.b2clogin.com`. Verwenden Sie bei der Eingabe Ihres Mandantennamens ausschließlich Kleinbuchstaben.
 
-3. Wählen Sie unter **Zulässige Methoden** die Optionen **GET**, **PUT** und **OPTIONS** aus.
+3. Wählen Sie unter  **Zulässige Methoden** die Optionen  **GET**, **PUT** und  **OPTIONS** aus.
 
 4. Geben Sie für **Zulässige Header** ein Sternchen (*) ein.
 
@@ -106,7 +106,7 @@ Azure AD B2C-Code in einem Browser verwendet einen modernen Standardansatz zum L
 
 Laden Sie Git Bash herunter, und führen Sie die unten angegebenen Schritte aus:
 
-1. Befolgen Sie die Anleitung zum [Erstellen einer Web-App](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-php), bis die Meldung „Glückwunsch! Sie haben Ihre erste PHP-App für App Service bereitgestellt.“ angezeigt wird.
+1. Befolgen Sie die Anleitung zum [Erstellen einer Web-App](../app-service/quickstart-php.md), bis die Meldung „Glückwunsch! Sie haben Ihre erste PHP-App für App Service bereitgestellt.“ angezeigt wird.
 
 2. Öffnen Sie Ihren lokalen Ordner, und benennen Sie die Datei **index.php** in **verify-token.php** um.
 
@@ -147,7 +147,7 @@ Laden Sie Git Bash herunter, und führen Sie die unten angegebenen Schritte aus:
 
 1. Erstellen Sie basierend auf [diesen Informationen](tutorial-create-user-flows.md) einen Benutzerflow. Halten Sie beim Abschnitt **Testen des Benutzerflows** an.
 
-2. Aktivieren Sie JavaScript in Ihrem [Benutzerflow](user-flow-javascript-overview.md).
+2. Aktivieren Sie JavaScript in Ihrem [Benutzerflow](javascript-and-page-layout.md).
 
 3. Aktivieren Sie auf derselben Seite des Benutzerflows die benutzerdefinierte Seiten-URL: Navigieren Sie zu **Benutzerflow** > **Seitenlayout** > **Benutzerdefinierten Seiteninhalt verwenden** = **Ja** > **Benutzerdefinierte Seiten-URL einfügen**.
 Diese benutzerdefinierte Seiten-URL finden Sie am Speicherort der Datei „index.html“ im Blobspeicher.  

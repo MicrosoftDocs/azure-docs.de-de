@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: e35569a1dc5ce7c1cb2889ac3e2ca8f60f8ccd42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47891dfa7fc0c9b30ccdbf2ed7710125eb36e4a3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808208"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397806"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>Konfigurieren von End-to-End-TLS mit Application Gateway mithilfe von PowerShell
 
@@ -20,7 +20,7 @@ ms.locfileid: "84808208"
 
 Azure Application Gateway unterstützt die End-to-End-Verschlüsselung des Datenverkehrs. Application Gateway terminiert die TLS/SSL-Verbindung am Anwendungsgateway. Das Gateway wendet dann die Routingregeln auf den Datenverkehr an, verschlüsselt das Paket erneut und leitet das Paket basierend auf den definierten Routingregeln an den entsprechenden Back-End-Server weiter. Antworten vom Webserver durchlaufen denselben Prozess zurück an den Endbenutzer.
 
-Application Gateway unterstützt das Definieren benutzerdefinierter TLS-Optionen. Es unterstützt auch das Deaktivieren der folgenden Protokollversionen: **TLSv1.0**, **TLSv1.1** und **TLSv1.2**; außerdem werden das Definieren der zu verwendenden Verschlüsselungssammlungen und die jeweilige Priorität unterstützt. Weitere Informationen zu konfigurierbaren TLS-Optionen finden Sie in der [Übersicht über TLS-Richtlinien](application-gateway-SSL-policy-overview.md).
+Application Gateway unterstützt das Definieren benutzerdefinierter TLS-Optionen. Es unterstützt auch das Deaktivieren der folgenden Protokollversionen: **TLSv1.0** , **TLSv1.1** und **TLSv1.2** ; außerdem werden das Definieren der zu verwendenden Verschlüsselungssammlungen und die jeweilige Priorität unterstützt. Weitere Informationen zu konfigurierbaren TLS-Optionen finden Sie in der [Übersicht über TLS-Richtlinien](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
 > SSL 2.0 und SSL 3.0 sind standardmäßig deaktiviert und können nicht aktiviert werden. Sie werden als unsicher eingestuft und können mit Application Gateway nicht verwendet werden.
@@ -202,7 +202,7 @@ Vor dem Erstellen des Anwendungsgateways werden die Konfigurationselemente festg
    $rule = New-AzApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
    ```
 
-10. Konfigurieren Sie die Instanzgröße des Anwendungsgateways. Die verfügbaren Größen lauten **Standard\_Small**, **Standard\_Medium** und **Standard\_Large**.  Für die Kapazität stehen die Werte **1** bis **10** zur Verfügung.
+10. Konfigurieren Sie die Instanzgröße des Anwendungsgateways. Die verfügbaren Größen lauten **Standard\_Small** , **Standard\_Medium** und **Standard\_Large**.  Für die Kapazität stehen die Werte **1** bis **10** zur Verfügung.
 
     ```powershell
     $sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
@@ -219,7 +219,7 @@ Vor dem Erstellen des Anwendungsgateways werden die Konfigurationselemente festg
     - **TLSV1_1**
     - **TLSV1_2**
     
-    Das folgende Beispiel legt die Mindestprotokollversion auf **TLSv1_2** fest und aktiviert nur **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** und **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256**.
+    Das folgende Beispiel legt die Mindestprotokollversion auf **TLSv1_2** fest und aktiviert nur **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256** , **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** und **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256**.
 
     ```powershell
     $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -PolicyType Custom
@@ -261,7 +261,7 @@ Gehen Sie wie folgt vor, um ein neues Zertifikat anzuwenden, wenn das Back-End-Z
    $AuthCert = Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name NewCert
    ```
  
- 4. Weisen Sie das neue Zertifikat in der **BackendHttp**-Einstellung zu, und verweisen Sie mit der $AuthCert-Variablen auf das Zertifikat. (Geben Sie den Namen der HTTP-Einstellung an, die Sie ändern möchten.)
+ 4. Weisen Sie das neue Zertifikat in der **BackendHttp** -Einstellung zu, und verweisen Sie mit der $AuthCert-Variablen auf das Zertifikat. (Geben Sie den Namen der HTTP-Einstellung an, die Sie ändern möchten.)
  
    ```powershell
    $out= Set-AzApplicationGatewayBackendHttpSetting -ApplicationGateway $gw -Name "HTTP1" -Port 443 -Protocol "Https" -CookieBasedAffinity Disabled -AuthenticationCertificates $Authcert
@@ -312,7 +312,7 @@ Mit den bisher erläuterten Schritten haben Sie eine Anwendung mit End-to-End-TL
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
 
-2. Definieren Sie eine TLS-Richtlinie. Im folgenden Beispiel werden **TLSv1.0** und **TLSv1.1** deaktiviert und nur die Verschlüsselungssammlungen **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** und **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** zugelassen.
+2. Definieren Sie eine TLS-Richtlinie. Im folgenden Beispiel werden **TLSv1.0** und **TLSv1.1** deaktiviert und nur die Verschlüsselungssammlungen **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256** , **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** und **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** zugelassen.
 
    ```powershell
    Set-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
@@ -329,7 +329,7 @@ Mit den bisher erläuterten Schritten haben Sie eine Anwendung mit End-to-End-TL
 
 Nach dem Erstellen des Gateways wird das Front-End für die Kommunikation konfiguriert. Application Gateway erfordert einen dynamisch zugewiesenen DNS-Namen, wenn eine öffentliche IP-Adresse verwendet wird, die nicht benutzerfreundlich ist. Um zu gewährleisten, dass Endbenutzer auf das Anwendungsgateway zugreifen können, können Sie mit einem CNAME-Eintrag auf den öffentlichen Endpunkt des Anwendungsgateways verweisen. Weitere Informationen finden Sie unter [Konfigurieren eines benutzerdefinierten Domänennamens in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
 
-Rufen Sie zum Konfigurieren eines Alias mithilfe des **PublicIPAddress**-Elements, das an das Anwendungsgateway angefügt ist, Details zum Anwendungsgateway sowie die zugeordnete IP-Adresse/den zugeordneten DNS-Namen ab. Verwenden Sie den DNS-Namen des Anwendungsgateways zum Erstellen eines CNAME-Eintrags, der die beiden Webanwendungen an diesen DNS-Namen verweist. Die Verwendung von A-Einträgen wird nicht empfohlen, da sich die VIP beim Neustart des Anwendungsgateways möglicherweise ändert.
+Rufen Sie zum Konfigurieren eines Alias mithilfe des **PublicIPAddress** -Elements, das an das Anwendungsgateway angefügt ist, Details zum Anwendungsgateway sowie die zugeordnete IP-Adresse/den zugeordneten DNS-Namen ab. Verwenden Sie den DNS-Namen des Anwendungsgateways zum Erstellen eines CNAME-Eintrags, der die beiden Webanwendungen an diesen DNS-Namen verweist. Die Verwendung von A-Einträgen wird nicht empfohlen, da sich die VIP beim Neustart des Anwendungsgateways möglicherweise ändert.
 
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
@@ -359,6 +359,6 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zum Verstärken der Sicherheit Ihrer Webanwendungen mit Web Application Firewall über Application Gateway finden Sie unter [Web Application Firewall – Übersicht](application-gateway-webapplicationfirewall-overview.md).
+Weitere Informationen zum Verstärken der Sicherheit Ihrer Webanwendungen mit Web Application Firewall über Application Gateway finden Sie unter [Web Application Firewall – Übersicht](../web-application-firewall/ag/ag-overview.md).
 
 [scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png

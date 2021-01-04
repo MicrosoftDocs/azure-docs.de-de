@@ -3,12 +3,12 @@ title: Messagingausnahmen von Azure Service Bus | Microsoft-Dokumentation
 description: Dieser Artikel stellt eine Liste von Azure Service Bus-Messagingausnahmen und vorgeschlagenen Aktionen zur Verfügung, wenn eine Ausnahme auftritt.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 4813ad7386af3d9dd730b74e6b815ff173cfe809
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4aa6d82c20e21caabf0205d7446cf88ed8b7f34
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885728"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409313"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Service Bus-Messagingausnahmen
 In diesem Artikel werden die von .NET Framework-APIs generierten .NET-Ausnahmen aufgelistet. 
@@ -33,9 +33,9 @@ In der folgenden Tabelle werden die Typen von Messagingausnahmen, ihre Ursachen 
 | [ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1&preserve-view=true)<br /> [ArgumentNullException](/dotnet/api/system.argumentnullexception?view=netcore-3.1&preserve-view=true)<br />[ArgumentOutOfRangeException](/dotnet/api/system.argumentoutofrangeexception?view=netcore-3.1&preserve-view=true) |Mindestens eines der für die Methode bereitgestellten Argumente ist ungültig.<br /> Der für [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) oder [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) bereitgestellte URI enthält Pfadsegmente.<br /> Das für [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) oder für [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) bereitgestellte URI-Schema ist ungültig. <br />Der Eigenschaftswert ist größer als 32 KB. |Überprüfen Sie den aufrufenden Code, und stellen Sie sicher, dass die Argumente richtig sind. |Der Wiederholungsversuch ist nicht hilfreich. |
 | [MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception) |Die dem Vorgang zugeordnete Entität ist nicht vorhanden oder wurde gelöscht. |Stellen Sie sicher, dass die Entität vorhanden ist. |Der Wiederholungsversuch ist nicht hilfreich. |
 | [MessageNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagenotfoundexception) |Es wurde versucht, eine Nachricht mit einer bestimmten Sequenznummer zu empfangen. Diese Nachricht wurde nicht gefunden. |Stellen Sie sicher, dass die Nachricht nicht bereits empfangen wurde. Überprüfen Sie in der Warteschlange für unzustellbare Nachrichten, ob die Nachricht als unzustellbar gekennzeichnet wurde. |Der Wiederholungsversuch ist nicht hilfreich. |
-| [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) |Der Client kann keine Verbindung mit Service Bus herstellen. |Stellen Sie sicher, dass der angegebene Hostname richtig und der Host erreichbar ist. |Eine Wiederholung kann helfen, wenn zeitweilige Verbindungsprobleme vorliegen. |
+| [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) |Der Client kann keine Verbindung mit Service Bus herstellen. |Stellen Sie sicher, dass der angegebene Hostname richtig und der Host erreichbar ist. <p>Falls Ihr Code in einer Umgebung mit einer Firewall oder einem Proxy ausgeführt wird, stellen Sie sicher, dass der für die Service Bus-Domäne/IP-Adresse und -Ports bestimmte Datenverkehr nicht blockiert wird.</p>|Eine Wiederholung kann helfen, wenn zeitweilige Verbindungsprobleme vorliegen. |
 | [ServerBusyException](/dotnet/api/microsoft.azure.servicebus.serverbusyexception) |Der Dienst kann die Anforderung derzeit nicht verarbeiten. |Der Client kann eine gewisse Zeit warten und dann den Vorgang wiederholen. |Der Client kann den Vorgang nach einer gewissen Zeitspanne wiederholen. Wenn die Wiederholung zu einer anderen Ausnahme führt, überprüfen Sie das Wiederholungsverhalten dieser Ausnahme. |
-| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) |Eine allgemeine Messagingausnahme, die in folgenden Fällen ausgelöst werden kann:<p>Es wird versucht, ein [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient)-Element mit einem Namen oder einem Pfad zu erstellen, der zu einem anderen Entitätstyp gehört (z.B. zu einem Thema).</p><p>Es wird versucht, eine Nachricht zu senden, die größer als 256 KB ist. </p>Der Server oder der Dienst hat beim Verarbeiten der Anforderung einen Fehler festgestellt. Sehen Sie sich die Details in der Ausnahmemeldung an. Dies ist in der Regel eine vorübergehende Ausnahme.</p><p>Die Anforderung wurde beendet, da die Entität gedrosselt wird. Fehlercode: 50001, 50002, 50008. </p> | Überprüfen Sie den Code, und stellen Sie sicher, dass nur serialisierbare Objekte für den Nachrichtentext verwendet werden (oder verwenden Sie ein benutzerdefiniertes Serialisierungsprogramm). <p>Überprüfen Sie die Dokumentation für die unterstützten Werttypen der Eigenschaften, und verwenden Sie nur unterstützte Typen.</p><p> Überprüfen Sie die [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) -Eigenschaft. Wenn sie den Wert **TRUE**aufweist, können Sie versuchen, den Vorgang zu wiederholen. </p>| Ist die Ausnahme auf eine Drosselung zurückzuführen, wiederholen Sie den Vorgang nach einigen Sekunden. Das Wiederholungsverhalten ist nicht definiert und in anderen Szenarien unter Umständen nicht hilfreich.|
+| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) |Eine allgemeine Messagingausnahme, die in folgenden Fällen ausgelöst werden kann:<p>Es wird versucht, ein [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient)-Element mit einem Namen oder einem Pfad zu erstellen, der zu einem anderen Entitätstyp gehört (z.B. zu einem Thema).</p><p>Es wird versucht, eine Nachricht zu senden, die größer als 256 KB ist. </p>Der Server oder der Dienst hat beim Verarbeiten der Anforderung einen Fehler festgestellt. Sehen Sie sich die Details in der Ausnahmemeldung an. Dies ist in der Regel eine vorübergehende Ausnahme.</p><p>Die Anforderung wurde beendet, da die Entität gedrosselt wird. Fehlercode: 50001, 50002, 50008. </p> | Überprüfen Sie den Code, und stellen Sie sicher, dass nur serialisierbare Objekte für den Nachrichtentext verwendet werden (oder verwenden Sie ein benutzerdefiniertes Serialisierungsprogramm). <p>Überprüfen Sie die Dokumentation für die unterstützten Werttypen der Eigenschaften, und verwenden Sie nur unterstützte Typen.</p><p> Überprüfen Sie die [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) -Eigenschaft. Wenn sie den Wert **TRUE** aufweist, können Sie versuchen, den Vorgang zu wiederholen. </p>| Ist die Ausnahme auf eine Drosselung zurückzuführen, wiederholen Sie den Vorgang nach einigen Sekunden. Das Wiederholungsverhalten ist nicht definiert und in anderen Szenarien unter Umständen nicht hilfreich.|
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) |Es wurde versucht, eine Entität mit einem Namen zu erstellen, der bereits von einer anderen Entität in diesem Dienstnamespace verwendet wird. |Löschen Sie die vorhandene Entität, oder wählen Sie einen anderen Namen für die zu erstellende Entität. |Der Wiederholungsversuch ist nicht hilfreich. |
 | [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) |Die Messagingentität hat die maximal zulässige Größe erreicht, oder die maximale Anzahl von Verbindungen zu einem Namespace wurde überschritten. |Schaffen Sie Platz in der Entität, indem Sie Nachrichten aus der Entität oder ihren Unterwarteschlangen empfangen. Siehe [QuotaExceededException](#quotaexceededexception). |Eine Wiederholung kann helfen, wenn in der Zwischenzeit Nachrichten entfernt wurden. |
 | [RuleActionException](/dotnet/api/microsoft.servicebus.messaging.ruleactionexception) |Service Bus gibt diese Ausnahme zurück, wenn Sie versuchen, eine ungültige Regelaktion zu erstellen. Service Bus fügt diese Ausnahme zu einer unzustellbaren Nachricht hinzu, wenn beim Verarbeiten der Regelaktion für diese Nachricht ein Fehler festgestellt wird. |Überprüfen Sie die Regelaktion auf ihre Richtigkeit. |Der Wiederholungsversuch ist nicht hilfreich. |
@@ -45,8 +45,8 @@ In der folgenden Tabelle werden die Typen von Messagingausnahmen, ihre Ursachen 
 | [MessagingEntityDisabledException](/dotnet/api/microsoft.azure.servicebus.messagingentitydisabledexception) |Es wurde ein Laufzeitvorgang für eine deaktivierte Entität angefordert. |Aktivieren Sie die Entität. |Eine Wiederholung kann helfen, wenn die Entität in der Zwischenzeit aktiviert wurde. |
 | [NoMatchingSubscriptionException](/dotnet/api/microsoft.servicebus.messaging.nomatchingsubscriptionexception) |Service Bus gibt diese Ausnahme zurück, wenn Sie eine Nachricht zu einem Thema senden, für das eine Vorfilterung aktiviert wurde. |Stellen Sie sicher, dass mindestens ein Filter übereinstimmt. |Der Wiederholungsversuch ist nicht hilfreich. |
 | [MessageSizeExceededException](/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) |Eine Nachrichtennutzlast überschreitet den Grenzwert von 256 KB. Der Grenzwert von 256 KB gilt für die Gesamtgröße der Nachricht, zu der auch Systemeigenschaften und .NET-Mehraufwand gehören. |Reduzieren Sie die Größe der Nachrichtennutzlast, und wiederholen Sie den Vorgang. |Der Wiederholungsversuch ist nicht hilfreich. |
-| [TransactionException](/dotnet/api/system.transactions.transactionexception?view=netcore-3.1&preserve-view=true) |Die Ambient-Transaktion (*Transaction.Current*) ist ungültig. Sie wurde möglicherweise abgeschlossen oder abgebrochen. Unter Umständen enthält die innere Ausnahme weitere Informationen. | |Der Wiederholungsversuch ist nicht hilfreich. |
-| [TransactionInDoubtException](/dotnet/api/system.transactions.transactionindoubtexception?view=netcore-3.1&preserve-view=true) |Es wurde versucht, einen Vorgang für eine unsichere Transaktion auszuführen, oder es wurde versucht, ein Commit für die Transaktion auszuführen, und die Transaktion wurde unsicher. |Die Anwendung muss diese Ausnahme (als Sonderfall) behandeln, da für die Transaktion u. U. bereits ein Commit ausgeführt wurde. |- |
+| [TransactionException](/dotnet/api/system.transactions.transactionexception) |Die Ambient-Transaktion ( *Transaction.Current* ) ist ungültig. Sie wurde möglicherweise abgeschlossen oder abgebrochen. Unter Umständen enthält die innere Ausnahme weitere Informationen. | |Der Wiederholungsversuch ist nicht hilfreich. |
+| [TransactionInDoubtException](/dotnet/api/system.transactions.transactionindoubtexception) |Es wurde versucht, einen Vorgang für eine unsichere Transaktion auszuführen, oder es wurde versucht, ein Commit für die Transaktion auszuführen, und die Transaktion wurde unsicher. |Die Anwendung muss diese Ausnahme (als Sonderfall) behandeln, da für die Transaktion u. U. bereits ein Commit ausgeführt wurde. |- |
 
 ## <a name="quotaexceededexception"></a>QuotaExceededException
 [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) gibt an, dass das Kontingent für eine bestimmte Entität überschritten wurde.
@@ -141,7 +141,7 @@ In den folgenden Fällen wird die Ausnahme **SocketException** ausgelöst:
 
 ### <a name="resolution"></a>Lösung
 
-Die **SocketException**-Fehler geben an, dass die VM, die die Anwendungen hostet, den Namen `<mynamespace>.servicebus.windows.net` nicht in die entsprechende IP-Adresse konvertieren kann. 
+Die **SocketException** -Fehler geben an, dass die VM, die die Anwendungen hostet, den Namen `<mynamespace>.servicebus.windows.net` nicht in die entsprechende IP-Adresse konvertieren kann. 
 
 Überprüfen Sie, ob der folgende Befehl erfolgreich eine IP-Adresse zuweisen kann.
 
@@ -157,9 +157,9 @@ Address:  XX.XX.XXX.240
 Aliases:  <mynamespace>.servicebus.windows.net
 ```
 
-Wenn der obige Name **nicht in eine IP-Adresse und den Namespace-Alias aufgelöst wird**, wenden Sie sich zur weiteren Untersuchung an den Netzwerkadministrator. Die Namensauflösung erfolgt über einen DNS-Server. Diese Ressource befindet sich üblicherweise im Kundennetzwerk. Wenn die DNS-Auflösung über Azure DNS erfolgt, wenden Sie sich an den Azure-Support.
+Wenn der obige Name **nicht in eine IP-Adresse und den Namespace-Alias aufgelöst wird** , wenden Sie sich zur weiteren Untersuchung an den Netzwerkadministrator. Die Namensauflösung erfolgt über einen DNS-Server. Diese Ressource befindet sich üblicherweise im Kundennetzwerk. Wenn die DNS-Auflösung über Azure DNS erfolgt, wenden Sie sich an den Azure-Support.
 
-Wenn die Namensauflösung **erwartungsgemäß funktioniert**, überprüfen Sie [hier](service-bus-troubleshooting-guide.md#connectivity-certificate-or-timeout-issues), ob Verbindungen mit Azure Service Bus erlaubt sind.
+Wenn die Namensauflösung **erwartungsgemäß funktioniert** , überprüfen Sie [hier](service-bus-troubleshooting-guide.md#connectivity-certificate-or-timeout-issues), ob Verbindungen mit Azure Service Bus erlaubt sind.
 
 
 ## <a name="messagingexception"></a>MessagingException
@@ -168,7 +168,7 @@ Wenn die Namensauflösung **erwartungsgemäß funktioniert**, überprüfen Sie [
 
 **MessagingException** ist eine generische Ausnahme, die aus verschiedenen Gründen ausgelöst werden kann. Einige dieser Gründe werden im Folgenden aufgeführt.
 
-   * Es wurde versucht, eine **QueueClient**-Instanz in einem **Thema** oder **Abonnement** zu erstellen.
+   * Es wurde versucht, eine **QueueClient** -Instanz in einem **Thema** oder **Abonnement** zu erstellen.
    * Die Größe der gesendeten Nachricht ist überschreitet den Grenzwert für die jeweilige Stufe. Erfahren Sie mehr über die [Kontingente und Grenzwerte von Service Bus](service-bus-quotas.md).
    * Eine spezifische Datenebenenanforderung (Senden, Empfangen, Abschließen, Verwerfen) wurde aufgrund von Drosselung beendet.
    * Vorübergehende Probleme durch Dienstupgrades und Neustarts
@@ -180,7 +180,7 @@ Wenn die Namensauflösung **erwartungsgemäß funktioniert**, überprüfen Sie [
 
 Die Lösungsschritte hängen davon ab, wodurch die Ausnahme **MessagingException** ausgelöst wurde.
 
-   * Bei **vorübergehenden Problemen** (bei denen ***isTransient*** auf ***TRUE*** festgelegt ist) oder **Drosselungsproblemen** kann das Problem manchmal durch Wiederholen des Vorgangs gelöst werden. Die Standardwiederholungsrichtlinie für das SDK kann hierfür verwendet werden.
+   * Bei **vorübergehenden Problemen** (bei denen **_isTransient_*auf*_true_*festgelegt ist) oder* Drosselungsproblemen** lässt sich das Problem manchmal durch Wiederholen des Vorgangs lösen. Die Standardwiederholungsrichtlinie für das SDK kann hierfür verwendet werden.
    * Bei anderen Problemen geben die in der Ausnahme angegebenen Details Informationen zum Problem und den Lösungsschritten an.
 
 ## <a name="next-steps"></a>Nächste Schritte

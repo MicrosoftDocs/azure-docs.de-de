@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lle
 author: lle
 ms.date: 04/14/2020
-ms.openlocfilehash: cf1bf9e05f83610fd43146cf4c99c5006fdc97b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98484655dec069c3a284dce0ea83477faf75d9a8
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87171473"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637750"
 ---
 # <a name="run-ssis-packages-by-using-azure-sql-managed-instance-agent"></a>Ausführen von SSIS-Paketen mit dem Azure SQL Managed Instance-Agent
 
@@ -24,19 +24,19 @@ Mit diesem Feature können Sie SSIS-Pakete ausführen, die in SSISDB in einer In
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Um diese Funktion zu verwenden, müssen Sie die neueste Version von SQL Server Management Studio (SSMS) [herunterladen](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) und installieren. Nachfolgend die Details zu unterstützten Versionen:
+Um diese Funktion zu verwenden, müssen Sie die neueste Version von SQL Server Management Studio (SSMS) [herunterladen](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) und installieren. Nachfolgend die Details zu unterstützten Versionen:
 
 - Zum Ausführen von Paketen in SSISDB oder einem Dateisystem installieren Sie SSMS, Version 18.5 oder höher.
 - Zum Ausführen von Paketen im Paketspeicher installieren Sie SSMS, Version 18.6 oder höher.
 
-Sie müssen auch eine [Azure-SSIS Integration Runtime](tutorial-create-azure-ssis-runtime-portal.md) in Azure Data Factory bereitstellen. Dabei wird eine Instanz von SQL Managed Instance als Endpunktserver verwendet.
+Sie müssen auch eine [Azure-SSIS Integration Runtime](./tutorial-deploy-ssis-packages-azure.md) in Azure Data Factory bereitstellen. Dabei wird eine Instanz von SQL Managed Instance als Endpunktserver verwendet.
 
 ## <a name="run-an-ssis-package-in-ssisdb"></a>Ausführen eines SSIS-Pakets in SSISDB
 
 Bei diesem Verfahren verwenden Sie den SQL Managed Instance-Agent zum Aufrufen eines SSIS-Pakets, das in SSISDB gespeichert ist.
 
 1. Stellen Sie in der aktuellen Version von SSMS eine Verbindung mit einer Instanz von SQL Managed Instance her.
-1. Erstellen Sie einen neuen Agent-Auftrag und einen neuen Auftragsschritt. Klicken Sie unter **SQL Server-Agent** mit der rechten Maustaste auf den Ordner **Aufträge**, und wählen Sie dann **Neuer Auftrag** aus.
+1. Erstellen Sie einen neuen Agent-Auftrag und einen neuen Auftragsschritt. Klicken Sie unter **SQL Server-Agent** mit der rechten Maustaste auf den Ordner **Aufträge** , und wählen Sie dann **Neuer Auftrag** aus.
 
    ![Auswahl zum Erstellen eines neuen Agent-Auftrags](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
 
@@ -66,7 +66,7 @@ Bei diesem Verfahren verwenden Sie den SQL Managed Instance-Agent zum Aufrufen e
 Bei diesem Verfahren verwenden Sie den SQL Managed Instance-Agent zum Ausführen eines SSIS-Pakets, das im Dateisystem gespeichert ist.
 
 1. Stellen Sie in der aktuellen Version von SSMS eine Verbindung mit einer Instanz von SQL Managed Instance her.
-1. Erstellen Sie einen neuen Agent-Auftrag und einen neuen Auftragsschritt. Klicken Sie unter **SQL Server-Agent** mit der rechten Maustaste auf den Ordner **Aufträge**, und wählen Sie dann **Neuer Auftrag** aus.
+1. Erstellen Sie einen neuen Agent-Auftrag und einen neuen Auftragsschritt. Klicken Sie unter **SQL Server-Agent** mit der rechten Maustaste auf den Ordner **Aufträge** , und wählen Sie dann **Neuer Auftrag** aus.
 
    ![Auswahl zum Erstellen eines neuen Agent-Auftrags](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
 
@@ -74,11 +74,11 @@ Bei diesem Verfahren verwenden Sie den SQL Managed Instance-Agent zum Ausführen
 
    ![Auswahl zum Erstellen eines neuen SSIS-Auftragsschritts](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
 
-1. Auf der Registerkarte **Paket**:
+1. Auf der Registerkarte **Paket** :
 
    1. Wählen Sie als **Paketspeicherort** die Option **Dateisystem** aus.
 
-   1. Für **Dateiquellentyp**:
+   1. Für **Dateiquellentyp** :
 
       - Wenn Ihr Paket zu Azure Files hochgeladen wird, wählen Sie **Azure-Dateifreigabe** aus.
 
@@ -111,7 +111,7 @@ Bei diesem Verfahren verwenden Sie den SQL Managed Instance-Agent zum Ausführen
 Bei diesem Verfahren verwenden Sie den SQL Managed Instance-Agent zum Ausführen eines SSIS-Pakets, das im Azure-SSIS IR-Paketspeicher gespeichert ist.
 
 1. Stellen Sie in der aktuellen Version von SSMS eine Verbindung mit einer Instanz von SQL Managed Instance her.
-1. Erstellen Sie einen neuen Agent-Auftrag und einen neuen Auftragsschritt. Klicken Sie unter **SQL Server-Agent** mit der rechten Maustaste auf den Ordner **Aufträge**, und wählen Sie dann **Neuer Auftrag** aus.
+1. Erstellen Sie einen neuen Agent-Auftrag und einen neuen Auftragsschritt. Klicken Sie unter **SQL Server-Agent** mit der rechten Maustaste auf den Ordner **Aufträge** , und wählen Sie dann **Neuer Auftrag** aus.
 
    ![Auswahl zum Erstellen eines neuen Agent-Auftrags](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
 
@@ -119,11 +119,11 @@ Bei diesem Verfahren verwenden Sie den SQL Managed Instance-Agent zum Ausführen
 
    ![Auswahl zum Erstellen eines neuen SSIS-Auftragsschritts](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
 
-1. Auf der Registerkarte **Paket**:
+1. Auf der Registerkarte **Paket** :
 
    1. Wählen Sie als **Paketspeicherort** die Option **Paketspeicher** aus.
 
-   1. Für **Paketpfad**:
+   1. Für **Paketpfad** :
 
       Der Paketpfad ist **`<package store name>\<folder name>\<package name>`** .
 
@@ -151,12 +151,12 @@ Um die Paketausführung über einen Auftrag des SQL Managed Instance-Agents abzu
    ```sql
    select * from '{table for job execution}' where  parameter_value = 'SQL_Agent_Job_{jobId}' order by execution_id desc
    ```
-   Wenn sich Ihre SSIS-Pakete in SSISDB befinden, verwenden Sie **ssisdb.internal.execution_parameter_values** als Tabelle für die Auftragsausführung. Wenn sich Ihre SSIS-Pakete im Dateisystem befinden, verwenden Sie **ssisdb.internal.execution_parameter_values_noncatalog**.
+   Wenn sich Ihre SSIS-Pakete in SSISDB befinden, verwenden Sie **ssisdb.internal.execution_parameter_values** als Tabelle für die Auftragsausführung. Wenn sich Ihre SSIS-Pakete im Dateisystem befinden, verwenden Sie **ssisdb.internal.execution_parameter_values_noncatalog** .
 1. Klicken Sie mit der rechten Maustaste auf den SSISDB-Katalog, und wählen Sie dann **Aktive Vorgänge** aus.
 
    ![„Aktive Vorgänge“ im Kontextmenü für den SSISDB-Katalog](./media/how-to-invoke-ssis-package-managed-instance-agent/catalog-active-operations.png)
 
-1. Beenden Sie den entsprechenden Vorgang basierend auf der **executionId**.
+1. Beenden Sie den entsprechenden Vorgang basierend auf der **executionId** .
 
 ## <a name="next-steps"></a>Nächste Schritte
-Sie können SSIS-Pakete auch mit Azure Data Factory planen. Eine Schritt-für-Schritt-Anleitung finden Sie unter [Azure Data Factory-Ereignisauslöser](how-to-create-event-trigger.md). 
+Sie können SSIS-Pakete auch mit Azure Data Factory planen. Eine Schritt-für-Schritt-Anleitung finden Sie unter [Azure Data Factory-Ereignisauslöser](how-to-create-event-trigger.md).

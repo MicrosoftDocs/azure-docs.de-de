@@ -1,7 +1,7 @@
 ---
 title: Konvertieren in Indikatorwerte
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Sie mit dem Modul Convert to Indicator Values in Azure Machine Learning Spalten mit Kategoriewerten in eine Reihe von binären Indikatorspalten konvertieren.
+description: Konvertieren Sie mit dem Convert to Indicator Values-Modul im Azure Machine Learning-Designer Kategoriespalten in eine Reihe von binären Indikatorspalten.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: f1b194f2c65f95ad4daff0353d05ca589db9ce51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81b3c113f46428327842c1555fdd1934e9ae8762
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79477662"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420851"
 ---
 # <a name="convert-to-indicator-values"></a>Konvertieren in Indikatorwerte
 In diesem Artikel wird ein Modul im Azure Machine Learning-Designer beschrieben.

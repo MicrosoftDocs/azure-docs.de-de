@@ -9,22 +9,35 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: b493b78971b7e802d82e8f61203abdaaca527016
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: b096b24acd5cf65f6ad3e9eabb1d536b3aae0168
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873879"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187067"
 ---
 # <a name="tutorial---migrate-an-android-app-from-google-maps"></a>Tutorial: Migrieren von Android-Apps aus Google Maps
 
-Das Android SDK für Azure Maps verfügt über eine API-Schnittstelle, die dem Web SDK ähnelt. Wenn Sie bei Ihrer Entwicklung eines dieser SDKs verwendet haben, sind viele der Konzepte, bewährten Methoden und Architekturen identisch.
+Das Android SDK für Azure Maps verfügt über eine API-Schnittstelle, die dem Web SDK ähnelt. Wenn Sie bei Ihrer Entwicklung eines dieser SDKs verwendet haben, sind viele der Konzepte, bewährten Methoden und Architekturen identisch. In diesem Tutorial lernen Sie Folgendes:
+
+> [!div class="checklist"]
+> * Laden einer Karte
+> * Lokalisieren einer Karte
+> * Hinzufügen von Markern, Polylinien und Polygonen.
+> * Überlagern einer Kachelebene
+> * Anzeigen von Datenverkehrsdaten
 
 Das Android SDK für Azure Maps unterstützt API 21 als Mindestversion von Android: Android 5.0.0 (Lollipop).
 
 Alle Beispiele werden in Java bereitgestellt. Sie können aber auch Kotlin mit dem Azure Maps Android SDK verwenden.
 
 Weitere Informationen zum Entwickeln mit dem Android SDK für Azure Maps finden Sie unter [Erste Schritte mit dem Android SDK für Azure Maps](how-to-use-android-map-control-library.md).
+
+## <a name="prerequisites"></a>Voraussetzungen 
+
+1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an. Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
+2. [Erstellen eines Azure Maps-Kontos](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Abrufen eines Primärschlüssels](quick-demo-map-app.md#get-the-primary-key-for-your-account) (auch primärer Schlüssel oder Abonnementschlüssel genannt) Weitere Informationen zur Authentifizierung in Azure Maps finden Sie unter [Verwalten der Authentifizierung in Azure Maps](how-to-manage-authentication.md).
 
 ## <a name="load-a-map"></a>Laden einer Karte
 
@@ -745,6 +758,18 @@ mapControl.onReady(map -> {
 
 ![Verkehrsinformationen in Azure Maps](media/migrate-google-maps-android-app/azure-maps-traffic.png)
 
+## <a name="next-steps"></a>Nächste Schritte
+
 Weitere Informationen zum Android SDK für Azure Maps:
 
-[Verwenden des Android-Kartensteuerelements](how-to-use-android-map-control-library.md)
+> [!div class="nextstepaction"]
+> [Verwenden des Android-Kartensteuerelements](how-to-use-android-map-control-library.md)
+
+> [!div class="nextstepaction"]
+> [Hinzufügen einer Symbolebene zu einer Android-Karte](how-to-add-symbol-to-android-map.md)
+
+> [!div class="nextstepaction"]
+> [Hinzufügen von Formen zu einer Android-Karte](./how-to-add-shapes-to-android-map.md)
+
+> [!div class="nextstepaction"]
+> [Ändern von Kartenstilen auf Android-Karten](./set-android-map-styles.md)

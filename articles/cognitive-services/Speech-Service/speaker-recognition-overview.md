@@ -12,14 +12,14 @@ ms.date: 09/02/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: Sprechererkennung, Sprachbiometrie
-ms.openlocfilehash: 2c5b73b93c22ef27d7b68455f5e1e5108f25c984
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d07a9960c8a586fa137b4b717afbf91740c265d3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397258"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015323"
 ---
-# <a name="what-is-speaker-recognition"></a>Was ist Sprechererkennung?
+# <a name="what-is-speaker-recognition-preview"></a>Was ist Sprechererkennung (Vorschau)?
 
 Der Dienst „Sprechererkennung“ bietet Algorithmen, mit denen Sprecher anhand ihrer individuellen Stimmmerkmale mithilfe von Sprachbiometrie überprüft und identifiziert werden. Die Sprechererkennung wird verwendet, um herauszufinden, wer spricht. Wenn Sie Audiotrainingsdaten für einen einzelnen Sprechers bereitstellen, wird basierend auf den eindeutigen Stimmmerkmalen des Sprechers ein Registrierungsprofil erstellt. Sie können anschließend Sprachbeispiele mit diesem Profil abgleichen, um zu überprüfen, ob es sich um denselben Sprecher handelt (Sprecherüberprüfung), oder Sprachbeispiele mit einer *Gruppe* von registrierten Sprecherprofilen abgleichen, um herauszufinden, ob es eine Übereinstimmung mit einem Profil gibt (Sprecheridentifikation). Im Gegensatz dazu gruppiert die [Sprecherdiarisierung](batch-transcription.md#speaker-separation-diarization) Audiosegmente nach Sprecher in einen Batchvorgang.
 
@@ -70,10 +70,10 @@ Wie bei allen Cognitive Services-Ressourcen müssen Entwickler, die den Sprecher
 | Welche Audioformate werden unterstützt? | Mono 16 Bit, 16 kHz PCM-codiertes WAV |
 | Die Antworten für **Akzeptieren** und **Ablehnen** sind nicht genau, wie optimieren Sie den Schwellenwert? | Da der optimale Schwellenwert je nach Szenario stark schwankt, entscheidet die API einfach auf Grundlage eines Standardschwellenwerts von 0,5, ob „Akzeptiert“ oder „Abgelehnt“ wird. Erfahreneren Benutzern wird empfohlen, die Standardentscheidung außer Kraft zu setzen und das Ergebnis auf Grundlage ihres eigenen Szenarios zu optimieren. |
 | Können Sie einen Sprecher mehrmals registrieren? | Ja, bei der textabhängigen Überprüfung können Sie einen Sprecher bis zu 50-mal registrieren. Bei der textunabhängigen Überprüfung oder der Sprecheridentifikation können Sie die Registrierung mit bis zu 300 Sekunden Audioeingabe durchführen. |
-| Welche Daten werden in Azure gespeichert? | Registrierungsaudiodaten werden im Dienst gespeichert, bis das Stimmprofil [gelöscht](speaker-recognition-basics.md#deleting-voice-profile-enrollments) wird. Erkennungsaudiobeispiele werden nicht aufbewahrt oder gespeichert. |
+| Welche Daten werden in Azure gespeichert? | Registrierungsaudiodaten werden im Dienst gespeichert, bis das Stimmprofil [gelöscht](./get-started-speaker-recognition.md#deleting-voice-profile-enrollments) wird. Erkennungsaudiobeispiele werden nicht aufbewahrt oder gespeichert. |
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 > [!div class="nextstepaction"]
-> * Lesen Sie den [Artikel zu den Grundlagen](speaker-recognition-basics.md) der Sprechererkennung, um einen Überblick über gängige Entwurfsmuster zu erhalten, die Sie in Ihren Anwendungen verwenden können.
+> * Lesen Sie den [Artikel zu den Grundlagen](./get-started-speaker-recognition.md) der Sprechererkennung, um einen Überblick über gängige Entwurfsmuster zu erhalten, die Sie in Ihren Anwendungen verwenden können.
 > * Weitere Informationen finden Sie im [Videotutorial](https://azure.microsoft.com/resources/videos/speaker-recognition-text-independent-verification-developer-tutorial/) zur textunabhängigen Sprecherüberprüfung.

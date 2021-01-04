@@ -7,15 +7,21 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: 38686ba35285159d7a27724b5402a6b6e2f3a696
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8b84461cc96c64ce2f97a8b4bb69246f5a0dccc
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88815520"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221178"
 ---
 # <a name="azure-red-hat-openshift-customer-administrator-role"></a>Administratorrolle für Azure Red Hat OpenShift-Kunden
- 
+
+> [!IMPORTANT]
+> Azure Red Hat OpenShift 3.11 wird zum 30. Juni 2022 eingestellt. Unterstützung für die Erstellung neuer Azure Red Hat OpenShift 3.11-Cluster wird bis zum 30. November 2020 bereitgestellt. Nach der Einstellung werden die verbleibenden Azure Red Hat OpenShift 3.11-Cluster abgeschaltet, um Sicherheitsrisiken zu vermeiden.
+> 
+> Führen Sie die Schritte in diesem Leitfaden aus, um [einen Azure Red Hat OpenShift 4-Cluster zu erstellen](tutorial-create-cluster.md).
+> Wenn Sie spezielle Fragen haben, [kontaktieren Sie uns](mailto:arofeedback@microsoft.com).
+
 Sie sind der Clusteradministrator eines Azure Red Hat OpenShift-Clusters. Ihr Konto verfügt über erhöhte Berechtigungen und über Zugriff auf alle vom Benutzer erstellten Projekte.
 
 Wenn an Ihr Konto die Autorisierungsrolle „customer-admin-cluster“ gebunden ist, kann das Konto ein Projekt automatisch verwalten.
@@ -45,4 +51,4 @@ Um die Rollen und Berechtigungen in Ihrem Cluster genauer zu untersuchen, könne
 
 Konfigurieren Sie die Clusterrolle „customer-admin-cluster“:
 > [!div class="nextstepaction"]
-> [Azure Active Directory-Integration für Azure Red Hat OpenShift](howto-aad-app-configuration.md).
+> [Azure Active Directory-Integration für Azure Red Hat OpenShift](howto-aad-app-configuration.md)

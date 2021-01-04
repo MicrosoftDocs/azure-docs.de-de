@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 09e0b3bbac0bdc1d268aa7f24741aeb12a7d366d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f96365bcdf64d19dc0b894f2f1230233b3137bc7
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462580"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842650"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Bereitstellen eines Windows Virtual Desktop-Verwaltungstools (klassisch) mit einer Azure Resource Manager-Vorlage
 
@@ -36,7 +36,7 @@ Die folgenden Browser sind mit dem Verwaltungstool kompatibel:
 
 Bevor Sie das Verwaltungstool bereitstellen, benötigen Sie einen Azure Active Directory (Azure AD)-Benutzer, um eine App-Registrierung zu erstellen und die Verwaltungsbenutzeroberfläche bereitzustellen. Für diesen Benutzer gilt Folgendes:
 
-- Der Benutzer muss Azure Multi-Factor Authentication (MFA) deaktiviert haben.
+- Der Benutzer muss Azure AD Multi-Factor Authentication (MFA) deaktiviert haben.
 - Er muss über die Berechtigung zum Erstellen von Ressourcen in Ihrem Azure-Abonnement verfügen.
 - Er muss über die Berechtigung zum Erstellen einer Azure AD-Anwendung verfügen. Führen Sie die folgenden Schritte aus, um zu überprüfen, ob der Benutzer über die erforderlichen Berechtigungen verfügt, indem Sie die Anweisungen unter [Erforderliche Berechtigungen](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app) befolgen.
 
@@ -85,7 +85,7 @@ Nachdem Sie entschieden haben, welchen Benutzer Sie für die Erteilung der Einwi
 
 1. Navigieren Sie zu Ihren Azure-Ressourcen, wählen Sie die Azure App Services-Ressource mit dem Namen aus, den Sie in der Vorlage angegeben haben (z. B. Apr3UX), und navigieren Sie zu der damit verknüpften URL, z. B. `https://rdmimgmtweb-210520190304.azurewebsites.net`.
 2. Melden Sie sich mit dem entsprechenden Azure Active Directory-Benutzerkonto an.
-3. Wenn Sie sich als globaler Administrator authentifiziert haben, können Sie nun das Kontrollkästchen**Zustimmung im Namen Ihrer Organisation** aktivieren. Wählen Sie **Akzeptieren** aus, um die Einwilligung zu erteilen.
+3. Wenn Sie sich als globaler Administrator authentifiziert haben, können Sie nun das Kontrollkästchen **Zustimmung im Namen Ihrer Organisation** aktivieren. Wählen Sie **Akzeptieren** aus, um die Einwilligung zu erteilen.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot, in dem die vollständige Einwilligungsseite gezeigt wird, die der Benutzer oder Administrator anzeigt](../media/management-ui-consent-page.png)

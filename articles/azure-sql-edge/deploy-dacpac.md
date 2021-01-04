@@ -9,18 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: e9c8c58c6be8d2c2a85e56690903e6b54f0e4a0d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 40bd0eda16f9f96dd356eef900369ab25854e9f9
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91293899"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392247"
 ---
 # <a name="sql-database-dacpac-and-bacpac-packages-in-sql-edge"></a>SQL-Datenbank-DACPAC- und -BACPAC-Pakete in SQL Edge
 
 Azure SQL Edge ist eine optimierte relationale Datenbank-Engine für IoT- und Edge-Bereitstellungen. Sie basiert auf den aktuellen Versionen der Microsoft SQL Server-Datenbank-Engine, die branchenführende Leistung, Sicherheit und Abfrageverarbeitung bietet. Zusammen mit den branchenführenden Funktionen für die Verwaltung relationaler Datenbanken von SQL Server bietet Azure SQL Edge integrierte Streamingfunktionen für Echtzeitanalysen und komplexe Ereignisverarbeitung.
 
-Azure SQL Edge bietet einen nativen Mechanismus, mit dem Sie ein [SQL-Datenbank-DACPAC- und -BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications)-Paket während oder nach der Bereitstellung von SQL Edge bereitstellen können.
+Azure SQL Edge bietet einen nativen Mechanismus, mit dem Sie ein [SQL-Datenbank-DACPAC- und -BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications)-Paket während oder nach der Bereitstellung von SQL Edge bereitstellen können.
 
 SQL-Datenbank-DACPAC- und -BACPAC-Pakete können über die Umgebungsvariable `MSSQL_PACKAGE` in SQL Edge bereitgestellt werden. Diese Umgebungsvariable kann mit den folgenden Elementen konfiguriert werden.  
 - Dem Speicherort eines lokalen Ordners in dem SQL-Container, der die DACPAC- und BACPAC-Dateien enthält. Dieser Ordner kann mithilfe von Bereitstellungspunkten oder Datenvolumecontainern einem Hostvolume zugeordnet werden. 
@@ -35,7 +35,7 @@ Führen Sie die folgenden Schritte aus, um ein SQL-Datenbank-DAC-Paket `(*.dacpa
 
 1. Erstellen/extrahieren Sie ein DAC-Paket, oder exportieren Sie eine BACPAC-Datei auf die im Folgenden erläuterte Weise. 
     - Erstellen oder extrahieren Sie ein SQL-Datenbank-DAC-Paket. Informationen zum Generieren eines DAC-Pakets für eine vorhandene SQL Server-Datenbank finden Sie unter [Extrahieren einer DAC aus einer Datenbank](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/).
-    - Exportieren eines bereitgestellten DAC-Pakets oder einer Datenbank Informationen zur Erstellung einer BACPAC-Datei für eine vorhandene SQL Server-Datenbank finden Sie unter [Exportieren einer Datenschichtanwendung](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application/).
+    - Exportieren eines bereitgestellten DAC-Pakets oder einer Datenbank Informationen zur Erstellung einer BACPAC-Datei für eine vorhandene SQL Server-Datenbank finden Sie unter [Exportieren einer Datenschichtanwendung](/sql/relational-databases/data-tier-applications/export-a-data-tier-application/).
 
 2. Zippen Sie die `*.dacpac`- oder `*.bacpac`-Datei, und laden Sie sie in ein Azure Blob Storage-Konto. Weitere Informationen zum Hochladen von Dateien in Azure Blob Storage finden Sie unter [Hochladen, Herunterladen und Auflisten von Blobs über das Azure-Portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 

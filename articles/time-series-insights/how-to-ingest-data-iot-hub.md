@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 28a1990155e1406bf9b79572b3e5307cadfb8076
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09ee98bf8bbe0067f9c79ce4767f3cf68b83fb43
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665921"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016801"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-azure-time-series-insight-environment"></a>Hinzufügen einer IoT-Hub-Ereignisquelle zu Ihrer Azure Time Series Insights-Umgebung
 
@@ -27,7 +27,7 @@ In diesem Artikel wird beschrieben, wie im Azure-Portal eine Ereignisquelle hinz
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* Erstellen einer [Azure Time Series Insights-Umgebung](time-series-insights-update-create-environment.md).
+* Erstellen einer [Azure Time Series Insights-Umgebung](./tutorials-set-up-tsi-environment.md).
 * Erstellen eines [IoT-Hubs über das Azure-Portal](../iot-hub/iot-hub-create-through-portal.md).
 * An den IoT-Hub müssen aktive Nachrichtenereignisse gesendet werden.
 * Erstellen Sie eine dedizierte Consumergruppe in dem IoT-Hub, die die Azure Time Series Insight-Umgebung verwenden kann. Jede Azure Time Series Insights-Ereignisquelle benötigt eine eigene dedizierte Consumergruppe, die nicht mit anderen Consumern gemeinsam genutzt wird. Wenn mehrere Leser Ereignisse aus der gleichen Consumergruppe nutzen, geben alle Leser wahrscheinlich Fehler aus. Weitere Details finden Sie im [Azure IoT Hub-Entwicklerhandbuch](../iot-hub/iot-hub-devguide.md).
@@ -107,7 +107,7 @@ So fügen Sie Ihrem IoT-Hub eine neue Consumergruppe hinzu
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Definieren von Datenzugriffsrichtlinien](time-series-insights-data-access.md) zum Schützen der Daten
+* [Definieren von Datenzugriffsrichtlinien](./concepts-access-policies.md) zum Schützen der Daten
 
 * [Senden von Ereignissen](time-series-insights-send-events.md) an die Ereignisquelle
 

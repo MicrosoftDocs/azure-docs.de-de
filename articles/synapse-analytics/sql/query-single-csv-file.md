@@ -1,24 +1,24 @@
 ---
-title: Abfragen von CSV-Dateien mit SQL On-Demand (Vorschauversion)
-description: In diesem Artikel erfahren Sie, wie Sie mit SQL On-Demand (Vorschauversion) einzelne CSV-Dateien mit verschiedenen Dateiformaten abfragen können.
+title: Abfragen von CSV-Dateien mithilfe eines serverlosen SQL-Pools
+description: In diesem Artikel erfahren Sie, wie Sie mithilfe eines serverlosen SQL-Pools einzelne CSV-Dateien mit verschiedenen Dateiformaten abfragen.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: d2f8a30503e14e647cbc9151ebcea7efa000ca07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2f0cdf307e91fb40c55d4a98139bad1a5eca886
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288289"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462589"
 ---
 # <a name="query-csv-files"></a>Abfragen von CSV-Dateien
 
-In diesem Artikel erfahren Sie, wie Sie eine einzelne CSV-Datei mit SQL On-Demand (Vorschauversion) in Azure Synapse Analytics abfragen. CSV-Dateien können unterschiedliche Formate aufweisen: 
+In diesem Artikel erfahren Sie, wie Sie in Azure Synapse Analytics eine einzelne CSV-Datei mithilfe eines serverlosen SQL-Pools abfragen. CSV-Dateien können unterschiedliche Formate aufweisen: 
 
 - Mit und ohne Kopfzeile
 - Werte mit Kommas und Tabstopps als Trennzeichen
@@ -45,6 +45,11 @@ from openrowset(
 ```
 
 Mit der Option `firstrow` wird die erste Zeile in der CSV-Datei übersprungen, bei der es sich in diesem Fall um den Header handelt. Stellen Sie sicher, dass Sie auf diese Datei zugreifen können. Wenn Ihre Datei mit einem SAS-Schlüssel oder einer benutzerdefinierten Identität geschützt ist, müssen Sie [Anmeldeinformationen auf Serverebene für die SQL-Anmeldung](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential) einrichten.
+
+> [!IMPORTANT]
+> Wenn die CSV-Datei UTF-8-Zeichen enthält, stellen Sie sicher, dass Sie eine UTF-8-Datenbanksortierung verwenden (z. B. `Latin1_General_100_CI_AS_SC_UTF8`).
+> Ein Konflikt zwischen der Textcodierung in der Datei und der Sortierung kann zu unerwarteten Konvertierungsfehlern führen.
+> Die Standardsortierung der aktuellen Datenbank kann mithilfe der folgenden T-SQL-Anweisung problemlos geändert werden: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 ### <a name="data-source-usage"></a>Datenquellennutzung
 
@@ -90,6 +95,12 @@ from openrowset(
 ```
 
 Die Zahlen nach einem Datentyp in der `WITH`-Klausel stellen den Spaltenindex in der CSV-Datei dar.
+
+> [!IMPORTANT]
+> Wenn die CSV-Datei UTF-8-Zeichen enthält, stellen Sie sicher, dass Sie explizit eine UTF-8-Sortierung (z. B. `Latin1_General_100_CI_AS_SC_UTF8`) für alle Spalten in der `WITH`-Klausel angeben, oder legen Sie eine UTF-8-Sortierung auf Datenbankebene fest.
+> Ein Konflikt zwischen der Textcodierung in der Datei und der Sortierung kann zu unerwarteten Konvertierungsfehlern führen.
+> Die Standardsortierung der aktuellen Datenbank kann mithilfe der folgenden T-SQL-Anweisung problemlos geändert werden: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+> Sie können die Sortierung der Spaltentypen mit der folgenden Definition problemlos festlegen: `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8 8`
 
 In den folgenden Abschnitten erfahren Sie, wie Sie verschiedene Typen von CSV-Dateien abfragen.
 

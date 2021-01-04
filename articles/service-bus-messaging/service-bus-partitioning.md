@@ -4,12 +4,12 @@ description: Es wird beschrieben, wie Service Bus-Warteschlangen und -Themen mit
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 11cc76b0dd0125c7b54438d3f991069b7c44db59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8fd845ba24fd96ad6de566a7f55b25bd7129074d
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89007960"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930431"
 ---
 # <a name="partitioned-queues-and-topics"></a>Partitionierte Warteschlangen und Themen
 
@@ -29,6 +29,8 @@ Wenn ein Client eine Nachricht von einer partitionierten Warteschlange oder von 
 Der Peekvorgang auf einer nicht partitionierten Entität gibt immer die älteste Nachricht zurück. Dies ist jedoch auf einer partitionierten Entität nicht der Fall. Stattdessen wird hier die älteste Nachricht in einer der Partitionen zurückgegeben, deren Nachrichtenbroker zuerst reagiert hat. Es gibt keine Garantie, dass es sich bei der zurückgegebenen Nachricht um die älteste auf allen Partitionen handelt. 
 
 Es fallen keine zusätzlichen Kosten an, wenn eine Nachricht an eine partitionierte Warteschlange oder ein Thema gesendet oder von dort empfangen wird.
+>[!NOTE]
+> Der Peek-Vorgang gibt die älteste Nachricht aus der Partition basierend auf ihrer SequenceNumber zurück. Bei partitionierten Entitäten wird die Sequenznummer relativ zur Partition ausgestellt. Weitere Informationen finden Sie unter [Nachrichtensequenzierung und Zeitstempel](../service-bus-messaging/message-sequencing.md).
 
 ## <a name="enable-partitioning"></a>Aktivieren der Partitionierung
 
@@ -92,8 +94,8 @@ using (TransactionScope ts = new TransactionScope(committableTransaction))
 {
     Message msg = new Message("This is a message");
     msg.PartitionKey = "myPartitionKey";
-    messageSender.SendAsync(msg); 
-    ts.CompleteAsync();
+    await messageSender.SendAsync(msg); 
+    await ts.CompleteAsync();
 }
 committableTransaction.Commit();
 ```
@@ -112,8 +114,8 @@ using (TransactionScope ts = new TransactionScope(committableTransaction))
 {
     Message msg = new Message("This is a message");
     msg.SessionId = "mySession";
-    messageSender.SendAsync(msg); 
-    ts.CompleteAsync();
+    await messageSender.SendAsync(msg); 
+    await ts.CompleteAsync();
 }
 committableTransaction.Commit();
 ```

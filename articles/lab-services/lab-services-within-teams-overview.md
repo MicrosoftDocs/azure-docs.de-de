@@ -3,12 +3,12 @@ title: Azure Lab Services in Microsoft Teams
 description: Bietet einen Überblick über die Verwendung von Azure Lab Services in Microsoft Teams.
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 0c7defdb6f801a10c5fadfdca805381a31f39378
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f39613427ed174dfca80d4a48be9473ab7025e79
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047827"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433923"
 ---
 # <a name="azure-lab-services-within-microsoft-teams"></a>Azure Lab Services in Microsoft Teams
 
@@ -23,7 +23,7 @@ Dieser Artikel beschreibt die Vorteile der Verwendung von Azure Lab Services in 
 
 Die Integration von Azure Lab Services in Microsoft Teams unterstützt Lehrer bei der Einrichtung einer Klassenzimmerumgebung und der Bereitstellung virtueller Lab-Umgebungen im Team (in der Klasse): 
 
-* Lehrer können Classroom-Labs einrichten, damit die Kursteilnehmer in Teams auf ihre VMs zugreifen können, ohne Teams verlassen und zur [Azure Lab Services-Website](https://labs.azure.com) navigieren zu müssen.
+* Kursleiter können Labs einrichten, damit die Kursteilnehmer in Teams auf ihre VMs zugreifen können, ohne Teams verlassen und zur [Azure Lab Services-Website](https://labs.azure.com) navigieren zu müssen.
 * Einmaliges Anmelden (Single Sign-On, SSO) über Teams bei Azure Lab Services.
 * Team- und Lab-Besitzer müssen nicht Klassenlisten in zwei verschiedenen Systemen verwalten. Die Lab-Benutzerliste wird automatisch mit der Team-Mitgliedschaft ausgefüllt, und die Listen werden automatisch alle 24 Stunden synchronisiert. 
 * Nach der ersten Veröffentlichung der Vorlagen-VM wird die Lab-Kapazität (d. h. die Anzahl der VMs im Lab) automatisch entsprechend dem Hinzufügen/Löschen von Benutzern aus der Team-Mitgliedschaft angepasst. 

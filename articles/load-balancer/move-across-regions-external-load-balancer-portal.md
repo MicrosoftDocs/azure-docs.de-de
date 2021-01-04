@@ -6,18 +6,18 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 0598f21cddbaeef6b3cd10cd77250eeae8bd34bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f83ff3d1d03354daef3466c1f48eaa505e378634
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808711"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693748"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Verschieben eines externen Lastenausgleichs in eine andere Region über das Azure-Portal
 
 Es gibt verschiedene Szenarien, in denen Sie einen externen Lastenausgleich aus einer Region in eine andere verschieben können. Beispielsweise können Sie zu Testzwecken einen weiteren externen Lastenausgleich mit der gleichen Konfiguration erstellen. Möglicherweise möchten Sie einen externen Lastenausgleich auch bei der Planung der Notfallwiederherstellung in eine andere Region verschieben.
 
-Im eigentlichen Sinn können Sie einen externen Azure Lastenausgleich nicht von einer Region in eine andere verschieben. Sie können jedoch eine Azure Resource Manager-Vorlage verwenden, um die vorhandene Konfiguration und die öffentliche IP-Adresse eines externen Lastenausgleichs zu exportieren. Anschließend können Sie die Ressource in einer anderen Region bereitstellen, indem Sie den Lastenausgleich und die öffentliche IP-Adresse in eine Vorlage exportieren, die Parameter so ändern, dass sie der Zielregion entsprechen, und die Vorlage dann in der neuen Region bereitstellen. Weitere Informationen zu Resource Manager und Vorlagen finden Sie unter [Exportieren von Ressourcengruppen in Vorlagen](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
+Im eigentlichen Sinn können Sie einen externen Azure Lastenausgleich nicht von einer Region in eine andere verschieben. Sie können jedoch eine Azure Resource Manager-Vorlage verwenden, um die vorhandene Konfiguration und die öffentliche IP-Adresse eines externen Lastenausgleichs zu exportieren. Anschließend können Sie die Ressource in einer anderen Region bereitstellen, indem Sie den Lastenausgleich und die öffentliche IP-Adresse in eine Vorlage exportieren, die Parameter so ändern, dass sie der Zielregion entsprechen, und die Vorlage dann in der neuen Region bereitstellen. Weitere Informationen zu Resource Manager und Vorlagen finden Sie unter [Exportieren von Ressourcengruppen in Vorlagen](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates).
 
 
 ## <a name="prerequisites"></a>Voraussetzungen
@@ -32,7 +32,7 @@ Im eigentlichen Sinn können Sie einen externen Azure Lastenausgleich nicht von 
 
 - Vergewissern Sie sich, dass Sie mit Ihrem Azure-Abonnement externe Lastenausgleichsmodule in der Zielregion erstellen können. Wenden Sie sich an den Support, um das erforderliche Kontingent zu aktivieren.
 
-- Stellen Sie sicher, dass Ihr Abonnement über ausreichend Ressourcen verfügt, um das Hinzufügen der Lastenausgleichsmodule zu unterstützen. Weitere Informationen finden Sie unter [Einschränkungen für Azure-Abonnements und Dienste, Kontingente und Einschränkungen](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Stellen Sie sicher, dass Ihr Abonnement über ausreichend Ressourcen verfügt, um das Hinzufügen der Lastenausgleichsmodule zu unterstützen. Weitere Informationen finden Sie unter [Einschränkungen für Azure-Abonnements und Dienste, Kontingente und Einschränkungen](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
 ## <a name="prepare-and-move"></a>Vorbereiten und Verschieben
 Die folgenden Schritte zeigen, wie Sie den externen Lastenausgleich für die Verschiebung mithilfe einer Resource Manager-Vorlage vorbereiten und die Konfiguration des externen Lastenausgleichs dann im Azure-Portal in die Zielregion verschieben. Sie müssen zunächst die Konfiguration der öffentlichen IP-Adresse des externen Lastenausgleichs exportieren.
@@ -110,7 +110,7 @@ Die folgenden Schritte zeigen, wie Sie den externen Lastenausgleich für die Ver
             },
         ```
 
-        Informationen zu den Unterschieden zwischen den SKUs „basic“ und „standard“ für öffentliche IP-Adressen finden Sie unter [Erstellen, Ändern oder Löschen einer öffentlichen IP-Adresse](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+        Informationen zu den Unterschieden zwischen den SKUs „basic“ und „standard“ für öffentliche IP-Adressen finden Sie unter [Erstellen, Ändern oder Löschen einer öffentlichen IP-Adresse](../virtual-network/virtual-network-public-ip-address.md).
 
     * **Zuweisungsmethode für öffentliche IP** und **Leerlauftimeout**: Sie können die Zuweisungsmethode für die öffentliche IP-Adresse ändern, indem Sie die Eigenschaft **publicIPAllocationMethod** von **Dynamic** in **Static** oder von **Static** in **Dynamic** ändern. Sie können das Leerlauftimeout ändern, indem Sie die Eigenschaft **idleTimeoutInMinutes** in den gewünschten Wert ändern. Der Standardwert ist **4**.
 
@@ -136,7 +136,7 @@ Die folgenden Schritte zeigen, wie Sie den externen Lastenausgleich für die Ver
 
         ```
 
-        Informationen zu den Zuweisungsmethoden und den Werten für das Leerlauftimeout finden Sie unter [Erstellen, Ändern oder Löschen einer öffentlichen IP-Adresse](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+        Informationen zu den Zuweisungsmethoden und den Werten für das Leerlauftimeout finden Sie unter [Erstellen, Ändern oder Löschen einer öffentlichen IP-Adresse](../virtual-network/virtual-network-public-ip-address.md).
 
  
 13. Wählen Sie im Online-Editor die Option **Speichern** aus.
@@ -257,7 +257,7 @@ Die folgenden Schritte zeigen, wie Sie den externen Lastenausgleich für die Ver
                 "tier": "Regional"
             },
         ```
-      Informationen zu den Unterschieden zwischen Lastenausgleichsmodulen der SKU „basic“ und „standard“ finden Sie unter [Übersicht: Azure Load Balancer Standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+      Informationen zu den Unterschieden zwischen Lastenausgleichsmodulen der SKU „basic“ und „standard“ finden Sie unter [Übersicht: Azure Load Balancer Standard](./load-balancer-overview.md).
 
     * **Lastenausgleichsregeln:** Sie können Lastenausgleichsregeln in der Konfiguration hinzufügen oder entfernen, indem Sie Einträge in der Datei „template.json“ im Abschnitt **loadBalancingRules** hinzufügen oder entfernen:
 
@@ -385,7 +385,7 @@ Die folgenden Schritte zeigen, wie Sie den externen Lastenausgleich für die Ver
                 ]
         ```
 
-         Weitere Informationen finden Sie unter [Lastenausgleichs-Ausgangsregeln](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview).
+         Weitere Informationen finden Sie unter [Lastenausgleichs-Ausgangsregeln](./load-balancer-outbound-connections.md#outboundrules).
 
 12. Wählen Sie im Online-Editor die Option **Speichern** aus.
 
@@ -414,5 +414,5 @@ Um die Änderungen zu übernehmen und die Verschiebung der öffentlichen IP-Adre
 In diesem Tutorial haben Sie einen externen Azure Load Balancer aus einer Region in eine andere verschoben und die Quellressourcen bereinigt. Weitere Informationen zum Verschieben von Ressourcen zwischen Regionen und zur Notfallwiederherstellung in Azure finden Sie in folgenden Artikeln:
 
 
-- [Verschieben von Ressourcen in eine neue Ressourcengruppe oder ein neues Abonnement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Verschieben virtueller Azure-Computer in eine andere Region](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Verschieben von Ressourcen in eine neue Ressourcengruppe oder ein neues Abonnement](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Verschieben virtueller Azure-Computer in eine andere Region](../site-recovery/azure-to-azure-tutorial-migrate.md)

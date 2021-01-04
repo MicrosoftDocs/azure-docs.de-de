@@ -6,14 +6,15 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/23/2020
 ms.author: banders
-ms.openlocfilehash: 13b344d3f13993dc7b6acf7bfe9a0ccdea0c866b
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.custom: contperfq1
+ms.openlocfilehash: e712b44f22a8080b14a2cc2532cadf2dd4738b76
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371353"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409199"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Verwalten von Azure Enterprise-Rollen
 
@@ -34,6 +35,86 @@ Der erste Registrierungsadministrator, der während der Registrierungsbereitstel
 Wenn der ursprüngliche Authentifizierungstyp auf „Gemischt“ festgelegt wird, wird das EA als Microsoft-Konto hinzugefügt, und der Rechnungsempfänger besitzt EA-Administratorberechtigungen vom Typ „Schreibgeschützt“. Wenn der EA-Administrator die Microsoft-Kontoautorisierung für einen vorhandenen Rechnungsempfänger nicht genehmigt, kann der EA-Administrator den betreffenden Benutzer löschen und den Kunden bitten, den Benutzer als Administrator mit Leseberechtigung für ein Geschäfts-, Schul-oder Unikonto hinzuzufügen, das nur auf Registrierungsebene im EA Portal festgelegt ist.
 
 Diese Rollen sind spezifisch für die Verwaltung von Azure Enterprise Agreements und ergänzend zu den integrierten Rollen in Azure zum Steuern des Zugriffs auf Ressourcen. Weitere Informationen finden Sie unter [Integrierte Azure-Rollen](../../role-based-access-control/built-in-roles.md).
+
+## <a name="azure-enterprise-portal-hierarchy"></a>Hierarchie des Azure Enterprise Portals
+
+Die Hierarchie des Azure Enterprise Portal besteht aus folgenden Komponenten:
+
+- **Azure Enterprise Portal** : Ein Onlineverwaltungsportal, das Sie bei der Verwaltung der Kosten Ihrer Azure EA-Dienste unterstützt. Ihre Möglichkeiten:
+
+  - Erstellen Sie eine Azure EA-Hierarchie mit Abteilungen, Konten und Abonnements.
+  - Gleichen Sie die Kosten Ihrer genutzten Dienste ab, laden Sie Nutzungsberichte herunter, und sehen Sie sich Preislisten an.
+  - Erstellen Sie API-Schlüssel für Ihre Registrierung.
+
+- **Abteilungen** helfen Ihnen beim Einteilen von Kosten in logische Gruppierungen. Mit Abteilungen können Sie ein Budget oder ein Kontingent auf Abteilungsebene festlegen.
+
+- **Konten** sind Organisationseinheiten im Azure Enterprise Portal. Anhand von Konten können Sie Abonnements verwalten und auf Berichte zugreifen.
+
+- **Abonnements** sind die kleinste Einheit im Azure Enterprise Portal. Dabei handelt es sich um Container für Azure-Dienste, die vom Dienstadministrator verwaltet werden.
+
+Das folgende Diagramm veranschaulicht einfache Azure EA-Hierarchien.
+
+![Diagramm einfacher Azure EA-Hierarchien](./media/understand-ea-roles/ea-hierarchies.png)
+
+## <a name="enterprise-user-roles"></a>Unternehmensbenutzerrollen
+
+Die folgenden administrativen Benutzerrollen sind Teil Ihrer Unternehmensregistrierung:
+
+- Unternehmensadministrator
+- Abteilungsadministrator
+- Kontobesitzer
+- Dienstadministrator
+- Benachrichtigungskontakt
+
+Rollen werden in zwei unterschiedlichen Portalen verwendet, um Aufgaben abzuschließen. Im [Azure Enterprise Portal](https://ea.azure.com) verwalten Sie Abrechnung und Kosten, und im [Azure-Portal](https://portal.azure.com) werden Azure-Dienste verwaltet.
+
+Benutzerrollen sind einem Benutzerkonto zugeordnet. Zum Überprüfen der Authentizität des Benutzers muss jeder Benutzer über ein gültiges Geschäfts-, Schul- oder Unikonto oder über ein Microsoft-Konto verfügen. Stellen Sie sicher, dass jedes Konto einer E-Mail-Adresse zugeordnet ist, die aktiv überwacht wird. Kontobenachrichtigungen werden an diese E-Mail-Adresse gesendet.
+
+Beim Einrichten von Benutzern können Sie der Rolle „Unternehmensadministrator“ mehrere Konten zuweisen. Allerdings kann nur ein Konto die Rolle „Kontobesitzer“ aufweisen. Außerdem können Sie sowohl die Rolle „Unternehmensadministrator“ als auch die Rolle „Kontobesitzer“ einem einzigen Konto zuweisen.
+
+### <a name="enterprise-administrator"></a>Unternehmensadministrator
+
+Benutzer mit dieser Rolle verfügen über die höchste Zugriffsebene. Sie können folgende Aktionen ausführen:
+
+- Verwalten von Konten und Kontobesitzern
+- Verwalten anderer Unternehmensadministratoren
+- Verwalten von Abteilungsadministratoren
+- Verwalten von Benachrichtigungskontakten
+- Anzeigen der Nutzung für alle Konten
+- Anzeigen nicht in Rechnung gestellter Gebühren für alle Konten
+
+In einer Unternehmensregistrierung kann es mehrere Unternehmensadministratoren geben. Sie können Unternehmensadministratoren Lesezugriff gewähren. Sie erben alle die Abteilungsadministratorrolle.
+
+### <a name="department-administrator"></a>Abteilungsadministrator
+
+Benutzer mit dieser Rolle können folgende Aktionen ausführen:
+
+- Erstellen und Verwalten von Abteilungen
+- Erstellen neuer Kontobesitzer
+- Anzeigen von Nutzungsdetails für die von ihnen verwalteten Abteilungen
+- Anzeigen von Kosten, wenn die erforderlichen Berechtigungen gewährt wurden
+
+In einer Unternehmensregistrierung kann es mehrere Abteilungsadministratoren geben.
+
+Sie können Abteilungsadministratoren Lesezugriff erteilen, wenn Sie einen Abteilungsadministrator bearbeiten oder erstellen. Legen Sie die Option „Schreibgeschützt“ auf **Ja** fest.
+
+### <a name="account-owner"></a>Kontobesitzer
+
+Benutzer mit dieser Rolle können folgende Aktionen ausführen:
+
+- Erstellen und Verwalten von Abonnements
+- Verwalten von Dienstadministratoren
+- Anzeigen der Nutzung für Abonnements
+
+Für jedes Konto ist ein eindeutiges Microsoft-Konto oder Geschäfts-, Schul- oder Unikonto erforderlich. Weitere Informationen zu den administrativen Rollen im Azure Enterprise Portal finden Sie unter [Informationen zu Azure Enterprise Agreement-Administratorrollen in Azure](understand-ea-roles.md).
+
+### <a name="service-administrator"></a>Dienstadministrator
+
+Die Rolle des Dienstadministrators verfügt über Berechtigungen zum Verwalten von Diensten im Azure-Portal und kann der Rolle „Co-Administrator“ Benutzer zuweisen.
+
+### <a name="notification-contact"></a>Benachrichtigungskontakt
+
+Der Benachrichtigungskontakt empfängt Nutzungsbenachrichtigungen zur Registrierung.
 
 Die folgenden Abschnitte beschreiben die Einschränkungen und Funktionen der einzelnen Rollen.
 
@@ -69,7 +150,7 @@ Die folgenden Abschnitte beschreiben die Einschränkungen und Funktionen der ein
 
 ## <a name="add-a-new-enterprise-administrator"></a>Hinzufügen eines neuen Unternehmensadministrators
 
-Unternehmensadministratoren haben die meisten Berechtigungen bei der Verwaltung einer Azure EA-Registrierung. Der erste Azure EA-Administrator wurde erstellt, als die EA-Vereinbarung eingerichtet wurde. Sie können jedoch jederzeit neue Administratoren hinzufügen oder entfernen. Neue Administratoren werden nur von vorhandenen Administratoren hinzugefügt. Weitere Informationen zum Hinzufügen zusätzlicher Unternehmensadministratoren finden Sie unter [Erstellen eines weiteren Unternehmensadministrators](ea-portal-get-started.md#create-another-enterprise-administrator). Weitere Informationen zu Rollen und Aufgaben für ein Abrechnungsprofil finden Sie unter [Rollen und Aufgaben für ein Abrechnungsprofil](understand-mca-roles.md#billing-profile-roles-and-tasks).
+Unternehmensadministratoren haben die meisten Berechtigungen bei der Verwaltung einer Azure EA-Registrierung. Der erste Azure EA-Administrator wurde erstellt, als die EA-Vereinbarung eingerichtet wurde. Sie können jedoch jederzeit neue Administratoren hinzufügen oder entfernen. Neue Administratoren werden nur von vorhandenen Administratoren hinzugefügt. Weitere Informationen zum Hinzufügen zusätzlicher Unternehmensadministratoren finden Sie unter [Erstellen eines weiteren Unternehmensadministrators](ea-portal-administration.md#create-another-enterprise-administrator). Weitere Informationen zu Rollen und Aufgaben für ein Abrechnungsprofil finden Sie unter [Rollen und Aufgaben für ein Abrechnungsprofil](understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## <a name="update-account-owner-state-from-pending-to-active"></a>Aktualisieren des Kontobesitzerstatus von „Ausstehend“ in „Aktiv“
 
@@ -79,7 +160,7 @@ Wenn neue Kontobesitzer (Account Owners, AO) erstmals zu einer Azure EA-Registr
 
 Nachdem ein Azure EA-Administrator eine Abteilung erstellt hat, kann der Azure-Unternehmensadministrator Abteilungsadministratoren hinzufügen und diese einer Abteilung zuordnen. Ein Abteilungsadministrator kann neue Konten erstellen. Neue Konten sind erforderlich, damit Azure EA-Abonnements erstellt werden können.
 
-Weitere Informationen zum Hinzufügen eines Abteilungsadministrators finden Sie unter [Erstellen eines Azure EA-Abteilungsadministrators](ea-portal-get-started.md#add-a-department-administrator).
+Weitere Informationen zum Hinzufügen eines Abteilungsadministrators finden Sie unter [Erstellen eines Azure EA-Abteilungsadministrators](ea-portal-administration.md#add-a-department-administrator).
 
 ## <a name="usage-and-costs-access-by-role"></a>Zugriff auf Nutzung und Kosten nach Rolle
 
@@ -114,12 +195,12 @@ Die folgende Tabelle zeigt die Beziehungen zwischen den Enterprise Agreement-Adm
 |Kontobesitzer ODER Abteilungsadministrator|✘ Deaktiviert |none|Keine Preise|
 |Keine|Nicht verfügbar |Besitzer|Einzelhandelspreise|
 
-Sie legen die Enterprise-Administratorrolle und die Richtlinien zum Anzeigen von Gebühren im Enterprise-Portal fest. Die Azure-Rolle kann im Azure-Portal aktualisiert werden. Weitere Informationen finden Sie unter [Hinzufügen oder Entfernen von Rollenzuweisungen mithilfe des Azure-Portals](../../role-based-access-control/role-assignments-portal.md).
+Sie legen die Enterprise-Administratorrolle und die Richtlinien zum Anzeigen von Gebühren im Enterprise-Portal fest. Die Azure-Rolle kann im Azure-Portal aktualisiert werden. Weitere Informationen finden Sie unter [Verwalten des Zugriffs mithilfe von RBAC und des Azure-Portals](../../role-based-access-control/role-assignments-portal.md).
 
 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Verwalten des Zugriffs auf Abrechnungsinformationen für Azure](manage-billing-access.md)
-- [Hinzufügen oder Entfernen von Azure-Rollenzuweisungen über das Azure-Portal](../../role-based-access-control/role-assignments-portal.md)
+- [Verwalten des Zugriffs mithilfe der RBAC und des Azure-Portals](../../role-based-access-control/role-assignments-portal.md)
 - [Integrierte Azure-Rollen](../../role-based-access-control/built-in-roles.md)

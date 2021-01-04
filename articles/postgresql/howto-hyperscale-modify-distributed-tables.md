@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 8/10/2020
-ms.openlocfilehash: 628944f9763dc79148e0b64c97158064208412bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf9f9ca5b8690a38c6e5aa6f519378c0a2e3a4f2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88136643"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026436"
 ---
 # <a name="distribute-and-modify-tables"></a>Verteilen und Ändern von Tabellen
 
@@ -140,7 +140,7 @@ Ist eine neue Tabelle nicht mit anderen Tabellen in ihrer impliziten Zusammenste
 SELECT create_distributed_table('A', 'foo', colocate_with => 'none');
 ```
 
-Indem Sie Tabellen, die nicht verwandt sind, in eigene Zusammenstellungsgruppen unterteilen, wird die Leistung beim [erneuten Ausgleich von Shards](howto-hyperscale-scaling.md#rebalance-shards) verbessert, da Shards innerhalb einer Gruppe gemeinsam verschoben werden müssen.
+Indem Sie Tabellen, die nicht verwandt sind, in eigene Zusammenstellungsgruppen unterteilen, wird die Leistung beim [erneuten Ausgleich von Shards](howto-hyperscale-scale-rebalance.md) verbessert, da Shards innerhalb einer Gruppe gemeinsam verschoben werden müssen.
 
 Wenn Tabellen jedoch verwandt sind (wenn sie z. B. verknüpft werden), kann es sinnvoll sein, diese Tabellen explizit zusammenzustellen. Die Vorteile einer sinnvollen Zusammenstellung sind wichtiger als ein möglicher Overhead beim erneuten Ausgleich.
 

@@ -4,19 +4,19 @@ description: Dieser Artikel enthält Informationen zur Konfiguration von Ausschl
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/05/2020
+ms.date: 11/10/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 73372f3c38e12d0d4ac972a569da36a04ad533da
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: c2c84b508ee86ebdd82dbcc7040106142187c506
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125814"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563459"
 ---
 # <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>Web Application Firewall (WAF) mit Ausschlusslisten des Front Door-Diensts 
 
-Manchmal blockiert Web Application Firewall (WAF) eine Anforderung, die Sie für Ihre Anwendung zulassen möchten. Beispielsweise fügt Active Directory Token ein, die für die Authentifizierung verwendet werden. Diese Token können Sonderzeichen enthalten, die ein falsch positives Ergebnis von den WAF-Regeln auslösen können. Mit WAF-Ausschlusslisten können Sie bestimmte Anforderungsattribute in einer WAF-Auswertung weglassen.  Eine Ausschlussliste kann mit [PowserShell](https://docs.microsoft.com/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-3.5.0), der [Azure CLI](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add), der [REST-API](https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate) oder dem Azure-Portal konfiguriert werden. Im folgenden Beispiel wird die Konfiguration im Azure-Portal gezeigt. 
+Manchmal blockiert Web Application Firewall (WAF) eine Anforderung, die Sie für Ihre Anwendung zulassen möchten. Beispielsweise fügt Active Directory Token ein, die für die Authentifizierung verwendet werden. Diese Token können Sonderzeichen enthalten, die ein falsch positives Ergebnis von den WAF-Regeln auslösen können. Mit WAF-Ausschlusslisten können Sie bestimmte Anforderungsattribute in einer WAF-Auswertung weglassen.  Eine Ausschlussliste kann mit [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-3.5.0), der [Azure CLI](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add), der [REST-API](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate) oder dem Azure-Portal konfiguriert werden. Im folgenden Beispiel wird die Konfiguration im Azure-Portal gezeigt. 
 ## <a name="configure-exclusion-lists-using-the-azure-portal"></a>Konfigurieren von Ausschlusslisten mithilfe des Azure-Portals
 Auf **Ausschlüsse verwalten** kann über das WAF-Portal unter **Verwaltete Regeln** zugegriffen werden.
 
@@ -44,7 +44,23 @@ Sie können eine exakte Übereinstimmung für Anforderungsheader, Test, Cookies 
 
 Bei Header- und Cookienamen wird Groß-/Kleinschreibung nicht berücksichtigt.
 
-Sie können eine Ausschlussliste auf alle Regeln innerhalb des verwalteten Regelsatzes, auf Regeln für eine bestimmte Regelgruppe oder auf eine einzelne Regel anwenden, wie im vorherigen Beispiel gezeigt. 
+Wenn ein Headerwert, ein Cookiewert, ein post-Argumentwert oder ein Abfrageargumentwert für manche Regeln falsch positive Ergebnisse erzeugt, können Sie diesen Teil der Anforderung von der Berücksichtigung durch die Regel ausschließen:
+
+
+|matchVariableName aus WAF-Protokollen  |Regelausschluss im Portal  |
+|---------|---------|
+|CookieValue:SOME_NAME        |Name des Anforderungscookies entspricht SOME_NAME|
+|HeaderValue:SOME_NAME        |Name des Anforderungsheaders entspricht SOME_NAME|
+|PostParamValue:SOME_NAME     |Name des Anforderungstext-post-Arguments entspricht SOME_NAME|
+|QueryParamValue:SOME_NAME    |Argumentname der Abfragezeichenfolge entspricht SOME_NAME|
+
+
+Derzeit werden nur Regelausschlüsse für die genannten matchVariableNames in deren WAF-Protokollen unterstützt. Bei allen anderen matchVariableNames müssen Sie entweder die Regeln deaktivieren, die zu False Positives führen, oder eine benutzerdefinierte Regel erstellen, mit der diese Anforderungen explizit zugelassen werden. Insbesondere bedeutet dies, dass bei einem matchVariableName von CookieName, HeaderName, PostParamName oder QueryParamName der Name selbst die Regel auslöst. Diese matchVariableNames werden derzeit von Regelausschlüssen nicht unterstützt.
+
+
+Wenn Sie Anforderungstext-POST-Argumente mit dem Namen *FOO* ausschließen, sollte „PostParamValue:FOO“ durch keine Regel als matchVariableName in den WAF-Protokollen aufgeführt werden. Möglicherweise wird jedoch weiterhin eine Regel mit dem matchVariableName „InitialBodyContents“ angezeigt, die mit dem POST-Parameterwert „FOO“ übereinstimmt, da POST-Parameterwerte Teil von „InitialBodyContents“ sind.
+
+Sie können Ausschlusslisten auf alle Regeln innerhalb des verwalteten Regelsatzes, auf Regeln für eine bestimmte Regelgruppe oder auf eine einzelne Regel anwenden, wie im vorherigen Beispiel gezeigt.
 
 ## <a name="define-exclusion-based-on-web-application-firewall-logs"></a>Definieren von Ausschlüssen auf Basis von Web Application Firewall-Protokollen
  [Überwachung und Protokollierung von Azure Web Application Firewall](waf-front-door-monitor.md) zeigt übereinstimmende Details einer blockierten Anforderung. Wenn ein Headerwert, ein Cookiewert, ein post-Argumentwert oder ein Abfrageargumentwert für manche Regeln falsch positive Ergebnisse erzeugt, können Sie diesen Teil der Anforderung von der Berücksichtigung in der Regel ausschließen. Die folgende Tabelle zeigt Beispielwerte aus WAF-Protokollen und die entsprechenden Ausschlussbedingungen.

@@ -1,19 +1,19 @@
 ---
-title: Unterstützte Sprachen | Microsoft Azure Maps
+title: Unterstützte Sprachen in Microsoft Azure Maps
 description: Sehen Sie sich an, welche Regionen Azure Maps mit Diensten für Karten, Suchvorgänge, Routen, Wetter und Verkehrsmeldungen unterstützt. Erfahren Sie, wie Sie den View-Parameter einrichten.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/20/2019
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: a6664b5a2c0c6b4de2435ee5c8bb29f63560c342
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50e5d0721eb14d1fcdfad26aaf081bfa370e954e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037693"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904515"
 ---
 # <a name="localization-support-in-azure-maps"></a>Unterstützte Sprachen in Azure Maps
 
@@ -22,7 +22,7 @@ Azure Maps unterstützt basierend auf Land/Region verschiedene Sprachen und Ansi
 
 ## <a name="azure-maps-supported-languages"></a>Unterstützte Sprachen in Azure Maps
 
-Azure Maps wurde in verschiedene Sprachen für die unterschiedlichen Dienste übersetzt. In der folgenden Tabelle finden Sie die unterstützten Sprachcodes für jeden Dienst.  
+Azure Maps wurde in verschiedene Sprachen für die unterschiedlichen Dienste übersetzt. In der folgenden Tabelle finden Sie die unterstützten Sprachcodes für jeden Dienst.  
   
 
 | id         | Name                   |  Karten | Suchen, | Routing | Weather | Verkehrsmeldungen | JS-Kartensteuerelement |
@@ -107,7 +107,7 @@ Azure Maps wurde in verschiedene Sprachen für die unterschiedlichen Dienste üb
 >  * Marokko
 >  * Pakistan
 >
-> Nach dem 1. August 2019 wird mit dem Parameter**View** der zurückgegebene Karteninhalt für die oben aufgeführten neuen Regionen/Länder definiert. Der **View**-Parameter von Azure Maps (auch „Benutzerregionsparameter“ genannt) ist ein zweistelliger ISO-3166-Ländercode, der die richtigen Karten für dieses Land/diese Region anzeigt und angibt, welche geopolitisch umstrittenen Inhalte über die Dienste von Azure Maps zurückgegeben werden, einschließlich der auf der Karte angezeigten Grenzen und Bezeichnungen. 
+> Nach dem 1. August 2019 wird mit dem Parameter **View** der zurückgegebene Karteninhalt für die oben aufgeführten neuen Regionen/Länder definiert. Der **View**-Parameter von Azure Maps (auch „Benutzerregionsparameter“ genannt) ist ein zweistelliger ISO-3166-Ländercode, der die richtigen Karten für dieses Land/diese Region anzeigt und angibt, welche geopolitisch umstrittenen Inhalte über die Dienste von Azure Maps zurückgegeben werden, einschließlich der auf der Karte angezeigten Grenzen und Bezeichnungen. 
 
 Stellen Sie sicher, dass Sie den Parameter **View** gemäß den Anforderungen für die von Ihren Diensten verwendeten REST-APIs und SDKs eingerichtet haben.
   
@@ -129,10 +129,10 @@ Betroffene Azure Maps REST-Dienste:
  * Get Search Address Reverse (Suchadresse invers abrufen)
  * Get Search Address Reverse Cross Street (Suchadresse für Querstraße invers abrufen)
  * Post Search Inside Geometry (Suche innerhalb der Geometrie veröffentlichen)
- * Post Search Address Batch Preview (Batchvorschau für Suchadresse veröffentlichen)
- * Post Search Address Reverse Batch Preview (Batchvorschau für inverse Suchadresse veröffentlichen)
+ * Post Search Address Batch (Batch für Suchadresse veröffentlichen)
+ * Post Search Address Reverse Batch (Batch für inverse Suchadresse veröffentlichen)
  * Post Search Along Route (Suche entlang einer Route veröffentlichen)
- * Post Search Fuzzy Batch Preview (Batchvorschau für Suchfuzzy veröffentlichen)
+ * Post Search Fuzzy Batch (Batch für Fuzzysuche veröffentlichen)
 
  
 ### <a name="sdks"></a>SDKs

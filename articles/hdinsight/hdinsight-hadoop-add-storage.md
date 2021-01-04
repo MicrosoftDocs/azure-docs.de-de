@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 73b5966bf90d2829456401a25cc5b8ea001397d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51977c00dc8c9932def89d54ec1b6ec34afad652
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856227"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541994"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Hinzufügen zusätzlicher Speicherkonten zu HDInsight
 
-Erfahren Sie, wie Sie Skriptaktionen verwenden, um in HDInsight zusätzliche Azure Storage-*Konten* hinzuzufügen. Mit den Schritten in diesem Dokument fügen Sie einem vorhandenen HDInsight-Cluster ein Azure Storage-*Konto* hinzu. Dieser Artikel bezieht sich auf *Speicherkonten* und nicht auf das Standardclusterspeicherkonto oder weitere Speicher wie [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-storage-gen1.md) und [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Erfahren Sie, wie Sie Skriptaktionen verwenden, um in HDInsight zusätzliche Azure Storage- *Konten* hinzuzufügen. Mit den Schritten in diesem Dokument fügen Sie einem vorhandenen HDInsight-Cluster ein Azure Storage- *Konto* hinzu. Dieser Artikel bezieht sich auf *Speicherkonten* und nicht auf das Standardclusterspeicherkonto oder weitere Speicher wie [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-storage-gen1.md) und [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 > [!IMPORTANT]  
 > Die Informationen in diesem Dokument beziehen sich auf das Hinzufügen zusätzlicher Speicherkonten zu einem Cluster, nachdem dieser erstellt wurde. Informationen zum Hinzufügen von Speicherkonten während der Clustererstellung finden Sie unter [Einrichten von Clustern in HDInsight mit Apache Hadoop, Apache Spark, Apache Kafka und anderen](hdinsight-hadoop-provision-linux-clusters.md).
@@ -26,7 +26,7 @@ Erfahren Sie, wie Sie Skriptaktionen verwenden, um in HDInsight zusätzliche Azu
 
 * Ein Hadoop-Cluster in HDInsight. Weitere Informationen finden Sie unter [Erste Schritte mit HDInsight unter Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Speicherkontoname und -schlüssel. Weitere Informationen finden Sie unter [Verwalten von Speicherkonto-Zugriffsschlüsseln](../storage/common/storage-account-keys-manage.md).
-* Bei Verwendung von PowerShell benötigen Sie das Az-Modul.  Siehe [Übersicht über Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+* Bei Verwendung von PowerShell benötigen Sie das Az-Modul.  Siehe [Übersicht über Azure PowerShell](/powershell/azure/).
 
 ## <a name="how-it-works"></a>Funktionsweise
 
@@ -119,13 +119,13 @@ Nachdem Sie diese Schlüssel entfernt und die Konfiguration gespeichert haben, m
 
 ### <a name="storage-firewall"></a>Speicherfirewall
 
-Denken Sie daran, die Ausnahme **Vertrauenswürdige Microsoft-Dienste zulassen** zu aktivieren, damit HDInsight auf Ihr Speicherkonto zugreifen kann, wenn Sie Ihr Speicherkonto mit den **Firewalls und virtuelle Netzwerke**-Einschränkungen für **Ausgewählte Netzwerke** schützen.
+Denken Sie daran, die Ausnahme **Vertrauenswürdige Microsoft-Dienste zulassen** zu aktivieren, damit HDInsight auf Ihr Speicherkonto zugreifen kann, wenn Sie Ihr Speicherkonto mit den **Firewalls und virtuelle Netzwerke** -Einschränkungen für **Ausgewählte Netzwerke** schützen.
 
 ### <a name="unable-to-access-storage-after-changing-key"></a>Zugriff auf den Speicher ist nach dem Ändern des Schlüssels nicht möglich
 
 Wenn Sie den Schlüssel für ein Speicherkonto ändern, kann HDInsight nicht mehr auf das Speicherkonto zugreifen. HDInsight verwendet eine zwischengespeicherte Kopie des Schlüssels in der Datei „core-site.xml“ für den Cluster. Diese zwischengespeicherte Kopie muss mit dem neuen Schlüssel aktualisiert werden.
 
-Das wiederholte Ausführen der Skriptaktion aktualisiert den Schlüssel **nicht**, da das Skript überprüft, ob bereits ein Eintrag für das Speicherkonto vorhanden ist. Wenn bereits ein Eintrag vorhanden ist, werden keine Änderungen vorgenommen.
+Das wiederholte Ausführen der Skriptaktion aktualisiert den Schlüssel **nicht** , da das Skript überprüft, ob bereits ein Eintrag für das Speicherkonto vorhanden ist. Wenn bereits ein Eintrag vorhanden ist, werden keine Änderungen vorgenommen.
 
 So umgehen Sie dieses Problem:  
 1. Entfernen Sie das Speicherkonto.

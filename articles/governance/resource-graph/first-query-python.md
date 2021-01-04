@@ -3,13 +3,13 @@ title: 'Schnellstart: Ihre erste Python-Abfrage'
 description: In dieser Schnellstartanleitung führen Sie die Schritte zum Aktivieren der Resource Graph-Bibliothek für Python und zum Ausführen Ihrer ersten Abfrage aus.
 ms.date: 10/14/2020
 ms.topic: quickstart
-ms.custom: devx-track-python
-ms.openlocfilehash: d7ffa8aee7087e77ff14808327251ef495e88f6f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.custom: devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 01e0fd5bfbc5f353474c8305eefc044390c3586a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057398"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845107"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>Schnellstart: Ausführen Ihrer ersten Resource Graph-Abfrage mithilfe von Python
 

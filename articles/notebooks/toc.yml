@@ -8,43 +8,11 @@
   items:
     - name: Anmelden und Festlegen einer Benutzer-ID
       href: quickstart-sign-in-azure-notebooks.md
-    - name: Erstellen und Freigeben eines Notebooks
-      href: quickstart-create-share-jupyter-notebook.md
-    - name: Klonen eines Notebooks
-      href: quickstart-clone-jupyter-notebook.md
-    - name: Migrieren eines lokalen Jupyter Notebooks
-      href: quickstart-migrate-local-jupyter-notebook.md
-    - name: Verwenden einer benutzerdefinierten Umgebung
-      href: quickstart-create-jupyter-notebook-project-environment.md
     - name: Exportieren Ihres Projekts
       href: quickstart-export-jupyter-notebook-project.md
-- name: Tutorials
-  items:
-    - name: Erstellen und Ausführen eines Notebooks
-      href: tutorial-create-run-jupyter-notebook.md
-- name: Beispiele
-  items:
-    - name: Beispiel-Notebooks
-      href: azure-notebooks-samples.md
 - name: Konzepte
   items:
     - name: Konten
       href: azure-notebooks-user-account.md
     - name: Profile
       href: azure-notebooks-user-profile.md
-- name: Anleitungen
-  items:
-    - name: Erstellen und Klonen von Projekten
-      href: create-clone-jupyter-notebooks.md
-    - name: Verwalten und Konfigurieren von Projekten
-      href: configure-manage-azure-notebooks-projects.md
-    - name: Installieren von Paketen in einem Notebook
-      href: install-packages-jupyter-notebook.md
-    - name: Zeigen einer Bildschirmpräsentation
-      href: present-jupyter-notebooks-slideshow.md
-    - name: Arbeiten mit Datendateien
-      href: work-with-project-data-files.md
-    - name: Zugreifen auf Datenressourcen
-      href: access-data-resources-jupyter-notebooks.md
-    - name: Verwenden von Data Science Virtual Machines
-      href: use-data-science-virtual-machine.md

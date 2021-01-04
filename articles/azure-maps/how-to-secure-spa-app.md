@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: 000f6a80a2cee14abc3d954de479dd87b1edf876
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: c39104912c99b199d38cf489bb61d64e83b89286
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090249"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895595"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Schützen einer Single-Page-Webanwendung mit nicht interaktiver Anmeldung
 
@@ -30,15 +30,15 @@ Die folgende Anleitung bezieht sich auf eine Anwendung, die Azure Active Directo
 
 Erstellen Sie eine gesicherte Webdienstanwendung, die für die Authentifizierung bei Azure AD zuständig ist. 
 
-1. Erstellen Sie eine Funktion im Azure-Portal. Weitere Informationen finden Sie unter [Erstellen einer Azure-Funktion](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function).
+1. Erstellen Sie eine Funktion im Azure-Portal. Weitere Informationen finden Sie unter [Erstellen einer Azure-Funktion](../azure-functions/functions-create-first-azure-function.md).
 
-2. Konfigurieren Sie die CORS-Richtlinie für die Azure-Funktion so, dass Sie die Single-Page-Webanwendung darauf zugreifen kann. Dadurch werden Browserclients auf die zulässigen Ursprünge Ihrer Webanwendung gesichert. Siehe [Hinzufügen der CORS-Funktion](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-rest-api#add-cors-functionality).
+2. Konfigurieren Sie die CORS-Richtlinie für die Azure-Funktion so, dass Sie die Single-Page-Webanwendung darauf zugreifen kann. Dadurch werden Browserclients auf die zulässigen Ursprünge Ihrer Webanwendung gesichert. Siehe [Hinzufügen der CORS-Funktion](../app-service/app-service-web-tutorial-rest-api.md#add-cors-functionality).
 
-3. [Fügen Sie der Azure-Funktion eine systemseitig zugewiesene Identität hinzu](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity), um das Erstellen eines Dienstprinzipals für die Authentifizierung bei Azure AD zu ermöglichen.  
+3. [Fügen Sie der Azure-Funktion eine systemseitig zugewiesene Identität hinzu](../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity), um das Erstellen eines Dienstprinzipals für die Authentifizierung bei Azure AD zu ermöglichen.  
 
 4. Gewähren Sie der systemseitig zugewiesenen Identität rollenbasierten Zugriff auf das Azure Maps-Konto. Details hierzu finden Sie unter [Gewähren des rollenbasierten Zugriffs](#grant-role-based-access).
 
-5. Schreiben Sie Code für die Azure-Funktion, mit dem sie Azure Maps-Zugriffstoken mittels einer systemseitig zugewiesenen Identität mit einem der unterstützten Mechanismen oder dem REST-Protokoll abruft. Siehe [Abrufen von Token für Azure-Ressourcen](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity).
+5. Schreiben Sie Code für die Azure-Funktion, mit dem sie Azure Maps-Zugriffstoken mittels einer systemseitig zugewiesenen Identität mit einem der unterstützten Mechanismen oder dem REST-Protokoll abruft. Siehe [Abrufen von Token für Azure-Ressourcen](../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity).
 
     Beispiel für ein REST-Protokoll:
 
@@ -64,8 +64,8 @@ Erstellen Sie eine gesicherte Webdienstanwendung, die für die Authentifizierung
 
 6. Konfigurieren der Sicherheit für den HttpTrigger der Azure-Funktion
 
-   * [Erstellen eines Funktionszugriffsschlüssels](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#authorization-keys)
-   * [Sichern Sie den HTTP-Endpunkt](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production) für die in Produktion befindliche Azure-Funktion.
+   * [Erstellen eines Funktionszugriffsschlüssels](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#authorization-keys)
+   * [Sichern Sie den HTTP-Endpunkt](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production) für die in Produktion befindliche Azure-Funktion.
    
 7. Konfigurieren Sie das Azure Maps Web SDK der Webanwendung. 
 
@@ -111,16 +111,16 @@ Sie gewähren die *rollenbasierte Zugriffssteuerung in Azure (Azure RBAC)* , in
 
 2. Wählen Sie auf der Registerkarte **Rollenzuweisungen** unter **Rolle** eine integrierte Azure Maps-Rollendefinition aus, z. B. **Azure Maps-Datenleser** oder **Azure Maps-Datenmitwirkender** . Wählen Sie unter **Zugriff zuweisen zu** die Option **Funktions-App** aus. Wählen Sie den Prinzipal nach Namen aus. Klicken Sie dann auf **Speichern** .
 
-   * Lesen Sie die Details zum [Hinzufügen oder Entfernen von Rollenzuweisungen](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+   * Lesen Sie die Details zum [Hinzufügen oder Entfernen von Rollenzuweisungen](../role-based-access-control/role-assignments-portal.md).
 
 > [!WARNING]
-> Integrierte Azure Maps-Rollendefinitionen bieten einen sehr umfangreichen Autorisierungszugriff auf viele Azure Maps-REST-APIs. Informationen, wie Sie den Zugriff auf APIs auf ein Mindestmaß beschränken, finden Sie unter [Erstellen einer benutzerdefinierten Rollendefinition und Zuweisen der systemseitig zugewiesenen Identität](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) zur benutzerdefinierten Rollendefinition. Dadurch wird die geringste Berechtigung aktiviert, die für den Zugriff der Anwendung auf Azure Maps erforderlich ist.
+> Integrierte Azure Maps-Rollendefinitionen bieten einen sehr umfangreichen Autorisierungszugriff auf viele Azure Maps-REST-APIs. Informationen, wie Sie den Zugriff auf APIs auf ein Mindestmaß beschränken, finden Sie unter [Erstellen einer benutzerdefinierten Rollendefinition und Zuweisen der systemseitig zugewiesenen Identität](../role-based-access-control/custom-roles.md) zur benutzerdefinierten Rollendefinition. Dadurch wird die geringste Berechtigung aktiviert, die für den Zugriff der Anwendung auf Azure Maps erforderlich ist.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 Weitere Informationen zum Single-Page-Webanwendungsszenario:
 > [!div class="nextstepaction"]
-> [Einzelseitenanwendung](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-overview)
+> [Einzelseitenanwendung](../active-directory/develop/scenario-spa-overview.md)
 
 Suchen der API-Nutzungsmetriken für Ihr Azure Maps-Konto:
 > [!div class="nextstepaction"]

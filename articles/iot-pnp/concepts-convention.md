@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: a58fa45f47ee8dce4ec96591551abad76c1218ee
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 86c6ea9dded423e7bd513faf73adfd293f2bd38f
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045481"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302611"
 ---
 # <a name="iot-plug-and-play-conventions"></a>IoT Plug & Play-Konventionen
 
@@ -20,10 +20,10 @@ Für IoT Plug & Play-Geräte muss beim Austauschen von Nachrichten mit einem 
 
 Geräte können [Module](../iot-hub/iot-hub-devguide-module-twins.md) enthalten oder in einem [IoT Edge-Modul](../iot-edge/about-iot-edge.md) implementiert werden, das von der IoT Edge-Runtime gehostet wird.
 
-Die Telemetriedaten, Eigenschaften und Befehle, die ein Gerät in IoT Plug & Play implementiert, werden mit einem [Digital Twins Definition Language v2 (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)- _Modell_ beschrieben. In diesem Artikel werden zwei Modelltypen erläutert:
+Die Telemetriedaten, Eigenschaften und Befehle, die ein Gerät in IoT Plug & Play implementiert, werden mit einem [Digital Twins Definition Language v2 (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)-_Modell_ beschrieben. In diesem Artikel werden zwei Modelltypen erläutert:
 
-- **Ohne Komponenten** : Ein Modell ohne Komponenten. Bei diesem Modell werden Telemetriedaten, Eigenschaften und Befehle im Inhaltsabschnitt der Hauptschnittstelle als Eigenschaften der obersten Ebene deklariert. Im Azure IoT-Explorer-Tool wird dieses Modell als einzelne _Standardkomponente_ angezeigt.
-- **Mit mehreren Komponenten** : Ein Modell, das aus mindestens zwei Schnittstellen besteht. Eine Hauptschnittstelle, die als _Standardkomponente_ mit Telemetriedaten, Eigenschaften und Befehlen angezeigt wird. Und aus mindestens einer Schnittstelle, die als Komponente mit zusätzlichen Telemetriedaten, Eigenschaften und Befehlen deklariert wird.
+- **Ohne Komponenten**: Ein Modell ohne Komponenten. Bei diesem Modell werden Telemetriedaten, Eigenschaften und Befehle im Inhaltsabschnitt der Hauptschnittstelle als Eigenschaften der obersten Ebene deklariert. Im Azure IoT-Explorer-Tool wird dieses Modell als einzelne _Standardkomponente_ angezeigt.
+- **Mit mehreren Komponenten**: Ein Modell, das aus mindestens zwei Schnittstellen besteht. Eine Hauptschnittstelle, die als _Standardkomponente_ mit Telemetriedaten, Eigenschaften und Befehlen angezeigt wird. Und aus mindestens einer Schnittstelle, die als Komponente mit zusätzlichen Telemetriedaten, Eigenschaften und Befehlen deklariert wird.
 
 Weitere Informationen finden Sie unter [IoT Plug & Play-Komponenten in Modellen](concepts-components.md).
 
@@ -79,7 +79,7 @@ Beispiel für Nutzdaten der gemeldeten Eigenschaft:
 
 Das Gerät oder Modul muss zusätzlich den Marker `{"__t": "c"}` aufweisen, um anzugeben, dass das Element auf eine Komponente verweist.
 
-DTDL:
+DTDL zum Verweisen auf eine Komponente:
 
 ```json
 {
@@ -95,7 +95,11 @@ DTDL:
     }
   ]
 }
+```
 
+DTDL zum Definieren der Komponente:
+
+```json
 {
   "@context": "dtmi:dtdl:context;2",
   "@id": "dtmi:com:example:Thermostat;1",
@@ -255,7 +259,7 @@ Wenn ein Gerät über nur ein Nutzdatenelement mehrere gemeldete Eigenschaften e
 
 Das Gerät oder Modul muss bestätigen, dass es die Eigenschaften erhalten hat, indem es gemeldete Eigenschaften sendet:
 
-DTDL:
+DTDL zum Verweisen auf eine Komponente:
 
 ```json
 {
@@ -271,7 +275,11 @@ DTDL:
     }
   ]
 }
+```
 
+DTDL zum Definieren der Komponente:
+
+```json
 {
   "@context": "dtmi:dtdl:context;2",
   "@id": "dtmi:com:example:Thermostat;1",

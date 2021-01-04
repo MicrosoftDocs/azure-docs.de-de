@@ -7,20 +7,20 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.openlocfilehash: 4c8d2143d2b6e18de2669a6b45961e601cc394bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4765c0c43cfd9760eb5b4392604bfaeedc69c388
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707556"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511439"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Einführung in die Stream Analytics-Windowing-Funktionen
 
 Bei Szenarien mit „Time Streaming“ ist das Durchführen von Vorgängen für die Daten in temporalen Fenstern ein häufiges Muster. Stream Analytics verfügt über native Unterstützung für Windowing-Funktionen, sodass Entwickler komplexe Streaming-Verarbeitungsaufträge mit sehr geringem Aufwand erstellen können.
 
-Fünf Arten temporaler Fenster stehen zur Auswahl: Fenster vom Typ [**Rollierend**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics), [**Springend**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics), [**Gleitend**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics), [**Sitzung**](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics) und [**Momentaufnahme**](https://docs.microsoft.com/stream-analytics-query/snapshot-window-azure-stream-analytics).  Sie verwenden die Fensterfunktionen in der [**GROUP BY**](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics)-Klausel der Abfragesyntax in Ihren Stream Analytics-Aufträgen. Sie können Ereignisse auch über mehrere Fenster hinweg aggregieren, indem Sie die [**Windows()** -Funktion](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics) verwenden.
+Fünf Arten temporaler Fenster stehen zur Auswahl: Fenster vom Typ [**Rollierend**](/stream-analytics-query/tumbling-window-azure-stream-analytics), [**Springend**](/stream-analytics-query/hopping-window-azure-stream-analytics), [**Gleitend**](/stream-analytics-query/sliding-window-azure-stream-analytics), [**Sitzung**](/stream-analytics-query/session-window-azure-stream-analytics) und [**Momentaufnahme**](/stream-analytics-query/snapshot-window-azure-stream-analytics).  Sie verwenden die Fensterfunktionen in der [**GROUP BY**](/stream-analytics-query/group-by-azure-stream-analytics)-Klausel der Abfragesyntax in Ihren Stream Analytics-Aufträgen. Sie können Ereignisse auch über mehrere Fenster hinweg aggregieren, indem Sie die [**Windows()** -Funktion](/stream-analytics-query/windows-azure-stream-analytics) verwenden.
 
-Für alle [Windowing](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics)-Vorgänge werden am **Ende** des Fensters Ergebnisse ausgegeben. Beachten Sie, dass Sie beim Starten eines Stream Analytics-Auftrags die *Startzeit für die Auftragsausgabe*  angeben können, und das System ruft automatisch vorherige Ereignisse in den eingehenden Datenströmen ab, um das erste Fenster zum angegebenen Zeitpunkt auszugeben, z. B. wenn Sie mit der Option *Jetzt* beginnen, werden sofort Daten ausgegeben. Die Ausgabe des Fensters ist ein einzelnes Ereignis, das auf der verwendeten Aggregatfunktion basiert. Das Ausgabeereignis verfügt über den Zeitstempel vom Ende des Fensters, und alle Fensterfunktionen werden mit einer festen Länge definiert. 
+Für alle [Windowing](/stream-analytics-query/windowing-azure-stream-analytics)-Vorgänge werden am **Ende** des Fensters Ergebnisse ausgegeben. Beachten Sie, dass Sie beim Starten eines Stream Analytics-Auftrags die *Startzeit für die Auftragsausgabe*  angeben können, und das System ruft automatisch vorherige Ereignisse in den eingehenden Datenströmen ab, um das erste Fenster zum angegebenen Zeitpunkt auszugeben, z. B. wenn Sie mit der Option *Jetzt* beginnen, werden sofort Daten ausgegeben. Die Ausgabe des Fensters ist ein einzelnes Ereignis, das auf der verwendeten Aggregatfunktion basiert. Das Ausgabeereignis verfügt über den Zeitstempel vom Ende des Fensters, und alle Fensterfunktionen werden mit einer festen Länge definiert. 
 
 ![Stream Analytics-Fensterfunktionen – Konzepte](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 
@@ -36,7 +36,7 @@ Bei den Funktionen von springenden Fenstern wird für einen festen Zeitraum ein 
 
 ## <a name="sliding-window"></a>Gleitendes Fenster
 
-Gleitende Fenster, im Gegensatz zu rollierenden oder springenden Fenstern, geben Ereignisse nur für Zeitpunkte aus, zu denen sich der Inhalt des Fensters tatsächlich ändert. Anders ausgedrückt: wenn ein Ereignis das Fenster betritt oder verlässt. Jedes Fenster besitzt mindestens ein Ereignis. Wie bei springenden Fenstern, können Ereignisse zu mehr als einem gleitenden Fenster gehören.
+Gleitende Fenster, im Gegensatz zu rollierenden oder springenden Fenstern, geben Ereignisse nur für Zeitpunkte aus, zu denen sich der Inhalt des Fensters tatsächlich ändert. Anders ausgedrückt: wenn ein Ereignis das Fenster betritt oder verlässt. Jedes Fenster verfügt also über mindestens ein Ereignis. Ähnlich wie bei springenden Fenstern können Ereignisse zu mehr als einem gleitenden Fenster gehören.
 
 ![Stream Analytics – Gleitendes Fenster](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
@@ -53,7 +53,7 @@ Wenn ein Partitionsschlüssel angegeben wird, werden die Ereignisse nach dem Sch
 
 ## <a name="snapshot-window"></a>Momentaufnahmefenster
 
-Momentaufnahmefenster gruppieren Ereignisse, die denselben Zeitstempel haben. Im Gegensatz zu anderen Fenstertypen, die eine bestimmte Fensterfunktion benötigen (z. B. [SessionWindow()](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics)), können Sie ein Momentaufnahmefenster anwenden, indem Sie der GROUP BY-Klausel „System.Timestamp()“ hinzufügen.
+Momentaufnahmefenster gruppieren Ereignisse, die denselben Zeitstempel haben. Im Gegensatz zu anderen Fenstertypen, die eine bestimmte Fensterfunktion benötigen (z. B. [SessionWindow()](/stream-analytics-query/session-window-azure-stream-analytics)), können Sie ein Momentaufnahmefenster anwenden, indem Sie der GROUP BY-Klausel „System.Timestamp()“ hinzufügen.
 
 ![Stream Analytics-Momentaufnahmefenster](media/stream-analytics-window-functions/snapshot.png)
 
@@ -61,6 +61,5 @@ Momentaufnahmefenster gruppieren Ereignisse, die denselben Zeitstempel haben. Im
 * [Einführung in Azure Stream Analytics](stream-analytics-introduction.md)
 * [Erste Schritte mit Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skalieren von Azure Stream Analytics-Aufträgen](stream-analytics-scale-jobs.md)
-* [Stream Analytics Query Language Reference (in englischer Sprache)](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referenz zur Azure Stream Analytics-Verwaltungs-REST-API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
+* [Stream Analytics Query Language Reference (in englischer Sprache)](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referenz zur Azure Stream Analytics-Verwaltungs-REST-API](/rest/api/streamanalytics/)

@@ -1,29 +1,29 @@
 ---
-title: Kombinierte Registrierung für SSPR und Azure Multi-Factor Authentication – Azure Active Directory
-description: Erfahren Sie mehr über die Umgebung für die kombinierte Registrierung für Azure Active Directory, mit der sich Benutzer sowohl für Azure Multi-Factor Authentication (MFA) als auch für die Self-Service-Kennwortzurücksetzung registrieren können
+title: Kombinierte Registrierung für SSPR und Azure AD Multi-Factor Authentication – Azure Active Directory
+description: Hier erfahren Sie mehr über die Umgebung für die kombinierte Registrierung für Azure Active Directory, mit der sich Benutzer sowohl für Azure AD Multi-Factor Authentication (MFA) als auch für die Self-Service-Kennwortzurücksetzung registrieren können.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.date: 12/04/2020
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71900bc3741c25299402e31057ea2237cd0a4637
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c8dce284c0fffe10fe077fcb6c6713ba65c45751
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965147"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743903"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Übersicht über die kombinierte Registrierung von Sicherheitsinformationen in Azure Active Directory
 
-Vor der kombinierten Registrierung registrierten Benutzer Authentifizierungsmethoden für Azure Multi-Factor Authentication (MFA) und die Self-Service-Kennwortzurücksetzung (Self-Service Password Reset, SSPR) getrennt voneinander. Benutzer waren verwirrt, dass ähnliche Methoden für Multi-Factor Authentication und für SSPR verwendet wurden, sie sich jedoch für beide Funktionen registrieren mussten. Mit der kombinierten Registrierung können sich Benutzer jetzt einmalig registrieren und die Vorteile von mehrstufiger Authentifizierung und SSPR nutzen.
+Vor der kombinierten Registrierung registrierten Benutzer Authentifizierungsmethoden für Azure AD Multi-Factor Authentication (MFA) und die Self-Service-Kennwortzurücksetzung (Self-Service Password Reset, SSPR) getrennt voneinander. Benutzer waren verwirrt, dass ähnliche Methoden für Multi-Factor Authentication und für SSPR verwendet wurden, sie sich jedoch für beide Funktionen registrieren mussten. Mit der kombinierten Registrierung können sich Benutzer jetzt einmalig registrieren und die Vorteile von mehrstufiger Authentifizierung und SSPR nutzen.
 
 > [!NOTE]
-> Ab dem 15. August 2020 werden alle neuen Azure AD-Mandanten automatisch für die kombinierte Registrierung aktiviert.
+> Ab dem 15. August 2020 werden alle neuen Azure AD-Mandanten automatisch für die kombinierte Registrierung aktiviert. Ab dem 14. Dezember 2020 werden alle neuen Azure AD-Mandanten mit einem Benutzer automatisch für die kombinierte Registrierung aktiviert.
 
 In diesem Artikel wird beschrieben, was die kombinierte Registrierung von Sicherheitsinformationen ist. Erste Informationen zur kombinierten Registrierung von Sicherheitsinformationen finden Sie im folgenden Artikel:
 
@@ -34,7 +34,7 @@ In diesem Artikel wird beschrieben, was die kombinierte Registrierung von Sicher
 
 Lesen Sie vor dem Aktivieren der neuen Funktion diese an Administratoren gerichtete Dokumentation und die benutzerorientierte Dokumentation, um sich mit der Funktionalität und den Auswirkungen dieser Funktion vertraut zu machen. Ziehen Sie für Ihre Schulungen die [Benutzerdokumentation](../user-help/security-info-setup-signin.md) heran, um Ihre Benutzer auf die neue Oberfläche vorzubereiten und so einen erfolgreichen Rollout sicherzustellen.
 
-Die kombinierte Azure AD-Registrierung von Sicherheitsinformationen ist für nationale Clouds wie Azure US Government, Azure Deutschland oder Azure China 21Vianet derzeit nicht verfügbar.
+Die kombinierte Azure AD-Registrierung von Sicherheitsinformationen ist für nationale Clouds wie Azure Deutschland oder Azure China 21Vianet derzeit nicht verfügbar. Sie ist jedoch für Azure US Government verfügbar.
 
 > [!IMPORTANT]
 > Benutzern, die für die ursprüngliche Vorschau und für die erweiterte kombinierte Registrierungsumgebung aktiviert sind, wird das neue Verhalten angezeigt. Benutzern, die für beide Umgebungen aktiviert sind, wird nur die neue Umgebung „Mein Profil“ angezeigt. Die neue Oberfläche *Mein Profil* entspricht dem Erscheinungsbild der kombinierten Registrierung und bietet Benutzern eine nahtlose Umgebung. Benutzer können „Mein Profil“ anzeigen, indem sie zu [https://myprofile.microsoft.com](https://myprofile.microsoft.com) navigieren.
@@ -58,7 +58,7 @@ Bei der kombinierten Registrierung werden die folgenden Authentifizierungsmethod
 | Hardwaretoken | Nein | Nein | Ja |
 | Phone | Ja | Ja | Ja |
 | Alternatives Telefon | Ja | Ja | Ja |
-| Bürotelefon | Nein | Nein | Nein |
+| Bürotelefon | Ja | Ja | Ja |
 | Email | Ja | Ja | Ja |
 | Sicherheitsfragen | Ja | Nein | Ja |
 | App-Kennwörter | Ja | Nein | Ja |
@@ -142,8 +142,8 @@ Ein Benutzer, der zuvor mindestens eine Methode eingerichtet hat, die für die m
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Erste Informationen finden Sie unter [Aktivieren der Self-Service-Kennwortzurücksetzung](tutorial-enable-sspr.md) und [Aktivieren der Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+Erste Informationen finden Sie unter [Aktivieren der Self-Service-Kennwortzurücksetzung](tutorial-enable-sspr.md) und [Aktivieren der Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 
 Erfahren Sie, wie Sie die [kombinierte Registrierung in Ihrem Mandanten aktivieren](howto-registration-mfa-sspr-combined.md) oder [die erneute Registrierung von Authentifizierungsmethoden durch Benutzer erzwingen](howto-mfa-userdevicesettings.md#manage-user-authentication-options).
 
-Sie können auch den Artikel [Verfügbare Methoden für Multi-Factor Authentication und SSPR](concept-authentication-methods.md) lesen.
+Sie können auch den Artikel [Verfügbare Methoden für Azure AD Multi-Factor Authentication und SSPR](concept-authentication-methods.md) lesen.

@@ -1,17 +1,15 @@
 ---
 title: 'Service Fabric Reliable Actors: Übersicht'
 description: Einführung in das Programmiermodell Service Fabric Reliable Actors basierend auf dem Muster „Virtual Actor“.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: adb15d995cd2a9fd604aa6b91360adc88a2804e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a8a7003a69deaf6b74d6fbb8a3cf84b0a78eecf
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89007926"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576382"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Einführung in Service Fabric Reliable Actors
 Reliable Actors ist ein Service Fabric-Anwendungsframework, das auf dem Muster [Virtueller Akteur](https://research.microsoft.com/en-us/projects/orleans/) basiert. Die Reliable Actors-API bietet ein Singlethread-Programmiermodell, das auf der Skalierbarkeit und Zuverlässigkeit aufbaut, die Service Fabric gewährleistet.
@@ -43,7 +41,7 @@ Diese Abstraktion der Lebensdauer virtueller Akteure birgt infolge des Modells f
 * Obwohl Reliable Actors Akteurobjekte implizit erstellt, haben Sie die Möglichkeit, einen Akteur und seinen Zustand explizit zu löschen.
 
 ## <a name="distribution-and-failover"></a>Verteilung und Failover
-Um Skalierbarkeit und Zuverlässigkeit zu gewährleisten, verteilt Service Fabric Akteure im gesamten Cluster und migriert sie bei Bedarf automatisch von fehlerhaften zu fehlerfreien Knoten. Dies stellt eine Abstraktion einer [partitionierten, zustandsbehafteten Reliable Services-Instanz](service-fabric-concepts-partitioning.md)dar. Verteilung, Skalierbarkeit, Zuverlässigkeit und automatisches Failover werden aufgrund der Tatsache bereitgestellt, dass die Akteure in einer zustandsbehafteten Reliable Services-Instanz ausgeführt werden, die als *Actordienst*bezeichnet wird.
+Um Skalierbarkeit und Zuverlässigkeit zu gewährleisten, verteilt Service Fabric Akteure im gesamten Cluster und migriert sie bei Bedarf automatisch von fehlerhaften zu fehlerfreien Knoten. Dies stellt eine Abstraktion einer [partitionierten, zustandsbehafteten Reliable Services-Instanz](service-fabric-concepts-partitioning.md)dar. Verteilung, Skalierbarkeit, Zuverlässigkeit und automatisches Failover werden aufgrund der Tatsache bereitgestellt, dass die Akteure in einer zustandsbehafteten Reliable Services-Instanz ausgeführt werden, die als *Actordienst* bezeichnet wird.
 
 Akteure werden auf die Partitionen des Actordiensts und diese Partitionen auf die Knoten in einem Service Fabric-Cluster verteilt. Jede Dienstpartition enthält einen Satz von Akteuren. Service Fabric verwaltet die Verteilung und das Failover für die Dienstpartitionen.
 
@@ -124,7 +122,7 @@ In diesem Diagramm werden folgende Konventionen befolgt:
 
 Einige wichtige Punkte sind zu beachten:
 
-* Bei der Ausführung von *Method1* für *ActorId2* als Antwort auf Clientanforderung *xyz789* trifft eine weitere Clientanforderung (*abc123*) ein, für die ebenfalls die Ausführung von *Method1* für *ActorId2* erforderlich ist. Die zweite Ausführung von *Method1* beginnt aber erst, nachdem die vorherige Ausführung abgeschlossen wurde. Analog gilt: Eine von *ActorId2* registrierte Erinnerung wird ausgelöst, während *Method1* als Antwort auf die Clientanforderung *xyz789* ausgeführt wird. Der Erinnerungs-Rückruf wird erst ausgeführt, nachdem beide Ausführungen von *Method1* abgeschlossen sind. All dies basiert auf der für *ActorId2*erzwungenen Turn-basierten Parallelität.
+* Bei der Ausführung von *Method1* für *ActorId2* als Antwort auf Clientanforderung *xyz789* trifft eine weitere Clientanforderung (*abc123*) ein, für die ebenfalls die Ausführung von *Method1* für *ActorId2* erforderlich ist. Die zweite Ausführung von *Method1* beginnt aber erst, nachdem die vorherige Ausführung abgeschlossen wurde. Analog gilt: Eine von *ActorId2* registrierte Erinnerung wird ausgelöst, während *Method1* als Antwort auf die Clientanforderung *xyz789* ausgeführt wird. Der Erinnerungs-Rückruf wird erst ausgeführt, nachdem beide Ausführungen von *Method1* abgeschlossen sind. All dies basiert auf der für *ActorId2* erzwungenen Turn-basierten Parallelität.
 * Analog dazu wird Turn-basierte Parallelität auch für *ActorId1* erzwungen, wie die serielle Ausführung von *Method1*, *Method2* und des Timer-Rückrufs für *ActorId1* zeigt.
 * Die Ausführung von *Method1* für *ActorId1* überschneidet sich mit deren Ausführung für *ActorId2*. Der Grund dafür ist, dass Turn-basierte Parallelität nur innerhalb eines Actors und nicht Actor-übergreifend erzwungen wird.
 * Bei einigen Ausführungen von Methode/Rückruf wird der von der Methode/dem Rückruf zurückgegebene `Task`(C#) / `CompletableFuture`(Java) nach der Rückkehr der Methode abgeschlossen. Bei einigen anderen ist der asynchrone Vorgang bereits zum Zeitpunkt der Rückkehr der Methode/des Rückrufs abgeschlossen. In beiden Fällen wird die Sperre pro Akteur erst freigegeben, nachdem sowohl die Methode/der Rückruf als auch der asynchrone Vorgang abgeschlossen ist.

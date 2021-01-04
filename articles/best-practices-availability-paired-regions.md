@@ -1,19 +1,19 @@
 ---
 title: Sicherstellen von Geschäftskontinuität und Notfallwiederherstellung mit Azure-Regionspaaren
 description: Sicherstellen von Anwendungsresilienz mit Azure-Regionspaaren
-author: barbkess
-manager: barbkess
+author: martinekuan
+manager: martinekuan
 ms.service: multiple
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.author: barbkess
+ms.author: martinek
 ms.custom: references_regions
-ms.openlocfilehash: b720d9dd824018d885ccc9860ee9fd8a90a46051
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3310d4a7d86db9dee7d5f71fc9410545817886f3
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84194316"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511228"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Business Continuity & Disaster Recovery (BCDR): Azure-Regionspaare
 
@@ -43,7 +43,7 @@ Nein. Während sich ein bestimmter Azure-Dienst auf ein Regionspaar stützen kan
 
 ## <a name="must-i-use-azure-regional-pairs"></a>Muss ich Azure-Regionspaare verwenden?
 
-Nein. Kunden können Azure-Dienste nutzen, um einen robusten Dienst zu entwerfen, ohne Azure-Regionspaare zu verwenden.  Wir empfehlen jedoch das Konfigurieren von Business Continuity Disaster Recovery (BCDR) zwischen Regionspaaren, um von [Isolierung](./security/fundamentals/isolation-choices.md) zu profitieren und die und [Verfügbarkeit](./availability-zones/az-overview.md) zu verbessern. Bei Anwendungen, die mehrere aktive Regionen unterstützen, empfehlen wir nach Möglichkeit die Verwendung beider Regionen in einem Regionspaar. Dadurch wird eine optimale Verfügbarkeit für Anwendungen sowie eine minimierte Wiederherstellungszeit in einem Notfall sichergestellt. Entwerfen Sie Ihre Anwendung nach Möglichkeit für [maximale Resilienz](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview) und einfache [Wiederherstellung im Notfall](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery).
+Nein. Kunden können Azure-Dienste nutzen, um einen robusten Dienst zu entwerfen, ohne Azure-Regionspaare zu verwenden.  Wir empfehlen jedoch das Konfigurieren von Business Continuity Disaster Recovery (BCDR) zwischen Regionspaaren, um von [Isolierung](./security/fundamentals/isolation-choices.md) zu profitieren und die und [Verfügbarkeit](./availability-zones/az-overview.md) zu verbessern. Bei Anwendungen, die mehrere aktive Regionen unterstützen, empfehlen wir nach Möglichkeit die Verwendung beider Regionen in einem Regionspaar. Dadurch wird eine optimale Verfügbarkeit für Anwendungen sowie eine minimierte Wiederherstellungszeit in einem Notfall sichergestellt. Entwerfen Sie Ihre Anwendung nach Möglichkeit für [maximale Resilienz](/azure/architecture/framework/resiliency/overview) und einfache [Wiederherstellung im Notfall](/azure/architecture/framework/resiliency/backup-and-recovery).
 
 ## <a name="azure-regional-pairs"></a>Azure-Regionspaare
 
@@ -94,20 +94,20 @@ Wie in Abbildung 2 dargestellt.
 
 1. **Azure Compute (IaaS)** : Sie müssen im Voraus zusätzliche Computeressourcen bereitstellen, um sicherzustellen, dass Ressourcen während eines Notfalls in einer anderen Region zur Verfügung stehen. Weitere Informationen finden Sie unter [Technischer Leitfaden zur Resilienz in Azure](https://github.com/uglide/azure-content/blob/master/articles/resiliency/resiliency-technical-guidance.md). 
 
-2. **Azure Storage** : Wenn Sie verwaltete Datenträger verwenden, machen Sie sich mit [regionsübergreifenden Sicherungen](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) mit Azure Backup und der [Replikation von VMs](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) aus einer Region in eine andere mit Azure Site Recovery vertraut. Wenn Sie Speicherkonten verwenden, wird georedundanter Speicher (GRS) beim Erstellen eines Azure Storage-Kontos standardmäßig konfiguriert. Mithilfe von GRS werden Ihre Daten dreimal in der primären Region und dreimal im Regionspaar automatisch repliziert. Weitere Informationen finden Sie unter [Redundanzoptionen für Azure Storage](storage/common/storage-redundancy.md).
+2. **Azure Storage**: Wenn Sie verwaltete Datenträger verwenden, machen Sie sich mit [regionsübergreifenden Sicherungen](/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) mit Azure Backup und der [Replikation von VMs](./site-recovery/azure-to-azure-tutorial-enable-replication.md) aus einer Region in eine andere mit Azure Site Recovery vertraut. Wenn Sie Speicherkonten verwenden, wird georedundanter Speicher (GRS) beim Erstellen eines Azure Storage-Kontos standardmäßig konfiguriert. Mithilfe von GRS werden Ihre Daten dreimal in der primären Region und dreimal im Regionspaar automatisch repliziert. Weitere Informationen finden Sie unter [Redundanzoptionen für Azure Storage](storage/common/storage-redundancy.md).
 
-3. **Azure SQL Datenbank** : Mit der Georeplikation von Azure SQL-Datenbank können Sie die asynchrone Replikation von Transaktionen in jede Region der Welt konfigurieren. Es wird jedoch empfohlen, diese Ressourcen für die meisten Notfallwiederherstellungsszenarien in einem Regionspaar bereitzustellen. Weitere Informationen finden Sie unter [Georeplikation in Azure SQL-Datenbank](sql-database/sql-database-geo-replication-overview.md).
+3. **Azure SQL Datenbank**: Mit der Georeplikation von Azure SQL-Datenbank können Sie die asynchrone Replikation von Transaktionen in jede Region der Welt konfigurieren. Es wird jedoch empfohlen, diese Ressourcen für die meisten Notfallwiederherstellungsszenarien in einem Regionspaar bereitzustellen. Weitere Informationen finden Sie unter [Georeplikation in Azure SQL-Datenbank](./azure-sql/database/auto-failover-group-overview.md).
 
-4. **Azure Resource Manager** : Resource Manager bietet grundsätzlich regionsübergreifende logische Isolierung von Komponenten. Dies bedeutet, dass sich logische Fehler in einer Region weniger wahrscheinlich auf eine andere auswirken.
+4. **Azure Resource Manager**: Resource Manager bietet grundsätzlich regionsübergreifende logische Isolierung von Komponenten. Dies bedeutet, dass sich logische Fehler in einer Region weniger wahrscheinlich auf eine andere auswirken.
 
 ## <a name="benefits-of-paired-regions"></a>Vorteile eines Regionspaars
 
-5. **Physische Isolierung** : Zwischen Azure-Rechenzentren in einem Regionspaar sollte nach Möglichkeit eine Entfernung von mindestens 480 km bestehen, was allerdings nicht in allen Gebieten zweckmäßig oder möglich ist. Durch die Trennung physischer Datencenter wird die Wahrscheinlichkeit einer gleichzeitigen Beeinträchtigung beider Regionen durch Naturkatastrophen, politische Unruhen, Stromausfälle oder physische Netzwerkausfälle verringert. Die Isolierung unterliegt den Einschränkungen des jeweiligen Gebiets (Größe, Verfügbarkeit der Energieversorgungs-/Netzwerkinfrastruktur, Vorschriften usw.).  
+5. **Physische Isolierung**: Zwischen Azure-Rechenzentren in einem Regionspaar sollte nach Möglichkeit eine Entfernung von mindestens 480 km bestehen, was allerdings nicht in allen Gebieten zweckmäßig oder möglich ist. Durch die Trennung physischer Datencenter wird die Wahrscheinlichkeit einer gleichzeitigen Beeinträchtigung beider Regionen durch Naturkatastrophen, politische Unruhen, Stromausfälle oder physische Netzwerkausfälle verringert. Die Isolierung unterliegt den Einschränkungen des jeweiligen Gebiets (Größe, Verfügbarkeit der Energieversorgungs-/Netzwerkinfrastruktur, Vorschriften usw.).  
 
-6. **Von der Plattform bereitgestellte Replikation** : Einige Dienste (beispielsweise georedundanter Speicher) bieten automatische Replikation im Regionspaar.
+6. **Von der Plattform bereitgestellte Replikation**: Einige Dienste (beispielsweise georedundanter Speicher) bieten automatische Replikation im Regionspaar.
 
-7. **Reihenfolge der Regionswiederherstellung** : Im Falle eines umfassenden Ausfalls besitzt bei jedem Paar die Wiederherstellung einer der Regionen Priorität. Für Anwendungen, die in Regionspaaren bereitgestellt sind, wird die priorisierte Wiederherstellung einer der Regionen garantiert. Wenn eine Anwendung in Regionen bereitgestellt ist, die kein Paar bilden, kann sich die Wiederherstellung verzögern. Im schlimmsten Fall werden die gewählten Regionen ggf. zuletzt wiederhergestellt.
+7. **Reihenfolge der Regionswiederherstellung**: Im Falle eines umfassenden Ausfalls besitzt bei jedem Paar die Wiederherstellung einer der Regionen Priorität. Für Anwendungen, die in Regionspaaren bereitgestellt sind, wird die priorisierte Wiederherstellung einer der Regionen garantiert. Wenn eine Anwendung in Regionen bereitgestellt ist, die kein Paar bilden, kann sich die Wiederherstellung verzögern. Im schlimmsten Fall werden die gewählten Regionen ggf. zuletzt wiederhergestellt.
 
-8. **Sequenzielle Updates** : Geplante Azure-Systemupdates werden zur Minimierung von Ausfallzeit, der Auswirkungen von Fehlern und logischen Ausfällen im seltenen Fall eines fehlerhaften Updates sequenziell (nicht gleichzeitig) ausgeführt.
+8. **Sequenzielle Updates**: Geplante Azure-Systemupdates werden zur Minimierung von Ausfallzeit, der Auswirkungen von Fehlern und logischen Ausfällen im seltenen Fall eines fehlerhaften Updates sequenziell (nicht gleichzeitig) ausgeführt.
 
-9. **Speicherort von Daten** : Eine Region befindet sich innerhalb des gleichen Gebiets wie ihr Paar (mit Ausnahme von „Brasilien, Süden“), um steuerliche und rechtliche Anforderungen an den Speicherort von Daten zu erfüllen.
+9. **Speicherort von Daten**: Eine Region befindet sich innerhalb des gleichen Gebiets wie ihr Paar (mit Ausnahme von „Brasilien, Süden“), um steuerliche und rechtliche Anforderungen an den Speicherort von Daten zu erfüllen.

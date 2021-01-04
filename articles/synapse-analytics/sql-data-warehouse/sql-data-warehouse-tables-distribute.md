@@ -1,6 +1,6 @@
 ---
 title: Entwurfsleitfaden für verteilte Tabellen
-description: Empfehlungen für das Entwerfen von Tabellen mit Hashverteilung und verteilten Roundrobintabellen im Synapse SQL-Pool.
+description: Empfehlungen für das Entwerfen von Tabellen mit Hashverteilung und verteilten Roundrobintabellen mithilfe eines dedizierten SQL-Pools in Azure Synapse Analytics
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 98a3b8d30bcb358a0aaa0f7b124b8399a286d6cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c452d51018ef3f204cd7281971c07fb6337d39bf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85214008"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449707"
 ---
-# <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Leitfaden für das Entwerfen verteilter Tabellen im Synapse SQL-Pool
+# <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Leitfaden zum Entwerfen von verteilten Tabellen mithilfe eines dedizierten SQL-Pools in Azure Synapse Analytics
 
-Empfehlungen für das Entwerfen von Tabellen mit Hashverteilung und verteilten Roundrobintabellen im Synapse SQL-Pool.
+Empfehlungen für das Entwerfen von Tabellen mit Hashverteilung und verteilten Roundrobintabellen in dedizierten SQL-Pools
 
-In diesem Artikel wird davon ausgegangen, dass Sie mit den Konzepten der Datenverteilung und -verschiebung im Synapse SQL-Pool vertraut sind.  Weitere Informationen finden Sie unter [Azure Synapse Analytics – MPP-Architektur (Massively Parallel Processing)](massively-parallel-processing-mpp-architecture.md).
+In diesem Artikel wird davon ausgegangen, dass Sie mit den Konzepten der Datenverteilung und -verschiebung im dedizierten SQL-Pool vertraut sind.  Weitere Informationen finden Sie unter [Azure Synapse Analytics-Architektur](massively-parallel-processing-mpp-architecture.md).
 
 ## <a name="what-is-a-distributed-table"></a>Was ist eine verteilte Tabelle?
 
@@ -32,11 +32,11 @@ Eine verteilte Tabelle wird zwar als einzelne Tabelle dargestellt, tatsächlich 
 
 Eine andere Tabellenspeicheroption besteht darin, eine kleine Tabelle auf allen Computeknoten zu replizieren. Weitere Informationen finden Sie unter [Entwurfsleitfaden für replizierte Tabellen](design-guidance-for-replicated-tables.md). Eine praktische Entscheidungshilfe für die Wahl einer der drei Optionen finden Sie in der [Tabellenübersicht](sql-data-warehouse-tables-overview.md) unter „Verteilte Tabellen“.
 
-Für den Tabellenentwurf sollten Sie möglichst umfassende Kenntnisse zu Ihren Daten und über das Abfragen der Daten besitzen.  Stellen Sie sich beispielsweise die folgenden Fragen:
+Für den Tabellenentwurf sollten Sie möglichst umfassende Kenntnisse zu Ihren Daten und über das Abfragen der Daten besitzen.    Stellen Sie sich beispielsweise die folgenden Fragen:
 
 - Wie groß ist die Tabelle?
 - Wie oft wird die Tabelle aktualisiert?
-- Habe ich Fakten- und Dimensionstabellen in einem Synapse SQL-Pool?
+- Verfüge ich in einem dedizierten SQL-Pool über Fakten- und Dimensionstabellen?
 
 ### <a name="hash-distributed"></a>Hashverteilung
 
@@ -44,7 +44,7 @@ Bei einer Tabelle mit Hashverteilung werden Tabellenzeilen mithilfe einer determ
 
 ![Verteilte Tabelle](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Verteilte Tabelle")  
 
-Da identische Werte per Hash immer der gleichen Verteilung zugewiesen werden, sind die Zeilenpositionen im Data Warehouse bekannt. Synapse SQL-Pool nutzt dieses Wissen, um Datenverschiebungen während Abfragen zu minimieren, was die Abfrageleistung verbessert.
+Da identische Werte per Hash immer der gleichen Verteilung zugewiesen werden, sind die Zeilenpositionen in SQL Analytics bekannt. Der dedizierte SQL-Pool nutzt dieses Wissen, um Datenverschiebungen während Abfragen zu minimieren, was die Abfrageleistung verbessert.
 
 Tabellen mit Hashverteilung eignen sich gut für umfangreiche Faktentabellen in einem Sternschema. Sie können sehr viele Zeilen umfassen und trotzdem eine hohe Leistung bieten. Es gibt natürlich einige Entwurfsaspekte, die dazu beitragen, die Leistung zu erreichen, für die das verteilte System konzipiert ist. Einer dieser Aspekte, der auch in diesem Artikel beschrieben wird, ist die Wahl einer geeigneten Verteilungsspalte.
 
@@ -113,7 +113,7 @@ Wählen Sie zur Erzielung einer ausgeglichenen parallelen Verarbeitung eine Vert
 
 ### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>Wählen Sie eine Verteilungsspalte, die Datenverschiebungen minimiert.
 
-Zur Ermittlung des korrekten Abfrageergebnisses werden Daten ggf. zwischen Computeknoten verschoben. Zu Datenverschiebungen kommt es in der Regel, wenn Abfragen über Joins und Aggregationen für verteilte Tabellen verfügen. Die Wahl einer Verteilungsspalte, die zur Minimierung von Datenverschiebungen beiträgt, ist eine der wichtigsten Strategien zum Optimieren der Leistung Ihres Synapse SQL-Pools.
+Zur Ermittlung des korrekten Abfrageergebnisses werden Daten ggf. zwischen Computeknoten verschoben. Zu Datenverschiebungen kommt es in der Regel, wenn Abfragen über Joins und Aggregationen für verteilte Tabellen verfügen. Die Wahl einer Verteilungsspalte, die zur Minimierung von Datenverschiebungen beiträgt, ist eine der wichtigsten Strategien zum Optimieren der Leistung Ihres dedizierten SQL-Pools.
 
 Zur Minimierung von Datenverschiebungen muss die Verteilungsspalte folgende Kriterien erfüllen:
 
@@ -225,5 +225,5 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 Verwenden Sie zum Erstellen einer verteilten Tabelle eine der folgenden Anweisungen:
 
-- [CREATE TABLE (Synapse SQL-Pool)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [CREATE TABLE AS SELECT (Synapse SQL-Pool)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE (dedizierter SQL-Pool)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE AS SELECT (dedizierter SQL-Pool)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

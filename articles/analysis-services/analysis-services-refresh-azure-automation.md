@@ -4,20 +4,20 @@ description: In diesem Artikel wird beschrieben, wie Sie Modellaktualisierungen 
 author: chrislound
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 12/01/2020
 ms.author: chlound
-ms.openlocfilehash: fe811c81d0774393f40dc5c8403d1af8b22da109
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 7c801511b6f24cf5ef04d55bb195e3a4c62d7b6d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019136"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491246"
 ---
 # <a name="refresh-with-azure-automation"></a>Aktualisieren mit Azure Automation
 
 Mithilfe von Azure Automation und PowerShell-Runbooks können Sie automatisierte Datenaktualisierungsvorgänge für Ihre Azure Analysis-Tabellenmodelle ausführen.  
 
-Das Beispiel in diesem Artikel verwendet das [SqlServer-PowerShell-Modul](/powershell/module/sqlserver/?view=sqlserver-ps). Ein PowerShell-Beispielrunbook, das die Aktualisierung eines Modells veranschaulicht, wird weiter unten in diesem Artikel bereitgestellt.  
+Das Beispiel in diesem Artikel verwendet das [SqlServer-PowerShell-Modul](/powershell/module/sqlserver/?view=sqlserver-ps&preserve-view=true). Ein PowerShell-Beispielrunbook, das die Aktualisierung eines Modells veranschaulicht, wird weiter unten in diesem Artikel bereitgestellt.  
 
 ## <a name="authentication"></a>Authentifizierung
 
@@ -202,7 +202,7 @@ $_Credential = Get-AutomationPSCredential -Name "ServicePrincipal"
 
 # If runbook was called from Webhook, WebhookData will not be null.
 if ($WebhookData)
-{ 
+{ 
     # Retrieve AAS details from Webhook request body
     $atmParameters = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
     Write-Output "CredentialName: $($atmParameters.CredentialName)"

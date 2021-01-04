@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: c030c1548a931bc749ad799a5aa88813c35d19cd
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 2538bc91be59ff12b39ee3f5f629e4c016480a97
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997020"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296334"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Überwachen Ihres Speicherdiensts mit Azure Monitor für Storage
 
@@ -36,9 +36,6 @@ Bei diesem Feature müssen Sie nichts aktivieren oder konfigurieren, weil die Sp
 >[!NOTE]
 >Für den Zugriff auf dieses Feature fallen keine Gebühren an. Ihnen werden nur die grundlegenden Features von Azure Monitor in Rechnung gestellt, die Sie entsprechend der Beschreibung auf der Seite [Azure Monitor-Preisdetails](https://azure.microsoft.com/pricing/details/monitor/) konfigurieren oder aktivieren.
 
->[!NOTE]
->Azure Monitor für Storage unterstützt keine [Konten vom Typ „Allgemein v1“](../../storage/common/storage-account-overview.md#general-purpose-v1-accounts).
->
 
 ## <a name="view-from-azure-monitor"></a>Anzeigen in Azure Monitor
 
@@ -94,9 +91,9 @@ Gehen Sie wie folgt vor, um direkt über ein Speicherkonto auf Azure Monitor fü
 
 2. Wählen Sie in der Liste ein Speicherkonto aus. Wählen Sie im Abschnitt „Überwachung“ die Option „Insights“ aus.
 
-    ![Seite „Übersicht“ für das ausgewählte Speicherkonto](./media/storage-insights-overview/storage-account-direct-overview-01.png)
+    ![Screenshot der Arbeitsmappenseite „Übersicht“ für das Speicherkonto](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
-In der Arbeitsmappe**Übersicht** für das Speicherkonto werden mehrere Leistungsmetriken für die Speicherung angezeigt, anhand derer Sie schnell Folgendes bewerten können:
+In der Arbeitsmappe **Übersicht** für das Speicherkonto werden mehrere Leistungsmetriken für die Speicherung angezeigt, anhand derer Sie schnell Folgendes bewerten können:
 
 * Integrität des Speicherdiensts, um sofort festzustellen, ob ein Problem außerhalb ihrer Kontrolle den Speicherdienst in der Region beeinträchtigt, in der er bereitgestellt wird. Dies wird in der Spalte **Zusammenfassung** angegeben.
 

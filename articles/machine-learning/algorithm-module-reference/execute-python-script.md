@@ -1,7 +1,7 @@
 ---
 title: 'Python-Skript ausführen: Modulreferenz'
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie das Modul Execute Python Script in Azure Machine Learning zum Ausführen von Python-Code verwendet wird.
+description: Erfahren Sie, wie Sie mit dem Modul Execute Python Script im Azure Machine Learning-Designer Python-Code ausführen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
-ms.date: 10/21/2020
-ms.openlocfilehash: d4934d784e871988b5bc30f7b7cf8c09651576e2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.date: 12/02/2020
+ms.openlocfilehash: 360f0ce60a35bc96c6dd8e46d636f07124d01255
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330364"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511915"
 ---
 # <a name="execute-python-script-module"></a>Execute Python Script-Modul
 
@@ -37,7 +37,7 @@ Azure Machine Learning verwendet die Anaconda-Distribution von Python, die viele
 
 Eine vollständige Liste finden Sie im Abschnitt [Vorinstallierte Python-Pakete](#preinstalled-python-packages).
 
-Um Pakete zu installieren, die nicht in der Liste mit den vorinstallierten Paketen enthalten sind (z. B. *scikit-misc* ), fügen Sie Ihrem Skript den folgenden Code hinzu: 
+Um Pakete zu installieren, die nicht in der Liste mit den vorinstallierten Paketen enthalten sind (z. B. *scikit-misc*), fügen Sie Ihrem Skript den folgenden Code hinzu: 
 
 ```python
 import os
@@ -60,8 +60,38 @@ if spec is None:
 > [!WARNING]
 > Das Modul vom Typ „Excute Python Script“ unterstützt nicht die Installation von Paketen, die von zusätzlichen nativen Bibliotheken mit Befehlen wie „apt-get“ abhängen, z. B. Java, PyODBC usw. Dies liegt daran, dass dieses Modul in einer einfachen Umgebung ausgeführt wird, in der Python nur vorinstalliert ist und keine Administratorrechte besitzt.  
 
+## <a name="access-to-registered-datasets"></a>Zugreifen auf registrierte Datasets
+
+Verwenden Sie den folgenden Beispielcode, um auf die in Ihrem Arbeitsbereich [registrierten Datasets](../how-to-create-register-datasets.md) zuzugreifen:
+
+```Python
+def azureml_main(dataframe1 = None, dataframe2 = None):
+
+    # Execution logic goes here
+    print(f'Input pandas.DataFrame #1: {dataframe1}')
+    from azureml.core import Run
+    run = Run.get_context(allow_offline=True)
+    ws = run.experiment.workspace
+
+    from azureml.core import Dataset
+    dataset = Dataset.get_by_name(ws, name='test-register-tabular-in-designer')
+    dataframe1 = dataset.to_pandas_dataframe()
+     
+    # If a zip file is connected to the third input port,
+    # it is unzipped under "./Script Bundle". This directory is added
+    # to sys.path. Therefore, if your zip file contains a Python file
+    # mymodule.py you can import it using:
+    # import mymodule
+
+    # Return value must be of a sequence of pandas.DataFrame
+    # E.g.
+    #   -  Single return value: return dataframe1,
+    #   -  Two return values: return dataframe1, dataframe2
+    return dataframe1,
+```
+
 ## <a name="upload-files"></a>Hochladen von Dateien
-„Execute Python Script“ (Python-Skript ausführen) unterstützt das Hochladen von Dateien mit dem [Python-SDK für Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#upload-file-name--path-or-stream-).
+„Execute Python Script“ (Python-Skript ausführen) unterstützt das Hochladen von Dateien mit dem [Python-SDK für Azure Machine Learning](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#upload-file-name--path-or-stream-).
 
 Das folgende Beispiel zeigt, wie eine Bilddatei im Modul „Execute Python Script“ (Python-Skript ausführen) hochgeladen wird:
 
@@ -110,26 +140,29 @@ Das Modul „Execute Python Script“ (Python-Skript ausführen) enthält Python
 
 1. Fügen Sie Ihrer Pipeline das Modul **Python-Skript ausführen** hinzu.
 
-2. Fügen Sie in **Dataset1** alle Datasets aus dem Designer hinzu, die Sie als Eingabe verwenden möchten. Verweisen Sie auf dieses Dataset in Ihrem Python-Skript als **DataFrame1** .
+2. Fügen Sie in **Dataset1** alle Datasets aus dem Designer hinzu, die Sie als Eingabe verwenden möchten. Verweisen Sie auf dieses Dataset in Ihrem Python-Skript als **DataFrame1**.
 
     Die Verwendung eines Datasets ist optional. Verwenden Sie ein Dataset, wenn Sie Daten mit Python generieren oder Python-Code zum direkten Importieren der Daten in das Modul verwenden möchten.
 
-    Dieses Modul unterstützt das Hinzufügen eines zweiten Datasets in **Dataset2** . Verweisen Sie auf das zweite Dataset in Ihrem Python-Skript als **DataFrame2** .
+    Dieses Modul unterstützt das Hinzufügen eines zweiten Datasets in **Dataset2**. Verweisen Sie auf das zweite Dataset in Ihrem Python-Skript als **DataFrame2**.
 
     In Azure Machine Learning gespeicherte Datasets werden automatisch in Pandas-Datenrahmen konvertiert, wenn sie mit diesem Modul geladen werden.
 
     ![Eingabezuordnung zum Ausführen von Python-Code](media/module/python-module.png)
 
-4. Verbinden Sie die ZIP-Datei, die diese benutzerdefinierten Ressourcen enthält, mit dem Port **Script bundle** (Skriptbundle), um neue Python-Pakete einzuschließen. Wenn Ihr Skript größer als 16 KB ist, verwenden Sie den **Script Bundle** -Port, um Fehler wie *CommandLine überschreitet das Limit von 16.597 Zeichen* zu vermeiden. 
+4. Verbinden Sie die ZIP-Datei, die diese benutzerdefinierten Ressourcen enthält, mit dem Port **Script bundle** (Skriptbundle), um neue Python-Pakete einzuschließen. Wenn Ihr Skript größer als 16 KB ist, verwenden Sie den **Script Bundle**-Port, um Fehler wie *CommandLine überschreitet das Limit von 16.597 Zeichen* zu vermeiden. 
 
     
     1. Fassen Sie das Skript und andere benutzerdefinierte Ressourcen in einer ZIP-Datei zusammen.
     1. Laden Sie die ZIP-Datei als **Dateidataset** in Studio hoch. 
     1. Ziehen Sie das Datasetmodul aus der Liste *Datasets* im linken Modulbereich auf die Erstellungsseite des Designers. 
-    1. Verbinden Sie das Dataset mit dem **Script Bundle** -Port des **Execute R Script** -Moduls.
+    1. Verbinden Sie das Dataset mit dem **Script Bundle**-Port des **Execute R Script**-Moduls.
     
     Während der Ausführung der Pipeline kann jede Datei verwendet werden, die im hochgeladenen ZIP-Archiv enthalten ist. Wenn das Archiv eine Verzeichnisstruktur enthält, bleibt die Struktur erhalten.
-    
+ 
+    > [!WARNING]
+    > Verwenden Sie **nicht** **app** als Namen des Ordners oder Ihres Skripts, da **app** ein reserviertes Wort für integrierte Dienste ist. Sie können jedoch andere Namespaces wie `app123` verwenden.
+   
     Im Folgenden finden Sie ein Beispiel für ein Skriptbundle, das eine Python-Skriptdatei und eine TXT-Datei enthält:
       
     > [!div class="mx-imgBorder"]
@@ -312,4 +345,4 @@ Dies sind die vorinstallierten Pakete:
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Sehen Sie sich den [Satz der verfügbaren Module](module-reference.md) für Azure Machine Learning an. 
+Sehen Sie sich den [Satz der verfügbaren Module](module-reference.md) für Azure Machine Learning an.

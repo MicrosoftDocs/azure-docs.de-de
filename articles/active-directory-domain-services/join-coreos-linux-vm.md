@@ -2,7 +2,7 @@
 title: Einbinden eines virtuellen CoreOS-Computers in Azure AD Domain Services | Microsoft-Dokumentation
 description: Hier erfahren Sie, wie Sie einen virtuellen CoreOS-Computer in eine durch Azure AD Domain Services verwaltete Domäne einbinden.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 5db65f30-bf69-4ea3-9ea5-add1db83fdb8
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/13/2020
-ms.author: joflore
-ms.openlocfilehash: c3a88f96f7391fedd973b7965a7c469ce1805d76
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 1e98f32bd6fe7d5373d5ab6621ffdce5e79abc08
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962410"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619588"
 ---
 # <a name="join-a-coreos-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Einbinden eines virtuellen CoreOS-Computers in eine verwaltete Azure Active Directory Domain Services-Domäne
 

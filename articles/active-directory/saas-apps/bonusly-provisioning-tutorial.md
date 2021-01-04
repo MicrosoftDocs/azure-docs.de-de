@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 33329fc30d1c20b4e20901d06a061accb2aeceb0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d8c3f64e5cb5269bfe7e555615f874ac3443c6eb
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456898"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357826"
 ---
 # <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>Tutorial: Konfigurieren von Bonusly für die automatische Benutzerbereitstellung
 
@@ -42,7 +42,7 @@ Bevor Sie Bonusly für die automatische Benutzerbereitstellung mit Azure AD konf
 
 **Führen Sie die folgenden Schritte aus, um Bonusly aus dem Azure AD-Anwendungskatalog hinzuzufügen:**
 
-1. Klicken Sie im linken Navigationsbereich des **[Azure-Portals](https://portal.azure.com)** auf das Symbol für **Azure Active Directory** .
+1. Klicken Sie im linken Navigationsbereich des **[Azure-Portals](https://portal.azure.com)** auf das Symbol für **Azure Active Directory**.
 
     ![Schaltfläche „Azure Active Directory“](common/select-azuread.png)
 
@@ -89,63 +89,63 @@ In diesem Abschnitt werden die Schritte zum Konfigurieren des Azure AD-Bereitste
 
     ![Bonusly-Link in der Anwendungsliste](common/all-applications.png)
 
-3. Wählen Sie die Registerkarte **Bereitstellung** .
+3. Wählen Sie die Registerkarte **Bereitstellung**.
 
     :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningTab.png" alt-text="Screenshot: Bonusly – Registerkarte „Bereitstellung“. Unter „Verwalten“ ist „Bereitstellung“ hervorgehoben." border="false":::
 
 4. Legen Sie den **Bereitstellungsmodus** auf **Automatisch** fest.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningCredentials.png" alt-text="Screenshot: Bonusly – Registerkarte „Bereitstellung“. Unter „Verwalten“ ist „Bereitstellung“ hervorgehoben." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningCredentials.png" alt-text="Screenshot: Listenfeld „Bereitstellungsmodus“, „Automatisch“ ist ausgewählt und hervorgehoben." border="false":::
 
 5. Geben Sie im Abschnitt **Administratoranmeldeinformationen** wie in Schritt 6 beschrieben das **geheime Token** Ihres Bonusly-Kontos ein.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/secrettoken.png" alt-text="Screenshot: Bonusly – Registerkarte „Bereitstellung“. Unter „Verwalten“ ist „Bereitstellung“ hervorgehoben." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/secrettoken.png" alt-text="Screenshot des Abschnitts „Administratoranmeldeinformationen“. Das Feld „Geheimes Token“ ist leer, aber hervorgehoben." border="false":::
 
 6. Das **geheime Token** für Ihr Bonusly-Konto finden Sie unter **Admin > Company > Integrations** (Administrator > Unternehmen > Integrationen). Klicken Sie im Abschnitt **If you want to code** (Wenn Sie programmieren möchten) auf **API > Create New API Access Token** (API > Neues API-Zugriffstoken erstellen), um ein neues geheimes Token zu erstellen.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/BonuslyIntegrations.png" alt-text="Screenshot: Bonusly – Registerkarte „Bereitstellung“. Unter „Verwalten“ ist „Bereitstellung“ hervorgehoben." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/BonuslyIntegrations.png" alt-text="Screenshot des Bonusly-Menüs. Unter „Admin“ (Administrator) ist „Company“ (Unternehmen) hervorgehoben. Unter „Company“ (Unternehmen) ist „Integrations“ (Integrationen) hervorgehoben." border="false":::
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/BonsulyRestApi.png" alt-text="Screenshot: Bonusly – Registerkarte „Bereitstellung“. Unter „Verwalten“ ist „Bereitstellung“ hervorgehoben." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/BonsulyRestApi.png" alt-text="Screenshot: Abschnitt „If you want to code“ (Wenn Sie programmieren möchten) der Bonusly-Website, in dem „API“ hervorgehoben ist" border="false":::
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/CreateToken.png" alt-text="Screenshot: Bonusly – Registerkarte „Bereitstellung“. Unter „Verwalten“ ist „Bereitstellung“ hervorgehoben." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/CreateToken.png" alt-text="Screenshot der Bonusly-Website. Die Registerkarte „Dienste“ ist geöffnet. Unter „Your API access tokens“ (Ihre API-Zugriffstoken) ist „Create new API access token“ (Neues API-Zugriffstoken erstellen) hervorgehoben." border="false":::
 
 7. Geben Sie auf dem folgenden Bildschirm einen Namen für das Zugriffstoken in das bereitgestellte Textfeld ein, und klicken Sie dann auf **Create Api Key** (API-Schlüssel erstellen). Das neue Zugriffstoken wird für einige Sekunden in einem Popupfenster angezeigt.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/Token01.png" alt-text="Screenshot: Bonusly – Registerkarte „Bereitstellung“. Unter „Verwalten“ ist „Bereitstellung“ hervorgehoben." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/Token01.png" alt-text="Screenshot: Seite „New access token“ (Neues Zugriffstoken) der Bonusly-Website. Ein Feld ohne Beschriftung enthält die Zeichenfolge „My Token“, und die Schaltfläche „Create Api key“ (API-Schlüssel erstellen) ist hervorgehoben." border="false":::
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/Token02.png" alt-text="Screenshot: Bonusly – Registerkarte „Bereitstellung“. Unter „Verwalten“ ist „Bereitstellung“ hervorgehoben." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/Token02.png" alt-text="Screenshot der Bonusly-Website. Die Benachrichtigung „New access token created“ (Neues Zugriffstoken erstellt) gefolgt von einem nicht lesbaren Token wird angezeigt." border="false":::
 
 8. Klicken Sie nach dem Auffüllen der in Schritt 5 gezeigten Felder auf **Verbindung testen** , um sicherzustellen, dass Azure AD eine Verbindung mit Bonusly herstellen kann. Falls der Verbindungsaufbau fehlschlägt, stellen Sie sicher, dass Ihr Bonusly-Konto über Administratorberechtigungen verfügt, und versuchen Sie es noch einmal.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/TestConnection.png" alt-text="Screenshot: Bonusly – Registerkarte „Bereitstellung“. Unter „Verwalten“ ist „Bereitstellung“ hervorgehoben." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/TestConnection.png" alt-text="Screenshot: Abschnitt „Administratoranmeldeinformationen“ des Azure-Portals. Die Schaltfläche „Verbindung testen“ ist hervorgehoben." border="false":::
 
-9. Geben Sie im Feld **Benachrichtigungs-E-Mail** die E-Mail-Adresse einer Person oder einer Gruppe ein, die Benachrichtigungen zu Bereitstellungsfehlern erhalten soll, und aktivieren Sie das Kontrollkästchen **Bei Fehler E-Mail-Benachrichtigung senden** .
+9. Geben Sie im Feld **Benachrichtigungs-E-Mail** die E-Mail-Adresse einer Person oder einer Gruppe ein, die Benachrichtigungen zu Bereitstellungsfehlern erhalten soll, und aktivieren Sie das Kontrollkästchen **Bei Fehler E-Mail-Benachrichtigung senden**.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/EmailNotification.png" alt-text="Screenshot: Bonusly – Registerkarte „Bereitstellung“. Unter „Verwalten“ ist „Bereitstellung“ hervorgehoben." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/EmailNotification.png" alt-text="Screenshot: Leeres Feld „Benachrichtigungs-E-Mail“. Die Option „Bei Fehler E-Mail-Benachrichtigung senden“ wird angezeigt." border="false":::
 
-10. Klicken Sie auf **Speichern** .
+10. Klicken Sie auf **Speichern**.
 
 11. Wählen Sie im Abschnitt **Zuordnungen** die Option **Azure Active Directory-Benutzer mit Bonusly synchronisieren** aus.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/UserMappings.png" alt-text="Screenshot: Bonusly – Registerkarte „Bereitstellung“. Unter „Verwalten“ ist „Bereitstellung“ hervorgehoben." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/UserMappings.png" alt-text="Screenshot des Abschnitts „Zuordnungen“. Unter „Name“ ist die Option „Azure Active Directory-Benutzer mit Bonusly synchronisieren“ hervorgehoben." border="false":::
 
 12. Überprüfen Sie im Abschnitt **Attributzuordnung** die Benutzerattribute, die von Azure AD mit Bonusly synchronisiert werden. Die als **übereinstimmende** Eigenschaften ausgewählten Attribute werden für den Abgleich der Benutzerkonten in Bonusly für Updatevorgänge verwendet. Wählen Sie die Schaltfläche **Speichern** , um alle Änderungen zu übernehmen.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/UserAttributeMapping.png" alt-text="Screenshot: Bonusly – Registerkarte „Bereitstellung“. Unter „Verwalten“ ist „Bereitstellung“ hervorgehoben." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/UserAttributeMapping.png" alt-text="Screenshot der Seite „Attributzuordnungen“. In einer Tabelle werden Azure Active Directory-Attribute, die entsprechenden Bonusly-Attribute und der Abgleichsstatus aufgeführt." border="false":::
 
 13. Wenn Sie Bereichsfilter konfigurieren möchten, lesen Sie die Anweisungen unter [Attributbasierte Anwendungsbereitstellung mit Bereichsfiltern](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-14. Um den Azure AD-Bereitstellungsdienst für Bonusly zu aktivieren, ändern Sie im Abschnitt **Einstellungen** den **Bereitstellungsstatus** in **Ein** .
+14. Um den Azure AD-Bereitstellungsdienst für Bonusly zu aktivieren, ändern Sie im Abschnitt **Einstellungen** den **Bereitstellungsstatus** in **Ein**.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningStatus.png" alt-text="Screenshot: Bonusly – Registerkarte „Bereitstellung“. Unter „Verwalten“ ist „Bereitstellung“ hervorgehoben." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningStatus.png" alt-text="Screenshot der Seite „Einstellungen“. Der Umschalter „Bereitstellungsstatus“ ist auf „Aus“ festgelegt." border="false":::
 
 15. Legen Sie die Benutzer und/oder Gruppen fest, die in Bonusly bereitgestellt werden sollen. Wählen Sie dazu im Abschnitt **Einstellungen** unter **Bereich** die gewünschten Werte aus.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/ScopeSync.png" alt-text="Screenshot: Bonusly – Registerkarte „Bereitstellung“. Unter „Verwalten“ ist „Bereitstellung“ hervorgehoben." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/ScopeSync.png" alt-text="Screenshot: Listenfeld „Bereich“. Im Feld ist „Nur zugewiesene Benutzer und Gruppen synchronisieren“ ausgewählt." border="false":::
 
-16. Wenn Sie fertig sind, klicken Sie auf **Speichern** .
+16. Wenn Sie fertig sind, klicken Sie auf **Speichern**.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/SaveProvisioning.png" alt-text="Screenshot: Bonusly – Registerkarte „Bereitstellung“. Unter „Verwalten“ ist „Bereitstellung“ hervorgehoben." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/SaveProvisioning.png" alt-text="Screenshot: Bonusly – Seite „Provisioning“ (Bereitstellung), auf der die Schaltfläche „Save“ (Speichern) hervorgehoben ist" border="false":::
 
 Dadurch wird die Erstsynchronisierung aller Benutzer und/oder Gruppen gestartet, die im Abschnitt **Einstellungen** unter **Bereich** definiert sind. Die Erstsynchronisierung dauert länger als nachfolgende Synchronisierungen, die ungefähr alle 40 Minuten erfolgen, solange der Azure AD-Bereitstellungsdienst ausgeführt wird. Im Abschnitt **Synchronisierungsdetails** können Sie den Fortschritt überwachen und Links zu Berichten zur Bereitstellungsaktivität aufrufen. Darin sind alle Aktionen aufgeführt, die vom Azure AD-Bereitstellungsdienst in Bonusly ausgeführt werden.
 

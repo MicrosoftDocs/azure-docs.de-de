@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 35a6fc789c4ed24c2f950ccfa89880088b698a20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c143a5af40097039c70c58adba4cb21f687d3fa6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553749"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893137"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-planmyleave"></a>Tutorial: Azure Active Directory-Integration mit PlanMyLeave
 
@@ -27,7 +27,7 @@ Die Integration von PlanMyLeave in Azure AD bietet die folgenden Vorteile:
 * Sie können es Ihren Benutzern ermöglichen, sich mit ihren Azure AD-Konten automatisch bei PlanMyLeave anzumelden (einmaliges Anmelden; Single Sign-On, SSO).
 * Sie können Ihre Konten über das Azure-Portal an einem zentralen Ort verwalten.
 
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
@@ -43,7 +43,7 @@ In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure
 
 * PlanMyLeave unterstützt **SP-initiiertes** einmaliges Anmelden.
 
-* PlanMyLeave unterstützt die **Just-in-Time**-Benutzerbereitstellung.
+* PlanMyLeave unterstützt die **Just-in-Time** -Benutzerbereitstellung.
 
 ## <a name="adding-planmyleave-from-the-gallery"></a>Hinzufügen von PlanMyLeave aus dem Katalog
 
@@ -55,15 +55,15 @@ Um die Integration von PlanMyLeave in Azure AD zu konfigurieren, müssen Sie Pla
 
     ![Schaltfläche „Azure Active Directory“](common/select-azuread.png)
 
-2. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie die Option **Alle Anwendungen** aus.
+2. Navigieren Sie zu **Unternehmensanwendungen** , und wählen Sie die Option **Alle Anwendungen** aus.
 
     ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
 
-3. Klicken Sie oben im Dialogfeld auf die Schaltfläche **Neue Anwendung**, um eine neue Anwendung hinzuzufügen.
+3. Klicken Sie oben im Dialogfeld auf die Schaltfläche **Neue Anwendung** , um eine neue Anwendung hinzuzufügen.
 
     ![Schaltfläche „Neue Anwendung“](common/add-new-app.png)
 
-4. Geben Sie im Suchfeld **PlanMyLeave** ein, wählen Sie im Ergebnisbereich **PlanMyLeave** aus, und klicken Sie dann auf die Schaltfläche **Hinzufügen**, um die Anwendung hinzuzufügen.
+4. Geben Sie im Suchfeld **PlanMyLeave** ein, wählen Sie im Ergebnisbereich **PlanMyLeave** aus, und klicken Sie dann auf die Schaltfläche **Hinzufügen** , um die Anwendung hinzuzufügen.
 
      ![PlanMyLeave in der Ergebnisliste](common/search-new-app.png)
 
@@ -95,7 +95,7 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit PlanMyLe
 
     ![Auswahlmodus für einmaliges Anmelden](common/select-saml-option.png)
 
-3. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Symbol **Bearbeiten**, um das Dialogfeld **Grundlegende SAML-Konfiguration** zu öffnen.
+3. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Symbol **Bearbeiten** , um das Dialogfeld **Grundlegende SAML-Konfiguration** zu öffnen.
 
     ![Bearbeiten der SAML-Basiskonfiguration](common/edit-urls.png)
 
@@ -110,7 +110,7 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit PlanMyLe
     > [!NOTE]
     > Hierbei handelt es sich um Beispielwerte. Ersetzen Sie diese Werte durch die tatsächliche Anmelde-URL und den tatsächlichen Bezeichner. Wenden Sie sich an das [Clientsupportteam von PlanMyLeave](mailto:support@planmyleave.com), um diese Werte zu erhalten. Sie können sich auch die Muster im Abschnitt **Grundlegende SAML-Konfiguration** im Azure-Portal ansehen.
 
-5. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** auf **Herunterladen**, um den Ihren Anforderungen entsprechenden **Verbundmetadaten-XML**-Code aus den verfügbaren Optionen herunterzuladen und auf Ihrem Computer zu speichern.
+5. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** auf **Herunterladen** , um den Ihren Anforderungen entsprechenden **Verbundmetadaten-XML** -Code aus den verfügbaren Optionen herunterzuladen und auf Ihrem Computer zu speichern.
 
     ![Downloadlink für das Zertifikat](common/metadataxml.png)
 
@@ -130,11 +130,11 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit PlanMyLe
 
 2. Wechseln Sie zu **System Setup** (Systeminstallation). Klicken Sie dann im Abschnitt **Security Management** (Sicherheitsverwaltung) auf **Company SAML settings** (Unternehmens-SAML-Einstellungen).
 
-    ![Einmaliges Anmelden auf App-Seite konfigurieren](./media/planmyleave-tutorial/tutorial_planmyleave_002.png) 
+    ![Screenshot: Seite „System setup“ (Systeminstallation), auf der der Abschnitt „Security Management“ (Sicherheitsverwaltung) hervorgehoben und die Aktion „Company SAML Settings“ (Unternehmens-SAML-Einstellungen) ausgewählt ist](./media/planmyleave-tutorial/tutorial_planmyleave_002.png) 
 
 3. Klicken Sie im Abschnitt **SAML Settings** (SAML-Einstellungen) auf das Editor-Symbol.
 
-    ![Einmaliges Anmelden auf App-Seite konfigurieren](./media/planmyleave-tutorial/tutorial_planmyleave_003.png)
+    ![Screenshot: Abschnitt „SAML Settings“ (SAML-Einstellungen), in dem oben rechts das Editor-Symbol ausgewählt ist](./media/planmyleave-tutorial/tutorial_planmyleave_003.png)
 
 4. Führen Sie im Abschnitt **SAML-Einstellungen aktualisieren** die folgenden Schritte aus:
 
@@ -142,7 +142,7 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit PlanMyLe
 
     a.  Fügen Sie in das Textfeld **Login URL** (Anmelde-URL) die **Anmelde-URL** ein, die Sie aus dem Azure-Portal kopiert haben.
 
-    b.  Öffnen Sie die heruntergeladenen Metadaten, kopieren Sie den Wert **X509Certificate**, und fügen Sie ihn dann in das Textfeld **Zertifikat** ein.
+    b.  Öffnen Sie die heruntergeladenen Metadaten, kopieren Sie den Wert **X509Certificate** , und fügen Sie ihn dann in das Textfeld **Zertifikat** ein.
 
     c. Legen Sie **Is Enable** auf **Ja** fest.
 
@@ -152,7 +152,7 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit PlanMyLe
 
 Das Ziel dieses Abschnitts ist das Erstellen eines Testbenutzers namens Britta Simon im Azure-Portal.
 
-1. Wählen Sie im Azure-Portal im linken Bereich die Option **Azure Active Directory**, **Benutzer** und dann **Alle Benutzer** aus.
+1. Wählen Sie im Azure-Portal im linken Bereich die Option **Azure Active Directory** , **Benutzer** und dann **Alle Benutzer** aus.
 
     ![Links „Benutzer und Gruppen“ und „Alle Benutzer“](common/users.png)
 
@@ -169,7 +169,7 @@ Das Ziel dieses Abschnitts ist das Erstellen eines Testbenutzers namens Britta S
     b. Geben Sie im Feld **Benutzername** **brittasimon@yourcompanydomain.extension** ein.  
     Zum Beispiel, BrittaSimon@contoso.com
 
-    c. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den Wert, der im Feld „Kennwort“ angezeigt wird.
+    c. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen** , und notieren Sie sich den Wert, der im Feld „Kennwort“ angezeigt wird.
 
     d. Klicken Sie auf **Erstellen**.
 
@@ -189,7 +189,7 @@ In diesem Abschnitt ermöglichen Sie Britta Simon das einmalige Anmelden bei Azu
 
     ![Link „Benutzer und Gruppen“](common/users-groups-blade.png)
 
-4. Klicken Sie auf die Schaltfläche **Benutzer hinzufügen**, und wählen Sie dann im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
+4. Klicken Sie auf die Schaltfläche **Benutzer hinzufügen** , und wählen Sie dann im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
 
     ![Bereich „Zuweisung hinzufügen“](common/add-assign-user.png)
 
@@ -210,13 +210,12 @@ In diesem Abschnitt wird in PlanMyLeave ein Benutzer namens Britta Simon erstell
 
 In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich.
 
-Wenn Sie im Zugriffsbereich auf die Kachel „PlanMyLeave“ klicken, sollten Sie automatisch bei der PlanMyLeave-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Wenn Sie im Zugriffsbereich auf die Kachel „PlanMyLeave“ klicken, sollten Sie automatisch bei der PlanMyLeave-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Weitere Ressourcen
 
-- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](./tutorial-list.md)
 
-- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Was ist bedingter Zugriff?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Was ist bedingter Zugriff?](../conditional-access/overview.md)

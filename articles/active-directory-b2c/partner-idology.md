@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cfce5b42d37908d0ba89cff9c4831cb25b968524
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b6001932b6f53a60eda76b6136611a10011391a
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259321"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928680"
 ---
 # <a name="tutorial-for-configuring-idology-with-azure-active-directory-b2c"></a>Tutorial zum Konfigurieren von IDology mit Azure Active Directory B2C 
 
@@ -67,13 +67,13 @@ Im folgenden Architekturdiagramm ist die Implementierung dargestellt.
 
 ### <a name="part-1---deploy-the-api"></a>Teil 1: Bereitstellen der API
 
-Stellen Sie den angegebenen [API-Code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/Api) für einen Azure-Dienst bereit. Der Code kann mit [dieser Anleitung](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019) aus Visual Studio veröffentlicht werden.
+Stellen Sie den angegebenen [API-Code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/Api) für einen Azure-Dienst bereit. Der Code kann mit [dieser Anleitung](/visualstudio/deployment/quickstart-deploy-to-azure) aus Visual Studio veröffentlicht werden.
 
 Sie benötigen die URL des bereitgestellten Diensts, um Azure AD mit den erforderlichen Einstellungen zu konfigurieren.
 
 ### <a name="part-2---configure-the-api"></a>Teil 2: Konfigurieren der API 
 
-Anwendungseinstellungen können [per App Service in Azure konfiguriert werden](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). Mit dieser Methode können Einstellungen sicher konfiguriert werden, ohne dass sie in ein Repository eingecheckt werden müssen. Sie müssen die folgenden Einstellungen für die REST-API angeben:
+Anwendungseinstellungen können [per App Service in Azure konfiguriert werden](../app-service/configure-common.md#configure-app-settings). Mit dieser Methode können Einstellungen sicher konfiguriert werden, ohne dass sie in ein Repository eingecheckt werden müssen. Sie müssen die folgenden Einstellungen für die REST-API angeben:
 
 | Anwendungseinstellungen | `Source` | Notizen |
 | :-------- | :------------| :-----------|
@@ -145,5 +145,4 @@ Weitere Informationen finden Sie in den folgenden Artikeln:
 
 - [Benutzerdefinierte Richtlinien in Azure AD B2C](custom-policy-overview.md)
 
-- [Erste Schritte mit benutzerdefinierten Richtlinien in Azure AD B2C](custom-policy-get-started.md?tabs=applications) 
-
+- [Erste Schritte mit benutzerdefinierten Richtlinien in Azure AD B2C](custom-policy-get-started.md?tabs=applications)

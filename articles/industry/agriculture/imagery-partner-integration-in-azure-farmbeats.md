@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: 430907f43fb40f0ee24505bdc366a98a49f23b47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40e17a9f73d98f24c6c7fbb55ef38cc2bc088861
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82613284"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675936"
 ---
 # <a name="imagery-partner-integration"></a>Integration eines Partnerunternehmens für Bilder
 
@@ -43,9 +43,9 @@ Die APIs enthalten eine technische Swagger-Dokumentation. Unter [Swagger](https:
 
 ## <a name="authentication"></a>Authentifizierung
 
-Für FarmBeats wird Microsoft Azure [Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) (Azure AD) verwendet. Der Azure App Service bietet eine integrierte Authentifizierungs- und Autorisierungsunterstützung. 
+Für FarmBeats wird Microsoft Azure [Active Directory](../../app-service/overview-authentication-authorization.md) (Azure AD) verwendet. Der Azure App Service bietet eine integrierte Authentifizierungs- und Autorisierungsunterstützung. 
 
-Weitere Informationen zu Azure AD finden Sie in [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).   
+Weitere Informationen zu Azure AD finden Sie in [Azure Active Directory](../../app-service/overview-authentication-authorization.md).   
 
 Der Datenhub von FarmBeats verwendet die Bearerauthentifizierung, für die die folgenden Anmeldeinformationen benötigt werden:
 

@@ -6,12 +6,12 @@ author: markwolff
 ms.author: marwolff
 ms.date: 06/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 5b15492a36032a53ac81929eb55bce0bc70e040c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6403ecd534d17298a10ffcf8f089a2b010fa3a51
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335129"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536454"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>Unterstützung für Quellzuordnungen für JavaScript-Anwendungen
 
@@ -67,7 +67,7 @@ Wenn Sie das Speicherkonto oder den Blobcontainer, das bzw. der mit Ihrer Applic
 
 ## <a name="troubleshooting"></a>Problembehandlung
 
-### <a name="required-role-based-access-control-rbac-settings-on-your-blob-container"></a>Erforderliche Einstellungen der rollenbasierten Zugriffssteuerung (RBAC) für Ihren Blobcontainer
+### <a name="required-azure-role-based-access-control-azure-rbac-settings-on-your-blob-container"></a>Erforderliche Einstellungen der rollenbasierten Zugriffssteuerung in Azure (Azure RBAC) für Ihren Blobcontainer
 
 Jeder Benutzer im Portal, der dieses Feature verwendet, muss dem Blobcontainer mindestens als [Storage-Blobdatenleser][storage blob data reader] zugewiesen sein. Sie müssen diese Rolle jedem Benutzer zuweisen, der die Quellzuordnungen über dieses Feature verwendet.
 

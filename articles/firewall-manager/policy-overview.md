@@ -5,18 +5,18 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 11/24/2020
 ms.author: victorh
-ms.openlocfilehash: 34134f2c790851d34db7b5327aa76350d54d137d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73a07af0fa98adf66d6104f1ab545d31a0cfd6d7
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89075462"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95802027"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Übersicht über die Azure Firewall Manager-Richtlinie
 
-Bei einer Firewallrichtlinie handelt es sich um eine Azure-Ressource, die sowohl NAT-, Netzwerk- und Anwendungsregelsammlungen als auch Threat Intelligence-Einstellungen enthält. Sie ist eine globale Ressource, die über mehrere Azure Firewall-Instanzen hinweg in geschützten virtuellen Hubs sowie in virtuellen Hubnetzwerken verwendet werden kann. Richtlinien können regions- und abonnementübergreifend verwendet werden.
+Eine Firewallrichtlinie ist eine Azure-Ressource, die Sammlungen von NAT-, Netzwerk- und Anwendungsregeln sowie Threat Intelligence-Einstellungen enthält. Sie ist eine globale Ressource, die über mehrere Azure Firewall-Instanzen hinweg in geschützten virtuellen Hubs sowie in virtuellen Hubnetzwerken verwendet werden kann. Richtlinien können regions- und abonnementübergreifend verwendet werden.
 
 ![Azure Firewall Manager-Richtlinie](media/policy-overview/policy-overview.png)
 

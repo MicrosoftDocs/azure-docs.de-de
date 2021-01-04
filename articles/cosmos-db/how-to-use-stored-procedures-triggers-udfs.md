@@ -3,18 +3,20 @@ title: Registrieren und Verwenden von gespeicherten Prozeduren, Triggern und ben
 description: Erfahren Sie, wie Sie gespeicherte Prozeduren, Trigger und benutzerdefinierte Funktionen mithilfe von Azure Cosmos DB SDKs registrieren und aufrufen.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3744029b72a12cee1543a17bf1dee67a080904c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 022a45199cfc2d467b1d0d408e86cb5d621070d9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253053"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339848"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Registrieren und Verwenden von gespeicherten Prozeduren, Triggern und benutzerdefinierten Funktionen in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Die SQL-API in Azure Cosmos DB unterstützt das Registrieren und Aufrufen von gespeicherten Prozeduren, Triggern und benutzerdefinierten Funktionen (User-Defined Functions, UDFs), die in JavaScript geschrieben wurden. Sie können die SDKs für SQL API [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), [Node.js](sql-api-sdk-node.md) oder [Python](sql-api-sdk-python.md) verwenden, um gespeicherte Prozeduren zu registrieren und aufzurufen. Sobald Sie gespeicherte Prozeduren, Trigger und benutzerdefinierte Funktionen definiert haben, können Sie diese laden und im [Azure-Portal](https://portal.azure.com/) mit dem Daten-Explorer anzeigen.
 

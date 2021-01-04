@@ -1,33 +1,34 @@
 ---
 title: Zugreifen auf Überwachungsprotokolle – Azure CLI – Azure Database for MariaDB
 description: In diesem Artikel wird beschrieben, wie Sie über die Azure CLI die Überwachungsprotokolle in Azure Database for MariaDB konfigurieren und darauf zugreifen.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/24/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0aba88c10304cf7d87277ad851ae38eae8eb5bf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1d446d8ee2863077ad84c361876758336f5a3cb
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87497119"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540959"
 ---
 # <a name="configure-and-access-azure-database-for-maria-db-audit-logs-in-the-azure-cli"></a>Konfigurieren von Überwachungsprotokollen für Azure Database for Maria DB und Zugreifen darauf in der Azure CLI
 
 Sie können die [Überwachungsprotokolle in Azure Database for MariaDB](concepts-audit-logs.md) über die Azure CLI konfigurieren.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Zum Ausführen der Schritte in dieser Anleitung benötigen Sie Folgendes:
+Zum Durcharbeiten dieses Leitfadens ist Folgendes erforderlich:
 
-- [Azure Database for MariaDB-Server](quickstart-create-mariadb-server-database-using-azure-portal.md)
+- Sie benötigen einen [Azure Database for MariaDB-Server](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!IMPORTANT]
-> Diese Anleitung setzt die Verwendung von Azure CLI-Version 2.0 oder höher voraus. Geben Sie zum Bestätigen der Version an der Eingabeaufforderung von Azure CLI `az --version` ein. Informationen zum Ausführen einer Installation oder eines Upgrades finden Sie unter [Installieren der Azure CLI]( /cli/azure/install-azure-cli).
+- Für diesen Artikel ist mindestens Version 2.0 der Azure CLI erforderlich. Bei Verwendung von Azure Cloud Shell ist die aktuelle Version bereits installiert.
 
 ## <a name="configure-audit-logging"></a>Konfigurieren der Überwachungsprotokollierung
 

@@ -5,15 +5,15 @@ author: konichi3
 ms.author: koichih
 ms.date: 08/21/2020
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5cdee274ebc815b23b8ce59e8b9eca90d00e3818
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 1b17729437b238b98f60e2cd97664fa6aafcccd4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042965"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462457"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>Zertifizieren von IoT Plug & Play-Geräten
 
@@ -42,8 +42,12 @@ Ihr Gerät muss Folgendes durchführen, um die Anforderungen an die Zertifizieru
 - Telemetrie, Eigenschaften oder Befehle implementieren, die der IoT Plug & Play-Konvention folgen.
 - Die Geräteinteraktionen mit einem [DTDL v2](https://aka.ms/dtdl)-Modell beschreiben.
 - Das Modell und alle erforderlichen Schnittstellen im [öffentlichen Azure IoT-Modellrepository](https://devicemodels.azureiotsolutions.com/) veröffentlichen.
-- Die Modell-ID während der [DPS-Registrierung](concepts-developer-guide-device-csharp.md#dps-payload) in den DPS-Bereitstellungsnutzdaten senden.
-- Die Modell-ID während der [MQTT-Verbindung](concepts-developer-guide-device-csharp.md#model-id-announcement) ankündigen.
+- Die Modell-ID während der [DPS-Registrierung](./concepts-developer-guide-device.md#dps-payload) in den DPS-Bereitstellungsnutzdaten senden.
+- Die Modell-ID während der [MQTT-Verbindung](./concepts-developer-guide-device.md#model-id-announcement) ankündigen.
+- Alle Gerätemodelle müssen mit [Azure IoT Central](../iot-central/core/overview-iot-central-developer.md) kompatibel sein.
+
+> [!NOTE]
+> Derzeit bietet Azure IoT Central keine vollständige Unterstützung für die DTDL-Datentypen **Array** und **Räumlich**.
 
 ## <a name="test-with-the-azure-iot-extension-cli"></a>Testen mit der Befehlszeilenschnittstelle der Azure IoT-Erweiterung
 

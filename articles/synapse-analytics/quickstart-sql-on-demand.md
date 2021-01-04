@@ -1,24 +1,24 @@
 ---
-title: 'Schnellstart: Verwenden von SQL On-Demand'
-description: In dieser Schnellstartanleitung erfahren Sie, wie Sie mit SQL On-Demand (Vorschauversion) ganz einfach verschiedene Dateitypen abfragen.
+title: 'Schnellstart: Verwenden eines serverlosen SQL-Pools'
+description: In dieser Schnellstartanleitung erfahren Sie, wie Sie mithilfe eines serverlosen SQL-Pools ganz einfach verschiedene Dateitypen abfragen.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: fe07192b0077518cdd73092f53342c298034cfa8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e75bab664bdd0d6a4ac898905226c9956f62b4ff
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86274168"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450507"
 ---
-# <a name="quickstart-use-sql-on-demand"></a>Schnellstart: Verwenden von SQL On-Demand
+# <a name="quickstart-use-serverless-sql-pool"></a>Schnellstart: Verwenden eines serverlosen SQL-Pools
 
-Synapse SQL On-Demand (Vorschauversion) ist ein serverloser Abfragedienst zum Ausführen von SQL-Abfragen für Dateien in Azure Storage. In dieser Schnellstartanleitung erfahren Sie, wie Sie mit SQL On-Demand verschiedene Dateitypen abfragen. Unterstützte Formate sind in [OPENROWSET](sql/develop-openrowset.md) aufgeführt.
+Der serverlose SQL-Pool von Synapse ist ein serverloser Abfragedienst zum Ausführen von SQL-Abfragen für Dateien in Azure Storage. In dieser Schnellstartanleitung erfahren Sie, wie Sie mithilfe eines serverlosen SQL-Pools verschiedene Dateitypen abfragen. Unterstützte Formate sind in [OPENROWSET](sql/develop-openrowset.md) aufgeführt.
 
 In dieser Schnellstartanleitung sehen Sie, wie Abfragen folgender Dateiformate ausgeführt werden: CSV-, Apache Parquet- und JSON-Dateien.
 
@@ -34,8 +34,8 @@ Parameter für diesen Schnellstart:
 
 | Parameter                                 | BESCHREIBUNG                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Dienstendpunktadresse von SQL On-Demand    | Wird als Servername verwendet.                                   |
-| Dienstendpunktregion von SQL On-Demand     | Wird verwendet, um zu bestimmen, welcher Speicher in Beispielen genutzt wird. |
+| Adresse des Dienstendpunkts des serverlosen SQL-Pools    | Wird als Servername verwendet.                                   |
+| Region des Dienstendpunkts des serverlosen SQL-Pools     | Wird verwendet, um zu bestimmen, welcher Speicher in Beispielen genutzt wird. |
 | Benutzername und Kennwort für den Endpunktzugriff | Wird für den Zugriff auf den Endpunkt verwendet.                               |
 | Datenbank für die Erstellung von Sichten         | Die Datenbank wird in Beispielen als Ausgangspunkt verwendet.       |
 
@@ -44,7 +44,7 @@ Parameter für diesen Schnellstart:
 Vor der Verwendung der Beispiele:
 
 - Erstellen Sie eine Datenbank für Ihre Sichten (sofern Sie Sichten verwenden möchten).
-- Erstellen Sie Anmeldeinformationen, die von SQL On-Demand für den Zugriff auf Dateien im Speicher verwendet werden können.
+- Erstellen Sie Anmeldeinformationen, die vom serverlosen SQL-Pool für den Zugriff auf Dateien im Speicher verwendet werden können.
 
 ### <a name="create-database"></a>Erstellen einer Datenbank
 
@@ -62,7 +62,7 @@ CREATE DATABASE mydbname
 
 ### <a name="create-data-source"></a>Erstellen der Datenquelle
 
-Wenn Sie Abfragen mithilfe von SQL On-Demand ausführen möchten, erstellen Sie eine Datenquelle, über die SQL On-Demand auf Dateien im Speicher zugreifen kann.
+Wenn Sie Abfragen mithilfe eines serverlosen SQL-Pools ausführen möchten, erstellen Sie eine Datenquelle, über die der serverlose SQL-Pool auf Dateien im Speicher zugreifen kann.
 Führen Sie den folgenden Codeausschnitt aus, um die in den Beispielen in diesem Abschnitt verwendete Datenquelle zu erstellen:
 
 ```sql
@@ -115,7 +115,7 @@ Weitere Beispiele finden Sie unter [Abfragen von CSV-Datei](sql/query-single-csv
 Im folgenden Beispiel werden die Funktionen des automatischen Schemarückschlusses beim Abfragen von Parquet-Dateien gezeigt. Hierzu wird die Anzahl von Zeilen im September 2017 ohne Angabe eines Schemas zurückgegeben.
 
 > [!NOTE]
-> Beim Lesen von Parquet-Dateien müssen keine Spalten in der Klausel `OPENROWSET WITH` angegeben werden. In diesem Fall verwendet SQL On-Demand Metadaten in der Parquet-Datei und bindet Spalten anhand des Namens.
+> Beim Lesen von Parquet-Dateien müssen keine Spalten in der Klausel `OPENROWSET WITH` angegeben werden. In diesem Fall verwendet der serverlose SQL-Pool Metadaten in der Parquet-Datei und bindet Spalten anhand des Namens.
 
 ```sql
 SELECT COUNT_BIG(*)
@@ -153,7 +153,7 @@ Die Dateien sind im Container *json* im Ordner *books* gespeichert und enthalten
 
 ### <a name="query-json-files"></a>Abfragen von JSON-Dateien
 
-Die folgende Abfrage zeigt, wie Sie mithilfe von [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) skalare Werte (Titel, Verleger) aus einem Buch mit dem Titel *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles* abrufen:
+Die folgende Abfrage zeigt, wie Sie mithilfe von [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) skalare Werte (Titel, Verleger) aus einem Buch mit dem Titel *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles* abrufen:
 
 ```sql
 SELECT

@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 93fde2d20aaa5b7bac4adc6f1d7fb076569e4bb8
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 26ac1714330bba06c01d33b47105f04c600c7729
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893559"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024094"
 ---
 # <a name="color-materials"></a>Farbmaterialien
 
@@ -39,6 +39,12 @@ Diese Eigenschaften gelten für alle Materialien:
 
 * **TransparencyWritesDepth:** Wenn das TransparencyWritesDepth-Flag für das Material festgelegt und das Material transparent ist, leisten Objekte, die dieses Material verwenden, einen Beitrag zum letzten Tiefenpuffer. Weitere Informationen zur Farbmaterialeigenschaft *transparencyMode* finden Sie im nächsten Abschnitt. Es wird empfohlen, dieses Feature zu aktivieren, wenn Ihr Anwendungsfall einen plausibleren [Farbverschiebungsausgleich](late-stage-reprojection.md) für vollständig transparente Szenen erfordert. Bei Szenen, die teilweise transparent und teilweise nicht transparent sind, kann diese Einstellung zu nicht plausiblem Reprojektionsverhalten oder nicht plausiblen Reprojektionsartefakten führen. Aus diesem Grund wird dieses Flag für normale Anwendungsfälle standardmäßig deaktiviert. Diese Einstellung wird auch empfohlen. Die geschriebenen Tiefenwerte werden der pixelbasierten Tiefenebene des Objekts entnommen, das sich der Kamera am nächsten befindet.
 
+* **FresnelEffect:** Dieses Materialflag ermöglicht den additiven [Fresnel-Effekt](../../overview/features/fresnel-effect.md) für das jeweilige Material. Die Darstellung des Effekts wird durch die anderen Fresnel-Parameter bestimmt, die im Folgenden erläutert werden. 
+
+* **FresnelEffectColor:** Die für dieses Material verwendete Fresnel-Farbe. Nur wichtig, wenn das Bit für den Fresnel-Effekt für dieses Material festgelegt wurde (siehe oben). Diese Eigenschaft steuert die Basisfarbe des Fresnel-Glanzes (eine vollständige Erläuterung finden Sie unter [Fresnel-Effekt](../../overview/features/fresnel-effect.md)). Gegenwärtig sind nur die RGB-Kanalwerte wichtig und der Alphawert wird ignoriert.
+
+* **FresnelEffectExponent:** Der Fresnel-Exponent, der für dieses Material verwendet wird. Nur wichtig, wenn das Bit für den Fresnel-Effekt für dieses Material festgelegt wurde (siehe oben). Diese Eigenschaft steuert die Verteilung des Fresnel-Glanzes. Der Mindestwert 0,01 bewirkt eine Verteilung über das gesamte Objekt. Der Maximalwert 10,0 schränkt den Glanz nur auf die am stärksten zierenden sichtbaren Kanten ein.
+
 ## <a name="color-material-properties"></a>Farbmaterialeigenschaften
 
 Die folgenden Eigenschaften gelten speziell für Farbmaterialien:
@@ -55,10 +61,10 @@ Die folgenden Eigenschaften gelten speziell für Farbmaterialien:
 
 ## <a name="api-documentation"></a>API-Dokumentation
 
-* [C#-Klasse „ColorMaterial“](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.colormaterial)
-* [C# RemoteManager.CreateMaterial()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
-* [C++-Klasse „ColorMaterial“](https://docs.microsoft.com/cpp/api/remote-rendering/colormaterial)
-* [C++ RemoteManager::CreateMaterial()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#creatematerial)
+* [C#-Klasse „ColorMaterial“](/dotnet/api/microsoft.azure.remoterendering.colormaterial)
+* [C# RemoteManager.CreateMaterial()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [C++-Klasse „ColorMaterial“](/cpp/api/remote-rendering/colormaterial)
+* [C++ RemoteManager::CreateMaterial()](/cpp/api/remote-rendering/remotemanager#creatematerial)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

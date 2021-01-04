@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 168b41534f6ea6055294cc9e9cec139853904fea
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: d9fc1592681429998f5082fbadcd45fa068f130e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358898"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180471"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installieren und Verwenden der Log Analytics-Ansichten für Azure Active Directory
 
@@ -42,7 +42,7 @@ Um die Log Analytics-Ansichten verwenden zu können, benötigen Sie Folgendes:
 ## <a name="install-the-log-analytics-views"></a>Installieren der Log Analytics-Ansichten
 
 1. Navigieren Sie zu Ihrem Log Analytics-Arbeitsbereich. Navigieren Sie hierzu zuerst zum [Azure-Portal](https://portal.azure.com), und wählen Sie **Alle Dienste** aus. Geben Sie **Log Analytics** in das Textfeld ein, und wählen Sie **Log Analytics-Arbeitsbereiche** aus. Wählen Sie den Arbeitsbereich aus, zu dem Sie die Aktivitätsprotokolle im Rahmen der Voraussetzungen umgeleitet haben.
-2. Wählen Sie **Ansicht-Designer**aus, dann **Importieren**, und wählen Sie dann **Datei auswählen** aus, um die Ansichten von Ihrem lokalen Computer zu importieren.
+2. Wählen Sie **Ansicht-Designer** aus, dann **Importieren**, und wählen Sie dann **Datei auswählen** aus, um die Ansichten von Ihrem lokalen Computer zu importieren.
 3. Wählen Sie die Ansichten aus, die Sie aus den Voraussetzungen heruntergeladen haben, und wählen Sie **Speichern** aus, um den Import zu speichern. Führen Sie diesen Vorgang für die Ansichten **Azure AD-Kontobereitstellungsereignisse** und **Anmeldeereignisse** aus.
 
 ## <a name="use-the-views"></a>Verwenden der Ansichten
@@ -74,4 +74,4 @@ Um die Log Analytics-Ansichten verwenden zu können, benötigen Sie Folgendes:
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Analysieren von Aktivitätsprotokollen mit Azure Monitor-Protokollen](howto-analyze-activity-logs-log-analytics.md)
-* [Erste Schritte mit Azure Monitor-Protokollen im Azure-Portal](../../azure-monitor/log-query/get-started-portal.md)
+* [Erste Schritte mit Azure Monitor-Protokollen im Azure-Portal](../../azure-monitor/log-query/log-analytics-tutorial.md)

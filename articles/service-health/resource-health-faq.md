@@ -3,12 +3,12 @@ title: Azure Resource Health – FAQ
 description: Übersicht über Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: c8089e907f555ac970fea06361a2ab1bbc944778
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5ad8867b110039e4dcc34b20c8a61fccfd39eaf
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536493"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032863"
 ---
 # <a name="azure-resource-health-faq"></a>Azure Resource Health – FAQ
 Erfahren Sie die Antworten auf häufig gestellte Fragen zu Azure Resource Health.
@@ -52,7 +52,6 @@ Resource Health [unterstützt](resource-health-alert-arm-template-guide.md) auf 
 Nachdem Sie sich beim Azure-Portal angemeldet haben, stehen Ihnen mehrere Möglichkeiten zur Verfügung, auf Resource Health zuzugreifen:
 - Wechseln Sie zu Ihrer Ressource. Wählen Sie im linken Navigationsbereich **Resource Health** aus.
 - Wechseln Sie zum Blatt „Azure Service Health“.  Wählen Sie im linken Navigationsbereich **Resource Health** aus.
-- Öffnen Sie das Blatt **Hilfe und Support**, indem Sie oben rechts im Portal das Fragezeichen und dann die Option **Hilfe und Support** auswählen. Nachdem das Blatt geöffnet wurde, wählen Sie **Resource Health** aus.
 
 Sie können auch mit der Resource Health-API Informationen über den Integritätsstatus Ihrer Ressourcen erhalten.
 
@@ -69,8 +68,6 @@ Resource Health ist in allen Azure-Regionen verfügbar.
 Die von Resource Health bereitgestellten Informationen sind präziser als die vom Azure-Status oder dem Service Health-Dashboard bereitgestellten Informationen.
 
 Während [Azure-Status](https://status.azure.com) und das Service Health-Dashboard Sie über Dienstprobleme informieren, die einen großen Kundenkreis (z.B. eine Azure-Region) betreffen, deckt Resource Health spezifischere Ereignisse auf, die nur für die jeweilige Ressource relevant sind. Wenn z.B. ein Host unerwartet neu startet, warnt Resource Health nur die Kunden, deren virtuelle Computer auf diesem Host ausgeführt wurden.
-
-Bitte beachten Sie: Um Ihnen einen vollständigen Überblick über Ereignisse zu bieten, die Auswirkungen auf Ihre Ressourcen haben, deckt Resource Health auch Ereignisse auf, die im Service Health-Dashboard veröffentlicht werden.
 
 ## <a name="do-i-need-to-activate-resource-health-for-each-resource"></a>Muss ich Resource Health für jede Ressource aktivieren?
 Nein, Integritätsinformationen sind über Resource Health für alle Ressourcentypen verfügbar. 

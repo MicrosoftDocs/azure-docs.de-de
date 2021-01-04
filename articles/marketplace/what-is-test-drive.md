@@ -4,69 +4,68 @@ description: Erläuterung des Features der Marketplace-Testversion
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 06/19/2020
-ms.openlocfilehash: bd3b77f80a414dd3db1d5106929fa0e215e34c1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 193e7bd78046a1d73cb55171c15c9cb6a7278297
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121866"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490039"
 ---
 # <a name="what-is-a-test-drive"></a>Worum handelt es sich bei einer Testversion?
 
-Eine Testversion ist eine hervorragende Möglichkeit, Ihr Angebot potenziellen Kunden zu präsentieren, indem Sie ihnen die Möglichkeit geben, *das Produkt vor dem Kauf zu testen*. Dies führt zu einer höheren Konversionsrate und zur Generierung aussichtsreicher Leads. Eine Testversion erweckt Ihr Produkt in einem realen Implementierungsszenario zum Leben und generiert gleichzeitig aussichtsreiche Leads.
+Eine Testversion ist eine großartige Möglichkeit, Ihr Angebot potenziellen Kunden zu präsentieren, indem Sie ihnen die Möglichkeit geben, es vor dem Kauf auszuprobieren, wodurch hoch qualifizierte Leads generiert werden und die Konvertierungsrate steigt. Eine Testversion erweckt Ihr Produkt in einem realen Implementierungsszenario zum Leben. Kunden, die Ihr Produkt testen, demonstrieren eine klare Absicht, eine ähnliche Lösung zu kaufen. Nutzen Sie dies zu Ihrem Vorteil, indem Sie vielversprechenden Leads nachgehen.
 
-Testversionen sind verwaltete Instanzen, die Ihre Lösung oder Anwendung interessierten Kunden zur Bereitstellung auf Anforderung zur Verfügung stellen. Sobald eine Testversionsinstanz zugewiesen wurde, steht sie für einen festgelegte Zeitraum zur Verfügung und wird dann gelöscht, um für einen anderen Kunden Platz zu schaffen.
-
-Als Herausgeber verwalten und konfigurieren Sie die Testversionseinstellungen im Partner Center. Die Einzelheiten der technischen Konfiguration hängen von der Art des Angebots ab, mit dem Sie arbeiten. Eine ausführliche Anleitung finden Sie im Link unter [Nächster Schritt](#next-step) am Ende dieses Themas.
-
-Potenzielle Kunden entdecken Ihre Testversion im kommerziellen Marketplace. Sie stellen ihre Kontaktinformationen zur Verfügung und erklären sich mit den Bedingungen Ihres Angebots und der Datenschutzrichtlinie einverstanden. Anschließend erhalten sie Zugriff auf Ihre vorkonfigurierte Umgebung, um sie für einen bestimmten Zeitraum auszuprobieren. Kunden erhalten einen praktischen, interaktiven Test der wichtigen Features und Leistungen Ihres Produkts, während Sie einen vielversprechenden Vertriebslead erhalten.
+Ihre Kunden profitieren auch von einer Testversion. Indem Sie ihnen die Möglichkeit geben, Ihr Produkt zuerst auszuprobieren, verringern Sie Reibungsverluste im Kaufprozess. Darüber hinaus wird eine Testversion vorab bereitgestellt, was heißt, dass Kunden das Produkt nicht herunterladen, einrichten oder konfigurieren müssen.
 
 ## <a name="how-does-it-work"></a>Wie funktioniert dies?
 
-Als Herausgeber verwalten und konfigurieren Sie die Testversionseinstellungen im Partner Center. Nach dem Setup wird Ihre Testversion zu einer verwalteten Instanz, die bei Bedarf dem Kunden, der sie anfordert, bereitgestellt wird. Sobald eine Testversionsinstanz zugewiesen wurde, steht sie für einen festgelegte Zeitraum zur Verfügung und wird dann gelöscht, um für einen anderen Kunden Platz zu schaffen.
+Testversionen sind verwaltete Instanzen, die Ihre Lösung oder Anwendung interessierten Kunden zur Bereitstellung auf Anforderung zur Verfügung stellen. Sobald eine Testversionsinstanz zugewiesen ist, steht sie dem Kunden für einen festgelegten Zeitraum zur Verfügung. Nach Ablauf des Zeitraums wird sie gelöscht, um Platz für einen anderen Kunden zu schaffen.
+
+Als Herausgeber verwalten und konfigurieren Sie die Testversionseinstellungen im Partner Center. Die Einzelheiten der technischen Konfiguration hängen von der Art Ihres Angebots ab. Eine detaillierte Anleitung finden Sie unter [Technische Konfiguration der Testversion](./test-drive-technical-configuration.md).
+
+Potenzielle Kunden entdecken Ihre Testversion als Handlungsaufforderung in Ihrem Angebot in [AppSource](https://appsource.microsoft.com/en-US/). Sie stellen ihre Kontaktinformationen zur Verfügung und erklären sich mit den Bedingungen Ihres Angebots und der Datenschutzrichtlinie einverstanden. Anschließend erhalten sie Zugriff auf Ihre vorkonfigurierte Umgebung, um sie für einen bestimmten Zeitraum auszuprobieren. Kunden erhalten einen praktischen, interaktiven Test der wichtigen Features und Leistungen Ihres Produkts, während Sie einen vielversprechenden Vertriebslead erhalten.
 
 ## <a name="types-of-test-drives"></a>Arten von Testversionen
 
 Im kommerziellen Marketplace stehen verschiedene Testversionen für ausgewählte Angebote zur Verfügung, die vom jeweiligen Produkt, Szenario und Marketplace abhängen, in dem Sie sich befinden:
 
 - Azure Resource Manager
+    - Azure-Anwendungen
+    - SaaS
+    - Virtual Machines
 - Gehostete Testversion
-    - Dynamics 365 Business Central
+    - Dynamics 365 for Business Central (derzeit nicht unterstützt)
     - Dynamics 365 for Customer Engagement
     - Dynamics 365 for Operations
-- Logik-App
+- Logik-App (nur im Supportmodus)
 - Power BI
 
-Einzelheiten zur Konfiguration einer dieser Testversionen finden Sie im Link unter [Nächster Schritt](#next-step) am Ende dieses Themas.
+Weitere Informationen zum Konfigurieren einer dieser Testversionen finden Sie unter [Technische Konfiguration der Testversion](./test-drive-technical-configuration.md). 
 
 ### <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager-Testversion
 
 Diese Bereitstellungsvorlage enthält alle Azure-Ressourcen, aus denen Ihre Lösung besteht. In den für dieses Szenario geeigneten Produkten werden nur Azure-Ressourcen verwendet. Die Azure Resource Manager-Testversion ist für folgende Arten von Angeboten verfügbar: 
 
 - Azure-Anwendungen
-- Dynamics 365 Business Central
-- Dynamics 365 for Customer Engagement & PowerApps
-- Dynamics 365 for Operations
 - SaaS
 - Virtuelle Computer
 
 >[!NOTE]
 >Dies ist die einzige Testversionsoption für VM- und Azure-App-Angebote.
 
-### <a name="hosted-test-drive"></a>Gehostete Testversion
+### <a name="hosted-test-drive-recommended"></a>Gehostete Testversion (empfohlen)
 
-Bei einer gehosteten Testversion entfällt die Komplexität des Setups, da Microsoft den Dienst, der die Benutzereinrichtung, Bereitstellung und Aufhebung der Bereitstellung der Testversion durchführt, hostet und verwaltet. Wenn Sie ein Angebot in Microsoft AppSource haben, bauen Sie Ihre Testversion so auf, dass sie mit einer Dynamics AX/CRM-Instanz oder einer anderen Ressource außerhalb von Azure verbunden werden kann. Wählen Sie diesen Typ für AppSource-Angebote, um eine Verbindung mit diesen Dynamics 365-Angeboten herzustellen:
+Bei einer gehosteten Testversion entfällt die Komplexität der Einrichtung, da Microsoft den Dienst, der die Testversion, die Bereitstellung für Benutzer und die Aufhebung der Bereitstellung durchführt, hostet und verwaltet. Wenn Sie ein Angebot in Microsoft AppSource haben, bauen Sie Ihre Testversion so auf, dass sie mit einer Dynamics AX/CRM-Instanz verbunden werden kann. Sie können die folgenden AppSource-Angebote verwenden:
 
-- Verwenden Sie [Dynamics 365 for Business Central](partner-center-portal/create-new-operations-offer.md) für ein ERP-System (Enterprise Resource Planning) von Business Central für Finanzen, Betrieb, Lieferkette und CRM.
 - Verwenden Sie [Dynamics 365 for Customer Engagement](partner-center-portal/create-new-customer-engagement-offer.md) für ein Kundenbindungssystem für Vertrieb, Services, Projektdienst und Außendienst.
 - Verwenden Sie [Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md) für ein ERP-System (Enterprise Resource Planning) von Business Central für Finanzen, Betrieb, Fertigung und Lieferkette.
 
 ### <a name="logic-app-test-drive"></a>Testversion für Logik-Apps
 
-Diese Art von Testversion wird nicht von Microsoft gehostet. Verwenden Sie es zum Herstellen einer Verbindung mit einem Dynamics 365-Angebot oder einer anderen benutzerdefinierten Ressource.
+Diese Art von Testversion wird nicht von Microsoft gehostet und verwendet Azure Resource Manager-Vorlagen (ARM) für Dynamics AX/CRM-Angebotstypen. Sie müssen die ARM-Vorlage ausführen, um die erforderlichen Ressourcen in Ihrem Azure-Abonnement zu erstellen. Die Testversion von Logik-Apps ist derzeit nur im Supportmodus verfügbar und wird von Microsoft nicht empfohlen. Einzelheiten zum Konfigurieren einer Testversion von Logik-Apps finden Sie unter [Technische Konfiguration der Testversion](./test-drive-technical-configuration.md).
 
 ### <a name="power-bi-test-drive"></a>Power BI-Testversion
 
@@ -92,7 +91,7 @@ Wenn es dank eines Testversionsleads zu einem Geschäftsabschluss kommt, denken 
 
 Zusätzliche Ressourcen zu Testversionen:
 
-- [Test Drive Best Practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices) (Bewährte Methoden für Testversionen)
+- [Bewährte Methoden für Testversionen](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Übersicht](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF-Datei; stellen Sie sicher, dass Ihr Popupblocker deaktiviert ist.)
 
 ## <a name="next-step"></a>Nächster Schritt

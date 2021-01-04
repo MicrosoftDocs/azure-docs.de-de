@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: 37fdf863d29015bba7015fcff1ae49a34aebd785
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2e59b35a30bd838eab2b05dcacf83d8b2c21236
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462274"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540396"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Was sind Apache Hive und HiveQL in Azure HDInsight?
 
@@ -34,7 +34,7 @@ HDInsight bietet verschiedene Clustertypen, die für bestimmte Workloads optimie
 
 In der folgenden Tabelle finden Sie Informationen zu unterschiedlichen Methoden der Verwendung von Hive mit HDInsight:
 
-| **Verwenden Sie diese Methode** für ... | ...**interaktive** Abfragen | ...**Batchverarbeitung** | ...von diesem **Clusterbetriebssystem** |
+| **Verwenden Sie diese Methode** für ... | ... **interaktive** Abfragen | ... **Batchverarbeitung** | ...von diesem **Clusterbetriebssystem** |
 |:--- |:---:|:---:|:--- |:--- |
 | [HDInsight Tools for Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ | Linux, Unix, Mac OS X oder Windows |
 | [HDInsight-Tools für Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Windows |
@@ -88,7 +88,7 @@ Sie können mit Hive zwei Arten von Tabellen erstellen:
     * Sie benötigen einen benutzerdefinierten Speicherort, z.B. ein anderes Speicherkonto als das Standardkonto.
     * Ein anderes Programm als Hive verwaltet das Datenformat, den Speicherort usw.
 
-Weitere Informationen finden Sie im Blogbeitrag [Einführung in interne und externe Tabellen in Hive](https://blogs.msdn.microsoft.com/cindygross/2013/02/05/hdinsight-hive-internal-and-external-tables-intro/).
+Weitere Informationen finden Sie im Blogbeitrag [Einführung in interne und externe Tabellen in Hive](/archive/blogs/cindygross/hdinsight-hive-internal-and-external-tables-intro).
 
 ## <a name="user-defined-functions-udf"></a>Benutzerdefinierte Funktionen (User Defined Functions, UDFs)
 
@@ -100,7 +100,7 @@ Hive kann auch über **benutzerdefinierte Funktionen (UDF)** erweitert werden. M
 
 * [Verwenden einer benutzerdefinierten C#-Funktion mit Apache Hive](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Hinzufügen einer benutzerdefinierten Apache Hive-Funktion zu HDInsight](https://docs.microsoft.com/archive/blogs/bigdatasupport/how-to-add-custom-hive-udfs-to-hdinsight)
+* [Hinzufügen einer benutzerdefinierten Apache Hive-Funktion zu HDInsight](/archive/blogs/bigdatasupport/how-to-add-custom-hive-udfs-to-hdinsight)
 
 * [Beispiel einer benutzerdefinierten Apache Hive-Funktion für das Umwandeln von Datums-/Uhrzeitformaten in Hive-Zeitstempel](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
@@ -166,7 +166,7 @@ Diese Anweisungen führen die folgenden Aktionen aus:
 
 |-Anweisung. |BESCHREIBUNG |
 |---|---|
-|CREATE TABLE IF NOT EXISTS|Erstellt die Tabelle, wenn sie nicht vorhanden ist. Da das **EXTERNAL**-Schlüsselwort nicht verwendet wird, erstellt diese Anweisung eine interne Tabelle. Die Tabelle wird im Hive-Data Warehouse gespeichert und vollständig von Hive verwaltet.|
+|CREATE TABLE IF NOT EXISTS|Erstellt die Tabelle, wenn sie nicht vorhanden ist. Da das **EXTERNAL** -Schlüsselwort nicht verwendet wird, erstellt diese Anweisung eine interne Tabelle. Die Tabelle wird im Hive-Data Warehouse gespeichert und vollständig von Hive verwaltet.|
 |STORED AS ORC|Speichert die Daten im ORC-Format (Optimized Row Columnar). ORC ist ein stark optimiertes und effizientes Format zum Speichern von Hive-Daten.|
 |INSERT OVERWRITE ... SELECT|Wählt Zeilen in der Tabelle **log4jLogs** aus, die **[ERROR]** enthalten, und fügt die Daten in die Tabelle **errorLogs** ein.|
 
@@ -197,11 +197,11 @@ Azure Data Factory ermöglicht Ihnen, HDInsight als Teil einer Data Factory-Pipe
 
 Sie können mit SQL Server Integration Services (SSIS) einen Hive-Auftrag ausführen. Das Azure Feature Pack für SSIS bietet die folgenden Komponenten, die mit Hive-Aufträgen in HDInsight funktionieren.
 
-* [Hive-Aufgabe in Azure HDInsight](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-hive-task)
+* [Hive-Aufgabe in Azure HDInsight](/sql/integration-services/control-flow/azure-hdinsight-hive-task)
 
-* [Verbindungs-Manager für Azure-Abonnements](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-subscription-connection-manager)
+* [Verbindungs-Manager für Azure-Abonnements](/sql/integration-services/connection-manager/azure-subscription-connection-manager)
 
-Weitere Informationen finden Sie in der Dokumentation des [Azure Feature Pack](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis).
+Weitere Informationen finden Sie in der Dokumentation des [Azure Feature Pack](/sql/integration-services/azure-feature-pack-for-integration-services-ssis).
 
 ### <a name="apache-oozie"></a>Apache Oozie
 

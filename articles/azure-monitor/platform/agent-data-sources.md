@@ -1,25 +1,31 @@
 ---
-title: Konfigurieren von Agent-Datenquellen in Azure Monitor | Microsoft-Dokumentation
+title: Datenquellen für den Log Analytics-Agent in Azure Monitor
 description: Datenquellen definieren die Protokolldaten, die Azure Monitor aus Agents und anderen verbundenen Quellen sammelt.  Dieser Artikel beschreibt das Konzept, nach dem Azure Monitor Datenquellen verwendet, erläutert Details zur Konfiguration der Quellen und bietet eine Übersicht über die verschiedenen verfügbaren Datenquellen.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: a183589c3e5274cf747164cdc33d46044f95e716
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: ad5e91a6dcdb61e09a64e61a27f12148ec28168e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87073693"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000741"
 ---
-# <a name="agent-data-sources-in-azure-monitor"></a>Agent-Datenquellen in Azure Monitor
-Welche Daten Azure Monitor von Agents sammelt, wird durch die von Ihnen konfigurierten Datenquellen festgelegt.  Die Daten aus Agents werden als [Protokolldaten](data-platform-logs.md) mit einer Reihe von Datensätzen gespeichert.  Jede Datenquelle erstellt Datensätze eines bestimmten Typs, von denen jeder über einen eigenen Satz von Eigenschaften verfügt.
+# <a name="log-analytics-agent-data-sources-in-azure-monitor"></a>Datenquellen für den Log Analytics-Agent in Azure Monitor
+Die Daten, die Azure Monitor mit dem [Log Analytics](log-analytics-agent.md)-Agent von virtuellen Computern sammelt, werden durch die im [Log Analytics-Arbeitsbereich](data-platform-logs.md) konfigurierten Datenquellen definiert.   Jede Datenquelle erstellt Datensätze eines bestimmten Typs, von denen jeder über einen eigenen Satz von Eigenschaften verfügt.
+
+> [!IMPORTANT]
+> In diesem Artikel werden Datenquellen für den [Log Analytics-Agent](log-analytics-agent.md) beschrieben, einen der von Azure Monitor verwendeten Agents. Andere Agents sammeln andere Daten und werden anders konfiguriert. Eine Liste der verfügbaren Agents und der von ihnen gesammelten Daten finden Sie unter [Übersicht über Azure Monitor-Agents](agents-overview.md).
 
 ![Protokolldatensammlung](media/agent-data-sources/overview.png)
 
+> [!IMPORTANT]
+> Die in diesem Artikel beschriebenen Datenquellen gelten nur für virtuelle Computer, auf denen der Log Analytics-Agent ausgeführt wird. 
+
 ## <a name="summary-of-data-sources"></a>Übersicht über Datenquellen
-In der folgenden Tabelle werden die zurzeit in Azure Monitor verfügbaren Agent-Datenquellen aufgeführt.  In den Links zu den Datenquellen finden Sie weitere Informationen zur jeweiligen Datenquelle.   Außerdem finden Sie hier Informationen zur jeweiligen Methode und Häufigkeit der Sammlung. 
+In der folgenden Tabelle werden die zurzeit für den Log Analytics-Agent verfügbaren Datenquellen aufgeführt.  In den Links zu den Datenquellen finden Sie weitere Informationen zur jeweiligen Datenquelle.   Außerdem finden Sie hier Informationen zur jeweiligen Methode und Häufigkeit der Sammlung. 
 
 
 | Datenquelle | Plattform | Log Analytics-Agent | Operations Manager-Agent | Azure-Speicher | Operations Manager erforderlich? | Daten vom Operations Manager-Agent über Verwaltungsgruppe gesendet | Sammlungshäufigkeit |
@@ -34,14 +40,12 @@ In der folgenden Tabelle werden die zurzeit in Azure Monitor verfügbaren Agent-
 
 
 ## <a name="configuring-data-sources"></a>Konfigurieren von Datenquellen
-Sie konfigurieren Datenquellen für den Arbeitsbereich über das Menü **Daten** unter **Erweiterte Einstellungen**.  Jede Konfiguration wird an alle verbundenen Quellen in Ihrem Arbeitsbereich übermittelt.  Sie können zurzeit keine Agents aus dieser Konfiguration ausschließen.
+Wechseln Sie zum Konfigurieren von Datenquellen für den Log Analytics-Agent zum Azure-Portal, und wählen Sie im Menü **Log Analytics-Arbeitsbereiche** einen Arbeitsbereich aus. Klicken Sie auf **Erweiterte Einstellungen** und dann auf **Daten**. Wählen Sie die Datenquelle aus, die Sie konfigurieren möchten. Über die Links in der oben stehenden Tabelle gelangen Sie zur Dokumentation für jede Datenquelle und zu ausführlichen Informationen zur jeweiligen Konfiguration.
+
+Jede Konfiguration wird an alle Agents übermittelt, die mit dem Arbeitsbereich verbunden sind.  Sie können keine verbundenen Agents aus dieser Konfiguration ausschließen.
 
 ![Windows-Ereignisse konfigurieren](media/agent-data-sources/configure-events.png)
 
-1. Wählen Sie im Azure-Portal die Optionen **Log Analytics-Arbeitsbereiche** > Ihr Arbeitsbereich > **Erweiterte Einstellungen** aus.
-2. Wählen Sie **Daten**aus.
-3. Klicken Sie auf die Datenquelle, die Sie konfigurieren möchten.
-4. Folgen Sie den Links in der oben stehenden Tabelle, um zur Dokumentation für jede Datenquelle zu gelangen und detaillierte Informationen zur jeweiligen Konfiguration zu erhalten.
 
 
 ## <a name="data-collection"></a>Datensammlung

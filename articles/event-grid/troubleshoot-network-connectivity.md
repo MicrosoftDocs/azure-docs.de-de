@@ -5,12 +5,12 @@ author: batrived
 ms.topic: article
 ms.date: 06/21/2020
 ms.author: batrived
-ms.openlocfilehash: 5eb40d464fb718f0bd6dffe0d00f6420f4ea4995
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa119784715b8c88ef3c9f2700b2cac1cc467234
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119003"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339744"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-grid"></a>Behandeln von Konnektivitätsproblemen: Azure Event Grid
 
@@ -22,7 +22,7 @@ Dieser Artikel bietet Tipps zum Beheben von Konnektivitätsproblemen mit Azure E
 
 Wenn die Anwendung überhaupt keine Verbindung mit Event Grid herstellen kann, führen Sie die in diesem Abschnitt aufgeführten Schritte aus, um das Problem zu beheben.
 
-### <a name="check-if-there-is-a-service-outage"></a>Überprüfen, ob ein Dienstausfall vorliegt
+### <a name="check-if-theres-a-service-outage"></a>Überprüfen, ob ein Dienstausfall vorliegt
 
 Überprüfen Sie auf der [Azure-Dienststatuswebsite](https://azure.microsoft.com/status/), ob ein Azure Event Grid-Dienstausfall vorliegt.
 
@@ -49,6 +49,8 @@ telnet {sampletopicname}.{region}-{suffix}.eventgrid.azure.net 443
 ### <a name="verify-that-ip-addresses-are-allowed-in-your-corporate-firewall"></a>Überprüfen, ob die IP-Adressen in der Unternehmensfirewall zulässig sind
 
 Wenn Sie mit Azure arbeiten, müssen Sie manchmal bestimmten IP-Adressbereichen oder URLs in Ihrer Unternehmensfirewall oder Ihrem Proxy erlauben, auf alle Azure-Dienste zuzugreifen, die Sie verwenden oder zu verwenden versuchen. Überprüfen Sie, ob der Datenverkehr für die von Event Grid verwendeten IP-Adressen zulässig ist. Weitere Informationen zu den von Azure Event Grid verwendeten IP-Adressen finden Sie unter: [Azure-IP-Bereiche und Diensttags – öffentliche Cloud](https://www.microsoft.com/download/details.aspx?id=56519) und [Diensttag – AzureEventGrid](network-security.md#service-tags).
+
+Im Dokument [Azure-IP-Bereiche und Diensttags – öffentliche Cloud](https://www.microsoft.com/download/details.aspx?id=56519) werden IP-Adressen auch **nach Region** aufgeführt. Sie können Adressbereiche für die **Region des Themas** und die **Regionspaare** in Ihrer Unternehmensfirewall oder Ihrem Proxy zulassen. Das Regionspaar für eine Region finden Sie unter [Geschäftskontinuität und Notfallwiederherstellung (BCDR): Azure-Regionspaare](../best-practices-availability-paired-regions.md). 
 
 > [!NOTE]
 > Neue IP-Adressen können dem AzureEventGrid-diensttag hinzugefügt werden, obwohl dies nicht üblich ist. Es ist also ratsam, eine wöchentliche Prüfung der Diensttags durchzuführen.

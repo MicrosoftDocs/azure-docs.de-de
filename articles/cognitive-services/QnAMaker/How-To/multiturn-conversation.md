@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 57e878f11f5857f4c5b629a8069f64de259e8e7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26fc976983fc08857e7771d58f15d0abcd9a1d3c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777809"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353220"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Erstellen von Mehrfachdurchläufen einer Konversation mit Folgeaufforderungen
 
@@ -82,7 +82,7 @@ Beim Hinzufügen eines hierarchischen Dokuments bestimmt QnA Maker Folgeaufforde
 
 ## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Erstellen einer Wissensdatenbank mit Eingabeaufforderungen mit Mehrfachdurchläufen mithilfe der Create-API
 
-Sie können eine Wissensdatenbank mit Eingabeaufforderungen mit Mehrfachdurchläufen mithilfe der [Create-API von QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create) erstellen. Die Aufforderungen werden im Array `prompts` der `context`-Eigenschaft hinzugefügt.
+Sie können eine Wissensdatenbank mit Eingabeaufforderungen mit Mehrfachdurchläufen mithilfe der [Create-API von QnA Maker](/rest/api/cognitiveservices/qnamaker/knowledgebase/create) erstellen. Die Aufforderungen werden im Array `prompts` der `context`-Eigenschaft hinzugefügt.
 
 ## <a name="show-questions-and-answers-with-context"></a>Anzeigen von Fragen und Antworten mit Kontext
 
@@ -94,7 +94,7 @@ Wählen Sie **View options** (Optionen anzeigen) und dann **Show context** (Kont
 
 Der Mehrfachdurchlauf-Kontext wird in der ersten Spalte angezeigt.
 
-:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="Screenshot: Ein Beispiel für die Struktur in einem Benutzerhandbuch." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
+:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="Screenshot: Der hervorgehobene Abschnitt „Kontext“." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
 
 In der vorstehenden Abbildung zeigt **#1** fett formatierten Text in der Spalte und damit die aktuelle Frage an. Die übergeordnete Frage wird als oberstes Element in der Zeile angezeigt. Alle Fragen darunter sind die verknüpften Frage- und Antwortpaare. Diese Elemente können ausgewählt werden, damit Sie sofort zu den anderen Kontextelementen gelangen.
 
@@ -162,7 +162,7 @@ Wenn Sie der Wissensdatenbank ein neues Frage- und Antwortpaar hinzufügen, soll
 
     Durch diese Aktion wird ein neues Frage- und Antwortpaar erstellt, und die ausgewählte Frage wird als Folgeaufforderung verknüpft. In der Spalte **Context** (Kontext) wird für beide Fragen eine Folgeaufforderungsbeziehung angegeben.
 
-1. Wählen Sie **View options** (Optionen anzeigen) und dann [**Show context (PREVIEW)** ](#show-questions-and-answers-with-context) (Kontext anzeigen (VORSCHAU)) aus.
+1. Wählen Sie **View options** (Optionen anzeigen) und dann [**Show context (PREVIEW)**](#show-questions-and-answers-with-context) (Kontext anzeigen (VORSCHAU)) aus.
 
     Die neue Frage zeigt, wie sie verknüpft ist.
 
@@ -170,7 +170,7 @@ Wenn Sie der Wissensdatenbank ein neues Frage- und Antwortpaar hinzufügen, soll
 
     Die übergeordnete Frage zeigt eine neue Frage als eine der Auswahlmöglichkeiten an.
 
-    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="Screenshot: Ein Beispiel für die Struktur in einem Benutzerhandbuch." lightbox="../media/conversational-context/child-prompt-created.png":::
+    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="Screenshot: Die Spalte „Context“ (Kontext), die für beide Fragen auf eine Beziehung vom Typ „Folgeäußerung“ hinweist." lightbox="../media/conversational-context/child-prompt-created.png":::
 
 1. Nachdem Sie die Folgeaufforderung hinzugefügt haben, wählen Sie in der oberen Navigationsleiste **Save and train** (Speichern und trainieren) aus.
 
@@ -358,11 +358,11 @@ Wenn Sie eine benutzerdefinierte Anwendung mithilfe des Mehrfachdurchlauf-Featur
 
 ## <a name="display-order-is-supported-in-the-update-api"></a>Die Anzeigereihenfolge wird in der Update-API unterstützt
 
-Der in der JSON-Antwort zurückgegebene [Anzeigetext und die Anzeigereihenfolge](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto) können von der [Update-API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update) bearbeitet werden.
+Der in der JSON-Antwort zurückgegebene [Anzeigetext und die Anzeigereihenfolge](/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto) können von der [Update-API](/rest/api/cognitiveservices/qnamaker/knowledgebase/update) bearbeitet werden.
 
 ## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>Hinzufügen oder Löschen von Eingabeaufforderungen mit Mehrfachdurchläufen mithilfe der Update-API
 
-Sie können Eingabeaufforderungen mit Mehrfachdurchläufen mithilfe der [Update-API von QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update) hinzufügen oder löschen.  Die Aufforderungen werden im Array `promptsToAdd` der `context`-Eigenschaft und im Array `promptsToDelete` hinzugefügt.
+Sie können Eingabeaufforderungen mit Mehrfachdurchläufen mithilfe der [Update-API von QnA Maker](/rest/api/cognitiveservices/qnamaker/knowledgebase/update) hinzufügen oder löschen.  Die Aufforderungen werden im Array `promptsToAdd` der `context`-Eigenschaft und im Array `promptsToDelete` hinzugefügt.
 
 ## <a name="export-knowledge-base-for-version-control"></a>Exportieren der Wissensdatenbank für die Versionskontrolle
 
@@ -370,7 +370,7 @@ QnA Maker unterstützt die Versionskontrolle durch Einfügen von Schritten für 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Erfahren Sie mehr über kontextbezogene Konversationen in diesem [Dialogbeispiel](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj), oder informieren Sie sich über [konzeptionelles Bot-Design für Konversationen mit Mehrfachdurchläufen](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
+Erfahren Sie mehr über kontextbezogene Konversationen in diesem [Dialogbeispiel](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj), oder informieren Sie sich über [konzeptionelles Bot-Design für Konversationen mit Mehrfachdurchläufen](/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
 
 > [!div class="nextstepaction"]
 > [Migrieren einer Wissensdatenbank](../Tutorials/migrate-knowledge-base.md)

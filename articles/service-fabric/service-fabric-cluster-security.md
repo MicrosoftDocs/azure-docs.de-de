@@ -3,13 +3,12 @@ title: Sichern eines Azure Service Fabric-Clusters
 description: Lernen Sie Sicherheitsszenarien für einen Azure Service Fabric-Cluster und die verschiedenen Technologien kennen, die Sie verwenden können, um sie zu implementieren.
 ms.topic: conceptual
 ms.date: 08/14/2018
-ms.custom: sfrev
-ms.openlocfilehash: 8d6f3e94a735a6a8880d726890f1eb7ac346c755
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 6f7bb785184938fe5c1e20e3c915b0112c7723ee
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946194"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573067"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Szenarien für die Clustersicherheit in Service Fabric
 
@@ -19,7 +18,7 @@ Dieser Artikel bietet eine Übersicht über Sicherheitsszenarien für Azure-Clus
 
 * Knoten-zu-Knoten-Sicherheit
 * Client-zu-Knoten-Sicherheit
-* Rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC)
+* Rollenbasierte Service Fabric-Zugriffssteuerung
 
 ## <a name="node-to-node-security"></a>Knoten-zu-Knoten-Sicherheit
 
@@ -60,7 +59,7 @@ Sowohl in Azure ausgeführte Cluster als auch eigenständige Cluster unter Windo
 
 Richten Sie die Client-zu-Knoten-Zertifikatsicherheit beim Erstellen des Clusters im Azure-Portal, über Azure Resource Manager-Vorlagen oder eine eigenständige JSON-Vorlage ein. Um das Zertifikat zu erstellen, geben Sie ein Clientzertifikat für einen Administrator oder einen Benutzer an. Als bewährte Methode gilt: Die angegebenen Administrator- und Benutzerclientzertifikate müssen sich von den primären und sekundären Zertifikaten unterscheiden, die Sie für [Knoten-zu-Knoten-Sicherheit](#node-to-node-security) angeben. Clusterzertifikate verfügen über dieselben Rechte wie Clientadministratorzertifikate. Sie sollten jedoch als bewährte Sicherheitsmethode nur vom Cluster und nicht von Administratoren verwendet werden.
 
-Clients, die unter Verwendung des Administratorzertifikats eine Verbindung mit dem Cluster herstellen, haben uneingeschränkten Zugriff auf die Verwaltungsfunktionen. Clients, die unter Verwendung des schreibgeschützten Benutzerclientzertifikats eine Verbindung mit dem Cluster herstellen, haben nur Lesezugriff auf die Verwaltungsfunktionen. Diese Zertifikate werden für die später in diesem Artikel beschriebenen RBAC verwendet.
+Clients, die unter Verwendung des Administratorzertifikats eine Verbindung mit dem Cluster herstellen, haben uneingeschränkten Zugriff auf die Verwaltungsfunktionen. Clients, die unter Verwendung des schreibgeschützten Benutzerclientzertifikats eine Verbindung mit dem Cluster herstellen, haben nur Lesezugriff auf die Verwaltungsfunktionen. Diese Zertifikate werden für die später in diesem Artikel beschriebene Service Fabric RBAC verwendet.
 
 Informationen zum Einrichten der Zertifikatsicherheit in einem Cluster für Azure finden Sie unter [Einrichten eines Clusters mit einer Azure Resource Manager-Vorlage](service-fabric-cluster-creation-via-arm.md).
 
@@ -85,7 +84,7 @@ Für Service Fabric-Cluster, die in einem öffentlichen, in Azure gehosteten Ne
 
 Für eigenständige Windows Server-Cluster sollten Sie die Windows-Sicherheit mit gruppenverwalteten Dienstkonten verwenden, wenn Sie über Windows Server 2012 R2 und Windows Active Directory verfügen. Verwenden Sie andernfalls die Windows-Sicherheit mit Windows-Konten.
 
-## <a name="role-based-access-control-rbac"></a>Rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC)
+## <a name="service-fabric-role-based-access-control"></a>Rollenbasierte Service Fabric-Zugriffssteuerung
 
 Mit der Zugriffssteuerung können Sie den Zugriff auf bestimmte Clustervorgänge für verschiedene Gruppen von Benutzern einschränken. Dadurch wird der Cluster sicherer. Für Clients, die eine Clusterverbindung herstellen, werden zwei Zugriffssteuerungen unterstützt: Administratorrolle und Benutzerrolle.
 

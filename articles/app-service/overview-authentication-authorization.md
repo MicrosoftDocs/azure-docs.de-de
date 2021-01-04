@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: e984332e6e93fc9a42123d06f320a66073585bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f1aceed7e6a41a8ad4f3a062f23a796e31e34ad
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89596038"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601678"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Authentifizierung und Autorisierung in Azure App Service und Azure Functions
 
@@ -147,6 +147,9 @@ Mit dieser Option müssen Sie in Ihrer App keinen Authentifizierungscode schreib
 > [!CAUTION]
 > Das Einschränken des Zugriffs auf diese Weise gilt für alle Aufrufe Ihrer App, was für Apps, die eine öffentlich verfügbare Startseite wünschen, eventuell nicht wünschenswert ist, wie bei vielen Single-Page-Anwendungen.
 
+> [!NOTE]
+> Standardmäßig kann jeder Benutzer in Ihrem Azure AD-Mandanten ein Token für Ihre Anwendung aus Azure AD anfordern. Sie können die [Anwendung in Azure AD konfigurieren](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md), wenn Sie den Zugriff auf die Anwendung auf eine bestimmte Gruppe von Benutzern beschränken möchten.
+
 ## <a name="more-resources"></a>Weitere Ressourcen
 
 * [Tutorial: Umfassendes Authentifizieren und Autorisieren von Benutzern in Azure App Service (Windows)](tutorial-auth-aad.md)  
@@ -163,6 +166,7 @@ Anbieterspezifische Anleitungen:
 * [Konfigurieren Ihrer App Service-Anwendung zur Verwendung der Microsoft-Kontoanmeldung][MSA]
 * [Konfigurieren Ihrer App Service-Anwendung zur Verwendung der Twitter-Anmeldung][Twitter]
 * [Konfigurieren Ihrer App für die Verwendung eines OpenID Connect-Anbieters für die Anmeldung (Vorschau)][OIDC]
+* [Konfigurieren Ihrer App für die Verwendung einer Anmeldung mit Apple (Vorschau)][Apple]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md
@@ -170,6 +174,7 @@ Anbieterspezifische Anleitungen:
 [MSA]: configure-authentication-provider-microsoft.md
 [Twitter]: configure-authentication-provider-twitter.md
 [OIDC]: configure-authentication-provider-openid-connect.md
+[Apple]: configure-authentication-provider-apple.md
 
 [custom-auth]: /previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk#custom-auth
 

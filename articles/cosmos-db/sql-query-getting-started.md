@@ -3,42 +3,53 @@ title: Erste Schritte mit SQL-Abfragen in Azure Cosmos DB
 description: Hier erfahren Sie, wie Sie SQL-Abfragen zum Abfragen von Daten aus Azure Cosmos DB verwenden. Sie können Beispieldaten in einen Container in Azure Cosmos DB hochladen und abfragen.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 11/04/2020
 ms.author: tisande
-ms.openlocfilehash: a95fe72df152e297114f4bde59b11137c6accdb6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c78e15a0656abd510bbc241d39ffd026afddfd96
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488145"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353662"
 ---
 # <a name="getting-started-with-sql-queries"></a>Erste Schritte mit SQL-Abfragen
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Für Azure Cosmos DB-SQL-API-Konten gibt es zwei Möglichkeiten, Daten zu lesen:
 
 **Punktlesevorgänge:** Sie können nach einem Schlüssel/Wert anhand einer einzelnen *Element-ID* und einem Partitionsschlüssel suchen. Die Kombination aus *Element-ID* und Partitionsschlüssel ist der Schlüssel, und das Element selbst ist der Wert. Für ein Dokument mit einer Größe von 1 KB erfordern Punktlesevorgänge in der Regel eine [Anforderungseinheit](request-units.md) mit einer Wartezeit von unter 10 Millisekunden. Lesevorgänge geben ein einzelnes Element zurück.
 
-**SQL-Abfragen:** Sie können Daten auch abfragen, indem Sie mit SQL als JSON-Abfragesprache Abfragen schreiben. Abfragen benötigen immer mindestens 2,3 Anforderungseinheiten. Im Allgemeinen weisen sie auch eine höhere und variablere Wartezeit im Vergleich zu Punktlesevorgängen auf. Abfragen können viele Elemente zurückgeben.
-
-Die meisten leseintensiven Workloads in Azure Cosmos DB verwenden eine Kombination von Punktlesevorgängen und SQL-Abfragen. Wenn Sie nur ein einzelnes Element lesen müssen, sind Punktlesevorgänge günstiger und schneller als Abfragen. Punktlesevorgänge müssen die Abfrage-Engine nicht verwenden, um auf Daten zuzugreifen, und sie können die Daten direkt lesen. Natürlich ist es nicht für alle Workloads möglich, Daten ausschließlich mithilfe von Punktlesevorgängen zu lesen. Die Unterstützung von SQL als Abfragesprache und die vom [Schema unabhängige Indexierung](index-overview.md) bieten also eine flexiblere Möglichkeit, auf Ihre Daten zuzugreifen.
-
-Hier finden Sie Beispiele für Punktlesevorgänge für die verschiedenen SDKs:
+Hier finden Sie Beispiele für **Punktlesevorgänge** für die verschiedenen SDKs:
 
 - [.NET SDK](/dotnet/api/microsoft.azure.cosmos.container.readitemasync?preserve-view=true&view=azure-dotnet)
 - [Java SDK](/java/api/com.azure.cosmos.cosmoscontainer.readitem?preserve-view=true&view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
 - [Node.js SDK](/javascript/api/@azure/cosmos/item?preserve-view=true&view=azure-node-latest#read-requestoptions-)
 - [Python SDK](/python/api/azure-cosmos/azure.cosmos.containerproxy?preserve-view=true&view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
 
+**SQL-Abfragen:** Sie können Daten auch abfragen, indem Sie mit SQL als JSON-Abfragesprache Abfragen schreiben. Abfragen benötigen immer mindestens 2,3 Anforderungseinheiten. Im Allgemeinen weisen sie auch eine höhere und variablere Wartezeit im Vergleich zu Punktlesevorgängen auf. Abfragen können viele Elemente zurückgeben.
+
+Die meisten leseintensiven Workloads in Azure Cosmos DB verwenden eine Kombination von Punktlesevorgängen und SQL-Abfragen. Wenn Sie nur ein einzelnes Element lesen müssen, sind Punktlesevorgänge günstiger und schneller als Abfragen. Punktlesevorgänge müssen die Abfrage-Engine nicht verwenden, um auf Daten zuzugreifen, und sie können die Daten direkt lesen. Natürlich ist es nicht für alle Workloads möglich, Daten ausschließlich mithilfe von Punktlesevorgängen zu lesen. Die Unterstützung von SQL als Abfragesprache und die vom [Schema unabhängige Indexierung](index-overview.md) bieten also eine flexiblere Möglichkeit, auf Ihre Daten zuzugreifen.
+
+Hier finden Sie Beispiele für **SQL-Abfragen** für die verschiedenen SDKs:
+
+- [.NET SDK](./sql-api-dotnet-v3sdk-samples.md#query-examples)
+- [Java SDK](./sql-api-java-sdk-samples.md#query-examples)
+- [Node.js SDK](./sql-api-nodejs-samples.md#item-examples)
+- [Python SDK](./sql-api-python-samples.md#item-examples)
+
 Im verbleibenden Teil dieser Dokumentation erfahren Sie, wie Sie SQL-Abfragen in Azure Cosmos DB schreiben. SQL-Abfragen können entweder über das SDK oder das Azure-Portal ausgeführt werden.
 
 ## <a name="upload-sample-data"></a>Hochladen von Beispieldaten
 
-Erstellen Sie in Ihrem Cosmos DB-Konto der SQL-API einen Container mit dem Namen `Families`. Erstellen Sie zwei einfache JSON-Elemente im Container. Sie können die meisten Beispielabfragen in der Azure Cosmos DB-Abfragedokumentation mithilfe dieses Datasets ausführen.
+Öffnen Sie in Ihrem Cosmos DB-Konto der SQL-API den [Data Explorer](./data-explorer.md), um einen Container mit dem Namen `Families` zu erstellen. Verwenden Sie nach dem Erstellen den Datenstrukturbrowser, um ihn zu suchen und zu öffnen. In Ihrem `Families`-Container wird die Option `Items` direkt unterhalb des Namens des Containers angezeigt. Öffnen Sie diese Option. Daraufhin wird auf der Menüleiste in der Mitte des Bildschirms eine Schaltfläche angezeigt, mit der Sie ein neues Element erstellen können. Sie verwenden diese Funktion, um die folgenden JSON-Elemente zu erstellen.
 
 ### <a name="create-json-items"></a>Erstellen von JSON-Elementen
 
-Der folgende Code erstellt zwei einfache JSON-Elemente zu Familien. Die einfachen JSON-Elemente für die Familien Andersen und Wakefield umfassen Eltern, Kinder und deren Haustiere, Adressen und Registrierungsinformationen. Das erste Element enthält Zeichenfolgen, Zahlen, boolesche Werte, Arrays und geschachtelte Eigenschaften.
+Die folgenden beiden JSON-Elemente sind Dokumente zu den Familien „Andersen“ und „Wakefield“. Sie enthalten Eltern, Kinder, Haustiere, Adresse und Registrierungsinformationen. 
+
+Das erste Element enthält Zeichenfolgen, Zahlen, boolesche Werte, Arrays und geschachtelte Eigenschaften:
 
 ```json
 {
@@ -62,7 +73,7 @@ Der folgende Code erstellt zwei einfache JSON-Elemente zu Familien. Die einfache
 }
 ```
 
-Das zweite Element verwendet `givenName` und `familyName` anstelle von `firstName` und `lastName`.
+Das zweite Element verwendet `givenName` und `familyName` anstelle von `firstName` und `lastName`:
 
 ```json
 {

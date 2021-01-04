@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 4dd592cb1b0037e2e1054bb24d987d4456f15e2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d90c9b9b2c9aa97083e17d5ab7d20fc6b471658
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380464"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94492122"
 ---
 # <a name="how-to-configure-your-saas-offer-properties"></a>Konfigurieren von SaaS-Angebotseigenschaften
 
@@ -77,7 +77,7 @@ Geben Sie im Feld **Dem Standardvertrag für den kommerziellen Microsoft-Marketp
 1. Geben Sie im Feld **Benutzerdefinierte Zusatzbedingungen** Ihre Zusatzbestimmungen ein.
 1. Geben Sie im Feld **Mandanten-ID** eine Mandanten-ID ein. Diese benutzerdefinierten Vereinbarungen werden im Azure-Portal im Rahmen der Kaufabwicklung für das Angebot nur Kunden mit den für sie angegebenen Mandanten-IDs angezeigt.
    > [!TIP]
-   > Die Mandanten-ID identifiziert Ihren Kunden in Azure. Sie können Ihren Kunden nach dieser ID fragen. Kunden finden sie unter [ **https://portal.azure.com** ](https://portal.azure.com) > **Azure Active Directory** > **Eigenschaften**. Der Wert der Verzeichnis-ID ist die Mandanten-ID (z. B. `50c464d3-4930-494c-963c-1e951d15360e`). Sie können die von Ihrer Organisation zugeteilte Mandanten-ID Ihres Kunden auch nachschlagen, indem Sie unter [Wie lautet meine Mandanten-ID für Microsoft Azure und Office 365?](https://www.whatismytenantid.com/) die Domänennamen-URL des Kunden verwenden.
+   > Die Mandanten-ID identifiziert Ihren Kunden in Azure. Sie können Ihren Kunden nach dieser ID fragen. Kunden finden sie unter [ **https://portal.azure.com**](https://portal.azure.com) > **Azure Active Directory** > **Eigenschaften**. Der Wert der Verzeichnis-ID ist die Mandanten-ID (z. B. `50c464d3-4930-494c-963c-1e951d15360e`). Sie können die von Ihrer Organisation zugeteilte Mandanten-ID Ihres Kunden auch nachschlagen, indem Sie unter [Wie lautet meine Mandanten-ID für Microsoft Azure und Office 365?](https://www.whatismytenantid.com/) die Domänennamen-URL des Kunden verwenden.
 1. Geben Sie im Feld **Beschreibung** optional eine benutzerfreundliche Beschreibung für die Mandanten-ID ein. Diese Beschreibung hilft Ihnen dabei, den Kunden anzugeben, für den der Zusatz gedacht ist.
 1. Wählen Sie zum Hinzufügen einer weiteren Mandanten-ID den Link **Mandanten-ID eines Kunden hinzufügen** aus, und wiederholen Sie die Schritte 3 und 4. Sie können bis zu 20 Mandanten-IDs hinzufügen.
 1. Um weitere Zusatzstimmungen hinzuzufügen, wiederholen Sie die Schritte 1 bis 5. Sie können bis zu zehn benutzerdefinierte Zusatzvereinbarungen pro Angebot angeben. 
@@ -89,11 +89,7 @@ Sie können anstelle des Standardvertrags Ihre eigenen Geschäftsbedingungen ang
 
 1. Achten Sie unter **Rechtliche Hinweise** darauf, dass das Kontrollkästchen **Verwenden Sie den Standardvertrag für den kommerziellen Microsoft-Marketplace** deaktiviert ist.
 1. Geben Sie im Feld **Geschäftsbedingungen** bis zu 10.000 Zeichen Text ein.
-
-   > [!NOTE]
-   > Wenn Sie eine längere Beschreibung benötigen, geben Sie eine einzelne Webadresse ein, unter der Ihre Geschäftsbedingungen zu finden sind. Sie wird Kunden als aktiver Link angezeigt.
-
-1. Wählen Sie **Entwurf speichern** aus, bevor Sie mit der nächsten Registerkarte (**Angebotsliste**) fortfahren.
+1. Wählen Sie **Entwurf speichern** aus, bevor Sie mit der nächsten Registerkarte ( **Angebotsliste** ) fortfahren.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

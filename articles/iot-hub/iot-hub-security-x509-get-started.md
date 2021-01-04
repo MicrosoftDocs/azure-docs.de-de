@@ -13,16 +13,16 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-csharp
-ms.openlocfilehash: 7c05d6f91f4c05405ba8148b0924a755122f99fe
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a3e328418a0f111cd0b985310ea6dc497999772d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144462"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909793"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Einrichten der X.509-Sicherheit in Ihrem Azure IoT Hub
 
-In diesem Tutorial werden die Schritte gezeigt, mit denen Sie Ihren Azure IoT-Hub mithilfe der *X.509-Zertifikatauthentifizierung* sichern. Zur Veranschaulichung verwenden wir das Open Source-Tool OpenSSL zum lokalen Erstellen von Zertifikaten auf Ihrem Windows-Computer. Sie sollten dieses Tutorial nur zu Testzwecken verwenden. Für Produktionsumgebungen sollten Sie die Zertifikate von einer *Stammzertifizierungsstelle (Root Certificate Authority, CA)* erwerben.
+In diesem Tutorial werden die Schritte gezeigt, mit denen Sie Ihren Azure IoT-Hub mithilfe der *X.509-Zertifikatauthentifizierung* sichern. Zur Veranschaulichung verwenden wir das Open Source-Tool OpenSSL zum lokalen Erstellen von Zertifikaten auf Ihrem Windows-Computer. Sie sollten dieses Tutorial nur zu Testzwecken verwenden. Für Produktionsumgebungen müssen Sie die Zertifikate bei einer *Stammzertifizierungsstelle* erwerben. Stellen Sie für die Produktionsumgebung auch sicher, dass Sie eine Strategie zur Handhabung des Rollovers von Zertifikaten haben, wenn ein Geräte- oder Zertifizierungsstellenzertifikat abläuft.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
@@ -51,7 +51,7 @@ Sie haben folgende Möglichkeiten zum Abrufen Ihrer Zertifikate:
 
 ## <a name="register-x509-ca-certificates-to-your-iot-hub"></a>Registrieren der X.509-Zertifizierungsstellenzertifikate bei IoT Hub
 
-Diese Schritte veranschaulichen das Hinzufügen einer neuen Zertifizierungsstelle zu Ihrem IoT Hub über das Portal.
+Diese Schritte veranschaulichen das Hinzufügen einer neuen Zertifizierungsstelle zu Ihrem IoT Hub über das Portal. Wenn Sie die Authentifizierung mit X.509-Zertifizierungsstellenzertifikaten verwenden, stellen Sie sicher, dass Sie im Rahmen Ihrer Strategie für das Rollover von Zertifikaten Ihr neues Zertifikat registrieren, bevor das vorhandene abläuft.
 
 > [!NOTE]
 > Die maximale Anzahl von X.509-Zertifizierungsstellenzertifikaten, die bei IoT Hub registriert werden können, beträgt 25. Weitere Informationen finden Sie unter [Azure IoT Hub-Kontingente und -Drosselung](iot-hub-devguide-quotas-throttling.md).
@@ -76,7 +76,7 @@ Diese Schritte veranschaulichen das Hinzufügen einer neuen Zertifizierungsstell
 
 1. Führen Sie Schritt 3 unter [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) (Verwalten von Zertifizierungsstellen-Testzertifikaten für Beispiele und Tutorials) aus.  In diesem Prozess wird Ihr Prüfcode mit dem privaten Schlüssel signiert, der Ihrem X.509-Zertifizierungsstellenzertifikat zugeordnet ist, das eine Signatur generiert. Es sind Tools wie z.B. OpenSSL verfügbar, um diesen Signierungsprozess auszuführen. Dieser Prozess wird als [Eigentumsnachweis](https://tools.ietf.org/html/rfc5280#section-3.1) bezeichnet.
 
-1. Suchen Sie in **Zertifikatdetails** unter **PEM- oder CER-Verifizierungszertifikatsdatei** die Signaturdatei, und öffnen Sie sie. Wählen Sie dann **Überprüfen**aus.
+1. Suchen Sie in **Zertifikatdetails** unter **PEM- oder CER-Verifizierungszertifikatsdatei** die Signaturdatei, und öffnen Sie sie. Wählen Sie dann **Überprüfen** aus.
 
    Der Status Ihres Zertifikats ändert sich in **Überprüft**. Wenn das Zertifikat nicht automatisch aktualisiert wird, wählen Sie **Aktualisieren** aus.
 
@@ -98,13 +98,13 @@ Als Nächstes erfahren Sie, wie Sie eine C#-Anwendung zum Simulieren des für Ih
 
 1. Öffnen Sie Visual Studio, wählen Sie **Neues Projekt erstellen** und dann die Projektvorlage **Konsolen-App (.NET Framework)** aus. Wählen Sie **Weiter** aus.
 
-1. Benennen Sie in **Neues Projekt konfigurieren** das Projekt mit *SimulateX509Device*, und wählen Sie **Erstellen** aus.
+1. Benennen Sie in **Neues Projekt konfigurieren** das Projekt mit *SimulateX509Device* , und wählen Sie **Erstellen** aus.
 
    ![Erstellen des X.509-Geräteprojekts in Visual Studio](./media/iot-hub-security-x509-get-started/create-device-project-vs2019.png)
 
-1. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf das Projekt **SimulateX509Device**, und wählen Sie **NuGet-Pakete verwalten** aus.
+1. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf das Projekt **SimulateX509Device** , und wählen Sie **NuGet-Pakete verwalten** aus.
 
-1. Wählen Sie in **NuGet-Paket-Manager** die Option **Durchsuchen** aus. Suchen Sie dann nach dem Paket **Microsoft.Azure.Devices.Client**, und wählen Sie es aus. Wählen Sie **Installieren** aus.
+1. Wählen Sie in **NuGet-Paket-Manager** die Option **Durchsuchen** aus. Suchen Sie dann nach dem Paket **Microsoft.Azure.Devices.Client** , und wählen Sie es aus. Wählen Sie **Installieren** aus.
 
    ![Hinzufügen des Geräte-SDK NuGet-Pakets in Visual Studio](./media/iot-hub-security-x509-get-started/device-sdk-nuget.png)
 
@@ -118,7 +118,7 @@ Als Nächstes erfahren Sie, wie Sie eine C#-Anwendung zum Simulieren des für Ih
         using System.Security.Cryptography.X509Certificates;
     ```
 
-1. Fügen Sie der **Program**-Klasse die folgenden Felder hinzu:
+1. Fügen Sie der **Program** -Klasse die folgenden Felder hinzu:
 
     ```csharp
         private static int MESSAGE_COUNT = 5;
@@ -153,7 +153,7 @@ Als Nächstes erfahren Sie, wie Sie eine C#-Anwendung zum Simulieren des für Ih
     }
     ```
 
-1. Fügen Sie schließlich der **Main**-Funktion die folgenden Codezeilen hinzu, und ersetzen Sie dabei die Platzhalter _device-id_, _your-iot-hub-name_ und _absolute-path-to-your-device-pfx-file_ wie für das Setup erforderlich.
+1. Fügen Sie schließlich der **Main** -Funktion die folgenden Codezeilen hinzu, und ersetzen Sie dabei die Platzhalter _device-id_ , _your-iot-hub-name_ und _absolute-path-to-your-device-pfx-file_ wie für das Setup erforderlich.
 
     ```csharp
     try
@@ -182,7 +182,7 @@ Als Nächstes erfahren Sie, wie Sie eine C#-Anwendung zum Simulieren des für Ih
 
    Dieser Code stellt mittels Erstellen der Verbindungszeichenfolge für das X.509-Gerät die Verbindung mit Ihrem IoT Hub her. Nach erfolgreicher Verbindungsherstellung werden Temperatur- und Luftfeuchtigkeitsereignisse an den Hub gesendet, und die Antwort wird abgewartet.
 
-1. Führen Sie die App aus. Weil diese Anwendung auf eine *PFX*-Datei zugreift, müssen Sie diese App möglicherweise als Administrator ausführen.
+1. Führen Sie die App aus. Weil diese Anwendung auf eine *PFX* -Datei zugreift, müssen Sie diese App möglicherweise als Administrator ausführen.
 
    1. Erstellen Sie die Visual Studio-Projektmappe.
 

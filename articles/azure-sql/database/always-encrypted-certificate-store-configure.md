@@ -12,28 +12,28 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: a966579e1acc02f1479c41520dcbbc58d420647c
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 60dea826a12ea475806adb6db88faa88e26463a1
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164515"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674825"
 ---
 # <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>Konfigurieren von Always Encrypted mithilfe des Windows-Zertifikatspeichers
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-In diesem Artikel erfahren Sie, wie Sie vertrauliche Daten in Azure SQL-Datenbank oder in einer verwalteten Azure SQL-Instanz mithilfe der Datenbankverschlüsselung unter Einsatz des [Always-Encrypted-Assistenten](/sql/relational-databases/security/encryption/always-encrypted-wizard) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx) schützen. Sie erfahren hier auch, wie Sie Ihre Verschlüsselungsschlüssel im Windows-Zertifikatspeicher speichern.
+In diesem Artikel erfahren Sie, wie Sie vertrauliche Daten in Azure SQL-Datenbank oder in einer verwalteten Azure SQL-Instanz mithilfe der Datenbankverschlüsselung unter Einsatz des [Always-Encrypted-Assistenten](/sql/relational-databases/security/encryption/always-encrypted-wizard) in [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms) schützen. Sie erfahren hier auch, wie Sie Ihre Verschlüsselungsschlüssel im Windows-Zertifikatspeicher speichern.
 
-Always Encrypted ist eine Datenverschlüsselungstechnologie, mit der vertrauliche ruhende Daten auf dem Server, auf dem Weg zwischen Client und Server und während der Verwendung geschützt werden. So wird sichergestellt, dass vertrauliche Daten im Datenbanksystem niemals im Klartextformat auftauchen. Nach der Verschlüsselung der Daten können nur Clientanwendungen oder App-Server, für die Zugriff auf die Schlüssel besteht, auf Klartextdaten zugreifen. Ausführliche Informationen finden Sie unter [Always Encrypted (Datenbank-Engine)](https://msdn.microsoft.com/library/mt163865.aspx).
+Always Encrypted ist eine Datenverschlüsselungstechnologie, mit der vertrauliche ruhende Daten auf dem Server, auf dem Weg zwischen Client und Server und während der Verwendung geschützt werden. So wird sichergestellt, dass vertrauliche Daten im Datenbanksystem niemals im Klartextformat auftauchen. Nach der Verschlüsselung der Daten können nur Clientanwendungen oder App-Server, für die Zugriff auf die Schlüssel besteht, auf Klartextdaten zugreifen. Ausführliche Informationen finden Sie unter [Always Encrypted (Datenbank-Engine)](/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
 Nach dem Konfigurieren der Datenbank für die Verwendung von Always Encrypted erstellen Sie eine Clientanwendung in C# mit Visual Studio, um mit den verschlüsselten Daten zu arbeiten.
 
 Führen Sie die Schritte in diesem Artikel aus, um zu lernen, wie Sie Always Encrypted für Azure SQL-Datenbank oder eine verwaltete Azure SQL-Instanz einrichten. In diesem Artikel erlernen Sie die Vorgehensweise für folgende Aufgaben:
 
-* Verwenden des Always Encrypted-Assistenten in SSMS zum Erstellen von [Always Encrypted-Schlüsseln](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3).
-  * Erstellen Sie einen Spaltenhauptschlüssel ( [Column Master Key, CMK](https://msdn.microsoft.com/library/mt146393.aspx)).
-  * Erstellen Sie einen Spaltenverschlüsselungsschlüssel ( [Column Encryption Key, CEK](https://msdn.microsoft.com/library/mt146372.aspx)).
+* Verwenden des Always Encrypted-Assistenten in SSMS zum Erstellen von [Always Encrypted-Schlüsseln](/sql/relational-databases/security/encryption/always-encrypted-database-engine#Anchor_3).
+  * Erstellen Sie einen Spaltenhauptschlüssel ( [Column Master Key, CMK](/sql/t-sql/statements/create-column-master-key-transact-sql)).
+  * Erstellen Sie einen Spaltenverschlüsselungsschlüssel ( [Column Encryption Key, CEK](/sql/t-sql/statements/create-column-encryption-key-transact-sql)).
 * Erstellen einer Datenbanktabelle und Verschlüsseln von Spalten.
 * Erstellen einer Anwendung zum Einfügen, Auswählen und Anzeigen von Daten aus den verschlüsselten Spalten
 
@@ -43,8 +43,8 @@ Für dieses Tutorial benötigen Sie Folgendes:
 
 * Ein Azure-Konto und ein Azure-Abonnement. Falls Sie diese benötigen, können Sie sich für eine [kostenlose Testversion](https://azure.microsoft.com/pricing/free-trial/)registrieren.
 - Eine Datenbank in [Azure SQL-Datenbank](single-database-create-quickstart.md) oder [Azure SQL Managed Instance](../managed-instance/instance-create-quickstart.md)
-* [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) Version 13.0.700.242 oder höher.
-* [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) oder höher (auf dem Clientcomputer)
+* [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) Version 13.0.700.242 oder höher.
+* [.NET Framework 4.6](/dotnet/framework/) oder höher (auf dem Clientcomputer)
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 
 ## <a name="enable-client-application-access"></a>Aktivieren des Zugriffs für Clientanwendungen
@@ -103,7 +103,7 @@ Der Always Encrypted-Assistent enthält die folgenden Abschnitte: **Spaltenauswa
 
 ### <a name="column-selection"></a>Spaltenauswahl
 
-Klicken Sie auf der Seite **Einführung** auf **Weiter** , um die Seite **Spaltenauswahl** zu öffnen. Wählen Sie auf dieser Seite die Spalten, die Sie verschlüsseln möchten, [den Typ der Verschlüsselung, und welcher Spaltenverschlüsselungsschlüssel (Column Encryption Key, CEK)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) verwendet werden soll.
+Klicken Sie auf der Seite **Einführung** auf **Weiter** , um die Seite **Spaltenauswahl** zu öffnen. Wählen Sie auf dieser Seite die Spalten, die Sie verschlüsseln möchten, [den Typ der Verschlüsselung, und welcher Spaltenverschlüsselungsschlüssel (Column Encryption Key, CEK)](/sql/relational-databases/security/encryption/always-encrypted-wizard#Anchor_2) verwendet werden soll.
 
 Verschlüsseln Sie für jeden Patienten die Daten **SSN** (US-Sozialversicherungsnummer) und **BirthDate** (Geburtsdatum). Für die Spalte **SSN** wird die deterministische Verschlüsselung verwendet, die Suchvorgänge nach Gleichheit, Joins und Group By unterstützt. Für die Spalte **BirthDate** wird die zufällige Verschlüsselung verwendet, bei der keine Operationen unterstützt werden.
 
@@ -144,7 +144,7 @@ Sie können die Erstellung der Schlüssel in SSMS überprüfen, indem Sie sich d
 Nach dem Einrichten von Always Encrypted können Sie eine Anwendung erstellen, die *Einfügevorgänge* und *Auswahlvorgänge* in den verschlüsselten Spalten durchführt. Zum erfolgreichen Ausführen der Beispielanwendung müssen Sie diese auf dem gleichen Computer ausführen, auf dem Sie den Always Encrypted-Assistenten ausgeführt haben. Zum Ausführen der Anwendung auf einem anderen Computer müssen Sie Ihre Always Encrypted-Zertifikate auf dem Computer bereitstellen, auf dem die Client-App ausgeführt wird.  
 
 > [!IMPORTANT]
-> Für Ihre Anwendung müssen [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) -Objekte verwendet werden, wenn Klartextdaten an den Server mit Always Encrypted-Spalten übergeben werden. Das Übergeben von Literalwerten ohne SqlParameter-Objekte führt zu einer Ausnahme.
+> Für Ihre Anwendung müssen [SqlParameter](/dotnet/api/system.data.sqlclient.sqlparameter) -Objekte verwendet werden, wenn Klartextdaten an den Server mit Always Encrypted-Spalten übergeben werden. Das Übergeben von Literalwerten ohne SqlParameter-Objekte führt zu einer Ausnahme.
 
 1. Öffnen Sie Visual Studio, und erstellen Sie eine neue C#-Konsolenanwendung. Stellen Sie sicher, dass Ihr Projekt auf **.NET Framework 4.6** oder höher festgelegt ist.
 2. Geben Sie dem Projekt den Namen **AlwaysEncryptedConsoleApp** , und klicken Sie auf **OK** .
@@ -157,7 +157,7 @@ In diesem Abschnitt wird beschrieben, wie Sie Always Encrypted in Ihrer Datenban
 
 Zum Aktivieren von Always Encrypted müssen Sie der Verbindungszeichenfolge das Schlüsselwort **Column Encryption Setting** hinzufügen und es auf **Enabled** festlegen.
 
-Sie können dies direkt in der Verbindungszeichenfolge festlegen, oder Sie können zum Festlegen ein [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx)-Element verwenden. Die Beispielanwendung im nächsten Abschnitt veranschaulicht, wie Sie das **SqlConnectionStringBuilder** -Element verwenden.
+Sie können dies direkt in der Verbindungszeichenfolge festlegen, oder Sie können zum Festlegen ein [SqlConnectionStringBuilder](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder)-Element verwenden. Die Beispielanwendung im nächsten Abschnitt veranschaulicht, wie Sie das **SqlConnectionStringBuilder** -Element verwenden.
 
 > [!NOTE]
 > Dies ist die einzige Änderung, die in einer Always Encrypted-Clientanwendung erforderlich ist. Wenn Sie über eine vorhandene Anwendung verfügen, bei der die Verbindungszeichenfolge extern gespeichert wird (also in einer Konfigurationsdatei), können Sie Always Encrypted unter Umständen auch aktivieren, ohne Code zu ändern.
@@ -170,7 +170,7 @@ Fügen Sie der Verbindungszeichenfolge das folgende Schlüsselwort hinzu:
 
 ### <a name="enable-always-encrypted-with-a-sqlconnectionstringbuilder"></a>Aktivieren von Always Encrypted per SqlConnectionStringBuilder
 
-Der folgende Code zeigt, wie Sie Always Encrypted aktivieren, indem Sie [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) auf [Enabled](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx) festlegen.
+Der folgende Code zeigt, wie Sie Always Encrypted aktivieren, indem Sie [SqlConnectionStringBuilder.ColumnEncryptionSetting](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting) auf [Enabled](/dotnet/api/system.data.sqlclient.sqlconnectioncolumnencryptionsetting) festlegen.
 
 ```csharp
 // Instantiate a SqlConnectionStringBuilder.
@@ -537,14 +537,14 @@ Um SSMS zu verwenden, um auf die Klartextdaten zuzugreifen, können Sie der Verb
 Nach dem Erstellen einer Datenbank, für die Always Encrypted verwendet wird, sollten Sie folgende Schritte ausführen:
 
 * Führen Sie dieses Beispiel auf einem anderen Computer aus. Es besteht kein Zugriff auf die Verschlüsselungsschlüssel und somit auch kein Zugriff auf die Klartextdaten. Die Ausführung ist also nicht erfolgreich.
-* [Lassen Sie Ihre Schlüssel rotieren, und bereinigen Sie sie](https://msdn.microsoft.com/library/mt607048.aspx).
-* [Migrieren Sie Daten, die bereits mit Always Encrypted verschlüsselt sind](https://msdn.microsoft.com/library/mt621539.aspx).
-* [Stellen Sie Always Encrypted-Zertifikate auf anderen Clientcomputern bereit](https://msdn.microsoft.com/library/mt723359.aspx#Anchor_1) (siehe Abschnitt „Verfügbarmachen von Zertifikaten für Anwendungen und Benutzer“).
+* [Lassen Sie Ihre Schlüssel rotieren, und bereinigen Sie sie](/sql/relational-databases/security/encryption/configure-always-encrypted-using-sql-server-management-studio).
+* [Migrieren Sie Daten, die bereits mit Always Encrypted verschlüsselt sind](/sql/relational-databases/security/encryption/migrate-sensitive-data-protected-by-always-encrypted).
+* [Stellen Sie Always Encrypted-Zertifikate auf anderen Clientcomputern bereit](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted#Anchor_1) (siehe Abschnitt „Verfügbarmachen von Zertifikaten für Anwendungen und Benutzer“).
 
 ## <a name="related-information"></a>Verwandte Informationen
 
-* [Always Encrypted (Cliententwicklung)](https://msdn.microsoft.com/library/mt147923.aspx)
-* [Transparente Datenverschlüsselung (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
-* [SQL Server-Verschlüsselung](https://msdn.microsoft.com/library/bb510663.aspx)
-* [Always Encrypted Wizard](https://msdn.microsoft.com/library/mt459280.aspx)
-* [Always Encrypted Blog](https://docs.microsoft.com/archive/blogs/sqlsecurity/always-encrypted-key-metadata)
+* [Always Encrypted (Cliententwicklung)](/sql/relational-databases/security/encryption/always-encrypted-client-development)
+* [Transparente Datenverschlüsselung (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption)
+* [SQL Server-Verschlüsselung](/sql/relational-databases/security/encryption/sql-server-encryption)
+* [Always Encrypted Wizard](/sql/relational-databases/security/encryption/always-encrypted-wizard)
+* [Always Encrypted Blog](/archive/blogs/sqlsecurity/always-encrypted-key-metadata)

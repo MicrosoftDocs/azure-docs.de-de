@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: b59bfb72df88c80656935e15045933dcb13a139e
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 857fa66c1e3d6b6cea8fadb966ef1813222026fe
+  ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "90014615"
+  ms.lasthandoff: 11/25/2020
+  ms.locfileid: "96122534"
 landingContent:
 - title: Erstellen von Lösungen für das Gesundheitswesen
   linkLists:
@@ -35,10 +35,8 @@ landingContent:
       url: ../core/overview-iot-central-developer.md
   - linkListType: tutorial
     links:
-    - text: Herstellen einer Verbindung mit einem Gerät (Node.js)
-      url: ../core/tutorial-connect-device-nodejs.md
-    - text: Herstellen einer Verbindung mit einem Gerät (Python)
-      url: ../core/tutorial-connect-device-python.md
+    - text: Erstellen eines Geräts und Herstellen einer Verbindung mit ihm
+      url: ../core/tutorial-connect-device.md
   - linkListType: concept
     links:
     - text: Gerätekonnektivität

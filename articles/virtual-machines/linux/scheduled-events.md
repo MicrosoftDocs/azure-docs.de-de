@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: 265b99fb985602604eefee27d722b4dc8d7593a8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 99528d1575056917b68bcb38f41a24d065822827
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970383"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792802"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Instance Metadata Service: Scheduled Events für Linux-VMs
 
@@ -154,6 +154,10 @@ Jedes Ereignis wird, basierend auf dem Ereignistyp, mit einer minimalen Vorlaufz
 
 > [!NOTE] 
 > In einigen Fällen kann Azure den Hostausfall aufgrund von heruntergestufter Hardware vorhersagen und versucht, die Unterbrechung Ihres Diensts durch Planen einer Migration zu minimieren. Betroffene virtuelle Computer erhalten ein geplantes Ereignis mit einer `NotBefore`-Angabe, die in der Regel einige Tage in der Zukunft liegt. Der tatsächliche Zeitpunkt variiert je nach der vorhergesagten Risikobewertung des Ausfalls. Azure versucht, wenn möglich 7 Tage im Voraus zu benachrichtigen, aber der tatsächliche Zeitpunkt variiert und kann früher sein, wenn die Vorhersage lautet, dass eine hohe Wahrscheinlichkeit besteht, dass die Hardware bald ausfallen wird. Um das Risiko für Ihren Dienst zu verringern, falls vor der vom System initiierten Migration die Hardware ausfällt, empfehlen wir Ihnen, Ihren virtuellen Computer so bald wie möglich selbst erneut bereitzustellen.
+
+### <a name="polling-frequency"></a>Abrufhäufigkeit
+
+Sie können den Endpunkt beliebig häufig (oder selten) auf Updates abfragen. Je mehr Zeit zwischen den Anforderungen vergeht, desto mehr Zeit verlieren Sie möglicherweise für das Reagieren auf ein bevorstehendes Ereignis. Die meisten Ereignisse werden 5 bis 15 Minuten im Voraus angekündigt, manchmal bleibt jedoch nur ein Vorlauf von 30 Sekunden. Damit Sie so viel Zeit wie möglich haben, um Abhilfemaßnahmen zu ergreifen, empfiehlt es sich, den Dienst einmal pro Sekunde abzufragen.
 
 ### <a name="start-an-event"></a>Starten eines Ereignisses 
 

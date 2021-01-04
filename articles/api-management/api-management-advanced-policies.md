@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 01d50f6228d63801f62ae933a8367f842d89ef97
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 46bcdac41497eea91b5af0c512a7118e33d5d7c3
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071369"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638902"
 ---
 # <a name="api-management-advanced-policies"></a>API Management – Erweiterte Richtlinien
 
@@ -156,7 +156,7 @@ Mit der `forward-request`-Richtlinie wird die eingehende Anforderung an den Back
 ### <a name="policy-statement"></a>Richtlinienanweisung
 
 ```xml
-<forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" fail-on-error-status-code="false | true"/>
+<forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" buffer-response="true | false" fail-on-error-status-code="false | true"/>
 ```
 
 ### <a name="examples"></a>Beispiele
@@ -255,6 +255,7 @@ Bei dieser Richtlinie auf Vorgangsebene werden Anforderungen nicht an den Back-E
 | timeout="integer"                             | Die Zeitspanne in Sekunden, die darauf gewartet wird, dass der Back-End-Dienst die HTTP-Antwortheader zurückgibt. Danach wird ein Timeoutfehler ausgelöst. Der Mindestwert beträgt 0 Sekunden. Werte, die größer als 240 Sekunden sind, werden möglicherweise nicht berücksichtigt, weil die zugrunde liegende Netzwerkinfrastruktur Verbindungen im Leerlauf nach dieser Zeitspanne trennen kann. | Nein       | Keine    |
 | follow-redirects="false &#124; true"          | Gibt an, ob Umleitungen vom Back-End-Dienst vom Gateway verfolgt oder an den Aufrufer zurückgegeben werden.                                                                                                                                                                                                    | Nein       | false   |
 | buffer-request-body="false &#124; true"       | Bei Festlegung auf „true“ wird die Anforderung gepuffert und bei [Wiederholung](api-management-advanced-policies.md#Retry) wiederverwendet.                                                                                                                                                                                               | Nein       | false   |
+| buffer-response="false &#124; true" | Wirkt sich auf die Verarbeitung von segmentierten Antworten aus. Wenn der Wert auf „false“ festgelegt ist, wird jeder vom Back-End empfangene Block sofort an den Aufrufer zurückgegeben. Wenn „true“ festgelegt ist, werden Blöcke gepuffert (8 KB, solange das Ende des Datenstroms nicht erkannt wird) und nur dann an den Aufrufer zurückgegeben. | Nein | true |
 | fail-on-error-status-code="false &#124; true" | Wenn diese Einstellung auf „true“ festgelegt ist, wird der Abschnitt [on-error](api-management-error-handling-policies.md) für Antwortcodes im Bereich 400 bis 599 (jeweils einschließlich) ausgelöst.                                                                                                                                                                      | Nein       | false   |
 
 ### <a name="usage"></a>Verwendung

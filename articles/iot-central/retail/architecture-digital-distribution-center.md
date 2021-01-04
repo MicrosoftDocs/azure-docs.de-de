@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: b73d065b43aff5f9793e642a102ff8bb2a7be036
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b2e6993cd8dc77ccb9b43a3d5aef7b25fd9d7250
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81001139"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347114"
 ---
 # <a name="architecture-of-iot-central-digital-distribution-center-application-template"></a>Architektur der IoT Central-Anwendungsvorlage für digitale Verteilzentren
 
@@ -26,7 +26,7 @@ Partner und Kunden können die App-Vorlage nutzen und die unten angegebenen Anwe
 1. Ein Satz von IoT-Sensoren zum Senden von Telemetriedaten an ein Gatewaygerät
 2. Gatewaygeräte senden Telemetrie und aggregierte Erkenntnisse an IoT Central
 3. Daten werden zur Bearbeitung an den gewünschten Azure-Dienst geroutet
-4. Mithilfe von Azure-Diensten wie ASA oder Azure Functions können Datenströme neu formatiert und an die gewünschten Speicherkonten gesendet werden 
+4. Mithilfe von Azure-Diensten wie ASA oder Azure Functions können Datenströme neu formatiert und an die gewünschten Speicherkonten gesendet werden
 5. Verarbeitete Daten werden in der heißen Speicherebene für Aktionen in Quasi-Echtzeit oder in der kalten Zugriffsebene zur weiteren Erkenntnisverbesserung auf Grundlage von ML oder Batchanalyse gespeichert. 
 6. Logik-Apps können verwendet werden, um verschiedene Geschäftsworkflows in Endbenutzer-Geschäftsanwendungen zu unterstützen
 

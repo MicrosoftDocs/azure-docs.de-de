@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
-ms.openlocfilehash: 0710f2f31510ae299fafe89dc1798f40e325e8b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c7e4ff05307452da67c37b23bf492db8855e2ef
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192590"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004499"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Optimieren von Azure CDN für den Typ der Inhaltsbereitstellung
 
@@ -39,7 +39,7 @@ Profile für **Azure CDN Standard von Microsoft** unterstützen die folgenden Op
 * [Allgemeine Webbereitstellung](#general-web-delivery). Diese Optimierung wird auch für Medienstreaming und den Download großer Datei verwendet.
 
 > [!NOTE]
-> Beschleunigung dynamischer Websites von Microsoft wird über [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) angeboten.
+> Beschleunigung dynamischer Websites von Microsoft wird über [Azure Front Door Service](../frontdoor/front-door-overview.md) angeboten.
 
 Profile für **Azure CDN Standard von Verizon** und **Azure CDN Premium von Verizon** unterstützen die folgenden Optimierungen:
 
@@ -124,13 +124,10 @@ Weitere Informationen zur Optimierung für große Dateien finden Sie unter [Opti
  Die Beschleunigung dynamischer Websites (Dynamic Site Acceleration, DSA) steht bei Profilen für **Azure CDN Standard von Akamai**, **Azure CDN Standard von Verizon** und **Azure CDN Premium von Verizon** zur Verfügung. Die Verwendung dieser Optimierung ist mit zusätzlichen Kosten verbunden. Weitere Informationen finden Sie unter [Azure Content Delivery Network – Preise ](https://azure.microsoft.com/pricing/details/cdn/).
 
 > [!NOTE]
-> Die Beschleunigung dynamischer Websites wird über [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) angeboten. Dabei handelt es sich um einen globalen [Anycast](https://en.wikipedia.org/wiki/Anycast)-Dienst, der das private globale Netzwerk von Microsoft zum Übermitteln Ihrer Workloads nutzt.
+> Die Beschleunigung dynamischer Websites wird über [Azure Front Door Service](../frontdoor/front-door-overview.md) angeboten. Dabei handelt es sich um einen globalen [Anycast](https://en.wikipedia.org/wiki/Anycast)-Dienst, der das private globale Netzwerk von Microsoft zum Übermitteln Ihrer Workloads nutzt.
 
 DSA umfasst verschiedene Maßnahmen zur Verbesserung der Wartezeit und der Leistung dynamischer Inhalte. Hierzu zählen unter anderem Routen- und Netzwerkoptimierungen sowie TCP-Optimierungen. 
 
 Mit dieser Optimierung können Sie eine Web-App mit zahlreichen nicht zwischenspeicherbaren Antworten beschleunigen. Beispiele hierfür wären etwa Suchergebnisse, Auftragsabschlusstransaktionen oder Echtzeitdaten. Für statische Daten können Sie weiterhin die grundlegenden Azure CDN-Cachefunktionen verwenden. 
 
 Weitere Informationen zur Beschleunigung dynamischer Websites finden Sie unter [Beschleunigung dynamischer Websites durch Azure CDN](cdn-dynamic-site-acceleration.md).
-
-
-

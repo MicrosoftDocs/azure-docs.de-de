@@ -4,15 +4,15 @@ description: Beschreibt Azure HPC Cache, eine Dateizugriffsbeschleuniger-Lösung
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 09/03/2020
+ms.date: 11/23/2020
 ms.author: v-erkel
 ms.custom: references_regions
-ms.openlocfilehash: b51cd938747c1cfa82b397160f077474e176b2f5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0568d9b7fea2e4e048c0c1d1b2d6f81d64a9b114
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91612964"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519335"
 ---
 # <a name="what-is-azure-hpc-cache"></a>Was ist Azure HPC Cache?
 
@@ -64,6 +64,8 @@ Besuchen Sie die Seite [Globale Azure-Infrastruktur / Produkte nach Region](http
 * Europa, Westen
 * US Gov Arizona
 * US Government, Virginia
+
+Azure HPC Cache befindet sich in einer einzelnen Region. Der Dienst kann auf in anderen Regionen gespeicherte Daten zugreifen, wenn Sie ihn mit Blobcontainern verbinden, die sich dort befinden. Der Cache speichert keine Kundendaten dauerhaft.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

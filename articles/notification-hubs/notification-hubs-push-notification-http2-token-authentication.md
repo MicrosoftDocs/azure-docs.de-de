@@ -16,12 +16,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/13/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e8258aeef33be9192608f0d4cb29b46f08da64e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f8de6389a04448579672b84e91f0bb4dd0f4ce2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89010629"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460464"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Tokenbasierte Authentifizierung (HTTP/2) für APNS
 
@@ -78,7 +78,7 @@ Tokenbasierte Anmeldeinformationen bestehen aus den folgenden Feldern:
 
 * **Schlüssel-ID**: Der Bezeichner des privaten Schlüssels, der im Apple-Entwicklerportal generiert wurde, beispielsweise `2USFGKSKLT`.
 * **Team-ID**: Wird auch als „Präfix“ oder „App-Präfix“ bezeichnet. Dies ist der Bezeichner für die Organisation im Apple-Entwicklerportal, beispielsweise `S4V3D7CHJR`.
-* **Paket-ID**: Wird auch als „App-ID“ bezeichnet. Dies ist der Bündelbezeichner für die Anwendung, beispielsweise `com.example.myapp`. Beachten Sie, dass Sie einen Schlüssel für viele Apps verwenden können. Dieser Wert wird dem `apns-topic`-HTTP-Header zugeordnet, wenn eine Benachrichtigung gesendet wird, und wird verwendet, um auf die jeweilige Anwendung abzuzielen. Beachten Sie, dass der Wert von `apns-topic` nicht explizit festgelegt werden kann.
+* **Paket-ID**: Wird auch als „App-ID“ bezeichnet. Dies ist der Bündelbezeichner für die Anwendung, beispielsweise `com.example.myapp`. Beachten Sie, dass Sie nur einen Schlüssel für eine App verwenden können. Dieser Wert wird dem `apns-topic`-HTTP-Header zugeordnet, wenn eine Benachrichtigung gesendet wird, und wird verwendet, um auf die jeweilige Anwendung abzuzielen. Sie können den Wert von `apns-topic` nicht explizit festlegen.
 * **Token**: Wird auch als „Schlüssel“ oder „privater Schlüssel“ bezeichnet. Dies wird aus der im Apple-Entwicklerportal generierten P8-Datei abgerufen. Für den Schlüssel muss APNS aktiviert sein (Dies wird beim Generieren des Schlüssels im Apple-Entwicklerportal ausgewählt). Bei dem Wert müssen die PEM-Kopf-/Fußzeile entfernt werden, wenn Sie ihn für das NH-Portal/die API bereitstellen.
 * **Endpunkt**: Dies ist eine Umschaltfläche auf dem Blatt „Notification Hubs-Portal“ und ein Zeichenfolgenfeld in der API. Gültige Werte sind `https://api.development.push.apple.com:443/3/device` und `https://api.sandbox.push.apple.com:443/3/device`. Notification Hubs verwendet diesen Wert entweder für die Produktions- oder für die Sandbox-Umgebung zum Senden von Benachrichtigungen. Dies muss der `aps-environment`-Berechtigung in der App entsprechen. Andernfalls stimmen die generierten APNS-Gerätetoken nicht mit der Umgebung überein, und die Benachrichtigungen können nicht gesendet werden.
 

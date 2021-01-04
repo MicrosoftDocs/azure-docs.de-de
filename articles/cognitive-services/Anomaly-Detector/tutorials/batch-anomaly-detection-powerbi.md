@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: mbullwin
-ms.openlocfilehash: 887e7432151569eb07e3c9256c7f126e7f884d54
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a17301e0807877662ae1bf34ade48e90a1d30c0c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017623"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006199"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualisieren von Anomalien mithilfe von Batcherkennung und Power BI
 
@@ -119,7 +119,7 @@ Rufen Sie die Abfrage auf dem Datenblatt durch Auswahl von `Sheet1` unter **Para
 ## <a name="data-source-privacy-and-authentication"></a>Datenschutz und Authentifizierung für die Datenquelle
 
 > [!NOTE]
-> Beachten Sie die Richtlinien Ihres Unternehmens für den Schutz von Daten und den Zugriff darauf. Weitere Informationen finden Sie unter [Power BI Desktop – Datenschutzebenen](https://docs.microsoft.com/power-bi/desktop-privacy-levels).
+> Beachten Sie die Richtlinien Ihres Unternehmens für den Schutz von Daten und den Zugriff darauf. Weitere Informationen finden Sie unter [Power BI Desktop – Datenschutzebenen](/power-bi/desktop-privacy-levels).
 
 Sie erhalten möglicherweise eine Warnmeldung, wenn Sie versuchen, die Abfrage auszuführen, da sie eine externe Datenquelle verwendet.
 

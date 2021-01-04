@@ -10,17 +10,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: fe00d7f107911e2245041419c20f86e2e32a0480
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5e514602668c96d63562e45fb114cf9770a54a9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289258"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321496"
 ---
 # <a name="development-best-practices-for-synapse-sql"></a>Bewährte Methoden für die Entwicklung für Synapse SQL
+
 In diesem Artikel werden Anleitungen und bewährte Methoden für die Entwicklung Ihrer Data Warehouse-Lösung beschrieben. 
 
-## <a name="sql-pool-development-best-practices"></a>Bewährte Methoden für die SQL-Poolentwicklung
+## <a name="dedicated-sql-pool-development-best-practices"></a>Bewährte Methoden für die Entwicklung eines dedizierten SQL-Pools
 
 ### <a name="reduce-cost-with-pause-and-scale"></a>Reduzieren von Kosten durch das Pausieren und Skalieren
 
@@ -55,12 +56,12 @@ Unter den folgenden Links finden Sie weitere Details dazu, wie die Auswahl einer
 Siehe auch [Übersicht über Tabellen](develop-tables-overview.md), [Tabellenverteilung](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [Auswählen der Tabellenverteilung](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) und [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ### <a name="do-not-over-partition"></a>Vermeiden von übermäßiger Partitionierung
-Das Partitionieren von Daten kann für die Verwaltung Ihrer Daten durch Partitionswechsel oder die Optimierung von Scans durch eine Partitionsbeseitigung zwar effektiv sein, aber eine zu hohe Zahl von Partitionen kann Ihre Abfragen verlangsamen.  Oft funktioniert eine Partitionierungsstrategie mit zu hoher Granularität, die für SQL Server gut geeignet ist, bei einem SQL-Pool nicht gut.  
+Das Partitionieren von Daten kann für die Verwaltung Ihrer Daten durch Partitionswechsel oder die Optimierung von Scans durch eine Partitionsbeseitigung zwar effektiv sein, aber eine zu hohe Zahl von Partitionen kann Ihre Abfragen verlangsamen.  Oft funktioniert eine Partitionierungsstrategie mit hoher Granularität, die für SQL Server gut geeignet ist, bei einem dedizierten SQL-Pool nicht gut.  
 
 > [!NOTE]
-> Oft funktioniert eine Partitionierungsstrategie mit zu hoher Granularität, die für SQL Server gut geeignet ist, bei einem SQL-Pool nicht gut.  
+> Oft funktioniert eine Partitionierungsstrategie mit hoher Granularität, die für SQL Server gut geeignet ist, bei einem dedizierten SQL-Pool nicht gut.  
 
-Die Verwendung von zu vielen Partitionen kann auch die Effektivität von gruppierten Columnstore-Indizes reduzieren, wenn jede Partition weniger als 1 Million Zeilen enthält. Der SQL-Pool partitioniert Ihre Daten für Sie in 60 Datenbanken. 
+Die Verwendung von zu vielen Partitionen kann auch die Effektivität von gruppierten Columnstore-Indizes reduzieren, wenn jede Partition weniger als 1 Million Zeilen enthält. Der dedizierte SQL-Pool partitioniert Ihre Daten automatisch in 60 Datenbanken. 
 
 Wenn Sie also eine Tabelle mit 100 Partitionen erstellen, wird das Ergebnis 6000 Partitionen sein.  Jede Workload ist anders, sodass es ratsam ist, mit der Partitionierung zu experimentieren. So können Sie ermitteln, was für Ihre Workload am besten funktioniert.  
 
@@ -95,7 +96,7 @@ Siehe auch: [Übersicht über Tabellen](develop-tables-overview.md), [Tabellenda
 
 ### <a name="optimize-clustered-columnstore-tables"></a>Optimieren von gruppierten Columnstore-Tabellen
 
-Gruppierte Columnstore-Indizes sind eine der effizientesten Möglichkeiten zum Speichern Ihrer Daten in einem SQL-Pool.  Tabellen werden in SQL-Pools standardmäßig als gruppierter Columnstore erstellt.  
+Gruppierte Columnstore-Indizes sind eine der effizientesten Möglichkeiten zum Speichern Ihrer Daten in einem dedizierten SQL-Pool.  Tabellen werden in einem dedizierten SQL-Pool standardmäßig als gruppierter Columnstore erstellt.  
 
 Die Verwendung einer guten Segmentqualität ist wichtig, um für Abfragen in Columnstore-Tabellen die beste Leistung zu erzielen.  Wenn Zeilen bei hohem Arbeitsspeicherdruck in Columnstore-Tabellen geschrieben werden, kann die Qualität von Columnstore-Segmenten leiden.  
 
@@ -103,7 +104,7 @@ Die Segmentqualität kann anhand der Anzahl an Zeilen in einer komprimierten Zei
 
 Weil qualitativ hochwertige Columnstore-Segmente wichtig sind, ist es eine gute Idee, Benutzer-IDs, die zur mittleren oder großen Ressourcenklasse gehören, zum Laden von Daten zu verwenden. Wenn Sie [Data Warehouse-Einheiten](resource-consumption-models.md) auf niedrigerer Ebene verwenden, sollten Sie dem ladenden Benutzer eine größere Ressourcenklasse zuweisen.
 
-Da Columnstore-Tabellen Daten generell erst dann in ein komprimiertes Columnstore-Segment übertragen, wenn eine Tabelle mehr als eine Million Zeilen hat und jede SQL-Pool-Tabelle in 60 Tabellen partitioniert ist, empfiehlt sich Folgendes: Columnstore-Tabellen stellen für eine Abfrage nur dann einen Vorteil dar, wenn die Tabelle mehr als 60 Millionen Zeilen hat.  
+Da Columnstore-Tabellen Daten generell erst dann in ein komprimiertes Columnstore-Segment übertragen, wenn eine Tabelle mehr als eine Million Zeilen hat und jede dedizierte SQL-Pool-Tabelle in 60 Tabellen partitioniert ist, empfiehlt sich Folgendes: Columnstore-Tabellen stellen für eine Abfrage nur dann einen Vorteil dar, wenn die Tabelle mehr als 60 Millionen Zeilen hat.  
 
 > [!TIP]
 > Bei Tabellen mit weniger als 60 Millionen Zeilen ist ein Columnstore-Index möglicherweise nicht die optimale Lösung.  
@@ -116,23 +117,23 @@ Beim Abfragen einer Columnstore-Tabelle werden die Abfragen schneller ausgeführ
 
 Siehe auch: [Tabellenindizes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [Beschreibung von Columnstore-Indizes](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [Neuerstellen von Columnstore-Indizes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#rebuilding-indexes-to-improve-segment-quality).
 
-## <a name="sql-on-demand-development-best-practices"></a>Bewährte Methoden für die SQL On-Demand-Entwicklung
+## <a name="serverless-sql-pool-development-best-practices"></a>Bewährte Methoden für die Entwicklung eines serverlosen SQL-Pools
 
 ### <a name="general-considerations"></a>Allgemeine Hinweise
 
-SQL On-Demand ermöglicht es Ihnen, Dateien in Ihren Azure-Speicherkonten abzufragen. Es verfügt nicht über lokale Speicher- oder Erfassungsfunktionen, was bedeutet, dass alle Dateien, auf die die Abfrageziele ausgerichtet sind, extern zu SQL On-Demand sind. Alles, was mit dem Lesen von Dateien aus dem Speicher zusammenhängt, kann sich auf die Abfrageleistung auswirken.
+Ein serverloser SQL-Pool ermöglicht es Ihnen, Dateien in Ihren Azure-Speicherkonten abzufragen. Er hat keine lokalen Speicher- oder Erfassungsfunktionen, was bedeutet, dass alle Dateien, auf die die Abfrageziele ausgerichtet sind, für den serverlosen SQL-Pool extern sind. Alles, was mit dem Lesen von Dateien aus dem Speicher zusammenhängt, kann sich auf die Abfrageleistung auswirken.
 
-### <a name="colocate-azure-storage-account-and-sql-on-demand"></a>Zusammenstellen von Azure-Speicherkonto und SQL On-Demand
+### <a name="colocate-azure-storage-account-and-serverless-sql-pool"></a>Zusammenstellen eines Azure Storage-Kontos und eines serverlosen SQL-Pools
 
-Stellen Sie Ihr Azure-Speicherkonto und Ihren SQL-On-Demand-Endpunkt zusammen, um die Wartezeit zu minimieren. Speicherkonten und Endpunkte, die während der Einrichtung des Arbeitsbereichs bereitgestellt werden, befinden sich in derselben Region.
+Stellen Sie Ihr Azure-Speicherkonto und den Endpunkt Ihres serverlosen SQL-Pools zusammen, um die Wartezeit zu minimieren. Speicherkonten und Endpunkte, die während der Einrichtung des Arbeitsbereichs bereitgestellt werden, befinden sich in derselben Region.
 
-Wenn Sie mit SQL On-Demand auf andere Speicherkonten zugreifen, stellen Sie für eine optimale Leistung sicher, dass sich diese in derselben Region befinden. Andernfalls erhöht sich die Wartezeit für die Netzwerkübertragung der Daten von der Remoteregion zur Region des Endpunkts.
+Wenn Sie mit einem serverlosen SQL-Pool auf andere Speicherkonten zugreifen, stellen Sie für eine optimale Leistung sicher, dass sie sich in derselben Region befinden. Andernfalls erhöht sich die Wartezeit für die Netzwerkübertragung der Daten von der Remoteregion zur Region des Endpunkts.
 
 ### <a name="azure-storage-throttling"></a>Azure Storage-Drosselung
 
-Mehrere Anwendungen und Dienste können auf Ihr Speicherkonto zugreifen. Wenn der von Anwendungen, Diensten und SQL On-Demand-Workloads generierte kombinierte IOPS oder Durchsatz die Grenzen des Speicherkontos überschreitet, tritt die Speicherdrosselung auf. Wenn die Speicherdrosselung auftritt, wirkt sich dies erheblich negativ auf die Abfrageleistung aus.
+Mehrere Anwendungen und Dienste können auf Ihr Speicherkonto zugreifen. Wenn der von Anwendungen, Diensten und der Workload eines serverlosen SQL+-Pools generierte kombinierte IOPS oder Durchsatz die Grenzen des Speicherkontos überschreitet, tritt die Speicherdrosselung auf. Wenn die Speicherdrosselung auftritt, wirkt sich dies erheblich negativ auf die Abfrageleistung aus.
 
-Sobald eine Drosselung erkannt wird, verfügt SQL On-Demand über eine integrierte Behandlung dieses Szenarios. Bei SQL On-Demand werden Anforderungen an den Speicher langsamer ausgeführt, bis die Drosselung behoben ist. 
+Sobald eine Drosselung erkannt wird, verfügt der serverlose SQL-Pool über eine integrierte Behandlung dieses Szenarios. Beim serverlosen SQL-Pool werden Anforderungen an den Speicher langsamer ausgeführt, bis die Drosselung behoben ist. 
 
 Für eine optimale Abfrageausführung wird jedoch empfohlen, das Speicherkonto während der Abfrageausführung nicht mit anderen Workloads zu belasten.
 
@@ -140,7 +141,7 @@ Für eine optimale Abfrageausführung wird jedoch empfohlen, das Speicherkonto w
 
 Wenn möglich, können Sie Dateien für eine bessere Leistung vorbereiten:
 
-- Konvertieren Sie das CSV- in das Parquet-Format – Parquet ist ein Spaltenformat. Da es komprimiert ist, weist es kleinere Dateigrößen als CSV-Dateien mit denselben Daten auf, und SQL On-Demand benötigt weniger Zeit und Speicheranforderungen, um es zu lesen.
+- Konvertieren Sie das CSV- in das Parquet-Format – Parquet ist ein Spaltenformat. Da es komprimiert ist, sind seine Dateien kleiner als CSV-Dateien mit denselben Daten, und ein serverloser SQL-Pool benötigt weniger Zeit und Speicheranforderungen, um es zu lesen.
 - Wenn eine Abfrage auf eine einzelne große Datei ausgerichtet ist, lohnt es sich, diese in mehrere kleinere Dateien aufzuteilen.
 - Versuchen Sie, die Größe Ihrer CSV-Datei unter 10 GB zu halten.
 - Es wird bevorzugt, gleich große Dateien für einen einzelnen OPENROWSET-Pfad oder einen Speicherort für die Tabelle zu verwenden.
@@ -148,17 +149,17 @@ Wenn möglich, können Sie Dateien für eine bessere Leistung vorbereiten:
 
 ### <a name="use-fileinfo-and-filepath-functions-to-target-specific-partitions"></a>Verwenden von Dateiinfo- und Dateipfadfunktionen zum Ausrichten auf bestimmte Partitionen
 
-Daten sind oft in Partitionen organisiert. Sie können SQL On-Demand anweisen, bestimmte Ordner und Dateien abzufragen. Dies reduziert die Anzahl der Dateien und die Datenmenge, die die Abfrage zum Lesen und Verarbeiten benötigt. 
+Daten sind oft in Partitionen organisiert. Sie können den serverlosen SQL-Pool anweisen, bestimmte Ordner und Dateien abzufragen. Dies reduziert die Anzahl der Dateien und die Datenmenge, die die Abfrage zum Lesen und Verarbeiten benötigt. 
 
 Folglich erzielen Sie eine bessere Leistung. Weitere Informationen finden Sie unter [Dateinamen](query-data-storage.md#filename-function)- und [Dateipfad](query-data-storage.md#filepath-function)-Funktionen und in den Beispielen für das [Abfragen bestimmter Dateien](query-specific-files.md).
 
 Wenn Ihre gespeicherten Daten nicht partitioniert sind, sollten Sie eine Partitionierung in Erwägung ziehen, damit Sie diese Funktionen verwenden können, um Abfragen zu optimieren, die auf diese Dateien ausgerichtet sind.
 
-Bei der [Abfrage partitionierter externer Apache Spark für Azure Synapse-Tabellen](develop-storage-files-spark-tables.md) in SQL On-Demand ist die Abfrage automatisch nur auf die erforderlichen Dateien ausgerichtet.
+Bei der [Abfrage partitionierter externer Apache Spark für Azure Synapse-Tabellen](develop-storage-files-spark-tables.md) aus einem serverlosen SQL-Pool wird die Abfrage automatisch nur auf die erforderlichen Dateien ausgerichtet.
 
 ### <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Verwenden von CETAS zum Verbessern von Abfrageleistung und Verknüpfungen
 
-[CETAS](develop-tables-cetas.md) ist eine der wichtigsten Funktionen, die in SQL On-Demand verfügbar sind. CETAS ist ein paralleler Vorgang, der externe Tabellenmetadaten erstellt und die Ergebnisse der SELECT-Abfrage in eine Reihe von Dateien in Ihrem Speicherkonto exportiert.
+[CETAS](develop-tables-cetas.md) ist eine der wichtigsten Funktionen, die in einem serverlosen SQL-Pool verfügbar sind. CETAS ist ein paralleler Vorgang, der externe Tabellenmetadaten erstellt und die Ergebnisse der SELECT-Abfrage in eine Reihe von Dateien in Ihrem Speicherkonto exportiert.
 
 Sie können CETAS verwenden, um häufig verwendete Teile von Abfragen, z. B. verknüpfte Verweistabellen, zu einem neuen Satz von Dateien zu speichern. Später können Sie eine Verknüpfung zu dieser einzelnen externen Tabelle herstellen, anstatt gemeinsame Verknüpfungen in mehreren Abfragen zu wiederholen. 
 
@@ -166,7 +167,7 @@ Da CETAS Parquet-Dateien generiert, werden Statistiken automatisch erstellt, wen
 
 ### <a name="next-steps"></a>Nächste Schritte
 
-Wenn Sie Informationen benötigen, die in diesem Artikel nicht enthalten sind, verwenden Sie die Funktion **Nach Dokumenten suchen** auf der linken Seite dieser Seite, um alle SQL-Pooldokumente zu durchsuchen.  Auf der [Frageseite von Microsoft Q&A (Fragen und Antworten) für SQL-Pool ](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) können Sie anderen Benutzern und der Produktgruppe „SQL-Pool“ Fragen stellen.  
+Wenn Sie Informationen benötigen, die in diesem Artikel nicht enthalten sind, verwenden Sie die Funktion **Nach Dokumenten suchen** auf der linken Seite dieser Seite, um alle SQL-Pooldokumente zu durchsuchen.  Auf der [Frageseite von Microsoft Q&A (Fragen und Antworten) für Azure Synapse Analytics](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) können Sie anderen Benutzern und der Azure Synapse Analytics-Produktgruppe Fragen stellen. Wir überwachen dieses Forum aktiv, um sicherzustellen, dass Ihre Frage entweder von einem anderen Benutzer oder einem Mitarbeiter beantwortet wird.  
 
-Wir überwachen dieses Forum aktiv, um sicherzustellen, dass Ihre Frage entweder von einem anderen Benutzer oder einem Mitarbeiter beantwortet wird.  Falls Sie Ihre Fragen lieber über Stack Overflow stellen möchten, können Sie dazu auch das [Stack Overflow-Forum für Azure SQL-Pool](https://stackoverflow.com/questions/tagged/azure-sqldw) nutzen.
+Falls Sie Ihre Fragen lieber über Stack Overflow stellen möchten, können Sie dazu auch das [Stack Overflow-Forum für Azure Synapse Analytics](https://stackoverflow.com/questions/tagged/azure-sqldw) nutzen.
  

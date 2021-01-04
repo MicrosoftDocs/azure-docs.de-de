@@ -663,6 +663,8 @@
                   href: service-fabric-cluster-creation-via-portal.md
                 - name: Bereitstellen eines Azure Service Fabric-Clusters über Verfügbarkeitszonen hinweg
                   href: service-fabric-cross-availability-zones.md
+                - name: Bereitstellen eines Azure Service Fabric-Clusters mit zustandslosen Knotentypen
+                  href: service-fabric-stateless-node-types.md
                 - name: Einrichten der Azure Active Directory-Authentifizierung
                   href: service-fabric-cluster-creation-setup-aad.md
                 - name: Erstellen einer benutzerdefinierten Clustervorlage
@@ -797,6 +799,8 @@
               href: configure-existing-cluster-enable-managed-identity-token-service.md
             - name: Konfigurieren eines neuen Azure Service Fabric-Clusters mit verwalteter Identität
               href: configure-new-azure-service-fabric-enable-managed-identity.md
+            - name: "Konfigurieren eines verwalteten Service\_Fabric-Clusters mit verwalteter Identität"
+              href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
         - name: Anwendungseinrichtung
           items:
             - name: Bereitstellen einer Anwendung mit verwalteter Identität

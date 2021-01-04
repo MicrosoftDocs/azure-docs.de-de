@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/12/2020
 ms.reviewer: jeking
-ms.openlocfilehash: 482d703689ca6cfc34dd5d78574ae52e4def2b1f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e289bea6b1a23f1622ced62656164d9865303298
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86109772"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912823"
 ---
 # <a name="quickstart-analyze-data-with-databricks"></a>Schnellstart: Analysieren von Daten mit Databricks
 
@@ -23,7 +23,7 @@ In dieser Schnellstartanleitung führen Sie über Azure Databricks einen Apache 
 
 * Ein Azure-Konto mit einem aktiven Abonnement. Sie können [kostenlos ein Konto erstellen](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* Der Name Ihres Azure Data Lake Gen2-Speicherkontos. [Erstellen Sie ein Azure Data Lake Storage Gen2-Speicherkonto](data-lake-storage-quickstart-create-account.md).
+* Ein Speicherkonto, für das hierarchische Namespaces aktiviert sind. Unter [Erstellen eines Speicherkontos für die Verwendung mit Azure Data Lake Storage Gen2](create-data-lake-storage-account.md) erfahren Sie, wie eines erstellt wird.
 
 * Die Mandanten-ID, die App-ID und das Kennwort eines Azure-Dienstprinzipals mit der zugewiesenen Rolle **Mitwirkender an Storage-Blobdaten**. [Erstellen Sie einen Dienstprinzipal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -86,7 +86,7 @@ In diesem Abschnitt erstellen Sie ein Notizbuch im Azure Databricks-Arbeitsberei
 
 2. Klicken Sie im linken Bereich auf **Arbeitsbereich**. Wählen Sie in der Dropdownliste **Arbeitsbereich** die Option **Erstellen** > **Notebook** aus.
 
-    ![Erstellen eines Notebooks in Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Erstellen eines Notebooks in Databricks")
+    ![Der Screenshot zeigt, wie ein Notebook in Databricks erstellt wird und hebt die Menüoption „Erstellen > Notebook“ hervor.](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Erstellen eines Notebooks in Databricks")
 
 3. Geben Sie im Dialogfeld **Notizbuch erstellen** einen Namen für das Notebook ein. Wählen Sie **Scala** als Sprache und anschließend den zuvor erstellten Spark-Cluster aus.
 
@@ -121,7 +121,7 @@ Geben Sie den folgenden Code in eine Zelle des Notebooks ein:
 %sh wget -P /tmp https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
 ```
 
-Drücken Sie in der Zelle**UMSCHALT+EINGABE**, um den Code auszuführen.
+Drücken Sie in der Zelle **UMSCHALT+EINGABE**, um den Code auszuführen.
 
 Geben Sie als Nächstes in einer darunterliegenden Zelle den folgenden Code ein, und ersetzen Sie dabei die in Klammern angegebenen Werte durch die zuvor verwendeten Werte:
 
@@ -129,7 +129,7 @@ Geben Sie als Nächstes in einer darunterliegenden Zelle den folgenden Code ein,
 dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/")
 ```
 
-Drücken Sie in der Zelle**UMSCHALT+EINGABE**, um den Code auszuführen.
+Drücken Sie in der Zelle **UMSCHALT+EINGABE**, um den Code auszuführen.
 
 ## <a name="run-a-spark-sql-job"></a>Ausführen eines Spark SQL-Auftrags
 
@@ -170,7 +170,7 @@ Führen Sie die folgenden Aufgaben aus, um einen Spark SQL-Auftrag für die Date
 
 5. Platzieren Sie per Drag & Drop Werte in **Customize Plot** (Zeichnung anpassen), wie im folgenden Screenshot zu sehen.
 
-    ![Anpassen eines Balkendiagramms](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-customize-plot.png "Anpassen eines Balkendiagramms")
+    ![Der Screenshot zeigt den Bildschirm „Customize Plot“ (Zeichnung anpassen) und die Werte, die Sie per Drag & Drop anpassen können.](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-customize-plot.png "Anpassen eines Balkendiagramms")
 
     - Legen Sie **Schlüssel** auf **gender** fest.
     - Legen Sie **Series groupings** (Reihengruppierungen) auf **level** fest.
@@ -198,7 +198,7 @@ In diesem Artikel haben Sie einen Spark-Cluster in Azure Databricks erstellt und
 Im nächsten Artikel erfahren Sie, wie Sie unter Verwendung von Azure Databricks einen ETL-Vorgang zum Extrahieren, Transformieren und Laden von Daten ausführen.
 
 > [!div class="nextstepaction"]
->[Extrahieren, Transformieren und Laden von Daten mithilfe von Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md)
+>[Extrahieren, Transformieren und Laden von Daten mithilfe von Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse)
 
 - Unter [Projektmappen-Explorer](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) erfahren Sie, wie Sie Daten aus anderen Datenquellen in Azure Databricks importieren.
 

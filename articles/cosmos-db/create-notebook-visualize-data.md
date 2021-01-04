@@ -4,17 +4,19 @@ description: 'Tutorial: Erfahren Sie, wie Sie mithilfe von integrierten Jupyter-
 author: deborahc
 ms.topic: tutorial
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 9b2ef5ddb56e3d0422a2a876993ddda0bd97e4ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e16a738264e64e37cfa42722832dac7e34fee899
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85961097"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339494"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Tutorial: Erstellen eines Notebooks in Azure Cosmos DB zum Analysieren und Visualisieren der Daten
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In diesem Artikel wird beschrieben, wie Sie integrierte Jupyter-Notebooks verwenden, um Beispieldaten für den Einzelhandel in Azure Cosmos DB zu importieren. Sie erfahren, wie Sie die Magic-Befehle von SQL und Azure Cosmos DB verwenden, um Abfragen auszuführen, die Daten zu analysieren und die Ergebnisse zu visualisieren.
 
@@ -28,7 +30,7 @@ In diesem Abschnitt erstellen Sie die Azure Cosmos-Datenbank sowie den Container
 
 1. Navigieren Sie zu Ihrem Azure Cosmos-Konto, und öffnen Sie den **Daten-Explorer**.
 
-1. Wechseln Sie zur Registerkarte **Notebooks**, wählen Sie `…` neben **Meine Notebooks** aus, und erstellen Sie ein **neues Notebook**. Wählen Sie **Python 3** als Standardkernel aus.
+1. Wechseln Sie zur Registerkarte **Notebooks** , wählen Sie `…` neben **Meine Notebooks** aus, und erstellen Sie ein **neues Notebook**. Wählen Sie **Python 3** als Standardkernel aus.
 
    :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="Erstellen eines neuen Notebooks":::
 
@@ -49,7 +51,7 @@ In diesem Abschnitt erstellen Sie die Azure Cosmos-Datenbank sowie den Container
 
    Wählen Sie zum Ausführen einer Zelle `Shift + Enter` aus, oder markieren Sie die Zelle, und wählen Sie in der Navigationsleiste des Daten-Explorers die Option zum **Ausführen der aktiven Zelle**.
 
-   :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="Erstellen eines neuen Notebooks":::
+   :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="Ausführen der aktiven Zelle":::
 
    Die Datenbank und der Container werden in Ihrem aktuellen Azure Cosmos-Konto erstellt. Der Container wird mit 400 RU/s bereitgestellt. Nachdem die Datenbank und der Container erstellt wurden, wird die folgende Ausgabe angezeigt. 
 
@@ -60,7 +62,23 @@ In diesem Abschnitt erstellen Sie die Azure Cosmos-Datenbank sowie den Container
 
    Sie können auch die Registerkarte **Daten** aktualisieren und die neu erstellten Ressourcen anzeigen:
 
-   :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="Erstellen eines neuen Notebooks"
+   :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="Aktualisieren der Registerkarte „Daten“ zum Anzeigen des neuen Containers":::
+
+1. Als nächstes importieren Sie die Beispieldaten für den Einzelhandel in den Azure Cosmos-Container. Hier sehen Sie das Format eines Elements aus den Einzelhandelsdaten:
+
+   ```json
+    {
+       "CartID":5399,
+       "Action":"Viewed",
+       "Item":"Cosmos T-shirt",
+       "Price":350,
+       "UserName":"Demo.User10",
+       "Country":"Iceland",
+       "EventDate":"2015-06-25T00:00:00",
+       "Year":2015,"Latitude":-66.8673,
+       "Longitude":-29.8214,
+       "Address":"852 Modesto Loop, Port Ola, Iceland",
+       "id":"00ffd39c-7e98-4451-9b91-b2bcf2f9a32d"
     }
    ```
 
@@ -119,7 +137,7 @@ Führen Sie in einer neuen Notebookzelle den folgenden Code aus, um die ersten 1
 df_cosmos.head(10)
 ```
 
-:::image type="content" source="./media/create-notebook-visualize-data/run-query-get-top10-items.png" alt-text="Erstellen eines neuen Notebooks":::
+:::image type="content" source="./media/create-notebook-visualize-data/run-query-get-top10-items.png" alt-text="Ausführen der Abfrage, um die ersten 10 Elemente zu erhalten":::
 
 ## <a name="run-queries-and-analyze-your-data"></a>Ausführen von Abfragen und Analysieren der Daten
 
@@ -132,7 +150,7 @@ In diesem Abschnitt führen Sie einige Abfragen für die abgerufenen Daten aus.
    display(df_revenue.head(5))
    ```
 
-   :::image type="content" source="./media/create-notebook-visualize-data/total-sales-revenue-output.png" alt-text="Erstellen eines neuen Notebooks":::
+   :::image type="content" source="./media/create-notebook-visualize-data/total-sales-revenue-output.png" alt-text="Ausgabe: Summe der Gesamtumsätze":::
 
 * **Abfrage 2:** Öffnen Sie eine neue Notebookzelle, und führen Sie den folgenden Code aus, um eine Liste der fünf meistgekauften Elemente zu erhalten:
 
@@ -143,7 +161,7 @@ In diesem Abschnitt führen Sie einige Abfragen für die abgerufenen Daten aus.
    pd.DataFrame(df_cosmos[df_cosmos['Action']=='Purchased'].groupby('Item').size().sort_values(ascending=False).head(5), columns=['Count'])
    ```
 
-   :::image type="content" source="./media/create-notebook-visualize-data/top5-purchased-items.png" alt-text="Erstellen eines neuen Notebooks":::
+   :::image type="content" source="./media/create-notebook-visualize-data/top5-purchased-items.png" alt-text="Fünf meistgekaufte Artikel":::
 
 ## <a name="visualize-your-data"></a>Visualisieren Ihrer Daten  
 
@@ -219,7 +237,7 @@ In diesem Abschnitt führen Sie einige Abfragen für die abgerufenen Daten aus.
 
    In der Ausgabe wird die Weltkarte mit unterschiedlichen Farben angezeigt. Die von dunkel nach hell verlaufenden Farben stellen die Länder/Regionen mit dem höchsten bzw. niedrigsten Umsatz dar.
 
-   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="Erstellen eines neuen Notebooks":::
+   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="Visualisierung des Umsatzes nach Ländern/Regionen auf einer Karte":::
 
 1. Sehen wir uns einen weiteren Fall der Datenvisualisierung an. Der Container „WebsiteData“ enthält einen Verlauf der Benutzer, die ein Element angezeigt, zum ihrem Warenkorb hinzugefügt und gekauft haben. Wir stellen die Konvertierungsrate der erworbenen Elemente als Plot dar. Führen Sie den folgenden Code in einer neuen Zelle aus, um die Konvertierungsrate der einzelnen Elemente zu visualisieren:
 
@@ -270,7 +288,7 @@ In diesem Abschnitt führen Sie einige Abfragen für die abgerufenen Daten aus.
    show(p)
    ```
 
-   :::image type="content" source="./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png" alt-text="Erstellen eines neuen Notebooks":::
+   :::image type="content" source="./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png" alt-text="Visualisierung der Kaufkonvertierungsrate":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 

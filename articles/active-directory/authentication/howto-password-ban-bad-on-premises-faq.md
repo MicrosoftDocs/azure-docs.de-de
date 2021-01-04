@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2f24eb64a5418a9963fd58611314ccbc6b72ec4
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6d5517afe7407da7428d4a83f3d2de67836280c7
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968462"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741897"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Häufig gestellte Fragen zum Azure AD-Kennwortschutz in lokalen Umgebungen
 
@@ -32,9 +32,9 @@ Die aktuelle Anleitung von Microsoft zu diesem Thema finden Sie unter folgendem 
 
 **F: Wird der lokale Azure AD-Kennwortschutz in nicht öffentlichen Clouds unterstützt?**
 
-Nein. Der lokale Azure AD-Kennwortschutz wird nur in der öffentlichen Cloud unterstützt. Für die Verfügbarkeit in der nicht öffentlichen Cloud wurde kein Datum angekündigt.
+Der lokale Azure AD-Kennwortschutz wird in der öffentlichen Cloud und in der Arlington-Cloud unterstützt. Für die Verfügbarkeit in anderen Clouds wurde kein Datum angekündigt.
 
-Das Azure AD-Portal ermöglicht die Änderung der lokalen Konfiguration des „Kennwortschutzes für Windows Server Active Directory“ auch in nicht öffentlichen Clouds. Diese Änderungen werden beibehalten, werden aber andernfalls nie wirksam. Die Registrierung von lokalen Proxy-Agents oder Gesamtstrukturen wird bei Verwendung von Anmeldeinformationen nicht öffentlicher Clouds nicht unterstützt, und bei solchen Registrierungsversuchen tritt immer ein Fehler auf.
+Das Azure AD-Portal ermöglicht die Änderung der lokalen Konfiguration des „Kennwortschutzes für Windows Server Active Directory“ auch in nicht unterstützten Clouds. Diese Änderungen werden beibehalten, werden aber andernfalls nie wirksam. Die Registrierung von lokalen Proxy-Agents oder Gesamtstrukturen wird für nicht unterstützte Clouds nicht unterstützt, und bei solchen Registrierungsversuchen tritt immer ein Fehler auf.
 
 **F: Wie kann ich die Vorteile des Azure AD-Kennwortschutzes auf eine Untergruppe meiner lokalen Benutzer anwenden?**
 

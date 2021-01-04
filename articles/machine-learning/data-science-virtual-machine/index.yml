@@ -11,12 +11,12 @@ metadata:
   author: gvashishtha
   ms.author: gopalv
   ms.date: 09/13/2019
-  ms.openlocfilehash: 816a82095c84c7991d5d68b08d479c629d10f07a
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 6cce3a1c8ec5c330c84009a8c20cbddd769b129c
+  ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "87431906"
+  ms.lasthandoff: 11/20/2020
+  ms.locfileid: "94985772"
 landingContent:
 - title: Erste Schritte mit Data Science Virtual Machine
   linkLists:
@@ -53,6 +53,6 @@ landingContent:
   - linkListType: learn
     links:
     - text: Azure Machine Learning-Computeinstanz
-      url: /azure/machine-learning/concept-compute-instance
+      url: ../concept-compute-instance.md
     - text: Vergleichen unserer ML-Produkte
-      url: https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
+      url: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=%2fazure%2fmachine-learning%2fstudio%2fcontext%2fml-context

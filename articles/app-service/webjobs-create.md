@@ -8,12 +8,12 @@ ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 235d82e54c79350f110ab0cda4f4b672e396c61d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2743efa5a9067f0667d54be0b7df75a627e60fcd
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652005"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674042"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Ausführen von Hintergrundaufgaben mit WebJobs in Azure App Service
 
@@ -61,6 +61,9 @@ Several steps in the three "Create..." sections are identical;
 when making changes in one don't forget the other two.
 -->
 
+> [!IMPORTANT]
+> Wenn Sie die Quellcodeverwaltung mit Ihrer Anwendung konfiguriert haben, sollten die Webaufträge im Rahmen der Integration der Quellcodeverwaltung bereitgestellt werden. Sobald die Quellcodeverwaltung mit Ihrer Anwendung konfiguriert wurde, kann ein Webauftrag nicht über das Azure-Portal hinzugefügt werden.
+
 1. Navigieren Sie im [Azure-Portal](https://portal.azure.com) zur Seite **App Service** Ihrer Web-App, API-App oder mobilen App von App Service.
 
 2. Wählen Sie **WebJobs** aus.
@@ -75,10 +78,10 @@ when making changes in one don't forget the other two.
 
    ![Screenshot, der die Einstellungen von „WebJob hinzufügen“ zeigt, die Sie konfigurieren müssen.](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
-   | Einstellung      | Beispielwert   | BESCHREIBUNG  |
+   | Einstellung      | Beispielwert   | BESCHREIBUNG  |
    | ------------ | ----------------- | ------------ |
    | **Name** | myContinuousWebJob | Ein Name, der innerhalb einer App Service-App eindeutig ist. Muss mit einem Buchstaben oder einer Ziffer beginnen und darf nur die Sonderzeichen „-“ und „_“ enthalten. |
-   | **Dateiupload** | ConsoleApp.zip | Eine *ZIP*-Datei, die die ausführbare Datei oder Skriptdatei sowie für die Ausführung des Programms oder Skripts erforderliche Hilfsdateien enthält. Die unterstützten Typen von ausführbarer Datei oder Skriptdatei werden im Abschnitt [Unterstützte Dateitypen](#acceptablefiles) aufgeführt. |
+   | **Dateiupload** | ConsoleApp.zip | Eine *ZIP* -Datei, die die ausführbare Datei oder Skriptdatei sowie für die Ausführung des Programms oder Skripts erforderliche Hilfsdateien enthält. Die unterstützten Typen von ausführbarer Datei oder Skriptdatei werden im Abschnitt [Unterstützte Dateitypen](#acceptablefiles) aufgeführt. |
    | **Typ** | Fortlaufend | Die [WebJob-Typen](#webjob-types) werden weiter oben in diesem Artikel beschrieben. |
    | **Skalieren** | Mehrere Instanzen | Diese Option ist nur für fortlaufende WebJobs verfügbar. Legt fest, ob das Programm oder Skript auf allen Instanzen oder nur einer Instanz ausgeführt wird. Die Option zum Ausführen auf mehreren Instanzen gilt nicht für die [Tarife](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) „Free“ oder „Shared“. | 
 
@@ -113,10 +116,10 @@ when making changes in one don't forget the other two.
 
    ![Screenshot, der die Einstellungen zeigt, die für das Erstellen eines manuell ausgelösten WebJobs konfiguriert werden müssen.](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
-   | Einstellung      | Beispielwert   | BESCHREIBUNG  |
+   | Einstellung      | Beispielwert   | BESCHREIBUNG  |
    | ------------ | ----------------- | ------------ |
    | **Name** | myTriggeredWebJob | Ein Name, der innerhalb einer App Service-App eindeutig ist. Muss mit einem Buchstaben oder einer Ziffer beginnen und darf nur die Sonderzeichen „-“ und „_“ enthalten.|
-   | **Dateiupload** | ConsoleApp.zip | Eine *ZIP*-Datei, die die ausführbare Datei oder Skriptdatei sowie für die Ausführung des Programms oder Skripts erforderliche Hilfsdateien enthält. Die unterstützten Typen von ausführbarer Datei oder Skriptdatei werden im Abschnitt [Unterstützte Dateitypen](#acceptablefiles) aufgeführt. |
+   | **Dateiupload** | ConsoleApp.zip | Eine *ZIP* -Datei, die die ausführbare Datei oder Skriptdatei sowie für die Ausführung des Programms oder Skripts erforderliche Hilfsdateien enthält. Die unterstützten Typen von ausführbarer Datei oder Skriptdatei werden im Abschnitt [Unterstützte Dateitypen](#acceptablefiles) aufgeführt. |
    | **Typ** | Ausgelöst | Die [WebJob-Typen](#webjob-types) werden weiter oben in diesem Artikel beschrieben. |
    | **Trigger** | Manuell | |
 
@@ -151,10 +154,10 @@ when making changes in one don't forget the other two.
 
    ![Seite „WebJob hinzufügen“](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
-   | Einstellung      | Beispielwert   | BESCHREIBUNG  |
+   | Einstellung      | Beispielwert   | BESCHREIBUNG  |
    | ------------ | ----------------- | ------------ |
    | **Name** | myScheduledWebJob | Ein Name, der innerhalb einer App Service-App eindeutig ist. Muss mit einem Buchstaben oder einer Ziffer beginnen und darf nur die Sonderzeichen „-“ und „_“ enthalten. |
-   | **Dateiupload** | ConsoleApp.zip | Eine *ZIP*-Datei, die die ausführbare Datei oder Skriptdatei sowie für die Ausführung des Programms oder Skripts erforderliche Hilfsdateien enthält. Die unterstützten Typen von ausführbarer Datei oder Skriptdatei werden im Abschnitt [Unterstützte Dateitypen](#acceptablefiles) aufgeführt. |
+   | **Dateiupload** | ConsoleApp.zip | Eine *ZIP* -Datei, die die ausführbare Datei oder Skriptdatei sowie für die Ausführung des Programms oder Skripts erforderliche Hilfsdateien enthält. Die unterstützten Typen von ausführbarer Datei oder Skriptdatei werden im Abschnitt [Unterstützte Dateitypen](#acceptablefiles) aufgeführt. |
    | **Typ** | Ausgelöst | Die [WebJob-Typen](#webjob-types) werden weiter oben in diesem Artikel beschrieben. |
    | **Trigger** | Geplant | Damit die Planung zuverlässig funktioniert, aktivieren Sie das Feature „Always On“. Dieses Feature steht nur in den Tarifen „Basic“, „Standard“ und „Premium“ zur Verfügung.|
    | **CRON-Ausdruck** | 0 0/20 * * * * | [CRON-Ausdrücke](#ncrontab-expressions) werden im folgenden Abschnitt beschrieben. |
@@ -167,7 +170,7 @@ when making changes in one don't forget the other two.
 
 ## <a name="ncrontab-expressions"></a>NCRONTAB-Ausdrücke
 
-Sie können einen [NCRONTAB-Ausdruck](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) im Portal eingeben oder eine `settings.job`-Datei dem Stammverzeichnis Ihrer WebJob-*ZIP*-Datei hinzufügen, wie im folgenden Beispiel gezeigt:
+Sie können einen [NCRONTAB-Ausdruck](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) im Portal eingeben oder eine `settings.job`-Datei dem Stammverzeichnis Ihrer WebJob- *ZIP* -Datei hinzufügen, wie im folgenden Beispiel gezeigt:
 
 ```json
 {
@@ -189,11 +192,11 @@ Weitere Informationen finden Sie unter [Planen eines ausgelösten WebJobs](webjo
    
    ![Details zum WebJob](./media/web-sites-create-web-jobs/webjobdetails.png)
 
-3. Wählen Sie auf der Seite **Details zur WebJob-Ausführung** die Option **Ausgabe umschalten**, um den Text der Protokollinhalte anzuzeigen.
+3. Wählen Sie auf der Seite **Details zur WebJob-Ausführung** die Option **Ausgabe umschalten** , um den Text der Protokollinhalte anzuzeigen.
    
     ![Ausführungsdetails zu WebJobs](./media/web-sites-create-web-jobs/webjobrundetails.png)
 
-   Um den Ausgabetext in einem separaten Browserfenster anzuzeigen, klicken Sie auf **Herunterladen**. Um den Text selbst herunterzuladen, klicken Sie mit der rechten Maustaste auf **Herunterladen**, und speichern Sie die Dateiinhalte mithilfe der Browseroptionen.
+   Um den Ausgabetext in einem separaten Browserfenster anzuzeigen, klicken Sie auf **Herunterladen**. Um den Text selbst herunterzuladen, klicken Sie mit der rechten Maustaste auf **Herunterladen** , und speichern Sie die Dateiinhalte mithilfe der Browseroptionen.
    
 5. Wählen Sie am oberen Rand der Seite den Breadcrumb-Link **WebJobs** aus, um eine Liste von WebJobs aufzurufen.
 

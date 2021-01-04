@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
-ms.openlocfilehash: 81c4c26f252cdd9eb302a7f8f362c8bf52e48629
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: d0ffd786d3fb6bb5f0d70095d947c81caa070518
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825597"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499134"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrieren von der Bing-Spracheingabe zum Speech-Dienst
 
@@ -28,7 +28,7 @@ Mit einem einzelnen Abonnementschlüssel für den Speech-Dienst wird Zugriff auf
 * [Spracherkennung](speech-to-text.md)
 * [Benutzerdefinierte Spracherkennung](https://cris.ai)
 * [Sprachsynthese](text-to-speech.md)
-* [Benutzerdefinierte Stimmen für Sprachsynthese](how-to-customize-voice-font.md)
+* [Benutzerdefinierte Stimmen für Sprachsynthese](./how-to-custom-voice-create-voice.md)
 * [Sprachübersetzung](speech-translation.md) (ohne [Textübersetzung](../translator/translator-info-overview.md))
 
 Das [Sprach-SDK](speech-sdk.md) ist ein funktionaler Ersatz für die Clientbibliotheken der Bing-Spracheingabe. Es verwendet aber eine andere API.
@@ -63,7 +63,7 @@ Der Speech-Dienst verwendet ein zeitbasiertes Preismodell (anstelle eines transa
 
 Wenn Sie oder Ihr Unternehmen Anwendungen in der Entwicklungs- oder Produktionsumgebung nutzen, die eine Bing-Spracheingabe-API verwenden, sollten Sie diese aktualisieren, um den Speech-Dienst so schnell wie möglich zu nutzen. Informationen zu verfügbaren SDKs, Codebeispielen und Tutorials finden Sie in der [Dokumentation zum Speech-Dienst](index.yml).
 
-Die [REST-APIs](rest-apis.md) des Speech-Diensts sind mit den Bing-Spracheingabe-APIs kompatibel. Wenn Sie derzeit die Bing-Spracheingabe-REST-APIs verwenden, müssen Sie nur den REST-Endpunkt ändern und zu einem Abonnementschlüssel des Speech-Diensts wechseln.
+Die [REST-APIs](./overview.md#reference-docs) des Speech-Diensts sind mit den Bing-Spracheingabe-APIs kompatibel. Wenn Sie derzeit die Bing-Spracheingabe-REST-APIs verwenden, müssen Sie nur den REST-Endpunkt ändern und zu einem Abonnementschlüssel des Speech-Diensts wechseln.
 
 Wenn Sie eine Bing-Spracheingabe-Clientbibliothek für eine bestimmte Programmiersprache verwenden, erfordert die Migration zum [Spracherkennungs-SDK](speech-sdk.md) Änderungen an Ihrer Anwendung, weil es sich um eine andere API handelt. Das Spracherkennungs-SDK kann Ihren Code einfacher gestalten und Ihnen auch Zugriff auf neue Features bieten. Das Speech SDK ist in zahlreichen Programmiersprachen verfügbar. APIs sind auf den verschiedenen Plattformen ähnlich, was die Entwicklung für mehrere Plattformen erleichtert.
 
@@ -72,14 +72,14 @@ Der Speech-Dienst bietet keinen globalen Endpunkt. Ermitteln Sie, ob Ihre Anwend
 Erste Schritte mit dem Spracherkennungs-SDK:
 
 1. Laden Sie das [Spracherkennungs-SDK](speech-sdk.md) herunter.
-1. Arbeiten Sie die [Leitfäden für den Schnellstart](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet) und die [Tutorials](how-to-recognize-intents-from-speech-csharp.md) für den Speech-Dienst durch. Sehen Sie sich auch die [Codebeispiele](samples.md) an, um sich mit den neuen APIs vertraut zu machen.
+1. Arbeiten Sie die [Leitfäden für den Schnellstart](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) und die [Tutorials](how-to-recognize-intents-from-speech-csharp.md) für den Speech-Dienst durch. Sehen Sie sich auch die [Codebeispiele](./speech-sdk.md#sample-source-code) an, um sich mit den neuen APIs vertraut zu machen.
 1. Aktualisieren Sie Ihre Anwendung, um den Speech-Dienst verwenden zu können.
 
 ## <a name="support"></a>Support
 
 Kunden der Bing-Spracheingabe sollten sich an den Kundendienst wenden, indem sie ein [Supportticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) öffnen. Sie können sich auch an uns wenden, wenn Ihr Supportbedarf einen [technischen Supportplan](https://azure.microsoft.com/support/plans/) erfordert.
 
-Informationen zur Unterstützung von Speech-Dienst, SDK und API finden Sie auf der [Supportseite](support.md) des Speech-Diensts.
+Informationen zur Unterstützung von Speech-Dienst, SDK und API finden Sie auf der [Supportseite](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) des Speech-Diensts.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 09/09/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: ae92828f08ae4abf9cc28f18872cca27ce747be4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc1d217dba64c36aa219abbd4d2220a494347689
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657647"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912755"
 ---
 # <a name="azure-data-lake-storage-query-acceleration"></a>Abfragebeschleunigung für Azure Data Lake Storage
 
@@ -50,7 +50,7 @@ Im folgenden Diagramm wird veranschaulicht, wie eine typische Anwendung die Abfr
 
 Die Abfragebeschleunigung optimiert die Leistung, indem die Menge der Daten reduziert wird, die übertragen und von Ihrer Anwendung verarbeitet wird.
 
-Um einen aggregierten Wert zu berechnen, rufen Anwendungen in der Regel **alle** Daten aus einer Datei ab und verarbeiten und filtern die Daten dann lokal. Eine Analyse der Eingabe-/Ausgabemuster für Analyseworkloads zeigt, dass Anwendungen in der Regel nur 20 % der gelesenen Daten benötigen, um die jeweilige Berechnung auszuführen. Diese Statistik gilt selbst dann, wenn Techniken wie [Partition Pruning](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-optimize-hive-query#hive-partitioning) angewendet wurden. Das bedeutet, dass 80 % dieser Daten unnötigerweise von Anwendungen über das Netzwerk übertragen, analysiert und gefiltert werden. Dieses Muster, das im Wesentlichen dafür konzipiert wurde, nicht benötigte Daten auszuschließen, verursacht erhebliche Computekosten.  
+Um einen aggregierten Wert zu berechnen, rufen Anwendungen in der Regel **alle** Daten aus einer Datei ab und verarbeiten und filtern die Daten dann lokal. Eine Analyse der Eingabe-/Ausgabemuster für Analyseworkloads zeigt, dass Anwendungen in der Regel nur 20 % der gelesenen Daten benötigen, um die jeweilige Berechnung auszuführen. Diese Statistik gilt selbst dann, wenn Techniken wie [Partition Pruning](../../hdinsight/hdinsight-hadoop-optimize-hive-query.md#hive-partitioning) angewendet wurden. Das bedeutet, dass 80 % dieser Daten unnötigerweise von Anwendungen über das Netzwerk übertragen, analysiert und gefiltert werden. Dieses Muster, das im Wesentlichen dafür konzipiert wurde, nicht benötigte Daten auszuschließen, verursacht erhebliche Computekosten.  
 
 Obwohl Azure sowohl im Hinblick auf den Durchsatz als auch auf die Latenz ein branchenführendes Netzwerk bietet, wirkt sich die unnötige Übertragung von Daten über dieses Netzwerk immer noch negativ auf die Anwendungsleistung aus. Durch die Abfragebeschleunigung werden diese negativen Auswirkungen beseitigt, da unerwünschte Daten während der Speicheranforderung herausgefiltert werden.
 
@@ -76,5 +76,3 @@ Trotz des geänderten Abrechnungsmodells ist das Preismodell für die Abfragebes
 
 - [Filtern von Daten mithilfe der Abfragebeschleunigung für Azure Data Lake Storage](data-lake-storage-query-acceleration-how-to.md)
 - [Abfragebeschleunigung – SQL-Sprachreferenz](query-acceleration-sql-reference.md)
-
-

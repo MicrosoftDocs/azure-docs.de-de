@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: a9423069b917c37e77b70a4466e489918cd330c4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a2f46440a4214e298bc6d2f3b9c2b5680437ead7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143920"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522701"
 ---
 # <a name="azure-resource-logs"></a>Azure-Ressourcenprotokolle
 Azure-Ressourcenprotokolle sind [Plattformprotokolle](platform-logs-overview.md), die Einblicke in Vorgänge bereitstellen, die in einer Azure-Ressource ausgeführt wurden. Der Inhalt dieser Protokolle variiert je nach Azure-Dienst und -Ressourcentyp. Ressourcenprotokolle werden standardmäßig nicht erfasst. Sie müssen eine Diagnoseeinstellung für jede Azure-Ressource erstellen, um deren Ressourcenprotokolle an einen Log Analytics-Arbeitsbereich zu senden, damit sie mit [Azure Monitor-Protokollen](data-platform-logs.md), Azure Event Hubs zur Weiterleitung außerhalb von Azure oder Azure Storage zur Archivierung verwendet werden können.
@@ -54,7 +54,7 @@ Die Tabelle „AzureDiagnostics“ sieht dann wie folgt aus:
 | ... |
 
 ### <a name="resource-specific"></a>Modus „Ressourcenspezifisch“
-In diesem Modus werden individuelle Tabellen in dem ausgewählten Arbeitsbereich für die einzelnen Kategorien erstellt, die in der Diagnoseeinstellung ausgewählt werden. Diese Methode wird empfohlen, da sie ein einfacheres Arbeiten mit den Daten in Protokollabfragen ermöglicht, bessere Auffindbarkeit von Schemas und deren Struktur bietet, die Leistung sowohl in Hinsicht auf die Erfassungslatenz als auch Abfragezeiten verbessert und die Möglichkeit bietet, RBAC-Rechte für eine bestimmte Tabelle zu gewähren. Alle Azure-Dienste werden letztendlich in den Modus „Ressourcenspezifisch“ migriert. 
+In diesem Modus werden individuelle Tabellen in dem ausgewählten Arbeitsbereich für die einzelnen Kategorien erstellt, die in der Diagnoseeinstellung ausgewählt werden. Diese Methode wird empfohlen, da sie ein einfacheres Arbeiten mit den Daten in Protokollabfragen ermöglicht, bessere Auffindbarkeit von Schemas und deren Struktur bietet, die Leistung sowohl in Hinsicht auf die Erfassungslatenz als auch Abfragezeiten verbessert und die Möglichkeit bietet, Azure RBAC-Rechte für eine bestimmte Tabelle zu gewähren. Alle Azure-Dienste werden letztendlich in den Modus „Ressourcenspezifisch“ migriert. 
 
 Im obigen Beispiel hätte das zur Folge, dass drei Tabellen erstellt werden:
  

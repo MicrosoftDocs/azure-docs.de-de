@@ -1,17 +1,17 @@
 ---
 title: 'Advanced Threat Protection: Azure Database for MySQL'
 description: Informationen zu den Konzepten von Advanced Threat Protection zum Erkennen anomaler Datenbankaktivitäten, die auf potenzielle Sicherheitsrisiken für die Datenbank hinweisen.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: ccee3b52b0f204561ca790ce364308f81a1db6f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9e884d153e85e7b68dee38494ac5d6f4271978a
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906592"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542574"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>Azure Database for MySQL: Advanced Threat Protection
 
@@ -42,6 +42,6 @@ Advanced Threat Protection für Azure Database for MySQL erkennt anomale Aktivit
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Weitere Informationen zu [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Weitere Informationen zu [Azure Security Center](../security-center/security-center-introduction.md)
 * Weitere Informationen zu Tarifen finden Sie unter [Azure-Datenbank for MySQL – Preise](https://azure.microsoft.com/pricing/details/mysql/). 
-* Konfigurieren von [Azure Database for MySQL Advanced Threat Protection](howto-database-threat-protection-portal.md) mit dem Azure-Portal  
+* Konfigurieren von [Azure Database for MySQL Advanced Threat Protection](howto-database-threat-protection-portal.md) mit dem Azure-Portal

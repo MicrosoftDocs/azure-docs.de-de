@@ -1,20 +1,20 @@
 ---
 title: Vorlage mit abhängigen Ressourcen
-description: Hier erfahren Sie, wie Sie eine Azure Resource Manager-Vorlage mit mehreren Ressourcen erstellen und über das Azure-Portal bereitstellen.
+description: Hier erfahren Sie, wie Sie eine Azure Resource Manager-Vorlage (ARM-Vorlage) mit mehreren Ressourcen erstellen und über das Azure-Portal bereitstellen.
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3ed653c511dbd775d124e1abd6f4bb02923edb25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a43fa12e72484e97b828648cd7d610f5cf15ea4e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86102071"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931587"
 ---
 # <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Tutorial: Erstellen von ARM-Vorlagen mit abhängigen Ressourcen
 
-Es wird beschrieben, wie Sie eine ARM-Vorlage (Azure Resource Manager) erstellen, um mehrere Ressourcen bereitzustellen und die Bereitstellungsreihenfolge zu konfigurieren. Nach der Erstellung der Vorlage stellen Sie sie mithilfe der Cloud Shell über das Azure-Portal bereit.
+Hier erfahren Sie, wie Sie eine Azure Resource Manager-Vorlage (ARM-Vorlage) erstellen, um mehrere Ressourcen bereitzustellen und die Bereitstellungsreihenfolge zu konfigurieren. Nach der Erstellung der Vorlage stellen Sie sie mithilfe der Cloud Shell über das Azure-Portal bereit.
 
 In diesem Tutorial erstellen Sie ein Speicherkonto, eine VM, ein virtuelles Netzwerk und einige andere abhängigen Ressourcen. Einige der Ressourcen können erst bereitgestellt werden, wenn eine andere Ressource vorhanden ist. Sie können den virtuellen Computer beispielsweise erst erstellen, wenn sein Speicherkonto und seine Netzwerkschnittstelle vorhanden sind. Diese Beziehung definieren Sie, indem Sie eine Ressource von den anderen Ressourcen abhängig machen. Resource Manager wertet die Abhängigkeiten zwischen den Ressourcen aus und stellt sie in der Reihenfolge ihrer Abhängigkeiten bereit. Wenn Ressourcen nicht voneinander abhängig sind, stellt Resource Manager sie parallel bereit. Weitere Informationen finden Sie unter [Definieren der Reihenfolge für die Bereitstellung von Ressourcen in ARM-Vorlagen](./define-resource-dependency.md).
 
@@ -33,7 +33,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 
 Damit Sie die Anweisungen in diesem Artikel ausführen können, benötigen Sie Folgendes:
 
-* Visual Studio Code mit der Erweiterung „Azure Resource Manager-Tools“. Weitere Informationen finden Sie unter [Schnellstart: Erstellen von Azure Resource Manager-Vorlagen mit Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code mit der Erweiterung „Azure Resource Manager-Tools“. Weitere Informationen finden Sie unter [Schnellstart: Erstellen von ARM-Vorlagen mit Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * Verwenden Sie aus Sicherheitsgründen ein generiertes Kennwort für das Administratorkonto des virtuellen Computers. Hier sehen Sie ein Beispiel für die Kennwortgenerierung:
 
     ```console
@@ -67,7 +67,7 @@ Sehen Sie sich die Vorlage in diesem Abschnitt an, und versuchen Sie, die folgen
 
 1. Reduzieren Sie in Visual Studio Code die Elemente, bis unter **resources** nur die Elemente der ersten und zweiten Ebene angezeigt werden:
 
-    ![Azure Resource Manager-Vorlagen in Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
+    ![ARM-Vorlagen in Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
     Es gibt sechs Ressourcen, die von der Vorlage definiert werden:
 
@@ -82,19 +82,19 @@ Sehen Sie sich die Vorlage in diesem Abschnitt an, und versuchen Sie, die folgen
 
 1. Erweitern Sie die erste Ressource. Es handelt sich um ein Speicherkonto. Vergleichen Sie die Ressourcendefinition mit der [Vorlagenreferenz](/azure/templates/Microsoft.Storage/storageAccounts).
 
-    ![Azure Resource Manager-Vorlagen in Visual Studio Code: Speicherkontodefinition](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
+    ![ARM-Vorlagen in Visual Studio Code: Speicherkontodefinition](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
 
 1. Erweitern Sie die zweite Ressource. Der Ressourcentyp lautet `Microsoft.Network/publicIPAddresses`. Vergleichen Sie die Ressourcendefinition mit der [Vorlagenreferenz](/azure/templates/microsoft.network/publicipaddresses).
 
-    ![Azure Resource Manager-Vorlagen in Visual Studio Code: Definition der öffentlichen IP-Adresse](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
+    ![ARM-Vorlagen in Visual Studio Code: Definition der öffentlichen IP-Adresse](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
 
 1. Erweitern Sie die dritte Ressource. Der Ressourcentyp lautet `Microsoft.Network/networkSecurityGroups`. Vergleichen Sie die Ressourcendefinition mit der [Vorlagenreferenz](/azure/templates/microsoft.network/networksecuritygroups).
 
-    ![Azure Resource Manager-Vorlagen in Visual Studio Code: Definition der Netzwerksicherheitsgruppe](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-network-security-group-definition.png)
+    ![ARM-Vorlagen in Visual Studio Code: Definition der Netzwerksicherheitsgruppe](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-network-security-group-definition.png)
 
 1. Erweitern Sie die vierte Ressource. Der Ressourcentyp lautet `Microsoft.Network/virtualNetworks`:
 
-    ![Azure Resource Manager-Vorlagen in Visual Studio Code: „dependsOn“ für virtuelles Netzwerk](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
+    ![ARM-Vorlagen in Visual Studio Code: „dependsOn“ für virtuelles Netzwerk](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
 
     Das Element „dependsOn“ bietet die Möglichkeit, eine Ressource als von einer oder mehreren Ressourcen abhängig zu definieren. Diese Ressource hängt von einer weiteren Ressource ab:
 
@@ -112,7 +112,7 @@ Sehen Sie sich die Vorlage in diesem Abschnitt an, und versuchen Sie, die folgen
 
 Das folgende Diagramm veranschaulicht die Ressourcen und die Abhängigkeitsinformationen für diese Vorlage:
 
-![Abhängigkeitsdiagramm für Azure Resource Manager-Vorlagen in Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependency-diagram.png)
+![Abhängigkeitsdiagramm für ARM-Vorlagen in Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependency-diagram.png)
 
 Durch die Angabe der Abhängigkeiten wird die Lösung von Resource Manager effizient bereitgestellt. Mit Resource Manager werden das Speicherkonto, die öffentliche IP-Adresse und das virtuelle Netzwerk parallel bereitgestellt, da sie über keine Abhängigkeiten verfügen. Nach der Bereitstellung der öffentlichen IP-Adresse und des virtuellen Netzwerks wird die Netzwerkschnittstelle erstellt. Wenn alle anderen Ressourcen bereitgestellt wurden, stellt Resource Manager den virtuellen Computer bereit.
 

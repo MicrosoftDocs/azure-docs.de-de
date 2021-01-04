@@ -1,7 +1,7 @@
 ---
 title: Bereitstellung ohne Code (Vorschauversion)
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Sie ein Modell ohne Eingabeskript bereitstellen.
+description: Dank einer Bereitstellung ohne Code können Sie ein Modell als Webdienst bereitstellen, ohne dass Sie ein Eingabeskript manuell erstellen müssen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: deploy
 ms.reviewer: larryfr
-ms.openlocfilehash: 32b2afe036b443846199b5e9d74e690859fb581d
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: a17126695aa5138d1df7fd17cfaa2f5f75ad1004
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998850"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324922"
 ---
 # <a name="preview-no-code-model-deployment"></a>(Vorschau) Modellimplementierung ohne Code
 
@@ -63,7 +63,7 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-Informationen zum Bewerten eines Modells finden Sie unter [Nutzen eines als Webdienst bereitgestellten Azure Machine Learning-Modells](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service). Viele ONNX-Projekte verwenden protobuf-Dateien, um Trainings- und Validierungsdaten kompakt zu speichern. Dadurch kann es schwierig sein, das vom Dienst erwartete Datenformat zu erkennen. Als Modellentwickler sollten Sie Folgendes für Ihre Entwickler dokumentieren:
+Informationen zum Bewerten eines Modells finden Sie unter [Nutzen eines als Webdienst bereitgestellten Azure Machine Learning-Modells](./how-to-consume-web-service.md). Viele ONNX-Projekte verwenden protobuf-Dateien, um Trainings- und Validierungsdaten kompakt zu speichern. Dadurch kann es schwierig sein, das vom Dienst erwartete Datenformat zu erkennen. Als Modellentwickler sollten Sie Folgendes für Ihre Entwickler dokumentieren:
 
 * Eingabeformat (JSON- oder Binärformat)
 * Eingabedatenform und -typ (z. B. ein Array von Gleitkommazahlen in der Form [100,100,3])

@@ -1,22 +1,22 @@
 ---
 title: Bereitstellen von Modellen mit einem benutzerdefinierten Docker-Image
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Sie bei der Bereitstellung Ihrer Azure Machine Learning-Modelle ein benutzerdefiniertes Docker-Basisimage verwenden können. Azure Machine Learning stellt ein Standardbasisimage für Sie bereit, Sie können aber auch Ihr eigenes Basisimage verwenden.
+description: Hier erfahren Sie, wie Sie bei der Bereitstellung Ihrer Azure Machine Learning-Modelle ein benutzerdefiniertes Docker-Basisimage verwenden können. Azure Machine Learning stellt ein Standardbasisimage für Sie bereit, Sie können aber auch Ihr eigenes Basisimage verwenden.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: sagopal
 author: saachigopal
 ms.reviewer: larryfr
-ms.date: 09/09/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: eb3acc9b30b9016ae33f223911cc01cbf8daea47
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
+ms.openlocfilehash: 1ff4d7693a7e493ccb736ab9363fd26c93017c79
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999106"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695349"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Bereitstellen eines Modells mithilfe eines benutzerdefinierten Docker-Basisimages
 
@@ -41,11 +41,11 @@ Dieser Artikel ist in zwei Abschnitte unterteilt:
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* Eine Azure Machine Learning-Arbeitsgruppe. Weitere Informationen finden Sie im Artikel [Erstellen eines Arbeitsbereichs](how-to-manage-workspace.md).
-* Das [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). 
-* Die [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
+* Ein Azure Machine Learning-Arbeitsbereich. Weitere Informationen finden Sie im Artikel [Erstellen eines Arbeitsbereichs](how-to-manage-workspace.md).
+* Das [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py). 
+* Die [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
 * Die [CLI-Erweiterung für Azure Machine Learning](reference-azure-machine-learning-cli.md).
-* Ein [Azure Container Registry](/azure/container-registry) oder eine andere Docker-Registrierung, die über das Internet zugänglich ist.
+* Ein [Azure Container Registry](../container-registry/index.yml) oder eine andere Docker-Registrierung, die über das Internet zugänglich ist.
 * Die Schritte in diesem Dokument gehen davon aus, dass Sie mit dem Erstellen und Verwenden eines __Rückschlusskonfiguration__-Objekts im Rahmen der Modellimplementierung vertraut sind. Weitere Informationen finden Sie unter [Bereitstellen von Modellen mit Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="create-a-custom-base-image"></a>Erstellen eines benutzerdefinierten Basisimages
@@ -61,9 +61,9 @@ Die Informationen in diesem Abschnitt gehen davon aus, dass Sie eine Azure Conta
 
     Wenn Sie Images verwenden, die in einer __eigenständigen Containerregistrierung__ gespeichert sind, müssen Sie einen Dienstprinzipal konfigurieren, der mindestens Leserechte hat. Sie geben dann die Dienstprinzipal-ID (Benutzername) und das Kennwort an jeden weiter, der Images aus der Registrierung verwendet. Die Ausnahme ist, wenn Sie die Containerregistrierung öffentlich zugänglich machen.
 
-    Informationen zum Erstellen einer privaten Azure Container Registry finden Sie unter [Erstellen einer privaten Containerregistrierung](/azure/container-registry/container-registry-get-started-azure-cli).
+    Informationen zum Erstellen einer privaten Azure Container Registry finden Sie unter [Erstellen einer privaten Containerregistrierung](../container-registry/container-registry-get-started-azure-cli.md).
 
-    Informationen zur Verwendung von Dienstprinzipalen mit der Azure Container Registry finden Sie unter [Authentifizierung der Azure Container Registry mit Dienstprinzipalen](/azure/container-registry/container-registry-auth-service-principal).
+    Informationen zur Verwendung von Dienstprinzipalen mit der Azure Container Registry finden Sie unter [Authentifizierung der Azure Container Registry mit Dienstprinzipalen](../container-registry/container-registry-auth-service-principal.md).
 
 * Azure Container Registry und Imageinformationen: Geben Sie den Imagenamen an jeden weiter, der ihn verwenden muss. Beispielsweise wird ein Image namens `myimage`, das in einer Registrierung namens `myregistry` gespeichert ist, als `myregistry.azurecr.io/myimage` referenziert, wenn das Image für die Modellimplementierung verwendet wird.
 
@@ -91,6 +91,9 @@ Für GPU-Images bietet Azure ML derzeit sowohl cuda9- als auch cuda10-Basisimage
 
 Die CPU-Images werden aus Ubuntu 16.04 erstellt. Die GPU-Images für cuda9 werden aus nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04 erstellt. Die GPU-Images für cuda10 werden aus nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04 erstellt.
 <a id="getname"></a>
+
+> [!IMPORTANT]
+> Bei Verwenden benutzerdefinierter Docker-Images empfiehlt es sich, Paketversionen anzuheften, um Reproduzierbarkeit besser zu gewährleisten.
 
 ### <a name="get-container-registry-information"></a>Abrufen von Informationen aus der Container Registry
 
@@ -189,9 +192,9 @@ Die Schritte in diesem Abschnitt führen zur Erstellung eines benutzerdefinierte
     Run ID: cda was successful after 2m56s
     ```
 
-Weitere Informationen zum Erstellen von Images mit einer Azure Container Registry finden Sie unter [Erstellen und Ausführen eines Containerimages mit Azure Container Registry Tasks](https://docs.microsoft.com/azure/container-registry/container-registry-quickstart-task-cli).
+Weitere Informationen zum Erstellen von Images mit einer Azure Container Registry finden Sie unter [Erstellen und Ausführen eines Containerimages mit Azure Container Registry Tasks](../container-registry/container-registry-quickstart-task-cli.md).
 
-Weitere Informationen zum Hochladen vorhandener Images in eine Azure Container Registry finden Sie unter [Senden Sie ihr erstes Bild an eine private Docker-Containerregistrierung](/azure/container-registry/container-registry-get-started-docker-cli).
+Weitere Informationen zum Hochladen vorhandener Images in eine Azure Container Registry finden Sie unter [Senden Sie ihr erstes Bild an eine private Docker-Containerregistrierung](../container-registry/container-registry-get-started-docker-cli.md).
 
 ## <a name="use-a-custom-base-image"></a>Verwenden eines benutzerdefinierten Basisimages
 
@@ -231,7 +234,7 @@ Weitere Informationen finden Sie im GitHub-Repository [Azure Machine Learning se
 
 ### <a name="use-an-image-with-the-azure-machine-learning-sdk"></a>Verwenden eines Images mit dem Azure Machine Learning SDK
 
-Legen Sie die folgenden [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true)-Attribute fest, um ein Image zu verwenden, das in der **Azure Container Registry-Instanz für Ihren Arbeitsbereich gespeichert ist**, oder eine **Containerregistrierung, die öffentlich zugänglich ist**:
+Legen Sie die folgenden [Environment](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py)-Attribute fest, um ein Image zu verwenden, das in der **Azure Container Registry-Instanz für Ihren Arbeitsbereich gespeichert ist**, oder eine **Containerregistrierung, die öffentlich zugänglich ist**:
 
 + `docker.enabled=True`
 + `docker.base_image`: Legen Sie dies auf die Registrierung und den Pfad zum Image fest.
@@ -265,7 +268,7 @@ myenv.python.conda_dependencies=conda_dep
 
 Sie müssen „azureml-defaults“ mit Version >= 1.0.45 als Pip-Abhängigkeit hinzufügen. Dieses Paket enthält die erforderlichen Funktionen zum Hosten des Modells als Webdienst. Sie müssen auch die „inferencing_stack_version“-Eigenschaft der Umgebung auf „latest“ (Neueste) festlegen. Dadurch werden bestimmte, vom Webdienst erforderliche apt-Pakete installiert. 
 
-Verwenden Sie die Umgebung nach dem Definieren mit einem [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true)-Objekt, um die Rückschlussumgebung festzulegen, in der das Modell und der Webdienst ausgeführt werden.
+Verwenden Sie die Umgebung nach dem Definieren mit einem [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py)-Objekt, um die Rückschlussumgebung festzulegen, in der das Modell und der Webdienst ausgeführt werden.
 
 ```python
 from azureml.core.model import InferenceConfig
@@ -294,7 +297,7 @@ Weitere Informationen zur Anpassung Ihrer Python-Umgebung finden Sie unter [Erst
 > [!IMPORTANT]
 > Derzeit kann die Machine Learning-CLI Images aus der Azure Container Registry für Ihren Arbeitsbereich oder aus öffentlich zugänglichen Repositorys verwenden. Sie kann keine Images aus eigenständigen privaten Registrierungen verwenden.
 
-Bevor Sie ein Modell mit der Machine Learning-CLI bereitstellen, erstellen Sie eine [Umgebung](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true), die das benutzerdefinierte Image verwendet. Erstellen Sie dann eine Rückschlusskonfigurationsdatei, die auf die Umgebung verweist. Sie können die Umgebung auch direkt in der Rückschlusskonfigurationsdatei definieren. Das folgende JSON-Dokument zeigt, wie auf ein Image in einer öffentlichen Containerregistrierung verwiesen wird. In diesem Beispiel wird die Umgebung inline definiert:
+Bevor Sie ein Modell mit der Machine Learning-CLI bereitstellen, erstellen Sie eine [Umgebung](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py), die das benutzerdefinierte Image verwendet. Erstellen Sie dann eine Rückschlusskonfigurationsdatei, die auf die Umgebung verweist. Sie können die Umgebung auch direkt in der Rückschlusskonfigurationsdatei definieren. Das folgende JSON-Dokument zeigt, wie auf ein Image in einer öffentlichen Containerregistrierung verwiesen wird. In diesem Beispiel wird die Umgebung inline definiert:
 
 ```json
 {

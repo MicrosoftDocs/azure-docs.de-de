@@ -13,12 +13,12 @@ ms.custom:
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 5360c053370d4963b9fa9f6e24273edd4038b9ac
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7569606429740de23b56767d490b9bb14283d468
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91710395"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331691"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Schnellstart: Verwenden von Node.js zum Herstellen einer Verbindung mit einem Azure Database for PostgreSQL-Einzelserver und zum Abfragen von Daten
 
@@ -48,7 +48,7 @@ npm list
 ## <a name="get-connection-information"></a>Abrufen von Verbindungsinformationen
 Rufen Sie die Verbindungsinformationen ab, die zum Herstellen einer Verbindung mit der Azure-Datenbank für PostgreSQL erforderlich sind. Sie benötigen den vollqualifizierten Servernamen und die Anmeldeinformationen.
 
-1. Suchen Sie im [Azure-Portal](https://portal.azure.com/) nach dem von Ihnen erstellten Server (beispielsweise **mydemoserver**), und wählen Sie ihn aus.
+1. Suchen Sie im [Azure-Portal](https://portal.azure.com/) nach dem von Ihnen erstellten Server (beispielsweise **mydemoserver** ), und wählen Sie ihn aus.
 
 1. Notieren Sie sich im Bereich **Übersicht** des Servers die Werte für **Servername** und **Administratorbenutzername**. Wenn Sie Ihr Kennwort vergessen haben, können Sie es in diesem Bereich auch zurücksetzen.
 
@@ -110,7 +110,7 @@ function queryDatabase() {
 ```
 
 ## <a name="read-data"></a>Lesen von Daten
-Verwenden Sie den folgenden Code, um die Daten mit einer **SELECT**-SQL-Anweisung zu verbinden und zu lesen. Das [pg.Client](https://github.com/brianc/node-postgres/wiki/Client)-Objekt wird verwendet, um die Kommunikation mit dem PostgreSQL-Server zu ermöglichen. Die Funktion [pg.Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) wird verwendet, um die Verbindung mit dem Server herzustellen. Die Funktion [pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query) wird verwendet, um die SQL-Abfrage für die PostgreSQL-Datenbank auszuführen. 
+Verwenden Sie den folgenden Code, um die Daten mit einer **SELECT** -SQL-Anweisung zu verbinden und zu lesen. Das [pg.Client](https://github.com/brianc/node-postgres/wiki/Client)-Objekt wird verwendet, um die Kommunikation mit dem PostgreSQL-Server zu ermöglichen. Die Funktion [pg.Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) wird verwendet, um die Verbindung mit dem Server herzustellen. Die Funktion [pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query) wird verwendet, um die SQL-Abfrage für die PostgreSQL-Datenbank auszuführen. 
 
 Ersetzen Sie die Parameter „host“, „dbname“, „user“ und „password“ durch die Werte, die Sie beim Erstellen des Servers und der Datenbank angegeben haben. 
 
@@ -158,7 +158,7 @@ function queryDatabase() {
 ```
 
 ## <a name="update-data"></a>Aktualisieren von Daten
-Verwenden Sie den folgenden Code, um die Daten mit einer **UPDATE**-SQL-Anweisung zu verbinden und zu lesen. Das [pg.Client](https://github.com/brianc/node-postgres/wiki/Client)-Objekt wird verwendet, um die Kommunikation mit dem PostgreSQL-Server zu ermöglichen. Die Funktion [pg.Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) wird verwendet, um die Verbindung mit dem Server herzustellen. Die Funktion [pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query) wird verwendet, um die SQL-Abfrage für die PostgreSQL-Datenbank auszuführen. 
+Verwenden Sie den folgenden Code, um die Daten mit einer **UPDATE** -SQL-Anweisung zu verbinden und zu lesen. Das [pg.Client](https://github.com/brianc/node-postgres/wiki/Client)-Objekt wird verwendet, um die Kommunikation mit dem PostgreSQL-Server zu ermöglichen. Die Funktion [pg.Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) wird verwendet, um die Verbindung mit dem Server herzustellen. Die Funktion [pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query) wird verwendet, um die SQL-Abfrage für die PostgreSQL-Datenbank auszuführen. 
 
 Ersetzen Sie die Parameter „host“, „dbname“, „user“ und „password“ durch die Werte, die Sie beim Erstellen des Servers und der Datenbank angegeben haben. 
 
@@ -205,7 +205,7 @@ function queryDatabase() {
 ```
 
 ## <a name="delete-data"></a>Löschen von Daten
-Verwenden Sie den folgenden Code, um die Daten mit einer **DELETE**-SQL-Anweisung zu verbinden und zu lesen. Das [pg.Client](https://github.com/brianc/node-postgres/wiki/Client)-Objekt wird verwendet, um die Kommunikation mit dem PostgreSQL-Server zu ermöglichen. Die Funktion [pg.Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) wird verwendet, um die Verbindung mit dem Server herzustellen. Die Funktion [pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query) wird verwendet, um die SQL-Abfrage für die PostgreSQL-Datenbank auszuführen. 
+Verwenden Sie den folgenden Code, um die Daten mit einer **DELETE** -SQL-Anweisung zu verbinden und zu lesen. Das [pg.Client](https://github.com/brianc/node-postgres/wiki/Client)-Objekt wird verwendet, um die Kommunikation mit dem PostgreSQL-Server zu ermöglichen. Die Funktion [pg.Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) wird verwendet, um die Verbindung mit dem Server herzustellen. Die Funktion [pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query) wird verwendet, um die SQL-Abfrage für die PostgreSQL-Datenbank auszuführen. 
 
 Ersetzen Sie die Parameter „host“, „dbname“, „user“ und „password“ durch die Werte, die Sie beim Erstellen des Servers und der Datenbank angegeben haben. 
 
@@ -250,6 +250,16 @@ function queryDatabase() {
             throw err;
         });
 }
+```
+
+## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+
+Löschen Sie die Ressourcengruppe mit dem folgenden Befehl, um alle in dieser Schnellstartanleitung verwendeten Ressourcen zu bereinigen:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Nächste Schritte

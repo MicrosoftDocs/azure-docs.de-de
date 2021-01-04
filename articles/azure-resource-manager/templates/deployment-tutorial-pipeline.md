@@ -1,19 +1,19 @@
 ---
 title: Continuous Integration mit Azure Pipelines
-description: Hier finden Sie Informationen zum kontinuierlichen Erstellen, Testen und Bereitstellen von Azure Resource Manager-Vorlagen.
+description: Hier finden Sie Informationen zum kontinuierlichen Erstellen, Testen und Bereitstellen von Azure Resource Manager-Vorlagen (ARM-Vorlagen).
 ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 433811cb632aae0d7370fc8e401c01fe36621a5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7688a4e4838cb591bcd3ac0045a5ed22180c063
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333236"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906351"
 ---
-# <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Continuous Integration von Azure Resource Manager-Vorlagen mit Azure Pipelines
+# <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>Tutorial: Continuous Integration von ARM-Vorlagen mit Azure Pipelines
 
-Im [vorherigen Tutorial](./deployment-tutorial-linked-template.md) haben Sie eine verknüpfte Vorlage bereitgestellt.  In diesem Tutorial finden Sie Informationen zum kontinuierlichen Erstellen und Bereitstellen von Azure Resource Manager-Vorlagenprojekten mit Azure Pipelines.
+Im [vorherigen Tutorial](./deployment-tutorial-linked-template.md) haben Sie eine verknüpfte Vorlage bereitgestellt.  In diesem Tutorial finden Sie Informationen zum kontinuierlichen Erstellen und Bereitstellen von Azure Resource Manager-Vorlagenprojekten (ARM-Vorlagen) mit Azure Pipelines.
 
 Azure DevOps stellt Entwicklerdienste bereit, die Teams bei der Arbeitsplanung, bei der gemeinsamen Codeentwicklung sowie bei der Erstellung und Bereitstellung von Anwendungen unterstützen. Mit Azure DevOps Services können Entwickler in der Cloud arbeiten. Azure DevOps bietet integrierte Features, auf die Sie über Ihren Webbrowser oder über Ihren IDE-Client zugreifen können. Eines dieser Features ist Azure Pipelines. Azure Pipelines ist ein umfassender Dienst für Continuous Integration (CI) und Continuous Delivery (CD). Er kann mit Ihrem bevorzugten Git-Anbieter sowie für Bereitstellungen in den meisten gängigen Clouddiensten verwendet werden. Anschließend können Sie das Erstellen, Testen und Bereitstellen Ihres Codes für Microsoft Azure, Google Cloud Platform oder Amazon Web Services automatisieren.
 
@@ -40,7 +40,7 @@ Damit Sie die Anweisungen in diesem Artikel ausführen können, benötigen Sie F
 * **Ein GitHub-Konto** zum Erstellen eines Repositorys für Ihre Vorlagen. Falls Sie keines haben, können Sie [kostenlos eines erstellen](https://github.com). Weitere Informationen zur Verwendung von GitHub-Repositorys finden Sie unter [Build GitHub repositories](/azure/devops/pipelines/repos/github) (Erstellen von GitHub-Repositorys).
 * **Git installieren**. In diesem Tutorial wird *Git Bash* oder *Git Shell* verwendet. Eine entsprechende Anleitung finden Sie unter [Install Git]( https://www.atlassian.com/git/tutorials/install-git) (Installieren von Git).
 * **Eine Azure DevOps-Organisation.** Sollten Sie über keine Organisation verfügen, können Sie kostenlos eine Organisation erstellen. Weitere Informationen finden Sie unter [Quickstart: Create an organization or project collection](/azure/devops/organizations/accounts/create-organization?view=azure-devops) (Schnellstart: Erstellen einer Organisation oder einer Projektsammlung).
-* (Optional) **Visual Studio Code mit der Erweiterung „Azure Resource Manager-Tools“** . Weitere Informationen finden Sie unter [Schnellstart: Erstellen von Azure Resource Manager-Vorlagen mit Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* (Optional) **Visual Studio Code mit der Erweiterung „Azure Resource Manager-Tools“** . Weitere Informationen finden Sie unter [Schnellstart: Erstellen von ARM-Vorlagen mit Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="prepare-a-github-repository"></a>ein GitHub-Repository erstellen
 

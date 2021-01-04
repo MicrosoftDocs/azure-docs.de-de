@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: ad92862c78260e7385168faf794c013e85f66b82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8135e11fb7b7ddb588ab3a8ed01227712072fd2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445728"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647918"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-manually"></a>Manuelles Aktivieren der geschachtelten Virtualisierung auf einem virtuellen Vorlagencomputer in Azure Lab Services
 
@@ -108,7 +108,7 @@ Nachdem alle erforderlichen Rollen installiert wurden, ist es Zeit, das NAT-Netz
 
 6. Wählen Sie auf der Seite **NAT-Internetverbindung** die Option „Ethernet“ aus.  Wählen Sie nicht die Verbindung „vEthernet (LabServicesSwitch)“ aus, die wir im Hyper-V-Manager erstellt haben. Klicken Sie auf **Weiter**.
 7. Klicken Sie auf der letzten Seite des Assistenten auf **Fertig stellen**.
-8. Wenn das Dialogfeld **Starten des Diensts**angezeigt wird, klicken Sie auf **Dienst starten**.
+8. Wenn das Dialogfeld **Starten des Diensts** angezeigt wird, klicken Sie auf **Dienst starten**.
 9. Warten Sie das Starten des Diensts ab.
 
 ## <a name="update-network-adapter-settings"></a>Aktualisieren der Netzwerkadaptereinstellungen
@@ -156,7 +156,7 @@ Die folgenden Schritte sind Anweisungen zum Hinzufügen des DHCP-Bereichs.  In d
 
 ## <a name="conclusion"></a>Zusammenfassung
 
-Jetzt ist Ihr Vorlagencomputer bereit, um virtuelle Hyper-V-Computer zu erstellen.   Anweisungen zum Erstellen von virtuellen Hyper-V-Computern finden Sie unter [Erstellen eines virtuellen Computers in Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v).  Verfügbare Betriebssysteme und Software finden Sie außerdem im [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/).
+Jetzt ist Ihr Vorlagencomputer bereit, um virtuelle Hyper-V-Computer zu erstellen.   Anweisungen zum Erstellen von virtuellen Hyper-V-Computern finden Sie unter [Erstellen eines virtuellen Computers in Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v).  Verfügbare Betriebssysteme und Software finden Sie außerdem im [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

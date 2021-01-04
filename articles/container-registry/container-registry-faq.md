@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 4c65ca24b3fa4dccb2bb0060996ade50c90bd02a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a2cddc9bbe868a2d18ee8111aabf6db7dc8643cf
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148536"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346994"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Häufig gestellte Fragen zu Azure Container Registry (ACR)
 
@@ -262,7 +262,8 @@ Quarantäne von Images ist derzeit eine Previewfunktion von ACR. Sie können den
 Das Einrichten einer Azure Container Registry für den anonymen (öffentlichen) Zugriff per Pull ist derzeit eine Previewfunktion. Wenn Ihre Registrierung [Ressourcen für Gültigkeitsbereichszuordnungen (Benutzer) oder Token](./container-registry-repository-scoped-permissions.md) enthält, löschen Sie diese, bevor Sie ein Supportticket erstellen. (System-Gültigkeitsbereichszuordnungen können ignoriert werden.) Wenn Sie den öffentlichen Zugriff aktivieren möchten, öffnen Sie unter https://aka.ms/acr/support/create-ticket ein Supportticket. Weitere Informationen finden Sie im [Azure-Feedbackforum](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
 
 > [!NOTE]
-> Anonymer Zugriff ist nur auf die APIs möglich, die zum Abrufen eines bekannten Images erforderlich sind. Keine anderen APIs für Vorgänge wie Tagliste oder Repositoryliste sind anonym zugänglich.
+> * Anonymer Zugriff ist nur auf die APIs möglich, die zum Abrufen eines bekannten Images erforderlich sind. Keine anderen APIs für Vorgänge wie Tagliste oder Repositoryliste sind anonym zugänglich.
+> * Führen Sie vor einem anonymen Pullvorgang den Befehl `docker logout` aus, um alle ggf. vorhandenen Docker-Anmeldeinformationen zu löschen.
 
 ## <a name="diagnostics-and-health-checks"></a>Diagnose und Integritätsprüfungen
 

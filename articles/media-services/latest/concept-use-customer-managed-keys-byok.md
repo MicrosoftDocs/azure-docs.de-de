@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: a89ff56eb9e0f0a29b5b1fed7543c5f718425e51
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a56922c972efeb21c188413522bd05f83b74ca12
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92325925"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681821"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Bring Your Own Key (vom Kunden verwaltete Schlüssel) in Media Services
 
@@ -37,9 +37,11 @@ Sie können wahlweise einen Schlüsselnamen und eine Schlüsselversion oder nur 
 > [!WARNING]
 > Media Services überwacht den Zugriff auf den Kundenschlüssel. Wenn der Zugriff auf den Kundenschlüssel nicht möglich ist (beispielsweise, weil der Schlüssel gelöscht wurde, der Schlüsseltresor gelöscht wurde oder die Zugriffsberechtigung entzogen wurde), überführt Media Services das Konto in den Status „Customer Key Inaccessible“ (Kein Zugriff auf den Kundenschlüssel – effektiv ist das Konto damit deaktiviert). Allerdings kann das Konto in diesem Zustand gelöscht werden. Für das Konto werden lediglich die Vorgänge GET, LIST und DELETE unterstützt; alle anderen Anforderungen (Codierung, Streamen usw.) schlagen fehl, bis der Zugriff auf den Kontoschlüssel wiederhergestellt ist.
 
-## <a name="tutorial"></a>Lernprogramm
-Im Tutorial [Verwenden von vom Kunden verwalteten Schlüsseln oder BYOK (Bring Your Own Key) in Media Services](tutorial-byok.md) erhalten Sie weitere Informationen zum Einrichten und Verwenden von vom Kunden verwalteten Schlüsseln mit Postman und der Azure REST-API.
+## <a name="tutorials"></a>Tutorials
+
+- [Tutorial: Verwenden von kundenseitig verwalteten Schlüsseln (BYOK) mit Media Services über das Azure-Portal](tutorial-byok-portal.md)
+- [Tutorial: Verwenden von kundenseitig verwalteten Schlüsseln (BYOK) mit der Media Services-REST-API](tutorial-byok-postman.md)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Tutorial: Verwenden von vom Kunden verwalteten Schlüsseln oder BYOK (Bring Your Own Key) in Media Services](tutorial-byok.md)
+[Schützen Sie Ihren Inhalt mit der dynamischen Verschlüsselung von Media Services](content-protection-overview.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: d6995073ba7d283a30f7580456cd61573752f7cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e4fa9819343c90b5639fc485af8acb48968d62e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051388"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695655"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Konfigurieren des Verteilungsmodus für Azure Load Balancer
 
@@ -201,6 +201,6 @@ Date: Thu, 16 Oct 2014 22:49:21 GMT
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Interner Azure Load Balancer (Übersicht)](load-balancer-internal-overview.md)
+* [Übersicht über Azure Load Balancer](load-balancer-overview.md)
 * [Erste Schritte zum Konfigurieren eines Lastenausgleichs mit Internetzugriff](quickstart-load-balancer-standard-public-powershell.md)
 * [Konfigurieren von TCP-Leerlauftimeout-Einstellungen für den Lastenausgleich](load-balancer-tcp-idle-timeout.md)

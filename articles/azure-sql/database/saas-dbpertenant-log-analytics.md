@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 787ee50dc04337d82940973d47af454264629afe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a078ba6147d4d874a890f406563111b6fdb82ed6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619796"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780902"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-azure-sql-database-saas-app"></a>Einrichten und Verwenden von Azure Monitor-Protokollen mit einer mehrinstanzenfähigen SaaS-App für Azure SQL-Datenbank
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-In diesem Tutorial richten Sie [Azure Monitor-Protokolle](/azure/log-analytics/log-analytics-overview) zum Überwachen von Pools für elastische Datenbanken sowie Datenbanken ein. Dieses Tutorial baut auf dem [Tutorial zum Überwachen und Verwalten der Leistung](saas-dbpertenant-performance-monitoring.md) auf. Es zeigt, wie Sie mit Azure Monitor-Protokollen die im Azure-Portal bereitgestellte Überwachungs- und Warnungsfunktionalität erweitern können. Azure Monitor-Protokolle unterstützen die Überwachung von zigtausend Pools für elastische Datenbanken und mehreren hunderttausend Datenbanken. Mit Azure Monitor-Protokollen verfügen Sie über eine zentrale Überwachungslösung, in der die Überwachung von unterschiedlichen Anwendungen und Azure-Diensten für mehrere Azure-Abonnements integriert werden kann.
+In diesem Tutorial richten Sie [Azure Monitor-Protokolle](../../azure-monitor/log-query/log-query-overview.md) zum Überwachen von Pools für elastische Datenbanken sowie Datenbanken ein. Dieses Tutorial baut auf dem [Tutorial zum Überwachen und Verwalten der Leistung](saas-dbpertenant-performance-monitoring.md) auf. Es zeigt, wie Sie mit Azure Monitor-Protokollen die im Azure-Portal bereitgestellte Überwachungs- und Warnungsfunktionalität erweitern können. Azure Monitor-Protokolle unterstützen die Überwachung von zigtausend Pools für elastische Datenbanken und mehreren hunderttausend Datenbanken. Mit Azure Monitor-Protokollen verfügen Sie über eine zentrale Überwachungslösung, in der die Überwachung von unterschiedlichen Anwendungen und Azure-Diensten für mehrere Azure-Abonnements integriert werden kann.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -33,8 +33,8 @@ In diesem Tutorial lernen Sie Folgendes:
 
 Stellen Sie zum Durchführen dieses Tutorials sicher, dass die folgenden Voraussetzungen erfüllt sind:
 
-* Die Wingtip Tickets-SaaS-App mit einer Datenbank pro Mandant ist bereitgestellt. Unter [Bereitstellen und Kennenlernen der Wingtip Tickets-SaaS-App mit einer Datenbank pro Mandant](../../sql-database/saas-dbpertenant-get-started-deploy.md) finden Sie Informationen zur Bereitstellung in weniger als fünf Minuten.
-* Azure PowerShell wurde installiert. Weitere Informationen finden Sie unter [Erste Schritte mit Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Die Wingtip Tickets-SaaS-App mit einer Datenbank pro Mandant ist bereitgestellt. Unter [Bereitstellen und Kennenlernen der Wingtip Tickets-SaaS-App mit einer Datenbank pro Mandant](./saas-dbpertenant-get-started-deploy.md) finden Sie Informationen zur Bereitstellung in weniger als fünf Minuten.
+* Azure PowerShell wurde installiert. Weitere Informationen finden Sie unter [Erste Schritte mit Azure PowerShell](/powershell/azure/get-started-azureps).
 
 Im [Tutorial zum Überwachen und Verwalten der Leistung](saas-dbpertenant-performance-monitoring.md) finden Sie eine Beschreibung der SaaS-Szenarien und -Muster, und es wird erläutert, wie sie die Anforderungen an eine Überwachungslösung beeinflussen.
 
@@ -48,7 +48,7 @@ OMS-Arbeitsbereiche werden jetzt als Log Analytics-Arbeitsbereiche bezeichnet. L
 
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Erstellen von Leistungsdiagnosedaten durch Simulieren einer Arbeitsauslastung für Ihre Mandanten 
 
-1. Öffnen Sie in der PowerShell ISE „ *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Demo-PerformanceMonitoringAndManagement.ps1*“. Lassen Sie dieses Skript geöffnet, da Sie während dieses Szenarios u.U. mehrere Lastgenerierungsszenarien ausführen.
+1. Öffnen Sie in der PowerShell ISE „ *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Demo-PerformanceMonitoringAndManagement.ps1* “. Lassen Sie dieses Skript geöffnet, da Sie während dieses Szenarios u.U. mehrere Lastgenerierungsszenarien ausführen.
 1. Falls noch nicht geschehen, stellen Sie einen Batch von Mandanten bereit, um einen interessanteren Überwachungskontext herzustellen. Dieser Vorgang dauert einige Minuten.
 
    a. Legen Sie **$DemoScenario = 1** fest – _Bereitstellen eines Batchs von Mandanten_
@@ -69,7 +69,7 @@ Die Skripts und der Anwendungsquellcode der mehrinstanzenfähigen Wingtip Ticket
 
 Azure Monitor ist ein separater Dienst, der konfiguriert werden muss. Azure Monitor-Protokolle erfassen Protokoll- und Telemetriedaten sowie Metriken in einem Log Analytics-Arbeitsbereich. Ein Log Analytics-Arbeitsbereich muss wie andere Ressourcen in Azure erstellt werden. Der Arbeitsbereich muss nicht in derselben Ressourcengruppe erstellt werden, in der sich auch die überwachten Anwendungen befinden. In den meisten Fällen ist das jedoch am sinnvollsten. Bei der Wingtip Tickets-App wird durch das Verwenden einer einzigen Ressourcengruppe sichergestellt, dass der Arbeitsbereich mit der Anwendung gelöscht wird.
 
-1. Öffnen Sie in der PowerShell ISE *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1*.
+1. Öffnen Sie in der PowerShell ISE *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1* .
 1. Drücken Sie F5, um das Skript auszuführen.
 
 Jetzt können Sie Azure Monitor-Protokolle im Azure-Portal öffnen. Es dauert einige Minuten, bis Telemetriedaten im Log Analytics-Arbeitsbereich erfasst und angezeigt werden. Je länger Sie dem System Zeit zum Sammeln von Diagnosedaten lassen, desto interessanter wird das Ergebnis. 
@@ -92,7 +92,7 @@ Jetzt können Sie Azure Monitor-Protokolle im Azure-Portal öffnen. Es dauert ei
     > [!IMPORTANT]
     > Es kann einige Minuten dauern, bis die Lösung aktiv ist. 
 
-1. Klicken Sie auf die Kachel **Azure SQL-Analyse**, um sie zu öffnen.
+1. Klicken Sie auf die Kachel **Azure SQL-Analyse** , um sie zu öffnen.
 
     ![Übersichtskachel](./media/saas-dbpertenant-log-analytics/overview.png)
 
@@ -135,7 +135,7 @@ Im Log Analytics-Arbeitsbereich können Sie die Protokoll- und Metrikdaten weite
 
 Überwachung und Warnung in Azure Monitor-Protokollen beruhen – im Gegensatz zu den Warnungen, die im Azure-Portal für jede Ressource definiert werden – auf Abfragen der Daten im Arbeitsbereich. Da Warnungen auf Abfragen beruhen, können Sie statt einer Warnung pro Datenbank eine einzige Warnung definieren, die alle Datenbanken abdeckt. Abfragen sind nur durch die im Arbeitsbereich verfügbaren Daten beschränkt.
 
-Weitere Informationen zum Abfragen und Festlegen von Warnungen mit Azure Monitor-Protokollen finden Sie unter [Arbeiten mit Warnungsregeln in Azure Monitor-Protokollen](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
+Weitere Informationen zum Abfragen und Festlegen von Warnungen mit Azure Monitor-Protokollen finden Sie unter [Arbeiten mit Warnungsregeln in Azure Monitor-Protokollen](../../azure-monitor/platform/alerts-metric.md).
 
 Die Rechnungsstellung für Azure Monitor-Protokolle für SQL-Datenbank basiert auf dem jeweiligen Datenvolumen im Arbeitsbereich. In diesem Tutorial haben Sie einen kostenlosen Arbeitsbereich erstellt, der auf 500 MB pro Tag beschränkt ist. Sobald dieser Grenzwert erreicht wird, werden dem Arbeitsbereich keine Daten mehr hinzugefügt.
 

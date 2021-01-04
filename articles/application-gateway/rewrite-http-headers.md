@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: fb5196f9612cb4ce1f0a49be8b5a76f6703fdab6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e8eb79d519e2f7bfbf006b852f0c5294976b727
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85248682"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397148"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Erneutes Generieren von HTTP-Headern mit Application Gateway
 
@@ -22,7 +22,7 @@ HTTP-Header ermöglichen einem Client und Server das Übergeben von zusätzliche
 
 Application Gateway ermöglicht Ihnen das Hinzufügen, Entfernen oder Aktualisieren von HTTP-Anforderungs- und -Antwortheadern, während die Anforderung/Antwort-Pakete zwischen dem Client und den Back-End-Pools verschoben werden. Außerdem können Sie Bedingungen hinzufügen, um sicherzustellen, dass die angegebenen Header nur dann neu generiert werden, wenn bestimmte Bedingungen erfüllt sind.
 
-Application Gateway unterstützt auch mehrere [Servervariablen](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables), mit denen Sie weitere Informationen zu Anforderungen und Antworten speichern können. Dies erleichtert Ihnen das Erstellen leistungsstarker Neuschreibungsregeln.
+Application Gateway unterstützt auch mehrere [Servervariablen](#server-variables), mit denen Sie weitere Informationen zu Anforderungen und Antworten speichern können. Dies erleichtert Ihnen das Erstellen leistungsstarker Neuschreibungsregeln.
 
 > [!NOTE]
 >
@@ -49,14 +49,14 @@ Mit einer Bedingung können Sie ermitteln, ob eine angegebene Variable vorhanden
 Mit Aktionen für das erneute Generieren geben Sie die Anforderungs- und Antwortheader an, die Sie erneut generieren möchten, sowie den neuen Wert für die Header. Sie können entweder einen neuen Header erstellen, den Wert eines vorhandenen Headers ändern oder einen vorhandenen Header löschen. Der Wert eines neuen Headers oder eines vorhandenen Headers kann auf die folgenden Typen von Werten festgelegt werden:
 
 - Text.
-- Anforderungsheader. Um einen Anforderungsheader festzulegen, müssen Sie die Syntax {http_req_*headerName*} verwenden.
-- Antwortheader. Um einen Antwortheader festzulegen, müssen Sie die Syntax {http_resp_*headerName*} verwenden.
-- Servervariable. Um eine Servervariable festzulegen, müssen Sie die Syntax {var_*serverVariable*} verwenden.
+- Anforderungsheader. Um einen Anforderungsheader festzulegen, müssen Sie die Syntax {http_req_ *headerName* } verwenden.
+- Antwortheader. Um einen Antwortheader festzulegen, müssen Sie die Syntax {http_resp_ *headerName* } verwenden.
+- Servervariable. Um eine Servervariable festzulegen, müssen Sie die Syntax {var_ *serverVariable* } verwenden.
 - Eine Kombination aus Text, Anforderungsheader, Antwortheader und Servervariable.
 
 ## <a name="server-variables"></a>Servervariablen
 
-Application Gateway speichert mit Servervariablen nützliche Informationen zum Server, zur Verbindung mit dem Client und zur momentanen Anforderung an die Verbindung. Beispiele für Informationen, die gespeichert werden, sind die IP-Adresse des Clients und der Webbrowsertyp. Servervariablen ändern sich dynamisch, wenn z.B. eine neue Seite geladen oder ein Formular gesendet wird. Anhand dieser Variablen können Sie Bedingungen für das erneute Generieren und Header für das erneute Generieren auswerten. Um den Wert von Servervariablen zum erneuten Generieren von Headern zu verwenden, müssen Sie diese Variablen in der Syntax {var_*serverVariable*} angeben.
+Application Gateway speichert mit Servervariablen nützliche Informationen zum Server, zur Verbindung mit dem Client und zur momentanen Anforderung an die Verbindung. Beispiele für Informationen, die gespeichert werden, sind die IP-Adresse des Clients und der Webbrowsertyp. Servervariablen ändern sich dynamisch, wenn z.B. eine neue Seite geladen oder ein Formular gesendet wird. Anhand dieser Variablen können Sie Bedingungen für das erneute Generieren und Header für das erneute Generieren auswerten. Um den Wert von Servervariablen zum erneuten Generieren von Headern zu verwenden, müssen Sie diese Variablen in der Syntax {var_ *serverVariable* } angeben.
 
 Application Gateway unterstützt diese Servervariablen:
 
@@ -70,7 +70,7 @@ Application Gateway unterstützt diese Servervariablen:
 | client_tcp_rtt             | Informationen zur TCP-Verbindung des Clients. Verfügbar auf Systemen, die die TCP_INFO-Socketoption unterstützen. |
 | client_user                | Wenn HTTP-Authentifizierung verwendet wird, der Benutzername, der bei der Authentifizierung angegeben wird. |
 | host                       | In dieser Reihenfolge: Hostname aus der Anforderungszeile, Hostname aus dem Anforderungsheaderfeld „Host“ oder der Servername, der mit einer Anforderung übereinstimmt. Beispiel: In der Anforderung *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* wird der Hostwert zu *contoso.com* |
-| cookie_*Name*              | Das *name*-Cookie.                                            |
+| cookie_ *Name*              | Das *name* -Cookie.                                            |
 | http_method                | Die Methode, die für die URL-Anforderung verwendet wird. Beispielsweise GET oder POST. |
 | http_status                | Der Sitzungsstatus. Beispielsweise 200, 400 oder 403.                       |
 | http_version               | Das Anforderungsprotokoll. In der Regel HTTP/1.0, HTTP/1.1 oder HTTP/2.0. |
@@ -91,19 +91,19 @@ Um das erneute Generieren von HTTP-Headern zu konfigurieren, müssen Sie diese S
 
 1. Erstellen Sie die Objekte, die zum erneuten Generieren von HTTP-Headern erforderlich sind:
 
-   - **Aktion für das erneute Generieren**: Dient dazu, die Felder für Anforderung und Anforderungsheader, die Sie erneut generieren möchten, und den neuen Wert für die Header anzugeben. Sie können eine oder mehrere Bedingungen für das erneute Generieren mit einer Aktion für das erneute Generieren verknüpfen.
+   - **Aktion für das erneute Generieren** : Dient dazu, die Felder für Anforderung und Anforderungsheader, die Sie erneut generieren möchten, und den neuen Wert für die Header anzugeben. Sie können eine oder mehrere Bedingungen für das erneute Generieren mit einer Aktion für das erneute Generieren verknüpfen.
 
-   - **Bedingung für das erneute Generieren**: Eine optionale Konfiguration. Bedingungen für das erneute Generieren werten den Inhalt von HTTP(S)-Anforderungen und -Antworten aus. Die Aktion für das erneute Generieren wird ausgeführt, wenn die HTTP(S)-Anforderung oder -Antwort die Bedingung für das erneute Generieren erfüllt.
+   - **Bedingung für das erneute Generieren** : Eine optionale Konfiguration. Bedingungen für das erneute Generieren werten den Inhalt von HTTP(S)-Anforderungen und -Antworten aus. Die Aktion für das erneute Generieren wird ausgeführt, wenn die HTTP(S)-Anforderung oder -Antwort die Bedingung für das erneute Generieren erfüllt.
 
      Wenn Sie der Aktion mehr als eine Bedingung zuordnen, erfolgt die Aktion nur, wenn alle Bedingungen erfüllt sind. Das heißt also, dass der Vorgang ein logischer UND-Vorgang ist.
 
-   - **Regel zum erneuten Generieren**: Enthält mehrere Kombinationen aus Aktion und Bedingung für das erneute Generieren.
+   - **Regel zum erneuten Generieren** : Enthält mehrere Kombinationen aus Aktion und Bedingung für das erneute Generieren.
 
-   - **Regelsequenz**: Hilft, die Reihenfolge zu bestimmen, in der die Regeln zum erneuten Generieren ausgeführt werden. Diese Konfiguration ist hilfreich, wenn Sie mehrere Regeln zum erneuten Generieren in einem Satz zum erneuten Generieren haben. Eine Regel zum erneuten Generieren, die eine niedrigere Regelsequenz besitzt, wird zuerst ausgeführt. Wenn Sie dieselbe Regelsequenz zwei Regeln zum erneuten Generieren zuweisen, ist die Reihenfolge der Ausführung unbestimmt.
+   - **Regelsequenz** : Hilft, die Reihenfolge zu bestimmen, in der die Regeln zum erneuten Generieren ausgeführt werden. Diese Konfiguration ist hilfreich, wenn Sie mehrere Regeln zum erneuten Generieren in einem Satz zum erneuten Generieren haben. Eine Regel zum erneuten Generieren, die eine niedrigere Regelsequenz besitzt, wird zuerst ausgeführt. Wenn Sie dieselbe Regelsequenz zwei Regeln zum erneuten Generieren zuweisen, ist die Reihenfolge der Ausführung unbestimmt.
 
-   - **Satz zum erneuten Generieren**: Enthält mehrere Regeln zum erneuten Generieren, die einer Anforderungsroutingregel zugeordnet werden.
+   - **Satz zum erneuten Generieren** : Enthält mehrere Regeln zum erneuten Generieren, die einer Anforderungsroutingregel zugeordnet werden.
 
-2. Fügen Sie den Satz zum erneuten Generieren (*rewriteRuleSet*) einer Routingregel an. Die Konfiguration für das erneute Generieren wird dem Quelllistener über die Routingregel angefügt. Bei Verwendung einer einfachen Routingregel wird die Konfiguration der erneuten Generierung eines Headers einem Quelllistener zugeordnet und fungiert als erneute Generierung eines globalen Headers. Wenn eine pfadbasierte Routingregel verwendet wird, wird die Konfiguration der erneuten Generierung eines Headers in der URL-Pfadzuordnung definiert. In diesem Fall gilt sie nur für den bestimmten Pfadbereich einer Site.
+2. Fügen Sie den Satz zum erneuten Generieren ( *rewriteRuleSet* ) einer Routingregel an. Die Konfiguration für das erneute Generieren wird dem Quelllistener über die Routingregel angefügt. Bei Verwendung einer einfachen Routingregel wird die Konfiguration der erneuten Generierung eines Headers einem Quelllistener zugeordnet und fungiert als erneute Generierung eines globalen Headers. Wenn eine pfadbasierte Routingregel verwendet wird, wird die Konfiguration der erneuten Generierung eines Headers in der URL-Pfadzuordnung definiert. In diesem Fall gilt sie nur für den bestimmten Pfadbereich einer Site.
    > [!NOTE]
    > Beim erneuten Generieren der URL werden die Header geändert, die URL für den Pfad wird jedoch nicht geändert.
 
@@ -168,5 +168,5 @@ Sie können einen HTTP-Anforderungs- oder -Antwortheader auf das Vorhandensein e
 
 Eine Anleitung zum erneuten Generieren von HTTP-Header finden Sie in folgenden Artikeln:
 
-- [Erneutes Generieren von HTTP-Headern über das Azure-Portal](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+- [Erneutes Generieren von HTTP-Headern über das Azure-Portal](./rewrite-http-headers-portal.md)
 - [Erneutes Generieren von HTTP-Headern über Azure PowerShell](add-http-header-rewrite-rule-powershell.md)

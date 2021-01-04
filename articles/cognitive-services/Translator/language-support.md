@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 426445342263ad10f174ecf7cca926805eb601e6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: bdd12b5c866ee723547513e35a5adcfabb59dab9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669637"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364418"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Sprach- und Regionsunterstützung für Text- und Sprachübersetzung
 
@@ -347,7 +347,7 @@ Die folgenden Sprachen sind für die Anpassung an das Englische oder aus dem Eng
 | Walisisch | `cy` |
 
 ## <a name="speech-translation"></a>Sprachübersetzung
-Die Sprachübersetzung ist durch die Verwendung des Translator in Verbindung mit dem Spracherkennungsdienst von Cognitive Services verfügbar. In der [Dokumentation zum Spracherkennungsdienst](https://docs.microsoft.com/azure/cognitive-services/speech-service/) erfahren Sie mehr über die Verwendung der Sprachübersetzung sowie über alle [verfügbaren Sprachoptionen](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support).
+Die Sprachübersetzung ist durch die Verwendung des Translator in Verbindung mit dem Spracherkennungsdienst von Cognitive Services verfügbar. In der [Dokumentation zum Spracherkennungsdienst](../speech-service/index.yml) erfahren Sie mehr über die Verwendung der Sprachübersetzung sowie über alle [verfügbaren Sprachoptionen](../speech-service/language-support.md).
 
 ### <a name="speech-to-text"></a>Spracherkennung
 Wandeln Sie Sprache in Text um, damit dieser in eine beliebige Textsprache übersetzt werden kann. Die Spracherkennung wird für die Übersetzung von Sprache in Text oder für die Übersetzung von Sprache in Sprache verwendet, wenn sie zusammen mit der Sprachsynthese verwendet wird.

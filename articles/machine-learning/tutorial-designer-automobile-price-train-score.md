@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Vorhersagen von Autopreisen mit dem Designer'
 titleSuffix: Azure Machine Learning
-description: Hier erfahren Sie, wie Sie ein Machine Learning-Modell mit einer Drag & Drop-Benutzeroberfläche trainieren, bewerten und bereitstellen. Dieses Tutorial ist der erste Teil einer zweiteiligen Reihe über das Prognostizieren von Automobilpreisen mithilfe der linearen Regression.
+description: Trainieren Sie ein Machine Learning-Modell, um Automobilpreise mithilfe der linearen Regression vorherzusagen. Dieses Tutorial ist der erste Teil einer zweiteiligen Reihe.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: d9422cfb9bd8e5539f1a9b43d6fb7b137778f3d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca812fc7548e3c70f1faa1e1ed6a34afda3872af
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404917"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575974"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutorial: Prognostizieren von Automobilpreisen mit dem Designer
 
@@ -48,7 +48,10 @@ Für die Erstellung einer Azure Machine Learning-Pipeline benötigen Sie einen A
 
 ### <a name="create-a-new-workspace"></a>Erstellen eines neuen Arbeitsbereichs
 
-Um den Designer verwenden zu können, benötigen Sie zunächst einen Azure Machine Learning-Arbeitsbereich. Der Arbeitsbereich ist die Ressource der obersten Ebene für Azure Machine Learning und bietet einen zentralen Ort für die Arbeit mit allen Artefakten, die Sie in Azure Machine Learning erstellen.
+Sie benötigen einen Azure Machine Learning-Arbeitsbereich, um den Designer verwenden zu können. Der Arbeitsbereich ist die Ressource der obersten Ebene für Azure Machine Learning und bietet einen zentralen Ort für die Arbeit mit allen Artefakten, die Sie in Azure Machine Learning erstellen. Eine Anleitung zum Erstellen eines Arbeitsbereichs finden Sie unter [Erstellen und Verwalten von Azure Machine Learning-Arbeitsbereichen](how-to-manage-workspace.md).
+
+> [!NOTE]
+> Wenn für Ihren Arbeitsbereich ein virtuelles Netzwerk verwendet wird, müssen Sie zusätzliche Konfigurationsschritte ausführen, um den Designer verwenden zu können. Weitere Informationen finden Sie unter [Verwenden von Azure Machine Learning Studio in einem virtuellen Azure-Netzwerk](how-to-enable-studio-virtual-network.md).
 
 ### <a name="create-the-pipeline"></a>Erstellen der Pipeline
 
@@ -221,7 +224,7 @@ Trainieren Sie das Modell, indem Sie ein Dataset mit Preis bereitstellen. Durch 
     > [!IMPORTANT]
     > Achten Sie darauf, dass der linke Ausgabeport von **Split Data** (Daten aufteilen) mit **Train Model** (Modell trainieren) verbunden ist. Der linke Port enthält den Trainingssatz. Der rechte Port enthält den Testsatz.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Select-column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Screenshot: Richtige Konfiguration des Moduls „Train Model“ (Modell trainieren). Das Modul „Linear Regression“ (Lineare Regression) ist mit dem linken Port des Moduls „Train Model“ verbunden, und das Modul „Split Data“ (Daten aufteilen) ist mit dem rechten Port von „Train Model“ verbunden.":::
 
 1. Wählen Sie das Modul **Train Model** (Modell trainieren) aus.
 
@@ -236,7 +239,7 @@ Trainieren Sie das Modell, indem Sie ein Dataset mit Preis bereitstellen. Durch 
 
     Ihre Pipeline sollte wie folgt aussehen:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Select-column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Screenshot: Richtige Pipelinekonfiguration nach dem Hinzufügen des Moduls „Train Model“ (Modell trainieren)":::
 
 ### <a name="add-the-score-model-module"></a>Hinzufügen des Moduls „Score Model“ (Modell bewerten)
 
@@ -256,7 +259,7 @@ Verwenden Sie das Modul **Evaluate Model** (Modell auswerten), um auszuwerten, w
 
     Die fertige Pipeline sollte in etwa wie folgt aussehen:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Select-column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Screenshot: Richtige Pipelinekonfiguration":::
 
 ## <a name="submit-the-pipeline"></a>Übermitteln der Pipeline
 
@@ -275,7 +278,7 @@ Nachdem die Einrichtung Ihrer Pipeline jetzt abgeschlossen ist, können Sie eine
     
     Ausführungsstatus und Details können rechts oben auf der Canvas angezeigt werden.
     
-    Handelt es sich um die erste Ausführung, kann die vollständige Ausführung der Pipeline bis zu 20 Minuten dauern. In den Standardcomputeeinstellungen ist eine minimale Knotengröße von 0 festgelegt. Das bedeutet, dass der Designer Ressourcen nach dem Leerlauf zuordnen muss. Wiederholte Pipelineausführungen werden schneller abgeschlossen, da die Computeressourcen bereits zugeordnet sind. Außerdem verwendet der Designer für jedes Modul zwischengespeicherte Ergebnisse, um die Effizienz weiter zu steigern.
+    Falls dies die erstmalige Ausführung ist, kann es bis zu 20 Minuten dauern, bis der Ausführungsvorgang für die Pipeline vollständig abgeschlossen ist. In den Standardcomputeeinstellungen ist eine minimale Knotengröße von 0 festgelegt. Das bedeutet, dass der Designer Ressourcen nach dem Leerlauf zuordnen muss. Wiederholte Pipelineausführungen werden schneller abgeschlossen, da die Computeressourcen bereits zugeordnet sind. Außerdem verwendet der Designer für jedes Modul zwischengespeicherte Ergebnisse, um die Effizienz weiter zu steigern.
 
 ### <a name="view-scored-labels"></a>Anzeigen bewerteter Bezeichnungen
 
@@ -285,7 +288,7 @@ Nach Abschluss der Ausführung können Sie sich die Ergebnisse ansehen. Sehen Si
 
     Hier sehen Sie die vorhergesagten Preise und die tatsächlichen Preise aus den Testdaten.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Select-column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Screenshot: Ausgabevisualisierung mit hervorgehobener Spalte „Scored Labels“ (Bewertete Bezeichnungen)":::
 
 ### <a name="evaluate-models"></a>Auswerten von Modellen
 

@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: overview
 ms.date: 09/09/2020
 ms.author: raynew
-ms.openlocfilehash: 4d520f51717aa11dba55697d63852b17e0ba9cf0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5261904dd1ee7f280209015d8f756a055dfab57e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90604494"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522942"
 ---
 # <a name="about-the-move-process"></a>Informationen zum Verschiebungsprozess
 
@@ -25,8 +25,8 @@ Bei der Verschiebung in eine andere Region werden die folgenden Komponenten verw
 
 **Komponente** | **Details**
 --- | ---
-**Resource Mover** |  Resource Mover arbeitet mit [Azure-Ressourcenanbietern](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types) zusammen, um die Verschiebung von Ressourcen zwischen Regionen zu organisieren. Der Dienst analysiert Ressourcenabhängigkeiten und legt den Zustand von Ressourcen während des Verschiebungsprozesses fest und verwaltet ihn. 
-**Verschiebungssammlung** |  Verschiebungssammlungen sind [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)-Objekte.<br/><br/> Sie werden während des Verschiebungsprozesses in eine andere Region für jede verknüpfte Kombination aus Quell- und Zielregionen in einem Abonnement erstellt. Die Sammlung enthält Metadaten und Konfigurationsinformationen über die Ressourcen, die Sie verschieben möchten.<br/><br/>Zu einer Verschiebungssammlung hinzugefügte Ressourcen müssen sich im selben Abonnement befinden, können jedoch zu unterschiedlichen Ressourcengruppen gehören. 
+**Resource Mover** |  Resource Mover arbeitet mit [Azure-Ressourcenanbietern](../azure-resource-manager/management/resource-providers-and-types.md) zusammen, um die Verschiebung von Ressourcen zwischen Regionen zu organisieren. Der Dienst analysiert Ressourcenabhängigkeiten und legt den Zustand von Ressourcen während des Verschiebungsprozesses fest und verwaltet ihn. 
+**Verschiebungssammlung** |  Verschiebungssammlungen sind [Azure Resource Manager](../azure-resource-manager/management/overview.md)-Objekte.<br/><br/> Sie werden während des Verschiebungsprozesses in eine andere Region für jede verknüpfte Kombination aus Quell- und Zielregionen in einem Abonnement erstellt. Die Sammlung enthält Metadaten und Konfigurationsinformationen über die Ressourcen, die Sie verschieben möchten.<br/><br/>Zu einer Verschiebungssammlung hinzugefügte Ressourcen müssen sich im selben Abonnement befinden, können jedoch zu unterschiedlichen Ressourcengruppen gehören. 
 **Verschiebungsressource** | Wenn Sie eine Ressource zu einer Verschiebungssammlung hinzufügen, wird diese von Resource Mover als Verschiebungsressource überwacht.<br/><br/> Resource Mover verwaltet Informationen für alle Verschiebungsressourcen in der Verschiebungssammlung und sorgt für eine 1:1-Beziehung zwischen der Quell- und der Zielressource. 
 **Abhängigkeiten** | Resource Mover überprüft die Ressourcen, die Sie zu einer Sammlung hinzufügen, und prüft, ob diese über Abhängigkeiten verfügen, die sich nicht in der Verschiebungssammlung befinden.<br/><br/> Wenn solche Abhängigkeiten für eine Ressource ermittelt wurden, können Sie diese entweder zur Verschiebungssammlung hinzufügen und ebenfalls verschieben oder andere Ressourcen auswählen, die in der Zielregion bereits vorhanden sind. Dieses Problem muss vor Beginn der Verschiebung für alle Abhängigkeiten behoben werden. 
 

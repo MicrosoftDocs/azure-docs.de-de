@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: eaf54b7f7336619d03ce0fb6ea7fa032d0fcdff7
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 00f713e8d319d7ad8dcea014429c57d7fba40541
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319170"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181219"
 ---
 # <a name="tutorial-configure-15five-for-automatic-user-provisioning"></a>Tutorial: Konfigurieren von 15Five für die automatische Benutzerbereitstellung
 
@@ -39,7 +39,7 @@ In diesem Tutorial werden die Schritte erläutert, die in 15Five und Azure Activ
 Das diesem Tutorial zu Grunde liegende Szenario setzt voraus, dass Sie bereits über die folgenden Voraussetzungen verfügen:
 
 * [Ein Azure AD-Mandant](../develop/quickstart-create-new-tenant.md)
-* Ein Benutzerkonto in Azure AD mit der [Berechtigung](../users-groups-roles/directory-assign-admin-roles.md) für die Konfiguration von Bereitstellungen (z.B. Anwendungsadministrator, Cloudanwendungsadministrator, Anwendungsbesitzer oder Globaler Administrator).
+* Ein Benutzerkonto in Azure AD mit der [Berechtigung](../roles/permissions-reference.md) für die Konfiguration von Bereitstellungen (z.B. Anwendungsadministrator, Cloudanwendungsadministrator, Anwendungsbesitzer oder Globaler Administrator).
 * Einen [15Five-Mandanten](https://www.15five.com/pricing/)
 * Ein Benutzerkonto in 15Five mit Administratorberechtigungen
 
@@ -58,15 +58,15 @@ Bevor Sie 15Five für die automatische Benutzerbereitstellung mit Azure AD konf
 
 2.  Klicken Sie auf **SCIM 2.0**.
 
-    :::image type="content" source="media/15five-provisioning-tutorial/image00.png" alt-text="Screenshot der 15Five-Verwaltungskonsole. Unter „Features“ wird in einem Menü „Integrations“ angezeigt, und „Features“ und „Integrations“ sind hervorgehoben." border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image00.png" alt-text="Screenshot der Seite „Integrations“ in der 15Five-Verwaltungskonsole. Unter „Tool“ ist SCIM 2.0 hervorgehoben." border="false":::
 
 3.  Navigieren Sie zu **SCIM integration > Generate OAuth token** (SCIM-Integration > OAuth-Token generieren).
 
-    :::image type="content" source="media/15five-provisioning-tutorial/image02.png" alt-text="Screenshot der 15Five-Verwaltungskonsole. Unter „Features“ wird in einem Menü „Integrations“ angezeigt, und „Features“ und „Integrations“ sind hervorgehoben." border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image02.png" alt-text="Screenshot der Seite „SCIM integration“ in der 15Five-Verwaltungskonsole. „Generate OAuth token“ (OAuth-Token generieren) ist hervorgehoben." border="false":::
 
 4.  Kopieren Sie die Werte für **SCIM 2.0 base URL** (SCIM 2.0-Basis-URL) und **Access Token** (Zugriffstoken). Diese Werte werden im Azure-Portal auf der Registerkarte „Bereitstellung“ Ihrer 15Five-Anwendung in die Felder **Mandanten-URL** und **Geheimes Token** eingegeben.
     
-    :::image type="content" source="media/15five-provisioning-tutorial/image03.png" alt-text="Screenshot der 15Five-Verwaltungskonsole. Unter „Features“ wird in einem Menü „Integrations“ angezeigt, und „Features“ und „Integrations“ sind hervorgehoben." border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image03.png" alt-text="Screenshot der Seite „SCIM integrations“. In der Tabelle „Token“ sind die Werte neben „SCIM 2.0 base URL“ (SCIM 2.0-Basis-URL) und „Access token“ (Zugriffstoken) hervorgehoben." border="false":::
 
 ## <a name="step-3-add-15five-from-the-azure-ad-application-gallery"></a>Schritt 3: Hinzufügen von 15Five aus dem Azure AD-Anwendungskatalog
 

@@ -11,16 +11,16 @@ ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 2019802725e36c2400f57952fedf7af40877c8c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8836295e9f54260c4e9ff6c1da333ef2a86d58fb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84759928"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651854"
 ---
 # <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Verstehen und Beheben von CORS-Problemen für den Azure Active Directory-Anwendungsproxy
 
-Die Ressourcenfreigabe zwischen verschiedenen Ursprüngen ([Cross-Origin Resource Sharing, CORS](https://www.w3.org/TR/cors/)) kann bisweilen Herausforderungen für die Apps und APIs mit sich bringen, die Sie über den Azure Active Directory-Anwendungsproxy veröffentlichen. In diesem Artikel werden CORS-Probleme für den Azure AD-Anwendungsproxy sowie entsprechende Lösungen behandelt.
+Die Ressourcenfreigabe zwischen verschiedenen Ursprüngen ([Cross-Origin Resource Sharing, CORS](https://www.w3.org/TR/cors/)) kann bisweilen Herausforderungen für die Apps und APIs mit sich bringen, die Sie über den Azure Active Directory-Anwendungsproxy veröffentlichen. In diesem Artikel werden CORS-Probleme für den Azure AD-Anwendungsproxy sowie entsprechende Lösungen behandelt.
 
 Die Browsersicherheit verhindert in der Regel, dass eine Webseite AJAX-Anforderungen an eine andere Domäne richtet. Diese Einschränkung wird als *Richtlinie des gleichen Ursprungs* bezeichnet und verhindert, dass eine schädliche Website sensible Daten von einer anderen Website liest. Manchmal sollen andere Websites jedoch unter Umständen Ihre Web-API aufrufen können. CORS ist ein W3C-Standard, der einem Server eine weniger strenge Anwendung der Richtlinie des gleichen Ursprungs ermöglicht und einige Anforderungen zwischen verschiedenen Ursprüngen zulässt, während andere abgelehnt werden.
 
@@ -66,7 +66,7 @@ Das oben genannte CORS-Problem lässt sich auf eine der folgenden Arten beheben:
 
 ### <a name="option-1-set-up-a-custom-domain"></a>Option 1: Einrichten einer benutzerdefinierten Domäne
 
-Verwenden Sie eine [benutzerdefinierte Domäne](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) für den Azure AD-Anwendungsproxy, um bei der Veröffentlichung den gleichen Ursprung zu verwenden, ohne Änderungen an App-Ursprüngen, Code oder Headern vornehmen zu müssen. 
+Verwenden Sie eine [benutzerdefinierte Domäne](./application-proxy-configure-custom-domain.md) für den Azure AD-Anwendungsproxy, um bei der Veröffentlichung den gleichen Ursprung zu verwenden, ohne Änderungen an App-Ursprüngen, Code oder Headern vornehmen zu müssen. 
 
 ### <a name="option-2-publish-the-parent-directory"></a>Option 2: Veröffentlichen des übergeordneten Verzeichnisses
 
@@ -117,4 +117,4 @@ Einige CORS-Probleme können nicht behoben werden – etwa wenn Ihre App Datenv
 ## <a name="see-also"></a>Weitere Informationen
 - [Tutorial: Hinzufügen einer lokalen Anwendung für den Remotezugriff über den Anwendungsproxy in Azure Active Directory](application-proxy-add-on-premises-application.md) 
 - [Planen der Bereitstellung eines Azure AD-Anwendungsproxys](application-proxy-deployment-plan.md) 
-- [Remotezugriff auf lokale Anwendungen über den Azure Active Directory-Anwendungsproxy](application-proxy.md) 
+- [Remotezugriff auf lokale Anwendungen über den Azure Active Directory-Anwendungsproxy](application-proxy.md)

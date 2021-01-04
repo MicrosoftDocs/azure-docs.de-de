@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: a995460793686d8293d77965e74e2cbf916925a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8fc6e71494df36cd6f823661b18e4a3d8ce2938c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005598"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563680"
 ---
 # <a name="configure-a-custom-response-for-azure-web-application-firewall-waf"></a>Konfigurieren einer benutzerdefinierten Antwort für Azure Web Application Firewall (WAF)
 
-Wenn WAF aufgrund einer übereinstimmenden Regel eine Anforderung blockiert, wird standardmäßig ein 403-Statuscode mit der Meldung **Die Anforderung wurde blockiert** zurückgegeben. Die Standardmeldung enthält auch die Nachverfolgungs-Verweiszeichenfolge, mit der eine Verknüpfung mit [Protokolleinträgen](https://docs.microsoft.com/azure/web-application-firewall/afds/waf-front-door-monitor) für die Anforderung abgerufen werden kann.  Sie können einen benutzerdefinierten Antwortstatuscode und eine benutzerdefinierte Meldung mit einer Verweiszeichenfolge für Ihren Anwendungsfall konfigurieren. In diesem Artikel wird beschrieben, wie Sie eine benutzerdefinierte Antwortseite für den Fall konfigurieren, dass eine Anforderung durch WAF blockiert wird.
+Wenn WAF aufgrund einer übereinstimmenden Regel eine Anforderung blockiert, wird standardmäßig ein 403-Statuscode mit der Meldung **Die Anforderung wurde blockiert** zurückgegeben. Die Standardmeldung enthält auch die Nachverfolgungs-Verweiszeichenfolge, mit der eine Verknüpfung mit [Protokolleinträgen](./waf-front-door-monitor.md) für die Anforderung abgerufen werden kann.  Sie können einen benutzerdefinierten Antwortstatuscode und eine benutzerdefinierte Meldung mit einer Verweiszeichenfolge für Ihren Anwendungsfall konfigurieren. In diesem Artikel wird beschrieben, wie Sie eine benutzerdefinierte Antwortseite für den Fall konfigurieren, dass eine Anforderung durch WAF blockiert wird.
 
 ## <a name="configure-custom-response-status-code-and-message-use-portal"></a>Konfigurieren des benutzerdefinierten Antwortstatuscodes und der Nachricht über das Portal
 
@@ -27,7 +27,7 @@ Sie können einen benutzerdefinierten Antwortstatuscode und -text unter „Richt
 
 Im obigen Beispiel haben wir den Antwortcode 403 beibehalten und eine kurze Meldung mit dem Inhalt „Bitte kontaktieren Sie uns“ konfiguriert, wie in der nachstehenden Abbildung dargestellt:
 
-:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="WAF-Richtlinieneinstellungen":::
+:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="Beispiel für eine benutzerdefinierte Antwort":::
 
 „{{azure-ref}}“ fügt die eindeutige Verweiszeichenfolge in den Antworttext ein. Der Wert stimmt mit dem Feld TrackingReference in den Protokollen `FrontdoorAccessLog` und `FrontdoorWebApplicationFirewallLog` überein.
 
@@ -35,9 +35,9 @@ Im obigen Beispiel haben wir den Antwortcode 403 beibehalten und eine kurze Mel
 
 ### <a name="set-up-your-powershell-environment"></a>Einrichten Ihrer PowerShell-Umgebung
 
-Azure PowerShell bietet eine Reihe von Cmdlets, die das [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)-Modell für die Verwaltung von Azure-Ressourcen verwenden. 
+Azure PowerShell bietet eine Reihe von Cmdlets, die das [Azure Resource Manager](../../azure-resource-manager/management/overview.md)-Modell für die Verwaltung von Azure-Ressourcen verwenden. 
 
-Sie können [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) auf Ihrem lokalen Computer installieren und in einer beliebigen PowerShell-Sitzung nutzen. Befolgen Sie die Anweisungen auf der Seite, um sich mit Ihren Azure-Anmeldeinformationen anzumelden und das Azure PowerShell-Modul zu installieren.
+Sie können [Azure PowerShell](/powershell/azure/) auf Ihrem lokalen Computer installieren und in einer beliebigen PowerShell-Sitzung nutzen. Befolgen Sie die Anweisungen auf der Seite, um sich mit Ihren Azure-Anmeldeinformationen anzumelden und das Azure PowerShell-Modul zu installieren.
 
 ### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Herstellen einer Verbindung mit Azure über einen interaktiven Anmeldedialog
 

@@ -1,26 +1,26 @@
 ---
-title: Laden von Contoso Retail-Daten in Synapse SQL
-description: Verwenden Sie PolyBase- und T-SQL-Befehle, um zwei Tabellen aus den Contoso Retail-Daten in Synapse SQL zu laden.
+title: Laden von Contoso Retail-Daten in dedizierte SQL-Pools
+description: Verwenden Sie PolyBase- und T-SQL-Befehle, um zwei Tabellen aus den Contoso Retail-Daten in dedizierte SQL-Pools zu laden.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 04/17/2018
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 904ce55f376e42156b014056b1226512b2784742
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbe61444404b16a09a1e0d2bdead72ac53a60744
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461696"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452892"
 ---
-# <a name="load-contoso-retail-data-to-synapse-sql"></a>Laden von Contoso Retail-Daten in Synapse SQL 
+# <a name="load-contoso-retail-data-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>Laden von Contoso Retail-Daten in dedizierte SQL-Pools in Azure Synapse Analytics
 
-In diesem Tutorial erfahren Sie, wie Sie PolyBase- und T-SQL-Befehle verwenden, um zwei Tabellen aus den Contoso Retail-Daten in Synapse SQL zu laden.
+In diesem Tutorial erfahren Sie, wie Sie mithilfe von PolyBase- und T-SQL-Befehlen zwei Tabellen aus den Contoso Retail-Daten in dedizierte SQL-Pools laden.
 
 In diesem Lernprogramm führen Sie folgende Schritte aus:
 
@@ -30,11 +30,11 @@ In diesem Lernprogramm führen Sie folgende Schritte aus:
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
-Für dieses Tutorial benötigen Sie ein Azure-Konto, das bereits über eine Synapse SQL-Instanz verfügt. Wenn Sie noch kein Data Warehouse bereitgestellt haben, finden Sie entsprechende Anweisungen unter [Schnellstart: Erstellen und Abfragen einer Azure SQL Data Warehouse-Instanz im Azure-Portal](create-data-warehouse-portal.md).
+Für dieses Tutorial benötigen Sie ein Azure-Konto, das bereits über einen dedizierten SQL-Pool verfügt. Wenn Sie noch kein Data Warehouse bereitgestellt haben, finden Sie entsprechende Anweisungen unter [Schnellstart: Erstellen und Abfragen einer Azure SQL Data Warehouse-Instanz im Azure-Portal](create-data-warehouse-portal.md).
 
 ## <a name="configure-the-data-source"></a>Konfigurieren der Datenquelle
 
-PolyBase verwendet externe T-SQL-Objekte, um den Speicherort und die Attribute der externen Daten zu definieren. Die externen Objektdefinitionen werden in Synapse SQL gespeichert. Die Daten werden extern gespeichert.
+PolyBase verwendet externe T-SQL-Objekte, um den Speicherort und die Attribute der externen Daten zu definieren. Die externen Objektdefinitionen werden in dedizierten SQL-Pools gespeichert. Die Daten werden extern gespeichert.
 
 ## <a name="create-a-credential"></a>Erstellen von Anmeldeinformationen
 
@@ -274,7 +274,7 @@ ORDER BY
 
 ## <a name="optimize-columnstore-compression"></a>Optimieren der Columnstore-Komprimierung
 
-Standardmäßig wird die Tabelle in Synapse SQL als gruppierter Columnstore-Index gespeichert. Nach Abschluss eines Ladevorgangs sind einige der Datenzeilen möglicherweise nicht in den Columnstore-Index komprimiert.  Dieses Problem kann aus verschiedenen Gründen auftreten. Weitere Informationen finden Sie unter [Verwalten von Columnstore-Indizes](sql-data-warehouse-tables-index.md).
+Standardmäßig speichern dedizierte SQL-Pools die Tabelle als gruppierten Columnstore-Index. Nach Abschluss eines Ladevorgangs sind einige der Datenzeilen möglicherweise nicht in den Columnstore-Index komprimiert.  Dieses Problem kann aus verschiedenen Gründen auftreten. Weitere Informationen finden Sie unter [Verwalten von Columnstore-Indizes](sql-data-warehouse-tables-index.md).
 
 Um die Abfrageleistung und die Columnstore-Komprimierung nach dem Ladevorgang zu optimieren, stellen Sie die Tabelle wieder her, um den Columstore-Index zu zwingen alle Zeilen zu komprimieren.
 

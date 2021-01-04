@@ -1,6 +1,6 @@
 ---
 title: SCIM-Synchronisierung mit Azure Active Directory
-description: Architektonischer Leitfaden zum Erreichen dieses Synchronisierungsmusters
+description: Architekturleitfaden zum Erzielen der SCIM-Synchronisierung mit Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1dda465dd675e0f5f519f86289df2621be0b9bb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b95aac504bc6ee72c353faecad25384e2dc90840
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367855"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172417"
 ---
 # <a name="scim-synchronization-with-azure-active-directory"></a>SCIM-Synchronisierung mit Azure Active Directory
 
@@ -35,21 +35,20 @@ Sie möchten Benutzerinformationen aus einem HCM-System automatisch für Azure 
 
 ## <a name="components-of-system"></a>Komponenten des Systems 
 
-* **HCM-System** : Anwendungen und Technologien, die HCM-Prozesse und -Praktiken ermöglichen, die HR-Prozesse während des gesamten Mitarbeiterlebenszyklus unterstützen und automatisieren. 
+* **HCM-System**: Anwendungen und Technologien, die HCM-Prozesse und -Praktiken ermöglichen, die HR-Prozesse während des gesamten Mitarbeiterlebenszyklus unterstützen und automatisieren. 
 
-* **Azure AD-Bereitstellungsdienst** : Verwendet das SCIM 2.0-Protokoll für die automatische Bereitstellung. Der Dienst stellt eine Verbindung mit dem SCIM-Endpunkt für die Anwendung her und verwendet das SCIM-Benutzerobjektschema und REST-APIs, um die Bereitstellung und Aufhebung der Bereitstellung von Benutzern und Gruppen zu automatisieren.  
+* **Azure AD-Bereitstellungsdienst**: Verwendet das SCIM 2.0-Protokoll für die automatische Bereitstellung. Der Dienst stellt eine Verbindung mit dem SCIM-Endpunkt für die Anwendung her und verwendet das SCIM-Benutzerobjektschema und REST-APIs, um die Bereitstellung und Aufhebung der Bereitstellung von Benutzern und Gruppen zu automatisieren.  
 
-* **Azure AD** : Das zum Verwalten des Lebenszyklus von Identitäten und deren Berechtigungen verwendete Benutzerrepository. 
+* **Azure AD**: Das zum Verwalten des Lebenszyklus von Identitäten und deren Berechtigungen verwendete Benutzerrepository. 
 
-* **Zielsystem** : Die Anwendung oder das System, die/das über den SCIM-Endpunkt verfügt und die Azure AD-Bereitstellung verwendet, um die automatische Bereitstellung von Benutzern und Gruppen zu ermöglichen.  
+* **Zielsystem**: Die Anwendung oder das System, die/das über den SCIM-Endpunkt verfügt und die Azure AD-Bereitstellung verwendet, um die automatische Bereitstellung von Benutzern und Gruppen zu ermöglichen.  
 
 ## <a name="implement-scim-with-azure-ad"></a>Implementieren von SCIM mit Azure AD 
 
-* [Funktionsweise der Bereitstellung in Azure AD](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works)
+* [Funktionsweise der Bereitstellung in Azure AD](../app-provisioning/how-provisioning-works.md)
 
-* [Verwalten der Benutzerkontobereitstellung für Unternehmens-Apps im Azure-Portal](https://docs.microsoft.com/azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal)
+* [Verwalten der Benutzerkontobereitstellung für Unternehmens-Apps im Azure-Portal](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 
-* [Erstellen eines SCIM-Endpunkts und Konfigurieren der Benutzerbereitstellung mit Azure AD](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups)
+* [Erstellen eines SCIM-Endpunkts und Konfigurieren der Benutzerbereitstellung mit Azure AD](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
-* [Bekannte Probleme und Lösungen bei der Einhaltung des SCIM 2.0-Protokolls des Azure AD-Benutzerbereitstellungsdiensts](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility)
-
+* [Bekannte Probleme und Lösungen bei der Einhaltung des SCIM 2.0-Protokolls des Azure AD-Benutzerbereitstellungsdiensts](../app-provisioning/application-provisioning-config-problem-scim-compatibility.md)

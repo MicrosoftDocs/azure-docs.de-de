@@ -8,18 +8,18 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 6649a8d470a75922aac423bf0b411163bdd79f71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91a0ea19f53d1da7631154cb71f96e495cc93857
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449082"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788994"
 ---
 # <a name="introduction-to-azure-defender-for-key-vault"></a>Einführung in Azure Defender für Key Vault
 
 Der Azure Key Vault-Clouddienst schützt Verschlüsselungsschlüssel und Geheimnisse (wie Zertifikate, Verbindungszeichenfolgen und Kennwörter). 
 
-Aktivieren Sie **Azure Defender für Key Vault**, um in Azure nativen erweiterten Bedrohungsschutz für Azure Key Vault zu erhalten und dadurch eine zusätzliche Ebene der Sicherheitsintelligenz zu erzielen. 
+Aktivieren Sie **Azure Defender für Key Vault** , um in Azure nativen erweiterten Bedrohungsschutz für Azure Key Vault zu erhalten und dadurch eine zusätzliche Ebene der Sicherheitsintelligenz zu erzielen. 
 
 ## <a name="availability"></a>Verfügbarkeit
 
@@ -55,5 +55,5 @@ In diesem Artikel haben Sie etwas über Azure Defender für Key Vault erfahren.
 Weitere Informationen finden Sie in den folgenden Artikeln: 
 
 - [Key Vault-Sicherheitswarnungen:](alerts-reference.md#alerts-azurekv) der Key Vault-Abschnitt der Referenztabelle für alle Azure Security Center-Warnungen
-- [Exportieren von Warnungen in ein SIEM-System](continuous-export.md)
+- [Fortlaufendes Exportieren von Security Center-Daten](continuous-export.md)
 - [Unterdrücken von Warnungen von Azure Defender](alerts-suppression-rules.md)

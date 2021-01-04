@@ -2,14 +2,13 @@
 title: Bereitstellen und Konfigurieren von Azure VMware Solution
 description: Erfahren Sie, wie Sie die in der Planungsphase gesammelten Informationen verwenden, um die private Azure VMware Solution-Cloud bereitzustellen.
 ms.topic: tutorial
-ms.author: tredavis
-ms.date: 10/02/2020
-ms.openlocfilehash: 0839048c2d0ad5944566a48f54cca07a4daeb754
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.date: 11/09/2020
+ms.openlocfilehash: 7e31b9236a3c75009d15bde35019036b6db55cab
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152033"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861516"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Bereitstellen und Konfigurieren von Azure VMware Solution
 
@@ -30,7 +29,7 @@ Verwenden Sie die Informationen, die Sie im Artikel [Planen der Azure VMware Sol
 [!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
 
 >[!NOTE]
->Eine umfassende Übersicht über diesen Schritt vermittelt das Video [Azure VMware Solution: Bereitstellen](https://www.youtube.com/embed/1JLB3L2WDWI). 
+>Eine umfassende Übersicht über diesen Schritt vermittelt das Video [Azure VMware Solution: Bereitstellen](https://www.youtube.com/embed/gng7JjxgayI).
 
 ## <a name="create-the-jump-box"></a>Erstellen der Jumpbox (Jump Server)
 
@@ -59,7 +58,7 @@ Die Jumpbox befindet sich in dem virtuellen Netzwerk, in dem Azure VMware Soluti
 
 In der Liste der effektive Routen sollten die Netzwerke angezeigt werden, die während der Azure VMware Solution-Bereitstellung erstellt wurden. Es werden mehrere Netzwerke angezeigt, die aus dem [`/22`-Netzwerk abgeleitet wurden, das Sie](production-ready-deployment-steps.md#ip-address-segment) während des [Bereitstellungsschritts](#deploy-azure-vmware-solution) weiter oben in diesem Artikel definiert haben.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Die Azure VMware Solution-Jumpbox erstellen" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Netzwerkrouten überprüfen, die von Azure VMware Solution zu Azure Virtual Network aufgeführt sind" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 
 In diesem Beispiel wird für das 10.74.72.0/22-Netzwerk, das bei der Bereitstellung eingegeben wurde, das /24-Netzwerk abgeleitet.  Wenn Sie eine ähnliche Anzeige sehen, können Sie eine Verbindung mit vCenter in Azure VMware Solution herstellen.
 
@@ -97,10 +96,10 @@ Da DNS erforderlich ist, müssen Sie den DNS-Server bestimmen, den Sie verwenden
 
 Wenn Sie DHCP in Ihren NSX-T-Segmenten verwenden möchten, gehen Sie gemäß diesem Abschnitt vor. Andernfalls springen Sie zum Abschnitt [Hinzufügen eines virtuellen Computers im NSX-T-Netzwerksegment](#add-a-vm-on-the-nsx-t-network-segment).  
 
-Nachdem Sie nun Ihr Netzwerksegment NSX-T erstellt haben, können Sie auf EINE der folgenden Arten vorgehen:
+Nachdem Sie das NSX-T-Netzwerksegment erstellt haben, gibt es zwei Möglichkeiten zum Erstellen und Verwalten von DHCP in Azure VMware Solution:
 
-* Verwenden Sie NSX-T als den DHCP-Server für die erstellten Segmente. Für diese Option [erstellen Sie einen DHCP-Server in NSX-T](manage-dhcp.md#create-dhcp-server), und [erstellen Sie den Relaydienst zu diesem Server](manage-dhcp.md#create-dhcp-relay-service).
-* Leiten Sie DHCP-Anforderungen aus den NSX-T-Segmenten an einen DHCP-Server in Ihrer Umgebung weiter. Für diese Option [nehmen Sie nur die Relaykonfiguration vor](manage-dhcp.md#create-dhcp-relay-service).
+* Bei Verwendung von NSX-T zum Hosten Ihres DHCP-Servers müssen Sie [einen DHCP-Server erstellen](manage-dhcp.md#create-a-dhcp-server) und [den Relaydienst zu diesem Server erstellen](manage-dhcp.md#create-dhcp-relay-service). 
+* Wenn Sie einen externen DHCP-Server eines Drittanbieters in Ihrem Netzwerk verwenden, müssen Sie [einen DHCP-Relaydienst erstellen](manage-dhcp.md#create-dhcp-relay-service).  Für diese Option [nehmen Sie nur die Relaykonfiguration vor](manage-dhcp.md#create-dhcp-relay-service).
 
 
 ## <a name="add-a-vm-on-the-nsx-t-network-segment"></a>Hinzufügen eines virtuellen Computers im NSX-T-Netzwerksegment

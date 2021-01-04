@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 10/24/2018
 ms.author: alkohli
-ms.openlocfilehash: bab81809f42c9afa3d2c701398fa5ff8ffc2800d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2c4cce492c48ebe6e09ad142f97bc6377a8a5e1
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744167"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94334600"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Verkabelungsoptionen für Azure Data Box
 
@@ -80,8 +80,8 @@ Gehen Sie zur Verkabelung Ihres Geräts wie folgt vor:
 
    - **IP-Adresse:** 192.168.100.5
    - **Subnetz:** 255.255.255.0
-
-     ![Setup mit zwei Anschlüssen und einem Switch](media/data-box-cable-options/cabling-with-static-ip.png)
+  
+   ![Setup mit zwei Anschlüssen und einem Switch](media/data-box-cable-options/cabling-with-static-ip.png)
 
 3. Greifen Sie über die folgende IP-Adresse auf die lokale Webbenutzeroberfläche des Geräts zu: 192.168.100.10. Melden Sie sich an, und entsperren Sie Data Box mithilfe des Entsperrkennworts aus dem Azure-Portal.
 4. Ermitteln Sie die durch den DHCP-Server zugewiesenen IP-Adressen.
@@ -126,6 +126,7 @@ Gehen Sie zur Verkabelung Ihres Geräts wie folgt vor:
 1. Verwenden Sie ein RJ45- oder SFP+-Kabel, und verbinden Sie es über einen Switch (mit Zugang zum DHCP-Server) mit dem Server.
 
     ![Setup mit zwei Anschlüssen und einem Switch 3](media/data-box-cable-options/cabling-dhcp-data-only.png)
+
 2. Verwenden Sie den DHCP- oder DNS-Server, um die IP-Adresse zu ermitteln.
 3. Greifen Sie über einen Server im gleichen Netzwerk unter Verwendung der durch den DHCP-Server zugewiesenen IP-Adresse auf die lokale Webbenutzeroberfläche des Geräts zu. Melden Sie sich an, und entsperren Sie Data Box mithilfe des Entsperrkennworts aus dem Azure-Portal.
 

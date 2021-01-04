@@ -3,13 +3,12 @@ title: 'Azure Service Fabric: Anwendungsressourcenmodell'
 description: Dieser Artikel bietet eine Übersicht über die Verwaltung einer Azure Service Fabric-Anwendung mit Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 10/21/2019
-ms.custom: sfrev
-ms.openlocfilehash: 7ad0d4f6d92ba8d85383df281bd14681f43bb6d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4fbd775ab479437c350dc24b9b5511f7a614c8b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258741"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576093"
 ---
 # <a name="service-fabric-application-resource-model"></a>Service Fabric: Anwendungsressourcenmodell
 
@@ -55,7 +54,7 @@ Nach dem Erstellen des Speicherkontos müssen Sie einen Blobcontainer erstellen,
 Ressourcen in Ihrem Cluster können geschützt werden, indem die öffentliche Zugriffsebene auf **privat** festgelegt wird. Sie können auf verschiedene Arten Zugriff gewähren:
 
 * Autorisieren des Zugriffs auf Blobs und Warteschlangen mit [Azure Active Directory](../storage/common/storage-auth-aad-app.md)
-* Gewähren von Zugriff auf Azure-Blob- und -Warteschlangendaten mithilfe von [RBAC im Azure-Portal](../storage/common/storage-auth-aad-rbac-portal.md)
+* Gewähren von Zugriff auf Azure-Blobdaten und -Warteschlangendaten mithilfe von [Azure RBAC im Azure-Portal](../storage/common/storage-auth-aad-rbac-portal.md)
 * Delegieren des Zugriffs mithilfe einer [Shared Access Signature](/rest/api/storageservices/delegate-access-with-shared-access-signature)
 
 Das Beispiel im folgenden Screenshot verwendet den anonymen Lesezugriff für Blobs.
@@ -90,6 +89,7 @@ Die Beispielanwendung enthält [Azure Resource Manager-Vorlagen](https://github.
 > Die Datei *UserApp.Parameters.json* muss mit dem Namen Ihres Clusters aktualisiert werden.
 >
 >
+
 
 | Parameter              | BESCHREIBUNG                                 | Beispiel                                                      | Kommentare                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -137,6 +137,11 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 ```
 
 ## <a name="upgrade-the-service-fabric-application-by-using-resource-manager"></a>Aktualisieren der Service Fabric-Anwendung mithilfe von Azure Resource Manager
+
+
+> [!IMPORTANT]
+> Per ARM-JSON-Definition bereitgestellte Dienste müssen aus dem Abschnitt „DefaultServices“ der entsprechenden Datei „ApplicationManifest.xml“ entfernt werden.
+
 
 Sie müssen eine Anwendung, die bereits in einem Service Fabric-Cluster bereitgestellt wurde, ggf. aus einem dieser Gründe aktualisieren:
 

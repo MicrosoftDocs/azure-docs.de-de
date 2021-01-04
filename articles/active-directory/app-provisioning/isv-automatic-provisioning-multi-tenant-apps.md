@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: 9cb3d8f39d83e27755b1e8982dfe3b807c431413
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d4c6c5b51e00f7f2ed7e29c27aa8e8bb88a2ea94
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069720"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861356"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Aktivieren der automatischen Benutzerbereitstellung für Ihre mehrinstanzenfähige Anwendung
 
@@ -89,7 +89,7 @@ Weitere Informationen zur Verwendung von SCIM im Azure AD-Bereitstellungsdienst
 
 ## <a name="microsoft-graph-for-provisioning"></a>Microsoft Graph für die Bereitstellung
 
-Bei Verwendung von Microsoft Graph für die Bereitstellung haben Sie Zugriff auf alle in Graph verfügbaren umfassenden Benutzerdaten. Neben den Details von Benutzern und Gruppen können Sie auch weitere Informationen abrufen, z. B. die Rollen, Manager und direkten Mitarbeiter von Benutzern, Geräte im Besitz von Benutzern und registrierte Geräte sowie Hunderte anderer Datenelemente, die in [Microsoft Graph](/graph/api/overview?view=graph-rest-1.0) verfügbar sind. 
+Bei Verwendung von Microsoft Graph für die Bereitstellung haben Sie Zugriff auf alle in Graph verfügbaren umfassenden Benutzerdaten. Neben den Details von Benutzern und Gruppen können Sie auch weitere Informationen abrufen, z. B. die Rollen, Manager und direkten Mitarbeiter von Benutzern, Geräte im Besitz von Benutzern und registrierte Geräte sowie Hunderte anderer Datenelemente, die in [Microsoft Graph](/graph/api/overview) verfügbar sind. 
 
 Mehr als 15 Millionen Organisationen und 90 % der Fortune 500-Unternehmen, die Microsoft-Clouddienste wie Microsoft 365, Microsoft Azure oder Enterprise Mobility Suite abonniert haben, verwenden Azure AD. Mithilfe von Microsoft Graph können Sie Ihre Anwendung in administrative Workflows integrieren, z. B. Onboarding (und Kündigung) von Mitarbeitern, Profilwartung und vieles mehr. 
 

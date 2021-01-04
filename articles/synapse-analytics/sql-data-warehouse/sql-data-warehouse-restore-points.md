@@ -1,6 +1,6 @@
 ---
 title: Benutzerdefinierte Wiederherstellungspunkte
-description: Vorgehensweise zum Erstellen eines Wiederherstellungspunkts für den SQL-Pool
+description: Vorgehensweise zum Erstellen eines Wiederherstellungspunkts für den dedizierten SQL-Pool (früher SQL DW)
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 66a2dad9396e8bf7c8ef49db529f7a5486cc8a8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 097a3132208eee98b3f95291e414263e637bc265
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87089206"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545586"
 ---
-# <a name="user-defined-restore-points"></a>Benutzerdefinierte Wiederherstellungspunkte
+# <a name="user-defined-restore-points-for-a-dedicated-sql-pool-formerly-sql-dw"></a>Benutzerdefinierte Wiederherstellungspunkte für einen dedizierten SQL-Pool (früher SQL DW)
 
-In diesem Artikel erfahren Sie, wie Sie mithilfe von PowerShell und dem Azure-Portal einen neuen benutzerdefinierten Wiederherstellungspunkt für einen SQL-Pool in Azure Synapse Analytics erstellen.
+In diesem Artikel erfahren Sie, wie Sie mithilfe von PowerShell und über das Azure-Portal einen neuen benutzerdefinierten Wiederherstellungspunkt für einen dedizierten SQL-Pool (früher SQL DW) in Azure Synapse Analytics erstellen.
 
 ## <a name="create-user-defined-restore-points-through-powershell"></a>Erstellen benutzerdefinierter Wiederherstellungspunkte mit PowerShell
 
@@ -53,7 +53,7 @@ New-AzSqlDatabaseRestorePoint -ResourceGroupName $ResourceGroupName -ServerName 
 
 ```Powershell
 # List all restore points
-Get-AzSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
+Get-AzSqlDatabaseRestorePoint -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 ```
 
 ## <a name="create-user-defined-restore-points-through-the-azure-portal"></a>Erstellen benutzerdefinierter Wiederherstellungspunkte mit dem Azure-Portal
@@ -62,9 +62,9 @@ Benutzerdefinierte Wiederherstellungspunkte können auch mit dem Azure-Portal er
 
 1. Melden Sie sich bei Ihrem [Azure-Portal](https://portal.azure.com/)-Konto an.
 
-2. Navigieren Sie zu dem SQL-Pool, für den Sie einen Wiederherstellungspunkt erstellen möchten.
+2. Navigieren Sie zum dedizierten SQL-Pool (früher SQL DW), für den Sie einen Wiederherstellungspunkt erstellen möchten.
 
-3. Wählen Sie im linken Bereich **Übersicht** aus, und wählen Sie **+ Neuer Wiederherstellungspunkt** aus. Wenn die Schaltfläche „Neuer Wiederherstellungspunkt“ nicht aktiviert wird, stellen Sie sicher, dass der SQL-Pool nicht angehalten wird.
+3. Wählen Sie im linken Bereich **Übersicht** aus, und wählen Sie **+ Neuer Wiederherstellungspunkt** aus. Wenn die Schaltfläche „Neuer Wiederherstellungspunkt“ nicht aktiviert wurde, stellen Sie sicher, dass der dedizierte SQL-Pool (früher SQL DW) nicht angehalten wird.
 
     ![Neuer Wiederherstellungspunkt](./media/sql-data-warehouse-restore-points/creating-restore-point-01.png)
 
@@ -74,7 +74,6 @@ Benutzerdefinierte Wiederherstellungspunkte können auch mit dem Azure-Portal er
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Wiederherstellen eines vorhandenen SQL-Pools](sql-data-warehouse-restore-active-paused-dw.md)
-- [Wiederherstellen eines gelöschten SQL-Pools](sql-data-warehouse-restore-deleted-dw.md)
-- [Wiederherstellen aus einem SQL-Pool mit Geosicherung](sql-data-warehouse-restore-from-geo-backup.md)
-
+- [Wiederherstellen eines vorhandenen dedizierten SQL-Pools (früher SQL DW)](sql-data-warehouse-restore-active-paused-dw.md)
+- [Wiederherstellen eines gelöschten dedizierten SQL-Pools (früher SQL DW)](sql-data-warehouse-restore-deleted-dw.md)
+- [Wiederherstellen eines dedizierten SQL-Pools (früher SQL DW) aus einer Geosicherung](sql-data-warehouse-restore-from-geo-backup.md)

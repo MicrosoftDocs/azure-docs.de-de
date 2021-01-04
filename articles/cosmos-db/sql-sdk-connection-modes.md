@@ -3,18 +3,20 @@ title: Azure Cosmos DB SQL SDK-Konnektivitätsmodi
 description: Erfahren Sie mehr über die unterschiedlichen Konnektivitätsmodi, die für die Azure Cosmos DB SQL SDKs verfügbar sind.
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: maquaran
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: d88d52f67274d14836520494580e9208ce4eecbe
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.custom: devx-track-dotnet, contperf-fy21q2
+ms.openlocfilehash: c30e97a4bff8fa845f6eb3c3092a00ee541e59f4
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283058"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032795"
 ---
 # <a name="azure-cosmos-db-sql-sdk-connectivity-modes"></a>Azure Cosmos DB SQL SDK-Konnektivitätsmodi
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Die Art der Verbindungsherstellung zwischen einem Client und Azure Cosmos DB hat erhebliche Auswirkungen auf die Leistung, insbesondere im Hinblick auf die clientseitige Latenz. Azure Cosmos DB bietet ein einfaches und offenes RESTful-Programmiermodell über HTTPS, das Gatewaymodus genannt wird. Außerdem ist ein effizientes TCP-Protokoll enthalten, das ebenfalls RESTful in seinem Kommunikationsmodell ist und TLS für die anfängliche Authentifizierung und die Verschlüsselung des Datenverkehrs verwendet, den sogenannten direkten Modus.
 
@@ -45,7 +47,7 @@ Die folgende Tabelle enthält eine Zusammenfassung der für verschiedene APIs ve
 |Verbindungsmodus  |Unterstütztes Protokoll  |Unterstützte SDKs  |API/Dienstport  |
 |---------|---------|---------|---------|
 |Gateway  |   HTTPS    |  Alle SDKs    |   SQL (443), MongoDB (10250, 10255, 10256), Tabelle (443), Cassandra (10350), Graph (443) <br> Port 10250 ist einer Instanz der Azure Cosmos DB-API für MongoDB ohne Georeplikation zugeordnet. Die Ports 10255 und 10256 hingegen sind der Instanz mit Georeplikation zugeordnet.   |
-|Direkt    |     TCP    |  .NET SDK    | Bei Verwendung von öffentlichen oder Dienstendpunkten: Ports im Bereich zwischen 10000 und 20000<br>Bei Verwendung von privaten Endpunkten: Ports im Bereich zwischen 0 und 65535 |
+|Direkt    |     TCP    |  .NET SDK Java SDK    | Bei Verwendung von öffentlichen oder Dienstendpunkten: Ports im Bereich zwischen 10000 und 20000<br>Bei Verwendung von privaten Endpunkten: Ports im Bereich zwischen 0 und 65535 |
 
 ## <a name="next-steps"></a>Nächste Schritte
 

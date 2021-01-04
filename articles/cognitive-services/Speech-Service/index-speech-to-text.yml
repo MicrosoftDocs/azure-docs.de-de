@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/19/2020
   ms.author: trbye
-  ms.openlocfilehash: 99f29466c5f81eabbf0b603a89674fa2c70da9d8
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: c4a765c14815015bcf70a4718fe8d189fe0d0c49
+  ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92756899"
+  ms.lasthandoff: 12/05/2020
+  ms.locfileid: "96620964"
 landingContent:
 - title: Informationen zur Spracherkennung
   linkLists:
@@ -26,6 +26,8 @@ landingContent:
       url: speech-to-text.md
     - text: Was ist die Batch-Spracherkennung?
       url: batch-transcription.md
+    - text: Was ist Custom Speech?
+      url: custom-speech-overview.md
     - text: Verwenden der Speech-Befehlszeilenschnittstelle für Spracherkennung ohne Code
       url: spx-overview.md
   - linkListType: quickstart
@@ -37,13 +39,15 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Auswählen eines Spracherkennungsmodus
-      url: how-to-choose-recognition-mode.md
+      url: ./get-started-speech-to-text.md
     - text: Ändern der Ausgangssprache für die Spracherkennung
       url: how-to-specify-source-language.md
     - text: Verbessern der Genauigkeit mit Custom Speech
-      url: how-to-custom-speech.md
+      url: ./custom-speech-overview.md
     - text: Verwenden komprimierter Audioeingabeformate
       url: how-to-use-codec-compressed-audio-input-streams.md
+    - text: Migrieren von v2.0 zu v3.0
+      url: migrate-v2-to-v3.md
   - linkListType: tutorial
     links:
     - text: Verbessern der Genauigkeit mithilfe von Mandantenmodellen

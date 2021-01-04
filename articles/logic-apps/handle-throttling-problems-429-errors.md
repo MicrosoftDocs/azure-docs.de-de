@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 495847d31682aff64fed3c81b1d5d68cf67dfd38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea153b1927a337be29c2eb69e2417cc250abf5e8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87086437"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366049"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Behandeln von Drosselungsproblemen (Fehler 429: „Zu viele Anforderungen“) in Azure Logic Apps
 
@@ -51,17 +51,17 @@ Zum Steuern der Drosselung auf dieser Ebene haben Sie folgende Optionen:
 
 * Aktivieren Sie den Modus für hohen Durchsatz.
 
-  Eine Logik-App umfasst ein [Standardlimit für die Anzahl von Aktionen, die in einem rollierenden Intervall von 5 Minuten ausgeführt werden können](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Um dieses Limit auf die maximale Anzahl von Aktionen zu erhöhen, aktivieren Sie den [Modus für hohen Durchsatz](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) für Ihre Logik-App.
+  Eine Logik-App umfasst ein [Standardlimit für die Anzahl von Aktionen, die in einem rollierenden Intervall von 5 Minuten ausgeführt werden können](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Um dieses Limit auf die maximale Anzahl von Aktionen zu erhöhen, aktivieren Sie den [Modus für hohen Durchsatz](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode) für Ihre Logik-App.
 
 * Deaktivieren Sie das Verhalten zum Auflösen von Batches für Arrays („Teilen bei“) in Triggern.
 
-  Wenn ein Trigger ein Array zur Verarbeitung der verbleibenden Workflowaktionen zurückgibt, werden mit der [**Teilen bei**-Einstellung](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) des Triggers die Arrayelemente aufgeteilt, und es wird für jedes Arrayelement eine Workflowinstanz gestartet. Effektiv werden also parallele Ausführungen bis zum [**Teilen bei**-Limit](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits) ausgelöst. Um die Drosselung zu steuern, deaktivieren Sie das **Teilen bei**-Verhalten und lassen Ihre Logik-App das gesamte Array mit einem einzigen Aufruf verarbeiten, anstatt ein einzelnes Element pro Aufruf zu verarbeiten.
+  Wenn ein Trigger ein Array zur Verarbeitung der verbleibenden Workflowaktionen zurückgibt, werden mit der [**Teilen bei** -Einstellung](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) des Triggers die Arrayelemente aufgeteilt, und es wird für jedes Arrayelement eine Workflowinstanz gestartet. Effektiv werden also parallele Ausführungen bis zum [**Teilen bei** -Limit](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits) ausgelöst. Um die Drosselung zu steuern, deaktivieren Sie das **Teilen bei** -Verhalten und lassen Ihre Logik-App das gesamte Array mit einem einzigen Aufruf verarbeiten, anstatt ein einzelnes Element pro Aufruf zu verarbeiten.
 
 * Gestalten Sie Aktionen in kleinere Logik-Apps um.
 
-  Wie zuvor erwähnt, ist eine Logik-App auf eine [Standardanzahl von Aktionen beschränkt, die in einem 5-Minuten-Zeitraum ausgeführt werden können](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Wenngleich Sie dieses Limit erhöhen können, indem Sie den [Modus für hohen Durchsatz](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) aktivieren, können Sie alternativ auch das Aufteilen der Aktionen Ihrer Logik-App in kleinere Logik-Apps erwägen. So kann die Anzahl von Aktionen, die in jeder Logik-App ausgeführt werden, unterhalb des Limits gehalten werden. Auf diese Weise senken Sie die Verarbeitungslast einer einzelnen Logik-App-Ressource und verteilen die Last auf mehrere Logik-Apps. Diese Lösung eignet sich insbesondere für Aktionen, die große Datensätze verarbeiten oder so viele parallel ausgeführte Aktionen, Schleifeniterationen oder Aktionen innerhalb jeder Schleifeniteration auslösen, dass sie das Ausführungslimit der Aktion überschreiten.
+  Wie zuvor erwähnt, ist eine Logik-App auf eine [Standardanzahl von Aktionen beschränkt, die in einem 5-Minuten-Zeitraum ausgeführt werden können](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Wenngleich Sie dieses Limit erhöhen können, indem Sie den [Modus für hohen Durchsatz](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode) aktivieren, können Sie alternativ auch das Aufteilen der Aktionen Ihrer Logik-App in kleinere Logik-Apps erwägen. So kann die Anzahl von Aktionen, die in jeder Logik-App ausgeführt werden, unterhalb des Limits gehalten werden. Auf diese Weise senken Sie die Verarbeitungslast einer einzelnen Logik-App-Ressource und verteilen die Last auf mehrere Logik-Apps. Diese Lösung eignet sich insbesondere für Aktionen, die große Datensätze verarbeiten oder so viele parallel ausgeführte Aktionen, Schleifeniterationen oder Aktionen innerhalb jeder Schleifeniteration auslösen, dass sie das Ausführungslimit der Aktion überschreiten.
 
-  Diese Logik-App erledigt beispielsweise sämtliche Arbeitsschritte, um Tabellen aus einer SQL Server-Datenbank und die Zeilen aus jeder Tabelle abzurufen. Die **For each**-Schleife durchläuft parallel jede Tabelle, sodass die **Get rows**-Aktion die Zeilen für jede Tabelle zurückgibt. Basierend auf der Menge an Daten in diesen Tabellen können die Aktionen zu einer Überschreitung des Limits für die Aktionsausführung führen.
+  Diese Logik-App erledigt beispielsweise sämtliche Arbeitsschritte, um Tabellen aus einer SQL Server-Datenbank und die Zeilen aus jeder Tabelle abzurufen. Die **For each** -Schleife durchläuft parallel jede Tabelle, sodass die **Get rows** -Aktion die Zeilen für jede Tabelle zurückgibt. Basierend auf der Menge an Daten in diesen Tabellen können die Aktionen zu einer Überschreitung des Limits für die Aktionsausführung führen.
 
   ![Logik-App vor der Umgestaltung](./media/handle-throttling-problems-429-errors/refactor-logic-app-before-version.png)
 
@@ -95,7 +95,7 @@ Zum Steuern der Drosselung auf dieser Ebene haben Sie folgende Optionen:
 
   Erwägen Sie bei dieser Option eine Verteilung der Workload, indem Sie die Anforderungen einer Aktion auf mehrere Verbindungen mit demselben Ziel aufteilen und hierbei dieselben Anmeldeinformationen verwenden.
 
-  Angenommen, Ihre Logik-App ruft Tabellen aus einer SQL Server-Datenbank und anschließend die Zeilen aus jeder Tabelle ab. Basierend auf der Anzahl von Zeilen, die Sie verarbeiten müssen, können Sie mehrere Verbindungen und mehrere **For each**-Schleifen verwenden, um die Gesamtanzahl von Zeilen zur Verarbeitung in kleinere Sätze aufzuteilen. Dieses Szenario verwendet zwei **For each**-Schleifen, um die Gesamtzahl an Zeilen zu halbieren. Die erste **For each**-Schleife verwendet einen Ausdruck, mit dem die erste Hälfte der Zeilen abgerufen wird. Die zweite **For each**-Schleife verwendet einen anderen Ausdruck zum Abrufen der zweiten Hälfte an Zeilen:<p>
+  Angenommen, Ihre Logik-App ruft Tabellen aus einer SQL Server-Datenbank und anschließend die Zeilen aus jeder Tabelle ab. Basierend auf der Anzahl von Zeilen, die Sie verarbeiten müssen, können Sie mehrere Verbindungen und mehrere **For each** -Schleifen verwenden, um die Gesamtanzahl von Zeilen zur Verarbeitung in kleinere Sätze aufzuteilen. Dieses Szenario verwendet zwei **For each** -Schleifen, um die Gesamtzahl an Zeilen zu halbieren. Die erste **For each** -Schleife verwendet einen Ausdruck, mit dem die erste Hälfte der Zeilen abgerufen wird. Die zweite **For each** -Schleife verwendet einen anderen Ausdruck zum Abrufen der zweiten Hälfte an Zeilen:<p>
 
     * Ausdruck 1: Die `take()`-Funktion ruft den ersten Teil einer Sammlung ab. Weitere Informationen finden Sie unter [ **`take()`** -Funktion](workflow-definition-language-functions-reference.md#take).
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 7fe47289dcc6b6d6af4d13b36b5c3b1dae3baaf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63b9d74fbbb1a79dd4f3d3e7c5fb094a372282e0
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89663250"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299631"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Verwenden von Logstash zum Verbinden von Datenquellen mit Azure Sentinel
 
@@ -48,8 +48,8 @@ Die Logstash-Engine besteht aus drei Komponenten:
 
 Das Azure Sentinel-Ausgabe-Plug-In für Logstash sendet JSON-formatierte Daten mithilfe der HTTP-Datensammler-REST-API von Log Analytics an Ihren Log Analytics-Arbeitsbereich. Die Daten werden in benutzerdefinierten Protokollen erfasst.
 
-- Erfahren Sie mehr über die [Log Analytics-REST-API](https://docs.microsoft.com/rest/api/loganalytics/create-request).
-- Erfahren Sie mehr über [benutzerdefinierte Protokolle](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-custom-logs).
+- Erfahren Sie mehr über die [Log Analytics-REST-API](/rest/api/loganalytics/create-request).
+- Erfahren Sie mehr über [benutzerdefinierte Protokolle](../azure-monitor/platform/data-sources-custom-logs.md).
 
 ## <a name="deploy-the-azure-sentinel-output-plugin-in-logstash"></a>Bereitstellen des Azure Sentinel-Ausgabe-Plug-Ins in Logstash
 
@@ -57,7 +57,7 @@ Das Azure Sentinel-Ausgabe-Plug-In für Logstash sendet JSON-formatierte Daten m
 
 Das Azure Sentinel-Ausgabe-Plug-In ist in der Logstash-Sammlung verfügbar.
 
-- Folgen Sie den Anweisungen im Logstash-Dokument zum [Arbeiten mit Plug-Ins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html), um das Plug-In ***microsoft-logstash-output-azure-loganalytics*** zu installieren.
+- Befolgen Sie die Anweisungen im Logstash-Dokument zum [Arbeiten mit Plug-Ins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html), um das Plug-In **_[microsoft-logstash-output-azure-loganalytics](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics)_* _ zu installieren.
    
 - Wenn Ihr Logstash-System keinen Internetzugriff hat, folgen Sie den Anweisungen im Logstash-Dokument zur [Offline-Plug-In-Verwaltung](https://www.elastic.co/guide/en/logstash/current/offline-plugins.html), um ein Offline-Plug-In-Paket vorzubereiten und zu verwenden. (Dazu müssen Sie ein weiteres Logstash-System mit Internetzugriff erstellen.)
 
@@ -67,7 +67,7 @@ Fügen Sie anhand der Informationen im Logstash-Dokument zur [Struktur einer Kon
 
 | Feldname | Datentyp | Beschreibung |
 |----------------|---------------|-----------------|
-| `workspace_id` | Zeichenfolge | Geben Sie die ID-GUID Ihres Arbeitsbereichs ein. * |
+| `workspace_id` | Zeichenfolge | Geben Sie die ID-GUID Ihres Arbeitsbereichs ein. _ |
 | `workspace_key` | Zeichenfolge | Geben Sie die GUID für den Primärschlüssel des Arbeitsbereichs ein. * |
 | `custom_log_table_name` | Zeichenfolge | Legen Sie den Namen der Tabelle fest, in der die Protokolle erfasst werden. Es kann nur ein Tabellenname pro Ausgabe-Plug-In konfiguriert werden. Die Protokolltabelle wird in Azure Sentinel im Bereich **Protokolle** unter **Tabellen** in der Kategorie **Benutzerdefinierte Protokolle** mit dem Suffix `_CL` angezeigt. |
 | `endpoint` | Zeichenfolge | Optionales Feld. Dies ist standardmäßig der Log Analytics-Endpunkt. Verwenden Sie dieses Feld, um einen alternativen Endpunkt festzulegen. |
@@ -162,7 +162,7 @@ Hier sind einige Beispielkonfigurationen, in denen einige verschiedene Optionen 
 
 1. Zum Anzeigen von Datensätzen in der Tabelle fragen Sie die Tabelle ab. Verwenden Sie dazu den Tabellennamen als Schema.
 
-   :::image type="content" source="./media/connect-logstash/logstash-custom-logs-query.png" alt-text="Screenshot von benutzerdefinierten Logstash-Protokollen.":::
+   :::image type="content" source="./media/connect-logstash/logstash-custom-logs-query.png" alt-text="Screenshot einer benutzerdefinierten Logstash-Protokollabfrage.":::
 
 ## <a name="monitor-output-plugin-audit-logs"></a>Überwachen der Ausgabe-Plug-In-Überwachungsprotokolle
 

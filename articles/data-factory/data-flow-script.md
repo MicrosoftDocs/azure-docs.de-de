@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/29/2020
-ms.openlocfilehash: 8310c34e06d52dc12af42f8bc33f4a4d7e99d68d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 12/03/2020
+ms.openlocfilehash: 69b2713e928707479945df0bb242ac2fbc001c32
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "91598094"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600658"
 ---
 # <a name="data-flow-script-dfs"></a>Datenflussskript (DFS)
 
@@ -218,6 +218,33 @@ Dies ist ein Codeausschnitt, den Sie in Ihren Datenfluss einfügen können, um a
 ```
 split(contains(array(columns()),isNull(#item)),
     disjoint: false) ~> LookForNULLs@(hasNULLs, noNULLs)
+```
+
+### <a name="automap-schema-drift-with-a-select"></a>Schemadrift bei automatischer Zuordnung mit select-Funktion
+Wenn Sie ein vorhandenes Datenbankschema aus einem unbekannten oder dynamischen Satz eingehender Spalten laden möchten, müssen Sie die Spalten auf der rechten Seite in der Senkentransformation zuordnen. Dies ist nur erforderlich, wenn Sie eine vorhandene Tabelle laden. Fügen Sie diesen Codeausschnitt vor der Senke ein, um eine select-Funktion zu erstellen, die Ihre Spalten automatisch zuordnet. Behalten Sie für die Senke die automatische Zuordnung bei.
+
+```
+select(mapColumn(
+        each(match(true()))
+    ),
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> automap
+```
+
+### <a name="persist-column-data-types"></a>Beibehalten von Spaltendatentypen
+Fügen Sie dieses Skript in einer Definition für abgeleitete Spalten hinzu, um die Spaltennamen und Datentypen aus dem Datenfluss mithilfe einer Senke in einem permanenten Speicher zu speichern.
+
+```
+derive(each(match(type=='string'), $$ = 'string'),
+    each(match(type=='integer'), $$ = 'integer'),
+    each(match(type=='short'), $$ = 'short'),
+    each(match(type=='complex'), $$ = 'complex'),
+    each(match(type=='array'), $$ = 'array'),
+    each(match(type=='float'), $$ = 'float'),
+    each(match(type=='date'), $$ = 'date'),
+    each(match(type=='timestamp'), $$ = 'timestamp'),
+    each(match(type=='boolean'), $$ = 'boolean'),
+    each(match(type=='double'), $$ = 'double')) ~> DerivedColumn1
 ```
 
 ## <a name="next-steps"></a>Nächste Schritte

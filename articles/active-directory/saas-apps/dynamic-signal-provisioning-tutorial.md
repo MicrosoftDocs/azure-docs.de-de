@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 9ebb0927f9721c5c35ee0d83a108efd72732958b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 263a67fd8fba2c336d1ed4d91475386a8ae175dd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851219"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005791"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>Tutorial: Konfigurieren von Dynamic Signal für die automatische Benutzerbereitstellung
 
@@ -104,7 +104,7 @@ In diesem Abschnitt werden die Schritte zum Konfigurieren des Azure AD-Bereitst
 
     Kopieren Sie die **SCIM API-URL** in die **Mandanten-URL**. Klicken Sie auf **Neues Token generieren**, um ein **Bearertoken** zu generieren, und kopieren Sie den Wert in das **Geheime Token**.
 
-    :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-2.png" alt-text="Screenshot der Dynamic Signal-Verwaltungskonsole. Im Administratormenü ist „Erweitert“ hervorgehoben. Das Menü „Erweitert“ mit hervorgehobener API ist ebenfalls zu sehen." border="false":::
+    :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-2.png" alt-text="Screenshot der Tokenseite. Hervorgehoben sind „SCIM API URI“, „Neues Token generieren“ und „Bearertoken“ sowie ein Platzhalter im Feld „Bearertoken“." border="false":::
 
 7. Klicken Sie nach dem Auffüllen der in Schritt 5 gezeigten Felder auf **Verbindung testen**, um sich zu vergewissern, dass Azure AD eine Verbindung mit Dynamic Signal herstellen kann. Vergewissern Sie sich im Falle eines Verbindungsfehlers, dass Ihr Dynamic Signal-Konto über Administratorberechtigungen verfügt, und wiederholen Sie den Vorgang.
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/05/2020
-ms.openlocfilehash: 86d647a79b7babc2780cb0db904e689f3916673f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/12/2020
+ms.openlocfilehash: 19c9ec39d85bfc56b118498aba62c3752d6d771c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500384"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996320"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Zugreifen auf Ressourcen virtueller Azure-Netzwerke über Azure Logic Apps mit Integrationsdienstumgebungen (ISEs)
 
@@ -87,7 +87,7 @@ Logik-Apps, die in einer ISE ausgeführt werden, können direkt auf lokale Syste
 
   * Benutzerdefinierte Connectors, die Sie *in einer ISE* erstellen, funktionieren nicht mit dem lokalen Datengateway. Diese Connectors können jedoch direkt auf lokale Systeme und Datenquellen zugreifen, die sich innerhalb des virtuellen Netzwerks, das Ihre ISE hostet, befinden oder damit verbunden sind. Deshalb benötigen Logik-Apps, die sich in einer ISE befinden, in der Regel das Datengateway nicht, wenn sie auf diese Ressourcen zugreifen.
 
-Um auf lokale Systeme und Datenquellen zuzugreifen, die über keine ISE-Connectors verfügen, sich außerhalb Ihres virtuellen Netzwerks befinden oder nicht mit Ihrem virtuellen Netzwerk verbunden sind, müssen Sie weiterhin das lokale Datengateway verwenden. Logik-Apps in einer ISE können weiterhin Connectors verwenden, die keine der Bezeichnungen **CORE** oder **ISE** aufweisen. Diese Connectors werden nur im mehrinstanzenfähigen Logic Apps-Dienst ausgeführt, anstatt in Ihrer ISE. 
+Um auf lokale Systeme und Datenquellen zuzugreifen, die über keine ISE-Connectors verfügen, sich außerhalb Ihres virtuellen Netzwerks befinden oder nicht mit Ihrem virtuellen Netzwerk verbunden sind, müssen Sie weiterhin das lokale Datengateway verwenden. Logik-Apps in einer ISE können weiterhin Connectors verwenden, die keine der Bezeichnungen **CORE** oder **ISE** aufweisen. Diese Connectors werden im mehrinstanzenfähigen Logic Apps-Dienst ausgeführt, anstatt in Ihrer ISE. 
 
 <a name="ise-level"></a>
 
@@ -120,7 +120,15 @@ Beim Erstellen Ihrer ISE können Sie auswählen, ob interne oder externe Zugriff
 * **Intern:** Private Endpunkte, die Aufrufe von Logik-Apps in Ihrer ISE *nur innerhalb des virtuellen Netzwerks* zulassen, wo Sie auf Ein- und Ausgaben aus dem Ausführungsverlauf von Logik-Apps zugreifen können.
 
   > [!IMPORTANT]
-  > Stellen Sie sicher, dass Sie über eine Netzwerkverbindung zwischen den privaten Endpunkten und dem Computer verfügen, von dem aus Sie auf den Ausführungsverlauf zugreifen möchten. Andernfalls wird beim Versuch, den Ausführungsverlauf der Logik-App anzuzeigen, Folgendes angezeigt: „Unerwarteter Fehler. Fehler beim Abrufen.“
+  > Wenn Sie diese webhook-basierten Trigger verwenden müssen, verwenden Sie externe Endpunkte, *nicht* interne Endpunkte, wenn Sie Ihre ISE erstellen:
+  > 
+  > * Azure DevOps
+  > * Azure Event Grid
+  > * Common Data Service
+  > * Office 365
+  > * SAP (ISE-Version)
+  > 
+  > Stellen Sie auch sicher, dass Sie über eine Netzwerkverbindung zwischen den privaten Endpunkten und dem Computer verfügen, von dem aus Sie auf den Ausführungsverlauf zugreifen möchten. Andernfalls wird beim Versuch, den Ausführungsverlauf der Logik-App anzuzeigen, Folgendes angezeigt: „Unerwarteter Fehler. Fehler beim Abrufen.“
   >
   > ![Fehler bei Azure Storage-Aktion, weil kein Datenverkehr über die Firewall gesendet werden kann](./media/connect-virtual-network-vnet-isolated-environment-overview/integration-service-environment-error.png)
   >

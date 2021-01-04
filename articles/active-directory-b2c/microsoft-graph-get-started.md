@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d95b45b9be0893282a532bae9ec0278c3a141686
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61e32f50e02e45487830c5ea7ff476a0571960f6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385925"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954000"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Verwalten von Azure AD B2C mit Microsoft Graph
 
@@ -85,12 +85,12 @@ Wenn Ihre Anwendung oder Ihr Skript Benutzer löschen oder deren Kennwörter akt
 ## <a name="next-steps"></a>Nächste Schritte
 Nachdem Sie Ihre Managementanwendung registriert und ihr die erforderlichen Berechtigungen gewährt haben, können Ihre Anwendungen und Dienste (z. B. Azure Pipelines) ihre Anmeldeinformationen und Berechtigungen zum Interagieren mit der Microsoft Graph-API verwenden. 
 
-* [Abrufen eines Zugriffstokens von Azure AD](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)
-* [Verwenden des Zugriffstokens zum Aufrufen von Microsoft Graph](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)
+* [Abrufen eines Zugriffstokens von Azure AD](/graph/auth-v2-service#4-get-an-access-token)
+* [Verwenden des Zugriffstokens zum Aufrufen von Microsoft Graph](/graph/auth-v2-service#4-get-an-access-token)
 * [Von Microsoft Graph unterstützte B2C-Vorgänge](microsoft-graph-operations.md)
 * [Verwalten von Azure AD B2C-Benutzerkonten mit Microsoft Graph](manage-user-accounts-graph-api.md)
 * [Abrufen von Überwachungsprotokollen mit der Azure AD-Berichterstellungs-API](view-audit-logs.md#get-audit-logs-with-the-azure-ad-reporting-api)
 
 <!-- LINKS -->
-[ms-graph]: https://docs.microsoft.com/graph/
+[ms-graph]: /graph/
 [ms-graph-api]: https://docs.microsoft.com/graph/api/overview

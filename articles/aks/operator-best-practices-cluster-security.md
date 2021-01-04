@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Lernen Sie die Best Practices für den Clusteroperator zum Verwalten der Clustersicherheit und von Upgrades in Azure Kubernetes Service (AKS) kennen.
 services: container-service
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.openlocfilehash: 9cb51cb0f5b902553bda0b881c8392d74905c4bc
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 11/12/2020
+ms.openlocfilehash: ad1f14fc92433e8d9cb31de165645e4a5731f01a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073630"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019465"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Best Practices für Clustersicherheit und Upgrades in Azure Kubernetes Service (AKS)
 
@@ -19,7 +19,7 @@ Beim Verwalten von Clustern in Azure Kubernetes Service (AKS) spielt die Sicherh
 In diesem Artikel wird erläutert, wie AKS-Cluster gesichert werden. Folgendes wird vermittelt:
 
 > [!div class="checklist"]
-> * Verwenden von Azure Active Directory und rollenbasierter Zugriffssteuerung (Role-Based Access Control, RBAC) als Schutz für den Zugriff auf API-Server
+> * Verwenden von Azure Active Directory und rollenbasierter Kubernetes-Zugriffssteuerung (Role-Based Access Control, Kubernetes RBAC) als Schutz für den Zugriff auf API-Server
 > * Sicherer Containerzugriff auf Knotenressourcen
 > * Durchführen eines Upgrades auf AKS-Cluster auf die neueste Kubernetes-Version
 > * Aktuellhalten von Knoten und automatisches Anwenden von Sicherheitspatches
@@ -30,7 +30,7 @@ Sie können auch die [Integration von Security Center in Azure Kubernetes Servic
 
 ## <a name="secure-access-to-the-api-server-and-cluster-nodes"></a>Sicherer Zugriff auf API-Server und Clusterknoten
 
-**Best Practice-Anleitung:** Eines der wichtigsten Dinge, die Sie tun können, um den Zugriff auf den Kubernetes API-Server zu sichern, ist die Sicherung Ihres Clusters. Integrieren Sie die rollenbasierte Zugriffssteuerung von Kubernetes (RBAC) in Azure Active Directory, um den Zugriff auf den API-Server steuern zu können. Mit dieser Steuerung können Sie AKS in der gleichen Weise sichern, wie Sie auch den Zugriff auf Ihre Azure-Abonnements sichern können.
+**Best Practice-Anleitung:** Eines der wichtigsten Dinge, die Sie tun können, um den Zugriff auf den Kubernetes API-Server zu sichern, ist die Sicherung Ihres Clusters. Integrieren Sie die rollenbasierte Zugriffssteuerung von Kubernetes (Kubernetes RBAC) in Azure Active Directory, um den Zugriff auf den API-Server steuern zu können. Mit dieser Steuerung können Sie AKS in der gleichen Weise sichern, wie Sie auch den Zugriff auf Ihre Azure-Abonnements sichern können.
 
 Der Kubernetes API-Server stellt einen einzelnen Verbindungspunkt zur Verfügung, der für Aktionsanforderungen innerhalb eines Clusters zuständig ist. Indem Sie den Zugriff beschränken und nur die minimal erforderlichen Zugriffsberechtigungen auswählen, können Sie den Zugriff auf den API-Server sichern und überwachen. Dieses Vorgehensweise richtet sich nicht speziell an Kubernetes, sondern hat eine besondere Bedeutung, wenn der AKS-Cluster bei einer Verwendung mit mehreren Mandanten logisch isoliert ist.
 
@@ -38,11 +38,11 @@ Azure Active Directory (AD) bietet eine Lösung zur Identitätsverwaltung für U
 
 ![Azure Active Directory-Integration mit AKS-Clustern](media/operator-best-practices-cluster-security/aad-integration.png)
 
-Verwenden Sie Kubernetes RBAC und die Integration in Azure AD, um den API-Server zu sichern und die minimal erforderliche Anzahl an Berechtigungen für eine bereichsbezogene Menge an Ressourcen zur Verfügung zu stellen, beispielsweise für einen einzelnen Namespace. In Azure AD können verschiedenen Benutzern und Gruppen verschiedene RBAC-Rollen zugewiesen werden. Diese granularen Berechtigungen ermöglichen es Ihnen, den Zugriff auf den API-Server zu beschränken und stellen ein eindeutiges Überwachungsprotokoll durchgeführter Aktionen zur Verfügung.
+Verwenden Sie Kubernetes RBAC und die Integration in Azure AD, um den API-Server zu sichern und die minimal erforderliche Anzahl an Berechtigungen für eine bereichsbezogene Menge an Ressourcen zur Verfügung zu stellen, beispielsweise für einen einzelnen Namespace. In Azure AD können verschiedenen Benutzern oder Gruppen verschiedene Kubernetes-Rollen zugewiesen werden. Diese granularen Berechtigungen ermöglichen es Ihnen, den Zugriff auf den API-Server zu beschränken und stellen ein eindeutiges Überwachungsprotokoll durchgeführter Aktionen zur Verfügung.
 
-Es empfiehlt sich, ganze Gruppen und nicht nur einzelne Identitäten zu verwenden, um Zugriff auf Dateien und Ordner zu gewähren und Azure AD-*Gruppenmitgliedschaften* anstatt einzelne *Benutzer* zu verwenden, um Benutzern RBAC-Rollen zuzuweisen. So ändern sich die Zugriffsberechtigungen eines Benutzers im AKS-Cluster automatisch, wenn die Gruppenmitgliedschaft eines Benutzers geändert wird. Wenn Sie einem Benutzer direkt eine Rolle zuweisen, ändert sich möglicherweise dessen Stellenfunktion. Wenn die Gruppenmitgliedschaften eines Benutzers in Azure AD dann aktualisiert werden, wird dies nicht für dessen Berechtigungen im AKS-Cluster übernommen. In diesem Szenario würde ein Benutzer letzten Endes dann über mehr Berechtigungen verfügen, als für einen Benutzer erforderlich ist.
+Es empfiehlt sich, ganze Gruppen und nicht nur einzelne Identitäten zu verwenden, um Zugriff auf Dateien und Ordner zu gewähren, und Azure AD-*Gruppenmitgliedschaften* anstatt einzelner *Benutzer* zu verwenden, um Benutzern Kubernetes-Rollen zuzuweisen. So ändern sich die Zugriffsberechtigungen eines Benutzers im AKS-Cluster automatisch, wenn die Gruppenmitgliedschaft eines Benutzers geändert wird. Wenn Sie einem Benutzer direkt eine Rolle zuweisen, ändert sich möglicherweise dessen Stellenfunktion. Wenn die Gruppenmitgliedschaften eines Benutzers in Azure AD dann aktualisiert werden, wird dies nicht für dessen Berechtigungen im AKS-Cluster übernommen. In diesem Szenario würde ein Benutzer letzten Endes dann über mehr Berechtigungen verfügen, als für einen Benutzer erforderlich ist.
 
-Weitere Informationen zu Azure AD-Integration und RBAC finden Sie unter [Zugriffs- und Identitätsoptionen für Azure Kubernetes Service (AKS)][aks-best-practices-identity].
+Weitere Informationen zu Azure AD-Integration, Kubernetes RBAC und Azure RBAC finden Sie unter [Zugriffs- und Identitätsoptionen für Azure Kubernetes Service (AKS)][aks-best-practices-identity].
 
 ## <a name="secure-container-access-to-resources"></a>Sicherer Containerzugriff auf Ressourcen
 
@@ -53,7 +53,7 @@ Genauso wie Sie Benutzern und Gruppen nur die minimal notwendigen Berechtigungen
 Wenn Sie die Steuerungsmöglichkeiten für Containeraktionen noch feiner abstimmen möchten, können Sie dazu auch integrierte Linux-Sicherheitsfeatures wie *AppArmor* und *seccomp* verwenden. Diese Features sind auf der Knotenebene definiert und werden dann über ein Podmanifest implementiert. In Linux integrierte Sicherheitsfunktionen sind nur auf Linux-Knoten und -Pods verfügbar.
 
 > [!NOTE]
-> Kubernetes-Umgebungen, ob in AKS oder an anderer Stelle, sind nicht völlig sicher vor feindlicher Verwendung mit mehreren Mandanten. Zusätzliche Sicherheitsfeatures wie *AppArmor*, *seccomp*, *Podsicherheitsrichtlinien* oder differenziertere rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC) für Knoten erschweren Angriffe. Für echte Sicherheit bei der Ausführung feindlicher Workloads mit mehreren Mandanten ist jedoch ein Hypervisor die einzige Sicherheitsstufe, der Sie vertrauen sollten. Die Sicherheitsdomäne für Kubernetes wird zum gesamten Cluster und nicht zu einem einzelnen Knoten. Für diese Art von feindlichen Workloads mit mehreren Mandanten sollten Sie physisch isolierte Cluster verwenden.
+> Kubernetes-Umgebungen, ob in AKS oder an anderer Stelle, sind nicht völlig sicher vor feindlicher Verwendung mit mehreren Mandanten. Zusätzliche Sicherheitsfeatures wie *AppArmor*, *seccomp*, *Podsicherheitsrichtlinien* oder differenziertere rollenbasierte Kubernetes-Zugriffssteuerung (Role-Based Access Control, Kubernetes RBAC) für Knoten erschweren Angriffe. Für echte Sicherheit bei der Ausführung feindlicher Workloads mit mehreren Mandanten ist jedoch ein Hypervisor die einzige Sicherheitsstufe, der Sie vertrauen sollten. Die Sicherheitsdomäne für Kubernetes wird zum gesamten Cluster und nicht zu einem einzelnen Knoten. Für diese Art von feindlichen Workloads mit mehreren Mandanten sollten Sie physisch isolierte Cluster verwenden.
 
 ### <a name="app-armor"></a>AppArmor
 
@@ -117,7 +117,7 @@ Weitere Informationen zu AppArmor finden Sie im Kubernetes-Artikel [AppArmor][k8
 
 ### <a name="secure-computing"></a>Sicheres Computing
 
-AppArmor ist für jede Linux-Anwendung geeignet. [Seccomp (*Sec*ure *Comp*uting, sicheres Computing)][seccomp] arbeitet dagegen auf Prozessebene. Seccomp ist ebenfalls ein Kernelsicherheitsmodul von Linux und wird nativ von der Docker-Runtime unterstützt, die für AKS-Knoten verwendet wird. Seccomp sorgt dafür, dass die Prozessaufrufe, die ein Container durchführen kann, begrenzt sind. Erstellen Sie Filter, die festlegen, welche Aktionen erlaubt oder verweigert werden, und verwenden Sie dann zur Zuordnung zum jeweiligen Seccomp-Filter Anmerkungen innerhalb eines Pod-YAML-Manifests. Dies entspricht der bewährten Methode, Containern wirklich nur die minimal zur Ausführung benötigten Berechtigungen zu erteilen.
+AppArmor ist für jede Linux-Anwendung geeignet. [Seccomp (*Sec* ure *Comp* uting, sicheres Computing)][seccomp] arbeitet dagegen auf Prozessebene. Seccomp ist ebenfalls ein Kernelsicherheitsmodul von Linux und wird nativ von der Docker-Runtime unterstützt, die für AKS-Knoten verwendet wird. Seccomp sorgt dafür, dass die Prozessaufrufe, die ein Container durchführen kann, begrenzt sind. Erstellen Sie Filter, die festlegen, welche Aktionen erlaubt oder verweigert werden, und verwenden Sie dann zur Zuordnung zum jeweiligen Seccomp-Filter Anmerkungen innerhalb eines Pod-YAML-Manifests. Dies entspricht der bewährten Methode, Containern wirklich nur die minimal zur Ausführung benötigten Berechtigungen zu erteilen.
 
 In der folgenden Beispielverwendung von Seccomp erstellen Sie einen Filter, der verhindert, dass Berechtigungen für eine Datei geändert werden können. Stellen Sie eine [SSH][aks-ssh]-Verbindung mit einem AKS-Knoten her, erstellen Sie einen Seccomp-Filter namens */var/lib/kubelet/seccomp/prevent-chmod*, und fügen Sie den folgenden Inhalt ein:
 

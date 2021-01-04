@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: d67046f799e60db3101dfeb27dee10f92f9aad79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0454e7bcc81c71cdffcddcd859bb6d335cc8aef2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90052425"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791816"
 ---
 # <a name="repairing-an-import-job"></a>Reparieren eines Importauftrags
 Der Microsoft Azure Import/Export-Dienst kann möglicherweise einige Ihrer Dateien oder Teile einer Datei nicht in den Windows Azure-Blobdienst kopieren. Mögliche Fehlerursachen sind:  
@@ -35,10 +35,10 @@ Die folgenden Parameter können mit **RepairImport** angegeben werden:
 |**/r:** &lt;Reparaturdatei\>|**Erforderlich.** Pfad zur Reparaturdatei, die den Status der Reparatur verfolgt und das Fortsetzen einer unterbrochenen Reparatur ermöglicht. Jedes Laufwerk muss über genau eine Reparaturdatei verfügen. Wenn Sie mit der Reparatur eines bestimmten Laufwerks beginnen, übergeben Sie den Pfad zu einer noch nicht vorhandenen Reparaturdatei. Zum Fortsetzen einer unterbrochenen Reparatur müssen Sie den Namen einer vorhandenen Reparaturdatei übergeben. Geben Sie immer die Reparaturdatei für das entsprechende Ziellaufwerk an.|  
 |**/logdir:** &lt;Protokollverzeichnis\>|**Optional.** Das Protokollverzeichnis In dieses Verzeichnis werden ausführliche Protokolldateien geschrieben. Wird kein Protokollverzeichnis angegeben, wird das aktuelle Verzeichnis als Protokollverzeichnis verwendet.|  
 |**/d:** &lt;Zielverzeichnisse\>|**Erforderlich.** Eine oder mehrere, durch Semikolons getrennte Verzeichnisse, die die ursprünglichen Dateien enthalten, die importiert wurden. Das Importlaufwerk kann auch verwendet werden, wird aber nicht benötigt, wenn alternative Speicherorte der ursprünglichen Dateien verfügbar sind.|  
-|**/bk:**&lt;BitLocker-Schlüssel\>|**Optional.** Geben Sie den BitLocker-Schlüssel an, wenn das Tool ein verschlüsseltes Laufwerk entsperren soll, auf dem die ursprünglichen Dateien verfügbar sind.|  
+|**/bk:** &lt;BitLocker-Schlüssel\>|**Optional.** Geben Sie den BitLocker-Schlüssel an, wenn das Tool ein verschlüsseltes Laufwerk entsperren soll, auf dem die ursprünglichen Dateien verfügbar sind.|  
 |**/sn:** &lt;Speicherkontoname\>|**Erforderlich.** Der Name des Speicherkontos für den Importauftrag.|  
-|**/sk:** &lt;Speicherkontoschlüssel\>|Nur **Erforderlich**, wenn keine Container-SAS angegeben wurde. Der Kontoschlüssel des Speicherkontos für den Importauftrag.|  
-|**/csas:**&lt;Container-SAS\>|Nur **Erforderlich**, wenn kein Speicherkontoschlüssel angegeben wurde. Die Container-SAS für den Zugriff auf die Blobs, die dem Importauftrag zugeordnet sind.|  
+|**/sk:** &lt;Speicherkontoschlüssel\>|Nur **Erforderlich** , wenn keine Container-SAS angegeben wurde. Der Kontoschlüssel des Speicherkontos für den Importauftrag.|  
+|**/csas:** &lt;Container-SAS\>|Nur **Erforderlich** , wenn kein Speicherkontoschlüssel angegeben wurde. Die Container-SAS für den Zugriff auf die Blobs, die dem Importauftrag zugeordnet sind.|  
 |**/CopyLogFile:** &lt;Laufwerk-Kopierprotokolldatei\>|**Erforderlich.** Pfad zur Laufwerk-Kopierprotokolldatei (entweder ausführliches Protokoll oder Fehlerprotokoll). Die Datei wird vom Windows Azure Import/Export-Dienst generiert und kann aus dem Blobspeicher heruntergeladen werden, der dem Auftrag zugeordnet ist. Die Kopierprotokolldatei enthält Informationen zu fehlerhaften Blobs oder Dateien, die repariert werden müssen.|  
 |**/PathMapFile:** &lt;Laufwerkpfad-Zuordnungsdatei\>|**Optional.** Pfad zu einer Textdatei, mit der Mehrdeutigkeiten aufgelöst werden, wenn im selben Auftrag mehrere Dateien mit dem gleichen Namen importiert werden. Beim ersten Ausführen des Tools kann diese Datei mit allen mehrdeutigen Namen gefüllt werden. Bei späteren Ausführungen des Tools wird diese Datei verwendet, um die Mehrdeutigkeiten aufzulösen.|  
   
@@ -100,6 +100,6 @@ Nachdem Sie die erforderlichen Dateien für das Tool zur Verfügung gestellt ode
 ## <a name="next-steps"></a>Nächste Schritte
  
 * [Einrichten des Azure Import/Export-Tools](storage-import-export-tool-setup-v1.md)   
-* [Vorbereiten von Festplatten für einen Importauftrag](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Vorbereiten von Festplatten für einen Importauftrag](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
 * [Überprüfen des Auftragsstatus mit Protokollkopiedateien](storage-import-export-tool-reviewing-job-status-v1.md)   
-* [Reparieren eines Exportauftrags](../storage-import-export-tool-repairing-an-export-job-v1.md)
+* [Reparieren eines Exportauftrags](./storage-import-export-tool-repairing-an-export-job-v1.md)

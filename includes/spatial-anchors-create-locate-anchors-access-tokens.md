@@ -1,15 +1,15 @@
 ---
-author: ramonarguelles
+author: msftradford
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 02/21/2019
-ms.author: rgarcia
-ms.openlocfilehash: 63725d55e2b2935ec6a899789249259b096865c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/20/2020
+ms.author: parkerra
+ms.openlocfilehash: c9b4e0fdf95c2bb4888a3a11820f1785d8545bd4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67177786"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993121"
 ---
 ### <a name="access-tokens"></a>Zugriffstoken
 

@@ -3,16 +3,16 @@ title: Erste Schritte und Erstellen eines Azure Lab Services-Labs in Teams
 description: Informieren Sie sich über die ersten Schritte, und erstellen Sie ein Azure Lab Services-Lab in Teams.
 ms.topic: article
 ms.date: 10/08/2020
-ms.openlocfilehash: e17b0be223a1630402fc4f32c692d7ecfe184783
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: cc4ad604bdf250cc6e4ba2c50c2f7143c921e906
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217081"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433970"
 ---
 # <a name="get-started-and-create-a-lab-services-lab-within-teams"></a>Erste Schritte und Erstellen eines Lab Services-Labs in Teams
 
-In diesem Artikel wird beschrieben, wie Sie die **Azure Lab Services** -App einem Team hinzufügen und dann ein Lab in der MS Teams-Umgebung erstellen.
+In diesem Artikel wird beschrieben, wie Sie die **Azure Lab Services**-App einem Team hinzufügen und dann ein Lab in der MS Teams-Umgebung erstellen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -23,35 +23,35 @@ Nachfolgend wird der typische Workflow für die Verwendung von Azure Lab Service
 1. Benutzer [erstellt ein Lab-Konto](tutorial-setup-lab-account.md#create-a-lab-account) im Azure-Portal.
 1. Der [Ersteller eines Lab-Kontos](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role) kann andere Benutzer zur Rolle **Ersteller des Labs** hinzufügen. Der Ersteller/Administrator des Labkontos fügt der Rolle **Ersteller des Labs** beispielsweise Lehrkräfte hinzu, damit diese Labs für ihre Kurse erstellen können.
 1. Anschließend erstellen die Kursleiter Labs, konfigurieren die Vorlagen-VM vorab und veröffentlichen das Lab, um VMs für alle Benutzer im Team bereitzustellen.
-1. Sobald das Lab veröffentlicht wurde, wird allen Benutzern in der Teammitgliedschaftsliste bei ihrer ersten Anmeldung bei Azure Lab Services eine VM zugewiesen, indem sie entweder auf die Registerkarte klicken, die die **Azure Lab Services** -App innerhalb von Teams (SSO) enthält, oder indem sie auf die [Labs-Website](https://labs.azure.com) zugreifen. Benutzer können die VM dann verwenden, um Klassenarbeiten und Hausaufgaben zu erledigen.
+1. Sobald das Lab veröffentlicht wurde, wird allen Benutzern in der Teammitgliedschaftsliste bei ihrer ersten Anmeldung bei Azure Lab Services eine VM zugewiesen, indem sie entweder auf die Registerkarte klicken, die die **Azure Lab Services**-App innerhalb von Teams (SSO) enthält, oder indem sie auf die [Labs-Website](https://labs.azure.com) zugreifen. Benutzer können die VM dann verwenden, um Klassenarbeiten und Hausaufgaben zu erledigen.
 
 > [!IMPORTANT]
 > Azure Lab Services kann nur dann innerhalb von Teams verwendet werden, wenn die Lab-Konten im gleichen Mandanten erstellt werden wie Teams.
 
 ## <a name="add-azure-lab-services-app-as-a-tab-to-a-team"></a>Hinzufügen der Azure Lab Services-App als Registerkarte zu einem Team
 
-Sie als Team Besitzer können die **Azure Lab Services** -App direkt in ihren Teams-Kanälen hinzufügen. Die App kann dann von allen Benutzern im Team verwendet werden. Führen Sie die folgenden drei Schritte aus:
+Sie als Team Besitzer können die **Azure Lab Services**-App direkt in ihren Teams-Kanälen hinzufügen. Die App kann dann von allen Benutzern im Team verwendet werden. Führen Sie die folgenden drei Schritte aus:
 
 1. Navigieren Sie zu dem Teams-Kanal, in dem Sie die App hinzufügen möchten, und wählen Sie **+** aus, um eine Registerkarte hinzuzufügen. 
 1. Suchen Sie nach **Azure Lab Services** in den Registerkartenoptionen, und fügen Sie diese App hinzu. 
 
     > [!NOTE]
-    > Nur Team- **Besitzer** können Labs für das Team erstellen.
+    > Nur Team-**Besitzer** können Labs für das Team erstellen.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/integrate-with-teams/add.png" alt-text="Hinzufügen einer Registerkarte":::
-1. Wählen Sie ein Lab Services-Konto aus, das Sie zum Erstellen von Classroom-Labs in diesem Team verwenden möchten. 
+1. Wählen Sie ein Lab Services-Konto aus, das Sie zum Erstellen von Labs in diesem Team verwenden möchten. 
 
     Azure Lab Services verwendet SSO (einmaliges Anmelden) für die [Azure Lab Services-Website](https://labs.azure.com) und pullt alle Lab-Konten, auf die Sie Zugriff besitzen. 
 
-    Die Konten, die sich im gleichen Mandanten wie die Teams befinden und für die Sie über Zugriff vom Typ **Besitzer** , **Mitwirkender** oder **Ersteller** verfügen, werden angezeigt. 
+    Die Konten, die sich im gleichen Mandanten wie die Teams befinden und für die Sie über Zugriff vom Typ **Besitzer**, **Mitwirkender** oder **Ersteller** verfügen, werden angezeigt. 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/integrate-with-teams/welcome.png" alt-text="Hinzufügen einer Registerkarte":::
-1. Drücken Sie **Speichern** , und die Registerkarte wird dem Kanal hinzugefügt.
+    > :::image type="content" source="./media/integrate-with-teams/welcome.png" alt-text="Willkommen bei ALS":::
+1. Drücken Sie **Speichern**, und die Registerkarte wird dem Kanal hinzugefügt.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/integrate-with-teams/created.png" alt-text="Hinzufügen einer Registerkarte":::
+    > :::image type="content" source="./media/integrate-with-teams/created.png" alt-text="Erstellte ALS-Registerkarte":::
 
     Nun können Sie auf die Registerkarte **Azure Lab Services** in Ihrem Channel klicken und wie in den folgenden Artikeln beschrieben mit der Verwaltung von Labs beginnen.
 

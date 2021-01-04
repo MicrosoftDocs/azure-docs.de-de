@@ -10,18 +10,16 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.author: pafarley
-ms.openlocfilehash: a23e6d46ee6e79fd7a5cabf4434c561f7d83b31b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddf4d17cd2631f5bc299e392c46bd9065bb13744
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76169507"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146616"
 ---
 # <a name="content-moderator-review-tool"></a>Content Moderator-Prüfungstool
 
-Azure Content Moderator umfasst Dienste für die Kombination der Inhaltsmoderation mit maschinellem Lernen und Überprüfungen durch Personen. Die Website des [Prüfungstools](https://contentmoderator.cognitive.microsoft.com) ist ein benutzerfreundliches Front-End, das einen detaillierten Zugriff auf diese Dienste ermöglicht.
-
-![Prüfungstool-Dashboard in einem Browser](./images/0-dashboard.png)
+Azure Content Moderator stellt Dienste bereit, um die Inhaltsmoderation mit maschinellem Lernen mit menschlichen Überprüfungen zu kombinieren. Die Website zum [Überprüfungstool](https://contentmoderator.cognitive.microsoft.com) ist ein benutzerfreundliches Front-End, das detaillierten Zugriff auf diese Dienste ermöglicht.
 
 ## <a name="what-it-does"></a>Funktionsbeschreibung
 
@@ -32,20 +30,27 @@ Bei Verwendung in Kombination mit den computergestützten Moderations-APIs ermö
 - Zuweisen oder Eskalieren von Inhaltsüberprüfungen an mehrere, nach Inhaltskategorie oder Erfahrungsstufe organisierte Überprüfungsteams
 - Verwenden von standardmäßigen oder benutzerdefinierten Logikfiltern ([Workflows](../review-api.md#workflows)) zum Sortieren und Nachverfolgen von Inhalten ohne jeglichen Code
 - Verwenden Sie [Connectors](./configure.md#connectors) zum Verarbeiten von Inhalten mit Microsoft PhotoDNA, Textanalyse und Gesichtserkennungsdiensten zusätzlich zu den Content Moderator-APIs.
-- Erstellen eines benutzerdefinierten Konnektors zum Erstellen von Workflows für APIs oder Geschäftsprozesse
 - Abrufen von Leistungsmetriken zu Ihren Inhaltsmoderationsprozessen
 
 ## <a name="review-tool-dashboard"></a>Prüfungstool-Dashboard
 
-Auf der Registerkarte **Dashboard** können Sie wichtige Metriken für im Tool erfolgte Inhaltsüberprüfungen anzeigen. Es wird die Anzahl der gesamten, abgeschlossenen und ausstehenden Überprüfungen für Bild-, Text- und Videoinhalte angezeigt. Zudem werden die Aufschlüsselung der Benutzer und Teams, die Überprüfungen durchgeführt haben, sowie die angewandten Moderationsmarkierungen angezeigt.
+Auf der Registerkarte **Dashboard** können Sie wichtige Metriken für im Tool erfolgte Inhaltsüberprüfungen anzeigen. Es wird die Anzahl der gesamten, abgeschlossenen und ausstehenden Überprüfungen für Bild-, Text- und Videoinhalte angezeigt. 
 
-![Dashboards anzeigen](images/0-dashboard.png)
+Die Tabelle für **ausstehende Überprüfungen** zeigt die Aufschlüsselung der Benutzer und untergeordneten Teams, die über ausstehende oder abgeschlossene Überprüfungen verfügen, sowie die verbleibende SLA-Zeit. Sie können die Einträge in der Tabelle auswählen, um zu deren Überprüfungen zu wechseln. Mit dem Suchfeld oberhalb der Tabelle können Sie die Ergebnisse nach Teamnamen filtern, und mit dem Symbol **Filter** können Sie nach anderen Metriken filtern.
+
+Der Wechsel zur Registerkarte mit **abgeschlossenen Überprüfungen** zeigt die Gesamtzahl der von Benutzern und untergeordneten Teams bearbeiteten oder abgeschlossenen Elemente an. Sie können diese Daten genauso filtern wie die ausstehenden Überprüfungen.
+
+Wenn Sie auf den Text in der oberen rechten Ecke des Dashboards klicken, werden die täglichen persönliche Metriken angezeigt, die die Anzahl der abgeschlossenen Überprüfungen für die einzelnen Inhaltstypen angibt.
+
+> [!div class="mx-imgBorder"]
+> ![Prüfungstool-Dashboard in einem Browser](images/0-dashboard.png)
 
 ## <a name="review-tool-credentials"></a>Anmeldeinformationen für das Prüfungstool
 
-Bei der Registrierung für das [Prüfungstool](https://contentmoderator.cognitive.microsoft.com) werden Sie aufgefordert, eine Azure-Region für Ihr Konto auszuwählen. Dies ist darauf zurückzuführen, dass das [Prüfungstool](https://contentmoderator.cognitive.microsoft.com) einen kostenlosen Testschlüssel für Azure Content Moderator-Dienste generiert. Diesen Schlüssel benötigen Sie für den Zugriff auf die Dienste über einen REST-Aufruf oder ein Client-SDK. Sie können Ihren Schlüssel und die API-Endpunkt-URL durch Auswählen von **Einstellungen** > **Anmeldeinformationen** anzeigen.
+Bei der Registrierung für das [Prüfungstool](https://contentmoderator.cognitive.microsoft.com) werden Sie aufgefordert, eine Azure-Region für Ihr Konto auszuwählen. Dies liegt daran, dass das [Überprüfungstool](https://contentmoderator.cognitive.microsoft.com) einen kostenlosen Testschlüssel für Azure Content Moderator-Dienste generiert. Sie benötigen diesen Schlüssel, um von einem REST-Aufruf oder Client-SDK auf einen der Dienste zuzugreifen. Sie können Ihren Schlüssel und die API-Endpunkt-URL durch Auswählen von **Admin** > **Credentials** (Administrator und Anmeldeinformationen) anzeigen.
 
-![Anmeldeinformationen in Content Moderator](images/settings-6-credentials.png)
+> [!div class="mx-imgBorder"]
+> ![Anmeldeinformationen in Content Moderator](images/settings-6-credentials.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

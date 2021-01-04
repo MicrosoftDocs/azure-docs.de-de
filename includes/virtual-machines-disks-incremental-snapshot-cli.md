@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cbd6f821326c86983ceb3ae5b90969e522c187fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bdeef537556db94338ed50fcfa6e9d88431f25a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82204652"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96016255"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
 
@@ -29,9 +29,9 @@ Mit dem folgenden Befehl wird sie unter Windows installiert oder Ihre vorhandene
 ```PowerShell
 Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
 ```
-Unter Linux variiert die CLI-Installation je nach Betriebssystemversion.  Weitere Informationen finden Sie unter [Installieren der Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) für Ihre jeweilige Linux-Version.
+Unter Linux variiert die CLI-Installation je nach Betriebssystemversion.  Weitere Informationen finden Sie unter [Installieren der Azure CLI](/cli/azure/install-azure-cli) für Ihre jeweilige Linux-Version.
 
-Um eine inkrementelle Momentaufnahme zu erstellen, verwenden Sie [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) mit dem Parameter `--incremental`.
+Um eine inkrementelle Momentaufnahme zu erstellen, verwenden Sie [az snapshot create](/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) mit dem Parameter `--incremental`.
 
 Das folgende Beispiel erstellt eine inkrementelle Momentaufnahme, ersetzt `<yourDesiredSnapShotNameHere>`, `<yourResourceGroupNameHere>`, `<exampleDiskName>` und `<exampleLocation>` durch Ihre eigenen Werte und führt das Beispiel dann aus:
 

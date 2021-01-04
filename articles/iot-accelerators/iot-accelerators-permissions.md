@@ -8,27 +8,27 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
-ms.openlocfilehash: f5d816b3d44a6fadd8dd462a14e62de4cdac2a00
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b05ed6e1239721bcf3c1cf33d3ee63a992fd9843
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370609"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853225"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Verwenden der azureiotsolutions.com-Website zum Bereitstellen Ihres Solution Accelerators
 
-Sie können Azure IoT Solution Accelerators über [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators) für Ihr Azure-Abonnement bereitstellen. AzureIoTSolutions.com hostet sowohl die Microsoft Open Source- als auch die Partner Solution Accelerators. Diese Solution Accelerators entsprechen der [Azure IoT-Referenzarchitektur](https://aka.ms/iotrefarchitecture). Sie können über die Website schnell einen Solution Accelerator als Demo- oder Produktionsumgebung bereitstellen.
+Sie können Azure IoT Solution Accelerators über [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators) für Ihr Azure-Abonnement bereitstellen. AzureIoTSolutions.com hostet sowohl die Microsoft Open Source- als auch die Partner Solution Accelerators. Diese Solution Accelerators entsprechen der [Azure IoT-Referenzarchitektur](/azure/architecture/reference-architectures/iot). Sie können über die Website schnell einen Solution Accelerator als Demo- oder Produktionsumgebung bereitstellen.
 
 ![AzureIoTSolutions.com](media/iot-accelerators-permissions/iotsolutionscom.png)
 
 > [!TIP]
-> Wenn Sie mehr Kontrolle über den Bereitstellungsprozess benötigen, können Sie mithilfe der [-Befehlszeilenschnittstelle einen Solution Accelerator bereitstellen](iot-accelerators-remote-monitoring-deploy-cli.md).
+> Wenn Sie mehr Kontrolle über den Bereitstellungsprozess benötigen, können Sie mithilfe der -Befehlszeilenschnittstelle einen Solution Accelerator bereitstellen.
 
 Sie können die Solution Accelerators in den folgenden Konfigurationen bereitstellen:
 
-* **Standard** : Eine erweiterte Infrastrukturbereitstellung zum Entwickeln einer Produktionsumgebung. Der Azure Container Service stellt die Microservices auf mehreren virtuellen Azure-Computern bereit. Kubernetes orchestriert die Docker-Container, die die einzelnen Microservices hosten.
-* **Basic** : Eine kostengünstigere Version für Demonstrationszwecke oder zum Testen einer Bereitstellung. Alle Microservices werden auf einem einzelnen virtuellen Azure-Computer bereitgestellt.
-* **Lokal** : Eine lokale Computerbereitstellung für das Testen und die Entwicklung. Bei diesem Ansatz werden die Microservices in einem lokalen Docker-Container bereitgestellt, und die Verbindung mit IoT Hub-, Azure Cosmos DB- und Azure-Speicherdiensten in der Cloud wird hergestellt.
+* **Standard**: Eine erweiterte Infrastrukturbereitstellung zum Entwickeln einer Produktionsumgebung. Der Azure Container Service stellt die Microservices auf mehreren virtuellen Azure-Computern bereit. Kubernetes orchestriert die Docker-Container, die die einzelnen Microservices hosten.
+* **Basic**: Eine kostengünstigere Version für Demonstrationszwecke oder zum Testen einer Bereitstellung. Alle Microservices werden auf einem einzelnen virtuellen Azure-Computer bereitgestellt.
+* **Lokal**: Eine lokale Computerbereitstellung für das Testen und die Entwicklung. Bei diesem Ansatz werden die Microservices in einem lokalen Docker-Container bereitgestellt, und die Verbindung mit IoT Hub-, Azure Cosmos DB- und Azure-Speicherdiensten in der Cloud wird hergestellt.
 
 Jeder der Solution Accelerators verwendet eine andere Kombination von Azure-Diensten wie IoT Hub, Azure Stream Analytics und Cosmos DB. Weitere Informationen finden Sie unter [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators), und wählen Sie einen Solution Accelerator aus.
 
@@ -38,14 +38,14 @@ Bevor Sie einen Solution Accelerator bereitstellen können, müssen Sie sich mit
 
 Ihre Berechtigungen zum Bereitstellen von Solution Accelerators, Verwalten von Benutzern und Verwalten von Azure-Diensten sind abhängig von Ihrer Rolle im ausgewählten Verzeichnis. Die allgemeinen Azure AD-Rollen, die den Solution Accelerators zugeordnet sind, umfassen Folgendes:
 
-* **Globaler Administrator** : Pro Azure AD-Mandant kann es viele [globale Administratoren](../active-directory/roles/permissions-reference.md) geben:
+* **Globaler Administrator**: Pro Azure AD-Mandant kann es viele [globale Administratoren](../active-directory/roles/permissions-reference.md) geben:
 
   * Wenn Sie einen Azure AD-Mandanten erstellen, sind Sie standardmäßig der globale Administrator dieses Mandanten.
   * Der globale Administrator kann einen grundlegenden und einen Standard-Solution Accelerator bereitstellen.
 
-* **Domänenbenutzer** : Pro Azure AD-Mandant können viele Domänenbenutzer vorhanden sein. Ein Domänenbenutzer kann einen grundlegenden Solution Accelerator bereitstellen.
+* **Domänenbenutzer**: Pro Azure AD-Mandant können viele Domänenbenutzer vorhanden sein. Ein Domänenbenutzer kann einen grundlegenden Solution Accelerator bereitstellen.
 
-* **Gastbenutzer** : Pro Azure AD-Mandant kann es viele Gastbenutzer geben. Gastbenutzer können keinen Solution Accelerator im Azure AD-Mandanten bereitstellen.
+* **Gastbenutzer**: Pro Azure AD-Mandant kann es viele Gastbenutzer geben. Gastbenutzer können keinen Solution Accelerator im Azure AD-Mandanten bereitstellen.
 
 Weitere Informationen zu Benutzern und Rollen in Azure AD finden Sie in den folgenden Ressourcen:
 
@@ -60,13 +60,8 @@ Der Katalog enthält Hunderte von zertifizierten IoT-Hardwaregeräten, die Sie m
 
 ![Gerätekatalog](media/iot-accelerators-permissions/devicecatalog.png)
 
-Wenn Sie ein Hardwarehersteller sind, klicken Sie auf **Partner werden** , um mehr über die Partnerschaft mit Microsoft im Certified for IoT-Programm zu erfahren.
+Wenn Sie ein Hardwarehersteller sind, klicken Sie auf **Partner werden**, um mehr über die Partnerschaft mit Microsoft im Certified for IoT-Programm zu erfahren.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Sehen Sie sich die Schnellstarts an, wenn Sie einen der IoT-Solution Accelerators testen möchten:
-
-* [Testen einer Remoteüberwachungslösung](quickstart-remote-monitoring-deploy.md)
-* [Testen einer Lösung für verbundene Factorys](quickstart-connected-factory-deploy.md)
-* [Testen einer Predictive Maintenance-Lösung](quickstart-predictive-maintenance-deploy.md)
-* [Testen einer Gerätesimulationslösung](quickstart-device-simulation-deploy.md)
+Sehen Sie sich den Schnellstart an, wenn Sie einen der IoT-Solution Accelerators testen möchten: [Testen einer Lösung für verbundene Factorys](quickstart-connected-factory-deploy.md).

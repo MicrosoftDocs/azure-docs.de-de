@@ -4,15 +4,15 @@ description: Supportinformationen und Links für Azure Marketplace und AppSource
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: navits09
+ms.author: navits
 ms.date: 04/14/2020
-ms.openlocfilehash: 3b74f3ecdc048b6468906fb46a848d27cd1f23b9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 02e64c6c6e5ab2ef77f02959ada6f95d1042b76d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275417"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488756"
 ---
 # <a name="support-for-the-microsoft-commercial-marketplace"></a>Support für den kommerziellen Microsoft-Marketplace
 
@@ -32,7 +32,7 @@ Haben Sie Fragen dazu, wie Sie als Publisher für den kommerziellen Microsoft-Ma
 
 | Supportkanal | BESCHREIBUNG |  
 |:--- |:--- |  
-| MSDN-Foren: Marketplace auf der [Frageseite „Microsoft Q&A“](https://docs.microsoft.com/answers/products/azure) | Microsoft Developer Network-Forum. |  
+| MSDN-Foren: Marketplace auf der [Frageseite „Microsoft Q&A“](/answers/products/azure) | Microsoft Developer Network-Forum. |  
 | Stack Overflow: Azure unter [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Stack Overflow-Umgebung für Lösungen und Antworten auf allgemeine Fragen zu Azure Marketplace<ul> <li>Stack Overflow: Azure Marketplace unter [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow: Azure Resource Manager unter [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow: Virtuelle Computer in Azure unter [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stack Overflow: Container in Azure unter [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
 
 ## <a name="marketing-resources"></a>Marketingressourcen  

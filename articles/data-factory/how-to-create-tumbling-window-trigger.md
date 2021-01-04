@@ -3,20 +3,20 @@ title: Erstellen von Triggern für rollierende Fenster in Azure Data Factory
 description: Erfahren Sie, wie in Azure Data Factory ein Trigger erstellt wird, der eine Pipeline gemäß einem rollierenden Fenster ausführt.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: chez-charlie
+ms.author: chez
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/11/2019
-ms.openlocfilehash: c35fa28457e3cb9a063fa29c20d8651fcb4eeb45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/25/2020
+ms.openlocfilehash: 4c40d394e48cb0cd8bc02ef7b37e7ed2b27e13c4
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856483"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511551"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Erstellen eines Triggers zum Ausführen einer Pipeline für ein rollierendes Fenster
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -37,7 +37,7 @@ Trigger für ein rollierendes Fenster werden ab einem angegebenen Startzeitpunkt
 
 Ein rollierendes Fenster weist die folgenden Triggertypeigenschaften auf:
 
-```
+```json
 {
     "name": "MyTriggerName",
     "properties": {
@@ -47,7 +47,7 @@ Ein rollierendes Fenster weist die folgenden Triggertypeigenschaften auf:
             "frequency": <<Minute/Hour>>,
             "interval": <<int>>,
             "startTime": "<<datetime>>",
-            "endTime: <<datetime – optional>>,
+            "endTime": <<datetime – optional>>,
             "delay": <<timespan – optional>>,
             "maxConcurrency": <<int>> (required, max allowed: 50),
             "retryPolicy": {
@@ -117,7 +117,7 @@ Die folgende Tabelle enthält eine allgemeine Übersicht über die wichtigsten J
 
 Sie können die Systemvariablen **WindowStart** und **WindowEnd** des Triggers für rollierende Fenster in Ihrer **Pipeline**-Definition (d.h. für einen Teil einer Abfrage) verwenden. Übergeben Sie die Systemvariablen als Parameter an Ihre Pipeline in der **Trigger**-Definition. Im folgenden Beispiel wird gezeigt, wie diese Variablen als Parameter übergeben werden:
 
-```
+```json
 {
     "name": "MyTriggerName",
     "properties": {
@@ -162,7 +162,20 @@ Bei Pipelineausfällen kann der Trigger für ein rollierendes Fenster versuchen,
 
 ### <a name="tumbling-window-trigger-dependency"></a>Triggerabhängigkeit für ein rollierendes Fenster
 
-Wenn Sie sicherstellen möchten, dass ein Trigger für ein rollierendes Fenster erst nach der erfolgreichen Ausführung eines anderen Triggers für das rollierende Fenster ausgeführt wird, [erstellen Sie eine Triggerabhängigkeit für das rollierende Fenster](tumbling-window-trigger-dependency.md) in der Data Factory. 
+Wenn Sie sicherstellen möchten, dass ein Trigger für ein rollierendes Fenster erst nach der erfolgreichen Ausführung eines anderen Triggers für das rollierende Fenster ausgeführt wird, [erstellen Sie eine Triggerabhängigkeit für das rollierende Fenster](tumbling-window-trigger-dependency.md) in der Data Factory.
+
+### <a name="cancel-tumbling-window-run"></a>Abbrechen der Ausführung eines rollierenden Fensters
+
+Sie können Ausführungen für einen Trigger für rollierende Fenster abbrechen, wenn sich das Fenster im Zustand _Warten_, _Auf Abhängigkeit warten_ oder _Wird ausgeführt_ befindet.
+
+* Wenn sich das Fenster im Zustand **Wird ausgeführt** befindet, brechen Sie die zugehörige _Pipelineausführung_ ab. Danach wird die Triggerausführung als _Abgebrochen_ markiert.
+* Wenn sich das Fenster im Zustand **Warten** oder im Zustand **Auf Abhängigkeit warten** befindet, können Sie das Fenster über die Überwachung abbrechen:
+
+![Abbrechen eines Triggers für rollierende Fenster über die Seite „Überwachung“](media/how-to-create-tumbling-window-trigger/cancel-tumbling-window-trigger.png)
+
+Sie können ein abgebrochenes Fenster auch erneut ausführen. Bei der erneuten Ausführung werden die _letzten_ veröffentlichten Definitionen des Triggers verwendet, und Abhängigkeiten für das angegebene Fenster werden bei der erneuten Ausführung _erneut ausgewertet_.
+
+![Erneute Ausführung eines Triggers für rollierende Fenster für zuvor abgebrochene Ausführungen](media/how-to-create-tumbling-window-trigger/rerun-tumbling-window-trigger.png)
 
 ## <a name="sample-for-azure-powershell"></a>Beispiel für Azure PowerShell
 

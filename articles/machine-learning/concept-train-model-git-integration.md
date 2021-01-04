@@ -1,20 +1,20 @@
 ---
 title: Git-Integration für Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Azure Machine Learning in ein lokales Git-Repository integriert werden kann. Beim Übermitteln einer Trainingsausführung aus einem lokalen Verzeichnis, bei dem es sich um ein Git-Repository handelt, werden im Rahmen der Ausführung Informationen zum Repository, zum Branch und zum aktuellen Commit nachverfolgt.
+description: Erfahren Sie, wie Azure Machine Learning in ein lokales Git-Repository integriert wird, um Repository-, Branch- und aktuelle Commit-Informationen als Teil einer Trainingsausführung nachzuverfolgen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: jordane
 author: jpe316
-ms.date: 03/05/2020
-ms.openlocfilehash: 71ac7793fe5226215c5d4eab98f84dba356b114c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/16/2020
+ms.openlocfilehash: 989fc7cb66cf5381d174a3aad12f84f5b055aab8
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275964"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701635"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Git-Integration für Azure Machine Learning
 
@@ -39,7 +39,7 @@ Weitere Informationen zum Klonen finden Sie im Leitfaden zum [Verwenden der Git 
 
 ## <a name="authenticate-your-git-account-with-ssh"></a>Authentifizieren Ihres Git-Kontos mit SSH
 ### <a name="generate-a-new-ssh-key"></a>Generieren eines neuen SSH-Schlüssels
-1) [Öffnen Sie das Terminalfenster](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#terminal) auf der Registerkarte Azure Machine Learning-Notebook.
+1) [Öffnen Sie das Terminalfenster](./how-to-run-jupyter-notebooks.md#terminal) auf der Registerkarte Azure Machine Learning-Notebook.
 
 2) Fügen Sie den Text darunter ein, und setzen Sie dabei Ihre E-Mail-Adresse ein.
 
@@ -89,7 +89,7 @@ cat ~/.ssh/id_rsa.pub
 
 + [GitLab](https://docs.gitlab.com/ee/ssh/#adding-an-ssh-key-to-your-gitlab-account)
 
-+ [Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs): Beginnen Sie mit **Schritt 2**.
++ [Azure DevOps](/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs): Beginnen Sie mit **Schritt 2**.
 
 + [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2). Beginnen Sie mit **Schritt 4**.
 
@@ -115,7 +115,7 @@ Warning: Permanently added 'github.com,192.30.255.112' (RSA) to the list of know
 
 SSH zeigt möglicherweise den SSH-Fingerabdruck des Servers an und fordert Sie auf, ihn zu überprüfen. Sie sollten überprüfen, ob der angezeigte Fingerabdruck mit einem der Fingerabdrücke auf der Seite mit den öffentlichen SSH-Schlüsseln übereinstimmt.
 
-SSH zeigt diesen Fingerabdruck an, wenn es eine Verbindung mit einem unbekannten Host herstellt, um Sie vor [Man-in-the-Middle-Angriffen](https://technet.microsoft.com/library/cc959354.aspx) zu schützen. Sobald Sie den Fingerabdruck des Hosts akzeptiert haben, werden Sie von SSH nicht mehr aufgefordert, es sei denn, der Fingerabdruck ändert sich.
+SSH zeigt diesen Fingerabdruck an, wenn es eine Verbindung mit einem unbekannten Host herstellt, um Sie vor [Man-in-the-Middle-Angriffen](/previous-versions/windows/it-pro/windows-2000-server/cc959354(v=technet.10)) zu schützen. Sobald Sie den Fingerabdruck des Hosts akzeptiert haben, werden Sie von SSH nicht mehr aufgefordert, es sei denn, der Fingerabdruck ändert sich.
 
 3) Wenn Sie gefragt werden, ob Sie das Herstellen der Verbindung fortsetzen möchten, geben Sie `yes` ein. Git wird das Repository klonen und den Remoteursprung einrichten, um für zukünftige Git-Befehle eine Verbindung mit SSH einzurichten.
 
@@ -178,7 +178,7 @@ Die protokollierten Informationen enthalten Text, der so ähnlich aussieht wie d
 
 ### <a name="python-sdk"></a>Python SDK
 
-Nach dem Übermitteln eines Trainingslaufs wird ein [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true)-Objekt zurückgegeben. Das `properties`-Attribut dieses Objekts enthält die protokollierten Git-Informationen. Beispielsweise ruft der folgende Code den Commithash ab:
+Nach dem Übermitteln eines Trainingslaufs wird ein [Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py)-Objekt zurückgegeben. Das `properties`-Attribut dieses Objekts enthält die protokollierten Git-Informationen. Beispielsweise ruft der folgende Code den Commithash ab:
 
 ```python
 run.properties['azureml.git.commit']
@@ -192,7 +192,7 @@ Der CLI-Befehl `az ml run` kann verwendet werden, um die Eigenschaften eines Lau
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
 ```
 
-Weitere Informationen finden Sie in der Referenzdokumentation zu [az ml run](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true).
+Weitere Informationen finden Sie in der Referenzdokumentation zu [az ml run](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

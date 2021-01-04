@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/21/2020
+ms.date: 12/07/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a0ce2c17586e5437047ff27cb67577b0480a83af
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 6d6a152096ce4e16849542c26d1c7a675a972b89
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939340"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779072"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Abrufen eines Tokens von Azure AD zum Autorisieren von Anforderungen von einer Clientanwendung
 
@@ -31,7 +31,7 @@ Anhand der Beispielanwendung können Sie in einer End-to-End-Umgebung sehen, wie
 
 ## <a name="assign-a-role-to-an-azure-ad-security-principal"></a>Zuweisen einer Rolle zu einem Azure AD-Sicherheitsprinzipal
 
-Um einen Sicherheitsprinzipal aus Ihrer Azure Storage-Anwendung authentifizieren zu können, müssen Sie zuerst die Einstellungen der rollenbasierten Zugriffskontrolle in Azure (Azure Role-Based Access Control, RBAC) für diesen Sicherheitsprinzipal konfigurieren. Azure Storage definiert integrierte Rollen, die Berechtigungen für Container und Warteschlangen beinhalten. Wird die Azure-Rolle einem Sicherheitsprinzipal zugewiesen, wird diesem Sicherheitsprinzipal Zugriff auf die Ressource gewährt. Weitere Informationen finden Sie unter [Verwalten von Zugriffsrechten für Blob- und Warteschlangendaten mit Azure RBAC](storage-auth-aad-rbac.md).
+Um einen Sicherheitsprinzipal aus Ihrer Azure Storage-Anwendung authentifizieren zu können, müssen Sie zuerst die Einstellungen der rollenbasierten Zugriffskontrolle in Azure (Azure Role-Based Access Control, RBAC) für diesen Sicherheitsprinzipal konfigurieren. Azure Storage definiert integrierte Rollen, die Berechtigungen für Container und Warteschlangen beinhalten. Wird die Azure-Rolle einem Sicherheitsprinzipal zugewiesen, wird diesem Sicherheitsprinzipal Zugriff auf die Ressource gewährt. Weitere Informationen finden Sie unter [Verwalten von Zugriffsrechten für Blob- und Warteschlangendaten mit Azure RBAC](./storage-auth-aad-rbac-portal.md).
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Registrieren der Anwendung bei einem Azure AD-Mandanten
 
@@ -46,9 +46,9 @@ Die folgende Abbildung zeigt die allgemeinen Einstellungen zum Registrieren eine
 
 Nachdem Sie Ihre Anwendung registriert haben, wird die Anwendungs-ID (oder Client-ID) unter **Einstellungen** angezeigt:
 
-:::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Screenshot, der das Registrieren Ihrer Speicheranwendung bei Azure AD zeigt":::
+:::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Screenshot der Client-ID":::
 
-Ausführlichere Informationen zum Registrieren einer Anwendung bei Azure AD finden Sie unter [Integrieren von Anwendungen in Azure Active Directory](../../active-directory/develop/quickstart-v2-register-an-app.md).
+Ausführlichere Informationen zum Registrieren einer Anwendung bei Azure AD finden Sie unter [Integrieren von Anwendungen in Azure Active Directory](../../active-directory/develop/quickstart-register-app.md).
 
 ### <a name="grant-your-registered-app-permissions-to-azure-storage"></a>Erteilen von Berechtigungen für die registrierte App für Azure Storage
 
@@ -59,13 +59,13 @@ Erteilen Sie als Nächstes Ihrer Anwendung Berechtigungen zum Aufrufen von Azure
 1. Im Bereich **API-Berechtigungen anfordern** unter **Welche Art von Berechtigungen sind für Ihre Anwendung erforderlich?** wird als verfügbarer Berechtigungstyp **Delegierte Berechtigungen** angezeigt. Diese Option ist standardmäßig für Sie aktiviert.
 1. Aktivieren Sie unter **Berechtigungen** das Kontrollkästchen neben **user_impersonation**, und klicken Sie auf die Schaltfläche **Berechtigungen hinzufügen**.
 
-    :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="Screenshot, der das Registrieren Ihrer Speicheranwendung bei Azure AD zeigt":::
+    :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="Screenshot mit Berechtigungen für die Speicher-API":::
 
 1. Erteilen Sie als Nächstes die Administratoreinwilligung für diese Berechtigungen, indem Sie auf **Grant admin consent for Default Directory** (Administratoreinwilligung für Standardverzeichnis gewähren) klicken.
 
 Im Bereich **API-Berechtigungen** wird jetzt angezeigt, dass Ihre registrierte Azure AD-Anwendung Zugriff auf die Microsoft Graph- und auf die Azure Storage-API hat und dass die Einwilligung für das Standardverzeichnis erteilt wurde. Berechtigungen für Microsoft Graph werden automatisch gewährt, wenn Sie Ihre App zum ersten Mal bei Azure AD registrieren.
 
-:::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-2.png" alt-text="Screenshot, der das Registrieren Ihrer Speicheranwendung bei Azure AD zeigt":::
+:::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-2.png" alt-text="Screenshot mit API-Berechtigungen für die registrierte Anwendung":::
 
 ### <a name="create-a-client-secret"></a>Erstellen eines Clientgeheimnisses
 
@@ -87,13 +87,13 @@ Konfigurieren Sie als Nächstes den Flow zur impliziten Genehmigung für Ihre An
 1. Wählen Sie im Abschnitt **Manage** (Verwalten) die Einstellung **Authentication** (Authentifizierung) aus.
 1. Aktivieren Sie im Abschnitt **Implicit grant** (Implizite Genehmigung) das Kontrollkästchen zum Aktivieren von ID-Token, wie in der folgenden Abbildung gezeigt:
 
-    :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Screenshot, der das Registrieren Ihrer Speicheranwendung bei Azure AD zeigt":::
+    :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Screenshot: Aktivieren der Einstellungen für den Flow zur impliziten Genehmigung":::
 
 ## <a name="client-libraries-for-token-acquisition"></a>Clientbibliotheken für die Tokenbeschaffung
 
 Sobald Sie Ihre Anwendung registriert und ihr Berechtigungen für den Zugriff auf Daten im Azure-Blob- oder -Warteschlangenspeicher erteilt haben, können Sie Ihrer Anwendung Code zum Authentifizieren eines Sicherheitsprinzipals und zum Beschaffen eines OAuth 2.0-Tokens hinzufügen. Zum Authentifizieren und Abrufen des Tokens können Sie entweder eine der [Authentifizierungsbibliotheken von Microsoft Identity Platform](../../active-directory/develop/reference-v2-libraries.md) oder eine andere Open-Source-Bibliothek verwenden, die OpenID Connect 1.0 unterstützt. Ihre Anwendung kann dann mit dem Zugriffstoken eine Anforderung an den Azure-Blob- oder -Warteschlangenspeicher autorisieren.
 
-Eine Liste der Szenarios, für die das Abrufen von Token unterstützt wird, finden Sie im Abschnitt zu [Authentifizierungsflows](/en-us/azure/active-directory/develop/msal-authentication-flows) in der Dokumentation [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview).
+Eine Liste der Szenarios, für die das Abrufen von Token unterstützt wird, finden Sie im Abschnitt zu [Authentifizierungsflows](../../active-directory/develop/msal-authentication-flows.md) in der Dokumentation [Microsoft Authentication Library (MSAL)](../../active-directory/develop/msal-overview.md).
 
 ## <a name="well-known-values-for-authentication-with-azure-ad"></a>Bekannte Werte für die Authentifizierung mit Azure AD
 
@@ -131,6 +131,8 @@ Weisen Sie anschließend die Rolle **Storage Blob Data Contributor** (Mitwirkend
 
 > [!NOTE]
 > Wenn Sie ein Azure Storage-Konto erstellen, erhalten Sie nicht automatisch Berechtigungen für den Zugriff auf Daten über Azure AD. Sie müssen sich selbst explizit eine Azure-Rolle für Azure Storage zuweisen. Sie können sie auf Ebene Ihres Abonnements, einer Ressourcengruppe, eines Speicherkontos oder eines Containers oder einer Warteschlange zuordnen.
+>
+> Bevor Sie sich eine Rolle für den Datenzugriff zuweisen, können Sie bereits über das Azure-Portal auf Daten in Ihrem Speicherkonto zugreifen, da das Azure-Portal auch den Kontoschlüssel für den Datenzugriff nutzen kann. Weitere Informationen finden Sie unter [Auswählen der Autorisierung des Zugriffs auf Blobdaten im Azure-Portal](../blobs/authorize-data-operations-portal.md).
 
 ### <a name="create-a-web-application-that-authorizes-access-to-blob-storage-with-azure-ad"></a>Erstellen einer Webanwendung, die Zugriff auf Blob Storage über Azure AD gewährt
 
@@ -290,6 +292,6 @@ https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/)
-- [Verwalten von Rechten für den Zugriff auf Speicherdaten mithilfe der Azure RBAC](storage-auth-aad-rbac.md)
+- [Microsoft Identity Platform](../../active-directory/develop/index.yml)
+- [Verwalten von Rechten für den Zugriff auf Speicherdaten mithilfe der Azure RBAC](./storage-auth-aad-rbac-portal.md)
 - [Authentifizieren des Zugriffs auf Blobs und Warteschlangen mit Azure Active Directory und verwalteten Identitäten für Azure-Ressourcen](storage-auth-aad-msi.md)

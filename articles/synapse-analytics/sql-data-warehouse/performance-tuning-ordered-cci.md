@@ -1,6 +1,6 @@
 ---
 title: Leistungsoptimierung mit einem sortierten gruppierten Columnstore-Index
-description: Empfehlungen und Überlegungen, die Sie kennen sollten, wenn Sie einen sortierten gruppierten Columnstore-Index zur Verbesserung Ihrer Abfrageleistung verwenden
+description: Empfehlungen und Überlegungen, die Sie kennen sollten, wenn Sie einen sortierten gruppierten Columnstore-Index zur Verbesserung Ihrer Abfrageleistung in dedizierten SQL-Pools verwenden
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,22 +11,22 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 48db8541ebad19e3b22b737f7e92dcc980708ef6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afb6efcee2ad4f5cf25a411eed353ff2fc27d75c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841593"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460792"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Leistungsoptimierung mit einem sortierten gruppierten Columnstore-Index  
 
-Wenn Benutzer eine Columnstore-Tabelle in einem Synapse SQL-Pool abfragen, überprüft der Optimierer die minimalen und maximalen Werte, die in den einzelnen Segmenten gespeichert sind.  Segmente, die sich außerhalb der Grenzen des Abfrageprädikats befinden, werden nicht vom Datenträger in den Arbeitsspeicher gelesen.  Die Leistung einer Abfrage kann gesteigert werden, wenn die Anzahl der zu lesenden Segmente und deren Gesamtgröße gering ist.   
+Wenn Benutzer eine Columnstore-Tabelle in dedizierten SQL-Pools abfragen, überprüft der Optimierer die minimalen und maximalen Werte, die in den einzelnen Segmenten gespeichert sind.  Segmente, die sich außerhalb der Grenzen des Abfrageprädikats befinden, werden nicht vom Datenträger in den Arbeitsspeicher gelesen.  Die Leistung einer Abfrage kann gesteigert werden, wenn die Anzahl der zu lesenden Segmente und deren Gesamtgröße gering ist.   
 
 ## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>Vergleich sortierter und nicht sortierter gruppierter Columnstore-Indizes
 
 Standardmäßig erstellt eine interne Komponente (Index-Generator) für jede Tabelle, die ohne Indexoption erstellt wurde, einen nicht geordneten gruppierten Columnstore-Index (CCI).  Die Daten den einzelnen Spalten werden in einem separaten CCI-Zeilengruppensegment komprimiert.  Für den Wertebereich jedes Segments gibt es Metadaten, sodass Segmente, die sich außerhalb der Grenzen des Abfrageprädikats befinden, während der Abfrageausführung nicht von der Festplatte gelesen werden.  CCI bietet den höchsten Grad an Datenkomprimierung und verringert die Größe der zu lesenden Segmente, damit Abfragen schneller ausgeführt werden. Da der Index-Generator die Daten jedoch nicht sortiert, bevor er sie in Segmente komprimiert, können Segmente mit überlappenden Wertebereichen auftreten, was dazu führt, dass Abfragen mehr Segmente vom Datenträger lesen muss und die Fertigstellung länger dauert.  
 
-Beim Erstellen einer geordneten CCI-Tabelle sortiert die Synapse SQL-Engine die vorhandenen Daten im Arbeitsspeicher nach den Sortierschlüsseln, bevor der Index-Generator sie in Indexsegmente komprimiert.  Bei sortierten Daten wird die Überlappung von Segmenten verringert, sodass Abfragen Segmente effizienter entfernen können und somit eine schnellere Leistung aufweisen, da die Anzahl der Segmente, die vom Datenträger gelesen werden sollen, kleiner ist.  Die Überlappung von Segmenten lässt sich vermeiden, wenn alle Daten im Arbeitsspeicher gleichzeitig sortiert werden.  Aufgrund großer Tabellen in Data Warehouses kommt dieses Szenario nicht häufig vor.  
+Beim Erstellen einer geordneten CCI-Tabelle sortiert die Engine des dedizierten SQL-Pools die vorhandenen Daten im Arbeitsspeicher nach dem/den Sortierschlüssel(n), bevor sie der Index-Generator in Indexsegmente komprimiert.  Bei sortierten Daten wird die Überlappung von Segmenten verringert, sodass Abfragen Segmente effizienter entfernen können und somit eine schnellere Leistung aufweisen, da die Anzahl der Segmente, die vom Datenträger gelesen werden sollen, kleiner ist.  Die Überlappung von Segmenten lässt sich vermeiden, wenn alle Daten im Arbeitsspeicher gleichzeitig sortiert werden.  Aufgrund großer Tabellen in Data Warehouses kommt dieses Szenario nicht häufig vor.  
 
 Wenn Sie die Segmentbereiche für eine Spalte überprüfen möchten, führen Sie den folgenden Befehl unter Angabe Ihres Tabellen- und Spaltennamens aus:
 
@@ -50,7 +50,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> In einer sortierten CCI-Tabelle werden die neuen Daten aus dem gleichen Batch von DML- oder Datenladevorgängen innerhalb dieses Batches sortiert, es findet jedoch keine globale Sortierung aller Daten in der Tabelle statt.  Benutzer können die geordnete CCI-Tabelle neu erstellen (REBUILD), um alle Daten in der Tabelle zu sortieren.  In Synapse SQL ist die Neuerstellung des Columnstore-Indexes ein Offlinevorgang.  Bei einer partitionierten Tabelle erfolgt die Neuerstellung (REBUILD) der Partitionen nacheinander.  Die Daten in der Partition, die neu erstellt wird, sind „offline“ und nicht verfügbar, bis die Neuerstellung (REBUILD) für diese Partition beendet ist. 
+> In einer sortierten CCI-Tabelle werden die neuen Daten aus dem gleichen Batch von DML- oder Datenladevorgängen innerhalb dieses Batches sortiert, es findet jedoch keine globale Sortierung aller Daten in der Tabelle statt.  Benutzer können die geordnete CCI-Tabelle neu erstellen (REBUILD), um alle Daten in der Tabelle zu sortieren.  Im dedizierten SQL-Pool ist die Neuerstellung des Columnstore-Indexes ein Offlinevorgang.  Bei einer partitionierten Tabelle erfolgt die Neuerstellung (REBUILD) der Partitionen nacheinander.  Die Daten in der Partition, die neu erstellt wird, sind „offline“ und nicht verfügbar, bis die Neuerstellung (REBUILD) für diese Partition beendet ist. 
 
 ## <a name="query-performance"></a>Abfrageleistung
 

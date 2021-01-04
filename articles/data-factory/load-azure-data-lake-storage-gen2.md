@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/08/2020
-ms.openlocfilehash: 8f8cfef5ed98682a1d03f7d36caa2008f4ff03b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: ca9ca495f2b3449b5aeb933bbd8d312fc9341fd9
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84660470"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554116"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Laden von Daten in Azure Data Lake Storage Gen2 mit Azure Data Factory
 
@@ -42,7 +42,7 @@ In diesem Artikel erfahren Sie, wie Sie das Tool zum Kopieren von Daten in Data 
 
 ## <a name="create-a-data-factory"></a>Erstellen einer Data Factory
 
-1. Wählen Sie im Menü auf der linken Seite **Ressource erstellen** > **Daten + Analysen** > **Data Factory** aus:
+1. Wählen Sie im Menü auf der linken Seite **Ressource erstellen** > **Integration** > **Data Factory** aus:
    
    ![Auswählen von „Data Factory“ im Bereich „Neu“](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -88,7 +88,7 @@ In diesem Artikel erfahren Sie, wie Sie das Tool zum Kopieren von Daten in Data 
 
 6. Geben Sie das Kopierverhalten an, indem Sie die Optionen **Rekursiv** und **Binärkopie** aktivieren. Wählen Sie **Weiter** aus.
 
-    ![Angeben des Ausgabeordners](./media/load-azure-data-lake-storage-gen2/specify-binary-copy.png)
+    ![Screenshot der Seite „Eingabedatei oder -ordner auswählen“ mit den auswählbaren Optionen „Binärkopie“ und „Rekursiv“](./media/load-azure-data-lake-storage-gen2/specify-binary-copy.png)
     
 7. Klicken Sie auf der Seite **Zieldatenspeicher** auf **+ Neue Verbindung erstellen**, und wählen Sie anschließend **Azure Data Lake Storage Gen2** und dann **Weiter** aus.
 
@@ -97,13 +97,13 @@ In diesem Artikel erfahren Sie, wie Sie das Tool zum Kopieren von Daten in Data 
 8. Führen Sie auf der Seite **Neuer verknüpfter Dienst (Azure Data Lake Storage Gen2)** die folgenden Schritte aus:
 
    1. wählen Sie in der Dropdownliste „Speicherkontoname“ das Data Lake Storage Gen2-fähige Konto aus.
-   2. Wählen Sie **Erstellen** aus, um die Verbindung zu erstellen. Wählen Sie **Weiter**aus.   
+   2. Wählen Sie **Erstellen** aus, um die Verbindung zu erstellen. Wählen Sie **Weiter** aus.   
 
         ![Angeben eines Azure Data Lake Storage Gen2-Kontos](./media/load-azure-data-lake-storage-gen2/specify-azure-data-lake-storage.png)
 
 9. Geben Sie auf der Seite **Choose the output file or folder** (Ausgabedatei oder -ordner auswählen) die Zeichenfolge **copyfroms3** als Name für den Ausgabeordner ein, und klicken Sie dann auf **Weiter**. Die ADF erstellt das entsprechende ADLS Gen2-Dateisystem und die Unterordner während des Kopierens, wenn diese noch nicht existieren.
 
-    ![Angeben des Ausgabeordners](./media/load-azure-data-lake-storage-gen2/specify-adls-path.png)
+    ![Screenshot des eingegebenen Ordnerpfads](./media/load-azure-data-lake-storage-gen2/specify-adls-path.png)
 
 10. Klicken Sie auf der Seite **Einstellungen** auf **Weiter**, um die Standardeinstellungen zu verwenden.
 

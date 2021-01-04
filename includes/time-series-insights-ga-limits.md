@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: 1aff5780aa5f4cf21d862a5cee3b140179dac03c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e584b6eff16636f0657c586f6c630dbf8bbb99b2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88703796"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025785"
 ---
 Im Folgenden werden die wichtigsten Grenzwerte in Azure Time Series Insights Gen1 zusammengefasst.
 
@@ -44,7 +44,7 @@ S2 SKU-Umgebungen unterstützen wesentlich mehr Ereignisse pro Monat und haben e
 
 ### <a name="property-limits"></a>Eigenschaftsgrenzwerte
 
-Eigenschaftsgrenzwerte von Gen1 sind von der ausgewählten SKU-Umgebung abhängig. Die bereitgestellten Ereigniseigenschaften verfügen über entsprechende JSON-, CSV- und Diagrammspalten, die im [Azure Time Series Insights-Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart) angezeigt werden können.
+Eigenschaftsgrenzwerte von Gen1 sind von der ausgewählten SKU-Umgebung abhängig. Die bereitgestellten Ereigniseigenschaften verfügen über entsprechende JSON-, CSV- und Diagrammspalten, die im [Azure Time Series Insights-Explorer](../articles/time-series-insights/time-series-quickstart.md) angezeigt werden können.
 
 | SKU | Maximale Eigenschaften |
 | --- | --- |
@@ -55,9 +55,9 @@ Eigenschaftsgrenzwerte von Gen1 sind von der ausgewählten SKU-Umgebung abhängi
 
 Maximal zwei Ereignisquellen werden pro Instanz unterstützt.
 
-* Informieren Sie sich über das [Hinzufügen einer Event Hub-Quelle](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
-* Konfigurieren [einer IoT-Hub-Quelle](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).
+* Informieren Sie sich über das [Hinzufügen einer Event Hub-Quelle](../articles/time-series-insights/how-to-ingest-data-event-hub.md).
+* Konfigurieren [einer IoT-Hub-Quelle](../articles/time-series-insights/how-to-ingest-data-iot-hub.md).
 
 ### <a name="api-limits"></a>API-Grenzwerte
 
-REST-API-Grenzwerte für Azure Time Series Insights Gen1 sind in der [Referenzdokumentation zur REST-API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) angegeben.
+REST-API-Grenzwerte für Azure Time Series Insights Gen1 sind in der [Referenzdokumentation zur REST-API](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) angegeben.

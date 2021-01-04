@@ -1,17 +1,17 @@
 ---
 title: Abfragespeicher – Azure Database for MySQL
 description: Erfahren Sie mehr über das Feature „Abfragespeicher“ in Azure Database for MySQL zum Nachverfolgen der Abfrageleistung im Zeitverlauf.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: 12623dccdc298aaad23ad6779caf33d895c5634a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70e1e5d06ef025801322e15e589d26e31f116fc3
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766118"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535077"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Überwachen der Azure Database for MySQL-Leistung mit dem Abfragespeicher
 
@@ -104,7 +104,7 @@ Die folgenden Optionen gelten speziell für Wartestatistiken.
 > [!NOTE]
 > Derzeit wird diese Konfiguration durch **query_store_capture_mode** ersetzt. Dies bedeutet, dass sowohl **query_store_capture_mode** als auch **query_store_wait_sampling_capture_mode** für „ALL“ aktiviert sein muss, damit Wartestatistiken funktionieren. Wenn **query_store_capture_mode** deaktiviert ist, ist auch die Wartestatistik deaktiviert, da für die Wartestatistik das aktivierte Leistungsschema (performance_schema) und der vom Abfragespeicher erfasste Abfragetext (query_text) verwendet werden.
 
-Verwenden Sie das [Azure-Portal](howto-server-parameters.md) oder die [Azure-Befehlszeilenschnittstelle](howto-configure-server-parameters-using-cli.md) zum Abrufen oder Festlegen eines anderen Werts für einen Parameter.
+Verwenden Sie das [Azure-Portal](howto-server-parameters.md) oder die [Azure-Befehlszeilenschnittstelle](howto-configure-server-parameters-using-cli.md) zum Abrufen oder Festlegen eines anderen Werts für einen Parameter.
 
 ## <a name="views-and-functions"></a>Ansichten und Funktionen
 

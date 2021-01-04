@@ -9,12 +9,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8874a17b40b60a194811630b2f93d2be9d7faf7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8901847a1c214b257243c4da0a74897061409bee
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494705"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184245"
 ---
 # <a name="get-details-of-an-azure-cache-for-redis"></a>Abrufen von Details zu einer Azure Cache for Redis-Instanz
 
@@ -32,11 +32,11 @@ Dieses Skript verwendet die folgenden Befehle, um die Details einer Azure Cache 
 
 | Get-Help | Notizen |
 |---|---|
-| [az redis show](https://docs.microsoft.com/cli/azure/redis) | Ruft Details zu einer Azure Cache for Redis-Instanz ab. |
+| [az redis show](/cli/azure/redis) | Ruft Details zu einer Azure Cache for Redis-Instanz ab. |
 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zur Azure CLI finden Sie in der [Azure CLI-Dokumentation](https://docs.microsoft.com/cli/azure).
+Weitere Informationen zur Azure CLI finden Sie in der [Azure CLI-Dokumentation](/cli/azure).
 
 Zusätzliche Azure Cache for Redis-CLI-Skriptbeispiele finden Sie in der [Dokumentation zu Azure Cache for Redis](../cli-samples.md).

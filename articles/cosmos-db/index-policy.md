@@ -3,19 +3,21 @@ title: Indizierungsrichtlinien für Azure Cosmos DB
 description: In diesem Artikel werden das Konfigurieren und Ändern der Standardindizierungsrichtlinie zur automatischen Indizierung und zur Steigerung der Leistung in Azure Cosmos DB erläutert.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 12/07/2020
 ms.author: tisande
-ms.openlocfilehash: b525f3299420f81670c0aea9872ac5fdef00be97
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2d99e0e2b65f7131e564e6ab64e454d2947c58a6
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277799"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903019"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indizierungsrichtlinien in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-In Azure Cosmos DB verfügt jeder Container über eine Indizierungsrichtlinie, die bestimmt, wie die Elemente eines Containers indiziert werden. Die standardmäßige Indizierungsrichtlinie für neu erstellte Container indiziert sämtliche Eigenschaften jedes Elements und erzwingt Bereichsindizes für jede Zeichenfolge oder Zahl. Dadurch erzielen Sie eine hohe Abfrageleistung, ohne sich im Vorfeld Gedanken über die Indizierung und Indexverwaltung machen zu müssen.
+In Azure Cosmos DB verfügt jeder Container über eine Indizierungsrichtlinie, die bestimmt, wie die Elemente eines Containers indiziert werden. Die standardmäßige Indizierungsrichtlinie für neu erstellte Container indiziert sämtliche Eigenschaften jedes Elements und erzwingt Bereichsindizes für jede Zeichenfolge oder Zahl. Dadurch erzielen Sie eine gute Abfrageleistung, ohne sich im Vorfeld Gedanken über die Indizierung und Indexverwaltung machen zu müssen.
 
 In einigen Fällen ist eventuell sinnvoll, dieses automatische Verhalten besser an Ihre Anforderungen anzupassen. Sie können die Indizierungsrichtlinie eines Containers anpassen, indem Sie seinen *Indizierungsmodus* festlegen und *Eigenschaftenpfade* ein- oder ausschließen.
 
@@ -30,11 +32,11 @@ Azure Cosmos DB unterstützt zwei Indizierungsmodi:
 - **Keine:** Die Indizierung ist für den Container deaktiviert. Dies wird häufig verwendet, wenn ein Container als reiner Schlüssel-Wert-Speicher verwendet wird, für den keine sekundären Indizes erforderlich sind. Sie kann auch verwendet werden, um die Leistung von Massenvorgängen zu verbessern. Nach Abschluss der Massenvorgänge kann der Indexmodus auf „Konsistent“ festgelegt und dann mit [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) überwacht werden, bis er abgeschlossen ist.
 
 > [!NOTE]
-> Azure Cosmos DB unterstützt auch einen verzögerten Indizierungsmodus. Bei der verzögerten Indizierung werden Updates des Indexes mit einer wesentlich niedrigeren Prioritätsstufe ausgeführt, wenn die Engine keine andere Arbeit ausführt. Dies kann zu **inkonsistenten oder unvollständigen** Abfrageergebnissen führen. Wenn Sie beabsichtigen, einen Cosmos-Container abzufragen, sollten Sie nicht die verzögerte Indizierung verwenden. Im Juni 2020 haben wir eine Änderung eingeführt, die es nicht mehr ermöglicht, neue Container auf den verzögerten Indizierungsmodus festzulegen. Wenn Ihr Azure Cosmos DB-Konto bereits mindestens einen Container mit verzögerter Indizierung enthält, wird dieses Konto automatisch von der Änderung ausgenommen. Sie können auch eine Ausnahme beantragen, indem Sie sich an den [Azure-Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) wenden (außer wenn Sie ein Azure Cosmos-Konto im [serverlosen](serverless.md) Modus verwenden, der keine verzögerte Indizierung unterstützt).
+> Azure Cosmos DB unterstützt auch einen verzögerten Indizierungsmodus. Bei der verzögerten Indizierung werden Updates des Indexes mit einer wesentlich niedrigeren Prioritätsstufe ausgeführt, wenn die Engine keine andere Arbeit ausführt. Dies kann zu **inkonsistenten oder unvollständigen** Abfrageergebnissen führen. Wenn Sie beabsichtigen, einen Cosmos-Container abzufragen, sollten Sie nicht die verzögerte Indizierung verwenden. Für neue Container kann keine verzögerte Indizierung ausgewählt werden. Sie können eine Ausnahme beantragen, indem Sie sich an den [Azure-Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) wenden (außer wenn Sie ein Azure Cosmos-Konto im [serverlosen](serverless.md) Modus verwenden, der keine verzögerte Indizierung unterstützt).
 
 Diese Indizierungsrichtlinie ist standardmäßig auf `automatic` festgelegt. Hierzu wird die `automatic`-Eigenschaft der Indizierungsrichtlinie auf `true` festgelegt. Ist diese Eigenschaft auf `true` festgelegt, kann Azure Cosmos DB Dokumente automatisch indizieren, während sie geschrieben werden.
 
-## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a> Ein- und Ausschließen von Eigenschaftenpfaden
+## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Ein- und Ausschließen von Eigenschaftenpfaden
 
 Mit einer benutzerdefinierten Indizierungsrichtlinie können Eigenschaftenpfade angegeben werden, die explizit in die Indizierung eingeschlossen oder von ihr ausgeschlossen werden. Indem Sie die Anzahl der indizierten Pfade optimieren, können Sie die Wartezeit und die RU-Gebühr für Schreibvorgänge erheblich verringern. Diese Pfade werden anhand [der Methode, die im Übersichtsabschnitt zur Indizierung beschrieben wird](index-overview.md#from-trees-to-property-paths), definiert. Dabei gelten die folgenden Ergänzungen:
 
@@ -73,7 +75,7 @@ Jede Indizierungsrichtlinie muss den Stammpfad `/*` entweder als eingeschlossene
 - Schließen Sie den Stammpfad ein, um einzelne Pfade auszuschließen, die nicht indiziert werden müssen. Dies ist die empfohlene Vorgehensweise, da dabei Azure Cosmos DB proaktiv jede neue Eigenschaft indiziert, die dem Modell hinzugefügt wird.
 - Schließen Sie den Stammpfad aus, um einzelne Pfade einzuschließen, die indiziert werden müssen.
 
-- Für Pfade mit regulären Zeichen, die alphanumerische Zeichen und Unterstriche (_) enthalten, müssen Sie die Pfadzeichenkette nicht mit doppelten Anführungszeichen als Escapezeichen umgeben (z.B. "/Pfad/?"). Für Pfade mit anderen Sonderzeichen müssen Sie die Pfadzeichenkette mit doppelten Anführungszeichen als Escapezeichen umgeben (z.B. "/\"Pfad-abc\"/?"). Wenn Sie Sonderzeichen in Ihrem Pfad erwarten, können Sie aus Sicherheitsgründen jeden Pfad mit Escapezeichen umgeben. Funktionell macht es keinen Unterschied, ob Sie jedem Pfad mit Escapezeichen umgeben oder nur diejenigen mit Sonderzeichen.
+- Für Pfade mit regulären Zeichen, die alphanumerische Zeichen und Unterstriche (_) enthalten, müssen Sie die Pfadzeichenkette nicht mit doppelten Anführungszeichen als Escapezeichen umgeben (z.B. "/Pfad/?"). Für Pfade mit anderen Sonderzeichen müssen Sie die Pfadzeichenkette mit doppelten Anführungszeichen als Escapezeichen umgeben (z.B. "/\"Pfad-abc\"/?"). Wenn Sie Sonderzeichen in Ihrem Pfad erwarten, können Sie aus Sicherheitsgründen jeden Pfad mit Escapezeichen umgeben. Funktionell macht es keinen Unterschied, ob Sie jeden Pfad mit Escapezeichen umgeben oder nur diejenigen mit Sonderzeichen.
 
 - Die Systemeigenschaft `_etag` wird von der Indizierung standardmäßig ausgeschlossen, sofern sie nicht zum für die Indizierung eingeschlossenen Pfad hinzugefügt wird.
 
@@ -198,6 +200,8 @@ Bei der Erstellung zusammengesetzter Indizes für Abfragen mit Filtern für mehr
 - Wenn eine Eigenschaft einen Bereichsfilter besitzt (`>`, `<`, `<=`, `>=` oder `!=`), muss diese Eigenschaft im zusammengesetzten Index zuletzt definiert werden. Enthält eine Abfrage mehrere Bereichsfilter, wird der zusammengesetzte Index nicht verwendet.
 - Wenn Sie einen zusammengesetzten Index erstellen, um Abfragen mit mehreren Filtern zu optimieren, hat die Reihenfolge (`ORDER`) des zusammengesetzten Index keine Auswirkungen auf die Ergebnisse. Diese Eigenschaft ist optional.
 - Wenn Sie keinen zusammengesetzten Index für eine Abfrage mit Filtern für mehrere Eigenschaften definieren, wird die Abfrage trotzdem erfolgreich ausgeführt. Mit einem zusammengesetzten Index beansprucht die Abfrage allerdings weniger RUs.
+- Abfragen mit Aggregaten (z. B. COUNT oder SUM) und Filtern profitieren ebenfalls von zusammengesetzten Indizes.
+- Filterausdrücke können mehrere zusammengesetzte Indizes verwenden.
 
 Betrachten Sie die folgenden Beispiele, in denen ein zusammengesetzter Index für die Eigenschaften „name“, „age“, und „timestamp“ definiert wird:
 
@@ -205,10 +209,12 @@ Betrachten Sie die folgenden Beispiele, in denen ein zusammengesetzter Index fü
 | ----------------------- | -------------------------------- | -------------- |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18``` | ```Yes```            |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18```   | ```Yes```             |
+| ```(name ASC, age ASC)```   | ```SELECT COUNT(1) FROM c WHERE c.name = "John" AND c.age > 18```   | ```Yes```             |
 | ```(name DESC, age ASC)```    | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18``` | ```Yes```            |
 | ```(name ASC, age ASC)```     | ```SELECT * FROM c WHERE c.name != "John" AND c.age > 18``` | ```No```             |
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 123049923``` | ```Yes```            |
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp = 123049923``` | ```No```            |
+| ```(name ASC, age ASC) and (name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp > 123049923``` | ```Yes```            |
 
 ### <a name="queries-with-a-filter-as-well-as-an-order-by-clause"></a>Abfragen mit Filter und ORDER BY-Klausel
 
@@ -245,6 +251,7 @@ SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.time
 Bei der Erstellung zusammengesetzter Indizes für die Optimierung einer Abfrage mit Filter und `ORDER BY`-Klausel muss Folgendes berücksichtigt werden:
 
 * Wenn die Abfrage nach Eigenschaften filtert, müssen diese in der `ORDER BY`-Klausel zuerst angegeben werden.
+* Wenn die Abfrage nach mehreren Eigenschaften filtert, müssen die Gleichheitsfilter die ersten Eigenschaften in der `ORDER BY`-Klausel sein.
 * Wenn Sie für eine Abfrage mit einem Filter für eine Eigenschaft und einer separaten `ORDER BY`-Klausel mit einer anderen Eigenschaft keinen zusammengesetzten Index definieren, wird die Abfrage trotzdem erfolgreich ausgeführt. Mit einem zusammengesetzten Index beansprucht die Abfrage allerdings weniger RUs – insbesondere, wenn die Eigenschaft in der `ORDER BY`-Klausel eine hohe Kardinalität besitzt.
 * Die Überlegungen im Zusammenhang mit der Erstellung zusammengesetzter Indizes für `ORDER BY`-Abfragen mit mehreren Eigenschaften sowie für Abfragen mit Filtern für mehrere Eigenschaften gelten weiterhin.
 
@@ -252,6 +259,8 @@ Bei der Erstellung zusammengesetzter Indizes für die Optimierung einer Abfrage 
 | **Zusammengesetzter Index**                      | **Beispiel einer `ORDER BY`-Abfrage**                                  | **Unterstützung durch zusammengesetzten Index?** |
 | ---------------------------------------- | ------------------------------------------------------------ | --------------------------------- |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |
+| ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" AND c.timestamp > 1589840355 ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |
+| ```(timestamp ASC, name ASC)```          | ```SELECT * FROM c WHERE c.timestamp > 1589840355 AND c.name = "John" ORDER BY c.timestamp ASC, c.name ASC``` | `No` |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC, c.name ASC``` | `No`  |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC``` | ```No```   |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.age ASC, c.name ASC,c.timestamp ASC``` | `Yes` |
@@ -259,7 +268,7 @@ Bei der Erstellung zusammengesetzter Indizes für die Optimierung einer Abfrage 
 
 ## <a name="modifying-the-indexing-policy"></a>Ändern der Indizierungsrichtlinie
 
-Die Indizierungsrichtlinie eines Containers kann jederzeit [im Azure-Portal oder mit einem der unterstützten SDKs](how-to-manage-indexing-policy.md) aktualisiert werden. Die Aktualisierung einer Indizierungsrichtlinie löst eine Transformation vom alten Index auf den neuen aus. Dies erfolgt online und direkt (sodass während des Vorgangs kein zusätzlicher Speicherplatz verbraucht wird). Der Index der alten Richtlinie wird anhand der neuen Richtlinie effizient transformiert, ohne die Schreibverfügbarkeit, Leseverfügbarkeit oder den Durchsatz, der für den Container bereitgestellt wird, zu beeinträchtigen. Die Indextransformation ist ein asynchroner Vorgang. Der erforderliche Zeitaufwand hängt vom bereitgestellten Durchsatz, der Anzahl der Elemente und ihrer Größe ab.
+Die Indizierungsrichtlinie eines Containers kann jederzeit [im Azure-Portal oder mit einem der unterstützten SDKs](how-to-manage-indexing-policy.md) aktualisiert werden. Die Aktualisierung einer Indizierungsrichtlinie löst eine Transformation vom alten Index auf den neuen aus. Dies erfolgt online und direkt (sodass während des Vorgangs kein zusätzlicher Speicherplatz verbraucht wird). Die alte Indizierungsrichtlinie wird effizient in die neue Richtlinie transformiert, ohne die Schreibverfügbarkeit, Leseverfügbarkeit oder den Durchsatz, der für den Container bereitgestellt wird, zu beeinträchtigen. Die Indextransformation ist ein asynchroner Vorgang. Der erforderliche Zeitaufwand hängt vom bereitgestellten Durchsatz, der Anzahl der Elemente und ihrer Größe ab.
 
 > [!IMPORTANT]
 > Indextransformation ist ein Vorgang, der [Anforderungseinheiten](request-units.md) verbraucht. Von einer Indextransformation verbrauchte Anforderungseinheiten werden derzeit nicht in Rechnung gestellt, wenn Sie [serverlose](serverless.md) Container verwenden. Diese Anforderungseinheiten werden in Rechnung gestellt, sobald serverlos allgemein verfügbar wird.
@@ -280,14 +289,10 @@ Beim Entfernen von Indizes und beim sofortigen Ausführen von Abfragen, die nach
 
 Die Verwendung des [TTL-Features (Time-to-Live)](time-to-live.md) erfordert die Indizierung. Dies bedeutet Folgendes:
 
-- Es ist nicht möglich, die TTL für einen Container zu aktivieren, wenn dessen Indizierungsmodus auf „Keine“ festgelegt ist.
+- Es ist nicht möglich, die TTL für einen Container zu aktivieren, wenn dessen Indizierungsmodus auf `none` festgelegt ist.
 - Es ist nicht möglich, den Indizierungsmodus für einen Container, in dem die TTL aktiviert ist, auf „Keine“ festzulegen.
 
-Für Szenarien, in denen kein Eigenschaftenpfad indiziert werden muss, aber die TTL erforderlich ist, können Sie eine Indizierungsrichtlinie mit Folgendem verwenden:
-
-- Der Indizierungsmodus ist auf „Konsistent“ festgelegt.
-- Es wurde kein Pfad eingeschlossenen.
-- `/*` ist der einzige ausgeschlossene Pfad.
+Für Szenarien, in denen kein Eigenschaftenpfad indiziert werden muss, aber die TTL erforderlich ist, können Sie eine Indizierungsrichtlinie verwenden, bei der der Indizierungsmodus auf `consistent` festgelegt ist, keine Pfade eingeschlossen sind und `/*` der einzige ausgeschlossene Pfad ist.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

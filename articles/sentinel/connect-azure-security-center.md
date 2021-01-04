@@ -9,16 +9,16 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: yelevin
-ms.openlocfilehash: b1188e533039b0137cebb22652d9921418c41deb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b37675d46d501fc43446eafc83d6c0a02f238177
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89659651"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655951"
 ---
 # <a name="connect-azure-defender-alert-data-from-azure-security-center"></a>Verbinden von Azure Defender-Warnungsdaten aus dem Azure Security Center
 
-Mit dem Azure Defender-Warnungsconnector können Sie Azure Defender-Warnungen aus dem [Azure Security Center](../security-center/security-center-intro.md) erfassen und in Azure Sentinel streamen. 
+Mit dem Azure Defender-Warnungsconnector können Sie Azure Defender-Warnungen aus dem [Azure Security Center](../security-center/security-center-introduction.md) erfassen und in Azure Sentinel streamen. 
 
 ## <a name="prerequisites"></a>Voraussetzungen
 

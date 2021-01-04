@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: a97147395d4f877b666f4aa54254c8631400c735
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ead9b775b8c61d0d89abd4821bef2b1aaaea0d76
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855666"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547434"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Verwenden von Azure Storage mit Azure HDInsight-Clustern
 
@@ -44,7 +44,7 @@ Das Freigeben eines Blobcontainers als Standarddateisystem für mehrere Cluster 
 
 ## <a name="access-files-from-within-cluster"></a>Zugreifen auf Dateien von innerhalb des Clusters
 
-Es gibt mehrere Möglichkeiten, wie Sie auf die Dateien in Data Lake Storage über einen HDInsight-Cluster zugreifen können. Das URI-Schema bietet unverschlüsselten Zugriff (mit dem Präfix *wasb:* ) wie auch TLS-verschlüsselten Zugriff (mit *wasbs*). Wir empfehlen die Verwendung von *wasbs* , und zwar auch für den Zugriff auf Daten, die sich in Azure in derselben Region befinden.
+Es gibt mehrere Möglichkeiten, wie Sie auf die Dateien in Data Lake Storage über einen HDInsight-Cluster zugreifen können. Das URI-Schema bietet unverschlüsselten Zugriff (mit dem Präfix *wasb:* ) wie auch TLS-verschlüsselten Zugriff (mit *wasbs* ). Wir empfehlen die Verwendung von *wasbs* , und zwar auch für den Zugriff auf Daten, die sich in Azure in derselben Region befinden.
 
 * **Verwenden des vollqualifizierten Namens** Bei diesem Ansatz geben Sie den vollständigen Pfad zu der Datei an, auf die Sie zugreifen möchten.
 
@@ -141,17 +141,17 @@ Microsoft bietet die folgenden Tools für die Arbeit mit Azure Storage:
 
 * Um den vollständigen Pfad zum konfigurierten Standardspeicher zu ermitteln, navigieren Sie zu:
 
-    **HDFS** > **Configs**, und geben Sie in das Filtereingabefeld `fs.defaultFS` ein.
+    **HDFS** > **Configs** , und geben Sie in das Filtereingabefeld `fs.defaultFS` ein.
 
 * Um zu überprüfen, ob der WASB-Speicher als sekundärer Speicher konfiguriert ist, navigieren Sie zu:
 
-    **HDFS** > **Configs**, und geben Sie in das Filtereingabefeld `blob.core.windows.net` ein.
+    **HDFS** > **Configs** , und geben Sie in das Filtereingabefeld `blob.core.windows.net` ein.
 
 Informationen zum Abrufen des Pfads mit der Ambari-REST-API finden Sie unter [Abrufen des Standardspeichers](./hdinsight-hadoop-manage-ambari-rest-api.md#get-the-default-storage).
 
 ## <a name="blob-containers"></a>Blobcontainer
 
-Um Blobs zu verwenden, erstellen Sie zuerst ein Azure-[Speicherkonto](../storage/common/storage-create-storage-account.md). Hierzu legen Sie in diesem Schritt eine Azure-Region fest, in der das Speicherkonto erstellt wird. Cluster und Speicherkonto müssen sich in der gleichen Region befinden. Die SQL Server-Datenbanken für den Hive- und Apache Oozie-Metastore müssen sich in der gleichen Region befinden.
+Um Blobs zu verwenden, erstellen Sie zuerst ein Azure-[Speicherkonto](../storage/common/storage-account-create.md). Hierzu legen Sie in diesem Schritt eine Azure-Region fest, in der das Speicherkonto erstellt wird. Cluster und Speicherkonto müssen sich in der gleichen Region befinden. Die SQL Server-Datenbanken für den Hive- und Apache Oozie-Metastore müssen sich in der gleichen Region befinden.
 
 Ein Blob gehört unabhängig davon, wo es sich befindet, stets zu einem Container Ihres Azure-Speicherkontos. Bei diesem Container kann es sich um einen bestehenden Blob handeln, der außerhalb von HDInsight erstellt wurde. Oder es kann ein Container sein, der für einen HDInsight-Cluster erstellt wird.
 

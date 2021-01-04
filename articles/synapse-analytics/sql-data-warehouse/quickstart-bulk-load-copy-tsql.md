@@ -7,20 +7,20 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
-ms.date: 06/18/2020
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: f82bedc6ef638714b2641003e8274c2024a86c2e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 83b5804888379316b855c36f803f646cec102d9e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85213005"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024584"
 ---
 # <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>Schnellstart: Massenladen von Daten mit der COPY-Anweisung
 
-In dieser Schnellstartanleitung verwenden Sie das Massenladen von Daten in Ihren SQL-Pool mithilfe der einfachen und flexiblen [COPY-Anweisung](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) für die Datenerfassung mit hohem Durchsatz. Die COPY-Anweisung ist das empfohlene Ladehilfsprogramm, da sie Ihnen mit folgender Funktionalität das nahtlose und flexible Laden von Daten ermöglicht:
+In dieser Schnellstartanleitung verwenden Sie das Massenladen von Daten in Ihren dedizierten SQL-Pool mithilfe der einfachen und flexiblen [COPY-Anweisung](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) für die Datenerfassung mit hohem Durchsatz. Die COPY-Anweisung ist das empfohlene Ladehilfsprogramm, da sie Ihnen mit folgender Funktionalität das nahtlose und flexible Laden von Daten ermöglicht:
 
 - Benutzer mit niedrigeren Berechtigungen können ohne strikte Berechtigungen zur STEUERUNG im Data Warehouse laden
 - Nutzen einer einzelnen T-SQL-Anweisung, ohne dass zusätzliche Datenbankobjekte erstellt werden müssen
@@ -34,7 +34,7 @@ In dieser Schnellstartanleitung verwenden Sie das Massenladen von Daten in Ihren
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-In dieser Schnellstartanleitung wird vorausgesetzt, dass Sie bereits über einen SQL-Pool verfügen. Wenn ein SQL-Pool nicht erstellt wurde, verwenden Sie den [Schnellstart: Erstellen und Abfragen eines Synapse-SQL-Pools mit dem Azure-Portal](create-data-warehouse-portal.md).
+In dieser Schnellstartanleitung wird vorausgesetzt, dass Sie bereits über einen dedizierten SQL-Pool verfügen. Wenn kein dedizierter SQL-Pool erstellt wurde, verwenden Sie den [Schnellstart: Erstellen und Abfragen eines Synapse-SQL-Pools mit dem Azure-Portal](create-data-warehouse-portal.md).
 
 ## <a name="set-up-the-required-permissions"></a>Einrichten der erforderlichen Berechtigungen
 

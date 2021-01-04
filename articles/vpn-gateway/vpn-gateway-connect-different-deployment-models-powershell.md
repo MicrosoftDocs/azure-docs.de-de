@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2c9b8a769dec1a2aa461a34203c98a228cf71d16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63505f470410234f720dd28c29e87c4a2a6d123f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082051"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661136"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Verbinden von virtuellen Netzwerken aus verschiedenen Bereitstellungsmodellen mit PowerShell
 
@@ -35,7 +35,7 @@ Die folgenden Schritte führen Sie durch die erforderlichen Einstellungen zum Ko
 
 ### <a name="prerequisites"></a><a name="pre"></a>Voraussetzungen
 
-* Beide VNets wurden bereits erstellt. Weitere Informationen zum Erstellen eines virtuellen Resource Manager-Netzwerks finden Sie unter [Erstellen einer Ressourcengruppe und eines virtuellen Netzwerks](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network). Weitere Informationen zum Erstellen eines klassischen virtuellen Netzwerks finden Sie unter [Erstellen eines virtuellen Netzwerks (klassisch)](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic).
+* Beide VNets wurden bereits erstellt. Weitere Informationen zum Erstellen eines virtuellen Resource Manager-Netzwerks finden Sie unter [Erstellen einer Ressourcengruppe und eines virtuellen Netzwerks](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network). Weitere Informationen zum Erstellen eines klassischen virtuellen Netzwerks finden Sie unter [Erstellen eines virtuellen Netzwerks (klassisch)](/previous-versions/azure/virtual-network/create-virtual-network-classic).
 * Die Adressbereiche für die VNets überlappen weder einander noch die Bereiche für andere Verbindungen, mit denen die Gateways verbunden werden können.
 * Sie haben die aktuellen PowerShell-Cmdlets installiert. Weitere Informationen finden Sie unter [Installieren und Konfigurieren von Azure PowerShell](/powershell/azure/) . Installieren Sie sowohl die SM-Cmdlets (Dienstverwaltung) als auch die RM-Cmdlets (Resource Manager). 
 
@@ -90,7 +90,7 @@ Gateway-IP-Adressierungskonfiguration = gwipconfig
    ```azurepowershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-3. Öffnen Sie die heruntergeladene XML-Datei, um sie zu bearbeiten. Ein Beispiel für die Netzwerkkonfigurationsdatei finden Sie unter [Network Configuration Schema](https://msdn.microsoft.com/library/jj157100.aspx)(Netzwerkkonfigurationsschema).
+3. Öffnen Sie die heruntergeladene XML-Datei, um sie zu bearbeiten. Ein Beispiel für die Netzwerkkonfigurationsdatei finden Sie unter [Network Configuration Schema](/previous-versions/azure/reference/jj157100(v=azure.100))(Netzwerkkonfigurationsschema).
 
 ### <a name="2-verify-the-gateway-subnet"></a>2. Überprüfen des Gatewaysubnetzes
 Fügen Sie Ihrem VNet im Element **VirtualNetworkSites** ein Gatewaysubnetz hinzu, sofern noch keines erstellt wurde. Bei der Verwendung der Netzwerkkonfigurationsdatei MUSS für das Gatewaysubnetz der Name „GatewaySubnet“ verwendet werden. Andernfalls kann es von Azure nicht als Gatewaysubnetz erkannt und verwendet werden.
@@ -217,7 +217,7 @@ Als Voraussetzungen müssen Sie bereits ein Resource Manager-VNET erstellt haben
    -AllocationMethod Dynamic
    ```
 
-4. Überprüfen Sie, ob Ihr virtuelles Netzwerk über ein Gatewaysubnetz verfügt. Falls kein Gatewaysubnetz vorhanden ist, fügen Sie es hinzu. Stellen Sie sicher, dass für das Gatewaysubnetz der Name *GatewaySubnet*angegeben ist.
+4. Überprüfen Sie, ob Ihr virtuelles Netzwerk über ein Gatewaysubnetz verfügt. Falls kein Gatewaysubnetz vorhanden ist, fügen Sie es hinzu. Stellen Sie sicher, dass für das Gatewaysubnetz der Name *GatewaySubnet* angegeben ist.
 5. Rufen Sie das Subnetz ab, das für das Gateway verwendet wird, indem Sie den folgenden Befehl ausführen. In diesem Schritt legen wir auch eine Variable fest, die im nächsten Schritt verwendet wird.
    
    **-Name** ist der Name Ihres Resource Manager-VNet.<br>
@@ -237,7 +237,7 @@ Als Voraussetzungen müssen Sie bereits ein Resource Manager-VNET erstellt haben
    -Name gwipconfig -SubnetId $subnet.id `
    -PublicIpAddressId $ipaddress.id
    ```
-7. Erstellen Sie das Resource Manager-Gateway für virtuelle Netzwerke, indem Sie den folgenden Befehl ausführen. `-VpnType` muss auf *RouteBased*festgelegt sein. Die Gatewayerstellung kann 45 Minuten oder länger dauern.
+7. Erstellen Sie das Resource Manager-Gateway für virtuelle Netzwerke, indem Sie den folgenden Befehl ausführen. `-VpnType` muss auf *RouteBased* festgelegt sein. Die Gatewayerstellung kann 45 Minuten oder länger dauern.
 
    ```azurepowershell-interactive
    New-AzVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1 `
@@ -245,7 +245,7 @@ Als Voraussetzungen müssen Sie bereits ein Resource Manager-VNET erstellt haben
    -IpConfigurations $gwipconfig `
    -EnableBgp $false -VpnType RouteBased
    ```
-8. Kopieren Sie die öffentliche IP-Adresse, nachdem das VPN-Gateway erstellt wurde. Diese Adresse verwenden Sie beim Konfigurieren der lokalen Netzwerkeinstellungen für Ihr klassisches VNet. Sie können das folgende Cmdlet verwenden, um die öffentliche IP-Adresse abzurufen. Die öffentliche IP-Adresse ist in der Ausgabe als *IpAddress*aufgeführt.
+8. Kopieren Sie die öffentliche IP-Adresse, nachdem das VPN-Gateway erstellt wurde. Diese Adresse verwenden Sie beim Konfigurieren der lokalen Netzwerkeinstellungen für Ihr klassisches VNet. Sie können das folgende Cmdlet verwenden, um die öffentliche IP-Adresse abzurufen. Die öffentliche IP-Adresse ist in der Ausgabe als *IpAddress* aufgeführt.
 
    ```azurepowershell-interactive
    Get-AzPublicIpAddress -Name gwpip -ResourceGroupName RG1

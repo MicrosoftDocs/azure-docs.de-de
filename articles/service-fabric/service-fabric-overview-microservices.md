@@ -3,13 +3,12 @@ title: Einführung in Microservices in Azure
 description: Sie erhalten einen Überblick, warum das Erstellen von Cloudanwendungen mit einem Microservice-Ansatz für die moderne Anwendungsentwicklung wichtig ist und wie Azure Service Fabric dafür eine Plattform bereitstellt.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.custom: sfrev
-ms.openlocfilehash: 4345c919e73e57667fb3b9c90c42224326bc3552
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d20e04820c87a7390d9c20e511259ee9860c27f5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300767"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575651"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>Gründe für einen Microservices-Ansatz zum Erstellen von Anwendungen
 
@@ -43,7 +42,7 @@ Der Nachteil von Microservices sind die Verwaltung einer höheren Anzahl separat
 
 Der Microservice-Ansatz funktioniert aufgrund von Standards. Anstatt starre Verträge zu nutzen, wird angegeben, wie kommuniziert wird, und es werden nur die Dinge toleriert, die Sie von einem Dienst benötigen. Da Dienste unabhängig voneinander aktualisiert werden, ist es wichtig, diese Verträge im Voraus im Entwurf festzulegen. „Serviceorientierte Architektur (SOA) mit feiner Abstufung“ ist eine weitere Beschreibung, die für das Entwerfen mit einem Microservice-Ansatz gilt.
 
-***Im einfachsten Fall geht es beim Microservice-Entwurfsansatz um einen entkoppelten Verbund von Diensten, an denen Änderungen unabhängig voneinander vorgenommen werden und für die bestimmte Kommunikationsstandards vereinbart sind.***
+***Im einfachsten Fall geht es beim Microservice-Entwurfsansatz um einen entkoppelten Verbund von Diensten, an denen Änderungen unabhängig voneinander vorgenommen werden und für die bestimmte Kommunikationsstandards vereinbart sind.** _
 
 Mit der steigenden Zahl von Cloudanwendungen haben immer mehr Entwickler festgestellt, dass diese Zerlegung der gesamten Anwendung in unabhängige Dienste für bestimmte Szenarien langfristig den besseren Ansatz darstellt.
 
@@ -67,7 +66,7 @@ Der Microservice-Ansatz bedeutet, dass sich Ihre Anwendung aus vielen kleinen Di
 
 Es gibt verschiedene Definitionen von Microservices. Die meisten der folgenden Merkmale von Microservices sind jedoch allgemein anerkannt:
 
-* Kapseln eines Kunden- oder Geschäftsszenarios Welches Problem möchten Sie beheben?
+_ Kapseln eines Kunden- oder Geschäftsszenarios Welches Problem möchten Sie beheben?
 * Durchführung der Entwicklung in einem kleinen Engineering-Team
 * Verwendung einer beliebigen Programmiersprache und eines beliebigen Frameworks
 * Zusammensetzung aus Code und (optional) einem Zustand, die beide unabhängig voneinander versioniert, bereitgestellt und skaliert werden
@@ -77,7 +76,7 @@ Es gibt verschiedene Definitionen von Microservices. Die meisten der folgenden M
 
 Zusammengefasst:
 
-***Microservice-Anwendungen bestehen aus kleinen, einzeln versionierten und skalierbaren Diensten für Kunden, die über Standardprotokolle mit gut definierten Schnittstellen miteinander kommunizieren.***
+***Microservice-Anwendungen bestehen aus kleinen, einzeln versionierten und skalierbaren Diensten für Kunden, die über Standardprotokolle mit gut definierten Schnittstellen miteinander kommunizieren.** _
 
 ### <a name="written-in-any-programming-language-using-any-framework"></a>Verwendung einer beliebigen Programmiersprache und eines beliebigen Frameworks
 
@@ -95,9 +94,9 @@ Kehren wir zum Vergleich von monolithischem und Microservice-Ansatz zurück. Die
 
 ![Service Fabric-Plattform: Zustandsspeicherung][Image2]
 
-***Der monolithische Ansatz auf der linken Seite enthält einen Singleton und die spezifischen Technologieebenen.***
+_*_Der monolithische Ansatz auf der linken Seite enthält einen Singleton und die spezifischen Technologieebenen._*_
 
-***Der Microservice-Ansatz auf der rechten Seite verfügt über einen Graphen mit verbundenen Microservices, wobei der Zustand meist auf den Microservice beschränkt ist und verschiedene Technologien verwendet werden.***
+_*_Der Microservice-Ansatz auf der rechten Seite verfügt über einen Graphen mit verbundenen Microservices, wobei der Zustand meist auf den Microservice beschränkt ist und verschiedene Technologien verwendet werden._*_
 
 Bei einem monolithischen Ansatz wird von der Anwendung in der Regel eine Einzeldatenbank genutzt. Der Vorteil der Verwendung einer Datenbank besteht darin, dass ein einzelner Speicherort verwendet und so die Bereitstellung vereinfacht wird. Jede Komponente kann eine einzelne Tabelle zum Speichern des Zustands enthalten. Die Teams müssen den Zustand strikt trennen. Dies ist eine ziemliche Herausforderung. Die Versuchung, einer vorhandenen Kundentabelle eine neue Spalte hinzuzufügen, Tabellen zu verknüpfen und Abhängigkeiten auf Speicherebene zu erstellen, ist natürlich groß. Wenn dies passiert, können Sie einzelne Komponenten nicht skalieren.
 
@@ -137,18 +136,18 @@ Besuchen Sie das Azure Architecture Center. Dort finden Sie Anleitungen zum [Ent
 
 Azure Service Fabric ist entstanden, als Microsoft die Umstellung von „Paketprodukten“, die meist monolithisch waren, auf Dienste vollzogen hat. Aus den Erfahrungen, die bei der Erstellung und dem Betrieb großer Dienste wie Azure SQL-Datenbank und Azure Cosmos DB gesammelt wurden, ist Service Fabric entstanden. Die Plattform entwickelte sich im Laufe der Zeit weiter und wurde von immer mehr Diensten genutzt. Service Fabric konnte nicht nur in Azure ausgeführt werden, sondern auch in eigenständigen Windows Server-Bereitstellungen.
 
-***Die Ziele von Service Fabric sind das Lösen der schwierigen Probleme, die mit der Erstellung und Ausführung eines Diensts verbunden sind, und die effiziente Nutzung von Infrastrukturressourcen, damit Teams geschäftliche Probleme mit einem Microservice-Ansatz lösen können.***
+_*_Die Ziele von Service Fabric sind das Lösen der schwierigen Probleme, die mit der Erstellung und Ausführung eines Diensts verbunden sind, und die effiziente Nutzung von Infrastrukturressourcen, damit Teams geschäftliche Probleme mit einem Microservice-Ansatz lösen können._*_
 
 In diesem kurzen Video werden Service Fabric und Microservices vorgestellt:
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 Service Fabric unterstützt Sie durch die Bereitstellung von Folgendem bei der Anwendungserstellung mit einem Microservice-Ansatz:
 
-* Diese Plattform bietet Systemdienste zum Bereitstellen, Upgraden, Erkennen und Neustarten ausgefallener Dienste und zum Ermitteln des Dienstes, Weiterleiten von Nachrichten,Verwalten des Zustands und Überwachen der Integrität.
+_ Diese Plattform bietet Systemdienste zum Bereitstellen, Upgraden, Erkennen und Neustarten ausgefallener Dienste und zum Ermitteln von Diensten, Weiterleiten von Nachrichten, Verwalten des Zustands und Überwachen der Integrität.
 * Die Fähigkeit, Anwendungen entweder in Containern oder als Prozesse bereitzustellen. Service Fabric ist ein Container- und Prozessorchestrator.
 * Produktive Programmier-APIs zum Erstellen von Anwendungen als Microservices: [ASP.NET Core, Reliable Actors und Reliable Services](service-fabric-choose-framework.md). Beispielsweise erhalten Sie entweder Integritäts- und Diagnoseinformationen, oder Sie können die integrierte Hochverfügbarkeit nutzen.
 
-***Service Fabric ist agnostisch, was die Erstellung Ihres Diensts betrifft, und Sie können eine beliebige Technologie verwenden. Es bietet jedoch integrierte Programmier-APIs, die die Erstellung von Microservices vereinfachen.***
+***Service Fabric ist hinsichtlich der Erstellung Ihres Diensts agnostisch, und Sie können eine beliebige Technologie verwenden. Es bietet jedoch integrierte Programmier-APIs, die die Erstellung von Microservices vereinfachen.** _
 
 ### <a name="migrating-existing-applications-to-service-fabric"></a>Migrieren von vorhandenen Anwendungen zu Service Fabric
 
@@ -162,7 +161,7 @@ Service Fabric ermöglicht das Wiederverwenden von vorhandenem Code, der durch n
 
 ![Migration zu Microservices][Image3]
 
-Denken Sie daran: Sie können *in jeder dieser Phasen beginnen und aufhören*. Sie müssen nicht mit der nächsten Stufe fortfahren. 
+Denken Sie daran: Sie können _in jeder dieser Phasen beginnen und aufhören*. Sie müssen nicht mit der nächsten Stufe fortfahren. 
 
 Sehen Sie sich nun Beispiele für jede dieser Phasen an.
 

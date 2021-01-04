@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 7dbb7b3fdc15c0a9d502fbe9a0d12d084f9ddf29
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 69a0272061d8518119114e8fe7b023c889639844
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91760392"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171558"
 ---
 # <a name="managed-hsm-disaster-recovery"></a>Notfallwiederherstellung für „Verwaltetes HSM“
 
@@ -35,7 +35,7 @@ Hier sind die Schritte des Verfahrens für die Notfallwiederherstellung angegebe
 1. Erstellen Sie eine Sicherung des neuen HSM. Vor einer Wiederherstellung ist auch dann eine Sicherung erforderlich, wenn das HSM leer ist. Sicherungen ermöglichen einen einfachen Rollback.
 1. Wiederherstellen der letzten HSM-Sicherung vom Quell-HSM
 
-Der Inhalt Ihres Schlüsseltresors wird innerhalb der Region sowie in eine sekundäre Region repliziert, die mindestens 240 km entfernt ist (jedoch innerhalb des gleichen Gebiets liegt). Dieses Feature ermöglicht eine sehr hohe Dauerhaftigkeit Ihrer Schlüssel und geheimen Schlüssel. Einzelheiten zu spezifischen Regionspaaren finden Sie im Dokument [Azure-Regionspaare](../../best-practices-availability-paired-regions.md).
+Mit diesen Schritten können Sie den Inhalt des HSM manuell in einer anderen Region replizieren. Der HSM-Name (und der Dienstendpunkt-URI) lautet anders. Daher müssen Sie möglicherweise die Anwendungskonfiguration ändern, damit diese Schlüssel an einem anderen Speicherort verwendet werden können.
 
 ## <a name="create-a-new-managed-hsm"></a>Erstellen eines neuen verwalteten HSM
 
@@ -61,7 +61,7 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 In der Ausgabe dieses Befehls werden die Eigenschaften des verwalteten HSM angezeigt, das Sie erstellt haben. Die zwei wichtigsten Eigenschaften sind diese:
 
 * **name:** Im Beispiel lautet der Name „ContosoMHSM“. Sie verwenden diesen Namen für andere Key Vault-Befehle.
-* **hsmUri**: In diesem Beispiel lautet der URI https://contosohsm.managedhsm.azure.net. Für Anwendungen, die Ihr HSM über die zugehörige REST-API nutzen, muss dieser URI verwendet werden.
+* **hsmUri**: In diesem Beispiel lautet der URI https://contosohsm.managedhsm.azure.net. Von Anwendungen, die Ihr HSM über die zugehörige REST-API nutzen, muss dieser URI verwendet werden.
 
 Ihr Azure-Konto verfügt nun über die Berechtigung zum Durchführen von Vorgängen für dieses verwaltete HSM. Derzeit ist noch keine andere Person autorisiert.
 
@@ -107,6 +107,7 @@ Im Beispiel unten verwenden wir den Befehl `az keyvault backup` für die HSM-Sic
 ```azurecli-interactive
 end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
 skey=$(az storage account keys list --query '[0].value' -o tsv --account-name ContosoBackup)
+az storage container create --account-name  mhsmdemobackup --name mhsmbackupcontainer  --account-key $skey
 sas=$(az storage container generate-sas -n mhsmbackupcontainer --account-name ContosoBackup --permissions crdw --expiry $end --account-key $skey -o tsv)
 az keyvault backup start --hsm-name ContosoMHSM2 --storage-account-name ContosoBackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas
 

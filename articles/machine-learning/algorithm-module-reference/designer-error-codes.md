@@ -1,7 +1,7 @@
 ---
 title: Problembehandlung bei Designermodulfehlern
 titleSuffix: Azure Machine Learning
-description: Problembehandlung bei Modulfehlercodes im Azure Machine Learning-Designer
+description: Erfahren Sie, wie Sie Fehlercodes automatisierter Module im Azure Machine Learning-Designer lesen und die entsprechenden Probleme beheben.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
-ms.date: 04/16/2020
-ms.openlocfilehash: c0a55780687b4c03d6809d1d740bf0b0afcd63fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/25/2020
+ms.openlocfilehash: 846c5519dced06ed16f5a0d12b0bb25443961f93
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908088"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753908"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Ausnahmen und Fehlercodes für den Designer
 
@@ -279,13 +279,22 @@ Wenn das Modell mit einem der speziellen Trainingsmodule trainiert wurde, verbin
 ## <a name="error-0014"></a>Fehler 0014  
  Eine Ausnahme tritt auf, wenn die Anzahl der in der Spalte eindeutigen Werte größer als der zulässige Wert ist.  
 
- Dieser Fehler tritt auf, wenn eine Spalte zu viele eindeutige Werte enthält.  Dieser Fehler kann z. B. auftreten, wenn Sie angeben, dass eine Spalte als kategorische Daten behandelt wird, aber es zu viele eindeutige Werte in der Spalte gibt, als dass die Verarbeitung abgeschlossen werden kann. Dieser Fehler kann auch auftreten, wenn die Anzahl der eindeutigen Werte bei zwei Eingaben nicht übereinstimmt.   
+ Dieser Fehler tritt auf, wenn eine Spalte zu viele eindeutige Werte enthält, z. B. eine ID-Spalte oder eine Textspalte. Dieser Fehler kann auftreten, wenn Sie angeben, dass eine Spalte als kategorische Daten behandelt wird, aber es zu viele eindeutige Werte in der Spalte gibt, als dass die Verarbeitung abgeschlossen werden kann. Dieser Fehler kann auch auftreten, wenn die Anzahl der eindeutigen Werte bei zwei Eingaben nicht übereinstimmt.   
+
+Der Fehler einer zu hohen Anzahl von eindeutigen Werten tritt auf, wenn für eine Besprechung die **beiden** folgenden Bedingungen zutreffen:
+
+- Mehr als 97 % der Instanzen einer Spalte sind eindeutige Werte. Dies bedeutet, dass sich fast alle Kategorien voneinander unterscheiden.
+- Eine Spalte enthält mehr als 1.000 eindeutige Werte.
 
 **Lösung:**
 
 Öffnen Sie das Modul, das den Fehler generiert hat, und identifizieren Sie die als Eingaben verwendeten Spalten. Bei einigen Modulen können Sie mit der rechten Maustaste auf die Dataseteingabe klicken und **Visualize** (Visualisieren) auswählen, um Statistiken zu einzelnen Spalten zu erhalten, einschließlich der Anzahl der eindeutigen Werte und deren Verteilung.
 
 Für Spalten, die Sie für die Gruppierung oder Kategorisierung verwenden möchten, führen Sie entsprechende Schritte durch, um die Anzahl der eindeutigen Werte in den Spalten zu reduzieren. Je nach Datentyp der Spalte kann die Reduzierung auf unterschiedliche Weise erfolgen. 
+
+Für ID-Spalten, die beim Training eines Modells keine sinnvollen Features darstellen, können Sie [Metadaten bearbeiten](../algorithm-module-reference/edit-metadata.md) verwenden, um diese Spalte als **Feature löschen** zu markieren, damit sie beim Training eines Modells nicht verwendet wird. 
+
+Für Textspalten können Sie [Feature Hashing](../algorithm-module-reference/feature-hashing.md) oder [Extract N-Gram Features from Text module](../algorithm-module-reference/extract-n-gram-features-from-text.md) verwenden, um Textspalten vorzuverarbeiten.
 <!--
 + For text data, you might be able to use [Preprocess Text](preprocess-text.md) to collapse similar entries. 
 + For numeric data, you can create a smaller number of bins using [Group Data into Bins](group-data-into-bins.md), remove or truncate values using [Clip Values](clip-values.md), or use machine learning methods such as [Principal Component Analysis](principal-component-analysis.md) or [Learning with Counts](data-transformation-learning-with-counts.md) to reduce the dimensionality of the data.  
@@ -372,7 +381,7 @@ Für Spalten, die Sie für die Gruppierung oder Kategorisierung verwenden möcht
 
  Lesen Sie das Hilfethema zum Modul, das das Dataset als Eingabe verwenden soll, um die Anforderungen zu ermitteln.  
 
- <!--We also recommend that you use [Summarize Data](summarize-data.md) or [Compute Elementary Statistics](compute-elementary-statistics.md) to profile your data, and use these modules to fix metadata and clean values: [Edit Metadata](edit-metadata.md) and [Clean Missing Data](clean-missing-data.md), [Clip Values](clip-values.md)-->erforderlich.  
+ <!--We also recommend that you use [Summarize Data](summarize-data.md) or [Compute Elementary Statistics](compute-elementary-statistics.md) to profile your data, and use these modules to fix metadata and clean values: [Edit Metadata](edit-metadata.md) and [Clean Missing Data](clean-missing-data.md), [Clip Values](clip-values.md)-->.  
 
 |Ausnahmemeldungen|
 |------------------------|
@@ -713,7 +722,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 **Lösung:** Dieser Fehler wird durch viele Bedingungen verursacht und es gibt keine bestimmte Lösung.  
  Die folgende Tabelle enthält allgemeine Meldungen zu diesem Fehler, auf die eine bestimmte Beschreibung der Bedingung folgt. 
 
- Wenn keine Details verfügbar sind, besuchen Sie die [Microsoft-Seite mit Fragen und Antworten zum Senden von Feedback](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html), und stellen Sie Informationen zu den Modulen, die den Fehler ausgelöst haben, und zu den entsprechenden Bedingungen bereit.
+ Wenn keine Details verfügbar sind, besuchen Sie die [Microsoft-Seite mit Fragen und Antworten zum Senden von Feedback](/answers/topics/azure-machine-learning-studio-classic.html), und stellen Sie Informationen zu den Modulen, die den Fehler ausgelöst haben, und zu den entsprechenden Bedingungen bereit.
 
 |Ausnahmemeldungen|
 |------------------------|
@@ -862,7 +871,7 @@ Ein weiterer Grund für diesen Fehler ist der Versuch, eine Spalte mit Gleitkomm
 
  Dieser Fehler in Azure Machine Learning tritt auf, wenn der Schlüssel für den Zugriff auf das Azure-Speicherkonto falsch ist. Dieser Fehler kann z. B. auftreten, wenn der Azure-Speicherschlüssel beim Kopieren und Einfügen abgeschnitten oder der falsche Schlüssel verwendet wurde.  
 
- Weitere Informationen zum Abrufen des Schlüssels für ein Azure-Speicherkonto finden Sie unter [Anzeigen, Kopieren und erneutes Generieren von Speicherzugriffsschlüsseln](https://azure.microsoft.com/documentation/articles/storage-create-storage-account-classic-portal/).  
+ Weitere Informationen zum Abrufen des Schlüssels für ein Azure-Speicherkonto finden Sie unter [Anzeigen, Kopieren und erneutes Generieren von Speicherzugriffsschlüsseln](../../storage/common/storage-account-create.md).  
 
 **Lösung:** Rufen Sie das Modul erneut auf und überprüfen Sie, ob der Azure-Speicherschlüssel für das Konto richtig ist. Kopieren Sie den Schlüssel bei Bedarf erneut aus dem klassischen Azure-Portal.  
 
@@ -1083,9 +1092,9 @@ Die Fehlermeldung von Hive wird normalerweise im Fehlerprotokoll gemeldet, sodas
 
 In den folgenden Artikeln finden Sie Hilfe bei Hive-Abfragen für maschinelles Lernen:
 
-+ [Erstellen von Hive-Tabellen und Laden von Daten aus Azure Blob Storage](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-move-hive-tables)
-+ [Durchsuchen von Daten in Tabellen mithilfe von Hive-Abfragen](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-explore-data-hive-tables)
-+ [Erstellen von Features für Daten in einem Hadoop-Cluster mit Hive-Abfragen](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-create-features-hive)
++ [Erstellen von Hive-Tabellen und Laden von Daten aus Azure Blob Storage](../team-data-science-process/move-hive-tables.md)
++ [Durchsuchen von Daten in Tabellen mithilfe von Hive-Abfragen](../team-data-science-process/explore-data-hive-tables.md)
++ [Erstellen von Features für Daten in einem Hadoop-Cluster mit Hive-Abfragen](../team-data-science-process/create-features-hive.md)
 + [Cheat Sheet für Hive für SQL-Benutzer (PDF)](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf)
 
   
@@ -1164,7 +1173,7 @@ Dieser Fehler in Azure Machine Learning tritt bei dem Versuch auf, Daten mit ein
 
 Die Fehlerbehandlung für dieses Ereignis wurde in einer früheren Version von Azure Machine Learning eingeführt, die eine umfassendere Anpassung der Quantisierungsmethoden ermöglichte. Derzeit basieren alle Quantisierungsmethoden auf einer Auswahl aus einer Dropdownliste, sodass es technisch nicht mehr möglich sein sollte, diesen Fehler zu erhalten.
 
- <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
+ <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
 
 |Ausnahmemeldungen|
 |------------------------|
@@ -1516,11 +1525,10 @@ Interne Bibliotheksausnahme.
 
 Dieser Fehler wird bereitgestellt, um ansonsten unbehandelte interne Enginefehler zu erfassen. Daher kann die Ursache für diesen Fehler je nach Modul, das den Fehler generiert hat, unterschiedlich sein.  
 
-Um weitere Hilfe zu erhalten, wird empfohlen, die ausführliche Meldung, die dem Fehler zugeordnet ist, zusammen mit einer Beschreibung des Szenarios (einschließlich der als Eingaben verwendeten Daten) an das [Azure Machine Learning-Forum](https://docs.microsoft.com/answers/topics/azure-machine-learning.html) zu senden. Dieses Feedback hilft uns, Fehler zu priorisieren und die wichtigsten Probleme für die weitere Arbeit zu identifizieren.  
+Um weitere Hilfe zu erhalten, wird empfohlen, die ausführliche Meldung, die dem Fehler zugeordnet ist, zusammen mit einer Beschreibung des Szenarios (einschließlich der als Eingaben verwendeten Daten) an das [Azure Machine Learning-Forum](/answers/topics/azure-machine-learning.html) zu senden. Dieses Feedback hilft uns, Fehler zu priorisieren und die wichtigsten Probleme für die weitere Arbeit zu identifizieren.  
 
 |Ausnahmemeldungen|
 |------------------------|
 |Bibliotheksausnahme.|
 |Bibliotheksausnahme: {exception}.|
 |Ausnahme für unbekannte Bibliothek: {exception}. {customer_support_guidance}.|
-

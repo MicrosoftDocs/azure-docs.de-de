@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: bc649551986190f944e3225ff0914d091acd3f88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26add03929551c912b4d7b7cf10741d53333689a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619694"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780562"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Hier erfahren Sie, wie Sie neue Mandanten bereitstellen und sie im Katalog registrieren.
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -33,8 +33,8 @@ In diesem Tutorial lernen Sie Folgendes:
 
 Stellen Sie zum Durchführen dieses Tutorials sicher, dass die folgenden Voraussetzungen erfüllt sind:
 
-* Die Wingtip Tickets-SaaS-App mit einer Datenbank pro Mandant ist bereitgestellt. Unter [Bereitstellen und Kennenlernen der Wingtip Tickets SaaS-App mit einer Datenbank pro Mandant](../../sql-database/saas-dbpertenant-get-started-deploy.md) finden Sie Informationen dazu, wie Sie die App in weniger als fünf Minuten bereitstellen.
-* Azure PowerShell wurde installiert. Weitere Informationen finden Sie unter [Erste Schritte mit Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Die Wingtip Tickets-SaaS-App mit einer Datenbank pro Mandant ist bereitgestellt. Unter [Bereitstellen und Kennenlernen der Wingtip Tickets SaaS-App mit einer Datenbank pro Mandant](./saas-dbpertenant-get-started-deploy.md) finden Sie Informationen dazu, wie Sie die App in weniger als fünf Minuten bereitstellen.
+* Azure PowerShell wurde installiert. Weitere Informationen finden Sie unter [Erste Schritte mit Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-the-saas-catalog-pattern"></a>Einführung in das SaaS-Katalogmuster
 
@@ -66,7 +66,7 @@ Die Datenbankbereitstellung muss Teil Ihrer Schemaverwaltungsstrategie sein. Sie
 
 Die Wingtip Tickets-App mit einer Datenbank pro Mandant stellt neue Mandanten bereit, indem sie eine auf dem Katalogserver bereitgestellte Vorlagendatenbank namens _basetenantdb_ kopiert. Die Bereitstellung kann im Rahmen der Registrierung in die Anwendung integriert werden. Sie kann auch offline mithilfe von Skripts unterstützt werden. In diesem Tutorial wird die Bereitstellung mithilfe von PowerShell durchgeführt.
 
-Bereitstellungsskripts kopieren die Datenbank _basetenantdb_, um eine neue Mandantendatenbank in einem Pool für elastische Datenbanken zu erstellen. Die Mandantendatenbank wird in dem Mandantenserver erstellt, der dem _newtenant_-DNS-Alias zugeordnet ist. In diesem Alias wird ein Verweis auf den Server verwaltet, mit dem neue Mandanten bereitgestellt werden, und dieser Alias wird aktualisiert, um auf einen Wiederherstellungsmandantenserver in den Tutorials zur Notfallwiederherstellung zu verweisen ([Notfallwiederherstellung mithilfe von Geowiederherstellung](../../sql-database/saas-dbpertenant-dr-geo-restore.md), [Notfallwiederherstellung mithilfe von Georeplikation](../../sql-database/saas-dbpertenant-dr-geo-replication.md)). Anschließend wird die Datenbank von den Skripts mit mandantenspezifischen Informationen initialisiert und in der Katalogshardzuordnung registriert. Mandantendatenbanken erhalten ihre Namen auf Grundlage des Mandantennamens. Dieses Benennungsschema ist kein wichtiger Bestandteil des Musters. Da der Katalog den Mandantenschlüssel dem Datenbanknamen zuordnet, kann jede Benennungskonvention verwendet werden.
+Bereitstellungsskripts kopieren die Datenbank _basetenantdb_, um eine neue Mandantendatenbank in einem Pool für elastische Datenbanken zu erstellen. Die Mandantendatenbank wird in dem Mandantenserver erstellt, der dem _newtenant_-DNS-Alias zugeordnet ist. In diesem Alias wird ein Verweis auf den Server verwaltet, mit dem neue Mandanten bereitgestellt werden, und dieser Alias wird aktualisiert, um auf einen Wiederherstellungsmandantenserver in den Tutorials zur Notfallwiederherstellung zu verweisen ([Notfallwiederherstellung mithilfe von Geowiederherstellung](./saas-dbpertenant-dr-geo-restore.md), [Notfallwiederherstellung mithilfe von Georeplikation](./saas-dbpertenant-dr-geo-replication.md)). Anschließend wird die Datenbank von den Skripts mit mandantenspezifischen Informationen initialisiert und in der Katalogshardzuordnung registriert. Mandantendatenbanken erhalten ihre Namen auf Grundlage des Mandantennamens. Dieses Benennungsschema ist kein wichtiger Bestandteil des Musters. Da der Katalog den Mandantenschlüssel dem Datenbanknamen zuordnet, kann jede Benennungskonvention verwendet werden.
 
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Abrufen der Skripts zur SaaS-Anwendung Wingtip Tickets mit einer Datenbank pro Mandant
@@ -96,7 +96,7 @@ Um nachzuvollziehen, wie die Wingtip Tickets-Anwendung die Bereitstellung neuer 
 
 
 
-Verfolgen Sie die Ausführung des Skripts mithilfe der Menüoptionen unter **Debug**. Drücken Sie F10 und F11, um die aufgerufenen Funktionen zu überspringen oder schrittweise auszuführen. Weitere Informationen zum Debuggen von PowerShell-Skripts finden Sie unter [Tipps zum Arbeiten mit und Debuggen von PowerShell-Skripts](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
+Verfolgen Sie die Ausführung des Skripts mithilfe der Menüoptionen unter **Debug**. Drücken Sie F10 und F11, um die aufgerufenen Funktionen zu überspringen oder schrittweise auszuführen. Weitere Informationen zum Debuggen von PowerShell-Skripts finden Sie unter [Tipps zum Arbeiten mit und Debuggen von PowerShell-Skripts](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 
 Sie müssen diesen Workflow nicht genau befolgen. Er erläutert, wie Sie das Skript debuggen.
@@ -172,10 +172,10 @@ In diesem Tutorial haben Sie Folgendes gelernt:
 > * Bereitstellen eines Batches von zusätzlichen Mandanten
 > * Kennenlernen der Details zur Bereitstellung von Mandanten und zu deren Registrierung im Katalog
 
-Sehen Sie sich das [Tutorial zur Leistungsüberwachung](../../sql-database/saas-dbpertenant-performance-monitoring.md) an.
+Sehen Sie sich das [Tutorial zur Leistungsüberwachung](./saas-dbpertenant-performance-monitoring.md) an.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 * [Weitere Tutorials, die auf der Wingtip Tickets SaaS-Anwendung mit einer Datenbank pro Mandant aufbauen](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Clientbibliothek für elastische Datenbanken](elastic-database-client-library.md)
-* [Debuggen von Skripts in der Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
+* [Debuggen von Skripts in der Windows PowerShell ISE](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)

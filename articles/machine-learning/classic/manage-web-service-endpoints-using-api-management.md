@@ -9,23 +9,23 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 45f63aed410c4d140259808044872cbbecfaa95b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b00e75c5fda8a05f4ed0f3a756ba20cca570ba5c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355566"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305983"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Verwalten von (klassischen) Azure Machine Learning Studio-Webdiensten mit API Management
 
-**GILT FÜR:**  ![Gilt für ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic) ![Gilt nicht für ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**GILT FÜR:**  ![Gilt für ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (Classic) ![Gilt nicht für ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 ## <a name="overview"></a>Übersicht
 Dieser Leitfaden beschreibt die ersten Schritte zur Verwaltung Ihrer (klassischen) Azure Machine Learning Studio-Webdienste mit API Management.
 
 ## <a name="what-is-azure-api-management"></a>Was ist Azure API Management?
-Azure API Management ist ein Azure-Dienst, mit dem Sie Ihre REST-API-Endpunkte verwalten können, indem Sie Benutzerzugriff, Nutzungseinschränkungen und Dashboardüberwachung definieren. Weitere Informationen finden Sie auf der [API Management-Website](https://azure.microsoft.com/services/api-management/). Informationen zu den ersten Schritten mit Azure API Management finden Sie im [Leitfaden zum Importieren und Veröffentlichen](/azure/api-management/import-and-publish). In diesem Leitfaden (auf dem der vorliegende Leitfaden basiert) werden weitere Themen behandelt, z.B. Benachrichtigungskonfiguration, Tarife, Antwortverarbeitung, Benutzerauthentifizierung, Produkterstellung, Entwicklerabonnements und Nutzungsdashboards.
+Azure API Management ist ein Azure-Dienst, mit dem Sie Ihre REST-API-Endpunkte verwalten können, indem Sie Benutzerzugriff, Nutzungseinschränkungen und Dashboardüberwachung definieren. Weitere Informationen finden Sie auf der [API Management-Website](https://azure.microsoft.com/services/api-management/). Informationen zu den ersten Schritten mit Azure API Management finden Sie im [Leitfaden zum Importieren und Veröffentlichen](../../api-management/import-and-publish.md). In diesem Leitfaden (auf dem der vorliegende Leitfaden basiert) werden weitere Themen behandelt, z.B. Benachrichtigungskonfiguration, Tarife, Antwortverarbeitung, Benutzerauthentifizierung, Produkterstellung, Entwicklerabonnements und Nutzungsdashboards.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 Zum Durcharbeiten dieses Leitfadens benötigen Sie Folgendes:
@@ -43,7 +43,7 @@ Sie können Ihren Azure Machine Learning-Webdienst mit einer API Management-Inst
 3. Geben Sie im Suchfeld „API Management“ ein, und wählen Sie dann die Ressource „API Management“ aus.
 4. Klicken Sie auf **Erstellen**.
 5. Der Wert **Name** wird verwendet, um eine eindeutige URL zu erstellen (in diesem Beispiel „demoazureml“).
-6. Wählen Sie **Abonnement**, **Ressourcengruppe** und **Region** für Ihre Dienstinstanz aus.
+6. Wählen Sie **Abonnement** , **Ressourcengruppe** und **Region** für Ihre Dienstinstanz aus.
 7. Geben Sie einen Wert für **Name der Organisation** ein (in diesem Beispiel „demoazureml“).
 8. Geben Sie unter **Administrator-E-Mail** Ihre Adresse ein. Diese E-Mail-Adresse wird für Benachrichtigungen des API Management-Systems verwendet.
 9. Klicken Sie auf **Erstellen**.
@@ -74,7 +74,7 @@ Gehen Sie wie folgt vor, um die API zu erstellen:
 
 ## <a name="add-the-operations"></a>Hinzufügen der Vorgänge
 
-Operationen werden einer API im Herausgeberportal hinzugefügt und in diesem konfiguriert. Klicken Sie zum Zugreifen auf das Herausgeberportal im Azure-Portal für Ihren API Management-Dienst auf **Herausgeberportal**, wählen Sie **APIs** und **Vorgänge**, und klicken Sie dann auf **Vorgang hinzufügen**.
+Operationen werden einer API im Herausgeberportal hinzugefügt und in diesem konfiguriert. Klicken Sie zum Zugreifen auf das Herausgeberportal im Azure-Portal für Ihren API Management-Dienst auf **Herausgeberportal** , wählen Sie **APIs** und **Vorgänge** , und klicken Sie dann auf **Vorgang hinzufügen**.
 
 ![add-operation](./media/manage-web-service-endpoints-using-api-management/add-an-operation.png)
 
@@ -89,7 +89,7 @@ Erstellen Sie zunächst einen Vorgang für den Azure ML-RRS-Dienst:
 
    ![Screenshot: Die Seite „Signatur“, auf der Sie einen Anzeigenamen eingeben können.](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
 
-4. Klicken Sie links auf **Antworten** > **HINZUFÜGEN**, und wählen Sie **200 OK** aus.
+4. Klicken Sie links auf **Antworten** > **HINZUFÜGEN** , und wählen Sie **200 OK** aus.
 5. Klicken Sie auf **Speichern** , um diesen Vorgang zu speichern.
 
    ![Screenshot: Die Seite mit dem Vorgang „RRS Execute“ mit der Schaltfläche „Speichern“.](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
@@ -101,49 +101,49 @@ Erstellen Sie zunächst einen Vorgang für den Azure ML-RRS-Dienst:
 
 ### <a name="submit-but-not-start-a-batch-execution-job"></a>Senden eines Batchausführungsauftrags (ohne ihn jedoch zu starten)
 
-1. Klicken Sie auf **Vorgang hinzufügen**, um der API einen BES-Vorgang hinzuzufügen.
+1. Klicken Sie auf **Vorgang hinzufügen** , um der API einen BES-Vorgang hinzuzufügen.
 2. Wählen Sie unter **HTTP-Verb** die Option **POST**.
 3. Geben Sie unter **URL-Vorlage** den Text „`/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}`“ ein.
 4. Geben Sie einen **Anzeigenamen** ein (in diesem Beispiel „BES Submit“).
-5. Klicken Sie links auf **Antworten** > **HINZUFÜGEN**, und wählen Sie **200 OK** aus.
+5. Klicken Sie links auf **Antworten** > **HINZUFÜGEN** , und wählen Sie **200 OK** aus.
 6. Klicken Sie auf **Speichern**.
 
 ### <a name="start-a-batch-execution-job"></a>Starten eines Batchausführungsauftrags
 
-1. Klicken Sie auf **Vorgang hinzufügen**, um der API einen BES-Vorgang hinzuzufügen.
+1. Klicken Sie auf **Vorgang hinzufügen** , um der API einen BES-Vorgang hinzuzufügen.
 2. Wählen Sie unter **HTTP-Verb** die Option **POST**.
 3. Geben Sie unter **HTTP-Verb** den Text „`/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}`“ ein.
 4. Geben Sie einen **Anzeigenamen** ein (in diesem Beispiel „BES Start“).
-6. Klicken Sie links auf **Antworten** > **HINZUFÜGEN**, und wählen Sie **200 OK** aus.
+6. Klicken Sie links auf **Antworten** > **HINZUFÜGEN** , und wählen Sie **200 OK** aus.
 7. Klicken Sie auf **Speichern**.
 
 ### <a name="get-the-status-or-result-of-a-batch-execution-job"></a>Abrufen des Status oder des Ergebnisses eines Batchausführungsauftrags
 
-1. Klicken Sie auf **Vorgang hinzufügen**, um der API einen BES-Vorgang hinzuzufügen.
+1. Klicken Sie auf **Vorgang hinzufügen** , um der API einen BES-Vorgang hinzuzufügen.
 2. Wählen Sie unter **HTTP-Verb** die Option **GET**.
 3. Geben Sie unter **URL-Vorlage** den Text „`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`“ ein.
 4. Geben Sie einen **Anzeigenamen** ein (in diesem Beispiel „BES Status“).
-6. Klicken Sie links auf **Antworten** > **HINZUFÜGEN**, und wählen Sie **200 OK** aus.
+6. Klicken Sie links auf **Antworten** > **HINZUFÜGEN** , und wählen Sie **200 OK** aus.
 7. Klicken Sie auf **Speichern**.
 
 ### <a name="delete-a-batch-execution-job"></a>Löschen eines Batchausführungsauftrags
 
-1. Klicken Sie auf **Vorgang hinzufügen**, um der API einen BES-Vorgang hinzuzufügen.
+1. Klicken Sie auf **Vorgang hinzufügen** , um der API einen BES-Vorgang hinzuzufügen.
 2. Wählen Sie **DELETE** als **HTTP-Verb** aus.
 3. Geben Sie unter **URL-Vorlage** den Text „`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`“ ein.
 4. Geben Sie einen **Anzeigenamen** ein (in diesem Beispiel „BES Delete“).
-5. Klicken Sie links auf **Antworten** > **HINZUFÜGEN**, und wählen Sie **200 OK** aus.
+5. Klicken Sie links auf **Antworten** > **HINZUFÜGEN** , und wählen Sie **200 OK** aus.
 6. Klicken Sie auf **Speichern**.
 
 ## <a name="call-an-operation-from-the-developer-portal"></a>Aufrufen eines Vorgangs über das Entwicklerportal
 
-Operationen können direkt aus dem Entwicklerportal aufgerufen werden. Dies ist ein einfacher Weg, um die Operationen einer API anzuzeigen und zu testen. In diesem Schritt rufen Sie die **RRS Execute**-Methode auf, die der **Azure ML-Demo-API** hinzugefügt wurde. 
+Operationen können direkt aus dem Entwicklerportal aufgerufen werden. Dies ist ein einfacher Weg, um die Operationen einer API anzuzeigen und zu testen. In diesem Schritt rufen Sie die **RRS Execute** -Methode auf, die der **Azure ML-Demo-API** hinzugefügt wurde. 
 
 1. Klicken Sie auf **Entwicklerportal**.
 
    ![Screenshot: Der Link „Entwicklerportal“.](./media/manage-web-service-endpoints-using-api-management/developer-portal.png)
 
-2. Klicken Sie im Hauptmenü auf **APIs** und anschließend auf **Azure ML-Demo-API**, um die verfügbaren Vorgänge anzuzeigen.
+2. Klicken Sie im Hauptmenü auf **APIs** und anschließend auf **Azure ML-Demo-API** , um die verfügbaren Vorgänge anzuzeigen.
 
    ![Screenshot: Der Link „Azure ML-Demo-API“.](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
 
@@ -153,7 +153,7 @@ Operationen können direkt aus dem Entwicklerportal aufgerufen werden. Dies ist 
 
 4. Geben Sie als **Anforderungsparameter** Ihren **Arbeitsbereich** und **Dienst** sowie „2.0“ als **apiversion** und „true“ für **details** ein. Sie finden Ihren **Arbeitsbereich** und **Dienst** im Azure ML-Webdienstdashboard (siehe **Testen des Webdiensts** in Anhang A).
 
-   Klicken Sie für **Anforderungsheader** auf **Header hinzufügen**, und geben Sie „Content-Type“ und „application/json“ ein. Klicken Sie erneut auf **Header hinzufügen**, und geben Sie „Authorization“ und „Bearer *\<your service API-KEY\>* “ ein. Sie finden Ihren API-Schlüssel im Azure ML-Webdienstdashboard (siehe **Testen des Webdiensts** in Anhang A).
+   Klicken Sie für **Anforderungsheader** auf **Header hinzufügen** , und geben Sie „Content-Type“ und „application/json“ ein. Klicken Sie erneut auf **Header hinzufügen** , und geben Sie „Authorization“ und „Bearer *\<your service API-KEY\>* “ ein. Sie finden Ihren API-Schlüssel im Azure ML-Webdienstdashboard (siehe **Testen des Webdiensts** in Anhang A).
 
    Geben Sie unter **Anforderungstext** den Text `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}` ein.
 
@@ -163,7 +163,7 @@ Operationen können direkt aus dem Entwicklerportal aufgerufen werden. Dies ist 
 
    ![Screenshot: Die Schaltfläche zum Senden.](./media/manage-web-service-endpoints-using-api-management/send.png)
 
-Nach dem Aufruf der Operation zeigt das Entwicklerportal die **Angeforderte URL** vom Back-End-Dienst, den **Antwortstatus**, die **Antwortheader** sowie den **Antwortinhalt** an.
+Nach dem Aufruf der Operation zeigt das Entwicklerportal die **Angeforderte URL** vom Back-End-Dienst, den **Antwortstatus** , die **Antwortheader** sowie den **Antwortinhalt** an.
 
 ![Screenshot: Das Entwicklerportal, in dem der Antwortstatus, die Antwortlatenz, der Antwortheader und der Antwortinhalt angezeigt werden.](./media/manage-web-service-endpoints-using-api-management/response-status.png)
 
@@ -179,19 +179,19 @@ Navigieren Sie in einem Browser Ihrer Wahl zu dieser Adresse: [https://studio.az
 
 ![Screenshot: Neue Seite mit „EXPERIMENT“ ausgewählt und einer Textsuche.](./media/manage-web-service-endpoints-using-api-management/search-experiment-templates.png)
 
-Benennen Sie es um in: **SimpleFeatureHashingExperiment**. Erweitern Sie **Saved Datasets**, und ziehen Sie **Book Reviews from Amazon** in Ihr Experiment.
+Benennen Sie es um in: **SimpleFeatureHashingExperiment**. Erweitern Sie **Saved Datasets** , und ziehen Sie **Book Reviews from Amazon** in Ihr Experiment.
 
 ![Screenshot: Beispiele auf der linken Seite und ein SimpleFeatureHashingExperiment-Bereich auf der rechten Seite mit der Anweisung, Elemente hierher zu ziehen.](./media/manage-web-service-endpoints-using-api-management/simple-feature-hashing-experiment.png)
 
-Erweitern Sie **Data Transformation** und **Manipulation**, und ziehen Sie **Select Columns in Dataset** in Ihr Experiment. Verbinden Sie **Book Reviews from Amazon** mit **Select Columns in Dataset**.
+Erweitern Sie **Data Transformation** und **Manipulation** , und ziehen Sie **Select Columns in Dataset** in Ihr Experiment. Verbinden Sie **Book Reviews from Amazon** mit **Select Columns in Dataset**.
 
 ![Verbinden des Moduls für das Book Reviews-Dataset mit einem Project Columns-Modul](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
 
-Klicken Sie auf **Select Columns in Dataset**. Klicken Sie dann auf **Launch column selector**, und wählen Sie **Col2** aus. Klicken Sie auf das Häkchen, um diese Änderungen zu übernehmen.
+Klicken Sie auf **Select Columns in Dataset**. Klicken Sie dann auf **Launch column selector** , und wählen Sie **Col2** aus. Klicken Sie auf das Häkchen, um diese Änderungen zu übernehmen.
 
 ![Auswählen von Spalten mithilfe von Spaltennamen](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
 
-Erweitern Sie **Text Analytics**, und ziehen Sie **Feature Hashing** in das Experiment. Verbinden Sie **Select Columns in Dataset** mit **Feature Hashing**.
+Erweitern Sie **Text Analytics** , und ziehen Sie **Feature Hashing** in das Experiment. Verbinden Sie **Select Columns in Dataset** mit **Feature Hashing**.
 
 ![Screenshot: Hinzufügen eines Feature Hashing-Elements zum Arbeitsbereich.](./media/manage-web-service-endpoints-using-api-management/connect-project-columns.png)
 
@@ -204,7 +204,7 @@ An diesem Punkt können Sie auf **Run** klicken, um das Experiment zu testen.
 ![Screenshot: Schaltfläche „Run“.](./media/manage-web-service-endpoints-using-api-management/run.png)
 
 ### <a name="create-a-web-service"></a>Erstellen eines Webdiensts
-Nun erstellen Sie einen Webdienst. Erweitern Sie **Web Service**, und ziehen Sie **Input** in das Experiment. Verbinden Sie **Input** mit **Feature Hashing**. Ziehen Sie auch **Output** in Ihr Experiment. Verbinden Sie **Output** mit **Feature Hashing**.
+Nun erstellen Sie einen Webdienst. Erweitern Sie **Web Service** , und ziehen Sie **Input** in das Experiment. Verbinden Sie **Input** mit **Feature Hashing**. Ziehen Sie auch **Output** in Ihr Experiment. Verbinden Sie **Output** mit **Feature Hashing**.
 
 ![Screenshot: Arbeitsbereich nach den angegebenen Änderungen.](./media/manage-web-service-endpoints-using-api-management/output-to-feature-hashing.png)
 
@@ -219,7 +219,7 @@ Klicken Sie auf **Yes** , um das Experiment zu veröffentlichen.
 ### <a name="test-the-web-service"></a>Testen des Webdiensts
 Ein Azure ML-Webdienst besteht aus RRS-Endpunkten (Request/Response Service, Anforderungs-/Antwortdienst) und BES-Endpunkten (Batch Execution Service, Batchausführungsdienst). RRS dient zur synchronen Ausführung. BES dient zur asynchronen Auftragsausführung. Um Ihren Webdienst mit dem unten aufgeführten Python-Beispielcode zu testen, müssen Sie möglicherweise das Azure-SDK für Python herunterladen und installieren (siehe: [Installieren von Python](/azure/developer/python/azure-sdk-install)).
 
-Sie benötigen auch den **Arbeitsbereich**, den **Dienst** und den **API-Schlüssel** Ihres Experiments für den unten stehenden Beispielcode. Sie finden den Arbeitsbereich und den Dienst, indem Sie im Webdienstdashboard für Ihr Experiment entweder auf **Anforderung/Antwort** oder **Batchausführung** klicken.
+Sie benötigen auch den **Arbeitsbereich** , den **Dienst** und den **API-Schlüssel** Ihres Experiments für den unten stehenden Beispielcode. Sie finden den Arbeitsbereich und den Dienst, indem Sie im Webdienstdashboard für Ihr Experiment entweder auf **Anforderung/Antwort** oder **Batchausführung** klicken.
 
 ![Screenshot: Der Bereich „Anforderungen“, in dem Sie die Werte für Arbeitsbereich und Dienst finden.](./media/manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
 
@@ -244,7 +244,7 @@ Die Ausgabe sollte folgendermaßen aussehen:
 ##### <a name="sample-code"></a>Beispielcode
 Sie können Ihren RRS-Endpunkt auch mithilfe des Clientcodes testen. Wenn Sie auf dem Dashboard auf **Anforderung/Antwort** klicken und ganz nach unten scrollen, sehen Sie Beispielcode für C#, Python und R. Sie sehen auch die Syntax der RRS-Anforderung einschließlich URI, Header und Text der Anforderung.
 
-Dieser Leitfaden zeigt ein funktionierendes Python-Beispiel. Sie müssen dieses Beispiel mit dem **Arbeitsbereich**, dem **Dienst** und dem **API-Schlüssel** Ihres Experiments bearbeiten.
+Dieser Leitfaden zeigt ein funktionierendes Python-Beispiel. Sie müssen dieses Beispiel mit dem **Arbeitsbereich** , dem **Dienst** und dem **API-Schlüssel** Ihres Experiments bearbeiten.
 
 ```python
 import urllib2
@@ -276,9 +276,9 @@ try:
 ```
 
 #### <a name="test-bes-endpoint"></a>Testen des BES-Endpunkts
-Klicken Sie auf dem Dashboard auf **Batchausführung**, und scrollen Sie bis zum Ende. Sie sehen Beispielcode für C#, Python und R. Sie sehen auch die Syntax der BES-Anforderungen zum Übermitteln, Starten, Abrufen des Status und Löschen eines Auftrags.
+Klicken Sie auf dem Dashboard auf **Batchausführung** , und scrollen Sie bis zum Ende. Sie sehen Beispielcode für C#, Python und R. Sie sehen auch die Syntax der BES-Anforderungen zum Übermitteln, Starten, Abrufen des Status und Löschen eines Auftrags.
 
-Dieser Leitfaden zeigt ein funktionierendes Python-Beispiel. Sie müssen dieses Beispiel mit dem **Arbeitsbereich**, dem **Dienst** und dem **API-Schlüssel** Ihres Experiments bearbeiten. Darüber hinaus müssen Sie den **Speicherkontonamen**, den **Speicherkontoschlüssel** und den **Speichercontainernamen** ändern. Und schließlich müssen Sie den Speicherort der **Eingabedatei** und den Speicherort der **Ausgabedatei** bearbeiten.
+Dieser Leitfaden zeigt ein funktionierendes Python-Beispiel. Sie müssen dieses Beispiel mit dem **Arbeitsbereich** , dem **Dienst** und dem **API-Schlüssel** Ihres Experiments bearbeiten. Darüber hinaus müssen Sie den **Speicherkontonamen** , den **Speicherkontoschlüssel** und den **Speichercontainernamen** ändern. Und schließlich müssen Sie den Speicherort der **Eingabedatei** und den Speicherort der **Ausgabedatei** bearbeiten.
 
 ```python
 import urllib2

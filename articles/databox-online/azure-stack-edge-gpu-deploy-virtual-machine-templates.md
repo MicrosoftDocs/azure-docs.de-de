@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 11/16/2020
 ms.author: alkohli
-ms.openlocfilehash: eeefbcdc080620c60f7cd49b8f749375e23ddd02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93df80cd6fcd6f5553ea509a4778a155299bb057
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899702"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449055"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Bereitstellen von VMs auf Ihrem Azure Stack Edge Pro-GPU-Gerät über Vorlagen
 
@@ -76,7 +76,7 @@ Konfigurieren Sie diese Voraussetzungen, um die erforderlichen Ressourcen für d
     
 ### <a name="create-a-resource-group"></a>Erstellen einer Ressourcengruppe
 
-Erstellen Sie mit [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) eine Azure-Ressourcengruppe. Eine Ressourcengruppe ist ein logischer Container, in dem Azure-Ressourcen wie das Speicherkonto, der Datenträger und der verwaltete Datenträger bereitgestellt und verwaltet werden.
+Erstellen Sie mit [New-AzureRmResourceGroup](/powershell/module/az.resources/new-azresourcegroup) eine Azure-Ressourcengruppe. Eine Ressourcengruppe ist ein logischer Container, in dem Azure-Ressourcen wie das Speicherkonto, der Datenträger und der verwaltete Datenträger bereitgestellt und verwaltet werden.
 
 > [!IMPORTANT]
 > Alle Ressourcen werden am Speicherort des Geräts erstellt. Dieser Speicherort ist auf **DBELocal** festgelegt.
@@ -249,7 +249,7 @@ Die Datei `CreateImageAndVnet.parameters.json` kann die folgenden Parameter enth
               "value": "<Operating system corresponding to the VHD you upload can be Windows or Linux>"
         },
         "imageName": {
-            "value": "<Name for the VM iamge>"
+            "value": "<Name for the VM image>"
         },
         "imageUri": {
               "value": "<Path to the VHD that you uploaded in the Storage account>"
@@ -550,7 +550,8 @@ Stellen Sie die Vorlage zur VM-Erstellung `CreateVM.json` bereit. Mit dieser Vor
         
         PS C:\07-30-2020>
     ```   
-Sie können den Befehl `New-AzureRmResourceGroupDeployment` auch asynchron mit dem Parameter `–AsJob` ausführen. Nachstehend finden Sie eine Beispielausgabe, die erzeugt wird, wenn das Cmdlet im Hintergrund ausgeführt wird. Anschließend können Sie den Status des Auftrags abfragen, der mithilfe des Cmdlets `Get-Job` erstellt wurde.
+
+    Sie können den Befehl `New-AzureRmResourceGroupDeployment` auch asynchron mit dem Parameter `–AsJob` ausführen. Nachstehend finden Sie eine Beispielausgabe, die erzeugt wird, wenn das Cmdlet im Hintergrund ausgeführt wird. Anschließend können Sie den Status des Auftrags abfragen, der mithilfe des Cmdlets `Get-Job` erstellt wurde.
 
     ```powershell   
     PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment `
@@ -568,7 +569,6 @@ Sie können den Befehl `New-AzureRmResourceGroupDeployment` auch asynchron mit d
      
     Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
     --     ----            -------------   -----         -----------     --------             -------
-    2      Long Running... AzureLongRun... Completed     True            localhost            New-AzureRmResourceGro...
     ```
 
 7. Überprüfen Sie, ob die VM erfolgreich bereitgestellt wurde. Führen Sie den folgenden Befehl aus:
@@ -615,7 +615,7 @@ On the client used to access your Azure Stack Edge Pro device, set up a global v
 
 ### On Windows client 
 
-`$Env:AZCOPY_DEFAULT_SERVICE_API_VERSION = "2017-11-09"`
+`$Env:AZCOPY_DEFAULT_SERVICE_API_VERSION = "2017-11-09"`
 
 ### On Linux client
 
@@ -629,4 +629,4 @@ To verify if the environment variable for AzCopy was set correctly, take the fol
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Azure Resource Manager-Cmdlets](https://docs.microsoft.com/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Azure Resource Manager-Cmdlets](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)

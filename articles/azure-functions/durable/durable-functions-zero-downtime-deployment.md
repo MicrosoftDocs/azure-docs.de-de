@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 11bbc30179cc27f4799b1fd2869cb312dfa34473
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c96f2cc37c47c77b82ca86d5fd0295f0c66a896
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87093067"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009482"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Bereitstellung ohne Ausfallzeit für Durable Functions
 
@@ -54,7 +54,7 @@ Verwenden Sie das folgende Verfahren, um dieses Szenario einzurichten.
 
 1. Erstellen Sie für jeden Slot eine neue App-Einstellung (z.B. `DurableManagementStorage`). Legen Sie den zugehörigen Wert auf die Verbindungszeichenfolge unterschiedlicher Speicherkonten fest. Diese Speicherkonten werden von der Durable Functions-Erweiterung für [zuverlässige Ausführung](./durable-functions-orchestrations.md) verwendet. Verwenden Sie ein separates Speicherkonto für jeden Slot. Markieren Sie diese Einstellung nicht als Einstellung für den Bereitstellungsslot.
 
-1. Geben Sie im [Abschnitt „durableTask“ der Datei „host.json“](durable-functions-bindings.md#hostjson-settings) Ihrer Funktions-App `azureStorageConnectionStringName` als Namen der App-Einstellung an, die Sie in Schritt 3 erstellt haben.
+1. Geben Sie im [Abschnitt „durableTask“ der Datei „host.json“](durable-functions-bindings.md#hostjson-settings) Ihrer Funktions-App `connectionStringName` (Durable 2.x) oder `azureStorageConnectionStringName` (Durable 1.x) als Namen der App-Einstellung an, die Sie in Schritt 3 erstellt haben.
 
 Die folgende Abbildung zeigt die beschriebene Konfiguration mit Bereitstellungsslots und Speicherkonten. Bei diesem potenziellen Szenario vor der Bereitstellung wird Version 2 einer Funktions-App im Produktionsslot ausgeführt, während Version 1 im Stagingslot verbleibt.
 
@@ -71,7 +71,10 @@ Die folgenden JSON-Fragmente sind Beispiele für die Einstellung der Verbindungs
   "version": 2.0,
   "extensions": {
     "durableTask": {
-      "azureStorageConnectionStringName": "DurableManagementStorage"
+      "hubName": "MyTaskHub",
+      "storageProvider": {
+        "connectionStringName": "DurableManagementStorage"
+      }
     }
   }
 }

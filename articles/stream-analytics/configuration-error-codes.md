@@ -6,12 +6,12 @@ author: mamccrea
 ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: de8eefd099f3691ae5e5eb5234ae8f76015dd68f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80179506c133de92b56d476c9aa99d55c3e3bbd9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86041114"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305805"
 ---
 # <a name="azure-stream-analytics-configuration-error-codes"></a>Konfigurationsfehlercodes in Azure Stream Analytics
 
@@ -24,37 +24,37 @@ Unerwartetes Verhalten Ihres Azure Stream Analytics-Auftrags können Sie mithilf
 ## <a name="eventhubreceiverepochconflict"></a>EventHubReceiverEpochConflict
 
 * **Ursache:** Es gibt mehrere Event Hub-Empfänger mit unterschiedlichen Epochenwerten.
-* **Empfehlung**: Stellen Sie sicher, dass weder *Service Bus Explorer* noch eine *EventProcessorHost*-Anwendung verbunden ist, während der Stream Analytics-Auftrag ausgeführt wird.
+* **Empfehlung** : Stellen Sie sicher, dass weder *Service Bus Explorer* noch eine *EventProcessorHost* -Anwendung verbunden ist, während der Stream Analytics-Auftrag ausgeführt wird.
 
 ## <a name="eventhubreceiverquotaexceeded"></a>EventHubReceiverQuotaExceeded
 
 * **Ursache:** Stream Analytics kann keine Verbindung mit einer Partition herstellen, weil die maximal zulässige Anzahl von Empfängern pro Partition in einer Consumergruppe erreicht wurde.
-* **Empfehlung**: Stellen Sie sicher, dass andere Stream Analytics-Aufträge oder Service Bus Explorer nicht dieselbe Consumergruppe verwenden.
+* **Empfehlung** : Stellen Sie sicher, dass andere Stream Analytics-Aufträge oder Service Bus Explorer nicht dieselbe Consumergruppe verwenden.
 
 ## <a name="eventhuboutputthrottled"></a>EventHubOutputThrottled
 
 * **Ursache:** Fehler beim Schreiben von Daten in Event Hub aufgrund einer Drosselung.
-* **Empfehlung**: Falls dieses Problem regelmäßig auftritt, erhöhen Sie den Durchsatz.
+* **Empfehlung** : Falls dieses Problem regelmäßig auftritt, erhöhen Sie den Durchsatz.
 
 ## <a name="eventhuboutputinvalidconnectionconfig"></a>EventHubOutputInvalidConnectionConfig
 
 * **Ursache:** Die angegebene Verbindungskonfiguration ist fehlerhaft.
-* **Empfehlung**: Korrigieren Sie die Konfiguration, und starten Sie den Auftrag neu.
+* **Empfehlung** : Korrigieren Sie die Konfiguration, und starten Sie den Auftrag neu.
 
 ## <a name="eventhuboutputinvalidhostname"></a>EventHubOutputInvalidHostname
 
 * **Ursache:** Der Event Hub-Host ist nicht erreichbar.
-* **Empfehlung**: Stellen Sie sicher, dass der angegebene Hostname richtig ist.
+* **Empfehlung** : Stellen Sie sicher, dass der angegebene Hostname richtig ist.
 
 ## <a name="eventhuboutputunexpectedpartitioncount"></a>EventHubOutputUnexpectedPartitionCount
 
 * **Ursache:** Der EventHub-Absender hat eine unerwartete EventHub-Partitionsanzahl festgestellt.
-* **Empfehlung**: Starten Sie den Stream Analytics-Auftrag neu, wenn sich die EventHub-Partitionsanzahl geändert hat.
+* **Empfehlung** : Starten Sie den Stream Analytics-Auftrag neu, wenn sich die EventHub-Partitionsanzahl geändert hat.
 
 ## <a name="cosmosdbpartitionkeynotfound"></a>CosmosDBPartitionKeyNotFound
 
 * **Ursache:** Stream Analytics konnte den Partitionsschlüssel einer bestimmten Cosmos DB-Sammlung in der Datenbank nicht finden.
-* **Empfehlung**: Stellen Sie sicher, dass in Cosmos DB ein gültiger Partitionsschlüssel für die Sammlung angegeben ist.
+* **Empfehlung** : Stellen Sie sicher, dass in Cosmos DB ein gültiger Partitionsschlüssel für die Sammlung angegeben ist.
 
 ## <a name="cosmosdbinvalidpartitionkeycolumn"></a>CosmosDBInvalidPartitionKeyColumn
 
@@ -75,17 +75,17 @@ Unerwartetes Verhalten Ihres Azure Stream Analytics-Auftrags können Sie mithilf
 ## <a name="cosmosdboutputwritethrottling"></a>CosmosDBOutputWriteThrottling
 
 * **Ursache:** Fehler beim Schreiben von Daten aufgrund einer Drosselung durch Cosmos DB.
-* **Empfehlung**: Führen Sie für die Leistungsstufe der Sammlung ein Upgrade durch, und optimieren Sie die Leistung Ihrer Datenbank.
+* **Empfehlung** : Führen Sie für die Leistungsstufe der Sammlung ein Upgrade durch, und optimieren Sie die Leistung Ihrer Datenbank.
 
 ## <a name="sqldatabaseconnectionstringerror"></a>SQLDatabaseConnectionStringError
 
 * **Ursache:** Authentifizierungsfehler beim Stream Analytics-Auftrag.
-* **Empfehlung**: Stellen Sie sicher, dass die SQL-Datenbank-Verbindungszeichenfolge korrekt ist.
+* **Empfehlung** : Stellen Sie sicher, dass die SQL-Datenbank-Verbindungszeichenfolge korrekt ist.
 
 ## <a name="sqldatabasemanagedidentityauthenticationerror"></a>SQLDatabaseManagedIdentityAuthenticationError
 
 * **Ursache:** Authentifizierungsfehler beim Stream Analytics-Auftrag. 
-* **Empfehlung**: Stellen Sie sicher, dass der Kontoname ordnungsgemäß konfiguriert ist und die verwaltete Identität des Auftrags auf die SQL-Datenbank zugreifen kann.
+* **Empfehlung** : Stellen Sie sicher, dass der Kontoname ordnungsgemäß konfiguriert ist und die verwaltete Identität des Auftrags auf die SQL-Datenbank zugreifen kann.
 
 ## <a name="sqldatabaseoutputnotableerror"></a>SQLDatabaseOutputNoTableError
 
@@ -94,7 +94,7 @@ Unerwartetes Verhalten Ihres Azure Stream Analytics-Auftrags können Sie mithilf
 ## <a name="sqldwoutputinvalidserviceedition"></a>SQLDWOutputInvalidServiceEdition
 
 * **Ursache:** SQL-Datenbank wird nicht unterstützt.
-* **Empfehlung**: Verwenden Sie einen Synapse SQL-Pool.
+* **Empfehlung** : Verwenden Sie einen dedizierten SQL-Pool.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

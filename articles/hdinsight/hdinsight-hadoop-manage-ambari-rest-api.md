@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 45b9c158aca85d62b02d65282876d5e40129878f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ba1d1e15b1dbb3efb24219b6c09a6827e701d46
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081065"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546074"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Verwalten von HDInsight-Clustern mithilfe der Apache Ambari-REST-API
 
@@ -29,7 +29,7 @@ Apache Ambari vereinfacht die Verwaltung und Überwachung von Hadoop-Clustern du
 
 * Ein Hadoop-Cluster in HDInsight. Weitere Informationen finden Sie unter [Erste Schritte mit HDInsight unter Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* Bash unter Ubuntu unter Windows 10.  In den Beispielen dieses Artikels wird die Bash-Shell unter Windows 10 verwendet. Die Installationsschritte finden Sie unter [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) (Windows-Subsystem für Linux: Installationshandbuch für Windows 10).  Es funktionieren auch andere [Unix-Shells](https://www.gnu.org/software/bash/).  Die Beispiele können mit einigen geringfügigen Änderungen auch an einer Windows-Eingabeaufforderung verwendet werden.  Oder Sie können Windows PowerShell verwenden.
+* Bash unter Ubuntu unter Windows 10.  In den Beispielen dieses Artikels wird die Bash-Shell unter Windows 10 verwendet. Die Installationsschritte finden Sie unter [Windows Subsystem for Linux Installation Guide for Windows 10](/windows/wsl/install-win10) (Windows-Subsystem für Linux: Installationshandbuch für Windows 10).  Es funktionieren auch andere [Unix-Shells](https://www.gnu.org/software/bash/).  Die Beispiele können mit einigen geringfügigen Änderungen auch an einer Windows-Eingabeaufforderung verwendet werden.  Oder Sie können Windows PowerShell verwenden.
 
 * jq, ein JSON-Befehlszeilenprozessor.  Siehe [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
@@ -41,7 +41,7 @@ Apache Ambari vereinfacht die Verwaltung und Überwachung von Hadoop-Clustern du
 
 ## <a name="authentication"></a>Authentifizierung
 
-Zum Herstellen einer Verbindung mit Ambari in HDInsight ist HTTPS erforderlich. Verwenden Sie den Administratorkontonamen (Standardname: **Administrator**) und das Kennwort, die Sie während der Clustererstellung bereitgestellt haben.
+Zum Herstellen einer Verbindung mit Ambari in HDInsight ist HTTPS erforderlich. Verwenden Sie den Administratorkontonamen (Standardname: **Administrator** ) und das Kennwort, die Sie während der Clustererstellung bereitgestellt haben.
 
 Verwenden Sie für Enterprise-Sicherheitspaketcluster anstelle von `admin` einen vollqualifizierten Benutzernamen wie `username@domain.onmicrosoft.com`.
 
@@ -87,7 +87,7 @@ $clusterName
 
 ### <a name="parsing-json-data"></a>Analyse von JSON-Daten
 
-Im folgenden Beispiel wird [jq](https://stedolan.github.io/jq/) oder [ConvertFrom-Json](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) verwendet, um das JSON-Antwortdokument zu analysieren und nur die `health_report`-Informationen aus den Ergebnissen anzuzeigen.
+Im folgenden Beispiel wird [jq](https://stedolan.github.io/jq/) oder [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json) verwendet, um das JSON-Antwortdokument zu analysieren und nur die `health_report`-Informationen aus den Ergebnissen anzuzeigen.
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" \
@@ -253,7 +253,7 @@ Der Rückgabewert ähnelt einem der folgenden Beispiele:
     Der Rückgabewert ähnelt `/clusters/CLUSTERNAME/`. Dieser Wert ist ein Pfad im Data Lake Storage-Konto. Dieser Pfad ist der Stamm des HDFS-kompatiblen Dateisystems für den Cluster.  
 
 > [!NOTE]  
-> Das Cmdlet [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) von [Azure PowerShell](/powershell/azure/) gibt auch die Speicherinformationen für den Cluster zurück.
+> Das Cmdlet [Get-AzHDInsightCluster](/powershell/module/az.hdinsight/get-azhdinsightcluster) von [Azure PowerShell](/powershell/azure/) gibt auch die Speicherinformationen für den Cluster zurück.
 
 ### <a name="get-all-configurations"></a>Abrufen aller Konfigurationen
 
@@ -269,7 +269,7 @@ $respObj = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v
 $respObj.Content
 ```
 
-In diesem Beispiel wird ein JSON-Dokument zurückgegeben, das die aktuelle Konfiguration für installierte Komponenten enthält. Siehe den Wert *tag*. Das folgende Beispiel ist ein Datenauszug aus der Rückgabe eines Spark-Clustertyps:
+In diesem Beispiel wird ein JSON-Dokument zurückgegeben, das die aktuelle Konfiguration für installierte Komponenten enthält. Siehe den Wert *tag* . Das folgende Beispiel ist ein Datenauszug aus der Rückgabe eines Spark-Clustertyps:
 
 ```json
 "jupyter-site" : {
@@ -335,7 +335,7 @@ In diesem Beispiel wird ein JSON-Dokument zurückgegeben, das die aktuelle Konfi
 
    * Ein Stammdokument für die neue Konfiguration wird erstellt.
 
-   * Der Inhalt des `.items[]`-Arrays wird abgerufen und unter dem **desired_config**-Element hinzugefügt.
+   * Der Inhalt des `.items[]`-Arrays wird abgerufen und unter dem **desired_config** -Element hinzugefügt.
 
    * Die Elemente `href`, `version` und `Config` werden gelöscht, da sie zum Übermitteln einer neuen Konfiguration nicht benötigt werden.
 
@@ -387,7 +387,7 @@ In diesem Beispiel wird ein JSON-Dokument zurückgegeben, das die aktuelle Konfi
     $resp.Content
     ```  
 
-    Diese Befehle übermitteln den Inhalt der Datei **newconfig.json** als neue Konfiguration an den Cluster. Die Anforderung gibt ein JSON-Dokument zurück. Das **versionTag**-Element in diesem Dokument sollte mit der von Ihnen übermittelten Version übereinstimmen, und das Objekt **configs** enthält die Konfigurationsänderungen, die Sie angefordert haben.
+    Diese Befehle übermitteln den Inhalt der Datei **newconfig.json** als neue Konfiguration an den Cluster. Die Anforderung gibt ein JSON-Dokument zurück. Das **versionTag** -Element in diesem Dokument sollte mit der von Ihnen übermittelten Version übereinstimmen, und das Objekt **configs** enthält die Konfigurationsänderungen, die Sie angefordert haben.
 
 ### <a name="restart-a-service-component"></a>Neustarten einer Dienstkomponente
 

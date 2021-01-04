@@ -6,14 +6,15 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: b8d74f9da62b0f5a596c811efa9f93b55c99f1d7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 04de6dce6cbab4dc0716ae841707b1d61d6bc375
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476347"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073756"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Häufige Anwendungsfälle für Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Dieser Artikel bietet eine Übersicht über verschiedene häufige Anwendungsfälle für Azure Cosmos DB.  Die Empfehlungen in diesem Artikel dienen als Ausgangspunkt für die Entwicklung Ihrer Anwendung mit Cosmos DB.
 
@@ -60,11 +61,11 @@ Zu den Anwendungsfällen für Katalogdaten gehören das Speichern und Abfragen e
 
 Betrachten Sie als Beispiel einen Produktkatalog für einen Automobilzulieferer. Jedes Teil verfügt zusätzlich zu den Attributen, die allen Teilen gemeinsam sind, über eigene Attribute. Darüber hinaus können sich Attribute für ein bestimmtes Teil ändern, wenn ein neues Modell auf den Markt kommt. Azure Cosmos DB unterstützt flexible Schemas sowie hierarchische Daten und eignet sich daher gut zum Speichern von Produktkatalogdaten.
 
-:::image type="content" source="./media/use-cases/product-catalog.png" alt-text="IoT-Referenzarchitektur für Azure Cosmos DB" border="false":::
+:::image type="content" source="./media/use-cases/product-catalog.png" alt-text="Einzelhandelskatalog-Referenzarchitektur für Azure Cosmos DB" border="false":::
 
 Azure Cosmos DB wird häufig für die Ereignisherkunftsermittlung zur Unterstützung ereignisgesteuerter Architekturen mithilfe der Funktion für den [Änderungsfeed](change-feed.md) verwendet. Der Änderungsfeed ermöglicht Downstream-Microservices das zuverlässige und inkrementelle Lesen von Einfügungen und Updates (etwa Bestellereignisse) für eine Azure Cosmos DB-Instanz. Diese Funktionalität kann dazu genutzt werden, einen persistenten Ereignisspeicher als Nachrichtenbroker für Ereignisse mit wechselndem Status bereitzustellen und Bestellverarbeitungsworkflows zwischen zahlreichen Microservices (die als [serverlose Azure-Funktionen](https://azure.com/serverless) implementiert werden können) zu steuern.
 
-:::image type="content" source="./media/use-cases/event-sourcing.png" alt-text="IoT-Referenzarchitektur für Azure Cosmos DB" border="false":::
+:::image type="content" source="./media/use-cases/event-sourcing.png" alt-text="Referenzarchitektur für eine Azure Cosmos DB-Bestellpipeline" border="false":::
 
 Darüber hinaus können Daten in Azure Cosmos DB für Big Data-Analysen über Apache Spark-Aufträge in HDInsight integriert werden. Ausführliche Informationen zum Spark-Connector für Azure Cosmos DB finden Sie unter [Beschleunigen der Big Data-Echtzeitanalyse mit dem Spark-Connector für Azure Cosmos DB](spark-connector.md).
 
@@ -79,7 +80,7 @@ Azure Cosmos DB wird von Spielen wie [The Walking Dead: No Man's Land](https://a
 * Soziale Funktionen, einschließlich Chat-Nachrichten im Spiel, Mitgliedschaften in Gilden, bewältigte Aufgaben, Highscore-Listen und soziale Graphen, sind einfacher mit einem flexiblen Schema zu implementieren.
 * Azure Cosmos DB benötigt als verwaltete Platform-as-a-Service (PaaS) minimalen Einrichtungs- und Verwaltungsaufwand, um schnelle Iteration zu ermöglichen und die Markteinführungszeit zu verkürzen.
 
-:::image type="content" source="./media/use-cases/gaming.png" alt-text="IoT-Referenzarchitektur für Azure Cosmos DB" border="false":::
+:::image type="content" source="./media/use-cases/gaming.png" alt-text="Gaming-Referenzarchitektur für Azure Cosmos DB" border="false":::
 
 ## <a name="web-and-mobile-applications"></a>Webanwendungen und mobile Anwendungen
 Azure Cosmos DB wird häufig in Web- und Mobilanwendungen verwendet und eignet sich gut für die Modellierung sozialer Interaktionen, die Integration in Drittanbieterdienste sowie zum Erstellen umfangreicher Personalisierungen. Mithilfe der Cosmos DB-SDKs können umfangreiche iOS- und Android-Anwendungen mit dem beliebten [Xamarin-Framework](mobile-apps-with-xamarin.md) erstellt werden.  
@@ -91,14 +92,14 @@ Anwendungen, die in soziale Drittanbieter-Netzwerke integriert werden, müssen a
 
 Viele soziale Anwendungen werden auf globaler Ebene ausgeführt und können nicht vorhersagbare Nutzungsmuster aufweisen. Flexibilität bei der Skalierung des Datenspeichers ist von grundlegender Bedeutung, da die Anwendungsschicht in Abhängigkeit von der Nutzung skaliert werden muss.  Sie können den Speicher aufskalieren, indem Sie einem Cosmos DB-Konto weitere Datenpartitionen hinzufügen.  Darüber hinaus können Sie auch weitere Cosmos DB-Konten über mehrere Regionen hinweg erstellen. Informationen zur regionalen Verfügbarkeit von Cosmos DB-Diensten finden Sie unter [Azure-Region](https://azure.microsoft.com/regions/#services).
 
-:::image type="content" source="./media/use-cases/apps-with-global-reach.png" alt-text="IoT-Referenzarchitektur für Azure Cosmos DB" border="false":::
+:::image type="content" source="./media/use-cases/apps-with-global-reach.png" alt-text="Diagramm der Web-App-Referenzarchitektur für Azure Cosmos DB" border="false":::
 
 ### <a name="personalization"></a>Personalisierung
 Heute sind die modernen Anwendungen mit komplexen Ansichten und Funktionalitäten verbunden. Diese sind üblicherweise dynamisch und auf die Einstellungen bzw. die Stimmung des Benutzers oder auf Brandinganforderungen ausgerichtet. Daher müssen Anwendungen personalisierte Einstellungen effektiv abrufen können, um Benutzeroberflächenelemente und Funktionalitäten schnell darzustellen. 
 
 JSON ist ein von Cosmos DB unterstütztes effektives Format zur Darstellung von Daten für das Benutzeroberflächenlayout. Es ist nicht nur unkompliziert, sondern kann auch problemlos von JavaScript interpretiert werden. Cosmos DB bietet optimierbare Konsistenzebenen, die schnelle Lesevorgänge sowie Schreibvorgänge mit geringer Latenz ermöglichen. Daher ist die Speicherung von Daten für das Benutzeroberflächenlayout einschließlich personalisierter Einstellungen als JSON-Dokument in Cosmos DB eine effektive Möglichkeit zur Übertragung dieser Daten.
 
-:::image type="content" source="./media/use-cases/personalization.png" alt-text="IoT-Referenzarchitektur für Azure Cosmos DB" border="false":::
+:::image type="content" source="./media/use-cases/personalization.png" alt-text="Web-App-Referenzarchitektur für Azure Cosmos DB" border="false":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 

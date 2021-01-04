@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d283a5bec804696a1243005a37bf73b087677d09
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d0e2f520f55b9664d2d0b039867ef7670b190fed
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373812"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377070"
 ---
 # <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Berechtigungen für Anwendungsregistrierung für benutzerdefinierte Rollen in Azure Active Directory
 
@@ -28,7 +28,7 @@ Dieser Artikel enthält die derzeit verfügbaren Anwendungsregistrierungsberecht
 
 Beim Auswählen der Berechtigungen für Ihre benutzerdefinierte Rolle haben Sie die Möglichkeit, Zugriff nur zum Verwalten von Anwendungen mit einem Mandanten zu gewähren. Anwendungen mit einem Mandanten sind nur für Benutzer in der Azure AD-Organisation verfügbar, in der die Anwendung registriert ist. Per Definition ist bei Anwendungen mit einem Mandanten **Unterstützte Kontotypen** auf „Nur Konten in diesem Organisationsverzeichnis“ festgelegt. In der Graph-API ist für Einzelmandantenanwendungen die signInAudience-Eigenschaft auf „AzureADMyOrg“ festgelegt.
 
-Verwenden Sie zum Gewähren des Zugriffs nur zum Verwalten von Anwendungen mit einem Mandanten die unten aufgeführten Berechtigungen mit dem Untertyp **applications.myOrganization** . Beispiel: microsoft.directory/applications.myOrganization/basic/update.
+Verwenden Sie zum Gewähren des Zugriffs nur zum Verwalten von Anwendungen mit einem Mandanten die unten aufgeführten Berechtigungen mit dem Untertyp **applications.myOrganization**. Beispiel: microsoft.directory/applications.myOrganization/basic/update.
 
 Eine Erläuterung der allgemeinen Begriffe „Untertyp“, „Berechtigung“ und „Eigenschaftensatz“ finden Sie in der [Übersicht über benutzerdefinierte Rollen](custom-overview.md). Die folgenden Informationen gelten speziell für Anwendungsregistrierungen.
 
@@ -46,7 +46,7 @@ Wird diese Berechtigung zugewiesen, wird der Ersteller nicht als erster Besitzer
 
 Wenn beide Berechtigungen zugewiesen sind, hat die Berechtigung zum Erstellen („/create“) Vorrang. Obwohl mit der Berechtigung „/createAsOwner“ der Ersteller nicht automatisch als erster Besitzer hinzufügt wird, können Besitzer bei der Erstellung der App-Registrierung angegeben werden, wenn Graph-APIs oder PowerShell-Cmdlets verwendet werden.
 
-Berechtigungen zum Erstellen gewähren Zugriff auf den Befehl **Neue Registrierung** .
+Berechtigungen zum Erstellen gewähren Zugriff auf den Befehl **Neue Registrierung**.
 
 [Diese Berechtigungen gewähren Zugriff auf den Befehl „Neue Registrierung“ im Portal.](./media/custom-available-permissions/new-custom-role.png)
 

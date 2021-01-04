@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: JnHs
   ms.author: jenhayes
-  ms.date: 07/20/2020
-  ms.openlocfilehash: bdfb4f0a31f655cf71b6117e9c0ef73be18c8e45
-  ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+  ms.date: 12/03/2020
+  ms.openlocfilehash: 02b9ed9bb6146a73da26083718176447a7402f2a
+  ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/14/2020
-  ms.locfileid: "92018728"
+  ms.lasthandoff: 12/04/2020
+  ms.locfileid: "96602324"
 landingContent:
 - title: Informationen zu Azure Lighthouse
   linkLists:
@@ -89,13 +89,15 @@ landingContent:
       url: ./how-to/deploy-policy-remediation.md
     - text: Verwalten von Hybridcomputern mit Azure Arc
       url: ./how-to/manage-hybrid-infrastructure-arc.md
+    - text: Verwalten von Migrationsprojekten
+      url: ./how-to/migration-at-scale.md
 - title: 'Referenz: SDKs'
   linkLists:
   - linkListType: reference
     links:
     - text: Azure PowerShell
       url: /powershell/module/az.managedservices/
-    - text: Azure-Befehlszeilenschnittstelle
+    - text: Azure CLI
       url: /cli/azure/managedservices
     - text: REST
       url: /rest/api/managedservices/

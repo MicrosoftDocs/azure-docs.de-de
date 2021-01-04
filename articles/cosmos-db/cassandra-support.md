@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 89e8a6a2abfc38c497be646bd70910895f92588f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8c51450fb6ce5c381784e6aaf9b1a66c3c4ff153
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489318"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188546"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Apache Cassandra-Features, die von der Cassandra-API für Azure Cosmos DB unterstützt werden 
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Azure Cosmos DB ist ein global verteilter Datenbankdienst von Microsoft mit mehreren Modellen. Sie können mit der Cassandra-API von Azure Cosmos DB über Open-Source-[Clienttreiber](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) für Cassandra kommunizieren, die mit der Version 4 des binären CQL-[Wire-Protokolls](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) kompatibel sind. 
 
@@ -85,17 +86,24 @@ Die Cassandra-API für Azure Cosmos DB unterstützt die folgenden CQL-Funktionen
 | writetime | Ja |
 | Umwandlung | Nein |
 
-\* Die Cassandra-API unterstützt Token als Projektion/Selektor. Außerdem ist die Verwendung von token(pk) nur auf der linken Seite einer WHERE-Klausel zulässig. Beispiel: `WHERE token(pk) > 1024` wird unterstützt, aber `WHERE token(pk) > token(100)` wird nicht unterstützt.
+> [!NOTE]
+> \* Die Cassandra-API unterstützt Token als Projektion/Selektor. Außerdem ist die Verwendung von token(pk) nur auf der linken Seite einer WHERE-Klausel zulässig. Beispiel: `WHERE token(pk) > 1024` wird unterstützt, aber `WHERE token(pk) > token(100)` wird **nicht** unterstützt.
+
 
 
 Aggregatfunktionen:
 
 |Get-Help  |Unterstützt |
 |---------|---------|
-| Min. | Ja |
-| max | Ja |
 | avg | Ja |
 | count | Ja |
+| Min. | Ja |
+| max | Ja |
+| Sum | Ja |
+
+> [!NOTE]
+> Aggregatfunktionen können für reguläre Spalten verwendet werden. Aggregate für Clusteringspalten werden jedoch **nicht** unterstützt.
+
 
 Blob-Konvertierungsfunktionen:
  
@@ -151,7 +159,7 @@ Azure Cosmos DB unterstützt die folgenden Datenbankbefehle für Cassandra-API-K
 | CREATE USER (in nativer Apache Cassandra-Version veraltet) | Nein |
 | Delete | Ja |
 | DELETE (einfache Transaktionen mit IF-Bedingung)| Ja |
-| DISTINCT | Nein |
+| DISTINCT | Nein  |
 | DROP AGGREGATE | Nein |
 | DROP FUNCTION | Nein |
 | DROP INDEX | Ja |
@@ -197,9 +205,9 @@ Die Cassandra-API für Azure Cosmos DB ist eine verwaltete Dienstplattform. Sie 
 
 ## <a name="hosted-cql-shell-preview"></a>Gehostete CQL-Shell (Vorschauversion)
 
-Sie können eine gehostete native Cassandra-Shell (CQLSH v5.0.1) direkt über den Daten-Explorer im [Azure-Portal](data-explorer.md) oder über den [Azure Cosmos-Explorer](https://cosmos.azure.com/) öffnen. Vor dem Aktivieren der CQL-Shell müssen Sie [das Feature „Notebooks“ in Ihrem Konto aktivieren](enable-notebooks.md). (Sollte es noch nicht aktiviert sein, werden Sie beim Klicken auf `Open Cassandra Shell` dazu aufgefordert.) Informationen zu unterstützten Azure-Regionen finden Sie im hervorgehobenen Hinweis des Artikels [Aktivieren von Notebooks für Azure Cosmos DB-Konten (Vorschau)](enable-notebooks.md).
+Sie können eine gehostete native Cassandra-Shell (CQLSH v5.0.1) direkt über den Daten-Explorer im [Azure-Portal](data-explorer.md) oder über den [Azure Cosmos DB-Explorer](https://cosmos.azure.com/) öffnen. Vor dem Aktivieren der CQL-Shell müssen Sie [das Feature „Notebooks“ in Ihrem Konto aktivieren](enable-notebooks.md). (Sollte es noch nicht aktiviert sein, werden Sie beim Klicken auf `Open Cassandra Shell` dazu aufgefordert.) Informationen zu unterstützten Azure-Regionen finden Sie im hervorgehobenen Hinweis des Artikels [Aktivieren von Notebooks für Azure Cosmos DB-Konten (Vorschau)](enable-notebooks.md).
 
-:::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Öffnen von CQLSH&quot;:::
+:::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Öffnen von CQLSH":::
 
 Sie können auch in Azure Cosmos DB eine Verbindung mit der Cassandra-API herstellen, indem Sie die auf einem lokalen Computer installierte CQLSH-Instanz verwenden. Sie enthält Apache Cassandra 3.1.1 und kann durch Festlegen der Umgebungsvariablen sofort verwendet werden. In den folgenden Abschnitten finden Sie Anleitungen zur Installation, Konfiguration und Verbindungsherstellung mit der Cassandra-API in Azure Cosmos DB unter Windows oder Linux mit CQLSH.
 
@@ -223,7 +231,7 @@ curl https://cacert.omniroot.com/bc2025.crt > bc2025.crt
 keytool -importcert -alias bc2025ca -file bc2025.crt
 
 # Install the Cassandra libraries in order to get CQLSH:
-echo &quot;deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+echo "deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
 curl https://downloads.apache.org/cassandra/KEYS | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install cassandra
@@ -259,7 +267,7 @@ Die Cassandra-API für Azure Cosmos DB ermöglicht die Wahl der Konsistenz bei L
 
 ## <a name="permission-and-role-management"></a>Berechtigungs- und Rollenverwaltung
 
-Azure Cosmos DB unterstützt die rollenbasierte Zugriffssteuerung (RBAC) für die Bereitstellung, Rotation von Schlüsseln, Anzeige von Metriken sowie Lese-/Schreibkennwörter bzw. Lese-/Schreibschlüssel und Schreibschutzkennwörter/-schlüssel, die über das [Azure-Portal](https://portal.azure.com) abgerufen werden können. Azure Cosmos DB unterstützt keine Rollen für CRUD-Aktivitäten.
+Azure Cosmos DB unterstützt die rollenbasierte Zugriffssteuerung von Azure (Azure RBAC) für die Bereitstellung, Rotation von Schlüsseln, Anzeige von Metriken sowie Lese-/Schreibkennwörter bzw. Lese-/Schreibschlüssel und Schreibschutzkennwörter/-schlüssel, die über das [Azure-Portal](https://portal.azure.com) abgerufen werden können. Azure Cosmos DB unterstützt keine Rollen für CRUD-Aktivitäten.
 
 ## <a name="keyspace-and-table-options"></a>Keyspace- und Tabellenoptionen
 

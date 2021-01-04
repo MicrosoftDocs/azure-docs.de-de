@@ -1,17 +1,17 @@
 ---
 title: Anhalten/Starten – Azure-Portal – Azure Database for MySQL Flexible Server
 description: In diesem Artikel wird beschrieben, wie Sie Vorgänge in Azure Database for MySQL im Azure-Portal anhalten/starten.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: e3e08ae9bbf00e1c9a44e6ba913cac1d842928b7
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 15b08ea67afe0d307470b5a4fb0f7d26e0f4ea82
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91567485"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241921"
 ---
 # <a name="stopstart-an-azure-database-for-mysql---flexible-server-preview"></a>Anhalten/Starten einer Azure Database for MySQL – Flexible Server-Instanz (Vorschau)
 
@@ -34,9 +34,9 @@ Zum Durcharbeiten dieses Leitfadens benötigen Sie Folgendes:
     
     :::image type="content" source="media/how-to-stop-start-server-portal/stop-server.png" alt-text="Beenden Sie die Flexible Server-Instanz."::: 
 
-3.  Klicken Sie auf **Ja**, um das Beenden Ihrer Server-Instanz zu bestätigen.
+3.  Klicken Sie auf **Ja** , um das Beenden Ihrer Server-Instanz zu bestätigen.
 
-    :::image type="content" source="media/how-to-stop-start-server-portal/confirm-stop.png" alt-text="Beenden Sie die Flexible Server-Instanz."::: 
+    :::image type="content" source="media/how-to-stop-start-server-portal/confirm-stop.png" alt-text="Bestätigen Sie das Beenden der Flexible Server-Instanz."::: 
 
 > [!NOTE]
 > Sobald der Server beendet wurde, sind keine anderen Verwaltungsvorgänge für die Flexible Server-Instanz mehr verfügbar.
@@ -47,7 +47,7 @@ Zum Durcharbeiten dieses Leitfadens benötigen Sie Folgendes:
 
 2.  Klicken Sie auf der Seite **Übersicht** in der Symbolleiste auf die Schaltfläche **Starten**.
 
-    :::image type="content" source="media/how-to-stop-start-server-portal/start-server.png" alt-text="Beenden Sie die Flexible Server-Instanz.":::  
+    :::image type="content" source="media/how-to-stop-start-server-portal/start-server.png" alt-text="Starten Sie die Flexible Server-Instanz.":::  
 
 > [!NOTE]
 > Sobald der Server gestartet wurde, sind alle anderen Verwaltungsvorgänge für die Flexible Server-Instanz wieder verfügbar.

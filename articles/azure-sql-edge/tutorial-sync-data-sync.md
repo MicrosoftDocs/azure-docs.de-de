@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 5830cedfdce54c4cd91eb60a5cd2145309e965b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5659ce5fa6f99463f58a33662563d768248fd8cb
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904110"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394899"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-sql-database-by-using-sql-data-sync"></a>Tutorial: Synchronisieren von Daten zwischen SQL Edge und Azure SQL-Datenbank mithilfe der SQL-Datensynchronisierung
 
@@ -41,7 +41,7 @@ Für dieses Tutorial wird ein Windows-Computer benötigt, der mit dem [Data Sync
 Das Einrichten der Synchronisierung zwischen einer Datenbank in Azure SQL-Datenbank und einer SQL Edge-Instanz mithilfe der SQL-Datensynchronisierung umfasst drei Hauptschritte:  
 
 
-1. Verwenden Sie das Azure-Portal, um eine Synchronisierungsgruppe zu erstellen. Weitere Informationen finden Sie unter [Erstellen einer Synchronisierungsgruppe](../azure-sql/database/sql-data-sync-sql-server-configure.md#create-sync-group). Sie können eine einzelne *Hub*-Datenbank verwenden, um mehrere Synchronisierungsgruppen zum Synchronisieren von Daten aus verschiedenen SQL Edge-Instanzen mit einer oder mehreren Datenbanken in Azure SQL-Datenbank zu erstellen. 
+1. Verwenden Sie das Azure-Portal, um eine Synchronisierungsgruppe zu erstellen. Weitere Informationen finden Sie unter [Erstellen einer Synchronisierungsgruppe](../azure-sql/database/sql-data-sync-sql-server-configure.md#create-sync-group). Sie können eine einzelne *Hub* -Datenbank verwenden, um mehrere Synchronisierungsgruppen zum Synchronisieren von Daten aus verschiedenen SQL Edge-Instanzen mit einer oder mehreren Datenbanken in Azure SQL-Datenbank zu erstellen. 
 
 2. Fügen Sie der Synchronisierungsgruppe Synchronisierungsmitglieder hinzu. Weitere Informationen finden Sie unter [Hinzufügen von Synchronisierungsmitgliedern](../azure-sql/database/sql-data-sync-sql-server-configure.md#add-sync-members).
 
@@ -55,7 +55,7 @@ Weitere Informationen zur SQL-Datensynchronisierung finden Sie in den folgenden 
 
 * [Bewährte Methoden für die SQL-Datensynchronisierung](../azure-sql/database/sql-data-sync-best-practices.md) und [Behandeln von Problemen mit der SQL-Datensynchronisierung](../azure-sql/database/sql-data-sync-troubleshoot.md)
 
-* [Überwachen der SQL-Datensynchronisierung mit Azure Monitor-Protokollen](../azure-sql/database/sql-data-sync-monitor-sync.md)
+* [Überwachen der SQL-Datensynchronisierung mit Azure Monitor-Protokollen](../azure-sql/database/monitor-tune-overview.md)
 
 * [Aktualisieren des Synchronisierungsschemas mit Transact-SQL](../azure-sql/database/sql-data-sync-update-sync-schema.md) oder mit [PowerShell](../azure-sql/database/scripts/update-sync-schema-in-sync-group.md)
 

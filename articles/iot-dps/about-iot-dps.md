@@ -11,12 +11,12 @@ manager: eliotgra
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e3fce15cdeb1792749224299167b52fc2311d04e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6b33b866a10ad4a44cef14f3c86d8ca1f40c4750
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318277"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965373"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Bereitstellung von Geräten mit dem Azure IoT Hub Device Provisioning-Dienst
 Microsoft Azure bietet einen umfangreichen Satz von integrierten öffentlichen Clouddiensten für alle Ihre IoT-Lösunganforderungen. IoT Hub Device Provisioning Service (DPS) ist ein Hilfsdienst für IoT Hub und ermöglicht eine unbeaufsichtigte Just-In-Time-Bereitstellung im richtigen IoT-Hub ganz ohne Benutzereingriff. DPS ermöglicht die skalierbare und sichere Bereitstellung von Millionen von Geräten.
@@ -81,7 +81,7 @@ Dank zahlreicher Features eignet sich DPS perfekt für die Bereitstellung von Ge
 
 * Unterstützung des **sicheren Nachweises** für Identitäten auf X.509- und TPM-Basis.
 * Eine **Registrierungsliste** mit der vollständigen Aufzeichnung von Geräten/Gerätegruppen, die sich zu einem beliebigen Zeitpunkt registrieren könnten. Die Registrierungsliste enthält Informationen zu der gewünschten Konfiguration des Geräts, sobald es registriert ist, und sie kann jederzeit aktualisiert werden.
-* **Mehrere Zuordnungsrichtlinien**, um die DPS-basierte Zuweisung von Geräten zu IoT-Hubs für Ihre Szenarien zu steuern: Niedrigste Latenz, gleichmäßig gewichtete Verteilung (Standard) und statische Konfiguration über die Registrierungsliste. Wartezeit wird mithilfe der gleichen Methode ermittelt wie bei [Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#performance).
+* **Mehrere Zuordnungsrichtlinien**, um die DPS-basierte Zuweisung von Geräten zu IoT-Hubs für Ihre Szenarien zu steuern: Niedrigste Latenz, gleichmäßig gewichtete Verteilung (Standard) und statische Konfiguration über die Registrierungsliste. Wartezeit wird mithilfe der gleichen Methode ermittelt wie bei [Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md#performance).
 * **Überwachungs- und Diagnoseprotokolle**, um sicherzustellen, dass alles ordnungsgemäß funktioniert
 * **Unterstützung für mehrere Hubs**, sodass Device Provisioning Service (DPS) Geräte mehreren IoT Hubs zuweisen kann. DPS kann über mehrere Azure-Abonnements hinweg mit Hubs kommunizieren.
 * **Regionsübergreifende Unterstützung**, um DPS das Zuweisen von Geräten zu IoT-Hubs in anderen Regionen zu ermöglichen.
@@ -119,7 +119,7 @@ Weitere Informationen zu Kontingentgrenzen finden Sie hier:
 * [Einschränkungen für Azure-Abonnementdienste](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>Verwandte Azure-Komponenten
-DPS automatisiert die Gerätebereitstellung mit Azure IoT Hub. Erfahren Sie mehr über [IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
+DPS automatisiert die Gerätebereitstellung mit Azure IoT Hub. Erfahren Sie mehr über [IoT Hub](../iot-hub/index.yml).
 
 ## <a name="next-steps"></a>Nächste Schritte
 Sie haben jetzt einen Überblick über die Bereitstellung von IoT-Geräten in Azure erhalten. Der nächste Schritt ist, dass Sie ein End-to-End-IoT-Szenario testen.

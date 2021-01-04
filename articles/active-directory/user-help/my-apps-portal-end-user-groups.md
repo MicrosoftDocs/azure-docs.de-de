@@ -12,12 +12,12 @@ ms.date: 10/19/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: f2774750b61ce92b3b34f6a5cbd961e4faa7d3e7
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: cff1298f12d26b1260213d75701c282e0a82511d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277468"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004149"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Aktualisieren Ihrer Gruppeninformationen im Portal „Meine Apps“
 
@@ -54,17 +54,17 @@ Wenn Ihr Administrator Ihnen die Berechtigung zum Anzeigen der Kachel **Gruppen*
 
     - **Erstellen einer neuen Gruppe.** Erstellen Sie im Bereich **Gruppen in meinem Besitz** eine neue Gruppe mit Ihnen als Besitzer. Die einzelnen Schritte finden Sie in diesem Artikel im Abschnitt [Erstellen einer neuen Gruppe](#create-a-new-group).
 
-    - **Bearbeiten einer vorhandenen Gruppe** . Bearbeiten Sie die Details Ihrer eigenen Gruppen. Die einzelnen Schritte finden Sie in diesem Artikel im Abschnitt [Bearbeiten einer vorhandenen Gruppe](#edit-an-existing-group).
+    - **Bearbeiten einer vorhandenen Gruppe**. Bearbeiten Sie die Details Ihrer eigenen Gruppen. Die einzelnen Schritte finden Sie in diesem Artikel im Abschnitt [Bearbeiten einer vorhandenen Gruppe](#edit-an-existing-group).
 
-    - **Hinzufügen oder Entfernen von Mitgliedern** . Bei Gruppen in Ihrem Besitz können Sie Mitglieder hinzufügen und entfernen. Die einzelnen Schritte finden Sie in diesem Artikel im Abschnitt [Hinzufügen oder Entfernen von Mitgliedern](#add-or-remove-a-member).
+    - **Hinzufügen oder Entfernen von Mitgliedern**. Bei Gruppen in Ihrem Besitz können Sie Mitglieder hinzufügen und entfernen. Die einzelnen Schritte finden Sie in diesem Artikel im Abschnitt [Hinzufügen oder Entfernen von Mitgliedern](#add-or-remove-a-member).
 
-    - **Verlängern einer Office 365-Gruppe** . Wenn Ihre Organisation dies zulässt, können Sie Ihre Office 365-Gruppen verlängern. Die einzelnen Schritte finden Sie in diesem Artikel im Abschnitt [Verlängern einer Office 365-Gruppe](#renew-an-office-365-group). 
+    - **Verlängern einer Office 365-Gruppe**. Wenn Ihre Organisation dies zulässt, können Sie Ihre Office 365-Gruppen verlängern. Die einzelnen Schritte finden Sie in diesem Artikel im Abschnitt [Verlängern einer Office 365-Gruppe](#renew-an-office-365-group). 
 
-    - **Löschen einer Gruppe** . Gruppen in Ihrem Besitz können Sie löschen. Die einzelnen Schritte finden Sie in diesem Artikel im Abschnitt [Löschen einer Gruppe](#delete-a-group).
+    - **Löschen einer Gruppe**. Gruppen in Ihrem Besitz können Sie löschen. Die einzelnen Schritte finden Sie in diesem Artikel im Abschnitt [Löschen einer Gruppe](#delete-a-group).
 
     - **Überprüfen der Gruppen, deren Mitglied Sie sind.** Zeigen Sie im Bereich **Meine Gruppenmitgliedschaften** die Namen von Gruppen an, deren Mitglied Sie sind. Wenn Sie einen bestimmten Gruppennamen auswählen, erhalten Sie weitere Informationen zur Gruppe, einschließlich Gruppentyp, Anzahl der Mitglieder, Richtlinie für Beitritt und Liste der aktiven Mitglieder.
 
-    - **Beitreten zu einer Gruppe** . Im Bereich **Meine Gruppenmitgliedschaften** können Sie einer bestehenden Gruppe beitreten, deren Mitglied Sie noch nicht sind. Die einzelnen Schritte finden Sie unter [Beitreten zu einer vorhandenen Gruppe](#join-an-existing-group).
+    - **Beitreten zu einer Gruppe**. Im Bereich **Meine Gruppenmitgliedschaften** können Sie einer bestehenden Gruppe beitreten, deren Mitglied Sie noch nicht sind. Die einzelnen Schritte finden Sie unter [Beitreten zu einer vorhandenen Gruppe](#join-an-existing-group).
 
 ## <a name="create-a-new-group"></a>Erstellen einer neuen Gruppe
 
@@ -100,7 +100,7 @@ Nachdem Sie eine Gruppe erstellt haben, können Sie ihre Details bearbeiten, d.h
 
     Das Feld **Details bearbeiten** wird angezeigt, in dem Sie die Informationen aktualisieren können, die Sie beim ersten Erstellen der Gruppe hinzugefügt haben.
 
-2. Nehmen Sie die gewünschten Änderungen vor, und klicken Sie dann auf **Aktualisieren** .
+2. Nehmen Sie die gewünschten Änderungen vor, und klicken Sie dann auf **Aktualisieren**.
 
 ## <a name="add-or-remove-a-member"></a>Hinzufügen oder Entfernen eines Mitglieds
 
@@ -110,7 +110,7 @@ Für Gruppen in Ihrem Besitz können Sie Mitglieder hinzufügen und entfernen.
 
     ![Hinzufügen eines Gruppenmitglieds mit hervorgehobenem Pluszeichen](media/my-apps-portal/my-apps-portal-add-member-link.png)
 
-2. Suchen Sie im Feld **Mitglieder hinzufügen** das Mitglied, das Sie hinzufügen möchten, und klicken Sie dann auf **Hinzufügen** .
+2. Suchen Sie im Feld **Mitglieder hinzufügen** das Mitglied, das Sie hinzufügen möchten, und klicken Sie dann auf **Hinzufügen**.
 
     ![Feld „Mitglied hinzufügen“ mit neuem hinzuzufügenden Mitglied](media/my-apps-portal/my-apps-portal-add-member-page.png)
 
@@ -128,7 +128,7 @@ Wenn Ihre Organisation dies zulässt, können Sie eine Office 365-Gruppe erneuer
 
     ![Verlängern einer Office 365-Gruppe und deren Ablaufdatum](media/my-apps-portal/my-apps-portal-renew-group-link.png)
 
-2. Klicken Sie auf **OK** , um die Bestätigungsmeldung zu schließen.
+2. Klicken Sie auf **OK**, um die Bestätigungsmeldung zu schließen.
 
     Nachdem Sie die Seite aktualisiert haben, werden unter **Zuletzt erneuert** und **Gruppenablauf** die aktualisierten Datumsangaben angezeigt.
 
@@ -136,11 +136,11 @@ Wenn Ihre Organisation dies zulässt, können Sie eine Office 365-Gruppe erneuer
 
 Sie können Ihre eigenen Gruppen jederzeit löschen. Wenn Sie eine Gruppe versehentlich gelöscht haben, müssen Sie jedoch neu erstellen und Mitglieder wieder hinzufügen.
 
-1. Wählen Sie die Gruppe aus, die Sie dauerhaft löschen möchten, und klicken Sie dann auf der Seite *&lt;Gruppenname&gt;* auf **Gruppe löschen** .
+1. Wählen Sie die Gruppe aus, die Sie dauerhaft löschen möchten, und klicken Sie dann auf der Seite *&lt;Gruppenname&gt;* auf **Gruppe löschen**.
 
     ![Seite „<Gruppenname>“ mit hervorgehobenem Link zum Löschen der Gruppe](media/my-apps-portal/my-apps-portal-delete-group-link.png)
 
-2. Klicken Sie in der Bestätigungsmeldung auf **Ja** .
+2. Klicken Sie in der Bestätigungsmeldung auf **Ja**.
 
     Die Gruppe wird endgültig gelöscht.
 
@@ -154,7 +154,7 @@ Auf der Seite **Gruppen** können Sie einer bereits vorhandenen Gruppe beitreten
 
     ![Seite „Gruppen beitreten“ mit hervorgehobener Schaltfläche „Gruppe beitreten“](media/my-apps-portal/my-apps-portal-join-group-link.png)
 
-2. Wählen Sie auf der Seite **Gruppen beitreten** den Namen der Gruppe, der Sie beitreten möchten. Zeigen Sie die zugehörigen Gruppendetails an, und wenn die Gruppe verfügbar ist, klicken Sie dann auf **Gruppe beitreten** .
+2. Wählen Sie auf der Seite **Gruppen beitreten** den Namen der Gruppe, der Sie beitreten möchten. Zeigen Sie die zugehörigen Gruppendetails an, und wenn die Gruppe verfügbar ist, klicken Sie dann auf **Gruppe beitreten**.
 
     Wenn die Gruppe vom Gruppenbesitzer die Genehmigung der Mitgliedschaft verlangt, werden Sie aufgefordert, eine geschäftliche Begründung einzugeben, warum Sie der Gruppe beitreten müssen, und dann auf **Anforderung** zu klicken. Wenn die Gruppe keine Genehmigung erfordert, werden Sie sofort als Mitglied hinzugefügt, und die Gruppe wird in Ihrer Liste **Meine Gruppenmitgliedschaften** angezeigt.
 
@@ -166,6 +166,6 @@ Auf der Seite **Gruppen** können Sie einer bereits vorhandenen Gruppe beitreten
 
 - [Zugreifen auf und Verwenden von Apps im Portal „Meine Apps“](my-apps-portal-end-user-access.md)
 
-- [Ändern Ihrer Profilinformationen](my-apps-portal-end-user-update-profile.md)
+- [Ändern Ihrer Profilinformationen](./my-account-portal-settings.md)
 
 - [Durchführen eigener Zugriffsüberprüfungen](my-apps-portal-end-user-access-reviews.md)

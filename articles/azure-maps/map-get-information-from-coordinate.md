@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: af31ab04653beb440655c4ab1a75946bed17c01b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31e4004379340912051204786da592fe33a5bd63
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285093"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890750"
 ---
 # <a name="get-information-from-a-coordinate"></a>Abrufen von Informationen von einer Koordinate
 
 In diesem Artikel wird gezeigt, wie Sie eine inverse Adresssuche durchführen, die die Adresse einer angeklickten Popup-Position anzeigt.
 
-Es gibt zwei Möglichkeiten, eine inverse Adresssuche durchzuführen. Eine Möglichkeit besteht darin, die [Azure Maps-API für eine inverse Adresssuche](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) über ein Dienstmodul abzufragen. Die andere Möglichkeit besteht in der Verwendung der [Fetch-API](https://fetch.spec.whatwg.org/) für eine Anforderung an die [Azure Maps-API für die umgekehrte Adresssuche](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), um eine Adresse zu finden. Beide Möglichkeiten werden im Folgenden untersucht.
+Es gibt zwei Möglichkeiten, eine inverse Adresssuche durchzuführen. Eine Möglichkeit besteht darin, die [Azure Maps-API für eine inverse Adresssuche](/rest/api/maps/search/getsearchaddressreverse) über ein Dienstmodul abzufragen. Die andere Möglichkeit besteht in der Verwendung der [Fetch-API](https://fetch.spec.whatwg.org/) für eine Anforderung an die [Azure Maps-API für die umgekehrte Adresssuche](/rest/api/maps/search/getsearchaddressreverse), um eine Adresse zu finden. Beide Möglichkeiten werden im Folgenden untersucht.
 
 ## <a name="make-a-reverse-search-request-via-service-module"></a>Durchführen einer inversen Suchanforderung über das Dienstmodul
 
@@ -29,15 +29,15 @@ Es gibt zwei Möglichkeiten, eine inverse Adresssuche durchzuführen. Eine Mögl
 
 Im obigen Code erstellt der erste Block ein Kartenobjekt und legt als Authentifizierungsmechanismus die Verwendung des Zugriffstokens fest. Eine Anleitung finden Sie unter [Erstellen einer Karte](./map-create.md).
 
-Der zweite Codeblock erstellt ein `TokenCredential`-Element, um HTTP-Anforderungen an Azure Maps mit dem Zugriffstoken zu authentifizieren. Anschließend wird das `TokenCredential`-Element an `atlas.service.MapsURL.newPipeline()` übergeben, und es wird eine [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline)-Instanz erstellt. `searchURL` stellt eine URL zu [Suchvorgängen](https://docs.microsoft.com/rest/api/maps/search) von Azure Maps dar.
+Der zweite Codeblock erstellt ein `TokenCredential`-Element, um HTTP-Anforderungen an Azure Maps mit dem Zugriffstoken zu authentifizieren. Anschließend wird das `TokenCredential`-Element an `atlas.service.MapsURL.newPipeline()` übergeben, und es wird eine [Pipeline](/javascript/api/azure-maps-rest/atlas.service.pipeline)-Instanz erstellt. `searchURL` stellt eine URL zu [Suchvorgängen](/rest/api/maps/search) von Azure Maps dar.
 
-Der dritte Codeblock aktualisiert den Stil des Mauscursors in einen Zeiger und erstellt ein [popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup#open)-Objekt. Eine Anleitung finden Sie unter [Hinzufügen eines Popupfensters zur Karte](./map-add-popup.md).
+Der dritte Codeblock aktualisiert den Stil des Mauscursors in einen Zeiger und erstellt ein [popup](/javascript/api/azure-maps-control/atlas.popup#open)-Objekt. Eine Anleitung finden Sie unter [Hinzufügen eines Popupfensters zur Karte](./map-add-popup.md).
 
-Der vierte Codeblock fügt einen [Ereignislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) für Mausklicks hinzu. Bei Auslösung wird eine Suchabfrage mit den Koordinaten des Punkts erstellt, auf den geklickt wurde. Dabei wird die [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-)-Methode verwendet, um die [API für die umgekehrte Adresssuche](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) nach der Adresse der Koordinaten abzufragen. Anschließend wird mit der Methode `geojson.getFeatures()` eine GeoJSON-Merkmalsauswahl aus der Antwort extrahiert.
+Der vierte Codeblock fügt einen [Ereignislistener](/javascript/api/azure-maps-control/atlas.map#events) für Mausklicks hinzu. Bei Auslösung wird eine Suchabfrage mit den Koordinaten des Punkts erstellt, auf den geklickt wurde. Dabei wird die [getSearchAddressReverse](/javascript/api/azure-maps-rest/atlas.service.searchurl#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-)-Methode verwendet, um die [API für die umgekehrte Adresssuche](/rest/api/maps/search/getsearchaddressreverse) nach der Adresse der Koordinaten abzufragen. Anschließend wird mit der Methode `geojson.getFeatures()` eine GeoJSON-Merkmalsauswahl aus der Antwort extrahiert.
 
 Der fünfte Codeblock richtet den HTML-Popupinhalt ein, um die Adresse aus der Antwort für die Koordinatenposition, auf die geklickt wurde, anzuzeigen.
 
-Die Änderung des Cursors, das Popup-Objekt und das Klickereignis werden jeweils im [Ladeereignislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) der Karte erstellt. Diese Codestruktur stellt sicher, dass die Karte vollständig geladen wurde, bevor Koordinateninformationen abgerufen werden.
+Die Änderung des Cursors, das Popup-Objekt und das Klickereignis werden jeweils im [Ladeereignislistener](/javascript/api/azure-maps-control/atlas.map#events) der Karte erstellt. Diese Codestruktur stellt sicher, dass die Karte vollständig geladen wurde, bevor Koordinateninformationen abgerufen werden.
 
 ## <a name="make-a-reverse-search-request-via-fetch-api"></a>Durchführen einer inversen Suchanforderung über die Fetch-API
 
@@ -48,11 +48,11 @@ Klicken Sie auf die Karte, um für die ausgewählte Position mithilfe der Fetch-
 
 Im obigen Code erstellt der erste Codeblock ein Kartenobjekt und legt als Authentifizierungsmechanismus das Zugriffstoken fest. Eine Anleitung finden Sie unter [Erstellen einer Karte](./map-create.md).
 
-Der zweite Codeblock aktualisiert den Stil des Mauscursors zu einem Zeiger. Er instanziiert ein [popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup#open)-Objekt. Eine Anleitung finden Sie unter [Hinzufügen eines Popupfensters zur Karte](./map-add-popup.md).
+Der zweite Codeblock aktualisiert den Stil des Mauscursors zu einem Zeiger. Er instanziiert ein [popup](/javascript/api/azure-maps-control/atlas.popup#open)-Objekt. Eine Anleitung finden Sie unter [Hinzufügen eines Popupfensters zur Karte](./map-add-popup.md).
 
-Der dritte Codeblock fügt einen Ereignislistener für Mausklicks hinzu. Nach einem Mausklick wird mithilfe der [Fetch-API](https://fetch.spec.whatwg.org/) die [Azure Maps-API für eine umgekehrte Adresssuche](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) nach der Adresse für die Koordinaten, auf die geklickt wurde, abgefragt. Für eine erfolgreiche Antwort sammelt sie die Adresse für den angeklickten Standort. Sie definiert den popup-Inhalt und die Position mithilfe der Funktion [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup#setoptions-popupoptions-) der popup-Klasse.
+Der dritte Codeblock fügt einen Ereignislistener für Mausklicks hinzu. Nach einem Mausklick wird mithilfe der [Fetch-API](https://fetch.spec.whatwg.org/) die [Azure Maps-API für eine umgekehrte Adresssuche](/rest/api/maps/search/getsearchaddressreverse) nach der Adresse für die Koordinaten, auf die geklickt wurde, abgefragt. Für eine erfolgreiche Antwort sammelt sie die Adresse für den angeklickten Standort. Sie definiert den popup-Inhalt und die Position mithilfe der Funktion [setOptions](/javascript/api/azure-maps-control/atlas.popup#setoptions-popupoptions-) der popup-Klasse.
 
-Die Änderung des Cursors, das Popup-Objekt und das Klickereignis werden jeweils im [Ladeereignislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) der Karte erstellt. Diese Codestruktur stellt sicher, dass die Karte vollständig geladen wurde, bevor Koordinateninformationen abgerufen werden.
+Die Änderung des Cursors, das Popup-Objekt und das Klickereignis werden jeweils im [Ladeereignislistener](/javascript/api/azure-maps-control/atlas.map#events) der Karte erstellt. Diese Codestruktur stellt sicher, dass die Karte vollständig geladen wurde, bevor Koordinateninformationen abgerufen werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
@@ -62,10 +62,10 @@ Die Änderung des Cursors, das Popup-Objekt und das Klickereignis werden jeweils
 Erfahren Sie mehr zu den in diesem Artikel verwendeten Klassen und Methoden:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Map](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup)
+> [Popup](/javascript/api/azure-maps-control/atlas.popup)
 
 Die folgenden Artikel enthalten vollständige Codebeispiele:
 

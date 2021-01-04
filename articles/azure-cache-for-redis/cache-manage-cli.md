@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: yegu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: db55ac4ce868f2e6ce2afbfbf014aac67653ce4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7643f882d5ac330046c169e0a3f2fa4920331d4e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500503"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537693"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Erstellen und Verwalten von Azure Cache for Redis mit der klassischen Azure CLI
 > [!div class="op_single_selector"]
@@ -30,9 +30,9 @@ Die klassische Azure CLI (Befehlszeilenschnittstelle) ist eine hervorragende Met
 Zum Erstellen und Verwalten von Azure Cache for Redis-Instanzen mithilfe der klassischen Azure CLI müssen Sie die folgenden Schritte ausführen.
 
 * Sie benötigen ein Azure-Konto. Wenn Sie dies noch nicht haben, können Sie in nur wenigen Minuten ein [kostenloses Konto](https://azure.microsoft.com/pricing/free-trial/) erstellen.
-* [Installieren Sie die klassische Azure CLI](../cli-install-nodejs.md).
+* [Installieren Sie die klassische Azure CLI](/cli/azure/install-classic-cli).
 * Verbinden Sie die Installation der Azure CLI mit einem persönlichen Azure-Konto oder einem Geschäfts-, Schul- oder Unikonto für Azure, und melden Sie sich mit dem Befehl `azure login` über die klassische Azure CLI an.
-* Wechseln Sie vor dem Ausführen eines der folgenden Befehle in der klassischen Azure CLI in den Resource Manager-Modus, indem Sie den Befehl `azure config mode arm` ausführen. Weitere Informationen finden Sie unter [Verwalten von Azure-Ressourcen und -Ressourcengruppen mithilfe der klassischen Azure CLI](../xplat-cli-azure-resource-manager.md).
+* Wechseln Sie vor dem Ausführen eines der folgenden Befehle in der klassischen Azure CLI in den Resource Manager-Modus, indem Sie den Befehl `azure config mode arm` ausführen. Weitere Informationen finden Sie unter [Verwalten von Azure-Ressourcen und -Ressourcengruppen mithilfe der klassischen Azure CLI](../azure-resource-manager/management/manage-resources-cli.md).
 
 ## <a name="azure-cache-for-redis-properties"></a>Azure Cache for Redis-Eigenschaften
 Die folgenden Eigenschaften werden beim Erstellen und Aktualisieren von Azure Cache for Redis-Instanzen verwendet.

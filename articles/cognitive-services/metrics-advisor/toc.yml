@@ -5,14 +5,14 @@
   items:
     - name: Was ist Metrics Advisor?
       href: overview.md
+    - name: Neuigkeiten
+      href: whats-new.md
 - name: Schnellstarts
   items:
-    - name: Erkunden der Demowebsite
-      href: quickstarts/explore-demo.md
     - name: Verwenden des Webportals
       href: quickstarts/web-portal.md
-    - name: Verwenden der REST-API
-      href: quickstarts/rest-api.md
+    - name: Verwenden der REST-API oder Clientbibliotheken
+      href: quickstarts/rest-api-and-client-library.md
 - name: Gewusst wie
   items:
     - name: Durchführen des Onboardings für Ihre Daten
@@ -40,9 +40,9 @@
     - name: Metrics Advisor-API
       href: 'https://go.microsoft.com/fwlink/?linkid=2141634'
     - name: Azure CLI-Referenz
-      href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
+      href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
     - name: PowerShell-Referenz
-      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+      href: /powershell/module/azurerm.cognitiveservices/
 - name: Ressourcen
   items:
     - name: Support- und Hilfeoptionen
@@ -51,7 +51,7 @@
       href: 'http://go.microsoft.com/fwlink/?LinkID=761229'
     - name: Regionale Verfügbarkeit
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-    - name: Kompatibilität
+    - name: Compliance
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Verschlüsselung
       href: encryption.md

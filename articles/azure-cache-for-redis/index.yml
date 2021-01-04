@@ -9,12 +9,12 @@ metadata:
   author: yegu-ms
   ms.author: yegu
   ms.date: 12/16/2019
-  ms.openlocfilehash: cbf495563a6d3a9000778d8980a506b6726fb658
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 2655c1a5b3a99422a71a2acc18671d9fdd31baa5
+  ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "88006008"
+  ms.lasthandoff: 10/30/2020
+  ms.locfileid: "93099996"
 landingContent:
 - title: Informationen zu Azure Cache for Redis
   linkLists:
@@ -24,22 +24,22 @@ landingContent:
       url: cache-overview.md
   - linkListType: video
     links:
-    - text: Verwaltungsoptionen
-      url: https://azure.microsoft.com/resources/videos/azure-redis-cache-administration-options/
-    - text: Sicherheitszwischenspeicherung
-      url: https://azure.microsoft.com/resources/videos/azure-redis-security-cacheing/
     - text: Bewährte Methoden
       url: https://azure.microsoft.com/resources/videos/azure-redis-cache-best-practices/
     - text: Verbessern der Leistung
       url: https://azure.microsoft.com/resources/videos/increase-performance-through-redis-cluster-in-azure-redis-cache/
+    - text: Sicherheitszwischenspeicherung
+      url: https://azure.microsoft.com/resources/videos/azure-redis-security-cacheing/
+    - text: Verwaltungsoptionen
+      url: https://azure.microsoft.com/resources/videos/azure-redis-cache-administration-options/
   - linkListType: whats-new
     links:
-    - text: Häufig gestellte Fragen
-      url: cache-faq.md
+    - text: Erstellen eines Caches mit Enterprise-Tarif
+      url: quickstart-create-redis-enterprise.md
     - text: Bewährte Methoden für Azure Cache for Redis
       url: cache-best-practices.md
-    - text: ASP.NET-Sitzungszustandsanbieter für Azure Cache for Redis
-      url: cache-aspnet-session-state-provider.md
+    - text: Häufig gestellte Fragen
+      url: cache-faq.md
 - title: 'Schnellstartanleitungen: Azure Cache for Redis'
   linkLists:
   - linkListType: quickstart
@@ -58,8 +58,12 @@ landingContent:
       url: cache-python-get-started.md
   - linkListType: tutorial
     links:
-    - text: Erstellen eines cachefremden Leaderboards in ASP.NET
-      url: cache-web-app-cache-aside-leaderboard.md
+    - text: Verwenden eines Sitzungszustandsanbieters
+      url: cache-aspnet-session-state-provider.md
+    - text: Verwenden eines Ausgabecacheanbieters
+      url: cache-aspnet-output-cache-provider.md
+    - text: Verwenden einer Spring Boot Initializer-Instanz
+      url: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
   - linkListType: get-started
     links:
     - text: Beispiele

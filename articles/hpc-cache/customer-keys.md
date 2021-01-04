@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: 8bce19e384e600e95b8306dcbba38652b4432bc9
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 90af33a01450002c7d36a4ab4cf4a3da647068c5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340528"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444571"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Verwenden von kundenseitig verwalteten Verschlüsselungsschlüsseln für Azure HPC Cache
 
@@ -20,7 +20,7 @@ Sie können Azure Key Vault verwenden, um den Besitz der Schlüssel zu steuern, 
 > [!NOTE]
 > Alle in Azure gespeicherten Daten, einschließlich auf Cachedatenträgern, werden ruhend standardmäßig mithilfe der von Microsoft verwalteten Schlüssel verschlüsselt. Sie müssen die Schritte in diesem Artikel nur ausführen, wenn Sie die zum Verschlüsseln Ihrer Daten verwendeten Schlüssel verwalten möchten.
 
-Azure HPC Cache wird darüber hinaus durch [VM-Hostverschlüsselung](../virtual-machines/linux/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) auf den verwalteten Datenträgern geschützt, die Ihre zwischengespeicherten Daten enthalten, auch wenn Sie einen Kundenschlüssel für die Cachedatenträger hinzufügen. Durch das Hinzufügen eines kundenseitig verwalteten Schlüssels für die doppelte Verschlüsselung wird für Kunden mit hohen Sicherheitsanforderungen die Sicherheit erhöht. Ausführliche Informationen finden Sie unter [Serverseitige Verschlüsselung von Azure Disk Storage](../virtual-machines/linux/disk-encryption.md).
+Azure HPC Cache wird darüber hinaus durch [VM-Hostverschlüsselung](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) auf den verwalteten Datenträgern geschützt, die Ihre zwischengespeicherten Daten enthalten, auch wenn Sie einen Kundenschlüssel für die Cachedatenträger hinzufügen. Durch das Hinzufügen eines kundenseitig verwalteten Schlüssels für die doppelte Verschlüsselung wird für Kunden mit hohen Sicherheitsanforderungen die Sicherheit erhöht. Ausführliche Informationen finden Sie unter [Serverseitige Verschlüsselung von Azure Disk Storage](../virtual-machines/disk-encryption.md).
 
 Diese Funktion ist nur in bestimmten Azure-Regionen verfügbar, in denen auch Azure HPC Cache verfügbar ist. Ausführliche Informationen finden Sie in der Liste [Regionale Verfügbarkeit](hpc-cache-overview.md#region-availability).
 
@@ -123,7 +123,7 @@ Nachdem Sie die Verschlüsselung autorisiert haben, durchläuft Azure HPC Cache 
 
 ## <a name="update-key-settings"></a>Aktualisieren von Schlüsseleinstellungen
 
-Sie können den Schlüsseltresor, den Schlüssel oder die Schlüsselversion für Ihren Cache im Azure-Portal ändern. Klicken Sie auf den Link für die **Verschlüsselungs**einstellungen des Caches, um die Seite mit den **Kundenschlüsseleinstellungen** zu öffnen.
+Sie können den Schlüsseltresor, den Schlüssel oder die Schlüsselversion für Ihren Cache im Azure-Portal ändern. Klicken Sie auf den Link für die **Verschlüsselungs** einstellungen des Caches, um die Seite mit den **Kundenschlüsseleinstellungen** zu öffnen.
 
 Sie können bei einem Cache nicht zwischen kundenseitig und systemseitig verwalteten Schlüsseln wechseln.
 
@@ -144,7 +144,7 @@ Nachdem Sie die neuen Werte für die Verschlüsselungsschlüssel ausgewählt hab
 In diesen Artikeln wird erläutert, wie Sie Azure Key Vault und kundenseitig verwaltete Schlüssel zum Verschlüsseln von Daten in Azure verwenden:
 
 * [Übersicht über die Azure Storage-Verschlüsselung](../storage/common/storage-service-encryption.md)
-* [Datenträgerverschlüsselung mit kundenseitig verwalteten Schlüsseln:](../virtual-machines/linux/disk-encryption.md#customer-managed-keys) Dokumentation zur Verwendung von Azure Key Vault und verwalteten Datenträgern, die als Szenario Azure HPC Cache ähnelt
+* [Datenträgerverschlüsselung mit kundenseitig verwalteten Schlüsseln:](../virtual-machines/disk-encryption.md#customer-managed-keys) Dokumentation zur Verwendung von Azure Key Vault und verwalteten Datenträgern, die als Szenario Azure HPC Cache ähnelt
 
 ## <a name="next-steps"></a>Nächste Schritte
 

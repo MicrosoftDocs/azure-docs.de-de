@@ -4,8 +4,7 @@ titleSuffix: Azure App Configuration
 description: In diesem Tutorial erfahren Sie, wie Sie Featureflags mithilfe von Azure App Configuration getrennt von Ihrer Anwendung verwalten.
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -13,14 +12,14 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/19/2019
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: dd816ebcf2a40e6a0b7febcc3fe5c1006dac20bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0410a1cde12b9ef762d348a286d78b35f7b14bfd
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88209939"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932301"
 ---
 # <a name="tutorial-manage-feature-flags-in-azure-app-configuration"></a>Tutorial: Verwalten von Featureflags in Azure App Configuration
 
@@ -56,6 +55,7 @@ So fügen Sie ein neues Featureflag hinzu:
     |---|---|
     | Microsoft.Percentage | {"Value": 0–100 Prozent} |
     | Microsoft.TimeWindow | {"Start": UTC-Zeit, "End": UTC-Zeit} |
+    | Microsoft.Targeting | { "Audience": JSON-Blob, das Benutzer, Gruppen und Rolloutprozentsätze definiert. Ein Beispiel finden Sie unter dem Element `EnabledFor` [dieser Einstellungsdatei](https://github.com/microsoft/FeatureManagement-Dotnet/blob/master/examples/FeatureFlagDemo/appsettings.json).}
 
     ![Featureflagfilter](./media/azure-app-configuration-feature-flag-filter.png)
 
@@ -65,7 +65,7 @@ So ändern Sie den Zustandswert eines Featureflags:
 
 1. Wählen Sie **Feature-Manager** aus.
 
-1. Wählen Sie rechts neben dem zu ändernden Featureflag die Schaltfläche mit den Auslassungspunkten ( **...** ) und anschließend **Bearbeiten** aus.
+1. Wählen Sie rechts neben dem zu ändernden Featureflag die Schaltfläche mit den Auslassungspunkten (**...**) und anschließend **Bearbeiten** aus.
 
 1. Legen Sie einen neuen Zustand für das Featureflag fest.
 

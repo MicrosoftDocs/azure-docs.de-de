@@ -1,7 +1,7 @@
 ---
 title: 'Two-Class Logistic Regression: Modulreferenz'
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Sie mit dem Modul Two-Class Logistic Regression in Azure Machine Learning ein logistisches Regressionsmodell erstellen, mit dem Sie zwei (und nur zwei) Ergebnisse vorhersagen können.
+description: Erfahren Sie, wie Sie mit dem Modul Two-Class Logistic Regression in Azure Machine Learning einen binären Klassifizierer erstellen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 525293c7ae3d0af49f6deaa0ce9d3cb037d9ba38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e29a666f4d478e11986f834cff94d9743223f22
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907702"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012645"
 ---
 # <a name="two-class-logistic-regression-module"></a>Modul „Two-Class Logistic Regression“ (Logistische Regression mit zwei Klassen)
 
@@ -58,7 +58,7 @@ Beispielsweise kann die Bezeichnungsspalte [Abgestimmt] mit den möglichen Werte
      Dieser Algorithmus unterstützt eine lineare Kombination von L1- und L2-Regularisierungswerten, d.h. wenn <code>x = L1</code> und <code>y = L2</code>, dann definiert <code>ax + by = c</code> die lineare Spanne der Regalisierungsbegriffe.  
   
     > [!NOTE]
-    >  Möchten Sie mehr zur L1- und L2-Regularisierung erfahren? Der folgende Artikel bietet eine Diskussion darüber, inwieweit sich die L1- und L2-Regularisierung unterscheiden und wie sie sich auf die Modellanpassung auswirken, sowie Codebeispiele für logistische Regressions- und neuronale Netzmodelle:  [L1- und L2-Regularisierung für Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
+    >  Möchten Sie mehr zur L1- und L2-Regularisierung erfahren? Der folgende Artikel bietet eine Diskussion darüber, inwieweit sich die L1- und L2-Regularisierung unterscheiden und wie sie sich auf die Modellanpassung auswirken, sowie Codebeispiele für logistische Regressions- und neuronale Netzmodelle:  [L1- und L2-Regularisierung für Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning)  
     >
     > Für logistische Regressionsmodelle wurden verschiedene lineare Kombinationen von L1- und L2-Begriffen entwickelt: zum Beispiel [Regularisierung mit elastischem Netz](https://wikipedia.org/wiki/Elastic_net_regularization). Wir empfehlen, dass Sie sich auf diese Kombinationen beziehen, um eine lineare Kombination zu definieren, die in Ihrem Modell wirksam ist.
       
@@ -97,4 +97,4 @@ Nach Abschluss des Trainings:
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Sehen Sie sich den [Satz der verfügbaren Module](module-reference.md) für Azure Machine Learning an. 
+Sehen Sie sich den [Satz der verfügbaren Module](module-reference.md) für Azure Machine Learning an.

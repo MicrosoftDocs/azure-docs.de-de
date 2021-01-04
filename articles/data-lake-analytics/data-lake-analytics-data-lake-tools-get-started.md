@@ -5,12 +5,12 @@ ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 08/30/2019
-ms.openlocfilehash: 83384dd24141cfeb7b03f388e6e3505fea8f496e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: d3812cb27d2d9ea7a49038f566f8b4cc5d779172
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221076"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241691"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Entwickeln von U-SQL-Skripts mit Data Lake-Tools für Visual Studio
 
@@ -51,7 +51,7 @@ Für dieses Tutorial muss Data Lake Tools für Visual Studio installiert sein. W
 
 1. Öffnen Sie Visual Studio.
 
-1. Öffnen Sie **Server-Explorer**, indem Sie **Ansicht** > **Server-Explorer** auswählen.
+1. Öffnen Sie **Data Lake Analytics-Explorer**, indem Sie **Ansicht** > **Data Lake Analytics-Explorer** auswählen.
 
 1. Klicken Sie mit der rechten Maustaste auf **Azure**, und wählen Sie dann **Verbindung mit Microsoft Azure-Abonnement herstellen** aus. Befolgen Sie die Anweisungen unter **Bei Ihrem Konto anmelden**.
 

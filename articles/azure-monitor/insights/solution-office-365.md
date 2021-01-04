@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
 ms.openlocfilehash: eb20bf4164cb2153f6786dbec04f79453554fa25
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999737"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995861"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-Verwaltungslösung in Azure (Vorschau)
 
@@ -31,7 +31,7 @@ ms.locfileid: "91999737"
 > 1. Die Verwendung des Office 365-Connectors in Azure Sentinel wirkt sich auf die Preise für Ihren Arbeitsbereich aus. Weitere Informationen finden Sie unter [Azure Sentinel – Preise](https://azure.microsoft.com/pricing/details/azure-sentinel/).
 > 2. Wenn Sie bereits die Office 365-Lösung in Azure Monitor verwenden, müssen Sie diese zunächst mithilfe des Skripts im [Abschnitt „Deinstallieren“ unten](#uninstall) deinstallieren.
 > 3. [Aktivieren Sie die Azure Sentinel-Lösung](../../sentinel/quickstart-onboard.md) in Ihrem Arbeitsbereich.
-> 4. Navigieren Sie in Azure Sentinel zur Seite **Datenconnectors** , und aktivieren Sie den **Office 365** -Connector.
+> 4. Navigieren Sie in Azure Sentinel zur Seite **Datenconnectors**, und aktivieren Sie den **Office 365**-Connector.
 >
 > ## <a name="frequently-asked-questions"></a>Häufig gestellte Fragen
 > 
@@ -43,7 +43,7 @@ ms.locfileid: "91999737"
 > 
 > Die neuen Protokolle der [Azure AD-Lösung für Berichterstellung und Überwachung](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md) werden in den Tabellen [SigninLogs](../../active-directory/reports-monitoring/concept-sign-ins.md) and [AuditLogs](../../active-directory/reports-monitoring/concept-audit-logs.md) anstelle der Tabelle **OfficeActivity** erfasst. Weitere Informationen finden Sie unter [Analysieren von Azure AD-Protokollen](../../active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics.md). Dieses Thema betrifft auch Azure Sentinel- und Azure Monitor-Benutzer.
 > 
-> Es folgen Beispiele für das Konvertieren von Abfragen aus **OfficeActivity** in **SigninLogs** :
+> Es folgen Beispiele für das Konvertieren von Abfragen aus **OfficeActivity** in **SigninLogs**:
 > 
 > **Abfrage fehlerhafter Anmeldungen nach Benutzer:**
 > 
@@ -104,12 +104,12 @@ ms.locfileid: "91999737"
 > 
 > ###    <a name="q-what-will-happen-on-october-31-do-i-need-to-offboard-beforehand"></a>F: Was geschieht am 31. Oktober? Muss ich vorab ein Offboarding durchführen?
 > 
-> - Sie können keine Daten mehr von der **Office 365** -Lösung empfangen. Die Lösung wird aus dem Arbeitsbereich entfernt und ist im Marketplace nicht mehr verfügbar.
+> - Sie können keine Daten mehr von der **Office 365**-Lösung empfangen. Die Lösung wird aus dem Arbeitsbereich entfernt und ist im Marketplace nicht mehr verfügbar.
 > - Für Azure Sentinel-Kunden wird die Log Analytics-Arbeitsbereichslösung **Office365** in die Azure Sentinel-Lösung **SecurityInsights** eingeschlossen.
 > - Wenn Sie bis zum 31. Oktober kein manuelles Offboarding für die Lösung durchführen, werden Ihre Daten automatisch getrennt, und die Tabelle **OfficeActivity** wird entfernt. Sie können die Tabelle dennoch wiederherstellen, wenn Sie den Office 365-Connector in Azure Sentinel wie unten erläutert aktivieren.
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>F: Werden meine Daten in die neue Lösung übertragen?
-> Ja. Wenn Sie die **Office 365** -Lösung aus Ihrem Arbeitsbereich entfernen, sind die Daten vorübergehend nicht verfügbar, da das Schema entfernt wird. Sobald Sie den neuen **Office 365** -Connector in Sentinel aktivieren, wird das Schema im Arbeitsbereich wiederhergestellt, und alle bereits erfassten Daten sind wieder verfügbar. 
+> Ja. Wenn Sie die **Office 365**-Lösung aus Ihrem Arbeitsbereich entfernen, sind die Daten vorübergehend nicht verfügbar, da das Schema entfernt wird. Sobald Sie den neuen **Office 365**-Connector in Sentinel aktivieren, wird das Schema im Arbeitsbereich wiederhergestellt, und alle bereits erfassten Daten sind wieder verfügbar. 
  
 
 Mit der Office 365-Verwaltungslösung können Sie Ihre Office 365-Umgebung in Azure Monitor überwachen.
@@ -125,7 +125,7 @@ Mit der Office 365-Verwaltungslösung können Sie Ihre Office 365-Umgebung in Az
 
 Sie können die Office 365-Verwaltungslösung mithilfe des in [Entfernen einer Verwaltungslösung](solutions.md#remove-a-monitoring-solution) beschriebenen Prozesses entfernen. Dadurch wird das Sammeln von Daten aus Office 365 in Azure Monitor jedoch nicht beendet. Gehen Sie wie folgt vor, um das Abonnement von Office 365 zu kündigen und die Datensammlung zu beenden.
 
-1. Speichern Sie das folgende Skript als *office365_unsubscribe.ps1* .
+1. Speichern Sie das folgende Skript als *office365_unsubscribe.ps1*.
 
     ```powershell
     param (
@@ -237,7 +237,7 @@ Es kann einige Stunden dauern, bis die Daten gesammelt werden. Sobald die Sammlu
 Wenn Sie die Office 365-Lösung dem Log Analytics-Arbeitsbereich hinzufügen, wird Ihr Dashboard um die Kachel **Office 365** erweitert. Auf dieser Kachel werden ein Zahlenwert und eine grafische Darstellung der Anzahl von Computern in Ihrer Umgebung und jeweils die Updatekonformität angezeigt.<br><br>
 ![Kachel mit der Office 365-Zusammenfassung](media/solution-office-365/tile.png)  
 
-Klicken Sie auf die Kachel **Office 365** , um das Dashboard **Office 365** zu öffnen.
+Klicken Sie auf die Kachel **Office 365**, um das Dashboard **Office 365** zu öffnen.
 
 ![Office 365-Dashboard](media/solution-office-365/dashboard.png)  
 

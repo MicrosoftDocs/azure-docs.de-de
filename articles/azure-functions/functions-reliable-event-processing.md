@@ -3,14 +3,14 @@ title: Zuverlässige Ereignisverarbeitung in Azure Functions
 description: Vermeiden, Event Hub-Nachrichten in Azure Functions zu verpassen
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/01/2020
 ms.author: cshoe
-ms.openlocfilehash: 93a12d40e876293eb587ffba865a1d3b1f5f4983
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd784bb184ff9432efc569ac9fd40de93eec0b53
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86506025"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379586"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Zuverlässige Ereignisverarbeitung in Azure Functions
 
@@ -50,7 +50,7 @@ Azure Functions nutzt Event Hub-Ereignisse, während die folgenden Schritte durc
 
 Dieses Verhalten offenbart einige wichtige Aspekte:
 
-- *Unbehandelte Ausnahmen können zum Verlust von Nachrichten führen.* Bei Ausführungen, die zu einer Ausnahme führen, wird der Zeiger weiter vorwärtsbewegt.
+- *Unbehandelte Ausnahmen können zum Verlust von Nachrichten führen.* Bei Ausführungen, die zu einer Ausnahme führen, wird der Zeiger weiter vorwärtsbewegt.  Das Festlegen einer [Wiederholungsrichtlinie](./functions-bindings-error-pages.md#retry-policies-preview) verzögert die Verarbeitung des Zeigers so lange, bis die gesamte Wiederholungsrichtlinie ausgewertet wurde.
 - *Funktionen garantieren eine mindestens einmalige Zustellung.* Ihr Code sowie Ihre abhängigen Systeme müssen möglicherweise [die Tatsache berücksichtigen, dass dieselbe Nachricht zweimal empfangen werden könnte](./functions-idempotent.md).
 
 ## <a name="handling-exceptions"></a>Behandeln von Ausnahmen
@@ -59,9 +59,9 @@ Als allgemeine Regel gilt, dass jede Funktion einen [try/catch-Block](./function
 
 ### <a name="retry-mechanisms-and-policies"></a>Wiederholungsmechanismen und -richtlinien
 
-Einige Ausnahmen sind vorübergehender Natur und treten nicht erneut auf, wenn ein Vorgang ein wenig später noch mal versucht wird. Aus diesem Grund besteht der erste Schritt immer darin, den Vorgang zu wiederholen. Sie könnten selbst Regeln für die Verarbeitung von Wiederholungsversuchen schreiben, aber diese sind so gängig, dass eine Reihe von Tools verfügbar ist. Mithilfe dieser Bibliotheken können Sie robuste Wiederholungsrichtlinien definieren, die auch bei der Aufrechterhaltung der Verarbeitungsreihenfolge helfen können.
+Einige Ausnahmen sind vorübergehender Natur und treten nicht erneut auf, wenn ein Vorgang ein wenig später noch mal versucht wird. Aus diesem Grund besteht der erste Schritt immer darin, den Vorgang zu wiederholen.  Sie können die [Wiederholungsrichtlinien](./functions-bindings-error-pages.md#retry-policies-preview) der Funktions-App nutzen oder Wiederholungslogik innerhalb der Funktionsausführung schreiben.
 
-Durch die Einführung von Fehlerbehandlungsbibliotheken in ihre Funktionen können Sie sowohl einfache als auch komplexe Wiederholungsrichtlinien definieren. Beispielsweise könnten Sie eine Richtlinie implementieren, die einem Workflow folgt, der durch die folgenden Regeln veranschaulicht wird:
+Durch die Einführung von Verhaltensweisen zur Fehlerbehandlung in Ihre Funktionen können Sie sowohl einfache als auch komplexe Wiederholungsrichtlinien definieren. Beispielsweise könnten Sie eine Richtlinie implementieren, die einem Workflow folgt, der durch die folgenden Regeln veranschaulicht wird:
 
 - Versuche, eine Nachricht dreimal einzufügen (möglicherweise mit einer Verzögerung zwischen den Wiederholungen).
 - Wenn das Endergebnis aller Wiederholungen ein Fehler ist, füge eine Nachricht zu einer Warteschlange hinzu, damit die Verarbeitung im Datenstrom fortgesetzt werden kann.
@@ -69,10 +69,6 @@ Durch die Einführung von Fehlerbehandlungsbibliotheken in ihre Funktionen könn
 
 > [!NOTE]
 > [Polly](https://github.com/App-vNext/Polly) ist ein Beispiel für eine Bibliothek für Resilienz und die Behandlung vorübergehender Fehler für C#-Anwendungen.
-
-Bei der Arbeit mit vorkompilierten C#-Klassenbibliotheken gestatten Ihnen [Ausnahmefilter](/dotnet/csharp/language-reference/keywords/try-catch) die Ausführung von Code, wenn eine nicht behandelte Ausnahme auftritt.
-
-Beispiele, die veranschaulichen, wie Sie Ausnahmefilter verwenden, sind im Repository [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) verfügbar.
 
 ## <a name="non-exception-errors"></a>Fehler ohne Ausnahmen
 

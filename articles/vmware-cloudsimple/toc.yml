@@ -52,6 +52,8 @@
           href: node-quota.md
         - name: Wartung und Updates
           href: cloudsimple-maintenance-updates.md
+        - name: Unzulässige Aktionen
+          href: forbidden-actions.md
         - name: FAQ
           href: cloudsimple-faq.md
     - name: Tutorials

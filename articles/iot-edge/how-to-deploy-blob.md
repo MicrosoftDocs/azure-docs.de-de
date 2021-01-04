@@ -7,12 +7,12 @@ ms.date: 3/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
-ms.openlocfilehash: 2b5b7b45cc52d900e5ecde59e6a5ae203533286b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 12f0af5f051d02945eeb9b1f7d4bfc50ef98f281
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978865"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014685"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Bereitstellen des Moduls „Azure Blob Storage auf IoT Edge“ auf Ihrem Gerät
 
@@ -53,7 +53,7 @@ Ein Bereitstellungsmanifest ist ein JSON-Dokument, das beschreibt, welche Module
    - **Name des IoT Edge-Moduls**: `azureblobstorageoniotedge`
    - **Image-URI**: `mcr.microsoft.com/azure-blob-storage:latest`
 
-   ![Einstellungen für Modulzwilling](./media/how-to-deploy-blob/addmodule-tab1.png)
+   ![Screenshot: Registerkarte „Moduleinstellungen“ auf der Seite „IoT Edge-Modul hinzufügen“](./media/how-to-deploy-blob/addmodule-tab1.png)
 
    Klicken Sie erst dann auf **Hinzufügen**, wenn Sie auf den Registerkarten **Moduleinstellungen**, **Optionen für Containererstellung** und **Einstellungen für Modulzwilling** Werte eingegeben haben, wie in diesem Verfahren beschrieben.
 
@@ -62,7 +62,7 @@ Ein Bereitstellungsmanifest ist ein JSON-Dokument, das beschreibt, welche Module
 
 3. Öffnen Sie die Registerkarte **Optionen für Containererstellung**.
 
-   ![Einstellungen für Modulzwilling](./media/how-to-deploy-blob/addmodule-tab3.png)
+   ![Screenshot: Registerkarte „Optionen für Containererstellung“ auf der Seite „IoT Edge-Modul hinzufügen“](./media/how-to-deploy-blob/addmodule-tab3.png)
 
    Kopieren Sie den folgenden JSON-Code, und fügen Sie ihn in das Feld ein, um Informationen zum Speicherkonto und eine Einbindung für den Speicher auf Ihrem Gerät bereitzustellen.
   
@@ -104,7 +104,7 @@ Ein Bereitstellungsmanifest ist ein JSON-Dokument, das beschreibt, welche Module
 
 5. Kopieren Sie den folgenden JSON-Code, und fügen Sie ihn auf der Registerkarte **Einstellungen für Modulzwilling** in das Feld ein.
 
-   ![Einstellungen für Modulzwilling](./media/how-to-deploy-blob/addmodule-tab4.png)
+   ![Screenshot: Registerkarte „Einstellungen für Modulzwilling“ auf der Seite „IoT Edge-Modul hinzufügen“](./media/how-to-deploy-blob/addmodule-tab4.png)
 
    Konfigurieren Sie die jeweilige Eigenschaft mit einem geeigneten Wert, wie durch die Platzhalter angegeben. Wenn Sie den IoT Edge-Simulator verwenden, legen Sie die Werte auf die zugehörigen Umgebungsvariablen für diese Eigenschaften fest, wie durch [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) und [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) beschrieben.
 
@@ -286,7 +286,7 @@ Außerdem erfordert ein Blob Storage-Modul die Einstellung „HTTPS_PROXY“ in 
 
 1. Wählen Sie `HTTPS_PROXY` als **Name** und Ihre Proxy-URL als **Wert** aus.
 
-      ![Festlegen der HTTPS_PROXY-Umgebungsvariablen](./media/how-to-deploy-blob/https-proxy-config.png)
+      ![Screenshot: Bereich „IoT Edge-Modul aktualisieren“, in dem Sie die angegebenen Werte eingeben können](./media/how-to-deploy-blob/https-proxy-config.png)
 
 1. Klicken Sie auf **Aktualisieren** und dann auf **Bewerten + erstellen**.
 
@@ -294,7 +294,7 @@ Außerdem erfordert ein Blob Storage-Modul die Einstellung „HTTPS_PROXY“ in 
 
 1. Überprüfen Sie die Einstellung, indem Sie das Modul auf der Seite „Gerätedetails“ auswählen. Wählen Sie dann im unteren Teil der Seite **IoT Edge-Module – Details** die Registerkarte **Umgebungsvariablen** aus.
 
-      ![Festlegen der HTTPS_PROXY-Umgebungsvariablen](./media/how-to-deploy-blob/verify-proxy-config.png)
+      ![Screenshot: Registerkarte „Umgebungsvariablen“](./media/how-to-deploy-blob/verify-proxy-config.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 89adc283fa9d6edc49536cb9459a479710c94435
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7edf790e526329dd285d03a31137a26220e52ee
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85921151"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018646"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Verwendung von Azure CDN mit CORS
 ## <a name="what-is-cors"></a>Was ist CORS?
@@ -75,7 +75,7 @@ Unter Azure CDN Standard von Microsoft können Sie eine Regel in der [Standardre
 Unter [Azure CDN-Standard von Akamai](cdn-query-string.md) ist der einzige Mechanismus, um mehrere Ursprünge ohne Verwendung des Platzhalterursprungs zuzulassen, die Verwendung der **Zwischenspeicherung von Abfragezeichenfolgen**. Aktivieren Sie Abfragezeichenfolgen für den CDN-Endpunkt, und verwenden Sie anschließend eine eindeutige Abfragezeichenfolge für Anforderungen von den einzelnen zulässigen Domänen. Dadurch speichert das CDN ein separates Objekt für jede eindeutige Abfragezeichenfolge zwischen. Dieser Ansatz ist jedoch nicht ideal, da so mehrere Kopien derselben Datei im CDN zwischengespeichert werden.  
 
 ### <a name="azure-cdn-premium-from-verizon"></a>Azure CDN Premium von Verizon
-Unter Verwendung der Verizon Premium-Regel-Engine müssen Sie [eine Regel erstellen](cdn-rules-engine.md), um den **Ursprungsheader** in der Anforderung zu überprüfen.  Wenn es sich hierbei um einen gültigen Ursprung handelt, legt Ihre Regel den **Access-Control-Allow-Origin** -Header mit dem in der Anforderung bereitgestellten Ursprung fest.  Wenn der im Header **Origin** angegebene Ursprung nicht zulässig ist, sollte Ihre Regel den **Access-Control-Allow-Origin**-Header auslassen, der den Browser dazu bringt, die Anforderung abzulehnen. 
+Unter Verwendung der Verizon Premium-Regel-Engine müssen Sie [eine Regel erstellen](./cdn-verizon-premium-rules-engine.md), um den **Ursprungsheader** in der Anforderung zu überprüfen.  Wenn es sich hierbei um einen gültigen Ursprung handelt, legt Ihre Regel den **Access-Control-Allow-Origin** -Header mit dem in der Anforderung bereitgestellten Ursprung fest.  Wenn der im Header **Origin** angegebene Ursprung nicht zulässig ist, sollte Ihre Regel den **Access-Control-Allow-Origin**-Header auslassen, der den Browser dazu bringt, die Anforderung abzulehnen. 
 
 Es gibt zwei Möglichkeiten, dies mit der Premium-Regel-Engine zu tun. In beiden Fällen wird der **Access-Control-Allow-Origin**-Header des Ursprungsservers der Datei ignoriert und die CDN-Regel-Engine verwaltet vollständig die zulässigen CORS-Ursprünge.
 
@@ -103,7 +103,4 @@ Statt reguläre Ausdrücke können Sie stattdessen eine separate Regel für jede
 > [!TIP]
 > Im obigen Beispiel weist die Verwendung des Platzhalterzeichens „*“ die Regel-Engine an, sowohl HTTP als auch HTTPS abzugleichen.
 > 
-> 
-
-
-
+>

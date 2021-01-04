@@ -7,18 +7,18 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 11/15/2019
 ms.author: matjazl
-ms.openlocfilehash: 2850f831100533908d55c4aab372338e07b3807f
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 3fe4118a8ecf4479732ba4073b342d3ec9f941b8
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042489"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398197"
 ---
 # <a name="configure-database-settings"></a>Konfigurieren der Datenbankeinstellungen 
 
 Azure API for FHIR verwendet eine Datenbank zum Speichern der Daten. Die Leistung der zugrunde liegenden Datenbank hängt von der Anzahl der Anforderungseinheiten (Request Unit, RU) ab, die während der Dienstbereitstellung oder nach der Dienstbereitstellung in den Datenbankeinstellungen ausgewählt wurde.
 
-Azure API for FHIR wendet beim Festlegen der Leistung der zugrunde liegenden Datenbank das Konzept der Anforderungseinheiten von Cosmos DB an (siehe [Anforderungseinheiten in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/request-units)). 
+Azure API for FHIR wendet beim Festlegen der Leistung der zugrunde liegenden Datenbank das Konzept der Anforderungseinheiten von Cosmos DB an (siehe [Anforderungseinheiten in Azure Cosmos DB](../cosmos-db/request-units.md)). 
 
 Durchsatz muss bereitgestellt werden, um zu gewährleisten, dass jederzeit genügend Systemressourcen für Ihre Datenbank zur Verfügung stehen. Die erforderliche Anzahl von RUs für Ihre Anwendung hängt von den ausgeführten Vorgängen ab. Vorgänge können von einfachen Lese- und Schreibvorgängen bis hin zu komplexeren Abfragen reichen. 
 

@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Bereitstellen eines vSphere-Clusters in Azure'
-description: Hier erfahren Sie, wie Sie mithilfe von Azure VMware Solution einen vSphere-Cluster in Azure bereitstellen.
+description: In diesem Tutorial erfahren Sie, wie Sie mithilfe von Azure VMware Solution einen vSphere-Cluster in Azure bereitstellen.
 ms.topic: tutorial
-ms.date: 09/21/2020
-ms.openlocfilehash: b673a67fac734c9cb63e96b6a0c3dc9182f4b994
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 11/19/2020
+ms.openlocfilehash: 93937f8ca0918494810885f5cb45de571a6e1529
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952283"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966308"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Tutorial: Bereitstellen einer privaten Azure VMware Solution-Cloud in Azure
 
@@ -43,7 +43,7 @@ Sie können eine private Azure VMware Solution-Cloud über das [Azure-Portal](#a
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Zum Erstellen einer privaten Azure VMware Solution-Cloud können Sie anstelle des Azure-Portals auch die Azure CLI über Azure Cloud Shell verwenden.  Eine Liste mit Befehlen, die Sie mit Azure VMware Solution verwenden können, finden Sie [hier](/cli/azure/ext/vmware/vmware).
+Zum Erstellen einer privaten Azure VMware Solution-Cloud können Sie anstelle des Azure-Portals auch die Azure CLI über Azure Cloud Shell verwenden.  Eine Liste der Befehle, die Sie mit Azure VMware Solution verwenden können, finden Sie [hier](/cli/azure/ext/vmware/vmware).
 
 #### <a name="open-azure-cloud-shell"></a>Öffnen von Azure Cloud Shell
 
@@ -51,7 +51,7 @@ Wählen Sie rechts oben in einem Codeblock die Option **Jetzt testen** aus. Sie 
 
 #### <a name="create-a-resource-group"></a>Erstellen einer Ressourcengruppe
 
-Erstellen Sie mithilfe des Befehls [az group create](/cli/azure/group) eine Ressourcengruppe. Eine Azure-Ressourcengruppe ist ein logischer Container, in dem Azure-Ressourcen bereitgestellt und verwaltet werden. Im folgenden Beispiel wird eine Ressourcengruppe mit dem Namen *myResourceGroup* am Standort *eastus* erstellt:
+Erstellen Sie mit dem Befehl `[az group create](/cli/azure/group)` eine Ressourcengruppe. Eine Azure-Ressourcengruppe ist ein logischer Container, in dem Azure-Ressourcen bereitgestellt und verwaltet werden. Im folgenden Beispiel wird eine Ressourcengruppe mit dem Namen *myResourceGroup* am Standort *eastus* erstellt:
 
 ```azurecli-interactive
 
@@ -77,7 +77,7 @@ az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --locati
 
 ## <a name="delete-an-azure-vmware-solution-private-cloud"></a>Löschen einer privaten Azure VMware Solution-Cloud
 
-Wenn Sie über eine private Azure VMware Solution-Cloud verfügen, die Sie nicht mehr benötigen, können Sie sie löschen. Eine private Azure VMware Solution-Cloud umfasst eine isolierte Netzwerkdomäne, mindestens einen auf dedizierten Serverknoten bereitgestellten vSphere-Cluster und in der Regel zahlreiche virtuelle Computer. Wenn eine private Cloud gelöscht wird, werden auch alle virtuellen Computer, ihre Daten und Cluster entfernt. Die dedizierten Bare-Metal-Knoten werden auf sichere Weise bereinigt und an den freien Pool zurückgegeben. Die für den Kunden bereitgestellte Netzwerkdomäne wird gelöscht.  
+Wenn Sie über eine private Azure VMware Solution-Cloud verfügen, die Sie nicht mehr benötigen, können Sie sie löschen. Eine private Azure VMware Solution-Cloud umfasst eine isolierte Netzwerkdomäne, mindestens einen bereitgestellten vSphere-Cluster auf dedizierten Serverhosts und mehrere virtuelle Computer. Wenn eine private Cloud gelöscht wird, werden auch alle virtuellen Computer, ihre Daten und Cluster entfernt. Die dedizierten Bare-Metal-Hosts werden auf sichere Weise bereinigt und an den freien Pool zurückgegeben. Die für den Kunden bereitgestellte Netzwerkdomäne wird gelöscht.  
 
 > [!CAUTION]
 > Das Löschen der privaten Cloud kann nicht rückgängig gemacht werden. Die Daten können nach dem Löschen der privaten Cloud nicht wiederhergestellt werden, da alle aktiven Workloads und Komponenten beendet und sämtliche Daten und Konfigurationseinstellungen der privaten Cloud zerstört werden (einschließlich der öffentlichen IP-Adressen).
@@ -92,15 +92,15 @@ Nachdem eine private Cloud gelöscht wurde, gibt es keine Möglichkeit, die virt
 
 2. Wählen Sie die zu löschende private Cloud aus.
  
-3. Geben Sie den Namen der privaten Cloud ein, und wählen Sie **Ja** aus. Der Löschvorgang ist in wenigen Stunden abgeschlossen.  
+3. Geben Sie den Namen der privaten Cloud ein, und wählen Sie **Ja** aus. Der Löschvorgang ist in einigen Stunden abgeschlossen.  
 
 ## <a name="azure-vmware-commands"></a>Azure VMware-Befehle
 
-Eine Liste mit Befehlen, die Sie mit Azure VMware Solution verwenden können, finden Sie [hier](/cli/azure/ext/vmware/vmware).
+Eine Liste der Befehle, die Sie mit Azure VMware Solution verwenden können, finden Sie [hier](/cli/azure/ext/vmware/vmware).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In diesem Tutorial haben Sie Folgendes gelernt:
+In diesem Tutorial wurde Folgendes vermittelt:
 
 > [!div class="checklist"]
 > * Erstellen einer privaten Cloud von Azure VMware Solution

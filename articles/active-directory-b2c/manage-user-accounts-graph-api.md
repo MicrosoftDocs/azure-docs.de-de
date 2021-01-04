@@ -12,12 +12,12 @@ ms.date: 08/03/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8132eb72b3e448d7ae830b29ccb7dc51528c1250
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5fcbf80850fd9de77e6f9a431afea6d48cb14d1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87921400"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949410"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Verwalten von Azure AD B2C-Benutzerkonten mit Microsoft Graph
 
@@ -35,13 +35,13 @@ Befolgen Sie die Anleitungsschritte in diesem Artikel, um eine Anwendungsregistr
 
 ## <a name="user-management-microsoft-graph-operations"></a>Microsoft Graph-Vorgänge für die Benutzerverwaltung
 
-Die folgenden Benutzerverwaltungsvorgänge sind in der [Microsoft Graph-API](https://docs.microsoft.com/graph/api/resources/user) verfügbar:
+Die folgenden Benutzerverwaltungsvorgänge sind in der [Microsoft Graph-API](/graph/api/resources/user) verfügbar:
 
-- [Abrufen einer Liste der Benutzer](https://docs.microsoft.com/graph/api/user-list)
-- [Erstellen eines Benutzers](https://docs.microsoft.com/graph/api/user-post-users)
-- [Abrufen eines Benutzers](https://docs.microsoft.com/graph/api/user-get)
-- [Aktualisieren eines Benutzers](https://docs.microsoft.com/graph/api/user-update)
-- [Löschen eines Benutzers](https://docs.microsoft.com/graph/api/user-delete)
+- [Abrufen einer Liste der Benutzer](/graph/api/user-list)
+- [Erstellen eines Benutzers](/graph/api/user-post-users)
+- [Abrufen eines Benutzers](/graph/api/user-get)
+- [Aktualisieren eines Benutzers](/graph/api/user-update)
+- [Löschen eines Benutzers](/graph/api/user-delete)
 
 ## <a name="user-properties"></a>Benutzereigenschaften
 
@@ -125,7 +125,7 @@ Die Microsoft Graph-API unterstützt das Erstellen und Aktualisieren eines Benut
 
 ## <a name="code-sample-how-to-programmatically-manage-user-accounts"></a>Codebeispiel: Programmgesteuertes Verwalten von Benutzerkonten
 
-Dieses Codebeispiel ist eine .NET Core-Konsolenanwendung, die das [Microsoft Graph SDK](https://docs.microsoft.com/graph/sdks/sdks-overview) für die Interaktion mit der Microsoft Graph-API verwendet. Der Code veranschaulicht, wie die API aufgerufen wird, um Benutzer in einem Azure AD B2C-Mandanten programmgesteuert zu verwalten.
+Dieses Codebeispiel ist eine .NET Core-Konsolenanwendung, die das [Microsoft Graph SDK](/graph/sdks/sdks-overview) für die Interaktion mit der Microsoft Graph-API verwendet. Der Code veranschaulicht, wie die API aufgerufen wird, um Benutzer in einem Azure AD B2C-Mandanten programmgesteuert zu verwalten.
 Sie können das [Beispielarchiv herunterladen](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management/archive/master.zip) (*.zip), das Repository auf GitHub [durchsuchen](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management) oder das Repository klonen:
 
 ```cmd
@@ -145,14 +145,14 @@ Nachdem Sie das Codebeispiel abgerufen haben, konfigurieren Sie es für Ihre Umg
 1. Führen Sie die Anwendung mit Befehl `dotnet` aus:
 
     ```console
-    dotnet bin/Debug/netcoreapp3.0/b2c-ms-graph.dll
+    dotnet bin/Debug/netcoreapp3.1/b2c-ms-graph.dll
     ```
 
 Die Anwendung zeigt eine Liste der Befehle an, die Sie ausführen können. Beispielsweise können Sie alle Benutzer oder einen einzelnen Benutzer abrufen, einen Benutzer löschen, das Kennwort eines Benutzers aktualisieren und einen Massenimport ausführen.
 
 ### <a name="code-discussion"></a>Überlegungen zum Code
 
-Der Beispielcode verwendet das [Microsoft Graph SDK](https://docs.microsoft.com/graph/sdks/sdks-overview), das entwickelt wurde, um das Entwickeln hochwertiger, effizienter und robuster Anwendungen mit Zugriff auf Microsoft Graph zu vereinfachen.
+Der Beispielcode verwendet das [Microsoft Graph SDK](/graph/sdks/sdks-overview), das entwickelt wurde, um das Entwickeln hochwertiger, effizienter und robuster Anwendungen mit Zugriff auf Microsoft Graph zu vereinfachen.
 
 Alle Anforderungen an die Microsoft Graph-API erfordern ein Zugriffstoken für die Authentifizierung. Die Lösung nutzt das NuGet-Paket [Microsoft.Graph.Auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/), das einen auf einem Authentifizierungsszenario basierenden Wrapper der Microsoft Authentication Library (MSAL) für die Verwendung mit dem Microsoft Graph SDK bereitstellt.
 
@@ -203,7 +203,7 @@ public static async Task ListUsers(GraphServiceClient graphClient)
 }
 ```
 
-Das [Ausführen von API-Aufrufen mithilfe der Microsoft Graph-SDKs](https://docs.microsoft.com/graph/sdks/create-requests) umfasst Informationen zum Lesen und Schreiben von Informationen aus Microsoft Graph. Verwenden Sie `$select`, um die zurückgegebenen Eigenschaften zu steuern, benutzerdefinierte Abfrageparameter bereitzustellen und die Abfrageparameter `$filter` und `$orderBy` zu verwenden.
+Das [Ausführen von API-Aufrufen mithilfe der Microsoft Graph-SDKs](/graph/sdks/create-requests) umfasst Informationen zum Lesen und Schreiben von Informationen aus Microsoft Graph. Verwenden Sie `$select`, um die zurückgegebenen Eigenschaften zu steuern, benutzerdefinierte Abfrageparameter bereitzustellen und die Abfrageparameter `$filter` und `$orderBy` zu verwenden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
@@ -211,5 +211,5 @@ Einen vollständigen Index der Microsoft Graph-API-Vorgänge, die für Azure AD
 
 <!-- LINK -->
 
-[graph-objectIdentity]: https://docs.microsoft.com/graph/api/resources/objectidentity
+[graph-objectIdentity]: /graph/api/resources/objectidentity
 [graph-user]: (https://docs.microsoft.com/graph/api/resources/user)

@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ec5757b41da630c4cb09ad0c096aee87572615d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e4c456e7788280b7ca5328342e1cd848ba3a583a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319893"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972758"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Azure Active Directory Connect-Synchronisierung: Konfigurieren des bevorzugten Datenspeicherorts für Microsoft 365-Ressourcen
 In diesem Thema wird ausführlich erläutert, wie Sie das Attribut für den bevorzugten Datenspeicherort in der Azure Active Directory Connect-Synchronisierung (Azure AD) konfigurieren. Wenn jemand Multi-Geo-Funktionen in Microsoft 365 verwendet, legen Sie mit diesem Attribut den geografischen Standort der Microsoft 365-Daten des Benutzers fest. (Die Benennungen *Region* und *geografischer Raum* werden synonym verwendet.)
@@ -36,7 +36,7 @@ Durch Festlegen des **preferredDataLocation**-Attributs können Sie den geografi
 >
 >
 
-Eine Liste mit allen geografischen Regionen für Microsoft 365 finden Sie auf der Seite [An welchem Ort befinden sich Ihre Daten?](https://aka.ms/datamaps).
+Eine Liste mit allen geografischen Regionen für Microsoft 365 finden Sie auf der Seite [An welchem Ort befinden sich Ihre Daten?](/microsoft-365/enterprise/o365-data-locations).
 
 Folgende geografische Regionen stehen in Microsoft 365 für die Multi-Geo-Funktion zur Verfügung:
 
@@ -186,7 +186,7 @@ Die Synchronisierungsregel für ausgehende Daten ermöglicht die Übertragung de
     | sourceObjectType | EQUAL | Benutzer |
     | cloudMastered | NOTEQUAL | True |
 
-    Der Bereichsfilter legt fest, auf welche Azure AD-Objekte diese Synchronisierungsregel für ausgehende Daten angewendet wird. In diesem Beispiel verwenden wir den Bereichsfilter aus der Standardsynchronisierungsregel „Ausgehend nach Azure AD – Benutzeridentität“. Er verhindert, dass die Synchronisierungsregel auf **Benutzer**objekte angewendet wird, die nicht über ein lokales Active Directory synchronisiert werden. Möglicherweise müssen Sie den Bereichsfilter entsprechend Ihrer Azure AD Connect-Bereitstellung anpassen.
+    Der Bereichsfilter legt fest, auf welche Azure AD-Objekte diese Synchronisierungsregel für ausgehende Daten angewendet wird. In diesem Beispiel verwenden wir den Bereichsfilter aus der Standardsynchronisierungsregel „Ausgehend nach Azure AD – Benutzeridentität“. Er verhindert, dass die Synchronisierungsregel auf **Benutzer** objekte angewendet wird, die nicht über ein lokales Active Directory synchronisiert werden. Möglicherweise müssen Sie den Bereichsfilter entsprechend Ihrer Azure AD Connect-Bereitstellung anpassen.
 
 6. Navigieren Sie zur Registerkarte **Transformation**, und implementieren Sie folgende Transformationsregel:
 
@@ -267,8 +267,8 @@ Sofern Ihr Mandant für die Verwendung dieses Features aktiviert wurde, wird das
 Weitere Informationen zu Multi-Geo-Funktionen in Microsoft 365:
 
 * [Multi-Geo-Sitzungen mit Ignite](https://aka.ms/MultiGeoIgnite)
-* [Multi-Geo-Funktionen in OneDrive und SharePoint Online in Office 365](https://aka.ms/OneDriveMultiGeo)
-* [Multi-Geo-Funktionen in OneDrive und SharePoint Online in Office 365](https://aka.ms/SharePointMultiGeo)
+* [Multi-Geo-Funktionen in OneDrive und SharePoint Online in Office 365](/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365)
+* [Multi-Geo-Funktionen in OneDrive und SharePoint Online in Office 365](/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365)
 
 Weitere Informationen zum Konfigurationsmodell im Synchronisierungsmodul:
 

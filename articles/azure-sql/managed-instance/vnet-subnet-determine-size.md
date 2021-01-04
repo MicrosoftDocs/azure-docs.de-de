@@ -13,11 +13,11 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 02/22/2019
 ms.openlocfilehash: 156a4c74eea24b20c28df88be85cb32c0ebe2981
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617637"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012448"
 ---
 # <a name="determine-required-subnet-size--range-for-azure-sql-managed-instance"></a>Bestimmen von Subnetzgröße und -bereich für Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -52,14 +52,14 @@ Wählen Sie die Größe Ihres Subnetzes in Abhängigkeit von den Anforderungen h
 
 GP = universell; BC = unternehmenskritisch; VC = virtueller Cluster
 
-| **Hardwaregeneration** | **Preisstufe** | **Azure-Nutzung** | **Nutzung virtueller Cluster** | **Instanznutzung** | **Gesamt*** |
+| **Hardwaregeneration** | **Preisstufe** | **Azure-Nutzung** | **Nutzung virtueller Cluster** | **Instanznutzung** | **Gesamt** _ |
 | --- | --- | --- | --- | --- | --- |
 | Gen4 | GP | 5 | 1 | 5 | 11 |
 | Gen4 | BC | 5 | 1 | 5 | 11 |
 | Gen5 | GP | 5 | 6 | 3 | 14 |
 | Gen5 | BC | 5 | 6 | 5 | 16 |
 
-  \* Die Spalte „Gesamt“ gibt die Anzahl der Adressen an, die verwendet werden, wenn eine Instanz im Subnetz bereitgestellt wird. Jede zusätzliche Instanz im Subnetz fügt eine Anzahl von Adressen hinzu, die mit der Spalte „Instanznutzung“ angegeben werden. Adressen, die mit der Spalte „Azure-Nutzung“ dargestellt werden, werden für mehrere virtuelle Cluster freigegeben, während Adressen, die mit der Spalte „Nutzung virtueller Cluster“ dargestellt werden, für alle Instanzen in diesem virtuellen Cluster freigegeben werden.
+  \_ Die Spalte „Gesamt“ gibt die Anzahl der Adressen an, die verwendet werden, wenn eine Instanz im Subnetz bereitgestellt wird. Jede zusätzliche Instanz im Subnetz fügt eine Anzahl von Adressen hinzu, die mit der Spalte „Instanznutzung“ angegeben werden. Adressen, die mit der Spalte „Azure-Nutzung“ dargestellt werden, werden für mehrere virtuelle Cluster freigegeben, während Adressen, die mit der Spalte „Nutzung virtueller Cluster“ dargestellt werden, für alle Instanzen in diesem virtuellen Cluster freigegeben werden.
 
 Beim Aktualisierungsvorgang ist in der Regel eine Größenänderung der virtuellen Cluster erforderlich. Unter bestimmten Umständen ist für den Aktualisierungsvorgang die Erstellung virtueller Cluster erforderlich (weitere Informationen finden Sie im Artikel [Verwaltungsvorgänge](sql-managed-instance-paas-overview.md#management-operations)). Bei der Erstellung virtueller Cluster ist die Anzahl erforderlicher zusätzlicher Adressen gleich der Anzahl von Adressen, die durch die Spalte „Nutzung virtueller Cluster“ dargestellt werden, summiert mit den Adressen, die für in diesem virtuellen Cluster platzierte Instanzen erforderlich sind (Spalte „Instanznutzung“).
 
@@ -74,12 +74,12 @@ Wie bereits erwähnt, ist für den Aktualisierungsvorgang unter bestimmten Umst�
 
 Bei Skalierungsvorgängen benötigen Instanzen vorübergehend zusätzliche IP-Kapazität, die vom Tarif und der Hardwaregeneration abhängig ist.
 
-| **Hardwaregeneration** | **Preisstufe** | **Szenario** | **Zusätzliche Adressen*** |
+| **Hardwaregeneration** | **Preisstufe** | **Szenario** | **Zusätzliche Adressen** _ |
 | --- | --- | --- | --- |
 | Gen4 | universell oder unternehmenskritisch | Skalieren von virtuellen Kernen | 5 |
 | Gen4 | universell oder unternehmenskritisch | Skalieren des Speichers | 5 |
 | Gen4 | universell oder unternehmenskritisch | Wechseln von universell zu unternehmenskritisch oder von unternehmenskritisch zu universell | 5 |
-| Gen4 | GP | Wechseln zu Gen5* | 9 |
+| Gen4 | GP | Wechseln zu Gen5_ | 9 |
 | Gen4 | BC | Wechseln zu Gen5* | 11 |
 | Gen5 | GP | Skalieren von virtuellen Kernen | 3 |
 | Gen5 | GP | Skalieren des Speichers | 0 |

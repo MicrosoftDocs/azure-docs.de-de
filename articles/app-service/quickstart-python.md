@@ -2,15 +2,16 @@
 title: 'Schnellstart: Erstellen einer Python-App'
 description: Führen Sie erste Schritte mit Azure App Service aus, indem Sie Ihre erste Python-App in einem Linux-Container in App Service bereitstellen.
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 11/10/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
-ms.openlocfilehash: 8f48f31cdaaa555e0a8f6f0fd4756bb61a9f417d
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+adobe-target: true
+ms.openlocfilehash: 7eebbe5605c0b4d70ea15c1605cff5416965e535
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741107"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780772"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Schnellstart: Erstellen einer Python-App in Azure App Service für Linux
 
@@ -63,7 +64,7 @@ Dieser Befehl öffnet einen Browser zum Erfassen Ihrer Anmeldeinformationen. Wen
 
 Nachdem Sie sich angemeldet haben, können Sie Azure-Befehle mit der Azure CLI ausführen, um Ressourcen in Ihrem Abonnement zu verwenden.
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/FlaskCLIQuickstartHelp)
+Treten Probleme auf? [Informieren Sie uns darüber](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="clone-the-sample"></a>Klonen des Beispiels
 
@@ -73,34 +74,26 @@ Klonen Sie das Beispielrepository mit dem folgenden Befehl, und navigieren Sie z
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
-
-Navigieren Sie anschließend in diesen Ordner:
-
-```terminal
-cd python-docs-hello-world
-```
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-django
 ```
-
-Navigieren Sie anschließend in diesen Ordner:
-
-```terminal
-cd python-docs-hello-django
-```
 ::: zone-end
 
 Das Beispiel enthält frameworkspezifischen Code, der von Azure App Service beim Starten der App erkannt wird. Weitere Informationen finden Sie unter [Startprozess des Containers](configure-language-python.md#container-startup-process).
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/FlaskCLIQuickstartHelp)
+Treten Probleme auf? [Informieren Sie uns darüber](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="run-the-sample"></a>Ausführen des Beispiels
 
 ::: zone pivot="python-framework-flask"
-1. Stellen Sie sicher, dass Sie sich im Ordner *python-docs-hello-world* befinden. 
+1. Navigieren Sie zum Ordner *python-docs-hello-world*:
+
+    ```terminal
+    cd python-docs-hello-world
+    ```
 
 1. Erstellen Sie eine virtuelle Umgebung, und installieren Sie Abhängigkeiten:
 
@@ -114,17 +107,25 @@ Das Beispiel enthält frameworkspezifischen Code, der von Azure App Service beim
     flask run
     ```
     
-    Standardmäßig wird vom Server angenommen, dass sich das Eingabemodul der App in *app.py* befindet (wie im Beispiel). (Wenn Sie einen anderen Modulnamen verwenden, müssen Sie die Umgebungsvariable `FLASK_APP` auf diesen Namen festlegen.)
+    Standardmäßig wird vom Server angenommen, dass sich das Eingabemodul der App in *app.py* befindet (wie im Beispiel).
+
+    Wenn Sie einen anderen Modulnamen verwenden, müssen Sie die Umgebungsvariable `FLASK_APP` auf diesen Namen festlegen.
+
+    Sollte der Fehler „Could not locate a Flask application. You did not provide the 'FLASK_APP' environment variable, and a 'wsgi.py' or 'app.py' module was not found in the current directory.“ (Es wurde keine Flask-Anwendung gefunden. Sie haben die Umgebungsvariable „FLASK_APP“ nicht angegeben, und im aktuellen Verzeichnis wurde kein Modul vom Typ „wsgi.py“ oder „app.py“ gefunden.) auftreten, vergewissern Sie sich, dass Sie sich im Ordner `python-docs-hello-world` mit dem Beispiel befinden.
 
 1. Öffnen Sie einen Webbrowser, und navigieren Sie zur Beispiel-App unter `http://localhost:5000/`. Die App zeigt die Meldung **Hello, World!** an.
 
     ![Lokales Ausführen einer Python-Beispiel-App](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
     
-1. Drücken Sie in Ihrem Terminalfenster **STRG**+**C** , um den Entwicklungsserver zu beenden.
+1. Drücken Sie in Ihrem Terminalfenster **STRG**+**C**, um den Entwicklungsserver zu beenden.
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
-1. Stellen Sie sicher, dass Sie sich im Ordner *python-docs-hello-django* befinden. 
+1. Navigieren Sie zum Ordner *python-docs-hello-django*:
+
+    ```terminal
+    cd python-docs-hello-django
+    ```
 
 1. Erstellen Sie eine virtuelle Umgebung, und installieren Sie Abhängigkeiten:
 
@@ -142,14 +143,14 @@ Das Beispiel enthält frameworkspezifischen Code, der von Azure App Service beim
 
     ![Lokales Ausführen einer Python-Beispiel-App](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
     
-1. Drücken Sie in Ihrem Terminalfenster **STRG**+**C** , um den Entwicklungsserver zu beenden.
+1. Drücken Sie in Ihrem Terminalfenster **STRG**+**C**, um den Entwicklungsserver zu beenden.
 ::: zone-end
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/FlaskCLIQuickstartHelp)
+Treten Probleme auf? [Informieren Sie uns darüber](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="deploy-the-sample"></a>Bereitstellen des Beispiels
 
-Stellen Sie mithilfe des Befehls `az webapp up` den Code in Ihrem lokalen Ordner ( *python-docs-hello-world* ) bereit:
+Stellen Sie mithilfe des Befehls `az webapp up` den Code in Ihrem lokalen Ordner (*python-docs-hello-world*) bereit:
 
 ```azurecli
 az webapp up --sku F1 --name <app-name>
@@ -157,7 +158,7 @@ az webapp up --sku F1 --name <app-name>
 
 - Wird der Befehl `az` nicht erkannt, sollten Sie sich vergewissern, dass die Azure CLI wie unter [Einrichten der anfänglichen Umgebung](#set-up-your-initial-environment) beschrieben installiert wurde.
 - Falls der Befehl `webapp` nicht erkannt wird, kann dies daran liegen, dass Sie Azure CLI-Version 2.0.80 oder höher verwenden. Wenn dies nicht der Fall ist, sollten Sie die [aktuelle Version installieren](/cli/azure/install-azure-cli).
-- Ersetzen Sie `<app_name>` durch einen Namen, der innerhalb von Azure eindeutig ist ( *gültige Zeichen: `a-z`, `0-9` und `-`* ). Ein bewährtes Muster ist eine Kombination aus Ihrem Firmennamen und einer App-ID.
+- Ersetzen Sie `<app_name>` durch einen Namen, der innerhalb von Azure eindeutig ist (*gültige Zeichen: `a-z`, `0-9` und `-`* ). Ein bewährtes Muster ist eine Kombination aus Ihrem Firmennamen und einer App-ID.
 - Mit dem Argument `--sku F1` wird die Web-App im Tarif „Free“ erstellt. Lassen Sie dieses Argument weg, um einen schnelleren Premium-Tarif zu verwenden. Dieser verursacht jedoch stündlich Kosten.
 - Optional können Sie das Argument `--location <location-name>` einfügen, wobei `<location_name>` eine verfügbare Azure-Region ist. Sie können eine Liste der zulässigen Regionen für Ihr Azure-Konto abrufen, indem Sie den Befehl [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) ausführen.
 - Wird der Fehler „Could not auto-detect the runtime stack of your app“ (Der Runtimestapel der App konnte nicht automatisch erkannt werden.) angezeigt, sollten Sie sich vergewissern, dass der Befehl im Ordner *python-docs-hello-world* (Flask) bzw. *python-docs-hello-django* (Django) ausgeführt wird, der die Datei *requirements.txt* enthält. (Siehe [Behandeln von Problemen bei der automatischen Erkennung mit „az webapp up“](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub))
@@ -166,13 +167,13 @@ Die Ausführung dieses Befehls kann einige Minuten in Anspruch nehmen. Bei der A
 
 ![Beispielausgabe des Befehls „az webapp up“](./media/quickstart-python/az-webapp-up-output.png)
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/FlaskCLIQuickstartHelp)
+Treten Probleme auf? Lesen Sie zunächst das [Handbuch zur Problembehandlung](configure-language-python.md#troubleshooting), andernfalls [informieren Sie uns darüber](https://aka.ms/FlaskCLIQuickstartHelp).
 
 [!include [az webapp up command note](../../includes/app-service-web-az-webapp-up-note.md)]
 
 ## <a name="browse-to-the-app"></a>Navigieren zur App
 
-Navigieren Sie in Ihrem Webbrowser zur an der URL `http://<app-name>.azurewebsites.net` bereitgestellten Anwendung. Es dauert einen Moment, wenn die App zum ersten Mal gestartet wird.
+Navigieren Sie in Ihrem Webbrowser zur an der URL `http://<app-name>.azurewebsites.net` bereitgestellten Anwendung. Es kann ein bis zwei Minuten dauern, bis die App gestartet wird. Wenn also eine App-Standardseite angezeigt wird, warten Sie eine Minute, und aktualisieren Sie den Browser.
 
 Der Python-Beispielcode führt einen Linux-Container in App Service mit einem integrierten Image aus.
 
@@ -180,7 +181,7 @@ Der Python-Beispielcode führt einen Linux-Container in App Service mit einem in
 
 **Glückwunsch!** Sie haben Ihre Python-App in App Service bereitgestellt.
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/FlaskCLIQuickstartHelp)
+Treten Probleme auf? Lesen Sie zunächst das [Handbuch zur Problembehandlung](configure-language-python.md#troubleshooting), andernfalls [informieren Sie uns darüber](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="redeploy-updates"></a>Erneutes Bereitstellen von Updates
 
@@ -217,7 +218,7 @@ Wechseln Sie nach Abschluss der Bereitstellung wieder zum Browserfenster, in dem
 
 ![Ausführen einer aktualisierten Python-Beispiel-App in Azure](./media/quickstart-python/run-updated-hello-world-sample-python-app-in-browser.png)
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/FlaskCLIQuickstartHelp)
+Treten Probleme auf? Lesen Sie zunächst das [Handbuch zur Problembehandlung](configure-language-python.md#troubleshooting), andernfalls [informieren Sie uns darüber](https://aka.ms/FlaskCLIQuickstartHelp).
 
 > [!TIP]
 > Visual Studio Code bietet leistungsstarke Erweiterungen für Python und Azure App Service, die die Bereitstellung von Python-Web-Apps in App Service vereinfachen. Weitere Informationen finden Sie unter [Bereitstellen von Python-Apps in App Service aus Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
@@ -240,11 +241,11 @@ Sie können die Protokolldateien auch im Browser unter `https://<app-name>.scm.a
 
 Sie können im Terminal jederzeit **STRG**+**C** drücken, um das Protokollstreaming zu beenden.
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/FlaskCLIQuickstartHelp)
+Treten Probleme auf? [Informieren Sie uns darüber](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="manage-the-azure-app"></a>Verwalten der Azure-App
 
-Wechseln Sie zum <a href="https://portal.azure.com" target="_blank">Azure-Portal</a>, um die erstellte App zu verwalten. Suchen Sie nach **App Services** , und wählen Sie diese Option aus.
+Wechseln Sie zum <a href="https://portal.azure.com" target="_blank">Azure-Portal</a>, um die erstellte App zu verwalten. Suchen Sie nach **App Services**, und wählen Sie diese Option aus.
 
 ![Navigieren zu App Services im Azure-Portal](./media/quickstart-python/navigate-to-app-services-in-the-azure-portal.png)
 
@@ -258,7 +259,7 @@ Wenn Sie die App auswählen, wird die Seite **Übersicht** geöffnet. Dort könn
 
 Im Menü „App Service“ werden verschiedene Seiten für die Konfiguration Ihrer App angezeigt.
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/FlaskCLIQuickstartHelp)
+Treten Probleme auf? Lesen Sie zunächst das [Handbuch zur Problembehandlung](configure-language-python.md#troubleshooting), andernfalls [informieren Sie uns darüber](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
@@ -274,7 +275,7 @@ Der Befehl verwendet den Ressourcengruppennamen, der in der Datei *.azure/config
 
 Mit dem Argument `--no-wait` kann für den Befehl die Rückgabe erfolgen, bevor der Vorgang abgeschlossen ist.
 
-[Treten Probleme auf? Informieren Sie uns darüber.](https://aka.ms/FlaskCLIQuickstartHelp)
+Treten Probleme auf? [Informieren Sie uns darüber.](https://aka.ms/FlaskCLIQuickstartHelp)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

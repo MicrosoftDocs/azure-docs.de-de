@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: ramakk
-ms.openlocfilehash: 50669dcce044988f2e45acc2a17ae43c140d1ab5
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 96d8ba058a33d408ec2ee2a1adfba9011f393da9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930304"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184483"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Richtlinien für die Azure NetApp Files-Netzwerkplanung
 
@@ -116,7 +116,7 @@ Das folgende Diagramm veranschaulicht eine Hybridumgebung:
 
 ![Hybridnetzwerkumgebung](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
-Im Hybridszenario benötigen Anwendungen aus lokalen Datencentern Zugriff auf die Ressourcen in Azure.  Dies ist der Fall, wenn Sie Ihr Datencenter auf Azure ausweiten oder für die Notfallwiederherstellung native Azure-Dienste nutzen möchten. Unter [Planungsoptionen für VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%252fazure%252fvirtual-network%252ftoc.json#planningtable) finden Sie Informationen dazu, wie Sie mehrere lokale Ressourcen über ein Site-to-Site-VPN oder eine ExpressRoute-Verbindung mit Ressourcen in Azure verbinden.
+Im Hybridszenario benötigen Anwendungen aus lokalen Datencentern Zugriff auf die Ressourcen in Azure.  Dies ist der Fall, wenn Sie Ihr Datencenter auf Azure ausweiten oder für die Notfallwiederherstellung native Azure-Dienste nutzen möchten. Unter [Planungsoptionen für VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) finden Sie Informationen dazu, wie Sie mehrere lokale Ressourcen über ein Site-to-Site-VPN oder eine ExpressRoute-Verbindung mit Ressourcen in Azure verbinden.
 
 In einer hybriden Hub-Spoke-Topologie fungiert das Hub-VNET in Azure als zentraler Verbindungspunkt für Ihr lokales Netzwerk. Die Spokes sind VNETs, die per Peering mit dem Hub verknüpft sind und zur Isolierung von Workloads verwendet werden können.
 

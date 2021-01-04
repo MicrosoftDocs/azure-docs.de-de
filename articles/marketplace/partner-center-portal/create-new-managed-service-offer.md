@@ -7,12 +7,12 @@ ms.topic: how-to
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 08/07/2020
-ms.openlocfilehash: 34af52b32d9e31ad003c5e95e288f88b157a944a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d253bda69839c76aed0170f9a79a03b7d4bf1a79
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710616"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130105"
 ---
 # <a name="create-a-managed-service-offer"></a>Erstellen eines Angebots für einen verwalteten Dienst
 
@@ -52,7 +52,7 @@ Wählen Sie **Erstellen** aus, um das Angebot zu generieren und fortzufahren.
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
-Gemäß den [Zertifizierungsrichtlinien für verwaltete Dienste](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services) ist eine **Leadzielgruppe** erforderlich. Dadurch wird jedes Mal, wenn ein Kunde Ihr Angebot bereitstellt, ein Eintrag in Ihrem CRM-System erstellt.
+Gemäß den [Zertifizierungsrichtlinien für verwaltete Dienste](/legal/marketplace/certification-policies#700-managed-services) ist eine **Leadzielgruppe** erforderlich. Dadurch wird jedes Mal, wenn ein Kunde Ihr Angebot bereitstellt, ein Eintrag in Ihrem CRM-System erstellt.
 
 Weitere Informationen finden Sie in der [Übersicht über die Leadverwaltung](./commercial-marketplace-get-customer-leads.md).
 
@@ -181,7 +181,7 @@ Sie können bis zu 100 Pläne für jedes Angebot erstellen. Bis zu 45 davon kö
 
 Wählen Sie auf der Seite **Planübersicht** die Option **+ Neuen Plan erstellen** aus. Geben Sie dann eine **Plan-ID** und einen **Plannamen** ein. Beide Werte dürfen nur kleingeschriebene alphanumerische Zeichen, Bindestriche und Unterstriche enthalten und höchstens 50 Zeichen lang sein. Diese Werte können für Kunden sichtbar sein und nach der Veröffentlichung des Angebots nicht mehr geändert werden.
 
-Nachdem Sie diese Werte eingegeben haben, wählen Sie **Erstellen** aus, um mit dem Plan fortzufahren. Sie müssen drei Abschnitte bearbeiten: **Planlisting**, **Preise und Verfügbarkeit** und **Technische Konfiguration**.
+Nachdem Sie diese Werte eingegeben haben, wählen Sie **Erstellen** aus, um mit dem Plan fortzufahren. Sie müssen drei Abschnitte bearbeiten: **Planlisting** , **Preise und Verfügbarkeit** und **Technische Konfiguration**.
 
 ### <a name="plan-listing"></a>Planlisting
 
@@ -231,17 +231,17 @@ Sie können für jeden Plan bis zu zwanzig Autorisierungen erstellen.
 
 Geben Sie für jede **Autorisierung** die folgenden Informationen an. Sie können dann so oft wie nötig **+ Autorisierung hinzufügen** auswählen, um weitere Benutzer und Rollendefinitionen hinzuzufügen.
 
-- **Azure AD-Objekt-ID**: Der Azure AD-Bezeichner eines Benutzers, einer Benutzergruppe oder Anwendung, denen bestimmte Berechtigungen (wie in der Rollendefinition festgelegt) für die Ressourcen Ihrer Kunden gewährt werden.
-- **Azure AD-Objektanzeigename**: Ein Anzeigename, der dem Kunden helfen soll, den Zweck dieser Autorisierung zu verstehen. Dem Kunde wird dieser Name beim Delegieren von Ressourcen angezeigt.
+- **Azure AD-Objekt-ID** : Der Azure AD-Bezeichner eines Benutzers, einer Benutzergruppe oder Anwendung, denen bestimmte Berechtigungen (wie in der Rollendefinition festgelegt) für die Ressourcen Ihrer Kunden gewährt werden.
+- **Azure AD-Objektanzeigename** : Ein Anzeigename, der dem Kunden helfen soll, den Zweck dieser Autorisierung zu verstehen. Dem Kunde wird dieser Name beim Delegieren von Ressourcen angezeigt.
 - **Rollendefinition:** Wählen Sie eine der verfügbaren integrierten Azure AD-Rollen aus der Liste aus. Diese Rolle legt die Berechtigungen fest, über die der Benutzer im Feld **Azure AD-Objekt-ID** für Ressourcen Ihrer Kunden verfügt. Beschreibungen dieser Rollen finden Sie unter [Integrierte Rollen](../../role-based-access-control/built-in-roles.md) und [Rollenunterstützung für Azure Lighthouse](../../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-lighthouse).
   > [!NOTE]
   > Wenn Azure geeignete neue integrierte Rollen hinzugefügt werden, sind diese hier verfügbar. Es kann jedoch zu Verzögerungen kommen, bevor sie angezeigt werden.
-- **Zuweisbare Rollen**: Diese Option wird nur angezeigt, wenn Sie in der **Rollendefinition** für diese Autorisierung „Benutzerzugriffsadministrator“ ausgewählt haben. Wenn dies der Fall ist, müssen Sie hier mindestens eine zuweisbare Rollen hinzufügen. Der Benutzer im Feld **Objekt-ID von Azure AD** kann diese Rollen [verwalteten Identitäten](../../active-directory/managed-identities-azure-resources/overview.md) zuweisen. Dies ist erforderlich, um [Richtlinien bereitzustellen, die korrigiert werden können](../../lighthouse/how-to/deploy-policy-remediation.md). Beachten Sie, dass für diesen Benutzer keine anderen Berechtigungen gelten, die normalerweise der Rolle „Benutzerzugriffsadministrator“ zugeordnet sind.
+- **Zuweisbare Rollen** : Diese Option wird nur angezeigt, wenn Sie in der **Rollendefinition** für diese Autorisierung „Benutzerzugriffsadministrator“ ausgewählt haben. Wenn dies der Fall ist, müssen Sie hier mindestens eine zuweisbare Rollen hinzufügen. Der Benutzer im Feld **Objekt-ID von Azure AD** kann diese Rollen [verwalteten Identitäten](../../active-directory/managed-identities-azure-resources/overview.md) zuweisen. Dies ist erforderlich, um [Richtlinien bereitzustellen, die korrigiert werden können](../../lighthouse/how-to/deploy-policy-remediation.md). Beachten Sie, dass für diesen Benutzer keine anderen Berechtigungen gelten, die normalerweise der Rolle „Benutzerzugriffsadministrator“ zugeordnet sind.
 
 > [!TIP]
 > Um sicherzustellen, dass Sie den [Zugriff auf eine Delegierung im Bedarfsfall entfernen](../../lighthouse/how-to/remove-delegation.md) können, schließen Sie eine **Autorisierung** mit der auf [Rolle zum Löschen der Registrierungszuweisung für verwaltete Dienste](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) festgelegten **Rollendefinition** ein. Wenn diese Rolle nicht zugewiesen wird, können delegierte Ressourcen nur durch einen Benutzer im Kundenmandanten entfernt werden.
 
-Nachdem Sie alle Abschnitte für Ihren Plan bearbeitet haben, können Sie so häufig wie nötig **+ Neuen Plan erstellen** auswählen, um zusätzliche Pläne zu erstellen. Klicken Sie auf **Speichern**, wenn Sie fertig sind.
+Nachdem Sie alle Abschnitte für Ihren Plan bearbeitet haben, können Sie so häufig wie nötig **+ Neuen Plan erstellen** auswählen, um zusätzliche Pläne zu erstellen. Klicken Sie auf **Speichern** , wenn Sie fertig sind.
 
 Wählen Sie **Entwurf speichern** aus, bevor Sie fortfahren.
 

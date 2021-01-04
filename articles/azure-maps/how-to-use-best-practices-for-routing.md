@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 13c7178b4a0866066dc74e409f8f4bfcd21a23f4
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 743710ea0d40eb31375236d4e59b0b138a217518
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874593"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895544"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Bewährte Methoden für den Azure Maps-Routendienst
 
-Die Wegbeschreibungs- und Routenmatrix-APIs im [Routendienst](https://docs.microsoft.com/rest/api/maps/route) von Azure Maps können verwendet werden, um die geschätzten Ankunftszeiten (Estimated Arrival Times, ETAs) für jede angeforderte Wegstrecke zu berechnen. Die Wegbeschreibungs-APIs berücksichtigen Faktoren wie Echtzeit-Verkehrsinformationen und Verkehrsdaten aus der Vergangenheit, wie etwa die typischen Reisegeschwindigkeiten am angeforderten Wochentag zur angeforderten Tageszeit. Die APIs geben die kürzesten oder schnellsten verfügbaren Routen zu mehreren Zielen zugleich in der Reihenfolge der Eingabe oder in einer für Zeit oder Entfernung optimierten Reihenfolge zurück. Benutzer können darüber hinaus auch spezielle Routen und Details für Wanderer, Radfahrer und Nutzfahrzeuge anfordern, wie etwa LKWs. In diesem Artikel werden die bewährten Methoden zum Aufrufen des Azure Maps-[Routendiensts](https://docs.microsoft.com/rest/api/maps/route) erläutert, und Sie erfahren, wie Sie die folgenden Schritte ausführen:
+Die Wegbeschreibungs- und Routenmatrix-APIs im [Routendienst](/rest/api/maps/route) von Azure Maps können verwendet werden, um die geschätzten Ankunftszeiten (Estimated Arrival Times, ETAs) für jede angeforderte Wegstrecke zu berechnen. Die Wegbeschreibungs-APIs berücksichtigen Faktoren wie Echtzeit-Verkehrsinformationen und Verkehrsdaten aus der Vergangenheit, wie etwa die typischen Reisegeschwindigkeiten am angeforderten Wochentag zur angeforderten Tageszeit. Die APIs geben die kürzesten oder schnellsten verfügbaren Routen zu mehreren Zielen zugleich in der Reihenfolge der Eingabe oder in einer für Zeit oder Entfernung optimierten Reihenfolge zurück. Benutzer können darüber hinaus auch spezielle Routen und Details für Wanderer, Radfahrer und Nutzfahrzeuge anfordern, wie etwa LKWs. In diesem Artikel werden die bewährten Methoden zum Aufrufen des Azure Maps-[Routendiensts](/rest/api/maps/route) erläutert, und Sie erfahren, wie Sie die folgenden Schritte ausführen:
 
  * Wählen zwischen den Wegbeschreibungs-APIs und der Matrix-Routenplanungs-API
  * Anfordern von zurückliegenden und vorhergesagten Reisezeiten, basierend auf Echtzeitdaten und Verkehrsdaten aus der Vergangenheit
@@ -27,7 +27,7 @@ Die Wegbeschreibungs- und Routenmatrix-APIs im [Routendienst](https://docs.micro
  * Anfordern einer Route, die aus einem oder mehreren Stopps (Wegpunkten) besteht
  * Optimieren einer Route mit einem oder mehreren Stopps, um die beste Reihenfolge für den Besuch der einzelnen Stopps (Wegpunkte) zu erhalten.
  * Optimieren alternativer Routen mithilfe von Unterstützungspunkten. Beispielsweise können alternative Routen angeboten werden, die eine Ladestation für Elektromobilität passieren.
- * Verwenden des [Routendiensts](https://docs.microsoft.com/rest/api/maps/route) mit dem Azure Maps-Web-SDK
+ * Verwenden des [Routendiensts](/rest/api/maps/route) mit dem Azure Maps-Web-SDK
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -90,7 +90,7 @@ Im ersten Beispiel unten wird die Abfahrtzeit auf eine Zeit in der Zukunft festg
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&query=51.368752,-0.118332:51.385426,-0.128929&travelMode=car&traffic=true&departAt=2025-03-29T08:00:20&computeTravelTimeFor=all
 ```
 
-Die Antwort enthält ein Zusammenfassungselement, wie unten dargestellt. Da die Abfahrtszeit auf einen zukünftigen Zeitpunkt festgelegt ist, ist der Wert von **trafficDelayInSeconds** gleich 0 (null). Der Wert von **travelTimeInSeconds** wird anhand zeitabhängiger historischer Verkehrsdaten berechnet. In diesem Fall ist daher der Wert von **travelTimeInSeconds** gleich dem Wert von **historicTrafficTravelTimeInSeconds**.
+Die Antwort enthält ein Zusammenfassungselement, wie unten dargestellt. Da die Abfahrtszeit auf einen zukünftigen Zeitpunkt festgelegt ist, ist der Wert von **trafficDelayInSeconds** gleich 0 (null). Der Wert von **travelTimeInSeconds** wird anhand zeitabhängiger historischer Verkehrsdaten berechnet. In diesem Fall ist daher der Wert von **travelTimeInSeconds** gleich dem Wert von **historicTrafficTravelTimeInSeconds** .
 
 ```json
 "summary": {
@@ -113,7 +113,7 @@ Im zweiten Beispiel unten haben wir eine Echtzeit-Wegführungsanforderung mit de
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&query=47.6422356,-122.1389797:47.6641142,-122.3011268&travelMode=car&traffic=true&computeTravelTimeFor=all
 ```
 
-Die Antwort enthält eine Zusammenfassung, wie unten dargestellt. Aufgrund von Staus ist der Wert von **trafficDelaysInSeconds** größer als null. Er ist außerdem größer als **historicTrafficTravelTimeInSeconds**.
+Die Antwort enthält eine Zusammenfassung, wie unten dargestellt. Aufgrund von Staus ist der Wert von **trafficDelaysInSeconds** größer als null. Er ist außerdem größer als **historicTrafficTravelTimeInSeconds** .
 
 ```json
 "summary": {
@@ -140,7 +140,7 @@ Erweitern Sie das `point`-Element, um die Liste der Koordinaten für den Weg anz
 
 ![Erweitertes Points-Element](media/how-to-use-best-practices-for-routing/points-list-img.png)
 
-Die Wegbeschreibungs-APIs unterstützen verschiedene Formate von Anweisungen, die durch Angeben des **instructionsType**-Parameters verwendet werden können. Um Anweisungen für die einfache Verarbeitung im Computer zu formatieren, verwenden Sie **instructionsType=coded**. Verwenden Sie **instructionsType=tagged**, um die Anweisungen als Text für den Benutzer anzuzeigen. Ferner können Anweisungen als Text formatiert werden, wobei einige Elemente der Anweisungen gekennzeichnet werden und die Anweisung mit einer besonderen Formatierung dargestellt wird. Weitere Informationen finden Sie unter [Liste der unterstützten Anweisungstypen](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routeinstructionstype).
+Die Wegbeschreibungs-APIs unterstützen verschiedene Formate von Anweisungen, die durch Angeben des **instructionsType** -Parameters verwendet werden können. Um Anweisungen für die einfache Verarbeitung im Computer zu formatieren, verwenden Sie **instructionsType=coded** . Verwenden Sie **instructionsType=tagged** , um die Anweisungen als Text für den Benutzer anzuzeigen. Ferner können Anweisungen als Text formatiert werden, wobei einige Elemente der Anweisungen gekennzeichnet werden und die Anweisung mit einer besonderen Formatierung dargestellt wird. Weitere Informationen finden Sie unter [Liste der unterstützten Anweisungstypen](/rest/api/maps/route/postroutedirections#routeinstructionstype).
 
 Wenn Anweisungen angefordert werden, gibt die Antwort ein neues Element mit dem Namen `guidance` zurück. Das `guidance`-Element enthält zwei Informationsarten: Streckenabschnitts-Wegbeschreibungen und zusammengefasste Anweisungen.
 
@@ -186,7 +186,7 @@ Die Antwort unten bezieht sich auf einen LKW, der Gefahrgut der Klasse 9 transp
 
 ## <a name="request-traffic-information-along-a-route"></a>Anfordern von Verkehrsinformationen auf einer Route
 
-Bei den Azure Maps-Wegbeschreibungs-APIs können Entwickler Details zu jedem Abschnittstyp anfordern, indem sie den `sectionType`-Parameter in die Anforderung einschließen. Beispielsweise können Sie Geschwindigkeitsinformationen für jeden Streckenabschnitt mit zähflüssigem Verkehr anfordern. Informationen zu den verschiedenen Details, die Sie anfordern können, finden Sie in der [Wertliste für den sectionType-Schlüssel](https://docs.microsoft.com/rest/api/maps/route/getroutedirections#sectiontype).
+Bei den Azure Maps-Wegbeschreibungs-APIs können Entwickler Details zu jedem Abschnittstyp anfordern, indem sie den `sectionType`-Parameter in die Anforderung einschließen. Beispielsweise können Sie Geschwindigkeitsinformationen für jeden Streckenabschnitt mit zähflüssigem Verkehr anfordern. Informationen zu den verschiedenen Details, die Sie anfordern können, finden Sie in der [Wertliste für den sectionType-Schlüssel](/rest/api/maps/route/getroutedirections#sectiontype).
 
 ### <a name="sample-query"></a>Beispielabfrage
 
@@ -208,7 +208,7 @@ Diese Option kann verwendet werden, um die Abschnitte beim Rendern der Karte ein
 
 Azure Maps bietet derzeit zwei Formen von Routenoptimierung:
 
-* Optimierungen, die auf dem angeforderten Routentyp basieren, ohne die Reihenfolge der Wegpunkte zu ändern. Sie finden die [unterstützten Routentypen hier](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routetype)
+* Optimierungen, die auf dem angeforderten Routentyp basieren, ohne die Reihenfolge der Wegpunkte zu ändern. Sie finden die [unterstützten Routentypen hier](/rest/api/maps/route/postroutedirections#routetype)
 
 * Handlungsreisender-Optimierung, bei der die Reihenfolge der Wegpunkte geändert wird, um die beste Reihenfolge zum Aufsuchen aller Stopps zu erhalten
 
@@ -262,11 +262,11 @@ Die optimale Route hat die folgende Reihenfolge der Wegpunkte: 0, 5, 1, 2, 4, 3 
 Es können Situationen eintreten, in denen Sie eine Route rekonstruieren möchten, um null oder mehr alternative Routen zu einer Referenzroute zu berechnen. Beispielsweise, wenn Sie Kunden alternative Routen zeigen möchten, die zu Ihrem Einzelhandelsgeschäft führen. In diesem Fall müssen Sie einen Ort mithilfe von Unterstützungspunkten beeinflussen. Dies sind die Schritte zum Beeinflussen eines Orts:
 
 1. Berechnen Sie eine Route unverändert, und rufen Sie die Wegführung aus der Routenantwort ab
-2. Verwenden Sie die Wegführung der Route, um die gewünschten Orte entlang oder nahe der Route zu finden. Beispielsweise können Sie die [Point of Interest-API](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi) von Azure Maps verwenden oder eigenen Daten in Ihrer Datenbank abfragen.  
+2. Verwenden Sie die Wegführung der Route, um die gewünschten Orte entlang oder nahe der Route zu finden. Beispielsweise können Sie die [Point of Interest-API](/rest/api/maps/search/getsearchpoi) von Azure Maps verwenden oder eigenen Daten in Ihrer Datenbank abfragen.  
 3. Sortieren Sie die Orte nach der Entfernung von Routenanfang
-4. Fügen Sie diese Orte einer neuen Routinganforderung an die [Post Route Directions-API](https://docs.microsoft.com/rest/api/maps/route/postroutedirections) als Unterstützungspunkte hinzu. Weitere Informationen zu den Unterstützungspunkten finden Sie in der [Dokumentation zur Post Route Directions-API](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#supportingpoints). 
+4. Fügen Sie diese Orte einer neuen Routinganforderung an die [Post Route Directions-API](/rest/api/maps/route/postroutedirections) als Unterstützungspunkte hinzu. Weitere Informationen zu den Unterstützungspunkten finden Sie in der [Dokumentation zur Post Route Directions-API](/rest/api/maps/route/postroutedirections#supportingpoints). 
 
-Beim Aufrufen der [Post Route Directions-API](https://docs.microsoft.com/rest/api/maps/route/postroutedirections) können Sie die minimale Abweichungszeit oder die Entfernungseinschränkungen zusammen mit den Unterstützungspunkten festlegen. Verwenden Sie diese Parameter, wenn Sie alternative Routen anbieten, die Reisezeit aber zugleich begrenzen möchten. Wenn diese Einschränkungen verwendet werden, folgen die alternativen Routen für die angegebene Dauer oder Entfernung der Referenzroute vom Ausgangspunkt aus. Anders ausgedrückt, unterscheiden sich die anderen Routen gemäß den angegebenen Einschränkungen von der Referenzroute.
+Beim Aufrufen der [Post Route Directions-API](/rest/api/maps/route/postroutedirections) können Sie die minimale Abweichungszeit oder die Entfernungseinschränkungen zusammen mit den Unterstützungspunkten festlegen. Verwenden Sie diese Parameter, wenn Sie alternative Routen anbieten, die Reisezeit aber zugleich begrenzen möchten. Wenn diese Einschränkungen verwendet werden, folgen die alternativen Routen für die angegebene Dauer oder Entfernung der Referenzroute vom Ausgangspunkt aus. Anders ausgedrückt, unterscheiden sich die anderen Routen gemäß den angegebenen Einschränkungen von der Referenzroute.
 
 Die Abbildung unten stellt ein Beispiel für das Rendern alternativer Routen mit angegebenen Abweichungsgrenzwerten für Dauer und Entfernung dar.
 
@@ -274,20 +274,20 @@ Die Abbildung unten stellt ein Beispiel für das Rendern alternativer Routen mit
 
 ## <a name="use-the-routing-service-in-a-web-app"></a>Verwenden des Routingdiensts in einer Web-App
 
-Das Web SDK für Azure Maps stellt ein [Dienstmodul](https://docs.microsoft.com/javascript/api/azure-maps-rest/) bereit. Dieses Modul ist eine Hilfsbibliothek, die die Verwendung der REST-APIs von Azure Maps in Web- oder Node.js-Anwendungen durch Einsatz von JavaScript oder TypeScript vereinfacht. Das Dienstmodul kann verwendet werden, um die zurückgegebenen Routen auf der Karte zu rendern. Das Modul bestimmt automatisch, welche API für GET- und POST-Anforderungen verwendet werden soll.
+Das Web SDK für Azure Maps stellt ein [Dienstmodul](/javascript/api/azure-maps-rest/) bereit. Dieses Modul ist eine Hilfsbibliothek, die die Verwendung der REST-APIs von Azure Maps in Web- oder Node.js-Anwendungen durch Einsatz von JavaScript oder TypeScript vereinfacht. Das Dienstmodul kann verwendet werden, um die zurückgegebenen Routen auf der Karte zu rendern. Das Modul bestimmt automatisch, welche API für GET- und POST-Anforderungen verwendet werden soll.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 Weitere Informationen finden Sie unter:
 
 > [!div class="nextstepaction"]
-> [Azure Maps-Routendienst](https://docs.microsoft.com/rest/api/maps/route)
+> [Azure Maps-Routendienst](/rest/api/maps/route)
 
 > [!div class="nextstepaction"]
-> [Verwenden des Dienstmoduls](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module)
+> [Verwenden des Dienstmoduls](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
-> [Anzeigen einer Route auf der Karte](https://docs.microsoft.com/azure/azure-maps/map-route)
+> [Anzeigen einer Route auf der Karte](./map-route.md)
 
 > [!div class="nextstepaction"]
 > [Azure Maps NPM-Paket](https://www.npmjs.com/package/azure-maps-rest  )

@@ -6,19 +6,19 @@ author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
-ms.date: 04/15/2020
+ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 7676f4aeeb9485ce5e3a702027884bc54d79a863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbd890117c78274392d5745e0563332371b404c5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387318"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452586"
 ---
 # <a name="use-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Verwenden von Synapse Studio zum Überwachen Ihrer Pipelineausführungen im Arbeitsbereich
 
-Mit Azure Synapse Analytics können Sie komplexe Pipelines erstellen, mit denen Sie Ihre Datenverschiebung, Datentransformation und Compute-Aktivitäten innerhalb Ihrer Lösung automatisieren und orchestrieren können. Sie können diese Pipelines mithilfe von Synapse Studio (Vorschau) erstellen und überwachen.
+Mit Azure Synapse Analytics können Sie komplexe Pipelines erstellen, mit denen Sie Ihre Datenverschiebung, Datentransformation und Computeaktivitäten innerhalb Ihrer Lösung automatisieren und integrieren können. Sie können diese Pipelines mithilfe von Synapse Studio erstellen und überwachen.
 
 In diesem Artikel wird erläutert, wie Sie Ihre Pipelineausführungen überwachen, was es Ihnen gestattet, den aktuellen Status, die aktuellen Probleme und den Fortschritt ihrer Pipelines im Auge zu behalten.
 
@@ -41,8 +41,6 @@ Wählen Sie **Pipelineausführungen** aus, um die Liste der Pipelineausführunge
 Sie können die Liste der Pipelineausführungen nach den für Sie interessanten Ausführungen filtern. Mit den Filtern am oberen Rand des Bildschirms können Sie ein Feld angeben, nach dem Sie filtern möchten.
 
 Beispielsweise können Sie die Ansicht so filtern, dass nur die Pipelineausführungen für die Pipeline namens „Feiertag“ (holiday) angezeigt werden:
-
-![Filterschaltfläche](./media/common/filter-button.png)
 
 ![Beispielfilter](./media/how-to-monitor-pipeline-runs/filter-example.png)
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: 2808f0d3b99257d52b2d400424f256f980005863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdd8c752e8cf610ef3c32e1af91b3ad6454c0813
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88607203"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95971698"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Private Angebote im kommerziellen Microsoft-Marketplace
 
@@ -30,18 +30,20 @@ Mit privaten Angeboten können Herausgeber von der globalen Verfügbarkeit und G
 
 Private Angebote sind für Virtual Machines-Dienste, Azure-Anwendungen (implementiert als Lösungsvorlagen oder verwaltete Anwendungen) und SaaS-Apps verfügbar.
 
-<!--- Like public offers, private offers can be created and managed via the [Cloud Partner Portal](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md). Customers can be granted or revoked access to private offers in minutes.
+<!--- Like public offers, private offers can be created and managed via the [Cloud Partner Portal](). Customers can be granted or revoked access to private offers in minutes.
 --->
 
 ## <a name="creating-private-offers-using-plans"></a>Erstellen von privaten Angeboten mithilfe von Plänen
 
 Bei *neuen oder vorhandenen Angeboten mit Plänen* können Herausgeber ganz einfach neue private Variationen erstellen, indem sie neue Pläne (früher als SKUs bezeichnet) erstellen und diese als „privat“ kennzeichnen. Jedes Angebot kann bis zu 45 private Pläne enthalten.
 
-<!--- [Private SKUs](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) --->
+<!--- [Private SKUs]() --->
 
 Private Pläne sind Komponenten eines Angebots und können nur von den jeweiligen Zielkunden angezeigt und erworben werden. Für private Pläne können die Basisimages und/oder Angebotsmetadaten wiederverwendet werden, die bereits für einen öffentlichen Plan veröffentlicht wurden. Mit dieser Option können Herausgeber mehrere private Variationen eines öffentlichen Angebots erstellen, ohne mehrere Versionen der gleichen Basisimages und Angebotsmetadaten veröffentlichen zu müssen. Nur bei Angeboten für Virtual Machines und Azure-Anwendungen gilt: Wenn ein privater Plan das gleiche Basisimage nutzt wie ein öffentlicher Plan, werden alle Änderungen am Basisimage des Angebots an alle öffentlichen und privaten Pläne weitergegeben, die dieses Basisimage nutzen.
 
 Bei *neuen Angeboten, die nur private Pläne umfassen*, können Herausgeber diese als beliebiges anderes Angebot erstellen und dann die Pläne als „privat“ kennzeichnen. Angebote, die nur private Pläne umfassen, sind für Kunden, denen diese Angebote nicht zugeordnet sind, weder über den kommerziellen Microsoft-Marketplace noch über das [Azure-Portal](https://azure.microsoft.com/features/azure-portal/) auffindbar oder erreichbar.
+
+Private Pläne sind sowohl für Azure Global als auch Azure Government verfügbar.
 
 >[!NOTE]
 >Ein Angebot, das nur private Pläne enthält, wird im öffentlichen Azure Marketplace oder in AppSource nicht angezeigt.
@@ -51,6 +53,9 @@ Bei *neuen Angeboten, die nur private Pläne umfassen*, können Herausgeber dies
 Herausgeber können sowohl neue als auch vorhandene private Angebote mithilfe von Abonnementbezeichnern auf bestimmte Zielkunden ausrichten. Herausgeber mit Angeboten für Virtual Machines oder Azure-Anwendungen können die Verfügbarkeit eines privaten Plans auf eine individuelle Azure-Abonnement-ID beschränken oder eine CSV-Datei mit bis zu 20.000 Azure-Abonnement-IDs hochladen. Bei Verwendung eines privaten SaaS-App-Angebots können Herausgeber eine Mandanten-ID zuordnen, um die Verfügbarkeit eines privaten Plans zu beschränken. Dabei können sie IDs manuell zuordnen oder eine CSV-Datei mit mehreren IDs hochladen.
 
 Sobald ein Angebot zertifiziert und veröffentlicht wurde, können Kunden mithilfe des Features zum Synchronisieren privater Abonnements innerhalb weniger Minuten im Plan aktualisiert oder daraus entfernt werden. Auf diese Weise können Herausgeber schnell und einfach die Liste der Kunden aktualisieren, denen der private Plan angezeigt wird, ohne das Angebot erneut zertifizieren oder veröffentlichen zu müssen.
+
+>[!NOTE]
+>Anwendbarkeit von Azure Government: Private Angebote (oder genauer: private Pläne) sind für die Government-Cloud wie jedes andere Angebot verfügbar. Ein Plan kann auch den Status von privat zu öffentlich verschieben und umgekehrt. Die Kontrolle darüber, in welcher Cloud das Angebot verfügbar ist, liegt in den Händen des Partners und kann über Partner Center konfiguriert werden. 
 
 ## <a name="deploying-private-offers"></a>Bereitstellen von privaten Angeboten
 
@@ -69,5 +74,5 @@ Private Angebote werden auch in Suchergebnissen angezeigt. Achten Sie auf das Ba
 <!---
 ## Next steps
 
-To start using private offers, follow the steps in the [Private SKUs and Plans](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) guide.
+To start using private offers, follow the steps in the [Private SKUs and Plans]() guide.
 --->

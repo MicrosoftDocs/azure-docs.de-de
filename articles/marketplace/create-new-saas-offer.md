@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 2679d24a9e8c821dae73114f32adbeb3d22a1458
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f689993ce56a1125a1d1de8f65ce05d01f776ea9
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708899"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130067"
 ---
 # <a name="how-to-create-a-saas-offer-in-the-commercial-marketplace"></a>Erstellen eines SaaS-Angebots im kommerziellen Marketplace
 
@@ -21,7 +21,7 @@ Als Herausgeber im kommerziellen Marketplace können Sie ein Software-as-a-Servi
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
-Lesen Sie [Planen eines SaaS-Angebots für den kommerziellen Marketplace](plan-saas-offer.md), falls Sie dies noch nicht getan haben. Dort werden die technischen Anforderungen für Ihre SaaS-App erläutert. Außerdem finden Sie Informationen und Ressourcen, die Sie beim Erstellen Ihres Angebots benötigen. Sofern Sie nicht nur eine einfache Auflistung (Auflistungsoption **Kontakt mit mir aufnehmen**) im kommerziellen Marketplace veröffentlichen möchten, muss Ihre SaaS-Anwendung technische Anforderungen an die Authentifizierung erfüllen.
+Lesen Sie [Planen eines SaaS-Angebots für den kommerziellen Marketplace](plan-saas-offer.md), falls Sie dies noch nicht getan haben. Dort werden die technischen Anforderungen für Ihre SaaS-App erläutert. Außerdem finden Sie Informationen und Ressourcen, die Sie beim Erstellen Ihres Angebots benötigen. Sofern Sie nicht nur eine einfache Auflistung (Auflistungsoption **Kontakt mit mir aufnehmen** ) im kommerziellen Marketplace veröffentlichen möchten, muss Ihre SaaS-Anwendung technische Anforderungen an die Authentifizierung erfüllen.
 
 ## <a name="create-a-new-saas-offer"></a>Erstellen eines neuen SaaS-Angebots
 
@@ -49,13 +49,13 @@ Auf der Registerkarte **Angebotseinrichtung** unter **Einrichtungsdetails** wäh
 1. Wählen Sie **Ja** aus, wenn der Verkauf über Microsoft erfolgen soll und die Transaktionen über uns abgewickelt werden sollen. Fahren Sie mit [Aktivieren einer Testversion](#enable-a-test-drive-optional) fort.
 
 1. Um Ihr Angebot über den kommerziellen Marketplace aufzulisten und Transaktionen unabhängig abzuwickeln, wählen Sie **Nein** aus, und führen Sie dann eine der folgenden Aktionen aus:
-   + Um ein kostenloses Abonnement für Ihr Angebot bereitzustellen, wählen Sie **Jetzt abrufen (kostenlos)** aus. Geben Sie dann im eingeblendeten Feld **Angebots-URL** die (mit *http* oder *https* beginnende) URL ein, unter der Kunden per [1-Klick-Authentifizierung über Azure Active Directory (Azure AD)](marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials) eine Testversion erhalten können. Beispiel: `https://contoso.com/saas-app`.
-   + Um eine kostenlose 30-Tage-Testversion bereitzustellen, wählen Sie **Kostenlose Testversion** aus und geben dann im eingeblendeten Feld **Test-URL** die (mit *http* oder *https* beginnende) URL ein, unter der Kunden per [1-Klick-Authentifizierung über Azure Active Directory (Azure AD)](marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials) auf Ihre kostenlose Testversion zugreifen können. Beispiel: `https://contoso.com/trial/saas-app`.
+   + Um ein kostenloses Abonnement für Ihr Angebot bereitzustellen, wählen Sie **Jetzt abrufen (kostenlos)** aus. Geben Sie dann im eingeblendeten Feld **Angebots-URL** die (mit *http* oder *https* beginnende) URL ein, unter der Kunden per [1-Klick-Authentifizierung über Azure Active Directory (Azure AD)](azure-ad-saas.md) eine Testversion erhalten können. Beispiel: `https://contoso.com/saas-app`.
+   + Um eine kostenlose 30-Tage-Testversion bereitzustellen, wählen Sie **Kostenlose Testversion** aus und geben dann im eingeblendeten Feld **Test-URL** die (mit *http* oder *https* beginnende) URL ein, unter der Kunden per [1-Klick-Authentifizierung über Azure Active Directory (Azure AD)](azure-ad-saas.md) auf Ihre kostenlose Testversion zugreifen können. Beispiel: `https://contoso.com/trial/saas-app`.
    + Wählen Sie **Kontakt mit mir aufnehmen** aus, wenn potenzielle Kunden Kontakt zu Ihnen aufnehmen und Ihr Angebot erwerben sollen.
 
 ### <a name="enable-a-test-drive-optional"></a>Aktivieren einer Testversion (optional)
 
-Eine Testversion ist eine hervorragende Möglichkeit, Ihr Angebot potenziellen Kunden zu präsentieren, indem Sie ihnen für eine festgelegte Anzahl von Stunden Zugang zu einer vorkonfigurierten Umgebung gewähren. Wenn Sie eine Testversion anbieten, können Sie die Konvertierungsrate erhöhen und hochqualifizierte Leads generieren. Weitere Informationen zu Testversionen finden Sie unter [Was ist eine Testversion?](partner-center-portal/test-drive.md)
+Eine Testversion ist eine hervorragende Möglichkeit, Ihr Angebot potenziellen Kunden zu präsentieren, indem Sie ihnen für eine festgelegte Anzahl von Stunden Zugang zu einer vorkonfigurierten Umgebung gewähren. Wenn Sie eine Testversion anbieten, können Sie die Konvertierungsrate erhöhen und hochqualifizierte Leads generieren. Weitere Informationen zu Testversionen finden Sie unter [Was ist eine Testversion?](./what-is-test-drive.md)
 
 > [!TIP]
 > Eine Testversion unterscheidet sich von einer kostenlosen Testversion. Sie können entweder eine Testversion, eine kostenlose Testversion oder beides anbieten. Mit beiden können Kunden Ihre Lösung für einen festgelegten Zeitraum nutzen. Eine Testversion umfasst jedoch auch eine praktische, selbstgesteuerte Tour durch die wichtigsten Features und Vorteile Ihres Produkts, die in einem praxisnahen Implementierungsszenario veranschaulicht werden.

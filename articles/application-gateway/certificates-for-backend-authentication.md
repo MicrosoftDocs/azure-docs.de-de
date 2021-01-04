@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: absha
-ms.openlocfilehash: 69d388b12e564b307cd117c3a86ae960dabaa937
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 874e554063f64ddefce99a223678d64b2e0774c3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362711"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397721"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Erstellen von Zertifikaten zum Zulassen des Back-Ends für Azure Application Gateway
 
@@ -35,7 +35,7 @@ Sie benötigen ein Authentifizierungszertifikat, um Back-End-Instanzen in der v1
 
 Exportieren Sie die CER-Datei mit dem öffentlichen Schlüssel aus Ihrem TLS-/SSL-Zertifikat (nicht den privaten Schlüssel). Führen Sie die folgenden Schritte durch, um die CER-Datei mit dem Base64-kodierten X.509-Zertifikat für Ihr Zertifikat zu exportieren:
 
-1. Öffnen Sie **Benutzerzertifikate verwalten**, um eine CER-Datei für das Zertifikat zu erhalten. Suchen Sie das Zertifikat (in der Regel befindet es sich unter „Certificates > Aktueller Benutzer\Personal\Certificates“), und klicken Sie mit der rechten Maustaste darauf. Klicken Sie auf **Alle Aufgaben** und anschließend auf **Exportieren**. Dadurch wird der **Zertifikatexport-Assistent**geöffnet. Wenn Sie das Zertifikat unter „Aktueller Benutzer\Eigene Zertifikate\Zertifikate“ nicht finden, haben Sie unter Umständen versehentlich „Zertifikate – Lokaler Benutzer“ anstelle von „Zertifikate – Aktueller Benutzer“ geöffnet. Wenn Sie den Zertifikat-Manager im Bereich für den aktuellen Benutzer mithilfe von PowerShell öffnen möchten, geben Sie *certmgr* ins Konsolenfenster ein.
+1. Öffnen Sie **Benutzerzertifikate verwalten** , um eine CER-Datei für das Zertifikat zu erhalten. Suchen Sie das Zertifikat (in der Regel befindet es sich unter „Certificates > Aktueller Benutzer\Personal\Certificates“), und klicken Sie mit der rechten Maustaste darauf. Klicken Sie auf **Alle Aufgaben** und anschließend auf **Exportieren**. Dadurch wird der **Zertifikatexport-Assistent** geöffnet. Wenn Sie das Zertifikat unter „Aktueller Benutzer\Eigene Zertifikate\Zertifikate“ nicht finden, haben Sie unter Umständen versehentlich „Zertifikate – Lokaler Benutzer“ anstelle von „Zertifikate – Aktueller Benutzer“ geöffnet. Wenn Sie den Zertifikat-Manager im Bereich für den aktuellen Benutzer mithilfe von PowerShell öffnen möchten, geben Sie *certmgr* ins Konsolenfenster ein.
 
    ![Screenshot des Zertifikat-Managers, in dem „Zertifikate“ und in einem Kontextmenü „Alle Aufgaben“ und „Exportieren“ ausgewählt sind](./media/certificates-for-backend-authentication/export.png)
 
@@ -51,7 +51,7 @@ Exportieren Sie die CER-Datei mit dem öffentlichen Schlüssel aus Ihrem TLS-/SS
 
    ![Base64-codiert](./media/certificates-for-backend-authentication/base64.png)
 
-5. Wählen Sie unter **Zu exportierende Datei** die Option **Durchsuchen** aus, um zu dem Speicherort zu wechseln, an den das Zertifikat exportiert werden soll. Geben Sie unter **Dateiname**einen Namen für die Zertifikatdatei ein. Klicken Sie auf **Weiter**.
+5. Wählen Sie unter **Zu exportierende Datei** die Option **Durchsuchen** aus, um zu dem Speicherort zu wechseln, an den das Zertifikat exportiert werden soll. Geben Sie unter **Dateiname** einen Namen für die Zertifikatdatei ein. Klicken Sie auf **Weiter**.
 
    ![Screenshot des Zertifikatexport-Assistenten, in dem Sie eine Datei für den Export angeben können](./media/certificates-for-backend-authentication/browse.png)
 
@@ -97,7 +97,7 @@ Führen Sie die folgenden Schritte durch, um die CER-Datei für Ihr Zertifikat z
 
    ![Zertifikatinformationen](./media/certificates-for-backend-authentication/rootcertdetails.png)
 
-5. Wechseln Sie zur Ansicht **Details**, und klicken Sie auf **In Datei kopieren**.
+5. Wechseln Sie zur Ansicht **Details** , und klicken Sie auf **In Datei kopieren**.
 
    ![Stammzertifikat kopieren](./media/certificates-for-backend-authentication/rootcertcopytofile.png)
 
@@ -105,5 +105,4 @@ Führen Sie die folgenden Schritte durch, um die CER-Datei für Ihr Zertifikat z
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Jetzt verfügen Sie über das Authentifizierungszertifikat und das vertrauenswürdige Sicherheitszertifikat im CER-Format (Base64-kodierte X.509-Zertifikate). Sie können diese Zertifikate zu Application Gateway hinzufügen, um die End-to-End-TLS-Verschlüsselung auf Ihren Back-End-Servern zuzulassen. Weitere Informationen finden Sie unter [Konfigurieren von End-to-End-TLS mit Application Gateway mithilfe von PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
-
+Jetzt verfügen Sie über das Authentifizierungszertifikat und das vertrauenswürdige Sicherheitszertifikat im CER-Format (Base64-kodierte X.509-Zertifikate). Sie können diese Zertifikate zu Application Gateway hinzufügen, um die End-to-End-TLS-Verschlüsselung auf Ihren Back-End-Servern zuzulassen. Weitere Informationen finden Sie unter [Konfigurieren von End-to-End-TLS mit Application Gateway mithilfe von PowerShell](./application-gateway-end-to-end-ssl-powershell.md).

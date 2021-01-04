@@ -1,7 +1,7 @@
 ---
 title: 'Init Image Transformation: Bildtransformation'
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie das Init Image Transformation-Modul verwendet wird, um eine Bildtransformation zu initialisieren.
+description: Erfahren Sie, wie Sie das Init Image Transformation-Modul im Azure Machine Learning-Designer verwenden, um eine Bildtransformation zu initialisieren.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: aa81987f9214870e248ef9b625e6afcd1093fe5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc0eb196ed24e413c35d64f0571ff29dc3725032
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907888"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421276"
 ---
 # <a name="init-image-transformation"></a>Initialisieren einer Bildtransformation
 

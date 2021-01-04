@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 09/01/2020
 ms.author: azhussai
-ms.openlocfilehash: 1d88379726cfb6c4218c38b9ccc87005609a9aba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89ba6b7a69c95951a083628f23be68d811c7768c
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460744"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601610"
 ---
 # <a name="understanding-pricing-for-azure-application-gateway-and-web-application-firewall"></a>Grundlegendes zu Preisen für Azure Application Gateway und Web Application Firewall
 
@@ -254,9 +254,19 @@ Wenn Verarbeitungskapazität, die 10 zusätzlichen Kapazitätseinheiten entspri
 
 Fixkosten = 0,246 USD x 730 (Stunden) = 179,58 USD
 
-Variable Kosten = 0,008 USD x (3 (Instanzeinheiten) x 10 (Kapazitätseinheiten) + 5 (zusätzliche Kapazitätseinheiten)) x 730 (Stunden) = 204,4 USD
+Variable Kosten = 0,008 USD x (3 (Instanzeinheiten) x 10 (Kapazitätseinheiten) + 10 (zusätzliche Kapazitätseinheiten)) x 730 (Stunden) = 233,6 USD
 
-Gesamtkosten = 179,58 USD + 204,4 USD = 383,98 USD
+Gesamtkosten = 179,58 USD + 233,6 USD = 413,18 USD
+
+Jedoch wenn Verarbeitungskapazität, die nur 7 zusätzlichen Kapazitätseinheiten entspricht, innerhalb der 3 reservierten Instanzen zur Verwendung verfügbar war.
+In diesem Szenario wird die Application Gateway-Ressource unterskaliert, und dies kann möglicherweise zu einer Erhöhung der Latenz oder zum Löschen von Anforderungen führen.
+
+Fixkosten = 0,246 USD x 730 (Stunden) = 179,58 USD
+
+Variable Kosten = 0,008 USD x (3 (Instanzeinheiten) x 10 (Kapazitätseinheiten) + 7 (zusätzliche Kapazitätseinheiten)) x 730 (Stunden) = 216,08 USD
+
+Gesamtkosten = 179,58 USD + 216,08 USD = 395,66 USD
+
 
 ![Abbildung zur manuellen Skalierung 2.](./media/pricing/manual-scale-2.png)
 

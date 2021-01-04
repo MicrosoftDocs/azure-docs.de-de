@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: manayar
-ms.openlocfilehash: 0a777b9008864368a6d1731cae0374e55a4c585f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c7574daced9cec078b6e98e378212ce30d6f4f6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842868"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744728"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>Vorschau: Automatische VM-Gastpatches für Windows-VMs in Azure
 
@@ -80,17 +80,20 @@ Windows-VMs in Azure unterstützen nun die folgenden Patchorchestrierungsmodi:
 
 **AutomaticByPlatform:**
 - Dieser Modus ermöglicht automatisches VM-Gastpatchen für den virtuellen Windows-Computer, und die nachfolgende Patchinstallation wird von Azure orchestriert.
+- Dieser Modus ist erforderlich für Patches nach Verfügbarkeit.
 - Wenn Sie diesen Modus festlegen, werden die nativen automatischen Updates auf dem virtuellen Windows-Computer deaktiviert, um Duplizierung zu vermeiden.
 - Dieser Modus wird nur für VMs unterstützt, die mithilfe der oben genannten unterstützten Betriebssystem-Plattformimages erstellt wurden.
 - Um diesen Modus zu verwenden, legen Sie die-Eigenschaft `osProfile.windowsConfiguration.enableAutomaticUpdates=true` fest, und legen Sie die Eigenschaft `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatfom` in der VM-Vorlage fest.
 
 **AutomaticByOS:**
 - Dieser Modus ermöglicht automatische Updates auf dem virtuellen Windows-Computer, und Patches werden über automatische Updates auf der VM installiert.
+- Dieser Modus unterstützt keine Patches nach Verfügbarkeit.
 - Dieser Modus wird standardmäßig festgelegt, wenn kein anderer Patchmodus angegeben wird.
 - Wenn Sie diesen Modus verwenden möchten, legen Sie die Eigenschaft `osProfile.windowsConfiguration.enableAutomaticUpdates=true` fest, und legen Sie die Eigenschaft `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByOS` in der VM-Vorlage fest.
 
 **Manual (Manuell):**
 - In diesem Modus werden automatische Updates auf dem virtuellen Windows-Computer deaktiviert.
+- Dieser Modus unterstützt keine Patches nach Verfügbarkeit.
 - Dieser Modus sollte festgelegt werden, wenn Sie benutzerdefinierte Patchlösungen verwenden.
 - Um diesen Modus zu verwenden, legen Sie die-Eigenschaft `osProfile.windowsConfiguration.enableAutomaticUpdates=false` fest, und legen Sie die Eigenschaft `osProfile.windowsConfiguration.patchSettings.patchMode=Manual` in der VM-Vorlage fest.
 

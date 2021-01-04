@@ -9,25 +9,25 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 38072e95ed89d8fbc095e2f8ed41ea1381636300
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: be2fa0fa85da7c0f02567580c50968b7418e4cde
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015154"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445182"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Gewähren des Zugriffs auf Key Vault-Schlüssel, -Zertifikate und -Geheimnisse mit der rollenbasierten Zugriffssteuerung in Azure (Vorschauversion)
 
 > [!NOTE]
-> Der Key Vault-Ressourcenanbieter unterstützt zwei Ressourcentypen: **Tresore** und **verwaltete HSMs** . Die in diesem Artikel beschriebene Zugriffssteuerung gilt nur für **Tresore** . Weitere Informationen zur Zugriffssteuerung für verwaltetes HSM finden Sie unter [Zugriffssteuerung für verwaltetes HSM](../managed-hsm/access-control.md).
+> Der Key Vault-Ressourcenanbieter unterstützt zwei Ressourcentypen: **Tresore** und **verwaltete HSMs**. Die in diesem Artikel beschriebene Zugriffssteuerung gilt nur für **Tresore**. Weitere Informationen zur Zugriffssteuerung für verwaltetes HSM finden Sie unter [Zugriffssteuerung für verwaltetes HSM](../managed-hsm/access-control.md).
 
-Die rollenbasierte Zugriffssteuerung (Azure Role-Based Access Control, Azure RBAC) ist ein Autorisierungssystem, das auf [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) basiert und eine präzise Verwaltung des Zugriffs auf Azure-Ressourcen ermöglicht.
+Die rollenbasierte Zugriffssteuerung (Azure Role-Based Access Control, Azure RBAC) ist ein Autorisierungssystem, das auf [Azure Resource Manager](../../azure-resource-manager/management/overview.md) basiert und eine präzise Verwaltung des Zugriffs auf Azure-Ressourcen ermöglicht.
 
 Azure RBAC ermöglicht Benutzern das Verwalten von Berechtigungen für Schlüssel, Geheimnisse und Zertifikate. Es bietet einen Ort, an dem alle Berechtigungen für alle Schlüsseltresore verwaltet werden können. 
 
 Das Azure RBAC-Modell bietet die Möglichkeit, Berechtigungen für verschiedene Bereichsebenen festzulegen: Verwaltungsgruppe, Abonnement, Ressourcengruppe oder Einzelressourcen.  Azure RBAC für Key Vault bietet außerdem die Möglichkeit, separate Berechtigungen für einzelne Schlüssel, Geheimnisse und Zertifikate zu verwalten.
 
-Weitere Informationen finden Sie unter [Rollenbasierte Zugriffssteuerung in Azure (Azure Role-Based Access Control, Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview).
+Weitere Informationen finden Sie unter [Rollenbasierte Zugriffssteuerung in Azure (Azure Role-Based Access Control, Azure RBAC)](../../role-based-access-control/overview.md).
 
 ## <a name="best-practices-for-individual-keys-secrets-and-certificates"></a>Bewährte Methoden für einzelne Schlüssel, Geheimnisse und Zertifikate
 
@@ -59,7 +59,7 @@ Weitere Informationen zu Azure Key Vault-Verwaltungsrichtlinien finden Sie unter
 | Key Vault Secrets Officer (Vorschau)| Ausführen beliebiger Aktionen für die Geheimnisse eines Schlüsseltresors mit Ausnahme der Verwaltung von Berechtigungen. Funktioniert nur für Schlüsseltresore, die das Berechtigungsmodell „Rollenbasierte Azure-Zugriffssteuerung“ verwenden. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
 | Key Vault Secrets-Benutzer (Vorschau)| Lesen der Inhalte von Geheimnissen. Funktioniert nur für Schlüsseltresore, die das Berechtigungsmodell „Rollenbasierte Azure-Zugriffssteuerung“ verwenden. | 4633458b-17de-408a-b874-0445c86b69e6 |
 
-Weitere Informationen zu den Definitionen von in Azure integrierten Rollen finden Sie unter [In Azure integrierte Rollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+Weitere Informationen zu den Definitionen von in Azure integrierten Rollen finden Sie unter [In Azure integrierte Rollen](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault"></a>Verwenden von Geheimnis-, Schlüssel- und Zertifikatberechtigungen von Azure RBAC mit Key Vault
 
@@ -70,7 +70,7 @@ Das neue Azure RBAC-Berechtigungsmodell für Key Vault bietet eine Alternative z
 Sie benötigen Folgendes, um Rollenzuweisungen hinzufügen zu können:
 
 - Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
-- `Microsoft.Authorization/roleAssignments/write`- und `Microsoft.Authorization/roleAssignments/delete`-Berechtigungen, wie z.B. [Benutzerzugriffsadministrator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) oder [Besitzer](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
+- `Microsoft.Authorization/roleAssignments/write`- und `Microsoft.Authorization/roleAssignments/delete`-Berechtigungen, wie z.B. [Benutzerzugriffsadministrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) oder [Besitzer](../../role-based-access-control/built-in-roles.md#owner)
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Aktivieren von Azure RBAC-Berechtigungen für einen Schlüsseltresor
 
@@ -79,11 +79,11 @@ Sie benötigen Folgendes, um Rollenzuweisungen hinzufügen zu können:
 
 1.  Aktivieren von Azure RBAC-Berechtigungen für einen neuen Schlüsseltresor:
 
-    ![Aktivieren von RBAC-Berechtigungen – neuer Tresor](../media/rbac/image-1.png)
+    ![Aktivieren von Azure RBAC-Berechtigungen – neuer Tresor](../media/rbac/image-1.png)
 
 2.  Aktivieren von Azure RBAC-Berechtigungen für einen vorhandenen Schlüsseltresor:
 
-    ![Aktivieren von RBAC-Berechtigungen – vorhandener Schlüsseltresor](../media/rbac/image-2.png)
+    ![Aktivieren von Azure RBAC-Berechtigungen – vorhandener Tresor](../media/rbac/image-2.png)
 
 ### <a name="assign-role"></a>Zuweisen einer Rolle
 
@@ -194,7 +194,7 @@ Erstellen Sie ein neues Geheimnis („Geheimnisse“ \> „+ Generieren/Importi
 
 ### <a name="creating-custom-roles"></a>Erstellen von benutzerdefinierten Rollen 
 
-[Befehl „az role definition create“](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create)
+[Befehl „az role definition create“](/cli/azure/role/definition#az-role-definition-create)
 
 **(CLI-Bash-Skript)</br>**
 ```azurecli
@@ -216,7 +216,7 @@ az role definition create --role-definition '{ \
 
 Weitere Informationen zum Erstellen von benutzerdefinierten Rollen finden Sie unter:
 
-[Benutzerdefinierte Azure-Rollen](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
+[Benutzerdefinierte Azure-Rollen](../../role-based-access-control/custom-roles.md)
 
 ## <a name="known-limits-and-performance"></a>Bekannte Grenzwerte und Leistung
 
@@ -226,5 +226,5 @@ Weitere Informationen zum Erstellen von benutzerdefinierten Rollen finden Sie un
 
 ## <a name="learn-more"></a>Weitere Informationen
 
-- [RBAC in Azure – Übersicht](https://docs.microsoft.com/azure/role-based-access-control/overview)
-- [Tutorial zu benutzerdefinierten Rollen](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-cli)
+- [RBAC in Azure – Übersicht](../../role-based-access-control/overview.md)
+- [Tutorial zu benutzerdefinierten Rollen](../../role-based-access-control/tutorial-custom-role-cli.md)

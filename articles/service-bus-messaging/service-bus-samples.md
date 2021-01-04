@@ -3,32 +3,46 @@ title: 'Beispiele für Azure Service Bus-Messaging: Übersicht'
 description: Die Beispiele für Service Bus-Messaging veranschaulichen wichtige Features des Azure Service Bus-Messagings. Enthält Links zu Beispielen auf GitHub.
 author: spelluru
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 10/14/2020
 ms.author: spelluru
-ms.openlocfilehash: 2f2392630c0023c8d6321a5716075a65e8127dd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8729d0a947ebf2fd918a478fb3354e6d84fe1e3
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326268"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95803105"
 ---
 # <a name="service-bus-messaging-samples"></a>Beispiele für Service Bus-Messaging
 Die Beispiele für Service Bus-Messaging veranschaulichen wichtige Funktionen in [Service Bus-Messaging](https://azure.microsoft.com/services/service-bus/). Zurzeit können Sie die Beispiele an den folgenden Stellen finden:
 
-| Programmiersprache | SDK oder Speicherort für Beispiele |
+## <a name="net-samples"></a>Beispiele für .NET
+
+| Paket | Speicherort für Beispiele | 
+| ------- | ---------------- | 
+| Azure.Messaging.ServiceBus (aktuelle Version) | https://docs.microsoft.com/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/ | 
+| Microsoft.Azure.ServiceBus (Legacyversion) |  https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus |
+
+## <a name="java-samples"></a>Beispiele für Java
+| Paket | Speicherort für Beispiele | 
+| ------- | ---------------- | 
+| azure-messaging-servicebus (aktuelle Version) | https://docs.microsoft.com/samples/azure/azure-sdk-for-java/servicebus-samples/ |
+| azure-servicebus (Legacyversion) | https://github.com/Azure/azure-service-bus/tree/master/samples/Java |
+
+## <a name="python-samples"></a>Python-Beispiele
+| Paket | Speicherort für Beispiele |
 | -------------------- | ----------------------- |
-| .NET, Java und Verwaltung | https://github.com/Azure/azure-service-bus/ |
-| Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples |
-| Python | https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus |
-| Go| https://github.com/Azure/azure-service-bus-go/ |
+| azure.servicebus | https://docs.microsoft.com/samples/azure/azure-sdk-for-python/servicebus-samples/ |
 
-## <a name="service-bus-explorer"></a>Service Bus-Explorer
+## <a name="javascript-samples"></a>JavaScript-Beispiele
+| Paket | Speicherort für Beispiele | 
+| ------- | ---------------- | 
+| azure/service-bus | https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-javascript/ | 
 
-Darüber hinaus ist der [Service Bus-Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) ein auf GitHub gehostetes Beispiel, mit dem Sie eine Verbindung mit einem Service Bus-Dienstnamespace herstellen und Messagingentitäten ganz einfach verwalten können. Das Tool stellt erweiterte Features (z. B. Import-/Exportfunktionen) und Testmöglichkeiten für Messagingentitäten und Relaydienste zur Verfügung. Sie finden die vollständige Quelle und Dokumentation zum Service Bus-Explorer auf [GitHub](https://github.com/paolosalvatori/ServiceBusExplorer).
+## <a name="go-samples"></a>Go-Beispiele
+| Paket | Speicherort für Beispiele | 
+| ------- | ---------------- | 
+| azure-service-bus-go | https://github.com/Azure/azure-service-bus-go/ |
 
-## <a name="next-steps"></a>Nächste Schritte
+## <a name="management-samples"></a>Verwaltungsbeispiele
+Verwaltungsbeispiele finden Sie auf GitHub unter https://github.com/Azure/azure-service-bus/tree/master/samples/Management.
 
-Konzeptionelle Übersichten über Service Bus finden Sie in den folgenden Themen.
-
-* [Übersicht über Service Bus-Messaging](service-bus-messaging-overview.md)
-* [Service Bus-Architektur](./service-bus-messaging-overview.md)

@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: pafarley
-ms.openlocfilehash: a9726e41a84926d00d48b51e31f534a3d8c2fe0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 479c7c455f07d098edd327196803e85df24dfb6d
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72757138"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905131"
 ---
-# <a name="create-human-reviews-rest"></a>Erstellen von Überprüfungen durch Personen (REST)
+# <a name="create-human-reviews-api-console"></a>Erstellen von Überprüfungen durch Personen (API-Konsole)
 
 In [Überprüfungen](./review-api.md#reviews) werden Inhalte gespeichert und angezeigt, damit Moderatoren auf sie zugreifen können. Wenn ein Benutzer eine Überprüfung abgeschlossen hat, werden die Ergebnisse an einen angegebenen Rückrufendpunkt gesendet. In diesem Artikel erfahren Sie, wie Sie Überprüfungen mithilfe der Überprüfungs-REST-APIs über die API-Konsole einrichten. Nachdem Sie sich mit der Struktur der APIs vertraut gemacht haben, können Sie diese Aufrufe bequem zu jeder REST-kompatiblen Plattform portieren.
 

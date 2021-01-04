@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 1fdff6e1c29b8484aaea3bb647e2f1738d1889c6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: df1d4f3a12c6e15e2954bb0e02454ef58b22cb73
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142246"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535789"
 ---
 # <a name="customer-data-request-features-for-azure-iot-hub-devices"></a>Features für Kundendatenanforderungen für Azure IoT Hub-Geräte
 
@@ -30,7 +30,7 @@ Wenn Sie die Routingfunktion des Azure IoT Hub-Diensts zum Weiterleiten von Ger�
 
 Wenn Sie die Azure Event Grid-Integrationsfunktion des Azure IoT Hub-Diensts verwenden, müssen Datenanforderungen vom Mandantenadministrator für jeden Abonnenten dieser Ereignisse ausgeführt werden. Weitere Informationen finden Sie unter [Reagieren auf Ereignisse in IoT Hub mithilfe von Event Grid](iot-hub-event-grid.md).
 
-Wenn Sie die Azure Monitor-Integrationsfunktion des Azure IoT Hub-Diensts zum Erstellen von Diagnoseprotokollen verwenden, müssen Datenanforderungen vom Mandantenadministrator für die gespeicherten Protokolle ausgeführt werden. Weitere Informationen finden Sie unter [Überwachen der Integrität von Azure IoT Hub](iot-hub-monitor-resource-health.md).
+Wenn Sie das Azure Monitor-Integrationsfeature des Azure IoT Hub-Diensts zum Erstellen von Ressourcenprotokollen verwenden, müssen Datenanforderungen vom Mandantenadministrator für die gespeicherten Protokolle ausgeführt werden. Weitere Informationen finden Sie unter [Überwachen von IoT Hub](monitor-iot-hub.md).
 
 ## <a name="deleting-customer-data"></a>Löschen von Kundendaten
 

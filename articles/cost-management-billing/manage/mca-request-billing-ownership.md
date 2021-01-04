@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 11/30/2020
 ms.author: banders
-ms.openlocfilehash: 2aae71836a4eaba845e4752edf708607977763fa
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 8c3ab3f4f9bc56e9651a98e5c011cad65f21fd9d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371863"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348982"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Übernehmen des Abrechnungsbesitzes für Azure-Abonnements von anderen Konten
 
@@ -28,7 +28,7 @@ Der Abrechnungsbesitz kann nur mit der Rolle **Rechnungsabschnitt (Besitzer)** o
 1. Melden Sie sich am [Azure-Portal](https://portal.azure.com) als Rechnungsabschnitt-Besitzer oder -Mitwirkender eines Abrechnungskontos für die Microsoft-Kundenvereinbarung an.
 1. Suchen Sie nach **Kostenverwaltung + Abrechnung**.  
     ![Screenshot: Suchen nach „Kostenverwaltung + Abrechnung“ im Azure-Portal](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
-1. Wählen Sie auf der Abrechnungsbereicheseite das Abrechnungskonto aus, das verwendet wird, um die Nutzung der Abonnements zu bezahlen. Das Abrechnungskonto sollte vom Typ **Microsoft-Kundenvereinbarung** sein.  
+1. Wählen Sie auf der Seite mit den Abrechnungsbereichen die Option **Abrechnungsbereiche** und anschließend das Abrechnungskonto aus, das zur Zahlung der Abonnementnutzung verwendet wird. Das Abrechnungskonto sollte vom Typ **Microsoft-Kundenvereinbarung** sein.  
     [![Screenshot: Suchen nach „Kostenverwaltung + Abrechnung“ im Portal](./media/mca-request-billing-ownership/list-of-scopes.png)](./media/mca-request-billing-ownership/list-of-scopes.png#lightbox)
     > [!NOTE]
     > Das Azure-Portal speichert den letzten Abrechnungsbereich, auf den Sie zugreifen, und zeigt den Bereich an, wenn Sie das nächste Mal auf die Seite „Kostenverwaltung + Abrechnung“ gelangen. Wenn Sie „Kostenverwaltung + Abrechnung“ bereits besucht haben, wird die Abrechnungsbereicheseite nicht angezeigt. Wenn dies der Fall ist, überprüfen Sie, ob Sie sich im [richtigen Bereich](#check-for-access) befinden. Wenn nicht, [wechseln Sie den Bereich](view-all-accounts.md#switch-billing-scope-in-the-azure-portal), um das Abrechnungskonto für eine Microsoft-Kundenvereinbarung auszuwählen.

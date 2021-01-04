@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d4c1005d300a5b326ff2f41d9fa3838dbb1c7552
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b75964f8cfc41efc35858284dbffded3aa406eb6
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278028"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436061"
 ---
 # <a name="marketplace-metered-billing-apis"></a>APIs für getaktete Abrechnung im Marketplace
 
@@ -20,7 +20,7 @@ Die APIs für getaktete Abrechnung sollten verwendet werden, wenn der Herausgebe
 
 Weitere Informationen zum Erstellen benutzerdefinierter Messungsdimensionen für SaaS finden Sie unter [Getaktete SaaS-Abrechnung](saas-metered-billing.md).
 
-Weitere Informationen zum Erstellen benutzerdefinierter Messungsdimensionen für ein Azure-Anwendungsangebot mit einem Plan für verwaltete Apps finden Sie im [Abschnitt „Technische Konfiguration“ des Artikels „Erstellen eines Azure-Anwendungsangebots“](create-new-azure-apps-offer.md#technical-configuration)).
+Weitere Informationen zum Erstellen benutzerdefinierter Messungsdimensionen für ein Azure-Anwendungsangebot mit einem Plan für verwaltete Apps finden Sie unter [Konfigurieren der Details der Einrichtung Ihres Azure-Anwendungsangebots](../create-new-azure-apps-offer.md#configure-your-azure-application-offer-setup-details).
 
 ## <a name="enforcing-tls-12-note"></a>Hinweis zum Erzwingen von TLS 1.2
 
@@ -67,7 +67,7 @@ Für jede Stunde eines Kalendertags kann pro Ressource nur ein Nutzungsereignis 
 >[!NOTE]
 >`resourceId` hat für SaaS-Apps und für verwaltete Apps, die benutzerdefinierte Verbrauchseinheiten ausgeben, eine andere Bedeutung. 
 
-Bei Plänen für verwaltete Azure-Apps ist `resourceId` das `resourceUsageId`-Element unter dem `billingDetails`-Element des Metadatenobjekts für verwaltete Apps. Ein Beispielskript zum Abrufen der ID finden Sie unter [Verwenden des Tokens für von Azure verwaltete Identitäten](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
+Bei von Azure-Anwendungen verwalteten App-Plänen ist `resourceId` die `resource group Id` der verwalteten App. Ein Beispielskript zum Abrufen der ID finden Sie unter [Verwenden des Tokens für von Azure verwaltete Identitäten](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
 Bei SaaS-Angeboten ist `resourceId` die SaaS-Abonnement-ID. Weitere Informationen zu SaaS-Abonnements finden Sie unter [Auflisten von Abonnements](./pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
 
@@ -191,7 +191,7 @@ Mit der API für Batchnutzungsereignisse können Sie Nutzungsereignisse gleichze
 >[!NOTE]
 >`resourceId` hat für SaaS-Apps und für verwaltete Apps, die benutzerdefinierte Verbrauchseinheiten ausgeben, eine andere Bedeutung. 
 
-Bei Plänen für verwaltete Azure-Apps ist `resourceId` das `resourceUsageId`-Element unter dem `billingDetails`-Element des Metadatenobjekts für verwaltete Apps. Ein Beispielskript zum Abrufen der ID finden Sie unter [Verwenden des Tokens für von Azure verwaltete Identitäten](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
+Bei von Azure-Anwendungen verwalteten App-Plänen ist `resourceId` die `resource group Id` der verwalteten App. Ein Beispielskript zum Abrufen der ID finden Sie unter [Verwenden des Tokens für von Azure verwaltete Identitäten](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
 Bei SaaS-Angeboten ist `resourceId` die SaaS-Abonnement-ID. Weitere Informationen zu SaaS-Abonnements finden Sie unter [Auflisten von Abonnements](./pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
 

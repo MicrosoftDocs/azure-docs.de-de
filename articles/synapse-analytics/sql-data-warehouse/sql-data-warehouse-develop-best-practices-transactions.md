@@ -1,6 +1,6 @@
 ---
 title: Optimieren von Transaktionen
-description: Erfahren Sie, wie Sie die Leistung Ihres Transaktionscodes in Synapse SQL optimieren und gleichzeitig das Risiko für lange Rollbacks minimieren können.
+description: Hier erfahren Sie, wie Sie die Leistung Ihres Transaktionscodes im dedizierten SQL-Pool optimieren und gleichzeitig das Risiko für lange Rollbacks minimieren können.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,22 +11,22 @@ ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ddb6dbde941d5a2f399aba55eec415c879e74384
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46a165ea7fa21c02e859c16027086695f1f378c3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461204"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462790"
 ---
-# <a name="optimizing-transactions-in-synapse-sql"></a>Optimieren von Transaktionen in Synapse SQL
+# <a name="optimizing-transactions-in-dedicated-sql-pool-in-azure-synapse-analytics"></a>Optimieren von Transaktionen bei einem dedizierten SQL-Pool in Azure Synapse Analytics
 
-Erfahren Sie, wie Sie die Leistung Ihres Transaktionscodes in Synapse SQL optimieren und gleichzeitig das Risiko für lange Rollbacks minimieren können.
+Hier erfahren Sie, wie Sie die Leistung Ihres Transaktionscodes im dedizierten SQL-Pool optimieren und gleichzeitig das Risiko für lange Rollbacks minimieren können.
 
 ## <a name="transactions-and-logging"></a>Transaktionen und Protokollierung
 
-Transaktionen sind eine wichtige Komponente einer relationalen Datenbank-Engine. Transaktionen werden während der Datenänderung verwendet. Diese Transaktionen können expliziter oder impliziter Art sein. Einzelne INSERT-, UPDATE- und DELETE-Anweisungen sind Beispiele für implizite Transaktionen. Für explizite Transaktionen wird BEGIN TRAN, COMMIT TRAN oder ROLLBACK TRAN verwendet. Explizite Transaktionen werden normalerweise verwendet, wenn mehrere Änderungsanweisungen zu einer einzelnen atomischen Einheit zusammengefasst werden müssen.
+Transaktionen sind eine wichtige Komponente einer relationalen SQL-Pool-Engine. Transaktionen werden während der Datenänderung verwendet. Diese Transaktionen können expliziter oder impliziter Art sein. Einzelne INSERT-, UPDATE- und DELETE-Anweisungen sind Beispiele für implizite Transaktionen. Für explizite Transaktionen wird BEGIN TRAN, COMMIT TRAN oder ROLLBACK TRAN verwendet. Explizite Transaktionen werden normalerweise verwendet, wenn mehrere Änderungsanweisungen zu einer einzelnen atomischen Einheit zusammengefasst werden müssen.
 
-Änderungen an der Datenbank werden mithilfe von Transaktionsprotokollen verfolgt. Jede Verteilung verfügt über ein eigenes Transaktionsprotokoll. Schreibvorgänge für Transaktionsprotokolle werden automatisch durchgeführt. Es ist keine Konfiguration erforderlich. Mit diesem Prozess wird der Schreibvorgang zwar sichergestellt, aber er bedeutet auch Mehraufwand für das System. Sie können diese negative Auswirkung reduzieren, indem Sie Code schreiben, der in Bezug auf Transaktionen effektiv ist. Code dieser Art lässt sich grob in zwei Kategorien einteilen.
+Änderungen am SQL-Pool werden mithilfe von Transaktionsprotokollen nachverfolgt. Jede Verteilung verfügt über ein eigenes Transaktionsprotokoll. Schreibvorgänge für Transaktionsprotokolle werden automatisch durchgeführt. Es ist keine Konfiguration erforderlich. Mit diesem Prozess wird der Schreibvorgang zwar sichergestellt, aber er bedeutet auch Mehraufwand für das System. Sie können diese negative Auswirkung reduzieren, indem Sie Code schreiben, der in Bezug auf Transaktionen effektiv ist. Code dieser Art lässt sich grob in zwei Kategorien einteilen.
 
 * Verwenden von Konstrukten mit minimaler Protokollierung, wann immer möglich
 * Verarbeiten von Daten mit bereichsbezogenen Batches, um einzelne Transaktionen mit langer Ausführungsdauer zu vermeiden
@@ -79,7 +79,7 @@ CTAS und INSERT...SELECT sind jeweils Massenladevorgänge. Beide werden aber dur
 Beachten Sie, dass es sich bei allen Schreibvorgängen zum Aktualisieren von sekundären oder nicht gruppierten Indizes immer um Vorgänge mit vollständiger Protokollierung handelt.
 
 > [!IMPORTANT]
-> Eine Synapse SQL-Pooldatenbank weist 60 Verteilungen auf. Wenn davon ausgegangen wird, dass alle Zeilen gleichmäßig verteilt und in einer einzelnen Partition angeordnet sind, muss Ihr Batch also mindestens 6.144.000 Zeilen enthalten, damit beim Schreiben in einen gruppierten Columnstore-Index die minimale Protokollierung verwendet wird. Falls die Tabelle partitioniert ist und die eingefügten Zeilen über Partitionsgrenzen hinweg reichen, benötigen Sie bei gleichmäßiger Datenverteilung 6.144.000 Zeilen pro Partitionsgrenze. Für jede Partition in jeder Verteilung muss unabhängig voneinander der Schwellenwert in Höhe von 102.400 Zeilen überschritten werden, damit für den Einfügevorgang in die Verteilung die minimale Protokollierung angewendet wird.
+> Bei einem dedizierten SQL-Pool gibt es 60 Verteilungen. Wenn davon ausgegangen wird, dass alle Zeilen gleichmäßig verteilt und in einer einzelnen Partition angeordnet sind, muss Ihr Batch also mindestens 6.144.000 Zeilen enthalten, damit beim Schreiben in einen gruppierten Columnstore-Index die minimale Protokollierung verwendet wird. Falls die Tabelle partitioniert ist und die eingefügten Zeilen über Partitionsgrenzen hinweg reichen, benötigen Sie bei gleichmäßiger Datenverteilung 6.144.000 Zeilen pro Partitionsgrenze. Für jede Partition in jeder Verteilung muss unabhängig voneinander der Schwellenwert in Höhe von 102.400 Zeilen überschritten werden, damit für den Einfügevorgang in die Verteilung die minimale Protokollierung angewendet wird.
 
 Das Laden von Daten in eine nicht leere Tabelle mit einem gruppierten Index kann häufig eine Mischung aus vollständig protokollierten und minimal protokollierten Zeilen umfassen. Bei einem gruppierten Index handelt es sich um eine ausbalancierte Struktur (B-Struktur) von Seiten. Falls die Seite, auf die geschrieben wird, bereits Zeilen aus einer anderen Transaktion enthält, werden diese Schreibvorgänge vollständig protokolliert. Aber wenn die Seite leer ist, wird für das Schreiben auf die Seite nur die minimale Protokollierung genutzt.
 
@@ -178,7 +178,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Bei der Neuerstellung großer Tabellen können die Features zur Workloadverwaltung von Synapse SQL-Pools vorteilhaft sein. Weitere Informationen finden Sie unter [Ressourcenklassen für die Workloadverwaltung](resource-classes-for-workload-management.md).
+> Bei der Neuerstellung großer Tabellen können die Features zur Workloadverwaltung des dedizierten SQL-Pools vorteilhaft sein. Weitere Informationen finden Sie unter [Ressourcenklassen für die Workloadverwaltung](resource-classes-for-workload-management.md).
 
 ## <a name="optimizing-with-partition-switching"></a>Optimieren mit Partitionswechsel
 
@@ -407,16 +407,16 @@ END
 
 ## <a name="pause-and-scaling-guidance"></a>Anleitung zum Anhalten und Skalieren
 
-Mithilfe von Synapse SQL können Sie Ihren SQL-Pool bei Bedarf [anhalten, fortsetzen und skalieren](sql-data-warehouse-manage-compute-overview.md). Wenn Sie Ihren SQL-Pool anhalten oder skalieren, ist es wichtig zu verstehen, dass alle laufenden Transaktionen sofort beendet werden. Dies führt dazu, dass für alle geöffneten Transaktionen ein Rollback durchgeführt wird. Wenn für Ihre Workload vor dem Anhalte- oder Skaliervorgang eine längere und unvollständige Datenänderung ausgegeben wurde, müssen diese Schritte rückgängig gemacht werden. Dieser Vorgang wirkt sich möglicherweise auf den Zeitraum aus, der zum Anhalten oder Skalieren Ihres SQL-Pools benötigt wird.
+Sie können einen dedizierten SQL-Pool bei Bedarf [anhalten, fortsetzen und skalieren](sql-data-warehouse-manage-compute-overview.md). Wenn Sie Ihren dedizierten SQL-Pool anhalten oder skalieren, ist es wichtig zu verstehen, dass alle laufenden Transaktionen sofort beendet werden. Dies führt dazu, dass für alle geöffneten Transaktionen ein Rollback durchgeführt wird. Wenn für Ihre Workload vor dem Anhalte- oder Skaliervorgang eine längere und unvollständige Datenänderung ausgegeben wurde, müssen diese Schritte rückgängig gemacht werden. Dieser Vorgang wirkt sich möglicherweise auf den Zeitraum aus, der zum Anhalten oder Skalieren Ihres dedizierten SQL-Pools benötigt wird.
 
 > [!IMPORTANT]
 > Sowohl `UPDATE` als auch `DELETE` sind Vorgänge mit vollständiger Protokollierung. Diese Vorgänge zum Rückgängigmachen und Wiederholen können also deutlich länger dauern als vergleichbare Vorgänge mit minimaler Protokollierung.
 
-Die beste Vorgehensweise ist, auf den Abschluss aktiver Datenänderungstransaktionen zu warten, bevor der SQL-Pool angehalten oder skaliert wird. Allerdings ist dieses Szenario unter Umständen nicht immer praktikabel. Sie können folgende Optionen verwenden, um das Risiko eines langen Rollbackvorgangs zu verringern:
+Die beste Vorgehensweise ist, auf den Abschluss aktiver Datenänderungstransaktionen zu warten, bevor ein dedizierter SQL-Pool angehalten oder skaliert wird. Allerdings ist dieses Szenario unter Umständen nicht immer praktikabel. Sie können folgende Optionen verwenden, um das Risiko eines langen Rollbackvorgangs zu verringern:
 
 * Umschreiben von Vorgängen mit langer Ausführungsdauer mithilfe von [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * Unterteilen des Vorgangs in Blöcke, ausgeführt für jeweils eine Teilmenge der Zeilen
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zu Isolationsstufen und Transaktionsgrenzen finden Sie unter [Transaktionen in Synapse SQL](sql-data-warehouse-develop-transactions.md).  Eine Übersicht über andere bewährte Methoden finden Sie unter [Bewährte Methoden für den Synapse SQL-Pool in Azure Synapse Analytics](sql-data-warehouse-best-practices.md).
+Weitere Informationen zu Isolationsstufen und Transaktionsgrenzen finden Sie unter [Transaktionen im dedizierten SQL-Pool](sql-data-warehouse-develop-transactions.md).  Eine Übersicht über andere bewährte Methoden finden Sie unter [Bewährte Methoden für den dedizierten SQL-Pool](sql-data-warehouse-best-practices.md).

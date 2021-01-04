@@ -1,6 +1,6 @@
 ---
 title: Erstellen einer benutzerdefinierten Azure-Rolle mithilfe einer Azure Resource Manager-Vorlage – Azure RBAC
-description: Erfahren Sie, wie Sie mithilfe von Azure Resource Manager-Vorlagen und rollenbasierter Zugriffssteuerung (Azure RBAC) eine benutzerdefinierte Azure-Rolle erstellen können.
+description: Erfahren Sie, wie Sie mithilfe einer Azure Resource Manager-Vorlage (ARM) und der rollenbasierten Zugriffssteuerung (Azure RBAC) eine benutzerdefinierte Azure-Rolle erstellen.
 services: role-based-access-control,azure-resource-manager
 author: rolyon
 manager: mtillman
@@ -10,47 +10,49 @@ ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 06/25/2020
 ms.author: rolyon
-ms.openlocfilehash: bcf1966ffc326291448cb611d99390fe0d652151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96dfdc0a1c32237c55d4e65bb25989656e2a4ad2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85397995"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097021"
 ---
-# <a name="create-an-azure-custom-role-using-an-azure-resource-manager-template"></a>Erstellen einer benutzerdefinierten Azure-Rolle mithilfe einer Azure Resource Manager-Vorlage
+# <a name="create-an-azure-custom-role-using-an-arm-template"></a>Erstellen einer benutzerdefinierten Rolle in Azure mithilfe einer ARM-Vorlage
 
-Wenn die [integrierten Azure-Rollen](built-in-roles.md) die Anforderungen Ihrer Organisation nicht erfüllen, können Sie Ihre eigenen [benutzerdefinierten Rollen](custom-roles.md) erstellen. In diesem Artikel wird beschrieben, wie eine benutzerdefinierte Rolle mithilfe einer Azure Resource Manager-Vorlage erstellt wird.
+Wenn die [integrierten Azure-Rollen](built-in-roles.md) die Anforderungen Ihrer Organisation nicht erfüllen, können Sie Ihre eigenen [benutzerdefinierten Rollen](custom-roles.md) erstellen. In diesem Artikel wird beschrieben, wie eine benutzerdefinierte Rolle mithilfe einer Azure Resource Manager-Vorlage (ARM) erstellt wird.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Zum Erstellen einer benutzerdefinierten Rolle geben Sie einen Rollennamen, Berechtigungen und den Ort an, an dem die Rolle verwendet werden kann. In diesem Artikel erstellen Sie eine Rolle namens _Custom Role – RG Reader_ mit Ressourcenberechtigungen, die in einem Abonnementbereich oder einer niedrigeren Ebene zugewiesen werden können.
+
+Wenn Ihre Umgebung die Voraussetzungen erfüllt und Sie mit der Verwendung von ARM-Vorlagen vertraut sind, klicken Sie auf die Schaltfläche **In Azure bereitstellen**. Die Vorlage wird im Azure-Portal geöffnet.
+
+[![In Azure bereitstellen](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsubscription-deployments%2Fcreate-role-def%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 Zum Erstellen einer benutzerdefinierten Rolle benötigen Sie Folgendes:
 
-- Berechtigungen zum Erstellen von benutzerdefinierten Rollen, etwa [Besitzer](built-in-roles.md#owner) oder [Benutzerzugriffsadministrator](built-in-roles.md#user-access-administrator)
+- Berechtigungen zum Erstellen von benutzerdefinierten Rollen, wie z. B. [Besitzer](built-in-roles.md#owner) oder [Benutzerzugriffsadministrator](built-in-roles.md#user-access-administrator)
 
-## <a name="create-a-custom-role"></a>Erstellen einer benutzerdefinierten Rolle
+## <a name="review-the-template"></a>Überprüfen der Vorlage
 
-Zum Erstellen einer benutzerdefinierten Rolle geben Sie einen Rollennamen, Berechtigungen und den Ort an, an dem die Rolle verwendet werden kann. In diesem Artikel erstellen Sie eine Rolle namens „Benutzerdefinierte Rolle – RG Reader“ mit Ressourcenberechtigungen, die in einem Abonnementbereich oder einer niedrigeren Ebene zugewiesen werden können.
+Die in diesem Artikel verwendete Vorlage stammt aus den [Azure-Schnellstartvorlagen](https://azure.microsoft.com/resources/templates/create-role-def). Die Vorlage hat vier Parameter und einen Ressourcenabschnitt. Die vier Parameter sind:
 
-### <a name="review-the-template"></a>Überprüfen der Vorlage
-
-Die in diesem Artikel verwendete Vorlage stammt aus den [Azure-Schnellstartvorlagen](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-role-def). Die Vorlage hat vier Parameter und einen Ressourcenabschnitt. Die vier Parameter sind:
-
-- Array von Aktionen mit einem Standardwert von [„Microsoft.Resources/subscriptions/resourceGroups/read“]
-- Array von Nicht-Aktionen mit einem leeren Standardwert
-- Rollenname mit einem Standardwert von „Benutzerdefinierte Rolle – RG Reader“.
-- Rollenbeschreibung mit dem Standardwert „Subscription Level Deployment of a Role Definition" (Bereitstellung einer Rollendefinition auf Abonnementebene).
-
-In der Vorlage ist die folgende Ressource definiert:
-
-- [Microsoft.Authorization/roleDefinitions](/azure/templates/Microsoft.Authorization/roleDefinitions)
+- Array von Aktionen mit dem Standardwert `["Microsoft.Resources/subscriptions/resourceGroups/read"]`
+- Array von `notActions` mit einem leeren Standardwert
+- Rollenname mit dem Standardwert `Custom Role - RG Reader`
+- Rollenbeschreibung mit dem Standardwert `Subscription Level Deployment of a Role Definition`
 
 Der Bereich, in dem diese benutzerdefinierte Rolle zugeordnet werden kann, wird auf das aktuelle Abonnement festgelegt.
 
 :::code language="json" source="~/quickstart-templates/subscription-deployments/create-role-def/azuredeploy.json":::
 
-### <a name="deploy-the-template"></a>Bereitstellen der Vorlage
+In der Vorlage ist die folgende Ressource definiert:
+
+- [Microsoft.Authorization/roleDefinitions](/azure/templates/Microsoft.Authorization/roleDefinitions)
+
+## <a name="deploy-the-template"></a>Bereitstellen der Vorlage
 
 Führen Sie diese Schritte aus, um die vorherige Vorlage bereitzustellen.
 
@@ -60,7 +62,7 @@ Führen Sie diese Schritte aus, um die vorherige Vorlage bereitzustellen.
 
 1. Kopieren Sie das folgende Skript, und fügen Sie es in Cloud Shell ein.
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     $location = Read-Host -Prompt "Enter a location (i.e. centralus)"
     [string[]]$actions = Read-Host -Prompt "Enter actions as a comma-separated list (i.e. action1,action2)"
     $actions = $actions.Split(',')
@@ -74,15 +76,15 @@ Führen Sie diese Schritte aus, um die vorherige Vorlage bereitzustellen.
 
 1. Geben Sie eine Liste von Aktionen für die benutzerdefinierte Rolle als durch Trennzeichen getrennte Liste ein, z. B. *Microsoft.Resources/resources/read,Microsoft.Resources/subscriptions/resourceGroups/read*.
 
-1. Drücken Sie ggf. die EINGABETASTE, um den Befehl „New-AzDeployment“ auszuführen.
+1. Drücken Sie ggf. die EINGABETASTE, um den Befehl `New-AzDeployment` auszuführen.
 
     Der Befehl [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) stellt die Vorlage zum Erstellen der benutzerdefinierten Rolle bereit.
 
     Die Ausgabe sollte etwa folgendermaßen aussehen:
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     PS> New-AzDeployment -Location $location -TemplateUri $templateUri -actions $actions
-    
+
     Id                      : /subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/azuredeploy
     DeploymentName          : azuredeploy
     Location                : centralus
@@ -92,7 +94,7 @@ Führen Sie diese Schritte aus, um die vorherige Vorlage bereitzustellen.
     TemplateLink            :
                               Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-deployments/create-role-def/azuredeploy.json
                               ContentVersion : 1.0.0.0
-    
+
     Parameters              :
                               Name               Type                       Value
                               =================  =========================  ==========
@@ -103,7 +105,7 @@ Führen Sie diese Schritte aus, um die vorherige Vorlage bereitzustellen.
                               notActions         Array                      []
                               roleName           String                     Custom Role - RG Reader
                               roleDescription    String                     Subscription Level Deployment of a Role Definition
-    
+
     Outputs                 :
     DeploymentDebugLogLevel :
     ```
@@ -114,13 +116,13 @@ Führen Sie diese Schritte aus, um sicherzustellen, dass die benutzerdefinierte 
 
 1. Führen Sie den Befehl [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) aus, um die benutzerdefinierte Rolle aufzulisten.
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     Get-AzRoleDefinition "Custom Role - RG Reader" | ConvertTo-Json
     ```
 
     Die Ausgabe sollte etwa folgendermaßen aussehen:
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     {
       "Name": "Custom Role - RG Reader",
       "Id": "11111111-1111-1111-1111-111111111111",
@@ -141,9 +143,9 @@ Führen Sie diese Schritte aus, um sicherzustellen, dass die benutzerdefinierte 
 
 1. Öffnen Sie im Azure-Portal Ihr Abonnement.
 
-1. Klicken Sie im linken Menü auf **Zugriffssteuerung (IAM)** .
+1. Wählen Sie im linken Menü **Zugriffssteuerung (IAM)** aus.
 
-1. Klicken Sie auf die Registerkarte **Rollen**.
+1. Wählen Sie die Registerkarte **Rollen** aus.
 
 1. Legen Sie die Liste **Typ** auf **CustomRole** fest.
 
@@ -157,7 +159,7 @@ Um die benutzerdefinierte Rolle zu entfernen, führen Sie die folgenden Schritte
 
 1. Führen Sie den folgenden Befehl aus, um die benutzerdefinierte Rolle zu entfernen.
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     Get-AzRoleDefinition -Name "Custom Role - RG Reader" | Remove-AzRoleDefinition
     ```
 

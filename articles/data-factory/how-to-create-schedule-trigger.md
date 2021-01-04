@@ -3,21 +3,21 @@ title: Erstellen von Zeitplantriggern in Azure Data Factory
 description: Erfahren Sie, wie in Azure Data Factory ein Trigger erstellt wird, der eine Pipeline gemäß einem Zeitplan ausführt.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: chez-charlie
+ms.author: chez
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/23/2018
+ms.date: 10/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 5dd51f7bcaaa876285f6f514ea98603ff28e7ffa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6f53d6ce41085b2348857ccb5b45c06132d6a99
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87872598"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001982"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Erstellen eines Triggers zum Ausführen einer Pipeline gemäß einem Zeitplan
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -48,12 +48,19 @@ Sie können einen **Zeitplantrigger** erstellen, um eine regelmäßige Ausführu
 
 1. Führen Sie auf der Seite **Neuer Trigger** die folgenden Schritte aus: 
 
-    1. Überprüfen Sie, ob **Zeitplan** als **Typ** ausgewählt ist. 
-    1. Geben Sie unter **Startdatum (UTC)** den Startzeitpunkt des Triggers an. Dieser ist standardmäßig auf das aktuelle Datum und die aktuelle Uhrzeit festgelegt. 
-    1. Legen Sie für den Trigger **Wiederholen** fest. Wählen Sie einen Wert aus der Dropdownliste aus („Minütlich“, „Stündlich“, „Täglich“, „Wöchentlich“ und „Monatlich“). Geben Sie den Multiplikator in das Textfeld ein. Beispiel: Wenn der Trigger einmal alle 15 Minuten ausgeführt werden soll, wählen Sie **Minütlich** aus, und geben Sie **15** in das Textfeld ein. 
-    1. Wenn kein Enddatum bzw. keine Endzeit für den Trigger angegeben werden soll, wählen Sie im Feld **Ende** die Option **Kein Ende** aus. Soll aber ein Enddatum bzw. eine Endzeit angegeben werden, wählen Sie **Am Datum** aus, geben Sie Enddatum/Endzeit an, und wählen Sie **OK** aus. Für jede Pipelineausführung fallen Gebühren an. Wenn Sie Tests durchführen, sollten Sie darauf achten, dass die Pipeline nur ein paar Mal ausgelöst wird. Stellen Sie jedoch sicher, dass zwischen Veröffentlichungszeit und Endzeit ausreichend Zeit für die Pipelineausführung bleibt. Der Trigger wird erst wirksam, nachdem Sie die Lösung in Data Factory veröffentlicht haben, nicht beim Speichern des Triggers auf der Benutzeroberfläche.
+    1. Überprüfen Sie, ob **Zeitplan** als **Typ** ausgewählt ist.
+    1. Geben Sie als **Startdatum** den Startzeitpunkt des Triggers an. Dieser Wert ist standardmäßig auf den aktuellen datetime-Wert in UTC (koordinierte Weltzeit) festgelegt.
+    1. Geben Sie die Zeitzone an, in der der Trigger erstellt wird. Die Zeitzoneneinstellung gilt für **Startdatum**, **Enddatum** und **Ausführungszeiten planen** in den erweiterten Wiederholungsoptionen. Durch eine Änderung der Zeitzoneneinstellung wird das Startdatum nicht automatisch geändert. Stellen Sie sicher, dass das Startdatum in der angegebenen Zeitzone korrekt ist. Beachten Sie, dass vorausgesetzt wird, dass die geplante Ausführungszeit des Auslösers nach dem Startdatum liegt (stellen Sie sicher, dass das Startdatum mindestens eine Minute vor der Ausführungszeit liegt, sonst wird die Pipeline bei der nächsten Wiederholung ausgelöst). 
 
-        ![Triggereinstellungen](./media/how-to-create-schedule-trigger/trigger-settings.png)
+        > [!NOTE]
+        > Bei Zeitzonen mit Umstellung zwischen Sommerzeit und Winterzeit wird die Triggerzeit automatisch zweimal im Jahr angepasst. Um die Anpassung an Sommerzeit/Winterzeit zu deaktivieren, wählen Sie eine Zeitzone aus, in der diese Umstellung nicht erfolgt, z. B. UTC.
+
+    1. Legen Sie für den Trigger **Wiederholen** fest. Wählen Sie einen Wert aus der Dropdownliste aus („Minütlich“, „Stündlich“, „Täglich“, „Wöchentlich“ und „Monatlich“). Geben Sie den Multiplikator in das Textfeld ein. Beispiel: Wenn der Trigger einmal alle 15 Minuten ausgeführt werden soll, wählen Sie **Minütlich** aus, und geben Sie **15** in das Textfeld ein. 
+    1. Zum Angeben eines Endzeitpunkts wählen Sie **Enddatum festlegen** aus, legen einen Wert für _Endet am_ fest und klicken dann auf **OK**. Für jede Pipelineausführung fallen Gebühren an. Wenn Sie Tests durchführen, sollten Sie darauf achten, dass die Pipeline nur ein paar Mal ausgelöst wird. Stellen Sie jedoch sicher, dass zwischen Veröffentlichungszeit und Endzeit ausreichend Zeit für die Pipelineausführung bleibt. Der Trigger wird erst wirksam, nachdem Sie die Lösung in Data Factory veröffentlicht haben, nicht beim Speichern des Triggers auf der Benutzeroberfläche.
+
+        ![Triggereinstellungen](./media/how-to-create-schedule-trigger/trigger-settings-01.png)
+
+        ![Triggereinstellungen für Enddatum](./media/how-to-create-schedule-trigger/trigger-settings-02.png)
 
 1. Wählen Sie im Fenster **Neuer Trigger** in der Option **Aktiviert** die Schaltfläche **Ja** und dann **OK** aus. Über dieses Kontrollkästchen können Sie den Trigger später deaktivieren. 
 
@@ -71,7 +78,7 @@ Sie können einen **Zeitplantrigger** erstellen, um eine regelmäßige Ausführu
 
     ![Überwachen ausgelöster Ausführungen](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
 
-1. Wechseln Sie zur Ansicht **Triggerausführungen**. 
+1. Wechseln Sie zur Ansicht **Triggerausführungen** \ **Zeitplan**. 
 
     ![Überwachen von Triggerausführungen](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
@@ -95,8 +102,9 @@ In diesem Abschnitt erfahren Sie, wie Sie mit Azure PowerShell einen Zeitplantri
                 "recurrence": {
                     "frequency": "Minute",
                     "interval": 15,
-                    "startTime": "2017-12-08T00:00:00",
-                    "endTime": "2017-12-08T01:00:00"
+                    "startTime": "2017-12-08T00:00:00Z",
+                    "endTime": "2017-12-08T01:00:00Z",
+                    "timeZone": "UTC"
                 }
             },
             "pipelines": [{
@@ -116,10 +124,17 @@ In diesem Abschnitt erfahren Sie, wie Sie mit Azure PowerShell einen Zeitplantri
 
     Im JSON-Codeausschnitt:
     - Das **type**-Element des Triggers wird auf „ScheduleTrigger“ festgelegt.
-    - Das **frequency**-Element wird auf „Minute“ und das **interval**-Element auf „15“ festgelegt. Deshalb führt der Trigger die Pipeline alle 15 Minuten zwischen dem Start- und Endzeitpunkt aus.
-    - Das **endTime**-Element ist auf eine Stunde nach dem Wert des **startTime**-Elements festgelegt. Aus diesem Grund führt der Trigger die Pipeline 15 Minuten, 30 Minuten und 45 Minuten nach der Startzeit aus. Denken Sie daran, die Startzeit in die aktuelle UTC-Zeit und die Endzeit in eine Stunde nach der Startzeit zu ändern. 
+    - Das **frequency**-Element wird auf „Minute“ und das **interval**-Element auf „15“ festgelegt. So führt der Trigger die Pipeline zwischen dem Start- und Endzeitpunkt alle 15 Minuten aus.
+    - Das **timeZone**-Element gibt die Zeitzone an, in der der Trigger erstellt wird. Diese Einstellung betrifft sowohl **startTime** als auch **endTime**.
+    - Das **endTime**-Element ist auf eine Stunde nach dem Wert des **startTime**-Elements festgelegt. So führt der Trigger die Pipeline 15 Minuten, 30 Minuten und 45 Minuten nach der Startzeit aus. Denken Sie daran, die Startzeit in die aktuelle UTC-Zeit und die Endzeit in eine Stunde nach der Startzeit zu ändern. 
+
+        > [!IMPORTANT]
+        > In der Zeitzone UTC müssen startTime und endTime das Format „yyyy-MM-ddTHH:mm:ss **Z**“ aufweisen, in anderen Zeitzonen ist das Format „yyyy-MM-ddTHH:mm:ss“ erforderlich. 
+        > 
+        > Gemäß ISO 8601-Norm markiert das Suffix _Z_ des Zeitstempels den datetime-Wert für die Zeitzone UTC, und damit ist das timeZone-Feld nutzlos. Wenn das Suffix _Z_ für UTC fehlt, tritt bei der _Aktivierung_ des Triggers ein Fehler auf.
+
     - Der Trigger ist der Pipeline **Adfv2QuickStartPipeline** zugeordnet. Um einen Trigger mehreren Pipelines zuzuordnen, fügen Sie weitere **pipelineReference**-Abschnitte hinzu.
-    - Die Pipeline im Schnellstart akzeptiert zwei **parameter**-Werte: **inputPath** und **outputPath**. Aus diesem Grund übergeben Sie Werte für diese Parameter aus dem Trigger.
+    - Die Pipeline im Schnellstart akzeptiert zwei **parameter**-Werte: **inputPath** und **outputPath**. Sie übergeben Werte für diese Parameter aus dem Trigger.
 
 1. Erstellen Sie mit dem Cmdlet **Set-AzDataFactoryV2Trigger** einen Trigger:
 
@@ -151,7 +166,11 @@ In diesem Abschnitt erfahren Sie, wie Sie mit Azure PowerShell einen Zeitplantri
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
     
+    > [!NOTE]
+    > Die Auslösezeiten für Zeitplantrigger sind im UTC-Zeitstempel angegeben. _TriggerRunStartedAfter_ und _TriggerRunStartedBefore_ erwarten ebenfalls einen UTC-Zeitstempel.
+
     Informationen zum Überwachen von Trigger- bzw. Pipelineausführungen im Azure-Portal finden Sie unter [Überwachen der Pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+
 
 
 ## <a name="net-sdk"></a>.NET SDK
@@ -207,6 +226,16 @@ Um einen Zeitplantrigger zu erstellen und zu starten, der alle 15 Minuten ausgef
             client.Triggers.Start(resourceGroup, dataFactoryName, triggerName);
 ```
 
+Zum Erstellen von Triggern in einer anderen Zeitzone als UTC sind folgende Einstellungen erforderlich:
+```csharp
+<<ClientInstance>>.SerializationSettings.DateFormatHandling = Newtonsoft.Json.DateFormatHandling.IsoDateFormat;
+<<ClientInstance>>.SerializationSettings.DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Unspecified;
+<<ClientInstance>>.SerializationSettings.DateParseHandling = DateParseHandling.None;
+<<ClientInstance>>.DeserializationSettings.DateParseHandling = DateParseHandling.None;
+<<ClientInstance>>.DeserializationSettings.DateFormatHandling = Newtonsoft.Json.DateFormatHandling.IsoDateFormat;
+<<ClientInstance>>.DeserializationSettings.DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Unspecified;
+```
+
 Fügen Sie zum Überwachen einer Triggerausführung im Beispiel den folgenden Code vor der letzten `Console.WriteLine`-Anweisung hinzu:
 
 ```csharp
@@ -240,7 +269,7 @@ In diesem Abschnitt erfahren Sie, wie Sie mit dem Python-SDK einen Trigger erste
 ```python
     # Create a trigger
     tr_name = 'mytrigger'
-    scheduler_recurrence = ScheduleTriggerRecurrence(frequency='Minute', interval='15',start_time='2017-12-12T04:00:00', end_time='2017-12-12T05:00:00', time_zone='UTC')
+    scheduler_recurrence = ScheduleTriggerRecurrence(frequency='Minute', interval='15',start_time='2017-12-12T04:00:00Z', end_time='2017-12-12T05:00:00Z', time_zone='UTC')
     pipeline_parameters = {'inputPath':'adftutorial/input', 'outputPath':'adftutorial/output'}
     pipelines_to_run = []
     pipeline_reference = PipelineReference('copyPipeline')
@@ -322,24 +351,46 @@ Die folgende Tabelle enthält eine allgemeine Übersicht über die wichtigsten S
 
 | JSON-Eigenschaft | BESCHREIBUNG |
 |:--- |:--- |
-| **startTime** | Ein Datums-/Uhrzeitwert. Bei einfachen Zeitplänen gilt der Wert der **startTime**-Eigenschaft für das erste Vorkommen. Bei komplexen Zeitplänen wird der Trigger frühestens beim festgelegten **startTime**-Wert gestartet. |
-| **endTime** | Enddatum und -uhrzeit für den Trigger. Der Trigger wird am angegebenen Enddatum und der Enduhrzeit beendet. Der Wert für die Eigenschaft darf nicht in der Vergangenheit liegen. Diese Eigenschaft ist optional. |
-| **timeZone** | Die Zeitzone. Derzeit wird nur die UTC-Zeitzone unterstützt. |
+| **startTime** | Ein Datums-/Uhrzeitwert. Bei einfachen Zeitplänen gilt der Wert der **startTime**-Eigenschaft für das erste Vorkommen. Bei komplexen Zeitplänen wird der Trigger frühestens beim festgelegten **startTime**-Wert gestartet. <br> Für UTC lautet das Format `'yyyy-MM-ddTHH:mm:ssZ'`, für andere Zeitzonen `'yyyy-MM-ddTHH:mm:ss'`. |
+| **endTime** | Enddatum und -uhrzeit für den Trigger. Der Trigger wird am angegebenen Enddatum und der Enduhrzeit beendet. Der Wert für die Eigenschaft darf nicht in der Vergangenheit liegen. Diese Eigenschaft ist optional.  <br> Für UTC lautet das Format `'yyyy-MM-ddTHH:mm:ssZ'`, für andere Zeitzonen `'yyyy-MM-ddTHH:mm:ss'`. |
+| **timeZone** | Die Zeitzone, in der der Trigger erstellt wird. Diese Einstellung wirkt sich auf **startTime**, **endTime** und **Zeitplan** aus. Mehr dazu erfahren Sie in der [Liste mit unterstützten Zeitzonen](#time-zone-option). |
 | **recurrence** | Ein recurrence-Objekt, das die Wiederholungsregeln für den Trigger angibt. Das recurrence-Objekt unterstützt die Elemente **frequency**, **interval**, **endTime**, **count** und **schedule**. Wenn ein recurrence-Objekt definiert ist, ist das **frequency**-Element erforderlich. Die anderen Elemente des recurrence-Objekts sind optional. |
 | **frequency** | Die Einheit der Häufigkeit, mit welcher der Trigger wiederholt wird. Zu den unterstützten Werten gehören „minute“, „hour“, „day“, „week“ und „month“. |
 | **interval** | Eine positive ganze Zahl, die das Intervall für den **frequency**-Wert angibt, der bestimmt, wie oft der Trigger ausgeführt wird. Ist **interval** also beispielsweise auf „3“ und **frequency** auf „week“ festgelegt, wird der Trigger alle drei Wochen ausgeführt. |
 | **schedule** | Der Wiederholungszeitplan für den Trigger. Die Wiederholung eines Triggers mit einem festgelegten **frequency**-Wert wird auf der Grundlage eines Wiederholungszeitplans angepasst. Die **schedule**-Eigenschaft enthält Anpassungen für die Wiederholung auf der Grundlage von Minuten, Stunden, Wochentagen, Monatstagen und Wochennummer.
 
+> [!IMPORTANT]
+> In der Zeitzone UTC müssen startTime und endTime das Format „yyyy-MM-ddTHH:mm:ss **Z**“ aufweisen, in anderen Zeitzonen ist das Format „yyyy-MM-ddTHH:mm:ss“ erforderlich. 
+> 
+> Gemäß ISO 8601-Norm markiert das Suffix _Z_ des Zeitstempels den datetime-Wert für die Zeitzone UTC, und damit ist das timeZone-Feld nutzlos. Wenn das Suffix _Z_ für UTC fehlt, tritt bei der _Aktivierung_ des Triggers ein Fehler auf.
 
 ### <a name="schema-defaults-limits-and-examples"></a>Schemastandards, Einschränkungen und Beispiele
 
 | JSON-Eigenschaft | type | Erforderlich | Standardwert | Gültige Werte | Beispiel |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | String | Ja | Keine | Datum/Uhrzeit (nach ISO 8601) | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **startTime** | String | Ja | Keine | Datum/Uhrzeit (nach ISO 8601) | Für die Zeitzone UTC: `"startTime" : "2013-01-09T09:30:00-08:00Z"` <br> Für andere Zeitzonen: `"2013-01-09T09:30:00-08:00"` |
+| **timeZone** | String | Ja | Keine | [Werte für Zeitzonen](#time-zone-option)  | `"UTC"` |
 | **recurrence** | Object | Ja | Keine | Wiederholungsobjekt | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | Number | Nein | 1 | 1 bis 1.000 | `"interval":10` |
-| **endTime** | String | Ja | Keine | Ein Datums-/Uhrzeitwert, der eine Zeit in der Zukunft darstellt. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | String | Ja | Keine | Ein Datums-/Uhrzeitwert, der eine Zeit in der Zukunft darstellt. | Für die Zeitzone UTC: `"endTime" : "2013-02-09T09:30:00-08:00Z"` <br> Für andere Zeitzonen: `"endTime" : "2013-02-09T09:30:00-08:00"`|
 | **schedule** | Object | Nein | Keine | Zeitplanobjekt | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+
+### <a name="time-zone-option"></a>Zeitzonenoption
+
+Im Folgenden finden Sie einige der für Zeitplantrigger unterstützte Zeitzonen:
+
+| Zeitzone | Unterschied zu UTC (keine Sommerzeit) | timeZone-Wert | Beachtung der Sommerzeit | Format für Zeitstempel |
+| :--- | :--- | :--- | :--- | :--- |
+| Koordinierte Weltzeit (UTC) | 0 | `UTC` | Nein  | `'yyyy-MM-ddTHH:mm:ssZ'`|
+| Pacific Time (PT) | -8 | `Pacific Standard Time` | Ja | `'yyyy-MM-ddTHH:mm:ss'` |
+| Central Time (CT) | –6 | `Central Standard Time` | Ja | `'yyyy-MM-ddTHH:mm:ss'` |
+| Eastern Time (ET) | -5 | `Eastern Standard Time` | Ja | `'yyyy-MM-ddTHH:mm:ss'` |
+| Greenwich Mean Time (GMT) | 0 | `GMT Standard Time` | Ja | `'yyyy-MM-ddTHH:mm:ss'` |
+| Mitteleuropäische Zeit | +1 | `W. Europe Standard Time` | Ja | `'yyyy-MM-ddTHH:mm:ss'` |
+| India Standard Time (IST) | +5:30 | `India Standard Time` | Nein  | `'yyyy-MM-ddTHH:mm:ss'` |
+| China Normalzeit | +8 | `China Standard Time` | Nein  | `'yyyy-MM-ddTHH:mm:ss'` |
+
+Diese Liste ist unvollständig. Eine vollständige Liste der Zeitzonenoptionen finden Sie im Data Factory-Portal auf der Seite zur [Triggererstellung](#data-factory-ui).
 
 ### <a name="starttime-property"></a>startTime-Eigenschaft
 Die folgende Tabelle zeigt, wie die **startTime**-Eigenschaft eine Triggerausführung steuert:
@@ -351,9 +402,9 @@ Die folgende Tabelle zeigt, wie die **startTime**-Eigenschaft eine Triggerausfü
 
 Das folgende Beispiel veranschaulicht, was passiert, wenn die Startzeit in der Vergangenheit liegt und nur eine Wiederholung, aber kein Zeitplan angegeben ist. Nehmen Sie beispielsweise an, dass die aktuelle Uhrzeit `2017-04-08 13:00` ist, die Startzeit `2017-04-07 14:00` ist und die Wiederholung alle zwei Tage erfolgt. (Der **recurrence**-Wert wird definiert, indem die **frequency**-Eigenschaft auf „day“ und die **interval**-Eigenschaft auf „2“ festgelegt wird.) Beachten Sie, dass der **startTime**-Wert in der Vergangenheit liegt.
 
-Unter diesen Umständen erfolgt die erste Ausführung um `2017-04-09 at 14:00`. Die Scheduler-Engine berechnet die Ausführungen auf Grundlage der Startzeit. In der Vergangenheit liegende Instanzen werden verworfen. Die Engine verwendet die nächste in der Zukunft liegende Instanz. In diesem Szenario ist die Startzeit `2017-04-07 at 2:00pm`, sodass die nächste Instanz zwei Tage nach diesem Zeitpunkt folgt, also am `2017-04-09 at 2:00pm`.
+Unter diesen Umständen erfolgt die erste Ausführung am `2017-04-09` um `14:00`. Die Scheduler-Engine berechnet die Ausführungen auf Grundlage der Startzeit. In der Vergangenheit liegende Instanzen werden verworfen. Die Engine verwendet die nächste in der Zukunft liegende Instanz. In diesem Szenario ist die Startzeit auf den `2017-04-07` um `2:00pm` festgelegt. Die nächste Instanz folgt zwei Tage nach diesem Zeitpunkt, also am `2017-04-09` um `2:00pm`.
 
-Die erste Ausführungszeit ist auch dieselbe, wenn der **startTime**-Wert `2017-04-05 14:00` oder `2017-04-01 14:00` ist. Nach der ersten Ausführung werden nachfolgende Ausführungen anhand des Zeitplans berechnet. Daher erfolgen die weiteren Ausführungen am `2017-04-11 at 2:00pm`, dann am `2017-04-13 at 2:00pm`, dann am `2017-04-15 at 2:00pm` und so weiter.
+Die erste Ausführungszeit ist auch dieselbe, wenn der **startTime**-Wert `2017-04-05 14:00` oder `2017-04-01 14:00` ist. Nach der ersten Ausführung werden nachfolgende Ausführungen anhand des Zeitplans berechnet. Daher erfolgen die weiteren Ausführungen am `2017-04-11` um `2:00pm`, dann am `2017-04-13` um `2:00pm`, dann am `2017-04-15` um `2:00pm` und so weiter.
 
 Wenn die Stunden oder Minuten im Zeitplan für einen Trigger nicht festgelegt sind, werden die Stunden oder Minuten der ersten Ausführung als Standardwerte verwendet.
 

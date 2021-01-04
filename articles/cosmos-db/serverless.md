@@ -5,15 +5,16 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: ef681f861a14fbbf86e7e350441d05f84fc95f58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/25/2020
+ms.openlocfilehash: cabc243c6ba74217873b5b0a5fa51a7cb410512e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88757896"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170830"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB serverlos (Vorschau)
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 > [!IMPORTANT]
 > Azure Cosmos DB serverlos befindet sich derzeit in der Vorschauphase. Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -32,8 +33,7 @@ Wenn Sie Azure Cosmos DB verwenden, werden für jeden Datenbankvorgang Kosten i
 
 Azure Cosmos DB Server serverlos ist am besten für Szenarien geeignet, in denen Folgendes erwartet wird:
 
-- **Wenig Datenverkehr**: Da die Bereitstellung von Kapazität in solchen Fällen nicht erforderlich und unter Umständen kostenintensiv ist.
-- **Mittlere Burstfähigkeit**: Da serverlose Container bis zu 5.000 Anforderungseinheiten pro Sekunde bereitstellen können.
+- **Niedriger, zeitweiliger und unvorhersehbarer Datenverkehr:** Da die Bereitstellung von Kapazität in solchen Fällen nicht erforderlich und unter Umständen kostenintensiv ist.
 - **Mittlere Leistung**: Da serverlose Container [bestimmten Leistungsmerkmale](#performance) aufweisen.
 
 Aus diesen Gründen sollte Azure Cosmos DB serverlos für die folgenden Workloadtypen in Betracht gezogen werden:
@@ -50,9 +50,6 @@ Weitere Anleitungen zum Auswählen des Angebots, das Ihrem Anwendungsfall am bes
 
 Serverlos ist ein neuer Azure Cosmos-Kontotyp. Dies bedeutet, dass Sie zwischen **bereitgestelltem Durchsatz** und **serverlos** wählen müssen, wenn Sie ein neues Konto erstellen. Sie müssen ein neues serverloses Konto erstellen, um mit serverless zu beginnen. Während der Vorschauversion ist die einzige unterstützte Möglichkeit, ein neues serverloses Konto zu erstellen, die [Verwendung des Azure-Portals](create-cosmosdb-resources-portal.md). Das Migrieren vorhandener Konten zum/aus dem serverlosen Modus wird derzeit nicht unterstützt.
 
-> [!NOTE]
-> Serverlos wird derzeit nur von der API Azure Cosmos DB Core (SQL) unterstützt.
-
 Jeder Container, der in einem serverlosen Konto erstellt wird, ist ein serverloser Container. Serverlose Container stellen dieselben Funktionen wie Container bereit, die im Modusfpr bereitgestellten Durchsatz erstellt wurden, sodass Sie Ihre Daten genau auf die gleiche Weise lesen, schreiben und abfragen. Serverlose Konten und Container haben jedoch auch bestimmte Merkmale:
 
 > [!IMPORTANT]
@@ -64,7 +61,6 @@ Jeder Container, der in einem serverlosen Konto erstellt wird, ist ein serverlos
     - Wenn Sie einen serverlosen Container erstellen, können Sie keinen Durchsatz übergeben. Bei einem Versuch wird ein Fehler zurückgegeben.
     - Sie können den Durchsatz für einen serverlosen Container nicht lesen oder aktualisieren, und es wird ein Fehler zurückgegeben.
     - Sie können in einem serverlosen Konto keine Datenbank mit freigegebenem Durchsatz erstellen, und es wird ein Fehler zurückgegeben.
-- Serverlose Container können einen maximalen Durchsatz von 5.000 Anforderungseinheiten pro Sekunde bereitstellen.
 - Serverlose Container können maximal 50 GB Daten und Indizes speichern.
 
 ## <a name="monitoring-your-consumption"></a>Überwachen Ihres Verbrauchs

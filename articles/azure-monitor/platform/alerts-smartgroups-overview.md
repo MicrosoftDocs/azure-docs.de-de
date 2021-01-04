@@ -4,12 +4,12 @@ description: Intelligente Gruppen sind Aggregationen von Warnungen, die Ihnen he
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/15/2018
-ms.openlocfilehash: dff59ac207e6078a264d1350d24c9e6f4a461d78
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 743bd1a674c034cd6a0350f959289ac3ecb568de
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108778"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186608"
 ---
 # <a name="smart-groups"></a>Intelligente Gruppen
 
@@ -33,7 +33,7 @@ Die folgenden Zustände werden für intelligente Gruppen unterstützt.
 | Bestätigt | Ein Administrator hat die intelligente Gruppe überprüft und mit deren Bearbeitung begonnen. |
 | Geschlossen | Das Problem wurde gelöst. Nachdem eine intelligente Gruppe geschlossen wurde, können Sie diese erneut öffnen, indem Sie den Zustand ändern. |
 
-[Erfahren Sie mehr über das Ändern des Zustands Ihrer intelligenten Gruppen](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json).
+[Erfahren Sie mehr über das Ändern des Zustands Ihrer intelligenten Gruppen](./alerts-managing-alert-states.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
 > [!NOTE]
 >  Durch das Ändern des Zustands einer intelligenten Gruppe wird nicht der Zustand der einzelnen Mitgliedswarnungen geändert.
@@ -58,5 +58,5 @@ Der Name einer intelligenten Gruppe ist der Name der ersten Warnung. Sie können
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Verwalten intelligenter Gruppen](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
-- [Ändern des Zustands von Warnungen und intelligenten Gruppen](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [Verwalten intelligenter Gruppen](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
+- [Ändern des Zustands von Warnungen und intelligenten Gruppen](./alerts-managing-alert-states.md?toc=%2fazure%2fazure-monitor%2ftoc.json)

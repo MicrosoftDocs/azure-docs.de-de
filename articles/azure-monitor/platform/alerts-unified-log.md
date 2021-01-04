@@ -6,28 +6,28 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 8081c60833c3c02d55ae66ca695ba106dba01450
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9f8004b41e8048dfc97fb61bb67a634963c0c575
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91294137"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317553"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Protokollwarnungen in Azure Monitor
 
 ## <a name="overview"></a>Übersicht
 
-Protokollwarnungen sind einer der Warnungstypen, die in [Azure Alerts](./alerts-overview.md) unterstützt werden. Mithilfe von Protokollwarnungen können Benutzer eine [Log Analytics](../log-query/get-started-portal.md)-Abfrage verwenden, um Ressourcenprotokolle mit einer bestimmten Häufigkeit auszuwerten und basierend auf den Ergebnissen eine Warnung auszulösen. Durch Regeln können über [Aktionsgruppen](./action-groups.md) einzelne oder mehrere Aktionen ausgelöst werden.
+Protokollwarnungen sind einer der Warnungstypen, die in [Azure Alerts](./alerts-overview.md) unterstützt werden. Mithilfe von Protokollwarnungen können Benutzer eine [Log Analytics](../log-query/log-analytics-tutorial.md)-Abfrage verwenden, um Ressourcenprotokolle mit einer bestimmten Häufigkeit auszuwerten und basierend auf den Ergebnissen eine Warnung auszulösen. Durch Regeln können über [Aktionsgruppen](./action-groups.md) einzelne oder mehrere Aktionen ausgelöst werden.
 
 > [!NOTE]
-> Protokolldaten aus einem [Log Analytics-Arbeitsbereich](../log-query/get-started-portal.md) können an den Azure Monitor-Metrikspeicher gesendet werden. Metrikwarnungen weisen ein [anderes Verhalten](alerts-metric-overview.md) auf. Je nach den Daten, mit denen Sie arbeiten, kann dies wünschenswert sein. Informationen zu den Protokollen, die Sie an Metriken weiterleiten können, und der zugehörigen Vorgehensweise finden Sie unter [Metrikwarnungen für Protokolle](alerts-metric-logs.md).
+> Protokolldaten aus einem [Log Analytics-Arbeitsbereich](../log-query/log-analytics-tutorial.md) können an den Azure Monitor-Metrikspeicher gesendet werden. Metrikwarnungen weisen ein [anderes Verhalten](alerts-metric-overview.md) auf. Je nach den Daten, mit denen Sie arbeiten, kann dies wünschenswert sein. Informationen zu den Protokollen, die Sie an Metriken weiterleiten können, und der zugehörigen Vorgehensweise finden Sie unter [Metrikwarnungen für Protokolle](alerts-metric-logs.md).
 
 > [!NOTE]
 > Für die API-Version `2020-05-01-preview` und ressourcenbezogene Protokollwarnungen fallen aktuell keine zusätzlichen Gebühren an.  Die Preise für Previewfunktionen werden später bekannt gegeben, und vor Abrechnungsbeginn erhalten Sie eine entsprechende Benachrichtigung. Falls Sie sich dafür entscheiden, die neue API-Version und ressourcenbezogene Protokollwarnungen über den Benachrichtigungszeitraum hinaus zu verwenden, wird Ihnen der entsprechende Tarif in Rechnung gestellt.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Bei Protokollwarnungen werden Abfragen für Log Analytics-Daten ausgeführt. Zunächst sollten Sie [Protokolldaten erfassen](resource-logs.md) und für die Protokolldaten abfragen, ob Probleme vorhanden sind. Unter [Gespeicherte Abfragen in Azure Monitor Log Analytics](../log-query/saved-queries.md) können Sie sich anhand von Beispielen mit den Ermittlungsoptionen vertraut machen. Alternativ können Sie [mit dem Schreiben einer eigenen Abfrage beginnen](../log-query/get-started-portal.md).
+Bei Protokollwarnungen werden Abfragen für Log Analytics-Daten ausgeführt. Zunächst sollten Sie [Protokolldaten erfassen](resource-logs.md) und für die Protokolldaten abfragen, ob Probleme vorhanden sind. Unter [Gespeicherte Abfragen in Azure Monitor Log Analytics](../log-query/example-queries.md) können Sie sich anhand von Beispielen mit den Ermittlungsoptionen vertraut machen. Alternativ können Sie [mit dem Schreiben einer eigenen Abfrage beginnen](../log-query/log-analytics-tutorial.md).
 
 [Mitwirkender der Azure-Überwachung](./roles-permissions-security.md) ist eine häufig verwendete Rolle, die zum Erstellen, Ändern und Aktualisieren von Protokollwarnungen benötigt wird. Rechte zum Zugreifen und zum Ausführen von Abfragen für die Ressourcenprotokolle werden ebenfalls benötigt. Bei einem Teilzugriff auf Ressourcenprotokolle kann es zu Abfragefehlern kommen, oder es wird nur ein Teil der Ergebnisse zurückgegeben. Informieren Sie sich über das [Konfigurieren von Protokollwarnungen in Azure](./alerts-log.md).
 
@@ -44,7 +44,7 @@ Die Definition der Bedingung für Protokollsuchregeln beginnt mit:
 In den folgenden Abschnitten werden die verschiedenen Parameter beschrieben, die Sie zum Festlegen der obigen Logik verwenden können.
 
 ### <a name="log-query"></a>Protokollabfrage
-Die [Log Analytics](../log-query/get-started-portal.md)-Abfrage, die zum Auswerten der Regel verwendet wird. Mit den von dieser Abfrage zurückgegebenen Ergebnissen wird ermittelt, ob eine Warnung ausgelöst werden muss. Die Abfrage kann auf den folgenden Bereich festgelegt werden:
+Die [Log Analytics](../log-query/log-analytics-tutorial.md)-Abfrage, die zum Auswerten der Regel verwendet wird. Mit den von dieser Abfrage zurückgegebenen Ergebnissen wird ermittelt, ob eine Warnung ausgelöst werden muss. Die Abfrage kann auf den folgenden Bereich festgelegt werden:
 
 - Eine bestimmte Ressource, z. B. einen virtuellen Computer.
 - Eine umfassende Ressource, z. B. ein Abonnement oder eine Ressourcengruppe.
@@ -90,7 +90,7 @@ requests
 | where resultCode == "500"
 ```
 
-- **Zeitraum:** 15 Minuten
+- **Zeitraum/Aggregationsgranularität**: 15 Minuten
 - **Warnungshäufigkeit:** 15 Minuten
 - **Schwellenwert:** Größer als 0
 
@@ -145,7 +145,7 @@ Es kann beispielsweise sein, dass Sie Fehler für mehrere virtuelle Computer üb
 - **Spalte mit Ressourcen-ID:** _ResourceId (Die Aufteilung nach der Spalte mit der Ressourcen-ID in Warnungsregeln ist derzeit nur für Abonnements und Ressourcengruppen verfügbar.)
 - **Dimensionen/Aggregieren nach:**
   - Computer = VM1, VM2 (Die Filterung von Werten in Warnungsregeldefinitionen ist für Arbeitsbereiche und Application Insights derzeit nicht verfügbar. Filtern Sie stattdessen im Abfragetext.)
-- **Zeitraum:** 15 Minuten
+- **Zeitraum/Aggregationsgranularität**: 15 Minuten
 - **Warnungshäufigkeit:** 15 Minuten
 - **Schwellenwert:** Größer als 0
 
@@ -209,4 +209,3 @@ Die Preisinformationen finden Sie auf der Seite [Azure Monitor – Preise](https
 * Machen Sie sich mit [Webhooks in Protokollwarnungen in Azure](alerts-log-webhook.md) vertraut.
 * Erfahren Sie mehr über [Azure-Warnungen](./alerts-overview.md).
 * Erfahren Sie mehr über [Log Analytics](../log-query/log-query-overview.md).
-

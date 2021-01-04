@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 5fd949466978714fe1dc0c4ccc67a3cb8f993314
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 362d5f2046ff4e9ba52dd2e73433cc39e80f7a50
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934955"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420596"
 ---
 # <a name="scale-for-performance-on-azure-cognitive-search"></a>Skalieren zur Verbesserung der Leistung in Azure Cognitive Search
 
@@ -30,7 +30,7 @@ Vor der Durchführung eines größeren Bereitstellungsaufwands sollten Sie unbed
 
 1. Beginnen Sie mit einer geringen Anzahl von Abfragen pro Sekunde (QPS), und erhöhen Sie die im Test ausgeführte Abfrageanzahl dann schrittweise, bis die Abfragelatenz den vordefinierten Zielwert unterschreitet. Dies ist ein wichtiger Benchmark, mit dem Sie die Skalierung planen können, wenn die Nutzungsrate Ihrer Anwendung steigt.
 
-1. Verwenden Sie HTTP-Verbindungen nach Möglichkeit wieder. Bei Verwendung des .NET SDK der kognitiven Azure-Suche sollten Sie eine Instanz oder eine [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient)-Instanz wiederverwenden. Wenn Sie die REST-API nutzen, sollten Sie eine einzelne HttpClient-Instanz wiederverwenden.
+1. Verwenden Sie HTTP-Verbindungen nach Möglichkeit wieder. Bei Verwendung des .NET SDK von Azure Cognitive Search sollten Sie eine Instanz oder eine [SearchClient](/dotnet/api/azure.search.documents.searchclient)-Instanz wiederverwenden. Wenn Sie die REST-API nutzen, sollten Sie eine einzelne HttpClient-Instanz wiederverwenden.
 
 1. Variieren Sie die Inhalte von Abfrageanforderungen, sodass die Suche über verschiedene Teile Ihres Index erfolgt. Das Variieren ist wichtig, denn wenn Sie immer wieder die gleichen Suchanforderungen ausführen, führt die Zwischenspeicherung von Daten dazu, dass die Leistung besser aussieht als bei ungleichartigen Abfragen.
 
@@ -43,7 +43,7 @@ Beim Erstellen dieser Testworkloads müssen Sie einige Merkmale der kognitiven A
 + Bei der kognitiven Azure-Suche werden keine Indizierungsaufgaben im Hintergrund ausgeführt. Wenn Ihr Dienst Abfrage- und Indizierungsworkloads gleichzeitig verarbeitet, berücksichtigen Sie dies, indem Sie entweder Indizierungsaufträge in Ihre Abfragetests integrieren oder Optionen für die Ausführung von Indizierungsaufträgen während der Nebenzeiten untersuchen.
 
 > [!Tip]
-> Mithilfe von Tools für Auslastungstests können Sie eine realistische Abfragelast simulieren. Führen Sie [Auslastungstests mit Azure DevOps](/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=azure-devops) aus, oder verwenden Sie eine dieser [Alternativen](/azure/devops/test/load-test/overview?view=azure-devops#alternatives).
+> Mithilfe von Tools für Auslastungstests können Sie eine realistische Abfragelast simulieren. Führen Sie [Auslastungstests mit Azure DevOps](/azure/devops/test/load-test/get-started-simple-cloud-load-test) aus, oder verwenden Sie eine dieser [Alternativen](/azure/devops/test/load-test/overview#alternatives).
 
 ## <a name="scale-for-high-query-volume"></a>Skalieren im Hinblick auf ein hohes Abfragevolume
 

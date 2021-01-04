@@ -3,15 +3,20 @@ title: Überwachen der Java-Web-App-Leistung unter Linux – Azure | Microsoft-D
 description: Erweiterte Überwachung der Anwendungsleistung Ihrer Java-Website mit dem Plug-In „CollectD“ für Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: fd061d6dd1f87456b92a61c9a62caaf3ef3189b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: MS-jgol
+ms.custom: devx-track-java
+ms.author: jgol
+ms.openlocfilehash: 5ec928a0dc3cbcde3c6dd50b1795a05b5e092bde
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761021"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601270"
 ---
-# <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: Linux-Leistungsmetriken in Application Insights
+# <a name="collectd-linux-performance-metrics-in-application-insights-deprecated"></a>collectd: Linux-Leistungsmetriken in Application Insights [veraltet]
 
+> [!IMPORTANT]
+> Der **empfohlene Ansatz** zur Überwachung von Java-Anwendungen ist die automatische Instrumentierung ohne Änderung des Codes. Befolgen Sie die Richtlinien für den **[Application Insights Java 3.0-Agent](./java-in-process-agent.md)** .
 
 Um Leistungsmetriken für Linux-Systeme in [Application Insights](./app-insights-overview.md) zu untersuchen, installieren Sie [CollectD](https://collectd.org/) zusammen mit dem entsprechenden Application Insights-Plug-In. Diese Open Source-Lösung sammelt verschiedene System- und Netzwerkstatistiken.
 
@@ -94,7 +99,7 @@ So schließen Sie Daten von bestimmten Plug-Ins oder Datenquellen aus:
 * Bearbeiten Sie die Konfigurationsdatei. 
 * Fügen Sie in `<Plugin ApplicationInsightsWriter>`folgende Direktivenzeilen hinzu:
 
-| Direktive | Wirkung |
+| Anweisung | Wirkung |
 | --- | --- |
 | `Exclude disk` |Schließen Sie alle vom `disk` -Plug-In gesammelten Daten aus. |
 | `Exclude disk:read,write` |Schließen Sie die Quellen mit den Namen `read` und `write` aus dem `disk`-Plug-In aus. |

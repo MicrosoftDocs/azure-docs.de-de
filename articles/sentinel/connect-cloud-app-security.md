@@ -1,6 +1,6 @@
 ---
 title: Verknüpfen von Cloud App Security-Daten mit Azure Sentinel | Microsoft-Dokumentation
-description: Erfahren Sie, wie der MCAS-Connector (Microsoft Cloud App Security) zum Streamen von Warnungen und Cloud Discovery-Protokollen aus MCAS in Azure Sentinel verwendet werden kann. 
+description: Erfahren Sie, wie der MCAS-Connector (Microsoft Cloud App Security) zum Streamen von Warnungen und Cloud Discovery-Protokollen aus MCAS in Azure Sentinel verwendet werden kann.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2020
 ms.author: yelevin
-ms.openlocfilehash: 5c67f517ffd3704644fbe8041f3ac1e7b0d1f09c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9827e93f793ef47a835aa0a5fb2005e2830a0824
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904556"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655713"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Verknüpfen von Microsoft Cloud App Security-Daten 
 
-Mit dem [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS)-Connector können Sie Warnungen und [Cloud Discovery-Protokolle](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it) von MCAS in Azure Sentinel streamen. So erhalten Sie Einblicke in Ihre Cloud-Apps, erweiterte Analysen zur Erkennung und Abwehr von Cyberbedrohungen und Kontrolle darüber, wie Ihre Daten übertragen werden.
+Mit dem [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS)-Connector können Sie Warnungen und [Cloud Discovery-Protokolle](/cloud-app-security/tutorial-shadow-it) von MCAS in Azure Sentinel streamen. So erhalten Sie Einblicke in Ihre Cloud-Apps, erweiterte Analysen zur Erkennung und Abwehr von Cyberbedrohungen und Kontrolle darüber, wie Ihre Daten übertragen werden.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 - Ihr Benutzer muss über Lese- und Schreibberechtigungen für den Arbeitsbereich verfügen.
 - Der Benutzer muss für den Mandanten des Arbeitsbereichs über Berechtigungen für globale Administratoren oder Sicherheitsadministratoren verfügen.
-- Um Cloud Discovery-Protokolle in Azure Sentinel zu streamen, [aktivieren Sie Azure Sentinel als SIEM in Microsoft Cloud App Security](https://aka.ms/AzureSentinelMCAS).
+- Um Cloud Discovery-Protokolle in Azure Sentinel zu streamen, [aktivieren Sie Azure Sentinel als SIEM in Microsoft Cloud App Security](/cloud-app-security/siem-sentinel).
 
 > [!IMPORTANT]
 > Die Erfassung von Cloud Discovery-Protokollen befindet sich derzeit in der öffentlichen Vorschauversion.
@@ -38,7 +38,7 @@ Mit dem [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-secu
  
 ## <a name="connect-to-cloud-app-security"></a>Herstellen einer Verbindung mit Cloud App Security
 
-Wenn Sie Cloud App Security bereits haben, vergewissern Sie sich, dass es [in Ihrem Netzwerk aktiviert ist](https://docs.microsoft.com/cloud-app-security/getting-started-with-cloud-app-security).
+Wenn Sie Cloud App Security bereits haben, vergewissern Sie sich, dass es [in Ihrem Netzwerk aktiviert ist](/cloud-app-security/getting-started-with-cloud-app-security).
 Wenn Cloud App Security bereitgestellt ist und Daten erhält, können die Warnungsdaten problemlos an Azure Sentinel gestreamt werden.
 
 
@@ -60,4 +60,4 @@ Wenn Cloud App Security bereitgestellt ist und Daten erhält, können die Warnun
 ## <a name="next-steps"></a>Nächste Schritte
 In diesem Dokument wurde erläutert, wie Sie Microsoft Cloud App Security mit Azure Sentinel verbinden. Weitere Informationen zu Azure Sentinel finden Sie in den folgenden Artikeln:
 - Erfahren Sie, wie Sie [Einblick in Ihre Daten und potenzielle Bedrohungen erhalten](quickstart-get-visibility.md).
-- Beginnen Sie mit dem Erkennen von Bedrohungen mit Azure Sentinel mithilfe von [integrierten](tutorial-detect-threats.md) oder [benutzerdefinierten](tutorial-detect-threats-custom.md) Regeln.
+- Beginnen Sie mit dem Erkennen von Bedrohungen mit Azure Sentinel mithilfe von [integrierten](./tutorial-detect-threats-built-in.md) oder [benutzerdefinierten](tutorial-detect-threats-custom.md) Regeln.

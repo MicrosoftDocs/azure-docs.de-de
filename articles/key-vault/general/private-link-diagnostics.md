@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 156edbeda225b5457d6f5e7d29482e393b510736
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 03abe4e4e098d46060e33ba114872905e54a443f
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998402"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317060"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnostizieren von Problemen bei der Konfiguration privater Verbindungen in Azure Key Vault
 
@@ -56,7 +56,7 @@ Wenn die Anwendung, das Skript oder das Portal in einem beliebigen, mit dem Inte
 
 Dieser Leitfaden gilt NICHT für Lösungen, die von Microsoft verwaltet werden, wobei ein Azure-Produkt auf den Schlüsseltresor zugreift, das unabhängig vom virtuellen Netzwerk des Kunden vorhanden ist. Beispiele für derartige Szenarien sind Azure Storage oder Azure SQL, die für die Verschlüsselung ruhender Daten konfiguriert sind, Azure Event Hub, der Daten mit kundenseitig bereitgestellten Schlüsseln verschlüsselt, Azure Data Factory, das auf im Schlüsseltresor gespeicherte Dienstanmeldeinformationen zugreift, Azure Pipelines, das Geheimnisse aus dem Schlüsseltresor abruft und weitere ähnliche Szenarien. In diesen Fällen *müssen Sie überprüfen, ob das Produkt Schlüsseltresore mit aktivierter Firewall unterstützt*. Diese Unterstützung erfolgt in der Regel über die Funktion [Vertrauenswürdige Dienste](overview-vnet-service-endpoints.md#trusted-services) der Key Vault-Firewall. Viele Produkte sind jedoch aus verschiedenen Gründen nicht in der Liste der vertrauenswürdigen Dienste enthalten. Wenden Sie sich in diesem Fall an den produktspezifischen Support.
 
-Eine kleine Anzahl von Azure-Produkten unterstützt das Konzept der *VNet-Einfügung*. Einfach gesprochen, fügt das Produkt ein Netzwerkgerät im virtuellen Netzwerk des Kunden hinzu, wodurch dieses Anforderungen senden kann, als ob es im virtuellen Netzwerk bereitgestellt wäre. Ein erwähnenswertes Beispiel ist [Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Produkte wie dieses können mithilfe der privaten Verbindungen Anforderungen an den Schlüsseltresor stellen, wobei dieser Leitfaden möglicherweise hilfreich sein kann.
+Eine kleine Anzahl von Azure-Produkten unterstützt das Konzept der *VNet-Einfügung*. Einfach gesprochen, fügt das Produkt ein Netzwerkgerät im virtuellen Netzwerk des Kunden hinzu, wodurch dieses Anforderungen senden kann, als ob es im virtuellen Netzwerk bereitgestellt wäre. Ein erwähnenswertes Beispiel ist [Azure Databricks](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Produkte wie dieses können mithilfe der privaten Verbindungen Anforderungen an den Schlüsseltresor stellen, wobei dieser Leitfaden möglicherweise hilfreich sein kann.
 
 ## <a name="2-confirm-that-the-connection-is-approved-and-succeeded"></a>2. Bestätigen, dass die Verbindung genehmigt und erfolgreich ist
 
@@ -142,21 +142,29 @@ Dieser Abschnitt dient zu Schulungszwecken. Wenn der Schlüsseltresor keine priv
 
 Windows:
 
-    C:\> nslookup fabrikam.vault.azure.net
+```console
+C:\> nslookup fabrikam.vault.azure.net
+```
 
-    Non-authoritative answer:
-    Address:  52.168.109.101
-    Aliases:  fabrikam.vault.azure.net
-              data-prod-eus.vaultcore.azure.net
-              data-prod-eus-region.vaultcore.azure.net
+```output
+Non-authoritative answer:
+Address:  52.168.109.101
+Aliases:  fabrikam.vault.azure.net
+          data-prod-eus.vaultcore.azure.net
+          data-prod-eus-region.vaultcore.azure.net
+```
 
 Linux:
 
-    joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```console
+joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```
 
-    fabrikam.vault.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
-    data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
-    data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```output
+fabrikam.vault.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
+data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
+data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```
 
 Sie sehen, dass der Name in eine öffentliche IP-Adresse aufgelöst wird und dass kein `privatelink` Alias vorhanden ist. Der Alias wird später erläutert, machen Sie sich jetzt keine Gedanken darüber.
 
@@ -168,23 +176,31 @@ Wenn der Schlüsseltresor über eine oder mehrere private Endpunktverbindungen i
 
 Windows:
 
-    C:\> nslookup fabrikam.vault.azure.net
+```console
+C:\> nslookup fabrikam.vault.azure.net
+```
 
-    Non-authoritative answer:
-    Address:  52.168.109.101
-    Aliases:  fabrikam.vault.azure.net
-              fabrikam.privatelink.vaultcore.azure.net
-              data-prod-eus.vaultcore.azure.net
-              data-prod-eus-region.vaultcore.azure.net
+```output
+Non-authoritative answer:
+Address:  52.168.109.101
+Aliases:  fabrikam.vault.azure.net
+          fabrikam.privatelink.vaultcore.azure.net
+          data-prod-eus.vaultcore.azure.net
+          data-prod-eus-region.vaultcore.azure.net
+```
 
 Linux:
 
-    joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```console
+joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```
 
-    fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
-    fabrikam.privatelink.vaultcore.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
-    data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
-    data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```output
+fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
+fabrikam.privatelink.vaultcore.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
+data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
+data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```
 
 Der bemerkenswerte Unterschied zum vorherigen Szenario besteht darin, dass ein neuer Alias mit dem Wert `{vaultname}.privatelink.vaultcore.azure.net` vorhanden ist. Dies bedeutet, dass die Datenebene des Schlüsseltresors zur Annahme von Anforderungen von privaten Verbindungen bereit ist.
 
@@ -198,19 +214,27 @@ Wenn der Schlüsseltresor über eine oder mehrere private Endpunktverbindungen i
 
 Windows:
 
-    C:\> nslookup fabrikam.vault.azure.net
+```console
+C:\> nslookup fabrikam.vault.azure.net
+```
 
-    Non-authoritative answer:
-    Address:  10.1.2.3
-    Aliases:  fabrikam.vault.azure.net
-              fabrikam.privatelink.vaultcore.azure.net
+```output
+Non-authoritative answer:
+Address:  10.1.2.3
+Aliases:  fabrikam.vault.azure.net
+          fabrikam.privatelink.vaultcore.azure.net
+```
 
 Linux:
 
-    joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```console
+joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```
 
-    fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
-    fabrikam.privatelink.vaultcore.azure.net has address 10.1.2.3
+```output
+fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
+fabrikam.privatelink.vaultcore.azure.net has address 10.1.2.3
+```
 
 Es gibt zwei erwähnenswerte Unterschiede. Erstens, der Name wird zu einer privaten IP-Adresse aufgelöst. Dabei muss es sich um die IP-Adresse handeln, die wir im [entsprechenden Abschnitt](#find-the-key-vault-private-ip-address-in-the-virtual-network) dieses Artikels gefunden haben. Zweitens, es gibt keine weiteren Aliase außer `privatelink`. Dies liegt daran, dass die DNS-Server des virtuellen Netzwerks die Kette von Aliasen *abfangen* und die private IP-Adresse direkt von dem Namen `fabrikam.privatelink.vaultcore.azure.net` zurückgeben. Dieser Eintrag ist tatsächlich ein `A`-Eintrag in einer privaten DNS-Zone. Weitere Informationen hierzu folgen noch.
 
@@ -227,7 +251,7 @@ Wenn die DNS-Auflösung nicht wie im vorherigen Abschnitt beschrieben funktionie
 
 Ihr Azure-Abonnement muss über eine [Private DNS-Zone](../../dns/private-dns-privatednszone.md)nressource mit exakt dem folgenden Namen verfügen:
 
-    privatelink.vaultcore.azure.net
+`privatelink.vaultcore.azure.net`
 
 Sie können das Vorhandensein dieser Ressource überprüfen, indem Sie im Portal zur Seite „Abonnement“ wechseln und im linken Menü „Ressourcen“ auswählen. Der Ressourcenname muss `privatelink.vaultcore.azure.net` lauten, und der Ressourcentyp muss **Private DNS-Zone** sein.
 
@@ -282,37 +306,48 @@ Ihr Schlüsseltresor stellt den `/healthstatus`-Endpunkt bereit, der für die Di
 
 Windows (PowerShell):
 
-    PS C:\> $(Invoke-WebRequest -UseBasicParsing -Uri https://fabrikam.vault.azure.net/healthstatus).Headers
+```powershell
+PS C:\> $(Invoke-WebRequest -UseBasicParsing -Uri https://fabrikam.vault.azure.net/healthstatus).Headers
+```
 
-    Key                           Value
-    ---                           -----
-    Pragma                        no-cache
-    x-ms-request-id               3729ddde-eb6d-4060-af2b-aac08661d2ec
-    x-ms-keyvault-service-version 1.2.27.0
-    x-ms-keyvault-network-info    addr=10.4.5.6;act_addr_fam=InterNetworkV6;
-    Strict-Transport-Security     max-age=31536000;includeSubDomains
-    Content-Length                4
-    Cache-Control                 no-cache
-    Content-Type                  application/json; charset=utf-8
+```output
+Key                           Value
+---                           -----
+Pragma                        no-cache
+x-ms-request-id               3729ddde-eb6d-4060-af2b-aac08661d2ec
+x-ms-keyvault-service-version 1.2.27.0
+x-ms-keyvault-network-info    addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+Strict-Transport-Security     max-age=31536000;includeSubDomains
+Content-Length                4
+Cache-Control                 no-cache
+Content-Type                  application/json; charset=utf-8
+```
 
 Linux oder eine aktuelle Version von Windows 10, die `curl` umfasst:
 
-    joe@MyUbuntu:~$ curl -i https://fabrikam.vault.azure.net/healthstatus
-    HTTP/1.1 200 OK
-    Cache-Control: no-cache
-    Pragma: no-cache
-    Content-Type: application/json; charset=utf-8
-    x-ms-request-id: 6c090c46-0a1c-48ab-b740-3442ce17e75e
-    x-ms-keyvault-service-version: 1.2.27.0
-    x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
-    Strict-Transport-Security: max-age=31536000;includeSubDomains
-    Content-Length: 4
+```console
+joe@MyUbuntu:~$ curl -i https://fabrikam.vault.azure.net/healthstatus
+```
+
+```output
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Pragma: no-cache
+Content-Type: application/json; charset=utf-8
+x-ms-request-id: 6c090c46-0a1c-48ab-b740-3442ce17e75e
+x-ms-keyvault-service-version: 1.2.27.0
+x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+Strict-Transport-Security: max-age=31536000;includeSubDomains
+Content-Length: 4
+```
 
 Wenn Sie keine dem ähnliche Ausgabe erhalten, oder wenn Sie einen Netzwerkfehler erhalten, bedeutet dies, dass Ihr Schlüsseltresor nicht über den angegebenen Hostnamen (`fabrikam.vault.azure.net` im Beispiel) zugänglich ist. Entweder wird der Hostname nicht in die richtige IP-Adresse aufgelöst, oder Sie haben ein Konnektivitätsproblem auf der Transportebene. Dieses kann durch Routingprobleme, Paketverluste und andere Gründe verursacht werden. Sie müssen dies weiter untersuchen.
 
 Die Antwort muss den Header `x-ms-keyvault-network-info` enthalten:
 
-    x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+```console
+x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+```
 
 Das Feld `addr` im `x-ms-keyvault-network-info`-Header zeigt die IP-Adresse des Ursprungs der Anforderung an. Diese IP-Adresse kann eine der folgenden sein:
 
@@ -330,11 +365,15 @@ Das Feld `addr` im `x-ms-keyvault-network-info`-Header zeigt die IP-Adresse des 
 
 Wenn Sie eine aktuelle Version von PowerShell installiert haben, können Sie `-SkipCertificateCheck` verwenden, um HTTPS-Zertifikatüberprüfungen zu überspringen. Dann können Sie die [Schlüsseltresor-IP-Adresse](#find-the-key-vault-private-ip-address-in-the-virtual-network) direkt als Ziel angeben:
 
-    PS C:\> $(Invoke-WebRequest -SkipCertificateCheck -Uri https://10.1.2.3/healthstatus).Headers
+```powershell
+PS C:\> $(Invoke-WebRequest -SkipCertificateCheck -Uri https://10.1.2.3/healthstatus).Headers
+```
 
 Wenn Sie `curl` verwenden, können Sie dasselbe mit dem `-k`-Argument erreichen:
 
-    joe@MyUbuntu:~$ curl -i -k https://10.1.2.3/healthstatus
+```console
+joe@MyUbuntu:~$ curl -i -k https://10.1.2.3/healthstatus
+```
 
 Die Antworten müssen dieselben wie im vorherigen Abschnitt sein, was bedeutet, dass sie den `x-ms-keyvault-network-info`-Header mit demselben Wert enthalten müssen. Für den `/healthstatus`-Endpunkt ist es irrelevant, ob Sie den Hostnamen oder die IP-Adresse des Schlüsseltresors verwenden.
 

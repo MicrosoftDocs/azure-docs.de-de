@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: c1edbaf394a4abd36e47843a6f419eb9d62f08d7
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: b2497a49703ab675bde50c7845995c92de32f376
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340307"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657175"
 ---
 # <a name="add-storage-targets"></a>Hinzufügen von Speicherzielen
 
@@ -103,9 +103,9 @@ Nachfolgend finden Sie die Schritte zum Hinzufügen der Azure-Rollen:
 
 ### <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
-
 ### <a name="prerequisite-storage-account-access"></a>Voraussetzung: Zugriff auf das Speicherkonto
+
+[Einrichten der Azure CLI für Azure HPC Cache](./az-cli-prerequisites.md).
 
 Vergewissern Sie sich vor dem Hinzufügen eines Blobspeicherziels, dass der Cache über die richtigen Rollen für den Zugriff auf das Speicherkonto verfügt und die Firewalleinstellungen die Erstellung des Speicherziels zulassen.
 
@@ -217,7 +217,7 @@ Klicken Sie abschließend auf **OK**, um das Speicherziel hinzuzufügen.
 
 ### <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Einrichten der Azure CLI für Azure HPC Cache](./az-cli-prerequisites.md).
 
 Verwenden Sie den Azure CLI-Befehl [az hpc-cache nfs-storage-target add](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add), um das Speicherziel zu erstellen.
 
@@ -301,7 +301,7 @@ Weitere Informationen finden Sie unter [Bearbeiten von Speicherzielen](hpc-cache
 
 ### <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Einrichten der Azure CLI für Azure HPC Cache](./az-cli-prerequisites.md).
 
 Verwenden Sie die Option [az hpc-cache storage-target list](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list), um die vorhandenen Speicherziele für einen Cache anzuzeigen. Geben Sie den Cachenamen und die Ressourcengruppe an (sofern Sie dies nicht global festgelegt haben).
 

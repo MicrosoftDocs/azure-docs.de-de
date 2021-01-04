@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: business-intelligence
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: c5c41b98d52a4b8182fb162c3bfa9a08c0df5e15
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: b72d083216b7cd0ae7a588bfd721d8981829bfc7
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171843"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844366"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualisieren von Daten mit Power BI
 
@@ -37,13 +37,9 @@ Sie können einen Power BI-Arbeitsbereich mit Ihrem Azure Synapse-Arbeitsbereich
 ### <a name="link-your-azure-synapse-workspace-to-your-new-power-bi-workspace"></a>Verknüpfen Ihres Azure Synapse-Arbeitsbereichs mit Ihrem neuen Power BI-Arbeitsbereich
 
 1. Wechseln Sie in Synapse Studio zu **Verwalten** > **Verknüpfte Dienste**.
-1. Wählen Sie **Neu** > **Mit Power BI verbinden** aus, und legen Sie dann die folgenden Felder fest:
-
-    |Einstellung | Vorgeschlagener Wert | 
-    |---|---|
-    |**Name**|**NYCTaxiWorkspace1**|
-    |**Arbeitsbereichsname**|**NYCTaxiWorkspace1**|
-
+1. Wählen Sie **Neu** > **Mit Power BI verbinden** aus.
+1. Legen Sie **Name** auf **NYCTaxiWorkspace1** fest.
+1. Legen Sie **Arbeitsbereichsname** auf **NYCTaxiWorkspace1** fest.
 1. Klicken Sie auf **Erstellen**.
 
 ### <a name="create-a-power-bi-dataset-that-uses-data-in-your-azure-synapse-workspace"></a>Erstellen eines Power BI-Datasets, das Daten in Ihrem Azure Synapse-Arbeitsbereich verwendet
@@ -86,11 +82,7 @@ Sie können einen Power BI-Arbeitsbereich mit Ihrem Azure Synapse-Arbeitsbereich
     * Unter **NYCTaxiWorkspace1** > **Power BI-Berichte** ein neuer Bericht mit dem Namen **PassengerAnalysis**.
 1. Wählen Sie den Bericht **PassengerAnalysis** aus. Der Bericht wird geöffnet, und Sie können ihn direkt in Synapse Studio bearbeiten.
 
-## <a name="monitor-activities"></a>Überwachen von Aktivitäten
 
-1. Navigieren Sie in Synapse Studio zum Hub **Überwachen**.
-1. An dieser Stelle können Sie einen Verlauf aller Aktivitäten anzeigen, die im Arbeitsbereich stattfinden, und welche davon jetzt aktiv sind.
-1. Erkunden Sie die **Pipelineausführungen**, **Apache Spark-Anwendungen** und **SQL-Anforderungen**, um zu überprüfen, was Sie im Arbeitsbereich bereits durchgeführt haben.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

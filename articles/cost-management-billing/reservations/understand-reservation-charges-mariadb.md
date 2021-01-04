@@ -1,18 +1,18 @@
 ---
 title: 'Grundlegendes zum Reservierungsrabatt: Azure Database for MariaDB'
 description: Hier erfahren Sie, wie ein Reservierungsrabatt auf Azure Database for MariaDB angewendet wird.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 0691ec320b62ed212235a63dacedcf3ec38a23ba
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 2197f3ec9907aa9f1afde6272dd2e8a807465476
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151475"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240391"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-mariadb"></a>Anwendung eines Reservierungsrabatts auf Azure Database for MariaDB
 
@@ -20,7 +20,7 @@ Nachdem Sie eine reservierte Azure Database for MariaDB-Kapazität erworben habe
 
 ## <a name="how-reservation-discount-is-applied"></a>Wie der Reservierungsrabatt angewendet wird
 
-Nicht in Anspruch genommener Reservierungsrabatt ***geht verloren***. Das heißt, wenn Sie für eine Stunde nicht über die entsprechenden Ressourcen verfügen, verlieren Sie eine Reservierungsmenge für diese Stunde. Sie können ungenutzte reservierte Stunden nicht übertragen.
+Nicht in Anspruch genommener Reservierungsrabatt **geht verloren**. Das heißt, wenn Sie für eine Stunde nicht über die entsprechenden Ressourcen verfügen, verlieren Sie eine Reservierungsmenge für diese Stunde. Sie können ungenutzte reservierte Stunden nicht übertragen.
 
 Wenn Sie eine Ressource beenden, wird der Reservierungsrabatt automatisch auf eine andere entsprechende Ressource im angegebenen Reservierungsumfang angewandt. Werden im angegebenen Reservierungsumfang keine entsprechenden Ressourcen gefunden, gehen die reservierten Stunden verloren.
 
@@ -30,7 +30,7 @@ Der Rabatt für reservierte Azure Database for MariaDB-Kapazität wird auf Stund
 
 Die folgenden Beispiele veranschaulichen, wie der Rabatt für reservierte Azure Database for MariaDB-Kapazität angewendet wird – abhängig davon, wie viele Kerne Sie erworben haben und wann sie ausgeführt werden.
 
-**Beispiel 1:** Sie erwerben reservierte Azure Database for MariaDB-Kapazität für acht V-Kerne. Wenn Sie einen Azure Database for MariaDB-Server mit 16 V-Kernen ausführen, der den restlichen Attributen der Reservierung entspricht, werden Ihnen acht V-Kerne der Computenutzung Ihres MariaDB-Servers zum Preis für die nutzungsbasierte Bezahlung in Rechnung gestellt, und Sie erhalten den Reservierungsrabatt für eine Stunde der Computenutzung von acht V-Kernen des MariaDB-Servers.
+**Beispiel 1** : Sie erwerben reservierte Azure Database for MariaDB-Kapazität für acht V-Kerne. Wenn Sie einen Azure Database for MariaDB-Server mit 16 V-Kernen ausführen, der den restlichen Attributen der Reservierung entspricht, werden Ihnen acht V-Kerne der Computenutzung Ihres MariaDB-Servers zum Preis für die nutzungsbasierte Bezahlung in Rechnung gestellt, und Sie erhalten den Reservierungsrabatt für eine Stunde der Computenutzung von acht V-Kernen des MariaDB-Servers.
 
 Bei den übrigen Beispielen wird davon ausgegangen, dass die reservierte Azure Database for MariaDB-Kapazität, die Sie erwerben, für eine Azure Database for MariaDB-Instanz mit 16 V-Kernen gilt und die restlichen Reservierungsattribute den ausgeführten MariaDB-Servern entsprechen.
 

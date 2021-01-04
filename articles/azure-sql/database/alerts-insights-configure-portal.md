@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: 2fdaaf153f242a25e1ad9d8f926d6ac77d285df2
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 86ac0f64a6a797b1bc702597ed30e6417f2efe14
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91444907"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500970"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Erstellen von Warnungen für Azure SQL-Datenbank und Azure Synapse Analytics über das Azure-Portal
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "91444907"
 
 ## <a name="overview"></a>Übersicht
 
-In diesem Artikel wird beschrieben, wie Sie im Azure-Portal Warnungen für Datenbanken in Azure SQL-Datenbank und Azure Synapse Analytics (vormals SQL Data Warehouse) einrichten. Warnungen können Ihnen eine E-Mail senden oder einen Webhook aufrufen, wenn bei einer bestimmten Metrik (beispielsweise bei der Datenbankgröße oder bei der CPU-Auslastung) der Schwellenwert erreicht wird.
+In diesem Artikel wird beschrieben, wie Sie im Azure-Portal Warnungen für Datenbanken in Azure SQL-Datenbank und Azure Synapse Analytics einrichten. Warnungen können Ihnen eine E-Mail senden oder einen Webhook aufrufen, wenn bei einer bestimmten Metrik (beispielsweise bei der Datenbankgröße oder bei der CPU-Auslastung) der Schwellenwert erreicht wird.
 
 > [!NOTE]
 > Spezifische Anweisungen für Azure SQL Managed Instance finden Sie unter [Erstellen von Warnungen für Azure SQL Managed Instance](../managed-instance/alerts-create.md).
@@ -45,7 +45,7 @@ Sie haben folgende Möglichkeiten zum Konfigurieren von Warnregeln und Abrufen z
 * [Azure-Portal](../../azure-monitor/platform/alerts-classic-portal.md)
 * [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md)
 * [Befehlszeilenschnittstelle (CLI)](../../azure-monitor/platform/alerts-classic-portal.md)
-* [Azure Monitor-REST-API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Azure Monitor-REST-API](/rest/api/monitor/alertrules)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Erstellen einer Warnungsregel anhand einer Metrik mit dem Azure-Portal
 

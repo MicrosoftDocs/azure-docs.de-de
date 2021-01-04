@@ -11,11 +11,11 @@ ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
 ms.openlocfilehash: 0000e7690ab92f469a7417e82cb375c524e0b343
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016842"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014761"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Verbinden eines Rigado Cascade 500-Gatewaygeräts mit Ihrer Azure IoT Central-Anwendung
 
@@ -41,15 +41,15 @@ Zum Integrieren eines Cascade 500-Gatewaygeräts in Ihre Azure IoT Central-Anwen
 
 So fügen Sie eine Cascade 500-Gerätevorlage hinzu: 
 
-1. Navigieren Sie im linken Bereich zur Registerkarte ***Gerätevorlagen***, und wählen Sie **+ Neue** aus: ![Neue Gerätevorlage erstellen](./media/howto-connect-rigado-cascade-500/device-template-new.png)
-1. Auf der Seite gibt es eine Option zum ***Erstellen einer benutzerdefinierten Vorlage*** oder zum ***Verwenden einer vorkonfigurierten Gerätevorlage***.
+1. Navigieren Sie im linken Bereich zur Registerkarte ***Gerätevorlagen** _, und wählen Sie aus _*+ Neu**: ![Neue Gerätevorlage erstellen](./media/howto-connect-rigado-cascade-500/device-template-new.png)
+1. Auf der Seite gibt es eine Option zum **_Erstellen einer benutzerdefinierten Vorlage_* _ oder zum _*_Verwenden einer vorkonfigurierten Gerätevorlage_*_.
 1. Wählen Sie die Gerätevorlage „C500“ aus der Liste von vorkonfigurierten Gerätevorlagen aus, wie nachstehend gezeigt wird: ![Auswählen der Gerätevorlage „C500“](./media/howto-connect-rigado-cascade-500/device-template-preconfigured.png)
-1. Klicken Sie auf ***Weiter: Anpassen***, um mit dem nächsten Schritt fortzufahren. 
-1. Wählen Sie auf dem nächsten Bildschirm ***Erstellen*** aus, um das Onboarding der C500-Gerätevorlage in Ihrer IoT Central-Anwendung durchzuführen.
+1. Wählen Sie _*_Weiter: Anpassen_*_ aus, um mit dem nächsten Schritt fortzufahren. 
+1. Wählen Sie auf dem nächsten Bildschirm _*_Erstellen_*_ aus, um das Onboarding der C500-Gerätevorlage in Ihrer IoT Central-Anwendung durchzuführen.
 
 ## <a name="retrieve-application-connection-details"></a>Abrufen von Details zur Anwendungsverbindung
 
-Jetzt müssen Sie die **Bereichs-ID** und den **Primärschlüssel** für Ihre Azure IoT Central-Anwendung abrufen, um eine Verbindung mit dem Cascade 500-Gerät herzustellen. 
+Jetzt müssen Sie die _ *Bereichs-ID** und den **Primärschlüssel** für Ihre Azure IoT Central-Anwendung abrufen, um eine Verbindung mit dem Cascade 500-Gerät herzustellen. 
 
 1. Navigieren Sie im linken Bereich zu **Verwaltung**, und klicken Sie auf **Geräteverbindung**. 
 2. Notieren Sie sich die **Bereichs-ID** für Ihre IoT Central-Anwendung.

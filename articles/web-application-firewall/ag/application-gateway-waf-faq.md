@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: 3bc71e10167b21b65616dd20f8edb9a1d902527e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fbe930780ff026be748bc42104f821ee9e5c443
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83798345"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785101"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-application-gateway"></a>Häufig gestellte Fragen zu Azure Web Application Firewall in Application Gateway
 
@@ -58,6 +58,9 @@ Weitere Informationen finden Sie im Artikel zu den [zehn wichtigsten, von OWASP 
 
 Ja. Sie können DDoS-Schutz im virtuellen Netzwerk aktivieren, in dem das Anwendungsgateway bereitgestellt wird. Mit dieser Einstellung wird sichergestellt, dass der Azure DDoS Protection-Dienst auch die VIP-Adresse des Anwendungsgateways schützt.
 
+### <a name="does-waf-store-customer-data"></a>Speichert WAF Kundendaten?
+
+Nein, WAF speichert keine Kundendaten.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

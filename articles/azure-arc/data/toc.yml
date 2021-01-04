@@ -42,13 +42,13 @@
               href: /sql/azdata/install/deploy-install-azdata-pip?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: Erstellen eines Datencontrollers
       items:
-        - name: Erstellen eines Datencontrollers (Azure Data Studio)
+        - name: Azure Data Studio
           href: create-data-controller-azure-data-studio.md
-        - name: Erstellen einer Datencontrollerressource (Portal)
+        - name: Azure-Portal
           href: create-data-controller-resource-in-azure-portal.md
-        - name: Erstellen eines Datencontrollers (Azure Data CLI)
+        - name: Azure Data CLI (azdata)
           href: create-data-controller-using-azdata.md
-        - name: Erstellen eines Datencontrollers unter Verwendung von Kubernetes
+        - name: Kubernetes-Tools
           href: create-data-controller-using-kubernetes-native-tools.md
     - name: "Allgemeine Erfahrungen mit Azure\_Arc-fähigen Datendiensten"
       items:
@@ -80,6 +80,8 @@
           href: view-arc-data-services-inventory-in-azure-portal.md
         - name: Abrufen von Benutzername und Kennwort für den Datencontroller
           href: retrieve-the-username-password-for-data-controller.md
+        - name: Aktualisieren der Anmeldeinformationen für einen Dienstprinzipal
+          href: update-service-principal-credentials.md
     - name: Problembehandlung
       items:
         - name: Handbuch
@@ -116,6 +118,8 @@
           items:
             - name: Sichern und Wiederherstellen
               href: backup-restore-postgresql-hyperscale.md
+            - name: Ändern des PostgreSQL-Ports
+              href: change-postgresql-port.md
             - name: Konfigurieren und Skalieren
               items:
                 - name: Anzeigen der Konfiguration

@@ -13,15 +13,15 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 22f74d3135597e8627cf7af933f8c6f4fbebc990
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 743412b7602e5781911cdf190e41a5ee15bfddd4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364047"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487676"
 ---
 # <a name="design-secure-applications-on-azure"></a>Entwerfen von sicheren Anwendungen in Azure
-In diesem Artikel werden Sicherheitsaktivitäten und -kontrollen vorgestellt, die Sie berücksichtigen sollten, wenn Sie Anwendungen für die Cloud entwerfen. Es werden Trainingsressourcen zusammen mit Sicherheitsfragen und -konzepten behandelt, die Sie in der Anforderungen- und in der Entwurfsphase von Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) berücksichtigen müssen. Das Ziel ist, Ihnen das Festlegen von Aktivitäten und Azure-Diensten zu ermöglichen, mit denen Sie eine sicherere Anwendung entwickeln können.
+In diesem Artikel werden Sicherheitsaktivitäten und -kontrollen vorgestellt, die Sie berücksichtigen sollten, wenn Sie Anwendungen für die Cloud entwerfen. Es werden Trainingsressourcen zusammen mit Sicherheitsfragen und -konzepten behandelt, die Sie in der Anforderungen- und in der Entwurfsphase von Microsoft [Security Development Lifecycle (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) berücksichtigen müssen. Das Ziel ist, Ihnen das Festlegen von Aktivitäten und Azure-Diensten zu ermöglichen, mit denen Sie eine sicherere Anwendung entwickeln können.
 
 In diesem Artikel werden die folgenden SDL-Phasen behandelt:
 
@@ -38,12 +38,12 @@ Verwenden Sie die folgenden Ressourcen während der Trainingsphase, um sich mit 
 
   - Die [Anleitung mit den ersten Schritten für Azure-Entwickler](../../guides/developer/azure-developer-guide.md) enthält wichtige Informationen für Entwickler, die damit beginnen möchten für ihre Entwicklungsanforderungen die Azure-Plattform zu nutzen.
 
-  - In [SDKs und Tools](https://docs.microsoft.com/azure/index?pivot=sdkstools) sind die Tools beschrieben, die in Azure verfügbar sind.
+  - In [SDKs und Tools](../../index.yml?pivot=sdkstools) sind die Tools beschrieben, die in Azure verfügbar sind.
 
-  - In [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) werden Tools zur Entwicklungszusammenarbeit bereitgestellt. Zu den Tools gehören leistungsstarke Pipelines, kostenlose Git-Repositorys, konfigurierbare Kanban-Boards und umfangreiche automatisierte und cloudbasierte Auslastungstests.
-    Das [DevOps Resource Center](https://docs.microsoft.com/azure/devops/learn/) kombiniert unsere Ressourcen zum Erlernen von DevOps-Praktiken, Git-Versionskontrolle, Agile-Methoden, wie wir bei Microsoft mit DevOps arbeiten und wie Sie Ihren eigenen DevOps-Fortschritt bewerten können.
+  - In [Azure DevOps Services](/azure/devops/) werden Tools zur Entwicklungszusammenarbeit bereitgestellt. Zu den Tools gehören leistungsstarke Pipelines, kostenlose Git-Repositorys, konfigurierbare Kanban-Boards und umfangreiche automatisierte und cloudbasierte Auslastungstests.
+    Das [DevOps Resource Center](/azure/devops/learn/) kombiniert unsere Ressourcen zum Erlernen von DevOps-Praktiken, Git-Versionskontrolle, Agile-Methoden, wie wir bei Microsoft mit DevOps arbeiten und wie Sie Ihren eigenen DevOps-Fortschritt bewerten können.
 
-  - In [Top 5 der Sicherheitselemente, die vor dem Übergang in die Produktion zu beachten sind](https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca) erfahren Sie, wie Sie Ihre Webanwendungen in Azure schützen und Ihre Apps vor den häufigsten und gefährlichsten Angriffen auf Webanwendungen schützen können.
+  - In [Top 5 der Sicherheitselemente, die vor dem Übergang in die Produktion zu beachten sind](/learn/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca) erfahren Sie, wie Sie Ihre Webanwendungen in Azure schützen und Ihre Apps vor den häufigsten und gefährlichsten Angriffen auf Webanwendungen schützen können.
 
   - [Secure DevOps Kit for Azure](https://azsk.azurewebsites.net/index.html) ist eine Sammlung von Skripts, Tools, Erweiterungen und Automatisierungen, die den umfassenden Azure-Abonnement- und -Ressourcensicherheitsanforderungen von DevOps-Teams gerecht wird, die umfangreiche Automatisierung nutzen. Im „Secure DevOps Kit for Azure“ ist gezeigt, wie Sie Sicherheit nahtlos in Ihre nativen DevOps-Workflows integrieren können. Im Kit werden Tools wie Sicherheitsüberprüfungstests (Security Verification Tests, SVTs) bereitgestellt, die Entwickler dazu verwenden können, sicheren Code zu schreiben und die sichere Konfiguration ihrer Cloudanwendungen in der frühen Entwicklungsphase und in der Codierungsphase zu testen.
 
@@ -66,7 +66,7 @@ Stellen Sie Sicherheitsfragen wie:
 
   - Enthält meine Anwendung sensible Daten?
 
-  - Sammelt oder speichert meine Anwendung Daten, die von mir die Einhaltung von Branchenstandards und Complianceprogrammen wie dem [Federal Financial Institutions Examination Council (FFIEC)](../blueprints/ffiec-analytics-overview.md) oder dem [Payment Card Industry Data Security Standard (PCI-DSS)](../blueprints/pcidss-analytics-overview.md) verlangen?
+  - Sammelt oder speichert meine Anwendung Daten, die von mir die Einhaltung von Branchenstandards und Complianceprogrammen wie dem [Federal Financial Institutions Examination Council (FFIEC)](/previous-versions/azure/security/blueprints/ffiec-analytics-overview) oder dem [Payment Card Industry Data Security Standard (PCI-DSS)](/previous-versions/azure/security/blueprints/pcidss-analytics-overview) verlangen?
 
   - Sammelt oder enthält meine Anwendung sensible persönliche oder Kundendaten, die entweder allein oder mit anderen Informationen verwendet werden können, um eine einzelne Person zu identifizieren, zu kontaktieren oder zu finden?
 
@@ -89,7 +89,7 @@ Die OWASP Top 10 befassen sich mit den wesentlichen Sicherheitsrisiken für Weba
 Fundiertes Wissen zu diesen Sicherheitsrisiken ermöglicht es Ihnen, Anforderungs- und Entwurfsscheidungen zu treffen, mit denen diese Risiken in Ihrer Anwendung minimiert werden.
 
 Es ist wichtig, dass Sie sich Gedanken über Sicherheitskontrollen machen, um Sicherheitsverletzungen zu verhindern.
-Sie müssen aber auch annehmen, dass [Sicherheitsverletzungen](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/security-in-devops) auftreten. Das Annehmen einer Sicherheitsverletzung führt dazu, dass einige wichtige Fragen zur Sicherheit im Voraus beantwortet werden, sodass sie nicht in einem Notfall beantwortet werden müssen:
+Sie müssen aber auch annehmen, dass [Sicherheitsverletzungen](/azure/devops/learn/devops-at-microsoft/security-in-devops) auftreten. Das Annehmen einer Sicherheitsverletzung führt dazu, dass einige wichtige Fragen zur Sicherheit im Voraus beantwortet werden, sodass sie nicht in einem Notfall beantwortet werden müssen:
 
   - Wie erkenne ich einen Angriff?
 
@@ -126,7 +126,7 @@ Verwenden Sie für die Entwicklung eine sichere Codierungsbibliothek und ein Sof
 Achten Sie darauf, dass Sie die neueste Version Ihres Frameworks und alle Sicherheitsfunktionen verwenden, die im Framework verfügbar sind. Microsoft bietet eine umfassende [Auswahl an Entwicklungstools](https://azure.microsoft.com/product-categories/developer-tools/), mit denen alle Entwickler, die mit einer beliebige Plattform oder Sprache arbeiten, Cloudanwendungen bereitstellen können. Sie können mit der von Ihnen bevorzugten Sprache codieren, indem Sie aus verschiedenen [SDKs](https://azure.microsoft.com/downloads/) wählen.
 Sie können von integrierten Entwicklungsumgebungen (IDEs) mit umfassendem Funktionsumfang sowie von Editoren profitieren, die erweiterte Debuggingfunktionen und integrierten Azure-Support haben.
 
-Microsoft stellt eine Vielzahl von [Sprachen, Frameworks und Tools](https://docs.microsoft.com/azure/index?pivot=sdkstools&panel=sdkstools-all) bereit, mit denen Sie Anwendungen in Azure entwickeln können. Ein Beispiel ist [Azure für .NET- und .NET Core-Entwickler](https://docs.microsoft.com/dotnet/azure/). Für jede Sprache und jedes Framework, das wir anbieten, finden Sie Schnellstarts, Tutorials und API-Referenzen, die Ihnen einen schnellen Einstieg ermöglichen.
+Microsoft stellt eine Vielzahl von [Sprachen, Frameworks und Tools](../../index.yml?panel=sdkstools-all&pivot=sdkstools) bereit, mit denen Sie Anwendungen in Azure entwickeln können. Ein Beispiel ist [Azure für .NET- und .NET Core-Entwickler](/dotnet/azure/). Für jede Sprache und jedes Framework, das wir anbieten, finden Sie Schnellstarts, Tutorials und API-Referenzen, die Ihnen einen schnellen Einstieg ermöglichen.
 
 Azure bietet eine Vielzahl von Diensten, die Sie zum Hosten von Websites und Webanwendungen verwenden können. Mit diesen Diensten können Sie in Ihrer bevorzugten Sprache entwickeln, egal, ob dies .NET, .NET Core, Java, Ruby, Node.js, PHP oder Python ist.
 [Azure App Service-Web-Apps](../../app-service/overview.md) (Web-Apps) ist einer dieser Dienste.
@@ -153,11 +153,11 @@ Das Modellieren des Anwendungsentwurfs und das Aufzählen von [STRIDE](https://d
 
 | Bedrohung | Sicherheitseigenschaft | Mindern potenzieller Risiken für die Azure-Plattform |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Spoofing               | Authentifizierung        | [Legen Sie fest, dass HTTPS-Verbindungen erforderlich sind](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
-| Manipulation              | Integrität             | Überprüfen Sie SSL/TLS-Zertifikate. Anwendungen, die SSL/TLS verwenden, müssen die X.509-Zertifikate der Entitäten, mit denen sie eine Verbindung herstellen, umfassend überprüfen. Verwenden Sie Azure Key Vault-Zertifikate, um [Ihre X509-Zertifikate zu verwalten](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates). |
-| Nichtanerkennung            | Unleugbarkeit       | Aktivieren Sie die [Überwachung und Diagnose](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) von Azure.|
+| Spoofing               | Authentifizierung        | [Legen Sie fest, dass HTTPS-Verbindungen erforderlich sind](/aspnet/core/security/enforcing-ssl?tabs=visual-studio&view=aspnetcore-2.1). |
+| Manipulation              | Integrität             | Überprüfen Sie SSL/TLS-Zertifikate. Anwendungen, die SSL/TLS verwenden, müssen die X.509-Zertifikate der Entitäten, mit denen sie eine Verbindung herstellen, umfassend überprüfen. Verwenden Sie Azure Key Vault-Zertifikate, um [Ihre X509-Zertifikate zu verwalten](../../key-vault/general/about-keys-secrets-certificates.md). |
+| Nichtanerkennung            | Unleugbarkeit       | Aktivieren Sie die [Überwachung und Diagnose](/azure/architecture/best-practices/monitoring) von Azure.|
 | Veröffentlichung von Informationen | Vertraulichkeit       | Verschlüsseln Sie sensible [ruhende](../fundamentals/encryption-atrest.md) Daten und Daten [während einer Übertragung](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
-| Denial of Service      | Verfügbarkeit          | Überwachen Sie Leistungsmetriken auf potenzielle Denial of Service-Angriffe. Implementieren Sie Verbindungsfilter. [Azure DDoS-Schutz](../../virtual-network/ddos-protection-overview.md#next-steps) in Kombination mit bewährten Anwendungsentwurfsmethoden stellt den bestmöglichen Schutz vor DDoS-Angriffen dar.|
+| Denial of Service      | Verfügbarkeit          | Überwachen Sie Leistungsmetriken auf potenzielle Denial of Service-Angriffe. Implementieren Sie Verbindungsfilter. [Azure DDoS-Schutz](../../ddos-protection/ddos-protection-overview.md#next-steps) in Kombination mit bewährten Anwendungsentwurfsmethoden stellt den bestmöglichen Schutz vor DDoS-Angriffen dar.|
 | Rechteerweiterungen | Authorization         | Verwenden Sie Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
 
 ### <a name="reduce-your-attack-surface"></a>Verringern der Angriffsfläche
@@ -209,7 +209,7 @@ Verwenden Sie eine zweistufige Authentifizierung. Die zweistufige Authentifizier
 
 Verwenden Sie von der Plattform bereitgestellte Authentifizierungs- und Autorisierungsmechanismen anstelle von benutzerdefiniertem Code. Dies empfiehlt sich, weil das Entwickeln von benutzerdefiniertem Authentifizierungscode Fehlerrisiko darstellen kann. Kommerzieller Code (etwa von Microsoft) wird häufig umfangreich auf Sicherheit geprüft. [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) ist die Lösung für Identitäts- und Zugriffsverwaltung von Azure. Diese Azure AD-Tools und -Dienste unterstützen bei der sicheren Entwicklung:
 
-- Bei [Microsoft Identity Platform](/azure/active-directory/develop/) handelt es sich um eine Reihe von Komponenten, die Entwickler zum Erstellen von Apps verwenden, die Benutzer sicher anmelden. Die Plattform unterstützt sowohl Entwickler, die branchenspezifische Apps für Einzelmandanten erstellen, als auch Entwickler, die mehrinstanzenfähige Apps (Apps für mehrere Mandanten) entwickeln. Neben der einfachen Anmeldung können Apps, die mit Microsoft Identity Platform erstellt wurden, Microsoft-APIs und benutzerdefinierte APIs aufrufen. Microsoft Identity Platform unterstützt die branchenüblichen Protokolle wie OAuth 2.0 und OpenID Connect.
+- Bei [Microsoft Identity Platform](../../active-directory/develop/index.yml) handelt es sich um eine Reihe von Komponenten, die Entwickler zum Erstellen von Apps verwenden, die Benutzer sicher anmelden. Die Plattform unterstützt sowohl Entwickler, die branchenspezifische Apps für Einzelmandanten erstellen, als auch Entwickler, die mehrinstanzenfähige Apps (Apps für mehrere Mandanten) entwickeln. Neben der einfachen Anmeldung können Apps, die mit Microsoft Identity Platform erstellt wurden, Microsoft-APIs und benutzerdefinierte APIs aufrufen. Microsoft Identity Platform unterstützt die branchenüblichen Protokolle wie OAuth 2.0 und OpenID Connect.
 
 - [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml) ist ein Identitätsverwaltungsdienst, mit dem Sie anpassen und steuern können, wie sich Kunden registrieren und anmelden und wie die Kunden ihre Profile verwalten, wenn sie Ihre Anwendungen verwenden. Dazu gehören Anwendungen, die für iOS, Android und .NET sowie andere Systeme entwickelt wurden. Azure AD B2C ermöglicht diese Aktionen und schützt gleichzeitig Kundenidentitäten.
 
@@ -217,9 +217,9 @@ Verwenden Sie von der Plattform bereitgestellte Authentifizierungs- und Autorisi
 
 Das Konzept der [geringsten Rechte](https://en.wikipedia.org/wiki/Principle_of_least_privilege) bedeutet, dass Benutzern Zugriff und Kontrolle genau in dem Umfang gewährt wird, den sie zum Erledigen ihrer Aufgaben benötigen, und mehr nicht.
 
-Benötigt ein Softwareentwickler die Rechte eines Domänenadministrators? Benötigt ein Verwaltungsassistent Zugriff auf administrative Komponenten auf seinem Personalcomputer? Bewerten von Zugriff auf Software unterscheidet sich davon nicht. Wenn Sie [rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC)](../../role-based-access-control/overview.md) verwenden, um Benutzern unterschiedliche Fähigkeiten und Befugnisse in Ihrer Anwendung zu gewähren, werden Sie nicht jedem Zugriff auf alles ermöglichen. Durch Beschränken des Zugriffs auf die Elemente, die für jede Rolle erforderlich sind, beschränken Sie das Risiko, dass ein Sicherheitsproblem auftritt.
+Benötigt ein Softwareentwickler die Rechte eines Domänenadministrators? Benötigt ein Verwaltungsassistent Zugriff auf administrative Komponenten auf seinem Personalcomputer? Bewerten von Zugriff auf Software unterscheidet sich davon nicht. Wenn Sie [rollenbasierte Azure-Zugriffssteuerung (Azure RBAC)](../../role-based-access-control/overview.md) verwenden, um Benutzern unterschiedliche Fähigkeiten und Befugnisse in Ihrer Anwendung zu gewähren, werden Sie nicht jedem Zugriff auf alles ermöglichen. Durch Beschränken des Zugriffs auf die Elemente, die für jede Rolle erforderlich sind, beschränken Sie das Risiko, dass ein Sicherheitsproblem auftritt.
 
-Achten Sie darauf, dass in Ihrer Anwendung in allen Zugriffsmustern das [Prinzip der geringsten Rechte](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) erzwungen wird.
+Achten Sie darauf, dass in Ihrer Anwendung in allen Zugriffsmustern das [Prinzip der geringsten Rechte](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) erzwungen wird.
 
 > [!NOTE]
 > Die Regeln der geringsten Rechte müssen für die Software und die Personen gelten, die die Software erstellen. Softwareentwickler können ein großes Risiko für die IT-Sicherheit darstellen, wenn ihnen zu viel Zugriff gewährt wird. Die Folgen können schwerwiegend sein, wenn ein Entwickler böswillige Absichten hat oder mehr Zugriff erhält, als er benötigt. Es empfiehlt sich, dass für Entwickler die Regeln der geringsten Rechte während des gesamten Entwicklungslebenszyklus angewendet werden.
@@ -233,7 +233,7 @@ Implementieren Sie *Just-In-Time-Zugriff* (JIT-Zugriff), um die Zeit, in der Rec
 
 ### <a name="require-re-authentication-for-important-transactions"></a>Verlangen einer erneuten Authentifizierung für wichtige Transaktionen
 
-Bei einer [websiteübergreifenden Anforderungsfälschung](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (auch bekannt als *XSRF* oder *CSRF* ) handelt es sich um einen Angriff auf im Web gehostete Apps, in denen eine schädliche Web-App die Interaktion zwischen einem Clientbrowser und einer Web-App beeinflusst, die diesem Browser vertraut. Angriffe in Form von websiteübergreifenden Anforderungsfälschungen sind möglich, weil Webbrowser einige Typen von Authentifizierungstoken automatisch bei jeder Anforderung an eine Website senden.
+Bei einer [websiteübergreifenden Anforderungsfälschung](/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (auch bekannt als *XSRF* oder *CSRF*) handelt es sich um einen Angriff auf im Web gehostete Apps, in denen eine schädliche Web-App die Interaktion zwischen einem Clientbrowser und einer Web-App beeinflusst, die diesem Browser vertraut. Angriffe in Form von websiteübergreifenden Anforderungsfälschungen sind möglich, weil Webbrowser einige Typen von Authentifizierungstoken automatisch bei jeder Anforderung an eine Website senden.
 Diese Form missbräuchlicher Verwendung wird auch als *Ein-Klick-Angriff* oder *Session-Riding* bezeichnet, weil für den Angriff die zuvor authentifizierte Sitzung des Benutzers verwendet wird.
 
 Die beste Möglichkeit, diese Art von Angriff abzuwehren, besteht darin, den Benutzer vor jeder wichtigen Transaktion, z. B. eine Bestellung, Kontodeaktivierung oder Kennwortänderung, nach etwas zu fragen, das nur er bereitstellen kann. Sie können den Benutzer bitten, sein Passwort erneut einzugeben, ein Captcha zu vervollständigen oder ein geheimes Token zu senden, das nur der Benutzer hat. Der gängigste Ansatz ist das geheime Token.
@@ -244,7 +244,7 @@ Der Verlust von Schlüsseln und Anmeldeinformationen ist ein verbreitetes Proble
 
 Legen Sie Ihre Schlüssel, Zertifikate, Geheimnisse und Verbindungszeichenfolgen immer in einer Schlüsselverwaltungslösung ab. Sie können eine zentrale Lösung verwenden, in der Schlüssel und Geheimnisse in Hardwaresicherheitsmodulen (HSMs) gespeichert werden. Azure stellt Ihnen mit [Azure Key Vault](../../key-vault/general/overview.md) ein HSM in der Cloud zur Verfügung.
 
-Key Vault ist ein *Geheimnisspeicher* : Es ist eine zentraler Clouddienst zum Speichern von Anwendungsgeheimnissen. Key Vault schützt Ihre vertraulichen Daten, indem es Anwendungsgeheimnisse an einem einzigen zentralen Ort aufbewahrt und sicheren Zugriff, Berechtigungssteuerung und Zugriffsprotokollierung bietet.
+Key Vault ist ein *Geheimnisspeicher*: Es ist eine zentraler Clouddienst zum Speichern von Anwendungsgeheimnissen. Key Vault schützt Ihre vertraulichen Daten, indem es Anwendungsgeheimnisse an einem einzigen zentralen Ort aufbewahrt und sicheren Zugriff, Berechtigungssteuerung und Zugriffsprotokollierung bietet.
 
 Geheimnisse werden in einzelnen *Tresoren* (Vaults) gespeichert. Jeder Tresor hat seine eigene Konfiguration und eigenen Sicherheitsrichtlinien, um Zugriffe zu steuern. Sie rufen Ihren Daten über eine REST-API oder über ein Client-SDK ab, das für die meisten Programmiersprachen verfügbar ist.
 
@@ -277,21 +277,21 @@ Wenn Sie Kommentare in Ihren Code einfügen, müssen Sie darauf achten, dass Sie
 
 Grundsätzlich sollten Sie davon ausgehen, dass alles in Ihrem Entwicklungsprojekt öffentlich bekannt ist, sobald das Projekt bereitgestellt wurde. Vermeiden Sie es, sensible Daten jeglicher Art in das Projekt aufzunehmen.
 
-An früherer Stelle ist [Azure Key Vault](../../key-vault/general/overview.md) erläutert. Sie können Key Vault verwenden, um Geheimnisse, etwa Schlüssel und Kennwörter, zu speichern, anstatt sie hartzucodieren. Wenn Sie Key Vault zusammen mit verwalteten Identitäten für Azure-Ressourcen verwenden, kann Ihre Azure-Webanwendung einfach und sicher auf geheime Konfigurationswerte zugreifen, ohne irgendwelche Geheimnisse in Ihrer Quellcodeverwaltung oder Konfiguration zu speichern. Weitere Informationen hierzu finden Sie unter [Verwalten von Geheimnissen in Ihren Server-Apps mit Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/).
+An früherer Stelle ist [Azure Key Vault](../../key-vault/general/overview.md) erläutert. Sie können Key Vault verwenden, um Geheimnisse, etwa Schlüssel und Kennwörter, zu speichern, anstatt sie hartzucodieren. Wenn Sie Key Vault zusammen mit verwalteten Identitäten für Azure-Ressourcen verwenden, kann Ihre Azure-Webanwendung einfach und sicher auf geheime Konfigurationswerte zugreifen, ohne irgendwelche Geheimnisse in Ihrer Quellcodeverwaltung oder Konfiguration zu speichern. Weitere Informationen hierzu finden Sie unter [Verwalten von Geheimnissen in Ihren Server-Apps mit Azure Key Vault](/learn/modules/manage-secrets-with-azure-key-vault/).
 
 ### <a name="implement-fail-safe-measures"></a>Implementieren von ausfallsicheren Maßnahmen
 
-Ihre Anwendung muss in der Lage, [Fehler](https://docs.microsoft.com/dotnet/standard/exceptions/), die während der Ausführung auftreten, konsistent zu verarbeiten. Die Anwendung sollte alle Fehler abfangen und entweder ausfallsicher sein oder geschlossen werden.
+Ihre Anwendung muss in der Lage, [Fehler](/dotnet/standard/exceptions/), die während der Ausführung auftreten, konsistent zu verarbeiten. Die Anwendung sollte alle Fehler abfangen und entweder ausfallsicher sein oder geschlossen werden.
 
 Sie sollten auch sicherstellen, dass Fehler mit ausreichendem Benutzerkontext protokolliert werden, um verdächtige oder bösartige Aktivitäten zu erkennen. Protokolle sollten ausreichend lange aufbewahrt werden, um eine verzögerte forensische Analyse zu ermöglichen. Protokolle sollten in einem Format vorliegen, das von einer Protokollverwaltungslösung problemlos verwendet werden kann. Stellen Sie sicher, dass Warnungen für Fehler ausgelöst werden, die die Sicherheit betreffen. Eine unzureichende Protokollierung und Überwachung versetzt Angreifer in die Lage, Systeme weiter anzugreifen und Persistenz zu erhalten.
 
 ### <a name="take-advantage-of-error-and-exception-handling"></a>Nutzen von Fehler- und Ausnahmebehandlung
 
-Das Implementieren einer korrekten Fehler- und [Ausnahmebehandlung](https://docs.microsoft.com/dotnet/standard/exceptions/best-practices-for-exceptions) ist ein wichtiger Bestandteil von defensiver Programmierung. Fehler- und Ausnahmebehandlung sind entscheidend, um ein System zuverlässig und sicher zu machen. Fehler in der Fehlerbehandlung können zu verschiedenen Arten von Sicherheitsrisiken führen, etwa ein Durchsickern von Informationen an Angreifer sowie ermöglichen, dass Angreifer Ihre Plattform und deren Entwurf besser verstehen.
+Das Implementieren einer korrekten Fehler- und [Ausnahmebehandlung](/dotnet/standard/exceptions/best-practices-for-exceptions) ist ein wichtiger Bestandteil von defensiver Programmierung. Fehler- und Ausnahmebehandlung sind entscheidend, um ein System zuverlässig und sicher zu machen. Fehler in der Fehlerbehandlung können zu verschiedenen Arten von Sicherheitsrisiken führen, etwa ein Durchsickern von Informationen an Angreifer sowie ermöglichen, dass Angreifer Ihre Plattform und deren Entwurf besser verstehen.
 
 Stellen Sie Folgendes sicher:
 
-- Sie behandeln Ausnahmen an zentraler Stelle, um doppelte [try/catch](https://docs.microsoft.com/dotnet/standard/exceptions/how-to-use-the-try-catch-block-to-catch-exceptions)-Blöcke im Code zu vermeiden.
+- Sie behandeln Ausnahmen an zentraler Stelle, um doppelte [try/catch](/dotnet/standard/exceptions/how-to-use-the-try-catch-block-to-catch-exceptions)-Blöcke im Code zu vermeiden.
 
 - Jedes unerwartete Verhalten wird in der Anwendung behandelt.
 
@@ -303,7 +303,7 @@ Stellen Sie Folgendes sicher:
 
 ### <a name="use-logging-and-alerting"></a>Verwenden von Protokollierung und Benachrichtigungen
 
-[Protokollieren](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1) Sie sicherheitsbezogene Probleme für Sicherheitsuntersuchungen, und lösen Sie Benachrichtigungen zu Problemen aus, damit sichergestellt ist, dass betroffene Personen rechtzeitig über Probleme informiert werden. Aktivieren Sie die Überwachung und Protokollierung für alle Komponenten. Überwachungsprotokolle sollten den Benutzerkontext erfassen und alle wichtigen Ereignisse identifizieren.
+[Protokollieren](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1) Sie sicherheitsbezogene Probleme für Sicherheitsuntersuchungen, und lösen Sie Benachrichtigungen zu Problemen aus, damit sichergestellt ist, dass betroffene Personen rechtzeitig über Probleme informiert werden. Aktivieren Sie die Überwachung und Protokollierung für alle Komponenten. Überwachungsprotokolle sollten den Benutzerkontext erfassen und alle wichtigen Ereignisse identifizieren.
 
 Stellen Sie sicher, dass Sie keine sensiblen Daten protokollieren, die ein Benutzer an Ihre Website übermittelt. Beispiele für sensible Daten:
 

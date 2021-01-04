@@ -147,8 +147,6 @@
       items:
         - name: Veröffentlichen in der App-Quelle
           href: howto-get-appsource-certified.md
-        - name: Veröffentlichen im Azure AD-App-Katalog
-          href: howto-app-gallery-listing.md
         - name: Veröffentlichen im Office 365-Verkäuferdashboard
           href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
     - name: Azure Access Control Service

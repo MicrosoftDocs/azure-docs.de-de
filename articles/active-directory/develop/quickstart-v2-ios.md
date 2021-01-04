@@ -13,18 +13,18 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: b171688fa4dbff8d05b3ba03e4e4bd29028983be
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 3ea3c3990a9319a81c841de8a7109850fcab5179
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016143"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95993906"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Schnellstart: Anmelden von Benutzern und Aufrufen der Microsoft Graph-API aus einer iOS- oder macOS-App
 
-Diese Schnellstartanleitung enthält ein Codebeispiel, das zeigt, wie eine native iOS- oder macOS-Anwendung Microsoft Identity Platform verwenden kann, um persönliche Konten und Geschäfts-, Schul- oder Unikonten anzumelden, ein Zugriffstoken abzurufen und die Microsoft Graph-API aufzurufen.
+In dieser Schnellstartanleitung laden Sie ein Codebeispiel herunter und führen es aus, das zeigt, wie eine native iOS- oder macOS-Anwendung Benutzer anmelden und ein Zugriffstoken abrufen kann, um die Microsoft Graph-API aufzurufen.
 
-Dieser Schnellstart gilt für iOS- und macOS-Apps. Einige Schritte sind nur bei iOS-Apps erforderlich. Bei diesen Schritten wird darauf hingewiesen, dass sie nur für iOS gelten.
+Die Schnellstartanleitung gilt für iOS- und macOS-Apps. Einige Schritte sind nur für iOS-Apps erforderlich und entsprechend gekennzeichnet.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -62,9 +62,9 @@ Dieser Schnellstart gilt für iOS- und macOS-Apps. Einige Schritte sind nur bei 
 >      - Überspringen Sie die weiteren Konfigurationsschritte auf dieser Seite.
 >      - Wählen Sie `Register`aus.
 > 1. Wählen Sie im Abschnitt **Verwalten** die Option `Authentication` > `Add Platform` > `iOS` aus.
->      - Geben Sie die ***Bündel-ID*** für Ihre Anwendung ein. Die Paket-ID ist lediglich eine Zeichenfolge, die Ihre Anwendung eindeutig identifiziert (z. B. `com.<yourname>.identitysample.MSALMacOS`). Notieren Sie sich den verwendeten Wert.
+>      - Geben Sie die **_Bündel-ID_* _ für Ihre Anwendung ein. Die Paket-ID ist lediglich eine Zeichenfolge, die Ihre Anwendung eindeutig identifiziert (z. B. `com.<yourname>.identitysample.MSALMacOS`). Notieren Sie sich den verwendeten Wert.
 >      - Die iOS-Konfiguration ist auch bei macOS-Anwendungen anwendbar.
-> 1. Wählen Sie `Configure` aus, und speichern Sie die Details der ***MSAL-Konfiguration*** zur späteren Verwendung in diesem Schnellstart.
+> 1. Wählen Sie `Configure` aus, und speichern Sie die Details der _*_MSAL-Konfiguration_*_ zur späteren Verwendung in diesem Schnellstart.
 > [!div renderon="portal" class="sxs-lookup"]
 >
 > #### <a name="step-1-configure-your-application"></a>Schritt 1: Konfigurieren der Anwendung
@@ -101,7 +101,7 @@ Navigieren Sie in einem Terminalfenster zu dem Ordner, der das heruntergeladene 
 >#### <a name="step-4-configure-your-project"></a>Schritt 4: Konfigurieren des Projekts
 > Wenn Sie weiter oben die erste Option ausgewählt haben, können Sie diese Schritte überspringen.
 > 1. Extrahieren Sie die ZIP-Datei, und öffnen Sie das Projekt in XCode.
-> 1. Bearbeiten Sie **ViewController.swift**, und ersetzen Sie die Zeile, die mit „let kClientID“ beginnt, durch den folgenden Codeausschnitt. Sie müssen den Wert für `kClientID` durch die Client-ID ersetzen, die Sie zuvor im Schnellstart beim Registrieren Ihrer App im Portal gespeichert haben:
+> 1. Bearbeiten Sie _ *ViewController.swift**, und ersetzen Sie die Zeile, die mit „let kClientID“ beginnt, durch den folgenden Codeausschnitt. Sie müssen den Wert für `kClientID` durch die Client-ID ersetzen, die Sie zuvor im Schnellstart beim Registrieren Ihrer App im Portal gespeichert haben:
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
@@ -117,7 +117,7 @@ Navigieren Sie in einem Terminalfenster zu dem Ordner, der das heruntergeladene 
 >     ```
 > 1. Öffnen Sie die Projekteinstellungen. Geben Sie im Abschnitt **Identität** den Wert für **Bundle Identifier** (Paket-ID) ein, den Sie im Portal angegeben haben.
 > 1. Klicken Sie mit der rechten Maustaste auf **Info.plist**, und wählen Sie **Öffnen als** > **Quellcode** aus.
-> 1. Ersetzen Sie unter dem Stammknoten „dict“ `Enter_the_bundle_Id_Here` durch den Wert für ***Bundle Id*** (Paket-ID), den Sie im Portal verwendet haben.
+> 1. Ersetzen Sie unter dem Stammknoten „dict“ `Enter_the_bundle_Id_Here` durch den Wert für **_Bündel-ID_* _, den Sie im Portal verwendet haben.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -179,7 +179,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 
 > |Hierbei gilt: | BESCHREIBUNG |
 > |---------|---------|
-> | `clientId` | Die Anwendungs-ID der in *portal.azure.com* registrierten Anwendung. |
+> | `clientId` | Die Anwendungs-ID der in _portal.azure.com* registrierten Anwendung |
 > | `authority` | Der Microsoft Identity Platform-Endpunkt. In den meisten Fällen ist dies `https://login.microsoftonline.com/common`. |
 > | `redirectUri` | Der Umleitungs-URI der Anwendung. Sie können „nil“ übergeben, um den Standardwert zu verwenden, oder Ihren benutzerdefinierten Umleitungs-URI angeben. |
 
@@ -213,7 +213,7 @@ Ihre App muss auch Folgendes in `AppDelegate` enthalten. Dadurch kann das MSAL S
     }
  ```
 
-Ihre App muss neben `CFBundleURLTypes` über einen `LSApplicationQueriesSchemes`-Eintrag in ***Info.plist*** verfügen. Im Beispiel ist dies enthalten.
+Ihre App muss neben `CFBundleURLTypes` über einen `LSApplicationQueriesSchemes`-Eintrag in ***Info.plist** _ verfügen. Im Beispiel ist dies enthalten.
 
    ```xml
    <key>LSApplicationQueriesSchemes</key>
@@ -231,7 +231,7 @@ MSAL verfügt über zwei Methoden, die zum Abrufen von Token verwendet werden: `
 
 In einigen Situationen müssen Benutzer mit Microsoft Identity Platform interagieren. In diesen Fällen muss der Endbenutzer möglicherweise sein Konto auswählen, seine Anmeldeinformationen eingeben oder den Berechtigungen Ihrer App zustimmen. Beispiel:
 
-* Erstmaliges Anmelden von Benutzern bei der Anwendung.
+_ Erstmaliges Anmelden von Benutzern bei der Anwendung
 * Wenn ein Benutzer sein Kennwort zurücksetzt, muss er seine Anmeldeinformationen eingeben.
 * Wenn Ihre Anwendung zum ersten Mal Zugriff auf eine Ressource anfordert
 * Wenn MFA oder andere Richtlinien für bedingten Zugriff erforderlich sind
@@ -274,4 +274,3 @@ Fahren Sie mit dem Schritt-für-Schritt-Tutorial fort, in dem Sie eine iOS- oder
 
 > [!div class="nextstepaction"]
 > [Tutorial: Anmelden von Benutzern und Aufrufen von Microsoft Graph aus einer iOS- oder macOS-App](tutorial-v2-ios.md)
-

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2020
 ms.author: memildin
-ms.openlocfilehash: 4bad3227e08c0fbe0d280967e45bbef9d477e1b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d4b968d0d5e091d72cf718d58b11ade68ddf8c6
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569134"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637086"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Umsetzen von Empfehlungen in Azure Security Center
 
@@ -38,9 +38,16 @@ Nach der Überprüfung aller Empfehlungen müssen Sie entscheiden, welche zuerst
 
 ## <a name="quick-fix-remediation"></a>Schnelle Problembehebung<a name="one-click"></a>
 
-Mithilfe der schnellen Problembehebung können Sie eine Empfehlung schnell für mehrere Ressourcen umsetzen. Diese Option ist nur für bestimmte Empfehlungen verfügbar. Die schnelle Problembehebung vereinfacht das Umsetzen von Empfehlungen und ermöglicht Ihnen eine schnelle Verbesserung Ihrer Sicherheitsbewertung und erhöht die Sicherheit in Ihrer Umgebung.
+Die schnelle Problembehebung vereinfacht das Umsetzen von Empfehlungen, ermöglicht Ihnen eine schnelle Verbesserung Ihrer Sicherheitsbewertung und erhöht die Sicherheit in Ihrer Umgebung.
 
-So implementieren Sie eine schnelle Problembehebung:
+Mithilfe der schnellen Problembehebung können Sie eine Empfehlung schnell für mehrere Ressourcen umsetzen. 
+
+> [!TIP]
+> Die schnelle Problembehebung ist nur für bestimmte Empfehlungen verfügbar. Um die Empfehlungen zu finden, die die Option zur schnellen Problembehebung aufweisen, verwenden Sie den dedizierten Filter am Anfang der Liste der Empfehlungen:
+> 
+> :::image type="content" source="media/security-center-remediate-recommendations/quick-fix-filter.png" alt-text="Verwenden Sie die Filter über der Empfehlungsliste, um Empfehlungen mit der Option zur schnellen Problembehebung zu finden":::
+
+So implementieren Sie eine Empfehlung zur schnellen Problembehebung:
 
 1. Klicken Sie in der Liste der Empfehlungen, die mit **Schnelle Problembehebung** gekennzeichnet sind, auf die entsprechende Empfehlung.
 

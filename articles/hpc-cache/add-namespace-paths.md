@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 090e3f93d025fe87ad5b89a98193574595f3d632
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: e525fc0705dffcd4765e6a1f6c5235bdef260fcd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91614511"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339675"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Einrichten des aggregierten Namespace
 
@@ -57,7 +57,7 @@ Befolgen Sie die nachstehenden Anweisungen, um den Pfad über das Azure-Portal o
 
 ### <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Einrichten der Azure CLI für Azure HPC Cache](./az-cli-prerequisites.md).
 
 Wenn Sie die Azure-Befehlszeilenschnittstelle verwenden, müssen Sie beim Erstellen des Speicherziels einen Namespacepfad hinzufügen. Weitere Informationen finden Sie unter [Hinzufügen eines neuen Azure Blob Storage-Ziels](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-azure-blob-storage-target).
 
@@ -83,7 +83,7 @@ Im Folgenden ist die maximale Anzahl der Namespacepfade pro Konfiguration aufgef
   * 6 TB Cache – 10 Namespacepfade
   * 23 TB Cache – 20 Namespacepfade
 
-* Bei einem Durchsatz von bis zu 5 GB/s:
+* Bei einem Durchsatz von bis zu 4 GB/s:
 
   * 6 TB Cache – 10 Namespacepfade
   * 12 TB Cache – 10 Namespacepfade
@@ -119,7 +119,7 @@ Geben Sie diese Werte für die einzelnen Namespacepfade ein:
 
 ### <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Einrichten der Azure CLI für Azure HPC Cache](./az-cli-prerequisites.md).
 
 Wenn Sie die Azure-Befehlszeilenschnittstelle verwenden, müssen Sie beim Erstellen des Speicherziels mindestens einen Namespacepfad hinzufügen. Weitere Informationen finden Sie unter [Hinzufügen eines neuen NFS-Speicherziels](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target).
 

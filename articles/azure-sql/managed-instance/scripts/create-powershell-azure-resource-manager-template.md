@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 6758aed67949032bb93086527623b60af33e716e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c364fe7fa0ac4dd70a01a75478289ea861dee7f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079556"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790830"
 ---
 # <a name="use-powershell-with-an-azure-resource-manager-template-to-create-a-managed-instance"></a>Verwenden von PowerShell mit einer Azure Resource Manager-Vorlage zum Erstellen einer verwalteten Instanz
 
@@ -46,7 +46,7 @@ Der Instanzname, der Benutzername des SQL-Administrators, das VNET/Subnetz und d
 In diesem Beispiel wird vorausgesetzt, dass Sie für Ihre verwaltete Instanz [eine gültige Netzwerkumgebung erstellt](../virtual-network-subnet-create-arm-template.md) oder [ein vorhandenes VNet geändert](../vnet-existing-add-subnet.md) haben. Falls erforderlich, können Sie die Netzwerkumgebung mit einer separaten [Azure Resource Manager-Vorlage](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) vorbereiten. 
 
 
-Da im Beispiel die Cmdlets [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) und [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) verwendet werden, vergewissern Sie sich, dass Sie die folgenden PowerShell-Module installiert haben:
+Da im Beispiel die Cmdlets [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) und [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) verwendet werden, vergewissern Sie sich, dass Sie die folgenden PowerShell-Module installiert haben:
 
 ```powershell
 Install-Module Az.Network

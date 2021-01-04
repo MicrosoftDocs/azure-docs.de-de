@@ -9,12 +9,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: a0c99c05701c7f2d64fcfc2f70081f2d7475ce5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae4eca82df498f1aa8f9ef84691cecdf719d0d76
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91339234"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307488"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Data Science für Einsteiger – Video 1: Die 5 Fragen, die Data Science beantwortet
 
@@ -45,7 +45,7 @@ In diesem ersten Video befassen wir uns mit den „5 Fragen, die Data Science be
 
 Data Science verwendet Zahlen und Namen (auch „Kategorien“ oder „Bezeichnungen“ genannt), um Antworten auf Fragen vorherzusagen.
 
-Es mag Sie vielleicht überraschen, doch *es gibt nur fünf Fragen, die Data Science beantwortet*:
+Es mag Sie vielleicht überraschen, doch *es gibt nur fünf Fragen, die Data Science beantwortet* :
 
 * Ist dies A oder B?
 * Ist dies merkwürdig?
@@ -136,4 +136,4 @@ Das sind sie also: Die 5 Fragen, die Data Science beantworten kann.
 
 ## <a name="next-steps"></a>Nächste Schritte
 * [Durchführen eines ersten Data Science-Experiments mit Machine Learning Studio (klassisch)](create-experiment.md)
-* [Einführung in Machine Learning in Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)
+* [Einführung in Machine Learning in Microsoft Azure](../overview-what-is-azure-ml.md)

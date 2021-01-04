@@ -14,19 +14,19 @@ ms.date: 02/10/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f520141d36726e94dc8d49d7e5aa95bb35d5484
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 967ac34ddb736f58f66639181cdf10e4aaa8ffab
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85956235"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656784"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Erstellen von Sammlungen im Portal „Meine Apps“
 
 Ihre Benutzer können im Portal „Meine Apps“ die cloudbasierten Anwendungen, auf die sie zugreifen können, anzeigen und starten. Standardmäßig werden alle Anwendungen, auf die ein Benutzer zugreifen kann, auf einer einzigen Seite aufgelistet. Wenn Sie über eine Azure AD Premium P1- oder P2-Lizenz verfügen, können Sie Sammlungen einrichten, um diese Seite für Ihre Benutzer übersichtlicher zu gestalten. Mit einer Sammlung können Sie verwandte Anwendungen gruppieren (z. B. nach Auftragsrolle, Aufgabe oder Projekt) und auf separaten Registerkarten anzeigen. Eine Sammlung wendet im Wesentlichen einen Filter auf die Anwendungen an, auf die ein Benutzer bereits zugreifen kann. Dem Benutzer werden somit nur die ihm zugewiesenen Anwendungen in der Sammlung angezeigt.
 
 > [!NOTE]
-> In diesem Artikel wird beschrieben, wie ein Administrator Sammlungen aktivieren und erstellen kann. Informationen für Endbenutzer zur Verwendung des Portals „Meine Apps“ und der Sammlungen finden Sie unter [Zugreifen auf und Verwenden von Sammlungen](https://docs.microsoft.com/azure/active-directory/user-help/my-applications-portal-workspaces).
+> In diesem Artikel wird beschrieben, wie ein Administrator Sammlungen aktivieren und erstellen kann. Informationen für Endbenutzer zur Verwendung des Portals „Meine Apps“ und der Sammlungen finden Sie unter [Zugreifen auf und Verwenden von Sammlungen](../user-help/my-applications-portal-workspaces.md).
 
 ## <a name="enable-the-latest-my-apps-features"></a>Aktivieren der neuesten Meine Apps-Features
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 11/30/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5a983931bd372931eacff2f7b21f3358f536046
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8a249102de6a5bff7354e339e604b7d2efebd4fb
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362925"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546170"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Aktivieren der externen B2B-Zusammenarbeit und Steuern, wer Gäste einladen kann
 
@@ -44,16 +44,19 @@ Per Standardeinstellung können alle Benutzer, einschließlich Gäste, Gastbenut
 3. Wählen Sie **Externe Identitäten** > **Einstellungen für externe Zusammenarbeit** aus.
 
 4. Wählen Sie unter **Zugriffseinschränkungen für Gastbenutzer (Vorschau)** die Zugriffsebene aus, die Gastbenutzern zugewiesen werden soll:
-
-   - **Gastbenutzer haben denselben Zugriff wie Mitglieder (umfassendste Einstellung)** : Diese Option gibt Gästen den gleichen Zugriff auf die Ressourcen und Verzeichnisdaten von Azure AD wie Mitgliedsbenutzern.
-
-   - **Gastbenutzer haben eingeschränkten Zugriff auf Eigenschaften und Mitgliedschaften von Verzeichnisobjekten** : (Standard) Diese Einstellung verhindert, dass Gäste bestimmte Verzeichnisaufgaben ausführen können, z. B. Benutzer, Gruppen oder andere Verzeichnisressourcen aufzulisten. Gäste können die Mitgliedschaft in allen nicht ausgeblendeten Gruppen anzeigen.
-
-   - **Der Gastbenutzerzugriff ist auf Eigenschaften und Mitgliedschaften eigener Verzeichnisobjekte beschränkt (restriktivste Einstellung)** : Mit dieser Einstellung können Gäste nur auf Ihre eigenen Profile zugreifen. Gäste dürfen keine Profile, Gruppen oder Gruppenmitgliedschaften anderer Benutzer anzeigen.
   
     ![Einstellungen für Zugriffseinschränkungen für Gastbenutzer](./media/delegate-invitations/guest-user-access.png)
 
+   - **Gastbenutzer haben denselben Zugriff wie Mitglieder (umfassendste Einstellung)** : Diese Option gibt Gästen den gleichen Zugriff auf die Ressourcen und Verzeichnisdaten von Azure AD wie Mitgliedsbenutzern.
+
+   - **Gastbenutzer haben eingeschränkten Zugriff auf Eigenschaften und Mitgliedschaften von Verzeichnisobjekten**: (Standard) Diese Einstellung verhindert, dass Gäste bestimmte Verzeichnisaufgaben ausführen können, z. B. Benutzer, Gruppen oder andere Verzeichnisressourcen aufzulisten. Gäste können die Mitgliedschaft in allen nicht ausgeblendeten Gruppen anzeigen.
+
+   - **Der Gastbenutzerzugriff ist auf Eigenschaften und Mitgliedschaften eigener Verzeichnisobjekte beschränkt (restriktivste Einstellung)** : Mit dieser Einstellung können Gäste nur auf Ihre eigenen Profile zugreifen. Gäste dürfen keine Profile, Gruppen oder Gruppenmitgliedschaften anderer Benutzer anzeigen.
+
+
 5. Wählen Sie unter **Einstellungen für Gasteinladungen** die entsprechenden Einstellungen aus:
+
+    ![Einstellungen für Gasteinladungen](./media/delegate-invitations/guest-invite-settings.png)
 
    - **Administratoren und Benutzer mit der Rolle „Gasteinladender“ können einladen:** Wenn Sie Administratoren und Gästen, die die Rolle „Gasteinladender“ innehaben, erlauben möchten, Gäste einzuladen, legen Sie diese Richtlinie auf **Ja** fest.
 
@@ -61,17 +64,31 @@ Per Standardeinstellung können alle Benutzer, einschließlich Gäste, Gastbenut
 
    - **Gäste können einladen:** Wenn Sie Gästen erlauben möchten, andere Gäste einzuladen, legen Sie diese Richtlinie auf **Ja** fest.
 
-   - **Einmalkennung per E-Mail für Gastbenutzer aktivieren (Vorschau):** Weitere Informationen zum Feature „Einmalkennung“ finden Sie unter [Authentifizierung mit Einmalkennung per E-Mail (Vorschau)](one-time-passcode.md).
-
-   - **Self-Service-Registrierung von Gästen über Benutzerflows aktivieren (Vorschau)** : Weitere Informationen zu dieser Einstellung finden Sie unter [Hinzufügen eines Benutzerflows für die Self-Service-Registrierung zu einer App (Vorschau)](self-service-sign-up-user-flow.md).
-
    > [!NOTE]
    > Wenn **Mitglieder können einladen** auf **Nein** festgelegt ist und **Administratoren und Benutzer mit der Rolle „Gasteinladender“ können einladen** auf **Ja** festgelegt ist, können Benutzer mit der Rolle **Gasteinladender** weiterhin Gäste einladen.
 
-    ![Einstellungen für Gasteinladungen](./media/delegate-invitations/guest-invite-settings.png)
+6. Wählen Sie unter **E-Mail-Einmalkennung für Gäste** die entsprechenden Einstellungen aus (weitere Informationen finden Sie unter [Authentifizierung mit Einmalkennung per E-Mail](one-time-passcode.md)):
 
-6. Wählen Sie unter **Einschränkungen für die Zusammenarbeit** aus, ob Sie Einladungen zu bestimmten Domänen zulassen oder verweigern möchten. Weitere Informationen finden Sie unter [Zulassen oder Blockieren von Einladungen für B2B-Benutzer von bestimmten Organisationen](allow-deny-list.md).
+   ![Einstellungen für die Einmalkennung per E-Mail](./media/delegate-invitations/email-otp-settings.png)
 
+   - **Automatisches Aktivieren der E-Mail-Einmalkennung für Gäste im März 2021**. (Standard) Wenn die Funktion „Einmalkennung per E-Mail“ für Ihren Mandanten noch nicht aktiviert ist, wird sie im März 2021 automatisch aktiviert. Wenn die Funktion zu diesem Zeitpunkt aktiviert werden soll, ist keine weitere Aktion erforderlich. Wenn Sie die Funktion bereits aktiviert oder deaktiviert haben, ist diese Option nicht verfügbar.
+
+   - **E-Mail-Einmalkennung für Gäste sofort aktivieren**. Aktiviert die Funktion „Einmalkennung per E-Mail“ für Ihren Mandanten.
+
+   - **E-Mail-Einmalkennung für Gäste deaktivieren**. Deaktiviert die Funktion „Einmalkennung per E-Mail“ für Ihren Mandanten und verhindert, dass die Funktion im März 2021 aktiviert wird.
+
+   > [!NOTE]
+   > Anstelle der oben aufgeführten Optionen wird die folgende Umschaltfläche angezeigt, wenn Sie diese Funktion aktiviert bzw. deaktiviert oder zuvor die Vorschauversion genutzt haben:
+   >
+   >![Aktivieren der Einmalkennung per E-Mail für Nutzer der Vorschauversion](media/delegate-invitations/enable-email-otp-opted-in.png)
+
+7. Wählen Sie unter **Self-Service-Registrierung von Gästen über Benutzerflows aktivieren (Vorschau)** die Option **Ja** aus, wenn Sie Benutzerflows erstellen möchten, über die sich Benutzer für Apps registrieren können. Weitere Informationen zu dieser Einstellung finden Sie unter [Hinzufügen eines Benutzerflows für die Self-Service-Registrierung zu einer App (Vorschau)](self-service-sign-up-user-flow.md).
+
+    ![Einstellung „Self-Service-Registrierung über Benutzerflow“](./media/delegate-invitations/self-service-sign-up-setting.png)
+
+7. Wählen Sie unter **Einschränkungen für die Zusammenarbeit** aus, ob Sie Einladungen zu bestimmten Domänen zulassen oder verweigern möchten. Weitere Informationen finden Sie unter [Zulassen oder Blockieren von Einladungen für B2B-Benutzer von bestimmten Organisationen](allow-deny-list.md).
+
+    ![Einstellungen für die Einschränkung der Zusammenarbeit](./media/delegate-invitations/collaboration-restrictions.png)
 ## <a name="assign-the-guest-inviter-role-to-a-user"></a>Zuweisen der Rolle „Gasteinladender“ an einen Benutzer
 
 Über die Rolle „Gasteinladender“ können Sie einzelnen Benutzern die Möglichkeit geben, Gäste einzuladen, ohne ihnen dafür eine globale Administratorrolle oder eine andere Administratorrolle zuweisen zu müssen. Weisen Sie die Rolle „Gasteinladender“ einzelnen Benutzern zu. Stellen Sie dann sicher, dass die Richtlinie **Administratoren und Benutzer mit der Rolle „Gasteinladender“ können einladen** auf **Ja** festgelegt ist.

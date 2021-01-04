@@ -4,18 +4,18 @@ description: Dieser Artikel enthält Hinweise zur Migration der IP-Adressen von 
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
-ms.custom: sqldbrb=1 
+ms.custom: sqldbrb=1
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: ee55e0a66a0487291233713498f6eb541980dbba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fadbecc2c00a739afb2f94dd1d049805915cfa5
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90004271"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427108"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migration des Azure SQL-Datenbank-Datenverkehrs zu neueren Gateways
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -108,7 +108,8 @@ Möglicherweise sind Sie betroffen, wenn Folgendes zutrifft:
 
 - Die IP-Adresse für ein bestimmtes Gateway in Ihrer lokalen Firewall ist hartcodiert.
 - Sie verfügen über Subnetze, die Microsoft.SQL als Dienstendpunkt verwenden, aber nicht mit den Gateway-IP-Adressen kommunizieren können.
-- Sie verwenden [zonenredundante Konfiguration](high-availability-sla.md#zone-redundant-configuration) für Ihre Datenbank.
+- Sie verwenden die [zonenredundant Konfiguration für die Dienstebene „Universell“](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview).
+- Sie verwenden die [zonenredundante Konfiguration für die Dienstebenen „Premium“ und „Unternehmenskritisch“](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability).
 
 In den folgenden Fällen spüren Sie die Auswirkungen nicht:
  

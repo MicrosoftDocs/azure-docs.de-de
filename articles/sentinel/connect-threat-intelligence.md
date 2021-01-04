@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
-ms.openlocfilehash: d794b0a33eabedd3e6e309f291543ba23bc40f79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 205cc6eea5d1ac3be2d0e266621067dc8e20d2f9
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362745"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96121742"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Verknüpfen von Daten von Threat Intelligence-Anbietern
 
@@ -36,7 +36,7 @@ Mit Azure Sentinel können Sie die von Ihrer Organisation verwendeten Bedrohungs
 
 - **Notebooks** können Bedrohungsindikatoren verwenden, wenn Sie Anomalien untersuchen und nach schädlichen Verhaltensweisen suchen.
 
-Sie können Bedrohungsindikatoren an Azure Sentinel streamen, indem Sie eines der im Abschnitt „Verbinden von Azure Sentinel mit TAXII-Servern“ aufgeführten Produkte der integrierten Threat Intelligence-Plattform (TIP) oder aber die direkte Integration mit der [Microsoft Graph-Sicherheits-API „tiIndicators“](https://aka.ms/graphsecuritytiindicators) verwenden.
+Sie können Bedrohungsindikatoren an Azure Sentinel streamen, indem Sie eines der im Abschnitt „Verbinden von Azure Sentinel mit TAXII-Servern“ aufgeführten Produkte der integrierten Threat Intelligence-Plattform (TIP) oder aber die direkte Integration mit der [Microsoft Graph-Sicherheits-API „tiIndicators“](/graph/api/resources/tiindicator) verwenden.
 
 ## <a name="integrated-threat-intelligence-platform-products"></a>Produkte der integrierten Threat Intelligence Platform
 
@@ -56,6 +56,11 @@ Sie können Bedrohungsindikatoren an Azure Sentinel streamen, indem Sie eines de
 
     Weitere Informationen finden Sie auf der Seite [ThreatConnect-Integrationen](https://threatconnect.com/integrations/) unter „Microsoft Graph Security API“ (Microsoft Graph-Sicherheits-API).
 
+- [EclecticIQ Platform](https://www.eclecticiq.com/solutions)
+
+- [ThreatQ Threat Intelligence Platform](https://www.threatq.com/)
+
+    Weitere Informationen und Anweisungen finden Sie unter [Microsoft Sentinel Connector for ThreatQ integration](https://appsource.microsoft.com/product/web-apps/threatquotientinc1595345895602.microsoft-sentinel-connector-threatq?src=health&tab=Overview) (Microsoft Sentinel-Connector für die ThreatQ-Integration).
 
 ## <a name="connect-azure-sentinel-to-your-threat-intelligence-platform"></a>Verbinden von Azure Sentinel mit Ihrer Threat Intelligence-Plattform
 
@@ -114,4 +119,4 @@ Sie können Bedrohungsindikatoren an Azure Sentinel streamen, indem Sie eines de
 In diesem Artikel haben Sie gelernt, wie Sie Ihren Threat Intelligence-Anbieter mit Azure Sentinel verbinden. Weitere Informationen zu Azure Sentinel finden Sie in den folgenden Artikeln.
 
 - Erfahren Sie, wie Sie [Einblick in Ihre Daten und potenzielle Bedrohungen erhalten](quickstart-get-visibility.md).
-- Beginnen Sie mit der [Erkennung von Bedrohungen mithilfe von Azure Sentinel](tutorial-detect-threats.md).
+- Beginnen Sie mit der [Erkennung von Bedrohungen mithilfe von Azure Sentinel](./tutorial-detect-threats-built-in.md).

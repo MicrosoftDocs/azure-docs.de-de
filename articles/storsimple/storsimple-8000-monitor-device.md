@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: 7ffb13912780edcf3d92093e672d1dae983e50a8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: de4cae90f2cc1223271672d9fc5ba5b42e4409e4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977407"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962432"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Verwenden des StorSimple-Geräte-Manager-Diensts zum Überwachen von StorSimple-Geräten
 
@@ -139,6 +139,5 @@ Wenn Sie sich das Diagramm zum Durchsatz der Schnittstelle Data 1 ansehen, einer
 
 
 ## <a name="next-steps"></a>Nächste Schritte
-* Erfahren Sie, wie Sie [das Dashboard für den StorSimple-Geräte-Manager-Dienst verwenden](storsimple-device-dashboard.md).
-* Erfahren Sie, wie Sie [Ihr StorSimple-Gerät mithilfe des StorSimple-Geräte-Manager-Diensts verwalten](storsimple-manager-service-administration.md).
-
+* Erfahren Sie, wie Sie [das Dashboard für den StorSimple-Geräte-Manager-Dienst verwenden](./storsimple-8000-device-dashboard.md).
+* Erfahren Sie, wie Sie [Ihr StorSimple-Gerät mithilfe des StorSimple-Geräte-Manager-Diensts verwalten](./storsimple-8000-manager-service-administration.md).

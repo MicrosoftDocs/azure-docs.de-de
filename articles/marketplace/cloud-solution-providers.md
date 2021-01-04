@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: bdd2dacbba4ef8b7c439a345ea70771354b7fb5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c906d37a01f0fca2d4114e8ba07078fc46eec88b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708593"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131172"
 ---
 # <a name="cloud-solution-provider-program"></a>Cloud Solution Provider-Programm
 
@@ -60,11 +60,11 @@ Wählen Sie zwischen drei Optionen aus:
 
 Wenn Sie diese Option auswählen, autorisieren Sie die Partner im CSP-Programm, die zum Weiterverkaufen Ihres Angebots berechtigt sind.
 
-Klicken Sie auf **CSP-Partner auswählen**, um Partner zu autorisieren. Ein Menü wird angezeigt, in dem Sie nach Partnername oder CSP-Azure Active Directory-Mandanten-ID (Azure AD) suchen können.
+Klicken Sie auf **CSP-Partner auswählen** , um Partner zu autorisieren. Ein Menü wird angezeigt, in dem Sie nach Partnername oder CSP-Azure Active Directory-Mandanten-ID (Azure AD) suchen können.
 
 ![Menü „CSP auswählen“](media/marketplace-publishers-guide/csp-pop-up-module.png)
 
-Sie können Suchfilter anwenden, z.B. **Land/Region**, **Kompetenz**oder **Qualifikation**.
+Sie können Suchfilter anwenden, z.B. **Land/Region** , **Kompetenz** oder **Qualifikation**.
 
 ![Länder-/Regions-, Kompetenz- und Qualifikationsfilter für die Partnersuche](media/marketplace-publishers-guide/csp-add-resellers.png)
 
@@ -81,7 +81,7 @@ Wählen Sie **Entwurf speichern** aus, um Ihre Änderungen zu registrieren.
 Wenn das Angebot noch nicht veröffentlicht wurde, müssen Sie es veröffentlichen, um es für Ihre ausgewählten Partner verfügbar zu machen.
 
 >[!NOTE]
->Wenn Sie einen Partner im CSP-Programm in einer bestimmten Region autorisieren, kann dieser das Angebot an jeden seiner Kunden in dieser Region verkaufen. Weitere Informationen zur Klassifizierung von CSP-Angeboten unter Regionen finden Sie unter [Regionale Märkte und Währungen des Cloud Solution Provider-Programms](https://docs.microsoft.com/partner-center/regional-authorization-overview).
+>Wenn Sie einen Partner im CSP-Programm in einer bestimmten Region autorisieren, kann dieser das Angebot an jeden seiner Kunden in dieser Region verkaufen. Weitere Informationen zur Klassifizierung von CSP-Angeboten unter Regionen finden Sie unter [Regionale Märkte und Währungen des Cloud Solution Provider-Programms](/partner-center/regional-authorization-overview).
 
 Wenn Sie die CSP-Liste eines bereits veröffentlichten Angebots aktualisieren, fügen Sie die zusätzlichen Partner hinzu, und wählen Sie dann **CSP-Zielgruppe synchronisieren** aus.
 
@@ -105,7 +105,7 @@ Wenn ein Partner im CSP-Programm Ihr Produkt noch nicht an seine Kunden verkauft
    > Ändern Sie die vorab ausgefüllten Angaben in den Dropdownmenüs nicht.
 
 2. Wählen Sie für **Produktversion auswählen** die Option **Live-Angebotsverwaltung** aus.
-3. Wählen Sie für **Kategorie auswählen, die das Problem am besten beschreibt**, die Kategorie aus, die für Ihr Angebot gilt.
+3. Wählen Sie für **Kategorie auswählen, die das Problem am besten beschreibt** , die Kategorie aus, die für Ihr Angebot gilt.
 4. Wählen Sie für **Option auswählen, die das Problem am besten beschreibt** die Option **Vorhandenes Angebot aktualisieren** aus.
 5. Wählen Sie **Weiter** aus, um zur Detailseite für das **Problem** zu gelangen und weitere Informationen zu Ihrem Problem einzugeben.
 6. Verwenden Sie **Entfernen der Autorisierung eines CSP** als Titel für das Problem, und füllen Sie die restlichen Abschnitte aus.
@@ -124,7 +124,7 @@ Wenn für Ihr Angebot derzeit **Option 1: Alle Partner im CSP-Programm** ausgew�
    > Ändern Sie die vorab ausgefüllten Angaben in den Dropdownmenüs nicht.
 
 2. Wählen Sie für **Produktversion auswählen** die Option **Live-Angebotsverwaltung** aus.
-3. Wählen Sie für **Kategorie auswählen, die das Problem am besten beschreibt**, die Kategorie aus, die für Ihr Angebot gilt.
+3. Wählen Sie für **Kategorie auswählen, die das Problem am besten beschreibt** , die Kategorie aus, die für Ihr Angebot gilt.
 4. Wählen Sie für **Option auswählen, die das Problem am besten beschreibt** die Option **Vorhandenes Angebot aktualisieren** aus.
 5. Wählen Sie **Weiter** aus, um zur Detailseite für das **Problem** zu gelangen und weitere Informationen zu Ihrem Problem einzugeben.
 6. Verwenden Sie **Entfernen der Autorisierung eines CSP** als Titel für das Problem, und füllen Sie die restlichen Abschnitte aus.
@@ -142,7 +142,7 @@ Wenn für Ihr Angebot derzeit **Option 2: Bestimmte, von mir ausgewählte Partne
    > Ändern Sie die vorab ausgefüllten Angaben in den Dropdownmenüs nicht.
 
 2. Wählen Sie für **Produktversion auswählen** die Option **Live-Angebotsverwaltung** aus.
-3. Wählen Sie für **Kategorie auswählen, die das Problem am besten beschreibt**, die Kategorie aus, die für Ihr Angebot gilt.
+3. Wählen Sie für **Kategorie auswählen, die das Problem am besten beschreibt** , die Kategorie aus, die für Ihr Angebot gilt.
 4. Wählen Sie für **Option auswählen, die das Problem am besten beschreibt** die Option **Vorhandenes Angebot aktualisieren** aus.
 5. Wählen Sie **Weiter** aus, um zur Detailseite für das **Problem** zu gelangen und weitere Informationen zu Ihrem Problem einzugeben.
 6. Verwenden Sie **Entfernen der Autorisierung eines CSP** als Titel für das Problem, und füllen Sie die restlichen Abschnitte aus.
@@ -155,7 +155,7 @@ Wenn für Ihr Angebot derzeit **Option 2: Bestimmte, von mir ausgewählte Partne
    > Ändern Sie die vorab ausgefüllten Angaben in den Dropdownmenüs nicht.
 
 2. Wählen Sie für **Produktversion auswählen** die Option **Live-Angebotsverwaltung** aus.
-3. Wählen Sie für **Kategorie auswählen, die das Problem am besten beschreibt**, die Kategorie aus, die für Ihr Angebot gilt.
+3. Wählen Sie für **Kategorie auswählen, die das Problem am besten beschreibt** , die Kategorie aus, die für Ihr Angebot gilt.
 4. Wählen Sie für **Option auswählen, die das Problem am besten beschreibt** die Option **Vorhandenes Angebot aktualisieren** aus.
 5. Wählen Sie **Weiter** aus, um zur Detailseite für das **Problem** zu gelangen und weitere Informationen zu Ihrem Problem einzugeben.
 6. Verwenden Sie **Entfernen der Autorisierung eines CSP** als Titel für das Problem, und füllen Sie die restlichen Abschnitte aus.

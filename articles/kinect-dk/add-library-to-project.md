@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Kinect, Azure, Sensor, SDK, Visual Studio 2017, Visual Studio 2019, nuget
-ms.openlocfilehash: b0395118481cbaecd5ad0b6a3a6b3e89cc29dfaf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd71f0d327b8c828cc9ddac5810757cccdffbcea
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85276714"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359611"
 ---
 # <a name="add-azure-kinect-library-to-your-visual-studio-project"></a>Hinzufügen der Azure Kinect-Bibliothek zu einem Visual Studio-Projekt
 
@@ -22,7 +22,7 @@ Dieser Artikel führt Sie durch die Schritte zum Hinzufügen eines NuGet-Pakets 
 
 So installieren Sie das Azure Kinect-NuGet-Paket:
 
-1. Ausführliche Anweisungen zum Installieren eines NuGet-Pakets in Visual Studio finden Sie im [Schnellstart: Installieren und Verwenden eines Pakets in Visual Studio](https://docs.microsoft.com/nuget/quickstart/install-and-use-a-package-in-visual-studio).
+1. Ausführliche Anweisungen zum Installieren eines NuGet-Pakets in Visual Studio finden Sie im [Schnellstart: Installieren und Verwenden eines Pakets in Visual Studio](/nuget/quickstart/install-and-use-a-package-in-visual-studio).
 2. Zum Hinzufügen des Pakets können Sie die Benutzeroberfläche des Paket-Managers verwenden, indem Sie im Projektmappen-Explorer mit der rechten Maustaste auf „Verweise“ klicken und „NuGet-Pakete verwalten“ auswählen.
 3. Wählen Sie [nuget.org](https://www.nuget.org) als Paketquelle aus, wählen Sie die Registerkarte „Durchsuchen“ aus, und suchen Sie nach `Microsoft.Azure.Kinect.Sensor`.
 4. Wählen Sie in der Liste das Paket aus, und installieren Sie es.

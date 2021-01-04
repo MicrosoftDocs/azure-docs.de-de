@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 12/07/2020
 ms.author: alexeyo
-ms.openlocfilehash: 7e22b772ec35ff9b63c99acd81ad6bb5abe328a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b923ba208dd2a5111a59f67401b1e4f080b7187
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567161"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754163"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Kontingente und Grenzwerte für Speech-Dienste
 
@@ -24,20 +24,35 @@ Dieser Artikel enthält eine Kurzübersicht und eine **ausführliche Beschreibun
 ## <a name="quotas-and-limits-quick-reference"></a>Kurzübersicht über Kontingente und Grenzwerte
 Zu [Kontingente und Grenzwerte für die Sprachsynthese nach Speech-Ressource](#text-to-speech-quotas-and-limits-per-speech-resource)
 ### <a name="speech-to-text-quotas-and-limits-per-speech-resource"></a>Kontingente und Grenzwerte für die Spracherkennung nach Speech-Ressource
-In der folgenden Tabelle sind Parameter ohne die Zeile „Anpassbar“ **nicht** für alle Tarife anpassbar.
+In den folgenden Tabellen sind Parameter ohne die Zeile „Anpassbar“ **nicht** für alle Tarife anpassbar.
+
+#### <a name="online-transcription"></a>Onlinetranskription
 
 | Kontingent | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| **Grenzwert für gleichzeitige Anforderungen bei der Onlinetranskription (Basismodell und benutzerdefiniertes Modell)** |  |  |
-| Standardwert | 1 | 20 |
+| **Grenzwert für gleichzeitige Anforderungen (Basismodell und benutzerdefiniertes Modell)** | 1 | 20 (Standardwert) |
 | Anpassbar | Nein<sup>2</sup> | Ja<sup>2</sup> |
-| **Grenzwert für REST-API-Anforderungen ([API Management](../../api-management/api-management-key-concepts.md)-Endpunkte)** | 100 Anforderungen pro zehn Sekunden | 100 Anforderungen pro zehn Sekunden |
-| **Maximale Datasetdateigröße für den Datenimport** | 2 GB | 2 GB |
-| **Maximale Eingabeblobgröße für die Batch-Transkription** | – | 2,5 GB |
-| **Maximale Blobcontainergröße für die Batch-Transkription** | – | 5 GB |
-| **Maximale Anzahl von Blobs pro Container für die Batch-Transkription** | – | 10000 |
-| **Maximale Anzahl von Dateien pro Transkriptionsanforderung für die Batch-Transkription (bei Verwendung mehrerer Inhalts-URLs als Eingabe)** | – | 1000  |
-| **Maximale Anzahl gleichzeitig ausgeführter Aufträge für die Batch-Transkription** | – | 2000  |
+
+#### <a name="batch-transcription"></a>Batch-Transkription
+| Kontingent | Free (F0)<sup>1</sup> | Standard (S0) |
+|--|--|--|
+| REST-API-Grenzwert | Batchtranskription ist für F0 nicht verfügbar. | 300 Anforderungen pro Minute |
+| Maximale Größe der Audioeingabedatei | Nicht zutreffend | 1 GB |
+| Maximale Größe des Eingabeblobs (kann mehrere Dateien enthalten, z. B. in einem ZIP-Archiv; beachten Sie den Grenzwert für die Dateigröße oben) | – | 2,5 GB |
+| Maximale Größe des Blob-Containers | – | 5 GB |
+| Maximale Anzahl von Blobs pro Container | – | 10000 |
+| Maximale Anzahl von Dateien pro Transkriptionsanforderung (bei Verwendung mehrerer Inhalts-URLs als Eingabe) | – | 1000  |
+| Maximale Anzahl gleichzeitig ausgeführter Aufträge | – | 2000  |
+
+#### <a name="model-customization"></a>Modellanpassung
+| Kontingent | Free (F0)<sup>1</sup> | Standard (S0) |
+|--|--|--|
+| REST-API-Grenzwert | 300 Anforderungen pro Minute | 300 Anforderungen pro Minute |
+| Maximale Anzahl von Sprach-Datasets | 2 | 500 |
+| Maximale Dateigröße für das Akustikdataset für den Datenimport | 2 GB | 2 GB |
+| Maximale Dateigröße für das Sprachdataset für den Datenimport | 200 MB | 1,5 GB |
+| Maximale Dateigröße für das Aussprachedataset für den Datenimport | 1 KB | 1 MB |
+| Maximale Textgröße bei Verwendung des `text`-Parameters in der [Create Model](https://westcentralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateModel/)-API-Anforderung | 200 KB | 500 KB |
 
 <sup>1</sup> Sehen Sie sich im Zusammenhang mit dem Tarif **Free (F0)** auch die monatlichen Freibeträge auf der [Preisseite](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) an.<br/>
 <sup>2</sup> Sehen Sie sich [weitere Erläuterungen](#detailed-description-quota-adjustment-and-best-practices), [bewährte Methoden](#general-best-practices-to-mitigate-throttling-during-autoscaling) und [Anpassungsanweisungen](#speech-to-text-increasing-online-transcription-concurrent-request-limit) an.<br/> 
@@ -57,7 +72,7 @@ In der folgenden Tabelle sind Parameter ohne die Zeile „Anpassbar“ **nicht**
 | **WebSocket-spezifische Kontingente** |  |  |
 |Maximal generierte Audiolänge pro Turn | 10 Min. | 10 Min. |
 |Maximale SSML-Nachrichtengröße pro Turn |64 KB |64 KB |
-| **Grenzwert für REST-API-Anforderungen** | 20 Anforderungen pro Minute | 25 Anforderungen pro fünf Sekunden |
+| **REST-API-Grenzwert** | 20 Anforderungen pro Minute | 25 Anforderungen pro fünf Sekunden |
 
 
 <sup>3</sup> Sehen Sie sich im Zusammenhang mit dem Tarif **Free (F0)** auch die monatlichen Freibeträge auf der [Preisseite](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) an.<br/>
@@ -89,7 +104,7 @@ Grenzwerte für gleichzeitige Anforderung in den Modellen **Basis** und **Benutz
 Der vorhandene Wert des Parameters für den Grenzwert für gleichzeitige Anforderungen wird im Azure-Portal, in Befehlszeilentools und in API-Anforderungen **nicht** angezeigt. Erstellen Sie eine Azure-Supportanfrage, um den vorhandenen Wert zu überprüfen.
 
 >[!NOTE]
->Für [Speech-Container](speech-container-howto.md) muss der Grenzwert für gleichzeitige Anforderungen nicht erhöht werden, da Container einzig durch die CPUs der Hardware eingeschränkt sind, auf der sie gehostet werden.
+>Für [Speech-Container](speech-container-howto.md) muss der Grenzwert für gleichzeitige Anforderungen nicht erhöht werden, da Container einzig durch die CPUs der Hardware eingeschränkt sind, auf der sie gehostet werden. Speech-Container haben jedoch ihre eigenen Kapazitätsgrenzen, die berücksichtigt werden sollten. Weitere Informationen finden Sie unter der Frage *„Könnten Sie bei der Kapazitätsplanung und Kostenvorkalkulation von lokalen Spracherkennungscontainern helfen?“* in [Häufig gestellte Fragen zu Speech-Containern](speech-container-faq.md).
 
 #### <a name="have-the-required-information-ready"></a>Halten Sie die erforderlichen Informationen bereit:
 - **Basismodell:**

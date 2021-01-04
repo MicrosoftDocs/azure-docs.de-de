@@ -10,27 +10,27 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 096946a1a63c0826381875cd3ce4eaf0129a85df
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d265b6698a87c1c651dff1413cf48dd4984cd606
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146372"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616891"
 ---
 # <a name="azure-role-based-access-control"></a>Rollenbasierte Zugriffssteuerung in Azure
 
-Custom Vision unterstützt die rollenbasierte Zugriffssteuerung in Azure (Azure Role-Based Access Control, Azure RBAC), ein Autorisierungssystem für die Verwaltung des individuellen Zugriffs auf Azure-Ressourcen. Mithilfe der Azure RBAC können Sie verschiedenen Teammitgliedern verschiedene Berechtigungsebenen für Ihre Custom Vision-Projekte zuweisen. Weitere Information zur Azure RBAC finden Sie in der [Azure RBAC-Dokumentation](https://docs.microsoft.com/azure/role-based-access-control/).
+Custom Vision unterstützt die rollenbasierte Zugriffssteuerung in Azure (Azure Role-Based Access Control, Azure RBAC), ein Autorisierungssystem für die Verwaltung des individuellen Zugriffs auf Azure-Ressourcen. Mithilfe der Azure RBAC können Sie verschiedenen Teammitgliedern verschiedene Berechtigungsebenen für Ihre Custom Vision-Projekte zuweisen. Weitere Information zur Azure RBAC finden Sie in der [Azure RBAC-Dokumentation](../../role-based-access-control/index.yml).
 
 ## <a name="add-role-assignment-to-custom-vision-resource"></a>Hinzufügen einer Rollenzuweisung zu einer Custom Vision-Ressource
 
 Azure RBAC kann einer Custom Vision-Ressource zugewiesen werden. Wenn Sie Zugriff auf eine Azure-Ressource gewähren möchten, fügen Sie eine Rollenzuweisung hinzu.
-1. Wählen Sie im [Azure-Portal](https://ms.portal.azure.com/) die Option **Alle Dienste** . 
-1. Klicken Sie dann auf **Cognitive Services** , und navigieren Sie zu Ihrer spezifischen Custom Vision-Trainingsressource.
+1. Wählen Sie im [Azure-Portal](https://ms.portal.azure.com/) die Option **Alle Dienste**. 
+1. Klicken Sie dann auf **Cognitive Services**, und navigieren Sie zu Ihrer spezifischen Custom Vision-Trainingsressource.
    > [!NOTE]
    > Sie können die Azure RBAC auch für ganze Ressourcengruppen, Abonnements oder Verwaltungsgruppen einrichten. Dazu wählen Sie die Ebene im gewünschten Bereich aus und navigieren dann zum gewünschten Element. Sie klicken also z. B. auf **Ressourcengruppen** und navigieren dann zur gewünschten Ressourcengruppe.
 1. Klicken Sie im linken Navigationsbereich auf **Zugriffssteuerung (IAM)** .
-1. Klicken Sie auf die Registerkarte **Rollenzuweisungen** , um die Rollenzuweisungen für diesen Bereich anzuzeigen.
-1. Wählen Sie **Hinzufügen** -> **Rollenzuweisung hinzufügen** .
+1. Klicken Sie auf die Registerkarte **Rollenzuweisungen**, um die Rollenzuweisungen für diesen Bereich anzuzeigen.
+1. Wählen Sie **Hinzufügen** -> **Rollenzuweisung hinzufügen**.
 1. Wählen Sie in der Dropdownliste **Rolle** eine Rolle aus, die Sie hinzufügen möchten.
 1. Wählen Sie in der Liste **Auswählen** einen Benutzer, eine Gruppe, einen Dienstprinzipal oder eine verwaltete Identität aus. Wird der Sicherheitsprinzipal in der Liste nicht angezeigt, können Sie im Feld „Auswählen“ einen Begriff eingeben, um das Verzeichnis nach Anzeigenamen, E-Mail-Adressen und Objektbezeichnern zu durchsuchen.
 1. Wählen Sie **Speichern** aus, um die Rolle zuzuweisen.

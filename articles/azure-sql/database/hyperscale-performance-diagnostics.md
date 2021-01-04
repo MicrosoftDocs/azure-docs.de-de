@@ -10,12 +10,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: 7bd2b404627e21a80fc41a4561300d7252d1519c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed31ff5d77b258d141a77fc174c2d5452adf7d01
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84324390"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791714"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>Diagnose zur Problembehandlung bei SQL-Hyperscale
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -97,7 +97,7 @@ Das Verhältnis von Lesevorgängen im RBPEX-Cache zu aggregierten Lesevorgängen
 
 ## <a name="data-io-in-resource-utilization-statistics"></a>Daten-E/A in Statistiken zur Ressourcenauslastung
 
-In einer Nicht-Hyperscale-Datenbank werden kombinierte Lese- und Schreib-IOPS für Datendateien relativ zum Daten-IOPS-Limit der [Ressourcenkontrolle](/azure/sql-database/sql-database-resource-limits-database-server#resource-governance) in den Sichten [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) und [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) in der Spalte `avg_data_io_percent` ausgegeben. Der gleiche Wert wird im Azure-Portal als _Daten-E/A in Prozent_ angezeigt.
+In einer Nicht-Hyperscale-Datenbank werden kombinierte Lese- und Schreib-IOPS für Datendateien relativ zum Daten-IOPS-Limit der [Ressourcenkontrolle](./resource-limits-logical-server.md#resource-governance) in den Sichten [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) und [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) in der Spalte `avg_data_io_percent` ausgegeben. Der gleiche Wert wird im Azure-Portal als _Daten-E/A in Prozent_ angezeigt.
 
 In einer Hyperscale-Datenbank zeigt diese Spalte die Daten-IOPS-Auslastung in Bezug auf den Grenzwert für den lokalen Speicher nur für das Computereplikat an, insbesondere E/A für RBPEX und `tempdb`. Ein Wert von 100 % in dieser Spalte gibt an, dass die Ressourcenkontrolle lokale Speicher-IOPS einschränkt. Wenn dies mit einem Leistungsproblem korreliert, sollten Sie die Workload so optimieren, dass weniger E/A generiert wird, oder Sie erhöhen das Ziel des Datenbankdiensts, um das [Limit](resource-limits-vcore-single-databases.md) _Max. Data-IOPS_ der Ressourcenkontrolle zu erhöhen. Für die Ressourcenkontrolle für RBPEX-Lese- und -Schreibvorgänge zählt das System einzelne E/A-Vorgänge mit einer Größe von 8 KB statt größere E/A-Vorgänge, die möglicherweise von der SQL Server-Datenbank-Engine ausgegeben werden.
 

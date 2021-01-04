@@ -14,6 +14,7 @@
     - name: 'Erstellen einer Front Door-Instanz: CLI'
       href: quickstart-create-front-door-cli.md
     - name: 'Erstellen einer Front Door-Instanz: ARM-Vorlage'
+      displayName: Resource Manager
       href: quickstart-create-front-door-template.md
 - name: Tutorials
   items:
@@ -35,10 +36,16 @@
       href: front-door-quickstart-template-samples.md
 - name: Konzepte
   items:
+    - name: Sicherheit
+      items:
+        - name: Sicherheitsbaseline
+          href: security-baseline.md
     - name: Back-Ends und Back-End-Pools
       href: front-door-backend-pool.md
     - name: Zwischenspeicherung mit Front Door
       href: front-door-caching.md
+    - name: DDoS-Schutz
+      href: front-door-ddos.md
     - name: 'Front Door: Häufig gestellte Fragen'
       href: front-door-faq.md
     - name: Geofilterung
@@ -89,7 +96,7 @@
           href: front-door-troubleshoot-allowed-ca.md
 - name: Verweis
   items:
-    - name: Azure CLI
+    - name: Azure-Befehlszeilenschnittstelle
       href: /cli/azure/ext/front-door/
     - name: Azure PowerShell
       href: /powershell/module/az.frontdoor

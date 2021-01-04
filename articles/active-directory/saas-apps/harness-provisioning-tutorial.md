@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 2f8cafc0ec94e9254d42bf6718e796a256d128d4
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 13ae960f5d259314f00f8f09b2999a36c0919bc5
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92445680"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353712"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>Tutorial: Konfigurieren von Harness für die automatische Benutzerbereitstellung
 
@@ -82,7 +82,7 @@ Vor dem Konfigurieren von Harness für die automatische Benutzerbereitstellung m
 
     ![Schaltfläche „Azure Active Directory“](common/select-azuread.png)
 
-1. Wählen Sie **Unternehmensanwendungen** > **Alle Anwendungen** .
+1. Wählen Sie **Unternehmensanwendungen** > **Alle Anwendungen**.
 
     ![Der Link „Alle Anwendungen“](common/enterprise-applications.png)
 
@@ -130,7 +130,7 @@ Führen Sie zum Konfigurieren der automatischen Benutzerbereitstellung für Harn
    b. Geben Sie im Feld **Geheimes Token** den Wert des SCIM-Authentifizierungstokens ein, den Sie in Schritt 6 des Abschnitts „Einrichten von Harness für die Bereitstellung“ gespeichert haben.  
    c. Um sicherzustellen, dass Azure AD eine Verbindung mit Harness herstellen kann, wählen Sie **Verbindung testen** aus. Vergewissern Sie sich im Fall eines Verbindungsfehlers, dass Ihr Harness-Konto über *Administratorberechtigungen* verfügt, und versuchen Sie es noch mal.
 
-1. Geben Sie im Feld **Benachrichtigungs-E-Mail** die E-Mail-Adresse einer Person oder Gruppe ein, die Benachrichtigungen zu Bereitstellungsfehlern erhalten soll. Aktivieren Sie dann das Kontrollkästchen **Bei Fehler E-Mail-Benachrichtigung senden** .
+1. Geben Sie im Feld **Benachrichtigungs-E-Mail** die E-Mail-Adresse einer Person oder Gruppe ein, die Benachrichtigungen zu Bereitstellungsfehlern erhalten soll. Aktivieren Sie dann das Kontrollkästchen **Bei Fehler E-Mail-Benachrichtigung senden**.
 
     ![Feld „Benachrichtigungs-E-Mail“](common/provisioning-notification-email.png)
 
@@ -154,7 +154,7 @@ Führen Sie zum Konfigurieren der automatischen Benutzerbereitstellung für Harn
 
 1. Informationen zum Konfigurieren von Bereichsfiltern finden Sie unter [Attributbasierte Anwendungsbereitstellung mit Bereichsfiltern](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-1. Ändern Sie zum Aktivieren des Azure AD-Bereitstellungsdiensts unter **Einstellungen** den **Bereitstellungsstatus** in **Ein** .
+1. Ändern Sie zum Aktivieren des Azure AD-Bereitstellungsdiensts unter **Einstellungen** den **Bereitstellungsstatus** in **Ein**.
 
     ![Schalter „Bereitstellungsstatus“ auf „Ein“](common/provisioning-toggle-on.png)
 

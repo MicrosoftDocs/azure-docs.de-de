@@ -42,9 +42,9 @@ Um die Kosten für die Sicherung von Azure-VMs oder lokalen Servern mit Azure Ba
 
   - Eine höhere Änderungsrate bedeutet, dass Sie mehr Daten sichern.
 
-  - Wählen Sie für Dateiserver **Niedrig** oder **Mittel** und bei Einsatz von Datenbanken **Hoch** .
+  - Wählen Sie für Dateiserver **Niedrig** oder **Mittel** und bei Einsatz von Datenbanken **Hoch**.
 
-  - Wenn Sie Ihre **Änderungsrate( %)** kennen, können Sie **Ihre eigene Rate (%) eingeben** .
+  - Wenn Sie Ihre **Änderungsrate( %)** kennen, können Sie **Ihre eigene Rate (%) eingeben**.
 
 - Wählen der Sicherungsrichtlinie
 
@@ -60,15 +60,15 @@ Um die Kosten für die Sicherung von Azure-VMs oder lokalen Servern mit Azure Ba
 
     - Mit dieser Option können Sie auf Datenträgern gespeicherte Momentaufnahmen bis zu sieben Tage schnell rückwirkend wiederherstellen.
 
-- **Optional** : selektive Datenträgersicherung
+- **Optional**: selektive Datenträgersicherung
 
-  - Wenn Sie beim Sichern von Azure-VMs die Option **Selektive Datenträgersicherung** nutzen, wählen Sie die Option **Datenträger ausschließen** , und geben Sie den Prozentsatz der von der Sicherung ausgeschlossenen Datenträger nach ihrer Größe ein. Wenn Sie beispielsweise eine VM an drei Datenträger mit jeweils 200 GB angeschlossen haben und zwei davon von der Sicherung ausschließen möchten, geben Sie 66,7 % ein.
+  - Wenn Sie beim Sichern von Azure-VMs die Option **Selektive Datenträgersicherung** nutzen, wählen Sie die Option **Datenträger ausschließen**, und geben Sie den Prozentsatz der von der Sicherung ausgeschlossenen Datenträger nach ihrer Größe ein. Wenn Sie beispielsweise eine VM an drei Datenträger mit jeweils 200 GB angeschlossen haben und zwei davon von der Sicherung ausschließen möchten, geben Sie 66,7 % ein.
 
-- **Optional** : Redundanz für Sicherungsspeicher
+- **Optional**: Redundanz für Sicherungsspeicher
 
-  - Dies zeigt die Redundanz des Speicherkontos an, in dem Ihre Sicherungsdaten gespeichert werden. Für höchstmögliche Verfügbarkeit empfehlen wir die Verwendung von **GRS** . Da dadurch sichergestellt ist, dass eine Kopie Ihrer Sicherungsdaten in einer anderen Region aufbewahrt wird, können Sie mehrere Compliancestandards einfach einhalten. Ändern Sie die Redundanz in **LRS** , wenn Sie Entwicklungs- oder Testumgebungen sichern, die keine Sicherung auf Unternehmensebene benötigen. Wählen Sie auf dem Blatt die Option **RAGRS** aus, wenn Sie die Kosten verstehen möchten, die bei Aktivierung von [Regionsübergreifende Wiederherstellung](backup-azure-arm-restore-vms.md#cross-region-restore) für Ihre Sicherungen anfallen.
+  - Dies zeigt die Redundanz des Speicherkontos an, in dem Ihre Sicherungsdaten gespeichert werden. Für höchstmögliche Verfügbarkeit empfehlen wir die Verwendung von **GRS**. Da dadurch sichergestellt ist, dass eine Kopie Ihrer Sicherungsdaten in einer anderen Region aufbewahrt wird, können Sie mehrere Compliancestandards einfach einhalten. Ändern Sie die Redundanz in **LRS**, wenn Sie Entwicklungs- oder Testumgebungen sichern, die keine Sicherung auf Unternehmensebene benötigen. Wählen Sie auf dem Blatt die Option **RAGRS** aus, wenn Sie die Kosten verstehen möchten, die bei Aktivierung von [Regionsübergreifende Wiederherstellung](backup-azure-arm-restore-vms.md#cross-region-restore) für Ihre Sicherungen anfallen.
 
-- **Optional** : Ändern regionaler Preise oder Anwenden ermäßigter Tarife
+- **Optional**: Ändern regionaler Preise oder Anwenden ermäßigter Tarife
 
   - Wenn Sie Ihre Schätzungen für eine andere Region oder ermäßigte Tarife prüfen möchten, wählen Sie **Ja** für die Option **Schätzungen für eine andere Region versuchen?** . Geben Sie dann die Tarife ein, mit denen Sie die Schätzungen durchführen möchten.
 
@@ -94,7 +94,7 @@ Um die Kosten für die Sicherung von in Azure-VMs ausgeführten SQL Server-Insta
 
   - In der Regel weisen Datenbanken eine „hohe“ Änderungsrate auf.
 
-  - Wenn Sie Ihre **Änderungsrate( %)** kennen, können Sie **Ihre eigene Rate (%) eingeben** .
+  - Wenn Sie Ihre **Änderungsrate( %)** kennen, können Sie **Ihre eigene Rate (%) eingeben**.
 
 - Wählen der Sicherungsrichtlinie
 
@@ -114,11 +114,11 @@ Um die Kosten für die Sicherung von in Azure-VMs ausgeführten SQL Server-Insta
 
   - Wie lange sollen „jährliche“ Sicherungen aufbewahrt werden? (in Jahren)
 
-- **Optional** : Redundanz für Sicherungsspeicher
+- **Optional**: Redundanz für Sicherungsspeicher
 
-  - Dies zeigt die Redundanz des Speicherkontos an, in dem Ihre Sicherungsdaten gespeichert werden. Für höchstmögliche Verfügbarkeit empfehlen wir die Verwendung von **GRS** . Da dadurch sichergestellt ist, dass eine Kopie Ihrer Sicherungsdaten in einer anderen Region aufbewahrt wird, können Sie mehrere Compliancestandards einfach einhalten. Ändern Sie die Redundanz in **LRS** , wenn Sie Entwicklungs- oder Testumgebungen sichern, die keine Sicherung auf Unternehmensebene benötigen.
+  - Dies zeigt die Redundanz des Speicherkontos an, in dem Ihre Sicherungsdaten gespeichert werden. Für höchstmögliche Verfügbarkeit empfehlen wir die Verwendung von **GRS**. Da dadurch sichergestellt ist, dass eine Kopie Ihrer Sicherungsdaten in einer anderen Region aufbewahrt wird, können Sie mehrere Compliancestandards einfach einhalten. Ändern Sie die Redundanz in **LRS**, wenn Sie Entwicklungs- oder Testumgebungen sichern, die keine Sicherung auf Unternehmensebene benötigen.
 
-- **Optional** : Ändern regionaler Preise oder Anwenden ermäßigter Tarife
+- **Optional**: Ändern regionaler Preise oder Anwenden ermäßigter Tarife
 
   - Wenn Sie Ihre Schätzungen für eine andere Region oder ermäßigte Tarife prüfen möchten, wählen Sie **Ja** für die Option **Schätzungen für eine andere Region versuchen?** . Geben Sie dann die Tarife ein, mit denen Sie die Schätzungen durchführen möchten.
 
@@ -134,7 +134,7 @@ Um die Kosten für die Sicherung von in Azure-VMs ausgeführten SAP HANA-Serveri
 - Wie ist die zu erwartende tägliche Datenänderungsrate auf diesen Servern?
   - Der Prozentwert zeigt die durchschnittliche tägliche Änderungsrate als Prozentwert der Gesamtgröße der SAP HANA-Datenbanken an, die auf der SAP HANA-Serverinstanz gesichert werden.
   - In der Regel weisen Datenbanken eine „hohe“ Änderungsrate auf.
-  - Wenn Sie Ihre **Änderungsrate( %)** kennen, können Sie **Ihre eigene Rate (%) eingeben** .
+  - Wenn Sie Ihre **Änderungsrate( %)** kennen, können Sie **Ihre eigene Rate (%) eingeben**.
 - Wählen der Sicherungsrichtlinie
   - Sicherungstyp
     - Die effektivste Richtlinie, die Sie wählen können, ist **Tägliche differenzielle Sicherungen** mit **wöchentlichen/monatlichen/jährlichen** vollständigen Sicherungen. Azure Backup ermöglicht auch die Wiederherstellung differenzieller Sicherungen per Einzelklick.
@@ -144,10 +144,10 @@ Um die Kosten für die Sicherung von in Azure-VMs ausgeführten SAP HANA-Serveri
   - Wie lange sollen „wöchentliche“ Sicherungen aufbewahrt werden? (in Wochen)
   - Wie lange sollen „monatliche“ Sicherungen aufbewahrt werden? (in Monaten)
   - Wie lange sollen „jährliche“ Sicherungen aufbewahrt werden? (in Jahren)
-- **Optional** : Redundanz für Sicherungsspeicher
+- **Optional**: Redundanz für Sicherungsspeicher
   
-  - Dies zeigt die Redundanz des Speicherkontos an, in dem Ihre Sicherungsdaten gespeichert werden. Für höchstmögliche Verfügbarkeit empfehlen wir die Verwendung von **GRS** . Da dadurch sichergestellt ist, dass eine Kopie Ihrer Sicherungsdaten in einer anderen Region aufbewahrt wird, können Sie mehrere Compliancestandards einfach einhalten. Ändern Sie die Redundanz in **LRS** , wenn Sie Entwicklungs- oder Testumgebungen sichern, die keine Sicherung auf Unternehmensebene benötigen.
-- **Optional** : Ändern regionaler Preise oder Anwenden ermäßigter Tarife
+  - Dies zeigt die Redundanz des Speicherkontos an, in dem Ihre Sicherungsdaten gespeichert werden. Für höchstmögliche Verfügbarkeit empfehlen wir die Verwendung von **GRS**. Da dadurch sichergestellt ist, dass eine Kopie Ihrer Sicherungsdaten in einer anderen Region aufbewahrt wird, können Sie mehrere Compliancestandards einfach einhalten. Ändern Sie die Redundanz in **LRS**, wenn Sie Entwicklungs- oder Testumgebungen sichern, die keine Sicherung auf Unternehmensebene benötigen.
+- **Optional**: Ändern regionaler Preise oder Anwenden ermäßigter Tarife
   
   - Wenn Sie Ihre Schätzungen für eine andere Region oder ermäßigte Tarife prüfen möchten, wählen Sie **Ja** für die Option **Schätzungen für eine andere Region versuchen?** . Geben Sie dann die Tarife ein, mit denen Sie die Schätzungen durchführen möchten.
   
@@ -155,7 +155,7 @@ Um die Kosten für die Sicherung von in Azure-VMs ausgeführten SAP HANA-Serveri
 
 Sie benötigen die folgenden Parameter, um die Kosten für die Sicherung von Azure-Dateifreigaben mit der von Azure Backup bereitgestellten [auf Momentaufnahmen basierenden Sicherungslösung](azure-file-share-backup-overview.md) zu schätzen:
 
-- Größe ( **in GB** ) der Dateifreigaben, die Sie sichern möchten.
+- Größe (**in GB**) der Dateifreigaben, die Sie sichern möchten.
 
 - Wenn Sie Dateifreigaben sichern möchten, die auf mehrere Speicherkonten verteilt sind, geben Sie die Anzahl der Speicherkonten an, die die Dateifreigaben mit der oben genannten Größe hosten.
 
@@ -174,7 +174,7 @@ Sie benötigen die folgenden Parameter, um die Kosten für die Sicherung von Azu
 
   Die maximal unterstützten Aufbewahrungswerte in jeder Kategorie finden Sie in der [Unterstützungsmatrix für Azure-Dateifreigaben](azure-file-share-support-matrix.md#retention-limits).
 
-- **Optional** : Ändern regionaler Preise oder Anwenden ermäßigter Tarife.
+- **Optional**: Ändern regionaler Preise oder Anwenden ermäßigter Tarife.
   - Die Standardwerte für Kosten pro GB Momentaufnahmenspeicher und Kosten für geschützte Instanzen im Kostenschätzungstool sind für die Region „USA, Osten“ festgelegt. Wenn Sie Ihre Schätzungen für eine andere Region oder ermäßigte Tarife prüfen möchten, wählen Sie **Ja** für die Option **Schätzungen für eine andere Region versuchen?** . Geben Sie dann die Tarife ein, mit denen Sie die Schätzungen durchführen möchten.
 
 ## <a name="next-steps"></a>Nächste Schritte

@@ -3,12 +3,12 @@ title: Offlinesicherung mit Azure Data Box für DPM und MABS
 description: Sie können Azure Data Box verwenden, um anfängliche Sicherungsdaten offline von DPM und MABS zu erstellen.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 80b3977a9fb886b90c3d48d54f4cda1abfd77df9
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 1cfd9131099ad6a8ccd3d43e93f3d97641514f03
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172225"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752548"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Offlineseeding mit Azure Data Box für DPM und MABS (Vorschau)
 
@@ -230,7 +230,7 @@ Führen Sie einen der folgenden Schritte aus, um zu überprüfen, ob der Fehler 
 
 Um dieses Problems zu lösen, führen Sie die folgenden Schritte aus und versuchen Sie erneut, die Richtlinie zu konfigurieren.
 
-1. Melden Sie sich auf der Azure-Anmeldeseite an, die auf der DPM/MABS-Server-Benutzeroberfläche angezeigt wird. Verwenden Sie dazu ein anderes Konto mit Administratorenzugriff auf das Abonnement, für das der Import-/Exportauftrag erstellt werden soll.
+1. Melden Sie sich auf der Azure-Anmeldeseite an, die auf der DPM/MABS-Server-Benutzeroberfläche angezeigt wird. Verwenden Sie dazu ein anderes Konto mit Administratorzugriff auf das Abonnement, für das der Data Box-Auftrag erstellt werden soll.
 2. Wenn das Offlineseeding für keinen anderen Server konfiguriert wurde und kein anderer Server von der `AzureOfflineBackup_<Azure User Id>`-Anwendung abhängig ist, löschen Sie diese Anwendung über **Azure-Portal > Azure Active Directory > App-Registrierungen**.
 
    > [!NOTE]

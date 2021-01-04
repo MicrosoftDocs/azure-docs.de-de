@@ -7,12 +7,12 @@ author: gitralf
 ms.author: ralfwi
 ms.service: germany
 ms.custom: bfdocs
-ms.openlocfilehash: c78c8e85a6ea9128ebb55a2379c3ebde717a2a03
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 00ec3208cce1ceeb367d0c5497250c9ac143e832
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122214"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018602"
 ---
 # <a name="deploy-an-azure-app-service-app-by-using-visual-studio-2015"></a>Bereitstellen einer Azure App Service-App mit Visual Studio 2015
 
@@ -33,4 +33,4 @@ Nachdem Sie Visual Studio für das Herstellen der Verbindung mit Ihrem Azure Deu
 ## <a name="next-steps"></a>Nächste Schritte
 * [Bereitstellen einer ASP.NET-Web-App für Azure App Service mit Visual Studio](../app-service/quickstart-dotnetcore.md)
 * Allgemeine App Service-Informationen finden Sie unter [App Service – API-Apps-Dokumentation](../app-service/index.yml).
-* Abonnieren Sie den [Azure Deutschland-Blog](https://blogs.msdn.microsoft.com/azuregermany/), um weitere Informationen und Updates zu erhalten.
+* Abonnieren Sie den [Azure Deutschland-Blog](/archive/blogs/azuregermany/), um weitere Informationen und Updates zu erhalten.

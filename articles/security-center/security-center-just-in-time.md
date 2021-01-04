@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 6091ccbb64ec880224e861e1b8ee2bd39363385c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 55e9d2d1af863084b080c2de7833712413221050
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342381"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445651"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Sichern Ihrer Verwaltungsports mit Just-in-Time-Zugriff (JIT)
 
@@ -184,13 +184,13 @@ Die folgenden PowerShell-Befehle erstellen diese JIT-Konfiguration:
         id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
         ports=(@{
              number=22;
-             protocol="\*";
-             allowedSourceAddressPrefix=@("\*");
+             protocol="*";
+             allowedSourceAddressPrefix=@("*");
              maxRequestAccessDuration="PT3H"},
              @{
              number=3389;
-             protocol="\*";
-             allowedSourceAddressPrefix=@("\*");
+             protocol="*";
+             allowedSourceAddressPrefix=@("*");
              maxRequestAccessDuration="PT3H"})})
     ```
 
@@ -241,9 +241,9 @@ Jede dieser Optionen wird auf einer separaten Registerkarte unten erläutert.
 
 Wenn JIT für einen virtuellen Computer aktiviert ist, müssen Sie zum Herstellen der Verbindung entsprechend den Zugriff anfordern. Sie können Zugriff auf jede der unterstützten Arten anfordern, unabhängig davon, wie Sie JIT aktiviert haben.
 
-:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="Konfigurieren des JIT-VM-Zugriffs in Azure Security Center":::
+:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="Anfordern des JIT-Zugriffs über Security Center":::
 
-1. Wählen Sie auf der Seite **JIT-VM-Zugriff** die Registerkarte**Konfiguriert** aus.
+1. Wählen Sie auf der Seite **JIT-VM-Zugriff** die Registerkarte **Konfiguriert** aus.
 
 1. Markieren Sie die virtuellen Computer, auf die Sie zugreifen möchten.
 
@@ -300,7 +300,7 @@ Führen Sie die folgenden Schritte in PowerShell aus:
 
     ```azurepowershell
     $JitPolicyVm1 = (@{
-        id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
+        id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
         ports=(@{
            number=22;
            endTimeUtc="2020-07-15T17:00:00.3658798Z";
@@ -344,7 +344,7 @@ Weitere Informationen finden Sie unter [Richtlinien für den JIT-Netzwerkzugriff
 
 Mit der Protokollsuche erhalten Sie Einblicke in VM-Aktivitäten. So zeigen Sie die Protokolle an:
 
-1. Wählen Sie über **JIT-VM-Zugriff** die Registerkarte**Konfiguriert** aus.
+1. Wählen Sie über **JIT-VM-Zugriff** die Registerkarte **Konfiguriert** aus.
 
 1. Öffnen Sie für die zu überwachende VM das durch Auslassungspunkte dargestellte Menü am Ende der Zeile.
  

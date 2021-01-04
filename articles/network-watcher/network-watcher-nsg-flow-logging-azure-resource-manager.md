@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2020
 ms.author: damendo
-ms.openlocfilehash: 6d16d878b0cf7a73c87b5d6e9263a24c4dfb4383
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8db4d4ae56a5a0ee0c92de5d9822614a3270b1c5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738140"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948679"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Erstellen von NSG-Flussprotokollen aus einer Azure Resource Manager-Vorlage
 
@@ -31,15 +31,15 @@ ms.locfileid: "84738140"
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 
-[Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) ist die native und leistungsfähige Azure-Methode zum Verwalten Ihrer [Infrastruktur als Code](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code).
+[Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) ist die native und leistungsfähige Azure-Methode zum Verwalten Ihrer [Infrastruktur als Code](/azure/devops/learn/what-is-infrastructure-as-code).
 
-In diesem Artikel wird gezeigt, wie Sie [NSG-Flussprotokolle](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) programmgesteuert mithilfe einer Azure Resource Manager-Vorlage und Azure PowerShell aktivieren. Zunächst stellen wir eine Übersicht über die Eigenschaften des NSG-Flussprotokollobjekts bereit, gefolgt von einigen Beispielvorlagen. Anschließend stellen wir die Vorlage mithilfe einer lokalen PowerShell-Instanz bereit.
+In diesem Artikel wird gezeigt, wie Sie [NSG-Flussprotokolle](./network-watcher-nsg-flow-logging-overview.md) programmgesteuert mithilfe einer Azure Resource Manager-Vorlage und Azure PowerShell aktivieren. Zunächst stellen wir eine Übersicht über die Eigenschaften des NSG-Flussprotokollobjekts bereit, gefolgt von einigen Beispielvorlagen. Anschließend stellen wir die Vorlage mithilfe einer lokalen PowerShell-Instanz bereit.
 
 
 ## <a name="nsg-flow-logs-object"></a>NSG-Flussprotokollobjekt
 
 Das NSG-Flussprotokollobjekt mit allen Parametern ist unten dargestellt.
-Eine umfassende Übersicht über die Eigenschaften finden Sie in der [Vorlagenreferenz zu NSG-Flussprotokollen](https://docs.microsoft.com/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters).
+Eine umfassende Übersicht über die Eigenschaften finden Sie in der [Vorlagenreferenz zu NSG-Flussprotokollen](/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters).
 
 ```json
 {
@@ -76,8 +76,8 @@ Fügen Sie zum Erstellen einer Ressource vom Typ Microsoft.Network/networkWatche
 
 Wenn Sie zum ersten Mal Azure Resource Manager-Vorlagen verwenden, finden Sie unter den nachstehenden Links weitere Informationen.
 
-* [Bereitstellen von Ressourcen mit Azure Resource Manager-Vorlagen und Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell#deploy-local-template)
-* [Tutorial: Erstellen und Bereitstellen Ihrer ersten Azure Resource Manager-Vorlage](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell)
+* [Bereitstellen von Ressourcen mit Azure Resource Manager-Vorlagen und Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
+* [Tutorial: Erstellen und Bereitstellen Ihrer ersten Azure Resource Manager-Vorlage](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-powershell)
 
 
 Nachstehend finden Sie zwei Beispiele für vollständige Vorlagen zum Einrichten von NSG-Flussprotokollen.
@@ -172,14 +172,14 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 
 ## <a name="verifying-your-deployment"></a>Überprüfen der Bereitstellung
 
-Für die Überprüfung, ob die Bereitstellung erfolgreich war, gibt es mehrere Möglichkeiten. In Ihrer PowerShell-Konsole sollte „ProvisioningState“ als „erfolgreich“ angezeigt werden. Darüber hinaus können Sie die Änderungen auf der [Portalseite für NSG-Flussprotokolle](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) bestätigen. Falls bei der Bereitstellung Probleme aufgetreten sind, lesen Sie den Artikel [Beheben gängiger Azure-Bereitstellungsfehler mit Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors).
+Für die Überprüfung, ob die Bereitstellung erfolgreich war, gibt es mehrere Möglichkeiten. In Ihrer PowerShell-Konsole sollte „ProvisioningState“ als „erfolgreich“ angezeigt werden. Darüber hinaus können Sie die Änderungen auf der [Portalseite für NSG-Flussprotokolle](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) bestätigen. Falls bei der Bereitstellung Probleme aufgetreten sind, lesen Sie den Artikel [Beheben gängiger Azure-Bereitstellungsfehler mit Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md).
 
 ## <a name="deleting-your-resource"></a>Löschen Ihrer Ressource
-Azure ermöglicht das Löschen von Ressourcen über den Bereitstellungsmodus „Vollständig“. Zum Löschen einer Ressource des Flowprotokolls geben Sie eine Bereitstellung im Modus „Vollständig“ ohne Angabe der zu löschenden Ressource an. Erfahren Sie mehr über den [Bereitstellungsmodus „Vollständig“](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes#complete-mode).
+Azure ermöglicht das Löschen von Ressourcen über den Bereitstellungsmodus „Vollständig“. Zum Löschen einer Ressource des Flowprotokolls geben Sie eine Bereitstellung im Modus „Vollständig“ ohne Angabe der zu löschenden Ressource an. Erfahren Sie mehr über den [Bereitstellungsmodus „Vollständig“](../azure-resource-manager/templates/deployment-modes.md#complete-mode).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 Erfahren Sie, wie Sie Ihre NSG-Flussprotokolle mit folgenden Hilfsmitteln visualisieren:
 * [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 * [Open-Source-Tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
-* [Azure Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [Azure Traffic Analytics](./traffic-analytics.md)

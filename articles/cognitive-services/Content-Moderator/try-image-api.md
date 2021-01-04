@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 714621fdcc307ee8b29567fc0d95ca41d31aa9e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 542fadd5e5ab91be7b7113064bf8c998dae08d12
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75448259"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912938"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Moderieren von Bildern über die API-Konsole
 
@@ -50,7 +50,7 @@ Bevor Sie die API in der Onlinekonsole testen können, benötigen Sie Ihren Abon
 
 5. Wählen Sie **Senden** aus.
 
-6. Die API gibt eine Wahrscheinlichkeitsbewertung für jede Klassifizierung zurück. Sie gibt überdies zurück, ob das Bild die Bedingungen erfüllt (**true** oder **false**). 
+6. Die API gibt eine Wahrscheinlichkeitsbewertung für jede Klassifizierung zurück. Sie gibt überdies zurück, ob das Bild die Bedingungen erfüllt ( **true** oder **false** ). 
 
    ![Testen der Wahrscheinlichkeitsbewertung in der Konsole „Bild – Auswerten“ und Feststellung der Erfüllung der Bedingungen](images/try-image-api-3.PNG)
 
@@ -102,4 +102,4 @@ Mit der OCR-Funktion von Content Moderator können Sie Texte in Bildern erkennen
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Verwenden Sie die REST-API im Code, oder befolgen Sie die Anweisungen im [.NET SDK-Schnellstart](dotnet-sdk-quickstart.md), um Ihrer Anwendung Bildmoderation hinzuzufügen.
+Verwenden Sie die REST-API im Code, oder befolgen Sie die Anweisungen im [.NET SDK-Schnellstart](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp), um Ihrer Anwendung Bildmoderation hinzuzufügen.

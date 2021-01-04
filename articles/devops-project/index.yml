@@ -9,12 +9,12 @@ metadata:
   author: 
   ms.author: 
   ms.date: 03/24/2020
-  ms.openlocfilehash: 7521a5a57b6dd1c090fbc880033fc5fc0707419b
-  ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+  ms.openlocfilehash: 2b26d1e35aa99f2c804e74ae3e0da65659cf77a3
+  ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/21/2020
-  ms.locfileid: "92330681"
+  ms.lasthandoff: 11/30/2020
+  ms.locfileid: "96339896"
 landingContent:
 - title: Informationen zu DevOps Starter
   linkLists:
@@ -31,7 +31,7 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Node.js mithilfe von GitHub Actions
-      url: /azure/devops-project/devops-starter-gh-nodejs
+      url: ./devops-starter-gh-nodejs.md
     - text: .NET
       url: ./azure-devops-project-aspnet-core.md
     - text: Node.js

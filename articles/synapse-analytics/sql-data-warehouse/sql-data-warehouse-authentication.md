@@ -1,6 +1,6 @@
 ---
-title: Authentifizierung
-description: Es wird beschrieben, wie Sie die Authentifizierung für Azure Synapse Analytics durchführen, indem Sie Azure Active Directory (Azure AD) oder die SQL Server-Authentifizierung nutzen.
+title: Authentifizierung für einen dedizierten SQL-Pool (früher SQL Data Warehouse)
+description: Erfahren Sie, wie Sie die Authentifizierung bei einem dedizierten SQL-Pool (früher SQL Data Warehouse) für Azure Synapse Analytics durchführen, indem Sie die Azure Active Directory- oder SQL Server-Authentifizierung nutzen.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -12,24 +12,24 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-synapse
-ms.openlocfilehash: 29709dc03ee3a06bdf2aec2587909a08ee13504e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2b5ca024046c5bc46fff756c55688d3ff0cfea1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85206729"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451962"
 ---
-# <a name="authenticate-to-azure-synapse-analytics"></a>Authentifizieren bei Azure Synapse Analytics
+# <a name="authenticate-to-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Authentifizieren beim dedizierten SQL-Pool (früher SQL Data Warehouse) in Azure Synapse Analytics
 
-Es wird beschrieben, wie Sie mithilfe der Azure Active Directory- (AAD) oder der SQL Server-Authentifizierung Synapse SQL in Azure Synapse authentifizieren.
+Erfahren Sie, wie Sie die Authentifizierung bei einem dedizierten SQL-Pool (früher SQL Data Warehouse) für Azure Synapse durchführen, indem Sie die Azure Active Directory- oder SQL Server-Authentifizierung nutzen.
 
-Zum Herstellen einer Verbindung mit einem SQL-Pool müssen Sie Sicherheitsanmeldeinformationen zu Authentifizierungszwecken übergeben. Beim Herstellen einer Verbindung werden bestimmte Verbindungseinstellungen im Rahmen der Einrichtung Ihrer Abfragesitzung konfiguriert.  
+Zum Herstellen einer Verbindung mit einem dedizierten SQL-Pool (früher SQL Data Warehouse) müssen Sie zu Authentifizierungszwecken Sicherheitsanmeldeinformationen übergeben. Beim Herstellen einer Verbindung werden bestimmte Verbindungseinstellungen im Rahmen der Einrichtung Ihrer Abfragesitzung konfiguriert.  
 
-Weitere Informationen zur Sicherheit und zum Aktivieren von Verbindungen mit Ihrem Data Warehouse finden Sie in der Dokumentation zu [Sichern einer Datenbank](sql-data-warehouse-overview-manage-security.md).
+Weitere Informationen zur Sicherheit und zum Aktivieren von Verbindungen mit Ihrem dedizierten SQL-Pool (früher SQL Data Warehouse) finden Sie in der Dokumentation zum [Sichern einer Datenbank](sql-data-warehouse-overview-manage-security.md).
 
 ## <a name="sql-authentication"></a>SQL-Authentifizierung
 
-Zum Herstellen einer Verbindung mit Ihrem SQL-Pool müssen Sie die folgenden Informationen angeben:
+Zum Herstellen einer Verbindung mit Ihrem dedizierten SQL-Pool (früher SQL Data Warehouse) müssen Sie die folgenden Informationen angeben:
 
 * Vollqualifizierter Servername
 * SQL-Authentifizierung
@@ -45,9 +45,9 @@ Standardmäßig wird die Verbindung mit der *Masterdatenbank* hergestellt und ni
 > [!NOTE]
 > Die Transact-SQL-Anweisung **USE MyDatabase;** wird nicht zum Ändern der Datenbank für eine Verbindung unterstützt. Eine Anleitung zum Herstellen einer Verbindung mit einem SQL-Pool über SSDT finden Sie im Artikel [Abfragen mit Visual Studio](sql-data-warehouse-query-visual-studio.md).
 
-## <a name="azure-active-directory-aad-authentication"></a>Authentifizierung über Azure Active Directory (AAD)
+## <a name="azure-active-directory-authentication"></a>Azure Active Directory-Authentifizierung
 
-[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)-Authentifizierung ist ein Mechanismus zum Herstellen einer Verbindung mit einem SQL-Pool, wozu Identitäten in Azure Active Directory (Azure AD) verwendet werden. Mithilfe der Azure Active Directory-Authentifizierung können Sie die Identitäten von Datenbankbenutzern und andere Microsoft-Dienste an einer zentralen Stelle verwalten. Die zentrale ID-Verwaltung ermöglicht eine einheitliche Verwaltung von Azure Synapse-Benutzern und vereinfacht die Berechtigungsverwaltung.
+[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)-Authentifizierung ist ein Mechanismus zum Herstellen einer Verbindung mit einem SQL-Pool, wozu Identitäten in Azure Active Directory (Azure AD) verwendet werden. Mithilfe der Azure Active Directory-Authentifizierung können Sie die Identitäten von Datenbankbenutzern und andere Microsoft-Dienste an einer zentralen Stelle verwalten. Die zentrale ID-Verwaltung ermöglicht es, Benutzer des dedizierten SQL-Pools (früher SQL Data Warehouse) zu verwalten, und vereinfacht die Berechtigungsverwaltung.
 
 ### <a name="benefits"></a>Vorteile
 
@@ -57,7 +57,7 @@ Azure Active Directory bietet folgende Vorteile:
 * Es wird einer unkontrollierten Ausbreitung von Benutzeridentitäten über Server hinweg Einhalt geboten.
 * Es wird eine Kennwortrotation über eine zentrale Stelle ermöglicht.
 * Datenbankberechtigungen können mithilfe externer Gruppen (Azure AD-Gruppen) verwaltet werden.
-* Das Aktivieren der integrierten Windows-Authentifizierung und anderer von Azure Active Directory unterstützten Authentifizierungsformen machen das Speichern von Kennwörtern überflüssig.
+* Das Aktivieren der integrierten Windows-Authentifizierung und andere von Azure Active Directory unterstützte Authentifizierungsformen machen das Speichern von Kennwörtern überflüssig.
 * Eigenständige Datenbankbenutzer werden zum Authentifizieren von Identitäten auf Datenbankebene verwendet.
 * Unterstützt tokenbasierte Authentifizierung für Anwendungen, die eine Verbindung mit dem SQL-Pool herstellen.
 * Die Multi-Factor Authentication über die universelle Active Directory-Authentifizierung wird für verschiedene Tools einschließlich [SQL Server Management Studio](../../azure-sql/database/authentication-mfa-ssms-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) und [SQL Server Data Tools](/sql/ssdt/azure-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) unterstützt.

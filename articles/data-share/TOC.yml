@@ -8,7 +8,6 @@
     - name: Unterstützte Datenspeicher
       href: supported-data-stores.md
 - name: Schnellstarts
-  expanded: true
   items:
     - name: 'Freigeben von Daten: Azure-Portal'
       href: share-your-data-portal.md
@@ -16,13 +15,22 @@
       displayName: Resource Manager
       href: share-your-data-arm.md
 - name: Tutorials
+  expanded: true
   items:
     - name: Freigeben von Daten
       href: share-your-data.md
+      displayName: 'Azure CLI, az datashare account create, az datashare create'
     - name: Akzeptieren und Empfangen von Daten
       href: subscribe-to-data-share.md
+      displayName: 'Azure CLI, az datashare consumer invitation, az datashare consumer share-subscription'
 - name: Konzepte
   items:
+    - name: Sicherheit
+      items:
+        - name: Sicherheitsübersicht
+          href: security.md
+        - name: Sicherheitsbaseline
+          href: security-baseline.md
     - name: Azure Data Share-Terminologie
       href: terminology.md
     - name: Rollen und Anforderungen
@@ -39,7 +47,7 @@
       items:
         - name: Freigeben aus Azure Storage
           href: how-to-share-from-storage.md
-        - name: Freigeben aus Azure SQL-Datenbank oder Synapse Analytics
+        - name: Freigeben aus Azure SQL-Datenbank oder Azure Synapse Analytics
           href: how-to-share-from-sql.md
         - name: Freigeben über Azure Data Explorer
           href: /azure/data-explorer/data-share
@@ -56,8 +64,6 @@
       href: how-to-revoke-share-subscription.md
     - name: Überwachen
       href: how-to-monitor.md
-    - name: Sicherheit
-      href: security.md
     - name: Notfallwiederherstellung
       href: disaster-recovery.md
     - name: Problembehandlung

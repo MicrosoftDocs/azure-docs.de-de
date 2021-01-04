@@ -66,6 +66,10 @@
       href: signalr-concept-authenticate-oauth.md
     - name: Behandlung von Ereignissen
       href: signalr-concept-event-grid-integration.md
+    - name: Sicherheit
+      items:
+        - name: Sicherheitsbaseline
+          href: security-baseline.md
 - name: Anleitungen
   items:
     - name: Skalieren
@@ -98,6 +102,12 @@
           href: signalr-howto-diagnostic-logs.md
         - name: Überwachen der Konformität mithilfe von Azure Policy
           href: signalr-howto-azure-policy.md
+    - name: Problembehandlung
+      items:
+        - name: Leitfäden zur Problembehandlung
+          href: signalr-howto-troubleshoot-guide.md
+        - name: Methoden zur Problembehandlung
+          href: signalr-howto-troubleshoot-method.md
 - name: References
   items:
     - name: Azure CLI

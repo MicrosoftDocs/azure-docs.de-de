@@ -1,24 +1,24 @@
 ---
-title: 'Tutorial: Bereitstellen einer Azure Spring Cloud-Instanz mit Terraform'
+title: Bereitstellen einer Azure Spring Cloud-Instanz mit Terraform
 description: Bereitstellen einer Azure Spring Cloud-Instanz mit Terraform.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: ed66da991df4dbe89c327a9a28ee28527c3da87b
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 060ef2d08b849706b47b24748142c608292971b5
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091643"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533790"
 ---
-# <a name="tutorial-provision-an-azure-spring-cloud-instance-with-terraform"></a>Tutorial: Bereitstellen einer Azure Spring Cloud-Instanz mit Terraform
+# <a name="provision-an-azure-spring-cloud-instance-with-terraform"></a>Bereitstellen einer Azure Spring Cloud-Instanz mit Terraform
 
 **Dieser Artikel gilt für:** ✔️ Java ✔️ C#
 
-In diesem Tutorial wird eine Azure Spring Cloud-Instanz mithilfe von Terraform erstellt. Die schrittweisen Anleitungen zeigen die Erstellung der folgenden Ressourcen:
+In diesem Beispiel wird eine Azure Spring Cloud-Instanz mit Terraform erstellt. Die schrittweisen Anleitungen zeigen die Erstellung der folgenden Ressourcen:
 
 > [!div class="checklist"]
 > * Ressourcengruppe
@@ -161,7 +161,7 @@ In diesem Abschnitt wird gezeigt, wie Sie die Konfiguration aktualisieren, um Pr
 
 Löschen Sie die in diesem Artikel erstellten Ressourcen, wenn Sie sie nicht mehr benötigen.
 
-Führen Sie den Befehl [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) aus, um die in diesem Tutorial erstellten Azure-Ressourcen zu entfernen:
+Führen Sie den Befehl [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) aus, um die in dieser Übung erstellten Azure-Ressourcen zu entfernen:
 
 ```bash
 terraform destroy -auto-approve

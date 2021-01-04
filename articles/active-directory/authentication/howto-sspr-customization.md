@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/17/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bef201cbd14a4de0c785b5f86d534f27bfedb31
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3766db0d5070f15216ac612353e2c25737ad092a
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363707"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741625"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>Anpassen der Benutzeroberfläche für die Self-Service-Kennwortzurücksetzung von Azure Active Directory
 
@@ -56,8 +56,8 @@ Weitere Informationen zu den verschiedenen Administratorrollen und wie sie zugew
 
 Wenn Ihre Organisation nicht möchte, dass Administratoren über Anforderungen zur Kennwortzurücksetzung benachrichtigt werden, können die folgenden Konfigurationsoptionen verwendet werden:
 
-* Passen Sie den Helpdesklink an, um eine Web-URL oder eine mailto:-Adresse bereitzustellen, die Benutzer verwenden können, um Unterstützung zu erhalten. Diese Option finden Sie unter **Zurücksetzen des Kennworts** > **Anpassung** > **Benutzerdefinierte Helpdesk-E-Mail oder -URL** .
-* Aktivieren Sie die Self-Service-Kennwortzurücksetzung für alle Benutzer. Diese Option finden Sie unter **Zurücksetzen des Kennworts** > **Eigenschaften** . Wenn Sie nicht möchten, dass Benutzer ihre eigenen Kennwörter zurücksetzen, können Sie den Zugriff auf eine leere Gruppe beschränken. *Dies ist nicht zu empfehlen.*
+* Passen Sie den Helpdesklink an, um eine Web-URL oder eine mailto:-Adresse bereitzustellen, die Benutzer verwenden können, um Unterstützung zu erhalten. Diese Option finden Sie unter **Zurücksetzen des Kennworts** > **Anpassung** > **Benutzerdefinierte Helpdesk-E-Mail oder -URL**.
+* Aktivieren Sie die Self-Service-Kennwortzurücksetzung für alle Benutzer. Diese Option finden Sie unter **Zurücksetzen des Kennworts** > **Eigenschaften**. Wenn Sie nicht möchten, dass Benutzer ihre eigenen Kennwörter zurücksetzen, können Sie den Zugriff auf eine leere Gruppe beschränken. *Dies ist nicht zu empfehlen.*
 
 ## <a name="customize-the-sign-in-page-and-access-panel"></a>Anpassen der Anmeldeseite und des Zugriffsbereichs
 
@@ -72,10 +72,10 @@ Die von Ihnen ausgewählten Grafiken werden in den folgenden Situationen angezei
 
 ### <a name="directory-name"></a>Verzeichnisname
 
-Sie können den Organisationsnamen im Portal und in den automatisierten Nachrichten ändern, um die Benutzerfreundlichkeit zu erhöhen. Navigieren Sie zu **Azure Active Directory** > **Eigenschaften** , um das Attribut für den Verzeichnisnamen im Azure-Portal zu ändern. Diese Option zum Einfügen eines benutzerfreundlichen Organisationsnamens verfügt bei automatisierten E-Mails über die größte Sichtbarkeit. Dies ist in den folgenden Beispielen dargestellt:
+Sie können den Organisationsnamen im Portal und in den automatisierten Nachrichten ändern, um die Benutzerfreundlichkeit zu erhöhen. Navigieren Sie zu **Azure Active Directory** > **Eigenschaften**, um das Attribut für den Verzeichnisnamen im Azure-Portal zu ändern. Diese Option zum Einfügen eines benutzerfreundlichen Organisationsnamens verfügt bei automatisierten E-Mails über die größte Sichtbarkeit. Dies ist in den folgenden Beispielen dargestellt:
 
-* Anzeigename in einer E-Mail, z. B. *Microsoft im Namen von CONTOSO – Demo* .
-* Betreffzeile einer E-Mail, z. B. *E-Mail-Prüfnummer für CONTOSO-Demokonto* .
+* Anzeigename in einer E-Mail, z. B. *Microsoft im Namen von CONTOSO – Demo*.
+* Betreffzeile einer E-Mail, z. B. *E-Mail-Prüfnummer für CONTOSO-Demokonto*.
 
 ## <a name="customize-the-ad-fs-sign-in-page"></a>Anpassen der AD FS-Anmeldeseite
 
@@ -91,4 +91,4 @@ Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><a href='https://passwor
 
 Informationen zur Nutzung von SSPR in Ihrer Umgebung finden Sie unter [Berichterstellungsoptionen für die Kennwortverwaltung von Azure AD](howto-sspr-reporting.md).
 
-Falls Sie oder Ihre Benutzer Probleme mit SSPR haben, helfen Ihnen die Informationen unter [Behandeln von Problemen mit der Self-Service-Kennwortzurücksetzung](active-directory-passwords-troubleshoot.md) weiter.
+Falls Sie oder Ihre Benutzer Probleme mit SSPR haben, helfen Ihnen die Informationen unter [Behandeln von Problemen mit der Self-Service-Kennwortzurücksetzung](./troubleshoot-sspr.md) weiter.

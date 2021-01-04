@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 08/25/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: references_regions
-ms.openlocfilehash: 3c6aa408ab3e89c367fca0701773b35fb9b41bb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 1ebfa137357e60a1f462ef90c6430cbf0cb5b968
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460797"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746585"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Vorläufiges Löschen für Container (Vorschau)
 
@@ -28,7 +28,7 @@ Microsoft empfiehlt die Aktivierung der folgenden Datenschutzfeatures, um den vo
 - Blobversionsverwaltung zum automatischen Verwalten früherer Versionen eines Blobs. Wenn Blobversionsverwaltung aktiviert ist, können Sie eine frühere Version eines Blobs wiederherstellen, um Daten wiederherzustellen, wenn diese irrtümlich geändert oder gelöscht wurden. Informationen zum Aktivieren der Blobversionsverwaltung finden Sie unter [Aktivieren und Verwalten der Blobversionsverwaltung (Vorschau)](versioning-enable.md).
 
 > [!WARNING]
-> Das Löschen eines Speicherkontos kann nicht rückgängig gemacht werden. Vorläufiges Löschen schützt nicht vor dem Löschen eines Speicherkontos. Konfigurieren Sie eine **CannotDelete**-Sperre für die Speicherkontoressource, um ein versehentliches Löschen des Speicherkontos zu verhindern. Weitere Informationen zum Sperren von Azure-Ressourcen finden Sie unter [Sperren von Ressourcen, um unerwartete Änderungen zu verhindern](../../azure-resource-manager/management/lock-resources.md).
+> Das Löschen eines Speicherkontos kann nicht rückgängig gemacht werden. Vorläufiges Löschen schützt nicht vor dem Löschen eines Speicherkontos. Konfigurieren Sie eine **CannotDelete** -Sperre für die Speicherkontoressource, um ein versehentliches Löschen des Speicherkontos zu verhindern. Weitere Informationen zum Sperren von Azure-Ressourcen finden Sie unter [Sperren von Ressourcen, um unerwartete Änderungen zu verhindern](../../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="how-container-soft-delete-works"></a>Funktionsweise des vorläufigen Löschens von Containern
 
@@ -57,7 +57,7 @@ Das vorläufige Löschen von Containern ist für die folgenden Typen von Speiche
 - Blockblob-Speicherkonten
 - Blob-Speicherkonten
 
-Wenn Ihr Speicherkonto vom Typ „Universell V1“ ist, verwenden Sie das Azure-Portal, um ein Upgrade auf ein Konto vom Typ „Universell V2“ durchzuführen. Weitere Informationen zu Speicherkonten finden Sie unter  [Speicherkontoübersicht](../common/storage-account-overview.md).
+Wenn Ihr Speicherkonto vom Typ „Universell V1“ ist, verwenden Sie das Azure-Portal, um ein Upgrade auf ein Konto vom Typ „Universell V2“ durchzuführen. Weitere Informationen zu Speicherkonten finden Sie unter [Azure-Speicherkonto – Übersicht](../common/storage-account-overview.md).
 
 Speicherkonten mit einem hierarchischen Namespace, die für die Verwendung mit Azure Data Lake Storage Gen2 aktiviert sind, werden ebenfalls unterstützt.
 

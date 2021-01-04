@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 68daec6bb6682d2b488abacb2f79bdfadc4ae628
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: bedf4dd2a955a8ffe648b47c1691e77ac1fdb8f5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076571"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187798"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Problembehandlung bei Clouddienstrollen, die nicht gestartet werden
 In diesem Artikel finden Sie Informationen zu allgemeinen Problemen in Zusammenhang mit nicht gestarteten Azure-Clouddienstrollen sowie zur Lösung dieser Probleme.
@@ -47,7 +47,7 @@ Sie können umfassendere Fehlerinformationen anzeigen, indem Sie in der web.conf
 So zeigen Sie umfassendere Fehlerinformationen an, ohne Remotedesktop zu verwenden:
 
 1. Öffnen Sie die Projektmappe in Microsoft Visual Studio.
-2. Suchen Sie im **Projektmappen-Explorer**die web.config-Datei, und öffnen Sie sie.
+2. Suchen Sie im **Projektmappen-Explorer** die web.config-Datei, und öffnen Sie sie.
 3. Suchen Sie in der web.config-Datei den Abschnitt „system.web“, und fügen Sie folgende Zeile hinzu:
 
     ```xml
@@ -104,8 +104,8 @@ Gehen Sie folgendermaßen vor, um den Dienst mit aktiviertem IntelliTrace bereit
 3. Wenn die Instanz gestartet wurde, öffnen Sie den **Server-Explorer**.
 4. Erweitern Sie den Knoten **Azure\\Cloud Services**, und suchen Sie die Bereitstellung.
 5. Erweitern Sie die Bereitstellung, bis die Rolleninstanzen angezeigt werden. Klicken Sie mit der rechten Maustaste auf eine der Instanzen.
-6. Wählen Sie **IntelliTrace-Protokolle anzeigen**aus. Die **IntelliTrace-Zusammenfassung** wird geöffnet.
-7. Suchen Sie in der Zusammenfassung den Abschnitt mit den Ausnahmen. Wenn Ausnahmen vorhanden sind, ist der Abschnitt mit **Ausnahmedaten**gekennzeichnet.
+6. Wählen Sie **IntelliTrace-Protokolle anzeigen** aus. Die **IntelliTrace-Zusammenfassung** wird geöffnet.
+7. Suchen Sie in der Zusammenfassung den Abschnitt mit den Ausnahmen. Wenn Ausnahmen vorhanden sind, ist der Abschnitt mit **Ausnahmedaten** gekennzeichnet.
 8. Erweitern Sie **Ausnahmedaten**, und suchen Sie nach **System.IO.FileNotFoundException**-Fehlern ähnlich dem folgenden:
 
 ![Ausnahmedaten, fehlende Datei oder Assembly](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503390.png)

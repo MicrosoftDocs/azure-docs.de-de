@@ -7,41 +7,17 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 6e253604c57d73c2a89ccfa5cff7efe9e572d11d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a862a051d0040ac99746d81f10ae63d5af7545f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89094313"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013722"
 ---
-Konfigurationseinstellungen für [Durable Functions](../articles/azure-functions/durable-functions-overview.md).
+Konfigurationseinstellungen für [Durable Functions](../articles/azure-functions/durable/durable-functions-overview.md).
 
-### <a name="durable-functions-1x"></a>Durable Functions 1.x
-
-```json
-{
-  "durableTask": {
-    "hubName": "MyTaskHub",
-    "controlQueueBatchSize": 32,
-    "partitionCount": 4,
-    "controlQueueVisibilityTimeout": "00:05:00",
-    "workItemQueueVisibilityTimeout": "00:05:00",
-    "maxConcurrentActivityFunctions": 10,
-    "maxConcurrentOrchestratorFunctions": 10,
-    "maxQueuePollingInterval": "00:00:30",
-    "azureStorageConnectionStringName": "AzureWebJobsStorage",
-    "trackingStoreConnectionStringName": "TrackingStorage",
-    "trackingStoreNamePrefix": "DurableTask",
-    "traceInputsAndOutputs": false,
-    "logReplayEvents": false,
-    "eventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
-    "eventGridKeySettingName":  "EventGridKey",
-    "eventGridPublishRetryCount": 3,
-    "eventGridPublishRetryInterval": "00:00:30",
-    "eventGridPublishEventTypes": ["Started", "Completed", "Failed", "Terminated"]
-  }
-}
-```
+> [!NOTE]
+> Alle Hauptversionen von Durable Functions werden für alle Versionen der Azure Functions-Runtime unterstützt. Das Schema der host.json-Konfiguration unterscheidet sich jedoch abhängig geringfügig, abhängig von der verwendeten Version der Azure Functions-Runtime und Durable Functions-Erweiterung. Die folgenden Beispiele sind für die Verwendung mit Azure Functions 2.0 und 3.0 vorgesehen. Wenn Sie Azure Functions 1.0 verwenden, sind in beiden Beispielen die verfügbaren Einstellungen gleich. Der Abschnitt „durableTask“ von „host.json“ muss jedoch in den Stamm der host.json-Konfiguration und nicht als Feld unterhalb von „extensions“ eingefügt werden.
 
 ### <a name="durable-functions-2x"></a><a name="durable-functions-2-0-host-json"></a>Durable Functions 2.x
 
@@ -92,11 +68,40 @@ Konfigurationseinstellungen für [Durable Functions](../articles/azure-functions
 
 ```
 
-Aufgabenhubnamen müssen mit einem Buchstaben beginnen und bestehen nur aus Buchstaben und Ziffern. Wenn nicht angegeben, lautet der standardmäßige Aufgabenhubname für eine Funktionen-App **DurableFunctionsHub**. Weitere Informationen finden Sie unter [Aufgabenhubs in Durable Functions (Azure Functions)](../articles/azure-functions/durable-functions-task-hubs.md).
+### <a name="durable-functions-1x"></a>Durable Functions 1.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "hubName": "MyTaskHub",
+      "controlQueueBatchSize": 32,
+      "partitionCount": 4,
+      "controlQueueVisibilityTimeout": "00:05:00",
+      "workItemQueueVisibilityTimeout": "00:05:00",
+      "maxConcurrentActivityFunctions": 10,
+      "maxConcurrentOrchestratorFunctions": 10,
+      "maxQueuePollingInterval": "00:00:30",
+      "azureStorageConnectionStringName": "AzureWebJobsStorage",
+      "trackingStoreConnectionStringName": "TrackingStorage",
+      "trackingStoreNamePrefix": "DurableTask",
+      "traceInputsAndOutputs": false,
+      "logReplayEvents": false,
+      "eventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
+      "eventGridKeySettingName":  "EventGridKey",
+      "eventGridPublishRetryCount": 3,
+      "eventGridPublishRetryInterval": "00:00:30",
+      "eventGridPublishEventTypes": ["Started", "Completed", "Failed", "Terminated"]
+    }
+  }
+}
+```
+
+Aufgabenhubnamen müssen mit einem Buchstaben beginnen und bestehen nur aus Buchstaben und Ziffern. Wenn nicht angegeben, lautet der standardmäßige Aufgabenhubname für eine Funktionen-App **DurableFunctionsHub**. Weitere Informationen finden Sie unter [Aufgabenhubs in Durable Functions (Azure Functions)](../articles/azure-functions/durable/durable-functions-task-hubs.md).
 
 |Eigenschaft  |Standard | BESCHREIBUNG |
 |---------|---------|---------|
-|hubName|DurableFunctionsHub|Alternative Namen für [Aufgabenhubs](../articles/azure-functions/durable-functions-task-hubs.md) können zum Isolieren von mehreren Durable Functions-Anwendungen verwendet werden, auch wenn sie dasselbe Speicher-Back-End verwenden.|
+|hubName|DurableFunctionsHub|Alternative Namen für [Aufgabenhubs](../articles/azure-functions/durable/durable-functions-task-hubs.md) können zum Isolieren von mehreren Durable Functions-Anwendungen verwendet werden, auch wenn sie dasselbe Speicher-Back-End verwenden.|
 |controlQueueBatchSize|32|Die Anzahl der aus der Steuerelement-Warteschlange jeweils abzurufenden Nachrichten.|
 |controlQueueBufferThreshold|256|Die Anzahl der Steuerelement-Warteschlangen Nachrichten, die gleichzeitig im Arbeitsspeicher gepuffert werden können. Zu diesem Zeitpunkt wartet der Verteiler, bevor zusätzliche Nachrichten aus der Warteschlange entfernt werden.|
 |partitionCount |4|Die Anzahl der Partitionen für die Steuerelement-Warteschlange. Kann ein positiver Integerwert zwischen 1 und 16 sein.|
@@ -119,4 +124,4 @@ Aufgabenhubnamen müssen mit einem Buchstaben beginnen und bestehen nur aus Buch
 |useLegacyPartitionManagement|true|Wird diese Einstellung auf `false` festgelegt, wird ein Partitionsverwaltungsalgorithmus verwendet, der bei der horizontalen Skalierung die Wahrscheinlichkeit einer doppelten Funktionsausführung reduziert.  Verfügbar ab v2.3.0 Der Standardwert wird in einer zukünftigen Version in `false` geändert.|
 |useGracefulShutdown|false|(Preview) Ordnungsgemäßes Herunterfahren aktivieren, um die Wahrscheinlichkeit zu verringern, dass beim Herunterfahren von Hosts Funktionsausführungen in Prozessen fehlschlagen.|
 
-Viele dieser Einstellungen werden zur Optimierung der Leistung verwendet. Weitere Informationen finden Sie unter [Leistung und Skalierbarkeit](../articles/azure-functions/durable-functions-perf-and-scale.md).
+Viele dieser Einstellungen werden zur Optimierung der Leistung verwendet. Weitere Informationen finden Sie unter [Leistung und Skalierbarkeit](../articles/azure-functions/durable/durable-functions-perf-and-scale.md).

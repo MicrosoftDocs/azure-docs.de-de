@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
-ms.openlocfilehash: a16267b0bc5d9b550c73dc4e1dafee8304ec0237
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc4475eb64744688e901d2b37e30632d044b0115
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541820"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019312"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Bewährte Methoden zum Erstellen von LUIS-Apps (Language Understanding)
 Verwenden Sie den App-Erstellungsprozess zur Erstellung der LUIS-App:
@@ -87,7 +87,7 @@ Informationen zu effektiven, durch maschinelles Lernen erworbenen Entitäten fin
 
 ## <a name="do-build-your-app-iteratively-with-versions"></a>Bauen Sie Ihre App iterativ mit Versionen auf
 
-Jeder Erstellungszyklus muss innerhalb einer neuen [Version](luis-concept-version.md) erfolgen und aus einer vorhandenen Version geklont sein.
+Jeder Erstellungszyklus muss innerhalb einer neuen [Version](./luis-concept-app-iteration.md) erfolgen und aus einer vorhandenen Version geklont sein.
 
 ## <a name="do-build-for-model-decomposition"></a>Erstellen Sie mit dem Ziel der Modellaufschlüsselung
 

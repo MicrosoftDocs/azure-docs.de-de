@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 5fe1c3e344705b6cde9791f889b22be53a9e8c76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/13/2020
+ms.openlocfilehash: 69d27c102ca059974da87224e44f0ad7aa103fff
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372594"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592633"
 ---
 # <a name="import-data-module"></a>Modul „Import Data“ (Daten importieren)
 
@@ -58,6 +58,14 @@ Wenn sich Ihre Quelldaten ändern, können Sie das Dataset aktualisieren und neu
 
     Wenn Sie „Datenspeicher“ auswählen, können Sie vorhandene Datenspeicher auswählen, die bereits in Ihrem Azure Machine Learning-Arbeitsbereich registriert sind, oder einen neuen Datenspeicher erstellen. Anschließend definieren Sie den Pfad der zu importierenden Daten im Datenspeicher. Sie können den Pfad leicht durchsuchen, indem Sie auf **Pfad durchsuchen** klicken. ![Der Screenshot zeigt den Link „Pfad durchsuchen“, der das Dialogfeld für die Pfadauswahl öffnet.](media/module/import-data-path.png)
 
+    > [!NOTE]
+    > Das Modul **Import Data** (Daten importieren) ist nur für Daten vom Typ **Tabular** (Tabellarisch) vorgesehen.
+    > Wenn Sie mehrere tabellarische Datendateien einmal importieren möchten, müssen folgende Bedingungen erfüllt sein, damit keine Fehler auftreten:
+    > 1. Wenn Sie alle Datendateien im Ordner einschließen möchten, müssen Sie `folder_name/**` für **Path** (Pfad) eingeben.
+    > 2. Alle Datendateien müssen in Unicode-8 codiert sein.
+    > 3. Bei allen Datendateien müssen Spaltenanzahl und Spaltennamen identisch sein.
+    > 4. Das Ergebnis des Importierens mehrerer Datendateien ist, alle Zeilen aus mehreren Dateien in der richtigen Reihenfolge zu verketten.
+
 1. Wählen Sie das Vorschauschema aus, um die Spalten zu filtern, die Sie einschließen möchten. Sie können auch erweiterte Einstellungen wie Trennzeichen in den Analyseoptionen definieren.
 
     ![import-data-preview](media/module/import-data.png)
@@ -79,9 +87,9 @@ Wenn sich Ihre Quelldaten ändern, können Sie das Dataset aktualisieren und neu
 
 ## <a name="results"></a>Ergebnisse
 
-Nachdem der Import abgeschlossen wurde, klicken Sie auf das Ausgabedataset, und wählen Sie **Visualize** (Visualisieren) aus, um zu überprüfen, ob die Daten erfolgreich importiert wurden.
+Nachdem der Import abgeschlossen wurde, klicken Sie mit der rechten Maustaste auf das Ausgabedataset, und wählen Sie **Visualize** (Visualisieren) aus, um zu überprüfen, ob die Daten erfolgreich importiert wurden.
 
-Wenn Sie die Daten zur Wiederverwendung speichern möchten, anstatt bei jeder Pipelineausführung ein neues Dataset zu importieren, wählen Sie das Symbol für **Dataset registrieren** unter der Registerkarte **Ausgaben** im rechten Bereich des Moduls aus. Wählen Sie einen Namen für das Dataset aus. Das gespeicherte Dataset enthält die Daten zum Zeitpunkt der Speicherung. Das Dataset wird bei erneuter Ausführung der Pipeline nicht aktualisiert. Das gilt auch, wenn sich das Dataset in der Pipeline ändert. Dies kann hilfreich sein, um Momentaufnahmen von Daten zu erstellen.
+Wenn Sie die Daten zur Wiederverwendung speichern möchten, anstatt bei jeder Pipelineausführung ein neues Dataset zu importieren, wählen Sie das Symbol für **Dataset registrieren** unter der Registerkarte **Outputs+logs** (Ausgaben und Protokolle) im rechten Bereich des Moduls aus. Wählen Sie einen Namen für das Dataset aus. Das gespeicherte Dataset enthält die Daten zum Zeitpunkt der Speicherung. Das Dataset wird bei erneuter Ausführung der Pipeline nicht aktualisiert. Das gilt auch, wenn sich das Dataset in der Pipeline ändert. Dies kann hilfreich sein, um Momentaufnahmen von Daten zu erstellen.
 
 Nach dem Importieren der Daten können einige zusätzliche Vorbereitungen zur Modellierung und Analyse erforderlich sein:
 

@@ -3,7 +3,7 @@ title: Azure Media Services – Übersicht | Microsoft-Dokumentation
 description: Microsoft Azure Media Services ist eine erweiterbare, cloudbasierte Plattform, die Entwicklern das Erstellen von skalierbaren Medienverwaltungslösungen und Bereitstellungsanwendungen ermöglicht. Dieser Artikel bietet eine Übersicht über Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2019
-ms.author: juliako
-ms.openlocfilehash: 0d896b0ce23116f1b87718f492d407ac094b9e6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/03/2020
+ms.author: inhenkel
+ms.openlocfilehash: c6f889963e87d900040d1fe77031f943ab368837
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89261154"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348745"
 ---
 # <a name="azure-media-services-overview"></a>Azure Media Services – Übersicht
 
@@ -86,13 +86,12 @@ Azure Media Services-Konzepte finden Sie unter [Konzepte](media-services-concept
 
 ## <a name="supported-scenarios-and-availability-of-media-services-across-data-centers"></a>Unterstützte Szenarien und rechenzentrumsübergreifende Verfügbarkeit von Media Services
 
-Ausführliche Informationen finden Sie unter [AMS scenarios and availability of features and services across data centers](scenarios-and-availability.md) (AMS-Szenarien und rechenzentrumsübergreifende Verfügbarkeit von Funktionen und Diensten).
+Weitere Informationen zu gängigen Azure-Szenarien finden Sie unter [Szenarien und datencenterübergreifende Verfügbarkeit von Media Services-Features](scenarios-and-availability.md).
+Weitere Informationen zur regionalen Verfügbarkeit finden Sie unter [Regionale Verfügbarkeit von Azure Media Services](availability-regions-v-2.md).
 
 ## <a name="service-level-agreement-sla"></a>Vereinbarung zum Servicelevel (SLA)
 
 Weitere Informationen finden Sie im [Microsoft Azure-SLA](https://azure.microsoft.com/support/legal/sla/).
-
-Weitere Informationen zur Verfügbarkeit in Datencentern finden Sie im Abschnitt [Verfügbarkeit](scenarios-and-availability.md#availability).
 
 ## <a name="support"></a>Support
 

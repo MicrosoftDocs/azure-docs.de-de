@@ -4,11 +4,11 @@ description: Hier werden die Mechanismen beim Aktualisieren einer vorhandenen Bl
 ms.date: 08/27/2020
 ms.topic: how-to
 ms.openlocfilehash: ddaac8110885d817bc96745965c1af7e522b1919
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651370"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007187"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Aktualisieren einer vorhandenen Blaupausenzuweisung
 
@@ -32,11 +32,11 @@ Wenn eine Blaupause zugewiesen ist, kann die Zuweisung aktualisiert werden. Es g
 
 1. Überprüfen Sie auf der Detailseite für die aktualisierte Zuweisung den neuen Status. In diesem Beispiel wurde der Zuweisung **Wird gesperrt** hinzugefügt.
 
-   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Screenshot der Seite für Blaupausenzuweisung mit hervorgehobener Schaltfläche „Zuweisung aktualisieren“" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Screenshot einer aktualisierten Blaupausenzuweisung mit geändertem Sperrmodus" border="false":::
 
 1. Einzelheiten zu anderen **Zuweisungsvorgängen** finden Sie in der Dropdownliste. Die Tabelle **Verwaltete Ressourcen** wird durch den ausgewählten Zuweisungsvorgang aktualisiert.
 
-   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Screenshot der Seite für Blaupausenzuweisung mit hervorgehobener Schaltfläche „Zuweisung aktualisieren“" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Screenshot einer aktualisierten Blaupausenzuweisung mit Zuweisungsvorgängen und deren Status" border="false":::
 
 ## <a name="rules-for-updating-assignments"></a>Regeln für das Aktualisieren von Zuweisungen
 

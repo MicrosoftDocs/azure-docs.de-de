@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 11/19/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 72575725c0924b8ec5f9466f4ffbba86bf071db4
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 28637f35294e9c70cbf0e96fb2cdcb1853d2ba39
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631533"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992725"
 ---
 ::: zone target="docs"
 
@@ -63,7 +63,7 @@ Nach dem Datenkopiervorgang bereiten Sie das Gerät vor und versenden es. Wenn d
 
 Vergewissern Sie sich vor der Vorbereitung für den Versand, dass Kopieraufträge abgeschlossen sind.
 
-1. Wechseln Sie auf der lokalen Webbenutzeroberfläche zur Seite **Für den Versand vorbereiten** , und beginnen Sie mit der Versandvorbereitung. 
+1. Wechseln Sie auf der lokalen Webbenutzeroberfläche zur Seite **Für den Versand vorbereiten**, und beginnen Sie mit der Versandvorbereitung. 
 2. Schalten Sie das Gerät auf der lokalen Webbenutzeroberfläche aus. Ziehen Sie die Kabel vom Gerät ab. 
 
 Die nächsten Schritte hängen davon ab, wo Sie das Gerät zurückgeben.
@@ -106,12 +106,6 @@ Nachdem die Daten in Azure hochgeladen wurden, löscht die Data Box die Daten au
 
 ::: zone-end
 
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
-
-::: zone-end
-
 ## <a name="australia"></a>[Australien](#tab/in-australia)
 
 Bei Azure-Datencentern in Australien ist aus Sicherheitsgründen eine zusätzliche Benachrichtigung erforderlich. Alle eingehenden Lieferungen müssen vorab angekündigt werden. Gehen Sie für den Versand in Australien wie folgt vor:
@@ -131,12 +125,6 @@ Bei Azure-Datencentern in Australien ist aus Sicherheitsgründen eine zusätzlic
 ## <a name="erasure-of-data-from-data-box"></a>Löschen von Daten von der Data Box
 
 Nachdem die Daten in Azure hochgeladen wurden, löscht die Data Box die Daten auf den Datenträgern gemäß den [NIST-Richtlinien (SP 800-88 Revision 1)](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
-
-::: zone-end
-
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
 
@@ -182,12 +170,6 @@ Nachdem die Daten in Azure hochgeladen wurden, löscht die Data Box die Daten au
 
 ::: zone-end
 
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
-
-::: zone-end
-
 ## <a name="singapore"></a>[Singapur](#tab/in-singapore)
 
 1. Bewahren Sie den Originalversandkarton des Geräts für den Rückversand auf.
@@ -223,33 +205,33 @@ Nachdem die Daten in Azure hochgeladen wurden, löscht die Data Box die Daten au
 
 ::: zone-end
 
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
-
-::: zone-end
-
 ## <a name="south-africa"></a>[Südafrika](#tab/in-sa)
 
 1. Verpacken Sie das Gerät für den Rückversand im Originalkarton.
 2. Wickeln Sie das mitgelieferte Netzkabel auf, und befestigen Sie es sicher an der Rückseite des Geräts.
-3. So reservieren Sie die Abholung mit DHL:
+3. Notieren Sie sich die Nachverfolgungsnummer, die auf der lokalen Webbenutzeroberfläche von Data Box auf der Seite **Für den Versand vorbereiten** als Referenznummer angezeigt wird. Sie ist nach erfolgreichem Abschluss der Versandvorbereitung verfügbar. Laden Sie das Adressetikett von dieser Seite herunter, und bringen Sie es am Versandkarton an.
+4. Fordern Sie beim Azure Data Box Operations-Team einen Rückgabecode an. Ein Rückgabecode ist für den Rückversand des Pakets an das Rechenzentrum erforderlich. Senden Sie eine E-Mail an [adbops@microsoft.com](mailto:adbops@microsoft.com). Notieren Sie diesen Code gut sichtbar auf dem Adressetikett neben der Rücksendeadresse.
+5. Vereinbaren Sie eine Abholung mit DHL mit einer der folgenden Methoden:
+ 
+   * Reservieren Sie online bei DHL Express für Südafrika unter [**Schedule a Pickup**](https://mydhl.express.dhl/za/en/schedule-pickup.html#/schedule-pickup#label-reference) (Buchen Sie eine Abholung) einen Abholtermin.
+   * Senden Sie eine E-Mail an [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com), und verwenden Sie dabei die folgende Vorlage:
 
-    * Wenden Sie sich unter der Telefonnummer +27(0) 11 9213600 an den Kundenservice, wählen Sie Option 1, und geben Sie dann die Frachtbriefnummer an.
-    * Der Anruf muss vor 14:00 Uhr getätigt werden, um eine Abholung zu planen.
-    * Senden Sie eine E-Mail an [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com), und verwenden Sie dabei die folgende Vorlage:
+     ```output
+     To: Priority.Support@dhl.com
+     Subject: Pickup request for Microsoft Azure
+     Body: Need pick up for the below shipment
+       *  DHL tracking number: (reference number/waybill number)
+       *  Requested pickup date: yyyy/mm/dd;time:HH MM
+       *  Shipper contact: (company name)
+       *  Contact person: 
+       *  Phone number: 
+       *  Full physical address: 
+       *  Item to be collected: Azure Dt
+     ```
 
-    ```output
-    To: Priority.Support@dhl.com
-    Subject: Pickup request for Microsoft Azure
-    Body: Need pick up for the below shipment
-      *  DHL tracking number (reference number/waybill number)
-      *  Requested pickup date: yyyy/mm/dd;time:HH MM
-    ```
+    * Alternativ können Sie das Paket auch in einem DHL-Paketshop in Ihrer Nähe abgeben.
 
-    * Alternativ können Sie das Paket in einem DHL-Paketshop in Ihrer Nähe abgeben.
-
-4. Sollten Probleme auftreten, senden Sie eine E-Mail mit Einzelheiten zu dem aufgetretenen Problem an [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com). Geben Sie im Betreff die Frachtbriefnummer an. Sie können auch die Nummer +27(0)119213902 anrufen.
+6. Sollten Probleme auftreten, senden Sie eine E-Mail mit Einzelheiten zu dem aufgetretenen Problem an [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com). Geben Sie im Betreff die Frachtbriefnummer an. Sie können auch die Nummer +27(0)119213902 anrufen.
 
 ::: zone target="chromeless"
 
@@ -260,12 +242,6 @@ Nachdem die Daten in Azure hochgeladen wurden, löscht die Data Box die Daten au
 ## <a name="erasure-of-data-from-data-box"></a>Löschen von Daten von der Data Box
 
 Nachdem die Daten in Azure hochgeladen wurden, löscht die Data Box die Daten auf den Datenträgern gemäß den [NIST-Richtlinien (SP 800-88 Revision 1)](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
-
-::: zone-end
-
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
 
@@ -301,12 +277,6 @@ Sollten Probleme auftreten, senden Sie eine E-Mail an Data Box Operations Asia (
 ## <a name="erasure-of-data-from-data-box"></a>Löschen von Daten von der Data Box
  
 Nachdem die Daten in Azure hochgeladen wurden, löscht die Data Box die Daten auf den Datenträgern gemäß den [NIST-Richtlinien (SP 800-88 Revision 1)](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
-
-::: zone-end
-
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
 
@@ -369,8 +339,6 @@ Wenn Sie Data Box in US-Regierungsbehörden, Japan, Singapur, Südkorea, Indien,
 
 ::: zone target="chromeless"
 
----
-
 ## <a name="verify-data-upload-to-azure"></a>Überprüfen des Datenuploads in Azure
 
 [!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
@@ -381,7 +349,11 @@ Nachdem die Daten in Azure hochgeladen wurden, löscht die Data Box die Daten au
 
 ::: zone-end
 
+---
+
 ::: zone target="docs"
+
+## <a name="verify-data-upload-to-azure"></a>Überprüfen des Datenuploads in Azure
 
 [!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 

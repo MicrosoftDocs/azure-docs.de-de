@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 10/01/2020
 ms.author: inhenkel
-ms.openlocfilehash: 23baa6ed92aa01251b4c7ccf34ef784910a0321f
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 14544f58bcda56a55cef33de8fe0a70d5859b589
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019833"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510946"
 ---
 # <a name="media-services-v2-vs-v3"></a>Media Services v2 und v3
 
@@ -80,7 +80,6 @@ Die v3-API weist in Bezug auf die v2-API die folgenden Featurelücken auf. Am Sc
     * Zusammenfügen von Medienobjekten
     * Überlagerungen
     * Zuschneiden
-    * Miniaturbild-Sprites
     * Einfügen einer stillen Audiospur bei einer Eingabe ohne Audio
     * Einfügen einer Videospur, wenn die Eingabe kein Video enthält
 * Liveereignisse mit Transcodierung unterstützen derzeit keine Slate-Einfügungen beim Streamen und Werbemarkereinfügungen über API-Aufrufe. 

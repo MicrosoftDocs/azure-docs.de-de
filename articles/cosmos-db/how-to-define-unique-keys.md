@@ -3,18 +3,20 @@ title: Definieren von eindeutigen Schlüsseln für einen Azure Cosmos-Container
 description: Hier erfahren Sie, wie Sie eindeutige Schlüssel für einen Azure Cosmos-Container mithilfe des Azure-Portals, mit PowerShell, .NET, Java und verschiedenen anderen SDKs definieren.
 author: ThomasWeiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 968ae8e582587564f1e268f16c18cf6d562d4333
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 55fc5222c1c245c56ba0a26caa816c5c845147c1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279553"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336621"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definieren von eindeutigen Schlüsseln für einen Azure Cosmos-Container
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In diesem Artikel sind die verschiedenen Methoden zum Definieren von [eindeutigen Schlüsseln](unique-keys.md) dargestellt, wenn ein Azure Cosmos-Container erstellt wird. Derzeit kann dieser Vorgangs über das Azure-Portal oder eines der SDKs ausgeführt werden.
 
@@ -26,7 +28,7 @@ In diesem Artikel sind die verschiedenen Methoden zum Definieren von [eindeutige
 
 1. Öffnen Sie den Bereich **Daten-Explorer** , und wählen Sie den gewünschten Container aus.
 
-1. Klicken Sie auf **Neuer Container** .
+1. Klicken Sie auf **Neuer Container**.
 
 1. Klicken Sie im Dialogfeld **Container hinzufügen** auf **+ Eindeutigen Schlüssel hinzufügen** , um einen eindeutigen Schlüsseleintrag hinzuzufügen.
 

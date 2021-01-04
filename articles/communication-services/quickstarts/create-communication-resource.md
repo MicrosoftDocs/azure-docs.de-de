@@ -10,18 +10,18 @@ ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: 8b606108d0e33ba1dd49e37c0f407b0caa350f6b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a93ac3b5d988be33c0f27726a75b1006f990d1da
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667502"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886108"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Schnellstart: Erstellen und Verwalten einer Communication Services-Ressource
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Führen Sie erste Schritte mit Azure Communication Services aus, indem Sie Ihre erste Communication Services-Ressource bereitstellen. Communication Services-Ressourcen können über das Azure-Portal oder mit der .NET-Verwaltungsclientbibliothek bereitgestellt werden. Mithilfe der Verwaltungsclientbibliothek können Sie Ihre Ressource und Schnittstellen mit [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview), dem Bereitstellungs- und Verwaltungsdienst von Azure, erstellen, konfigurieren, aktualisieren und löschen. Alle in den Clientbibliotheken verfügbaren Funktionen sind auch im Azure-Portal verfügbar. 
+Führen Sie erste Schritte mit Azure Communication Services aus, indem Sie Ihre erste Communication Services-Ressource bereitstellen. Communication Services-Ressourcen können über das Azure-Portal oder mit der .NET-Verwaltungsclientbibliothek bereitgestellt werden. Mithilfe der Verwaltungsclientbibliothek können Sie Ihre Ressource und Schnittstellen mit [Azure Resource Manager](../../azure-resource-manager/management/overview.md), dem Bereitstellungs- und Verwaltungsdienst von Azure, erstellen, konfigurieren, aktualisieren und löschen. Alle in den Clientbibliotheken verfügbaren Funktionen sind auch im Azure-Portal verfügbar. 
 
 > [!WARNING]
 > Beachten Sie, dass die Verfügbarkeit von Communication Services während der öffentlichen Vorschauphase auf die geografische Region „USA“ beschränkt ist. Beachten Sie zudem, dass während der öffentlichen Vorschauphase keine Kommunikationsressourcen in ein anderes Abonnement übertragen werden können.
@@ -47,8 +47,8 @@ Navigieren Sie zur Communication Services-Ressource, wählen Sie im Navigations
 Communication Services-Clientbibliotheken verwenden Verbindungszeichenfolgen, um an Communication Services gesendete Anforderungen zu autorisieren. Es gibt mehrere Möglichkeiten, die Verbindungszeichenfolge zu speichern:
 
 * Eine Anwendung, die auf dem Desktop oder auf einem Gerät ausgeführt wird, kann die Verbindungszeichenfolge in der Datei **app.config** oder **web.config** speichern. Fügen Sie die Verbindungszeichenfolge dem Abschnitt **AppSettings** in diesen Dateien hinzu.
-* Eine Anwendung, die in einer Azure App Service-Instanz ausgeführt wird, kann die Verbindungszeichenfolge in den [App Service-Anwendungseinstellungen](https://docs.microsoft.com/azure/app-service/configure-common) speichern. Fügen Sie die Verbindungszeichenfolge dem Abschnitt **Verbindungszeichenfolgen** auf der Registerkarte „Anwendungseinstellungen“ im Portal hinzu.
-* Sie können die Verbindungszeichenfolge in [Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) speichern.
+* Eine Anwendung, die in einer Azure App Service-Instanz ausgeführt wird, kann die Verbindungszeichenfolge in den [App Service-Anwendungseinstellungen](../../app-service/configure-common.md) speichern. Fügen Sie die Verbindungszeichenfolge dem Abschnitt **Verbindungszeichenfolgen** auf der Registerkarte „Anwendungseinstellungen“ im Portal hinzu.
+* Sie können die Verbindungszeichenfolge in [Azure Key Vault](../../data-factory/store-credentials-in-key-vault.md) speichern.
 * Wenn Sie Ihre Anwendung lokal ausführen, können Sie die Verbindungszeichenfolge in einer Umgebungsvariablen speichern.
 
 ### <a name="store-your-connection-string-in-an-environment-variable"></a>Speichern der Verbindungszeichenfolge in einer Umgebungsvariablen

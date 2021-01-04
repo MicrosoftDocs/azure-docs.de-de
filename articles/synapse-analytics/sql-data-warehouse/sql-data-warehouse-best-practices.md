@@ -1,6 +1,6 @@
 ---
-title: Bewährte Methoden für den Synapse SQL-Pool in Azure Synapse Analytics (ehemals SQL DW)
-description: Empfehlungen und bewährte Methoden für die Entwicklung von Lösungen für den SQL-Pool in Azure Synapse Analytics (ehemals SQL DW).
+title: Best Practices für dedizierte SQL-Pools (ehemals SQL DW)
+description: Empfehlungen und bewährte Methoden für die Entwicklung von Lösungen für dedizierte SQL-Pools (ehemals SQL DW) in Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 6978855e9b32a3842e76d02ef543d86cf0673019
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9802e6553d553aae4f13194dc9951d1a17af6f66
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85206647"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462876"
 ---
-# <a name="best-practices-for-synapse-sql-pool-in-azure-synapse-analytics-formerly-sql-dw"></a>Bewährte Methoden für den Synapse SQL-Pool in Azure Synapse Analytics (ehemals SQL DW)
+# <a name="best-practices-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Best Practices für dedizierte SQL-Pools (ehemals SQL DW) in Azure Synapse Analytics
 
-Dieser Artikel enthält eine Sammlung von bewährten Methoden, damit Sie mit Ihrer Bereitstellung des [SQL-Pools](sql-data-warehouse-overview-what-is.md) optimale Leistung erzielen können.  Der Zweck dieses Artikels besteht darin, Ihnen einige grundlegende Anleitungen zu geben und wichtige Schwerpunktbereiche hervorzuheben.  
+Dieser Artikel enthält eine Sammlung von bewährten Methoden, mit denen Sie bei Ihrer Bereitstellung eines [dedizierten SQL-Pools (ehemals SQL DW)](sql-data-warehouse-overview-what-is.md) eine optimale Leistung erzielen können.  Der Zweck dieses Artikels besteht darin, Ihnen einige grundlegende Anleitungen zu geben und wichtige Schwerpunktbereiche hervorzuheben.  
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>Reduzieren von Kosten durch das Pausieren und Skalieren
 
@@ -27,7 +27,7 @@ Weitere Informationen zur Kostensenkung durch Anhalten und Skalieren finden Sie 
 
 ## <a name="maintain-statistics"></a>Verwalten von Statistiken
 
-SQL-Pools können so konfiguriert werden, dass Statistiken für Spalten automatisch erkannt und erstellt werden.  Die vom Optimierer erstellten Abfragepläne sind nur so gut wie die verfügbaren Statistiken.  
+Dedizierte SQL-Pools (ehemals SQL DW) können so konfiguriert werden, dass Statistiken für Spalten automatisch erkannt und erstellt werden.  Die vom Optimierer erstellten Abfragepläne sind nur so gut wie die verfügbaren Statistiken.  
 
 Wir empfehlen, dass Sie AUTO_CREATE_STATISTICS für Ihre Datenbanken aktivieren und die Statistiken täglich oder nach jedem Ladevorgang aktualisieren, um sicherzustellen, dass Statistiken für in Ihren Abfragen verwendete Spalten immer auf dem neuesten Stand sind.
 
@@ -40,7 +40,7 @@ Siehe auch [Verwalten von Tabellenstatistiken](sql-data-warehouse-tables-statist
 
 ## <a name="use-dmvs-to-monitor-and-optimize-your-queries"></a>Verwenden von DMVs zum Überwachen und Optimieren von Abfragen
 
-Der SQL-Pool verfügt über mehrere DMVs, mit denen die Abfrageausführung überwacht werden kann.  Im Artikel zur Überwachung der Workload mit DMVs finden Sie schrittweise Anleitungen zum Anzeigen einer ausgeführten Abfrage.  
+Dedizierte SQL-Pools (ehemals SQL DW) verfügen über mehrere DMVs, mit denen die Abfrageausführung überwacht werden kann.  Im Artikel [Überwachen der Workload mit DMVs](sql-data-warehouse-manage-monitor.md) finden Sie ausführliche Anweisungen zum Anzeigen von Informationen zu einer ausgeführten Abfrage.  
 
 Die Verwendung der Option LABEL für Abfragen kann hilfreich sein, um Abfragen für diese DMVs schnell finden zu können.
 
@@ -62,9 +62,9 @@ Siehe auch: [INSERT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synaps
 
 ## <a name="use-polybase-to-load-and-export-data-quickly"></a>Verwenden von PolyBase zum schnellen Laden und Exportieren von Daten
 
-Der SQL-Pool unterstützt das Laden und Exportieren von Daten mit mehreren Tools, z. B. Azure Data Factory, PolyBase und BCP.  Für kleinere Datenmengen, bei denen die Leistung nicht entscheidend ist, können auch beliebige andere Tools für Ihre Zwecke ausreichen.  PolyBase ist aber die beste Wahl, wenn Sie große Datenvolumen laden oder exportieren oder eine schnelle Leistung benötigt wird.  
+Dedizierte SQL-Pools (ehemals SQL DW) unterstützen das Laden und Exportieren von Daten mit mehreren Tools, z. B. Azure Data Factory, PolyBase und BCP.  Für kleinere Datenmengen, bei denen die Leistung nicht entscheidend ist, können auch beliebige andere Tools für Ihre Zwecke ausreichen.  PolyBase ist aber die beste Wahl, wenn Sie große Datenvolumen laden oder exportieren oder eine schnelle Leistung benötigt wird.  
 
-PolyBase ist für die Nutzung der MPP-Architektur (Massively Parallel Processing) ausgelegt und kann größere Datenmengen schneller als andere Tools laden und exportieren.  PolyBase-Ladevorgänge können per CTAS oder INSERT INTO ausgeführt werden.  
+PolyBase ist so konzipiert, dass es die verteilte Natur des Systems nutzt und Datenmengen schneller als jedes andere Tool laden und exportieren kann.  PolyBase-Ladevorgänge können per CTAS oder INSERT INTO ausgeführt werden.   
 
 > [!TIP]
 > Durch die Verwendung von CTAS wird die Transaktionsprotokollierung reduziert. Dies ist der schnellste Weg zum Laden Ihrer Daten.
@@ -74,13 +74,13 @@ Azure Data Factory unterstützt auch PolyBase-Ladevorgänge und kann eine ähnli
 > [!NOTE]
 > Wenn Sie bei der Verwendung von Gzip-Textdateien den Durchsatz maximieren möchten, teilen Sie sie in 60 oder mehr Dateien auf, um die Parallelität Ihres Ladevorgangs zu maximieren.  Erwägen Sie das gleichzeitige Laden von Daten, um einen besseren Gesamtdurchsatz zu erzielen.
 
-Lesen Sie dazu auch: [Laden von Daten](design-elt-data-loading.md), [Anleitung für die Verwendung von PolyBase](guidance-for-loading-data.md), [SQL-Pool – Lademuster und -strategien](https://blogs.msdn.microsoft.com/sqlcat/20../../), [Laden von Daten mit Azure Data Factory]( ../../data-factory/load-azure-sql-data-warehouse.md), [Verschieben von Daten mit Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md), [ CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) und [Create Table As Select (CTAS)](sql-data-warehouse-develop-ctas.md).
+Lesen Sie dazu auch: [Laden von Daten](design-elt-data-loading.md), [Anleitung für die Verwendung von PolyBase](guidance-for-loading-data.md), [Dedizierter SQL-Pool – Lademuster und -strategien](https://blogs.msdn.microsoft.com/sqlcat/20../../), [Laden von Daten mit Azure Data Factory]( ../../data-factory/load-azure-sql-data-warehouse.md), [Verschieben von Daten mit Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md), [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) und [Create Table As Select (CTAS)](sql-data-warehouse-develop-ctas.md).
 
 ## <a name="load-then-query-external-tables"></a>Laden und Abfragen von externen Tabellen
 
 Polybase, auch bekannt als externe Tabellen, kann zwar die schnellste Möglichkeit zum Laden von Daten sein, ist aber nicht optimal für Abfragen. PolyBase-Tabellen unterstützen derzeit nur Azure-Blobdateien und Azure Data Lake Storage. Diese Dateien werden nicht durch Computeressourcen gestützt.  
 
-Infolgedessen kann der SQL-Pool diese Arbeit nicht auslagern und muss deshalb die gesamte Datei in „tempdb“ laden, um die Daten lesen zu können.  Wenn mehrere auf diese Daten gerichtete Abfragen vorliegen, sollten Sie also besser diese Daten einmal laden, und die Abfragen sollten in der lokalen Tabelle durchgeführt werden.
+Infolgedessen kann der dedizierte SQL-Pool diese Arbeit nicht auslagern und muss deshalb die gesamte Datei in „tempdb“ laden, um die Daten lesen zu können.  Wenn mehrere auf diese Daten gerichtete Abfragen vorliegen, sollten Sie also besser diese Daten einmal laden, und die Abfragen sollten in der lokalen Tabelle durchgeführt werden.
 
 Siehe auch: [Leitfaden für die Verwendung von PolyBase](guidance-for-loading-data.md).
 
@@ -101,9 +101,9 @@ Siehe auch: [Übersicht über Tabellen](sql-data-warehouse-tables-overview.md), 
 
 ## <a name="do-not-over-partition"></a>Vermeiden von übermäßiger Partitionierung
 
-Das Partitionieren von Daten kann für die Verwaltung Ihrer Daten durch Partitionswechsel oder die Optimierung von Scans durch eine Partitionsbeseitigung zwar effektiv sein, aber eine zu hohe Zahl von Partitionen kann Ihre Abfragen verlangsamen.  Oft funktioniert eine Partitionierungsstrategie mit hoher Granularität, die für SQL Server gut geeignet ist, im SQL-Pool möglicherweise nicht gut.  
+Das Partitionieren von Daten kann für die Verwaltung Ihrer Daten durch Partitionswechsel oder die Optimierung von Scans durch eine Partitionsbeseitigung zwar effektiv sein, aber eine zu hohe Zahl von Partitionen kann Ihre Abfragen verlangsamen.  Oft funktioniert eine Partitionierungsstrategie mit hoher Granularität, die für SQL Server gut geeignet ist, in einem dedizierten SQL-Pool (ehemals SQL DW) möglicherweise nicht gut.  
 
-Die Verwendung von zu vielen Partitionen kann auch die Effektivität von gruppierten Columnstore-Indizes reduzieren, wenn jede Partition weniger als 1 Million Zeilen enthält.  Beachten Sie, dass ein SQL-Pool Ihre Daten im Hintergrund in 60 Datenbanken partitioniert. Wenn Sie also eine Tabelle mit 100 Partitionen erstellen, ergibt dies tatsächlich insgesamt 6.000 Partitionen.  
+Die Verwendung von zu vielen Partitionen kann auch die Effektivität von gruppierten Columnstore-Indizes reduzieren, wenn jede Partition weniger als 1 Million Zeilen enthält.  Beachten Sie, dass ein dedizierter SQL-Pool Ihre Daten im Hintergrund in 60 Datenbanken partitioniert. Wenn Sie also eine Tabelle mit 100 Partitionen erstellen, ergibt dies tatsächlich insgesamt 6.000 Partitionen.  
 
 Jede Workload ist anders, sodass es ratsam ist, mit der Partitionierung zu experimentieren. So können Sie ermitteln, was für Ihre Workload am besten funktioniert.  Erwägen Sie die Verwendung einer geringeren Granularität als für SQL Server.  Versuchen Sie es beispielsweise anstelle von täglichen Partitionen mit wöchentlichen oder monatlichen Partitionen.
 
@@ -145,13 +145,13 @@ Siehe auch: [Temporäre Tabellen](sql-data-warehouse-tables-temporary.md), [CREA
 
 ## <a name="optimize-clustered-columnstore-tables"></a>Optimieren von gruppierten Columnstore-Tabellen
 
-Gruppierte Columnstore-Indizes sind eine der effizientesten Möglichkeiten zum Speichern Ihrer Daten in einem SQL-Pool.  Tabellen werden in SQL-Pools standardmäßig als gruppierter Columnstore erstellt.  Die Verwendung einer guten Segmentqualität ist wichtig, um für Abfragen in Columnstore-Tabellen die beste Leistung zu erzielen.  
+Gruppierte Columnstore-Indizes sind eine der effizientesten Möglichkeiten zum Speichern Ihrer Daten in einem dedizierten SQL-Pool.  Tabellen werden in einem dedizierten SQL-Pool standardmäßig als gruppierter Columnstore erstellt.  Die Verwendung einer guten Segmentqualität ist wichtig, um für Abfragen in Columnstore-Tabellen die beste Leistung zu erzielen.  
 
 Wenn Zeilen bei hohem Arbeitsspeicherdruck in Columnstore-Tabellen geschrieben werden, kann die Qualität von Columnstore-Segmenten leiden.  Die Segmentqualität kann anhand der Anzahl an Zeilen in einer komprimierten Zeilengruppe gemessen werden.  Eine ausführliche Anleitung zur Erkennung und Verbesserung der Segmentqualität für gruppierte Columnstore-Tabellen finden Sie im Artikel [Tabellenindizes](sql-data-warehouse-tables-index.md) unter [Ursachen für eine schlechte Qualität des Columnstore-Index](sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality).  
 
 Weil qualitativ hochwertige Columnstore-Segmente wichtig sind, ist es eine gute Idee, Benutzer-IDs, die zur mittleren oder großen Ressourcenklasse gehören, zum Laden von Daten zu verwenden. Wenn Sie [Data Warehouse-Einheiten](what-is-a-data-warehouse-unit-dwu-cdwu.md) auf niedrigerer Ebene verwenden, sollten Sie dem ladenden Benutzer eine größere Ressourcenklasse zuweisen.
 
-Da Columnstore-Tabellen Daten im Allgemeinen erst dann in ein komprimiertes Columnstore-Segment übertragen, wenn eine Tabelle mehr als eine Million Zeilen hat und jede SQL-Pool-Tabelle in 60 Tabellen partitioniert ist, gilt folgende Faustregel: Columnstore-Tabellen stellen für eine Abfrage nur dann einen Vorteil dar, wenn die Tabelle mehr als 60 Millionen Zeilen hat.  Für Tabellen mit weniger als 60 Millionen Zeilen ist es unter Umständen nicht sinnvoll, einen Columnstore-Index zu nutzen.  Es muss aber nicht unbedingt einen Nachteil bedeuten.  
+Da Columnstore-Tabellen Daten im Allgemeinen erst dann in ein komprimiertes Columnstore-Segment übertragen, wenn eine Tabelle mehr als eine Million Zeilen hat und jede Tabelle im dedizierten SQL-Pool in 60 Tabellen partitioniert ist, gilt folgende Faustregel: Columnstore-Tabellen stellen für eine Abfrage nur dann einen Vorteil dar, wenn die Tabelle mehr als 60 Millionen Zeilen hat.  Für Tabellen mit weniger als 60 Millionen Zeilen ist es unter Umständen nicht sinnvoll, einen Columnstore-Index zu nutzen.  Es muss aber nicht unbedingt einen Nachteil bedeuten.  
 
 Wenn Sie Ihre Daten partitionieren, können Sie auch darauf achten, dass jede Partition 1 Million Zeilen aufweisen muss, um von einem gruppierten Columnstore-Index zu profitieren.  Falls eine Tabelle 100 Partitionen hat, muss sie mindestens 6 Milliarden Zeilen enthalten, um von einem gruppierten Columnstore zu profitieren (60 Verteilungen *100 Partitionen* 1 Million Zeilen).  
 
@@ -164,7 +164,7 @@ Siehe auch [Tabellenindizes](sql-data-warehouse-tables-index.md), [Beschreibung 
 
 ## <a name="use-larger-resource-class-to-improve-query-performance"></a>Verwenden einer größeren Ressourcenklasse zum Verbessern der Abfrageleistung
 
-Der SQL-Pool nutzt Ressourcengruppen zum Zuordnen von Arbeitsspeicher zu Abfragen.  Standardmäßig werden alle Benutzer der kleinen Ressourcenklasse zugewiesen, bei der pro Verteilung 100 MB Arbeitsspeicher gewährt werden.  Da immer 60 Verteilungen vorhanden sind, und jede Verteilung mindestens 100MB erhält, beträgt die gesamte systemweite Arbeitsspeicherzuordnung 6.000MB bzw. knapp 6GB.  
+Dedizierte SQL-Pools nutzen Ressourcengruppen zum Zuordnen von Arbeitsspeicher zu Abfragen.  Standardmäßig werden alle Benutzer der kleinen Ressourcenklasse zugewiesen, bei der pro Verteilung 100 MB Arbeitsspeicher gewährt werden.  Da immer 60 Verteilungen vorhanden sind, und jede Verteilung mindestens 100MB erhält, beträgt die gesamte systemweite Arbeitsspeicherzuordnung 6.000MB bzw. knapp 6GB.  
 
 Bestimmte Abfragen, z.B. große Verknüpfungen oder Ladevorgänge für gruppierte Columnstore-Tabellen, profitieren von größeren Arbeitsspeicherzuordnungen.  Für einige Abfragen, z. B. reine Scans, ergibt sich kein Vorteil.  Andererseits reduziert die Nutzung größerer Ressourcenklassen die Parallelität. Diese Auswirkung sollten Sie berücksichtigen, bevor Sie alle Ihre Benutzer in eine große Ressourcenklasse verschieben.
 

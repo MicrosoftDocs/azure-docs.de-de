@@ -10,13 +10,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 06/20/2019
-ms.openlocfilehash: 08aaec23b0edc0e797d26d4b51081f6daa5b5c19
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 10/29/2020
+ms.openlocfilehash: 30a511caec82ead406f0a80f107e4261a707bfdb
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92671221"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040161"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Schnellstart: Importieren einer BACPAC-Datei in eine Datenbank in Azure SQL-Datenbank oder Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -52,7 +52,7 @@ Um eine Datenbank aus einer BACPAC-Datei in [Azure SQL Managed Instance](../mana
 
    ![Datenbankimport 2](./media/database-import/sql-server-import-database-settings.png)
 
-1. Klicken Sie auf **OK** .
+1. Klicken Sie auf **OK**.
 
 1. Um den Fortschritt eines Importvorgangs zu überwachen, öffnen Sie die Seite für den Server der Datenbank, und wählen Sie unter **Einstellungen** die Option **Import-/Exportverlauf** aus. Bei erfolgreicher Ausführung weist der Import den Status **Abgeschlossen** auf.
 
@@ -62,11 +62,13 @@ Um eine Datenbank aus einer BACPAC-Datei in [Azure SQL Managed Instance](../mana
 
 ## <a name="using-sqlpackage"></a>Verwenden von „SqlPackage“
 
-Informationen zum Importieren einer SQL Server-Datenbank mit dem Befehlszeilenprogramm [SqlPackage](/sql/tools/sqlpackage) finden Sie unter [Importparameter und -eigenschaften](/sql/tools/sqlpackage#import-parameters-and-properties). SqlPackage ist im Lieferumfang von [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) und [SQL Server Data Tools für Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt) enthalten. Sie können die neueste Version von [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) auch aus dem Microsoft Download Center herunterladen.
+Informationen zum Importieren einer SQL Server-Datenbank mit dem Befehlszeilenprogramm [SqlPackage](/sql/tools/sqlpackage) finden Sie unter [Importparameter und -eigenschaften](/sql/tools/sqlpackage#import-parameters-and-properties). SqlPackage ist im Lieferumfang von [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) und [SQL Server Data Tools für Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt) enthalten. Sie können die neueste Version von [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) auch aus dem Microsoft Download Center herunterladen. 
 
 Aus Gründen der Skalierbarkeit und Leistung wird die Verwendung von SqlPackage (statt des Azure-Portals) für die meisten Produktionsumgebungen empfohlen. Einen Blogbeitrag des SQL Server-Kundenberatungsteams zur Migration mithilfe von `BACPAC`-Dateien finden Sie unter [Migrating from SQL Server to Azure SQL Database using BACPAC Files](/archive/blogs/sqlcat/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files) (Migrieren von SQL Server zu Azure SQL-Datenbank mithilfe von BACPAC-Dateien).
 
-Mit dem folgenden SqlPackage-Befehl wird die Datenbank **AdventureWorks2008R2** aus dem lokalen Speicher in eine logische SQL Server-Instanz mit dem Namen **mynewserver20170403** importiert. Er erstellt eine neue Datenbank namens **myMigratedDatabase** mit der **Premium** -Dienstebene und dem Dienstziel **P6** . Ändern Sie diese Werte entsprechend Ihrer Umgebung.
+Das DTU-basierte Bereitstellungsmodell unterstützt ausgewählte Werte für die maximale Datenbankgröße für jede Ebene. Verwenden Sie beim Importieren einer Datenbank [einen dieser unterstützten Werte](/sql/t-sql/statements/create-database-transact-sql). 
+
+Mit dem folgenden SqlPackage-Befehl wird die Datenbank **AdventureWorks2008R2** aus dem lokalen Speicher in eine logische SQL Server-Instanz mit dem Namen **mynewserver20170403** importiert. Er erstellt eine neue Datenbank namens **myMigratedDatabase** mit der **Premium** -Dienstebene und dem Dienstziel **P6**. Ändern Sie diese Werte entsprechend Ihrer Umgebung.
 
 ```cmd
 sqlpackage.exe /a:import /tcs:"Data Source=<serverName>.database.windows.net;Initial Catalog=<migratedDatabase>;User Id=<userId>;Password=<password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
@@ -94,7 +96,7 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [!IMPORTANT]
 > Das Azure Resource Manager-Modul (RM) von PowerShell wird weiterhin unterstützt, aber alle zukünftigen Entwicklungen erfolgen für das Az.Sql-Modul. Das AzureRM-Modul erhält mindestens bis Dezember 2020 weiterhin Fehlerbehebungen.  Die Argumente für die Befehle im Az-Modul und den AzureRm-Modulen sind im Wesentlichen identisch. Weitere Informationen zur Kompatibilität finden Sie in der [Einführung in das neue Azure PowerShell Az-Modul](/powershell/azure/new-azureps-module-az).
 
-Verwenden Sie das Cmdlet [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport), um eine Anforderung für einen Datenbankimport an Azure zu übermitteln. Je nach Größe der Datenbank nimmt der Importvorgang einige Zeit in Anspruch.
+Verwenden Sie das Cmdlet [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport), um eine Anforderung für einen Datenbankimport an Azure zu übermitteln. Je nach Größe der Datenbank nimmt der Importvorgang einige Zeit in Anspruch. Das DTU-basierte Bereitstellungsmodell unterstützt ausgewählte Werte für die maximale Datenbankgröße für jede Ebene. Verwenden Sie beim Importieren einer Datenbank [einen dieser unterstützten Werte](/sql/t-sql/statements/create-database-transact-sql). 
 
 ```powershell
 $importRequest = New-AzSqlDatabaseImport -ResourceGroupName "<resourceGroupName>" `
@@ -126,7 +128,7 @@ $importStatus
 
 # <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
-Verwenden Sie den Befehl [az-sql-db-import](/cli/azure/sql/db#az-sql-db-import), um eine Anforderung für einen Datenbankimport an Azure zu übermitteln. Je nach Größe der Datenbank nimmt der Importvorgang einige Zeit in Anspruch.
+Verwenden Sie den Befehl [az-sql-db-import](/cli/azure/sql/db#az-sql-db-import), um eine Anforderung für einen Datenbankimport an Azure zu übermitteln. Je nach Größe der Datenbank nimmt der Importvorgang einige Zeit in Anspruch. Das DTU-basierte Bereitstellungsmodell unterstützt ausgewählte Werte für die maximale Datenbankgröße für jede Ebene. Verwenden Sie beim Importieren einer Datenbank [einen dieser unterstützten Werte](/sql/t-sql/statements/create-database-transact-sql). 
 
 ```azurecli
 # get the storage account key

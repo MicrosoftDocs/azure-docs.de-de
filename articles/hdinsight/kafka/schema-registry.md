@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 30cdc9924d41fdbe27156fcf90688d4baf440487
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: bb46bc18469638416ff76f84516498e0076c85fd
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209276"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95500321"
 ---
 # <a name="apache-kafka-with-confluent-schema-registry-in-azure-hdinsight"></a>Apache Kafka mit Schemaregistrierung von Confluent in Azure HDInsight
 
@@ -34,19 +34,19 @@ In diesem Abschnitt stellen wir einen von HDInsight verwalteten Kafka-Cluster mi
 
 1. Wählen Sie unten die Schaltfläche **In Azure bereitstellen** aus, um sich bei Azure anzumelden und die Resource Manager-Vorlage zu öffnen.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Farnabganguly%2FKafkaschemaregistry%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/schema-registry/hdi-deploy-to-azure1.png"/></a>
+    [![In Azure bereitstellen](./media/schema-registry/hdi-deploy-to-azure1.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Farnabganguly%2FKafkaschemaregistry%2Fmaster%2Fazuredeploy.json)
 
 1. Füllen Sie die Felder in der Vorlage für die benutzerdefinierte Bereitstellung wie unten beschrieben aus:
 
-    |Eigenschaft |BESCHREIBUNG |
+    |Eigenschaft |Beschreibung |
     |---|---|
     |Subscription|Wählen Sie in der Dropdownliste das Azure-Abonnement aus, das für den Cluster verwendet wird.|
     |Resource group|Wählen Sie in der Dropdownliste Ihre vorhandene Ressourcengruppe oder die Option **Neu erstellen** aus.|
     |Region|Wählen Sie in der Dropdownliste eine Region für die Erstellung des Clusters aus.|
     |Clustername|Geben Sie einen global eindeutigen Namen ein. Oder lassen Sie die Option unverändert, um den Standardnamen zu verwenden.|
-    |Benutzername für Clusteranmeldung|Geben Sie den Benutzernamen an, der Standardwert ist **admin** .|
+    |Benutzername für Clusteranmeldung|Geben Sie den Benutzernamen an, der Standardwert ist **admin**.|
     |Kennwort für Clusteranmeldung|Geben Sie das Kennwort an.|
-    |SSH-Benutzername|Geben Sie den Benutzernamen an. Der Standardwert ist **sshuser** .|
+    |SSH-Benutzername|Geben Sie den Benutzernamen an. Der Standardwert ist **sshuser**.|
     |SSH-Kennwort|Geben Sie das Kennwort an.|
 
     Lassen Sie die anderen Felder unverändert. Wählen Sie zum Fortfahren **Überprüfen + erstellen** aus.
@@ -113,7 +113,7 @@ Die Schemaregistrierung muss über die Information verfügen, dass der Zookeeper
     debug=true
     ```
 
-1. Drücken Sie zum Speichern der Datei **STRG+X** , **Y** und dann die **EINGABETASTE** .
+1. Drücken Sie zum Speichern der Datei **STRG+X**, **Y** und dann die **EINGABETASTE**.
 
 1. Starten Sie die Schemaregistrierung, und legen Sie per Verweis fest, dass die aktualisierte Eigenschaftendatei der Schemaregistrierung verwendet werden soll. Führen Sie die folgenden Befehle aus:
 
@@ -181,7 +181,7 @@ In diesem Abschnitt lesen wir Daten aus der Standardeingabe und schreiben sie in
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic agkafkaschemareg --zookeeper $KAFKAZKHOSTS
     ```
 
-1. Verwenden Sie den **Kafka Avro-Konsolenproducer** , um ein Schema zu erstellen, das Schema dem Thema zuzuweisen und mit dem Senden von Daten an das Thema im Avro-Format zu beginnen. Stellen Sie sicher, dass das Kafka-Thema im vorherigen Schritt erfolgreich erstellt wurde und dass **$KAFKABROKERS** einen Wert enthält.
+1. Verwenden Sie den **Kafka Avro-Konsolenproducer**, um ein Schema zu erstellen, das Schema dem Thema zuzuweisen und mit dem Senden von Daten an das Thema im Avro-Format zu beginnen. Stellen Sie sicher, dass das Kafka-Thema im vorherigen Schritt erfolgreich erstellt wurde und dass **$KAFKABROKERS** einen Wert enthält.
 
     Das von uns gesendete Schema ist ein Schlüssel-Wert-Paar mit dem Schlüssel: Und dem Wert:
 

@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 02/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 44951fc19f36bb6652caf79ded96484bcc4b38f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68dddcbc5771ef1a8b5d6ea423674a1c6845a5e6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503139"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539478"
 ---
 # <a name="tutorial-create-an-apache-kafka-rest-proxy-enabled-cluster-in-hdinsight-using-azure-cli"></a>Tutorial: Erstellen eines für Apache Kafka-REST-Proxys geeigneten Clusters in HDInsight per Azure CLI
 
-In diesem Tutorial wird beschrieben, wie Sie einen für Apache Kafka-[REST-Proxys geeigneten](./rest-proxy.md) Cluster in Azure HDInsight erstellen, indem Sie die Azure-Befehlszeilenschnittstelle (Command-Line Interface, CLI) verwenden. Azure HDInsight ist ein umfassender, verwalteter Open-Source-Analysedienst für Unternehmen. Apache Kafka ist eine verteilte Open Source-Streamingplattform. Sie wird häufig als Nachrichtenbroker eingesetzt, da sie eine ähnliche Funktionalität wie eine Veröffentlichen-Abonnieren-Nachrichtenwarteschlange aufweist. Mithilfe des Kafka-REST-Proxys können Sie über eine [REST-API](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/) per HTTP mit Ihrem Kafka-Cluster interagieren. Die Azure CLI ist die plattformübergreifende Befehlszeilenumgebung von Microsoft zum Verwalten von Azure-Ressourcen.
+In diesem Tutorial wird beschrieben, wie Sie einen für Apache Kafka-[REST-Proxys geeigneten](./rest-proxy.md) Cluster in Azure HDInsight erstellen, indem Sie die Azure-Befehlszeilenschnittstelle (Command-Line Interface, CLI) verwenden. Azure HDInsight ist ein umfassender, verwalteter Open-Source-Analysedienst für Unternehmen. Apache Kafka ist eine verteilte Open Source-Streamingplattform. Sie wird häufig als Nachrichtenbroker eingesetzt, da sie eine ähnliche Funktionalität wie eine Veröffentlichen-Abonnieren-Nachrichtenwarteschlange aufweist. Mithilfe des Kafka-REST-Proxys können Sie über eine [REST-API](/rest/api/hdinsight-kafka-rest-proxy/) per HTTP mit Ihrem Kafka-Cluster interagieren. Die Azure CLI ist die plattformübergreifende Befehlszeilenumgebung von Microsoft zum Verwalten von Azure-Ressourcen.
 
 Auf die Apache Kafka-API kann nur von Ressourcen im gleichen virtuellen Netzwerk zugegriffen werden. Sie können per SSH direkt auf den Cluster zugreifen. Wenn Sie eine Verbindung zwischen anderen Diensten, Netzwerken und virtuellen Computern und Apache Kafka herstellen möchten, müssen Sie zunächst ein virtuelles Netzwerk und anschließend die Ressourcen in diesem Netzwerk erstellen. Weitere Informationen finden Sie unter [Herstellen einer Verbindung mit Apache Kafka in HDInsight über ein virtuelles Azure-Netzwerk](./apache-kafka-connect-vpn-gateway.md).
 
@@ -35,7 +35,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 
 * Eine Azure AD-Sicherheitsgruppe, in der Ihre registrierte Anwendung Mitglied ist. Mit dieser Sicherheitsgruppe wird gesteuert, welche Anwendungen mit dem REST-Proxy interagieren dürfen. Weitere Informationen zum Erstellen von Azure AD-Gruppen finden Sie unter [Erstellen einer einfachen Gruppe und Hinzufügen von Mitgliedern mithilfe von Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-* Azure-Befehlszeilenschnittstelle. Stellen Sie sicher, dass Sie mindestens Version 2.0.79 verwenden. Weitere Informationen finden Sie unter [Installieren der Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Azure-Befehlszeilenschnittstelle. Stellen Sie sicher, dass Sie mindestens Version 2.0.79 verwenden. Weitere Informationen finden Sie unter [Installieren der Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-an-apache-kafka-cluster"></a>Erstellen eines Apache Kafka-Clusters
 
@@ -56,8 +56,8 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
     |location|Ersetzen Sie LOCATION durch eine Region, in der der Cluster erstellt werden soll. Verwenden Sie den Befehl `az account list-locations`, um eine Liste mit gültigen Standorten zu erhalten.|
     |clusterName|Ersetzen Sie CLUSTERNAME durch einen global eindeutigen Namen für Ihren neuen Cluster.|
     |storageAccount|Ersetzen Sie STORAGEACCOUNTNAME durch einen Namen für Ihr neues Speicherkonto.|
-    |httpPassword|Ersetzen Sie PASSWORD durch ein Kennwort für die Clusteranmeldung per **admin**.|
-    |sshPassword|Ersetzen Sie PASSWORD durch ein Kennwort für den Secure Shell-Benutzernamen **sshuser**.|
+    |httpPassword|Ersetzen Sie PASSWORD durch ein Kennwort für die Clusteranmeldung per **admin** .|
+    |sshPassword|Ersetzen Sie PASSWORD durch ein Kennwort für den Secure Shell-Benutzernamen **sshuser** .|
     |securityGroupName|Ersetzen Sie SECURITYGROUPNAME durch den Namen der AAD-Clientsicherheitsgruppe für den Kafka-REST-Proxy. Die Variable wird an den Parameter `--kafka-client-group-name` für `az-hdinsight-create` übergeben.|
     |securityGroupID|Ersetzen Sie SECURITYGROUPID durch die ID der AAD-Clientsicherheitsgruppe für den Kafka-REST-Proxy. Die Variable wird an den Parameter `--kafka-client-group-id` für `az-hdinsight-create` übergeben.|
     |storageContainer|Der Speichercontainer, der vom Cluster verwendet wird. Lassen Sie die Einstellung für dieses Tutorial unverändert. Diese Variable wird anhand des Namens des Clusters festgelegt.|
@@ -85,7 +85,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
     export componentVersion=kafka=2.1
     ```
 
-1. [Erstellen Sie die Ressourcengruppe](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) mithilfe des folgenden Befehls:
+1. [Erstellen Sie die Ressourcengruppe](/cli/azure/group#az-group-create) mithilfe des folgenden Befehls:
 
     ```azurecli
      az group create \
@@ -93,7 +93,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
         --name $resourceGroupName
     ```
 
-1. [Erstellen Sie ein Azure Storage-Konto](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) mithilfe des folgenden Befehls:
+1. [Erstellen Sie ein Azure Storage-Konto](/cli/azure/storage/account#az-storage-account-create) mithilfe des folgenden Befehls:
 
     ```azurecli
     # Note: kind BlobStorage is not available as the default storage account.
@@ -106,7 +106,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
         --sku Standard_LRS
     ```
 
-1. [Extrahieren Sie den Primärschlüssel aus dem Azure Storage-Konto](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list), und speichern Sie ihn in einer Variablen, indem Sie den folgenden Befehl eingeben:
+1. [Extrahieren Sie den Primärschlüssel aus dem Azure Storage-Konto](/cli/azure/storage/account/keys#az-storage-account-keys-list), und speichern Sie ihn in einer Variablen, indem Sie den folgenden Befehl eingeben:
 
     ```azurecli
     export storageAccountKey=$(az storage account keys list \
@@ -115,7 +115,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
         --query [0].value -o tsv)
     ```
 
-1. [Erstellen Sie einen Azure Storage-Container](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) mithilfe des folgenden Befehls:
+1. [Erstellen Sie einen Azure Storage-Container](/cli/azure/storage/container#az-storage-container-create) mithilfe des folgenden Befehls:
 
     ```azurecli
     az storage container create \
@@ -124,7 +124,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
         --account-name $storageAccount
     ```
 
-1. [Erstellen des HDInsight-Clusters](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) Beachten Sie vor dem Eingeben des Befehls die folgenden Parameter:
+1. [Erstellen des HDInsight-Clusters](/cli/azure/hdinsight#az-hdinsight-create) Beachten Sie vor dem Eingeben des Befehls die folgenden Parameter:
 
     1. Erforderliche Parameter für Kafka-Cluster:
 

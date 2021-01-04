@@ -15,12 +15,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 85ebb7f5ac52f4eea25f9e6f1a2b1b5ac6f4caa5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d476b1db645ed1f91b62fcf11464f7077a8fb3c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87077924"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491425"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Pushbenachrichtigungen mit Azure Notification Hubs: Häufig gestellte Fragen
 
@@ -159,15 +159,12 @@ Wir bieten eine Notfallwiederherstellung der Metadaten (Notification Hubs-Name, 
 
 1. Erstellen Sie einen sekundären Notification Hub in einem anderen Rechenzentrum. Es empfiehlt sich, gleich zu Anfang einen sekundären Notification Hub zu erstellen, um vor Notfallwiederherstellungsereignissen geschützt zu sein, die Ihre Verwaltungsmöglichkeiten beeinträchtigen. Sie können den sekundären Notification Hub aber auch erst zum Zeitpunkt des Notfallwiederherstellungsereignisses erstellen.
 
-2. Füllen Sie die Registrierungen aus Ihrem primären Notification Hub im sekundären Notification Hub auf. Wir raten davon ab, die Registrierungen auf beiden Hubs zu verwalten und zu synchronisieren, wenn neue Registrierungen hinzukommen. Das funktioniert nicht sonderlich gut, da Registrierungen grundsätzlich dazu tendieren, auf der PNS-Seite abzulaufen. Notification Hubs bereinigt Registrierungen, wenn es PNS-Feedback zu abgelaufenen oder ungültigen Registrierungen empfängt.  
+2. Sorgen Sie mithilfe einer der folgenden Optionen dafür, dass der sekundäre Notification Hub mit dem primären Notification Hub synchron ist:
 
-Zwei Empfehlungen für App-Back-Ends:
+   * Verwenden Sie ein App-Back-End, das Installationen gleichzeitig in beiden Notification Hubs erstellt und aktualisiert. Mithilfe der Installationen können Sie Ihren eigenen eindeutigen Gerätebezeichner angeben, der besser für das Replikationsszenario geeignet ist. Weitere Informationen finden Sie in [diesem Beispielcode](https://github.com/Azure/azure-notificationhubs-dotnet/tree/main/Samples/RedundantHubSample).
+   * Verwenden Sie ein App-Back-End, das regelmäßig eine Sicherungskopie der Registrierungen aus dem primären Notification Hub abruft. Das ermöglicht die Durchführung einer Masseneinfügung in den sekundären Notification Hub.
 
-* Verwenden Sie ein App-Back-End, das auf seiner Seite eine bestimmte Gruppe von Registrierungen verwaltet. Das ermöglicht die Durchführung einer Masseneinfügung in den sekundären Notification Hub.
-* Verwenden Sie ein App-Back-End, das regelmäßig eine Sicherungskopie der Registrierungen aus dem primären Notification Hub abruft. Das ermöglicht die Durchführung einer Masseneinfügung in den sekundären Notification Hub.
-
-> [!NOTE]
-> Informationen zu Export-/Importfunktionen für Registrierungen im Tarif „Standard“ finden Sie unter [Vorgehensweise: Massenhaftes Exportieren und Ändern von Registrierungen].
+Der sekundäre Notification Hub kann abgelaufene Installationen/Registrierungen aufweisen. Wenn die Pushbenachrichtigung an ein abgelaufenes Handle übermittelt wird, bereinigt Notification Hubs den zugehörigen Datensatz der Installation/Registrierung basierend auf der Antwort vom PNS-Server. Zum Bereinigen abgelaufener Datensätze eines sekundären Notification Hubs fügen Sie benutzerdefinierte Logik hinzu, die Feedback von allen Sendevorgängen verarbeitet. Anschließend läuft die Installation/Registrierung im sekundären Notification Hub ab.
 
 Falls Sie über kein Back-End verfügen und die App auf Zielgeräten gestartet wird, führen die Geräte eine neue Registrierung beim sekundären Notification Hub durch. Irgendwann sind dann alle aktiven Geräte beim sekundären Notification Hub registriert.
 

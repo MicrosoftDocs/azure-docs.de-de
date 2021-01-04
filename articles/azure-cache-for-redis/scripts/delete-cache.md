@@ -9,12 +9,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b1e044c6f61e51de1d8f2ba07f64918307109e46
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ce6e20e5e4866bc4daa3f331fa2a8612ac6c260
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494722"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184160"
 ---
 # <a name="delete-an-azure-cache-for-redis"></a>Löschen einer Azure Cache for Redis-Instanz
 
@@ -34,11 +34,11 @@ Dieses Skript verwendet die folgenden Befehle, um eine Azure Cache for Redis-Ins
 
 | Get-Help | Notizen |
 |---|---|
-| [az redis delete](https://docs.microsoft.com/cli/azure/redis) | Löscht eine Azure Cache for Redis-Instanz. |
+| [az redis delete](/cli/azure/redis) | Löscht eine Azure Cache for Redis-Instanz. |
 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zur Azure CLI finden Sie in der [Azure CLI-Dokumentation](https://docs.microsoft.com/cli/azure).
+Weitere Informationen zur Azure CLI finden Sie in der [Azure CLI-Dokumentation](/cli/azure).
 
 Zusätzliche Azure Cache for Redis-CLI-Skriptbeispiele finden Sie in der [Dokumentation zu Azure Cache for Redis](../cli-samples.md).

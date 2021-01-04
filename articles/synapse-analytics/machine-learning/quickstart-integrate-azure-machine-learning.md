@@ -9,16 +9,16 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 141cc47adb398cbd5730fbe33bcd90fece809ed3
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: a5d84b936679cdd5ebd5bec4938d6db7fcb641e7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91543299"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455500"
 ---
 # <a name="quickstart-create-a-new-azure-machine-learning-linked-service-in-synapse"></a>Schnellstart: Erstellen eines neuen verknüpften Azure Machine Learning-Diensts in Synapse
 
-In diesem Schnellstart verknüpfen Sie einen Synapse Analytics-Arbeitsbereich mit einem Azure Machine Learning-Arbeitsbereich. Durch das Verknüpfen dieser Arbeitsbereiche können Sie Azure Machine Learning aus verschiedenen Erfahrungen in Synapse nutzen.
+In dieser Schnellstartanleitung wird ein Azure Synapse Analytics-Arbeitsbereich mit einem Azure Machine Learning-Arbeitsbereich verknüpft. Durch das Verknüpfen dieser Arbeitsbereiche können Sie Azure Machine Learning aus verschiedenen Erfahrungen in Synapse nutzen.
 
 Beispielsweise ermöglicht diese Verknüpfung mit einem Azure Machine Learning-Arbeitsbereich folgende Erfahrungen:
 
@@ -79,5 +79,5 @@ In diesem Schritt wird ein neuer Dienstprinzipal erstellt. Wenn Sie einen vorhan
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Tutorial: Assistent für die Bewertung von Machine Learning-Modellen: SQL-Pool](tutorial-sql-pool-model-scoring-wizard.md)
-- [Machine Learning-Funktionen in Azure Synapse Analytics (Vorschau für Arbeitsbereiche)](what-is-machine-learning.md)
+- [Tutorial: Assistent für die Bewertung von Machine Learning-Modellen: Dedizierter SQL-Pool](tutorial-sql-pool-model-scoring-wizard.md)
+- [Machine Learning-Funktionen in Azure Synapse Analytics](what-is-machine-learning.md)

@@ -1,7 +1,7 @@
 ---
 title: Transformieren von Daten im Designer
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Sie Daten in Azure Machine Learning-Designer transformieren, um eigene Datasets zu erstellen.
+description: Erfahren Sie, wie Sie Daten in Azure Machine Learning-Designer importieren und transformieren, um eigene Datasets zu erstellen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,19 +10,19 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 9124bbfc7300f3a5116c572d569b41e15356ab8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be2921f88ad2ecf88c555daf8385f1bd6733e836
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983842"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554014"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer"></a>Transformieren von Daten in Azure Machine Learning-Designer
 
 
 In diesem Artikel erfahren Sie, wie Sie Datasets in Azure Machine Learning-Designer transformieren und speichern, um Ihre eigenen Daten für Machine Learning vorzubereiten.
 
-Verwenden Sie das Datasetbeispiel [Adult Census Income Binary Classification](sample-designer-datasets.md) (Binäres Klassifizierungsdataset der Einkommenserhebung für Erwachsene), um zwei Datasets vorzubereiten: ein Dataset mit Erhebungsinformationen von Erwachsenen nur aus den USA und ein weiteres Dataset mit Erhebungsinformationen von Erwachsenen außerhalb der USA.
+Verwenden Sie das Datasetbeispiel [Adult Census Income Binary Classification](./samples-designer.md) (Binäres Klassifizierungsdataset der Einkommenserhebung für Erwachsene), um zwei Datasets vorzubereiten: ein Dataset mit Erhebungsinformationen von Erwachsenen nur aus den USA und ein weiteres Dataset mit Erhebungsinformationen von Erwachsenen außerhalb der USA.
 
 In diesem Artikel werden folgende Vorgehensweisen behandelt:
 
@@ -74,7 +74,7 @@ In diesem Abschnitt verwenden Sie das Modul [Split Data](algorithm-module-refere
 
 1. Legen Sie rechts neben der Canvas im Bereich mit den Moduldetails die Option **Splitter Modus** (Aufteilungsmodus) auf **Regulärer Ausdruck** fest.
 
-1. Geben Sie den **regulären Ausdruck**ein: `\"native-country" United-States`.
+1. Geben Sie den **regulären Ausdruck** ein: `\"native-country" United-States`.
 
     Der Modus **Regulärer Ausdruck** überprüft eine einzelne Spalte auf einen Wert. Weitere Informationen zum Modul „Split Data“ (Daten aufteilen) finden Sie auf der entsprechenden [Referenzseite für Algorithmen und Module](algorithm-module-reference/split-data.md).
 

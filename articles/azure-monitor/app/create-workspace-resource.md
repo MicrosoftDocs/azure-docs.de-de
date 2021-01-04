@@ -3,18 +3,18 @@ title: Erstellen einer neuen arbeitsbereichsbasierten Application Insights-Resso
 description: Erfahren Sie mehr über die erforderlichen Schritte zum Aktivieren der neuen arbeitsbereichsbasierte Application Insights-Ressourcen in Azure Monitor.
 ms.topic: conceptual
 ms.date: 10/06/2020
-ms.openlocfilehash: 9b91e5065729bee6af3f8018c36930e132eb1a15
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: ecbac02bcb4d9b4f0db36eab854a91366c774d6c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945412"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536913"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Arbeitsbereichsbasierte Application Insights-Ressourcen
 
 Arbeitsbereichsbasierte Ressourcen unterstützen die vollständige Integration zwischen Application Insights und Log Analytics. Sie können jetzt Ihre Application Insights-Telemetriedaten an einen gemeinsamen Log Analytics-Arbeitsbereich senden, über den Sie auf alle Features von Log Analytics zugreifen und gleichzeitig Anwendungs-, Infrastruktur- und Plattformprotokolle an einem einzigen konsolidierten Speicherort sammeln können.
 
-Damit ist auch eine gemeinsame rollenbasierte Zugriffssteuerung über Ihre Ressourcen hinweg möglich, und die Notwendigkeit app- bzw. arbeitsbereichsübergreifender Abfragen entfällt.
+Damit ist auch eine gemeinsame rollenbasierte Zugriffssteuerung in Azure (Azure RBAC) in allen Ihren Ressourcen möglich, und die Notwendigkeit anwendungs- bzw. arbeitsbereichsübergreifender Abfragen entfällt.
 
 > [!NOTE]
 > Die Abrechnung der Datenerfassung und -aufbewahrung für arbeitsbereichsbasierte Application Insights-Ressourcen erfolgt über den Log Analytics-Arbeitsbereich, in dem sich die Daten befinden. [Erfahren Sie mehr]( ./pricing.md#workspace-based-application-insights) über die Abrechnung für arbeitsbereichsbasierte Application Insights-Ressourcen.

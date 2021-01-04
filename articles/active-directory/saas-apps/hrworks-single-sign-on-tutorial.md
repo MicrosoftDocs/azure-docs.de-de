@@ -39,7 +39,7 @@ Für die ersten Schritte benötigen Sie Folgendes:
 
 In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure AD in einer Testumgebung.
 
-* HRworks Single Sign-On unterstützt **SP** -initiiertes einmaliges Anmelden.
+* HRworks Single Sign-On unterstützt **SP**-initiiertes einmaliges Anmelden.
 
 ## <a name="adding-hrworks-single-sign-on-from-the-gallery"></a>Hinzufügen von HRworks Single Sign-On aus dem Katalog
 
@@ -47,14 +47,14 @@ Zum Konfigurieren der Integration von HRworks Single Sign-On in Azure AD müssen
 
 1. Melden Sie sich mit einem Geschäfts-, Schul- oder Unikonto oder mit einem persönlichen Microsoft-Konto beim [Azure-Portal](https://portal.azure.com) an.
 1. Wählen Sie im linken Navigationsbereich den Dienst **Azure Active Directory** aus.
-1. Navigieren Sie zu **Unternehmensanwendungen** , und wählen Sie dann **Alle Anwendungen** aus.
+1. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie dann **Alle Anwendungen** aus.
 1. Wählen Sie zum Hinzufügen einer neuen Anwendung **Neue Anwendung** aus.
 1. Geben Sie im Abschnitt **Aus Katalog hinzufügen** im Suchfeld den Suchbegriff **HRworks Single Sign-On** ein.
 1. Wählen Sie im Ergebnisbereich **HRworks Single Sign-On** aus, und fügen Sie dann die App hinzu. Warten Sie einige Sekunden, während die App Ihrem Mandanten hinzugefügt wird.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-hrworks-single-sign-on"></a>Konfigurieren und Testen des einmaligen Anmeldens von Azure AD für HRworks Single Sign-On
 
-Konfigurieren und testen Sie das einmalige Anmelden von Azure AD mit HRworks Single Sign-On mithilfe eines Testbenutzers mit dem Namen **B. Simon** . Damit einmaliges Anmelden funktioniert, muss eine Linkbeziehung zwischen einem Azure AD-Benutzer und dem entsprechenden Benutzer in HRworks Single Sign-On eingerichtet werden.
+Konfigurieren und testen Sie das einmalige Anmelden von Azure AD mit HRworks Single Sign-On mithilfe eines Testbenutzers mit dem Namen **B. Simon**. Damit einmaliges Anmelden funktioniert, muss eine Linkbeziehung zwischen einem Azure AD-Benutzer und dem entsprechenden Benutzer in HRworks Single Sign-On eingerichtet werden.
 
 Führen Sie die folgenden Schritte aus, um das einmalige Anmelden von Azure AD mit HRworks Single Sign-On zu konfigurieren und zu testen:
 
@@ -69,9 +69,9 @@ Führen Sie die folgenden Schritte aus, um das einmalige Anmelden von Azure AD 
 
 Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal zu aktivieren.
 
-1. Navigieren Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **HRworks Single Sign-On** zum Abschnitt **Verwalten** , und wählen Sie **Einmaliges Anmelden** aus.
+1. Navigieren Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **HRworks Single Sign-On** zum Abschnitt **Verwalten**, und wählen Sie **Einmaliges Anmelden** aus.
 1. Wählen Sie auf der Seite **SSO-Methode auswählen** die Methode **SAML** aus.
-1. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Bearbeitungs- bzw. Stiftsymbol für **Grundlegende SAML-Konfiguration** , um die Einstellungen zu bearbeiten.
+1. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Bearbeitungs- bzw. Stiftsymbol für **Grundlegende SAML-Konfiguration**, um die Einstellungen zu bearbeiten.
 
    ![Bearbeiten der SAML-Basiskonfiguration](common/edit-urls.png)
 
@@ -82,7 +82,7 @@ Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal 
     > [!NOTE]
     > Dieser Wert entspricht nicht dem tatsächlichen Wert. Ersetzen Sie diesen Wert durch die tatsächliche Anmelde-URL. Wenden Sie sich an das [Kundensupportteam von HRworks Single Sign-On](mailto:nadja.sommerfeld@hrworks.de), um den Wert zu erhalten. Sie können sich auch die Muster im Abschnitt **Grundlegende SAML-Konfiguration** im Azure-Portal ansehen.
 
-1. Navigieren Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** zu **Verbundmetadaten-XML** , und wählen Sie **Herunterladen** aus, um das Zertifikat herunterzuladen und auf Ihrem Computer zu speichern.
+1. Navigieren Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** zu **Verbundmetadaten-XML**, und wählen Sie **Herunterladen** aus, um das Zertifikat herunterzuladen und auf Ihrem Computer zu speichern.
 
     ![Downloadlink für das Zertifikat](common/metadataxml.png)
 
@@ -99,16 +99,16 @@ In diesem Abschnitt erstellen Sie im Azure-Portal einen Testbenutzer mit dem Nam
 1. Führen Sie unter den Eigenschaften für **Benutzer** die folgenden Schritte aus:
    1. Geben Sie im Feld **Name** die Zeichenfolge `B.Simon` ein.  
    1. Geben Sie im Feld **Benutzername** die Zeichenfolge username@companydomain.extension ein. Beispiel: `B.Simon@contoso.com`.
-   1. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen** , und notieren Sie sich den Wert aus dem Feld **Kennwort** .
-   1. Klicken Sie auf **Erstellen** .
+   1. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den Wert aus dem Feld **Kennwort**.
+   1. Klicken Sie auf **Erstellen**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Zuweisen des Azure AD-Testbenutzers
 
 In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anmeldens von Azure, indem Sie ihr Zugriff auf HRworks Single Sign-On gewähren.
 
-1. Wählen Sie im Azure-Portal **Unternehmensanwendungen**  > **Alle Anwendungen** aus.
+1. Wählen Sie im Azure-Portal **Unternehmensanwendungen** > **Alle Anwendungen** aus.
 1. Wählen Sie in der Anwendungsliste den Eintrag **HRworks Single Sign-On** aus.
-1. Navigieren Sie auf der Übersichtsseite der App zum Abschnitt **Verwalten** , und wählen Sie **Benutzer und Gruppen** aus.
+1. Navigieren Sie auf der Übersichtsseite der App zum Abschnitt **Verwalten**, und wählen Sie **Benutzer und Gruppen** aus.
 
    ![Link „Benutzer und Gruppen“](common/users-groups-blade.png)
 
@@ -116,9 +116,9 @@ In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anm
 
     ![Link „Benutzer hinzufügen“](common/add-assign-user.png)
 
-1. Wählen Sie im Dialogfeld **Benutzer und Gruppen** in der Liste „Benutzer“ den Eintrag **B. Simon** aus, und klicken Sie dann unten auf dem Bildschirm auf die Schaltfläche **Auswählen** .
-1. Wenn Sie einen beliebigen Rollenwert in der SAML-Assertion erwarten, wählen Sie im Dialogfeld **Rolle auswählen** die entsprechende Rolle für den Benutzer in der Liste aus, und klicken Sie dann im unteren Bildschirmbereich auf die Schaltfläche **Auswählen** .
-1. Klicken Sie im Dialogfeld **Zuweisung hinzufügen** auf die Schaltfläche **Zuweisen** .
+1. Wählen Sie im Dialogfeld **Benutzer und Gruppen** in der Liste „Benutzer“ den Eintrag **B. Simon** aus, und klicken Sie dann unten auf dem Bildschirm auf die Schaltfläche **Auswählen**.
+1. Wenn Sie einen beliebigen Rollenwert in der SAML-Assertion erwarten, wählen Sie im Dialogfeld **Rolle auswählen** die entsprechende Rolle für den Benutzer in der Liste aus, und klicken Sie dann im unteren Bildschirmbereich auf die Schaltfläche **Auswählen**.
+1. Klicken Sie im Dialogfeld **Zuweisung hinzufügen** auf die Schaltfläche **Zuweisen**.
 
 ## <a name="configure-hrworks-single-sign-on-sso"></a>Konfigurieren des einmaligen Anmeldens für HRworks Single Sign-On
 
@@ -126,17 +126,17 @@ In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anm
 
     ![Erweiterung „Meine Apps“](common/install-myappssecure-extension.png)
 
-1. Klicken Sie nach dem Hinzufügen der Erweiterung zum Browser auf **HRworks Single Sign-On einrichten** , um zur Anwendung HRworks Single Sign-On weitergeleitet zu werden. Geben Sie dort die Administratoranmeldeinformationen ein, um sich bei HRworks Single Sign-On anzumelden. Die Browsererweiterung konfiguriert die Anwendung automatisch für Sie und automatisiert die Schritte 3 und 4.
+1. Klicken Sie nach dem Hinzufügen der Erweiterung zum Browser auf **HRworks Single Sign-On einrichten**, um zur Anwendung HRworks Single Sign-On weitergeleitet zu werden. Geben Sie dort die Administratoranmeldeinformationen ein, um sich bei HRworks Single Sign-On anzumelden. Die Browsererweiterung konfiguriert die Anwendung automatisch für Sie und automatisiert die Schritte 3 und 4.
 
     ![Einrichtungskonfiguration](common/setup-sso.png)
 
 1. Wenn Sie HRworks Single Sign-On manuell einrichten möchten, melden Sie sich in einem neuen Webbrowserfenster bei der HRworks Single Sign-On-Unternehmenswebsite als Administrator an, und führen Sie die folgenden Schritte aus:
 
-1. Klicken Sie links in der Menüleiste auf **Administrator** > **Grundlagen** > **Sicherheit** > **Einmaliges Anmelden** , und führen Sie die folgenden Schritte aus:
+1. Klicken Sie links in der Menüleiste auf **Administrator** > **Grundlagen** > **Sicherheit** > **Einmaliges Anmelden**, und führen Sie die folgenden Schritte aus:
 
     ![Einmaliges Anmelden konfigurieren](./media/hrworks-single-sign-on-tutorial/configure01.png)
 
-    a. Aktivieren Sie das Kontrollkästchen **Einmaliges Anmelden verwenden** .
+    a. Aktivieren Sie das Kontrollkästchen **Einmaliges Anmelden verwenden**.
 
     b. Wählen Sie **XML Metadata** (XML-Metadaten) als **Meta data input method** (Metadaten-Eingabemethode) aus.
 
@@ -144,7 +144,7 @@ In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anm
 
     d. Öffnen Sie im Editor die Metadaten-XML, die Sie aus dem Azure-Portal heruntergeladen haben, kopieren Sie den Inhalt, und fügen Sie ihn anschließend in das Textfeld **Metadata** (Metadaten) ein.
 
-    e. Klicken Sie auf **Speichern** .
+    e. Klicken Sie auf **Speichern**.
 
 ### <a name="create-hrworks-single-sign-on-test-user"></a>Erstellen eines HRworks Single Sign-On-Testbenutzers
 
@@ -160,7 +160,7 @@ Zum Aktivieren von Azure AD-Benutzern müssen Sie sich an HRworks Single Sign-On
 
 1. Klicken Sie im Popupfenster auf **Next** (Weiter).
 
-    ![Screenshot: Liste der Länder, die Sie für die Person auswählen können](./media/hrworks-single-sign-on-tutorial/configure03.png)
+    ![Screenshot: Liste der Länder/Regionen, die Sie für die Person auswählen können](./media/hrworks-single-sign-on-tutorial/configure03.png)
 
 1. Fügen Sie im Popupelement **Create new person with country for legal terms** (Aus rechtlichen Gründen neue Person mit Land erstellen) die erforderlichen Details ein, z. B. **First name** (Vorname) und **Last name** (Nachname), und klicken Sie auf **Create** (Erstellen).
 

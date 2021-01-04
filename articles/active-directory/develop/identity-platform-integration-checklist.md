@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 036c40395e5da5ebc09a87e420893d7dbd2ec668
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94da22fbb2940bddaad1324bedc8759706eca37b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116800"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173565"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Bewährte Methoden und Empfehlungen für Microsoft Identity Platform
 
@@ -32,7 +32,7 @@ Stellen Sie anhand der folgenden Checkliste sicher, dass Ihre Anwendung effektiv
 
 ## <a name="basics"></a>Grundlagen
 
-[Kontrollkästchen](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409) Beschäftigen Sie sich intensiv mit den ![Richtlinien für die Microsoft-Plattform](./media/active-directory-integration-checklist/checkbox-two.svg). Stellen Sie sicher, dass Ihre Anwendung den dargelegten Bedingungen entspricht, weil diese für den Schutz der Benutzer und der Plattform entwickelt wurden.
+[Kontrollkästchen](/legal/microsoft-identity-platform/terms-of-use) Beschäftigen Sie sich intensiv mit den ![Richtlinien für die Microsoft-Plattform](./media/active-directory-integration-checklist/checkbox-two.svg). Stellen Sie sicher, dass Ihre Anwendung den dargelegten Bedingungen entspricht, weil diese für den Schutz der Benutzer und der Plattform entwickelt wurden.
 
 ## <a name="ownership"></a>Besitz
 

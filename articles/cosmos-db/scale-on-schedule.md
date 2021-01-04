@@ -3,17 +3,19 @@ title: Skalieren von Azure Cosmos DB nach einem Zeitplan mithilfe von Azure Fun
 description: Erfahren Sie, wie Sie bei Änderungen am Durchsatz in Azure Cosmos DB mithilfe von PowerShell und Azure Functions eine Skalierung durchführen.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 56fa87cfec7f50253dfce7d7c296ff7cb980aebe
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c60f3fc6b4ce4a1aead273fedb81e39de697f576
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482008"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339256"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Skalieren des Azure Cosmos DB-Durchsatzes mithilfe von Azure Functions-Triggern
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Die Leistung eines Azure Cosmos-Kontos basiert auf der Menge des bereitgestellten Durchsatzes, der in Anforderungseinheiten pro Sekunde (Request Units, RU/s) angegeben wird. Die Bereitstellung erfolgt mit einer zweiten Granularität und wird basierend auf den höchsten RU/s pro Stunde abgerechnet. Dieses bereitgestellte Kapazitätsmodell ermöglicht dem Dienst, einen vorhersagbaren und konsistenten Durchsatz, garantiert niedrige Latenz und Hochverfügbarkeit zu bieten. Die meisten Produktionsworkloads nutzen diese Features. In Entwicklungs- und Testumgebungen, in denen Azure Cosmos DB nur während der Arbeitszeit verwendet wird, können Sie den Durchsatz jedoch am Morgen hochskalieren und am Abend nach der Arbeitszeit wieder herunterskalieren.
 

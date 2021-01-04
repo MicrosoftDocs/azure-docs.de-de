@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: f1a6a99285e54338b0020aad63fef2944ce3469d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 6e2df9168b880e565ea9b70c82c2c0c1b55b4db8
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088668"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737242"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>Tutorial: Bereitstellen von Azure Spring Cloud im virtuellen Azure-Netzwerk (VNET-Einschleusung)
 
@@ -27,10 +27,11 @@ Die Bereitstellung ermöglicht Folgendes:
 * Befähigung von Kunden zum Steuern der eingehenden und ausgehenden Netzwerkkommunikation für Azure Spring Cloud
 
 ## <a name="prerequisites"></a>Voraussetzungen
-Sie müssen den Azure Spring Cloud-Ressourcenanbieter `Microsoft.AppPlatform` gemäß den Anweisungen zum [Registrieren des Ressourcenanbieters im Azure-Portal](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) oder durch Ausführung des folgenden Azure CLI-Befehls registrieren:
+Sie müssen die Azure Spring Cloud-Ressourcenanbieter *Microsoft.AppPlatform* und *Microsoft.ContainerService* gemäß den Anweisungen zum [Registrieren des Ressourcenanbieters im Azure-Portal](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) oder durch Ausführung des folgenden Azure CLI-Befehls registrieren:
 
 ```azurecli
 az provider register --namespace Microsoft.AppPlatform
+az provider register --namespace Microsoft.ContainerService
 ```
 ## <a name="virtual-network-requirements"></a>Anforderungen für virtuelle Netzwerke
 Das virtuelle Netzwerk, in dem Sie die Azure Spring Cloud-Dienstinstanz bereitstellen, muss die folgenden Anforderungen erfüllen:
@@ -66,7 +67,7 @@ Wenn Sie bereits über ein virtuelles Netzwerk zum Hosten der Azure Spring Cloud
 
 1. Wählen Sie **Subnetz hinzufügen** aus, und geben Sie unter **Subnetzname** den Namen *service-runtime-subnet* und unter **Subnetzadressbereich** den Bereich „10.1.0.0/24“ ein. Klicken Sie anschließend auf **Hinzufügen**.
 
-1. Wählen Sie erneut **Subnetz hinzufügen** aus, und geben Sie unter **Subnetzname** den Namen *apps-subnet* und unter **Subnetzadressbereich** den Bereich „10.1.1.0/24“ ein.  Klicken Sie auf **Hinzufügen**.
+1. Wählen Sie erneut **Subnetz hinzufügen** aus, und geben Sie **Subnetzname** und **Subnetzadressbereich** ein, etwa *apps-subnet* und 10.1.1.0/24.  Klicken Sie auf **Hinzufügen**.
 
 1. Klicken Sie auf **Überprüfen + erstellen**. Übernehmen Sie die restlichen Standardeinstellungen, und klicken Sie auf **Erstellen**.
 
@@ -135,11 +136,11 @@ az role assignment create \
 
 Nach der Bereitstellung werden zwei zusätzliche Ressourcengruppen in Ihrem Abonnement erstellt, um die Netzwerkressourcen für die Azure Spring Cloud-Dienstinstanz zu hosten.  Navigieren Sie zur **Startseite**, und wählen Sie dann **Ressourcengruppen** aus den oberen Menüelementen aus, um die folgenden neuen Ressourcengruppen zu suchen.
 
-Die Ressourcengruppe mit dem Namen *azure-spring-cloud-service-runtime_{Dienstinstanzname}_{Dienstinstanzregion}* enthält Netzwerkressourcen für die Dienstruntime der Dienstinstanz.
+Die Ressourcengruppe mit dem Namen *ap-svc-rt_{Dienstinstanzname}_{Dienstinstanzregion}* enthält Netzwerkressourcen für die Dienstruntime der Dienstinstanz.
 
   ![Dienstruntime](./media/spring-cloud-v-net-injection/service-runtime-resource-group.png)
 
-Die Ressourcengruppe mit dem Namen *azure-spring-cloud-service-runtime_{Dienstinstanzname}_{Dienstinstanzregion}* enthält Netzwerkressourcen für die Spring Boot-Microserviceanwendungen der Dienstinstanz.
+Die Ressourcengruppe mit dem Namen *ap-app_{Dienstinstanzname}_{Dienstinstanzregion}* enthält Netzwerkressourcen für die Spring Boot-Microserviceanwendungen der Dienstinstanz.
 
   ![Apps-Ressourcengruppe](./media/spring-cloud-v-net-injection/apps-resource-group.png)
 

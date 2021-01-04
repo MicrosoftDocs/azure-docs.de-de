@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/19/2019
-ms.openlocfilehash: 1e04662cb0f67863e23f1fc1ce7e1f21ca4e9197
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 898a02796d578d76f9b45d167f4e92a4bf9831ba
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087638"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536282"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Verwalten eines ML Services-Clusters in Azure HDInsight
 
@@ -31,7 +31,7 @@ Sie können mehrere gleichzeitige Benutzer für ML Services-Cluster in HDInsight
 
 ![HDI-Anmeldeparameter für Azure-Portal](./media/r-server-hdinsight-manage/hdi-concurrent-users1.png)
 
-- **Benutzername für Clusteranmeldung**: ein HTTP-Benutzer für die Authentifizierung über das HDInsight-Gateway, das zum Schutz der von Ihnen erstellten HDInsight-Cluster verwendet wird. Mit diesem HTTP-Benutzer wird auf die Apache Ambari- und die Apache Hadoop YARN-Benutzeroberfläche sowie auf andere UI-Komponenten zugegriffen.
+- **Benutzername für Clusteranmeldung** : ein HTTP-Benutzer für die Authentifizierung über das HDInsight-Gateway, das zum Schutz der von Ihnen erstellten HDInsight-Cluster verwendet wird. Mit diesem HTTP-Benutzer wird auf die Apache Ambari- und die Apache Hadoop YARN-Benutzeroberfläche sowie auf andere UI-Komponenten zugegriffen.
 - **SSH-Benutzername (Secure Shell)** : ein SSH-Benutzer für den Zugriff auf den Cluster über Secure Shell. Dieser Benutzer ist ein Benutzer im Linux-System für alle Hauptknoten, Workerknoten und Edgeknoten. Somit können Sie Secure Shell zum Zugreifen auf einen beliebigen Knoten in einem Remotecluster verwenden.
 
 Die RStudio Server Community-Version, die im ML Services-Cluster in HDInsight verwendet wird, akzeptiert für die Anmeldung nur Linux-Benutzernamen und -Kennwörter. Die Übergabe von Token wird nicht unterstützt. Wenn Sie zum ersten Mal versuchen, auf einem ML Services-Cluster auf RStudio zuzugreifen, müssen Sie sich zweimal anmelden.
@@ -68,13 +68,13 @@ Im folgenden Screenshot sind die Ausgaben dargestellt.
 
 ![Screenshot: Ausgabe gleichzeitiger Benutzer](./media/r-server-hdinsight-manage/hdi-concurrent-users2.png)
 
-Wenn Sie aufgefordert werden, das aktuelle Kerberos-Kennwort einzugeben, drücken Sie einfach die **EINGABETASTE**, um die Aufforderung zu ignorieren. Die `-m`-Option im Befehl `useradd` gibt an, dass das System für den Benutzer einen Basisordner erstellt, der für die RStudio Community-Version erforderlich ist.
+Wenn Sie aufgefordert werden, das aktuelle Kerberos-Kennwort einzugeben, drücken Sie einfach die **EINGABETASTE** , um die Aufforderung zu ignorieren. Die `-m`-Option im Befehl `useradd` gibt an, dass das System für den Benutzer einen Basisordner erstellt, der für die RStudio Community-Version erforderlich ist.
 
 ### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>Schritt 3: Verwenden der RStudio Community-Version mit dem erstellten Benutzer
 
 Greifen Sie aus `https://CLUSTERNAME.azurehdinsight.net/rstudio/` auf RStudio zu. Wenn Sie sich zum ersten Mal nach dem Erstellen des Clusters anmelden, geben Sie die Clusteradministrator-Anmeldeinformationen ein, gefolgt von den erstellten SSH-Benutzeranmeldeinformationen. Wenn dies nicht Ihre erste Anmeldung ist, geben Sie nur die Anmeldeinformationen für den SSH-Benutzer ein, den Sie erstellt haben.
 
-Sie können sich auch gleichzeitig in einem anderen Browserfenster mit den ursprünglichen Anmeldeinformationen (standardmäßig *sshuser*) anmelden.
+Sie können sich auch gleichzeitig in einem anderen Browserfenster mit den ursprünglichen Anmeldeinformationen (standardmäßig *sshuser* ) anmelden.
 
 Beachten Sie außerdem, dass die neu hinzugefügten Benutzer nicht über Stammberechtigungen im Linux-System verfügen, aber den gleichen Zugriff auf alle Dateien im HDFS- und WASB-Remotespeicher haben.
 
@@ -106,7 +106,7 @@ mySparkCluster <- RxSpark(
 )
 ```
 
-Weitere Informationen finden Sie im Abschnitt „Verwenden von Microsoft Machine Learning Server als Apache Hadoop-Client“ unter [Verwenden von RevoScaleR in einem Apache Spark-Computekontext](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios).
+Weitere Informationen finden Sie im Abschnitt „Verwenden von Microsoft Machine Learning Server als Apache Hadoop-Client“ unter [Verwenden von RevoScaleR in einem Apache Spark-Computekontext](/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios).
 
 ## <a name="use-a-compute-context"></a>Verwenden eines Rechenkontexts
 
@@ -203,11 +203,11 @@ Um R-Pakete auf den Workerknoten des Clusters zu installieren, müssen Sie eine 
 
      * Geben Sie für **Bash-Skript-URI**`https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh` ein. Dies ist das Skript, das zusätzliche R-Pakete auf dem Workerknoten installiert
 
-   * Aktivieren Sie nur das Kontrollkästchen für **Worker**.
+   * Aktivieren Sie nur das Kontrollkästchen für **Worker** .
 
-   * **Parameter**: Die zu installierenden R-Pakete. Zum Beispiel, `bitops stringr arules`
+   * **Parameter** : Die zu installierenden R-Pakete. Zum Beispiel, `bitops stringr arules`
 
-   * Aktivieren Sie das Kontrollkästchen, um **diese Skriptaktion beizubehalten**.  
+   * Aktivieren Sie das Kontrollkästchen, um **diese Skriptaktion beizubehalten** .  
 
    > [!NOTE]
    > 1. Standardmäßig werden alle R-Pakete über eine Momentaufnahme des Microsoft MRAN-Repositorys erstellt, die der installierten Version von ML Server entspricht. Wenn Sie neuere Versionen der Pakete installieren möchten, besteht das Risiko von Inkompatibilitäten. Diese Art von Installation ist jedoch möglich, wenn Sie `useCRAN` als erstes Element der Paketliste angeben, z.B. `useCRAN bitops, stringr, arules`.  

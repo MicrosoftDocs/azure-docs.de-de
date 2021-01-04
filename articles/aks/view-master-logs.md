@@ -4,12 +4,12 @@ description: Erfahren Sie, wie die Protokolle für den Kubernetes-Masterknoten i
 services: container-service
 ms.topic: article
 ms.date: 10/14/2020
-ms.openlocfilehash: 79ed9308488725d9be0c839bbd04b6783bbbd85a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 59e7259ae352491bddebe054f2c34bdc810ea48a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076384"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183225"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Aktivieren und Überprüfen der Kubernetes-Masterknotenprotokolle in Azure Kubernetes Service (AKS)
 
@@ -17,7 +17,7 @@ Mit Azure Kubernetes Service (AKS) werden die Masterkomponenten wie *kube-apiser
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
-Dieser Artikel setzt einen vorhandenen AKS-Cluster voraus, der in Ihrem Azure-Konto ausgeführt wird. Sollten Sie noch nicht über einen AKS-Cluster verfügen, erstellen Sie einen AKS-Cluster über die [Azure-Befehlszeilenschnittstelle][cli-quickstart] oder über das [Azure-Portal][portal-quickstart]. Azure Monitor-Protokolle funktionieren mit für RBAC und nicht für RBAC aktivierten AKS-Clustern.
+Dieser Artikel setzt einen vorhandenen AKS-Cluster voraus, der in Ihrem Azure-Konto ausgeführt wird. Sollten Sie noch nicht über einen AKS-Cluster verfügen, erstellen Sie einen AKS-Cluster über die [Azure-Befehlszeilenschnittstelle][cli-quickstart] oder über das [Azure-Portal][portal-quickstart]. Azure Monitor-Protokolle funktionieren sowohl mit für Kubernetes RBAC, Azure RBAC als auch nicht für RBAC aktivierten AKS-Clustern.
 
 ## <a name="enable-resource-logs"></a>Aktivieren von Ressourcenprotokollen
 
@@ -37,9 +37,11 @@ Azure Monitor-Protokolle werden im Azure-Portal aktiviert und verwaltet. Öffnen
 
 Zusätzlich zu den von Kubernetes geschriebenen Einträgen enthalten die Überwachungsprotokolle Ihres Projekts auch Einträge aus AKS.
 
-Überwachungsprotokolle werden in zwei Kategorien aufgezeichnet, *kube-audit-admin* und *kube-audit*. Die Kategorie *kube-audit* enthält alle Überwachungsprotokolldaten für jedes Überwachungsereignis, einschließlich *get*, *list*, *create*, *update*, *delete*, *patch* und *post*.
+Überwachungsprotokolle werden in drei Kategorien aufgezeichnet, *kube-audit*, *kube-audit-admin* und *guard*.
 
-Die Kategorie *kube-audit-admin* ist eine Teilmenge der Protokollkategorie *kube-audit*. *kube-audit-admin* verringert die Anzahl der Protokolle erheblich, indem die *get*- und *list*-Überwachungsereignisse aus dem Protokoll ausgeschlossen werden.
+- Die Kategorie *kube-audit* enthält alle Überwachungsprotokolldaten für jedes Überwachungsereignis, einschließlich *get*, *list*, *create*, *update*, *delete*, *patch* und *post*.
+- Die Kategorie *kube-audit-admin* ist eine Teilmenge der Protokollkategorie *kube-audit*. *kube-audit-admin* verringert die Anzahl der Protokolle erheblich, indem die *get*- und *list*-Überwachungsereignisse aus dem Protokoll ausgeschlossen werden.
+- Die Kategorie *guard* wird von Azure AD und Azure RBAC-Überwachungen verwaltet. Für verwaltete Azure AD: Token Eingang, Benutzerinformationen Ausgang. Für Azure RBAC: Zugriffsüberprüfungen Ein- und Ausgang.
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Planen eines Testpods im AKS-Cluster
 
@@ -53,7 +55,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m
@@ -75,7 +77,7 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Anzeigen der gesammelten Protokolle
 
-Es kann einige Minuten dauern, bis die Diagnoseprotokolle aktiviert und angezeigt werden.
+Es kann bis zu 10 Minuten dauern, bis die Diagnoseprotokolle aktiviert und angezeigt werden.
 
 > [!NOTE]
 > Wenn Sie aus Compliance- oder anderen Gründen alle Überwachungsprotokolldaten benötigen, erfassen und speichern Sie sie in einem kostengünstigen Speicher wie Blobspeicher. Verwenden Sie die Protokollkategorie *kube-audit-admin*, um einen aussagekräftigen Satz von Überwachungsprotokolldaten für Überwachungs- und Warnungszwecke zu erfassen und zu speichern.
@@ -160,7 +162,7 @@ In diesem Artikel haben Sie gelernt, wie die Protokolle für die Kubernetes-Mast
 [cli-quickstart]: kubernetes-walkthrough.md
 [portal-quickstart]: kubernetes-walkthrough-portal.md
 [log-analytics-overview]: ../azure-monitor/log-query/log-query-overview.md
-[analyze-log-analytics]: ../azure-monitor/log-query/get-started-portal.md
+[analyze-log-analytics]: ../azure-monitor/log-query/log-analytics-tutorial.md
 [kubelet-logs]: kubelet-logs.md
 [aks-ssh]: ssh.md
 [az-feature-register]: /cli/azure/feature#az-feature-register

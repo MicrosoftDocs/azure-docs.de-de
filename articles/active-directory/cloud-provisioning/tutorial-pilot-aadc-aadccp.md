@@ -11,12 +11,12 @@ ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e771a988faca98d009b97b1e705ddac7110a255f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b510464145f434f761cc28ba4e1c1361f983f8b
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266495"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95237390"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Pilotcloudbereitstellung für eine vorhandene synchronisierte AD-Gesamtstruktur 
 
@@ -122,17 +122,17 @@ Diese Schritte müssen für alle Objekttypen (Benutzer, Gruppen und Kontakte) au
 2. Laden Sie den Agent für die Azure AD Connect-Cloudbereitstellung herunter. Eine entsprechende Anleitung finden Sie [hier](how-to-install.md#install-the-agent).
 3. Führen Sie den Azure AD Connect-Cloudbereitstellungs-Agent aus (AADConnectProvisioningAgent.Installer).
 3. **Akzeptieren** Sie auf dem Begrüßungsbildschirm die Lizenzbedingungen, und klicken Sie auf **Installieren**.</br>
-![Screenshot: Begrüßungsbildschirm des Microsoft Azure AD Connect-Bereitstellungs-Agents](media/how-to-install/install1.png)</br>
+![Screenshot: Begrüßungsbildschirm des Microsoft Azure AD Connect-Bereitstellungs-Agents](media/how-to-install/install-1.png)</br>
 
 4. Nach Abschluss dieses Vorgangs wird der Konfigurations-Assistent gestartet.  Melden Sie sich mit dem Konto Ihres globalen Azure AD-Administrators an.
 5. Klicken Sie auf dem Bildschirm **Connect Active Directory** (Active Directory verbinden) auf **Verzeichnis hinzufügen**, und melden Sie sich dann mit Ihrem Active Directory-Administratorkonto an.  Dadurch wird Ihr lokales Verzeichnis hinzugefügt.  Klicken Sie auf **Weiter**.</br>
-![Screenshot: Bildschirm „Active Directory verbinden“ mit eingegebenem Verzeichniswert](media/how-to-install/install3.png)</br>
+![Screenshot: Bildschirm „Active Directory verbinden“ mit eingegebenem Verzeichniswert](media/how-to-install/install-3a.png)</br>
 
 6. Klicken Sie auf dem Bildschirm **Konfiguration abgeschlossen** auf **Bestätigen**.  Dadurch wird der Agent registriert und neu gestartet.</br>
-![Screenshot: Bildschirm „Konfiguration abgeschlossen“ mit ausgewählter Schaltfläche „Bestätigen“](media/how-to-install/install4.png)</br>
+![Screenshot: Bildschirm „Konfiguration abgeschlossen“ mit ausgewählter Schaltfläche „Bestätigen“](media/how-to-install/install-4a.png)</br>
 
 7. Sobald dieser Vorgang abgeschlossen ist, sollte der Hinweis angezeigt werden, dass **die Agent-Konfiguration erfolgreich überprüft wurde**.  Sie können dann auf **Beenden** klicken.</br>
-![Bildschirm „Willkommen“](media/how-to-install/install5.png)</br>
+![Bildschirm „Willkommen“](media/how-to-install/install-5.png)</br>
 8. Falls der erste Begrüßungsbildschirm weiterhin angezeigt wird, klicken Sie auf **Schließen**.
 
 ## <a name="verify-agent-installation"></a>Überprüfen der Agent-Installation
@@ -143,12 +143,12 @@ Führen Sie die folgenden Schritte aus, um zu überprüfen, ob der Agent von Azu
 
 1. Melden Sie sich beim Azure-Portal an.
 2. Wählen Sie auf der linken Seite **Azure Active Directory** aus, klicken Sie auf **Azure AD Connect**, und wählen Sie im mittleren Bereich **Bereitstellung verwalten (Vorschau)** aus.</br>
-![Azure portal](media/how-to-install/install6.png)</br>
+![Azure portal](media/how-to-install/install-6.png)</br>
 
 3.  Klicken Sie auf dem Bildschirm **Azure AD-Bereitstellung (Vorschau)** auf **Alle Agents überprüfen**.
-![Azure AD-Bereitstellung](media/how-to-install/install7.png)</br>
+![Azure AD-Bereitstellung](media/how-to-install/install-7.png)</br>
  
-4. Auf dem Bildschirm **On-premises provisioning agents** (Lokale Bereitstellungs-Agents) werden die von Ihnen installierten Agents angezeigt.  Vergewissern Sie sich, dass der betreffende Agent aufgeführt wird und als **Deaktiviert** markiert ist.  Der Agent ist in der Liste der ![Bereitstellungs-Agents](media/how-to-install/verify1.png) standardmäßig deaktiviert.</br>
+4. Auf dem Bildschirm **On-premises provisioning agents** (Lokale Bereitstellungs-Agents) werden die von Ihnen installierten Agents angezeigt.  Vergewissern Sie sich, dass der betreffende Agent aufgeführt wird und als **Deaktiviert** markiert ist.  Der Agent ist in der Liste der ![Bereitstellungs-Agents](media/how-to-install/verify-1.png) standardmäßig deaktiviert.</br>
 
 ### <a name="on-the-local-server"></a>Auf dem lokalen Server
 Führen Sie die folgenden Schritte aus, um sicherzustellen, dass der Agent ausgeführt wird:
@@ -156,7 +156,7 @@ Führen Sie die folgenden Schritte aus, um sicherzustellen, dass der Agent ausge
 1.  Melden Sie sich beim Server mit einem Administratorkonto an.
 2.  Öffnen Sie die Seite **Dienste**, indem Sie zu dieser Seite oder zu „Start/Run/Services.msc“ navigieren.
 3.  Vergewissern Sie sich, dass unter **Dienste** die Dienste **Microsoft Azure AD Connect Agent Updater** und **Microsoft Azure AD Connect-Bereitstellungs-Agent** angezeigt werden und ihr Status **Wird ausgeführt** lautet.
-![Dienste](media/how-to-troubleshoot/troubleshoot1.png)
+![Dienste](media/how-to-install/troubleshoot-1.png)
 
 ## <a name="configure-azure-ad-connect-cloud-provisioning"></a>Konfigurieren der Azure AD Connect-Cloudbereitstellung
 Gehen Sie wie folgt vor, um die Bereitstellung zu konfigurieren:

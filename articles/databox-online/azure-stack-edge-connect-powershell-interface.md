@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: alkohli
-ms.openlocfilehash: 93678735237c25b19d04b7d901583ba785d7f594
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9c6247f021b7af4cfdd899ffd4b6bd178f2256c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613542"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345592"
 ---
 # <a name="manage-an-azure-stack-edge-pro-fpga-device-via-windows-powershell"></a>Verwalten eines Azure Stack Edge Pro FPGA-Geräts über Windows PowerShell
 
@@ -56,7 +56,7 @@ Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cer
 ```
 Wenn Sie dieses Cmdlet ausführen, werden Sie aufgefordert, das Kennwort für die Netzwerkfreigabe anzugeben.
 
-Weitere Informationen zu Zertifikaten finden Sie unter [Zertifikate für Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) oder [Installieren von Zertifikaten auf einem Gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway).
+Weitere Informationen zu Zertifikaten finden Sie unter [Zertifikate für Azure IoT Edge](../iot-edge/iot-edge-certs.md) oder [Installieren von Zertifikaten auf einem Gateway](../iot-edge/how-to-create-transparent-gateway.md).
 
 ## <a name="view-device-information"></a>Anzeigen von Geräteinformationen
  

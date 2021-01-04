@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 15c3f3994b9d519a4144fa2c2e1418e92cdbd6ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 087679c49c3cc025268e6f895757ae5f5c47c917
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012405"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014209"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Tools für maschinelles Lernen und Data Science in virtuellen Azure-Data Science Virtual Machines
 Azure Data Science Virtual Machine-Instanzen (DSVMs) verfügen über ein umfangreiches Angebot an Tools und Bibliotheken für maschinelles Lernen in gängigen Sprachen wie Python, R und Julia.
@@ -24,7 +24,7 @@ Im Anschluss sind einige der Machine Learning-Tools und -Bibliotheken auf DSVMs 
 
 ## <a name="azure-machine-learning-sdk-for-python"></a>Azure Machine Learning SDK für Python
 
-Lesen Sie die vollständige Referenz zum [Azure Machine Learning SDK für Python](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml).
+Lesen Sie die vollständige Referenz zum [Azure Machine Learning SDK für Python](../overview-what-is-azure-ml.md).
 
 | Category | Wert |
 | ------------- | ------------- |
@@ -113,5 +113,3 @@ Es gibt mehrere weitere Machine Learning-Bibliotheken auf DSVMs, z. B. das beli
 | Typische Verwendung      |  Für direkte Datenauswertung, ohne dass Extrahieren, Transformieren und Laden (ETL) erforderlich ist. Abfragen verschiedener Datenquellen und Formate, einschließlich CSV, JSON, relationale Tabellen und Hadoop.     |
 | Verwenden und Ausführen      | Desktopverknüpfung  <br/> [Drill in 10 Minutes](https://drill.apache.org/docs/drill-in-10-minutes/) (Drill in zehn Minuten)  |
 | Verwandte Tools auf der DSVM      |   Rattle, Weka, SQL Server Management Studio      |
-
-

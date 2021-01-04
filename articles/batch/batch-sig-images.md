@@ -2,14 +2,14 @@
 title: Verwenden von Shared Image Gallery zum Erstellen eines benutzerdefinierten Imagepools
 description: Benutzerdefinierte Imagepools sind eine effiziente Möglichkeit zum Konfigurieren von Computeknoten, um Ihre Batch-Workloads auszuführen.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: 31fcbff50a2a66aec1643f1bac351e0401205861
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/18/2020
+ms.custom: devx-track-python, devx-track-azurecli
+ms.openlocfilehash: eb21a9e0d355274142e34fbb5c90a4d293c88ef1
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605191"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327303"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Verwenden von Shared Image Gallery zum Erstellen eines benutzerdefinierten Imagepools
 
@@ -58,7 +58,7 @@ In Azure können Sie ein freigegebenes Image aus einem verwalteten Image vorbere
 - Eine generalisierte lokale VHD, die in die Cloud hochgeladen wurde
 
 > [!NOTE]
-> Batch unterstützt derzeit nur generalisierte freigegebene Images. Derzeit können Sie keinen benutzerdefinierten Imagepool aus einem spezialisierten freigegebenen Image erstellen.
+> Batch unterstützt nur universelle freigegebene Images. Ein freigegebenes Image für einen spezifischen Anwendungsfall kann nicht zum Erstellen eines Pools verwendet werden.
 
 In den folgenden Schritten wird gezeigt, wie Sie einen virtuellen Computer vorbereiten, eine Momentaufnahme erstellen und ein Image auf der Grundlage der Momentaufnahme erstellen.
 
@@ -73,6 +73,7 @@ Wenn Sie einen neuen virtuellen Computer für das Image erstellen, können Sie e
 - Installieren Sie auf dem virtuellen Computer keine Azure-Erweiterungen wie die benutzerdefinierte Skripterweiterung. Wenn das Image eine vorinstallierte Erweiterung enthält, treten in Azure beim Bereitstellen des Batch-Pools unter Umständen Probleme auf.
 - Wenn Sie die angefügten Datenträger verwenden, müssen Sie sie innerhalb eines virtuellen Computers einbinden und formatieren, um sie zu verwenden.
 - Stellen Sie sicher, dass das von Ihnen bereitgestellte Basisbetriebssystem-Image den standardmäßigen temporären Datenträger verwendet. Der Batch-Knoten-Agent erwartet derzeit den standardmäßigen temporären Datenträger.
+- Stellen Sie sicher, dass der Betriebssystemdatenträger nicht verschlüsselt ist.
 - Sobald der virtuelle Computer ausgeführt wird, stellen Sie über RDP (für Windows) oder SSH (für Linux) eine Verbindung mit ihm her. Installieren Sie erforderliche Software, oder kopieren Sie die gewünschten Daten.  
 
 ### <a name="create-a-vm-snapshot"></a>Erstellen einer Momentaufnahme eines virtuellen Computers
@@ -218,7 +219,7 @@ Gehen Sie wie folgt vor, um über das Azure-Portal einen Pool auf der Grundlage 
 
 Wenn Sie beabsichtigen, einen Pool mit Hunderten oder Tausenden von VMs oder mehr mit einem freigegebenen Image zu erstellen, beachten Sie die folgenden Hinweise.
 
-- **Anzahl von Shared Image Gallery-Replikaten**:  Es wird empfohlen, für jeden Pool mit bis zu 600 Instanzen mindestens ein Replikat beizubehalten. Wenn Sie z. B. einen Pool mit 3000 VMs erstellen, sollten Sie mindestens 5 Replikate Ihres Image beibehalten. Sie sollten immer mehr Replikate beibehalten als in den Mindestanforderungen vorgesehen sind, um eine bessere Leistung zu erzielen.
+- **Anzahl von Shared Image Gallery-Replikaten**:  Es wird empfohlen, für jeden Pool mit bis zu 300 Instanzen mindestens ein Replikat beizubehalten. Wenn Sie z. B. einen Pool mit 3.000 VMs erstellen, sollten Sie mindestens 10 Replikate Ihres Image beibehalten. Sie sollten immer mehr Replikate beibehalten als in den Mindestanforderungen vorgesehen sind, um eine bessere Leistung zu erzielen.
 
 - **Timeout bei Größenänderung.** Wenn Ihr Pool eine feste Anzahl von Knoten enthält (also nicht automatisch skaliert wird), erhöhen Sie die Eigenschaft `resizeTimeout` des Pools abhängig von der Größe des Pools. Bei jeweils 1000 VMs beträgt das empfohlene Timeout bei Größenänderung mindestens 15 Minuten. Beispielsweise beträgt das empfohlene Timeout bei Größenänderung für einen Pool mit 2000 VMs mindestens 30 Minuten.
 

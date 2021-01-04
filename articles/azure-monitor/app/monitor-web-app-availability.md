@@ -4,12 +4,12 @@ description: Richten Sie Webtests in Application Insights ein. Erhalten Sie Bena
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: a5bee2da5059213e85e03d5a0e4df0ef88c26b03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82b433407906c09d38a46c842334153525fb3c17
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986025"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007924"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Überwachen der Verfügbarkeit von Websites
 
@@ -60,7 +60,7 @@ Der Begriff „URL-Pingtest“ ist irreführend. Der Test setzt nämlich kein IC
 
 |Einstellung| Erklärung
 |----|----|----|
-| **Testtimeout** |Reduzieren Sie diesen Wert, um über langsame Antworten benachrichtigt zu werden. Der Test wird als ein Fehler gezählt, wenn die Antworten von Ihrer Website nicht innerhalb dieses Zeitraums empfangen wurden. Bei Auswahl von **Abhängige Anforderungen analysieren**müssen alle Bilder, Styledateien, Skripts und anderen abhängigen Ressourcen innerhalb dieses Zeitraums empfangen werden.|
+| **Testtimeout** |Reduzieren Sie diesen Wert, um über langsame Antworten benachrichtigt zu werden. Der Test wird als ein Fehler gezählt, wenn die Antworten von Ihrer Website nicht innerhalb dieses Zeitraums empfangen wurden. Bei Auswahl von **Abhängige Anforderungen analysieren** müssen alle Bilder, Styledateien, Skripts und anderen abhängigen Ressourcen innerhalb dieses Zeitraums empfangen werden.|
 | **HTTP-Antwort** | Der zurückgegebene Statuscode, der als Erfolg gezählt wird. 200 ist der Code, der angibt, dass eine normale Webseite zurückgegeben wurde.|
 | **Inhaltsübereinstimmung** | Eine Zeichenfolge, z. B. „Willkommen!“ Wir vergewissern uns, dass in jeder Antwort eine exakte Übereinstimmung unter Berücksichtigung der Groß-und Kleinschreibung vorkommt. Dies muss eine Zeichenfolge in Klartext, ohne Platzhalter sein. Vergessen Sie nicht, diese zu aktualisieren, wenn sich der Seiteninhalt ändert. **Inhaltsübereinstimmungen werden nur für englische Zeichen unterstützt.** |
 
@@ -71,6 +71,41 @@ Der Begriff „URL-Pingtest“ ist irreführend. Der Test setzt nämlich kein IC
 |**Near-realtime (Preview)** (Nahezu in Echtzeit (Vorschauversion)) | Es wird empfohlen, Warnungen zu verwenden, die nahezu in Echtzeit angezeigt werden. Diese Art von Warnung ist bereits vollständig konfiguriert, sobald Sie einen Verfügbarkeitstest erstellt haben.  |
 |**Klassisch** | Die Verwendung von klassischen Warnungen wird für neue Verfügbarkeitstests nicht mehr empfohlen.|
 |**Schwellenwert für den Warnungsspeicherort**|Es wird ein Mindestwert von 3/5 Standorten empfohlen. Das optimale Verhältnis zwischen dem Schwellenwert für den Warnungsspeicherort und der Anzahl von Teststandorten lautet **Warnungsschwellenwert für Standort** = **Anzahl von Teststandorten -2, bei einer Mindestanzahl von fünf Teststandorten.**|
+
+### <a name="location-population-tags"></a>Auffüllungstags für den Standort
+
+Beim Bereitstellen eines URL-Pingtests für die Verfügbarkeit mithilfe von Azure Resource Manager können für das Attribut für den geografischen Standort die folgenden Auffüllungstags verwendet werden.
+
+#### <a name="azure-gov"></a>Azure Gov
+
+| Anzeigename   | Auffüllungsname     |
+|----------------|---------------------|
+| US Government, Virginia | usgov-va-azr        |
+| US Gov Arizona  | usgov-phx-azr       |
+| USGov Texas    | usgov-tx-azr        |
+| USDoD, Osten     | usgov-ddeast-azr    |
+| USDoD, Mitte  | usgov-ddcentral-azr |
+
+#### <a name="azure"></a>Azure
+
+| Anzeigename                           | Auffüllungsname   |
+|----------------------------------------|-------------------|
+| Australien, Osten                         | emea-au-syd-edge  |
+| Brasilien Süd                           | latam-br-gru-edge |
+| USA (Mitte)                             | us-fl-mia-edge    |
+| Asien, Osten                              | apac-hk-hkn-azr   |
+| East US                                | us-va-ash-azr     |
+| Frankreich, Süden (ehemals Frankreich, Mitte) | emea-ch-zrh-edge  |
+| Frankreich, Mitte                         | emea-fr-pra-edge  |
+| Japan, Osten                             | apac-jp-kaw-edge  |
+| Nordeuropa                           | emea-gb-db3-azr   |
+| USA Nord Mitte                       | us-il-ch1-azr     |
+| USA Süd Mitte                       | us-tx-sn1-azr     |
+| Asien, Südosten                         | apac-sg-sin-azr   |
+| UK, Westen                                | emea-se-sto-edge  |
+| Europa, Westen                            | emea-nl-ams-azr   |
+| USA (Westen)                                | us-ca-sjc-azr     |
+| UK, Süden                               | emea-ru-msa-edge  |
 
 ## <a name="see-your-availability-test-results"></a>Anzeigen der Verfügbarkeitstestergebnisse
 

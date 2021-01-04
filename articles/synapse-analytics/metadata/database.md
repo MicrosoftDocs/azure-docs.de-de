@@ -1,6 +1,6 @@
 ---
 title: Freigegebene Datenbank
-description: Azure Synapse Analytics bietet ein Modell mit gemeinsam genutzten Metadaten, das es ermöglicht, über die zugehörige SQL On-Demand-Engine (Vorschauversion) und die SQL-Pool-Engine auf eine in Apache Spark erstellte Datenbank zuzugreifen.
+description: Azure Synapse Analytics bietet ein Modell mit gemeinsam genutzten Metadaten, das es ermöglicht, über die zugehörige Engine für serverlose SQL-Pools und die SQL-Pool-Engine auf eine in einem serverlosen Apache Spark-Pool erstellte Datenbank zuzugreifen.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,36 +10,34 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 58c1aea944d89872a79d0672a925b1696791c1a8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 14ae8b8670db53761d085bc019711e829633601b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91260851"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451822"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Gemeinsam genutzte Azure Synapse Analytics-Datenbank
 
-Azure Synapse Analytics ermöglicht den verschiedenen Berechnungsengines von Arbeitsbereichen die gemeinsame Nutzung von Datenbanken und Tabellen zwischen Spark-Pools (Vorschauversion) und der SQL On-Demand-Engine (Vorschauversion).
+Azure Synapse Analytics ermöglicht den verschiedenen Berechnungsengines von Arbeitsbereichen die gemeinsame Nutzung von Datenbanken und Tabellen zwischen serverlosen Apache Spark-Pools und der Engine für serverlose SQL-Pools.
 
-[!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
+Eine mit einem Spark-Auftrag erstellte Datenbank wird mit dem gleichen Namen für alle aktuellen und zukünftigen Spark-Pools im Arbeitsbereich sichtbar (einschließlich der Engine für serverlose SQL-Pools).
 
-Eine mit einem Spark-Auftrag erstellte Datenbank wird mit dem gleichen Namen für alle aktuellen und zukünftigen Spark-Pools (Vorschauversion) im Arbeitsbereich, einschließlich der SQL On-Demand-Engine, sichtbar.
+Die Spark-Standarddatenbank `default` wird ebenfalls im Kontext des serverlosen SQL-Pools als Datenbank namens `default` angezeigt.
 
-Die Spark-Standarddatenbank `default` wird auch im SQL On-Demand-Kontext als Datenbank namens `default` angezeigt.
-
-Da die Datenbanken asynchron mit SQL On-Demand synchronisiert werden, kommt es zu einer Verzögerung bei der Anzeige.
+Da die Datenbanken asynchron mit dem serverlosen SQL-Pool synchronisiert werden, kommt es zu einer Verzögerung bei der Anzeige.
 
 ## <a name="manage-a-spark-created-database"></a>Verwalten einer von Spark erstellten Datenbank
 
 Verwalten Sie von Spark erstellte Datenbanken mithilfe von Spark. Löschen Sie sie beispielsweise über einen Spark-Poolauftrag, und erstellen Sie Tabellen in der Datenbank über Spark.
 
-Wenn Sie mithilfe von SQL On-Demand Objekte in einer von Spark erstellten Datenbank erstellen oder versuchen, die Datenbank zu löschen, ist der Vorgang erfolgreich. Die ursprüngliche Spark-Datenbank wird jedoch nicht geändert.
+Wenn Sie mithilfe eines serverlosen SQL-Pools Objekte in einer von Spark erstellten Datenbank erstellen oder versuchen, die Datenbank zu löschen, ist der Vorgang erfolgreich. Die ursprüngliche Spark-Datenbank wird jedoch nicht geändert.
 
 ## <a name="how-name-conflicts-are-handled"></a>Behandeln von Namenskonflikten
 
-Im Falle eines Namenskonflikts zwischen einer Spark-Datenbank und einer vorhandenen SQL On-Demand-Datenbank wird in SQL On-Demand ein Suffix an die Spark-Datenbank angefügt. Das Suffix in SQL On-Demand ist `_<workspace name>-ondemand-DefaultSparkConnector`.
+Im Falle eines Namenskonflikts zwischen einer Spark-Datenbank und einer vorhandenen Datenbank im serverlosen SQL-Pool wird im serverlosen SQL-Pool ein Suffix an die Spark-Datenbank angefügt. Das Suffix im serverlosen SQL-Pool lautet `_<workspace name>-ondemand-DefaultSparkConnector`.
 
-Wenn also beispielsweise im Azure Synapse-Arbeitsbereich `myws` eine Spark-Datenbank mit dem Namen `mydb` erstellt wird und bereits eine SQL On-Demand-Datenbank mit dem gleichen Namen vorhanden ist, muss auf die Spark-Datenbank in SQL On-Demand mithilfe des Namens `mydb_myws-ondemand-DefaultSparkConnector` verwiesen werden.
+Wenn also beispielsweise im Azure Synapse-Arbeitsbereich `myws` eine Spark-Datenbank mit dem Namen `mydb` erstellt wird und bereits eine Datenbank im serverlosen SQL-Pool mit dem gleichen Namen vorhanden ist, muss auf die Spark-Datenbank im serverlosen SQL-Pool mithilfe des Namens `mydb_myws-ondemand-DefaultSparkConnector` verwiesen werden.
 
 > [!CAUTION]
 > Vorsicht: Dieses Verhalten kann sich ggf. ändern. Verlassen Sie sich daher nicht darauf.
@@ -58,7 +56,7 @@ Wenn ein Sicherheitsprinzipal Objekte in einer Datenbank erstellen oder löschen
 
 ## <a name="examples"></a>Beispiele
 
-### <a name="create-and-connect-to-spark-database-with-sql-on-demand"></a>Erstellen einer Spark-Datenbank und Herstellen einer Verbindung mit SQL On-Demand
+### <a name="create-and-connect-to-spark-database-with-serverless-sql-pool"></a>Erstellen einer Spark-Datenbank mit einem serverlosen SQL-Pool und Herstellen einer Verbindung mit dieser Datenbank
 
 Erstellen Sie zunächst unter Verwendung eines Spark-Clusters, den Sie bereits in Ihrem Arbeitsbereich erstellt haben, eine neue Spark-Datenbank mit dem Namen `mytestdb`. Hierzu können Sie beispielsweise ein Spark-C#-Notebook mit der folgenden Anweisung vom Typ „.NET für Spark“ verwenden:
 
@@ -66,7 +64,7 @@ Erstellen Sie zunächst unter Verwendung eines Spark-Clusters, den Sie bereits i
 spark.Sql("CREATE DATABASE mytestdb")
 ```
 
-Nach einer kurzen Verzögerung wird die Datenbank aus SQL On-Demand angezeigt. Führen Sie beispielsweise die folgende Anweisung über SQL On-Demand aus:
+Nach einer kurzen Verzögerung wird die Datenbank aus dem serverlosen SQL-Pool angezeigt. Führen Sie beispielsweise die folgende Anweisung über den serverlosen SQL-Pool aus:
 
 ```sql
 SELECT * FROM sys.databases;

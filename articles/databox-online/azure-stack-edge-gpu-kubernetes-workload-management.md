@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: d9e0da9e24a0bd32047d029879c4f0e110dc0c16
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ef840b3d9db4e82eeecea37079a08ccb0858a77b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320794"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448529"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Kubernetes-Workloadverwaltung auf Ihrem Azure Stack Edge Pro-Gerät
 
@@ -53,7 +53,7 @@ Es gibt drei Hauptmethoden zum Bereitstellen von Workloads. Mit jeder dieser Ber
 
 - **Kubernetes-Bereitstellung mit Azure Arc-Unterstützung**: Kubernetes mit Azure Arc-Unterstützung ist ein Hybridverwaltungstool, mit dem Sie Anwendungen in Ihren Kubernetes-Clustern bereitstellen können. Auf Ihrem Azure Stack Edge Pro-Gerät stellen Sie über den `azure-arc namespace` eine Verbindung mit dem Kubernetes-Cluster her. Die in diesem Namespace bereitgestellten Agents sind für die Konnektivität mit Azure verantwortlich. Sie wenden die Bereitstellungskonfiguration mithilfe der GitOps-basierten Konfigurationsverwaltung an. 
     
-    Kubernetes mit Azure Arc-Unterstützung ermöglicht außerdem die Verwendung von Azure Monitor für Container, um Ihre Cluster anzuzeigen und zu überwachen. Weitere Informationen finden Sie unter [Was ist Kubernetes mit Azure Arc-Unterstützung?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+    Kubernetes mit Azure Arc-Unterstützung ermöglicht außerdem die Verwendung von Azure Monitor für Container, um Ihre Cluster anzuzeigen und zu überwachen. Weitere Informationen finden Sie unter [Was ist Kubernetes mit Azure Arc-Unterstützung?](../azure-arc/kubernetes/overview.md).
 
 ## <a name="choose-the-deployment-type"></a>Auswählen des Bereitstellungstyps
 

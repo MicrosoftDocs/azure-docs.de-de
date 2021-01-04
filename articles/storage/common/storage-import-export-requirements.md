@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 7b7915e1b7779c4d0359b9ac190574c43a624cbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d17b9cdebf06e7d754a23a7224bbe3dba1a2832c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87276396"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783605"
 ---
 # <a name="azure-importexport-system-requirements"></a>Systemanforderungen für Azure Import/Export
 
@@ -50,7 +50,7 @@ Weitere Informationen zu Speicherkonten finden Sie unter [Azure-Speicherkonten �
 Bei jedem Auftrag können lediglich Daten auf ein oder von einem Speicherkonto übertragen werden. Anders ausgedrückt: Ein einzelner Import/Export-Auftrag kann nicht mehrere Speicherkonten umfassen. Weitere Informationen zum Erstellen eines neuen Speicherkontos finden Sie unter [Erstellen eines Speicherkontos](storage-account-create.md).
 
 > [!IMPORTANT]
-> Für Speicherkonten, bei denen das Feature [VNET-Dienstendpunkte](../../virtual-network/virtual-network-service-endpoints-overview.md)  aktiviert wurde, verwenden Sie die Einstellung **Vertrauenswürdige Microsoft-Dienste zulassen...** , um den [Import/Export](/azure/storage/common/storage-network-security)-Dienst zu aktivieren, um den Import/Export von Daten nach/von Azure durchzuführen.
+> Für Speicherkonten, bei denen das Feature [VNET-Dienstendpunkte](../../virtual-network/virtual-network-service-endpoints-overview.md) aktiviert wurde, verwenden Sie die Einstellung **Vertrauenswürdige Microsoft-Dienste zulassen...** , um den [Import/Export](./storage-network-security.md)-Dienst zu aktivieren und den Import/Export von Daten in/aus Azure durchzuführen.
 
 ## <a name="supported-storage-types"></a>Unterstützte Speichertypen
 
@@ -94,4 +94,4 @@ Bei der Vorbereitung von Festplatten und dem Kopieren der Daten mit dem WAImport
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Übertragen von Daten mit dem Befehlszeilenprogramm AzCopy](storage-use-azcopy.md)
+* [Übertragen von Daten mit dem Befehlszeilenprogramm AzCopy](./storage-use-azcopy-v10.md)

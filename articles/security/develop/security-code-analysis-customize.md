@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: b05084a7d01f4c5d5d5a79b60ac0b8ba47843622
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 4016e1dd055b45f9cd59a172d0e71ef95fec1c40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91816793"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008683"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Konfigurieren und Anpassen der Buildtasks
 
@@ -39,7 +39,7 @@ Im Screenshot ist im Listenfeld **Type** (Typ) die Option **Basic** (Standard) a
 
 Windows Defender verwendet den Windows Update-Client, um Signaturen herunterzuladen und zu installieren. Wenn beim Signaturupdate für den Build-Agent ein Fehler auftritt, wird der **HRESULT**-Fehlercode wahrscheinlich durch Windows Update generiert.
 
-Weitere Informationen zu Windows Update-Fehlern und dazu, wie Sie sie vermeiden, finden Sie unter [Windows Update-Fehlercodes nach Komponente](https://docs.microsoft.com/windows/deployment/update/windows-update-error-reference) und im TechNet-Artikel zu [Fehlercodes des Windows Update-Agents](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx).
+Weitere Informationen zu Windows Update-Fehlern und dazu, wie Sie sie vermeiden, finden Sie unter [Windows Update-Fehlercodes nach Komponente](/windows/deployment/update/windows-update-error-reference) und im TechNet-Artikel zu [Fehlercodes des Windows Update-Agents](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx).
 
 Weitere Informationen zur YAML-Konfiguration für diese Aufgabe finden Sie in den [YAML-Optionen für die Antischadsoftware](yaml-configuration.md#anti-malware-scanner-task).
 
@@ -143,7 +143,7 @@ Folgende Optionen sind verfügbar:
 >
 >   Wenn der neue Task auf dem selben Agent wie der ursprüngliche Task ausgeführt wird, wird die Ausgabe des ursprünglichen Tasks im Quellordner *s* durch die Ausgabe des neuen Tasks überschrieben. Obwohl die Buildausgabe identisch ist, wird empfohlen, dass Sie MSBuild ausführen, die Ausgabe in das Artefaktstagingverzeichnis kopieren und dann Roslyn Analyzers ausführen.
 
-Weitere Ressourcen für den Roslyn Analyzers-Task finden Sie unter [Die auf Roslyn basierenden Analysetools](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer) in der Microsoft-Dokumentation.
+Weitere Ressourcen für den Roslyn Analyzers-Task finden Sie unter [Die auf Roslyn basierenden Analysetools](/dotnet/standard/analyzers/api-analyzer) in der Microsoft-Dokumentation.
 
 Sie finden das Analyzer-Paket, das von diesem Buildtask installiert und verwendet wird, auf der NuGet-Seite [Microsoft.CodeAnalysis.FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers).
 

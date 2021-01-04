@@ -10,12 +10,12 @@ ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 44ea49d7ed0cec6fc56cb2462a25d38866ce9a76
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ae1d72c30fb7c45c92f24ec5132859a45c6ae953
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093683"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543373"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>Erstellen und Verwalten einer Blobmomentaufnahme in .NET
 
@@ -163,4 +163,4 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 
 - [Blobmomentaufnahmen](snapshots-overview.md)
 - [Blobversionen](versioning-overview.md)
-- [Vorläufiges Löschen für Blobs](storage-blob-soft-delete.md)
+- [Vorläufiges Löschen für Blobs](./soft-delete-blob-overview.md)

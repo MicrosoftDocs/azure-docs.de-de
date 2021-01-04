@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 6f216a7f0851661efc61a771fc35feb71e77fd1f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d5bd2fc150ee1d35127eeb9dbf3dc1eeffdc9659
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792479"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685935"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Failoverclusterinstanzen mit SQL Server in Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,7 +46,7 @@ In herkömmlichen lokalen Clusterumgebungen verwendet ein Windows-Failovercluste
 
 SQL Server auf Azure-VMs bietet verschiedene Optionen als freigegebene Speicherlösung für eine Bereitstellung von SQL Server-Failoverclusterinstanzen: 
 
-||[Freigegebene Azure-Datenträger](../../../virtual-machines/windows/disks-shared.md)|[Premium-Dateifreigaben](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Direkte Speicherplätze (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
+||[Freigegebene Azure-Datenträger](../../../virtual-machines/disks-shared.md)|[Premium-Dateifreigaben](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Direkte Speicherplätze (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
 |**Betriebssystemversion (Min.)**| All |Windows Server 2012|Windows Server 2016|
 |**Mindestversion von SQL Server**|All|SQL Server 2012|SQL Server 2016|
@@ -58,10 +58,10 @@ Im restlichen Teil dieses Abschnitts werden die Vorteile und Einschränkungen de
 
 ### <a name="azure-shared-disks"></a>Freigegebene Azure-Datenträger
 
-[Freigegebene Azure-Datenträger](../../../virtual-machines/windows/disks-shared.md) sind eine Funktion von [verwalteten Azure-Datenträgern](../../../virtual-machines/managed-disks-overview.md). Windows Server-Failoverclustering unterstützt die Verwendung von freigegebenen Azure-Datenträgern mit einer Failoverclusterinstanz. 
+[Freigegebene Azure-Datenträger](../../../virtual-machines/disks-shared.md) sind eine Funktion von [verwalteten Azure-Datenträgern](../../../virtual-machines/managed-disks-overview.md). Windows Server-Failoverclustering unterstützt die Verwendung von freigegebenen Azure-Datenträgern mit einer Failoverclusterinstanz. 
 
-**Unterstütztes Betriebssystem** : All   
-**Unterstützte SQL-Version** : All     
+**Unterstütztes Betriebssystem**: All   
+**Unterstützte SQL-Version**: All     
 
 **Vorteile:** 
 - Nützlich für Anwendungen, die zu Azure unter Beibehaltung der HADR-Architektur (High-Availability and Disaster Recovery, Hochverfügbarkeit und Notfallwiederherstellung) migriert werden sollen. 
@@ -82,8 +82,8 @@ Informationen zu den ersten Schritten finden Sie unter [SQL Server-Failoverclus
 
 [Direkte Speicherplätze](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) ist eine Windows Server-Funktion, die mit Failoverclustering in Azure Virtual Machines unterstützt wird. Sie bietet ein softwarebasiertes virtuelles SAN.
 
-**Unterstütztes Betriebssystem** : Windows Server 2016 oder höher   
-**Unterstützte SQL-Version** : SQL Server 2016 und höher   
+**Unterstütztes Betriebssystem**: Windows Server 2016 oder höher   
+**Unterstützte SQL-Version**: SQL Server 2016 und höher   
 
 
 **Vorteile:** 
@@ -104,8 +104,8 @@ Informationen zu den ersten Schritten finden Sie unter [SQL Server-Failoverclus
 
 [Premium-Dateifreigaben](../../../storage/files/storage-how-to-create-premium-fileshare.md) sind eine Funktion von [Azure Files](../../../storage/files/index.yml). Premium-Dateifreigaben sind SSD-gestützt und weisen konsistent niedrige Latenz auf. Sie werden für die Verwendung mit Failoverclusterinstanzen für SQL Server 2012 oder höher unter Windows Server 2012 oder höher vollständig unterstützt. Premium-Dateifreigaben bieten Ihnen mehr Flexibilität, weil Sie ohne Ausfallzeiten die Größe der Dateifreigabe ändern und diese skalieren können.
 
-**Unterstütztes Betriebssystem** : Windows Server 2012 und höher   
-**Unterstützte SQL-Version** : SQL Server 2012 und höher   
+**Unterstütztes Betriebssystem**: Windows Server 2012 und höher   
+**Unterstützte SQL-Version**: SQL Server 2012 und höher   
 
 **Vorteile:** 
 - Einzige freigegebene Speicherlösung für virtuelle Computer, die auf mehrere Verfügbarkeitszonen verteilt sind. 
@@ -122,8 +122,8 @@ Informationen zu den ersten Schritten finden Sie unter [SQL Server-Failoverclus
 
 Es gibt Partnerclusteringlösungen mit unterstütztem Speicher. 
 
-**Unterstütztes Betriebssystem** : All   
-**Unterstützte SQL-Version** : All   
+**Unterstütztes Betriebssystem**: All   
+**Unterstützte SQL-Version**: All   
 
 In einem Beispiel wird SIOS DataKeeper als Speicher verwendet. Weitere Informationen finden Sie im Blogbeitrag [Failoverclustering and SIOS DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).
 
@@ -131,8 +131,8 @@ In einem Beispiel wird SIOS DataKeeper als Speicher verwendet. Weitere Informati
 
 Sie können auch einen freigegebenen iSCSI-Zielblockspeicher über Azure ExpressRoute bereitstellen. 
 
-**Unterstütztes Betriebssystem** : All   
-**Unterstützte SQL-Version** : All   
+**Unterstütztes Betriebssystem**: All   
+**Unterstützte SQL-Version**: All   
 
 Beispielsweise macht NetApp Private Storage (NPS) ein iSCSI-Ziel über ExpressRoute mit Equinix für virtuelle Azure-Computer verfügbar.
 
@@ -148,10 +148,11 @@ Weitere Informationen zu den Optionen für Clusterkonnektivität finden Sie unte
 
 BeachtenSie die folgenden Einschränkungen für Failoverclusterinstanzen mit SQL Server in Azure Virtual Machines. 
 
-### <a name="lightweight-resource-provider"></a>Lightweight-Ressourcenanbieter   
-Zurzeit werden SQL Server-Failoverclusterinstanzen auf Azure-VMs nur mit dem [Lightweight-Verwaltungsmodus](sql-vm-resource-provider-register.md#management-modes) der [IaaS-Agent-Erweiterung von SQL Server](sql-server-iaas-agent-extension-automate-management.md) unterstützt. Um aus dem vollständigen Erweiterungsmodus in den Lightweightmodus zu wechseln, löschen Sie die Ressource **Virtueller SQL-Computer** für die entsprechenden VMs, und registrieren Sie diese dann beim SQL-VM-Ressourcenanbieter im Lightweightmodus. Deaktivieren Sie das Kontrollkästchen neben dem richtigen virtuellen Computer, wenn Sie die Ressource **Virtueller SQL-Computer** mithilfe des Azure-Portals löschen. 
+### <a name="lightweight-extension-support"></a>Unterstützung der Lightweight-Erweiterung   
 
-Die vollständige Erweiterung unterstützt Funktionen wie die automatische Sicherung, Patchen und erweiterte Portalverwaltung. Diese Funktionen stehen für SQL Server-VMs nach der erneuten Installation im Lightweightverwaltungsmodus nicht zur Verfügung.
+Zurzeit werden SQL Server-Failoverclusterinstanzen auf Azure-VMs nur mit dem [Lightweight-Verwaltungsmodus](sql-server-iaas-agent-extension-automate-management.md#management-modes) der IaaS-Agent-Erweiterung von SQL Server unterstützt. Um aus dem vollständigen Erweiterungsmodus in den Lightweight-Modus zu wechseln, löschen Sie die Ressource **Virtueller SQL-Computer** für die entsprechenden VMs, und registrieren Sie diese dann bei der Erweiterung für den SQL-IaaS-Agent im Lightweight-Modus. Wenn Sie die Ressource **Virtueller SQL-Computer** mithilfe des Azure-Portals löschen, deaktivieren Sie das Kontrollkästchen neben dem richtigen virtuellen Computer, um das Löschen dieses Computers zu verhindern. 
+
+Die vollständige Erweiterung unterstützt Funktionen wie die automatische Sicherung, Patchen und erweiterte Portalverwaltung. Diese Funktionen stehen für SQL Server-VMs, die im Lightweight-Verwaltungsmodus registriert sind, nicht zur Verfügung.
 
 ### <a name="msdtc"></a>MSDTC 
 

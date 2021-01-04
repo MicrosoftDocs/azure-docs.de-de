@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 300c4bcdb948665b2cdf4ce0eb429499208660b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0e8540d9488e9cc3756eb09c69349ac90d20b83
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970749"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043389"
 ---
 # <a name="availability-alerts"></a>Verfügbarkeitswarnungen
 
@@ -28,11 +28,11 @@ Warnungen werden jetzt zwar standardmäßig automatisch aktiviert, aber Sie müs
 
 1. Nach dem Speichern des Verfügbarkeitstests, klicken Sie auf der Registerkarte „Details“ auf die Auslassungspunkte neben dem Test, den Sie gerade erstellt haben. Klicken Sie auf „Warnung bearbeiten“.
 
-   ![Nach dem Speichern bearbeiten](./media/availability-alerts/edit-alert.png)
+   ![Screenshot der im Menü ausgewählten Option „Warnung bearbeiten“](./media/availability-alerts/edit-alert.png)
 
 2. Legen Sie den gewünschten Schweregrad, die Regelbeschreibung und vor allem die Aktionsgruppe fest, die über die Benachrichtigungseinstellungen verfügt, die Sie für diese Warnungsregel verwenden möchten.
 
-   ![Nach dem Speichern bearbeiten](./media/availability-alerts/set-action-group.png)
+   ![Screenshot mit der Seite „Regelverwaltung“, auf der die Regel bearbeitet werden kann](./media/availability-alerts/set-action-group.png)
 
 > [!NOTE]
 > Über diese Benutzeroberfläche erstellte Verfügbarkeitswarnungen sind zustandsbasiert. Dies bedeutet, dass bei Erfüllung der Warnungskriterien eine einzelne Warnung generiert wird, wenn die Website als nicht mehr verfügbar erkannt wird. Falls die Website bei der nächsten Auswertung der Warnungskriterien immer noch nicht verfügbar ist, wird keine neue Warnung generiert. Falls Ihre Website also eine Stunde lang ausgefallen war und Sie eine E-Mail-Benachrichtigung eingerichtet haben, erhalten Sie nur eine E-Mail nach dem Ausfall der Website und dann eine weitere E-Mail, wenn die Website wieder verfügbar ist. Sie erhalten keine fortlaufenden Benachrichtigungen mit dem Hinweis, dass die Website immer noch nicht verfügbar ist.

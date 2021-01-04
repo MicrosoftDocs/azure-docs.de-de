@@ -12,12 +12,12 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abe222ff783032c5d6d19a42bfb3d8aeffc284a1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a157396318075522d5b3263c9cf0f749eafc2476
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90604120"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658807"
 ---
 # <a name="what-is-application-management"></a>Worum handelt es sich bei der Anwendungsverwaltung?
 
@@ -57,7 +57,7 @@ Azure AD vereinfacht die Verwaltung von Anwendungen, indem es ein einziges Iden
 
 Es gibt vier Haupttypen von Anwendungen, die Sie Ihren **Unternehmensanwendungen** hinzufügen und mit Azure AD verwalten können:
 
-- **Azure AD-Kataloganwendungen**: Azure AD bietet einen Katalog mit Tausenden von Anwendungen, die für einmaliges Anmelden mit Azure AD vorab integriert wurden. Einige der von Ihrer Organisation verwendeten Anwendungen sind wahrscheinlich im Katalog enthalten. [Erfahren Sie mehr über das Planen der App-Integration](plan-an-application-integration.md), oder informieren Sie sich in den [Tutorials für SaaS-Anwendungen](https://docs.microsoft.com/azure/active-directory/saas-apps/) über die detaillierten Schritte für einzelne Apps.
+- **Azure AD-Kataloganwendungen**: Azure AD bietet einen Katalog mit Tausenden von Anwendungen, die für einmaliges Anmelden mit Azure AD vorab integriert wurden. Einige der von Ihrer Organisation verwendeten Anwendungen sind wahrscheinlich im Katalog enthalten. [Erfahren Sie mehr über das Planen der App-Integration](plan-an-application-integration.md), oder informieren Sie sich in den [Tutorials für SaaS-Anwendungen](/azure/active-directory/saas-apps/) über die detaillierten Schritte für einzelne Apps.
 
 - **Lokale Anwendungen mit dem Anwendungsproxy**: Mit dem Azure AD-Anwendungsproxy können Sie lokale Web-Apps in Azure AD integrieren, um einmaliges Anmelden zu unterstützen. Endbenutzer können dann auf die gleiche Weise auf die lokalen Web-Apps zugreifen, wie sie auch auf Microsoft 365 und andere SaaS-Apps zugreifen. Lesen Sie hierzu auch den Artikel [Remotezugriff auf lokale Anwendungen über den Azure AD-Anwendungsproxy](application-proxy.md).
 

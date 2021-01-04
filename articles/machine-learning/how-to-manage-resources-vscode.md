@@ -1,7 +1,7 @@
 ---
 title: Erstellen und Verwalten von Ressourcen mit der VS Code-Erweiterung (Vorschau)
 titleSuffix: Azure Machine Learning
-description: Erstellen und Verwalten von Ressourcen mit der VS Code-Erweiterung
+description: Erfahren Sie, wie Sie Azure Machine Learning-Ressourcen mithilfe der Azure Machine Learning Visual Studio Code-Erweiterung erstellen und verwalten.
 services: machine-learning
 author: luisquintanilla
 ms.author: luquinta
@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 09/30/2020
-ms.openlocfilehash: 1120a3636b7ce24dde0d33c213f9063f910123c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/16/2020
+ms.openlocfilehash: f8eb18b190b72381f1a93575eb39b3d19d8d431b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530628"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010672"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Verwalten von Azure Machine Learning-Ressourcen mit der VS Code-Erweiterung (Vorschau)
 
@@ -257,7 +257,7 @@ Weitere Informationen finden Sie im Artikel über [Compute-Instanzen](concept-co
     1. Geben Sie einen Namen für Ihre Compute-Instanz an.
     1. Wählen Sie in der Liste eine VM-Größe aus.
     1. Geben Sie an, ob Sie SSH-Zugriff aktivieren möchten.
-        1. Wenn Sie SSH-Zugriff aktivieren, müssen Sie auch den öffentlichen SSH-Schlüssel angeben oder die Datei, die den Schlüssel enthält. Weitere Informationen finden Sie in der [Anleitung zum Erstellen und Verwenden von SSH-Schlüsseln in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
+        1. Wenn Sie SSH-Zugriff aktivieren, müssen Sie auch den öffentlichen SSH-Schlüssel angeben oder die Datei, die den Schlüssel enthält. Weitere Informationen finden Sie in der [Anleitung zum Erstellen und Verwenden von SSH-Schlüsseln in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
 ### <a name="stop-or-restart-compute-instance"></a>Anhalten oder Neustart einer Compute-Instanz
 
@@ -293,7 +293,7 @@ Weitere Informationen finden Sie im [Artikel zu Computezielen](concept-compute-t
 1. Klicken Sie mit der rechten Maustaste auf den Knoten **Computecluster**, und wählen Sie **Create Compute** (Computeressource erstellen) aus.
 1. An der Eingabeaufforderung:
     1. Wählen Sie einen Computetyp aus.
-    1. Wählen Sie eine VM-Größe aus. [Weitere Informationen zu VM-Größen](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+    1. Wählen Sie eine VM-Größe aus. [Weitere Informationen zu VM-Größen](../virtual-machines/sizes.md).
     1. Geben Sie einen Computnamen an.
 
 ### <a name="view-compute-configuration"></a>Anzeigen der Computekonfiguration
@@ -325,7 +325,7 @@ So erstellen Sie eine Laufzeitkonfiguration in der Erweiterung:
 1. An der Eingabeaufforderung:
     1. Geben Sie einen Namen für das Computeziel an.
     1. Wählen Sie eine Umgebung aus, oder erstellen Sie sie.
-    1. Geben Sie den Namen des Skripts ein, das Sie ausführen möchten, oder drücken Sie die Eingabetaste****, um das Skript auf dem lokalen Computer zu suchen.
+    1. Geben Sie den Namen des Skripts ein, das Sie ausführen möchten, oder drücken Sie die Eingabetaste, um das Skript auf dem lokalen Computer zu suchen.
     1. Optional: Wählen Sie aus, ob Sie einen Datenverweis für die Trainingsausführung erstellen möchten. Dabei werden Sie aufgefordert, ein Dataset in der Laufzeitkonfiguration zu definieren.
         1. Wählen Sie eines der registrierten Datasets aus, um eine Verknüpfung mit der Laufzeitkonfiguration zu erstellen. Eine Konfigurationsdatei für das Dataset wird im Editor geöffnet. Wenn Sie mit Ihrer Konfiguration zufrieden sind, wählen Sie **Save and continue** (Speichern und fortfahren) aus, oder öffnen Sie die VS Code-Befehlspalette (**View > Command Palette** (Ansicht > Befehlspalette)), und geben Sie **Azure ML: Save and Continue** (Speichern und fortfahren) ein.
     1. Wenn Sie mit Ihrer Konfiguration zufrieden sind, wählen Sie **Save and continue** (Speichern und fortfahren) aus, oder öffnen Sie die VS Code-Befehlspalette (**View > Command Palette** (Ansicht > Befehlspalette)), und geben Sie **Azure ML: Save and Continue** (Speichern und fortfahren) ein.

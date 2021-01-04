@@ -1,6 +1,6 @@
 ---
-title: 'Schnellstart: Erstellen eines Synapse SQL-Pools mit Azure PowerShell'
-description: Erstellen Sie mithilfe von Azure PowerShell schnell einen Synapse SQL-Pool mit einer Firewallregel auf Serverebene.
+title: 'Schnellstart: Erstellen eines dedizierten SQL-Pools (vormals SQL DW) mit Azure PowerShell'
+description: Erstellen Sie mithilfe von Azure PowerShell schnell einen dedizierten SQL-Pool (vormals SQL DW) mit einer Firewallregel auf Serverebene.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,23 +11,23 @@ ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse    , devx-track-azurepowershell
-ms.openlocfilehash: 5408944f16509f83c30b9ee066d6f0a93dab95f0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0ce94b62d67048896cdf7355043ec2dde7f2df79
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91567654"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456585"
 ---
-# <a name="quickstart-create-a-synapse-sql-pool-with-azure-powershell"></a>Schnellstart: Erstellen eines Synapse SQL-Pools mit Azure PowerShell
+# <a name="quickstart-create-a-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Schnellstart: Erstellen eines dedizierten SQL-Pools (vormals SQL DW) mit Azure PowerShell
 
-Erstellen Sie mithilfe von Azure PowerShell einen Synapse-SQL-Pool (Data Warehouse) in Azure Synapse Analytics.
+Erstellen eines dedizierten SQL-Pools (vormals SQL DW) in Azure Synapse Analytics mithilfe von Azure PowerShell
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 
 > [!IMPORTANT]
-> Wenn Sie einen SQL-Pool erstellen, wird dadurch unter Umständen auch ein neuer abrechenbarer Dienst erstellt.  Weitere Informationen finden Sie unter [Azure Synapse Analytics – Preise](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Die Erstellung eines dedizierten SQL-Pools (vormals SQL DW) führt möglicherweise zu einem neuen abrechenbaren Dienst.  Weitere Informationen finden Sie unter [Azure Synapse Analytics – Preise](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -93,7 +93,7 @@ New-AzSqlServer -ResourceGroupName $resourcegroupname `
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Konfigurieren einer Firewallregel auf Serverebene
 
-Erstellen Sie mit dem Befehl [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) eine [Firewallregel auf Serverebene](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Eine Firewallregel auf Serverebene lässt zu, dass eine externe Anwendung wie SQL Server Management Studio oder das SQLCMD-Hilfsprogramm über die Firewall des SQL-Pooldiensts eine Verbindung mit einem SQL-Pool herstellt.
+Erstellen Sie mit dem Befehl [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) eine [Firewallregel auf Serverebene](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Eine Firewallregel auf Serverebene ermöglicht es einer externen Anwendung wie SQL Server Management Studio oder dem SQLCMD-Hilfsprogramm, über die Firewall des Diensts für dedizierte SQL-Pools eine Verbindung mit einem dedizierten SQL-Pool (vormals SQL DW) herzustellen.
 
 Im folgenden Beispiel wird die Firewall nur für andere Azure-Ressourcen geöffnet. Ändern Sie die IP-Adresse in eine für Ihre Umgebung geeignete Adresse, um die externe Konnektivität zu ermöglichen. Verwenden Sie 0.0.0.0 als IP-Startadresse und 255.255.255.255 als Endadresse, wenn Sie alle IP-Adressen öffnen möchten.
 
@@ -107,9 +107,9 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 > SQL-Endpunkte kommunizieren über Port 1433. Wenn Sie versuchen, eine Verbindung aus einem Unternehmensnetzwerk heraus herzustellen, wird der ausgehende Datenverkehr über Port 1433 von der Firewall Ihres Netzwerks unter Umständen nicht zugelassen. In diesem Fall können Sie nur dann eine Verbindung mit Ihrem Server herstellen, wenn Ihre IT-Abteilung Port 1433 öffnet.
 >
 
-## <a name="create-a-sql-pool"></a>Erstellen eines SQL-Pools
+## <a name="create-a-dedicated-sql-pool-formerly-sql-dw"></a>Erstellen eines dedizierten SQL-Pools (vormals SQL DW)
 
-Das folgende Beispiel erstellt einen SQL-Pool mit den zuvor definierten Variablen.  Das Dienstziel wird als DW100c angegeben. Dies ist ein kostengünstiger Ausgangspunkt für Ihren SQL-Pool.
+Das folgende Beispiel erstellt einen dedizierten SQL-Pool (vormals SQL DW) mit den zuvor definierten Variablen.  Das Dienstziel wird als DW100c angegeben. Dies ist ein kostengünstiger Ausgangspunkt für Ihren dedizierten SQL-Pool (vormals SQL DW).
 
 ```Powershell
 New-AzSqlDatabase `
@@ -125,10 +125,10 @@ New-AzSqlDatabase `
 Erforderliche Parameter:
 
 * **RequestedServiceObjectiveName**: Die Menge an [Data Warehouse-Einheiten](what-is-a-data-warehouse-unit-dwu-cdwu.md), die Sie anfordern. Durch das Erhöhen dieses Werts steigen die Computekosten. Eine Liste der unterstützten Werte finden Sie unter [Grenzwerte für Arbeitsspeicher und Parallelität](memory-concurrency-limits.md).
-* **DatabaseName**: Der Name des SQL-Pools, den Sie erstellen
+* **DatabaseName**: Der Name des dedizierten SQL-Pools (vormals SQL DW), den Sie erstellen
 * **ServerName**: Der Name des Servers, den Sie für die Erstellung verwenden.
 * **ResourceGroupName**: Die Ressourcengruppe, die Sie verwenden. Verwenden Sie zum Abrufen der in Ihrem Abonnement verfügbaren Ressourcengruppen das Cmdlet „Get-AzureResource“.
-* **Edition**: Muss für die Erstellung eines SQL-Pools auf „DataWarehouse“ festgelegt werden.
+* **Edition**: Muss „DataWarehouse“ lauten, damit ein dedizierter SQL-Pool (vormals SQL DW) erstellt werden kann.
 
 Optionale Parameter:
 
@@ -151,4 +151,4 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Sie haben nun einen SQL-Pool sowie eine Firewallregel erstellt und diese mit Ihrem SQL-Pool verbunden. Weitere Informationen finden Sie im Artikel zum [Laden von Daten in den SQL-Pool](load-data-from-azure-blob-storage-using-polybase.md).
+Sie haben nun einen dedizierten SQL-Pool (vormals SQL DW) sowie eine Firewallregel erstellt und diese mit Ihrem dedizierten SQL-Pool verbunden. Weitere Informationen finden Sie im Artikel zum [Laden von Daten in einen dedizierten SQL-Pool](load-data-from-azure-blob-storage-using-polybase.md).

@@ -3,13 +3,13 @@ title: Konfigurieren der Überwachung für Azure Functions
 description: Es wird beschrieben, wie Sie Ihre Funktions-App zur Überwachung mit Application Insights verbinden und die Datensammlung konfigurieren.
 ms.date: 8/31/2020
 ms.topic: how-to
-ms.custom: contperfq2
-ms.openlocfilehash: 50705eeedf9c985a053600a8c0b27c823231e9a3
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: contperf-fy21q2, devx-track-azurecli
+ms.openlocfilehash: 5c4e9795109a9b4b5a6e9ceeec6b22e0168eb28f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217183"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027627"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Konfigurieren der Überwachung für Azure Functions
 
@@ -38,6 +38,9 @@ Die Azure Functions-Protokollierung enthält eine *Kategorie* für jedes Protoko
 | **`Host.Results`** | **requests** | Diese von der Runtime generierten Protokolle enthalten einen Hinweis zum Erfolg bzw. Misserfolg einer Funktion. Alle diese Protokolle werden auf der Stufe `Information` geschrieben. Wenn Sie nach `Warning` oder höheren Stufen filtern, finden Sie keine dieser Daten. |
 | **`Microsoft`** | **traces** | Vollständig qualifizierte Protokollkategorie, die eine vom Host aufgerufene .NET-Runtimekomponente widerspiegelt.  |
 | **`Worker`** | **traces** | Protokolle, die vom Sprachworkerprozess für nicht zu .NET gehörende Sprachen generiert werden. Sprachworkerprotokolle können auch in einer Kategorie vom Typ `Microsoft.*` protokolliert werden, z. B. `Microsoft.Azure.WebJobs.Script.Workers.Rpc.RpcFunctionInvocationDispatcher`. Diese Protokolle werden auf der Stufe `Information` geschrieben.|
+
+> [!NOTE]
+> Für .NET-Klassenbibliotheksfunktionen wird bei diesen Kategorien davon ausgegangen, dass Sie `ILogger` verwenden und nicht `ILogger<T>`. Weitere Informationen finden Sie in der [ILogger-Dokumentation von Functions](functions-dotnet-class-library.md#ilogger). 
 
 # <a name="v1x"></a>[v1.x](#tab/v1)
 
@@ -230,7 +233,7 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 
 Damit eine Funktionen-App Daten an Application Insights senden kann, muss sie den Instrumentierungsschlüssel einer Application Insights-Ressource kennen. Der Schlüssel muss in der App-Einstellung **APPINSIGHTS_INSTRUMENTATIONKEY** angegeben werden.
 
-Unabhängig davon, ob Sie Ihre Funktions-App [im Azure-Portal](functions-create-first-azure-function.md), über die Befehlszeile mithilfe der [Azure Functions Core Tools](functions-create-first-azure-function-azure-cli.md) oder mit [Visual Studio Code](functions-create-first-function-vs-code.md) erstellen, wird die Integration mit Application Insights automatisch aktiviert. Die Application Insights-Ressource hat den gleichen Namen wie Ihre Funktions-App und wird entweder in der gleichen oder nächstgelegenen Region erstellt.
+Unabhängig davon, ob Sie Ihre Funktions-App [im Azure-Portal](functions-create-first-azure-function.md), über die Befehlszeile mithilfe der [Azure Functions Core Tools](./create-first-function-cli-csharp.md) oder mit [Visual Studio Code](./create-first-function-vs-code-csharp.md) erstellen, wird die Integration mit Application Insights automatisch aktiviert. Die Application Insights-Ressource hat den gleichen Namen wie Ihre Funktions-App und wird entweder in der gleichen oder nächstgelegenen Region erstellt.
 
 ### <a name="new-function-app-in-the-portal"></a>Neue Funktions-App im Azure-Portal
 
@@ -245,22 +248,22 @@ Wenn Sie auf **Erstellen** klicken, wird eine Application Insights-Ressource mit
 
 Verwenden Sie die folgenden Schritte zum Erstellen der entsprechenden Ressource, falls für Ihre Funktions-App keine Application Insights-Ressource erstellt wurde. Sie können dann den Instrumentierungsschlüssel dieser Ressource Ihrer Funktions-App als [Anwendungseinstellung](functions-how-to-use-azure-function-app-settings.md#settings) hinzufügen.
 
-1. Suchen Sie im [Azure-Portal](https://portal.azure.com) nach **Funktions-App** , und wählen Sie diese Option und dann Ihre Funktions-App aus. 
+1. Suchen Sie im [Azure-Portal](https://portal.azure.com) nach **Funktions-App**, und wählen Sie diese Option und dann Ihre Funktions-App aus. 
 
 1. Wählen Sie oben im Fenster das Banner **Application Insights ist nicht konfiguriert** aus. Sollte dieses Banner nicht angezeigt werden, ist Application Insights möglicherweise bereits für Ihre App aktiviert.
 
     :::image type="content" source="media/configure-monitoring/enable-application-insights.png" alt-text="Aktivieren von Application Insights über das Portal":::
 
-1. Erweitern Sie **Ressource ändern** , und erstellen Sie eine Application Insights-Ressource. Verwenden Sie dazu die Einstellungen, die in der folgenden Tabelle angegeben sind.  
+1. Erweitern Sie **Ressource ändern**, und erstellen Sie eine Application Insights-Ressource. Verwenden Sie dazu die Einstellungen, die in der folgenden Tabelle angegeben sind.  
 
     | Einstellung      | Vorgeschlagener Wert  | BESCHREIBUNG                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Name der neuen Ressource** | Eindeutiger App-Name | Es ist am einfachsten, den gleichen Namen wie für Ihre Funktionen-App zu verwenden, der in Ihrem Abonnement eindeutig sein muss. | 
     | **Location** | Europa, Westen | Verwenden Sie nach Möglichkeit dieselbe [Region](https://azure.microsoft.com/regions/) wie für Ihre Funktions-App (oder eine Region in der Nähe). |
 
-    :::image type="content" source="media/configure-monitoring/ai-general.png" alt-text="Aktivieren von Application Insights über das Portal":::.
+    :::image type="content" source="media/configure-monitoring/ai-general.png" alt-text="Erstellen Sie eine Application Insights-Ressource":::.
 
-1. Wählen Sie **Übernehmen** . 
+1. Wählen Sie **Übernehmen**. 
 
    Die Application Insights-Ressource wird in derselben Ressourcengruppe und unter demselben Abonnement wie Ihre Funktionen-App erstellt. Schließen Sie nach der Erstellung der Ressource das Application Insights-Fenster.
 

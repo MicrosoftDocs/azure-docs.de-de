@@ -10,140 +10,140 @@ metadata:
   author: twooley
   ms.author: twooley
   ms.date: 05/01/2020
-  ms.openlocfilehash: f4428556c33bc476b21932034fa43b020f9e779d
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: e7b4fc7988621c996966c77bf9dd9b74b60afe86
+  ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "82735027"
+  ms.lasthandoff: 12/02/2020
+  ms.locfileid: "96491994"
 highlightedContent:
   items:
   - title: Einführung in die zentralen Speicherdienste
     itemType: concept
-    url: /azure/storage/common/storage-introduction?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    url: ./common/storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - title: Informationen zu Speicherkontotypen
     itemType: concept
-    url: /azure/storage/common/storage-account-overview?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    url: ./common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - title: Speicherkonto erstellen
     itemType: how-to-guide
-    url: /azure/storage/common/storage-account-create?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    url: ./common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - title: Informationen zur Datenredundanz
     itemType: concept
-    url: /azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    url: ./common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - title: Übertragen von Daten an Azure
     itemType: concept
-    url: /azure/storage/common/storage-choose-data-transfer-solution?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    url: ./common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 additionalContent:
   sections:
   - title: Cloudspeicherlösungen
     items:
     - title: Objektspeicher für Ihre Apps
       links:
-      - url: /azure/storage/blobs/storage-blobs-introduction
+      - url: ./blobs/storage-blobs-introduction.md
         text: Informationen zu Speicher für unstrukturierte Daten (Blob Storage)
       - url: /rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs
         text: Grundlegendes zu Block-, Anfüge- und Seitenblobs
-      - url: /azure/storage/blobs/
+      - url: ./blobs/index.yml
         text: Mehr anzeigen >
     - title: Speicher für die Big Data-Analyse
       links:
-      - url: /azure/storage/blobs/data-lake-storage-introduction
+      - url: ./blobs/data-lake-storage-introduction.md
         text: Informationen zu Speicher für Data Lakes für Unternehmen (Data Lake Storage)
-      - url: /azure/storage/blobs/data-lake-storage-data-scenarios
+      - url: ./blobs/data-lake-storage-data-scenarios.md
         text: Grundlegendes zu Optionen und Tools für die Big Data-Verarbeitung
     - title: In der Cloud gehostete Dateifreigaben
       links:
-      - url: /azure/storage/files/storage-files-introduction
+      - url: ./files/storage-files-introduction.md
         text: Verwenden von Dateifreigaben, die von der zentralen Azure Storage-Plattform bereitgestellt werden (Azure Files)
-      - url: /azure/azure-netapp-files/azure-netapp-files-introduction
+      - url: ../azure-netapp-files/azure-netapp-files-introduction.md
         text: Verwenden von Volumes, die von NetApp ONTAP bereitgestellt werden (Azure NetApp Files)
     - title: Datenträgerspeicher für IaaS-Workloads
       links:
-      - url: /azure/virtual-machines/windows/managed-disks-overview
+      - url: ../virtual-machines/managed-disks-overview.md
         text: Informationen zu Speichervolumes auf Blockebene für virtuelle Azure-Computer
-      - url: /azure/virtual-machines/windows/disks-types
+      - url: ../virtual-machines/disks-types.md
         text: Grundlegendes zu den verfügbaren Datenträgertypen
-      - url: /azure/virtual-machines/windows/attach-managed-disk-portal
+      - url: ../virtual-machines/windows/attach-managed-disk-portal.md
         text: 'Hinzufügen eines neuen Datenträgers zu einem virtuellen Computer: Windows'
-      - url: /azure/virtual-machines/linux/attach-disk-portal
+      - url: ../virtual-machines/linux/attach-disk-portal.md
         text: 'Anfügen eines Datenträgers an einen virtuellen Computer: Linux'
     - title: Speicher für asynchrones Message Queuing
       links:
-      - url: /azure/storage/queues/storage-queues-introduction
+      - url: ./queues/storage-queues-introduction.md
         text: Informationen zur Azure Storage-Lösung für Warteschlangen (Queue Storage)
-      - url: /azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted
+      - url: ../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md
         text: Vergleich von Queue Storage und Service Bus-Warteschlangen
-      - url: /azure/storage/queues/
+      - url: ./queues/index.yml
         text: Mehr anzeigen >
     - title: Speicher für strukturierte NoSQL-Daten
       links:
-      - url: /azure/storage/tables/table-storage-overview
+      - url: ./tables/table-storage-overview.md
         text: Speichern strukturierter NoSQL-Daten in der Cloud (Table Storage und Cosmos DB)
-      - url: /azure/cosmos-db/table-support
+      - url: ../cosmos-db/table-support.md
         text: Vergleich von Table Storage und Cosmos DB-Tabellen-API
-      - url: /azure/storage/tables/
+      - url: ./tables/index.yml
         text: Mehr anzeigen >
   - title: Hybridspeicherlösungen
     items:
     - title: Erweitern einer lokalen Dateifreigabe in die Cloud
       links:
-      - url: /azure/storage/files/storage-sync-files-planning
+      - url: ./files/storage-sync-files-planning.md
         text: Synchronisieren von Azure-Dateifreigaben mit dem Windows-Dateiserver (Azure-Dateisynchronisierung)
-      - url: /azure/storage/files/storage-sync-files-deployment-guide
+      - url: ./files/storage-sync-files-deployment-guide.md
         text: Bereitstellen der Azure-Dateisynchronisierung
-      - url: /azure/storage/files/
+      - url: ./files/index.yml
         text: Mehr anzeigen >
     - title: Online Datenübertragung (lokal an Azure)
       links:
-      - url: /azure/databox-online/data-box-gateway-overview
+      - url: ../databox-online/data-box-gateway-overview.md
         text: Nahtloses Übertragen von Daten an Azure (Data Box Gateway)
-      - url: /azure/databox-online/data-box-edge-overview
+      - url: ../databox-online/azure-stack-edge-overview.md
         text: Lokales Verarbeiten von Daten vor der Übertragung an Azure (Azure Stack Edge)
-      - url: /azure/databox-online/
+      - url: ../databox-online/index.yml
         text: Mehr anzeigen >
     - title: Zwischenspeicherung für HPC-Workloads (High Performance Computing)
       links:
-      - url: /azure/hpc-cache/hpc-cache-overview
+      - url: ../hpc-cache/hpc-cache-overview.md
         text: Verwenden eines vollständig verwalteten Dateicachediensts (Azure HPC Cache)
-      - url: /azure/avere-vfxt/avere-vfxt-overview
+      - url: ../avere-vfxt/avere-vfxt-overview.md
         text: Zwischenspeichern eines lokalen NAS in Azure (Avere vFXT for Azure)
-      - url: /azure/fxt-edge-filer/fxt-overview
+      - url: ../fxt-edge-filer/fxt-overview.md
         text: Bereitstellen einer lokalen Caching-Appliance (Azure FXT Edge Filer)
   - title: Datenvorgänge
     items:
     - title: Offlinemassenübertragung an Azure
       links:
-      - url: /azure/databox/data-box-disk-overview
+      - url: ../databox/data-box-disk-overview.md
         text: Übertragen von weniger als 40 TB (Data Box Disk)
-      - url: /azure/databox/data-box-overview
+      - url: ../databox/data-box-overview.md
         text: Übertragen von 40–500 TB (Data Box)
-      - url: /azure/databox/data-box-heavy-overview
+      - url: ../databox/data-box-heavy-overview.md
         text: Übertragen von mehr als 500 TB (Data Box Heavy)
-      - url: /azure/databox/
+      - url: ../databox/index.yml
         text: Mehr anzeigen >
     - title: Übertragen kleiner Datasets (online)
       links:
-      - url: /azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - url: ./common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         text: Verwenden des AzCopy-Befehlszeilentools
-      - url: /azure/storage/blobs/storage-quickstart-blobs-storage-explorer
+      - url: ./blobs/storage-quickstart-blobs-storage-explorer.md
         text: Verwenden des GUI-basierten Tools „Azure Storage-Explorer“
     - title: Kostenkontrolle
       links:
-      - url: /azure/storage/blobs/storage-blob-storage-tiers
+      - url: ./blobs/storage-blob-storage-tiers.md
         text: Kosteneffizientes Aufteilen von Blobdaten (heiß, kalt, Archiv)
     - title: Freigeben von Daten
       links:
-      - url: /azure/data-share/
+      - url: ../data-share/index.yml
         text: Freigeben von Daten für Kunden und Partner (Azure Data Share)
-      - url: /azure/data-share/supported-data-stores
+      - url: ../data-share/supported-data-stores.md
         text: Unterstützte Datenspeicher für die Freigabe
-      - url: /azure/data-share/
+      - url: ../data-share/index.yml
         text: Mehr anzeigen >
     - title: Sichern von Daten
       links:
-      - url: /azure/backup/quick-backup-vm-portal
+      - url: ../backup/quick-backup-vm-portal.md
         text: Sichern virtueller Computer (Azure Backup)
-      - url: /azure/backup/tutorial-backup-azure-files
+      - url: ../backup/backup-afs.md
         text: Sichern von Azure-Dateifreigaben
-      - url: /azure/backup/
+      - url: ../backup/index.yml
         text: Mehr anzeigen >

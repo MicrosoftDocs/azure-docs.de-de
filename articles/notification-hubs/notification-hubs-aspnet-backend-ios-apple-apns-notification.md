@@ -15,11 +15,11 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 167c666c536ee33531fd069dbd1edb530331a9f3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302188"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016942"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Tutorial: Senden von Pushbenachrichtigungen an bestimmte Benutzer mit Azure Notification Hubs
 
@@ -487,7 +487,7 @@ Wenn Sie Mobile Apps als Back-End-Dienst verwenden möchten, lesen Sie [Mobile A
 
     ![iOS-Testbenachrichtigung][3]
 
-4. Geben Sie im Textfeld*Recipient username tag* das Benutzernamenstag ein, das bei der Anmeldung von einem anderen Gerät verwendet wird.
+4. Geben Sie im Textfeld *Recipient username tag* das Benutzernamenstag ein, das bei der Anmeldung von einem anderen Gerät verwendet wird.
 5. Geben Sie eine Benachrichtigungsmeldung ein, und klicken Sie auf **Send Notification**. Die Benachrichtigungsmeldung wird nur auf den Geräten empfangen, die für das Empfänger-Benutzernamenstag registriert sind. Sie wird nur an diese Benutzer gesendet.
 
     ![Mit Tag versehene iOS-Testbenachrichtigung][4]

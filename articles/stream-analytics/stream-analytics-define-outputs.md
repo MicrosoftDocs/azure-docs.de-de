@@ -8,18 +8,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/2/2020
-ms.openlocfilehash: 5f109ad719ada9728938f6e37d4ec854d3950a24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 022e2e25c96473f49468f2bd48e5ee997933baea
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708434"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348711"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Ausgaben von Azure Stream Analytics
 
-Ein Azure Stream Analytics-Auftrag besteht aus einer Eingabe, Abfrage und Ausgabe. Transformierte Daten können an verschiedene Ausgabetypen gesendet werden. In diesem Artikel werden die unterstützten Stream Analytics-Ausgaben aufgeführt. Verweisen Sie beim Entwerfen Ihrer Stream Analytics-Abfrage auf den Namen der Ausgabe, indem Sie die [INTO-Klausel](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics) verwenden. Sie können eine einzelne Ausgabe pro Auftrag oder (bei Bedarf) auch mehrere Ausgaben pro Streamingauftrag verwenden, indem Sie der Abfrage mehrere INTO-Klauseln hinzufügen.
+Ein Azure Stream Analytics-Auftrag besteht aus einer Eingabe, Abfrage und Ausgabe. Transformierte Daten können an verschiedene Ausgabetypen gesendet werden. In diesem Artikel werden die unterstützten Stream Analytics-Ausgaben aufgeführt. Verweisen Sie beim Entwerfen Ihrer Stream Analytics-Abfrage auf den Namen der Ausgabe, indem Sie die [INTO-Klausel](/stream-analytics-query/into-azure-stream-analytics) verwenden. Sie können eine einzelne Ausgabe pro Auftrag oder (bei Bedarf) auch mehrere Ausgaben pro Streamingauftrag verwenden, indem Sie der Abfrage mehrere INTO-Klauseln hinzufügen.
 
-Zum Erstellen, Bearbeiten und Testen von Stream Analytics-Auftragsausgaben können Sie das [Azure-Portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), die [.NET-API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), die [REST-API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output) und [Visual Studio](stream-analytics-quick-create-vs.md) verwenden.
+Zum Erstellen, Bearbeiten und Testen von Stream Analytics-Auftragsausgaben können Sie das [Azure-Portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), die [.NET-API](/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations), die [REST-API](/rest/api/streamanalytics/) und [Visual Studio](stream-analytics-quick-create-vs.md) verwenden.
 
 Für einige Ausgabetypen wird die [Partitionierung](#partitioning) unterstützt, und die [Ausgabebatchgrößen](#output-batch-size) variieren, um den Durchsatz zu optimieren. Die folgende Tabelle zeigt die Features, die für die jeweiligen Ausgabetypen unterstützt werden:
 
@@ -41,7 +41,7 @@ Für einige Ausgabetypen wird die [Partitionierung](#partitioning) unterstützt,
 
 Stream Analytics unterstützt Partitionen für alle Ausgaben außer für Power BI. Weitere Informationen zu Partitionsschlüsseln und der Anzahl von Ausgabeschreibern finden Sie im Artikel zum jeweiligen Ausgabetyp. In der Tabelle oben finden Sie Links zu den Artikeln für die verschiedenen Ausgabetypen.  
 
-Wenn Sie die Partitionen zusätzlich weiter optimieren möchten, können Sie die Anzahl von Ausgabeschreibern mithilfe einer `INTO <partition count>`-Klausel (siehe [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) in Ihrer Abfrage steuern. Dies kann hilfreich sein, um die gewünschte Auftragstopologie zu erzielen. Wenn der Ausgabeadapter nicht partitioniert ist, führt das Fehlen von Daten in einer Eingabepartition zu einer Verzögerung. Diese kann die gesamte Zeitspanne der Eingangsverzögerung umfassen. In solchen Fällen wird die Ausgabe in einen einzigen Writer zusammengeführt, was Engpässe in Ihrer Pipeline verursachen kann. Weitere Informationen zur Richtlinie bei Eingangsverzögerung finden Sie unter [Überlegungen zur Ereignisreihenfolge in Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md).
+Wenn Sie die Partitionen zusätzlich weiter optimieren möchten, können Sie die Anzahl von Ausgabeschreibern mithilfe einer `INTO <partition count>`-Klausel (siehe [INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) in Ihrer Abfrage steuern. Dies kann hilfreich sein, um die gewünschte Auftragstopologie zu erzielen. Wenn der Ausgabeadapter nicht partitioniert ist, führt das Fehlen von Daten in einer Eingabepartition zu einer Verzögerung. Diese kann die gesamte Zeitspanne der Eingangsverzögerung umfassen. In solchen Fällen wird die Ausgabe in einen einzigen Writer zusammengeführt, was Engpässe in Ihrer Pipeline verursachen kann. Weitere Informationen zur Richtlinie bei Eingangsverzögerung finden Sie unter [Überlegungen zur Ereignisreihenfolge in Azure Stream Analytics](./stream-analytics-time-handling.md).
 
 ## <a name="output-batch-size"></a>Ausgabebatchgröße
 
@@ -91,5 +91,5 @@ Diese Eigenschaften des Zeitfensters der Batchverarbeitung werden nur von der AP
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

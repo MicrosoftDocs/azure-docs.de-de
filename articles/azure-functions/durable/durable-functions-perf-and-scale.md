@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 56a9861f0e25e1dcdf741cfdf5c8830dd9b6fc1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b9fc465b5e5f132264fd36e004fa3ee7623b87a5
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325809"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854987"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Leistung und Skalierbarkeit in Durable Functions (Azure Functions)
 
@@ -20,13 +20,13 @@ Zum Verständnis des Skalierungsverhaltens müssen Sie einige Details der zugrun
 
 ## <a name="history-table"></a>Verlaufstabelle
 
-Die **Verlaufstabelle** ist eine Azure Storage-Tabelle, die die Verlaufsereignisse für alle Orchestrierungsinstanzen innerhalb eines Aufgabenhubs enthält. Der Name dieser Tabelle hat das Format „*Aufgabenhubname*History“. Während Instanzen ausgeführt werden, werden dieser Tabelle neue Zeilen hinzugefügt. Der Partitionsschlüssel dieser Tabelle wird von der Instanzen-ID der Orchestrierung abgeleitet. Eine Instanz-ID wird in den meisten Fällen auf Zufallsbasis generiert, um die optimale Verteilung von internen Partitionen in Azure Storage sicherzustellen.
+Die **Verlaufstabelle** ist eine Azure Storage-Tabelle, die die Verlaufsereignisse für alle Orchestrierungsinstanzen innerhalb eines Aufgabenhubs enthält. Der Name dieser Tabelle hat das Format „*Aufgabenhubname* History“. Während Instanzen ausgeführt werden, werden dieser Tabelle neue Zeilen hinzugefügt. Der Partitionsschlüssel dieser Tabelle wird von der Instanzen-ID der Orchestrierung abgeleitet. Eine Instanz-ID wird in den meisten Fällen auf Zufallsbasis generiert, um die optimale Verteilung von internen Partitionen in Azure Storage sicherzustellen.
 
 Wenn eine Orchestrierungsinstanz ausgeführt werden muss, werden die entsprechenden Zeilen der Verlaufstabelle in den Speicher geladen. Diese *Verlaufsereignisse* werden dann im Orchestratorfunktionscode erneut wiedergegeben, um diesen wieder in den Zustand des vorherigen Prüfpunkts zu versetzen. Die Verwendung des Ausführungsverlaufs zum Neuerstellen des Zustands auf diese Weise hängt vom [Ereignissourcingmuster](/azure/architecture/patterns/event-sourcing) ab.
 
 ## <a name="instances-table"></a>Instanzentabellen
 
-Die **Instanzentabelle** ist eine andere Azure Storage-Tabelle, die die Statuswerte aller Orchestrierungs- und Entitätsinstanzen innerhalb eines Aufgabenhubs enthält. Während der Erstellung von Instanzen werden dieser Tabelle neue Zeilen hinzugefügt. Der Partitionsschlüssel dieser Tabelle ist die Orchestrierungsinstanz-ID oder der Entitätsschlüssel, und der Zeilenschlüssel ist eine feste Konstante. Es gibt eine Zeile pro Orchestrierungs- oder Entitätsinstanz.
+Die **Instanzentabelle** ist eine andere Azure Storage-Tabelle, die die Statuswerte aller Orchestrierungs- und Entitätsinstanzen innerhalb eines Aufgabenhubs enthält. Während der Erstellung von Instanzen werden dieser Tabelle neue Zeilen hinzugefügt. Der Partitionsschlüssel dieser Tabelle ist die Orchestrierungsinstanz-ID oder der Entitätsschlüssel, und der Zeilenschlüssel ist eine leere Zeichenfolge. Es gibt eine Zeile pro Orchestrierungs- oder Entitätsinstanz.
 
 Diese Tabelle wird verwendet, um Instanzabfrageanforderungen von `GetStatusAsync`- (.NET) und `getStatus`-APIs (JavaScript) sowie der [Statusabfrage-HTTP-API](durable-functions-http-api.md#get-instance-status) zu verarbeiten. Sie wird letztendlich konsistent mit dem Inhalt der oben genannten **Verlaufstabelle** gehalten. Die Verwendung einer separaten Azure Storage-Tabelle zur wirksamen Erfüllung von Instanzabfragevorgängen auf diese Weise hängt vom [CQRS-Muster (Command and Query Responsibility Segregation)](/azure/architecture/patterns/cqrs) ab.
 

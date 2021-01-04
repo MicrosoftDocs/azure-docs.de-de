@@ -3,8 +3,8 @@ title: Einführung in Data Factory, einen Datenintegrationsdienst
 description: 'Hier erfahren Sie, worum es sich bei Azure Data Factory handelt: Azure Data Factory ist ein cloudbasierter Datenintegrationsdienst, der das Verschieben und Transformieren von Daten orchestriert und automatisiert.'
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: cec68cb5-ca0d-473b-8ae8-35de949a009e
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 06f308b4e0b2df0487a351ae38f16f3872961cfb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 101de32aea47bb3dd3c8a04434993c8614939c37
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89436255"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495564"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Einführung in Azure Data Factory 
 > [!div class="op_single_selector" title1="Wählen Sie die von Ihnen verwendete Version des Data Factory-Diensts aus:"]
@@ -35,7 +35,7 @@ Ein Spiele-Unternehmen erfasst beispielsweise Protokolle, die von Spielen in der
 
 Zum Analysieren dieser Protokolle benötigt das Unternehmen die Referenzdaten (beispielsweise Informationen zu den Kunden, zum Spiel und zur Marketingkampagne), die in einem lokalen Datenspeicher gespeichert sind. Daher möchte das Unternehmen Protokolldaten aus dem Clouddatenspeicher und Referenzdaten aus dem lokalen Datenspeicher erfassen. 
 
-Als Nächstes sollen die Daten mit Hadoop in der Cloud (Azure HDInsight) verarbeitet werden. Das Unternehmen möchte die Ergebnisdaten in einem Data Warehouse in der Cloud, z. B. Azure Synapse Analytics (vormals SQL Data Warehouse), oder einem lokalen Speicher wie SQL Server veröffentlichen. Dieser Workflow soll einmal pro Woche ausgeführt werden. 
+Als Nächstes sollen die Daten mit Hadoop in der Cloud (Azure HDInsight) verarbeitet werden. Das Unternehmen möchte die Ergebnisdaten in einem Data Warehouse in der Cloud (beispielsweise Azure Synapse Analytics) oder in einem lokalen Datenspeicher wie SQL Server veröffentlichen. Dieser Workflow soll einmal pro Woche ausgeführt werden. 
 
 Das Unternehmen benötigt eine Plattform, auf der ein Workflow erstellt werden kann, mit dem das Erfassen von Daten aus Datenspeichern lokal oder in der Cloud möglich ist. Außerdem soll es möglich sein, Daten mit vorhandenen Compute Services wie Hadoop zu transformieren und zu verarbeiten und die Ergebnisse in einem Datenspeicher lokal oder in der Cloud zu veröffentlichen, damit sie von BI-Anwendungen genutzt werden können. 
 

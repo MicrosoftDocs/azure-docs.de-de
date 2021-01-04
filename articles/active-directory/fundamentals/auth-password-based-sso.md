@@ -1,6 +1,6 @@
 ---
 title: Kennwortbasierte Authentifizierung mit Azure Active Directory
-description: Architekturleitfaden zum Erreichen dieses Authentifizierungsmusters
+description: Architekturleitfaden zum Implementieren der kennwortbasierten Authentifizierung mit Azure Active Directory
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f05bf8f5f7ec4907c2cd61ff48e3438dfa1e097a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 5bd6a5c8af117bf6cb39969a5f1b1f17ff08681c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92113928"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172821"
 ---
 # <a name="password-based-authentication-with-azure-active-directory"></a>Kennwortbasierte Authentifizierung mit Azure Active Directory
 
@@ -37,18 +37,17 @@ Sie müssen Ihre Anwendung mit Vorauthentifizierung schützen und SSO über Kenn
 
 * **Benutzer:** Der Benutzer greift über „Meine Apps“ oder direkt durch Besuchen der Website auf eine formularbasierte Anwendung zu. 
 
-* **Webbrowser** : Die Komponente, mit der der Benutzer interagiert, um auf die externe URL der Anwendung zuzugreifen. Der Benutzer greift über die MyApps-Erweiterung auf die formularbasierte Anwendung zu. 
+* **Webbrowser**: Die Komponente, mit der der Benutzer interagiert, um auf die externe URL der Anwendung zuzugreifen. Der Benutzer greift über die MyApps-Erweiterung auf die formularbasierte Anwendung zu. 
 
-* **MyApps-Erweiterung** : Hiermit wird die konfigurierte kennwortbasierte SSO-Anwendung identifiziert, und die Anmeldeinformationen werden dem Anmeldeformular bereitgestellt. Die MyApps-Erweiterung ist im Webbrowser installiert. 
+* **MyApps-Erweiterung**: Hiermit wird die konfigurierte kennwortbasierte SSO-Anwendung identifiziert, und die Anmeldeinformationen werden dem Anmeldeformular bereitgestellt. Die MyApps-Erweiterung ist im Webbrowser installiert. 
 
-* **Azure AD** : Hiermit wird der Benutzer authentifiziert.
+* **Azure AD**: Hiermit wird der Benutzer authentifiziert.
 
 ## <a name="implement-password-based-sso-with-azure-ad"></a>Implementieren des kennwortbasierten einmaligen Anmeldens mit Azure AD
 
-* [Worum handelt es sich beim einmaligen Anmelden (Single Sign-On, SSO)?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) 
+* [Worum handelt es sich beim einmaligen Anmelden (Single Sign-On, SSO)?](../manage-apps/what-is-single-sign-on.md) 
 
-* [Grundlegendes zum kennwortbasierten einmaligen Anmelden](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-password-single-sign-on-non-gallery-applications)
+* [Grundlegendes zum kennwortbasierten einmaligen Anmelden](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
-* [Kennworttresore (Password Vaulting) für einmaliges Anmelden mit Anwendungsproxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-password-vaulting)
+* [Kennworttresore (Password Vaulting) für einmaliges Anmelden mit Anwendungsproxy](../manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md)
 
- 

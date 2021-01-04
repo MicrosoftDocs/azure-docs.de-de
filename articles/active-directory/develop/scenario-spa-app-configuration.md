@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: b42d720a425b92ec9002f7c2b9797a91f70dafe2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30a9b710ffbf98ebc523217a3b8a7fd9a2640c49
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89003023"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443040"
 ---
 # <a name="single-page-application-code-configuration"></a>Single-Page-Webanwendung: Codekonfiguration
 
@@ -75,5 +75,4 @@ export class AppModule { }
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-> [!div class="nextstepaction"]
-> [An- und Abmeldung](scenario-spa-sign-in.md)
+Fahren Sie mit dem nächsten Artikel in diesem Szenario fort: [Anmelden und Abmelden](scenario-spa-sign-in.md).

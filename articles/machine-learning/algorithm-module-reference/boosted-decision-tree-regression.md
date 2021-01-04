@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
-ms.openlocfilehash: 21cd1491da4374babaff8b5b4b451a3cce874368
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 664943fc5535883b3df77b2795383e5c0586a71c
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898835"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375328"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Modul „Boosted Decision Tree Regression“ (Regression bei verstärktem Entscheidungsbaum)
 
@@ -73,7 +73,7 @@ Die Gradient Boosting-Methode kann auch für Klassifizierungsprobleme verwendet 
 
 6. **Number of trees constructed**: (Anzahl der erstellten Bäume) Geben Sie die Gesamtzahl von Entscheidungsbäumen an, die im Ensemble erstellt werden sollen. Mit einer höheren Anzahl von Entscheidungsbäumen erzielen Sie u. U. eine bessere Abdeckung, allerdings verlängert sich dadurch auch die Trainingsdauer.
 
-    Dieser Wert steuert auch die Anzahl von Bäumen, die bei der Visualisierung des trainierten Modells angezeigt werden. Um einen einzelnen Baum anzuzeigen oder auszugeben, können Sie den Wert auf 1 festlegen. Das bedeutet jedoch, dass nur ein Baum erzeugt wird (der Baum mit dem anfänglichen Parametersatz) und keine weiteren Iterationen erfolgen.
+    Wenn Sie den Wert auf 1 festlegen, wird allerdings nur eine einzelne Struktur (die Struktur mit dem anfänglichen Parametersatz) generiert, und es finden keine weiteren Iterationen statt.
 
 7. **Random number seed** (Zufälliger Startwert): Geben Sie eine optionale, nicht negative ganze Zahl als zufälligen Startwert an. Die Angabe eines Startwerts gewährleistet Reproduzierbarkeit in verschiedenen Ausführungen, die auf den gleichen Daten und Parametern basieren.
 

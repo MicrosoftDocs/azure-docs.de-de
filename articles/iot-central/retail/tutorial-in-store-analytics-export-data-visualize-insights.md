@@ -11,15 +11,14 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: f00448f19cc0a2118477a9527005548fea25537e
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: fca9a72fa237a11a02b6d4fbe30ebba5857384cf
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91651444"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346366"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Tutorial: Exportieren von Daten aus Azure IoT Central und Visualisieren von Erkenntnissen in Power BI
-
 
 
 In den beiden vorherigen Tutorials haben Sie eine IoT Central-Anwendung erstellt und angepasst, indem Sie die Anwendungsvorlage **In-Store-Analyse – Auschecken** verwendet haben. In diesem Tutorial konfigurieren Sie Ihre IoT Central-Anwendung für den Export der erfassten Telemetriedaten von den Geräten. Anschließend nutzen Sie Power BI zum Erstellen eines benutzerdefinierten Dashboards für den Store Manager, um die aus den Telemetriedaten gewonnenen Erkenntnisse zu visualisieren.

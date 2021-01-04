@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 073f1361771ded96b33158d040efd77306acd846
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 513d98ae274c668197b066c742119055248f37f9
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276939"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911714"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Erstellen eines Trainingsdatasets für ein benutzerdefiniertes Modell
 
@@ -41,7 +41,7 @@ Befolgen Sie diese zusätzlichen Tipps, um Ihr Dataset für das Training weiter 
 
 ## <a name="upload-your-training-data"></a>Hochladen Ihrer Trainingsdaten
 
-Wenn Sie den Satz von Formulardokumenten, die Sie für das Training verwenden möchten, zusammengestellt haben, müssen Sie ihn in einen Azure Blob Storage-Container hochladen. Wenn Sie nicht wissen, wie Sie ein Azure Storage-Konto mit einem Container erstellen, folgen Sie den Anweisungen im [Azure Storage-Schnellstart für das Azure-Portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). Verwenden Sie die Standardleistungsstufe.
+Wenn Sie den Satz von Formulardokumenten, die Sie für das Training verwenden möchten, zusammengestellt haben, müssen Sie ihn in einen Azure Blob Storage-Container hochladen. Wenn Sie nicht wissen, wie Sie ein Azure Storage-Konto mit einem Container erstellen, folgen Sie den Anweisungen im [Azure Storage-Schnellstart für das Azure-Portal](../../storage/blobs/storage-quickstart-blobs-portal.md). Verwenden Sie die Standardleistungsstufe.
 
 Wenn Sie manuell bezeichnete Daten verwenden möchten, müssen Sie auch die Dateien *.labels.json* und *.ocr.json* hochladen, die den Trainingsdokumenten entsprechen. Sie können das [Tool für die Beschriftung von Beispielen](./quickstarts/label-tool.md) (oder Ihre eigene Benutzeroberfläche) verwenden, um diese Dateien zu generieren.
 

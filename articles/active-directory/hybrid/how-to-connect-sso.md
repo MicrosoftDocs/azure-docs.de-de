@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1708b3b8777b32aac7c160a1084235ba1b2eda13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e50b9e5dc683eb30452dbb96d82c9f66de93763
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658364"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408004"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Nahtlose einmalige Anmeldung mit Azure Active Directory
 
@@ -64,18 +64,20 @@ Die nahtlose SSO kann mit den Anmeldemethoden [Kennworthashsynchronisierung](how
 | Betriebssystem/Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
 |Windows 10|Ja\*|Ja|Ja|Ja\*\*\*|–
-|Windows 8.1|Ja\*|–|Ja|Ja\*\*\*|–
+|Windows 8.1|Ja\*|Ja*\*\*\*|Ja|Ja\*\*\*|–
 |Windows 8|Ja\*|–|Ja|Ja\*\*\*|–
 |Windows 7|Ja\*|–|Ja|Ja\*\*\*|–
 |Windows Server 2012 R2 oder höher|Ja\*\*|–|Ja|Ja\*\*\*|–
 |Mac OS X|–|–|Ja\*\*\*|Ja\*\*\*|Ja\*\*\*
 
 
-\*Internet Explorer 10 oder höher erforderlich
+\*Erfordert Internet Explorer 10 oder höher.
 
-\*\*Internet Explorer 10 oder höher ist erforderlich. Deaktivieren des erweiterten geschützten Modus
+\*\*Erfordert Internet Explorer 10 oder höher. Deaktivieren Sie den erweiterten geschützten Modus.
 
-\*\*\*Erfordert eine [zusätzliche Konfiguration](how-to-connect-sso-quick-start.md#browser-considerations)
+\*\*\*Erfordert [zusätzliche Konfigurationsschritte](how-to-connect-sso-quick-start.md#browser-considerations).
+
+\*\*\*\*Erfordert Microsoft Edge, Version 77 oder höher.
 
 >[!NOTE]
 >Bei Windows 10 wird empfohlen, [Azure AD Join](../devices/concept-azure-ad-join.md) zu verwenden, um eine optimale Funktionsweise der nahtlosen SSO mit Azure AD sicherzustellen.
@@ -83,8 +85,8 @@ Die nahtlose SSO kann mit den Anmeldemethoden [Kennworthashsynchronisierung](how
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [**Schnellstart**](how-to-connect-sso-quick-start.md): Einrichten und Ausführen der nahtlosen SSO mit Azure AD
-- [**Bereitstellungsplan**](https://aka.ms/deploymentplans/sso) – Plan für die Bereitstellung in einzelnen Schritten
+- [**Bereitstellungsplan**](../manage-apps/plan-sso-deployment.md) – Plan für die Bereitstellung in einzelnen Schritten
 - [**Technische Einzelheiten**](how-to-connect-sso-how-it-works.md) – Funktionsweise dieses Features verstehen
-- [**Häufig gestellte Fragen:** ](how-to-connect-sso-faq.md) Antworten auf häufig gestellte Fragen
+- [**Häufig gestellte Fragen:**](how-to-connect-sso-faq.md) Antworten auf häufig gestellte Fragen
 - [**Problembehandlung**](tshoot-connect-sso.md) – Beheben von häufig auftretenden Problemen mit diesem Feature
-- [**UserVoice:** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) Verfassen neuer Feature-Anforderungen
+- [**UserVoice:**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) Verfassen neuer Feature-Anforderungen

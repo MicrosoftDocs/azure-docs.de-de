@@ -4,12 +4,12 @@ description: Autoskalierungsmuster in Azure für Web-Apps, VM-Skalierungsgruppen
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 414716fbbb36167e52c4f3b98c70ae7696ffea8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fdb3588833dd9bcf989e020cd1dd861c6e28f37
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327054"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95745315"
 ---
 # <a name="best-practices-for-autoscale"></a>Bewährte Methoden für die automatische Skalierung
 Die automatische Skalierung von Azure Monitor gilt nur für [VM.Skalierungsgruppen](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Clouddienste](https://azure.microsoft.com/services/cloud-services/), [App Service – Web-Apps](https://azure.microsoft.com/services/app-service/web/) und [API Management-Dienste](../../api-management/api-management-key-concepts.md).
@@ -73,6 +73,9 @@ In diesem Fall
 3. Nehmen Sie jetzt an, dass im Laufe der Zeit die prozentuale CPU-Auslastung auf 60 fällt.
 4. Die Regel für das automatische horizontale Herunterskalieren schätzt den Endzustand, falls horizontal herunterskaliert werden sollte. Falls beispielsweise 60 x 3 (aktuelle Instanzenanzahl) = 180 / 2 (Anzahl der Instanzen wenn herunterskaliert wird) = 90 Die automatische Skalierung skaliert also nicht horizontal herunter, da sie sofort wieder horizontal hochskalieren müsste. Stattdessen wird das horizontale Herunterskalieren übersprungen. Nehmen Sie jetzt an, dass bei der nächsten Überprüfung die CPU-Auslastung auf 50 fällt.
 5. Bei der nächsten Prüfung durch die automatische Skalierung fällt die CPU-Auslastung weiter auf 50. Jetzt schätzt sie wieder – 50 x 3 Instanzen = 150 / 2 Instanzen = 75, was unter dem Schwellenwert von 80 für das horizontale Hochskalieren liegt, daher wird erfolgreich horizontal auf 2 Instanzen herunterskaliert.
+
+> [!NOTE]
+> Wenn die Engine für die automatische Skalierung erkennt, dass als Folge der Skalierung auf die Zielanzahl von Instanzen eine Fluktuation auftreten könnte, wird zudem versucht, eine Skalierung auf eine andere Anzahl von Instanzen durchzuführen, die zwischen der aktuellen Anzahl und der Zielanzahl liegt. Wenn innerhalb dieses Bereichs keine Fluktuation auftritt, setzt die automatische Skalierung den Vorgang mit dem neuen Ziel fort.
 
 ### <a name="considerations-for-scaling-threshold-values-for-special-metrics"></a>Überlegungen zu Skalierungsschwellenwerten für spezielle Metriken
  Für spezielle Metriken, wie die Metrik für die Länge der Speicher- oder Service Bus-Warteschlange, ist der Schwellenwert die durchschnittliche Anzahl der Nachrichten, die pro aktueller Anzahl von Instanzen verfügbar ist. Wählen Sie den Schwellenwert für diese Metrik sorgfältig aus.
@@ -143,6 +146,8 @@ Die automatische Skalierung schreibt in das Aktivitätsprotokoll, wenn eine der 
 * Bei einer Skalierungsaktion der automatischen Skalierung tritt ein Fehler auf.
 * Für den Autoskalierungsdienst stehen keine Metriken zur Verfügung, auf deren Grundlage eine Skalierungsentscheidung getroffen werden kann.
 * Metriken stehen wieder zur Verfügung (Wiederherstellung), um eine Skalierungsentscheidung zu treffen.
+* Die automatische Skalierung erkennt eine Fluktuation und bricht den Skalierungsversuch ab. In dieser Situation wird der Protokolltyp `Flapping` angezeigt. Wenn das der Fall ist, sollten Sie prüfen, ob die Schwellenwerte zu dicht beieinander liegen.
+* Die automatische Skalierung erkennt eine Fluktuation, kann aber immer noch erfolgreich skalieren. In dieser Situation wird der Protokolltyp `FlappingOccurred` angezeigt. Wenn das der Fall ist, hat die Engine für die automatische Skalierung versucht, eine Skalierung durchzuführen (z. B. von vier Instanzen auf zwei), jedoch festgestellt, dass dies zu Fluktuation führt. Stattdessen hat die Engine für die automatische Skalierung auf eine andere Anzahl von Instanzen skaliert (z. B. auf drei Instanzen anstelle von zwei), wodurch keine Fluktuation mehr verursacht wird, sodass die Skalierung auf diese Anzahl von Instanzen erfolgte.
 
 Sie können auch eine Aktivitätsprotokollwarnung zur Überwachung der Integrität der Engine für die automatische Skalierung verwenden. Es folgen Beispiele zum [Erstellen einer Aktivitätsprotokollwarnung zum Überwachen aller Vorgänge der Engine für die automatische Skalierung in Ihrem Abonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) oder [Erstellen einer Aktivitätsprotokollwarnung zum Überwachen aller fehlerhaften Vorgänge zum automatischen Abskalieren und zum automatischen Aufskalieren in Ihrem Abonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
 

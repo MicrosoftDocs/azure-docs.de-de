@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d000d8390375466232c7daac2a4a056ef424be79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cd08ce938a25e3311358892c9afa9eefd6c6dbf
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77087128"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424666"
 ---
 # <a name="configure-a-vpn-connection-to-your-cloudsimple-private-cloud"></a>Konfigurieren einer VPN-Verbindung mit ihrer privaten CloudSimple-Cloud
 
@@ -21,8 +21,8 @@ VPN-Gateways ermöglichen es Ihnen, eine Verbindung mit einem CloudSimple-Netzwe
 
 ## <a name="vpn-gateway-types"></a>VPN-Gatewaytypen
 
-* Eine **Point-to-Site-VPN**-Verbindung ist die einfachste Möglichkeit, von Ihrem Computer eine Verbindung mit der privaten Cloud herzustellen. Verwenden Sie Point-to-Site-VPN-Konnektivität, wenn Sie eine Remoteverbindung mit der privaten Cloud herstellen.
-* Eine **Site-to-Site-VPN**-Verbindung ermöglicht Ihnen das Einrichten der Workloads Ihrer privaten Cloud, um auf lokale Dienste zuzugreifen. Sie können auch ein lokales Active Directory als Identitätsquelle für die Authentifizierung bei Ihrem vCenter in der privaten Cloud verwenden.  Derzeit wird der **richtlinienbasierte VPN**-Typ unterstützt.
+* Eine **Point-to-Site-VPN** -Verbindung ist die einfachste Möglichkeit, von Ihrem Computer eine Verbindung mit der privaten Cloud herzustellen. Verwenden Sie Point-to-Site-VPN-Konnektivität, wenn Sie eine Remoteverbindung mit der privaten Cloud herstellen.
+* Eine **Site-to-Site-VPN** -Verbindung ermöglicht Ihnen das Einrichten der Workloads Ihrer privaten Cloud, um auf lokale Dienste zuzugreifen. Sie können auch ein lokales Active Directory als Identitätsquelle für die Authentifizierung bei Ihrem vCenter in der privaten Cloud verwenden.  Derzeit wird der **richtlinienbasierte VPN** -Typ unterstützt.
 
 In einer Region können Sie ein Site-to-Site-VPN-Gateway und ein Point-to-Site-VPN-Gateway erstellen.
 
@@ -63,7 +63,7 @@ Das Beispiel unten zeigt das Importieren einer Verbindung mit dem **Viscosity-Cl
 
 4. Wählen Sie die OpenVPN-Konfigurationsdatei (OVPN-Datei) für das Protokoll aus, das Sie verwenden möchten, und klicken Sie auf **Open** (Öffnen).
 
-    ![VPN](media/import-p2s-vpn-config-choose-ovpn.png)
+    ![Screenshot, auf dem die OpenVPN-Konfigurationsdateien hervorgehoben sind, die Sie auswählen können](media/import-p2s-vpn-config-choose-ovpn.png)
 
 Die Verbindung wird jetzt im Menü „Viscosity“ angezeigt.
 
@@ -71,7 +71,7 @@ Die Verbindung wird jetzt im Menü „Viscosity“ angezeigt.
 
 Wählen Sie zum Herstellen einer Verbindung mit dem VPN mit dem Viscosity OpenVPN-Client die Verbindung im Menü aus. Das Menüsymbol wird aktualisiert, um anzugeben, dass die Verbindung hergestellt wurde.
 
-![VPN](media/vis03.png)
+![Screenshot: CloudSimple-VPN-Konnektivitätsstatus](media/vis03.png)
 
 ### <a name="connecting-to-multiple-private-clouds"></a>Herstellen einer Verbindung mit mehreren privaten Clouds
 
@@ -79,7 +79,7 @@ Eine Point-to-Site-VPN-Verbindung löst die DNS-Namen der ersten privaten Cloud 
 
 1. Starten Sie das [CloudSimple-Portal](access-cloudsimple-portal.md).
 
-2. Navigieren Sie zu **Resources (Ressourcen)**  > **Private Clouds**, und wählen Sie die private Cloud aus, mit der Sie eine Verbindung herstellen möchten.
+2. Navigieren Sie zu **Resources (Ressourcen)**  > **Private Clouds** , und wählen Sie die private Cloud aus, mit der Sie eine Verbindung herstellen möchten.
 
 3. Kopieren Sie auf der Seite **Summary** (Zusammenfassung) der privaten Cloud die IP-Adresse des DNS-Servers für die private Cloud unter **Basic Info** (Grundlegende Informationen).
 

@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f322803d3484b4ec2d5449e19d67d75b35d6d92f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ef67580928a45609f50d3fe798eb9d054265c0a
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75751673"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376127"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
 ### <a name="what-should-i-do-if-im-getting-a-certificate-mismatch-when-connecting-using-certificate-authentication"></a>Wie muss ich vorgehen, wenn beim Herstellen einer Verbindung über die Zertifikatauthentifizierung ein Zertifikatkonflikt gemeldet wird?
 
-Deaktivieren Sie **Identität des Servers durch Validierung des Zertifikat überprüfen** oder **fügen Sie den Server-FQDN zusammen mit dem Zertifikat hinzu**, wenn Sie ein Profil manuell erstellen. Sie können dazu **rasphone** an einer Eingabeaufforderung ausführen und das Profil in der Dropdown-Liste auswählen.
+Deaktivieren Sie **Identität des Servers durch Validierung des Zertifikat überprüfen** oder **fügen Sie den Server-FQDN zusammen mit dem Zertifikat hinzu** , wenn Sie ein Profil manuell erstellen. Sie können dazu **rasphone** an einer Eingabeaufforderung ausführen und das Profil in der Dropdown-Liste auswählen.
 
 Es wird im Allgemeinen nicht empfohlen, die Validierung der Serveridentität zu umgehen. Bei der Azure-Zertifikatauthentifizierung wird jedoch für die Servervalidierung im VPN-Tunnelingprotokoll (IKEv2/SSTP) als auch im EAP-Protokoll das gleiche Zertifikat verwendet. Da das Serverzertifikat und der FQDN bereits vom VPN-Tunnelingprotokoll validiert wurden, ist es redundant, das gleiche in EAP erneut zu validieren.
 
-![point-to-site](./media/vpn-gateway-faq-p2s-all-include/servercert.png "Serverzertifikat")
+![point-to-site auth](./media/vpn-gateway-faq-p2s-all-include/servercert.png "Serverzertifikat")
 
 ### <a name="can-i-use-my-own-internal-pki-root-ca-to-generate-certificates-for-point-to-site-connectivity"></a>Kann ich meine eigene interne PKI-Stammzertifizierungsstelle verwenden, um Zertifikate für Punkt-zu-Standort-Verbindungen zu generieren?
 
@@ -52,4 +52,4 @@ Sie können Ihre Unternehmens-PKI-Lösung (interne PKI), Azure PowerShell, MakeC
     * Clientzertifikat:
 
       * Geben Sie beim Erstellen des privaten Schlüssels als Länge 4096 an.
-      * Geben Sie beim Erstellen des Zertifikats für den *-extensions*-Parameter *usr_cert* an.
+      * Geben Sie beim Erstellen des Zertifikats für den *-extensions* -Parameter *usr_cert* an.

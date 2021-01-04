@@ -1,15 +1,18 @@
 ---
 title: Migrieren von VMware-VMs ohne Agent per Azure Migrate-Servermigration
 description: Hier wird beschrieben, wie Sie eine Migration virtueller VMware-Computer ohne Agent mit Azure Migrate ausführen.
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 3e263306cf18dfebe4b73f8d940b8eb5c99ed16f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 88b3879a648117329f2485012542b48d6a7a7755
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310633"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752684"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrieren von VMware-VMs zu Azure (ohne Agent)
 
@@ -38,24 +41,8 @@ Bevor Sie mit diesem Tutorial beginnen, sollten folgende Voraussetzungen erfüll
 
 1. [Arbeiten Sie das erste Tutorial durch](./tutorial-discover-vmware.md), um Azure und VMware für die Migration vorzubereiten.
 2. Wir empfehlen, dass Sie das zweite Tutorial zum [Bewerten von VMware-VMS](./tutorial-assess-vmware-azure-vm.md) durcharbeiten, bevor Sie sie zu Azure migrieren. Dies ist aber nicht unbedingt erforderlich. 
-
-
-## <a name="add-the-azure-migrate-server-migration-tool"></a>Hinzufügen des Tools für die Azure Migrate-Servermigration
-
-Wenn Sie noch kein Azure Migrate-Projekt eingerichtet haben, [erledigen Sie dies](how-to-add-tool-first-time.md), bevor Sie das Tool hinzufügen. Wenn Sie ein Projekt eingerichtet haben, fügen Sie das Tool wie folgt hinzu:
-
-1. Klicken Sie im Azure Migrate-Projekt auf **Übersicht**. 
-2. Klicken Sie unter **Server ermitteln, bewerten und migrieren** auf **Server bewerten und migrieren**.
-
-     ![Bewerten und Migrieren von Servern](./media/tutorial-migrate-vmware/assess-migrate.png)
-
-3. Wählen Sie unter **Migrationstools** die Option **Click here to add a migration tool when you are ready to migrate** (Klicken Sie hier, um ein Migrationstool hinzuzufügen, wenn Sie bereit für die Migration sind).
-
-    ![Auswählen eines Tools](./media/tutorial-migrate-vmware/select-migration-tool.png)
-
-4. Wählen Sie in der Liste mit den Tools die Option **Azure Migrate: Servermigration** > **Tool hinzufügen**.
-
-    ![Tool für die Servermigration](./media/tutorial-migrate-vmware/server-migration-tool.png)
+3. Rufen Sie das bereits erstellte Projekt auf, oder [erstellen Sie ein neues Projekt](./create-manage-projects.md).
+4. Überprüfen Sie die Berechtigungen für Ihr Azure-Konto: Ihr Azure-Konto benötigt Berechtigungen zum Erstellen eines virtuellen Computers sowie zum Schreiben auf einen verwalteten Azure-Datenträger.
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Einrichten der Azure Migrate-Appliance
 
@@ -84,7 +71,7 @@ Aktivieren Sie die Replikation:
 
     ![Quelleinstellungen](./media/tutorial-migrate-vmware/source-settings.png)
 
-4. Wählen Sie unter **Virtuelle Computer** die Computer aus, die Sie replizieren möchten. Zum Anwenden der VM-Größe und des Datenträgertyps aus einer Bewertung (wenn Sie einen ausgeführt haben) wählen Sie in **Migrationseinstellungen aus einer Azure Migrate-Bewertung importieren?** die Antwort **Ja** und dann die VM-Gruppe sowie den Bewertungsnamen aus. Wenn Sie keine Bewertungseinstellungen verwenden, wählen Sie **Nein**aus.
+4. Wählen Sie unter **Virtuelle Computer** die Computer aus, die Sie replizieren möchten. Zum Anwenden der VM-Größe und des Datenträgertyps aus einer Bewertung (wenn Sie einen ausgeführt haben) wählen Sie in **Migrationseinstellungen aus einer Azure Migrate-Bewertung importieren?** die Antwort **Ja** und dann die VM-Gruppe sowie den Bewertungsnamen aus. Wenn Sie keine Bewertungseinstellungen verwenden, wählen Sie **Nein** aus.
    
     ![Auswählen der Bewertung](./media/tutorial-migrate-vmware/select-assessment.png)
 

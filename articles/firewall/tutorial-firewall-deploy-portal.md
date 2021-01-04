@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/15/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d6f72231e84650a17850932979b43c21dd045f30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e73f11ec178c067941ee33e02f37c96605460ee0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069322"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658586"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Bereitstellen und Konfigurieren von Azure Firewall über das Azure-Portal
 
@@ -28,7 +28,7 @@ Die konfigurierten Firewallregeln werden auf den Netzwerkdatenverkehr angewendet
 
 In diesem Tutorial erstellen Sie der Einfachheit halber ein einzelnes vereinfachtes VNET mit zwei Subnetzen.
 
-Für Produktionsbereitstellungen wird ein [Hub-Spoke-Modell](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) empfohlen, bei dem sich die Firewall in einem eigenen VNET befindet. Die Workloadserver befinden sich in per Peering verknüpften VNETs in derselben Region mit einem oder mehreren Subnetzen.
+Für Produktionsbereitstellungen wird ein [Hub-Spoke-Modell](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) empfohlen, bei dem sich die Firewall in einem eigenen VNET befindet. Die Workloadserver befinden sich in per Peering verknüpften VNETs in derselben Region mit einem oder mehreren Subnetzen.
 
 * **AzureFirewallSubnet:** Das Subnetz mit der Firewall.
 * **Workload-SN:** Das Subnetz mit dem Workloadserver. Der Netzwerkdatenverkehr dieses Subnetzes durchläuft die Firewall.
@@ -134,7 +134,7 @@ Stellen Sie die Firewall im VNET bereit.
 
    |Einstellung  |Wert  |
    |---------|---------|
-   |Abonnement     |\<your subscription\>|
+   |Subscription     |\<your subscription\>|
    |Resource group     |**Test-FW-RG** |
    |Name     |**Test-FW01**|
    |Standort     |Wählen Sie den gleichen Standort aus wie zuvor.|
@@ -226,8 +226,8 @@ Mit dieser Regel können Sie eine Remotedesktopverbindung mit dem virtuellen Com
 5. Geben Sie unter **Regeln** für **Name** die Zeichenfolge **rdp-nat** ein.
 6. Wählen Sie für **Protokoll** die Option **TCP** aus.
 7. Wählen Sie unter **Quelltyp** die Option **IP-Adresse** aus.
-8. Geben Sie unter **Quelle** die Zeichenfolge **\*** ein.
-9. Geben Sie unter **Zieladresse** die öffentliche IP-Adresse der Firewall ein.
+8. Geben Sie unter **Quelle** die Zeichenfolge * *\** _ ein.
+9. Geben Sie unter _*Zieladresse** die öffentliche IP-Adresse der Firewall ein.
 10. Geben Sie unter **Zielports** den Wert **3389** ein.
 11. Geben Sie für **Übersetzte Adresse** die private IP-Adresse für **Srv-work** ein.
 12. Geben Sie für **Übersetzter Port** den Wert **3389** ein.
@@ -272,4 +272,4 @@ Sie können die Firewallressourcen für das nächste Tutorial behalten oder die 
 ## <a name="next-steps"></a>Nächste Schritte
 
 > [!div class="nextstepaction"]
-> [Tutorial: Überwachen von Azure Firewall-Protokollen](./tutorial-diagnostics.md)
+> [Tutorial: Überwachen von Azure Firewall-Protokollen](./firewall-diagnostics.md)

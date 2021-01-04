@@ -8,17 +8,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 43b0f64a1d88a71b221fac240392dc71b93eef76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f194101720481f71434709c467d0e3130a0f1f9
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91298828"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359454"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Konfigurieren einer Verfügbarkeitsgruppe für eine Arbeitsgruppe 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -62,11 +63,11 @@ Führen Sie zum Konfigurieren des DNS-Suffix diese Schritte aus:
 1. Wählen Sie **Mehr** aus, um das Dialogfeld **DNS-Suffix und NetBIOS-Computername** zu öffnen. 
 1. Geben Sie unter **Primäres DNS-Suffix des Computers** den Namen des DNS-Suffixes ein, z. B. `ag.wgcluster.example.com`, und wählen Sie dann **OK** aus: 
 
-   ![Hinzufügen des DNS-Suffix](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
+   ![Der Screenshot zeigt das Dialogfeld „DNS-Suffix und NetBIOS-Computername“, in dem Sie den Wert eingeben können.](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
 
 1. Vergewissern Sie sich, dass unter **Vollständiger Computername** nun das DNS-Suffix angezeigt wird, und wählen Sie dann **OK** aus, um die Änderungen zu speichern: 
 
-   ![Hinzufügen des DNS-Suffix](./media/availability-group-clusterless-workgroup-configure/3-confirm-full-computer-name.png)
+   ![Der Screenshot zeigt, wo Ihr vollständiger Computername angezeigt wird.](./media/availability-group-clusterless-workgroup-configure/3-confirm-full-computer-name.png)
 
 1. Starten Sie den Server neu, wenn Sie dazu aufgefordert werden. 
 1. Wiederholen Sie diese Schritte für alle anderen Knoten, die für die Verfügbarkeitsgruppe verwendet werden sollen. 
@@ -291,6 +292,4 @@ In diesem letzten Schritt konfigurieren Sie den Lastenausgleich im [Azure-Portal
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Sie können auch die [Azure-Befehlszeilenschnittstelle auf der SQL-VM](availability-group-az-cli-configure.md) verwenden, um eine Verfügbarkeitsgruppe zu konfigurieren. 
-
-
+Sie können auch die [Azure-Befehlszeilenschnittstelle auf der SQL-VM](./availability-group-az-commandline-configure.md) verwenden, um eine Verfügbarkeitsgruppe zu konfigurieren.

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 09/29/2020
+ms.date: 11/20/2020
 ms.author: alkohli
-ms.openlocfilehash: f0f9dfa6e3d6ae02f66ac71f62586953cb21517e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4848f5e8b542d80b382abe39f4882a26e0f534c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568351"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015679"
 ---
 # <a name="troubleshooting-certificate-errors"></a>Problembehandlung für Zertifikate
 
@@ -46,6 +46,7 @@ In der folgenden Tabelle sind häufige Zertifikatsfehler und ausführliche Infor
 | CertificateManagement_MissingServerOid | Das Zertifikat mit dem Antragstellernamen {0} weist keine OID für die Serverauthentifizierung auf. Überprüfen Sie die Zertifikateigenschaften, und stellen Sie bei Bedarf ein neues Zertifikat bereit.|
 | CertificateManagement_NameMismatch | Der Zertifikattyp stimmt nicht überein. Erwarteter Bereich: {0}, gefunden: {1}. Laden Sie ein geeignetes Zertifikat hoch.|
 | CertificateManagement_NoPrivateKeyPresent | Beim Zertifikat mit dem Antragstellernamen {0} ist kein privater Schlüssel vorhanden. Laden Sie ein PFX-Zertifikat mit einem privaten Schlüssel hoch.|
+| CertificateManagement_NoRSACryptoPrivateKey | Auf den privaten Schlüssel für das Zertifikat mit dem Antragstellernamen {0} kann nicht zugegriffen werden. Stellen Sie sicher, dass Sie ein unterstütztes Zertifikat verwenden. Es wird nur „Microsoft RSA/Schannel Cryptographic Provider“ unterstützt. |
 | CertificateManagement_NotSelfSignedCertificate | Das Zertifikat mit dem Antragstellernamen {0} ist nicht selbstsigniert. Stammzertifikate müssen selbstsigniert sein. |
 | CertificateManagement_NotSupportedOnVirtualAppliance | Dieser Vorgang wird auf dem virtuellen Gerät nicht unterstützt. Dieser Fehler weist darauf hin, dass das Signieren nur bei einem Data Box Gateway erfolgt, das in der Tactical Cloud Appliance ausgeführt wird. Dieser Fehler tritt auf, wenn das Gerät über Windows PowerShell verwaltet wird.|
 | CertificateManagement_SelfSignedCertificate | Das Zertifikat mit dem Antragstellernamen {0} ist selbstsigniert. Laden Sie ein Zertifikat hoch, das ordnungsgemäß signiert ist.|
@@ -57,6 +58,7 @@ In der folgenden Tabelle sind häufige Zertifikatsfehler und ausführliche Infor
 | CertificateImportFailure | Das Zertifikat mit dem Fingerabdruck {0} wurde nicht auf den Knoten {1} importiert. Wenden Sie sich an den Microsoft Support, wenn das Problem weiterhin besteht. |
 | CertificateApplyFailure | Das Zertifikat mit dem Fingerabdruck {0} wurde nicht auf den Knoten {1} angewendet. Wenden Sie sich an den Microsoft Support, wenn das Problem weiterhin besteht.|
 | NodeNotReachable | Das Zertifikat für {0} konnte nicht überprüft werden. Überprüfen Sie die Integrität der Systemhardware und -software.|
+
 
 ## <a name="next-steps"></a>Nächste Schritte
 

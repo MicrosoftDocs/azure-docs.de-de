@@ -4,17 +4,19 @@ description: In diesem Artikel werden Datenbanktransaktionen und die Steuerung f
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 17c01188f783664747b7c20b9703ee5d33a8ab3f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: bdfbe5106f220a9fe4a3568709187b9071bc7917
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278728"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334275"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transaktionen und Steuerung für optimistische Nebenläufigkeit
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Datenbanktransaktionen bieten ein sicheres und vorhersagbares Programmiermodell zur Verarbeitung von gleichzeitig an den Daten vorgenommenen Änderungen. In herkömmlichen relationalen Datenbanken wie SQL Server können Sie die Geschäftslogik mithilfe von gespeicherten Prozeduren und/oder Triggern schreiben und zur direkten Ausführung innerhalb der Datenbank-Engine an den Server senden. Sie müssen bei herkömmlichen relationalen Datenbanken zwei verschiedene Programmiersprachen verwenden: die (nicht transaktionale) Anwendungsprogrammiersprache, z. B. JavaScript, Python, C#, Java usw., und die transaktionale Programmiersprache (T-SQL), die in der Datenbank nativ ausgeführt wird.
 
@@ -64,4 +66,5 @@ Weitere Informationen zu Datenbanktransaktionen und der Steuerung für optimisti
 - [Arbeiten mit Azure Cosmos-Datenbanken, -Containern und -Elementen](account-databases-containers-items.md)
 - [Konsistenzebenen](consistency-levels.md)
 - [Konflikttypen und Konfliktauflösungsrichtlinien](conflict-resolution-policies.md)
+- [Verwenden von TransactionalBatch](transactional-batch.md)
 - [Gespeicherte Prozeduren, Trigger und benutzerdefinierte Funktionen](stored-procedures-triggers-udfs.md)

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 6fb4d1459584e8dd2b230a424f043ad086f2570d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 57e847116febcea66e1e3ac4ba131617463b6c94
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089450"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895765"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Verwalten der Authentifizierung in Azure Maps
 
@@ -22,7 +22,7 @@ Nachdem Sie ein Azure Maps-Konto erstellt haben, werden eine Client-ID und Schl�
 
 ## <a name="view-authentication-details"></a>Anzeigen von Authentifizierungsdetails
 
-Nach dem Erstellen eines Azure Maps-Kontos werden der Primärschlüssel und sekundäre Schlüssel generiert. Es wird empfohlen, einen Primärschlüssel als Abonnementschlüssel zu verwenden, wenn Sie [Azure Maps mithilfe der Authentifizierung mit gemeinsam verwendetem Schlüssel aufrufen](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication). Sie können einen sekundären Schlüssel in Szenarien wie Änderungen beim Schlüsselrollover verwenden. Weitere Informationen finden Sie unter [Authentifizierung in Azure Maps](https://aka.ms/amauth).
+Nach dem Erstellen eines Azure Maps-Kontos werden der Primärschlüssel und sekundäre Schlüssel generiert. Es wird empfohlen, einen Primärschlüssel als Abonnementschlüssel zu verwenden, wenn Sie [Azure Maps mithilfe der Authentifizierung mit gemeinsam verwendetem Schlüssel aufrufen](./azure-maps-authentication.md#shared-key-authentication). Sie können einen sekundären Schlüssel in Szenarien wie Änderungen beim Schlüsselrollover verwenden. Weitere Informationen finden Sie unter [Authentifizierung in Azure Maps](./azure-maps-authentication.md).
 
 Sie können Ihre Authentifizierungsdetails im Azure-Portal anzeigen. Wählen Sie dort in Ihrem Konto im Menü **Einstellungen** die Option **Authentifizierung** aus.
 
@@ -31,7 +31,7 @@ Sie können Ihre Authentifizierungsdetails im Azure-Portal anzeigen. Wählen Sie
 
 ## <a name="discover-category-and-scenario"></a>Kategorie und Szenario ermitteln
 
-Abhängig von den Anwendungsanforderungen gibt es bestimmte Wege, um die Anwendung zu schützen. Azure AD definiert Kategorien zur Unterstützung einer breiten Palette von Authentifizierungsflows. Informationen zu der passenden Kategorie für Ihre Anwendung finden Sie unter [Anwendungskategorien](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios#application-categories).
+Abhängig von den Anwendungsanforderungen gibt es bestimmte Wege, um die Anwendung zu schützen. Azure AD definiert Kategorien zur Unterstützung einer breiten Palette von Authentifizierungsflows. Informationen zu der passenden Kategorie für Ihre Anwendung finden Sie unter [Anwendungskategorien](../active-directory/develop/authentication-flows-app-scenarios.md#application-categories).
 
 > [!NOTE]
 > Selbst wenn Sie die Authentifizierung mit gemeinsam verwendetem Schlüssel verwenden, hilft Ihnen das Verständnis von Kategorien und Szenarien dabei, die Anwendung zu schützen.
@@ -77,11 +77,11 @@ Anfordern eines Tokens vom Azure AD-Tokenendpunkt. Verwenden Sie in Ihrer Azure
 | Öffentliche Azure-Cloud     | `https://login.microsoftonline.com` | `https://atlas.microsoft.com/` |
 | Azure Government-Cloud | `https://login.microsoftonline.us`  | `https://atlas.microsoft.com/` |
 
-Weitere Informationen zum Anfordern von Zugriffstoken aus Azure AD für Benutzer und Dienstprinzipale finden Sie unter [Authentifizierungszenarien für Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios), und sehen Sie sich spezifische Szenarien in der Tabelle mit [Szenarien](./how-to-manage-authentication.md#determine-authentication-and-authorization) an.
+Weitere Informationen zum Anfordern von Zugriffstoken aus Azure AD für Benutzer und Dienstprinzipale finden Sie unter [Authentifizierungszenarien für Azure AD](../active-directory/develop/authentication-vs-authorization.md), und sehen Sie sich spezifische Szenarien in der Tabelle mit [Szenarien](./how-to-manage-authentication.md#determine-authentication-and-authorization) an.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen finden Sie unter [Azure AD und Azure Maps Web SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+Weitere Informationen finden Sie unter [Azure AD und Azure Maps Web SDK](./how-to-use-map-control.md).
 
 Suchen der API-Nutzungsmetriken für Ihr Azure Maps-Konto:
 > [!div class="nextstepaction"]

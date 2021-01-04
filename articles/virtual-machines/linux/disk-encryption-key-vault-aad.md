@@ -7,13 +7,13 @@ ms.subservice: security
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
-ms.custom: seodec18
-ms.openlocfilehash: 4b533fa23d3c128b5f9f75737fb88d39aec94905
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 3862a07eea2dcec3e67c0145fcdcff8140d19ec3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88950067"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746785"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release-for-linux-vms"></a>Erstellen und Konfigurieren eines Schlüsseltresors für Azure Disk Encryption mit Azure AD (vorheriges Release) für Linux-VMs
 
@@ -61,7 +61,7 @@ Sie können mit Azure PowerShell mit dem Cmdlet [New-AzKeyVault](/powershell/mod
      New-AzKeyVault -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -Location 'East US'
      ```
 
-4. Notieren Sie **Tresorname**, **Ressourcengruppenname**, **Ressourcen-ID**, **Vault-URI** und **Objekt-ID**, die zur späteren Verwendung beim Verschlüsseln der Datenträger zurückgegeben werden. 
+4. Notieren Sie **Tresorname** , **Ressourcengruppenname** , **Ressourcen-ID** , **Vault-URI** und **Objekt-ID** , die zur späteren Verwendung beim Verschlüsseln der Datenträger zurückgegeben werden. 
 
 
 ### <a name="create-a-key-vault-with-azure-cli"></a><a name="bkmk_KVCLI"></a> Erstellen eines Schlüsseltresors mit der Azure CLI
@@ -80,14 +80,14 @@ Sie können Ihren Schlüsseltresor mit der Azure CLI mit den [az keyvault](/cli/
      az keyvault create --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --location "East US"
      ```
 
-4. Notieren Sie **Tresorname** (Name), **Ressourcengruppenname**, **Ressourcen-ID** (ID), **Vault-URI** und **Objekt-ID**, die zur späteren Verwendung zurückgegeben werden. 
+4. Notieren Sie **Tresorname** (Name), **Ressourcengruppenname** , **Ressourcen-ID** (ID), **Vault-URI** und **Objekt-ID** , die zur späteren Verwendung zurückgegeben werden. 
 
 ### <a name="create-a-key-vault-with-a-resource-manager-template"></a><a name="bkmk_KVRM"></a> Erstellen eines Schlüsseltresors mit einer Resource Manager-Vorlage
 
 Sie können mit der [Resource Manager-Vorlage](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create) einen Schlüsseltresor erstellen.
 
 1. Klicken Sie in der Azure-Schnellstartvorlage auf **Deploy to Azure** (In Azure bereitstellen).
-2. Wählen Sie Abonnement, Ressourcengruppe, Ressourcengruppenstandort, Schlüsseltresorname, Objekt-ID, rechtliche Bedingungen und Vereinbarung aus, und klicken Sie auf **Kaufen**. 
+2. Wählen Sie Abonnement, Ressourcengruppe, Ressourcengruppenstandort, Schlüsseltresorname, Objekt-ID, rechtliche Bedingungen und Vereinbarung aus, und klicken Sie auf **Kaufen** . 
 
 
 ## <a name="set-up-an-azure-ad-app-and-service-principal"></a><a name="bkmk_ADapp"></a> Einrichten einer Azure AD-App und eines Dienstprinzipals 
@@ -135,10 +135,10 @@ Im Artikel [Erstellen einer Azure Active Directory-Anwendung und eines Dienstpri
 Um Verschlüsselungsgeheimnisse in einen bestimmten Schlüsseltresor zu schreiben, benötigt Azure Disk Encryption die Client-ID und den geheimen Clientschlüssel der Azure Active Directory-Anwendung, berechtigt ist, Geheimnisse in den Schlüsseltresor zu schreiben. 
 
 > [!NOTE]
-> Azure Disk Encryption erfordert das Konfigurieren der folgenden Zugriffsrichtlinien für Ihre Azure AD-Clientanwendung: _Wrapkey_- und _Set_-Berechtigungen.
+> Azure Disk Encryption erfordert das Konfigurieren der folgenden Zugriffsrichtlinien für Ihre Azure AD-Clientanwendung: _Wrapkey_ - und _Set_ -Berechtigungen.
 
 ### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-azure-powershell"></a><a name="bkmk_KVAPPSH"></a> Festlegen der Zugriffsrichtlinie für den Schlüsseltresor für die Azure AD-App mit Azure PowerShell
-Ihre Azure AD-Anwendung benötigt Rechte zum Zugreifen auf die Schlüssel oder geheimen Schlüssel im Tresor. Verwenden Sie das Cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), um der Anwendung Berechtigungen zu erteilen. Verwenden Sie die Client-ID (die bei der Anwendungsregistrierung generiert wurde) als _–ServicePrincipalName_-Parameterwert. Weitere Informationen finden Sie im Blogbeitrag [Azure Key Vault - Step by Step](/archive/blogs/kv/azure-key-vault-step-by-step) (Azure Key Vault – Schritt für Schritt). 
+Ihre Azure AD-Anwendung benötigt Rechte zum Zugreifen auf die Schlüssel oder geheimen Schlüssel im Tresor. Verwenden Sie das Cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), um der Anwendung Berechtigungen zu erteilen. Verwenden Sie die Client-ID (die bei der Anwendungsregistrierung generiert wurde) als _–ServicePrincipalName_ -Parameterwert. Weitere Informationen finden Sie im Blogbeitrag [Azure Key Vault - Step by Step](/archive/blogs/kv/azure-key-vault-step-by-step) (Azure Key Vault – Schritt für Schritt). 
 
 1. Legen Sie die Zugriffsrichtlinie für den Schlüsseltresor für die AD-Anwendung mit PowerShell fest.
 
@@ -161,11 +161,11 @@ az keyvault set-policy --name "MySecureVault" --spn "<spn created with CLI/the A
 ### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-the-portal"></a><a name="bkmk_KVAPRM"></a> Festlegen der Zugriffsrichtlinie für den Schlüsseltresor für die Azure AD-App im Portal
 
 1. Öffnen Sie die Ressourcengruppe mit Ihrem Schlüsseltresor.
-2. Wählen Sie Ihren Schlüsseltresor aus, öffnen Sie **Zugriffsrichtlinien**, und klicken Sie dann auf **Neue hinzufügen**.
+2. Wählen Sie Ihren Schlüsseltresor aus, öffnen Sie **Zugriffsrichtlinien** , und klicken Sie dann auf **Neue hinzufügen** .
 3. Suchen Sie unter **Prinzipal auswählen** nach der Azure AD-Anwendung, die Sie erstellt haben, und wählen Sie sie aus. 
-4. Aktivieren Sie für **Schlüsselberechtigungen** unter **Kryptografische Vorgänge** die Option **Schlüssel packen**.
-5. Aktivieren Sie für **Berechtigungen für Geheimnis** unter **Verwaltungsvorgänge für Geheimnisse** die Option **Festlegen**.
-6. Klicken Sie auf **OK**, um die Richtlinie zu speichern. 
+4. Aktivieren Sie für **Schlüsselberechtigungen** unter **Kryptografische Vorgänge** die Option **Schlüssel packen** .
+5. Aktivieren Sie für **Berechtigungen für Geheimnis** unter **Verwaltungsvorgänge für Geheimnisse** die Option **Festlegen** .
+6. Klicken Sie auf **OK** , um die Richtlinie zu speichern. 
 
 ![Azure Key Vault: „Kryptografische Vorgänge“ und „Schlüssel packen“](./media/disk-encryption/keyvault-portal-fig3.png)
 
@@ -217,10 +217,10 @@ Verwenden Sie [az keyvault update](/cli/azure/keyvault#az-keyvault-update), um d
 
 ### <a name="set-key-vault-advanced-access-policies-through-the-azure-portal"></a><a name="bkmk_KVperrm"></a> Festlegen der erweiterten Zugriffsrichtlinien für Schlüsseltresore im Azure-Portal
 
-1. Wählen Sie Ihren Schlüsseltresor aus, navigieren Sie zu **Zugriffsrichtlinien**, und **Klicken Sie, um erweiterte Zugriffsrichtlinien anzuzeigen**.
+1. Wählen Sie Ihren Schlüsseltresor aus, navigieren Sie zu **Zugriffsrichtlinien** , und **Klicken Sie, um erweiterte Zugriffsrichtlinien anzuzeigen** .
 2. Wählen Sie das Feld **Zugriff auf Azure Disk Encryption für Volumeverschlüsselung aktivieren** aus.
 3. Wählen Sie ggf. **Zugriff auf Azure Virtual Machines für Bereitstellung aktivieren** und/oder **Zugriff auf Azure Resource Manager für Vorlagenbereitstellung aktivieren** aus. 
-4. Klicken Sie auf **Speichern**.
+4. Klicken Sie auf **Speichern** .
 
 ![Erweiterte Zugriffsrichtlinien für Schlüsseltresore in Azure](./media/disk-encryption/keyvault-portal-fig4.png)
 

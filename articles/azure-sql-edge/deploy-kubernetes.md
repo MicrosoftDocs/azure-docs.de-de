@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 16ad757fc00439bb390a7e0dea902901c468dd1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31a454c93ad5192f387306a8ec557c4e4d3ae991
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90929439"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395290"
 ---
 # <a name="deploy-an-azure-sql-edge-container-in-kubernetes"></a>Bereitstellen eines Azure SQL Edge-Containers in Kubernetes
 
@@ -48,7 +48,7 @@ Im folgenden Diagramm ist der Knoten fehlgeschlagen, der den `azure-sql-edge`-Co
 * **Kubernetes-Cluster**
    - Für das Tutorial ist ein Kubernetes-Cluster erforderlich. In den Schritten wird [kubectl](https://kubernetes.io/docs/user-guide/kubectl/) zum Verwalten des Clusters verwendet. 
 
-   - Im Rahmen dieses Tutorials verwenden wir Azure Kubernetes Service zum Bereitstellen von Azure SQL Edge. Unter [Bereitstellen eines Azure Kubernetes Service-Clusters (AKS)](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-deploy-cluster) erfahren Sie, wie Sie einen Kubernetes-Cluster mit einem einzelnen Knoten mithilfe von `kubectl` in AKS erstellen und eine Verbindung mit diesem herstellen. 
+   - Im Rahmen dieses Tutorials verwenden wir Azure Kubernetes Service zum Bereitstellen von Azure SQL Edge. Unter [Bereitstellen eines Azure Kubernetes Service-Clusters (AKS)](../aks/tutorial-kubernetes-deploy-cluster.md) erfahren Sie, wie Sie einen Kubernetes-Cluster mit einem einzelnen Knoten mithilfe von `kubectl` in AKS erstellen und eine Verbindung mit diesem herstellen. 
 
    >[!NOTE]
    >Ein Kubernetes-Cluster benötigt mehrere Knoten zum Schutz vor Knotenausfällen.
@@ -108,7 +108,7 @@ Konfigurieren Sie ein [persistentes Volume](https://kubernetes.io/docs/concepts/
          storage: 8Gi
    ```
 
-   Speichern Sie die Datei (z. B. **pvc.yaml**).
+   Speichern Sie die Datei (z. B. **pvc.yaml** ).
 
 2. Erstellen Sie einen Anspruch auf ein permanentes Volume in Kubernetes.
 
@@ -241,7 +241,7 @@ spec:
    >[!NOTE]
    >Mithilfe des Diensttyps `LoadBalancer` wird der Remotezugriff auf die Azure SQL Edge-Instanz (über das Internet) über Port 1433 ermöglicht.
 
-   Speichern Sie die Datei (z. B. **sqledgedeploy.yaml**).
+   Speichern Sie die Datei (z. B. **sqledgedeploy.yaml** ).
 
 2. Erstellen Sie die Bereitstellung.
 
@@ -318,8 +318,7 @@ In diesem Tutorial haben Sie gelernt, wie Sie Azure SQL Edge-Container in einem
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Einführung in Kubernetes](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+- [Einführung in Kubernetes](../aks/intro-kubernetes.md)
 - [Machine Learning und künstliche Intelligenz mit ONNX in SQL Edge](onnx-overview.md)
 - [Entwickeln einer End-to-End-IoT-Lösung mit SQL Edge unter Verwendung von IoT Edge](tutorial-deploy-azure-resources.md)
 - [Datenstreaming in Azure SQL Edge](stream-data.md)
-

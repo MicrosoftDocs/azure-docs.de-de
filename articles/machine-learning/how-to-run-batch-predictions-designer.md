@@ -1,7 +1,7 @@
 ---
 title: Ausführen von Batchvorhersagen mit dem Azure Machine Learning-Designer
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Sie ein Modell trainieren und eine Batchvorhersagenpipeline mithilfe des Designers einrichten. Stellen Sie die Pipeline als parametrisierten Webdienst bereit, der über eine beliebige HTTP-Bibliothek ausgelöst werden kann.
+description: Erfahren Sie, wie Sie eine Batchvorhersagepipeline erstellen können. Stellen Sie die Pipeline als parametrisierten Webdienst bereit, und lösen Sie sie über eine beliebige HTTP-Bibliothek aus.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 21dad66670da7a538039ae795d6be87cc4dbce96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ef125f65e13f7a9fa756553b1de148d4849babc
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883077"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553945"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Ausführen von Batchvorhersagen mit dem Azure Machine Learning-Designer
 
@@ -29,7 +29,7 @@ In dieser Anleitung erfahren Sie, wie Sie die folgenden Aufgaben ausführen:
 > * Nutzen eines Pipelineendpunkts
 > * Verwalten von Endpunktversionen
 
-Informationen zum Einrichten von Batchbewertungsdiensten mit dem SDK finden Sie in der begleitenden [Anleitung](how-to-run-batch-predictions.md).
+Informationen zum Einrichten von Batchbewertungsdiensten mit dem SDK finden Sie in der begleitenden [Anleitung](./tutorial-pipeline-batch-scoring-classification.md).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 

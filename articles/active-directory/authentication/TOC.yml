@@ -9,7 +9,7 @@
   items:
     - name: Aktivieren der Self-Service-Kennwortzurücksetzung
       href: tutorial-enable-sspr.md
-    - name: Aktivieren von Azure Multi-Factor Authentication
+    - name: Aktivieren von Azure AD Multi-Factor Authentication
       href: tutorial-enable-azure-mfa.md
     - name: Aktivieren des Kennwortrückschreibens in die lokale Umgebung
       href: tutorial-enable-sspr-writeback.md
@@ -80,7 +80,7 @@
           href: howto-sspr-authenticationdata.md
         - name: SSPR für Windows-Clients
           href: howto-sspr-windows.md
-    - name: Azure Multi-Factor Authentication
+    - name: Azure AD Multi-Factor Authentication
       items:
         - name: Bereitstellungshandbuch
           href: howto-mfa-getstarted.md
@@ -108,7 +108,7 @@
               href: howto-mfa-nps-extension.md
             - name: Erweiterte Konfiguration für NPS-Erweiterung
               href: howto-mfa-nps-extension-advanced.md
-            - name: Azure-VPN und Azure MFA
+            - name: Azure-VPN und Azure AD MFA
               href: ../../vpn-gateway/vpn-gateway-radius-mfa-nsp.md
             - name: Remotedesktopgateway
               href: howto-mfa-nps-extension-rdg.md
@@ -244,7 +244,7 @@
     - name: Betaversion der Microsoft Graph-REST-API
       href: /graph/api/resources/authenticationmethods-overview?view=graph-rest-beta
     - name: Dienstgrenzwerte und Einschränkungen
-      href: ../users-groups-roles/directory-service-limits-restrictions.md
+      href: ../enterprise-users/directory-service-limits-restrictions.md
 - name: Ressourcen
   items:
     - name: Azure-Feedbackforum

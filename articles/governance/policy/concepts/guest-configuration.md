@@ -3,12 +3,12 @@ title: Informationen zum Überwachen der Inhalte virtueller Computer
 description: Hier erfahren Sie, wie Azure Policy mithilfe des Gastkonfigurations-Agents Einstellungen in VMs überprüft.
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: e941938fce09e8729856322a5b6572b46a3714be
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: a956d5e8dcfa82f85020928e1427a08ac8fe7a69
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075483"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906249"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Informationen zu Guest Configuration von Azure Policy
 
@@ -62,7 +62,7 @@ Richtliniendefinitionen der Gastkonfiguration enthalten die neuen Versionen. Äl
 
 |Herausgeber|Name|Versionen|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04 und höher|
+|Canonical|Ubuntu Server|14.04–18.04|
 |Credativ|Debian|8 und höher|
 |Microsoft|Windows Server|2012 und höher|
 |Microsoft|Windows-Client|Windows 10|

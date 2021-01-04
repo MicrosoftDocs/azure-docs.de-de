@@ -1,0 +1,21 @@
+---
+author: DCtheGeek
+ms.service: azure-policy
+ms.topic: include
+ms.date: 11/20/2020
+ms.author: dacoulte
+ms.custom: generated
+ms.openlocfilehash: fb5f6dbb410a15bf88fccc1ed3f9c3ca0f830c70
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "96007982"
+---
+|Name<br /><sub>(Azure-Portal)</sub> |BESCHREIBUNG |Auswirkungen |Version<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[Azure Synapse-Arbeitsbereiche müssen kundenseitig verwaltete Schlüssel zur Verschlüsselung ruhender Daten verwenden](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff7d52b2d-e161-4dfa-a82b-55e564167385) |Verwenden Sie kundenseitig verwaltete Schlüssel, um die Verschlüsselung ruhender Daten zu steuern, die in Azure Synapse-Arbeitsbereichen gespeichert sind. Kundenseitig verwaltete Schlüssel bieten eine Mehrfachverschlüsselung, indem zusätzlich zur Standardverschlüsselung mit dienstseitig verwalteten Schlüsseln eine zweite Verschlüsselungsebene hinzugefügt wird. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceCMK_Audit.json) |
+|[IP-Firewallregeln für Azure Synapse-Arbeitsbereiche müssen entfernt werden](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F56fd377d-098c-4f02-8406-81eb055902b8) |Das Entfernen aller IP-Firewallregeln erhöht die Sicherheit, indem sichergestellt wird, dass nur über einen privaten Endpunkt auf Ihren Azure Synapse-Arbeitsbereich zugegriffen werden kann. Diese Konfiguration überwacht die Erstellung von Firewallregeln, die Zugriff auf den Arbeitsbereich aus öffentlichen Netzwerken zulassen. |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceFirewallRules_Audit.json) |
+|[Virtuelles Netzwerk mit verwaltetem Arbeitsbereich in Azure Synapse-Arbeitsbereichen muss aktiviert sein](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d9dbfa3-927b-4cf0-9d0f-08747f971650) |Durch Aktivieren eines virtuellen Netzwerks mit verwaltetem Arbeitsbereich wird sichergestellt, dass Ihr Arbeitsbereich im Netzwerk von anderen Arbeitsbereichen isoliert ist. Datenintegration und in diesem Netzwerk bereitgestellte Spark-Ressourcen bieten zudem Isolierung auf Benutzerebene für Spark-Aktivitäten. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceManagedVnet_Audit.json) |
+|[Für Azure Synapse-Arbeitsbereiche müssen private Endpunktverbindungen aktiviert sein](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d11df1-dd8a-41f7-8925-b05b960ebafc) |Private Endpunkte können so konfiguriert werden, dass sie eine private Verbindung mit einem Azure Synapse-Arbeitsbereich herstellen. Auf diese Weise lässt sich ein sicherer Kommunikationskanal zum Azure Synapse-Arbeitsbereich erzwingen. |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceUsePrivateLinks_Audit.json) |
+|[Von Synapse verwaltete private Endpunkte dürfen nur eine Verbindung mit Ressourcen in genehmigten Azure Active Directory-Mandanten herstellen](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3a003702-13d2-4679-941b-937e58c443f0) |Schützen Sie Ihren Synapse-Arbeitsbereich, indem Sie nur Verbindungen mit Ressourcen in genehmigten Azure AD-Mandanten zulassen. Die genehmigten Azure AD-Mandanten können während der Richtlinienzuweisung definiert werden. |Audit, Disabled, Deny |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/Workspace_DataExfiltrationPrevention_Deny.json) |

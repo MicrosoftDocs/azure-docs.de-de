@@ -12,12 +12,13 @@ ms.date: 12/09/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv, marsma
 ms.custom: aaddev
-ms.openlocfilehash: 3a631a80e7ac5eed3c3239cb79e35b87c70ab1b0
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ROBOTS: NOINDEX
+ms.openlocfilehash: ab0057f55ddb5bf76f6fa74b0211b5ea5af24288
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055459"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608213"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Entwicklung der Microsoft Identity Platform
 

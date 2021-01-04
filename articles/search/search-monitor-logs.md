@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 52230d6b13c4210e0ff8e85d0a3efe39af55f6e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6fcf5980cf64b5fc088dfa295ef6221ffda6de9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935057"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499933"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Sammeln und Analysieren von Protokolldaten für Azure Cognitive Search
 
@@ -25,7 +25,7 @@ Beim Einrichten der Diagnoseprotokollierung werden Sie zur Angabe eines Speicher
 
 | Resource | Syntaxelemente |
 |----------|----------|
-| [Senden an den Log Analytics-Arbeitsbereich](../azure-monitor/learn/tutorial-resource-logs.md) | Ereignisse und Metriken werden an einen Log Analytics-Arbeitsbereich gesendet, der im Portal abgefragt werden kann, um ausführliche Informationen zurückzugeben. Eine Einführung finden Sie unter [Erste Schritte mit Azure Monitor-Protokollen](../azure-monitor/log-query/get-started-portal.md). |
+| [Senden an den Log Analytics-Arbeitsbereich](../azure-monitor/learn/tutorial-resource-logs.md) | Ereignisse und Metriken werden an einen Log Analytics-Arbeitsbereich gesendet, der im Portal abgefragt werden kann, um ausführliche Informationen zurückzugeben. Eine Einführung finden Sie unter [Erste Schritte mit Azure Monitor-Protokollen](../azure-monitor/log-query/log-analytics-tutorial.md). |
 | [Archivieren mit Blobspeicher](../storage/blobs/storage-blobs-overview.md) | Ereignisse und Metriken werden in einem Blobcontainer archiviert und in JSON-Dateien gespeichert. Protokolle können sehr präzise sein (nach Stunde/Minute), was für die Untersuchung eines bestimmten Vorfalls nützlich ist, aber nicht für eine Untersuchung mit offenem Ende. Mit einem JSON-Editor können Sie eine unformatierte Protokolldatei oder Power BI anzeigen, um Protokolldaten zu aggregieren und zu visualisieren.|
 | [Streamen an Event Hub](../event-hubs/index.yml) | Ereignisse und Metriken werden an einen Azure Event Hubs-Dienst gestreamt. Wählen Sie diese Lösung als alternativen Datensammlungsdienst für sehr große Ereignisprotokolle aus. |
 

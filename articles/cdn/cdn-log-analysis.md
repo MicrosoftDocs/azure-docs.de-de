@@ -9,14 +9,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/22/2020
+ms.date: 11/30/2020
 ms.author: allensu
-ms.openlocfilehash: 169889dbb87d00fdde44ff72c0d2004c331604ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c593cda7761ce1defa6bdb31e0dbb528b9e5eca
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87073038"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483987"
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Analysieren von Azure CDN-Verwendungsmustern
 
@@ -31,7 +31,7 @@ Mit einem Microsoft-Standardprofil können Sie unformatierte Protokolle aktivier
 
 Mit Azure Log Analytics können Sie Überwachungsmetriken anzeigen und Warnungen einrichten. 
 
-Weitere Informationen finden Sie unter [Unformatierte Azure CDN-HTTP-Protokolle](enable-raw-logs.md).
+Weitere Informationen finden Sie unter [Unformatierte Azure CDN-HTTP-Protokolle](monitoring-and-access-log.md).
 
 
 ## <a name="core-analytics-via-azure-diagnostic-logs"></a>Kernanalyse über Azure-Diagnoseprotokolle
@@ -61,6 +61,4 @@ In diesem Artikel haben Sie die verschiedenen Optionen für Analyseberichte für
 Weitere Informationen zu Azure CDN und den anderen in diesem Artikel erwähnten Azure-Diensten finden Sie unter den folgenden Quellen:
 
 * [Was ist Azure CDN?](cdn-overview.md)
-* [Unformatierte Azure CDN-HTTP-Protokolle](enable-raw-logs.md)
-
-
+* [Unformatierte Azure CDN-HTTP-Protokolle](monitoring-and-access-log.md)

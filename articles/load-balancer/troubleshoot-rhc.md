@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: errobin
-ms.openlocfilehash: 1af3ce7125d30ed0cb9b8ca6b3cb9322dc14c520
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcfce06bb158888b56483a73ededd354c229a99b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855248"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696318"
 ---
 # <a name="troubleshoot-resource-health-frontend-and-backend-availability-issues"></a>Behandeln von Problemen im Zusammenhang mit der Ressourcenintegrität sowie mit der Front-End- und Back-End-Verfügbarkeit 
 
@@ -52,7 +52,7 @@ Angenommen, wir überprüfen den Integritätsteststatus und finden heraus, dass 
   * Wenn dieses NSG-Problem vorliegt, verschieben Sie die vorhandene Zulassungsregel, oder erstellen Sie eine neue Regel mit hoher Priorität, um AzureLoadBalancer-Datenverkehr zuzulassen
 * Überprüfen Sie Ihr Betriebssystem. Stellen Sie sicher, dass Ihre VMs am Testport lauschen, und überprüfen Sie die zugehörigen Betriebssystem-Firewallregeln, um sicherzustellen, dass der Testdatenverkehr von der IP-Adresse 168.63.129.16 nicht blockiert wird
   * Zum Überprüfen der Lauschports können Sie an einer Windows-Eingabeaufforderung netstat -a oder bei einem Linux-Terminal netstat -l ausführen
-* Platzieren Sie keine Firewall-NVA-VM im Back-End-Pool des Lastenausgleichsmoduls. Verwenden Sie [benutzerdefinierte Routen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined), um Datenverkehr über die Firewall an Back-End-Instanzen zu leiten
+* Platzieren Sie keine Firewall-NVA-VM im Back-End-Pool des Lastenausgleichsmoduls. Verwenden Sie [benutzerdefinierte Routen](../virtual-network/virtual-networks-udr-overview.md#user-defined), um Datenverkehr über die Firewall an Back-End-Instanzen zu leiten
 * Stellen Sie sicher, dass das richtige Protokoll verwendet wird. Bei Verwendung von HTTP zum Testen eines Ports, der für Datenverkehr einer Nicht-HTTP-Anwendung konfiguriert ist, tritt bei dem Test ein Fehler auf
 
 Wenn Sie diese Checkliste durchgearbeitet haben und weiterhin Integritätstestfehler auftreten, kann ein seltenes Plattformproblem vorliegen, das den Testdienst für Ihre Instanzen beeinträchtigt. In diesem Fall wird eine automatisierte Warnung an unser Team gesendet, um jegliche Plattformprobleme schnellstmöglich zu behandeln.
@@ -61,5 +61,3 @@ Wenn Sie diese Checkliste durchgearbeitet haben und weiterhin Integritätstestfe
 
 * [Weitere Informationen zum Azure Load Balancer-Integritätstest](load-balancer-custom-probe-overview.md)
 * [Weitere Informationen zu Azure Load Balancer-Metriken](load-balancer-standard-diagnostics.md)
-
-

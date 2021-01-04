@@ -2,21 +2,21 @@
 title: 'Azure Active Directory Domain Services: Übersicht | Microsoft Docs'
 description: In dieser Übersicht erfahren Sie, welche Funktionen Azure Active Directory Domain Services (Azure AD DS) bietet und wie Sie diese Funktionen in Ihrer Organisation verwenden, um Identitätsdienste für Anwendungen und Dienste in der Cloud bereitzustellen.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/14/2020
-ms.author: joflore
-ms.custom: contperfq1
-ms.openlocfilehash: 988119c34ab0a8ef0e20ec86a7552fb7b4643cd1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 12/03/2020
+ms.author: justinha
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 99a207810f51949b0da0e78b1cb0e0a7f8bc95e3
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967986"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027338"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>Was ist Azure Active Directory Domain Services?
 
@@ -33,7 +33,7 @@ Azure AD DS lässt sich in Ihren vorhandenen Azure AD-Mandanten integrieren. 
 
 Beim Erstellen einer verwalteten Azure AD DS-Domäne definieren Sie einen eindeutigen Namespace. Dieser Namespace ist der Domänenname, z. B. *aaddscontoso.com*. Anschließend werden zwei Windows Server-Domänencontroller (DCs) in Ihrer ausgewählten Azure-Region bereitgestellt. Diese Bereitstellung von Domänencontrollern wird als Replikatgruppe bezeichnet.
 
-Sie müssen diese Domänencontroller nicht verwalten, konfigurieren oder aktualisieren. Die Azure-Plattform führt die Schritte für die Domänencontroller, einschließlich der Sicherungsvorgänge, im Rahmen der verwalteten Domäne aus.
+Sie müssen diese Domänencontroller nicht verwalten, konfigurieren oder aktualisieren. Die Azure-Plattform führt die Schritte für die Domänencontroller im Rahmen der verwalteten Domäne aus – einschließlich Sicherung und Verschlüsselung ruhender Daten mit Azure Disk Encryption.
 
 Eine verwaltete Domäne ist so konfiguriert, dass sie eine unidirektionale Synchronisierung von Azure AD durchführt, um Zugriff auf einen zentralen Satz mit Benutzern, Gruppen und Anmeldeinformationen zu ermöglichen. Sie können Ressourcen direkt in der verwalteten Domäne erstellen, die aber mit Azure AD nicht erneut synchronisiert werden. Anwendungen, Dienste und VMs in Azure, die eine Verbindung mit der verwalteten Domäne herstellen, können gemeinsame AD DS-Features wie Domänenbeitritt, Gruppenrichtlinien, LDAP und Kerberos- bzw. NTLM-Authentifizierung nutzen.
 

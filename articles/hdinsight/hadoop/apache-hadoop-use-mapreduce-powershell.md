@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/08/2020
-ms.openlocfilehash: ff0c7001184af58432a7915b3a7df29f900bedec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b5f5a9fb8ddd25f750b19044bac7253bbff2f98
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006601"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545207"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Ausführen von MapReduce-Aufträgen mit Apache Hadoop in HDInsight mithilfe von PowerShell
 
@@ -25,7 +25,7 @@ Dieses Dokument enthält ein Beispiel zur Verwendung von Azure PowerShell zum Au
 
 * Ein Apache Hadoop-Cluster in HDInsight. Siehe [Erstellen von Apache Hadoop-Clustern im Azure-Portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
-* Das PowerShell-[Az-Modul](https://docs.microsoft.com/powershell/azure/) ist installiert.
+* Das PowerShell-[Az-Modul](/powershell/azure/) ist installiert.
 
 ## <a name="run-a-mapreduce-job"></a>Ausführen eines MapReduce-Auftrags
 
@@ -36,14 +36,14 @@ Die folgenden Cmdlets werden zum Ausführen der MapReduce-Aufträge in einem HDI
 |Cmdlet | BESCHREIBUNG |
 |---|---|
 |Connect-AzAccount|Authentifiziert Azure PowerShell für Ihr Azure-Abonnement.|
-|New-AzHDInsightMapReduceJobDefinition|Erstellt aus den angegebenen MapReduce-Informationen eine neue *Auftragsdefinition*.|
+|New-AzHDInsightMapReduceJobDefinition|Erstellt aus den angegebenen MapReduce-Informationen eine neue *Auftragsdefinition* .|
 |Start-AzHDInsightJob|Sendet die Auftragsdefinition an HDInsight und startet den Auftrag. Ein *Auftragsobjekt* wird zurückgegeben.|
 |Wait-AzHDInsightJob|Verwendet das Auftragsobjekt, um den Status des Auftrags zu prüfen. Es wird gewartet, bis der Auftrag abgeschlossen oder die Wartezeit überschritten ist.|
 |Get-AzHDInsightJobOutput|Wird verwendet, um die Ausgabe des Auftrags abzurufen.|
 
 Die folgenden Schritte veranschaulichen, wie diese Cmdlets zum Ausführen eines Auftrags in einem HDInsight-Cluster verwendet werden.
 
-1. Speichern Sie den folgenden Code in einem Editor in einer Datei namens **mapreducejob.ps1**.
+1. Speichern Sie den folgenden Code in einem Editor in einer Datei namens **mapreducejob.ps1** .
 
     [!code-powershell[main](../../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 

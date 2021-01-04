@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: e95edf21b7d6dce29b31220533269439fac120e4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a1b7564988c8a4d63a37b53d18ed3a7359e65d72
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91281950"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926409"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>Verwenden des OPC Vault-Zertifikatverwaltungsdiensts
 
@@ -64,7 +64,7 @@ Sichern Sie Ihre OPC UA-Anwendung durch Ausstellen eines signierten Zertifikats 
 
 4. Füllen Sie das Formular mit einem Betreff und den Domänennamen aus. Wählen Sie für den privaten Schlüssel „PEM“ oder „PFX“ mit Kennwort aus. Wählen Sie **Generate New KeyPair** (Neues Schlüsselpaar generieren) aus, um die Zertifikatanforderung zu erstellen.
 
-   ![Screenshot: „View Certificate Request Details“ (Zertifikatanforderungsdetails anzeigen)](media/howto-opc-vault-secure/approve-reject.png "Genehmigen des Zertifikats")
+   ![Screenshot des Bildschirms „View Certificate Request Details“ (Zertifikatanforderungsdetails anzeigen) mit der Schaltfläche „Generate New KeyPair“ (Neues Schlüsselpaar generieren)](media/howto-opc-vault-secure/approve-reject.png "Genehmigen des Zertifikats")
 
 5. Für die Genehmigung ist ein Benutzer mit der Rolle „Genehmigende Person“ und Signierberechtigungen in Azure Key Vault erforderlich. In einem typischen Workflow sollten die Rollen „Genehmigende Person“ bzw. „Anfordernde Person“ verschiedenen Benutzern zugewiesen werden. Wählen Sie **Genehmigen** oder **Ablehnen** aus, um die eigentliche Erstellung des Schlüsselpaars und den Signiervorgang zu starten bzw. abzubrechen. Das neue Schlüsselpaar wird erstellt und in Azure Key Vault sicher gespeichert, bis es vom Anforderer des Zertifikats heruntergeladen wird. Das sich ergebende Zertifikat mit öffentlichem Schlüssel wird von der Zertifizierungsstelle signiert. Es kann einige Sekunden dauern, bis diese Vorgänge abgeschlossen sind.
 
@@ -93,7 +93,7 @@ Jetzt liegt es am OPC UA-Gerät, wie das neue Schlüsselpaar angewendet wird. N
 
 5. Für die Genehmigung ist ein Benutzer mit der Rolle „Genehmigende Person“ und Signierberechtigungen in Azure Key Vault erforderlich. Wählen Sie **Genehmigen** oder **Ablehnen** aus, um den eigentlichen Signiervorgang zu starten bzw. abzubrechen. Das sich ergebende Zertifikat mit öffentlichem Schlüssel wird von der Zertifizierungsstelle signiert. Es kann einige Sekunden dauern, bis dieser Vorgang abgeschlossen ist.
 
-   ![Screenshot: „View Certificate Request Details“ (Zertifikatanforderungsdetails anzeigen), mit Genehmigungsmeldung unten](media/howto-opc-vault-secure/view-cert-csr.png "Anzeigen des Zertifikats")
+   ![Screenshot von „View Certificate Request Details“ (Zertifikatanforderungsdetails anzeigen) mit einer Genehmigungsmeldung unten](media/howto-opc-vault-secure/view-cert-csr.png "Anzeigen des Zertifikats")
 
 6. Das sich ergebende Zertifikat (DER) kann hier als Binärdatei heruntergeladen werden. Es ist auch eine Base64-codierte Version verfügbar, z.B. zum Kopieren und Einfügen des Zertifikats in eine Befehlszeile oder einen Texteintrag. 
 10. Nachdem das Zertifikat heruntergeladen und sicher gespeichert wurde, können Sie **Zertifikat löschen** auswählen.

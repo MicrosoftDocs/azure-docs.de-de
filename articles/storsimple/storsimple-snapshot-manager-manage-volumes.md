@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: alkohli
-ms.openlocfilehash: 79a239def70f0455f63c18d86397ec8d927f244c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 309fa85d0a4d877522a89dd8f1e6e71fb2074744
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90054906"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022937"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Verwenden des StorSimple Snapshot Managers zum Anzeigen und Verwalten von Volumes
 ## <a name="overview"></a>Übersicht
@@ -45,7 +45,7 @@ In diesem Lernprogramm wird erläutert, wie Sie Volumes bereitstellen, initialis
 > 
 
 ## <a name="mount-volumes"></a>Bereitstellen von Volumes
-Gehen Sie folgendermaßen vor, um StorSimple-Volumes bereitzustellen, zu initialisieren und zu formatieren. Bei diesem Verfahren wird die Datenträgerverwaltung verwendet. Dies ist ein Systemprogramm zum Verwalten von Festplatten und den entsprechenden Volumes oder Partitionen. Weitere Informationen zur Datenträgerverwaltung finden Sie unter [Disk Management](https://technet.microsoft.com/library/cc770943.aspx) (in englischer Sprache) auf der Microsoft TechNet-Website.
+Gehen Sie folgendermaßen vor, um StorSimple-Volumes bereitzustellen, zu initialisieren und zu formatieren. Bei diesem Verfahren wird die Datenträgerverwaltung verwendet. Dies ist ein Systemprogramm zum Verwalten von Festplatten und den entsprechenden Volumes oder Partitionen. Weitere Informationen zur Datenträgerverwaltung finden Sie unter [Disk Management](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770943(v=ws.11)) (in englischer Sprache) auf der Microsoft TechNet-Website.
 
 #### <a name="to-mount-volumes"></a>So stellen Sie Volumes bereit
 1. Starten Sie den Microsoft iSCSI-Initiator auf dem Hostcomputer.
@@ -62,17 +62,17 @@ Gehen Sie folgendermaßen vor, um StorSimple-Volumes bereitzustellen, zu initial
      > 
 4. Schalten Sie die Volumes online:
    
-   1. Klicken Sie in der Datenträgerverwaltung mit der rechten Maustaste auf ein Volume, für das **Offline**angezeigt wird.
+   1. Klicken Sie in der Datenträgerverwaltung mit der rechten Maustaste auf ein Volume, für das **Offline** angezeigt wird.
    2. Klicken Sie auf **Datenträger reaktivieren**. Der Datenträger sollte nach dem erneuten Aktivieren als **Online** angezeigt werden.
 5. Initialisieren Sie die Volumes:
    
    1. Klicken Sie mit der rechten Maustaste auf die ermittelten Volumes.
-   2. Wählen Sie im Menü die Option **Datenträger initialisieren**aus.
+   2. Wählen Sie im Menü die Option **Datenträger initialisieren** aus.
    3. Wählen Sie im Dialogfeld **Datenträgerinitialisierung** die Datenträger aus, die Sie initialisieren möchten, und klicken Sie dann auf **OK**.
 6. Formatieren Sie einfache Volumes:
    
    1. Klicken Sie mit der rechten Maustaste auf ein zu formatierendes Volume.
-   2. Wählen Sie im Menü die Option **Neues einfaches Volume**aus.
+   2. Wählen Sie im Menü die Option **Neues einfaches Volume** aus.
    3. Verwenden Sie den Assistenten zum Erstellen neuer einfacher Volumes, um das Volume zu formatieren:
       
       * Geben Sie die Größe des Volumes an.
@@ -80,7 +80,7 @@ Gehen Sie folgendermaßen vor, um StorSimple-Volumes bereitzustellen, zu initial
       * Wählen Sie das NTFS-Dateisystem aus.
       * Geben Sie 64 KB als Zuordnungseinheitsgröße an.
       * Führen Sie eine Schnellformatierung durch.
-7. Formatieren Sie Volumes mit mehreren Partitionen. Anweisungen hierzu finden Sie im Abschnitt zu Partitionen und Volumes unter [Implementing Disk Management](https://msdn.microsoft.com/library/dd163556.aspx)(in englischer Sprache).
+7. Formatieren Sie Volumes mit mehreren Partitionen. Anweisungen hierzu finden Sie im Abschnitt zu Partitionen und Volumes unter [Implementing Disk Management](/previous-versions/tn-archive/dd163556(v=technet.10))(in englischer Sprache).
 
 ## <a name="view-information-about-your-volumes"></a>Anzeigen von Informationen zu den Volumes
 Gehen Sie folgendermaßen vor, um Informationen zu lokalen und Azure StorSimple-Volumes anzuzeigen.
@@ -133,7 +133,7 @@ Wenden Sie das folgende Verfahren an, um eine Sicherung eines Basisvolumes zu ko
 ### <a name="prerequisites"></a>Voraussetzungen
 Vorbereitungen
 
-* Stellen Sie sicher, dass das StorSimple-Gerät und der Hostcomputer ordnungsgemäß konfiguriert sind. Weitere Informationen finden Sie unter [Bereitstellen des lokalen StorSimple-Geräts](storsimple-deployment-walkthrough-u2.md).
+* Stellen Sie sicher, dass das StorSimple-Gerät und der Hostcomputer ordnungsgemäß konfiguriert sind. Weitere Informationen finden Sie unter [Bereitstellen des lokalen StorSimple-Geräts](./storsimple-8000-deployment-walkthrough-u2.md).
 * Installieren und konfigurieren Sie den StorSimple Snapshot Manager. Weitere Informationen finden Sie unter [Bereitstellen des StorSimple Snapshot Managers](storsimple-snapshot-manager-deployment.md).
 
 #### <a name="to-configure-backup-of-a-basic-volume"></a>So konfigurieren Sie die Sicherung eines Basisvolumes
@@ -166,7 +166,7 @@ Vorbereitungen
 * Konfigurieren Sie zwei Volumes auf dem StorSimple-Gerät. (In den Beispielen lauten die verfügbaren Volumes **Disk 1** und **Disk 2**.) 
 
 ### <a name="step-1-use-disk-management-to-create-a-dynamic-mirrored-volume"></a>Schritt 1: Erstellen eines dynamisch gespiegelten Volumes mithilfe der Datenträgerverwaltung
-Die Datenträgerverwaltung ist ein Systemprogramm zum Verwalten von Festplatten und den darauf enthaltenen Volumes oder Partitionen. Weitere Informationen zur Datenträgerverwaltung finden Sie unter [Disk Management](https://technet.microsoft.com/library/cc770943.aspx) (in englischer Sprache) auf der Microsoft TechNet-Website.
+Die Datenträgerverwaltung ist ein Systemprogramm zum Verwalten von Festplatten und den darauf enthaltenen Volumes oder Partitionen. Weitere Informationen zur Datenträgerverwaltung finden Sie unter [Disk Management](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770943(v=ws.11)) (in englischer Sprache) auf der Microsoft TechNet-Website.
 
 #### <a name="to-create-a-dynamic-mirrored-volume"></a>So erstellen Sie ein dynamisch gespiegeltes Volume
 1. Starten Sie die Datenträgerverwaltung mithilfe einer der folgenden Vorgehensweisen: 
@@ -178,7 +178,7 @@ Die Datenträgerverwaltung ist ein Systemprogramm zum Verwalten von Festplatten 
 3. Klicken Sie im Fenster der Datenträgerverwaltung in der rechten Spalte des unteren Bereichs mit der rechten Maustaste auf **Disk 1**, und wählen Sie **Neues gespiegeltes Volume** aus. 
    
     ![Neues gespiegeltes Volume](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_New_mirrored_volume.png) 
-4. Klicken Sie auf der Seite **Neues gespiegeltes Volum**e des Assistenten auf **Weiter**.
+4. Klicken Sie auf der Seite **Neues gespiegeltes Volum** e des Assistenten auf **Weiter**.
 5. Wählen Sie auf der Seite **Datenträger auswählen** im Bereich **Ausgewählt** den Eintrag **Disk 2** aus, und klicken Sie auf **Hinzufügen** und dann auf **Weiter**. 
 6. Übernehmen Sie auf der Seite **Laufwerkbuchstaben oder -pfad zuordnen** die Standardeinstellungen, und klicken Sie dann auf **Weiter**. 
 7. Wählen Sie auf der Seite **Volume formatieren** im Feld **Größe der Zuordnungseinheit** den Wert **64K** aus. Aktivieren Sie das Kontrollkästchen **Schnellformatierung durchführen**, und klicken Sie dann auf **Weiter**. 
@@ -210,4 +210,4 @@ Verwenden Sie das folgende Verfahren zum Konfigurieren eines dynamisch gespiegel
 * Erfahren Sie mehr über das [Verwenden des StorSimple Snapshot Managers zum Erstellen und Verwalten von Volumegruppen](storsimple-snapshot-manager-manage-volume-groups.md).
 
 <!--Reference links-->
-[1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee338480(v=ws.10)

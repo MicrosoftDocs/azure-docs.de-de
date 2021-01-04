@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: cc36fccf84807621b8b3a186979ccfd000fe48f3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7edb7b498450625faf90f0601e19745ad632635a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372479"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835661"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planen einer Bereitstellung von „Meine Apps“ in Azure Active Directory
 
@@ -26,7 +26,7 @@ ms.locfileid: "92372479"
 * Entdecken aller mit Azure AD verbundenen Ressourcen Ihres Unternehmens, z. B. Anwendungen, und Zugriff auf diese
 * Anfordern von Zugriff auf neue Apps und Gruppen
 * Verwalten des Zugriffs auf diese Ressourcen für andere Benutzer
-* Verwalten der Self-Service-Kennwortzurücksetzung und der Einstellungen für Azure Multi-Factor Authentication
+* Verwalten der Self-Service-Kennwortzurücksetzung und der Einstellungen für Azure AD Multi-Factor Authentication
 * Verwalten Ihrer Geräte
 
 Administratoren können damit Folgendes verwalten:
@@ -40,24 +40,24 @@ Administratoren können damit Folgendes verwalten:
 
 „Meine Apps“ in Azure AD bietet Unternehmen folgende Vorteile:
 
-**Bietet eine intuitive Benutzeroberfläche** : „Meine Apps“ bietet Ihnen eine einzige Plattform für alle mit einmaligem Anmelden (SSO) in Azure verbundenen Anwendungen. Sie verfügen über ein einheitliches Portal, um vorhandene Einstellungen und neue Funktionen, z. B. Gruppenverwaltung und Self-Service-Kennwortzurücksetzung, zu finden, sobald sie hinzugefügt wurden. Die intuitive Benutzeroberfläche ermöglicht es den Benutzern, schneller wieder an die Arbeit zu gehen und produktiver zu sein, während sie gleichzeitig ihre Frustration reduziert.
+**Bietet eine intuitive Benutzeroberfläche**: „Meine Apps“ bietet Ihnen eine einzige Plattform für alle mit einmaligem Anmelden (SSO) in Azure verbundenen Anwendungen. Sie verfügen über ein einheitliches Portal, um vorhandene Einstellungen und neue Funktionen, z. B. Gruppenverwaltung und Self-Service-Kennwortzurücksetzung, zu finden, sobald sie hinzugefügt wurden. Die intuitive Benutzeroberfläche ermöglicht es den Benutzern, schneller wieder an die Arbeit zu gehen und produktiver zu sein, während sie gleichzeitig ihre Frustration reduziert.
 
-**Steigerung der Produktivität** : Für alle Benutzeranwendungen im „Meine Apps“ ist SSO aktiviert. Die Aktivierung von SSO zwischen Unternehmensanwendungen und Microsoft 365 bietet eine optimierte Anmeldung, da hierdurch die Anzahl von zusätzlichen Anmeldeeingabeaufforderungen reduziert wird oder diese gänzlich beseitigt werden. „Meine Apps“ verwendet Self-Service und dynamische Mitgliedschaft und die Gesamtsicherheit Ihres Identitätsverwaltungssystems wird verbessert. „Meine Apps“ stellt sicher, dass der Zugriff auf die Anwendungen von den richtigen Personen verwaltet wird. „Meine Apps“ dient als kohärente Landing Page, damit Sie schnell Ressourcen finden und Arbeitsaufgaben fortsetzen können.
+**Steigerung der Produktivität**: Für alle Benutzeranwendungen im „Meine Apps“ ist SSO aktiviert. Die Aktivierung von SSO zwischen Unternehmensanwendungen und Microsoft 365 bietet eine optimierte Anmeldung, da hierdurch die Anzahl von zusätzlichen Anmeldeeingabeaufforderungen reduziert wird oder diese gänzlich beseitigt werden. „Meine Apps“ verwendet Self-Service und dynamische Mitgliedschaft und die Gesamtsicherheit Ihres Identitätsverwaltungssystems wird verbessert. „Meine Apps“ stellt sicher, dass der Zugriff auf die Anwendungen von den richtigen Personen verwaltet wird. „Meine Apps“ dient als kohärente Landing Page, damit Sie schnell Ressourcen finden und Arbeitsaufgaben fortsetzen können.
 
-**Verwaltung der Kosten** : Die Aktivierung von „Meine Apps“ mit Azure AD kann die Desinvestition von lokalen Infrastrukturen unterstützen. Dadurch werden die Supportkosten gesenkt, da Sie über ein einheitliches Portal verfügen, um alle Ihre Anwendungen zu finden, den Zugriff auf Ressourcen anzufordern und Konten zu verwalten.
+**Verwaltung der Kosten**: Die Aktivierung von „Meine Apps“ mit Azure AD kann die Desinvestition von lokalen Infrastrukturen unterstützen. Dadurch werden die Supportkosten gesenkt, da Sie über ein einheitliches Portal verfügen, um alle Ihre Anwendungen zu finden, den Zugriff auf Ressourcen anzufordern und Konten zu verwalten.
 
-**Steigerung von Flexibilität und Sicherheit** : Über „Meine Apps“ erhalten Sie die Sicherheit und Flexibilität, die eine Cloudplattform bietet. Administratoren können Einstellungen von Anwendungen und Ressourcen einfach ändern und neue Sicherheitsanforderungen erfüllen, ohne die Benutzer zu beeinträchtigen.
+**Steigerung von Flexibilität und Sicherheit**: Über „Meine Apps“ erhalten Sie die Sicherheit und Flexibilität, die eine Cloudplattform bietet. Administratoren können Einstellungen von Anwendungen und Ressourcen einfach ändern und neue Sicherheitsanforderungen erfüllen, ohne die Benutzer zu beeinträchtigen.
 
-**Ermöglichen einer zuverlässigen Überwachung und Nutzungsnachverfolgung** : Durch die Überwachung und Nutzungsnachverfolgung für alle Benutzerfunktionen erfahren Sie, wann Benutzer ihre Ressourcen nutzen, und Sie können die Sicherheit bewerten.
+**Ermöglichen einer zuverlässigen Überwachung und Nutzungsnachverfolgung**: Durch die Überwachung und Nutzungsnachverfolgung für alle Benutzerfunktionen erfahren Sie, wann Benutzer ihre Ressourcen nutzen, und Sie können die Sicherheit bewerten.
 
 ### <a name="licensing-considerations"></a>Lizenzierungsaspekte
 
 „Meine Apps“ ist kostenlos und erfordert auf der Ebene „Basic“ keine Lizenzen. Die Anzahl der Objekte in Ihrem Verzeichnis und die zusätzlichen Funktionen, die Sie bereitstellen möchten, können jedoch zusätzliche Lizenzen erfordern. Allgemeine Azure AD-Szenarien mit Lizenzanforderungen umfassen die folgenden Sicherheitsfeatures:
 
-* [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
-* [Gruppenbasierte Mitgliedschaft](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
-* [Self-Service-Kennwortzurücksetzung](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
-* [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
+* [Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
+* [Gruppenbasierte Mitgliedschaft](../fundamentals/active-directory-manage-groups.md)
+* [Self-Service-Kennwortzurücksetzung](../authentication/tutorial-enable-sspr.md)
+* [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md)
 
 Weitere Informationen finden Sie im [Leitfaden zur Lizenzierung für Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -65,8 +65,8 @@ Weitere Informationen finden Sie im [Leitfaden zur Lizenzierung für Azure AD](h
 
 Bevor Sie mit diesem Projekt beginnen, müssen folgende erforderliche Schritte ausgeführt werden:
 
-* [Integrieren von Anwendungs-SSO](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
-* [Verwalten der Benutzer- und Gruppeninfrastruktur von Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
+* [Integrieren von Anwendungs-SSO](./plan-sso-deployment.md)
+* [Verwalten der Benutzer- und Gruppeninfrastruktur von Azure AD](../fundamentals/active-directory-manage-groups.md)
 
 ## <a name="plan-azure-ad-my-apps-deployment"></a>Planen einer Bereitstellung von „Meine Apps“ in Azure AD
 
@@ -166,23 +166,23 @@ Integrieren Sie für eine optimale Erfahrung mit der Seite „Meine Apps“ zun�
 
 Verwenden Sie Verbund-SSO mit Azure AD (OpenID Connect/SAML) anstelle von kennwortbasiertem SSO und ADFS, wenn eine Anwendung dies unterstützt.
 
-Weitere Informationen zum Bereitstellen und Konfigurieren von SaaS-Anwendungen finden Sie im [SaaS-SSO-Bereitstellungsplan](https://aka.ms/deploymentplans/sso).
+Weitere Informationen zum Bereitstellen und Konfigurieren von SaaS-Anwendungen finden Sie im [SaaS-SSO-Bereitstellungsplan](./plan-sso-deployment.md).
 
 #### <a name="plan-to-deploy-the-my-apps-browser-extension"></a>Planen der Bereitstellung der Browsererweiterung „Meine Apps“
 
-Wenn sich Benutzer bei kennwortbasierten SSO-Anwendungen anmelden, müssen sie die sichere Anmeldeerweiterung „Meine Apps“ installieren und verwenden. Die Erweiterung führt ein Skript aus, das das Kennwort in das Anmeldeformular der Anwendung überträgt. Die Benutzer werden beim ersten Start der kennwortbasierten SSO-Anwendung aufgefordert, die Erweiterung zu installieren. Weitere Informationen zur Erweiterung finden Sie in der Dokumentation [Planen einer Azure Active Directory-Bereitstellung eines Zugriffsbereichs](access-panel-extension-problem-installing.md).
+Wenn sich Benutzer bei kennwortbasierten SSO-Anwendungen anmelden, müssen sie die sichere Anmeldeerweiterung „Meine Apps“ installieren und verwenden. Die Erweiterung führt ein Skript aus, das das Kennwort in das Anmeldeformular der Anwendung überträgt. Die Benutzer werden beim ersten Start der kennwortbasierten SSO-Anwendung aufgefordert, die Erweiterung zu installieren. Weitere Informationen zur Erweiterung finden Sie in der Dokumentation [Planen einer Azure Active Directory-Bereitstellung eines Zugriffsbereichs]().
 
-Wenn Sie kennwortbasierte SSO-Anwendungen integrieren müssen, sollten Sie einen Mechanismus definieren, um die Erweiterung skalierbar mit [unterstützten Browsern](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) bereitzustellen. Beispiele für Optionen:
+Wenn Sie kennwortbasierte SSO-Anwendungen integrieren müssen, sollten Sie einen Mechanismus definieren, um die Erweiterung skalierbar mit [unterstützten Browsern](../user-help/my-apps-portal-end-user-access.md) bereitzustellen. Beispiele für Optionen:
 
-* [Gruppenrichtlinie für Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-* [Configuration Manager für Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
-* [Benutzergesteuerter Download und Konfiguration für Chrome, Firefox, Microsoft Edge oder Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* [Gruppenrichtlinie für Internet Explorer]()
+* [Configuration Manager für Internet Explorer](/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
+* [Benutzergesteuerter Download und Konfiguration für Chrome, Firefox, Microsoft Edge oder Internet Explorer](../user-help/my-apps-portal-end-user-access.md)
 
 Benutzer, die keine kennwortbasierten SSO-Anwendungen verwenden, profitieren ebenfalls von der Erweiterung. Zu diesen Vorteilen zählen die Möglichkeit, jede App über die Suchleiste zu starten, den Zugriff auf kürzlich verwendete Anwendungen zu finden und einen Link zur Seite „Meine Apps“ zu verwenden.
 
 #### <a name="plan-for-mobile-access"></a>Planen des mobilen Zugriffs
 
-Für mobile Benutzer, die kennwortbasierte SSO-Anwendungen starten, ist ein mit Intune-Richtlinien geschützter Browser (Microsoft Edge oder Intune Managed Browser) erforderlich. Ein richtliniengeschützter Browser ermöglicht die Übertragung des für die Anwendung gespeicherten Kennworts. Microsoft Edge oder der verwaltete Browser bietet eine Reihe von Features zum Schutz von Webdaten. Sie können Microsoft Edge auch für Unternehmensszenarien auf iOS- und Android-Geräten verwenden. Microsoft Edge unterstützt dieselben Verwaltungsszenarien wie der Intune Managed Browser und erhöht die Benutzerfreundlichkeit. Weitere Informationen: [Verwalten des Webzugriffs mit einem durch Microsoft Intune-Richtlinien geschützten Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser)
+Für mobile Benutzer, die kennwortbasierte SSO-Anwendungen starten, ist ein mit Intune-Richtlinien geschützter Browser (Microsoft Edge oder Intune Managed Browser) erforderlich. Ein richtliniengeschützter Browser ermöglicht die Übertragung des für die Anwendung gespeicherten Kennworts. Microsoft Edge oder der verwaltete Browser bietet eine Reihe von Features zum Schutz von Webdaten. Sie können Microsoft Edge auch für Unternehmensszenarien auf iOS- und Android-Geräten verwenden. Microsoft Edge unterstützt dieselben Verwaltungsszenarien wie der Intune Managed Browser und erhöht die Benutzerfreundlichkeit. Weitere Informationen: [Verwalten des Webzugriffs mit einem durch Microsoft Intune-Richtlinien geschützten Browser](/intune/app-configuration-managed-browser)
 
 ## <a name="plan-your-my-apps-deployment"></a>Planen der Bereitstellung von „Meine Apps“
 
@@ -248,7 +248,7 @@ Dokumentieren Sie für Überwachungs-, Berichts- und Notfallwiederherstellungssi
 
 Nachdem eine Anwendung für SSO konfiguriert wurde, wird den Gruppen der Zugriff zugewiesen. Benutzer in den zugewiesenen Gruppen haben Zugriff auf die Anwendung, und sie wird in „Meine Apps“ und im Microsoft 365-Startfeld angezeigt.
 
-Weitere Informationen finden Sie unter [Zuweisen von Benutzern und Gruppen zu einer Anwendung in Active Directory](methods-for-assigning-users-and-groups.md).
+Weitere Informationen finden Sie unter [Zuweisen von Benutzern und Gruppen zu einer Anwendung in Active Directory](./assign-user-or-group-access-portal.md).
 
 Wenn Sie während des Tests oder der Bereitstellung die Gruppen hinzufügen möchten, die Anwendungen aber noch nicht in „Meine Apps“ angezeigt werden sollen, finden Sie weitere Informationen unter [Ausblenden einer Anwendung auf der Benutzeroberfläche in Azure Active Directory](hide-application-from-user-portal.md).
 
@@ -294,7 +294,7 @@ Die folgenden Tests sollten sowohl mit firmeneigenen als auch mit privaten Gerä
 
 ### <a name="rollback-steps"></a>Rollbackschritte
 
-Es ist wichtig, zu planen, was zu tun ist, wenn Ihre Bereitstellung nicht wie gewünscht verläuft. Wenn bei der SSO-Konfiguration während der Bereitstellung ein Fehler auftritt, müssen Sie verstehen, wie Sie [SSO-Probleme beheben](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso) und die Auswirkungen auf Ihre Benutzer verringern können. In extremen Fällen müssen Sie möglicherweise für [SSO ein Rollback durchführen](../manage-apps/plan-sso-deployment.md#rollback-process).
+Es ist wichtig, zu planen, was zu tun ist, wenn Ihre Bereitstellung nicht wie gewünscht verläuft. Wenn bei der SSO-Konfiguration während der Bereitstellung ein Fehler auftritt, müssen Sie verstehen, wie Sie [SSO-Probleme beheben](../hybrid/tshoot-connect-sso.md) und die Auswirkungen auf Ihre Benutzer verringern können. In extremen Fällen müssen Sie möglicherweise für [SSO ein Rollback durchführen](../manage-apps/plan-sso-deployment.md#rollback-process).
 
 
 ## <a name="manage-your-implementation"></a>Verwalten Ihrer Implementierung
@@ -312,4 +312,4 @@ Verwenden Sie die am wenigsten privilegierte Rolle, um eine erforderliche Aufgab
 Sie können Ihre Rollen mithilfe von [Privileged Identity Management](../privileged-identity-management/pim-configure.md) (PIM) verwalten, um zusätzliche Überwachung, Kontrolle und Zugriffsprüfungen für Benutzer mit Verzeichnisberechtigungen bereitzustellen.
 
 ## <a name="next-steps"></a>Nächste Schritte
-[Planen einer Bereitstellung von Azure Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)
+[Planen einer Bereitstellung von Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

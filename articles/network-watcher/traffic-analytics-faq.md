@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: fa1ed25e8c9a80dda2bf0e4625d28a3befaa49c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f27f2a6319bf2648546a62c2566d938db657738f
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87479845"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518463"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Häufig gestellte Fragen zu Traffic Analytics
 
@@ -58,7 +58,7 @@ So überprüfen Sie die einem Benutzer für ein Abonnement zugewiesenen Rollen
 
 3. Listen Sie mit **Get-AzRoleAssignment -SignInName [E-Mail-Adresse des Benutzers] -IncludeClassicAdministrators** alle Rollen auf, die einem bestimmten Benutzer zugewiesen sind. 
 
-Falls keine Ausgabe erfolgt, wenden Sie sich an den zuständigen Abonnementadministrator, um den zur Ausführung der Befehle erforderlichen Zugriff zu erhalten. Weitere Informationen finden Sie unter [Verwalten der rollenbasierten Zugriffssteuerung mit Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
+Falls keine Ausgabe erfolgt, wenden Sie sich an den zuständigen Abonnementadministrator, um den zur Ausführung der Befehle erforderlichen Zugriff zu erhalten. Weitere Informationen finden Sie unter [Hinzufügen oder Entfernen von Azure-Rollenzuweisungen mithilfe von Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
 
 ## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>In welchen Azure-Regionen ist Traffic Analytics verfügbar?
@@ -126,7 +126,7 @@ Ja.
 
 ## <a name="can-i-use-an-existing-workspace"></a>Kann ich einen bestehenden Arbeitsbereich verwenden?
 
-Ja. Wenn Sie einen bestehenden Arbeitsbereich auswählen, vergewissern Sie sich, dass dieser in die neue Abfragesprache geändert wurde. Wenn Sie kein Upgrade des Arbeitsbereichs ausführen möchten, müssen Sie einen neuen Arbeitsbereich anlegen. Weitere Informationen über die neue Abfragesprache finden Sie unter [Upgrade von Azure Monitor-Protokollen auf die neue Protokollsuche](../log-analytics/log-analytics-log-search-upgrade.md).
+Ja. Wenn Sie einen bestehenden Arbeitsbereich auswählen, vergewissern Sie sich, dass dieser in die neue Abfragesprache geändert wurde. Wenn Sie kein Upgrade des Arbeitsbereichs ausführen möchten, müssen Sie einen neuen Arbeitsbereich anlegen. Weitere Informationen über die neue Abfragesprache finden Sie unter [Upgrade von Azure Monitor-Protokollen auf die neue Protokollsuche](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>Kann mein Azure Storage-Konto zu einem Abonnement und mein Log Analytics-Arbeitsbereich zu einem anderen Abonnement gehören?
 
@@ -142,7 +142,7 @@ Wählen Sie eine unterstützte Region aus. Wenn Sie eine nicht unterstützte Reg
 
 ## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>Was ist, wenn ich den Status „Fehler beim Laden“ unter der Seite mit den NSG-Datenflussprotokollen erhalte?
 
-Der Anbieter „Microsoft.Insights“ muss registriert sein, damit die Datenflussprotokollierung ordnungsgemäß funktioniert. Wenn Sie sich nicht sicher sind, ob der Anbieter „Microsoft.Insights“ für Ihr Abonnement registriert ist, ersetzen Sie *xxxxx-xxxxx-xxxxxx-xxxx* im folgenden Befehl, und führen Sie dann die folgenden Befehle über PowerShell aus:
+Der Microsoft.Insights-Anbieter muss registriert sein, damit die Datenflussprotokollierung ordnungsgemäß funktioniert. Wenn Sie sich nicht sicher sind, ob der Anbieter „Microsoft.Insights“ für Ihr Abonnement registriert ist, ersetzen Sie *xxxxx-xxxxx-xxxxxx-xxxx* im folgenden Befehl, und führen Sie dann die folgenden Befehle über PowerShell aus:
 
 ```powershell-interactive
 **Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
@@ -176,7 +176,7 @@ Sie sehen die Ressourceninformationen im Dashboard, aber es gibt keine datenflus
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>Kann ich Traffic Analytics mithilfe von PowerShell oder einer Azure Resource Manager-Vorlage bzw. einem ARM-Client konfigurieren?
 
-Sie können Traffic Analytics mithilfe von Windows PowerShell ab Version 6.2.1 konfigurieren. Informationen zum Konfigurieren der Datenflussprotokollierung und von Traffic Analytics für eine bestimmte Netzwerksicherheitsgruppe (Network Security Group, NSG) mithilfe des Cmdlets „Set“ finden Sie unter [Set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Informationen zum Abrufen des Status der Datenflussprotokollierung und von Traffic Analytics für eine bestimmte NSG finden Sie unter [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
+Sie können Traffic Analytics mithilfe von Windows PowerShell ab Version 6.2.1 konfigurieren. Informationen zum Konfigurieren der Datenflussprotokollierung und von Traffic Analytics für eine bestimmte Netzwerksicherheitsgruppe (Network Security Group, NSG) mithilfe des Cmdlets „Set“ finden Sie unter [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Informationen zum Abrufen des Status der Datenflussprotokollierung und von Traffic Analytics für eine bestimmte NSG finden Sie unter [Get-AzNetworkWatcherFlowLogStatus](/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
 
 Derzeit können Sie keine Azure Resource Manager-Vorlage verwenden, um Traffic Analytics zu konfigurieren.
 
@@ -250,7 +250,7 @@ Beispiel für den [Tarif](https://azure.microsoft.com/pricing/details/network-wa
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>Wie oft werden Daten von Traffic Analytics verarbeitet?
 
-Informationen hierzu finden Sie im [Abschnitt zur Datenaggregation](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) im Dokument „Schema und Datenaggregation in Traffic Analytics“.
+Informationen hierzu finden Sie im [Abschnitt zur Datenaggregation](./traffic-analytics-schema.md#data-aggregation) im Dokument „Schema und Datenaggregation in Traffic Analytics“.
 
 ## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Wie entscheidet Traffic Analytics, ob eine IP-Adresse schädlich ist? 
 
@@ -262,7 +262,7 @@ Traffic Analytics bietet keine integrierte Unterstützung für Benachrichtigung
 - Sie können den Kurzlink für Log Analytics in Traffic Analytics verwenden. 
 - Verwenden Sie das [hier dokumentierte Schema](traffic-analytics-schema.md) zum Schreiben Ihrer Abfragen. 
 - Klicken Sie auf „Neue Warnungsregel“, um die Benachrichtigung zu erstellen.
-- Informationen zum Erstellen der Benachrichtigung finden Sie in der [Dokumentation zu Protokollwarnungen ](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log).
+- Informationen zum Erstellen der Benachrichtigung finden Sie in der [Dokumentation zu Protokollwarnungen ](../azure-monitor/platform/alerts-log.md).
 
 ## <a name="how-do-i-check-which-vms-are-receiving-most-on-premises-traffic"></a>Wie kann ich überprüfen, von welchen virtuellen Computern der meiste lokale Datenverkehr empfangen wird?
 
@@ -400,4 +400,7 @@ Die Seite mit der Topologie der Subnetze hat zwei Hauptabschnitte:
 - Nachdem Sie einen beliebigen Filter im Banner ausgewählt und `Ctrl+F6` gedrückt haben, bewegt sich der Fokus zu einem der hervorgehobenen Knoten (**Subnetz**) in der Topologieansicht.
 - Um zu anderen hervorgehobenen Knoten in der Topologieansicht zu gelangen, drücken Sie für die Vorwärtsbewegung `Shift+Right arrow`. 
 - Bei hervorgehobenen Knoten wird der Fokus zur **Infotoolbox** des Knotens verschoben. Standardmäßig wird der Fokus zur Schaltfläche **Weitere Details** in der **Infotoolbox** verschoben. Zur weiteren Navigation in der Ansicht **Box** drücken Sie die Taste `Right arrow` und `Left arrow`, um vorwärts bzw. rückwärts zu navigieren. Das Drücken von `Enter` hat die gleiche Wirkung wie die Auswahl der fokussierten Schaltfläche in der **Infotoolbox**.
-- Wenn Sie einen solchen Knoten auswählen, können Sie alle seine Verbindungen nacheinander aufrufen, indem Sie `Shift+Left arrow` drücken. Der Fokus wird zur **Infotoolbox** dieser Verbindung verschoben. Jederzeit kann der Fokus durch erneutes Drücken von `Shift+Right arrow` zurück zum Knoten verschoben werden.    
+- Wenn Sie einen solchen Knoten auswählen, können Sie alle seine Verbindungen nacheinander aufrufen, indem Sie `Shift+Left arrow` drücken. Der Fokus wird zur **Infotoolbox** dieser Verbindung verschoben. Jederzeit kann der Fokus durch erneutes Drücken von `Shift+Right arrow` zurück zum Knoten verschoben werden.
+
+## <a name="are-classic-nsgs-supported"></a>Werden klassische Netzwerksicherheitsgruppen unterstützt?
+Nein, Traffic Analytics unterstützt keine klassischen Netzwerksicherheitsgruppen (NSGs). Es wird empfohlen, IaaS-Ressourcen vom klassischen Schema zu Azure Resource Manager zu migrieren, da klassische Ressourcen als [veraltet](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation) markiert werden. [Lesen Sie diesen Artikel](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview), um zu erfahren, wie Sie die Migration ausführen.

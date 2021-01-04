@@ -3,19 +3,20 @@ title: DateTimeDiff in der Abfragesprache für Azure Cosmos DB
 description: Erfahren Sie mehr über die SQL-Systemfunktion DateTimeDiff in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: b90b45072128252e8abc22d3422c84c813808119
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09b801c48bf2998a2d8926009cae76287c1ac9b6
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87446388"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342265"
 ---
 # <a name="datetimediff-azure-cosmos-db"></a>DateTimeDiff (Azure Cosmos DB)
-
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 Gibt die Anzahl (ganze Zahl mit Vorzeichen) der angegebenen DateTimePart-Begrenzungen zurück, die zwischen den angegebenen Werten für *StartDate* und *EndDate* überschritten wurden.
   
 ## <a name="syntax"></a>Syntax

@@ -3,12 +3,12 @@ title: Verwenden von Azure Lab Services für Hackathons
 description: In diesem Artikel wird beschrieben, wie Sie mithilfe von Azure Lab Services Labs zum Ausführen von Hackathons erstellen.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8727fad6f37d1365983127a1a514e87e3a5003b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0917ede4502dcbb59d1a30b7985b06c06975599
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445881"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602579"
 ---
 # <a name="use-azure-lab-services-for-your-next-hackathon"></a>Verwenden von Azure Lab Services für Ihren nächsten Hackathon
 Azure Lab Services ist einfach und benutzerfreundlich. Sie können damit im Handumdrehen ein neues Lab mit VMs für Ihren Hackathon einrichten.  Mit der folgenden Checkliste können Sie sicherstellen, dass Ihr Hackathon so reibungslos wie möglich verläuft. Sie sollte von den Mitarbeitern Ihrer IT-Abteilung oder Ihres Lehrkörpers erledigt werden, die für die Erstellung und Verwaltung des Hackathon-Labs verantwortlich sind. 
@@ -39,7 +39,7 @@ Wenn Sie Lab Services für Ihren Hackathon verwenden möchten, müssen sowohl d
 
 - **Entscheiden Sie, ob der Zugriff auf das Lab eingeschränkt werden soll.** 
 
-    Beim Hinzufügen von Benutzern zum Lab ist eine Option „Zugriff einschränken“ verfügbar, die standardmäßig aktiviert ist. Dieses Feature erfordert, dass Sie die E-Mail-Adressen aller Hackathon-Teilnehmer der Liste hinzufügen, bevor diese sich registrieren und über den Registrierungslink auf das Lab zugreifen können. Wenn Ihnen die Teilnehmer Ihres Hackathons vorab nicht bekannt sind, können Sie die Option „Zugriff einschränken“ deaktivieren. In diesem Fall kann sich jeder über den Registrierungslink beim Lab registrieren. Weitere Informationen finden Sie in der [Schrittanleitung zum Hinzufügen von Benutzern](how-to-configure-student-usage.md#add-users-to-a-lab).
+    Beim Hinzufügen von Benutzern zum Lab ist eine Option „Zugriff einschränken“ verfügbar, die standardmäßig aktiviert ist. Dieses Feature erfordert, dass Sie die E-Mail-Adressen aller Hackathon-Teilnehmer der Liste hinzufügen, bevor diese sich registrieren und über den Registrierungslink auf das Lab zugreifen können. Wenn Ihnen die Teilnehmer Ihres Hackathons vorab nicht bekannt sind, können Sie die Option „Zugriff einschränken“ deaktivieren. In diesem Fall kann sich jeder über den Registrierungslink beim Lab registrieren. Weitere Informationen finden Sie in der [Schrittanleitung zum Hinzufügen von Benutzern](how-to-configure-student-usage.md).
 
 - **Überprüfen Sie die Einstellungen für Zeitplan, Kontingent und automatisches Herunterfahren.** 
 
@@ -86,4 +86,4 @@ In diesem Abschnitt werden die Schritte beschrieben, die am Tag des Hackathons a
         Weitere Informationen finden Sie in der [Schrittanleitung zum Senden von Einladungen an Benutzer](how-to-configure-student-usage.md?branch=master#send-invitations-to-users) und im Artikel zum [Herstellen einer Verbindung mit Linux-VMs](how-to-use-remote-desktop-linux-student.md?branch=master) 
 
 ## <a name="next-steps"></a>.
-Beginnen Sie mit dem Erstellen eines Lab-Kontos in Classroom-Labs mithilfe der Anweisungen in diesem Artikel: [Tutorial: Einrichten eines Lab-Kontos mit Azure Lab Services](tutorial-setup-lab-account.md).
+Beginnen Sie mit dem Erstellen eines Lab-Kontos in Labs mithilfe der Anweisungen in diesem Artikel: [Tutorial: Einrichten eines Lab-Kontos mit Azure Lab Services](tutorial-setup-lab-account.md).

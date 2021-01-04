@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: d129c37c909c630623f8a41c06da9aa80e4e2392
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c2763112b1aa2d58f5dc57cea72a3d0bdea961e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82837633"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545668"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Häufig gestellte Fragen zu Azure Web Application Firewall in Azure Front Door Service
 
@@ -55,8 +55,19 @@ Sie können die IP-Zugriffssteuerungsliste Ihres Back-Ends so konfigurieren, das
 
 ## <a name="which-azure-waf-options-should-i-choose"></a>Welche Azure WAF-Optionen soll ich auswählen?
 
-Beim Anwenden von WAF-Richtlinien in Azure gibt es zwei Optionen. WAF mit Azure Front Door ist eine global verteilte Edgesicherheitslösung. WAF mit Application Gateway ist eine regionale, dedizierte Lösung. Es empfiehlt sich, eine Lösung zu wählen, die zu Ihren individuellen Leistungs- und Sicherheitsanforderungen passt. Weitere Informationen finden Sie unter [Lastenausgleich mit der Azure-Suite für die Anwendungsbereitstellung](https://docs.microsoft.com/azure/frontdoor/front-door-lb-with-azure-app-delivery-suite).
+Beim Anwenden von WAF-Richtlinien in Azure gibt es zwei Optionen. WAF mit Azure Front Door ist eine global verteilte Edgesicherheitslösung. WAF mit Application Gateway ist eine regionale, dedizierte Lösung. Es empfiehlt sich, eine Lösung zu wählen, die zu Ihren individuellen Leistungs- und Sicherheitsanforderungen passt. Weitere Informationen finden Sie unter [Lastenausgleich mit der Azure-Suite für die Anwendungsbereitstellung](../../frontdoor/front-door-lb-with-azure-app-delivery-suite.md).
 
+## <a name="whats-the-recommended-approach-to-enabling-waf-on-front-door"></a>Was ist die empfohlene Vorgehensweise, um WAF für Front Door zu aktivieren?
+
+Wenn Sie WAF für eine vorhandene Anwendung aktivieren, treten häufig False Positive-Erkennungen auf, bei denen die WAF-Regeln legitimen Datenverkehr als Bedrohung erkennen. Um das Risiko einer Beeinträchtigung für die Benutzer zu minimieren, wird der folgende Prozess empfohlen:
+
+* Aktivieren Sie WAF im [Modus **Erkennung**](./waf-front-door-create-portal.md#change-mode), um sicherzustellen, dass WAF keine Anforderungen blockiert, während Sie diesen Prozess durchlaufen.
+  > [!IMPORTANT]
+  > In diesem Prozess wird beschrieben, wie Sie WAF für eine neue oder vorhandene Lösung aktivieren, wenn die Priorität darin besteht, Störungen für die Benutzer Ihrer Anwendung zu minimieren. Bei einem Angriff oder einer unmittelbaren Bedrohung sollten Sie WAF stattdessen sofort im **Schutzmodus** bereitstellen und den Optimierungsprozess verwenden, um WAF über einen Zeitraum zu überwachen und zu optimieren. Dies führt wahrscheinlich dazu, dass ein Teil des legitimen Datenverkehrs blockiert wird. Aus diesem Grund wird dieses Vorgehen nur im Fall einer Bedrohung empfohlen.
+* Befolgen Sie die [Anweisungen zum Optimieren von WAF](./waf-front-door-tuning.md). Für diesen Prozess ist es erforderlich, dass Sie die Diagnoseprotokollierung aktivieren, die Protokolle regelmäßig überprüfen und Regelausschlüsse und andere Risikominderungen hinzufügen.
+* Wiederholen Sie diesen Prozess, und überprüfen Sie die Protokolle regelmäßig, bis Sie sicher sind, dass kein legitimer Datenverkehr blockiert wird. Der gesamte Prozess kann mehrere Wochen dauern. Im Idealfall sollten nach jeder vorgenommenen Optimierungsänderung weniger False Positive-Erkennungen auftreten.
+* Aktivieren Sie schließlich WAF im **Schutzmodus**.
+* Selbst wenn Sie WAF in der Produktionsumgebung ausführen, sollten Sie die Protokolle weiterhin überwachen, um andere False Positive-Erkennungen zu identifizieren. Durch regelmäßiges Überprüfen der Protokolle können Sie auch alle tatsächlichen Angriffsversuche ermitteln, die blockiert wurden.
 
 ## <a name="do-you-support-same-waf-features-in-all-integrated-platforms"></a>Werden auf allen integrierten Plattformen die gleichen WAF-Funktionen unterstützt?
 
@@ -64,7 +75,7 @@ ModSec CRS 2.2.9-, CRS 3.0- und CRS 3.1-Regeln werden derzeit nur bei Verwendung
 
 ## <a name="is-ddos-protection-integrated-with-front-door"></a>Ist DDoS-Schutz in Front Door integriert? 
 
-Azure Front Door wird global im Edgebereich des Azure-Netzwerks verteilt. Dadurch kann der Dienst groß angelegte Angriffe absorbieren und geografisch isolieren. Sie können eine benutzerdefinierte WAF-Richtlinie erstellen, um HTTP(S)-Angriffe mit bekannten Signaturen automatisch zu blockieren sowie eine Ratenbegrenzung anzuwenden. Darüber hinaus können Sie DDoS Protection Standard für das VNET aktivieren, in dem Ihre Back-Ends bereitgestellt werden. Azure DDoS Protection Standard-Kunden profitieren von weiteren Vorteilen wie Kostenschutz, SLA-Garantie und Zugang zu Experten des DDoS Rapid Response-Teams für Soforthilfe im Angriffsfall.
+Azure Front Door wird global im Edgebereich des Azure-Netzwerks verteilt. Dadurch kann der Dienst groß angelegte Angriffe absorbieren und geografisch isolieren. Sie können eine benutzerdefinierte WAF-Richtlinie erstellen, um HTTP(S)-Angriffe mit bekannten Signaturen automatisch zu blockieren sowie eine Ratenbegrenzung anzuwenden. Darüber hinaus können Sie DDoS Protection Standard für das VNET aktivieren, in dem Ihre Back-Ends bereitgestellt werden. Azure DDoS Protection Standard-Kunden profitieren von weiteren Vorteilen wie Kostenschutz, SLA-Garantie und Zugang zu Experten des DDoS Rapid Response-Teams für Soforthilfe im Angriffsfall. Weitere Informationen finden Sie unter [DDoS-Schutz für Front Door](../../frontdoor/front-door-ddos.md).
 
 ## <a name="why-do-additional-requests-above-the-threshold-configured-for-my-rate-limit-rule-get-passed-to-my-backend-server"></a>Warum werden zusätzliche Anforderungen oberhalb des Schwellenwerts, der für meine Ratenbegrenzungsregel konfiguriert ist, an meinen Back-End-Server übergeben?
 

@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.openlocfilehash: dffa8393dcfebf1cb73e3ab72890999cfa633b80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/06/2020
+ms.openlocfilehash: 80c3f9aa02680097276f966ce6aea02acf1e40fb
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532566"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358795"
 ---
 # <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Festlegen eines Zeitplans für Indexer in der kognitiven Azure-Suche
 
@@ -90,30 +90,34 @@ Sie können einen Indexer bei Bedarf auch jederzeit mit dem Aufruf „Indexer au
 
 ## <a name="schedule-using-the-net-sdk"></a>Festlegen eines Zeitplans mit dem .NET SDK
 
-Sie können den Zeitplan für einen Indexer mithilfe des .NET SDK der kognitiven Azure-Suche definieren. Dazu fügen Sie die **schedule**-Eigenschaft beim Erstellen oder Aktualisieren eines Indexers hinzu.
+Sie können den Zeitplan für einen Indexer mithilfe des .NET SDK der kognitiven Azure-Suche definieren. Dazu fügen Sie beim Erstellen oder Aktualisieren eines Indexers die **Schedule**-Eigenschaft hinzu.
 
-Das folgende C#-Beispiel erstellt einen Indexer unter Verwendung einer vordefinierten Datenquelle und eines Index, und legt den Zeitplan so fest, dass der Indexer in 30 Minuten ab jetzt zum ersten Mal und dann einmal pro Tag ausgeführt wird:
+Das folgende C#-Beispiel erstellt einen Indexer für Azure SQL-Datenbank unter Verwendung einer vordefinierten Datenquelle und eines Index und legt den Zeitplan so fest, dass der Indexer jetzt und dann einmal pro Tag ausgeführt wird:
 
+```csharp
+var schedule = new IndexingSchedule(TimeSpan.FromDays(1))
+{
+    StartTime = DateTimeOffset.Now
+};
+
+var indexer = new SearchIndexer("hotels-sql-idxr", dataSource.Name, searchIndex.Name)
+{
+    Description = "Data indexer",
+    Schedule = schedule
+};
+
+await indexerClient.CreateOrUpdateIndexerAsync(indexer);
 ```
-    Indexer indexer = new Indexer(
-        name: "azure-sql-indexer",
-        dataSourceName: dataSource.Name,
-        targetIndexName: index.Name,
-        schedule: new IndexingSchedule(
-                        TimeSpan.FromDays(1), 
-                        new DateTimeOffset(DateTime.UtcNow.AddMinutes(30))
-                    )
-        );
-    await searchService.Indexers.CreateOrUpdateAsync(indexer);
-```
-Wenn der **schedule**-Parameter ausgelassen wird, wird der Indexer nur einmal ausgeführt, unmittelbar nachdem er erstellt wurde.
 
-Der **startTime**-Parameter kann auf einen Zeitpunkt in der Vergangenheit festgelegt werden. In diesem Fall wird die erste Ausführung so geplant, als wäre der Indexer seit der mit **startTime** angegebenen Startzeit kontinuierlich ausgeführt worden.
 
-Der Zeitplan wird mit der [IndexingSchedule](/dotnet/api/microsoft.azure.search.models.indexingschedule)-Klasse definiert. Der **IndexingSchedule**-Konstruktor erfordert einen **interval**-Parameter, der mit einem **TimeSpan**-Objekt angegeben wird. Das kleinste zulässige Intervall beträgt 5 Minuten, und das größte 24 Stunden. Der zweite **startTime**-Parameter, der als ein **DateTimeOffset**-Objekt angegeben wird, ist optional.
+Wenn der **Schedule**-Parameter ausgelassen wird, wird der Indexer nur einmal ausgeführt, unmittelbar nachdem er erstellt wurde.
 
-Mit dem .NET SDK können Sie die Indexervorgänge mithilfe der [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient)-Klasse und der zugehörigen [Indexers](/dotnet/api/microsoft.azure.search.searchserviceclient.indexers)-Eigenschaft steuern, die die Methoden aus der **IIndexersOperations**-Schnittstelle implementiert. 
+Der **StartTime**-Parameter kann auf einen Zeitpunkt in der Vergangenheit festgelegt werden. In diesem Fall wird die erste Ausführung so geplant, als wäre der Indexer seit der mit **StartTime** angegebenen Startzeit kontinuierlich ausgeführt worden.
 
-Sie können einen Indexer bei Bedarf jederzeit mit einem der [Run](/dotnet/api/microsoft.azure.search.indexersoperationsextensions.run), [RunAsync](/dotnet/api/microsoft.azure.search.indexersoperationsextensions.runasync) oder [RunWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.iindexersoperations.runwithhttpmessagesasync)-Methoden ausführen.
+Der Zeitplan wird mit der [IndexingSchedule](/dotnet/api/azure.search.documents.indexes.models.indexingschedule)-Klasse definiert. Der **IndexingSchedule**-Konstruktor erfordert einen **Interval**-Parameter, der mit einem **TimeSpan**-Objekt angegeben wird. Das kleinste zulässige Intervall beträgt 5 Minuten, und das größte 24 Stunden. Der zweite **StartTime**-Parameter, der als ein **DateTimeOffset**-Objekt angegeben wird, ist optional.
 
-Weitere Informationen zum Erstellen, Aktualisieren und Ausführen von Indexern finden Sie unter [IIindexersOperations](/dotnet/api/microsoft.azure.search.iindexersoperations).
+Das .NET SDK ermöglicht Ihnen, Indexervorgänge mit [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient) zu steuern. 
+
+Sie können einen Indexer bei Bedarf jederzeit mit einer der Methoden [RunIndexer](/dotnet/api/azure.search.documents.indexes.searchindexerclient.runindexer) oder [RunIndexerAsync](/dotnet/api/azure.search.documents.indexes.searchindexerclient.runindexerasync) ausführen.
+
+Weitere Informationen zum Erstellen, Aktualisieren und Ausführen von Indexern finden Sie unter [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient).

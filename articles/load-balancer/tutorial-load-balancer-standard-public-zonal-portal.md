@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: a714368fc0508149714eaa42f4741e1042376c52
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f91c9c0f401a455543b12af81eed48bd1a3349bd
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044954"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696437"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Tutorial: Durchführen eines Lastenausgleichs für virtuelle Computer innerhalb einer Verfügbarkeitszone mit Load Balancer Standard im Azure-Portal
 
@@ -37,7 +37,7 @@ In diesem Tutorial wird mit dem Azure-Portal eine öffentliche [Azure Load Balan
 
 Informationen zur Verwendung von Verfügbarkeitszonen mit Load Balancer Standard finden Sie unter [Load Balancer Standard und Verfügbarkeitszonen](load-balancer-standard-availability-zones.md).
 
-Sie können auch die [Azure CLI](load-balancer-standard-public-zonal-cli.md) verwenden, um dieses Tutorial durchzuarbeiten, falls Sie dies vorziehen.
+Sie können auch die [Azure CLI](./quickstart-load-balancer-standard-public-cli.md) verwenden, um dieses Tutorial durchzuarbeiten, falls Sie dies vorziehen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 

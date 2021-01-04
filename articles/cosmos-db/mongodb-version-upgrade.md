@@ -1,20 +1,21 @@
 ---
 title: Aktualisieren der Mongo-Version Ihrer Azure Cosmos DB-API für das MongoDB-Konto
 description: Informationen, wie Sie die MongoDB Wire Protocol-Version für Ihre vorhandene Azure Cosmos DB-API für MongoDB-Konten nahtlos aktualisieren können
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: guide
 ms.date: 09/22/2020
-ms.author: jasonh
-ms.openlocfilehash: c6369be39d0a964f07c64083e3269bb1c0c49c7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: chrande
+ms.openlocfilehash: 9ce444e41d19ece984071d0f62e705a09d5f23c9
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409662"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356449"
 ---
 # <a name="upgrade-the-mongodb-wire-protocol-version-of-your-azure-cosmos-dbs-api-for-mongodb-account"></a>Aktualisieren der MongoDB Wire Protocol-Version Ihrer Azure Cosmos DB-API für das MongoDB-Konto
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 In diesem Artikel wird beschrieben, wie Sie die Wire Protocol-Version Ihrer Azure Cosmos DB-API für das MongoDB-Konto aktualisieren. Nachdem Sie die Wire Protocol-Version aktualisiert haben, können Sie die neueste Funktionalität in der Azure Cosmos DB-API für MongoDB verwenden. Der Upgradeprozess unterbricht die Verfügbarkeit Ihres Kontos nicht und verbraucht zu keinem Zeitpunkt RU/s oder verringert die Kapazität der Datenbank. Dieser Prozess wirkt sich nicht auf vorhandene Daten oder Indizes aus.
 
@@ -62,27 +63,27 @@ Sie müssen den vorhandenen Endpunkt in Ihren Anwendungen und Treibern ersetzen,
 
 2. Wählen Sie in den Optionen auf der linken Seite das Blatt `Features` aus. Dadurch werden die Features auf Kontoebene angezeigt, die für Ihr Datenbankkonto zur Verfügung stehen.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/2.png" alt-text="Azure-Portal mit MongoDB-Konto – Übersicht" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/2.png" alt-text="Übersicht über das Azure-Portal mit dem MongoDB-Konto; das Blatt „Features“ ist hervorgehoben" border="false":::
 
 3. Klicken Sie auf die Zeile `Upgrade to Mongo server version 3.6`. Wenn diese Option nicht angezeigt wird, ist Ihr Konto für dieses Upgrade möglicherweise nicht qualifiziert. Wenn das zutrifft, erstellen Sie [ein Supportticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-    :::image type="content" source="./media/mongodb-version-upgrade/3.png" alt-text="Azure-Portal mit MongoDB-Konto – Übersicht" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/3.png" alt-text="Blatt „Features“ mit Optionen." border="false":::
 
 4. Überprüfen Sie die angezeigten Informationen zu diesem spezifischen Upgrade. Beachten Sie, dass das Upgrade erst abgeschlossen wird, wenn Ihre Anwendungen den aktualisierten Endpunkt verwenden, wie in diesem Abschnitt beschrieben wird. Sobald Sie zum Starten des Prozesses bereit sind, klicken Sie auf `Enable`.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/4.png" alt-text="Azure-Portal mit MongoDB-Konto – Übersicht" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/4.png" alt-text="Erweiterte Upgradeanleitung." border="false":::
 
 5. Nachdem der Prozess gestartet wurde, wird im Menü `Features` der Status des Upgrades angezeigt. Der Status wechselt von `Pending` über `In Progress` zu `Upgraded`. Dieser Prozess wirkt sich nicht auf die vorhandenen Funktionen oder Vorgänge des Datenbankkontos aus.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/5.png" alt-text="Azure-Portal mit MongoDB-Konto – Übersicht" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/5.png" alt-text="Upgradestatus nach dem Initiieren." border="false":::
 
 6. Sobald das Upgrade abgeschlossen ist, wird der Status als `Upgraded` angezeigt. Klicken Sie darauf, um weitere Informationen zu den nächsten Schritten und Aktionen zu erhalten, die Sie zum Abschließen des Prozesses ausführen müssen. Wenn beim Verarbeiten Ihrer Anforderung ein Problem aufgetreten ist, [wenden Sie sich an den Support](https://azure.microsoft.com/en-us/support/create-ticket/).
 
-    :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="Azure-Portal mit MongoDB-Konto – Übersicht" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="Kontostatus „Upgraded“." border="false":::
 
 7. Wenn Sie mit der **Verwendung der aktualisierten Version Ihres Datenbankkontos beginnen** möchten, wechseln Sie zurück zum Blatt `Overview`, und kopieren Sie die neue Verbindungszeichenfolge für den Einsatz in Ihrer Anwendung. Die Anwendungen beginnen mit der Verwendung der aktualisierten Version, sobald sie eine Verbindung mit dem neuen Endpunkt herstellen. Vorhandene Verbindungen werden nicht unterbrochen und können jederzeit aktualisiert werden. Zur Gewährleistung eines konsistenten Verhaltens müssen alle Ihre Anwendungen den neuen Endpunkt verwenden.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="Azure-Portal mit MongoDB-Konto – Übersicht" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="Neues Übersichtsblatt." border="false":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 

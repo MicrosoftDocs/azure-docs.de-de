@@ -3,18 +3,18 @@ title: Integrieren und Verwalten von Sicherheitsvorgängen und Microsoft Graph-S
 description: Verbessern von Bedrohungsschutz, -erkennung und -reaktion mit Microsoft Graph-Sicherheit und Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: preetikr
+author: ecfan
 ms.author: preetikr
 ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: b08b5db5639d498aa6a6a47b7f7121cad565fe02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a83cd68df2f1d722517d6239bf6959075860d0b8
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87986367"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888537"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Verbessern des Bedrohungsschutzes durch Integrieren von Sicherheitsvorgängen mit der Sicherheits-API von Microsoft Graph und Azure Logic Apps
 
@@ -30,13 +30,13 @@ Mit [Azure Logic Apps](../logic-apps/logic-apps-overview.md) und dem [Sicherheit
 
 Der Workflow Ihrer Logik-App kann Aktionen verwenden, die Antworten vom Sicherheits-API-Connector von Microsoft Graph erhalten, und diese Ausgabe weiteren Aktionen in Ihrem Workflow zur Verfügung stellen. Sie können die Ausgabe der Aktionen des Sicherheits-API-Connectors von Microsoft Graph auch von anderen Aktionen in Ihrem Workflow verwenden lassen. Wenn Sie z.B. Warnungen mit hohem Schweregrad über den Sicherheits-API-Connector von Microsoft Graph erhalten haben, können Sie diese Warnungen in einer E-Mail-Nachricht mithilfe des Outlook-Connectors senden. 
 
-Weitere Informationen zu Microsoft Graph-Sicherheit finden Sie in der [Übersicht über die Sicherheits-API von Microsoft Graph](https://aka.ms/graphsecuritydocs). Falls Sie noch nicht mit Logik-Apps vertraut sind, finden Sie weitere Informationen unter [Was ist Azure Logic Apps?](../logic-apps/logic-apps-overview.md). Wenn Sie sich für Microsoft Flow oder PowerApps interessieren, lesen Sie [Was ist Flow?](https://flow.microsoft.com/) oder [Was ist PowerApps?](https://powerapps.microsoft.com/).
+Weitere Informationen zu Microsoft Graph-Sicherheit finden Sie in der [Übersicht über die Sicherheits-API von Microsoft Graph](/graph/security-concept-overview). Falls Sie noch nicht mit Logik-Apps vertraut sind, finden Sie weitere Informationen unter [Was ist Azure Logic Apps?](../logic-apps/logic-apps-overview.md). Informationen zu Power Automate oder Power Apps finden Sie bei Bedarf in der [Übersicht über Power Automate](https://flow.microsoft.com/) bzw. in der [Übersicht über Power Apps](https://powerapps.microsoft.com/).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 * Ein Azure-Abonnement. Wenn Sie nicht über ein Azure-Abonnement verfügen, können Sie sich [für ein kostenloses Azure-Konto registrieren](https://azure.microsoft.com/free/). 
 
-* Um den Sicherheits-API-Connector von Microsoft Graph verwenden zu können, benötigen Sie die *explizit gegebene* Zustimmung des Mandantenadministrators für Azure Active Directory (AD), die Teil der [Authentifizierungsanforderungen der Sicherheits-API in Microsoft Graph](https://aka.ms/graphsecurityauth) ist. Diese Zustimmung erfordert die Anwendungs-ID des Sicherheits-API-Connectors von Microsoft Graph und den Namen, die Sie auch im [Azure-Portal](https://portal.azure.com) finden:
+* Um den Sicherheits-API-Connector von Microsoft Graph verwenden zu können, benötigen Sie die *explizit gegebene* Zustimmung des Mandantenadministrators für Azure Active Directory (AD), die Teil der [Authentifizierungsanforderungen der Sicherheits-API in Microsoft Graph](/graph/security-authorization) ist. Diese Zustimmung erfordert die Anwendungs-ID des Sicherheits-API-Connectors von Microsoft Graph und den Namen, die Sie auch im [Azure-Portal](https://portal.azure.com) finden:
 
   | Eigenschaft | Wert |
   |----------|-------|
@@ -96,7 +96,7 @@ Dieses Beispiel zeigt, wie Sie einen Logik-App-Workflow starten können, wenn ne
    | **Intervall** | `interval` | Ja | Integer | Eine positive ganze Zahl, die beschreibt, wie oft der Workflow basierend auf der Häufigkeit ausgeführt wird. Zulässige Mindest- und Maximalintervalle: <p><p>– Monat: 1–16 Monate <br>– Tag: 1–500 Tage <br>– Stunde: 1–12.000 Stunden <br>– Minute: 1–72.000 Minuten <br>- Sekunde: 1–9.999.999 Sekunden <p>Wenn das Intervall also beispielsweise auf „6“ und die Häufigkeit auf „Month“ festgelegt ist, erfolgt die Wiederholung alle sechs Monate. |
    | **Frequency** | `frequency` | Ja | String | Die Zeiteinheit für die Wiederholung: **Sekunde**, **Minute**, **Stunde**, **Tag**, **Woche** oder **Monat** |
    | **Zeitzone** | `timeZone` | Nein | String | Nur relevant, wenn Sie eine Startzeit angeben, da dieser Trigger keine [UTC-Abweichung](https://en.wikipedia.org/wiki/UTC_offset) akzeptiert. Wählen Sie die anzuwendende Zeitzone aus. |
-   | **Startzeit** | `startTime` | Nein | String | Geben Sie Startdatum und -uhrzeit im folgenden Format an: <p><p>JJJJ-MM-TTThh:mm:ss (bei Auswahl einer Zeitzone) <p>Oder <p>JJJJ-MM-TTThh:mm:ssZ (wenn keine Zeitzone ausgewählt wird) <p>Für den 18. September 2017 um 14:00 Uhr würden Sie also „2017-09-18T14:00:00“ angeben und eine Zeitzone (z. B. „Pacific Standard Time“) auswählen. Alternativ können Sie „2017-09-18T14:00:00Z“ ohne Zeitzone angeben. <p>**Hinweis:** Diese Startzeit kann maximal 49 Jahre in der Zukunft liegen und muss dem [ISO 8601-Format für Datums-/Uhrzeitangaben](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) entsprechen und im [UTC-Datums-/Zeitformat](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) angegeben werden, jedoch ohne [UTC-Abweichung](https://en.wikipedia.org/wiki/UTC_offset). Wenn Sie keine Zeitzone auswählen, müssen Sie den Buchstaben „Z“ ohne Leerzeichen anhängen. „Z“ bezieht sich auf die entsprechende [nautische Zeit](https://en.wikipedia.org/wiki/Nautical_time). <p>Bei einfachen Zeitpläne ist die Startzeit das erste Vorkommen. Bei komplexeren Zeitplänen wird der Trigger nicht vor der Startzeit ausgelöst. [*Wie kann ich Startdatum und -uhrzeit verwenden?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **Startzeit** | `startTime` | Nein | String | Geben Sie Startdatum und -uhrzeit im folgenden Format an: <p><p>JJJJ-MM-TTThh:mm:ss (bei Auswahl einer Zeitzone) <p>Oder <p>JJJJ-MM-TTThh:mm:ssZ (wenn keine Zeitzone ausgewählt wird) <p>Für den 18. September 2017 um 14:00 Uhr würden Sie also „2017-09-18T14:00:00“ angeben und eine Zeitzone (z. B. „Pacific Standard Time“) auswählen. Alternativ können Sie „2017-09-18T14:00:00Z“ ohne Zeitzone angeben. <p>**Hinweis:** Diese Startzeit kann maximal 49 Jahre in der Zukunft liegen und muss dem [ISO 8601-Format für Datums-/Uhrzeitangaben](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) entsprechen und im [UTC-Datums-/Zeitformat](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) angegeben werden, jedoch ohne [UTC-Abweichung](https://en.wikipedia.org/wiki/UTC_offset). Wenn Sie keine Zeitzone auswählen, müssen Sie den Buchstaben „Z“ ohne Leerzeichen anhängen. „Z“ bezieht sich auf die entsprechende [nautische Zeit](https://en.wikipedia.org/wiki/Nautical_time). <p>Bei einfachen Zeitpläne ist die Startzeit das erste Vorkommen. Bei komplexeren Zeitplänen wird der Trigger nicht vor der Startzeit ausgelöst. [*Wie kann ich Startdatum und -uhrzeit verwenden?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    ||||||
 
 1.  Wenn Sie fertig sind, wählen Sie auf der Symbolleiste des Designers die Option **Speichern** aus.
@@ -142,26 +142,25 @@ Um zu filtern, sortieren, oder die neuesten Ergebnisse zu erhalten, geben Sie *n
 
 `Filter threat intelligence indicator value as threatType eq 'DDoS'`
 
-Weitere Informationen zu den Abfragen, die Sie mit diesem Connector verwenden können, finden Sie unter [„Optionale Abfrageparameter“ in der Referenzdokumentation zu Microsoft Graph Security-Threat Intelligence-Indikatoren](/graph/api/tiindicators-list?tabs=http&view=graph-rest-beta). Um erweiterte Funktionen mit diesem Connector zu erstellen, informieren Sie sich über die [Threat Intelligence-Indikatoren für Schemaeigenschaften](/graph/api/resources/tiindicator?view=graph-rest-beta), die der Connector unterstützt.
+Weitere Informationen zu den Abfragen, die Sie mit diesem Connector verwenden können, finden Sie unter [„Optionale Abfrageparameter“ in der Referenzdokumentation zu Microsoft Graph Security-Threat Intelligence-Indikatoren](/graph/api/tiindicators-list). Um erweiterte Funktionen mit diesem Connector zu erstellen, informieren Sie sich über die [Threat Intelligence-Indikatoren für Schemaeigenschaften](/graph/api/resources/tiindicator), die der Connector unterstützt.
 
 | Aktion | BESCHREIBUNG |
 |--------|-------------|
-| **Abrufen von Threat Intelligence-Indikatoren** | Rufen Sie auf Basis von [tiIndicators-Eigenschaften](/graph/api/resources/tiindicator?view=graph-rest-beta) gefilterte Threat Intelligence-Indikatoren ab, z. B. `threatType eq 'MaliciousUrl' or 'DDoS'` |
+| **Abrufen von Threat Intelligence-Indikatoren** | Rufen Sie auf Basis von [tiIndicators-Eigenschaften](/graph/api/resources/tiindicator) gefilterte Threat Intelligence-Indikatoren ab, z. B. `threatType eq 'MaliciousUrl' or 'DDoS'` |
 | **Abrufen von Threat Intelligence-Indikatoren nach ID** | Rufen Sie einen bestimmten Threat Intelligence-Indikator basierend auf der tiIndicator-ID ab. | 
-| **Erstellen von Threat Intelligence-Indikatoren** | Erstellen Sie einen neuen Threat Intelligence-Indikator, indem Sie Daten an die tiIndicator-Sammlung übermitteln. Um sicherzustellen, dass Sie die erforderlichen Eigenschaften in der Anforderung übergeben, informieren Sie sich über die [erforderlichen Eigenschaften zum Erstellen von Threat Intelligence-Indikatoren](/graph/api/tiindicators-post?tabs=http&view=graph-rest-beta). |
-| **Übermitteln mehrerer Threat Intelligence-Indikatoren** | Erstellen Sie mehrere neue Threat Intelligence-Indikatoren, indem Sie eine tiIndicator-Sammlung veröffentlichen. Um sicherzustellen, dass Sie in der Anforderung die erforderlichen Eigenschaften übergeben, informieren Sie sich über die [erforderlichen Eigenschaften zum Übermitteln mehrerer Threat Intelligence-Indikatoren](/graph/api/tiindicator-submittiindicators?tabs=http&view=graph-rest-beta). |
-| **Aktualisieren von Threat Intelligence-Indikatoren** | Aktualisieren Sie einen bestimmten Threat Intelligence-Indikator basierend auf der tiIndicator-ID. Um sicherzustellen, dass Sie in der Anforderung die erforderlichen und bearbeitbaren Eigenschaften übergeben, informieren Sie sich über die [bearbeitbaren Eigenschaften für Threat Intelligence-Indikatoren](/graph/api/tiindicator-update?tabs=http&view=graph-rest-beta). Um z. B. die anzuwendende Aktion, wenn der Indikator innerhalb des Sicherheitstools targetProduct abgeglichen wird, zu aktualisieren, können Sie die Eigenschaft **Aktion** des Threat Intelligence-Indikators aktualisieren. |
-| **Aktualisieren mehrerer Threat Intelligence-Indikatoren** | Aktualisieren Sie mehrere Threat Intelligence-Indikatoren. Um sicherzustellen, dass Sie in der Anforderung die erforderlichen Eigenschaften übergeben, informieren Sie sich über die [erforderlichen Eigenschaften zum Aktualisieren mehrerer Threat Intelligence-Indikatoren](/graph/api/tiindicator-updatetiindicators?tabs=http&view=graph-rest-beta). |
+| **Erstellen von Threat Intelligence-Indikatoren** | Erstellen Sie einen neuen Threat Intelligence-Indikator, indem Sie Daten an die tiIndicator-Sammlung übermitteln. Um sicherzustellen, dass Sie die erforderlichen Eigenschaften in der Anforderung übergeben, informieren Sie sich über die [erforderlichen Eigenschaften zum Erstellen von Threat Intelligence-Indikatoren](/graph/api/tiindicators-post). |
+| **Übermitteln mehrerer Threat Intelligence-Indikatoren** | Erstellen Sie mehrere neue Threat Intelligence-Indikatoren, indem Sie eine tiIndicator-Sammlung veröffentlichen. Um sicherzustellen, dass Sie in der Anforderung die erforderlichen Eigenschaften übergeben, informieren Sie sich über die [erforderlichen Eigenschaften zum Übermitteln mehrerer Threat Intelligence-Indikatoren](/graph/api/tiindicator-submittiindicators). |
+| **Aktualisieren von Threat Intelligence-Indikatoren** | Aktualisieren Sie einen bestimmten Threat Intelligence-Indikator basierend auf der tiIndicator-ID. Um sicherzustellen, dass Sie in der Anforderung die erforderlichen und bearbeitbaren Eigenschaften übergeben, informieren Sie sich über die [bearbeitbaren Eigenschaften für Threat Intelligence-Indikatoren](/graph/api/tiindicator-update). Um z. B. die anzuwendende Aktion, wenn der Indikator innerhalb des Sicherheitstools targetProduct abgeglichen wird, zu aktualisieren, können Sie die Eigenschaft **Aktion** des Threat Intelligence-Indikators aktualisieren. |
+| **Aktualisieren mehrerer Threat Intelligence-Indikatoren** | Aktualisieren Sie mehrere Threat Intelligence-Indikatoren. Um sicherzustellen, dass Sie in der Anforderung die erforderlichen Eigenschaften übergeben, informieren Sie sich über die [erforderlichen Eigenschaften zum Aktualisieren mehrerer Threat Intelligence-Indikatoren](/graph/api/tiindicator-updatetiindicators). |
 | **Löschen von Threat Intelligence-Indikatoren nach ID** | Löschen Sie einen bestimmten Threat Intelligence-Indikator basierend auf der tiIndicator-ID. |
-| **Löschen mehrerer Threat Intelligence-Indikatoren nach ID** | Löschen Sie mehrere Threat Intelligence-Indikatoren anhand ihrer IDs. Um sicherzustellen, dass Sie in der Anforderung die erforderlichen Eigenschaften übergeben, informieren Sie sich über die [erforderlichen Eigenschaften zum Löschen mehrerer Threat Intelligence-Indikatoren nach ID](/graph/api/tiindicator-deletetiindicators?tabs=http&view=graph-rest-beta). |
-| **Löschen mehrerer Threat Intelligence-Indikatoren nach externer ID** | Löschen Sie mehrere Threat Intelligence-Indikatoren anhand der externen IDs. Um sicherzustellen, dass Sie in der Anforderung die erforderlichen Eigenschaften übergeben, informieren Sie sich über die [erforderlichen Eigenschaften zum Löschen mehrerer Threat Intelligence-Indikatoren nach externer ID](/graph/api/tiindicator-deletetiindicatorsbyexternalid?tabs=http&view=graph-rest-beta). |
+| **Löschen mehrerer Threat Intelligence-Indikatoren nach ID** | Löschen Sie mehrere Threat Intelligence-Indikatoren anhand ihrer IDs. Um sicherzustellen, dass Sie in der Anforderung die erforderlichen Eigenschaften übergeben, informieren Sie sich über die [erforderlichen Eigenschaften zum Löschen mehrerer Threat Intelligence-Indikatoren nach ID](/graph/api/tiindicator-deletetiindicators). |
+| **Löschen mehrerer Threat Intelligence-Indikatoren nach externer ID** | Löschen Sie mehrere Threat Intelligence-Indikatoren anhand der externen IDs. Um sicherzustellen, dass Sie in der Anforderung die erforderlichen Eigenschaften übergeben, informieren Sie sich über die [erforderlichen Eigenschaften zum Löschen mehrerer Threat Intelligence-Indikatoren nach externer ID](/graph/api/tiindicator-deletetiindicatorsbyexternalid). |
 |||
 
 ## <a name="connector-reference"></a>Connector-Referenz
 
-Technische Details zu Triggern, Aktionen und Beschränkungen aus der OpenAPI-Beschreibung (ehemals Swagger) des Connectors finden Sie auf der [Referenzseite](https://aka.ms/graphsecurityconnectorreference) des Connectors.
+Technische Details zu Triggern, Aktionen und Beschränkungen aus der OpenAPI-Beschreibung (ehemals Swagger) des Connectors finden Sie auf der [Referenzseite](/connectors/microsoftgraphsecurity/) des Connectors.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 Informationen zu anderen [Logic Apps-Connectors](../connectors/apis-list.md)
-

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: duau
 ms.openlocfilehash: b80392231dba26a10141dcd8247b092e8171894c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202479"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011981"
 ---
 # <a name="expressroute-crossconnnections-api-development-and-integration"></a>Entwicklung und Integration der ExpressRoute CrossConnnections-API
 

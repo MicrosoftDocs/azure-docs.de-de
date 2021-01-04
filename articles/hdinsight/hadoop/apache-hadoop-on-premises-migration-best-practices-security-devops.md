@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 7deaca67212146881754f785e6dceaa064bde6e7
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 6fd59a346a36a304f699894c493d8ba9800489b2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329422"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545258"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrieren lokaler Apache Hadoop-Cluster zu Azure HDInsight – bewährte Methoden für Sicherheit und DevOps
 
@@ -84,7 +84,7 @@ End-to-End-Unternehmenssicherheit kann mithilfe der folgenden Steuerelemente erz
 Weitere Informationen finden Sie in den folgenden Artikeln:
 
 - [Übersicht über Azure Virtual Network](../../virtual-network/virtual-networks-overview.md)
-- [Übersicht über Azure-Netzwerksicherheitsgruppen](../../virtual-network/security-overview.md)
+- [Übersicht über Azure-Netzwerksicherheitsgruppen](../../virtual-network/network-security-groups-overview.md)
 - [Peering in virtuellen Azure-Netzwerken](../../virtual-network/virtual-network-peering-overview.md)
 - [Azure Storage-Sicherheitsleitfaden](../../storage/blobs/security-recommendations.md)
 - [Azure-Speicherdienstverschlüsselung für ruhende Daten](../../storage/common/storage-service-encryption.md)
@@ -122,4 +122,4 @@ Weitere Informationen finden Sie im Artikel: [Patchen des Betriebssystems für H
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Informieren Sie sich weiter über [HDInsight 4.0](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction).
+Informieren Sie sich weiter über [HDInsight 4.0](./apache-hadoop-introduction.md).

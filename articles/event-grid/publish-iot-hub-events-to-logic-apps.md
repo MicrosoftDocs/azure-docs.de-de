@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: philmea
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5092aa0b5b23f04af1f49933bca234815f03f454
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 857ae8d824443e9a8abdac7c4a66e2b014be2be0
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604594"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566349"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Tutorial: Senden von E-Mail-Benachrichtigungen zu Azure IoT Hub-Ereignissen mit Event Grid und Logic Apps
 
@@ -21,13 +21,13 @@ Azure Event Grid ermöglicht es Ihnen, auf Ereignisse in IoT Hub zu reagieren, i
 
 In diesem Artikel wird Schritt für Schritt eine Beispielkonfiguration beschrieben, bei der IoT Hub und Event Grid verwendet werden. Am Ende verfügen Sie über eine Azure-Logik-App, durch die eine Benachrichtigungs-E-Mail gesendet wird, wenn ein Gerät eine Verbindung mit Ihrem IoT-Hub herstellt oder die Verbindung mit Ihrem IoT-Hub trennt. Event Grid kann verwendet werden, um zeitnah eine Benachrichtigung zu erhalten, wenn die Verbindung mit kritischen Geräten getrennt wird. Es kann mehrere Minuten dauern, bis Metriken und Diagnosen in Protokollen/Warnungen angezeigt werden. (Die Dauer kann 20 Minuten oder mehr betragen, dies ist jedoch keine verbindliche Angabe.) Für kritische Infrastruktur ist das möglicherweise nicht akzeptabel.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* Ein aktives Azure-Abonnement. Falls Sie kein Abonnement haben, können Sie [ein kostenloses Azure-Konto](https://azure.microsoft.com/pricing/free-trial/) erstellen.
+* Ein E-Mail-Konto eines beliebigen, von Azure Logic Apps unterstützten E-Mail-Anbieters (beispielsweise Office 365 Outlook oder Outlook.com). Mit diesem E-Mail-Konto werden die Ereignisbenachrichtigungen gesendet.
 
-* Ein E-Mail-Konto eines beliebigen, von Azure Logic Apps unterstützten E-Mail-Anbieters (beispielsweise Office 365 Outlook oder Outlook.com). Mit diesem E-Mail-Konto werden die Ereignisbenachrichtigungen gesendet. 
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-an-iot-hub"></a>Erstellen eines IoT-Hubs
 

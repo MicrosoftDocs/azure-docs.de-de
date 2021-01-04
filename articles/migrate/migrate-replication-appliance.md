@@ -1,14 +1,17 @@
 ---
 title: Azure Migrate-Replikationsappliance
 description: Hier erhalten Sie Informationen zur Azure Migrate-Replikationsappliance für die Agent-basierte VMware-Migration.
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: af9e45e47c2f0645d81a571161f15f7d69cfec61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec277bcc3e361561f54e72c54526d65487c113b4
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532119"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754095"
 ---
 # <a name="replication-appliance"></a>Replikationsappliance
 

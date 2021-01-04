@@ -38,6 +38,8 @@
   items:
     - name: JavaScript SDK
       href: reference.md
+    - name: Versionshinweise
+      href: release-notes.md
 - name: Ressourcen
   items:
     - name: Support- und Hilfeoptionen

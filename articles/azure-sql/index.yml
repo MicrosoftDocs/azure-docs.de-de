@@ -10,16 +10,16 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: landing-page
-  author: MashaMSFT
-  ms.author: mathoma
-  ms.reviewer: sstein
+  author: stevestein
+  ms.author: sstein
+  ms.reviewer: 
   ms.date: 10/30/2019
-  ms.openlocfilehash: ba3439ab515539149bb53bcd38c7c646f9f2da07
-  ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+  ms.openlocfilehash: 91221735001f55974f6aba4b6fcae39a92834da8
+  ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/28/2020
-  ms.locfileid: "92790847"
+  ms.lasthandoff: 11/13/2020
+  ms.locfileid: "94593891"
 landingContent:
 - title: Azure SQL-Datenbank
   linkLists:
@@ -117,6 +117,16 @@ landingContent:
       url: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
     - text: Leistungsrichtlinien
       url: virtual-machines/windows/performance-guidelines-best-practices.md
+- title: Migrieren von SQL Server
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Azure SQL-Datenbank
+      url: migration-guides/database/sql-server-to-sql-database-overview.md
+    - text: Verwaltete Azure SQL-Instanz
+      url: migration-guides/managed-instance/sql-server-to-managed-instance-overview.md
+    - text: SQL Server auf Azure-VMs
+      url: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md
 - title: Herstellen einer Verbindung und Ausführen von Abfragen
   linkLists:
   - linkListType: quickstart
@@ -137,40 +147,6 @@ landingContent:
       url: database/connect-query-dotnet-core.md
     - text: Python
       url: database/connect-query-python.md
-- title: Entwicklung
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: Anwendungsentwicklung
-      url: database/develop-overview.md
-    - text: App-Entwurf für die Notfallwiederherstellung
-      url: database/designing-cloud-solutions-for-disaster-recovery.md
-    - text: Verwalten von parallelen Upgrades (SQL-Datenbank)
-      url: database/manage-application-rolling-upgrade.md
-    - text: Entwicklungsstrategien (SQL-VM)
-      url: virtual-machines/windows/application-patterns-development-strategies.md
-    - text: Mandantenmuster für SaaS-Datenbanken
-      url: database/saas-tenancy-app-design-patterns.md
-  - linkListType: how-to-guide
-    links:
-    - text: Entwerfen der ersten Datenbank (SSMS)
-      url: database/design-first-database-tutorial.md
-    - text: Entwerfen der ersten Datenbank (C#)
-      url: database/design-first-database-csharp-tutorial.md
-- title: Informationen zu Azure SQL
-  linkLists:
-  - linkListType: learn
-    links:
-    - text: Azure SQL für Einsteiger
-      url: https://aka.ms/azuresql4beginners
-    - text: Azure SQL-Grundlagen
-      url: /learn/paths/azure-sql-fundamentals/
-    - text: Praxislabs für SQL Azure
-      url: https://aka.ms/asqlworkshop
-    - text: Azure SQL-Bootcamp
-      url: https://aka.ms/azuresqlbootcamp
-    - text: Schulungsressourcen zu SQL
-      url: /sql/sql-server/educational-sql-resources
 - title: Verweis
   linkLists:
   - linkListType: deploy
@@ -203,3 +179,37 @@ landingContent:
       url: /powershell/module/az.sql
     - text: REST-API
       url: /rest/api/sql/
+- title: Informationen zu Azure SQL
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Azure SQL für Einsteiger
+      url: https://aka.ms/azuresql4beginners
+    - text: Azure SQL-Grundlagen
+      url: /learn/paths/azure-sql-fundamentals/
+    - text: Praxislabs für SQL Azure
+      url: https://aka.ms/asqlworkshop
+    - text: Azure SQL-Bootcamp
+      url: https://aka.ms/azuresqlbootcamp
+    - text: Schulungsressourcen zu SQL
+      url: /sql/sql-server/educational-sql-resources
+- title: Entwicklung
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Anwendungsentwicklung
+      url: database/develop-overview.md
+    - text: App-Entwurf für die Notfallwiederherstellung
+      url: database/designing-cloud-solutions-for-disaster-recovery.md
+    - text: Verwalten von parallelen Upgrades (SQL-Datenbank)
+      url: database/manage-application-rolling-upgrade.md
+    - text: Entwicklungsstrategien (SQL-VM)
+      url: virtual-machines/windows/application-patterns-development-strategies.md
+    - text: Mandantenmuster für SaaS-Datenbanken
+      url: database/saas-tenancy-app-design-patterns.md
+  - linkListType: how-to-guide
+    links:
+    - text: Entwerfen der ersten Datenbank (SSMS)
+      url: database/design-first-database-tutorial.md
+    - text: Entwerfen der ersten Datenbank (C#)
+      url: database/design-first-database-csharp-tutorial.md

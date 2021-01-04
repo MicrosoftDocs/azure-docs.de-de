@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: troubleshooting
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: afc142ec9de0e275d505276d959cfac3e652c55d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ea17f04538e3444b1baddaa8862add2cfbbaa9c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619762"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493422"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Erkennbare Typen von Problemen mit Engpässen bei der Abfrageleistung in Azure SQL-Datenbank
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -44,15 +44,15 @@ Ein vom SQL-Abfrageoptimierer generierter suboptimaler Plan ist möglicherweise 
   - [Intelligent Insights](database/intelligent-insights-troubleshoot-performance.md#missing-index).
   - [Database Advisor](database/database-advisor-implement-performance-recommendations.md) für Einzel- und Pooldatenbanken.
   - DMVs. Dieses Beispiel zeigt Ihnen, welche Auswirkungen ein fehlender Index hat, wie ein [fehlender Index](database/performance-guidance.md#identifying-and-adding-missing-indexes) mithilfe von DMVs erkannt werden kann und welche Auswirkungen das Befolgen der Empfehlung zum fehlenden Index hat.
-- Versuchen Sie, [Abfragehinweise anzuwenden](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query), [Statistiken zu aktualisieren](https://docs.microsoft.com/sql/t-sql/statements/update-statistics-transact-sql) oder [Indizes neu zu erstellen](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes), um einen besseren Plan zu erhalten. Aktivieren Sie die [automatische Plankorrektur](../azure-sql/database/automatic-tuning-overview.md) in Azure SQL-Datenbank, um solche Probleme automatisch zu beheben.
+- Versuchen Sie, [Abfragehinweise anzuwenden](/sql/t-sql/queries/hints-transact-sql-query), [Statistiken zu aktualisieren](/sql/t-sql/statements/update-statistics-transact-sql) oder [Indizes neu zu erstellen](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes), um einen besseren Plan zu erhalten. Aktivieren Sie die [automatische Plankorrektur](../azure-sql/database/automatic-tuning-overview.md) in Azure SQL-Datenbank, um solche Probleme automatisch zu beheben.
 
   Dieses [Beispiel](database/performance-guidance.md#query-tuning-and-hinting) zeigt, wie sich ein suboptimaler Abfrageplan aufgrund einer parametrisierten Abfrage auswirkt, wie diese Bedingung erkannt wird und wie ein Abfragehinweis zur Behebung verwendet werden kann.
 
-- Probieren Sie das Ändern des Datenbank-Kompatibilitätsgrads und Implementieren der intelligenten Abfrageverarbeitung. Der SQL-Abfrageoptimierer kann je nach Kompatibilitätsgrad Ihrer Datenbank einen anderen Abfrageplan generieren. Höhere Kompatibilitätsgrade bieten mehr [Möglichkeiten zur intelligenten Abfrageverarbeitung](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing).
+- Probieren Sie das Ändern des Datenbank-Kompatibilitätsgrads und Implementieren der intelligenten Abfrageverarbeitung. Der SQL-Abfrageoptimierer kann je nach Kompatibilitätsgrad Ihrer Datenbank einen anderen Abfrageplan generieren. Höhere Kompatibilitätsgrade bieten mehr [Möglichkeiten zur intelligenten Abfrageverarbeitung](/sql/relational-databases/performance/intelligent-query-processing).
 
-  - Weitere Informationen zur Abfrageverarbeitung finden Sie im [Handbuch zur Architektur der Abfrageverarbeitung](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide).
-  - Weitere Informationen zum Ändern des Datenbank-Kompatibilitätsgrads und zu den Unterschieden bei Datenbank-Kompatibilitätsgraden finden Sie unter [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level).
-  - Weitere Informationen zur Kardinalitätsschätzung finden Sie unter [Kardinalitätsschätzung](https://docs.microsoft.com/sql/relational-databases/performance/cardinality-estimation-sql-server).
+  - Weitere Informationen zur Abfrageverarbeitung finden Sie im [Handbuch zur Architektur der Abfrageverarbeitung](/sql/relational-databases/query-processing-architecture-guide).
+  - Weitere Informationen zum Ändern des Datenbank-Kompatibilitätsgrads und zu den Unterschieden bei Datenbank-Kompatibilitätsgraden finden Sie unter [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level).
+  - Weitere Informationen zur Kardinalitätsschätzung finden Sie unter [Kardinalitätsschätzung](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
 ## <a name="resolving-queries-with-suboptimal-query-execution-plans"></a>Korrigieren von Abfragen mit suboptimalen Ausführungsplänen
 
@@ -66,19 +66,19 @@ Weitere Informationen zur Parameterermittlung und Abfrageverarbeitung finden Sie
 
 PSP-Probleme können auf unterschiedliche Weise umgangen werden. Jede Problemumgehungen geht mit bestimmten Kompromissen und Nachteilen einher:
 
-- Verwenden des Abfragehinweises [RECOMPILE](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) bei jeder Abfrageausführung. Bei dieser Problemumgehung werden Kompilierungszeit und erhöhte CPU-Leistung für eine bessere Qualität des Abfrageplans eingebüßt. Die Option `RECOMPILE` kann bei Workloads, die einen hohen Durchsatz erfordern, häufig nicht verwendet werden.
-- Verwenden Sie den Abfragehinweis [OPTION (OPTIMIZE FOR...)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query), um den tatsächlichen Parameterwert mit einem typischen Parameterwert zu überschreiben, der einen Plan erzeugt, der für die meisten möglichen Parameterwerte geeignet ist. Diese Option erfordert ein gutes Verständnis der optimalen Parameterwerte und zugehörigen Planmerkmale.
-- Verwenden Sie den Abfragehinweis [OPTION (OPTIMIZE FOR UNKNOWN)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query), um den tatsächlichen Parameterwert zu überschreiben und stattdessen den Durchschnittswert des Dichtevektors zu verwenden. Hierzu können Sie auch die eingehenden Parameterwerte in lokalen Variablen erfassen und dann anstatt der Parameter die lokalen Variablen innerhalb der Prädikate verwenden. Für diese Korrektur muss die durchschnittliche Dichte *gut genug* sein.
-- Verwenden Sie den Abfragehinweis [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query), um die Parameterermittlung vollständig zu deaktivieren.
-- Verwenden Sie den Abfragehinweis [KEEPFIXEDPLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query), um erneute Kompilierungen im Cache zu verhindern. Bei dieser Lösung wird davon ausgegangen, dass sich der ausreichende allgemeine Plan bereits im Cache befindet. Sie können auch automatische Statistikaktualisierungen deaktivieren, um die Wahrscheinlichkeit zu verringern, dass der gute Plan entfernt und ein neuer schlechter Plan kompiliert wird.
-- Erzwingen Sie den Plan durch die explizite Verwendung des Abfragehinweises [USE PLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query), indem Sie die Abfrage neu schreiben und den Hinweis dem Abfragetext hinzufügen. Alternativ können Sie einen bestimmten Plan mithilfe des Abfragespeichers oder durch Aktivieren der [automatischen Optimierung](../azure-sql/database/automatic-tuning-overview.md) festlegen.
+- Verwenden des Abfragehinweises [RECOMPILE](/sql/t-sql/queries/hints-transact-sql-query) bei jeder Abfrageausführung. Bei dieser Problemumgehung werden Kompilierungszeit und erhöhte CPU-Leistung für eine bessere Qualität des Abfrageplans eingebüßt. Die Option `RECOMPILE` kann bei Workloads, die einen hohen Durchsatz erfordern, häufig nicht verwendet werden.
+- Verwenden Sie den Abfragehinweis [OPTION (OPTIMIZE FOR...)](/sql/t-sql/queries/hints-transact-sql-query), um den tatsächlichen Parameterwert mit einem typischen Parameterwert zu überschreiben, der einen Plan erzeugt, der für die meisten möglichen Parameterwerte geeignet ist. Diese Option erfordert ein gutes Verständnis der optimalen Parameterwerte und zugehörigen Planmerkmale.
+- Verwenden Sie den Abfragehinweis [OPTION (OPTIMIZE FOR UNKNOWN)](/sql/t-sql/queries/hints-transact-sql-query), um den tatsächlichen Parameterwert zu überschreiben und stattdessen den Durchschnittswert des Dichtevektors zu verwenden. Hierzu können Sie auch die eingehenden Parameterwerte in lokalen Variablen erfassen und dann anstatt der Parameter die lokalen Variablen innerhalb der Prädikate verwenden. Für diese Korrektur muss die durchschnittliche Dichte *gut genug* sein.
+- Verwenden Sie den Abfragehinweis [DISABLE_PARAMETER_SNIFFING](/sql/t-sql/queries/hints-transact-sql-query), um die Parameterermittlung vollständig zu deaktivieren.
+- Verwenden Sie den Abfragehinweis [KEEPFIXEDPLAN](/sql/t-sql/queries/hints-transact-sql-query), um erneute Kompilierungen im Cache zu verhindern. Bei dieser Lösung wird davon ausgegangen, dass sich der ausreichende allgemeine Plan bereits im Cache befindet. Sie können auch automatische Statistikaktualisierungen deaktivieren, um die Wahrscheinlichkeit zu verringern, dass der gute Plan entfernt und ein neuer schlechter Plan kompiliert wird.
+- Erzwingen Sie den Plan durch die explizite Verwendung des Abfragehinweises [USE PLAN](/sql/t-sql/queries/hints-transact-sql-query), indem Sie die Abfrage neu schreiben und den Hinweis dem Abfragetext hinzufügen. Alternativ können Sie einen bestimmten Plan mithilfe des Abfragespeichers oder durch Aktivieren der [automatischen Optimierung](../azure-sql/database/automatic-tuning-overview.md) festlegen.
 - Ersetzen der Einzelprozedur durch eine geschachtelte Gruppe von Prozeduren, die jeweils basierend auf bedingter Logik und zugehörigen Parameterwerten verwendet werden können.
 - Erstellen von Alternativen für die dynamische Zeichenfolgenausführung zur Definition einer statischen Prozedur.
 
 Weitere Informationen zur Behebung von PSP-Problemen finden Sie in den folgenden Blogbeiträgen:
 
-- [I Smell a Parameter!](https://docs.microsoft.com/archive/blogs/queryoptteam/i-smell-a-parameter) (Ich rieche einen Parameter)
-- [Conor, dynamischer SQL-Code, Prozeduren und Planqualität für parametrisierte Abfragen](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)
+- [I Smell a Parameter!](/archive/blogs/queryoptteam/i-smell-a-parameter) (Ich rieche einen Parameter)
+- [Conor, dynamischer SQL-Code, Prozeduren und Planqualität für parametrisierte Abfragen](/archive/blogs/conor_cunningham_msft/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries)
 - [Techniken zur SQL-Abfrageoptimierung in SQL Server: Parameterermittlung](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/)
 
 ### <a name="compile-activity-caused-by-improper-parameterization"></a>Durch nicht ordnungsgemäße Parametrisierung verursachte Kompilierungsaktivität
@@ -203,16 +203,16 @@ Sobald Sie einen suboptimalen Plan und *wartebezogene Probleme* im Zusammenhang 
 Im Anschluss finden Sie gängige Methoden zum Anzeigen der wichtigsten Kategorien von Wartetypen:
 
 - Verwenden Sie Intelligent Insights, um Abfragen mit Leistungsbeeinträchtigung aufgrund [erhöhter Wartezeiten](database/intelligent-insights-troubleshoot-performance.md#increased-wait-statistic) zu identifizieren.
-- Verwenden Sie den [Abfragespeicher](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store), um Wartestatistiken für die einzelnen Abfragen im Zeitverlauf zu suchen. Im Abfragedatenspeicher sind Wartetypen mit Wartekategorien kombiniert. Die Zuordnung von Wartekategorien zu Wartetypen finden Sie unter [sys.query_store_wait_stats (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
-- Verwenden Sie [sys.dm_db_wait_stats (Azure SQL-Datenbank)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database), um Informationen zu allen Wartezeiten für Threads zurückzugeben, die während des Abfragevorgangs ausgeführt wurden. Sie können diese aggregierte Ansicht verwenden, um Leistungsprobleme mit Azure SQL-Datenbank sowie mit bestimmten Abfragen und Batches zu diagnostizieren. Abfragen können auf Ressourcen, Warteschlangen oder externe Vorgänge warten.
-- Verwenden Sie [sys.dm_os_waiting_tasks (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql), um Informationen zur Warteschlange von Aufgaben zurückzugeben, die auf eine Ressource warten.
+- Verwenden Sie den [Abfragespeicher](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store), um Wartestatistiken für die einzelnen Abfragen im Zeitverlauf zu suchen. Im Abfragedatenspeicher sind Wartetypen mit Wartekategorien kombiniert. Die Zuordnung von Wartekategorien zu Wartetypen finden Sie unter [sys.query_store_wait_stats (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
+- Verwenden Sie [sys.dm_db_wait_stats (Azure SQL-Datenbank)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database), um Informationen zu allen Wartezeiten für Threads zurückzugeben, die während des Abfragevorgangs ausgeführt wurden. Sie können diese aggregierte Ansicht verwenden, um Leistungsprobleme mit Azure SQL-Datenbank sowie mit bestimmten Abfragen und Batches zu diagnostizieren. Abfragen können auf Ressourcen, Warteschlangen oder externe Vorgänge warten.
+- Verwenden Sie [sys.dm_os_waiting_tasks (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql), um Informationen zur Warteschlange von Aufgaben zurückzugeben, die auf eine Ressource warten.
 
 In Szenarien mit hoher CPU-Auslastung wird die CPU-Auslastung durch den Abfragespeicher und die Wartestatistik in folgenden Fällen möglicherweise nicht korrekt wiedergegeben:
 
 - Abfragen mit hoher CPU-Auslastung werden noch ausgeführt.
 - Die Abfragen mit hoher CPU-Auslastung wurden parallel zu einem Failover ausgeführt.
 
-DMVs, die den Abfragespeicher und die Wartestatistik nachverfolgen, zeigen nur Ergebnisse für erfolgreich abgeschlossene Abfragen sowie für Abfragen an, bei denen ein Timeout aufgetreten ist. Sie zeigen keine Daten für aktuell ausgeführte Anweisungen an, bis die Anweisungen abgeschlossen sind. Verwenden Sie die dynamische Verwaltungssicht [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql), um aktuell ausgeführte Abfragen und die Zeit des zugeordneten Workers anzuzeigen.
+DMVs, die den Abfragespeicher und die Wartestatistik nachverfolgen, zeigen nur Ergebnisse für erfolgreich abgeschlossene Abfragen sowie für Abfragen an, bei denen ein Timeout aufgetreten ist. Sie zeigen keine Daten für aktuell ausgeführte Anweisungen an, bis die Anweisungen abgeschlossen sind. Verwenden Sie die dynamische Verwaltungssicht [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql), um aktuell ausgeführte Abfragen und die Zeit des zugeordneten Workers anzuzeigen.
 
 > [!TIP]
 > Weitere Tools:

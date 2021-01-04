@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 1d86009d593ef7e594ec2981132bcfb856569c31
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 087073437fe9d6159422799c04ce095c0aae5eca
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317224"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001251"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Azure Queue Storage-Ausgabebindungen für Azure Functions
 
@@ -100,6 +100,24 @@ public static void Run(
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+ Die Java-Funktion des folgenden Beispiels erstellt eine Warteschlangennachricht bei Auslösung durch eine HTTP-Anforderung.
+
+```java
+@FunctionName("httpToQueue")
+@QueueOutput(name = "item", queueName = "myqueue-items", connection = "MyStorageConnectionAppSetting")
+ public String pushToQueue(
+     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+     final String message,
+     @HttpOutput(name = "response") final OutputBinding<String> result) {
+       result.setValue(message + " has been added.");
+       return message;
+ }
+```
+
+Verwenden Sie die `@QueueOutput`-Anmerkung in der [Laufzeitbibliothek für Java-Funktionen](/java/api/overview/azure/functions/runtime) für Parameter, deren Wert in Queue Storage geschrieben wird.  Der Parametertyp sollte `OutputBinding<T>` lauten, wobei `T` für einen beliebigen nativen Java-Typ eines POJO steht.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Das folgende Beispiel enthält eine HTTP-Triggerbindung in einer Datei *function.json* sowie eine [JavaScript-Funktion](functions-reference-node.md), die die Bindung verwendet. Die Funktion erstellt ein Warteschlangenelement für jede empfangene HTTP-Anforderung.
@@ -149,6 +167,79 @@ module.exports = function(context) {
     context.bindings.myQueueItem = ["message 1","message 2"];
     context.done();
 };
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Die folgenden Codebeispiele veranschaulichen, wie eine Warteschlangennachricht aus einer durch HTTP ausgelösten Funktion ausgegeben wird. Der Konfigurationsabschnitt mit dem `type` von `queue` definiert die Ausgabebindung.
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "Request",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "Msg",
+      "queueName": "outqueue",
+      "connection": "MyStorageConnectionAppSetting"
+    }
+  ]
+}
+```
+
+Mithilfe dieser Bindungskonfiguration kann eine PowerShell-Funktion mithilfe von `Push-OutputBinding` eine Warteschlangennachricht erstellen. In diesem Beispiel wird eine Nachricht aus einer Abfragezeichenfolge oder einem Textparameter erstellt.
+
+```powershell
+using namespace System.Net
+
+# Input bindings are passed in via param block.
+param($Request, $TriggerMetadata)
+
+# Write to the Azure Functions log stream.
+Write-Host "PowerShell HTTP trigger function processed a request."
+
+# Interact with query parameters or the body of the request.
+$message = $Request.Query.Message
+Push-OutputBinding -Name Msg -Value $message
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = 200
+    Body = "OK"
+})
+```
+
+Wenn mehrere Nachrichten gleichzeitig gesendet werden sollen, definieren Sie ein Nachrichtenarray und verwenden `Push-OutputBinding`, um Nachrichten an die Warteschlangenausgabebindung zu senden.
+
+```powershell
+using namespace System.Net
+
+# Input bindings are passed in via param block.
+param($Request, $TriggerMetadata)
+
+# Write to the Azure Functions log stream.
+Write-Host "PowerShell HTTP trigger function processed a request."
+
+# Interact with query parameters or the body of the request.
+$message = @("message1", "message2")
+Push-OutputBinding -Name Msg -Value $message
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = 200
+    Body = "OK"
+})
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -214,24 +305,6 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
     return 'OK'
 ```
 
-# <a name="java"></a>[Java](#tab/java)
-
- Die Java-Funktion des folgenden Beispiels erstellt eine Warteschlangennachricht bei Auslösung durch eine HTTP-Anforderung.
-
-```java
-@FunctionName("httpToQueue")
-@QueueOutput(name = "item", queueName = "myqueue-items", connection = "MyStorageConnectionAppSetting")
- public String pushToQueue(
-     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
-     final String message,
-     @HttpOutput(name = "response") final OutputBinding<String> result) {
-       result.setValue(message + " has been added.");
-       return message;
- }
-```
-
-Verwenden Sie die `@QueueOutput`-Anmerkung in der [Laufzeitbibliothek für Java-Funktionen](/java/api/overview/azure/functions/runtime) für Parameter, deren Wert in Queue Storage geschrieben wird.  Der Parametertyp sollte `OutputBinding<T>` lauten, wobei `T` für einen beliebigen nativen Java-Typ eines POJO steht.
-
 ---
 
 ## <a name="attributes-and-annotations"></a>Attribute und Anmerkungen
@@ -270,14 +343,6 @@ Mit dem Attribut `StorageAccount` können Sie das Speicherkonto auf Klassen-, Me
 
 Attribute werden von C#-Skript nicht unterstützt.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-Attribute werden von JavaScript nicht unterstützt.
-
-# <a name="python"></a>[Python](#tab/python)
-
-Attribute werden von Python nicht unterstützt.
-
 # <a name="java"></a>[Java](#tab/java)
 
 Die `QueueOutput`-Anmerkung ermöglicht Ihnen, eine Nachricht als Ausgabe einer Funktion zu schreiben. Das folgende Beispiel zeigt eine HTTP-ausgelöste Funktion, die eine Warteschlangennachricht erstellt.
@@ -308,6 +373,18 @@ public class HttpTriggerQueueOutput {
 |`connection` | Verweist auf die Speicherkonto-Verbindungszeichenfolge. |
 
 Der Parameter, der der Anmerkung `QueueOutput` zugeordnet ist, ist als [OutputBinding\<T\>](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/OutputBinding.java)-Instanz typisiert.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Attribute werden von JavaScript nicht unterstützt.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Attribute werden von PowerShell nicht unterstützt.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Attribute werden von Python nicht unterstützt.
 
 ---
 
@@ -359,18 +436,6 @@ Verwenden Sie einen der folgenden Typen, um in C# und C#-Skripts mehrere Wartesc
 * `ICollector<T>` oder `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-Das Ausgabewarteschlangen-Element ist über `context.bindings.<NAME>` verfügbar, wobei `<NAME>` dem in *function.json* definierten Namen entspricht. Für die Nutzlast des Warteschlangenelements kann eine Zeichenfolge oder ein JSON-serialisierbares Objekt verwendet werden.
-
-# <a name="python"></a>[Python](#tab/python)
-
-Es gibt zwei Optionen für das Ausgeben einer Warteschlangennachricht aus einer Funktion:
-
-- **Rückgabewert**: Legen Sie die Eigenschaft `name` in *function.json* auf `$return` fest. Mit dieser Konfiguration wird der Rückgabewert der Funktion als Queue Storage-Nachricht beibehalten.
-
-- **Imperativ**: Übergeben Sie einen Wert an die [set](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none)-Methode des Parameters, der als [Out](/python/api/azure-functions/azure.functions.out?view=azure-python)-Typ deklariert ist. Der an `set` übergebene Wert wird als Queue Storage-Nachricht beibehalten.
-
 # <a name="java"></a>[Java](#tab/java)
 
 Es gibt zwei Optionen für das Ausgeben einer Warteschlangennachricht aus einer Funktion mittels der [QueueOutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput)-Anmerkung:
@@ -378,6 +443,22 @@ Es gibt zwei Optionen für das Ausgeben einer Warteschlangennachricht aus einer 
 - **Rückgabewert**: Wenn Sie die Anmerkung auf die Funktion selbst anwenden, wird der Rückgabewert der Funktion als Warteschlangennachricht beibehalten.
 
 - **Imperativ**: Um den Nachrichtenwert explizit festzulegen, wenden Sie die Anmerkung auf einen bestimmten Parameter des Typs [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) an, wobei `T` ein POJO oder ein beliebiger nativer Java-Typ ist. Bei dieser Konfiguration wird bei Übergabe eines Werts an die `setValue`-Methode der Wert als Warteschlangennachricht beibehalten.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Das Ausgabewarteschlangen-Element ist über `context.bindings.<NAME>` verfügbar, wobei `<NAME>` dem in *function.json* definierten Namen entspricht. Für die Nutzlast des Warteschlangenelements kann eine Zeichenfolge oder ein JSON-serialisierbares Objekt verwendet werden.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Die Ausgabe an die Warteschlangennachricht ist über `Push-OutputBinding` verfügbar. Dort übergeben Sie Argumente, die dem Namen entsprechen, der durch den `name`-Parameter der Bindung in der Datei *function.json* festgelegt wird.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Es gibt zwei Optionen für das Ausgeben einer Warteschlangennachricht aus einer Funktion:
+
+- **Rückgabewert**: Legen Sie die Eigenschaft `name` in *function.json* auf `$return` fest. Mit dieser Konfiguration wird der Rückgabewert der Funktion als Queue Storage-Nachricht beibehalten.
+
+- **Imperativ**: Übergeben Sie einen Wert an die [set](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true#set-val--t-----none)-Methode des Parameters, der als [Out](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true)-Typ deklariert ist. Der an `set` übergebene Wert wird als Queue Storage-Nachricht beibehalten.
 
 ---
 

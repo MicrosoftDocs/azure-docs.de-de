@@ -1,17 +1,17 @@
 ---
 title: SSL/TLS-Konnektivität in Azure Database for MySQL
 description: Informationen zum Konfigurieren von Azure-Datenbank für MySQL und zugehörigen Anwendungen für die richtige Verwendung von SSL-Verbindungen
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 2969c963b491e4b08a0959d548e43ba11276d28a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 6fb0b6f38869192e89bb849950e8822a157b23c8
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126548"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241938"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>SSL/TLS-Konnektivität in Azure Database for MySQL
 
@@ -46,7 +46,7 @@ Azure Database for MySQL unterstützt Verschlüsselung für Clients, die eine Ve
 
 ### <a name="tls-settings"></a>TLS-Einstellungen
 
-Azure Database for MySQL bietet die Möglichkeit, die TLS-Version für die Clientverbindungen vorzuschreiben. Um die TLS-Version zu erzwingen, verwenden Sie die Optionseinstellung **TLS-Mindestversion** . Für diese Optionseinstellung sind die folgenden Werte zulässig:
+Azure Database for MySQL bietet die Möglichkeit, die TLS-Version für die Clientverbindungen vorzuschreiben. Um die TLS-Version zu erzwingen, verwenden Sie die Optionseinstellung **TLS-Mindestversion**. Für diese Optionseinstellung sind die folgenden Werte zulässig:
 
 |  TLS-Mindesteinstellung             | Unterstützte Client-TLS-Version                |
 |:---------------------------------|-------------------------------------:|

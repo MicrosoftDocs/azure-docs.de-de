@@ -5,19 +5,20 @@ author: Rodrigossz
 ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 11/30/2020
 ms.reviewer: sngun
-ms.openlocfilehash: ae99f5fc1cd6f27c46f7a4444bc75b8c773b4f74
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d083bc0b7726a284dcfd03e49d47c2a342db023c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480002"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461808"
 ---
-# <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Was ist Azure Synapse Link für Azure Cosmos DB (Vorschau)?
+# <a name="what-is-azure-synapse-link-for-azure-cosmos-db"></a>Was ist Azure Synapse Link für Azure Cosmos DB?
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 > [!IMPORTANT]
-> Azure Synapse Link für Azure Cosmos DB liegt aktuell in einer Vorschauversion vor. Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Die Unterstützung von serverlosen SQL-Pools in Synapse für Azure Synapse Link für Azure Cosmos DB befindet sich derzeit in der Vorschauphase. Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Synapse Link für Azure Cosmos DB ist eine cloudnative hybride Verarbeitungsfunktion für Transaktionen und Analysen (Hybrid Transactional and Analytical Processing, HTAP), mit der Sie in Azure Cosmos DB in Quasi-Echtzeit Analysen für operative Daten ausführen können. Azure Synapse Link sorgt für eine nahtlose Integration zwischen Azure Cosmos DB und Azure Synapse Analytics.
 
@@ -35,7 +36,7 @@ Im Vergleich zu herkömmlichen ETL-basierten Lösungen bietet Azure Synapse Link
 
 ### <a name="reduced-complexity-with-no-etl-jobs-to-manage"></a>Verringerte Komplexität ohne zu verwaltende ETL-Aufträge
 
-Azure Synapse Link ermöglicht Ihnen den direkten Zugriff auf den Azure Cosmos DB-Analysespeicher mithilfe von Azure Synapse Analytics ohne komplexe Datenverschiebungen. Alle Aktualisierungen der operativen Daten werden im Analysespeicher in Quasi-Echtzeit ohne ETL- oder Änderungsfeedaufträge angezeigt. Sie können umfangreiche Analysen für den Analysespeicher von Synapse Analytics ohne eine zusätzliche Datentransformation ausführen.
+Azure Synapse Link ermöglicht Ihnen den direkten Zugriff auf den Azure Cosmos DB-Analysespeicher mithilfe von Azure Synapse Analytics ohne komplexe Datenverschiebungen. Alle Aktualisierungen der operativen Daten werden im Analysespeicher in Quasi-Echtzeit ohne ETL- oder Änderungsfeedaufträge angezeigt. Sie können umfangreiche Analysen für den Analysespeicher von Azure Synapse Analytics ohne eine zusätzliche Datentransformation ausführen.
 
 ### <a name="near-real-time-insights-into-your-operational-data"></a>Einblicke in Ihre operativen Daten in Quasi-Echtzeit
 
@@ -74,13 +75,13 @@ Wenn Sie über ein global verteiltes Azure Cosmos DB-Konto verfügen, ist es nac
 
 ### <a name="integration-with-azure-synapse-analytics"></a><a id="synapse-link-integration"></a>Integration in Azure Synapse Analytics
 
-Mit Synapse Link können Sie jetzt ausgehend von Azure Synapse Analytics direkt eine Verbindung mit Ihren Azure Cosmos DB-Containern herstellen und ohne separate Connectors auf den Analysespeicher zugreifen. Azure Synapse Analytics unterstützt derzeit Synapse Link mit [Synapse Apache Spark](../synapse-analytics/spark/apache-spark-concepts.md) und [Synapse SQL (serverlos)](../synapse-analytics/sql/on-demand-workspace-overview.md).
+Mit Synapse Link können Sie jetzt ausgehend von Azure Synapse Analytics direkt eine Verbindung mit Ihren Azure Cosmos DB-Containern herstellen und ohne separate Connectors auf den Analysespeicher zugreifen. Azure Synapse Analytics unterstützt derzeit Synapse Link mit [Synapse Apache Spark](../synapse-analytics/spark/apache-spark-concepts.md) und [serverlosen SQL-Pools](../synapse-analytics/sql/on-demand-workspace-overview.md).
 
 Sie können die Daten aus dem Azure Cosmos DB-Analysespeicher gleichzeitig abfragen, wobei Interoperabilität für verschiedene von Azure Synapse Analytics unterstützte Analyselaufzeiten unterstützt wird. Zum Analysieren der operativen Daten sind keine weiteren Datentransformationen erforderlich. Sie können die Analysespeicherdaten mithilfe von Folgendem abfragen und analysieren:
 
 * Synapse Apache Spark mit vollständiger Unterstützung für Scala, Python, SparkSQL und C#. Synapse Spark ist von zentraler Bedeutung für Datentechnik- und Data Science-Szenarien.
 
-* SQL (serverlos) mit T-SQL-Sprache und Unterstützung für bekannte BI-Tools (z. B. Power BI Premium usw.)
+* Serverlose SQL-Pools mit T-SQL und Unterstützung für bekannte BI-Tools (z. B. Power BI Premium usw.)
 
 > [!NOTE]
 > Aus Azure Synapse Analytics können Sie auf Analyse- und Transaktionsspeicher in Ihrem Azure Cosmos DB-Container zugreifen. Wenn Sie jedoch umfangreiche Analysen oder Scans für Ihre operativen Daten ausführen möchten, empfiehlt es sich, den Analysespeicher zu verwenden, um Leistungseinbußen bei Transaktionsworkloads zu vermeiden.

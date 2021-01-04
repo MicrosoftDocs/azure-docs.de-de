@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: d7d66e247c6a6240bd6fde08612b8eb770bd3b92
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e5e344aa84bfc6912266720083f0cd15f575883c
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737547"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95740249"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Erkennen von Azure-Dienstlogos in Bildern von der Kamera
 
@@ -34,9 +34,9 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 ## <a name="prerequisites"></a>Voraussetzungen
 
 - [Visual Studio 2017 oder höher](https://www.visualstudio.com/downloads/)
-- Xamarin-Workload für Visual Studio (siehe [Installieren von Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))
+- Xamarin-Workload für Visual Studio (siehe [Installieren von Xamarin](/xamarin/cross-platform/get-started/installation/windows))
 - iOS- oder Android-Emulator für Visual Studio
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (optional)
+- [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (optional)
 
 ## <a name="get-the-source-code"></a>Herunterladen des Quellcodes
 
@@ -50,13 +50,13 @@ Melden Sie sich bei der [Custom Vision-Website](https://customvision.ai/) an, un
 
 ## <a name="upload-and-tag-images"></a>Hochladen und Kennzeichnen von Bildern
 
-Trainieren Sie als Nächstes den Algorithmus für die Logoerkennung, indem Sie Bilder von Azure-Dienstlogos hochladen und manuell markieren bzw. taggen. Im AIVisualProvision-Repository finden Sie eine Reihe von Trainingsbildern, die Sie hierfür verwenden können. Wählen Sie auf der Website auf der Registerkarte **Training Images** (Trainingsbilder) die Schaltfläche **Bilder hinzufügen** . Navigieren Sie anschließend zum Ordner **Documents/Images/Training_DataSet** des Repositorys. Sie müssen die Logos manuell in jedem Bild markieren. Wenn Sie dieses Projekt nur testen möchten, kann es daher ratsam sein, nur eine Teilmenge der Bilder hochzuladen. Laden Sie mindestens 15 Instanzen jedes Tags hoch, das Sie verwenden möchten.
+Trainieren Sie als Nächstes den Algorithmus für die Logoerkennung, indem Sie Bilder von Azure-Dienstlogos hochladen und manuell markieren bzw. taggen. Im AIVisualProvision-Repository finden Sie eine Reihe von Trainingsbildern, die Sie hierfür verwenden können. Wählen Sie auf der Website auf der Registerkarte **Training Images** (Trainingsbilder) die Schaltfläche **Bilder hinzufügen**. Navigieren Sie anschließend zum Ordner **Documents/Images/Training_DataSet** des Repositorys. Sie müssen die Logos manuell in jedem Bild markieren. Wenn Sie dieses Projekt nur testen möchten, kann es daher ratsam sein, nur eine Teilmenge der Bilder hochzuladen. Laden Sie mindestens 15 Instanzen jedes Tags hoch, das Sie verwenden möchten.
 
 Wählen Sie nach dem Hochladen der Trainingsbilder das erste Bild in der Anzeige aus. Daraufhin wird das Markierungsfenster geöffnet. Zeichnen Sie Rahmen, und weisen Sie Tags für die Logos in jedem Bild zu. 
 
 ![Markieren von Logos auf der Custom Vision-Website](media/azure-logo-tutorial/tag-logos.png)
 
-Die App ist für die Verwendung mit bestimmten Tagzeichenfolgen konfiguriert. Sie finden die Definitionen in der Datei *Source\VisualProvision\Services\Recognition\RecognitionService.cs* :
+Die App ist für die Verwendung mit bestimmten Tagzeichenfolgen konfiguriert. Sie finden die Definitionen in der Datei *Source\VisualProvision\Services\Recognition\RecognitionService.cs*:
 
 [!code-csharp[Tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?name=snippet_constants)]
 
@@ -74,37 +74,37 @@ Nachdem Sie das Modell trainiert haben, können Sie es in Ihre App integrieren. 
 
 ![Custom Vision-Website mit dem Fenster für die Vorhersage-API, in dem eine URL-Adresse und ein API-Schlüssel angezeigt werden](media/azure-logo-tutorial/cusvis-endpoint.png)
 
-Kopieren Sie die Endpunkt-URL und den Wert **Prediction-Key** in die entsprechenden Felder in der Datei *Source\VisualProvision\AppSettings.cs* :
+Kopieren Sie die Endpunkt-URL und den Wert **Prediction-Key** in die entsprechenden Felder in der Datei *Source\VisualProvision\AppSettings.cs*:
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_cusvis_keys)]
 
 ## <a name="examine-custom-vision-usage"></a>Überprüfen der Custom Vision-Nutzung
 
-Öffnen Sie die Datei *Source/VisualProvision/Services/Recognition/CustomVisionService.cs* , um zu überprüfen, wie Ihr Custom Vision-Schlüssel und Ihre Endpunkt-URL von der App verwendet werden. Die **PredictImageContentsAsync** -Methode akzeptiert einen Bytestream einer Bilddatei sowie ein Abbruchtoken (für die asynchrone Aufgabenverwaltung), ruft die Custom Vision-Vorhersage-API auf und gibt das Ergebnis der Vorhersage zurück. 
+Öffnen Sie die Datei *Source/VisualProvision/Services/Recognition/CustomVisionService.cs*, um zu überprüfen, wie Ihr Custom Vision-Schlüssel und Ihre Endpunkt-URL von der App verwendet werden. Die **PredictImageContentsAsync**-Methode akzeptiert einen Bytestream einer Bilddatei sowie ein Abbruchtoken (für die asynchrone Aufgabenverwaltung), ruft die Custom Vision-Vorhersage-API auf und gibt das Ergebnis der Vorhersage zurück. 
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?name=snippet_prediction)]
 
-Dieses Ergebnis wird in Form einer **PredictionResult** -Instanz zurückgegeben, die eine Liste von **Vorhersageinstanzen** enthält. Eine **Vorhersage** enthält ein erkanntes Tag und den zugehörigen Begrenzungsrahmen für die Position im Bild.
+Dieses Ergebnis wird in Form einer **PredictionResult**-Instanz zurückgegeben, die eine Liste von **Vorhersageinstanzen** enthält. Eine **Vorhersage** enthält ein erkanntes Tag und den zugehörigen Begrenzungsrahmen für die Position im Bild.
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?name=snippet_prediction_class)]
 
-Beginnen Sie mit der **GetResourcesAsync** -Methode, um weitere Informationen zur Verarbeitung dieser Daten mit der App zu erhalten. Diese Methode ist in der Datei *Source/VisualProvision/Services/Recognition/RecognitionService.cs* definiert.  
+Beginnen Sie mit der **GetResourcesAsync**-Methode, um weitere Informationen zur Verarbeitung dieser Daten mit der App zu erhalten. Diese Methode ist in der Datei *Source/VisualProvision/Services/Recognition/RecognitionService.cs* definiert.  
 
 ## <a name="add-computer-vision"></a>Hinzufügen von maschinellem Sehen
 
 Der Custom Vision-Teil des Tutorials ist fertig. Wenn Sie die App ausführen möchten, müssen Sie auch den Dienst „Maschinelles Sehen“ integrieren. Die App nutzt das Feature für die Texterkennung per maschinellem Sehen als Erweiterung für den Logoerkennungsprozess. Ein Azure-Logo kann anhand seines Aussehens *oder* des in der Nähe gedruckten Texts erkannt werden. Anders als bei Custom Vision-Modellen wird das maschinelle Sehen vorab trainiert, um bestimmte Vorgänge für Bilder oder Videos durchzuführen.
 
-Abonnieren Sie den Dienst für maschinelles Sehen, um einen Schlüssel und eine Endpunkt-URL zu erhalten. Hilfe zu diesem Schritt finden Sie unter [Gewusst wie: Erhalten von Abonnementschlüsseln](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe).
+Abonnieren Sie den Dienst für maschinelles Sehen, um einen Schlüssel und eine Endpunkt-URL zu erhalten. Hilfe zu diesem Schritt finden Sie unter [Gewusst wie: Erhalten von Abonnementschlüsseln](../cognitive-services-apis-create-account.md?tabs=singleservice%2Cwindows).
 
 ![Dienst „Maschinelles Sehen“ im Azure-Portal mit ausgewähltem Schnellstartmenü. Ein Link für Schlüssel und die API-Endpunkt-URL sind hervorgehoben.](media/azure-logo-tutorial/comvis-keys.png)
 
-Öffnen Sie als Nächstes die Datei *Source\VisualProvision\AppSettings.cs* , und füllen Sie die Variablen `ComputerVisionEndpoint` und `ComputerVisionKey` mit den richtigen Werten auf.
+Öffnen Sie als Nächstes die Datei *Source\VisualProvision\AppSettings.cs*, und füllen Sie die Variablen `ComputerVisionEndpoint` und `ComputerVisionKey` mit den richtigen Werten auf.
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_comvis_keys)]
 
 ## <a name="create-a-service-principal"></a>Erstellen eines Dienstprinzipals
 
-Die App erfordert ein Azure-Dienstprinzipalkonto, um Dienste in Ihrem Azure-Abonnement bereitzustellen. Mit einem Dienstprinzipal können Sie mithilfe der rollenbasierten Zugriffssteuerung in Azure bestimmte Berechtigungen an eine App delegieren. Weitere Informationen finden Sie unter [Gewähren des Anwendungszugriffs auf Azure Stack-Ressourcen durch Erstellen von Dienstprinzipalen](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals).
+Die App erfordert ein Azure-Dienstprinzipalkonto, um Dienste in Ihrem Azure-Abonnement bereitzustellen. Mit einem Dienstprinzipal können Sie mithilfe der rollenbasierten Zugriffssteuerung in Azure bestimmte Berechtigungen an eine App delegieren. Weitere Informationen finden Sie unter [Gewähren des Anwendungszugriffs auf Azure Stack-Ressourcen durch Erstellen von Dienstprinzipalen](/azure-stack/operator/azure-stack-create-service-principals).
 
 Sie können einen Dienstprinzipal wie im Folgenden beschrieben mit Azure Cloud Shell oder mit der Azure CLI erstellen. Melden Sie sich zunächst an, und wählen Sie das gewünschte Abonnement aus.
 
@@ -132,7 +132,7 @@ Nach der erfolgreichen Erstellung sollte die folgende JSON-Ausgabe mit den erfor
 }
 ```
 
-Notieren Sie sich die Werte von `clientId` und `tenantId`. Kopieren Sie die Werte in die entsprechenden Felder in der Datei *Source\VisualProvision\AppSettings.cs* .
+Notieren Sie sich die Werte von `clientId` und `tenantId`. Kopieren Sie die Werte in die entsprechenden Felder in der Datei *Source\VisualProvision\AppSettings.cs*.
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_serviceprincipal)]
 
@@ -151,17 +151,17 @@ Gehen Sie folgendermaßen vor, um die App auszuführen:
     > [!NOTE]
     > Sie benötigen ein macOS-Gerät, um einen iOS-Emulator auszuführen.
 
-1. Geben Sie auf dem ersten Bildschirm die Client-ID Ihres Dienstprinzipals, die Mandanten-ID und das Kennwort ein. Wählen Sie die Schaltfläche **Anmelden** .
+1. Geben Sie auf dem ersten Bildschirm die Client-ID Ihres Dienstprinzipals, die Mandanten-ID und das Kennwort ein. Wählen Sie die Schaltfläche **Anmelden**.
 
     > [!NOTE]
-    > In einigen Emulatoren wird die Schaltfläche **Anmelden** in diesem Schritt ggf. nicht aktiviert. Beenden Sie in diesem Fall die App, öffnen Sie die Datei *Source/VisualProvision/Pages/LoginPage.xaml* , suchen Sie nach dem `Button`-Element mit der Bezeichnung **LOGIN BUTTON** , und entfernen Sie die folgende Zeile, bevor Sie die App erneut ausführen.
+    > In einigen Emulatoren wird die Schaltfläche **Anmelden** in diesem Schritt ggf. nicht aktiviert. Beenden Sie in diesem Fall die App, öffnen Sie die Datei *Source/VisualProvision/Pages/LoginPage.xaml*, suchen Sie nach dem `Button`-Element mit der Bezeichnung **LOGIN BUTTON**, und entfernen Sie die folgende Zeile, bevor Sie die App erneut ausführen.
     >  ```xaml
     >  IsEnabled="{Binding IsValid}"
     >  ```
     
     ![App-Bildschirm mit Feldern für die Anmeldeinformationen des Dienstprinzipals](media/azure-logo-tutorial/app-credentials.png)
 
-1. Wählen Sie auf dem nächsten Bildschirm im Dropdownmenü Ihr Azure-Abonnement aus. (Dieses Menü sollte alle Abonnements enthalten, auf die Ihr Dienstprinzipal Zugriff hat.) Wählen Sie die Schaltfläche **Weiter** . Die App fordert Sie nun ggf. auf, den Zugriff auf die Kamera und den Fotospeicher des Geräts zu gewähren. Erteilen Sie die Zugriffsberechtigungen.
+1. Wählen Sie auf dem nächsten Bildschirm im Dropdownmenü Ihr Azure-Abonnement aus. (Dieses Menü sollte alle Abonnements enthalten, auf die Ihr Dienstprinzipal Zugriff hat.) Wählen Sie die Schaltfläche **Weiter**. Die App fordert Sie nun ggf. auf, den Zugriff auf die Kamera und den Fotospeicher des Geräts zu gewähren. Erteilen Sie die Zugriffsberechtigungen.
 
     ![App-Bildschirm mit einem Dropdownfeld für das Azure-Zielabonnement](media/azure-logo-tutorial/app-az-subscription.png)
 

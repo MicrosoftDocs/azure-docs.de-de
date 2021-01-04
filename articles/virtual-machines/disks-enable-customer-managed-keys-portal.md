@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 1b40eef0a4cae8fa68631426ff72003db43d7530
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5452b1e2ffc3ca8a11f3acb591c6288806445e1b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88817147"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499389"
 ---
 # <a name="use-the-azure-portal-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Verwenden des Azure-Portals zum Aktivieren der serverseitigen Verschlüsselung mit kundenseitig verwalteten Schlüsseln für verwaltete Datenträger
 
 Mit Azure Disk Storage können Sie Ihre eigenen Schlüssel verwalten, wenn Sie die serverseitige Verschlüsselung (Server Side Encryption, SSE) für verwaltete Datenträger verwenden. Informationen zum Konzept der SSE mit kundenseitig verwalteten Schlüsseln sowie weitere Verschlüsselungstypen für verwaltete Datenträger finden Sie im Abschnitt **Vom Kunden verwaltete Schlüssel** in folgenden Artikeln zur Datenträgerverschlüsselung:
 
-- Linux: [Kundenseitig verwaltete Schlüssel](./linux/disk-encryption.md#customer-managed-keys)
-- Windows: [Kundenseitig verwaltete Schlüssel](./windows/disk-encryption.md#customer-managed-keys)
+- Linux: [Kundenseitig verwaltete Schlüssel](./disk-encryption.md#customer-managed-keys)
+- Windows: [Kundenseitig verwaltete Schlüssel](./disk-encryption.md#customer-managed-keys)
 
 ## <a name="restrictions"></a>Beschränkungen
 

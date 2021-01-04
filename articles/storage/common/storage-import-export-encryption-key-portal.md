@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: d0a1826dafd1e6ce6202dc4f29417a1ce100e54f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb91a490083629101470565a630b659c090e071b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83195256"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843365"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Verwenden kundenseitig verwalteter Schlüssel in Azure Key Vault für den Import/Export-Dienst
 
@@ -33,13 +33,13 @@ Stellen Sie Folgendes sicher, bevor Sie beginnen:
     - [Erstellen eines Importauftrags für Dateien](storage-import-export-data-to-files.md)
     - [Erstellen eines Exportauftrags für Blobs](storage-import-export-data-from-blobs.md)
 
-2. Sie verfügen über eine vorhandene Azure Key Vault-Instanz mit einem Schlüssel, den Sie zum Schützen Ihres BitLocker-Schlüssels verwenden können. Informationen zum Erstellen eines Schlüsseltresors über das Azure-Portal finden Sie unter [Schnellstart: Festlegen eines Geheimnisses und Abrufen des Geheimnisses aus Azure Key Vault mithilfe des Azure-Portals](../../key-vault/secrets/quick-create-portal.md).
+2. Sie verfügen über eine vorhandene Azure Key Vault-Instanz mit einem Schlüssel, den Sie zum Schützen Ihres BitLocker-Schlüssels verwenden können. Informationen zum Erstellen eines Schlüsseltresors über das Azure-Portal finden Sie unter [Schnellstart: Erstellen Sie eine Azure Key Vault-Instanz mithilfe des Azure-Portals](../../key-vault/general/quick-create-portal.md).
 
     - Für Ihre vorhandene Key Vault-Instanz ist **Vorläufiges Löschen** und **Nicht bereinigen** festgelegt. Diese Eigenschaften sind standardmäßig nicht aktiviert. Informationen zum Aktivieren dieser Eigenschaften finden Sie in den Abschnitten **Aktivieren des vorläufigen Löschens** und **Aktivieren des Bereinigungsschutzes** in einem der folgenden Artikel:
 
-        - [Verwenden des vorläufigen Löschens mit PowerShell](../../key-vault/general/soft-delete-powershell.md)
-        - [Verwenden des vorläufigen Löschens mit der CLI](../../key-vault/general/soft-delete-cli.md)
-    - Der vorhandene Schlüsseltresor muss über einen RSA-Schlüssel mit einer Größe von mindestens 2048 verfügen. Weitere Informationen zu Schlüsseln finden Sie unter **Key Vault-Schlüssel** in [Informationen zu Schlüsseln, Geheimnissen und Zertifikaten in Azure Key Vault](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+        - [Verwenden des vorläufigen Löschens mit PowerShell](../../key-vault/general/key-vault-recovery.md)
+        - [Verwenden des vorläufigen Löschens mit der CLI](../../key-vault/general/key-vault-recovery.md)
+    - Der vorhandene Schlüsseltresor muss über einen RSA-Schlüssel mit einer Größe von mindestens 2048 verfügen. Weitere Informationen über Schlüssel finden Sie unter [Informationen zu Schlüsseln](../../key-vault/keys/about-keys.md).
     - Der Schlüsseltresor muss sich in derselben Region wie das Speicherkonto für Ihre Daten befinden.  
     - Wenn Sie noch nicht über eine Azure Key Vault-Instanz verfügen, können Sie diese auch inline erstellen, wie im folgenden Abschnitt beschrieben.
 
@@ -101,9 +101,9 @@ Wenn Ihnen Fehler im Zusammenhang mit dem kundenseitig verwalteten Schlüssel an
 |----------------|------------|-----------------|
 | CmkErrorAccessRevoked | Der Zugriff auf den kundenseitig verwalteten Schlüssel wird aufgehoben.                                                       | Ja. Überprüfen Sie Folgendes: <ol><li>Der Schlüsseltresor verfügt weiterhin über die MSI in der Zugriffsrichtlinie.</li><li>In der Zugriffsrichtlinie sind die Berechtigungen „Get“, „Wrap“ und „Unwrap“ aktiviert.</li><li>Wenn sich der Schlüsseltresor in einem VNET hinter der Firewall befindet, überprüfen Sie, ob **Vertrauenswürdige Microsoft-Dienste zulassen** aktiviert ist.</li><li>Überprüfen Sie, ob die MSI der Auftragsressource mithilfe von APIs auf `None` zurückgesetzt wurde.<br>Wenn dies der Fall ist, legen Sie den Wert erneut auf `Identity = SystemAssigned` fest. Dadurch wird die Identität für die Auftragsressource neu erstellt.<br>Nachdem die neue Identität erstellt wurde, gewähren Sie der neuen Identität in der Zugriffsrichtlinie des Schlüsseltresors die Berechtigungen `Get`, `Wrap` und `Unwrap`.</li></ol>                                                                                            |
 | CmkErrorKeyDisabled      | Der kundenseitig verwaltete Schlüssel ist deaktiviert.                                         | Ja, durch Aktivieren der Schlüsselversion     |
-| CmkErrorKeyNotFound      | Der kundenseitig verwaltete Schlüssel wurde nicht gefunden. | Ja, wenn der Schlüssel noch innerhalb der Bereinigungsdauer gelöscht wurde, mithilfe von [Entfernen des Schlüssels des Schlüsseltresors rückgängig machen](https://docs.microsoft.com/powershell/module/az.keyvault/undo-azkeyvaultkeyremoval).<br>Ansonsten: <ol><li>Ja, wenn der Kunde den Schlüssel gesichert hat und ihn wiederherstellt.</li><li>Andernfalls nein.</li></ol>
-| CmkErrorVaultNotFound |Der Schlüsseltresor des kundenseitig verwalteten Schlüssels wurde nicht gefunden. |   Wenn der Schlüsseltresor gelöscht wurde:<ol><li>Ja, wenn Sie sich noch innerhalb des Zeitraums für den Schutz vor dem endgültigen Löschen befinden, können Sie die Schritte unter [Wiederherstellen eines Schlüsseltresors](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault) ausführen.</li><li>Nein, wenn der Zeitraum für den Schutz vor dem endgültigen Löschen abgelaufen ist.</li></ol><br>Andernfalls ja: Wenn der Schlüsseltresor zu einem anderen Mandanten migriert wurde, kann er mit einem der folgenden Schritte wiederhergestellt werden:<ol><li>Stellen Sie den Schlüsseltresor im alten Mandanten wieder her.</li><li>Legen Sie `Identity = None` fest, und setzen Sie dann den Wert auf `Identity = SystemAssigned` zurück. Dadurch wird die Identität gelöscht und neu erstellt, sobald die neue Identität erstellt wurde. Gewähren Sie der neuen Identität in der Zugriffsrichtlinie des Schlüsseltresors die Berechtigungen `Get`, `Wrap` und `Unwrap`.</li></ol>|
+| CmkErrorKeyNotFound      | Der kundenseitig verwaltete Schlüssel wurde nicht gefunden. | Ja, wenn der Schlüssel noch innerhalb der Bereinigungsdauer gelöscht wurde, mithilfe von [Entfernen des Schlüssels des Schlüsseltresors rückgängig machen](/powershell/module/az.keyvault/undo-azkeyvaultkeyremoval).<br>Ansonsten: <ol><li>Ja, wenn der Kunde den Schlüssel gesichert hat und ihn wiederherstellt.</li><li>Andernfalls nein.</li></ol>
+| CmkErrorVaultNotFound |Der Schlüsseltresor des kundenseitig verwalteten Schlüssels wurde nicht gefunden. |   Wenn der Schlüsseltresor gelöscht wurde:<ol><li>Ja, wenn Sie sich noch innerhalb des Zeitraums für den Schutz vor dem endgültigen Löschen befinden, können Sie die Schritte unter [Wiederherstellen eines Schlüsseltresors](../../key-vault/general/soft-delete-overview.md#key-vault-recovery) ausführen.</li><li>Nein, wenn der Zeitraum für den Schutz vor dem endgültigen Löschen abgelaufen ist.</li></ol><br>Andernfalls ja: Wenn der Schlüsseltresor zu einem anderen Mandanten migriert wurde, kann er mit einem der folgenden Schritte wiederhergestellt werden:<ol><li>Stellen Sie den Schlüsseltresor im alten Mandanten wieder her.</li><li>Legen Sie `Identity = None` fest, und setzen Sie dann den Wert auf `Identity = SystemAssigned` zurück. Dadurch wird die Identität gelöscht und neu erstellt, sobald die neue Identität erstellt wurde. Gewähren Sie der neuen Identität in der Zugriffsrichtlinie des Schlüsseltresors die Berechtigungen `Get`, `Wrap` und `Unwrap`.</li></ol>|
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [What is Azure Key Vault? (Was ist Azure Key Vault?)](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+- [What is Azure Key Vault? (Was ist Azure Key Vault?)](../../key-vault/general/overview.md)

@@ -11,12 +11,12 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: cfb7dd7a3831d90235b25af9598cfbc137ffcb3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6288a10e111e42629abf5e09b84a6a7791dcfe95
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87904954"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018221"
 ---
 # <a name="use-an-external-redis-compatible-cache-in-azure-api-management"></a>Verwenden eines externen Redis-kompatiblen Caches in Azure API Management
 
@@ -60,7 +60,7 @@ Bei der Zwischenspeicherung verwenden selbstgehostete Gateways ausschließlich e
 
 Gehen Sie wie folgt vor, um in Azure API Management eine externe Azure Cache for Redis-Instanz hinzuzufügen:
 
-![Verwenden eines eigenen Caches in API Management](media/api-management-howto-cache-external/add-external-cache.png)
+![Screenshot des Hinzufügens einer externen Azure Cache for Redis-Instanz in Azure API Management](media/api-management-howto-cache-external/add-external-cache.png)
 
 > [!NOTE]
 > Die Einstellung **Use from** (Verwenden aus) gibt eine Azure-Region oder den Standort eines selbstgehosteten Gateways an, von dem der konfigurierte Cache verwendet wird. Die als **Standard** konfigurierten Caches werden von Caches mit einem spezifischen übereinstimmenden Regions- oder Standortwert außer Kraft gesetzt.

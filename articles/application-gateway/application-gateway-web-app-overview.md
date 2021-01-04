@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: 308098bd1ac49510afccf0a7964face726906332
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe6ea6f348d796962141bd39ff858d891a29a2f6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84628689"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397687"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Application Gateway-Unterstützung für mehrinstanzenfähige Back-Ends wie App Service
 
@@ -28,11 +28,11 @@ Application Gateway bietet eine Funktion, mit der Benutzer den HTTP-Hostheader i
 
 ## <a name="override-host-header-in-the-request"></a>Überschreiben des Hostheaders in der Anforderung
 
-Die Möglichkeit zum Angeben einer Hostüberschreibung wird in den [HTTP-Einstellungen](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) festgelegt und kann bei der Regelerstellung für einen beliebigen Back-End-Pool angewendet werden. Hostheader und SNI-Erweiterung können bei mehrinstanzenfähigen Back-Ends auf zwei Arten überschrieben werden:
+Die Möglichkeit zum Angeben einer Hostüberschreibung wird in den [HTTP-Einstellungen](./configuration-overview.md#http-settings) festgelegt und kann bei der Regelerstellung für einen beliebigen Back-End-Pool angewendet werden. Hostheader und SNI-Erweiterung können bei mehrinstanzenfähigen Back-Ends auf zwei Arten überschrieben werden:
 
 - Der Hostnamen kann auf einen Wert festgelegt werden, der explizit in den HTTP-Einstellungen eingegeben wird. Hierdurch wird sichergestellt, dass der Hostheader für sämtlichen eingehenden Datenverkehr des Back-End-Pools, auf den diese HTTP-Einstellungen angewendet werden, mit diesem Wert überschrieben wird. Bei Verwendung von End-to-End-TLS wird der überschriebene Hostname in der SNI-Erweiterung verwendet. Diese Funktion ermöglicht Szenarien, bei denen eine Back-End-Poolfarm einen Hostheader erwartet, der sich vom eingehenden Hostheader des Kunden unterscheidet.
 
-- Ableiten des Hostnamens von der IP-Adresse oder dem FQDN der Back-End-Poolmitglieder: Die HTTP-Einstellungen enthalten auch eine Option zur dynamischen Auswahl des Hostnamens vom vollqualifizierten Domänennamen eines Back-End-Poolelements, sofern die Option zur Ableitung des Hostnamens von einem einzelnen Back-End-Poolelement konfiguriert ist. Bei Verwendung von End-to-End-TLS wird dieser Hostname vom FQDN abgeleitet und in der SNI-Erweiterung verwendet. Diese Funktion ermöglicht Szenarien, in denen ein Back-End-Pool mehrere mehrinstanzenfähige PaaS-Dienste (z.B. Azure Web Apps) enthalten kann und der Hostheader der Anforderung für die einzelnen Mitglieder den vom entsprechenden FQDN abgeleiteten Hostnamen enthält. Für die Implementierung dieses Szenarios wird die Option [Hostnamen aus Back-End-Adresse auswählen](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) in den HTTP-Einstellungen eingesetzt, durch die der Hostheader in der ursprünglichen Anforderung dynamisch mit dem erwähnten Hostheader im Back-End-Pool überschrieben wird.  Wenn der vollqualifizierte Domänenname Ihres Back-End-Pools beispielsweise „contoso11.azurewebsites.net“ und „contoso22.azurewebsites.net“ enthält, wird der ursprüngliche Hostheader der Anforderung (contoso.com) mit „contoso11.azurewebsites.net“ oder „contoso22.azurewebsites.net“ überschrieben, wenn die Anforderung an den entsprechenden Back-End-Server gesendet wird. 
+- Ableiten des Hostnamens von der IP-Adresse oder dem FQDN der Back-End-Poolmitglieder: Die HTTP-Einstellungen enthalten auch eine Option zur dynamischen Auswahl des Hostnamens vom vollqualifizierten Domänennamen eines Back-End-Poolelements, sofern die Option zur Ableitung des Hostnamens von einem einzelnen Back-End-Poolelement konfiguriert ist. Bei Verwendung von End-to-End-TLS wird dieser Hostname vom FQDN abgeleitet und in der SNI-Erweiterung verwendet. Diese Funktion ermöglicht Szenarien, in denen ein Back-End-Pool mehrere mehrinstanzenfähige PaaS-Dienste (z.B. Azure Web Apps) enthalten kann und der Hostheader der Anforderung für die einzelnen Mitglieder den vom entsprechenden FQDN abgeleiteten Hostnamen enthält. Für die Implementierung dieses Szenarios wird die Option [Hostnamen aus Back-End-Adresse auswählen](./configuration-http-settings.md#pick-host-name-from-back-end-address) in den HTTP-Einstellungen eingesetzt, durch die der Hostheader in der ursprünglichen Anforderung dynamisch mit dem erwähnten Hostheader im Back-End-Pool überschrieben wird.  Wenn der vollqualifizierte Domänenname Ihres Back-End-Pools beispielsweise „contoso11.azurewebsites.net“ und „contoso22.azurewebsites.net“ enthält, wird der ursprüngliche Hostheader der Anforderung (contoso.com) mit „contoso11.azurewebsites.net“ oder „contoso22.azurewebsites.net“ überschrieben, wenn die Anforderung an den entsprechenden Back-End-Server gesendet wird. 
 
   ![Web-App-Szenario](./media/application-gateway-web-app-overview/scenario.png)
 
@@ -59,8 +59,8 @@ In manchen Fällen leitet der Hostname in der Antwort von App Service den Browse
 - Sie haben für App Service eine Umleitung konfiguriert. Diese kann im einfachsten Fall auf einen nachgestellten Schrägstrich zurückzuführen sein, der der Anforderung hinzugefügt wurde.
 - Die Umleitung wird durch die Nutzung der Azure AD-Authentifizierung ausgelöst.
 
-Weitere Informationen zum Beheben solcher Probleme finden Sie im Artikel zur [Behandlung von Problemen mit der Umleitung zur App Service-URL](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url).
+Weitere Informationen zum Beheben solcher Probleme finden Sie im Artikel zur [Behandlung von Problemen mit der Umleitung zur App Service-URL](./troubleshoot-app-service-redirection-app-service-url.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Unter [Konfigurieren von App Service mit Application Gateway](https://docs.microsoft.com/azure/application-gateway/configure-web-app-portal) erfahren Sie, wie Sie ein Anwendungsgateway mit einer mehrinstanzenfähigen App wie einer Azure App Service-Web-App als Back-End-Poolelement einrichten.
+Unter [Konfigurieren von App Service mit Application Gateway](./configure-web-app-portal.md) erfahren Sie, wie Sie ein Anwendungsgateway mit einer mehrinstanzenfähigen App wie einer Azure App Service-Web-App als Back-End-Poolelement einrichten.

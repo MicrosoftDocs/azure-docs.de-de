@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 10/16/2020
-  ms.openlocfilehash: 28011d2f3bbbb838f0de9a66c98845d968620fb1
-  ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+  ms.date: 10/26/2020
+  ms.openlocfilehash: cef3c2ce0973436edf9406f9ef16b565735463ce
+  ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/21/2020
-  ms.locfileid: "92314176"
+  ms.lasthandoff: 10/30/2020
+  ms.locfileid: "93102002"
 landingContent:
 - title: Informationen zu Azure Policy
   linkLists:
@@ -57,6 +57,8 @@ landingContent:
       url: ./assign-policy-rest-api.md
     - text: Zuweisen einer Richtlinie (ARM-Vorlage)
       url: ./assign-policy-template.md
+    - text: Zuweisen einer Richtlinie (Terraform)
+      url: ./assign-policy-terraform.md
   - linkListType: tutorial
     links:
     - text: Erstellen und Verwalten von Richtlinien

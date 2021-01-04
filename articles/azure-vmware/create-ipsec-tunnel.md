@@ -3,12 +3,12 @@ title: Erstellen eines IPSec-Tunnels zu Azure VMware Solution
 description: Erfahren Sie, wie Sie einen virtuellen WAN-Hub zum Einrichten eines IPSec-Tunnels zu Azure VMware-Lösungen erstellen.
 ms.topic: how-to
 ms.date: 10/02/2020
-ms.openlocfilehash: 74cc31abf432954008cbb20bf64825d199732dab
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 9f869f04bf165f4791f13c626b63257ea98a7ca9
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951127"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506446"
 ---
 # <a name="create-an-ipsec-tunnel-into-azure-vmware-solution"></a>Erstellen eines IPSec-Tunnels zu Azure VMware Solution
 
@@ -16,7 +16,7 @@ In diesem Artikel werden die Schritte beschrieben, mit denen ein Site-to-Site-VP
 
 ## <a name="topology"></a>Topologie
 
-![Site-to-Site-VPN-Tunnelarchitektur.](media/create-ipsec-tunnel/vpn-s2s-tunnel-architecture.png)
+![Diagramm zur Site-to-Site-VPN-Tunnelarchitektur.](media/create-ipsec-tunnel/vpn-s2s-tunnel-architecture.png)
 
 Der Azure Virtual-Hub enthält das Azure VMware Solution ExpressRoute-Gateway und das Site-to-Site-VPN-Gateway. Er verbindet ein lokales VPN-Gerät mit einem Azure VMware Solution-Endpunkt.
 
@@ -39,7 +39,7 @@ Um den Site-to-Site-VPN-Tunnel zu erstellen, müssen Sie eine öffentliche IP-Ad
    | **Typ** | Wählen Sie **Standard** aus, um mehr als nur den VPN-Gatewaydatenverkehr zuzulassen.  |
 
 
-    :::image type="content" source="media/create-ipsec-tunnel/create-wan.png" alt-text="WAN erstellen.":::
+    :::image type="content" source="media/create-ipsec-tunnel/create-wan.png" alt-text="Der Screenshot zeigt die Seite „WAN erstellen“ im Azure-Portal.":::
 
 3. Wählen Sie im Azure-Portal das virtuelle WAN aus, das Sie im vorherigen Schritt erstellt haben. Wählen Sie **Virtuellen Hub erstellen** aus, geben Sie die erforderlichen Felder ein, und wählen Sie dann **Weiter: Standort-zu-Standort** aus. 
 
@@ -49,7 +49,7 @@ Um den Site-to-Site-VPN-Tunnel zu erstellen, müssen Sie eine öffentliche IP-Ad
    | **Name** |    |
    | **Privater Adressraum des Hubs** | Geben Sie das Subnetz mit `/24` ein (Minimum).  |
 
-    :::image type="content" source="media/create-ipsec-tunnel/create-virtual-hub.png" alt-text="WAN erstellen.":::
+    :::image type="content" source="media/create-ipsec-tunnel/create-virtual-hub.png" alt-text="Der Screenshot zeigt die Seite „Virtuellen Hub erstellen“.":::
 
 4. Definieren Sie auf der Registerkarte **Standort-zu-Standort** das Site-to-Site-Gateway, indem Sie den aggregierten Durchsatz in der Dropdown-Liste **Gateway-Skalierungseinheiten** festlegen. 
 
@@ -70,7 +70,7 @@ Um den Site-to-Site-VPN-Tunnel zu erstellen, müssen Sie eine öffentliche IP-Ad
 2. Wählen Sie in der **Übersicht** für den virtuellen Hub **Konnektivität** > **VPN (Standort-zu-Standort)** und dann **Neuen VPN-Standort erstellen** aus.
 
 
-    :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-basics.png" alt-text="WAN erstellen.":::  
+    :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-basics.png" alt-text="Der Screenshot zeigt die Übersichtsseite für den virtuellen Hub, wobei „VPN (Site-to-Site)“ und „Neue VPN-Site erstellen“ ausgewählt sind.":::  
  
 3. Geben Sie auf der Registerkarte **Grundlagen** die erforderlichen Felder ein, und wählen Sie dann **Weiter: Links** aus. 
 
@@ -93,14 +93,14 @@ Dieser Abschnitt gilt nur für richtlinienbasierte VPNs. Die Einrichtung von ric
 
 2. Wählen Sie den Namen Ihres VPN-Standorts, die Auslassungspunkte (...) ganz rechts und dann **VPN-Verbindung zu diesem Hub bearbeiten** aus.
  
-    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png" alt-text="WAN erstellen." lightbox="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png":::
+    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png" alt-text="Der Screenshot der Seite in Azure für den Standort des Virtual WAN-Hubs zeigt Auslassungspunkte, die für den Zugriff auf die VPN-Verbindung zu diesem Hub ausgewählt wurden." lightbox="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png":::
 
 3. Bearbeiten Sie die Verbindung zwischen dem VPN-Standort und dem Hub, und wählen Sie dann **Speichern** aus.
    - Wählen Sie für "IPSec" (Internet Protocol Security) **Benutzerdefiniert** aus.
    - **Aktivieren** Sie den Selektor für richtlinienbasierten Datenverkehr.
    - Geben Sie die Details für **IKE-Phase 1** und **IKE-Phase 2 (IPSec)** an. 
  
-    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-connection.png" alt-text="WAN erstellen."::: 
+    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-connection.png" alt-text="Der Screenshot der Seite „VPN-Verbindung bearbeiten“."::: 
  
     Die Datenverkehrsselektoren oder Subnetze, die Teil der richtlinienbasierten Verschlüsselungsdomäne sind, müssen wie folgt angegeben werden:
     
@@ -122,13 +122,15 @@ Dieser Abschnitt gilt nur für richtlinienbasierte VPNs. Die Einrichtung von ric
 
     Wechseln Sie zum Abschnitt **Konnektivität** der privaten Azure VMware Solution-Cloud. Wählen Sie auf der Registerkarte **ExpressRoute** die Option **+ Autorisierungsschlüssel anfordern** aus. Weisen Sie einen Namen zu, und wählen Sie **Erstellen** aus. (Die Erstellen des Schlüssels kann ungefähr 30 Sekunden dauern.) Kopieren Sie die ExpressRoute-ID und den Autorisierungsschlüssel. 
 
-    :::image type="content" source="media/create-ipsec-tunnel/express-route-connectivity.png" alt-text="WAN erstellen.":::
+    :::image type="content" source="media/create-ipsec-tunnel/express-route-connectivity.png" alt-text="Der Screenshot der Seite „Konnektivität“ für die private Cloud mit der ausgewählten Option „Autorisierungsschlüssel anfordern“ unter der Registerkarte „ExpressRoute“.":::
 
     > [!NOTE]
     > Der Autorisierungsschlüssel wird nach einiger Zeit nicht mehr angezeigt. Kopieren Sie ihn daher, sobald er angezeigt wird.
 
 4. Als Nächstes verbinden wir Azure VMware Solution und das VPN-Gateway im Virtual WAN-Hub. Öffnen Sie im Azure-Portal das zuvor erstellte virtuelle WAN. Wählen Sie den erstellten Virtual WAN-Hub und dann im linken Bereich **ExpressRoute** aus. Wählen Sie **+ Autorisierungsschlüssel einlösen** aus.
 
-    :::image type="content" source="media/create-ipsec-tunnel/redeem-authorization-key.png" alt-text="WAN erstellen." und die ExpressRoute-ID in das Feld **Peer-Leitungs-URI** ein. Achten Sie darauf, dass **Diese ExpressRoute-Leitung wird dem Hub automatisch zugeordnet** ausgewählt ist. Wählen Sie **Hinzufügen** aus, um die Verbindung zu erstellen. 
+    :::image type="content" source="media/create-ipsec-tunnel/redeem-authorization-key.png" alt-text="Der Screenshot der ExpressRoute-Seite für die private Cloud mit ausgewählter Option „Autorisierungsschlüssel einlösen“.":::
+
+    Fügen Sie den Autorisierungsschlüssel in das Feld "Autorisierungsschlüssel" und die ExpressRoute-ID in das Feld **Peer-Leitungs-URI** ein. Achten Sie darauf, dass **Diese ExpressRoute-Leitung wird dem Hub automatisch zugeordnet** ausgewählt ist. Wählen Sie **Hinzufügen** aus, um die Verbindung zu erstellen. 
 
 5. [Erstellen Sie ein NSX-T-Segment](./tutorial-nsx-t-network-segment.md) und stellen Sie einen virtuellen Computer im Netzwerk bereit, um die Verbindung zu testen. Senden Sie zum Testen Ping-Signale an den lokalen Endpunkt und den Azure VMware Solution-Endpunkt.

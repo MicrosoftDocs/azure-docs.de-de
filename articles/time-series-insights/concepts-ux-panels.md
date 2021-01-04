@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5810bea7920dbfe91a836814124cbe4c7f6f3bee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edfbbdd1b30cba74cf4f63d6b5e84c2e616e1a0f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653790"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020979"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights-Explorer
 
@@ -25,11 +25,11 @@ In diesem Artikel werden die in der Azure Time Series Insights Gen2-[Demoumgebun
 
 Für die ersten Schritte mit dem Azure Time Series Insights-Explorer ist Folgendes erforderlich:
 
-* Bereitstellung einer Azure Time Series Insights Gen2-Umgebung. Weitere Informationen zur Bereitstellung einer Instanz erhalten Sie im Tutorial [Azure Time Series Insights Gen2](./time-series-insights-update-create-environment.md).
-* [Bereitstellung von Datenzugriff](./time-series-insights-data-access.md) auf die Azure Time Series Insights Gen2-Umgebung, die Sie für das Konto erstellt haben. Außer Ihnen, können Sie auch anderen Zugriff gewähren.
+* Bereitstellung einer Azure Time Series Insights Gen2-Umgebung. Weitere Informationen zur Bereitstellung einer Instanz erhalten Sie im Tutorial [Azure Time Series Insights Gen2](./tutorials-set-up-tsi-environment.md).
+* [Bereitstellung von Datenzugriff](./concepts-access-policies.md) auf die Azure Time Series Insights Gen2-Umgebung, die Sie für das Konto erstellt haben. Außer Ihnen, können Sie auch anderen Zugriff gewähren.
 * Hinzufügen einer Ereignisquelle zur Azure Time Series Insights Gen2-Umgebung zum Übertragen von Daten an die Umgebung mithilfe von Push:
-  * Informationen zum [Herstellen einer Verbindung mit einem Event Hub](./time-series-insights-how-to-add-an-event-source-eventhub.md)
-  * Informationen zum [Herstellen einer Verbindung mit einem IoT-Hub](./time-series-insights-how-to-add-an-event-source-iothub.md)
+  * Informationen zum [Herstellen einer Verbindung mit einem Event Hub](./how-to-ingest-data-event-hub.md)
+  * Informationen zum [Herstellen einer Verbindung mit einem IoT-Hub](./how-to-ingest-data-iot-hub.md)
 
 ## <a name="explore-the-azure-time-series-insights-explorer"></a>Erkunden des Azure Time Series Insights-Explorers
 
@@ -221,7 +221,7 @@ Der Bereich des Azure Time Series Insights Gen2-Begriffs-Editors akzeptiert die 
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | Alle Operanden müssen denselben Typ aufweisen oder eine NULL-Konstante sein. |
 | `HAS` | String | Im rechten Bereich sind nur konstante Zeichenfolgenliterale zulässig. Leere Zeichenfolgen und NULL sind nicht zulässig. |
 
-Informationen zu den unterstützten Abfragevorgängen und Datentypen finden Sie unter [Time Series Expression (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+Informationen zu den unterstützten Abfragevorgängen und Datentypen finden Sie unter [Time Series Expression (TSX)](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 ### <a name="examples-of-where-clauses"></a>Beispiele für Where-Klauseln
 
@@ -245,4 +245,4 @@ Sie können Elemente im Diagrammbereich ein- und ausblenden, indem Sie das Symbo
 
 * Informieren Sie sich über die [Datenmodellierung](./concepts-model-overview.md) in Azure Time Series Insights Gen2.
 
-* Außerdem sollten Sie sich über das [Diagnostizieren und Beheben von Problemen](./time-series-insights-update-how-to-troubleshoot.md) in Ihrer Umgebung informieren.
+* Außerdem sollten Sie sich über das [Diagnostizieren und Beheben von Problemen](./how-to-diagnose-troubleshoot.md) in Ihrer Umgebung informieren.

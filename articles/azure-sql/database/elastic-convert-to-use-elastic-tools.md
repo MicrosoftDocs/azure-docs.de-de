@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 95afd0b9117caca4b531c453417217d8a8de7c7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6ad8b4c80f4b9c2fdb3c1a14209dcf0febc89e9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443479"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787141"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrieren vorhandener Datenbanken für die Aufskalierung
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -168,7 +168,7 @@ Informationen zu gängigen Datenarchitekturmustern von mehrinstanzenfähigen Saa
 
 ## <a name="questions-and-feature-requests"></a>Fragen und Featureanfragen
 
-Bei Fragen nutzen Sie die [Microsoft F&A-Seite für SQL-Datenbank](https://docs.microsoft.com/answers/topics/azure-sql-database.html), Featureanforderungen können Sie im [Feedbackforum für SQL-Datenbank](https://feedback.azure.com/forums/217321-sql-database/) einreichen.
+Bei Fragen nutzen Sie die [Microsoft F&A-Seite für SQL-Datenbank](/answers/topics/azure-sql-database.html), Featureanforderungen können Sie im [Feedbackforum für SQL-Datenbank](https://feedback.azure.com/forums/217321-sql-database/) einreichen.
 
 <!--Image references-->
 [1]: ./media/elastic-convert-to-use-elastic-tools/listmapping.png

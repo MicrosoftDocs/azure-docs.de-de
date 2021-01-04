@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 90993ea2ee66a23b5b629dfaf5bb34298ce15d9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93d90232fb530a6c14c40558fc6a9974a1da42de
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936281"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900915"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>Überprüfen von Text anhand einer benutzerdefinierten Begriffsliste in C#
 
@@ -43,7 +43,7 @@ Um Content Moderator-Dienste über die REST-API oder über das SDK verwenden zu 
 
 1. Fügen Sie Ihrer Projektmappe ein neues Projekt vom Typ **Konsolen-App (.NET Framework)** hinzu.
 
-1. Geben Sie dem Projekt den Namen **TermLists**. Wählen Sie dieses Projekt als einzelnes Startprojekt für die Projektmappe aus.
+1. Geben Sie dem Projekt den Namen **TermLists** . Wählen Sie dieses Projekt als einzelnes Startprojekt für die Projektmappe aus.
 
 ### <a name="install-required-packages"></a>Installieren erforderlicher Pakete
 
@@ -134,10 +134,10 @@ private const double latencyDelay = 0.5;
 
 ## <a name="create-a-term-list"></a>Erstellen einer Benennungsliste
 
-Sie erstellen eine Begriffsliste mit **ContentModeratorClient.ListManagementTermLists.Create**. Der erste Parameter für **Create** ist eine Zeichenfolge, die einen MIME-Typ enthält. Dieser sollte „application/json“ lauten. Weitere Informationen finden Sie in der [API-Referenz](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). Der zweite Parameter ist ein **Body**-Objekt, das einen Namen und eine Beschreibung für die neue Begriffsliste enthält.
+Sie erstellen eine Begriffsliste mit **ContentModeratorClient.ListManagementTermLists.Create** . Der erste Parameter für **Create** ist eine Zeichenfolge, die einen MIME-Typ enthält. Dieser sollte „application/json“ lauten. Weitere Informationen finden Sie in der [API-Referenz](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). Der zweite Parameter ist ein **Body** -Objekt, das einen Namen und eine Beschreibung für die neue Begriffsliste enthält.
 
 > [!NOTE]
-> Die Obergrenze liegt bei **fünf Benennungslisten**, wobei jede Liste **max. 10.000 Benennungen** enthalten kann.
+> Die Obergrenze liegt bei **fünf Benennungslisten** , wobei jede Liste **max. 10.000 Benennungen** enthalten kann.
 
 Fügen Sie die folgende Methodendefinition dem TermLists-Namespace (Program-Klasse) hinzu.
 
@@ -172,7 +172,7 @@ static string CreateTermList (ContentModeratorClient client)
 
 ## <a name="update-term-list-name-and-description"></a>Aktualisieren von Name und Beschreibung der Begriffsliste
 
-Sie aktualisieren die Begriffslisteninformationen mit **ContentModeratorClient.ListManagementTermLists.Update**. Der erste Parameter für **Update** ist die Begriffslisten-ID. Der zweite Parameter ist ein MIME-Typ. Dieser sollte „application/json“ lauten. Weitere Informationen finden Sie in der [API-Referenz](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f685). Der dritte Parameter ist ein **Body**-Objekt, das den neuen Namen und die Beschreibung enthält.
+Sie aktualisieren die Begriffslisteninformationen mit **ContentModeratorClient.ListManagementTermLists.Update** . Der erste Parameter für **Update** ist die Begriffslisten-ID. Der zweite Parameter ist ein MIME-Typ. Dieser sollte „application/json“ lauten. Weitere Informationen finden Sie in der [API-Referenz](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f685). Der dritte Parameter ist ein **Body** -Objekt, das den neuen Namen und die Beschreibung enthält.
 
 Fügen Sie die folgende Methodendefinition dem TermLists-Namespace (Program-Klasse) hinzu.
 
@@ -239,7 +239,7 @@ static void GetAllTerms(ContentModeratorClient client, string list_id)
 
 Nachdem Sie eine Begriffsliste geändert haben, aktualisieren Sie ihren Suchindex, damit die Änderungen verwendet werden, wenn Sie das nächste Mal mit der Begriffsliste einen Text überprüfen. Dies entspricht der Vorgehensweise einer Suchmaschine auf Ihrem Desktop (sofern aktiviert) oder einer Internetsuchmaschine, die kontinuierlich ihren Index zur Einbeziehung neuer Dateien oder Seiten aktualisiert.
 
-Sie aktualisieren einen Begriffslisten-Suchindex mit **ContentModeratorClient.ListManagementTermLists.RefreshIndexMethod**.
+Sie aktualisieren einen Begriffslisten-Suchindex mit **ContentModeratorClient.ListManagementTermLists.RefreshIndexMethod** .
 
 Fügen Sie die folgende Methodendefinition dem TermLists-Namespace (Program-Klasse) hinzu.
 
@@ -259,7 +259,7 @@ static void RefreshSearchIndex (ContentModeratorClient client, string list_id)
 
 ## <a name="screen-text-using-a-term-list"></a>Überprüfen von Bildschirmtext mithilfe einer Begriffsliste
 
-Sie überprüfen Text mithilfe einer Begriffsliste mit **ContentModeratorClient.TextModeration.ScreenText**, die folgende Parameter akzeptiert.
+Sie überprüfen Text mithilfe einer Begriffsliste mit **ContentModeratorClient.TextModeration.ScreenText** , die folgende Parameter akzeptiert.
 
 - Die Sprache der Begriffe in der Begriffsliste.
 - Ein MIME-Typ wie „text/html“, „text/xml“, „text/markdown“ oder „text/plain“.
@@ -270,7 +270,7 @@ Sie überprüfen Text mithilfe einer Begriffsliste mit **ContentModeratorClient.
 
 Weitere Informationen finden Sie in der [API-Referenz](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).
 
-**ScreenText** gibt ein **Screen**-Objekt zurück, das über eine **Terms**-Eigenschaft verfügt, die alle Begriffe auflistet, die Content Moderator in der Prüfung erkannt hat. Beachten Sie: Wenn Content Moderator während der Prüfung keine Begriffe erkannt hat, hat die **Terms**-Eigenschaft den Wert **NULL**.
+**ScreenText** gibt ein **Screen** -Objekt zurück, das über eine **Terms** -Eigenschaft verfügt, die alle Begriffe auflistet, die Content Moderator in der Prüfung erkannt hat. Beachten Sie: Wenn Content Moderator während der Prüfung keine Begriffe erkannt hat, hat die **Terms** -Eigenschaft den Wert **NULL** .
 
 Fügen Sie die folgende Methodendefinition dem TermLists-Namespace (Program-Klasse) hinzu.
 
@@ -296,7 +296,7 @@ static void ScreenText (ContentModeratorClient client, string list_id, string te
             Console.WriteLine(String.Format("Found term: \"{0}\" from list ID {1} at index {2}.", term.Term, term.ListId, term.Index));
         }
     }
-    read.Sleep(throttleRate);
+    Thread.Sleep(throttleRate);
 }
 ```
 
@@ -304,9 +304,9 @@ static void ScreenText (ContentModeratorClient client, string list_id, string te
 
 Das Löschen eines Begriffs oder einer Liste ist einfach. Mit dem SDK können Sie folgende Aufgaben durchführen:
 
-- Löschen eines Begriffs. (**ContentModeratorClient.ListManagementTerm.DeleteTerm**)
-- Löschen aller Begriffe in einer Liste, jedoch nicht der Liste selbst. (**ContentModeratorClient.ListManagementTerm.DeleteAllTerms**)
-- Löschen einer Liste und aller zugehörigen Inhalte (**ContentModeratorClient.ListManagementTerm.DeleteAllTerms**)
+- Löschen eines Begriffs. ( **ContentModeratorClient.ListManagementTerm.DeleteTerm** )
+- Löschen aller Begriffe in einer Liste, jedoch nicht der Liste selbst. ( **ContentModeratorClient.ListManagementTerm.DeleteAllTerms** )
+- Löschen einer Liste und aller zugehörigen Inhalte ( **ContentModeratorClient.ListManagementTerm.DeleteAllTerms** )
 
 ### <a name="delete-a-term"></a>Löschen eines Begriffs
 
@@ -365,7 +365,7 @@ static void DeleteTermList (ContentModeratorClient client, string list_id)
 
 ## <a name="compose-the-main-method"></a>Erstellen der Methode „Main“
 
-Fügen Sie die **Main**-Methodendefinition dem Namespace **TermLists** (Klasse **Program**) hinzu. Schließen Sie zum Schluss die Klasse **Program** und den Namespace **TermLists**.
+Fügen Sie die **Main** -Methodendefinition dem Namespace **TermLists** (Klasse **Program** ) hinzu. Schließen Sie zum Schluss die Klasse **Program** und den Namespace **TermLists** .
 
 ```csharp
 static void Main(string[] args)

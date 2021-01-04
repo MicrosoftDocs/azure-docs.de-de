@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: dac9df23209fa93b8060ad80d58fd66f7a356ecd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56638f14565f76b0a2fc252b81dba3dae9e53dd8
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651478"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289431"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Erstellen von ExpressRoute Direct mit dem Portal
 
@@ -30,7 +30,7 @@ ExpressRoute Direct ermöglicht es, sich direkt mit dem globalen Netzwerk von Mi
 
 1. Wählen Sie im Menü des [Azure-Portals](https://portal.azure.com) oder auf der **Homepage** die Option **Ressource erstellen** aus.
 
-1. Geben Sie auf der Seite **Neu** im Feld ***Marketplace durchsuchen*** den Suchbegriff **ExpressRoute Direct** ein, und drücken Sie anschließend die **EINGABETASTE**, um zu den Suchergebnissen zu gelangen.
+1. Geben Sie auf der Seite **Neu** im Feld **_Marketplace durchsuchen_ *_ den Suchbegriff _* ExpressRoute Direct** ein, und drücken Sie anschließend die **EINGABETASTE** , um zu den Suchergebnissen zu gelangen.
 
 1. Wählen Sie in den Ergebnissen **ExpressRoute Direct** aus.
 
@@ -40,18 +40,18 @@ ExpressRoute Direct ermöglicht es, sich direkt mit dem globalen Netzwerk von Mi
 
     :::image type="content" source="./media/how-to-expressroute-direct-portal/basics.png" alt-text="Seite „Grundlagen“":::
 
-    * **Abonnement**: Das Azure-Abonnement, das Sie zum Erstellen einer neuen ExpressRoute Direct-Ressource verwenden möchten. Die ExpressRoute Direct-Ressource und ExpressRoute-Leitungen müssen sich im selben Abonnement befinden.
-    * **Ressourcengruppe**: Die Azure-Ressourcengruppe, in der die neue ExpressRoute Direct-Ressource erstellt wird. Erstellen Sie eine Ressourcengruppe, wenn noch keine vorhanden ist.
-    * **Region**: Die öffentliche Azure-Region, in der die Ressource erstellt wird.
-    * **Name**: Der Name der neuen ExpressRoute Direct-Ressource.
+    * **Abonnement** : Das Azure-Abonnement, das Sie zum Erstellen einer neuen ExpressRoute Direct-Ressource verwenden möchten. Die ExpressRoute Direct-Ressource und ExpressRoute-Leitungen müssen sich im selben Abonnement befinden.
+    * **Ressourcengruppe** : Die Azure-Ressourcengruppe, in der die neue ExpressRoute Direct-Ressource erstellt wird. Erstellen Sie eine Ressourcengruppe, wenn noch keine vorhanden ist.
+    * **Region** : Die öffentliche Azure-Region, in der die Ressource erstellt wird.
+    * **Name** : Der Name der neuen ExpressRoute Direct-Ressource.
 
 1. Vervollständigen Sie dann die Felder auf der Seite **Konfiguration**.
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration.png" alt-text="Seite „Grundlagen“":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration.png" alt-text="Screenshot, der die Seite „Erstellen von ExpressRoute Direct“ mit ausgewählter Registerkarte „Konfiguration“ zeigt.":::
 
-    * **Peeringstandort**: Der Peeringstandort, an dem Sie eine Verbindung mit der ExpressRoute Direct-Ressource herstellen. Weitere Informationen zu Peeringstandorten finden Sie unter [ExpressRoute-Standorte](expressroute-locations-providers.md).
-   * **Bandbreite**: Die Portpaarbandbreite, die Sie reservieren möchten. ExpressRoute Direct unterstützt die Bandbreitenoptionen 10 GB und 100 GB. Wenn die gewünschte Bandbreite am angegebenen Peeringstandort nicht verfügbar ist, [öffnen Sie eine Supportanfrage im Azure-Portal](https://aka.ms/azsupt).
-   * **Kapselung**: ExpressRoute Direct unterstützt die Kapselungen QinQ und Dot1Q.
+    * **Peeringstandort** : Der Peeringstandort, an dem Sie eine Verbindung mit der ExpressRoute Direct-Ressource herstellen. Weitere Informationen zu Peeringstandorten finden Sie unter [ExpressRoute-Standorte](expressroute-locations-providers.md).
+   * **Bandbreite** : Die Portpaarbandbreite, die Sie reservieren möchten. ExpressRoute Direct unterstützt die Bandbreitenoptionen 10 GB und 100 GB. Wenn die gewünschte Bandbreite am angegebenen Peeringstandort nicht verfügbar ist, [öffnen Sie eine Supportanfrage im Azure-Portal](https://aka.ms/azsupt).
+   * **Kapselung** : ExpressRoute Direct unterstützt die Kapselungen QinQ und Dot1Q.
      * Bei Wahl von QinQ wird jeder ExpressRoute-Leitung dynamisch ein S-Tag zugewiesen, das in der gesamten ExpressRoute Direct-Ressource eindeutig ist.
      *  Jedes C-Tag für die Leitung muss innerhalb der Leitung eindeutig sein, jedoch nicht innerhalb von ExpressRoute Direct.
      * Wenn die Kapselung Dot1Q ausgewählt wird, müssen Sie die Eindeutigkeit des C-Tags (VLAN) für die gesamte ExpressRoute Direct-Ressource sicherstellen.
@@ -61,13 +61,13 @@ ExpressRoute Direct ermöglicht es, sich direkt mit dem globalen Netzwerk von Mi
 
 1. Geben Sie beliebige Ressourcentags an, und wählen Sie dann **Überprüfen und erstellen** aus, um die ExpressRoute Direct-Ressourceneinstellungen zu überprüfen.
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/validate.png" alt-text="Seite „Grundlagen“":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/validate.png" alt-text="Screenshot, der die Seite „ExpressRoute erstellen“ mit ausgewählter Registerkarte „Überprüfen und erstellen“ zeigt.":::
 
 1. Klicken Sie auf **Erstellen**. Daraufhin wird eine Meldung mit dem Hinweis angezeigt, dass Ihre Bereitstellung ausgeführt wird. Der Status der Ressourcenerstellung wird auf dieser Seite angezeigt. 
 
 ## <a name="generate-the-letter-of-authorization-loa"></a><a name="authorization"></a>Generieren des Genehmigungsschreibens (Letter of Authorization, LOA)
 
-Die Generierung des Genehmigungsschreibens steht aktuell im Portal nicht zur Verfügung. Verwenden Sie **[Azure PowerShell](expressroute-howto-erdirect.md#authorization)** oder die **[Azure-Befehlszeilenschnittstelle](expressroute-howto-expressroute-direct-cli.md#authorization)** , um das Genehmigungsschreiben abzurufen.
+Die Generierung des Genehmigungsschreibens steht aktuell im Portal nicht zur Verfügung. Verwenden Sie **[Azure PowerShell](expressroute-howto-erdirect.md#authorization)** , um das Genehmigungsschreiben abzurufen.
 
 ## <a name="change-admin-state-of-links"></a><a name="state"></a>Ändern des Verwaltungsstatus von Verknüpfungen
 
@@ -75,11 +75,11 @@ Dieser Prozess sollte verwendet werden, um einen Layer-1-Test durchzuführen, de
 
 1. Wählen Sie auf der Seite **Übersicht** der ExpressRoute Direct-Ressource im Abschnitt **Links** die Angabe **Link1** aus.
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/link.png" alt-text="Seite „Grundlagen“" lightbox="./media/how-to-expressroute-direct-portal/link-expand.png":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/link.png" alt-text="Link 1" lightbox="./media/how-to-expressroute-direct-portal/link-expand.png":::
 
 1. Schalten Sie die Einstellung **Administratorstatus** auf **Aktiviert** um, und wählen Sie dann **Speichern** aus.
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/state.png" alt-text="Seite „Grundlagen“":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/state.png" alt-text="Administratorstatus":::
 
     >[!IMPORTANT]
     >Die Abrechnung beginnt, wenn der Administratorstatus für einen der beiden Links aktiviert ist.
@@ -101,15 +101,15 @@ Die folgenden Schritte unterstützen Sie beim Erstellen einer ExpressRoute-Verbi
 
 1. Wählen Sie im Abschnitt **ExpressRoute Direct-Einstellungen** die Option **Verbindungen** aus, und wählen Sie dann **+Hinzufügen** aus. 
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/add.png" alt-text="Seite „Grundlagen“" lightbox="./media/how-to-expressroute-direct-portal/add-expand.png":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/add.png" alt-text="Der Screenshot zeigt die ExpressRoute-Einstellungen mit ausgewählten Verbindungen und hervorgehobener Option „Hinzufügen“." lightbox="./media/how-to-expressroute-direct-portal/add-expand.png":::
 
 1. Konfigurieren Sie die Einstellungen auf der Seite **Konfiguration**.
 
-   :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration2.png" alt-text="Seite „Grundlagen“":::
+   :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration2.png" alt-text="Seite „Konfiguration“ – ExpressRoute Direct":::
 
 1. Geben Sie beliebige Ressourcen Tags an, und wählen Sie **Überprüfen und erstellen** aus, um die Werte vor dem Erstellen der Ressource zu validieren.
 
-   :::image type="content" source="./media/how-to-expressroute-direct-portal/review.png" alt-text="Seite „Grundlagen“":::
+   :::image type="content" source="./media/how-to-expressroute-direct-portal/review.png" alt-text="Überprüfen und erstellen – ExpressRoute Direct":::
 
 1. Klicken Sie auf **Erstellen**. Daraufhin wird eine Meldung mit dem Hinweis angezeigt, dass Ihre Bereitstellung ausgeführt wird. Der Status der Ressourcenerstellung wird auf dieser Seite angezeigt. 
 

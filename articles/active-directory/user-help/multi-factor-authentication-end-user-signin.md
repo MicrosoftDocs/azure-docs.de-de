@@ -13,17 +13,17 @@ ms.date: 04/02/2017
 ms.author: curtand
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
-ms.openlocfilehash: 51cfe2c448fde8c50f8b846979a4b35fa4be5ec1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f27dd7daf310e425b09db7905ad2f7c37fcff81
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056027"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834165"
 ---
 # <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Anmelden bei Ihrem Geschäfts-, Schul- oder Unikonto unter Verwendung der zweistufigen Überprüfung
 
 > [!NOTE]
-> Zweck dieses Artikels ist eine exemplarische Vorgehensweise für einen typischen Anmeldevorgang. Hilfe zur Anmeldung oder zur Behebung von Problemen finden Sie unter [Beheben von Problemen mit Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
+> Zweck dieses Artikels ist eine exemplarische Vorgehensweise für einen typischen Anmeldevorgang. Hilfe zur Anmeldung oder zur Behebung von Problemen finden Sie unter [Beheben von Problemen mit Azure AD Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
 
 ## <a name="what-will-your-sign-in-experience-be"></a>Was sieht Ihr Anmeldevorgang aus?
 Ihr Anmeldevorgang hängt davon ab, was Sie als zweiten Faktor wählen: einen Telefonanruf, eine Authentication-App oder Textnachrichten. Wählen Sie die Option aus, die am besten auf Sie zutrifft:
@@ -83,7 +83,7 @@ Mitunter verfügen Sie nicht über das Telefon oder Gerät, das Sie als Ihre bev
    ![Anwenden einer alternativen Methode](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
-- Wenn Sie Probleme bei der Anmeldung mit der zweistufigen Überprüfung haben, finden Sie unter [Probleme mit Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md) weitere Informationen.
+- Wenn Sie Probleme bei der Anmeldung mit der zweistufigen Überprüfung haben, finden Sie unter [Probleme mit Azure AD Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md) weitere Informationen.
 
 - Lesen Sie den Artikel [Verwalten der Einstellungen für die zweistufige Überprüfung](multi-factor-authentication-end-user-manage-settings.md).
 

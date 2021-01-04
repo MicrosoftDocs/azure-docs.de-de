@@ -3,12 +3,12 @@ title: Grundlagen von Ressourcensperren
 description: Erfahren Sie, wie Sie die Sperrfunktionen in Azure Blueprints verwenden, um beim Zuweisen einer Blauphase die Ressourcen zu schützen.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8ac5c918a3c370b9d8e88800e05f83e585550e3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01f69cbfebe203407287392c2433181396b541b2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744014"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996099"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Grundlegendes zur Ressourcensperre in Azure Blueprint
 
@@ -39,7 +39,7 @@ Diese Sicherheitsmaßnahme schützt die Konsistenz der definierten Blaupause und
 
 ### <a name="assign-at-management-group"></a>Zuweisen in der Verwaltungsgruppe
 
-Eine zusätzliche Option zum Verhindern, dass Abonnementbesitzer die Zuweisung einer Blaupause entfernen, besteht darin, die Blaupause einer Verwaltungsgruppe zuzuweisen. In diesem Szenario haben nur **Besitzer** der Verwaltungsgruppe die erforderlichen Berechtigungen, um die Blaupausenzuweisung zu entfernen.
+Die einzige Möglichkeit zum Verhindern, dass Abonnementbesitzer die Zuweisung einer Blaupause entfernen, besteht darin, die Blaupause einer Verwaltungsgruppe zuzuweisen. In diesem Szenario haben nur **Besitzer** der Verwaltungsgruppe die erforderlichen Berechtigungen, um die Blaupausenzuweisung zu entfernen.
 
 Um die Blaupause einer Verwaltungsgruppe anstelle eines Abonnements zuzuweisen, ändert sich der REST-API-Aufruf so, dass er wie folgt aussieht:
 
@@ -109,7 +109,7 @@ Die [Eigenschaften von Ablehnungszuweisungen](../../../role-based-access-control
 
 |Mode |Permissions.Actions |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|Nur Leseberechtigung |**\*** |**\*/read**<br />**Microsoft.Authorization/locks/delete**<br />**Microsoft.Network/virtualNetwork/subnets/join/action** |SystemDefined (Alle) |Blaupausenzuweisung und benutzerdefiniert in **excludedPrincipals** |Ressourcengruppe – _true_; Ressource – _false_ |
+|Nur Leseberechtigung |**\** _ |_ *\*/read **<br />** Microsoft.Authorization/locks/delete **<br />** Microsoft.Network/virtualNetwork/subnets/join/action** |SystemDefined (Alle) |Blaupausenzuweisung und benutzerdefiniert in **excludedPrincipals** |Ressourcengruppe – _true_; Ressource – _false_ |
 |Nicht löschen |**\*/delete** | **Microsoft.Authorization/locks/delete**<br />**Microsoft.Network/virtualNetwork/subnets/join/action** |SystemDefined (Alle) |Blaupausenzuweisung und benutzerdefiniert in **excludedPrincipals** |Ressourcengruppe – _true_; Ressource – _false_ |
 
 > [!IMPORTANT]

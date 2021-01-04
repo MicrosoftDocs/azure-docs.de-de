@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/29/2019
+ms.date: 11/11/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 9427ec4530ac249d5b8059d04fc85f1183c0081c
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: c68f76e56f49f055466f7332d7751ac468e034d8
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123890"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616738"
 ---
 ::: zone target="docs"
 
@@ -74,7 +74,7 @@ Wenn Sie einen Windows Server-Hostcomputer verwenden, führen Sie die folgenden 
 
     ![Abrufen von Anmeldeinformationen für SMB-Freigaben](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. Kopieren Sie im Dialogfeld „Auf Freigabe zugreifen und Daten kopieren“ den **Benutzernamen** und das **Kennwort** für die Freigabe. Klicken Sie auf **OK**.
+2. Kopieren Sie im Dialogfeld „Auf Freigabe zugreifen und Daten kopieren“ den **Benutzernamen** und das **Kennwort** für die Freigabe. Klicken Sie anschließend auf **OK**.
     
     ![Abrufen des Benutzernamens und des Kennworts für eine Freigabe](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
@@ -87,11 +87,11 @@ Wenn Sie einen Windows Server-Hostcomputer verwenden, führen Sie die folgenden 
     - Azure-Seitenblob: `\\10.126.76.138\utSAC1_202006051000_PageBlob`
     - Azure-Dateien: `\\10.126.76.138\utSAC1_202006051000_AzFile`
 
-4. Geben Sie das Kennwort für die Freigabe ein, wenn Sie dazu aufgefordert werden. Das folgende Beispiel zeigt das Herstellen einer Verbindung mit einer Freigabe über den obigen Befehl.
+4. Geben Sie das Kennwort für die Freigabe ein, wenn Sie dazu aufgefordert werden. Wenn das Kennwort Sonderzeichen enthält, fügen Sie vor und hinter dem Kennwort doppelte Anführungszeichen ein. Das folgende Beispiel zeigt das Herstellen einer Verbindung mit einer Freigabe über den obigen Befehl.
 
     ```
     C:\Users\Databoxuser>net use \\10.126.76.138\utSAC1_202006051000_BlockBlob /u:testuser1
-    Enter the password for 'testuser1' to connect to '10.126.76.138':
+    Enter the password for 'testuser1' to connect to '10.126.76.138': "ab1c2def$3g45%6h7i&j8kl9012345"
     The command completed successfully.
     ```
 
@@ -229,11 +229,11 @@ Falls während des Kopiervorgangs Fehler auftreten, wird eine Benachrichtigung a
 
 Wählen Sie **Problemliste herunterladen** aus.
 
-![Herunterladen und Anzeigen von Fehlern beim Verbinden und Kopieren 2](media/data-box-deploy-copy-data/view-errors-2.png)
+![Option „Verbindung herstellen und Daten kopieren“, Herunterladen der Problemliste](media/data-box-deploy-copy-data/view-errors-2.png)
 
 Öffnen Sie die Liste, um die Details des Fehlers anzuzeigen, und wählen Sie die Lösungs-URL aus, um die empfohlene Lösung anzuzeigen.
 
-![Herunterladen und Anzeigen von Fehlern beim Verbinden und Kopieren 3](media/data-box-deploy-copy-data/view-errors-3.png)
+![Option „Verbindung herstellen und Daten kopieren“, Herunterladen und Anzeigen von Fehlern](media/data-box-deploy-copy-data/view-errors-3.png)
 
 Weitere Informationen finden Sie unter [Anzeigen von Fehlerprotokollen beim Kopieren von Daten auf die Data Box](data-box-logs.md#view-error-log-during-data-copy). Eine detaillierte Liste von Fehlern beim Datenkopiervorgang finden Sie unter [Behandeln von Problemen bei der Data Box](data-box-troubleshoot.md).
 

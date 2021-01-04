@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7b41105bafedb8eeaffe5f266f5dd824957c57e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26a5537496d9e881ece135437c403baf4a4fd67c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441185"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016630"
 ---
 Derzeit gibt es für Ultra-Datenträger weitere Einschränkungen, die wie folgt lauten:
 
@@ -34,6 +34,7 @@ In der folgenden Tabelle sind die Regionen, in denen Disk Ultra-Datenträger ver
 |USA Süd Mitte    |Nur einzelne VMs (Verfügbarkeitsgruppen und VM-Skalierungsgruppen werden nicht unterstützt)|
 |US Gov Arizona     |Nur einzelne VMs (Verfügbarkeitsgruppen und VM-Skalierungsgruppen werden nicht unterstützt)|
 |US Government, Virginia     |Nur einzelne VMs (Verfügbarkeitsgruppen und VM-Skalierungsgruppen werden nicht unterstützt)|
+|US Gov Texas     |Nur einzelne VMs (Verfügbarkeitsgruppen und VM-Skalierungsgruppen werden nicht unterstützt)|
 |USA (Westen)     |Nur einzelne VMs (Verfügbarkeitsgruppen und VM-Skalierungsgruppen werden nicht unterstützt)        |
 |Australien, Mitte    |Nur einzelne VMs (Verfügbarkeitsgruppen und VM-Skalierungsgruppen werden nicht unterstützt)|
 |Australien (Osten)     |Drei Verfügbarkeitszonen         |
@@ -66,7 +67,7 @@ In der folgenden Tabelle sind die Regionen, in denen Disk Ultra-Datenträger ver
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
 - Nicht jede VM-Größe ist in allen unterstützten Regionen mit Ultra-Datenträgern verfügbar.
 - Nur als Datenträger verfügbar. 
-- Unterstützt standardmäßig die physische Sektorgröße von 4K. Die Sektorgröße 512E ist als allgemein verfügbares Angebot verfügbar, Sie müssen sich jedoch dafür [registrieren](https://aka.ms/ultradisk512e). Die meisten Anwendungen sind mit der Sektorgröße 4K kompatibel, einige benötigen jedoch eine Sektorgröße von 512 Byte. Für Oracle Database ist beispielsweise die Version 12.2 oder höher erforderlich, um native Datenträger mit 4K zu unterstützen. Ältere Oracle DB-Versionen benötigen eine Sektorgröße von 512 Byte.
+- Unterstützt standardmäßig die physische Sektorgröße von 4K. Die Sektorgröße 512E ist als allgemein verfügbares Angebot verfügbar (keine Registrierung erforderlich), ist aber derzeit nur über die CLI oder PowerShell verfügbar. Die meisten Anwendungen sind mit der Sektorgröße 4K kompatibel, einige benötigen jedoch eine Sektorgröße von 512 Byte. Für Oracle Database ist beispielsweise die Version 12.2 oder höher erforderlich, um native Datenträger mit 4K zu unterstützen. Ältere Oracle DB-Versionen benötigen eine Sektorgröße von 512 Byte.
 - Können nur als leere Datenträger erstellt werden.
 - Unterstützt derzeit keine Momentaufnahmen von Datenträgern, VM-Images, Verfügbarkeitsgruppen, Azure Dedicated Hosts oder Azure Disk Encryption.
 - Unterstützt derzeit keine Integration in Azure Backup oder Azure Site Recovery.

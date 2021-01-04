@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2020
 ms.author: rolyon
-ms.openlocfilehash: 91d2605dddd6107d09e635969f5e5d98c2a02d60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ab6561b1dc0e8b977fc69d259c5f26366f355ce
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511720"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481328"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Erstellen oder Aktualisieren von benutzerdefinierten Azure-Rollen über das Azure-Portal
 
@@ -37,7 +37,7 @@ Azure verfügt über Tausende von Berechtigungen, die Sie potenziell zu Ihrer be
 | --- | --- |
 | Überprüfen vorhandener Rollen | Überprüfen Sie vorhandene Rollen, um herauszufinden, welche Berechtigungen verwendet werden. Weitere Informationen finden Sie unter [Integrierte Azure-Rollen](built-in-roles.md). |
 | Suche nach Berechtigungen anhand von Schlüsselwörtern | Wenn Sie über das Azure-Portal eine benutzerdefinierte Rolle erstellen, können Sie anhand von Schlüsselwörtern nach Berechtigungen suchen. Sie können z.B. nach Berechtigungen im Zusammenhang mit *VMs* oder mit der *Abrechnung* suchen. Diese Suchfunktion wird weiter unten näher beschrieben: [Schritt 4: Permissions](#step-4-permissions) (Weiter: Berechtigungen). |
-| Herunterladen aller Berechtigungen | Wenn Sie über das Azure-Portal eine benutzerdefinierte Rolle erstellen, können Sie alle Berechtigungen als CSV-Datei herunterladen und diese Datei anschließend durchsuchen. Klicken Sie im Bereich **Berechtigungen hinzufügen** auf die Schaltfläche **Alle Berechtigungen herunterladen**, um alle Berechtigungen herunterzuladen. Weitere Informationen zum Bereich „Berechtigungen hinzufügen“ finden Sie unter [Schritt 4: Permissions](#step-4-permissions) (Weiter: Berechtigungen). |
+| Herunterladen aller Berechtigungen | Wenn Sie über das Azure-Portal eine benutzerdefinierte Rolle erstellen, können Sie alle Berechtigungen als CSV-Datei herunterladen und diese Datei anschließend durchsuchen. Klicken Sie im Bereich **Berechtigungen hinzufügen** auf die Schaltfläche **Alle Berechtigungen herunterladen** , um alle Berechtigungen herunterzuladen. Weitere Informationen zum Bereich „Berechtigungen hinzufügen“ finden Sie unter [Schritt 4: Permissions](#step-4-permissions) (Weiter: Berechtigungen). |
 | Anzeigen der Berechtigungen in den Dokumenten | Eine Liste der verfügbaren Berechtigungen finden Sie unter [Vorgänge für Azure Resource Manager-Ressourcenanbieter](resource-provider-operations.md). |
 
 ## <a name="step-2-choose-how-to-start"></a>Schritt 2: Auswahl der Vorgehensweise zum Erstellen einer Rolle
@@ -54,7 +54,7 @@ Wenn eine vorhandene Rolle nicht über die erforderlichen Berechtigungen verfüg
 
     ![Die Seite „Zugriffssteuerung (IAM)“ für ein Abonnement](./media/custom-roles-portal/access-control-subscription.png)
 
-1. Klicken Sie auf die Registerkarte **Rollen**, um eine Liste aller integrierten und benutzerdefinierten Rollen anzuzeigen.
+1. Klicken Sie auf die Registerkarte **Rollen** , um eine Liste aller integrierten und benutzerdefinierten Rollen anzuzeigen.
 
 1. Suchen Sie nach einer Rolle, die Sie klonen möchten, z.B. nach der Rolle „Abrechnungsleser“.
 
@@ -176,13 +176,13 @@ Führen Sie diese Schritte aus, um Berechtigungen für Ihre benutzerdefinierte R
 
     In diesem Bereich werden alle verfügbaren Berechtigungen aufgelistet (in einem Kartenformat in verschiedenen Kategorien gruppiert). Jede Kategorie stellt einen *Ressourcenanbieter* dar. Dabei handelt es sich um einen Dienst, der Azure-Ressourcen bereitstellt.
 
-1. Geben Sie im Feld **Berechtigung suchen** eine Zeichenfolge ein, um nach Berechtigungen zu suchen. Suchen Sie z.B. nach *Rechnung*, um Berechtigungen zu finden, die mit Rechnungen in Zusammenhang stehen.
+1. Geben Sie im Feld **Berechtigung suchen** eine Zeichenfolge ein, um nach Berechtigungen zu suchen. Suchen Sie z.B. nach *Rechnung* , um Berechtigungen zu finden, die mit Rechnungen in Zusammenhang stehen.
 
     Basierend auf Ihrer Suchzeichenfolge wird eine Liste mit Ressourcenanbieterkarten angezeigt. Eine Übersicht über die Zuordnung von Ressourcenanbietern und Azure-Diensten finden Sie unter [Ressourcenanbieter für Azure-Dienste](../azure-resource-manager/management/azure-services-resource-providers.md).
 
     ![Der Bereich „Berechtigungen hinzufügen“ mit Ressourcenanbietern](./media/custom-roles-portal/add-permissions-provider.png)
 
-1. Klicken Sie auf die Karte eines Ressourcenanbieters, der möglicherweise über die Berechtigungen verfügt, die Sie Ihrer benutzerdefinierten Rolle hinzufügen möchten (z.B. **Microsoft-Abrechnung**).
+1. Klicken Sie auf die Karte eines Ressourcenanbieters, der möglicherweise über die Berechtigungen verfügt, die Sie Ihrer benutzerdefinierten Rolle hinzufügen möchten (z.B. **Microsoft-Abrechnung** ).
 
     Basierend auf Ihrer Suchzeichenfolge wird eine Liste mit Verwaltungsberechtigungen für den jeweiligen Ressourcenanbieter angezeigt.
 
@@ -194,7 +194,7 @@ Führen Sie diese Schritte aus, um Berechtigungen für Ihre benutzerdefinierte R
 
 1. Sobald Sie mindestens eine Berechtigung gefunden haben, die Sie zu Ihrer benutzerdefinierten Rolle hinzufügen möchten, fügen Sie neben der Berechtigung ein Häkchen hinzu. Fügen Sie z.B. ein Häkchen neben **Sonstiges: Rechnung herunterladen** hinzu, um die Berechtigung zum Herunterladen von Rechnungen hinzuzufügen.
 
-1. Klicken Sie auf **Hinzufügen**, um die Berechtigung zu Ihrer Liste hinzuzufügen.
+1. Klicken Sie auf **Hinzufügen** , um die Berechtigung zu Ihrer Liste hinzuzufügen.
 
     Die Berechtigung wird als `Actions` oder `DataActions` hinzugefügt.
 
@@ -231,7 +231,7 @@ Wenn Sie eine Berechtigung ausschließen, wird sie als `NotActions` oder `NotDat
 > [!NOTE]
 > Das Ausschließen einer Berechtigung ist nicht mit dem Verweigern einer Berechtigung identisch. Das Ausschließen von Berechtigungen dient lediglich dazu, Berechtigungen aus einer Platzhalterberechtigung zu entfernen.
 
-1. Zum Ausschließen oder Entfernen von Berechtigungen aus einer zulässigen Platzhalterberechtigung klicken Sie auf **Berechtigungen ausschließen**, um den Bereich „Berechtigungen ausschließen“ zu öffnen.
+1. Zum Ausschließen oder Entfernen von Berechtigungen aus einer zulässigen Platzhalterberechtigung klicken Sie auf **Berechtigungen ausschließen** , um den Bereich „Berechtigungen ausschließen“ zu öffnen.
 
     In diesem Bereich geben Sie die Verwaltungs- oder Datenberechtigungen an, die ausgeschlossen oder entfernt werden.
 
@@ -247,7 +247,7 @@ Wenn Sie eine Berechtigung ausschließen, wird sie als `NotActions` oder `NotDat
 
 Auf der Registerkarte **Zuweisbare Bereiche** geben Sie an, wo Ihre benutzerdefinierte Rolle zugewiesen werden kann (z.B. in einem Abonnement oder in einer Ressourcengruppe). Abhängig davon, wie Sie den Vorgang zum Erstellen der Rolle begonnen haben, wird auf dieser Registerkarte möglicherweise der Bereich angezeigt, in dem Sie die Seite „Zugriffssteuerung (IAM)“ geöffnet haben. Der zuweisbare Bereich kann nicht auf den Stammbereich ("/") festgelegt werden. Derzeit können keine Verwaltungsgruppen als zuweisbarer Bereich hinzugefügt werden.
 
-1. Klicken Sie auf **Zuweisbare Bereiche hinzufügen**, um den Bereich „Zuweisbare Bereiche hinzufügen“ zu öffnen.
+1. Klicken Sie auf **Zuweisbare Bereiche hinzufügen** , um den Bereich „Zuweisbare Bereiche hinzufügen“ zu öffnen.
 
     ![Die Registerkarte „Zuweisbare Bereiche“](./media/custom-roles-portal/assignable-scopes.png)
 
@@ -255,7 +255,7 @@ Auf der Registerkarte **Zuweisbare Bereiche** geben Sie an, wo Ihre benutzerdefi
 
     ![Hinzufügen von zuweisbaren Bereichen](./media/custom-roles-portal/add-assignable-scopes.png)
 
-1. Klicken Sie auf die Registerkarte **Hinzufügen**, um Ihren zuweisbaren Bereich hinzuzufügen.
+1. Klicken Sie auf die Registerkarte **Hinzufügen** , um Ihren zuweisbaren Bereich hinzuzufügen.
 
 ## <a name="step-6-json"></a>Schritt 6: JSON
 
@@ -269,7 +269,7 @@ Auf der Registerkarte **JSON** wird Ihre benutzerdefinierte Rolle im JSON-Format
 
     Wenn der JSON-Code nicht ordnungsgemäß formatiert ist, sehen Sie eine rote Zackenlinie und einen Hinweis im vertikalen Bundsteg.
 
-1. Klicken Sie auf **Speichern**, wenn Sie fertig sind.
+1. Klicken Sie auf **Speichern** , wenn Sie fertig sind.
 
 ## <a name="step-7-review--create"></a>Schritt 7: Bewerten + erstellen
 
@@ -279,7 +279,7 @@ Auf der Registerkarte **Bewerten + erstellen** können Sie die Einstellungen Ihr
 
     ![Registerkarte „Überprüfen und erstellen“](./media/custom-roles-portal/review-create.png)
 
-1. Klicken Sie auf **Erstellen**, um Ihre benutzerdefinierte Rolle zu erstellen.
+1. Klicken Sie auf **Erstellen** , um Ihre benutzerdefinierte Rolle zu erstellen.
 
     Nach einigen Augenblicken wird in einem Meldungsfeld angezeigt, dass Ihre benutzerdefinierte Rolle erfolgreich erstellt wurde.
 
@@ -299,7 +299,7 @@ Führen Sie die folgenden Schritte aus, um Ihre benutzerdefinierten Rollen anzuz
 
 1. Öffnen Sie ein Abonnement oder eine Ressourcengruppe, und öffnen Sie dann **Zugriffssteuerung (IAM)** .
 
-1. Klicken Sie auf die Registerkarte **Rollen**, um eine Liste aller integrierten und benutzerdefinierten Rollen anzuzeigen.
+1. Klicken Sie auf die Registerkarte **Rollen** , um eine Liste aller integrierten und benutzerdefinierten Rollen anzuzeigen.
 
 1. Wählen Sie in der Liste **Type** die Option **CustomRole** aus, um Ihre benutzerdefinierten Rollen anzuzeigen.
 
@@ -319,9 +319,9 @@ Führen Sie die folgenden Schritte aus, um Ihre benutzerdefinierten Rollen anzuz
 
 1. Verwenden Sie die verschiedenen Registerkarten, um die benutzerdefinierte Rolle zu aktualisieren.
 
-1. Wenn Sie fertig sind, klicken Sie auf die Registerkarte **Überprüfen + erstellen**, um Ihre Änderungen zu überprüfen.
+1. Wenn Sie fertig sind, klicken Sie auf die Registerkarte **Überprüfen + erstellen** , um Ihre Änderungen zu überprüfen.
 
-1. Klicken Sie auf die Schaltfläche **Aktualisieren**, um Ihre benutzerdefinierte Rolle zu aktualisieren.
+1. Klicken Sie auf die Schaltfläche **Aktualisieren** , um Ihre benutzerdefinierte Rolle zu aktualisieren.
 
 ## <a name="delete-a-custom-role"></a>Löschen einer benutzerdefinierten Rolle
 
@@ -331,7 +331,7 @@ Führen Sie die folgenden Schritte aus, um Ihre benutzerdefinierten Rollen anzuz
 
 1. Klicken Sie auf die Auslassungspunkte ( **...** ) für die benutzerdefinierte Rolle, die Sie löschen möchten, und klicken Sie dann auf **Löschen**.
 
-    ![Das Menü „Benutzerdefinierte Rolle“](./media/custom-roles-portal/delete-menu.png)
+    ![Screenshot einer Liste benutzerdefinierter Rollen, die zum Löschen ausgewählt werden können.](./media/custom-roles-portal/delete-menu.png)
 
     Es kann einige Minuten dauern, bis Ihre benutzerdefinierte Rolle vollständig gelöscht ist.
 

@@ -5,23 +5,18 @@ services: web-application-firewall
 ms.topic: article
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 10/14/2020
+ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: 789a60c80d14301c107824d178a3566d358d287f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 59ca0b85ba2aff29bdb2ad3379c1054041d2b4cb
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056394"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518735"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Übersicht über die Azure Web Application Firewall (WAF)-Richtlinien
 
 Web Application Firewall-Richtlinien enthalten alle WAF-Einstellungen und -Konfigurationen. Dies umfasst Ausschlüsse, benutzerdefinierte Regeln, verwaltete Regeln usw. Diese Richtlinien werden dann einer Anwendungsgateway- (global), einer Listener- (pro Website) oder einer pfadbasierten Regel (pro URI) zugeordnet, damit Sie wirksam werden.
-
-> [!NOTE]
-> URI-spezifische Azure WAF-Richtlinien (Web Application Firewall) sind als Public Preview verfügbar.
-> 
-> Diese öffentliche Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und sollte nicht für Produktionsworkloads verwendet werden. Unter Umständen werden bestimmte Features nicht unterstützt, verfügen über eingeschränkte Funktionen und sind nicht an allen Azure-Standorten verfügbar. Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Die Anzahl der Richtlinien, die Sie erstellen können, ist nach oben hin nicht begrenzt. Wenn Sie eine Richtlinie erstellen, muss sie einem Anwendungsgateway zugeordnet werden, um wirksam zu werden. Sie kann einer beliebigen Kombination von Anwendungsgateways, Listenern und pfadbasierten Regeln zugeordnet werden.
 
@@ -43,7 +38,7 @@ Für eine noch bessere Anpassung bis auf URI-Ebene können Sie eine WAF-Richtlin
 
 Wie bei den Pro-Website-WAF-Richtlinien setzen spezifischere Richtlinien weniger spezifische Richtlinien außer Kraft. Das bedeutet, dass eine Pro-URI-Richtlinie auf einer URL-Pfadkarte jede Pro-Website- oder globale WAF-Richtlinie darüber außer Kraft setzt.
 
-## <a name="example"></a>Beispiel
+### <a name="example"></a>Beispiel
 
 Angenommen, Sie verfügen über drei Websites („contoso.com“, „fabrikam.com“ und „adatum.com“) hinter demselben Anwendungsgateway. Sie möchten eine WAF auf alle drei Websites anwenden, aber Sie benötigen zusätzliche Sicherheit für „adatum.com“, da Kunden hier Produkte anzeigen, suchen und kaufen.
 
@@ -53,11 +48,11 @@ Diese globale Richtlinie eignet sich für „contoso.com“ und „fabrikam.com�
 
 Für den URI „adatum.com/payments“ müssen Sie größere Vorsicht walten lassen. Wenden Sie daher eine andere Richtlinie auf diesen URI an, lassen Sie alle Regeln aktiviert, und entfernen Sie alle Ausschlüsse.
 
-In diesem Beispiel sehen Sie eine globale Richtlinie, die für zwei Websites gilt. Sie verfügen über eine Pro-Website-Richtlinie, die auf einen Standort angewendet wird, und eine Pro-URI-Richtlinie, die für eine bestimmte pfadbasierte Regel gilt. Weitere Informationen zum Erstellen von Pro-Website- und Pro-URI-Richtlinien für die entsprechende PowerShell für dieses Beispiel finden Sie unter (Link hier einfügen, wenn vorhanden).
+In diesem Beispiel sehen Sie eine globale Richtlinie, die für zwei Websites gilt. Sie verfügen über eine Pro-Website-Richtlinie, die auf einen Standort angewendet wird, und eine Pro-URI-Richtlinie, die für eine bestimmte pfadbasierte Regel gilt. Weitere Informationen zur PowerShell-Konfiguration für dieses Beispiel finden Sie unter [Konfigurieren von websitespezifischen WAF-Richtlinien mithilfe von Azure PowerShell](per-site-policies.md).
 
 ## <a name="existing-waf-configurations"></a>Vorhandene WAF-Konfigurationen
 
-Alle neuen WAF-Einstellungen (benutzerdefinierte Regeln, verwaltete Regelsatzkonfigurationen, Ausschlüsse usw.) sind in einer WAF-Richtlinie enthalten. Wenn Sie bereits über eine WAF verfügen, sind diese Einstellungen möglicherweise weiterhin in Ihrer WAF-Konfiguration vorhanden. Weitere Informationen zum Umstieg auf die neue WAF-Richtlinie finden Sie unter [Migrieren der WAF-Konfiguration zu einer WAF-Richtlinie](https://docs.microsoft.com/azure/web-application-firewall/ag/migrate-policy). 
+Alle neuen WAF-Einstellungen (benutzerdefinierte Regeln, verwaltete Regelsatzkonfigurationen, Ausschlüsse usw.) sind in einer WAF-Richtlinie enthalten. Wenn Sie bereits über eine WAF verfügen, sind diese Einstellungen möglicherweise weiterhin in Ihrer WAF-Konfiguration vorhanden. Weitere Informationen zum Umstieg auf die neue WAF-Richtlinie finden Sie unter [Migrieren der WAF-Konfiguration zu einer WAF-Richtlinie](./migrate-policy.md). 
 
 
 ## <a name="next-steps"></a>Nächste Schritte

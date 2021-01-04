@@ -7,21 +7,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 07/01/2020
+ms.date: 11/23/2020
 ms.author: pafarley
-ms.openlocfilehash: 981c6f6bb2b0eb597b32ce8e428ef0aa7d19929b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ba08f11fb52fc0ffe3acda5e81e21b7e7629628
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88003353"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95757419"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Tutorial: Erstellen einer Formularverarbeitungs-App mit AI Builder
 
-[AI Builder](https://docs.microsoft.com/ai-builder/overview) ist eine Power Platform-Funktion, mit der Sie Prozesse automatisieren und Ergebnisse vorhersagen können, um die Unternehmensleistung zu steigern. Die Formularverarbeitung von AI Builder ermöglicht die Erstellung von KI-Modellen, mit denen Schlüssel-Wert-Paare und Tabellendaten in Formulardokumenten erkannt und extrahiert werden können.
+[AI Builder](/ai-builder/overview) ist eine Power Platform-Funktion, mit der Sie Prozesse automatisieren und Ergebnisse vorhersagen können, um die Unternehmensleistung zu steigern. Die Formularverarbeitung von AI Builder ermöglicht die Erstellung von KI-Modellen, mit denen Schlüssel-Wert-Paare und Tabellendaten in Formulardokumenten erkannt und extrahiert werden können.
 
 > [!NOTE]
-> Dieses Projekt ist auch als [Microsoft Learn-Modul](https://docs.microsoft.com/learn/modules/get-started-with-form-processing/) verfügbar.
+> Dieses Projekt ist auch als [Microsoft Learn-Modul](/learn/modules/get-started-with-form-processing/) verfügbar.
 
 In diesem Tutorial lernen Sie Folgendes:
 
@@ -33,7 +33,7 @@ In diesem Tutorial lernen Sie Folgendes:
 ## <a name="prerequisites"></a>Voraussetzungen
 
 * Mindestens fünf Formulare gleichen Typs, die als Trainings-/Testdaten verwendet werden können. Tipps und Optionen für die Zusammenstellung eines Trainingsdatasets finden Sie unter [Erstellen eines Trainingsdatasets für ein benutzerdefiniertes Modell](./build-training-data-set.md). In dieser Schnellstartanleitung können Sie die Dateien im Ordner **Trainieren** des [Beispieldatasets](https://go.microsoft.com/fwlink/?linkid=2128080) verwenden.
-* Eine Power Apps- oder Power Automate-Lizenz (siehe [Leitfaden zur Lizenzierung](https://go.microsoft.com/fwlink/?linkid=2085130)). Die Lizenz muss [Common Data Service](https://powerplatform.microsoft.com/en-us/common-data-service/) beinhalten.
+* Eine Power Apps- oder Power Automate-Lizenz (siehe [Leitfaden zur Lizenzierung](https://go.microsoft.com/fwlink/?linkid=2085130)). Die Lizenz muss [Common Data Service](https://powerplatform.microsoft.com/common-data-service/) beinhalten.
 * Eine AI Builder-Instanz ([Add-On oder Testversion](https://go.microsoft.com/fwlink/?LinkId=2113956&clcid=0x409)).
 
 
@@ -69,7 +69,7 @@ Auf der Seite **Dokumente hinzufügen** müssen Beispieldokumente bereitgestellt
 > Sie können einige der hochgeladenen Dokumente auch wieder entfernen oder weitere hochladen.
 
 > [!div class="mx-imgBorder"]
-> ![Seite zum Hinzufügen von Dokumenten](./media/tutorial-ai-builder/add-documents-page.png)
+> ![Screenshot, auf dem die Schaltfläche „Dokumente hinzufügen“ hervorgehoben ist](./media/tutorial-ai-builder/add-documents-page.png)
 
 ### <a name="analyze-your-documents"></a>Analysieren Ihrer Dokumente
 
@@ -93,7 +93,7 @@ Wählen Sie auf der Seite für die Feldauswahl die Felder aus, die für Sie rele
     - **Feldwert:** Der Wert für das erkannte Feld.
 
 > [!div class="mx-imgBorder"]
-> ![Seite zum Hinzufügen von Dokumenten](./media/tutorial-ai-builder/select-fields-page.png)
+> ![Taggingseite](./media/tutorial-ai-builder/select-fields-page.png)
 
 ### <a name="label-undetected-fields"></a>Beschriften nicht erkannter Felder
 
@@ -104,7 +104,7 @@ Wurde das Feld, das Sie beschriften möchten, nicht automatisch durch das Modell
 1. Wählen Sie **Weiter** aus, um die ausgewählten Formularfelder zu überprüfen. Wenn Sie mit dem Ergebnis zufrieden sind, wählen Sie **Trainieren** aus, um das Modell zu trainieren.
 
     > [!div class="mx-imgBorder"]
-    > ![Seite zum Hinzufügen von Dokumenten](./media/tutorial-ai-builder/summary-train-page.png)
+    > ![Trainingsseite](./media/tutorial-ai-builder/summary-train-page.png)
 1. Wählen Sie nach Abschluss des Trainings im Bildschirm **Training abgeschlossen** die Option **Zur Seite "Details" wechseln** aus.
 ## <a name="quick-test-your-model"></a>Schnelles Testen Ihres Modells
 
@@ -127,13 +127,13 @@ Im Anschluss finden Sie einige Tipps für den Fall, dass Sie nicht zufriedenstel
 Wenn Sie mit Ihrem Modell zufrieden sind, wählen Sie **Veröffentlichen** aus, um es zu veröffentlichen. Das veröffentlichte Modell wird zu **Veröffentlicht** hochgestuft und ist verwendungsbereit.
 
 > [!div class="mx-imgBorder"]
-> ![Seite zum Hinzufügen von Dokumenten](./media/tutorial-ai-builder/model-page.png)
+> ![Seite für die Modellveröffentlichung](./media/tutorial-ai-builder/model-page.png)
 
-Das veröffentlichte Formularverarbeitungsmodell kann nun in einer [Power Apps-Canvas-App](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps) oder in [Power Automate](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow) verwendet werden.
+Das veröffentlichte Formularverarbeitungsmodell kann nun in einer [Power Apps-Canvas-App](/ai-builder/form-processor-component-in-powerapps) oder in [Power Automate](/ai-builder/form-processing-model-in-flow) verwendet werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 Informationen zur Verwendung eines Formularverarbeitungsmodells finden Sie in der AI Builder-Dokumentation.
 
-* [Verwenden der Formularverarbeitungskomponente in Power Apps](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps)
-* [Ein Formularverarbeitungsmodell in Power Automate verwenden](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow)
+* [Verwenden der Formularverarbeitungskomponente in Power Apps](/ai-builder/form-processor-component-in-powerapps)
+* [Ein Formularverarbeitungsmodell in Power Automate verwenden](/ai-builder/form-processing-model-in-flow)

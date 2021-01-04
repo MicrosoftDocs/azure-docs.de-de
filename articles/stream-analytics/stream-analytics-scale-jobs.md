@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 7b96bc456d2dc0e3f1a1110f36b61be4accfbd8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c12c4b9f4a3757a3974e4aff7699d0265bfd7840
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488506"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124372"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Skalieren eines Azure Stream Analytics-Auftrags zur Erhöhung des Durchsatzes
 In diesem Artikel erfahren Sie, wie Sie eine Stream Analytics-Abfrage zur Steigerung des Durchsatzes für Stream Analytics-Aufträge optimieren. Im folgenden Leitfaden wird erläutert, wie Sie Ihren Auftrag zur Verarbeitung höherer Lasten skalieren und von einer größeren Menge an Systemressourcen (z.B. Bandbreite, CPU-Ressourcen, Arbeitsspeicher) profitieren können.
@@ -38,11 +38,11 @@ Wenn Ihre Abfrage prinzipiell über alle Eingabepartitionen hinweg vollständig 
 
 ## <a name="case-2---if-your-query-is-not-embarrassingly-parallel"></a>Fall 2: Ihre Abfrage weist keinen hohen Parallelitätsgrad auf.
 Wenn Ihre Abfrage keinen hohen Parallelitätsgrad aufweist, können Sie folgende Schritte durchführen.
-1.  Beginnen Sie zuerst mit einer Abfrage ohne **PARTITION BY**, um die Komplexität der Partitionierung gering zu halten, und führen Sie Ihre Abfrage mit 6 SUs aus, um wie in [Fall 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions) die maximale Last zu messen.
+1.  Beginnen Sie zuerst mit einer Abfrage ohne **PARTITION BY** , um die Komplexität der Partitionierung gering zu halten, und führen Sie Ihre Abfrage mit 6 SUs aus, um wie in [Fall 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions) die maximale Last zu messen.
 2.  Wenn Sie Ihre erwartete Last im Hinblick auf den Durchsatz erreichen können, sind Sie fertig. Alternativ können Sie denselben Auftrag mit 3 SUs und 1 SU messen lassen, um die minimale Anzahl von SUs zu ermitteln, die für Ihr Szenario funktioniert.
 3.  Wenn Sie den gewünschten Durchsatz nicht erreichen können, versuchen Sie, Ihre Abfrage möglichst in mehrere Schritte zu unterteilen, sofern dies noch nicht geschehen ist. Weisen Sie dann bis zu 6 SUs pro Schritt in der Abfrage zu. Beispiel: Wenn die Abfrage 3 Schritte aufweist, weisen Sie in der Option „Skalieren“ 18 SUs zu.
 4.  Bei der Ausführung eines solchen Auftrags verlagert Stream Analytics jeden Schritt in einen eigenen Knoten mit dedizierten Ressourcen von 6 SUs. 
-5.  Wenn Sie Ihr Lastziel dennoch nicht erreicht haben, können Sie versuchen, **PARTITION BY** beginnend mit den Schritten näher an der Eingabe zu verwenden. Für den Operator **GROUP BY**, der normalerweise nicht partitionierbar ist, können Sie das lokale bzw. globale Aggregatmuster verwenden, um eine partitionierte **GROUP BY**-Abfrage gefolgt von einer nicht partitionierten **GROUP BY**-Abfrage durchzuführen. Beispiel: Sie möchten alle 3 Minuten die Anzahl der Fahrzeuge zählen, die die einzelnen Mautstellen passieren, und die Menge der Daten ermitteln, die mit 6 SUs verarbeitet werden können. In diesem Fall lautet die Abfrage wie folgt:
+5.  Wenn Sie Ihr Lastziel dennoch nicht erreicht haben, können Sie versuchen, **PARTITION BY** beginnend mit den Schritten näher an der Eingabe zu verwenden. Für den Operator **GROUP BY** , der normalerweise nicht partitionierbar ist, können Sie das lokale bzw. globale Aggregatmuster verwenden, um eine partitionierte **GROUP BY** -Abfrage gefolgt von einer nicht partitionierten **GROUP BY** -Abfrage durchzuführen. Beispiel: Sie möchten alle 3 Minuten die Anzahl der Fahrzeuge zählen, die die einzelnen Mautstellen passieren, und die Menge der Daten ermitteln, die mit 6 SUs verarbeitet werden können. In diesem Fall lautet die Abfrage wie folgt:
 
 Abfrage:
 
@@ -78,13 +78,13 @@ In bestimmten Anwendungsfällen mit ISVs ist es kosteneffizienter, Daten von meh
 
 
 ## <a name="get-help"></a>Hier erhalten Sie Hilfe
-Weitere Unterstützung finden Sie auf der [Frageseite von Microsoft Q&A (Fragen und Antworten) zu Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Weitere Unterstützung finden Sie auf der [Frageseite von Microsoft Q&A (Fragen und Antworten) zu Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Nächste Schritte
 * [Einführung in Azure Stream Analytics](stream-analytics-introduction.md)
 * [Erste Schritte mit Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Stream Analytics Query Language Reference (in englischer Sprache)](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referenz zur Azure Stream Analytics-Verwaltungs-REST-API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Stream Analytics Query Language Reference (in englischer Sprache)](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referenz zur Azure Stream Analytics-Verwaltungs-REST-API](/rest/api/streamanalytics/)
 
 <!--Image references-->
 
@@ -97,10 +97,9 @@ Weitere Unterstützung finden Sie auf der [Frageseite von Microsoft Q&A (Fragen 
 <!--Link references-->
 
 [microsoft.support]: https://support.microsoft.com
-[azure.event.hubs.developer.guide]: https://msdn.microsoft.com/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: /previous-versions/azure/dn789972(v=azure.100)
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
-
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

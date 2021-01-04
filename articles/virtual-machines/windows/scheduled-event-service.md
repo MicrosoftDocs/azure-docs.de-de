@@ -7,12 +7,12 @@ ms.subservice: monitoring
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: 0806c6e0ed89c2c0f4712ec985599810119fcf89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d1edde5ac1b83feab458eb5d12d524163d3ffb1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999019"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483299"
 ---
 # <a name="monitoring-scheduled-events"></a>Überwachen von geplanten Ereignissen
 
@@ -132,7 +132,7 @@ Hiermit wird der [Microsoft Monitoring Agent](../extensions/oms-windows.md) auf 
 ## <a name="creating-an-alert-rule-with-azure-monitor"></a>Erstellen einer Warnungsregel mit Azure Monitor 
 
 
-Sobald die Ereignisse an Log Analytics übermittelt wurden, können Sie die folgende [Abfrage](../../azure-monitor/log-query/get-started-portal.md) ausführen, um nach den geplanten Ereignissen zu suchen.
+Sobald die Ereignisse an Log Analytics übermittelt wurden, können Sie die folgende [Abfrage](../../azure-monitor/log-query/log-analytics-tutorial.md) ausführen, um nach den geplanten Ereignissen zu suchen.
 
 1. Wählen Sie oben auf der Seite die Option **Protokolle** aus, und fügen Sie Folgendes in das Textfeld ein:
 

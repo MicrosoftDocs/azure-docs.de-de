@@ -7,22 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 26c7029e710479b8785e06b1d65ff7b5270aeab0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 1ff7932f0afb128f6e7568ecdae602c6471db0bd
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102930"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539716"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Von Azure HDInsight unterstützte Hochverfügbarkeitsdienste
 
 HDInsight wurde mit einer einzigartigen Architektur entwickelt, um Hochverfügbarkeit (HA) wichtiger Dienste sicherzustellen und Ihnen ein optimales Maß an Verfügbarkeit für Ihre Analysekomponenten bereitzustellen. Einige Komponenten dieser Architektur wurden von Microsoft zur Bereitstellung eines automatischen Failovers entwickelt. Andere Komponenten sind standardmäßige Apache-Komponenten, die zur Unterstützung bestimmter Dienste bereitgestellt werden. In diesem Artikel wird die Architektur des Hochverfügbarkeitsdienst-Modells in HDInsight erläutert und erklärt, wie HDInsight Failover für Hochverfügbarkeitsdienste unterstützt. Außerdem werden bewährte Methoden für die Wiederherstellung nach anderen Dienstunterbrechungen vorgestellt.
- 
+
 > [!NOTE]
-> Vorurteilsfreie Kommunikation
->
-> Microsoft setzt sich für Diversität und Inklusion ein. In diesem Artikel wird das Wort _Slave_ verwendet. Laut dem [Microsoft-Styleguide für vorurteilsfreie Kommunikation](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) sollte dieses Wort jedoch vermieden werden. In diesem Artikel wird es aus Konsistenzgründen gebraucht, da das Wort derzeit noch in der Software vorkommt. Wenn die Software aktualisiert und um dieses Wort bereinigt wird, wird auch der Artikel entsprechend aktualisiert.
->
+> Dieser Artikel enthält Verweise auf den Begriff *Slave* , einen Begriff, den Microsoft nicht mehr verwendet. Sobald der Begriff aus der Software entfernt wurde, wird er auch aus diesem Artikel entfernt.
 
 ## <a name="high-availability-infrastructure"></a>Hochverfügbarkeitsinfrastruktur
 
@@ -68,7 +65,7 @@ Microsoft bietet Unterstützung für die vier Apache-Dienste in der folgenden Ta
 
 Jeder HDInsight-Cluster verfügt über zwei Hauptknoten im aktiven bzw. Standbymodus. Die HDInsight-Hochverfügbarkeitsdienste werden nur auf Hauptknoten ausgeführt. Diese Dienste sollten immer auf dem aktiven Hauptknoten ausgeführt werden und auf dem Standbyhauptknoten angehalten und in den Wartungsmodus versetzt werden.
 
-Um die korrekten Zustände der Hochverfügbarkeitsdienste aufrechtzuerhalten und ein schnelles Failover bereitzustellen, nutzt HDInsight Apache ZooKeeper, einen Koordinationsdienst für verteilte Anwendungen, zur Auswahl des aktiven Hauptknotens. HDInsight stellt außerdem einige Java-Hintergrundprozesse bereit, die das Failover für HDInsight-Hochverfügbarkeitsdienste koordinieren. Dabei handelt es sich um die folgenden Dienste: den übergeordneten (primären) Failovercontroller, den untergeordneten (sekundären) Failovercontroller, den *master-ha-service* und den *slave-ha-service* .
+Um die korrekten Zustände der Hochverfügbarkeitsdienste aufrechtzuerhalten und ein schnelles Failover bereitzustellen, nutzt HDInsight Apache ZooKeeper, einen Koordinationsdienst für verteilte Anwendungen, zur Auswahl des aktiven Hauptknotens. HDInsight stellt außerdem einige Java-Hintergrundprozesse bereit, die das Failover für HDInsight-Hochverfügbarkeitsdienste koordinieren. Dabei handelt es sich um die folgenden Dienste: den übergeordneten (primären) Failovercontroller, den untergeordneten (sekundären) Failovercontroller, den *master-ha-service* und den *slave-ha-service*.
 
 ### <a name="apache-zookeeper"></a>Apache ZooKeeper
 
@@ -139,5 +136,5 @@ HDInsight HBase-Cluster unterstützen HBase Master-Hochverfügbarkeit. Im Gegens
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Verfügbarkeit und Zuverlässigkeit von Apache Hadoop-Clustern in HDInsight](hdinsight-high-availability-linux.md)
+- [Verfügbarkeit und Zuverlässigkeit von Apache Hadoop-Clustern in HDInsight](./hdinsight-business-continuity.md)
 - [Virtuelle Netzwerkarchitektur mit Azure HDInsight](hdinsight-virtual-network-architecture.md)

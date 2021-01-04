@@ -4,11 +4,11 @@ description: In diesem Artikel werden einige bekannte Probleme beim Upgrade eine
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: d462f2c2482e0fbb4d252967754a9675ed362674
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75377921"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009346"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Problembehandlung bei Anwendungsupgrades
 
@@ -76,7 +76,7 @@ UpgradeReplicaSetCheckTimeout  : 00:00:00
 
 Bei diesem Beispiel ist das Upgrade bei der Upgradedomäne *MYUD1* fehlgeschlagen, und die beiden Partitionen (*744c8d9f-1d26-417e-a60e-cd48f5c098f0* und *4b43f4d8-b26b-424e-9307-7a7a62e79750*) sind hängen geblieben. Die Partitionen sind hängen geblieben, da die Laufzeit die primären Replikate (*WaitForPrimaryPlacement*) nicht auf den Zielknoten *Node1* und *Node4* platzieren konnte.
 
-Mit dem Befehl **Get-ServiceFabricNode** kann überprüft werden, ob sich diese beiden Knoten in der Upgradedomäne *MYUD1*befinden. Die *UpgradePhase* gibt *PostUpgradeSafetyCheck* aus, was bedeutet, dass diese Sicherheitsprüfungen nach dem Aktualisieren aller Knoten in der Upgradedomäne stattfinden. Alle diese Informationen lassen auf ein mögliches Problem mit der neuen Version des Anwendungscodes schließen. Die häufigsten Probleme sind Dienstfehler im Vordergrund oder bei der Heraufstufung auf primäre Codepfade.
+Mit dem Befehl **Get-ServiceFabricNode** kann überprüft werden, ob sich diese beiden Knoten in der Upgradedomäne *MYUD1* befinden. Die *UpgradePhase* gibt *PostUpgradeSafetyCheck* aus, was bedeutet, dass diese Sicherheitsprüfungen nach dem Aktualisieren aller Knoten in der Upgradedomäne stattfinden. Alle diese Informationen lassen auf ein mögliches Problem mit der neuen Version des Anwendungscodes schließen. Die häufigsten Probleme sind Dienstfehler im Vordergrund oder bei der Heraufstufung auf primäre Codepfade.
 
 *PreUpgradeSafetyCheck* als *UpgradePhase* bedeutet, dass vor der Durchführung des Upgrades Probleme bei der Vorbereitung der Upgradedomäne aufgetreten sind. In diesem Fall sind die häufigsten Probleme Fehler im Hintergrund oder bei der Herabstufung von primären Codepfaden.
 
@@ -216,7 +216,7 @@ Upgrades für eine Upgradedomäne können nicht schneller abgeschlossen werden a
 
 Upgradefehler können nicht schneller auftreten als *HealthCheckWaitDuration* + *HealthCheckRetryTimeout*.
 
-Die Upgradezeit für eine Upgradedomäne wird durch *UpgradeDomainTimeout*begrenzt.  Wenn *HealthCheckRetryTimeout* und *HealthCheckStableDuration* ungleich null sind und die Integrität der Anwendung wechselt, wird für das Upgrade schließlich bei *UpgradeDomainTimeout* das Timeout überschritten. *UpgradeDomainTimeout* zählt rückwärts ab dem Moment, an dem das Upgrade für die aktuelle Upgradedomäne gestartet wird.
+Die Upgradezeit für eine Upgradedomäne wird durch *UpgradeDomainTimeout* begrenzt.  Wenn *HealthCheckRetryTimeout* und *HealthCheckStableDuration* ungleich null sind und die Integrität der Anwendung wechselt, wird für das Upgrade schließlich bei *UpgradeDomainTimeout* das Timeout überschritten. *UpgradeDomainTimeout* zählt rückwärts ab dem Moment, an dem das Upgrade für die aktuelle Upgradedomäne gestartet wird.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

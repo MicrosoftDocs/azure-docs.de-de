@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 9163c64370e0718d6b9acf37bb7a9fc28c936948
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ef564ae61aab10e1d100ccaf2547248e4a6a8e8
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851151"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352166"
 ---
 # <a name="tutorial-configure-druva-for-automatic-user-provisioning"></a>Tutorial: Konfigurieren von Druva für die automatische Benutzerbereitstellung
 
@@ -62,11 +62,11 @@ Bevor Sie Druva für die automatische Benutzerbereitstellung mit Azure AD konfi
 
 3.  Navigieren zu **Einstellungen**. Klicken Sie dann auf **Generate Token** (Token generieren).
 
-    :::image type="content" source="media/druva-provisioning-tutorial/settings.png" alt-text="Screenshot der Druva-Verwaltungskonsole. Die Option „Verwalten“ ist hervorgehoben, und das Menü „Verwalten“ wird angezeigt. In diesem Menü ist unter „Bereitstellungen“ die Option „Benutzer“ hervorgehoben." border="false":::
+    :::image type="content" source="media/druva-provisioning-tutorial/settings.png" alt-text="Screenshot einer Seite der Druva-Verwaltungskonsole. Die Option „Einstellungen“ ist hervorgehoben, und die Registerkarte „Einstellungen“ ist geöffnet. Die Schaltfläche „Token generieren“ ist hervorgehoben." border="false":::
 
 4.  Kopieren Sie den Wert von **Auth token** (Authentifizierungstoken). Dieser Wert wird im Azure-Portal auf der Registerkarte „Bereitstellung“ Ihrer Druva-Anwendung in das Feld **Geheimes Token** eingegeben.
     
-    :::image type="content" source="media/druva-provisioning-tutorial/auth.png" alt-text="Screenshot der Druva-Verwaltungskonsole. Die Option „Verwalten“ ist hervorgehoben, und das Menü „Verwalten“ wird angezeigt. In diesem Menü ist unter „Bereitstellungen“ die Option „Benutzer“ hervorgehoben." border="false":::
+    :::image type="content" source="media/druva-provisioning-tutorial/auth.png" alt-text="Screenshot der Seite „Token generieren“ in der Druva-Verwaltungskonsole. Der Link „Token kopieren“ ermöglicht das Kopieren des Werts des Authentifizierungstokens." border="false":::
 
 ## <a name="add-druva-from-the-gallery"></a>Hinzufügen von Druva aus dem Katalog
 

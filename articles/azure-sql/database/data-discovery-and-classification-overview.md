@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 09/21/2020
+ms.date: 12/01/2020
 tags: azure-synapse
-ms.openlocfilehash: 6f324b1b0b5ed1882050684e7ac1c8ec4ea573dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3f1209c2c903399617bd60258cc152a6ce90b80
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886505"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462090"
 ---
 # <a name="data-discovery--classification"></a>Datenermittlung und -klassifizierung
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ Zu den vertraulichsten Daten gehören Geschäfts-, Finanz-, Gesundheits- und per
 - Steuern des Zugriffs auf und Härten der Sicherheit von Datenbanken mit vertraulichen Daten
 
 > [!NOTE]
-> Informationen zu lokalen SQL Server-Instanzen finden Sie unter [SQL-Datenermittlung und -klassifizierung](https://go.microsoft.com/fwlink/?linkid=866999).
+> Informationen zu lokalen SQL Server-Instanzen finden Sie unter [SQL-Datenermittlung und -klassifizierung](/sql/relational-databases/security/sql-data-discovery-and-classification).
 
 ## <a name="what-is-data-discovery--classification"></a><a id="what-is-dc"></a>Was ist die Datenermittlung und -klassifizierung?
 
@@ -62,11 +62,11 @@ Die Klassifizierung umfasst zwei Metadatenattribute:
 
 Datenermittlung und -klassifizierung verfügt über einen integrierten Satz von Vertraulichkeitsbezeichnungen und einen integrierten Satz von Informationstypen und Ermittlungslogik. Sie können diese Taxonomie nun anpassen und eine spezielle Gruppe und Rangfolge von Klassifizierungskonstrukten für Ihre Umgebung definieren.
 
-Die Definition und Anpassung Ihrer Klassifizierungstaxonomie erfolgt an zentraler Stelle für die ganze Azure-Organisation. Diese Stelle befindet sich im [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) und ist Bestandteil Ihrer Sicherheitsrichtlinie. Nur Benutzer mit Administratorrechten für die Stammverwaltungsgruppe der Organisation können diese Aufgabe ausführen.
+Die Definition und Anpassung Ihrer Klassifizierungstaxonomie erfolgt an zentraler Stelle für die ganze Azure-Organisation. Diese Stelle befindet sich im [Azure Security Center](../../security-center/security-center-introduction.md) und ist Bestandteil Ihrer Sicherheitsrichtlinie. Nur Benutzer mit Administratorrechten für die Stammverwaltungsgruppe der Organisation können diese Aufgabe ausführen.
 
 Im Rahmen der Verwaltung von Information Protection-Richtlinien können Sie benutzerdefinierte Bezeichnungen definieren, deren Rangfolge festlegen und sie einer ausgewählten Gruppe von Informationstypen zuordnen. Sie können auch eigene benutzerdefinierte Informationstypen hinzufügen und diese mit Zeichenfolgenmustern konfigurieren. Die Muster werden der Ermittlungslogik hinzugefügt, um diese Datentypen in Ihren Datenbanken zu identifizieren.
 
-Weitere Informationen finden Sie unter [Anpassen der SQL Information Protection-Richtlinie im Azure Security Center (Vorschau)](https://go.microsoft.com/fwlink/?linkid=2009845&clcid=0x409).
+Weitere Informationen finden Sie unter [Anpassen der SQL Information Protection-Richtlinie im Azure Security Center (Vorschau)](../../security-center/security-center-info-protection-policy.md).
 
 Nachdem die organisationsweite Richtlinie definiert wurde, können Sie die Klassifizierung einzelner Datenbanken mithilfe Ihrer benutzerdefinierten Richtlinie fortsetzen.
 
@@ -77,7 +77,9 @@ Nachdem die organisationsweite Richtlinie definiert wurde, können Sie die Klass
 
 1. Öffnen Sie das [Azure-Portal](https://portal.azure.com).
 
-1. Navigieren Sie im Bereich von Azure SQL-Datenbank unter der Überschrift „Sicherheit“ zu **Datenermittlung und -klassifizierung**. Die Registerkarte „Übersicht“ enthält eine Zusammenfassung des aktuellen Klassifizierungsstatus der Datenbank. Die Zusammenfassung enthält eine ausführliche Liste aller klassifizierten Spalten, die Sie auch filtern können, um nur bestimmte Schemateile, Informationstypen und Bezeichnungen anzuzeigen. Wenn Sie noch keine Spalten klassifiziert haben, [fahren Sie mit Schritt 4 fort](#step-4).
+1. Navigieren Sie im Bereich von Azure SQL-Datenbank unter der Überschrift **Sicherheit** zu **Datenermittlung und -klassifizierung**. Die Registerkarte „Übersicht“ enthält eine Zusammenfassung des aktuellen Klassifizierungsstatus der Datenbank. Die Zusammenfassung enthält eine ausführliche Liste aller klassifizierten Spalten, die Sie auch filtern können, um nur bestimmte Schemateile, Informationstypen und Bezeichnungen anzuzeigen. Wenn Sie noch keine Spalten klassifiziert haben, [fahren Sie mit Schritt 4 fort](#step-4).
+
+    ![Übersicht](./media/data-discovery-and-classification-overview/data-discovery-and-classification.png)
 
 1. Um einen Bericht im Excel-Format herunterzuladen, wählen Sie oben im Fenster im Menü die Option **Exportieren** aus.
 
@@ -93,6 +95,8 @@ Nachdem die organisationsweite Richtlinie definiert wurde, können Sie die Klass
 
    - Wählen Sie zum Anwenden der ausgewählten Empfehlungen die Option **Ausgewählte Empfehlungen annehmen** aus.
 
+   ![Empfehlungen für die Klassifizierung](./media/data-discovery-and-classification-overview/recommendation.png)
+
 1. Alternativ oder zusätzlich zur empfehlungsbasierten Klassifizierung können Sie Spalten auch manuell klassifizieren:
 
    1. Wählen Sie im oberen Menü des Bereichs **Klassifizierung hinzufügen** aus.
@@ -101,7 +105,10 @@ Nachdem die organisationsweite Richtlinie definiert wurde, können Sie die Klass
 
    1. Wählen Sie dann am unteren Rand des Kontextfensters die Option **Klassifizierung hinzufügen** aus.
 
-1. Wählen Sie im oberen Menü des Fensters **Speichern** aus, um Ihre Klassifizierung abzuschließen und die Datenbankspalten dauerhaft mit den neuen Klassifizierungsmetadaten (Tags) zu bezeichnen.
+   ![Manuelles Hinzufügen einer Klassifizierung](./media/data-discovery-and-classification-overview/manually-add-classification.png)
+
+
+1. Wählen Sie auf der Seite **Klassifizierung** die Option **Speichern** aus, um Ihre Klassifizierung abzuschließen und die Datenbankspalten dauerhaft mit den neuen Klassifizierungsmetadaten (Tags) zu bezeichnen.
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Überwachen des Zugriffs auf vertrauliche Daten
 
@@ -125,7 +132,7 @@ Diese integrierten Rollen können die Datenklassifizierung einer Datenbank ände
 - Mitwirkender
 - SQL-Sicherheits-Manager
 
-Hier erfahren Sie mehr über rollenbasierte Berechtigungen unter [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview).
+Hier erfahren Sie mehr über rollenbasierte Berechtigungen unter [Azure RBAC](../../role-based-access-control/overview.md).
 
 ## <a name="manage-classifications"></a><a id="manage-classification"></a>Verwalten von Klassifizierungen
 
@@ -140,42 +147,42 @@ Mit T-SQL können Sie Spaltenklassifizierungen hinzufügen oder entfernen sowie 
 
 Weitere Informationen zur Verwendung von T-SQL für Klassifizierungen finden Sie in den folgenden Ressourcen:
 
-- Zum Hinzufügen oder Aktualisieren von Klassifizierungen einer oder mehrere Spalten: [VERTRAULICHKEITSKLASSIFIZIERUNG HINZUFÜGEN](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-- Zum Entfernen der Klassifizierung aus einer oder mehreren Spalten: [VERTRAULICHKEITSKLASSIFIZIERUNG LÖSCHEN](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
-- Zum Anzeigen aller Klassifizierungen in der Datenbank: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+- Zum Hinzufügen oder Aktualisieren von Klassifizierungen einer oder mehrere Spalten: [VERTRAULICHKEITSKLASSIFIZIERUNG HINZUFÜGEN](/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+- Zum Entfernen der Klassifizierung aus einer oder mehreren Spalten: [VERTRAULICHKEITSKLASSIFIZIERUNG LÖSCHEN](/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+- Zum Anzeigen aller Klassifizierungen in der Datenbank: [sys.sensitivity_classifications](/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 ### <a name="use-powershell-cmdlets"></a>Verwenden von PowerShell-Cmdlets
 Verwenden Sie PowerShell, um Klassifizierungen und Empfehlungen für Azure SQL-Datenbank und verwaltete Azure SQL-Instanzen zu verwalten.
 
 #### <a name="powershell-cmdlets-for-azure-sql-database"></a>PowerShell-Cmdlets für Azure SQL-Datenbank
 
-- [Get-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
-- [Set-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
-- [Remove-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)
-- [Get-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityrecommendation)
-- [Enable-AzSqlDatabaSesensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqldatabasesensitivityrecommendation)
-- [Disable-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqldatabasesensitivityrecommendation)
+- [Get-AzSqlDatabaseSensitivityClassification](/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
+- [Set-AzSqlDatabaseSensitivityClassification](/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
+- [Remove-AzSqlDatabaseSensitivityClassification](/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)
+- [Get-AzSqlDatabaseSensitivityRecommendation](/powershell/module/az.sql/get-azsqldatabasesensitivityrecommendation)
+- [Enable-AzSqlDatabaSesensitivityRecommendation](/powershell/module/az.sql/enable-azsqldatabasesensitivityrecommendation)
+- [Disable-AzSqlDatabaseSensitivityRecommendation](/powershell/module/az.sql/disable-azsqldatabasesensitivityrecommendation)
 
 #### <a name="powershell-cmdlets-for-azure-sql-managed-instance"></a>PowerShell-Cmdlets für verwaltete Azure SQL-Instanzen
 
-- [Get-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityclassification)
-- [Set-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
-- [Remove-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabasesensitivityclassification)
-- [Get-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityrecommendation)
-- [Enable-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqlinstancedatabasesensitivityrecommendation)
-- [Disable-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqlinstancedatabasesensitivityrecommendation)
+- [Get-AzSqlInstanceDatabaseSensitivityClassification](/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityclassification)
+- [Set-AzSqlInstanceDatabaseSensitivityClassification](/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
+- [Remove-AzSqlInstanceDatabaseSensitivityClassification](/powershell/module/az.sql/remove-azsqlinstancedatabasesensitivityclassification)
+- [Get-AzSqlInstanceDatabaseSensitivityRecommendation](/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityrecommendation)
+- [Enable-AzSqlInstanceDatabaseSensitivityRecommendation](/powershell/module/az.sql/enable-azsqlinstancedatabasesensitivityrecommendation)
+- [Disable-AzSqlInstanceDatabaseSensitivityRecommendation](/powershell/module/az.sql/disable-azsqlinstancedatabasesensitivityrecommendation)
 
 ### <a name="use-the-rest-api"></a>Verwenden der REST-API
 
 Sie können die REST-API verwenden, um Klassifizierungen und Empfehlungen programmgesteuert zu verwalten. Die veröffentlichte REST-API unterstützt die folgenden Vorgänge:
 
-- [Erstellen oder aktualisieren:](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) Erstellt oder aktualisiert die Vertraulichkeitsbezeichnung der angegebenen Spalte.
-- [Löschen:](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) Löscht die Vertraulichkeitsbezeichnung der angegebenen Spalte.
-- [Deaktivieren von Empfehlungen:](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/disablerecommendation) Deaktiviert Vertraulichkeitsempfehlungen für die angegebene Spalte.
-- [Aktivieren von Empfehlungen:](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation) Aktiviert Vertraulichkeitsempfehlungen für die angegebene Spalte. (Standardmäßig sind Empfehlungen für alle Spalten aktiviert.)
-- [Get](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) (Abrufen): Ruft die Vertraulichkeitsbezeichnung der angegebenen Spalte ab.
-- [Aktuelle nach Datenbank auflisten:](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) Ruft die aktuellen Vertraulichkeitsbezeichnungen der angegebenen Datenbank ab.
-- [Empfohlene nach Datenbank auflisten:](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) Ruft die empfohlenen Vertraulichkeitsbezeichnungen für die angegebene Datenbank ab.
+- [Erstellen oder aktualisieren:](/rest/api/sql/sensitivitylabels/createorupdate) Erstellt oder aktualisiert die Vertraulichkeitsbezeichnung der angegebenen Spalte.
+- [Löschen:](/rest/api/sql/sensitivitylabels/delete) Löscht die Vertraulichkeitsbezeichnung der angegebenen Spalte.
+- [Deaktivieren von Empfehlungen:](/rest/api/sql/sensitivitylabels/disablerecommendation) Deaktiviert Vertraulichkeitsempfehlungen für die angegebene Spalte.
+- [Aktivieren von Empfehlungen:](/rest/api/sql/sensitivitylabels/enablerecommendation) Aktiviert Vertraulichkeitsempfehlungen für die angegebene Spalte. (Standardmäßig sind Empfehlungen für alle Spalten aktiviert.)
+- [Get](/rest/api/sql/sensitivitylabels/get) (Abrufen): Ruft die Vertraulichkeitsbezeichnung der angegebenen Spalte ab.
+- [Aktuelle nach Datenbank auflisten:](/rest/api/sql/sensitivitylabels/listcurrentbydatabase) Ruft die aktuellen Vertraulichkeitsbezeichnungen der angegebenen Datenbank ab.
+- [Empfohlene nach Datenbank auflisten:](/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) Ruft die empfohlenen Vertraulichkeitsbezeichnungen für die angegebene Datenbank ab.
 
 ## <a name="next-steps"></a><a id="next-steps"></a>Nächste Schritte
 

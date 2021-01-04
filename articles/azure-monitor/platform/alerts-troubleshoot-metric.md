@@ -4,14 +4,14 @@ description: In diesem Artikel werden gängige Probleme mit Azure Monitor-Metrik
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 10/05/2020
+ms.date: 11/25/2020
 ms.subservice: alerts
-ms.openlocfilehash: 2e68a780890b8ddf857bf8f52a0ecf9a4c24b36c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: ef8a07f0360338aeb659942967169b0605b08e51
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342126"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507216"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Behandeln von Problemen mit Azure Monitor-Metrikwarnungen 
 
@@ -24,7 +24,7 @@ Azure Monitor-Warnungen informieren Sie proaktiv, wenn wichtige Bedingungen in I
 Wenn Sie der Meinung sind, dass eine Metrikwarnung hätte ausgelöst werden sollen, dies aber nicht der Fall war und sie nicht im Azure-Portal angezeigt wird, versuchen Sie Folgendes:
 
 1. **Konfiguration:** Überprüfen Sie die Konfiguration der Metrikwarnungsregel, um sicherzustellen, dass sie richtig konfiguriert ist:
-    - Stellen Sie sicher, dass die Einstellungen für **Aggregationstyp** , **Aggregationsgranularität (Zeitraum)** und **Schwellenwert** oder **Sensitivität** wie gewünscht konfiguriert sind.
+    - Stellen Sie sicher, dass die Einstellungen für **Aggregationstyp**, **Aggregationsgranularität (Zeitraum)** und **Schwellenwert** oder **Sensitivität** wie gewünscht konfiguriert sind.
     - Überprüfen Sie bei einer Regel, die dynamische Schwellwerte verwendet, ob die erweiterten Einstellungen konfiguriert sind, da **Anzahl von Verstößen** ein Filtern von Warnungen bewirken kann und die Option **Vor dem folgenden Datum liegende Daten ignorieren** sich darauf auswirken kann, wie die Schwellenwerte berechnet werden.
 
        > [!NOTE] 
@@ -52,7 +52,7 @@ Wenn Sie der Meinung sind, dass Ihre Metrikwarnung fälschlicherweise ausgelöst
 2. Wenn Sie mehrere Dimensionswerte für eine Metrik ausgewählt haben, wird die Warnung ausgelöst, wenn eine **beliebige** Metrikzeitreihe (definiert gemäß einer Kombination von Dimensionswerten) den Schwellenwert erreicht. Weitere Informationen zur Verwendung von Dimensionen in Metrikwarnungen finden Sie [hier](./alerts-metric-overview.md#using-dimensions).
 
 3. Überprüfen Sie die Konfiguration der Warnungsregel, um sicherzustellen, dass sie richtig konfiguriert ist:
-    - Stellen Sie sicher, dass die Einstellungen für **Aggregationstyp** , **Aggregationsgranularität (Zeitraum)** und **Schwellenwert** oder **Sensitivität** wie gewünscht konfiguriert sind.
+    - Stellen Sie sicher, dass die Einstellungen für **Aggregationstyp**, **Aggregationsgranularität (Zeitraum)** und **Schwellenwert** oder **Sensitivität** wie gewünscht konfiguriert sind.
     - Überprüfen Sie bei einer Regel, die dynamische Schwellwerte verwendet, ob die erweiterten Einstellungen konfiguriert sind, da **Anzahl von Verstößen** ein Filtern von Warnungen bewirken kann und die Option **Vor dem folgenden Datum liegende Daten ignorieren** sich darauf auswirken kann, wie die Schwellenwerte berechnet werden.
 
    > [!NOTE]
@@ -62,7 +62,7 @@ Wenn Sie der Meinung sind, dass Ihre Metrikwarnung fälschlicherweise ausgelöst
     - Die ausgewählte **Aggregation** im Metrikdiagramm entspricht dem **Aggregationstyp** in Ihrer Warnungsregel.
     - Die ausgewählte **Zeitgranularität** entspricht dem Wert der **Aggregationsgranularität (Zeitraum)** in Ihrer Warnungsregel (nicht auf „Automatisch“ festgelegt).
 
-5. Gehen Sie wie folgt vor, wenn neue Warnungen ausgelöst werden, während bereits ausgelöste Warnungen zur Überwachung der gleichen Kriterien vorhanden (und noch nicht behoben) sind: Überprüfen Sie, ob die *autoMitigate* -Eigenschaft für die Warnungsregel auf **false** festgelegt wurde. Diese Eigenschaft kann nur per REST/PowerShell/CLI konfiguriert werden. Überprüfen Sie daher das zum Bereitstellen der Warnungsregel verwendete Skript. In diesem Fall gilt Folgendes: Ausgelöste Warnungen werden von der Warnungsregel nicht automatisch behoben, und eine ausgelöste Warnung muss vor dem erneuten Auslösen nicht unbedingt behoben werden.
+5. Gehen Sie wie folgt vor, wenn neue Warnungen ausgelöst werden, während bereits ausgelöste Warnungen zur Überwachung der gleichen Kriterien vorhanden (und noch nicht behoben) sind: Überprüfen Sie, ob die *autoMitigate*-Eigenschaft für die Warnungsregel auf **false** festgelegt wurde. Diese Eigenschaft kann nur per REST/PowerShell/CLI konfiguriert werden. Überprüfen Sie daher das zum Bereitstellen der Warnungsregel verwendete Skript. In diesem Fall gilt Folgendes: Ausgelöste Warnungen werden von der Warnungsregel nicht automatisch behoben, und eine ausgelöste Warnung muss vor dem erneuten Auslösen nicht unbedingt behoben werden.
 
 
 ## <a name="cant-find-the-metric-to-alert-on---virtual-machines-guest-metrics"></a>Metrik für Warnung kann nicht gefunden werden – Metriken für virtuelle Gastcomputer
@@ -100,9 +100,9 @@ Wenn Sie Warnungen für [spezifische Dimensionswerte einer Metrik](./alerts-metr
 Wenn eine Azure-Ressource gelöscht wird, werden die zugehörigen Metrikwarnungsregeln nicht automatisch gelöscht. So löschen Sie Warnungsregeln, die einer gelöschten Ressource zugeordnet sind:
 
 1. Öffnen Sie die Ressourcengruppe, in der die gelöschte Ressource definiert war.
-1. Aktivieren Sie in der Liste mit den Ressourcen das Kontrollkästchen **Ausgeblendete Typen anzeigen** .
-1. Filtern Sie die Liste nach dem Typ **microsoft.insights/metricalerts** .
-1. Wählen Sie die relevanten Warnungsregeln aus, und klicken Sie anschließend auf **Löschen** .
+1. Aktivieren Sie in der Liste mit den Ressourcen das Kontrollkästchen **Ausgeblendete Typen anzeigen**.
+1. Filtern Sie die Liste nach dem Typ **microsoft.insights/metricalerts**.
+1. Wählen Sie die relevanten Warnungsregeln aus, und klicken Sie anschließend auf **Löschen**.
 
 ## <a name="make-metric-alerts-occur-every-time-my-condition-is-met"></a>Metrikwarnungen immer anzeigen, wenn meine Bedingung erfüllt wird
 
@@ -122,27 +122,27 @@ Um zu vermeiden, dass bei der Bereitstellung Fehler auftreten, wenn Sie versuche
     "odata.type": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
         "allOf": [
             {
-                    "name" : "condition1",
-                        "metricName": "myCustomMetric",
+                "name" : "condition1",
+                "metricName": "myCustomMetric",
                 "metricNamespace": "myCustomMetricNamespace",
-                        "dimensions":[],
-                        "operator": "GreaterThan",
-                        "threshold" : 10,
-                        "timeAggregation": "Average",
-                    "skipMetricValidation": true
-        }
-              ]
-        }
+                "dimensions":[],
+                "operator": "GreaterThan",
+                "threshold" : 10,
+                "timeAggregation": "Average",
+                "skipMetricValidation": true
+            }
+        ]
+    }
 ```
 
 ## <a name="export-the-azure-resource-manager-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Exportieren der Azure Resource Manager-Vorlage einer Metrikwarnungsregel über das Azure-Portal
 
 Indem Sie die Resource Manager-Vorlage einer Metrikwarnungsregel exportieren, können Sie die JSON-Syntax und -Eigenschaften besser nachvollziehen. Der Export kann außerdem zur Automatisierung zukünftiger Bereitstellungen verwendet werden.
-1. Navigieren Sie im Portal zum Abschnitt **Ressourcengruppen** , und wählen Sie die Ressourcengruppe aus, die die Regel enthält.
-2. Aktivieren Sie im Abschnitt „Übersicht“ das Kontrollkästchen **Ausgeblendete Typen anzeigen** .
+1. Navigieren Sie im Portal zum Abschnitt **Ressourcengruppen**, und wählen Sie die Ressourcengruppe aus, die die Regel enthält.
+2. Aktivieren Sie im Abschnitt „Übersicht“ das Kontrollkästchen **Ausgeblendete Typen anzeigen**.
 3. Wählen Sie im Filter **Typ** die Option *microsoft.insights/metricalerts* aus.
 4. Wählen Sie die entsprechende Warnungsregel aus, um die zugehörigen Details anzuzeigen.
-5. Klicken Sie unter **Einstellungen** auf **Vorlage exportieren** .
+5. Klicken Sie unter **Einstellungen** auf **Vorlage exportieren**.
 
 ## <a name="metric-alert-rules-quota-too-small"></a>Kontingent für Metrikwarnungsregeln zu klein
 
@@ -165,7 +165,7 @@ Führen Sie die folgenden Schritte durch, um den derzeitigen Verbrauch durch Met
 
 ### <a name="from-the-azure-portal"></a>Über das Azure-Portal
 
-1. Öffnen Sie den Bildschirm **Warnungen** , und klicken Sie auf **Warnungsregeln verwalten** .
+1. Öffnen Sie den Bildschirm **Warnungen**, und klicken Sie auf **Warnungsregeln verwalten**.
 2. Filtern Sie mit dem Dropdown-Steuerelement **Abonnement** nach dem betreffenden Abonnement.
 3. Stellen Sie sicher, dass Sie NICHT nach einer bestimmten Ressourcengruppe, einem Ressourcentyp oder einer Ressource filtern.
 4. Wählen Sie im Dropdown-Steuerelement **Signaltyp** die Option **Metriken** aus.
@@ -241,6 +241,8 @@ Beachten Sie die folgenden Einschränkungen für Namen von Metrikwarnungsregeln:
 - Namen von Metrikwarnungsregeln dürfen die folgenden Zeichen nicht enthalten: * # & + : < > ? @ % { } \ / 
 - Namen von Metrikwarnungsregeln dürfen nicht mit einem Leerzeichen oder einem Punkt enden.
 
+> [!NOTE] 
+> Wenn der Name der Warnungsregel nicht alphabetische oder nicht numerische Zeichen enthält (also beispielsweise Leerzeichen, Satzzeichen oder Symbole), werden diese Zeichen beim Abrufen durch bestimmte Clients möglicherweise URL-codiert.
 
 ## <a name="restrictions-when-using-dimensions-in-a-metric-alert-rule-with-multiple-conditions"></a>Einschränkungen bei der Verwendung von Dimensionen in einer Metrikwarnungsregel mit mehreren Bedingungen
 
@@ -259,7 +261,7 @@ Beispiel:
 
 ## <a name="setting-the-alert-rules-period-and-frequency"></a>Festlegen von Zeitraum und Häufigkeit der Warnungsregel
 
-Es wird empfohlen, eine *Aggregationsgranularität (Zeitraum)* auszuwählen, die größer ist als die *Häufigkeit der Auswertung* , um die Wahrscheinlichkeit zu verringern, dass die erste Auswertung einer hinzugefügten Zeitreihe in den folgenden Fällen ausgelassen wird:
+Es wird empfohlen, eine *Aggregationsgranularität (Zeitraum)* auszuwählen, die größer ist als die *Häufigkeit der Auswertung*, um die Wahrscheinlichkeit zu verringern, dass die erste Auswertung einer hinzugefügten Zeitreihe in den folgenden Fällen ausgelassen wird:
 -   Metrikwarnungsregel, die mehrere Dimensionen überwacht: wenn eine neue Kombination aus Dimensionswerten hinzugefügt wird
 -   Metrikwarnungsregel, die mehrere Ressourcen überwacht: wenn dem Bereich eine neue Ressource hinzugefügt wird
 -   Metrikwarnungsregel, die eine nicht kontinuierlich ausgegebene Metrik überwacht (seltene Metrik): wenn die Metrik erst nach einem längeren Zeitraum als 24 Stunden wieder ausgegeben wird

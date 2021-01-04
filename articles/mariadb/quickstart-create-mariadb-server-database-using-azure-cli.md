@@ -1,19 +1,19 @@
 ---
 title: 'Schnellstart: Erstellen eines Servers – Azure-Befehlszeilenschnittstelle – Azure Database for MariaDB'
 description: Dieser Schnellstart beschreibt die Verwendung der Azure-Befehlszeilenschnittstelle zum Erstellen eines Azure Database for MariaDB-Servers in einer Azure-Ressourcengruppe.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 198a8eee38da2738552bc5e2a2ba52e13a890122
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 3279150d0cb7b287f0a78581094a51356033596c
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424494"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435738"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Schnellstart: Erstellen eines Azure Database for MariaDB-Servers mit der Azure-Befehlszeilenschnittstelle
 
@@ -21,9 +21,9 @@ Sie können die Azure-Befehlszeilenschnittstelle (Azure CLI) verwenden, um Azure
 
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Für diesen Schnellstart ist Version 2.0 oder höher der Azure CLI erforderlich, wenn Sie die CLI lokal installieren und verwenden. Führen Sie `az --version` aus, um die Version zu ermitteln. Informationen zur Installation und Aktualisierung der CLI finden Sie bei Bedarf unter [Installieren von Azure CLI 2.0]( /cli/azure/install-azure-cli).
+- Für diesen Artikel ist mindestens Version 2.0 der Azure CLI erforderlich. Bei Verwendung von Azure Cloud Shell ist die aktuelle Version bereits installiert.
 
 Falls Sie über mehrere Abonnements verfügen, wählen Sie das Abonnement aus, das die Ressource enthält, oder das Abonnement, über das Ihre Abrechnung erfolgt. Verwenden Sie zum Auswählen einer bestimmte Abonnement-ID in Ihrem Konto den Befehl [az account set](/cli/azure/account#az-account-set):
 
@@ -49,14 +49,14 @@ Einstellung | Beispielwert | BESCHREIBUNG
 ---|---|---
 name | **mydemoserver** | Geben Sie einen eindeutigen Namen ein, der Ihren Azure Database for MariaDB-Server identifiziert. Der Servername darf nur Kleinbuchstaben, Zahlen und den Bindestrich (-) enthalten. Er muss zwischen 3 und 63 Zeichen lang sein.
 resource-group | **myresourcegroup** | Geben Sie den Namen der Azure-Ressourcengruppe ein.
-sku-name | **GP_Gen5_2** | Der Name der SKU. Die Benennung folgt der Konvention *Tarif*\_*Computegeneration*\_*V-Kerne* in Kurzform. Weitere Informationen zum **sku-name** -Parameter finden Sie im Abschnitt nach dieser Tabelle.
+sku-name | **GP_Gen5_2** | Der Name der SKU. Die Benennung folgt der Konvention *Tarif*\_*Computegeneration*\_*V-Kerne* in Kurzform. Weitere Informationen zum **sku-name**-Parameter finden Sie im Abschnitt nach dieser Tabelle.
 backup-retention | **7** | Gibt die Aufbewahrungsdauer für eine Sicherung an. Die Einheit ist Tage. Bereich: 7 bis 35. 
-geo-redundant-backup | **Disabled** | Gibt an, ob georedundante Sicherungen für diesen Server aktiviert werden sollen. Zulässige Werte: **Aktiviert** , **Deaktiviert** .
+geo-redundant-backup | **Disabled** | Gibt an, ob georedundante Sicherungen für diesen Server aktiviert werden sollen. Zulässige Werte: **Aktiviert**, **Deaktiviert**.
 location | **westus** | Der Azure-Standort für den Server.
-ssl-enforcement | **Aktiviert** | Gibt an, ob SSL für diesen Server aktiviert werden soll. Zulässige Werte: **Aktiviert** , **Deaktiviert** .
+ssl-enforcement | **Aktiviert** | Gibt an, ob SSL für diesen Server aktiviert werden soll. Zulässige Werte: **Aktiviert**, **Deaktiviert**.
 storage-size | **51.200** | Die Speicherkapazität des Servers (Einheit: MB). Gültige Speichergrößen sind Werte ab 5.120 MB (Minimum) mit Erhöhungen in Inkrementen von 1.024 MB. Weitere Informationen zu den Grenzwerten für die Speichergröße finden Sie unter [Tarife](./concepts-pricing-tiers.md). 
 version | **10.2** | Die Hauptversion der MariaDB-Engine.
-admin-user | **myadmin** | Der Benutzername für die Administratoranmeldung. Der **admin-user** -Parameter darf nicht auf **azure_superuser** , **admin** , **administrator** , **root** , **guest** oder **public** festgelegt werden.
+admin-user | **myadmin** | Der Benutzername für die Administratoranmeldung. Der **admin-user**-Parameter darf nicht auf **azure_superuser**, **admin**, **administrator**, **root**, **guest** oder **public** festgelegt werden.
 admin-password | *Ihr Kennwort* | Das Kennwort des Administratorbenutzers. Ihr Kennwort muss zwischen acht und 128 Zeichen lang sein. Es muss Zeichen aus drei der folgenden Kategorien enthalten: Englische Großbuchstaben, englische Kleinbuchstaben, Zahlen und nicht alphanumerische Zeichen.
 
 Für den Parameterwert des SKU-Namens wird die Konvention „{Tarif}\_{Computegeneration}\_{V-Kerne}“ verwendet, wie in den folgenden Beispielen:
@@ -66,7 +66,7 @@ Für den Parameterwert des SKU-Namens wird die Konvention „{Tarif}\_{Computege
 
 Weitere Informationen zu den gültigen Werten für die einzelnen Regionen und den Tarifen finden Sie unter [Tarife](./concepts-pricing-tiers.md).
 
-Im folgenden Beispiel wird ein Server mit dem Namen **mydemoserver** in der Region „USA, Westen“ erstellt. Der Server ist in der Ressourcengruppe **myresourcegroup** enthalten, und der Benutzername für die Serveradministratoranmeldung lautet **myadmin** . Der Server ist ein Gen 5-Server mit dem Tarif „Universell“ und zwei virtuellen Kernen. Ein Servername wird einem DNS-Namen zugeordnet und muss in Azure global eindeutig sein. Ersetzen Sie `<server_admin_password>` durch Ihr eigenes Serveradministratorkennwort.
+Im folgenden Beispiel wird ein Server mit dem Namen **mydemoserver** in der Region „USA, Westen“ erstellt. Der Server ist in der Ressourcengruppe **myresourcegroup** enthalten, und der Benutzername für die Serveradministratoranmeldung lautet **myadmin**. Der Server ist ein Gen 5-Server mit dem Tarif „Universell“ und zwei virtuellen Kernen. Ein Servername wird einem DNS-Namen zugeordnet und muss in Azure global eindeutig sein. Ersetzen Sie `<server_admin_password>` durch Ihr eigenes Serveradministratorkennwort.
 
 ```azurecli-interactive
 az mariadb server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 10.2
@@ -106,7 +106,7 @@ Zum Herstellen einer Verbindung zum Server müssen Sie Hostinformationen und Anm
 az mariadb server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Das Ergebnis liegt im JSON-Format vor. Notieren Sie die Werte für **fullyQualifiedDomainName** und **administratorLogin** .
+Das Ergebnis liegt im JSON-Format vor. Notieren Sie die Werte für **fullyQualifiedDomainName** und **administratorLogin**.
 
 ```json
 {
@@ -219,7 +219,7 @@ So stellen Sie mit dem MySQL-Befehlszeilentool eine Verbindung mit dem Server he
    | Username | **myadmin\@mydemoserver** | Der Benutzername für die Serveradministratoranmeldung, den Sie zuvor notiert haben. |
    | Kennwort | *Ihr Kennwort* | Verwenden Sie das Kennwort des Administratorkontos, das Sie zuvor eingerichtet haben. |
 
-3. Klicken Sie auf **Verbindung testen** , um zu überprüfen, ob alle Parameter korrekt konfiguriert sind.
+3. Klicken Sie auf **Verbindung testen**, um zu überprüfen, ob alle Parameter korrekt konfiguriert sind.
 
 4. Wählen Sie die Verbindung aus, um eine Verbindung mit dem Server herzustellen.
 

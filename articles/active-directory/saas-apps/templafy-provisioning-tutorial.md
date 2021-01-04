@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 98eae8b63b9eaaa8cff800bade091f4b5d36d005
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: dc4ef937a032a5156164eaee59908c9ee0319fdb
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91255688"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350159"
 ---
 # <a name="tutorial-configure-templafy-for-automatic-user-provisioning"></a>Tutorial: Konfigurieren von Templafy für die automatische Benutzerbereitstellung
 

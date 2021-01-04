@@ -92,11 +92,21 @@
           href: diagnostics-log-analytics.md
     - name: Veröffentlichen von integrierten Apps
       href: publish-apps.md
-    - name: Einrichten des MSIX-Features zum Anfügen von Apps
-      href: app-attach.md
+    - name: Verwenden des MSIX-Features zum Anfügen von Apps
+      items:
+        - name: Einrichten des MSIX-Features zum Anfügen von Apps mit dem Azure-Portal
+          href: app-attach-azure-portal.md
+        - name: Einrichten des MSIX-Features zum Anfügen von Apps mit PowerShell
+          href: app-attach-powershell.md
+        - name: Erstellen von PowerShell-Skripts
+          href: app-attach.md
+        - name: Vorbereiten eines MSIX-Images
+          href: app-attach-image-prep.md
+        - name: Einrichten einer Dateifreigabe
+          href: app-attach-file-share.md
     - name: Verwenden von Microsoft Teams
       href: teams-on-wvd.md
-    - name: Einrichten von Azure Multi-Factor Authentication
+    - name: Einrichten von Azure AD Multi-Factor Authentication
       href: set-up-mfa.md
     - name: Konfigurieren automatischer Updates
       href: configure-automatic-updates.md
@@ -106,18 +116,32 @@
       href: azure-advisor.md
     - name: Anwenden von Empfehlungen
       href: azure-advisor-recommendations.md
+    - name: Verwenden von Azure Monitor für Windows Virtual Desktop
+      href: azure-monitor.md
     - name: Einrichten eines Notfallwiederherstellungsplans
       href: disaster-recovery.md
 - name: Konzepte
   items:
+    - name: Integrierte Rollen
+      href: rbac.md
     - name: Authentifizierung
       href: authentication.md
-    - name: Liste der sicheren URLs
-      href: safe-url-list.md
     - name: Windows Virtual Desktop-Umgebung
       href: environment-setup.md
-    - name: Bestimmen der Wartezeit für Benutzerverbindungen
-      href: connection-latency.md
+    - name: Netzwerkverbindungen
+      items:
+        - name: Grundlegendes zur Netzwerkkonnektivität
+          href: network-connectivity.md
+        - name: RDP Shortpath
+          href: shortpath.md
+        - name: Implementieren von Quality of Service (QoS)
+          href: rdp-quality-of-service-qos.md
+        - name: Erforderliche URL-Liste
+          href: safe-url-list.md
+        - name: Bandbreitenaspekte
+          href: rdp-bandwidth.md
+        - name: Bestimmen der Wartezeit für Benutzerverbindungen
+          href: connection-latency.md
     - name: Delegierter Zugriff in Windows Virtual Desktop
       href: delegated-access-virtual-desktop.md
     - name: Lastenausgleichsmethoden für Hostpools
@@ -140,6 +164,8 @@
           href: app-attach-glossary.md
         - name: Häufig gestellte Fragen
           href: app-attach-faq.md
+    - name: Azure Monitor-Glossar
+      href: azure-monitor-glossary.md
     - name: Datenspeicherorte
       href: data-locations.md
 - name: Problembehandlung
@@ -160,6 +186,8 @@
       href: troubleshoot-powershell.md
     - name: Diagnostizieren von Problemen mit der Grafikleistung
       href: remotefx-graphics-performance-counters.md
+    - name: Azure Monitor
+      href: troubleshoot-azure-monitor.md
 - name: Verweis
   items:
     - name: Bewährte Sicherheitsmethoden
@@ -168,8 +196,6 @@
       href: linux-overview.md
     - name: Unterstützte RDP-Dateieinstellungen
       href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
-    - name: Netzwerkleitfaden
-      href: /windows-server/remote/remote-desktop-services/network-guidance?context=/azure/virtual-desktop/context/context
     - name: Leitfaden zur VM-Größe
       href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
     - name: Azure-Befehlszeilenschnittstelle (CLI)

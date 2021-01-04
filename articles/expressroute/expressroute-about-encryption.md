@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: duau
-ms.openlocfilehash: 83fa16265106e1033cb77ab4175b606714ec66d7
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 693d2304324bdfcac298b3e20ddd0d882a16533c
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996846"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899872"
 ---
 # <a name="expressroute-encryption"></a>ExpressRoute-Verschlüsselung
  
@@ -31,7 +31,7 @@ Nein. Wenn MACsec konfiguriert ist und ein Schlüsselkonflikt auftritt, geht die
 ### <a name="will-enabling-macsec-on-expressroute-direct-degrade-network-performance"></a>Wird durch das Aktivieren von MACsec für ExpressRoute Direct die Netzwerkleistung beeinträchtigt?
 Die Verschlüsselung und Entschlüsselung von MACsec erfolgt auf Hardware auf den von uns verwendeten Routern. Auf unserer Seite wird die Leistung nicht beeinträchtigt. Sie sollten sich jedoch mit dem Netzwerkanbieter der von Ihnen verwendeten Geräte in Verbindung setzen und ermitteln, ob sich MACsec auf die Leistung auswirkt.
 ### <a name="which-cipher-suites-are-supported-for-encryption"></a>Welche Verschlüsselungssammlungen werden für die Verschlüsselung unterstützt?
-Wir unterstützen nur die [XPN](https://1.ieee802.org/security/802-1aebw/) (Extended Packet Numbering)-Version von AES128 und AES256. Deaktivieren Sie außerdem [SCI](https://en.wikipedia.org/wiki/IEEE_802.1AE) (Secure Channel Identifier) in der MACsec-Konfiguration auf Ihrem Gerät. 
+Wir unterstützen nur die [XPN](https://1.ieee802.org/security/802-1aebw/)-Version (Extended Packet Numbering) von AES-128 und AES-256. Sie müssen außerdem [SCI](https://wikipedia.org/wiki/IEEE_802.1AE) (Secure Channel Identifier) in der MACsec-Konfiguration auf Ihrem Gerät deaktivieren. 
 
 ## <a name="end-to-end-encryption-by-ipsec-faq"></a>Häufig gestellte Fragen zur End-to-End-Verschlüsselung durch IPsec
 IPsec ist ein [IETF-Standard](https://tools.ietf.org/html/rfc6071). Daten werden auf der IP-Ebene (Internet Protocol) oder auf der Netzwerkebene 3 verschlüsselt. Sie können mit IPsec eine End-to-End-Verbindung zwischen Ihrem lokalen Netzwerk und Ihrem virtuellen Netzwerk (VNet) in Azure verschlüsseln. Weitere häufig gestellte Fragen finden Sie unten.

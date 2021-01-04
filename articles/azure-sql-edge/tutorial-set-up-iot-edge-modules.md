@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sourabha, sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 7b2432fda70e8f9a5fa8bc64ede846d977672e9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75e6ebaea4c5ba883820d2309212b35fed128142
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886480"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422126"
 ---
 # <a name="set-up-iot-edge-modules-and-connections"></a>Einrichten von IoT Edge-Modulen und -Verbindungen
 
@@ -49,27 +49,30 @@ Geben Sie jetzt die Containeranmeldeinformationen im IoT Edge-Modul an.
    Benutzername|Username
    Kennwort|Kennwort
   
-## <a name="deploy-the-data-generator-module"></a>Bereitstellen des Datengeneratormoduls
+## <a name="build-push-and-deploy-the-data-generator-module"></a>Erstellen, Pushen und Bereitstellen des Datengeneratormoduls
 
-1. Klicken Sie im Abschnitt **IoT Edge** unter **Automatische Geräteverwaltung** auf **Geräte-ID**. Für dieses Tutorial lautet die ID `IronOrePredictionDevice`. Klicken Sie anschließend auf **Module festlegen**.
-
-2.  Klicken Sie auf der Seite **Module für Gerät festlegen:** im Abschnitt **IoT Edge-Module** auf **+ HINZUFÜGEN**, und wählen Sie **IoT Edge-Modul** aus.
-
-3. Geben Sie einen gültigen Namen und einen gültigen Image-URI für das IoT Edge-Modul an.
-   Den Image-URI finden Sie in der Containerregistrierung in der Ressourcengruppe, die im ersten Teil dieses Tutorials erstellt wurde. Wählen Sie unter **Services** den Abschnitt **Repositorys** aus. Wählen Sie für dieses Tutorial das Repository `silicaprediction` aus. Wählen Sie das geeignete Tag aus. Der Image-URI hat folgendes Format:
-
-   *anmeldeserver der containerregistrierung*/*repositoryname*:*tagname*
-
-   Beispiel:
-
+1. Klonen Sie die [Projektdateien](https://github.com/microsoft/sqlsourabh/tree/main/SQLEdgeSamples/IoTEdgeSamples/IronOreSilica) auf Ihrem Computer.
+2. Öffnen Sie die Datei **IronOre_Silica_Predict.sln** mithilfe von Visual Studio 2019.
+3. Aktualisieren Sie die Details der Containerregistrierung in der Datei **deployment.template.json**. 
+   ```json
+   "registryCredentials":{
+        "RegistryName":{
+            "username":"",
+            "password":""
+            "address":""
+        }
+    }
    ```
-   ASEdemocontregistry.azurecr.io/silicaprediction:amd64
+4. Aktualisieren Sie die Datei **modules.json**, um die Zielcontainerregistrierung (oder das Repository für das Modul) anzugeben.
+   ```json
+   "image":{
+        "repository":"samplerepo.azurecr.io/ironoresilicapercent",
+        "tag":
+    }
    ```
-
-4. Lassen Sie die Felder *Neustartrichtlinie* und *Gewünschter Status* unverändert.
-
-5. Klicken Sie auf **Hinzufügen**.
-
+5. Führen Sie das Projekt im Debug- oder Releasemodus aus, um sicherzustellen, dass es ohne Probleme ausgeführt wird 
+6. Pushen Sie das Projekt an Ihre Containerregistrierung, indem Sie mit der rechten Maustaste auf den Projektnamen klicken und dann **Build and Push IoT Edge Modules** (IoT Edge-Module erstellen und pushen) auswählen.
+7. Stellen Sie das Datengeneratormodul als IoT Edge-Modul auf Ihrem Edge-Gerät bereit. 
 
 ## <a name="deploy-the-azure-sql-edge-module"></a>Bereitstellen des Azure SQL Edge-Moduls
 
@@ -77,7 +80,7 @@ Geben Sie jetzt die Containeranmeldeinformationen im IoT Edge-Modul an.
 
 2. Suchen Sie auf dem Blatt **IoT Edge-Modul aus Marketplace** nach *Azure SQL Edge*, und wählen Sie *Azure SQL Edge Developer* aus. 
 
-3. Klicken Sie unter **IoT Edge-Module** auf das neu hinzugefügte Modul *Azure SQL Edge*, um das Azure SQL Edge-Modul zu konfigurieren. Weitere Informationen zu den Konfigurationsoptionen finden Sie unter [Bereitstellen von Azure SQL Edge (Vorschau)](https://docs.microsoft.com/azure/azure-sql-edge/deploy-portal).
+3. Klicken Sie unter **IoT Edge-Module** auf das neu hinzugefügte Modul *Azure SQL Edge*, um das Azure SQL Edge-Modul zu konfigurieren. Weitere Informationen zu den Konfigurationsoptionen finden Sie unter [Bereitstellen von Azure SQL Edge (Vorschau)](./deploy-portal.md).
 
 4. Fügen Sie der Bereitstellung des Moduls *Azure SQL Edge* die Umgebungsvariable `MSSQL_PACKAGE` hinzu, und geben Sie die SAS-URL der DACPAC-Datenbankdatei an, die Sie im [ersten Teil](tutorial-deploy-azure-resources.md) dieses Tutorials in Schritt 8 erstellt haben.
 

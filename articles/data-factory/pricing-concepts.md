@@ -2,20 +2,20 @@
 title: Grundlegendes zu Azure Data Factory-Preisen anhand von Beispielen
 description: In diesem Artikel wird das Preismodell für Azure Data Factory mit ausführlichen Beispielen veranschaulicht.
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: a80e0f1b62257fdbce6598c9cc4088701cc2ae9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cea8ae07585f09c644f0ef6e1e6142998ddc7f08
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983609"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497502"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Grundlegendes zu Azure Data Factory-Preisen anhand von Beispielen
 
@@ -48,7 +48,7 @@ Um dieses Szenario zu realisieren, müssen Sie eine Pipeline mit folgenden Eleme
 | Abrufen der Pipeline | 1 Lese-/Schreibzugriffentität |
 | Ausführen der Pipeline | 2 Aktivitätsausführungen (1 für den Trigger, 1 für die Aktivität) |
 | Annahme für Kopieren der Daten: Ausführungszeit = 10 Minuten | 10 \* 4 Azure Integration Runtime (Standard-DIU-Einstellung = 4) Weitere Informationen zu Datenintegrationseinheiten und Optimieren der Kopierleistung finden Sie in [diesem Artikel](copy-activity-performance.md) |
-| Annahme für Überwachung der Pipeline: Nur 1 Ausführung ist aufgetreten | 2 wiederholte Überwachungsausführungsaufzeichnungen (1 für die Pipelineausführung, 1 für die Aktivitätsausführung) |
+| Annahme für Überwachung der Pipeline: Nur 1 Ausführung ist aufgetreten | 2 abgerufene Überwachungsausführungsaufzeichnungen (1 für Pipelineausführung, 1 für Aktivitätsausführung) |
 
 **Preis für gesamtes Szenario: 0,16811 US-$**
 
@@ -79,7 +79,7 @@ Um dieses Szenario zu realisieren, müssen Sie eine Pipeline mit folgenden Eleme
 | Abrufen der Pipeline | 1 Lese-/Schreibzugriffentität |
 | Ausführen der Pipeline | 3 Aktivitätsausführungen (1 für den Trigger, 2 für die Aktivität) |
 | Annahme für Kopieren der Daten: Ausführungszeit = 10 Minuten | 10 \* 4 Azure Integration Runtime (Standard-DIU-Einstellung = 4) Weitere Informationen zu Datenintegrationseinheiten und Optimieren der Kopierleistung finden Sie in [diesem Artikel](copy-activity-performance.md) |
-| Annahme für Überwachung der Pipeline: Nur 1 Ausführung ist aufgetreten | 3 wiederholte Überwachungsausführungsaufzeichnungen (1 für die Pipelineausführung, 2 für die Aktivitätsausführung) |
+| Annahme für Überwachung der Pipeline: Nur 1 Ausführung ist aufgetreten | 3 abgerufene Überwachungsausführungsaufzeichnungen (1 für Pipelineausführung, 2 für Aktivitätsausführung) |
 | Annahme für Ausführung der Databricks-Aktivität: Ausführungszeit = 10 Minuten | 10 Minuten Ausführung der externen Pipelineaktivität |
 
 **Preis für gesamtes Szenario: 0,16916 US-$**
@@ -113,7 +113,7 @@ Um dieses Szenario zu realisieren, müssen Sie eine Pipeline mit folgenden Eleme
 | Abrufen der Pipeline | 1 Lese-/Schreibzugriffentität |
 | Ausführen der Pipeline | 4 Aktivitätsausführungen (1 für den Trigger, 3 für die Aktivität) |
 | Annahme für Kopieren der Daten: Ausführungszeit = 10 Minuten | 10 \* 4 Azure Integration Runtime (Standard-DIU-Einstellung = 4) Weitere Informationen zu Datenintegrationseinheiten und Optimieren der Kopierleistung finden Sie in [diesem Artikel](copy-activity-performance.md) |
-| Annahme für Überwachung der Pipeline: Nur 1 Ausführung ist aufgetreten | 4 wiederholte Überwachungsausführungsaufzeichnungen (1 für Pipelineausführung, 3 für Aktivitätsausführung) |
+| Annahme für Überwachung der Pipeline: Nur 1 Ausführung ist aufgetreten | 4 abgerufene Überwachungsausführungsaufzeichnungen (1 für Pipelineausführung, 3 für Aktivitätsausführung) |
 | Annahme für Ausführung der Suchaktivität: Ausführungszeit = 1 Minute | 1 Minute Ausführung der Pipelineaktivität |
 | Annahme für Ausführung der Databricks-Aktivität: Ausführungszeit = 10 Minuten | 10 Minuten Ausführung der externen Pipelineaktivität |
 
@@ -160,7 +160,7 @@ Um dieses Szenario zu realisieren, müssen Sie eine Pipeline mit folgenden Eleme
 | Abrufen der Pipeline | 1 Lese-/Schreibzugriffentität |
 | Ausführen der Pipeline | 2 Aktivitätsausführungen (1 für den Trigger, 1 für die Aktivität) |
 | Data Flow-Annahmen: Ausführungszeit = 10 Minuten + 10 Minuten TTL | 10 \* 16 allgemeine Computekerne mit einer TTL von 10 |
-| Annahme für Überwachung der Pipeline: Nur 1 Ausführung ist aufgetreten | 2 wiederholte Überwachungsausführungsaufzeichnungen (1 für die Pipelineausführung, 1 für die Aktivitätsausführung) |
+| Annahme für Überwachung der Pipeline: Nur 1 Ausführung ist aufgetreten | 2 abgerufene Überwachungsausführungsaufzeichnungen (1 für Pipelineausführung, 1 für Aktivitätsausführung) |
 
 **Preis für gesamtes Szenario: 1,4631 US-$**
 
@@ -189,7 +189,7 @@ In diesem Szenario möchten Sie die ursprünglichen Dateien in Azure Blob Storag
 | Ausführen der Pipeline | 6 Aktivitätsausführungen (2 für Triggerausführung, 4 für die Aktivität) |
 | Ausführen der Löschaktivität: jede Ausführungszeit = 5 min. Die Ausführung der Löschaktivität in der ersten Pipeline liegt zwischen 10:00 Uhr UTC und 10:05 Uhr UTC. Die Ausführung der Löschaktivität in der zweiten Pipeline liegt zwischen 10:02 Uhr UTC und 10:07 Uhr UTC.|Insgesamt eine 7-minütige Ausführung der Pipelineaktivitäten im verwalteten VNET. Die Pipelineaktivität unterstützt eine Parallelität von bis zu 50 im verwalteten VNET. |
 | Annahme für die Kopieraktivität: jede Ausführungszeit = 10 min. Die Ausführung der Kopieraktivität in der ersten Pipeline liegt zwischen 10:06 Uhr UTC und 10:15 Uhr UTC. Die Ausführung der Löschaktivität in der zweiten Pipeline liegt zwischen 10:08 Uhr UTC und 10:17 Uhr UTC. | 10 × 4 Azure Integration Runtime (Standard-DIU-Einstellung = 4) Weitere Informationen zu Datenintegrationseinheiten und Optimieren der Kopierleistung finden Sie in [diesem Artikel](copy-activity-performance.md). |
-| Annahme für Überwachung der Pipeline: Nur 2 Ausführungen aufgetreten | 6 wiederholte Überwachungsausführungsaufzeichnungen (2 für Pipelineausführung, 4 für Aktivitätsausführung) |
+| Annahme für Überwachung der Pipeline: Nur 2 Ausführungen aufgetreten | 6 abgerufene Überwachungsausführungsaufzeichnungen (2 für Pipelineausführung, 4 für Aktivitätsausführung) |
 
 
 **Preis für gesamtes Szenario: 0,45523 USD**

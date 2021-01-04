@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: 01262ee0271849793c4393b1ea8e18c4179ad4e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa2783abe86b90a907510dec8d7eb40162820ad5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334724"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025258"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Tutorial: Extrahieren strukturierter Daten aus Benutzeräußerungen mithilfe von Machine Learning-Entitäten in Language Understanding (LUIS)
 
@@ -72,7 +72,7 @@ Um Details einer Pizzabestellung zu extrahieren, erstellen Sie eine Machine Lear
     |--|
     |`pickup a cheddar cheese pizza large with extra anchovies`|
 
-    Beginnen Sie mit der Auswahl kurz vor dem linken Text von `pickup` (#1), dann gehen Sie kurz über den rechten Text hinaus, `anchovies` (#2 – damit endet der Bezeichnungsprozess). Ein Popupmenü wird angezeigt. Geben Sie im Popupfeld den Namen der Entität als `Order` (#3) ein. Wählen Sie dann `Order Create new entity` aus der Liste aus (#4).
+    Klicken Sie, und ziehen Sie den Mauszeiger über den Text der ersten Beispielabsicht. Geben Sie im angezeigten Menü `Order` als Namen der Entität ein. Wählen Sie anschließend aus der Liste `Order Create new entity` aus.
 
     ![Bezeichnen von Anfang und Ende des Textes für die vollständige Bestellung](media/tutorial-machine-learned-entity/mark-complete-order.png)
 
@@ -297,7 +297,7 @@ Damit Sie eine LUIS-Vorhersage in einem Chatbot oder einer anderen Clientanwendu
 
 ## <a name="related-information"></a>Verwandte Informationen
 
-* [Tutorial: Absichten](luis-quickstart-intents-only.md)
+* [Tutorial: Absichten](./tutorial-intents-only.md)
 * [Konzept: Entitäten](luis-concept-entity-types.md) – Informationen zum Konzept
 * [Konzept: Features](luis-concept-feature.md) – Informationen zum Konzept
 * [Informationen zum Trainieren](luis-how-to-train.md)
@@ -309,4 +309,4 @@ Damit Sie eine LUIS-Vorhersage in einem Chatbot oder einer anderen Clientanwendu
 In diesem Tutorial verwendet die App eine Machine Learning-Entität, um die Absicht der Äußerung eines Benutzers zu finden und Details aus dieser Äußerung zu extrahieren. Die Verwendung der Machine Learning-Entität ermöglicht es Ihnen, die Details der Entität aufzuschlüsseln.
 
 > [!div class="nextstepaction"]
-> [Hinzufügen einer vorgefertigten keyPhrase-Entität](luis-quickstart-intent-and-key-phrase.md)
+> [Hinzufügen einer vorgefertigten keyPhrase-Entität](./luis-reference-prebuilt-keyphrase.md)

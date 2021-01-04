@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 03566dccbb453aa06a2b5f86bd02b86d85d61b28
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0fe9b3ddaee41802ced30e1898b46cefa2566771
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91322052"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023189"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Was ist Windows Virtual Desktop?
 
@@ -71,7 +71,7 @@ Die folgenden Betriebssysteme werden unterstützt. Vergewissern Sie sich daher, 
 
 In Ihrer Infrastruktur muss Folgendes vorhanden sein, um Windows Virtual Desktop verwenden zu können:
 
-* Eine [Azure Active Directory-Instanz](/azure/active-directory/)
+* Eine [Azure Active Directory-Instanz](../active-directory/index.yml)
 * Eine mit Azure Active Directory synchronisierte Windows Server Active Directory-Instanz. Diese können Sie mit Azure AD Connect (für Hybridorganisationen) oder mit Azure AD Domain Services (für Hybrid- oder Cloudorganisationen) konfigurieren.
   * Eine mit Azure Active Directory synchronisierte Windows Server AD-Instanz. Der Benutzer stammt aus Windows Server AD, und die Windows Virtual Desktop-VM wird in die Windows Server AD-Domäne eingebunden.
   * Eine mit Azure Active Directory synchronisierte Windows Server AD-Instanz. Der Benutzer stammt aus Windows Server AD, und die Windows Virtual Desktop-VM wird in die Azure AD Domain Services-Domäne eingebunden.
@@ -85,7 +85,7 @@ Benutzeranforderungen zum Herstellen einer Verbindung mit Windows Virtual Deskto
 
 Die virtuellen Azure-Computer, die Sie für Windows Virtual Desktop erstellen, müssen folgende Anforderungen erfüllen:
 
-* Sie müssen in eine [Standard-Domäne](../active-directory-domain-services/active-directory-ds-comparison.md) oder in [Hybrid AD](../active-directory/devices/hybrid-azuread-join-plan.md) eingebunden sein. Virtuelle Computer dürfen nicht in Azure AD eingebunden sein.
+* Sie müssen in eine [Standard-Domäne](../active-directory-domain-services/compare-identity-solutions.md) oder in [Hybrid AD](../active-directory/devices/hybrid-azuread-join-plan.md) eingebunden sein. Virtuelle Computer dürfen nicht in Azure AD eingebunden sein.
 * Auf ihnen muss eines der folgenden [unterstützten Betriebssystemimages](#supported-virtual-machine-os-images) ausgeführt werden:
 
 >[!NOTE]
@@ -101,7 +101,7 @@ Ihr Netzwerk muss folgende Anforderungen erfüllen, um eine optimale Leistung zu
 * Netzwerkdatenverkehr wird ggf. außerhalb der Grenzen des Landes bzw. der Region übertragen, wenn virtuelle Computer, die Desktops und Apps hosten, eine Verbindung mit dem Verwaltungsdienst herstellen.
 * Zur Optimierung der Netzwerkleistung empfiehlt es sich, die virtuellen Computer des Sitzungshosts in der Azure-Region zu platzieren, in der sich auch der Verwaltungsdienst befindet.
 
-Sie finden eine typische Architektureinrichtung von Windows Virtual Desktop für das Unternehmen in unserer [Architekturdokumentation](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
+Sie finden eine typische Architektureinrichtung von Windows Virtual Desktop für das Unternehmen in unserer [Architekturdokumentation](/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
 
 ## <a name="supported-remote-desktop-clients"></a>Unterstützte Remotedesktopclients
 

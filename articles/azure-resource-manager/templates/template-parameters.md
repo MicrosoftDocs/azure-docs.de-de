@@ -1,20 +1,22 @@
 ---
 title: Parameter in Vorlagen
-description: Beschreibt, wie Parameter in einer Azure Resource Manager-Vorlage definiert werden.
+description: Beschreibt, wie Parameter in einer Azure Resource Manager-Vorlage (ARM-Vorlage) definiert werden.
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: 89c6984c587e8dae59c1825a99d4f8da1c06dafb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: 4ac1aeb579040b35b2a9b4cb90fb5687f91ebd3b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76122422"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353509"
 ---
-# <a name="parameters-in-azure-resource-manager-templates"></a>Parameter in Azure Resource Manager-Vorlagen
+# <a name="parameters-in-arm-templates"></a>Parameter in ARM-Vorlagen
 
-Dieser Artikel beschreibt, wie Sie Parameter in Ihrer Azure Resource Manager-Vorlage definieren und verwenden. Durch Bereitstellen verschiedener Werte für Parameter können Sie eine Vorlage für verschiedene Umgebungen wiederverwenden.
+Dieser Artikel beschreibt, wie Sie Parameter in Ihrer Azure Resource Manager-Vorlage (ARM-Vorlage) definieren und verwenden. Durch Bereitstellen verschiedener Werte für Parameter können Sie eine Vorlage für verschiedene Umgebungen wiederverwenden.
 
 Resource Manager löst Parameterwerte vor Beginn der Bereitstellungsvorgänge auf. Jedes Vorkommen des Parameters in der Vorlage wird von Resource Manager durch den aufgelösten Wert ersetzt.
+
+Jeder Parameter muss auf einen der [Datentypen](template-syntax.md#data-types) festgelegt werden.
 
 ## <a name="define-parameter"></a>Definieren eines Parameters
 
@@ -157,9 +159,8 @@ In den folgenden Beispielen werden Szenarien für die Verwendung von Parametern 
 |[Parameter mit Funktionen für Standardwerte](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Zeigt, wie Vorlagenfunktionen verwendet werden, wenn Sie Standardwerte für Parameter definieren. Die Vorlage stellt keine Ressourcen bereit. Sie erstellt Parameterwerte und gibt diese Werte zurück. |
 |[Parameterobjekt](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Veranschaulicht die Verwendung eines Objekts für einen Parameter. Die Vorlage stellt keine Ressourcen bereit. Sie erstellt Parameterwerte und gibt diese Werte zurück. |
 
-
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Weitere Informationen zu den verfügbaren Eigenschaften für Parameter finden Sie unter [Verstehen der Struktur und Syntax von Azure Resource Manager-Vorlagen](template-syntax.md).
+* Weitere Informationen zu den verfügbaren Eigenschaften für Parameter finden Sie unter [Verstehen der Struktur und Syntax von ARM-Vorlagen](template-syntax.md).
 * Weitere Informationen zum Übergeben von Parameterwerten als Datei finden Sie unter [Erstellen einer Resource Manager-Parameterdatei](parameter-files.md).
 * Empfehlungen zum Erstellen von Parametern finden Sie unter [Bewährte Methoden: Parameter](template-best-practices.md#parameters).

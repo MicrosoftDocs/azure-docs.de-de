@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 12/27/2019
 ms.author: kenwith
 ms.reviewer: phsignor
-ms.openlocfilehash: 3d95d2551f8e078f4252a19dc850345793c040d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4664bdd515c815dbd742c0d4e05f1e5c03978526
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420454"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649190"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Verwalten der Einwilligung zu Anwendungen und Auswerten von Einwilligungsanforderungen
 
-Microsoft [empfiehlt](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#restrict-user-consent-operations) das Deaktivieren der Endbenutzereinwilligung für Anwendungen. Dadurch wird der Entscheidungsfindungsprozess beim Sicherheits- und Identitätsadministratorteam Ihres Unternehmens zentralisiert.
+Microsoft [empfiehlt](../../security/fundamentals/steps-secure-identity.md#restrict-user-consent-operations) das Deaktivieren der Endbenutzereinwilligung für Anwendungen. Dadurch wird der Entscheidungsfindungsprozess beim Sicherheits- und Identitätsadministratorteam Ihres Unternehmens zentralisiert.
 
 Nachdem die Endbenutzereinwilligung deaktiviert oder eingeschränkt wurde, müssen einige wichtige Überlegungen berücksichtigt werden, um sicherzustellen, dass Ihre Organisation sicher bleibt und unternehmenskritische Anwendungen weiterhin genutzt werden können. Diese Schritte sind entscheidend, um die Auswirkungen auf das Supportteam und die IT-Administratoren Ihrer Organisation zu minimieren und gleichzeitig die Verwendung nicht verwalteter Konten in Anwendungen von Drittanbietern zu verhindern.
 
@@ -35,13 +35,13 @@ Nachdem die Endbenutzereinwilligung deaktiviert oder eingeschränkt wurde, müss
 
 ## <a name="auditing-and-monitoring"></a>Auditing und Überwachung
 
-1. [Überwachen Sie Apps und erteilte Berechtigungen](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#audit-apps-and-consented-permissions) in Ihrer Organisation, um sicherzustellen, dass nicht berechtigten oder verdächtigen Anwendungen zuvor kein Zugriff auf Daten gewährt wurde.
+1. [Überwachen Sie Apps und erteilte Berechtigungen](../../security/fundamentals/steps-secure-identity.md#audit-apps-and-consented-permissions) in Ihrer Organisation, um sicherzustellen, dass nicht berechtigten oder verdächtigen Anwendungen zuvor kein Zugriff auf Daten gewährt wurde.
 
-2. Unter [Erkennen und Korrigieren von unerlaubter Zustimmung in Office 365](https://docs.microsoft.com/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants) finden Sie zusätzliche bewährte Methoden und Sicherheitsvorkehrungen gegen verdächtige Anwendungen, die eine OAuth-Einwilligung anfordern.
+2. Unter [Erkennen und Korrigieren von unerlaubter Zustimmung in Office 365](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants) finden Sie zusätzliche bewährte Methoden und Sicherheitsvorkehrungen gegen verdächtige Anwendungen, die eine OAuth-Einwilligung anfordern.
 
 3. Wenn Ihre Organisation über eine geeignete Lizenz verfügt:
 
-    * Verwenden Sie zusätzliche [Funktionen für die OAuth-Anwendungsüberwachung in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth).
+    * Verwenden Sie zusätzliche [Funktionen für die OAuth-Anwendungsüberwachung in Microsoft Cloud App Security](/cloud-app-security/investigate-risky-oauth).
     * Verwenden Sie [Azure Monitor-Arbeitsmappen für die Überwachung von Berechtigungen und Einwilligungen](../reports-monitoring/howto-use-azure-monitor-workbooks.md) und damit im Zusammenhang stehende Aktivitäten. Die Arbeitsmappe *Erkenntnisse aus Einwilligungen* bietet eine Ansicht der Apps nach der Anzahl fehlerhafter Einwilligungsanforderungen. Dies kann hilfreich sein, um Anwendungen für die Überprüfung durch die Administratoren zu priorisieren und zu entscheiden, ob ihnen eine Administratoreinwilligung gewährt werden soll.
 
 ### <a name="additional-considerations-for-reducing-friction"></a>Zusätzliche Überlegungen zur Vermeidung von Schwierigkeiten
@@ -75,7 +75,7 @@ Die folgende Liste enthält einige Empfehlungen, die Sie beim Auswerten einer An
 
 * **Informieren Sie sich über die angeforderten Berechtigungen.**
 
-   Die von der Anwendung angeforderten Berechtigungen werden in der [Einwilligungsaufforderung](../develop/application-consent-experience.md) aufgeführt. Wenn Sie den Berechtigungstitel erweitern, wird die Beschreibung der Berechtigung angezeigt. Die Beschreibung von Anwendungsberechtigungen enthält in der Regel „ohne einen angemeldeten Benutzer“. Die Beschreibung von delegierten Berechtigungen enthält in der Regel „im Namen des angemeldeten Benutzers“. Berechtigungen für die Microsoft Graph-API werden in der [Referenz zu Microsoft Graph-Berechtigungen](https://docs.microsoft.com/graph/permissions-reference) beschrieben. Informationen zu den von anderen APIs verfügbar gemachten Berechtigungen finden Sie in der jeweiligen Dokumentation.
+   Die von der Anwendung angeforderten Berechtigungen werden in der [Einwilligungsaufforderung](../develop/application-consent-experience.md) aufgeführt. Wenn Sie den Berechtigungstitel erweitern, wird die Beschreibung der Berechtigung angezeigt. Die Beschreibung von Anwendungsberechtigungen enthält in der Regel „ohne einen angemeldeten Benutzer“. Die Beschreibung von delegierten Berechtigungen enthält in der Regel „im Namen des angemeldeten Benutzers“. Berechtigungen für die Microsoft Graph-API werden in der [Referenz zu Microsoft Graph-Berechtigungen](/graph/permissions-reference) beschrieben. Informationen zu den von anderen APIs verfügbar gemachten Berechtigungen finden Sie in der jeweiligen Dokumentation.
 
    Wenn Sie die angeforderte Berechtigung nicht verstehen, *erteilen Sie keine Einwilligung*.
 
@@ -97,15 +97,15 @@ Die folgende Liste enthält einige Empfehlungen, die Sie beim Auswerten einer An
 Unter [Erteilen einer mandantenweiten Administratoreinwilligung für eine Anwendung](grant-admin-consent.md) finden Sie ausführliche Anleitungen zum Erteilen einer mandantenweiten Administratoreinwilligung über das Azure-Portal, mithilfe von Azure AD PowerShell oder über die Einwilligungsaufforderung selbst.
 
 ### <a name="granting-consent-on-behalf-of-a-specific-user"></a>Erteilen einer Einwilligung im Namen eines bestimmten Benutzers
-Anstatt die Einwilligung für die gesamte Organisation zu erteilen, kann ein Administrator auch die [Microsoft Graph-API](https://docs.microsoft.com/graph/use-the-api) verwenden, um eine Einwilligung für delegierte Berechtigungen im Namen eines einzelnen Benutzers zu erteilen. Weitere Informationen finden Sie unter [Zugreifen im Namen eines Benutzers](https://docs.microsoft.com/graph/auth-v2-user).
+Anstatt die Einwilligung für die gesamte Organisation zu erteilen, kann ein Administrator auch die [Microsoft Graph-API](/graph/use-the-api) verwenden, um eine Einwilligung für delegierte Berechtigungen im Namen eines einzelnen Benutzers zu erteilen. Weitere Informationen finden Sie unter [Zugreifen im Namen eines Benutzers](/graph/auth-v2-user).
 
 ## <a name="limiting-user-access-to-applications"></a>Beschränken des Benutzerzugriffs auf Anwendungen
-Der Zugriff von Benutzern auf Anwendungen kann auch dann noch eingeschränkt werden, wenn eine mandantenweite Administratoreinwilligung erteilt wurde. Weitere Informationen dazu, wie Sie eine Benutzerzuweisung zu einer Anwendung erzwingen, finden Sie unter [Methoden zum Zuweisen von Benutzern und Gruppen](methods-for-assigning-users-and-groups.md).
+Der Zugriff von Benutzern auf Anwendungen kann auch dann noch eingeschränkt werden, wenn eine mandantenweite Administratoreinwilligung erteilt wurde. Weitere Informationen dazu, wie Sie eine Benutzerzuweisung zu einer Anwendung erzwingen, finden Sie unter [Methoden zum Zuweisen von Benutzern und Gruppen](./assign-user-or-group-access-portal.md).
 
 Eine umfassendere Übersicht, einschließlich der Behandlung weiterer komplexer Szenarien, finden Sie unter [Verwenden von Azure AD für die Anwendungszugriffsverwaltung](what-is-access-management.md).
 
 ## <a name="disable-all-future-user-consent-operations-to-any-application"></a>Deaktivieren aller zukünftigen Vorgänge für die Benutzereinwilligung für jede Anwendung
-Die Deaktivierung der Benutzerzustimmung für das gesamte Verzeichnis führt dazu, dass Endbenutzer keiner Anwendung zustimmen können. Administratoren können weiterhin im Namen von Benutzern zustimmen. Weitere Informationen zur Zustimmung zu Anwendungen sowie zum Aktivieren bzw. Deaktivieren der Zustimmung finden Sie unter [Grundlegendes zur Benutzer- und Administratorzustimmung](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
+Die Deaktivierung der Benutzerzustimmung für das gesamte Verzeichnis führt dazu, dass Endbenutzer keiner Anwendung zustimmen können. Administratoren können weiterhin im Namen von Benutzern zustimmen. Weitere Informationen zur Zustimmung zu Anwendungen sowie zum Aktivieren bzw. Deaktivieren der Zustimmung finden Sie unter [Grundlegendes zur Benutzer- und Administratorzustimmung](../develop/howto-convert-app-to-be-multi-tenant.md).
 
 Führen Sie die folgenden Schritte aus, um alle zukünftigen Vorgänge der Benutzerzustimmung in Ihrem gesamten Verzeichnis zu deaktivieren:
 1.  Öffnen Sie das [**Azure-Portal**](https://portal.azure.com/), und melden Sie sich als **Globaler Administrator** an.
@@ -116,7 +116,7 @@ Führen Sie die folgenden Schritte aus, um alle zukünftigen Vorgänge der Benut
 6.  Deaktivieren Sie alle zukünftigen Vorgänge der Benutzerzustimmung, indem Sie **Benutzer können Apps Zugriff auf ihre Daten gewähren** auf **Nein** festlegen und dann auf die Schaltfläche **Speichern** klicken.
 
 ## <a name="next-steps"></a>Nächste Schritte
-* [Fünf Schritte zum Sichern Ihrer Identitätsinfrastruktur](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#before-you-begin-protect-privileged-accounts-with-mfa)
+* [Fünf Schritte zum Sichern Ihrer Identitätsinfrastruktur](../../security/fundamentals/steps-secure-identity.md#before-you-begin-protect-privileged-accounts-with-mfa)
 * [Konfigurieren des Workflows für die Administratoreinwilligung (Vorschau)](configure-admin-consent-workflow.md)
 * [Konfigurieren der Art der Benutzereinwilligung für eine Anwendung in Azure Active Directory](configure-user-consent.md)
-* [Berechtigungen und Zustimmung im Microsoft Identity Platform-Endpunkt](../develop/active-directory-v2-scopes.md)
+* [Berechtigungen und Zustimmung im Microsoft Identity Platform-Endpunkt](../develop/v2-permissions-and-consent.md)

@@ -8,35 +8,66 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 12/10/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 98c42a61e65935446f948e35cb08ed2893dd0b7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c746666d58e21c2705a2ef1d6a17d0d1196f7590
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532516"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504473"
 ---
 # <a name="speech-to-text-rest-api"></a>Spracherkennungs-REST-API
 
-Als Alternative zum [Speech SDK](speech-sdk.md) ermöglicht der Speech-Dienst das Konvertieren von Sprache in Text mithilfe einer REST-API. Jeder zugängliche Endpunkt ist einer Region zugeordnet. Ihre Anwendung benötigt einen Abonnementschlüssel für den Endpunkt, den Sie verwenden möchten. Die Möglichkeiten der REST-API sind stark eingeschränkt. Daher sollte die REST-API nur verwendet werden, wenn das [Speech SDK](speech-sdk.md) nicht verwendet werden kann.
+Für die Spracherkennung gibt es zwei unterschiedliche REST-APIs. Jede API dient einem speziellen Zweck und verwendet unterschiedliche Gruppen von Endpunkten.
 
-Beachten Sie Folgendes, bevor Sie die Spracherkennungs-REST-API verwenden:
+Es gibt folgende REST-APIs für die Spracherkennung:
+- Die [Spracherkennungs-REST-API 3.0](#speech-to-text-rest-api-v30) wird für die [Batchtranskription](batch-transcription.md) und [Custom Speech](custom-speech-overview.md) eingesetzt. Version 3.0 ist die [Nachfolgeversion von Version 2.0](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+- Die [Spracherkennungs-REST-API für kurze Audiodaten](#speech-to-text-rest-api-for-short-audio) wird für die Onlinetranskription als Alternative zum [Speech-SDK](speech-sdk.md) eingesetzt. Anforderungen, die diese API verwenden, können pro Anforderung nur bis zu 60 Sekunden Audiodaten übertragen. 
 
-* Anforderungen, die die REST-API verwenden und Audiodaten direkt übertragen, dürfen nur bis zu 60 Sekunden Audiodaten enthalten.
-* Die Spracherkennung-REST-API gibt nur Endergebnisse zurück. Teilergebnisse werden nicht bereitgestellt.
+## <a name="speech-to-text-rest-api-v30"></a>Spracherkennungs-REST-API 3.0
 
-Wenn das Senden von längerem Audio eine Anforderung für Ihre Anwendung ist, verwenden Sie das [Speech SDK](speech-sdk.md) oder eine dateibasierte REST-API wie die [Batchtranskription](batch-transcription.md).
+Die Spracherkennungs-REST-API 3.0 wird für die [Batchtranskription](batch-transcription.md) und [Custom Speech](custom-speech-overview.md) eingesetzt. Wenn Sie mit der Onlinetranskription über REST kommunizieren müssen, verwenden Sie die [Spracherkennungs-REST-API für kurze Audiodaten](#speech-to-text-rest-api-for-short-audio).
+
+Verwenden Sie die REST-API 3.0 für Folgendes:
+- Kopieren von Modellen in andere Abonnements, wenn Sie möchten, dass Kollegen Zugriff auf ein von Ihnen erstelltes Modell haben, oder wenn Sie ein Modell in mehreren Regionen bereitstellen möchten
+- Transkribieren von Daten aus einem Container (Massentranskription) sowie Bereitstellen mehrerer Audiodatei-URLs
+- Hochladen von Daten aus Azure Storage-Konten durch Verwendung eines SAS-URI
+- Abrufen von Protokollen pro Endpunkt, wenn Protokolle für diesen Endpunkt angefordert wurden
+- Anfordern des Manifests der Modelle, die Sie erstellen, um lokale Container einzurichten
+
+Die REST-API 3.0 enthält unter anderem folgende Features:
+- **Benachrichtigungen für Webhooks:** Alle laufenden Prozesse des Diensts unterstützen jetzt Webhookbenachrichtigungen. Die REST-API 3.0 stellt die Aufrufe bereit, mit denen Sie die Webhooks registrieren können, für die Benachrichtigungen gesendet werden.
+- **Aktualisieren von Modellen hinter Endpunkten** 
+- **Modellanpassung mit mehreren Datasets:** Passen Sie ein Modell mit mehreren Datasetkombinationen aus Akustik-, Sprach- und Aussprachedaten an.
+- **Bring Your Own Storage:** Verwenden Sie Ihre eigenen Speicherkonten für Protokolle, Transkriptionsdateien und andere Daten.
+
+Beispiele zur Verwendung der REST-API 3.0 mit der Batchtranskription finden Sie in [diesem Artikel](batch-transcription.md).
+
+Wenn Sie die Spracherkennungs-REST-API 2.0 verwenden, finden Sie weitere Informationen zur Migration zu Version 3.0 in [diesem Leitfaden](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+
+Die gesamte Referenz zur Spracherkennungs-REST-API 3.0 finden Sie [hier](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0).
+
+## <a name="speech-to-text-rest-api-for-short-audio"></a>Spracherkennungs-REST-API für kurze Audiodaten
+
+Als Alternative zum [Speech-SDK](speech-sdk.md) ermöglicht der Speech-Dienst das Konvertieren von Sprache in Text mithilfe einer REST-API. Jeder zugängliche Endpunkt ist einer Region zugeordnet. Ihre Anwendung benötigt einen Abonnementschlüssel für den Endpunkt, den Sie verwenden möchten. Die REST-API für kurze Audiodaten ist stark eingeschränkt. Daher sollte sie nur verwendet werden, wenn das [Speech-SDK](speech-sdk.md) nicht verwendet werden kann.
+
+Beachten Sie Folgendes, bevor Sie die Spracherkennungs-REST-API für kurze Audiodaten verwenden:
+
+* Anforderungen, die die REST-API für kurze Audiodaten verwenden und Audiodaten direkt übertragen, können nur bis zu 60 Sekunden Audiodaten enthalten.
+* Die Spracherkennungs-REST-API für kurze Audiodaten gibt nur Endergebnisse zurück. Teilergebnisse werden nicht bereitgestellt.
+
+Wenn für Ihre Anwendung das Senden von längeren Audiodaten erforderlich ist, ziehen Sie die Verwendung des [Speech-SDK](speech-sdk.md) oder der [Spracherkennungs-REST-API 3.0](#speech-to-text-rest-api-v30) in Betracht.
 
 > [!TIP]
-> Informationen zu Endpunkten zur Government-Cloud (FairFax) finden Sie in der [Azure Government-Dokumentation](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure).
+> Informationen zu Endpunkten zur Government-Cloud (FairFax) finden Sie in der [Azure Government-Dokumentation](../../azure-government/compare-azure-government-global-azure.md).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
-## <a name="regions-and-endpoints"></a>Regionen und Endpunkte
+### <a name="regions-and-endpoints"></a>Regionen und Endpunkte
 
-Der Endpunkt für die REST-API weist das folgende Format auf:
+Der Endpunkt für die REST-API für kurze Audiodaten weist das folgende Format auf:
 
 ```
 https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
@@ -49,7 +80,7 @@ Ersetzen Sie `<REGION_IDENTIFIER>` durch den Bezeichner aus der folgenden Tabell
 > [!NOTE]
 > Der Sprachparameter muss an die URL angefügt werden, um HTTP Fehler des Typs „4xx“ zu vermeiden. Das folgende Beispiel zeigt die Spracheinstellung „Englisch (USA)“ bei Verwendung des Endpunkt „USA, Westen“: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
 
-## <a name="query-parameters"></a>Abfrageparameter
+### <a name="query-parameters"></a>Abfrageparameter
 
 Diese Parameter können in der Abfragezeichenfolge der REST-Anforderung enthalten sein.
 
@@ -58,11 +89,11 @@ Diese Parameter können in der Abfragezeichenfolge der REST-Anforderung enthalte
 | `language` | Identifiziert die gesprochene Sprache, die erkannt wird. Siehe [Unterstützte Sprachen](language-support.md#speech-to-text). | Erforderlich |
 | `format` | Gibt das Ergebnisformat an. Zulässige Werte sind `simple` und `detailed`. Einfache Ergebnisse enthalten `RecognitionStatus`, `DisplayText`, `Offset` und `Duration`. Ausführliche Antworten enthalten vier verschiedene Darstellungen des Anzeigetexts. Die Standardeinstellung ist `simple`. | Optional |
 | `profanity` | Gibt den Umgang mit Obszönitäten in Erkennungsergebnissen an. Zulässige Werte sind `masked` (Obszönitäten werden durch Sternchen ersetzt), `removed` (Obszönitäten werden aus dem Ergebnis entfernt) und `raw` (Obszönitäten sind im Ergebnis enthalten). Die Standardeinstellung ist `masked`. | Optional |
-| `cid` | Wenn Sie das [Custom Speech-Portal](how-to-custom-speech.md) zum Erstellen von benutzerdefinierten Modellen verwenden, können Sie benutzerdefinierte Modelle über ihre **Endpunkt-ID** verwenden, die Sie auf der Seite **Bereitstellung** finden. Verwenden Sie die **Endpunkt-ID** als Argument für den Parameter `cid` der Abfragezeichenfolge. | Optional |
+| `cid` | Wenn Sie das [Custom Speech-Portal](./custom-speech-overview.md) zum Erstellen von benutzerdefinierten Modellen verwenden, können Sie benutzerdefinierte Modelle über ihre **Endpunkt-ID** verwenden, die Sie auf der Seite **Bereitstellung** finden. Verwenden Sie die **Endpunkt-ID** als Argument für den Parameter `cid` der Abfragezeichenfolge. | Optional |
 
-## <a name="request-headers"></a>Anforderungsheader
+### <a name="request-headers"></a>Anforderungsheader
 
-Diese Tabelle führt die erforderlichen und optionalen Header für Spracherkennungsanforderungen auf.
+In der folgenden Tabelle sind die erforderlichen und optionalen Header für Spracherkennungsanforderungen aufgeführt.
 
 |Header| BESCHREIBUNG | Erforderlich/optional |
 |------|-------------|---------------------|
@@ -74,7 +105,7 @@ Diese Tabelle führt die erforderlichen und optionalen Header für Spracherkennu
 | `Expect` | Wenn Sie segmentierte Übertragung verwenden, senden Sie `Expect: 100-continue`. Der Spracherkennungsdienst bestätigt die ursprüngliche Anforderung und wartet auf weitere Daten.| Erforderlich, wenn segmentierte Audiodaten gesendet werden. |
 | `Accept` | Wenn angegeben, muss der Wert `application/json` entsprechen. Der Speech-Dienst übermittelt Ergebnisse im JSON-Format. Einige Anforderungsframeworks bieten einen inkompatiblen Standardwert. Es ist eine bewährte Methode, `Accept` immer einzubeziehen. | Optional, wird jedoch empfohlen. |
 
-## <a name="audio-formats"></a>Audioformate
+### <a name="audio-formats"></a>Audioformate
 
 Audiodaten werden im Text der HTTP-`POST`-Anforderung gesendet. Sie müssen in einem der in der folgenden Tabelle aufgeführten Formate vorliegen:
 
@@ -84,16 +115,16 @@ Audiodaten werden im Text der HTTP-`POST`-Anforderung gesendet. Sie müssen in e
 | OGG    | OPUS  | 256 KBit/s | 16 kHz, mono |
 
 >[!NOTE]
->Die oben genannten Formate werden durch die REST-API und WebSocket im Speech-Dienst unterstützt. Das [Speech-SDK](speech-sdk.md) unterstützt gegenwärtig das WAV-Format mit dem PCM-Codec sowie [weitere Formate](how-to-use-codec-compressed-audio-input-streams.md).
+>Die oben aufgeführten Formate werden durch die REST-API für kurze Audiodaten und WebSocket im Speech-Dienst unterstützt. Das [Speech-SDK](speech-sdk.md) unterstützt gegenwärtig das WAV-Format mit dem PCM-Codec sowie [weitere Formate](how-to-use-codec-compressed-audio-input-streams.md).
 
-## <a name="pronunciation-assessment-parameters"></a>Parameter für die Aussprachebewertung
+### <a name="pronunciation-assessment-parameters"></a>Parameter für die Aussprachebewertung
 
 In dieser Tabelle sind die erforderlichen und optionalen Parameter für die Aussprachebewertung aufgeführt.
 
-| Parameter | BESCHREIBUNG | Erforderlich/optional |
+| Parameter | BESCHREIBUNG | Erforderlich? |
 |-----------|-------------|---------------------|
 | ReferenceText | Der Text, für den die Aussprache ausgewertet wird. | Erforderlich |
-| GradingSystem | Das Punktesystem zur Kalibrierung der Bewertung. Zulässige Werte sind `FivePoint` und `HundredMark`. Die Standardeinstellung ist `FivePoint`. | Optional |
+| GradingSystem | Das Punktesystem zur Kalibrierung der Bewertung. Das `FivePoint`-System gibt eine 0-5-Gleitkommabewertung und `HundredMark` eine 0-100-Gleitkommabewertung aus. Standardwert: `FivePoint`. | Optional |
 | Granularität | Die Granularität der Auswertung. Akzeptierte Werte sind `Phoneme`, für das die Bewertung auf Volltext-, Wort- und Phonemebene, `Word`, für das die Bewertung auf Volltext und Wortebene und `FullText`, für das nur die Bewertung auf der Volltextebene angezeigt wird. Die Standardeinstellung ist `Phoneme`. | Optional |
 | Dimension | Definiert die Ausgabekriterien. Die akzeptierten Werte sind `Basic`, das nur die Genauigkeitsbewertung anzeigt, und `Comprehensive`, für das Bewertungen in weiteren Dimensionen angezeigt wird (z. B. Flüssigkeitsbewertung und Vollständigkeitsbewertung auf der Volltextebene, Fehlertyp auf der Wortebene). In den [Antwortparametern](#response-parameters) finden Sie Definitionen verschiedener Bewertungsdimensionen und Wortfehlertypen. Die Standardeinstellung ist `Basic`. | Optional |
 | EnableMiscue | Aktiviert die Fehlschlagsberechnung. Wenn diese Option aktiviert ist, werden die ausgesprochenen Wörter mit dem Referenztext verglichen und auf der Grundlage des Vergleichs mit Auslassung/Einfügung gekennzeichnet. Zulässige Werte sind `False` und `True`. Die Standardeinstellung ist `False`. | Optional |
@@ -123,7 +154,7 @@ Für die Veröffentlichung von Audiodaten wird dringend das Hochladen per Stream
 >[!NOTE]
 >Das Feature für die Aussprachebewertung ist derzeit nur in den Regionen `westus`, `eastasia` und `centralindia` verfügbar. Es steht außerdem zurzeit nur für die Sprache `en-US` zur Verfügung.
 
-## <a name="sample-request"></a>Beispiel für eine Anforderung
+### <a name="sample-request"></a>Beispiel für eine Anforderung
 
 Das folgende Beispiel enthält den Hostnamen und die erforderlichen Header. Beachten Sie, dass der Dienst auch Audiodaten erwartet, die in diesem Beispiel nicht enthalten sind. Wie bereits erwähnt, wird die Segmentierung empfohlen, ist aber nicht erforderlich.
 
@@ -143,7 +174,7 @@ Sie können den unten angegebenen Header hinzufügen, um die Aussprachebewertung
 Pronunciation-Assessment: eyJSZWZlcm...
 ```
 
-## <a name="http-status-codes"></a>HTTP-Statuscodes
+### <a name="http-status-codes"></a>HTTP-Statuscodes
 
 Der HTTP-Statuscode jeder Antwort zeigt den Erfolg oder allgemeine Fehler an.
 
@@ -155,9 +186,9 @@ Der HTTP-Statuscode jeder Antwort zeigt den Erfolg oder allgemeine Fehler an.
 | `401` | Nicht autorisiert | Der Abonnementschlüssel oder das Autorisierungstoken ist in der angegebenen Region ungültig oder ungültiger Endpunkt. |
 | `403` | Verboten | Fehlender Abonnementschlüssel oder fehlendes Autorisierungstoken. |
 
-## <a name="chunked-transfer"></a>Segmentierte Übertragung
+### <a name="chunked-transfer"></a>Segmentierte Übertragung
 
-Mithilfe der segmentierten Übertragung (`Transfer-Encoding: chunked`) kann die Erkennungslatenz verringert werden. Es ermöglicht dem Speech-Dienst, mit der Verarbeitung der Audiodatei zu beginnen, während sie übertragen wird. Der REST-API bietet keine Teil- oder Zwischenergebnisse.
+Mithilfe der segmentierten Übertragung (`Transfer-Encoding: chunked`) kann die Erkennungslatenz verringert werden. Es ermöglicht dem Speech-Dienst, mit der Verarbeitung der Audiodatei zu beginnen, während sie übertragen wird. Die REST-API für kurze Audiodaten gibt keine Teil- oder Zwischenergebnisse zurück.
 
 Dieses Codebeispiel zeigt, wie Sie Audio in Blöcken senden. Nur der erste Block sollte den Header der Audiodatei enthalten. `request` ist ein `HttpWebRequest`-Objekt, das mit dem entsprechenden REST-Endpunkt verbunden ist. `audioFile` ist der Pfad zu einer Audiodatei auf dem Datenträger.
 
@@ -191,7 +222,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 }
 ```
 
-## <a name="response-parameters"></a>Antwortparameter
+### <a name="response-parameters"></a>Antwortparameter
 
 Ergebnisse werden im JSON-Format bereitgestellt. Das `simple`-Format schließt diese Felder auf oberster Ebene ein.
 
@@ -233,7 +264,7 @@ Das Objekt in der `NBest`-Liste kann Folgendes enthalten:
 | `PronScore` | Der Gesamtscore, der die Aussprachequalität des übergebenen Sprachtexts angibt. Dieser wird aus `AccuracyScore`, `FluencyScore` und `CompletenessScore` mit Gewichtung aggregiert. |
 | `ErrorType` | Dieser Wert gibt an, ob ein Wort im Vergleich zu `ReferenceText`ausgelassen, eingefügt oder schlecht ausgesprochen wird. Die möglichen Werte sind `None` (d. h. kein Fehler in diesem Wort), `Omission`, `Insertion` und `Mispronunciation`. |
 
-## <a name="sample-responses"></a>Beispielantworten
+### <a name="sample-responses"></a>Beispielantworten
 
 Eine typische Antwort für die `simple` Erkennung:
 
@@ -307,5 +338,6 @@ Eine typische Antwort für Erkennung mit Bewertung der Aussprache:
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Erstellen Sie ein kostenloses Azure-Konto.](https://azure.microsoft.com/free/cognitive-services/)
-- [Tutorial: Erstellen eines benutzerdefinierten Akustikmodells](how-to-customize-acoustic-models.md)
-- [Tutorial: Erstellen eines benutzerdefinierten Sprachmodells](how-to-customize-language-model.md)
+- [Tutorial: Erstellen eines benutzerdefinierten Akustikmodells](./how-to-custom-speech-train-model.md)
+- [Tutorial: Erstellen eines benutzerdefinierten Sprachmodells](./how-to-custom-speech-train-model.md)
+- [Machen Sie sich mit der Batchtranskription vertraut.](batch-transcription.md)

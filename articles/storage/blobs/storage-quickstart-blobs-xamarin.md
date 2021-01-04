@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 434f112e78938c94d887423316fccea270059b6b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 641117414c855a044d3ed55004b6e6ea15b259ac
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109016"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004737"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Schnellstart: Azure Blob Storage-Clientbibliothek v12 mit Xamarin
 
@@ -39,8 +39,8 @@ Referenzlinks:
 ## <a name="prerequisites"></a>Voraussetzungen
 
 * Azure-Abonnement – [Erstellen eines kostenlosen Kontos](https://azure.microsoft.com/free/)
-* Azure Storage-Konto – [Erstellen eines Speicherkontos](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* Visual Studio mit installierter [Workload für die mobile Entwicklung für .NET](https://docs.microsoft.com/xamarin/get-started/installation/?pivots=windows) oder [Visual Studio für Mac](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
+* Azure Storage-Konto – [Erstellen eines Speicherkontos](../common/storage-account-create.md)
+* Visual Studio mit installierter [Workload für die mobile Entwicklung für .NET](/xamarin/get-started/installation/?pivots=windows) oder [Visual Studio für Mac](/visualstudio/mac/installation?view=vsmac-2019)
 
 ## <a name="setting-up"></a>Einrichten
     
@@ -53,7 +53,7 @@ In diesem Abschnitt erfahren Sie, wie Sie ein Projekt für die Verwendung mit de
 
 ### <a name="install-the-package"></a>Installieren des Pakets
 
-1. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf Ihre Lösung, und wählen Sie **NuGet-Pakete verwalten**aus.
+1. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf Ihre Lösung, und wählen Sie **NuGet-Pakete verwalten** aus.
 1. Suchen Sie nach **Azure.Storage.Blobs**, und installieren Sie für alle Projekte in Ihrer Lösung die neueste stabile Version.
 
 ### <a name="set-up-the-app-framework"></a>Einrichten des App-Frameworks

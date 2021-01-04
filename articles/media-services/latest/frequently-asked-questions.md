@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: aa33319f146ac57ab4d253696c94308a43b5db2e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 50a0fe0fa5dece41ac9e343d5a8939e8d9dc634e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019612"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426886"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Häufig gestellte Fragen zu Media Services v3
 
@@ -30,11 +30,11 @@ Dieser Artikel enthält Antworten auf häufig gestellte Fragen zu Azure Media Se
 
 Sie können das [Azure-Portal](https://portal.azure.com/) für Folgendes nutzen: Verwalten von v3-Liveereignissen, Anzeigen von v3-Objekten und -Aufträgen, Abrufen von Informationen über das Zugreifen auf APIs sowie Verschlüsseln von Inhalten. <br/>Verwenden Sie für alle anderen Verwaltungsaufgaben (etwa für die Verwaltung von Transformationen und Aufträgen oder die Analyse von v3-Inhalten) die [REST-API](/rest/api/media/accountfilters), die [CLI](/cli/azure/ams) oder eins der unterstützten [SDKs](media-services-apis-overview.md#sdks).
 
-Wenn Ihr Video zuvor mithilfe der Media Services v3-API in das Media Services-Konto hochgeladen wurde oder der Inhalt basierend auf einer Liveausgabe generiert wurde, sind die Schaltflächen **Codieren**, **Analysieren** und **Verschlüsseln** im Azure-Portal nicht verfügbar. Verwenden Sie für diese Aufgaben die Media Services v3-APIs.  
+Wenn Ihr Video zuvor mithilfe der Media Services v3-API in das Media Services-Konto hochgeladen wurde oder der Inhalt basierend auf einer Liveausgabe generiert wurde, sind die Schaltflächen **Codieren** , **Analysieren** und **Verschlüsseln** im Azure-Portal nicht verfügbar. Verwenden Sie für diese Aufgaben die Media Services v3-APIs.  
 
 ### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Welche Azure-Rollen können Aktionen mit den Ressourcen von Azure Media Services durchführen? 
 
-Weitere Informationen finden Sie unter [Rollenbasierte Zugriffssteuerung (RBAC) für Media Services-Konten](rbac-overview.md).
+Weitere Informationen finden Sie unter [Rollenbasierte Zugriffssteuerung (RBAC) in Azure für Media Services-Konten](rbac-overview.md).
 
 ### <a name="how-do-i-stream-to-apple-ios-devices"></a>Wie funktioniert das Streaming auf Apple iOS-Geräten?
 
@@ -113,7 +113,7 @@ Für die Produktion benötigen Sie einen Sicherheitstokendienst (Webdienst), der
 
 Der Player fordert nach der Authentifizierung eines Benutzers beim STS ein solches Token an und weist dieses als Wert des Tokens zu. Sie können die [Azure Media Player-API](https://amp.azure.net/libs/amp/latest/docs/) verwenden.
 
-Ein Beispiel für die Ausführung des STS mit einem symmetrischen oder einem asymmetrischen Schlüssel finden Sie im [JWT-Tool](https://aka.ms/jwt). Ein Beispiel für einen Player, der auf Azure Media Player basiert und ein solches JWT-Token verwendet, finden Sie im [Azure-Medientesttool](https://aka.ms/amtest). (Erweitern Sie den Link **player_settings**, um die Tokeneingabe anzuzeigen.)
+Ein Beispiel für die Ausführung des STS mit einem symmetrischen oder einem asymmetrischen Schlüssel finden Sie im [JWT-Tool](https://aka.ms/jwt). Ein Beispiel für einen Player, der auf Azure Media Player basiert und ein solches JWT-Token verwendet, finden Sie im [Azure-Medientesttool](https://aka.ms/amtest). (Erweitern Sie den Link **player_settings** , um die Tokeneingabe anzuzeigen.)
 
 ### <a name="how-do-i-authorize-requests-to-stream-videos-with-aes-encryption"></a>Wie autorisiere ich Anforderungen zum Streamen von Videos mit AES-Verschlüsselung?
 
@@ -255,9 +255,9 @@ Beide Gruppen von Sicherheitsstufen werden durch Google Widevine definiert. Der 
 
 | **In der Widevine-Architektur definierte Sicherheitsstufen** |**In der Widevine-API verwendete Sicherheitsstufen**|
 |---|---| 
-| **Sicherheitsstufe 1**: Die gesamte Inhaltsverarbeitung, Kryptografie und Kontrolle findet innerhalb der vertrauenswürdigen Ausführungsumgebung (Trusted Execution Environment, TEE) statt. In einigen Implementierungsmodellen findet die Sicherheitsverarbeitung unter Umständen in unterschiedlichen Chips statt.|**security_level=5**: Kryptografie, Decodierung und Verarbeitung von Medien (komprimiert und unkomprimiert) müssen innerhalb einer hardwaregestützten TEE stattfinden.<br/><br/>**security_level=4**: Kryptografie und Decodierung müssen innerhalb einer hardwaregestützten TEE durchgeführt werden.|
-**Sicherheitsstufe 2**: Die Kryptografie (aber nicht die Videoverarbeitung) wird innerhalb der TEE durchgeführt. Entschlüsselte Puffer werden an die Anwendungsdomäne zurückgegeben und über separate Videohardware oder -software verarbeitet. Auf der zweiten Stufe werden Kryptografieinformationen allerdings weiterhin nur innerhalb der TEE verarbeitet.| **security_level=3**: Die zentralen Vorgänge für Daten und Verschlüsselung müssen innerhalb einer hardwaregestützten TEE ausgeführt werden. |
-| **Sicherheitsstufe 3**: Es gibt keine TEE auf dem Gerät. Zum Schutz der kryptografischen Informationen und entschlüsselten Inhalte können geeignete Maßnahmen unter dem Hostbetriebssystem ergriffen werden. Eine Implementierung der dritten Stufe kann auch ein hardwarebasiertes Kryptografiemodul enthalten. Dadurch wird aber nur die Leistung verbessert, nicht die Sicherheit. | **security_level=2**: Erfordert Softwareverschlüsselung und einen verborgenen Decoder.<br/><br/>**security_level=1**: Erfordert softwarebasierte White-Box-Verschlüsselung.|
+| **Sicherheitsstufe 1** : Die gesamte Inhaltsverarbeitung, Kryptografie und Kontrolle findet innerhalb der vertrauenswürdigen Ausführungsumgebung (Trusted Execution Environment, TEE) statt. In einigen Implementierungsmodellen findet die Sicherheitsverarbeitung unter Umständen in unterschiedlichen Chips statt.|**security_level=5** : Kryptografie, Decodierung und Verarbeitung von Medien (komprimiert und unkomprimiert) müssen innerhalb einer hardwaregestützten TEE stattfinden.<br/><br/>**security_level=4** : Kryptografie und Decodierung müssen innerhalb einer hardwaregestützten TEE durchgeführt werden.|
+**Sicherheitsstufe 2** : Die Kryptografie (aber nicht die Videoverarbeitung) wird innerhalb der TEE durchgeführt. Entschlüsselte Puffer werden an die Anwendungsdomäne zurückgegeben und über separate Videohardware oder -software verarbeitet. Auf der zweiten Stufe werden Kryptografieinformationen allerdings weiterhin nur innerhalb der TEE verarbeitet.| **security_level=3** : Die zentralen Vorgänge für Daten und Verschlüsselung müssen innerhalb einer hardwaregestützten TEE ausgeführt werden. |
+| **Sicherheitsstufe 3** : Es gibt keine TEE auf dem Gerät. Zum Schutz der kryptografischen Informationen und entschlüsselten Inhalte können geeignete Maßnahmen unter dem Hostbetriebssystem ergriffen werden. Eine Implementierung der dritten Stufe kann auch ein hardwarebasiertes Kryptografiemodul enthalten. Dadurch wird aber nur die Leistung verbessert, nicht die Sicherheit. | **security_level=2** : Erfordert Softwareverschlüsselung und einen verborgenen Decoder.<br/><br/>**security_level=1** : Erfordert softwarebasierte White-Box-Verschlüsselung.|
 
 #### <a name="why-does-content-download-take-so-long"></a>Warum dauert das Herunterladen des Inhalts so lange?
 

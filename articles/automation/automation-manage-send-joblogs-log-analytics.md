@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6dcd2005971927de30ca96173cb2bdb063e46663
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e7e798967541748b5572994d48cb5bdf7474cb1
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397428"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182868"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Weiterleiten von Azure Automation-Auftragsdaten an Azure Monitor-Protokolle
 
@@ -177,7 +177,7 @@ AzureDiagnostics
 
 ### <a name="filter-job-status-output-converted-into-a-json-object"></a>Filtern der Auftragsstatusausgabe, die in eine JSON-Objekt konvertiert wurde
 
-Kürzlich haben wir das Verhalten geändert, wie die Automation-Protokolldaten in die `AzureDiagnostics`-Tabelle im Log Analytics-Dienst geschrieben werden, in der die JSON-Eigenschaften nicht mehr in separate Felder aufgeschlüsselt werden. Wenn Sie das Runbook so konfiguriert haben, dass Objekte im Ausgabestream im JSON-Format als separate Spalten formatiert werden, müssen Sie Ihre Abfragen so neu konfigurieren, dass dieses Feld in ein JSON-Objekt analysiert wird, um auf diese Eigenschaften zuzugreifen. Dies erfolgt mithilfe von [parsejson](../azure-monitor/log-query/json-data-structures.md#parsejson), um auf ein bestimmtes JSON-Element in einem bekannten Pfad zuzugreifen.
+Kürzlich haben wir das Verhalten geändert, wie die Automation-Protokolldaten in die `AzureDiagnostics`-Tabelle im Log Analytics-Dienst geschrieben werden, in der die JSON-Eigenschaften nicht mehr in separate Felder aufgeschlüsselt werden. Wenn Sie das Runbook so konfiguriert haben, dass Objekte im Ausgabestream im JSON-Format als separate Spalten formatiert werden, müssen Sie Ihre Abfragen so neu konfigurieren, dass dieses Feld in ein JSON-Objekt analysiert wird, um auf diese Eigenschaften zuzugreifen. Dies erfolgt mithilfe von [parsejson](/azure/data-explorer/kusto/query/samples?pivots=#parsejson), um auf ein bestimmtes JSON-Element in einem bekannten Pfad zuzugreifen.
 
 Ein Runbook formatiert z. B. die *ResultDescription*-Eigenschaft im Ausgabestream im JSON-Format mit mehreren Feldern. Um nach dem Status Ihrer Aufträge zu suchen, die sich in einem fehlerhaften Zustand befinden, der in einem Feld namens **Status** angegeben wird, verwenden Sie diese Beispielabfrage, um *ResultDescription* mit einem Status von **Failed** zu durchsuchen:
 

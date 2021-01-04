@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6f819d9b6ba4d74612da304aafea0118f9094bde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74c77356df4f35461a8b9f1459712cdcf7f77cbf
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91451547"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95559071"
 ---
 Freigegebene Azure-Datenträger sind ein neues Feature für verwaltete Azure-Datenträger, mit dem Sie einen verwalteten Datenträger gleichzeitig an mehrere virtuelle Computer anfügen können. Durch das Anfügen eines verwalteten Datenträgers an mehrere virtuelle Computer können Sie entweder neue gruppierte Anwendungen in Azure bereitstellen oder bereits vorhandene gruppierte Anwendungen zu Azure migrieren.
 
@@ -41,7 +41,7 @@ Freigegebene Datenträger unterstützen verschiedene Betriebssysteme. Informatio
 
 ### <a name="windows"></a>Windows
 
-Freigegebene Azure-Datenträgen werden unter Windows Server 2008 und höher unterstützt. Die meisten Windows-basierten Clustervorgänge basieren auf WSFC. Dieser Cluster verarbeitet die gesamte Kerninfrastruktur für die Clusterknotenkommunikation und ermöglicht den Anwendungen die Nutzung paralleler Zugriffsmuster. Mit WSFC können abhängig von Ihrer Windows Server-Version sowohl CSV-basierte als auch CSV-fremde Optionen verwendet werden. Ausführliche Informationen finden Sie unter [Erstellen eines Failoverclusters](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
+Freigegebene Azure-Datenträgen werden unter Windows Server 2008 und höher unterstützt. Die meisten Windows-basierten Clustervorgänge basieren auf WSFC. Dieser Cluster verarbeitet die gesamte Kerninfrastruktur für die Clusterknotenkommunikation und ermöglicht den Anwendungen die Nutzung paralleler Zugriffsmuster. Mit WSFC können abhängig von Ihrer Windows Server-Version sowohl CSV-basierte als auch CSV-fremde Optionen verwendet werden. Ausführliche Informationen finden Sie unter [Erstellen eines Failoverclusters](/windows-server/failover-clustering/create-failover-cluster).
 
 Die folgende Liste enthält einige beliebte Anwendungen, die unter WSFC ausgeführt werden:
 
@@ -54,9 +54,9 @@ Die folgende Liste enthält einige beliebte Anwendungen, die unter WSFC ausgefü
 ### <a name="linux"></a>Linux
 
 Freigegebene Azure-Datenträger werden unter Folgendem unterstützt:
-- [SUSE SLE für SAP und SUSE SLE HA 15 SP1 und höher](https://documentation.suse.com/sle-ha/15-SP1/single-html/SLE-HA-guide/index.html)
+- [SUSE SLE für SAP und SUSE SLE HA 15 SP1 und höher](https://www.suse.com/c/azure-shared-disks-excercise-w-sles-for-sap-or-sle-ha/)
 - [Ubuntu 18.04 und höher](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)
-- [RHEL-Entwicklervorschau in jeder RHEL 8-Version](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/index)
+- [RHEL-Entwicklervorschau in jeder RHEL 8-Version](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/deploying_red_hat_enterprise_linux_8_on_public_cloud_platforms/index?lb_target=production#azure-configuring-shared-block-storage_configuring-rhel-high-availability-on-azure)
 - [Oracle Enterprise Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
 
 Von Linux-Clustern können Cluster-Manager wie [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker) verwendet werden. Pacemaker basiert auf [Corosync](http://corosync.github.io/corosync/) und ermöglicht die Clusterkommunikation für Anwendungen in hochverfügbaren Umgebungen. Beispiele für gängige Clusterdateisysteme wären etwa [ocfs2](https://oss.oracle.com/projects/ocfs2/) und [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). Sie können auf SCSI Persistent Reservation (SCSI PR) und/oder STONITH Block Device (SBD) basierende Clusteringmodelle für die Vermittlung des Zugriffs auf den Datenträger verwenden. Bei Verwendung von SCSI PR können Sie Reservierungen und Registrierungen mithilfe von Hilfsprogrammen wie [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) und [sg_persist](https://linux.die.net/man/8/sg_persist) bearbeiten.
@@ -131,19 +131,19 @@ In den folgenden Beispielen werden einige Szenarios veranschaulicht, die zeigen,
 
 Es folgt ein Beispiel für einen WSFC mit zwei Knoten, der freigegebene Clustervolumes verwendet. Bei dieser Konfiguration haben beide virtuellen Computer gleichzeitigen Schreibzugriff auf den Datenträger, was dazu führt, dass die `ReadWrite`-Drosselung auf die beiden virtuellen Computer aufgeteilt und die `ReadOnly`-Drosselung nicht verwendet wird.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Abbildung einer Tabelle, die den schreibgeschützten Zugriff oder Lese-/Schreibzugriff für die Kategorien „Reservierungsinhaber“, „Registriert“ und „Andere“ darstellt":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="CSV-Beispiel für zwei Knoten, Ultra-Datenträger":::
 
 ##### <a name="two-node-cluster-without-cluster-share-volumes"></a>Cluster mit zwei Knoten ohne freigegebene Clustervolumes
 
 Es folgt ein Beispiel für einen WSFC mit zwei Knoten, der keine freigegebenen Clustervolumes verwendet. Bei dieser Konfiguration hat nur ein virtueller Computer Schreibzugriff auf den Datenträger. Dies führt dazu, dass die `ReadWrite`-Drosselung ausschließlich für den primären virtuellen Computer und die `ReadOnly`-Drosselung nur für den sekundären virtuellen Computer verwendet wird.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Abbildung einer Tabelle, die den schreibgeschützten Zugriff oder Lese-/Schreibzugriff für die Kategorien „Reservierungsinhaber“, „Registriert“ und „Andere“ darstellt":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="CSV-Beispiel für zwei Knoten, Ultra-Datenträger ohne CSV":::
 
 ##### <a name="four-node-linux-cluster"></a>Linux-Cluster mit vier Knoten
 
 Es folgt ein Beispiel für einen Linux-Cluster mit vier Knoten, einem einzelnen Writer und drei Lesern mit horizontaler Skalierung. Bei dieser Konfiguration hat nur ein virtueller Computer Schreibzugriff auf den Datenträger. Dies führt dazu, dass die `ReadWrite`-Drosselung ausschließlich für den primären virtuellen Computer verwendet und die `ReadOnly`-Drosselung auf die sekundären virtuellen Computer aufgeteilt wird.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Abbildung einer Tabelle, die den schreibgeschützten Zugriff oder Lese-/Schreibzugriff für die Kategorien „Reservierungsinhaber“, „Registriert“ und „Andere“ darstellt":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Beispiel für vier Knoten und Ultradrosselung":::
 
 #### <a name="ultra-pricing"></a>Preise für Ultra-Datenträger
 

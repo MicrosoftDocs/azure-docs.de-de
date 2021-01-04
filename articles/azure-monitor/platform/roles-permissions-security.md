@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 7d92cbc25411f5cc2d528ccf6ecec4539494d380
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84ae5f6adfe2a02f62b5d4b1e776d8b5ac1d731b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533273"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95975348"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Rollen, Berechtigungen und Sicherheit in Azure Monitor
 
@@ -68,7 +68,7 @@ Personen, denen die Rolle für Überwachungsmitwirkende zugewiesen wird, können
 > 
 
 ## <a name="monitoring-permissions-and-azure-custom-roles"></a>Überwachen von Berechtigungen und benutzerdefinierte Azure-Rollen
-Wenn die oben genannten vordefinierten Rollen nicht den genauen Anforderungen Ihres Teams entsprechen, können Sie eine [benutzerdefinierte Azure-Rolle](../../role-based-access-control/custom-roles.md) mit detaillierteren Berechtigungen erstellen. Im Folgenden sind die allgemeinen Azure Monitor-RBAC-Vorgänge mit ihren Beschreibungen aufgeführt.
+Wenn die oben genannten vordefinierten Rollen nicht den genauen Anforderungen Ihres Teams entsprechen, können Sie eine [benutzerdefinierte Azure-Rolle](../../role-based-access-control/custom-roles.md) mit detaillierteren Berechtigungen erstellen. Im Folgenden sind die allgemeinen Azure RBAC-Vorgänge für Azure Monitor mit ihren Beschreibungen aufgeführt.
 
 | Vorgang | BESCHREIBUNG |
 | --- | --- |
@@ -135,7 +135,7 @@ $token = New-AzStorageAccountSASToken -ResourceType Service -Service Blob -Permi
 
 Sie können das Token an die Entität übergeben, die aus dem jeweiligen Speicherkonto lesen muss, damit sie alle Blobs in diesem Speicherkonto auflisten und lesen kann.
 
-Wenn Sie diese Berechtigung mit RBAC steuern müssen, können Sie dieser Entität alternativ die Berechtigung „Microsoft.Storage/storageAccounts/listkeys/action“ für das jeweilige Speicherkonto erteilen. Dies ist für Benutzer notwendig, die eine Diagnoseeinstellung oder ein Protokollprofil für die Archivierung in einem Speicherkonto festlegen müssen. Beispielsweise könnten Sie die folgende benutzerdefinierte Azure-Rolle für Benutzer oder Anwendungen erstellen, die nur aus einem einzigen Speicherkonto lesen müssen:
+Wenn Sie diese Berechtigung mit Azure RBAC steuern müssen, können Sie dieser Entität alternativ die Berechtigung „Microsoft.Storage/storageAccounts/listkeys/action“ für das jeweilige Speicherkonto erteilen. Dies ist für Benutzer notwendig, die eine Diagnoseeinstellung oder ein Protokollprofil für die Archivierung in einem Speicherkonto festlegen müssen. Beispielsweise könnten Sie die folgende benutzerdefinierte Azure-Rolle für Benutzer oder Anwendungen erstellen, die nur aus einem einzigen Speicherkonto lesen müssen:
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"
@@ -159,7 +159,7 @@ New-AzRoleDefinition -Role $role
 Für Event Hubs können Sie einem ähnlichen Muster folgen, jedoch müssen Sie zunächst eine dedizierte Autorisierungsregel für Lauschvorgänge erstellen. Wenn Sie einer Anwendung Zugriff gewähren möchten, die nur auf überwachungsbezogene Event Hubs lauschen muss, gehen Sie wie folgt vor:
 
 1. Erstellen Sie eine SAS-Richtlinie für die Event Hubs, die für das Streamen von Überwachungsdaten mit ausschließlich Lauschansprüchen erstellt haben. Dies kann im Portal erfolgen. Beispielsweise könnten Sie die Richtlinie „MonitoringReadOnly“ nennen. Wenn möglich, sollten Sie diesen Schlüssel direkt an den Consumer übergeben und den nächsten Schritt überspringen.
-2. Wenn der Consumer den Schlüssel ad hoc abrufen können muss, gewähren Sie dem Benutzer die ListKeys-Aktion für diesen Event Hub. Dies ist auch für Benutzer notwendig, die eine Diagnoseeinstellung oder ein Protokollprofil für das Streamen in Event Hubs festlegen müssen. Beispielsweise können Sie eine RBAC-Regel erstellen:
+2. Wenn der Consumer den Schlüssel ad hoc abrufen können muss, gewähren Sie dem Benutzer die ListKeys-Aktion für diesen Event Hub. Dies ist auch für Benutzer notwendig, die eine Diagnoseeinstellung oder ein Protokollprofil für das Streamen in Event Hubs festlegen müssen. Beispielsweise können Sie eine Azure RBAC-Regel erstellen:
    
    ```powershell
    $role = Get-AzRoleDefinition "Reader"
@@ -187,6 +187,6 @@ Azure Monitor benötigt Zugriff auf Ihre Azure-Ressourcen, um die von Ihnen akti
 Weitere Informationen finden Sie unter [Netzwerksicherheitsgruppen und Azure Storage](../../storage/common/storage-network-security.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
-* [Weitere Informationen zu RBAC und Berechtigungen in Resource Manager](../../role-based-access-control/overview.md)
+* [Weitere Informationen zu Azure RBAC und Berechtigungen in Resource Manager](../../role-based-access-control/overview.md)
 * [Übersicht über die Überwachung in Microsoft Azure](../overview.md)
 

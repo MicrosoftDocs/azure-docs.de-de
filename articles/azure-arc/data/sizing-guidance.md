@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3bd54d8a23aca7e493cd3c0ddb7f057a6e1f5362
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e7f2e445c3e4e8df7420c0587e156968f3a2c92
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761480"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542676"
 ---
 # <a name="sizing-guidance"></a>Dimensionierungsleitfaden
 
@@ -89,6 +89,7 @@ Jede verwaltete SQL-Instanz muss über die folgenden Ressourcenmindestanforderun
 - Kerne: 1
 
 Jeder erstellte SQL Managed Instance-Pod umfasst drei Container:
+
 |Containername|CPU-Anforderung|Arbeitsspeicheranforderung|CPU-Limit|Arbeitsspeicherlimit|Hinweise|
 |---|---|---|---|---|---|
 |fluentbit|100m|100Mi|Nicht angegeben|Nicht angegeben|Die fluentbit-Containerressourcenanforderungen gelten _zusätzlich_ zu den für die verwaltete SQL-Instanz angegebenen Anforderungen.||
@@ -104,6 +105,7 @@ Jeder PostgreSQL Hyperscale-Servergruppenknoten muss über die folgenden minimal
 - Kerne: 1
 
 Jeder erstellte PostgreSQL Hyperscale-Servergruppenkoordinator-Pod oder -Workerpod umfasst drei Container:
+
 |Containername|CPU-Anforderung|Arbeitsspeicheranforderung|CPU-Limit|Arbeitsspeicherlimit|Hinweise|
 |---|---|---|---|---|---|
 |fluentbit|100m|100Mi|Nicht angegeben|Nicht angegeben|Die fluentbit-Containerressourcenanforderungen gelten _zusätzlich_ zu den für die PostgreSQL Hyperscale-Servergruppenknoten angegebenen Anforderungen.|

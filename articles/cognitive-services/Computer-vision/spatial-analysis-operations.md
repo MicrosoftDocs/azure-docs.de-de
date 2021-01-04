@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: 80f0d29de6b3013ad02ed1a5d34bebdf81a8766b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d1b6e20bf2decfe051e79e073736f71181260fa
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628212"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014542"
 ---
 # <a name="spatial-analysis-operations"></a>Vorgänge der räumlichen Analyse
 
@@ -39,7 +39,7 @@ Alle obigen Vorgänge sind auch in der `.debug`-Version verfügbar. Sie ermögli
 | cognitiveservices.vision.spatialanalysis-personcrossingpolygon.debug | Führt eine Nachverfolgung durch, wenn eine Person im Blickfeld der Kamera eine festgelegte Linie überschreitet. <br> Gibt ein _personLineEvent_-Ereignis aus, wenn die Person die Zone durchquert, und gibt Informationen zur Richtung an. |
 | cognitiveservices.vision.spatialanalysis-persondistance.debug | Führt eine Nachverfolgung durch, wenn Personen gegen eine Abstandsregel verstoßen. <br> Gibt regelmäßig ein _personDistanceEvent_-Ereignis mit dem Ort der einzelnen Verstöße gegen die Abstandsregel aus. |
 
-Die räumliche Analyse kann auch mit [Live Video Analytics](https://aka.ms/lva-spatial-analysis) als Video-KI-Modul ausgeführt werden. 
+Die räumliche Analyse kann auch mit [Live Video Analytics](../../media-services/live-video-analytics-edge/spatial-analysis-tutorial.md) als Video-KI-Modul ausgeführt werden. 
 
 <!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 
@@ -638,8 +638,8 @@ JSON-Beispiel für Erkennungen, die von diesem Vorgang ausgegeben werden.
 
 Es kann sein, dass Sie die Erkennung über die räumliche Analyse oder zugehörige Ereignisse in Ihre Anwendung integrieren möchten. Hier sind einige Punkte angegeben, die Sie beachten sollten: 
 
-* Verwenden Sie das Azure Event Hub-SDK für Ihre gewählte Programmiersprache, um eine Verbindung mit dem Azure IoT Hub-Endpunkt herstellen und die Ereignisse empfangen zu können. Weitere Informationen finden Sie unter [Lesen von Nachrichten, die von Geräten an die Cloud gesendet werden, vom integrierten Endpunkt](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin). 
-* Richten Sie das **Nachrichtenrouting** auf Ihrer Azure IoT Hub-Instanz ein, um Ereignisse an andere Endpunkte zu senden oder die Ereignisse in Ihrem Datenspeicher zu speichern. Weitere Informationen finden Sie unter [Verwenden des IoT Hub-Nachrichtenroutings zum Senden von D2C-Nachrichten an verschiedene Endpunkte](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c). 
+* Verwenden Sie das Azure Event Hub-SDK für Ihre gewählte Programmiersprache, um eine Verbindung mit dem Azure IoT Hub-Endpunkt herstellen und die Ereignisse empfangen zu können. Weitere Informationen finden Sie unter [Lesen von Nachrichten, die von Geräten an die Cloud gesendet werden, vom integrierten Endpunkt](../../iot-hub/iot-hub-devguide-messages-read-builtin.md). 
+* Richten Sie das **Nachrichtenrouting** auf Ihrer Azure IoT Hub-Instanz ein, um Ereignisse an andere Endpunkte zu senden oder die Ereignisse in Ihrem Datenspeicher zu speichern. Weitere Informationen finden Sie unter [Verwenden des IoT Hub-Nachrichtenroutings zum Senden von D2C-Nachrichten an verschiedene Endpunkte](../../iot-hub/iot-hub-devguide-messages-d2c.md). 
 * Richten Sie einen Azure Stream Analytics-Auftrag ein, um die Ereignisse bei ihrem Eintreffen in Echtzeit zu verarbeiten und Visualisierungen zu erstellen. 
 
 ## <a name="deploying-spatial-analysis-operations-at-scale-multiple-cameras"></a>Bereitstellung von Vorgängen zur räumlichen Analyse im großen Stil (mehrere Kameras)

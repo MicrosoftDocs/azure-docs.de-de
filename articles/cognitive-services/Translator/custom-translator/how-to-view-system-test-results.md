@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: d0899132f308c7069395738140b35b138571483d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 542f62f04adc7d4858e4b4621b0ae85e906434ad
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220855"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369323"
 ---
 # <a name="view-system-test-results"></a>Anzeigen der Ergebnisse von Systemtests
 
@@ -86,14 +86,14 @@ So fordern Sie eine Bereitstellung an:
 
 So aktualisieren Sie die Bereitstellungseinstellungen:
 
-1.  Wählen Sie ein Projekt aus, und navigieren Sie zur Registerkarte **Modelle** .
+1.  Wählen Sie ein Projekt aus, und navigieren Sie zur Registerkarte **Modelle**.
 
 2. Bei erfolgreich bereitgestellten Modellen wird die Schaltfläche **Aktualisieren** angezeigt.
 
     ![Screenshot: Hervorgehobene Schaltfläche „Aktualisieren“ zum Aktualisieren der Bereitstellungseinstellungen](media/how-to/how-to-update-undeploy-model.png)
 
 3.  Wählen Sie **Update** aus.
-4.  Wählen Sie **Bereitgestellt** oder **Undeployed** (Nicht bereitgestellt) für die Regionen aus, in denen das Modell bereitgestellt oder nicht bereitgestellt werden soll, und klicken Sie auf **Speichern** .
+4.  Wählen Sie **Bereitgestellt** oder **Undeployed** (Nicht bereitgestellt) für die Regionen aus, in denen das Modell bereitgestellt oder nicht bereitgestellt werden soll, und klicken Sie auf **Speichern**.
 
     ![Bereitstellen des Modells](media/how-to/how-to-undeploy-model.png)
 
@@ -102,6 +102,6 @@ So aktualisieren Sie die Bereitstellungseinstellungen:
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Beginnen Sie mit der Verwendung Ihres bereitstellten benutzerdefinierten Übersetzungsmodells über die [Microsoft-Textübersetzungs-API (V3)](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Beginnen Sie mit der Verwendung Ihres bereitstellten benutzerdefinierten Übersetzungsmodells über die [Microsoft-Textübersetzungs-API (V3)](../reference/v3-0-translate.md?tabs=curl).
 - Informieren Sie sich über das [Verwalten von Einstellungen](how-to-manage-settings.md) zum Freigeben Ihres Arbeitsbereichs sowie über die Verwaltung Ihres Abonnementschlüssels.
 - Erfahren Sie mehr über das [Migrieren Ihres Arbeitsbereichs und Projekts](how-to-migrate.md) aus [Microsoft Translator Hub](https://hub.microsofttranslator.com).

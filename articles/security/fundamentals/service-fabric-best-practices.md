@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 4548bf77c01194802c2e6203bcbf9fbd240370a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7396c9a29c7d9f69dbe6a9cc5cd085c72ebafde
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81461649"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700945"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Bewährte Methoden für die Azure Service Fabric-Sicherheit
 Die Bereitstellung einer Anwendung in Azure ist schnell, einfach und kostengünstig. Bevor Sie Ihre Cloudanwendung für die Produktion bereitstellen, überprüfen Sie unsere Liste grundlegender und empfohlener bewährter Methoden zum Implementieren sicherer Cluster in der Anwendung.
@@ -60,7 +60,7 @@ Es gibt drei [Szenarien](../../service-fabric/service-fabric-cluster-security.md
 -   Knoten-zu-Knoten-Sicherheit: Mit diesem Szenario wird die Kommunikation zwischen den VMs und den Computern im Cluster geschützt. So wird sichergestellt, dass nur Computer, die zum Beitreten zum Cluster berechtigt sind, Anwendungen und Dienste im Cluster hosten können.
 In diesem Szenario können in Azure ausgeführte Cluster oder eigenständige unter Windows ausgeführte Cluster für Windows Server-Computer entweder die [Zertifikatsicherheit](../../service-fabric/service-fabric-windows-cluster-x509-security.md) oder die [Windows-Sicherheit](../../service-fabric/service-fabric-windows-cluster-windows-security.md) verwenden.
 -   Client-zu-Knoten-Sicherheit: Mit diesem Szenario wird die Kommunikation zwischen einem Service Fabric-Client und den einzelnen Knoten im Cluster geschützt.
--   Rollenbasierte Zugriffssteuerung (RBAC): In diesem Szenario werden separate Identitäten (Zertifikate, Azure AD usw.) für alle Administrator- und Clientrollen verwendet, die auf den Cluster zugreifen. Sie geben die Rollenidentitäten bei der Erstellung des Clusters an.
+-   Rollenbasierte Zugriffssteuerung in Service Fabric (Service Fabric RBAC): In diesem Szenario werden separate Identitäten (Zertifikate, Azure AD usw.) für alle Administrator- und Clientrollen verwendet, die auf den Cluster zugreifen. Sie geben die Rollenidentitäten bei der Erstellung des Clusters an.
 
 >[!NOTE]
 >**Sicherheitsempfehlung für Azure-Cluster:** Verwenden Sie Azure AD-Sicherheit, um Clients und Zertifikate für die Knoten-zu-Knoten-Sicherheit zu authentifizieren.
@@ -172,12 +172,12 @@ Weitere Informationen zum Einrichten eines Schlüsseltresors finden Sie unter [W
 Nachdem Sie die Anwendungen für Ihren Cluster erstellt haben, müssen Ihre Benutzer den von Service Fabric unterstützten Rollen zugewiesen werden: „read-only“ (schreibgeschützt) und „admin“ (Administrator). Für die Rollenzuweisung können Sie das Azure-Portal verwenden.
 
 >[!NOTE]
-> Weitere Informationen zur Verwendung von Rollen in Service Fabric finden Sie unter [Rollenbasierte Zugriffssteuerung für Service Fabric-Clients](../../service-fabric/service-fabric-cluster-security-roles.md).
+> Weitere Informationen zur Verwendung von Rollen in Service Fabric finden Sie unter [Rollenbasierte Zugriffssteuerung in Service Fabric für Service Fabric-Clients](../../service-fabric/service-fabric-cluster-security-roles.md).
 
 Azure Service Fabric unterstützt zwei Zugriffssteuerungstypen für Clients, die mit einem [Service Fabric-Cluster](../../service-fabric/service-fabric-cluster-creation-via-arm.md) verbunden sind: Administrator und Benutzer. Mit der Zugriffssteuerung können Clusteradministratoren den Zugriff auf bestimmte Clustervorgänge für verschiedene Gruppen von Benutzern einschränken. Diese Zugriffssteuerung macht den Cluster sicherer.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Checkliste für die Service Fabric-Sicherheit](service-fabric-checklist.md)
+- [Checkliste für die Service Fabric-Sicherheit](../../service-fabric/service-fabric-best-practices-security.md)
 - Richten Sie Ihre Service Fabric-[Entwicklungsumgebung](../../service-fabric/service-fabric-get-started.md) ein.
 - Informieren Sie sich über [Service Fabric-Supportoptionen](../../service-fabric/service-fabric-support.md).

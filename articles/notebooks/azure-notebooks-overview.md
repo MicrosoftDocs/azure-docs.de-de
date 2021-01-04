@@ -3,12 +3,12 @@ title: Übersicht über Azure Notebooks (Vorschauversion)
 description: Führen Sie Jupyter-Notebooks in der Cloud aus, indem Sie den kostenlosen Dienst „Azure Notebooks (Vorschauversion)“ verwenden, der weder Setup noch Konfiguration erfordert.
 ms.topic: overview
 ms.date: 04/05/2019
-ms.openlocfilehash: d229e48e5c49a9a672c533fb24231e9329e524c0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d59faaf85a1fdbad776e954e974bafa300f93d85
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85831402"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845134"
 ---
 # <a name="overview-of-azure-notebooks-preview"></a>Übersicht über Azure Notebooks (Vorschauversion)
 
@@ -111,4 +111,4 @@ Sie können im [GitHub-Repository](https://github.com/Microsoft/AzureNotebooks/i
   - [Zeigen einer Bildschirmpräsentation](present-jupyter-notebooks-slideshow.md)
   - [Arbeiten mit Datendateien](work-with-project-data-files.md)
   - [Zugreifen auf Datenressourcen](access-data-resources-jupyter-notebooks.md)
-  - [Verwenden von Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+  - [Verwenden von Azure Machine Learning](../machine-learning/samples-notebooks.md)

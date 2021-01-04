@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 7f07f08cd320d94495403b0f5ae65d60d8dc93b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195993"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019683"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Verschieben von Daten zwischen lokalen Quellen und der Cloud mit dem Datenverwaltungsgateway
 > [!NOTE]
@@ -178,8 +178,8 @@ In diesem Schritt erstellen Sie zwei verknüpfte Dienste: **AzureStorageLinkedSe
 
 #### <a name="add-a-linked-service-for-an-azure-storage-account"></a>Hinzufügen eines verknüpften Diensts für Azure-Speicherkonten
 1. Klicken Sie im **Data Factory-Editor** auf der Befehlsleiste auf **Neuer Datenspeicher** und dann auf **Azure-Speicher**.
-2. Geben Sie den Namen des Azure-Speicherkontos für **Kontoname**ein.
-3. Geben Sie den Schlüssel des Azure-Speicherkontos für **Kontoschlüssel**ein.
+2. Geben Sie den Namen des Azure-Speicherkontos für **Kontoname** ein.
+3. Geben Sie den Schlüssel des Azure-Speicherkontos für **Kontoschlüssel** ein.
 4. Klicken Sie auf **Bereitstellen**, um **AzureStorageLinkedService** bereitzustellen.
 
 ## <a name="create-datasets"></a>Erstellen von Datasets

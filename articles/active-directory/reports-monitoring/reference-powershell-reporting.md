@@ -18,12 +18,12 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4353ed5413f76b13425a59d31bb6108542e3bd23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ff923d0231a1b00493a54996c2fcd489012bbe7
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231128"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862036"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Azure AD PowerShell-Cmdlets für die Berichterstellung
 
@@ -36,7 +36,7 @@ Verwenden Sie folgenden Befehl, um die öffentliche Vorschauversion zu installie
 Install-module AzureADPreview
 ```
 
-Weitere Informationen dazu, wie Sie mithilfe von PowerShell eine Verbindung mit Azure AD herstellen, finden Sie im Artikel [Azure AD PowerShell für Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
+Weitere Informationen dazu, wie Sie mithilfe von PowerShell eine Verbindung mit Azure AD herstellen, finden Sie im Artikel [Azure AD PowerShell für Graph](/powershell/azure/active-directory/install-adv2).  
 
 Mit Azure AD-Berichten (Azure Active Directory) können Sie Details zu Aktivitäten rund um alle Schreibvorgänge in Ihrem Verzeichnis (Überwachungsprotokolle) und Authentifizierungsdaten (Anmeldeprotokolle) erhalten. Diese Informationen stehen zwar schon über die Microsoft Graph-API zur Verfügung, aber jetzt können Sie die gleichen Daten mithilfe der Azure AD-PowerShell-Cmdlets für die Berichterstellung abrufen.
 
@@ -59,7 +59,7 @@ Sie erhalten mit dem Cmdlet „Get-AzureADAuditDirectoryLogs“ Zugriff auf die 
 
 Die folgende Abbildung zeigt ein Beispiel für diesen Befehl. 
 
-![Die Schaltfläche für die Datenzusammenfassung](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
+![Screenshot: Ergebnis des Befehls „Get-AzureADAuditDirectoryLogs“](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
 
 
 
@@ -81,7 +81,7 @@ Sie erhalten mit dem Cmdlet „Get-AzureADAuditSignInLogs“ Zugriff auf die Anm
 
 Die folgende Abbildung zeigt ein Beispiel für diesen Befehl. 
 
-![Die Schaltfläche für die Datenzusammenfassung](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
+![Screenshot: Ergebnis des Befehls „Get-AzureADAuditSignInLogs“](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
 
 
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/10/2020
-ms.openlocfilehash: 5569e7e3a33c4f1bbbd3214e742b0cb889c65e31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0941e3d5141b5b8841f5d37e3db0d0b1b1474547
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86040774"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019819"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Twitter-Standpunktanalyse in Echtzeit in Azure Stream Analytics
 
@@ -39,11 +39,11 @@ In dieser Schrittanleitung verwenden Sie eine Clientanwendung, die eine Verbindu
 
 * Die Anwendung TwitterClientCore, die den Twitter-Feed liest. Um diese Anwendung zu erhalten, laden Sie [TwitterClientCore-](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClientCore) herunter.
 
-* Installieren Sie die [.NET Core-CLI](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x), Version 2.1.0.
+* Installieren Sie die [.NET Core-CLI](/dotnet/core/tools/?tabs=netcore2x), Version 2.1.0.
 
 ## <a name="create-an-event-hub-for-streaming-input"></a>Erstellen eines Event Hubs für Streamingeingaben
 
-Die Beispielanwendung generiert Ereignisse und überträgt sie mithilfe von Push an einen Azure Event Hub. Azure Event Hubs sind die bevorzugte Methode zur Ereigniserfassung für Stream Analytics. Weitere Informationen finden Sie in der [Dokumentation zu Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md).
+Die Beispielanwendung generiert Ereignisse und überträgt sie mithilfe von Push an einen Azure Event Hub. Azure Event Hubs sind die bevorzugte Methode zur Ereigniserfassung für Stream Analytics. Weitere Informationen finden Sie in der [Dokumentation zu Azure Event Hubs](../event-hubs/event-hubs-about.md).
 
 ### <a name="create-an-event-hub-namespace-and-event-hub"></a>Erstellen eines Event Hub-Namespace und eines Event Hubs
 In diesem Abschnitt erstellen Sie einen Event Hub-Namespace und fügen diesem Namespace einen Event Hub hinzu. Event Hub-Namespaces werden verwendet, um verwandte Ereignisbusinstanzen logisch zu gruppieren. 
@@ -106,11 +106,11 @@ Wenn Sie noch keine Twitter-Anwendung besitzen, die Sie für diese Schrittanleit
 
 1. Navigieren Sie in einem Webbrowser zu [Twitter For Developers](https://developer.twitter.com/en/apps), erstellen Sie ein Entwicklerkonto, und wählen Sie **App erstellen** aus. Möglicherweise wird eine Meldung angezeigt, dass Sie ein Twitter-Entwicklerkonto beantragen müssen. Zögern Sie nicht, diese Anfrage zu übermitteln, und nachdem sie genehmigt wurde, sollten Sie eine Bestätigungs-E-Mail erhalten. Es kann mehrere Tage dauern, bis die Genehmigung für ein Entwicklerkonto erfolgt ist.
 
-   ![Twitter-Anwendungsdetails](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Twitter-Anwendungsdetails")
+   ![Screenshot: Schaltfläche „App erstellen“](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Twitter-Anwendungsdetails")
 
 2. Geben Sie auf der Seite **Create an application** (Anwendung erstellen) die Details für die neue App an, und klicken Sie anschließend auf **Create your Twitter application** (Twitter-Anwendung erstellen).
 
-   ![Twitter-Anwendungsdetails](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details-create.png "Twitter-Anwendungsdetails")
+   ![Screenshot: Bereich „App-Details“, in dem Sie Werte für Ihre App eingeben können](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details-create.png "Twitter-Anwendungsdetails")
 
 3. Klicken Sie auf der Anwendungsseite auf die Registerkarte **Keys and Tokens** (Schlüssel und Token), und kopieren Sie die Werte für **Consumer API Key** (Consumer-API-Schlüssel) und **Consumer API Secret** (Consumer-API-Geheimnis). Wählen Sie außerdem **Erstellen** unter **Access Token und Access Token Secret** (Zugriffstoken und Zugriffstokengeheimnis) aus, um die Zugriffstoken zu generieren. Kopieren Sie die Werte für **Access Token** (Zugriffstoken) und **Access Token Secret** (Zugriffstokengeheimnis).
 
@@ -168,11 +168,11 @@ Nun, da wir einen Datenstrom von Tweet-Ereignissen von Twitter in Echtzeit haben
 
 ## <a name="specify-the-job-query"></a>Festlegen der Auftragsabfrage
 
-Stream Analytics unterstützt ein einfaches, deklaratives Abfragemodell, das Transformationen beschreibt. Weitere Informationen zur Sprache finden Sie in der [Azure Stream Analytics-Abfragesprachreferenz](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). Diese Schrittanleitung hilft Ihnen beim Erstellen und Testen mehrerer Abfragen über Twitter-Daten.
+Stream Analytics unterstützt ein einfaches, deklaratives Abfragemodell, das Transformationen beschreibt. Weitere Informationen zur Sprache finden Sie in der [Azure Stream Analytics-Abfragesprachreferenz](/stream-analytics-query/stream-analytics-query-language-reference). Diese Schrittanleitung hilft Ihnen beim Erstellen und Testen mehrerer Abfragen über Twitter-Daten.
 
-Um die Anzahl der Erwähnungen verschiedener Themen zu vergleichen, können Sie mithilfe eines [rollierenden Fensters](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) alle fünf Sekunden die Anzahl der Erwähnungen jedes Themas abrufen.
+Um die Anzahl der Erwähnungen verschiedener Themen zu vergleichen, können Sie mithilfe eines [rollierenden Fensters](/stream-analytics-query/tumbling-window-azure-stream-analytics) alle fünf Sekunden die Anzahl der Erwähnungen jedes Themas abrufen.
 
-1. Wählen Sie in Ihrer Auftrags**übersicht** oben rechts im Abfragefeld **Abfrage bearbeiten** aus. In Azure werden die Eingaben und Ausgaben aufgeführt, die für den Auftrag konfiguriert sind. Zudem können Sie eine Abfrage erstellen, um die Datenstromeingabe beim Senden an die Ausgabe zu transformieren.
+1. Wählen Sie in Ihrer Auftrags **übersicht** oben rechts im Abfragefeld **Abfrage bearbeiten** aus. In Azure werden die Eingaben und Ausgaben aufgeführt, die für den Auftrag konfiguriert sind. Zudem können Sie eine Abfrage erstellen, um die Datenstromeingabe beim Senden an die Ausgabe zu transformieren.
 
 2. Ändern Sie die Abfrage im Abfrage-Editor wie folgt:
 
@@ -225,11 +225,11 @@ Es werden eine Auftragseingabe, eine Abfrage und eine Ausgabe angegeben. Sie kö
 3. Wählen Sie auf der Seite **Auftrag starten** für **Startzeit der Auftragsausgabe** die Option **Jetzt** aus, und wählen Sie dann **Starten** aus.
 
 ## <a name="get-support"></a>Support
-Weitere Unterstützung finden Sie auf der [Frageseite von Microsoft Q&A (Fragen und Antworten) zu Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Weitere Unterstützung finden Sie auf der [Frageseite von Microsoft Q&A (Fragen und Antworten) zu Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Nächste Schritte
 * [Einführung in Azure Stream Analytics](stream-analytics-introduction.md)
 * [Erste Schritte mit Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skalieren von Azure Stream Analytics-Aufträgen](stream-analytics-scale-jobs.md)
-* [Stream Analytics Query Language Reference (in englischer Sprache)](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referenz zur Azure Stream Analytics-Verwaltungs-REST-API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Stream Analytics Query Language Reference (in englischer Sprache)](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referenz zur Azure Stream Analytics-Verwaltungs-REST-API](/rest/api/streamanalytics/)

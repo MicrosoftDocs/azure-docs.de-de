@@ -10,11 +10,11 @@ ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
 ms.openlocfilehash: bb9c206a17a11f0cf710ac4ee3ac7ccae0fa9eb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87848025"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023294"
 ---
 # <a name="write-azure-web-application-to-read-fhir-data"></a>Schreiben einer Azure-Webanwendung zum Lesen von FHIR-Daten
 Sie können eine Verbindung mit Ihrem FHIR-Server und den POST-Daten herstellen und nun eine Webanwendung zum Lesen von FHIR-Daten schreiben. In diesem abschließenden Schritt des Tutorials wird das Schreiben einer Webanwendung und das Zugreifen darauf erläutert.

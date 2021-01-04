@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 8c970c820417a5cff7030a8499cf0c3520465231
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: fde3145e7bd7f4e53ae7a0c44f02e066c28ec785
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491137"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101577"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-table-api"></a>Erstellen eines Containers für die Azure Cosmos DB-Tabellen-API
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 In diesem Artikel werden die verschiedenen Möglichkeiten zur Erstellung eines Containers für die Azure Cosmos DB-Tabellen-API erläutert. Hier wird gezeigt, wie ein Container mithilfe des Azure-Portals, mit der Azure CLI, PowerShell oder unterstützten SDKs erstellt wird. In diesem Artikel erfahren Sie, wie Sie einen Container erstellen, den Partitionsschlüssel angeben und den Durchsatz bereitstellen.
 
@@ -34,7 +35,7 @@ Hier werden die verschiedenen Möglichkeiten zur Erstellung eines Containers fü
 
    * Geben Sie eine Tabellen-ID ein.
    * Geben Sie den bereitzustellenden Durchsatz an (etwa 1.000 RUs).
-   * Klicken Sie auf **OK** .
+   * Klicken Sie auf **OK**.
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-table.png" alt-text="Screenshot der Tabellen-API, Dialogfeld „Tabelle hinzufügen“":::
 

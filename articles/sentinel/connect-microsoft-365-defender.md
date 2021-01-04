@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: yelevin
-ms.openlocfilehash: e9e892ae08c65ee5c5008bbdc1b419d8dec30183
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 756c245fe06ae81545a125dd98f30fb27fdff2dd
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930565"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655578"
 ---
 # <a name="connect-data-from-microsoft-365-defender-to-azure-sentinel"></a>Verknüpfen von Daten aus Microsoft 365 Defender mit Azure Sentinel
 
@@ -33,9 +33,9 @@ ms.locfileid: "90930565"
 
 ## <a name="background"></a>Hintergrund
 
-Mithilfe des neuen [Microsoft 365 Defender](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-threat-protection)-Connectors können Sie **erweiterte Hunting**-Protokolle – einen Typ von Ereignisrohdaten – von Microsoft 365 Defender in Azure Sentinel streamen. 
+Mithilfe des neuen [Microsoft 365 Defender](/microsoft-365/security/mtp/microsoft-threat-protection)-Connectors können Sie **erweiterte Hunting**-Protokolle – einen Typ von Ereignisrohdaten – von Microsoft 365 Defender in Azure Sentinel streamen. 
 
-Dank der Integration von [Microsoft Defender for Endpoint (MDATP)](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) in den Schutzschirm von Microsoft 365 Defender können Sie jetzt Ihre [erweiterten Hunting](https://aka.ms/mdatpAH)-Ereignisse aus Microsoft Defender for Endpoint mithilfe des Microsoft 365 Defender-Connectors erfassen und sie direkt in neue, zu diesem Zweck erstellte Tabellen in Ihrem Azure Sentinel-Arbeitsbereich streamen. Diese Tabellen bauen auf dem gleichen Schema auf, das im Microsoft 365 Defender-Portal verwendet wird, wodurch Sie vollen Zugriff auf die gesamte Reihe erweiterter Huntingprotokolle erhalten und Folgendes erreichen können:
+Dank der Integration von [Microsoft Defender for Endpoint (MDATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) in den Schutzschirm von Microsoft 365 Defender können Sie jetzt Ihre [erweiterten Hunting](/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-overview)-Ereignisse aus Microsoft Defender for Endpoint mithilfe des Microsoft 365 Defender-Connectors erfassen und sie direkt in neue, zu diesem Zweck erstellte Tabellen in Ihrem Azure Sentinel-Arbeitsbereich streamen. Diese Tabellen bauen auf dem gleichen Schema auf, das im Microsoft 365 Defender-Portal verwendet wird, wodurch Sie vollen Zugriff auf die gesamte Reihe erweiterter Huntingprotokolle erhalten und Folgendes erreichen können:
 
 - Einfaches Kopieren Ihrer vorhandenen erweiterten Huntingabfragen für Microsoft Defender ATP in Azure Sentinel.
 
@@ -49,7 +49,7 @@ Dank der Integration von [Microsoft Defender for Endpoint (MDATP)](https://docs.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-- Sie müssen über eine gültige Lizenz für Microsoft Defender for Endpoint verfügen, wie unter [Set up Microsoft Defender for Endpoint deployment](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/licensing) (Einrichten der Bereitstellung von Microsoft Defender for Endpoint). 
+- Sie müssen über eine gültige Lizenz für Microsoft Defender for Endpoint verfügen, wie unter [Set up Microsoft Defender for Endpoint deployment](/windows/security/threat-protection/microsoft-defender-atp/licensing) (Einrichten der Bereitstellung von Microsoft Defender for Endpoint). 
 
 - Ihrem Benutzer muss die globale Administratorrolle im Mandanten (in Azure Active Directory) zugewiesen sein.
 
@@ -101,4 +101,4 @@ Auf der Registerkarte **Nächste Schritte**  finden Sie einige Beispielabfragen,
 ## <a name="next-steps"></a>Nächste Schritte
 In diesem Dokument haben Sie erfahren, wie Ereignisrohdaten aus Microsoft Defender for Endpoint mithilfe des Microsoft 365 Defender-Connectors in Azure Sentinel erfasst werden können. Weitere Informationen zu Azure Sentinel finden Sie in den folgenden Artikeln:
 - Erfahren Sie, wie Sie [Einblick in Ihre Daten und potenzielle Bedrohungen erhalten](quickstart-get-visibility.md).
-- Beginnen Sie mit der [Erkennung von Bedrohungen mithilfe von Azure Sentinel](tutorial-detect-threats.md).
+- Beginnen Sie mit der [Erkennung von Bedrohungen mithilfe von Azure Sentinel](./tutorial-detect-threats-built-in.md).

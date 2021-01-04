@@ -12,17 +12,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 11/23/2020
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: acdaf2318c3082db876ed9c69b704d3d00cd4c90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2da675f0836dbb10ce5227e7e93e98d706cc5c64
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76834653"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544801"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Überwachen der Netzwerkkommunikation zwischen zwei virtuellen Computern über das Azure-Portal
+
+> [!NOTE]
+> In diesem Tutorial geht es um den Verbindungsmonitor (klassisch). Testen Sie den neuen und verbesserten [Verbindungsmonitor](connection-monitor-overview.md), um eine verbesserte Konnektivitätsüberwachung zu erhalten.
 
 Erfolgreiche Kommunikation zwischen einem virtuellen Computer (VM) und einem Endpunkt, z.B. einer anderen VM, kann für Ihre Organisation wichtig sein. In manchen Fällen werden Konfigurationsänderungen eingeführt, die die Kommunikation unterbrechen können. In diesem Tutorial lernen Sie Folgendes:
 
@@ -32,7 +35,9 @@ Erfolgreiche Kommunikation zwischen einem virtuellen Computer (VM) und einem End
 > * Generieren von Warnungen zu Verbindungsmonitormetriken
 > * Diagnostizieren eines Problems bei der Kommunikation zwischen zwei VMs und Informationen zu seiner Lösung
 
-Wenn Sie kein Azure-Abonnement besitzen, erstellen Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), bevor Sie beginnen.
+Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
+
+
 
 ## <a name="sign-in-to-azure"></a>Anmelden bei Azure
 
@@ -48,14 +53,14 @@ Erstellen Sie zwei virtuelle Computer.
 2. Wählen Sie **Compute** und dann ein Betriebssystem aus. In diesem Tutorial wird **Windows Server 2016 Datacenter**.
 3. Geben Sie die folgenden Informationen ein, oder wählen Sie sie aus, übernehmen Sie die Standardwerte für die übrigen Einstellungen, und klicken Sie auf **OK**:
 
-    |Einstellung|value|
+    |Einstellung|Wert|
     |---|---|
     |Name|myVm1|
     |Benutzername| Geben Sie den gewünschten Benutzernamen ein.|
     |Kennwort| Geben Sie das gewünschte Kennwort ein. Das Kennwort muss mindestens zwölf Zeichen lang sein und die [definierten Anforderungen an die Komplexität](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) erfüllen.|
     |Subscription| Wählen Sie Ihr Abonnement aus.|
     |Resource group| Klicken Sie auf **Neu erstellen**, und geben Sie **myResourceGroup** ein.|
-    |Location| Wählen Sie **USA, Osten** aus.|
+    |Standort| Wählen Sie **USA, Osten** aus.|
 
 4. Wählen Sie eine Größe für den virtuellen Computer aus, und klicken Sie dann auf **Auswählen**.
 5. Wählen Sie unter **Einstellungen** die Option **Erweiterungen** aus. Wählen Sie **Erweiterung hinzufügen** und dann **Network Watcher-Agent für Windows** aus, wie in der folgenden Abbildung gezeigt:
@@ -70,7 +75,7 @@ Erstellen Sie zwei virtuelle Computer.
 
 Führen Sie die Schritte in [Erstellen des ersten virtuellen Computers](#create-the-first-vm) erneut mit folgenden Änderungen aus:
 
-|Schritt|Einstellung|value|
+|Schritt|Einstellung|Wert|
 |---|---|---|
 | 1 | Auswählen einer **Ubuntu Server**-Version |                                                                         |
 | 3 | Name                                  | myVm2                                                                   |
@@ -90,7 +95,7 @@ Erstellen Sie einen Verbindungsmonitor zum Überwachen der Kommunikation über T
 4. Wählen Sie **+ Hinzufügen**.
 5. Geben Sie die Informationen zu der Verbindung, die Sie überwachen möchten, ein, oder wählen Sie sie aus, und wählen Sie dann **Hinzufügen** aus. Im dem Beispiel, das im folgenden Bild dargestellt wird, wird die Verbindung zwischen den virtuellen Computern *myVm1* und *myVm2* über Port 22 überwacht:
 
-    | Einstellung                  | value               |
+    | Einstellung                  | Wert               |
     | ---------                | ---------           |
     | Name                     | myVm1-myVm2(22)     |
     | `Source`                   |                     |
@@ -114,7 +119,7 @@ Erstellen Sie einen Verbindungsmonitor zum Überwachen der Kommunikation über T
 
     Beachten Sie die folgenden Informationen:
 
-    | Element                     | value                      | Details                                                     |
+    | Element                     | Wert                      | Details                                                     |
     | ---------                | ---------                  |--------                                                     |
     | Status                   | Erreichbar                  | Informiert Sie darüber, ob der Endpunkt erreichbar ist.|
     | DURCHSCHN. ROUNDTRIPZEIT          | Informiert Sie über die Roundtripzeit zum Herstellen der Verbindung, in Millisekunden. Der Verbindungsmonitor prüft die Verbindung alle 60 Sekunden, sodass Sie die Latenz im Laufe der Zeit überwachen können.                                         |
@@ -129,7 +134,7 @@ Warnungen werden von Warnungsregeln in Azure Monitor erstellt und können in reg
 2. Klicken Sie auf **Ziel auswählen**, und wählen Sie dann die gewünschten Ressourcen aus. Wählen Sie das **Abonnement** aus, und legen Sie **Ressourcentyp** fest, um nach dem zu verwendenden Verbindungsmonitor zu filtern.
 
     ![Fenster „Warnungen“ mit ausgewähltem Ziel](./media/connection-monitor/set-alert-rule.png)
-1. Nachdem Sie eine gewünschte Ressource ausgewählt haben, können Sie **Kriterien hinzufügen** wählen. Der Network Watcher enthält [Metriken zum Erstellen von Warnungen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported). Legen Sie **Verfügbare Signale** auf die Metriken ProbesFailedPercent und AverageRoundtripMs fest:
+1. Nachdem Sie eine gewünschte Ressource ausgewählt haben, können Sie **Kriterien hinzufügen** wählen. Der Network Watcher enthält [Metriken zum Erstellen von Warnungen](../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Legen Sie **Verfügbare Signale** auf die Metriken ProbesFailedPercent und AverageRoundtripMs fest:
 
     ![Seite „Warnungen“ mit ausgewählten Signalen](./media/connection-monitor/set-alert-signals.png)
 1. Geben Sie die Warnungsdetails an, z.B. Name, Beschreibung und Schweregrad der Warnungsregel. Sie können der Warnung auch eine Aktionsgruppe hinzufügen, um die Antwort auf die Warnung zu automatisieren und anzupassen.
@@ -146,11 +151,11 @@ Standardmäßig ermöglicht Azure die Kommunikation über alle Ports zwischen vi
 
 4. Die Standardregel, die Kommunikation zwischen allen VMs in einem virtuellen Netzwerk zulässt, ist die Regel mit dem Namen **AllowVnetInBound**. Erstellen Sie eine Regel mit einer höheren Priorität (niedrigere Zahl) als die Regel **AllowVnetInBound**, die eingehende Kommunikation über Port 22 verweigert. Wählen Sie die folgenden Informationen aus, bzw. geben Sie sie ein, übernehmen Sie die verbleibenden Standardeinstellungen, und wählen Sie dann **Hinzufügen** aus:
 
-    | Einstellung                 | value          |
+    | Einstellung                 | Wert          |
     | ---                     | ---            |
     | Zielportbereiche | 22             |
-    | Action                  | Verweigern           |
-    | Priority                | 100            |
+    | Aktion                  | Verweigern           |
+    | Priorität                | 100            |
     | Name                    | DenySshInbound |
 
 5. Da der Verbindungsmonitor in Intervallen von 60 Sekunden prüft, warten Sie einige Minuten, und wählen Sie auf der linken Seite des Portals **Network Watcher**, dann **Verbindungsmonitor** und schließlich erneut den Monitor **myVm1-myVm2(22)** aus. Die Ergebnisse unterscheiden sich nun, wie in der folgenden Abbildung gezeigt:
@@ -169,7 +174,7 @@ Löschen Sie die Ressourcengruppe mit allen ihren Ressourcen, wenn Sie sie nicht
 
 1. Geben Sie im oben im Portal im Feld *Suche* die Zeichenfolge **myResourceGroup** ein. Wenn **myResourceGroup** in den Suchergebnissen angezeigt wird, wählen Sie diese Angabe aus.
 2. Wählen Sie die Option **Ressourcengruppe löschen**.
-3. Geben Sie für *Geben Sie den Ressourcengruppennamen ein:* den Namen **myResourceGroup** ein, und klicken Sie auf **Löschen**.
+3. Geben Sie für **Geben Sie den Ressourcengruppennamen ein:** den Namen *myResourceGroup* ein, und klicken Sie auf **Löschen**.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -1,26 +1,26 @@
 ---
 title: Bereitstellen mehrerer Instanzen von Ressourcen
-description: Verwenden des copy-Vorgangs und von Arrays in einer Azure Resource Manager-Vorlage, um einen Ressourcentyp mehrere Male bereitzustellen.
+description: Verwenden des copy-Vorgangs und von Arrays in einer Azure Resource Manager-Vorlage (ARM), um einen Ressourcentyp mehrere Male bereitzustellen.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 411c92061826a6e8bc59380d0440fb69816557a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47f3d693b84347973889a6003360d7113c427f4d
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293967"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905909"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Ressourceniteration in ARM-Vorlagen
 
-In diesem Artikel erfahren Sie, wie mehr als eine Instanz einer Ressource in Ihrer Azure Resource Manager-Vorlage (ARM) erstellen. Durch das Hinzufügen des **copy**-Elements zum Ressourcenabschnitt Ihrer Vorlage können Sie die Anzahl der bereitzustellenden Ressourcen dynamisch festlegen. Außerdem vermeiden Sie so die Wiederholung von Vorlagensyntax.
+In diesem Artikel erfahren Sie, wie Sie in Ihrer Azure Resource Manager-Vorlage (ARM) mehrere Instanzen einer Ressource erstellen. Durch das Hinzufügen des `copy`-Elements zum Ressourcenabschnitt Ihrer Vorlage können Sie die Anzahl der bereitzustellenden Ressourcen dynamisch festlegen. Außerdem vermeiden Sie so die Wiederholung von Vorlagensyntax.
 
-„copy“ kann auch mit [Eigenschaften](copy-properties.md), [Variablen](copy-variables.md) und [Ausgaben](copy-outputs.md) verwendet werden.
+`copy` kann auch mit [Eigenschaften](copy-properties.md), [Variablen](copy-variables.md) und [Ausgaben](copy-outputs.md) verwendet werden.
 
 Wenn Sie angeben müssen, ob eine Ressource überhaupt bereitgestellt wird, finden Sie die erforderlichen Informationen unter [Element „condition“](conditional-resource-deployment.md).
 
 ## <a name="syntax"></a>Syntax
 
-Das copy-Element hat das folgende allgemeine Format:
+Das `copy`-Element hat das folgende allgemeine Format:
 
 ```json
 "copy": {
@@ -31,9 +31,9 @@ Das copy-Element hat das folgende allgemeine Format:
 }
 ```
 
-Die Eigenschaft **name** ist ein beliebiger Wert, der die Schleife identifiziert. Die Eigenschaft **count** gibt die für den Ressourcentyp gewünschte Anzahl von Iterationen an.
+Die Eigenschaft `name` ist ein beliebiger Wert, der die Schleife identifiziert. Die Eigenschaft `count` gibt die für den Ressourcentyp gewünschte Anzahl von Iterationen an.
 
-Verwenden Sie die Eigenschaften **mode** und **batchSize**, um anzugeben, ob die Ressourcen parallel oder nacheinander bereitgestellt werden. Diese Eigenschaften werden unter [Seriell oder parallel](#serial-or-parallel) beschrieben.
+Verwenden Sie die Eigenschaften `mode` und `batchSize`, um anzugeben, ob die Ressourcen parallel oder nacheinander bereitgestellt werden. Diese Eigenschaften werden unter [Seriell oder parallel](#serial-or-parallel) beschrieben.
 
 ## <a name="copy-limits"></a>Einschränkungen für „copy“
 
@@ -52,7 +52,7 @@ Wenden Sie die [Bereitstellung im vollständigen Modus](deployment-modes.md) mit
 
 ## <a name="resource-iteration"></a>Ressourceniteration
 
-Im folgenden Beispiel wird die Anzahl von Speicherkonten erstellt, die im Parameter **storageCount** angegeben ist.
+Im folgenden Beispiel wird die Anzahl von Speicherkonten erstellt, die im Parameter `storageCount` angegeben ist.
 
 ```json
 {
@@ -97,7 +97,7 @@ Namen:
 * storage1
 * storage2
 
-Zum Versetzen des Indexwerts können Sie einen Wert in der copyIndex()-Funktion übergeben. Die Anzahl von Iterationen wird weiterhin im copy-Element angegeben, aber der Wert von „copyIndex“ wird um den angegebenen Wert versetzt. Im folgenden Beispiel werden die unten aufgeführten Namen erstellt:
+Zum Versetzen des Indexwerts können Sie einen Wert in der `copyIndex()`-Funktion übergeben. Die Anzahl von Iterationen wird weiterhin im copy-Element angegeben, aber der Wert von `copyIndex` wird um den angegebenen Wert versetzt. Im folgenden Beispiel werden die unten aufgeführten Namen erstellt:
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -187,7 +187,7 @@ Zum seriellen Bereitstellen von zwei Speicherkonten gleichzeitig verwenden Sie b
 }
 ```
 
-Die mode-Eigenschaft akzeptiert auch **parallel**, wobei es sich um den Standardwert handelt.
+Die `mode`-Eigenschaft akzeptiert auch **parallel**, wobei es sich um den Standardwert handelt.
 
 ## <a name="depend-on-resources-in-a-loop"></a>Abhängigkeit von Ressourcen in einer Schleife
 
@@ -291,12 +291,11 @@ Die folgenden Beispiele zeigen allgemeine Szenarien für das Erstellen mehrerer 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Ein Tutorial, das Sie durcharbeiten können, finden Sie unter [Tutorial: Erstellen mehrerer Ressourceninstanzen mit ARM-Vorlagen](template-tutorial-create-multiple-instances.md).
+* Ein entsprechendes Tutorial finden Sie unter [Tutorial: Erstellen mehrerer Ressourceninstanzen mit ARM-Vorlagen](template-tutorial-create-multiple-instances.md).
 * Informationen zu anderen Verwendungsmöglichkeiten des „copy“-Elements finden Sie unter:
   * [Eigenschafteniteration in ARM-Vorlagen](copy-properties.md)
   * [Variableniteration in ARM-Vorlagen](copy-variables.md)
   * [Ausgabeiteration in ARM-Vorlagen](copy-outputs.md)
 * Informationen zur Verwendung des „copy“-Elementes mit geschachtelten Vorlagen finden Sie unter [Verwenden des „copy“-Elements](linked-templates.md#using-copy).
-* Informationen zu den Abschnitten einer Vorlage finden Sie unter [Verstehen der Struktur und Syntax von ARM-Vorlagen](template-syntax.md).
+* Weitere Informationen zu den Abschnitten in einer Vorlage finden Sie unter [Verstehen der Struktur und Syntax von ARM-Vorlagen](template-syntax.md).
 * Informationen zum Bereitstellen Ihrer Vorlage finden Sie unter [Bereitstellen von Ressourcen mit ARM-Vorlagen und Azure PowerShell](deploy-powershell.md).
-

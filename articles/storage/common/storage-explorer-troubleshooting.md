@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: f24fb6c4d83da0d443702afaf673079363a9ffb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bffe0c3871eae12f3b875a96301136d11dfc516
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714455"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783792"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage-Explorer – Leitfaden zur Problembehandlung
 
@@ -23,7 +23,7 @@ In diesem Leitfaden sind Lösungen für häufig aufgetretene Probleme im Storage
 
 ## <a name="azure-rbac-permissions-issues"></a>Azure RBAC-Berechtigungsprobleme
 
-Die rollenbasierte Zugriffssteuerung in Azure (Azure Role-Based Access Control, [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)) ermöglicht eine hochgradig anpassbare Zugriffsverwaltung von Azure-Ressourcen, indem mehrere Berechtigungen in _Rollen_ kombiniert werden. Hier folgen einige Strategien, um Azure RBAC im Storage-Explorer optimal zu nutzen.
+Die rollenbasierte Zugriffssteuerung in Azure (Azure Role-Based Access Control, [Azure RBAC](../../role-based-access-control/overview.md)) ermöglicht eine hochgradig anpassbare Zugriffsverwaltung von Azure-Ressourcen, indem mehrere Berechtigungen in _Rollen_ kombiniert werden. Hier folgen einige Strategien, um Azure RBAC im Storage-Explorer optimal zu nutzen.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Wie kann ich im Storage-Explorer auf meine Ressourcen zugreifen?
 
@@ -35,18 +35,18 @@ Sie benötigen die Berechtigung zum Auflisten von Speicherkonten. Ihnen muss die
 
 #### <a name="list-storage-account-keys"></a>Auflisten von Speicherkontoschlüsseln
 
-Für Storage-Explorer können auch Kontoschlüssel zum Authentifizieren von Anforderungen verwendet werden. Sie können Zugriff auf Kontoschlüssel über leistungsstärkere Rollen erhalten, z. B. über die Rolle _Mitwirkender_.
+Für Storage-Explorer können auch Kontoschlüssel zum Authentifizieren von Anforderungen verwendet werden. Sie können Zugriff auf Kontoschlüssel über leistungsstärkere Rollen erhalten, z. B. über die Rolle _Mitwirkender_ .
 
 > [!NOTE]
 > Mit Zugriffsschlüsseln werden für deren Besitzer uneingeschränkte Berechtigungen gewährt. Daher wird nicht empfohlen, diese Schlüssel an Kontobenutzer weiterzugeben. Wenn Sie Zugriffsschlüssel widerrufen müssen, können Sie sie über das [Azure-Portal](https://portal.azure.com/) neu generieren.
 
 #### <a name="data-roles"></a>Datenrollen
 
-Ihnen muss mindestens eine Rolle zugewiesen sein, über die Zugriff zum Lesen der Daten von Ressourcen gewährt wird. Wenn Sie beispielsweise Blobs auflisten oder herunterladen müssen, benötigen Sie mindestens die Rolle _Storage-Blobdatenleser_.
+Ihnen muss mindestens eine Rolle zugewiesen sein, über die Zugriff zum Lesen der Daten von Ressourcen gewährt wird. Wenn Sie beispielsweise Blobs auflisten oder herunterladen müssen, benötigen Sie mindestens die Rolle _Storage-Blobdatenleser_ .
 
 ### <a name="why-do-i-need-a-management-layer-role-to-see-my-resources-in-storage-explorer"></a>Warum benötige ich eine Rolle auf der Verwaltungsebene, damit meine Ressourcen in Storage-Explorer angezeigt werden?
 
-Azure Storage verfügt über zwei Zugriffsebenen: _Verwaltung_ und _Daten_. Auf Abonnements und Speicherkonten wird über die Verwaltungsebene zugegriffen. Auf Container, Blobs und andere Datenressourcen wird über die Datenebene zugegriffen. Wenn Sie beispielsweise eine Liste mit Ihren Speicherkonten aus Azure abrufen möchten, senden Sie eine Anforderung an den Verwaltungsendpunkt. Wenn Sie eine Liste mit den Blobcontainern eines Kontos anzeigen möchten, können Sie eine Anforderung an den entsprechenden Dienstendpunkt senden.
+Azure Storage verfügt über zwei Zugriffsebenen: _Verwaltung_ und _Daten_ . Auf Abonnements und Speicherkonten wird über die Verwaltungsebene zugegriffen. Auf Container, Blobs und andere Datenressourcen wird über die Datenebene zugegriffen. Wenn Sie beispielsweise eine Liste mit Ihren Speicherkonten aus Azure abrufen möchten, senden Sie eine Anforderung an den Verwaltungsendpunkt. Wenn Sie eine Liste mit den Blobcontainern eines Kontos anzeigen möchten, können Sie eine Anforderung an den entsprechenden Dienstendpunkt senden.
 
 Azure-Rollen können Berechtigungen für den Zugriff auf die Verwaltungs- oder Datenebene gewähren. Mit der Rolle „Leser“ wird beispielsweise Lesezugriff auf die Ressourcen der Verwaltungsebene gewährt.
 
@@ -65,18 +65,18 @@ Wenn Sie auf Blobcontainer oder Warteschlangen zugreifen möchten, können Sie d
 3. Wählen Sie das Benutzerkonto und den Mandanten aus, die der Ressource zugeordnet sind, die angefügt werden soll. Klicken Sie auf Weiter.
 4. Wählen Sie den Ressourcentyp aus, geben Sie die URL für die Ressource ein, und geben Sie einen eindeutigen Anzeigenamen für die Verbindung ein. Klicken Sie auf Weiter. Klicken Sie auf „Verbinden“.
 
-Für andere Ressourcentypen verfügen wir derzeit nicht über eine Azure RBAC-bezogene Lösung. Zur Problemumgehung können Sie einen SAS-URI anfordern, um ihn [an Ihre Ressource anzufügen](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+Für andere Ressourcentypen verfügen wir derzeit nicht über eine Azure RBAC-bezogene Lösung. Zur Problemumgehung können Sie einen SAS-URI anfordern, um ihn [an Ihre Ressource anzufügen](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#use-a-shared-access-signature-uri).
 
 ### <a name="recommended-azure-built-in-roles"></a>Empfohlene in Azure integrierte Rollen
 
 Es gibt mehrere integrierte Azure-Rollen, die die Berechtigungen bereitstellen können, die für die Verwendung von Storage-Explorer erforderlich sind. Einige dieser Rollen sind:
-- [Besitzer:](/azure/role-based-access-control/built-in-roles#owner) Sie können alles verwalten, einschließlich des Zugriffs auf Ressourcen. **Hinweis**: Über diese Rolle erhalten Sie Schlüsselzugriff.
-- [Mitwirkender](/azure/role-based-access-control/built-in-roles#contributor): Sie können alles verwalten, ausgenommen den Zugriff auf Ressourcen. **Hinweis**: Über diese Rolle erhalten Sie Schlüsselzugriff.
-- [Leser:](/azure/role-based-access-control/built-in-roles#reader) Lesen und Auflisten von Ressourcen.
-- [Speicherkontomitwirkender:](/azure/role-based-access-control/built-in-roles#storage-account-contributor) Vollständige Verwaltung von Speicherkonten. **Hinweis**: Über diese Rolle erhalten Sie Schlüsselzugriff.
-- [Besitzer von Speicherblobdaten](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): Vollzugriff auf Azure Storage-Blobcontainer und -Daten.
-- [Mitwirkender an Speicherblobdaten](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): Lesen, Schreiben und Löschen von Azure Storage-Containern und -Blobs.
-- [Leser von Speicherblobdaten](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): Lesen und Auflisten von Azure Storage-Containern und -Blobs.
+- [Besitzer:](../../role-based-access-control/built-in-roles.md#owner) Sie können alles verwalten, einschließlich des Zugriffs auf Ressourcen. **Hinweis** : Über diese Rolle erhalten Sie Schlüsselzugriff.
+- [Mitwirkender](../../role-based-access-control/built-in-roles.md#contributor): Sie können alles verwalten, ausgenommen den Zugriff auf Ressourcen. **Hinweis** : Über diese Rolle erhalten Sie Schlüsselzugriff.
+- [Leser:](../../role-based-access-control/built-in-roles.md#reader) Lesen und Auflisten von Ressourcen.
+- [Speicherkontomitwirkender:](../../role-based-access-control/built-in-roles.md#storage-account-contributor) Vollständige Verwaltung von Speicherkonten. **Hinweis** : Über diese Rolle erhalten Sie Schlüsselzugriff.
+- [Besitzer von Speicherblobdaten](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Vollzugriff auf Azure Storage-Blobcontainer und -Daten.
+- [Mitwirkender an Speicherblobdaten](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Lesen, Schreiben und Löschen von Azure Storage-Containern und -Blobs.
+- [Leser von Speicherblobdaten](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Lesen und Auflisten von Azure Storage-Containern und -Blobs.
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Error: Selbstsigniertes Zertifikat in der Zertifikatkette (und vergleichbare Fehler)
 
@@ -88,7 +88,7 @@ Zertifikatfehler treten in der Regel in einer der folgenden Situationen auf:
 Wenn Storage-Explorer ein selbstsigniertes oder nicht vertrauenswürdiges Zertifikat sieht, kann er nicht mehr erkennen, ob die empfangene HTTPS-Nachricht geändert wurde. Wenn Sie über eine Kopie des selbstsignierten Zertifikats verfügen, können Sie Storage-Explorer anweisen, es als vertrauenswürdig zu behandeln. Führen Sie dazu die folgenden Schritte aus:
 
 1. Rufen Sie eine X.509-Kopie (CER) des Zertifikats mit Base64-Verschlüsselung ab.
-2. Wechseln Sie zu **Bearbeiten** > **SSL-Zertifikate** > **Zertifikate importieren**, suchen Sie über die Dateiauswahl die CER-Datei, wählen Sie sie aus, und öffnen Sie sie.
+2. Wechseln Sie zu **Bearbeiten** > **SSL-Zertifikate** > **Zertifikate importieren** , suchen Sie über die Dateiauswahl die CER-Datei, wählen Sie sie aus, und öffnen Sie sie.
 
 Dieses Problem kann auch auftreten, wenn es mehrere Zertifikate gibt (Stamm- und Zwischenzertifikat). Um diesen Fehler zu beheben, müssen beide Zertifikate hinzugefügt werden.
 
@@ -98,12 +98,12 @@ Wenn Sie nicht sicher sind, woher das Zertifikat kommt, können Sie zur Lösung 
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html): Eine Light-Version sollte ausreichend sein.
     * Mac und Linux: Sollte im Betriebssystem enthalten sein.
 2. Führen Sie OpenSSL aus.
-    * Windows: Öffnen Sie das Installationsverzeichnis, wählen Sie **/bin/** aus, und doppelklicken Sie dann auf **openssl.exe**.
+    * Windows: Öffnen Sie das Installationsverzeichnis, wählen Sie **/bin/** aus, und doppelklicken Sie dann auf **openssl.exe** .
     * Mac und Linux: Führen Sie `openssl` über ein Terminal aus.
 3. Führen Sie `s_client -showcerts -connect microsoft.com:443` aus.
 4. Suchen Sie nach selbstsignierten Zertifikaten. Wenn Sie sich nicht sicher sind, welche Zertifikate selbst signiert sind, notieren Sie sich, wo immer der Betreff `("s:")` und der Zertifikataussteller `("i:")` identisch sind.
 5. Wenn Sie selbstsignierte Zertifikate gefunden haben, kopieren Sie für jedes Zertifikat den gesamten Inhalt von (und einschließlich) `-----BEGIN CERTIFICATE-----` bis `-----END CERTIFICATE-----`, und fügen Sie ihn in eine neue CER-Datei ein.
-6. Öffnen Sie Storage-Explorer, und navigieren Sie zu **Bearbeiten** > **SSL-Zertifikate** > **Zertifikate importieren**. Verwenden Sie dann die Dateiauswahl, um die von Ihnen erstellten CER-Dateien zu suchen, auszuwählen und zu öffnen.
+6. Öffnen Sie Storage-Explorer, und navigieren Sie zu **Bearbeiten** > **SSL-Zertifikate** > **Zertifikate importieren** . Verwenden Sie dann die Dateiauswahl, um die von Ihnen erstellten CER-Dateien zu suchen, auszuwählen und zu öffnen.
 
 Wenn Sie durch Befolgen dieser Schritte keine selbstsignierten Zertifikate finden können, wenden Sie sich über das Feedbacktool an uns. Sie können Storage-Explorer auch über die Befehlszeile öffnen, indem Sie das `--ignore-certificate-errors`-Flag verwenden. Wenn Storage-Explorer mit diesem Flag geöffnet wird, werden Zertifikatfehler ignoriert.
 
@@ -113,7 +113,7 @@ Wenn Sie durch Befolgen dieser Schritte keine selbstsignierten Zertifikate finde
 
 Leere Anmeldedialogfelder treten am häufigsten auf, wenn Active Directory-Verbunddienste (AD FS) Storage-Explorer auffordern, eine Umleitung durchzuführen, die von Electron nicht unterstützt wird. Als Problemumgehung können Sie versuchen, den Gerätecodefluss für die Anmeldung zu verwenden. Gehen Sie dazu folgendermaßen vor:
 
-1. Wählen Sie auf der linken vertikalen Symbolleiste die Option **Einstellungen** aus. Wechseln Sie im Bereich „Einstellungen“ zu **Anwendung** > **Anmelden**. Aktivieren Sie die Option **Anmeldung per Gerätecodeflow verwenden**.
+1. Wählen Sie auf der linken vertikalen Symbolleiste die Option **Einstellungen** aus. Wechseln Sie im Bereich „Einstellungen“ zu **Anwendung** > **Anmelden** . Aktivieren Sie die Option **Anmeldung per Gerätecodeflow verwenden** .
 2. Öffnen Sie das Dialogfeld **Verbinden** (über das Steckersymbol in der vertikalen Leiste auf der linken Seite oder durch Auswählen der Option **Konto hinzufügen** im Kontobereich).
 3. Wählen Sie die Umgebung aus, an der Sie sich anmelden möchten.
 4. Wählen Sie **Anmelden** aus.
@@ -130,7 +130,7 @@ Wenn Sie sich in einer Schleife für eine erneute Authentifizierung befinden ode
 
 1. Entfernen Sie alle Konten, und schließen Sie dann Storage-Explorer.
 2. Löschen Sie den Ordner „.IdentityService“ von Ihrem Computer. Der Ordner befindet sich unter Windows unter `C:\users\<username>\AppData\Local`. Bei Mac und Linux finden Sie den Ordner im Stammverzeichnis Ihres Benutzerverzeichnisses.
-3. Wenn Sie Mac oder Linux verwenden, müssen Sie auch den Eintrag „Microsoft.Developer.IdentityService“ aus dem Keystore des Betriebssystems löschen. Unter Mac ist der Keystore die Anwendung *Gnome Keychain*. Unter Linux wird die Anwendung in der Regel als _Schlüsselbund_ bezeichnet, der Name kann jedoch abhängig von Ihrer Distribution abweichen.
+3. Wenn Sie Mac oder Linux verwenden, müssen Sie auch den Eintrag „Microsoft.Developer.IdentityService“ aus dem Keystore des Betriebssystems löschen. Unter Mac ist der Keystore die Anwendung *Gnome Keychain* . Unter Linux wird die Anwendung in der Regel als _Schlüsselbund_ bezeichnet, der Name kann jedoch abhängig von Ihrer Distribution abweichen.
 
 ### <a name="conditional-access"></a>Bedingter Zugriff
 
@@ -148,7 +148,7 @@ Die macOS-Keychain kann manchmal in einem Zustand wechseln, der Probleme in Verb
     ![Schlosssymbol](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
 
 5. Öffnen Sie den Storage-Explorer.
-6. Sie werden mit einer Nachricht wie „Servicehub möchte auf den Schlüsselbund zugreifen“ aufgefordert. Geben Sie das Kennwort Ihres Mac-Administratorkontos ein, und wählen Sie **Immer zulassen** (oder **Zulassen**, falls **Immer zulassen** nicht verfügbar ist) aus.
+6. Sie werden mit einer Nachricht wie „Servicehub möchte auf den Schlüsselbund zugreifen“ aufgefordert. Geben Sie das Kennwort Ihres Mac-Administratorkontos ein, und wählen Sie **Immer zulassen** (oder **Zulassen** , falls **Immer zulassen** nicht verfügbar ist) aus.
 7. Versuchen Sie, sich anzumelden.
 
 ### <a name="general-sign-in-troubleshooting-steps"></a>Allgemeine Schritte zur Behandlung von Anmeldeproblemen
@@ -230,7 +230,7 @@ Wenn Sie die Verbindung mit Azure über einen Proxy hergestellt haben, überprü
 
 ## <a name="connection-string-doesnt-have-complete-configuration-settings"></a>Verbindungszeichenfolge weist keine vollständigen Konfigurationseinstellungen auf
 
-Wenn Sie diese Fehlermeldung erhalten, verfügen Sie möglicherweise nicht über die erforderlichen Berechtigungen zum Abrufen der Schlüssel für Ihr Speicherkonto. Um zu überprüfen, ob dies der Fall ist, navigieren Sie zum Portal, und suchen Sie Ihr Speicherkonto. Klicken Sie hierzu einfach mit der rechten Maustaste auf den Knoten für Ihr Speicherkonto, und wählen Sie dann **Im Portal öffnen** aus. Wechseln Sie dann zum Blatt **Zugriffsschlüssel**. Wenn Sie nicht über die Berechtigung zum Anzeigen von Schlüsseln verfügen, wird die Meldung „Sie haben keinen Zugriff“ angezeigt. Um dieses Problem zu umgehen, können Sie den Kontoschlüssel von einer anderen Person erhalten und mit Name und Schlüssel anfügen, oder Sie können eine andere Person um die SAS für das Speicherkonto bitten und mit dieser das Speicherkonto anfügen.
+Wenn Sie diese Fehlermeldung erhalten, verfügen Sie möglicherweise nicht über die erforderlichen Berechtigungen zum Abrufen der Schlüssel für Ihr Speicherkonto. Um zu überprüfen, ob dies der Fall ist, navigieren Sie zum Portal, und suchen Sie Ihr Speicherkonto. Klicken Sie hierzu einfach mit der rechten Maustaste auf den Knoten für Ihr Speicherkonto, und wählen Sie dann **Im Portal öffnen** aus. Wechseln Sie dann zum Blatt **Zugriffsschlüssel** . Wenn Sie nicht über die Berechtigung zum Anzeigen von Schlüsseln verfügen, wird die Meldung „Sie haben keinen Zugriff“ angezeigt. Um dieses Problem zu umgehen, können Sie den Kontoschlüssel von einer anderen Person erhalten und mit Name und Schlüssel anfügen, oder Sie können eine andere Person um die SAS für das Speicherkonto bitten und mit dieser das Speicherkonto anfügen.
 
 Wenn die Kontoschlüssel angezeigt werden, ist es ratsam, ein Problem in GitHub zu melden, damit wir Ihnen beim Beheben des Problems helfen können.
 
@@ -238,7 +238,7 @@ Wenn die Kontoschlüssel angezeigt werden, ist es ratsam, ein Problem in GitHub 
 
 Wenn Sie diese Fehlermeldung erhalten, wenn Sie versuchen, eine benutzerdefinierte Verbindung hinzuzufügen, können die Verbindungsdaten, die in der lokalen Verwaltung für Anmeldeinformationen gespeichert sind, beschädigt sein. Versuchen Sie, Ihre beschädigten lokalen Verbindungen zu löschen und sie dann erneut hinzuzufügen, um dieses Problem zu umgehen:
 
-1. Starten Sie den Storage-Explorer. Wechseln Sie im Menü zu **Hilfe** > **Entwicklertools umschalten**.
+1. Starten Sie den Storage-Explorer. Wechseln Sie im Menü zu **Hilfe** > **Entwicklertools umschalten** .
 2. Wechseln Sie im geöffneten Fenster auf der Registerkarte **Anwendung** zu **Lokaler Speicher** (linke Seite) > **file://** .
 3. Abhängig von der Art der Verbindung, bei der ein Problem auftritt, suchen Sie nach dem Schlüssel, und kopieren Sie dann den Wert in einen Text-Editor. Der Wert ist ein Array Ihrer benutzerdefinierten Verbindungsnamen, wie die folgenden:
     * Speicherkonten
@@ -265,7 +265,7 @@ Nachdem Sie alle Ihre Verbindungen überprüft haben, müssen Sie für alle Verb
 # <a name="windows"></a>[Windows](#tab/Windows)
 
 1. Suchen Sie im Menü **Start** nach der **Anmeldeinformationsverwaltung** und öffnen Sie sie.
-2. Wechseln Sie zu **Windows-Anmeldeinformationen**.
+2. Wechseln Sie zu **Windows-Anmeldeinformationen** .
 3. Suchen Sie unter **Generische Anmeldeinformationen** nach Einträgen, die den Schlüssel `<connection_type_key>/<corrupted_connection_name>` aufweisen (z. B. `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 4. Löschen Sie diese Einträge, und fügen Sie die Verbindungen erneut hinzu.
 
@@ -332,7 +332,7 @@ Für Storage-Explorer muss .NET Core auf dem System installiert sein. Wir empfeh
 # <a name="ubuntu-2004"></a>[Ubuntu 20.04 ](#tab/2004)
 
 1. Laden Sie die Storage-Explorer- Datei „.tar.gz“ herunter.
-2. Installieren Sie die [.NET Core-Runtime](https://docs.microsoft.com/dotnet/core/install/linux):
+2. Installieren Sie die [.NET Core-Runtime](/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
@@ -345,7 +345,7 @@ Für Storage-Explorer muss .NET Core auf dem System installiert sein. Wir empfeh
 # <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
 1. Laden Sie die Storage-Explorer- Datei „.tar.gz“ herunter.
-2. Installieren Sie die [.NET Core-Runtime](https://docs.microsoft.com/dotnet/core/install/linux):
+2. Installieren Sie die [.NET Core-Runtime](/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
@@ -358,7 +358,7 @@ Für Storage-Explorer muss .NET Core auf dem System installiert sein. Wir empfeh
 # <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Laden Sie die Storage-Explorer- Datei „.tar.gz“ herunter.
-2. Installieren Sie die [.NET Core-Runtime](https://docs.microsoft.com/dotnet/core/install/linux):
+2. Installieren Sie die [.NET Core-Runtime](/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \

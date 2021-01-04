@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: yelevin
-ms.openlocfilehash: 17c0ba7306ab4cc51fe8bbe3709d5b6bc85fa487
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a891a301d5869603a7d90d28bb9063d7d5bdb1d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91340520"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660575"
 ---
 # <a name="bring-your-own-machine-learning-ml-into-azure-sentinel"></a>Bring Your Own Machine Learning (ML) in Azure Sentinel
 
@@ -32,7 +32,7 @@ ML-Erkennungsmodelle können sich an einzelne Umgebungen und Änderungen im Benu
 
 ## <a name="what-is-the-bring-your-own-machine-learning-byo-ml-platform"></a>Was ist die Bring Your Own Machine Learning-Plattform (BYO-ML)?
 
-Organisationen, die über ML-Ressourcen verfügen und angepasste ML-Modelle für Ihre individuellen geschäftlichen Anforderungen erstellen möchten, bieten wir die **BYO-ML-Plattform**. Die Plattform nutzt die [Azure Databricks](https://docs.microsoft.com/azure/databricks/scenarios/what-is-azure-databricks)/[Apache Spark](http://spark.apache.org/)-Umgebung sowie Jupyter-Notebooks, um die ML-Umgebung zu erzeugen. Sie bietet die folgenden Komponenten:
+Organisationen, die über ML-Ressourcen verfügen und angepasste ML-Modelle für Ihre individuellen geschäftlichen Anforderungen erstellen möchten, bieten wir die **BYO-ML-Plattform**. Die Plattform nutzt die [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)/[Apache Spark](http://spark.apache.org/)-Umgebung sowie Jupyter-Notebooks, um die ML-Umgebung zu erzeugen. Sie bietet die folgenden Komponenten:
 
 - Ein BYO-ML-Paket, das Bibliotheken enthält, mit denen Sie auf Daten zugreifen und die Ergebnisse zurück an Log Analytics (LA) übertragen können, sodass Sie die Ergebnisse in Ihre Erkennung, Untersuchung und Suche integrieren können. 
 
@@ -95,7 +95,7 @@ Nachdem Sie nun mit den wichtigsten Komponenten der BYO-ML-Plattform vertraut si
 
 ### <a name="setup-the-databricksspark-environment"></a>Einrichten der Databricks/Spark-Umgebung
 
-Sie müssen Ihre eigene Databricks-Umgebung einrichten, wenn Sie noch keine haben. Anweisungen hierzu finden Sie in dem Dokument [Databrick-Schnellstart](https://docs.microsoft.com/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal).
+Sie müssen Ihre eigene Databricks-Umgebung einrichten, wenn Sie noch keine haben. Anweisungen hierzu finden Sie in dem Dokument [Databrick-Schnellstart](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal).
 
 ### <a name="auto-export-instruction"></a>Anweisung zum automatischen Export
 
@@ -103,7 +103,7 @@ Zum Erstellen von benutzerdefinierten ML-Modellen auf Grundlage Ihrer eigenen Da
 
 In diesem Beispiel müssen sich Ihre Trainingsdaten für das Dateifreigabe-Zugriffsprotokoll im Azure Blob-Speicher befinden. Das Format der Daten ist im Notebook und in den Bibliotheken dokumentiert.
 
-Sie können Ihre Daten mithilfe der [Azure-Befehlszeilenschnittstelle (CLI)](https://docs.microsoft.com/cli/azure/monitor/log-analytics) automatisch aus Log Analytics exportieren. 
+Sie können Ihre Daten mithilfe der [Azure-Befehlszeilenschnittstelle (CLI)](/cli/azure/monitor/log-analytics) automatisch aus Log Analytics exportieren. 
 
 Ihnen muss die Rolle **Mitwirkender** in Ihrem Log Analytics-Arbeitsbereich, Ihrem Speicherkonto und Ihrer EventHub-Ressource zugewiesen sein, um die Befehle ausführen zu können. 
 
@@ -159,13 +159,13 @@ Nachdem Sie die Bewertung geplant haben, können Sie das Modul im Bewertungsnote
 
 Um sich Ihre bewerteten Ergebnisse zusammen mit den zugehörigen Protokolldetails anzusehen, wechseln Sie zurück zu Ihrem Azure Sentinel-Portal. In „**Protokolle** > Benutzerdefinierte Protokolle“ werden die Ergebnisse in der Tabelle **AnomalousResourceAccessResult_CL** (oder dem Namen Ihrer eigenen benutzerdefinierten Tabelle) angezeigt. Sie können diese Ergebnisse verwenden, um Ihre Untersuchungs- und Sucherfahrungen zu verbessern.
 
-:::image type="content" source="./media/bring-your-own-ml/anomalous-resource-access-logs.png" alt-text="Machine Learning-Framework":::
+:::image type="content" source="./media/bring-your-own-ml/anomalous-resource-access-logs.png" alt-text="Protokolle über anomale Ressourcenzugriffe":::
 
 ### <a name="build-custom-analytics-rule-with-ml-results"></a>Erstellen benutzerdefinierter Analyseregeln mit ML-Ergebnissen
 
 Nachdem Sie bestätigt haben, dass sich die ML-Ergebnisse in der Tabelle „Benutzerdefinierte Protokolle“ befinden und Sie mit der Genauigkeit der Bewertungen zufrieden sind, können Sie auf Grundlage der Ergebnisse eine Erkennung erstellen. Wechseln Sie im Azure Sentinel-Portal zu **Analysen**, und [erstellen Sie eine neue Erkennungsregel](tutorial-detect-threats-custom.md). Im Folgenden finden Sie ein Beispiel für die Abfrage, die zum Erstellen der Erkennung verwendet wird.
 
-:::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="Machine Learning-Framework":::
+:::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="Erstellen einer benutzerdefinierten Analyseregel für B Y O M L-Erkennungen":::
 
 ### <a name="view-and-respond-to-incidents"></a>Anzeigen von und Reagieren auf Vorfälle
 Nachdem Sie die Analyseregel auf Grundlage der ML-Ergebnisse eingerichtet haben, und sobald Ergebnisse über dem in der Abfrage festgelegten Schwellenwert liegen, wird ein Vorfall generiert und auf der Seite **Vorfälle** in Azure Sentinel angezeigt. 

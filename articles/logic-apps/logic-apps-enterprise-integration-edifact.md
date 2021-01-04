@@ -9,11 +9,11 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
 ms.openlocfilehash: b0df55e59bd519a816c4022f2434edfcd4460780
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570764"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006522"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Austauschen von EDIFACT-Nachrichten für die B2B-Unternehmensintegration in Azure Logic Apps mit Enterprise Integration Pack
 
@@ -202,7 +202,7 @@ Ihre Vereinbarung kann nun ausgehende Nachrichten verarbeiten, die den ausgewäh
 | UNB10 (Kommunikationsvereinbarung ) |Geben Sie einen alphanumerischen Wert mit einer Länge von mindestens einem und maximal 40 Zeichen ein. |
 | UNB11 (Testindikator) |Aktivieren Sie dieses Kontrollkästchen, um anzugeben, dass es sich beim generierten Austausch um Testdaten handelt. |
 | UNA-Segment übernehmen (Zeichenfolgedienstanweisung) |Aktivieren Sie dieses Kontrollkästchen, um ein UNA-Segment für den zu sendenden Austausch zu generieren. |
-| UNG-Segmente übernehmen (Funktionsgruppenheader) |Aktivieren Sie dieses Kontrollkästchen, um Gruppierungssegmente im Funktionsgruppenheader in den Nachrichten zu erstellen, die an den Gastpartner gesendet werden. Die folgenden Werte werden verwendet, um die UNG-Segmente zu erstellen: <p>Geben Sie für **UNG1** einen alphanumerischen Wert mit einer Länge von mindestens einem und maximal sechs Zeichen ein. <p>Geben Sie für **UNG2.1** einen alphanumerischen Wert mit einer Länge von mindestens einem und maximal 35 Zeichen ein. <p>Geben Sie für **UNG2.2** einen alphanumerischen Wert mit maximal vier Zeichen ein. <p>Geben Sie für **UNG3.1** einen alphanumerischen Wert mit einer Länge von mindestens einem und maximal 35 Zeichen ein. <p>Geben Sie für **UNG3.2** einen alphanumerischen Wert mit maximal vier Zeichen ein. <p>Geben Sie für **UNG6** einen alphanumerischen Wert mit einer Länge von mindestens einem und maximal drei Zeichen ein. <p>Geben Sie für **UNG7.1** einen alphanumerischen Wert mit einer Länge von mindestens einem und maximal drei Zeichen ein. <p>Geben Sie für **UNG7.2** einen alphanumerischen Wert mit einer Länge von mindestens einem und maximal drei Zeichen ein. <p>Geben Sie für **UNG7.3** einen alphanumerischen Wert mit einer Länge von mindestens einem und maximal sechs Zeichen ein. <p>Geben Sie für **UNG8**einen alphanumerischen Wert mit einer Länge von mindestens einem und maximal 14 Zeichen ein. |
+| UNG-Segmente übernehmen (Funktionsgruppenheader) |Aktivieren Sie dieses Kontrollkästchen, um Gruppierungssegmente im Funktionsgruppenheader in den Nachrichten zu erstellen, die an den Gastpartner gesendet werden. Die folgenden Werte werden verwendet, um die UNG-Segmente zu erstellen: <p>Geben Sie für **UNG1** einen alphanumerischen Wert mit einer Länge von mindestens einem und maximal sechs Zeichen ein. <p>Geben Sie für **UNG2.1** einen alphanumerischen Wert mit einer Länge von mindestens einem und maximal 35 Zeichen ein. <p>Geben Sie für **UNG2.2** einen alphanumerischen Wert mit maximal vier Zeichen ein. <p>Geben Sie für **UNG3.1** einen alphanumerischen Wert mit einer Länge von mindestens einem und maximal 35 Zeichen ein. <p>Geben Sie für **UNG3.2** einen alphanumerischen Wert mit maximal vier Zeichen ein. <p>Geben Sie für **UNG6** einen alphanumerischen Wert mit einer Länge von mindestens einem und maximal drei Zeichen ein. <p>Geben Sie für **UNG7.1** einen alphanumerischen Wert mit einer Länge von mindestens einem und maximal drei Zeichen ein. <p>Geben Sie für **UNG7.2** einen alphanumerischen Wert mit einer Länge von mindestens einem und maximal drei Zeichen ein. <p>Geben Sie für **UNG7.3** einen alphanumerischen Wert mit einer Länge von mindestens einem und maximal sechs Zeichen ein. <p>Geben Sie für **UNG8** einen alphanumerischen Wert mit einer Länge von mindestens einem und maximal 14 Zeichen ein. |
 
 ### <a name="character-sets-and-separators"></a>Zeichensätze und Trennzeichen
 

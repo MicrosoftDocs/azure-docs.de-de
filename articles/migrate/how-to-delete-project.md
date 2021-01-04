@@ -1,17 +1,17 @@
 ---
 title: Löschen eines Azure Migrate-Projekts
 description: In diesem Artikel erfahren Sie, wie Sie mithilfe des Azure-Portals ein Azure Migrate-Projekt löschen können.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
+author: ms-psharma
+ms.author: panshar
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 10/22/2019
-ms.author: raynew
-ms.openlocfilehash: c58081e7cf88ac4820aa7d4f367b7344f3340a77
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: face3d02ee72d1e05c6c08330dae4fffc2fd0e0b
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91307873"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754248"
 ---
 # <a name="delete-an-azure-migrate-project"></a>Löschen eines Azure Migrate-Projekts
 

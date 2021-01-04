@@ -6,21 +6,21 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03989e37ac05228dade2fdcda43856e8a5240865
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8633ae0d23650eb12ee2e1fdcd355864dfd8b6c3
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964909"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743631"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Authentifizierungsmethoden: Nutzung und Erkenntnisse (Vorschau)
 
-Mithilfe von „Nutzung und Erkenntnisse“ können Sie verstehen, wie Authentifizierungsmethoden für Funktionen wie Azure Multi-Factor Authentication und Self-Service-Kennwortzurücksetzung in Ihrem Unternehmen funktionieren. Mit dieser Berichtsfunktion kann Ihr Unternehmen besser verstehen, welche Methoden registriert werden und wie sie verwendet werden.
+Mithilfe von „Nutzung und Erkenntnisse“ können Sie verstehen, wie Authentifizierungsmethoden für Features wie Azure AD Multi-Factor Authentication und Self-Service-Kennwortzurücksetzung in Ihrem Unternehmen funktionieren. Mit dieser Berichtsfunktion kann Ihr Unternehmen besser verstehen, welche Methoden registriert werden und wie sie verwendet werden.
 
 ## <a name="permissions-and-licenses"></a>Berechtigungen und Lizenzen
 
@@ -31,7 +31,7 @@ Die folgenden Rollen können auf „Nutzung und Erkenntnisse“ zugreifen:
 - Sicherheitsadministrator
 - Meldet Reader
 
-Für den Zugriff auf „Nutzung und Erkenntnisse“ ist keine zusätzliche Lizenzierung erforderlich. Informationen zur Lizenzierung von Azure Multi-Factor Authentication und Self-Service-Kennwortzurücksetzung finden Sie auf der [Website mit Preisen für Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Für den Zugriff auf „Nutzung und Erkenntnisse“ ist keine zusätzliche Lizenzierung erforderlich. Informationen zur Lizenzierung für Azure AD Multi-Factor Authentication und Self-Service-Kennwortzurücksetzung (Self-Service Password Reset, SSPR) finden Sie auf der [Website mit Preisen für Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="how-it-works"></a>Funktionsweise
 
@@ -92,7 +92,7 @@ Mit den Steuerelementen oben in der Liste können Sie nach einem Benutzer suchen
 
 Die in diesen Berichten angezeigten Daten sind um bis zu 60 Minuten zeitverzögert. Im Azure-Portal können Sie mithilfe des Felds „Zuletzt aktualisiert“ feststellen, wie aktuell Ihre Daten sind.
 
-Die Daten im Bericht „Nutzung und Erkenntnisse“ sind kein Ersatz für die Aktivitätsberichte von Azure Multi-Factor Authentication oder für die Informationen, die im Azure AD-Anmeldebericht enthalten sind.
+Die Daten im Bericht „Nutzung und Erkenntnisse“ sind kein Ersatz für die Aktivitätsberichte von Azure AD Multi-Factor Authentication oder für die Informationen, die im Azure AD-Anmeldebericht enthalten sind.
 
 Der Bericht kann derzeit nicht gefiltert werden, um externe Benutzer auszuschließen.
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
 ms.date: 10/19/2020
-ms.openlocfilehash: b927e90c60110d6922649b75b6549528a2a9a40f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ead367568762d4b76de7164feb56b7a31cd53e0d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283193"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129115"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>Generieren eines SAS-URI für ein VM-Image
 
@@ -34,8 +34,8 @@ Es gibt zwei Tools, die häufig zum Erstellen einer SAS-Adresse (URL) verwendet 
 
 ### <a name="using-tool-1-azure-storage-explorer"></a>Tool 1: Azure Storage-Explorer
 
-1. Wechseln Sie zum **Speicherkonto** .
-1. Öffnen Sie **Storage-Explorer** .
+1. Wechseln Sie zum **Speicherkonto**.
+1. Öffnen Sie **Storage-Explorer**.
 
     :::image type="content" source="media/create-vm/storge-account-explorer.png" alt-text="Fenster „Speicherkonto“":::
 
@@ -59,7 +59,7 @@ Es gibt zwei Tools, die häufig zum Erstellen einer SAS-Adresse (URL) verwendet 
 
 ### <a name="using-tool-2-azure-cli"></a>Tool 2: Azure CLI
 
-1. Laden Sie die [Microsoft Azure CLI](https://azure.microsoft.com/documentation/articles/xplat-cli-install/) herunter, und installieren Sie diese. Es stehen Versionen für Windows, macOS und verschiedene Linux-Distributionen zur Verfügung.
+1. Laden Sie die [Microsoft Azure CLI](/cli/azure/install-azure-cli) herunter, und installieren Sie diese. Es stehen Versionen für Windows, macOS und verschiedene Linux-Distributionen zur Verfügung.
 2. Erstellen Sie eine PowerShell-Datei (Dateierweiterung PS1), kopieren Sie den folgenden Code in die Datei, und speichern Sie sie lokal.
 
     ```JSON
@@ -82,7 +82,7 @@ Es gibt zwei Tools, die häufig zum Erstellen einer SAS-Adresse (URL) verwendet 
 2. Führen Sie dieses Skript mit einem der folgenden Verfahren mit Administratorrechten aus, um eine SAS-Verbindungszeichenfolge für den Zugriff auf Containerebene zu erstellen:
 
     - Führen Sie das Skript an der Konsole aus. Klicken Sie unter Windows mit der rechten Maustaste auf das Skript, und wählen Sie **Als Administrator ausführen** aus.
-    - Führen Sie das Skript mit einem PowerShell-Skript-Editor aus, z. B. [Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/introducing-the-windows-powershell-ise). Auf diesem Bildschirm wird die Erstellung einer SAS-Verbindungszeichenfolge in diesem Editor angezeigt:
+    - Führen Sie das Skript mit einem PowerShell-Skript-Editor aus, z. B. [Windows PowerShell ISE](/powershell/scripting/components/ise/introducing-the-windows-powershell-ise). Auf diesem Bildschirm wird die Erstellung einer SAS-Verbindungszeichenfolge in diesem Editor angezeigt:
 
     [![Erstellung einer SAS-Verbindungszeichenfolge im PowerShell-Editor](media/vm/create-sas-uri-power-shell-ise.png)](media/vm/create-sas-uri-power-shell-ise.png#lightbox)
 

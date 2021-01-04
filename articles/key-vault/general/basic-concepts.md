@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b537fecefd0b8b00967894daa94881a084d5c8f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c1da45115303bb0a67d6ff796a40ef47c24224a
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398509"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287430"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Grundlegende Konzepte von Azure Key Vault
 
@@ -29,23 +29,23 @@ Hier sind weitere wichtige Begriffe:
 
 - **Tresorconsumer:** Ein Tresorconsumer kann Aktionen für die Objekte im Schlüsseltresor ausführen, wenn der Tresorbesitzer dem Consumer Zugriff gewährt. Welche Aktionen verfügbar sind, hängt von den gewährten Berechtigungen ab.
 
-- **Administratoren für verwaltete HSMs**: Benutzer, denen die Rolle „Administrator“ zugewiesen ist, haben die vollständige Kontrolle über einen verwalteten HSM-Pool. Sie können weitere Rollenzuweisungen erstellen, um den kontrollierten Zugriff an andere Benutzer zu delegieren.
+- **Administratoren für verwaltete HSMs** : Benutzer, denen die Rolle „Administrator“ zugewiesen ist, haben die vollständige Kontrolle über einen verwalteten HSM-Pool. Sie können weitere Rollenzuweisungen erstellen, um den kontrollierten Zugriff an andere Benutzer zu delegieren.
 
-- **Kryptoverantwortlicher/Kryptografiebenutzer für verwaltete HSMs**: Integrierte Rollen, die normalerweise Benutzern oder Dienstprinzipalen zugewiesen werden, die kryptografische Vorgänge mithilfe von Schlüsseln in verwaltetem HSM durchführen. Der Kryptografiebenutzer kann neue Schlüssel erstellen, aber keine Schlüssel löschen.
+- **Kryptoverantwortlicher/Kryptografiebenutzer für verwaltete HSMs** : Integrierte Rollen, die normalerweise Benutzern oder Dienstprinzipalen zugewiesen werden, die kryptografische Vorgänge mithilfe von Schlüsseln in verwaltetem HSM durchführen. Der Kryptografiebenutzer kann neue Schlüssel erstellen, aber keine Schlüssel löschen.
 
-- **Kryptografiedienstverschlüsselung für verwaltete HSMs**: Integrierte Rolle, die in der Regel für die Verschlüsselung von ruhenden Daten mit kundenseitig verwaltetem Schlüssel einem Dienstkonto mit verwalteter Dienstidentität (z. B. Speicherkonto) zugewiesen wird.
+- **Kryptografiedienstverschlüsselung für verwaltete HSMs** : Integrierte Rolle, die in der Regel für die Verschlüsselung von ruhenden Daten mit kundenseitig verwaltetem Schlüssel einem Dienstkonto mit verwalteter Dienstidentität (z. B. Speicherkonto) zugewiesen wird.
 
 - **Ressource:** Eine Ressource ist ein verwaltbares Element, das über Azure verfügbar ist. Allgemeine Beispiele sind virtuelle Computer, Speicherkonten, Web-Apps, Datenbanken und virtuelle Netzwerke. Es gibt noch viele weitere.
 
-- **Ressourcengruppe**: Eine Ressourcengruppe ist ein Container, der verwandte Ressourcen für eine Azure-Lösung enthält. Die Ressourcengruppe kann alle Ressourcen für die Lösung oder nur die Ressourcen enthalten, die Sie als Gruppe verwalten möchten. Sie entscheiden in Abhängigkeit davon, was für Ihre Organisation am sinnvollsten ist, wie Sie die Ressourcen den Ressourcengruppen zuordnen möchten.
+- **Ressourcengruppe** : Eine Ressourcengruppe ist ein Container, der verwandte Ressourcen für eine Azure-Lösung enthält. Die Ressourcengruppe kann alle Ressourcen für die Lösung oder nur die Ressourcen enthalten, die Sie als Gruppe verwalten möchten. Sie entscheiden in Abhängigkeit davon, was für Ihre Organisation am sinnvollsten ist, wie Sie die Ressourcen den Ressourcengruppen zuordnen möchten.
 
 - **Sicherheitsprinzipal:** Ein Azure-Sicherheitsprinzipal ist eine Sicherheitsidentität, die durch von Benutzern erstellte Apps, Dienste und Automatisierungstools verwendet wird, um auf bestimmte Azure-Ressourcen zuzugreifen. Das Konzept lässt sich als „Benutzeridentität“ (Benutzername und Kennwort oder Zertifikat) mit einer bestimmten Rolle und streng kontrollierten Berechtigungen beschreiben. Ein Sicherheitsprinzipal sollte – im Gegensatz zu einer allgemeinen Benutzeridentität – nur für bestimmte Dinge zuständig sein. Wenn Sie ihm nur die Berechtigungen gewähren, die er zum Ausführen seiner Verwaltungsaufgaben benötigt, verbessert das die Sicherheit. Ein Sicherheitsprinzipal, der mit einer Anwendung oder einem Dienst verwendet wird, wird als **Dienstprinzipal** bezeichnet.
 
-- [Azure Active Directory (Azure AD)](../../active-directory/active-directory-whatis.md): Azure AD ist der Active Directory-Dienst für einen Mandanten. Jedes Verzeichnis verfügt über mindestens eine Domäne. Einem Verzeichnis können viele Abonnements zugeordnet sein, aber nur ein Mandant.
+- [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md): Azure AD ist der Active Directory-Dienst für einen Mandanten. Jedes Verzeichnis verfügt über mindestens eine Domäne. Einem Verzeichnis können viele Abonnements zugeordnet sein, aber nur ein Mandant.
 
 - **ID des Azure-Mandanten:** Eine Azure-Mandanten-ID ist eine Möglichkeit zur eindeutigen Identifizierung einer Azure AD-Instanz in einem Azure-Abonnement.
 
-- **Verwaltete Identitäten**: Azure Key Vault bietet eine Möglichkeit zum sicheren Speichern von Anmeldeinformationen und anderen Schlüsseln und Geheimnissen. Um diese abrufen zu können, muss sich Ihr Code jedoch bei Key Vault authentifizieren. Die Verwendung einer verwalteten Identität vereinfacht die Lösung dieses Problems, indem für Azure-Dienste eine automatisch verwaltete Identität in Azure AD bereitgestellt wird. Sie können diese Identität für die Authentifizierung bei Key Vault oder jedem anderen Dienst verwenden, der die Azure AD-Authentifizierung unterstützt. Hierfür müssen keine Anmeldeinformationen im Code enthalten sein. Weitere Informationen finden Sie in der nachfolgenden Abbildung und unter [Verwaltete Identitäten für Azure-Ressourcen – Übersicht](../../active-directory/managed-identities-azure-resources/overview.md).
+- **Verwaltete Identitäten** : Azure Key Vault bietet eine Möglichkeit zum sicheren Speichern von Anmeldeinformationen und anderen Schlüsseln und Geheimnissen. Um diese abrufen zu können, muss sich Ihr Code jedoch bei Key Vault authentifizieren. Die Verwendung einer verwalteten Identität vereinfacht die Lösung dieses Problems, indem für Azure-Dienste eine automatisch verwaltete Identität in Azure AD bereitgestellt wird. Sie können diese Identität für die Authentifizierung bei Key Vault oder jedem anderen Dienst verwenden, der die Azure AD-Authentifizierung unterstützt. Hierfür müssen keine Anmeldeinformationen im Code enthalten sein. Weitere Informationen finden Sie in der nachfolgenden Abbildung und unter [Verwaltete Identitäten für Azure-Ressourcen – Übersicht](../../active-directory/managed-identities-azure-resources/overview.md).
 
     ![Diagramm zur Funktionsweise von verwalteten Identitäten für Azure-Ressourcen](../media/key-vault-whatis/msi.png)
 

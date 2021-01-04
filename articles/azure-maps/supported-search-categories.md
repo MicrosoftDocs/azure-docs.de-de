@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 240bc8429ca786eb2f474a5a0b6ee296deb3b356
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9cf9e031c73b1412ab9fc20f5ffe94736d28eb4
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310121"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896904"
 ---
 # <a name="azure-maps-supported-categories"></a>Unterstützte Kategorien in Azure Maps
 
-Zum Erstellen einer [Suchkategorie](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) für Points of Interest, stehen mehr als einhundert unterstützte Kategorien zur Verfügung. Im Folgenden finden Sie eine Liste der Kategoriecodes für unterstützte Kategorienamen. Kategoriecodes werden für Kategorien der obersten Ebene generiert. Für alle Unterkategorien gilt derselbe Kategoriecode. Diese Kategorieliste kann mit neuen Datenfreigaben geändert werden.
+Zum Erstellen einer [Suchkategorie](/rest/api/maps/search/getsearchpoicategory) für Points of Interest, stehen mehr als einhundert unterstützte Kategorien zur Verfügung. Im Folgenden finden Sie eine Liste der Kategoriecodes für unterstützte Kategorienamen. Kategoriecodes werden für Kategorien der obersten Ebene generiert. Für alle Unterkategorien gilt derselbe Kategoriecode. Diese Kategorieliste kann mit neuen Datenfreigaben geändert werden.
 
 <br/>
 

@@ -4,12 +4,12 @@ description: Erstellen Sie Ihre erste Windows-Containeranwendung unter Azure Ser
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: e8c3a0d60e10b1cf1f8a827cec8fcc25f3d33b05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 197423670ffe05f15fdc5bfd351efdfba33b53cd
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564320"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533773"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Erstellen Ihrer ersten Service Fabric-Containeranwendung unter Windows
 
@@ -36,20 +36,15 @@ Zum Ausführen einer vorhandenen Anwendung eines Windows-Containers in einem Ser
 
   Für diesen Artikel muss die Version (Build) von Windows Server mit Containern, die auf den Clusterknoten ausgeführt wird, mit der auf dem Entwicklungscomputer übereinstimmen. Dies ist erforderlich, da Sie das Docker-Image auf dem Entwicklungscomputer erstellen und zwischen den Versionen des Containerbetriebssystems und des Hostbetriebssystems für die Bereitstellung Kompatibilitätseinschränkungen bestehen. Weitere Informationen finden Sie unter [Kompatibilität zwischen Containerbetriebssystem und Hostbetriebssystem bei Windows Server](#windows-server-container-os-and-host-os-compatibility). 
   
-Zum Ermitteln der Version von Windows Server mit Containern, die Sie für Ihren Cluster benötigen, führen Sie den Befehl `ver` an einer Windows-Eingabeaufforderung auf dem Entwicklungscomputer aus:
-
-* Wenn die Version *x.x.14323.x* enthält, wählen Sie *WindowsServer 2016-Datacenter-with-Containers* als Betriebssystem aus, und [erstellen einen Cluster](service-fabric-cluster-creation-via-portal.md).
-  * Wenn die Version *x.x.16299.x* enthält, dann wählen Sie *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* als Betriebssystem aus, und [erstellen einen Cluster](service-fabric-cluster-creation-via-portal.md).
+    Zum Ermitteln der Version von Windows Server mit Containern, die Sie für Ihren Cluster benötigen, führen Sie den Befehl `ver` an einer Windows-Eingabeaufforderung auf dem Entwicklungscomputer aus. Lesen Sie [Kompatibilität des Windows Server-Containerbetriebssystems und des Hostbetriebssystems](#windows-server-container-os-and-host-os-compatibility), bevor Sie [einen Cluster erstellen](service-fabric-cluster-creation-via-portal.md).
 
 * Eine Registrierung in Azure Container Registry – erstellen Sie in Ihrem Azure-Abonnement eine [Containerregistrierung](../container-registry/container-registry-get-started-portal.md).
 
 > [!NOTE]
 > Das Bereitstellen von Containern für einen unter Windows 10 ausgeführten Service Fabric-Cluster wird nicht unterstützt.  In [diesem Artikel](service-fabric-how-to-debug-windows-containers.md) finden Sie Informationen dazu, wie Windows 10 für die Ausführung von Windows-Container konfiguriert werden kann.
->   
 
 > [!NOTE]
-> Service Fabric Versionen 6.2 und höher unterstützen die Bereitstellung von Containern für Cluster, die auf Windows Server Version 1709 ausgeführt werden.  
-> 
+> Service Fabric Versionen 6.2 und höher unterstützen die Bereitstellung von Containern für Cluster, die auf Windows Server Version 1709 ausgeführt werden.
 
 ## <a name="define-the-docker-container"></a>Definieren des Docker-Containers
 
@@ -109,10 +104,18 @@ if __name__ == "__main__":
 ```
 
 <a id="Build-Containers"></a>
-## <a name="build-the-image"></a>Erstellen des Image
-Führen Sie den Befehl `docker build` aus, um das Image zu erstellen, mit dem Ihre Webanwendung ausgeführt wird. Öffnen Sie ein PowerShell-Fenster, und navigieren Sie zu dem Verzeichnis, das die Dockerfile-Datei enthält. Führen Sie den folgenden Befehl aus:
+
+## <a name="login-to-docker-and-build-the-image"></a>Anmelden bei Docker und Erstellen des Images
+
+Nun erstellen Sie das Image, mit dem Ihre Webanwendung ausgeführt wird. Beim Pullen von öffentlichen Images aus Docker (wie `python:2.7-windowsservercore` in unserer Dockerfile-Datei) besteht eine bewährte Methode darin, sich mit Ihrem Docker Hub-Konto zu authentifizieren, anstatt einen anonymen Pull Request zu erstellen.
+
+> [!NOTE]
+> Beim Ausführen von häufigen anonymen Pull Requests wird möglicherweise ein Docker-Fehler wie `ERROR: toomanyrequests: Too Many Requests.` oder `You have reached your pull rate limit.` angezeigt. Authentifizieren Sie sich bei Docker Hub, um diese Fehler zu verhindern. Weitere Informationen finden Sie unter [Verwalten öffentlicher Inhalte mit Azure Container Registry](../container-registry/buffer-gate-public-content.md).
+
+Öffnen Sie ein PowerShell-Fenster, und navigieren Sie zu dem Verzeichnis, das die Dockerfile-Datei enthält. Führen Sie anschließend die folgenden Befehle aus:
 
 ```
+docker login
 docker build -t helloworldapp .
 ```
 
@@ -534,7 +537,7 @@ Sie können den Service Fabric-Cluster so konfigurieren, dass er nicht verwendet
           },
           {
                 "name": "ContainerImagesToSkip",
-                "value": "microsoft/windowsservercore|microsoft/nanoserver|microsoft/dotnet-frameworku|..."
+                "value": "mcr.microsoft.com/windows/servercore|mcr.microsoft.com/windows/nanoserver|mcr.microsoft.com/dotnet/framework/aspnet|..."
           }
           ...
           }

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 292e446d5b713a43f77ee5e579d7e6dd5905ff69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0858d448cf768dbe6ea48f07247725fac30da860
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448527"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95758897"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Löschen und Wiederherstellen eines Azure Log Analytics-Arbeitsbereichs
 
@@ -41,14 +41,16 @@ Mit dem Löschvorgang des Arbeitsbereichs wird die Resource Manager-Ressource de
 > [!NOTE] 
 > Installierte Lösungen und verknüpfte Dienste wie Ihr Azure Automation-Konto werden zum Zeitpunkt der Löschung dauerhaft aus dem Arbeitsbereich entfernt und können nicht wiederhergestellt werden. Diese sollten nach dem Wiederherstellungsvorgang neu konfiguriert werden, um den vorherigen konfigurierten Zustand des Arbeitsbereichs wiederherzustellen.
 
-Sie können einen Arbeitsbereich mithilfe von [PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), über die [REST-API](/rest/api/loganalytics/workspaces/delete) oder im [Azure-Portal](https://portal.azure.com) löschen.
+Sie können einen Arbeitsbereich mithilfe von [PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0&preserve-view=true), über die [REST-API](/rest/api/loganalytics/workspaces/delete) oder im [Azure-Portal](https://portal.azure.com) löschen.
 
 ### <a name="azure-portal"></a>Azure-Portal
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an. 
 2. Wählen Sie im Azure-Portal **Alle Dienste** aus. Geben Sie in der Liste mit den Ressourcen **Log Analytics** ein. Sobald Sie mit der Eingabe beginnen, wird die Liste auf der Grundlage Ihrer Eingabe gefiltert. Wählen Sie **Log Analytics-Arbeitsbereiche** aus.
 3. Wählen Sie in der Liste der Log Analytics-Arbeitsbereiche einen Arbeitsbereich aus, und klicken Sie dann oben im mittleren Bereich auf **Löschen**.
-4. Es wird eine Bestätigungsseite mit der Datenerfassung für den Arbeitsbereich in der letzten Woche angezeigt. Geben Sie zur Bestätigung den Namen des Arbeitsbereichs ein, und klicken Sie dann auf **Löschen**.
+4. Es wird eine Bestätigungsseite mit der Datenerfassung für den Arbeitsbereich in der letzten Woche angezeigt. 
+5. Wenn Sie den Arbeitsbereich endgültig löschen möchten, sodass er später nicht wiederhergestellt werden kann, aktivieren Sie das Kontrollkästchen **Delete the workspace permanently** (Arbeitsbereich endgültig löschen).
+6. Geben Sie zur Bestätigung den Namen des Arbeitsbereichs ein, und klicken Sie dann auf **Löschen**.
 
    ![Bestätigen des Löschvorgangs für den Arbeitsbereich](media/delete-workspace/workspace-delete.png)
 
@@ -60,11 +62,12 @@ PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-
 ## <a name="permanent-workspace-delete"></a>Dauerhaftes Löschen eines Arbeitsbereichs
 Die Methode des vorläufigen Löschens ist in einigen Szenarien möglicherweise nicht geeignet, in denen Sie eine Bereitstellung mit denselben Einstellungen und demselben Arbeitsbereichsnamen wiederholen müssen (z.B. bei Entwicklung und Test). In solchen Fällen können Sie den Arbeitsbereich dauerhaft löschen und den Zeitraum der vorläufigen Löschung überschreiben. Bei der dauerhaften Löschung des Arbeitsbereichs wird der Arbeitsbereichsname freigegeben, und Sie können einen neuen Arbeitsbereich mit demselben Namen erstellen.
 
-
 > [!IMPORTANT]
 > Verwenden Sie dauerhafte Löschungen von Arbeitsbereichen mit Vorsicht, da dieser Vorgang nicht rückgängig gemacht werden kann. Sie können dann weder den Arbeitsbereich noch dessen Daten wiederherstellen.
 
-Fügen Sie das Tag „-forceDelete“ hinzu, um Ihren Arbeitsbereich dauerhaft zu löschen. Die Option „-ForceDelete“ ist derzeit in Az.OperationalInsights 2.3.0 oder höher verfügbar. 
+Wenn Sie einen Arbeitsbereich über das Azure-Portal endgültig löschen möchten, aktivieren Sie das Kontrollkästchen **Delete the workspace permanently** (Arbeitsbereich endgültig löschen), bevor Sie auf die Schaltfläche **Löschen** klicken.
+
+Wenn Sie einen Arbeitsbereich mithilfe von PowerShell endgültig löschen möchten, fügen Sie das Tag „-ForceDelete“ hinzu, um Ihren Arbeitsbereich endgültig zu löschen. Die Option „-ForceDelete“ ist derzeit in Az.OperationalInsights 2.3.0 oder höher verfügbar. 
 
 ```powershell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -ForceDelete
@@ -112,6 +115,9 @@ Sie benötigen mindestens die Berechtigungen der Rolle *Log Analytics-Mitwirkend
 * Wenn Sie beim Erstellen eines Arbeitsbereichs die Fehlermeldung *Dieser Arbeitsbereichsname wird bereits verwendet* oder einen *Konflikt* erhalten, kann dies folgende Gründe haben:
   * Der Name des Arbeitsbereichs ist nicht verfügbar und wird bereits von jemandem in Ihrer Organisation oder von einem anderen Kunden verwendet.
   * Der Arbeitsbereich wurde innerhalb der letzten 14 Tage gelöscht, und der Name wurde für den Zeitraum der vorläufigen Löschung reserviert. Zum Überschreiben der vorübergehenden Löschung und der dauerhaften Löschen des Arbeitsbereichs, um einen neuen, gleichnamigen Arbeitsbereich zu erstellen, gehen Sie folgendermaßen vor, um den Arbeitsbereich zunächst wiederherzustellen und dann dauerhaft zu löschen:<br>
-     1. [Stellen Sie Ihren Arbeitsbereich wieder her.](#recover-workspace)
-     2. [Löschen Sie Ihren Arbeitsbereich dauerhaft.](#permanent-workspace-delete)
-     3. Erstellen Sie einen neuen Arbeitsbereich mit demselben Arbeitsbereichnamen.
+    1. [Stellen Sie Ihren Arbeitsbereich wieder her.](#recover-workspace)
+    2. [Löschen Sie Ihren Arbeitsbereich dauerhaft.](#permanent-workspace-delete)
+    3. Erstellen Sie einen neuen Arbeitsbereich mit demselben Arbeitsbereichnamen.
+* Wenn ein Antwortcode 204 angezeigt wird, der *Ressource nicht gefunden* angibt, können aufeinander folgende Versuche, den Vorgang zum Löschen des Arbeitsbereichs zu verwenden, die Ursache sein. 204 ist eine leere Antwort. Das bedeutet in der Regel, dass die Ressource nicht vorhanden ist, sodass der Löschvorgang ohne erfolgte Aktion abgeschlossen wurde.
+  Nachdem der Löschaufruf auf dem Back-End erfolgreich abgeschlossen wurde, können Sie den Arbeitsbereich wiederherstellen und den dauerhaften Löschvorgang mit einer der zuvor vorgeschlagenen Methoden abschließen.
+

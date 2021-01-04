@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: c41ffcd552cddf981c2ed54d1d78c7cb2e8698c5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a1fc5be93e2b9729838aa9fb3a777936003c5f45
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440830"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356388"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Grundlegendes zu digitalen Zwillingen und zum zugehörigen Zwillingsgraphen
 
@@ -45,11 +45,14 @@ In diesem Abschnitt wird gezeigt, wie das Erstellen digitaler Zwillinge und Bezi
 
 Unten ist ein Ausschnitt des Clientcodes angegeben, in dem die [DigitalTwins-APIs](/rest/api/digital-twins/dataplane/twins) zum Instanziieren eines Zwillings vom Typ *Room* (Zimmer) verwendet wird.
 
-In der aktuellen Vorschauversion von Azure Digital Twins müssen alle Eigenschaften eines Zwillings initialisiert werden, bevor der Zwilling erstellt werden kann. Hierfür wird ein JSON-Dokument erstellt, das die benötigten Initialisierungswerte enthält.
+Sie können die Eigenschaften eines Zwillings bei der Erstellung initialisieren oder später festlegen. Um einen Zwilling mit initialisierten Eigenschaften zu erstellen, erstellen Sie ein JSON-Dokument, das die erforderlichen Initialisierungswerte bereitstellt.
 
 [!INCLUDE [Azure Digital Twins code: create twin](../../includes/digital-twins-code-create-twin.md)]
 
-Sie können auch eine Hilfsklasse namens `BasicDigitalTwin` verwenden, um Eigenschaftenfelder als Alternative zur Verwendung eines Wörterbuchs direkt in einem „Zwillingsobjekt“ zu speichern. Weitere Informationen zur Hilfsklasse und Beispiele für deren Verwendung finden Sie im Abschnitt [*Erstellen eines Digital Zwillings*](how-to-manage-twin.md#create-a-digital-twin) von *Vorgehensweise: Verwalten digitaler Zwillinge* .
+Sie können auch eine Hilfsklasse namens `BasicDigitalTwin` verwenden, um Eigenschaftenfelder als Alternative zur Verwendung eines Wörterbuchs direkt in einem „Zwillingsobjekt“ zu speichern. Weitere Informationen zur Hilfsklasse und Beispiele für deren Verwendung finden Sie im Abschnitt [*Erstellen eines Digital Zwillings*](how-to-manage-twin.md#create-a-digital-twin) von *Vorgehensweise: Verwalten digitaler Zwillinge*.
+
+>[!NOTE]
+>Obwohl Zwillingseigenschaften optional sind und nicht initialisiert werden müssen, **müssen** alle [Komponenten](concepts-models.md#elements-of-a-model) auf dem Zwilling beim Erstellen des Zwillings festgelegt werden. Es kann sich um leere Objekte handeln, aber die Komponenten selbst müssen vorhanden sein.
 
 ### <a name="create-relationships"></a>Erstellen von Beziehungen
 
@@ -60,13 +63,15 @@ Hier ist ein Beispiel für Clientcode angegeben, in dem die [DigitalTwins-APIs](
 await CreateRoom("Cafe", 70, 66);
 await CreateFloor("GroundFloor", averageTemperature=70);
 // Create relationships
-Dictionary<string, object> targetrec = new Dictionary<string, object>()
+var relationship = new BasicRelationship
 {
-    { "$targetId", "Cafe" }
+    TargetId = "Cafe",
+    Name = "contains"
 };
 try
 {
-    await client.DigitalTwins.AddEdgeAsync("GroundFloor", "contains", "GF-to-Cafe", targetrec);
+    string relId = $"GroundFloor-contains-Cafe";
+    await client.CreateOrReplaceRelationshipAsync<BasicRelationship>("GroundFloor", relId, relationship);
 } catch(ErrorResponseException e)
 {
     Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");

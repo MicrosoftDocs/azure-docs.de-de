@@ -4,14 +4,14 @@ description: Bedarfsorientierte Warnung mithilfe einer einzelnen Warnungsregel f
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 10/04/2020
+ms.date: 11/12/2020
 ms.subservice: alerts
-ms.openlocfilehash: 81e09e6d9c6a57339f1d6f1eb5ce4f494555fa19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66987a28acc8a2c9ae71d89ff5760fa508e32963
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704479"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566502"
 ---
 # <a name="monitor-multiple-time-series-in-a-single-metric-alert-rule"></a>Überwachen mehrerer Zeitreihen in einer einzelnen Metrikwarnungsregel
 
@@ -163,6 +163,7 @@ Für diese Warnungsregel werden sechs metrische Zeitreihen separat überwacht:
 1.  **Auswählen aller aktuellen und zukünftigen Dimensionen**: Sie können die Überwachung aller möglichen Werte einer Dimension auswählen, einschließlich zukünftiger Werte. Eine solche Warnungsregel wird automatisch skaliert, um alle Werte der Dimension zu überwachen, ohne dass Sie die Warnungsregel jedes Mal ändern müssen, wenn ein Dimensionswert hinzugefügt oder entfernt wird.
 2.  **Ausschließen von Dimensionen**: Wenn Sie den Operator zum Ausschließen (≠) für einen Dimensionswert auswählen, entspricht dies der Auswahl aller anderen Werte dieser Dimension, einschließlich zukünftiger Werte.
 3.  **Neue und benutzerdefinierte Dimensionen**: Die im Azure-Portal angezeigten Dimensionswerte basieren auf Metrikdaten, die in den letzten drei Tagen gesammelt wurden. Wenn der gesuchte Dimensionswert noch nicht ausgegeben wird, können Sie einen benutzerdefinierten Dimensionswert hinzuzufügen.
+4. **Vergleichen von Dimensionen mit einem Präfix**: Sie können alle Dimensionswerte überwachen, die mit einem bestimmten Muster beginnen, indem Sie den Operator „Starts with“ (Beginnt mit) auswählen und ein benutzerdefiniertes Präfix eingeben.
 
 ![Erweiterte Funktionen für mehrere Dimensionen](media/alerts-metric-multiple-time-series-single-rule/advanced-features.png)
 

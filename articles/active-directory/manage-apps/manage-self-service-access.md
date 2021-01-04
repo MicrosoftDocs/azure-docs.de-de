@@ -15,16 +15,16 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bd6ddf58b3a6e8eb8c618ded335c699fc93328c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: dfa7530617830de99d752edcf4545300525ddbe8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362364"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997459"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Konfigurieren der Self-Service-Anwendungszuweisung
 
-Damit Ihre Benutzer Anwendungen über „Meine Apps“ selbst ermitteln können, müssen Sie den **Self-Service-Anwendungszugriff** auf alle Anwendungen aktivieren, die Benutzer selbst ermitteln und für die sie den Zugriff anfordern können sollen. Diese Funktion ist für Anwendungen verfügbar, die aus dem [Azure AD-Katalog](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app), [Azure AD-Anwendungsproxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) oder über [Benutzer- oder Administratoreinwilligung](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience) hinzugefügt wurden. 
+Damit Ihre Benutzer Anwendungen über „Meine Apps“ selbst ermitteln können, müssen Sie den **Self-Service-Anwendungszugriff** auf alle Anwendungen aktivieren, die Benutzer selbst ermitteln und für die sie den Zugriff anfordern können sollen. Diese Funktion ist für Anwendungen verfügbar, die aus dem [Azure AD-Katalog](./add-application-portal.md), [Azure AD-Anwendungsproxy](./application-proxy.md) oder über [Benutzer- oder Administratoreinwilligung](../develop/application-consent-experience.md) hinzugefügt wurden. 
 
 Diese Funktion ermöglicht Ihnen als IT-Abteilung, Zeit und Geld zu sparen, und empfiehlt sich unbedingt als Bestandteil einer modernen Anwendungsbereitstellung mit Azure Active Directory.
 
@@ -61,7 +61,7 @@ Führen Sie die folgenden Schritte aus, um den Self-Service-Anwendungszugriff au
 
 5. Um den Self-Service-Anwendungszugriff auf die Anwendung zu aktivieren, legen Sie **Benutzern das Anfordern des Zugriffs auf diese Anwendung erlauben?** auf **Ja** fest.
 
-6. Klicken Sie neben **Welcher Gruppe sollen zugewiesene Benutzer hinzugefügt werden?** auf **Gruppe auswählen** . Wählen Sie eine Gruppe, und klicken Sie auf **Auswählen** . Wenn die Anforderung eines Benutzers genehmigt wird, wird er dieser Gruppe hinzugefügt. Wenn Sie die Mitgliedschaft dieser Gruppe prüfen, können Sie erkennen, wem der Zugriff auf die Anwendung über einen Self-Service-Zugriff gewährt wurde.
+6. Klicken Sie neben **Welcher Gruppe sollen zugewiesene Benutzer hinzugefügt werden?** auf **Gruppe auswählen**. Wählen Sie eine Gruppe, und klicken Sie auf **Auswählen**. Wenn die Anforderung eines Benutzers genehmigt wird, wird er dieser Gruppe hinzugefügt. Wenn Sie die Mitgliedschaft dieser Gruppe prüfen, können Sie erkennen, wem der Zugriff auf die Anwendung über einen Self-Service-Zugriff gewährt wurde.
   
     > [!NOTE]
     > Diese Einstellung unterstützt keine Gruppen, die lokal synchronisiert werden.
@@ -70,14 +70,14 @@ Führen Sie die folgenden Schritte aus, um den Self-Service-Anwendungszugriff au
 
 8. **Optional: nur für Anwendungen mit einmaligem Anmelden per Kennwort:** Wenn Sie möchten, dass die genehmigenden Personen des Unternehmens die für genehmigte Benutzer an die Anwendung gesendeten Kennwörter angeben können, legen Sie **Genehmigenden Personen das Festlegen von Benutzerkennwörtern für diese Anwendung gestatten?** auf **Ja** fest.
 
-9. **Optional:** Um die genehmigenden Personen des Unternehmens anzugeben, die den Zugriff auf die Anwendung genehmigen können, klicken Sie auf neben **Wer darf den Zugriff auf diese Anwendung genehmigen?** auf **Genehmigende Person auswählen** . Hier können Sie bis zu 10 genehmigende Personen des Unternehmens auswählen. Klicken Sie dann auf **Auswählen** .
+9. **Optional:** Um die genehmigenden Personen des Unternehmens anzugeben, die den Zugriff auf die Anwendung genehmigen können, klicken Sie auf neben **Wer darf den Zugriff auf diese Anwendung genehmigen?** auf **Genehmigende Person auswählen**. Hier können Sie bis zu 10 genehmigende Personen des Unternehmens auswählen. Klicken Sie dann auf **Auswählen**.
 
     >[!NOTE]
     >Gruppen werden nicht unterstützt. Sie können bis zu 10 genehmigende Personen des Unternehmens auswählen. Wenn Sie mehrere genehmigende Personen angeben, kann jede einzelne genehmigende Person eine Zugriffsanforderung genehmigen.
 
-10. **Optional:** Wenn Sie **für Anwendungen, die Rollen verfügbar machen** , den für den Self-Service genehmigten Benutzern eine Rolle zuweisen möchten, klicken Sie neben **Welcher Rolle sollen Benutzer in dieser Anwendung zugewiesen werden?** auf **Rolle auswählen** , und wählen Sie dann die Rolle aus, die diesen Benutzern zugewiesen werden soll. Klicken Sie dann auf **Auswählen** .
+10. **Optional:** Wenn Sie **für Anwendungen, die Rollen verfügbar machen**, den für den Self-Service genehmigten Benutzern eine Rolle zuweisen möchten, klicken Sie neben **Welcher Rolle sollen Benutzer in dieser Anwendung zugewiesen werden?** auf **Rolle auswählen**, und wählen Sie dann die Rolle aus, die diesen Benutzern zugewiesen werden soll. Klicken Sie dann auf **Auswählen**.
 
-11. Klicken Sie abschließend oben im Bereich auf die Schaltfläche **Speichern** .
+11. Klicken Sie abschließend oben im Bereich auf die Schaltfläche **Speichern**.
 
 Nachdem Sie die Self-Service-Anwendungskonfiguration abgeschlossen haben, können Benutzer in ihrem Bereich [Meine Apps](https://myapps.microsoft.com/) auf die Schaltfläche **Self-Service-Apps hinzufügen** klicken und die Apps suchen, die für den Self-Service-Zugriff aktiviert sind. Genehmigenden Personen aus einer Geschäftsabteilung wird in [Meine Apps](https://myapps.microsoft.com/) zudem eine Benachrichtigung angezeigt. Sie können festlegen, dass sie in einer E-Mail darüber benachrichtigt werden, dass ein Benutzer den Zugriff auf eine Anwendung angefordert hat, der zu genehmigen ist.
 

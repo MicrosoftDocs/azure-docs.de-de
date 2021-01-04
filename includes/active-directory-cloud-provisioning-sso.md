@@ -5,12 +5,12 @@ ms.subservice: cloud-provisioning
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: billmath
-ms.openlocfilehash: 3aa1571b46938b03f556fa124d3f0a2a70f2c5c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d95e40623f17a39145778a2fc067dccc68fd872
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79504322"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558188"
 ---
 ## <a name="steps-to-enable-single-sign-on"></a>Schritte zum Aktivieren des einmaligen Anmeldens
 Die Cloudbereitstellung funktioniert mit dem einmaligen Anmelden.  Derzeit gibt es keine Option zum Aktivieren des einmaligen Anmeldens (SSO) bei der Installation des Agents. Sie können SSO jedoch mit den folgenden Schritten aktivieren und verwenden. 
@@ -23,7 +23,7 @@ Die Cloudbereitstellung funktioniert mit dem einmaligen Anmelden.  Derzeit gibt 
 
 ### <a name="step-2-import-the-seamless-sso-powershell-module"></a>Schritt 2: Importieren Sie das PowerShell-Modul „Nahtlose SSO“
 
-1. Laden Sie [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview) herunter, und installieren Sie die Software.
+1. Laden Sie [Azure AD PowerShell](/powershell/azure/active-directory/overview) herunter, und installieren Sie die Software.
 2. Navigieren Sie zum Ordner `%programfiles%\Microsoft Azure Active Directory Connect`.
 3. Importieren Sie das PowerShell-Modul für nahtloses SSO mit folgendem Befehl: `Import-Module .\AzureADSSO.psd1`.
 

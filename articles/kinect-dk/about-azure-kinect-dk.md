@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.topic: overview
 ms.date: 06/26/2019
 keywords: Azure, Kinect, Übersicht, Dev Kit, DK, Gerät, Tiefe, Body Tracking, Sprache, Cognitive Services, SDKs, SDK, Firmware
-ms.openlocfilehash: 6b3215ba6761521214ebffa2a100c5a1a030ab4c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d188d37c0247aebb16f51b4404da81d469136468
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85277809"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359652"
 ---
 # <a name="about-azure-kinect-dk"></a>Informationen zu Azure Kinect DK
 
@@ -86,7 +86,7 @@ Das Speech SDK ermöglicht mit Azure verbundene Sprachdienste.
 >[!NOTE]
 >Das Azure Kinect DK weist keine Lautsprecher auf.
 
-Weitere Details und Informationen finden Sie in der [Dokumentation zum Speech-Dienst](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+Weitere Details und Informationen finden Sie in der [Dokumentation zum Speech-Dienst](../cognitive-services/speech-service/index.yml).
 
 ## <a name="vision-services"></a>Bildanalysedienste
 

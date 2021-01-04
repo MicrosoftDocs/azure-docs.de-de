@@ -4,12 +4,12 @@ description: Erfahren Sie, wie Sie Azure Blockchain-Transaktionsknoten konfiguri
 ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: b3a4650977f1ad1a7a6967daa162adc8d2ef7bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50f9b2aa0f5e1a1b1095b6c799ce0706b6e541de
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530385"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150870"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Konfigurieren von Azure Blockchain-Transaktionsknoten
 
@@ -18,7 +18,7 @@ Transaktionsknoten werden zum Senden von Blockchaintransaktionen an den Azure Bl
 So zeigen Sie die Details zum Standardtransaktionsknoten an:
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
-1. Navigieren Sie zu Ihrem Azure Blockchain-Mitglied. Klicken Sie auf **Transaktionsknoten**.
+1. Navigieren Sie zu Ihrem Azure Blockchain-Mitglied. Klicken Sie auf **Transaktionsknoten** .
 
     ![Standardtransaktionsknoten auswählen](./media/configure-transaction-nodes/nodes.png)
 
@@ -30,7 +30,7 @@ Sie können bis zu neun zusätzliche Transaktionsknoten für Ihr Blockchainmitgl
 
 So fügen Sie einen Transaktionsknoten hinzu:
 
-1. Navigieren Sie im Azure-Portal zu Ihrem Azure Blockchain-Mitglied, und klicken Sie auf **Transaktionsknoten > Hinzufügen**.
+1. Navigieren Sie im Azure-Portal zu Ihrem Azure Blockchain-Mitglied, und klicken Sie auf **Transaktionsknoten > Hinzufügen** .
 1. Vervollständigen Sie die Einstellungen für den neuen Transaktionsknoten.
 
     ![Transaktionsknoten hinzufügen](./media/configure-transaction-nodes/add-node.png)
@@ -40,7 +40,7 @@ So fügen Sie einen Transaktionsknoten hinzu:
     | Name | Der Name des Transaktionsknotens. Der Name wird zum Erstellen der DNS-Adresse für den Transaktionsknotenendpunkt verwendet. Beispiel: `newnode-myblockchainmember.blockchain.azure.com`. Der Knotenname kann nicht mehr geändert werden, nachdem der Knoten erstellt wurde. |
     | Kennwort | Legen Sie ein sicheres Kennwort fest. Das Kennwort verwenden Sie, um auf den Transaktionsknotenendpunkt mit Standardauthentifizierung zuzugreifen.
 
-1. Klicken Sie auf **Erstellen**.
+1. Klicken Sie auf **Erstellen** .
 
     Die Bereitstellung eines neuen Transaktionsknotens beansprucht etwa 10 Minuten. Für weitere Transaktionsknoten fallen Kosten an. Weitere Informationen finden Sie unter [Azure Blockchain-Preise](https://aka.ms/ABSPricing).
 
@@ -50,7 +50,7 @@ Transaktionsknoten verfügen über einen eindeutigen DNS-Namen und öffentliche 
 
 So zeigen Sie die Details zum Endpunkt eines Transaktionsknotens an:
 
-1. Navigieren Sie im Azure-Portal zu einem Ihrer Transaktionsknoten Ihres Azure Blockchain-Mitglieds, und klicken Sie auf **Übersicht**.
+1. Navigieren Sie im Azure-Portal zu einem Ihrer Transaktionsknoten Ihres Azure Blockchain-Mitglieds, und klicken Sie auf **Übersicht** .
 
     ![Screenshot: Übersicht über die Transaktionsknoten für ein Blockchainmitglied](./media/configure-transaction-nodes/endpoints.png)
 
@@ -62,20 +62,20 @@ Azure Blockchain-Transaktionsknotenendpunkte unterstützen die Azure Active Dire
 
 So gewähren Sie die Azure AD-Zugriffssteuerung Ihres Endpunkts:
 
-1. Navigieren Sie im Azure-Portal zu Ihrem Azure Blockchain-Mitglied, und klicken Sie auf **Transaktionsknoten > Zugriffssteuerung (IAM) > Hinzufügen > Rollenzuweisung hinzufügen**.
+1. Navigieren Sie im Azure-Portal zu Ihrem Azure Blockchain-Mitglied, und klicken Sie auf **Transaktionsknoten > Zugriffssteuerung (IAM) > Hinzufügen > Rollenzuweisung hinzufügen** .
 1. Erstellen Sie eine neue Rollenzuweisung für einen Benutzer, eine Gruppe oder ein Dienstprinzipal (Anwendungsrollen).
 
     ![IAM-Rolle hinzufügen](./media/configure-transaction-nodes/add-role.png)
 
     | Einstellung | Aktion |
     |---------|-------------|
-    | Role | Wählen Sie die Rolle **Besitzer**, **Mitwirkender** oder **Leser** aus.
+    | Role | Wählen Sie die Rolle **Besitzer** , **Mitwirkender** oder **Leser** aus.
     | Zugriff zuweisen zu | Wählen Sie **Azure AD-Benutzer, -Gruppe oder -Dienstprinzipal** aus.
     | Select | Suchen Sie den Benutzer, die Gruppe oder den Dienstprinzipal, den bzw. die Sie hinzufügen möchten.
 
-1. Klicken Sie auf **Speichern**, um die Rollenzuweisung hinzuzufügen.
+1. Klicken Sie auf **Speichern** , um die Rollenzuweisung hinzuzufügen.
 
-Weitere Informationen zur Azure AD-Zugriffssteuerung finden Sie unter [Verwalten des Zugriffs auf Azure-Ressourcen mit RBAC und dem Azure-Portal](../../role-based-access-control/role-assignments-portal.md).
+Weitere Informationen zur Azure AD-Zugriffssteuerung finden Sie unter [Hinzufügen oder Entfernen von Rollenzuweisungen mithilfe des Azure-Portals](../../role-based-access-control/role-assignments-portal.md).
 
 Informationen zum Herstellen einer Verbindung mithilfe der Azure AD-Authentifizierung finden Sie unter [How to configure Azure Active Directory access (Konfigurieren des Azure Active Directory-Zugriffs)](configure-aad.md).
 
@@ -83,7 +83,7 @@ Informationen zum Herstellen einer Verbindung mithilfe der Azure AD-Authentifizi
 
 Für die HTTPS-Standardauthentifizierung werden die Anmeldeinformationen „Benutzername“ und „Kennwort“ im HTTPS-Header der Anforderung an den Endpunkt übergeben.
 
-Sie können die Informationen zum Standardauthentifizierungsendpunkt eines Transaktionsknotens im Azure-Portal anzeigen. Navigieren Sie zu einem Ihrer Transaktionsknoten Ihres Azure Blockchain-Mitglieds, und klicken Sie in den Einstellungen auf **Standardauthentifizierung**.
+Sie können die Informationen zum Standardauthentifizierungsendpunkt eines Transaktionsknotens im Azure-Portal anzeigen. Navigieren Sie zu einem Ihrer Transaktionsknoten Ihres Azure Blockchain-Mitglieds, und klicken Sie in den Einstellungen auf **Standardauthentifizierung** .
 
 ![Standardauthentifizierung](./media/configure-transaction-nodes/basic.png)
 
@@ -95,13 +95,13 @@ Ersetzen Sie \<password\> durch das Kennwort, das bei der Bereitstellung des Kno
 
 Bei der Authentifizierung mit dem Zugriffsschlüssel ist der Zugriffsschlüssel in der Endpunkt-URL enthalten. Wenn der Transaktionsknoten bereitgestellt wird, werden zwei Zugriffsschlüssel generiert. Beide Zugriffsschlüssel können für die Authentifizierung verwendet werden. Wenn Sie über zwei Schlüssel verfügen, können Sie die Schlüssel ändern und rotieren.
 
-Sie können die Informationen zum Zugriffsschlüssel eines Transaktionsknotens anzeigen und die Endpunktadressen kopieren, die die Zugriffsschlüssel enthalten. Navigieren Sie zu einem Ihrer Transaktionsknoten Ihres Azure Blockchain-Mitglieds, und klicken Sie in den Einstellungen auf **Zugriffsschlüssel**.
+Sie können die Informationen zum Zugriffsschlüssel eines Transaktionsknotens anzeigen und die Endpunktadressen kopieren, die die Zugriffsschlüssel enthalten. Navigieren Sie zu einem Ihrer Transaktionsknoten Ihres Azure Blockchain-Mitglieds, und klicken Sie in den Einstellungen auf **Zugriffsschlüssel** .
 
 ### <a name="firewall-rules"></a>Firewallregeln
 
 Mithilfe von Firewallregeln können Sie die IP-Adressen einschränken, die versuchen können, sich für Ihren Transaktionsknoten zu authentifizieren.  Wenn keine Firewallregeln für Ihren Transaktionsknoten konfiguriert sind, kann niemand auf diesen zugreifen.  
 
-Navigieren Sie zu einem Ihrer Transaktionsknoten Ihres Azure Blockchain-Mitglieds, und klicken Sie in den Einstellungen auf **Firewallregeln**, um die Firewallregeln eines Transaktionsknotens anzuzeigen.
+Navigieren Sie zu einem Ihrer Transaktionsknoten Ihres Azure Blockchain-Mitglieds, und klicken Sie in den Einstellungen auf **Firewallregeln** , um die Firewallregeln eines Transaktionsknotens anzuzeigen.
 
 Sie können Firewallregeln hinzufügen, indem Sie einen Regelnamen, eine Start-IP-Adresse und eine End-IP-Adresse in das Raster **Firewallregeln** eingeben.
 
@@ -117,7 +117,7 @@ So aktivieren Sie Firewallregeln:
 
 Die Syntax für die Verbindungszeichenfolge Ihres Transaktionsknotens wird für die Standardauthentifizierung oder bei der Verwendung von Zugriffsschlüsseln bereitgestellt. Verbindungszeichenfolgen werden einschließlich der Zugriffsschlüssel für HTTPS und WebSockets bereitgestellt.
 
-Sie können die Verbindungszeichenfolgen eines Transaktionsknotens anzeigen und die Endpunktadressen kopieren. Navigieren Sie zu einem Ihrer Transaktionsknoten Ihres Azure Blockchain-Mitglieds, und klicken Sie in den Einstellungen auf **Verbindungszeichenfolgen**.
+Sie können die Verbindungszeichenfolgen eines Transaktionsknotens anzeigen und die Endpunktadressen kopieren. Navigieren Sie zu einem Ihrer Transaktionsknoten Ihres Azure Blockchain-Mitglieds, und klicken Sie in den Einstellungen auf **Verbindungszeichenfolgen** .
 
 ![Verbindungszeichenfolgen](./media/configure-transaction-nodes/connection-strings.png)
 
@@ -125,7 +125,7 @@ Sie können die Verbindungszeichenfolgen eines Transaktionsknotens anzeigen und 
 
 Der Beispielcode wird bereitgestellt, sodass Sie schnell eine Verbindung über Web3, Nethereum, Web3js und Truffle mit Ihrem Transaktionsknoten herstellen können.
 
-Sie können den Beispielcode zum Herstellen einer Verbindung eines Transaktionsknotens anzeigen und kopieren, um ihn mit beliebten Entwicklertools zu verwenden. Navigieren Sie zu einem Ihrer Transaktionsknoten Ihres Azure Blockchain-Mitglieds, und klicken Sie in den Einstellungen auf **Beispielcode**.
+Sie können den Beispielcode zum Herstellen einer Verbindung eines Transaktionsknotens anzeigen und kopieren, um ihn mit beliebten Entwicklertools zu verwenden. Navigieren Sie zu einem Ihrer Transaktionsknoten Ihres Azure Blockchain-Mitglieds, und klicken Sie in den Einstellungen auf **Beispielcode** .
 
 Klicken Sie auf die Registerkarte „Web3“, „Nethereum“, „Truffle“ oder „Web3j“, um den Beispielcode anzuzeigen, den Sie verwenden möchten.
 

@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 318da4e92e6d07df1fcb89a4df0cb29d82caa630
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f52e46ff9cab7d3d150af9fd7b4f1c432bec74b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294865"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836188"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definieren einer Strategie zur Hybrididentitätsübernahme
 In dieser Aufgabe definieren Sie die Strategie zur Hybrididentitätsübernahme für Ihre Hybrididentitätslösung, um die geschäftlichen Anforderungen zu erfüllen, die hier erörtert wurden:
@@ -176,7 +176,7 @@ Folgendes wird nicht unterstützt und sollte nicht als Implementierung ausgewäh
 > 
 
 ## <a name="define-multi-factor-authentication-strategy"></a>Definieren der Multi-Factor Authentication-Strategie
-In dieser Aufgabe definieren Sie die Strategie der zu verwendenden mehrstufigen Authentifizierung.  Azure Multi-Factor Authentication ist in zwei verschiedenen Versionen verfügbar.  Eine ist cloudbasiert und die andere lokal basiert mit Einsatz des Azure MFA-Servers.  Basierend auf der Auswertung, die Sie oben ausgeführt haben, können Sie die richtige Lösung für Ihre Strategie ermitteln.  Bestimmen Sie mithilfe der folgenden Tabelle, welche Entwurfsoption für die Sicherheitsanforderungen Ihres Unternehmens am besten geeignet ist:
+In dieser Aufgabe definieren Sie die Strategie der zu verwendenden mehrstufigen Authentifizierung.  Azure AD Multi-Factor Authentication ist in zwei verschiedenen Versionen verfügbar.  Eine ist cloudbasiert und die andere lokal basiert mit Einsatz des Azure MFA-Servers.  Basierend auf der Auswertung, die Sie oben ausgeführt haben, können Sie die richtige Lösung für Ihre Strategie ermitteln.  Bestimmen Sie mithilfe der folgenden Tabelle, welche Entwurfsoption für die Sicherheitsanforderungen Ihres Unternehmens am besten geeignet ist:
 
 Mehrstufige Entwurfsoptionen:
 

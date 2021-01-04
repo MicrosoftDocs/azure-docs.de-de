@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: aahi
-ms.openlocfilehash: 8665e27b6b7c43bce7d749d9bfe0a2f815a0f46d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ecf3ad43b46d491d5f15270790251a0bc4e882e
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051099"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365362"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>Senden von Freihanddaten an die Freihanderkennungs-API 
 
@@ -64,7 +64,7 @@ Die Freihanderkennungs-API gibt eine Analyseantwort zu den Objekten zurück, die
 
 ## <a name="shapes-recognized-by-the-ink-recognizer-api"></a>Von der Freihanderkennungs-API erkannte Formen
 
-Die Freihanderkennungs-API kann die beim Erstellen von Notizen am häufigsten verwendeten Formen identifizieren. Die folgende Abbildung zeigt einige einfache Beispiele. Eine vollständige Liste der Formen und anderer Freihandinhalte, die von der API erkannt werden, finden Sie im [API-Referenzartikel](https://go.microsoft.com/fwlink/?linkid=2089907). 
+Die Freihanderkennungs-API kann die beim Erstellen von Notizen am häufigsten verwendeten Formen identifizieren. Die folgende Abbildung zeigt einige einfache Beispiele. Eine vollständige Liste der Formen und anderer Freihandinhalte, die von der API erkannt werden, finden Sie im [API-Referenzartikel](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer). 
 
 ![Die Liste der von der Freihanderkennungs-API erkannten Formen](../media/shapes.png)
 
@@ -84,12 +84,12 @@ Im Voraus über die Ergebnisse zu verfügen, liefert Ihnen Informationen über d
 
 ## <a name="integrate-the-ink-recognizer-api-with-windows-ink"></a>Integrieren der Freihanderkennungs-API in Windows Ink
 
-[Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) bietet Tools und Technologien, um digitale Freihanderfahrungen auf einer Vielzahl unterschiedlicher Geräte bereitzustellen. Sie können die Windows Ink-Plattform mit der Freihanderkennungs-API kombinieren, um Anwendungen zu erstellen, die digitale Freihandstriche anzeigen und interpretieren.
+[Windows Ink](/windows/uwp/design/input/pen-and-stylus-interactions) bietet Tools und Technologien, um digitale Freihanderfahrungen auf einer Vielzahl unterschiedlicher Geräte bereitzustellen. Sie können die Windows Ink-Plattform mit der Freihanderkennungs-API kombinieren, um Anwendungen zu erstellen, die digitale Freihandstriche anzeigen und interpretieren.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Was ist die Freihanderkennungs-API?](../overview.md)
-* [Freihanderkennungs-REST-API-Referenz](https://go.microsoft.com/fwlink/?linkid=2089907)
+* [Freihanderkennungs-REST-API-Referenz](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer)
 
 * Das Senden digitaler Freihandstrichdaten beginnen mithilfe von:
     * [C#](../quickstarts/csharp.md)

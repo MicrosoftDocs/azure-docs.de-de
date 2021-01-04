@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: af0e9cd66cf64366a6f563148fa6b075161151f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a47475ad55c5e6262dc8ba1a384d89b9721fd2e9
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87875437"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736424"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Tutorial: Ausführen eines TensorFlow-Modells in Python
 
-Nachdem Sie Ihr [TensorFlow-Modell](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) aus Custom Vision Service exportiert haben, hilft Ihnen dieser Schnellstart dabei, das Modell lokal zu verwenden, um Bilder zu klassifizieren.
+Nachdem Sie Ihr [TensorFlow-Modell](./export-your-model.md) aus Custom Vision Service exportiert haben, hilft Ihnen dieser Schnellstart dabei, das Modell lokal zu verwenden, um Bilder zu klassifizieren.
 
 > [!NOTE]
 > Dieses Tutorial betrifft nur Modelle, die aus Bildklassifizierungsprojekten exportiert wurden.
@@ -34,7 +34,7 @@ Zum Verwenden des Tutorials müssen Sie die folgenden Schritte ausführen:
 
 Anschließend müssen folgende Pakete installiert werden:
 
-```
+```bash
 pip install tensorflow
 pip install pillow
 pip install numpy
@@ -43,7 +43,7 @@ pip install opencv-python
 
 ## <a name="load-your-model-and-tags"></a>Laden Ihrer Modelle und Tags
 
-Die heruntergeladene ZIP-Datei enthält eine model.pb- und eine labels.txt-Datei. Diese Dateien stellen das trainierte Modell und die Klassifizierungsbezeichnungen dar. Laden Sie als ersten Schritt das Modell in Ihr Projekt.
+Die heruntergeladene ZIP-Datei enthält eine Datei namens _model.pb_ und eine Datei namens _labels.txt_. Diese Dateien stellen das trainierte Modell und die Klassifizierungsbezeichnungen dar. Laden Sie als ersten Schritt das Modell in Ihr Projekt. Fügen Sie den folgenden Code einem neuen Python-Skript hinzu:
 
 ```Python
 import tensorflow as tf
@@ -126,6 +126,8 @@ augmented_image = crop_center(augmented_image, network_input_size, network_input
 
 ```
 
+### <a name="add-helper-functions"></a>Hinzufügen von Hilfsfunktionen
+
 In den obenstehenden Schritten werden die folgenden Hilfsfunktionen verwendet:
 
 ```Python
@@ -191,7 +193,7 @@ with tf.compat.v1.Session() as sess:
         exit(-1)
 ```
 
-## <a name="view-the-results"></a>Zeigen Sie die Ergebnisse an
+## <a name="display-the-results"></a>Anzeigen der Ergebnisse
 
 Die Ergebnisse der Ausführung des Bildtensors über das Modell muss dann wieder den Bezeichnungen zugeordnet werden.
 

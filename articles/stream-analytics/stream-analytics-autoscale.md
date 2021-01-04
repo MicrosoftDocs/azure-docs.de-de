@@ -7,23 +7,23 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/03/2020
-ms.openlocfilehash: 07cbb28b98fcbac1932424c1c72f388813ec2400
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e5bcdaeaf1ec99387a708199f4353736b6bc60f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86037561"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129846"
 ---
 # <a name="autoscale-stream-analytics-jobs-using-azure-automation"></a>Autoskalierung von Stream Analytics-Aufträgen mithilfe von Azure Automation
 
 Sie können die Kosten Ihrer Stream Analytics-Aufträge optimieren, indem Sie die Autoskalierung konfigurieren. Durch die Autoskalierung werden die Streamingeinheiten (SUs) Ihres Auftrags entsprechend der Änderung Ihrer Eingabeauslastung erhöht oder verringert. Anstatt übermäßig Ressourcen für ihren Auftrag bereitzustellen, können Sie nach Bedarf hoch- oder herunterskalieren. Es gibt zwei Möglichkeiten, um die Autoskalierung für Ihre Aufträge zu konfigurieren:
-1. **Definieren Sie vorab einen Zeitplan**, wenn Sie eine vorhersagbare Eingabeauslastung besitzen. Wenn Sie beispielsweise eine höhere Rate von Eingabeereignissen während des Tages erwarten und möchten, dass Ihr Auftrag mit mehr SUs ausgeführt wird.
-2. **Lösen Sie die Hoch- bzw. Herunterskalierung auf Grundlage von Auftragsmetriken aus**, wenn Sie über keine vorhersagbare Eingabeauslastung verfügen. Sie können die Anzahl der SUs basierend auf Ihren Auftragsmetriken, z. B. die Anzahl der Eingabeereignisse oder der im Rückstand befindlichen Eingabeereignisse, dynamisch ändern.
+1. **Definieren Sie vorab einen Zeitplan** , wenn Sie eine vorhersagbare Eingabeauslastung besitzen. Wenn Sie beispielsweise eine höhere Rate von Eingabeereignissen während des Tages erwarten und möchten, dass Ihr Auftrag mit mehr SUs ausgeführt wird.
+2. **Lösen Sie die Hoch- bzw. Herunterskalierung auf Grundlage von Auftragsmetriken aus** , wenn Sie über keine vorhersagbare Eingabeauslastung verfügen. Sie können die Anzahl der SUs basierend auf Ihren Auftragsmetriken, z. B. die Anzahl der Eingabeereignisse oder der im Rückstand befindlichen Eingabeereignisse, dynamisch ändern.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 Bevor Sie mit der Konfiguration der Autoskalierung für Ihren Auftrag beginnen, führen Sie die folgenden Schritte aus.
-1. Ihr Auftrag ist für die Ausführung in einer [parallelen Topologie](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization) optimiert. Wenn Sie die Skalierung Ihres Auftrags während seiner Ausführung ändern können, verfügt der Auftrag über eine parallele Topologie und kann für die Autoskalierung konfiguriert werden.
-2. [Erstellen Sie ein Azure Automation-Konto](https://docs.microsoft.com/azure/automation/automation-create-standalone-account) mit der aktivierten Option „RunAsAccount“ (Ausführendes Konto). Dieses Konto muss über Berechtigungen zum Verwalten Ihrer Stream Analytics-Aufträge verfügen.
+1. Ihr Auftrag ist für die Ausführung in einer [parallelen Topologie](./stream-analytics-parallelization.md) optimiert. Wenn Sie die Skalierung Ihres Auftrags während seiner Ausführung ändern können, verfügt der Auftrag über eine parallele Topologie und kann für die Autoskalierung konfiguriert werden.
+2. [Erstellen Sie ein Azure Automation-Konto](../automation/automation-create-standalone-account.md) mit der aktivierten Option „RunAsAccount“ (Ausführendes Konto). Dieses Konto muss über Berechtigungen zum Verwalten Ihrer Stream Analytics-Aufträge verfügen.
 
 ## <a name="set-up-azure-automation"></a>Einrichten von Azure Automation
 ### <a name="configure-variables"></a>Konfigurieren von Variablen
@@ -43,8 +43,8 @@ Fügen Sie die folgenden Variablen im Azure Automation-Konto hinzu. Diese Variab
 
 ### <a name="create-runbooks"></a>Erstellen von Runbooks
 Im nächsten Schritt werden zwei PowerShell-Runbooks erstellt. Eins für Hochskalierungsvorgänge, das andere für Herunterskalierungsvorgänge.
-1. Wechseln Sie in Ihrem Azure Automation-Konto zu **Runbooks** unter **Prozessautomatisierung**, und wählen Sie **Runbook erstellen** aus.
-2. Nennen Sie das erste Runbook *ScaleUpRunbook*, wobei Sie den Typ auf „PowerShell“ festlegen. Verwenden Sie das [PowerShell-Skript „ScaleUpRunbook“](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/ScaleUpRunbook.ps1), das auf GitHub verfügbar ist. Speichern und veröffentlichen Sie es.
+1. Wechseln Sie in Ihrem Azure Automation-Konto zu **Runbooks** unter **Prozessautomatisierung** , und wählen Sie **Runbook erstellen** aus.
+2. Nennen Sie das erste Runbook *ScaleUpRunbook* , wobei Sie den Typ auf „PowerShell“ festlegen. Verwenden Sie das [PowerShell-Skript „ScaleUpRunbook“](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/ScaleUpRunbook.ps1), das auf GitHub verfügbar ist. Speichern und veröffentlichen Sie es.
 3. Erstellen Sie ein weiteres Runbook namens Namen *ScaleDownRunbook* mit dem Typ „PowerShell“. Verwenden Sie das [PowerShell-Skript „ScaleDownRunbook“](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/ScaleDownRunbook.ps1), das auf GitHub verfügbar ist. Speichern und veröffentlichen Sie es.
 
 ![Autoskalierung von Runbooks in Azure Automation](./media/autoscale/runbooks.png)
@@ -58,7 +58,7 @@ Azure Automation ermöglicht es Ihnen, einen Zeitplan zum Auslösen Ihrer Runboo
 
    ![Zeitpläne in Azure Automation](./media/autoscale/schedules.png)
 
-3. Öffnen Sie Ihr **ScaleUpRunbook**, und wählen Sie dann **Zeitpläne** unter **Ressourcen** aus. Anschließend können Sie Ihr Runbook mit einem Zeitplan verknüpfen, den Sie in den vorherigen Schritten erstellt haben. Sie können mehrere Zeitpläne mit demselben Runbook verknüpfen. Dies kann hilfreich sein, wenn Sie denselben Skalierungsvorgang zu unterschiedlichen Tageszeiten ausführen möchten.
+3. Öffnen Sie Ihr **ScaleUpRunbook** , und wählen Sie dann **Zeitpläne** unter **Ressourcen** aus. Anschließend können Sie Ihr Runbook mit einem Zeitplan verknüpfen, den Sie in den vorherigen Schritten erstellt haben. Sie können mehrere Zeitpläne mit demselben Runbook verknüpfen. Dies kann hilfreich sein, wenn Sie denselben Skalierungsvorgang zu unterschiedlichen Tageszeiten ausführen möchten.
 
 ![Planen von Runbooks in Azure Automation](./media/autoscale/schedulerunbook.png)
 
@@ -73,7 +73,7 @@ Möglicherweise gibt es Fälle, in denen Sie die Eingangslast nicht vorhersagen 
 5. Füllen Sie die erforderlichen Felder aus. Wählen Sie **Automation-Runbook** aus, wenn Sie den **Aktionstyp** auswählen. Wählen Sie das Runbook aus, das Sie auslösen möchten, wenn die Warnung ausgelöst wird. Erstellen Sie dann die Aktionsgruppe.
 
    ![Erstellen einer Aktionsgruppe](./media/autoscale/create-actiongroup.png)
-6. Erstellen Sie [**Neue Warnungsregel**](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#set-up-alerts-in-the-azure-portal) in Ihrem Auftrag. Geben Sie eine Bedingung basierend auf einer Metrik Ihrer Wahl an. [*Eingabeereignisse*, *SU % Auslastung* oder *Eingabeereignisse mit Rückstand*](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-monitoring#metrics-available-for-stream-analytics) sind empfohlene Metriken zum Definieren der Autoskalierungslogik. Es wird ferner empfohlen, eine *Aggregationsgranularität* und *Häufigkeit der Auswertungs* von 1 Minute zu verwenden, wenn Hochskalierungsvorgänge ausgelöst werden. Dadurch wird sichergestellt, dass Ihr Auftrag über ausreichende Ressourcen verfügt, um mit großen Spitzen des Eingabevolumens umzugehen.
+6. Erstellen Sie [**Neue Warnungsregel**](./stream-analytics-set-up-alerts.md#set-up-alerts-in-the-azure-portal) in Ihrem Auftrag. Geben Sie eine Bedingung basierend auf einer Metrik Ihrer Wahl an. [*Eingabeereignisse* , *SU % Auslastung* oder *Eingabeereignisse mit Rückstand*](./stream-analytics-monitoring.md#metrics-available-for-stream-analytics) sind empfohlene Metriken zum Definieren der Autoskalierungslogik. Es wird ferner empfohlen, eine *Aggregationsgranularität* und *Häufigkeit der Auswertungs* von 1 Minute zu verwenden, wenn Hochskalierungsvorgänge ausgelöst werden. Dadurch wird sichergestellt, dass Ihr Auftrag über ausreichende Ressourcen verfügt, um mit großen Spitzen des Eingabevolumens umzugehen.
 7. Wählen Sie die im letzten Schritt erstellte Aktionsgruppe aus, und erstellen Sie die Warnung.
 8. Wiederholen Sie die Schritte 2 bis 4 für alle zusätzlichen Skalierungsvorgänge, die Sie basierend auf der Bedingung von Auftragsmetriken ausführen möchten.
 

@@ -9,38 +9,38 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: a9bb3ac7d3028937a422f2cd94aca4f4f4f41b58
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: c2daef64b110e59da76d8342508c19c7f1b3cd08
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167534"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452786"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Verwenden externer Tabellen mit Synapse SQL
 
-Eine externe Tabelle verweist auf Daten in Hadoop, Azure Storage Blob oder Azure Data Lake Store. Externe Tabellen werden verwendet, um Daten aus Dateien zu lesen oder Daten in Dateien in Azure Storage zu schreiben. Mit Synapse SQL können Sie externe Tabellen verwenden, um Daten aus einem SQL-Pool oder aus SQL On-Demand (Vorschauversion) zu lesen und dorthin zu schreiben.
+Eine externe Tabelle verweist auf Daten in Hadoop, Azure Storage Blob oder Azure Data Lake Store. Externe Tabellen werden verwendet, um Daten aus Dateien zu lesen oder Daten in Dateien in Azure Storage zu schreiben. Mit Synapse SQL können Sie externe Tabellen verwenden, um Daten aus einem dedizierten SQL-Pool oder aus einem serverlosen SQL-Pool zu lesen und dorthin zu schreiben.
 
-## <a name="external-tables-in-synapse-sql-pool-and-on-demand"></a>Externe Tabellen im Synapse SQL-Pool und On-Demand
+## <a name="external-tables-in-dedicated-sql-pool-and-serverless-sql-pool"></a>Externe Tabellen im dedizierten SQL-Pool und serverlosen SQL-Pool
 
-### <a name="sql-pool"></a>[SQL-Pool](#tab/sql-pool) 
+### <a name="dedicated-sql-pool"></a>[Dedizierter SQL-Pool](#tab/sql-pool) 
 
-In einem SQL-Pool können Sie eine externe Tabelle für Folgendes verwenden:
+In einem dedizierten SQL-Pool können Sie eine externe Tabelle für Folgendes verwenden:
 
 - Abfragen von Azure Blob Storage und Azure Data Lake Gen2 mit Transact-SQL-Anweisungen
-- Importieren und Speichern von Daten aus Azure Blob Storage und Azure Data Lake Storage in den SQL-Pool
+- Importieren und Speichern von Daten aus Azure Blob Storage und Azure Data Lake Storage in den dedizierten SQL-Pool
 
 In Verbindung mit der Anweisung [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) werden in einer externen Tabelle ausgewählte Daten in eine Tabelle innerhalb des SQL-Pools importiert. Zusätzlich zur [COPY-Anweisung](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) sind externe Tabellen hilfreich beim Laden von Daten. 
 
 Ein Tutorial zum Laden finden Sie unter [Verwenden von PolyBase zum Laden von Daten aus Azure Blob Storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-### <a name="sql-on-demand"></a>[SQL On-Demand](#tab/sql-on-demand)
+### <a name="serverless-sql-pool"></a>[Serverloser SQL-Pool](#tab/sql-on-demand)
 
-In Verbindung mit SQL On-Demand wird eine externe Tabelle für Folgendes verwendet:
+Im serverlosen SQL-Pool können Sie eine externe Tabelle für Folgendes verwenden:
 
 - Abfragen von Azure Blob Storage oder Azure Data Lake Storage mit Transact-SQL-Anweisungen
-- Speichern von SQL On-Demand-Abfrageergebnissen in Dateien in Azure Blob Storage oder Azure Data Lake Storage mithilfe von [CETAS](develop-tables-cetas.md)
+- Speichern der Abfrageergebnisse von einem serverlosen SQL-Pool in Dateien in Azure Blob Storage oder Azure Data Lake Storage mithilfe von [CETAS](develop-tables-cetas.md)
 
-Externe Tabellen können mit SQL On-Demand mithilfe der folgenden Schritte erstellt werden:
+Externe Tabellen können unter Verwendung eines serverlosen SQL-Pools mithilfe der folgenden Schritte erstellt werden:
 
 1. CREATE EXTERNAL DATA SOURCE
 2. CREATE EXTERNAL FILE FORMAT
@@ -56,7 +56,7 @@ Externer Tabellenzugriff auf den zugrunde liegenden Azure-Speicher mithilfe der 
 - Eine Datenquelle kann über Anmeldeinformationen verfügen, die externen Tabellen den Zugriff nur auf die Dateien im Azure-Speicher mithilfe des SAS-Tokens oder der verwalteten Identität für den Arbeitsbereich ermöglichen. Entsprechende Beispiele finden Sie im Artikel [Develop storage files storage access control](develop-storage-files-storage-access-control.md#examples) (Entwickeln der Speicherzugriffssteuerung für Speicherdateien).
 
 > [!IMPORTANT]
-> Im SQL-Pool ermöglicht eine Datenquelle ohne Anmeldeinformationen dem Azure AD-Benutzer den Zugriff auf Speicherdateien mithilfe seiner Azure AD-Identität. In SQL On-Demand müssen Sie eine Datenquelle mit datenbankweit gültigen Anmeldeinformationen erstellen, die über die Eigenschaft `IDENTITY='User Identity'` verfügen. Entsprechende [Beispiele finden Sie hier](develop-storage-files-storage-access-control.md#examples).
+> Im dedizierten SQL-Pool ermöglicht eine Datenquelle, die ohne Anmeldeinformationen erstellt wurde, Azure AD-Benutzern den Zugriff auf Speicherdateien mithilfe seiner Azure AD-Identität. Im serverlosen SQL-Pool müssen Sie eine Datenquelle mit datenbankweit gültigen Anmeldeinformationen erstellen, die über die Eigenschaft `IDENTITY='User Identity'` verfügen. Entsprechende Beispiele finden Sie [hier](develop-storage-files-storage-access-control.md#examples).
 
 ## <a name="create-external-data-source"></a>CREATE EXTERNAL DATA SOURCE
 
@@ -64,7 +64,7 @@ Externe Datenquellen dienen zum Herstellen einer Verbindung mit Speicherkonten. 
 
 ### <a name="syntax-for-create-external-data-source"></a>Syntax für „CREATE EXTERNAL DATA SOURCE“
 
-#### <a name="sql-pool"></a>[SQL-Pool](#tab/sql-pool)
+#### <a name="dedicated-sql-pool"></a>[Dedizierter SQL-Pool](#tab/sql-pool)
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -76,7 +76,7 @@ WITH
 [;]
 ```
 
-#### <a name="sql-on-demand"></a>[SQL On-Demand](#tab/sql-on-demand)
+#### <a name="serverless-sql-pool"></a>[Serverloser SQL-Pool](#tab/sql-on-demand)
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -110,16 +110,16 @@ Mit dem Präfix `https:` können Sie Unterordner im Pfad verwenden.
 #### <a name="credential"></a>Anmeldeinformationen
 CREDENTIAL = `<database scoped credential>` sind optionale Anmeldeinformationen, die zur Authentifizierung beim Azure-Speicher verwendet werden. Eine externe Datenquelle ohne Anmeldeinformationen kann auf ein öffentliches Speicherkonto zugreifen. 
 
-Externe Datenquellen ohne Anmeldeinformationen im SQL-Pool können auch die Azure AD-Identität des Aufrufers für den Zugriff auf Dateien im Speicher verwenden. Eine externe Datenquelle mit Anmeldeinformationen verwendet die darin angegebene Identität für den Zugriff auf Dateien.
-- Im SQL-Pool können datenbankweit gültige Anmeldeinformationen eine benutzerdefinierte Anwendungsidentität, eine verwaltete Identität für den Arbeitsbereich oder einen SAK-Schlüssel angeben. 
-- In SQL On-Demand können datenbankweit gültige Anmeldeinformationen die Azure AD-Identität des Aufrufers, eine verwaltete Identität für den Arbeitsbereich oder einen SAS-Schlüssel angeben. 
+Externe Datenquellen ohne Anmeldeinformationen im dedizierten SQL-Pool können auch die Azure AD-Identität des Aufrufers für den Zugriff auf Dateien im Speicher verwenden. Eine externe Datenquelle für den serverlosen SQL-Pool mit Anmeldeinformationen vom Typ `IDENTITY='User Identity'` verwendet die Azure AD-Identität des Aufrufers für den Zugriff auf Dateien.
+- Im dedizierten SQL-Pool können datenbankweit gültige Anmeldeinformationen eine benutzerdefinierte Anwendungsidentität, eine verwaltete Identität für den Arbeitsbereich oder einen SAK-Schlüssel angeben. 
+- Im serverlosen SQL-Pool können datenbankweit gültige Anmeldeinformationen die Azure AD-Identität des Aufrufers, eine verwaltete Identität für den Arbeitsbereich oder einen SAS-Schlüssel angeben 
 
 #### <a name="type"></a>TYPE
-TYPE = `HADOOP` ist eine obligatorische Option im SQL-Pool und gibt an, dass die PolyBase-Technologie für den Zugriff auf zugrunde liegende Dateien verwendet wird. Dieser Parameter kann nicht in einem SQL On-Demand-Dienst verwendet werden, der einen integrierten systemeigenen Reader verwendet.
+„TYPE = `HADOOP`„ ist eine obligatorische Option im dedizierten SQL-Pool und gibt an, dass die PolyBase-Technologie für den Zugriff auf zugrunde liegende Dateien verwendet wird. Dieser Parameter kann nicht im serverlosen SQL-Pool verwendet werden, der einen integrierten nativen Reader verwendet.
 
 ### <a name="example-for-create-external-data-source"></a>Beispiel für „CREATE EXTERNAL DATA SOURCE“
 
-#### <a name="sql-pool"></a>[SQL-Pool](#tab/sql-pool)
+#### <a name="dedicated-sql-pool"></a>[Dedizierter SQL-Pool](#tab/sql-pool)
 
 Im folgenden Beispiel wird eine externe Datenquelle für Azure Data Lake Gen2 erstellt, die auf das Dataset für New York verweist:
 
@@ -133,7 +133,7 @@ WITH
   ) ;
 ```
 
-#### <a name="sql-on-demand"></a>[SQL On-Demand](#tab/sql-on-demand)
+#### <a name="serverless-sql-pool"></a>[Serverloser SQL-Pool](#tab/sql-on-demand)
 
 Im folgenden Beispiel wird eine externe Datenquelle für Azure Data Lake Gen2 erstellt, auf die mithilfe von SAS-Anmeldeinformationen zugegriffen werden kann:
 
@@ -195,7 +195,7 @@ WITH (
 }
 ```
 
-#### <a name="sql-on-demand"></a>[SQL On-Demand](#tab/sql-on-demand)
+#### <a name="serverless-sql-pool"></a>[Serverloser SQL-Pool](#tab/sql-on-demand)
 
 ```syntaxsql
 -- Create an external file format for PARQUET files.  
@@ -238,7 +238,7 @@ WITH (
 - PARQUET: Dient zum Angeben eines Parquet-Formats.
 - „DELIMITEDTEXT“: Dient zum Angeben eines Textformats mit Spaltentrennzeichen (auch Feldabschlusszeichen genannt).
 
-„FIELD_TERMINATOR = *field_terminator* “: Nur für durch Trennzeichen getrennte Textdateien relevant. Das Feldabschlusszeichen gibt mindestens ein Zeichen an, welches das Ende der einzelnen Felder (Spalten) in der durch Trennzeichen getrennten Textdatei markiert. Als Standardzeichen wird der senkrechte Strich (ꞌ|ꞌ) verwendet.
+„FIELD_TERMINATOR = *field_terminator*“: Nur für durch Trennzeichen getrennte Textdateien relevant. Das Feldabschlusszeichen gibt mindestens ein Zeichen an, welches das Ende der einzelnen Felder (Spalten) in der durch Trennzeichen getrennten Textdatei markiert. Als Standardzeichen wird der senkrechte Strich (ꞌ|ꞌ) verwendet.
 
 Beispiele:
 
@@ -246,7 +246,7 @@ Beispiele:
 - FIELD_TERMINATOR = ' '
 - FIELD_TERMINATOR = ꞌ\tꞌ
 
-STRING_DELIMITER = *string_delimiter* : Dient zum Angeben des Feldabschlusszeichens für Zeichenfolgendaten in der durch Trennzeichen getrennten Textdatei. Das Zeichenfolgen-Trennzeichen umfasst mindestens ein Zeichen und ist in einfache Anführungszeichen gesetzt. Der Standardwert ist eine leere Zeichenfolge ("").
+STRING_DELIMITER = *string_delimiter*: Dient zum Angeben des Feldabschlusszeichens für Zeichenfolgendaten in der durch Trennzeichen getrennten Textdatei. Das Zeichenfolgen-Trennzeichen umfasst mindestens ein Zeichen und ist in einfache Anführungszeichen gesetzt. Der Standardwert ist eine leere Zeichenfolge ("").
 
 Beispiele:
 
@@ -254,7 +254,7 @@ Beispiele:
 - STRING_DELIMITER = '*'
 - STRING_DELIMITER = ꞌ,ꞌ
 
-FIRST_ROW = *First_row_int* : Dient zum Angeben der Zeilennummer, die zuerst gelesen wird, und gilt für alle Dateien. Wenn Sie diesen Wert auf „2“ festlegen, wird beim Laden der Daten in allen Dateien jeweils die erste Zeile (Kopfzeile) übersprungen. Zeilen werden basierend auf dem Vorhandensein von Zeilenabschlusszeichen (/ r/n, r, /n) übersprungen.
+FIRST_ROW = *First_row_int*: Dient zum Angeben der Zeilennummer, die zuerst gelesen wird, und gilt für alle Dateien. Wenn Sie diesen Wert auf „2“ festlegen, wird beim Laden der Daten in allen Dateien jeweils die erste Zeile (Kopfzeile) übersprungen. Zeilen werden basierend auf dem Vorhandensein von Zeilenabschlusszeichen (/ r/n, r, /n) übersprungen.
 
 USE_TYPE_DEFAULT = { TRUE | **FALSE** }: Gibt an, wie fehlende Werte in durch Trennzeichen getrennten Textdateien behandelt werden sollen, wenn Daten aus der Textdatei abgerufen werden.
 
@@ -266,9 +266,9 @@ TRUE: Beim Abrufen von Daten aus der Textdatei werden fehlende Werte jeweils unt
 
 FALSE: Fehlende Werte werden als NULL-Werte gespeichert. Alle NULL-Werte, die durch Verwendung des Worts NULL in der durch Trennzeichen getrennten Textdatei gespeichert werden, werden als Zeichenfolge „NULL“ importiert.
 
-Encoding = {'UTF8' | 'UTF16'}: Von SQL On-Demand können UTF8- und UTF16-codierte, durch Trennzeichen getrennte Textdateien gelesen werden.
+Encoding = {'UTF8' | 'UTF16'}: Vom serverlosen SQL-Pool können UTF8- und UTF16-codierte, durch Trennzeichen getrennte Textdateien gelesen werden.
 
-DATA_COMPRESSION = *data_compression_method* : Dieses Argument dient zum Angeben der Datenkomprimierungsmethode für die externen Daten. 
+DATA_COMPRESSION = *data_compression_method*: Dieses Argument dient zum Angeben der Datenkomprimierungsmethode für die externen Daten. 
 
 Der PARQUET-Dateiformattyp unterstützt folgende Komprimierungsmethoden:
 
@@ -321,9 +321,9 @@ column_name <data_type>
 
 *{ database_name.schema_name.table_name | schema_name.table_name | table_name }*
 
-Ein- bis dreiteiliger Name der Tabelle, die erstellt werden soll. Bei einer externen Tabelle speichert SQL On-Demand nur die Tabellenmetadaten. Es werden keine tatsächlichen Daten in SQL On-Demand verschoben oder gespeichert.
+Ein- bis dreiteiliger Name der Tabelle, die erstellt werden soll. Bei einer externen Tabelle speichert der serverlose SQL-Pool nur die Tabellenmetadaten. Im serverlosen SQL-Pool werden keine tatsächlichen Daten verschoben oder gespeichert.
 
-<column_definition>, ... *n* ]
+<column_definition>, ...*n* ]
 
 „CREATE EXTERNAL TABLE“ unterstützt das Konfigurieren von Spaltenname, Datentyp, NULL-Zulässigkeit und Sortierung. Sie können DEFAULT CONSTRAINT nicht für externe Tabellen verwenden.
 
@@ -332,22 +332,22 @@ Ein- bis dreiteiliger Name der Tabelle, die erstellt werden soll. Bei einer exte
 
 Beim Lesen aus Parquet-Dateien können Sie die zu lesenden Spalten angeben und die übrigen Spalten überspringen.
 
-LOCATION = ' *folder_or_filepath* '
+LOCATION = '*folder_or_filepath*'
 
 Dient zum Angeben des Ordners oder des Dateipfads und Dateinamens für die tatsächlichen Daten in Azure Blob Storage. Der Speicherort beginnt im Stammordner. Der Stammordner ist der in der externen Datenquelle angegebene Datenspeicherort.
 
-Wenn Sie mithilfe von „LOCATION“ einen Ordnerspeicherort angeben, wird bei einer SQL On-Demand-Abfrage eine Auswahl aus der Tabelle getroffen, und es werden Dateien aus dem Ordner abgerufen.
+Wenn Sie mithilfe von „LOCATION“ einen Ordnerspeicherort angeben, wird bei einer Abfrage des serverlosen SQL-Pools eine Auswahl aus der Tabelle getroffen, und es werden Dateien aus dem Ordner abgerufen.
 
 > [!NOTE]
-> Im Gegensatz zu Hadoop und PolyBase werden von SQL On-Demand keine Unterordner zurückgegeben. Es werden Dateien zurückgegeben, deren Dateiname mit einem Unterstrich (_) oder Punkt (.) beginnt.
+> Im Gegensatz zu Hadoop und PolyBase werden vom serverlosen SQL-Pool keine Unterordner zurückgegeben. Es werden Dateien zurückgegeben, deren Dateiname mit einem Unterstrich (_) oder Punkt (.) beginnt.
 
-In diesem Beispiel werden von einer SQL On-Demand-Abfrage Zeilen aus „mydata.txt“ und „_hidden.txt“ zurückgegeben, wenn „LOCATION='/webdata/'“ angegeben wird. „mydata2.txt“ und „mydata3.txt“ werden nicht zurückgegeben, da sie sich in einem Unterordner befinden.
+In diesem Beispiel werden von einer Abfrage des serverlosen SQL-Pools Zeilen aus „mydata.txt“ und „_hidden.txt“ zurückgegeben, wenn „LOCATION='/webdata/'“ angegeben wird. „mydata2.txt“ und „mydata3.txt“ werden nicht zurückgegeben, da sie sich in einem Unterordner befinden.
 
 ![Rekursive Daten für externe Tabellen](./media/develop-tables-external-tables/folder-traversal.png)
 
-DATA_SOURCE = *external_data_source_name* : Dient zum Angeben des Namens der externen Datenquelle, die den Speicherort der externen Daten enthält. Verwenden Sie zum Erstellen einer externen Datenquelle [CREATE EXTERNAL DATA SOURCE](#create-external-data-source).
+DATA_SOURCE = *external_data_source_name*: Dient zum Angeben des Namens der externen Datenquelle, die den Speicherort der externen Daten enthält. Verwenden Sie zum Erstellen einer externen Datenquelle [CREATE EXTERNAL DATA SOURCE](#create-external-data-source).
 
-FILE_FORMAT = *external_file_format_name* : Dient zum Angeben des Namens des Objekts für das externe Dateiformat, das den Dateityp und die Komprimierungsmethode für die externen Daten enthält. Verwenden Sie zum Erstellen eines externen Dateiformats [CREATE EXTERNAL FILE FORMAT](#create-external-file-format).
+FILE_FORMAT = *external_file_format_name*: Dient zum Angeben des Namens des Objekts für das externe Dateiformat, das den Dateityp und die Komprimierungsmethode für die externen Daten enthält. Verwenden Sie zum Erstellen eines externen Dateiformats [CREATE EXTERNAL FILE FORMAT](#create-external-file-format).
 
 ### <a name="permissions-create-external-table"></a>Berechtigungen für „CREATE EXTERNAL TABLE“
 
@@ -381,7 +381,7 @@ SELECT TOP 1 * FROM census_external_table
 
 ## <a name="create-and-query-external-tables-from-a-file-in-azure-data-lake"></a>Erstellen und Abfragen externer Tabellen auf der Grundlage einer Datei in Azure Data Lake
 
-Mithilfe von Data Lake-Erkundungsfunktionen können Sie nun mit einem einfachen Rechtsklick auf die Datei eine externe Tabelle unter Verwendung einer SQL-Pool- oder SQL On-Demand-Instanz erstellen und abfragen.
+Mithilfe von Data Lake-Erkundungsfunktionen können Sie nun mit einem einfachen Rechtsklick auf die Datei eine externe Tabelle unter Verwendung eines dedizierten oder eines serverlosen SQL-Pools erstellen und abfragen.
 
 ### <a name="prerequisites"></a>Voraussetzungen
 
@@ -389,13 +389,11 @@ Mithilfe von Data Lake-Erkundungsfunktionen können Sie nun mit einem einfachen
 
 - Sie müssen mindestens über [Berechtigungen zum Erstellen](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#permissions-2&preserve-view=true) und Abfragen externer Tabellen im SQL-Pool oder in SQL On-Demand verfügen.
 
-- Der verknüpfte Dienst, der dem ADLS Gen2-Konto zugeordnet ist, muss über **Zugriff auf die Datei** verfügen. Wenn für den verknüpften Dienst beispielsweise „Verwaltete Identität“ als Authentifizierungsmechanismus verwendet wird, muss die verwaltete Identität für den Arbeitsbereich mindestens über Speicherblob-Leseberechtigung für das Speicherkonto verfügen.
-
 Wählen Sie im Datenbereich die Datei aus, auf deren Grundlage Sie die externe Tabelle erstellen möchten:
 > [!div class="mx-imgBorder"]
 >![externaltable1](./media/develop-tables-external-tables/external-table-1.png)
 
-Daraufhin wird ein Dialogfenster geöffnet. Wählen Sie die SQL-Pool- oder die SQL On-Demand-Option aus, geben Sie einen Namen für die Tabelle ein, und wählen Sie „Skript öffnen“ aus:
+Daraufhin wird ein Dialogfenster geöffnet. Wählen Sie die Option für den dedizierten oder den serverlosen SQL-Pool aus, geben Sie einen Namen für die Tabelle ein, und wählen Sie „Skript öffnen“ aus:
 
 > [!div class="mx-imgBorder"]
 >![externaltable2](./media/develop-tables-external-tables/external-table-2.png)

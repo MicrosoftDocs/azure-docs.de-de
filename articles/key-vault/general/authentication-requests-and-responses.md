@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 2100572c0bcf5bf65fe5a70ab9e552c2d7f72934
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58616b647affd33e96357e556ab61f85d1c62129
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983261"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752276"
 ---
 # <a name="authentication-requests-and-responses"></a>Authentifizierung, Anforderungen und Antworten
 
@@ -39,7 +39,7 @@ Hier sind die URL-Suffixe, die für den Zugriff auf die einzelnen Objekttypen ve
 
 Azure Key Vault unterstützt Anforderungen und Antworten im JSON-Format. Anforderungen an Azure Key Vault werden mithilfe von HTTPS mit einigen URL-Parametern und JSON-codierten Anforderungs- und Antworttexten an eine gültige Azure Key Vault-URL geleitet.
 
-Dieses Thema behandelt Besonderheiten für den Azure Key Vault-Dienst. Allgemeine Informationen zur Verwendung von Azure-REST-Schnittstellen, einschließlich Authentifizierung/Autorisierung und zum Abrufen eines Zugriffstokens finden Sie unter [Azure-REST-API-Referenz](https://docs.microsoft.com/rest/api/azure).
+Dieses Thema behandelt Besonderheiten für den Azure Key Vault-Dienst. Allgemeine Informationen zur Verwendung von Azure-REST-Schnittstellen, einschließlich Authentifizierung/Autorisierung und zum Abrufen eines Zugriffstokens finden Sie unter [Azure-REST-API-Referenz](/rest/api/azure).
 
 ## <a name="request-url"></a>Anfrage-URL  
  Schlüsselverwaltungsvorgänge verwenden „HTTP DELETE“, „GET“, „PATCH“, „PUT“ und „HTTP POST“, und kryptographische Vorgänge für vorhandene Schlüsselobjekte verwenden „HTTP POST“. Clients, die bestimmte HTTP-Verben nicht unterstützen, können auch „HTTP POST“ mit dem Header „X-HTTP-REQUEST verwenden, um das gewünschte Verb anzugeben. Anforderungen, die normalerweise keinen Text erfordern, müssen bei Verwendung von „HTTP POST“ einen leeren Text enthalten, z.B. bei Verwendung von „POST“ anstelle von „DELETE“.  
@@ -111,7 +111,7 @@ Dieses Thema behandelt Besonderheiten für den Azure Key Vault-Dienst. Allgemein
 ## <a name="authentication"></a>Authentifizierung  
  Alle Anforderungen an Azure Key Vault MÜSSEN authentifiziert werden. Azure Key Vault unterstützt Azure Active Directory-Zugriffstoken, die mithilfe von OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)] abgerufen werden können. 
  
- Weitere Informationen zur Registrierung Ihrer Anwendung und zur Authentifizierung für die Verwendung von Azure Key Vault finden Sie unter [Registrieren Ihrer Clientanwendung bei Azure AD](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).
+ Weitere Informationen zur Registrierung Ihrer Anwendung und zur Authentifizierung für die Verwendung von Azure Key Vault finden Sie unter [Registrieren Ihrer Clientanwendung bei Azure AD](/rest/api/azure/index#register-your-client-application-with-azure-ad).
  
  Zugriffstoken müssen mithilfe des HTTP-Autorisierungsheaders an den Dienst gesendet werden:  
 
@@ -133,5 +133,7 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   authorization: Die Adresse des OAuth2-Autorisierungsdiensts, die zum Abrufen eines Zugriffstokens für die Anforderung verwendet werden kann.  
 
--   resource: Der Name der in der Autorisierungsanforderung zu verwendenden Ressource (`https://vault.azure.net`).  
+-   resource: Der Name der in der Autorisierungsanforderung zu verwendenden Ressource (`https://vault.azure.net`).
 
+> [!NOTE]
+> Key Vault SDK-Clients für Geheimnisse, Zertifikate und Schlüssel stellen beim ersten Aufrufen von Key Vault kein Zugriffstoken zum Abrufen von Mandanteninformationen bereit. Es wird erwartet, dass bei der Verwendung des Key Vault SDK-Clients ein HTTP 401-Fehler angezeigt wird. Bei diesem Client zeigt Key Vault der Anwendung den WWW-Authenticate-Header mit der Ressource und dem Mandanten, wo er das Token anfordern muss. Wenn alles richtig konfiguriert ist, enthält der zweite Aufruf von der Anwendung an Key Vault ein gültiges Token und ist erfolgreich. 

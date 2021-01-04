@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: 5b823b0429feffa87a05faadc78574287bc9b4a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62cb8db094cf1bfd7d81b1da06dd7a1b743ec045
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708338"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347481"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Erstellen eines IoT Edge-Modulangebots
 
@@ -50,10 +50,10 @@ Die Seite **Angebotsübersicht** zeigt eine visuelle Darstellung der zum Veröff
 
 Diese Seite enthält Links zum Durchführen von Vorgängen für dieses Angebot auf der Grundlage der von Ihnen ausgewählten Optionen. Beispiel:
 
-- Wenn das Angebot einen Entwurf darstellt: [Delete draft offer](update-existing-offer.md#delete-a-draft-offer) (Angebotsentwurf löschen)
+- Wenn das Angebot einen Entwurf darstellt: Delete draft offer (Angebotsentwurf löschen)
 - Wenn es sich um ein Liveangebot handelt: [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan) (Angebot nicht mehr verkaufen)
-- Wenn das Angebot in der Vorschau ist: [Go-live](publishing-status.md#publisher-approval) (Live schalten)
-- Wenn Sie die Abmeldung beim Herausgeber nicht abgeschlossen haben: [Cancel publishing](update-existing-offer.md#cancel-publishing) (Veröffentlichung abbrechen).
+- Wenn das Angebot in der Vorschau ist: [Go-live](../review-publish-offer.md#previewing-and-approving-your-offer) (Live schalten)
+- Wenn Sie die Abmeldung beim Herausgeber nicht abgeschlossen haben: [Cancel publishing](../review-publish-offer.md#cancel-publishing) (Veröffentlichung abbrechen).
 
 ## <a name="offer-setup"></a>Angebotseinrichtung
 
@@ -169,7 +169,7 @@ Geben Sie die Webadresse der Datenschutzrichtlinien Ihrer Organisation ein. Es l
 
 Stellen Sie ergänzende Onlinedokumente zu Ihrem Angebot bereit. Sie können bis zu 25 Links hinzufügen. Um einen Link hinzuzufügen, wählen Sie **+ Link hinzufügen** aus, und füllen Sie dann die folgenden Felder aus:
 
-- **Titel**: Kunden wird der Titel auf der Detailseite Ihres Angebots angezeigt.
+- **Titel** : Kunden wird der Titel auf der Detailseite Ihres Angebots angezeigt.
 - **Link (URL)** : Geben Sie einen Link für Kunden ein, um Ihr Onlinedokument anzuzeigen. Der Link muss mit `http://` oder `https://` beginnen.
 
 Fügen Sie mindestens einen Link zu Ihrer Dokumentation und einen Link zu den kompatiblen IoT Edge-Geräten aus dem  [Azure IoT-Gerätekatalog](https://catalog.azureiotsolutions.com/) hinzu.
@@ -184,7 +184,7 @@ Sie müssen den Namen, die E-Mail-Adresse und die Telefonnummer für einen **Sup
 
 Geben Sie im Abschnitt **Supportkontakt** die Webadresse der **Supportwebsite** an, auf der Partner Support zu Ihrem Angebot finden können, je nachdem, ob Ihr Angebot global in Azure, in Azure Government oder in beiden verfügbar ist.
 
-Geben Sie im Abschnitt **CSP-Programm-Kontakt** den Link (**Marketingmaterial für das CSP-Programm**) an, in dem CSP-Partner Marketingmaterialien für Ihr Angebot finden können.
+Geben Sie im Abschnitt **CSP-Programm-Kontakt** den Link ( **Marketingmaterial für das CSP-Programm** ) an, in dem CSP-Partner Marketingmaterialien für Ihr Angebot finden können.
 
 #### <a name="additional-marketplace-listing-resources"></a>Zusätzliche Ressourcen für Marketplace-Listen
 
@@ -242,7 +242,7 @@ Hier sehen Sie ein Beispiel dafür, wie Angebotsinformationen im Azure Marketpla
 
 <br>Hier sehen Sie ein Beispiel dafür, wie Angebotsinformationen in Azure Marketplace-Suchergebnissen angezeigt werden:
 
-:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Veranschaulicht, wie dieses Angebot im Azure Marketplace angezeigt wird.":::
+:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Veranschaulicht, wie dieses Angebot in Azure Marketplace-Suchergebnissen angezeigt wird.":::
 
 #### <a name="call-out-descriptions"></a>Beschreibungen zu den Nummern
 
@@ -252,7 +252,7 @@ Hier sehen Sie ein Beispiel dafür, wie Angebotsinformationen im Azure Marketpla
 
 <br>Hier sehen Sie ein Beispiel dafür, wie Angebotsinformationen im Azure-Portal angezeigt werden:
 
-:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Veranschaulicht, wie dieses Angebot im Azure Marketplace angezeigt wird.":::
+:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Veranschaulicht, wie dieses Angebot im Azure-Portal angezeigt wird.":::
 
 #### <a name="call-out-descriptions"></a>Beschreibungen zu den Nummern
 
@@ -263,7 +263,7 @@ Hier sehen Sie ein Beispiel dafür, wie Angebotsinformationen im Azure Marketpla
 
 <br>Hier sehen Sie ein Beispiel dafür, wie Angebotsinformationen in den Suchergebnissen im Azure-Portal angezeigt werden:
 
-:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Veranschaulicht, wie dieses Angebot im Azure Marketplace angezeigt wird.":::
+:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Veranschaulicht, wie dieses Angebot in den Suchergebnissen im Azure-Portal angezeigt wird.":::
 
 #### <a name="call-out-descriptions"></a>Beschreibungen zu den Nummern
 
@@ -305,8 +305,8 @@ Nach dem Erstellen Ihres Plans zeigt die Registerkarte **Planübersicht** folgen
 
 Die in der Planübersicht verfügbaren Aktionen unterscheiden sich je nach dem aktuellen Status Ihres Plans. Dazu gehören:
 
-- **Entwurf löschen**: Wenn der Planstatus ein Entwurf ist.
-- **Verkauf des Plans einstellen**: Wenn der Plan den Status „Live veröffentlicht“ hat.
+- **Entwurf löschen** : Wenn der Planstatus ein Entwurf ist.
+- **Verkauf des Plans einstellen** : Wenn der Plan den Status „Live veröffentlicht“ hat.
 
 ### <a name="create-new-plan"></a>Erstellen eines neuen Plans
 
@@ -356,13 +356,13 @@ Geben Sie eine kurze Zusammenfassung Ihres Plans (nicht des Angebots) an. Diese 
 
 Beschreiben Sie, was Ihren Plan von anderen unterscheidet und worin die Unterschiede zwischen den Plänen in Ihrem Angebot bestehen. Beschreiben Sie nicht das Angebot, sondern nur den Plan. Diese Beschreibung wird im Azure Marketplace und im Azure-Portal auf der Seite mit den Angebotsauflistungen angezeigt. Hier können Sie die gleichen Inhalte wie in der Planzusammenfassung verwenden. Ihnen stehen 2.000 Zeichen zur Verfügung.
 
-Klicken Sie auf **Entwurf speichern**, nachdem Sie die Angaben in diesen Feldern vorgenommen haben.
+Klicken Sie auf **Entwurf speichern** , nachdem Sie die Angaben in diesen Feldern vorgenommen haben.
 
 #### <a name="plan-examples"></a>Planbeispiele
 
 Hier sehen Sie ein Beispiel für Plandetails im Azure Marketplace (die aufgelisteten Preise dienen lediglich als Beispiele und stellen keine tatsächlichen Kosten dar):
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Veranschaulicht, wie dieses Angebot im Azure Marketplace angezeigt wird.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Darstellung von Plandetails im Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Beschreibungen zu den Nummern
 
@@ -372,7 +372,7 @@ Hier sehen Sie ein Beispiel für Plandetails im Azure Marketplace (die aufgelist
 
 <br>Hier sehen Sie ein Beispiel für die Plandetails im Azure-Portal (die aufgelisteten Preise dienen lediglich als Beispiele und stellen keine tatsächlichen Kosten dar):
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Veranschaulicht, wie dieses Angebot im Azure Marketplace angezeigt wird.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Darstellung der Plandetails im Azure-Portal.":::
 
 #### <a name="call-out-descriptions"></a>Beschreibungen zu den Nummern
 
@@ -403,25 +403,25 @@ Mithilfe von Tags können Sie mehrere Plattformen anzielen und verschiedene Vers
 
 Auf der Registerkarte **Image repository details** (Details des Imagerepositorys) geben Sie die folgenden Informationen an.
 
-**Bildquelle auswählen**: Wählen Sie die Option **Azure Container Registry** aus.
+**Bildquelle auswählen** : Wählen Sie die Option **Azure Container Registry** aus.
 
-**Azure-Abonnement-ID**: Geben Sie die Abonnement-ID an, unter der die Ressourcennutzung gemeldet und Dienste für die Azure Container Registry abgerechnet werden, die Ihr Containerimage enthält. Sie finden diese ID auf der Seite [Abonnements](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) im Azure-Portal.
+**Azure-Abonnement-ID** : Geben Sie die Abonnement-ID an, unter der die Ressourcennutzung gemeldet und Dienste für die Azure Container Registry abgerechnet werden, die Ihr Containerimage enthält. Sie finden diese ID auf der Seite [Abonnements](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) im Azure-Portal.
 
-**Name der Azure-Ressourcengruppe**: Geben Sie den Namen der [Ressourcengruppe](../../azure-resource-manager/management/manage-resource-groups-portal.md) an, die die Azure Container Registry mit Ihrem Containerimage enthält. Der Zugriff auf die Ressourcengruppe muss über die Abonnement-ID (oben) möglich sein. Sie finden den Namen im Azure-Portal auf der Seite [Ressourcengruppen](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups).
+**Name der Azure-Ressourcengruppe** : Geben Sie den Namen der [Ressourcengruppe](../../azure-resource-manager/management/manage-resource-groups-portal.md) an, die die Azure Container Registry mit Ihrem Containerimage enthält. Der Zugriff auf die Ressourcengruppe muss über die Abonnement-ID (oben) möglich sein. Sie finden den Namen im Azure-Portal auf der Seite [Ressourcengruppen](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups).
 
-**Name der Azure-Containerregistrierung**: Geben Sie den Namen der [Azure Container Registry](../../container-registry/container-registry-intro.md) an, die Ihr Containerimage enthält. Die Containerregistrierung muss in der Azure-Ressourcengruppe vorhanden sein, die Sie zuvor angegeben haben. Geben Sie nur den Registrierungs Namen und nicht den vollständigen Anmelde Servernamen an. Achten Sie unbedingt darauf, **azurecr.io** nicht in den Namen einzuschließen. Sie finden den Registrierungsnamen auf der Seite [Containerregistrierungen](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) im Azure-Portal.
+**Name der Azure-Containerregistrierung** : Geben Sie den Namen der [Azure Container Registry](../../container-registry/container-registry-intro.md) an, die Ihr Containerimage enthält. Die Containerregistrierung muss in der Azure-Ressourcengruppe vorhanden sein, die Sie zuvor angegeben haben. Geben Sie nur den Registrierungs Namen und nicht den vollständigen Anmelde Servernamen an. Achten Sie unbedingt darauf, **azurecr.io** nicht in den Namen einzuschließen. Sie finden den Registrierungsnamen auf der Seite [Containerregistrierungen](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) im Azure-Portal.
 
-**Administratorbenutzername für die Azure Container Registry**: Geben Sie den [Administratorbenutzernamen](../../container-registry/container-registry-authentication.md#admin-account) ein, der der Azure Container Registry zugeordnet ist, die Ihr Containerimage enthält. Benutzername und Kennwort sind erforderlich, um sicherzustellen, dass Ihr Unternehmen Zugriff auf die Registrierung hat. Um den Administratorbenutzernamen und das zugeordnete Kennwort abzurufen, legen Sie die Eigenschaft **admin-enabled** (Von Administrator aktiviert) an der Azure-Befehlszeilenschnittstelle auf **True** fest. Optional können Sie im Azure-Portal **Administratorbenutzer** auf **Aktivieren** festlegen.
+**Administratorbenutzername für die Azure Container Registry** : Geben Sie den [Administratorbenutzernamen](../../container-registry/container-registry-authentication.md#admin-account) ein, der der Azure Container Registry zugeordnet ist, die Ihr Containerimage enthält. Benutzername und Kennwort sind erforderlich, um sicherzustellen, dass Ihr Unternehmen Zugriff auf die Registrierung hat. Um den Administratorbenutzernamen und das zugeordnete Kennwort abzurufen, legen Sie die Eigenschaft **admin-enabled** (Von Administrator aktiviert) an der Azure-Befehlszeilenschnittstelle auf **True** fest. Optional können Sie im Azure-Portal **Administratorbenutzer** auf **Aktivieren** festlegen.
 
-:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Veranschaulicht, wie dieses Angebot im Azure Marketplace angezeigt wird.":::
+:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Darstellung des Dialogfelds „Containerregistrierung aktualisieren“.":::
 
 #### <a name="call-out-description"></a>Beschreibungen zu den Nummern
 
 1. Administratorbenutzer
 
-<br>**Kennwort für die Azure Container Registry**: Geben Sie das Kennwort für den Administratorbenutzernamen ein, der der Azure Container Registry zugeordnet ist, die Ihr Containerimage enthält. Benutzername und Kennwort sind erforderlich, um sicherzustellen, dass Ihr Unternehmen Zugriff auf die Registrierung hat. Sie können das Kennwort im Azure-Portal abrufen, indem Sie zu **Containerregistrierung** > **Zugriffsschlüssel** wechseln oder die Azure-Befehlszeilenschnittstelle und den Befehl [show](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show) verwenden.
+<br>**Kennwort für die Azure Container Registry** : Geben Sie das Kennwort für den Administratorbenutzernamen ein, der der Azure Container Registry zugeordnet ist, die Ihr Containerimage enthält. Benutzername und Kennwort sind erforderlich, um sicherzustellen, dass Ihr Unternehmen Zugriff auf die Registrierung hat. Sie können das Kennwort im Azure-Portal abrufen, indem Sie zu **Containerregistrierung** > **Zugriffsschlüssel** wechseln oder die Azure-Befehlszeilenschnittstelle und den Befehl [show](/cli/azure/acr/credential#az-acr-credential-show) verwenden.
 
-:::image type="content" source="media/example-iot-access-keys.png" alt-text="Veranschaulicht, wie dieses Angebot im Azure Marketplace angezeigt wird.":::
+:::image type="content" source="media/example-iot-access-keys.png" alt-text="Darstellung des Zugriffsschlüssel-Bildschirms im Azure-Portal.":::
 
 #### <a name="call-out-descriptions"></a>Beschreibungen zu den Nummern
 
@@ -481,9 +481,9 @@ Wählen Sie in der oberen rechten Ecke des Portals **Überprüfen und veröffent
 Auf der Überprüfungsseite wird der Veröffentlichungsstatus angezeigt:
 
 - Anzeigen des Abschlussstatus für die einzelnen Abschnitte des Angebots. Sie können erst veröffentlichen, wenn alle Abschnitte des Angebots als abgeschlossen gekennzeichnet sind.
-    - **Nicht gestartet**: Die Überprüfung des Abschnitts wurde nicht gestartet und muss abgeschlossen werden.
-    - **Unvollständig**: Der Abschnitt enthält Fehler, die behoben werden müssen, oder erfordert eine Ergänzung der Informationen. Anweisungen dazu finden Sie in den Abschnitten weiter oben in diesem Dokument.
-    - **Abgeschlossen**: Der Abschnitt enthält alle erforderlichen Daten, und es sind keine Fehler aufgetreten. Sie können das Angebot erst einreichen, wenn alle Abschnitte des Angebots abgeschlossen sind.
+    - **Nicht gestartet** : Die Überprüfung des Abschnitts wurde nicht gestartet und muss abgeschlossen werden.
+    - **Unvollständig** : Der Abschnitt enthält Fehler, die behoben werden müssen, oder erfordert eine Ergänzung der Informationen. Anweisungen dazu finden Sie in den Abschnitten weiter oben in diesem Dokument.
+    - **Abgeschlossen** : Der Abschnitt enthält alle erforderlichen Daten, und es sind keine Fehler aufgetreten. Sie können das Angebot erst einreichen, wenn alle Abschnitte des Angebots abgeschlossen sind.
 - Stellen Sie dem Zertifizierungsteam Testanweisungen zur Verfügung, um sicherzustellen, dass Ihr Angebot ordnungsgemäß getestet wird. Stellen Sie außerdem alle ergänzenden Anmerkungen bereit, die das Verständnis Ihres Angebots unterstützen.
 
 Um das Angebot zur Veröffentlichung einzureichen, wählen Sie **Veröffentlichen** aus.
@@ -492,4 +492,4 @@ Wir senden Ihnen eine E-Mail, um Ihnen mitzuteilen, wann eine Vorschauversion de
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Aktualisieren eines bestehenden Commercial Marketplace-Angebots](https://docs.microsoft.com//azure/marketplace/partner-center-portal/update-existing-offer)
+- [Aktualisieren eines bestehenden Commercial Marketplace-Angebots](update-existing-offer.md)

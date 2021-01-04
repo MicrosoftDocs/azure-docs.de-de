@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6037ece7f4cbe0edc9cf44bded3ee34815f76a48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 982ca04237d16979d65260a040f5aed783822ac7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620204"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023223"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-gen1-environment"></a>Tutorial: Erstellen einer Azure Time Series Insights Gen1-Umgebung
 
@@ -36,7 +36,7 @@ In diesem Tutorial wird der Prozess zum Erstellen einer Azure Time Series Insigh
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* Ihr Azure-Anmeldekonto muss außerdem Mitglied der Rolle **Besitzer** des Abonnements sein. Weitere Informationen finden Sie unter [Verwalten des Zugriffs auf Azure-Ressourcen mit RBAC und dem Azure-Portal](../role-based-access-control/role-assignments-portal.md).
+* Ihr Azure-Anmeldekonto muss außerdem Mitglied der Rolle **Besitzer** des Abonnements sein. Weitere Informationen finden Sie unter [Hinzufügen oder Entfernen von Rollenzuweisungen mithilfe des Azure-Portals](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="review-video"></a>Video
 
@@ -101,7 +101,7 @@ Erstellen Sie als Nächstes in Ihrem Azure-Abonnement eine Azure Time Series Ins
 
    Parameter|BESCHREIBUNG
    ---|---
-   **Umgebungsname** | Wählen Sie einen eindeutigen Namen für die Azure Time Series Insights-Umgebung aus. Die Namen werden vom Azure Time Series Insights-Explorer und von den [Abfrage-APIs](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query) verwendet.
+   **Umgebungsname** | Wählen Sie einen eindeutigen Namen für die Azure Time Series Insights-Umgebung aus. Die Namen werden vom Azure Time Series Insights-Explorer und von den [Abfrage-APIs](/rest/api/time-series-insights/gen1-query) verwendet.
    **Abonnement** | Abonnements sind Container für Azure-Ressourcen. Wählen Sie ein Abonnement aus, um die Azure Time Series Insights-Umgebung zu erstellen.
    **Ressourcengruppe** | Eine Ressourcengruppe ist ein Container für Azure-Ressourcen. Wählen Sie eine vorhandene Ressourcengruppe für die Azure Time Series Insights-Umgebungsressource aus, oder erstellen Sie eine neue.
    **Location** | Wählen Sie eine Rechenzentrumsregion für Ihre Azure Time Series Insights-Umgebung aus. Erstellen Sie die Azure Time Series Insights-Umgebung in derselben Region wie andere IoT-Ressourcen, um zusätzliche Wartezeit zu vermeiden.

@@ -1,27 +1,22 @@
 ---
-title: Konfigurieren des einmaligen Anmeldens bei einer Anwendungsproxy-App
-description: Schnelles Konfigurieren des einmaligen Anmeldens bei einer Anwendungsproxyanwendung
+title: Grundlagen des einmaligen Anmeldens mit einer lokalen App mithilfe des Anwendungsproxys
+description: Grundlagen des einmaligen Anmeldens mit einer lokalen App mithilfe des Anwendungsproxys.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: troubleshooting
-ms.date: 03/12/2019
+ms.topic: conceptual
+ms.date: 10/07/2020
 ms.author: kenwith
 ms.reviewer: japere, asteen
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54673e0018f83024d1c01599d0096c71b6b1d0ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7df16a797fe0d7a0fd9a0b3857b1b1c32ba07ed
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642128"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656291"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Konfigurieren des einmaligen Anmeldens bei einer Anwendungsproxyanwendung
 
@@ -41,7 +36,7 @@ Konfigurieren Sie den bestimmten Typ des einmaligen Anmeldens. Die Anmeldemethod
 
 -   **Integrierte Windows-Authentifizierung**: Für Anwendungen, die die integrierte Windows-Authentifizierung (IWA) verwenden, wird das einmalige Anmelden durch die eingeschränkte Kerberos-Delegierung (Kerberos Constrained Delegation, KCD) ermöglicht. Mit dieser Methode erhalten Anwendungsproxyconnectors in Active Directory die Berechtigung, die Identität von Benutzern anzunehmen und in deren Auftrag Token zu senden und zu empfangen. Informationen zur KCD-Konfiguration finden Sie der [Dokumentation zum einmaligen Anmelden mit KCD](application-proxy-configure-single-sign-on-with-kcd.md).
 
--   **Headerbasierte Anmeldung**: Die headerbasierte Anmeldung wird über eine Partnerschaft ermöglicht und erfordert zusätzliche Konfigurationsschritte. Ausführliche Informationen zur Partnerschaft sowie schrittweise Anweisungen zum Konfigurieren des einmaligen Anmeldens bei einer Anwendung, die Header zur Authentifizierung verwendet, finden Sie in der [Dokumentation zu PingAccess für Azure AD](application-proxy-configure-single-sign-on-with-ping-access.md).
+-   **Headerbasierte Anmeldung**: Die headerbasierte Anmeldung wird verwendet, um Funktionen des einmaligen Anmeldens mithilfe von HTTP-Headern bereitzustellen. Weitere Informationen finden Sie unter [Headerbasiertes einmaliges Anmelden für lokale Apps mit dem Azure AD-Anwendungsproxy (Vorschau)](application-proxy-configure-single-sign-on-with-headers.md).
 
 -   **Einmaliges Anmelden für SAML**: Mit SAML-SSO nimmt Azure AD die Authentifizierung bei der Anwendung mithilfe des Azure AD-Kontos des Benutzers vor. Azure AD gibt die Informationen für das einmalige Anmelden über ein Verbindungsprotokoll an die Anwendung weiter. Mit SAML-basiertem einmaligem Anmelden können Sie Benutzer basierend auf Regeln, die Sie in Ihren SAML-Ansprüchen definieren, bestimmten Anwendungsrollen zuordnen. Informationen zum Einrichten von einmaligem Anmelden für SAML finden Sie unter [SAML für einmaliges Anmelden mit dem Anwendungsproxy](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
@@ -54,5 +49,5 @@ Mit dieser Option kann einen Administrator einen Link zu einer Anwendung erstell
 ## <a name="next-steps"></a>Nächste Schritte
 - [Ermöglichen des einmaligen Anmeldens mit dem Azure AD-Anwendungsproxy – Public Preview](application-proxy-configure-single-sign-on-password-vaulting.md)
 - [Bereitstellen von einmaligem Anmelden bei Ihren Apps mit dem Anwendungsproxy](application-proxy-configure-single-sign-on-with-kcd.md)
-- [Veröffentlichen von Anwendungen, die die headerbasierte Authentifizierung mit Azure AD-Anwendungsproxy und PingAccess unterstützen](application-proxy-configure-single-sign-on-with-ping-access.md) 
+- [Veröffentlichen von Anwendungen, die die headerbasierte Authentifizierung mit Azure AD-Anwendungsproxy und PingAccess unterstützen](application-proxy-configure-single-sign-on-with-headers.md) 
 - [SAML für einmaliges Anmelden mit dem Anwendungsproxy](application-proxy-configure-single-sign-on-on-premises-apps.md)

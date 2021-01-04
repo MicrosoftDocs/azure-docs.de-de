@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 2f2ad0cb67a41c0a5c59f6428a4912bd91a00e56
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 42da33fe874b6dea43bc16009dd27b70e6c3f535
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318810"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589911"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Tutorial: Integrieren von Amazon Business in Azure Active Directory
 
@@ -103,25 +103,25 @@ Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal 
 
     ![Screenshot: „Benutzerattribute und -ansprüche“ mit Standardwerten wie „user.givenname“ als Vorname und „user.mail“ als E-Mail-Adresse](media/amazon-business-tutorial/map-attribute3.png)
 
-1. Bearbeiten Sie Attribute, und kopieren Sie den**Namespacewert** dieser Attribute in den Editor.
+1. Bearbeiten Sie Attribute, und kopieren Sie den **Namespacewert** dieser Attribute in den Editor.
 
     ![Screenshot von „Benutzerattribute und Ansprüche“ mit Spalten für Anspruchsnamen und -wert](media/amazon-business-tutorial/map-attribute4.png)
 
 1. Darüber hinaus wird von der Amazon Business-Anwendung erwartet, dass in der SAML-Antwort noch einige weitere Attribute zurückgegeben werden. Führen Sie im Dialogfeld **Gruppenansprüche** im Abschnitt **Benutzerattribute und Ansprüche** die folgenden Schritte aus:
 
-    a. Klicken Sie auf den **Stift** neben **Im Anspruch zurückgegebene Gruppen**.
+    1. Klicken Sie auf den **Stift** neben **Im Anspruch zurückgegebene Gruppen**.
 
-    ![Screenshot von „Benutzerattribute und -ansprüche“ mit ausgewähltem Symbol „Im Anspruch zurückgegebene Gruppen“](./media/amazon-business-tutorial/config04.png)
+        ![Screenshot von „Benutzerattribute und -ansprüche“ mit ausgewähltem Symbol „Im Anspruch zurückgegebene Gruppen“](./media/amazon-business-tutorial/config04.png)
 
-    ![Screenshot der Gruppenansprüche mit in diesem Verfahren beschriebenen Werten](./media/amazon-business-tutorial/config05.png)
+        ![Screenshot der Gruppenansprüche mit in diesem Verfahren beschriebenen Werten](./media/amazon-business-tutorial/config05.png)
 
-    b. Wählen Sie **Alle Gruppen** aus der Optionsfeldliste aus.
+    1. Wählen Sie **Alle Gruppen** aus der Optionsfeldliste aus.
 
-    c. Wählen Sie unter **Quellattribut** die Option **Gruppen-ID** aus.
+    1. Wählen Sie unter **Quellattribut** die Option **Gruppen-ID** aus.
 
-    d. Aktivieren Sie das Kontrollkästchen **Name des Gruppenanspruchs anpassen**, und geben Sie den Gruppennamen gemäß den Anforderungen Ihrer Organisation ein.
+    1. Aktivieren Sie das Kontrollkästchen **Name des Gruppenanspruchs anpassen**, und geben Sie den Gruppennamen gemäß den Anforderungen Ihrer Organisation ein.
 
-    e. Klicken Sie auf **Speichern**.
+    1. Klicken Sie auf **Speichern**.
 
 1. Navigieren Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** zu **Metadaten-XML**, und wählen Sie **Herunterladen** aus, um das Zertifikat herunterzuladen und auf Ihrem Computer zu speichern.
 
@@ -135,7 +135,7 @@ Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal 
 
 1. Melden Sie sich in einem anderen Webbrowserfenster als Administrator bei der Amazon Business-Unternehmenswebsite an.
 
-1. Klicken Sie auf **das Benutzer** Profil, **und wählen**Sie Geschäfts Einstellungen aus.
+1. Klicken Sie auf **das Benutzer** Profil, **und wählen** Sie Geschäfts Einstellungen aus.
 
     ![Benutzerprofil](media/amazon-business-tutorial/user-profile.png)
 
@@ -150,11 +150,11 @@ Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal 
     > [!NOTE]
     > Obwohl es sich bei Microsoft ADFS um eine aufgelistete Option handelt, funktioniert es nicht mit Azure AD SSO.
 
-1. Wählen Sie **im** Assistenten für neue Benutzerkonten Standard die **Standardgruppe** aus, und **wählen Sie dann** standardmäßige Kauf Rolle gemäß der Benutzerrolle in Ihrer Organisation aus, und klicken Sie auf **Als**nächstes.
+1. Wählen Sie **im** Assistenten für neue Benutzerkonten Standard die **Standardgruppe** aus, und **wählen Sie dann** standardmäßige Kauf Rolle gemäß der Benutzerrolle in Ihrer Organisation aus, und klicken Sie auf **Als** nächstes.
 
     ![Screenshot der Standardeinstellungen für ein neues Benutzerkonto, in denen Microsoft-S S O, Anforderer und „Weiter“ ausgewählt sind](media/amazon-business-tutorial/dafault-group2.png)
 
-1. Klicken Sie im Assistentenzum **Hochladen Ihrer Metadatendatei** auf **Browse** (Durchsuchen), um die**Metadaten-XML-Datei** hochzuladen, die Sie aus dem Azure-Portal heruntergeladen haben, und klicken Sie anschließend auf **Upload** (Hochladen).
+1. Klicken Sie im Assistentenzum **Hochladen Ihrer Metadatendatei** auf **Browse** (Durchsuchen), um die **Metadaten-XML-Datei** hochzuladen, die Sie aus dem Azure-Portal heruntergeladen haben, und klicken Sie anschließend auf **Upload** (Hochladen).
 
     ![Screenshot des Assistenten zum Hochladen der Metadatendatei, in dem Sie eine X M L-Datei auswählen und hochladen können](media/amazon-business-tutorial/connection-data1.png)
 
@@ -174,7 +174,7 @@ Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal 
 
     ![Screenshot der Amazon-Verbindungsdaten, wo Sie zum Fortfahren auf „Weiter“ klicken](media/amazon-business-tutorial/amazon-connect.png)
 
-1. Überprüfen Sie **den** Status der Schritte, die konfiguriert wurden, und **klicken Sie**auf Test starten.
+1. Überprüfen Sie **den** Status der Schritte, die konfiguriert wurden, und **klicken Sie** auf Test starten.
 
     ![Screenshot der S S O-Verbindungsdetails mit der Option zum Starten des Tests](media/amazon-business-tutorial/sso-connection1.png)
 
@@ -190,7 +190,7 @@ Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal 
 
     ![Screenshot der Bestätigung im Assistenten für die S S O-Aktivierung, in der Sie „Aktivieren“ auswählen können](media/amazon-business-tutorial/sso-connection4.png)
 
-1. Schließlich wird im **Abschnitt SSO-** Verbindungsdetails **der** Status als **aktiv**angezeigt.
+1. Schließlich wird im **Abschnitt SSO-** Verbindungsdetails **der** Status als **aktiv** angezeigt.
 
     ![Screenshot der S S O-Verbindungsdetails mit dem Status „Aktiv“](media/amazon-business-tutorial/sso-connection5.png)
     

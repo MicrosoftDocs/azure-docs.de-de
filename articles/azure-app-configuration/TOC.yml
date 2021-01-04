@@ -17,7 +17,7 @@
           href: quickstart-aspnet-core-app.md
         - name: .NET Core
           href: quickstart-dotnet-core-app.md
-        - name: ".NET\_Framework"
+        - name: .NET Framework
           href: quickstart-dotnet-app.md
         - name: Azure Functions in .NET Core
           href: quickstart-azure-functions-csharp.md
@@ -70,6 +70,8 @@
       items:
         - name: Pushvorgänge mithilfe von Azure Pipelines
           href: push-kv-devops-pipeline.md
+        - name: Pullvorgänge mithilfe von Azure Pipelines
+          href: pull-key-value-devops-pipeline.md
         - name: Pushvorgänge mithilfe von GitHub Actions
           href: concept-github-action.md
         - name: Erstellen von Projekten mithilfe einer exportierten Konfiguration
@@ -78,7 +80,7 @@
       href: integrate-kubernetes-deployment-helm.md
 - name: Beispiele
   items:
-    - name: Azure-Befehlszeilenschnittstelle
+    - name: Azure CLI
       href: cli-samples.md
 - name: Konzepte
   items:
@@ -100,14 +102,18 @@
           href: concept-enable-rbac.md
         - name: Zuweisen einer verwalteten Azure-Identität
           href: overview-managed-identity.md
+        - name: Sicherheitsbaseline
+          href: security-baseline.md
     - name: Hochverfügbarkeit
       items:
         - name: Resilienz und Notfallwiederherstellung
           href: concept-disaster-recovery.md
 - name: Anleitungen
   items:
-    - name: Aktivieren einer Funktion für eine Teilmenge von Benutzern
+    - name: Aktivieren einer Funktion für einen Prozentsatz von Benutzern
       href: howto-feature-filters-aspnet-core.md
+    - name: Aktivieren einer Funktion für bestimmte Benutzer/Gruppen
+      href: howto-targetingfilter-aspnet-core.md
     - name: Verwenden von Bezeichnungen für die Konfiguration pro Umgebung
       href: howto-labels-aspnet-core.md
     - name: Importieren oder Exportieren von Konfigurationsdaten
@@ -124,7 +130,7 @@
   items:
     - name: Konfiguration
       items:
-        - name: Azure-Befehlszeilenschnittstelle
+        - name: Azure CLI
           href: /cli/azure/appconfig?view=azure-cli-latest
         - name: .NET Core-Anbieter
           href: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
@@ -140,8 +146,6 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2103727'
         - name: Azure SDK für JavaScript
           href: 'https://go.microsoft.com/fwlink/?linkid=2103664'
-        - name: REST-API
-          href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
     - name: Funktionsverwaltung
       items:
         - name: .NET Core-Bibliothek
@@ -156,6 +160,52 @@
           href: /powershell/module/az.appconfiguration/
         - name: Terraform
           href: 'https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html'
+    - name: REST-API
+      items:
+        - name: Übersicht
+          href: rest-api.md
+        - name: Ressourcen
+          items:
+            - name: Schlüssel
+              href: ./rest-api-keys.md
+            - name: Schlüsselwerte
+              href: ./rest-api-key-value.md
+            - name: Bezeichnungen
+              href: ./rest-api-labels.md
+            - name: Locks
+              href: ./rest-api-locks.md
+            - name: Revisionen
+              href: ./rest-api-revisions.md
+        - name: Protocol
+          items:
+            - name: Authentifizierung
+              href: ./rest-api-authentication-index.md
+              items:
+                - name: Authentifizierung über Azure Active Directory
+                  href: rest-api-authentication-azure-ad.md
+                - name: HMAC-Authentifizierung
+                  href: rest-api-authentication-hmac.md
+            - name: Authorization
+              href: ./rest-api-authorization-index.md
+              items:
+                - name: Azure Active Directory-Autorisierung
+                  href: rest-api-authorization-azure-ad.md
+                - name: HMAC-Autorisierung
+                  href: rest-api-authorization-hmac.md
+            - name: Konsistenzmodell
+              href: ./rest-api-consistency.md
+            - name: Allgemeine Header
+              href: ./rest-api-headers.md
+            - name: Drosselung
+              href: ./rest-api-throttling.md
+            - name: Versionskontrolle
+              href: ./rest-api-versioning.md
+        - name: Entwicklung
+          items:
+            - name: Fiddler
+              href: ./rest-api-fiddler.md
+            - name: postman
+              href: ./rest-api-postman.md
     - name: Azure Policy-Integrationen
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

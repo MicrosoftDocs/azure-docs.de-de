@@ -1,6 +1,6 @@
 ---
 title: Verwaltung und Überwachung – Übersicht
-description: Übersicht über die Überwachungs- und Verwaltungsfunktionen für die Ressourcennutzung, Protokoll- und Abfrageaktivitäten, Empfehlungen und den Schutz von Daten (Sichern und Wiederherstellen) mit einem Synapse SQL-Pool.
+description: Übersicht über die Überwachungs- und Verwaltungsfunktionen für Ressourcennutzung, Protokoll- und Abfrageaktivitäten, Empfehlungen sowie den Schutz von Daten (Sichern und Wiederherstellen) mit einem dedizierten SQL-Pool in Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 08/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 19b2b4aecedbaa66c258b9076c517b02034a46fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4792842eddac3e8082be2d3a67736824a02dfebd
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85200986"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317492"
 ---
-# <a name="manageability-and-monitoring-with-synapse-sql-pool"></a>Verwaltbarkeit und Überwachung mit einem Synapse SQL-Pool
+# <a name="manageability-and-monitoring-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Verwaltbarkeit und Überwachung mit einem dedizierten SQL-Pool in Azure Synapse Analytics
 
-Mit Synapse SQL können Sie ein Data Warehouse per SQL-Pool bereitstellen. Die unten angegebenen Artikel enthalten Informationen, die Ihnen als Hilfe beim Verwalten und Überwachen Ihres Data Warehouse dienen. Außerdem wird beschrieben, wie Sie die Nutzung und Leistung des Data Warehouse optimieren.
+Mit Synapse SQL können Sie ein Data Warehouse über einen dedizierten SQL-Pool bereitstellen. Die unten angegebenen Artikel enthalten Informationen, die Ihnen als Hilfe beim Verwalten und Überwachen Ihres Data Warehouse dienen. Außerdem wird beschrieben, wie Sie die Nutzung und Leistung des Data Warehouse optimieren.
 
 ## <a name="overview"></a>Übersicht
 
@@ -33,4 +33,4 @@ Mit Synapse SQL können Sie ein Data Warehouse per SQL-Pool bereitstellen. Die u
 
 
 ## <a name="next-steps"></a>Nächste Schritte
-Entsprechende Schrittanleitungen finden Sie unter [Überwachen und Optimieren Ihres SQL-Pools](sql-data-warehouse-manage-monitor.md).
+Die erforderlichen Schrittanleitungen finden Sie unter [Überwachen und Optimieren Ihres dedizierten SQL-Pools](sql-data-warehouse-manage-monitor.md).

@@ -2,20 +2,20 @@
 title: Problembehandlung beim Einbinden einer Domäne mit Azure AD Domain Services | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie häufige Probleme beheben können, wenn Sie versuchen, eine VM in eine Domäne einzubinden oder eine Anwendung mit Azure Active Directory Domain Services zu verbinden, und keine Verbindung mit der verwalteten Domäne herstellen oder sich dort nicht authentifizieren können.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: ee60b684d64ef49fbb669de8c98203e2df5268bf
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 86d6ca79a12e4706f558e92c3c83c5bddaa99b3c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967510"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618602"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Problembehandlung beim Einbinden einer Domäne mit Azure Active Directory Domain Services
 

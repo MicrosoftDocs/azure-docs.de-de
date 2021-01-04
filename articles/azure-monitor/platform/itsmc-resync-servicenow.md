@@ -6,14 +6,16 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: a3382f93990612b0ab34eb0848cbf3d6577c44ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7d69c4e112ded678c70a516202492d37ee8f60a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87087933"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436860"
 ---
-# <a name="how-to-manually-fix-servicenow-sync-problems"></a>Manuelles Beheben von ServiceNow-Synchronisierungsproblemen
+# <a name="troubleshooting-problems-in-itsm-connector"></a>Problembehandlung in ITSM-Connector
+
+## <a name="how-to-manually-fix-servicenow-sync-problems"></a>Manuelles Beheben von ServiceNow-Synchronisierungsproblemen
 
 Azure Monitor kann Verbindungen mit ITSM-Drittanbietern (IT Service Management) herstellen. ServiceNow ist einer dieser Anbieter.
 
@@ -23,16 +25,16 @@ Verwenden Sie das folgende Synchronisierungsverfahren, um die Verbindung erneut 
 
 1. Suchen Sie die Lösung im oberen Suchbanner, und wählen Sie dann die relevanten Lösungen aus.
 
-    ![Neue Verbindung](media/itsmc-resync-servicenow/solution-search-8bit.png)
+    ![Screenshot: Oberes Suchbanner und Auswählen der relevanten Lösungen](media/itsmc-resync-servicenow/solution-search-8bit.png)
 
 1. Wählen Sie auf dem Bildschirm der Lösung im Abonnementfilter „Alles auswählen“ aus, und filtern Sie dann nach „ServiceDesk“.
 
-    ![Neue Verbindung](media/itsmc-resync-servicenow/solutions-list-8bit.png)
+    ![Screenshot, der zeigt, wo Sie „Alles auswählen“ auswählen und wo Sie nach ServiceDesk filtern](media/itsmc-resync-servicenow/solutions-list-8bit.png)
 
 1. Wählen Sie die Lösung Ihrer ITSM-Verbindung aus.
 1. Wählen Sie im linken Banner die ITSM-Verbindung aus.
 
-    ![Neue Verbindung](media/itsmc-resync-servicenow/itsm-connector-8bit.png)
+    ![Screenshot, der zeigt, wo Sie ITSM-Verbindungen auswählen](media/itsmc-resync-servicenow/itsm-connector-8bit.png)
 
 1. Wählen Sie in der Liste jeden Connector aus. 
     1. Klicken Sie jeweils auf den Namen des Connectors, um ihn zu konfigurieren.
@@ -42,7 +44,7 @@ Verwenden Sie das folgende Synchronisierungsverfahren, um die Verbindung erneut 
 
     1. Klicken Sie auf „Synchronisieren“.
 
-       ![Neue Verbindung](media/itsmc-resync-servicenow/resync-8bit2.png)
+       ![Screenshot, auf dem die Schaltfläche „Synchronisieren“ hervorgehoben ist](media/itsmc-resync-servicenow/resync-8bit2.png)
 
     1. Klicken Sie auf „Speichern“.
 

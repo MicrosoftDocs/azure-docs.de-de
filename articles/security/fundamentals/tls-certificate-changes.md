@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 10/01/2020
+ms.date: 11/10/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c183c906644d5d672b97642b1b072a2a08a70973
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 4e64d866b5bd2f725db3be31d0fdd2f8663cfd7c
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203754"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029692"
 ---
 # <a name="azure-tls-certificate-changes"></a>TLS-Zertifikatänderungen für Azure  
 
@@ -22,11 +22,15 @@ Microsoft aktualisiert Azure-Dienste für die Verwendung von TLS-Zertifikaten au
 
 ## <a name="when-will-this-change-happen"></a>Wann wird diese Änderung durchgeführt?
 
-- Für [Azure AD-Dienste](/azure/active-directory) (Azure Active Directory) wurde diese Umstellung am 7. Juli 2020 initiiert.
-- Alle neu erstellten TLS/SSL-Azure-Endpunkte enthalten aktualisierte Zertifikate, die mit den neuen Stammzertifizierungsstellen verkettet sind.
-- Bereits vorhandene Azure-Endpunkte werden ab dem 13. August 2020 nach und nach umgestellt.
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) und [DPS](/azure/iot-dps/) verbleiben in der Baltimore CyberTrust Root-Zertifizierungsstelle, die Zwischenzertifizierungsstellen ändern sich jedoch. Klicken Sie [hier](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456), um ausführliche Informationen zu erhalten.
-- [Azure Storage](/azure/storage) verbleibt in der Baltimore CyberTrust Root-Zertifizierungsstelle, die Zwischenzertifizierungsstellen ändern sich jedoch. Klicken Sie [hier](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518), um ausführliche Informationen zu erhalten.
+Bereits vorhandene Azure-Endpunkte wurden ab dem 13. August 2020 phasenweise umgestellt. Alle neu erstellten TLS/SSL-Azure-Endpunkte enthalten aktualisierte Zertifikate, die mit den neuen Stammzertifizierungsstellen verkettet sind.
+
+Dienstspezifische Details:
+
+- Für [Azure AD-Dienste](../../active-directory/index.yml) (Azure Active Directory) wurde diese Umstellung am 7. Juli 2020 initiiert.
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) und [DPS](../../iot-dps/index.yml) verbleiben in der Baltimore CyberTrust Root-Zertifizierungsstelle, die Zwischenzertifizierungsstellen ändern sich jedoch. Klicken Sie [hier](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456), um ausführliche Informationen zu erhalten.
+- [Azure Storage](../../storage/index.yml) verbleibt in der Baltimore CyberTrust Root-Zertifizierungsstelle, die Zwischenzertifizierungsstellen ändern sich jedoch. Klicken Sie [hier](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518), um ausführliche Informationen zu erhalten.
+- [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) verbleibt in der Baltimore CyberTrust Root-Zertifizierungsstelle, die Zwischenzertifizierungsstellen ändern sich jedoch. Klicken Sie [hier](../../azure-cache-for-redis/cache-whats-new.md), um ausführliche Informationen zu erhalten.
+- Azure Instance Metadata Service verbleibt in der Baltimore CyberTrust-Stammzertifizierungsstelle, die Zwischenzertifizierungsstellen ändern sich jedoch. Klicken Sie [hier](https://docs.microsoft.com/answers/questions/172717/action-required-for-attested-data-tls-with-azure-i.html), um ausführliche Informationen zu erhalten.
 
 > [!IMPORTANT]
 > Kunden müssen ihre Anwendungen nach dieser Änderung ggf. aktualisieren, um Konnektivitätsfehler beim Herstellen einer Verbindung mit Azure-Diensten zu vermeiden.
@@ -48,7 +52,7 @@ Von Azure-Diensten verwendete TLS-Zertifikate werden mit einer der folgenden Sta
 | [Baltimore CyberTrust Root](https://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt) | d4de20d05e66fc53fe1a50882c78db2852cae474 |
 | [D-TRUST Root Class 3 CA 2 2009](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt) | 58e8abb0361533fb80f79b1b6d29d3ff8d5f00f0 |
 | [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt) | 73a5e64a3bff8316ff0edccc618a906e4eae4d74 | 
-| [Microsoft EV ECC Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20EV%20ECC%20Root%20Certificate%20Authority%202017.crt) | 6b1937abfd64e1e40daf2262a27857c015d6228d |
+| [Microsoft ECC Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20ECC%20Root%20Certificate%20Authority%202017.crt) | 999a64c37ff47d9fab95f14769891460eec4c3c5 |
 
 ## <a name="when-can-i-retire-the-old-intermediate-thumbprint"></a>Wann kann ich den alten Zwischenfingerabdruck entfernen?
 
@@ -58,7 +62,7 @@ Sollte sich dieses Datum ändern, wird das neue Widerrufsdatum bekanntgegeben.
 
 ## <a name="will-this-change-affect-me"></a>Betrifft mich diese Änderung? 
 
-Wir gehen davon aus, dass **die meisten Azure-Kunden nicht betroffen sein werden** .  Ihre Anwendung kann jedoch betroffen sein, wenn darin explizit eine Liste zulässiger Zertifizierungsstellen angegeben wird. Dies wird als Anheften von Zertifikaten bezeichnet.
+Wir gehen davon aus, dass **die meisten Azure-Kunden nicht betroffen sein werden**.  Ihre Anwendung kann jedoch betroffen sein, wenn darin explizit eine Liste zulässiger Zertifizierungsstellen angegeben wird. Dies wird als Anheften von Zertifikaten bezeichnet.
 
 Im Anschluss finden Sie verschiedene Methoden, mit denen Sie ermitteln können, ob Ihre Anwendung betroffen ist:
 
@@ -83,6 +87,7 @@ Im Anschluss finden Sie verschiedene Methoden, mit denen Sie ermitteln können, 
     - http://crl&#46;microsoft&#46;com
     - http://oneocsp&#46;microsoft&#46;com
     - http://ocsp&#46;msocsp&#46;com
+    - http://www&#46;microsoft&#46;com/pkiops
 
 ## <a name="next-steps"></a>Nächste Schritte
 

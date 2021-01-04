@@ -2,18 +2,17 @@
 title: Konfigurieren eines Verfügbarkeitsgruppenlisteners für SQL Server auf virtuellen RHEL-Computern in Azure – Virtuelle Linux-Computer | Microsoft-Dokumentation
 description: Hier erfahren Sie, wie Sie einen Verfügbarkeitsgruppenlistener in SQL Server auf virtuellen RHEL-Computern in Azure einrichten.
 ms.service: virtual-machines-linux
-ms.subservice: ''
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
-ms.openlocfilehash: 01501b99d5d7c42af98d0397cf6ff8cbca14b07b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83fde9e957cb2011ce585603e51d331be171bc08
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89485797"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586226"
 ---
 # <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Konfigurieren eines Verfügbarkeitsgruppenlisteners für SQL Server auf virtuellen RHEL-Computern in Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -136,7 +135,7 @@ Mit den Lastenausgleichsregeln wird konfiguriert, wie der Load Balancer Datenver
    | **Leerlaufzeitüberschreitung (Minuten)** |*4* |
    | **Floating IP (Direct Server Return)** |**Aktiviert** |
 
-   :::image type="content" source="media/rhel-high-availability-listener-tutorial/add-load-balancing-rule.png" alt-text="Hinzufügen eines Back-End-Pools":::
+   :::image type="content" source="media/rhel-high-availability-listener-tutorial/add-load-balancing-rule.png" alt-text="Hinzufügen einer Lastenausgleichsregel":::
 
 4. Klicken Sie auf **OK**. 
 5. Azure konfiguriert die Lastenausgleichsregel. Damit ist der Load Balancer dafür konfiguriert, Datenverkehr an die SQL Server-Instanz weiterzuleiten, die den Listener für die Verfügbarkeitsgruppe hostet. 
@@ -263,6 +262,10 @@ Die Ressourcengruppe verfügt nun also über einen mit allen SQL Server-Compute
     ```
 
 1. Überprüfen Sie Ihre Clusterressourcen mithilfe des Befehls `sudo pcs resource`. Die primäre Instanz sollte nun `<VM2>` sein.
+
+    > [!NOTE]
+    > Dieser Artikel enthält Verweise auf den Begriff Slave, einen Begriff, den Microsoft nicht mehr verwendet. Sobald der Begriff aus der Software entfernt wird, wird er auch aus diesem Artikel entfernt.
+
 
     ```output
     [<username>@<VM1> ~]$ sudo pcs resource

@@ -6,16 +6,16 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 948e4f74763efd641bc0f089c679cdaf7c2f784e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75e3886e31592b0672487bacd5ff2266e07e39cd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530067"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182501"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Tutorial: Einrichten von privatem Websitezugriff für Azure Functions
 
-In diesem Tutorial erfahren Sie, wie Sie den [privaten Websitezugriff](./functions-networking-options.md#private-site-access) mit Azure Functions aktivieren. Mit dem privaten Websitezugriff können Sie sicherstellen, dass Ihr Funktionscode nur von einem bestimmten virtuellen Netzwerk aus ausgelöst wird.
+In diesem Tutorial erfahren Sie, wie Sie den [privaten Websitezugriff](./functions-networking-options.md#private-endpoint-connections) mit Azure Functions aktivieren. Mit dem privaten Websitezugriff können Sie sicherstellen, dass Ihr Funktionscode nur von einem bestimmten virtuellen Netzwerk aus ausgelöst wird.
 
 Der private Websitezugriff ist hilfreich in Szenarien, in denen der Zugriff auf die Funktions-App auf ein bestimmtes virtuelles Netzwerk beschränkt werden muss. Dies kann beispielsweise der Fall sein, wenn die Funktions-App nur für Mitarbeiter einer bestimmten Organisation oder nur für Dienste innerhalb des angegebenen virtuellen Netzwerks vorgesehen ist (etwa für eine andere Azure-Funktion, einen virtuellen Azure-Computer oder einen AKS-Cluster).
 
@@ -113,7 +113,7 @@ Im ersten Schritt dieses Tutorials wird ein neuer virtueller Computer in einem v
     | _Subnetz_ | AzureBastionSubnet | Das Subnetz in Ihrem virtuellen Netzwerk, in dem die neue Bastion-Hostressource bereitgestellt wird. Sie müssen ein Subnetz mit dem Namen **AzureBastionSubnet** erstellen. Dadurch weiß Azure, in welchem Subnetz die Bastion-Ressourcen bereitgestellt werden sollen. Sie müssen ein Subnetz von mindestens **/27** oder größer („/27“, „/26“ usw.) verwenden. |
 
     > [!NOTE]
-    > Eine ausführliche Schritt-für-Schritt-Anleitung zum Erstellen einer Azure Bastion-Ressource finden Sie im Tutorial [Erstellen eines Azure Bastion-Hosts](../bastion/bastion-create-host-portal.md).
+    > Eine ausführliche Schritt-für-Schritt-Anleitung zum Erstellen einer Azure Bastion-Ressource finden Sie im Tutorial [Erstellen eines Azure Bastion-Hosts](../bastion/tutorial-create-host-portal.md).
 
 1. Erstellen Sie ein Subnetz, in dem Azure den Azure Bastion-Host bereitstellen kann. Wenn Sie **Subnetzkonfiguration verwalten** auswählen, wird ein neuer Bereich geöffnet, in dem Sie ein neues Subnetz definieren können.  Wählen Sie **+ Subnetz** aus, um ein neues Subnetz zu erstellen.
 1. Das Subnetz muss den Namen **AzureBastionSubnet** haben, und das Subnetzpräfix muss mindestens **/27** sein.  Klicken Sie auf **OK**, um das Subnetz zu erstellen.
@@ -159,7 +159,7 @@ Im nächsten Schritt wird in Azure eine Funktions-App mit [Verbrauchsplan](funct
 
 Im nächsten Schritt werden [Zugriffseinschränkungen](../app-service/app-service-ip-restrictions.md) konfiguriert, um sicherzustellen, dass die Funktion nur von Ressourcen im virtuellen Netzwerk aufgerufen werden kann.
 
-Zur Ermöglichung von [privatem Websitezugriff](functions-networking-options.md#private-site-access) wird ein Azure Virtual Network-[Dienstendpunkt](../virtual-network/virtual-network-service-endpoints-overview.md) zwischen der Funktions-App und dem angegebenen virtuellen Netzwerk erstellt. Zugriffseinschränkungen werden mithilfe von Dienstendpunkten implementiert. Dienstendpunkte sorgen dafür, dass nur von Datenverkehr aus dem angegebenen virtuellen Netzwerk auf die angegebene Ressource zugegriffen werden kann. In diesem Fall ist die Azure-Funktion die angegebene Ressource.
+Zur Ermöglichung von [privatem Websitezugriff](functions-networking-options.md#private-endpoint-connections) wird ein Azure Virtual Network-[Dienstendpunkt](../virtual-network/virtual-network-service-endpoints-overview.md) zwischen der Funktions-App und dem angegebenen virtuellen Netzwerk erstellt. Zugriffseinschränkungen werden mithilfe von Dienstendpunkten implementiert. Dienstendpunkte sorgen dafür, dass nur von Datenverkehr aus dem angegebenen virtuellen Netzwerk auf die angegebene Ressource zugegriffen werden kann. In diesem Fall ist die Azure-Funktion die angegebene Ressource.
 
 1. Wählen Sie in der Funktions-App den Link **Netzwerk** unter der Abschnittsüberschrift _Einstellungen_ aus.
 1. Die Seite _Netzwerk_ ist der Ausgangspunkt für die Konfiguration von Azure Front Door, Azure CDN und Zugriffseinschränkungen.
@@ -172,7 +172,7 @@ Zur Ermöglichung von [privatem Websitezugriff](functions-networking-options.md#
 1. Auf der Seite _Zugriffseinschränkungen_ wird nun angezeigt, dass eine neue Einschränkung vorhanden ist. Es kann einige Sekunden dauern, bis der Wert von _Endpunktstatus_ von „Deaktiviert“ über „Bereitstellung“ zu „Aktiviert“ wechselt.
 
     >[!IMPORTANT]
-    > Jede Funktions-App verfügt über eine [Kudu-Website](../app-service/app-service-ip-restrictions.md#scm-site) mit erweiterten Tools zur Verwaltung von Funktions-App-Bereitstellungen. Auf diese Website wird über eine URL wie die folgende zugegriffen: `<FUNCTION_APP_NAME>.scm.azurewebsites.net`. Durch das Aktivieren von Zugriffsbeschränkungen auf der Kudu-Website wird verhindert, dass der Projektcode von einer lokalen Entwicklerarbeitsstation aus bereitgestellt wird. Anschließend wird ein Agent innerhalb des virtuellen Netzwerks benötigt, um die Bereitstellung auszuführen.
+    > Jede Funktions-App verfügt über eine [Kudu-Website](../app-service/app-service-ip-restrictions.md#restrict-access-to-an-scm-site) mit erweiterten Tools zur Verwaltung von Funktions-App-Bereitstellungen. Auf diese Website wird über eine URL wie die folgende zugegriffen: `<FUNCTION_APP_NAME>.scm.azurewebsites.net`. Durch das Aktivieren von Zugriffsbeschränkungen auf der Kudu-Website wird verhindert, dass der Projektcode von einer lokalen Entwicklerarbeitsstation aus bereitgestellt wird. Anschließend wird ein Agent innerhalb des virtuellen Netzwerks benötigt, um die Bereitstellung auszuführen.
 
 ## <a name="access-the-functions-app"></a>Zugreifen auf die Funktions-App
 
@@ -194,10 +194,10 @@ Im nächsten Schritt dieses Tutorials wird eine Azure-Funktion mit HTTP-Trigger 
 
 1. Verwenden Sie eine der folgenden Schnellstartanleitungen, um Ihre Azure Functions-App zu erstellen und bereitzustellen:
 
-    * [Visual Studio Code](./functions-create-first-function-vs-code.md)
+    * [Visual Studio Code](./create-first-function-vs-code-csharp.md)
     * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
-    * [Befehlszeile](./functions-create-first-azure-function-azure-cli.md)
-    * [Maven (Java)](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser)
+    * [Befehlszeile](./create-first-function-cli-csharp.md)
+    * [Maven (Java)](./create-first-function-cli-java.md?tabs=bash,browser)
 
 1. Wählen Sie beim Veröffentlichen Ihres Azure Functions-Projekts die Funktions-App-Ressource aus, die Sie weiter oben in diesem Tutorial erstellt haben.
 1. Vergewissern Sie sich, dass die Funktion bereitgestellt wurde.

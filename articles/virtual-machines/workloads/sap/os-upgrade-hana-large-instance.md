@@ -7,18 +7,19 @@ author: saghorpa
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8485f3474da18e052bc0eab6c053be084ef884a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cdc6dd49fe98085edf3c6fb16606b9f540b5a3a0
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82192415"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608689"
 ---
 # <a name="operating-system-upgrade"></a>Betriebssystemupgrade
 In diesem Dokument werden die Details zu Betriebssystemupgrades für SAP HANA (große Instanzen) beschrieben.
@@ -26,10 +27,13 @@ In diesem Dokument werden die Details zu Betriebssystemupgrades für SAP HANA (g
 >[!NOTE]
 >Das Betriebssystemupgrade liegt in der Zuständigkeit des Kunden. Der Microsoft Operations-Support kann Sie dabei auf wichtige Punkte hinweisen, die beim Upgrade zu beachten sind. Bevor Sie Planungen für ein Upgrade treffen, sollten Sie auch den Hersteller Ihres Betriebssystems zurate ziehen.
 
+> [!NOTE]
+> Dieser Artikel enthält Verweise auf den Begriff *Blacklist*, der von Microsoft nicht mehr verwendet wird. Sobald der Begriff aus der Software entfernt wurde, wird er auch aus diesem Artikel entfernt.
+
 Das Microsoft Operations-Team installiert das Betriebssystem während der Bereitstellung der HLI-Einheiten.
 Im Lauf der Zeit müssen Sie Wartungsvorgänge für das Betriebssystem für die HLI-Einheit vornehmen (z.B. Patches erstellen, optimieren, Upgrades durchführen).
 
-Bevor Sie umfassende Änderungen am Betriebssystem vornehmen (z.B. ein Upgrade von SP1 auf SP2), müssen Sie sich zunächst an das Microsoft Operations-Team wenden, indem Sie ein Supportticket öffnen.
+Bevor Sie bedeutende Änderungen am Betriebssystem vornehmen (z. B. ein Upgrade von SP1 auf SP2), müssen Sie sich zunächst an das Microsoft Operations-Team wenden, indem Sie ein Supportticket öffnen.
 
 Geben Sie folgende Informationen in Ihrem Ticket an:
 
@@ -38,11 +42,9 @@ Geben Sie folgende Informationen in Ihrem Ticket an:
 * Die Patchebene, die Sie anwenden möchten
 * Das Datum, an dem Sie diese Änderung planen 
 
-Es empfiehlt sich, dieses Ticket mindestens eine Woche vor dem gewünschten Datum des Upgrades zu öffnen, damit das Operations-Team überprüfen kann, ob ein Firmwareupgrade auf Ihrer Serverblade erforderlich ist.
-
+Es wird empfohlen, dieses Ticket mindestens eine Woche vor dem gewünschten Upgrade zu öffnen, damit das Operations-Team die gewünschte Firmwareversion kennt.
 
 Die Supportmatrix der anderen SAP HANA-Versionen mit den verschiedenen Linux-Versionen finden Sie im [SAP-Hinweis 2235581](https://launchpad.support.sap.com/#/notes/2235581).
-
 
 ## <a name="known-issues"></a>Bekannte Probleme
 
@@ -55,16 +57,17 @@ Im Folgenden werden einige bekannte Probleme bei Upgrades erläutert:
 Die Betriebssystemkonfiguration kann sich im Lauf der Zeit aufgrund angewendeter Patches, Systemupgrades und vom Kunden vorgenommener Änderungen von den empfohlenen Einstellungen fortbewegen. Darüber hinaus identifiziert Microsoft die erforderlichen Updates für bestehende Systeme, um sicherzustellen, dass diese optimal für die beste Leistung und Ausfallsicherheit konfiguriert sind. Die folgenden Anweisungen enthalten Empfehlungen, die sich auf die Netzwerkleistung, die Systemstabilität und die optimale HANA-Leistung beziehen.
 
 ### <a name="compatible-enicfnic-driver-versions"></a>Kompatible eNIC/fNIC-Treiberversionen
-  Um eine ordnungsgemäße Netzwerkleistung und Systemstabilität zu gewährleisten, sollte unbedingt darauf geachtet werden, dass die betriebssystemspezifische geeignete Version der eNIC- und fNIC-Treiber installiert ist, wie in der folgenden Kompatibilitätstabelle dargestellt. Server werden mit kompatiblen Versionen an Kunden ausgeliefert. Beachten Sie, dass beim Anwenden von Patches auf das Betriebssystem/den Kernel in manchen Fällen ein Rollback der Treiber auf die Standardtreiberversionen erfolgen kann. Stellen Sie sicher, dass nach Patchvorgängen an Betriebssystem/Kernel die passende Treiberversion ausgeführt wird.
+  Um eine ordnungsgemäße Netzwerkleistung und Systemstabilität zu gewährleisten, sollte unbedingt darauf geachtet werden, dass die betriebssystemspezifische geeignete Version der eNIC- und fNIC-Treiber installiert ist, wie in der folgenden Kompatibilitätstabelle dargestellt. Server werden mit kompatiblen Versionen an Kunden ausgeliefert. Beim Anwenden von Patches auf das Betriebssystem/den Kernel kann in manchen Fällen ein Rollback der Treiber auf die Standardtreiberversionen erfolgen. Stellen Sie sicher, dass nach Patchvorgängen an Betriebssystem/Kernel die passende Treiberversion ausgeführt wird.
        
       
   |  Betriebssystemhersteller    |  Betriebssystem-Paketversion     |  Firmware Version  |  eNIC-Treiber |  fNIC-Treiber | 
   |---------------|-------------------------|--------------------|--------------|--------------|
   |   SuSE        |  SLES 12 SP2            |   3.1.3h           |  2.3.0.40    |   1.6.0.34   |
   |   SuSE        |  SLES 12 SP3            |   3.1.3h           |  2.3.0.44    |   1.6.0.36   |
-  |   SuSE        |  SLES 12 SP4            |   3.2.3i           |  2.3.0.47    |   2.0.0.54   |
+  |   SuSE        |  SLES 12 SP4            |   3.2.3i           |  4.0.0.6     |   2.0.0.60   |
   |   SuSE        |  SLES 12 SP2            |   3.2.3i           |  2.3.0.45    |   1.6.0.37   |
-  |   SuSE        |  SLES 12 SP3            |   3.2.3i           |  2.3.0.45    |   1.6.0.37   |
+  |   SuSE        |  SLES 12 SP3            |   3.2.3i           |  2.3.0.43    |   1.6.0.36   |
+  |   SuSE        |  SLES 12 SP5            |   3.2.3i           |  4.0.0.8     |   2.0.0.60   |
   |   Red Hat     |  RHEL 7.2               |   3.1.3h           |  2.3.0.39    |   1.6.0.34   |
  
 
@@ -88,6 +91,15 @@ rpm -ivh <enic/fnic.rpm>
 modinfo enic
 modinfo fnic
 ```
+
+#### <a name="steps-for-enicfnic-drivers-installation-during-os-upgrade"></a>Schritte zur Installation von eNIC/fNIC-Treibern während des Betriebssystemupgrades
+
+* Upgrade der Betriebssystemversion
+* Entfernen alter RPM-Pakete
+* Installieren kompatibler eNIC/fNIC-Treiber entsprechend der installierten Betriebssystemversion
+* Neustarten des Systems
+* Überprüfen der eNIC/fNIC-Version nach dem Neustart
+
 
 ### <a name="suse-hlis-grub-update-failure"></a>SuSE HLIs GRUB-Updatefehler
 SAP in Azure HANA (große Instanzen, Typ I) kann sich nach dem Upgrade in einem nicht startfähigen Zustand befinden. Das Problem lässt sich mit dem unten beschriebenen Verfahren beheben.
@@ -117,7 +129,6 @@ blacklist edac_core
 ```
 Ein Neustart ist erforderlich, damit die Änderungen wirksam werden. Führen Sie den `lsmod`-Befehl aus, um zu überprüfen, dass das Modul nicht in der Ausgabe vorhanden ist.
 
-
 ### <a name="kernel-parameters"></a>Kernelparameter
    Vergewissern Sie sich, dass die richtigen Einstellungen für `transparent_hugepage`, `numa_balancing`, `processor.max_cstate`, `ignore_ce` und `intel_idle.max_cstate` angewendet werden.
 
@@ -126,7 +137,6 @@ Ein Neustart ist erforderlich, damit die Änderungen wirksam werden. Führen Sie
 * transparent_hugepage=never
 * numa_balancing=disable
 * mce=ignore_ce
-
 
 #### <a name="execution-steps"></a>Ausführungsschritte
 

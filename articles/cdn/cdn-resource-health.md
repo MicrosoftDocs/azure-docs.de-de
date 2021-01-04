@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 65b3d5a29028214a52e6b26430472394c91c6f27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81c92b6ef5bdf89391364bc238f55200eb3679f6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887061"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778167"
 ---
 # <a name="monitor-the-health-of-azure-cdn-resources"></a>Überwachen der Integrität von Azure CDN-Ressourcen
   
-Die Integrität von Azure CDN-Ressourcen ist Teil von [Azure Resource Health](../resource-health/resource-health-overview.md).  Mit Azure Resource Health können Sie die Integrität von CDN-Ressourcen überwachen und erhalten praktische Anweisungen zur Problembehandlung.
+Die Integrität von Azure CDN-Ressourcen ist Teil von [Azure Resource Health](../service-health/resource-health-overview.md).  Mit Azure Resource Health können Sie die Integrität von CDN-Ressourcen überwachen und erhalten praktische Anweisungen zur Problembehandlung.
 
 >[!IMPORTANT] 
 >Die Integrität von Azure CDN-Ressourcen berücksichtigt derzeit nur die Integrität von globalen CDN-Übermittlungs- und -API-Funktionen.  Die Azure CDN-Ressourcenintegrität überprüft keine einzelnen CDN-Endpunkte.
@@ -38,7 +38,7 @@ Die Integrität von Azure CDN-Ressourcen ist Teil von [Azure Resource Health](..
 
     ![Schaltfläche „Einstellungen“](./media/cdn-resource-health/cdn-profile-settings.png)
 
-3. Klicken Sie unter *Support und Problembehandlung* auf **Ressourcenintegrität**.
+3. Klicken Sie unter *Support und Problembehandlung* auf **Ressourcenintegrität** .
 
     ![Ressourcenintegrität für CDN](./media/cdn-resource-health/cdn-resource-health3.png)
 
@@ -51,7 +51,7 @@ Die Integrität von Azure CDN-Ressourcen ist Teil von [Azure Resource Health](..
 
 Die Status für die Azure CDN-Ressourcenintegrität werden unten aufgeführt.
 
-|`Message` | Empfohlene Maßnahme |
+|`Message` | Empfohlene Maßnahme |
 |---|---|
 |Einer Ihrer CDN-Endpunkte wurde möglicherweise beendet, entfernt oder falsch konfiguriert | Einer Ihrer CDN-Endpunkte wurde möglicherweise beendet, entfernt oder falsch konfiguriert.|
 |Leider ist der CDN-Verwaltungsdienst momentan nicht verfügbar. | Überprüfen Sie diese Seite auf Statusaktualisierungen. Wenn das Problem nach der erwarteten Behebungsdauer weiterhin auftritt, wenden Sie sich an den Support.|
@@ -62,6 +62,6 @@ Leider kommt es momentan zu Problemen mit einigen unserer CDN-Anbieter | Überpr
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Übersicht über Azure Resource Health](../resource-health/resource-health-overview.md)
+- [Übersicht über Azure Resource Health](../service-health/resource-health-overview.md)
 - [Problembehandlung bei der CDN-Komprimierung](./cdn-troubleshoot-compression.md)
 - [Problembehandlung bei 404-Fehlern](./cdn-troubleshoot-endpoint.md)

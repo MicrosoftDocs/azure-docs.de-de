@@ -1,18 +1,20 @@
 ---
 title: Ausgaben in Vorlagen
-description: Beschreibt, wie Ausgabewerte in einer Azure Resource Manager-Vorlage definiert werden.
+description: Beschreibt, wie Ausgabewerte in einer Azure Resource Manager-Vorlage (ARM-Vorlage) definiert werden.
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 203bfc66e9515ef14a5fe1315ef5b9ee07075041
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: 6a375dfbc767bcbbfd8ec6b7f8cb9e942e275582
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79460023"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353526"
 ---
-# <a name="outputs-in-azure-resource-manager-template"></a>Ausgaben in einer Azure Resource Manager-Vorlage
+# <a name="outputs-in-arm-templates"></a>Ausgaben in ARM-Vorlagen
 
-Dieser Artikel beschreibt, wie Sie Ausgabewerte in Ihrer Azure Resource Manager-Vorlage definieren. Sie verwenden Ausgaben, wenn Werte von den bereitgestellten Ressourcen zurückgegeben werden müssen.
+Dieser Artikel beschreibt, wie Sie Ausgabewerte in Ihrer Azure Resource Manager-Vorlage (ARM-Vorlage) definieren. Sie verwenden Ausgaben, wenn Werte von den bereitgestellten Ressourcen zurückgegeben werden müssen.
+
+Das Format der einzelnen Ausgabewerte muss mit einem der [Datentypen](template-syntax.md#data-types) identisch sein.
 
 ## <a name="define-output-values"></a>Definieren von Ausgabewerten
 
@@ -118,4 +120,4 @@ In den folgenden Beispielen werden Szenarien für die Verwendung von Ausgaben ve
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Weitere Informationen zu den verfügbaren Eigenschaften für Ausgaben finden Sie unter [Verstehen der Struktur und Syntax von Azure Resource Manager-Vorlagen](template-syntax.md).
+* Weitere Informationen zu den verfügbaren Eigenschaften für Ausgaben finden Sie unter [Verstehen der Struktur und Syntax von ARM-Vorlagen](template-syntax.md).

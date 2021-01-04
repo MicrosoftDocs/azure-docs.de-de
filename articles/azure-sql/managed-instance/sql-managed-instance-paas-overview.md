@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 211ce85fdbf918171ecfc7964bbcdfa2ef245990
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 83f38797e406ff7e62503f59ef979b9ce4f07f97
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790711"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917935"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Was ist Azure SQL Managed Instance?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -33,7 +33,7 @@ In der folgenden Abbildung sind die wichtigsten Features von SQL Managed Instanc
 
 ![Wichtige Features](./media/sql-managed-instance-paas-overview/key-features.png)
 
-Azure SQL Managed Instance ist für Kunden konzipiert, die eine große Anzahl von Apps aus einer selbst erstellten oder über ISVs bereitgestellten lokalen Umgebung oder IaaS-Umgebung mit möglichst geringem Migrationsaufwand in eine vollständig verwaltete PaaS-Cloudumgebung migrieren möchten. Unter Verwendung des vollständig automatisierten [Azure Data Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) können Kunden ihre vorhandenen SQL Server-Instanzen per Lift & Shift zu einer SQL Managed Instance-Instanz migrieren, die Kompatibilität mit SQL Server und vollständige Isolation von Kundeninstanzen mit nativer VNET-Unterstützung bietet.  Mit Software Assurance können Sie Ihre vorhandenen Lizenzen mit dem [Azure-Hybridvorteil für SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) zu ermäßigten Preisen gegen eine SQL Managed Instance-Instanz austauschen. Eine SQL Managed Instance-Instanz ist das optimale Cloudmigrationsziel für SQL Server-Instanzen, die hohe Sicherheit und eine umfangreiche Programmieroberfläche voraussetzen.
+Azure SQL Managed Instance ist für Kunden konzipiert, die eine große Anzahl von Apps aus einer selbst erstellten oder über ISVs bereitgestellten lokalen Umgebung oder IaaS-Umgebung mit möglichst geringem Migrationsaufwand in eine vollständig verwaltete PaaS-Cloudumgebung migrieren möchten. Unter Verwendung des vollständig automatisierten [Azure Data Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) können Kunden ihre vorhandenen SQL Server-Instanzen per Lift & Shift zu einer SQL Managed Instance-Instanz migrieren, die Kompatibilität mit SQL Server und vollständige Isolation von Kundeninstanzen mit nativer VNET-Unterstützung bietet. Weitere Informationen zu Migrationsoptionen und -tools finden Sie unter [Migrationsübersicht: SQL Server zu SQL Managed Instance](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md).</br> Mit Software Assurance können Sie Ihre vorhandenen Lizenzen mit dem [Azure-Hybridvorteil für SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) zu ermäßigten Preisen gegen eine SQL Managed Instance-Instanz austauschen. Eine SQL Managed Instance-Instanz ist das optimale Cloudmigrationsziel für SQL Server-Instanzen, die hohe Sicherheit und eine umfangreiche Programmieroberfläche voraussetzen.
 
 ## <a name="key-features-and-capabilities"></a>Wichtige Features und Funktionen
 
@@ -77,7 +77,7 @@ Das auf [virtuellen Kernen basierende Kaufmodell](../database/service-tiers-vcor
 Beim V-Kern-Modell können Sie verschiedene Hardwaregenerationen auswählen.
 
 - **Gen4:** Logische CPUs basierend auf Intel®-Prozessoren vom Typ E5-2673 v3 (Haswell) mit 2,4 GHz, angefügtem SSD, physischen Kernen, 7 GB RAM pro Kern und Computegrößen zwischen acht und 24 virtuellen Kernen.
-- **Gen5** : Logische CPUs basierend auf Intel®-Prozessoren vom Typ E5-2673 v4 (Broadwell) mit 2,3 GHz und Intel®-Prozessoren vom Typ SP-8160 (Skylake) sowie Intel®-Prozessoren vom Typ 8272CL (Cascade Lake) mit 2,5 GHz, schnellem NVMe-SSD, einem logischem Kern mit Hyperthreading und Computegrößen zwischen vier und 80 Kernen.
+- **Gen5**: Logische CPUs basierend auf Intel®-Prozessoren vom Typ E5-2673 v4 (Broadwell) mit 2,3 GHz und Intel®-Prozessoren vom Typ SP-8160 (Skylake) sowie Intel®-Prozessoren vom Typ 8272CL (Cascade Lake) mit 2,5 GHz, schnellem NVMe-SSD, einem logischem Kern mit Hyperthreading und Computegrößen zwischen vier und 80 Kernen.
 
 Weitere Informationen zu den Unterschieden zwischen Hardwaregenerationen finden Sie unter [Ressourceneinschränkungen für SQL Managed Instance](resource-limits.md#hardware-generation-characteristics).
 
@@ -85,8 +85,8 @@ Weitere Informationen zu den Unterschieden zwischen Hardwaregenerationen finden 
 
 SQL Managed Instance ist in zwei Dienstebenen verfügbar:
 
-- **Universell** : Entwickelt für Anwendungen mit typischen Leistungs- und E/A-Latenzanforderungen
-- **Unternehmenskritisch** : Entwickelt für Anwendungen mit niedrigen E/A-Latenzanforderungen und minimalen Auswirkungen auf zugrunde liegende Wartungsvorgänge für die Workload
+- **Universell**: Entwickelt für Anwendungen mit typischen Leistungs- und E/A-Latenzanforderungen
+- **Unternehmenskritisch**: Entwickelt für Anwendungen mit niedrigen E/A-Latenzanforderungen und minimalen Auswirkungen auf zugrunde liegende Wartungsvorgänge für die Workload
 
 Beide Dienstebenen garantieren eine Verfügbarkeit von 99,99 Prozent und ermöglichen es Ihnen, die Speichergröße und Computekapazität unabhängig voneinander auszuwählen. Weitere Informationen zur Hochverfügbarkeitsarchitektur von Azure SQL Managed Instance finden Sie unter [Hochverfügbarkeit und Azure SQL Managed Instance](../database/high-availability-sla.md).
 
@@ -156,9 +156,9 @@ Die Migration einer verschlüsselten Datenbank zu SQL Managed Instance wird übe
 
 ## <a name="azure-active-directory-integration"></a>Azure Active Directory-Integration
 
-SQL Managed Instance unterstützt herkömmliche SQL Server-Datenbank-Engine-Anmeldungen und mit Azure AD integrierte Anmeldungen. Azure AD-Serverprinzipale (Anmeldungen) ( **Public Preview** ) sind eine Azure-Cloudversion von lokalen Datenbankanmeldungen, die Sie in Ihrer lokalen Umgebung verwenden. Azure AD-Serverprinzipale (Anmeldungen) ermöglichen Ihnen das Angeben von Benutzern und Gruppen von Ihrem Azure AD-Mandanten als Prinzipale, die auch tatsächlich im Bereich der Instanz liegen. So können Sie jeden Vorgang auf Instanzebene ausführen – auch datenbankübergreifende Abfragen innerhalb derselben verwalteten Instanz.
+SQL Managed Instance unterstützt herkömmliche SQL Server-Datenbank-Engine-Anmeldungen und mit Azure AD integrierte Anmeldungen. Azure AD-Serverprinzipale (Anmeldungen) (**Public Preview**) sind eine Azure-Cloudversion von lokalen Datenbankanmeldungen, die Sie in Ihrer lokalen Umgebung verwenden. Azure AD-Serverprinzipale (Anmeldungen) ermöglichen Ihnen das Angeben von Benutzern und Gruppen von Ihrem Azure AD-Mandanten als Prinzipale, die auch tatsächlich im Bereich der Instanz liegen. So können Sie jeden Vorgang auf Instanzebene ausführen – auch datenbankübergreifende Abfragen innerhalb derselben verwalteten Instanz.
 
-Eine neue Syntax wird eingeführt, um Azure AD-Serverprinzipale (Anmeldungen) zu erstellen: **FROM EXTERNAL PROVIDER** . Weitere Informationen zur Syntax finden Sie unter <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>. Lesen Sie auch den Artikel [Bereitstellen eines Azure Active Directory-Administrators für SQL Managed Instance](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
+Eine neue Syntax wird eingeführt, um Azure AD-Serverprinzipale (Anmeldungen) zu erstellen: **FROM EXTERNAL PROVIDER**. Weitere Informationen zur Syntax finden Sie unter <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>. Lesen Sie auch den Artikel [Bereitstellen eines Azure Active Directory-Administrators für SQL Managed Instance](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory-Integration und Multi-Factor Authentication
 
@@ -168,10 +168,10 @@ SQL Managed Instance ermöglicht über die [Azure Active Directory-Integration](
 
 Die Authentifizierung von SQL Managed Instance bezieht sich darauf, wie Benutzer ihre Identität beim Herstellen der Verbindung mit der Datenbank nachweisen. SQL Managed Instance unterstützt zwei Arten der Authentifizierung:  
 
-- **SQL-Authentifizierung** :
+- **SQL-Authentifizierung**:
 
   Diese Authentifizierungsmethode verwendet einen Benutzernamen und ein Kennwort.
-- **Azure Active Directory-Authentifizierung** :
+- **Azure Active Directory-Authentifizierung**:
 
   Diese Authentifizierungsmethode verwendet von Azure Active Directory verwaltete Identitäten und wird für verwaltete und integrierte Domänen unterstützt. Verwenden Sie immer die Active Directory-Authentifizierung (integrierte Sicherheit), [sofern dies möglich ist](/sql/relational-databases/security/choose-an-authentication-mode).
 
@@ -181,14 +181,14 @@ Autorisierung bezieht sich darauf, welche Aufgaben ein Benutzer innerhalb einer 
 
 ## <a name="database-migration"></a>Datenbankmigration
 
-SQL Managed Instance zielt auf Benutzerszenarien mit einer Massenmigration der Datenbank von lokalen oder IaaS-Datenbankimplementierungen ab. SQL Managed Instance unterstützt mehrere Optionen zur Datenbankmigration:
+SQL Managed Instance zielt auf Benutzerszenarien mit einer Massenmigration der Datenbank von lokalen oder IaaS-Datenbankimplementierungen ab. Von SQL Managed Instance werden verschiedene Datenmigrationsoptionen unterstützt. Diese werden in den Migrationsleitfäden erläutert. Weitere Informationen finden Sie unter [Migrationsübersicht: SQL Server zu SQL Managed Instance](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md).
 
 ### <a name="backup-and-restore"></a>Sichern und Wiederherstellen  
 
 Beim Migrationsansatz werden SQL-Sicherungen in Azure Blob Storage genutzt. In Azure Storage Blob gespeicherte Sicherungen können mithilfe des [T-SQL RESTORE-Befehls](/sql/t-sql/statements/restore-statements-transact-sql?preserve-view=true&view=azuresqldb-mi-current) direkt in der verwalteten Instanz gespeichert werden.
 
 - Eine Schnellstartanleitung zum Wiederherstellen der Standardsicherungsdatei für die Wide World Importers-Datenbank finden Sie unter [Wiederherstellen einer Datenbanksicherung in einer verwalteten Azure SQL-Datenbank-Instanz](restore-sample-database-quickstart.md). In diesem Schnellstart wird gezeigt, wie eine Sicherungsdatei in Azure Blob Storage hochgeladen und mit einem SAS-Schlüssel (Shared Access Signature) geschützt wird.
-- Weitere Informationen zur Wiederherstellung über eine URL finden Sie unter [Native RESTORE FROM URL-Option](migrate-to-instance-from-sql-server.md#native-restore-from-url).
+- Weitere Informationen zur Wiederherstellung über eine URL finden Sie unter [Native RESTORE FROM URL-Option](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md#backup-and-restore).
 
 > [!IMPORTANT]
 > Sicherungen von einer verwalteten Instanz können nur in einer anderen verwalteten Instanz wiederhergestellt werden. Sie können nicht in einer SQL Server-Instanz oder in Azure SQL-Datenbank wiederhergestellt werden.

@@ -7,18 +7,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: f3f6e33c7c37089f7a9e87ab61bb00c966d8ccc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffaf66cbb5d9fa0b294f5749a1923684f16c2979
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90881909"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488088"
 ---
 # <a name="azure-functions-output-from-azure-stream-analytics"></a>Azure Functions-Ausgabe für Azure Stream Analytics
 
 Azure Functions ist ein serverloser Computedienst, mit dem Sie Code bedarfsgesteuert ausführen können, ohne eine explizite Infrastruktur bereitstellen oder verwalten zu müssen. Mit diesem Dienst können Sie Codes implementieren, die durch in Azure- oder Partnerdiensten auftretende Ereignisse ausgelöst werden. Aufgrund der Möglichkeit, auf Trigger zu antworten, ist Azure Functions die ideale Ausgabe für Azure Stream Analytics. Mithilfe dieses Ausgabeadapters können Benutzer eine Verbindung zwischen Stream Analytics und Azure Functions herstellen und als Reaktion auf verschiedenste Ereignisse ein Skript oder einen Codeausschnitt ausführen.
 
-Die Azure Functions-Ausgabe aus Stream Analytics ist zurzeit nicht in den Regionen Azure China 21Vianet und Azure Deutschland (T-Systems International) verfügbar.
+Die Azure Functions-Ausgabe aus Stream Analytics ist nicht in den Regionen Azure China 21Vianet und Azure Deutschland (T-Systems International) verfügbar. Eine Verbindung mit Azure Functions innerhalb eines virtuellen Netzwerks (VNet) aus einem Stream Analytics-Auftrag, der in einem mehrinstanzenfähigen Cluster ausgeführt wird, wird ebenfalls nicht unterstützt.
 
 Azure Stream Analytics ruft Azure Functions über HTTP-Trigger auf. Der Azure Functions-Ausgabeadapter wird mit folgenden konfigurierbaren Eigenschaften zur Verfügung gestellt:
 

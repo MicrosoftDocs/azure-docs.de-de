@@ -1,7 +1,7 @@
 ---
 title: Was ist ein Arbeitsbereich?
 titleSuffix: Azure Machine Learning
-description: Der Arbeitsbereich ist die Ressource der obersten Ebene für Azure Machine Learning. Der Verlauf aller Trainingsläufe wird gespeichert, z. B. Protokolle, Metriken, Ausgabe und eine Momentaufnahme Ihrer Skripts. Anhand dieser Informationen ermitteln Sie, welcher Trainingslauf das beste Modell ergibt.
+description: Der Arbeitsbereich ist die Ressource der obersten Ebene für Azure Machine Learning. Der Verlauf aller Trainingsausführungen wird gespeichert, z. B. Protokolle, Metriken, Ausgabe und eine Momentaufnahme Ihrer Skripts.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: dccdbcb99b32a922d76b29e5896cdf99290758d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7acb555ddde20d6512119af85a8db055bcd9eeed
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302450"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701652"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Was ist ein Azure Machine Learning-Arbeitsbereich?
 
@@ -52,9 +52,9 @@ Sie können auf folgende Arten mit Ihrem Arbeitsbereich arbeiten:
 + Im Web:
     + [Azure Machine Learning-Studio](https://ml.azure.com) 
     + [Azure Machine Learning-Designer](concept-designer.md) 
-+ In jeder Python-Umgebung mit dem [Azure Machine Learning SDK für Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
++ In jeder Python-Umgebung mit dem [Azure Machine Learning SDK für Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
 + In jeder R-Umgebung mit dem [Azure Machine Learning SDK für R (Vorschau)](https://azure.github.io/azureml-sdk-for-r/reference/index.html)
-+ Über die Befehlszeile mit der [CLI-Erweiterung](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) für Azure Machine Learning
++ Über die Befehlszeile mit der [CLI-Erweiterung](./reference-azure-machine-learning-cli.md) für Azure Machine Learning
 + [Azure Machine Learning-VS Code-Erweiterung](how-to-manage-resources-vscode.md#workspaces)
 
 
@@ -88,8 +88,8 @@ Sie können auch die folgenden Arbeitsbereichsverwaltungsaufgaben ausführen:
 
 Es gibt mehrere Möglichkeiten zum Erstellen eines Arbeitsbereichs:  
 
-* Im [Azure-Portal](how-to-manage-workspace.md) steht eine Point-and-Click-Benutzeroberfläche zur Verfügung, über die Sie die einzelnen Schritte ausführen können.
-* Verwenden Sie das [Azure Machine Learning SDK für Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true#&preserve-view=trueworkspace), um ohne weitere Vorbereitung einen Arbeitsbereich auf der Grundlage von Python-Skripts oder Jupiter Notebooks zu erstellen.
+* Im [Azure-Portal](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) steht eine Point-and-Click-Benutzeroberfläche zur Verfügung, über die Sie die einzelnen Schritte ausführen können.
+* Verwenden Sie das [Azure Machine Learning SDK für Python](how-to-manage-workspace.md?tabs=python#create-a-workspace), um ohne weitere Vorbereitung einen Arbeitsbereich auf der Grundlage von Python-Skripts oder Jupyter Notebooks zu erstellen.
 * Nutzen Sie eine [Azure Resource Manager-Vorlage](how-to-create-workspace-template.md) oder die [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md), wenn Sie die Erstellung automatisieren oder mit Unternehmenssicherheitsstandards anpassen müssen.
 * Verwenden Sie die [VS Code-Erweiterung](how-to-manage-resources-vscode.md#create-a-workspace), wenn Sie mit Visual Studio Code arbeiten.
 
@@ -103,7 +103,7 @@ Wenn Sie einen neuen Arbeitsbereich erstellen, werden darin automatisch mehrere 
 + [Azure Storage-Konto](https://azure.microsoft.com/services/storage/): Wird als Standarddatenspeicher für den Arbeitsbereich verwendet.  Jupyter-Notebooks, die mit Ihren Azure Machine Learning-Compute-Instanzen verwendet werden, werden ebenfalls hier gespeichert. 
   
   > [!IMPORTANT]
-  > Beim Speicherkonto handelt es sich standardmäßig um ein Konto vom Typ „Universell V1“. Nach der Erstellung des Arbeitsbereichs können Sie ein [Upgrade auf „Universell V2“ durchführen](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade). Aktivieren Sie keinen hierarchischen Namespace für das Speicherkonto, nachdem Sie ein Upgrade auf Universell v2 ausgeführt haben.
+  > Beim Speicherkonto handelt es sich standardmäßig um ein Konto vom Typ „Universell V1“. Nach der Erstellung des Arbeitsbereichs können Sie ein [Upgrade auf „Universell V2“ durchführen](../storage/common/storage-account-upgrade.md). Aktivieren Sie keinen hierarchischen Namespace für das Speicherkonto, nachdem Sie ein Upgrade auf Universell v2 ausgeführt haben.
 
   Wenn Sie ein vorhandenes Azure Storage-Konto verwenden möchten, darf es sich nicht um ein Premium-Konto (Premium_LRS oder Premium_GRS) handeln. Es darf auch keinen hierarchischen Namespace aufweisen (mit Azure Data Lake Storage Gen2 verwendet). Weder Storage Premium noch hierarchische Namespaces werden mit dem _Standardspeicherkonto_ des Arbeitsbereichs unterstützt. Sie können Storage Premium noch hierarchische Namespaces mit _nicht standardmäßigen_ Speicherkonten verwenden.
   
@@ -114,7 +114,7 @@ Wenn Sie einen neuen Arbeitsbereich erstellen, werden darin automatisch mehrere 
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Speichert Geheimnisse, die von Computezielen verwendet werden, sowie andere vertrauliche Informationen, die vom Arbeitsbereich benötigt werden.
 
 > [!NOTE]
-> Neben dem Erstellen neuer Versionen können Sie auch vorhandene Azure-Dienste verwenden.
+> Sie können stattdessen vorhandene Azure-Ressourceninstanzen verwenden, wenn Sie den Arbeitsbereich mit dem [Python SDK](how-to-manage-workspace.md?tabs=python#create-a-workspace), dem [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/create_workspace.html) oder der Azure Machine Learning-CLI [unter Verwendung einer ARM-Vorlage](how-to-create-workspace-template.md) erstellen.
 
 <a name="wheres-enterprise"></a>
 
@@ -131,9 +131,9 @@ In beiden Editionen sind Kunden für die Kosten der verbrauchten Azure-Ressource
 Informationen zu den ersten Schritten mit Azure Machine Learning finden Sie unter:
 
 + [Azure Machine Learning – Übersicht](overview-what-is-azure-ml.md)
-+ [Erstellen eines Arbeitsbereichs](how-to-manage-workspace.md)
-+ [Verwalten eines Arbeitsbereichs](how-to-manage-workspace.md)
-+ [Tutorial: Erste Schritte beim Erstellen Ihres ersten ML-Experiments mit dem Python SDK](tutorial-1st-experiment-sdk-setup.md)
++ [Erstellen und Verwalten eines Arbeitsbereichs](how-to-manage-workspace.md)
++ [Tutorial: Erste Schritte mit Azure Machine Learning in Ihrer Entwicklungsumgebung](tutorial-1st-experiment-sdk-setup-local.md)
++ [Tutorial: Erste Schritte beim Erstellen Ihres ersten ML-Experiments in einer Compute-Instanz](tutorial-1st-experiment-sdk-setup.md)
 + [Tutorial: Erste Schritte mit Azure Machine Learning mit dem R SDK](tutorial-1st-r-experiment.md)
 + [Tutorial: Erstellen Ihres ersten Klassifizierungsmodells mit automatisiertem maschinellen Lernen](tutorial-first-experiment-automated-ml.md) 
 + [Tutorial: Prognostizieren von Automobilpreisen mit dem Designer](tutorial-designer-automobile-price-train-score.md)

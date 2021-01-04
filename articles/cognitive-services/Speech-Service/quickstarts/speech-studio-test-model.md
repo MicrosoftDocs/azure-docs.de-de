@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/04/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 9101944a567df5000d3584ed48eff24e4c5e0057
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 572b3b3459e1d837130f3c987d45ee45629f37ad
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89565802"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485075"
 ---
 # <a name="test-a-model-using-an-audio-file-in-speech-studio"></a>Testen eines Modells mithilfe einer Audiodatei in Speech Studio
 
@@ -23,7 +23,7 @@ In dieser Schrittanleitung verwenden Sie Speech Studio, um Spracheingaben aus ei
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Bevor Sie das Speech-Portal verwenden, [folgen Sie diesen Anweisungen, um ein Azure-Konto zu erstellen und den Spracherkennungsdienst](../how-to-custom-speech.md#set-up-your-azure-account) zu abonnieren. Durch dieses einheitliche Abonnement erhalten Sie Zugriff auf die Spracherkennung, Sprachsynthese, Sprachübersetzung und das Custom Speech-Portal.
+Bevor Sie das Speech-Portal verwenden, [folgen Sie diesen Anweisungen, um ein Azure-Konto zu erstellen und den Spracherkennungsdienst](../custom-speech-overview.md#set-up-your-azure-account) zu abonnieren. Durch dieses einheitliche Abonnement erhalten Sie Zugriff auf die Spracherkennung, Sprachsynthese, Sprachübersetzung und das Custom Speech-Portal.
 
 ## <a name="download-an-audio-file"></a>Herunterladen einer Audiodatei
 

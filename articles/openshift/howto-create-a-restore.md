@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 9eac34d643ba0df4be79a064858c580c884de727
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: a4b22036612aac3d2b67e299881ba11b896979e5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078560"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492402"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-restore"></a>Erstellen einer Wiederherstellung einer Azure Red Hat OpenShift 4-Clusteranwendung
 
@@ -23,7 +23,7 @@ In diesem Artikel erfahren Sie, wie Sie Ihre Umgebung für das Erstellen einer W
 > * Einrichten der erforderlichen Komponenten und Installieren der erforderlichen Tools
 > * Erstellen einer Azure Red Hat OpenShift 4-Anwendungswiederherstellung
 
-Wenn Sie die CLI lokal installieren und verwenden möchten, müssen Sie für dieses Tutorial mindestens Version 2.6.0 der Azure CLI ausführen. Führen Sie `az --version` aus, um die Version zu ermitteln. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sie bei Bedarf unter [Installieren der Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Wenn Sie die CLI lokal installieren und verwenden möchten, müssen Sie für dieses Tutorial mindestens Version 2.6.0 der Azure CLI ausführen. Führen Sie `az --version` aus, um die Version zu ermitteln. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sie bei Bedarf unter [Installieren der Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
@@ -88,5 +88,3 @@ In diesem Artikel wurde eine Azure Red Hat OpenShift 4-Clusteranwendung wiederh
 Im nächsten Artikel erfahren Sie mehr über die von Azure Red Hat OpenShift 4 unterstützten Ressourcen:
 
 * [Azure Red Hat OpenShift-Ressourcen](supported-resources.md)
-
-

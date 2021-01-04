@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: efb86dbcbe7619ff6727c5e7374835dc3fc7d731
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: ed4b4d9c1de1e9024e8ea86d4661b42d6c68b0ae
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220498"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460989"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Rollen und Anforderungen für Azure Data Share 
 
@@ -26,7 +26,7 @@ Der verwalteten Identität der Azure Data Share-Ressource muss Zugriff auf den A
 Zum Freigeben oder Empfangen von Daten aus einem Azure-Datenspeicher benötigt der Benutzer mindestens die folgenden Berechtigungen. Für die SQL-basierte Freigabe sind zusätzliche Berechtigungen erforderlich.
 
 * Berechtigung zum Schreiben in den Azure-Datenspeicher. Diese Berechtigung ist normalerweise in der Rolle **Mitwirkender** enthalten.
-* Berechtigung zum Erstellen einer Rollenzuweisung im Azure-Datenspeicher. Die Berechtigung zum Erstellen von Rollenzuweisungen ist normalerweise in der Rolle **Besitzer** , der Rolle „Benutzerzugriffsadministrator“ oder einer benutzerdefinierten Rolle mit zugewiesener Berechtigung „Microsoft.Authorization/role assignments/write“ enthalten. Diese Berechtigung ist nicht erforderlich, wenn der verwalteten Identität der Data Share-Ressource bereits Zugriff auf den Azure-Datenspeicher gewährt wurde. Die erforderliche Rolle finden Sie in der nachstehenden Tabelle.
+* Berechtigung zum Erstellen einer Rollenzuweisung im Azure-Datenspeicher. Die Berechtigung zum Erstellen von Rollenzuweisungen ist normalerweise in der Rolle **Besitzer**, der Rolle „Benutzerzugriffsadministrator“ oder einer benutzerdefinierten Rolle mit zugewiesener Berechtigung „Microsoft.Authorization/role assignments/write“ enthalten. Diese Berechtigung ist nicht erforderlich, wenn der verwalteten Identität der Data Share-Ressource bereits Zugriff auf den Azure-Datenspeicher gewährt wurde. Die erforderliche Rolle finden Sie in der nachstehenden Tabelle.
 
 Im Folgenden finden Sie eine Zusammenfassung der Rollen, die der verwalteten Identität der Data Share-Ressource zugewiesen werden:
 
@@ -43,7 +43,7 @@ Bei SQL-basierter Freigabe muss ein SQL-Benutzer über einen externen Anbieter i
 |**SQL-Datenbanktyp**|**SQL-Benutzerberechtigung des Datenanbieters**|**SQL-Benutzerberechtigung des Datenconsumers**|
 |---|---|---|
 |Azure SQL-Datenbank | db_datareader | db_datareader, db_datawriter, db_ddladmin
-|Azure Synapse Analytics (ehemals SQL DW) | db_datareader | db_datareader, db_datawriter, db_ddladmin
+|Azure Synapse Analytics | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |
 
 ### <a name="data-provider"></a>Datenanbieter
@@ -59,9 +59,9 @@ Wenn Sie eine Rollenzuweisung für die verwaltete Identität der Data Share-Res
 1. Navigieren Sie zum Azure-Datenspeicher.
 1. Wählen Sie **Access Control (IAM)** aus.
 1. Wählen Sie **Rollenzuweisung hinzufügen** aus.
-1. Wählen Sie unter *Rolle* die gewünschte Rolle in der vorstehenden Rollenzuweisungstabelle aus (z. B. für das Speicherkonto die Rolle *Leser von Speicherblobdaten* ).
+1. Wählen Sie unter *Rolle* die gewünschte Rolle in der vorstehenden Rollenzuweisungstabelle aus (z. B. für das Speicherkonto die Rolle *Leser von Speicherblobdaten*).
 1. Geben Sie unter *Auswählen* den Namen Ihrer Azure Data Share-Ressource ein.
-1. Klicken Sie auf *Speichern* .
+1. Klicken Sie auf *Speichern*.
 
 Weitere Informationen zur Rollenzuweisung finden Sie unter [Hinzufügen oder Entfernen von Azure-Rollenzuweisungen über das Azure-Portal](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Wenn Sie Daten mithilfe von REST-APIs freigeben, können Sie die Rollenzuweisung mithilfe der API erstellen. Informationen dazu finden Sie unter [Hinzufügen oder Entfernen von Azure-Rollenzuweisungen mithilfe der REST-API](../role-based-access-control/role-assignments-rest.md). 
 
@@ -79,9 +79,9 @@ Wenn Sie eine Rollenzuweisung für die verwaltete Identität der Data Share-Res
 1. Navigieren Sie zum Azure-Datenspeicher.
 1. Wählen Sie **Access Control (IAM)** aus.
 1. Wählen Sie **Rollenzuweisung hinzufügen** aus.
-1. Wählen Sie unter *Rolle* die gewünschte Rolle in der vorstehenden Rollenzuweisungstabelle aus (z. B. für das Speicherkonto die Rolle *Leser von Speicherblobdaten* ).
+1. Wählen Sie unter *Rolle* die gewünschte Rolle in der vorstehenden Rollenzuweisungstabelle aus (z. B. für das Speicherkonto die Rolle *Leser von Speicherblobdaten*).
 1. Geben Sie unter *Auswählen* den Namen Ihrer Azure Data Share-Ressource ein.
-1. Klicken Sie auf *Speichern* .
+1. Klicken Sie auf *Speichern*.
 
 Weitere Informationen zur Rollenzuweisung finden Sie unter [Hinzufügen oder Entfernen von Azure-Rollenzuweisungen über das Azure-Portal](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Wenn Sie Daten mithilfe von REST-APIs erhalten, können Sie die Rollenzuweisung mithilfe der API erstellen. Informationen dazu finden Sie unter [Hinzufügen oder Entfernen von Azure-Rollenzuweisungen mithilfe der REST-API](../role-based-access-control/role-assignments-rest.md). 
 
@@ -97,11 +97,11 @@ Sie müssen den Microsoft.DataShare-Ressourcenanbieter möglicherweise in den fo
 
 Führen Sie diese Schritte aus, um den Microsoft.DataShare-Ressourcenanbieter in Ihrem Azure-Abonnement zu registrieren. Sie benötigen Zugriff als *Mitwirkender* auf das Azure-Abonnement, um einen Ressourcenanbieter zu registrieren.
 
-1. Navigieren Sie im Azure-Portal zu **Abonnements** .
+1. Navigieren Sie im Azure-Portal zu **Abonnements**.
 1. Wählen Sie das Abonnement aus, das Sie für Azure Data Share verwenden.
-1. Klicken Sie auf **Ressourcenanbieter** .
+1. Klicken Sie auf **Ressourcenanbieter**.
 1. Suchen Sie nach „Microsoft.DataShare“.
-1. Klicken Sie auf **Registrieren** .
+1. Klicken Sie auf **Registrieren**.
  
 Weitere Informationen zu Ressourcenanbietern finden Sie unter [Azure-Ressourcenanbieter und -typen](../azure-resource-manager/management/resource-providers-and-types.md).
 

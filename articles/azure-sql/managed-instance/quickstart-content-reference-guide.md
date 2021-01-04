@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: ae2f2b8b9b6f3bc934321b13dcefeff46e43b089
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 936e4f8f54e92ba90372fff1c9d8dfc1982bbd62
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788161"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325114"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Erste Schritte mit der verwalteten Azure SQL-Instanz
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -35,7 +35,7 @@ In den folgenden Schnellstarts erfahren Sie, wie Sie schnell eine verwaltete SQL
 Zunächst müssen Sie Ihre verwaltete SQL-Instanz mit der Netzwerkumgebung erstellen, in der sie angeordnet werden soll. Außerdem müssen Sie die Verbindung vom Computer bzw. virtuellen Computer aktivieren, auf dem Sie Abfragen für die verwaltete SQL-Instanz ausführen. Sie können die folgenden Leitfäden verwenden:
 
 - [Erstellen einer verwalteten SQL-Instanz im Azure-Portal](instance-create-quickstart.md). Im Azure-Portal können Sie die erforderlichen Parameter (Benutzername/Kennwort, Anzahl von Kernen und maximale Speichermenge) konfigurieren und automatisch die Azure-Netzwerkumgebung erstellen, ohne sich mit Netzwerkdetails oder Infrastrukturanforderungen befassen zu müssen. Sie müssen lediglich sicherstellen, dass Sie über einen [Abonnementtyp](resource-limits.md#supported-subscription-types) verfügen, für den derzeit die Erstellung einer verwalteten SQL-Instanz zulässig ist. Wenn Sie ein eigenes Netzwerk verwenden oder das Netzwerk anpassen möchten, helfen Ihnen die Informationen unter [Konfigurieren eines vorhandenen virtuellen Netzwerks für eine verwaltete Azure SQL-Instanz](vnet-existing-add-subnet.md) oder [Erstellen eines virtuellen Netzwerks für eine verwaltete Azure SQL-Instanz](virtual-network-subnet-create-arm-template.md) weiter.
-- Eine verwaltete SQL-Instanz wird in ihrem eigenen VNET ohne öffentlichen Endpunkt erstellt. Für den Clientanwendungszugriff können Sie wie in einem der folgenden Schnellstartanleitungen beschrieben **eine VM in demselben VNET (in einem anderen Subnetz)** oder **eine Point-to-Site-VPN-Verbindung mit dem VNET auf Ihrem Clientcomputer erstellen** :
+- Eine verwaltete SQL-Instanz wird in ihrem eigenen VNET ohne öffentlichen Endpunkt erstellt. Für den Clientanwendungszugriff können Sie wie in einem der folgenden Schnellstartanleitungen beschrieben **eine VM in demselben VNET (in einem anderen Subnetz)** oder **eine Point-to-Site-VPN-Verbindung mit dem VNET auf Ihrem Clientcomputer erstellen**:
   - Aktivieren Sie den [öffentlichen Endpunkt](public-endpoint-configure.md) auf Ihrer verwalteten SQL-Instanz, um direkt aus Ihrer Umgebung auf Ihre Daten zuzugreifen.
   - Für die Konnektivität von Clientanwendungen (einschließlich SQL Server Management Studio) erstellen Sie eine [Azure-VM im VNET der verwalteten SQL-Instanz](connect-vm-instance-configure.md).
   - Richten Sie auf dem Clientcomputer, auf dem Sie SQL Server Management Studio und andere Anwendungen mit Clientkonnektivität ausführen, eine [Point-to-Site-VPN-Verbindung mit Ihrer verwalteten SQL-Instanz](point-to-site-p2s-configure.md) ein. Dies ist eine der zwei Optionen für die Konnektivität mit Ihrer verwalteten SQL-Instanz und dem zugehörigen VNET.
@@ -72,7 +72,7 @@ In den zuvor erwähnten Schnellstartanleitungen erfahren Sie, wie Sie schnell ei
 Um jedoch Ihre Produktionsdatenbank oder sogar Entwicklungs-/Testdatenbanken zu migrieren, die Sie für Leistungstests verwenden möchten, müssen Sie den Einsatz einiger zusätzlicher Verfahren in Erwägung ziehen, wie zum Beispiel:
 
 - Leistungstests: Sie sollten die Baselineleistungsmetriken auf Ihrer SQL Server-Quellinstanz messen und mit den Leistungsmetriken auf der verwalteten SQL-Zielinstanz vergleichen, zu der Sie die Datenbank migriert haben. Erfahren Sie mehr über die [bewährten Methoden für den Leistungsvergleich](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
-- Onlinemigration: Bei Verwendung der in diesem Artikel beschriebenen nativen `RESTORE`-Funktion müssen Sie jedoch warten, bis die Datenbanken wiederhergestellt wurden (und in Azure Blob Storage kopiert wurden, sofern sie dort noch nicht gespeichert sind). Dies führt insbesondere bei größeren Datenbanken zu einer Downtime Ihrer Anwendung. Verwenden Sie für Ihre Produktionsdatenbank [Data Migration Service (DMS)](../../dms/tutorial-sql-server-to-managed-instance.md?toc=%252fazure%252fsql-database%252ftoc.json), um die Datenbank mit minimaler Downtime zu migrieren. DMS pusht die in Ihrer Quelldatenbank vorgenommenen Änderungen inkrementell in die Datenbank der verwalteten SQL-Instanz, die wiederhergestellt wird, und minimiert so die Downtime. Dadurch können Sie Ihre Anwendung schnell und mit minimaler Downtime von der Quell- auf die Zieldatenbank umstellen.
+- Onlinemigration: Bei Verwendung der in diesem Artikel beschriebenen nativen `RESTORE`-Funktion müssen Sie jedoch warten, bis die Datenbanken wiederhergestellt wurden (und in Azure Blob Storage kopiert wurden, sofern sie dort noch nicht gespeichert sind). Dies führt insbesondere bei größeren Datenbanken zu einer Downtime Ihrer Anwendung. Verwenden Sie für Ihre Produktionsdatenbank [Data Migration Service (DMS)](../../dms/tutorial-sql-server-to-managed-instance.md?toc=%2fazure%2fsql-database%2ftoc.json), um die Datenbank mit minimaler Downtime zu migrieren. DMS pusht die in Ihrer Quelldatenbank vorgenommenen Änderungen inkrementell in die Datenbank der verwalteten SQL-Instanz, die wiederhergestellt wird, und minimiert so die Downtime. Dadurch können Sie Ihre Anwendung schnell und mit minimaler Downtime von der Quell- auf die Zieldatenbank umstellen.
 
 Erfahren Sie mehr über den [empfohlenen Migrationsprozess](migrate-to-instance-from-sql-server.md).
 

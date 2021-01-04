@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 21da883867da41e81ed1787faa0ebe0e6dd25d99
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 034f2b3884d732487a9f7aff4d14740691983885
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107877"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536777"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Entwerfen Ihrer Azure Monitor-Protokollbereitstellung
 
@@ -60,7 +60,7 @@ Wenn Sie System Center Operations Manager 2012 R2 oder höher verwenden, gilt 
 
 ## <a name="access-control-overview"></a>Übersicht über die Zugriffssteuerung
 
-Mit der rollenbasierten Zugriffssteuerung (Role-Based Access Control, RBAC) können Sie Benutzern und Gruppen nur den Zugriff gewähren, den sie zum Arbeiten mit Überwachungsdaten in einem Arbeitsbereich benötigen. Dies ermöglicht Ihnen die Anpassung an das Betriebsmodell Ihrer IT-Organisation mit einem einzelnen Arbeitsbereich zum Speichern gesammelter Daten auf allen Ihren Ressourcen. Wenn Sie beispielsweise dem Team Zugriff gewähren, das für die auf virtuellen Azure-Computern (VMs) gehosteten Infrastrukturdienste zuständig ist, hat das Team nur Zugriff auf die Protokolle, die von den VMs generiert werden. Dies entspricht unserem neuen Ressourcenkontext-Protokollmodell. Die Grundlage für dieses Modell ist, dass jeder von einer Azure-Ressource ausgegebene Protokolldatensatz automatisch dieser Ressource zugeordnet wird. Protokolle werden an einen zentralen Arbeitsbereich weitergeleitet, der die Bereichsdefinition und RBAC basierend auf den Ressourcen beachtet.
+Mit der rollenbasierten Zugriffssteuerung in Azure (Azure RBAC) können Sie Benutzern und Gruppen nur den Zugriff gewähren, den sie zum Arbeiten mit Überwachungsdaten in einem Arbeitsbereich benötigen. Dies ermöglicht Ihnen die Anpassung an das Betriebsmodell Ihrer IT-Organisation mit einem einzelnen Arbeitsbereich zum Speichern gesammelter Daten auf allen Ihren Ressourcen. Wenn Sie beispielsweise dem Team Zugriff gewähren, das für die auf virtuellen Azure-Computern (VMs) gehosteten Infrastrukturdienste zuständig ist, hat das Team nur Zugriff auf die Protokolle, die von den VMs generiert werden. Dies entspricht unserem neuen Ressourcenkontext-Protokollmodell. Die Grundlage für dieses Modell ist, dass jeder von einer Azure-Ressource ausgegebene Protokolldatensatz automatisch dieser Ressource zugeordnet wird. Protokolle werden an einen zentralen Arbeitsbereich weitergeleitet, der die Bereichsdefinition und Azure RBAC basierend auf den Ressourcen beachtet.
 
 Die Daten, auf die ein Benutzer Zugriff hat, werden durch eine Kombination von Faktoren bestimmt, die in der folgenden Tabelle aufgeführt sind. Jeder dieser Faktoren wird in den folgenden Abschnitten beschrieben.
 
@@ -69,7 +69,7 @@ Die Daten, auf die ein Benutzer Zugriff hat, werden durch eine Kombination von F
 | [Zugriffsmodus](#access-mode) | Die Methode, die der Benutzer verwendet, um auf den Arbeitsbereich zuzugreifen.  Definiert den Bereich der verfügbaren Daten und den Zugriffssteuerungsmodus, der angewendet wird. |
 | [Zugriffssteuerungsmodus](#access-control-mode) | Eine Einstellung für den Arbeitsbereich, die definiert, ob Berechtigungen auf der Arbeitsbereich- oder Ressourcenebene angewendet werden. |
 | [Berechtigungen](manage-access.md) | Berechtigungen, die auf einzelne Benutzer oder Gruppen von Benutzern für den Arbeitsbereich oder die Ressource angewendet werden. Definiert, auf welche Daten der Benutzer zugreifen kann. |
-| [RBAC auf Tabellenebene](manage-access.md#table-level-rbac) | Optionale präzise Berechtigungen, die für alle Benutzer unabhängig von deren Zugriffs- oder Zugriffssteuerungsmodus gelten. Definiert die Datentypen, auf die ein Benutzer zugreifen kann. |
+| [Azure RBAC auf Tabellenebene](manage-access.md#table-level-azure-rbac) | Optionale präzise Berechtigungen, die für alle Benutzer unabhängig von deren Zugriffs- oder Zugriffssteuerungsmodus gelten. Definiert die Datentypen, auf die ein Benutzer zugreifen kann. |
 
 ## <a name="access-mode"></a>Zugriffsmodus
 
@@ -81,7 +81,7 @@ Benutzer haben zwei Möglichkeiten, auf die Daten zuzugreifen:
 
     ![Log Analytics-Kontext vom Arbeitsbereich](./media/design-logs-deployment/query-from-workspace.png)
 
-* **Ressourcenkontext**: Wenn Sie auf den Arbeitsbereich für eine bestimmte Ressource, eine Ressourcengruppe oder ein Abonnement zugreifen (etwa, wenn Sie **Protokolle** aus einem Ressourcenmenü im Azure-Portal auswählen), können Sie Protokolle nur für diese Ressource in allen Tabellen anzeigen, auf die Sie Zugriff besitzen. Abfragen in diesem Modus beziehen sich auf nur Daten, die dieser Ressource zugeordnet sind. Dieser Modus ermöglicht außerdem eine differenzierte rollenbasierte Zugriffssteuerung (RBAC).
+* **Ressourcenkontext**: Wenn Sie auf den Arbeitsbereich für eine bestimmte Ressource, eine Ressourcengruppe oder ein Abonnement zugreifen (etwa, wenn Sie **Protokolle** aus einem Ressourcenmenü im Azure-Portal auswählen), können Sie Protokolle nur für diese Ressource in allen Tabellen anzeigen, auf die Sie Zugriff besitzen. Abfragen in diesem Modus beziehen sich auf nur Daten, die dieser Ressource zugeordnet sind. Dieser Modus ermöglicht außerdem eine differenzierte rollenbasierte Zugriffssteuerung (RBAC) in Azure.
 
     ![Log Analytics-Kontext von der Ressource](./media/design-logs-deployment/query-from-resource.png)
 
@@ -103,22 +103,22 @@ Die Zugriffsmodi werden in der folgenden Tabelle zusammengefasst:
 |:---|:---|:---|
 | Für wen ist das jeweilige Modell vorgesehen? | Zentraladministration. Administratoren, die die Datensammlung konfigurieren müssen, und Benutzer, die Zugriff auf eine Vielzahl von Ressourcen benötigen. Zurzeit auch erforderlich für Benutzer, die Zugriff auf Protokolle für Ressourcen außerhalb von Azure benötigen. | Anwendungsteams. Administratoren von Azure-Ressourcen, die überwacht werden. |
 | Was ist für einen Benutzer erforderlich, um Protokolle anzuzeigen? | Berechtigungen für den Arbeitsbereich. Informationen finden Sie unter **Arbeitsbereichsberechtigungen** im Abschnitt [Zugriffsverwaltung mithilfe von Arbeitsbereichsberechtigungen](manage-access.md#manage-access-using-workspace-permissions). | Lesezugriff auf die Ressource. Informationen finden Sie unter **Ressourcenberechtigungen** im Abschnitt [Zugriffsverwaltung mithilfe von Azure-Berechtigungen](manage-access.md#manage-access-using-azure-permissions). Berechtigungen können vererbt (z.B. aus der enthaltenden Ressourcengruppe) oder der Ressource direkt zugeordnet werden. Die Berechtigung für die Protokolle für die Ressource wird automatisch zugewiesen. |
-| Welchen Geltungsbereich haben Berechtigungen? | Den Arbeitsbereich. Benutzer mit Zugriff auf den Arbeitsbereich können alle Protokolle in diesem Arbeitsbereich aus Tabellen abfragen, für die sie über Berechtigungen verfügen. Siehe [Tabellenzugriffssteuerung](manage-access.md#table-level-rbac). | Die Azure-Ressource. Der Benutzer kann Protokolle für bestimmte Ressourcen, Ressourcengruppen oder ein Abonnement, auf die bzw. das er Zugriff hat, aus jedem Arbeitsbereich abfragen, aber nicht Protokolle für andere Ressourcen. |
+| Welchen Geltungsbereich haben Berechtigungen? | Den Arbeitsbereich. Benutzer mit Zugriff auf den Arbeitsbereich können alle Protokolle in diesem Arbeitsbereich aus Tabellen abfragen, für die sie über Berechtigungen verfügen. Siehe [Tabellenzugriffssteuerung](manage-access.md#table-level-azure-rbac). | Die Azure-Ressource. Der Benutzer kann Protokolle für bestimmte Ressourcen, Ressourcengruppen oder ein Abonnement, auf die bzw. das er Zugriff hat, aus jedem Arbeitsbereich abfragen, aber nicht Protokolle für andere Ressourcen. |
 | Wie kann der Benutzer auf Protokolle zugreifen? | <ul><li>Starten von **Protokolle** im **Azure Monitor**-Menü</li></ul> <ul><li>Starten von **Protokolle** unter **Log Analytics-Arbeitsbereiche**</li></ul> <ul><li>Über Azure Monitor-[Arbeitsmappen](../visualizations.md#workbooks)</li></ul> | <ul><li>Starten von **Protokolle** im Menü für die Azure-Ressource</li></ul> <ul><li>Starten von **Protokolle** im **Azure Monitor**-Menü</li></ul> <ul><li>Starten von **Protokolle** unter **Log Analytics-Arbeitsbereiche**</li></ul> <ul><li>Über Azure Monitor-[Arbeitsmappen](../visualizations.md#workbooks)</li></ul> |
 
 ## <a name="access-control-mode"></a>Zugriffssteuerungsmodus
 
 Der *Zugriffssteuerungsmodus* ist eine Einstellung für jeden Arbeitsbereich, die definiert, wie Berechtigungen für den Arbeitsbereich bestimmt werden.
 
-* **Arbeitsbereichsberechtigungen erforderlich**: Dieser Steuerungsmodus ermöglicht keine differenzierte rollenbasierte Zugriffssteuerung (RBAC). Damit ein Benutzer auf den Arbeitsbereich zugreifen kann, müssen ihm Berechtigungen für den Arbeitsbereich oder für bestimmte Tabellen gewährt werden.
+* **Arbeitsbereichsberechtigungen erforderlich**: Dieser Steuerungsmodus ermöglicht keine differenzierte rollenbasierte Zugriffssteuerung (RBAC) in Azure. Damit ein Benutzer auf den Arbeitsbereich zugreifen kann, müssen ihm Berechtigungen für den Arbeitsbereich oder für bestimmte Tabellen gewährt werden.
 
     Wenn ein Benutzer auf den Arbeitsbereich gemäß dem Arbeitsbereichskontextmodus zugreift, besitzt er Zugriff auf alle Daten in allen Tabellen, für die ihm Zugriff erteilt wurde. Wenn ein Benutzer auf den Arbeitsbereich gemäß dem Ressourcenkontextmodus zugreift, besitzt er nur Zugriff auf Daten für diese Ressource in Tabellen, für die ihm Zugriff erteilt wurde.
 
     Dies ist die Standardeinstellung für alle Arbeitsbereiche, die vor März 2019 erstellt wurden.
 
-* **Ressourcen- oder Arbeitsbereichsberechtigungen verwenden**: Dieser Steuerungsmodus ermöglicht differenzierte rollenbasierte Zugriffssteuerung (RBAC). Benutzern kann nur Zugriff auf Daten gewährt werden, die den Ressourcen zugeordnet sind, die aufgrund der Zuweisung der Azure-Berechtigung `read` von den Benutzern angezeigt werden können. 
+* **Ressourcen- oder Arbeitsbereichsberechtigungen verwenden**: Dieser Steuerungsmodus ermöglicht eine differenzierte rollenbasierte Zugriffssteuerung (RBAC) in Azure. Benutzern kann nur Zugriff auf Daten gewährt werden, die den Ressourcen zugeordnet sind, die aufgrund der Zuweisung der Azure-Berechtigung `read` von den Benutzern angezeigt werden können. 
 
-    Wenn ein Benutzer auf den Arbeitsbereich im Arbeitsbereichskontextmodus zugreift, gelten Arbeitsbereichsberechtigungen. Wenn ein Benutzer im Ressourcenkontextmodus auf den Arbeitsbereich zugreift, werden nur die Ressourcenberechtigungen überprüft, und die Arbeitsbereichsberechtigungen werden ignoriert. Aktivieren Sie RBAC für einen Benutzer, indem Sie ihn aus den Arbeitsbereichberechtigungen entfernen und zulassen, dass seine Ressourcenberechtigungen erkannt werden.
+    Wenn ein Benutzer auf den Arbeitsbereich im Arbeitsbereichskontextmodus zugreift, gelten Arbeitsbereichsberechtigungen. Wenn ein Benutzer im Ressourcenkontextmodus auf den Arbeitsbereich zugreift, werden nur die Ressourcenberechtigungen überprüft, und die Arbeitsbereichsberechtigungen werden ignoriert. Aktivieren Sie Azure RBAC für einen Benutzer, indem Sie ihn aus den Arbeitsbereichsberechtigungen entfernen und zulassen, dass seine Ressourcenberechtigungen erkannt werden.
 
     Dies ist die Standardeinstellung für alle Arbeitsbereiche, die nach März 2019 erstellt werden.
 

@@ -6,6 +6,7 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -13,12 +14,12 @@ ms.date: 01/14/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 06587d80851839188f8d8dcfa870d331e8fa96d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6ea6f947b2cd8d7d9c38a0e5e440ce5fd273bb7
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293355"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358825"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Direkte Änderung der SQL Server-Edition auf der Azure-VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +35,7 @@ Nachdem die Edition von SQL Server intern in den SQL Server-VM geändert wurde, 
 Für eine direkte Änderung der Edition von SQL Server benötigen Sie Folgendes: 
 
 - Ein [Azure-Abonnement](https://azure.microsoft.com/free/).
-- Eine [SQL Server-VM unter Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision), die beim [SQL-VM-Ressourcenanbieter](sql-vm-resource-provider-register.md) registriert ist.
+- Eine mit der [SQL-IaaS-Agent-Erweiterung](sql-agent-extension-manually-register-single-vm.md) registrierte [SQL Server-VM unter Windows](./create-sql-vm-portal.md).
 - Setupmedien mit der **gewünschten Edition** von SQL Server. Kunden mit [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) können Ihre Installationsmedien im [Microsoft Business Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx) abrufen. Kunden ohne Software Assurance können die Setupmedien in einem SQL Server-VM-Image aus Azure Marketplace mit der gewünschten Edition verwenden (in der Regel unter `C:\SQLServerFull` gespeichert). 
 
 
@@ -75,7 +76,7 @@ Nach dem Downgrade der SQL Server-Edition ändern Sie die Eigenschaft „Edition
 
 ## <a name="change-edition-in-portal"></a>Ändern der Edition im Portal 
 
-Nachdem Sie die Edition von SQL Server mithilfe der Installationsmedien geändert und Ihre SQL Server-VM beim [SQL-VM-Ressourcenanbieter](sql-vm-resource-provider-register.md) registriert haben, können Sie die Eigenschaft „Edition“ der SQL Server-VM im Azure-Portal zu Abrechnungszwecken ändern. Gehen Sie dazu folgendermaßen vor: 
+Nachdem Sie die Edition von SQL Server mithilfe der Installationsmedien geändert und Ihre SQL Server-VM mit der [SQL-IaaS-Agent-Erweiterung](sql-agent-extension-manually-register-single-vm.md) registriert haben, können Sie die Eigenschaft „Edition“ der SQL Server-VM im Azure-Portal zu Abrechnungszwecken ändern. Gehen Sie dazu folgendermaßen vor: 
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an. 
 1. Navigieren Sie zu Ihrer SQL Server-VM-Ressource. 
@@ -91,7 +92,7 @@ Nachdem Sie die Edition von SQL Server mithilfe der Installationsmedien geänder
 
 - Die Eigenschaft „Edition“ der SQL Server-VM muss mit der Edition der SQL Server-Instanz übereinstimmen, die für alle SQL Server-VMs installiert ist, einschließlich der Lizenztypen „Nutzungsbasierte Bezahlung“ und „Bring Your Own License (BYOL)“.
 - Wenn Sie Ihre SQL Server-VM-Ressource verwerfen, kehren Sie wieder zur hartcodierten Editionseinstellung des Images zurück.
-- Die Möglichkeit, die Edition zu ändern, ist ein Feature des SQL-VM-Ressourcenanbieters. Bei der Bereitstellung eines Azure Marketplace-Images über das Azure-Portal wird eine SQL Server-VM automatisch beim Ressourcenanbieter registriert. Kunden, die SQL Server selbst installieren, müssen [ihre SQL Server-VM jedoch manuell registrieren](sql-vm-resource-provider-register.md).
+- Die Möglichkeit, die Edition zu ändern, ist ein Feature der SQL-IaaS-Agent-Erweiterung. Beim Bereitstellen eines Azure Marketplace-Images über das Azure-Portal wird eine SQL Server-VM mit der SQL-IaaS-Agent-Erweiterung automatisch registriert. Kunden, die SQL Server selbst installieren, müssen [ihre SQL Server-VM jedoch manuell registrieren](sql-agent-extension-manually-register-single-vm.md).
 - Das Hinzufügen einer SQL Server-VM zu einer Verfügbarkeitsgruppe erfordert die Neuerstellung der VM. Alle einer Verfügbarkeitsgruppe hinzugefügten VMs werden auf die Standardedition zurückgesetzt, und die Edition muss erneut geändert werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
@@ -102,5 +103,3 @@ Weitere Informationen finden Sie in den folgenden Artikeln:
 * [Häufig gestellte Fragen zu SQL Server auf virtuellen Windows-Computern](frequently-asked-questions-faq.md)
 * [Preisinformationen für SQL Server auf virtuellen Windows-Computern](pricing-guidance.md)
 * [SQL Server auf Windows-VMs – Versionshinweise](doc-changes-updates-release-notes.md)
-
-

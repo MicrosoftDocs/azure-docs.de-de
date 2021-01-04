@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: ead175cbcaa9467cb5263ad95100facdda096991
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef03560cff704255d2779a747d124e0b39a1c657
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87337805"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491306"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Problembehandlung von Azure Stream Analytics-Abfragen
 
@@ -32,24 +32,26 @@ Dieser Artikel beschreibt häufige Probleme bei der Entwicklung von Azure Stream
 
     ![Vorschau des Auftragsdiagrammergebnisses](./media/debug-locally-using-job-diagram-vs-code/preview-result.png)
 
-3.  Stellen Sie bei Verwendung von [**Zeitstempel nach**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) sicher, dass die Zeitstempel der Ereignisse aktueller sind als die [Startzeit des Auftrags](stream-analytics-out-of-order-and-late-events.md).
+3.  Stellen Sie bei Verwendung von [**Zeitstempel nach**](/stream-analytics-query/timestamp-by-azure-stream-analytics) sicher, dass die Zeitstempel der Ereignisse aktueller sind als die [Startzeit des Auftrags](./stream-analytics-time-handling.md).
 
 4.  Beseitigen Sie häufige Fallen wie Folgende:
-    - Eine [**WHERE**](https://docs.microsoft.com/stream-analytics-query/where-azure-stream-analytics)-Klausel in der Abfrage hat alle Ereignisse herausgefiltert, die das Generieren von Ausgaben verhindert.
-    - Der Auftrag ist aufgrund einer fehlerhaften [**CAST**](https://docs.microsoft.com/stream-analytics-query/cast-azure-stream-analytics)-Funktion nicht erfolgreich. Typumwandlungsfehler lassen sich durch die Verwendung von [**TRY_CAST**](https://docs.microsoft.com/stream-analytics-query/try-cast-azure-stream-analytics) vermeiden.
+    - Eine [**WHERE**](/stream-analytics-query/where-azure-stream-analytics)-Klausel in der Abfrage hat alle Ereignisse herausgefiltert, die das Generieren von Ausgaben verhindert.
+    - Der Auftrag ist aufgrund einer fehlerhaften [**CAST**](/stream-analytics-query/cast-azure-stream-analytics)-Funktion nicht erfolgreich. Typumwandlungsfehler lassen sich durch die Verwendung von [**TRY_CAST**](/stream-analytics-query/try-cast-azure-stream-analytics) vermeiden.
     - Warten Sie bei der Verwendung von Fensterfunktionen die gesamte Fensterdauer ab, um die Ausgabe der Abfrage zu sehen.
     - Der Zeitstempel für Ereignisse steht vor der Startzeit des Auftrags und Ereignisse werden abgelegt.
-    - [**JOIN**](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics)-Bedingungen stimmen nicht überein. Wenn keine Übereinstimmungen vorhanden sind, gibt es keine Ausgabe.
+    - [**JOIN**](/stream-analytics-query/join-azure-stream-analytics)-Bedingungen stimmen nicht überein. Wenn keine Übereinstimmungen vorhanden sind, gibt es keine Ausgabe.
 
-5.  Stellen Sie sicher, dass die Richtlinien für die Ereignisreihenfolge wie erwartet konfiguriert sind. Wechseln Sie zu **Einstellungen**, und wählen Sie [**Ereignisreihenfolge**](stream-analytics-out-of-order-and-late-events.md) aus. Die Richtlinie wird *nicht* angewendet, wenn Sie die Abfrage mithilfe der Schaltfläche **Testen** testen. Dieses Ergebnis ist ein Unterschied zwischen dem Testen im Browser und der tatsächlichen Ausführung des Auftrags. 
+5.  Stellen Sie sicher, dass die Richtlinien für die Ereignisreihenfolge wie erwartet konfiguriert sind. Wechseln Sie zu **Einstellungen**, und wählen Sie [**Ereignisreihenfolge**](./stream-analytics-time-handling.md) aus. Die Richtlinie wird *nicht* angewendet, wenn Sie die Abfrage mithilfe der Schaltfläche **Testen** testen. Dieses Ergebnis ist ein Unterschied zwischen dem Testen im Browser und der tatsächlichen Ausführung des Auftrags. 
 
 6. Debuggen mithilfe von Aktivitäts- und Ressourcenprotokollen:
-    - Verwenden Sie [Aktivitätsprotokolle](../azure-resource-manager/resource-group-audit.md), und filtern Sie diese, um Fehler zu ermitteln und zu debuggen.
+    - Verwenden Sie [Aktivitätsprotokolle](../azure-resource-manager/management/view-activity-logs.md), und filtern Sie diese, um Fehler zu ermitteln und zu debuggen.
     - Verwenden Sie [Auftragsressourcenprotokolle](stream-analytics-job-diagnostic-logs.md), um Fehler zu ermitteln und zu debuggen.
 
 ## <a name="resource-utilization-is-high"></a>Die Ressourcenverwendung ist hoch
 
 Stellen Sie sicher, dass Sie die Vorteile der Parallelisierung in Azure Stream Analytics nutzen. Erfahren Sie, wie Sie die [Skalierung mit Abfrageparallelisierung](stream-analytics-parallelization.md) von Stream Analytics-Aufträgen betreiben, indem Sie Eingabepartitionen konfigurieren und die Definition der Analyseabfrage anpassen.
+
+Wenn die Ressourcenauslastung konstant mehr als 80 % beträgt, die Verzögerung des Wasserzeichens steigt und die Anzahl der protokollierten Ereignisse zunimmt, erhöhen Sie ggf. die Streamingeinheiten. Eine hohe Auslastung deutet darauf hin, dass der Auftrag fast die maximale Anzahl der bereitgestellten Ressourcen verwendet.
 
 ## <a name="debug-queries-progressively"></a>Progressives Debuggen von Abfragen
 
@@ -103,12 +105,12 @@ Dieses Mal werden die Daten in der Ausgabe wie erwartet formatiert und aufgefül
 
 ## <a name="get-help"></a>Hier erhalten Sie Hilfe
 
-Weitere Unterstützung finden Sie auf der [Frageseite von Microsoft Q&A (Fragen und Antworten) zu Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Weitere Unterstützung finden Sie auf der [Frageseite von Microsoft Q&A (Fragen und Antworten) zu Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Einführung in Azure Stream Analytics](stream-analytics-introduction.md)
 * [Erste Schritte mit Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skalieren von Azure Stream Analytics-Aufträgen](stream-analytics-scale-jobs.md)
-* [Stream Analytics Query Language Reference (in englischer Sprache)](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referenz zur Azure Stream Analytics-Verwaltungs-REST-API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Stream Analytics Query Language Reference (in englischer Sprache)](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referenz zur Azure Stream Analytics-Verwaltungs-REST-API](/rest/api/streamanalytics/)

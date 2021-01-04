@@ -13,12 +13,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 12/23/2019
-  ms.openlocfilehash: a9b7b40c3f79751a9d67750e428ca14cc024a47b
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 761fc5e86acd6fa46f1d03f960a3987e540a925a
+  ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91328274"
+  ms.lasthandoff: 12/01/2020
+  ms.locfileid: "96461130"
 landingContent:
 - title: Informationen zum Vergleichstest für die Azure-Sicherheit
   linkLists:
@@ -61,7 +61,7 @@ landingContent:
   - linkListType: overview
     links:
     - text: Azure Databricks
-      url: ../../azure-databricks/security-baseline.md
+      url: /azure/databricks/scenarios/security-baseline
     - text: Azure Machine Learning
       url: ../../machine-learning/security-baseline.md
     - text: Cognitive Services
@@ -82,7 +82,7 @@ landingContent:
       url: ../../hdinsight/security-baseline.md
     - text: Stream Analytics-Baseline
       url: ../../stream-analytics/security-baseline.md
-    - text: Synapse Analytics-Sicherheitsbaseline
+    - text: Azure Synapse Analytics-Sicherheitsbaseline
       url: ../../synapse-analytics/security-baseline.md
 - title: Sicherheitsbaselines für Computeressourcen
   linkLists:
@@ -121,7 +121,7 @@ landingContent:
     - text: Azure Database for PostgreSQL (Hyperscale)
       url: ../../postgresql/postgresql-hyperscale-security-baseline.md
     - text: Azure SQL-Datenbank
-      url: ../../sql-database/security-baseline.md
+      url: ../../azure-sql/database/security-baseline.md
     - text: Cosmos DB
       url: ../../cosmos-db/security-baseline.md
 - title: Sicherheitsbaselines für die Integration
@@ -177,7 +177,7 @@ landingContent:
     - text: Kunden-Lockbox
       url: ../fundamentals/customer-lockbox-security-baseline.md
     - text: Key Vault
-      url: ../../key-vault/security-baseline.md
+      url: ../../key-vault/general/security-baseline.md
     - text: Security Center
       url: ../../security-center/security-baseline.md
 - title: Zusätzliche Sicherheitsbaselines

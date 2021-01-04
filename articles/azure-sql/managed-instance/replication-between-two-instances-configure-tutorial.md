@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 8049df552c9754a1674c9e38e6d9b9b2cea3bd85
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 67902073b1484835d23566c91cbfae6f1d80d249
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058215"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900454"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Tutorial: Konfigurieren der Replikation zwischen zwei verwalteten Instanzen
 
@@ -32,7 +32,7 @@ In diesem Tutorial lernen Sie Folgendes:
 > [!div class="checklist"]
 >
 > - Konfigurieren einer verwalteten Instanz als Replikationsverleger und -verteiler.
-> - Konfigurieren einer verwalteten Instanz als Replikationsverteiler.
+> - Konfigurieren einer verwalteten Instanz als Replikationsabonnent.
 
 ![Replikation zwischen zwei verwalteten Instanzen](./media/replication-between-two-instances-configure-tutorial/sqlmi-sqlmi-repl.png)
 
@@ -68,7 +68,7 @@ Sie müssen auch [eine Azure-VM konfigurieren, um eine Verbindung](connect-vm-in
 
 ## <a name="3---create-an-azure-storage-account"></a>3 – Erstellen eines Azure-Speicherkontos
 
-[Erstellen Sie ein Azure-Speicherkonto](/azure/storage/common/storage-create-storage-account#create-a-storage-account) für das Arbeitsverzeichnis und anschließend im Speicherkonto eine [Dateifreigabe](../../storage/files/storage-how-to-create-file-share.md). 
+[Erstellen Sie ein Azure-Speicherkonto](../../storage/common/storage-account-create.md#create-a-storage-account) für das Arbeitsverzeichnis und anschließend im Speicherkonto eine [Dateifreigabe](../../storage/files/storage-how-to-create-file-share.md). 
 
 Kopieren Sie den Dateifreigabepfad im Format: `\\storage-account-name.file.core.windows.net\file-share-name`
 
@@ -326,4 +326,4 @@ Sie können Ihre Azure-Ressourcen bereinigen, indem Sie [die SQL Managed Instanc
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Sie erhalten außerdem weitere Informationen zur [Transaktionsreplikation mit Azure SQL Managed Instance](replication-transactional-overview.md) oder zur Konfiguration der Replikation zwischen einem [SQL Managed Instance-Verleger/-Verteiler und einem SQL auf Azure-VM-Abonnenten](replication-two-instances-and-sql-server-configure-tutorial.md). 
+Sie erhalten außerdem weitere Informationen zur [Transaktionsreplikation mit Azure SQL Managed Instance](replication-transactional-overview.md) oder zur Konfiguration der Replikation zwischen einem [SQL Managed Instance-Verleger/-Verteiler und einem SQL auf Azure-VM-Abonnenten](replication-two-instances-and-sql-server-configure-tutorial.md).

@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 01/17/2020
 ms.author: kenwith
 ms.reviewer: mimart
-ms.openlocfilehash: a385a339122197b7055ef6f54b8e37edea8eae4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0682115727068c928418d97fbf92ed32897c39d4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88078936"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656750"
 ---
 # <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>Integrieren in den Azure AD-Anwendungsproxy auf einem NDES-Server (Network Device Enrollment Service, Registrierungsdienst für Netzwerke)
 
@@ -26,7 +26,7 @@ Azure AD-Anwendungsproxys (Azure Active Directory) ermöglichen das Veröffentli
 
 Wenn Sie noch nicht mit dem Azure AD-Anwendungsproxy vertraut sind und mehr darüber erfahren möchten, finden Sie weitere Informationen im Artikel [Remotezugriff auf lokale Anwendungen über den Azure AD-Anwendungsproxy](application-proxy.md).
 
-Der Azure Active Directory-Anwendungsproxy basiert auf Azure. Dadurch erhalten Sie eine enorme Menge an Netzwerkbandbreite und Serverinfrastruktur für einen besseren Schutz vor verteilten DDoS-Angriffen (Denial-of-Service) sowie eine hervorragende Verfügbarkeit. Darüber hinaus ist es nicht erforderlich, externe Firewallports für Ihr lokales Netzwerk zu öffnen, und es ist kein DMZ-Server erforderlich. Es handelt sich ausschließlich um eingehenden Datenverkehr. Eine umfassende Liste der ausgehenden Ports finden Sie unter [Tutorial: Hinzufügen einer lokalen Anwendung für den Remotezugriff über den Anwendungsproxy in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
+Der Azure Active Directory-Anwendungsproxy basiert auf Azure. Dadurch erhalten Sie eine enorme Menge an Netzwerkbandbreite und Serverinfrastruktur für einen besseren Schutz vor verteilten DDoS-Angriffen (Denial-of-Service) sowie eine hervorragende Verfügbarkeit. Darüber hinaus ist es nicht erforderlich, externe Firewallports für Ihr lokales Netzwerk zu öffnen, und es ist kein DMZ-Server erforderlich. Es handelt sich ausschließlich um eingehenden Datenverkehr. Eine umfassende Liste der ausgehenden Ports finden Sie unter [Tutorial: Hinzufügen einer lokalen Anwendung für den Remotezugriff über den Anwendungsproxy in Azure Active Directory](./application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
 > Der Azure AD-Anwendungsproxy ist ein Feature, das nur verfügbar ist, wenn Sie die Premium- oder Basic-Edition von Azure Active Directory verwenden. Weitere Informationen finden Sie unter [Azure Active Directory – Preise](https://azure.microsoft.com/pricing/details/active-directory/). 
 > Wenn Sie über EMS-Lizenzen (Enterprise Mobility Suite) verfügen, können Sie diese Lösung verwenden.
@@ -96,4 +96,4 @@ Der Azure Active Directory-Anwendungsproxy basiert auf Azure. Dadurch erhalten S
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Wenn der Azure AD-Anwendungsproxy in NDES integriert ist, können Sie die Anwendungen für den Zugriff durch Benutzer freigeben. Weitere Informationen finden Sie unter [Veröffentlichen von Anwendungen mit dem Azure AD-Anwendungsproxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application).
+Wenn der Azure AD-Anwendungsproxy in NDES integriert ist, können Sie die Anwendungen für den Zugriff durch Benutzer freigeben. Weitere Informationen finden Sie unter [Veröffentlichen von Anwendungen mit dem Azure AD-Anwendungsproxy](./application-proxy-add-on-premises-application.md).

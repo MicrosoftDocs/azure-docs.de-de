@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 79a4fc048b8301d67206bf28b571f88f9e5ad024
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eeb3de2fc3f0e3e0be9c98002f11e470eaf04f8c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597674"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020928"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>Tutorial: Einrichten einer Azure Time Series Insights Gen2-Umgebung
 
@@ -38,7 +38,7 @@ Registrieren Sie sich für ein [kostenloses Azure-Abonnement](https://azure.micr
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* Sie müssen mindestens über die Rolle **Mitwirkender** für das Azure-Abonnement verfügen. Weitere Informationen finden Sie unter [Verwalten des Zugriffs auf Azure-Ressourcen mit RBAC und dem Azure-Portal](../role-based-access-control/role-assignments-portal.md).
+* Sie müssen mindestens über die Rolle **Mitwirkender** für das Azure-Abonnement verfügen. Weitere Informationen finden Sie unter [Hinzufügen oder Entfernen von Rollenzuweisungen mithilfe des Azure-Portals](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="create-a-device-simulation"></a>Erstellen einer Gerätesimulation
 
@@ -91,8 +91,8 @@ In diesem Abschnitt wird beschrieben, wie Sie eine Azure Time Series Insights Ge
     | **Ressourcengruppe** | Wählen Sie eine vorhandene Ressourcengruppe für die Ressource der Azure Time Series Insights Gen2-Umgebung aus, oder erstellen Sie eine neue Ressourcengruppe. Eine Ressourcengruppe ist ein Container für Azure-Ressourcen. Eine bewährte Methode ist die Verwendung der Ressourcengruppe, die Sie auch für die anderen vom Gerätesimulator erstellten IoT-Ressourcen verwenden. |
     | **Location** | Wählen Sie eine Rechenzentrumsregion für Ihre Azure Time Series Insights Gen2-Umgebung aus. Um zusätzliche Wartezeiten zu vermeiden, empfiehlt es sich, die Azure Time Series Insights Gen2-Umgebung in derselben Region wie den IoT-Hub zu erstellen, der vom Gerätesimulator erstellt wurde. |
     | **Tier** |  Wählen Sie **Gen2(L1)** aus. Dies ist die SKU für das Azure Time Series Insights Gen2-Produkt. |
-    | **Name der Zeitreihen-ID-Eigenschaft** | Geben Sie einen Namen für eine Eigenschaft ein, die Werte enthält, die ihre Zeitreiheninstanzen eindeutig identifizieren. Der Wert, den Sie in das Feld **Eigenschaftenname** als Zeitreihen-ID eingeben, kann später nicht geändert werden. Geben Sie für dieses Tutorial ***iothub-connection-device-id*** ein. Weitere Informationen zur Zeitreihen-ID (einschließlich der zusammengesetzten Zeitreihen-ID) finden Sie unter [Bewährte Methoden für die Auswahl einer Time Series-ID](./time-series-insights-update-how-to-id.md). |
-    | **Speicherkontoname** | Geben Sie einen global eindeutigen Namen für ein neues Speicherkonto ein.|
+    | **Name der Zeitreihen-ID-Eigenschaft** | Geben Sie einen Namen für eine Eigenschaft ein, die Werte enthält, die ihre Zeitreiheninstanzen eindeutig identifizieren. Der Wert, den Sie in das Feld **Eigenschaftenname** als Zeitreihen-ID eingeben, kann später nicht geändert werden. Geben Sie für dieses Tutorial **_iothub-connection-device-id_* _ ein. Weitere Informationen zur Zeitreihen-ID (einschließlich der zusammengesetzten Zeitreihen-ID) finden Sie unter [Bewährte Methoden für die Auswahl einer Time Series-ID](./how-to-select-tsid.md). |
+    | _ *Speicherkontoname** | Geben Sie einen global eindeutigen Namen für ein neues Speicherkonto ein.|
     | **Art des Speicherkontos** | Wählen Sie die Speicherart für ein neues Speicherkonto aus. Empfohlen wird StorageV2.|
     | **Speicherkontoreplikation** | Wählen Sie die Speicherart für ein neues Speicherkonto aus. Basierend auf der Auswahl des Standorts können Sie zwischen LRS, GRS und ZRS wählen. Für dieses Tutorial können Sie LRS auswählen.|
     | **Hierarchischer Namespace** |Diese Option ist auswählbar, wenn Sie die Speicherart auf „StorageV2“ festgelegt haben. Sie ist standardmäßig deaktiviert. In diesem Tutorial können Sie die Standardeinstellung *Deaktiviert* übernehmen.|
@@ -143,7 +143,7 @@ In diesem Abschnitt wird beschrieben, wie Sie eine Azure Time Series Insights Ge
 
    1. Stellen Sie sicher, dass Ihre Anmeldeinformationen aufgelistet sind:
 
-      Falls Ihre Anmeldeinformationen nicht aufgelistet sind, müssen Sie sich selbst die Zugriffsberechtigung für die Umgebung erteilen, indem Sie „Hinzufügen“ auswählen und nach Ihren Anmeldeinformationen suchen. Weitere Informationen zum Festlegen von Berechtigungen finden Sie unter [Gewähren von Datenzugriff für eine Umgebung](./time-series-insights-data-access.md).
+      Falls Ihre Anmeldeinformationen nicht aufgelistet sind, müssen Sie sich selbst die Zugriffsberechtigung für die Umgebung erteilen, indem Sie „Hinzufügen“ auswählen und nach Ihren Anmeldeinformationen suchen. Weitere Informationen zum Festlegen von Berechtigungen finden Sie unter [Gewähren von Datenzugriff für eine Umgebung](./concepts-access-policies.md).
 
 ## <a name="stream-data"></a>Streamen von Daten
 
@@ -177,7 +177,7 @@ Sie haben Ihre Azure Time Series Insights Gen2-Umgebung bereitgestellt und könn
 
 ## <a name="analyze-data"></a>Daten analysieren
 
-In diesem Abschnitt führen Sie mit dem [Azure Time Series Insights Gen2-Explorer](./time-series-insights-update-explorer.md) grundlegende Analysen für Ihre Zeitreihendaten durch.
+In diesem Abschnitt führen Sie mit dem [Azure Time Series Insights Gen2-Explorer](./concepts-ux-panels.md) grundlegende Analysen für Ihre Zeitreihendaten durch.
 
 1. Navigieren Sie zu Ihrem Azure Time Series Insights Gen2-Explorer, indem Sie im [Azure-Portal](https://portal.azure.com/) auf der Ressourcenseite die URL auswählen.
 

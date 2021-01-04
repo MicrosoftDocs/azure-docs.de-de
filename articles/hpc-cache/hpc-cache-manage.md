@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: v-erkel
-ms.openlocfilehash: 19950ca215abbac3a56bdb901448c9d92ad369be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 067b12d4dcfd5ba2b730204ef680b900d79f1b72
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613044"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648071"
 ---
 # <a name="manage-your-cache"></a>Verwalten Ihres Caches
 
@@ -26,11 +26,11 @@ Um die Übersichtsseite zu öffnen, wählen Sie die Cacheressource im Azure-Port
 Über die Schaltflächen oben auf der Seite können Sie den Cache verwalten:
 
 * **Starten** und [**Beenden**](#stop-the-cache): Der Cachevorgang wird begonnen oder angehalten.
-* [**Leeren:** ](#flush-cached-data) Geänderte Daten werden in Speicherziele geschrieben.
-* [**Aktualisieren:** ](#upgrade-cache-software) Die Cachesoftware wird aktualisiert.
+* [**Leeren:**](#flush-cached-data) Geänderte Daten werden in Speicherziele geschrieben.
+* [**Aktualisieren:**](#upgrade-cache-software) Die Cachesoftware wird aktualisiert.
 * [**Collect diagnostics**](#collect-diagnostics) (Sammeln von Diagnosedaten): Informationen zum Uploaddebugging
 * **Aktualisieren:** Die Übersichtsseite wird erneut geladen.
-* [**Löschen:** ](#delete-the-cache) Der Cache wird dauerhaft zerstört.
+* [**Löschen:**](#delete-the-cache) Der Cache wird dauerhaft zerstört.
 
 Nachfolgend finden Sie weitere Informationen zu diesen Optionen.
 
@@ -58,7 +58,7 @@ Um einen beendeten Cache erneut zu aktivieren, klicken Sie auf die Schaltfläche
 
 ### <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Einrichten der Azure CLI für Azure HPC Cache](./az-cli-prerequisites.md).
 
 Mit dem Befehl [az hpc-cache stop](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-stop) halten Sie einen Cache vorübergehend an. Diese Aktion ist nur gültig, wenn der Cachestatus **Fehlerfrei** oder **Heruntergestuft** lautet.
 
@@ -113,7 +113,7 @@ Um den Cache zu leeren, klicken Sie auf die Schaltfläche **Leeren** und dann au
 
 ### <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Einrichten der Azure CLI für Azure HPC Cache](./az-cli-prerequisites.md).
 
 Mit dem Befehl [az hpc-cache flush](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-flush) können Sie erzwingen, dass der Cache alle geänderten Daten in die Speicherziele schreibt.
 
@@ -161,7 +161,7 @@ Klicken Sie auf die Schaltfläche **Aktualisieren**, um das Softwareupdate zu st
 
 ### <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Einrichten der Azure CLI für Azure HPC Cache](./az-cli-prerequisites.md).
 
 Der Cache-Statusbericht in der Azure-Befehlszeilenschnittstelle enthält am Ende Informationen zu neuer Software. (Mit [az hpc-cache show](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-show) können Sie das überprüfen.) Suchen Sie in der Meldung nach der Zeichenfolge „upgradeStatus“.
 
@@ -225,7 +225,7 @@ Nachdem Sie den Cache angehalten haben, klicken Sie auf die Schaltfläche **Lös
 
 ### <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Einrichten der Azure CLI für Azure HPC Cache](./az-cli-prerequisites.md).
 
 Verwenden Sie in der Azure CLI den Befehl [az hpc-cache delete](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-delete), um den Cache dauerhaft zu entfernen.
 

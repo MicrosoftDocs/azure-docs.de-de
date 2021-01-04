@@ -18,3 +18,9 @@
         - name: Richtlinie
           tocHref: /azure/aks
           topicHref: /azure/governance/policy
+        - name: Richtlinie
+          tocHref: /azure/storage
+          topicHref: /azure/governance/policy
+        - name: Richtlinie
+          tocHref: /azure/web-application-firewall
+          topicHref: /azure/governance/policy

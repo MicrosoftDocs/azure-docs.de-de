@@ -9,12 +9,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: 41e3f1ff430293ebc7b3828a0fd7090923fc209c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae99e3fa287cc9012e317142cc1e6aef36ce90d6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281479"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094998"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrieren von bildschirmgesteuerten 3270-Apps auf IBM Mainframes mit Azure mithilfe von Azure Logic Apps und IBM 3270-Connector
 
@@ -75,11 +75,11 @@ Die einzige Voraussetzung ist [Microsoft .NET Framework 4.6.1](https://aka.ms/ne
 
 ## <a name="create-metadata-overview"></a>Übersicht über das Erstellen von Metadaten
 
-In einer bildschirmgesteuerten 3270-App sind die Bildschirme und Datenfelder für Ihre Szenarien eindeutig. Daher benötigt der 3270-Connector diese Informationen über Ihre App, die Sie als Metadaten bereitstellen können. Diese Metadaten beschreiben Informationen, die Ihrer Logik-App helfen, Bildschirme zu identifizieren und zu erkennen, sie beschreiben, wie Sie zwischen Bildschirmen navigieren, wo Sie Daten eingeben, und wo Ergebnisse zu erwarten sind. Um diese Metadaten anzugeben und zu generieren, verwenden Sie das 3270-Designtool, das Sie durch diese spezifischen *Modi*, oder auch Phasen, führt, wie weiter unten ausführlicher beschrieben:
+In einer bildschirmgesteuerten 3270-App sind die Bildschirme und Datenfelder für Ihre Szenarien eindeutig. Daher benötigt der 3270-Connector diese Informationen über Ihre App, die Sie als Metadaten bereitstellen können. Diese Metadaten beschreiben Informationen, die Ihrer Logik-App helfen, Bildschirme zu identifizieren und zu erkennen, sie beschreiben, wie Sie zwischen Bildschirmen navigieren, wo Sie Daten eingeben, und wo Ergebnisse zu erwarten sind. Um diese Metadaten anzugeben und zu generieren, verwenden Sie das 3270-Designtool, das Sie durch diese spezifischen *Modi* , oder auch Phasen, führt, wie weiter unten ausführlicher beschrieben:
 
 * **Capture** (Erfassen): In diesem Modus zeichnen Sie die Bildschirme auf, die für das Durchführen einer bestimmten Aufgabe mit Ihrer Mainframe-App erforderlich sind, z. B. das Abrufen eines Kontostands.
 
-* **Navigation**: In diesem Modus geben Sie den Plan oder Pfad dafür an, wie durch die Bildschirme Ihrer Mainframe-App für die spezifische Aufgabe zu navigieren ist.
+* **Navigation** : In diesem Modus geben Sie den Plan oder Pfad dafür an, wie durch die Bildschirme Ihrer Mainframe-App für die spezifische Aufgabe zu navigieren ist.
 
 * **Methods** (Methoden): In diesem Modus definieren Sie die Methode, z. B. `GetBalance`, die den Bildschirmnavigationspfad beschreibt. Sie wählen auch die Felder auf jedem Bildschirm aus, die zu Eingabe- und Ausgabeparametern der Methode werden.
 
@@ -291,8 +291,8 @@ In diesem Modus definieren Sie eine Methode, die Ihrem Navigationsplan zugeordne
    | Eigenschaftenname | Mögliche Werte | 
    |---------------|-----------------|
    | **Datentyp** | Byte, Date Time, Decimal, Int, Long, Short, String |
-   | **Field Fill Technique** (Feldauffüllmethode) | Parameter unterstützen folgende Auffülltypen, wobei erforderlichenfalls mit Leerzeichen aufgefüllt wird: <p><p>- **Type**: Zeichen sequenziell in das Feld eingeben. <p>- **Fill**: Den Inhalt des Felds durch Zeichen ersetzen, wobei erforderlichenfalls mit Leerzeichen aufgefüllt wird. <p>- **EraseEofType**: Das Feld löschen und dann Zeichen sequenziell in das Feld eingeben. |
-   | **Format String** (Formatzeichenfolge) | Manche Parameterdatentypen verwenden eine Formatzeichenfolge, die dem 3270-Connector mitteilt, wie Text aus dem Bildschirm in einen .NET-Datentyp zu konvertieren ist: <p><p>- **DateTime**: Die Formatzeichenfolge „DateTime“ richtet sich nach den [benutzerdefinierten .NET-Formatzeichenfolgen für Datum und Uhrzeit](/dotnet/standard/base-types/custom-date-and-time-format-strings). Z. B. verwendet das Datum `06/30/2019` die Formatzeichenfolge `MM/dd/yyyy`. <p>- **Decimal**: Die Formatzeichenfolge „Decimal“ verwendet die [COBOL Picture-Klausel](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). Z. B. verwendet die Zahl `100.35` die Formatzeichenfolge `999V99`. |
+   | **Field Fill Technique** (Feldauffüllmethode) | Parameter unterstützen folgende Auffülltypen, wobei erforderlichenfalls mit Leerzeichen aufgefüllt wird: <p><p>- **Type** : Zeichen sequenziell in das Feld eingeben. <p>- **Fill** : Den Inhalt des Felds durch Zeichen ersetzen, wobei erforderlichenfalls mit Leerzeichen aufgefüllt wird. <p>- **EraseEofType** : Das Feld löschen und dann Zeichen sequenziell in das Feld eingeben. |
+   | **Format String** (Formatzeichenfolge) | Manche Parameterdatentypen verwenden eine Formatzeichenfolge, die dem 3270-Connector mitteilt, wie Text aus dem Bildschirm in einen .NET-Datentyp zu konvertieren ist: <p><p>- **DateTime** : Die Formatzeichenfolge „DateTime“ richtet sich nach den [benutzerdefinierten .NET-Formatzeichenfolgen für Datum und Uhrzeit](/dotnet/standard/base-types/custom-date-and-time-format-strings). Z. B. verwendet das Datum `06/30/2019` die Formatzeichenfolge `MM/dd/yyyy`. <p>- **Decimal** : Die Formatzeichenfolge „Decimal“ verwendet die [COBOL Picture-Klausel](https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_73/rzasb/picture.htm). Z. B. verwendet die Zahl `100.35` die Formatzeichenfolge `999V99`. |
    |||
 
 ## <a name="save-and-view-metadata"></a>Speichern und Anzeigen von Metadaten

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: f6ac02f0bcd9becf5dd1ffcd600f78b848b47cda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33d5ec89ef7563df16e0fe9b447eca88b1dba7fe
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839689"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536877"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Vorgehensweise zum Einrichten der Georeplikation für Azure Cache for Redis
 
@@ -51,7 +51,7 @@ Nach der Konfiguration der Georeplikation gelten folgende Einschränkungen für 
 
 ## <a name="add-a-geo-replication-link"></a>Hinzufügen einer Verknüpfung für die Georeplikation
 
-1. Klicken Sie zum Verknüpfen von zwei Caches für die Georeplikation zuerst im Menü „Ressource“ des Caches, der als primärer verknüpfter Cache verwendet werden soll, auf **Georeplikation**. Klicken Sie anschließend auf dem Blatt **Georeplikation** auf **Link für Cachereplikation hinzufügen**.
+1. Klicken Sie zum Verknüpfen von zwei Caches für die Georeplikation zuerst im Menü „Ressource“ des Caches, der als primärer verknüpfter Cache verwendet werden soll, auf **Georeplikation** . Klicken Sie anschließend auf dem Blatt **Georeplikation** auf **Link für Cachereplikation hinzufügen** .
 
     ![Hinzufügen einer Verknüpfung](./media/cache-how-to-geo-replication/cache-geo-location-menu.png)
 
@@ -63,7 +63,7 @@ Nach der Konfiguration der Georeplikation gelten folgende Einschränkungen für 
 
     ![Kontextmenü für die Georeplikation](./media/cache-how-to-geo-replication/cache-geo-location-select-link-context-menu.png)
 
-3. Klicken Sie auf **Verknüpfen**, um zwei Caches zu verknüpfen und den Replikationsvorgang zu starten.
+3. Klicken Sie auf **Verknüpfen** , um zwei Caches zu verknüpfen und den Replikationsvorgang zu starten.
 
     ![Verknüpfen von Caches](./media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png)
 
@@ -75,7 +75,7 @@ Nach der Konfiguration der Georeplikation gelten folgende Einschränkungen für 
 
     ![Screenshot: Anzeigen des Verknüpfungsstatus für den primären Cache und sekundäre Caches.](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
-    Nach Abschluss des Replikationsvorgangs wechselt der **Verknüpfungsstatus** zu **Erfolgreich**.
+    Nach Abschluss des Replikationsvorgangs wechselt der **Verknüpfungsstatus** zu **Erfolgreich** .
 
     ![Cachestatus](./media/cache-how-to-geo-replication/cache-geo-location-link-successful.png)
 
@@ -83,7 +83,7 @@ Nach der Konfiguration der Georeplikation gelten folgende Einschränkungen für 
 
 ## <a name="remove-a-geo-replication-link"></a>Entfernen einer Verknüpfung für die Georeplikation
 
-1. Um die Verknüpfung zwischen zwei Caches zu entfernen und die Georeplikation zu beenden, klicken Sie auf dem Blatt **Georeplikation** auf **Verknüpfung von Caches aufheben**.
+1. Um die Verknüpfung zwischen zwei Caches zu entfernen und die Georeplikation zu beenden, klicken Sie auf dem Blatt **Georeplikation** auf **Verknüpfung von Caches aufheben** .
     
     ![Aufheben der Verknüpfung von Caches](./media/cache-how-to-geo-replication/cache-geo-location-unlink.png)
 
@@ -145,8 +145,8 @@ Ja. Die Georeplikation von Caches in VNETs wird mit Einschränkungen unterstütz
 
 - Es wird Unterstützung für die Georeplikation zwischen Caches im selben VNET geboten.
 - Die Georeplikation zwischen Caches in unterschiedlichen VNETs wird ebenfalls unterstützt.
-  - Wenn sich die VNETs in derselben Region befinden, können Sie sie per [VNET-Peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) oder per [VPN Gateway-VNET-zu-VNET-Verbindung](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V) verbinden.
-  - Wenn sich die VNETs in verschiedenen Regionen befinden, wird Georeplikation über VNET-Peering unterstützt, aber eine Client-VM in VNET 1 (Region 1) kann aufgrund einer Einschränkung mit internen Lastausgleichsmodulenvom Typ „Basic“ nicht über ihren DNS-Namen auf den Cache in VNET 2 (Region 2) zugreifen. Weitere Informationen zu Einschränkungen beim VNET-Peering finden Sie im Artikel zu den [Anforderungen und Einschränkungen beim VNET-Peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). Die empfohlene Lösung ist die Verwendung einer VPN Gateway-VNET-zu-VNET-Verbindung.
+  - Wenn sich die VNETs in derselben Region befinden, können Sie sie per [VNET-Peering](../virtual-network/virtual-network-peering-overview.md) oder per [VPN Gateway-VNET-zu-VNET-Verbindung](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) verbinden.
+  - Wenn sich die VNETs in verschiedenen Regionen befinden, wird Georeplikation über VNET-Peering unterstützt, aber eine Client-VM in VNET 1 (Region 1) kann aufgrund einer Einschränkung mit internen Lastausgleichsmodulenvom Typ „Basic“ nicht über ihren DNS-Namen auf den Cache in VNET 2 (Region 2) zugreifen. Weitere Informationen zu Einschränkungen beim VNET-Peering finden Sie im Artikel zu den [Anforderungen und Einschränkungen beim VNET-Peering](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Die empfohlene Lösung ist die Verwendung einer VPN Gateway-VNET-zu-VNET-Verbindung.
   
 Mit [dieser Azure-Vorlage](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/) können Sie schnell zwei georeplizierte Caches in einem VNET bereitstellen, indem Sie eine VPN Gateway-VNET-zu-VNET-Verbindung verwenden.
 
@@ -166,7 +166,7 @@ Zum Erhalten eines Wiederherstellungspunkts können Sie einen [Export](cache-how
 
 ### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>Kann ich die Georeplikation mit PowerShell oder der Azure CLI verwalten?
 
-Ja. Die Georeplikation kann über das Azure-Portal, PowerShell oder die Azure CLI verwaltet werden. Weitere Informationen finden Sie in den [PowerShell-Dokumenten](https://docs.microsoft.com/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) bzw. [Azure CLI-Dokumenten](https://docs.microsoft.com/cli/azure/redis/server-link?view=azure-cli-latest).
+Ja. Die Georeplikation kann über das Azure-Portal, PowerShell oder die Azure CLI verwaltet werden. Weitere Informationen finden Sie in den [PowerShell-Dokumenten](/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) bzw. [Azure CLI-Dokumenten](/cli/azure/redis/server-link?view=azure-cli-latest).
 
 ### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-regions"></a>Wie viel kostet die Replikation meiner Daten über verschiedene Azure-Regionen hinweg?
 
@@ -188,7 +188,7 @@ Heben Sie zuerst die Verknüpfung der Caches auf, um ein vom Kunden initiiertes 
 
 ### <a name="can-i-configure-a-firewall-with-geo-replication"></a>Kann ich eine Firewall mit Georeplikation konfigurieren?
 
-Ja, Sie können eine [Firewall](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#firewall) mit Georeplikation konfigurieren. Damit Georeplikation mit einer Firewall funktioniert, müssen Sie sicherstellen, dass die IP-Adresse des sekundären Caches den Firewallregeln des primären Caches hinzugefügt wird.
+Ja, Sie können eine [Firewall](./cache-configure.md#firewall) mit Georeplikation konfigurieren. Damit Georeplikation mit einer Firewall funktioniert, müssen Sie sicherstellen, dass die IP-Adresse des sekundären Caches den Firewallregeln des primären Caches hinzugefügt wird.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

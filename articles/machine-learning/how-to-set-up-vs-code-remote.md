@@ -1,7 +1,7 @@
 ---
 title: Herstellen einer Verbindung mit einer Compute-Instanz in Visual Studio Code (Vorschau)
 titleSuffix: Azure Machine Learning
-description: Hier erfahren Sie, wie Sie eine Verbindung mit einer Azure Machine Learning-Compute-Instanz in Visual Studio Code herstellen.
+description: Hier erfahren Sie, wie Sie eine Verbindung mit einer Azure Machine Learning-Computeinstanz in Visual Studio Code herstellen, um interaktive Jupyter Notebook- und Remoteentwicklungsworkloads auszuführen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.author: jmartens
 author: j-martens
-ms.date: 09/03/2020
-ms.openlocfilehash: 6ac116b315d4a11b51b37c5b51edf35aa0676713
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/16/2020
+ms.openlocfilehash: 0afbf32f80a3d19f6db457f398a213a634cfa3d4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708372"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447052"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Herstellen einer Verbindung mit einer Azure Machine Learning-Compute-Instanz in Visual Studio Code (Vorschau)
 

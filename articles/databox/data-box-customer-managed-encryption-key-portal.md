@@ -1,103 +1,183 @@
 ---
-title: Verwenden des Azure-Portals zum Konfigurieren von kundenseitig verwalteten Schlüsseln für Azure Data Box
-description: Erfahren Sie, wie Sie über das Azure-Portal von Kunden verwaltete Schlüssel mit Azure Key Vault für die Azure Data Box konfigurieren. Mit von Kunden verwalteten Schlüsseln können Sie Zugriffssteuerungen erstellen, rotieren, deaktivieren und widerrufen.
+title: Verwenden des Azure-Portals zum Verwalten von kundenseitig verwalteten Schlüsseln für Azure Data Box
+description: Erfahren Sie, wie Sie über das Azure-Portal kundenseitig verwaltete Schlüssel mit Azure Key Vault für eine Azure Data Box-Instanz erstellen und verwalten. Mit kundenseitig verwalteten Schlüsseln können Sie Zugriffssteuerungen erstellen, rotieren, deaktivieren und widerrufen.
 services: databox
 author: alkohli
 ms.service: databox
 ms.topic: how-to
-ms.date: 05/07/2020
+ms.date: 11/19/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: 31147d534109e0d74d33d102075c69eeb703496e
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: f75907dc1fa079cebb3b80874090c658fd7b8174
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91739934"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302835"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Verwenden kundenseitig verwalteter Schlüssel in Azure Key Vault für Azure Data Box
 
-Azure Data Box schützt den Schlüssel für die Geräteentsperrung (auch als Gerätekennwort bezeichnet), der zum Sperren des Geräts über einen Verschlüsselungsschlüssel verwendet wird. Standardmäßig wird der Schlüssel für die Geräteentsperrung für einen Data Box-Auftrag mit einem von Microsoft verwalteten Schlüssel verschlüsselt. Um zusätzliche Kontrolle über den Schlüssel für die Geräteentsperrung zu erhalten, können Sie auch kundenseitig verwaltete Schlüssel bereitstellen. 
+Azure Data Box schützt den Schlüssel für die Geräteentsperrung (auch als Gerätekennwort bezeichnet), der zum Sperren des Geräts über einen Verschlüsselungsschlüssel verwendet wird. Standardmäßig ist dieser Verschlüsselungsschlüssel ein von Microsoft verwalteter Schlüssel. Zur weiteren Steuerung können Sie einen kundenseitig verwalteten Schlüssel verwenden.
 
-Kundenseitig verwaltete Schlüssel müssen in Azure Key Vault erstellt und gespeichert werden. Weitere Informationen zum Azure Key Vault finden Sie unter [What is Azure Key Vault? (Was ist der Azure Key Vault?)](../key-vault/general/overview.md).
+Die Verwendung eines kundenseitig verwalteten Schlüssels wirkt sich nicht darauf aus, wie Daten auf dem Gerät verschlüsselt werden. Sie wirkt sich nur darauf aus, wie der Schlüssel zum Entsperren des Geräts verschlüsselt ist.
 
-In diesem Artikel wird gezeigt, wie Sie kundenseitig verwaltete Schlüssel mit Azure Data Box im [Azure-Portal](https://portal.azure.com/) verwenden. Dieser Artikel gilt sowohl für Azure Data Box- als auch für Azure Data Box Heavy-Geräte.
+Um dieses Maß an Kontrolle im gesamten Bestellvorgang beizubehalten, verwenden Sie einen kundenseitig verwalteten Schlüssel, wenn Sie Ihre Bestellung erstellen. Weitere Informationen finden Sie im [Tutorial: Bestellen von Azure Data Box](data-box-deploy-ordered.md) ausgeführt.
 
-## <a name="prerequisites"></a>Voraussetzungen
+In diesem Artikel wird gezeigt, wie Sie einen kundenseitig verwalteten Schlüssel im [Azure-Portal](https://portal.azure.com/) für Ihre vorhandene Data Box-Bestellung aktivieren. Sie erfahren, wie Sie Schlüsseltresor, Schlüssel, Version oder Identität für Ihren aktuellen kundenseitig verwalteten Schlüssel ändern oder zur Verwendung eines von Microsoft verwalteten Schlüssels zurückkehren.
 
-Stellen Sie Folgendes sicher, bevor Sie beginnen:
+Dieser Artikel gilt sowohl für Azure Data Box- als auch Azure Data Box Heavy-Geräte.
 
-1. Sie haben einen Azure Data Box-Auftrag gemäß den Anweisungen in [Tutorial: Bestellen von Azure Data Box](data-box-deploy-ordered.md) ausgeführt.
+## <a name="requirements"></a>Requirements (Anforderungen)
 
-2. Sie verfügen über eine vorhandene Azure Key Vault-Instanz mit einem Schlüssel, den Sie zum Schützen Ihres Schlüssels für die Geräteentsperrung verwenden können. Informationen zum Erstellen eines Schlüsseltresors über das Azure-Portal finden Sie unter [Schnellstart: Festlegen eines Geheimnisses und Abrufen des Geheimnisses aus Azure Key Vault mithilfe des Azure-Portals](../key-vault/secrets/quick-create-portal.md).
+Der kundenseitig verwaltete Schlüssel für eine Data Box-Bestellung muss die folgenden Anforderungen erfüllen:
 
-    - Für Ihren vorhandenen Schlüsseltresor ist **Vorläufiges Löschen** und **Nicht bereinigen** festgelegt. Diese Eigenschaften sind standardmäßig nicht aktiviert. Informationen zum Aktivieren dieser Eigenschaften finden Sie in den Abschnitten **Aktivieren des vorläufigen Löschens** und **Aktivieren des Bereinigungsschutzes** in einem der folgenden Artikel:
+- Der Schlüssel muss in einer Azure Key Vault-Instanz erstellt und gespeichert werden, in der **Vorläufiges Löschen** und **Nicht endgültig löschen** aktiviert sind. Weitere Informationen finden Sie unter [Was ist der Azure-Schlüsseltresor?](../key-vault/general/overview.md). Sie können einen Schlüsseltresor und Schlüssel erstellen, während Sie die Bestellung erstellen oder aktualisieren.
 
-        - [Verwenden des vorläufigen Löschens mit PowerShell](../key-vault/general/soft-delete-powershell.md)
-        - [Verwenden des vorläufigen Löschens mit der CLI](../key-vault/general/soft-delete-cli.md)
-    - Der vorhandene Schlüsseltresor muss über einen RSA-Schlüssel mit einer Größe von mindestens 2048 verfügen. Weitere Informationen zu Schlüsseln finden Sie unter [Informationen zu Azure Key Vault-Schlüsseln](../key-vault/keys/about-keys.md).
-    - Der Schlüsseltresor muss sich in derselben Region wie die für Ihre Daten verwendeten Speicherkonten befinden. Mehrere Speicherkonten können mit Ihrer Azure Data Box-Ressource verknüpft werden.
-    - Wenn Sie noch nicht über einen Schlüsseltresor verfügen, können Sie diesen auch inline erstellen, wie im folgenden Abschnitt beschrieben.
+- Der Schlüssel muss ein RSA-Schlüssel mit einer Größe von mindestens 2.048 sein.
 
-## <a name="enable-keys"></a>Aktivieren von Schlüsseln
+## <a name="enable-key"></a>Aktivieren des Schlüssels
 
-Das Konfigurieren eines kundenseitig verwalteten Schlüssels für Azure Data Box ist optional. Standardmäßig verwendet Data Box einen von Microsoft verwalteten Schlüssel zum Schützen des BitLocker-Schlüssels. Um einen vom Kunden verwalteten Schlüssel im Azure-Portal zu aktivieren, gehen Sie folgendermaßen vor:
+Um einen kundenseitig verwalteten Schlüssel für Ihre vorhandene Data Box-Bestellung zu aktivieren, gehen Sie folgendermaßen vor:
 
-1. Navigieren Sie zum Blatt **Übersicht** für Ihren Data Box-Auftrag.
+1. Navigieren Sie zum Bildschirm **Übersicht** für Ihre Data Box-Bestellung.
 
-    ![Blatt „Übersicht“ des Data Box-Auftrags](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-1.png)
+    ![Übersichtsbildschirm einer Data Box-Bestellung – 1](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-1.png)
 
-2. Navigieren Sie zu **Einstellungen > Verschlüsselung**. Unter **Verschlüsselungstyp** können Sie auswählen, wie Sie den Schlüssel für die Geräteentsperrung schützen möchten. Standardmäßig wird ein von Microsoft verwalteter Schlüssel verwendet, um Kennwort zum Entsperren des Geräts zu schützen. 
+2. Wechseln Sie zu **Einstellungen > Verschlüsselung**, und wählen Sie **Kundenseitig verwalteter Schlüssel** aus. Wählen Sie anschließend **Schlüssel und Schlüsseltresor auswählen** aus.
 
-    ![Auswählen der Verschlüsselungsoption](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-2.png)
+    ![Option zum Auswählen des kundenseitig verwalteten Schlüssels zur Verschlüsselung](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3.png)
 
-3. Wählen Sie den Verschlüsselungstyp als **Kundenseitig verwalteter Schlüssel** aus. Nachdem Sie den kundenseitig verwalteten Schlüssel ausgewählt haben, **wählen Sie einen Schlüsseltresor und einen Schlüssel aus**.
+   Auf dem Bildschirm **Schlüssel aus Azure Key Vault auswählen** wird Ihr Abonnement automatisch aufgefüllt.
 
-    ![Auswählen des kundenseitig verwalteten Schlüssels](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3.png)
+ 3. Für **Schlüsseltresor** können Sie einen vorhandenen Schlüsseltresor aus der Dropdownliste auswählen oder **Neu erstellen** auswählen und einen neuen Schlüsseltresor erstellen.
 
-5. Auf dem Blatt **Schlüssel aus Azure Key Vault auswählen** wird das Abonnementfeld automatisch aufgefüllt. Für **Schlüsseltresor** können Sie einen vorhandenen Schlüsseltresor aus der Dropdownliste auswählen.
+     ![Schlüsseltresoroptionen bei der Auswahl eines kundenseitig verwalteten Schlüssels](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3-a.png)
 
-    ![Erstellen einer neuen Azure Key Vault-Instanz](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-31.png)
+     Um einen neuen Schlüsseltresor zu erstellen, geben Sie das Abonnement, die Ressourcengruppe, den Schlüsseltresornamen und andere Informationen im Bildschirm **Neuen Schlüsseltresor erstellen** ein. Stellen Sie sicher, dass unter **Wiederherstellungsoptionen** die Optionen **Vorläufiges Löschen** und **Löschschutz** aktiviert sind. Wählen Sie dann **Überprüfen + erstellen** aus.
 
-    Sie können auch **Neu erstellen** auswählen, um einen neuen Schlüsseltresor zu erstellen. Geben Sie auf dem Blatt **Schlüsseltresor erstellen** die Ressourcengruppe und den Namen des Schlüsseltresors ein. Stellen Sie sicher, dass **Vorläufiges Löschen** und **Löschschutz** aktiviert sind. Behalten Sie alle anderen Standardeinstellungen bei. Klicken Sie auf **Überprüfen + erstellen**.
+      ![Überprüfen und Erstellen einer Azure Key Vault-Instanz](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
 
-    ![Erstellen einer neuen Azure Key Vault-Instanz – 2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
+      Überprüfen Sie die Informationen für Ihren Schlüsseltresor, und wählen Sie **Erstellen** aus. Warten Sie einige Minuten, bis die Erstellung des Schlüsseltresors abgeschlossen ist.
 
-7. Überprüfen Sie die Informationen im Zusammenhang mit Ihrem Schlüsseltresor, und wählen Sie **Erstellen** aus. Warten Sie einige Minuten, bis die Erstellung des Schlüsseltresors abgeschlossen ist.
+       ![Erstellen einer Azure Key Vault-Instanz mit Ihren Einstellungen](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
 
-    ![Azure Key Vault erstellen](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
+4. Auf dem Bildschirm **Schlüssel aus Azure Key Vault auswählen** können Sie einen Schlüssel auswählen, der im Schlüsseltresor vorhanden ist, oder einen neuen erstellen.
 
-8. Unter **Schlüssel aus Azure Key Vault auswählen** können Sie einen Schlüssel im vorhandenen Schlüsseltresor auswählen.
+    ![Auswählen des Schlüssels aus Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
 
-    ![Erstellen eines neuen Schlüssels in Azure Key Vault – 3](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
+   Wählen Sie die Option **Neu erstellen** aus, wenn Sie einen neuen Schlüssel erstellen möchten. Sie müssen einen RSA-Schlüssel verwenden. Der Wert für die Größe kann „2048“ oder höher lauten.
 
-9. Wenn Sie einen neuen Schlüssel erstellen möchten, wählen Sie **Neu erstellen** aus, um einen Schlüssel zu erstellen. Der RSA-Schlüssel kann eine Größe von 2048 oder mehr haben.
+    ![Erstellen eines neuen Schlüssels in Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6-a.png)
 
-    ![Erstellen eines neuen Schlüssels in Azure Key Vault – 4](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-61.png)
+    Geben Sie einen Namen für Ihren neuen Schlüssel ein, behalten Sie ansonsten die Standardeinstellungen bei, und wählen Sie **Erstellen** aus. Sie werden benachrichtigt, dass ein Schlüssel in Ihrem Schlüsseltresor erstellt wurde.
 
-10. Geben Sie den Namen für Ihren Schlüssel an, behalten Sie ansonsten die Standardeinstellungen bei, und wählen Sie **Erstellen** aus. 
+    ![Benennen eines neuen Schlüssels](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)
 
-    ![Erstellen eines neuen Schlüssels](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)
+5. Für **Version** können Sie eine vorhandene Schlüsselversion aus der Dropdownliste auswählen.
 
+    ![Auswählen der Version für einen neuen Schlüssel](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)
 
-11. Sie werden benachrichtigt, dass ein Schlüssel in Ihrem Schlüsseltresor erstellt wurde. Wählen Sie die **Version** und dann **Auswählen** aus.
+    Wählen Sie die Option **Neu erstellen** aus, wenn Sie eine neue Schlüsselversion generieren möchten.
 
-    ![Neu erstellter Schlüssel im Schlüsseltresor](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)
+    ![Öffnen eines Dialogfelds zum Erstellen einer neuen Schlüsselversion](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8-a.png)
 
-12. Im Bereich **Verschlüsselungstyp** werden der Schlüsseltresor und der Schlüssel angezeigt, der als kundenseitig verwalteter Schlüssel ausgewählt wurde.
+    Wählen Sie Einstellungen für die neue Schlüsselversion und dann die Option **Erstellen** aus.
 
-    ![Schlüssel und Schlüsseltresor für kundenseitig verwalteten Schlüssel](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
+    ![Erstellen einer neuen Schlüsselversion](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8-b.png)
 
-13. Speichern Sie den Schlüssel. 
+6. Wenn Sie einen Schlüsseltresor, Schlüssel und eine Schlüsselversion ausgewählt haben, wählen Sie **Auswählen** aus.
 
-    ![Speichern des kundenseitig verwalteten Schlüssels](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-10.png)
+    ![Ein Schlüssel in einer Azure Key Vault-Instanz](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8-c.png)
+
+    Die **Verschlüsselungstyp**-Einstellungen zeigen Schlüsseltresor und Schlüssel an, die Sie ausgewählt haben.
+
+    ![Schlüssel und Schlüsseltresor für einen kundenseitig verwalteten Schlüssel](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
+
+7. Wählen Sie den Identitätstyp aus, der zum Verwalten des kundenseitig verwalteten Schlüssels für diese Ressource verwendet werden soll. Sie können die **systemseitig zugewiesene** Identität verwenden, die während des Erstellens der Bestellung generiert wurde, oder eine benutzerseitig zugewiesene Identität auswählen.
+
+    Eine benutzerseitig zugewiesene Identität ist eine unabhängige Ressource, die Sie verwenden können, um den Zugriff auf Ressourcen zu verwalten. Weitere Informationen finden Sie unter [Arten von verwalteten Identitäten](/azure/active-directory/managed-identities-azure-resources/overview).
+
+    ![Auswählen des Identitätstyps](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-13.png)
+
+    Wählen Sie **Benutzerseitig zugewiesen** aus, um eine Benutzeridentität zuzuweisen. Wählen Sie dann **Auswählen einer Benutzeridentität** aus, und wählen Sie die verwaltete Identität aus, die Sie verwenden möchten.
+
+    ![Auswählen einer zu verwendenden Identität](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-14.png)
+
+    Sie können hier keine neue Benutzeridentität erstellen. Wie Sie eine erstellen können, erfahren Sie unter [Erstellen, Auflisten, Löschen oder Zuweisen einer Rolle zu einer vom Benutzer zugewiesenen verwalteten Identität über das Azure-Portal](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+
+    Die ausgewählte Benutzeridentität wird in den Einstellungen unter **Verschlüsselungstyp** angezeigt.
+
+    ![Ausgewählte Benutzeridentität in den Einstellungen unter „Verschlüsselungstyp“](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-15.png)
+
+ 9. Wählen Sie **Speichern** aus, um die aktualisierten **Verschlüsselungstyp**-Einstellungen zu speichern.
+
+     ![Speichern Ihres kundenseitig verwalteten Schlüssels](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-10.png)
 
     Die Schlüssel-URL wird unter **Verschlüsselungstyp** angezeigt.
 
-    ![URL des Kundenseitig verwalteten Schlüssels](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-11.png)
+    ![URL des Kundenseitig verwalteten Schlüssels](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-11.png)<!--Probably need new screen from recent order. Can you provide one? I can't create an order using CMK with the subscription I'm using.-->
 
-> [!IMPORTANT]
-> Sie können in jeder Phase des Data Box-Auftrags den von Microsoft verwaltete Schlüssel deaktivieren und zu kundenseitig verwalteten Schlüsseln wechseln. Nachdem Sie den kundenseitig verwalteten Schlüssel erstellt haben, können Sie jedoch nicht wieder zurück zum von Microsoft verwalteten Schlüssel wechseln.
+## <a name="change-key"></a>Ändern des Schlüssels
+
+Führen Sie die folgenden Schritte aus, um Schlüsseltresor, Schlüssel und/oder Schlüsselversion für den kundenseitig verwalteten Schlüssel zu ändern, den Sie zurzeit verwenden:
+
+1. Wechseln Sie auf dem Bildschirm **Übersicht** für Ihre Data Box-Bestellung zu **Einstellungen** > **Verschlüsselung**, und klicken Sie auf **Schlüssel** ändern.
+
+    ![Übersichtsbildschirm einer Data Box-Bestellung mit kundenseitig verwaltetem Schlüssel – 1](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-16.png)
+
+2. Wählen Sie **Anderen Schlüsseltresor und Schlüssel auswählen** aus.
+
+    ![Übersichtsbildschirm einer Data Box-Bestellung, Option „Anderen Schlüsseltresor und Schlüssel auswählen“](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-16-a.png)
+
+3. Im Bildschirm **Schlüssel aus Schlüsseltresor auswählen** wird das Abonnement, jedoch nicht Schlüsseltresor, Schlüssel oder Schlüsselversion angezeigt. Sie können eine der folgenden Änderungen vornehmen:
+
+   - Wählen Sie einen anderen Schlüssel aus demselben Schlüsseltresor aus. Sie müssen den Schlüsseltresor auswählen, bevor Sie Schlüssel und Version auswählen.
+
+   - Wählen Sie einen anderen Schlüsseltresor aus, und weisen Sie einen neuen Schlüssel zu.
+
+   - Ändern Sie die Version für den aktuellen Schlüssel.
+   
+    Wenn Sie die Änderungen abgeschlossen haben, wählen Sie **Auswählen** aus.
+
+    ![Auswählen der Verschlüsselungsoption – 2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-17.png)
+
+4. Wählen Sie **Speichern** aus.
+
+    ![Speichern aktualisierter Verschlüsselungseinstellungen – 1](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-17-a.png)
+
+## <a name="change-identity"></a>Ändern der Identität
+
+Führen Sie die folgenden Schritte aus, um die Identität zu ändern, die zum Verwalten des Zugriffs auf den kundenseitig verwalteten Schlüssel für diese Bestellung verwendet wird:
+
+1. Wechseln Sie auf dem Bildschirm **Übersicht** für Ihre abgeschlossene Data Box-Bestellung zu **Einstellungen** > **Verschlüsselung**.
+
+2. Nehmen Sie eine der folgenden Änderungen vor:
+
+     - Um zu einer anderen Benutzeridentität zu wechseln, klicken Sie auf **Andere Benutzeridentität auswählen**. Wählen Sie dann im Bereich auf der rechten Seite des Bildschirms eine andere Identität und dann **Auswählen** aus.
+
+       ![Option zum Ändern der benutzerseitig zugewiesenen Identität für einen kundenseitig verwalteten Schlüssel](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-18.png)
+
+   - Um zur systemseitig zugewiesenen Identität zu wechseln, die während des Erstellens der Bestellung generiert wurde, wählen Sie **Systemseitig zugewiesen** bei **Identitätstyp auswählen** aus.
+
+     ![Option zum Ändern in eine systemseitig zugewiesene Identität für einen kundenseitig verwalteten Schlüssel](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-19.png)
+
+3. Wählen Sie **Speichern** aus.
+
+    ![Speichern aktualisierter Verschlüsselungseinstellungen – 2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-17-a.png)
+
+## <a name="use-microsoft-managed-key"></a>Verwenden des von Microsoft verwalteten Schlüssels
+
+Gehen Sie folgendermaßen vor, um für Ihre Bestellung von der Verwendung eines kundenseitig verwalteten Schlüssels zum von Microsoft verwalteten Schlüssel zu wechseln:
+
+1. Wechseln Sie auf dem Bildschirm **Übersicht** für Ihre abgeschlossene Data Box-Bestellung zu **Einstellungen** > **Verschlüsselung**.
+
+2. Wählen Sie bei **Typ auswählen** die Option **Von Microsoft verwalteter Schlüssel** aus.
+
+    ![Übersichtsbildschirm einer Data Box-Bestellung – 5](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-20.png)
+
+3. Wählen Sie **Speichern** aus.
+
+    ![Speichern der aktualisierten Verschlüsselungseinstellungen für einen von Microsoft verwalteten Schlüssel](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-21.png)
 
 ## <a name="troubleshoot-errors"></a>Beheben von Fehlern
 
@@ -108,12 +188,18 @@ Wenn Ihnen Fehler im Zusammenhang mit dem kundenseitig verwalteten Schlüssel an
 | SsemUserErrorEncryptionKeyDisabled| Der Hauptschlüssel konnte nicht abgerufen werden, weil der kundenseitig verwaltete Schlüssel deaktiviert ist.| Ja, durch Aktivieren der Schlüsselversion.|
 | SsemUserErrorEncryptionKeyExpired| Der Hauptschlüssel konnte nicht abgerufen werden, weil der kundenseitig verwaltete Schlüssel abgelaufen ist.| Ja, durch Aktivieren der Schlüsselversion.|
 | SsemUserErrorKeyDetailsNotFound| Der Hauptschlüssel konnte nicht abgerufen werden, weil der kundenseitig verwaltete Schlüssel nicht gefunden wurde.| Wenn Sie den Schlüsseltresor gelöscht haben, können Sie den kundenseitig verwalteten Schlüssel nicht wiederherstellen.  Wenn Sie den Schlüsseltresor zu einem anderen Mandanten migriert haben, finden Sie weitere Informationen unter [Ändern der Mandanten-ID des Schlüsseltresors nach einer Abonnementverschiebung](../key-vault/general/move-subscription.md). Wenn Sie den Schlüsseltresor gelöscht haben:<ol><li>Ja, wenn Sie sich noch innerhalb des Zeitraums für den Schutz vor dem endgültigen Löschen befinden, können Sie die Schritte unter [Wiederherstellen eines Schlüsseltresors](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault) ausführen.</li><li>Nein, wenn der Zeitraum für den Schutz vor dem endgültigen Löschen abgelaufen ist.</li></ol><br>Andernfalls ja: Wenn der Schlüsseltresor eine Mandantenmigration durchlaufen hat, kann er mit einem der folgenden Schritte wiederhergestellt werden: <ol><li>Stellen Sie den Schlüsseltresor im alten Mandanten wieder her.</li><li>Legen Sie `Identity = None` fest, und setzen Sie dann den Wert auf `Identity = SystemAssigned` zurück. Dadurch wird die Identität gelöscht und neu erstellt, sobald die neue Identität erstellt wurde. Gewähren Sie der neuen Identität in der Zugriffsrichtlinie des Schlüsseltresors die Berechtigungen `Get`, `Wrap` und `Unwrap`.</li></ol> |
-| SsemUserErrorKeyVaultBadRequestException| Der Hauptschlüssel konnte nicht abgerufen werden, weil der Zugriff auf den kundenseitig verwalteten Schlüssel widerrufen wurde.| Ja. Überprüfen Sie Folgendes: <ol><li>Der Schlüsseltresor verfügt weiterhin über die MSI in der Zugriffsrichtlinie.</li><li>Die Zugriffsrichtlinie bietet Berechtigungen zum Abrufen, Packen und Entpacken.</li><li>Wenn sich der Schlüsseltresor in einem VNET hinter der Firewall befindet, überprüfen Sie, ob **Vertrauenswürdige Microsoft-Dienste zulassen** aktiviert ist.</li></ol>|
+| SsemUserErrorKeyVaultBadRequestException | Ein vom Kunden verwalteter Schlüssel wurde angewendet, aber der Schlüsselzugriff wurde nicht erteilt oder wurde widerrufen, oder der Zugriff auf den Schlüsseltresor ist aufgrund einer aktivierten Firewall nicht möglich. | Fügen Sie Ihrem Schlüsseltresor die ausgewählte Identität hinzu, um den Zugriff auf den kundenseitig verwalteten Schlüssel zu aktivieren. Wenn für den Schlüsseltresor eine Firewall aktiviert ist, wechseln Sie zu einer systemseitig zugewiesenen Identität, und fügen Sie dann einen vom Kunden verwalteten Schlüssel hinzu. Weitere Informationen finden Sie unter [Aktivieren des Schlüssels](#enable-key). |
 | SsemUserErrorKeyVaultDetailsNotFound| Der Hauptschlüssel konnte nicht abgerufen werden, weil der dem kundenseitig verwalteten Schlüssel zugeordnete Schlüsseltresor nicht gefunden wurde. | Wenn Sie den Schlüsseltresor gelöscht haben, können Sie den kundenseitig verwalteten Schlüssel nicht wiederherstellen.  Wenn Sie den Schlüsseltresor zu einem anderen Mandanten migriert haben, finden Sie weitere Informationen unter [Ändern der Mandanten-ID des Schlüsseltresors nach einer Abonnementverschiebung](../key-vault/general/move-subscription.md). Wenn Sie den Schlüsseltresor gelöscht haben:<ol><li>Ja, wenn Sie sich noch innerhalb des Zeitraums für den Schutz vor dem endgültigen Löschen befinden, können Sie die Schritte unter [Wiederherstellen eines Schlüsseltresors](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault) ausführen.</li><li>Nein, wenn der Zeitraum für den Schutz vor dem endgültigen Löschen abgelaufen ist.</li></ol><br>Andernfalls ja: Wenn der Schlüsseltresor eine Mandantenmigration durchlaufen hat, kann er mit einem der folgenden Schritte wiederhergestellt werden: <ol><li>Stellen Sie den Schlüsseltresor im alten Mandanten wieder her.</li><li>Legen Sie `Identity = None` fest, und setzen Sie dann den Wert auf `Identity = SystemAssigned` zurück. Dadurch wird die Identität gelöscht und neu erstellt, sobald die neue Identität erstellt wurde. Gewähren Sie der neuen Identität in der Zugriffsrichtlinie des Schlüsseltresors die Berechtigungen `Get`, `Wrap` und `Unwrap`.</li></ol> |
 | SsemUserErrorSystemAssignedIdentityAbsent  | Der Hauptschlüssel konnte nicht abgerufen werden, weil der kundenseitig verwaltete Schlüssel nicht gefunden wurde.| Ja. Überprüfen Sie Folgendes: <ol><li>Der Schlüsseltresor verfügt weiterhin über die MSI in der Zugriffsrichtlinie.</li><li>Die Identität ist vom Typ „Vom System zugewiesen“.</li><li>Gewähren Sie der neuen Identität in der Zugriffsrichtlinie des Schlüsseltresors die Berechtigungen „Get“, „Wrap“ und „Unwrap“.</li></ol>|
+| SsemUserErrorUserAssignedLimitReached | Beim Hinzufügen einer „Benutzerseitig zugewiesenen Identität“ ist ein Fehler aufgetreten, weil die maximale Anzahl benutzerseitig zugewiesener Identitäten, die hinzugefügt werden können, erreicht wurde. | Wiederholen Sie den Vorgang mit weniger Benutzeridentitäten, oder entfernen Sie einige benutzerseitig zugewiesene Identitäten aus der Ressource, bevor Sie den Vorgang wiederholen. |
+| SsemUserErrorCrossTenantIdentityAccessForbidden | Fehler beim Zugriff auf eine verwaltete Identität. <br> Hinweis: Dies gilt für das Szenario, in dem das Abonnement in einen anderen Mandanten verschoben wird. Der Kunde muss die Identität manuell in den neuen Mandanten verschieben. Ausführlichere Informationen finden Sie in der PFA-Mail. | Verschieben Sie die ausgewählte Identität in den neuen Mandanten, unter dem das Abonnement vorhanden ist. Weitere Informationen finden Sie unter [Aktivieren des Schlüssels](#enable-key). |
+| SsemUserErrorKekUserIdentityNotFound | Es wurde ein kundenseitig verwalteter Schlüssel angewendet, aber die benutzerseitig zugewiesene Identität mit Zugriff auf den Schlüssel wurde nicht in Active Directory gefunden. <br> Hinweis: Dies gilt für den Fall, dass die Benutzeridentität aus Azure gelöscht wird.| Versuchen Sie, dem Schlüsseltresor eine andere ausgewählte benutzerseitig zugewiesene Identität hinzuzufügen, um den Zugriff auf den kundenseitig verwalteten Schlüssel zu ermöglichen. Weitere Informationen finden Sie unter [Aktivieren des Schlüssels](#enable-key). |
+| SsemUserErrorUserAssignedIdentityAbsent | Der Hauptschlüssel konnte nicht abgerufen werden, weil der kundenseitig verwaltete Schlüssel nicht gefunden wurde. | Auf den kundenseitig verwalteten Schlüssel konnte nicht zugegriffen werden. Entweder wird die dem Schlüssel zugeordnete benutzerseitig zugewiesene Identität (User Assigned Identity, UAI) gelöscht, oder der UAI-Typ wurde geändert. |
+| SsemUserErrorCrossTenantIdentityAccessForbidden | Fehler beim Zugriff auf eine verwaltete Identität. <br> Hinweis: Dies gilt für das Szenario, in dem das Abonnement in einen anderen Mandanten verschoben wird. Der Kunde muss die Identität manuell in den neuen Mandanten verschieben. Ausführlichere Informationen finden Sie in der PFA-Mail. | Versuchen Sie, dem Schlüsseltresor eine andere ausgewählte benutzerseitig zugewiesene Identität hinzuzufügen, um den Zugriff auf den kundenseitig verwalteten Schlüssel zu ermöglichen. Weitere Informationen finden Sie unter [Aktivieren des Schlüssels](#enable-key).|
+| SsemUserErrorKeyVaultBadRequestException | Ein vom Kunden verwalteter Schlüssel wurde angewendet, aber der Schlüsselzugriff wurde nicht erteilt oder wurde widerrufen, oder der Zugriff auf den Schlüsseltresor ist aufgrund einer aktivierten Firewall nicht möglich. | Fügen Sie Ihrem Schlüsseltresor die ausgewählte Identität hinzu, um den Zugriff auf den kundenseitig verwalteten Schlüssel zu aktivieren. Wenn für den Schlüsseltresor eine Firewall aktiviert ist, wechseln Sie zu einer systemseitig zugewiesenen Identität, und fügen Sie dann einen vom Kunden verwalteten Schlüssel hinzu. Weitere Informationen finden Sie unter [Aktivieren des Schlüssels](#enable-key). |
 | Allgemeiner Fehler  | Der Hauptschlüssel konnte nicht abgerufen werden.| Hierbei handelt es sich um einen generischen Fehler. Wenden Sie sich an den Microsoft-Support, um den Fehler zu beheben, und ermitteln Sie die nächsten Schritte.|
-
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [What is Azure Key Vault? (Was ist Azure Key Vault?)](../key-vault/general/overview.md)
+- [Was ist der Azure-Schlüsseltresor?](../key-vault/general/overview.md)
+- [Schnellstart: Festlegen eines Geheimnisses und Abrufen des Geheimnisses aus Azure Key Vault mithilfe des Azure-Portals](../key-vault/secrets/quick-create-portal.md)

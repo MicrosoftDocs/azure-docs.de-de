@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: 271d3c0ca44c500a6fd8ee50ed5f1698e46cd511
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af1bee00261cd96f61a39389f31a52109f4e64b5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510265"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675824"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Erfassen historischer Telemetriedaten
 
@@ -42,9 +42,9 @@ Folgen Sie diesen Schritten:
 
 2. **Wenn Sie über FarmBeats Version 1.2.7 oder höher verfügen, überspringen Sie die Schritte a, b und c, und fahren Sie mit Schritt 3 fort.** Sie können die FarmBeats-Version überprüfen, indem Sie das Symbol **Einstellungen** in der oberen rechten Ecke der FarmBeats-Benutzeroberfläche auswählen.
 
-      a.  Wechseln Sie zu **Azure Active Directory** > **App-Registrierungen**.
+      a.  Wechseln Sie zu **Azure Active Directory** > **App-Registrierungen** .
 
-      b. Wählen Sie die **App-Registrierung**, die als Teil Ihrer FarmBeats-Bereitstellung erstellt wurde. Sie wird denselben Namen aufweisen wie Ihr FarmBeats-Datenhub.
+      b. Wählen Sie die **App-Registrierung** , die als Teil Ihrer FarmBeats-Bereitstellung erstellt wurde. Sie wird denselben Namen aufweisen wie Ihr FarmBeats-Datenhub.
 
       c. Wählen Sie **Expose an API** (API offenlegen) -> **Add a client application** (Clientanwendung hinzufügen) aus, und geben Sie **04b07795-8ddb-461a-bbee-02f9e1bf7b46** ein. Aktivieren Sie dann die Option **Authorize Scope** (Bereich autorisieren). Dies ermöglicht den Zugriff auf die Azure CLI (Cloud Shell), um die nachfolgenden Schritte durchzuführen:
 
@@ -70,7 +70,7 @@ Folgen Sie diesen Schritten:
 
 7. Führen Sie den folgenden Befehl aus. Dadurch wird ein Skript in Ihr Basisverzeichnis heruntergeladen.
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive 
 
     wget –q https://aka.ms/farmbeatspartnerscriptv3 -O ./generatePartnerCredentials.ps1
 
@@ -84,7 +84,7 @@ Folgen Sie diesen Schritten:
 
     ```
 
-9. Folgen Sie den Anweisungen auf dem Bildschirm, um die Werte für **API-Endpunkt**, **Mandanten-ID**, **Client-ID**, **Geheimer Clientschlüssel** und **EventHub-Verbindungszeichenfolge** zu erfassen.
+9. Folgen Sie den Anweisungen auf dem Bildschirm, um die Werte für **API-Endpunkt** , **Mandanten-ID** , **Client-ID** , **Geheimer Clientschlüssel** und **EventHub-Verbindungszeichenfolge** zu erfassen.
 
 
 ## <a name="create-device-or-sensor-metadata"></a>Erstellen von Geräte- oder Sensormetadaten
@@ -336,7 +336,7 @@ Nachdem Sie die Geräte und Sensoren in FarmBeats erstellt haben, können Sie nu
 
 ### <a name="create-a-telemetry-client"></a>Erstellen eines Telemetrieclients
 
-Die Telemetriedaten müssen zur Verarbeitung an Azure Event Hubs gesendet werden. Der Azure Event Hubs-Dienst ermöglicht die Erfassung von Echtzeitdaten (Telemetrie) von verbundenen Geräten und Anwendungen. Wenn Sie Telemetriedaten an FarmBeats senden möchten, erstellen Sie einen Client, der Nachrichten an einen Event Hub in FarmBeats sendet. Weitere Informationen zum Senden von Telemetriedaten finden Sie unter [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
+Die Telemetriedaten müssen zur Verarbeitung an Azure Event Hubs gesendet werden. Der Azure Event Hubs-Dienst ermöglicht die Erfassung von Echtzeitdaten (Telemetrie) von verbundenen Geräten und Anwendungen. Wenn Sie Telemetriedaten an FarmBeats senden möchten, erstellen Sie einen Client, der Nachrichten an einen Event Hub in FarmBeats sendet. Weitere Informationen zum Senden von Telemetriedaten finden Sie unter [Azure Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
 ### <a name="send-a-telemetry-message-as-the-client"></a>Senden von Telemetrienachrichten als Client
 
@@ -431,9 +431,9 @@ Hier finden Sie ein Beispiel für eine Telemetrienachricht:
 
 ### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>Sie können keine Telemetriedaten anzeigen, nachdem Sie historische/Streamingdaten von Ihren Sensoren erfasst haben.
 
-**Symptom**: Geräte oder Sensoren werden bereitgestellt, und Sie haben die Geräte/Sensoren in FarmBeats erstellt und Telemetrie erfasst und an EventHub gesendet, aber Sie können keine Telemetriedaten in FarmBeats abrufen oder anzeigen.
+**Symptom** : Geräte oder Sensoren werden bereitgestellt, und Sie haben die Geräte/Sensoren in FarmBeats erstellt und Telemetrie erfasst und an EventHub gesendet, aber Sie können keine Telemetriedaten in FarmBeats abrufen oder anzeigen.
 
-**Korrekturmaßnahme**:
+**Korrekturmaßnahme** :
 
 1. Stellen Sie sicher, dass Sie die richtige Partnerregistrierung durchgeführt haben. Um dies zu überprüfen, wechseln Sie zu Ihrem Datenhub-Swagger, navigieren zur Partner-API, führen ein „Get“ aus und sehen nach, ob der Partner registriert ist. Falls nicht, befolgen Sie die [hier beschriebenen Schritte](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats), um den Partner hinzuzufügen.
 

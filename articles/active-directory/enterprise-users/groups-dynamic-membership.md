@@ -6,20 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: overview
-ms.date: 08/13/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1dc0429ae4507172e95618bc95e6a2c51034d352
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c60d54a905f460eb5c26c2f183cd22b175a5b3c4
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378892"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860812"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regeln für eine dynamische Mitgliedschaft für Gruppen in Azure Active Directory
 
@@ -100,7 +100,7 @@ Im Folgenden sind die Benutzereigenschaften aufgelistet, die Sie verwenden könn
 | companyName | Jeder string-Wert oder *null* | (user.companyName -eq "value") |
 | department |Jeder string-Wert oder *null* |(user.department -eq "value") |
 | displayName |Ein beliebiger Zeichenfolgenwert |(user.displayName -eq "value") |
-| employeeId |Ein beliebiger Zeichenfolgenwert |(user.employeeId -eq "value")<br>(user.employeeId -ne *null* ) |
+| employeeId |Ein beliebiger Zeichenfolgenwert |(user.employeeId -eq "value")<br>(user.employeeId -ne *null*) |
 | facsimileTelephoneNumber |Jeder string-Wert oder *null* |(user.facsimileTelephoneNumber -eq "value") |
 | givenName |Jeder string-Wert oder *null* |(user.givenName -eq "value") |
 | jobTitle |Jeder string-Wert oder *null* |(user.jobTitle -eq "value") |
@@ -192,8 +192,8 @@ Wenn Sie einen Wert in einem Ausdruck angeben, ist es wichtig, die richtige Synt
 
 Zum Angeben eines NULL-Werts in einer Regel können Sie den Wert *null* verwenden. 
 
-* Verwenden Sie „-eq“ oder „-ne“ zum Vergleichen des *null* -Werts in einem Ausdruck.
-* Verwenden Sie nur Anführungszeichen um das Wort *null* , wenn es als literaler Zeichenfolgenwert interpretiert werden soll.
+* Verwenden Sie „-eq“ oder „-ne“ zum Vergleichen des *null*-Werts in einem Ausdruck.
+* Verwenden Sie nur Anführungszeichen um das Wort *null*, wenn es als literaler Zeichenfolgenwert interpretiert werden soll.
 * Der -not-Operator kann nicht als Vergleichsoperator für NULL verwendet werden. Wenn Sie ihn verwenden, erhalten Sie eine Fehlermeldung, egal ob Sie „null“ oder „$null“ verwenden.
 
 Die richtige Referenzierung des NULL-Werts erfolgt auf diese Weise:
@@ -341,7 +341,7 @@ device.objectId -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Erweiterungseigenschaften und benutzerdefinierte Erweiterungseigenschaften
 
-Erweiterungsattribute und benutzerdefinierte Erweiterungsattribute werden als Zeichenfolgeneigenschaften in den Regeln für eine dynamische Mitgliedschaft unterstützt. [Erweiterungsattribute](/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) werden von einer lokalen Windows Server AD-Instanz synchronisiert und erhalten das Format „ExtensionAttributeX“, wobei X den Zahlen 1 bis 15 entspricht. Dies ist ein Beispiel für eine Regel, die ein Erweiterungsattribut als Eigenschaft verwendet:
+Erweiterungsattribute und benutzerdefinierte Erweiterungsattribute werden als Zeichenfolgeneigenschaften in den Regeln für eine dynamische Mitgliedschaft unterstützt. [Erweiterungsattribute](/graph/api/resources/onpremisesextensionattributes) werden von einer lokalen Windows Server AD-Instanz synchronisiert und erhalten das Format „ExtensionAttributeX“, wobei X den Zahlen 1 bis 15 entspricht. Dies ist ein Beispiel für eine Regel, die ein Erweiterungsattribut als Eigenschaft verwendet:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")

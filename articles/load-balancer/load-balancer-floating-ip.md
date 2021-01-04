@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: e15aab3ebfe82fa97f5716769b5ff9675b4b3dc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01cca2f2233ed5cdfb3003bb44c40f481bcf9bda
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91637016"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699405"
 ---
 # <a name="azure-load-balancer-floating-ip-configuration"></a>Konfiguration der unverankerten IP von Azure Load Balancer
 
@@ -45,4 +45,4 @@ Ohne Floating IP wird von Azure ein herkömmliches Zuordnungsschema für IP-Adre
 - Weitere Informationen zu [Azure Load Balancer](load-balancer-overview.md).
 - Informationen zu [Integritätstests](load-balancer-custom-probe-overview.md)
 - Weitere Informationen zu [Diagnosen für Standard Load Balancer](load-balancer-standard-diagnostics.md).
-- Weitere Informationen zu [Netzwerksicherheitsgruppen](../virtual-network/security-overview.md).
+- Weitere Informationen zu [Netzwerksicherheitsgruppen](../virtual-network/network-security-groups-overview.md).

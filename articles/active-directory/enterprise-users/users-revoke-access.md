@@ -3,22 +3,22 @@ title: Widerrufen des Benutzerzugriffs im Notfall in Azure Active Directory | Mi
 description: Widerrufen des gesamten Zugriffs für einen Benutzer in Azure Active Directory
 services: active-directory
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
 author: curtand
 ms.author: curtand
 manager: daveba
 ms.reviewer: krbain
-ms.date: 07/15/2020
+ms.date: 12/02/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16577c3509c9d3d9b02ead5e69832bacc7d083bb
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 826ca9fc20d8bbcf9a5f90ccc895b9f9867a6be1
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92373208"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860574"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Widerrufen des Benutzerzugriffs in Azure Active Directory
 
@@ -60,13 +60,13 @@ Für eine Hybridumgebung mit lokalem Active Directory, das mit Azure Active Dire
 
 Stellen Sie als Active Directory-Administrator eine Verbindung mit Ihrem lokalen Netzwerk her, öffnen Sie PowerShell, und führen Sie die folgenden Aktionen durch:
 
-1. Deaktivieren Sie den Benutzer in Active Directory. Weitere Informationen finden Sie unter [Disable-ADAccount](/powershell/module/addsadministration/disable-adaccount?view=win10-ps).
+1. Deaktivieren Sie den Benutzer in Active Directory. Weitere Informationen finden Sie unter [Disable-ADAccount](/powershell/module/addsadministration/disable-adaccount).
 
     ```PowerShell
     Disable-ADAccount -Identity johndoe  
     ```
 
-1. Setzen Sie das Kennwort des Benutzers in Active Directory zweimal zurück. Weitere Informationen finden Sie unter [Set-ADAccountPassword](/powershell/module/addsadministration/set-adaccountpassword?view=win10-ps).
+1. Setzen Sie das Kennwort des Benutzers in Active Directory zweimal zurück. Weitere Informationen finden Sie unter [Set-ADAccountPassword](/powershell/module/addsadministration/set-adaccountpassword).
 
     > [!NOTE]
     > Der Grund für das zweimalige Ändern des Kennworts eines Benutzers besteht darin, das Pass-the-Hash-Risiko zu verringern, insbesondere wenn es zu Verzögerungen bei der Replikation des lokalen Kennworts kommt. Wenn Sie sicher davon ausgehen können, dass dieses Konto nicht kompromittiert ist, genügt es, das Kennwort nur einmal zurückzusetzen.
@@ -83,18 +83,18 @@ Stellen Sie als Active Directory-Administrator eine Verbindung mit Ihrem lokalen
 
 Öffnen Sie als Azure Active Directory-Administrator PowerShell. Führen Sie dann ``Connect-AzureAD`` und die folgenden Aktionen aus:
 
-1. Deaktivieren Sie den Benutzer in Azure AD. Weitere Informationen finden Sie unter [Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0).
+1. Deaktivieren Sie den Benutzer in Azure AD. Weitere Informationen finden Sie unter [Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser).
 
     ```PowerShell
     Set-AzureADUser -ObjectId johndoe@contoso.com -AccountEnabled $false
     ```
-1. Widerrufen Sie die Azure AD-Aktualisierungstoken des Benutzers. Weitere Informationen finden Sie unter [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
+1. Widerrufen Sie die Azure AD-Aktualisierungstoken des Benutzers. Weitere Informationen finden Sie unter [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken).
 
     ```PowerShell
     Revoke-AzureADUserAllRefreshToken -ObjectId johndoe@contoso.com
     ```
 
-1. Deaktivieren Sie die Geräte des Benutzers. Weitere Informationen finden Sie unter [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0).
+1. Deaktivieren Sie die Geräte des Benutzers. Weitere Informationen finden Sie unter [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice).
 
     ```PowerShell
     Get-AzureADUserRegisteredDevice -ObjectId johndoe@contoso.com | Set-AzureADDevice -AccountEnabled $false
@@ -113,9 +113,9 @@ Stellen Sie als Active Directory-Administrator eine Verbindung mit Ihrem lokalen
 
 Sobald Administratoren die oben genannten Schritte ausgeführt haben, kann der Benutzer keine neuen Token für Anwendungen erhalten, die an Azure Active Directory gebunden sind. Die Zeit, die zwischen dem Widerruf und dem Entzug des Zugriffs durch den Benutzer vergeht, hängt davon ab, wie die Anwendung Zugriff gewährt:
 
-- Bei **Anwendungen, die Zugriffstoken verwenden** , verliert der Benutzer den Zugriff, wenn das Zugriffstoken abläuft.
+- Bei **Anwendungen, die Zugriffstoken verwenden**, verliert der Benutzer den Zugriff, wenn das Zugriffstoken abläuft.
 
-- Bei **Anwendungen, in denen Sitzungstoken verwendet werden** , enden die bestehenden Sitzungen, sobald das Token abläuft. Wenn der deaktivierte Zustand des Benutzers mit der Anwendung synchronisiert ist, kann die Anwendung die bestehenden Sitzungen des Benutzers automatisch widerrufen, sofern sie entsprechend konfiguriert ist.  Die Zeitspanne hängt von der Häufigkeit der Synchronisierung zwischen Anwendung und Azure AD ab.
+- Bei **Anwendungen, in denen Sitzungstoken verwendet werden**, enden die bestehenden Sitzungen, sobald das Token abläuft. Wenn der deaktivierte Zustand des Benutzers mit der Anwendung synchronisiert ist, kann die Anwendung die bestehenden Sitzungen des Benutzers automatisch widerrufen, sofern sie entsprechend konfiguriert ist.  Die Zeitspanne hängt von der Häufigkeit der Synchronisierung zwischen Anwendung und Azure AD ab.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

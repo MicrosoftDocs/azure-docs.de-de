@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 09/8/2020
 ms.author: duau
 ms.custom: subject-armqs
-ms.openlocfilehash: 986258631d47989e5be5e738da86f844283ce706
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 24460167e2279e7d3001d0bc16d050beb5b55289
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093819"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791000"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>Schnellstart: Erstellen einer Azure DNS-Zone und eines DNS-Eintrags mithilfe einer ARM-Vorlage
 
-In dieser Schnellstartanleitung wird beschrieben, wie Sie mithilfe einer Azure Resource Manager-Vorlage (ARM-Vorlage) eine DNS-Zone und den zugehörigen A-Eintrag erstellen.
+In dieser Schnellstartanleitung wird beschrieben, wie Sie mithilfe einer Azure Resource Manager-Vorlage (ARM-Vorlage) eine DNS-Zone und den zugehörigen `A`-Eintrag erstellen.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -34,20 +34,20 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 
 Die in dieser Schnellstartanleitung verwendete Vorlage stammt von der Seite mit den [Azure-Schnellstartvorlagen](https://azure.microsoft.com/resources/templates/101-azure-dns-new-zone).
 
-In diesem Schnellstart erstellen Sie eine eindeutige DNS-Zone mit dem Suffix *<span>azurequickstart.</span>org*. Ein *A*-Eintrag, der auf zwei IP-Adressen verweist, wird ebenfalls in der Zone platziert.
+In dieser Schnellstartanleitung erstellen Sie eine eindeutige DNS-Zone mit dem Suffix `azurequickstart.org`. Ein `A`-Eintrag, der auf zwei IP-Adressen verweist, wird ebenfalls in der Zone platziert.
 
 :::code language="json" source="~/quickstart-templates/101-azure-dns-new-zone/azuredeploy.json":::
 
 In der Vorlage wurden zwei Azure-Ressourcen definiert:
 
-* [**Microsoft.Network/dnsZones**](/azure/templates/microsoft.network/dnsZones)
-* [**Microsoft.Network/dnsZones/A**](/azure/templates/microsoft.network/dnsZones/A) (dient zum Erstellen eines A-Eintrags in der Zone)
+- [**Microsoft.Network/dnsZones**](/azure/templates/microsoft.network/dnsZones)
+- [**Microsoft.Network/dnsZones/A**](/azure/templates/microsoft.network/dnsZones/A): Wird zum Erstellen eines `A`-Datensatzes in der Zone verwendet.
 
 Weitere Vorlagen zu Azure Traffic Manager finden Sie unter [Azure-Schnellstartvorlagen](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
 ## <a name="deploy-the-template"></a>Bereitstellen der Vorlage
 
-1. Wählen Sie **Try it** (Ausprobieren) im folgenden Codeblock aus, um Azure Cloud Shell zu öffnen. Folgen Sie dann den Anweisungen, um sich bei Azure anzumelden. 
+1. Wählen Sie **Try it** (Ausprobieren) im folgenden Codeblock aus, um Azure Cloud Shell zu öffnen. Folgen Sie dann den Anweisungen, um sich bei Azure anzumelden.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -70,7 +70,7 @@ Weitere Vorlagen zu Azure Traffic Manager finden Sie unter [Azure-Schnellstartvo
 
 1. Gehen Sie die Werte ein.
 
-    Die Vorlagenbereitstellung erstellt eine Zone mit einem A-Eintrag, der auf zwei IP-Adressen verweist. Der Ressourcengruppenname ist der Projektname mit dem Zusatz **rg**.
+    Die Vorlagenbereitstellung erstellt eine Zone mit einem `A`-Eintrag, der auf zwei IP-Adressen verweist. Der Ressourcengruppenname ist der Projektname mit dem Zusatz **rg**.
 
     Die Bereitstellung der Vorlage dauert einige Sekunden. Nach Abschluss des Vorgangs sieht die Ausgabe in etwa wie folgt aus:
 
@@ -88,31 +88,31 @@ Azure PowerShell wird verwendet, um die Vorlage bereitzustellen. Neben Azure Pow
 
 1. Die Ressourcengruppe sollte die folgenden Ressourcen enthalten:
 
-    :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="Resource Manager-Vorlage für Azure DNS-Zone: PowerShell-Bereitstellungsausgabe":::
+    :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="Ressourcengruppe der DNS-Zonenbereitstellung":::
 
-1. Wählen Sie die DNS-Zone mit dem Suffix **<span>azurequickstart.</span>org** aus, um zu überprüfen, ob die Zone ordnungsgemäß mit einem **A**-Eintrag erstellt wurde, der auf die Werte **1.2.3.4** und **1.2.3.5** verweist.
+1. Wählen Sie die DNS-Zone mit dem Suffix `azurequickstart.org` aus, um zu überprüfen, ob die Zone ordnungsgemäß mit einem `A`-Eintrag erstellt wurde, der auf die Werte `1.2.3.4` und `1.2.3.5` verweist.
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="Resource Manager-Vorlage für Azure DNS-Zone: PowerShell-Bereitstellungsausgabe":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="DNS-Zonenbereitstellung":::
 
 1. Kopieren Sie einen der Namen der Namenserver aus dem vorherigen Schritt.
 
 1. Öffnen Sie eine Eingabeaufforderung, und führen Sie den folgenden Befehl aus:
 
-   ```
+   ```cmd
    nslookup www.<dns zone name> <name server name>
    ```
 
    Beispiel:
 
-   ```
+   ```cmd
    nslookup www.2lwynbseszpam.azurequickstart.org ns1-09.azure-dns.com.
    ```
 
    Es sollte ein Screenshot angezeigt werden, der in etwa wie folgt aussieht:
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="Resource Manager-Vorlage für Azure DNS-Zone: PowerShell-Bereitstellungsausgabe":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="DNS zone nslookup":::
 
-Der Hostname **wwww<span>.2lwynbseszpam.azurequickstart.</span>org** wird in **1.2.3.4** und **1.2.3.5** aufgelöst, genau wie von Ihnen konfiguriert. Mit diesem Ergebnis wird bestätigt, dass die Namensauflösung richtig funktioniert.
+Der Hostname `www.2lwynbseszpam.azurequickstart.org` wird gemäß Ihrer Konfiguration in `1.2.3.4` und `1.2.3.5` aufgelöst. Mit diesem Ergebnis wird bestätigt, dass die Namensauflösung richtig funktioniert.
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
@@ -127,10 +127,11 @@ Remove-AzResourceGroup -Name <your resource group name>
 ## <a name="next-steps"></a>Nächste Schritte
 
 In dieser Schnellstartanleitung haben Sie Folgendes erstellt:
-* DNS-Zone
-* A-Eintrag
 
-Nachdem Sie nun Ihre erste DNS-Zone und Ihren ersten -Eintrag mit einer Azure Resource Manager-Vorlage erstellt haben, können Sie Einträge für eine Web-App in einer benutzerdefinierten Domäne erstellen.
+- DNS-Zone
+- `A`-Eintrag
+
+Nachdem Sie nun Ihre erste DNS-Zone und Ihren ersten Eintrag mit einer ARM-Vorlage erstellt haben, können Sie Einträge für eine Web-App in einer benutzerdefinierten Domäne erstellen.
 
 > [!div class="nextstepaction"]
 > [Erstellen von DNS-Einträgen für eine Web-App in einer benutzerdefinierten Domäne](./dns-web-sites-custom-domain.md)

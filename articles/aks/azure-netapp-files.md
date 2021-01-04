@@ -3,13 +3,13 @@ title: Integrieren von Azure NetApp Files in Azure Kubernetes Service
 description: Erfahren Sie, wie Sie Azure NetApp Files in Azure Kubernetes Service integrieren.
 services: container-service
 ms.topic: article
-ms.date: 09/26/2019
-ms.openlocfilehash: c0648100e155d1462f3291a7f5f078cf316bc0aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/23/2020
+ms.openlocfilehash: bc65c3dfad4c27c1650054c6836fbbbf07a7dbf2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84465642"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126252"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Integrieren von Azure NetApp Files in Azure Kubernetes Service
 
@@ -21,7 +21,7 @@ Es wird vorausgesetzt, dass Sie über ein AKS-Cluster verfügen. Wenn Sie einen 
 > [!IMPORTANT]
 > Ihr AKS-Cluster muss sich auch [in einer Region befinden, die Azure NetApp Files unterstützt][anf-regions].
 
-Außerdem muss mindestens die Version 2.0.59 der Azure CLI installiert und konfiguriert sein. Führen Sie  `az --version` aus, um die Version zu ermitteln. Wenn Sie eine Installation oder ein Upgrade ausführen müssen, finden Sie weitere Informationen unter  [Installieren der Azure CLI][install-azure-cli].
+Außerdem muss mindestens die Version 2.0.59 der Azure CLI installiert und konfiguriert sein. Führen Sie `az --version` aus, um die Version zu ermitteln. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sie bei Bedarf unter [Installieren der Azure CLI][install-azure-cli].
 
 ### <a name="limitations"></a>Einschränkungen
 
@@ -29,16 +29,15 @@ Bei Verwendung von Azure NetApp Files gelten folgende Einschränkungen:
 
 * Azure NetApp Files ist nur [in ausgewählten Azure-Regionen][anf-regions] verfügbar.
 * Bevor Sie Azure NetApp Files verwenden können, muss Ihnen der Zugriff auf den Azure NetApp Files-Dienst gewährt werden. Zum Beantragen des Zugriffs können Sie das [Formular für die Übermittlung einer Azure NetApp Files-Warteliste][anf-waitlist] verwenden. Sie können erst auf den Azure NetApp Files-Dienst zugreifen, wenn Sie die offizielle Bestätigungs-E-Mail vom Azure NetApp Files-Team erhalten haben.
-* Ihr Azure NetApp Files-Dienst muss im selben virtuellen Netzwerk wie Ihr AKS-Cluster erstellt werden.
 * Nach der ersten Bereitstellung eines AKS-Clusters wird nur die statische Bereitstellung für Azure NetApp Files unterstützt.
 * Wenn Sie die dynamische Bereitstellung mit Azure NetApp Files verwenden möchten, installieren und konfigurieren Sie [NetApp Trident](https://netapp-trident.readthedocs.io/) Version 19.07 oder höher.
 
 ## <a name="configure-azure-netapp-files"></a>Konfigurieren von Azure NetApp Files
 
 > [!IMPORTANT]
-> Bevor Sie den *Microsoft.NetApp*-Ressourcenanbieter registrieren können, müssen Sie das [Formular für die Übermittlung einer Azure NetApp Files-Warteliste][anf-waitlist] für Ihr Abonnement ausfüllen. Sie können die Ressource erst registrieren, nachdem Sie die offizielle Bestätigungs-E-Mail vom Azure NetApp Files-Team erhalten haben.
+> Bevor Sie den *Microsoft.NetApp* -Ressourcenanbieter registrieren können, müssen Sie das [Formular für die Übermittlung einer Azure NetApp Files-Warteliste][anf-waitlist] für Ihr Abonnement ausfüllen. Sie können die Ressource erst registrieren, nachdem Sie die offizielle Bestätigungs-E-Mail vom Azure NetApp Files-Team erhalten haben.
 
-Registrieren des *Microsoft NetApp*-Ressourcenanbieters:
+Registrieren des *Microsoft NetApp* -Ressourcenanbieters:
 
 ```azurecli
 az provider register --namespace Microsoft.NetApp --wait
@@ -47,7 +46,7 @@ az provider register --namespace Microsoft.NetApp --wait
 > [!NOTE]
 > Dieser Vorgang kann einige Zeit in Anspruch nehmen.
 
-Wenn Sie ein Azure NetApp-Konto für die Verwendung mit AKS erstellen, müssen Sie das Konto in der **Knoten**-Ressourcengruppe erstellen. Rufen Sie zunächst den Namen der Ressourcengruppe mit dem Befehl [az aks show][az-aks-show] ab, und fügen Sie den Abfrageparameter `--query nodeResourceGroup` hinzu. Im folgenden Beispiel wird die Knoten-Ressourcengruppe für den AKS-Cluster namens *myAKSCluster* in der Ressourcengruppe *myResourceGroup* abgerufen:
+Wenn Sie ein Azure NetApp-Konto für die Verwendung mit AKS erstellen, müssen Sie das Konto in der **Knoten** -Ressourcengruppe erstellen. Rufen Sie zunächst den Namen der Ressourcengruppe mit dem Befehl [az aks show][az-aks-show] ab, und fügen Sie den Abfrageparameter `--query nodeResourceGroup` hinzu. Im folgenden Beispiel wird die Knoten-Ressourcengruppe für den AKS-Cluster namens *myAKSCluster* in der Ressourcengruppe *myResourceGroup* abgerufen:
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -57,7 +56,7 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeRes
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-Erstellen Sie ein Azure NetApp Files-Konto in **Knoten**-Ressourcengruppe und in derselben Region wie Ihr AKS-Cluster, indem Sie [az netappfiles account create][az-netappfiles-account-create] verwenden. Im folgenden Beispiel wird ein Konto namens *myaccount1* in der Ressourcengruppe *MC_myResourceGroup_myAKSCluster_eastus* und in der Region *eastus* erstellt:
+Erstellen Sie ein Azure NetApp Files-Konto in **Knoten** -Ressourcengruppe und in derselben Region wie Ihr AKS-Cluster, indem Sie [az netappfiles account create][az-netappfiles-account-create] verwenden. Im folgenden Beispiel wird ein Konto namens *myaccount1* in der Ressourcengruppe *MC_myResourceGroup_myAKSCluster_eastus* und in der Region *eastus* erstellt:
 
 ```azurecli
 az netappfiles account create \
@@ -106,7 +105,7 @@ VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAM
 SUBNET_NAME=MyNetAppSubnet
 SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name $SUBNET_NAME --query "id" -o tsv)
 VOLUME_SIZE_GiB=100 # 100 GiB
-UNIQUE_FILE_PATH="myfilepath2" # Please note that creation token needs to be unique within all ANF Accounts
+UNIQUE_FILE_PATH="myfilepath2" # Please note that file path needs to be unique within all ANF Accounts
 
 az netappfiles volume create \
     --resource-group $RESOURCE_GROUP \
@@ -118,7 +117,7 @@ az netappfiles volume create \
     --vnet $VNET_ID \
     --subnet $SUBNET_ID \
     --usage-threshold $VOLUME_SIZE_GiB \
-    --creation-token $UNIQUE_FILE_PATH \
+    --file-path $UNIQUE_FILE_PATH \
     --protocol-types "NFSv3"
 ```
 
@@ -217,7 +216,7 @@ metadata:
   name: nginx-nfs
 spec:
   containers:
-  - image: nginx
+  - image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     name: nginx-nfs
     command:
     - "/bin/sh"
@@ -247,11 +246,11 @@ kubectl describe pod nginx-nfs
 Stellen Sie sicher, dass Ihr Volume in den Pod eingebunden wurde, indem Sie [kubectl exec][kubectl-exec] verwenden, um eine Verbindung mit dem Pod herzustellen, und überprüfen Sie dann mit `df -h`, ob das Volume eingebunden ist.
 
 ```console
-$ kubectl exec -it nginx-nfs -- bash
+$ kubectl exec -it nginx-nfs -- sh
 ```
 
 ```output
-root@nginx-nfs:/# df -h
+/ # df -h
 Filesystem             Size  Used Avail Use% Mounted on
 ...
 10.0.0.4:/myfilepath2  100T  384K  100T   1% /mnt/azure

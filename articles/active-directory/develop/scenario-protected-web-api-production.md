@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ccae831498c8c10895387b78c07e4f8ddc228be1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf8eb144ab23d45e57ee8d52f06363ea37b600ec
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87026559"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375277"
 ---
 # <a name="protected-web-api---move-to-production"></a>Geschützte Web-API: Übergang in die Produktion
 
@@ -27,18 +27,11 @@ Da Sie nun wissen, wie Sie Ihre Web-API schützen, erfahren Sie hier nun, wie Si
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Erfahren Sie, wie Sie eine Downstream-API aufrufen.
+Hier erfahren Sie, wie Sie eine Downstream-API aufrufen: [Szenario: Eine Web-API, die Web-APIs aufruft](scenario-web-api-call-api-overview.md).
 
-> [!div class="nextstepaction"]
-> [Szenario: Web-API ruft Downstream-APIs auf](scenario-web-api-call-api-overview.md)
 
-Weitere Informationen finden Sie in Tutorials und Beispielen.
+Weitere Informationen finden Sie in Tutorials und Beispielen auf GitHub:
 
-> [!div class="nextstepaction"]
-> [Aufrufen einer geschützten API mit einem Daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi)
-
-> [!div class="nextstepaction"]
-> [Tutorial zur ASP.NET Core-Web-API](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
-
-> [!div class="nextstepaction"]
-> [Beispiel zur ASP.NET-Web-API](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)
+- [Aufrufen einer geschützten API mit einem Daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi)
+- [Tutorial zur ASP.NET Core-Web-API](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
+- [Beispiel zur ASP.NET-Web-API](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)

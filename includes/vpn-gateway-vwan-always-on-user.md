@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 17df5dca584b760cc52ddc171e92fb26b418c347
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b68fce603801c7bc1aee2af871df257b5f69197
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79500185"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027959"
 ---
 1. Installieren Sie Clientzertifikate auf dem Windows 10-Client wie in diesem Artikel zum [Point-to Site-VPN-Client](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) gezeigt. Das Zertifikat muss sich im Speicher des aktuellen Benutzers befinden.
 
-1. Konfigurieren Sie den Always On-VPN-Client über PowerShell, Configuration Manager oder Intune, indem Sie den Anweisungen unter [Konfigurieren von Always On-VPN-Verbindungen für den Windows 10-Client](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections) folgen.
+1. Konfigurieren Sie den Always On-VPN-Client über PowerShell, Configuration Manager oder Intune, indem Sie den Anweisungen unter [Konfigurieren von Always On-VPN-Verbindungen für den Windows 10-Client](/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections) folgen.
 
 ### <a name="example-configuration-for-the-user-tunnel"></a>Beispielkonfiguration für den Benutzertunnel
 

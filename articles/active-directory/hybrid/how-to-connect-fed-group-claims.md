@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: ce438ad0725aff677f897a635a0cd32d92bbbdbe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bef5942707c1ded22ba82bdb0d945b9fdb23fffa
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91265468"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349349"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Konfigurieren von Gruppenansprüchen für Anwendungen mit Azure Active Directory
 
@@ -58,7 +58,7 @@ Wenn jedoch eine vorhandene Anwendung erwartet, Gruppeninformationen zu Ansprüc
 
 - Wenn Sie die Gruppenmitgliedschaft für die anwendungsinterne Autorisierung verwenden, empfiehlt es sich, die ObjectID der Gruppe zu verwenden. Die ObjectID der Gruppe ist unveränderlich und in Azure Active Directory eindeutig, und sie ist für alle Gruppen verfügbar.
 - Wenn Sie den lokalen sAMAccountName der Gruppe für die Autorisierung nutzen, sollten Sie qualifizierte Domänennamen verwenden. Diese bergen ein geringeres Risiko von Namenskonflikten. Der sAMAccountName kann innerhalb einer Active Directory-Domäne eindeutig sein. Wenn jedoch mehrere Active Directory-Domänen mit einem Azure Active Directory-Mandanten synchronisiert werden, besteht die Möglichkeit, dass mehrere Gruppen den gleichen Namen aufweisen.
-- Erwägen Sie die Verwendung von [Anwendungsrollen](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md), um eine Dereferenzierungsschicht zwischen der Gruppenmitgliedschaft und der Anwendung bereitzustellen.   Die Anwendung trifft dann interne Autorisierungsentscheidungen basierend auf Rollenansprüchen im Token.
+- Erwägen Sie die Verwendung von [Anwendungsrollen](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md), um eine Dereferenzierungsschicht zwischen der Gruppenmitgliedschaft und der Anwendung bereitzustellen.   Die Anwendung trifft dann anhand der Rollenansprüche im Token interne Autorisierungsentscheidungen.
 - Wenn die Anwendung für den Abruf von Gruppenattributen konfiguriert ist, die aus Active Directory synchronisiert werden, und ein Group-Objekt diese Attribute nicht enthält, wird die entsprechende Gruppe nicht in die Ansprüche eingeschlossen.
 - Gruppenansprüche in Token enthalten geschachtelte Gruppen, sofern nicht die Option zum Einschränken von Gruppenansprüchen auf Gruppen, die der Anwendung zugewiesen sind, verwendet wird.  Wenn ein Benutzer Mitglied von Gruppe B und Gruppe B Mitglied von Gruppe A ist, enthalten die Gruppenansprüche für den Benutzer sowohl Gruppe A als auch Gruppe B. Wenn eine Organisationen Benutzer mit sehr vielen Gruppenmitgliedschaften aufweist, kann die Anzahl der in den Token enthaltenen Gruppen die Tokengröße erhöhen.  Azure Active Directory begrenzt die Anzahl von Gruppen, die in einem Token ausgegeben werden, auf 150 für SAML-Assertionen und 200 für JWT.  Wenn ein Benutzer Mitglied von sehr vielen Gruppen ist, werden die Gruppen ausgelassen, und es wird ein Link zu dem Graph-Endpunkt bereitgestellt, über den weitere Gruppeninformationen abgerufen werden können.
 
@@ -146,6 +146,7 @@ Gültige Werte sind:
 | **„SecurityGroup“** | Gibt im Gruppenanspruch Sicherheitsgruppen aus, in denen der Benutzer Mitglied ist. |
 | **„DirectoryRole“** | Wenn dem Benutzer Verzeichnisrollen zugewiesen sind, werden diese als „wids“-Anspruch ausgegeben (Gruppenansprüche werden nicht ausgegeben). |
 | **„ApplicationGroup“** | Gibt nur die Gruppen aus, die der Anwendung explizit zugewiesen sind und in denen der Benutzer Mitglied ist |
+| **„Keine“** | Es werden keine Gruppen zurückgegeben. (Groß-/Kleinschreibung wird nicht beachtet, sodass auch „keine“ verwendet und direkt im Anwendungsmanifest festgelegt werden kann.) |
 
    Beispiel:
 

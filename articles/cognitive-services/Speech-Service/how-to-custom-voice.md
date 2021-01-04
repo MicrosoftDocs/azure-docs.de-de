@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: 272367d5311952b45c73febe0e05b1ec2d225261
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ae164b1300119481e495e647dd491beafdd5241
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88056685"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025077"
 ---
 # <a name="get-started-with-custom-voice"></a>Erste Schritte mit Custom Voice
 
@@ -42,7 +42,7 @@ Im folgenden Diagramm sind die Schritte zum Erstellen eines benutzerdefinierten 
 Die neuronale Stimmenanpassungsfunktion befindet sich derzeit in der öffentlichen Vorschauversion und ist auf ausgewählte Kunden beschränkt. Füllen Sie dieses [Antragsformular](https://go.microsoft.com/fwlink/?linkid=2108737) aus, um loszulegen.
 
 > [!NOTE]
-> Im Rahmen der Verpflichtung von Microsoft für die Entwicklung einer verantwortungsvollen KI ist es unsere Absicht, die Rechte von Personen und der Gesellschaft zu schützen und transparente Interaktionen zwischen Mensch und Computer zu fördern. Aus diesem Grund ist die benutzerdefinierte neuronale Stimme nicht für alle Kunden verfügbar. Sie erhalten erst Zugriff auf die Technologie, nachdem Ihre Anwendungen überprüft wurden und Sie sich zur Einhaltung der ethischen Grundlagen verpflichtet haben. Erfahren Sie mehr über unseren [Anwendungskontrollprozess](https://aka.ms/custom-neural-gating-overview).
+> Im Rahmen der Verpflichtung von Microsoft für die Entwicklung einer verantwortungsvollen KI ist es unsere Absicht, die Rechte von Personen und der Gesellschaft zu schützen und transparente Interaktionen zwischen Mensch und Computer zu fördern. Aus diesem Grund ist die benutzerdefinierte neuronale Stimme nicht für alle Kunden verfügbar. Sie erhalten erst Zugriff auf die Technologie, nachdem Ihre Anwendungen überprüft wurden und Sie sich zur Einhaltung der ethischen Grundlagen verpflichtet haben. Erfahren Sie mehr über unseren [Anwendungskontrollprozess](./concepts-gating-overview.md).
 
 ## <a name="set-up-your-azure-account"></a>Einrichten Ihres Azure-Kontos
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 43cb891ad63a23353437082f7cb1b1e45f146e5b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a18a36b8583f8534b2a2e643e5c155dc7a2d65e2
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204217"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444060"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Konfigurieren einer mobilen App, die Web-APIs aufruft
 
@@ -149,8 +149,8 @@ Weitere Informationen finden Sie unter [Für UWP spezifische Überlegungen mit M
 Unter Android und iOS ermöglichen Broker Folgendes:
 
 - **Einmaliges Anmelden (Single Sign-On, SSO)** : Sie können SSO für Geräte verwenden, die bei Azure Active Directory (Azure AD) registriert sind. Wenn Sie SSO verwenden, müssen sich Ihre Benutzer nicht bei jeder Anwendung anmelden.
-- **Geräteidentifikation**: Diese Einstellung ermöglicht bedingte Zugriffsrichtlinien im Zusammenhang mit Azure AD Geräten. Der Authentifizierungsprozess verwendet das Gerätezertifikat, das beim Hinzufügen des Geräts zum Arbeitsplatz erstellt wurde.
-- **Überprüfung der Anwendungsidentifikation**: Wenn eine Anwendung den Broker aufruft, übergibt sie ihre Umleitungs-URL. Diese wird dann vom Broker überprüft.
+- **Geräteidentifikation** : Diese Einstellung ermöglicht bedingte Zugriffsrichtlinien im Zusammenhang mit Azure AD Geräten. Der Authentifizierungsprozess verwendet das Gerätezertifikat, das beim Hinzufügen des Geräts zum Arbeitsplatz erstellt wurde.
+- **Überprüfung der Anwendungsidentifikation** : Wenn eine Anwendung den Broker aufruft, übergibt sie ihre Umleitungs-URL. Diese wird dann vom Broker überprüft.
 
 ### <a name="enable-the-broker-on-xamarin"></a>Aktivieren des Brokers in Xamarin
 
@@ -367,5 +367,4 @@ Informationen zum Aktivieren eines Brokers unter Android finden Sie unter [Broke
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-> [!div class="nextstepaction"]
-> [Abrufen eines Tokens](scenario-mobile-acquire-token.md)
+Fahren Sie mit dem nächsten Artikel in diesem Szenario fort: [Abrufen eines Tokens](scenario-mobile-acquire-token.md).

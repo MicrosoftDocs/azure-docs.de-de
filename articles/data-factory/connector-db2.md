@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: jingwang
-ms.openlocfilehash: 3c65ed7e5fa6bb1652791eee75d4caa4c9c5f1ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f890e4c47a427b6ca8c07463d6795f0813ef5bbd
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83873634"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638192"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Kopieren von Daten aus DB2 mithilfe von Azure Data Factory
 > [!div class="op_single_selector" title1="Wählen Sie die von Ihnen verwendete Version des Data Factory-Diensts aus:"]
@@ -49,7 +49,7 @@ Der DB2-Connector unterstützt insbesondere die folgenden IBM DB2-Plattformen u
 * IBM DB2 für LUW 10.1
 
 >[!TIP]
->Der DB2-Connector basiert auf Microsoft OLE DB-Anbieter für DB2. Informationen zur Problembehandlung bei DB2-Connector-Fehlern finden Sie unter [Datenanbieter-Fehlercodes](https://docs.microsoft.com/host-integration-server/db2oledbv/data-provider-error-codes#drda-protocol-errors).
+>Der DB2-Connector basiert auf Microsoft OLE DB-Anbieter für DB2. Informationen zur Problembehandlung bei DB2-Connector-Fehlern finden Sie unter [Datenanbieter-Fehlercodes](/host-integration-server/db2oledbv/data-provider-error-codes#drda-protocol-errors).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -79,7 +79,7 @@ Typische Eigenschaften in der Verbindungszeichenfolge:
 |:--- |:--- |:--- |
 | server |Name des DB2-Servers. Sie können die Portnummer hinter dem Servernamen und einem Semikolon angeben, z.B.: `server:port`.<br>Vom DB2-Connector werden das DDM-/DRDA-Protokoll und standardmäßig der Port 50000 verwendet, sofern nichts anderes angegeben ist. Der Port, der von Ihrer speziellen DB2-Datenbank verwendet wird, kann sich je nach Version und Ihren Einstellungen unterscheiden. Für DB2 LUW wird beispielsweise der Standardport 50000 verwendet, für AS400 ist der Standardport dagegen 446 oder 448, wenn TLS aktiviert ist. Informationen zur typischen Portkonfiguration finden Sie in den folgenden DB2-Dokumenten: [DB2 z/OS](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.5.0/com.ibm.db2.luw.qb.dbconn.doc/doc/t0008229.html), [DB2 iSeries](https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/ddp/rbal1ports.htm) und [DB2 LUW](https://www.ibm.com/support/knowledgecenter/en/SSEKCU_1.1.3.0/com.ibm.psc.doc/install/psc_t_install_typical_db2_port.html). |Ja |
 | database |Name der DB2-Datenbank. |Ja |
-| authenticationType |Typ der Authentifizierung für die Verbindung mit der DB2-Datenbank.<br/>Zulässiger Wert: **Basic**. |Ja |
+| authenticationType |Typ der Authentifizierung für die Verbindung mit der DB2-Datenbank.<br/>Zulässiger Wert: **Basic** . |Ja |
 | username |Geben Sie einen Benutzernamen für das Herstellen der Verbindung mit der DB2-Datenbank an. |Ja |
 | password |Geben Sie das Kennwort für das Benutzerkonto an, das Sie für den Benutzernamen angegeben haben. Markieren Sie dieses Feld als SecureString, um es sicher in Data Factory zu speichern, oder [verweisen Sie auf ein in Azure Key Vault gespeichertes Geheimnis](store-credentials-in-key-vault.md). |Ja |
 | packageCollection | Geben Sie an, wo die benötigten Pakete beim Abfragen der Datenbank automatisch von ADF erstellt werden. Ist dies nicht festgelegt, wird von Data Factory „{username}“ als Standardwert verwendet. | Nein |
@@ -114,13 +114,13 @@ Typische Eigenschaften in der Verbindungszeichenfolge:
         "type": "Db2",
         "typeProperties": {
             "connectionString": "server=<server:port>;database=<database>;authenticationType=Basic;username=<username>;packageCollection=<packagecollection>;certificateCommonName=<certname>;",
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {

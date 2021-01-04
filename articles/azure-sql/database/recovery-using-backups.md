@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
-ms.date: 09/26/2019
-ms.openlocfilehash: 23fdc69b59cc1415d06bd394fd9ef729b7ef4ce0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/13/2020
+ms.openlocfilehash: 138cd03989008aa4fbd7d6ca3e06aff94fa76e33
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448801"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989444"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Azure SQL-Datenbank und SQL Managed Instance: Wiederherstellen automatisierter Datenbanksicherungen
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -60,11 +60,11 @@ Für ein einzelnes Abonnement gibt es Einschränkungen hinsichtlich der Anzahl g
 Es gibt keine integrierte Methode zum Wiederherstellen des gesamten Servers. Ein Beispiel zum Ausführen dieser Aufgabe finden Sie unter [Azure SQL Database: Full server recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) (Azure SQL-Datenbank: Wiederherstellen des gesamten Servers).
 
 > [!IMPORTANT]
-> Zum Durchführen einer Wiederherstellung mit automatisierten Sicherungen müssen Sie Mitglied der Rolle „SQL Server-Mitwirkender“ oder „Mitwirkender für verwaltete SQL-Instanzen“ (je nach Wiederherstellungsziel) im Abonnement, oder Sie müssen der Besitzer des Abonnements sein. Weitere Informationen finden Sie unter [RBAC: Integrierte Rollen](../../role-based-access-control/built-in-roles.md). Sie können das Azure-Portal, PowerShell oder die REST-API zur Wiederherstellung verwenden. Die Nutzung von Transact-SQL ist nicht möglich.
+> Zum Durchführen einer Wiederherstellung mit automatisierten Sicherungen müssen Sie Mitglied der Rolle „SQL Server-Mitwirkender“ oder „Mitwirkender für verwaltete SQL-Instanzen“ (je nach Wiederherstellungsziel) im Abonnement, oder Sie müssen der Besitzer des Abonnements sein. Weitere Informationen finden Sie unter [Azure RBAC: Integrierte Rollen](../../role-based-access-control/built-in-roles.md). Sie können das Azure-Portal, PowerShell oder die REST-API zur Wiederherstellung verwenden. Die Nutzung von Transact-SQL ist nicht möglich.
 
 ## <a name="point-in-time-restore"></a>Wiederherstellung bis zu einem bestimmten Zeitpunkt
 
-Sie können den Zustand einer eigenständigen, Pool- oder Instanzdatenbank zu einem früheren Zeitpunkt mithilfe von Azure-Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) oder [REST-API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#creates-a-database-from-pointintimerestore.) wiederherstellen. Die Anforderung kann jede Dienstebene oder Computegröße für die wiederhergestellte Datenbank angeben. Stellen Sie sicher, dass auf dem Server, auf dem Sie die Datenbank wiederherstellen, ausreichende Ressourcen vorhanden sind. 
+Sie können den Zustand einer eigenständigen, Pool- oder Instanzdatenbank zu einem früheren Zeitpunkt mithilfe von Azure-Portal, [PowerShell](/powershell/module/az.sql/restore-azsqldatabase) oder [REST-API](/rest/api/sql/databases/createorupdate#creates-a-database-from-pointintimerestore.) wiederherstellen. Die Anforderung kann jede Dienstebene oder Computegröße für die wiederhergestellte Datenbank angeben. Stellen Sie sicher, dass auf dem Server, auf dem Sie die Datenbank wiederherstellen, ausreichende Ressourcen vorhanden sind. 
 
 Nach Abschluss der Wiederherstellung wird eine neue Datenbank auf demselben Server wie die ursprüngliche Datenbank erstellt. Die wiederhergestellte Datenbank wird zu normalen Preisen basierend auf der Dienstebene und Computegröße in Rechnung gestellt. Kosten entstehen erst, wenn die Datenbankwiederherstellung abgeschlossen ist.
 
@@ -99,7 +99,7 @@ Um eine Datenbank der verwalteten Instanz mithilfe von Azure-Portal auf den Zust
 
 ## <a name="deleted-database-restore"></a>Wiederherstellen einer gelöschten Datenbank
 
-Sie können eine gelöschte Datenbank auf demselben Server oder in der gleichen verwalteten Instanz auf den Zustand zum Zeitpunkt der Löschung oder früher wiederherstellen. Hierzu können Sie das Azure-Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) oder [REST (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) verwenden. Die Wiederherstellung einer gelöschten Datenbank erfolgt durch das Erstellen einer neuen Datenbank aus der Sicherung.
+Sie können eine gelöschte Datenbank auf demselben Server oder in der gleichen verwalteten Instanz auf den Zustand zum Zeitpunkt der Löschung oder früher wiederherstellen. Hierzu können Sie das Azure-Portal, [PowerShell](/powershell/module/az.sql/restore-azsqldatabase) oder [REST (createMode=Restore)](/rest/api/sql/databases/createorupdate) verwenden. Die Wiederherstellung einer gelöschten Datenbank erfolgt durch das Erstellen einer neuen Datenbank aus der Sicherung.
 
 > [!IMPORTANT]
 > Wenn Sie einen Server oder eine verwaltete Instanz löschen, werden alle enthaltenen Datenbanken ebenfalls gelöscht, und sie können nicht wiederhergestellt werden. Ein gelöschter Server oder eine gelöschte verwaltete Instanz kann nicht wiederhergestellt werden.
@@ -107,6 +107,9 @@ Sie können eine gelöschte Datenbank auf demselben Server oder in der gleichen 
 ### <a name="deleted-database-restore-by-using-the-azure-portal"></a>Wiederherstellen einer gelöschten Datenbank im Azure-Portal
 
 Die Wiederherstellung gelöschter Datenbanken über das Azure-Portal erfolgt aus der Ressource für den Server oder die verwaltete Instanz.
+
+> [!TIP]
+> Es kann einige Minuten dauern, bis kürzlich gelöschte Datenbanken auf der Seite **Gelöschte Datenbanken** im Azure-Portal angezeigt werden, oder wenn gelöschte Datenbanken [programmgesteuert](#programmatic-recovery-using-automated-backups) angezeigt werden.
 
 #### <a name="sql-database"></a>SQL-Datenbank
 
@@ -205,7 +208,7 @@ Sie können auch Azure PowerShell oder die REST-API für die Wiederherstellung v
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Das Azure Resource Manager-Modul von PowerShell wird von SQL-Datenbank und SQL Managed Instance weiterhin unterstützt, alle zukünftigen Entwicklungen erfolgen jedoch für das Az.Sql-Modul. Informationen zu diesen Cmdlets finden Sie unter [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Die Argumente für die Befehle im Az-Modul und den Azure Resource Manager-Modulen sind in großen Teilen identisch.
+> Das Azure Resource Manager-Modul von PowerShell wird von SQL-Datenbank und SQL Managed Instance weiterhin unterstützt, alle zukünftigen Entwicklungen erfolgen jedoch für das Az.Sql-Modul. Informationen zu diesen Cmdlets finden Sie unter [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Die Argumente für die Befehle im Az-Modul und den Azure Resource Manager-Modulen sind in großen Teilen identisch.
 
 #### <a name="sql-database"></a>SQL-Datenbank
 
@@ -237,8 +240,8 @@ So stellen Sie eine Datenbank mithilfe der REST-API wieder her:
 
 | API | BESCHREIBUNG |
 | --- | --- |
-| [REST (createMode=Recovery)](https://docs.microsoft.com/rest/api/sql/databases) |Stellt eine Datenbank wieder her. |
-| [Get Create or Update Database Status](https://docs.microsoft.com/rest/api/sql/operations) |Ruft den Status während eines Wiederherstellungsvorgangs ab. |
+| [REST (createMode=Recovery)](/rest/api/sql/databases) |Stellt eine Datenbank wieder her. |
+| [Get Create or Update Database Status](/rest/api/sql/operations) |Ruft den Status während eines Wiederherstellungsvorgangs ab. |
 
 ### <a name="azure-cli"></a>Azure CLI
 

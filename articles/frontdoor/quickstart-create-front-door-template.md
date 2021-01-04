@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
 ms.custom: subject-armqs
-ms.openlocfilehash: e7c3f2f50d9ac1fb1731f70f7b442ab4a2e44425
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 223006193219afe4179f3161d5e60e6439207b22
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088923"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896054"
 ---
 # <a name="quickstart-create-a-front-door-using-an-arm-template"></a>Schnellstart: Erstellen einer Front Door-Instanz mithilfe einer ARM-Vorlage
 
@@ -27,7 +27,7 @@ In diesem Schnellstart wird beschrieben, wie Sie eine Azure Resource Manager-Vor
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Wenn Ihre Umgebung die Voraussetzungen erfüllt und Sie mit der Verwendung von ARM-Vorlagen vertraut sind, klicken Sie auf die Schaltfläche **In Azure bereitstellen**. Die Vorlage wird im Azure-Portal geöffnet.
+Wenn Ihre Umgebung die Voraussetzungen erfüllt und Sie mit der Verwendung von ARM-Vorlagen vertraut sind, klicken Sie auf die Schaltfläche **In Azure bereitstellen** . Die Vorlage wird im Azure-Portal geöffnet.
 
 [![In Azure bereitstellen](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-front-door-create-basic%2Fazuredeploy.json)
 
@@ -40,7 +40,7 @@ Wenn Ihre Umgebung die Voraussetzungen erfüllt und Sie mit der Verwendung von A
 
 Die in dieser Schnellstartanleitung verwendete Vorlage stammt von der Seite mit den [Azure-Schnellstartvorlagen](https://azure.microsoft.com/resources/templates/101-front-door-create-basic).
 
-In diesem Schnellstart erstellen Sie eine Front Door-Konfiguration mit einem einzelnen Back-End und einem einzelnen Standardpfad, der mit „/*“ übereinstimmt. 
+In diesem Schnellstart erstellen Sie eine Front Door-Konfiguration mit einem einzelnen Back-End und einem einzelnen Standardpfad, der mit `/*` übereinstimmt.
 
 :::code language="json" source="~/quickstart-templates/101-front-door-create-basic/azuredeploy.json":::
 
@@ -50,7 +50,7 @@ In der Vorlage ist eine einzelne Azure-Ressource definiert:
 
 ## <a name="deploy-the-template"></a>Bereitstellen der Vorlage
 
-1. Wählen Sie **Try it** (Ausprobieren) im folgenden Codeblock aus, um Azure Cloud Shell zu öffnen. Folgen Sie dann den Anweisungen, um sich bei Azure anzumelden. 
+1. Wählen Sie **Try it** (Ausprobieren) im folgenden Codeblock aus, um Azure Cloud Shell zu öffnen. Folgen Sie dann den Anweisungen, um sich bei Azure anzumelden.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -73,9 +73,9 @@ In der Vorlage ist eine einzelne Azure-Ressource definiert:
 
 1. Gehen Sie die Werte ein.
 
-    Bei der Vorlagenbereitstellung wird eine Front Door-Instanz mit einem einzelnen Back-End erstellt. In diesem Beispiel wird *<span>microsoft.</span>com* für **backendAddress** verwendet.
+    Bei der Vorlagenbereitstellung wird eine Front Door-Instanz mit einem einzelnen Back-End erstellt. In diesem Beispiel wird `microsoft.com` für **backendAddress** verwendet.
 
-    Der Ressourcengruppenname ist der Projektname mit dem Zusatz **rg**.
+    Der Ressourcengruppenname ist der Projektname mit dem Zusatz **rg** .
 
     > [!NOTE]
     > **frontDoorName** muss ein global eindeutiger Name sein, damit die Vorlage erfolgreich bereitgestellt werden kann. Tritt bei der Bereitstellung ein Fehler auf, beginnen Sie erneut mit Schritt 1.
@@ -92,9 +92,9 @@ Azure PowerShell wird verwendet, um die Vorlage bereitzustellen. Neben Azure Pow
 
 1. Wählen Sie im linken Bereich **Ressourcengruppen** aus.
 
-1. Wählen Sie die Ressourcengruppe aus, die Sie im vorherigen Abschnitt erstellt haben. Der Ressourcengruppenname entspricht standardmäßig dem Projektnamen mit dem Zusatz **rg**.
+1. Wählen Sie die Ressourcengruppe aus, die Sie im vorherigen Abschnitt erstellt haben. Der Ressourcengruppenname entspricht standardmäßig dem Projektnamen mit dem Zusatz **rg** .
 
-1. Wählen Sie die zuvor erstellte Front Door-Instanz aus, und klicken Sie auf den Link **Front-End-Host**. Dadurch wird ein Webbrowser geöffnet, der Sie an den Back-End-FQDN weiterleitet, den Sie bei der Erstellung definiert haben.
+1. Wählen Sie die zuvor erstellte Front Door-Instanz aus, und klicken Sie auf den Link **Front-End-Host** . Dadurch wird ein Webbrowser geöffnet, der Sie an den Back-End-FQDN weiterleitet, den Sie bei der Erstellung definiert haben.
 
     :::image type="content" source="./media/quickstart-create-front-door-template/front-door-overview.png" alt-text="PowerShell-Bereitstellungsausgabe für die Front Door-Instanz mit Resource Manager-Vorlage":::
 
@@ -110,8 +110,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In dieser Schnellstartanleitung haben Sie Folgendes erstellt:
-* Front Door
+In diesem Schnellstart haben Sie eine Front Door-Instanz erstellt.
 
 Fahren Sie mit den Front Door-Tutorials fort, um zu erfahren, wie Sie Ihrer Front Door-Instanz eine benutzerdefinierte Domäne hinzufügen.
 

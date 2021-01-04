@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: aecc64c5fa923bc29d34efd3969c2c12f30153c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ede4e5dd781851c781407a8acea640e3e501f259
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320101"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436384"
 ---
 # <a name="handling-review-feedback-for-azure-application-offers"></a>Behandeln von Überprüfungsfeedback zu Azure-Anwendungsangeboten
 
@@ -43,7 +43,7 @@ Gehen Sie wie folgt vor, um die im Pull Request dokumentierten Probleme zu prüf
 
 1. Wählen Sie im Menü auf der linken Seite der Startseite **Dateien**, um die Listendateien anzuzeigen, die die technischen Ressourcen für dieses Angebot darstellen. Die Microsoft-Prüfer sollten Kommentare hinzugefügt haben, die die ermittelten kritischen Probleme beschreiben. Im folgenden Beispiel wurden zwei Probleme ermittelt.
 
-    [![Pull Request-Startseite](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
+    [![Screenshot mit hervorgehobener Option „Dateien“ und den beiden ermittelten Problemen](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
     <br/> *Klicken Sie auf diese Abbildung, um sie zu vergrößern.*
 
 1. Wählen Sie in der linken Struktur die einzelnen Kommentarknoten aus, um im Kontext des umgebenden Codes zum Kommentar zu navigieren. Korrigieren Sie Ihren Quellcode im Projekt Ihres Teams, um das im Kommentar beschriebene Problem zu beheben.
@@ -57,4 +57,4 @@ Gehen Sie wie folgt vor, um die im Pull Request dokumentierten Probleme zu prüf
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Nachdem Sie die kritischen Probleme korrigiert haben, die in den Pull Requests der Prüfung dokumentiert sind, müssen Sie [Ihr Azure-App-Angebot erneut veröffentlichen](./create-new-azure-apps-offer.md#publish).
+Nachdem Sie die kritischen Probleme korrigiert haben, die in den Pull Requests der Prüfung dokumentiert sind, müssen Sie [Ihr Azure-App-Angebot erneut veröffentlichen](../create-new-azure-apps-offer.md).

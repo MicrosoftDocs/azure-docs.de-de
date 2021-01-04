@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: fcc0538dfef1581a244ae5fd9a3515be3470026c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09a5632f969117e69e68bbe0df2bfbab9a8a102b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850930"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842134"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Erstellen eines Azure Batch-Pools ohne öffentliche IP-Adressen
 
@@ -34,7 +34,7 @@ Um den Zugriff auf diese Knoten einzuschränken und die Auffindbarkeit dieser Kn
 - **Ein Azure VNET** Wenn Sie Ihren Pool in einem [virtuellen Netzwerk](batch-virtual-network.md) erstellen, befolgen Sie diese Anforderungen und Konfigurationen. Um ein VNET mit mindestens einem Subnetz vorzubereiten, können Sie das Azure-Portal, Azure PowerShell, die Azure-Befehlszeilenschnittstelle (CLI) oder andere Methoden verwenden.
   - Das VNET muss sich im gleichen Abonnement und in der gleichen Region befinden wie das für die Poolerstellung verwendete Batch-Konto.
   - Das für den Pool angegebene Subnetz muss über ausreichend nicht zugewiesene IP-Adressen verfügen, um die Anzahl virtueller Computer aufnehmen zu können, die für den Pool geplant sind, d. h. die Summe der `targetDedicatedNodes`- und `targetLowPriorityNodes`-Eigenschaften des Pools. Wenn das Subnetz nicht über ausreichend nicht zugewiesene IP-Adressen verfügt, belegt der Pool teilweise die Computeknoten und es tritt ein Anpassungsfehler auf.
-  - Sie müssen die Netzwerkrichtlinien für den Private Link-Dienst und Endpunkte deaktivieren. Dies kann mithilfe der Azure CLI erfolgen: ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
+  - Sie müssen die Netzwerkrichtlinien für den Private Link-Dienst und Endpunkte deaktivieren. Dies kann mithilfe der Azure CLI erfolgen: ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --resouce-group <resourcegroup> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
 
 > [!IMPORTANT]
 > Dabei ordnet Azure Batch pro 100 dedizierten Knoten oder Knoten mit niedriger Priorität jeweils einen Private Link-Dienst und einen Lastenausgleich zu. Diese Ressourcen werden durch die [Ressourcenkontingente](../azure-resource-manager/management/azure-subscription-service-limits.md) des Abonnements beschränkt. Bei umfangreichen Pools muss ggf. für eine oder mehrere der Ressourcen [eine Kontingenterhöhung angefordert](batch-quota-limit.md#increase-a-quota) werden. Darüber hinaus dürfen keine Ressourcensperren auf von Azure Batch erstellte Ressourcen angewendet werden. Ansonsten wird möglicherweise die Bereinigung von Ressourcen infolge der vom Benutzer ausgelösten Aktionen (etwa Löschen eines Pools oder Verkleinern auf 0) verhindert.

@@ -1,29 +1,39 @@
 ---
-title: StylesObject für dynamische Azure Maps
-description: Referenzhandbuch zum JSON-Schema und zur Syntax für das StylesObject, das beim Erstellen von dynamischen Azure Maps verwendet wird.
+title: StylesObject-Schemareferenzhandbuch für dynamische Azure Maps-Karten
+description: Referenzhandbuch zum StylesObject-Schema und zur Syntax für dynamische Azure Maps-Karten.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/19/2020
+ms.date: 12/07/2020
 ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4b085fbc6e330d38b59fce0c494f672b00c712b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08379e66c97d34eea53410190475e90e156a58e2
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85120488"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903342"
 ---
-# <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>StylesObject-Schema-Referenzhandbuch für dynamische Karten
+# <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>StylesObject-Schemareferenzhandbuch für dynamische Karten
 
-Dieser Artikel ist ein Referenzhandbuch für das JSON-Schema und die Syntax für das `StylesObject`. Das `StylesObject` ist ein `StyleObject`-Array, das Zustandsset-Formatvorlagen darstellt. Verwenden Sie den [Featurezustandsdienst](https://docs.microsoft.com/rest/api/maps/featurestate) von Azure Maps-Ersteller, um Ihre Zustandsset-Formatvorlagen auf die Features von Gebäudeplandaten anzuwenden. Nachdem Sie Ihre Zustandsset-Formatvorlagen erstellt und den Features von Gebäudeplänen zugeordnet haben, können Sie sie zum Erstellen dynamischer Gebäudepläne verwenden. Weiter Informationen zum Erstellen dynamischer Gebäudepläne finden Sie unter [Implementieren dynamischer Formatvorlagen für Gebäudepläne von Ersteller](indoor-map-dynamic-styling.md).
+> [!IMPORTANT]
+> Azure Maps Creator-Dienste befinden sich derzeit in der öffentlichen Vorschau.
+> Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar. Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+ Das `StylesObject` ist ein `StyleObject`-Array, das Zustandsset-Formatvorlagen darstellt. Verwenden Sie den [Featurezustandsdienst](/rest/api/maps/featurestate) von Azure Maps Creator (Vorschau), um Ihre Zustandsset-Formatvorlagen auf die Features von Gebäudeplandaten anzuwenden. Nachdem Sie Ihre Zustandsset-Formatvorlagen erstellt und den Features von Gebäudeplänen zugeordnet haben, können Sie sie zum Erstellen dynamischer Gebäudepläne verwenden. Weitere Informationen zum Erstellen dynamischer Gebäudepläne finden Sie unter [Implementieren dynamischer Formatvorlagen für Gebäudepläne von Creator](indoor-map-dynamic-styling.md).
 
 ## <a name="styleobject"></a>StyleObject
 
-Ein `StyleObject` ist entweder eine [`BooleanTypeStyleRule`](#booleantypestylerule) oder eine [`NumericTypeStyleRule`](#numerictypestylerule).
+Ein `StyleObject` ist eine der folgenden Formatvorlagenregeln:
 
-Der folgende JSON-Code zeigt eine `BooleanTypeStyleRule` namens `occupied` und eine `NumericTypeStyleRule` namens `temperature`.
+ * [`BooleanTypeStyleRule`](#booleantypestylerule)
+ * [`NumericTypeStyleRule`](#numerictypestylerule)
+ * [`StringTypeStyleRule`](#stringtypestylerule)
+
+Der folgende JSON-Code zeigt ein Beispiel für die Verwendung aller drei Formatvorlagentypen.  Mit der `BooleanTypeStyleRule` wird die dynamische Formatvorlage für Features festgelegt, deren `occupied`-Eigenschaft den Wert TRUE bzw. FALSE aufweist.  Mit der `NumericTypeStyleRule` wird die Formatvorlage für Features festgelegt, deren `temperature`-Eigenschaft in einem bestimmten Bereich liegt. Mit der `StringTypeStyleRule` werden schließlich die festgelegten Formatvorlagen mit dem `meetingType` abgeglichen.
+
+
 
 ```json
  "styles": [
@@ -56,6 +66,18 @@ Der folgende JSON-Code zeigt eine `BooleanTypeStyleRule` namens `occupied` und e
               "color": "#eba834"
             }
         ]
+    },
+    {
+      "keyname": "meetingType",
+      "type": "string",
+      "rules": [
+        {
+          "private": "#FF0000",
+          "confidential": "#FF00AA",
+          "allHands": "#00FF00",
+          "brownBag": "#964B00"
+        }
+      ]
     }
 ]
 ```
@@ -68,7 +90,7 @@ Der folgende JSON-Code zeigt eine `BooleanTypeStyleRule` namens `occupied` und e
 |-----------|----------|-------------|-------------|
 | `keyName` | Zeichenfolge | Der *Zustand* oder der dynamische Eigenschaftsname. Ein `keyName` sollte im `StyleObject`-Array eindeutig sein.| Ja |
 | `type` | Zeichenfolge | Der Wert ist „numerisch“. | Ja |
-| `rules` | [`NumberRuleObject`](#numberruleobject)[]| Ein Array aus numerischen Formatvorlagenbereichen mit zugeordneten Farben. Jeder Bereich definiert eine Farbe, die verwendet werden soll, wenn der Wert von *Zustand* den Bereich erfüllt.| Ja |
+| `rules` | [`NumberRuleObject`](#numberruleobject)[]| Ein Array aus numerischen Formatvorlagenbereichen mit zugeordneten Farben. Jeder Bereich definiert eine Farbe, die verwendet werden soll, wenn der Wert von *state* den Bereich erfüllt.| Ja |
 
 ### <a name="numberruleobject"></a>NumberRuleObject
 
@@ -108,7 +130,7 @@ Im folgenden JSON-Beispiel sind beide Bereiche „true“, wenn der Wert von *Zu
 
 ### <a name="rangeobject"></a>RangeObject
 
-Das `RangeObject` definiert einen numerischen Bereichswert eines [`NumberRuleObject`](#numberruleobject). Damit der Wert von *Zustand* in den Bereich fällt, müssen alle definierten Bedingungen „true“ sein. 
+Das `RangeObject` definiert einen numerischen Bereichswert eines [`NumberRuleObject`](#numberruleobject). Damit der Wert von *Zustand* in den Bereich fällt, müssen alle definierten Bedingungen „true“ sein.
 
 | Eigenschaft | type | BESCHREIBUNG | Erforderlich |
 |-----------|----------|-------------|-------------|
@@ -144,13 +166,55 @@ Der folgende JSON-Code veranschaulicht einen `NumericTypeStyleRule` *Zustand* na
 }
 ```
 
+## <a name="stringtypestylerule"></a>StringTypeStyleRule
+
+Eine `StringTypeStyleRule` ist ein [`StyleObject`](#styleobject) und besteht aus folgenden Eigenschaften:
+
+| Eigenschaft | type | BESCHREIBUNG | Erforderlich |
+|-----------|----------|-------------|-------------|
+| `keyName` | Zeichenfolge |  Der *Zustand* oder der dynamische Eigenschaftsname.  Ein `keyName` sollte im `StyleObject`-Array eindeutig sein.| Ja |
+| `type` | Zeichenfolge |Der Wert lautet „string“. | Ja |
+| `rules` | [`StringRuleObject`](#stringruleobject)[]| Ein Array von N *state*-Werten.| Ja |
+
+### <a name="stringruleobject"></a>StringRuleObject
+
+Ein `StringRuleObject` besteht aus bis zu N Zustandswerten („state“), die die möglichen Zeichenfolgenwerte für die Eigenschaft eines Features sind. Wenn der Eigenschaftswert des Features mit keinem der definierten Zustandswerte übereinstimmt, hat dieses Feature keinen dynamischen Stil. Wenn Zustandswerte mehrfach angegeben werden, hat der erste Vorrang.
+
+Beim Vergleich von Zeichenfolgenwerten wird die Groß-/Kleinschreibung beachtet.
+
+| Eigenschaft | type | BESCHREIBUNG | Erforderlich |
+|-----------|----------|-------------|-------------|
+| `stateValue1` | Zeichenfolge | Die Farbe, wenn die Zeichenfolge im Wert „stateValue1“ lautet. | Nein |
+| `stateValue2` | Zeichenfolge | Die Farbe, wenn die Zeichenfolge im Wert „stateValue2“ lautet. | Nein |
+| `stateValueN` | Zeichenfolge | Die Farbe, wenn die Zeichenfolge im Wert „stateValueN“ lautet. | Nein |
+
+### <a name="example-of-stringtypestylerule"></a>Beispiel für StringTypeStyleRule
+
+Der folgende JSON-Code veranschaulicht eine `StringTypeStyleRule`, die die bestimmten Besprechungstypen zugeordneten Formatvorlagen definiert.
+
+```json
+    {
+      "keyname": "meetingType",
+      "type": "string",
+      "rules": [
+        {
+          "private": "#FF0000",
+          "confidential": "#FF00AA",
+          "allHands": "#00FF00",
+          "brownBag": "#964B00"
+        }
+      ]
+    }
+
+```
+
 ## <a name="booleantypestylerule"></a>BooleanTypeStyleRule
 
 Eine `BooleanTypeStyleRule` ist ein [`StyleObject`](#styleobject) und besteht aus folgenden Eigenschaften:
 
 | Eigenschaft | type | BESCHREIBUNG | Erforderlich |
 |-----------|----------|-------------|-------------|
-| `keyName` | Zeichenfolge |  Der *Zustand* oder der dynamische Eigenschaftsname.  Ein `keyName` sollte im style-Array eindeutig sein.| Ja |
+| `keyName` | Zeichenfolge |  Der *Zustand* oder der dynamische Eigenschaftsname.  Ein `keyName` sollte im `StyleObject`-Array eindeutig sein.| Ja |
 | `type` | Zeichenfolge |Der Wert ist „boolesch“. | Ja |
 | `rules` | [`BooleanRuleObject`](#booleanruleobject)[1]| Ein boolesches Paar mit Farben für `true`- und `false`-Werte von *Zustand*.| Ja |
 

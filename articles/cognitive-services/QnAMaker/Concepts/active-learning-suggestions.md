@@ -4,13 +4,13 @@ description: Durch Vorschläge für aktives Lernen lässt sich die Qualität Ihr
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 03/19/2020
-ms.openlocfilehash: e8cdb1d471ceef2aef790c426424b9224faac5ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: e1a8043912c984be46f85bd384a7049da27028b3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777036"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353237"
 ---
 # <a name="active-learning-suggestions"></a>Vorschläge für aktives Lernen
 
@@ -37,10 +37,18 @@ Sobald Fragen im QnA Maker-Portal vorgeschlagen werden, müssen Sie diese überp
 
 ## <a name="turn-on-active-learning"></a>Aktivieren des Features für aktives Lernen
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker, allgemeine Verfügbarkeit (stabile Version)](#tab/v1)
+
 Das Feature für aktives Lernen ist standardmäßig **deaktiviert**.
 So verwenden Sie aktives Lernen:
 * Sie müssen [aktives Lernen aktivieren](../How-To/use-active-learning.md#turn-on-active-learning-for-alternate-questions), damit QnA Maker alternative Fragen für Ihre Wissensdatenbank sammelt.
 * Verwenden Sie zum Anzeigen der vorgeschlagenen alternativen Fragen die [Anzeigeoptionen](../How-To/improve-knowledge-base.md#view-suggested-questions) auf der Seite „Bearbeiten“.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker verwaltet (Vorschauversion)](#tab/v2)
+
+Das Feature für aktives Lernen ist in QnA Maker verwaltet (Vorschau) standardmäßig **aktiviert**. Verwenden Sie zum Anzeigen der vorgeschlagenen alternativen Fragen die [Anzeigeoptionen](../How-To/improve-knowledge-base.md#view-suggested-questions) auf der Seite „Bearbeiten“.
+
+---
 
 ## <a name="how-qna-makers-implicit-feedback-works"></a>Funktionsweise des impliziten Feedbacks von QnA Maker
 
@@ -129,7 +137,7 @@ QnA Maker benötigt explizites Feedback dazu, welche der Antworten die beste An
 * Geschäftslogik (etwa Bestimmung eines akzeptablen Bewertungsbereichs)
 * Kombination aus Benutzerfeedback und Geschäftslogik
 
-Verwenden Sie die [Trainings-API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train), um die richtige Antwort an QnA Maker zu senden, nachdem sie vom Benutzer ausgewählt wurde.
+Verwenden Sie die [Trainings-API](/rest/api/cognitiveservices/qnamaker4.0/runtime/train), um die richtige Antwort an QnA Maker zu senden, nachdem sie vom Benutzer ausgewählt wurde.
 
 ## <a name="next-step"></a>Nächster Schritt
 

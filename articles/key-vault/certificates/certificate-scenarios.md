@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c4c8d1101bd83b580c010132dd70284b78569392
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 85f17897c0e3089a2d2bc5b172e98fa24e8085ff
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124220"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920439"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Erste Schritte mit Key Vault-Zertifikaten
 Die folgenden Szenarien stellen verschiedene der primären Verwendungen des Key Vault-Zertifikatverwaltungdiensts dar. Dazu gehören auch die zusätzlichen Schritte, die zum Erstellen Ihres ersten Zertifikats in Ihrem Schlüsseltresor erforderlich sind.
@@ -35,24 +35,24 @@ Zertifikate bestehen aus drei zusammenhängenden Ressourcen, die als Key Vault-Z
 ## <a name="creating-your-first-key-vault-certificate"></a>Erstellen Ihres ersten Key Vault-Zertifikats  
  Bevor ein Zertifikat in einem Schlüsseltresor (Key Vault, KV) erstellt werden kann, müssen die erforderlichen Schritte 1 und 2 erfolgreich durchgeführt werden, und ein Schlüsseltresor muss für diesen Benutzer/diese Organisation vorhanden sein.  
 
-**Schritt 1** : Anbieter von Zertifizierungsstellen  
+**Schritt 1**: Anbieter von Zertifizierungsstellen  
 -   Onboarding als IT-Administrator, PKI-Administrator oder als ein anderer Benutzer, der Konten bei Zertifizierungsstellen verwaltet, für ein bestimmtes Unternehmen (z.B. Contoso) ist eine Voraussetzung für die Verwendung von Key Vault-Zertifikaten.  
-    Die folgenden Zertifizierungsstellen sind aktuell Key Vault-Partneranbieter. [Hier](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate#partnered-ca-providers) erhalten Sie weitere Informationen.   
+    Die folgenden Zertifizierungsstellen sind aktuell Key Vault-Partneranbieter. [Hier](./create-certificate.md#partnered-ca-providers) erhalten Sie weitere Informationen.   
     -   DigiCert: Key Vault bietet OV-TLS-/SSL-Zertifikate mit DigiCert.  
     -   GlobalSign: Key Vault bietet OV-TSL-/SSL-Zertifikate mit GlobalSign.  
 
-**Schritt 2** : Ein Kontoadministrator für den Anbieter einer Zertifizierungsstelle erstellt Anmeldeinformationen, die von Key Vault verwendet werden, um TSL-/SSL-Zertifikate über Key Vault zu registrieren, zu erneuern und zu verwenden.
+**Schritt 2**: Ein Kontoadministrator für den Anbieter einer Zertifizierungsstelle erstellt Anmeldeinformationen, die von Key Vault verwendet werden, um TSL-/SSL-Zertifikate über Key Vault zu registrieren, zu erneuern und zu verwenden.
 
-**Schritt 3** : Ein Contoso-Administrator und ein Contoso-Mitarbeiter (Key Vault-Benutzer), der Zertifikate besitzt, kann abhängig von der Zertifizierungsstelle ein Zertifikat vom Administrator oder direkt über das Konto bei der Zertifizierungsstelle abrufen.  
+**Schritt 3**: Ein Contoso-Administrator und ein Contoso-Mitarbeiter (Key Vault-Benutzer), der Zertifikate besitzt, kann abhängig von der Zertifizierungsstelle ein Zertifikat vom Administrator oder direkt über das Konto bei der Zertifizierungsstelle abrufen.  
 
 - Beginnen Sie mit einem Vorgang zum Hinzufügen von Anmeldeinformationen zu einem Schlüsseltresor, indem Sie eine [Zertifikataussteller-Ressource festlegen](/rest/api/keyvault/setcertificateissuer/setcertificateissuer). Ein Zertifikataussteller ist eine Entität, die in Azure Key Vault (KV) als eine CertificateIssuer-Ressource dargestellt wird. Sie dient zur Bereitstellung von Informationen zur Quelle eines KV-Zertifikats: Ausstellername, Anbieter, Anmeldeinformationen und andere administrative Details.
   - Ex. MyDigiCertIssuer  
     -   Anbieter  
     -   Anmeldeinformationen: Kontoanmeldeinformationen für die Zertifizierungsstelle. Jede Zertifizierungsstelle verfügt über eigene spezifische Daten.  
 
-    Weitere Informationen zum Erstellen von Konten bei Anbietern von Zertifizierungsstellen finden Sie im zugehörigen Beitrag im [Key Vault-Blog](https://aka.ms/kvcertsblog).  
+    Weitere Informationen zum Erstellen von Konten bei Anbietern von Zertifizierungsstellen finden Sie im zugehörigen Beitrag im [Key Vault-Blog](/archive/blogs/kv/manage-certificates-via-azure-key-vault).  
 
-**Schritt 3.1** : Einrichten von [Zertifikatkontakten](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) für Benachrichtigungen. Dies ist der Kontakt für den Key Vault-Benutzer. Key Vault erzwingt diesen Schritt nicht.  
+**Schritt 3.1**: Einrichten von [Zertifikatkontakten](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) für Benachrichtigungen. Dies ist der Kontakt für den Key Vault-Benutzer. Key Vault erzwingt diesen Schritt nicht.  
 
 Hinweis: Dieser Prozess bis Schritt 3.1 ist ein einmaliger Vorgang.  
 
@@ -60,7 +60,7 @@ Hinweis: Dieser Prozess bis Schritt 3.1 ist ein einmaliger Vorgang.
 
 ![Erstellen eines Zertifikats mit einer Key Vault-Partnerzertifizierungsstelle](../media/certificate-authority-2.png)
 
-**Schritt 4** : Die folgenden Beschreibungen entsprechen den in Grün nummerierten Schritten im vorherigen Diagramm.  
+**Schritt 4**: Die folgenden Beschreibungen entsprechen den in Grün nummerierten Schritten im vorherigen Diagramm.  
   (1): Im obigen Diagramm wird von Ihrer Anwendung ein Zertifikat erstellt, dies beginnt intern mit der Erstellung eines Schlüssels in Ihrem Schlüsseltresor.  
   (2): Key Vault sendet eine TSL-/SSL-Zertifikatanforderung an die Zertifizierungsstelle.  
   (3): Ihre Anwendung fragt in einem Schleifen- und Warteprozess Ihren Key Vault für die Zertifikatsvervollständigung ab. Die Zertifikatserstellung ist abgeschlossen, sobald Key Vault die Antwort der Zertifizierungsstelle mit dem x509-Zertifikat erhält.  
@@ -82,7 +82,7 @@ Hinweis: Dieser Prozess bis Schritt 3.1 ist ein einmaliger Vorgang.
       -   Aufgrund einer Verzögerung bei der Erstellung kann ein Abbruchvorgang initiiert werden. Der Abbruchvorgang ist aber möglicherweise nicht wirksam.  
 
 ### <a name="network-security-and-access-policies-associated-with-integrated-ca"></a>Netzwerksicherheit und Zugriffsrichtlinien, die der integrierten Zertifizierungsstelle zugeordnet sind
-Der Key Vault-Dienst sendet Anforderungen an die Zertifizierungsstelle (ausgehender Datenverkehr). Daher ist sie vollständig kompatibel mit firewallfähigen Schlüsseltresoren. Der Key Vault-Dienst verwendet keine Zugriffsrichtlinien gemeinsam mit der Zertifizierungsstelle. Die Zertifizierungsstelle muss so konfiguriert werden, dass Signieranforderungen unabhängig akzeptiert werden. [Integrieren von Key Vault in die DigiCert-Zertifizierungsstelle](https://docs.microsoft.com/azure/key-vault/certificates/how-to-integrate-certificate-authority)
+Der Key Vault-Dienst sendet Anforderungen an die Zertifizierungsstelle (ausgehender Datenverkehr). Daher ist sie vollständig kompatibel mit firewallfähigen Schlüsseltresoren. Der Key Vault-Dienst verwendet keine Zugriffsrichtlinien gemeinsam mit der Zertifizierungsstelle. Die Zertifizierungsstelle muss so konfiguriert werden, dass Signieranforderungen unabhängig akzeptiert werden. [Integrieren von Key Vault in die DigiCert-Zertifizierungsstelle](./how-to-integrate-certificate-authority.md)
 
 ## <a name="import-a-certificate"></a>Importieren eines Zertifikats  
  Alternative: Ein Zertifikat kann in Key Vault als PFX oder PEM importiert werden.  
@@ -113,7 +113,6 @@ AKV unterstützt zwei PEM-basierte Formate. Sie können ein einzelnes PKCS#8-cod
 
 -----BEGIN CERTIFICATE----- -----END CERTIFICATE-----
 
-EC-Schlüssel werden derzeit nicht im PEM-Format unterstützt.
 
 ## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Erstellen eines Zertifikats mit einer nicht mit Key Vault verbundenen Zertifizierungsstelle  
  Diese Methode ermöglicht das Arbeiten mit anderen Zertifizierungsstellen als den Key Vault-Partneranbietern. Ihre Organisation kann also mit einer Zertifizierungsstelle ihrer Wahl arbeiten.  

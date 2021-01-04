@@ -2,15 +2,15 @@
 title: Testfälle für das Testtoolkit
 description: Beschreibt die Tests, die vom Resource Manager-Vorlagen-Testtoolkit ausgeführt werden.
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 12/03/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: dda8e92c17029126e7f473a6aee03acfc970e04b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff9ad659e15a88725e4c3905ab6c623fda7610fd
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378116"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600903"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Standardtestfälle für das Resource Manager-Vorlagen-Testtoolkit
 
@@ -137,9 +137,11 @@ Im folgenden Beispiel ist der Test **erfolgreich**.
 
 Testname: **Location Should Not Be Hardcoded**
 
-Benutzern Ihrer Vorlage stehen möglicherweise begrenzte Regionen zur Verfügung. Wenn Sie den Ressourcenspeicherort auf `"[resourceGroup().location]"` festlegen, besteht die Möglichkeit, dass die Ressourcengruppe in einer Region erstellt wurde, auf die andere Benutzer nicht zugreifen können. Diese Benutzer können die Vorlage nicht verwenden.
+Ihre Vorlagen sollten einen Parameter mit dem Namen „location“ aufweisen. Verwenden Sie diesen Parameter, um den Standort der Ressourcen in der Vorlage festzulegen. In der Hauptvorlage (mit dem Namen „azuredeploy.json“ oder „mainTemplate.json“) kann dieser Parameter standardmäßig auf den Standort der Ressourcengruppe festgelegt werden. In verknüpften oder geschachtelten Vorlagen sollte der location-Parameter keinen Standardstandort aufweisen.
 
-Verwenden Sie einen Parameter, dessen Standardwert der Ressourcengruppenstandort ist, wenn Sie den Speicherort für jede Ressource festlegen. Dieser Parameter ermöglicht es den Benutzern, den Standardwert zu verwenden oder aber einen anderen Speicherort anzugeben.
+Benutzern Ihrer Vorlage stehen möglicherweise begrenzte Regionen zur Verfügung. Wenn Sie den Ressourcenstandort hartcodieren, können Benutzer möglicherweise keine Ressource in dieser Region erstellen. Benutzer können auch dann blockiert werden, wenn Sie den Ressourcenstandort auf `"[resourceGroup().location]"` festlegen. Es besteht die Möglichkeit, dass die Ressourcengruppe in einer Region erstellt wurde, auf die andere Benutzer nicht zugreifen können. Diese Benutzer können die Vorlage nicht verwenden.
+
+Wenn Sie einen location-Parameter angeben, der als Standardwert den Standort der Ressourcengruppe aufweist, können die Benutzer den Standardwert verwenden oder einen anderen Standort angeben.
 
 Im folgenden Beispiel ist der Test **nicht erfolgreich**, weil der Speicherort der Ressource auf `resourceGroup().location` festgelegt ist.
 
@@ -195,7 +197,7 @@ Im nächsten Beispiel wird ein location-Parameter verwendet, der Test ist jedoch
 }
 ```
 
-Erstellen Sie stattdessen einen Parameter, dessen Standardwert der Ressourcengruppenstandort ist, Benutzern jedoch die Angabe eines anderen Werts ermöglicht. Im folgenden Beispiel ist der Test **erfolgreich**.
+Erstellen Sie stattdessen einen Parameter, dessen Standardwert der Ressourcengruppenstandort ist, Benutzern jedoch die Angabe eines anderen Werts ermöglicht. Im folgenden Beispiel wird dieser Test **bestanden**, wenn die Vorlage als Hauptvorlage verwendet wird.
 
 ```json
 {
@@ -227,6 +229,8 @@ Erstellen Sie stattdessen einen Parameter, dessen Standardwert der Ressourcengru
     "outputs": {}
 }
 ```
+
+Wenn das vorherige Beispiel jedoch als verknüpfte Vorlage verwendet wird, gilt der Test als **nicht bestanden**. Wenn Sie die Verwendung als verknüpfte Vorlage planen, entfernen Sie den Standardwert.
 
 ## <a name="resources-should-have-location"></a>Verwendung eines Speicherorts für Ressourcen
 

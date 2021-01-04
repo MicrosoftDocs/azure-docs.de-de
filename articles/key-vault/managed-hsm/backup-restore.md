@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 3d999375d746bb359acdccf9bf48f8b77d509776
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e051a36b3c91fadc0c3b602cb4ba8e3dbcff1294
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992470"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367130"
 ---
 # <a name="full-backup-and-restore"></a>Vollständige Sicherung und Wiederherstellung
 
@@ -23,7 +23,7 @@ ms.locfileid: "90992470"
 
 Verwaltete HSMs unterstützen das Erstellen einer vollständigen Sicherung des gesamten Inhalts des HSM – einschließlich aller Schlüssel, Versionen, Attribute, Tags und Rollenzuweisungen. Die Sicherung wird mit kryptografischen Schlüsseln verschlüsselt, die der Sicherheitsdomäne des HSM zugeordnet sind.
 
-Sicherungsvorgänge werden auf der Datenebene durchgeführt. Der Aufrufer, der den Sicherungsvorgang initiiert, muss über die Berechtigung zum Ausführen von „dataAction“ (**Microsoft.KeyVault/managedHsm/backup/start/action**) verfügen.
+Sicherungsvorgänge werden auf der Datenebene durchgeführt. Der Aufrufer, der den Sicherungsvorgang initiiert, muss über die Berechtigung zum Ausführen von „dataAction“ ( **Microsoft.KeyVault/managedHsm/backup/start/action** ) verfügen.
 
 Nur die folgenden integrierten Rollen sind zum Ausführen einer vollständigen Sicherung berechtigt:
 - Managed HSM Administrator (Administrator für verwaltete HSMs)
@@ -52,6 +52,10 @@ end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
 
 skey=$(az storage account keys list --query '[0].value' -o tsv --account-name mhsmdemobackup --subscription a1ba9aaa-b7f6-4a33-b038-6e64553a6c7b)
 
+# Create a container
+
+az storage container create --account-name  mhsmdemobackup --name mhsmdemobackupcontainer  --account-key $skey
+
 # Generate a container sas token
 
 sas=$(az storage container generate-sas -n mhsmdemobackupcontainer --account-name mhsmdemobackup --permissions crdw --expiry $end --account-key $skey -o tsv --subscription a1ba9aaa-b7f6-4a33-b038-6e64553a6c7b)
@@ -68,7 +72,7 @@ Mit einer vollständigen Wiederherstellung können Sie den Inhalt des HSM aus ei
 > [!IMPORTANT]
 > Die vollständige Wiederherstellung ist ein äußerst destruktiver Vorgang. Daher muss innerhalb der letzten 30 Minuten eine vollständige Sicherung durchgeführt worden sein, damit ein Vorgang vom Typ `restore` ausgeführt werden kann.
 
-Wiederherstellungsvorgänge werden auf der Datenebene durchgeführt. Der Aufrufer, der den Wiederherstellungsvorgang startet, muss über die Berechtigung zum Ausführen von „dataAction“ (**Microsoft.KeyVault/managedHsm/restore/start/action**) verfügen. Das Quell-HSM, in dem die Sicherung erstellt wurde, und das Ziel-HSM, in dem die Wiederherstellung durchgeführt wird, **müssen** über die gleiche Sicherheitsdomäne verfügen. Weitere Informationen zur Sicherheitsdomäne verwalteter HSMs finden Sie [hier](security-domain.md).
+Wiederherstellungsvorgänge werden auf der Datenebene durchgeführt. Der Aufrufer, der den Wiederherstellungsvorgang startet, muss über die Berechtigung zum Ausführen von „dataAction“ ( **Microsoft.KeyVault/managedHsm/restore/start/action** ) verfügen. Das Quell-HSM, in dem die Sicherung erstellt wurde, und das Ziel-HSM, in dem die Wiederherstellung durchgeführt wird, **müssen** über die gleiche Sicherheitsdomäne verfügen. Weitere Informationen zur Sicherheitsdomäne verwalteter HSMs finden Sie [hier](security-domain.md).
 
 Zum Ausführen einer vollständigen Wiederherstellung sind folgende Angaben erforderlich:
 - HSM-Name oder -URL

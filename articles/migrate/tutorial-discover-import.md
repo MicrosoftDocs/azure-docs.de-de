@@ -1,14 +1,17 @@
 ---
 title: Bewerten lokaler Server mithilfe einer importierten CSV-Datei mit der Azure Migrate-Serverbewertung
 description: Hier wird beschrieben, wie Sie lokale Server für die Migration zu Azure ermitteln, indem Sie eine importierte CSV-Datei in der Azure Migrate-Serverbewertung verwenden.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
-ms.openlocfilehash: 30f17bb6b22d4d19cf225aa52d8284f5306a44ee
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: dfa7ee941e2c373b02fe5fb2f2a648a60a677670
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308389"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753108"
 ---
 # <a name="tutorial-assess-servers-using-an-imported-csv-file"></a>Tutorial: Bewerten von Servern mithilfe einer importierten CSV-Datei
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 60dff717fbd86fa83821575ac90c9dac36dbc4d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d680da7a5f09a55bec5d791642b80fd76c6088e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85383970"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509613"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrieren von Benutzern zu Azure AD B2C
 
@@ -90,7 +90,7 @@ Nicht alle Informationen des alten Identitätsanbieter sollten zu Ihrem Azure A
 
 Es empfiehlt sich, vor Beginn der Migration Ihr Verzeichnis zu bereinigen.
 
-- Identifizieren Sie die Benutzerattribute, die in Azure AD B2C gespeichert werden sollen, und migrieren Sie nur das, was Sie benötigen. Bei Bedarf können Sie [benutzerdefinierte Attribute](custom-policy-custom-attributes.md) erstellen, um weitere Benutzerdaten zu speichern.
+- Identifizieren Sie die Benutzerattribute, die in Azure AD B2C gespeichert werden sollen, und migrieren Sie nur das, was Sie benötigen. Bei Bedarf können Sie [benutzerdefinierte Attribute](user-flow-custom-attributes.md) erstellen, um weitere Benutzerdaten zu speichern.
 - Wenn Sie aus einer Umgebung mit mehreren Authentifizierungsquellen migrieren, in der beispielsweise jede Anwendung über ein eigenes Benutzerverzeichnis verfügt, verwenden Sie als Migrationsziel ein einheitliches Konto in Azure AD B2C.
 - Wenn mehrere Anwendungen über unterschiedliche Benutzernamen verfügen, können diese mithilfe der Identitätensammlung in einem Azure AD B2C-Benutzerkonto gespeichert werden. Lassen Sie den Benutzer ein Kennwort wählen, und legen Sie dieses im Verzeichnis fest. Bei der nahtlosen Migration sollte beispielsweise nur das gewählte Kennwort im Azure AD B2C-Konto gespeichert werden.
 - Entfernen Sie nicht verwendete Benutzerkonten vor der Migration, oder migrieren Sie keine veralteten Konten.

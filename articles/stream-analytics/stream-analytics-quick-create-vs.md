@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.openlocfilehash: aff9bf83795043e0176d7a3f155844c8dbe0281a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 034f1497cb6262ca86cd440b914f3ae67356eef9
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87337471"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124610"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Schnellstart: Erstellen eines Azure Stream Analytics-Auftrags mithilfe von Visual Studio
 
@@ -28,7 +28,7 @@ In dieser Schnellstartanleitung wird gezeigt, wie Sie mithilfe der Azure Stream 
 
 * Installieren Sie Visual Studio 2019, Visual Studio 2015 oder Visual Studio 2013 Update 4. Die Editionen Enterprise (Ultimate/Premium), Professional und Community werden unterstützt. Die Express Edition wird nicht unterstützt.
 
-* Befolgen Sie die [Installationsanweisungen](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) für die Stream Analytics-Tools für Visual Studio.
+* Befolgen Sie die [Installationsanweisungen](./stream-analytics-tools-for-visual-studio-install.md) für die Stream Analytics-Tools für Visual Studio.
 
 ## <a name="prepare-the-input-data"></a>Vorbereiten der Eingabedaten
 
@@ -73,11 +73,11 @@ Vor dem Definieren des Stream Analytics-Auftrags sollten Sie die Daten vorbereit
 
    ![Speicherkonto erstellen](./media/stream-analytics-quick-create-portal/create-storage-account.png)
 
-3. Wählen Sie nach der Erstellung des Speicherkontos im Bereich **Übersicht** die Kachel**Blobs** aus.
+3. Wählen Sie nach der Erstellung des Speicherkontos im Bereich **Übersicht** die Kachel **Blobs** aus.
 
    ![Speicherkontoübersicht](./media/stream-analytics-quick-create-portal/blob-storage.png)
 
-4. Wählen Sie auf der Seite **Blob-Dienst** die Option **Container** aus, und geben Sie einen Namen für Ihren Container (etwa *container1*) ein. Übernehmen Sie für **Öffentliche Zugriffsebene** die Option **Private (no anonymous access)** (Privat (kein anonymer Zugriff)), und wählen Sie **OK** aus.
+4. Wählen Sie auf der Seite **Blob-Dienst** die Option **Container** aus, und geben Sie einen Namen für Ihren Container (etwa *container1* ) ein. Übernehmen Sie für **Öffentliche Zugriffsebene** die Option **Private (no anonymous access)** (Privat (kein anonymer Zugriff)), und wählen Sie **OK** aus.
 
    ![Erstellen eines Blobcontainers](./media/stream-analytics-quick-create-portal/create-blob-container.png)
 
@@ -89,7 +89,7 @@ Vor dem Definieren des Stream Analytics-Auftrags sollten Sie die Daten vorbereit
 
 3. Wählen Sie in der Vorlagenliste links **Stream Analytics** und dann **Azure Stream Analytics Application** (Azure Stream Analytics-Anwendung) aus.  
 
-4. Geben Sie **Name**, **Speicherort** und **Projektmappenname** für Ihr Projekt ein, und klicken Sie auf **OK**.
+4. Geben Sie **Name** , **Speicherort** und **Projektmappenname** für Ihr Projekt ein, und klicken Sie auf **OK**.
 
    ![Erstellen eines Stream Analytics-Projekts](./media/stream-analytics-quick-create-vs/create-stream-analytics-project.png)
 
@@ -102,11 +102,11 @@ Sehen Sie sich die Elemente an, die in einem Azure Stream Analytics-Projekt enth
 
 1. Wählen Sie in Visual Studio im Menü **Ansicht** den **Server-Explorer** aus.
 
-2. Klicken Sie mit der rechten Maustaste auf **Azure**, wählen Sie **Verbindung mit Microsoft Azure-Abonnement herstellen** aus, und melden Sie sich dann mit Ihrem Azure-Konto an.
+2. Klicken Sie mit der rechten Maustaste auf **Azure** , wählen Sie **Verbindung mit Microsoft Azure-Abonnement herstellen** aus, und melden Sie sich dann mit Ihrem Azure-Konto an.
 
 ## <a name="define-input"></a>Festlegen der Eingabe
 
-1. Erweitern Sie im **Projektmappen-Explorer** den Knoten **Eingaben**, und doppelklicken Sie auf **Input.json**.
+1. Erweitern Sie im **Projektmappen-Explorer** den Knoten **Eingaben** , und doppelklicken Sie auf **Input.json**.
 
 2. Fügen Sie unter **Stream Analytics Input Configuration** (Stream Analytics-Eingabekonfiguration) die folgenden Werte ein:
 
@@ -125,7 +125,7 @@ Sehen Sie sich die Elemente an, die in einem Azure Stream Analytics-Projekt enth
 
 ## <a name="define-output"></a>Definieren der Ausgabe
 
-1. Erweitern Sie im **Projektmappen-Explorer** den Knoten **Ausgaben**, und doppelklicken Sie auf **Output.json**.
+1. Erweitern Sie im **Projektmappen-Explorer** den Knoten **Ausgaben** , und doppelklicken Sie auf **Output.json**.
 
 2. Fügen Sie unter **Stream Analytics Output Configuration** (Stream Analytics-Ausgabekonfiguration) die folgenden Werte ein:
 
@@ -160,7 +160,7 @@ Sehen Sie sich die Elemente an, die in einem Azure Stream Analytics-Projekt enth
 
 1. Wählen Sie im **Abfrage-Editor** im Skript-Editor die Option **An Azure übermitteln** aus.
 
-2. Wählen Sie die Option **Neuen Azure Stream Analytics-Auftrag erstellen**, und geben Sie unter **Auftragsname** einen Namen ein. Wählen Sie die Werte für **Abonnement**, **Ressourcengruppe** und **Standort** aus, die Sie zu Beginn der Schnellstartanleitung verwendet haben.
+2. Wählen Sie die Option **Neuen Azure Stream Analytics-Auftrag erstellen** , und geben Sie unter **Auftragsname** einen Namen ein. Wählen Sie die Werte für **Abonnement** , **Ressourcengruppe** und **Standort** aus, die Sie zu Beginn der Schnellstartanleitung verwendet haben.
 
    ![Übermitteln des Auftrags an Azure](./media/stream-analytics-quick-create-vs/stream-analytics-job-to-azure.png)
 
@@ -180,7 +180,7 @@ Sehen Sie sich die Elemente an, die in einem Azure Stream Analytics-Projekt enth
 
    ![Starten des Stream Analytics-Auftrags](./media/stream-analytics-quick-create-vs/start-stream-analytics-job-vs.png)
 
-2. Ändern Sie den **Startmodus der Auftragsausgabe** in **JobStartTime**, und wählen Sie **Start**.
+2. Ändern Sie den **Startmodus der Auftragsausgabe** in **JobStartTime** , und wählen Sie **Start**.
 
    ![Starten der Auftragskonfiguration](./media/stream-analytics-quick-create-vs/stream-analytics-start-configuration.png)
 
@@ -188,7 +188,7 @@ Sehen Sie sich die Elemente an, die in einem Azure Stream Analytics-Projekt enth
 
    ![Ausführen des Stream Analytics-Auftrags](./media/stream-analytics-quick-create-vs/stream-analytics-job-running.png)
 
-4. Klicken Sie zum Anzeigen der Ergebnisse im Menü **Ansicht** auf **Cloud-Explorer**, und navigieren Sie zum Speicherkonto in Ihrer Ressourcengruppe. Doppelklicken Sie unter **Blobcontainer** auf **container1** und dann auf den Dateipfad der **Ausgabe**.
+4. Klicken Sie zum Anzeigen der Ergebnisse im Menü **Ansicht** auf **Cloud-Explorer** , und navigieren Sie zum Speicherkonto in Ihrer Ressourcengruppe. Doppelklicken Sie unter **Blobcontainer** auf **container1** und dann auf den Dateipfad der **Ausgabe**.
 
    ![Anzeigen der Ergebnisse](./media/stream-analytics-quick-create-vs/stream-analytics-vs-results.png)
 
@@ -198,7 +198,7 @@ Löschen Sie die Ressourcengruppe, den Streamingauftrag und alle dazugehörigen 
 
 1. Klicken Sie im Azure-Portal im Menü auf der linken Seite auf **Ressourcengruppen** und dann auf den Namen der erstellten Ressource.  
 
-2. Klicken Sie auf der Seite mit Ihrer Ressourcengruppe auf **Löschen**, geben Sie im Textfeld den Namen der zu löschenden Ressource ein, und klicken Sie dann auf **Löschen**.
+2. Klicken Sie auf der Seite mit Ihrer Ressourcengruppe auf **Löschen** , geben Sie im Textfeld den Namen der zu löschenden Ressource ein, und klicken Sie dann auf **Löschen**.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

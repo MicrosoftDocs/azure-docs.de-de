@@ -1,30 +1,32 @@
 ---
 title: 'Tutorial: Anmelden von Benutzern und Aufrufen einer geschützten API über eine Blazor WebAssembly-App'
 titleSuffix: Microsoft identity platform
-description: In diesem Tutorial erfahren Sie, wie Sie mithilfe der Microsoft Identity Platform in einer Blazor WebAssembly-App Benutzer anmelden und eine geschützte API aufrufen.
+description: In diesem Tutorial erfahren Sie, wie Sie mithilfe von Microsoft Identity Platform in einer Blazor WebAssembly-App (WASM) Benutzer anmelden und eine geschützte API aufrufen.
 author: knicholasa
 ms.author: nichola
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: ba3607c522191644ec0cc63db118de285d297c48
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 09e922ffddcce732d9213eb91026561528c0728a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221509"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169136"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Tutorial: Anmelden von Benutzern und Aufrufen einer geschützten API über eine Blazor WebAssembly-App
 
-[Blazor WebAssembly](/aspnet/core/blazor#blazor-webassembly) ist ein Framework für Single-Page-Webanwendungen zum Entwickeln interaktiver clientseitiger Web-Apps mit .NET. In diesem Tutorial erstellen Sie eine App, die mithilfe der [Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/) Benutzer anmeldet und Daten aus einer geschützten API aus einer Blazor WebAssembly-App (Blazor WASM) abruft.
+In diesem Tutorial haben Sie eine Blazor WebAssembly-App erstellt, mit der unter Verwendung von Microsoft Identity Platform und durch Registrierung der App in Azure Active Directory (Azure AD) Benutzer angemeldet und Daten von Microsoft Graph abgerufen werden.
 
-In diesem Tutorial wird Folgendes vermittelt:
+Es gibt auch ein [Tutorial für Blazor Server](tutorial-blazor-server.md). 
+
+Dieses Tutorial umfasst folgende Punkte:
 
 > [!div class="checklist"]
 >
 > * Erstellen einer neuen Blazor WebAssembly-App, die für die Verwendung von Azure Active Directory (Azure AD) für die [Authentifizierung und Autorisierung](authentication-vs-authorization.md) mithilfe der Microsoft Identity Platform konfiguriert ist
-> * Abrufen von Daten aus einer geschützten Web-API, in diesem Fall [Microsoft Graph](https://docs.microsoft.com/graph/overview)
+> * Abrufen von Daten aus einer geschützten Web-API, in diesem Fall [Microsoft Graph](/graph/overview)
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -239,5 +241,5 @@ Nachdem Sie die Zustimmung erteilt haben, können Sie zur Seite „Daten abrufen
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Bewährte Methoden und Empfehlungen für Microsoft Identity Platform](./identity-platform-integration-checklist.md)
-- [Einführung in ASP.NET Core Blazor](/aspnet/core/blazor)
+> [!div class="nextstepaction"]
+> [Bewährte Methoden und Empfehlungen für Microsoft Identity Platform](./identity-platform-integration-checklist.md)

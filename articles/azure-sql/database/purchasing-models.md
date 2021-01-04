@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/28/2020
-ms.openlocfilehash: aef29eef7eb53c4cc4ffcc4926f9efe533374178
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8883263d6ddb2fb8ddc809f464288fcd282531bd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319451"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788824"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>Auswählen zwischen dem vCore-basierten und dem DTU-basierten Kaufmodell – Azure SQL-Datenbank und SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -72,7 +72,7 @@ Weitere Informationen zu den Preisen für Storage finden Sie auf der Seite [Azur
 
 Ein virtueller Kern (V-Kern) repräsentiert eine logische CPU und bietet Ihnen die Möglichkeit, zwischen verschiedenen Hardwaregenerationen und den physischen Hardwaremerkmalen (z.B. der Anzahl der Kerne, dem Arbeitsspeicher, der Speichergröße) zu wählen. Beim vCore-basierten Kaufmodell erhalten Sie Flexibilität, Kontrolle und Transparenz in Bezug auf den individuellen Ressourcenverbrauch. Außerdem können Sie die lokalen Workloadanforderungen leicht auf die Cloud übertragen. Mit diesem Modell können Sie Compute-, Arbeitsspeicher- und Speicherressourcen entsprechend Ihren jeweiligen Workloadanforderungen auswählen.
 
-Beim vCore-basierten Kaufmodell können Sie für SQL-Datenbank und SQL Managed Instance zwischen den Dienstebenen [Universell](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability) und [Unternehmenskritisch](high-availability-sla.md#premium-and-business-critical-service-tier-availability) wählen.  Für Einzeldatenbanken können Sie auch die [Dienstebene „Hyperscale“](service-tier-hyperscale.md) auswählen.
+Beim vCore-basierten Kaufmodell können Sie für SQL-Datenbank und SQL Managed Instance zwischen den Dienstebenen [Universell](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability) und [Unternehmenskritisch](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) wählen.  Für Einzeldatenbanken können Sie auch die [Dienstebene „Hyperscale“](service-tier-hyperscale.md) auswählen.
 
 Mit dem vCore-basierten Kaufmodell können Sie Compute- und Speicherressourcen einzeln auswählen, eine Leistung wie in Ihrer lokalen Umgebung erzielen und den Preis optimieren. Beim vCore-basierten Kaufmodell zahlen Sie für Folgendes:
 
@@ -127,7 +127,7 @@ Sie können einem vorhandenen Pool weitere eDTUs hinzufügen, ohne dass es zu Da
 
 ### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>Ermitteln der für eine Workload erforderlichen Anzahl von DTUs
 
-Wenn Sie die vorhandene Workload eines lokalen oder virtuellen SQL Server-Computers zu SQL-Datenbank migrieren möchten, verwenden Sie den [DTU-Rechner](https://dtucalculator.azurewebsites.net/), um die ungefähre Anzahl von benötigten DTUs zu berechnen. Für eine vorhandene SQL-Datenbank-Workload verwenden Sie die [Statistik zur Abfrageleistung](query-performance-insight-use.md), um den Ressourcenverbrauch (DTUs) Ihrer Datenbank zu verstehen und einen tieferen Einblick zur Optimierung Ihrer Workload zu gewinnen. In der dynamischen Verwaltungssicht (Dynamic Management View, DMV) [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) können Sie den Ressourcenverbrauch der letzten Stunde anzeigen. In der Katalogansicht [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) wird der Ressourcenverbrauch der letzten 14 Tage angezeigt. Da hierfür Durchschnittswerte für jeweils fünf Minuten genutzt werden, ist jedoch die Genauigkeit geringer.
+Wenn Sie die vorhandene Workload eines lokalen oder virtuellen SQL Server-Computers zu SQL-Datenbank migrieren möchten, verwenden Sie den [DTU-Rechner](https://dtucalculator.azurewebsites.net/), um die ungefähre Anzahl von benötigten DTUs zu berechnen. Für eine vorhandene SQL-Datenbank-Workload verwenden Sie die [Statistik zur Abfrageleistung](query-performance-insight-use.md), um den Ressourcenverbrauch (DTUs) Ihrer Datenbank zu verstehen und einen tieferen Einblick zur Optimierung Ihrer Workload zu gewinnen. In der dynamischen Verwaltungssicht (Dynamic Management View, DMV) [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) können Sie den Ressourcenverbrauch der letzten Stunde anzeigen. In der Katalogansicht [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) wird der Ressourcenverbrauch der letzten 14 Tage angezeigt. Da hierfür Durchschnittswerte für jeweils fünf Minuten genutzt werden, ist jedoch die Genauigkeit geringer.
 
 ### <a name="determine-dtu-utilization"></a>Ermitteln der DTU-Nutzung
 
@@ -135,7 +135,7 @@ Verwenden Sie die folgende Formel, um den durchschnittlichen Prozentsatz der DTU
 
 `avg_dtu_percent = MAX(avg_cpu_percent, avg_data_io_percent, avg_log_write_percent)`
 
-Die Eingabewerte für diese Formel können aus den DMVs [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) und [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) abgerufen werden. Anders ausgedrückt: Um den Prozentsatz der DTU-/eDTU-Nutzung für den DTU-/eDTU-Grenzwert einer Datenbank oder eines Pools für elastische Datenbanken zu ermitteln, wählen Sie den größten Prozentwert aus `avg_cpu_percent`, `avg_data_io_percent` und `avg_log_write_percent` zu einem bestimmten Zeitpunkt aus.
+Die Eingabewerte für diese Formel können aus den DMVs [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) und [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) abgerufen werden. Anders ausgedrückt: Um den Prozentsatz der DTU-/eDTU-Nutzung für den DTU-/eDTU-Grenzwert einer Datenbank oder eines Pools für elastische Datenbanken zu ermitteln, wählen Sie den größten Prozentwert aus `avg_cpu_percent`, `avg_data_io_percent` und `avg_log_write_percent` zu einem bestimmten Zeitpunkt aus.
 
 > [!NOTE]
 > Der DTU-Grenzwert einer Datenbank wird durch die für die Datenbank verfügbaren Werte von CPU, Lesevorgängen, Schreibvorgängen und Arbeitsspeicher bestimmt. Da die SQL-Datenbank-Engine jedoch in der Regel den gesamten verfügbaren Arbeitsspeicher für den Datencache verwendet, um die Leistung zu verbessern, liegt der `avg_memory_usage_percent`-Wert unabhängig von der aktuellen Datenbankauslastung normalerweise nahe bei 100 Prozent. Daher wird der Arbeitsspeicher nicht in der DTU-Nutzungsformel verwendet, obwohl er den DTU-Grenzwert indirekt beeinflusst.
@@ -150,13 +150,13 @@ Im DTU-basierten Kaufmodell können Kunden die für ihre Datenbanken verwendete 
 
 Beispielsweise kann eine Datenbank auf eine andere Hardwaregeneration verschoben werden, wenn sie auf ein anderes Dienstziel hoch- oder herunterskaliert wird, oder aber wenn die aktuelle Infrastruktur in einem Rechenzentrum ihre Kapazitätsgrenzen erreicht oder die aktuell verwendete Hardware aufgrund ihres Lebenszyklus außer Betrieb genommen wird.
 
-Wenn eine Datenbank auf eine andere Hardware verschoben wird, kann sich die Workloadleistung ändern. Das DTU-Modell gewährleistet, dass der Durchsatz und die Reaktionszeit der [DTU-Benchmark](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-dtu#dtu-benchmark)-Workload im Wesentlichen identisch bleiben, wenn die Datenbank auf eine andere Hardwaregeneration verschoben wird, solange das Dienstziel (die Anzahl der DTUs) unverändert bleibt.
+Wenn eine Datenbank auf eine andere Hardware verschoben wird, kann sich die Workloadleistung ändern. Das DTU-Modell gewährleistet, dass der Durchsatz und die Reaktionszeit der [DTU-Benchmark](./service-tiers-dtu.md#dtu-benchmark)-Workload im Wesentlichen identisch bleiben, wenn die Datenbank auf eine andere Hardwaregeneration verschoben wird, solange das Dienstziel (die Anzahl der DTUs) unverändert bleibt.
 
 Allerdings können die Auswirkungen der Verwendung unterschiedlicher Hardware für dasselbe Dienstziel über das gesamte Spektrum der in Azure SQL-Datenbank ausgeführten Kundenworkloads ausgeprägter sein. Unterschiedliche Workloads profitieren von unterschiedlichen Hardwarekonfigurationen und Features. Deshalb ist es für andere Workloads als der DTU-Benchmark möglich, Leistungsunterschiede zu erkennen, wenn die Datenbank von einer Hardwaregeneration auf eine andere verschoben wird.
 
 So ist beispielsweise die Leistung bei einer Anwendung, die von Netzwerklatenz abhängig ist, auf einer Gen5-Hardware besser als auf Gen4 aufgrund der Nutzung von beschleunigtem Netzwerkbetrieb in Gen5, während bei einer Anwendung mit intensiven E/A-Lesevorgängen die Leistung auf Gen4-Hardware aufgrund eines höheren Arbeitsspeicher-pro-Kern-Verhältnisses auf Gen4 besser ist als auf Gen5.
 
-Kunden mit Workloads, die von Hardwareänderungen abhängig sind, oder Kunden, die die Auswahl der Hardwaregeneration für ihre Datenbank steuern möchten, können das [Kaufmodell für virtuelle Kerne](service-tiers-vcore.md) verwenden, um beim Erstellen und Skalieren von Datenbanken ihre bevorzugte Hardwaregeneration auszuwählen. Im Modell „V-Kern“ werden Ressourcenlimits der jeweiligen Dienstziele auf jeder Hardwaregeneration dokumentiert – sowohl für [Einzeldatenbanken](resource-limits-vcore-single-databases.md) (Singletons) als auch für [Pools für elastische Datenbanken](resource-limits-vcore-elastic-pools.md). Weitere Informationen zu Hardwaregenerationen im vCore-basierten Modell finden Sie unter [Hardwaregenerationen](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore#hardware-generations).
+Kunden mit Workloads, die von Hardwareänderungen abhängig sind, oder Kunden, die die Auswahl der Hardwaregeneration für ihre Datenbank steuern möchten, können das [Kaufmodell für virtuelle Kerne](service-tiers-vcore.md) verwenden, um beim Erstellen und Skalieren von Datenbanken ihre bevorzugte Hardwaregeneration auszuwählen. Im Modell „V-Kern“ werden Ressourcenlimits der jeweiligen Dienstziele auf jeder Hardwaregeneration dokumentiert – sowohl für [Einzeldatenbanken](resource-limits-vcore-single-databases.md) (Singletons) als auch für [Pools für elastische Datenbanken](resource-limits-vcore-elastic-pools.md). Weitere Informationen zu Hardwaregenerationen im vCore-basierten Modell finden Sie unter [Hardwaregenerationen](./service-tiers-vcore.md#hardware-generations).
 
 ## <a name="frequently-asked-questions-faqs"></a>Häufig gestellte Fragen (FAQs)
 

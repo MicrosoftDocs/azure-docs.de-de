@@ -3,16 +3,17 @@ title: Bring-Your-Own-Subscription-Images in Azure für Red Hat Enterprise Linux
 description: Hier erfahren Sie mehr über Bring-Your-Own-Subscription-Images für Red Hat Enterprise Linux in Azure.
 author: asinn826
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 06/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 8896ed3eed291e6ec18c45df60e6079ada769b28
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 6f2c15518a12a99ca1390284165ad2d48156e06a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993329"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968671"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Bring-Your-Own-Subscription-Gold-Images für Red Hat Enterprise Linux in Azure
 
@@ -28,7 +29,7 @@ Red Hat Enterprise Linux-Images (RHEL) sind in Azure über nutzungsbasierte Beza
 - Für VMs, die aus diesen Images erstellt wurden, gelten Standard-Supportrichtlinien.
 - Die VMs, die von Red Hat Gold-Images bereitgestellt werden, enthalten keine RHEL-Gebühren, die mit RHEL-PAYG-Images verknüpft sind.
 - Die Bilder sind nicht berechtigt. Sie müssen für die Registrierung und zum Abonnieren der VMs den Red Hat-Abonnement-Manager verwenden, um Updates direkt von Red Hat zu erhalten.
-- Es ist derzeit nicht möglich, dynamisch zwischen BYOS- und PAYG-Abrechnungsmodellen für Linux-Images zu wechseln. Sie müssen den virtuellen Computer aus dem entsprechenden Image erneut bereitstellen, um das Abrechnungsmodell zu wechseln.
+- Sie können über den [Azure-Hybridvorteil](../../linux/azure-hybrid-benefit-linux.md) von Images mit nutzungsbasierter Bezahlung zu einem BYOS-Modell wechseln. Es ist aber nicht möglich, von einem ursprünglich als BYOS bereitgestellten Modell zu Modellen mit nutzungsbasierter Bezahlung für Linux-Images zu wechseln. Um das Abrechnungsmodell von BYOS auf nutzungsbasierte Bezahlung umzustellen, müssen Sie die VM aus dem entsprechenden Image erneut bereitstellen.
 
 >[!NOTE]
 > BYOS-Images der Generation 2 für RHEL sind zurzeit nicht über das Marketplace-Angebot verfügbar. Wenn Sie ein BYOS-Image der Generation 2 für RHEL benötigen, besuchen Sie das Cloud Access-Dashboard in der Red Hat-Abonnementverwaltung. Weitere Informationen finden Sie in der [Dokumentation zu Red Hat](https://access.redhat.com/articles/4847681).

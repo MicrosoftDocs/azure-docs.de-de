@@ -8,12 +8,12 @@ ms.reviewer: matjazl
 ms.author: cavoeg
 author: CaitlinV39
 ms.date: 11/22/2019
-ms.openlocfilehash: 5de1d99442f307fc7850114915851f994258b537
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9949ab4cfa42553e5a8d28244b8f621f09334d1
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87845900"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398163"
 ---
 # <a name="additional-settings-for-azure-api-for-fhir"></a>Zusätzliche Einstellungen für Azure API for FHIR
 
@@ -29,7 +29,7 @@ Weitere Informationen zum Ändern der Standardeinstellungen finden Sie unter [Ko
 
 ## <a name="access-control"></a>Zugriffssteuerung
 
-Azure API for FHIR gestattet nur autorisierten Benutzern den Zugriff auf die FHIR-API. Sie können autorisierte Benutzer mithilfe von zwei verschiedenen Methoden konfigurieren. Die primäre und empfohlene Methode zum Konfigurieren der Zugriffssteuerung ist die Verwendung der [rollenbasierten Zugriffssteuerung von Azure](https://docs.microsoft.com/azure/role-based-access-control/), auf die über das Blatt **Zugriffssteuerung (IAM)** zugegriffen werden kann. Azure RBAC funktioniert nur, wenn Sie den Zugriff auf die Datenebene mithilfe des Azure Active Directory-Mandanten sichern möchten, der Ihrem Abonnement zugeordnet ist. Wenn Sie einen anderen Mandanten verwenden möchten, bietet Azure API for FHIR einen Mechanismus zur lokalen Steuerung des Zugriffs auf die FHIR-Datenebene. Die Konfigurationsoptionen sind bei Verwendung des lokalen RBAC-Mechanismus weniger umfangreich. Zum Anzeigen weiterer Details wählen Sie eine der folgenden Optionen aus:
+Azure API for FHIR gestattet nur autorisierten Benutzern den Zugriff auf die FHIR-API. Sie können autorisierte Benutzer mithilfe von zwei verschiedenen Methoden konfigurieren. Die primäre und empfohlene Methode zum Konfigurieren der Zugriffssteuerung ist die Verwendung der [rollenbasierten Zugriffssteuerung von Azure](../role-based-access-control/index.yml), auf die über das Blatt **Zugriffssteuerung (IAM)** zugegriffen werden kann. Azure RBAC funktioniert nur, wenn Sie den Zugriff auf die Datenebene mithilfe des Azure Active Directory-Mandanten sichern möchten, der Ihrem Abonnement zugeordnet ist. Wenn Sie einen anderen Mandanten verwenden möchten, bietet Azure API for FHIR einen Mechanismus zur lokalen Steuerung des Zugriffs auf die FHIR-Datenebene. Die Konfigurationsoptionen sind bei Verwendung des lokalen RBAC-Mechanismus weniger umfangreich. Zum Anzeigen weiterer Details wählen Sie eine der folgenden Optionen aus:
 
 * [Azure RBAC für FHIR-Datenebene](configure-azure-rbac.md). Dies ist die bevorzugte Option, wenn Sie den Azure Active Directory-Mandanten verwenden, der Ihrem Abonnement zugeordnet ist.
 * [Lokale Steuerung des Zugriffs auf die FHIR-Datenebene](configure-local-rbac.md). Verwenden Sie diese Option nur, wenn Sie einen externen Azure Active Directory-Mandanten für die Steuerung des Zugriffs auf die Datenebene verwenden müssen. 

@@ -1,5 +1,5 @@
 ---
-title: Synapse SQL-Empfehlungen
+title: Azure Advisor-Empfehlungen für dedizierte SQL-Pools
 description: Erfahren Sie mehr über Synapse SQL-Empfehlungen und wie sie generiert werden.
 services: synapse-analytics
 author: kevinvngo
@@ -11,18 +11,18 @@ ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e4564005e3b9cc9673cc20596d4114d102174b9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 667629b7f613b11f40528b039c7525339b7a62d0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85482852"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462871"
 ---
-# <a name="synapse-sql-recommendations"></a>Synapse SQL-Empfehlungen
+# <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Advisor-Empfehlungen für dedizierte SQL-Pools in Azure Synapse Analytics
 
-In diesem Artikel werden die Synapse SQL-Empfehlungen beschrieben, die durch Azure Advisor bereitgestellt werden.  
+In diesem Artikel werden die in Azure Advisor verfügbaren Empfehlungen für dedizierte SQL-Pools beschrieben.  
 
-Synapse SQL bietet Empfehlungen, um sicherzustellen, dass Ihre Data Warehouse-Workload im Hinblick auf die Leistung konsistent optimiert wird. Empfehlungen sind in den [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) eng integriert, um Sie direkt im [Azure-Portal](https://aka.ms/Azureadvisor) mit bewährten Methoden vertraut zu machen. Synapse SQL sammelt täglich Telemetrie- und Oberflächenempfehlungen für Ihre aktive Workload. Die unterstützten Empfehlungsszenarien werden im Folgenden zusammen mit der Anwendung empfohlener Aktionen beschrieben.
+Dedizierte SQL-Pools bieten Empfehlungen, mit denen Sie sicherstellen können, dass Ihre Data Warehouse-Workload im Hinblick auf die Leistung konsistent optimiert wird. Empfehlungen sind in den [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) eng integriert, um Sie direkt im [Azure-Portal](https://aka.ms/Azureadvisor) mit bewährten Methoden vertraut zu machen. Ein dedizierter SQL-Pool sammelt täglich Telemetriedaten und gibt Empfehlungen für Ihre aktive Workload. Die unterstützten Empfehlungsszenarien werden im Folgenden zusammen mit der Anwendung empfohlener Aktionen beschrieben.
 
 Sie können noch heute [Ihre Empfehlungen überprüfen](https://aka.ms/Azureadvisor)! 
 
@@ -73,4 +73,4 @@ Die Abfrageleistung kann sich bei hohen tempdb-Konflikten verschlechtern.  Tempd
 
 ## <a name="data-loading-misconfiguration"></a>Fehlkonfiguration beim Laden von Daten
 
-Sie sollten Daten immer aus einem Speicherkonto in derselben Region wie der SQL-Pool laden, um die Latenz zu minimieren. Verwenden Sie die [COPY-Anweisung für hohen Durchsatz bei der Datenerfassung](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest), und teilen Sie Ihre Stagingdateien in Ihrem Speicherkonto auf, um den Durchsatz zu maximieren. Wenn Sie die COPY-Anweisung nicht verwenden können, können Sie für einen besseren Durchsatz die SqlBulkCopy-API oder bcp mit einer hohen Batchgröße verwenden. Weitere Anleitungen zum Laden von Daten finden Sie in der folgenden [Dokumentation](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data). 
+Sie sollten Daten immer aus einem Speicherkonto in derselben Region wie der dedizierte SQL-Pool laden, um die Latenz zu minimieren. Verwenden Sie die [COPY-Anweisung für hohen Durchsatz bei der Datenerfassung](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest), und teilen Sie Ihre Stagingdateien in Ihrem Speicherkonto auf, um den Durchsatz zu maximieren. Wenn Sie die COPY-Anweisung nicht verwenden können, können Sie für einen besseren Durchsatz die SqlBulkCopy-API oder bcp mit einer hohen Batchgröße verwenden. Weitere Anleitungen zum Laden von Daten finden Sie in der folgenden [Dokumentation](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data). 

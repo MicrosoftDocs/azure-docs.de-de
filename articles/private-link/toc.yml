@@ -37,6 +37,10 @@
       items:
         - name: 'Herstellen einer Verbindung mit SQL Server: Portal'
           href: tutorial-private-endpoint-sql-portal.md
+        - name: 'Herstellen einer Verbindung mit SQL Server: PowerShell'
+          href: tutorial-private-endpoint-sql-powershell.md
+        - name: 'Herstellen einer Verbindung mit SQL Server: Azure CLI'
+          href: tutorial-private-endpoint-sql-cli.md
 - name: Konzepte
   items:
     - name: Privater Endpunkt
@@ -76,7 +80,7 @@
     - name: Java
       href: /java/api/
     - name: Node.js
-      href: 'https://docs.microsoft.com/javascript/azure#azure-sdk'
+      href: /javascript/azure#azure-sdk
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
     - name: REST
@@ -94,7 +98,7 @@
     - name: Netzwerkblog
       href: 'https://azure.microsoft.com/blog/topics/networking'
     - name: 'Frageseite von Microsoft Q&A (Fragen und Antworten): Netzwerke'
-      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
+      href: /answers/topics/azure-virtual-network.html
     - name: Netzwerkfeedback
       href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
     - name: Preise

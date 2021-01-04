@@ -1,26 +1,26 @@
 ---
-title: 'Azure Active Directory: Schützen von Ressourcen mit Azure MFA und AD FS'
-description: Auf dieser Seite zur Azure Multi-Factor Authentication werden die ersten Schritte mit Azure MFA und AD FS in der Cloud beschrieben.
+title: Schützen von Ressourcen mit Azure AD MFA und AD FS – Azure Active Directory
+description: Auf dieser Seite zur Azure AD Multi-Factor Authentication werden die ersten Schritte mit Azure AD MFA und AD FS in der Cloud beschrieben.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5167d9041e8edfd6e829bdd1a78f826f73eea4d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b42f920726d4b3046ab0c292e1090f5217e8b1f9
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964586"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743240"
 ---
-# <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Sichern von Cloud-Ressourcen mit Azure Multi-Factor Authentication und AD FS
+# <a name="securing-cloud-resources-with-azure-ad-multi-factor-authentication-and-ad-fs"></a>Schützen von Cloud-Ressourcen mit Azure AD Multi-Factor Authentication und AD FS
 
-Wenn Ihre Organisation über einen Verbund mit Azure Active Directory verfügt, können Sie Multi-Factor Authentication oder Active Directory Federation Services (AD FS) zum Sichern von Ressourcen verwenden, auf die über Azure AD zugegriffen wird. Führen Sie die folgenden Verfahren aus, um Azure Active Directory-Ressourcen mit Azure Multi-Factor Authentication oder Active Directory-Verbunddiensten zu sichern.
+Wenn Ihre Organisation über einen Verbund mit Azure Active Directory verfügt, können Sie Ressourcen, auf die über Azure AD zugegriffen wird, mithilfe von Azure AD Multi-Factor Authentication oder Active Directory-Verbunddiensten (Active Directory Federation Services, AD FS) schützen. Führen Sie die folgenden Verfahren aus, um Azure Active Directory-Ressourcen mit Azure AD Multi-Factor Authentication oder Active Directory-Verbunddiensten zu schützen.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Schützen von Azure AD-Ressourcen mit AD FS
 
@@ -48,7 +48,7 @@ Zum Schützen Ihrer Cloudressource richten Sie eine Anspruchsregel ein, damit Ac
 
 ## <a name="trusted-ips-for-federated-users"></a>Vertrauenswürdige IPs für Partnerbenutzer
 
-Mit vertrauenswürdigen IPs können Administratoren die zweistufige Überprüfung für bestimmte IP-Adressen oder Partnerbenutzer umgehen, deren Anfragen aus dem eigenen Intranet stammen. In den folgenden Abschnitten wird beschrieben, wie Sie vertrauenswürdige IPs für die Azure Multi-Factor Authentication mit Partnerbenutzern konfigurieren und die zweistufige Überprüfung umgehen, wenn eine Anforderung aus dem Intranet eines Partnerbenutzers stammt. Hierzu wird für AD FS die Verwendung eines Passthrough-Elements oder für die Filterung einer Vorlage für einen eingehenden Anspruch mit dem Anspruchstyp „Innerhalb des Unternehmensnetzwerks“ konfiguriert.
+Mit vertrauenswürdigen IPs können Administratoren die zweistufige Überprüfung für bestimmte IP-Adressen oder Partnerbenutzer umgehen, deren Anfragen aus dem eigenen Intranet stammen. In den folgenden Abschnitten wird beschrieben, wie Sie vertrauenswürdige IPs für die Azure AD Multi-Factor Authentication mit Partnerbenutzern konfigurieren und die zweistufige Überprüfung umgehen, wenn eine Anforderung aus dem Intranet eines Partnerbenutzers stammt. Hierzu wird für AD FS die Verwendung eines Passthrough-Elements oder für die Filterung einer Vorlage für einen eingehenden Anspruch mit dem Anspruchstyp „Innerhalb des Unternehmensnetzwerks“ konfiguriert.
 
 In diesem Beispiel wird Microsoft 365 für die Vertrauensstellungen der vertrauenden Seite verwendet.
 
@@ -84,7 +84,7 @@ Als Erstes müssen wir die AD FS-Ansprüche konfigurieren. Erstellen Sie zwei A
 15. Klicken Sie auf **OK**.
 16. Schließen Sie die AD FS-Verwaltung.
 
-### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Konfigurieren vertrauenswürdiger IPs der Azure Multi-Factor Authentication mit Partnerbenutzern
+### <a name="configure-azure-ad-multi-factor-authentication-trusted-ips-with-federated-users"></a>Konfigurieren vertrauenswürdiger IPs der Azure AD Multi-Factor Authentication mit Partnerbenutzern
 
 Da die Ansprüche jetzt vorhanden sind, können wir vertrauenswürdige IPs konfigurieren.
 

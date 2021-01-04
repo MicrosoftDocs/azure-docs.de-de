@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/16/2018
-ms.openlocfilehash: 5363a1b7321bfcbb53b4494b51ee2ea2e7217782
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4de7e428bff0feaafdec00b0c0014bbaf6acb917
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619643"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790966"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Bereitstellen und Kennenlernen einer mehrinstanzenfähigen Anwendung mit Sharding
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ Diese Datenbankmuster ermöglichen Ihnen, in jedem Shard oder jeder Datenbank ei
 
 ## <a name="app-deploys-quickly"></a>App wird schnell bereitgestellt
 
-Die App wird in der Azure-Cloud ausgeführt und verwendet Azure SQL-Datenbank. Der folgende Abschnitt zur Bereitstellung enthält die blaue Schaltfläche **Bereitstellung in Azure**. Wenn auf die Schaltfläche geklickt wird, wird die App innerhalb von fünf Minuten vollständig in Ihrem Azure-Abonnement bereitgestellt. Sie haben vollen Zugriff auf die einzelnen Anwendungskomponenten.
+Die App wird in der Azure-Cloud ausgeführt und verwendet Azure SQL-Datenbank. Der folgende Abschnitt zur Bereitstellung enthält die blaue Schaltfläche **Bereitstellung in Azure** . Wenn auf die Schaltfläche geklickt wird, wird die App innerhalb von fünf Minuten vollständig in Ihrem Azure-Abonnement bereitgestellt. Sie haben vollen Zugriff auf die einzelnen Anwendungskomponenten.
 
 Die Anwendung wird mit Daten für drei Beispielmandanten bereitgestellt. Die Mandanten werden zusammen in einer mehrinstanzenfähigen Datenbank gespeichert.
 
@@ -57,7 +57,7 @@ Stellen Sie zum Durchführen dieses Tutorials sicher, dass die folgenden Vorauss
 
 ### <a name="plan-the-names"></a>Planen von Namen
 
-In den Schritten in diesem Abschnitt geben Sie einen Wert für *Benutzer* an, mit dem sichergestellt wird, dass Ressourcennamen global eindeutig sind, sowie einen Namen für die *Ressourcengruppe*, die alle Ressourcen enthält, die durch eine Bereitstellung der App erstellt werden. Für eine Person mit dem Namen *Ann Finley* wird Folgendes empfohlen:
+In den Schritten in diesem Abschnitt geben Sie einen Wert für *Benutzer* an, mit dem sichergestellt wird, dass Ressourcennamen global eindeutig sind, sowie einen Namen für die *Ressourcengruppe* , die alle Ressourcen enthält, die durch eine Bereitstellung der App erstellt werden. Für eine Person mit dem Namen *Ann Finley* wird Folgendes empfohlen:
 - *Benutzer:* **af1**  *(Die Initialen mit einer Ziffer. Verwenden Sie einen anderen Wert (z. B. „af2“), wenn Sie die App ein zweites Mal bereitstellen.)*
 - *Ressourcengruppe:* **wingtip-mt-af1** *(„wingtip-mt“ gibt an, dass es sich um die mehrinstanzenfähige App mit Sharding handelt. Durch Anhängen des Benutzernamens „af1“ wird der Name der Ressourcengruppe mit den Namen der darin enthaltenen Ressourcen korreliert.)*
 
@@ -65,7 +65,7 @@ Wählen Sie nun Ihre Namen aus, und notieren Sie sich diese.
 
 ### <a name="steps"></a>Schritte
 
-1. Klicken Sie auf die folgende blaue Schaltfläche **Bereitstellung in Azure**.
+1. Klicken Sie auf die folgende blaue Schaltfläche **Bereitstellung in Azure** .
    - Das Azure-Portal mit der Vorlage für die Wingtip Tickets-SaaS-Bereitstellung wird geöffnet.
 
      [![Schaltfläche „Bereitstellung in Azure“][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
@@ -76,14 +76,14 @@ Wählen Sie nun Ihre Namen aus, und notieren Sie sich diese.
     > Verwenden Sie für diese Demo keine bereits vorhandenen Ressourcengruppen, -server oder -pools. Wählen Sie stattdessen **Neue Ressourcengruppe erstellen** aus. Wenn Sie sich umfassend mit der Anwendung vertraut gemacht haben, löschen Sie diese Ressourcengruppe, um die zugehörige Abrechnung einzustellen.
     > Verwenden Sie diese Anwendung und alle damit erstellten Ressourcen nicht für die Produktion. Einige Aspekte hinsichtlich der Authentifizierungs- und Serverfirewalleinstellungen sind absichtlich unsicher in der App, um die Demo zu erleichtern.
 
-    - **Ressourcengruppe**: Wählen Sie **Neu erstellen** aus, und geben Sie einen **Namen** für die Ressourcengruppe an (Groß-/Kleinschreibung wird berücksichtigt).
+    - **Ressourcengruppe** : Wählen Sie **Neu erstellen** aus, und geben Sie einen **Namen** für die Ressourcengruppe an (Groß-/Kleinschreibung wird berücksichtigt).
         - Wählen Sie einen **Speicherort** in der Dropdownliste aus.
-    - Für **Benutzer**: Es wird empfohlen, einen kurzen Wert für **Benutzer** auszuwählen.
+    - Für **Benutzer** : Es wird empfohlen, einen kurzen Wert für **Benutzer** auszuwählen.
 
-1. **Bereitstellen der Anwendung**.
+1. **Bereitstellen der Anwendung** .
 
     - Klicken Sie auf die entsprechende Option, um den Geschäftsbedingungen zuzustimmen.
-    - Klicken Sie auf **Kaufen**.
+    - Klicken Sie auf **Kaufen** .
 
 1. Überwachen Sie den Bereitstellungsstatus, indem Sie auf **Benachrichtigungen** klicken (das Glockensymbol rechts neben dem Suchfeld). Das Bereitstellen der Wingtip-App dauert ungefähr fünf Minuten.
 
@@ -97,11 +97,11 @@ Laden Sie den Quellcode der Anwendung und die Verwaltungsskripts herunter, währ
 > Ausführbare Inhalte (Skripts, DLLs) können durch Windows blockiert werden, wenn ZIP-Dateien aus einer externen Quelle heruntergeladen und extrahiert werden. Führen Sie bei der Extraktion der Skripts aus einer ZIP-Datei die nachfolgenden Schritte aus, um die Blockierung der ZIP-Datei vor der Extraktion aufzuheben. Durch die Aufhebung der Blockierung der ZIP-Datei stellen Sie sicher, dass die Skripts ausgeführt werden dürfen.
 
 1. Browsen Sie zum [GitHub-Repository „WingtipTicketsSaaS-MultiTenantDb“](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
-2. Klicken Sie auf **Klonen oder herunterladen**.
-3. Klicken Sie auf **ZIP herunterladen**, und speichern Sie die Datei.
-4. Klicken Sie mit der rechten Maustaste auf die Datei **WingtipTicketsSaaS-MultiTenantDb-master.zip**, und wählen Sie **Eigenschaften** aus.
-5. Wählen Sie auf der Registerkarte **Allgemein** die Option **Unblock** (Zulassen), und klicken Sie auf **Übernehmen**.
-6. Klicken Sie auf **OK**.
+2. Klicken Sie auf **Klonen oder herunterladen** .
+3. Klicken Sie auf **ZIP herunterladen** , und speichern Sie die Datei.
+4. Klicken Sie mit der rechten Maustaste auf die Datei **WingtipTicketsSaaS-MultiTenantDb-master.zip** , und wählen Sie **Eigenschaften** aus.
+5. Wählen Sie auf der Registerkarte **Allgemein** die Option **Unblock** (Zulassen), und klicken Sie auf **Übernehmen** .
+6. Klicken Sie auf **OK** .
 7. Extrahieren Sie die Dateien.
 
 Skripts befinden sich im Ordner „ *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\* “.
@@ -110,7 +110,7 @@ Skripts befinden sich im Ordner „ *..\\WingtipTicketsSaaS-MultiTenantDb-master
 
 Legen Sie vor dem Ausführen von Skripts die Werte *resource group* und *user* in der Datei **UserConfig.psm1** fest. Legen Sie diese Variablen auf die gleichen Werte fest, die Sie während der Bereitstellung angegeben haben.
 
-1. Öffnen Sie ...\\Learning Modules\\*UserConfig.psm1* in der *PowerShell ISE*.
+1. Öffnen Sie ...\\Learning Modules\\*UserConfig.psm1* in der *PowerShell ISE* .
 2. Aktualisieren Sie *ResourceGroupName* und *Name* mit den jeweiligen Werten für Ihre Bereitstellung (nur in den Zeilen 10 und 11).
 3. Speichern Sie die Änderungen.
 
@@ -129,7 +129,7 @@ Auf der zentralen Webseite **Veranstaltungshub** wird eine Liste mit Links zu de
 
      ![Events Hub](./media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
-2. Klicken Sie im **Ereignis-Hub** auf **Fabrikam Jazz Club**.
+2. Klicken Sie im **Ereignis-Hub** auf **Fabrikam Jazz Club** .
 
    ![Events](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
 
@@ -137,9 +137,9 @@ Auf der zentralen Webseite **Veranstaltungshub** wird eine Liste mit Links zu de
 
 Zum Steuern der Verteilung eingehender Anforderungen nutzt die Wingtip-App den [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md). Die Veranstaltungsseite für die einzelnen Mandanten enthalten den Mandantennamen in der URL. Jede URL enthält auch den jeweiligen Benutzerwert. Bei jeder URL wird durch Ausführung der folgenden Schritte die Erfüllung des angezeigten Formats sichergestellt:
 
-- http://events.wingtip-mt.&lt;Benutzer&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt;Benutzer&gt;.trafficmanager.net/ *fabrikamjazzclub*
 
-1. Die Veranstaltungs-App analysiert den Mandantennamen aus der URL. Der Mandantenname in der vorangehenden Beispiel-URL lautet *fabrikamjazzclub*.
+1. Die Veranstaltungs-App analysiert den Mandantennamen aus der URL. Der Mandantenname in der vorangehenden Beispiel-URL lautet *fabrikamjazzclub* .
 2. Die App hashcodiert anschließend den Mandantennamen, um einen Schlüssel für den Zugriff auf einen Katalog mithilfe der [Shardzuordnungsverwaltung](elastic-scale-shard-map-management.md) zu erstellen.
 3. Die App sucht nach dem Schlüssel im Katalog und ruft den entsprechenden Speicherort in der Datenbank für den Mandanten ab.
 4. Die App verwendet die Speicherortinformationen, um nach einer Datenbank mit allen Daten für den Mandanten zu suchen und auf diese zuzugreifen.
@@ -155,8 +155,8 @@ In einer Produktionsumgebung erstellen Sie typischerweise einen CNAME-DNS-Eintra
 
 Nachdem die App bereitgestellt wurde, können wir sie nutzen. Mit dem PowerShell-Skript *Demo-LoadGenerator* wird eine Workload gestartet, die für jeden Mandanten ausgeführt wird. Die Auslastung vieler echter SaaS-Apps ist häufig sporadischer Art und nicht vorhersagbar. Um diese Art der Auslastung zu simulieren, erzeugt der Generator eine Last, die auf alle Mandanten verteilt wird. Die Last enthält randomisierte Datenverkehrsspitzen auf jedem Mandanten, die in zufälligen Intervallen auftreten. Es dauert mehrere Minuten, bis das Auslastungsmuster erreicht ist. Es ist also am besten, den Generator mindestens drei oder vier Minuten laufen zu lassen, bevor die Auslastung überwacht wird.
 
-1. Öffnen Sie in der *PowerShell ISE* das Skript „...\\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1*“.
-2. Drücken Sie **F5**, um das Skript auszuführen und den Last-Generator zu starten (übernehmen Sie zunächst die Standard-Parameterwerte).
+1. Öffnen Sie in der *PowerShell ISE* das Skript „...\\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1* “.
+2. Drücken Sie **F5** , um das Skript auszuführen und den Last-Generator zu starten (übernehmen Sie zunächst die Standard-Parameterwerte).
 
 Das Skript *Demo-LoadGenerator.ps1* öffnet eine andere PowerShell-Sitzung, in der der Lastengenerator ausgeführt wird. Der Lastengenerator wird in dieser Sitzung als ein Task im Vordergrund ausgeführt, der für jeden Mandanten je einen Lastengenerierungsauftrag im Hintergrund aufruft.
 
@@ -168,19 +168,19 @@ Möglicherweise möchten Sie die Lastengeneratorsitzung neu starten, um andere P
 
 ## <a name="provision-a-new-tenant-into-the-sharded-database"></a>Bereitstellen eines neuen Mandanten in der Sharddatenbank
 
-Die erste Bereitstellung umfasst drei Beispielmandanten in der Datenbank *Tenants1*. Erstellen Sie einen anderen Mandanten, und achten Sie darauf, wie sich dieser auf die bereitgestellte Anwendung auswirkt. Drücken Sie in diesem Schritt eine Taste, um einen neuen Mandanten zu erstellen:
+Die erste Bereitstellung umfasst drei Beispielmandanten in der Datenbank *Tenants1* . Erstellen Sie einen anderen Mandanten, und achten Sie darauf, wie sich dieser auf die bereitgestellte Anwendung auswirkt. Drücken Sie in diesem Schritt eine Taste, um einen neuen Mandanten zu erstellen:
 
-1. Öffnen Sie ...\\Learning Modules\\Provision and Catalog\\*Demo-ProvisionTenants.ps1* in der *PowerShell ISE*.
-2. Drücken Sie **F5** (nicht **F8**), um das Skript auszuführen (lassen Sie die Standardwerte zunächst unverändert).
+1. Öffnen Sie ...\\Learning Modules\\Provision and Catalog\\*Demo-ProvisionTenants.ps1* in der *PowerShell ISE* .
+2. Drücken Sie **F5** (nicht **F8** ), um das Skript auszuführen (lassen Sie die Standardwerte zunächst unverändert).
 
    > [!NOTE]
-   > Um einen ausgewählten Teil des Skripts auszuführen, können Sie die PowerShell-Skripts nur durch Drücken der **F5**-Taste ausführen, nicht durch Drücken von **F8**. Denn bei Verwendung der **F8**-Taste wird die Variable *$PSScriptRoot* nicht ausgewertet. Diese Variable ist für viele Skripts zum Navigieren in Ordnern, Aufrufen anderer Skripts oder Importieren von Modulen erforderlich.
+   > Um einen ausgewählten Teil des Skripts auszuführen, können Sie die PowerShell-Skripts nur durch Drücken der **F5** -Taste ausführen, nicht durch Drücken von **F8** . Denn bei Verwendung der **F8** -Taste wird die Variable *$PSScriptRoot* nicht ausgewertet. Diese Variable ist für viele Skripts zum Navigieren in Ordnern, Aufrufen anderer Skripts oder Importieren von Modulen erforderlich.
 
 Der neue Mandant Red Maple Racing wird zur Datenbank *Tenants1* hinzugefügt und im Katalog registriert. Die Website des neuen Mandanten für den Ticketverkauf für **Ereignisse** wird in Ihrem Browser geöffnet:
 
 ![Neuer Mandant](./media/saas-multitenantdb-get-started-deploy/red-maple-racing.png)
 
-Aktualisieren Sie den **Veranstaltungshub**. Der neue Mandant wird jetzt in der Liste aufgeführt.
+Aktualisieren Sie den **Veranstaltungshub** . Der neue Mandant wird jetzt in der Liste aufgeführt.
 
 ## <a name="provision-a-new-tenant-in-its-own-database"></a>Bereitstellen eines neuen Mandanten in der eigenen Datenbank
 
@@ -193,16 +193,16 @@ Sie können auswählen, ob Kunden mit kostenlosen Testversionen oder Kunden des 
 
 Als Nächstes stellen wir einen anderen Mandanten bereit, dieses Mal in seiner eigenen Datenbank:
 
-1. Nehmen Sie in ...\\Learning Modules\\Provision and Catalog\\*Demo-ProvisionTenants.ps1* folgende Änderungen vor: Ändern Sie *$TenantName* in **Salix Salsa**, *$VenueType* in **dance** und *$Scenario* in **2**.
+1. Nehmen Sie in ...\\Learning Modules\\Provision and Catalog\\*Demo-ProvisionTenants.ps1* folgende Änderungen vor: Ändern Sie *$TenantName* in **Salix Salsa** , *$VenueType* in **dance** und *$Scenario* in **2** .
 
-2. Drücken Sie **F5**, um das Skript erneut auszuführen.
+2. Drücken Sie **F5** , um das Skript erneut auszuführen.
     - Indem Sie **F5** drücken, wird der neue Mandant in einer separaten Datenbank bereitgestellt. Die Datenbank und der Mandant werden im Katalog registriert. Dann wird im Browser die Seite „Ereignisse“ des Mandanten geöffnet.
 
    ![Seite „Salix Salsa-Ereignisse“](./media/saas-multitenantdb-get-started-deploy/salix-salsa.png)
 
    - Scrollen Sie zum Ende der Seite. Im Banner sehen Sie den Namen der Datenbank, in der die Mandantendaten gespeichert werden.
 
-3. Aktualisieren Sie den **Veranstaltungshub**. Zwei neue Mandanten werden jetzt in der Liste aufgeführt.
+3. Aktualisieren Sie den **Veranstaltungshub** . Zwei neue Mandanten werden jetzt in der Liste aufgeführt.
 
 ## <a name="explore-the-servers-and-tenant-databases"></a>Untersuchen der Server und Mandantendatenbanken
 
@@ -212,7 +212,7 @@ Betrachten wir nun einige der Ressourcen, die bereitgestellt wurden:
 
    ![Ressourcengruppe](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
-2. Klicken Sie auf den Server **catalog-mt&lt;Benutzer&gt;** . Der Katalogserver enthält zwei Datenbanken: *tenantcatalog* und *basetenantdb*. Die Datenbank *basetenantdb* ist eine leere Vorlagendatenbank. Kopieren Sie diese Vorlagendatenbank, um eine neue Mandantendatenbank für mehrere oder für nur einen Mandanten zu erstellen.
+2. Klicken Sie auf den Server **catalog-mt&lt;Benutzer&gt;** . Der Katalogserver enthält zwei Datenbanken: *tenantcatalog* und *basetenantdb* . Die Datenbank *basetenantdb* ist eine leere Vorlagendatenbank. Kopieren Sie diese Vorlagendatenbank, um eine neue Mandantendatenbank für mehrere oder für nur einen Mandanten zu erstellen.
 
    ![Katalogserver](./media/saas-multitenantdb-get-started-deploy/catalog-server.png)
 
@@ -226,13 +226,13 @@ Betrachten wir nun einige der Ressourcen, die bereitgestellt wurden:
 
 Wenn der Lastengenerator mehrere Minuten ausgeführt wurde, sollten genügend Telemetriedaten verfügbar sein, um einige der in das Azure-Portal integrierten Datenbanküberwachungsfunktionen zu betrachten.
 
-1. Navigieren Sie zum Server **tenants1-mt&lt;Benutzer&gt;** , und klicken Sie auf **tenants1**, um die Ressourcenverwendung für die Datenbank anzuzeigen, die vier Mandanten enthält. Jeder Mandant unterliegt einer sporadischen hohen Auslastung durch den Lastengenerator:
+1. Navigieren Sie zum Server **tenants1-mt&lt;Benutzer&gt;** , und klicken Sie auf **tenants1** , um die Ressourcenverwendung für die Datenbank anzuzeigen, die vier Mandanten enthält. Jeder Mandant unterliegt einer sporadischen hohen Auslastung durch den Lastengenerator:
 
    ![Überwachen von tenants1](./media/saas-multitenantdb-get-started-deploy/monitor-tenants1.png)
 
    Das DTU-Workloaddiagramm veranschaulicht auf verständliche Weise, wie eine mehrinstanzenfähige Datenbank eine nicht vorhersagbare Arbeitslast über viele Mandanten hinweg unterstützen kann. In diesem Fall wendet der Lastengenerator eine sporadische Last von ungefähr 30 Datenübertragungseinheiten auf jeden Mandant an. Diese Last entspricht einer 60-prozentigen Auslastung einer Datenbank mit 50 Datenübertragungseinheiten. Spitzen, die die 60 % überschreiten, sind das Ergebnis der auf mehrere Mandanten gleichzeitig angewendeten Last.
 
-2. Navigieren Sie zum Server **tenants1-mt&lt;Benutzer&gt;** , und klicken Sie auf die Datenbank **salixsalsa**. Sie können die Ressourcenverwendung für diese Datenbank, die nur einen einzigen Mandanten enthält, sehen.
+2. Navigieren Sie zum Server **tenants1-mt&lt;Benutzer&gt;** , und klicken Sie auf die Datenbank **salixsalsa** . Sie können die Ressourcenverwendung für diese Datenbank, die nur einen einzigen Mandanten enthält, sehen.
 
    ![Datenbank „salixsalsa“](./media/saas-multitenantdb-get-started-deploy/monitor-salix.png)
 
@@ -278,7 +278,7 @@ A [series of related tutorials] is available that build upon this initial deploy
 [link-aka-ms-deploywtp-mtapp-52k]: https://aka.ms/deploywtp-mtapp
 
 
-[link-azure-get-started-powershell-41q]: https://docs.microsoft.com/powershell/azure/get-started-azureps
+[link-azure-get-started-powershell-41q]: /powershell/azure/get-started-azureps
 
 [link-github-wingtip-multitenantdb-55g]: https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB/
 
@@ -290,4 +290,3 @@ A [series of related tutorials] is available that build upon this initial deploy
 -->
 
 [image-deploy-to-azure-blue-48d]: media/saas-multitenantdb-get-started-deploy/deploy.png "Schaltfläche „Bereitstellung in Azure“"
-

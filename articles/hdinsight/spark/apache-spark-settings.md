@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: cdef21c69e8f05924097d57bbe78b86d38497b86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 231ab5cc93d98d7356d47472b7e160ddd3ade790
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82188156"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545938"
 ---
 # <a name="configure-apache-spark-settings"></a>Konfigurieren von Apache Spark-Einstellungen
 
@@ -23,13 +23,13 @@ Der HDInsight Apache Spark-Standardcluster umfasst die folgenden Knoten: drei Ap
 
 ![Spark HDInsight-Architektur](./media/apache-spark-settings/spark-hdinsight-arch.png)
 
-Die Anzahl der VMs und die VM-Größen für die Knoten in Ihrem HDInsight-Cluster können sich auf die Spark-Konfiguration auswirken. Nicht standardmäßige HDInsight-Konfigurationswerte machen häufig nicht standardmäßige Spark-Konfigurationswerte erforderlich. Wenn Sie einen HDInsight Spark-Cluster erstellen, werden für die einzelnen Komponenten jeweils empfohlene VM-Größen angezeigt. Derzeit sind die [arbeitsspeicheroptimierten Größen virtueller Linux-Computer](../../virtual-machines/linux/sizes-memory.md) für Azure D12 v2 oder höher.
+Die Anzahl der VMs und die VM-Größen für die Knoten in Ihrem HDInsight-Cluster können sich auf die Spark-Konfiguration auswirken. Nicht standardmäßige HDInsight-Konfigurationswerte machen häufig nicht standardmäßige Spark-Konfigurationswerte erforderlich. Wenn Sie einen HDInsight Spark-Cluster erstellen, werden für die einzelnen Komponenten jeweils empfohlene VM-Größen angezeigt. Derzeit sind die [arbeitsspeicheroptimierten Größen virtueller Linux-Computer](../../virtual-machines/sizes-memory.md) für Azure D12 v2 oder höher.
 
 ## <a name="apache-spark-versions"></a>Apache Spark-Versionen
 
 Verwenden Sie die am besten geeignete Spark-Version für Ihren Cluster.  Der HDInsight-Dienst umfasst mehrere Versionen von Spark sowie auch von HDInsight.  Jede Version von Spark umfasst einen Satz von Standardclustereinstellungen.  
 
-Beim Erstellen eines neuen Clusters können Sie zwischen verschiedenen Spark-Versionen wählen. Die vollständige Liste finden Sie unter [HDInsight-Komponenten und -Versionen](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
+Beim Erstellen eines neuen Clusters können Sie zwischen verschiedenen Spark-Versionen wählen. Die vollständige Liste finden Sie unter [HDInsight-Komponenten und -Versionen](../hdinsight-component-versioning.md).
 
 > [!NOTE]  
 > Die Standardversion von Apache Spark im HDInsight-Dienst kann ohne vorherige Ankündigung geändert werden. Wenn eine Versionsabhängigkeit vorliegt, empfiehlt Microsoft, die spezifische Version anzugeben, wenn Sie Cluster mit .NET SDK, Azure PowerShell und der klassischen Azure-Befehlszeilenschnittstelle erstellen.
@@ -85,7 +85,7 @@ In der folgenden Abbildung sind wichtige Spark-Objekte dargestellt: das Treiberp
 
 Spark-Aufträge verwenden Workerressourcen, insbesondere Arbeitsspeicher. Daher werden Spark-Konfigurationswerte für Executors von Workerknoten häufig angepasst.
 
-Dabei werden die folgenden drei Schlüsselparameter zur Optimierung von Spark-Konfigurationen zur Verbesserung von Anwendungsanforderungen häufig angepasst: `spark.executor.instances`, `spark.executor.cores` und `spark.executor.memory`. Ein Executor ist ein Prozess, der für eine Spark-Anwendung gestartet wird. Ein Executor wird auf dem Workerknoten ausgeführt und ist für die Ausführung der Aufgaben für die Anwendung zuständig. Die Standardanzahl von Workerknoten und deren Größe für jeden Cluster bestimmen die Anzahl der Executors und deren Größe. Diese Werte werden in `spark-defaults.conf` auf den Hauptknoten des Clusters gespeichert.  Sie können diese Werte in einem ausgeführten Cluster durch Auswählen von **Custom spark-defaults** auf der Ambari-Webbenutzeroberfläche bearbeiten.  Nachdem Sie Änderungen vorgenommen haben, werden Sie aufgefordert, alle betroffenen Dienste neu zu starten (**Restart**).
+Dabei werden die folgenden drei Schlüsselparameter zur Optimierung von Spark-Konfigurationen zur Verbesserung von Anwendungsanforderungen häufig angepasst: `spark.executor.instances`, `spark.executor.cores` und `spark.executor.memory`. Ein Executor ist ein Prozess, der für eine Spark-Anwendung gestartet wird. Ein Executor wird auf dem Workerknoten ausgeführt und ist für die Ausführung der Aufgaben für die Anwendung zuständig. Die Standardanzahl von Workerknoten und deren Größe für jeden Cluster bestimmen die Anzahl der Executors und deren Größe. Diese Werte werden in `spark-defaults.conf` auf den Hauptknoten des Clusters gespeichert.  Sie können diese Werte in einem ausgeführten Cluster durch Auswählen von **Custom spark-defaults** auf der Ambari-Webbenutzeroberfläche bearbeiten.  Nachdem Sie Änderungen vorgenommen haben, werden Sie aufgefordert, alle betroffenen Dienste neu zu starten ( **Restart** ).
 
 > [!NOTE]  
 > Diese drei Konfigurationsparameter können auf Clusterebene (für alle Anwendungen, die im Cluster ausgeführt werden) konfiguriert und auch für jede einzelne Anwendung angegeben werden.

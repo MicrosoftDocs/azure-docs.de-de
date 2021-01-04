@@ -1,6 +1,6 @@
 ---
-title: Steuern des Speicherkontozugriffs für SQL On-Demand (Vorschau)
-description: In diesem Artikel wird beschrieben, wie SQL On-Demand (Vorschau) auf Azure Storage zugreift und wie Sie den Speicherzugriff für SQL On-Demand in Azure Synapse Analytics steuern können.
+title: Steuern des Speicherkontozugriffs für einen serverlosen SQL-Pool
+description: In diesem Artikel erfahren Sie, wie ein serverloser SQL-Pool auf Azure Storage zugreift und wie Sie den Speicherzugriff für den serverlosen SQL-Pool in Azure Synapse Analytics steuern.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,31 +9,31 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 182ab55f8e86d972293222f8a3bcf32dada89328
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6eff662ac0140e7a64cc3bab28856178708cb9b2
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91449472"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400674"
 ---
-# <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Steuern des Speicherkontozugriffs für SQL On-Demand (Vorschau)
+# <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Steuern des Speicherkontozugriffs für einen serverlosen SQL-Pool in Azure Synapse Analytics
 
-Eine SQL On-Demand-Abfrage liest Dateien direkt aus Azure Storage. Berechtigungen für den Zugriff auf Dateien in Azure Storage werden auf zwei Ebenen gesteuert:
+Eine Abfrage eines serverlosen SQL-Pools liest Dateien direkt aus Azure Storage. Berechtigungen für den Zugriff auf Dateien in Azure Storage werden auf zwei Ebenen gesteuert:
 - **Speicherebene**: Der Benutzer sollte über die Berechtigung für den Zugriff auf zugrunde liegende Speicherdateien verfügen. Der Speicheradministrator sollte dem Azure AD-Prinzipal das Lesen/Schreiben von Dateien gestatten oder einen SAS-Schlüssel generieren, der für den Speicherzugriff verwendet wird.
-- **SQL-Dienstebene**: Der Benutzer sollte über die `SELECT`-Berechtigung zum Lesen von Daten aus [externen Tabellen](develop-tables-external-tables.md) oder die Berechtigung `ADMINISTER BULK ADMIN` zum Ausführen von `OPENROWSET` und außerdem über die Berechtigung zur Verwendung der Anmeldeinformationen für den Speicherzugriff verfügen.
+- **SQL-Dienstebene**: Benutzern müssen die Berechtigung zum Lesen von Daten mithilfe einer [externen Tabelle](develop-tables-external-tables.md) oder zum Ausführen der Funktion `OPENROWSET` erteilt haben. Informationen zu den erforderlichen Berechtigungen finden Sie in [diesem Abschnitt](develop-storage-files-overview.md#permissions).
 
 In diesem Artikel wird beschrieben, welche Arten von Anmeldeinformationen Sie verwenden können und wie die Suche nach Anmeldeinformationen für SQL- und Azure AD-Benutzer funktioniert.
 
 ## <a name="supported-storage-authorization-types"></a>Unterstützte Autorisierungstypen für den Speicherzugriff
 
-Ein bei einer SQL On-Demand-Ressource angemeldeter Benutzer muss für den Zugriff auf und die Abfrage von Dateien in Azure Storage autorisiert sein, wenn die Dateien nicht öffentlich verfügbar sind. Sie können drei Autorisierungstypen für den Zugriff auf nicht öffentlichen Speicher verwenden: [Benutzeridentität](?tabs=user-identity), [Shared Access Signature](?tabs=shared-access-signature) und [Verwaltete Identität](?tabs=managed-identity).
+Ein bei einem serverlosen SQL-Pool angemeldeter Benutzer muss für den Zugriff auf und die Abfrage von Dateien in Azure Storage autorisiert sein, wenn die Dateien nicht öffentlich verfügbar sind. Sie können drei Autorisierungstypen für den Zugriff auf nicht öffentlichen Speicher verwenden: [Benutzeridentität](?tabs=user-identity), [Shared Access Signature](?tabs=shared-access-signature) und [Verwaltete Identität](?tabs=managed-identity).
 
 > [!NOTE]
 > **Azure AD-Pass-Through** ist das Standardverhalten, wenn Sie einen Arbeitsbereich erstellen.
 
 ### <a name="user-identity"></a>[Benutzeridentität](#tab/user-identity)
 
-Die **Benutzeridentität** (auch „Azure AD-Pass-Through“ genannt) ist ein Autorisierungstyp, bei dem die Identität des bei SQL On-Demand angemeldeten Azure AD-Benutzers verwendet wird, um den Datenzugriff zu autorisieren. Vor dem Zugriff auf die Daten muss der Azure Storage-Administrator dem Azure AD-Benutzer die erforderlichen Berechtigungen erteilen. Wie Sie der Tabelle unten entnehmen können, wird diese Art der Autorisierung für den Typ „SQL-Benutzer“ nicht unterstützt.
+Die **Benutzeridentität** (auch „Azure AD-Passthrough“ genannt) ist ein Autorisierungstyp, bei dem die Identität des bei einem serverlosen SQL-Pool angemeldeten Azure AD-Benutzers verwendet wird, um den Datenzugriff zu autorisieren. Vor dem Zugriff auf die Daten muss der Azure Storage-Administrator dem Azure AD-Benutzer die erforderlichen Berechtigungen erteilen. Wie Sie der Tabelle unten entnehmen können, wird diese Art der Autorisierung für den Typ „SQL-Benutzer“ nicht unterstützt.
 
 > [!IMPORTANT]
 > Sie müssen über eine Rolle als Besitzer, Mitwirkender oder Leser für Storage-Blobdaten verfügen, um mithilfe Ihrer Identität auf die Daten zugreifen zu können.
@@ -49,7 +49,7 @@ Die **Benutzeridentität** (auch „Azure AD-Pass-Through“ genannt) ist ein Au
 Um ein SAS-Token abzurufen, navigieren Sie zu **Azure-Portal > Speicherkonto > Shared Access Signature > Berechtigungen konfigurieren > SAS und Verbindungszeichenfolge generieren**.
 
 > [!IMPORTANT]
-> Wenn ein SAS-Token generiert wird, enthält es am Anfang ein Fragezeichen („?“). Um das Token in SQL On-Demand zu verwenden, müssen Sie das Fragezeichen beim Erstellen der Anmeldeinformation entfernen. Beispiel:
+> Wenn ein SAS-Token generiert wird, enthält es am Anfang ein Fragezeichen („?“). Um das Token in einem serverlosen SQL-Pool zu verwenden, müssen Sie das Fragezeichen (?) beim Erstellen der Anmeldeinformation entfernen. Beispiel:
 >
 > SAS-Token: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
@@ -57,7 +57,7 @@ Um Zugriff über ein SAS-Token zu ermöglichen, müssen Sie datenbankbezogene od
 
 ### <a name="managed-identity"></a>[Verwaltete Identität](#tab/managed-identity)
 
-Eine **verwaltete Identität** wird auch als MSI bezeichnet. Hierbei handelt es sich um ein Feature von Azure Active Directory (Azure AD), das Azure-Dienste für SQL On-Demand bereitstellt. Es stellt außerdem eine automatisch verwaltete Identität in Azure AD bereit. Diese Identität kann verwendet werden, um eine Anforderung für den Datenzugriff in Azure Storage zu autorisieren.
+Eine **verwaltete Identität** wird auch als MSI bezeichnet. Hierbei handelt es sich um ein Feature von Azure Active Directory (Azure AD), das Azure-Dienste für einen serverlosen SQL-Pool bereitstellt. Es stellt außerdem eine automatisch verwaltete Identität in Azure AD bereit. Diese Identität kann verwendet werden, um eine Anforderung für den Datenzugriff in Azure Storage zu autorisieren.
 
 Vor dem Zugriff auf die Daten muss der Azure Storage-Administrator der verwalteten Identität Zugriffsberechtigungen für die Daten erteilen. Das Erteilen von Berechtigungen für eine verwaltete Identität erfolgt auf die gleiche Weise wie das Erteilen von Berechtigungen für jeden anderen Azure AD-Benutzer auch.
 
@@ -95,7 +95,7 @@ Sie können die folgenden Kombinationen aus Autorisierungstypen und Azure Storag
 
 ## <a name="credentials"></a>Anmeldeinformationen
 
-Um eine Datei in Azure Storage abzufragen, benötigt Ihr SQL On-Demand-Endpunkt eine Anmeldeinformation, die die Authentifizierungsinformationen enthält. Es werden zwei Arten von Anmeldeinformationen verwendet:
+Um eine Datei in Azure Storage abzufragen, benötigt der Endpunkt für Ihren serverlosen SQL-Pool eine Anmeldeinformation, die die Authentifizierungsinformationen enthält. Es werden zwei Arten von Anmeldeinformationen verwendet:
 - Eine Anmeldeinformation auf Serverebene wird für Ad-hoc-Abfragen verwendet, die mit der `OPENROWSET`-Funktion ausgeführt werden. Der Name der Anmeldeinformation muss mit der Speicher-URL identisch sein.
 - Eine datenbankbezogene Anmeldeinformation wird für externe Tabellen verwendet. Eine externe Tabelle verweist mit der Anmeldeinformation auf `DATA SOURCE`, die für den Speicherzugriff verwendet werden soll.
 

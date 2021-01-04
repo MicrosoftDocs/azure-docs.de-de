@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: f4f79a28dbe8a49e608ca6fae1781a1e19646619
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 760c98ce9464e4d40f01256a973e07d9084c6dfe
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87448884"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123284"
 ---
 # <a name="troubleshoot-input-connections"></a>Problembehandlung für Eingangsverbindungen
 
@@ -25,9 +25,9 @@ In diesem Artikel werden häufige Probleme mit Azure Stream Analytics-Eingabever
 
 2.  Überprüfen Sie die Eingabedaten.
 
-    1. Verwenden Sie die Schaltfläche [**Beispieldaten**](stream-analytics-sample-data-input.md) für jede Eingabe. Laden Sie die Beispieldaten für die Eingabe herunter.
+    1. Verwenden Sie die Schaltfläche [**Beispieldaten**](./stream-analytics-test-query.md) für jede Eingabe. Laden Sie die Beispieldaten für die Eingabe herunter.
         
-    1. Untersuchen Sie die Beispieldaten, um das Schema und die [Datentypen](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics) zu verstehen.
+    1. Untersuchen Sie die Beispieldaten, um das Schema und die [Datentypen](/stream-analytics-query/data-types-azure-stream-analytics) zu verstehen.
     
     1. Überprüfen Sie [Event Hub-Metriken](../event-hubs/event-hubs-metrics-azure-monitor.md), um sicherzustellen, dass Ereignisse gesendet werden. Die Nachrichtenmetriken sollten größer als null sein, wenn Event Hubs Nachrichten empfangen.
 
@@ -163,16 +163,16 @@ SELECT foo FROM DataTwo
 
 ## <a name="readers-per-partition-exceeds-iot-hub-limit"></a>Anzahl der Leser pro Partition überschreitet das IoT Hub-Limit
 
-Stream Analytics-Aufträge verwenden den integrierten [Event Hub-kompatiblen Endpunkt](../iot-hub/iot-hub-devguide-messages-read-builtin.md) in IoT Hub, um Ereignisse aus IoT Hub zu verbinden und zu lesen. Wenn Ihre Anzahl von Lesevorgängen pro Partition die Limits von IoT Hub überschreitet, können Sie die [Lösungen für Event Hub](#readers-per-partition-exceeds-event-hubs-limit) verwenden, um dies zu beheben. Sie können eine Consumergruppe für den integrierten Endpunkt über eine IoT Hub-Portalendpunktsitzung oder über das [IoT Hub SDK-](https://docs.microsoft.com/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup) erstellen.
+Stream Analytics-Aufträge verwenden den integrierten [Event Hub-kompatiblen Endpunkt](../iot-hub/iot-hub-devguide-messages-read-builtin.md) in IoT Hub, um Ereignisse aus IoT Hub zu verbinden und zu lesen. Wenn Ihre Anzahl von Lesevorgängen pro Partition die Limits von IoT Hub überschreitet, können Sie die [Lösungen für Event Hub](#readers-per-partition-exceeds-event-hubs-limit) verwenden, um dies zu beheben. Sie können eine Consumergruppe für den integrierten Endpunkt über eine IoT Hub-Portalendpunktsitzung oder über das [IoT Hub SDK-](/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup) erstellen.
 
 ## <a name="get-help"></a>Hier erhalten Sie Hilfe
 
-Weitere Unterstützung finden Sie auf der [Frageseite von Microsoft Q&A (Fragen und Antworten) zu Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Weitere Unterstützung finden Sie auf der [Frageseite von Microsoft Q&A (Fragen und Antworten) zu Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Einführung in Azure Stream Analytics](stream-analytics-introduction.md)
 * [Erste Schritte mit Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skalieren von Azure Stream Analytics-Aufträgen](stream-analytics-scale-jobs.md)
-* [Stream Analytics Query Language Reference (in englischer Sprache)](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referenz zur Azure Stream Analytics-Verwaltungs-REST-API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Stream Analytics Query Language Reference (in englischer Sprache)](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referenz zur Azure Stream Analytics-Verwaltungs-REST-API](/rest/api/streamanalytics/)

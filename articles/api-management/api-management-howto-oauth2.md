@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 7f2673bd181bc24d821b41ae1466c05a9593f154
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: fae4e349d46425c0c2b2b923d6a61e2e588708c1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315750"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077250"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Autorisieren von Entwicklerkonten mithilfe von OAuth 2.0 in Azure API Management
 
@@ -51,38 +51,38 @@ Diese Anleitung beschreibt, wie Sie eine Instanz des API Management-Diensts zur 
 
     ![Neuer OAuth 2.0-Server](./media/api-management-howto-oauth2/oauth-02.png)
 
-4. Der nächste Abschnitt des Formulars enthält die Einstellungen **Autorisierungsberechtigungstypen**, **Autorisierungsendpunkt-URL** und **Autorisierungsanforderungsmethode**.
+4. Der nächste Abschnitt des Formulars enthält die Einstellungen **Autorisierungsberechtigungstypen** , **Autorisierungsendpunkt-URL** und **Autorisierungsanforderungsmethode**.
 
     Geben Sie die **Autorisierungsberechtigungstypen** an, indem Sie die gewünschten Typen aktivieren. **Autorisierungscode** wird standardmäßig festgelegt.
 
-    Geben Sie die **Autorisierungsendpunkt-URL**ein. Für Azure Active Directory lautet diese URL ähnlich wie die folgende, wobei `<tenant_id>` durch die Client-ID Ihres Azure AD-Mandanten ersetzt wird.
+    Geben Sie die **Autorisierungsendpunkt-URL** ein. Für Azure Active Directory lautet diese URL ähnlich wie die folgende, wobei `<tenant_id>` durch die Client-ID Ihres Azure AD-Mandanten ersetzt wird.
 
     `https://login.microsoftonline.com/<tenant_id>/oauth2/authorize`
 
     Über **Methode für Autorisierungsanforderung** wird festgelegt, wie die Autorisierungsanforderung an den OAuth 2.0-Server gesendet wird. Per Voreinstellung ist **GET** ausgewählt.
 
-5. Anschließend müssen **URL für Tokenendpunkt**, **Methoden für Clientauthentifizierung**, **Sendemethode für Zugriffstoken** und **Standardbereich** angegeben werden.
+5. Anschließend müssen **URL für Tokenendpunkt** , **Methoden für Clientauthentifizierung** , **Sendemethode für Zugriffstoken** und **Standardbereich** angegeben werden.
 
-    ![Neuer OAuth 2.0-Server](./media/api-management-howto-oauth2/oauth-03.png)
+    ![Screenshot: Bildschirm „OAuth2-Dienst hinzufügen“](./media/api-management-howto-oauth2/oauth-03.png)
 
     Bei einem Azure Active Directory OAuth 2.0-Server weist **Token-Endpunkt-URL** das folgende Format auf. Hierbei verwendet `<TenantID>` das Format `yourapp.onmicrosoft.com`.
 
     `https://login.microsoftonline.com/<TenantID>/oauth2/token`
 
-    Die Standardeinstellung für **Clientauthentifizierungsmethoden** lautet **Basis**, und die **Sendemethode für Zugriffstoken** ist **Autorisierungsheader**. Diese Werte werden zusammen mit **Standardmäßiger Geltungsbereich**in diesem Abschnitt des Formulars festgelegt.
+    Die Standardeinstellung für **Clientauthentifizierungsmethoden** lautet **Basis** , und die **Sendemethode für Zugriffstoken** ist **Autorisierungsheader**. Diese Werte werden zusammen mit **Standardmäßiger Geltungsbereich** in diesem Abschnitt des Formulars festgelegt.
 
-6. Der Abschnitt **Clientanmeldeinformationen** enthält die Werte für **Client-ID** und **Geheimer Clientschlüssel**, die beim Erstellen und Konfigurieren Ihres OAuth 2.0-Servers abgerufen werden. Nachdem die Werte für **Client-ID** und **Geheimer Clientschlüssel** angegeben wurden, wird der **Umleitungs-URI** für den **Autorisierungscode** generiert. Die URI wird zum Konfigurieren der Antwort-URL in Ihrer OAuth 2.0-Serverkonfiguration verwendet.
+6. Der Abschnitt **Clientanmeldeinformationen** enthält die Werte für **Client-ID** und **Geheimer Clientschlüssel** , die beim Erstellen und Konfigurieren Ihres OAuth 2.0-Servers abgerufen werden. Nachdem die Werte für **Client-ID** und **Geheimer Clientschlüssel** angegeben wurden, wird der **Umleitungs-URI** für den **Autorisierungscode** generiert. Die URI wird zum Konfigurieren der Antwort-URL in Ihrer OAuth 2.0-Serverkonfiguration verwendet.
 
     Im neuen Entwicklerportal hat das URI-Suffix das folgende Format:
 
     - `/signin-oauth/code/callback/{authServerName}` für den Flow zur Autorisierungscodegenehmigung
     - `/signin-oauth/implicit/callback` für den Flow zur impliziten Genehmigung
 
-    ![Neuer OAuth 2.0-Server](./media/api-management-howto-oauth2/oauth-04.png)
+    ![Screenshot: Zeigt, wo die Clientanmeldeinformationen für den neuen OAuth2-Dienst hinzugefügt werden](./media/api-management-howto-oauth2/oauth-04.png)
 
     Falls für **Autorisierungsberechtigungstypen** die Einstellung **Ressourcenbesitzer-Kennwort** festgelegt ist, werden diese Berechtigungen im Abschnitt **Ressourcenbesitzer-Kennwortberechtigungen** festgelegt. Andernfalls lassen Sie den Abschnitt leer.
 
-    Nachdem Sie das Formular ausgefüllt haben, klicken Sie auf **Erstellen**, um die OAuth 2.0-Autorisierungsserverkonfiguration für API Management zu speichern. Nach dem Speichern der Serverkonfiguration können Sie APIs wie im nächsten Abschnitt beschrieben zur Nutzung konfigurieren.
+    Nachdem Sie das Formular ausgefüllt haben, klicken Sie auf **Erstellen** , um die OAuth 2.0-Autorisierungsserverkonfiguration für API Management zu speichern. Nach dem Speichern der Serverkonfiguration können Sie APIs wie im nächsten Abschnitt beschrieben zur Nutzung konfigurieren.
 
 ## <a name="configure-an-api-to-use-oauth-20-user-authorization"></a><a name="step2"> </a>Konfigurieren einer API zum Verwenden der OAuth 2.0-Benutzerauthentifizierung
 
@@ -90,13 +90,13 @@ Diese Anleitung beschreibt, wie Sie eine Instanz des API Management-Diensts zur 
 
     ![OAuth 2.0-APIs](./media/api-management-howto-oauth2/oauth-05.png)
 
-2. Klicken Sie auf den Namen der gewünschten API und dann auf **Einstellungen**. Scrollen Sie zum Abschnitt **Sicherheit**, und aktivieren Sie dann das Kontrollkästchen für **OAuth 2.0**.
+2. Klicken Sie auf den Namen der gewünschten API und dann auf **Einstellungen**. Scrollen Sie zum Abschnitt **Sicherheit** , und aktivieren Sie dann das Kontrollkästchen für **OAuth 2.0**.
 
     ![OAuth 2.0-Einstellungen](./media/api-management-howto-oauth2/oauth-06.png)
 
 3. Wählen Sie in der Dropdownliste den gewünschten **Autorisierungsserver** aus, und klicken Sie dann auf **Speichern**.
 
-    ![OAuth 2.0-Einstellungen](./media/api-management-howto-oauth2/oauth-07.png)
+    ![Screenshot: Hervorhebung des ausgewählten Autorisierungsservers und der Schaltfläche „Speichern“](./media/api-management-howto-oauth2/oauth-07.png)
 
 ## <a name="legacy-developer-portal---test-the-oauth-20-user-authorization"></a><a name="step3"> </a>Legacy-Entwicklerportal – Testen der OAuth 2.0-Benutzerautorisierung
 
@@ -104,14 +104,14 @@ Diese Anleitung beschreibt, wie Sie eine Instanz des API Management-Diensts zur 
 
 Nachdem Sie Ihren OAuth 2.0-Autorisierungsserver und Ihre API zu dessen Nutzung konfiguriert haben, können Sie ihn testen, indem Sie zum Entwicklerportal wechseln und eine API aufrufen. Klicken Sie auf der Seite **Übersicht** der Azure API Management-Instanz im oberen Menü auf **Developer portal (legacy)** (Entwicklerportal (Legacy)).
 
-Klicken Sie im Hauptmenü auf **APIs**, und wählen Sie **Echo API** aus.
+Klicken Sie im Hauptmenü auf **APIs** , und wählen Sie **Echo API** aus.
 
 ![Echo API][api-management-apis-echo-api]
 
 > [!NOTE]
 > Falls nur eine API konfiguriert oder für Ihr Konto sichtbar ist, können Sie auf APIs klicken, um direkt zu den Operationen für diese API zu gelangen.
 
-Wählen Sie die Operation **GET Resource** aus, klicken Sie auf **Konsole öffnen**, und wählen Sie dann aus der Dropdownliste **Autorisierungscode** aus.
+Wählen Sie die Operation **GET Resource** aus, klicken Sie auf **Konsole öffnen** , und wählen Sie dann aus der Dropdownliste **Autorisierungscode** aus.
 
 ![Konsole öffnen][api-management-open-console]
 

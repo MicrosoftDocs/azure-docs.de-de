@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 09/28/2020
-ms.openlocfilehash: a04712a22536b5811b2465e56995d7b161a15c6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b6631415c32358cf445fab534b9524c88b6432e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460882"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020877"
 ---
 # <a name="connect-azure-time-series-insights-gen-2-to-power-bi"></a>Verbinden von Azure Time Series Insights Gen2 mit Power BI  
 
@@ -42,7 +42,7 @@ Durch das Verbinden Ihrer Daten mit Power BI können Sie nun folgende Aktionen a
 
 Das Verbinden Ihrer Daten dauert weniger als eine Minute. Durch schnelles Exportieren Ihrer Ansicht aus dem Azure Time Series Insights-Explorer nach Power BI können alle Personen in Ihrer Organisation intuitiv auf Daten zugreifen und diese visuell darstellen.
 
-Zu den Konfigurationsoptionen zählen die Auswahl zwischen **Roh**en Daten und Daten auf **Aggregatebene** sowie die Auswahl eines gewünschten Zeitbereichs.
+Zu den Konfigurationsoptionen zählen die Auswahl zwischen **Roh** en Daten und Daten auf **Aggregatebene** sowie die Auswahl eines gewünschten Zeitbereichs.
 
 Sobald die Daten verbunden sind, stehen Ihnen alle umfassenden Visualisierungs- und Diagrammerstellungstools von Power BI zur Verfügung, mit denen Sie Ihre Möglichkeiten zum Teilen von Daten noch weiter verbessern können.
 
@@ -65,4 +65,4 @@ Komplexere Abfrage- und Bearbeitungsfunktionen in Power BI erhalten Sie über de
 
 * Laden Sie [Power BI Desktop](https://powerbi.microsoft.com/desktop/) herunter, und beginnen Sie mit dem Verbinden Ihrer Daten.
 
-* Weitere Informationen zu [Power BI](https://docs.microsoft.com/power-bi/).
+* Weitere Informationen zu [Power BI](/power-bi/).

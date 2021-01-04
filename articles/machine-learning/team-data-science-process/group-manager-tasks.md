@@ -7,15 +7,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4ec7f4242e5046e90fdf0eb8c6c0579f402e4f55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ab6d6511d1e2cec82b321003c9d663249ddcf49
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76721352"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94740225"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>Aufgaben eines Gruppenleiters im Team Data Science-Prozess
 
@@ -127,8 +127,6 @@ So importieren Sie die TDSP-Teamrepositorys
    
 1. Wählen Sie oben auf der Seite **Repos** das Dropdownmenü und dann das Repository **GroupUtilities** aus.
    
-1. Wiederholen Sie den Importvorgang, um den Inhalt des Microsoft TDSP-Teamsrepositorys **Utilities**, *https:\//github.com/Azure/Azure-TDSP-Utilities.git*, in Ihr **GroupUtilities**-Repository zu importieren. 
-   
 Jedes Ihrer beiden Gruppenrepositorys enthält nun alle Dateien, mit Ausnahme der Dateien im Verzeichnis *.git*, aus dem entsprechenden Repository des Microsoft TDSP-Teams. 
 
 ## <a name="customize-the-contents-of-the-group-repositories"></a>Anpassen der Inhalte der Gruppenrepositorys
@@ -167,7 +165,7 @@ Wenn Sie Änderungen mit Ihrem lokalen Computer oder der DSVM vornehmen und die 
 
 - Ein Azure-Abonnement, wenn Sie eine DSVM erstellen möchten.
 - Git muss auf Ihrem Computer installiert sein. Wenn Sie eine DSVM verwenden, ist Git vorinstalliert. Andernfalls helfen Ihnen die Informationen im [Anhang von Plattformen und Tools](platforms-and-tools.md#appendix) weiter.
-- Wenn Sie eine DSVM verwenden möchten, wird die Windows- oder Linux-DSVM in Azure erstellt und konfiguriert. Weitere Informationen und Anweisungen finden Sie in der Dokumentation zur [Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/).
+- Wenn Sie eine DSVM verwenden möchten, wird die Windows- oder Linux-DSVM in Azure erstellt und konfiguriert. Weitere Informationen und Anweisungen finden Sie in der Dokumentation zur [Data Science Virtual Machine](../data-science-virtual-machine/index.yml).
 - Für eine Windows DSVM muss [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) auf Ihrem Computer installiert sein. Scrollen Sie in der Datei *README.md* nach unten zum Abschnitt für **Download und Installation**, und wählen Sie dann das **neueste Installationsprogramm** aus. Laden Sie das Installationsprogramm mit der Erweiterung *EXE* von der Installationsprogrammseite herunter, und führen Sie es aus. 
 - Für eine Linux-DSVM muss ein öffentlicher SSH-Schlüssel auf Ihrer DSVM eingerichtet und in Azure DevOps hinzugefügt werden. Weitere Informationen und Anweisungen finden Sie im [Anhang zu Plattformen und Tools](platforms-and-tools.md#appendix) im Abschnitt **Erstellen eines öffentlichen SSH-Schlüssels**. 
 

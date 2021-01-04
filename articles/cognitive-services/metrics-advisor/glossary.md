@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: 34f9d480234ecaef0d581cfecd68e2cdd1cf6fdc
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6c461983053a145dfda58b9e3d26b39db0c339e5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046773"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893419"
 ---
 # <a name="metrics-advisor-glossary-of-common-vocabulary-and-concepts"></a>Metrics Advisor-Glossar mit häufigen Vokabeln und Begriffen
 
@@ -67,7 +67,7 @@ Angenommen, Sie verfügen über Daten zur Anzahl von Fehlern, die in einer Anwen
 | 02.06.2020 | Nachrichtenwarteschlange | USA, OSTEN | 8.000| 
 | ...      | ...           | ...     |  ...|
 
-Dieses Beispiel enthält die Dimensionen *Anwendungskomponente* und *Region*. *Fehleranzahl* kann in unterschiedliche Kategorien bzw. Märkte unterteilt und außerdem aggregiert werden. Ein Beispiel hierfür ist die Fehleranzahl für *Nachrichtenwarteschlange* in allen Regionen.
+Dieses Beispiel enthält die Dimensionen *Anwendungskomponente* und *Region* . *Fehleranzahl* kann in unterschiedliche Kategorien bzw. Märkte unterteilt und außerdem aggregiert werden. Ein Beispiel hierfür ist die Fehleranzahl für *Nachrichtenwarteschlange* in allen Regionen.
 
 ## <a name="measure"></a>"Measure"
 
@@ -139,15 +139,15 @@ Metrics Advisor verfügt über mehrere [Erkennungsmethoden](how-tos/configure-me
 
 Anomalieerkennung mit mehreren Machine Learning-Algorithmen.
 
-**Empfindlichkeit**: Ein numerischer Wert, mit dem die Toleranz der Anomalieerkennung angepasst werden kann. Je höher der Wert ist, desto näher liegt die obere und untere Grenze an der Zeitreihe.
+**Empfindlichkeit** : Ein numerischer Wert, mit dem die Toleranz der Anomalieerkennung angepasst werden kann. Je höher der Wert ist, desto näher liegt die obere und untere Grenze an der Zeitreihe.
 
 ### <a name="hard-threshold"></a>Harter Schwellenwert
 
 Werte außerhalb der oberen und unteren Grenze sind Anomalien.
 
-**Min**: Untere Grenze
+**Min** : Untere Grenze
 
-**Max**: Obere Grenze
+**Max** : Obere Grenze
 
 ### <a name="change-threshold"></a>Änderungsschwellenwert
 
@@ -159,7 +159,7 @@ Verwenden Sie den vorherigen Punktwert, um zu ermitteln, ob es sich bei dem Punk
 
 ### <a name="common-parameters"></a>Allgemeine Parameter
 
-**Richtung**: Bei einem Punkt handelt es sich nur um eine Anomalie, wenn die Abweichung die Richtung *Nach oben*, *Nach unten* oder *Beide* aufweist.
+**Richtung** : Bei einem Punkt handelt es sich nur um eine Anomalie, wenn die Abweichung die Richtung *Nach oben* , *Nach unten* oder *Beide* aufweist.
 
 **Not valid anomaly until** (Erst gültige Anomalie ab): Ein Datenpunkt ist nur eine Anomalie, wenn es sich bei einem angegebenen Prozentsatz vorheriger Punkte ebenfalls um Anomalien handelt.
 
@@ -183,7 +183,7 @@ Der Warnungsbereich bezieht sich auf den Bereich, für den die Warnung gilt. Es 
 
 ### <a name="severity"></a>severity
 
-Anhand des Schweregradwerts wird von Metrics Advisor der Schweregrad des Incidents angegeben, z. B. *Hoch*, *Mittel* und *Niedrig*.
+Anhand des Schweregradwerts wird von Metrics Advisor der Schweregrad des Incidents angegeben, z. B. *Hoch* , *Mittel* und *Niedrig* .
 
 Von Metrics Advisor werden derzeit die folgenden Faktoren verwendet, um den Warnungsschweregrad zu messen:
 1. Der Wertanteil und der Mengenanteil für die Anomalien in der Metrik.
@@ -200,7 +200,7 @@ Das Verhalten der erneuten Erinnerung kann auf Metrik- oder Reihenebene festgele
 
 ### <a name="ingestion-time-offset"></a>Ingestion time offset (Erfassungszeit-Offset)
 
-Standardmäßig werden Daten gemäß der Granularität erfasst (z. B. *Täglich*). Mit einer positiven ganzen Zahl können Sie die Erfassung der Daten um den angegebenen Wert verzögern. Bei Verwendung einer negativen Zahl können Sie die Erfassung um den angegebenen Wert erweitern.
+Standardmäßig werden Daten gemäß der Granularität erfasst (z. B. *Täglich* ). Mit einer positiven ganzen Zahl können Sie die Erfassung der Daten um den angegebenen Wert verzögern. Bei Verwendung einer negativen Zahl können Sie die Erfassung um den angegebenen Wert erweitern.
 
 ### <a name="max-ingestion-per-minute"></a>Max Ingestion per Minute (Maximale Erfassung pro Minute)
 
@@ -238,7 +238,7 @@ Wenn diese Option auf Null festgelegt ist, löst jeder Zeitstempel mit *Nicht ve
 
 ## <a name="data-feed-permissions"></a>Datenfeedberechtigungen
 
-Es sind zwei Rollen zum Verwalten von Datenfeedberechtigungen verfügbar: *Administrator* und *Anzeigender Benutzer*. 
+Es sind zwei Rollen zum Verwalten von Datenfeedberechtigungen verfügbar: *Administrator* und *Anzeigender Benutzer* . 
 
 * Ein *Administrator* hat die volle Kontrolle über den Datenfeed und die darin enthaltenen Metriken. Sie können den Datenfeed aktivieren, anhalten und löschen und Updates an Feeds und Konfigurationen vornehmen. Ein *Administrator* ist normalerweise der Besitzer der Metriken.
 
@@ -246,5 +246,4 @@ Es sind zwei Rollen zum Verwalten von Datenfeedberechtigungen verfügbar: *Admin
 
 ## <a name="next-steps"></a>Nächste Schritte
 - [Übersicht über Metrics Advisor](overview.md)
-- [Ausprobieren der Demowebsite](quickstarts/explore-demo.md)
 - [Verwenden des Webportals](quickstarts/web-portal.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 0d342f672f4e8a5fdf33afe0feb7c5051956e29f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: e8cb939b48f8cfe311ec10c0850cfb234de04fad
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318773"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589762"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Tutorial: Azure Active Directory-Integration mit Andromeda
 
@@ -126,30 +126,30 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit Andromed
 
     | Name | Quellattribut|
     | ------ | -----------|
-    | Rolle (role)        | App-spezifische Rolle |
-    | type        | App-Typ |
-    | company       | CompanyName |
+    | Rolle (role) | App-spezifische Rolle |
+    | type | App-Typ |
+    | company | CompanyName |
 
     > [!NOTE]
     > Hierbei handelt es sich um Beispielwerte. Sie dienen nur zur Veranschaulichung. Verwenden Sie Ihre eigenen Organisationsrollen.
 
-    a. Klicken Sie auf **Neuen Anspruch hinzufügen**, um das Dialogfeld **Benutzeransprüche verwalten** zu öffnen.
+    1. Klicken Sie auf **Neuen Anspruch hinzufügen**, um das Dialogfeld **Benutzeransprüche verwalten** zu öffnen.
 
-    ![Screenshot: Seite „Benutzeransprüche“ mit den Optionen „Neuen Anspruch hinzufügen“ und „Speichern“](common/new-save-attribute.png)
+        ![Screenshot: Seite „Benutzeransprüche“ mit den Optionen „Neuen Anspruch hinzufügen“ und „Speichern“](common/new-save-attribute.png)
 
-    ![Screenshot: Seite „Benutzeransprüche verwalten“ zum Eingeben der in diesem Schritt beschriebenen Werte](common/new-attribute-details.png)
+        ![Screenshot: Seite „Benutzeransprüche verwalten“ zum Eingeben der in diesem Schritt beschriebenen Werte](common/new-attribute-details.png)
 
-    b. Geben Sie im Textfeld **Name** den für die Zeile angezeigten Attributnamen ein.
+    1. Geben Sie im Textfeld **Name** den für die Zeile angezeigten Attributnamen ein.
 
-    c. Lassen Sie den **Namespace** leer.
+    1. Lassen Sie den **Namespace** leer.
 
-    d. Wählen Sie „Source“ als **Attribut** aus.
+    1. Wählen Sie „Source“ als **Attribut** aus.
 
-    e. Geben Sie in der Liste **Quellattribut** den für diese Zeile angezeigten Attributwert ein.
+    1. Geben Sie in der Liste **Quellattribut** den für diese Zeile angezeigten Attributwert ein.
 
-    f. Klicken Sie auf **OK**.
+    1. Klicken Sie auf **OK**.
 
-    g. Klicken Sie auf **Speichern**.
+    1. Klicken Sie auf **Speichern**.
 
 8. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** auf **Herunterladen**, um das Ihrer Anforderung entsprechende **Zertifikat (Base64)** aus den angegebenen Optionen herunterzuladen und auf Ihrem Computer zu speichern.
 
@@ -159,11 +159,11 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit Andromed
 
     ![Kopieren der Konfiguration-URLs](common/copy-configuration-urls.png)
 
-    a. Anmelde-URL
+    1. Anmelde-URL
 
-    b. Azure AD-Bezeichner
+    1. Azure AD-Bezeichner
 
-    c. Abmelde-URL
+    1. Abmelde-URL
 
 ### <a name="configure-andromeda-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens für Andromeda
 
@@ -181,25 +181,25 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit Andromed
 
     ![Andromeda-Konfiguration](./media/andromedascm-tutorial/tutorial_andromedascm_config.png)
 
-    a. Aktivieren Sie **Enable SSO with SAML** (SSO mit SAML zulassen).
+    1. Aktivieren Sie **Enable SSO with SAML** (SSO mit SAML zulassen).
 
-    b. Kopieren Sie im Abschnitt **Andromeda Information** (Informationen zu Andromeda) den Wert für **SP Identity** (SP-Identität), und fügen Sie ihn im Abschnitt **Grundlegende SAML-Konfiguration** ins Textfeld **Bezeichner** ein.
+    1. Kopieren Sie im Abschnitt **Andromeda Information** (Informationen zu Andromeda) den Wert für **SP Identity** (SP-Identität), und fügen Sie ihn im Abschnitt **Grundlegende SAML-Konfiguration** ins Textfeld **Bezeichner** ein.
 
-    c. Kopieren Sie den Wert **Consumer URL** (Consumer-URL), und fügen Sie ihn im Abschnitt **Grundlegende SAML-Konfiguration** ins Textfeld **Antwort-URL** ein.
+    1. Kopieren Sie den Wert **Consumer URL** (Consumer-URL), und fügen Sie ihn im Abschnitt **Grundlegende SAML-Konfiguration** ins Textfeld **Antwort-URL** ein.
 
-    d. Kopieren Sie den Wert **Logon URL** (Anmelde-URL), und fügen Sie ihn im Abschnitt **Grundlegende SAML-Konfiguration** ins Textfeld **Anmelde-URL** ein.
+    1. Kopieren Sie den Wert **Logon URL** (Anmelde-URL), und fügen Sie ihn im Abschnitt **Grundlegende SAML-Konfiguration** ins Textfeld **Anmelde-URL** ein.
 
-    e. Geben Sie im Abschnitt **SAML Identity Provider** (SAML-Identitätsanbieter) den IdP-Namen ein.
+    1. Geben Sie im Abschnitt **SAML Identity Provider** (SAML-Identitätsanbieter) den IdP-Namen ein.
 
-    f. Fügen Sie in das Textfeld **Single Sign On End Point** (Endpunkt für einmaliges Anmelden) den Wert der **Anmelde-URL** ein, den Sie aus dem Azure-Portal kopiert haben.
+    1. Fügen Sie in das Textfeld **Single Sign On End Point** (Endpunkt für einmaliges Anmelden) den Wert der **Anmelde-URL** ein, den Sie aus dem Azure-Portal kopiert haben.
 
-    g. Öffnen Sie das aus dem Azure-Portal heruntergeladene **Base64-codierte Zertifikat** im Editor, und fügen Sie es in das Textfeld **X 509 Certificate** (X.509-Zertifikat) ein.
-    
-    h. Weisen Sie den folgenden Attributen die entsprechenden Werte zu, um die SSO-Anmeldung über Azure AD zu ermöglichen. Das Attribut **User ID** (Benutzer-ID) ist für die Anmeldung erforderlich. Für die Bereitstellung sind die Attribute **Email** (E-Mail), **Company** (Unternehmen), **User Type** (Benutzertyp) and **Role** (Rolle) erforderlich. In diesem Abschnitt definieren wir die Zuordnung von Attributen (Namen und Werte) zu den Attributen des Azure-Portals.
+    1. Öffnen Sie das aus dem Azure-Portal heruntergeladene **Base64-codierte Zertifikat** im Editor, und fügen Sie es in das Textfeld **X 509 Certificate** (X.509-Zertifikat) ein.
 
-    ![Andromeda-Attributzuordnung](./media/andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+    1. Weisen Sie den folgenden Attributen die entsprechenden Werte zu, um die SSO-Anmeldung über Azure AD zu ermöglichen. Das Attribut **User ID** (Benutzer-ID) ist für die Anmeldung erforderlich. Für die Bereitstellung sind die Attribute **Email** (E-Mail), **Company** (Unternehmen), **User Type** (Benutzertyp) and **Role** (Rolle) erforderlich. In diesem Abschnitt definieren wir die Zuordnung von Attributen (Namen und Werte) zu den Attributen des Azure-Portals.
 
-    i. Klicken Sie auf **Speichern**.
+        ![Andromeda-Attributzuordnung](./media/andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+
+    1. Klicken Sie auf **Speichern**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Erstellen eines Azure AD-Testbenutzers
 
@@ -218,7 +218,7 @@ Das Ziel dieses Abschnitts ist das Erstellen eines Testbenutzers namens Britta S
     ![Dialogfeld „Benutzer“](common/user-properties.png)
 
     a. Geben Sie im Feld **Name** den Namen **BrittaSimon** ein.
-  
+
     b. Geben Sie im Feld **Benutzername** den Namen `brittasimon@yourcompanydomain.extension` ein. Zum Beispiel, BrittaSimon@contoso.com
 
     c. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den Wert, der im Feld „Kennwort“ angezeigt wird.

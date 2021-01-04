@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 493c18efa8bad2e366424c8c8130754ce0098913
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a13c641d50a68d9661b4aa6caf8effb82d53dd7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85250709"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793227"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Mandantenmuster für mehrinstanzenfähige SaaS-Datenbanken
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -62,7 +62,7 @@ Das Mandantenmodell wirkt sich in der Regel nicht auf die Funktionsweise einer A
 
 - **Anpassbarkeit:** &nbsp; Einfache Durchführung von speziell für Mandanten oder Mandantenklassen geltenden Schemaanpassungen
 
-Die Informationen zu Mandanten beziehen sich hauptsächlich auf die *Datenschicht*.  Im Folgenden sollten wir jedoch einen kurzen Blick auf die *Anwendungsschicht* werfen.  Die Anwendungsschicht ist als monolithische Einheit zu betrachten.  Wenn Sie die Anwendung in viele kleine Komponenten unterteilen, kann dies die Wahl Ihres Mandantenmodells ändern.  Einige Komponenten können je nach Mandant sowie verwendeter Speichertechnologie oder Plattform unterschiedlich behandelt werden.
+Die Informationen zu Mandanten beziehen sich hauptsächlich auf die *Datenschicht* .  Im Folgenden sollten wir jedoch einen kurzen Blick auf die *Anwendungsschicht* werfen.  Die Anwendungsschicht ist als monolithische Einheit zu betrachten.  Wenn Sie die Anwendung in viele kleine Komponenten unterteilen, kann dies die Wahl Ihres Mandantenmodells ändern.  Einige Komponenten können je nach Mandant sowie verwendeter Speichertechnologie oder Plattform unterschiedlich behandelt werden.
 
 ## <a name="c-standalone-single-tenant-app-with-single-tenant-database"></a>C. Eigenständige Einzelinstanz-App mit einer Einzelinstanzdatenbank
 
@@ -82,7 +82,7 @@ Der Hersteller kann auf alle Datenbanken in sämtlichen eigenständigen App-Inst
 
 ## <a name="d-multi-tenant-app-with-database-per-tenant"></a>D: Mehrinstanzenfähige App mit einer Datenbank pro Mandant
 
-Beim nächsten Muster kommt eine mehrinstanzenfähige Anwendung mit vielen Einzelinstanzdatenbanken zum Einsatz.  Für jeden neuen Mandanten wird eine neue Datenbank bereitgestellt.  Die Logikschicht wird vertikal *zentral hochskaliert*, indem weitere Ressourcen pro Knoten hinzugefügt werden.  Alternativ wird die App durch Hinzufügen weiterer Knoten *horizontal erweitert*.  Die Skalierung basiert auf der Workload und hängt von der Anzahl oder dem Umfang der einzelnen Datenbanken ab.
+Beim nächsten Muster kommt eine mehrinstanzenfähige Anwendung mit vielen Einzelinstanzdatenbanken zum Einsatz.  Für jeden neuen Mandanten wird eine neue Datenbank bereitgestellt.  Die Logikschicht wird vertikal *zentral hochskaliert* , indem weitere Ressourcen pro Knoten hinzugefügt werden.  Alternativ wird die App durch Hinzufügen weiterer Knoten *horizontal erweitert* .  Die Skalierung basiert auf der Workload und hängt von der Anzahl oder dem Umfang der einzelnen Datenbanken ab.
 
 ![Entwurf einer mehrinstanzenfähigen App mit einer Datenbank pro Mandant][image-mt-app-db-per-tenant-132d]
 
@@ -204,7 +204,7 @@ In der folgenden Tabelle werden die Unterschiede zwischen den wichtigsten Mandan
 
 [http-visual-studio-devops-485m]: https://www.visualstudio.com/devops/
 
-[docu-sql-svr-db-row-level-security-947w]: https://docs.microsoft.com/sql/relational-databases/security/row-level-security
+[docu-sql-svr-db-row-level-security-947w]: /sql/relational-databases/security/row-level-security
 
 [docu-elastic-db-client-library-536r]:elastic-database-client-library.md
 [docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]: saas-dbpertenant-get-started-deploy.md
@@ -221,4 +221,3 @@ In der folgenden Tabelle werden die Unterschiede zwischen den wichtigsten Mandan
 [image-mt-app-db-per-tenant-pool-153p]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-database-per-tenant-pool-15.png "Entwurf einer mehrinstanzenfähigen App mit einer Datenbank pro Mandant unter Verwendung eines Pools für elastische Datenbanken"
 
 [image-mt-app-sharded-mt-db-174s]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-sharded-multi-tenant-databases-17.png "Entwurf einer mehrinstanzenfähigen App mit mehrinstanzenfähigen Datenbanken mit Sharding"
-

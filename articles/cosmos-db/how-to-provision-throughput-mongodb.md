@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 44a69581f0763972dd30a016bf0826b31657a3d4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 25eaa4a66fb4a73f976edbd30e6f82015ce84f6f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283060"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086124"
 ---
 # <a name="provision-database-container-or-autoscale-throughput-on-azure-cosmos-db-api-for-mongodb-resources"></a>Bereitstellen des Durchsatzes für Container, Datenbank und automatische Skalierung in der Azure Cosmos DB-API für MongoDB-Ressourcen
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 In diesem Artikel wird erläutert, wie Sie den Durchsatz in der Azure Cosmos DB-API für MongoDB bereitstellen. Sie können Standard- (manuellen) oder automatsch skalierten Durchsatz für einen Container oder eine Datenbank bereitstellen und gemeinsam für die Container in der Datenbank verwenden. Der Durchsatz kann über das Azure-Portal, über die Azure-Befehlszeilenschnittstelle oder mithilfe der Azure Cosmos DB SDKs bereitgestellt werden.
 
@@ -33,7 +34,7 @@ Wenn Sie eine andere API verwenden, finden Sie Informationen zum Bereitstellen d
    * Geben Sie eine Sammlungs-ID ein.
    * Geben Sie einen Partitionsschlüsselwert ein (etwa `/ItemID`).
    * Geben Sie den bereitzustellenden Durchsatz an (etwa 1.000 RUs).
-   * Klicken Sie auf **OK** .
+   * Klicken Sie auf **OK**.
 
     :::image type="content" source="./media/how-to-provision-throughput-mongodb/provision-database-throughput-portal-mongodb-api.png" alt-text="Screenshot von Daten-Explorer beim Erstellen einer neuen Sammlung mit Durchsatz auf Datenbankebene":::
 

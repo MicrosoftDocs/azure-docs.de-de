@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: a5b9b4c7d3bdd0c68d3a91a39972389e48ed910d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b70beb90fae794eb5512cb8b466524169c4c7b53
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515012"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "92792989"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Verschieben eines Azure Storage-Kontos in eine andere Region
 
@@ -67,7 +67,7 @@ So exportieren Sie eine Vorlage mithilfe des Azure-Portals
 
 So exportieren Sie eine Vorlage mithilfe von PowerShell
 
-1. Melden Sie sich mit dem Befehl [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) bei Ihrem Azure-Abonnement an, und befolgen Sie die Anweisungen auf dem Bildschirm:
+1. Melden Sie sich mit dem Befehl [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) bei Ihrem Azure-Abonnement an, und befolgen Sie die Anweisungen auf dem Bildschirm:
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -167,7 +167,7 @@ So stellen Sie die Vorlage mithilfe von PowerShell bereit
          }]          
     ```
 
-    Sie können Regionscodes erhalten, indem Sie den Befehl [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) ausführen.
+    Sie können Regionscodes erhalten, indem Sie den Befehl [Get-AzLocation](/powershell/module/az.resources/get-azlocation) ausführen.
 
     ```azurepowershell-interactive
     Get-AzLocation | format-table 
@@ -196,7 +196,7 @@ Stellen Sie die Vorlage bereit, um ein neues Speicherkonto in der Zielregion zu 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-1. Rufen Sie die Abonnement-ID ab, für die Sie die öffentliche Ziel-IP-Adresse mit [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0) bereitstellen möchten:
+1. Rufen Sie die Abonnement-ID ab, für die Sie die öffentliche Ziel-IP-Adresse mit [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) bereitstellen möchten:
 
    ```azurepowershell-interactive
    Get-AzSubscription
@@ -232,14 +232,14 @@ In der folgenden Tabelle sind diese Features zusammen mit einer Anleitung zum Hi
 
 ### <a name="move-data-to-the-new-storage-account"></a>Verschieben der Daten in das neue Speicherkonto
 
-AzCopy ist das bevorzugte Tool zum Verschieben Ihrer Daten. Er ist für die Leistung optimiert.  Ein Grund für die höhere Leistung besteht darin, dass Daten direkt zwischen Speicherservern kopiert werden, sodass AzCopy nicht die Netzwerkbandbreite Ihres Computers nutzt. Verwenden Sie AzCopy über die Befehlszeile oder als Teil eines benutzerdefinierten Skripts. Informationen finden Sie unter [Übertragen von Daten mit AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+AzCopy ist das bevorzugte Tool zum Verschieben Ihrer Daten. Er ist für die Leistung optimiert.  Ein Grund für die höhere Leistung besteht darin, dass Daten direkt zwischen Speicherservern kopiert werden, sodass AzCopy nicht die Netzwerkbandbreite Ihres Computers nutzt. Verwenden Sie AzCopy über die Befehlszeile oder als Teil eines benutzerdefinierten Skripts. Informationen finden Sie unter [Übertragen von Daten mit AzCopy v10](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 Sie können auch Azure Data Factory verwenden, um Ihre Daten zu verschieben. Die Anwendung bietet eine intuitive Benutzeroberfläche. Informationen zur Verwendung von Azure Data Factory finden Sie unter den folgenden Links: 
 
-  - [Kopieren von Daten nach oder aus Azure Blob Storage mit Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
-  - [Kopieren von Daten nach und aus Azure Data Lake Storage Gen2 mithilfe von Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-  - [Kopieren von Daten aus bzw. in Azure File Storage mithilfe von Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)
-  - [Kopieren von Daten nach und aus Azure Table Storage mit Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-table-storage)
+  - [Kopieren von Daten nach oder aus Azure Blob Storage mit Azure Data Factory](/azure/data-factory/connector-azure-blob-storage)
+  - [Kopieren von Daten nach und aus Azure Data Lake Storage Gen2 mithilfe von Azure Data Factory](/azure/data-factory/connector-azure-data-lake-storage)
+  - [Kopieren von Daten aus bzw. in Azure File Storage mithilfe von Azure Data Factory](/azure/data-factory/connector-azure-file-storage)
+  - [Kopieren von Daten nach und aus Azure Table Storage mit Azure Data Factory](/azure/data-factory/connector-azure-table-storage)
 
 ---
 
@@ -273,5 +273,5 @@ Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storage
 In diesem Tutorial haben Sie ein Azure-Speicherkonto aus einer Region in eine andere verschoben und die Quellressourcen bereinigt.  Weitere Informationen zum Verschieben von Ressourcen zwischen Regionen und zur Notfallwiederherstellung in Azure finden Sie unter:
 
 
-- [Verschieben von Ressourcen in eine neue Ressourcengruppe oder ein neues Abonnement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Verschieben virtueller Azure-Computer in eine andere Region](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Verschieben von Ressourcen in eine neue Ressourcengruppe oder ein neues Abonnement](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Verschieben virtueller Azure-Computer in eine andere Region](../../site-recovery/azure-to-azure-tutorial-migrate.md)

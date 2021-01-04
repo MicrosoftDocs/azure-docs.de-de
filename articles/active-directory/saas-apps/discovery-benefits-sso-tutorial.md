@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 83f1eef14a5c22fbab998fb6c939775873748670
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 0e5d67e00ee56b5c4006a8422c713e3cabb32bfc
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91774112"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92454761"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-discovery-benefits-sso"></a>Tutorial: Integration des einmaligen Anmeldens (Single Sign-On, SSO) von Azure Active Directory mit Discovery Benefits SSO
 
@@ -26,7 +26,7 @@ In diesem Tutorial erfahren Sie, wie Sie Discovery Benefits SSO in Azure Active 
 * Ermöglichen Sie es Ihren Benutzern, sich mit ihren Azure AD-Konten automatisch bei Discovery Benefits SSO anzumelden.
 * Verwalten Sie Ihre Konten zentral im Azure-Portal.
 
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -39,7 +39,7 @@ Für die ersten Schritte benötigen Sie Folgendes:
 
 In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure AD in einer Testumgebung.
 
-* Discovery Benefits SSO unterstützt **IDP**-initiiertes einmaliges Anmelden.
+* Discovery Benefits SSO unterstützt **IDP** -initiiertes einmaliges Anmelden.
 
 > [!NOTE]
 > Der Bezeichner dieser Anwendung ist ein fester Zeichenfolgenwert, daher kann in einem Mandanten nur eine Instanz konfiguriert werden.
@@ -50,7 +50,7 @@ Um die Integration von Discovery Benefits SSO in Azure AD konfigurieren zu könn
 
 1. Melden Sie sich mit einem Geschäfts-, Schul- oder Unikonto oder mit einem persönlichen Microsoft-Konto beim [Azure-Portal](https://portal.azure.com) an.
 1. Wählen Sie im linken Navigationsbereich den Dienst **Azure Active Directory** aus.
-1. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie dann **Alle Anwendungen** aus.
+1. Navigieren Sie zu **Unternehmensanwendungen** , und wählen Sie dann **Alle Anwendungen** aus.
 1. Wählen Sie zum Hinzufügen einer neuen Anwendung **Neue Anwendung** aus.
 1. Geben Sie im Abschnitt **Aus Katalog hinzufügen** im Suchfeld den Suchbegriff **Discovery Benefits SSO** ein.
 1. Wählen Sie im Ergebnisbereich die Option **Discovery Benefits SSO** aus, und fügen Sie anschließend die App hinzu. Warten Sie einige Sekunden, während die App Ihrem Mandanten hinzugefügt wird.
@@ -72,25 +72,25 @@ Zum Konfigurieren und Testen des einmaligen Anmeldens von Azure AD mit Discovery
 
 Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal zu aktivieren.
 
-1. Navigieren Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **Discovery Benefits SSO** zum Abschnitt **Verwalten**, und wählen Sie **Einmaliges Anmelden** aus.
+1. Navigieren Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **Discovery Benefits SSO** zum Abschnitt **Verwalten** , und wählen Sie **Einmaliges Anmelden** aus.
 1. Wählen Sie auf der Seite **SSO-Methode auswählen** die Methode **SAML** aus.
-1. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Bearbeitungs- bzw. Stiftsymbol für **Grundlegende SAML-Konfiguration**, um die Einstellungen zu bearbeiten.
+1. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Bearbeitungs- bzw. Stiftsymbol für **Grundlegende SAML-Konfiguration** , um die Einstellungen zu bearbeiten.
 
    ![Bearbeiten der SAML-Basiskonfiguration](common/edit-urls.png)
 
-1. Im Abschnitt  **Grundlegende SAML-Konfiguration** ist die Anwendung im **IDP-initiierten** Modus vorkonfiguriert, und die erforderlichen URLs sind bereits mit Azure vorausgefüllt. Der Benutzer muss die Konfiguration speichern, indem er auf die Schaltfläche  **Speichern** klickt.
+1. Im Abschnitt **Grundlegende SAML-Konfiguration** ist die Anwendung im **IDP-initiierten** Modus vorkonfiguriert, und die erforderlichen URLs sind bereits mit Azure vorausgefüllt. Der Benutzer muss die Konfiguration speichern, indem er auf die Schaltfläche **Speichern** klickt.
 
-1. Die Discovery Benefits SSO-Anwendung erwartet die SAML-Assertionen in einem bestimmten Format. Daher müssen Sie Ihrer Konfiguration der SAML-Tokenattribute benutzerdefinierte Attributzuordnungen hinzufügen. Der folgende Screenshot zeigt die Liste der Standardattribute. Klicken Sie auf das Symbol **Bearbeiten**, um das Dialogfeld „Benutzerattribute“ zu öffnen.
+1. Die Discovery Benefits SSO-Anwendung erwartet die SAML-Assertionen in einem bestimmten Format. Daher müssen Sie Ihrer Konfiguration der SAML-Tokenattribute benutzerdefinierte Attributzuordnungen hinzufügen. Der folgende Screenshot zeigt die Liste der Standardattribute. Klicken Sie auf das Symbol **Bearbeiten** , um das Dialogfeld „Benutzerattribute“ zu öffnen.
 
     ![image](common/edit-attribute.png)
 
-    a. Klicken Sie auf das Symbol **Bearbeiten**, um das Dialogfeld **Eindeutiger Benutzerbezeichner (Namens-ID)** zu öffnen.
+    a. Klicken Sie auf das Symbol **Bearbeiten** , um das Dialogfeld **Eindeutiger Benutzerbezeichner (Namens-ID)** zu öffnen.
 
     ![Screenshot des Abschnitts „User Attributes & Claims“, in dem auf der rechten Seite die Auslassungspunkte für „Required claim“ ausgewählt sind](./media/discovery-benefits-sso-tutorial/attribute01.png)
 
     ![Discovery Benefits SSO-Konfiguration](./media/discovery-benefits-sso-tutorial/attribute02.png)
 
-    b. Klicken Sie auf das Symbol **Bearbeiten**, um das Dialogfeld **Transformation verwalten** zu öffnen.
+    b. Klicken Sie auf das Symbol **Bearbeiten** , um das Dialogfeld **Transformation verwalten** zu öffnen.
 
     c. Geben Sie im Textfeld **Transformation** die für die Zeile angezeigte **ToUppercase()** -Option ein.
 
@@ -101,7 +101,7 @@ Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal 
     > [!NOTE]
     > Für Discovery Benefits SSO muss ein fester Zeichenfolgenwert im Feld **Eindeutiger Benutzerbezeichner (Namens-ID)** übergeben werden, damit diese Integration funktioniert. Dieses Feature wird von Azure AD derzeit nicht unterstützt. Sie können aber die Transformation **ToUpper** bzw. **ToLower** von NameID verwenden, um einen festen Zeichenfolgenwert festzulegen. Dies ist oben im Screenshot dargestellt.
 
-    f. Die zusätzlichen Ansprüche, die für die SSO-Konfiguration erforderlich sind (`SSOInstance` und `SSOID`), wurden bereits automatisch eingefügt. Verwenden Sie das Symbol **Bearbeiten**, um die Werte gemäß Ihrer Organisation zuzuordnen.
+    f. Die zusätzlichen Ansprüche, die für die SSO-Konfiguration erforderlich sind (`SSOInstance` und `SSOID`), wurden bereits automatisch eingefügt. Verwenden Sie das Symbol **Bearbeiten** , um die Werte gemäß Ihrer Organisation zuzuordnen.
 
     ![Screenshot des Bereichs „User Attributes & Claims“, in dem Werte „SSOInstance“ und „SSOID“ hervorgehoben sind](./media/discovery-benefits-sso-tutorial/attribute03.png)
 
@@ -122,16 +122,16 @@ In diesem Abschnitt erstellen Sie im Azure-Portal einen Testbenutzer mit dem Nam
 1. Führen Sie unter den Eigenschaften für **Benutzer** die folgenden Schritte aus:
    1. Geben Sie im Feld **Name** die Zeichenfolge `B.Simon` ein.  
    1. Geben Sie im Feld **Benutzername** die Zeichenfolge username@companydomain.extension ein. Beispiel: `B.Simon@contoso.com`.
-   1. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den Wert aus dem Feld **Kennwort**.
+   1. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen** , und notieren Sie sich den Wert aus dem Feld **Kennwort**.
    1. Klicken Sie auf **Erstellen**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Zuweisen des Azure AD-Testbenutzers
 
 In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anmeldens von Azure, indem Sie ihr Zugriff auf Discovery Benefits SSO gewähren.
 
-1. Wählen Sie im Azure-Portal **Unternehmensanwendungen** > **Alle Anwendungen** aus.
+1. Wählen Sie im Azure-Portal **Unternehmensanwendungen**  > **Alle Anwendungen** aus.
 1. Wählen Sie in der Anwendungsliste die Option **Discovery Benefits SSO** aus.
-1. Navigieren Sie auf der Übersichtsseite der App zum Abschnitt **Verwalten**, und wählen Sie **Benutzer und Gruppen** aus.
+1. Navigieren Sie auf der Übersichtsseite der App zum Abschnitt **Verwalten** , und wählen Sie **Benutzer und Gruppen** aus.
 
    ![Link „Benutzer und Gruppen“](common/users-groups-blade.png)
 
@@ -149,21 +149,20 @@ Zum Konfigurieren des einmaligen Anmeldens aufseiten von **Discovery Benefits SS
 
 ### <a name="create-discovery-benefits-sso-test-user"></a>Erstellen eines Discovery Benefits SSO-Testbenutzers
 
-In diesem Abschnitt erstellen Sie in Discovery Benefits SSO eine Benutzerin mit dem Namen „Britta Simon“. Wenden Sie sich an das [Supportteam von Discovery Benefits SSO](mailto:Jsimpson@DiscoveryBenefits.com), um die Benutzer auf der Discovery Benefits SSO-Plattform hinzufügen zu lassen. Benutzer müssen erstellt und aktiviert werden, damit Sie einmaliges Anmelden verwenden können.
+In diesem Abschnitt erstellen Sie in Discovery Benefits SSO eine Benutzerin mit dem Namen „Britta Simon“. Wenden Sie sich an das [Supportteam von Discovery Benefits SSO](mailto:Jsimpson@DiscoveryBenefits.com), um die Benutzer auf der Discovery Benefits SSO-Plattform hinzufügen zu lassen. Benutzer müssen erstellt und aktiviert werden, damit Sie einmaliges Anmelden verwenden können.
 
 ## <a name="test-sso"></a>Testen des einmaligen Anmeldens 
 
 In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich.
 
-Wenn Sie im Zugriffsbereich auf die Kachel „Discovery Benefits SSO“ klicken, sollten Sie automatisch bei der Discovery Benefits SSO-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Wenn Sie im Zugriffsbereich auf die Kachel „Discovery Benefits SSO“ klicken, sollten Sie automatisch bei der Discovery Benefits SSO-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Liste mit den Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste mit den Tutorials zur Integration von SaaS-Apps in Azure Active Directory](./tutorial-list.md)
 
-- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Was ist der bedingte Zugriff in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Was ist der bedingte Zugriff in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Testen von Discovery Benefits SSO mit Azure AD](https://aad.portal.azure.com/)
-

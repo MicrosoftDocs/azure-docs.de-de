@@ -6,12 +6,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 08/07/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 2586bf2d31ef28c662ad88bde3718541bb21a31c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39f73dd002091451ae832516d525499eae98564d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327203"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021370"
 ---
 # <a name="artificial-intelligence-in-language-understanding-luis"></a>Künstliche Intelligenz in Language Understanding (LUIS)
 
@@ -38,7 +38,7 @@ Die Verarbeitung natürlicher Sprache steht in der LUIS-App wie folgt zur Verfü
 * Konfigurierbare Aspekte der Verarbeitung natürlicher Sprache in LUIS:
     * [Tokenisierung](luis-language-support.md#tokenization)
     * Morphologie durch [API-Einstellungen](luis-reference-application-settings.md) für diakritische Zeichen, Interpunktion und Wortformen
-* Vor- und Nachbearbeitung der Abfrageäußerung durch andere [Cognitive Services](../Welcome.md) wie beispielsweise:
+* Vor- und Nachbearbeitung der Abfrageäußerung durch andere [Cognitive Services](../what-are-cognitive-services.md) wie beispielsweise:
     * [Übersetzung](../translator/translator-info-overview.md)
 
 ## <a name="natural-language-understanding-nlu"></a>Verstehen natürlicher Sprache (Natural Language Understanding, NLU)

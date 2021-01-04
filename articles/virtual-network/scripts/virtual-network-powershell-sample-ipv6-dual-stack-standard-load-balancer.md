@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 61a9057a9bc65f6ee9ed68a84eac40ea6e0c7c61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0116d903bab0cefc6ab58d37a66963da49a53c6
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89074184"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "96013903"
 ---
 # <a name="configure-ipv6-frontend-in-virtual-network-script-sample-with-standard-load-balancerpreview"></a>Konfigurieren eines IPv6-Front-Ends im virtuellen Netzwerk: Skriptbeispiel mit Load Balancer Standard (Vorschau)
 
@@ -175,28 +175,28 @@ $nsg = New-AzNetworkSecurityGroup `
 # Create dual stack subnet
 $subnet = New-AzVirtualNetworkSubnetConfig `
 -Name "dsSubnet" `
--AddressPrefix "10.0.0.0/24","ace:cab:deca:deed::/64"
+-AddressPrefix "10.0.0.0/24","fd00:db8:deca:deed::/64"
 
 # Create the virtual network
 $vnet = New-AzVirtualNetwork `
 -ResourceGroupName $rg.ResourceGroupName `
 -Location $rg.Location  `
 -Name "dsVnet" `
--AddressPrefix "10.0.0.0/16","ace:cab:deca::/48"  `
+-AddressPrefix "10.0.0.0/16","fd00:db8:deca::/48"  `
 -Subnet $subnet
   
 #Create network interfaces (NICs)
-$Ip4Config=New-AzNetworkInterfaceIpConfig `
--Name dsIp4Config `
+$Ip4Config=New-AzNetworkInterfaceIpConfig `
+-Name dsIp4Config `
 -Subnet $vnet.subnets[0] `
--PrivateIpAddressVersion IPv4 `
+-PrivateIpAddressVersion IPv4 `
 -LoadBalancerBackendAddressPool $backendPoolv4 `
 -PublicIpAddress  $RdpPublicIP_1
     
-$Ip6Config=New-AzNetworkInterfaceIpConfig `
--Name dsIp6Config `
+$Ip6Config=New-AzNetworkInterfaceIpConfig `
+-Name dsIp6Config `
 -Subnet $vnet.subnets[0] `
--PrivateIpAddressVersion IPv6 `
+-PrivateIpAddressVersion IPv6 `
 -LoadBalancerBackendAddressPool $backendPoolv6
     
 $NIC_1 = New-AzNetworkInterface `
@@ -206,10 +206,10 @@ $NIC_1 = New-AzNetworkInterface `
 -NetworkSecurityGroupId $nsg.Id `
 -IpConfiguration $Ip4Config,$Ip6Config 
     
-$Ip4Config=New-AzNetworkInterfaceIpConfig `
--Name dsIp4Config `
+$Ip4Config=New-AzNetworkInterfaceIpConfig `
+-Name dsIp4Config `
 -Subnet $vnet.subnets[0] `
--PrivateIpAddressVersion IPv4 `
+-PrivateIpAddressVersion IPv4 `
 -LoadBalancerBackendAddressPool $backendPoolv4 `
 -PublicIpAddress  $RdpPublicIP_2  
 

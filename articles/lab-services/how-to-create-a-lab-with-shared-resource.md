@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 2d6610a2f69b6da34972510a5619c6d16a605289
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: d4bf4127dc163bb5f034e077b84664828374ba87
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776441"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647969"
 ---
 # <a name="how-to-create-a-lab-with-a-shared-resource-in-azure-lab-services"></a>Erstellen eines Labs mit einer freigegebenen Ressource in Azure Lab Services
 
@@ -38,12 +38,12 @@ Eine der gängigeren gemeinsam genutzten Ressourcen ist ein Lizenzserver. Im Ans
 Der Lizenzserver muss mit dem virtuellen Netzwerk verbunden sein, das mittels Peering mit dem Lab verbunden ist. Daher muss sich der Lizenzserver in der gleichen Region befinden wie das Labkonto.
 
 #### <a name="static-private-ip-and-mac-address"></a>Statische private IP-Adresse und MAC-Adresse
-Virtuelle Computer verfügen standardmäßig über eine dynamische private IP-Adresse. [Legen Sie die private IP-Adresse auf statisch fest, bevor Sie Software einrichten.](https://docs.microsoft.com/azure/virtual-network/virtual-networks-static-private-ip-arm-pportal) Dadurch werden die private IP-Adresse und die MAC-Adresse statisch.  
+Virtuelle Computer verfügen standardmäßig über eine dynamische private IP-Adresse. [Legen Sie die private IP-Adresse auf statisch fest, bevor Sie Software einrichten.](../virtual-network/virtual-networks-static-private-ip-arm-pportal.md) Dadurch werden die private IP-Adresse und die MAC-Adresse statisch.  
 
 #### <a name="control-access"></a>Steuern des Zugriffs
 Die Steuerung des Zugriffs auf den Lizenzserver ist entscheidend.  Nach der Einrichtung des virtuellen Computers ist weiterhin Zugriff erforderlich, um Wartungs-, Problembehandlungs- und Aktualisierungsaufgaben durchzuführen.  Im Anschluss finden Sie einige Möglichkeiten hierfür:
-- [Einrichten von JIT-Zugriff (Just-In-Time) in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-just-in-time?tabs=jit-config-asc%2Cjit-request-asc)
-- [Einrichten einer Netzwerksicherheitsgruppe, um den Zugriff einzuschränken](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview)
+- [Einrichten von JIT-Zugriff (Just-In-Time) in Azure Security Center](../security-center/security-center-just-in-time.md?tabs=jit-config-asc%252cjit-request-asc)
+- [Einrichten einer Netzwerksicherheitsgruppe, um den Zugriff einzuschränken](../virtual-network/network-security-groups-overview.md)
 - [Einrichten von Bastion, um sicheren Zugriff auf den Lizenzserver zu ermöglichen](https://azure.microsoft.com/services/azure-bastion/)
 
 ## <a name="lab-account"></a>Lab-Konto

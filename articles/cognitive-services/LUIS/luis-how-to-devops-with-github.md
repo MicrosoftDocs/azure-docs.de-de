@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
 ms.author: anwigley
-ms.openlocfilehash: 6df65040277ac61cca5fb4bf7fce5b5a7b2f3afe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b733e90b69be4e2bd458be5486564747ed4cca78
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84783661"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018870"
 ---
 # <a name="apply-devops-to-luis-app-development-using-github-actions"></a>Anwenden von DevOps auf die Entwicklung von LUIS-Apps mithilfe von GitHub Actions
 
@@ -27,7 +27,7 @@ Navigieren Sie zum [LUIS DevOps-Vorlagenrepository](https://github.com/Azure-Sam
 Das [LUIS DevOps-Vorlagenrepository](https://github.com/Azure-Samples/LUIS-DevOps-Template) führt Sie durch die folgenden Schritte:
 
 * **Klonen des Vorlagenrepositorys**: Kopieren Sie die Vorlage in Ihr eigenes GitHub-Repository.
-* **Konfigurieren von LUIS-Ressourcen**: Erstellen Sie die [LUIS-Erstellungs- und Vorhersageressourcen in Azure](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription#create-resources-in-azure-cli), die von den Continuous Integration-Workflows verwendet werden.
+* **Konfigurieren von LUIS-Ressourcen**: Erstellen Sie die [LUIS-Erstellungs- und Vorhersageressourcen in Azure](./luis-how-to-azure-subscription.md), die von den Continuous Integration-Workflows verwendet werden.
 * **Konfigurieren der CI/CD-Workflows**: Konfigurieren Sie Parameter für die CI/CD-Workflows, und speichern Sie sie in [GitHub-Geheimnissen](https://help.github.com/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets).
 * **Abschreiten der [„inneren Entwicklungsschleife“](https://mitchdenny.com/the-inner-loop/)** : Der Entwickler nimmt Aktualisierungen an einer LUIS-Beispiel-App vor, während er in einem Entwicklungsbranch arbeitet, testet die Aktualisierungen und löst dann einen Pull Request aus, um die Änderungen vorzuschlagen und um Genehmigung aus dem Review zu bitten.
 * **Ausführen von CI/CD-Workflows**: Ausführen von [Continuous Integration-Workflows zum Erstellen und Testen einer LUIS-App](luis-concept-devops-automation.md) mithilfe von GitHub Actions.

@@ -5,13 +5,13 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 description: Informationen zum Konfigurieren von Azure Dev Spaces für die Verwendung eines benutzerdefinierten Traefik-Eingangscontrollers und zum Konfigurieren von HTTPS mithilfe dieses Eingangscontrollers
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Container, Helm, Service Mesh, Service Mesh-Routing, kubectl, k8s
-ms.custom: devx-track-js
-ms.openlocfilehash: a30dae3b65a7e877dc20b4d6fae8de338024d3c7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: d19dc409f4d57a114b5937e6ce3718315e550a08
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973052"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763586"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>Verwenden eines benutzerdefinierten Traefik-Eingangscontrollers und Konfigurieren von HTTPS
 
@@ -47,13 +47,13 @@ aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
 Fügen Sie das [offizielle stabile Helm-Repository][helm-stable-repo] hinzu, das das Helm-Diagramm des Traefik-Eingangscontrollers enthält.
 
 ```console
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+helm repo add stable https://charts.helm.sh/stable
 ```
 
 Erstellen Sie einen Kubernetes-Namespace für den Traefik-Eingangscontroller, und installieren Sie ihn mithilfe von `helm`.
 
 > [!NOTE]
-> Wenn in Ihrem AKS-Cluster RBAC nicht aktiviert ist, entfernen Sie den Parameter *--set rbac.enabled=true*.
+> Wenn in Ihrem AKS-Cluster Kubernetes RBAC nicht aktiviert ist, entfernen Sie den Parameter *--set rbac.enabled=true*.
 
 ```console
 kubectl create ns traefik
@@ -220,10 +220,10 @@ Verwenden Sie `kubectl`, um `letsencrypt-clusterissuer.yaml` anzuwenden.
 kubectl apply -f letsencrypt-clusterissuer.yaml --namespace traefik
 ```
 
-Entfernen Sie die vorherige *Traefik*-*ClusterRole* und -*ClusterRoleBinding*und führen Sie dann ein Upgrade von Traefik aus, um HTTPS mithilfe von `helm` zu verwenden.
+Entfernen Sie die vorherige *Traefik*-*ClusterRole* und -*ClusterRoleBinding* und führen Sie dann ein Upgrade von Traefik aus, um HTTPS mithilfe von `helm` zu verwenden.
 
 > [!NOTE]
-> Wenn in Ihrem AKS-Cluster RBAC nicht aktiviert ist, entfernen Sie den Parameter *--set rbac.enabled=true*.
+> Wenn in Ihrem AKS-Cluster Kubernetes RBAC nicht aktiviert ist, entfernen Sie den Parameter *--set rbac.enabled=true*.
 
 ```console
 kubectl delete ClusterRole traefik
@@ -375,7 +375,7 @@ Weitere Informationen zur Funktionsweise von Azure Dev Spaces:
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/a?view=azure-cli-latest#az-network-dns-record-set-a-add-record
 [az-network-dns-record-set-a-remove-record]: /cli/azure/network/dns/record-set/a?view=azure-cli-latest#az-network-dns-record-set-a-remove-record
-[custom-domain]: ../../app-service/manage-custom-dns-buy-domain.md#buy-the-domain
+[custom-domain]: ../../app-service/manage-custom-dns-buy-domain.md#buy-an-app-service-domain
 [dns-zone]: ../../dns/dns-getstarted-cli.md
 [azds-yaml]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/azds.yaml
 [azure-account-create]: https://azure.microsoft.com/free

@@ -1,5 +1,5 @@
 ---
-title: 'Szenario: Weiterleiten von Datenverkehr über virtuelle Netzwerkgeräte (NVAs) mithilfe von benutzerdefinierten Einstellungen'
+title: Weiterleiten von Datenverkehr über virtuelle Netzwerkgeräte (Network Virtual Appliances, NVAs) mithilfe benutzerdefinierter Einstellungen
 titleSuffix: Azure Virtual WAN
 description: Dieses Szenario hilft Ihnen beim Weiterleiten von Datenverkehr über NVAs mithilfe eines anderen NVA für Internetdatenverkehr.
 services: virtual-wan
@@ -9,127 +9,118 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e1cf9faeab60264d491539256828151e496ade8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 122e76e4bde96823ff18207bc24df4a8e91afb1c
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267498"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517967"
 ---
-# <a name="scenario-route-traffic-through-nvas---custom-preview"></a>Szenario: Weiterleiten von Datenverkehr über virtuelle Netzwerkgeräte: benutzerdefiniert (Vorschau)
+# <a name="scenario-route-traffic-through-nvas-by-using-custom-settings"></a>Szenario: Weiterleiten von Datenverkehr über virtuelle Netzwerkgeräte (Network Virtual Appliances, NVAs) mithilfe benutzerdefinierter Einstellungen
 
-Wenn Sie mit Virtual WAN-Routing für virtuelle Hubs arbeiten, steht Ihnen eine ganze Reihe von Szenarios zur Verfügung. In diesem NVA-Szenario (Network Virtual Appliance, virtuelles Netzwerkgerät) besteht das Ziel darin, Datenverkehr über ein NVA für die Kommunikation zwischen VNETs und Branches weiterzuleiten und ein anderes NVA für Internetdatenverkehr zu verwenden. Weitere Informationen zum Routing für virtuelle Hubs finden Sie unter [Informationen zum Routing virtueller Hubs](about-virtual-hub-routing.md).
+Wenn Sie mit dem Routing virtueller Hubs von Azure Virtual WAN arbeiten, stehen Ihnen eine Reihe von Optionen zur Verfügung. Der Schwerpunkt dieses Artikels liegt darauf, wenn Sie Datenverkehr für Kommunikation zwischen virtuellen Netzwerken und Filialen durch ein virtuelles Netzwerkgerät (Network Virtual Appliance, NVA) leiten möchten und für Internetdatenverkehr ein anderes NVA verwenden möchten. Weitere Informationen finden Sie unter [Informationen zum Routing virtueller Hubs](about-virtual-hub-routing.md).
 
-## <a name="design"></a><a name="design"></a>Entwurf
+## <a name="design"></a>Entwurf
 
-In diesem Szenario wird die folgende Benennungskonvention verwendet:
+* **Spokes** für virtuelle Netzwerke, die mit dem virtuellen Hub verbunden sind. (Beispiel: VNET 1, VNET 2 und VNET 3 im Diagramm weiter unten in diesem Artikel.)
+* **Dienst-VNET** für virtuelle Netzwerke, in denen Benutzer ein NVA bereitgestellt haben, um den Nicht-Internetdatenverkehr zu überprüfen, und möglicherweise mit gemeinsamen Diensten, auf die über Spokes zugegriffen wird. (Beispiel: VNET 4 im Diagramm weiter unten in diesem Artikel.) 
+* **Umkreis-VNET** für virtuelle Netzwerke, in denen Benutzer ein NVA für die Untersuchung von Internetdatenverkehr bereitgestellt haben. (Beispiel: VNET 5 im Diagramm weiter unten in diesem Artikel.)
+* **Hubs** für von Microsoft verwaltete Virtual WAN-Hubs.
 
-* „Dienst-VNET“ für virtuelle Netzwerke, in denen Benutzer ein NVA bereitgestellt haben (VNET 4 in **Abbildung 1**), um nicht über das Internet verlaufenden Datenverkehr zu untersuchen.
-* „DMZ-VNET“ für virtuelle Netzwerke, in denen Benutzer ein NVA für die Untersuchung von Internetdatenverkehr bereitgestellt haben (VNET 5 in **Abbildung 1**).
-* „NVA-Spokes“ für virtuelle Netzwerke, die mit einem NVA-VNET (VNET 1, VNET 2 und VNET 3 in **Abbildung 1**) verbunden sind.
-* „Hubs“ für von Microsoft verwaltete Virtual WAN-Hubs.
+In der folgenden Tabelle werden die in diesem Szenario unterstützten Verbindungen zusammengefasst:
 
-In der folgenden Konnektivitätsmatrix sind die für dieses Szenario unterstützten Datenflüsse zusammengefasst:
+| From          | Beschreibung|Spokes|Dienst-VNET|Branches|Internet|
+|---|---|:---:|:---:|:---:|:---:|:---:|
+| **Spokes**| ->| direkt |direkt | über Dienst-VNET |über Umkreis-VNET |
+| **Dienst-VNET**| ->| direkt |–| direkt | |
+| **Branches** | ->| über Dienst-VNET |direkt| direkt |  |
 
-**Konnektivitätsmatrix**
+Jede der Zellen in der Konnektivitätsmatrix beschreibt, ob Konnektivität direkt über Virtual WAN oder über eines der virtuellen Netzwerke mit einem NVA bereitgestellt wird. 
 
-| From          | Nach:|*NVA-Spokes*|*Dienst-VNET*|*DMZ-VNET*|*Branches (statisch)*|
-|---|---|---|---|---|---|
-| **NVA-Spokes**| &#8594;|      X |            X |   Peering |    statischen    |
-| **Dienst-VNET**| &#8594;|    X |            X |      X    |      X       |
-| **DMZ-VNET** | &#8594;|       X |            X |      X    |      X       |
-| **Branches** | &#8594;|  statischen |            X |      X    |      X       |
-
-In den einzelnen Zellen der Konnektivitätsmatrix ist beschrieben, ob eine Virtual WAN-Verbindung (Von-Seite des Datenflusses bzw. Zeilenbezeichnung) ein Zielpräfix (An-Seite des Datenflusses bzw. kursive Spaltenüberschrift) für einen bestimmten Datenverkehrsfluss erlernt. Ein „X“ bedeutet, dass die Konnektivität nativ von Virtual WAN bereitgestellt wird. „Statisch“ bedeutet, dass die Konnektivität von Virtual WAN mithilfe statischer Routen bereitgestellt wird. Hier sind die einzelnen Zeilen ausführlicher beschrieben:
-
-* NVA-Spokes:
+Beachten Sie Folgendes:
+* Spokes:
   * Spokes können andere Spokes direkt über Virtual WAN-Hubs erreichen.
-  * Spokes erhalten die Konnektivität mit Branches über eine statische Route, die auf das Dienst-VNET verweist. Sie sollten keine spezifischen Präfixe über die Branches erlernen (andernfalls wären diese spezifischer und würden die Zusammenfassung außer Kraft setzen).
-  * Spokes senden Internetdatenverkehr per direktem VNET-Peering an das DMZ-VNET.
-* Branches:
-  * Branches erreichen Spokes per statischem Routing, wobei auf das Dienst-VNET verwiesen wird. Hierbei sollten keine spezifischen Präfixe von den VNETs erlernt werden, die die zusammengefasste statische Route außer Kraft setzen.
-* Das Dienst-VNET ähnelt einem VNET für gemeinsame Dienste, das für jedes VNET und jeden Branch erreichbar sein muss.
-* Das DMZ-VNET benötigt nicht unbedingt Konnektivität per Virtual WAN, da der einzige Datenverkehr, der von diesem VNET unterstützt wird, über direkte VNET-Peerings eingeht. Wir verwenden aber das gleiche Konnektivitätsmodell wie für das DMZ-VNET, um die Konfiguration zu vereinfachen.
+  * Spokes erhalten die Konnektivität mit Branches über eine statische Route, die auf das Dienst-VNET verweist. Sie erlernen keine spezifischen Präfixe von den Filialen, weil diese spezifischer sind und die Zusammenfassung außer Kraft setzen.
+  * Spokes senden Internetdatenverkehr über ein direktes VNET-Peering an das Umkreis-VNET.
+* Branches erreichen Spokes per statischem Routing, wobei auf das Dienst-VNET verwiesen wird. Sie erlernen keine spezifischen Präfixe von den VNETs, die die zusammengefasste statische Route außer Kraft setzen.
+* Das Dienst-VNET ähnelt einem VNET für gemeinsame Dienste, das für jedes VNET und jede Filiale erreichbar sein muss.
+* Das Umkreis-VNET benötigt keine Konnektivität über Virtual WAN, da der einzige Datenverkehr, den es unterstützt, über direkte VNET-Peerings erfolgt. Um die Konfiguration zu vereinfachen, verwenden Sie jedoch dasselbe Konnektivitätsmodell wie für das Umkreis-VNET.
 
-Mit unserer Konnektivitätsmatrix erhalten wir also drei separate Konnektivitätsmuster, und dies ergibt drei Routingtabellen. Die Zuordnungen zu den verschiedenen VNETs lauten wie folgt:
+Es gibt drei verschiedene Konnektivitätsmuster, die in drei Routingtabellen übersetzt werden. Die Zuordnungen zu den verschiedenen virtuellen Netzwerken sind wie folgt:
 
-* NVA-Spokes:
+* Spokes:
   * Zugeordnete Routingtabelle: **RT_V2B**
   * Weitergabe an Routingtabellen: **RT_V2B** und **RT_SHARED**
-* NVA-VNETs (intern und Internet):
+* NVA-VNETs (Dienst-VNET und Umkreis-VNET):
   * Zugeordnete Routingtabelle: **RT_SHARED**
   * Weitergabe an Routingtabellen: **RT_SHARED**
 * Branches:
   * Zugeordnete Routingtabelle: **Standard**
-  * Weitergabe an Routingtabellen: **RT_SHARED** und **Default**
+  * Weitergabe an Routingtabellen: **RT_SHARED** und **Standard**
 
-Wir benötigen diese statischen Routen, um sicherzustellen, dass VNET-zu-Branch- und Branch-zu-VNET-Datenverkehr über das NVA im Dienst-VNET verläuft (VNET 4):
+Diese statischen Routen stellen sicher, dass der Datenverkehr zum und vom virtuellen Netzwerk und der Filiale über das NVA im Dienst-VNET (VNET 4) läuft:
 
 | BESCHREIBUNG | Routingtabelle | Statische Route              |
 | ----------- | ----------- | ------------------------- |
 | Branches    | RT_V2B      | 10.2.0.0/16 -> vnet4conn  |
 | NVA-Spokes  | Standard     | 10.1.0.0/16 -> vnet4conn  |
 
-Das Virtual WAN verfügt jetzt über die Information, an welche Verbindung die Pakete gesendet werden sollen. Die Verbindung muss aber auch wissen, was zu tun ist, wenn diese Pakete empfangen werden: Hierfür werden die Routingtabellen für Verbindungen verwendet.
+Jetzt können Sie mit Virtual WAN die richtige Verbindung auswählen, an die die Pakete gesendet werden sollen. Sie müssen Virtual WAN auch verwenden, um die richtige Aktion auszuwählen, die beim Empfang dieser Pakete erfolgen soll. Dazu nutzen Sie die Verbindungsroutingtabellen wie folgt:
 
 | BESCHREIBUNG | Verbindung | Statische Route            |
 | ----------- | ---------- | ----------------------- |
 | VNet2Branch | vnet4conn  | 10.2.0.0/16 -> 10.4.0.5 |
 | Branch2VNet | vnet4conn  | 10.1.0.0/16 -> 10.4.0.5 |
 
-Es sollte nun alles wie gewünscht eingerichtet sein.
+Weitere Informationen finden Sie unter [Informationen zum Routing virtueller Hubs](about-virtual-hub-routing.md).
 
-Weitere Informationen zum Routing für virtuelle Hubs finden Sie unter [Informationen zum Routing virtueller Hubs](about-virtual-hub-routing.md).
+## <a name="architecture"></a>Aufbau
 
-## <a name="architecture"></a><a name="architecture"></a>Architektur
+Hier sehen Sie ein Diagramm der weiter oben in diesem Artikel beschriebenen Architektur.
 
-In **Abbildung 1** gibt es einen Hub, **Hub 1**.
+Es gibt einen Hub mit dem Namen **Hub 1**.
 
 * **Hub 1** ist direkt mit den NVA-VNETs **VNET 4** und **VNET 5** verbunden.
 
-* Der Datenverkehr zwischen den VNETs 1, 2 und 3 und den Branches (VPN/ER/P2S) wird über **NVA-VNET 4** (10.4.0.5) erwartet.
+* Datenverkehr zwischen den VNETs 1, 2 und 3 und den Filialen wird über **NVA-VNET 4** (10.4.0.5) erwartet.
 
-* Der gesamte Internetdatenverkehr aus den VNETs 1, 2 und 3 wird über das **NVA-VNET 5** (10.5.0.5) erwartet.
+* Der gesamte Internetdatenverkehr aus den VNETs 1, 2 und 3 wird über **NVA-VNET 5** (10.5.0.5) erwartet.
 
-**Abbildung 1**
+:::image type="content" source="./media/routing-scenarios/nva-custom/figure-1.png" alt-text="Diagramm der Netzwerkarchitektur":::
 
-:::image type="content" source="./media/routing-scenarios/nva-custom/figure-1.png" alt-text="Abbildung 1":::
-
-## <a name="workflow"></a><a name="workflow"></a>Workflow
+## <a name="workflow"></a>Workflow
 
 Zur Einrichtung des Routings über das virtuelle Netzwerkgerät sind die folgenden Schritte zu beachten:
 
-1. Damit der Internetdatenverkehr über VNET 5 geleitet wird, müssen die VNETs 1, 2 und 3 per VNET-Peering eine direkte Verbindung mit VNET 5 herstellen. Sie benötigen zudem ein UDR-Setup in den VNets für 0.0.0.0/0 und dem nächsten Hop 10.5.0.5. Zurzeit lässt Virtual WAN im virtuellen Hub für 0.0.0.0/0 kein NVA für den nächsten Hop zu.
+1. Damit Internetdatenverkehr über VNET 5 geleitet wird, müssen die VNETs 1, 2 und 3 per VNET-Peering eine direkte Verbindung mit VNET 5 herstellen. Außerdem benötigen Sie eine benutzerdefinierte Route, die in den virtuellen Netzwerken für 0.0.0.0/0 und den nächsten Hop 10.5.0.5 eingerichtet ist. Zurzeit lässt Virtual WAN im virtuellen Hub für 0.0.0.0/0 kein NVA für den nächsten Hop zu.
 
-1. Navigieren Sie im Azure-Portal zu Ihrem virtuellen Hub, und erstellen Sie eine benutzerdefinierte Routingtabelle **RT_Shared**, die Routen über die Weitergabe von allen VNets und Filialverbindungen erlernt. In **Abbildung 2** ist dies als leere benutzerdefinierte Routingtabelle **RT_Shared** dargestellt.
+1. Wechseln Sie im Azure-Portal zu Ihrem virtuellen Hub, und erstellen Sie eine benutzerdefinierte Routingtabelle mit dem Namen **RT_Shared**. Diese Tabelle erlernt Routen über die Weitergabe aus allen virtuellen Netzwerken und Filialverbindungen. Diese leere Tabelle wird im folgenden Diagramm gezeigt.
 
    * **Routen:** Sie müssen keine statischen Routen hinzufügen.
 
-   * **Zuordnung:** Wählen Sie die VNETs 4 und 5 aus. Dies bedeutet, dass die Verbindungen dieser beiden VNETs der Routingtabelle **RT_Shared** zugeordnet werden.
+   * **Zuordnung:** Wählen Sie die VNETs 4 und 5 aus, was bedeutet, dass die Verbindungen dieser virtuellen Netzwerke der Routingtabelle **RT_Shared** zugeordnet werden.
 
-   * **Weitergabe:** Da Sie möchten, dass alle Filialen und VNet-Verbindungen ihre Routen dynamisch an diese Routingtabelle weitergeben, wählen Sie Filialen und alle VNets aus.
+   * **Weitergabe:** Da Sie möchten, dass alle Filialen und VNET-Verbindungen ihre Routen dynamisch an diese Routingtabelle weitergeben, wählen Sie Filialen und alle VNETs aus.
 
-1. Erstellen Sie eine benutzerdefinierte Routingtabelle **RT_V2B**, um den Datenverkehr von den VNETs 1, 2 und 3 an Branches weiterzuleiten.
+1. Erstellen Sie die benutzerdefinierte Routingtabelle **RT_V2B** , um den Datenverkehr von den VNETs 1, 2 und 3 an Filialen weiterzuleiten.
 
-   * **Routen:** Fügen Sie einen aggregierten statischen Routeneintrag für Branches (VPN/ER/P2S, 10.2.0.0/16 in **Abbildung 2**) mit dem nächsten Hop als VNET 4-Verbindung hinzu. Außerdem müssen Sie eine statische Route in der VNET 4-Verbindung für Branchpräfixe konfigurieren und angeben, dass der nächste Hop die spezifische IP-Adresse des virtuellen Netzwerkgeräts in VNET 4 sein soll.
+   * **Routen:** Fügen Sie einen aggregierten statischen Routeneintrag für Filialen mit dem nächsten Hop als VNET 4-Verbindung hinzu. Konfigurieren Sie eine statische Route in der VNET 4-Verbindung für Filialpräfixe, und geben Sie an, dass der nächste Hop die spezifische IP-Adresse des NVA in VNET 4 sein soll.
 
    * **Zuordnung:** Wählen Sie alle VNETs aus (1, 2 und 3). Dies bedeutet, dass die VNet-Verbindungen 1, 2 und 3 dieser Routingtabelle zugeordnet werden und in dieser Routingtabelle Routen (statisch und dynamisch über die Weitergabe) erlernen können.
 
-   * **Weitergabe:** Verbindungen geben Routen an Routingtabellen weiter. Durch die Auswahl der VNETs 1, 2 und 3 wird die Weitergabe von Routen von den VNETs 1, 2 und 3 an diese Routingtabelle ermöglicht. Es ist nicht erforderlich, Routen von Branchverbindungen an „RT_V2B“ weiterzugeben, da der Datenverkehr des Branch-VNET über das NVA in VNET 4 geleitet wird.
+   * **Weitergabe:** Verbindungen geben Routen an Routingtabellen weiter. Durch Auswahl der VNETs 1, 2 und 3 wird die Weitergabe von Routen von den VNETs 1, 2 und 3 an diese Routingtabelle ermöglicht. Es ist nicht erforderlich, Routen von Filialverbindungen an **RT_V2B** weiterzugeben, da der Datenverkehr des Filial-VNET über das NVA in VNET 4 geleitet wird.
   
 1. Bearbeiten Sie die Standardroutingtabelle **DefaultRouteTable**.
 
-   Alle VPN-, ExpressRoute- und Benutzer-VPN-Verbindungen sind der Standardroutingtabelle zugeordnet. Alle VPN-, ExpressRoute- und Benutzer-VPN-Verbindungen geben Routen an dieselben Routingtabellen weiter.
+   Alle VPN-, Azure ExpressRoute- und Benutzer-VPN-Verbindungen sind der Standardroutingtabelle zugeordnet. Alle VPN-, ExpressRoute- und Benutzer-VPN-Verbindungen geben Routen an dieselbe Gruppe von Routingtabellen weiter.
 
-   * **Routen:** Fügen Sie einen aggregierten statischen Routeneintrag für die VNETs 1, 2 und 3 (10.1.0.0/16 in **Abbildung 2**) mit dem nächsten Hop als VNET 4-Verbindung hinzu. Außerdem müssen Sie eine statische Route sowie drei aggregierte Präfixe in der VNET 4-Verbindung für die VNETs 1, 2 und 3 konfigurieren und angeben, dass der nächste Hop die spezifische IP-Adresse des virtuellen Netzwerkgeräts in VNET 4 sein soll.
+   * **Routen:** Fügen Sie einen aggregierten statischen Routeneintrag für die VNETs 1, 2 und 3 mit dem nächsten Hop als VNET 4-Verbindung hinzu. Konfigurieren Sie eine statische Route sowie drei aggregierte Präfixe in der VNET 4-Verbindung für die VNETs 1, 2 und 3, und geben Sie an, dass der nächste Hop die spezifische IP-Adresse des NVA in VNET 4 sein soll.
 
-   * **Zuordnung:** Vergewissern Sie sich, dass die Option für Filialen (VPN/ER/P2S) ausgewählt ist, und stellen Sie sicher, dass lokale Filialverbindungen der *defaultroutetable* zugeordnet sind.
+   * **Zuordnung:** Vergewissern Sie sich, dass die Option für Filialen (VPN/ER/P2S) ausgewählt ist, und dass lokale Filialverbindungen der Standardroutingtabelle zugeordnet sind.
 
-   * **Weitergabe von:** Vergewissern Sie sich, dass die Option für Filialen (VPN/ER/P2S) ausgewählt ist, und stellen Sie sicher, dass lokale Verbindungen Routen an die *defaultroutetable* weitergeben.
+   * **Weitergabe von:** Vergewissern Sie sich, dass die Option für Filialen (VPN/ER/P2S) ausgewählt ist, und dass lokale Verbindungen Routen an die Standardroutingtabelle weitergeben.
 
-**Abbildung 2**
-
-:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Abbildung 1" lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
+:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Diagramm des Workflows." lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 

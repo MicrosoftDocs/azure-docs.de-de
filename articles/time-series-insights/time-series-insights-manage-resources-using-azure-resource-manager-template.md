@@ -11,19 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: ee4d3957403e169d41fb9e3befa0d62e4b0d9075
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 493750e69b1fdc935b04d6dc705cfd046b6b086e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597860"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96011658"
 ---
 # <a name="create-azure-time-series-insights-gen-1-resources-using-azure-resource-manager-templates"></a>Erstellen von Azure Time Series Insights Gen1-Ressourcen mit Azure Resource Manager-Vorlagen
 
 > [!CAUTION]
 > Dies ist ein Artikel zu Azure Time Series Insights Gen1.
 
-In diesem Artikel wird das Erstellen und Bereitstellen von Azure Time Series Insights-Ressourcen mithilfe von [Azure Resource Manager-Vorlagen](https://docs.microsoft.com/azure/azure-resource-manager/), PowerShell und des Azure Time Series Insights-Ressourcenanbieters beschrieben.
+In diesem Artikel wird das Erstellen und Bereitstellen von Azure Time Series Insights-Ressourcen mithilfe von [Azure Resource Manager-Vorlagen](../azure-resource-manager/index.yml), PowerShell und des Azure Time Series Insights-Ressourcenanbieters beschrieben.
 
 Azure Time Series Insights unterstützt die folgenden Ressourcen:
 
@@ -32,7 +32,7 @@ Azure Time Series Insights unterstützt die folgenden Ressourcen:
    | Environment | Eine Azure Time Series Insights-Umgebung ist eine logische Gruppierung von Ereignissen, die aus Ereignisbrokern gelesen, gespeichert und zur Abfrage zur Verfügung gestellt werden. Weitere Informationen finden Sie unter [Planen Ihrer Azure Time Series Insights-Umgebung](time-series-insights-environment-planning.md). |
    | Ereignisquelle | Eine Ereignisquelle ist eine Verbindung mit einem Ereignisbroker, von dem Azure Time Series Insights Daten liest und Ereignisse für die Umgebung erfasst. Derzeit werden IoT Hub und Event Hub als Ereignisquellen unterstützt. |
    | Verweisdataset | Verweisdatasets stellen Metadaten zu den Ereignissen der Umgebung bereit. Metadaten in den Verweisdaten werden während der Erfassung mit Ereignissen verknüpft. Verweisdatasets werden über die dazugehörigen Ereignisschlüsseleigenschaften als Ressourcen definiert. Die eigentlichen Metadaten, aus denen das Verweisdataset besteht, wird über Datenebenen-APIs hochgeladen oder geändert. |
-   | Zugriffsrichtlinie | Zugriffsrichtlinien gewähren Berechtigungen für die Erstellung von Datenabfragen, für die Bearbeitung von Verweisdaten in der Umgebung und für die Freigabe gespeicherter Abfragen und Perspektiven, die der Umgebung zugeordnet sind. Weitere Informationen finden Sie unter [Gewähren von Datenzugriff für eine Azure Time Series Insights-Umgebung mit Azure-Portal](time-series-insights-data-access.md). |
+   | Zugriffsrichtlinie | Zugriffsrichtlinien gewähren Berechtigungen für die Erstellung von Datenabfragen, für die Bearbeitung von Verweisdaten in der Umgebung und für die Freigabe gespeicherter Abfragen und Perspektiven, die der Umgebung zugeordnet sind. Weitere Informationen finden Sie unter [Gewähren von Datenzugriff für eine Azure Time Series Insights-Umgebung mit Azure-Portal](./concepts-access-policies.md). |
 
 Eine Resource Manager-Vorlage ist eine JSON-Datei, mit der die Infrastruktur und Konfiguration von Ressourcen in einer Ressourcengruppe definiert wird. In den folgenden Dokumenten werden Vorlagendateien ausführlicher beschrieben:
 
@@ -48,7 +48,7 @@ Die Schnellstartvorlage [201-timeseriesinsights-environment-with-eventhub](https
 
 Im folgenden Verfahren wird beschrieben, wie Sie PowerShell zum Bereitstellen einer Azure Resource Manager-Vorlage verwenden, mit der eine Azure Time Series Insights-Umgebung, eine untergeordnete Ereignisquelle, die für die Nutzung von Ereignissen von einem Event Hub konfiguriert ist, und Zugriffsrichtlinien erstellen, mit denen Zugriff auf die Daten der Umgebung gewährt wird. Wenn Sie keinen vorhandenen Event Hub angeben, wird einer für die Bereitstellung erstellt.
 
-1. Installieren Sie Azure PowerShell gemäß den Anweisungen unter [Erste Schritte mit Azure PowerShell-Cmdlets](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+1. Installieren Sie Azure PowerShell gemäß den Anweisungen unter [Erste Schritte mit Azure PowerShell-Cmdlets](/powershell/azure/get-started-azureps).
 
 1. Klonen oder kopieren Sie die Vorlage [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) von GitHub.
 
@@ -127,7 +127,7 @@ Im folgenden Verfahren wird beschrieben, wie Sie PowerShell zum Bereitstellen ei
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>Lokales Bereitstellen der Schnellstartvorlage mit PowerShell
 
 > [!IMPORTANT]
-> Die unten angezeigten Befehlszeilenvorgänge beschreiben das [Az-PowerShell-Modul](https://docs.microsoft.com/powershell/azure/).
+> Die unten angezeigten Befehlszeilenvorgänge beschreiben das [Az-PowerShell-Modul](/powershell/azure/).
 
 1. Melden Sie sich in PowerShell bei Ihrem Azure-Konto an.
 
@@ -255,4 +255,4 @@ Im folgenden Verfahren wird beschrieben, wie Sie PowerShell zum Bereitstellen ei
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Informationen zur programmgesteuerten Verwaltung von Azure Time Series Insights-Ressourcen mit REST-APIs finden Sie unter [Azure Time Series Insights Management](https://docs.microsoft.com/rest/api/time-series-insights-management/) (Time Series Insights-Verwaltung).
+- Informationen zur programmgesteuerten Verwaltung von Azure Time Series Insights-Ressourcen mit REST-APIs finden Sie unter [Azure Time Series Insights Management](/rest/api/time-series-insights-management/) (Time Series Insights-Verwaltung).

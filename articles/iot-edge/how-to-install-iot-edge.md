@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: kgremban
-ms.openlocfilehash: 7ab62b04f8bea76c7efb587665f87ccaf123da24
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: a7794bcdfa4f82698fdc5875bc94dcf52b70166e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108999"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185095"
 ---
 # <a name="install-or-uninstall-the-azure-iot-edge-runtime"></a>Installieren oder Deinstallieren der Azure IoT Edge-Runtime
 
@@ -39,19 +39,19 @@ Vorbereiten Ihres Geräts für den Zugriff auf die Microsoft-Installationspakete
 
 1. Installieren Sie die zum Betriebssystem Ihres Geräts passende Repositorykonfiguration.
 
-   * **Ubuntu Server 16.04** :
+   * **Ubuntu Server 16.04**:
 
      ```bash
      curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
      ```
 
-   * **Ubuntu Server 18.04** :
+   * **Ubuntu Server 18.04**:
 
      ```bash
      curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
      ```
 
-   * **Raspbian Stretch** :
+   * **Raspberry Pi OS Stretch**:
 
      ```bash
      curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
@@ -150,13 +150,13 @@ Aktualisieren Sie die Paketlisten auf Ihrem Gerät.
    apt list -a iotedge
    ```
 
-Wenn Sie die neueste Version des Sicherheitsdaemons installieren möchten, verwenden Sie den folgenden Befehl, mit dem zugleich auch die neueste Version des **libiothsm-std** -Pakets installiert wird:
+Wenn Sie die neueste Version des Sicherheitsdaemons installieren möchten, verwenden Sie den folgenden Befehl, mit dem zugleich auch die neueste Version des **libiothsm-std**-Pakets installiert wird:
 
    ```bash
    sudo apt-get install iotedge
    ```
 
-Wenn Sie eine bestimmte Version des Sicherheitsdaemons installieren möchten, geben Sie die Version in der Ausgabe von „apt list“ an. Geben Sie zudem die gleiche Version für das **libiothsm-std** -Paket an, das andernfalls seine neueste Version installieren würde. Mit dem folgenden Befehl wird beispielsweise die neueste Version des Release 1.0.8 installiert:
+Wenn Sie eine bestimmte Version des Sicherheitsdaemons installieren möchten, geben Sie die Version in der Ausgabe von „apt list“ an. Geben Sie zudem die gleiche Version für das **libiothsm-std**-Paket an, das andernfalls seine neueste Version installieren würde. Mit dem folgenden Befehl wird beispielsweise die neueste Version des Release 1.0.8 installiert:
 
    ```bash
    sudo apt-get install iotedge=1.0.8* libiothsm-std=1.0.8*
@@ -235,7 +235,7 @@ Mithilfe von curl-Befehlen können Sie die Komponentendateien direkt aus dem IoT
 
 3. Jedes Release sollte neue Dateien für den IoT Edge-Sicherheits-Daemon und hsmlib enthalten. Verwenden Sie die folgenden Befehle, um diese Komponenten zu aktualisieren.
 
-   1. Suchen Sie die **libiothsm-std** -Datei, die der Architektur Ihres IoT Edge-Geräts entspricht. Klicken Sie mit der rechten Maustaste auf den Dateilink, und kopieren Sie die Linkadresse.
+   1. Suchen Sie die **libiothsm-std**-Datei, die der Architektur Ihres IoT Edge-Geräts entspricht. Klicken Sie mit der rechten Maustaste auf den Dateilink, und kopieren Sie die Linkadresse.
 
    2. Verwenden Sie den kopierten Link im folgenden Befehl, um diese Version von hsmlib zu installieren:
 
@@ -243,7 +243,7 @@ Mithilfe von curl-Befehlen können Sie die Komponentendateien direkt aus dem IoT
       curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
       ```
 
-   3. Suchen Sie die **iotedge** -Datei, die der Architektur Ihres IoT Edge-Geräts entspricht. Klicken Sie mit der rechten Maustaste auf den Dateilink, und kopieren Sie die Linkadresse.
+   3. Suchen Sie die **iotedge**-Datei, die der Architektur Ihres IoT Edge-Geräts entspricht. Klicken Sie mit der rechten Maustaste auf den Dateilink, und kopieren Sie die Linkadresse.
 
    4. Verwenden Sie den kopierten Link im folgenden Befehl, um diese Version des IoT Edge-Sicherheits-Daemons zu installieren.
 
@@ -343,10 +343,10 @@ Nach dem Installieren der IoT Edge-Runtime konfigurieren Sie Ihr Gerät für Ver
 
 Wählen Sie den nächsten Artikel auf der Grundlage des gewünschten Authentifizierungstyps aus:
 
-* **Symmetrischer Schlüssel** : Sowohl IoT Hub als auch das IoT Edge-Gerät verfügen über ein Exemplar eines sicheren Schlüssels. Wenn das Gerät eine Verbindung mit IoT Hub herstellt, wird überprüft, ob die Schlüssel übereinstimmen. Diese Authentifizierungsmethode kann schneller eingerichtet werden, ist dafür aber weniger sicher.
+* **Symmetrischer Schlüssel**: Sowohl IoT Hub als auch das IoT Edge-Gerät verfügen über ein Exemplar eines sicheren Schlüssels. Wenn das Gerät eine Verbindung mit IoT Hub herstellt, wird überprüft, ob die Schlüssel übereinstimmen. Diese Authentifizierungsmethode kann schneller eingerichtet werden, ist dafür aber weniger sicher.
 
   [Einrichten eines Azure IoT Edge-Geräts mit Authentifizierung mit symmetrischem Schlüssel](how-to-manual-provision-symmetric-key.md)
 
-* **X.509, selbstsigniert** : Das IoT Edge-Gerät verfügt über X.509-Identitätszertifikate, und IoT Hub wird der Fingerabdruck der Zertifikate übergeben. Wenn das Gerät eine Verbindung mit IoT Hub herstellt, wird das Zertifikat mit seinem Fingerabdruck verglichen. Diese Authentifizierungsmethode ist sicherer und wird in Produktionsszenarien empfohlen.
+* **X.509, selbstsigniert**: Das IoT Edge-Gerät verfügt über X.509-Identitätszertifikate, und IoT Hub wird der Fingerabdruck der Zertifikate übergeben. Wenn das Gerät eine Verbindung mit IoT Hub herstellt, wird das Zertifikat mit seinem Fingerabdruck verglichen. Diese Authentifizierungsmethode ist sicherer und wird in Produktionsszenarien empfohlen.
 
   [Einrichten eines Azure IoT Edge-Geräts mit der Authentifizierung mit X.509-Zertifikat](how-to-manual-provision-x509.md)

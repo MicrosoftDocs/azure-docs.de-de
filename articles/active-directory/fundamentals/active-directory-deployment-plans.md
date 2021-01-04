@@ -2,66 +2,34 @@
 title: Bereitstellungspläne – Azure Active Directory | Microsoft-Dokumentation
 description: Umfassende Anleitungen für die Bereitstellung vieler Azure Active Directory-Funktionen
 services: active-directory
-author: ajburnle
+author: BarbaraSelden
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/20/2019
-ms.author: ajburnle
+ms.date: 12/01/2020
+ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acd2f49f009a8bd71d8cfc9f442e579bb1ad396b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 069cf348bb6d0432d02a8350bc0847c2b155f90a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371884"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498080"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory-Bereitstellungspläne
 Sie suchen nach umfassenden Anleitungen für die Bereitstellung von Azure Active Directory-Funktionen (Azure AD)? In Azure AD-Bereitstellungsplänen werden der Geschäftswert, Planungsüberlegungen und Betriebsverfahren erläutert, die Sie zur erfolgreichen Bereitstellung gängiger Azure AD-Funktionen benötigen.
 
 Verwenden Sie auf einer der Planseiten die Funktion Ihres Browsers zum Drucken als PDF-Datei, um eine aktuelle Offlineversion der Dokumentation zu erstellen.
-## <a name="include-the-right-stakeholders"></a>Einbeziehen der richtigen Projektbeteiligten
-
-Wenn Sie beginnen, eine neue Funktion für Ihre Bereitstellung zu planen, ist es wichtig, die wichtigsten Projektbeteiligten Ihrer Organisation einzubeziehen. Wir empfehlen, die Person bzw. Personen zu identifizieren, die jede der folgenden Rollen erfüllen, und in Zusammenarbeit mit ihnen deren Beteiligung am Projekt zu bestimmen.  
-
-Dazu zählen u.a. die folgenden Rollen: 
-
-|Role |BESCHREIBUNG |
-|-|-|
-|Endbenutzer|Eine repräsentative Gruppe von Benutzern, für welche die Funktion implementiert wird. Erkundet häufig vorher die Änderungen in einem Pilotprogramm.
-|IT-Supportmanager|Ein Vertreter der IT-Supportorganisation, der zu den Unterstützungsmöglichkeiten dieser Änderung aus einer Helpdesk-Perspektive Stellung nehmen kann.  
-|Identitätsarchitekt oder globaler Azure-Administrator|Vertreter des Identitätsverwaltungsteams, der definieren muss, wie diese Änderung an die Kerninfrastruktur für die Identitätsverwaltung in Ihrer Organisation gekoppelt ist.|
-|Geschäftlicher Anwendungsbesitzer |Der allgemeine geschäftliche Besitzer der betroffenen Anwendung(en), ggf. mit Zugriffsverwaltung.  Kann unter Umständen auch Angaben zur Benutzerfreundlichkeit und Zweckmäßigkeit dieser Änderung aus Sicht eines Endbenutzers machen.
-|Sicherheitsbesitzer|Ein Vertreter des Sicherheitsteams, der abzeichnen kann, dass der Plan die Sicherheitsanforderungen Ihrer Organisation erfüllt.|
-|Compliance-Manager|Die Person in Ihrem Unternehmen, die für die Sicherstellung der Konformität mit Unternehmens-, Branchen- oder behördlichen Anforderungen verantwortlich ist.|
-
-**Die Ebenen der Beteiligung und Verantwortlichkeiten können wie folgt definiert werden:**
-
-- **R** esponsible – Verantwortlich für die Implementierung von Projektplan und Ergebnis 
-
-- **A** ccountable – Rechenschaftspflichtig. Genehmigt Projektplan und Ergebnis 
-
-- **C** onsulted – Konsultiert. Wird zu Projektplan und Ergebnis befragt 
-
-- **I** nformed – Zu informieren. Wird über Projektplan und Ergebnis informiert
-
-
-## <a name="best-practices-for-a-pilot"></a>Bewährte Methoden für einen Pilotversuch
-Bei einem Pilotversuch können Sie eine Funktion mit einer kleinen Gruppe testen, bevor Sie die Funktion für alle Benutzer aktivieren. Sorgen Sie im Rahmen Ihrer Tests dafür, dass die einzelnen Anwendungsfälle in Ihrer Organisation sorgfältig getestet werden. Es empfiehlt sich, eine bestimmte Gruppe von Pilotbenutzern als Zielgruppe auszuwählen, bevor Sie die Funktion in der gesamten Organisation einführen.
-
-Zielen Sie in der ersten Phase auf IT und Benutzerfreundlichkeit ab, und wählen Sie zum Testen andere geeignete Benutzer aus, die Feedback bereitstellen können. Anhand dieses Feedbacks sollten Sie die Kommunikation mit Ihren Benutzern und die entsprechenden Anweisungen weiterentwickeln. Außerdem erhalten Sie Erkenntnisse über die Art von Problemen, mit denen Ihr Supportpersonal möglicherweise konfrontiert ist. 
-
-Die Erweiterung des Rollouts auf größere Benutzergruppen sollte durch eine Ausweitung der Zielgruppen vorgenommen werden. Dies kann über eine [dynamische Gruppenmitgliedschaft](../enterprise-users/groups-dynamic-membership.md) oder durch manuelles Hinzufügen von Benutzern zu den Zielgruppen erfolgen.
 
 
 ## <a name="deploy-authentication"></a>Bereitstellen der Authentifizierung
 
 | Funktion | BESCHREIBUNG|
 | -| -|
-| [Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)| Azure Multi-Factor Authentication (MFA) ist die Lösung von Microsoft für die zweistufige Überprüfung. Mit vom Administrator genehmigten Authentifizierungsmethoden trägt Azure MFA zum Schutz des Zugriffs auf Ihre Daten und Anwendungen bei, während gleichzeitig das Ziel eines einfachen Anmeldevorgangs erreicht wird. |
+| [Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)| Azure AD Multi-Factor Authentication (MFA) ist die Lösung von Microsoft für die zweistufige Überprüfung. Mit vom Administrator genehmigten Authentifizierungsmethoden trägt Azure AD MFA zum Schutz des Zugriffs auf Ihre Daten und Anwendungen bei, während gleichzeitig die Forderung nach einem einfachen Anmeldevorgang erfüllt wird. |
 | [Bedingter Zugriff](../conditional-access/plan-conditional-access.md)| Mit dem bedingten Zugriff können Sie basierend auf bestimmten Bedingungen automatisierte Entscheidungen hinsichtlich der Zugriffssteuerung für den Zugriff auf Ihre Cloud-Apps implementieren. |
 | [Self-Service-Kennwortzurücksetzung](../authentication/howto-sspr-deployment.md)| Mit der Self-Service-Kennwortzurücksetzung können Ihre Benutzer jederzeit ihr Kennwort zurücksetzen, ohne dass ein Administrator eingreifen muss. |
 | [Kennwortlos](../authentication/howto-authentication-passwordless-deployment.md) | Implementieren Sie kennwortlose Authentifizierung mit der Microsoft Authenticator-App oder mit FIDO2-Sicherheitsschlüsseln in Ihrer Organisation. |
@@ -98,3 +66,36 @@ Die Erweiterung des Rollouts auf größere Benutzergruppen sollte durch eine Aus
 | [Privileged Identity Management](../privileged-identity-management/pim-deployment-plan.md)| Azure AD Privileged Identity Management (PIM) dient zur Verwaltung von privilegierten Administratorrollen in Azure AD, Azure-Ressourcen und anderen Microsoft-Onlinediensten. PIM bietet Lösungen wie Just-In-Time-Zugriff, Workflows für die Anforderungsgenehmigung und vollständig integrierte Zugriffsüberprüfungen, damit Sie schädliche Aktivitäten von privilegierten Rollen in Echtzeit identifizieren, aufdecken und verhindern können. |
 | [Berichterstellung und Überwachung](../reports-monitoring/plan-monitoring-and-reporting.md)| Der Entwurf Ihrer Azure AD-Lösung für die Berichterstellung und Überwachung hängt von gesetzlichen, betrieblichen und sicherheitstechnischen Anforderungen sowie von vorhandenen Umgebungen und Prozessen ab. In diesem Artikel werden die unterschiedlichen Entwurfsoptionen vorgestellt. Zudem dient er als Richtlinie zur Ausarbeitung der geeigneten Bereitstellungsstrategie. |
 | [Zugriffsüberprüfungen](../governance/deploy-access-reviews.md) | Zugriffsüberprüfungen sind ein wichtiger Bestandteil Ihrer Governancestrategie. Sie können damit ermitteln und steuern, welche Benutzer worauf Zugriff haben. Dieser Artikel enthält hilfreiche Informationen zur Planung und Bereitstellung von Zugriffsüberprüfungen, damit Sie Ihren gewünschten Sicherheits- und Kollaborationsstatus erzielen können. |
+
+## <a name="include-the-right-stakeholders"></a>Einbeziehen der richtigen Projektbeteiligten
+
+Wenn Sie beginnen, eine neue Funktion für Ihre Bereitstellung zu planen, ist es wichtig, die wichtigsten Projektbeteiligten Ihrer Organisation einzubeziehen. Wir empfehlen, die Person bzw. Personen zu identifizieren, die jede der folgenden Rollen erfüllen, und in Zusammenarbeit mit ihnen deren Beteiligung am Projekt zu bestimmen.  
+
+Dazu zählen u.a. die folgenden Rollen: 
+
+|Role |BESCHREIBUNG |
+|-|-|
+|Endbenutzer|Eine repräsentative Gruppe von Benutzern, für welche die Funktion implementiert wird. Erkundet häufig vorher die Änderungen in einem Pilotprogramm.
+|IT-Supportmanager|Ein Vertreter der IT-Supportorganisation, der zu den Unterstützungsmöglichkeiten dieser Änderung aus einer Helpdesk-Perspektive Stellung nehmen kann.  
+|Identitätsarchitekt oder globaler Azure-Administrator|Vertreter des Identitätsverwaltungsteams, der definieren muss, wie diese Änderung an die Kerninfrastruktur für die Identitätsverwaltung in Ihrer Organisation gekoppelt ist.|
+|Geschäftlicher Anwendungsbesitzer |Der allgemeine geschäftliche Besitzer der betroffenen Anwendung(en), ggf. mit Zugriffsverwaltung.  Kann unter Umständen auch Angaben zur Benutzerfreundlichkeit und Zweckmäßigkeit dieser Änderung aus Sicht eines Endbenutzers machen.
+|Sicherheitsbesitzer|Ein Vertreter des Sicherheitsteams, der abzeichnen kann, dass der Plan die Sicherheitsanforderungen Ihrer Organisation erfüllt.|
+|Compliance-Manager|Die Person in Ihrem Unternehmen, die für die Sicherstellung der Konformität mit Unternehmens-, Branchen- oder behördlichen Anforderungen verantwortlich ist.|
+
+**Die Ebenen der Beteiligung und Verantwortlichkeiten können wie folgt definiert werden:**
+
+- **R** esponsible – Verantwortlich für die Implementierung von Projektplan und Ergebnis 
+
+- **A** ccountable – Rechenschaftspflichtig. Genehmigt Projektplan und Ergebnis 
+
+- **C** onsulted – Konsultiert. Wird zu Projektplan und Ergebnis befragt 
+
+- **I** nformed – Zu informieren. Wird über Projektplan und Ergebnis informiert
+
+
+## <a name="best-practices-for-a-pilot"></a>Bewährte Methoden für einen Pilotversuch
+Bei einem Pilotversuch können Sie eine Funktion mit einer kleinen Gruppe testen, bevor Sie die Funktion für alle Benutzer aktivieren. Sorgen Sie im Rahmen Ihrer Tests dafür, dass die einzelnen Anwendungsfälle in Ihrer Organisation sorgfältig getestet werden. Es empfiehlt sich, eine bestimmte Gruppe von Pilotbenutzern als Zielgruppe auszuwählen, bevor Sie die Funktion in der gesamten Organisation einführen.
+
+Zielen Sie in der ersten Phase auf IT und Benutzerfreundlichkeit ab, und wählen Sie zum Testen andere geeignete Benutzer aus, die Feedback bereitstellen können. Anhand dieses Feedbacks sollten Sie die Kommunikation mit Ihren Benutzern und die entsprechenden Anweisungen weiterentwickeln. Außerdem erhalten Sie Erkenntnisse über die Art von Problemen, mit denen Ihr Supportpersonal möglicherweise konfrontiert ist. 
+
+Die Erweiterung des Rollouts auf größere Benutzergruppen sollte durch eine Ausweitung der Zielgruppen vorgenommen werden. Dies kann über eine [dynamische Gruppenmitgliedschaft](../enterprise-users/groups-dynamic-membership.md) oder durch manuelles Hinzufügen von Benutzern zu den Zielgruppen erfolgen.

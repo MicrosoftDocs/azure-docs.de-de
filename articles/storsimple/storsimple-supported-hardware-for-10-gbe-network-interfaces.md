@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
-ms.openlocfilehash: 7fafe177ea0c6c618dc4ab0727ba14c83cbb0102
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd30c7ec15eadd3d7945349a8aae4ac824bfdc7f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68965016"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954085"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Unterstützte Hardware für 10-GbE-Netzwerkschnittstellen auf Ihrem StorSimple-Gerät
 
@@ -125,5 +125,4 @@ Die folgende Tabelle enthält die Switches, die von Mellanox unterstützt werden
 | 7. |1 GbE |6120G |HP ProCurve 6120G/XG Switch Blade (1 GbE) |HP |
 
 ## <a name="next-steps"></a>Nächste Schritte
-Weitere Informationen zu [StorSimple-Hardwarekomponenten und ihrem Status](storsimple-monitor-hardware-status.md).
-
+Weitere Informationen zu [StorSimple-Hardwarekomponenten und ihrem Status](./storsimple-8000-monitor-hardware-status.md).

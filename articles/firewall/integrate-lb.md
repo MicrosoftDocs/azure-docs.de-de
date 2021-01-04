@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 09/25/2020
 ms.author: victorh
-ms.openlocfilehash: 3bde4c11e9dc34be13efb25864fe75054d22bddb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b8fbc47b46f8be6e4ad7636a1d7552445501f0f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91363102"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653163"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integrieren von Azure Firewall mit Azure Load Balancer Standard
 
@@ -77,7 +77,7 @@ Beispielsweise können Sie eine NSG für das Back-End-Subnetz erstellen, in dem 
 
 ![Netzwerksicherheitsgruppe](media/integrate-lb/nsg-01.png)
 
-Weitere Informationen zu Netzwerksicherheitsgruppen finden Sie unter [Sicherheitsgruppen](../virtual-network/security-overview.md).
+Weitere Informationen zu Netzwerksicherheitsgruppen finden Sie unter [Sicherheitsgruppen](../virtual-network/network-security-groups-overview.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

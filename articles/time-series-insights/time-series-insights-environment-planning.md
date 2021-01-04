@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 546c53334b7700ab73c22edb2d82b324bfad61a9
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 5e0f1ea42aa2ba888b89dd652d3397a3a2163a3e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569436"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016206"
 ---
 # <a name="plan-your-azure-time-series-insights-gen1-environment"></a>Planen Ihrer Azure Time Series Insights Gen1-Umgebung
 
@@ -92,7 +92,7 @@ Bei der Kapazität pro Minute spielen Drosselung und Latenz eine Rolle. Wenn Sie
 
 Wenn Sie z.B. über eine einzelne SKU des Typs S1 verfügen, Daten mit einer Rate von 720 Ereignissen pro Minute eingehen und die Datenrate in einem Zeitraum unter einer Stunde mit einer Rate von maximal 1.440 Ereignissen ihren Spitzenwert erreicht, weist Ihre Umgebung keine merkliche Latenz auf. Wenn jedoch 1.440 Ereignisse pro Minute in einem Zeitraum von über einer Stunde überschritten werden, treten für Daten, die in Ihrer Umgebung visualisiert werden und zur Abfrage verfügbar sind, wahrscheinlich Latenzprobleme auf.
 
-Sie wissen möglicherweise nicht im Voraus, wie viele Daten erwartungsgemäß übertragen werden. In diesem Fall finden Sie die Datentelemetrie für [Azure IoT Hub](../iot-hub/iot-hub-metrics.md) und [Azure Event Hubs](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) in Ihrem Azure-Portalabonnement. Anhand der Telemetrie können Sie die Bereitstellung Ihrer Umgebung bestimmen. Verwenden Sie den Bereich **Metriken** im Azure-Portal für die jeweilige Ereignisquelle, um die zugehörige Telemetrie anzuzeigen. Wenn Sie sich mit den Metriken der Ereignisquelle vertraut gemacht haben, können Sie Ihre Azure Time Series Insights-Umgebung effektiver planen und bereitstellen.
+Sie wissen möglicherweise nicht im Voraus, wie viele Daten erwartungsgemäß übertragen werden. In diesem Fall finden Sie die Datentelemetrie für [Azure IoT Hub](../iot-hub/monitor-iot-hub.md) und [Azure Event Hubs](/archive/blogs/cloud_solution_architect/using-the-azure-rest-apis-to-retrieve-event-hub-metrics) in Ihrem Azure-Portalabonnement. Anhand der Telemetrie können Sie die Bereitstellung Ihrer Umgebung bestimmen. Verwenden Sie den Bereich **Metriken** im Azure-Portal für die jeweilige Ereignisquelle, um die zugehörige Telemetrie anzuzeigen. Wenn Sie sich mit den Metriken der Ereignisquelle vertraut gemacht haben, können Sie Ihre Azure Time Series Insights-Umgebung effektiver planen und bereitstellen.
 
 ### <a name="calculate-ingress-requirements"></a>Berechnen der Eingangsanforderungen
 
@@ -128,6 +128,6 @@ Weitere Informationen dazu, wie Sie Ihre Referenzdaten in Azure Time Series Insi
 
 - Erstellen Sie zunächst [eine neue Azure Time Series Insights-Umgebung im Azure-Portal](time-series-insights-get-started.md).
 
-- Erfahren Sie, wie Sie Azure Time Series Insights [eine Event Hubs-Ereignisquelle hinzufügen](time-series-insights-how-to-add-an-event-source-eventhub.md).
+- Erfahren Sie, wie Sie Azure Time Series Insights [eine Event Hubs-Ereignisquelle hinzufügen](./how-to-ingest-data-event-hub.md).
 
-- Erfahren Sie, wie Sie [eine IoT Hub-Ereignisquelle konfigurieren](time-series-insights-how-to-add-an-event-source-iothub.md).
+- Erfahren Sie, wie Sie [eine IoT Hub-Ereignisquelle konfigurieren](./how-to-ingest-data-iot-hub.md).

@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: quickstart
 ms.date: 09/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: 0afd8fab6072e1563d2b2f277e8a53b56a8161c2
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5dbf98d363429e6d22a0b7719cdc669deebd21a0
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048235"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348635"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>Schnellstart: Überwachen Ihrer ersten Metrik mithilfe des Webportals
 
@@ -97,7 +97,7 @@ Wählen Sie die entsprechenden Felder aus, nachdem das Datenschema geladen wurde
 |**Ignorieren**     | Die ausgewählte Spalte wird ignoriert.        |         |
 
 
-:::image type="content" source="../media/schema-configuration.png" alt-text="Verbindungseinstellungen" lightbox="../media/schema-configuration.png":::
+:::image type="content" source="../media/schema-configuration.png" alt-text="Schemakonfiguration" lightbox="../media/schema-configuration.png":::
 
 ### <a name="automatic-roll-up-settings"></a>Einstellungen für automatisches Rollup
 
@@ -117,7 +117,7 @@ Klicken Sie bei angewendeter Erkennung auf eine der im Datenfeed aufgelisteten M
 - Aktualisieren der Erkennungskonfiguration, um die erwarteten Ergebnisse zu erhalten
 - Einrichten von Benachrichtigungen für erkannte Anomalien
 
-:::image type="content" source="../media/metric-details.png" alt-text="Verbindungseinstellungen" lightbox="../media/metric-details.png":::
+:::image type="content" source="../media/metric-details.png" alt-text="Metrikdetails" lightbox="../media/metric-details.png":::
 
 ## <a name="view-the-diagnostic-insights"></a>Anzeigen der Diagnoseerkenntnisse
 
@@ -125,13 +125,13 @@ Nach dem Optimieren der Erkennungskonfiguration sollte es sich bei ggf. gefunden
 
 Klicken Sie zum Anzeigen der Diagnoseerkenntnisse auf die roten Punkte in Zeitreihenvisualisierungen. Diese stellen erkannte Anomalien dar. Daraufhin wird ein Fenster mit einem Link zur Seite für die Incidentanalyse angezeigt. 
 
-:::image type="content" source="../media/incident-link.png" alt-text="Verbindungseinstellungen" lightbox="../media/incident-link.png":::
+:::image type="content" source="../media/incident-link.png" alt-text="Incidentlink" lightbox="../media/incident-link.png":::
 
 Durch Klicken auf diesen Link gelangen Sie zur Seite für die Incidentanalyse, auf der die entsprechende Anomalie analysiert und eine Reihe von Diagnoseerkenntnissen angezeigt wird. Im oberen Bereich finden Sie eine Statistik für den Incident. Diese liefert unter anderem Informationen zu **Schweregrad** und **beteiligten Anomalien** sowie zu **Startzeit** und **Endzeit**. 
 
 Als Nächstes sehen Sie die Vorgängeranomalie des Incidents sowie einen automatisierten Ursachenratschlag. Zur Generierung dieses automatisierten Ursachenratschlags wird die Incidentstruktur aller verwandten Anomalien analysiert – einschließlich Abweichung, Verteilung und Anteil an den übergeordneten Anomalien. 
 
-:::image type="content" source="../media/incident-diagnostic.png" alt-text="Verbindungseinstellungen" lightbox="../media/incident-diagnostic.png":::
+:::image type="content" source="../media/incident-diagnostic.png" alt-text="Incidentdiagnose" lightbox="../media/incident-diagnostic.png":::
 
 Anhand dieser Aspekte können Sie sich bereits einen Überblick über die Vorgänge sowie über die Auswirkungen des Incidents und die wahrscheinlichste Grundursache verschaffen. Dadurch können Sie umgehend Maßnahmen ergreifen, um den Incident schnellstmöglich aufzulösen. 
 
@@ -155,5 +155,5 @@ Nach Erstellung eines Hooks wird durch eine Warnungseinstellung bestimmt, wie un
 - [Durchführen des Onboardings für Ihre Datenfeeds](../how-tos/onboard-your-data.md)
     - [Verwalten von Datenfeeds](../how-tos/manage-data-feeds.md)
     - [Konfigurationen für unterschiedliche Datenquellen](../data-feeds-from-different-sources.md)
-- [Verwenden von REST-API oder Clientbibliotheken](rest-api.md)
+- [Verwenden von REST-API oder Clientbibliotheken](./rest-api-and-client-library.md)
 - [Konfigurieren von Metriken und Optimieren der Konfigurationserkennung](../how-tos/configure-metrics.md)

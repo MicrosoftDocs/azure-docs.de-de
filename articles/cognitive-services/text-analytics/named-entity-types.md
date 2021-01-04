@@ -35,8 +35,8 @@ Ermitteln Sie anhand der Informationen in diesem Artikel die Entitätskategorien
 
 [!INCLUDE [biomedical entity types](./includes/entity-types/health-entities.md)]
 
-***
+Nächste Schritte
 
-## <a name="next-steps"></a>Nächste Schritte
+## <a name="next-steps"></a>[Verwenden der Erkennung benannter Entitäten in der Textanalyse](how-tos/text-analytics-how-to-entity-linking.md)
 
-* [Verwenden der Erkennung benannter Entitäten in der Textanalyse](how-tos/text-analytics-how-to-entity-linking.md)
+_ <bpt id="p1">[</bpt>How to use Named Entity Recognition in Text Analytics<ept id="p1">](how-tos/text-analytics-how-to-entity-linking.md)</ept>

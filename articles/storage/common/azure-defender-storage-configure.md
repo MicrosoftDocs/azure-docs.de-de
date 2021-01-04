@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: c7e0c9aee1ce6b4a2524ac756673784b63be3b31
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0bda32aaab301fe9ed685f0bfd6d4596fab4e5db
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91289768"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789011"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Konfigurieren von Azure Defender für Storage
 
@@ -37,7 +37,7 @@ Die folgende Liste biete eine Übersicht über die Verfügbarkeit von Azure Defe
 
 - Status des Release:
   - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (allgemeine Verfügbarkeit)
-  - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (allgemeine Verfügbarkeit)
+  - [Azure Files](../files/storage-files-introduction.md) (allgemeine Verfügbarkeit)
   - Azure Data Lake Storage Gen2 (allgemeine Verfügbarkeit)
 - Clouds:<br>
     ✔ Kommerzielle Clouds<br>
@@ -56,7 +56,7 @@ Wenn Sie den Standard-Tarif in Azure Security Center abonnieren, wird Azure Defe
 1. Wählen Sie im Hauptmenü unter **Verwaltung** die Option **Preise und Einstellungen** aus.
 1. Wählen Sie das Abonnement aus, für das Sie Azure Defender aktivieren bzw. deaktivieren möchten.
 1. Wählen Sie **Azure Defender ein** aus, um Azure Defender für das Abonnement zu aktivieren.
-1. Suchen Sie unter **Azure Defender-Plan nach Ressourcentyp auswählen** nach der Zeile **Storage**, und wählen Sie in der Spalte **Plan** die Option **Aktiviert** aus.
+1. Suchen Sie unter **Azure Defender-Plan nach Ressourcentyp auswählen** nach der Zeile **Storage** , und wählen Sie in der Spalte **Plan** die Option **Aktiviert** aus.
 1. Speichern Sie die Änderungen.
 
     :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-security-center.png" alt-text="Screenshot: Aktivieren von Azure Defender für Storage in Security Center":::
@@ -81,8 +81,8 @@ Verwenden Sie zur Bereitstellung eines Azure Storage-Kontos, bei dem Azure Defen
 
 Verwenden Sie eine Azure Policy-Instanz zum Aktivieren von Azure Defender für Speicherkonten unter einem bestimmten Abonnement oder einer bestimmten Ressourcengruppe.
 
-1. Starten Sie die Azure-Seite **Richtlinie – Definitionen**.
-1. Suchen Sie nach der Richtlinie **Azure Defender für Speicherkonten bereitstellen**.
+1. Starten Sie die Azure-Seite **Richtlinie – Definitionen** .
+1. Suchen Sie nach der Richtlinie **Azure Defender für Speicherkonten bereitstellen** .
 
     :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy-definitions.png" alt-text="Screenshot: Aktivieren von Azure Defender für Storage in Security Center":::
 
@@ -98,16 +98,16 @@ Verwenden Sie eine Azure Policy-Instanz zum Aktivieren von Azure Defender für S
 
 Verwenden Sie REST-API-Befehle, um die Azure Defender-Einstellung für ein bestimmtes Speicherkonto zu erstellen, zu aktualisieren oder abzurufen.
 
-- [Advanced Threat Protection – Create (Erstellen)](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
-- [Advanced Threat Protection – Get (Abrufen)](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
+- [Advanced Threat Protection – Create (Erstellen)](/rest/api/securitycenter/advancedthreatprotection/create)
+- [Advanced Threat Protection – Get (Abrufen)](/rest/api/securitycenter/advancedthreatprotection/get)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Verwenden Sie die folgenden PowerShell-Cmdlets:
 
-- [Enable Advanced Threat Protection (Advanced Threat Protection aktivieren)](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
-- [Get Advanced Threat Protection (Advanced Threat Protection abrufen)](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
-- [Disable Advanced Threat Protection (Advanced Threat Protection deaktivieren)](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
+- [Enable Advanced Threat Protection (Advanced Threat Protection aktivieren)](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+- [Get Advanced Threat Protection (Advanced Threat Protection abrufen)](/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+- [Disable Advanced Threat Protection (Advanced Threat Protection deaktivieren)](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
 ---
 
@@ -138,4 +138,4 @@ Warnungen werden bei ungewöhnlichen und potenziell schädlichen Zugriffsversuch
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Weitere Informationen zu [Protokollen in Azure Storage-Konten](/rest/api/storageservices/About-Storage-Analytics-Logging)
-- Weitere Informationen zu [Azure Security Center](../../security-center/security-center-intro.md)
+- Weitere Informationen zu [Azure Security Center](../../security-center/security-center-introduction.md)

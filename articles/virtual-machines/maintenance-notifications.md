@@ -7,18 +7,18 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 8/12/2020
 ms.author: shants
-ms.openlocfilehash: 14c7c3deb60c50fe71cf52959e342a3dcf2afc94
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 53cde1178a4faae0fbd11222e4219f70be29145d
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151553"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560807"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Behandeln von Benachrichtigungen zu geplanten Wartungen
 
 Azure führt regelmäßig Updates durch, um die Zuverlässigkeit, Leistung und Sicherheit der Hostinfrastruktur für virtuelle Computer zu verbessern. Zu Updates zählen Änderungen wie das Patchen der Hostumgebung oder das Upgraden und die Außerbetriebnahme von Hardware. Die meisten dieser Updates werden ohne Auswirkungen auf die gehosteten virtuellen Computer durchgeführt. Es gibt jedoch Ausnahmen:
 
-- Wenn die Wartung keinen Neustart erfordert, verwendet Azure eine direkte Migration, um den virtuellen Computer anzuhalten, während der Host aktualisiert wird. Diese Art von Wartungsvorgängen werden auf eine Fehlerdomäne nach der anderen angewendet. Die Vorgänge werden beendet, wenn ein Integritätswarnungssignal empfangen wird.
+- Wenn die Wartung keinen Neustart erfordert, hält Azure den virtuellen Computer für einige Sekunden an, während der Host aktualisiert wird. Wartungsvorgänge dieser Art werden nacheinander auf die einzelnen Fehlerdomänen angewendet. Die Vorgänge werden beendet, wenn ein Integritätswarnungssignal empfangen wird.
 
 - Wenn die Wartung einen Neustart erfordert, werden Sie in einer Benachrichtigung über den geplanten Wartungstermin informiert. Ihnen steht ein Zeitfenster von 35 Tagen zur Verfügung, in dem Sie die Wartung zu einem für Sie günstigen Zeitpunkt selbst starten können.
 
@@ -27,7 +27,7 @@ Geplante Wartungen, die einen Neustart erfordern, werden in Wellen geplant. Jede
 
 - Eine Welle beginnt mit einer Kundenbenachrichtigung. Die Benachrichtigung wird standardmäßig an den Administrator und Co-Admin des Abonnements gesendet. Sie können weitere Empfänger und Nachrichtenoptionen wie E-Mail, SMS und Webhooks mithilfe von [Aktivitätsprotokollwarnungen](../service-health/alerts-activity-log-service-notifications-portal.md) hinzufügen.  
 - Sobald eine Benachrichtigung erfolgt, wird ein *Self-Service-Zeitfenster* bereitgestellt. In diesem Fenster können Sie abfragen, welche Ihrer virtuellen Computer betroffen sind, und die Wartung basierend auf Ihren eigenen Planungsanforderungen starten. Das Self-Service-Zeitfenster umfasst in der Regel ca. 35 Tage.
-- Im Anschluss an das Self-Service-Zeitfenster beginnt das *Zeitfenster für die geplante Wartung* . Irgendwann in diesem Zeitfenster plant Azure die erforderliche Wartung und wendet sie auf Ihren virtuellen Computer an. 
+- Im Anschluss an das Self-Service-Zeitfenster beginnt das *Zeitfenster für die geplante Wartung*. Irgendwann in diesem Zeitfenster plant Azure die erforderliche Wartung und wendet sie auf Ihren virtuellen Computer an. 
 
 Mit den beiden Zeitfenstern möchten wir Ihnen einerseits genügend Zeit geben, um die Wartung zu initiieren und Ihren virtuellen Computer neu zu starten, und Sie andererseits darüber informieren, wann Azure die Wartung automatisch startet.
 
@@ -80,7 +80,7 @@ Weitere Informationen zu Hochverfügbarkeit finden Sie unter [Verfügbarkeit fü
 
 **F: Wie werde ich über eine geplante Wartung benachrichtigt?**
 
-**A:** Eine geplante Wartungsaktion beginnt mit dem Festlegen eines Zeitplans für eine oder mehrere Azure-Regionen. Bald danach wird eine E-Mail-Benachrichtigung an den Administrator und Co-Admin des Abonnements gesendet (eine E-Mail pro Abonnement). Zusätzliche Kanäle und Empfänger für diese Benachrichtigung können mit Aktivitätsprotokollwarnungen konfiguriert werden. Falls Sie einen virtuellen Computer in einer Region bereitstellen, wo bereits Wartung geplant ist, erhalten Sie die Benachrichtigung nicht, sondern müssen vielmehr den Wartungsstatus des virtuellen Computers überprüfen.
+**A:** Eine geplante Wartungsaktion beginnt mit dem Festlegen eines Zeitplans für eine oder mehrere Azure-Regionen. Kurz darauf wird eine E-Mail-Benachrichtigung an Abonnementadministratoren, Co-Admins, Besitzer und Mitwirkende gesendet (jeweils eine E-Mail pro Abonnement). Zusätzliche Kanäle und Empfänger für diese Benachrichtigung können mit Aktivitätsprotokollwarnungen konfiguriert werden. Falls Sie einen virtuellen Computer in einer Region bereitstellen, wo bereits Wartung geplant ist, erhalten Sie die Benachrichtigung nicht, sondern müssen vielmehr den Wartungsstatus des virtuellen Computers überprüfen.
 
 **F: Mir wird weder im Portal noch über PowerShell oder die Befehlszeilenschnittstelle ein Hinweis auf eine geplante Wartung angezeigt. Was ist schiefgelaufen?**
 

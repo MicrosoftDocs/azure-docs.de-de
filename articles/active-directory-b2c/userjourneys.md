@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 10/13/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fda57ae152efbb04a793c6acf63465fe8d406a1a
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 5b89126b837f9c197a8babf81abb17bfd98002e4
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998662"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344996"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -172,7 +172,7 @@ Das **ClaimsProviderSelections**-Element enthält die folgenden Attribute:
 
 | attribute | Erforderlich | Beschreibung |
 | --------- | -------- | ----------- |
-| DisplayOption| Nein | Steuert das Verhalten in dem Fall, wenn nur eine Anspruchsanbieterauswahl verfügbar ist. Mögliche Werte: `DoNotShowSingleProvider` (Standard), der Benutzer wird sofort an den Verbundidentitätsanbieter umgeleitet. Oder `ShowSingleProvider` Azure AD B2C präsentiert die Anmeldeseite mit der Auswahl eines einzelnen Identitätsanbieters. Um dieses Attribut zu verwenden, muss die [Version der Inhaltsdefinition](page-layout.md) `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` und höher lauten.|
+| DisplayOption| Nein | Steuert das Verhalten in dem Fall, wenn nur eine Anspruchsanbieterauswahl verfügbar ist. Mögliche Werte: `DoNotShowSingleProvider` (Standardwert) – der Benutzer wird sofort an den Verbundidentitätsanbieter umgeleitet. Ein weiterer möglicher Wert ist `ShowSingleProvider` – Azure AD B2C zeigt die Anmeldeseite mit der Auswahl eines einzelnen Identitätsanbieters an. Damit dieses Attribut verwendet werden kann, muss die [Version der Inhaltsdefinition](page-layout.md) `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` oder höher lauten.|
 
 Das **ClaimsProviderSelection**-Element enthält die folgenden Attribute:
 

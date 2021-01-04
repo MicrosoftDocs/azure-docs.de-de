@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5341c2613624c6a52f1649dcd8a64b6746b84f67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b35b66615bd5c577dd73faca77d3ea20468442f8
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332388"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913516"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Beispiel: Verwenden des Features für die Verarbeitung in großem Umfang
 
@@ -232,7 +232,7 @@ Ein Beispielworkflow:
 
 Wenn eine relativ lange Latenz akzeptabel ist, muss das Training nicht direkt nach dem Hinzufügen neuer Daten ausgelöst werden. Stattdessen kann das Training von der Hauptlogik getrennt und regelmäßig ausgelöst werden. Diese Strategie eignet sich für dynamische Szenarien mit einer akzeptablen Latenz. Sie kann bei statischen Szenarien angewandt werden, um die Häufigkeit der Trainings weiter zu reduzieren.
 
-Angenommen, eine `TrainLargePersonGroup`-Funktion ähnelt `TrainLargeFaceList`. Eine typische Implementierung des eigenständigen Trainings für eine LargePersonGroup durch Aufrufen der [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx)-Klasse in `System.Timers` wäre:
+Angenommen, eine `TrainLargePersonGroup`-Funktion ähnelt `TrainLargeFaceList`. Eine typische Implementierung des eigenständigen Trainings für eine LargePersonGroup durch Aufrufen der [`Timer`](/dotnet/api/system.timers.timer)-Klasse in `System.Timers` wäre:
 
 ```csharp
 private static void Main()

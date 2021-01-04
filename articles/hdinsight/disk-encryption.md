@@ -8,12 +8,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 97d899d73359cc45daf88940b815ed262c3b4766
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9a90fbb2eedd6db2873d4ac2a5fea94c05c7eed
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89290836"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005655"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Doppelte Verschlüsselung für ruhende Daten in Azure HDInsight
 
@@ -23,7 +23,7 @@ In diesem Dokument wird nicht auf Daten eingegangen, die in Ihrem Azure Storage
 
 ## <a name="introduction"></a>Einführung
 
-In Azure gibt drei Haupttypen verwalteter Datenträger: „normale“ Datenträger, Betriebssystem-Datenträger und temporäre Datenträger. Weitere Informationen zu den verschiedenen Typen verwalteter Datenträger finden Sie in der [Einführung in Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview). 
+In Azure gibt drei Haupttypen verwalteter Datenträger: „normale“ Datenträger, Betriebssystem-Datenträger und temporäre Datenträger. Weitere Informationen zu den verschiedenen Typen verwalteter Datenträger finden Sie in der [Einführung in Azure Managed Disks](../virtual-machines/managed-disks-overview.md). 
 
 HDInsight unterstützt auf zwei Ebenen mehrere Verschlüsselungstypen:
 
@@ -35,8 +35,8 @@ Eine Zusammenfassung dieser Typen finden Sie in der folgenden Tabelle.
 
 |Clustertyp |Betriebssystemdatenträger (verwalteter Datenträger) |Datenträger für Daten (verwalteter Datenträger) |Temporärer Datenträger (lokale SSD) |
 |---|---|---|---|
-|Kafka, HBase mit beschleunigten Schreibvorgängen|Ebene 1: Standardmäßige [SSE-Verschlüsselung](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption)|Ebene 1: Standardmäßige [SSE-Verschlüsselung](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption), Ebene 2: Optionale Verschlüsselung ruhender Daten mit kundenseitig verwaltetem Schlüssel|Ebene 1: Optionale Verschlüsselung auf dem Host mithilfe von plattformseitig verwaltetem Schlüssel, Ebene 2: Optionale Verschlüsselung ruhender Daten mit kundenseitig verwaltetem Schlüssel|
-|Alle anderen Cluster (Spark, Interactive, Hadoop, HBase ohne beschleunigte Schreibvorgänge)|Ebene 1: Standardmäßige [SSE-Verschlüsselung](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption)|–|Ebene 1: Optionale Verschlüsselung auf dem Host mithilfe von plattformseitig verwaltetem Schlüssel, Ebene 2: Optionale Verschlüsselung ruhender Daten mit kundenseitig verwaltetem Schlüssel|
+|Kafka, HBase mit beschleunigten Schreibvorgängen|Ebene 1: Standardmäßige [SSE-Verschlüsselung](../virtual-machines/managed-disks-overview.md#encryption)|Ebene 1: Standardmäßige [SSE-Verschlüsselung](../virtual-machines/managed-disks-overview.md#encryption), Ebene 2: Optionale Verschlüsselung ruhender Daten mit kundenseitig verwaltetem Schlüssel|Ebene 1: Optionale Verschlüsselung auf dem Host mithilfe von plattformseitig verwaltetem Schlüssel, Ebene 2: Optionale Verschlüsselung ruhender Daten mit kundenseitig verwaltetem Schlüssel|
+|Alle anderen Cluster (Spark, Interactive, Hadoop, HBase ohne beschleunigte Schreibvorgänge)|Ebene 1: Standardmäßige [SSE-Verschlüsselung](../virtual-machines/managed-disks-overview.md#encryption)|–|Ebene 1: Optionale Verschlüsselung auf dem Host mithilfe von plattformseitig verwaltetem Schlüssel, Ebene 2: Optionale Verschlüsselung ruhender Daten mit kundenseitig verwaltetem Schlüssel|
 
 ## <a name="encryption-at-rest-using-customer-managed-keys"></a>Verschlüsselung ruhender Daten mithilfe von kundenseitig verwalteten Schlüsseln
 
@@ -71,9 +71,9 @@ Die einzelnen Schritte finden Sie unter [Erstellen einer benutzerseitig zugewies
 
 ### <a name="create-azure-key-vault"></a>Azure Key Vault erstellen
 
-Erstellen eines Schlüsseltresors Die einzelnen Schritte finden Sie unter [Erstellen eines Tresors](../key-vault/secrets/quick-create-portal.md).
+Erstellen eines Schlüsseltresors Die einzelnen Schritte finden Sie unter [Erstellen eines Tresors](../key-vault/general/quick-create-portal.md).
 
-HDInsight unterstützt nur Azure Key Vault. Falls Sie einen eigenen Schlüsseltresor besitzen, können Sie Ihre Schlüssel in Azure Key Vault importieren. Denken Sie daran, dass für den Schlüsseltresor das **vorläufige Löschen** aktiviert sein muss. Weitere Informationen zum Importieren vorhandener Schlüsseln finden Sie unter [Informationen zu Schlüsseln, Geheimnissen und Zertifikaten](../key-vault/about-keys-secrets-and-certificates.md).
+HDInsight unterstützt nur Azure Key Vault. Falls Sie einen eigenen Schlüsseltresor besitzen, können Sie Ihre Schlüssel in Azure Key Vault importieren. Denken Sie daran, dass für den Schlüsseltresor das **vorläufige Löschen** aktiviert sein muss. Weitere Informationen zum Importieren vorhandener Schlüsseln finden Sie unter [Informationen zu Schlüsseln, Geheimnissen und Zertifikaten](../key-vault/general/about-keys-secrets-certificates.md).
 
 ### <a name="create-key"></a>Erstellen eines Schlüssels
 
@@ -127,7 +127,7 @@ Geben Sie während der Clustererstellung den vollständigen **Schlüsselbezeichn
 
 #### <a name="using-azure-cli"></a>Verwenden der Azure-Befehlszeilenschnittstelle
 
-Im folgenden Beispiel wird mithilfe der Azure-Befehlszeilenschnittstelle ein neuer Apache Spark-Cluster mit aktivierter Datenträgerverschlüsselung erstellt. Weitere Informationen finden Sie in der Dokumentation der Azure-Befehlszeilenschnittstelle unter [az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create).
+Im folgenden Beispiel wird mithilfe der Azure-Befehlszeilenschnittstelle ein neuer Apache Spark-Cluster mit aktivierter Datenträgerverschlüsselung erstellt. Weitere Informationen finden Sie in der Dokumentation der Azure-Befehlszeilenschnittstelle unter [az hdinsight create](/cli/azure/hdinsight#az-hdinsight-create).
 
 ```azurecli
 az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
@@ -141,7 +141,7 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
 
 #### <a name="using-azure-resource-manager-templates"></a>Verwenden von Azure-Ressourcen-Manager-Vorlagen
 
-Im folgenden Beispiel wird mithilfe einer Azure Resource Manager-Vorlage ein neuer Apache Spark-Cluster mit aktivierter Datenträgerverschlüsselung erstellt. Weitere Informationen finden Sie unter [Was sind ARM-Vorlagen?](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
+Im folgenden Beispiel wird mithilfe einer Azure Resource Manager-Vorlage ein neuer Apache Spark-Cluster mit aktivierter Datenträgerverschlüsselung erstellt. Weitere Informationen finden Sie unter [Was sind ARM-Vorlagen?](../azure-resource-manager/templates/overview.md).
 
 In diesem Beispiel wird PowerShell verwendet, um die Vorlage aufzurufen.
 
@@ -365,7 +365,7 @@ Zum Rotieren des Schlüssels benötigen Sie die Basis-URI des Schlüsseltresors.
 
 #### <a name="using-azure-cli"></a>Verwenden der Azure-Befehlszeilenschnittstelle
 
-Im folgenden Beispiel wird der Datenträgerverschlüsselungsschlüssel für einen vorhandenen HDInsight-Cluster rotiert. Weitere Informationen finden Sie in der Dokumentation der Azure-Befehlszeilenschnittstelle unter [az hdinsight rotate-disk-encryption-key](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-rotate-disk-encryption-key).
+Im folgenden Beispiel wird der Datenträgerverschlüsselungsschlüssel für einen vorhandenen HDInsight-Cluster rotiert. Weitere Informationen finden Sie in der Dokumentation der Azure-Befehlszeilenschnittstelle unter [az hdinsight rotate-disk-encryption-key](/cli/azure/hdinsight#az-hdinsight-rotate-disk-encryption-key).
 
 ```azurecli
 az hdinsight rotate-disk-encryption-key \
@@ -398,7 +398,7 @@ Wenn der Cluster den Zugriff auf den Schlüssel verliert, werden im Apache Ambar
 
 **Wie kann ich den Cluster wiederherstellen, wenn die Schlüssel gelöscht werden?**
 
-Da nur Schlüssel unterstützt werden, für die „vorläufiges Löschen“ aktiviert ist, sollte der Cluster wieder Zugriff auf die Schlüssel erlangen, wenn die Schlüssel im Schlüsseltresor wiederhergestellt werden. Informationen zum Wiederherstellen eines Azure Key Vault-Schlüssels finden Sie unter [Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) oder [az-keyvault-key-recover](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-recover).
+Da nur Schlüssel unterstützt werden, für die „vorläufiges Löschen“ aktiviert ist, sollte der Cluster wieder Zugriff auf die Schlüssel erlangen, wenn die Schlüssel im Schlüsseltresor wiederhergestellt werden. Informationen zum Wiederherstellen eines Azure Key Vault-Schlüssels finden Sie unter [Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) oder [az-keyvault-key-recover](/cli/azure/keyvault/key#az-keyvault-key-recover).
 
 
 **Werden kundenseitig verwaltete Schlüssel nahtlos von neuen Knoten unterstützt, wenn ein Cluster zentral hochskaliert wird?**
@@ -420,7 +420,7 @@ Die Verschlüsselung auf dem Host kann während der Erstellung des Clusters im A
 
 :::image type="content" source="media/disk-encryption/encryption-at-host.png" alt-text="Verschlüsselung auf dem Host aktivieren.":::
 
-Diese Option ermöglicht die [Verschlüsselung auf dem Host](../virtual-machines/linux/disks-enable-host-based-encryption-portal.md) für temporäre Datenträger von HDInsight-VMs mit plattformseitig verwaltetem Schlüssel. Verschlüsselung auf dem Host wird nur [für bestimmte VM-SKUs in bestimmten Regionen](../virtual-machines/linux/disks-enable-host-based-encryption-portal.md) unterstützt. HDInsight unterstützt die [folgende Knotenkonfiguration und die folgenden SKUs](./hdinsight-supported-node-configuration.md).
+Diese Option ermöglicht die [Verschlüsselung auf dem Host](../virtual-machines/disks-enable-host-based-encryption-portal.md) für temporäre Datenträger von HDInsight-VMs mit plattformseitig verwaltetem Schlüssel. Verschlüsselung auf dem Host wird nur [für bestimmte VM-SKUs in bestimmten Regionen](../virtual-machines/disks-enable-host-based-encryption-portal.md) unterstützt. HDInsight unterstützt die [folgende Knotenkonfiguration und die folgenden SKUs](./hdinsight-supported-node-configuration.md).
 
 Informationen zur richtigen VM-Größe für Ihren HDInsight-Cluster finden Sie unter [Auswählen der richtigen VM-Größe für Ihren Azure HDInsight-Cluster](hdinsight-selecting-vm-size.md). Die Standard-VM-SKU für den Zookeeper-Knoten bei Aktivierung der Verschlüsselung auf dem Host ist DS2V2.
 

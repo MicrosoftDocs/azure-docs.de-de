@@ -4,12 +4,12 @@ description: Enthält eine Zusammenfassung der Unterstützungseinstellungen und 
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: b576b5e15461f34468bd7c2d512ac7a636b73ac9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8cd943a76113fb1680406253a46b8a4f9d32190b
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332728"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853202"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Unterstützungsmatrix für die Sicherung virtueller Azure-Computer
 
@@ -50,7 +50,6 @@ Monatliche oder jährliche Sicherung| Wird bei der Sicherung mit der Azure-VM-Er
 Automatische Uhrzeitanpassung | Wird nicht unterstützt.<br/><br/> Azure Backup passt Änderungen an der Sommer- oder Winterzeit bei der Sicherung einer VM nicht automatisch an.<br/><br/>  Ändern Sie die Richtlinie nach Bedarf manuell.
 [Sicherheitsfunktionen für Hybridsicherungen](./backup-azure-security-feature.md) |Die Sicherheitsfunktionen können nicht deaktiviert werden.
 Sichern von virtuellen Computern mit geänderter Computerzeit | Wird nicht unterstützt.<br/><br/> Eine erfolgreiche Sicherung nicht garantiert werden, wenn die Computerzeit nach dem Aktivieren der Sicherung für diesen virtuellen Computer in ein zukünftiges Datum bzw. eine zukünftige Uhrzeit geändert wird. Dies gilt auch, wenn diese Änderung wieder rückgängig gemacht wird.
-Azure-VMs in [VM-Skalierungsgruppen](../virtual-machine-scale-sets/overview.md) | Sicherung und Wiederherstellung wird für VMs mit auf 3 festgelegtem [Orchestrierungsmodus](../virtual-machine-scale-sets/orchestration-modes.md#orchestration-modes) unterstützt. <br><br>Verfügbarkeitsgruppen werden nicht unterstützt.
 
 ## <a name="operating-system-support-windows"></a>Unterstützte Betriebssysteme (Windows)
 
@@ -88,7 +87,7 @@ Für Sicherungen von virtuellen Linux-Azure-Computern unterstützt Azure Backup 
 **Einstellung** | **Einschränkungen**
 --- | ---
 Maximale Wiederherstellungspunkte pro geschützter Instanz (Computer/Workload) | 9999
-Maximale Ablaufzeit für einen Wiederherstellungspunkt | Keine Begrenzung
+Maximale Ablaufzeit für einen Wiederherstellungspunkt | Keine Beschränkung (99 Jahre)
 Maximale Sicherungshäufigkeit für Tresor (Azure-VM-Erweiterung) | Einmal täglich
 Maximale Sicherungshäufigkeit für Tresor (MARS-Agent) | Drei Sicherungen pro Tag
 Maximale Sicherungshäufigkeit für DPM/MABS | Alle 15 Minuten für SQL Server<br/><br/> Stündlich für andere Workloads
@@ -102,14 +101,14 @@ Wiederherstellungspunkte auf DPM-/MABS-Datenträger | 64 für Dateiserver und 44
 --- | ---
 **Erstellen eines neuen virtuellen Computers** | Sie können schnell eine einfache VM erstellen und können Sie über einen Wiederherstellungspunkt betriebsbereit machen.<br/><br/> Sie können einen Namen für die VM angeben, die Ressourcengruppe und das virtuelle Netzwerk (VNet) auswählen, in dem sie platziert werden soll, und ein Speicherkonto für die wiederhergestellte VM angeben. Die neue VM muss in derselben Region wie die Quell-VM erstellt werden.
 **Datenträger wiederherstellen** | Stellt einen VM-Datenträger wieder her, der dann zum Erstellen einer neuen VM verwendet werden kann.<br/><br/> Azure Backup bietet eine Vorlage, mit der Sie eine VM anpassen und erstellen können. <br/><br> Der Wiederherstellungsauftrag generiert eine Vorlage, die Sie herunterladen und verwenden können, um benutzerdefinierte VM-Einstellungen festzulegen und eine VM zu erstellen.<br/><br/> Die Datenträger werden in die von Ihnen angegebene Ressourcengruppe kopiert.<br/><br/> Alternativ können Sie den Datenträger an eine vorhandene VM anhängen oder mit PowerShell eine neue VM erstellen.<br/><br/> VM anpassen, Konfigurationseinstellungen hinzufügen möchten, die zum Zeitpunkt der Sicherung nicht vorhanden waren, oder Einstellungen hinzufügen möchten, die mithilfe der Vorlage oder von PowerShell konfiguriert werden müssen.
-**Vorhandene ersetzen** | Sie können einen Datenträger wiederherstellen und damit einen Datenträger auf der vorhandenen VM ersetzen.<br/><br/> Der aktuelle virtuelle Computer muss jedoch vorhanden sein. Wenn dieser gelöscht wurde, kann diese Option nicht verwendet werden.<br/><br/> Vor dem Ersetzen des Datenträgers erstellt Azure Backup eine Momentaufnahme der vorhandenen VM und speichert sie im von Ihnen Stagingspeicherort. Vorhandene Datenträger, die mit der VM verbunden sind, werden durch den ausgewählten Wiederherstellungspunkt ersetzt.<br/><br/> Die Momentaufnahme wird in den Tresor kopiert und entsprechend der Aufbewahrungsrichtlinie beibehalten. <br/><br/> Nach dem Ersetzungsvorgang für den Datenträger wird der ursprüngliche Datenträger in der Ressourcengruppe beibehalten. Sie können die ursprünglichen Datenträger manuell löschen, wenn sie nicht mehr benötigt werden. <br/><br/>Die Option „Vorhandene ersetzen“ wird für nicht verschlüsselte verwaltete VMs unterstützt. Für nicht verwaltete Datenträger, [generalisierte VMs](../virtual-machines/windows/capture-image-resource.md) oder für virtuelle Computer, die mit [benutzerdefinierten Images](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/) erstellt wurden, wird sie nicht unterstützt.<br/><br/> Wenn der Wiederherstellungspunkt mehr oder weniger Datenträger als die aktuelle VM aufweist, dann spiegelt die Anzahl der Datenträger im Wiederherstellungspunkt nur die VM-Konfiguration wieder.<br><br> „Vorhandene ersetzen“ wird auch für VMs mit verknüpften Ressourcen unterstützt, z. B. [benutzerseitig zugewiesene verwaltete Identität](../active-directory/managed-identities-azure-resources/overview.md) und [Key Vault](../key-vault/general/overview.md).
+**Vorhandene ersetzen** | Sie können einen Datenträger wiederherstellen und damit einen Datenträger auf der vorhandenen VM ersetzen.<br/><br/> Der aktuelle virtuelle Computer muss jedoch vorhanden sein. Wenn dieser gelöscht wurde, kann diese Option nicht verwendet werden.<br/><br/> Vor dem Ersetzen des Datenträgers erstellt Azure Backup eine Momentaufnahme der vorhandenen VM und speichert sie im von Ihnen Stagingspeicherort. Vorhandene Datenträger, die mit der VM verbunden sind, werden durch den ausgewählten Wiederherstellungspunkt ersetzt.<br/><br/> Die Momentaufnahme wird in den Tresor kopiert und entsprechend der Aufbewahrungsrichtlinie beibehalten. <br/><br/> Nach dem Ersetzungsvorgang für den Datenträger wird der ursprüngliche Datenträger in der Ressourcengruppe beibehalten. Sie können die ursprünglichen Datenträger manuell löschen, wenn sie nicht mehr benötigt werden. <br/><br/>„Vorhandene ersetzen“ wird für nicht verschlüsselte verwaltete VMs sowie für VMs unterstützt, [die mithilfe benutzerdefinierter Images erstellt wurden](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/). Für nicht verwaltete Datenträger und [generalisierte VMs](../virtual-machines/windows/capture-image-resource.md) wird die Option nicht unterstützt.<br/><br/> Wenn der Wiederherstellungspunkt mehr oder weniger Datenträger als die aktuelle VM aufweist, dann spiegelt die Anzahl der Datenträger im Wiederherstellungspunkt nur die VM-Konfiguration wieder.<br><br> „Vorhandene ersetzen“ wird auch für VMs mit verknüpften Ressourcen, z. B. [benutzerseitig zugewiesene verwaltete Identität](../active-directory/managed-identities-azure-resources/overview.md) und [Key Vault](../key-vault/general/overview.md), nicht unterstützt.
 **Regionsübergreifend (sekundäre Region)** | Die regionsübergreifende Wiederherstellung kann verwendet werden, um virtuelle Azure-Computer in der sekundären Region wiederherzustellen, bei der es sich um eine [gepaarte Azure-Region](../best-practices-availability-paired-regions.md#what-are-paired-regions) handelt.<br><br> Wenn die Sicherung in der sekundären Region durchgeführt wird, können Sie alle Azure-VMs für den ausgewählten Wiederherstellungspunkt wiederherstellen.<br><br> Dieses Feature ist für die folgenden Optionen verfügbar:<br> <li> [Erstellen eines virtuellen Computers](./backup-azure-arm-restore-vms.md#create-a-vm) <br> <li> [Wiederherstellen von Datenträgern](./backup-azure-arm-restore-vms.md#restore-disks) <br><br> Die Option [Vorhandene Datenträger ersetzen](./backup-azure-arm-restore-vms.md#replace-existing-disks) wird derzeit nicht unterstützt.<br><br> Berechtigungen<br> Der Wiederherstellungsvorgang in der sekundären Region kann von Sicherungsadministratoren und App-Administratoren durchgeführt werden.
 
 ## <a name="support-for-file-level-restore"></a>Unterstützung für die Wiederherstellung auf Dateiebene
 
 **Wiederherstellen** | **Unterstützt**
 --- | ---
-Wiederherstellen von Dateien unter verschiedenen Betriebssystemen | Sie können Dateien auf allen Computern wiederherstellen, die dasselbe (oder ein kompatibles) Betriebssystem wie der gesicherte virtuelle Computer haben. Weitere Informationen finden Sie in der Tabelle mit [kompatiblen Betriebssystemen](backup-azure-restore-files-from-vm.md#system-requirements).
+Wiederherstellen von Dateien unter verschiedenen Betriebssystemen | Sie können Dateien auf allen Computern wiederherstellen, die dasselbe (oder ein kompatibles) Betriebssystem wie der gesicherte virtuelle Computer haben. Weitere Informationen finden Sie in der Tabelle mit [kompatiblen Betriebssystemen](backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).
 Wiederherstellen von Dateien von verschlüsselten virtuellen Computern | Wird nicht unterstützt.
 Wiederherstellen von Dateien von Speicherkonten mit Netzwerkbeschränkung | Wird nicht unterstützt.
 Wiederherstellen von Dateien auf virtuellen Computern mit Windows-Speicherplätzen | Die Wiederherstellung auf demselben Computer wird nicht unterstützt.<br/><br/> Führen Sie stattdessen die Wiederherstellung der Dateien auf einem kompatiblen virtuellen Computer durch.
@@ -130,7 +129,7 @@ Wiederherstellen eines virtuellen Computers direkt in einer Verfügbarkeitsgrupp
 Wiederherstellen einer Sicherung von nicht verwalteten VMs nach dem Upgrade auf verwaltete VMs| Unterstützt.<br/><br/> Sie können Datenträger wiederherstellen und dann einen verwalteten virtuellen Computer erstellen.
 Wiederherstellen eines virtuellen Computers an einem Wiederherstellungspunkt vor der Migration des virtuellen Computers zu verwalteten Datenträgern | Unterstützt.<br/><br/> Sie führen die Wiederherstellung auf nicht verwalteten Datenträgern durch (Standardeinstellung), konvertieren die wiederhergestellten Datenträger in verwaltete Datenträger und erstellen einen virtuellen Computer mit den verwalteten Datenträgern.
 Wiederherstellen eines gelöschten virtuellen Computers | Unterstützt.<br/><br/> Sie können den virtuellen Computer aus einem Wiederherstellungspunkt wiederherstellen.
-Wiederherstellen eines virtuellen Domänencontrollercomputers, der Teil einer Konfiguration mit mehreren Domänencontrollern ist, über das Portal | Wird unterstützt, wenn Sie unter Verwendung von PowerShell den Datenträger wiederherstellen und eine VM erstellen.
+Wiederherstellen einer Domänencontroller-VM  | Unterstützt. Einzelheiten finden Sie unter [Wiederherstellen von Domänencontroller-VMs](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 Wiederherstellen einer VM in einem anderen virtuellen Netzwerk |Unterstützt.<br/><br/> Das virtuelle Netzwerk muss sich im selben Abonnement und derselben Region befinden.
 
 ## <a name="vm-compute-support"></a>Unterstützung für VM-Compute
@@ -140,7 +139,6 @@ Wiederherstellen einer VM in einem anderen virtuellen Netzwerk |Unterstützt.<br
 Größe des virtuellen Computers |Jede Größe von virtuellen Azure-Computern mit mindestens 2 CPU-Kernen und 1 GB RAM<br/><br/> [Weitere Informationen.](../virtual-machines/sizes.md)
 Sicherung virtueller Computer in [Verfügbarkeitsgruppen](../virtual-machines/availability.md#availability-sets) | Unterstützt.<br/><br/> Sie können eine VM in einer Verfügbarkeitsgruppe nicht mit der Option zum schnellen Erstellen einer VM wiederherstellen. Stattdessen müssen Sie bei der Wiederherstellung der VM den Datenträger wiederherstellen und damit entweder eine VM bereitstellen oder einen vorhandenen Datenträger ersetzen.
 Sicherung von mit [Hybridvorteil (HUB)](../virtual-machines/windows/hybrid-use-benefit-licensing.md) bereitgestellten VMs | Unterstützt.
-Sicherung von in einer [Skalierungsgruppe](../virtual-machine-scale-sets/overview.md) bereitgestellten VMs |Unterstützt. Für die Fehlerdomäne sollte der [Orchestrierungsmodus](../virtual-machine-scale-sets/orchestration-modes.md) auf 2 festgelegt werden. Verfügbarkeitsgruppen werden nicht unterstützt.
 Sicherung von auf dem [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images) bereitgestellten VMs<br/><br/> (Veröffentlicht von Microsoft oder Drittanbietern) |Unterstützt.<br/><br/> Auf dem virtuellen Computer muss ein unterstütztes Betriebssystem ausgeführt werden.<br/><br/> Die Wiederherstellung von Dateien auf dem virtuellen Computer kann nur unter einem kompatiblen Betriebssystem (kein früheres oder späteres Betriebssystem) durchgeführt werden. Als VMs gesicherte Azure Marketplace-VMs werden nicht wiederhergestellt, da dafür Kaufinformationen erforderlich sind. Sie werden als Datenträger wiederhergestellt.
 Sicherung von über ein benutzerdefiniertes Image bereitgestellten VMs (Drittanbieter) |Unterstützt.<br/><br/> Auf dem virtuellen Computer muss ein unterstütztes Betriebssystem ausgeführt werden.<br/><br/> Die Wiederherstellung von Dateien auf dem virtuellen Computer kann nur unter einem kompatiblen Betriebssystem (kein früheres oder späteres Betriebssystem) durchgeführt werden.
 Sicherung von zu Azure migrierten VMs| Unterstützt.<br/><br/> Für die Sicherung des virtuellen Computers muss der VM-Agent auf dem migrierten Computer installiert werden.
@@ -160,12 +158,13 @@ Datenträgergröße | Die Größe einzelner Datenträger kann bis zu 32 TB und m
 Speichertyp | HDD Standard, SSD Standard, SSD Premium.
 Verwaltete Datenträger | Unterstützt.
 Verschlüsselte Datenträger | Unterstützt.<br/><br/> Virtuelle Azure-Computer mit aktiviertem Azure Disk Encryption können (mit oder ohne Azure AD-App) gesichert werden.<br/><br/> Verschlüsselte VMs können nicht auf Datei- oder Ordnerebene wiederhergestellt werden. Stattdessen muss die gesamte VM wiederhergestellt werden.<br/><br/> Sie können die Verschlüsselung auf virtuellen Computern aktivieren, die bereits durch Azure Backup geschützt werden.
-Datenträger mit aktivierter Schreibbeschleunigung | Wird nicht unterstützt.<br/><br/> Azure Backup schließt Datenträger mit aktivierter Schreibbeschleunigung (Write Accelerator, WA) bei der Sicherung automatisch aus. Da sie nicht gesichert werden, können Sie diese Datenträger nicht über Wiederherstellungspunkte der VM wiederherstellen. <br><br> **Wichtiger Hinweis**: Virtuelle Computer mit WA-Datenträgern benötigen eine Internetverbindung für eine erfolgreiche Sicherung (auch wenn diese Datenträger von der Sicherung ausgeschlossen sind).
+Datenträger mit aktivierter Schreibbeschleunigung | Ab dem 23. November 2020 wird dies in den Regionen „Südkorea, Mitte“ (KRC) und „Südafrika, Norden“ (SAN) unterstützt.<br/><br/> Azure Backup sichert die VMs mit Datenträgern mit aktivierter Schreibbeschleunigung während der Sicherung.  
 Sichern und Wiederherstellen von deduplizierten VMs/Datenträgern | Azure Backup unterstützt die Deduplizierung nicht. Weitere Informationen finden Sie in [diesem Artikel](./backup-support-matrix.md#disk-deduplication-support). <br/> <br/>  – Azure Backup dedupliziert nicht VM-übergreifend im Recovery Services-Tresor. <br/> <br/>  – Wenn es während der Wiederherstellung VMs im Deduplizierungsstatus gibt, können die Dateien nicht wiederhergestellt werden, da der Tresor das Format nicht verarbeiten kann. Allerdings können Sie die vollständige VM-Wiederherstellung erfolgreich ausführen.
 Hinzufügen eines Datenträgers zu geschütztem virtuellen Computer | Unterstützt.
 Ändern der Datenträgergröße auf geschütztem virtuellen Computer | Unterstützt.
 Freigegebener Speicher| Das Sichern von VMs mit freigegebenem Clustervolume (Cluster Shared Volume, CSV) oder Dateiservern mit horizontaler Skalierung wird nicht unterstützt. Bei CSV-Schreibern treten während der Sicherung voraussichtlich Fehler auf. Bei der Wiederherstellung werden Datenträger, die CSV-Volumes enthalten, möglicherweise nicht hochgefahren.
 [Freigegebene Datenträger](../virtual-machines/disks-shared-enable.md) | Wird nicht unterstützt.
+SSD Ultra-Datenträger | Wird nicht unterstützt. Weitere Einzelheiten finden Sie unter diesen [Einschränkungen](selective-disk-backup-restore.md#limitations).
 
 ## <a name="vm-network-support"></a>Netzwerkunterstützung bei virtuellen Computern
 
@@ -222,7 +221,7 @@ Azure Backup unterstützt die Komprimierung des Sicherungsdatenverkehrs. In der 
 **Computer** | **Komprimierung für MABS/DPM (TCP)** | **Komprimierung für Tresor (HTTPS)**
 --- | --- | ---
 Lokale Windows-Computer ohne DPM/MABS | Nicht verfügbar | ![Ja][green]
-Virtuelle Azure-Computer | N/V | Nicht verfügbar
+Virtuelle Azure-Computer | Nicht verfügbar | Nicht verfügbar
 Lokal/Azure-VMs mit DPM | ![Ja][green] | ![Ja][green]
 Lokal/Azure-VMs mit MABS | ![Ja][green] | ![Ja][green]
 

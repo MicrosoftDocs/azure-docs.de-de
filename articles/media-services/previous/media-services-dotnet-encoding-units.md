@@ -16,12 +16,12 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milangada
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f9293b735d6a752bca30e862a09943bf21583048
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d5e6305de1852dad3a08c110cb2fc5a58a31049
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89262402"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96009188"
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Skalieren der Codierung mit .NET SDK
 
@@ -31,7 +31,7 @@ ms.locfileid: "89262402"
 > * [Portal](media-services-portal-scale-media-processing.md)
 > * [.NET](media-services-dotnet-encoding-units.md)
 > * [REST](/rest/api/media/operations/encodingreservedunittype)
-> * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+> * [Java](https://github.com/rnrneverdies/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
 > 

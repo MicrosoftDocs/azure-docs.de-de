@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0cbbcc822765097f83fcd1a52ce775c69faba9fa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4c5629f80c37c9f79dc9a39c4d8304acbee9679d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87836427"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489573"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Schnellstart: Erstellen und Verwalten einer Azure Files-Freigabe mit virtuellen Windows-Computern
 
@@ -50,7 +50,7 @@ Als Nächstes erstellen Sie eine Dateifreigabe.
 
     ![Auswählen der Schaltfläche „Dateifreigabe hinzufügen“](./media/storage-files-quick-create-use-windows/create-file-share.png)
 
-1. Nennen Sie die neue Dateifreigabe *qsfileshare*, geben Sie unter **Kontingent** den Wert „1“ ein, und wählen Sie anschließend **Erstellen** aus. Das Kontingent kann auf bis zu 5 TiB festgelegt werden. Für diese Schnellstartanleitung ist jedoch 1 GiB ausreichend.
+1. Nennen Sie die neue Dateifreigabe *qsfileshare* , geben Sie unter **Kontingent** den Wert „1“ ein, und wählen Sie anschließend **Erstellen** aus. Das Kontingent kann auf bis zu 5 TiB festgelegt werden. Für diese Schnellstartanleitung ist jedoch 1 GiB ausreichend.
 1. Erstellen Sie auf Ihrem lokalen Computer eine neue TXT-Datei namens *qsTestFile*.
 1. Wählen Sie die neue Dateifreigabe und anschließend am Speicherort der Dateifreigabe **Hochladen** aus.
 
@@ -63,13 +63,13 @@ Sie haben nun ein Azure-Speicherkonto und eine Dateifreigabe mit einer einzelnen
 ### <a name="deploy-a-vm"></a>Bereitstellen einer VM
 
 1. Erweitern Sie als Nächstes das Menü auf der linken Seite des Portals, und wählen Sie im Azure-Portal oben links die Option **Ressource erstellen**.
-1. Suchen Sie im Suchfeld oberhalb der Liste mit den **Azure Marketplace**-Ressourcen nach **Windows Server 2016 Datacenter**, und wählen Sie den Eintrag aus. Klicken Sie anschließend auf **Erstellen**.
+1. Suchen Sie im Suchfeld oberhalb der Liste mit den **Azure Marketplace** -Ressourcen nach **Windows Server 2016 Datacenter** , und wählen Sie den Eintrag aus. Klicken Sie anschließend auf **Erstellen**.
 1. Wählen Sie auf der Registerkarte **Grundlagen** unter **Projektdetails** die Ressourcengruppe aus, die Sie für diese Schnellstartanleitung erstellt haben.
 
    ![Eingeben grundlegender Informationen zu Ihrem virtuellen Computer im Portalblatt](./media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png)
 
 1. Geben Sie dem virtuellen Computer unter **Instanzendetails** den Namen *qsVM*.
-1. Übernehmen Sie die Standardeinstellungen für **Region**, **Verfügbarkeitsoptionen**, **Image** und **Größe**.
+1. Übernehmen Sie die Standardeinstellungen für **Region** , **Verfügbarkeitsoptionen** , **Image** und **Größe**.
 1. Fügen Sie unter **Administratorkonto** den Namen *VMadmin* als **Benutzername** hinzu, und geben Sie unter **Kennwort** ein Kennwort für den virtuellen Computer ein.
 1. Wählen Sie unter **Regeln für eingehende Ports** die Option **Ausgewählte Ports zulassen** aus, und wählen Sie dann **RDP (3389)** und **HTTP** aus der Dropdownliste aus.
 1. Klicken Sie auf **Überprüfen + erstellen**.
@@ -86,7 +86,7 @@ Sie haben jetzt einen neuen virtuellen Computer erstellt und einen Datenträger 
    ![Herstellen einer Verbindung mit einem virtuellen Azure-Computer über das Portal](./media/storage-files-quick-create-use-windows/connect-vm.png)
 
 1. Übernehmen Sie auf der Seite zum **Herstellen der Verbindung mit dem virtuellen Computer** die Standardoptionen, um über die **IP-Adresse** und die **Portnummer** *3389* eine Verbindung herzustellen. Wählen Sie anschließend **RDP-Datei herunterladen** aus.
-1. Öffnen Sie die heruntergeladene RDP-Datei, und klicken Sie auf **Verbinden**, wenn Sie dazu aufgefordert werden.
+1. Öffnen Sie die heruntergeladene RDP-Datei, und klicken Sie auf **Verbinden** , wenn Sie dazu aufgefordert werden.
 1. Wählen Sie im Fenster **Windows-Sicherheit** die Option **Weitere Optionen** und dann **Anderes Konto verwenden** aus. Geben Sie den Benutzernamen im Format *localhost\<Benutzername>* ein. &lt;<Benutzername>&gt; ist hierbei der VM-Administratorbenutzername, den Sie für den virtuellen Computer erstellt haben. Geben Sie das Kennwort ein, das Sie für den virtuellen Computer erstellt haben, und wählen Sie anschließend **OK** aus.
 
    ![Weitere Optionen](./media/storage-files-quick-create-use-windows/local-host2.png)
@@ -95,12 +95,12 @@ Sie haben jetzt einen neuen virtuellen Computer erstellt und einen Datenträger 
 
 ## <a name="map-the-azure-file-share-to-a-windows-drive"></a>Zuordnen der Azure-Dateifreigabe zu einem Windows-Laufwerk
 
-1. Navigieren Sie im Azure-Portal zur Dateifreigabe *qsfileshare*, und wählen Sie **Verbinden** aus.
+1. Navigieren Sie im Azure-Portal zur Dateifreigabe *qsfileshare* , und wählen Sie **Verbinden** aus.
 1. Kopieren Sie den Inhalt des zweiten Felds, und fügen Sie ihn in **Editor** ein.
 
-   ![UNC-Pfad aus dem Verbindungsbereich von Azure Files](./media/storage-files-quick-create-use-windows/portal_netuse_connect2.png)
+   ![Screenshot: Inhalt des zweiten Felds, den Sie kopieren und in Editor einfügen müssen](./media/storage-files-quick-create-use-windows/portal_netuse_connect2.png)
 
-1. Öffnen Sie auf dem virtuellen Computer den **Datei-Explorer**, und wählen Sie **Dieser PC** aus. Dadurch ändern sich die verfügbaren Menüs auf dem Menüband. Wählen Sie im Menü **Computer** die Option **Netzlaufwerk verbinden** aus.
+1. Öffnen Sie auf dem virtuellen Computer den **Datei-Explorer** , und wählen Sie **Dieser PC** aus. Dadurch ändern sich die verfügbaren Menüs auf dem Menüband. Wählen Sie im Menü **Computer** die Option **Netzlaufwerk verbinden** aus.
 1. Wählen Sie den Laufwerkbuchstaben aus, und geben Sie den UNC-Pfad ein. Kopieren Sie *\\qsstorageacct.file.core.windows.net\qsfileshare* aus **Editor** (sofern Sie sich an die Benennungsvorschläge in dieser Schnellstartanleitung gehalten haben).
 
    Vergewissern Sie sich, dass beide Kontrollkästchen aktiviert sind.
@@ -110,7 +110,7 @@ Sie haben jetzt einen neuen virtuellen Computer erstellt und einen Datenträger 
 1. Wählen Sie **Fertig stellen** aus.
 1. Gehen Sie im Dialogfeld **Windows-Sicherheit** wie folgt vor:
 
-   - Kopieren Sie in Editor den Speicherkontonamen mit vorangestelltem „AZURE\“, und fügen Sie ihn im Dialogfeld **Windows-Sicherheit** als Benutzername ein. Kopieren Sie also *AZURE\qsstorageacct*, sofern Sie sich an die Benennungsvorschläge in dieser Schnellstartanleitung gehalten haben.
+   - Kopieren Sie in Editor den Speicherkontonamen mit vorangestelltem „AZURE\“, und fügen Sie ihn im Dialogfeld **Windows-Sicherheit** als Benutzername ein. Kopieren Sie also *AZURE\qsstorageacct* , sofern Sie sich an die Benennungsvorschläge in dieser Schnellstartanleitung gehalten haben.
    - Kopieren Sie in Editor den Speicherkontoschlüssel, und fügen Sie ihn im Dialogfeld **Windows-Sicherheit** als Kennwort ein.
 
       ![UNC-Pfad aus dem Verbindungsbereich von Azure Files](./media/storage-files-quick-create-use-windows/portal_netuse_connect3.png)
@@ -123,7 +123,7 @@ Nach dem Zuordnen des Laufwerks können Sie eine Momentaufnahme erstellen.
 
    ![Erstellen einer Momentaufnahme](./media/storage-files-quick-create-use-windows/create-snapshot.png)
 
-1. Öffnen Sie auf dem virtuellen Computer die Datei *qstestfile.txt*, geben Sie „this file has been modified“ (Diese Datei wurde geändert.) ein, speichern Sie die Datei, und schließen Sie sie.
+1. Öffnen Sie auf dem virtuellen Computer die Datei *qstestfile.txt* , geben Sie „this file has been modified“ (Diese Datei wurde geändert.) ein, speichern Sie die Datei, und schließen Sie sie.
 1. Erstellen Sie eine weitere Momentaufnahme.
 
 ## <a name="browse-a-share-snapshot"></a>Durchsuchen einer Freigabemomentaufnahme
@@ -137,7 +137,7 @@ Nach dem Zuordnen des Laufwerks können Sie eine Momentaufnahme erstellen.
 
 ## <a name="restore-from-a-snapshot"></a>Wiederherstellen aus einer Momentaufnahme
 
-1. Klicken Sie auf dem Blatt der Dateifreigabemomentaufnahme mit der rechten Maustaste auf *qsTestFile*, und wählen Sie **Wiederherstellen** aus.
+1. Klicken Sie auf dem Blatt der Dateifreigabemomentaufnahme mit der rechten Maustaste auf *qsTestFile* , und wählen Sie **Wiederherstellen** aus.
 1. Wählen Sie **Originaldatei überschreiben** aus.
 
    ![Schaltflächen „Herunterladen“ und „Wiederherstellen“](./media/storage-files-quick-create-use-windows/snapshot-download-restore-portal.png)
@@ -159,7 +159,7 @@ Die Momentaufnahmen Ihrer eingebundenen Azure-Dateifreigabe können genau wie lo
 
    ![Eingebundene Freigabe im Datei-Explorer](./media/storage-files-quick-create-use-windows/snapshot-windows-mount.png)
 
-1. Klicken Sie mit der rechten Maustaste auf *qsTestFile.txt*, und wählen Sie im Menü die Option **Eigenschaften** aus.
+1. Klicken Sie mit der rechten Maustaste auf *qsTestFile.txt* , und wählen Sie im Menü die Option **Eigenschaften** aus.
 
    ![Kontextmenü für ein ausgewähltes Verzeichnis](./media/storage-files-quick-create-use-windows/snapshot-windows-previous-versions.png)
 

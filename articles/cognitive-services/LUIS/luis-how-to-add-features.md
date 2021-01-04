@@ -10,11 +10,11 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.openlocfilehash: 33435d2367b92f312d41f0e32fdbb3a93d59a9fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540879"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999925"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>Verstärken des Signals von Wortlisten mithilfe von Features
 
@@ -41,7 +41,7 @@ Machen Sie sich mit den [Konzepten](luis-concept-feature.md) vertraut, um zu erf
 
 1. Die Liste der Ausdrücke kann auf die gesamte App mit der Einstellung **Global** oder nur auf ein bestimmtes Modell (Absicht oder Entität) angewendet werden. Wenn Sie die Ausdrucksliste als _Feature_ auf der Grundlage einer Absicht oder Entität erstellen, ist die Umschaltfläche nicht auf global festgelegt. In diesem Fall bedeutet die Umschaltfläche, dass es sich um ein lokales Feature handelt, das nur für dieses Modell (und somit _nicht global_ für die Anwendung) gilt.
 
-1. Wählen Sie **Fertig**aus. Das neue Feature wird der Seite **ML Features** (ML-Features) hinzugefügt.
+1. Wählen Sie **Fertig** aus. Das neue Feature wird der Seite **ML Features** (ML-Features) hinzugefügt.
 
 <a name="edit-phrase-list"></a>
 <a name="delete-phrase-list"></a>

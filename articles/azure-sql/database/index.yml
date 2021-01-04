@@ -8,16 +8,16 @@ metadata:
   ms.service: sql-database
   ms.subservice: single-database
   ms.topic: landing-page
-  author: MashaMSFT
-  ms.author: mathoma
-  ms.reviewer: sstein
+  author: stevestein
+  ms.author: sstein
+  ms.reviewer: 
   ms.date: 10/13/2020
-  ms.openlocfilehash: 61d0bb769e143bec29a8369b4bc0b8816e4ebb5d
-  ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+  ms.openlocfilehash: 2ef30f2ed2bdbf761110a9530c9a8cf3aa7c4ce2
+  ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/28/2020
-  ms.locfileid: "92791680"
+  ms.lasthandoff: 11/13/2020
+  ms.locfileid: "94593619"
 landingContent:
 - title: Azure SQL-Datenbank
   linkLists:

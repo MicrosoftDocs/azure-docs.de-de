@@ -2,13 +2,13 @@
 title: Azure Service Bus-Metriken in Azure Monitor | Microsoft-Dokumentation
 description: In diesem Artikel wird erläutert, wie Sie mit Azure Monitor Service Bus-Entitäten (Warteschlangen, Themen und Abonnements) überwachen können.
 ms.topic: article
-ms.date: 09/30/2020
-ms.openlocfilehash: 169edb651a59302d0ea1245fd48787404dd3e555
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/18/2020
+ms.openlocfilehash: 1f8bd9484bf2a2106818da1d6e4ef21e937d2ac3
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598134"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916881"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Azure Service Bus-Metriken in Azure Monitor
 
@@ -31,7 +31,7 @@ Im [Azure-Portal](https://portal.azure.com) können Sie Metriken im Zeitverlauf 
 
 ![Screenshot: Seite „Monitor – Metriken (Vorschauversion)“ im Azure-Portal][1]
 
-Sie können auch direkt über den Namespace auf die Metriken zugreifen. Dazu wählen Sie den Namespace aus und klicken dann auf **Metriken**. Um Metriken, die auf Entitätsebene gefiltert werden, anzuzeigen, wählen Sie die Entität aus und klicken dann auf **Metriken**.
+Sie können auch direkt über den Namespace auf die Metriken zugreifen. Wählen Sie dazu den Namespace und anschließend **Metriken** aus. Wenn Sie gefilterte Metriken für den Bereich der Entität anzeigen möchten, wählen Sie die Entität und anschließend **Metriken** aus.
 
 ![Screenshot: Seite „Monitor – Metriken (Vorschauversion)“, gefiltert nach dem Entitätsbereich][2]
 
@@ -39,7 +39,7 @@ Bei Metriken mit Dimensionsunterstützung müssen Sie den gewünschten Dimension
 
 ## <a name="billing"></a>Abrechnung
 
-Metriken und Benachrichtigungen auf Azure Monitor werden pro Benachrichtigung abgerechnet. Diese Kosten finden Sie im Portal, wenn Sie die Benachrichtigung einrichten und bevor Sie sie speichern. 
+Metriken und Benachrichtigungen auf Azure Monitor werden pro Benachrichtigung abgerechnet. Diese Gebühren finden Sie im Portal, wenn Sie die Benachrichtigung einrichten und bevor Sie sie speichern. 
 
 Zusätzliche Lösungen, die Metrikdaten erfassen, werden direkt von diesen Lösungen abgerechnet. So werden etwa Gebühren für Azure Storage berechnet, wenn Sie Metrikdaten in einem Azure-Speicherkonto archivieren. Kosten für Log Analytics fallen auch an, wenn Sie Metrikdaten für eine ausführlichere Analyse an Log Analytics streamen.
 
@@ -58,7 +58,7 @@ Zählt die Anzahl der Anforderungen von Daten und Verwaltungsvorgängen
 | ------------------- | ----------------- |
 | Eingehende Anforderungen| Die Anzahl der Anforderungen an den Service Bus-Dienst in einem bestimmten Zeitraum <br/><br/> Einheit: Anzahl <br/> Aggregationstyp: Gesamt <br/> Dimension: Name der Entität|
 |Erfolgreiche Anforderungen|Die Anzahl der erfolgreichen Anforderungen an den Service Bus-Dienst in einem bestimmten Zeitraum<br/><br/> Einheit: Anzahl <br/> Aggregationstyp: Gesamt <br/> Dimension: Name der Entität|
-|Serverfehler|Die Anzahl der aufgrund eines Fehlers nicht verarbeiteten Anforderungen an den Service Bus-Dienst in einem bestimmten Zeitraum<br/><br/> Einheit: Anzahl <br/> Aggregationstyp: Gesamt <br/> Dimension: Name der Entität|
+|Serverfehler|Die Anzahl der aufgrund eines Fehlers nicht verarbeiteten Anforderungen an den Service Bus-Dienst in einem bestimmten Zeitraum<br/><br/> Einheit: Anzahl <br/> Aggregationstyp: Gesamt <br/> Dimension: Name der Entität|
 |Benutzerfehler (siehe folgender Unterabschnitt)|Die Anzahl der aufgrund von Benutzerfehlern nicht verarbeiteten Anforderungen in einem bestimmten Zeitraum<br/><br/> Einheit: Anzahl <br/> Aggregationstyp: Gesamt <br/> Dimension: Name der Entität|
 |Gedrosselte Anforderungen|Die Anzahl der Anforderungen, die aufgrund eines überschrittenen Verbrauchs gedrosselt wurden<br/><br/> Einheit: Anzahl <br/> Aggregationstyp: Gesamt <br/> Dimension: Name der Entität|
 
@@ -80,14 +80,12 @@ Die beiden folgenden Arten von Fehlern werden als Benutzerfehler klassifiziert:
 | Aktive Nachrichten| Anzahl von aktiven Nachrichten in einer Warteschlange/einem Thema <br/><br/> Einheit: Anzahl <br/> Aggregationstyp: Average <br/> Dimension: Name der Entität |
 | Unzustellbare Nachrichten| Anzahl von unzustellbaren Nachrichten in einer Warteschlange/einem Thema. <br/><br/> Einheit: Anzahl <br/> Aggregationstyp: Average <br/>Dimension: Name der Entität |
 | Geplante Nachrichten| Anzahl von geplanten Nachrichten in einer Warteschlange/einem Thema. <br/><br/> Einheit: Anzahl <br/> Aggregationstyp: Average  <br/> Dimension: Name der Entität |
+| Abgeschlossene Nachrichten| Anzahl abgeschlossener Nachrichten in einer Warteschlange/einem Thema <br/><br/> Einheit: Anzahl <br/> Aggregationstyp: Average <br/> Dimension: Name der Entität |
+| Abgebrochene Nachrichten| Anzahl abgebrochener Nachrichten in einer Warteschlange/einem Thema <br/><br/> Einheit: Anzahl <br/> Aggregationstyp: Average <br/> Dimension: Name der Entität |
 | Size | Größe einer Entität (Warteschlange oder Thema) in Byte <br/><br/>Einheit: Anzahl <br/>Aggregationstyp: Average <br/>Dimension: Name der Entität | 
 
 > [!NOTE]
-> Werte für die folgenden Metriken sind Zeitpunktwerte. Eingehende Nachrichten, die unmittelbar nach diesem Zeitpunkt verarbeitet wurden, werden in diesen Metriken möglicherweise nicht berücksichtigt. 
-> - Meldungen
-> - Aktive Nachrichten 
-> - Unzustellbare Nachrichten 
-> - Geplante Nachrichten 
+> Werte für Nachrichten, aktive Nachrichten, unzustellbare Nachrichten, geplante Nachrichten, abgeschlossene Nachrichten und abgebrochene Nachrichten sind Zeitpunktwerte. Eingehende Nachrichten, die unmittelbar nach diesem Zeitpunkt verarbeitet wurden, werden in diesen Metriken möglicherweise nicht berücksichtigt. 
 
 ## <a name="connection-metrics"></a>Verbindungsmetriken
 
@@ -128,7 +126,7 @@ Azure Service Bus unterstützt folgende Dimensionen für Metriken in Azure Monit
     1. Wählen Sie im Feld **Nach Ressourcentyp filtern** die Option **Service Bus-Namespaces** aus. 
     2. Wählen Sie im Feld **Nach Abonnement filtern** Ihr Abonnement aus.
     3. Wählen Sie in der Liste **Service Bus-Namespace** aus. 
-    4. Wählen Sie **Fertig**aus. 
+    4. Wählen Sie **Fertig** aus. 
     
         ![Auswählen eines Namespace](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. Wählen Sie **Kriterien hinzufügen** aus, und führen Sie auf der Seite **Signallogik konfigurieren** die folgenden Aktionen aus:
@@ -139,7 +137,7 @@ Azure Service Bus unterstützt folgende Dimensionen für Metriken in Azure Monit
     1. Wählen Sie unter **Bedingung** die Option **Größer als** aus.
     2. Wählen Sie unter **Zeitaggregation** die Option **Gesamt** aus. 
     3. Geben Sie unter **Schwellenwert** den Wert **5** ein. 
-    4. Wählen Sie **Fertig**aus.    
+    4. Wählen Sie **Fertig** aus.    
 
         ![Angaben einer Bedingung](./media/service-bus-metrics-azure-monitor/specify-condition.png)    
 1. Erweitern Sie auf der Seite **Regel erstellen** die Option **Warnungsdetails definieren**, und führen Sie die folgenden Aktionen aus:

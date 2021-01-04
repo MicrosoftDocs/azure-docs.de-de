@@ -1,17 +1,17 @@
 ---
 title: Verbinden mit Azure App Service – Azure Database for MySQL
 description: Anweisungen zum ordnungsgemäßen Verbinden einer vorhandenen Azure App Service-Instanz mit Azure-Datenbank für MySQL
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: deb99ea4f674c901974ca219a0e1bf831f5b4e51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6355afe6ce5decbed029db4536b1b1b19f5a876c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905842"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541503"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Verbinden vorhandener Azure App Service-Instanzen mit Azure-Datenbank für MySQL
 Dieses Thema erläutert das Verbinden vorhandener Azure App Service-Instanzen mit Ihrem Azure Database for MySQL-Server.
@@ -29,18 +29,18 @@ Azure-Datenbank für MySQL bietet Zugriffssicherheit über eine Firewall zum Sch
    :::image type="content" source="./media/howto-connect-webapp/1-connection-security.png" alt-text="Azure-Portal – Klicken auf „Verbindungssicherheit“":::
 
 2. Wählen Sie für **Zugriff auf Azure-Dienste erlauben** **ON** (EIN) aus, und klicken Sie dann auf **Speichern**.
-   :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Azure-Portal – Klicken auf „Verbindungssicherheit“":::
+   :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Azure-Portal: Zugriff auf Azure-Dienste erlauben":::
 
 ## <a name="solution-2---create-a-firewall-rule-to-explicitly-allow-outbound-ips"></a>Lösung 2: Erstellen einer Firewallregel zum expliziten Zulassen ausgehender IP-Adressen
 Sie können alle ausgehenden IP-Adressen von Azure App Service explizit hinzufügen.
 
 1. Sehen Sie sich auf dem Blatt „App Service-Eigenschaften“ den Eintrag in **Ausgehende IP-Adressen** an.
 
-   :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Azure-Portal – Klicken auf „Verbindungssicherheit“":::
+   :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Azure-Portal – ausgehende IP-Adressen anzeigen":::
 
 2. Fügen Sie auf dem MySQL-Blatt „Verbindungssicherheit“ alle ausgehenden IP-Adressen einzeln hinzu.
 
-   :::image type="content" source="./media/howto-connect-webapp/2_2-add-explicit-ips.png" alt-text="Azure-Portal – Klicken auf „Verbindungssicherheit“":::
+   :::image type="content" source="./media/howto-connect-webapp/2_2-add-explicit-ips.png" alt-text="Azure-Portal – IP-Adressen einzeln hinzufügen":::
 
 3. Vergessen Sie nicht, Ihre Firewallregeln zu **speichern**.
 

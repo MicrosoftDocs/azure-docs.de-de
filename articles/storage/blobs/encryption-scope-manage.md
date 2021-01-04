@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 9210c54305427c82d5666d68573fd3af41e8cef7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e77b58f7741af42f00b2a1831157405b12fa24ff
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972195"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017405"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Erstellen und Verwalten von Verschlüsselungsbereichen (Vorschauversion)
 
@@ -179,7 +179,7 @@ Informationen zum Konfigurieren der Azure Storage-Verschlüsselung mit kundensei
 
 Navigieren Sie zum Anzeigen der Verschlüsselungsbereiche für ein Speicherkonto im Azure-Portal zur Einstellung **Verschlüsselungsbereiche** für das Speicherkonto. In diesem Bereich können Sie einen Verschlüsselungsbereich aktivieren oder deaktivieren oder den Schlüssel für einen Verschlüsselungsbereich ändern.
 
-:::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Screenshot: Erstellen eines Verschlüsselungsbereichs über das Azure-Portal":::
+:::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Screenshot: Liste der Verschlüsselungsbereiche im Azure-Portal":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -223,7 +223,7 @@ Wenn Sie einen Container mit einem Standardverschlüsselungsbereich im Azure-Por
 1. Wählen Sie in der Dropdownliste **Verschlüsselungsbereich** den Standardverschlüsselungsbereich für den Container aus.
 1. Wenn alle Blobs im Container den Standardverschlüsselungsbereich verwenden sollen, aktivieren Sie das Kontrollkästchen **Use this encryption scope for all blobs in the container** (Diesen Verschlüsselungsbereich für alle Blobs im Container verwenden). Ist dieses Kontrollkästchen aktiviert, kann ein einzelnes Blob im Container den Verschlüsselungsbereich nicht überschreiben.
 
-    :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Screenshot: Erstellen eines Verschlüsselungsbereichs über das Azure-Portal":::
+    :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Screenshot: Container mit Standardverschlüsselungsbereich":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -247,7 +247,7 @@ New-AzRmStorageContainer -ResourceGroupName $rgName `
 
 Wenn Sie einen Container mit einem Standardverschlüsselungsbereich mit der Azure CLI erstellen möchten, rufen Sie den Befehl [az storage container create](/cli/azure/storage/container#az-storage-container-create) auf, und geben Sie dabei den Bereich für den Parameter `--default-encryption-scope` an. Legen Sie den Parameter `--prevent-encryption-scope-override` auf `true` fest, um zu erzwingen, dass alle Blobs in einem Container den Standardbereich des Containers verwenden.
 
-Im folgenden Beispiel wird Ihr Azure AD-Konto genutzt, um den Vorgang zur Erstellung des Containers zu autorisieren. Sie können auch den Kontozugriffsschlüssel verwenden. Weitere Informationen finden Sie unter [Autorisieren des Zugriffs auf Blob- oder Warteschlangendaten mit der Azure-Befehlszeilenschnittstelle](../common/authorize-data-operations-cli.md).
+Im folgenden Beispiel wird Ihr Azure AD-Konto genutzt, um den Vorgang zur Erstellung des Containers zu autorisieren. Sie können auch den Kontozugriffsschlüssel verwenden. Weitere Informationen finden Sie unter [Autorisieren des Zugriffs auf Blob- oder Warteschlangendaten mit der Azure-Befehlszeilenschnittstelle](./authorize-data-operations-cli.md).
 
 ```azurecli-interactive
 az storage container create \
@@ -277,7 +277,7 @@ Wenn Sie ein Blob hochladen und den Verschlüsselungsbereich über das Azure-Por
 1. Navigieren Sie zum Dropdownmenü im Abschnitt **Verschlüsselungsbereich**. Standardmäßig wird das Blob mit dem Standardverschlüsselungsbereich für den Container erstellt, sofern einer angegeben wurde. Wenn der Container erfordert, dass Blobs den Standardverschlüsselungsbereich verwenden, ist dieser Abschnitt deaktiviert.
 1. Wenn Sie einen anderen Bereich für das hochzuladende Blob angeben möchten, wählen Sie **Vorhandenen Bereich auswählen** und dann in der Dropdownliste den gewünschten Bereich aus.
 
-    :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="Screenshot: Erstellen eines Verschlüsselungsbereichs über das Azure-Portal":::
+    :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="Screenshot: Hochladen eines Blobs mit einem Verschlüsselungsbereich":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

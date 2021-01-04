@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 8f245653a8b84944e1e8a3f48a49992f0065be58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5ae5948c8baf1573393c73026c84d0f62e8693e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74084406"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480104"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Tutorial: Konfigurieren des IoT Hub-Nachrichtenroutings mithilfe einer Azure Resource Manager-Vorlage
 
@@ -30,7 +30,7 @@ ms.locfileid: "74084406"
 
 Im zweiten Teil dieses Tutorials laden Sie eine Visual Studio-Anwendung herunter und führen sie aus, um Nachrichten an IoT Hub zu senden. Der Download beinhaltet einen Ordner, der die Azure Resource Manager-Vorlage und die Parameterdatei sowie die Azure CLI- und PowerShell-Skripts enthält.
 
-Laden Sie die [Azure IoT-Beispiele für C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) herunter. Entzippen Sie die Datei „master.zip“. Die Resource Manager-Vorlage (**template_iothub.json**) und die Parameterdatei (**template_iothub_parameters.json**) befinden sich unter „/iot-hub/Tutorials/Routing/SimulatedDevice/resources/“.
+Laden Sie die [Azure IoT-Beispiele für C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) herunter. Entzippen Sie die Datei „master.zip“. Die Resource Manager-Vorlage ( **template_iothub.json** ) und die Parameterdatei ( **template_iothub_parameters.json** ) befinden sich unter „/iot-hub/Tutorials/Routing/SimulatedDevice/resources/“.
 
 ## <a name="create-your-resources"></a>Erstellen Ihrer Ressourcen
 
@@ -46,49 +46,49 @@ Die verwendeten Parameter werden im folgenden Abschnitt erläutert:
 
 Die meisten dieser Parameter haben Standardwerte. Parameter mit der Endung **_in** werden mit *randomValue* verkettet, um sie global eindeutig zu machen. 
 
-**randomValue**: Dieser Wert wird auf der Grundlage des aktuellen Datums und der aktuellen Uhrzeit generiert, wenn Sie die Vorlage bereitstellen. Dieses Feld wird in der Vorlage selbst erstellt und ist daher nicht in der Parameterdatei enthalten.
+**randomValue** : Dieser Wert wird auf der Grundlage des aktuellen Datums und der aktuellen Uhrzeit generiert, wenn Sie die Vorlage bereitstellen. Dieses Feld wird in der Vorlage selbst erstellt und ist daher nicht in der Parameterdatei enthalten.
 
-**subscriptionId**: Das Abonnement, in dem die Vorlage bereitgestellt wird. Dieses Feld wird automatisch festgelegt und ist daher nicht in der Parameterdatei enthalten.
+**subscriptionId** : Das Abonnement, in dem die Vorlage bereitgestellt wird. Dieses Feld wird automatisch festgelegt und ist daher nicht in der Parameterdatei enthalten.
 
-**IoTHubName_in**: Der IoT Hub-Basisname. Er wird mit dem Zufallswert verkettet, um global eindeutig zu sein.
+**IoTHubName_in** : Der IoT Hub-Basisname. Er wird mit dem Zufallswert verkettet, um global eindeutig zu sein.
 
-**location**: Die Azure-Zielregion für die Bereitstellung (beispielsweise „USA, Westen“).
+**location** : Die Azure-Zielregion für die Bereitstellung (beispielsweise „USA, Westen“).
 
-**consumer_group**: Die Consumergruppe für Nachrichten, die den Routingendpunkt durchlaufen. Sie dient zum Filtern von Ergebnissen in Azure Stream Analytics. Ein Beispiel: Es gibt den gesamten Datenstrom, über den Sie sämtliche Daten erhalten. Für übermittelte Daten, bei denen die Consumergruppe auf **Contoso** festgelegt ist, können Sie einen Azure Stream Analytics-Datenstrom (und einen Power BI-Bericht) einrichten, um nur diese Einträge anzuzeigen. Dieses Feld wird im zweiten Teil des Tutorials verwendet.
+**consumer_group** : Die Consumergruppe für Nachrichten, die den Routingendpunkt durchlaufen. Sie dient zum Filtern von Ergebnissen in Azure Stream Analytics. Ein Beispiel: Es gibt den gesamten Datenstrom, über den Sie sämtliche Daten erhalten. Für übermittelte Daten, bei denen die Consumergruppe auf **Contoso** festgelegt ist, können Sie einen Azure Stream Analytics-Datenstrom (und einen Power BI-Bericht) einrichten, um nur diese Einträge anzuzeigen. Dieses Feld wird im zweiten Teil des Tutorials verwendet.
 
-**sku_name**: Die Skalierung für die IoT Hub-Instanz. Dieser Wert muss mindestens auf „S1“ festgelegt werden. Der Free-Tarif ist für dieses Tutorial nicht geeignet, da in diesem Tarif nicht mehrere Endpunkte genutzt werden können.
+**sku_name** : Die Skalierung für die IoT Hub-Instanz. Dieser Wert muss mindestens auf „S1“ festgelegt werden. Der Free-Tarif ist für dieses Tutorial nicht geeignet, da in diesem Tarif nicht mehrere Endpunkte genutzt werden können.
 
-**sku_units**: Dieses Feld gehört zu **sku_name** und dient zum Angeben der Anzahl verwendbarer IoT Hub-Einheiten.
+**sku_units** : Dieses Feld gehört zu **sku_name** und dient zum Angeben der Anzahl verwendbarer IoT Hub-Einheiten.
 
-**d2c_partitions**: Die Anzahl verwendeter Partitionen für den Ereignisdatenstrom.
+**d2c_partitions** : Die Anzahl verwendeter Partitionen für den Ereignisdatenstrom.
 
-**storageAccountName_in**: Der Name des zu erstellenden Speicherkontos. Nachrichten werden an einen Container im Speicherkonto weitergeleitet. Dieses Feld wird mit dem Zufallswert verkettet, um es global eindeutig zu machen.
+**storageAccountName_in** : Der Name des zu erstellenden Speicherkontos. Nachrichten werden an einen Container im Speicherkonto weitergeleitet. Dieses Feld wird mit dem Zufallswert verkettet, um es global eindeutig zu machen.
 
-**storageContainerName**: Der Name des Containers, in dem die an das Speicherkonto weitergeleiteten Nachrichten gespeichert werden.
+**storageContainerName** : Der Name des Containers, in dem die an das Speicherkonto weitergeleiteten Nachrichten gespeichert werden.
 
-**storage_endpoint**: Der Name des Speicherkontoendpunkts für das Nachrichtenrouting.
+**storage_endpoint** : Der Name des Speicherkontoendpunkts für das Nachrichtenrouting.
 
-**service_bus_namespace_in**: Der Name des zu erstellenden Service Bus-Namespace. Dieser Wert wird mit dem Zufallswert verkettet, um ihn global eindeutig zu machen.
+**service_bus_namespace_in** : Der Name des zu erstellenden Service Bus-Namespace. Dieser Wert wird mit dem Zufallswert verkettet, um ihn global eindeutig zu machen.
 
-**service_bus_queue_in**: Der Name der Service Bus-Warteschlange für das Nachrichtenrouting. Dieser Wert wird mit dem Zufallswert verkettet, um ihn global eindeutig zu machen.
+**service_bus_queue_in** : Der Name der Service Bus-Warteschlange für das Nachrichtenrouting. Dieser Wert wird mit dem Zufallswert verkettet, um ihn global eindeutig zu machen.
 
-**AuthRules_sb_queue**: Die Autorisierungsregeln für die Service Bus-Warteschlange, die zum Abrufen der Verbindungszeichenfolge für die Warteschlange verwendet werden.
+**AuthRules_sb_queue** : Die Autorisierungsregeln für die Service Bus-Warteschlange, die zum Abrufen der Verbindungszeichenfolge für die Warteschlange verwendet werden.
 
 ### <a name="variables"></a>Variables
 
 In der Vorlage werden folgende Werte verwendet. Die meisten davon sind von Parametern abgeleitet.
 
-**queueAuthorizationRuleResourceId**: Die Ressourcen-ID der Autorisierungsregel für die Service Bus-Warteschlange. Die Ressourcen-ID wird wiederum zum Abrufen der Verbindungszeichenfolge für die Warteschlange verwendet.
+**queueAuthorizationRuleResourceId** : Die Ressourcen-ID der Autorisierungsregel für die Service Bus-Warteschlange. Die Ressourcen-ID wird wiederum zum Abrufen der Verbindungszeichenfolge für die Warteschlange verwendet.
 
-**iotHubName**: Der Name der IoT Hub-Instanz nach Verkettung mit dem Zufallswert. 
+**iotHubName** : Der Name der IoT Hub-Instanz nach Verkettung mit dem Zufallswert. 
 
-**storageAccountName**: Der Name des Speicherkontos nach Verkettung mit dem Zufallswert. 
+**storageAccountName** : Der Name des Speicherkontos nach Verkettung mit dem Zufallswert. 
 
-**service_bus_namespace**: Der Namespace nach Verkettung mit dem Zufallswert.
+**service_bus_namespace** : Der Namespace nach Verkettung mit dem Zufallswert.
 
-**service_bus_queue**: Der Name der Service Bus-Warteschlange nach Verkettung mit dem Zufallswert.
+**service_bus_queue** : Der Name der Service Bus-Warteschlange nach Verkettung mit dem Zufallswert.
 
-**sbVersion**: Die zu verwendende Version der Service Bus-API. In diesem Fall: 2017-04-01.
+**sbVersion** : Die zu verwendende Version der Service Bus-API. In diesem Fall: 2017-04-01.
 
 ### <a name="resources-storage-account-and-container"></a>Ressourcen: Speicherkonto und Container
 
@@ -358,7 +358,7 @@ Laden Sie die Vorlage und die Parameterdatei in Azure Cloud Shell hoch, und füh
 
 Wählen Sie zum Hochladen der Dateien auf der Menüleiste das Symbol **Dateien hochladen/herunterladen** und anschließend die Option „Hochladen“ aus.
 
-![Cloud Shell-Menüleiste mit hervorgehobener Option zum Hoch-/Herunterladen von Dateien](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_files.png)
+![Der Screenshot hebt das Symbol zum Hochladen/Herunterladen von Dateien hervor.](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_files.png)
 
 Suchen Sie im daraufhin angezeigten Datei-Explorer auf Ihrem lokalen Datenträger nach den Dateien, und wählen Sie sie aus. Wählen Sie anschließend **Öffnen** aus.
 
@@ -372,11 +372,11 @@ Führen Sie das Skript aus, um die Bereitstellung durchzuführen. Die letzte Zei
 
 Vom Skript werden die folgenden Variablen festgelegt und verwendet:
 
-**$RGName**: Der Name der Ressourcengruppe, in der die Vorlage bereitgestellt werden soll. Dieses Feld wird erstellt, bevor Sie die Vorlage bereitstellen.
+**$RGName** : Der Name der Ressourcengruppe, in der die Vorlage bereitgestellt werden soll. Dieses Feld wird erstellt, bevor Sie die Vorlage bereitstellen.
 
-**$location**: Der gewünschte Azure-Standort für die Vorlage (etwa „USA, Westen“).
+**$location** : Der gewünschte Azure-Standort für die Vorlage (etwa „USA, Westen“).
 
-**$deploymentname**: Ein Name, den Sie der Bereitstellung zuweisen, um den zurückgegebenen Variablenwert abzurufen.
+**$deploymentname** : Ein Name, den Sie der Bereitstellung zuweisen, um den zurückgegebenen Variablenwert abzurufen.
 
 Im Anschluss finden Sie das PowerShell. Kopieren Sie dieses PowerShell-Skript, fügen Sie es in das Cloud Shell-Fenster ein, und drücken Sie die EINGABETASTE, um es auszuführen.
 

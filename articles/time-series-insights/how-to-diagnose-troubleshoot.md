@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: b994e8ce34319da4827d389b49e23ed6e5bcde95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d26a0ef86ab96940f3d5bb96d87340b77f1faca
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653756"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016835"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Diagnose und Problembehandlung in einer Azure Time Series Insights Gen2-Umgebung
 
@@ -39,7 +39,7 @@ Es gibt verschiedene mögliche Gründe, aus denen Ihre Daten im [Azure Time Seri
 
 - Ihre Ereignisquelldaten sind nicht im JSON-Format.
 
-    Time Series Insights unterstützt nur JSON-Daten. JSON-Beispiele finden Sie unter [Unterstützte JSON-Formen](./how-to-shape-query-json.md).
+    Time Series Insights unterstützt nur JSON-Daten. JSON-Beispiele finden Sie unter [Unterstützte JSON-Formen](./concepts-json-flattening-escaping-rules.md).
 
 - Dem Schlüssel Ihrer Ereignisquelle fehlt eine erforderliche Berechtigung.
 
@@ -61,13 +61,13 @@ Es gibt verschiedene mögliche Gründe, aus denen Ihre Daten im [Azure Time Seri
 
 - Ihre Time Series-ID-Eigenschaft, die zum Zeitpunkt der Bereitstellung angegeben wurde, ist falsch, fehlt oder ist null.
 
-    Dieses Problem kann auftreten, wenn die Time Series-ID-Eigenschaft zum Zeitpunkt der Bereitstellung der Umgebung fehlerhaft konfiguriert ist. Weitere Informationen finden Sie unter [Bewährte Methoden für die Auswahl einer Time Series-ID](./time-series-insights-update-how-to-id.md). Zu diesem Zeitpunkt können Sie eine vorhandene Time Series Insights-Umgebung nicht so aktualisieren, dass sie eine andere Time Series-ID verwendet.
+    Dieses Problem kann auftreten, wenn die Time Series-ID-Eigenschaft zum Zeitpunkt der Bereitstellung der Umgebung fehlerhaft konfiguriert ist. Weitere Informationen finden Sie unter [Bewährte Methoden für die Auswahl einer Time Series-ID](./how-to-select-tsid.md). Zu diesem Zeitpunkt können Sie eine vorhandene Time Series Insights-Umgebung nicht so aktualisieren, dass sie eine andere Time Series-ID verwendet.
 
 ## <a name="problem-some-data-shows-but-some-is-missing"></a>Problem: Einige Daten werden angezeigt, andere hingegen fehlen.
 
 Möglicherweise werden Sie Daten ohne die Time Series-ID.
 
-- Dieses Problem kann auftreten, wenn Sie Ereignisse ohne das Feld „Time Series-ID“ in der Nutzlast senden. Weitere Informationen finden Sie unter [Unterstützte JSON-Formen](./how-to-shape-query-json.md).
+- Dieses Problem kann auftreten, wenn Sie Ereignisse ohne das Feld „Time Series-ID“ in der Nutzlast senden. Weitere Informationen finden Sie unter [Unterstützte JSON-Formen](./concepts-json-flattening-escaping-rules.md).
 - Dieses Problem kann auftreten, weil Ihre Umgebung gedrosselt wird.
 
     > [!NOTE]
@@ -97,7 +97,7 @@ Stellen Sie sicher, dass Name und Wert den folgenden Regeln entsprechen:
 Sie können am einfachsten sicherstellen, dass Ihr Name der Timestamp-Eigenschaft erfasst wird und richtig funktioniert, indem Sie den Time Series Insights Gen2-Explorer verwenden. Wählen Sie im Time Series Insights Gen2-Explorer mithilfe des Diagramms einen Zeitraum aus, nachdem Sie den Namen der Timestamp-Eigenschaft angegeben haben. Klicken Sie mit der rechten Maustaste auf die Auswahl, und wählen Sie die Option **Ereignisse untersuchen** aus. Die erste Spaltenüberschrift ist der Name Ihrer Timestamp-Eigenschaft. Er sollte neben dem Wort `Timestamp` die Zeichenfolge `($ts)` aufweisen, statt:
 
 - `(abc)`, was anzeigt, dass Time Series Insights die Datenwerte als Zeichenfolgen liest.
-- Das **Kalender**symbol, das anzeigt, dass Time Series Insights die Datenwerte als Datum/Uhrzeit-Wert liest.
+- Das **Kalender** symbol, das anzeigt, dass Time Series Insights die Datenwerte als Datum/Uhrzeit-Wert liest.
 - `#`, was anzeigt, dass Time Series Insights die Datenwerte als ganze Zahl liest.
 
 Wenn die Timestamp-Eigenschaft nicht explizit angegeben ist, wird der Zeitpunkt der Einreihung eine Ereignisses in die Warteschlange für einen IoT-Hub oder Event Hub als Standardzeitstempel verwendet.
@@ -111,7 +111,7 @@ Wenn die Timestamp-Eigenschaft nicht explizit angegeben ist, wird der Zeitpunkt 
 
 - Möglicherweise greifen Sie auf eine Time Series Insights S1- oder S2-Umgebung zu.
 
-   Zeitreihenmodelle werden nur in Umgebungen mit nutzungsbasierter Bezahlung unterstützt. Weitere Informationen zum Zugriff auf Ihre S1- oder S2-Umgebung über den Time Series Insights Gen2-Explorer finden Sie unter [Visualisieren von Daten im Explorer](./time-series-insights-update-explorer.md).
+   Zeitreihenmodelle werden nur in Umgebungen mit nutzungsbasierter Bezahlung unterstützt. Weitere Informationen zum Zugriff auf Ihre S1- oder S2-Umgebung über den Time Series Insights Gen2-Explorer finden Sie unter [Visualisieren von Daten im Explorer](./concepts-ux-panels.md).
 
    [![Keine Ereignisse in der Umgebung](media/preview-troubleshoot/troubleshoot-no-events.png)](media/preview-troubleshoot/troubleshoot-no-events.png#lightbox)
 
@@ -121,7 +121,7 @@ Wenn die Timestamp-Eigenschaft nicht explizit angegeben ist, wird der Zeitpunkt 
 
 ## <a name="problem-all-my-instances-in-the-gen2-explorer-lack-a-parent"></a>Problem: Bei allen meinen Instanzen im Gen2-Explorer fehlt ein übergeordnetes Element.
 
-Dieses Problem kann auftreten, wenn in Ihrer Umgebung keine Zeitreihenmodell-Hierarchie definiert ist. Weitere Informationen finden Sie unter [Arbeiten mit Zeitreihenmodellen](/azure/time-series-insights/time-series-insights-overview).
+Dieses Problem kann auftreten, wenn in Ihrer Umgebung keine Zeitreihenmodell-Hierarchie definiert ist. Weitere Informationen finden Sie unter [Arbeiten mit Zeitreihenmodellen](./time-series-insights-overview.md).
 
   [![Bei Instanzen ohne übergeordnetes Element wird eine Warnung angezeigt.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 
@@ -135,8 +135,8 @@ Dieses Problem kann auftreten, wenn Sie nicht die neueste Version des Power BI-
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Informationen finden Sie unter [Arbeiten mit Zeitreihenmodellen](/azure/time-series-insights/time-series-insights-overview).
+- Informationen finden Sie unter [Arbeiten mit Zeitreihenmodellen](./time-series-insights-overview.md).
 
-- Weitere Informationen zu [unterstützten JSON-Formen](./how-to-shape-query-json.md).
+- Weitere Informationen zu [unterstützten JSON-Formen](./concepts-json-flattening-escaping-rules.md).
 
-- Lesen Sie [Planung und Limits](./time-series-insights-update-plan.md) in Azure Time Series Insights Gen2.
+- Lesen Sie [Planung und Limits](./how-to-plan-your-environment.md) in Azure Time Series Insights Gen2.

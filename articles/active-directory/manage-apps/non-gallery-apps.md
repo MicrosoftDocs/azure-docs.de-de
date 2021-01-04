@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 07/27/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 262c3a7c8a668ef25d092b5d523743e0ece89cc3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3483701d34b8fef5b40a411e22b33a73db2de44b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88641142"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658739"
 ---
 # <a name="using-azure-ad-for-applications-not-listed-in-the-app-gallery"></a>Verwenden von Azure AD für nicht im App-Katalog aufgeführten Anwendungen
 
 Im Schnellstart [App hinzufügen](add-application-portal.md) erfahren Sie, wie Sie Ihrem Azure AD-Mandanten eine App hinzufügen.
 
-Zusätzlich zu den Optionen im [Azure AD-Anwendungskatalog](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) haben Sie die Möglichkeit, eine **Nicht-Kataloganwendung** hinzuzufügen. 
+Zusätzlich zu den Optionen im [Azure AD-Anwendungskatalog](../saas-apps/tutorial-list.md) haben Sie die Möglichkeit, eine **Nicht-Kataloganwendung** hinzuzufügen. 
 
 ## <a name="capabilities-for-apps-not-listed-in-the-azure-ad-gallery"></a>Funktionen für Apps, die nicht im Azure AD-Katalog aufgeführt sind
 
@@ -33,9 +33,8 @@ Sie können in Ihrer Organisation bereits vorhandene Anwendungen oder Anwendunge
 - Self-Service-Verbindung für Anwendungen, die das [SCIM-Protokoll (System for Cross-Domain Identity Management) verwenden](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 - Möglichkeit zum Hinzufügen von Links zu Anwendungen im [Office 365-App-Startfeld](https://www.microsoft.com/microsoft-365/blog/2014/10/16/organize-office-365-new-app-launcher-2/) oder in [Meine Apps](sso-options.md#linked-sign-on)
 
-Wenn Sie nach einer Anleitung für Entwickler zum Integrieren von benutzerdefinierten Apps in Azure AD suchen, finden Sie diese unter [Authentifizierungsszenarios für Azure AD](../develop/authentication-scenarios.md). Wenn Sie eine App entwickeln, die ein modernes Protokoll wie [OpenID Connect/OAuth](../develop/active-directory-v2-protocols.md) zum Authentifizieren von Benutzern verwendet, können Sie die App im Azure-Portal über die Oberfläche für [App-Registrierungen](../develop/quickstart-register-app.md) bei der Microsoft Identity Platform registrieren.
+Wenn Sie nach einer Anleitung für Entwickler zum Integrieren von benutzerdefinierten Apps in Azure AD suchen, finden Sie diese unter [Authentifizierungsszenarios für Azure AD](../develop/authentication-vs-authorization.md). Wenn Sie eine App entwickeln, die ein modernes Protokoll wie [OpenID Connect/OAuth](../develop/active-directory-v2-protocols.md) zum Authentifizieren von Benutzern verwendet, können Sie die App im Azure-Portal über die Oberfläche für [App-Registrierungen](../develop/quickstart-register-app.md) bei der Microsoft Identity Platform registrieren.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Schnellstartserie zur App-Verwaltung](view-applications-portal.md)
-

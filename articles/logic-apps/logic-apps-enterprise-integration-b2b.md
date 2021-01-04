@@ -7,13 +7,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 02/10/2020
-ms.openlocfilehash: afae49cf6ee44b138a55f58f415fc761308b7894
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/02/2020
+ms.openlocfilehash: e16cc8934407a5c54c84fd045c99e28116e656c9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542375"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310495"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Empfangen und Bestätigen von B2B-AS2-Nachrichten mit Azure Logic Apps und Enterprise Integration Pack
 
@@ -39,7 +39,7 @@ In diesem Artikel wird veranschaulicht, wie Sie eine Logik-App erstellen, die pe
 
 * Mindestens zwei [Parteien](../logic-apps/logic-apps-enterprise-integration-partners.md), die Sie in Ihrem Integrationskonto mit den [AS2- und X12-Vereinbarungen](logic-apps-enterprise-integration-agreements.md) für diese Partner bereits definiert haben.
 
-## <a name="add-request-trigger"></a>Anforderungstrigger hinzufügen
+## <a name="add-the-request-trigger"></a>Hinzufügen des Anforderungstriggers
 
 In diesem Beispiel wird der Logik-App-Designer im Azure-Portal verwendet, aber die Schritte für den Logik-App-Designer in Visual Studio sind sehr ähnlich.
 
@@ -59,7 +59,7 @@ In diesem Beispiel wird der Logik-App-Designer im Azure-Portal verwendet, aber d
 
    ![Für Anforderungstrigger generierte URL für den Empfang von Aufrufen](./media/logic-apps-enterprise-integration-b2b/generated-url-request-trigger.png)
 
-## <a name="add-as2-decode-action"></a>Hinzufügen der Aktion für die AS2-Decodierung
+## <a name="add-the-as2-decode-action"></a>Hinzufügen der Aktion für die AS2-Decodierung
 
 Fügen Sie nun die B2B-Aktionen hinzu, die Sie verwenden möchten. In diesem Beispiel werden AS2- und X12-Aktionen verwendet.
 
@@ -73,7 +73,7 @@ Fügen Sie nun die B2B-Aktionen hinzu, die Sie verwenden möchten. In diesem Bei
 
 1. Geben Sie für die Eigenschaft **Zu decodierende Nachricht** die Eingabe ein, die von der AS2-Aktion decodiert werden soll. Dies ist der `body`-Inhalt, der vom HTTP-Anforderungstrigger empfangen wird. Sie haben mehrere Möglichkeiten, diesen Inhalt als Eingabe anzugeben, nämlich entweder aus der Liste mit dem dynamischen Inhalt oder als Ausdruck:
 
-   * Klicken Sie in das Feld **Zu decodierende Nachricht**, um in der Liste mit den verfügbaren Triggerausgaben eine Auswahl zu treffen. Wählen Sie in der Liste mit dem dynamischen Inhalt unter **Beim Empfang einer HTTP-Anforderung** den Eigenschaftswert **Text** (Body) aus. Beispiel:
+   * Klicken Sie in das Feld **Zu decodierende Nachricht** , um in der Liste mit den verfügbaren Triggerausgaben eine Auswahl zu treffen. Wählen Sie in der Liste mit dem dynamischen Inhalt unter **Beim Empfang einer HTTP-Anforderung** den Eigenschaftswert **Text** (Body) aus. Beispiel:
 
      ![Auswählen des Werts „Body“ für Trigger](./media/logic-apps-enterprise-integration-b2b/select-body-content-from-trigger.png)
 
@@ -85,19 +85,27 @@ Fügen Sie nun die B2B-Aktionen hinzu, die Sie verwenden möchten. In diesem Bei
 
      `@triggerBody()`
 
-     Der Ausdruck wird in das **Body**-Token aufgelöst.
+     Der Ausdruck wird in das **Body** -Token aufgelöst.
 
      ![Aufgelöste Textausgabe des Triggers](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-body-expression.png)
 
 1. Geben Sie für die Eigenschaft **Nachrichtenheader** alle Header ein, die für die AS2-Aktion benötigt werden. Diese werden mit dem `headers`-Inhalt beschrieben, der vom HTTP-Anforderungstrigger empfangen wird.
 
-   Klicken Sie zum Eingeben eines Ausdrucks, mit dem auf die `headers`-Ausgabe des Triggers verwiesen wird, in das Feld **Nachrichtenheader**. Wählen Sie in der angezeigten Liste mit dem dynamischen Inhalt die Option **Ausdruck** aus. Geben Sie im Ausdrucks-Editor den folgenden Ausdruck ein, und wählen Sie **OK** aus:
+   1. Wählen Sie zum Eingeben eines Ausdrucks, mit dem auf die `headers`-Ausgabe des Triggers verwiesen wird, die Option **Switch Message headers to text mode** (Nachrichtenheader auf Textmodus umstellen) aus.
 
-   `triggerOutputs()['Headers']`
+      ![Screenshot: Ausgewählte Option „Switch Message headers to text mode“ (Nachrichtenheader auf Textmodus umstellen)](./media/logic-apps-enterprise-integration-b2b/as2-decode-switch-text-mode.png)
 
-   Wechseln Sie zwischen dem Designer und der Codeansicht, damit dieser Ausdruck als entsprechendes Token aufgelöst wird. Beispiel:
+   1. Klicken Sie in das Feld **Nachrichtenheader**. Wählen Sie in der angezeigten Liste mit dem dynamischen Inhalt die Option **Ausdruck** aus. Geben Sie im Ausdrucks-Editor den folgenden Ausdruck ein, und wählen Sie **OK** aus:
 
-   ![Aufgelöste Headerausgabe für Trigger](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-headers-expression.png)
+      `triggerOutputs()['Headers']`
+
+      In der Aktion für die AS2-Decodierung wird der Ausdruck jetzt als Token angezeigt:
+
+      ![Screenshot: Token „@triggerOutputs()['Headers']“ im Feld „Nachrichtenheader“](./media/logic-apps-enterprise-integration-b2b/as2-decode-message-header-expression.png)
+
+   1. Wechseln Sie zwischen dem Designer und der Codeansicht, damit das Ausdruckstoken in das entsprechende **Headertoken** aufgelöst wird. Nach diesem Schritt sieht die Aktion für die AS2-Decodierung wie im folgenden Beispiel aus:
+
+      ![Aufgelöste Headerausgabe für Trigger](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-headers-expression.png)
 
 ## <a name="add-response-action-for-message-receipt-notification"></a>Hinzufügen einer Antwortaktion als Benachrichtigung über den Empfang der Nachricht
 

@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/30/2020
+ms.date: 11/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.custom: contperfq1
-ms.openlocfilehash: 24e514208683d540f08818020238090583a1bc42
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: c9815355b26a9c14c02110e4bb5fff4f998d2105
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362466"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032031"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Was ist die Azure AD-Berechtigungsverwaltung?
 
@@ -85,7 +85,7 @@ Sie können auch den Zugriff auf andere Ressourcen steuern, die auf Azure AD-Sic
 
 Bei einem Zugriffspaket listet ein Administrator oder delegierter Zugriffspaket-Manager die Ressourcen (Gruppen, Apps und Websites) sowie die Rollen auf, die die Benutzer für diese Ressourcen benötigen.
 
-Zugriffspakete enthalten außerdem eine oder mehrere *Richtlinien* . Eine Richtlinie definiert die Regeln oder Leitlinien für die Zuweisung zu einem Zugriffspaket. Die einzelnen Richtlinien können verwendet werden, um sicherzustellen, dass nur die entsprechenden Benutzer Zugriff anfordern können, dass es genehmigende Personen für die Anforderung gibt und dass der Zugriff auf die betreffenden Ressourcen zeitlich begrenzt ist und abläuft, sofern er nicht erneuert wird.
+Zugriffspakete enthalten außerdem eine oder mehrere *Richtlinien*. Eine Richtlinie definiert die Regeln oder Leitlinien für die Zuweisung zu einem Zugriffspaket. Die einzelnen Richtlinien können verwendet werden, um sicherzustellen, dass nur die entsprechenden Benutzer Zugriff anfordern können, dass es genehmigende Personen für die Anforderung gibt und dass der Zugriff auf die betreffenden Ressourcen zeitlich begrenzt ist und abläuft, sofern er nicht erneuert wird.
 
 ![Zugriffspakete und Zugriffspaketrichtlinien](./media/entitlement-management-overview/elm-overview-access-package.png)
 
@@ -144,17 +144,22 @@ Spezielle Clouds, z. B. Azure Deutschland und Azure China 21Vianet, können der
 Die Anzahl der Azure AD Premium P2-Lizenzen, über die Ihr Verzeichnis verfügen muss, errechnet sich anhand der folgenden Zahlen:
 
 - Mitgliedsbenutzer, die ein Zugriffspaket anfordern **können**
-- Mitglieds- und Gastbenutzer, die ein Zugriffspaket anfordern
-- Mitglieds- und Gastbenutzer, die die Anforderung eines Zugriffspakets genehmigen
-- Mitglieds- und Gastbenutzer, die über eine direkte Zuweisung zu einem Zugriffspaket verfügen
+- Mitgliedsbenutzer, die ein Zugriffspaket <u>anfordern</u>
+- Mitgliedsbenutzer, die <u>Zugriffspaketanforderungen genehmigen</u>
+- Mitgliedsbenutzer, die <u>Zugriffspaketzuweisungen überprüfen</u> 
+- Mitgliedsbenutzer mit <u>direkter Zuweisung</u> zu einem Zugriffspaket
+
+Bei Gastbenutzern hängen die Lizenzierungsanforderungen vom verwendeten [Lizenzierungsmodell](../external-identities/external-identities-pricing.md) ab. Die folgenden Gastbenutzeraktivitäten werden jedoch als Azure AD Premium P2-Nutzung betrachtet:
+- Gastbenutzer, die ein Zugriffspaket <u>anfordern</u> 
+- Gastbenutzer, die <u>Zugriffspaketanforderungen genehmigen</u>
+- Gastbenutzer, die <u>Zugriffspaketzuweisungen überprüfen</u>
+- Gastbenutzer mit <u>direkter Zuweisung</u> zu einem Zugriffspaket 
 
 Für die folgenden Aufgaben sind **keine** Azure AD Premium P2-Lizenzen erforderlich:
 
 - Für Benutzer mit der Rolle „globaler Administrator“, die Anfangskataloge einrichten, auf Pakete und Richtlinien zugreifen und administrative Aufgaben an andere Benutzer delegieren, sind keine Lizenzen erforderlich.
 - Für Benutzer, an die administrative Aufgaben (z. B. Katalogersteller, Katalogbesitzer und Zugriffspaketmanager) delegiert wurden, sind keine Lizenzen erforderlich.
-- Für Gäste, die Zugriffspakete anfordern **können** , aber **kein** Zugriffspaket anfordern, sind keine Lizenzen erforderlich.
-
-Die Preise für Azure AD External Identities (Gastbenutzer) basieren auf den monatlich aktiven Benutzern (Monthly Active Users, MAU). Dies ist die Anzahl eindeutiger Benutzer mit Authentifizierungsaktivität innerhalb eines Kalendermonats. Dieses Modell ersetzt das Abrechnungsmodell im Verhältnis 1:5, das bis zu fünf Gastbenutzer pro Azure AD Premium-Lizenz in Ihrem Mandanten zuließ. Wenn Ihr Mandant mit einem Abonnement verknüpft ist und Sie External Identities-Features für die Zusammenarbeit mit Gastbenutzern verwenden, erfolgt Ihre Abrechnung automatisch nach dem MAU-basierten Abrechnungsmodell. Weitere Informationen finden Sie unter [Abrechnungsmodell für Azure AD External Identities](../external-identities/external-identities-pricing.md).
+- Für Gäste, die Zugriffspakete anfordern **können**, aber **kein** Zugriffspaket anfordern, sind keine Lizenzen erforderlich.
 
 Weitere Informationen zu Lizenzen finden Sie unter [Zuweisen oder Entfernen von Lizenzen im Azure Active Directory-Portal](../fundamentals/license-users-groups.md).
 

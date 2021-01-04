@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 46435ef773e90234538bb755e20035990bbf1066
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d253699199617489947dd95a44d9bcd1eff17334
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460032"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325407"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Ausführen von Jupyter Notebooks in Ihrem Arbeitsbereich
 
@@ -80,11 +80,11 @@ So greifen Sie auf das Terminal zu
 1. Wählen Sie ein **Computeziel** aus, oder erstellen Sie ein neues Ziel, und warten Sie, bis es ausgeführt wird.
 1. Wählen Sie das Symbol **Terminal öffnen** aus.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Erstellen einer neuen Datei":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Öffnen Sie ein Terminal.":::
 
 1. Wird das Symbol nicht angezeigt, wählen Sie **...** rechts neben dem Computeziel und dann **Terminal öffnen** aus.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Erstellen einer neuen Datei":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Terminal öffnen über...":::
 
 
 Erfahren Sie mehr über das [Klonen von Git-Repositorys in Ihrem Arbeitsbereichsdateisystem](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system).
@@ -109,6 +109,16 @@ Wenn eine Computeinstanz ausgeführt wird, können Sie auch die Codevervollstän
 
 Sie können Jupyter oder JupyterLab auch über die Notebook-Symbolleiste starten.  Azure Machine Learning stellt keine Updates und Fehlerbehebungen von Jupyter oder JupyterLab zur Verfügung, da es sich um Open Source-Produkte außerhalb der Zuständigkeit des Microsoft-Supports handelt.
 
+### <a name="focus-mode"></a>Fokusmodus
+
+Verwenden Sie den Fokusmodus, um Ihre aktuelle Ansicht zu erweitern, sodass Sie sich auf Ihre aktiven Registerkarten konzentrieren können. Der Fokusmodus blendet den Datei-Explorer für Notebooks aus.
+
+1. Wählen Sie auf der Symbolleiste des Terminalfensters **Fokusmodus** aus, um den Fokusmodus zu aktivieren. Abhängig von Ihrer Fensterbreite befindet sich diese möglicherweise unter dem Menüpunkt **...** auf Ihrer Symbolleiste.
+1. Kehren Sie im Fokusmodus zur Standardansicht zurück, indem Sie **Standardansicht** auswählen.
+
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Wechsel zwischen Fokusmodus/Standardansicht":::
+
+
 ### <a name="use-intellisense"></a>Verwenden von IntelliSense
 
 [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) ist eine hilfreiche Anwendung zur Codevervollständigung mit Features wie: Auflisten von Elementen, Parameterinformationen, QuickInfo und Wort vervollständigen. Diese Features helfen Ihnen, mehr über den von Ihnen verwendeten Code zu erfahren, die von Ihnen eingegebenen Parameter zu verfolgen und Aufrufe von Eigenschaften und Methoden mit nur wenigen Tastatureingaben hinzuzufügen.  
@@ -126,20 +136,20 @@ Im Laufe der Erstellung eines Notebooks verfügen Sie in der Regel über Zellen,
 1. Führen Sie alle Notebookzellen aus.
 1. Wählen Sie die Zelle aus mit dem Code aus, den das neue Notebook ausführen soll, beispielsweise Code zum Übermitteln eines Experiments oder vielleicht Code zum Registrieren eines Modells.
 1. Wählen Sie das Symbol **Sammeln** aus, das auf der Symbolleiste für Zellen angezeigt wird.
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Erstellen einer neuen Datei":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Screenshot: Auswählen des Symbols „Sammeln“":::
 1. Geben Sie den Namen für das neue „gesammelte“ Notebook ein.  
 
 Das neue Notebook enthält nur Codezellen. Dabei müssen alle Zellen die gleichen Ergebnisse wie die Zelle generieren, die Sie für die Sammlung ausgewählt haben.
 
 ### <a name="save-and-checkpoint-a-notebook"></a>Speichern eines Notebooks und Hinzufügen eines Prüfpunkts
 
-Azure Machine Learning erstellt eine Prüfpunktdatei, wenn Sie eine  *IPYNB* -Datei erstellen.
+Azure Machine Learning erstellt eine Prüfpunktdatei, wenn Sie eine *IPYNB* -Datei erstellen.
 
 Wählen Sie in der Notebook-Symbolleiste das Menü und dann **Datei&gt;Save and Checkpoint** (Speichern und Prüfpunkt), um das Notebook manuell zu speichern. Dadurch wird eine dem Notebook zugeordnete Prüfpunktdatei hinzugefügt.
 
-:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Erstellen einer neuen Datei":::
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Screenshot des Speichertools auf der Notebook-Symbolleiste":::
 
-Jedes Notebook wird alle 30 Sekunden automatisch gespeichert. Das automatische Speichern aktualisiert nur die ursprüngliche  *IPYNB* -Datei, nicht die Prüfpunktdatei.
+Jedes Notebook wird alle 30 Sekunden automatisch gespeichert. Die automatische Speicherung aktualisiert nur die ursprüngliche *IPYNB* -Datei, nicht die Prüfpunktdatei.
  
 Wählen Sie **Checkpoints** (Prüfpunkte) im Notebook-Menü aus, um einen benannten Prüfpunkt zu erstellen und das Notebook auf einen gespeicherten Prüfpunkt zurückzusetzen.
 
@@ -157,9 +167,9 @@ Wählen Sie **Checkpoints** (Prüfpunkte) im Notebook-Menü aus, um einen benann
 
 ## <a name="delete-a-notebook"></a>Löschen eines Notebooks
 
-Sie können die **Beispiel**-Notebooks *nicht* löschen.  Diese Notebooks sind Teil des Studios und werden jedes Mal aktualisiert, wenn ein neues SDK veröffentlicht wird.  
+Sie können die **Beispiel** -Notebooks *nicht* löschen.  Diese Notebooks sind Teil des Studios und werden jedes Mal aktualisiert, wenn ein neues SDK veröffentlicht wird.  
 
-Sie *können* **Benutzerdateien**-Notebooks auf eine der folgenden Arten löschen:
+Sie *können* **Benutzerdateien** -Notebooks auf eine der folgenden Arten löschen:
 
 * Wählen Sie im Studio die **...** (Auslassungspunkte) am Ende eines Ordners oder einer Datei aus.  Stellen Sie sicher, dass Sie einen unterstützten Browser (Microsoft Edge, Chrome oder Firefox) verwenden.
 * Wählen Sie auf einer beliebigen Notebook-Symbolleiste [**Terminal öffnen**](#terminal) aus, um auf das Terminalfenster für die Computeinstanz zuzugreifen.
@@ -178,7 +188,7 @@ Nur Sie können die von Ihnen erstellten Computeinstanzen sehen und verwenden.  
 
 ### <a name="view-logs-and-output"></a>Anzeigen von Protokollen und Ausgaben
 
-Verwenden Sie [Notebook-Widgets](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true), um den Fortschritt der Ausführung und der Protokolle anzuzeigen. Ein Widget ist asynchron und bietet Updates, bis das Training abgeschlossen ist. Azure Machine Learning-Widgets werden auch in Jupyter und JupterLab unterstützt.
+Verwenden Sie [Notebook-Widgets](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py), um den Fortschritt der Ausführung und der Protokolle anzuzeigen. Ein Widget ist asynchron und bietet Updates, bis das Training abgeschlossen ist. Azure Machine Learning-Widgets werden auch in Jupyter und JupterLab unterstützt.
 
 ## <a name="change-the-notebook-environment"></a>Ändern der Notebookumgebung
 
@@ -208,7 +218,7 @@ Das Notebook findet automatisch alle Jupyter-Kernel, die auf der verbundenen Com
 1. Wählen Sie auf der Notebook-Symbolleiste [**Terminal öffnen**](#terminal) aus.
 1. Verwenden Sie das Terminalfenster, um eine neue Umgebung zu erstellen.  Beispielsweise erstellt der folgende Code `newenv`:
     ```shell
-    conda create --name newenv
+    conda create -y --name newenv
     ```
 1. Aktivieren Sie die Umgebung.  Beispielsweise nach dem Erstellen von `newenv`:
 
@@ -218,16 +228,19 @@ Das Notebook findet automatisch alle Jupyter-Kernel, die auf der verbundenen Com
 1. Installieren Sie das pip- und ipykernel-Paket in der neuen Umgebung, und erstellen Sie einen Kernel für diese conda-Umgebung.
 
     ```shell
-    conda install pip
-    conda install ipykernel
+    conda install -y pip
+    conda install -y ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
+
+> [!NOTE]
+> Für die Paketverwaltung innerhalb eines Notebooks verwenden Sie die magischen Funktionen **%pip** oder **%conda** , um Pakete automatisch in den **aktuell aktiven Kernel** zu installieren, anstatt **!pip** oder **!conda** , die sich auf alle Pakete beziehen (einschließlich der Pakete außerhalb des aktuell aktiven Kernels).
 
 Jeder der [verfügbaren Jupyter-Kernel](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) kann installiert werden.
 
 ### <a name="status-indicators"></a>Statusanzeigen
 
-Ein Indikator neben der **Compute**-Dropdownliste zeigt seinen Status an.  Der Status wird auch in der Dropdownliste selbst angezeigt.  
+Ein Indikator neben der **Compute** -Dropdownliste zeigt seinen Status an.  Der Status wird auch in der Dropdownliste selbst angezeigt.  
 
 |Color |Computestatus |
 |---------|---------| 
@@ -237,7 +250,7 @@ Ein Indikator neben der **Compute**-Dropdownliste zeigt seinen Status an.  Der S
 |  Hellblau |Erstellen, Starten, Neustarten und Einrichten von Compute |
 |  Grau |Compute wird gelöscht, beendet |
 
-Ein Indikator neben der **Kernel**-Dropdownliste zeigt seinen Status an.
+Ein Indikator neben der **Kernel** -Dropdownliste zeigt seinen Status an.
 
 |Color |Kernelstatus |
 |---------|---------|
@@ -246,7 +259,7 @@ Ein Indikator neben der **Kernel**-Dropdownliste zeigt seinen Status an.
 
 ## <a name="find-compute-details"></a>Suchen von Computedetails 
 
-Hier finden Sie Details zu ihren Computeinstanzen auf der **Compute**-Seite in [Studio](https://ml.azure.com).
+Hier finden Sie Details zu ihren Computeinstanzen auf der **Compute** -Seite in [Studio](https://ml.azure.com).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

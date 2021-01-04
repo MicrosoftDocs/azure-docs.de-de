@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3a3395873d7655118e3fcc9c36cdfc3855f8f000
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 14da8b6cb695703f1881b6b0b9858772bde386c5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714807"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544750"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Checkliste zu Leistung und Skalierbarkeit für Blob Storage
 
@@ -59,7 +59,7 @@ In diesem Artikel werden bewährte Methoden für die Leistung in einer Checklist
 
 Wenn Ihre Anwendung eines der Skalierbarkeitsziele erreicht oder überschreitet, kann es zu erhöhter Transaktionslatenz oder Drosselung kommen. Wenn Azure Storage Ihre Anwendung drosselt, beginnt der Dienst, die Fehlercodes 503 (Server ausgelastet) oder 500 (Timeout bei Vorgang) zurückzugeben. Diese Fehler zu vermeiden, indem Sie innerhalb der Grenzwerte der Skalierbarkeitsziele bleiben, trägt maßgeblich dazu bei, die Leistung Ihrer Anwendung zu verbessern.
 
-Weitere Informationen zu den Skalierbarkeitszielen für den Warteschlangendienst finden Sie unter [Skalierbarkeits- und Leistungsziele in Azure Storage](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage).
+Weitere Informationen zu den Skalierbarkeitszielen für den Warteschlangendienst finden Sie unter [Skalierbarkeits- und Leistungsziele in Azure Storage](../queues/scalability-targets.md#scale-targets-for-queue-storage).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Maximale Anzahl von Speicherkonten
 
@@ -195,7 +195,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 Für andere Programmiersprachen erfahren Sie in der zugehörigen Dokumentation, wie Sie das Verbindungslimit festlegen.  
 
-Weitere Informationen finden Sie im Blogbeitrag [Webdienste: Gleichzeitige Verbindungen](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Weitere Informationen finden Sie im Blogbeitrag [Webdienste: Gleichzeitige Verbindungen](/archive/blogs/darrenj/web-services-concurrent-connections).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Erhöhen der Mindestanzahl von Threads
 
@@ -213,7 +213,7 @@ Parallelität kann großartig für die Leistung sein. Bei der Verwendung von une
 
 ## <a name="client-libraries-and-tools"></a>Clientbibliotheken und -tools
 
-Verwenden Sie für optimale Leistung immer die aktuellen Clientbibliotheken und -tools von Microsoft. Azure Storage-Clientbibliotheken sind für viele Programmiersprachen verfügbar. Azure Storage unterstützt auch PowerShell und die Azure-Befehlszeilenschnittstelle (Azure CLI). Microsoft entwickelt diese Clientbibliotheken und -tools aktiv im Hinblick auf die Leistung, hält sie auf dem aktuellen Stand der Dienstversionen und stellt sicher, dass sie viele der bewährten Methoden für die Leistung intern umsetzen. Weitere Informationen finden Sie in der [Azure Storage-Referenzdokumentation](/azure/storage/#reference).
+Verwenden Sie für optimale Leistung immer die aktuellen Clientbibliotheken und -tools von Microsoft. Azure Storage-Clientbibliotheken sind für viele Programmiersprachen verfügbar. Azure Storage unterstützt auch PowerShell und die Azure-Befehlszeilenschnittstelle (Azure CLI). Microsoft entwickelt diese Clientbibliotheken und -tools aktiv im Hinblick auf die Leistung, hält sie auf dem aktuellen Stand der Dienstversionen und stellt sicher, dass sie viele der bewährten Methoden für die Leistung intern umsetzen.
 
 ## <a name="handle-service-errors"></a>Behandeln von Dienstfehlern
 
@@ -243,11 +243,11 @@ Um Daten innerhalb desselben Speicherkontos zu kopieren, verwenden Sie den [Copy
 
 ### <a name="use-azcopy"></a>Verwenden von AzCopy
 
-Das Befehlszeilenprogramm AzCopy bietet eine einfache und effiziente Möglichkeit für die Massenübertragung von Blobs in, aus und übergreifend über Speicherkonten. AzCopy ist für dieses Szenario optimiert und kann hohe Übertragungsraten erzielen. AzCopy, Version 10, verwendet den `Put Block From URL`-Vorgang, um Blobdaten übergreifend über Speicherkonten zu kopieren. Weitere Informationen finden Sie unter [Kopieren oder Verschieben von Daten in Azure Storage mit AzCopy v10](/azure/storage/common/storage-use-azcopy-v10).  
+Das Befehlszeilenprogramm AzCopy bietet eine einfache und effiziente Möglichkeit für die Massenübertragung von Blobs in, aus und übergreifend über Speicherkonten. AzCopy ist für dieses Szenario optimiert und kann hohe Übertragungsraten erzielen. AzCopy, Version 10, verwendet den `Put Block From URL`-Vorgang, um Blobdaten übergreifend über Speicherkonten zu kopieren. Weitere Informationen finden Sie unter [Kopieren oder Verschieben von Daten in Azure Storage mit AzCopy v10](../common/storage-use-azcopy-v10.md).  
 
 ### <a name="use-azure-data-box"></a>Verwenden von Azure Data Box
 
-Zum Importieren großer Datenmengen in Blob Storage sollten Sie die Azure Data Box-Familie für Offlineübertragungen verwenden. Von Microsoft bereitgestellte Data Box-Geräte bieten eine gute Möglichkeit, große Datenmengen in Azure zu übertragen, wenn Einschränkungen bei der Zeit, der Netzwerkverfügbarkeit oder den Kosten vorliegen. Weitere Informationen finden Sie in der [Azure Data Box-Dokumentation](/azure/databox/).
+Zum Importieren großer Datenmengen in Blob Storage sollten Sie die Azure Data Box-Familie für Offlineübertragungen verwenden. Von Microsoft bereitgestellte Data Box-Geräte bieten eine gute Möglichkeit, große Datenmengen in Azure zu übertragen, wenn Einschränkungen bei der Zeit, der Netzwerkverfügbarkeit oder den Kosten vorliegen. Weitere Informationen finden Sie in der [Azure Data Box-Dokumentation](../../databox/index.yml).
 
 ## <a name="content-distribution"></a>Inhaltsverteilung
 

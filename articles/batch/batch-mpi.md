@@ -4,12 +4,12 @@ description: Erfahren Sie, wie MPI-Anwendungen (Message Passing Interface) mithi
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: H1Hack27Feb2017, devx-track-csharp
-ms.openlocfilehash: 3dc52d13cf41347e7382872e887d87fc9b25a95b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 6aa6a910dd57a255d9ec9292119bc692edf4946f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108081"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351519"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Verwenden von Tasks mit mehreren Instanzen zum Ausführen von MPI-Anwendungen (Message Passing Interface) in Batch
 
@@ -95,8 +95,8 @@ Suchen Sie in den folgenden Artikeln nach den Größen, für die „RDMA-fähig�
   * [Größen für Clouddienste](../cloud-services/cloud-services-sizes-specs.md) (nur Windows)
 * **VirtualMachineConfiguration**-Pools
 
-  * [Größen für virtuelle Computer in Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) (Linux)
-  * [Größen für virtuelle Computer in Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) (Windows)
+  * [Größen für virtuelle Computer in Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux)
+  * [Größen für virtuelle Computer in Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
 > Zum Nutzen von RDMA auf [Linux-Computeknoten](batch-linux-nodes.md) müssen Sie **Intel MPI** auf den Knoten verwenden.
@@ -153,7 +153,7 @@ cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d
 Beachten Sie die Verwendung von `start` in diesem Koordinationsbefehl. Dies ist erforderlich, da die `smpd.exe` -Anwendung nicht sofort nach der Ausführung zurückgegeben wird. Ohne die Verwendung des [start][cmd_start]-Befehls würde dieser Koordinationsbefehl nicht zurückgegeben und daher die Ausführung des Anwendungsbefehls blockieren.
 
 ## <a name="application-command"></a>Anwendungsbefehl
-Nachdem der Primärtask und die Subtasks die Ausführung des Koordinationsbefehls abgeschlossen haben, wird die Befehlszeile des Tasks mit mehreren Instanzen *nur*vom Primärtask ausgeführt. Wir bezeichnen dies zur Unterscheidung vom Koordinationsbefehl als **Anwendungsbefehl** .
+Nachdem der Primärtask und die Subtasks die Ausführung des Koordinationsbefehls abgeschlossen haben, wird die Befehlszeile des Tasks mit mehreren Instanzen *nur* vom Primärtask ausgeführt. Wir bezeichnen dies zur Unterscheidung vom Koordinationsbefehl als **Anwendungsbefehl** .
 
 Verwenden Sie bei MS-MPI-Anwendungen den Anwendungsbefehl, um Ihre MPI-fähige Anwendung mit `mpiexec.exe` auszuführen. Hier sehen Sie ist z. B. einen Anwendungsbefehl für eine Lösung mit MS-MPI Version 7:
 
@@ -258,12 +258,12 @@ Im Codebeispiel [MultiInstanceTasks][github_mpi] auf GitHub wird veranschaulicht
 
 ### <a name="preparation"></a>Vorbereitung
 1. Führen Sie die ersten beiden Schritte in [How to compile and run a simple MS-MPI program][msmpi_howto] (Kompilieren und Ausführen eines einfachen MS-MPI-Programms) aus. Hiermit sind die Voraussetzungen für den folgenden Schritt erfüllt.
-2. Erstellen Sie eine *Freigabe*version des MPI-Beispielprogramms [MPIHelloWorld][helloworld_proj]. Dies ist das Programm, das vom Task mit mehreren Instanzen auf Computeknoten ausgeführt wird.
+2. Erstellen Sie eine *Freigabe* version des MPI-Beispielprogramms [MPIHelloWorld][helloworld_proj]. Dies ist das Programm, das vom Task mit mehreren Instanzen auf Computeknoten ausgeführt wird.
 3. Erstellen Sie eine ZIP-Datei, die `MPIHelloWorld.exe` (in Schritt 2 erstellt) und `MSMpiSetup.exe` (in Schritt 1 heruntergeladen) enthält. Im nächsten Schritt laden Sie diese ZIP-Datei als Anwendungspaket hoch.
 4. Verwenden Sie das [Azure-Portal][portal] zum Erstellen einer Batch-[Anwendung](batch-application-packages.md) mit dem Namen „MPIHelloWorld“, und geben Sie die im vorherigen Schritt als Version „1.0“ des Anwendungspakets erstellte ZIP-Datei an. Weitere Informationen finden Sie unter [Hochladen und Verwalten von Anwendungen](batch-application-packages.md#upload-and-manage-applications).
 
 > [!TIP]
-> Erstellen Sie eine *Freigabe*version von `MPIHelloWorld.exe`, damit Sie keine weiteren Abhängigkeiten (z.B. `msvcp140d.dll` oder `vcruntime140d.dll`) in Ihr Anwendungspaket einbinden müssen.
+> Erstellen Sie eine *Freigabe* version von `MPIHelloWorld.exe`, damit Sie keine weiteren Abhängigkeiten (z.B. `msvcp140d.dll` oder `vcruntime140d.dll`) in Ihr Anwendungspaket einbinden müssen.
 >
 >
 

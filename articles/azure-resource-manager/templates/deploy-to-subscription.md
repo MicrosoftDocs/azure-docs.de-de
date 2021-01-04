@@ -2,15 +2,15 @@
 title: Bereitstellen von Ressourcen in einem Abonnement
 description: In diesem Artikel wird beschrieben, wie Sie eine Ressourcengruppe in einer Azure Resource Manager-Vorlage erstellen. Außerdem wird veranschaulicht, wie Sie Ressourcen für den Bereich des Azure-Abonnements bereitstellen.
 ms.topic: conceptual
-ms.date: 10/05/2020
-ms.openlocfilehash: 0673ea5260c7312395acde8a62b5d457657b9793
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: 2d4bd0db32a4bf0224b9da3af6e03ca86d7b496e
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729116"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95807712"
 ---
-# <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Erstellen von Ressourcengruppen und Ressourcen auf Abonnementebene
+# <a name="subscription-deployments-with-arm-templates"></a>Abonnementbereitstellungen mit ARM-Vorlagen
 
 Um die Verwaltung von Ressourcen zu vereinfachen, können Sie eine Azure Resource Manager-Vorlage (ARM-Vorlage) verwenden, um Ressourcen auf der Ebene Ihres Azure-Abonnements bereitzustellen. Beispielsweise können Sie [Richtlinien](../../governance/policy/overview.md) und [rollenbasierte Zugriffssteuerung in Azure (Azure RBAC)](../../role-based-access-control/overview.md) für Ihr Abonnement bereitstellen, wodurch diese dann in Ihrem gesamten Abonnement angewendet wird. Außerdem können Sie Ressourcengruppen innerhalb des Abonnements erstellen und Ressourcen in Ressourcengruppen im Abonnement bereitstellen.
 
@@ -71,32 +71,26 @@ Das Schema, das Sie für Bereitstellungen auf Abonnementebene verwenden, untersc
 Verwenden Sie für Vorlagen Folgendes:
 
 ```json
-https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    ...
+}
 ```
 
 Das Schema für eine Parameterdatei ist für alle Bereitstellungsbereiche identisch. Verwenden Sie für Parameterdateien Folgendes:
 
 ```json
-https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    ...
+}
 ```
-
-## <a name="deployment-scopes"></a>Bereitstellungsbereiche
-
-Wenn Sie die Bereitstellung in einem Abonnement ausführen, können Sie ein Abonnement und jede beliebige Ressourcengruppen im Abonnement als Ziel verwenden. Sie können keine Bereitstellung in einem Abonnement ausführen, das sich vom Zielabonnement unterscheidet. Der Benutzer, der die Vorlage bereitstellt, muss Zugriff auf den angegebenen Bereich besitzen.
-
-Innerhalb des Ressourcenabschnitts der Vorlage definierte Ressourcen werden auf das Abonnement angewendet.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
-
-Um eine Ressourcengruppe innerhalb des Abonnements als Ziel zu verwenden, fügen Sie eine geschachtelte Bereitstellung hinzu und schließen Sie die `resourceGroup`-Eigenschaft ein. In dem folgenden Beispiel verwendet die geschachtelte Bereitstellung eine Ressourcengruppe namens `rg2` als Ziel.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
-
-In diesem Artikel finden Sie Vorlagen, die zeigen, wie Ressourcen in verschiedenen Bereichen bereitgestellt werden. Eine Vorlage, die eine Ressourcengruppe erstellt und ein Speicherkonto für diese bereitstellt, finden Sie unter [Erstellen von Ressourcengruppen und Ressourcen](#create-resource-group-and-resources). Eine Vorlage, die eine Ressourcengruppe erstellt, eine Sperre darauf anwendet und eine Rolle für die Ressourcengruppe zuweist, finden Sie unter [Zugriffssteuerung](#access-control).
 
 ## <a name="deployment-commands"></a>Bereitstellungsbefehle
 
-Die Befehle für Bereitstellungen auf Abonnementebene unterscheiden sich von den Befehlen für Ressourcengruppenbereitstellungen.
+Verwenden Sie die Bereitstellungsbefehle auf Abonnementbereich für die Bereitstellung in einem Abonnement.
+
+# <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
 Verwenden Sie für die Azure-Befehlszeilenschnittstelle [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create). Das folgende Beispiel stellt eine Vorlage zum Erstellen einer Ressourcengruppe bereit:
 
@@ -107,6 +101,8 @@ az deployment sub create \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json" \
   --parameters rgName=demoResourceGroup rgLocation=centralus
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Verwenden Sie als PowerShell-Bereitstellungsbefehl [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) oder **New-AzSubscriptionDeployment**. Das folgende Beispiel stellt eine Vorlage zum Erstellen einer Ressourcengruppe bereit:
 
@@ -119,35 +115,72 @@ New-AzSubscriptionDeployment `
   -rgLocation centralus
 ```
 
-Verwenden Sie für die REST-API [Bereitstellungen: Erstellen im Abonnementbereich](/rest/api/resources/deployments/createorupdateatsubscriptionscope).
+---
+
+Ausführlichere Informationen über Bereitstellungsbefehle und -optionen für die Bereitstellung von ARM-Vorlagen finden Sie in den folgenden Artikeln:
+
+* [Bereitstellen von Ressourcen mit ARM-Vorlagen und dem Azure-Portal](deploy-portal.md)
+* [Bereitstellen von Ressourcen mit ARM-Vorlagen und der Azure CLI](deploy-cli.md)
+* [Bereitstellen von Ressourcen mit ARM-Vorlagen und Azure PowerShell](deploy-powershell.md)
+* [Bereitstellen von Ressourcen mit ARM-Vorlagen und der Resource Manager-REST-API](deploy-rest.md)
+* [Verwenden einer Bereitstellungsschaltfläche zum Bereitstellen von Vorlagen aus einem GitHub-Repository](deploy-to-azure-button.md)
+* [Bereitstellen von ARM-Vorlagen über Cloud Shell](deploy-cloud-shell.md)
 
 ## <a name="deployment-location-and-name"></a>Bereitstellungsspeicherort und -name
 
-Für Bereitstellungen auf Abonnementebene müssen Sie einen Speicherort für die Bereitstellung angeben. Der Speicherort der Bereitstellung ist vom Speicherort der Ressourcen getrennt, die Sie bereitstellen. Der Bereitstellungsspeicherort gibt an, wo Bereitstellungsdaten gespeichert werden sollen.
+Für Bereitstellungen auf Abonnementebene müssen Sie einen Speicherort für die Bereitstellung angeben. Der Speicherort der Bereitstellung ist vom Speicherort der Ressourcen getrennt, die Sie bereitstellen. Der Bereitstellungsspeicherort gibt an, wo Bereitstellungsdaten gespeichert werden sollen. Die Bereitstellungen von [Verwaltungsgruppe](deploy-to-management-group.md) und [Mandant](deploy-to-tenant.md) benötigen auch einen Speicherort. Für [Ressourcengruppe](deploy-to-resource-group.md)-Bereitstellungen wird der Speicherort der Ressourcengruppe zum Speichern der Bereitstellungsdaten verwendet.
 
 Sie können einen Namen für die Bereitstellung angeben oder den Bereitstellungsstandardnamen verwenden. Der Standardname ist der Name der Vorlagendatei. Wenn Sie z.B. eine Vorlage mit dem Namen **azuredeploy.json** bereitstellen, wird **azuredeploy** als Standardname für die Bereitstellung erstellt.
 
-Der Speicherort für jeden Bereitstellungsnamen ist unveränderlich. Sie können keine Bereitstellung an einem Speicherort erstellen, wenn bereits eine Bereitstellung mit demselben Namen an einem anderen Speicherort vorhanden ist. Wenn Sie den Fehlercode `InvalidDeploymentLocation` erhalten, verwenden Sie entweder einen anderen Namen oder denselben Speicherort wie bei der vorherigen Bereitstellung für diesen Namen.
+Der Speicherort für jeden Bereitstellungsnamen ist unveränderlich. Sie können keine Bereitstellung an einem Speicherort erstellen, wenn bereits eine Bereitstellung mit demselben Namen an einem anderen Speicherort vorhanden ist. Wenn Sie z. B. eine Abonnementbereitstellung mit dem Namen **deployment1** in **centralus** erstellen, können Sie später keine weitere Bereitstellung mit dem Namen **deployment1**, aber einen Speicherort **westus** erstellen. Wenn Sie den Fehlercode `InvalidDeploymentLocation` erhalten, verwenden Sie entweder einen anderen Namen oder denselben Speicherort wie bei der vorherigen Bereitstellung für diesen Namen.
 
-## <a name="use-template-functions"></a>Verwenden von Vorlagenfunktionen
+## <a name="deployment-scopes"></a>Bereitstellungsbereiche
 
-Bei Bereitstellungen auf Abonnementebene müssen bei der Verwendung von Vorlagenfunktionen einige wichtige Aspekte berücksichtigt werden:
+Bei der Bereitstellung in ein Abonnement können Sie Ressourcen an folgenden Orten bereitstellen:
 
-* Die Funktion [resourceGroup()](template-functions-resource.md#resourcegroup) wird **nicht** unterstützt.
-* Die Funktionen [reference()](template-functions-resource.md#reference) und [list()](template-functions-resource.md#list) werden unterstützt.
-* Verwenden Sie nicht [resourceId()](template-functions-resource.md#resourceid), um die Ressourcen-ID für Ressourcen abzurufen, die auf Abonnementebene bereitgestellt werden. Verwenden Sie stattdessen die Funktion [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid).
+* im Zielabonnement des Vorgangs
+* in einem beliebigen Abonnement im Mandanten
+* in anderen Ressourcengruppen im Abonnement oder in anderen Abonnements
+* im Mandanten für das Abonnement
+* [Erweiterungsressourcen](scope-extension-resources.md) können auf Ressourcen angewendet werden.
 
-  Verwenden Sie beispielsweise Folgendes, um die Ressourcen-ID für eine Richtliniendefinition abzurufen, die für ein Abonnement bereitgestellt wird:
+Der Benutzer, der die Vorlage bereitstellt, muss Zugriff auf den angegebenen Bereich besitzen.
 
-  ```json
-  subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
-  ```
+In diesem Abschnitt wird das Festlegen verschiedener Bereiche veranschaulicht. Sie können diese verschiedenen Bereiche in einer Vorlage kombinieren.
 
-  Die zurückgegebene Ressourcen-ID hat das folgende Format:
+### <a name="scope-to-target-subscription"></a>Bereitstellen im Zielabonnement
 
-  ```json
-  /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-  ```
+Zum Bereitstellen von Ressourcen im Zielabonnement fügen Sie die Ressourcen zum Ressourcenabschnitt der Vorlage hinzu.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
+
+Beispiele für die Bereitstellung im Abonnement finden Sie unter [Erstellen von Ressourcengruppen](#create-resource-groups) und [Zuweisen von Richtliniendefinitionen](#assign-policy-definition).
+
+### <a name="scope-to-other-subscription"></a>Bereitstellen in anderem Abonnement
+
+Zum Bereitstellen von Ressourcen in einem anderen Abonnement als dem des Vorgangs fügen Sie eine geschachtelte Bereitstellung hinzu. Legen Sie `subscriptionId` auf die eindeutige ID des Abonnements fest, in dem Sie bereitstellen möchten. Legen Sie die `location`-Eigenschaft für die geschachtelte Bereitstellung fest.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-sub.json" highlight="9,10,14":::
+
+### <a name="scope-to-resource-group"></a>Bereich: Ressourcengruppe
+
+Zum Bereitstellen von Ressourcen in einer Ressourcengruppe im Abonnement fügen Sie eine geschachtelte Bereitstellung hinzu, und verwenden Sie dabei die Eigenschaft `resourceGroup`. In dem folgenden Beispiel verwendet die geschachtelte Bereitstellung eine Ressourcengruppe namens `demoResourceGroup` als Ziel.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
+
+Ein Beispiel für die Bereitstellung in einer Ressourcengruppe finden Sie unter [Erstellen von Ressourcengruppen und Ressourcen](#create-resource-group-and-resources).
+
+### <a name="scope-to-tenant"></a>Bereich: Mandant
+
+Sie können Ressourcen im Mandanten erstellen, indem Sie den `scope` auf `/` festlegen. Der Benutzer, der die Vorlage bereitstellt, muss über den [zum Bereitstellen erforderlichen Zugriff auf dem Mandanten](deploy-to-tenant.md#required-access) verfügen.
+
+Sie können eine geschachtelte Bereitstellung mit festgelegtem `scope` und `location` verwenden.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-to-tenant.json" highlight="9,10,14":::
+
+Alternativ können Sie den Bereich für einige Ressourcentypen wie z. B. Verwaltungsgruppen auf `/` festlegen.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-create-mg.json" highlight="12,15":::
 
 ## <a name="resource-groups"></a>Ressourcengruppen
 

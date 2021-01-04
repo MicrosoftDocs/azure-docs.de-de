@@ -191,6 +191,8 @@
           href: use-managed-identities-environments.md
         - name: Sicherheitswarnungen für Umgebungen
           href: environment-security-alerts.md
+        - name: Erstellen einer anwendungsorientierten Umgebung
+          href: create-application-centric-environment.md
     - name: Verwalten wiederverwendbarer Vorlagen
       items:
         - name: Benutzerdefinierte Images oder Formeln

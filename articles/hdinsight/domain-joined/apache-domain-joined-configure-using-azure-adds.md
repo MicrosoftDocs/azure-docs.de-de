@@ -1,37 +1,46 @@
 ---
-title: Unternehmenssicherheit mit Azure AD DS – Azure HDInsight
-description: Erfahren Sie mehr über das Einrichten und Konfigurieren eines HDInsight-Clusters des Enterprise-Sicherheitspakets mithilfe von Azure Active Directory Domain Services.
+title: Konfigurieren von Clustern für die Active Directory-Integration
+titleSuffix: Azure HDInsight
+description: Erfahren Sie, wie Sie einen in Active Directory integrierten HDInsight-Cluster mithilfe von Azure Active Directory Domain Services und dem Feature „Enterprise-Sicherheitspaket“ einrichten und konfigurieren.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seodec18,seoapr2020
-ms.date: 04/17/2020
-ms.openlocfilehash: 7792ac688ede32155ec32e1f4ba25b328102f86c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18,seoapr2020, contperf-fy21q2
+ms.date: 10/30/2020
+ms.openlocfilehash: 248d909e633607271aec7c2c9b8a373f111f7d98
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86079835"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031481"
 ---
-# <a name="enterprise-security-package-configurations-with-azure-active-directory-domain-services-in-hdinsight"></a>Konfigurationen des Enterprise-Sicherheitspakets mit Azure Active Directory Domain Services in Azure HDInsight
+# <a name="configure-hdinsight-clusters-for-active-directory-integration-with-enterprise-security-package"></a>Konfigurieren von HDInsight-Clustern für die Active Directory-Integration mit dem Enterprise-Sicherheitspaket
 
-ESP-Cluster (Enterprise Security Package, Enterprise-Sicherheitspaket) ermöglichen Mehrbenutzerzugriff in Azure HDInsight-Clustern. HDInsight-Cluster mit ESP sind mit einer Domäne verbunden. Diese Verbindung ermöglicht es Domänenbenutzern, ihre Domänenanmeldeinformationen für die Authentifizierung beim Cluster und zum Ausführen von Big Data-Aufträgen zu verwenden.
+In diesem Artikel erfahren Sie, wie Sie einen in Active Directory integrierten HDInsight-Cluster erstellen und konfigurieren, indem Sie ein Feature namens „Enterprise-Sicherheitspaket (ESP)“, Azure Active Directory Domain Services (Azure AD DS) und Ihr bereits vorhandenes lokales Active Directory verwenden.
 
-In diesem Artikel erfahren Sie, wie Sie einen HDInsight-Cluster mit ESP mit Azure Active Directory Domain Services (Azure AD DS) einrichten und konfigurieren.
+Ein Tutorial zum Einrichten und Konfigurieren einer Domäne in Azure und zum Erstellen eines ESP-aktivierten Clusters finden Sie unter [Erstellen und Konfigurieren von Clustern mit dem Enterprise-Sicherheitspaket in Azure HDInsight](apache-domain-joined-create-configure-enterprise-security-cluster.md).
+
+## <a name="background"></a>Hintergrund
+
+Das Enterprise-Sicherheitspaket (ESP) stellt die Active Directory-Integration für Azure HDInsight bereit. Diese Integration ermöglicht es Domänenbenutzern, ihre Domänenanmeldeinformationen für die Authentifizierung bei HDInsight-Clustern und zum Ausführen von Big Data-Aufträgen zu verwenden.
 
 > [!NOTE]  
 > ESP ist in HDInsight 3.6 und 4.0 für diese Clustertypen allgemein verfügbar: Apache Spark, Interactive, Hadoop und HBase. ESP für den Clustertyp Apache Kafka befindet sich in der Vorschauphase mit bestmöglichem Support. ESP-Cluster, die vor dem Datum der allgemeinen Verfügbarkeit von ESP (1. Oktober 2018) erstellt wurden, werden nicht unterstützt.
 
-## <a name="enable-azure-ad-ds"></a>Aktivieren von Azure AD DS
+## <a name="prerequisites"></a>Voraussetzungen
 
-> [!NOTE]  
-> Nur Mandantenadministratoren verfügen über die Berechtigungen zum Aktivieren von Azure AD DS. Wenn Azure Data Lake Storage Gen1 oder Gen2 als Clusterspeicher verwendet wird, müssen Sie die Azure Multi-Factor Authentication nur für Benutzer deaktivieren, die mit grundlegenden Kerberos-Authentifizierungen auf den Cluster zugreifen müssen.
->
-> Sie können [vertrauenswürdige IP-Adressen](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) oder [bedingten Zugriff](../../active-directory/conditional-access/overview.md) verwenden, um Multi-Factor Authentication *nur* für bestimmte Benutzer zu deaktivieren, wenn diese auf den IP-Adressbereich für das virtuelle Netzwerk des HDInsight-Clusters zugreifen. Bei Verwendung von bedingtem Zugriff muss der Active Directory-Dienstendpunkt im virtuellen HDInsight-Netzwerk aktiviert sein.
->
-> Deaktivieren Sie Multi-Factor Authentication nicht, wenn der Clusterspeicher Azure Blob Storage ist.
+Bevor Sie einen ESP-aktivierten HDInsight-Cluster erstellen können, müssen einige Voraussetzungen erfüllt sein:
+
+- Aktivieren Sie Azure AD DS.
+- Überprüfen Sie den Integritätsstatus von Azure AD DS, um sicherzustellen, dass die Synchronisierung abgeschlossen ist.
+- Erstellen und autorisieren Sie eine verwaltete Identität.
+- Schließen Sie die Einrichtung des Netzwerks für DNS und verwandte Probleme ab.
+
+Jeder dieser Punkte wird im Folgenden ausführlich erörtert.
+
+### <a name="enable-azure-ad-ds"></a>Aktivieren von Azure AD DS
 
 Das Aktivieren von Azure AD DS ist eine Voraussetzung zum Erstellen eines HDInsight-Clusters mit ESP. Weitere Informationen finden Sie unter [Aktivieren von Azure Active Directory Domain Services mithilfe des Azure-Portals](../../active-directory-domain-services/tutorial-create-instance.md).
 
@@ -52,13 +61,20 @@ New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
   -Type SSLServerAuthentication -DnsName *.contoso100.onmicrosoft.com, contoso100.onmicrosoft.com
 ```
 
-## <a name="check-azure-ad-ds-health-status"></a>Überprüfen des AD DS-Integritätsstatus
+> [!NOTE]  
+> Nur Mandantenadministratoren verfügen über die Berechtigungen zum Aktivieren von Azure AD DS. Wenn Azure Data Lake Storage Gen1 oder Gen2 als Clusterspeicher verwendet wird, müssen Sie die Azure AD Multi-Factor Authentication nur für Benutzer deaktivieren, die mit grundlegenden Kerberos-Authentifizierungen auf den Cluster zugreifen müssen.
+>
+> Sie können [vertrauenswürdige IP-Adressen](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) oder [bedingten Zugriff](../../active-directory/conditional-access/overview.md) verwenden, um Multi-Factor Authentication *nur* für bestimmte Benutzer zu deaktivieren, wenn diese auf den IP-Adressbereich für das virtuelle Netzwerk des HDInsight-Clusters zugreifen. Bei Verwendung von bedingtem Zugriff muss der Active Directory-Dienstendpunkt im virtuellen HDInsight-Netzwerk aktiviert sein.
+>
+> Deaktivieren Sie Multi-Factor Authentication nicht, wenn der Clusterspeicher Azure Blob Storage ist.
+
+### <a name="check-azure-ad-ds-health-status"></a>Überprüfen des AD DS-Integritätsstatus
 
 Zeigen Sie den Integritätsstatus von den Azure Active Directory Domain Services an, indem Sie **Integrität** unter der Kategorie **Verwalten** auswählen. Stellen Sie sicher, dass der Status von AD DS grün (wird ausgeführt) und die Synchronisierung abgeschlossen ist.
 
 ![Azure AD DS-Integrität](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-health.png)
 
-## <a name="create-and-authorize-a-managed-identity"></a>Erstellen und Autorisieren einer verwalteten Identität
+### <a name="create-and-authorize-a-managed-identity"></a>Erstellen und Autorisieren einer verwalteten Identität
 
 Sie können eine *benutzerseitig zugewiesene verwaltete Identität* verwenden, um Domänendienstvorgänge zu vereinfachen und zu schützen. Wenn Sie der verwalteten Identität die Rolle **HDInsight-Domänendienste: Mitwirkender** zuweisen, kann sie Domänendienstvorgänge lesen, erstellen, ändern und löschen.
 
@@ -78,7 +94,7 @@ Beispielsweise kann der Azure AD DS-Administrator diese Rolle der Gruppe **Marke
 
 ![Rollenzuweisung „Operator für verwaltete Identität“ in HDInsight](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-managed-identity-operator-role-assignment.png)
 
-## <a name="network-considerations"></a>Netzwerküberlegungen
+### <a name="network-configuration"></a>Netzwerkkonfiguration
 
 > [!NOTE]  
 > Azure AD DS muss in einem Azure Resource Manager-basierten virtuellen Netzwerk bereitgestellt werden. Klassische virtuelle Netzwerke werden für Azure AD DS nicht unterstützt. Weitere Informationen finden Sie unter [Aktivieren von Azure Active Directory Domain Services mithilfe des Azure-Portals](../../active-directory-domain-services/tutorial-create-instance-advanced.md#create-and-configure-the-virtual-network).
@@ -128,7 +144,7 @@ Zum Erstellen eines HDInsight-Clusters mit ESP müssen Sie die folgenden Paramet
 
 Die von Ihnen erstellte verwaltete Identität kann beim Erstellen eines neuen Clusters aus der Dropdownliste für die **benutzerseitig zugewiesene verwaltete Identität** ausgewählt werden.
 
-![Verwaltete Active Directory Domain Services-Identität für Azure HDInsight-Sicherheitspaket (ESP)](./media/apache-domain-joined-configure-using-azure-adds/azure-portal-cluster-security-networking-identity.png)erforderlich.
+![Verwaltete Active Directory Domain Services-Identität für Azure HDInsight-Sicherheitspaket (ESP)](./media/apache-domain-joined-configure-using-azure-adds/azure-portal-cluster-security-networking-identity.png).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

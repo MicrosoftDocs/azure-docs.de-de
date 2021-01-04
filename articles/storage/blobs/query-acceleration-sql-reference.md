@@ -10,12 +10,12 @@ ms.date: 09/09/2020
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
-ms.openlocfilehash: affddf7367f58107106ae07a07b8baedac73e251
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2eda67e377a3b61e696e732b916d788c00a18eae
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89659556"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95908777"
 ---
 # <a name="query-acceleration-sql-language-reference"></a>Abfragebeschleunigung – SQL-Sprachreferenz
 
@@ -63,7 +63,7 @@ SELECT sys.split(split_size)FROM BlobStorage
 |timestamp|Ein Zeitpunkt.                           |
 |BOOLEAN  |„true“ oder „false“.                             |
 
-Beim Lesen von Werten aus CSV-formatierten Daten werden alle Werte als Zeichenfolgen gelesen.  Zeichenfolgenwerte können mithilfe von CAST-Ausdrücken in andere Typen konvertiert werden.  Werte können abhängig vom Kontext implizit in andere Typen umgewandelt werden. Weitere Informationen finden Sie unter [Rangfolge der Datentypen (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql).
+Beim Lesen von Werten aus CSV-formatierten Daten werden alle Werte als Zeichenfolgen gelesen.  Zeichenfolgenwerte können mithilfe von CAST-Ausdrücken in andere Typen konvertiert werden.  Werte können abhängig vom Kontext implizit in andere Typen umgewandelt werden. Weitere Informationen finden Sie unter [Rangfolge der Datentypen (Transact-SQL)](/sql/t-sql/data-types/data-type-precedence-transact-sql).
 
 ## <a name="expressions"></a>Ausdrücke
 
@@ -79,34 +79,34 @@ Folgende SQL-Standardoperatoren werden unterstützt:
 
 |Operator|Beschreibung|
 |--|--|
-|[=](https://docs.microsoft.com/sql/t-sql/language-elements/equals-transact-sql)    |Vergleicht die Gleichwertigkeit von zwei Ausdrücken (ein Vergleichsoperator).|
-|[!=](https://docs.microsoft.com/sql/t-sql/language-elements/not-equal-to-transact-sql-exclamation)    |Testet, ob zwei Ausdrücke ungleich sind (ein Vergleichsoperator).|
-|[<>](https://docs.microsoft.com/sql/t-sql/language-elements/not-equal-to-transact-sql-traditional)    |Vergleicht zwei Ausdrücke nach dem Kriterium „ungleich“ (ein Vergleichsoperator).|
-|[<](https://docs.microsoft.com/sql/t-sql/language-elements/less-than-transact-sql)    |Vergleicht zwei Ausdrücke nach dem Kriterium „kleiner als“ (ein Vergleichsoperator).|
-|[<=](https://docs.microsoft.com/sql/t-sql/language-elements/less-than-or-equal-to-transact-sql)    |Vergleicht zwei Ausdrücke nach dem Kriterium „kleiner als oder gleich“ (ein Vergleichsoperator).|
-|[>](https://docs.microsoft.com/sql/t-sql/language-elements/greater-than-transact-sql)    |Vergleicht zwei Ausdrücke nach dem Kriterium „größer als“ (ein Vergleichsoperator). |
-|[>=](https://docs.microsoft.com/sql/t-sql/language-elements/greater-than-or-equal-to-transact-sql)    |Vergleicht zwei Ausdrücke nach dem Kriterium größer als oder gleich (ein Vergleichsoperator).|
-|[+](https://docs.microsoft.com/sql/t-sql/language-elements/add-transact-sql)    |Addition zweier Zahlen. Mit diesem arithmetischen Operator für die Addition kann auch eine Anzahl von Tagen zu einem Datum addiert werden.|
-|[-](https://docs.microsoft.com/sql/t-sql/language-elements/subtract-transact-sql)    |Subtrahiert zwei Zahlen (ein arithmetischer Subtraktionsoperator). |
-|[/](https://docs.microsoft.com/sql/t-sql/language-elements/divide-transact-sql)    |Division einer Zahl durch eine andere (arithmetischer Operator für die Division).|
-|[*](https://docs.microsoft.com/sql/t-sql/language-elements/multiply-transact-sql)    |Multiplikation zweier Ausdrücke (arithmetischer Operator für die Multiplikation).|
-|[%](https://docs.microsoft.com/sql/t-sql/language-elements/modulo-transact-sql)    |Gibt den Rest der Division einer Zahl durch eine andere zurück.|
-|[AND](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-and-transact-sql)    |Führt eine bitweise logische AND-Operation zwischen zwei ganzzahligen Werten aus.|
-|[OR](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-or-transact-sql)    |Führt eine bitweise logische OR-Operation zwischen zwei gegebenen ganzzahligen Werten durch, die innerhalb von Transact-SQL-Anweisungen in binäre Ausdrücke umgewandelt wurden.|
-|[NOT](https://docs.microsoft.com/sql/t-sql/language-elements/not-transact-sql)    |Negiert eine boolesche Eingabe.|
-|[CAST](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql)    |Konvertiert einen Ausdruck von einem Datentyp in einen anderen.|
-|[BETWEEN](https://docs.microsoft.com/sql/t-sql/language-elements/between-transact-sql)    |Gibt einen zu testenden Bereich an.|
-|[IN](https://docs.microsoft.com/sql/t-sql/language-elements/in-transact-sql)    |Ermittelt, ob ein angegebener Wert mit einem Wert aus einer Unterabfrage oder Liste übereinstimmt.|
-|[NULLIF](https://docs.microsoft.com/sql/t-sql/language-elements/nullif-transact-sql)    |Gibt einen NULL-Wert zurück, wenn die beiden angegebenen Ausdrücke gleich sind.|
-|[COALESCE](https://docs.microsoft.com/sql/t-sql/language-elements/coalesce-transact-sql)    |Wertet die Argumente in der vorliegenden Reihenfolge aus und gibt den aktuellen Wert des ersten Ausdrucks zurück, der zuerst nicht als NULL ausgewertet wird.|
+|[=](/sql/t-sql/language-elements/equals-transact-sql)    |Vergleicht die Gleichwertigkeit von zwei Ausdrücken (ein Vergleichsoperator).|
+|[!=](/sql/t-sql/language-elements/not-equal-to-transact-sql-exclamation)    |Testet, ob zwei Ausdrücke ungleich sind (ein Vergleichsoperator).|
+|[<>](/sql/t-sql/language-elements/not-equal-to-transact-sql-traditional)    |Vergleicht zwei Ausdrücke nach dem Kriterium „ungleich“ (ein Vergleichsoperator).|
+|[<](/sql/t-sql/language-elements/less-than-transact-sql)    |Vergleicht zwei Ausdrücke nach dem Kriterium „kleiner als“ (ein Vergleichsoperator).|
+|[<=](/sql/t-sql/language-elements/less-than-or-equal-to-transact-sql)    |Vergleicht zwei Ausdrücke nach dem Kriterium „kleiner als oder gleich“ (ein Vergleichsoperator).|
+|[>](/sql/t-sql/language-elements/greater-than-transact-sql)    |Vergleicht zwei Ausdrücke nach dem Kriterium „größer als“ (ein Vergleichsoperator). |
+|[>=](/sql/t-sql/language-elements/greater-than-or-equal-to-transact-sql)    |Vergleicht zwei Ausdrücke nach dem Kriterium größer als oder gleich (ein Vergleichsoperator).|
+|[+](/sql/t-sql/language-elements/add-transact-sql)    |Addition zweier Zahlen. Mit diesem arithmetischen Operator für die Addition kann auch eine Anzahl von Tagen zu einem Datum addiert werden.|
+|[-](/sql/t-sql/language-elements/subtract-transact-sql)    |Subtrahiert zwei Zahlen (ein arithmetischer Subtraktionsoperator). |
+|[/](/sql/t-sql/language-elements/divide-transact-sql)    |Division einer Zahl durch eine andere (arithmetischer Operator für die Division).|
+|[*](/sql/t-sql/language-elements/multiply-transact-sql)    |Multiplikation zweier Ausdrücke (arithmetischer Operator für die Multiplikation).|
+|[%](/sql/t-sql/language-elements/modulo-transact-sql)    |Gibt den Rest der Division einer Zahl durch eine andere zurück.|
+|[AND](/sql/t-sql/language-elements/bitwise-and-transact-sql)    |Führt eine bitweise logische AND-Operation zwischen zwei ganzzahligen Werten aus.|
+|[OR](/sql/t-sql/language-elements/bitwise-or-transact-sql)    |Führt eine bitweise logische OR-Operation zwischen zwei gegebenen ganzzahligen Werten durch, die innerhalb von Transact-SQL-Anweisungen in binäre Ausdrücke umgewandelt wurden.|
+|[NOT](/sql/t-sql/language-elements/not-transact-sql)    |Negiert eine boolesche Eingabe.|
+|[CAST](/sql/t-sql/functions/cast-and-convert-transact-sql)    |Konvertiert einen Ausdruck von einem Datentyp in einen anderen.|
+|[BETWEEN](/sql/t-sql/language-elements/between-transact-sql)    |Gibt einen zu testenden Bereich an.|
+|[IN](/sql/t-sql/language-elements/in-transact-sql)    |Ermittelt, ob ein angegebener Wert mit einem Wert aus einer Unterabfrage oder Liste übereinstimmt.|
+|[NULLIF](/sql/t-sql/language-elements/nullif-transact-sql)    |Gibt einen NULL-Wert zurück, wenn die beiden angegebenen Ausdrücke gleich sind.|
+|[COALESCE](/sql/t-sql/language-elements/coalesce-transact-sql)    |Wertet die Argumente in der vorliegenden Reihenfolge aus und gibt den aktuellen Wert des ersten Ausdrucks zurück, der zuerst nicht als NULL ausgewertet wird.|
 
-Wenn sich die Datentypen auf der linken und rechten Seite eines Operators unterscheiden, wird eine automatische Konvertierung gemäß den hier angegebenen Regeln durchgeführt: [Rangfolge der Datentypen (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql).
+Wenn sich die Datentypen auf der linken und rechten Seite eines Operators unterscheiden, wird eine automatische Konvertierung gemäß den hier angegebenen Regeln durchgeführt: [Rangfolge der Datentypen (Transact-SQL)](/sql/t-sql/data-types/data-type-precedence-transact-sql).
 
 Die SQL-Sprache für die Abfragebeschleunigung unterstützt nur eine sehr kleine Teilmenge der Datentypen, die in diesem Artikel erläutert werden.  Weitere Informationen finden Sie im Abschnitt [Datentypen](#data-types) dieses Artikels.
 
 ### <a name="casts"></a>Umwandlungen
 
-Die SQL-Sprache für die Abfragebeschleunigung unterstützt den CAST-Operator gemäß den folgenden Regeln: [Datentypkonvertierung (Datenbank-Engine)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-conversion-database-engine).  
+Die SQL-Sprache für die Abfragebeschleunigung unterstützt den CAST-Operator gemäß den folgenden Regeln: [Datentypkonvertierung (Datenbank-Engine)](/sql/t-sql/data-types/data-type-conversion-database-engine).  
 
 Die SQL-Sprache für die Abfragebeschleunigung unterstützt nur eine kleine Teilmenge der Datentypen, die in diesem Artikel erläutert werden.  Weitere Informationen finden Sie im Abschnitt [Datentypen](#data-types) dieses Artikels.
 
@@ -118,10 +118,10 @@ Die SQL-Sprache für die Abfragebeschleunigung unterstützt die folgenden standa
 |--|--|
 |CHAR_LENGTH    | Gibt die Länge des Zeichenfolgenausdrucks in Zeichen zurück, wenn der Zeichenfolgenausdruck den Zeichenfolgendatentyp aufweist. Anderenfalls wird die Länge des Zeichenfolgenausdrucks in Byte zurückgegeben (die kleinste ganze Zahl, die nicht weniger als die Anzahl von Bits ist, dividiert durch 8). (Diese Funktion entspricht der CHARACTER_LENGTH-Funktion.)|
 |CHARACTER_LENGTH    |Gibt die Länge des Zeichenfolgenausdrucks in Zeichen zurück, wenn der Zeichenfolgenausdruck den Zeichenfolgendatentyp aufweist. Anderenfalls wird die Länge des Zeichenfolgenausdrucks in Byte zurückgegeben (die kleinste ganze Zahl, die nicht weniger als die Anzahl von Bits ist, dividiert durch 8). (Diese Funktion entspricht der CHAR_LENGTH-Funktion.)|
-|[LOWER](https://docs.microsoft.com/sql/t-sql/functions/lower-transact-sql)    |Gibt einen Zeichenausdruck zurück, dessen Zeichen von Großbuchstaben in Kleinbuchstaben umgewandelt wurden.|
-|[UPPER](https://docs.microsoft.com/sql/t-sql/functions/upper-transact-sql)    |Gibt einen Zeichenausdruck zurück, wobei Kleinbuchstaben in Großbuchstaben umgewandelt werden.|
-|[SUBSTRING](https://docs.microsoft.com/sql/t-sql/functions/substring-transact-sql)    |Gibt einen Teil eines Zeichen-, Binär-, Text- oder Bildausdrucks in SQL Server zurück.|
-|[TRIM](https://docs.microsoft.com/sql/t-sql/functions/trim-transact-sql)    |Entfernt das Leerzeichen – char(32) – oder andere am Beginn und Ende einer Zeichenfolge angegebene Zeichen.|
+|[LOWER](/sql/t-sql/functions/lower-transact-sql)    |Gibt einen Zeichenausdruck zurück, dessen Zeichen von Großbuchstaben in Kleinbuchstaben umgewandelt wurden.|
+|[UPPER](/sql/t-sql/functions/upper-transact-sql)    |Gibt einen Zeichenausdruck zurück, wobei Kleinbuchstaben in Großbuchstaben umgewandelt werden.|
+|[SUBSTRING](/sql/t-sql/functions/substring-transact-sql)    |Gibt einen Teil eines Zeichen-, Binär-, Text- oder Bildausdrucks in SQL Server zurück.|
+|[TRIM](/sql/t-sql/functions/trim-transact-sql)    |Entfernt das Leerzeichen – char(32) – oder andere am Beginn und Ende einer Zeichenfolge angegebene Zeichen.|
 |LEADING    |Beschreibung|
 |TRAILING    |Beschreibung|
 
@@ -340,4 +340,3 @@ In den meisten Fällen ist die Größe jedes Batches etwas höher als der von Ih
 
 - [Abfragebeschleunigung für Azure Data Lake Storage](data-lake-storage-query-acceleration.md)
 - [Filtern von Daten mithilfe der Abfragebeschleunigung für Azure Data Lake Storage](data-lake-storage-query-acceleration-how-to.md)
-

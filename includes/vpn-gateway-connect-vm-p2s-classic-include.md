@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6d0737a7300b2a6025f776c1ed65a05cacf2141a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fc14083b0912cf18f98c229adcb297b89bc8971
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67177957"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95562581"
 ---
 Stellen Sie eine Remotedesktopverbindung mit einer VM her, die in Ihrem VNet bereitgestellt wird. Die beste Möglichkeit, zu überprüfen, ob Sie eine Verbindung mit Ihrer VM herstellen können, ist das Herstellen der Verbindung mit der privaten IP-Adresse anstelle des Computernamens. Auf diese Weise können Sie testen, ob die Verbindungsherstellung möglich ist, anstatt zu überprüfen, ob die Namensauflösung richtig konfiguriert ist. 
 
@@ -32,4 +32,4 @@ Falls Sie beim Herstellen einer Verbindung mit einem virtuellen Computer per VPN
 - Falls Sie mit der privaten IP-Adresse eine Verbindung mit der VM herstellen können, aber nicht mit dem Computernamen, sollten Sie sich vergewissern, dass das DNS richtig konfiguriert ist. Weitere Informationen zur Funktionsweise der Namensauflösung für virtuelle Computer finden Sie unter [Namensauflösung für virtuelle Computer](../articles/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 - Stellen Sie sicher, dass das VPN-Clientkonfigurationspaket generiert wurde, nachdem Sie die IP-Adressen des DNS-Servers für das VNET angegeben hatten. Wenn Sie die IP-Adressen des DNS-Servers aktualisieren, generieren Sie ein neues VPN-Clientkonfigurationspaket, und installieren Sie es.
 
-Weitere Informationen zur Problembehandlung finden Sie unter [Behandeln von Problemen bei Remotedesktopverbindungen mit einem virtuellen Azure-Computer](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md).
+Weitere Informationen zur Problembehandlung finden Sie unter [Behandeln von Problemen bei Remotedesktopverbindungen mit einem virtuellen Azure-Computer](../articles/virtual-machines/troubleshooting/troubleshoot-rdp-connection.md).

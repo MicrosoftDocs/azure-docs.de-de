@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 231f2e4df1445c60378ac06aab0d0e56f410c1c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15f2ff5aaa1d731c13125d0a3ab4ac32acb9276c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530135"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023274"
 ---
 # <a name="diagnose-and-solve-issues-in-your-azure-time-series-insights-gen1-environment"></a>Diagnostizieren und Beheben von Problemen in der Azure Time Series Insights Gen1-Umgebung
 
@@ -37,7 +37,7 @@ Wenn keine Daten im [Azure Time Series Insights-Explorer](https://insights.times
 
 ### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Ursache A: Ereignisquelldaten sind nicht im JSON-Format.
 
-Azure Time Series Insights unterstützt nur JSON-Daten. JSON-Beispiele finden Sie unter [Unterstützte JSON-Formen](./how-to-shape-query-json.md).
+Azure Time Series Insights unterstützt nur JSON-Daten. JSON-Beispiele finden Sie unter [Unterstützte JSON-Formen](./concepts-json-flattening-escaping-rules.md).
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Ursache B: Dem Schlüssel der Ereignisquelle fehlt eine erforderliche Berechtigung.
 
@@ -85,7 +85,7 @@ Angenommen, eine Umgebung erfasst Nachrichten von einem Event Hub. Die tägliche
 
 Eine SKU S1-Umgebung mit einer Kapazität von 3 kann nur 2.100 Ereignisse pro Minute erfassen (1 Mio. Ereignisse pro Tag = 700 Ereignisse pro Minute, bei drei Einheiten = 2.100 Ereignisse pro Minute).
 
-Eine Übersicht über die Funktionsweise der Vereinfachungslogik finden Sie unter [Unterstützte JSON-Formen](./how-to-shape-query-json.md).
+Eine Übersicht über die Funktionsweise der Vereinfachungslogik finden Sie unter [Unterstützte JSON-Formen](./concepts-json-flattening-escaping-rules.md).
 
 #### <a name="recommended-resolutions-for-excessive-throttling"></a>Empfohlene Lösungen für übermäßige Drosselung
 

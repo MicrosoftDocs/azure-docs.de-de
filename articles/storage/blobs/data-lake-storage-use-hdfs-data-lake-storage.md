@@ -9,12 +9,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
-ms.openlocfilehash: 1d720aed44358dd314bc4226adb9ad517139cd18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2b36dd600efa864913e0087c49bffd556e8330d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836308"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912398"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Verwenden der HDFS-CLI mit Data Lake Storage Gen2
 
@@ -29,7 +29,7 @@ Weitere Informationen zur HDFS-CLI finden Sie in der [offiziellen Dokumentation]
 
 ## <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>Verwenden der Hadoop Distributed File System-Befehlszeilenschnittstelle mit einem HDInsight Hadoop-Cluster unter Linux
 
-Richten Sie zuerst den [Remotezugriff auf Dienste](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-information#remote-access-to-services) ein. Wenn Sie [SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) auswählen, sieht der PowerShell-Beispielcode folgendermaßen aus:
+Richten Sie zuerst den [Remotezugriff auf Dienste](../../hdinsight/hdinsight-hadoop-linux-information.md#remote-access-to-services) ein. Wenn Sie [SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md) auswählen, sieht der PowerShell-Beispielcode folgendermaßen aus:
 
 ```powershell
 #Connect to the cluster via SSH.
@@ -120,4 +120,4 @@ Sie können die vollständige Liste mit Befehlen auf der Website [Apache Hadoop 
 
 * [Verwenden eines Azure Data Lake Storage Gen2-Kontos in Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md)
 
-* [Zugriffssteuerung in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+* [Zugriffssteuerung in Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md)

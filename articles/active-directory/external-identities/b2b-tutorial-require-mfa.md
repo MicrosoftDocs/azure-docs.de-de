@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bddf1642b2013567fbc23278b3d8d32692601d55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f5f7f823d6c5f5860c2e78fe8cacdd1d788c581
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87906976"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95974118"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Tutorial: Erzwingen der mehrstufigen Authentifizierung für B2B-Gastbenutzer
 
@@ -81,7 +81,7 @@ Für die Durchführung des Szenarios im Rahmen dieses Tutorials benötigen Sie F
 7.  Wählen Sie auf der Seite **Benutzer und Gruppen** **Benutzer und Gruppen auswählen** und dann **Sämtliche Gastbenutzer (Vorschau)** aus.
 
     ![Screenshot: Auswahl aller Gastbenutzer](media/tutorial-mfa/tutorial-mfa-policy-6.png)
-9.  Wählen Sie **Fertig**aus.
+9.  Wählen Sie **Fertig** aus.
 10. Wählen Sie auf der Seite **Neu** im Abschnitt **Zuweisungen** die Option **Cloud-Apps** aus.
 11. Wählen Sie auf der Seite **Cloud-Apps** **Apps auswählen** und dann **Auswählen** aus.
 
@@ -89,7 +89,7 @@ Für die Durchführung des Szenarios im Rahmen dieses Tutorials benötigen Sie F
 
 12. Wählen Sie auf der Seite **Auswählen** die Option **Microsoft Azure-Verwaltung** und dann **Auswählen** aus.
 
-    ![Screenshot: ausgewählte Microsoft Azure-Verwaltungs-App](media/tutorial-mfa/tutorial-mfa-policy-11.png)
+    ![Screenshot, auf dem die Option „Microsoft Azure-Verwaltung“ hervorgehoben ist](media/tutorial-mfa/tutorial-mfa-policy-11.png)
 
 13. Wählen Sie auf der Seite **Cloud-Apps** **Fertig** aus.
 14. Wählen Sie auf der Seite **Neu** im Abschnitt **Zugriffskontrollen** die Option **Gewähren** aus.
@@ -107,7 +107,7 @@ Für die Durchführung des Szenarios im Rahmen dieses Tutorials benötigen Sie F
 
 1.  Wählen Sie auf der Seite **Bedingter Zugriff – Richtlinien** **What If** aus. 
 
-    ![Screenshot: Auswahl der Option „What If“](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
+    ![Screenshot, auf dem hervorgehoben ist, wo Sie auf der Seite „Bedingter Zugriff – Richtlinien“ die Option „What if“ auswählen](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
 
 2.  Wählen Sie **Benutzer**, Ihren Testgastbenutzer und dann **Auswählen** aus.
 

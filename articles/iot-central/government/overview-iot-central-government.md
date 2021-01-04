@@ -3,20 +3,18 @@ title: Erstellen von Lösungen für Behörden mit Azure IoT Central
 description: Hier erfahren Sie, wie Sie mithilfe von Azure IoT Central-Anwendungsvorlagen Smart-City-Lösungen erstellen.
 author: miriambrus
 ms.author: miriamb
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 5f92750217dd0bcf5d7a5074a6187d994f19722a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 72b0e3c3cee0ed9131fe6ee1f50cee10ec03a7b7
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126565"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590816"
 ---
 # <a name="building-government-solutions-with-azure-iot-central"></a>Erstellen von Lösungen für Behörden mit Azure IoT Central
-
-
 
 Nutzen Sie Azure IoT Central-Anwendungsvorlagen zur Erstellung von Smart-City-Lösungen. Starten Sie mit **water quality monitoring** (Überwachung der Wasserqualität), **water consumption monitoring** (Überwachung des Wasserverbrauchs) und **connected waste management** (Vernetzte Abfallwirtschaft).
 
@@ -41,7 +39,6 @@ Das Tutorial für die Anwendung zur Überwachung der Wasserqualität finden Sie 
 ## <a name="what-is-water-consumption-monitoring-application-template"></a>Was ist die Anwendungsvorlage „Water Consumption Monitoring“ (Überwachung des Wasserverbrauchs)? 
 
 Bei der herkömmlichen Überwachung des Wasserverbrauchs müssen Wasserzähler vor Ort abgelesen werden. Immer mehr Städte ersetzen herkömmliche Zähler durch fortschrittliche intelligente Zähler, um die Remoteüberwachung des Verbrauchs sowie die Remotesteuerung von Ventilen und somit die Steuerung des Wasserflusses zu ermöglichen. Die Überwachung des Wasserverbrauchs kann in Verbindung mit digitalem Feedback für Bürger das Bewusstsein stärken und zur Senkung des Wasserverbrauchs beitragen. 
-
 
 Die App zur Überwachung des Wasserverbrauchs ist eine IoT Central-App-Vorlage, die Ihnen den Einstieg in die Entwicklung Ihrer IoT-Lösung erleichtert und Wasserversorgern und Städten die Remoteüberwachung und -steuerung des Wasserflusses und somit die Senkung des Wasserverbrauchs ermöglicht. 
 

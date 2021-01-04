@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: bd08812f83413a997ce655d68d866b145b20dcef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b9b540e53c46eae0dfbe9dd9c3ed91cd7506a9d
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75912506"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554484"
 ---
 ## <a name="extended-iot-scenarios"></a>Erweiterte IoT-Szenarien
 
@@ -24,7 +24,7 @@ Verwenden Sie andere Azure-Dienste und -Tools. Wenn Sie Ihr Gerät mit IoT Hub v
 | [Verwalten von IoT Hub-Nachrichten](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)                  | Azure IoT Hub-Erweiterung für VS Code|
 | [Verwalten von IoT-Geräten](../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md)                        | Azure CLI und die IoT-Erweiterung    |
 | [Verwalten von IoT-Geräten](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)                | Azure IoT Hub-Erweiterung für VS Code|
-| [Speichern von IoT Hub-Nachrichten in Azure Storage](../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md)  | Azure Table Storage                |
+| [Speichern von IoT Hub-Nachrichten in Azure Storage](../articles/iot-hub/tutorial-routing.md#route-to-a-storage-account)  | Azure Table Storage                |
 | [Visualisieren von Sensordaten](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)                      | Microsoft Power BI                 |
 | [Visualisieren von Sensordaten](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)                      | Azure-Web-Apps                     |
 | [Vorhersagen des Wetters mit Sensordaten](../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md)      | Azure Machine Learning             |
@@ -32,4 +32,4 @@ Verwenden Sie andere Azure-Dienste und -Tools. Wenn Sie Ihr Gerät mit IoT Hub v
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Nachdem Sie diese Tutorials abgeschlossen haben, können Sie sich im [Entwicklerhandbuch](../articles/iot-hub/iot-hub-devguide.md) mit den Möglichkeiten von IoT Hub weiter vertraut machen. 
+Nachdem Sie diese Tutorials abgeschlossen haben, können Sie sich im [Entwicklerhandbuch](../articles/iot-hub/iot-hub-devguide.md) mit den Möglichkeiten von IoT Hub weiter vertraut machen.

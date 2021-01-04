@@ -9,12 +9,12 @@ ms.service: industrial-iot
 ms.custom: devx-track-azurecli
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 075f6f83e5af43cde3886f637a8ee326309e4218
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1c12b1c7fd393227cb22d011f8b88f914cfded59
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071505"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445492"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Bereitstellen des OPC Twin-Moduls und der Abhängigkeiten von Grund auf
 
@@ -117,7 +117,7 @@ Die einfachste Möglichkeit zum Bereitstellen der Module auf einem Azure IoT Edg
 
 1. Stellen Sie die OPC Twin-[Abhängigkeiten](howto-opc-twin-deploy-dependencies.md) bereit, und beschaffen Sie die sich ergebende `.env`-Datei. Notieren Sie sich den bereitgestellten `hub name` der Variablen `PCS_IOTHUBREACT_HUB_NAME` in der sich ergebenden `.env`-Datei.
 
-2. Registrieren und starten Sie ein [Linux](../iot-edge/how-to-install-iot-edge-linux.md)- oder [Windows](../iot-edge/how-to-install-iot-edge-windows.md)-IoT Edge-Gateway, und notieren Sie sich dessen `device id`.
+2. Registrieren und starten Sie ein [Linux](../iot-edge/how-to-install-iot-edge.md)- oder [Windows](../iot-edge/how-to-install-iot-edge.md)-IoT Edge-Gateway, und notieren Sie sich dessen `device id`.
 
 ### <a name="deploy-to-an-edge-device"></a>Bereitstellen auf einem Edgegerät
 

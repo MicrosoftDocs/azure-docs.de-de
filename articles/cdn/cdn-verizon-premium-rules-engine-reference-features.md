@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 06/02/2020
 ms.author: allensu
 ms.openlocfilehash: 0ea4f167b992ccfbc4156ac06c8f636d2ef4a355
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84343199"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020414"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Features der Regel-Engine für Azure CDN Premium von Verizon
 
@@ -59,7 +59,7 @@ Diese Features dienen zum Anpassen des Zeitpunkts und der Art der Zwischenspeich
 | [Bandwidth Throttling](https://docs.vdms.com/cdn/Content/HRE/F/Bandwidth-Throttling.htm) | Schränkt die Bandbreite für die Antwort ein, die von unseren Edgeservern bereitgestellt wird. |
 | [Bypass Cache](https://docs.vdms.com/cdn/Content/HRE/F/Bypass-Cache.htm) | Bestimmt, ob die Anforderung unsere Cachetechnologie nutzen kann. |
 | [Cache-Control Header Treatment](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Control-Header-Treatment.htm) |  Steuert die Generierung von „Cache-Control“-Headern durch den Edgeserver, wenn das Feature „External Max-Age“ aktiv ist. |
-| [Cache-Key Query String](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Query-String.htm) | Bestimmt, ob der **Cacheschlüssel*** einer Anforderung zugeordnete Parameter für Abfragezeichenfolgen ein- oder ausschließt. <br> _* Ein relativer Pfad, der ein Objekt zum Zweck der Zwischenspeicherung identifiziert.  Unsere Edgeserver verwenden diesen relativen Pfad bei der Suche nach zwischengespeicherten Inhalten.  Standardmäßig enthält ein Cacheschlüssel keine Parameter für Abfragezeichenfolgen._ |
+| [Cache-Key Query String](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Query-String.htm) | Bestimmt, ob der **Cacheschlüssel** _ einer Anforderung zugeordnete Parameter für Abfragezeichenfolgen ein- oder ausschließt. <br> __ Ein relativer Pfad, der ein Objekt zum Zweck der Zwischenspeicherung identifiziert.  Unsere Edgeserver verwenden diesen relativen Pfad bei der Suche nach zwischengespeicherten Inhalten.  Standardmäßig enthält ein Cacheschlüssel keine Parameter für Abfragezeichenfolgen._ |
 | [Cache-Key Rewrite](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Rewrite.htm) | Schreibt den einer Anforderung zugeordneten Cacheschlüssel neu. |
 | [Complete Cache Fill](https://docs.vdms.com/cdn/Content/HRE/F/Complete-Cache-Fill.htm) | Bestimmt, was passiert, wenn eine Anforderung in einem teilweisen Cachefehler auf einem Edgeserver resultiert. |
 | [Compress File Types](https://docs.vdms.com/cdn/Content/HRE/F/Compress-File-Types.htm) | Definiert die Dateiformate, die auf dem Server komprimiert werden. | 

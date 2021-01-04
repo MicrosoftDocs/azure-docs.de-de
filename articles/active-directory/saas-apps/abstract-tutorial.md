@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 233af68e4109e53b6bd841f298e9c2728ca5b116
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: e1c3236c4c1957b4d0daee8d30c71f03fb8674dd
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313481"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587824"
 ---
 # <a name="tutorial-integrate-abstract-with-azure-active-directory"></a>Tutorial: Integrieren von Abstract in Azure Active Directory
 
@@ -130,7 +130,7 @@ In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anm
 1. Wählen Sie in der Anwendungsliste den Eintrag **Abstract** aus.
 1. Navigieren Sie auf der Übersichtsseite der App zum Abschnitt **Verwalten**, und wählen Sie **Benutzer und Gruppen** aus.
 
-   ![Link „Benutzer und Gruppen“](common/users-groups-blade.png)
+    ![Link „Benutzer und Gruppen“](common/users-groups-blade.png)
 
 1. Wählen Sie **Benutzer hinzufügen** und anschließend im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
 
@@ -146,7 +146,7 @@ So testen Sie einmaliges Anmelden für Abstract:
 
 1. Öffnen Sie die [Abstract-Web-App](https://app.abstract.com/).
 2. Navigieren Sie in der linken Seitenleiste zur Seite **Permissions** (Berechtigungen).
-3. Klicken Sie auf **Test with my Account** (Mit meinem Konto testen). Tritt beim Test ein Fehler auf, [wenden Sie sich an unser Supportteam](https://www.abstract.com/help/contact/).
+3. Klicken Sie auf **Test with my Account** (Mit meinem Konto testen). Tritt beim Test ein Fehler auf, [wenden Sie sich an unser Supportteam](https://help.abstract.com/hc/).
 
 >[!Note]
 >Sie müssen sich mit dem Administratorkonto einer Organisation authentifizieren, um auf die SSO-Einstellungen für Abstract zuzugreifen.

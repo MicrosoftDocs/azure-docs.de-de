@@ -14,11 +14,11 @@ ms.date: 04/24/2015
 ms.author: gwallace
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 104f969f5e27ef36ad43eb10e19176a4bcfd6648
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021135"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003757"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Verwenden von Twilio für Telefonie- und SMS-Funktionen aus Azure
 Dieser Leitfaden veranschaulicht die Ausführung allgemeiner Programmierungsaufgaben mit dem Twilio-API-Dienst in Azure. Die Szenarien behandeln das Tätigen eines Telefonanrufs und das Senden einer Kurznachricht (SMS). Weitere Informationen zu Twilio und zur Verwendung von Telefonie und SMS in Ihren Anweisungen finden Sie im Abschnitt [Nächste Schritte](#NextSteps) .
@@ -111,7 +111,7 @@ Standardmäßig installiert Microsoft Visual Studio 2010 NuGet Version 1.2. Für
 2. Klicken Sie mit der rechten Maustaste auf **References**.
 3. Klicken Sie auf **Manage NuGet Packages**
 4. Klicken Sie auf **Online**.
-5. Geben Sie in das Onlinesuchfeld *twilio*ein.
+5. Geben Sie in das Onlinesuchfeld *twilio* ein.
 6. Klicken Sie auf **Install** für das Twilio-Paket.
 
 ## <a name="how-to-make-an-outgoing-call"></a><a id="howto_make_call"></a>Vorgehensweise: Tätigen von ausgehenden Anrufen

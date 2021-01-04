@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 0c6129a24e6ed083114971df5f254eca54924400
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9d2cd48e3b686614f7361d2007f6f8183c2361e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90931557"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657022"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Normalisierung in Azure Sentinel
 
@@ -97,7 +97,7 @@ Die verfügbaren Abfragezeitparser stehen im [offiziellen GitHub-Repository](htt
 
     1. **Kategorie**: Sie können eine vorhandene Kategorie auswählen oder eine neue Kategorie erstellen (z. B. *NormalizedNetworkSessionsParsers*)
     
-        :::image type="content" source="./media/normalization/save-new-parser.png" alt-text="Installieren eines neuen Parsers":::
+        :::image type="content" source="./media/normalization/save-new-parser.png" alt-text="Speichern des Parsers":::
 
 Um die Parser ordnungsgemäß verwenden zu können, müssen Sie außerdem den Netzwerkschemaparser „Empty“ (Leer) (der eine leere Tabellensicht aller Felder des Netzwerksitzungschemas erstellt) und den Netzwerkmetaparser installieren (der alle aktivierten Parser zusammenführt, um eine einzelne Sicht der Daten aus verschiedenen Quellen im Netzwerkschema zu erstellen). Die Installation dieser beiden Parser erfolgt in ähnlicher Weise wie die oben aufgeführten Schritte.
 
@@ -107,15 +107,15 @@ Beim Speichern einer Abfragefunktion kann es erforderlich sein, den Abfrage-Expl
 
 Nach der Aktivierung können Sie den Metaparser verwenden, um eine vereinheitlichte Sicht aller aktuell aktivierten Parser abzufragen. Navigieren Sie zu diesem Zweck zur Protokollseite von Sentinel, und fragen Sie den Metaparser ab:
 
-:::image type="content" source="./media/normalization/query-parser.png" alt-text="Installieren eines neuen Parsers":::
+:::image type="content" source="./media/normalization/query-parser.png" alt-text="Abfragen des Parsers":::
  
 Sie können auf den Metaparser oder die einzelnen Parser auch mithilfe des Abfrage-Explorers auf der Protokollseite von Sentinel zugreifen, indem Sie auf „Abfrage-Explorer“ klicken:
 
-:::image type="content" source="./media/normalization/query-explorer.png" alt-text="Installieren eines neuen Parsers":::
+:::image type="content" source="./media/normalization/query-explorer.png" alt-text="Abfrage-Explorer":::
 
 Erweitern Sie in der rechten Seitenleiste den Bereich „Gespeicherte Abfragen“, und suchen Sie den Ordner ‚NormalizedNetworkParsers‘ (oder den Kategorienamen, den Sie beim Erstellen der Parser gewählt haben):
 
-:::image type="content" source="./media/normalization/find-parser.png" alt-text="Installieren eines neuen Parsers":::
+:::image type="content" source="./media/normalization/find-parser.png" alt-text="Suchen des Parsers":::
 
 Sie können auf jeden einzelnen Parser klicken, die verwendete zugrundeliegende Funktion anzeigen und ihn ausführen (oder direkt über seinen Alias auf ihn zugreifen, wie oben beschrieben). Beachten Sie, dass einige Parser aus Komfortgründen die ursprünglichen Felder parallel zu den normalisierten Feldern beibehalten können. Dieses Verhalten kann leicht in der Abfrage des Parsers bearbeitet werden.
 
@@ -124,15 +124,15 @@ Sie können auf jeden einzelnen Parser klicken, die verwendete zugrundeliegende 
 Sie können die Schritte oben wiederholen (den Parser im Abfrage-Explorer suchen), auf den relevanten Parser klicken und seine Funktionsimplementierung anzeigen.
 Beispielsweise können Sie sich entscheiden, den Metaparser zu bearbeiten, um einzelne Parser hinzuzufügen/zu entfernen.
 
-:::image type="content" source="./media/normalization/customize-parser.png" alt-text="Installieren eines neuen Parsers":::
+:::image type="content" source="./media/normalization/customize-parser.png" alt-text="Anpassen Ihres Parsers":::
  
 Sobald die Funktion geändert wurde, klicken Sie erneut auf „Speichern“, und verwenden Sie die gleichen Werte für Name, Alias und Kategorie. Ein Dialogfeld zum Überschreiben wird geöffnet – drücken Sie auf „OK“:
 
-:::image type="content" source="./media/normalization/are-you-sure.png" alt-text="Installieren eines neuen Parsers":::
+:::image type="content" source="./media/normalization/are-you-sure.png" alt-text="Sind Sie sicher":::
 
 #### <a name="additional-information"></a>Zusätzliche Informationen
 
-Erfahren Sie mehr über [gespeicherte Abfragen](../azure-monitor/log-query/saved-queries.md) (die Implementierung der Abfragezeitparser) in Log Analytics.
+Erfahren Sie mehr über [gespeicherte Abfragen](../azure-monitor/log-query/example-queries.md) (die Implementierung der Abfragezeitparser) in Log Analytics.
 
 
 ## <a name="next-steps"></a>Nächste Schritte

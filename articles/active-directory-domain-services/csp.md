@@ -2,20 +2,20 @@
 title: Azure AD Domain Services für Cloudlösungsanbieter | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie durch Azure Active Directory Domain Services verwaltete Domänen für Azure Cloud Solution Providers aktivieren und verwalten
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 ms.assetid: 56ccb219-11b2-4e43-9f07-5a76e3cd8da8
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.author: joflore
-ms.openlocfilehash: fae04d929be7ae6f266ff136b4fbd90f7d8a4e02
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: d8edafff9b6534e5f1ce1c4581595ee187dfd432
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960965"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619898"
 ---
 # <a name="azure-active-directory-domain-services-deployment-and-management-for-azure-cloud-solution-providers"></a>Bereitstellen und Verwalten von Azure Active Directory Domain Services für Azure Cloud Solution Providers
 

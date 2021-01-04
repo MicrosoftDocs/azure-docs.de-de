@@ -3,12 +3,12 @@ title: Mit Azure Backup Server V3 RTM sicherbare Elemente
 description: Dieser Artikel bietet eine Schutzmatrix aller Workloads, Datentypen und Installationen, die von Azure Backup Server V3 RTM geschützt werden.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 21c5fbcdf8aa3454a9af968509cb4cbf76b31f9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1a1a876a9249a32c87c50d7f320a62b9c478caf
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88763608"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752378"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Azure Backup Server V3 RTM-Schutzmatrix
 
@@ -78,7 +78,7 @@ In der folgenden Matrix sind die Elemente aufgelistet, die mit Azure Backup Serv
 |Hyper-V-Host – MABS-Schutz-Agent auf Hyper-V-Hostserver, Cluster oder VM|Windows Server 2008 SP2|Physischer Server<br /><br />Lokaler virtueller Hyper-V-Computer|Nicht unterstützt|Schützen: Hyper-V-Computer, freigegebene Clustervolumes (CSVs)<br /><br />Wiederherstellen: Virtueller Computer, Wiederherstellung auf Elementebene von Dateien und Ordnern, Volumes, virtuelle Festplatten|
 |Virtuelle VMware-Computer|VMware vCenter/vSphere ESX/ESXi: Lizenzierte Version 5.5/6.0/6.5 |Physischer Server <br/>Lokale Hyper-V-VM <br/> Windows-VM in VMware|V3, V2|VMware-Ms in freigegebenen Clustervolumen (CSVs), NFS und im SAN-Speicher<br /> Die Wiederherstellung von Dateien und Ordnern auf Elementebene ist nur für virtuelle Windows-Computer verfügbar, VMware vApp wird nicht unterstützt.|
 |Virtuelle VMware-Computer|[VMware vSphere Lizenzierte Version 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |Physischer Server <br/>Lokale Hyper-V-VM <br/> Windows-VM in VMware|V3|VMware-Ms in freigegebenen Clustervolumen (CSVs), NFS und im SAN-Speicher<br /> Die Wiederherstellung von Dateien und Ordnern auf Elementebene ist nur für virtuelle Windows-Computer verfügbar, VMware vApp wird nicht unterstützt.|
-|Linux|Linux, ausgeführt als Hyper-V- oder VMware-Gast|Physischer Server <br/>Lokale Hyper-V-VM <br/> Windows-VM in VMware|V3, V2|Hyper-V muss unter Windows Server 2012 R2 oder Windows Server 2016 ausgeführt werden. Schützen: Gesamter virtueller Computer<br /><br />Wiederherstellen: Gesamter virtueller Computer <br/><br/> Es werden nur dateikonsistente Momentaufnahmen unterstützt. <br/><br/> Eine vollständige Liste der unterstützten Linux-Distributionen und -Versionen finden Sie im Artikel [Linux auf von Azure unterstützten Distributionen](../virtual-machines/linux/endorsed-distros.md).|
+|Linux|Linux, ausgeführt als [Hyper-V](back-up-hyper-v-virtual-machines-mabs.md)- oder [VMware](backup-azure-backup-server-vmware.md)-Gast|Physischer Server <br/>Lokale Hyper-V-VM <br/> Windows-VM in VMware|V3, V2|Hyper-V muss unter Windows Server 2012 R2 oder Windows Server 2016 ausgeführt werden. Schützen: Gesamter virtueller Computer<br /><br />Wiederherstellen: Gesamter virtueller Computer <br/><br/> Es werden nur dateikonsistente Momentaufnahmen unterstützt. <br/><br/> Eine vollständige Liste der unterstützten Linux-Distributionen und -Versionen finden Sie im Artikel [Linux auf von Azure unterstützten Distributionen](../virtual-machines/linux/endorsed-distros.md).|
 
 ## <a name="azure-expressroute-support"></a>Azure ExpressRoute-Unterstützung
 

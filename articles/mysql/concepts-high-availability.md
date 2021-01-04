@@ -1,17 +1,17 @@
 ---
 title: Hochverfügbarkeit (Azure Database for MySQL)
 description: Dieser Artikel bietet Informationen zur Hochverfügbarkeit in Azure Database for MySQL.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: 668243f66deff67a923097c116c4b150d0256992
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b301946ce818559510b4e401b1f0aaf7c235d5a3
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90882557"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242295"
 ---
 # <a name="high-availability-in-azure-database-for-mysql"></a>Hochverfügbarkeit in Azure Database for MySQL
 Der Dienst Azure Database for MySQL bietet eine garantierte hohe Verfügbarkeit mit der finanziell abgesicherten Vereinbarung zum Servicelevel (Service Level Agreement, SLA) über eine Uptime von [99,99 %](https://azure.microsoft.com/support/legal/sla/mysql). Azure Database for MySQL bietet Hochverfügbarkeit sowohl bei geplanten Ereignissen wie benutzerseitig initiierten Skalierungscomputevorgängen als auch bei ungeplanten Ereignissen wie Ausfällen von zugrunde liegender Hardware oder Software oder Netzwerkausfällen. Der Dienst kann auch nach höchst kritischen Situationen schnell wiederhergestellt werden – so ist gewährleistet, dass für Anwendungen so gut wie keine Downtime auftritt.
@@ -46,7 +46,7 @@ Hier finden Sie einige Szenarien mit geplanter Wartung:
 Ungeplante Downtime kann aufgrund von unvorhergesehenen Fehlern auftreten, darunter Fehler in der zugrunde liegenden Hardware, Netzwerkprobleme und Softwarefehler. Wenn der Datenbankserver unerwartet ausfällt, wird automatisch innerhalb weniger Sekunden ein neuer Datenbankserver bereitgestellt. Der Remotespeicher wird automatisch an den neuen Datenbankserver angefügt. Die MySQL-Engine führt den Wiederherstellungsvorgang mithilfe von WAL-Dateien und Datenbankdateien durch und öffnet den Datenbankserver, sodass Clients eine Verbindung herstellen können. Transaktionen ohne Commit gehen verloren und müssen von der Anwendung erneut ausgeführt werden. Ungeplante Downtime lässt sich zwar nicht vollständig vermeiden, wird aber von Azure Database for MySQL durch automatisches Ausführen von Wiederherstellungsvorgängen sowohl auf Ebene der Datenbankserver als auch des Speichers minimiert, ohne dass ein Eingreifen durch einen Benutzer erforderlich ist. 
 
 
-:::image type="content" source="./media/concepts-high-availability/availability-for-mysql-server.png" alt-text="Übersicht über die elastische Skalierung in Azure Database for MySQL":::
+:::image type="content" source="./media/concepts-high-availability/availability-for-mysql-server.png" alt-text="Übersicht über Hochverfügbarkeit in Azure Database for MySQL":::
 
 ### <a name="unplanned-downtime-failure-scenarios-and-service-recovery"></a>Ungeplante Downtime: Fehlerszenarien und Dienstwiederherstellung
 Im Folgenden finden Sie einige Fehlerszenarien und die Aktionen von Azure Database for MySQL zur automatischen Wiederherstellung:

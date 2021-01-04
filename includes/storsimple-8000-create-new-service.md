@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 88f275016bad72122ebd195449b9af88086bdc7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 746198f87e23cd7aca2a3177c23974917cb4b12a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87507531"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025509"
 ---
 #### <a name="to-create-a-new-service"></a>So erstellen Sie einen neuen Dienst
 
@@ -21,7 +21,7 @@ ms.locfileid: "87507531"
 
     Suchen Sie nach _physisches Storsimple_. Wählen Sie **Physische StorSimple-Geräteserie** aus, klicken Sie darauf und dann auf **Erstellen**. Alternativ können Sie im Azure-Portal auf **+** und dann unter **Speicher** auf **Physische StorSimple-Geräteserie** klicken.
 
-    ![Erstellen eines StorSimple-Geräte-Managers](./media/storsimple-8000-create-new-service/createssdevman11.png)
+    ![Erstellen eines StorSimple-Geräte-Managers 2](./media/storsimple-8000-create-new-service/createssdevman11.png)
 
 3. Führen Sie auf dem Blatt **StorSimple-Geräte-Manager** die folgenden Schritte aus:
 
@@ -29,7 +29,7 @@ ms.locfileid: "87507531"
 
    2. Wählen Sie ein **Abonnement** aus der Dropdownliste aus. Das Abonnement ist mit Ihrem Abrechnungskonto verknüpft. Dieses Feld wird nicht angezeigt, wenn Sie nur ein Abonnement besitzen.
 
-   3. Wählen Sie für **Ressourcengruppe** die Option **Vorhandene verwenden** oder **Neu erstellen** aus. Weitere Informationen finden Sie unter [Azure resource groups (Azure-Ressourcengruppen)](/azure/azure-resource-manager/management/manage-resource-groups-portal).
+   3. Wählen Sie für **Ressourcengruppe** die Option **Vorhandene verwenden** oder **Neu erstellen** aus. Weitere Informationen finden Sie unter [Azure resource groups (Azure-Ressourcengruppen)](../articles/azure-resource-manager/management/manage-resource-groups-portal.md).
 
    4. Geben Sie einen **Standort** für Ihren Dienst an. Üblicherweise sollten Sie den Standort auswählen, welcher der geografischen Region, in der Ihr Gerät bereitgestellt werden soll, am nächsten liegt. Berücksichtigen Sie ggf. auch Folgendes:
 
@@ -42,8 +42,8 @@ ms.locfileid: "87507531"
 
    7. Klicken Sie auf **Erstellen**, um den StorSimple-Geräte-Manager zu erstellen.
 
-       ![Erstellen eines StorSimple-Geräte-Managers](./media/storsimple-8000-create-new-service/createssdevman2.png)
+       ![Erstellen eines StorSimple-Geräte-Managers 3](./media/storsimple-8000-create-new-service/createssdevman2.png)
 
 Die Diensterstellung dauert einige Minuten. Nachdem der Dienst erfolgreich erstellt wurde, wird eine Benachrichtigung angezeigt, und das Blatt des neuen Dienstes wird geöffnet.
 
-![Erstellen eines StorSimple-Geräte-Managers](./media/storsimple-8000-create-new-service/createssdevman5.png)
+![Erstellen eines StorSimple-Geräte-Managers 4](./media/storsimple-8000-create-new-service/createssdevman5.png)

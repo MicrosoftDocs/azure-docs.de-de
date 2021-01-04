@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure-Toolkit für IntelliJ (Spark-Anwendung)'
-description: In diesem Tutorial erfahren Sie, wie Sie das Azure-Toolkit für IntelliJ verwenden, um in Scala geschriebene Spark-Anwendungen zu entwickeln und an einen Apache Spark-Pool zu übermitteln.
+description: 'Tutorial: Verwenden des Azure-Toolkits für IntelliJ, um in Scala geschriebene Spark-Anwendungen zu entwickeln und an einen serverlosen Apache Spark-Pool zu übermitteln'
 services: synapse-analytics
 author: hrasheed-msft
 ms.author: jejiang
@@ -9,16 +9,16 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: be127d4214577e017522aec6a1b61b8f62638ed9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 75cc23df41741a95e87ad64d168aea4fa4f45733
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368739"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451047"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>Tutorial: Erstellen einer Apache Spark-Anwendung mit IntelliJ mithilfe eines Synapse-Arbeitsbereichs
 
-In diesem Tutorial wird gezeigt, wie Sie mit dem Plug-In „Azure-Toolkit für IntelliJ“ in [Scala](https://www.scala-lang.org/) geschriebene Apache Spark-Anwendungen entwickeln und anschließend direkt aus der IntelliJ-IDE (Integrated Development Environment, integrierte Entwicklungsumgebung) an einen Spark-Pool (Vorschauversion) übermitteln. Sie können das Plug-In auf mehrere Arten verwenden:
+In diesem Tutorial wird gezeigt, wie Sie mit dem Plug-In „Azure-Toolkit für IntelliJ“ in [Scala](https://www.scala-lang.org/) geschriebene Apache Spark-Anwendungen entwickeln und anschließend direkt aus der IntelliJ-IDE (Integrated Development Environment, integrierte Entwicklungsumgebung) an einen serverlosen Apache Spark-Pool übermitteln. Sie können das Plug-In auf mehrere Arten verwenden:
 
 - Entwickeln einer Scala Spark-Anwendung und Übermitteln der Anwendung an einen Spark-Pool
 - Zugreifen auf die Ressourcen Ihres Spark-Pools
@@ -62,7 +62,7 @@ In diesem Tutorial lernen Sie Folgendes:
     |Projektname| Geben Sie einen Namen ein. In diesem Tutorial wird `myApp` verwendet.|
     |Project&nbsp;location (Projektspeicherort)| Geben Sie den gewünschten Speicherort für Ihr Projekt ein.|
     |Project SDK (Projekt-SDK)| Dieses Feld ist bei der erstmaligen Verwendung von IDEA möglicherweise leer. Wählen Sie **New...** (Neu...) aus, und navigieren Sie zu Ihrem JDK.|
-    |Spark-Version|Der Erstellungs-Assistent integriert die passende Version für das Spark-SDK und das Scala-SDK. Synapse unterstützt nur **Spark 2.4.0** .|
+    |Spark-Version|Der Erstellungs-Assistent integriert die passende Version für das Spark-SDK und das Scala-SDK. Synapse unterstützt nur **Spark 2.4.0**.|
     |||
 
     ![Auswählen des Apache Spark SDK](./media/intellij-tool-synapse/create-synapse-application02.png)
@@ -70,7 +70,7 @@ In diesem Tutorial lernen Sie Folgendes:
 7. Wählen Sie **Fertig stellen** aus. Es kann einige Minuten dauern, bis das Projekt verfügbar ist.
 8. Das Spark-Projekt erstellt automatisch ein Artefakt. Führen Sie zum Anzeigen des Artefakts die folgenden Schritte aus:
 
-   a. Navigieren Sie auf der Menüleiste zu **Datei** > **Projektstruktur** .
+   a. Navigieren Sie auf der Menüleiste zu **Datei** > **Projektstruktur**.
 
    b. Wählen Sie im Fenster **Projektstruktur** die Option **Artefakte** aus.
 
@@ -78,7 +78,7 @@ In diesem Tutorial lernen Sie Folgendes:
 
     ![Artefaktinformationen im Dialogfeld](./media/intellij-tool-synapse/default-artifact-dialog.png)
 
-9. Navigieren Sie unter **myApp** > **src** > **main** > **scala**> **sample**> **LogQuery** zu **LogQuery** . In diesem Tutorial wird **LogQuery** verwendet.
+9. Navigieren Sie unter **myApp** > **src** > **main** > **scala**> **sample**> **LogQuery** zu **LogQuery**. In diesem Tutorial wird **LogQuery** verwendet.
 
    ![Befehle zum Erstellen einer Scala-Klasse über Project](./media/intellij-tool-synapse/select-run-file.png)
 
@@ -88,11 +88,11 @@ Melden Sie sich beim Azure-Abonnement an, um eine Verbindung mit Ihren Spark-Poo
 
 ### <a name="sign-in-to-your-azure-subscription"></a>Melden Sie sich bei Ihrem Azure-Abonnement an.
 
-1. Navigieren Sie in der Menüleiste zu **Ansicht** > **Toolfenster** > **Azure Explorer** .
+1. Navigieren Sie in der Menüleiste zu **Ansicht** > **Toolfenster** > **Azure Explorer**.
 
    ![IntelliJ IDEA: Anzeige des Azure-Explorers](./media/intellij-tool-synapse/show-azure-explorer1.png)
 
-2. Klicken Sie im Azure Explorer mit der rechten Maustaste auf den Knoten **Azure** , und wählen Sie dann **Anmelden** aus.
+2. Klicken Sie im Azure Explorer mit der rechten Maustaste auf den Knoten **Azure**, und wählen Sie dann **Anmelden** aus.
 
    ![IntelliJ IDEA-Explorer: Rechtsklick auf Azure](./media/intellij-tool-synapse/explorer-rightclick-azure.png)
 
@@ -128,7 +128,7 @@ Melden Sie sich beim Azure-Abonnement an, um eine Verbindung mit Ihren Spark-Poo
 
 Nachdem Sie eine Scala-Anwendung erstellt haben, können Sie sie remote ausführen.
 
-1. Öffnen Sie das Fenster für die **Ausführungs-/Debugkonfiguration** , indem Sie das Symbol auswählen.
+1. Öffnen Sie das Fenster für die **Ausführungs-/Debugkonfiguration**, indem Sie das Symbol auswählen.
 
     ![Befehl „Submit Spark Application to HDInsight“ (Spark-Anwendung an HDInsight senden) 1](./media/intellij-tool-synapse/open-configuration-window.png)
 
@@ -184,14 +184,14 @@ Im Anschluss erfahren Sie, wie Sie das lokale Ausführen und Debuggen für Ihren
 
 ### <a name="scenario-2-do-local-debugging"></a>Szenario 2: Lokales Debuggen
 
-1. Öffnen Sie das Skript **LogQuery** , und legen Sie Breakpoints fest.
+1. Öffnen Sie das Skript **LogQuery**, und legen Sie Breakpoints fest.
 2. Wählen Sie das Symbol für **Lokales Debuggen** aus, um lokales Debuggen durchzuführen.
 
     ![Intellij – Ergebnis der lokalen Ausführung des Projekts 2](./media/intellij-tool-synapse/local-debug-synapse.png)
 
 ## <a name="access-and-manage-synapse-workspace"></a>Zugreifen auf und Verwalten von Synapse-Arbeitsbereichen
 
-Im Azure-Explorer im Azure-Toolkit für IntelliJ können verschiedene Vorgänge ausgeführt werden. Navigieren Sie in der Menüleiste zu **Ansicht** > **Toolfenster** > **Azure Explorer** .
+Im Azure-Explorer im Azure-Toolkit für IntelliJ können verschiedene Vorgänge ausgeführt werden. Navigieren Sie in der Menüleiste zu **Ansicht** > **Toolfenster** > **Azure Explorer**.
 
 ### <a name="launch-workspace"></a>Starten des Arbeitsbereichs
 
@@ -216,7 +216,7 @@ Vergewissern Sie sich, dass die Voraussetzung für „WINUTILS.EXE“ erfüllt w
 1. Navigieren Sie in der Menüleiste zu **Run** (Ausführen) > **Edit Configurations...** (Konfigurationen bearbeiten…).
 2. Navigieren Sie im Fenster für die **Ausführungs-/Debugkonfiguration** im linken Bereich zu **Apache Spark on Synapse** >  **[Spark on Synapse] myApp** (Apache Spark in Synapse > [Spark in Synapse] myApp).
 3. Klicken Sie im Hauptfenster auf die Registerkarte **Locally Run** (Lokal ausführen).
-4. Geben Sie die folgenden Werte an, und klicken Sie anschließend auf **OK** :
+4. Geben Sie die folgenden Werte an, und klicken Sie anschließend auf **OK**:
 
     |Eigenschaft |Wert |
     |----|----|
@@ -225,7 +225,7 @@ Vergewissern Sie sich, dass die Voraussetzung für „WINUTILS.EXE“ erfüllt w
 
     ![Konfigurieren der lokalen Konsole](./media/intellij-tool-synapse/local-console-synapse01.png)
 
-5. Navigieren Sie in „Project“ (Projekt) zu **myApp** > **src** > **main** > **scala** > **myApp** .
+5. Navigieren Sie in „Project“ (Projekt) zu **myApp** > **src** > **main** > **scala** > **myApp**.
 6. Navigieren Sie über die Menüleiste zu **Tools** > **Spark Console** > **Run Spark Local Console(Scala)** (Tools > Spark-Konsole > Lokale Spark-Konsole (Scala) ausführen).
 7. Zwei Dialogfelder werden möglicherweise angezeigt, in denen Sie gefragt werden, ob Probleme mit Abhängigkeiten automatisch behoben werden sollen. Klicken Sie ggf. auf **Auto Fix** (Automatisch beheben).
 
@@ -247,7 +247,7 @@ Wird nur für IntelliJ 2018.2 und 2018.3 unterstützt.
 
 3. Klicken Sie im Hauptfenster auf die Registerkarte **Remotely Run in Cluster** (Remoteausführung in Cluster).
 
-4. Geben Sie die folgenden Werte an, und klicken Sie anschließend auf **OK** :
+4. Geben Sie die folgenden Werte an, und klicken Sie anschließend auf **OK**:
 
     |Eigenschaft |Wert |
     |----|----|
@@ -257,7 +257,7 @@ Wird nur für IntelliJ 2018.2 und 2018.3 unterstützt.
 
     ![Konfigurieren der interaktiven Konsole](./media/intellij-tool-synapse/interactive-console-configuration.png)
 
-5. Navigieren Sie in „Project“ (Projekt) zu **myApp** > **src** > **main** > **scala** > **myApp** .
+5. Navigieren Sie in „Project“ (Projekt) zu **myApp** > **src** > **main** > **scala** > **myApp**.
 
 6. Navigieren Sie über die Menüleiste zu **Tools** > **Spark console** > **Run Spark Livy Interactive Session Console(Scala)** (Tools > Spark-Konsole > Spark-Konsole mit interaktiver Livy-Sitzung (Scala) ausführen).
 7. Die Konsole sollte in etwa wie auf dem folgenden Screenshot aussehen. Geben Sie im Konsolenfenster `sc.appName` ein, und drücken Sie STRG+EINGABETASTE. Das Ergebnis wird angezeigt. Sie können die lokale Konsole beenden, indem Sie die rote Schaltfläche auswählen.

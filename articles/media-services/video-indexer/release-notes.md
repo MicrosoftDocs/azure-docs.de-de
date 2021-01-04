@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 10/30/2020
 ms.author: juliako
-ms.openlocfilehash: e2b45ebf9acea7334678110015d8cfd3022675f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f7bf41bd864f6780eee00938f35bb34d2336eb5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505337"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145751"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure Media Services Video Indexer: Versionshinweise
 
@@ -29,6 +29,21 @@ Damit Sie bezüglich der aktuellen Entwicklungen auf dem neuesten Stand bleiben,
 * Bekannte Probleme
 * Behebung von Programmfehlern
 * Veraltete Funktionen
+
+## <a name="october-2020"></a>Oktober 2020
+
+### <a name="animated-character-identification-improvements"></a>Verbesserungen bei der Identifizierung animierter Figuren  
+
+Video Indexer unterstützt die Erkennung und Gruppierung von Figuren in animierten Inhalten mittels Integration der Cognitive Services-API „Custom Vision“. Wir haben dem KI-Algorithmus in Bezug auf die Erkennung von Figuren wesentlich verbessert. So lassen sich genauere Erkenntnisse erzielen und Figuren besser identifizieren.
+
+### <a name="planned-video-indexer-website-authenticatication-changes"></a>Geplante Änderungen an der Authentifizierung der Video Indexer-Website
+
+Ab 1. Januar 2021 können Sie sich nicht mehr über Facebook oder LinkedIn bei der [Video Indexer](https://www.videoindexer.ai/)-Website (Testversion) registrieren und anmelden.
+
+Sie können sich über einen der folgenden Anbieter registrieren und anmelden: Azure AD, Microsoft und Google.
+
+> [!NOTE]
+> Es wird dringend angeraten, Ihre Inhalte vor dem 1. Januar 2021 zu exportieren, da mit LinkedIn und Facebook verknüpfte Konten gelöscht und deren Inhalte nicht mehr zugänglich sein werden.
 
 ## <a name="august-2020"></a>August 2020
 
@@ -123,7 +138,7 @@ In den nächsten Wochen werden wir dies ändern und die URL der [Video Indexer-W
     * Ersetzen der URL durch eine URL, die auf die Video Indexer-Widget-APIs verweist (beispielsweise das [Widget „Kognitive Erkenntnisse“](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Insights-Widget))
     * Verwenden der Video Indexer-Website zum Generieren einer neuen eingebetteten URL:
          
-         Drücken Sie **Wiedergabe**, um zur Seite Ihres Videos zu gelangen > klicken Sie auf die Schaltfläche **&lt;/&gt; Einbinden** > kopieren Sie die URL in Ihre Anwendung:
+         Drücken Sie **Wiedergabe** , um zur Seite Ihres Videos zu gelangen > klicken Sie auf die Schaltfläche **&lt;/&gt; Einbinden** > kopieren Sie die URL in Ihre Anwendung:
    
     Die regionalen URLs werden nicht unterstützt und werden in den nächsten Wochen blockiert.
 

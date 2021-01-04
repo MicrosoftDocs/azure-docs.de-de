@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 1f79add26af40abfa320bc23a3287d8246237701
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cf27319fa84ff5d693e74e90664b7a86f4d934a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037438"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897210"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Geocodierungsabdeckung in Azure Maps
 
-Der Azure Maps-[Suchdienst](https://docs.microsoft.com/rest/api/maps/search) unterstützt Geocodierung, was bedeutet, dass Ihre API-Anforderung Suchbegriffe wie eine Adresse oder den Namen eines Orts enthalten kann, woraufhin das Ergebnis als Koordinaten mit Breiten- und Längengraden zurückgegeben wird. Beispielsweise empfängt die [API zum Abrufen von Suchadressen](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) von Azure Maps Abfragen, die Standortinformationen enthalten, und gibt Ergebnisse als Koordinaten mit Breiten- und Längengraden zurück.
+Der Azure Maps-[Suchdienst](/rest/api/maps/search) unterstützt Geocodierung, was bedeutet, dass Ihre API-Anforderung Suchbegriffe wie eine Adresse oder den Namen eines Orts enthalten kann, woraufhin das Ergebnis als Koordinaten mit Breiten- und Längengraden zurückgegeben wird. Beispielsweise empfängt die [API zum Abrufen von Suchadressen](/rest/api/maps/search/getsearchaddress) von Azure Maps Abfragen, die Standortinformationen enthalten, und gibt Ergebnisse als Koordinaten mit Breiten- und Längengraden zurück.
 
-Der Azure Maps-[Suchdienst](https://docs.microsoft.com/rest/api/maps/search) bietet allerdings nicht für alle Regionen und Länder das selbe Maß an Informationen und Genauigkeit. Bestimmen Sie anhand dieses Artikels, nach welcher Art von Orten Sie zuverlässig in den einzelnen Regionen suchen können.
+Der Azure Maps-[Suchdienst](/rest/api/maps/search) bietet allerdings nicht für alle Regionen und Länder das selbe Maß an Informationen und Genauigkeit. Bestimmen Sie anhand dieses Artikels, nach welcher Art von Orten Sie zuverlässig in den einzelnen Regionen suchen können.
 
 Die Möglichkeit der Geocodierung in einem Land/einer Region hängt von der Abdeckung der Straßendaten und der Geocodierungsgenauigkeit des Geocodierungsdiensts ab. Die jeweilige Unterstützung der Geocodierung in den einzelnen Ländern/Regionen wird mit den folgenden Kategorisierungen angegeben.
 
@@ -301,4 +301,4 @@ Die Möglichkeit der Geocodierung in einem Land/einer Region hängt von der Abde
 
 Weitere Informationen zur Azure Maps-Geocodierung:
 > [!div class="nextstepaction"]
-> [Azure Maps-Suchdienst](https://docs.microsoft.com/rest/api/maps/search)
+> [Azure Maps-Suchdienst](/rest/api/maps/search)

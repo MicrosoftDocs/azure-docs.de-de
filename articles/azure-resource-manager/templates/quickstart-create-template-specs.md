@@ -2,15 +2,15 @@
 title: Erstellen und Bereitstellen von Vorlagenspezifikationen
 description: Erfahren Sie, wie Sie eine Vorlagenspezifikation aus einer ARM-Vorlage erstellen. Stellen Sie dann die Vorlagenspezifikation für eine Ressourcengruppe in Ihrem Abonnement bereit.
 author: tfitzmac
-ms.date: 10/02/2020
+ms.date: 12/01/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: e1bd2f3da8204cf5947d0cf423cd57b023674608
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 03cf2013f1cec9722af5d7e72285d9f11d8a6bc1
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728776"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518956"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Schnellstart: Erstellen und Bereitstellen von Vorlagenspezifikationen (Vorschau)
 
@@ -21,17 +21,37 @@ Dieser Schnellstart zeigt Ihnen, wie Sie eine Azure Resource Manager-Vorlage (AR
 Ein Azure-Konto mit einem aktiven Abonnement. Sie können [kostenlos ein Konto erstellen](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Vorlagenspezifikationen befinden sich derzeit in der Vorschauversion. Um sie zu verwenden, müssen Sie sich [für die Warteliste registrieren](https://aka.ms/templateSpecOnboarding).
->
-> Nachdem Sie von der Warteliste genehmigt wurden, erhalten Sie Anweisungen zur Installation des PowerShell-Vorschaumoduls und des CLI-Vorschaumoduls.
+> Vorlagenspezifikationen befinden sich derzeit in der Vorschauversion. Zur Verwendung mit Azure PowerShell müssen Sie [mindestens Version 5.0.0](/powershell/azure/install-az-ps) installieren. Zur Verwendung mit der Azure CLI verwenden Sie [mindestens Version 2.14.2](/cli/azure/install-azure-cli).
 
 ## <a name="create-template-spec"></a>Erstellen von Vorlagenspezifikationen
 
-Die Vorlagenspezifikation ist ein Ressourcentyp namens **Microsoft.Resources/templateSpecs**. Sie können zur Erstellung Ihrer Vorlagenspezifikation Azure PowerShell, die Azure CLI oder eine ARM-Vorlage verwenden. Bei allen Optionen benötigen Sie ein ARM-Vorlage, die in der Vorlagenspezifikation verpackt ist.
+Die Vorlagenspezifikation ist ein Ressourcentyp namens **Microsoft.Resources/templateSpecs**. Ihre Vorlagenspezifikation können Sie über das Azure-Portal, per Azure PowerShell, mithilfe der Azure CLI oder unter Verwendung einer ARM-Vorlage erstellen. Bei allen Optionen benötigen Sie ein ARM-Vorlage, die in der Vorlagenspezifikation verpackt ist.
 
 Bei PowerShell und der CLI wird die ARM-Vorlage als Parameter an den Befehl übergeben. Bei der ARM-Vorlage wird die ARM-Vorlage, die innerhalb der Vorlagenspezifikation verpackt werden soll, in die Definition der Vorlagenspezifikation eingebettet.
 
 Diese Optionen werden nachstehend vorgestellt.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
+1. Geben Sie am oberen Bildschirmrand unter **Ressourcen, Dienste und Dokumente durchsuchen** den Text **Vorlagenspezifikationen** ein, und wählen Sie anschließend **Vorlagenspezifikationen** aus.
+1. Wählen Sie **Create template spec** (Vorlagenspezifikation erstellen) aus.
+1. Wählen Sie die folgenden Werte aus, bzw. geben Sie sie ein:
+
+    - **Name**: Geben Sie einen Namen für die Vorlagenspezifikation ein.  Beispiel: **storageSpec**
+    - **Abonnement**: Wählen Sie ein Azure-Abonnement für die Erstellung der Vorlagenspezifikation aus.
+    - **Ressourcengruppe**: Wählen Sie **Neu erstellen** aus, und geben Sie einen neuen Ressourcengruppennamen ein.  Beispiel: **templateSpecRG**
+    - **Standort**: Wählen Sie einen Standort für die Ressourcengruppe aus. Beispiel: **USA, Westen 2**
+    - **Version**: Geben Sie eine Version für die Vorlagenspezifikation ein. Beispiel: **1.0** oder **v1.0**
+
+1. Klicken Sie auf **Weiter: Vorlage bearbeiten**.
+1. Ersetzen Sie den Vorlageninhalt durch folgenden JSON-Code:
+
+    :::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
+
+    Hierbei handelt es sich um die Vorlage, die in der Vorlagenspezifikation verpackt wird.
+1. Klicken Sie auf **Überprüfen + erstellen**.
+1. Klicken Sie auf **Erstellen**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -88,7 +108,7 @@ Diese Optionen werden nachstehend vorgestellt.
 1. Wenn Sie eine ARM-Vorlage zum Erstellen der Vorlagenspezifikation verwenden, wird die Vorlage in die Ressourcendefinition eingebettet. Kopieren Sie die folgende Vorlage, und speichern Sie sie lokal als **azuredeploy.json**. In dieser Schnellstartanleitung wird davon ausgegangen, dass die Speicherung im Pfad **c:\Templates\azuredeploy.json** erfolgt ist, aber Sie können einen beliebigen Pfad verwenden.
 
     > [!NOTE]
-    > In der eingebetteten Vorlage müssen alle linken Klammern eine zweite linke Klammer als Escapezeichen verwenden. Verwenden Sie `[[` anstelle von `[`.
+    > In der eingebetteten Vorlage müssen alle [Vorlagenausdrücke](template-expressions.md) eine zweite linke eckige Klammer als Escapezeichen verwenden. Verwenden Sie `"[[` anstelle von `"[`. JSON-Arrays verwenden weiterhin eine einzelne linke eckige Klammer.
 
     ```json
     {
@@ -205,7 +225,23 @@ Diese Optionen werden nachstehend vorgestellt.
 
 ## <a name="deploy-template-spec"></a>Bereitstellen der Vorlagenspezifikationen
 
-Jetzt können Sie die Vorlagenspezifikation bereitstellen. Das Bereitstellen der Vorlagenspezifikation gestaltet sich genauso wie die Bereitstellung der enthaltenen Vorlage, mit der Ausnahme, dass Sie die Ressourcen-ID der Vorlagenspezifikation übergeben. Sie verwenden dieselben Bereitstellungsbefehle und übergeben bei Bedarf Parameterwerte für die Vorlagenspezifikation.
+Jetzt können Sie die Vorlagenspezifikation bereitstellen. Das Bereitstellen der Vorlagenspezifikation gestaltet sich genauso wie das Bereitstellen der enthaltenen Vorlage, mit der Ausnahme, dass Sie die Ressourcen-ID der Vorlagenspezifikation in Azure PowerShell oder in der Azure CLI übergeben. Sie verwenden dieselben Bereitstellungsbefehle und übergeben bei Bedarf Parameterwerte für die Vorlagenspezifikation.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. Öffnen Sie im Azure-Portal die Ressourcengruppe, die Sie in der vorherigen Prozedur erstellt haben.  Beispiel: **templateSpecRG**
+1. Wählen Sie die von Ihnen erstellte Vorlagenspezifikation. Beispiel: **storageSpec**
+1. Klicken Sie auf **Bereitstellen**.
+1. Wählen Sie die folgenden Werte aus, bzw. geben Sie sie ein:
+
+    - **Abonnement**: Wählen Sie ein Azure-Abonnement für die Ressourcenerstellung aus.
+    - **Ressourcengruppe**: Wählen Sie **Neu erstellen** aus, und geben Sie **storageRG** ein.
+    - **Speicherkontotyp**: Wählen Sie **Standard_GRS** aus.
+
+    Sie erstellen eine neue Ressourcengruppe und stellen die Vorlage innerhalb der Vorlagenspezifikation für die neue Ressourcengruppe bereit.
+
+1. Klicken Sie auf **Überprüfen + erstellen**.
+1. Klicken Sie auf **Erstellen**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

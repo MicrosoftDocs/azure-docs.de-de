@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 66796a819c0ca7e114d82210a988fc7e13003941
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 356353da639ab97a1a4e5483abf56050f5a236f8
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078195"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676059"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Überwachen des Ausführungsstatus, Überprüfen des Triggerverlaufs und Einrichten von Benachrichtigungen für Azure Logic Apps
 
@@ -40,19 +40,24 @@ Jedes Mal, wenn der Trigger für ein Element oder Ereignis ausgelöst wird, erst
 
 1. Wählen Sie Ihre Logik-App aus und dann **Übersicht**.
 
-   Im Bereich „Übersicht“ werden unter **Ausführungsverlauf** alle vergangenen, aktuellen und wartenden Ausführungen Ihrer Logik-App angezeigt. Falls die Liste viele Ausführungen enthält und Sie den gewünschten Eintrag nicht finden können, versuchen Sie, die Liste zu filtern. Sollten Sie nicht die erwarteten Daten vorfinden, klicken Sie auf der Symbolleiste auf **Aktualisieren**.
+   Im Bereich „Übersicht“ werden unter **Ausführungsverlauf** alle vergangenen, aktuellen und wartenden Ausführungen Ihrer Logik-App angezeigt. Falls die Liste viele Ausführungen enthält und Sie den gewünschten Eintrag nicht finden können, versuchen Sie, die Liste zu filtern.
+
+   > [!TIP]
+   > Wenn der Ausführungsstatus nicht angezeigt wird, aktualisieren Sie die Übersichtsseite, indem Sie **Aktualisieren** auswählen. Für Trigger, die aufgrund von nicht erfüllten Kriterien oder nicht gefundenen Daten übersprungen werden, erfolgt keine Ausführung.
 
    ![Übersicht, Ausführungsverlauf und andere Logik-App-Informationen](./media/monitor-logic-apps/overview-pane-logic-app-details-run-history.png)
 
-   Die Ausführung einer Logik-App kann folgende Statuswerte annehmen:
+   Im Anschluss finden Sie die möglichen Werte für den Ausführungsstatus:
 
-   | Status | BESCHREIBUNG |
-   |--------|-------------|
-   | **Abgebrochen** | Der Workflow wurde ausgeführt, hat dann aber eine Abbruchanforderung erhalten. |
-   | **Fehler** | Mindestens eine Aktion war nicht erfolgreich, und der aufgetretene Fehler konnte von keiner nachfolgenden Aktion im Workflow behandelt werden. |
-   | **Wird ausgeführt** | Der Workflow wird derzeit ausgeführt. <p>Dieser Status kann auch für einen gedrosselten Workflow oder aufgrund des aktuellen Tarifs angezeigt werden. Weitere Informationen finden Sie unter den Aktionsbeschränkungen auf der [Seite mit der Preisübersicht](https://azure.microsoft.com/pricing/details/logic-apps/). Wenn Sie die [Diagnoseprotokollierung](../logic-apps/monitor-logic-apps.md) einrichten, erhalten Sie Informationen zu ggf. aufgetretenen Drosselungsereignissen. |
-   | **Erfolgreich** | Alle Aktionen waren erfolgreich. <p>**Hinweis**: Falls bei einer bestimmten Aktion ein Fehler aufgetreten ist, wurde dieser von einer späteren Aktion im Workflow behandelt. |
-   | **Wartet** | Der Workflow wurde nicht gestartet oder ist angehalten, z. B. aufgrund eines früheren Workflows, der noch ausgeführt wird. |
+   | Ausführungsstatus | Beschreibung |
+   |------------|-------------|
+   | **Aborted** | Die Ausführung wurde aufgrund externer Probleme beendet oder nicht abgeschlossen (beispielsweise wegen eines Systemausfalls oder abgelaufenen Azure-Abonnements). |
+   | **Abgebrochen** | Die Ausführung wurde ausgelöst und gestartet, es wurde jedoch eine Abbruchanforderung empfangen. |
+   | **Fehler** | Mindestens eine Aktion in der Ausführung war nicht erfolgreich. Es wurden keine nachfolgenden Aktionen im Workflow eingerichtet, um den Fehler zu behandeln. |
+   | **Wird ausgeführt** | Die Ausführung wurde ausgelöst und wird gerade ausgeführt. Dieser Status kann jedoch auch für eine Ausführung angezeigt werden, die aufgrund von [Aktionslimits](logic-apps-limits-and-config.md) oder aufgrund des [aktuellen Tarifs](https://azure.microsoft.com/pricing/details/logic-apps/) gedrosselt wird. <p><p>**Tipp** : Wenn Sie die [Diagnoseprotokollierung](monitor-logic-apps-log-analytics.md) einrichten, erhalten Sie Informationen zu ggf. aufgetretenen Drosselungsereignissen. |
+   | **Erfolgreich** | Die Ausführung war erfolgreich. Sollte bei einer Aktion ein Fehler aufgetreten sein, wurde dieser Fehler von einer nachfolgenden Aktion im Workflow behandelt. |
+   | **Timeout** | Bei der Ausführung ist ein Timeout aufgetreten, da die aktuelle Dauer die maximal zulässige Ausführungsdauer überschritten hat, die durch die [Einstellung **Aufbewahrung des Ausführungsverlaufs in Tagen**](logic-apps-limits-and-config.md#run-duration-retention-limits) gesteuert wird. Die Dauer einer Ausführung wird anhand der Startzeit der Ausführung und der maximalen Ausführungsdauer zu dieser Startzeit berechnet. <p><p>**Hinweis** : Wenn die Ausführungsdauer auch das aktuelle *Aufbewahrungslimit im Ausführungsverlauf* übersteigt, das ebenfalls durch die [Einstellung **Aufbewahrung des Ausführungsverlaufs in Tagen**](logic-apps-limits-and-config.md#run-duration-retention-limits) gesteuert wird, wird die Ausführung durch einen täglichen Bereinigungsauftrag aus dem Ausführungsverlauf gelöscht. Der Aufbewahrungszeitraum wird immer auf der Grundlage der Startzeit der Ausführung und des *aktuellen* Aufbewahrungslimits berechnet – unabhängig davon, ob bei der Ausführung ein Timeout auftritt oder ob die Ausführung abgeschlossen wird. Wenn Sie also die maximale Dauer einer aktiven Ausführung verringern, tritt ein Timeout für die Ausführung auf. Ob die Ausführung im Ausführungsverlauf verbleibt oder daraus entfernt wird, hängt davon ab, ob die Ausführungsdauer das Aufbewahrungslimit übersteigt. |
+   | **Wartet** | Die Ausführung wurde nicht gestartet oder wurde angehalten (beispielsweise aufgrund einer früheren Workflowinstanz, die noch ausgeführt wird). |
    |||
 
 1. Um die Schritte und anderen Informationen einer bestimmten Ausführung zu prüfen, wählen Sie unter **Ausführungsverlauf** diese Ausführung aus.
@@ -71,7 +76,7 @@ Jedes Mal, wenn der Trigger für ein Element oder Ereignis ausgelöst wird, erst
 
    ![Überprüfen der Details jedes Schritts in der Ausführung](./media/monitor-logic-apps/review-logic-app-run-details.png)
 
-   Sie können beispielsweise die **Korrelations-ID**-Eigenschaft der Ausführung abrufen, die Sie ggf. benötigen, wenn Sie die [REST-API für Logik-Apps](/rest/api/logic) verwenden.
+   Sie können beispielsweise die **Korrelations-ID** -Eigenschaft der Ausführung abrufen, die Sie ggf. benötigen, wenn Sie die [REST-API für Logik-Apps](/rest/api/logic) verwenden.
 
 1. Um weitere Informationen zu einem bestimmten Schritt zu erhalten, wählen Sie eine der folgenden Optionen aus:
 
@@ -114,13 +119,13 @@ Jede Logik-App-Ausführung beginnt mit einem Trigger. Der Triggerverlauf enthäl
 
    ![Mehrere Auslöseversuche für verschiedene Elemente](./media/monitor-logic-apps/logic-app-trigger-history.png)
 
-   Ein Auslöseversuch kann folgende Statuswerte haben:
+   Im Anschluss finden Sie die möglichen Statuswerte für Auslöseversuche:
 
-   | Status | BESCHREIBUNG |
-   |--------|-------------|
+   | Triggerstatus | BESCHREIBUNG |
+   |----------------|-------------|
    | **Fehler** | Ein Fehler ist aufgetreten. Wählen Sie zum Überprüfen der ggf. generierten Fehlermeldungen für einen fehlerhaften Trigger den entsprechenden Auslöseversuch aus, und klicken Sie auf **Ausgaben**. Möglicherweise sind ungültige Eingaben vorhanden. |
-   | **Übersprungen** | Der Trigger hat den Endpunkt geprüft, aber keine Daten gefunden. |
-   | **Erfolgreich** | Der Trigger hat den Endpunkt geprüft und verfügbare Daten gefunden. Dieser Status tritt in der Regel zusammen mit dem Status „Ausgelöst“ auf. Andernfalls enthält die Triggerdefinition möglicherweise eine nicht erfüllte Bedingung oder einen `SplitOn`-Befehl, dessen Voraussetzungen nicht erfüllt wurden. <p>Dieser Status kann für einen manuellen Trigger, einen Wiederholungstrigger oder einen Abfragetrigger gelten. Ein Trigger kann erfolgreich ausgeführt werden und die Ausführung dennoch nicht erfolgreich sein, wenn die Aktionen nicht behandelte Fehler generieren. |
+   | **Übersprungen** | Der Trigger hat den Endpunkt überprüft, aber keine Daten gefunden, die den angegebenen Kriterien entsprechen. |
+   | **Erfolgreich** | Der Trigger hat den Endpunkt geprüft und verfügbare Daten gefunden. Dieser Status tritt in der Regel zusammen mit dem Status **Ausgelöst** auf. Andernfalls enthält die Triggerdefinition möglicherweise eine nicht erfüllte Bedingung oder einen `SplitOn`-Befehl, dessen Voraussetzungen nicht erfüllt wurden. <p><p>Dieser Status kann für einen manuellen Trigger, einen Wiederholungstrigger oder einen Abfragetrigger gelten. Ein Trigger kann erfolgreich ausgeführt werden und die Ausführung dennoch nicht erfolgreich sein, wenn die Aktionen nicht behandelte Fehler generieren. |
    |||
 
    > [!TIP]
@@ -152,7 +157,7 @@ Richten Sie [Benachrichtigungen in Azure Monitor](../azure-monitor/platform/aler
 
    Wenn Sie z. B. eine Benachrichtigung senden möchten, wenn ein Trigger fehlschlägt, führen Sie die folgenden Schritte aus:
 
-   1. Suchen Sie in der Spalte **Signalname** das Signal mit **Triggerfehler**, und wählen Sie es aus.
+   1. Suchen Sie in der Spalte **Signalname** das Signal mit **Triggerfehler** , und wählen Sie es aus.
 
       ![Auswählen eines Signals zum Erstellen einer Benachrichtigung](./media/monitor-logic-apps/find-and-select-signal.png)
 
@@ -164,7 +169,7 @@ Richten Sie [Benachrichtigungen in Azure Monitor](../azure-monitor/platform/aler
 
    1. Geben Sie für **Schwellenwert** `1` ein.
 
-   1. Vergewissern Sie sich unter **Bedingungsvorschau**, dass Ihre Bedingung richtig angezeigt wird.
+   1. Vergewissern Sie sich unter **Bedingungsvorschau** , dass Ihre Bedingung richtig angezeigt wird.
 
    1. Richten Sie unter **Auswertung basierend auf** das Intervall und die Häufigkeit zum Ausführen der Benachrichtigungsregel ein. Wählen Sie für **Aggregationsgranularität (Zeitraum)** den Zeitraum für die Gruppierung der Daten aus. Wählen Sie für **Häufigkeit der Auswertung** aus, wie oft die Bedingung überprüft werden soll.
 

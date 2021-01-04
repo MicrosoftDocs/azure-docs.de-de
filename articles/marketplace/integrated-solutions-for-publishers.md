@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
-ms.openlocfilehash: 2e976b895c6aa63b73c55b458668c00b64c6f960
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70dfccb32389d2f1fb492669c9f84a3e6ae77bbb
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91660903"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621347"
 ---
 # <a name="publish-an-integrated-solution"></a>Veröffentlichen einer integrierten Lösung
 
-In diesem Artikel werden der gesamte Prozess und die allgemeinen Anforderungen für die Veröffentlichung einer integrierten Lösung im kommerziellen Marketplace erläutert. In einem einzelnen gebündelten Angebot kombiniert eine integrierte Lösung Punktlösungstechnologien von Softwareanbietern mit der Bereitstellung und dem Support eines Dienstleistungspartners. Der Dienstleistungspartner listet das Angebot in Microsoft AppSource oder Azure Marketplace als [Beratungsdienst](./consulting-services.md).
+In diesem Artikel werden der gesamte Prozess und die allgemeinen Anforderungen für die Veröffentlichung einer integrierten Lösung im kommerziellen Marketplace erläutert. In einem einzelnen gebündelten Angebot kombiniert eine integrierte Lösung Punktlösungstechnologien von Softwareanbietern mit der Bereitstellung und dem Support eines Dienstleistungspartners. Der Dienstleistungspartner listet das Angebot in Microsoft AppSource oder Azure Marketplace als [Beratungsdienst](./plan-consulting-service-offer.md).
 
 Integrierte Lösungen zielen auf bestimmte Kundenanforderungen ab, oder wurden für bestimmte Szenarios erstellt. Dazu sind erst einmal grundlegende Kenntnisse der Herausforderungen oder Probleme in der Branche erforderlich. Zwei oder mehrere branchenführende Technologien werden dann miteinander integriert, um eine einheitliche und wiederholbare Bereitstellungserfahrung für den Kunden zu erstellen. Anbieter ermöglichen Kunden eine schnelle Inbetriebnahme. Sie stellen für den Kunden einen zentralen Ansprechpartner bereit, der für die entsprechende Anpassung und Beratung sowie für den Support rund um die Lösung verantwortlich ist. Das Ergebnis ist eine integrierte Lösung mit Technologien und Diensten.
 
@@ -32,18 +32,17 @@ Einen Überblick über das Programm für integrierte Lösungen erhalten Sie im [
 ## <a name="eligibility-criteria"></a>Qualifizierungskriterien
 
 * Teilnehmende Partner müssen über eine MPN-ID verfügen.
-* Teilnehmende Dienstleistungsanbieter müssen für Co-Selling bereit sein.
-* Teilnehmende Softwareanbieter müssen für Co-Selling bereit sein.
+* Teilnehmende Dienstleistungsanbieter müssen für [Co-Selling bereit sein](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
+* Teilnehmende Softwareanbieter müssen für [IP-Co-Selling bereit sein](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
 * Mindestens ein teilnehmender Partner muss über Gold-Kompetenz in einem der folgenden Bereiche verfügen:
-
-    * Anwendungsentwicklung
-    * Anwendungsintegration
-    * Anwendungslebenszyklusverwaltung
-    * Cloudplattform
-    * Datenanalyse
-    * Datacenter
-    * Datenplattform
-    * DevOps
+    - Anwendungsentwicklung
+    - Anwendungsintegration
+    - Anwendungslebenszyklusverwaltung
+    - Cloudplattform
+    - Datenanalyse
+    - Datacenter
+    - Datenplattform
+    - DevOps
 
 * Die Lösung muss mindestens zwei Partnerorganisationen umfassen sowie IP und Dienste für eine vollständige Kundenlösung und -erfahrung vereinen.
 * Die Partner-IP muss auf Azure, Dynamics 365 oder Power Platform basieren.
@@ -104,7 +103,7 @@ Nachdem Ihre Nominierung genehmigt wurde, entwickeln Sie mithilfe der verlinkten
 
 ## <a name="publish-your-integrated-solution"></a>Veröffentlichen der integrierten Lösung
 
-Wenn Sie mit der technischen Integration und dem Marketingmaterial fertig sind, sehen Sie sich im Leitfaden für Herausgeber die Informationen zum Thema [Beratungsdienste für Microsoft AppSource und Azure Marketplace](./consulting-services.md) an. Verwenden Sie diese Ressource, um zu bestimmen, ob Ihre Lösung in Microsoft AppSource oder Azure Marketplace veröffentlicht werden soll. Verwenden Sie außerdem das Handbuch, um Ihre Artefakte für die Veröffentlichung vorzubereiten und den Veröffentlichungsprozess abzuschließen.
+Wenn Sie mit der technischen Integration und dem Marketingmaterial fertig sind, sehen Sie sich im Leitfaden für Herausgeber die Informationen zum Thema [Beratungsdienste für Microsoft AppSource und Azure Marketplace](./plan-consulting-service-offer.md) an. Verwenden Sie diese Ressource, um zu bestimmen, ob Ihre Lösung in Microsoft AppSource oder Azure Marketplace veröffentlicht werden soll. Verwenden Sie außerdem das Handbuch, um Ihre Artefakte für die Veröffentlichung vorzubereiten und den Veröffentlichungsprozess abzuschließen.
 
 Es stehen zwar fünf Diensttypen für Beratungsdienst-Angebote zur Verfügung, doch muss es sich bei einer integrierten Lösung entweder um einen Proof of Concept oder eine vollständige Implementierung handeln.
 

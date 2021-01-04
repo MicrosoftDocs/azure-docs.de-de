@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/07/2018
-ms.openlocfilehash: 1545f9cde15f010ba3d7d52c6fea1ef233d2fac5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 896f4edb1e94c1eca06b046382727a5042375e3b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619473"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793278"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Bereitstellen und Untersuchen einer eigenständigen SaaS-Anwendung für einzelne Mandanten, die Azure SQL-Datenbank verwendet
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -60,16 +60,16 @@ Stellen Sie die App für die drei bereitgestellten Mandanten bereit:
     > Der Schutz einiger Authentifizierungs- und Serverfirewalls wurde zu Vorführungszwecken absichtlich aufgehoben. **Erstellen Sie eine neue Ressourcengruppe** für jede Anwendungsbereitstellung.  Verwenden Sie keine vorhandene Ressourcengruppe. Verwenden Sie diese Anwendung und alle damit erstellten Ressourcen nicht für die Produktion. Wenn Sie sich umfassend mit den Anwendungen vertraut gemacht haben, löschen Sie alle Ressourcengruppen, um die zugehörige Abrechnung einzustellen.
 
     Es wird empfohlen, bei Ressourcennamen nur Kleinbuchstaben, Zahlen und Bindestriche zu verwenden.
-    * Wählen Sie für **Ressourcengruppe** die Option „Neu erstellen“ aus, und geben Sie dann für die Ressourcengruppe einen Namen in Kleinbuchstaben an. **wingtip-sa-\<venueName\>-\<user\>** ist das empfohlene Muster.  Ersetzen Sie \<venueName\> durch den Namen des Veranstaltungsorts ohne Leerzeichen. Ersetzen Sie \<user\> durch den Benutzerwert von unten.  Mit diesem Muster können Ressourcengruppennamen z.B. *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1* oder *wingtip-sa-fabrikamjazzclub-af1* lauten.
+    * Wählen Sie für **Ressourcengruppe** die Option „Neu erstellen“ aus, und geben Sie dann für die Ressourcengruppe einen Namen in Kleinbuchstaben an. **wingtip-sa-\<venueName\>-\<user\>** ist das empfohlene Muster.  Ersetzen Sie \<venueName\> durch den Namen des Veranstaltungsorts ohne Leerzeichen. Ersetzen Sie \<user\> durch den Benutzerwert von unten.  Mit diesem Muster können Ressourcengruppennamen z.B. *wingtip-sa-contosoconcerthall-af1* , *wingtip-sa-dogwooddojo-af1* oder *wingtip-sa-fabrikamjazzclub-af1* lauten.
     * Wählen Sie einen **Speicherort** in der Dropdownliste aus.
 
-    * Es wird empfohlen, für **Benutzer** einen kurzen Wert auszuwählen, z.B. Ihre Initialen und eine Ziffer (etwa *af1*).
+    * Es wird empfohlen, für **Benutzer** einen kurzen Wert auszuwählen, z.B. Ihre Initialen und eine Ziffer (etwa *af1* ).
 
 
-3. **Bereitstellen der Anwendung**.
+3. **Bereitstellen der Anwendung** .
 
     * Klicken Sie auf die entsprechende Option, um den Geschäftsbedingungen zuzustimmen.
-    * Klicken Sie auf **Kaufen**.
+    * Klicken Sie auf **Kaufen** .
 
 4. Überwachen Sie den Status aller drei Bereitstellungen, indem Sie auf **Benachrichtigungen** (das Glockensymbol rechts neben dem Suchfeld) klicken. Das Bereitstellen der Apps dauert ca. 5 Minuten.
 
@@ -88,7 +88,7 @@ In der App werden Veranstaltungsorte vorgestellt.  Die Veranstaltungsorte sind d
 
    ![Events](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
-Zum Steuern der Verteilung eingehender Anforderungen nutzt die App [*Azure Traffic Manager*](../../traffic-manager/traffic-manager-overview.md). Jede mandantenspezifische App-Instanz enthält den Namen des Mandanten als Teil des Domänennamens in der URL. Alle Mandanten-URLs enthalten Ihren spezifischen Wert für **Benutzer**. Die URLs haben das folgende Format:
+Zum Steuern der Verteilung eingehender Anforderungen nutzt die App [*Azure Traffic Manager*](../../traffic-manager/traffic-manager-overview.md). Jede mandantenspezifische App-Instanz enthält den Namen des Mandanten als Teil des Domänennamens in der URL. Alle Mandanten-URLs enthalten Ihren spezifischen Wert für **Benutzer** . Die URLs haben das folgende Format:
 - http://events.&lt;Veranstaltungsort&gt;.&lt; Benutzer&gt;.trafficmanager.net
 
 Der **Speicherort** der Datenbank jedes Mandanten ist in den App-Einstellungen der zugehörigen bereitgestellten App enthalten.
@@ -102,16 +102,16 @@ Betrachten wir einige der Ressourcen, die bereitgestellt wurden:
 
 1. Navigieren Sie im [Azure-Portal](https://portal.azure.com) zur Liste der Ressourcengruppen.
 2. Die drei Mandantenressourcengruppen sollten angezeigt werden.
-3. Öffnen Sie die Ressourcengruppe **wingtip-sa-fabrikam-&lt;Benutzer&gt;** mit den Ressourcen für die Bereitstellung des Fabrikam Jazz Club.  Der Server **fabrikamjazzclub-&lt;Benutzer&gt;** enthält die Datenbank **fabrikamjazzclub**.
+3. Öffnen Sie die Ressourcengruppe **wingtip-sa-fabrikam-&lt;Benutzer&gt;** mit den Ressourcen für die Bereitstellung des Fabrikam Jazz Club.  Der Server **fabrikamjazzclub-&lt;Benutzer&gt;** enthält die Datenbank **fabrikamjazzclub** .
 
 Jede Mandantendatenbank ist eine *eigenständige* Datenbank mit 50 DTUs.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 <!--
-* Additional [tutorials that build on the Wingtip SaaS application](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* Additional [tutorials that build on the Wingtip SaaS application](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * To learn about elastic pools, see [*What is an Azure SQL elastic pool*](elastic-pool-overview.md)
-* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](../../sql-database/elastic-jobs-overview.md)
+* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](./elastic-jobs-overview.md)
 -->
 
 - Weitere Informationen zu mehrinstanzenfähigen SaaS-Anwendungen finden Sie unter [Entwurfsmuster für mehrinstanzenfähige SaaS-Anwendungen](saas-tenancy-app-design-patterns.md).
@@ -131,5 +131,3 @@ In diesem Tutorial haben Sie Folgendes gelernt:
 > * Löschen von Beispielressourcen, um die zugehörige Abrechnung einzustellen
 
 Arbeiten Sie als Nächstes das Tutorial [Bereitstellen und Katalogisieren](saas-standaloneapp-provision-and-catalog.md) durch, in dem Sie die Verwendung eines Katalogs von Mandanten untersuchen, die viele mandantenübergreifende Szenarien ermöglicht, z.B. Schemaverwaltung oder Mandantenanalyse.
- 
-

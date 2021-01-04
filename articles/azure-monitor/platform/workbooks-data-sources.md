@@ -8,12 +8,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.openlocfilehash: a0349a3fe21bdc0b73252bce1207c9f3b53dc15f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d41629dd9a56272af89a06cb55e9bd88b604baee
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143740"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927905"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Datenquellen für Azure Monitor-Arbeitsmappen
 
@@ -77,7 +77,7 @@ Arbeitsmappen unterstützen das Abrufen von Azure Resource Health und das Kombin
 
 Damit ein Abfragesteuerelement diese Datenquelle verwendet, wählen Sie über die Dropdownliste **Abfragetyp** die Option „Azure Health“ aus, und wählen Sie dann die Zielressourcen aus. Verwenden Sie die Dropdownlisten für Integritätsfilter, um eine interessante Teilmenge von Ressourcenproblemen für Ihre Analyseanforderungen auszuwählen.
 
-![Screenshot der Warnungsabfrage](./media/workbooks-overview/resource-health.png)
+![Screenshot der Warnungsabfrage mit den Listen für Integritätsfilter](./media/workbooks-overview/resource-health.png)
 
 ## <a name="json"></a>JSON
 
@@ -102,7 +102,7 @@ Arbeitsmappen unterstützen das Abrufen von Daten aus einer beliebigen externen 
 
 Damit ein Abfragesteuerelement diese Datenquelle verwendet, wählen Sie über die Dropdownliste _Datenquelle_ die Option _Benutzerdefinierter Endpunkt_ aus. Geben Sie die entsprechenden Parameter an, z. B. `Http method`, `url`, `headers`, `url parameters` und/oder `body`. Stellen Sie sicher, dass Ihre Datenquelle [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) unterstützt, da andernfalls bei der Anforderung ein Fehler auftritt.
 
-Um zu vermeiden, dass bei Verwendung von Vorlagen nicht vertrauenswürdige Hosts automatisch aufgerufen werden, muss der Benutzer die verwendeten Hosts als vertrauenswürdig kennzeichnen. Klicken Sie dazu auf die Schaltfläche _Als vertrauenswürdig hinzufügen_, oder fügen Sie den Host als vertrauenswürdigen Host in den Arbeitsmappeneinstellungen hinzu. Diese Einstellungen werden in Browsern gespeichert, die IndexDb mit Web-Workern unterstützen. Weitere Informationen finden Sie [hier](https://caniuse.com/#feat=indexeddb).
+Um zu vermeiden, dass bei Verwendung von Vorlagen nicht vertrauenswürdige Hosts automatisch aufgerufen werden, muss der Benutzer die verwendeten Hosts als vertrauenswürdig kennzeichnen. Klicken Sie dazu auf die Schaltfläche _Als vertrauenswürdig hinzufügen_ , oder fügen Sie den Host als vertrauenswürdigen Host in den Arbeitsmappeneinstellungen hinzu. Diese Einstellungen werden in Browsern gespeichert, die IndexDb mit Web-Workern unterstützen. Weitere Informationen finden Sie [hier](https://caniuse.com/#feat=indexeddb).
 
 > [!NOTE]
 > Schreiben Sie keine geheimen Schlüssel in eines der Felder (`headers`, `parameters`, `body`, `url`), da diese für alle Arbeitsmappenbenutzer sichtbar sind.

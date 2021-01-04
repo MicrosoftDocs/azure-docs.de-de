@@ -1,35 +1,39 @@
 ---
 title: Verwenden von gespeicherten Prozeduren
-description: Tipps zum Implementieren gespeicherter Prozeduren in Synapse SQL für das Entwickeln von Lösungen.
+description: Tipps zum Implementieren gespeicherter Prozeduren mithilfe von Synapse SQL in Azure Synapse Analytics zur Lösungsentwicklung.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 09/23/2020
+ms.date: 11/03/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2089a6895a34c74de9d3e14beaa3807bbb1b6e6b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 3940d762dbc249e0303ddf905acbeeed7f96aa4f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279081"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315554"
 ---
-# <a name="use-stored-procedures-in-synapse-sql"></a>Verwenden gespeicherter Prozeduren in Synapse SQL
+# <a name="stored-procedures-using-synapse-sql-in-azure-synapse-analytics"></a>Implementieren von gespeicherten Prozeduren mithilfe von Synapse SQL in Azure Synapse Analytics
 
-Tipps zum Implementieren gespeicherter Prozeduren in einem Synapse SQL-Pool für das Entwickeln von Lösungen.
+In Synapse SQL bereitgestellte und serverlose Pools ermöglichen es Ihnen, komplexe Datenverarbeitungslogik in gespeicherte SQL-Prozeduren einzufügen. Gespeicherte Prozeduren sind eine hervorragende Möglichkeit, um SQL-Code einzuschließen (kapseln) und im Data Warehouse in der Nähe Ihrer Daten zu speichern. Gespeicherte Prozeduren unterstützen Entwickler beim Modularisieren ihrer Lösungen, indem Code in besser verwaltbare Einheiten eingeschlossen wird. So lässt sich der Code besser wiederverwenden. Für jede gespeicherte Prozedur können außerdem Parameter verwendet werden, um sie flexibler zu machen.
+In diesem Artikel finden Sie einige Tipps zum Implementieren gespeicherter Prozeduren in einem Synapse SQL-Pool zum Entwickeln von Lösungen.
 
 ## <a name="what-to-expect"></a>Ausblick
 
-Synapse SQL unterstützt viele der T-SQL-Features, die in SQL Server verwendet werden. Darüber hinaus sind bestimmte Features für das horizontale Hochskalieren vorhanden, mit denen Sie die Leistung Ihrer Lösung verbessern können.
+Synapse SQL unterstützt viele der T-SQL-Features, die in SQL Server verwendet werden. Darüber hinaus sind bestimmte Features für das horizontale Hochskalieren vorhanden, mit denen Sie die Leistung Ihrer Lösung verbessern können. In diesem Artikel erfahren Sie etwas über die Features, die Sie in gespeicherte Prozeduren einfügen können.
+
+> [!NOTE]
+> Im Text der Prozedur können Sie nur die Features verwenden, die auf der Synapse SQL-Oberfläche unterstützt werden. Lesen Sie [diesen Artikel](overview-features.md), um Objekte und Anweisungen zu identifizieren, die in gespeicherten Prozeduren verwendet werden können. In den Beispielen in diesen Artikeln werden allgemeine Features verwendet, die sowohl auf der serverlosen als auch auf der dedizierten Oberfläche verfügbar sind. Am Ende dieses Artikels finden Sie weitere [Einschränkungen in bereitgestellten und serverlosen Synapse SQL-Pools](#limitations).
 
 In Bezug auf die Verwaltung der Skalierung und Leistung des SQL-Pools sind auch einige Features und Funktionen vorhanden, die Unterschiede beim Verhalten aufweisen. Es gibt auch Features, die nicht unterstützt werden.
 
 ## <a name="stored-procedures-in-synapse-sql"></a>Gespeicherte Prozeduren in Synapse SQL
 
-Gespeicherte Prozeduren sind eine hervorragende Möglichkeit, um SQL-Code einzuschließen (kapseln) und im Data Warehouse in der Nähe Ihrer Daten zu speichern. Gespeicherte Prozeduren unterstützen Entwickler beim Modularisieren ihrer Lösungen, indem Code in besser verwaltbare Einheiten eingeschlossen wird. Dies ermöglicht eine bessere Wiederverwendbarkeit des Codes. Für jede gespeicherte Prozedur können außerdem Parameter verwendet werden, um sie flexibler zu machen. Im folgenden Beispiel werden die Prozeduren zum Löschen externer Objekte gezeigt, wenn Sie in der-Datenbank vorhanden sind:
+Im folgenden Beispiel werden die Prozeduren zum Löschen externer Objekte gezeigt, wenn Sie in der-Datenbank vorhanden sind:
 
 ```sql
 CREATE PROCEDURE drop_external_table_if_exists @name SYSNAME
@@ -181,23 +185,26 @@ EXEC clean_up 'mytest'  -- This call is nest level 1
 
 ## <a name="insertexecute"></a>INSERT..EXECUTE
 
-Synapse SQL lässt nicht zu, dass Sie das Resultset einer gespeicherten Prozedur mit einer INSERT-Anweisung verwenden. Es gibt jedoch eine andere Möglichkeit. Ein Beispiel finden Sie im Artikel unter [Temporäre Tabellen](develop-tables-temporary.md) für einen bereitgestellten Synapse SQL-Pool.
+Der bereitgestellte Synapse SQL-Pool lässt nicht zu, dass Sie das Resultset einer gespeicherten Prozedur bei einer INSERT-Anweisung verwenden. Es gibt jedoch eine andere Möglichkeit. Ein Beispiel finden Sie im Artikel unter [Temporäre Tabellen](develop-tables-temporary.md) für einen bereitgestellten Synapse SQL-Pool.
 
 ## <a name="limitations"></a>Einschränkungen
 
 Es gibt einige Aspekte von gespeicherten Transact-SQL-Prozeduren, die nicht in Synapse SQL implementiert sind, z. B.:
 
-* Temporäre gespeicherte Prozeduren
-* Nummerierte gespeicherte Prozeduren
-* Erweiterte gespeicherte Prozeduren
-* Gespeicherte CLR-Prozeduren
-* Verschlüsselungsoption
-* Replikationsoption
-* Tabellenwertparameter
-* Schreibgeschützte Parameter
-* Standardparameter (in bereitgestelltem Pool)
-* Ausführungskontexte
-* return-Anweisung
+| Feature/Option | Bereitgestellt | Serverlos |
+| --- | --- |
+| Temporäre gespeicherte Prozeduren | Nein  | Ja |
+| numbered_stored_procedures | Nein  | Nein  |
+| Erweiterte gespeicherte Prozeduren | Nein  | Nein  |
+| Gespeicherte CLR-Prozeduren | Nein  | Nein  |
+| Verschlüsselungsoption | Nein  | Ja |
+| Replikationsoption | Nein  | Nein  |
+| Tabellenwertparameter | Nein  | Nein  |
+| Schreibgeschützte Parameter | Nein  | Nein  |
+| Standardparameter | Nein  | Ja |
+| Ausführungskontexte | Nein  | Nein  |
+| Return-Anweisung | Nein  | Ja |
+| INSERT INTO ... EXEC | Nein  | Ja |
 
 ## <a name="next-steps"></a>Nächste Schritte
 

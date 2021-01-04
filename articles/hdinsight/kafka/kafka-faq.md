@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: d27c648980338b3a9e12bd618eb4620fe9988fd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84c48f14ae57cfa4aa3290924d3d170c075fe3a6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80436916"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532549"
 ---
 # <a name="frequently-asked-questions-about-apache-kafka-in-azure-hdinsight"></a>Häufig gestellte Fragen zu Apache Kafka in Azure HDInsight
 
@@ -42,7 +42,7 @@ Ja, HDInsight verwendet native Kafka-APIs. Ihr Clientanwendungscode muss nicht g
 
 ## <a name="can-i-change-cluster-configurations"></a>Kann ich Clusterkonfigurationen ändern?
 
-Ja, über das Ambari-Portal. Jede Komponente im Portal hat einen **configs**-Abschnitt, in dem Komponentenkonfigurationen geändert werden können. Einige Änderungen bedingen möglicherweise Brokerneustarts.
+Ja, über das Ambari-Portal. Jede Komponente im Portal hat einen **configs** -Abschnitt, in dem Komponentenkonfigurationen geändert werden können. Einige Änderungen bedingen möglicherweise Brokerneustarts.
 
 ## <a name="what-type-of-authentication-does-hdinsight-support-for-apache-kafka"></a>Welchen Authentifizierungstyp unterstützt HDInsight für Apache Kafka?
 
@@ -68,7 +68,7 @@ Um den für Kafka-Nachrichten verfügbaren Speicherplatz zu erhöhen, können Si
 
 ## <a name="can-a-kafka-cluster-work-with-databricks"></a>Kann ein Kafka-Cluster mit Databricks arbeiten? 
 
-Ja, Kafka-Cluster arbeiten mit Databricks, solange sie sich im selben virtuellen Netzwerk befinden. Um einen Kafka-Cluster mit Databricks zu verwenden, erstellen Sie ein virtuelles Netzwerk mit einem HDInsight-Kafka-Cluster, und geben Sie dieses Netzwerk an, wenn Sie Ihren Databricks-Arbeitsbereich verwenden und VNet Injection verwenden. Weitere Informationen finden Sie unter [Bereitstellen von Azure Databricks in Ihrem virtuellen Azure-Netzwerk (VNet Injection)](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Beim Erstellen des Databricks-Arbeitsbereichs müssen Sie die Bootstrap-Brokernamen des Kafka-Clusters angeben. Informationen zum Abrufen der Kafka-Brokernamen finden Sie unter [Beschaffen der Apache Zookeeper- und Broker-Hostinformationen](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started#getkafkainfo).
+Ja, Kafka-Cluster arbeiten mit Databricks, solange sie sich im selben virtuellen Netzwerk befinden. Um einen Kafka-Cluster mit Databricks zu verwenden, erstellen Sie ein virtuelles Netzwerk mit einem HDInsight-Kafka-Cluster, und geben Sie dieses Netzwerk an, wenn Sie Ihren Databricks-Arbeitsbereich verwenden und VNet Injection verwenden. Weitere Informationen finden Sie unter [Bereitstellen von Azure Databricks in Ihrem virtuellen Azure-Netzwerk (VNet Injection)](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Beim Erstellen des Databricks-Arbeitsbereichs müssen Sie die Bootstrap-Brokernamen des Kafka-Clusters angeben. Informationen zum Abrufen der Kafka-Brokernamen finden Sie unter [Beschaffen der Apache Zookeeper- und Broker-Hostinformationen](./apache-kafka-get-started.md#getkafkainfo).
 
 ## <a name="how-can-i-have-maximum-data-durability"></a>Wie kann ich maximale Datendauerhaftigkeit erreichen?
 
@@ -78,7 +78,7 @@ Datendauerhaftigkeit ermöglicht es Ihnen, das niedrigste Risiko von Nachrichten
 * Verwenden Sie in Regionen mit nur zwei Fehlerdomänen einen Mindestreplikationsfaktor von 4.
 * Deaktivieren Sie unklare Koordinatorauswahlen (Leader Elections).
 * Legen Sie **min.insync.replicas** auf mindestens „2“ fest. Hierdurch wird die Anzahl der Replikate geändert, die vollständig mit dem Koordinator synchronisiert sein müssen, bevor ein Schreibvorgang ausgeführt werden kann.
-* Legen Sie die **ack**-Eigenschaft auf **all** fest. Diese Eigenschaft erfordert, dass alle Replikate alle Meldungen bestätigen.
+* Legen Sie die **ack** -Eigenschaft auf **all** fest. Diese Eigenschaft erfordert, dass alle Replikate alle Meldungen bestätigen.
 
 Das Konfigurieren von Kafka für eine höhere Datenkonsistenz wirkt sich auf die Verfügbarkeit von Brokern aus, die Anforderungen erstellen.
 

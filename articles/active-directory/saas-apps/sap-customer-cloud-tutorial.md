@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: jeedes
-ms.openlocfilehash: f9fd458ea19fa0dad2f630f94a67d5e1db96cee3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b244d5e6aa9dd732aa670fd645b6bbc266c9535
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543311"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897278"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-cloud-for-customer"></a>Tutorial: Integration des einmaligen Anmeldens (Single Sign-On, SSO) von Azure Active Directory mit SAP Cloud for Customer
 
@@ -26,7 +26,7 @@ In diesem Tutorial erfahren Sie, wie Sie SAP Cloud for Customer in Azure Acti
 * Ermöglichen Sie es Ihren Benutzern, sich mit ihren Azure AD-Konten automatisch bei SAP Cloud for Customer anzumelden.
 * Verwalten Sie Ihre Konten zentral im Azure-Portal.
 
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -39,7 +39,7 @@ Für die ersten Schritte benötigen Sie Folgendes:
 
 In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure AD in einer Testumgebung.
 
-* SAP Cloud for Customer unterstützt **SP**-initiiertes einmaliges Anmelden.
+* SAP Cloud for Customer unterstützt **SP** -initiiertes einmaliges Anmelden.
 
 ## <a name="adding-sap-cloud-for-customer-from-the-gallery"></a>Hinzufügen von SAP Cloud for Customer aus dem Katalog
 
@@ -47,7 +47,7 @@ Zum Konfigurieren der Integration von SAP Cloud for Customer in Azure AD müssen
 
 1. Melden Sie sich mit einem Geschäfts-, Schul- oder Unikonto oder mit einem persönlichen Microsoft-Konto beim [Azure-Portal](https://portal.azure.com) an.
 1. Wählen Sie im linken Navigationsbereich den Dienst **Azure Active Directory** aus.
-1. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie dann **Alle Anwendungen** aus.
+1. Navigieren Sie zu **Unternehmensanwendungen** , und wählen Sie dann **Alle Anwendungen** aus.
 1. Wählen Sie zum Hinzufügen einer neuen Anwendung **Neue Anwendung** aus.
 1. Geben Sie im Abschnitt **Aus Katalog hinzufügen** den Suchbegriff **SAP Cloud for Customer** in das Suchfeld ein.
 1. Wählen Sie im Ergebnisbereich **SAP Cloud for Customer** aus, und fügen Sie dann die App hinzu. Warten Sie einige Sekunden, während die App Ihrem Mandanten hinzugefügt wird.
@@ -69,9 +69,9 @@ Führen Sie zum Konfigurieren und Testen des einmaligen Anmeldens von Azure AD 
 
 Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal zu aktivieren.
 
-1. Navigieren Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **SAP Cloud for Customer** zum Abschnitt **Verwalten**, und wählen Sie **Einmaliges Anmelden** aus.
+1. Navigieren Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **SAP Cloud for Customer** zum Abschnitt **Verwalten** , und wählen Sie **Einmaliges Anmelden** aus.
 1. Wählen Sie auf der Seite **SSO-Methode auswählen** die Methode **SAML** aus.
-1. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Bearbeitungs- bzw. Stiftsymbol für **Grundlegende SAML-Konfiguration**, um die Einstellungen zu bearbeiten.
+1. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Bearbeitungs- bzw. Stiftsymbol für **Grundlegende SAML-Konfiguration** , um die Einstellungen zu bearbeiten.
 
    ![Bearbeiten der SAML-Basiskonfiguration](common/edit-urls.png)
 
@@ -84,15 +84,15 @@ Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal 
     > [!NOTE]
     > Hierbei handelt es sich um Beispielwerte. Ersetzen Sie diese Werte durch die tatsächliche Anmelde-URL und den tatsächlichen Bezeichner. Wenden Sie sich an das [Supportteam für den SAP Cloud for Customer-Client](https://www.sap.com/about/agreements.sap-cloud-services-customers.html), um diese Werte zu erhalten. Sie können sich auch die Muster im Abschnitt **Grundlegende SAML-Konfiguration** im Azure-Portal ansehen.
 
-1. Ihre SAP Cloud for Customer-Anwendung erwartet die SAML-Assertionen in einem bestimmten Format. Daher müssen Sie Ihrer Konfiguration der SAML-Tokenattribute benutzerdefinierte Attributzuordnungen hinzufügen. Der folgende Screenshot zeigt die Liste der Standardattribute. Klicken Sie auf das Symbol **Bearbeiten**, um das Dialogfeld „Benutzerattribute“ zu öffnen.
+1. Ihre SAP Cloud for Customer-Anwendung erwartet die SAML-Assertionen in einem bestimmten Format. Daher müssen Sie Ihrer Konfiguration der SAML-Tokenattribute benutzerdefinierte Attributzuordnungen hinzufügen. Der folgende Screenshot zeigt die Liste der Standardattribute. Klicken Sie auf das Symbol **Bearbeiten** , um das Dialogfeld „Benutzerattribute“ zu öffnen.
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot: Dialogfeld „Benutzerattribute“, in dem das Symbol „Bearbeiten“ ausgewählt ist](common/edit-attribute.png)
 
 1. Führen Sie im Dialogfeld **Benutzerattribute und Ansprüche** im Abschnitt **Benutzerattribute** die folgenden Schritte aus:
 
-    a. Klicken Sie auf das Symbol **Bearbeiten**, um das Dialogfeld **Benutzeransprüche verwalten** zu öffnen.
+    a. Klicken Sie auf das Symbol **Bearbeiten** , um das Dialogfeld **Benutzeransprüche verwalten** zu öffnen.
 
-    ![image](./media/sap-customer-cloud-tutorial/tutorial_usermail.png)
+    ![Screenshot: Dialogfeld „Benutzerattribute und Ansprüche“, in dem das Symbol „Bearbeiten“ ausgewählt ist](./media/sap-customer-cloud-tutorial/tutorial_usermail.png)
 
     ![image](./media/sap-customer-cloud-tutorial/tutorial_usermailedit.png)
 
@@ -105,7 +105,7 @@ Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal 
 
     e. Klicken Sie auf **Speichern**.
 
-1. Navigieren Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** zu **Verbundmetadaten-XML**, und wählen Sie **Herunterladen** aus, um das Zertifikat herunterzuladen und auf Ihrem Computer zu speichern.
+1. Navigieren Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** zu **Verbundmetadaten-XML** , und wählen Sie **Herunterladen** aus, um das Zertifikat herunterzuladen und auf Ihrem Computer zu speichern.
 
     ![Downloadlink für das Zertifikat](common/metadataxml.png)
 
@@ -122,16 +122,16 @@ In diesem Abschnitt erstellen Sie im Azure-Portal einen Testbenutzer mit dem Nam
 1. Führen Sie unter den Eigenschaften für **Benutzer** die folgenden Schritte aus:
    1. Geben Sie im Feld **Name** die Zeichenfolge `B.Simon` ein.  
    1. Geben Sie im Feld **Benutzername** die Zeichenfolge username@companydomain.extension ein. Beispiel: `B.Simon@contoso.com`.
-   1. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den Wert aus dem Feld **Kennwort**.
+   1. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen** , und notieren Sie sich den Wert aus dem Feld **Kennwort**.
    1. Klicken Sie auf **Erstellen**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Zuweisen des Azure AD-Testbenutzers
 
 In diesem Abschnitt ermöglichen Sie B. Simon das einmalige Anmelden von Azure, indem Sie ihr Zugriff auf SAP Cloud for Customer gewähren.
 
-1. Wählen Sie im Azure-Portal **Unternehmensanwendungen** > **Alle Anwendungen** aus.
-1. Wählen Sie in der Anwendungsliste **SAP Cloud for Customer**aus.
-1. Navigieren Sie auf der Übersichtsseite der App zum Abschnitt **Verwalten**, und wählen Sie **Benutzer und Gruppen** aus.
+1. Wählen Sie im Azure-Portal **Unternehmensanwendungen**  > **Alle Anwendungen** aus.
+1. Wählen Sie in der Anwendungsliste **SAP Cloud for Customer** aus.
+1. Navigieren Sie auf der Übersichtsseite der App zum Abschnitt **Verwalten** , und wählen Sie **Benutzer und Gruppen** aus.
 
    ![Link „Benutzer und Gruppen“](common/users-groups-blade.png)
 
@@ -147,13 +147,13 @@ In diesem Abschnitt ermöglichen Sie B. Simon das einmalige Anmelden von Azure,
 
 1. Melden Sie sich in einem neuen Webbrowserfenster bei der SAP Cloud for Customer-Unternehmenswebsite als Administrator an.
 
-2. Klicken Sie im linken Bereich des Menüs auf **Identity Providers** > **Corporate Identity Providers** > **Add** (Identitätsanbieter > Unternehmensidentitätsanbieter > Hinzufügen), und fügen Sie im Popupelement den Namen des Identitätsanbieters hinzu, etwa **Azure AD**. Klicken Sie anschließend auf **Save** (Speichern) und auf **SAML 2.0 Configuration** (SAML 2.0-Konfiguration).
+2. Klicken Sie im linken Bereich des Menüs auf **Identity Providers** > **Corporate Identity Providers** > **Add** (Identitätsanbieter > Unternehmensidentitätsanbieter > Hinzufügen), und fügen Sie im Popupelement den Namen des Identitätsanbieters hinzu, etwa **Azure AD**. Klicken Sie anschließend auf **Save** (Speichern) und auf **SAML 2.0 Configuration** (SAML 2.0-Konfiguration).
 
-    ![SAP-Konfiguration](./media/sap-customer-cloud-tutorial/configure01.png)
+    ![Screenshot: Seite „Identity Providers“ (Identitätsanbieter), auf der das Textfeld „Add Identity Provider“ (Identitätsanbieter hinzufügen) hervorgehoben und die Schaltfläche „Save“ (Speichern) ausgewählt ist](./media/sap-customer-cloud-tutorial/configure01.png)
 
 3. Führen Sie im Abschnitt **SAML 2.0 Configuration** (SAML 2.0-Konfiguration) die folgenden Schritte aus:
 
-    ![SAP-Konfiguration](./media/sap-customer-cloud-tutorial/configure02.png)
+    ![Screenshot: Fenster „SAML 2.0 Configuration“ (SAML 2.0-Konfiguration) mit ausgewählter Schaltfläche „Browse“ (Durchsuchen)](./media/sap-customer-cloud-tutorial/configure02.png)
 
     a. Klicken Sie zum Hochladen der Verbundmetadaten-XML-Datei, die Sie aus dem Azure-Portal heruntergeladen haben, auf **Browse** (Durchsuchen).
 
@@ -167,9 +167,9 @@ Damit sich Azure AD-Benutzer bei SAP Cloud for Customer anmelden können, m�
 
 1. Melden Sie sich bei SAP Cloud for Customer als Sicherheitsadministrator an.
 
-2. Klicken Sie im linken Bereich des Menüs auf **Users & Authorizations** > **User Management** > **Add User** (Benutzer und Autorisierungen > Benutzerverwaltung > Benutzer hinzufügen).
+2. Klicken Sie im linken Bereich des Menüs auf **Users & Authorizations** > **User Management** > **Add User** (Benutzer und Autorisierungen > Benutzerverwaltung > Benutzer hinzufügen).
 
-    ![SAP-Konfiguration](./media/sap-customer-cloud-tutorial/configure03.png)
+    ![Screenshot: Seite „User Management“ (Benutzerverwaltung) mit ausgewählter Schaltfläche „Add user“ (Benutzer hinzufügen)](./media/sap-customer-cloud-tutorial/configure03.png)
 
 3. Führen Sie im Abschnitt **Add New User** (Neuen Benutzer hinzufügen) die folgenden Schritte aus:
 
@@ -191,15 +191,14 @@ Damit sich Azure AD-Benutzer bei SAP Cloud for Customer anmelden können, m�
 
 In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich.
 
-Wenn Sie im Zugriffsbereich auf die Kachel „SAP Cloud for Customer“ klicken, sollten Sie automatisch bei der SAP Cloud for Customer-Anwendung angemeldet werden, für die Sie SSO eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Wenn Sie im Zugriffsbereich auf die Kachel „SAP Cloud for Customer“ klicken, sollten Sie automatisch bei der SAP Cloud for Customer-Anwendung angemeldet werden, für die Sie SSO eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Liste mit den Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste mit den Tutorials zur Integration von SaaS-Apps in Azure Active Directory](./tutorial-list.md)
 
-- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Was ist der bedingte Zugriff in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Was ist der bedingte Zugriff in Azure Active Directory?](../conditional-access/overview.md)
 
 - [SAP Cloud for Customer mit Azure AD ausprobieren](https://aad.portal.azure.com/)
-

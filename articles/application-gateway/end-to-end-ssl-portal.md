@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: 33240d1f44d2f26569791f72a3d5fc3a6656a757
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e2d1828acefacb03cc2f42193b8cd8897578b6f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808039"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397500"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-the-portal"></a>Konfigurieren von End-to-End-TLS mit Application Gateway im Azure-Portal
 
@@ -31,7 +31,7 @@ Zum Konfigurieren von End-to-End-TLS mit einem Anwendungsgateway benötigen Sie 
 
 Für die End-to-End-TLS-Verschlüsselung müssen die richtigen Back-End-Server explizit im Application Gateway zugelassen werden. Um diesen Zugriff zu erlauben, laden Sie das öffentliche Zertifikat der Back-End-Server (auch als Authentifizierungszertifikate (v1) oder vertrauenswürdige Stammzertifikate (v2) bezeichnet) auf das Anwendungsgateway hoch. Durch das Hinzufügen des Zertifikats wird sichergestellt, dass das Anwendungsgateway nur mit bekannten Back-End-Instanzen kommuniziert. Außerdem wird mit dieser Konfiguration die End-to-End-Kommunikation geschützt.
 
-Weitere Informationen finden Sie unter [Übersicht über TLS-Beendigung und End-to-End-TLS mit Application Gateway](https://docs.microsoft.com/azure/application-gateway/ssl-overview).
+Weitere Informationen finden Sie unter [Übersicht über TLS-Beendigung und End-to-End-TLS mit Application Gateway](./ssl-overview.md).
 
 ## <a name="create-a-new-application-gateway-with-end-to-end-tls"></a>Erstellen eines neuen Anwendungsgateways mit End-to-End-TLS
 
@@ -39,13 +39,13 @@ Sie müssen zunächst die TLS-Terminierung beim Erstellen eines neuen Anwendungs
 
 ### <a name="enable-tls-termination-while-creating-a-new-application-gateway"></a>Aktivieren der TLS-Terminierung beim Erstellen eines neuen Anwendungsgateways
 
-Weitere Informationen finden Sie unter [Aktivieren der TLS-Terminierung beim Erstellen eines neuen Anwendungsgateways](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
+Weitere Informationen finden Sie unter [Aktivieren der TLS-Terminierung beim Erstellen eines neuen Anwendungsgateways](./create-ssl-portal.md).
 
 ### <a name="add-authenticationroot-certificates-of-back-end-servers"></a>Hinzufügen von Authentifizierung/Stammzertifikaten für Back-End-Server
 
 1. Wählen Sie **Alle Ressourcen** und dann **myAppGateway** aus.
 
-2. Wählen Sie im linken Menü **HTTP-Einstellungen** aus. Azure erstellt automatisch eine HTTP-Standardeinstellung (**appGatewayBackendHttpSettings**), wenn Sie das Anwendungsgateway erstellen. 
+2. Wählen Sie im linken Menü **HTTP-Einstellungen** aus. Azure erstellt automatisch eine HTTP-Standardeinstellung ( **appGatewayBackendHttpSettings** ), wenn Sie das Anwendungsgateway erstellen. 
 
 3. Wählen Sie **appGatewayBackendHttpSettings** aus.
 
@@ -89,7 +89,7 @@ Wenn Sie sich für die zweite Option entscheiden, wenden Sie die Schritte im fol
 5. Laden Sie das PFX-Zertifikat hoch, das Sie für die TLS-Terminierung zwischen dem Client und dem Anwendungsgateway verwenden möchten.
 
    > [!NOTE]
-   > Sie können zu Testzwecken ein selbstsigniertes Zertifikat verwenden. Dies wird jedoch nicht für Produktionsworkloads empfohlen, da sie schwieriger zu verwalten und nicht vollständig sicher sind. Weitere Informationen hierzu finden Sie unter [Erstellen eines selbstsignierten Zertifikats](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal#create-a-self-signed-certificate).
+   > Sie können zu Testzwecken ein selbstsigniertes Zertifikat verwenden. Dies wird jedoch nicht für Produktionsworkloads empfohlen, da sie schwieriger zu verwalten und nicht vollständig sicher sind. Weitere Informationen hierzu finden Sie unter [Erstellen eines selbstsignierten Zertifikats](./create-ssl-portal.md#create-a-self-signed-certificate).
 
 6. Fügen Sie je nach Ihren Anforderungen weitere Einstellungen für den **Listener** hinzu.
 

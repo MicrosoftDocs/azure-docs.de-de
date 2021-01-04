@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: abae83cee106feb553e8ced404d23ba5619ba416
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 489592fcbc779685728b120f18e5e923ee34d655
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327152"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346374"
 ---
 # <a name="the-confidence-score-of-an-answer"></a>Die Zuverlässigkeitsbewertung einer Antwort
 Wenn eine Benutzerabfrage mit einer Wissensdatenbank abgeglichen wird, gibt QnA Maker relevante Antworten zusammen mit einer Zuverlässigkeitsbewertung zurück. Diese Bewertung zeigt die Zuverlässigkeit dafür an, dass die Antwort die richtige Übereinstimmung für die jeweilige Benutzerabfrage ist.
@@ -62,7 +62,7 @@ Sie legen den Schwellenwert als eine Eigenschaft im [JSON-Code der GenerateAnswe
 Im Bot Framework legen Sie die Bewertung als Teil des options-Objekts mit [C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) oder [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs) fest.
 
 ## <a name="improve-confidence-scores"></a>Verbessern von Zuverlässigkeitsbewertungen
-Um die Zuverlässigkeitsbewertung einer bestimmten Antwort auf eine Benutzerabfrage zu verbessern, können Sie der Wissensdatenbank die Benutzerabfrage als alternative Frage für diese Antwort hinzufügen. Sie können auch [Wortvarianten](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) verwenden, bei denen die Groß- und Kleinschreibung nicht berücksichtigt wird, um Ihrer Wissensdatenbank Synonyme für Schlüsselwörter hinzuzufügen.
+Um die Zuverlässigkeitsbewertung einer bestimmten Antwort auf eine Benutzerabfrage zu verbessern, können Sie der Wissensdatenbank die Benutzerabfrage als alternative Frage für diese Antwort hinzufügen. Sie können auch [Wortvarianten](/rest/api/cognitiveservices/qnamaker/alterations/replace) verwenden, bei denen die Groß- und Kleinschreibung nicht berücksichtigt wird, um Ihrer Wissensdatenbank Synonyme für Schlüsselwörter hinzuzufügen.
 
 
 ## <a name="similar-confidence-scores"></a>Ähnliche Zuverlässigkeitsbewertungen
@@ -88,5 +88,4 @@ Wenn das Rangfolgemodul keine gute Übereinstimmung findet, wird die Zuverlässi
 
 ## <a name="next-steps"></a>Nächste Schritte
 > [!div class="nextstepaction"]
-> [bewährten Methoden](./best-practices.md)
-
+> [Bewährte Methoden](./best-practices.md)

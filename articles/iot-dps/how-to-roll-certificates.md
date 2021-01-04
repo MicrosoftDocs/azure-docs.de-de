@@ -7,12 +7,12 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: fbcb3656bc824e2fd352f92314652bd04167b4d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf8b1e04e11dee4e636826430838a467fe034e3f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531405"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951127"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Rollen von X.509-Gerätezertifikaten
 
@@ -51,7 +51,7 @@ Wenn ein Gerät zunächst mittels automatischer Bereitstellung bereitgestellt wi
 
 Sobald ein neues untergeordnetes Zertifikat auf das Gerät gerollt wurde, kann das Gerät keine Verbindung mit dem IoT Hub mehr herstellen, da es ein neues Zertifikat zur Verbindungsherstellung verwendet. Der IoT Hub erkennt nur das Gerät mit dem alten Zertifikat. Der Verbindungsversuch des Geräts führt zu einem Verbindungsfehler vom Typ „nicht autorisiert“. Um diesen Fehler zu beheben, müssen Sie den Registrierungseintrag für das Gerät entsprechend dem neuen untergeordneten Zertifikat des Geräts aktualisieren. Anschließend kann Provisioning Service bei der erneuten Bereitstellung des Geräts die IoT Hub-Geräteregistrierungsinformationen wie erforderlich aktualisieren. 
 
-Eine mögliche Ausnahme, bei der dieser Verbindungsfehler nicht auftritt, wäre ein Szenario, in dem Sie eine [Registrierungsgruppe](concepts-service.md#enrollment-group) für Ihr Gerät in Provisioning Service erstellt haben. Rollen Sie in diesem Fall die Stamm- oder Zwischenzertifikate in der Vertrauenskette des Geräts nicht, wird das Gerät erkannt, sofern das neue Zertifikat Teil der in der Registrierungsgruppe definierten Vertrauenskette ist. Falls dieses Szenario infolge einer Sicherheitsverletzung auftritt, sollten Sie zumindest die von der Sicherheitsverletzung betroffenen Gerätezertifikate in der Gruppe nicht zulassen. Weitere Informationen finden Sie unter [Verweigern bestimmter Geräte in einer Registrierungsgruppe](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#disallow-specific-devices-in-an-enrollment-group).
+Eine mögliche Ausnahme, bei der dieser Verbindungsfehler nicht auftritt, wäre ein Szenario, in dem Sie eine [Registrierungsgruppe](concepts-service.md#enrollment-group) für Ihr Gerät in Provisioning Service erstellt haben. Rollen Sie in diesem Fall die Stamm- oder Zwischenzertifikate in der Vertrauenskette des Geräts nicht, wird das Gerät erkannt, sofern das neue Zertifikat Teil der in der Registrierungsgruppe definierten Vertrauenskette ist. Falls dieses Szenario infolge einer Sicherheitsverletzung auftritt, sollten Sie zumindest die von der Sicherheitsverletzung betroffenen Gerätezertifikate in der Gruppe nicht zulassen. Weitere Informationen finden Sie unter [Verweigern bestimmter Geräte in einer Registrierungsgruppe](./how-to-revoke-device-access-portal.md#disallow-specific-devices-in-an-enrollment-group).
 
 Die Registrierungseinträge für gerollte Zertifikate werden auf der Seite **Registrierungen verwalten** aktualisiert. Gehen Sie wie folgt vor, um auf diese Seite zuzugreifen:
 

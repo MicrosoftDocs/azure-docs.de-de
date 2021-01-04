@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: eefd67d4d150c0c8d152002a174c62d31fcb8b5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b6cb195f44bf6c868402481480d9b10802c4d59
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975068"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965669"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Verwenden der Paketerfassung für die proaktive Netzwerküberwachung mit Warnungen und Azure Functions
 
@@ -39,7 +39,7 @@ Durch den Einsatz von Network Watcher, Warnungen und Funktionen im Azure-Ökosys
 
 * Die neueste Version von [Azure PowerShell](/powershell/azure/install-Az-ps)
 * Eine vorhandene Instanz von Network Watcher. Wenn Sie noch keine haben, [erstellen Sie eine Instanz von Network Watcher](network-watcher-create.md).
-* Ein virtueller Computer in der gleichen Region, in der sich auch die Network Watcher-Instanz befindet – mit der [Windows-Erweiterung](../virtual-machines/windows/extensions-nwa.md) oder mit der [Erweiterung für virtuelle Linux-Computer](../virtual-machines/linux/extensions-nwa.md)
+* Ein virtueller Computer in der gleichen Region, in der sich auch die Network Watcher-Instanz befindet – mit der [Windows-Erweiterung](../virtual-machines/extensions/network-watcher-windows.md) oder mit der [Erweiterung für virtuelle Linux-Computer](../virtual-machines/extensions/network-watcher-linux.md)
 
 ## <a name="scenario"></a>Szenario
 
@@ -340,7 +340,7 @@ Warnungen können konfiguriert werden, um Personen zu benachrichtigen, wenn eine
 
 ### <a name="create-the-alert-rule"></a>Erstellen der Warnungsregel
 
-Navigieren Sie zu einem vorhandenen virtuellen Computer, und fügen Sie eine Warnungsregel hinzu. Ausführlichere Informationen zum Konfigurieren von Warnungen finden Sie unter [Erstellen von Metrikwarnungen in Azure Monitor für Azure-Dienste – Azure-Portal](../monitoring-and-diagnostics/insights-alerts-portal.md). Geben Sie auf dem Blatt **Warnungsregel** die folgenden Werte ein, und wählen Sie dann **OK** aus.
+Navigieren Sie zu einem vorhandenen virtuellen Computer, und fügen Sie eine Warnungsregel hinzu. Ausführlichere Informationen zum Konfigurieren von Warnungen finden Sie unter [Erstellen von Metrikwarnungen in Azure Monitor für Azure-Dienste – Azure-Portal](../azure-monitor/platform/alerts-classic-portal.md). Geben Sie auf dem Blatt **Warnungsregel** die folgenden Werte ein, und wählen Sie dann **OK** aus.
 
   |**Einstellung** | **Wert** | **Details** |
   |---|---|---|
@@ -353,7 +353,7 @@ Navigieren Sie zu einem vorhandenen virtuellen Computer, und fügen Sie eine War
   |**Webhook**|[Webhook-URL aus der Funktions-App]| Die Webhook-URL aus der Funktions-App, die in den vorherigen Schritten erstellt wurde.|
 
 > [!NOTE]
-> Die Metrik der TCP-Segmente ist in der Standardeinstellung nicht aktiviert. Weitere Informationen dazu, wie Sie zusätzliche Metriken aktivieren, finden Sie unter [Aktivieren von Überwachung und Diagnose](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).
+> Die Metrik der TCP-Segmente ist in der Standardeinstellung nicht aktiviert. Weitere Informationen dazu, wie Sie zusätzliche Metriken aktivieren, finden Sie unter [Aktivieren von Überwachung und Diagnose](../azure-monitor/overview.md).
 
 ## <a name="review-the-results"></a>Überprüfen der Ergebnisse
 
@@ -363,11 +363,11 @@ Wenn die Kriterien für die Warnung erfüllt sind, wird eine Paketerfassung erst
 
 Wenn die Erfassungsdatei lokal gespeichert ist, können Sie sie abrufen, indem Sie sich auf dem virtuellen Computer anmelden.
 
-Eine Anleitung zum Herunterladen von Dateien aus Azure Storage-Konten finden Sie unter [Erste Schritte mit Azure Blob Storage mit .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Sie können auch den [Storage-Explorer](https://storageexplorer.com/) verwenden.
+Eine Anleitung zum Herunterladen von Dateien aus Azure Storage-Konten finden Sie unter [Erste Schritte mit Azure Blob Storage mit .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Sie können auch den [Storage-Explorer](https://storageexplorer.com/) verwenden.
 
 Nach dem Herunterladen Ihrer Erfassung können Sie diese mit einem beliebigen Tool anzeigen, das für Dateien vom Typ **.cap** geeignet ist. Hier finden Sie zwei Links zu geeigneten Tools:
 
-- [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx)
+- [Microsoft Message Analyzer](/message-analyzer/microsoft-message-analyzer-operating-guide)
 - [WireShark](https://www.wireshark.org/)
 
 ## <a name="next-steps"></a>Nächste Schritte

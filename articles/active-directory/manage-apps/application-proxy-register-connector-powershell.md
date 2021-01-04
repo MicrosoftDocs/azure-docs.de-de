@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5fc1b84e624828d7feb64bd53e8fe8ffff2a7ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f46071d15db57f64eb60d9267d4081a2b0b74a50
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88054833"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658433"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Erstellen eines Skripts für die unbeaufsichtigte Installation für den Azure AD-Anwendungsproxyconnector
 
@@ -39,7 +39,7 @@ Damit der [Anwendungsproxyconnector](application-proxy-connectors.md) funktionie
 Eine unbeaufsichtigte Installation umfasst zwei Schritte. Erstens: Die Installation des Connectors. Zweitens: Die Registrierung des Connectors bei Azure AD.
 
 > [!IMPORTANT]
-> Wenn Sie den Connector für die Azure Government-Cloud installieren, überprüfen Sie die [Voraussetzungen](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) und [Installationsschritte](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud). Zum Ausführen der Installation sind der Zugriff auf einen anderen Satz von URLs und ein zusätzlicher Parameter erforderlich.
+> Wenn Sie den Connector für die Azure Government-Cloud installieren, überprüfen Sie die [Voraussetzungen](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) und [Installationsschritte](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud). Zum Ausführen der Installation sind der Zugriff auf einen anderen Satz von URLs und ein zusätzlicher Parameter erforderlich.
 
 ## <a name="install-the-connector"></a>Installieren des Connectors
 Gehen Sie wie folgt vor, um den Connector zu installieren, ohne ihn zu registrieren:

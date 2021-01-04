@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3c8d3162e13c31204ed317edc653756b04ef8dd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87fa97dafe9de4a23f5eaadfd4083cd1ca517cde
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934122"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026589"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>Informationen zur API für Audioeingabestreams des Speech SDK
 
@@ -26,7 +26,7 @@ Bei der Verwendung von Audioeingabestreams sind die folgenden Schritte erforderl
 
 - Ermitteln Sie das Format des Audiodatenstroms. Das Format muss vom Speech SDK und dem Speech-Dienst unterstützt werden. Derzeit wird die nur folgende Konfiguration unterstützt:
 
-  Audiobeispiele im PCM-Format, ein Kanal, 16 Bit pro Abtastvorgang, 8.000 oder 16.000 Abtastvorgänge pro Sekunde (16.000 oder 32.000 Byte pro Sekunde), Ausrichtung zweier Blöcke (16 Bit mit Innenabstand für einen Abtastvorgang)
+  Audiobeispiele liegen im PCM-Format vor, ein Kanal, 16 Bit pro Abtastvorgang, 8000 oder 16000 Abtastvorgänge pro Sekunde (16000 oder 32000 Byte pro Sekunde), Ausrichtung zweier Blöcke (16 Bit mit Innenabstand für einen Abtastvorgang).
 
   Der entsprechende Code im SDK zum Erstellen des Audioformats sieht folgendermaßen aus:
 
@@ -37,7 +37,7 @@ Bei der Verwendung von Audioeingabestreams sind die folgenden Schritte erforderl
   var audioFormat = AudioStreamFormat.GetWaveFormatPCM(samplesPerSecond, bitsPerSample, channels);
   ```
 
-- Stellen Sie sicher, dass der Code die Audiorohdaten entsprechend diesen Spezifikationen bereitstellen kann. Wenn die Audioquelldaten nicht mit den unterstützten Formaten übereinstimmen, muss das Audiomaterial in das erforderliche Format transcodiert werden.
+- Stellen Sie sicher, dass der Code die Audiorohdaten entsprechend diesen Spezifikationen bereitstellt. Stellen Sie darüber hinaus sicher, dass 16-Bit-Samples im Little-Endian-Format eingehen. Samples mit Vorzeichen werden ebenfalls unterstützt. Wenn die Audioquelldaten nicht mit den unterstützten Formaten übereinstimmen, muss das Audiomaterial in das erforderliche Format transcodiert werden.
 
 - Erstellen Sie eine eigene Audioeingabestream-Klasse, die von `PullAudioInputStreamCallback` abgeleitet ist. Implementieren Sie die Member `Read()` und `Close()`. Die genaue Funktionssignatur ist sprachabhängig, der Code entspricht jedoch in etwa dem folgenden Codebeispiel:
 
@@ -77,4 +77,4 @@ Bei der Verwendung von Audioeingabestreams sind die folgenden Schritte erforderl
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Erstellen Sie ein kostenloses Azure-Konto.](https://azure.microsoft.com/free/cognitive-services/)
-- [Erkennen von Sprache in C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+- [Erkennen von Sprache in C#](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet)

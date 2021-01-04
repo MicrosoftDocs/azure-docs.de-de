@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 72602e1e74074f21c93950bdb779758e784ce171
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: b02f5a7c390c5594a7c5692798a0691c8d9a42d0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89659868"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912772"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Filtern von Daten mithilfe der Abfragebeschleunigung für Azure Data Lake Storage
 
@@ -26,7 +26,7 @@ Die Abfragebeschleunigung ermöglicht es Anwendungen und Analyseframeworks, die 
 
 - Sie benötigen ein Azure-Abonnement, um auf Azure Storage zuzugreifen. Wenn Sie noch kein Abonnement haben, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
 
-- Ein Speicherkonto vom Typ **Allgemein V2**. Informationen finden Sie unter [Erstellen eines Speicherkontos](../common/storage-quickstart-create-account.md).
+- Ein Speicherkonto vom Typ **Allgemein V2**. Informationen finden Sie unter [Erstellen eines Speicherkontos](../common/storage-account-create.md).
 
 - Wählen Sie eine Registerkarte aus, um SDK-spezifische Voraussetzungen anzuzeigen.
 
@@ -92,7 +92,7 @@ Wenn Sie die Abfragebeschleunigung verwenden möchten, müssen Sie zunächst die
 
 #### <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
-1. Öffnen Sie [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), oder falls Sie die Azure-Befehlszeilenschnittstelle lokal [installiert](https://docs.microsoft.com/cli/azure/install-azure-cli) haben, öffnen Sie eine Befehlskonsolenanwendung wie Windows PowerShell.
+1. Öffnen Sie [Azure Cloud Shell](../../cloud-shell/overview.md), oder falls Sie die Azure-Befehlszeilenschnittstelle lokal [installiert](/cli/azure/install-azure-cli) haben, öffnen Sie eine Befehlskonsolenanwendung wie Windows PowerShell.
 
 2. Wenn Ihre Identität mehreren Abonnements zugeordnet ist, legen Sie das aktive Abonnement auf das Abonnement des Speicherkontos fest.
 
@@ -328,7 +328,7 @@ Get-QueryCsv $ctx $container $blob "SELECT * FROM BlobStorage WHERE _3 = 'Heming
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-Die asynchrone Methode `BlobQuickQueryClient.QueryAsync` sendet die Abfrage an die Abfragebeschleunigungs-API und streamt dann die Ergebnisse als [Stream](https://docs.microsoft.com/dotnet/api/system.io.stream)-Objekt an die Anwendung zurück.
+Die asynchrone Methode `BlobQuickQueryClient.QueryAsync` sendet die Abfrage an die Abfragebeschleunigungs-API und streamt dann die Ergebnisse als [Stream](/dotnet/api/system.io.stream)-Objekt an die Anwendung zurück.
 
 ```cs
 static async Task QueryHemingway(BlockBlobClient blob)

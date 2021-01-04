@@ -9,35 +9,35 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 5a6fb2c1c539c5b8e353f5c3720cb9d001dcbbc9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2374b1fb7f355b336c713a8a3240eacc8b1f188c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91277947"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675074"
 ---
 # <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Rolle „Verzeichnisleseberechtigte“ in Azure Active Directory für Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 > [!NOTE]
-> Dieses Feature in diesem Artikel befindet sich in der **öffentlichen Vorschau**.
+> Dieses Feature in diesem Artikel befindet sich in der **öffentlichen Vorschau** .
 
-Azure Active Directory (Azure AD) hat die [Verwendung von Cloudgruppen zum Verwalten von Rollenzuweisungen in Azure Active Directory (Vorschau)](../../active-directory/users-groups-roles/roles-groups-concept.md) eingeführt. Dadurch können Azure AD-Rollen Gruppen zugewiesen werden.
+Azure Active Directory (Azure AD) hat die [Verwendung von Cloudgruppen zum Verwalten von Rollenzuweisungen in Azure Active Directory (Vorschau)](../../active-directory/roles/groups-concept.md) eingeführt. Dadurch können Azure AD-Rollen Gruppen zugewiesen werden.
 
-Wenn Sie eine [verwaltete Identität](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) für Azure SQL-Datenbank, Azure SQL Managed Instance oder Azure Synapse Analytics aktivieren, muss der Identität die Azure AD-Rolle [**Verzeichnisleseberechtigte**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) zugewiesen werden, um Lesezugriff auf die [Azure AD Graph-API](../../active-directory/develop/active-directory-graph-api.md) zu ermöglichen. Die verwaltete Identität von SQL-Datenbank und Azure Synapse wird als Serveridentität bezeichnet. Die verwaltete Identität von SQL Managed Instance wird als verwaltete Instanzidentität bezeichnet und automatisch zugewiesen, wenn die Instanz erstellt wird. Weitere Informationen zum Zuweisen einer Serveridentität zu SQL-Datenbank oder Azure Synapse finden Sie unter [Aktivieren von Dienstprinzipalen zum Erstellen von Azure AD-Benutzern](authentication-aad-service-principal.md#enable-service-principals-to-create-azure-ad-users).
+Wenn Sie eine [verwaltete Identität](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) für Azure SQL-Datenbank, Azure SQL Managed Instance oder Azure Synapse Analytics aktivieren, muss der Identität die Azure AD-Rolle [**Verzeichnisleseberechtigte**](../../active-directory/roles/permissions-reference.md#directory-readers) zugewiesen werden, um Lesezugriff auf die [Azure AD Graph-API](../../active-directory/develop/active-directory-graph-api.md) zu ermöglichen. Die verwaltete Identität von SQL-Datenbank und Azure Synapse wird als Serveridentität bezeichnet. Die verwaltete Identität von SQL Managed Instance wird als verwaltete Instanzidentität bezeichnet und automatisch zugewiesen, wenn die Instanz erstellt wird. Weitere Informationen zum Zuweisen einer Serveridentität zu SQL-Datenbank oder Azure Synapse finden Sie unter [Aktivieren von Dienstprinzipalen zum Erstellen von Azure AD-Benutzern](authentication-aad-service-principal.md#enable-service-principals-to-create-azure-ad-users).
 
 Die Rolle **Verzeichnisleseberechtigte** ist für Folgendes erforderlich:
 
 - Erstellen von Azure AD-Anmeldungen für SQL Managed Instance
 - Annehmen der Identität von Azure AD Benutzern in Azure SQL
-- Migrieren von SQL Server-Benutzern, die Windows-Authentifizierung verwenden, zu SQL Managed Instance mit Azure AD-Authentifizierung (mit dem Befehl [ALTER USER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-mi-current#d-map-the-user-in-the-database-to-an-azure-ad-login-after-migration))
+- Migrieren von SQL Server-Benutzern, die Windows-Authentifizierung verwenden, zu SQL Managed Instance mit Azure AD-Authentifizierung (mit dem Befehl [ALTER USER (Transact-SQL)](/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-mi-current#d-map-the-user-in-the-database-to-an-azure-ad-login-after-migration))
 - Ändern des Azure AD-Administrators für SQL Managed Instance
 - Ermöglichen, dass [Dienstprinzipale (Anwendungen)](authentication-aad-service-principal.md) Azure AD-Benutzer in Azure SQL erstellen können
 
 ## <a name="assigning-the-directory-readers-role"></a>Zuweisen der Rolle „Verzeichnisleseberechtigte“
 
-Um einer Identität die Rolle [**Verzeichnisleseberechtigte**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) zuzuweisen, ist ein Benutzer mit den Berechtigungen [Globaler Administrator](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) oder [Administrator für privilegierte Rollen](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) erforderlich. Benutzer, die SQL-Datenbank, SQL Managed Instance oder Azure Synapse häufig verwalten oder bereitstellen, verfügen möglicherweise nicht über Zugriff auf diese hochprivilegierten Rollen. Dies kann häufig zu Komplikationen für Benutzer führen, die ungeplante Azure SQL-Ressourcen erstellen oder Hilfe von hochprivilegierten Rollenmitgliedern benötigen, auf die in großen Organisationen häufig nicht zugegriffen werden kann.
+Um einer Identität die Rolle [**Verzeichnisleseberechtigte**](../../active-directory/roles/permissions-reference.md#directory-readers) zuzuweisen, ist ein Benutzer mit den Berechtigungen [Globaler Administrator](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) oder [Administrator für privilegierte Rollen](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) erforderlich. Benutzer, die SQL-Datenbank, SQL Managed Instance oder Azure Synapse häufig verwalten oder bereitstellen, verfügen möglicherweise nicht über Zugriff auf diese hochprivilegierten Rollen. Dies kann häufig zu Komplikationen für Benutzer führen, die ungeplante Azure SQL-Ressourcen erstellen oder Hilfe von hochprivilegierten Rollenmitgliedern benötigen, auf die in großen Organisationen häufig nicht zugegriffen werden kann.
 
 Bei SQL Managed Instance muss die Rolle **Verzeichnisleseberechtigte** der Identität der verwalteten Instanz zugewiesen werden, damit Sie [einen Azure AD-Administrator für die verwaltete Instanz einrichten](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) können. 
 
@@ -45,7 +45,7 @@ Bei SQL-Datenbank und Azure Synapse ist die Zuweisung der Rolle **Verzeichnisles
 
 ## <a name="granting-the-directory-readers-role-to-an-azure-ad-group"></a>Erteilen der Rolle „Verzeichnisleseberechtigter“ für eine Azure AD-Gruppe
 
-In der **öffentlichen Vorschau** kann jetzt ein [Globaler Administrator](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) oder [Administrator für privilegierte Rollen](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) eine Azure AD-Gruppe erstellen und der Gruppe die Berechtigung [**Verzeichnisleseberechtigter**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) zuweisen. Dadurch wird der Zugriff auf die Azure AD Graph-API für Mitglieder dieser Gruppe ermöglicht. Außerdem können Azure AD-Benutzer, die Besitzer dieser Gruppe sind, neue Mitglieder für diese Gruppe zuweisen, einschließlich Identitäten der logischen Azure SQL-Server.
+In der **öffentlichen Vorschau** kann jetzt ein [Globaler Administrator](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) oder [Administrator für privilegierte Rollen](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) eine Azure AD-Gruppe erstellen und der Gruppe die Berechtigung [**Verzeichnisleseberechtigter**](../../active-directory/roles/permissions-reference.md#directory-readers) zuweisen. Dadurch wird der Zugriff auf die Azure AD Graph-API für Mitglieder dieser Gruppe ermöglicht. Außerdem können Azure AD-Benutzer, die Besitzer dieser Gruppe sind, neue Mitglieder für diese Gruppe zuweisen, einschließlich Identitäten der logischen Azure SQL-Server.
 
 Diese Lösung erfordert immer noch einen hochprivilegierten Benutzer („Globaler Administrator“ oder „Administrator für privilegierte Rollen“), um eine Gruppe zu erstellen und Benutzer als eine einmalige Aktivität zuzuweisen, aber die Azure AD-Gruppenbesitzer können in Zukunft weitere Mitglieder zuweisen. Damit entfällt in Zukunft die Notwendigkeit, einen Benutzer mit hohen Privilegien in die Konfiguration aller SQL-Datenbanken, SQL Managed Instances oder Azure Synapse-Server in ihrem Azure AD-Mandanten einzubeziehen.
 

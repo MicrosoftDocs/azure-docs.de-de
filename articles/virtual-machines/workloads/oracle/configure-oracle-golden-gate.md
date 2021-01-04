@@ -3,16 +3,17 @@ title: Implementieren von Oracle Golden Gate in Azure-Linux-VMs | Microsoft-Doku
 description: Machen Sie Oracle Golden Gate in Ihrer Azure-Umgebung schnell einsatzbereit.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: c1890ab9f99999c88e28eb9a76d6270fa08fb87c
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 3fff58c240341776a3bb99c059c179cc4f9d96e9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996671"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999143"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementieren von Oracle Golden Gate in Azure-Linux-VMs 
 
@@ -442,19 +443,19 @@ Führen Sie zum Installieren von Oracle Golden Gate die folgenden Schritte aus:
 
 4. Ändern Sie das Inventarverzeichnis, und klicken Sie dann auf **Weiter**, um fortzufahren.
 
-   ![Screenshot der Seite „Select Installation“ (Installation auswählen)](./media/oracle-golden-gate/golden_gate_install_03.png)
+   ![Screenshot: Seite „Select Installation“ (Installation auswählen) mit dem Installationsverzeichnis](./media/oracle-golden-gate/golden_gate_install_03.png)
 
 5. Wählen Sie auf der **Summary** (Zusammenfassung) **Install** (Installieren) aus, um den Vorgang fortzusetzen.
 
-   ![Screenshot der Seite „Select Installation“ (Installation auswählen) des Installationsprogramms](./media/oracle-golden-gate/golden_gate_install_04.png)
+   ![Screenshot: Seite „Select Installation“ (Installation auswählen) und die Schaltfläche „Install“ (Installieren)](./media/oracle-golden-gate/golden_gate_install_04.png)
 
 6. Sie werden möglicherweise aufgefordert, ein Skript als „root“ auszuführen. Wenn dies der Fall ist, stellen Sie in einer separaten Sitzung über SSH eine Verbindung mit der VM her, wechseln Sie per „sudo“ zu „root“, und führen Sie dann das Skript aus. Klicken Sie auf **OK**, um fortzufahren.
 
-   ![Screenshot der Seite „Select Installation“ (Installation auswählen)](./media/oracle-golden-gate/golden_gate_install_05.png)
+   ![Screenshot: Skriptspeicherort und Ausführen des Konfigurationsskripts](./media/oracle-golden-gate/golden_gate_install_05.png)
 
 7. Wenn die Installation abgeschlossen ist, klicken Sie auf **Schließen**, um den Vorgang abzuschließen.
 
-   ![Screenshot der Seite „Select Installation“ (Installation auswählen)](./media/oracle-golden-gate/golden_gate_install_06.png)
+   ![Screenshot: Seite „Select Installation“ (Installation auswählen) mit der Schaltfläche „Close“ (Schließen)](./media/oracle-golden-gate/golden_gate_install_06.png)
 
 ### <a name="set-up-service-on-myvm1-primary"></a>Einrichten des Diensts auf myVM1 (primär)
 

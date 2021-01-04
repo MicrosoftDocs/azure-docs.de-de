@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 81621a2b63eec804aaa7c74e1d77b06ef1adb79a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e4782bf09b8c27132417f6021927408e18755104
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "76844988"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494017"
 ---
 # <a name="what-is-azure-network-watcher"></a>Was ist Azure Network Watcher?
 
@@ -31,7 +31,7 @@ Mit Azure Network Watcher werden Tools für die Überwachung, Diagnose, Metrikan
 
 Bei Endpunkten kann es sich um einen anderen virtuellen Computer (VM), einen vollqualifizierten Domänennamen (FQDN), einen URI (Uniform Resource Identifier) oder eine IPv4-Adresse handeln. Mit der Funktion *Verbindungsmonitor* wird die Kommunikation in regelmäßigen Abständen überwacht, und Sie werden über Änderungen der Erreichbarkeit, Latenz und Netzwerktopologie zwischen der VM und dem Endpunkt informiert. Beispielsweise verfügen Sie ggf. über eine Webserver-VM, die mit einer Datenbankserver-VM kommuniziert. Es kann sein, dass eine andere Person in Ihrer Organisation (ohne dass Ihnen dies bekannt ist) eine benutzerdefinierte Route oder Netzwerksicherheitsregel auf die Webserver- oder Datenbankserver-VM oder das Subnetz anwendet.
 
-Wenn ein Endpunkt nicht mehr erreichbar ist, werden Sie von der Problembehandlung der Verbindung über die Ursache informiert. Mögliche Ursachen sind ein Problem mit der DNS-Namensauflösung, die CPU, der Arbeitsspeicher oder die Firewall des Betriebssystems einer VM, der Hop-Typ einer benutzerdefinierten Route oder die Sicherheitsregel für die VM oder das Subnetz der ausgehenden Verbindung. Informieren Sie sich über [Sicherheitsregeln](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) und [Hop-Typen von Routen](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) in Azure.
+Wenn ein Endpunkt nicht mehr erreichbar ist, werden Sie von der Problembehandlung der Verbindung über die Ursache informiert. Mögliche Ursachen sind ein Problem mit der DNS-Namensauflösung, die CPU, der Arbeitsspeicher oder die Firewall des Betriebssystems einer VM, der Hop-Typ einer benutzerdefinierten Route oder die Sicherheitsregel für die VM oder das Subnetz der ausgehenden Verbindung. Informieren Sie sich über [Sicherheitsregeln](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) und [Hop-Typen von Routen](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) in Azure.
 
 Über den Verbindungsmonitor werden auch die Werte für die minimale, durchschnittliche und maximale Latenz angegeben, die im Laufe der Zeit ermittelt wurde. Wenn Sie die Latenz für eine Verbindung kennen, stellt sich unter Umständen heraus, dass Sie sie reduzieren können, indem Sie Ihre Azure-Ressourcen in andere Azure-Regionen verschieben. Informieren Sie sich über die Ermittlung der [relativen Latenzen zwischen Azure-Regionen und Internetdienstanbietern](#determine-relative-latencies-between-azure-regions-and-internet-service-providers) und die Überwachung der Kommunikation zwischen einer VM und einem Endpunkt per [Verbindungsmonitor](connection-monitor.md). Falls Sie eine Verbindung zu einem bestimmten Zeitpunkt und nicht für einen Zeitraum testen möchten (wie mit dem Verbindungsmonitor), können Sie die Funktion [Problembehandlung für Verbindung](#connection-troubleshoot) nutzen.
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0728e5d12b13164d127941a49603836ff92fd515
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: e46105f5889f4925be9873fd8613021fe5e8ac2d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045787"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920769"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: Entwickeln von IoT Edge-Modulen für Windows-Geräte
 
@@ -33,24 +33,6 @@ In diesem Tutorial lernen Sie Folgendes:
 > * Erstellen Ihres Projekts als Container und Speichern in einer Azure-Containerregistrierung
 > * Bereitstellen Ihres Codes auf einem IoT Edge-Gerät
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-## <a name="key-concepts"></a>Wichtige Begriffe
-
-In diesem Tutorial wird Schritt für Schritt die Entwicklung eines IoT Edge-Moduls beschrieben. Ein *IoT Edge-Modul* (auch kurz als *Modul* bezeichnet) ist ein Container, der ausführbaren Code enthält. Sie können ein oder mehrere Module auf einem IoT Edge-Gerät bereitstellen. Mit Modulen werden bestimmte Aufgaben durchgeführt, z. B. das Erfassen der Daten von Sensoren, das Durchführen von Vorgängen zur Datenanalyse oder Datenbereinigung oder das Senden von Nachrichten an einen IoT-Hub. Weitere Informationen finden Sie unter [Grundlegendes zu Azure IoT Edge-Modulen](iot-edge-modules.md).
-
-Beim Entwickeln von IoT Edge-Modulen ist es wichtig, dass Sie den Unterschied zwischen dem Entwicklungscomputer und dem IoT Edge-Zielgerät verstehen, auf dem das Modul später bereitgestellt wird. Der Container, den Sie für Ihren Modulcode erstellen, muss mit dem Betriebssystem (BS) des *Zielgeräts* übereinstimmen. Für die Entwicklung von Windows-Containern ist dieses Konzept einfacher, weil Windows-Container nur unter Windows-Betriebssystemen ausgeführt werden. Sie können aber beispielsweise Ihren Windows-Entwicklungscomputer verwenden, um Module für Linux-IoT Edge-Geräte zu entwickeln. In diesem Szenario müssen Sie sicherstellen, dass auf Ihrem Entwicklungscomputer Linux-Container ausgeführt werden. Denken Sie beim Durcharbeiten dieses Tutorials an den Unterschied zwischen dem *Betriebssystem des Entwicklungscomputers* und dem *Betriebssystem des Containers*.
-
-In diesem Tutorial geht es um Windows-Geräte, auf denen IoT Edge ausgeführt wird. Für Windows IoT Edge-Geräte werden Windows-Container verwendet. Es wird empfohlen, Visual Studio für die Entwicklung für Windows-Geräte zu nutzen, und dies ist auch die Vorgehensweise in diesem Tutorial. Alternativ können Sie Visual Studio Code nutzen, aber zwischen den beiden Tools gibt es Unterschiede in Bezug auf die Unterstützung.
-
-In der folgenden Tabelle sind die unterstützten Entwicklungsszenarien für **Windows-Container** in Visual Studio Code und Visual Studio aufgeführt.
-
-|   | Visual Studio Code | Visual Studio 2017/2019 |
-| - | ------------------ | ------------------ |
-| **Azure-Dienste** | Azure-Funktionen <br> Azure Stream Analytics |   |
-| **Sprachen** | C# (Debuggen wird nicht unterstützt) | C <br> C# |
-| **Weitere Informationen** | [Azure IoT Edge für Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge-Tools für Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)<br>[Azure IoT Edge-Tools für Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
-
 ## <a name="prerequisites"></a>Voraussetzungen
 
 Ein Entwicklungscomputer:
@@ -68,6 +50,24 @@ Ein Azure IoT Edge-Gerät unter Windows:
 Cloudressourcen:
 
 * Einen [IoT-Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure im Tarif „Free“ oder „Standard“.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="key-concepts"></a>Wichtige Begriffe
+
+In diesem Tutorial wird Schritt für Schritt die Entwicklung eines IoT Edge-Moduls beschrieben. Ein *IoT Edge-Modul* (auch kurz als *Modul* bezeichnet) ist ein Container, der ausführbaren Code enthält. Sie können ein oder mehrere Module auf einem IoT Edge-Gerät bereitstellen. Mit Modulen werden bestimmte Aufgaben durchgeführt, z. B. das Erfassen der Daten von Sensoren, das Durchführen von Vorgängen zur Datenanalyse oder Datenbereinigung oder das Senden von Nachrichten an einen IoT-Hub. Weitere Informationen finden Sie unter [Grundlegendes zu Azure IoT Edge-Modulen](iot-edge-modules.md).
+
+Beim Entwickeln von IoT Edge-Modulen ist es wichtig, dass Sie den Unterschied zwischen dem Entwicklungscomputer und dem IoT Edge-Zielgerät verstehen, auf dem das Modul später bereitgestellt wird. Der Container, den Sie für Ihren Modulcode erstellen, muss mit dem Betriebssystem (BS) des *Zielgeräts* übereinstimmen. Für die Entwicklung von Windows-Containern ist dieses Konzept einfacher, weil Windows-Container nur unter Windows-Betriebssystemen ausgeführt werden. Sie können aber beispielsweise Ihren Windows-Entwicklungscomputer verwenden, um Module für Linux-IoT Edge-Geräte zu entwickeln. In diesem Szenario müssen Sie sicherstellen, dass auf Ihrem Entwicklungscomputer Linux-Container ausgeführt werden. Denken Sie beim Durcharbeiten dieses Tutorials an den Unterschied zwischen dem *Betriebssystem des Entwicklungscomputers* und dem *Betriebssystem des Containers*.
+
+In diesem Tutorial geht es um Windows-Geräte, auf denen IoT Edge ausgeführt wird. Für Windows IoT Edge-Geräte werden Windows-Container verwendet. Es wird empfohlen, Visual Studio für die Entwicklung für Windows-Geräte zu nutzen, und dies ist auch die Vorgehensweise in diesem Tutorial. Alternativ können Sie Visual Studio Code nutzen, aber zwischen den beiden Tools gibt es Unterschiede in Bezug auf die Unterstützung.
+
+In der folgenden Tabelle sind die unterstützten Entwicklungsszenarien für **Windows-Container** in Visual Studio Code und Visual Studio aufgeführt.
+
+|   | Visual Studio Code | Visual Studio 2017/2019 |
+| - | ------------------ | ------------------ |
+| **Azure-Dienste** | Azure-Funktionen <br> Azure Stream Analytics |   |
+| **Sprachen** | C# (Debuggen wird nicht unterstützt) | C <br> C# |
+| **Weitere Informationen** | [Azure IoT Edge für Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge-Tools für Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)<br>[Azure IoT Edge-Tools für Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
 ## <a name="install-container-engine"></a>Installieren der Container-Engine
 
@@ -205,7 +205,7 @@ Der in der Projektvorlage enthaltene C#-Beispielcode verwendet die [ModuleClient
 
 7. Suchen Sie nach der **routes**-Eigenschaft der gewünschten $edgeHub-Eigenschaften.
 
-   Eine der Funktionen des IoT Edge-Hub-Moduls ist das Weiterleiten von Nachrichten zwischen allen Modulen einer Bereitstellung. Sehen Sie sich die Werte in der routes-Eigenschaft an. Für eine Route (**IotEdgeModule1ToIoTHub**) wird ein Platzhalterzeichen ( **\*** ) verwendet, um die Nachrichten aufzunehmen, die aus einer Ausgabewarteschlange im Modul „IotEdgeModule1“ stammen. Diese Nachrichten werden an *$upstream* geleitet. Hierbei handelt es sich um einen reservierten Namen, der auf IoT Hub hinweist. Über die andere Route (**sensorToIotEdgeModule1**) werden vom Modul „SimulatedTemperatureSensor“ stammende Nachrichten an die Eingabewarteschlange *input1* des Moduls „IotEdgeModule1“ geleitet.
+   Eine der Funktionen des IoT Edge-Hub-Moduls ist das Weiterleiten von Nachrichten zwischen allen Modulen einer Bereitstellung. Sehen Sie sich die Werte in der routes-Eigenschaft an. Für eine Route (**IotEdgeModule1ToIoTHub**) wird ein Platzhalterzeichen (* *\** _) verwendet, um die Nachrichten aufzunehmen, die aus einer Ausgabewarteschlange im Modul „IotEdgeModule1“ stammen. Diese Nachrichten werden an _$upstream* geleitet. Hierbei handelt es sich um einen reservierten Namen, der auf IoT Hub hinweist. Über die andere Route (**sensorToIotEdgeModule1**) werden vom Modul „SimulatedTemperatureSensor“ stammende Nachrichten an die Eingabewarteschlange *input1* des Moduls „IotEdgeModule1“ geleitet.
 
    ![Überprüfen von Routen in „deployment.template.json“](./media/tutorial-develop-for-windows/deployment-routes.png)
 

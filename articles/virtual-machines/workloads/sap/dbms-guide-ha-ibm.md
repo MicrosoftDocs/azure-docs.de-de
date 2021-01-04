@@ -3,21 +3,25 @@ title: Einrichten von IBM Db2 HADR auf virtuellen Azure-Computern (VMs) | Micros
 description: Richten Sie die Hochverfügbarkeit von IBM Db2 LUW auf virtuellen Azure-Computern (VMs) ein.
 author: msjuergent
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 10/16/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 88a84cd90efb42ea096cad647d75f1c3736426f4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 54bde8c9dd47e88ffdc831ccb9f7833720583238
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146440"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621381"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Hochverfügbarkeit von IBM Db2 LUW auf Azure-VMs unter SUSE Linux Enterprise Server mit Pacemaker
 
 IBM Db2 für Linux, UNIX und Windows (LUW) in einer [HADR-Konfiguration (Hochverfügbarkeit und Notfallwiederherstellung)](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html) besteht aus einem Knoten, auf dem eine primäre Datenbankinstanz ausgeführt wird, und mindestens einem Knoten, auf dem eine sekundäre Datenbankinstanz ausgeführt wird. Änderungen an der primären Datenbankinstanz werden, abhängig von Ihrer Konfiguration, synchron oder asynchron in eine sekundäre Datenbankinstanz repliziert. 
 
+> [!NOTE]
+> Dieser Artikel enthält Verweise auf die Begriffe *Master* und *Slave*, die von Microsoft nicht mehr verwendet werden. Sobald diese Begriffe aus der Software entfernt wurden, werden sie auch aus diesem Artikel gelöscht.
+   
 Dieser Artikel beschreibt die Bereitstellung und Konfiguration der virtuellen Azure-Computer (VMs), die Installation des Clusterframeworks und die Installation von IBM Db2 LUW mit HADR-Konfiguration. 
 
 In diesem Artikel wird nicht behandelt, wie IBM Db2 LUW mit HADR installiert und konfiguriert wird oder die oder SAP-Softwareinstallation erfolgt. Um Ihnen bei der Bewältigung dieser Aufgaben zu helfen, stellen wir Ihnen Verweise auf SAP- und IBM-Installationshandbücher zur Verfügung. Der Schwerpunkt dieses Artikels liegt auf Vorgehensweisen, die speziell für die Azure-Umgebung gelten. 
@@ -97,10 +101,10 @@ Abschließen des Planungsprozesses, bevor Sie die Bereitstellung ausführen. Pla
 | Definieren von Azure-Ressourcengruppen | Ressourcengruppen, in denen Sie virtuelle Computer, VNET, Azure Load Balancer und andere Ressourcen bereitstellen. Können vorhanden oder neu sein. |
 | Definition von virtuellem Netzwerk/Subnetz | Umgebung, in der virtuelle Computer für IBM Db2 und Azure Load Balancer bereitgestellt werden. Kann vorhanden sein oder neu erstellt werden. |
 | Virtuelle Computer zum Hosten von IBM Db2 LUW | Größe, Speicher, Netzwerke, IP-Adressen der virtuellen Computer. |
-| Virtueller Hostname und virtuelle IP-Adresse für die IBM Db2-Datenbank.| Die virtuelle IP-Adresse oder der virtuelle Hostname, die für die Verbindung von SAP-Anwendungsservern verwendet werden. **db-virt-hostname** , **db-virt-ip** . |
+| Virtueller Hostname und virtuelle IP-Adresse für die IBM Db2-Datenbank.| Die virtuelle IP-Adresse oder der virtuelle Hostname, die für die Verbindung von SAP-Anwendungsservern verwendet werden. **db-virt-hostname**, **db-virt-ip**. |
 | Azure-Umgrenzung | Azure-Umgrenzung oder SBD-Umgrenzung (dringend empfohlen); Methode zum Verhindern von Split Brain-Situationen. |
 | Virtueller SBD-Computer | Größe, Speicher und Netzwerk des virtuellen SBD-Computers. |
-| Azure Load Balancer | Verwendung von Basic oder Standard (empfohlen), Testport für die Db2-Datenbank (Empfehlung ist 62500) Prüfpunkt; **probe-port** . |
+| Azure Load Balancer | Verwendung von Basic oder Standard (empfohlen), Testport für die Db2-Datenbank (Empfehlung ist 62500) Prüfpunkt; **probe-port**. |
 | Namensauflösung| Funktionsweise der Namensauflösung in der Umgebung. DNS-Dienst wird dringend empfohlen. Lokale hosts-Datei kann verwendet werden. |
     
 Weitere Informationen zu Linux Pacemaker in Azure finden Sie unter [Einrichten von Pacemaker unter SUSE Linux Enterprise Server in Azure](./high-availability-guide-suse-pacemaker.md).
@@ -131,7 +135,7 @@ Vergewissern Sie sich, dass das ausgewählte Betriebssystem von IBM/SAP für IBM
 
 ## <a name="create-the-pacemaker-cluster"></a>Erstellen eines Pacemaker-Clusters
     
-Informationen zum Erstellen eines grundlegenden Pacemaker-Clusters für diesen IBM Db2-Server finden Sie unter  [Einrichten von Pacemaker unter SUSE Linux Enterprise Server in Azure][sles-pacemaker]. 
+Informationen zum Erstellen eines grundlegenden Pacemaker-Clusters für diesen IBM Db2-Server finden Sie unter [Einrichten von Pacemaker unter SUSE Linux Enterprise Server in Azure][sles-pacemaker]. 
 
 ## <a name="install-the-ibm-db2-luw-and-sap-environment"></a>Installieren von IBM Db2 LUW und der SAP-Umgebung
 
@@ -167,7 +171,7 @@ So richten Sie die primäre IBM Db2 LUW-Datenbankinstanz ein:
 
 Um den Standbydatenbankserver mit der SAP-Prozedur „Homogeneous System Copy“ einzurichten, führen Sie die folgenden Schritte aus:
 
-1. Verwenden Sie die Option **System copy** > **Target systems** > **Distributed** > **Datenbankinstanz** .
+1. Verwenden Sie die Option **System copy** > **Target systems** > **Distributed** > **Datenbankinstanz**.
 1. Wählen Sie als Kopiermethode die Option **Homogeneous System** aus, damit Sie „backup“ verwenden können, um eine Sicherung auf der Standbyserverinstanz wiederherstellen zu können.
 1. Wenn Sie den Schritt erreichen, in dem für „Homogeneous System Copy“ das Wiederherstellen beendet werden soll, beenden Sie das Installationsprogramm. Stellen Sie die Datenbank aus einer Sicherung des primären Hosts wieder her. Alle weiteren Installationsphasen wurden bereits auf dem primären Datenbankserver ausgeführt.
 1. Richten Sie HADR für IBM Db2 ein.
@@ -191,7 +195,7 @@ Wie empfehlen die oben genannten Parameterwerte basierend auf dem anfänglichen 
 > [!IMPORTANT]
 > Spezifisch für IBM Db2 mit HADR-Konfiguration mit normalem Start: Die sekundäre oder Standbydatenbankinstanz muss aktiv sein und ausgeführt werden, bevor Sie die primäre Datenbankinstanz starten können.
 
-Zu Demonstrationszwecken und für die Vorgehensweisen, die in diesem Artikel beschrieben werden, lautet die Datenbank-SID **PTR** .
+Zu Demonstrationszwecken und für die Vorgehensweisen, die in diesem Artikel beschrieben werden, lautet die Datenbank-SID **PTR**.
 
 #### <a name="ibm-db2-hadr-check"></a>IBM Db2 HADR-Überprüfung
 Nachdem Sie HADR konfiguriert haben und der Status PEER und CONNECTED für den primären und die Standbyknoten lautet, führen Sie die folgende Überprüfung durch:
@@ -308,7 +312,7 @@ Die folgenden Elemente haben eines der folgenden Präfixe:
 
 **[A]** Voraussetzungen für die Pacemaker-Konfiguration
 1. Fahren Sie beide Datenbankserver mit dem Benutzer „db2\<sid>“ mit „db2stop“ herunter.
-1. Ändern Sie die Shellumgebung für „db2\<sid>“ in */bin/ksh* . Es wird empfohlen, das Yast-Tool zu verwenden. 
+1. Ändern Sie die Shellumgebung für „db2\<sid>“ in */bin/ksh*. Es wird empfohlen, das Yast-Tool zu verwenden. 
 
 
 ### <a name="pacemaker-configuration"></a>Pacemaker-Konfiguration
@@ -395,17 +399,17 @@ Um Azure Load Balancer zu konfigurieren, empfehlen wir Ihnen, die [SKU „Azure 
 > Bei der SKU „Azure Load Balancer Standard“ gibt es Einschränkungen, wenn von den Knoten unterhalb des Load Balancers aus auf öffentliche IP-Adressen zugegriffen wird. Im Artikel [Konnektivität öffentlicher Endpunkte für VMs, die Azure Load Balancer Standard in SAP-Hochverfügbarkeitsszenarien verwenden](./high-availability-guide-standard-load-balancer-outbound-connections.md) werden Verfahren beschrieben, wie diesen Knoten der Zugriff auf öffentliche IP-Adressen ermöglicht werden kann.
 
 > [!IMPORTANT]
-> Floating IP-Adressen werden in IP-Konfigurationen mit zwei NICs in Szenarios mit Lastenausgleich nicht unterstützt. Weitere Informationen finden Sie unter [Azure Load Balancer – Einschränkungen](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Wenn Sie zusätzliche IP-Adressen für die VM benötigen, stellen Sie eine zweite NIC bereit.  
+> Floating IP-Adressen werden in IP-Konfigurationen mit zwei NICs in Szenarien mit Lastenausgleich nicht unterstützt. Weitere Informationen finden Sie unter [Azure Load Balancer – Einschränkungen](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Wenn Sie zusätzliche IP-Adressen für die VM benötigen, stellen Sie eine zweite NIC bereit.  
 
 1. Erstellen eines Front-End-IP-Pools:
 
    a. Öffnen Sie im Azure-Portal den Azure Load Balancer, wählen Sie **Front-End-IP-Pool** aus, und wählen Sie dann **Hinzufügen** aus.
 
-   b. Geben Sie den Namen des neuen Front-End-IP-Pools ein (z. B. **Db2-Verbindung** ).
+   b. Geben Sie den Namen des neuen Front-End-IP-Pools ein (z. B. **Db2-Verbindung**).
 
    c. Legen Sie **Zuweisung** auf **Statisch** fest, und geben Sie die IP-Adresse **db-virt-ip** ein, die Sie zu Beginn definiert haben.
 
-   d. Klicken Sie auf **OK** .
+   d. Klicken Sie auf **OK**.
 
    e. Notieren Sie nach Erstellen des neuen Front-End-IP-Pools dessen IP-Adresse.
 
@@ -413,7 +417,7 @@ Um Azure Load Balancer zu konfigurieren, empfehlen wir Ihnen, die [SKU „Azure 
 
    a. Öffnen Sie im Azure-Portal den Azure Load Balancer, wählen Sie **Back-End-Pools** aus, und wählen Sie dann **Hinzufügen** aus.
 
-   b. Geben Sie den Namen des neuen Back-End-Pools ein (z. B. **Db2-Back-End** ).
+   b. Geben Sie den Namen des neuen Back-End-Pools ein (z. B. **Db2-Back-End**).
 
    c. Wählen Sie **Virtuellen Computer hinzufügen** aus.
 
@@ -421,33 +425,33 @@ Um Azure Load Balancer zu konfigurieren, empfehlen wir Ihnen, die [SKU „Azure 
 
    e. Wählen Sie die virtuellen Computer des IBM Db2-Clusters aus.
 
-   f. Klicken Sie auf **OK** .
+   f. Klicken Sie auf **OK**.
 
 1. Erstellen eines Integritätstests:
 
    a. Öffnen Sie im Azure-Portal den Azure Load Balancer, wählen Sie **Integritätstests** aus, und wählen Sie dann **Hinzufügen** aus.
 
-   b. Geben Sie den Namen des neuen Integritätstests ein (z. B. **Db2-IntTest** ).
+   b. Geben Sie den Namen des neuen Integritätstests ein (z. B. **Db2-IntTest**).
 
    c. Wählen Sie **TCP** als Protokoll und den Port **62500** aus. Behalten Sie für das **Intervall** den Wert **5** und als **Fehlerschwellenwert** den Wert **2** bei.
 
-   d. Klicken Sie auf **OK** .
+   d. Klicken Sie auf **OK**.
 
 1. Erstellen Sie die Lastenausgleichsregeln:
 
    a. Öffnen Sie im Azure-Portal den Azure Load Balancer, wählen Sie **Lastenausgleichsregeln** aus, und wählen Sie dann **Hinzufügen** aus.
 
-   b. Geben Sie den Namen der neuen Lastenausgleichsregel ein (z. B. **Db2-SID** ).
+   b. Geben Sie den Namen der neuen Lastenausgleichsregel ein (z. B. **Db2-SID**).
 
-   c. Wählen Sie die Front-End-IP-Adresse, den Back-End-Pool und den Integritätstest aus, die Sie zuvor erstellt haben (z. B. **Db2-Front-End** ).
+   c. Wählen Sie die Front-End-IP-Adresse, den Back-End-Pool und den Integritätstest aus, die Sie zuvor erstellt haben (z. B. **Db2-Front-End**).
 
-   d. Übernehmen Sie für **Protokoll** den Wert **TCP** , und geben Sie als Portnummer den Wert von *Database Communication port* ein.
+   d. Übernehmen Sie für **Protokoll** den Wert **TCP**, und geben Sie als Portnummer den Wert von *Database Communication port* ein.
 
    e. Erhöhen Sie die **Leerlaufzeitüberschreitung** auf 30 Minuten.
 
-   f. Achten Sie darauf, dass Sie **„Floating IP“ aktivieren** .
+   f. Achten Sie darauf, dass Sie **„Floating IP“ aktivieren**.
 
-   g. Klicken Sie auf **OK** .
+   g. Klicken Sie auf **OK**.
 
 
 ### <a name="make-changes-to-sap-profiles-to-use-virtual-ip-for-connection"></a>Ändern des SAP-Profils, damit die virtuelle IP-Adresse für Verbindungen verwendet wird
@@ -479,7 +483,7 @@ Verwenden Sie das Konfigurationstool J2EE, um die JDBC-URL zu überprüfen oder 
 1. Wählen Sie im rechten Bereich den Schlüssel „jdbc/pool/\<SAPSID>/url“ aus.
 1. Ändern Sie den Hostnamen in der JDBC-URL in den virtuellen Hostnamen.
      `jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0`
-1. Wählen Sie **Hinzufügen** .
+1. Wählen Sie **Hinzufügen**.
 1. Um die Änderungen zu speichern, klicken Sie auf das Datenträgersymbol in der oberen linken Ecke.
 1. Schließen Sie das Konfigurationstool.
 1. Starten Sie die Java-Instanz neu.
@@ -566,7 +570,7 @@ Der ursprüngliche Status in einem SAP-System ist in „Transaction DBACOCKPIT -
 
 Die Ressourcenmigration mit „crm resource migrate“ führt zu Speicherorteinschränkungen. Die Speicherorteinschränkungen müssen gelöscht werden. Werden die Speicherorteinschränkungen nicht gelöscht, kann kein Failback für die Ressource ausgeführt werden, oder es kann zu unerwünschten Übernahmen kommen. 
 
-Migrieren Sie die Ressourcen zurück zu *azibmdb01* , und löschen Sie die Speicherorteinschränkungen.
+Migrieren Sie die Ressourcen zurück zu *azibmdb01*, und löschen Sie die Speicherorteinschränkungen.
 <pre><code>crm resource migrate msl_<b>Db2_db2ptr_PTR</b> azibmdb01
 crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
@@ -839,7 +843,7 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb02
      Masters: [ azibmdb01 ]
      Slaves: [ azibmdb02 ]</code></pre>
 
-Der nächste Schritt besteht darin zu prüfen, ob eine *Split Brain* -Situation vorliegt. Sobald der weiterhin funktionsfähige Knoten ermittelt hat, dass der Knoten, auf dem die primäre Datenbankinstanz zuletzt ausgeführt wurde, nicht mehr verfügbar ist, wird ein Failover der Ressourcen ausgeführt.
+Der nächste Schritt besteht darin zu prüfen, ob eine *Split Brain*-Situation vorliegt. Sobald der weiterhin funktionsfähige Knoten ermittelt hat, dass der Knoten, auf dem die primäre Datenbankinstanz zuletzt ausgeführt wurde, nicht mehr verfügbar ist, wird ein Failover der Ressourcen ausgeführt.
 <pre><code>2 nodes configured
 5 resources configured
 

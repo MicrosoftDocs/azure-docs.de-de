@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/23/2020
-ms.openlocfilehash: 14f0c7177953e43b0c58b4f5432d0c08c5f03f45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cf86824bef5b6f521df0f0446d5337e2b7c418a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87876613"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130135"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Einrichten einer interaktiven PySpark-Umgebung für Visual Studio Code
 
@@ -26,9 +26,7 @@ Mit dem Befehl **python/pip** wird die virtuelle Umgebung in Ihrem Home-Pfad ers
 
    * Installieren Sie Python über [https://www.python.org/downloads/](https://www.python.org/downloads/). 
    * Installieren Sie pip über [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) (wenn nicht aus der Python-Installation installiert).
-   * Überprüfen Sie mit den folgenden Befehlen, ob Python und pip erfolgreich installiert wurden. (Optional)
-
-        ![Befehl zum Überprüfen der Python pip-Version](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
+   * Vergewissern Sie sich optional mithilfe der Befehle `python --version` und `pip --version`, dass Python und pip erfolgreich installiert wurden. 
 
      > [!NOTE]
      > Sie sollten Python manuell installieren, anstatt die Standardversion für macOS zu verwenden.

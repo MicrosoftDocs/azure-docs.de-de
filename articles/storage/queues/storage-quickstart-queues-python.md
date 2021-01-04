@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 57fc0ebc10158b41539d4802aa6a8ebdd466dd90
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a19b7bc448e9a03afd122dab749352dfa21eaa5b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783299"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491892"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>Schnellstart: Azure Queue Storage-Clientbibliothek v12 für Python
 
@@ -21,26 +21,26 @@ Beginnen Sie mit dem Einsatz der Azure Queue Storage-Clientbibliothek v12 für P
 
 Mit der Azure Queue Storage-Clientbibliothek v12 für Python können Sie Folgendes ausführen:
 
-* Erstellen einer Warteschlange
-* Hinzufügen von Nachrichten zu einer Warteschlange
-* Einsehen von Nachrichten in einer Warteschlange
-* Aktualisieren einer Nachricht in einer Warteschlange
-* Empfangen von Nachrichten aus einer Warteschlange
-* Löschen von Nachrichten aus einer Warteschlange
-* Löschen einer Warteschlange
+- Erstellen einer Warteschlange
+- Hinzufügen von Nachrichten zu einer Warteschlange
+- Einsehen von Nachrichten in einer Warteschlange
+- Aktualisieren einer Nachricht in einer Warteschlange
+- Empfangen von Nachrichten aus einer Warteschlange
+- Löschen von Nachrichten aus einer Warteschlange
+- Löschen einer Warteschlange
 
 Zusätzliche Ressourcen:
 
-* [API-Referenzdokumentation](/python/api/azure-storage-queue/index)
-* [Quellcode der Bibliothek](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)
-* [Paket (Python-Paketindex)](https://pypi.org/project/azure-storage-queue/)
-* [Beispiele](../common/storage-samples-python.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
+- [API-Referenzdokumentation](/python/api/azure-storage-queue/index)
+- [Quellcode der Bibliothek](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)
+- [Paket (Python-Paketindex)](https://pypi.org/project/azure-storage-queue/)
+- [Beispiele](../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* Azure-Abonnement – [Erstellen eines kostenlosen Kontos](https://azure.microsoft.com/free/)
-* Azure Storage-Konto – [Erstellen eines Speicherkontos](../common/storage-account-create.md)
-* [Python](https://www.python.org/downloads/) für Ihr Betriebssystem – 2.7, 3.5 oder höher
+- Azure-Abonnement – [Erstellen eines kostenlosen Kontos](https://azure.microsoft.com/free/)
+- Azure Storage-Konto – [Erstellen eines Speicherkontos](../common/storage-account-create.md)
+- [Python](https://www.python.org/downloads/) für Ihr Betriebssystem – 2.7, 3.5 oder höher
 
 ## <a name="setting-up"></a>Einrichten
 
@@ -48,7 +48,7 @@ In diesem Abschnitt wird beschrieben, wie Sie ein Projekt zur Verwendung mit der
 
 ### <a name="create-the-project"></a>Erstellen des Projekts
 
-Erstellen Sie eine Python-Anwendung mit dem Namen *queues-quickstart-v12* .
+Erstellen Sie eine Python-Anwendung mit dem Namen *queues-quickstart-v12*.
 
 1. Erstellen Sie in einem Konsolenfenster (z. B. cmd, PowerShell oder Bash) ein neues Verzeichnis für das Projekt.
 
@@ -56,7 +56,7 @@ Erstellen Sie eine Python-Anwendung mit dem Namen *queues-quickstart-v12* .
     mkdir queues-quickstart-v12
     ```
 
-1. Wechseln Sie zum neu erstellten Verzeichnis *queues-quickstart-v12* .
+1. Wechseln Sie zum neu erstellten Verzeichnis *queues-quickstart-v12*.
 
     ```console
     cd queues-quickstart-v12
@@ -93,7 +93,7 @@ Dieser Befehl installiert das Paket mit der Azure Queue Storage-Clientbibliothek
 
     ```
 
-1. Speichern Sie die neue Datei als *queues-quickstart-v12.py* im Verzeichnis *queues-quickstart-v12* .
+1. Speichern Sie die neue Datei als *queues-quickstart-v12.py* im Verzeichnis *queues-quickstart-v12*.
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
@@ -101,9 +101,9 @@ Dieser Befehl installiert das Paket mit der Azure Queue Storage-Clientbibliothek
 
 Azure Queue Storage ist ein Dienst für die Speicherung einer großen Anzahl von Nachrichten. Eine Warteschlangennachricht kann bis zu 64 KB groß sein. Eine Warteschlange kann Millionen Nachrichten enthalten, bis die maximale Kapazität eines Speicherkontos erreicht ist. Warteschlangen werden häufig verwendet, um ein Arbeits-Backlog zur asynchronen Verarbeitung zu erstellen. Queue Storage bietet drei Arten von Ressourcen:
 
-* Das Speicherkonto
-* Eine Warteschlange im Speicherkonto
-* Nachrichten in der Warteschlange
+- Das Speicherkonto
+- Eine Warteschlange im Speicherkonto
+- Nachrichten in der Warteschlange
 
 Im folgenden Diagramm ist die Beziehung zwischen diesen Ressourcen dargestellt.
 
@@ -111,22 +111,22 @@ Im folgenden Diagramm ist die Beziehung zwischen diesen Ressourcen dargestellt.
 
 Verwenden Sie die folgenden Python-Klassen zur Interaktion mit diesen Ressourcen:
 
-* [QueueServiceClient](/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient): Mit dem `QueueServiceClient` können Sie alle Warteschlangen in Ihrem Speicherkonto verwalten.
-* [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient): Mit der `QueueClient`-Klasse können Sie eine einzelne Warteschlange und die darin enthaltenen Nachrichten verwalten und bearbeiten.
-* [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage): Die `QueueMessage`-Klasse repräsentiert die einzelnen Objekte, die beim Aufrufen von [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) in einer Warteschlange zurückgegeben werden.
+- [QueueServiceClient](/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient): Mit dem `QueueServiceClient` können Sie alle Warteschlangen in Ihrem Speicherkonto verwalten.
+- [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient): Mit der `QueueClient`-Klasse können Sie eine einzelne Warteschlange und die darin enthaltenen Nachrichten verwalten und bearbeiten.
+- [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage): Die `QueueMessage`-Klasse repräsentiert die einzelnen Objekte, die beim Aufrufen von [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) in einer Warteschlange zurückgegeben werden.
 
 ## <a name="code-examples"></a>Codebeispiele
 
 Diese Beispielcodeausschnitte veranschaulichen, wie folgende Vorgänge mit der Azure Queue Storage-Clientbibliothek für Python ausgeführt werden:
 
-* [Abrufen der Verbindungszeichenfolge](#get-the-connection-string)
-* [Erstellen einer Warteschlange](#create-a-queue)
-* [Hinzufügen von Nachrichten zu einer Warteschlange](#add-messages-to-a-queue)
-* [Einsehen von Nachrichten in einer Warteschlange](#peek-at-messages-in-a-queue)
-* [Aktualisieren einer Nachricht in einer Warteschlange](#update-a-message-in-a-queue)
-* [Empfangen von Nachrichten aus einer Warteschlange](#receive-messages-from-a-queue)
-* [Löschen von Nachrichten aus einer Warteschlange](#delete-messages-from-a-queue)
-* [Löschen einer Warteschlange](#delete-a-queue)
+- [Abrufen der Verbindungszeichenfolge](#get-the-connection-string)
+- [Erstellen einer Warteschlange](#create-a-queue)
+- [Hinzufügen von Nachrichten zu einer Warteschlange](#add-messages-to-a-queue)
+- [Einsehen von Nachrichten in einer Warteschlange](#peek-at-messages-in-a-queue)
+- [Aktualisieren einer Nachricht in einer Warteschlange](#update-a-message-in-a-queue)
+- [Empfangen von Nachrichten aus einer Warteschlange](#receive-messages-from-a-queue)
+- [Löschen von Nachrichten aus einer Warteschlange](#delete-messages-from-a-queue)
+- [Löschen einer Warteschlange](#delete-a-queue)
 
 ### <a name="get-the-connection-string"></a>Abrufen der Verbindungszeichenfolge
 
@@ -305,7 +305,7 @@ Done
 
 Wenn die App vor dem Empfangen von Nachrichten angehalten wird, überprüfen Sie Ihr Speicherkonto im [Azure-Portal](https://portal.azure.com). Überprüfen Sie, ob sich in der Warteschlange Nachrichten befinden.
 
-Drücken Sie die **EINGABETASTE** , um Nachrichten zu empfangen und zu löschen. Wenn Sie dazu aufgefordert werden, drücken Sie erneut die **EINGABETASTE** , um die Warteschlange zu löschen und die Demo zu beenden.
+Drücken Sie die **EINGABETASTE**, um Nachrichten zu empfangen und zu löschen. Wenn Sie dazu aufgefordert werden, drücken Sie erneut die **EINGABETASTE**, um die Warteschlange zu löschen und die Demo zu beenden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
@@ -316,6 +316,6 @@ Tutorials, Beispiele, Schnellstartanleitungen und weiteres Dokumentationsmateria
 > [!div class="nextstepaction"]
 > [Azure für Python-Entwickler](/azure/python/)
 
-* Weitere Informationen finden Sie unter [Azure Storage-Bibliotheken für Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage).
-* Weitere Beispiel-Apps für Azure Queue Storage finden Sie bei den [
+- Weitere Informationen finden Sie unter [Azure Storage-Bibliotheken für Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage).
+- Weitere Beispiel-Apps für Azure Queue Storage finden Sie bei den [
 Beispielen für die Azure Queue Storage-Clientbibliothek v12 für Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples).

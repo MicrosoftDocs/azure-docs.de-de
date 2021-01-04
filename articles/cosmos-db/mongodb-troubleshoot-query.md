@@ -4,17 +4,19 @@ description: Erfahren Sie, wie Sie Probleme mit Abfragen der API für MongoDB in
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
+ms.subservice: cosmosdb-mongo
 ms.date: 10/12/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 615bd423296fb9ed2ee28cab9e362873a30ee7b9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 88ef081c75a64b5cb7517ba6994834b3a64a0e6f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283173"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340888"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>Behandeln von Abfrageproblemen bei Verwendung der Azure Cosmos DB-API für MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 In diesem Artikel werden Sie durch einen allgemeinen empfohlenen Ansatz für die Problembehandlung von Abfragen in Azure Cosmos DB geführt. Sie sollten die in diesem Artikel beschriebenen Schritte zwar nicht als umfassende Verteidigung gegen mögliche Abfrageprobleme ansehen, hier sind jedoch die gängigsten Leistungstipps zusammengefasst. Sie können diesen Artikel als Ausgangspunkt für die Problembehandlung von langsamen oder aufwendigen Abfragen in der Azure Cosmos DB-API für MongoDB verwenden. Wenn Sie die Azure Cosmos DB-Core-API (SQL) verwenden, finden Sie weitere Informationen im Artikel [Behandeln von Problemen bei Verwendung von Azure Cosmos DB](troubleshoot-query-performance.md).
 
@@ -111,12 +113,12 @@ db.coll.find({foodGroup: "Baby Foods"}).explain({"executionStatistics": true })
 
 Die Ausgabe des `$explain`-Befehls ist langwierig und enthält ausführliche Informationen zur Abfrageausführung. Im Allgemeinen gibt es jedoch einige Abschnitte, in denen Sie sich auf die Optimierung der Abfrageleistung konzentrieren sollten:
 
-| Metrik | BESCHREIBUNG | 
+| Metrik | Beschreibung | 
 | ------ | ----------- |
 | `timeInclusiveMS` | Wartezeit der Back-End-Abfrage |
 | `pathsIndexed` | Zeigt die von der Abfrage verwendeten Indizes an. | 
 | `pathsNotIndexed` | Zeigt Indizes an, die von der Abfrage verwendet werden können, falls verfügbar. | 
-| `shardInformation` | Zusammenfassung der Abfrageleistung für eine bestimmte [physische Partition](partition-data.md#physical-partitions) | 
+| `shardInformation` | Zusammenfassung der Abfrageleistung für eine bestimmte [physische Partition](./partitioning-overview.md#physical-partitions) | 
 | `retrievedDocumentCount` | Anzahl der von der Abfrage-Engine geladenen Dokumente | 
 | `outputDocumentCount` | Anzahl der in den Abfrageergebnissen zurückgegebenen Dokumente | 
 | `estimatedDelayFromRateLimitingInMilliseconds` | Geschätzte zusätzliche Abfragewartezeit aufgrund der Ratenbegrenzung | 
@@ -256,7 +258,7 @@ Die bewährten Methoden der Indizierung in der Azure Cosmos DB-API für MongoDB 
 
 [Platzhalterindizes](mongodb-indexing.md#wildcard-indexes) können die Indizierung vereinfachen. Anders als in MongoDB können von Platzhalterindizes mehrere Felder in Abfrageprädikaten unterstützt werden. Für die Abfrageleistung ist es unerheblich, ob Sie einen einzelnen Platzhalterindex verwenden oder einen separaten Index für jede Eigenschaft erstellen. Das Hinzufügen eines Platzhalterindexes für alle Eigenschaften ist die einfachste Möglichkeit, um alle Abfragen zu optimieren.
 
-Sie können jederzeit neue Indizes hinzufügen, ohne dass sich dies auf die Schreib- oder Leseverfügbarkeit auswirkt. Sie können den [Fortschritt der Indextransformation nachverfolgen](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+Sie können jederzeit neue Indizes hinzufügen, ohne dass sich dies auf die Schreib- oder Leseverfügbarkeit auswirkt. Sie können den [Fortschritt der Indextransformation nachverfolgen](./how-to-manage-indexing-policy.md#dotnet-sdk).
 
 ### <a name="understand-which-aggregation-operations-use-the-index"></a>Verstehen, welche Aggregationsvorgänge den Index verwenden
 

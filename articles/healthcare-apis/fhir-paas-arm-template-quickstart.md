@@ -1,19 +1,19 @@
 ---
 title: 'Schnellstart: Bereitstellen von Azure API for FHIR mit einer ARM-Vorlage'
-description: In diesem Schnellstart erfahren Sie, wie Sie Azure API for Fast Healthcare Interoperability Resources (FHIR®) mithilfe einer Azure Resource Manager-Vorlage bereitstellen.
-author: mgblythe
+description: In diesem Schnellstart erfahren Sie, wie Sie Azure API for Fast Healthcare Interoperability Resources (FHIR®) mithilfe einer Azure Resource Manager-Vorlage (ARM-Vorlage) bereitstellen.
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.custom: subject-armqs
-ms.author: mblythe
+ms.custom: subject-armqs, devx-track-azurecli
+ms.author: cavoeg
 ms.date: 10/06/2020
-ms.openlocfilehash: e9b2ec017ca985c1de739ee74c4d0732f39bdc1d
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 0cc31c26a71775dfdf3e9ee94852fda8af2c0cfc
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91772735"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844538"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-api-for-fhir"></a>Schnellstart: Verwenden Sie eine ARM-Vorlage zum Bereitstellen von Azure API for FHIR
 
@@ -69,7 +69,7 @@ Replace the line above with the following line once https://docs.microsoft.com/a
 
 Wählen Sie den folgenden Link aus, um Azure API for FHIR mit einer ARM-Vorlage im Azure-Portal bereitzustellen:
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Bereitstellen eines Azure API for FHIR-Diensts mithilfe einer ARM-Vorlage im Azure-Portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-api-for-fhir%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Bereitstellen eines Azure API for FHIR-Diensts mithilfe der ARM-Vorlage im Azure-Portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-api-for-fhir%2fazuredeploy.json)
 
 Auf der Seite **Azure API for FHIR bereitstellen**:
 
@@ -81,7 +81,7 @@ Auf der Seite **Azure API for FHIR bereitstellen**:
 
 4. Geben Sie einen neuen **Dienstnamen** ein, und wählen Sie den **Standort** für Azure API for FHIR aus. Der Standort kann mit dem Standort der Ressourcengruppe identisch sein oder sich davon unterscheiden.
 
-    :::image type="content" source="./media/fhir-paas-arm-template-quickstart/deploy-azure-api-fhir.png" alt-text="Bereitstellen eines Azure API for FHIR-Diensts mithilfe einer ARM-Vorlage im Azure-Portal.":::
+    :::image type="content" source="./media/fhir-paas-arm-template-quickstart/deploy-azure-api-fhir.png" alt-text="Bereitstellen von Azure API for FHIR mit einer ARM-Vorlage im Azure-Portal.":::
 
 5. Klicken Sie auf **Überprüfen + erstellen**.
 
@@ -224,9 +224,14 @@ read -p "Press [ENTER] to continue: "
 
 ---
 
+Ein Tutorial mit schrittweisen Anleitungen zum Erstellen einer ARM-Vorlage finden Sie im [Tutorial zum Erstellen und Bereitstellen Ihrer ersten ARM-Vorlage](../azure-resource-manager/templates/template-tutorial-create-first-template.md).
+
 ## <a name="next-steps"></a>Nächste Schritte
 
-Ein Tutorial mit Schritt-für-Schritt-Anleitungen zum Erstellen einer ARM-Vorlage finden Sie unter folgendem Link:
+In dieser Schnellstartanleitung haben Sie Azure API for FHIR in Ihrem Abonnement bereitgestellt. Wenn Sie zusätzliche Einstellungen in Azure API for FHIR festlegen möchten, fahren Sie mit der Schrittanleitung für zusätzliche Einstellungen fort. Wenn Sie Azure API for FHIR verwenden möchten, informieren Sie sich ausführlicher über das Registrieren von Anwendungen.
 
-> [!div class="nextstepaction"]
-> [Tutorial: Erstellen und Bereitstellen Ihrer ersten ARM-Vorlage](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+>[!div class="nextstepaction"]
+>[Zusätzliche Einstellungen in Azure API for FHIR](azure-api-for-fhir-additional-settings.md)
+
+>[!div class="nextstepaction"]
+>[Registrieren der Azure Active Directory-Apps für Azure API for FHIR](fhir-app-registration.md)

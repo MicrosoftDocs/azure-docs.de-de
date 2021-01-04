@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: f06fda777cbebd8034ac4fd9254a4bd172d011a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67284225299641a71050342056ad7ca91bf39740
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88661502"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353713"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Häufig gestellte Fragen zu Text-to-Speech
 
-Wenn Sie in diesen häufig gestellten Fragen keine Antworten auf Ihre Fragen finden, sehen Sie sich [weitere Supportoptionen](support.md) an.
+Wenn Sie in diesen häufig gestellten Fragen keine Antworten auf Ihre Fragen finden, sehen Sie sich [weitere Supportoptionen](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) an.
 
 ## <a name="general"></a>Allgemein
 
@@ -29,11 +29,11 @@ Wenn Sie in diesen häufig gestellten Fragen keine Antworten auf Ihre Fragen fin
 
 **F: Wo fange ich an, wenn ich ein Standardstimmmodell verwenden möchte?**
 
-**A:** Mehr als 80 Standardstimmmodelle stehen in über 45 Sprachen über HTTP-Anforderungen zur Verfügung. Rufen Sie zunächst einen [Abonnementschlüssel](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) ab. Informationen zum Ausführen von REST-Aufrufen an die vorab bereitgestellten Stimmmodelle finden Sie in der [REST-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
+**A:** Mehr als 80 Standardstimmmodelle stehen in über 45 Sprachen über HTTP-Anforderungen zur Verfügung. Rufen Sie zunächst einen [Abonnementschlüssel](./overview.md#try-the-speech-service-for-free) ab. Informationen zum Ausführen von REST-Aufrufen an die vorab bereitgestellten Stimmmodelle finden Sie in der [REST-API](./overview.md#reference-docs).
 
 **F: Wenn ich ein benutzerdefiniertes Stimmmodell verwenden möchte, ist die API die gleiche wie für die Standardstimmen?**
 
-**A:** Wenn ein benutzerdefiniertes Stimmmodell erstellt und bereitgestellt wird, erhalten Sie einen eindeutigen Endpunkt für Ihr Modell. Sie müssen den Endpunkt in Ihren HTTP-Anforderungen angeben, damit diese Stimme für Sprachausgaben in Ihren Apps verwendet werden kann. Die gleiche Funktionalität, die über die REST-API für den Text-to-Speech-Dienst verfügbar ist, steht auch für Ihren benutzerdefinierten Endpunkt zur Verfügung. Hier erfahren Sie, wie Sie Ihren [benutzerdefinierten Endpunkt erstellen und verwenden](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-voice-endpoint).
+**A:** Wenn ein benutzerdefiniertes Stimmmodell erstellt und bereitgestellt wird, erhalten Sie einen eindeutigen Endpunkt für Ihr Modell. Sie müssen den Endpunkt in Ihren HTTP-Anforderungen angeben, damit diese Stimme für Sprachausgaben in Ihren Apps verwendet werden kann. Die gleiche Funktionalität, die über die REST-API für den Text-to-Speech-Dienst verfügbar ist, steht auch für Ihren benutzerdefinierten Endpunkt zur Verfügung. Hier erfahren Sie, wie Sie Ihren [benutzerdefinierten Endpunkt erstellen und verwenden](./how-to-custom-voice-create-voice.md#create-and-use-a-custom-voice-endpoint).
 
 **F: Muss ich beim Erstellen von benutzerdefinierten Stimmmodellen die Trainingsdaten selbst vorbereiten?**
 
@@ -41,7 +41,7 @@ Wenn Sie in diesen häufig gestellten Fragen keine Antworten auf Ihre Fragen fin
 
 Zum Erstellen eines benutzerdefinierten Stimmmodells ist eine Sammlung von Sprachdaten erforderlich. Diese Sammlung besteht aus einer Reihe von Audiodateien mit Sprachaufnahmen sowie einer Textdatei mit der Transkription jeder Audiodatei. Die resultierende digitale Stimme hängt in hohem Maß von der Qualität der Trainingsdaten ab. Die Erstellung einer guten Text-to-Speech-Stimme setzt voraus, dass die Aufnahmen in einem ruhigen Raum mit einem hochwertigen Standmikrofon erfolgen. Eine gleichmäßige Lautstärke, Sprechgeschwindigkeit und Tonhöhe sowie eine ausdrucksstarke und doch konsistente Prosodie sind bei der Erstellung einer angenehmen digitalen Stimme entscheidend. Es wird dringend empfohlen, die Stimmen in einem Tonstudio aufzuzeichnen.
 
-Zurzeit bieten wir keine Unterstützung für Onlineaufnahmen oder Empfehlungen für Tonstudios. Informationen zu den Anforderungen an das Format finden Sie unter [Vorbereiten von Aufnahmen und Transkripten](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice-create-voice).
+Zurzeit bieten wir keine Unterstützung für Onlineaufnahmen oder Empfehlungen für Tonstudios. Informationen zu den Anforderungen an das Format finden Sie unter [Vorbereiten von Aufnahmen und Transkripten](./how-to-custom-voice-create-voice.md).
 
 **F: Welche Skripts sollte ich zur Aufzeichnung der Sprachdaten für das benutzerdefinierte Stimmtraining verwenden?**
 

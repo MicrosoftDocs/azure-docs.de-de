@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 61c21aed76cfaac5621b234b32c90877ef6faa9f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e364578cdec8696688cf19e14fd0529f1ca3fbb3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966320"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842616"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Bereitstellen und Erstellen von Linux-Images in Azure
 
@@ -83,7 +83,7 @@ Die Verwendung von [Katalogen mit freigegebenen Images](shared-image-galleries.m
 - Globale Replikation von Images
 - Versionsverwaltung und Gruppierung von Images zur einfacheren Verwaltung.
 - Hochverfügbare Images mit zonenredundantem Speicher (Zone Redundant Storage, ZRS) in Regionen, die Verfügbarkeitszonen unterstützen. ZRS bietet bessere Ausfallsicherheit bei zonenbezogenen Fehlern.
-- Freigeben über Abonnements hinweg und sogar zwischen Active Directory-Mandanten (AD) über RBAC.
+- Freigeben über Abonnements hinweg und sogar zwischen Active Directory-Mandanten (AD) über Azure RBAC
 - Skalieren Ihrer Bereitstellungen mit Imagereplikaten in jeder Region.
 
 Im Allgemeinen erstellen Sie einen SIG, der aus folgenden Elementen besteht:

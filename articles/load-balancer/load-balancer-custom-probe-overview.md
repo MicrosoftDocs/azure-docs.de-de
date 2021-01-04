@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: e22908dc5d445f105c199e594443cd051eb4be41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a008d7b26738b9552a7a43ab026391bd9afe0aa8
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051354"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780942"
 ---
 # <a name="load-balancer-health-probes"></a>Lastenausgleichs-Integritätstests
 
@@ -44,7 +44,7 @@ Integritätstests unterstützen mehrere Protokolle. Die Verfügbarkeit eines bes
 
 ## <a name="probe-configuration"></a><a name="probes"></a>Testkonfiguration
 
-Die Integritätstestkonfiguration besteht aus den folgenden Elementen:
+Die Integritätstestkonfiguration umfasst folgende Elemente:
 
 - Dauer des Intervalls zwischen einzelnen Tests
 - Anzahl der Testantworten, die beobachtet werden müssen, bevor der Test in einen anderen Zustand übergeht.
@@ -121,7 +121,7 @@ Im Folgenden wird veranschaulicht, wie Sie diese Art von Testkonfiguration in ei
 ### <a name="http--https-probe"></a><a name="httpprobe"></a> <a name="httpsprobe"></a> HTTP-/HTTPS-Test
 
 >[!NOTE]
->Der HTTPS-Test ist nur für [Load Balancer Standard](load-balancer-standard-overview.md) verfügbar.
+>Der HTTPS-Test ist nur für [Load Balancer Standard](./load-balancer-overview.md) verfügbar.
 
 HTTP- und HTTPS-Tests basieren auf dem TCP-Test und geben eine HTTP GET-Anforderung mit dem angegebenen Pfad aus. Diese beiden Tests unterstützen für HTTP GET relative Pfade. HTTPS-Tests sind mit HTTP-Tests identisch, weisen jedoch zusätzlich einen Transport Layer Security-Wrapper (TLS, früher als SSL bezeichnet) auf. Der Integritätstest kennzeichnet die Instanz als online, wenn diese innerhalb des Zeitlimits mit dem HTTP-Statuscode 200 antwortet.  Bei diesem Integritätstest wird standardmäßig versucht, den konfigurierten Integritätstestport alle 15 Sekunden zu prüfen. Das minimale Testintervall beträgt 5 Sekunden. Die gesamte Dauer aller Intervalle darf 120 Sekunden nicht überschreiten.
 
@@ -169,7 +169,7 @@ Clouddienstrollen (Workerrollen und Webrollen) verwenden standardmäßig einen G
 
 Ein Gast-Agent-Test ist eine Überprüfung des Gast-Agents auf dem virtuellen Computer. Er lauscht dann und antwortet nur mit einer HTTP-OK-200-Antwort, wenn sich die Instanz im Zustand „Bereit“ befindet. (Andere Zustände sind „Beschäftigt“, „Wird wiederverwendet“ oder „Wird beendet“.)
 
-Weitere Informationen finden Sie unter [Konfigurieren der Dienstdefinitionsdatei (CSDEF) für Integritätstests](https://msdn.microsoft.com/library/azure/ee758710.aspx) oder [Erste Schritte durch Erstellen eines öffentlichen Lastenausgleichs für Clouddienste](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-internet-classic-cloud#check-load-balancer-health-status-for-cloud-services).
+Weitere Informationen finden Sie unter [Konfigurieren der Dienstdefinitionsdatei (CSDEF) für Integritätstests](/previous-versions/azure/reference/ee758710(v=azure.100)) oder [Erste Schritte durch Erstellen eines öffentlichen Lastenausgleichs für Clouddienste](/previous-versions/azure/load-balancer/load-balancer-get-started-internet-classic-cloud#check-load-balancer-health-status-for-cloud-services).
 
 Wenn der Gast-Agent nicht mit dem HTTP-OK-Code 200 antwortet, kennzeichnet der Lastenausgleich die Instanz als nicht reagierend. Er sendet dann keine Flows mehr an diese Instanz. Das Lastenausgleichsmodul überprüft die Instanz weiterhin. 
 
@@ -215,7 +215,7 @@ Wenn bei allen Tests für einen Back-End-Pool Fehler auftreten, werden alle vorh
 
 Load Balancer verwendet einen verteilten Dienst für die Stichprobenentnahme für sein internes Integritätsmodell. Der Testdienst befindet sich auf jedem Host mit VMs und kann bedarfsgesteuert programmiert werden, um Integritätstests gemäß der Kundenkonfiguration zu generieren. Der Datenverkehr im Rahmen von Integritätstests findet direkt zwischen dem Testdienst, der den Integritätstest generiert, und der Kunden-VM statt. Bei allen Lastenausgleichs-Integritätstests lautet die Quell-IP-Adresse 168.63.129.16.  Sie können einen IP-Adressraum in einem VNET verwenden, bei dem es sich nicht um einen RFC1918-Adressraum handelt.  Die Verwendung einer global reservierten IP-Adresse im Besitz von Microsoft reduziert die Wahrscheinlichkeit eines IP-Adressenkonflikts mit dem IP-Adressraum, den Sie innerhalb des VNET verwenden.  Diese IP-Adresse ist in allen Regionen identisch und ändert sich nicht. Sie stellt kein Sicherheitsrisiko dar, da nur die interne Azure-Plattformkomponente ein Paket von dieser IP-Adresse senden kann. 
 
-Das Diensttag „AzureLoadBalancer“ identifiziert diese IP-Quelladresse in Ihren [Netzwerksicherheitsgruppen](../virtual-network/security-overview.md) und lässt Datenverkehr von Integritätstests standardmäßig zu.
+Das Diensttag „AzureLoadBalancer“ identifiziert diese IP-Quelladresse in Ihren [Netzwerksicherheitsgruppen](../virtual-network/network-security-groups-overview.md) und lässt Datenverkehr von Integritätstests standardmäßig zu.
 
 Zusätzlich zu Load Balancer-Integritätstests [wird diese IP-Adresse für die folgenden Vorgänge verwendet](../virtual-network/what-is-ip-address-168-63-129-16.md):
 
@@ -233,15 +233,15 @@ Manchmal kann es nützlich sein, wenn Ihre Anwendung nicht nur eine Integritäts
 
 Für den UDP-Lastenausgleich sollten Sie ein benutzerdefiniertes Integritätstestsignal vom Back-End-Endpunkt generieren und einen TCP-, HTTP- oder HTTPS-Integritätstest mit dem entsprechenden Listener als Ziel verwenden, um die Integrität der UDP-Anwendung widerzuspiegeln.
 
-Bei Verwendung von [Lastenausgleichsregeln für Hochverfügbarkeitsports](load-balancer-ha-ports-overview.md) mit [Load Balancer Standard](load-balancer-standard-overview.md) wird für alle Ports ein Lastenausgleich ausgeführt, sodass eine Antwort vom Integritätstest den Status der gesamten Instanz widerspiegeln muss.
+Bei Verwendung von [Lastenausgleichsregeln für Hochverfügbarkeitsports](load-balancer-ha-ports-overview.md) mit [Load Balancer Standard](./load-balancer-overview.md) wird für alle Ports ein Lastenausgleich ausgeführt, sodass eine Antwort vom Integritätstest den Status der gesamten Instanz widerspiegeln muss.
 
 Verwenden Sie für einen Integritätstest der Instanz, die den Integritätstest empfängt, weder eine Übersetzung noch einen Proxy für eine andere Instanz in Ihrem VNET. Diese Konfiguration kann zu kaskadierenden Fehlern in Ihrem Szenario führen.  Stellen Sie sich folgendes Szenario vor: Eine Reihe von Appliances von einem Drittanbieter wird im Back-End-Pool einer Load Balancer-Ressource bereitgestellt, um Skalierung und Redundanz für die Appliance zu bieten. Der Integritätstest ist zum Testen eines Ports konfiguriert, für den die Drittanbieterappliance einen Proxy oder eine Übersetzung für andere VMs hinter der Appliance verwendet.  Wenn Sie den gleichen Port testen, den Sie verwenden, um Anforderungen zu übersetzen oder über einen Proxy an die anderen VMs hinter der Appliance zu senden, wird die Appliance selbst durch jede Testantwort von einer einzelnen VM hinter der Appliance als inaktiv markiert. Diese Konfiguration kann aufgrund eines einzelnen Back-End-Endpunkts hinter der Appliance zu einem kaskadierenden Fehler des gesamten Anwendungsszenarios führen.  Der Trigger kann ein zeitweiliger Testfehler sein, durch den Load Balancer das ursprüngliche Ziel (die Applianceinstanz) als offline markiert, wodurch wiederum das gesamte Anwendungsszenario deaktiviert werden kann. Testen Sie stattdessen die Integrität der Anwendung selbst. Die Auswahl des Tests zum Bestimmen des Integritätssignals ist ein wichtiger Aspekt für Szenarien mit virtuellen Netzwerkgeräten (Network Virtual Appliance, NVA). Fragen Sie den Anwendungshersteller, welches Integritätssignal für solche Szenarien geeignet ist.
 
 Wenn Sie die [IP-Quelladresse](#probesource) des Tests in Ihren Firewallrichtlinien nicht zulassen, tritt ein Fehler beim Integritätstest auf, da Ihre Instanz nicht erreicht werden kann.  Daraufhin kennzeichnet das Lastenausgleichsmodul Ihre Instanz als offline, da beim Integritätstest ein Fehler aufgetreten ist.  Diese Fehlkonfiguration kann dazu führen, dass Ihr Szenario mit Lastenausgleich fehlschlägt.
 
-Damit der Load Balancer-Integritätstest Ihre Instanz als online markieren kann, **müssen** Sie diese IP-Adresse in allen Azure-[Netzwerksicherheitsgruppen](../virtual-network/security-overview.md) und lokalen Firewallrichtlinien zulassen.  Standardmäßig enthält jede Netzwerksicherheitsgruppe das [Diensttag](../virtual-network/security-overview.md#service-tags) „AzureLoadBalancer“, um Datenverkehr im Rahmen von Integritätstests zulassen.
+Damit der Load Balancer-Integritätstest Ihre Instanz als online markieren kann, **müssen** Sie diese IP-Adresse in allen Azure-[Netzwerksicherheitsgruppen](../virtual-network/network-security-groups-overview.md) und lokalen Firewallrichtlinien zulassen.  Standardmäßig enthält jede Netzwerksicherheitsgruppe das [Diensttag](../virtual-network/network-security-groups-overview.md#service-tags) „AzureLoadBalancer“, um Datenverkehr im Rahmen von Integritätstests zulassen.
 
-Wenn Sie einen Integritätstestfehler überprüfen oder eine einzelne Instanz abgrenzen möchten, können Sie eine [Netzwerksicherheitsgruppe](../virtual-network/security-overview.md) verwenden, um den Integritätstest explizit zu blockieren (Zielport oder [IP-Quelladresse](#probesource)), und den Fehler für einen Test simulieren.
+Wenn Sie einen Integritätstestfehler überprüfen oder eine einzelne Instanz abgrenzen möchten, können Sie eine [Netzwerksicherheitsgruppe](../virtual-network/network-security-groups-overview.md) verwenden, um den Integritätstest explizit zu blockieren (Zielport oder [IP-Quelladresse](#probesource)), und den Fehler für einen Test simulieren.
 
 Konfigurieren Sie Ihr VNET nicht mit dem für Microsoft reservierten IP-Adressbereich mit 168.63.129.16.  Solche Konfigurationen verursachen ein Konflikt mit der IP-Adresse des Integritätstests und können dazu führen, dass Ihr Szenario fehlschlägt.
 
@@ -251,7 +251,7 @@ Aktivieren Sie [TCP-Zeitstempel](https://tools.ietf.org/html/rfc1323) nicht.  Da
 
 ## <a name="monitoring"></a>Überwachung
 
-Öffentliche und interne [Load Balancer Standard](load-balancer-standard-overview.md) stellen pro Endpunkt und Back-End-Endpunkt den Integritätsteststatus als mehrdimensionale Metriken über Azure Monitor bereit. Diese Metriken können von anderen Azure-Diensten oder Anwendungen von Partnern genutzt werden. 
+Öffentliche und interne [Load Balancer Standard](./load-balancer-overview.md) stellen pro Endpunkt und Back-End-Endpunkt den Integritätsteststatus als mehrdimensionale Metriken über Azure Monitor bereit. Diese Metriken können von anderen Azure-Diensten oder Anwendungen von Partnern genutzt werden. 
 
 Der öffentliche Load Balancer Basic stellt den Integritätsteststatus zusammengefasst pro Back-End-Pool über Azure Monitor-Protokolle bereit.  Azure Monitor-Protokolle steht für interne Load Balancer Basic-Instanzen nicht zur Verfügung.  Mit [Azure Monitor-Protokolle](load-balancer-monitor-log.md) können Sie den Testintegritätsstatus und die Testanzahl für den öffentlichen Lastenausgleich überprüfen. Die Protokollierung kann mit Power BI oder Azure Operational Insights verwendet werden, um Statistiken zum Integritätsstatus des Lastenausgleichs bereitzustellen.
 
@@ -262,7 +262,7 @@ Der öffentliche Load Balancer Basic stellt den Integritätsteststatus zusammeng
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Weitere Informationen zum [Load Balancer Standard](load-balancer-standard-overview.md).
+- Weitere Informationen zum [Load Balancer Standard](./load-balancer-overview.md).
 - [Schnellstart: Erstellen eines öffentlichen Lastenausgleichs im Ressourcen-Manager mit PowerShell](quickstart-load-balancer-standard-public-powershell.md)
-- [REST-API für Integritätstests](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
+- [REST-API für Integritätstests](/rest/api/load-balancer/loadbalancerprobes/)
 - Anfordern neuer Integritätstestfunktionen mit [Uservoice von Load Balancer](https://aka.ms/lbuservoice)

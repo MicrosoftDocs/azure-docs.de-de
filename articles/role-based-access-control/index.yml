@@ -12,12 +12,12 @@ metadata:
   author: rolyon
   ms.author: rolyon
   ms.date: 04/30/2020
-  ms.openlocfilehash: b2661936d82f8d167ec2ef466effcd84d0a972dd
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: dea645e61009e84e8781d9439626ecd0ef818c28
+  ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "82733480"
+  ms.lasthandoff: 11/17/2020
+  ms.locfileid: "94657498"
 landingContent:
 - title: Info zu Azure RBAC
   linkLists:
@@ -46,7 +46,7 @@ landingContent:
   - linkListType: learn
     links:
     - text: Schützen Ihrer Azure-Ressourcen mit Azure RBAC
-      url: https://docs.microsoft.com/learn/modules/secure-azure-resources-with-rbac/
+      url: /learn/modules/secure-azure-resources-with-rbac/
 - title: Verwalten des Zugriffs
   linkLists:
   - linkListType: how-to-guide
@@ -57,7 +57,7 @@ landingContent:
       url: role-assignments-external-users.md
     - text: PowerShell
       url: role-assignments-powershell.md
-    - text: Azure CLI
+    - text: Azure-Befehlszeilenschnittstelle
       url: role-assignments-cli.md
     - text: REST-API
       url: role-assignments-rest.md

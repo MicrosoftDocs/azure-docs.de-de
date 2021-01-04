@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 88a8dcb53ab2f845f52121b11c96c23ad0a3e791
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef74c4b799c3a24636f88a8e704bf726104b034f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078927"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001591"
 ---
 # <a name="sensor-partner-integration"></a>Integration von Partnern für Sensordaten
 
@@ -48,7 +48,7 @@ Die APIs enthalten eine technische Swagger-Dokumentation. Weitere Informationen 
 
 FarmBeats verwendet Microsoft Azure Active Directory-Authentifizierung. Der Azure App Service bietet eine integrierte Authentifizierungs- und Autorisierungsunterstützung.
 
-Weitere Informationen finden Sie unter [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).
+Weitere Informationen finden Sie unter [Azure Active Directory](../../app-service/overview-authentication-authorization.md).
 
 Der Datenhub von FarmBeats verwendet die Bearerauthentifizierung, für die die folgenden Anmeldeinformationen benötigt werden:
    - Client-ID
@@ -201,7 +201,7 @@ Die Telemetriedaten werden einer kanonischen Nachricht zugeordnet, die zur Verar
 
 ## <a name="send-telemetry-data-to-farmbeats"></a>Senden von Telemetriedaten an FarmBeats
 
-Wenn Sie Telemetriedaten an FarmBeats senden möchten, erstellen Sie einen Client, der Nachrichten an einen Event Hub in FarmBeats sendet. Weitere Informationen zu Telemetriedaten finden Sie unter [Senden von Telemetriedaten an Event Hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
+Wenn Sie Telemetriedaten an FarmBeats senden möchten, erstellen Sie einen Client, der Nachrichten an einen Event Hub in FarmBeats sendet. Weitere Informationen zu Telemetriedaten finden Sie unter [Senden von Telemetriedaten an Event Hub](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
 Im Folgenden ein Beispiel für Python-Code, mit dem Telemetriedaten als Client an einen angegebenen Event Hub gesendet werden.
 

@@ -6,14 +6,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 06/21/2019
-ms.openlocfilehash: 271cae3504601ffa42c077029541cef8c7726053
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d591bb9c4b2ef8100946082f19115b99b30dde1
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461035"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027491"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Einrichten von Warnungen für Azure Stream Analytics-Aufträge
 
@@ -48,11 +48,11 @@ Im folgenden Beispiel wird veranschaulicht, wie Warnungen für den Fall eingeric
 
 7. Unter **RESSOURCE**, **BEDINGUNG** und **AKTIONSGRUPPEN** sollte jeweils ein Eintrag angezeigt werden. Beachten Sie, dass Warnungen nur ausgelöst werden können, wenn die definierten Bedingungen erfüllt sind. Sie können beispielsweise für eine Metrik alle fünf Minuten den Durchschnittswert der letzten 15 Minuten messen.
 
-   ![Erstellen einer Regel für den Stream Analytics-Auftrag](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
+   ![Der Screenshot zeigt das Dialogfeld „Regel erstellen“ mit RESSOURCE, BEDINGUNG und AKTIONSGRUPPE.](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
 
    Fügen Sie unter **WARNUNGSDETAILS** den **Namen der Warnungsregel**, eine **Beschreibung** und Ihre **Ressourcengruppe** hinzu, und klicken Sie auf **Warnungsregel erstellen**, um die Regel für den Stream Analytics-Auftrag zu erstellen.
 
-   ![Erstellen einer Regel für den Stream Analytics-Auftrag](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
+   ![Der Screenshot zeigt das Dialogfeld „Regel erstellen“ mit WARNUNGSDETAILS.](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
    
 ## <a name="scenarios-to-monitor"></a>Szenarien für die Überwachung
 
@@ -68,5 +68,4 @@ Zur Überwachung der Leistung des Stream Analytics-Auftrags werden die folgenden
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Skalieren von Azure Stream Analytics-Aufträgen](stream-analytics-scale-jobs.md)
-* [Stream Analytics Query Language Reference (in englischer Sprache)](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-
+* [Stream Analytics Query Language Reference (in englischer Sprache)](/stream-analytics-query/stream-analytics-query-language-reference)

@@ -4,12 +4,12 @@ description: Informationen zu Speicher in Azure Kubernetes Service (AKS) einschl
 services: container-service
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 00dee485c7b07ec19bb1399aab9d55b286830871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ed38625703397c9ba5021e84cd3118f30fa83c7
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89421151"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900942"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Speicheroptionen für Anwendungen in Azure Kubernetes Service (AKS)
 
@@ -30,14 +30,14 @@ Anwendungen müssen häufig Daten speichern und abrufen können. Da Kubernetes e
 
 Herkömmliche Volumes zum Speichern und Abrufen von Daten werden als Kubernetes-Ressourcen erstellt, die durch Azure Storage abgesichert sind. Sie können diese Datenvolumes manuell erstellen, damit sie direkt Pods zugewiesen werden, oder durch Kubernetes automatisch erstellen lassen. Diese Datenvolumes können Azure Disk oder Azure Files verwenden:
 
-- *Azure Disk* kann zum Erstellen einer Kubernetes-*DataDisk*-Ressource verwendet werden. Azure Disk kann von Hochleistungs-SSDs gesicherten Azure Storage Premium oder von regulären Festplatten gesicherten Azure-Standardspeicher verwenden. Verwenden Sie für die meisten Produktionsumgebungen und Entwicklungsworkloads Storage Premium. Azure Disk-Datenträger werden als *ReadWriteOnce* bereitgestellt, daher sind sie nur für einen einzelnen Pod verfügbar. Verwenden Sie für die Speichervolumes, auf die mehrere Pods gleichzeitig zugreifen können, Azure Files.
+- *Azure Disk* kann zum Erstellen einer Kubernetes- *DataDisk* -Ressource verwendet werden. Azure Disk kann von Hochleistungs-SSDs gesicherten Azure Storage Premium oder von regulären Festplatten gesicherten Azure-Standardspeicher verwenden. Verwenden Sie für die meisten Produktionsumgebungen und Entwicklungsworkloads Storage Premium. Azure Disk-Datenträger werden als *ReadWriteOnce* bereitgestellt, daher sind sie nur für einen einzelnen Pod verfügbar. Verwenden Sie für die Speichervolumes, auf die mehrere Pods gleichzeitig zugreifen können, Azure Files.
 - Mit *Azure Files* kann eine SMB 3.0-Dateifreigabe bereitgestellt werden, die durch ein Azure Storage-Konto auf Pods gesichert ist. Mit Azure Files können Sie Daten mehrere Knoten und Pods übergreifend freigeben. Files kann durch reguläre HDDs unterstützte Azure Storage Standard-Instanzen oder durch Hochleistungs-SSDs unterstützte Azure Storage Premium-Instanzen verwenden.
 
 In Kubernetes können Volumes mehr als nur einen herkömmlichen Datenträger darstellen, auf dem Informationen gespeichert und abgerufen werden können. Kubernetes-Volumes können auch als Möglichkeit zum Einfügen von Daten in einen Pod zur Verwendung von den Containern genutzt werden. Zu den üblichen zusätzlichen Volumetypen in Kubernetes gehören:
 
-- *emptyDir*: Dieses Volume wird häufig als temporärer Speicher für einen Pod verwendet. Alle Container in einem Pod können auf die Daten des Volumes zugreifen. Auf diesen Volumetyp geschriebene Daten werden nur für die Lebensdauer des Pods beibehalten – wenn der Pod gelöscht wird, wird das Volume gelöscht. Dieses Volume verwendet in der Regel den zugrunde liegenden lokalen Knotendatenträger-Speicher, obwohl es auch nur im Arbeitsspeicher des Knotens vorhanden sein kann.
-- *secret*: Dieses Volume wird verwendet, um sensible Daten, wie z.B. Kennwörter, in Pods einzufügen. Zuerst erstellen Sie ein Geheimnis mit der Kubernetes-API. Wenn Sie Ihren Pod oder die Bereitstellung definieren, kann ein bestimmtes Geheimnis angefordert werden. Geheimnisse werden nur für Knoten bereitgestellt, die über einen eingeplanten Pod verfügen, der es benötigt, und das Geheimnis wird in *tmpfs* gespeichert, nicht auf den Datenträger geschrieben. Wenn der letzte Pod auf einem Knoten gelöscht wird, der ein Geheimnis benötigt, wird das Geheimnis aus dem Verzeichnis „tmpfs“ des Knotens gelöscht. Geheimnisse werden in einem bestimmten Namespace gespeichert, und nur Pods im gleichen Namespace können darauf zugreifen.
-- *ConfigMap*: Dieser Volumetyp wird verwendet, um Schlüssel-Wert-Paar-Eigenschaften in Pods einzufügen, z.B. Informationen zur Anwendungskonfiguration. Anstatt Informationen zur Anwendungskonfiguration in einem Containerimage zu definieren, können Sie sie als Kubernetes-Ressource definieren, die problemlos aktualisiert und bei deren Bereitstellung auf neue Instanzen von Pods angewendet werden kann. Wie bei der Verwendung eines Geheimnisses erstellen Sie zunächst eine ConfigMap mit der Kubernetes-API. Diese ConfigMap kann dann angefordert werden, wenn Sie einen Pod oder eine Bereitstellung definieren. ConfigMaps werden in einem bestimmten Namespace gespeichert, und nur Pods im gleichen Namespace können darauf zugreifen.
+- *emptyDir* : Dieses Volume wird häufig als temporärer Speicher für einen Pod verwendet. Alle Container in einem Pod können auf die Daten des Volumes zugreifen. Auf diesen Volumetyp geschriebene Daten werden nur für die Lebensdauer des Pods beibehalten – wenn der Pod gelöscht wird, wird das Volume gelöscht. Dieses Volume verwendet in der Regel den zugrunde liegenden lokalen Knotendatenträger-Speicher, obwohl es auch nur im Arbeitsspeicher des Knotens vorhanden sein kann.
+- *secret* : Dieses Volume wird verwendet, um sensible Daten, wie z.B. Kennwörter, in Pods einzufügen. Zuerst erstellen Sie ein Geheimnis mit der Kubernetes-API. Wenn Sie Ihren Pod oder die Bereitstellung definieren, kann ein bestimmtes Geheimnis angefordert werden. Geheimnisse werden nur für Knoten bereitgestellt, die über einen eingeplanten Pod verfügen, der es benötigt, und das Geheimnis wird in *tmpfs* gespeichert, nicht auf den Datenträger geschrieben. Wenn der letzte Pod auf einem Knoten gelöscht wird, der ein Geheimnis benötigt, wird das Geheimnis aus dem Verzeichnis „tmpfs“ des Knotens gelöscht. Geheimnisse werden in einem bestimmten Namespace gespeichert, und nur Pods im gleichen Namespace können darauf zugreifen.
+- *ConfigMap* : Dieser Volumetyp wird verwendet, um Schlüssel-Wert-Paar-Eigenschaften in Pods einzufügen, z.B. Informationen zur Anwendungskonfiguration. Anstatt Informationen zur Anwendungskonfiguration in einem Containerimage zu definieren, können Sie sie als Kubernetes-Ressource definieren, die problemlos aktualisiert und bei deren Bereitstellung auf neue Instanzen von Pods angewendet werden kann. Wie bei der Verwendung eines Geheimnisses erstellen Sie zunächst eine ConfigMap mit der Kubernetes-API. Diese ConfigMap kann dann angefordert werden, wenn Sie einen Pod oder eine Bereitstellung definieren. ConfigMaps werden in einem bestimmten Namespace gespeichert, und nur Pods im gleichen Namespace können darauf zugreifen.
 
 ## <a name="persistent-volumes"></a>Persistente Volumes
 
@@ -51,7 +51,7 @@ Ein PersistentVolume kann *statisch* von einem Clusteradministrator oder *dynami
 
 ## <a name="storage-classes"></a>Speicherklassen
 
-Sie können zum Definieren verschiedener Speicherstufen, z.B. „Premium“ und „Standard“, eine *StorageClass* erstellen. Die StorageClass definiert auch die *reclaimPolicy*. Diese reclaimPolicy steuert das Verhalten der zugrunde liegenden Azure-Speicherressource, wenn die Pods gelöscht werden und das persistente Volume vielleicht nicht mehr benötigt wird. Die zugrunde liegende Speicherressource kann gelöscht oder für die Verwendung mit einem zukünftigen Pod beibehalten werden.
+Sie können zum Definieren verschiedener Speicherstufen, z.B. „Premium“ und „Standard“, eine *StorageClass* erstellen. Die StorageClass definiert auch die *reclaimPolicy* . Diese reclaimPolicy steuert das Verhalten der zugrunde liegenden Azure-Speicherressource, wenn die Pods gelöscht werden und das persistente Volume vielleicht nicht mehr benötigt wird. Die zugrunde liegende Speicherressource kann gelöscht oder für die Verwendung mit einem zukünftigen Pod beibehalten werden.
 
 In AKS werden vier anfängliche `StorageClasses` für den Cluster erstellt, der die Plug-Ins zur strukturinternen Speicherung verwendet:
 
@@ -89,7 +89,7 @@ Ein PersistentVolumeClaim fordert entweder Disk- oder Files-Speicher von bestimm
 
 ![Ansprüche auf persistente Volumes in einem Azure Kubernetes Service-Cluster (AKS)](media/concepts-storage/persistent-volume-claims.png)
 
-Sobald dem anfordernden Pod eine verfügbare Speicherressource zugewiesen ist, ist ein PersistentVolume an einen PersistentVolumeClaim *gebunden*. Es gibt eine 1:1-Zuordnung persistenter Volumes zu Ansprüchen.
+Sobald dem anfordernden Pod eine verfügbare Speicherressource zugewiesen ist, ist ein PersistentVolume an einen PersistentVolumeClaim *gebunden* . Es gibt eine 1:1-Zuordnung persistenter Volumes zu Ansprüchen.
 
 Das folgende Beispiel eines YAML-Manifests zeigt einen Anspruch eines persistenten Volumes, der die StorageClass *managed-premium* verwendet und einen Datenträger der Größe *5Gi* anfordert:
 
@@ -117,7 +117,7 @@ metadata:
 spec:
   containers:
     - name: myfrontend
-      image: nginx
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       volumeMounts:
       - mountPath: "/mnt/azure"
         name: volume

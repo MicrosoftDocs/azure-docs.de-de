@@ -35,7 +35,7 @@ Diese Entitätskategorie umfasst Finanzinformationen und offizielle Formen der I
 > * Reisepassnummern
 > * Steuernummern
 
-Die folgenden Entitäten sind nach Land gruppiert und aufgelistet:
+Die folgenden Entitäten sind nach Land/Region gruppiert und aufgelistet:
 
 Argentinien
 * Nationale argentinische ID-Nummer (DNI)

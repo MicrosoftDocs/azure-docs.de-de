@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 3a523421c128ea26503c0848ad8fcf7d74636a04
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: bd8c5c31579ac22cd6c77dffd31103680e393f69
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341328"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187169"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>Schnellstart: Einrichten von Azure Security Center
 
@@ -47,7 +47,7 @@ In der **Security Center – Übersicht** erhalten Sie einen vereinheitlichten �
 
 Sie können die Liste der Abonnements anzeigen und filtern, indem Sie das Menüelement **Abonnements** auswählen. Die Anzeige wird angepasst, um den Sicherheitsstatus der ausgewählten Abonnements widerzuspiegeln. 
 
-Innerhalb weniger Minuten nach dem ersten Start von Security Center wird Ihnen Folgendes angezeigt:
+Innerhalb weniger Minuten nach dem ersten Start von Security Center wird ggf. Folgendes angezeigt:
 
 - **Empfehlungen** zur Verbesserung der Sicherheit Ihrer verbundenen Ressourcen.
 - Die Ressourcen, die nun von Security Center bewertet werden, sowie der jeweilige Sicherheitsstatus.
@@ -63,7 +63,7 @@ Für die Security Center-Schnellstartanleitungen -Tutorials muss Azure Defender
 
 1. Wählen Sie auf der Security Center-Randleiste die Option **Erste Schritte** aus.
 
-    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Übersichtsdashboard von Security Center"::: 
+    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Registerkarte „Upgrade“ der Seite für die ersten Schritte"::: 
 
     Auf der Registerkarte **Upgrade** werden für das Onboarding geeignete Abonnements und Arbeitsbereiche aufgeführt.
 
@@ -82,9 +82,9 @@ So aktivieren Sie die automatische Bereitstellung des Log Analytics-Agents:
 1. Wählen Sie im Menü von Security Center **Preise und Einstellungen** aus.
 1. Wählen Sie das relevante Abonnement aus.
 1. Legen Sie auf der Seite **Datensammlung** die Option **Automatische Bereitstellung** auf **Ein** fest.
-1. Klicken Sie auf **Speichern** .
+1. Klicken Sie auf **Speichern**.
 
-    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Übersichtsdashboard von Security Center":::
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Aktivieren der automatischen Bereitstellung des Log Analytics-Agents":::
 
 >[!TIP]
 > Wenn ein Arbeitsbereich bereitgestellt werden muss, kann die Installation des Agents bis zu 25 Minuten dauern.

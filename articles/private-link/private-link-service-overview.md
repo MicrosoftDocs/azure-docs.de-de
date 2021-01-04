@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: a6bbb2abe24eba96fd2c55b7aaf15ccd8ae33530
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27dba675f82c4d34ec793cf492c18b293a6c8c77
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87760945"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544257"
 ---
 # <a name="what-is-azure-private-link-service"></a>Was ist der Azure Private Link-Dienst?
 
-Der Azure Private Link-Dienst ist der Verweis auf Ihren eigenen Dienst, der von Azure Private Link unterstützt wird. Ihr Dienst, der hinter [Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md) ausgeführt wird, kann für den Zugriff auf Private Link aktiviert werden, sodass die Nutzer Ihres Dienstes privat über ihre eigenen virtuellen Netzwerke darauf zugreifen können. Ihre Kunden können einen privaten Endpunkt in ihrem VNet erstellen und diesem Dienst zuordnen. Dieser Artikel erläutert Konzepte, die sich auf die Seite des Dienstanbieters beziehen. 
+Der Azure Private Link-Dienst ist der Verweis auf Ihren eigenen Dienst, der von Azure Private Link unterstützt wird. Ihr Dienst, der hinter [Azure Load Balancer Standard](../load-balancer/load-balancer-overview.md) ausgeführt wird, kann für den Zugriff auf Private Link aktiviert werden, sodass die Nutzer Ihres Dienstes privat über ihre eigenen virtuellen Netzwerke darauf zugreifen können. Ihre Kunden können einen privaten Endpunkt in ihrem VNet erstellen und diesem Dienst zuordnen. Dieser Artikel erläutert Konzepte, die sich auf die Seite des Dienstanbieters beziehen. 
 
 :::image type="content" source="./media/private-link-service-overview/consumer-provider-endpoint.png" alt-text="Private Link-Dienstworkflow" border="true":::
 
@@ -57,7 +57,7 @@ Ein Private Link-Dienst legt die folgenden Eigenschaften fest:
 |---------|---------|
 |Bereitstellungsstatus (provisioningState)  |Eine schreibgeschützte Eigenschaft, die den aktuellen Bereitstellungsstatus für den Private Link-Dienst auflistet. Geeignete Bereitstellungsstatus sind: „Wird gelöscht; Fehler; Erfolgreich; Wird aktualisiert“. Wenn der Bereitstellungsstatus „Erfolgreich“ lautet, haben Sie Ihren Private Link-Dienst erfolgreich bereitgestellt.        |
 |Alias (alias)     | Alias ist eine weltweit eindeutige schreibgeschützte Zeichenfolge für Ihren Dienst. Sie hilft Ihnen, die Kundendaten für Ihren Dienst zu maskieren und erstellt gleichzeitig einen einfach zu teilenden Namen für Ihren Dienst. Wenn Sie einen Private Link-Dienst erstellen, generiert Azure den Alias für Ihren Dienst, den Sie mit Ihren Kunden teilen können. Ihre Kunden können unter diesem Alias eine Verbindung zu Ihrem Dienst anfordern.          |
-|Sichtbarkeit (visibility)     | Sichtbarkeit ist die Eigenschaft, die die Einstellungen für die Offenlegung für Ihren Private Link-Dienst steuert. Dienstanbieter können wählen, ob sie das Risiko für ihren Dienst durch Abonnements mit rollenbasierten Zugriffssteuerungsberechtigungen (RBAC), einem eingeschränkten Satz von Abonnements oder allen Azure-Abonnements begrenzen möchten.          |
+|Sichtbarkeit (visibility)     | Sichtbarkeit ist die Eigenschaft, die die Einstellungen für die Offenlegung für Ihren Private Link-Dienst steuert. Dienstanbieter können auswählen, ob sie das Risiko für ihren Dienst auf Abonnements mit rollenbasierten Zugriffssteuerungsberechtigungen (Azure RBAC), eine eingeschränkte Gruppe von Abonnements oder alle Azure-Abonnements begrenzen möchten.          |
 |Automatische Genehmigung (autoApproval)    |   Die automatische Genehmigung steuert den automatisierten Zugriff auf den Private Link-Dienst. Die in der automatischen Genehmigungsliste angegebenen Abonnements werden automatisch genehmigt, wenn eine Verbindung von privaten Endpunkten in diesen Abonnements angefordert wird.          |
 |Front-End-IP-Konfiguration des Lastenausgleichs (loadBalancerFrontendIpConfigurations)    |    Der Private Link-Dienst ist an die Front-End-IP-Adresse eines Load Balancer Standard gebunden. Der gesamte für den Dienst bestimmte Datenverkehr erreicht das Front-End des Load Balancer Standard. Sie können Load Balancer Standard-Regeln konfigurieren, um diesen Datenverkehr an geeignete Back-End-Pools weiterzuleiten, in denen Ihre Anwendungen ausgeführt werden. Front-End-IP-Konfigurationen für den Lastenausgleich unterscheiden sich von NAT-IP-Konfigurationen.      |
 |NAT-IP-Konfiguration (ipConfigurations)    |    Diese Eigenschaft bezieht sich auf die NAT-IP-Konfiguration (Network Address Translation) für den Private Link-Dienst. Die NAT-IP-Adresse kann aus einem beliebigen Subnetz im virtuellen Netzwerk eines Dienstanbieters ausgewählt werden. Der Private Link-Dienst führt die zielseitige NAT-Erstellung für den Private Link-Datenverkehr durch. Dadurch wird sichergestellt, dass es keinen IP-Konflikt zwischen Quell- (Consumerseite) und Zieladressraum (Dienstanbieter) gibt. Auf der Zielseite (Dienstanbieterseite) wird die NAT-IP-Adresse als Quell-IP-Adresse für alle von Ihrem Dienst empfangenen Pakete und die Ziel-IP-Adresse für alle von Ihrem Dienst gesendeten Pakete angezeigt.       |
@@ -76,7 +76,7 @@ Ein Private Link-Dienst legt die folgenden Eigenschaften fest:
  
 - Auf einen einzelnen Private Link-Dienst kann von mehreren privaten Endpunkten zugegriffen werden, die zu verschiedenen VNets, Abonnements und/oder Active Directory-Mandanten gehören. Die Verbindung wird über einen Verbindungsworkflow hergestellt. 
  
-- Mehrere Private Link-Dienste können auf demselben Load Balancer Standard mit unterschiedlichen Front-End-IP-Konfigurationen erstellt werden. Die Anzahl der Private Link-Dienste, die Sie pro Load Balancer Standard und pro Abonnement erstellen können, ist begrenzt. Ausführliche Informationen finden Sie im Artikel zu  [Azure-Grenzwerten](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Mehrere Private Link-Dienste können auf demselben Load Balancer Standard mit unterschiedlichen Front-End-IP-Konfigurationen erstellt werden. Die Anzahl der Private Link-Dienste, die Sie pro Load Balancer Standard und pro Abonnement erstellen können, ist begrenzt. Ausführliche Informationen finden Sie im Artikel zu  [Azure-Grenzwerten](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
  
 - Der Private Link-Dienst kann mit mehr als einer NAT-IP-Konfiguration verknüpft sein. Die Auswahl von mehreren NAT-IP-Konfigurationen kann Dienstanbietern bei der Skalierung helfen. Heute können Dienstanbieter bis zu acht NAT-IP-Adressen pro Private Link-Dienst zuweisen. Mit jeder NAT-IP-Adresse können Sie mehr Ports für Ihre TCP-Verbindungen zuweisen und auf diese Weise aufskalieren. Nachdem Sie mehrere NAT-IP-Adressen zu einem Private Link-Dienst hinzugefügt haben, können Sie die NAT-IP-Adressen nicht mehr löschen. Dadurch wird sichergestellt, dass beim Löschen der NAT-IP-Adressen die aktiven Verbindungen nicht beeinträchtigt werden.
 
@@ -95,7 +95,7 @@ Vollständiger Alias:  *Präfix*. {GUID}.*region*.azure.privatelinkservice
 
 ## <a name="control-service-exposure"></a>Steuern der Dienstoffenlegung
 
-Der Private Link-Dienst bietet Ihnen Optionen, um die Sichtbarkeit Ihres Diensts über die Einstellung „Sichtbarkeit“ zu steuern. Sie können den Dienst für den Gebrauch durch verschiedene Ihrer VNets als „privat“ definieren (nur RBAC-Berechtigungen), die Offenlegung auf eine begrenzte Anzahl von vertrauenswürdigen Abonnements beschränken oder ihn als „öffentlich“ festlegen, sodass alle Azure-Abonnements Verbindungen über den Private Link-Dienst anfordern können. Ihre Sichtbarkeitseinstellungen bestimmen, ob ein Consumer eine Verbindung zu Ihrem Dienst herstellen kann. 
+Der Private Link-Dienst bietet Ihnen Optionen, um die Sichtbarkeit Ihres Diensts über die Einstellung „Sichtbarkeit“ zu steuern. Sie können den Dienst für den Gebrauch durch verschiedene Ihrer VNETs als „privat“ definieren (nur Azure RBAC-Berechtigungen), die Offenlegung auf eine begrenzte Anzahl von vertrauenswürdigen Abonnements beschränken oder ihn als „öffentlich“ festlegen, sodass alle Azure-Abonnements Verbindungen über den Private Link-Dienst anfordern können. Ihre Sichtbarkeitseinstellungen bestimmen, ob ein Consumer eine Verbindung zu Ihrem Dienst herstellen kann. 
 
 ## <a name="control-service-access"></a>Steuern des Dienstzugriffs
 

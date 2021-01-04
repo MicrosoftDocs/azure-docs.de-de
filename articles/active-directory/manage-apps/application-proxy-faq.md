@@ -11,12 +11,13 @@ ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 28c34e97fa340b6fb95877ebece740897ae72e7a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: c40a0cb362f8c43541194cd1ca0c57abbf8fa974
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104562"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033101"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Häufig gestellte Fragen zum Azure Active Directory-Anwendungsproxy (Azure AD-Anwendungsproxy)
 
@@ -57,7 +58,7 @@ Empfehlungen finden Sie unter [Hochverfügbarkeit und Lastenausgleich von Anwend
 Der Anwendungsproxyconnector führt eine zertifikatbasierte Authentifizierung bei Azure durch. Die TLS-Terminierung (TLS/HTTPS-Prüfung oder -Beschleunigung) unterbricht diese Authentifizierungsmethode und wird nicht unterstützt. Der Datenverkehr vom Connector zu Azure muss alle Geräte umgehen, die eine TLS-Terminierung ausführen.  
 
 ### <a name="is-tls-12-required-for-all-connections"></a>Ist TLS 1.2 für alle Verbindungen erforderlich?
-Ja. Zur Bereitstellung erstklassiger Verschlüsselung für unsere Kunden beschränkt der Anwendungsproxydienst den Zugriff ausschließlich auf TLS 1.2-Protokolle. Diese Änderungen wurden nach und nach bereitgestellt und sind seit dem 31. August 2019 wirksam. Vergewissern Sie sich, dass alle Kombinationen aus Client/Server und Browser/Server zur Verwendung von TLS 1.2 aktualisiert wurden, um die Verbindung mit dem Anwendungsproxydienst sicherzustellen. Dazu gehören Clients, mit denen Ihre Benutzer auf Anwendungen zugreifen, die über den Anwendungsproxy veröffentlicht werden. Nützliche Referenzen und Ressourcen finden Sie unter [Vorbereiten der Verwendung von TLS 1.2 in Office 365](https://docs.microsoft.com/microsoft-365/compliance/prepare-tls-1.2-in-office-365).
+Ja. Zur Bereitstellung erstklassiger Verschlüsselung für unsere Kunden beschränkt der Anwendungsproxydienst den Zugriff ausschließlich auf TLS 1.2-Protokolle. Diese Änderungen wurden nach und nach bereitgestellt und sind seit dem 31. August 2019 wirksam. Vergewissern Sie sich, dass alle Kombinationen aus Client/Server und Browser/Server zur Verwendung von TLS 1.2 aktualisiert wurden, um die Verbindung mit dem Anwendungsproxydienst sicherzustellen. Dazu gehören Clients, mit denen Ihre Benutzer auf Anwendungen zugreifen, die über den Anwendungsproxy veröffentlicht werden. Nützliche Referenzen und Ressourcen finden Sie unter [Vorbereiten der Verwendung von TLS 1.2 in Office 365](/microsoft-365/compliance/prepare-tls-1.2-in-office-365).
 
 ### <a name="can-i-place-a-forward-proxy-device-between-the-connector-servers-and-the-back-end-application-server"></a>Kann ich ein Weiterleitungsproxygerät zwischen den Connectorservern und dem Back-End-Anwendungsserver platzieren?
 Ja, dieses Szenario wird ab Connectorversion 1.5.1526.0 unterstützt. Weitere Informationen finden Sie unter [Verwenden von vorhandenen lokalen Proxyservern](application-proxy-configure-connectors-with-proxy-servers.md).
@@ -101,7 +102,7 @@ Die Standarddauer beträgt 85 Sekunden. Die „lange“ Einstellung beträgt 180
 
 ### <a name="how-do-i-change-the-landing-page-my-application-loads"></a>Wie ändere ich die Landing Page, die meine Anwendung lädt?
 
-Auf der Seite „Anwendungsregistrierungen“ können Sie die Homepage-URL in die gewünschte externe URL der Landing Page ändern. Die angegebene Seite wird geladen, wenn die Anwendung über „Meine Apps“ oder das Office 365-Portal gestartet wird. Die Konfigurationsschritte finden Sie unter [Festlegen einer benutzerdefinierten Startseite für veröffentlichte Apps mithilfe eines Azure AD-Anwendungsproxys](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-home-page).
+Auf der Seite „Anwendungsregistrierungen“ können Sie die Homepage-URL in die gewünschte externe URL der Landing Page ändern. Die angegebene Seite wird geladen, wenn die Anwendung über „Meine Apps“ oder das Office 365-Portal gestartet wird. Die Konfigurationsschritte finden Sie unter [Festlegen einer benutzerdefinierten Startseite für veröffentlichte Apps mithilfe eines Azure AD-Anwendungsproxys](./application-proxy-configure-custom-home-page.md).
 
 ### <a name="can-only-iis-based-applications-be-published-what-about-web-applications-running-on-non-windows-web-servers-does-the-connector-have-to-be-installed-on-a-server-with-iis-installed"></a>Können nur IIS-basierte Anwendungen veröffentlicht werden? Wie sieht es mit Webanwendungen aus, die auf Nicht-Windows-Webservern ausgeführt werden? Muss der Connector auf einem Server installiert sein, auf dem IIS installiert ist?
 
@@ -170,7 +171,7 @@ Entsprechende Informationen finden Sie unter [Aktivieren des Remotezugriffs auf 
 
 ### <a name="can-i-use-the-sharepoint-mobile-app-ios-android-to-access-a-published-sharepoint-server"></a>Kann ich die mobile SharePoint-App (iOS/Android) verwenden, um auf einen veröffentlichten SharePoint-Server zuzugreifen?
 
-Die [mobile SharePoint-App](https://docs.microsoft.com/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) unterstützt derzeit keine Azure Active Directory-Vorauthentifizierung.
+Die [mobile SharePoint-App](/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) unterstützt derzeit keine Azure Active Directory-Vorauthentifizierung.
 
 ## <a name="active-directory-federation-services-ad-fs-publishing"></a>Veröffentlichung von Active Directory-Verbunddienste (AD FS) 
 
@@ -192,7 +193,7 @@ Features (Ereignisprotokolle, PowerShell und Remotedesktopdienste) im Windows Ad
 
 Ja. Die Verwendung der Linkübersetzung wirkt sich auf die Leistung aus. Der Anwendungsproxydienst überprüft die Anwendung auf hartcodierte Links und ersetzt diese durch die entsprechenden veröffentlichten externen URLs, bevor sie dem Benutzer angezeigt werden. 
 
-Um eine optimale Leistung zu erzielen, empfiehlt sich die Verwendung von identischen internen und externen URLs durch die Konfiguration [benutzerdefinierter Domänen](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain). Wenn die Verwendung benutzerdefinierter Domänen nicht möglich ist, können Sie die Leistung der Linkübersetzung durch Verwenden der Erweiterung zur sicheren Anmeldung bei „Meine Apps“ oder des Microsoft Edge-Browsers auf mobilen Geräten verbessern. Weitere Informationen finden Sie unter [Umleiten von hartcodierten Links für Apps, die mit Azure AD-Anwendungsproxy veröffentlicht wurden](application-proxy-configure-hard-coded-link-translation.md).
+Um eine optimale Leistung zu erzielen, empfiehlt sich die Verwendung von identischen internen und externen URLs durch die Konfiguration [benutzerdefinierter Domänen](./application-proxy-configure-custom-domain.md). Wenn die Verwendung benutzerdefinierter Domänen nicht möglich ist, können Sie die Leistung der Linkübersetzung durch Verwenden der Erweiterung zur sicheren Anmeldung bei „Meine Apps“ oder des Microsoft Edge-Browsers auf mobilen Geräten verbessern. Weitere Informationen finden Sie unter [Umleiten von hartcodierten Links für Apps, die mit Azure AD-Anwendungsproxy veröffentlicht wurden](application-proxy-configure-hard-coded-link-translation.md).
 
 ## <a name="wildcards"></a>Platzhalter
 
@@ -203,5 +204,5 @@ Dieses Szenario wird nicht direkt unterstützt. Sie haben bei diesem Szenario di
 1. Veröffentlichen Sie die HTTP-URL und die HTTPS-URL als separate Anwendungen mit einem Platzhalter, aber weisen Sie diesen jeweils eine andere benutzerdefinierte Domäne zu. Diese Konfiguration funktioniert, weil unterschiedliche externe URLs verwendet werden.
 
 2. Veröffentlichen Sie die HTTPS-URL über eine Platzhalteranwendung. Veröffentlichen Sie die HTTP-Anwendungen separat mithilfe der folgenden PowerShell-Cmdlets für den Anwendungsproxy:
-   - [Verwaltung von Anwendungsproxyanwendungen](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management&preserve-view=true)
-   - [Verwaltung von Anwendungsproxyconnectors](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management&preserve-view=true)
+   - [Verwaltung von Anwendungsproxyanwendungen](/powershell/module/azuread/#application_proxy_application_management&preserve-view=true)
+   - [Verwaltung von Anwendungsproxyconnectors](/powershell/module/azuread/#application_proxy_connector_management&preserve-view=true)

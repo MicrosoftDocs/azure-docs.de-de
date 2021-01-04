@@ -1,6 +1,6 @@
 ---
-title: Grundlegendes zur rollenbasierten Zugriffssteuerung in Kubernetes auf einem Azure Stack Edge Pro-Gerät | Microsoft-Dokumentation
-description: Erfahren Sie, wie die rollenbasierte Zugriffssteuerung in Kubernetes auf einem Azure Stack Edge Pro-Gerät erfolgt.
+title: Grundlegendes zur rollenbasierten Zugriffssteuerung von Kubernetes auf einem Azure Stack Edge Pro-Gerät | Microsoft-Dokumentation
+description: Erfahren Sie, wie die rollenbasierte Zugriffssteuerung von Kubernetes auf einem Azure Stack Edge Pro-Gerät erfolgt.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,21 +8,21 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: 0880ae64520997fc6b41ba4a7e8508d927235a8a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9a9625dcf40ae7d11e1154fc89b7f04652c8ca16
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320811"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635839"
 ---
-# <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-pro-gpu-device"></a>Rollenbasierte Zugriffssteuerung in Kubernetes auf einem Azure Stack Edge Pro-GPU-Gerät
+# <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-pro-gpu-device"></a>Rollenbasierte Zugriffssteuerung von Kubernetes auf einem Azure Stack Edge Pro-GPU-Gerät
 
 
-Wenn Sie auf Ihrem Azure Stack Edge Pro-Gerät die Computerolle konfigurieren, wird ein Kubernetes-Cluster erstellt. Sie können die rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC) von Kubernetes verwenden, um den Zugriff auf die Clusterressourcen auf Ihrem Gerät einzuschränken.
+Wenn Sie auf Ihrem Azure Stack Edge Pro-Gerät die Computerolle konfigurieren, wird ein Kubernetes-Cluster erstellt. Sie können die rollenbasierte Zugriffssteuerung von Kubernetes (Kubernetes RBAC) verwenden, um den Zugriff auf die Clusterressourcen auf Ihrem Gerät einzuschränken.
 
 Dieser Artikel bietet eine Übersicht über das von Kubernetes bereitgestellte RBAC-System und erläutert, wie es auf Ihrem Azure Stack Edge Pro-Gerät implementiert wird. 
 
-## <a name="rbac-for-kubernetes"></a>RBAC in Kubernetes
+## <a name="kubernetes-rbac"></a>RBAC in Kubernetes
 
 Mithilfe von RBAC in Kubernetes können Sie Benutzern oder Benutzergruppen die Berechtigung für bestimmte Aktionen (z. B. Ressourcen erstellen bzw. ändern oder Protokolle zur Workload ausgeführter Anwendungen anzeigen) zuweisen. Diese Berechtigungen können auf einen einzelnen Namespace begrenzt oder für den gesamten Cluster erteilt werden. 
 
@@ -73,9 +73,9 @@ Kubernetes arbeitet mit dem Konzept von Rollen und Rollenbindung, mit dem Sie Be
 
 Bei diesem Ansatz können Sie einen einzelnen Kubernetes-Cluster logisch aufteilen und den Benutzern nur Zugriff auf die Anwendungsressourcen im jeweils zugewiesenen Namespace erlauben. 
 
-## <a name="rbac-on-azure-stack-edge-pro"></a>RBAC für Azure Stack Edge Pro
+## <a name="kubernetes-rbac-on-azure-stack-edge-pro"></a>Kubernetes RBAC auf Azure Stack Edge Pro-Geräten
 
-In der aktuellen RBAC-Implementierung können Sie mit Azure Stack Edge Pro in einem eingeschränkten PowerShell-Runspace die folgenden Aktionen ausführen:
+In der aktuellen Implementierung von Kubernetes RBAC können Sie mit Azure Stack Edge Pro in einem eingeschränkten PowerShell-Runspace die folgenden Aktionen ausführen:
 
 - Erstellen von Namespaces.  
 - Erstellen weiterer Benutzer.
@@ -85,9 +85,9 @@ In der aktuellen RBAC-Implementierung können Sie mit Azure Stack Edge Pro in ei
 
 Das Azure Stack Edge Pro-Gerät verfügt über mehrere Systemnamespaces, und Sie können Benutzernamespaces mit `kubeconfig`-Dateien erstellen, um auf diese Namespaces zuzugreifen. Die Benutzer haben die volle Kontrolle über diese Namespaces und können Benutzer erstellen, ändern oder ihnen Zugriff gewähren. Nur der Clusteradministrator hat Vollzugriff auf Systemnamespaces und clusterweite Ressourcen. Ein `aseuser` hat schreibgeschützten Zugriff auf Systemnamespaces.
 
-Nachfolgend finden Sie ein Diagramm, das die Implementierung von RBAC auf einem Azure Stack Edge Pro-Gerät zeigt.
+Nachfolgend sehen Sie ein Diagramm, das die Implementierung von Kubernetes RBAC auf einem Azure Stack Edge Pro-Gerät zeigt.
 
-![RBAC auf einem Azure Stack Edge Pro-Gerät](./media/azure-stack-edge-gpu-kubernetes-rbac/rbac-view-1.png)
+![Kubernetes RBAC auf einem Azure Stack Edge Pro-Gerät](./media/azure-stack-edge-gpu-kubernetes-rbac/rbac-view-1.png)
 
 In diesem Diagramm haben Alice, Bob und Chuck nur Zugriff auf zugewiesene Benutzernamespaces, in diesem Fall `ns1`, `ns2` und `ns3`. Innerhalb dieser Namespaces haben sie Administratorzugriff. Der Clusteradministrator hat hingegen Administratorzugriff auf Systemnamespaces und clusterweite Ressourcen.
 

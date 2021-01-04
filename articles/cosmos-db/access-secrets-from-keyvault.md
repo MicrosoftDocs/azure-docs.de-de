@@ -4,19 +4,19 @@ description: Verwenden Sie Azure Key Vault zum Speichern von und Zugreifen auf A
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 9c4f9954977d6c5523bc70586d3b0cbb0328bcd8
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: a9bea0664f99a21ac734de666c802e9875ff00b5
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278032"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359320"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Sichern von Azure Cosmos-Schlüsseln mit Azure Key Vault 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 >[!IMPORTANT]
 > Es wird empfohlen, mit einer [systemseitig zugewiesenen verwalteten Identität](managed-identity-based-authentication.md) auf Azure Cosmos DB-Schlüssel zuzugreifen. Wenn Ihr Dienst keine verwalteten Identitäten nutzen kann, verwenden Sie die [zertifikatbasierte Lösung](certificate-based-authentication.md). Wenn sowohl verwaltete Identitäten als auch die zertifikatbasierte Lösung nicht Ihren Anforderungen entsprechen, verwenden Sie die Key Vault-Lösung unten.
@@ -59,7 +59,7 @@ Die folgenden Schritte sind erforderlich, Azure Cosmos DB-Zugriffsschlüssel in 
 
 ## <a name="create-an-azure-web-application"></a>Erstellen einer Azure-Webanwendung
 
-1. Erstellen Sie eine Azure-Webanwendung, oder laden Sie die Anwendung aus dem [GitHub-Repository](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/Demo/keyvaultdemo) herunter. Es ist eine einfache MVC-Anwendung.  
+1. Erstellen Sie eine Azure-Webanwendung, oder laden Sie die Anwendung aus dem [GitHub-Repository](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/Demo/keyvaultdemo) herunter. Es ist eine einfache MVC-Anwendung.  
 
 2. Entzippen Sie die heruntergeladene Anwendung, und öffnen Sie die Datei **HomeController.cs**. Aktualisieren Sie die Geheimnisse-ID in der folgenden Zeile:
 
@@ -70,11 +70,11 @@ Die folgenden Schritte sind erforderlich, Azure Cosmos DB-Zugriffsschlüssel in 
 
 5. Wenn die Anwendung bereitgestellt ist, navigieren Sie im Azure-Portal zur von Ihnen bereitgestellten Webanwendung, und aktivieren Sie die **verwaltete Dienstidentität** dieser Anwendung.  
 
-   :::image type="content" source="./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png" alt-text="Erstellen eines geheimen Schlüssels":::
+   :::image type="content" source="./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png" alt-text="Verwaltete Dienstidentität":::
 
 Wenn Sie die Anwendung jetzt ausführen, sehen Sie den folgenden Fehler, da Sie für diese Anwendung in Key Vault keinerlei Berechtigungen gewährt haben.
 
-:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-without-access.png" alt-text="Erstellen eines geheimen Schlüssels":::
+:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-without-access.png" alt-text="App ohne Zugriff bereitgestellt":::
 
 ## <a name="register-the-application--grant-permissions-to-read-the-key-vault"></a>Registrieren der Anwendung und Gewähren von Berechtigungen zum Lesen von Key Vault
 
@@ -84,11 +84,11 @@ In diesem Abschnitt registrieren Sie die Anwendung im Azure Active Directory und
 
 2. Öffnen Sie **Zugriffsrichtlinien**, wählen Sie **+Neue hinzufügen**, suchen Sie die von Ihnen bereitgestellte Webanwendung, wählen Sie die Berechtigungen aus, und wählen Sie **OK**.  
 
-   :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="Erstellen eines geheimen Schlüssels":::
+   :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="Zugriffsrichtlinie hinzufügen":::
 
 Wenn Sie die Anwendung jetzt ausführen, können Sie das Geheimnis aus Key Vault aus lesen.
 
-:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-with-access.png" alt-text="Erstellen eines geheimen Schlüssels":::
+:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-with-access.png" alt-text="App mit Geheimnis bereitgestellt":::
  
 Auf ähnliche Weise können Sie einen Benutzer für den Zugriff auf den Key Vault hinzufügen. Sie müssen sich selbst zum Schlüsseltresor hinzufügen, indem Sie **Zugriffsrichtlinien** auswählen und alle Berechtigungen gewähren, die Sie zum Ausführen der Anwendung über Visual Studio benötigen. Wenn diese Anwendung auf dem Desktop ausgeführt wird, nimmt sie Ihre Identität an.
 

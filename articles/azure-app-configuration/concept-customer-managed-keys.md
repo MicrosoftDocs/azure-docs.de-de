@@ -1,17 +1,17 @@
 ---
 title: Verwenden von kundenseitig verwalteten Schlüsseln zum Verschlüsseln Ihrer Konfigurationsdaten
 description: Verschlüsseln Ihrer Konfigurationsdaten mithilfe von kundenseitig verwalteten Schlüsseln
-author: lisaguthrie
-ms.author: lcozzens
-ms.date: 02/18/2020
+author: AlexandraKemperMS
+ms.author: alkemper
+ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 8942c93b7346613b8cfdc97d9afe09f1c473fb10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46a1e99a7bc75efa85fcb5eff649c14af5abd17b
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87384870"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930499"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Verwenden von kundenseitig verwalteten Schlüsseln zum Verschlüsseln Ihrer App Configuration-Daten
 Azure App Configuration [verschlüsselt vertrauliche ruhende Informationen](../security/fundamentals/encryption-atrest.md). Die Verwendung von kundenseitig verwalteten Schlüsseln bietet einen verbesserten Datenschutz, da Sie so Ihre Verschlüsselungsschlüssel verwalten können.  Wenn die Verschlüsselung mit verwalteten Schlüsseln verwendet wird, werden alle vertraulichen Informationen in App Configuration mit einem vom Benutzer bereitgestellten Azure Key Vault-Schlüssel verschlüsselt.  Dadurch kann der Verschlüsselungsschlüssel bei Bedarf rotiert werden.  Außerdem bietet sich dadurch die Möglichkeit, den Zugriff von Azure App Configuration auf vertrauliche Informationen zu widerrufen, indem der Zugriff der App Configuration-Instanz auf den Schlüssel widerrufen wird.

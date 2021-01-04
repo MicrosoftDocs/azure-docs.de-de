@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 11/17/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: Lokal, Docker, Container
-ms.openlocfilehash: c26c69a0f6cbf0f9f658d3b7a32cce99319767b4
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 9ca5229200b39f0a3c68da152f4d89f842d021ca
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930440"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95996420"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Installieren und Ausführen von Docker-Containern für die APIs des Speech-Diensts 
 
@@ -31,22 +31,22 @@ Mit Speech-Containern können Kunden eine Speech-basierte Anwendungsarchitektur 
 > * Standardspracherkennung
 > * Benutzerdefinierte Spracherkennung
 > * Standardsprachsynthese
-> 
+> * Text-zu-Sprache (neuronal)
+>
 > Die folgenden Speech-Container sind in der geschlossenen Vorschau verfügbar:
 > * Benutzerdefinierte Sprachsynthese
 > * Speech-Sprachenerkennung 
-> * Text-zu-Sprache (neuronal)
 >
 > Wenn Sie die Speech-Container verwenden möchten, müssen Sie eine Onlineanfrage einreichen und diese genehmigen lassen. Weitere Informationen finden Sie weiter unten im Abschnitt **Anfordern der Genehmigung für die Containerausführung**.
 
 | Container | Features | Neueste Version |
 |--|--|--|
-| Spracherkennung | Analysiert die Stimmung und transkribiert kontinuierliche Echtzeitsprach- oder Batchaudioaufzeichnungen mit Zwischenergebnissen.  | 2.5.0 |
-| Benutzerdefinierte Spracherkennung | Verwendet ein benutzerdefiniertes Modell aus dem [Custom Speech-Portal](https://speech.microsoft.com/customspeech) und transkribiert kontinuierliche Echtzeitsprach- oder Batchaudioaufzeichnungen in Text mit Zwischenergebnissen. | 2.5.0 |
-| Text-zu-Sprache | Konvertiert Text in natürlich klingende Sprache mit Nur-Text-Eingaben oder SSML (Speech Synthesis Markup Language, Markupsprache für Sprachsynthese). | 1.7.0 |
-| Benutzerdefinierte Sprachsynthese | Verwendet ein benutzerdefiniertes Modell aus dem [Custom Voice-Portal](https://aka.ms/custom-voice-portal) und konvertiert Text in natürlich klingende Sprache mit Nur-Text-Eingaben oder SSML (Speech Synthesis Markup Language, Markupsprache für Sprachsynthese). | 1.7.0 |
+| Spracherkennung | Analysiert die Stimmung und transkribiert kontinuierliche Echtzeitsprach- oder Batchaudioaufzeichnungen mit Zwischenergebnissen.  | 2.7.0 |
+| Benutzerdefinierte Spracherkennung | Verwendet ein benutzerdefiniertes Modell aus dem [Custom Speech-Portal](https://speech.microsoft.com/customspeech) und transkribiert kontinuierliche Echtzeitsprach- oder Batchaudioaufzeichnungen in Text mit Zwischenergebnissen. | 2.7.0 |
+| Text-zu-Sprache | Konvertiert Text in natürlich klingende Sprache mit Nur-Text-Eingaben oder SSML (Speech Synthesis Markup Language, Markupsprache für Sprachsynthese). | 1.9.0 |
+| Benutzerdefinierte Sprachsynthese | Verwendet ein benutzerdefiniertes Modell aus dem [Custom Voice-Portal](https://aka.ms/custom-voice-portal) und konvertiert Text in natürlich klingende Sprache mit Nur-Text-Eingaben oder SSML (Speech Synthesis Markup Language, Markupsprache für Sprachsynthese). | 1.9.0 |
 | Speech-Sprachenerkennung | Erkennen der in Audiodateien gesprochenen Sprache | 1.0 |
-| Text-zu-Sprache (neuronal) | Konvertiert Text mithilfe von Deep Neural Network-Technologie in natürlich klingende Sprache, die eine natürlichere synthetische Sprache ermöglicht. | 1.2.0 |
+| Text-zu-Sprache (neuronal) | Konvertiert Text mithilfe von Deep Neural Network-Technologie in natürlich klingende Sprache, die eine natürlichere synthetische Sprache ermöglicht. | 1.3.0 |
 
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/cognitive-services/) erstellen, bevor Sie beginnen.
 
@@ -156,7 +156,7 @@ Containerimages für Speech stehen in der folgenden Container Registry zur Verf�
 
 #### <a name="docker-pull-for-the-speech-to-text-container"></a>Docker-Pullvorgang für den Spracherkennungscontainer
 
-Verwenden Sie den Befehl [docker pull](https://docs.docker.com/engine/reference/commandline/pull/), um ein Containerimage aus der Registrierung der Containervorschau herunterzuladen.
+Verwenden Sie den [Docker-Pull](https://docs.docker.com/engine/reference/commandline/pull/)-Befehl, um ein Containerimage aus Microsoft Container Registry herunterzuladen.
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text:latest
@@ -176,7 +176,7 @@ Alle Tags, mit Ausnahme von `latest`, haben das folgende Format und beachten die
 Das folgende Tag ist ein Beispiel für das Format:
 
 ```
-2.5.0-amd64-en-us-preview
+2.6.0-amd64-en-us
 ```
 
 Informationen zu allen unterstützten Gebietsschemas des Containers **Spracherkennung** finden Sie unter [Imagetags für Spracherkennung](../containers/container-image-tags.md#speech-to-text).
@@ -185,7 +185,7 @@ Informationen zu allen unterstützten Gebietsschemas des Containers **Spracherke
 
 #### <a name="docker-pull-for-the-custom-speech-to-text-container"></a>Docker-Pullvorgang für den benutzerdefinierten Spracherkennungscontainer
 
-Verwenden Sie den Befehl [docker pull](https://docs.docker.com/engine/reference/commandline/pull/), um ein Containerimage aus der Registrierung der Containervorschau herunterzuladen.
+Verwenden Sie den [Docker-Pull](https://docs.docker.com/engine/reference/commandline/pull/)-Befehl, um ein Containerimage aus Microsoft Container Registry herunterzuladen.
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text:latest
@@ -198,7 +198,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/custom-spe
 
 #### <a name="docker-pull-for-the-text-to-speech-container"></a>Docker-Pullvorgang für den Sprachsynthesecontainer
 
-Verwenden Sie den Befehl [docker pull](https://docs.docker.com/engine/reference/commandline/pull/), um ein Containerimage aus der Registrierung der Containervorschau herunterzuladen.
+Verwenden Sie den [Docker-Pull](https://docs.docker.com/engine/reference/commandline/pull/)-Befehl, um ein Containerimage aus Microsoft Container Registry herunterzuladen.
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech:latest
@@ -218,7 +218,7 @@ Alle Tags, mit Ausnahme von `latest`, haben das folgende Format und beachten die
 Das folgende Tag ist ein Beispiel für das Format:
 
 ```
-1.6.0-amd64-en-us-ariarus-preview
+1.8.0-amd64-en-us-ariarus
 ```
 
 Informationen zu allen unterstützten Gebietsschemas und den entsprechenden Stimmen des Containers **Sprachsynthese** finden Sie unter [Imagetags für Sprachsynthese](../containers/container-image-tags.md#text-to-speech).
@@ -230,7 +230,7 @@ Informationen zu allen unterstützten Gebietsschemas und den entsprechenden Stim
 
 #### <a name="docker-pull-for-the-neural-text-to-speech-container"></a>Docker-Pullvorgang für den „Text-zu-Sprache (neuronal)“-Container
 
-Verwenden Sie den Befehl [docker pull](https://docs.docker.com/engine/reference/commandline/pull/), um ein Containerimage aus der Registrierung der Containervorschau herunterzuladen.
+Verwenden Sie den [Docker-Pull](https://docs.docker.com/engine/reference/commandline/pull/)-Befehl, um ein Containerimage aus Microsoft Container Registry herunterzuladen.
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech:latest
@@ -244,13 +244,13 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/neural-tex
 Alle Tags, mit Ausnahme von `latest`, haben das folgende Format und beachten die Groß-/Kleinschreibung:
 
 ```
-<major>.<minor>.<patch>-<platform>-<locale>-<voice>-<prerelease>
+<major>.<minor>.<patch>-<platform>-<locale>-<voice>
 ```
 
 Das folgende Tag ist ein Beispiel für das Format:
 
 ```
-1.2.0-amd64-en-us-arianeural-preview
+1.3.0-amd64-en-us-arianeural
 ```
 
 Informationen zu allen unterstützten Gebietsschemas und den entsprechenden Stimmen des Containers **Text-zu-Sprache (neuronal)** finden Sie unter [Imagetags für „Text-zu-Sprache (neuronal)“](../containers/container-image-tags.md#neural-text-to-speech).
@@ -262,7 +262,7 @@ Informationen zu allen unterstützten Gebietsschemas und den entsprechenden Stim
 
 #### <a name="docker-pull-for-the-custom-text-to-speech-container"></a>Docker-Pullvorgang für den benutzerdefinierten Sprachsynthesecontainer
 
-Verwenden Sie den Befehl [docker pull](https://docs.docker.com/engine/reference/commandline/pull/), um ein Containerimage aus der Registrierung der Containervorschau herunterzuladen.
+Verwenden Sie den [Docker-Pull](https://docs.docker.com/engine/reference/commandline/pull/)-Befehl, um ein Containerimage aus Microsoft Container Registry herunterzuladen.
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech:latest
@@ -275,7 +275,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/custom-tex
 
 #### <a name="docker-pull-for-the-speech-language-detection-container"></a>Docker-Pullvorgang für den Speech-Sprachenerkennungscontainer
 
-Verwenden Sie den Befehl [docker pull](https://docs.docker.com/engine/reference/commandline/pull/), um ein Containerimage aus der Registrierung der Containervorschau herunterzuladen.
+Verwenden Sie den [Docker-Pull](https://docs.docker.com/engine/reference/commandline/pull/)-Befehl, um ein Containerimage aus Microsoft Container Registry herunterzuladen.
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection:latest
@@ -315,6 +315,12 @@ Dieser Befehl:
 
 
 #### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>Analysieren der Stimmung bei der Spracherkennungsausgabe 
+Ab Version v2.6.0 des Spracherkennungs-Containers sollten Sie den TextAnalytics 3.0 API-Endpunkt anstelle des Vorschauendpunkts verwenden. Beispiel:
+* `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0/sentiment`
+* `https://localhost:5000/text/analytics/v3.0/sentiment`
+
+> [!NOTE]
+> Die Textanalyse `v3.0`-API ist nicht mit Textanalyse `v3.0-preview.1` abwärtskompatibel. Um die Unterstützung für die neueste Standpunktanalysefunktion zu erhalten, verwenden Sie `v2.6.0` des Spracherkennungs-Containerimages und Textanalyse `v3.0`.
 
 Ab v2.2.0 des Spracherkennungscontainers können Sie die [API für die Standpunktanalyse v3](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) in der Ausgabe aufrufen. Um die Standpunktanalyse aufrufen zu können, benötigen Sie einen Textanalyse-API-Ressourcenendpunkt. Beispiel: 
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
@@ -338,6 +344,26 @@ Dieser Befehl:
 
 * Führt dieselben Schritte aus wie der obige Befehl.
 * Speichert einen Textanalyse-API-Endpunkt und einen Schlüssel zum Senden von Standpunktanalyseanforderungen. 
+
+#### <a name="phraselist-v2-on-the-speech-to-text-output"></a>Phraselist v2 für die Spracherkennungsausgabe 
+
+Seit v2.6.0 des Spracherkennungscontainers können Sie die Ausgabe mit eigenen Ausdrücken abrufen – entweder den gesamten Satz oder Ausdrücke in der Satzmitte. Beispielsweise *der große Mann* im folgenden Satz:
+
+* „Dies ist ein Satz **der große Mann** dies ist ein weiterer Satz“.
+
+Zum Konfigurieren einer Ausdruckliste müssen Sie Ihre eigenen Ausdrücke beim Vornehmen des Aufrufs hinzufügen. Zum Beispiel:
+
+```python
+    phrase="the tall man"
+    recognizer = speechsdk.SpeechRecognizer(
+        speech_config=dict_speech_config,
+        audio_config=audio_config)
+    phrase_list_grammer = speechsdk.PhraseListGrammar.from_recognizer(recognizer)
+    phrase_list_grammer.addPhrase(phrase)
+
+```
+
+Wenn Sie mehrere Ausdrücke hinzufügen möchten, rufen Sie `.addPhrase()` für jeden Ausdruck auf, um ihn der Ausdrucksliste hinzuzufügen. 
 
 
 # <a name="custom-speech-to-text"></a>[Benutzerdefinierte Spracherkennung](#tab/cstt)
@@ -391,6 +417,46 @@ Dieser Befehl:
 * Lädt das Modell anhand der `ModelId` herunter (sofern diese in der Volumebereitstellung nicht gefunden wird).
 * Wenn das benutzerdefinierte Modell zuvor bereits heruntergeladen wurde, wird die `ModelId` ignoriert.
 * Entfernt den Container automatisch, nachdem er beendet wurde. Das Containerimage ist auf dem Hostcomputer weiterhin verfügbar.
+
+
+#### <a name="base-model-download-on-the-custom-speech-to-text-container"></a>Basismodell-Download in den benutzerdefinierten Spracherkennungscontainer  
+Seit v2.6.0 des benutzerdefinierten Spracherkennungscontainers können Sie die verfügbaren Informationen zum Basismodell mithilfe der Option `BaseModelLocale=<locale>` abrufen. Mit dieser Option erhalten Sie eine Liste der verfügbaren Basismodelle für das betreffende Gebietsschema unter Ihrem Abrechnungskonto. Zum Beispiel:
+
+```bash
+docker run --rm -it \
+mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text \
+BaseModelLocale={LOCALE} \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+Dieser Befehl:
+
+* Führt einen Container für die *benutzerdefinierte Spracherkennung* aus dem Containerimage aus.
+* Überprüfen Sie die verfügbaren Basismodelle des Zielgebietsschemas, und geben Sie sie zurück.
+
+In der Ausgabe erhalten Sie eine Liste der Basismodelle mit den Informationen Gebietsschema, Modell-ID und Datum/-uhrzeit der Erstellung. Sie können die Modell-ID verwenden, um das bevorzugte spezifische Basismodell herunterzuladen und zu verwenden. Zum Beispiel:
+```
+Checking available base model for en-us
+2020/10/30 21:54:20 [Info] Searching available base models for en-us
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2016-11-04T08:23:42Z, Id: a3d8aab9-6f36-44cd-9904-b37389ce2bfa
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2016-11-04T12:01:02Z, Id: cc7826ac-5355-471d-9bc6-a54673d06e45
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2017-08-17T12:00:00Z, Id: a1f8db59-40ff-4f0e-b011-37629c3a1a53
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2018-04-16T11:55:00Z, Id: c7a69da3-27de-4a4b-ab75-b6716f6321e5
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2018-09-21T15:18:43Z, Id: da494a53-0dad-4158-b15f-8f9daca7a412
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2018-10-19T11:28:54Z, Id: 84ec130b-d047-44bf-a46d-58c1ac292ca7
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2018-11-26T07:59:09Z, Id: ee5c100f-152f-4ae5-9e9d-014af3c01c56
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2018-11-26T09:21:55Z, Id: d04959a6-71da-4913-9997-836793e3c115
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2019-01-11T10:04:19Z, Id: 488e5f23-8bc5-46f8-9ad8-ea9a49a8efda
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2019-02-18T14:37:57Z, Id: 0207b3e6-92a8-4363-8c0e-361114cdd719
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2019-03-03T17:34:10Z, Id: 198d9b79-2950-4609-b6ec-f52254074a05
+2020/10/30 21:54:21 [Fatal] Please run this tool again and assign --modelId '<one above base model id>'. If no model id listed above, it means currently there is no available base model for en-us
+```
+
+#### <a name="custom-pronunciation-on-the-custom-speech-to-text-container"></a>Benutzerdefinierte Aussprache für den benutzerdefinierten Sprachcontainer 
+Seit v2.5.0 des benutzerdefinierten Spracherkennungscontainers können Sie benutzerdefinierte Ausspracheergebnisse in der Ausgabe erhalten. Dazu müssen Sie lediglich Ihre eigenen benutzerdefinierten Ausspracheregeln in Ihrem benutzerdefinierten Modell einrichten und das Modell in einem benutzerdefinierten Spracherkennungscontainer einbinden.
+
 
 # <a name="text-to-speech"></a>[Sprachsynthese](#tab/tts)
 
@@ -491,6 +557,16 @@ Dieser Befehl:
 * Ordnet 1 CPU-Kern und 1 GB Arbeitsspeicher zu.
 * Macht den TCP-Port 5003 verfügbar und ordnet eine Pseudo-TTY-Verbindung für den Container zu.
 * Entfernt den Container automatisch, nachdem er beendet wurde. Das Containerimage ist auf dem Hostcomputer weiterhin verfügbar.
+
+Wenn Sie nur Anforderungen der Speech-Sprachenerkennung senden, müssen Sie den Wert `phraseDetection` des Speech-Clients auf `None` festlegen.  
+
+```python
+speech_config.set_service_property(
+      name='speechcontext-phraseDetection.Mode',
+      value='None',
+      channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+   )
+```
 
 Wenn Sie diesen Container mit dem Spracherkennungscontainer ausführen möchten, können Sie [dieses Docker-Image](https://hub.docker.com/r/antsu/on-prem-client) verwenden. Verwenden Sie nach dem Starten der beiden Container diesen docker run-Befehl, um `speech-to-text-with-languagedetection-client` auszuführen.
 

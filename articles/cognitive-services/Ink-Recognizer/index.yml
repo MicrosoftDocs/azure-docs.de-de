@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/23/2019
   ms.author: aahi
-  ms.openlocfilehash: e0886171d074863009dd83163599c888db10e187
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 94f37aeb4212ed7bd3ea28d74563a943e4a660d7
+  ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "89419587"
+  ms.lasthandoff: 11/08/2020
+  ms.locfileid: "94365311"
 landingContent:
 - title: Informationen zur Freihanderkennungs-API
   linkLists:
@@ -45,11 +45,11 @@ landingContent:
   - linkListType: reference
     links:
     - text: REST-API
-      url: https://go.microsoft.com/fwlink/?linkid=2089907
+      url: /rest/api/cognitiveservices/inkrecognizer/inkrecognizer
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
-    - text: Azure CLI
-      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+      url: /powershell/module/az.cognitiveservices/#cognitive_services
+    - text: Azure-Befehlszeilenschnittstelle
+      url: /cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
 - title: Beispiele
   linkLists:
   - linkListType: learn

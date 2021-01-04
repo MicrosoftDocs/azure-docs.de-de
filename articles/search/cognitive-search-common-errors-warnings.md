@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 8ceb6d4dddb76148be1e82ebc8c1994886a11da3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcdc05ae696a207546eb62160fe89ea38d307058
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362813"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492266"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Beheben von häufigen Fehler und Warnungen bei Suchindexern in Azure Cognitive Search
 
@@ -348,8 +348,8 @@ Um diese Warnung zu umgehen, ermitteln Sie die Textcodierung für dieses Blob, u
 
 ## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>Warnung: Cosmos DB Sammlung „X“ weist eine Indizierungsrichtlinie vom Typ „Verzögert“ auf. Unter Umständen gehen einige Daten verloren.
 
-Sammlungen mit Indizierungsrichtlinien vom Typ [Verzögert](/azure/cosmos-db/index-policy#indexing-mode) können nicht konsistent abgefragt werden, was dazu führt, dass Ihr Indexer Daten auslässt. Um diese Warnung zu umgehen, ändern Sie die Indizierungsrichtlinie in „Konsistent“.
+Sammlungen mit Indizierungsrichtlinien vom Typ [Verzögert](../cosmos-db/index-policy.md#indexing-mode) können nicht konsistent abgefragt werden, was dazu führt, dass Ihr Indexer Daten auslässt. Um diese Warnung zu umgehen, ändern Sie die Indizierungsrichtlinie in „Konsistent“.
 
 ## <a name="warning-the-document-contains-very-long-words-longer-than-64-characters-these-words-may-result-in-truncated-andor-unreliable-model-predictions"></a>Warnung: Das Dokument enthält sehr lange Wörter (länger als 64 Zeichen). Diese Wörter können zu abgeschnittenen und/oder unzuverlässigen Modellvorhersagen führen.
 
-Diese Warnung wird vom Textanalysedienst weitergeleitet.  In einigen Fällen kann diese Warnung problemlos ignoriert werden, z. B. wenn Ihr Dokument eine lange URL enthält (bei der es sich wahrscheinlich nicht um einen Schlüsselausdruck oder eine steuernde Stimmungsanalyse usw. handelt).  Beachten Sie, dass ein Wort, das länger als 64 Zeichen ist, auf 64 Zeichen gekürzt wird, was die Modellvorhersagen beeinträchtigen kann.  
+Diese Warnung wird vom Textanalysedienst weitergeleitet.  In einigen Fällen kann diese Warnung problemlos ignoriert werden, z. B. wenn Ihr Dokument eine lange URL enthält (bei der es sich wahrscheinlich nicht um einen Schlüsselausdruck oder eine steuernde Stimmungsanalyse usw. handelt).  Beachten Sie, dass ein Wort, das länger als 64 Zeichen ist, auf 64 Zeichen gekürzt wird, was die Modellvorhersagen beeinträchtigen kann.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6115ca375c3e5bf2be3335fe2231628ec7bf309f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09dddad24794491b53a11f7b0e4347f43f11598b
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267736"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440483"
 ---
 # <a name="scenario-any-to-any"></a>Szenario: Any-to-Any
 
@@ -22,14 +22,14 @@ Wenn Sie mit Virtual WAN-Routing für virtuelle Hubs arbeiten, stehen Ihnen eine
 
 ## <a name="design"></a><a name="design"></a>Entwurf
 
-Um herauszufinden, wie viele Routingtabellen in einem Virtual WAN-Szenario erforderlich sind, können Sie eine Verbindungsmatrix erstellen, in der jede Zelle angibt, ob eine Quelle (Zeile) mit einem Ziel (Spalte) kommunizieren kann. Die Verbindungsmatrix in diesem Szenario ist trivial, aber wir haben sie eingeschlossen, um mit anderen Szenarien konsistent zu sein.
+Um herauszufinden, wie viele Routingtabellen in einem Virtual WAN-Szenario erforderlich sind, können Sie eine Verbindungsmatrix erstellen, in der jede Zelle angibt, ob eine Quelle (Zeile) mit einem Ziel (Spalte) kommunizieren kann.
 
 | From |   To |  *VNETs* | *Branches* |
 | -------------- | -------- | ---------- | ---|
-| VNETs     | &#8594;|      X     |     X    |
-| Branches   | &#8594;|    X     |     X    |
+| VNETs     | &#8594;| Direkt | Direkt |
+| Branches   | &#8594;| Direkt  | Direkt |
 
-Jede Zelle in der vorstehenden Tabelle beschreibt, ob eine Virtual WAN-Verbindung (die Seite „From“ des Flows, die Zeilenheader in der Tabelle) ein Zielpräfix (die Seite „To“ des Flows, die kursiv formatierten Spaltenheader in der Tabelle) für einen bestimmten Datenverkehrsfluss lernt. Dabei bedeutet ein „X“, dass die Konnektivität durch eine Virtual WAN-Verbindung bereitgestellt wird.
+Die Zellen in der vorherigen Tabelle beschreiben, ob eine Virtual WAN-Verbindung (die Seite „Von“ des Flows, die Zeilenüberschriften) mit einem Zielpräfix (die Seite „Zu“ des Flows, die kursiven Spaltenüberschriften) kommuniziert. In diesem Szenario gibt es keine Firewalls oder virtuellen Netzwerkgeräte, sodass die Kommunikation direkt über Virtual WAN erfolgt (daher die Angabe „direkt“ in der Tabelle).
 
 Da für alle Verbindungen von VNETs und Branches (VPN, ExpressRoute und Benutzer-VPN) die gleichen Konnektivitätsanforderungen gelten, ist eine einzelne Routingtabelle erforderlich. Dadurch werden alle Verbindungen verknüpft und an dieselbe Routingtabelle weitergegeben, nämlich die Standardroutingtabelle:
 

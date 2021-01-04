@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: eab0a54d30f2cd2829779dbfc6081445f5be0a71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 525635ef40437fe308c52e2d5aba2c97ed8f20e7
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83648849"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927531"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Azure Functions in Kubernetes mit KEDA
 
@@ -20,7 +20,7 @@ Die Azure Functions-Runtime bietet Flexibilität im Hinblick auf Art und Ort des
 
 Der Azure Functions-Dienst besteht aus zwei Komponenten: einer Runtime und einem Skalierungscontroller.  Die Functions-Runtime führt Ihren Code aus.  Die Runtime enthält Logik zum Auslösen, Protokollieren und Verwalten von Funktionsausführungen.  Die Azure Functions-Runtime kann *überall* ausgeführt werden.  Die andere Komponente ist ein Skalierungscontroller.  Der Skalierungscontroller überwacht die Rate der Ereignisse, die Ihre Funktion nutzen möchten, und skaliert proaktiv die Anzahl von Instanzen, die Ihre App ausführen.  Weitere Informationen finden Sie unter [Skalierung und Hosting von Azure Functions](functions-scale.md).
 
-Die Kubernetes-basierte Version stellt die Functions-Runtime in einem [Docker-Container](functions-create-function-linux-custom-image.md) bereit, während die ereignisgesteuerte Skalierung über KEDA erfolgt.  KEDA kann eine horizontale Herunterskalierung auf 0 Instanzen (wenn keine Ereignisse stattfinden) und eine horizontale Hochskalierung auf bis zu *n* Instanzen durchführen. Zu diesem Zweck macht KEDA benutzerdefinierte Metriken für die automatische Kubernetes-Skalierung (automatische horizontale Podskalierung) verfügbar.  Durch Verwendung von Functions-Container mit KEDA können serverlose Funktionen in jedem Kubernetes-Cluster repliziert werden.  Diese Funktionen können auch mithilfe des Features für [virtuelle AKS-Knoten (Azure Kubernetes Service)](../aks/virtual-nodes-cli.md) für serverlose Infrastrukturen bereitgestellt werden.
+Die Kubernetes-basierte Version stellt die Functions-Runtime in einem [Docker-Container](functions-create-function-linux-custom-image.md) bereit, während die ereignisgesteuerte Skalierung über KEDA erfolgt.  KEDA kann eine horizontale Herunterskalierung auf 0 Instanzen (wenn keine Ereignisse stattfinden) und eine horizontale Hochskalierung auf bis zu *n*  Instanzen durchführen. Zu diesem Zweck macht KEDA benutzerdefinierte Metriken für die automatische Kubernetes-Skalierung (automatische horizontale Podskalierung) verfügbar.  Durch Verwendung von Functions-Container mit KEDA können serverlose Funktionen in jedem Kubernetes-Cluster repliziert werden.  Diese Funktionen können auch mithilfe des Features für [virtuelle AKS-Knoten (Azure Kubernetes Service)](../aks/virtual-nodes-cli.md) für serverlose Infrastrukturen bereitgestellt werden.
 
 ## <a name="managing-keda-and-functions-in-kubernetes"></a>Verwalten von KEDA und Functions in Kubernetes
 
@@ -33,6 +33,9 @@ Es gibt verschiedene Möglichkeiten, KEDA in einem Kubernetes-Cluster, einschlie
 ## <a name="deploying-a-function-app-to-kubernetes"></a>Bereitstellen einer Funktions-App in Kubernetes
 
 Sie können jede beliebige Funktions-App in einem Kubernetes-Cluster bereitstellen, in dem KEDA ausgeführt wird.  Da Ihre Funktionen in einem Docker-Container ausgeführt werden, benötigt Ihr Projekt ein `Dockerfile`.  Wenn Sie noch nicht über ein Dockerfile verfügen, können Sie eins hinzufügen, indem Sie den folgenden Befehl im Stammverzeichnis Ihres Functions-Projekts ausführen:
+
+> [!NOTE]
+> Die Core Tools erstellen automatisch das Dockerfile für Azure Functions in .NET, Node, Python oder PowerShell. Für Funktions-Apps, die in Java geschrieben sind, muss das Dockerfile manuell erstellt werden. Verwenden Sie die [Imageliste](https://github.com/Azure/azure-functions-docker) für Azure Functions, um das richtige Image als Basis für die Azure-Funktion zu finden.
 
 ```cli
 func init --docker-only
@@ -49,7 +52,10 @@ func kubernetes deploy --name <name-of-function-deployment> --registry <containe
 
 > Ersetzen Sie `<name-of-function-deployment>` durch den Namen der Funktions-App.
 
-Dieser Befehl erstellt eine Kubernetes-`Deployment`-Ressource, eine `ScaledObject`-Ressource und `Secrets`, einschließlich aus Ihrer `local.settings.json`-Datei importierten Umgebungsvariablen.
+Der Bereitstellungsbefehl führt eine Reihe von Aktionen aus:
+1. Das zuvor erstellte Dockerfile wird verwendet, um ein lokales Image für die Funktions-App zu erstellen.
+2. Das lokale Image wird markiert und an die Containerregistrierung gepusht, bei der der Benutzer angemeldet ist.
+3. Es wird ein Manifest erstellt und auf den Cluster angewandt. Dieses definiert eine Kubernetes-`Deployment`-Ressource, eine `ScaledObject`-Ressource und `Secrets`, einschließlich aus Ihrer Datei `local.settings.json` importierter Umgebungsvariablen.
 
 ### <a name="deploying-a-function-app-from-a-private-registry"></a>Bereitstellen einer Funktions-App aus einer privaten Registrierung
 

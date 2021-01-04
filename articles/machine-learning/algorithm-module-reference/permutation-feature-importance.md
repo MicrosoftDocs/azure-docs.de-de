@@ -1,7 +1,7 @@
 ---
 title: 'Permutation Feature Importance (PFI): Modulreferenz'
 titleSuffix: Azure Machine Learning
-description: Erfahren Sie, wie Sie mit dem PFI-Modul in Azure Machine Learning Bewertungen der Relevanz von Permutationsfeatures für Featurevariablen berechnen können, wenn ein trainiertes Modell und ein Testdataset vorliegen.
+description: Erfahren Sie, wie Sie mit dem Permutation Feature Importance-Modul im Designer Bewertungen der Relevanz von Permutationsfeatures für Featurevariablen berechnen können.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
-ms.openlocfilehash: ecf739ea838ad3742612eab7a1b42ac8c8ac455a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ae1e79922cc0f34e8b2d1f253fce5078df286d2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905264"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421242"
 ---
 # <a name="permutation-feature-importance"></a>Permutation Feature Importance (PFI)
 
@@ -24,7 +24,7 @@ In diesem Modul werden Featurewerte Spalte für Spalte nach dem Zufallsprinzip n
 
 Die vom Modul zurückgegebenen Bewertungen repräsentieren die *Änderung* in der Leistung eines trainierten Modells nach der Permutation. Bei wichtigen Features hat die Neuanordnung in der Regel eine größere Auswirkung und führt deshalb zu höheren Relevanzbewertungen. 
 
-Dieser Artikel enthält eine Übersicht über das Permutationsfeature, die zugrunde liegende Theorie und seine Anwendung beim maschinellen Lernen: [Permutation Feature Importance](https://blogs.technet.com/b/machinelearning/archive/2015/04/14/permutation-feature-importance.aspx).  
+Dieser Artikel enthält eine Übersicht über das Permutationsfeature, die zugrunde liegende Theorie und seine Anwendung beim maschinellen Lernen: [Permutation Feature Importance](/archive/blogs/machinelearning/permutation-feature-importance).  
 
 ## <a name="how-to-use-permutation-feature-importance"></a>Verwenden des PFI-Moduls
 
@@ -69,4 +69,4 @@ Der Grund für den Unterschied ist, dass bei „Permutation Feature Importance�
   
 ## <a name="next-steps"></a>Nächste Schritte
 
-Sehen Sie sich den [Satz der verfügbaren Module](module-reference.md) für Azure Machine Learning an. 
+Sehen Sie sich den [Satz der verfügbaren Module](module-reference.md) für Azure Machine Learning an.

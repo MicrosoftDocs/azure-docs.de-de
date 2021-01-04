@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/04/2020
-ms.openlocfilehash: 97cadfb8f5004cfd2701335172d4416c64f05259
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e0b61c1ca6ae30044e4c9d4705bdce01eac1942
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907870"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323682"
 ---
 # <a name="module-k-means-clustering"></a>Modul: K-Means Clustering
 
@@ -22,7 +22,7 @@ In diesem Artikel wird beschrieben, wie Sie das Modul *k-Means-Algorithmus* im A
  
 k-Means ist einer der einfachsten und bekanntesten *unüberwachten* Lernalgorithmen. Sie können den Algorithmus für eine Vielzahl von Aufgaben des maschinellen Lernens verwenden, z. B.: 
 
-* [Erkennen anormaler Daten](https://msdn.microsoft.com/magazine/jj891054.aspx)
+* [Erkennen anormaler Daten](/archive/msdn-magazine/2013/february/data-clustering-detecting-abnormal-data-using-k-means-clustering)
 * Clustering von Textdokumenten
 * Analysieren von Datasets vor der Verwendung anderer Klassifizierungs- oder Regressionsmethoden 
 
@@ -99,7 +99,7 @@ Bei der Verarbeitung der Trainingsdaten beginnt der k-Means-Algorithmus mit eine
   
     -   **Overwrite from closest to center** (Vom nächstgelegenen zum Zentrum überschreiben): Die Werte der Bezeichnungsspalte werden durch vorhergesagte Bezeichnungswerte ersetzt, wobei die Bezeichnung des Punkts verwendet wird, der dem aktuellen Schwerpunkt am nächsten liegt.  
 
-8.  Wählen Sie die Option **Features normalisieren**, wenn Sie Features vor dem Training normalisieren möchten.
+8.  Wählen Sie die Option **Features normalisieren** , wenn Sie Features vor dem Training normalisieren möchten.
   
      Wenn Sie die Normalisierung anwenden, werden die Datenpunkte vor dem Training von MinMaxNormalizer zu `[0,1]` normalisiert.
 
@@ -131,7 +131,7 @@ Bei Verwendung des Moduls [Train Clustering Model](train-clustering-model.md):
 
 ### <a name="tips-for-generating-the-best-clustering-model"></a>Tipps zum Generieren des besten Clusteringmodells  
 
-Es ist bekannt, dass der beim Clustering verwendete *Seeding*-Prozess das Modell erheblich beeinflussen kann. Seeding bedeutet die anfängliche Platzierung von Punkten in potenziellen Schwerpunkten.
+Es ist bekannt, dass der beim Clustering verwendete *Seeding* -Prozess das Modell erheblich beeinflussen kann. Seeding bedeutet die anfängliche Platzierung von Punkten in potenziellen Schwerpunkten.
  
 Wenn das Dataset beispielsweise viele Ausreißer enthält und ein Ausreißer für das Seeding der Cluster gewählt wird, passen keine anderen Datenpunkte gut zu diesem Cluster, sodass der Cluster ein Singleton sein könnte. Das bedeutet, dass er ggf. nur einen Punkt aufweist.  
   
@@ -145,4 +145,4 @@ Im Allgemeinen ist es bei Clusteringmodellen möglich, dass eine bestimmte Konfi
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Sehen Sie sich den [Satz der verfügbaren Module](module-reference.md) für Azure Machine Learning an. 
+Sehen Sie sich den [Satz der verfügbaren Module](module-reference.md) für Azure Machine Learning an.

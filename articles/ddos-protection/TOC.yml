@@ -1,0 +1,70 @@
+- name: Dokumentation zu Azure DDoS Protection Standard
+  href: index.yml
+- name: Übersicht
+  items:
+    - name: "Was ist Azure DDoS\_Protection Standard?"
+      href: ddos-protection-overview.md
+- name: Schnellstarts
+  items:
+    - name: 'Erstellen eines DDoS-Schutzplans: Portal'
+      href: manage-ddos-protection.md
+    - name: 'Erstellen eines DDoS-Schutzplans: PowerShell'
+      href: manage-ddos-protection-powershell.md
+    - name: 'Erstellen eines DDoS-Schutzplans: CLI'
+      href: manage-ddos-protection-cli.md
+- name: Tutorials
+  items:
+    - name: "Anzeigen und Konfigurieren der DDoS\_Protection-Telemetrie"
+      href: telemetry-monitoring-alerting.md
+    - name: Konfigurieren der Berichte und Datenflussprotokolle zur Entschärfung von DDoS-Angriffen
+      href: reports-and-flow-logs.md
+- name: Konzepte
+  items:
+    - name: Arten von Angriffen
+      href: types-of-attacks.md
+    - name: Grundlegende bewährte Methoden
+      href: fundamental-best-practices.md
+    - name: Funktionen von Azure DDoS Protection Standard
+      href: ddos-protection-standard-features.md
+    - name: Komponenten einer DDoS-Reaktionsstrategie
+      href: ddos-response-strategy.md
+    - name: Referenzarchitekturen
+      href: ddos-protection-reference-architectures.md
+    - name: Sicherheitsbaseline
+      href: ../security/fundamentals/ddos-protection-security-baseline.md?toc=%2fazure%2fddos-protection%2ftoc.json
+- name: Anleitungen
+  items:
+    - name: Testen per Simulation
+      href: test-through-simulations.md
+    - name: Verwalten von Berechtigungen und Einschränkungen
+      href: manage-permissions.md
+    - name: Einbinden von DDoS Rapid Response (DRR)
+      href: ddos-rapid-response.md
+    - name: Onboarding von Partnern
+      href: ddos-protection-partner-onboarding.md
+- name: Verweis
+  items:
+    - name: Azure CLI
+      href: /cli/azure/network/ddos-protection?view=azure-cli-latest
+    - name: Azure PowerShell
+      href: /powershell/module/Az.Network/New-AzDdosProtectionPlan?view=azps-2.8.0
+    - name: .NET
+      href: /dotnet/api/
+    - name: Java
+      href: /java/api/
+    - name: Node.js
+      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST
+      href: /rest/api/virtualnetwork/ddosprotectionplans
+    - name: Azure Resource Manager
+      href: ../azure-resource-manager/management/overview.md
+- name: Ressourcen
+  items:
+    - name: Häufig gestellte Fragen
+      href: ddos-faq.md
+    - name: Preise
+      href: 'https://azure.microsoft.com/en-us/pricing/details/ddos-protection/'
+    - name: Regionale Verfügbarkeit
+      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/?products=ddos-protection'

@@ -3,17 +3,19 @@ title: Abfragen räumlicher Daten mit Azure Cosmos DB
 description: Abfragen räumlicher Daten mit Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.openlocfilehash: bbfc31e810e2c11cde4907c9d5120b66195191af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb9a0351b6f1de47f3687995c65060a23bdb2874
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764977"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336111"
 ---
 # <a name="querying-geospatial-data-with-azure-cosmos-db"></a>Abfragen räumlicher Daten mit Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In diesem Artikel erfahren Sie, wie Sie mithilfe von SQL und LINQ räumliche Daten in Azure Cosmos DB abfragen. Das Speichern und Verwenden räumlicher Daten wird derzeit nur von Azure Cosmos DB-SQL-API-Konten unterstützt. Azure Cosmos DB unterstützt die folgenden integrierten OGC-Funktionen (Open Geospatial Consortium ) für das Abfragen von Geodaten. Weitere Informationen zu sämtlichen integrierten Funktionen der SQL-Sprache finden Sie unter [Systemfunktionen (Azure Cosmos DB)](sql-query-system-functions.md).
 

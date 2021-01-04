@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
-ms.openlocfilehash: 039fabbbb04f352042973f559e34a3c3a77e7500
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: cf297cdeec88a31950d007246f987957db80e247
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340426"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785883"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrieren von Sicherheitslösungen in Azure Security Center
 Dieses Dokument unterstützt Sie bei der Verwaltung von bereits mit Azure Security Center verbundenen Sicherheitslösungen sowie beim Hinzufügen neuer Lösungen.
@@ -49,7 +49,7 @@ Azure Security Center bietet auch eine Sicherheitsrisikoanalyse für Folgendes:
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Verwalten integrierter Azure-Sicherheitslösungen und anderer Datenquellen
 
-1. Öffnen Sie im [Azure-Portal](https://azure.microsoft.com/features/azure-portal/) das **Security Center**.
+1. Öffnen Sie im [Azure-Portal](https://azure.microsoft.com/features/azure-portal/) das **Security Center** .
 
 1. Wählen Sie im Menü von Security Center **Sicherheitslösungen** aus.
 
@@ -75,8 +75,8 @@ Eine Partnerlösung kann den folgenden Status aufweisen:
 
 Wählen Sie **ANZEIGEN** aus, um zusätzliche Informationen und Optionen anzuzeigen, z. B.:
 
-   - **Lösungskonsole**: Öffnet die Verwaltungsoberfläche für diese Lösung.
-   - **Virtuellen Computer verknüpfen**: Öffnet die Seite „Anwendungen verknüpfen“. Hier können Sie Ressourcen mit der Partnerlösung verknüpfen.
+   - **Lösungskonsole** : Öffnet die Verwaltungsoberfläche für diese Lösung.
+   - **Virtuellen Computer verknüpfen** : Öffnet die Seite „Anwendungen verknüpfen“. Hier können Sie Ressourcen mit der Partnerlösung verknüpfen.
    - **Lösung löschen**
    - **Konfigurieren**
 
@@ -91,11 +91,11 @@ Security Center erkennt Sicherheitslösungen automatisch, die in Azure ausgefüh
 > Aktivieren Sie **Azure Defender-** auf Abonnementebene für das Feature „Ermittelte Lösungen“. Weitere Informationen zu den Tarifen finden Sie unter [Preise](security-center-pricing.md).
 >
 
-Wählen Sie unterhalb einer Lösung die Option **VERBINDEN**, um die Integration in Security Center durchzuführen und über Sicherheitswarnungen benachrichtigt zu werden.
+Wählen Sie unterhalb einer Lösung die Option **VERBINDEN** , um die Integration in Security Center durchzuführen und über Sicherheitswarnungen benachrichtigt zu werden.
 
 ### <a name="add-data-sources"></a>Hinzufügen von Datenquellen
 
-Der Abschnitt **Datenquellen hinzufügen** enthält weitere verfügbare Datenquellen, mit denen eine Verbindung hergestellt werden kann. Klicken Sie **HINZUFÜGEN**, um eine Anleitung zum Hinzufügen von Daten aus einer dieser Quellen anzuzeigen.
+Der Abschnitt **Datenquellen hinzufügen** enthält weitere verfügbare Datenquellen, mit denen eine Verbindung hergestellt werden kann. Klicken Sie **HINZUFÜGEN** , um eine Anleitung zum Hinzufügen von Daten aus einer dieser Quellen anzuzeigen.
 
 ![Datenquellen](./media/security-center-partner-integration/add-data-sources.png)
 
@@ -105,5 +105,5 @@ Der Abschnitt **Datenquellen hinzufügen** enthält weitere verfügbare Datenque
 
 In diesem Artikel haben Sie erfahren, wie Sie Partnerlösungen in Security Center integrieren. Weitere Informationen finden Sie in den folgenden Artikeln:
 
-* [Exportieren von Sicherheitswarnungen und -empfehlungen](continuous-export.md). Einrichten einer Integration in Azure Sentinel oder eine andere SIEM.
+* [Fortlaufendes Exportieren von Security Center-Daten](continuous-export.md). Einrichten einer Integration in Azure Sentinel oder eine andere SIEM.
 * [Überwachen der Sicherheitsintegrität in Azure Security Center](security-center-monitoring.md): Hier erfahren Sie, wie Sie die Integrität Ihrer Azure-Ressourcen überwachen.

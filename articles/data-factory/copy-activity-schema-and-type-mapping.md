@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: b48fb28a56cdc1c836233cd2bd03a1f9e750a0a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b54ee29b1b03bab5af8410a3fae06438180299d
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85249651"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507522"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Schema- und Datentypzuordnung in Kopieraktivität
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -54,7 +54,7 @@ Sie können die Zuordnung über die Data Factory-Benutzeroberfläche für die Er
 | path     | Der Ausdruck des JSON-Pfads für jedes Feld, das extrahiert oder zugeordnet werden soll. Für hierarchische Quelle und Senke anwenden, z. B. für Cosmos DB-, MongoDB- oder REST-Connectors.<br>Der JSON-Pfad für Felder unter dem Stammobjekt beginnt mit dem Stamm „`$`“. Für Felder innerhalb des von der `collectionReference`-Eigenschaften ausgewählten Arrays beginnt der JSON-Pfad mit dem Arrayelement ohne `$`. | Nein       |
 | type     | Data Factory-Zwischendatentyp der Quell- oder Senkenspalte. Im Allgemeinen müssen Sie diese Eigenschaft nicht angeben oder ändern. Weitere Informationen zu [Datentypzuordnung](#data-type-mapping). | Nein       |
 | culture  | Kultur der Quell- oder Senkenspalte. Anwenden, wenn der Typ `Datetime` oder `Datetimeoffset` ist. Der Standardwert lautet `en-us`.<br>Im Allgemeinen müssen Sie diese Eigenschaft nicht angeben oder ändern. Weitere Informationen zu [Datentypzuordnung](#data-type-mapping). | Nein       |
-| format   | Zu verwendende Formatzeichenfolge, wenn der Typ `Datetime` oder `Datetimeoffset` ist. Informationen zum Formatieren von Datum und Uhrzeit finden Sie unter [Benutzerdefinierte Formatzeichenfolgen für Datum und Uhrzeit](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Im Allgemeinen müssen Sie diese Eigenschaft nicht angeben oder ändern. Weitere Informationen zu [Datentypzuordnung](#data-type-mapping). | Nein       |
+| format   | Zu verwendende Formatzeichenfolge, wenn der Typ `Datetime` oder `Datetimeoffset` ist. Informationen zum Formatieren von Datum und Uhrzeit finden Sie unter [Benutzerdefinierte Formatzeichenfolgen für Datum und Uhrzeit](/dotnet/standard/base-types/custom-date-and-time-format-strings). Im Allgemeinen müssen Sie diese Eigenschaft nicht angeben oder ändern. Weitere Informationen zu [Datentypzuordnung](#data-type-mapping). | Nein       |
 
 Die folgenden Eigenschaften werden unter `translator` und unter `mappings` unterstützt:
 
@@ -314,9 +314,9 @@ Die folgenden Eigenschaften werden in der Kopieraktivität für die Datentypkonv
 | *Unter `typeConversionSettings`* |                                                              |          |
 | allowDataTruncation              | Ermöglicht das Abschneiden von Daten, wenn beim Kopieren Quelldaten in Senkendaten mit unterschiedlichem Datentyp konvertiert werden, beispielsweise von „Decimal“ zu „Integer“ bzw. von „DatetimeOffset“ zu „Datetime“. <br>Der Standardwert ist true. | Nein       |
 | treatBooleanAsNumber             | Behandelt boolesche Werte wie Zahlen, z. B. TRUE wie 1.<br>Der Standardwert ist „false“. | Nein       |
-| dateTimeFormat                   | Formatzeichenfolge beim Konvertieren von Datumsangaben ohne Zeitzonenoffset und Zeichenfolgen, z. B. `yyyy-MM-dd HH:mm:ss.fff`.  Ausführliche Informationen hierzu finden Sie unter [Benutzerdefinierte Formatzeichenfolgen für Datum und Uhrzeit](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). | Nein       |
-| dateTimeOffsetFormat             | Formatzeichenfolge beim Konvertieren von Datumsangaben mit Zeitzonenoffset und Zeichenfolgen, z. B. `yyyy-MM-dd HH:mm:ss.fff zzz`.  Ausführliche Informationen hierzu finden Sie unter [Benutzerdefinierte Formatzeichenfolgen für Datum und Uhrzeit](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). | Nein       |
-| timeSpanFormat                   | Formatzeichenfolge beim Konvertieren von Zeiträumen und Zeichenfolgen, z. B. `dd\.hh\:mm`. Ausführliche Informationen hierzu finden Sie unter [Benutzerdefinierte TimeSpan-Formatzeichenfolgen](https://docs.microsoft.com/dotnet/standard/base-types/custom-timespan-format-strings). | Nein       |
+| dateTimeFormat                   | Formatzeichenfolge beim Konvertieren von Datumsangaben ohne Zeitzonenoffset und Zeichenfolgen, z. B. `yyyy-MM-dd HH:mm:ss.fff`.  Ausführliche Informationen hierzu finden Sie unter [Benutzerdefinierte Formatzeichenfolgen für Datum und Uhrzeit](/dotnet/standard/base-types/custom-date-and-time-format-strings). | Nein       |
+| dateTimeOffsetFormat             | Formatzeichenfolge beim Konvertieren von Datumsangaben mit Zeitzonenoffset und Zeichenfolgen, z. B. `yyyy-MM-dd HH:mm:ss.fff zzz`.  Ausführliche Informationen hierzu finden Sie unter [Benutzerdefinierte Formatzeichenfolgen für Datum und Uhrzeit](/dotnet/standard/base-types/custom-date-and-time-format-strings). | Nein       |
+| timeSpanFormat                   | Formatzeichenfolge beim Konvertieren von Zeiträumen und Zeichenfolgen, z. B. `dd\.hh\:mm`. Ausführliche Informationen hierzu finden Sie unter [Benutzerdefinierte TimeSpan-Formatzeichenfolgen](/dotnet/standard/base-types/custom-timespan-format-strings). | Nein       |
 | culture                          | Kulturinformationen, die beim Konvertieren von Datentypen verwendet werden sollen, z. B. `en-us` oder `fr-fr`. | Nein       |
 
 **Beispiel:**

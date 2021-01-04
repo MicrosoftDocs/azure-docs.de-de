@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 11/18/2019
-ms.openlocfilehash: 20045ce914a340ac36e4df8cbd0df38e872a1d38
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 387eb4f4c73b2103a7461c0d06c4d0e0562ec9db
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487329"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842463"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Verwenden von strukturiertem Apache Spark-Streaming mit Apache Kafka und Azure Cosmos DB
 
@@ -78,13 +78,13 @@ Es ist zwar möglich, ein virtuelles Azure-Netzwerk, einen Kafka-Cluster und ein
 
     ![HDInsight – Benutzerdefinierte Bereitstellungswerte](./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png)
 
-1. Lesen Sie die **Geschäftsbedingungen** , und wählen Sie anschließend die Option **Ich stimme den oben genannten Geschäftsbedingungen zu** .
+1. Lesen Sie die **Geschäftsbedingungen**, und wählen Sie anschließend die Option **Ich stimme den oben genannten Geschäftsbedingungen zu**.
 
 1. Wählen Sie abschließend **Kaufen** aus. Das Erstellen des Clusters, des virtuellen Netzwerks und des Cosmos DB-Kontos kann bis zu 45 Minuten dauern.
 
 ## <a name="create-the-cosmos-db-database-and-collection"></a>Erstellen der Cosmos DB-Datenbank und -Sammlung
 
-Das in diesem Dokument verwendete Projekt speichert Daten in Cosmos DB. Bevor Sie den Code ausführen, müssen Sie zuerst eine _Datenbank_ und _Sammlung_ in Ihrer Cosmos DB-Instanz erstellen. Sie müssen auch den Dokumentendpunkt abrufen und den _Schlüssel_ , der zum Authentifizieren von Anforderungen an Cosmos DB verwendet wird.
+Das in diesem Dokument verwendete Projekt speichert Daten in Cosmos DB. Bevor Sie den Code ausführen, müssen Sie zuerst eine _Datenbank_ und _Sammlung_ in Ihrer Cosmos DB-Instanz erstellen. Sie müssen auch den Dokumentendpunkt abrufen und den _Schlüssel_, der zum Authentifizieren von Anforderungen an Cosmos DB verwendet wird.
 
 Hierfür bietet sich die [Azure CLI](/cli/azure/) an. Das folgende Skript erstellt eine Datenbank namens `kafkadata` und eine Sammlung mit dem Namen `kafkacollection`. Anschließend gibt sie den primären Schlüssel zurück.
 
@@ -134,7 +134,7 @@ Den Code für das in diesem Dokument beschriebene Beispiel finden Sie unter [htt
 
 Befolgen Sie die folgenden Schritte, um die Notebooks aus dem Projekt auf Ihr Spark auf HDInsight-Cluster hochzuladen:
 
-1. Verbinden Sie in Ihrem Webbrowser das Jupyter Notebook mit Ihrem Spark-Cluster. Ersetzen Sie in der folgenden URL `CLUSTERNAME` durch den Namen Ihres __Spark__ -Clusters:
+1. Verbinden Sie in Ihrem Webbrowser das Jupyter Notebook mit Ihrem Spark-Cluster. Ersetzen Sie in der folgenden URL `CLUSTERNAME` durch den Namen Ihres __Spark__-Clusters:
 
     ```http
     https://CLUSTERNAME.azurehdinsight.net/jupyter
@@ -142,15 +142,15 @@ Befolgen Sie die folgenden Schritte, um die Notebooks aus dem Projekt auf Ihr Sp
 
     Geben Sie bei Aufforderung den Clusterbenutzernamen (Administrator) und das Kennwort ein, den bzw. das Sie beim Erstellen des Clusters verwendet haben.
 
-2. Klicken Sie oben rechts auf der Seite auf die Schaltfläche __Hochladen__ , um die Datei __Stream-taxi-data-to-kafka.ipynb__ auf den Cluster hochzuladen. Wählen Sie __Öffnen__ , um das Hochladen zu starten.
+2. Klicken Sie oben rechts auf der Seite auf die Schaltfläche __Hochladen__, um die Datei __Stream-taxi-data-to-kafka.ipynb__ auf den Cluster hochzuladen. Wählen Sie __Öffnen__, um das Hochladen zu starten.
 
-3. Suchen Sie in der Liste der Notebooks nach dem Eintrag __Stream-taxi-data-to-kafka.ipynb__ , und klicken Sie auf die Schaltfläche __Hochladen__ neben dem Eintrag.
+3. Suchen Sie in der Liste der Notebooks nach dem Eintrag __Stream-taxi-data-to-kafka.ipynb__, und klicken Sie auf die Schaltfläche __Hochladen__ neben dem Eintrag.
 
 4. Wiederholen Sie die Schritte 1–3, um das Notebook __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ zu laden.
 
 ## <a name="load-taxi-data-into-kafka"></a>Laden von Taxidaten in Kafka
 
-Nachdem die Dateien hochgeladen wurden, wählen Sie den Eintrag __Stream-taxi-data-to-kafka.ipynb__ , um das Notebook zu öffnen. Befolgen Sie die Schritte im Notebook, um Daten in Kafka zu laden.
+Nachdem die Dateien hochgeladen wurden, wählen Sie den Eintrag __Stream-taxi-data-to-kafka.ipynb__, um das Notebook zu öffnen. Befolgen Sie die Schritte im Notebook, um Daten in Kafka zu laden.
 
 ## <a name="process-taxi-data-using-spark-structured-streaming"></a>Verarbeiten von Taxidaten mithilfe von strukturiertem Spark-Streaming
 

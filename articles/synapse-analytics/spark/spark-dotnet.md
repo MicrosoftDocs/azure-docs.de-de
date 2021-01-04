@@ -9,16 +9,16 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: mamccrea
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4b512d0817c56bc2daabff057c8bc4aa1afa1dee
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 753c7ff48960711cbedbf6b5d8644a26502dd413
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91826510"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023740"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Verwenden von .NET für Apache Spark mit Azure Synapse Analytics
 
-[.NET für Apache Spark](https://dot.net/spark) bietet kostenlose, Open-Source-basierte und plattformübergreifende .NET-Unterstützung für Spark. 
+[.NET für Apache Spark](https://dot.net/spark) bietet kostenlose, [Open-Source](https://github.com/dotnet/spark)-basierte und plattformübergreifende .NET-Unterstützung für Spark. 
 
 Es stellt .NET-Bindungen für Spark bereit, mit denen Sie über C# und F# auf Spark-APIs zugreifen können. Mit .NET für Apache Spark haben Sie die Möglichkeit, in .NET geschriebene benutzerdefinierte Funktionen für Spark zu schreiben und auszuführen. Mit den .NET-APIs für Spark können Sie auf alle Aspekte von Spark-Datenrahmen zugreifen, die Ihnen helfen, Ihre Daten zu analysieren, einschließlich Spark SQL, Delta Lake und strukturiertem Streaming.
 
@@ -48,15 +48,15 @@ Besuchen Sie das Tutorial, um zu erfahren, wie Sie Azure Synapse Analytics zum [
 
     **Unter Windows:**
 
-Verwenden Sie ein Extraktionsprogramm wie [7-Zip](https://www.7-zip.org/) oder [WinZip](https://www.winzip.com/), um die Datei mit allen veröffentlichten Binärdateien in das bin-Verzeichnis zu extrahieren.
+    Verwenden Sie ein Extraktionsprogramm wie [7-Zip](https://www.7-zip.org/) oder [WinZip](https://www.winzip.com/), um die Datei mit allen veröffentlichten Binärdateien in das bin-Verzeichnis zu extrahieren.
 
-     **On Linux:**
+    **Unter Linux:**
 
-     1. Open a bash shell and cd into the bin directory with all the published binaries and run the following command.
+    Öffnen Sie eine Bash-Shell, wechseln Sie mit „cd“ in das Verzeichnis „bin“, das alle veröffentlichten Binärdateien enthält, und führen Sie den folgenden Befehl aus.
 
-       ```bash
-       zip -r publish.zip
-       ```
+    ```bash
+    zip -r publish.zip
+    ```
 
 ## <a name="net-for-apache-spark-in-azure-synapse-analytics-notebooks"></a>.NET für Apache Spark mit Azure Synapse Analytics-Notebooks 
 
@@ -68,9 +68,17 @@ Data Engineers, Data Scientists, Wirtschaftsanalytiker und Machine Learning-Tech
 
 Wenn Sie ein neues Notebook erstellen, wählen Sie einen Sprachkernel aus, mit dem Sie Ihre Geschäftslogik umsetzen möchten. Kernelunterstützung ist für mehrere Sprachen verfügbar, einschließlich C#.
 
-Um .NET für Apache Spark in Ihrem Azure Synapse Analytics-Notebook zu verwenden, wählen Sie **.NET Spark (C#)** als Ihren Kernel aus, und fügen Sie das Notebook an einen vorhandenen Spark-Pool an.
+Um .NET für Apache Spark in Ihrem Azure Synapse Analytics-Notebook zu verwenden, wählen Sie **.NET Spark (C#)** als Ihren Kernel aus, und fügen Sie das Notebook an einen vorhandenen serverlosen Apache Spark-Pool an.
 
-Das .NET Spark-Notebook basiert auf den interaktiven .NET-Erfahrungen und bietet interaktive C#-Erfahrungen mit der Möglichkeit zur Verwendung des standardmäßigen .NET für Spark mit bereits vordefinierter Spark-Sitzungsvariable `spark`.
+Das .NET Spark-Notebook basiert auf den [interaktiven .NET](https://github.com/dotnet/interactive)-Erfahrungen und bietet interaktive C#-Erfahrungen mit der Möglichkeit zur Verwendung des standardmäßigen .NET für Spark mit bereits vordefinierter Spark-Sitzungsvariable `spark`.
+
+### <a name="install-nuget-packages-in-notebooks"></a>Installieren von NuGet-Paketen in Notebooks
+
+Sie können NuGet-Pakete Ihrer Wahl in Ihrem Notebook installieren, indem Sie den Magic-Befehl `#r nuget` vor dem Namen des NuGet-Pakets verwenden. Das folgende Diagramm zeigt ein Beispiel:
+
+![Screenshot, der die Verwendung von #r zum Installieren eines NuGet-Pakets in einem Spark .NET-Notebook zeigt.](./media/apache-spark-development-using-notebooks/synapse-spark-dotnet-notebook-nuget.png)
+
+Weitere Informationen zum Arbeiten mit NuGet-Paketen in Notebooks finden Sie in der [.NET Interactive-Dokumentation](https://github.com/dotnet/interactive/blob/main/docs/nuget-overview.md).
 
 ### <a name="net-for-apache-spark-c-kernel-features"></a>.NET für Apache Spark-Funktionen des C#-Kernels
 
@@ -80,14 +88,15 @@ Die folgenden Funktionen sind verfügbar, wenn Sie .NET für Apache Spark im Azu
 * Einfache C#-Anweisungen (z. B. Zuweisungen, Ausgaben in der Konsole, Auslösen von Ausnahmen usw.).
 * Mehrzeilige C#-Codeblöcke (z. B. if-Anweisungen, Foreach-Schleifen, Klassendefinitionen usw.).
 * Zugriff auf die C#-Standardbibliothek (z. B. System, LINQ, Enumerables usw.).
-* Unterstützung für [C# 8.0-Sprachfunktionen](/dotnet/csharp/whats-new/csharp-8?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-* „spark“ als vordefinierte Variable, um Ihnen Zugriff auf Ihre Apache Spark-Sitzung zu gewähren.
-* Unterstützung für das Definieren von [benutzerdefinierten .NET-Funktionen, die in Apache Spark ausgeführt werden können](https://github.com/dotnet/spark/blob/master/examples/Microsoft.Spark.CSharp.Examples/Sql).
+* Unterstützung für C# 8.0-Sprachfunktionen.
+* `spark` als vordefinierte Variable, um Ihnen Zugriff auf Ihre Apache Spark-Sitzung zu gewähren.
+* Unterstützung für das Definieren von [benutzerdefinierten .NET-Funktionen, die in Apache Spark ausgeführt werden können](/dotnet/spark/how-to-guides/udf-guide). Um weitere Informationen zur Verwendung von UDFs in interaktiven .NET für Apache Spark-Umgebungen zu erhalten, empfehlen wir [Schreiben und Aufrufen von UDFs in interaktiven .NET für Apache Spark-Umgebungen](/dotnet/spark/how-to-guides/dotnet-interactive-udf-issue).
 * Unterstützung für die Visualisierung der Ausgabe von Spark-Aufträgen mithilfe verschiedener Diagramme (z. B. Linie, Balken oder Histogramm) und Layouts (z. B. einzeln, überlagert usw.) mithilfe der `XPlot.Plotly`-Bibliothek.
 * Möglichkeit zum Einschließen von NuGet-Paketen in Ihr C#-Notebook.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Dokumentation zu .NET für Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-* [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+* [Dokumentation zu .NET für Apache Spark](/dotnet/spark/)
+* [Leitfäden zu interaktivem .NET für Apache Spark](/dotnet/spark/how-to-guides/dotnet-interactive-udf-issue)
+* [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/)
 * [.NET interaktiv](https://devblogs.microsoft.com/dotnet/creating-interactive-net-documentation/)

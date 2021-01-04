@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 290990e312a7f591539686ecce1eec1ac742dd60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0dcaec9c8e9a310af1fd6fc319e0784694610e2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89443023"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463087"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Verschieben von Daten mithilfe von Azure Data Factory
 > [!div class="op_single_selector" title1="Wählen Sie die von Ihnen verwendete Version des Data Factory-Diensts aus:"]
@@ -101,7 +101,7 @@ Alternativ können Sie auch den Typ **RelationalSource**, der Amazon Redshift en
 
 Der Amazon Redshift-Befehl [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) wird die Ergebnisse einer Abfrage auf eine oder mehrere Dateien auf Amazon S3 entladen. Dieser Befehl wird von Amazon zum Kopieren großer Datasets aus Redshift empfohlen.
 
-**Beispiel: Kopieren von Daten aus Amazon Redshift in Azure Synapse Analytics (vormals SQL Data Warehouse)**
+**Beispiel: Kopieren von Daten aus Amazon Redshift zu Azure Synapse Analytics**
 
 Dieses Beispiel kopiert Daten aus Amazon Redshift in Azure Synapse Analytics. Das Beispiel verwendet den Redshift-Befehl **UNLOAD**, gestaffelte Kopierdaten und Microsoft PolyBase.
 

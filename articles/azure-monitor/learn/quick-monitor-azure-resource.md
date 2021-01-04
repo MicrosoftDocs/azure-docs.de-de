@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 7f70994f35148614fb048ed2c3297727d5099b05
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 00cec2ca11b77f6cb9d6c0f3c429931bdcc6f6e4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056513"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186132"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>Schnellstart: Überwachen einer Azure-Ressource mit Azure Monitor
 [Azure Monitor](../overview.md) beginnt in dem Moment, in dem Azure-Ressourcen erstellt werden, mit dem Sammeln von Daten aus diesen Ressourcen. Diese Schnellstartanleitung bietet eine kurze Übersicht darüber, welche Daten für eine Ressource automatisch gesammelt werden, und erläutert, wie Sie die Daten für eine bestimmte Ressource im Azure-Portal anzeigen können. Später können Sie Einstellungen für die Sammlung weiterer Daten konfigurieren und zum Azure Monitor-Menü wechseln, um mit denselben Tools auf Daten zuzugreifen, die für alle Ressourcen in Ihrem Abonnement gesammelt wurden.
@@ -70,5 +70,4 @@ Metriken sind numerische Werte, die einen Aspekt Ihrer Ressource zu einem bestim
 In dieser Schnellstartanleitung haben Sie das Aktivitätsprotokoll und die Metriken für eine Azure-Ressource angezeigt, die von Azure Monitor automatisch erfasst werden. Fahren Sie mit dem nächsten Schnellstart fort, der Ihnen zeigt, wie Sie das Aktivitätsprotokoll in einem Log Analytics-Arbeitsbereich erfassen, wo es mit [Protokollabfragen](../log-query/log-query-overview.md) analysiert werden kann.
 
 > [!div class="nextstepaction"]
-> [Senden eines Azure-Aktivitätsprotokolls an einen Log Analytics-Arbeitsbereich](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-activity-log-portal)
-
+> [Senden eines Azure-Aktivitätsprotokolls an einen Log Analytics-Arbeitsbereich](./quick-collect-activity-log-portal.md)

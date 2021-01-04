@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e661485e58c7e00c4eee41d808f727153a7761c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb883b70d1ae9f2894c7679633a586586922aa18
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86525040"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92419946"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Sichern von Workload-VMs in einer privaten CloudSimple-Cloud mithilfe von Veeam B&R
 
@@ -56,7 +56,7 @@ Für Umgebungen, in denen weniger als 30 TB gesichert werden müssen, empfiehlt 
 * Ein Linux-basiertes primäres Sicherungsrepository in Azure, das als Ziel für Sicherungsaufträge konfiguriert ist.
 * `azcopy` wird verwendet, um die Daten aus dem primären Sicherungsrepository in einen Azure-Blobcontainer zu kopieren, der in eine andere Region repliziert wird.
 
-![Grundlegende Bereitstellungsszenarien](media/veeam-basicdeployment.png)
+![Diagramm grundlegender Bereitstellungsszenarien für Veeam.](media/veeam-basicdeployment.png)
 
 **Erweiterte Bereitstellung**
 

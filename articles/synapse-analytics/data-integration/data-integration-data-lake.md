@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: cc5c72c2d0db7c17fdbc29e7fb815f1d06134730
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 495300d677d6d898bfc916e5115b801c815bd587
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033216"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461483"
 ---
 # <a name="ingest-data-into-azure-data-lake-storage-gen2"></a>Erfassen von Daten in Azure Data Lake Storage Gen2 
 
@@ -38,7 +38,7 @@ In Azure Synapse Analytics definieren Sie in einem verknüpften Dienst Ihre Verb
 
 ## <a name="create-pipeline"></a>Erstellen der Pipeline
 
-Eine Pipeline enthält den logischen Ablauf für die Ausführung einer Aktivitätenmenge. In diesem Abschnitt erstellen Sie eine Pipeline mit einer Kopieraktivität, die Daten aus Azure Data Lake Gen 2 in einem SQL-Pool erfasst.
+Eine Pipeline enthält den logischen Ablauf für die Ausführung einer Aktivitätenmenge. In diesem Abschnitt wird eine Pipeline mit einer Kopieraktivität erstellt, die Daten aus Azure Data Lake Gen2 in einem dedizierten SQL-Pool erfasst.
 
 1. Wechseln Sie zur Registerkarte **Orchestrieren**. Klicken Sie neben dem Header „Pipelines“ auf das Pluszeichen und anschließend auf **Pipeline**.
 1. Ziehen Sie im Bereich „Aktivitäten“ unter **Verschieben und transformieren** den Befehl **Daten kopieren** auf die Pipelinecanvas.
@@ -67,9 +67,9 @@ In diesem Schritt lösen Sie die im vorherigen Schritt veröffentlichte Pipeline
 1. Wählen Sie in der Symbolleiste die Option **Trigger hinzufügen** und dann **Jetzt auslösen**. Klicken Sie auf der Seite **Pipeline Run** (Pipelineausführung) auf **Fertig stellen**.  
 1. Wechseln Sie in der linken Randleiste zur Registerkarte **Monitor**. Sie sehen eine Pipelineausführung, die von einem manuellen Trigger ausgelöst wird. Sie können über Links in der Spalte **Aktionen** Aktivitätsdetails anzeigen und die Pipeline erneut ausführen.
 1. Klicken Sie in der Spalte **Aktionen** auf den Link **View Activity Runs** (Aktivitätsausführungen anzeigen), um mit der Pipelineausführung verknüpfte Aktivitätsausführungen anzuzeigen. Da in diesem Beispiel nur eine Aktivität vorhanden ist, wird in der Liste nur ein Eintrag angezeigt. Wenn Sie Details zum Kopiervorgang anzeigen möchten, klicken Sie auf den Link **Details** (Brillensymbol) in der Spalte **Aktionen**. Wählen Sie oben **Pipelineausführungen** aus, um zurück zur Ansicht mit den Pipelineausführungen zu wechseln. Klicken Sie zum Aktualisieren der Ansicht auf **Aktualisieren**.
-1. Überprüfen Sie, ob Ihre Daten im SQL-Pool richtig geschrieben werden.
+1. Vergewissern Sie sich, dass Ihre Daten korrekt in den dedizierten SQL-Pool geschrieben werden.
 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zur Datenintegration bei Synapse Analytics finden Sie im Artikel [Erfassen von Daten in einem SQL-Pool](data-integration-sql-pool.md).
+Weitere Informationen zur Datenintegration für Azure Synapse Analytics finden Sie im Artikel [Erfassen von Daten in einem dedizierten SQL-Pool](data-integration-sql-pool.md).

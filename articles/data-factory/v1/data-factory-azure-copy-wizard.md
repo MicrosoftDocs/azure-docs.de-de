@@ -10,17 +10,18 @@ ms.assetid: 0974eb40-db98-4149-a50d-48db46817076
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2dfb5876922fd53c372afe82ecdfa843179fb135
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99c7490c4bf842da119a3a0abd4623c64d720ac8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439009"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462223"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Kopier-Assistent in Azure Data Factory
+
 > [!NOTE]
 > Dieser Artikel gilt für Version 1 von Data Factory. 
 
@@ -35,8 +36,6 @@ Mit diesem Assistenten können Sie problemlos Daten in wenigen Minuten aus einer
 
 > [!NOTE]
 > Im [Tutorial zum Kopier-Assistenten](data-factory-copy-data-wizard-tutorial.md) finden Sie schrittweise Anweisungen zum Erstellen einer Beispielpipeline, um Daten aus einem Azure-Blob in eine Azure SQL-Datenbanktabelle zu kopieren.
->
->
 
 Der Assistent wurde von Beginn an für Big Data konzipiert und bietet Unterstützung für verschiedene Daten- und Objekttypen. Sie können Data Factory-Pipelines erstellen, die Hunderte von Ordnern, Dateien oder Tabellen verschieben können. Der Assistent unterstützt die automatische Datenvorschau, Schemaerfassung und -zuordnung sowie das Filtern von Daten.
 
@@ -49,8 +48,7 @@ Sie können eine Vorschau für einen Teil der Daten aus der ausgewählten Datenq
 Das Schema der Eingabedaten stimmt nicht in jedem Fall mit dem Schema der Ausgabedaten überein. In diesem Szenario müssen die Spalten des Quellschemas den Spalten des Zielschemas zugeordnet werden.
 
 > [!TIP]
-> Beim Kopieren von Daten aus SQL Server oder Azure SQL-Datenbank in Azure Synapse Analytics (vormals SQL Data Warehouse) unterstützt Data Factory die automatische Tabellenerstellung anhand des Quellschemas, wenn die Tabelle im Zielspeicher nicht vorhanden ist. Weitere Informationen finden Sie unter [Verschieben von Daten in und aus Azure Synapse Analytics mithilfe von Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
->
+> Beim Kopieren von Daten aus SQL Server oder Azure SQL-Datenbank in Azure Synapse Analytics unterstützt Data Factory die automatische Tabellenerstellung anhand des Quellschemas, wenn die Tabelle im Zielspeicher nicht vorhanden ist. Weitere Informationen finden Sie unter [Verschieben von Daten in und aus Azure Synapse Analytics mithilfe von Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
 
 Verwenden Sie eine Dropdownliste, um eine Spalte aus dem Quellschema auszuwählen, die einer Spalte im Zielschema zugeordnet werden soll. Der Kopier-Assistent versucht, das Muster für die Spaltenzuordnung zu verstehen. Er wendet das gleiche Muster auf die restlichen Spalten an, damit Sie nicht jede Spalte einzeln auswählen müssen, um die Schemazuordnung abzuschließen. Falls gewünscht, können Sie diese Zuordnungen überschreiben, indem Sie mithilfe der Dropdownlisten die Spalten einzeln zuordnen. Das Muster wird genauer, wenn Sie mehr Spalten zugeordnet haben. Der Kopier-Assistent aktualisiert das Muster ständig und erreicht letztlich das richtige Muster für die Spaltenzuordnung, die Sie erreichen möchten.     
 
@@ -80,7 +78,7 @@ Klicken Sie auf die Schaltfläche **Durchsuchen** für **Datei oder Ordner**, na
 
 ![Verwenden von Systemvariablen](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-Sie können auch eine **benutzerdefinierte** Variable und beliebige [unterstützte Formatzeichenfolgen](https://msdn.microsoft.com/library/8kb3ddd4.aspx)verwenden (siehe Screenshot unten). Um einen Ordner mit dieser Struktur auszuwählen, verwenden Sie zunächst die Schaltfläche **Durchsuchen** . Ersetzen Sie dann einen Wert mit **{custom}** , und drücken Sie die **TAB**-TASTE, um das Textfeld anzuzeigen, in dem Sie die Formatzeichenfolge eingeben können.     
+Sie können auch eine **benutzerdefinierte** Variable und beliebige [unterstützte Formatzeichenfolgen](/dotnet/standard/base-types/custom-date-and-time-format-strings)verwenden (siehe Screenshot unten). Um einen Ordner mit dieser Struktur auszuwählen, verwenden Sie zunächst die Schaltfläche **Durchsuchen** . Ersetzen Sie dann einen Wert mit **{custom}** , und drücken Sie die **TAB**-TASTE, um das Textfeld anzuzeigen, in dem Sie die Formatzeichenfolge eingeben können.     
 
 ![Verwenden von benutzerdefinierten Variablen](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 
@@ -90,6 +88,49 @@ Sie können den Kopiervorgang einmal oder nach einem Zeitplan (stündlich, tägl
 Ein einmaliger Kopiervorgang ermöglicht nur einmal das Verschieben von Daten aus einer Quelle in ein Ziel. Er gilt für Daten jeder Größe in jedem unterstützten Format. Das Kopieren nach einem Zeitplan ermöglicht Ihnen das Kopieren von Daten nach einem vorgeschriebenen Wiederholungszyklus. Sie können umfangreiche Einstellungen (wie Wiederholen, Timeout, Warnungen usw.) nutzen, um das Kopieren nach einem Zeitplan zu konfigurieren.
 
 ![Planen von Eigenschaften](./media/data-factory-copy-wizard/scheduling-properties.png)
+
+## <a name="troubleshooting"></a>Problembehandlung
+
+In diesem Abschnitt werden die gängigen Problembehandlungsmethoden für den Kopier-Assistenten in Azure Data Factory beschrieben.
+
+> [!NOTE] 
+> Diese Tipps zur Problembehandlung beziehen sich auf den Kopier-Assistenten in Version 1 von Data Factory. Informationen für Data Factory-Version 2 finden Sie im Leitfaden zur Problembehandlung unter [Problembehandlung für Azure Data Factory](../data-factory-ux-troubleshoot-guide.md).
+
+### <a name="error-code-unable-to-validate-in-copy-wizard"></a>Fehlercode: Unable to validate in Copy Wizard (Kann nicht im Kopier-Assistenten überprüft werden)
+
+- **Symptome:** Im ersten Schritt des Kopier-Assistenten tritt die Warnung „Unable to validate“ (Kann nicht überprüft werden) auf.
+- **Ursachen**: Dies könnte auftreten, wenn alle Drittanbietercookies deaktiviert sind.
+- **Lösung:** 
+    - Verwenden der Browser „Internet Explorer“ und „Microsoft Edge“.
+    - Wenn Sie den Chrome-Browser verwenden, befolgen Sie die Anleitung unten, um unten Ausnahmen für Cookies für *microsoftonline.com* und *windows.net* hinzuzufügen.
+        1.  Öffnen Sie den Chrome-Browser.
+        2.  Klicken Sie auf das Schraubendrehersymbol bzw. auf die drei Linien auf der rechten Seite (Customize and control Google Chrome (Anpassen und Steuern von Google Chrome)).
+        3.  Klicken Sie auf **Einstellungen**.
+        4.  Suchen Sie nach **Cookies**, oder navigieren Sie unter „Advanced Settings“ (Erweiterte Einstellungen) zu **Privacy** (Datenschutz).
+        5.  Klicken Sie auf **Content Settings** (Inhaltseinstellungen).    
+        6.  Cookies sollten auf **allow local data to be set (recommended)** (lokale Daten dürfen festgelegt werden (empfohlen)) festgelegt werden.
+        7.  Klicken Sie auf **Manage exceptions** (Ausnahmen verwalten). Geben Sie unter **hostname pattern** (Hostnamemuster) Folgendes ein, und sorgen Sie dafür, dass für das Verhalten **Allow** (Erlauben) festgelegt ist.
+            - login.microsoftonline.com
+            - login.windows.net
+        8.  Schließen Sie den Browser, und starten Sie ihn neu.
+    - Wenn Sie den Firefox-Browser verwenden, befolgen Sie die Anleitung unten, um Cookieausnahmen hinzuzufügen.
+        1. Navigieren Sie im Firefox-Menü zu **Tools** > **Options** (Tools > Optionen).
+        2. Unter **Privacy** > **History** (Datenschutz > Verlauf) wird möglicherweise angezeigt, dass die aktuelle Einstellung **Use Custom settings for history** (Benutzerdefinierte Einstellungen für den Verlauf verwenden) lautet.
+        3. Unter **Accept third-party cookies** (Cookies von Drittanbietern akzeptieren) könnte aktuell die Einstellung **Never** (Nie) festgelegt sein. In diesem Fall sollten Sie rechts auf **Exceptions** (Ausnahmen) klicken, um folgende Websites hinzuzufügen.
+            - https://login.microsoftonline.com
+            - https://login.windows.net
+        4.  Schließen Sie den Browser, und starten Sie ihn neu. 
+
+
+### <a name="error-code-unable-to-open-login-page-and-enter-password"></a>Fehlercode: Unable to open login page and enter password (Das Öffnen der Anmeldeseite und das Eingeben eines Kennworts ist nicht möglich)
+
+- **Symptome:** Der Kopier-Assistent leitet Sie zur Anmeldeseite weiter. Diese wird jedoch nicht erfolgreich angezeigt.
+- **Ursachen**: Dieses Problem kann auftreten, wenn Sie die Netzwerkumgebung von einem Büronetzwerk in ein privates Netzwerk geändert haben. In Browsern gibt es Zwischenspeicher. 
+- **Lösung:** 
+    1.  Schließen Sie den Browser, und versuchen Sie es noch mal. Fahren Sie mit dem nächsten Schritt fort, wenn das Problem weiterhin besteht.   
+    2.  Wenn Sie den Internet Explorer verwenden, versuchen Sie, ihn im privaten Modus zu öffnen. Drücken Sie dazu STRG + UMSCHALT + P. Wenn Sie Chrome verwenden, versuchen Sie, ihn im Inkognitomodus zu öffnen. Drücken Sie dazu STRG + UMSCHALT + N. Fahren Sie mit dem nächsten Schritt fort, wenn das Problem weiterhin besteht. 
+    3.  Verwenden Sie einen anderen Browser. 
+
 
 ## <a name="next-steps"></a>Nächste Schritte
 Eine kurze exemplarische Vorgehensweise zum Erstellen einer Pipeline mit einer Kopieraktivität unter Verwendung des Data Factory-Kopier-Assistenten finden Sie im [Tutorial: Erstellen einer Pipeline mithilfe des Kopier-Assistenten](data-factory-copy-data-wizard-tutorial.md).

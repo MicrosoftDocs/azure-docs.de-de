@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 9/17/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: Gesichtserkennung, Gesichtserkennungssoftware, Gesichtsanalyse, Gesichtsabgleich, Gesichtserkennungs-App, Gesichtserkennungssuche nach Bild, Gesichtserkennungssuche
-ms.openlocfilehash: 0a7e242add9fdaa9e169a4003e8ad8f39b1fb111
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 600ca48cc19ee8723b423e484ec96736a55ae7fc
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91262483"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95532255"
 ---
 # <a name="what-is-the-azure-face-service"></a>Was ist der Azure-Gesichtserkennungsdienst?
 
@@ -34,7 +34,7 @@ Der Gesichtserkennungsdienst verfügt über verschiedene Funktionen für die Ges
 Mit dem Gesichtserkennungsdienst können menschliche Gesichter in einem Bild erkannt und die Rechteckkoordinaten ihrer Positionen zurückgegeben werden. Optional können bei der Gesichtserkennung verschiedene Gesichtsattribute extrahiert werden, z. B. Kopfhaltung, Geschlecht, Alter, Emotionen, Gesichtsbehaarung und Brille.
 
 > [!NOTE]
-> Die Funktion zur Gesichtserkennung ist auch über den [Dienst für maschinelles Sehen](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) verfügbar. Falls Sie aber weitere Vorgänge mit Gesichtserkennungsdaten durchführen möchten, sollten Sie stattdessen den hier beschriebenen Dienst verwenden.
+> Die Funktion zur Gesichtserkennung ist auch über den [Dienst für maschinelles Sehen](../computer-vision/overview.md) verfügbar. Falls Sie aber weitere Vorgänge mit Gesichtserkennungsdaten durchführen möchten, sollten Sie stattdessen den hier beschriebenen Dienst verwenden.
 
 ![Bild von einer Frau und einem Mann mit um die Gesichter gezeichneten Rechtecken und Anzeige von Alter und Geschlecht](./Images/Face.detection.jpg)
 
@@ -76,9 +76,9 @@ Nachdem Sie eine Datenbank erstellt und trainiert haben, können Sie die Identif
 
 Weitere Informationen zur Personenidentifizierung finden Sie im Konzeptleitfaden zur [Gesichtserkennung](concepts/face-recognition.md) oder in der Referenzdokumentation zur [Identify-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
-## <a name="containers"></a>Container
+## <a name="deploy-on-premises-using-docker-containers"></a>Lokales Bereitstellen unter Verwendung von Docker-Containern
 
-[Verwenden Sie den Gesichtserkennungscontainer](face-how-to-install-containers.md), um Gesichter zu erkennen und zu identifizieren. Installieren Sie dazu einen standardisierten Docker-Container, der sich näher bei Ihren Daten befindet.
+[Verwenden Sie den Container für die Gesichtserkennung (Vorschauversion)](face-how-to-install-containers.md), um API-Features lokal bereitzustellen. Mithilfe dieses Docker-Containers können Sie den Dienst näher an Ihre Daten heranbringen, um Compliance- oder Sicherheitsanforderungen zu erfüllen oder anderen betrieblichen Anforderungen gerecht zu werden.
 
 ## <a name="sample-apps"></a>Beispiel-Apps
 

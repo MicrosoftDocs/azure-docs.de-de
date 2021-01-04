@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 8d49d9b9d29116d95173c1daf5133622c3694de6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c4410cb2b9550bc111da96204ada15313867fb1
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86523994"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95238087"
 ---
 # <a name="customize-your-text-translations"></a>Anpassen von Textübersetzungen
 
 Benutzerdefinierter Translator ist ein Feature des Translator-Diensts, mit dem Sie die erweiterte neuronale maschinelle Übersetzung von Microsoft Translator anpassen können, wenn Sie Translator (nur Version 3) zum Übersetzen verwenden.
 
-Das Feature kann mit [Cognitive Services Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/) auch zum Anpassen der Sprachübersetzung verwendet werden.
+Das Feature kann mit [Cognitive Services Speech](../speech-service/index.yml) auch zum Anpassen der Sprachübersetzung verwendet werden.
 
 ## <a name="custom-translator"></a>Benutzerdefinierter Translator
 
@@ -37,31 +37,9 @@ Das benutzerdefinierte System ist dann über einen regulären Aufruf von Transla
 
 Mit dem entsprechenden Typ und der Menge von Trainingsdaten ist es nicht ungewöhnlich, unter Verwendung des benutzerdefinierten Translators Gewinne von fünf bis zehn oder sogar mehr BLEU-Punkten für die Übersetzungsqualität zu erwarten.
 
-Weitere Informationen über die verschiedenen Anpassungsstufen basierend auf verfügbaren Daten finden Sie im [Benutzerleitfaden für den benutzerdefinierten Translator](https://aka.ms/CustomTranslatorDocs).
-
-
-## <a name="microsoft-translator-hub"></a>Microsoft Translator-Hub
-
-> [!NOTE]
-> Der veraltete Microsoft Translator-Hub wird am 17. April 2019 eingestellt. [Anzeigen von wichtigen Migrationsinformationen und Datumsangaben](https://www.microsoft.com/translator/business/hub/).  
-
-## <a name="custom-translator-versus-hub"></a>Benutzerdefinierter Translator im Vergleich zum Hub
-
-| Funktion | Hub | Benutzerdefinierter Translator |
-| ------- | :-: | :---------------: |
-|Status des Anpassungsfeatures    | Allgemeine Verfügbarkeit    | Allgemeine Verfügbarkeit |
-| Version der Text-API    | Nur V2    | Nur V3 |
-| SMT-Anpassung    | Ja    | Nein |
-| NMT-Anpassung    | Nein    | Ja |
-| Neue einheitliche Anpassung der Sprachdienste    | Nein    | Ja |
-| [No Trace (Keine Ablaufverfolgung)](https://www.aka.ms/notrace) | Ja    | Ja |
-
-## <a name="collaborative-translations-framework"></a>Framework für kollaborative Übersetzungen
-
-> [!NOTE]
-> Seit dem 1. Februar 2018 sind „AddTranslation()“ und „AddTranslationArray()“ nicht mehr für die Verwendung mit Translator v2.0 verfügbar. Diese Methoden schlagen fehl, und nichts wird geschrieben. Translator v3.0 unterstützt diese Methoden nicht.
+Weitere Informationen über die verschiedenen Anpassungsstufen basierend auf verfügbaren Daten finden Sie im [Benutzerleitfaden für den benutzerdefinierten Translator](./custom-translator/overview.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 > [!div class="nextstepaction"]
-> [Set up a customized language system using Custom Translator (Einrichten eines angepassten Sprachsystems mit dem benutzerdefinierten Translator)](https://aka.ms/CustomTranslatorDocs)
+> [Set up a customized language system using Custom Translator (Einrichten eines angepassten Sprachsystems mit dem benutzerdefinierten Translator)](./custom-translator/overview.md)

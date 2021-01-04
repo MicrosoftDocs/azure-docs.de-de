@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8d6dc91ae7bb0f6d7a24064749d9295558a7d39c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cd872d66088e165bfc8356ab6d96a0a6135a0e0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68946340"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538307"
 ---
 # <a name="detect-domain-specific-content"></a>Erkennen domänenspezifischer Inhalte
 
@@ -26,7 +26,7 @@ Es gibt zwei Möglichkeiten für die Verwendung von domänenspezifischen Modelle
 
 ### <a name="scoped-analysis"></a>Bereichsbezogene Analyse
 
-Sie können ein Bild analysieren, indem Sie nur das domänenspezifische Modell nutzen. Rufen Sie hierfür die API [Models/\<model\>/Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) auf.
+Sie können ein Bild analysieren, indem Sie nur das domänenspezifische Modell nutzen. Rufen Sie hierfür die API [Models/\<model\>/Analyze](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) auf.
 
 Hier ist eine JSON-Beispielantwort angegeben, die von der API **models/celebrities/analyze** für das jeweilige Bild zurückgegeben wird:
 
@@ -57,7 +57,7 @@ Hier ist eine JSON-Beispielantwort angegeben, die von der API **models/celebriti
 
 ### <a name="enhanced-categorization-analysis"></a>Verbesserte Kategorisierungsanalyse
 
-Sie können domänenspezifische Modelle auch verwenden, um die allgemeine Bildanalyse zu erweitern. Dies ist im Rahmen der [allgemeinen Kategorisierung](concept-categorizing-images.md) möglich, indem domänenspezifische Modelle im Parameter *details* des [Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)-API-Aufrufs angegeben werden.
+Sie können domänenspezifische Modelle auch verwenden, um die allgemeine Bildanalyse zu erweitern. Dies ist im Rahmen der [allgemeinen Kategorisierung](concept-categorizing-images.md) möglich, indem domänenspezifische Modelle im Parameter *details* des [Analyze](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b)-API-Aufrufs angegeben werden.
 
 In diesem Fall wird zuerst die Klassifizierung der 86-Kategorien-Taxonomie aufgerufen. Wenn erkannte Kategorien über ein passendes domänenspezifisches Modell verfügen, wird das Bild auch über dieses Modell übergeben, und die Ergebnisse werden hinzugefügt.
 
@@ -105,7 +105,7 @@ Derzeit werden für das maschinelle Sehen die folgenden domänenspezifischen Mod
 | Prominente | Erkennung berühmter Personen, die für Bilder unterstützt wird, die in die Kategorie `people_` klassifiziert werden |
 | Wahrzeichen | Erkennung von Wahrzeichen, die für Bilder unterstützt wird, die in die Kategorien `outdoor_` oder `building_` klassifiziert werden |
 
-Durch das Aufrufen der [Models](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd)-API werden diese Informationen zusammen mit den Kategorien zurückgegeben, für die die einzelnen Modelle gelten können:
+Durch das Aufrufen der [Models](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20e)-API werden diese Informationen zusammen mit den Kategorien zurückgegeben, für die die einzelnen Modelle gelten können:
 
 ```json
 {

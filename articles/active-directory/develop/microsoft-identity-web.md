@@ -13,16 +13,16 @@ ms.date: 10/09/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 77cb3b0c13a6bfe41c6f7a1a5a0f9d7278aea1db
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: b82e300128a41f8315132e1ff93af33c853edb15
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930151"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173514"
 ---
 # <a name="microsoft-identity-web-authentication-library"></a>Microsoft Identity Web-Authentifizierungsbibliothek
 
-Microsoft Identity Web ist ein Satz von ASP.NET Core-Bibliotheken, der das Hinzufügen von Authentifizierung und Autorisierung zu Web-Apps und Web-APIs vereinfacht, die in die Microsoft Identity-Plattform integriert sind. Er bietet eine praktische API-Schicht mit einer einzelnen Benutzeroberfläche, in der ASP.NET Core, seine Authentifizierungsmiddleware und die [Microsoft-Authentifizierungsbibliothek (Microsoft Authentication Library, MSAL) für .NET](https://github.com/azuread/microsoft-authentication-library-for-dotnet) zusammengefasst werden.
+Microsoft Identity Web ist ein Satz von ASP.NET Core-Bibliotheken, der das Hinzufügen von Authentifizierung und Autorisierung zu Web-Apps und Web-APIs vereinfacht, die in die Microsoft Identity-Plattform integriert sind. Es stellt einen API-Convenience-Layer mit zentraler Oberfläche bereit, der ASP.NET Core, die zugehörige Authentifizierungsmiddleware und die [Microsoft-Authentifizierungsbibliothek (Microsoft Authentication Library, MSAL) für .NET](https://github.com/azuread/microsoft-authentication-library-for-dotnet) zusammenführt.
 
 ## <a name="supported-application-scenarios"></a>Unterstützte Anwendungsszenarien
 
@@ -58,14 +58,14 @@ dotnet new --install Microsoft.Identity.Web.ProjectTemplates::1.0.0
 
 Das folgende Diagramm zeigt eine allgemeine Übersicht über die unterstützten App-Typen und ihre relevanten Argumente:
 
-:::image type="content" source="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" lightbox="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" alt-text="Diagramm der verfügbaren Dotnet-CLI-Projektvorlagen für Microsoft Identity Web&quot;:::
+:::image type="content" source="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" lightbox="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" alt-text="Diagramm der verfügbaren Dotnet-CLI-Projektvorlagen für Microsoft Identity Web":::
 <br /><sup><b>*</b></sup> `MultiOrg` wird nicht mit `webapi2` unterstützt, kann jedoch in *appsettings.json* aktiviert werden, indem der Mandant auf `common` oder `organizations` festgelegt wird.
 <br /><sup><b>**</b></sup> `--calls-graph` wird für Azure AD B2C nicht unterstützt.
 
 Dieser .NET-CLI-Beispielbefehl aus unserem [Blazor Server-Tutorial](tutorial-blazor-server.md) generiert ein neues Blazor Server Projekt, das die richtigen Pakete und den richtigen Startcode enthält (Platzhalterwerte werden angezeigt):
 
 ```dotnetcli
-dotnet new blazorserver2 --auth SingleOrg --calls-graph --client-id &quot;00000000-0000-0000-0000-000000000000&quot; --tenant-id &quot;11111111-1111-1111-1111-111111111111" --output my-blazor-app
+dotnet new blazorserver2 --auth SingleOrg --calls-graph --client-id "00000000-0000-0000-0000-000000000000" --tenant-id "11111111-1111-1111-1111-111111111111" --output my-blazor-app
 ```
 
 #### <a name="github"></a>GitHub
@@ -82,7 +82,7 @@ Microsoft Identity Web enthält mehrere Features, die nicht bereitgestellt werde
 |------------------------------------------------------------------------------------------|----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | [Anmelden von Benutzern](scenario-web-app-sign-user-app-configuration.md) in Web-Apps             | <li>Geschäfts-, Schul- oder Unikonten<li>Identitäten in sozialen Netzwerken (mit Azure AD B2C) | <li>Geschäfts-, Schul- oder Unikonten<li>Persönliche Microsoft-Konten<li>Identitäten in sozialen Netzwerken (mit Azure AD B2C)     |
 | [Schützen von Web-APIs](scenario-protected-web-api-app-configuration.md#microsoftidentityweb) | <li>Geschäfts-, Schul- oder Unikonten<li>Identitäten in sozialen Netzwerken (mit Azure AD B2C) | <li>Geschäfts-, Schul- oder Unikonten<li>Persönliche Microsoft-Konten<li>Identitäten in sozialen Netzwerken (mit Azure AD B2C)     |
-| Ausstellerüberprüfung in mehrinstanzenfähigen Apps                                                   | Nein                                                                   | Ja, für [alle Clouds](authentication-national-cloud.md) und [Azure AD B2C](/azure/active-directory-b2c) |
+| Ausstellerüberprüfung in mehrinstanzenfähigen Apps                                                   | Nein                                                                   | Ja, für [alle Clouds](authentication-national-cloud.md) und [Azure AD B2C](../../active-directory-b2c/index.yml) |
 | Web-App/API [ruft Microsoft Graph auf] [Szenario-API-Aufruf-Graph]                             | Nein                                                                   | Ja                                                                                                     |
 | Web-App/API [ruft Web-API auf] [Szenario-API-Aufruf-API]                                       | Nein                                                                   | Ja                                                                                                     |
 | Unterstützt Zertifikatanmeldeinformationen                                                         | Nein                                                                   | Ja, einschließlich Azure Key Vault                                                                          |

@@ -1,17 +1,17 @@
 ---
 title: Beispiele für Resource Manager-Vorlagen für Agents
-description: Hier finden Sie Beispiele für Azure Resource Manager-Vorlagen zum Bereitstellen und Konfigurieren des Log Analytics-Agents und der Diagnoseerweiterung in Azure Monitor.
+description: Hier finden Sie Beispiele für Azure Resource Manager-Vorlagen zum Bereitstellen und Konfigurieren von Agents für virtuelle Computer in Azure Monitor.
 ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 05/18/2020
-ms.openlocfilehash: 8b0673e534826acb5ff2d3747053f58fb39ff285
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/17/2020
+ms.openlocfilehash: 00d6635b7bb322d28f0fe3df509ce0cb03e19f3d
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83853116"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95308663"
 ---
 # <a name="resource-manager-template-samples-for-agents-in-azure-monitor"></a>Beispiele für Resource Manager-Vorlagen für Agents in Azure Monitor
 Dieser Artikel enthält Beispiele für [Azure Resource Manager-Vorlagen](../../azure-resource-manager/templates/template-syntax.md) zum Bereitstellen und Konfigurieren des [Log Analytics-Agents](../platform/log-analytics-agent.md) und der [Diagnoseerweiterung](../platform/diagnostics-extension-overview.md) für virtuelle Computer in Azure Monitor. Jedes Beispiel umfasst eine Vorlagendatei und eine Parameterdatei mit Beispielwerten für die Vorlage.
@@ -19,10 +19,218 @@ Dieser Artikel enthält Beispiele für [Azure Resource Manager-Vorlagen](../../a
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
-## <a name="windows-log-analytics-agent"></a>Log Analytics-Agent unter Windows
+## <a name="azure-monitor-agent-preview"></a>Azure Monitor-Agent (Vorschau)
+Die Beispiele in diesem Abschnitt betreffen den Azure Monitor-Agent (Vorschau) unter Windows und Linux. Dies umfasst die Installation des Agents auf virtuellen Computern in Azure und auf Servern mit Azure Arc-Unterstützung. 
+
+### <a name="windows-azure-virtual-machine"></a>Virtueller Windows-Computer in Azure
+Im folgenden Beispiel wird der Azure Monitor-Agent auf einem virtuellen Windows-Computer in Azure installiert.
+
+#### <a name="template-file"></a>Vorlagendatei
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "vmName": {
+          "type": "string"
+      },
+      "location": {
+          "type": "string"
+      }
+  },
+  "resources": [
+      {
+          "name": "[concat(parameters('vmName'),'/AzureMonitorWindowsAgent')]",
+          "type": "Microsoft.Compute/virtualMachines/extensions",
+          "location": "[parameters('location')]",
+          "apiVersion": "2020-06-01",
+          "properties": {
+              "publisher": "Microsoft.Azure.Monitor",
+              "type": "AzureMonitorWindowsAgent",
+              "typeHandlerVersion": "1.0",
+              "autoUpgradeMinorVersion": true
+          }
+      }
+  ]
+}
+```
+
+#### <a name="parameter-file"></a>Parameterdatei
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "vmName": {
+        "value": "my-windows-vm"
+      },
+      "location": {
+        "value": "eastus"
+      }
+  }
+}
+```
+
+### <a name="linux-azure-virtual-machine"></a>Virtueller Linux-Computer in Azure
+Im folgenden Beispiel wird der Azure Monitor-Agent auf einem virtuellen Linux-Computer in Azure installiert.
+
+#### <a name="template-file"></a>Vorlagendatei
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "vmName": {
+          "type": "string"
+      },
+      "location": {
+          "type": "string"
+      }
+  },
+  "resources": [
+      {
+          "name": "[concat(parameters('vmName'),'/AzureMonitorLinuxAgent')]",
+          "type": "Microsoft.Compute/virtualMachines/extensions",
+          "location": "[parameters('location')]",
+          "apiVersion": "2020-06-01",
+          "properties": {
+              "publisher": "Microsoft.Azure.Monitor",
+              "type": "AzureMonitorLinuxAgent",
+              "typeHandlerVersion": "1.5",
+              "autoUpgradeMinorVersion": true
+          }
+      }
+  ]
+}
+```
+
+#### <a name="parameter-file"></a>Parameterdatei
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "vmName": {
+        "value": "my-linux-vm"
+      },
+      "location": {
+        "value": "eastus"
+      }
+  }
+}
+```
+
+### <a name="windows-azure-arc-enabled-server"></a>Server mit Azure Arc-Unterstützung unter Windows
+Im folgenden Beispiel wird der Azure Monitor-Agent auf einem Server mit Azure Arc-Unterstützung unter Windows installiert.
+
+#### <a name="template-file"></a>Vorlagendatei
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "vmName": {
+          "type": "string"
+      },
+      "location": {
+          "type": "string"
+      }
+  },
+  "resources": [
+      {
+          "name": "[concat(parameters('vmName'),'/AzureMonitorWindowsAgent')]",
+          "type": "Microsoft.HybridCompute/machines/extensions",
+          "location": "[parameters('location')]",
+          "apiVersion": "2019-08-02-preview",
+          "properties": {
+              "publisher": "Microsoft.Azure.Monitor",
+              "type": "AzureMonitorWindowsAgent",
+              "autoUpgradeMinorVersion": true
+          }
+      }
+  ]
+}
+```
+
+#### <a name="parameter-file"></a>Parameterdatei
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "vmName": {
+        "value": "my-windows-vm"
+      },
+      "location": {
+        "value": "eastus"
+      }
+  }
+}
+```
+
+### <a name="linux-azure-arc-enabled-server"></a>Server mit Azure Arc-Unterstützung unter Linux
+Im folgenden Beispiel wird der Azure Monitor-Agent auf einem Server mit Azure Arc-Unterstützung unter Linux installiert.
+
+#### <a name="template-file"></a>Vorlagendatei
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "vmName": {
+          "type": "string"
+      },
+      "location": {
+          "type": "string"
+      }
+  },
+  "resources": [
+      {
+          "name": "[concat(parameters('vmName'),'/AzureMonitorLinuxAgent')]",
+          "type": "Microsoft.HybridCompute/machines/extensions",
+          "location": "[parameters('location')]",
+          "apiVersion": "2019-08-02-preview",
+          "properties": {
+              "publisher": "Microsoft.Azure.Monitor",
+              "type": "AzureMonitorLinuxAgent",
+              "autoUpgradeMinorVersion": true
+          }
+      }
+  ]
+}
+```
+
+#### <a name="parameter-file"></a>Parameterdatei
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "vmName": {
+        "value": "my-linux-vm"
+      },
+      "location": {
+        "value": "eastus"
+      }
+  }
+}
+```
+
+## <a name="log-analytics-agent"></a>Log Analytics-Agent
+In den Beispielen in diesem Abschnitt wird der Log Analytics-Agent auf virtuellen Windows- und Linux-Computern in Azure installiert und mit einem Log Analytics-Arbeitsbereich verbunden.
+
+###  <a name="windows"></a>Windows
 Im folgenden Beispiel wird der Log Analytics-Agent auf einem virtuellen Windows-Computer in Azure installiert. Dazu wird die [Log Analytics-VM-Erweiterung für Windows](../../virtual-machines/extensions/oms-windows.md) aktiviert.
 
-### <a name="template-file"></a>Vorlagendatei
+#### <a name="template-file"></a>Vorlagendatei
 
 ```json
 {
@@ -90,7 +298,7 @@ Im folgenden Beispiel wird der Log Analytics-Agent auf einem virtuellen Windows-
 
 ```
 
-### <a name="parameter-file"></a>Parameterdatei
+#### <a name="parameter-file"></a>Parameterdatei
 
 ```json
 {
@@ -114,10 +322,10 @@ Im folgenden Beispiel wird der Log Analytics-Agent auf einem virtuellen Windows-
 ```
 
 
-## <a name="linux-log-analytics-agent"></a>Log Analytics-Agent unter Linux
+### <a name="linux"></a>Linux
 Im folgenden Beispiel wird der Log Analytics-Agent auf einem virtuellen Linux-Computer in Azure installiert. Dazu wird die [Log Analytics-VM-Erweiterung für Windows](../../virtual-machines/extensions/oms-linux.md) aktiviert.
 
-### <a name="template-file"></a>Vorlagendatei
+#### <a name="template-file"></a>Vorlagendatei
 
 ```json
 {
@@ -184,7 +392,7 @@ Im folgenden Beispiel wird der Log Analytics-Agent auf einem virtuellen Linux-Co
 }
 ```
 
-### <a name="parameter-file"></a>Parameterdatei
+#### <a name="parameter-file"></a>Parameterdatei
 
 ```json
 {
@@ -209,10 +417,13 @@ Im folgenden Beispiel wird der Log Analytics-Agent auf einem virtuellen Linux-Co
 
 
 
-## <a name="windows-diagnostic-extension"></a>Windows-Diagnoseerweiterung
+## <a name="diagnostic-extension"></a>Diagnoseerweiterung
+In den Beispielen in diesem Abschnitt wird die Diagnoseerweiterung auf virtuellen Windows- und Linux-Computern in Azure installiert und für die Datensammlung konfiguriert.
+
+### <a name="windows"></a>Windows
 Im folgenden Beispiel wird die Diagnoseerweiterung auf einem virtuellen Windows-Computer in Azure aktiviert und konfiguriert. Ausführliche Informationen zur Konfiguration finden Sie unter [Schema der Diagnoseerweiterung für Windows](../platform/diagnostics-extension-schema-windows.md).
 
-### <a name="template-file"></a>Vorlagendatei
+#### <a name="template-file"></a>Vorlagendatei
 
 ```json
 {
@@ -345,7 +556,7 @@ Im folgenden Beispiel wird die Diagnoseerweiterung auf einem virtuellen Windows-
 }
 ```
 
-### <a name="parameter-file"></a>Parameterdatei
+#### <a name="parameter-file"></a>Parameterdatei
 
 ```json
 {
@@ -374,10 +585,10 @@ Im folgenden Beispiel wird die Diagnoseerweiterung auf einem virtuellen Windows-
 }
 ```
 
-## <a name="linux-diagnostic-setting"></a>Linux-Diagnoseeinstellung
+### <a name="linux"></a>Linux
 Im folgenden Beispiel wird die Diagnoseerweiterung auf einem virtuellen Linux-Computer in Azure aktiviert und konfiguriert. Ausführliche Informationen zur Konfiguration finden Sie unter [Schema der Diagnoseerweiterung für Windows](../../virtual-machines/extensions/diagnostics-linux.md).
 
-### <a name="template-file"></a>Vorlagendatei
+#### <a name="template-file"></a>Vorlagendatei
 
 ```json
 {
@@ -565,7 +776,7 @@ Im folgenden Beispiel wird die Diagnoseerweiterung auf einem virtuellen Linux-Co
 }
 ```
 
-### <a name="parameter-file"></a>Parameterdatei
+#### <a name="parameter-file"></a>Parameterdatei
 
 ```json
 {

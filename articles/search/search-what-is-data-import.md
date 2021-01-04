@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: 148310419ad4f760219003514dbc078b7c675be6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/05/2020
+ms.openlocfilehash: b57d55e91918ba612ad42acd5e6059ae0dbd0090
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538786"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422449"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Übersicht über den Datenimport – kognitive Azure-Suche
 
-Bei der kognitiven Azure-Suche werden Abfragen für Inhalte ausgeführt, die in einen [Suchindex](search-what-is-an-index.md) geladen und dort gespeichert wurden. In diesem Artikel werden die zwei grundlegenden Ansätze zum Auffüllen eines Index untersucht: Sie können die Daten programmgesteuert in den Index *pushen*, oder Sie können für einen [Indexer der kognitiven Azure-Suche](search-indexer-overview.md) auf eine unterstützte Datenquelle verweisen, um die Daten zu *pullen*.
+Bei der kognitiven Azure-Suche werden Abfragen für Inhalte ausgeführt, die in einen [Suchindex](search-what-is-an-index.md) geladen und dort gespeichert wurden. In diesem Artikel werden die zwei grundlegenden Ansätze zum Auffüllen eines Index untersucht: Sie können die Daten programmgesteuert in den Index *pushen* , oder Sie können für einen [Indexer der kognitiven Azure-Suche](search-indexer-overview.md) auf eine unterstützte Datenquelle verweisen, um die Daten zu *pullen*.
 
 Bei beiden Methoden besteht das Ziel darin, Daten aus einer externen Datenquelle in einen Azure Cognitive Search-Index zu laden. Die kognitive Azure-Suche ermöglicht Ihnen das Erstellen eines leeren Index, dieser kann aber erst abgefragt werden, wenn Sie Daten in ihn pushen oder pullen.
 
@@ -35,7 +35,7 @@ Dieser Ansatz ist flexibler als ein Pull-Modell, da Sie Dokumente einzeln oder i
 Sie können die folgenden APIs verwenden, um ein oder mehrere Dokumente in einen Index zu laden:
 
 + [Hinzufügen, Aktualisieren oder Löschen von Dokumenten (REST-API)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [indexAction-Klasse](/dotnet/api/microsoft.azure.search.models.indexaction) oder [indexBatch-Klasse](/dotnet/api/microsoft.azure.search.models.indexbatch) 
++ [IndexDocumentsAction-Klasse](/dotnet/api/azure.search.documents.models.indexdocumentsaction) oder [IndexDocumentsBatch-Klasse](/dotnet/api/azure.search.documents.models.indexdocumentsbatch) 
 
 Es gibt derzeit keine Toolunterstützung für die Push-Übertragung von Daten über das Portal.
 
@@ -63,7 +63,7 @@ Beim .NET SDK packen Sie Ihre Daten in einem `IndexBatch`-Objekt. Ein `IndexBatc
 
 Es gibt zwei Möglichkeiten, um [den Index mithilfe der REST-API zu durchsuchen](/rest/api/searchservice/Search-Documents). Eine Möglichkeit besteht darin, eine HTTP POST-Anforderung auszugeben, wobei die Abfrageparameter in ein JSON-Objekt im Anforderungstext definiert werden. Die andere Möglichkeit besteht darin, eine HTTP GET-Anforderung auszugeben, wobei die Abfrageparameter in der Anforderungs-URL definiert werden. Die Beschränkungen in Bezug auf die Größe der Abfrageparameter sind bei POST [geringer](/rest/api/searchservice/Search-Documents) als bei GET. Aus diesem Grund empfehlen wir die Verwendung von POST, sofern GET nicht aufgrund bestimmter Umstände praktischer wäre.
 
-Sowohl bei POST- als auch bei GET-Vorgängen müssen in der Anforderungs-URL der *Dienstname*, der *Indexname* und eine *API-Version* angegeben werden. 
+Sowohl bei POST- als auch bei GET-Vorgängen müssen in der Anforderungs-URL der *Dienstname* , der *Indexname* und eine *API-Version* angegeben werden. 
 
 Für GET befindet sich die *Abfragezeichenfolge* am Ende der URL, wo Sie die Abfrageparameter angeben. Das URL-Format finden Sie weiter unten:
 
@@ -82,12 +82,11 @@ Beim Pull-Modell wird eine unterstützte Datenquelle durchsucht, und die Daten w
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 + [Azure SQL-Datenbank, SQL Managed Instance und SQL Server auf virtuellen Azure-Computern](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
-Mit Indexern wird für einen Index eine Verbindung mit einer Datenquelle (normalerweise eine Tabelle, Sicht oder ähnliche Struktur) hergestellt, und Quellfelder werden gleichwertigen Feldern im Index zugeordnet. Während der Ausführung wird das Rowset automatisch in JSON transformiert und in den angegebenen Index geladen. Alle Indexer unterstützen die Verwendung von Zeitplänen, sodass Sie angeben können, wie häufig die Daten aktualisiert werden sollen. Die meisten Indexer verfügen über eine Änderungsnachverfolgung, wenn dies von der Datenquelle unterstützt wird. Da Änderungen und Löschvorgänge in vorhandenen Dokumenten nachverfolgt und neue Dokumente erkannt werden, ist es mithilfe von Indexern nicht mehr erforderlich, die Daten in Ihrem Index aktiv zu verwalten. 
-
+Mit Indexern wird für einen Index eine Verbindung mit einer Datenquelle (normalerweise eine Tabelle, Sicht oder ähnliche Struktur) hergestellt, und Quellfelder werden gleichwertigen Feldern im Index zugeordnet. Während der Ausführung wird das Rowset automatisch in JSON transformiert und in den angegebenen Index geladen. Alle Indexer unterstützen die Verwendung von Zeitplänen, sodass Sie angeben können, wie häufig die Daten aktualisiert werden sollen. Die meisten Indexer verfügen über eine Änderungsnachverfolgung, wenn dies von der Datenquelle unterstützt wird. Da Änderungen und Löschvorgänge in vorhandenen Dokumenten nachverfolgt und neue Dokumente erkannt werden, ist es mithilfe von Indexern nicht mehr erforderlich, die Daten in Ihrem Index aktiv zu verwalten.
 
 ### <a name="how-to-pull-data-into-an-azure-cognitive-search-index"></a>Pullen von Daten in einen Index der kognitiven Azure-Suche
 
-Die Indexer-Funktion steht im [Azure-Portal](search-import-data-portal.md) und für die [REST-API](/rest/api/searchservice/Indexer-operations) und das [.NET SDK](/dotnet/api/microsoft.azure.search.indexersoperationsextensions) zur Verfügung. 
+Die Indexer-Funktion steht im [Azure-Portal](search-import-data-portal.md) und für die [REST-API](/rest/api/searchservice/Indexer-operations) und das [.NET SDK](/dotnet/api/azure.search.documents.indexes.searchindexerclient) zur Verfügung.
 
 Ein Vorteil der Verwendung des Portals ist, dass bei der kognitiven Azure-Suche normalerweise ein Indexstandardschema generiert werden kann, indem die Metadaten des Quelldatasets gelesen werden. Sie können den generierten Index ändern, bis er verarbeitet wird. Nach der Verarbeitung sind nur noch Schemabearbeitungen zulässig, bei denen keine erneute Indizierung erforderlich ist. Wenn die gewünschten Änderungen eine direkte Auswirkung auf das Schema haben, müssen Sie den Index neu erstellen. 
 

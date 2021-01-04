@@ -9,12 +9,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 09/17/2020
-ms.openlocfilehash: 65a627cc009699660de0897ce853acaa78381f6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0ee83cdf3ea710974ce6985db3fc8ce8782351c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275981"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315794"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Data Science mit Ubuntu Data Science Virtual Machine in Azure
 
@@ -28,8 +28,8 @@ Bevor Sie eine Linux DSVM verwenden können, müssen die folgenden Voraussetzung
 
 * **Azure-Abonnement**. Erstellen Sie ein [kostenloses Azure-Konto](https://azure.microsoft.com/free/), um ein Azure-Abonnement zu erhalten.
 
-* [**Ubuntu Data Science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Informationen zur Bereitstellung des virtuellen Computers finden Sie unter [Bereitstellen von Ubuntu Data Science Virtual Machine](linux-dsvm-intro.md).
-* [**X2Go**](https://wiki.x2go.org/doku.php)-Installation auf dem Computer mit einer geöffneten XFCE-Sitzung. Weitere Informationen finden Sie unter [Installieren und Konfigurieren des X2Go-Clients](linux-dsvm-intro.md#x2go).
+* [**Ubuntu Data Science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Informationen zur Bereitstellung des virtuellen Computers finden Sie unter [Bereitstellen von Ubuntu Data Science Virtual Machine](./release-notes.md).
+* [**X2Go**](https://wiki.x2go.org/doku.php)-Installation auf dem Computer mit einer geöffneten XFCE-Sitzung. Weitere Informationen finden Sie unter [Installieren und Konfigurieren des X2Go-Clients](dsvm-ubuntu-intro.md#x2go).
 * Um reibungsloser scrollen zu können, schalten Sie im Firefox-Webbrowser von DSVM das Flag `gfx.xrender.enabled` in `about:config` um. [Weitere Informationen](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/) Sie sollten außerdem `mousewheel.enable_pixel_scrolling` auf `False` festlegen. [Weitere Informationen](https://support.mozilla.org/questions/981140)
 
 ## <a name="download-the-spambase-dataset"></a>Herunterladen des Datasets „spambase“
@@ -213,7 +213,7 @@ Zusätzlich zu den frameworkbasierten Beispielen werden auch eine Reihe umfassen
 
 - [Anleitung zum Erstellen einer End-to-End-Lösung zum Erkennen von Produkten in Bildern](https://github.com/Azure/cortana-intelligence-product-detection-from-images): Die Bilderkennung ist eine Technik, mit der Objekte innerhalb von Bildern lokalisiert und klassifiziert werden können. Die Technologie hat das Potenzial, in vielen realen Geschäftsbereichen enorme Vorteile zu bringen. Mit dieser Technik können Einzelhändler beispielsweise feststellen, welches Produkt ein Kunde dem Regal entnommen hat. Diese Informationen wiederum helfen Filialen bei der Verwaltung des Warenbestands. 
 
-- [Deep Learning for Audio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/): In diesem Tutorial wird gezeigt, wie Sie ein Deep Learning-Modell für die Erkennung von Audioereignissen für das [Urban Sound Dataset](https://urbansounddataset.weebly.com/) trainieren. Das Tutorial bietet außerdem eine Übersicht darüber, wie mit Audiodaten gearbeitet wird.
+- [Deep Learning for Audio](/archive/blogs/machinelearning/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure): In diesem Tutorial wird gezeigt, wie Sie ein Deep Learning-Modell für die Erkennung von Audioereignissen für das [Urban Sound Dataset](https://urbansounddataset.weebly.com/) trainieren. Das Tutorial bietet außerdem eine Übersicht darüber, wie mit Audiodaten gearbeitet wird.
 
 - [Klassifizierung von Textdokumenten](https://github.com/anargyri/lstm_han): In dieser exemplarischen Vorgehensweise wird gezeigt, wie zwei unterschiedliche Architekturen neuronaler Netze erstellt und trainiert werden: Hierarchical Attention Network und LSTM (Long Short Term Memory). Diese neuronalen Netzwerke verwenden zur Klassifizierung von Textdokumenten die Keras-API für Deep Learning. Keras ist ein Front-End für drei der am häufigsten verwendeten Deep Learning-Frameworks: Microsoft Cognitive Toolkit, TensorFlow und Theano.
 
@@ -315,7 +315,7 @@ Einige Beispielnotebooks sind auf der DSVM bereits installiert:
 
 ### <a name="rattle"></a>Rattle
 
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (*R* *A*nalytical *T*ool *T*o *L*earn *E*asily) ist ein grafisches R-Tool für Data Mining-Aufgaben. Rattle verfügt über eine intuitive Benutzeroberfläche, die Ihnen das Laden, Untersuchen und Transformieren von Daten und das Erstellen und Auswerten von Modellen erleichtert. [Rattle: A Data Mining GUI for R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) (Rattle: Data Mining-GUI für R) enthält eine exemplarische Vorgehensweise zur Veranschaulichung der Features von Rattle.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) ( *R* *A* nalytical *T* ool *T* o *L* earn *E* asily) ist ein grafisches R-Tool für Data Mining-Aufgaben. Rattle verfügt über eine intuitive Benutzeroberfläche, die Ihnen das Laden, Untersuchen und Transformieren von Daten und das Erstellen und Auswerten von Modellen erleichtert. [Rattle: A Data Mining GUI for R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) (Rattle: Data Mining-GUI für R) enthält eine exemplarische Vorgehensweise zur Veranschaulichung der Features von Rattle.
 
 Installieren und starten Sie Rattle, indem Sie diese Befehle ausführen:
 
@@ -328,7 +328,7 @@ rattle()
 > [!NOTE]
 > Sie müssen Rattle nicht auf der DSVM installieren. Sie werden jedoch möglicherweise aufgefordert, zusätzliche Pakete zu installieren, wenn Rattle geöffnet wird.
 
-Die Benutzeroberfläche von Rattle basiert auf Registerkarten. Die meisten Registerkarten entsprechen den Schritten unter [Team Data Science-Prozess](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), z.B. das Laden oder Untersuchen von Daten. Der Data Science-Prozess verläuft von links nach rechts durch die Registerkarten. Die letzte Registerkarte enthält ein Protokoll mit den R-Befehlen, die von Rattle ausgeführt wurden.
+Die Benutzeroberfläche von Rattle basiert auf Registerkarten. Die meisten Registerkarten entsprechen den Schritten unter [Team Data Science-Prozess](../team-data-science-process/index.yml), z.B. das Laden oder Untersuchen von Daten. Der Data Science-Prozess verläuft von links nach rechts durch die Registerkarten. Die letzte Registerkarte enthält ein Protokoll mit den R-Befehlen, die von Rattle ausgeführt wurden.
 
 Gehen Sie wie folgt vor, um das Dataset zu laden und zu konfigurieren:
 
@@ -345,17 +345,17 @@ Gehen Sie wie folgt vor, um die Daten zu untersuchen:
 
 Sie können die Registerkarte **Explore** (Untersuchen) auch verwenden, um aufschlussreiche Plots zu generieren. Gehen Sie wie folgt vor, um ein Histogramm mit den Daten zu plotten:
 
-1. Wählen Sie **Distributions**(Verteilungen).
+1. Wählen Sie **Distributions** (Verteilungen).
 1. Wählen Sie für auf **word_freq_remove** und **word_freq_you** die Option **Histogram** (Histogramm) aus.
-1. Wählen Sie **Execute**(Ausführen). Beide Dichteplotergebnisse werden zusammen in einem Graphfenster angezeigt, und es wird deutlich, dass das Wort _you_ in E-Mails viel häufiger als das Wort _remove_ enthalten ist.
+1. Wählen Sie **Execute** (Ausführen). Beide Dichteplotergebnisse werden zusammen in einem Graphfenster angezeigt, und es wird deutlich, dass das Wort _you_ in E-Mails viel häufiger als das Wort _remove_ enthalten ist.
 
 Die Plots vom Typ **Correlation** (Korrelation) sind ebenfalls interessant. So erstellen Sie einen Plot:
 
 1. Wählen Sie als **Type** (Typ) die Option **Correlation** (Korrelation) aus.
-1. Wählen Sie **Execute**(Ausführen).
+1. Wählen Sie **Execute** (Ausführen).
 1. Rattle warnt Sie, dass maximal 40 Variablen verwendet werden sollten. Wählen Sie **Yes** (Ja), um das Plotergebnis anzuzeigen.
 
-Einige interessante Korrelationen werden angezeigt: Beispielsweise korreliert _technology_ stark mit _HP_ und _labs_. Außerdem besteht eine starke Korrelation mit _650_, da die Ortskennzahl der Anbieter des Datasets 650 lautet.
+Einige interessante Korrelationen werden angezeigt: Beispielsweise korreliert _technology_ stark mit _HP_ und _labs_. Außerdem besteht eine starke Korrelation mit _650_ , da die Ortskennzahl der Anbieter des Datasets 650 lautet.
 
 Die numerischen Werte für die Korrelationen zwischen Wörtern sind im Fenster **Explore** (Untersuchen) verfügbar. Es ist beispielsweise interessant, dass _technology_ für _your_ und _money_ eine negative Korrelation aufweist.
 
@@ -374,20 +374,20 @@ Rattle kann auch Clusteranalysen ausführen. Wir schließen einige Features aus,
 * word_freq_business
 * spam
 
-Kehren Sie auf die Registerkarte **Cluster** zurück. Wählen Sie **KMeans** aus, und legen Sie dann **Number of clusters** (Anzahl Cluster) auf **4** fest. Wählen Sie **Execute**(Ausführen). Die Ergebnisse werden im Ausgabefenster angezeigt. Ein Cluster weist eine hohe Häufigkeit für _george_ und _hp_ auf und ist vermutlich eine legitime geschäftliche E-Mail.
+Kehren Sie auf die Registerkarte **Cluster** zurück. Wählen Sie **KMeans** aus, und legen Sie dann **Number of clusters** (Anzahl Cluster) auf **4** fest. Wählen Sie **Execute** (Ausführen). Die Ergebnisse werden im Ausgabefenster angezeigt. Ein Cluster weist eine hohe Häufigkeit für _george_ und _hp_ auf und ist vermutlich eine legitime geschäftliche E-Mail.
 
 Gehen Sie wie folgt vor, um ein einfaches Machine Learning-Modell mit Entscheidungsstruktur zu erstellen:
 
 1. Wählen Sie die Registerkarte **Model** (Modell).
-1. Wählen Sie unter **Type** (Typ) die Option**Tree** (Struktur) aus.
+1. Wählen Sie unter **Type** (Typ) die Option **Tree** (Struktur) aus.
 1. Wählen Sie die Option **Execute** (Ausführen), um den Baum im Ausgabefenster in Textform anzuzeigen.
 1. Wählen Sie die Schaltfläche **Draw** (Zeichnen), um eine grafische Version anzuzeigen. Die Entscheidungsstruktur weist eine starke Ähnlichkeit mit der Struktur auf, die wir zuvor mit „rpart“ abgerufen haben.
 
 Ein hilfreiches Feature von Rattle ist die Möglichkeit, mehrere Machine Learning-Methoden auszuführen und schnell auszuwerten. Gehen Sie wie folgt vor:
 
 1. Wählen Sie als **Type** (Typ) die Option **All** (Alle) aus.
-1. Wählen Sie **Execute**(Ausführen).
-1. Wenn Rattle die Ausführung beendet hat, können Sie einen beliebigen Wert für **Type** (Typ) auswählen (etwa **SVM**) und die Ergebnisse anzeigen.
+1. Wählen Sie **Execute** (Ausführen).
+1. Wenn Rattle die Ausführung beendet hat, können Sie einen beliebigen Wert für **Type** (Typ) auswählen (etwa **SVM** ) und die Ergebnisse anzeigen.
 1. Außerdem können Sie die Leistung der Modelle für den Validierungssatz mithilfe der Registerkarte **Evaluate** (Auswerten) vergleichen. In der Auswahl **Error Matrix** (Fehlermatrix) werden beispielsweise die Wahrheitsmatrix, der Gesamtfehler und der durchschnittliche Klassenfehler für jedes Modell des Validierungssatzes angezeigt. Sie können auch ROC-Kurven plotten, Empfindlichkeitsanalysen durchführen und andere Formen der Modellevaluierung nutzen.
 
 Wählen Sie nach Abschluss der Modellerstellung die Registerkarte **Log** (Protokoll), um den R-Code anzuzeigen, der von Rattle während Ihrer Sitzung ausgeführt wurde. Sie können die Schaltfläche **Export** (Exportieren) wählen, um diese Daten zu speichern.
@@ -416,7 +416,7 @@ host    all             all             127.0.0.1/32            ident
 host    all             all             ::1/128                 ident
 ```
 
-Ändern Sie die Zeile **IPv4 local connections**, um **md5** anstelle von **ident** zu verwenden, damit die Anmeldung mit einem Benutzernamen und Kennwort möglich ist:
+Ändern Sie die Zeile **IPv4 local connections** , um **md5** anstelle von **ident** zu verwenden, damit die Anmeldung mit einem Benutzernamen und Kennwort möglich ist:
 
 ```
 # IPv4 local connections:
@@ -465,10 +465,10 @@ Wir sehen uns nun die Daten an und führen einige Abfragen mit SQuirrel SQL aus.
 Starten Sie SQuirrel SQL über das Menü **Applications** (Anwendungen), um zu beginnen. Richten Sie den Treiber ein:
 
 1. Wählen Sie **Windows** > **View Drivers** (Windows > Treiber anzeigen) aus.
-1. Klicken Sie mit der rechten Maustaste auf **PostgreSQL**, und wählen Sie die Option **Modify Driver** (Treiber ändern) aus.
+1. Klicken Sie mit der rechten Maustaste auf **PostgreSQL** , und wählen Sie die Option **Modify Driver** (Treiber ändern) aus.
 1. Wählen Sie **Extra Class Path** > **Add** (Zusätzlicher Klassenpfad > Hinzufügen) aus.
 1. Geben Sie unter **File Name** (Dateiname) die Angabe **/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar** ein.
-1. Wählen Sie **Open**(Öffnen).
+1. Wählen Sie **Open** (Öffnen).
 1. Wählen Sie **List Drivers** (Treiber auflisten) aus. Wählen Sie als **Class Name** (Klassenname) die Option **org.postgresql.Driver** aus, und wählen Sie dann **OK** aus.
 
 Gehen Sie wie folgt vor, um die Verbindung mit dem lokalen Server einzurichten:
@@ -538,5 +538,3 @@ GO
 ```
 
 Sie können die Abfrage auch mithilfe von SQuirreL SQL ausführen. Führen Sie die Schritte ähnlich wie bei PostgreSQL mit dem SQL Server JDBC-Treiber aus. Der JDBC-Treiber befindet sich im Ordner „/usr/share/java/jdbcdrivers/sqljdbc42.jar“.
-
-

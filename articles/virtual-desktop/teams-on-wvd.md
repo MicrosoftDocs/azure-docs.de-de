@@ -3,15 +3,15 @@ title: Microsoft Teams in Windows Virtual Desktop – Azure
 description: Hier erfahren Sie, wie Sie Microsoft Teams in Windows Virtual Desktop verwenden.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 11/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cae40b9aeed4058ab2082a1d1360558c1c656e1d
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 101b3a05591a7815ba28756bb5b07e855b64e769
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131767"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505545"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Verwenden von Microsoft Teams in Windows Virtual Desktop
 
@@ -32,7 +32,6 @@ Bevor Sie Microsoft Teams in Windows Virtual Desktop verwenden können, müssen 
 - [Bereiten Sie Ihr Netzwerk](/microsoftteams/prepare-network/) für Microsoft Teams vor.
 - Installieren Sie den [Windows Desktop-Client](connect-windows-7-10.md) auf einem Windows 10- oder Windows 10 IoT Enterprise-Gerät, das die [Hardwareanforderungen für Microsoft Teams auf einem Windows-PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/) erfüllt.
 - Stellen Sie eine Verbindung mit einer Windows 10-VM mit mehreren Sitzungen oder einer virtuellen Windows 10 Enterprise-VM her.
-- [Laden Sie die Teams-Desktop-App herunter](https://www.microsoft.com/microsoft-365/microsoft-teams/download-app), und führen Sie eine computerspezifische Installation auf dem Host aus. Die Medienoptimierung für Microsoft Teams erfordert die Teams-Desktop-App-Version 1.3.00.4461 oder höher.
 
 ## <a name="install-the-teams-desktop-app"></a>Installieren der Teams-Desktop-App
 
@@ -42,7 +41,8 @@ In diesem Abschnitt erfahren Sie, wie Sie die Teams-Desktop-App auf Ihrem Window
 
 Um die Medienoptimierung für Teams zu aktivieren, legen Sie den folgenden Registrierungsschlüssel auf dem Host fest:
 
-1. Führen Sie im Startmenü **RegEdit** als Administrator aus. Navigieren Sie zu **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams** .
+1. Führen Sie im Startmenü **RegEdit** als Administrator aus. Navigieren Sie zu **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams**. Erstellen Sie den Schlüssel „Teams“, wenn er noch nicht vorhanden ist.
+
 2. Erstellen Sie den folgenden Wert für den Teams-Schlüssel:
 
 | Name             | type   | Daten/Wert  |
@@ -51,7 +51,7 @@ Um die Medienoptimierung für Teams zu aktivieren, legen Sie den folgenden Regis
 
 ### <a name="install-the-teams-websocket-service"></a>Installieren des Teams-WebSocket-Diensts
 
-Installieren Sie den neuesten [WebSocket-Dienst](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) auf Ihrem VM-Image. Wenn ein Installationsfehler auftritt, installieren Sie das [aktuelle Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads), und versuchen Sie es erneut.
+Installieren Sie den neuesten [Remotedesktop-WebRTC-Redirectordienst](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) auf Ihrem VM-Image. Wenn ein Installationsfehler auftritt, installieren Sie das [aktuelle Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads), und versuchen Sie es erneut.
 
 #### <a name="latest-websocket-service-versions"></a>Neueste Versionen des WebSocket-Diensts
 
@@ -94,7 +94,7 @@ Sie können die Teams-Desktop-App mit einer Pro-Computer- oder Pro-Benutzer-Inst
 
         Dadurch wird Teams auf einem 32-Bit-Betriebssystem im Ordner „Programme (x86)“ und auf einem 64-Bit-Betriebssystem im Ordner „Programme“ installiert. An diesem Punkt ist das Golden Image-Setup fertiggestellt. Die Installation von Teams pro Computer ist für nicht beständige Setups erforderlich.
 
-        Bei der Installation von Teams können zwei Flags festgelegt werden, **ALLUSER=1** und **ALLUSERS=1** . Es ist wichtig, den Unterschied zwischen diesen Parametern zu verstehen. Der Parameter **ALLUSER=1** wird nur in VDI-Umgebungen verwendet, um eine Pro-Computer-Installation anzugeben. Der Parameter **ALLUSERS=1** kann in Nicht-VDI- und in VDI-Umgebungen verwendet werden. Wenn Sie diesen Parameter festlegen, wird das computerweite Installationsprogramm von Teams in der Systemsteuerung unter „Programme und Features“ sowie in den Windows-Einstellungen unter „Apps & Features“ angezeigt. Alle Benutzer mit Administratoranmeldeinformationen auf dem Computer können Teams deinstallieren.
+        Bei der Installation von Teams können zwei Flags festgelegt werden, **ALLUSER=1** und **ALLUSERS=1**. Es ist wichtig, den Unterschied zwischen diesen Parametern zu verstehen. Der Parameter **ALLUSER=1** wird nur in VDI-Umgebungen verwendet, um eine Pro-Computer-Installation anzugeben. Der Parameter **ALLUSERS=1** kann in Nicht-VDI- und in VDI-Umgebungen verwendet werden. Wenn Sie diesen Parameter festlegen, wird das computerweite Installationsprogramm von **Teams in der Systemsteuerung** unter „Programme und Features“ sowie in den Windows-Einstellungen unter „Apps & Features“ angezeigt. Alle Benutzer mit Administratoranmeldeinformationen auf dem Computer können Teams deinstallieren.
 
         > [!NOTE]
         > Benutzer und Administratoren können den automatischen Start für Teams während der Anmeldung zu diesem Zeitpunkt nicht deaktivieren.
@@ -114,14 +114,19 @@ Sie können die Teams-Desktop-App mit einer Pro-Computer- oder Pro-Benutzer-Inst
 
 Nachdem Sie den WebSocket-Dienst und die Teams-Desktop-App installiert haben, führen Sie die folgenden Schritte aus, um zu überprüfen, ob die Teams-Medienoptimierungen geladen wurden:
 
-1. Wählen Sie Ihr Benutzerprofilbild und dann **Informationen zu** aus.
-2. Wählen Sie **Version** aus.
+1. Beenden Sie die Teams-Anwendung, und starten Sie sie erneut.
+
+2. Wählen Sie Ihr Benutzerprofilbild und dann **Informationen zu** aus.
+
+3. Wählen Sie **Version** aus.
 
       Wenn Medienoptimierungen geladen wurden, zeigt das Banner **WVD-Medien optimiert** an. Wenn das Banner **WVD-Medien nicht verbunden** anzeigt, beenden Sie die Teams-App, und versuchen Sie es erneut.
 
-3. Wählen Sie Ihr Benutzerprofilbild und dann **Einstellungen** aus.
+4. Wählen Sie Ihr Benutzerprofilbild und dann **Einstellungen** aus.
 
       Wenn Medienoptimierungen geladen wurden, werden die lokal verfügbaren Audiogeräte und Kameras im Gerätemenü aufgelistet. Wenn im Menü **Remoteaudio** angezeigt wird, beenden Sie die Teams-App, und versuchen Sie es erneut. Wenn die Geräte weiterhin nicht im Menü angezeigt werden, überprüfen Sie die Datenschutzeinstellungen auf Ihrem lokalen PC. Stellen Sie sicher, dass unter **Einstellungen** > **Datenschutz** > **App-Berechtigungen** die Einstellung **Apps den Zugriff auf Ihr Mikrofon erlauben** auf **Ein** festgelegt ist. Trennen Sie die Verbindung zur Remotesitzung, stellen Sie sie dann wieder her, und überprüfen Sie die Audio- und Videogeräte erneut. Um an Anrufen und Besprechungen mit Video teilzunehmen, müssen Sie auch Apps den Zugriff auf Ihre Kamera erlauben.
+
+      Wenn die Optimierungen nicht geladen werden, deinstallieren Sie sie, installieren Sie Teams neu, und überprüfen Sie sie erneut.
 
 ## <a name="known-issues-and-limitations"></a>Einschränkungen und bekannte Probleme
 
@@ -150,9 +155,9 @@ Geben Sie auf der [UserVoice-Website](https://microsoftteams.uservoice.com/) von
 
 ## <a name="collect-teams-logs"></a>Sammeln von Teams-Protokollen
 
-Wenn bei der Teams-Desktop-App in Ihrer Windows Virtual Desktop-Umgebung Probleme auftreten, sammeln Sie Clientprotokolle auf der Host-VM unter **%appdata%\Microsoft\Teams\logs.txt** .
+Wenn bei der Teams-Desktop-App in Ihrer Windows Virtual Desktop-Umgebung Probleme auftreten, sammeln Sie Clientprotokolle auf der Host-VM unter **%appdata%\Microsoft\Teams\logs.txt**.
 
-Wenn Probleme bei Anrufen und Besprechungen auftreten, sammeln Sie Teams-Webclientprotokolle mit der Tastenkombination **STRG** + **ALT** + **UMSCHALT** + **1** . Die Protokolle werden auf der Host-VM in **%userprofile%\Downloads\MSTeams Diagnostics Log DATE_TIME.txt** geschrieben.
+Wenn Probleme bei Anrufen und Besprechungen auftreten, sammeln Sie Teams-Webclientprotokolle mit der Tastenkombination **STRG** + **ALT** + **UMSCHALT** + **1**. Die Protokolle werden auf der Host-VM in **%userprofile%\Downloads\MSTeams Diagnostics Log DATE_TIME.txt** geschrieben.
 
 ## <a name="contact-microsoft-teams-support"></a>Kontaktieren des Microsoft Teams-Supports
 

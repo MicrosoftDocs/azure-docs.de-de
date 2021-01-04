@@ -3,19 +3,19 @@ title: Visuelles Überwachen von Azure Data Factory
 description: Erfahren Sie, wie Sie Azure Data Factorys visuell überwachen.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: fcbf48081484941fd93f209bee21eb14c2c38310
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: f2bf1b1a16660b4e80bc0acc5c6e4201b452098f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570141"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497910"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Visuelles Überwachen von Azure Data Factory
 
@@ -23,17 +23,21 @@ ms.locfileid: "91570141"
 
 Nachdem Sie eine Pipeline in Azure Data Factory erstellt und veröffentlicht haben, können Sie ihr einen Trigger zuordnen oder manuell eine Ad-hoc-Ausführung starten. Sie können Ihre gesamten Pipelineausführungen nativ über die Azure Data Factory-Benutzeroberfläche überwachen. Um die Benutzeroberfläche für die Überwachung zu öffnen, wählen Sie die Kachel **Überwachen und verwalten** im Blatt „Data Factory“ des [Azure-Portals](https://portal.azure.com/) aus. Wenn Sie sich bereits auf der Benutzeroberfläche von ADF befinden, klicken Sie auf der linken Seitenleiste auf das Symbol **Überwachen**.
 
-Alle Data Factory-Ausführungen werden in der lokalen Zeitzone des Browsers angezeigt. Wenn Sie die Zeitzone ändern, werden alle Datums- und Zeitfelder auf die ausgewählte Zeitzone ausgerichtet.
+Alle Data Factory-Ausführungen werden standardmäßig in der lokalen Zeitzone des Browsers angezeigt. Wenn Sie die Zeitzone ändern, werden alle Datums- und Zeitfelder auf die ausgewählte Zeitzone ausgerichtet.
 
 ## <a name="monitor-pipeline-runs"></a>Überwachen der Pipelineausführungen
 
-Die standardmäßige Überwachungsansicht ist eine Liste der Pipelineausführungen im ausgewählten Zeitraum. Die folgenden Spalten werden angezeigt:
+Die standardmäßige Überwachungsansicht ist eine Liste der ausgelösten Pipelineausführungen im ausgewählten Zeitraum. Sie können den Zeitbereich ändern und nach Status, Pipelinename oder Anmerkung filtern. Zeigen Sie auf die jeweilige Pipelineausführung, um ausführungsspezifische Aktionen wie das erneute Ausführen und den Verbrauchsbericht anzuzeigen.
+
+![Listenansicht zum Überwachen von Pipelineausführungen](media/monitor-visually/pipeline-runs.png)
+
+Das Raster der Pipelineausführungen enthält die folgenden Spalten:
 
 | **Spaltenname** | **Beschreibung** |
 | --- | --- |
 | Pipeline Name | Name der Pipeline |
-| Aktionen | Symbole, mit denen Sie Aktivitätsdetails anzeigen, die Pipeline abbrechen oder erneut ausführen können. |
 | Run Start | Startdatum und -uhrzeit der Pipelineausführung (MM/TT/JJJJ, HH:MM:SS AM/PM) |
+| Ausführungsende | Enddatum und -uhrzeit der Pipelineausführung (MM/TT/JJJJ, HH:MM:SS AM/PM) |
 | Duration | Dauer der Ausführung (hh:mm:ss) |
 | Triggered By | Name des Triggers, der die Pipeline gestartet hat |
 | Status | **Fehlerhaft**, **Erfolgreich**, **In Bearbeitung**, **Abgebrochen** oder **In Warteschlange** |
@@ -42,15 +46,23 @@ Die standardmäßige Überwachungsansicht ist eine Liste der Pipelineausführung
 | Fehler | Bei einem Fehler der Pipeline ist dies der Ausführungsfehler |
 | Run ID | ID der Pipelineausführung |
 
-![Listenansicht zum Überwachen von Pipelineausführungen](media/monitor-visually/pipeline-runs.png)
-
 Sie müssen die Schaltfläche **Aktualisieren** manuell auswählen, um die Liste der Pipeline- und Aktivitätsausführungen zu aktualisieren. Eine automatische Aktualisierung wird derzeit nicht unterstützt.
 
 ![Schaltfläche „Aktualisieren“](media/monitor-visually/refresh.png)
 
+Um die Ergebnisse einer Debugausführung anzuzeigen, wählen Sie die Registerkarte **Debuggen** aus.
+
+![Auswählen des Symbols zum Anzeigen aktiver Debugausführungen](media/iterative-development-debugging/view-debug-runs.png)
+
 ## <a name="monitor-activity-runs"></a>Überwachung der Aktivitätsausführungen
 
-Wählen Sie das Symbol **Aktivitätsausführungen anzeigen** unter der Spalte **Aktionen** aus, um die Aktivitätsausführungen für jede Pipelineausführung anzuzeigen. In der Listenansicht werden die Aktivitätsausführungen angezeigt, die den einzelnen Pipelineausführungen entsprechen.
+Um eine ausführliche Ansicht der einzelnen Aktivitätsausführungen einer bestimmten Pipelineausführung anzuzeigen, klicken Sie auf den Namen der Pipeline.
+
+![Anzeigen der Aktivitätsausführungen](media/monitor-visually/view-activity-runs.png)
+
+In der Listenansicht werden die Aktivitätsausführungen angezeigt, die den einzelnen Pipelineausführungen entsprechen. Zeigen Sie auf die jeweilige Aktivitätsausführung, um ausführungsspezifische Informationen wie die JSON-Eingabe, die JSON-Ausgabe und detaillierte aktivitätsspezifische Überwachungsfunktionen anzuzeigen.
+
+![Es gibt Informationen zu SalesAnalyticsMLPipeline, gefolgt von einer Liste der Aktivitätsausführungen.](media/monitor-visually/activity-runs.png)
 
 | **Spaltenname** | **Beschreibung** |
 | --- | --- |
@@ -65,56 +77,36 @@ Wählen Sie das Symbol **Aktivitätsausführungen anzeigen** unter der Spalte **
 | Fehler | Bei einer fehlerhaften Aktivität ist dies der Ausführungsfehler |
 | Run ID | ID der Aktivitätsausführung |
 
-![Listenansicht zum Überwachen von Aktivitätsausführungen](media/monitor-visually/activity-runs.png)
+Wenn eine Aktivität fehlerhaft war, können Sie auf das Symbol in der Fehlerspalte klicken, um die ausführliche Fehlermeldung anzuzeigen. 
+
+![Eine Benachrichtigung mit Fehlerdetails einschließlich Fehlercode, Fehlertyp und Fehlerdetails wird angezeigt.](media/monitor-visually/activity-run-error.png)
 
 ### <a name="promote-user-properties-to-monitor"></a>Heraufstufen von Benutzereigenschaften für die Überwachung
 
-Stufen Sie jede Pipelineaktivitätseigenschaft als Benutzereigenschaft höher, sodass sie zu einer von Ihnen überwachten Entität wird. Sie können z. B. die Eigenschaften **Quelle** und **Ziel** der Kopieraktivität in der Pipeline als Benutzereigenschaften höher stufen. Wählen Sie **Automatisch generieren** aus, um die Benutzereigenschaften **Quelle** und **Ziel** für eine Kopieraktivität zu generieren.
-
-![Erstellen von Benutzereigenschaften](media/monitor-visually/monitor-user-properties-image1.png)
+Stufen Sie jede Pipelineaktivitätseigenschaft als Benutzereigenschaft höher, sodass sie zu einer von Ihnen überwachten Entität wird. Sie können z. B. die Eigenschaften **Quelle** und **Ziel** der Kopieraktivität in der Pipeline als Benutzereigenschaften höher stufen.
 
 > [!NOTE]
 > Sie können nur bis zu fünf Pipelineaktivitätseigenschaften als Benutzereigenschaften höher stufen.
 
-Nachdem Sie die Benutzereigenschaften erstellt haben, können Sie sie in den Überwachungslistenansichten überwachen. Wenn ein Tabellenname als Quelle für die Kopieraktivität dient, können Sie den Namen der Quelltabelle als Spalte in der Listenansicht für Aktivitätsausführungen überwachen.
+![Erstellen von Benutzereigenschaften](media/monitor-visually/promote-user-properties.png)
 
-![Aktivitätsausführungenliste ohne Benutzereigenschaften](media/monitor-visually/monitor-user-properties-image2.png)
+Nachdem Sie die Benutzereigenschaften erstellt haben, können Sie sie in den Überwachungslistenansichten überwachen.
 
-![Hinzufügen von Spalten für Benutzereigenschaften zur Liste der Aktivitätsausführungen](media/monitor-visually/monitor-user-properties-image3.png)
+![Hinzufügen von Spalten für Benutzereigenschaften zur Liste der Aktivitätsausführungen](media/monitor-visually/choose-user-properties.png)
 
-![Aktivitätsausführungenliste mit Spalten für Benutzereigenschaften](media/monitor-visually/monitor-user-properties-image4.png)
+ Wenn ein Tabellenname als Quelle für die Kopieraktivität dient, können Sie den Namen der Quelltabelle als Spalte in der Listenansicht für Aktivitätsausführungen überwachen.
 
-## <a name="configure-the-list-view"></a>Konfigurieren der Listenansicht
+![Aktivitätsausführungenliste mit Spalten für Benutzereigenschaften](media/monitor-visually/view-user-properties.png)
 
-### <a name="order-and-filter"></a>Sortieren und filtern
+## <a name="rerun-pipelines-and-activities"></a>Erneutes Ausführen von Pipelines und Aktivitäten
 
-Legen Sie fest, ob Pipelineausführungen entsprechend der Startzeit der Ausführung in ab- oder aufsteigender Reihenfolge angezeigt werden. Sie können die Pipelineausführungen nach den folgenden Spalten filtern:
+Um eine Pipeline, die bereits ausgeführt wurde, von Anfang an erneut auszuführen, zeigen Sie auf die jeweilige Pipelineausführung, und wählen Sie **Erneut ausführen** aus. Wenn Sie mehrere Pipelines auswählen, können Sie über die Schaltfläche **Erneut ausführen** alle erneut ausführen.
 
-| **Spaltenname** | **Beschreibung** |
-| --- | --- |
-| Pipeline Name | Nach dem Namen der Pipeline filtern. |
-| Run Start |  Bestimmt den Zeitbereich der angezeigten Pipelineausführungen. Die Optionen enthalten Schnellfilter für **Letzte 24 Stunden**, **Letzte Woche** und **Letzte 30 Tage** oder zum Auswählen eines benutzerdefinierten Zeitraums. |
-| Run Status | Filtern der Ausführungen nach Status: **Erfolgreich**, **Fehlerhaft** **In Warteschlange**, **Abgebrochen** oder **In Bearbeitung**. |
-| Anmerkungen | Nach Tags filtern, die auf die einzelnen Pipelines angewendet werden |
-| Ausführungen | Filtern, ob erneut ausgeführte Pipelines angezeigt werden sollen |
+![Erneutes Ausführen einer Pipeline](media/monitor-visually/rerun-pipeline.png)
 
-![Optionen zum Filtern](media/monitor-visually/filter.png)
+Wenn Sie die erneute Ausführung an einem bestimmten Punkt starten möchten, können Sie dies über die Ansicht der Aktivitätsausführungen erledigen. Wählen Sie die Aktivität aus, ab der Sie beginnen möchten, und wählen Sie **Aktivität erneut ausführen** aus. 
 
-### <a name="add-or-remove-columns"></a>Hinzufügen oder Entfernen von Spalten
-Klicken Sie mit der rechten Maustaste auf den Header der Listenansicht, und wählen Sie die Spalten aus, die in der Listenansicht angezeigt werden sollen.
-
-![Optionen für Spalten](media/monitor-visually/columns.png)
-
-### <a name="adjust-column-widths"></a>Anpassen der Spaltenbreite
-Erhöhen oder verringern Sie die Spaltenbreiten in der Listenansicht, indem Sie mit der Maus auf die Spaltenüberschrift zeigen.
-
-## <a name="rerun-activities-inside-a-pipeline"></a>Erneutes Ausführen von Aktivitäten innerhalb einer Pipeline
-
-Aktivitäten innerhalb einer Pipeline können erneut ausgeführt werden. Wählen Sie **View Activity Runs** (Aktivitätsausführungen anzeigen) und dann die Aktivität in Ihrer Pipeline aus, ab der die Pipeline erneut ausgeführt werden soll.
-
-![Anzeigen der Aktivitätsausführungen](media/monitor-visually/rerun-activities-image1.png)
-
-![Auswählen einer Aktivitätsausführung](media/monitor-visually/rerun-activities-image2.png)
+![Wiederholen einer Aktivitätsausführung](media/monitor-visually/rerun-activity.png)
 
 ### <a name="rerun-from-failed-activity"></a>Ab fehlgeschlagener Aktivität erneut ausführen
 
@@ -126,11 +118,11 @@ Wenn eine Aktivität fehlschlägt, das Zeitlimit überschritten wird oder die Ak
 
 Der Verlauf für erneute Ausführungen kann für alle Pipelineausführungen in der Listenansicht angezeigt werden.
 
-![Anzeigen des Verlaufs](media/monitor-visually/rerun-history-image1.png)
+![Anzeigen des Verlaufs](media/monitor-visually/rerun-history-1.png)
 
 Sie können aber auch den Verlauf für erneute Ausführungen für eine bestimmte Pipelineausführung anzeigen.
 
-![Anzeigen des Verlaufs für eine Pipelineausführung](media/monitor-visually/rerun-history-image2.png)
+![Anzeigen des Verlaufs für eine Pipelineausführung](media/monitor-visually/view-rerun-history.png)
 
 ## <a name="monitor-consumption"></a>Überwachen des Verbrauchs
 
@@ -149,22 +141,13 @@ Sie können diese Werte mit dem [Azure-Preisrechner](https://azure.microsoft.com
 
 ## <a name="gantt-views"></a>Gantt-Ansichten
 
-Mit Gantt-Ansichten können Sie schnell Ihre Pipelines und Aktivitätsausführungen anzeigen.
+Ein Gantt-Diagramm ist eine Ansicht, über die Sie den Ausführungsverlauf über einen Zeitraum anzeigen können. Wenn Sie zu einer Gantt-Ansicht wechseln, werden alle Pipelineausführungen gruppiert nach dem Namen als Balken in Bezug auf die Ausführungsdauer dargestellt. Sie können auch nach Anmerkungen/Tags gruppieren, die Sie in Ihrer Pipeline erstellt haben. Die Gantt-Ansicht ist auch auf Ebene der Aktivitätsausführungen verfügbar.
 
-![Beispiel für ein Gantt-Diagramm](media/monitor-visually/gantt1.png)
-
-Die Gantt-Ansicht kann pro Pipeline oder nach Gruppen über von Ihnen erstellte Anmerkungen und Tags für Ihre Pipelines angezeigt werden.
-
-![Gantt-Diagrammanmerkungen](media/monitor-visually/gantt2.png)
+![Beispiel für ein Gantt-Diagramm](media/monitor-visually/select-gantt.png)
 
 Die Länge des Balkens informiert über die Dauer der Pipeline. Sie können auch den Balken auswählen, um weitere Details anzuzeigen.
 
-![Gantt-Diagramm zur Dauer](media/monitor-visually/gantt3.png)
-
-## <a name="guided-tours"></a>Führungen
-Wählen Sie links unten das **Informationssymbol** aus. Wählen Sie dann **Guided Tours** (Führungen) aus, um eine ausführliche Anleitung zum Überwachen der Pipeline- und Aktivitätsausführungen zu erhalten.
-
-![Führungen](media/monitor-visually/guided-tours.png)
+![Gantt-Diagramm zur Dauer](media/monitor-visually/view-gantt-run.png)
 
 ## <a name="alerts"></a>Alerts
 
@@ -212,4 +195,4 @@ Das folgende Video enthält eine siebenminütige Einführung und Demonstration d
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Im Artikel [Programmgesteuertes Überwachen und Verwalten von Pipelines](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) erfahren Sie mehr über das Überwachen und Verwalten von Pipelines.
+Im Artikel [Programmgesteuertes Überwachen und Verwalten von Pipelines](./monitor-programmatically.md) erfahren Sie mehr über das Überwachen und Verwalten von Pipelines.

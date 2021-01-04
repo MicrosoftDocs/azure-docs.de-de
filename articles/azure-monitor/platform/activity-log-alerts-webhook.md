@@ -4,12 +4,12 @@ description: Lernen Sie das Schema des JSON-Codes kennen, der beim Aktivieren ei
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: 0ebaf7f0cc52ac131573226dfff5516581745c67
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 026613c3f5710137fb110153b34f9ed74bbf8a7b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104273"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522786"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks für Azure-Aktivitätsprotokollwarnungen
 Als Teil der Definition einer Aktionsgruppe können Sie Webhookendpunkte für den Empfang von Aktivitätsprotokollwarnungs-Benachrichtigungen konfigurieren. Mithilfe von Webhooks können Sie diese Benachrichtigung zur Nachbearbeitung oder Ausführung benutzerdefinierter Aktionen an andere Systeme weiterleiten. In diesem Artikel erfahren Sie, wie die Nutzlast für die HTTP POST-Methode für einen Webhook aussieht.
@@ -269,7 +269,7 @@ Spezifische Schemainformationen zu Dienstintegritätsbenachrichtigungs-Aktivitä
 | resourceGroupName |Name der Ressourcengruppe für die betroffene Ressource. |
 | properties |Eine Gruppe von `<Key, Value>`-Paaren (`Dictionary<String, String>`) mit Details zum Ereignis |
 | Ereignis |Element, das Metadaten zum Ereignis enthält. |
-| authorization |Die Eigenschaften der rollenbasierten Zugriffssteuerung des Ereignisses. Zu diesen Eigenschaften zählen üblicherweise Aktion, Rolle und Bereich. |
+| authorization |Die Eigenschaften der rollenbasierten Zugriffssteuerung in Azure für das Ereignis. Zu diesen Eigenschaften zählen üblicherweise Aktion, Rolle und Bereich. |
 | category |Kategorie des Ereignisses. Unterstützte Werte: „Administration“, „Warnung“, „Sicherheit“, „Dienstintegrität“ und „Empfehlung“. |
 | caller |Die E-Mail-Adresse des Benutzers, der den Vorgang, UPN-Anspruch oder SPN-Anspruch ausgeführt hat (sofern verfügbar). Kann für bestimmte Systemaufrufe NULL sein. |
 | correlationId |Üblicherweise eine GUID in Zeichenfolgenformat. Ereignisse mit „correlationId“ gehören zur gleichen übergeordneten Aktion und besitzen üblicherweise den gleichen correlationId-Wert. |

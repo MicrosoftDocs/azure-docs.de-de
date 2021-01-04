@@ -15,12 +15,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9470e9af38fdd814f5059538656e6a3dbb8e3a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e015f7937db6788aa4473a8a04434121299901e9
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279311"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861781"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect-Synchronisierung: Grundlegendes zu Benutzern, Gruppen und Kontakten
 Es gibt verschiedene Gründe, weshalb Sie möglicherweise über mehrere Active Directory-Gesamtstrukturen verfügen, und es gibt eine Reihe unterschiedlicher Bereitstellungstopologien. Häufige Modelle umfassen eine Kontoressourcenbereitstellung und per GAL synchronisierte Gesamtstrukturen nach einer Unternehmensfusion oder -übernahme. Es gibt zwar reine Modelle, Hybridmodelle sind jedoch ebenfalls häufig vorhanden. Die Standardkonfiguration der Azure AD Connect-Synchronisierung geht von keinem bestimmten Modell aus. Es können jedoch auf Basis des im Installationshandbuch ausgewählten Benutzerabgleichs unterschiedliche Verhaltensweisen beobachtet werden.
@@ -41,7 +41,7 @@ Wichtige Punkte, die beim Synchronisieren von Gruppen in Active Directory mit Az
 
 * Azure AD Connect unterstützt nicht die Synchronisierung von [Mitgliedschaften in primären Gruppen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771489(v=ws.11)) mit Azure AD.
 
-* Azure AD Connect unterstützt nicht die Synchronisierung von [Mitgliedschaften in dynamischen Verteilergruppen](/Exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups?view=exchserver-2019) mit Azure AD.
+* Azure AD Connect unterstützt nicht die Synchronisierung von [Mitgliedschaften in dynamischen Verteilergruppen](/Exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups) mit Azure AD.
 
 * So synchronisieren Sie eine Active Directory-Gruppe mit Azure AD als E-Mail-aktivierte Gruppe:
 

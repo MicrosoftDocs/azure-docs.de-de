@@ -12,12 +12,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 09/23/2020
-ms.openlocfilehash: 942cbda3652692acc8eedf2ec9508bb501a60547
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 204399186ae229324f9dc478e0ef58a173060013
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332099"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638175"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Kopieren von Daten aus und nach Dynamics 365 (Common Data Service) oder Dynamics CRM mithilfe von Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -56,14 +56,14 @@ Für Dynamics 365 werden insbesondere die folgenden Anwendungstypen unterstützt
 
 Andere Anwendungstypen wie Dynamics 365 Finance, Dynamics 365 for Operations und Dynamics 365 Talent werden von diesem Connector nicht unterstützt.
 
-Dieser Dynamics-Connector basiert auf [Dynamics XRM-Tools](https://docs.microsoft.com/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
+Dieser Dynamics-Connector basiert auf [Dynamics XRM-Tools](/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
 
 >[!TIP]
 >Mit dem [Dynamics AX-Connector](connector-dynamics-ax.md) können Sie Daten aus Dynamics 365 Finance und Dynamics 365 for Operations kopieren.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Wenn Sie sich mit diesem Connector bei einem Azure AD-Dienstprinzipal authentifizieren möchten, müssen Sie die Server-zu-Server-Authentifizierung (S2S) in Common Data Service oder Dynamics einrichten. Eine ausführliche Anleitung finden Sie in [diesem Artikel](https://docs.microsoft.com/powerapps/developer/common-data-service/build-web-applications-server-server-s2s-authentication).
+Wenn Sie sich mit diesem Connector bei einem Azure AD-Dienstprinzipal authentifizieren möchten, müssen Sie die Server-zu-Server-Authentifizierung (S2S) in Common Data Service oder Dynamics einrichten. Eine ausführliche Anleitung finden Sie in [diesem Artikel](/powerapps/developer/common-data-service/build-web-applications-server-server-s2s-authentication).
 
 ## <a name="get-started"></a>Erste Schritte
 
@@ -172,7 +172,7 @@ Die folgenden Eigenschaften werden für den mit Dynamics verknüpften Dienst unt
 
 ### <a name="dynamics-365-and-dynamics-crm-on-premises-with-ifd"></a>Dynamics 365 und Dynamics CRM lokal mit IFD
 
-Die zusätzlichen Eigenschaften im Vergleich zur Onlineversion von Dynamics lauten **hostName** und **port**.
+Die zusätzlichen Eigenschaften im Vergleich zur Onlineversion von Dynamics lauten **hostName** und **port** .
 
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 |:--- |:--- |:--- |
@@ -255,7 +255,7 @@ Beim Kopieren von Daten aus Dynamics werden die folgenden Eigenschaften im Absch
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 |:--- |:--- |:--- |
 | type | Die type-Eigenschaft der Quelle der Kopieraktivität muss auf "DynamicsSource", "DynamicsCrmSource" oder "CommonDataServiceForAppsSource" festgelegt werden. | Ja |
-| Abfrage | FetchXML ist eine proprietäre Abfragesprache, die in Dynamics (online und lokal) verwendet wird. Siehe folgendes Beispiel. Weitere Informationen finden Sie unter [Erstellen von Abfragen mit FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | Nein, wenn `entityName` im Dataset angegeben ist |
+| Abfrage | FetchXML ist eine proprietäre Abfragesprache, die in Dynamics (online und lokal) verwendet wird. Siehe folgendes Beispiel. Weitere Informationen finden Sie unter [Erstellen von Abfragen mit FetchXML](/previous-versions/dynamicscrm-2016/developers-guide/gg328332(v=crm.8)). | Nein, wenn `entityName` im Dataset angegeben ist |
 
 >[!NOTE]
 >Die PK-Spalte wird immer herauskopiert. Dies gilt auch, wenn sie nicht in der Spaltenprojektion enthalten ist, die Sie in der FetchXML-Abfrage konfigurieren.
@@ -326,12 +326,12 @@ Beim Kopieren von Daten nach Dynamics werden die folgenden Eigenschaften im Absc
 | writeBehavior | Das Schreibverhalten des Vorgangs. Der Wert muss "Upsert" lauten. | Ja |
 | alternateKeyName | Der alternative Schlüsselname, der zum Ausführen eines upsert-Vorgangs für Ihre Entität definiert wurde | Nein. |
 | writeBatchSize | Die Zeilenanzahl der Daten, die in jedem Batch in Dynamics geschrieben werden. | Nein. Der Standardwert ist 10. |
-| ignoreNullValues | Gibt an, ob NULL-Werte aus anderen Eingabedaten als Schlüsselfeldern während eines Schreibvorgangs ignoriert werden sollen.<br/><br/>Gültige Werte sind **TRUE** und **FALSE**.<ul><li>**TRUE**: Daten im Zielobjekt bleiben unverändert, wenn Sie einen upsert- oder update-Vorgang ausführen. Fügt beim Ausführen eines insert-Vorgangs einen definierten Standardwert ein.</li><li>**FALSE**: Aktualisieren Sie die Daten im Zielobjekt auf einen NULL-Wert, wenn Sie einen upsert- oder update-Vorgang ausführen. Fügen Sie beim Ausführen eines insert-Vorgangs einen NULL-Wert ein.</li></ul> | Nein. Der Standardwert ist **FALSE**. |
+| ignoreNullValues | Gibt an, ob NULL-Werte aus anderen Eingabedaten als Schlüsselfeldern während eines Schreibvorgangs ignoriert werden sollen.<br/><br/>Gültige Werte sind **TRUE** und **FALSE** .<ul><li>**TRUE** : Daten im Zielobjekt bleiben unverändert, wenn Sie einen upsert- oder update-Vorgang ausführen. Fügt beim Ausführen eines insert-Vorgangs einen definierten Standardwert ein.</li><li>**FALSE** : Aktualisieren Sie die Daten im Zielobjekt auf einen NULL-Wert, wenn Sie einen upsert- oder update-Vorgang ausführen. Fügen Sie beim Ausführen eines insert-Vorgangs einen NULL-Wert ein.</li></ul> | Nein. Der Standardwert ist **FALSE** . |
 
 >[!NOTE]
 >Sowohl für die Senke **writeBatchSize** als auch für die Kopieraktivität **[parallelCopies](copy-activity-performance-features.md#parallel-copy)** für die Dynamics-Senke lautet der Standardwert 10. Daher werden standardmäßig 100 Datensätze gleichzeitig an Dynamics übermittelt.
 
-Für Dynamics 365 (online) besteht ein Limit von [zwei gleichzeitigen Batchaufrufen pro Organisation](https://msdn.microsoft.com/library/jj863631.aspx#Run-time%20limitations). Bei Überschreitung dieses Grenzwerts wird eine Ausnahme aufgrund von Serverauslastung ausgelöst, bevor die erste Anforderung jemals ausgeführt wird. Sorgen Sie dafür, dass **writeBatchSize** den Wert 10 nicht überschreitet, um eine solche Einschränkung gleichzeitiger Aufrufe zu vermeiden.
+Für Dynamics 365 (online) besteht ein Limit von [zwei gleichzeitigen Batchaufrufen pro Organisation](/previous-versions/dynamicscrm-2016/developers-guide/jj863631(v=crm.8)#Run-time%20limitations). Bei Überschreitung dieses Grenzwerts wird eine Ausnahme aufgrund von Serverauslastung ausgelöst, bevor die erste Anforderung jemals ausgeführt wird. Sorgen Sie dafür, dass **writeBatchSize** den Wert 10 nicht überschreitet, um eine solche Einschränkung gleichzeitiger Aufrufe zu vermeiden.
 
 Die optimale Kombination von **writeBatchSize** und **parallelCopies** hängt vom Schema Ihrer Entität ab. Schemaelemente enthalten die Anzahl von Spalten, die Zeilengröße und die Anzahl der Plug-Ins, Workflows oder Workflowaktivitäten, die an diese Aufrufe gekoppelt sind. Die Standardeinstellung **writeBatchSize** (10) &times; **parallelCopies** (10) wird für den Dynamics-Dienst empfohlen. Dieser Wert funktioniert für die meisten Dynamics-Entitäten, obwohl er unter Umständen nicht die beste Leistung erzielt. Sie können die Leistung optimieren, indem Sie die Kombination in Ihren Kopieraktivitätseinstellungen anpassen.
 
@@ -397,7 +397,7 @@ Konfigurieren Sie anhand der folgenden Zuordnungstabelle den entsprechenden Data
 | AttributeType.Status | Int32 | ✓ | ✓ |
 
 > [!NOTE]
-> Die Dynamics-Datentypen **AttributeType.CalendarRules**, **AttributeType.MultiSelectPicklist** und **AttributeType.PartyList** werden nicht unterstützt.
+> Die Dynamics-Datentypen **AttributeType.CalendarRules** , **AttributeType.MultiSelectPicklist** und **AttributeType.PartyList** werden nicht unterstützt.
 
 ## <a name="writing-data-to-a-lookup-field"></a>Schreiben von Daten in ein Nachschlagefeld
 
@@ -420,8 +420,8 @@ Sie möchten nun solche Daten für die Senke in das Dynamics-Entitätsfeld **Cus
 
 Ordnen Sie die beiden Spalten in der Spaltenzuordnung für die Kopieraktivität wie folgt zu:
 
-- **CustomerField** zu **CustomerField**. Bei dieser Zuordnung handelt es sich um die normale Feldzuordnung.
-- **Target** zu **CustomerField\@EntityReference**. Die Senkenspalte ist virtuell und stellt den Entitätsverweis dar. Sie müssen solche Feldnamen in einer Zuordnung eingeben, da diese nach einem Schemaimport nicht angezeigt werden.
+- **CustomerField** zu **CustomerField** . Bei dieser Zuordnung handelt es sich um die normale Feldzuordnung.
+- **Target** zu **CustomerField\@EntityReference** . Die Senkenspalte ist virtuell und stellt den Entitätsverweis dar. Sie müssen solche Feldnamen in einer Zuordnung eingeben, da diese nach einem Schemaimport nicht angezeigt werden.
 
 ![Spaltenzuordnung für Dynamics-Nachschlagefelder](./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping.png)
 

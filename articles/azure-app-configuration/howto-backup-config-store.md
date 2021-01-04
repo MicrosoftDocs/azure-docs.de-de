@@ -6,16 +6,16 @@ author: avanigupta
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-dotnet
+ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 3c4bdf1268aea06d7b67776a4022c608549994e7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 04edf2eeb231ff1444c732840def2b78b1373e79
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074854"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565924"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Automatisches Sichern von App Configuration-Speichern
 
@@ -37,14 +37,17 @@ Hinter der Sicherung von App Configuration-Speichern steht die Motivation, mehre
 
 In diesem Tutorial erstellen Sie einen sekundären Speicher in der Region `centralus` und alle anderen Ressourcen in der Region `westus`.
 
-## <a name="prerequisites"></a>Voraussetzungen
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)].
 
-- Azure-Abonnement. [Erstellen Sie ein kostenloses Konto.](https://azure.microsoft.com/free/) 
+## <a name="prerequisites"></a>Voraussetzungen 
+
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) mit der Workload Azure-Entwicklung.
-- [.NET Core SDK](https://dotnet.microsoft.com/download).
-- Aktuelle Version der Azure CLI (2.3.1 oder höher). Führen Sie `az --version` aus, um die Version zu finden. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sie bei Bedarf unter [Installieren der Azure CLI](/cli/azure/install-azure-cli). Falls Sie die Azure CLI verwenden, müssen Sie sich erst mithilfe von `az login` anmelden. Sie können optional Azure Cloud Shell verwenden.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- [.NET Core SDK](https://dotnet.microsoft.com/download).
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- Für dieses Tutorial ist mindestens Version 2.3.1 der Azure CLI erforderlich. Bei Verwendung von Azure Cloud Shell ist die aktuelle Version bereits installiert.
 
 ## <a name="create-a-resource-group"></a>Erstellen einer Ressourcengruppe
 
@@ -62,7 +65,7 @@ az group create --name $resourceGroupName --location westus
 ## <a name="create-app-configuration-stores"></a>Erstellen eines App Configuration-Speichers
 
 Erstellen Sie Ihren primären und sekundären App Configuration-Speicher in unterschiedlichen Regionen.
-Ersetzen Sie  `<primary_appconfig_name>` und `<secondary_appconfig_name>` durch eindeutige Namen für ihre Konfigurationsspeicher. Der Speichername muss immer eindeutig sein, da er als DNS-Name verwendet wird.
+Ersetzen Sie `<primary_appconfig_name>` und `<secondary_appconfig_name>` durch eindeutige Namen für ihre Konfigurationsspeicher. Der Speichername muss immer eindeutig sein, da er als DNS-Name verwendet wird.
 
 ```azurecli-interactive
 primaryAppConfigName="<primary_appconfig_name>"

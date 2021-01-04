@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial zur Bildklassifizierung: Trainieren von Modellen'
 titleSuffix: Azure Machine Learning
-description: Verwenden Sie Azure Machine Learning, um ein Bildklassifizierungsmodell mit scikit-learn in einem Python Jupyter Notebook zu trainieren. Dieses Tutorial ist das erste einer zweiteiligen Reihe.
+description: Verwenden Sie Azure Machine Learning, um ein Bildklassifizierungsmodell mit scikit-learn in einer Python Jupyter Notebook-Instanz zu trainieren. Dieses Tutorial ist das erste einer zweiteiligen Reihe.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 40ee7ad74d1a1daaf6df5e76b5e51db52feea304
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1dbe51dd095290c296699bbb4bc6bd3a8caf7bf
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535068"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862427"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Tutorial: Trainieren von Bildklassifizierungsmodellen mit MNIST-Daten und scikit-learn 
 
 
-In diesem Tutorial wird ein Modell für maschinelles Lernen auf Remotecomputeressourcen trainiert. Hierbei wird der Trainings- und Bereitstellungsworkflow für Azure Machine Learning in einem Python Jupyter Notebook verwendet.  Anschließend können Sie das Notebook als Vorlage verwenden, um Ihr eigenes Machine Learning-Modell mit Ihren eigenen Daten zu trainieren. Dieses Tutorial ist der **erste Teil einer zweiteiligen Reihe**.  
+In diesem Tutorial wird ein Modell für maschinelles Lernen auf Remotecomputeressourcen trainiert. Hierbei wird der Trainings- und Bereitstellungsworkflow für Azure Machine Learning in einer Python Jupyter Notebook-Instanz verwendet.  Anschließend können Sie das Notebook als Vorlage verwenden, um Ihr eigenes Machine Learning-Modell mit Ihren eigenen Daten zu trainieren. Dieses Tutorial ist der **erste Teil einer zweiteiligen Reihe**.  
 
 In diesem Tutorial wird eine einfache logistische Regression anhand des [MNIST](http://yann.lecun.com/exdb/mnist/)-Datasets und [scikit-learn](https://scikit-learn.org) mit Azure Machine Learning trainiert. MNIST ist ein populäres Dataset, das aus 70.000 Graustufenbildern besteht. Jedes Bild ist eine handgeschriebene Ziffer von null bis neun im Format von 28 × 28 Pixeln. Das Ziel besteht darin, einen Multiklassen-Klassifizierer zu erstellen, um die in einem bestimmten Bild dargestellte Ziffer zu erkennen.
 
@@ -37,7 +37,7 @@ In [Teil 2 dieses Tutorials](tutorial-deploy-models-with-aml.md) erfahren Sie, w
 Wenn Sie nicht über ein Azure-Abonnement verfügen, können Sie ein kostenloses Konto erstellen, bevor Sie beginnen. Probieren Sie die [kostenlose oder kostenpflichtige Version von Azure Machine Learning](https://aka.ms/AMLFree) noch heute aus.
 
 >[!NOTE]
-> Der Code in diesem Artikel wurde mit Version 1.13.0 des Azure [Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) getestet.
+> Der Code in diesem Artikel wurde mit Version 1.13.0 des Azure [Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) getestet.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -159,7 +159,7 @@ Bevor Sie ein Modell trainieren, müssen Sie die Daten verstehen, die zum Traini
 
 ### <a name="download-the-mnist-dataset"></a>Laden des MNIST-Datasets
 
-Verwenden Sie Azure Open Datasets, um die unformatierten MNIST-Datendateien abzurufen. [Öffentliche Azure-Datasets](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) sind kuratierte öffentliche Datasets, mit denen Sie Lösungen mit maschinellem Lernen szenariospezifische Features hinzufügen können, um genauere Modelle zu erzielen. Jedes Dataset verfügt über eine entsprechende Klasse (hier `MNIST`), um die Daten auf unterschiedliche Weise abzurufen.
+Verwenden Sie Azure Open Datasets, um die unformatierten MNIST-Datendateien abzurufen. [Öffentliche Azure-Datasets](../open-datasets/overview-what-are-open-datasets.md) sind kuratierte öffentliche Datasets, mit denen Sie Lösungen mit maschinellem Lernen szenariospezifische Features hinzufügen können, um genauere Modelle zu erzielen. Jedes Dataset verfügt über eine entsprechende Klasse (hier `MNIST`), um die Daten auf unterschiedliche Weise abzurufen.
 
 Mit diesem Code werden die Daten als `FileDataset`-Objekt abgerufen, bei dem es sich um eine Unterklasse von `Dataset` handelt. Ein `FileDataset`-Objekt verweist auf eine einzelne oder mehrere Dateien beliebigen Formats in Ihren Datenspeichern oder unter öffentlichen URLs. Bei dieser Klasse haben Sie die Möglichkeit, die Dateien für Ihre Computeumgebung herunterzuladen oder bereitzustellen, indem Sie einen Verweis auf den Speicherort der Datenquelle erstellen. Außerdem registrieren Sie das Dataset unter Ihrem Arbeitsbereich, um das einfache Abrufen während des Trainings zu ermöglichen.
 
@@ -309,7 +309,7 @@ Beachten Sie, wie das Skript Daten abruft und Modelle speichert:
 
 ### <a name="configure-the-training-job"></a>Konfigurieren des Trainingsauftrags
 
-Erstellen Sie ein [ScriptRunConfig-](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) Objekt, um die Konfigurationsdetails Ihres Trainingsauftrags anzugeben, einschließlich Ihres Trainingsskripts, der zu verwendenden Umgebung und des Computeziels für die Ausführung. Konfigurieren Sie ScriptRunConfig, indem Sie Folgendes angeben:
+Erstellen Sie ein [ScriptRunConfig-](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) Objekt, um die Konfigurationsdetails Ihres Trainingsauftrags anzugeben, einschließlich Ihres Trainingsskripts, der zu verwendenden Umgebung und des Computeziels für die Ausführung. Konfigurieren Sie ScriptRunConfig, indem Sie Folgendes angeben:
 
 * Das Verzeichnis, das Ihre Skripts enthält. Alle Dateien in dieses Verzeichnis werden zur Ausführung in die Clusterknoten hochgeladen.
 * Das Computeziel. In diesem Fall verwenden Sie den von Ihnen erstellten Azure Machine Learning-Computecluster.
@@ -382,7 +382,7 @@ Sie können den Verlauf eines Auftrags während seiner Ausführung auf mehrere A
 
 ### <a name="jupyter-widget"></a>Jupyter-Widget
 
-Sehen Sie sich den Verlauf der Ausführung mit einem [Jupyter-Widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true) an. Ebenso wie die Übermittlung der Ausführung ist das Widget asynchron und stellt alle 10 bis 15 Sekunden Liveupdates bereit, bis der Auftrag abgeschlossen ist:
+Sehen Sie sich den Verlauf der Ausführung mit einem [Jupyter-Widget](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) an. Ebenso wie die Übermittlung der Ausführung ist das Widget asynchron und stellt alle 10 bis 15 Sekunden Liveupdates bereit, bis der Auftrag abgeschlossen ist:
 
 ```python
 from azureml.widgets import RunDetails
@@ -393,7 +393,7 @@ Das Widget sieht am Ende des Trainings wie folgt aus:
 
 ![Notebook-Widget](./media/tutorial-train-models-with-aml/widget.png)
 
-Wenn Sie eine Ausführung abbrechen möchten, befolgen Sie [diese Anweisungen](https://aka.ms/aml-docs-cancel-run).
+Wenn Sie eine Ausführung abbrechen möchten, befolgen Sie [diese Anweisungen](./how-to-manage-runs.md).
 
 ### <a name="get-log-results-upon-completion"></a>Abrufen von Protokollergebnissen nach Abschluss
 

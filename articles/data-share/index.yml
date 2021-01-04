@@ -11,12 +11,12 @@ metadata:
   author: hrasheed-msft
   ms.author: hrasheed
   ms.date: 10/20/2020
-  ms.openlocfilehash: cd1e23d464baa593ed5f63683664ca355e467168
-  ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+  ms.openlocfilehash: 9fd78623be3802ae0e59f00e9621d16765311607
+  ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/21/2020
-  ms.locfileid: "92311698"
+  ms.lasthandoff: 12/01/2020
+  ms.locfileid: "96454990"
 landingContent:
 - title: Informationen zu Azure Data Share
   linkLists:
@@ -46,10 +46,10 @@ landingContent:
     links:
     - text: Freigeben aus Azure Storage
       url: how-to-share-from-storage.md
-    - text: Freigeben aus Azure SQL-Datenbank oder Synapse Analytics
+    - text: Freigeben aus Azure SQL-Datenbank oder Azure Synapse Analytics
       url: how-to-share-from-sql.md
     - text: Freigeben über Azure Data Explorer
-      url: https://docs.microsoft.com/azure/data-explorer/data-share
+      url: /azure/data-explorer/data-share
 - title: Überwachen und Verwalten
   linkLists:
   - linkListType: how-to-guide

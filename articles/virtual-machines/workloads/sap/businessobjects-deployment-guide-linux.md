@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 7253e257f9d721c09f2e041c1473a9d81d09a321
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 647009854ef5a0c0811fc303914f724272f1a3f5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094148"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486656"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Bereitstellungsleitfaden für die SAP BusinessObjects BI-Plattform für Linux in Azure
 
@@ -84,7 +85,7 @@ In den folgenden Anweisungen wird davon ausgegangen, dass Sie bereits [Azure Vir
 
 3. Richten Sie entsprechend den Anweisungen in [Einrichten eines Kapazitätspools](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md) einen Azure NetApp Files-Kapazitätspool ein.
 
-   - Die in diesem Artikel vorgestellte Architektur der SAP BI-Plattform verwendet einen einzigen Azure NetApp Files-Kapazitätspool auf der Dienstebene *Premium* . Für SAP BI File Repository Server in Azure empfehlen wir die Verwendung einer Azure NetApp Files- [Dienstebene](../../../azure-netapp-files/azure-netapp-files-service-levels.md) vom Typ *Premium* oder *Ultra* .
+   - Die in diesem Artikel vorgestellte Architektur der SAP BI-Plattform verwendet einen einzigen Azure NetApp Files-Kapazitätspool auf der Dienstebene *Premium*. Für SAP BI File Repository Server in Azure empfehlen wir die Verwendung einer Azure NetApp Files-[Dienstebene](../../../azure-netapp-files/azure-netapp-files-service-levels.md) vom Typ *Premium* oder *Ultra*.
 
 4. Delegieren Sie ein Subnetz an Azure NetApp Files, wie in den Anweisungen in [Delegieren eines Subnetzes an Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md) beschrieben.
 
@@ -196,7 +197,7 @@ Für die Schritte in diesem Abschnitt werden die folgenden Präfixe verwendet:
 
    **Überprüfen der NFS-Domäneneinstellungen**
 
-   Stellen Sie sicher, dass die Domäne als Azure NetApp Files-Standarddomäne (also **defaultv4iddomain.com** ) konfiguriert und die Zuordnung auf **nobody** festgelegt ist.
+   Stellen Sie sicher, dass die Domäne als Azure NetApp Files-Standarddomäne (also **defaultv4iddomain.com**) konfiguriert und die Zuordnung auf **nobody** festgelegt ist.
 
    ```bash
    sudo cat /etc/idmapd.conf
@@ -210,7 +211,7 @@ Für die Schritte in diesem Abschnitt werden die folgenden Präfixe verwendet:
 
    > [!Important]
    >
-   > Stellen Sie sicher, dass die NFS-Domäne in „/etc/idmapd.conf“ auf der VM so festgelegt ist, dass sie mit der Standarddomänenkonfiguration für Azure NetApp Files übereinstimmt: **defaultv4iddomain.com** . Im Fall eines Konflikts zwischen der Domänenkonfiguration auf dem NFS-Client (also der VM) und dem NFS-Server (also der Azure NetApp-Konfiguration) werden die Berechtigungen für Dateien auf Azure NetApp Files-Volumes, die auf den VMs eingebunden sind, als „nobody“ angezeigt.
+   > Stellen Sie sicher, dass die NFS-Domäne in „/etc/idmapd.conf“ auf der VM so festgelegt ist, dass sie mit der Standarddomänenkonfiguration für Azure NetApp Files übereinstimmt: **defaultv4iddomain.com**. Im Fall eines Konflikts zwischen der Domänenkonfiguration auf dem NFS-Client (also der VM) und dem NFS-Server (also der Azure NetApp-Konfiguration) werden die Berechtigungen für Dateien auf Azure NetApp Files-Volumes, die auf den VMs eingebunden sind, als „nobody“ angezeigt.
 
    Überprüfen von `nfs4_disable_idmapping` Diese Angabe sollte auf **Y** (Ja) festgelegt sein. Führen Sie den Einbindungsbefehl aus, um bei `nfs4_disable_idmapping` die Verzeichnisstruktur zu erstellen. Sie können das Verzeichnis unter „/sys/modules“ nicht manuell erstellen, da der Zugriff für den Kernel bzw. die Treiber reserviert ist.
 
@@ -274,7 +275,7 @@ Die Anweisungen gelten nur, wenn Sie Azure Database for MySQL verwenden. Inform
 
 ### <a name="create-an-azure-database-for-mysql"></a>Erstellen einer Azure Database for MySQL-Datenbank
 
-Melden Sie sich im Azure-Portal an, und befolgen Sie die in dieser [Schnellstartanleitung für Azure Database for MySQL](../../../mysql/quickstart-create-mysql-server-database-using-azure-portal.md#create-an-azure-database-for-mysql-server) aufgeführten Schritte. Beim Bereitstellen von Azure Database for MySQL sind einige Punkte zu beachten:
+Melden Sie sich im Azure-Portal an, und befolgen Sie die in dieser [Schnellstartanleitung für Azure Database for MySQL](../../../mysql/quickstart-create-mysql-server-database-using-azure-portal.md) aufgeführten Schritte. Beim Bereitstellen von Azure Database for MySQL sind einige Punkte zu beachten:
 
 1. Wählen Sie für Azure Database for MySQL dieselbe Region aus, in der Ihre Anwendungsserver der SAP BI-Plattform ausgeführt werden.
 
@@ -296,7 +297,7 @@ Melden Sie sich im Azure-Portal an, und befolgen Sie die in dieser [Schnellstart
 Der erstellte Server wird standardmäßig durch eine Firewall geschützt und ist nicht öffentlich zugänglich. Führen Sie die folgenden Schritte aus, um Zugriff auf das virtuelle Netzwerk bereitzustellen, in dem die Anwendungsserver der SAP BI-Plattform ausgeführt werden:  
 
 1. Navigieren Sie im Azure-Portal zu den Serverressourcen, und wählen Sie im Menü auf der linken Seite die Option **Verbindungssicherheit** für Ihre Serverressource aus.
-2. Wählen Sie **Ja** aus, um den **Zugriff auf Azure-Dienste zuzulassen** .
+2. Wählen Sie **Ja** aus, um den **Zugriff auf Azure-Dienste zuzulassen**.
 3. Wählen Sie unter den VNET-Regeln die Option **Vorhandenes virtuelles Netzwerk wird hinzugefügt** aus. Wählen Sie das virtuelle Netzwerk und Subnetz des Anwendungsservers der SAP BI-Plattform aus. Außerdem müssen Sie Zugriff auf Jumpbox oder andere Server bereitstellen, von denen aus Sie eine Verbindung von [MySQL Workbench](../../../mysql/connect-workbench.md) mit Azure Database for MySQL herstellen können. MySQL Workbench wird verwendet, um die CMS- und Überwachungsdatenbank zu erstellen.
 4. Nachdem die virtuellen Netzwerke hinzugefügt wurden, wählen Sie **Speichern** aus.
 
@@ -401,9 +402,9 @@ Für die Schritte in diesem Abschnitt werden die folgenden Präfixe verwendet:
 
 2. **[A]** Stellen Sie sicher, dass die Zeitzone auf Ihrem Computer ordnungsgemäß eingestellt ist. Weitere Informationen finden Sie im Abschnitt [Weitere Unix- und Linux-Anforderungen](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US/46b143336e041014910aba7db0e91070.html) im Installationsleitfaden.
 
-3. **[A]** Erstellen Sie ein Benutzerkonto ( **bl1** adm) und eine Benutzergruppe (sapsys), unter denen die Hintergrundprozesse der Software ausgeführt werden können. Verwenden Sie dieses Konto, um die Installation und die Software auszuführen. Das Konto erfordert keine Stammberechtigungen.
+3. **[A]** Erstellen Sie ein Benutzerkonto (**bl1** adm) und eine Benutzergruppe (sapsys), unter denen die Hintergrundprozesse der Software ausgeführt werden können. Verwenden Sie dieses Konto, um die Installation und die Software auszuführen. Das Konto erfordert keine Stammberechtigungen.
 
-4. **[A]** Legen Sie die Umgebung des Benutzerkontos ( **bl1** adm) so fest, dass ein unterstütztes UTF-8-Gebietsschema verwendet wird, und stellen Sie sicher, dass Ihre Konsolensoftware UTF-8-Zeichensätze unterstützt. Um sicherzustellen, dass Ihr Betriebssystem das richtige Gebietsschema verwendet, legen Sie die Umgebungsvariablen LC_ALL und LANG auf Ihr bevorzugtes Gebietsschema in Ihrer Benutzerumgebung ( **bl1** adm) fest.
+4. **[A]** Legen Sie die Umgebung des Benutzerkontos (**bl1** adm) so fest, dass ein unterstütztes UTF-8-Gebietsschema verwendet wird, und stellen Sie sicher, dass Ihre Konsolensoftware UTF-8-Zeichensätze unterstützt. Um sicherzustellen, dass Ihr Betriebssystem das richtige Gebietsschema verwendet, legen Sie die Umgebungsvariablen LC_ALL und LANG auf Ihr bevorzugtes Gebietsschema in Ihrer Benutzerumgebung (**bl1** adm) fest.
 
    ```bash
    # This configuration is for bash shell. If you are using any other shell for sidadm, kindly set environment variable accordingly.
@@ -413,7 +414,7 @@ Für die Schritte in diesem Abschnitt werden die folgenden Präfixe verwendet:
    export LC_ALL=en_US.utf8
    ```
 
-5. **[A]** Konfigurieren Sie das Benutzerkonto ( **bl1** adm).
+5. **[A]** Konfigurieren Sie das Benutzerkonto (**bl1** adm).
 
    ```bash
    # Set ulimit for bl1adm to unlimited
@@ -559,7 +560,7 @@ Im Rahmen des Sicherungsvorgangs wird eine Momentaufnahme erstellt, und die Date
 
 Für **Azure NetApp Files** können Sie eine On-Demand-Momentaufnahme erstellen und mithilfe von Momentaufnahmerichtlinien eine automatische Momentaufnahme planen. Momentaufnahmekopien stellen eine Zeitpunktkopie Ihres ANF-Volumes dar. Weitere Informationen finden Sie unter [Verwalten von Momentaufnahmen mithilfe von Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
 
-Die **Azure Files** -Sicherung ist in den nativen [Azure Backup](../../../backup/backup-overview.md)-Dienst integriert, der die Sicherungs- und Wiederherstellungsfunktion zusammen mit der Sicherung von VMs zentralisiert und die Abläufe vereinfacht. Weitere Informationen finden Sie unter [Sichern von Azure-Dateifreigaben](../../../backup/azure-file-share-backup-overview.md) und [Häufig gestellte Fragen zu Azure Files](../../../backup/backup-azure-files-faq.md).
+Die **Azure Files**-Sicherung ist in den nativen [Azure Backup](../../../backup/backup-overview.md)-Dienst integriert, der die Sicherungs- und Wiederherstellungsfunktion zusammen mit der Sicherung von VMs zentralisiert und die Abläufe vereinfacht. Weitere Informationen finden Sie unter [Sichern von Azure-Dateifreigaben](../../../backup/azure-file-share-backup-overview.md) und [Häufig gestellte Fragen zu Azure Files](../../../backup/backup-azure-files-faq.md).
 
 #### <a name="backup--restore-for-cms-database"></a>Sicherung und Wiederherstellung für CMS-Datenbank
 
@@ -614,7 +615,7 @@ Weitere Informationen zur Bereitstellung von DBMS für CMS-Datenbanken finden Si
 
 File Repository Server (FRS) bezieht sich auf die Datenträgerverzeichnisse, in denen Inhalte wie Berichte, Universen und Verbindungen gespeichert werden. Es wird von allen Anwendungsservern dieses Systems gemeinsam genutzt. Daher müssen Sie sicherstellen, dass es über Hochverfügbarkeit verfügt.
 
-In Azure können Sie für die Dateifreigabe entweder [Azure Files Premium](../../../storage/files/storage-files-introduction.md) oder [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) auswählen, die für Hochverfügbarkeit und Langlebigkeit konzipiert sind. Weitere Informationen finden Sie im Abschnitt [Redundanz](https://docs.microsoft.com/azure/storage/files/storage-files-planning#redundancy) für Azure Files.
+In Azure können Sie für die Dateifreigabe entweder [Azure Files Premium](../../../storage/files/storage-files-introduction.md) oder [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) auswählen, die für Hochverfügbarkeit und Langlebigkeit konzipiert sind. Weitere Informationen finden Sie im Abschnitt [Redundanz](../../../storage/files/storage-files-planning.md#redundancy) für Azure Files.
 
 > [!NOTE]
 > Das SMB-Protokoll für Azure Files ist allgemein verfügbar, aber die Unterstützung des NFS-Protokolls für Azure Files befindet sich derzeit in der Vorschauversion. Weitere Informationen finden Sie unter [Unterstützung von NFS 4.1 für Azure Files befindet sich jetzt in der Vorschau](https://azure.microsoft.com/en-us/blog/nfs-41-support-for-azure-files-is-now-in-preview/)
@@ -666,7 +667,7 @@ Der Azure Site Recovery-Dienst kann verwendet werden, um virtuelle Computer, die
 
   Sie können die regionsübergreifende Replikation von Azure NetApp Files verwenden, die sich derzeit in der [Vorschauversion](https://azure.microsoft.com/en-us/blog/azure-netapp-files-cross-region-replication-and-new-enhancements-in-preview/) befindet und die NetApp SnapMirror®-Technologie verwendet. Daher werden nur geänderte Blöcke in einem komprimierten, effizienten Format über das Netzwerk gesendet. Diese proprietäre Technologie minimiert die Menge an Daten, die regionsübergreifend repliziert werden muss, wodurch Datenübertragungskosten eingespart werden. Auch die Replikationszeit verkürzt sich dadurch, sodass Sie eine kürzere Recovery Point Objective (RPO) erreichen können. Weitere Informationen finden Sie unter [Regionsübergreifende Replikation: Anforderungen und Überlegungen](../../../azure-netapp-files/cross-region-replication-requirements-considerations.md).
 
-- **Azure Files Premium** unterstützt nur lokal redundanten Speicher (LRS) und zonenredundanten Speicher (ZRS). Für die Azure Files Premium-Strategie zur Notfallwiederherstellung können Sie [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) oder [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/) verwenden, um die Dateien in ein anderes Speicherkonto in einer anderen Region zu kopieren. Weitere Informationen finden Sie unter [Notfallwiederherstellung und Speicherkontofailover](../../../storage/common/storage-disaster-recovery-guidance.md).
+- **Azure Files Premium** unterstützt nur lokal redundanten Speicher (LRS) und zonenredundanten Speicher (ZRS). Für die Azure Files Premium-Strategie zur Notfallwiederherstellung können Sie [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) oder [Azure PowerShell](/powershell/module/az.storage/) verwenden, um die Dateien in ein anderes Speicherkonto in einer anderen Region zu kopieren. Weitere Informationen finden Sie unter [Notfallwiederherstellung und Speicherkontofailover](../../../storage/common/storage-disaster-recovery-guidance.md).
 
 #### <a name="cms-database"></a>CMS-Datenbank
 
@@ -694,4 +695,4 @@ Nachfolgend ist die Empfehlung für eine Notfallwiederherstellung der einzelnen 
 - [Einrichten der Notfallwiederherstellung für die Bereitstellung einer SAP-App mit mehreren Ebenen](../../../site-recovery/site-recovery-sap.md)
 - [Azure Virtual Machines – Planung und Implementierung für SAP](planning-guide.md)
 - [Azure Virtual Machines – Bereitstellung für SAP](deployment-guide.md)
-- [Azure Virtual Machines – DBMS-Bereitstellung für SAP](dbms-guide.md)
+- [Azure Virtual Machines – DBMS-Bereitstellung für SAP](./dbms_guide_general.md)

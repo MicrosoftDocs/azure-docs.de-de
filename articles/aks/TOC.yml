@@ -9,7 +9,7 @@
 - name: Schnellstarts
   expanded: true
   items:
-    - name: Erstellen eines AKS-Clusters
+    - name: Bereitstellen eines AKS-Clusters
       expanded: true
       items:
         - name: Verwenden der Azure-CLI
@@ -59,7 +59,7 @@
           href: ./security-controls-policy.md
     - name: Netzwerk
       href: concepts-network.md
-    - name: Speicher
+    - name: Storage
       href: concepts-storage.md
     - name: Skalieren
       href: concepts-scale.md
@@ -142,18 +142,24 @@
           href: upgrade-cluster.md
         - name: Verwenden einer Betriebszeit-SLA
           href: uptime-sla.md
-        - name: Verwenden von Näherungsplatzierungsgruppen (Vorschauversion)
+        - name: Verwenden von Näherungsplatzierungsgruppen
           href: reduce-latency-ppg.md
         - name: Aktualisieren des Knotenimages
           href: node-image-upgrade.md
+        - name: Automatisches Upgrade des Knotenimages mit GitHub Actions
+          href: node-upgrade-github-actions.md
         - name: Verarbeiten von Betriebssystemupdates für Knoten
           href: node-updates-kured.md
         - name: Konfigurieren eines AKS-Clusters
           href: cluster-configuration.md
+        - name: Konfiguration von benutzerdefinierten Knoten (Vorschau)
+          href: custom-node-configuration.md
         - name: Integrieren eines ACR mit einem AKS-Cluster
           href: cluster-container-registry-integration.md
         - name: Erstellen von virtuellen Knoten
           items:
+            - name: Verwenden von virtuellen Knoten
+              href: virtual-nodes.md
             - name: Verwenden der Azure-CLI
               href: virtual-nodes-cli.md
             - name: Verwenden des Azure-Portals
@@ -166,14 +172,14 @@
           items:
             - name: Verwenden mehrerer Knotenpools
               href: use-multiple-node-pools.md
-            - name: Verwenden von Spot-Knotenpools (Vorschau)
+            - name: Verwenden von Spot-Knotenpools
               href: spot-node-pool.md
             - name: Verwenden von Systemknotenpools
               href: use-system-pools.md
         - name: Bereitstellen von AKS mit Terraform
           href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
-        - name: Verwenden der Kubernetes-Ressourcenanzeige (Vorschauversion)
+        - name: Kubernetes-Ressourcenansicht im Azure-Portal
           href: kubernetes-portal.md
         - name: Verwenden des Kubernetes-Dashboards
           href: kubernetes-dashboard.md
@@ -250,6 +256,8 @@
           href: kubernetes-service-principal.md
         - name: Verwenden verwalteter Identitäten
           href: use-managed-identity.md
+        - name: Verwenden der AAD-Podidentität (Vorschau)
+          href: use-azure-ad-pod-identity.md
         - name: Beschränken des Zugriffs auf die Clusterkonfigurationsdatei
           href: control-kubeconfig-access.md
         - name: Schützen des Datenverkehrs zwischen Pods mit Netzwerkrichtlinien
@@ -325,8 +333,10 @@
           href: spark-job.md
         - name: Verwenden von GPUs
           href: gpu-cluster.md
-        - name: Verwenden von Azure Database for PostgreSQL
-          href: ../postgresql/concepts-aks.md
+        - name: Erstellen einer App mit PostgreSQL
+          href: ../postgresql/flexible-server/tutorial-django-aks-database.md
+        - name: Erstellen einer App mit MySQL
+          href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md
           maintainContext: true
         - name: Verwenden von Azure API Management
           href: ../api-management/api-management-kubernetes.md
@@ -383,7 +393,7 @@
           href: aks-resource-health.md
 - name: Verweis
   items:
-    - name: Azure-Befehlszeilenschnittstelle
+    - name: Azure CLI
       href: /cli/azure/aks
     - name: REST
       href: /rest/api/aks

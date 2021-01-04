@@ -8,16 +8,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sashan, sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: sashan
 ms.date: 08/27/2019
-ms.openlocfilehash: df10e2b674a8e97766ee96a802e614e2bd797b7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92d1ce51306e846e2d842bef33bb9782da14019a
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617739"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593993"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Tutorial: Hinzufügen einer SQL Managed Instance zu einer Failovergruppe
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -161,8 +161,8 @@ Erstellen Sie die Ressourcengruppe und die primäre verwaltete Instanz mithilfe 
    # Suppress networking breaking changes warning (https://aka.ms/azps-changewarnings
    Set-Item Env:\SuppressAzurePowerShellBreakingChangeWarnings "true"
    
-   # Set the subscription context
-   Set-AzContext -SubscriptionId $subscriptionId 
+   # Set the subscription context
+   Set-AzContext -SubscriptionId $subscriptionId 
    
    # Create the resource group
    Write-host "Creating resource group..."
@@ -751,7 +751,7 @@ Erstellen Sie das Gateway für das virtuelle Netzwerk der primären verwalteten 
 
 
 1. Navigieren Sie im [Azure-Portal](https://portal.azure.com) zu Ihrer Ressourcengruppe, und wählen Sie die Ressource **Virtuelles Netzwerk** für Ihre primäre verwaltete Instanz aus. 
-1. Wählen Sie unter **Einstellungen**die Option **Subnetze** aus, und wählen Sie dann ein neues**Gatewaysubnetz** aus. Lassen Sie die Standardwerte unverändert. 
+1. Wählen Sie unter **Einstellungen **die Option **Subnetze** aus, und wählen Sie dann ein neues** Gatewaysubnetz** aus. Lassen Sie die Standardwerte unverändert. 
 
    ![Hinzufügen eines Gateways für die primäre verwaltete Instanz](./media/failover-group-add-instance-tutorial/add-subnet-gateway-primary-vnet.png)
 

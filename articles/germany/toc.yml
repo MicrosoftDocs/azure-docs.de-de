@@ -28,7 +28,7 @@
       items:
         - name: Subscription
           href: germany-manage-subscriptions.md
-    - name: Migrieren
+    - name: Migrate
       href: germany-migration-main.md
       items:
         - name: Compute
@@ -55,7 +55,7 @@
           href: germany-migration-management-tools.md
         - name: Medien
           href: germany-migration-media.md
-- name: Verweis
+- name: Referenz
   items:
     - name: Bilder
       href: germany-image-gallery.md
@@ -82,7 +82,7 @@
     - name: Azure-Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Blog
-      href: 'https://blogs.msdn.microsoft.com/azuregermany/'
+      href: /archive/blogs/azuregermany/
     - name: Preise
       href: 'https://azure.microsoft.com/pricing/'
     - name: Testversion

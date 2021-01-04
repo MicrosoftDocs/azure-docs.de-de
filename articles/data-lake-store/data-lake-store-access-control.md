@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 11629338a808ae0f83ac513b6475dce7a53814da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48ff32655b107958a3e8e42dbd7de0f405a6fffa
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88190151"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094861"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Zugriffssteuerung in Azure Data Lake Storage Gen1
 
@@ -33,8 +33,6 @@ Es gibt zwei Arten von Zugriffssteuerungslisten (Access Control Lists, ACLs): **
 
 
 Zugriffs- und Standard-ACLs besitzen die gleiche Struktur.
-
-
 
 > [!NOTE]
 > Änderungen an der Standard-ACL für ein übergeordnetes Element haben keine Auswirkungen auf die Zugriffs- oder Standard-ACL bereits vorhandener untergeordneter Elemente.
@@ -74,7 +72,7 @@ Im Folgenden sind einige allgemeine Szenarien aufgeführt, die veranschaulichen,
 | Vorgang | Object              |    /      | Seattle/   | Portland/   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | Lesen      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Anfügen an | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Anfügen an | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `-W-`          |
 | Löschen    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Erstellen    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | List      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
@@ -280,7 +278,11 @@ Einträge in den ACLs werden als GUIDs gespeichert, die Benutzern in Azure AD en
 
 ### <a name="why-do-i-sometimes-see-guids-in-the-acls-when-im-using-the-azure-portal"></a>Warum werden im Azure-Portal manchmal GUIDs in den ACLs angezeigt?
 
-Eine GUID wird angezeigt, wenn der Benutzer in Azure AD nicht mehr vorhanden ist. Dies ist meist der Fall, wenn der Benutzer aus dem Unternehmen ausgeschieden ist oder sein Konto in Azure AD gelöscht wurde.
+Eine GUID wird angezeigt, wenn der Benutzer in Azure AD nicht mehr vorhanden ist. Dies ist meist der Fall, wenn der Benutzer aus dem Unternehmen ausgeschieden ist oder sein Konto in Azure AD gelöscht wurde. Stellen Sie außerdem sicher, dass Sie die richtige ID zum Festlegen von ACLs verwenden (Informationen dazu finden Sie unter der folgenden Frage).
+
+### <a name="when-using-service-principal-what-id-should-i-use-to-set-acls"></a>Welche ID sollte ich bei Verwendung des Dienstprinzipals zum Festlegen von ACLs verwenden?
+
+Navigieren Sie im Azure-Portal zu **Azure Active Directory > Unternehmensanwendungen**, und wählen Sie Ihre Anwendung aus. Auf der Registerkarte **Übersicht** sollte eine Objekt-ID angezeigt werden, die beim Hinzufügen von ACLs für den Datenzugriff zu verwenden ist (und nicht die Anwendungs-ID).
 
 ### <a name="does-data-lake-storage-gen1-support-inheritance-of-acls"></a>Unterstützt Data Lake Storage Gen1 die Vererbung von ACLs?
 

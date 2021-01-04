@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 3e06c79b9cbd5643d119974a4ed8628ea1b1cd4f
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 9eee315aac28847710662b463add7d6e68d8d505
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096758"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967294"
 ---
 # <a name="x509-certificate-attestation"></a>X.509-Zertifikatnachweis
 
@@ -26,7 +26,7 @@ X.509-Zertifikate können in einem Hardwaresicherheitsmodul (HSM) gespeichert we
 
 ## <a name="x509-certificates"></a>X.509-Zertifikate
 
-Die Verwendung von X.509-Zertifikaten als Nachweismechanismus ist eine exzellente Möglichkeit, die Produktion zu skalieren und die Gerätebereitstellung zu vereinfachen. X.509-Zertifikate sind üblicherweise in einer Zertifikatvertrauenskette angeordnet, in der jedes Zertifikat in der Kette durch den privaten Schlüssel des nächsthöheren Zertifikats signiert ist. Den Abschluss der Kette bildet ein selbstsigniertes Stammzertifikat. Durch diese Anordnung entsteht eine delegierte Vertrauenskette vom Stammzertifikat, das durch eine vertrauenswürdige Stammzertifizierungsstelle generiert wird, über jede Zwischenzertifizierungsstelle bis zum untergeordneten Zertifikat für die endgültige Entität, das auf einem Gerät installiert ist. Weitere Informationen finden Sie unter [Geräteauthentifizierung mit X.509-Zertifikaten](/azure/iot-hub/iot-hub-x509ca-overview). 
+Die Verwendung von X.509-Zertifikaten als Nachweismechanismus ist eine exzellente Möglichkeit, die Produktion zu skalieren und die Gerätebereitstellung zu vereinfachen. X.509-Zertifikate sind üblicherweise in einer Zertifikatvertrauenskette angeordnet, in der jedes Zertifikat in der Kette durch den privaten Schlüssel des nächsthöheren Zertifikats signiert ist. Den Abschluss der Kette bildet ein selbstsigniertes Stammzertifikat. Durch diese Anordnung entsteht eine delegierte Vertrauenskette vom Stammzertifikat, das durch eine vertrauenswürdige Stammzertifizierungsstelle generiert wird, über jede Zwischenzertifizierungsstelle bis zum untergeordneten Zertifikat für die endgültige Entität, das auf einem Gerät installiert ist. Weitere Informationen finden Sie unter [Geräteauthentifizierung mit X.509-Zertifikaten](../iot-hub/iot-hub-x509ca-overview.md). 
 
 Häufig repräsentiert die Zertifikatkette eine bestimmte logische oder physische Hierarchie im Zusammenhang mit den Geräten. Ein Hersteller kann beispielsweise:
 - ein selbstsigniertes Stammzertifikat ausstellen
@@ -34,11 +34,11 @@ Häufig repräsentiert die Zertifikatkette eine bestimmte logische oder physisch
 - das Zertifikat jedes Werks zum Erstellen eines eindeutigen Zertifizierungsstellen-Zwischenzertifikats jeder Fertigungsstrecke im Werk verwenden
 - und schließlich das Zertifikat der Fertigungsstrecke zum Erstellen eines eindeutigen Gerätezertifikats für jedes in dieser Strecke gefertigte Gerät verwenden. 
 
-Weitere Informationen finden Sie unter [Konzeptgrundlagen der X.509-Zertifizierungsstellenzertifikate in der IoT-Branche](/azure/iot-hub/iot-hub-x509ca-concept). 
+Weitere Informationen finden Sie unter [Konzeptgrundlagen der X.509-Zertifizierungsstellenzertifikate in der IoT-Branche](../iot-hub/iot-hub-x509ca-concept.md). 
 
 ### <a name="root-certificate"></a>Stammzertifikat
 
-Ein Stammzertifikat ist ein selbstsigniertes X.509-Zertifikat, das eine Zertifizierungsstelle repräsentiert. Es handelt sich um den Endpunkt bzw. Vertrauensanker der Zertifikatkette. Stammzertifikate können von einer Organisation selbst ausgestellt oder bei einer Stammzertifizierungsstelle erworben werden. Weitere Informationen finden Sie unter [Abrufen von X.509-CA-Zertifikaten](/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates). Das Stammzertifikat kann auch als Zertifizierungsstellen-Stammzertifikat bezeichnet werden.
+Ein Stammzertifikat ist ein selbstsigniertes X.509-Zertifikat, das eine Zertifizierungsstelle repräsentiert. Es handelt sich um den Endpunkt bzw. Vertrauensanker der Zertifikatkette. Stammzertifikate können von einer Organisation selbst ausgestellt oder bei einer Stammzertifizierungsstelle erworben werden. Weitere Informationen finden Sie unter [Abrufen von X.509-CA-Zertifikaten](../iot-hub/iot-hub-security-x509-get-started.md#get-x509-ca-certificates). Das Stammzertifikat kann auch als Zertifizierungsstellen-Stammzertifikat bezeichnet werden.
 
 ### <a name="intermediate-certificate"></a>Zwischenzertifikat
 
@@ -56,7 +56,7 @@ Das untergeordnete Zertifikat bzw. Zertifikat für die endgültige Entität iden
 
 Die mit einem Eintrag [Individuelle Registrierung](./concepts-service.md#individual-enrollment) verwendeten untergeordneten Zertifikate erfordern, dass der **Antragsstellername** auf die Registrierungs-ID des Eintrags für die individuelle Registrierung gesetzt werden muss. Bei untergeordneten Zertifikaten mit dem Eintrag [Registrierungsgruppe](./concepts-service.md#enrollment-group) sollte der **Antragstellername** auf die gewünschte Geräte-ID festgelegt werden, die in den **Registrierungsdatensätzen** für das authentifizierte Gerät in der Registrierungsgruppe angezeigt wird.
 
-Weitere Informationen finden Sie unter [Authentifizieren von Geräten, die mit X.509-Zertifikaten signiert sind](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
+Weitere Informationen finden Sie unter [Authentifizieren von Geräten, die mit X.509-Zertifikaten signiert sind](../iot-hub/iot-hub-x509ca-overview.md#authenticating-devices-signed-with-x509-ca-certificates).
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Steuern des Gerätezugriffs auf den Bereitstellungsdienst mit X.509-Zertifikaten
 
@@ -103,10 +103,10 @@ Wenn ein Gerät eine Verbindung mit dem Bereitstellungsdienst herstellt, räumt 
 
 Dieser Mechanismus und die hierarchische Struktur von Zertifikatketten bieten ein hohes Maß an Flexibilität bei der Steuerung des Zugriffs für einzelne Geräte ebenso wie für Gerätegruppen. Nehmen Sie beispielsweise an, Sie verfügen über fünf Geräte mit folgenden Zertifikatketten: 
 
-- *Gerät 1* : Stammzertifikat -> Zertifikat A -> Zertifikat für Gerät 1
-- *Gerät 2* : Stammzertifikat -> Zertifikat A -> Zertifikat für Gerät 2
-- *Gerät 3* : Stammzertifikat -> Zertifikat A -> Zertifikat für Gerät 3
-- *Gerät 4* : Stammzertifikat -> Zertifikat B -> Zertifikat für Gerät 4
-- *Gerät 5* : Stammzertifikat -> Zertifikat B -> Zertifikat für Gerät 5
+- *Gerät 1*: Stammzertifikat -> Zertifikat A -> Zertifikat für Gerät 1
+- *Gerät 2*: Stammzertifikat -> Zertifikat A -> Zertifikat für Gerät 2
+- *Gerät 3*: Stammzertifikat -> Zertifikat A -> Zertifikat für Gerät 3
+- *Gerät 4*: Stammzertifikat -> Zertifikat B -> Zertifikat für Gerät 4
+- *Gerät 5*: Stammzertifikat -> Zertifikat B -> Zertifikat für Gerät 5
 
 Anfangs können Sie einen einzigen aktivierten Gruppenregistrierungseintrag für das Stammzertifikat erstellen, um allen fünf Geräten den Zugriff zu ermöglichen. Sollte zu einem späteren Zeitpunkt Zertifikat B kompromittiert werden, können Sie einen deaktivierten Registrierungsgruppeneintrag für Zertifikat B erstellen, um die Registrierung von *Gerät 4* und *Gerät 5* zu verhindern. Wenn später auch *Gerät 3* kompromittiert wird, können Sie einen deaktivierten Registrierungseintrag für das Zertifikat dieses Geräts erstellen. Damit wird der Zugriff für *Gerät 3* widerrufen, *Gerät 1* und *Gerät 2* können sich jedoch weiterhin registrieren.

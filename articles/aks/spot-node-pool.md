@@ -1,18 +1,18 @@
 ---
-title: 'Vorschau: Hinzufügen eines Spot-Knotenpools zu einem Azure Kubernetes Service-Cluster (AKS)'
+title: Hinzufügen eines Spot-Knotenpools zu einem Azure Kubernetes Service-Cluster (AKS)
 description: Erfahren Sie, wie Sie einen Spot-Knotenpool zu einem Azure Kubernetes Service-Cluster (AKS) hinzufügen.
 services: container-service
 ms.service: container-service
 ms.topic: article
-ms.date: 02/25/2020
-ms.openlocfilehash: dbb003c287a18810c2c14c4f2ea401fa55cca427
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: 5fd97560c3a6e41b49beb957c7b8d79369799c21
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87987289"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078950"
 ---
-# <a name="preview---add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>Vorschau: Hinzufügen eines Spot-Knotenpools zu einem Azure Kubernetes Service-Cluster (AKS)
+# <a name="add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>Hinzufügen eines Spot-Knotenpools zu einem Azure Kubernetes Service-Cluster (AKS)
 
 Ein Spot-Knotenpool ist ein Knotenpool, der von einer [Spot-VM-Skalierungsgruppe][vmss-spot] unterstützt wird. Durch die Verwendung von Spot-VMs für Knoten mit Ihrem AKS-Cluster können Sie die ungenutzte Kapazität in Azure zu erheblichen Kosteneinsparungen nutzen. Die Menge der verfügbaren, nicht genutzten Kapazität hängt von vielen Faktoren ab, einschließlich der Größe der Knotenpunkte, der Region und der Tageszeit.
 
@@ -24,49 +24,13 @@ In diesem Artikel fügen Sie einem bestehenden Azure Kubernetes Service-Cluster 
 
 Für diesen Artikel werden Grundkenntnisse im Zusammenhang mit Kubernetes und Azure Load Balancer vorausgesetzt. Weitere Informationen finden Sie unter [Grundlegende Kubernetes-Konzepte für Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-Diese Funktion steht derzeit als Vorschau zur Verfügung.
-
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
-Wenn Sie einen Cluster für die Verwendung eines Spot-Knotenpools erstellen, muss dieser Cluster auch VM-Skalierungsgruppen für Knotenpools und den Lastenausgleich mit *Standard*-SKU verwenden. Sie müssen auch einen zusätzlichen Knotenpool hinzufügen, nachdem Sie Ihren Cluster erstellt haben, um einen Spot-Knotenpool zu verwenden. Das Hinzufügen eines zusätzlichen Knotenpools wird in einem späteren Schritt behandelt, aber Sie müssen zunächst eine Previewfunktion aktivieren.
+Wenn Sie einen Cluster für die Verwendung eines Spot-Knotenpools erstellen, muss dieser Cluster auch VM-Skalierungsgruppen für Knotenpools und den Lastenausgleich mit *Standard* -SKU verwenden. Sie müssen auch einen zusätzlichen Knotenpool hinzufügen, nachdem Sie Ihren Cluster erstellt haben, um einen Spot-Knotenpool zu verwenden. Das Hinzufügen eines zusätzlichen Knotenpools wird in einem späteren Schritt behandelt.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-### <a name="register-spotpoolpreview-preview-feature"></a>Registrieren der Previewfunktion „spotpoolpreview“
-
-Um einen AKS-Cluster zu erstellen, der einen Spot-Knotenpool verwendet, müssen Sie das Featureflag *spotpoolpreview* in Ihrem Abonnement aktivieren. Dieses Feature stellt beim Konfigurieren eines Clusters die neuesten Diensterweiterungen bereit.
-
-Registrieren Sie das Featureflag *spotpoolpreview* mit dem Befehl [az feature register][az-feature-register], wie im folgenden Beispiel gezeigt:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "spotpoolpreview"
-```
-
-Es dauert einige Minuten, bis der Status *Registered (Registriert)* angezeigt wird. Sie können den Registrierungsstatus mithilfe des Befehls [az feature list][az-feature-list] überprüfen:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/spotpoolpreview')].{Name:name,State:properties.state}"
-```
-
-Wenn Sie so weit sind, aktualisieren Sie mithilfe des Befehls [az provider register][az-provider-register] die Registrierung des Ressourcenanbieters *Microsoft.ContainerService*:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-### <a name="install-aks-preview-cli-extension"></a>Installieren der CLI-Erweiterung „aks-preview“
-
-Sie benötigen die *aks-preview*-CLI-Erweiterung, Version 0.4.32 oder höher, um einen AKS-Cluster zu erstellen, der einen Spot-Knotenpool verwendet. Installieren Sie die Azure CLI-Erweiterung *aks-preview* mit dem Befehl [az extension add][az-extension-add], und suchen Sie dann mit dem Befehl [az extension update][az-extension-update] nach verfügbaren Updates:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
- 
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+In diesem Artikel wird vorausgesetzt, dass Sie mindestens die Version 2.14 der Azure-Befehlszeilenschnittstelle verwenden. Führen Sie `az --version` aus, um die Version zu ermitteln. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sie bei Bedarf unter [Installieren der Azure CLI][azure-cli-install].
 
 ### <a name="limitations"></a>Einschränkungen
 
@@ -78,7 +42,7 @@ Die folgenden Einschränkungen gelten für die Erstellung und Verwaltung von AKS
 * Ein Spot-Knotenpool muss VM-Skalierungsgruppen verwenden.
 * Sie können „ScaleSetPriority“ oder „SpotMaxPrice“ nach der Erstellung nicht mehr ändern.
 * Beim Festlegen von „SpotMaxPrice“ muss der Wert -1 oder ein positiver Wert mit bis zu fünf Dezimalstellen sein.
-* Ein Spot-Knotenpool hat die Bezeichnung *kubernetes.azure.com/scalesetpriority:spot*, den Taint *kubernetes.azure.com/scalesetpriority=spot:NoSchedule*, und Systempods weisen die Antiaffinität auf.
+* Ein Spot-Knotenpool hat die Bezeichnung *kubernetes.azure.com/scalesetpriority:spot* , den Taint *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* , und Systempods weisen die Antiaffinität auf.
 * Sie müssen eine [entsprechende Toleranz][spot-toleration] hinzufügen, um Workloads auf einem Spot-Knotenpool zu planen.
 
 ## <a name="add-a-spot-node-pool-to-an-aks-cluster"></a>Hinzufügen eines Spot-Knotenpools zu einem AKS-Cluster
@@ -100,7 +64,7 @@ az aks nodepool add \
     --no-wait
 ```
 
-Standardmäßig erstellen Sie in Ihrem AKS-Cluster einen Knotenpool mit einer *Priorität* vom Typ *Regulär*, wenn Sie einen Cluster mit mehreren Knotenpools erstellen. Der obige Befehl fügt einem vorhandenen AKS-Cluster einen Hilfsknotenpool mit einer *Priorität* vom Typ *Spot* hinzu. Die *Priorität* vom Typ *Spot* macht den Knotenpool zu einem Spot-Knotenpool. Der Parameter *eviction-policy* ist im obigen Beispiel auf *Löschen* festgelegt, was dem Standardwert entspricht. Wenn Sie die [Entfernungsrichtlinie][eviction-policy] auf *Löschen* festlegen, werden Knoten in der zugrunde liegenden Skalierungsgruppe des Knotenpools bei der Entfernung gelöscht. Sie können die Entfernungsrichtlinie auch auf *Zuordnung aufheben* festlegen. Wenn Sie die Entfernungsrichtlinie auf *Zuordnung aufheben* festlegen, werden die Knoten in der zugrunde liegenden Skalierungsgruppe bei der Entfernung auf den Zustand „Beendet/Zuordnung aufgehoben“ festgelegt. Knoten im Zustand „Beendet/Zuordnung aufgehoben“ werden auf Ihr Computekontingent angerechnet und können Probleme bei der Skalierung oder dem Upgrade von Clustern verursachen. Die Werte für *Priorität* und *eviction-policy* (Entfernungsrichtlinie) können nur während der Erstellung des Knotenpools festgelegt werden. Diese Werte können später nicht mehr aktualisiert werden.
+Standardmäßig erstellen Sie in Ihrem AKS-Cluster einen Knotenpool mit einer *Priorität* vom Typ *Regulär* , wenn Sie einen Cluster mit mehreren Knotenpools erstellen. Der obige Befehl fügt einem vorhandenen AKS-Cluster einen Hilfsknotenpool mit einer *Priorität* vom Typ *Spot* hinzu. Die *Priorität* vom Typ *Spot* macht den Knotenpool zu einem Spot-Knotenpool. Der Parameter *eviction-policy* ist im obigen Beispiel auf *Löschen* festgelegt, was dem Standardwert entspricht. Wenn Sie die [Entfernungsrichtlinie][eviction-policy] auf *Löschen* festlegen, werden Knoten in der zugrunde liegenden Skalierungsgruppe des Knotenpools bei der Entfernung gelöscht. Sie können die Entfernungsrichtlinie auch auf *Zuordnung aufheben* festlegen. Wenn Sie die Entfernungsrichtlinie auf *Zuordnung aufheben* festlegen, werden die Knoten in der zugrunde liegenden Skalierungsgruppe bei der Entfernung auf den Zustand „Beendet/Zuordnung aufgehoben“ festgelegt. Knoten im Zustand „Beendet/Zuordnung aufgehoben“ werden auf Ihr Computekontingent angerechnet und können Probleme bei der Skalierung oder dem Upgrade von Clustern verursachen. Die Werte für *Priorität* und *eviction-policy* (Entfernungsrichtlinie) können nur während der Erstellung des Knotenpools festgelegt werden. Diese Werte können später nicht mehr aktualisiert werden.
 
 Der Befehl aktiviert auch die [Automatische Clusterskalierung][cluster-autoscaler], die für die Verwendung mit Spot-Knotenpools empfohlen wird. Auf der Grundlage der in Ihrem Cluster ausgeführten Workloads skaliert die automatische Clusterskalierung die Anzahl der Knoten im Knotenpool zentral hoch und herunter. Bei Spot-Knotenpools skaliert die automatische Clusterskalierung die Anzahl der Knoten nach einer Entfernung hoch, falls noch weitere Knoten erforderlich sind. Wenn Sie die maximale Anzahl von Knoten ändern, die ein Knotenpool aufweisen kann, müssen Sie auch den mit der automatischen Clusterskalierung verbundenen `maxCount`-Wert anpassen. Wenn Sie keine automatische Clusterskalierung verwenden, wird der Spot-Pool nach der Entfernung schließlich auf Null sinken und eine manuelle Bedienung erfordern, um weitere Spot-Knoten zu erhalten.
 
@@ -117,7 +81,7 @@ az aks nodepool show --resource-group myResourceGroup --cluster-name myAKSCluste
 
 Bestätigen Sie, dass *scaleSetPriorität* auf *Spot* festgelegt ist.
 
-Um einen Pod für die Ausführung auf einem Spot-Knoten zu planen, fügen Sie eine Toleranz hinzu, die dem auf Ihren Spot-Knoten angewendeten Taint entspricht. Das folgende Beispiel zeigt einen Teil einer YAML-Datei, der eine Toleranz definiert, die einem im vorherigen Schritt verwendeten *kubernetes.azure.com/scalesetpriority=spot:NoSchedule*-Taint entspricht.
+Um einen Pod für die Ausführung auf einem Spot-Knoten zu planen, fügen Sie eine Toleranz hinzu, die dem auf Ihren Spot-Knoten angewendeten Taint entspricht. Das folgende Beispiel zeigt einen Teil einer YAML-Datei, der eine Toleranz definiert, die einem im vorherigen Schritt verwendeten *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* -Taint entspricht.
 
 ```yaml
 spec:
@@ -148,14 +112,8 @@ In diesem Artikel haben Sie erfahren, wie Sie einen Spot-Knotenpool zu einem AKS
 <!-- LINKS - Internal -->
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-group-deploy-create]: /cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create
+[azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add
-[az-provider-register]: /cli/azure/provider#az-provider-register
-[az-template-deploy]: ../azure-resource-manager/templates/deploy-cli.md#deployment-scope
 [cluster-autoscaler]: cluster-autoscaler.md
 [eviction-policy]: ../virtual-machine-scale-sets/use-spot.md#eviction-policy
 [kubernetes-concepts]: concepts-clusters-workloads.md

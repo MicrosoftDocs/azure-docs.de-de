@@ -3,17 +3,17 @@ title: 'Schnellstart: Hinzufügen eines simulierten Geräts zu Azure IoT Central
 description: In dieser Schnellstartanleitung erfahren Sie, wie Sie eine Gerätevorlage erstellen und Ihrer IoT Central-Anwendung ein simuliertes Gerät hinzufügen.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/07/2020
+ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 757575b31bde1a0e25cc3e70aad0cca0fdd45953
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.openlocfilehash: f8d366554634444db16eb3292f100540f3808e8a
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170328"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992867"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Schnellstart: Hinzufügen eines simulierten Geräts zu Ihrer IoT Central-Anwendung
 
@@ -21,50 +21,56 @@ ms.locfileid: "92170328"
 
 Eine Gerätevorlage definiert die Funktionen eines Geräts, das eine Verbindung mit Ihrer IoT Central-Anwendung herstellt. Zu den Funktionen zählen die vom Gerät gesendeten Telemetriedaten, Geräteeigenschaften und die Befehle, auf die ein Gerät reagiert. Auf der Grundlage einer Gerätevorlage kann ein Ersteller oder Bediener sowohl echte als auch simulierte Geräte zu einer Anwendung hinzufügen. Mithilfe von simulierten Geräten können Sie das Verhalten Ihrer IoT Central-Anwendung testen, bevor Sie eine Verbindung mit echten Geräten herstellen.
 
-In dieser Schnellstartanleitung wird eine Gerätevorlage für ein DevKit-Board (*MXChip IoT DevKit*) hinzugefügt und ein simuliertes Gerät erstellt. Für diese Schnellstartanleitung wird kein echtes Gerät benötigt. Stattdessen wird mit einer Simulation des Geräts gearbeitet. Von einem DevKit-Gerät werden folgende Aktionen ausgeführt:
+In dieser Schnellstartanleitung fügen Sie eine Gerätevorlage für ein ESP32-Azure IoT-Kit-Entwicklungsboard hinzu und erstellen ein simuliertes Gerät. Für diese Schnellstartanleitung wird kein echtes Gerät benötigt. Stattdessen wird mit einer Simulation des Geräts gearbeitet. Ein ESP32-Gerät ermöglicht Folgendes:
 
 * Senden von Telemetriedaten, z. B. Temperatur
-* Melden von gerätespezifischen Eigenschaften, z. B. Helligkeitsstufe
-* Reagieren auf Befehle, z. B. Aktivieren und Deaktivieren
+* Melden von gerätespezifischen Eigenschaften, z. B. die Maximaltemperatur seit dem Neustart des Geräts
+* Reagieren auf Befehle, z. B. „reboot“
 * Melden von generischen Geräteeigenschaften, z. B. Firmwareversion und Seriennummer
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 Führen Sie die Schritte der Schnellstartanleitung [Erstellen einer Azure IoT Central-Anwendung](./quick-deploy-iot-central.md) aus, um mit der Vorlage **Benutzerdefinierte App > Benutzerdefinierte Anwendung** eine IoT Central-Anwendung zu erstellen.
 
-## <a name="create-a-template"></a>Erstellen einer Vorlage
+## <a name="create-a-device-template"></a>Erstellen einer Gerätevorlage
 
 Als Ersteller können Sie die Gerätevorlagen in Ihrer IoT Central-Anwendung erstellen und bearbeiten. Nachdem Sie eine Gerätevorlage veröffentlicht haben, können Sie simulierte Geräte generieren oder über die Gerätevorlage eine Verbindung mit echten Geräten herstellen. Mit simulierten Geräten können Sie das Verhalten Ihrer Anwendung testen, bevor Sie eine Verbindung mit einem echten Gerät herstellen.
 
 Wählen Sie im linken Bereich die Registerkarte **Gerätevorlagen** aus, um Ihrer Anwendung eine neue Gerätevorlage hinzuzufügen.
 
-![Seite „Gerätevorlagen“](./media/quick-create-simulated-device/device-definitions.png)
+:::image type="content" source="media/quick-create-simulated-device/device-definitions.png" alt-text="Screenshot: Leere Liste mit Gerätevorlagen":::
 
-Eine Gerätevorlage enthält ein Gerätefunktionsmodell, das die vom Gerät gesendeten Telemetriedaten und die Geräteeigenschaften sowie die Befehle definiert, auf die das Gerät reagiert.
+Eine Gerätevorlage enthält ein Gerätemodell, mit dem Folgendes definiert wird:
 
-### <a name="add-a-device-capability-model"></a>Hinzufügen eines Gerätefunktionsmodells
+* Die vom Gerät gesendeten Telemetriedaten.
+* Geräteeigenschaften.
+* Die Befehle, auf die das Gerät reagiert.
 
-Ein Gerätefunktionsmodell kann Ihrer IoT Central-Anwendung auf unterschiedliche Weise hinzugefügt werden. Sie können ein von Grund auf neues Modell erstellen, ein Modell aus einer Datei importieren oder ein Gerät aus dem Gerätekatalog auswählen. IoT Central unterstützt auch einen Ansatz mit *Gerätepriorisierung*. Dabei wird automatisch ein Modell aus einem Repository importiert, wenn ein Gerät erstmals eine Verbindung herstellt. In dieser Schnellstartanleitung wird ein Gerät aus dem Gerätekatalog ausgewählt, um das zugehörige Gerätefunktionsmodell zu importieren.
+### <a name="add-a-device-template"></a>Hinzufügen einer Gerätevorlage
 
-In den folgenden Schritten wird gezeigt, wie Sie den Gerätekatalog verwenden, um das Funktionsmodell für ein Gerät vom Typ **MXChip IoT DevKit** zu importieren. Diese Geräte senden Telemetriedaten, z. B. die Temperatur, an Ihre Anwendung:
+Ein Gerätemodell kann Ihrer IoT Central-Anwendung auf unterschiedliche Weise hinzugefügt werden. Sie können ein von Grund auf neues Modell erstellen, ein Modell aus einer Datei importieren oder ein Gerät aus dem Gerätekatalog auswählen. IoT Central unterstützt auch einen Ansatz mit *Gerätepriorisierung*. Hierbei wird von der Anwendung automatisch ein Modell aus einem Repository importiert, wenn ein echtes Gerät erstmals eine Verbindung herstellt.
 
-1. Wählen Sie zum Hinzufügen einer neuen Gerätevorlage auf der Seite **Gerätevorlagen** die Option **+** aus.
+In dieser Schnellstartanleitung wählen Sie ein Gerät aus dem Gerätekatalog aus, um eine Gerätevorlage zu erstellen.
 
-1. Scrollen Sie auf der Seite **Vorlagentyp auswählen** nach unten zur Kachel **MXChip IoT DevKit**.
+In den folgenden Schritten wird veranschaulicht, wie Sie den Gerätekatalog zum Importieren des Modells für ein **ESP32**-Gerät verwenden. Diese Geräte senden Telemetriedaten, z. B. die Temperatur, an Ihre Anwendung:
 
-1. Wählen Sie die Kachel **MXChip IoT DevKit** und anschließend **Weiter: Anpassen**.
+1. Wählen Sie zum Hinzufügen einer neuen Gerätevorlage auf der Seite **Gerätevorlagen** die Option **+ Neu** aus.
+
+1. Scrollen Sie auf der Seite **Typ auswählen** nach unten, bis im Abschnitt **Vorkonfigurierte Gerätevorlage verwenden** die Kachel **ESP32-Azure IoT-Kit** angezeigt wird.
+
+1. Wählen Sie die Kachel **ESP32-Azure IoT-Kit** und dann die folgende Option aus: **Next: Review** (Weiter: Überprüfen).
 
 1. Wählen Sie auf der Seite **Überprüfen** die Option **Erstellen** aus.
 
 1. Nach einigen Sekunden wird Ihre neue Gerätevorlage angezeigt:
 
-    ![Gerätevorlage für „MXChip IoT DevKit“](./media/quick-create-simulated-device/devkit-template.png)
+    :::image type="content" source="media/quick-create-simulated-device/devkit-template.png" alt-text="Screenshot: Gerätevorlage für ESP32-Gerät":::
 
-    Das Funktionsmodell „MXChip IoT DevKit“ enthält Schnittstellen wie **mxchip_sensor**, **mxchip_settings** und **Device Information**. Schnittstellen definieren die Funktionen eines MXChip IoT DevKit-Geräts. Zu den Funktionen gehören die von einem Gerät gesendeten Telemetriedaten, die von einem Gerät gemeldeten Eigenschaften und die Befehle, auf die ein Gerät antwortet.
+    Der Name der Vorlage lautet **Sensor Controller**. Das Modell enthält Komponenten, z. B. **Sensor Controller**, **SensorTemp** und **Schnittstelle „Geräteinformationen“** . Mit Komponenten werden die Funktionen eines ESP32-Geräts definiert. Zu den Funktionen gehören die Bereiche Telemetrie, Eigenschaften und Befehle.
 
 ### <a name="add-cloud-properties"></a>Hinzufügen von Cloudeigenschaften
 
-Eine Gerätevorlage kann Cloudeigenschaften enthalten. Cloudeigenschaften sind nur in der IoT Central-Anwendung vorhanden und werden niemals an ein Gerät gesendet bzw. von einem Gerät empfangen. So fügen Sie eine Cloud-Eigenschaft hinzu:
+Eine Gerätevorlage kann Cloudeigenschaften enthalten. Cloudeigenschaften sind nur in der IoT Central-Anwendung vorhanden und werden niemals an ein Gerät gesendet bzw. von einem Gerät empfangen. Fügen Sie wie folgt zwei Cloudeigenschaften hinzu:
 
 1. Wählen Sie **Cloudeigenschaften** und dann **+ Cloudeigenschaft hinzufügen** aus. Verwenden Sie die Informationen in der folgenden Tabelle, um Ihrer Gerätevorlage zwei Cloudeigenschaften hinzuzufügen:
 
@@ -75,7 +81,7 @@ Eine Gerätevorlage kann Cloudeigenschaften enthalten. Cloudeigenschaften sind n
 
 1. Wählen Sie **Speichern**, um Ihre Änderungen zu speichern:
 
-    ![Cloudeigenschaften](media/quick-create-simulated-device/cloud-properties.png)
+    :::image type="content" source="media/quick-create-simulated-device/cloud-properties.png" alt-text="Screenshot: Zwei Cloudeigenschaften":::
 
 ## <a name="views"></a>Sichten
 
@@ -100,9 +106,9 @@ So fügen Sie ein neues Formular namens **Manage device** hinzu, mit dessen Hilf
 
 1. Ändern Sie den Formularnamen in **Manage device**.
 
-1. Wählen Sie die Cloudeigenschaften **Kundenname** und **Datum der letzten Wartung** sowie die Eigenschaft **Lüftergeschwindigkeit** aus. Wählen Sie anschließend **Abschnitt hinzufügen** aus:
+1. Wählen Sie die Cloudeigenschaften **Kundenname** und **Datum der letzten Wartung** sowie die Eigenschaft **Zieltemperatur** aus. Wählen Sie anschließend **Abschnitt hinzufügen** aus:
 
-    ![Erstellen eines neuen Formulars](media/quick-create-simulated-device/new-form.png)
+    :::image type="content" source="media/quick-create-simulated-device/new-form.png" alt-text="Screenshot: Neu hinzugefügtes Formular für Gerätevorlage":::
 
 1. Wählen Sie **Speichern** aus, um Ihr neues Formular zu speichern.
 
@@ -112,25 +118,25 @@ Um ein simuliertes Gerät erstellen oder eine Verbindung für ein echtes Gerät 
 
 Veröffentlichen Sie wie folgt eine Gerätevorlage:
 
-1. Navigieren Sie über die Seite **Gerätevorlagen** zu Ihrer Gerätevorlage.
+1. Navigieren Sie über die Seite **Gerätevorlagen** zur Gerätevorlage **Sensor Controller**.
 
 1. Wählen Sie **Veröffentlichen** aus:
 
-    ![Veröffentlichtes Modell](media/quick-create-simulated-device/published-model.png)
+    :::image type="content" source="media/quick-create-simulated-device/published-model.png" alt-text="Screenshot: Symbol „Veröffentlichen“":::
 
-1. Wählen Sie im Dialogfeld **Diese Gerätevorlage für die Anwendung veröffentlichen** die Option **Veröffentlichen** aus. 
+1. Wählen Sie im Dialogfeld **Diese Gerätevorlage für die Anwendung veröffentlichen** die Option **Veröffentlichen** aus.
 
-Veröffentlichte Gerätevorlagen werden auf der Seite **Geräte** angezeigt. In einer veröffentlichten Gerätevorlage können Sie ein Gerätefunktionsmodell nicht bearbeiten, ohne eine neue Versionsnummer zu erstellen. Sie können aber Aktualisierungen für Cloudeigenschaften, Anpassungen und Ansichten in einer veröffentlichten Gerätevorlage ohne Versionsvergabe durchführen. Wählen Sie nach dem Vornehmen von Änderungen die Option **Veröffentlichen**, um diese Änderungen für Ihren Bediener bereitzustellen.
+Veröffentlichte Gerätevorlagen werden auf der Seite **Geräte** angezeigt. In einer veröffentlichten Gerätevorlage können Sie ein Gerätemodell nicht bearbeiten, ohne eine neue Versionsnummer zu erstellen. Sie können aber Cloudeigenschaften, Anpassungen und Ansichten in einer veröffentlichten Gerätevorlage ohne Versionsverwaltung ändern. Wählen Sie nach dem Vornehmen von Änderungen die Option **Veröffentlichen**, um diese Änderungen für Ihren Bediener bereitzustellen.
 
 ## <a name="add-a-simulated-device"></a>Hinzufügen eines simulierten Geräts
 
-Verwenden Sie die von Ihnen erstellte Gerätevorlage **MXChip IoT DevKit**, um Ihrer Anwendung ein simuliertes Gerät hinzuzufügen.
+Verwenden Sie die von Ihnen erstellte Gerätevorlage **ESP32**, um Ihrer Anwendung ein simuliertes Gerät hinzuzufügen.
 
-1. Wählen Sie als Bediener im linken Bereich die Option **Geräte** aus, um ein neues Gerät hinzuzufügen. Auf der Registerkarte **Geräte** werden die Option **Alle Geräte** und die Gerätevorlage **MXChip IoT DevKit** angezeigt. Wählen Sie **MXChip IoT DevKit** aus.
+1. Wählen Sie als Bediener im linken Bereich die Option **Geräte** aus, um ein neues Gerät hinzuzufügen. Auf der Registerkarte **Geräte** werden die Option **Alle Geräte** und die Gerätevorlage **Sensor Controller** für das ESP32-Gerät angezeigt. Wählen Sie **Sensor Controller** aus.
 
-1. Wählen Sie **+** aus, um ein simuliertes DevKit-Gerät hinzuzufügen. Verwenden Sie die vorgeschlagene **Geräte-ID**, oder geben Sie Ihre eigene ein. Eine Geräte-ID kann Buchstaben, Ziffern und das Zeichen `-` enthalten. Sie können auch einen Namen für Ihr neues Gerät eingeben. Achten Sie darauf, dass die Umschaltfläche **Simuliert** auf **Ein** festgelegt ist, und wählen Sie anschließend **Erstellen** aus.
+1. Wählen Sie **+ Neu** aus, um ein simuliertes DevKit-Gerät hinzuzufügen. Verwenden Sie die vorgeschlagene **Geräte-ID**, oder geben Sie Ihre eigene ein. Eine Geräte-ID kann Buchstaben, Ziffern und das Zeichen `-` enthalten. Sie können auch einen Namen für Ihr neues Gerät eingeben. Stellen Sie sicher, dass die Option **Dieses Gerät simulieren?** auf **Ja** festgelegt ist, und wählen Sie dann **Erstellen** aus.
 
-    ![Simuliertes Gerät](./media/quick-create-simulated-device/simulated-device.png)
+    :::image type="content" source="media/quick-create-simulated-device/simulated-device.png" alt-text="Screenshot: Simuliertes Gerät „Sensor Controller“":::
 
 Sie können nun mit den Ansichten interagieren, die vom Ersteller für die Gerätevorlage mit simulierten Daten erstellt wurden:
 
@@ -138,11 +144,11 @@ Sie können nun mit den Ansichten interagieren, die vom Ersteller für die Gerä
 
     * Die **Übersicht** enthält einen Plot der simulierten Telemetriedaten:
 
-        ![Übersicht](./media/quick-create-simulated-device/simulated-telemetry.png)
+        :::image type="content" source="media/quick-create-simulated-device/simulated-telemetry.png" alt-text="Screenshot: Übersichtsseite für simuliertes Gerät":::
 
-    * Die Ansicht **Info** enthält Eigenschaftswerte (einschließlich der Cloudeigenschaften, die Sie der Ansicht hinzugefügt haben).
+    * In der Ansicht **Info** werden Eigenschaftswerte angezeigt.
 
-    * In der Ansicht **Befehle** können Sie Befehle für das Gerät ausführen (beispielsweise **blink**).
+    * In der Ansicht **Befehle** können Sie Befehle für das Gerät ausführen (z. B. **reboot**).
 
     * Bei der Ansicht **Manage device** handelt es sich um das Formular, das Sie erstellt haben, um dem Operator die Verwaltung des Geräts zu ermöglichen.
 
@@ -152,17 +158,17 @@ Sie können nun mit den Ansichten interagieren, die vom Ersteller für die Gerä
 
 Nach der Erstellung eines neuen simulierten Geräts kann der Ersteller dieses Gerät verwenden, um die Ansichten für die Gerätevorlage weiter zu verbessern und darauf aufzubauen.
 
-1. Wählen Sie im linken Bereich die Option **Gerätevorlagen** und anschließend die Vorlage **MXChip IoT DevKit** aus.
+1. Wählen Sie im linken Bereich die Option **Gerätevorlagen** und anschließend die Vorlage **Sensor Controller** aus.
 
-1. Wählen Sie eine der Ansichten aus, die Sie bearbeiten möchten, oder erstellen Sie eine neue Ansicht. Wählen Sie **Vorschaugerät konfigurieren** und anschließend **Ausgeführtes Gerät auswählen** aus. Hier können Sie wählen, ob Sie kein Vorschaugerät, ein echtes, zu Testzwecken konfiguriertes Gerät oder ein bereits vorhandenes Gerät verwenden möchten, das Sie in IoT Central hinzugefügt haben.
+1. Wählen Sie eine beliebige Ansicht aus, die Sie bearbeiten möchten, z. B. **Übersicht**, oder erstellen Sie eine neue Ansicht. Wählen Sie **Vorschaugerät konfigurieren** und anschließend **Ausgeführtes Gerät auswählen** aus. Hier können Sie wählen, ob Sie kein Vorschaugerät, ein echtes, zu Testzwecken konfiguriertes Gerät oder ein bereits vorhandenes Gerät verwenden möchten, das Sie in IoT Central hinzugefügt haben.
 
 1. Wählen Sie in der Liste Ihr simuliertes Gerät aus. Wählen Sie anschließend **Anwenden** aus. Nun sehen Sie das gleiche simulierte Gerät auf der Erstellungsoberfläche für Gerätevorlagenansichten. Diese Ansicht ist nützlich für Diagramme und andere Visualisierungen.
 
-    ![Konfigurieren des Vorschaugeräts](./media/quick-create-simulated-device/configure-preview.png)
+    :::image type="content" source="media/quick-create-simulated-device/configure-preview.png" alt-text="Screenshot: Konfiguriertes Vorschaugerät":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In dieser Schnellstartanleitung haben Sie gelernt, wie Sie eine Gerätevorlage vom Typ **MXChip IoT DevKit** erstellen und Ihrer Anwendung ein simuliertes Gerät hinzufügen.
+In dieser Schnellstartanleitung wurde beschrieben, wie Sie eine Gerätevorlage vom Typ **Sensor Controller** für ein ESP32-Gerät erstellen und Ihrer Anwendung ein simuliertes Gerät hinzufügen.
 
 Weitere Informationen zur Überwachung von Geräten, die mit Ihrer Anwendung verbunden sind, finden Sie in der folgenden Schnellstartanleitung:
 

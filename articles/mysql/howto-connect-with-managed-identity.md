@@ -6,13 +6,13 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 7733148777cde2a487e5c93d7750eb7a24ff531c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 74530b861b4dc7a35fa8b192ecc0e79ce5fa59c2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88999392"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742990"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>Herstellen einer Verbindung zu Azure Database for MySQL mithilfe von verwalteten Identitäten
 
@@ -31,20 +31,20 @@ Folgendes wird vermittelt:
 ## <a name="prerequisites"></a>Voraussetzungen
 
 - Wenn Sie mit der Funktion für verwaltete Identitäten für Azure-Ressourcen nicht vertraut sind, finden Sie hier eine [Übersicht](../../articles/active-directory/managed-identities-azure-resources/overview.md). Wenn Sie kein Azure-Konto haben, sollten Sie sich [für ein kostenloses Konto registrieren](https://azure.microsoft.com/free/), bevor Sie fortfahren.
-- Ihr Konto muss für den entsprechenden Gültigkeitsbereich (Ihr Abonnement oder die Ressourcengruppe) über die Berechtigung „Besitzer“ verfügen, um die erforderliche Ressourcenerstellung und eine Rollenverwaltung durchführen zu können. Wenn Sie Unterstützung bei der Rollenzuweisung benötigen, finden Sie weitere Informationen unter [Verwenden der rollenbasierten Zugriffssteuerung zum Verwalten des Zugriffs auf Ihre Azure-Abonnementressourcen](../../articles/role-based-access-control/role-assignments-portal.md).
+- Ihr Konto muss für den entsprechenden Gültigkeitsbereich (Ihr Abonnement oder die Ressourcengruppe) über die Berechtigung „Besitzer“ verfügen, um die erforderliche Ressourcenerstellung und eine Rollenverwaltung durchführen zu können. Wenn Sie Unterstützung bei der Rollenzuweisung benötigen, lesen Sie unter [Verwenden der rollenbasierten Zugriffssteuerung in Azure (RBAC) zum Verwalten des Zugriffs auf Ihre Azure-Abonnementressourcen](../../articles/role-based-access-control/role-assignments-portal.md) nach.
 - Sie benötigen eine Azure-VM (z. B. unter Ubuntu Linux), mit der Sie mithilfe von verwalteten Identitäten auf Ihre Datenbank zugreifen.
 - Sie benötigen einen Azure Database for MySQL-Datenbankserver, auf dem die [Azure AD-Authentifizierung](howto-configure-sign-in-azure-ad-authentication.md) konfiguriert ist.
 - Für das C#-Beispiel sollten Sie zuerst den Leitfaden zur [Verbindungsherstellung mithilfe von C#](connect-csharp.md) lesen.
 
 ## <a name="creating-a-user-assigned-managed-identity-for-your-vm"></a>Erstellen einer benutzerseitig zugewiesenen verwalteten Identität für Ihre VM
 
-Erstellen Sie mit dem Befehl [az identity create](/cli/azure/identity?view=azure-cli-latest#az-identity-create) eine Identität in Ihrem Abonnement. Sie können dazu dieselbe Ressourcengruppe verwenden, in der Ihre VM ausgeführt wird, oder auch eine andere.
+Erstellen Sie mit dem Befehl [az identity create](/cli/azure/identity#az-identity-create) eine Identität in Ihrem Abonnement. Sie können dazu dieselbe Ressourcengruppe verwenden, in der Ihre VM ausgeführt wird, oder auch eine andere.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myManagedIdentity
 ```
 
-In den folgenden Schritten werden Sie die Identität konfigurieren. Verwenden Sie den Befehl [az identity show](/cli/azure/identity?view=azure-cli-latest#az-identity-show), um die Ressourcen- und die Client-ID der Identität in Variablen zu speichern.
+In den folgenden Schritten werden Sie die Identität konfigurieren. Verwenden Sie den Befehl [az identity show](/cli/azure/identity#az-identity-show), um die Ressourcen- und die Client-ID der Identität in Variablen zu speichern.
 
 ```azurecli
 # Get resource ID of the user-assigned identity
@@ -54,7 +54,7 @@ resourceID=$(az identity show --resource-group myResourceGroup --name myManagedI
 clientID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query clientId --output tsv)
 ```
 
-Mit dem Befehl [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) können Sie nun die benutzerseitig zugewiesene Identität der VM zuweisen:
+Mit dem Befehl [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign) können Sie nun die benutzerseitig zugewiesene Identität der VM zuweisen:
 
 ```azurecli
 az vm identity assign --resource-group myResourceGroup --name myVM --identities $resourceID

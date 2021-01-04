@@ -1,21 +1,21 @@
 ---
 title: Verwenden von Azure Key Vault in Vorlagen
-description: Hier erfahren Sie, wie Sie bei der Resource Manager-Vorlagenbereitstellung sichere Parameterwerte mithilfe von Azure Key Vault übergeben.
+description: Hier erfahren Sie, wie Sie bei Azure der Resource Manager-Vorlagenbereitstellung (ARM-Vorlagenbereitstellung) sichere Parameterwerte mithilfe von Azure Key Vault übergeben.
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 73a50c282eee023bff525bc737bd2170938de1dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75eb977559573b72883de3ddbc27391c7e299a6f
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119275"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929315"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutorial: Integrieren von Azure Key Vault in Ihre Bereitstellung einer ARM-Vorlage
 
-Es wird beschrieben, wie Sie bei der Bereitstellung einer ARM-Vorlage (Azure Resource Manager) Geheimnisse aus einer Azure Key Vault-Instanz abrufen und als Parameter übergeben. Der Parameterwert wird nie verfügbar gemacht, da lediglich die Key Vault-ID als Verweis verwendet wird. Sie können mithilfe einer statischen oder dynamischen ID auf das Schlüsseltresorgeheimnis verweisen. In diesem Tutorial wird eine statische ID verwendet. Bei der Herangehensweise mit statischer ID verweisen Sie auf den Schlüsseltresor in der Vorlagenparameterdatei, nicht in der Vorlagendatei. Weitere Informationen zu beiden Herangehensweisen finden Sie unter [Verwenden von Azure Key Vault zum Übergeben eines sicheren Parameterwerts während der Bereitstellung](./key-vault-parameter.md).
+Hier wird beschrieben, wie Sie bei der Bereitstellung einer Azure Resource Manager-Vorlage (ARM-Vorlage) Geheimnisse aus einer Azure Key Vault-Instanz abrufen und als Parameter übergeben. Der Parameterwert wird nie verfügbar gemacht, da lediglich die Key Vault-ID als Verweis verwendet wird. Sie können mithilfe einer statischen oder dynamischen ID auf das Schlüsseltresorgeheimnis verweisen. In diesem Tutorial wird eine statische ID verwendet. Bei der Herangehensweise mit statischer ID verweisen Sie auf den Schlüsseltresor in der Vorlagenparameterdatei, nicht in der Vorlagendatei. Weitere Informationen zu beiden Herangehensweisen finden Sie unter [Verwenden von Azure Key Vault zum Übergeben eines sicheren Parameterwerts während der Bereitstellung](./key-vault-parameter.md).
 
 Im Tutorial [Festlegen der Reihenfolge für die Ressourcenbereitstellung](./template-tutorial-create-templates-with-dependent-resources.md) erstellen Sie einen virtuellen Computer (VM). Sie müssen den Administratorbenutzernamen und das Kennwort für den virtuellen Computer angeben. Anstatt das Kennwort einzugeben, können Sie es in Azure Key Vault vorab speichern und die Vorlage anschließend anpassen, um das Kennwort während der Bereitstellung aus dem Schlüsseltresor abzurufen.
 
@@ -37,7 +37,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 
 Damit Sie die Anweisungen in diesem Artikel ausführen können, benötigen Sie Folgendes:
 
-* Visual Studio Code mit der Erweiterung „Azure Resource Manager-Tools“. Weitere Informationen finden Sie unter [Schnellstart: Erstellen von Azure Resource Manager-Vorlagen mit Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code mit der Erweiterung „Azure Resource Manager-Tools“. Weitere Informationen finden Sie unter [Schnellstart: Erstellen von ARM-Vorlagen mit Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * Verwenden Sie aus Sicherheitsgründen ein generiertes Kennwort für das Administratorkonto des virtuellen Computers. Hier sehen Sie ein Beispiel für die Kennwortgenerierung:
 
     ```console

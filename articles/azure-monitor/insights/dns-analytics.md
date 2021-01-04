@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: 947b509468857b98b868881bdd48adf67a5d60db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7bdea9239faa4ec66fffa236bea40afd5e628e62
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86499000"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607142"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Sammeln von Erkenntnissen zu Ihrer DNS-Infrastruktur mit der DNS Analytics-Vorschaulösung
 
@@ -57,13 +57,13 @@ Die Lösung beginnt ohne weitere Konfiguration mit dem Sammeln von Daten. Allerd
 
 Klicken Sie im Lösungsdashboard auf **Konfiguration**, um die DNS Analytics-Konfigurationsseite zu öffnen. Es gibt zwei Arten von Konfigurationsänderungen, die Sie vornehmen können:
 
-- **Domänennamen in der Whitelist**. Die Lösung verarbeitet nicht alle Suchabfragen. Sie verwaltet eine Whitelist mit Domänennamensuffixen. Die Suchabfragen, die in Domänennamen aufgelöst werden, die mit Domänennamensuffixen in dieser Whitelist übereinstimmen, werden von der Lösung nicht verarbeitet. Da die in der Whitelist enthalten Domänennamen nicht verarbeitet werden, werden die an Azure Monitor gesendeten Daten optimiert. Die Standardwhitelist enthält gängige öffentliche Domänennamen, z.B. www.google.com und www.facebook.com. Sie können die vollständige Standardliste mittels Scrollen anzeigen.
+- **Domänennamen auf der Positivliste**. Die Lösung verarbeitet nicht alle Suchabfragen. Sie verwaltet eine Positivliste mit Domänennamensuffixen. Die Suchabfragen, die in Domänennamen aufgelöst werden, die mit Domänennamensuffixen in dieser Positivliste übereinstimmen, werden von der Lösung nicht verarbeitet. Da die in der Positivliste enthalten Domänennamen nicht verarbeitet werden, werden die an Azure Monitor gesendeten Daten optimiert. Die Standardpositivliste enthält gängige öffentliche Domänennamen, z. B. www.google.com und www.facebook.com. Sie können die vollständige Standardliste mittels Scrollen anzeigen.
 
   Sie können die Liste ändern, um alle Domänennamensuffixe hinzuzufügen, zu denen Sie Suchergebnisse anzeigen möchten. Sie können auch alle Domänennamensuffixe entfernen, zu denen Sie keine Suchergebnisse anzeigen möchten.
 
 - **Schwellenwert für Clients mit hoher Aktivität**. DNS-Clients, die den Schwellenwert für die Anzahl der Suchanforderungen überschreiten, werden auf dem Blatt **DNS-Clients** hervorgehoben. Der Standardschwellenwert beträgt 1.000. Sie können den Schwellenwert bearbeiten.
 
-    ![Domänennamen in der Whitelist](./media/dns-analytics/dns-config.png)
+    ![Domänennamen auf der Positivliste](./media/dns-analytics/dns-config.png)
 
 ## <a name="management-packs"></a>Management Packs
 
@@ -110,7 +110,7 @@ Mit den Informationen können Sie Folgendes identifizieren:
 - IP-Adressen, in die der Domänenname aufgelöst wird.
 - Schädliche IP-Adresse.
 - Schweregrad des Problems.
-- Grund für die Aufnahme der schädlichen IP-Adresse in die Blacklist.
+- Grund für die Aufnahme der schädlichen IP-Adresse in die Sperrliste.
 - Zeitpunkt der Erkennung.
 
 **Abgefragte Domänen**. Gibt die am häufigsten von den DNS-Clients in Ihrer Umgebung abgefragten Domänennamen an. Sie können die Liste aller abgefragten Domänennamen anzeigen. Sie können auch Details von Suchanforderungen für einen bestimmten Domänennamen in der Protokollsuche anzeigen.

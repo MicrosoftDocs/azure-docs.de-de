@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: sngun
-ms.openlocfilehash: 08cc3b08611947ac32973b2dfb01060140dc0798
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: a0feaf4a984f40ddee7a30291fe0a8f671b6512a
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743895"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636842"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Überwachen von Azure Cosmos DB-Vorgängen auf Steuerungsebene
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Die Steuerungsebene in Azure Cosmos DB ist ein RESTful-Dienst, mit dem Sie eine Vielzahl von Vorgängen im Azure Cosmos-Konto ausführen können. Sie stellt ein öffentliches Ressourcenmodell (z. B. Datenbank, Konto) und verschiedene Vorgänge für die Endbenutzer bereit, um Aktionen für das Ressourcenmodell auszuführen. Vorgänge der Steuerungsebene schließen Änderungen am Azure Cosmos-Konto oder -Container ein. Zu den Vorgängen der Steuerungsebene gehören beispielsweise das Erstellen eines Azure Cosmos-Kontos, das Hinzufügen einer Region, das Aktualisieren des Durchsatzes, das Durchführen von Failovern für Regionen und das Hinzufügen von VNETs. In diesem Artikel wird erläutert, wie die Vorgänge auf Steuerungsebene in Azure Cosmos DB überwacht werden. Sie können die Vorgänge der Steuerungsebene für Azure Cosmos-Konten mithilfe der Azure-Befehlszeilenschnittstelle, des Azure-Portals oder von PowerShell ausführen, während Sie für Container die Azure-Befehlszeilenschnittstelle oder PowerShell verwenden.
 
@@ -27,7 +28,7 @@ Im Folgenden finden Sie einige Beispielszenarien, in denen das Überwachen von V
 
 ## <a name="disable-key-based-metadata-write-access"></a>Deaktivieren des schlüsselbasierten Metadatenschreibzugriffs
 
-Bevor Sie die Vorgänge auf Steuerungsebene in Azure Cosmos DB überwachen, deaktivieren Sie den schlüsselbasierten Metadatenschreibzugriff für Ihr Konto. Wenn der schlüsselbasierte Metadatenschreibzugriff deaktiviert ist, können Clients, die über Kontoschlüssel eine Verbindung mit dem Azure Cosmos-Konto herstellen, nicht auf das Konto zugreifen. Sie können den Schreibzugriff deaktivieren, indem Sie Eigenschaft `disableKeyBasedMetadataWriteAccess` auf „true“ festlegen. Nachdem Sie diese Eigenschaft festgelegt haben, können Änderungen an allen Ressourcen von Benutzern vorgenommen werden, die über die richtige RBAC-Rolle (rollenbasierte Zugriffssteuerung) und Anmeldeinformationen verfügen. Weitere Informationen zum Festlegen dieser Eigenschaft finden Sie im Artikel [Verhindern von Änderungen im Cosmos SDK](role-based-access-control.md#prevent-sdk-changes). 
+Bevor Sie die Vorgänge auf Steuerungsebene in Azure Cosmos DB überwachen, deaktivieren Sie den schlüsselbasierten Metadatenschreibzugriff für Ihr Konto. Wenn der schlüsselbasierte Metadatenschreibzugriff deaktiviert ist, können Clients, die über Kontoschlüssel eine Verbindung mit dem Azure Cosmos-Konto herstellen, nicht auf das Konto zugreifen. Sie können den Schreibzugriff deaktivieren, indem Sie Eigenschaft `disableKeyBasedMetadataWriteAccess` auf „true“ festlegen. Nachdem Sie diese Eigenschaft festgelegt haben, können Änderungen an allen Ressourcen von Benutzern vorgenommen werden, die über die richtige Azure-Rolle und Anmeldeinformationen verfügen. Weitere Informationen zum Festlegen dieser Eigenschaft finden Sie im Artikel [Verhindern von Änderungen im Cosmos SDK](role-based-access-control.md#prevent-sdk-changes). 
 
 Wenn `disableKeyBasedMetadataWriteAccess` aktiviert wurde und die SDK-basierten Clients Erstell- oder Aktualisierungsvorgänge ausführen, wird der Fehler *Vorgang „POST“ für die Ressource „ContainerNameorDatabaseName“ ist über den Azure Cosmos DB-Endpunkt nicht zulässig* zurückgegeben. Sie müssen den Zugriff auf solche Vorgänge für Ihr Konto aktivieren oder die Erstellungs-/Aktualisierungsvorgänge über Azure Resource Manager, Azure CLI oder Azure PowerShell ausführen. Um die Umstellung rückgängig zu machen, legen Sie disableKeyBasedMetadataWriteAccess mit Azure CLI auf **false** fest, wie im Artikel [Verhindern von Änderungen im Cosmos SDK](role-based-access-control.md#prevent-sdk-changes) beschrieben. Stellen Sie sicher, dass Sie den Wert von `disableKeyBasedMetadataWriteAccess` in „false“ anstelle von „true“ ändern.
 
@@ -69,17 +70,17 @@ Nachdem Sie die Protokollierung aktiviert haben, führen Sie die folgenden Schri
 
 Die folgenden Screenshots zeigen Protokolle beim Ändern der Konsistenzebene für ein Azure Cosmos-Konto:
 
-:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Aktivieren der Anforderungsprotokollierung auf Steuerungsebene":::
+:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Protokolle auf Steuerungsebene beim Hinzufügen eines VNET":::
 
 In den folgenden Screenshots werden Protokolle erfasst, wenn der Keyspace oder eine Tabelle eines Cassandra-Kontos erstellt wird und der Durchsatz aktualisiert wird. Die Protokolle auf Steuerungsebene für Erstellungs- und Aktualisierungsvorgänge in der Datenbank und dem Container werden separat protokolliert, wie es im folgenden Screenshot zu sehen ist:
 
-:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Aktivieren der Anforderungsprotokollierung auf Steuerungsebene":::
+:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Protokolle auf Steuerungsebene beim Aktualisieren des Durchsatzes":::
 
 ## <a name="identify-the-identity-associated-to-a-specific-operation"></a>Identifizieren der einem bestimmten Vorgang zugeordneten Identität
 
 Wenn Sie weitere debuggen möchten, können Sie einen bestimmten Vorgang im **Aktivitätsprotokoll** ermitteln, indem Sie die Aktivitäts-ID oder den Zeitstempel des Vorgangs verwenden. Der Zeitstempel wird für einige Resource Manager-Clients verwendet, bei denen die Aktivitäts-ID nicht explizit übermittelt wurde. Das Aktivitätsprotokoll enthält Details zur Identität, mit der der Vorgang initiiert wurde. Der folgende Screenshot veranschaulicht, wie Sie die Aktivitäts-ID verwenden und die damit verbundenen Vorgänge im Aktivitätsprotokoll ermitteln:
 
-:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Aktivieren der Anforderungsprotokollierung auf Steuerungsebene":::
+:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Verwenden der Aktivitäts-ID und Suchen der Vorgänge":::
 
 ## <a name="control-plane-operations-for-azure-cosmos-account"></a>Vorgänge der Steuerungsebene für Azure Cosmos-Konten
 
@@ -170,29 +171,29 @@ Die *ResourceDetails*-Eigenschaft enthält den gesamten Ressourcentext als Anfor
 Im Folgenden finden Sie einige Beispiele für den Abruf von Diagnoseprotokollen für Vorgänge auf Steuerungsebene:
 
 ```kusto
-AzureDiagnostics 
-| where Category startswith "ControlPlane"
+AzureDiagnostics 
+| where Category startswith "ControlPlane"
 | where OperationName contains "Update"
-| project httpstatusCode_s, statusCode_s, OperationName, resourceDetails_s, activityId_g
+| project httpstatusCode_s, statusCode_s, OperationName, resourceDetails_s, activityId_g
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
 | where TimeGenerated >= todatetime('2020-05-14T17:37:09.563Z')
-| project TimeGenerated, OperationName, apiKind_s, apiKindResourceType_s, operationType_s, resourceDetails_s
+| project TimeGenerated, OperationName, apiKind_s, apiKindResourceType_s, operationType_s, resourceDetails_s
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersUpdate"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersUpdate"
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersThroughputUpdate"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersThroughputUpdate"
 ```
 
 Abfrage zum Abrufen der Aktivitäts-ID und des aufrufenden Benutzers, der den Vorgang zum Löschen des Containers initiiert hat:

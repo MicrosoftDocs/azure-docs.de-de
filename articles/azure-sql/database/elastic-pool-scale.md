@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 09/16/2020
-ms.openlocfilehash: 2792a93748600d71c37972058c8e496928543c9b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 947d842860452425f8b30fbdaf9558c2a94a89a2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330705"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781208"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Skalieren von Ressourcen für Pools für elastische Datenbanken in Azure SQL-Datenbank
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ In diesem Artikel wird beschrieben, wie die für Pools für elastische Datenbank
 
 ## <a name="change-compute-resources-vcores-or-dtus"></a>Ändern der Computeressourcen (virtuelle Kerne oder DTUs)
 
-Nach der anfänglichen Auswahl der Anzahl virtueller Kerne oder eDTUs können Sie einen Pool für elastische Datenbanken je nach tatsächlichem Bedarf über das [Azure-Portal](elastic-pool-manage.md#azure-portal), über [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), mithilfe der [Azure-Befehlszeilenschnittstelle](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) oder über die [REST-API](https://docs.microsoft.com/rest/api/sql/elasticpools/update) dynamisch zentral hoch- oder herunterskalieren.
+Nach der anfänglichen Auswahl der Anzahl virtueller Kerne oder eDTUs können Sie einen Pool für elastische Datenbanken je nach tatsächlichem Bedarf über das [Azure-Portal](elastic-pool-manage.md#azure-portal), über [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), mithilfe der [Azure-Befehlszeilenschnittstelle](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) oder über die [REST-API](/rest/api/sql/elasticpools/update) dynamisch zentral hoch- oder herunterskalieren.
 
 ### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Auswirkungen der Änderung der Dienstebene oder der Skalierung der Computegröße
 
@@ -57,7 +57,7 @@ Beim Ändern der Dienstebene, beim Skalieren der Computegröße einer Einzeldate
 >
 > - Beim Ändern der Dienstebene oder Skalieren der Computegröße für einen Pool für elastische Datenbanken muss der verwendete Speicherplatz aller Datenbanken im Pool addiert werden, um die Schätzung zu berechnen.
 > - Wenn eine Datenbank in einen oder aus einem Pool für elastische Datenbanken verschoben wird, ist für die Wartezeit nur der Speicherplatz relevant, der von der Datenbank verwendet wird, nicht der verwendete Speicherplatz des Pools für elastische Datenbanken.
-> - Bei Pools für elastische Datenbanken vom Typ „Standard“ und „Universell“ verhält sich die Latenzzeit beim Verschieben einer Datenbank in einen/aus einem Pool für elastische Datenbanken oder zwischen Pools für elastische Datenbanken proportional zur Datenbankgröße, wenn für den Pool für elastische Datenbanken [PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)-Speicher (Premium File Share, Premium-Dateifreigabe) verwendet wird. Um zu ermitteln, ob ein Pool PFS-Speicher verwendet, führen Sie die folgende Abfrage im Kontext einer beliebigen Datenbank im Pool aus. Wenn der Wert in der Spalte „AccountType“ `PremiumFileStorage` oder `PremiumFileStorage-ZRS` lautet, verwendet der Pool PFS-Speicher.
+> - Bei Pools für elastische Datenbanken vom Typ „Standard“ und „Universell“ verhält sich die Latenzzeit beim Verschieben einer Datenbank in einen/aus einem Pool für elastische Datenbanken oder zwischen Pools für elastische Datenbanken proportional zur Datenbankgröße, wenn für den Pool für elastische Datenbanken [PFS](../../storage/files/storage-files-introduction.md)-Speicher (Premium File Share, Premium-Dateifreigabe) verwendet wird. Um zu ermitteln, ob ein Pool PFS-Speicher verwendet, führen Sie die folgende Abfrage im Kontext einer beliebigen Datenbank im Pool aus. Wenn der Wert in der Spalte „AccountType“ `PremiumFileStorage` oder `PremiumFileStorage-ZRS` lautet, verwendet der Pool PFS-Speicher.
 
 ```sql
 SELECT s.file_id,
@@ -69,7 +69,7 @@ WHERE s.type_desc IN ('ROWS', 'LOG');
 ```
 
 > [!TIP]
-> Weitere Informationen zum Überwachen aktuell ausgeführter Vorgänge finden Sie unter: [Verwalten von Vorgängen mit der SQL-REST-API](https://docs.microsoft.com/rest/api/sql/operations/list), [Verwalten von Vorgängen mithilfe der CLI](/cli/azure/sql/db/op), [Überwachen von Vorgängen mit T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) und unter diesen beiden PowerShell-Befehlen: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) und [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
+> Weitere Informationen zum Überwachen aktuell ausgeführter Vorgänge finden Sie unter: [Verwalten von Vorgängen mit der SQL-REST-API](/rest/api/sql/operations/list), [Verwalten von Vorgängen mithilfe der CLI](/cli/azure/sql/db/op), [Überwachen von Vorgängen mit T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) und unter diesen beiden PowerShell-Befehlen: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) und [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
 ### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Weitere Überlegungen zum Ändern der Dienstebene oder Skalieren der Computegröße
 
@@ -100,7 +100,7 @@ Die Abrechnung erfolgt für jede Stunde, in der eine Datenbank die höchste in d
 ### <a name="dtu-based-purchasing-model"></a>DTU-basiertes Kaufmodell
 
 - Der eDTU-Preis für einen Pool für elastische Datenbanken enthält eine bestimmte Menge Speicher ohne zusätzliche Kosten. Zusätzlicher Speicher über die inbegriffene Speichermenge hinaus kann gegen zusätzliche Gebühren bis zur Obergrenze in Inkrementen von 250 GB bis zu 1 TB und dann in Inkrementen von 256 GB über 1 TB hinaus bereitgestellt werden. Informationen zu enthaltenen Speichermengen und Maximalgrößen finden Sie unter [Pool für elastische Datenbanken: Speicher- und Computegrößen](resource-limits-dtu-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
-- Zusätzlicher Speicher für einen Pool für elastische Datenbanken kann durch Erhöhen der maximalen Größe mithilfe von [Azure-Portal](elastic-pool-manage.md#azure-portal), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) oder [REST-API](https://docs.microsoft.com/rest/api/sql/elasticpools/update) bereitgestellt werden.
+- Zusätzlicher Speicher für einen Pool für elastische Datenbanken kann durch Erhöhen der maximalen Größe mithilfe von [Azure-Portal](elastic-pool-manage.md#azure-portal), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) oder [REST-API](/rest/api/sql/elasticpools/update) bereitgestellt werden.
 - Der Preis für zusätzlichen Speicher für einen Pool für elastische Datenbanken errechnet sich aus der Menge an zusätzlich bereitgestelltem Speicher multipliziert mit dem Einheitenpreis für zusätzlichen Speicher für die Dienstebene. Ausführliche Informationen zu den Preisen für zusätzlichen Speicherplatz siehe [SQL-Datenbank – Preise](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]

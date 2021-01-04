@@ -6,16 +6,16 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a8d6481bdf3476f8f91c437138f4b6f1ebd1f1de
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 4114dd712028895da03835a2730ebd7a6ab971a4
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058198"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436877"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Tutorial: Verwenden eines Web-App-Bots mit aktiviertem Language Understanding in C#
 
-Erstellen Sie mithilfe von C# einen in Language Understanding (LUIS) integrierten Chatbot. Der Bot wird mit der [Web-App-Bot](https://docs.microsoft.com/azure/bot-service/)-Ressource von Azure und [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) V4 erstellt.
+Erstellen Sie mithilfe von C# einen in Language Understanding (LUIS) integrierten Chatbot. Der Bot wird mit der [Web-App-Bot](/azure/bot-service/)-Ressource von Azure und [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) V4 erstellt.
 
 **In diesem Tutorial lernen Sie Folgendes:**
 
@@ -34,7 +34,7 @@ Erstellen Sie mithilfe von C# einen in Language Understanding (LUIS) integrierte
 
 1. Wählen Sie im [Azure-Portal](https://portal.azure.com)**Neue Ressource erstellen** aus.
 
-1. Suchen Sie im Suchfeld nach **Web-App-Bot** , und wählen Sie den Eintrag aus. Klicken Sie auf **Erstellen** .
+1. Suchen Sie im Suchfeld nach **Web-App-Bot**, und wählen Sie den Eintrag aus. Klicken Sie auf **Erstellen**.
 
 1. Geben Sie in **Botdienst** die erforderlichen Informationen ein:
 
@@ -59,7 +59,7 @@ Erstellen Sie mithilfe von C# einen in Language Understanding (LUIS) integrierte
     |SDK-Sprache|Programmiersprache des Bots|**C#**|
     |Bot|Bottyp|**Basisbot**|
 
-1. Klicken Sie auf **Erstellen** . Dadurch wird der Botdienst erstellt und in Azure bereitgestellt. Im Rahmen dieses Vorgangs wird eine LUIS-App mit dem Namen `luis-csharp-bot-XXXX` erstellt. Dieser Name basiert auf dem Namen der Azure Bot Service-App.
+1. Klicken Sie auf **Erstellen**. Dadurch wird der Botdienst erstellt und in Azure bereitgestellt. Im Rahmen dieses Vorgangs wird eine LUIS-App mit dem Namen `luis-csharp-bot-XXXX` erstellt. Dieser Name basiert auf dem Namen der Azure Bot Service-App.
 
     > [!div class="mx-imgBorder"]
     > [![Erstellen des Web-App-Bots](./media/bfv4-csharp/create-web-app-service.png)](./media/bfv4-csharp/create-web-app-service.png#lightbox)
@@ -106,7 +106,7 @@ Um den Code des Web-App-Bots zu entwickeln, laden Sie den Code herunter, und ver
 
 ## <a name="review-code-to-send-utterance-to-luis-and-get-response"></a>Überprüfen des Codes zum Senden einer Äußerung an LUIS und Erhalten einer Antwort
 
-1. Öffnen Sie zum Senden der Benutzeräußerung an den LUIS-Vorhersageendpunkt die Datei **FlightBookingRecognizer.cs** . Das ist die Stelle, an der in den Bot eingegebene Benutzeräußerungen an LUIS gesendet werden. Die Antwort von LUIS wird über die Methode **RecognizeAsync** zurückgegeben.
+1. Öffnen Sie zum Senden der Benutzeräußerung an den LUIS-Vorhersageendpunkt die Datei **FlightBookingRecognizer.cs**. Das ist die Stelle, an der in den Bot eingegebene Benutzeräußerungen an LUIS gesendet werden. Die Antwort von LUIS wird über die Methode **RecognizeAsync** zurückgegeben.
 
     ```csharp
     // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -336,4 +336,4 @@ Starten Sie den Bot in Visual Studio 2019. Ein Browserfenster mit der Website de
 Sehen Sie sich weitere [Beispiele](https://github.com/microsoft/botframework-solutions) mit Konversationsbots an.
 
 > [!div class="nextstepaction"]
-> [Erstellen einer Language Understanding-App mit einer benutzerdefinierten Motivdomäne](luis-quickstart-intents-only.md)
+> [Erstellen einer Language Understanding-App mit einer benutzerdefinierten Motivdomäne](./tutorial-intents-only.md)

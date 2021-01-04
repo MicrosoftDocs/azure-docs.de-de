@@ -11,12 +11,13 @@ ms.author: wesmc
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: 0d3afc8d24b95f170bd22b3dc2cf29e7f97e77c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+- devx-track-azurecli
+ms.openlocfilehash: 3e5ab1667ee0cda459785efa624bd7f4fc6818b8
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839553"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562955"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Verbinden von IoT DevKit AZ3166 mit Azure IoT Hub
 
@@ -33,15 +34,14 @@ Sie können das [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-develo
 
 Sie haben noch kein DevKit-Board? Probieren Sie den [DevKit-Simulator](https://azure-samples.github.io/iot-devkit-web-simulator/) aus, oder [kaufen Sie ein DevKit](https://aka.ms/iot-devkit-purchase).
 
-Den Quellcode für alle DevKit-Tutorials finden Sie im [Katalog mit Codebeispielen](https://docs.microsoft.com/samples/browse/?term=mxchip).
+Den Quellcode für alle DevKit-Tutorials finden Sie im [Katalog mit Codebeispielen](/samples/browse/?term=mxchip).
 
 ## <a name="what-you-need"></a>Voraussetzungen
 
-* Ein MXChip IoT DevKit-Board mit einem Micro-USB-Kabel. [Jetzt kaufen](https://aka.ms/iot-devkit-purchase).
-* Ein Computer mit Windows 10, macOS 10.10+ oder Ubuntu 18.04+.
-* Ein aktives Azure-Abonnement. [Kostenloses Microsoft Azure-Testkonto für 30 Tage](https://azureinfo.microsoft.com/us-freetrial.html) aktivieren.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- Ein MXChip IoT DevKit-Board mit einem Micro-USB-Kabel. [Jetzt kaufen](https://aka.ms/iot-devkit-purchase).
+- Ein Computer mit Windows 10, macOS 10.10+ oder Ubuntu 18.04+.
+- Ein aktives Azure-Abonnement. [Kostenloses Microsoft Azure-Testkonto für 30 Tage](https://azureinfo.microsoft.com/us-freetrial.html) aktivieren.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
   
 ## <a name="prepare-your-hardware"></a>Vorbereiten der Hardware
 
@@ -98,7 +98,7 @@ Ein Gerät muss bei Ihrer IoT Hub-Instanz registriert sein, um eine Verbindung h
    **YourIoTHubName**: Ersetzen Sie diesen Platzhalter unten durch den Namen, den Sie für Ihren IoT-Hub wählen.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyNodeDevice --output table
+    az iot hub device-identity connection-string show --hub-name YourIoTHubName --device-id MyNodeDevice --output table
     ```
 
     Notieren Sie sich die Geräteverbindungszeichenfolge, die wie folgt aussieht:
@@ -267,7 +267,7 @@ Anstatt Azure IoT Hub und das Gerät über das Azure-Portal bereitzustellen, kö
 
     ![Abonnement auswählen](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-subscription.png)
 
-1. Wählen oder erstellen Sie dann eine neue [Ressourcengruppe](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#terminology).
+1. Wählen oder erstellen Sie dann eine neue [Ressourcengruppe](../azure-resource-manager/management/overview.md#terminology).
 
     ![Auswählen der Ressourcengruppe](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-resource-group.png)
 

@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0903828b04922104a9dd93ac79459bf73644f35c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: cfd7b5ac981fcb87d0fc929d944205dec9432b74
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365832"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575821"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Verwalten der lokalen Administratorgruppe auf in Azure AD eingebundenen Geräten
 
 Um ein Windows-Gerät verwalten zu können, müssen Sie Mitglied der lokalen Administratorgruppe sein. Im Rahmen der Einbindung in Azure Active Directory (Azure AD) wird die Mitgliedschaft dieser Gruppe auf einem Gerät von Azure AD aktualisiert. Sie können die Mitgliedschaftsaktualisierung Ihren geschäftlichen Anforderungen entsprechend anpassen. Eine Mitgliedschaftsaktualisierung ist beispielsweise hilfreich, wenn Sie Helpdeskmitarbeitern die Ausführung von Aufgaben ermöglichen möchten, für die Administratorrechte erforderlich sind.
 
-In diesem Artikel erfahren Sie, wie die Mitgliedschaftsaktualisierung für lokale Administratoren funktioniert und wie Sie sie im Rahmen einer Azure AD-Einbindung anpassen können. Der Inhalt dieses Artikels gilt nicht für Geräte vom Typ **hybrid, in Azure AD eingebunden** .
+In diesem Artikel erfahren Sie, wie die Mitgliedschaftsaktualisierung für lokale Administratoren funktioniert und wie Sie sie im Rahmen einer Azure AD-Einbindung anpassen können. Der Inhalt dieses Artikels gilt nicht für Geräte vom Typ **hybrid, in Azure AD eingebunden**.
 
 ## <a name="how-it-works"></a>Funktionsweise
 
@@ -45,14 +45,14 @@ Informationen zum Anzeigen und Aktualisieren der Mitgliedschaft in der globalen 
 
 ## <a name="manage-the-device-administrator-role"></a>Verwalten der Geräteadministratorrolle 
 
-Die Geräteadministratorrolle kann im Azure-Portal auf der Seite **Geräte** verwaltet werden. So öffnen Sie die Seite **Geräte** :
+Die Geräteadministratorrolle kann im Azure-Portal auf der Seite **Geräte** verwaltet werden. So öffnen Sie die Seite **Geräte**:
 
 1. Melden Sie sich als globaler Administrator beim [Azure-Portal](https://portal.azure.com) an.
-1. Suchen Sie nach *Azure Active Directory* , und wählen Sie diese Option aus.
-1. Klicken Sie im Bereich **Verwalten** auf **Geräte** .
-1. Klicken Sie auf der Seite **Geräte** auf **Geräteeinstellungen** .
+1. Suchen Sie nach *Azure Active Directory*, und wählen Sie diese Option aus.
+1. Klicken Sie im Bereich **Verwalten** auf **Geräte**.
+1. Klicken Sie auf der Seite **Geräte** auf **Geräteeinstellungen**.
 
-Konfigurieren Sie die Einstellung **Weitere lokale Administratoren für in Azure AD eingebundene Geräte** , um die Geräteadministratorrolle anzupassen.  
+Konfigurieren Sie die Einstellung **Weitere lokale Administratoren für in Azure AD eingebundene Geräte**, um die Geräteadministratorrolle anzupassen.  
 
 ![Weitere lokale Administratoren](./media/assign-local-admin/10.png)
 
@@ -72,14 +72,19 @@ Geräteadministratoren werden allen in Azure AD eingebundenen Geräten zugewiese
 >[!NOTE]
 > Diese Funktion steht derzeit als Vorschau zur Verfügung.
 
+
 Ab dem Windows 10-Update 2004 können Sie Azure AD-Gruppen verwenden, um Administratorrechte auf in Azure AD eingebundenen Geräten mit der MDM-Richtlinie [Eingeschränkte Gruppen](/windows/client-management/mdm/policy-csp-restrictedgroups) zu verwalten. Mit dieser Richtlinie können Sie einzelne Benutzer oder Azure AD-Gruppen der lokalen Administratorgruppe auf einem in Azure AD integrierten Gerät zuweisen. Dadurch erhalten Sie die Granularität zur Konfiguration unterschiedlicher Administratoren für verschiedene Gruppen von Geräten. 
 
-Zurzeit gibt es keine Benutzeroberfläche in Intune zum Verwalten dieser Richtlinie. Sie muss mithilfe von [benutzerdefinierten OMA-URI-Einstellungen](/mem/intune/configuration/custom-settings-windows-10) konfiguriert werden. Überlegungen zu dieser Richtlinie: 
+>[!NOTE]
+> Ab dem Update 20H2 für Windows 10 wird empfohlen, die Richtlinie für [lokale Benutzer und Gruppen](/windows/client-management/mdm/policy-csp-localusersandgroups) anstelle der Richtlinie für eingeschränkte Gruppen zu verwenden.
 
-- Das Hinzufügen von Azure AD-Gruppen über die Richtlinie erfordert eine Gruppen-SID, die durch Ausführen der Gruppen-API abgerufen werden kann. Die SID wird durch die `securityIdentifier`-Eigenschaft in der Gruppen-API definiert.
-- Wenn die Richtlinie für eingeschränkte Gruppen erzwungen wird, werden alle aktuellen Mitglieder der Gruppe entfernt, die nicht in der Mitgliederliste enthalten sind. Wenn Sie also diese Richtlinie mit neuen Mitgliedern oder Gruppen erzwingen, werden die vorhandenen Administratoren vom Gerät entfernt. Dies sind insbesondere der Benutzer, der das Gerät hinzugefügt hat, die Rolle „Geräteadministrator“ und die Rolle „Globaler Administrator“. Um das Entfernen vorhandener Mitglieder zu vermeiden, müssen Sie diese als Teil der Mitgliederliste in der Richtlinie für eingeschränkte Gruppen konfigurieren. 
-- Diese Richtlinie gilt nur für die folgenden bekannten Gruppen auf einem Windows 10-Gerät: Administratoren, Benutzer, Gäste, Poweruser, Remotedesktopbenutzer und Remoteverwaltungsbenutzer. 
-- Die Verwaltung lokaler Administratoren mithilfe der Richtlinie für eingeschränkte Gruppen kann nicht auf in Azure AD Hybrid integrierte oder bei Azure AD registrierte Geräte angewandt werden.
+
+Zurzeit gibt es keine Benutzeroberfläche in Intune zum Verwalten dieser Richtlinien. Sie müssen mithilfe von [benutzerdefinierten OMA-URI-Einstellungen](/mem/intune/configuration/custom-settings-windows-10) konfiguriert werden. Einige Überlegungen zur Verwendung dieser Richtlinien: 
+
+- Das Hinzufügen von Azure AD-Gruppen über die Richtlinie erfordert eine Gruppen-SID, die durch Ausführen der [Microsoft Graph-API für Gruppen](/graph/api/resources/group?view=graph-rest-beta) abgerufen werden kann. Die SID wird durch die `securityIdentifier`-Eigenschaft in der API-Antwort definiert.
+- Wenn die Richtlinie für eingeschränkte Gruppen erzwungen wird, werden alle aktuellen Mitglieder der Gruppe entfernt, die nicht in der Mitgliederliste enthalten sind. Wenn Sie also diese Richtlinie mit neuen Mitgliedern oder Gruppen erzwingen, werden die vorhandenen Administratoren vom Gerät entfernt. Dies sind insbesondere der Benutzer, der das Gerät hinzugefügt hat, die Rolle „Geräteadministrator“ und die Rolle „Globaler Administrator“. Um das Entfernen vorhandener Mitglieder zu vermeiden, müssen Sie diese als Teil der Mitgliederliste in der Richtlinie für eingeschränkte Gruppen konfigurieren. Diese Einschränkung können Sie mithilfe der Richtlinie für lokale Benutzer und Gruppen umgehen, die inkrementelle Aktualisierungen von Gruppenmitgliedschaften zulässt.
+- Administratorrechte mit beiden Richtlinien werden nur für die folgenden bekannten Gruppen auf einem Windows 10-Gerät ausgewertet: Administratoren, Benutzer, Gäste, Poweruser, Remotedesktopbenutzer und Remoteverwaltungsbenutzer. 
+- Die Verwaltung lokaler Administratoren mithilfe von Azure AD-Gruppen kann nicht auf in Azure AD Hybrid integrierte oder bei Azure AD registrierte Geräte angewandt werden.
 - Obwohl die Richtlinie für eingeschränkte Gruppen bereits vor dem Windows 10-Update 2004 vorhanden war, unterstützt sie Azure AD-Gruppen nicht als Mitglieder der lokalen Administratorgruppe eines Geräts. 
 
 ## <a name="manage-regular-users"></a>Verwalten der regulären Benutzer

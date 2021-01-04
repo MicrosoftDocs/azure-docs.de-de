@@ -1,18 +1,17 @@
 ---
 title: Bewerten einer großen Anzahl von Hyper-V-VMs für die Migration zu Azure mit Azure Migrate | Microsoft-Dokumentation
 description: Hier erfahren Sie, wie Sie eine große Anzahl von Hyper-V-VMs mithilfe des Azure Migrate-Diensts für die Migration zu Azure bewerten.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
-ms.topic: conceptual
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 07/10/2019
-ms.author: raynew
-ms.openlocfilehash: 393c58334f4a1bead7e089d0a64b2d165b67401d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 92c275ee3f8e00e71b80e448c9adb94f0b6d21dc
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317180"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753721"
 ---
 # <a name="assess-large-numbers-of-hyper-v-vms-for-migration-to-azure"></a>Bewerten einer großen Anzahl von virtuellen Hyper-V-Computern für die Migration zu Azure
 
@@ -75,7 +74,7 @@ Führen Sie in Übereinstimmung mit Ihren Planungsanforderungen folgende Schritt
 1. Erstellen Sie Azure Migrate-Projekte.
 2. Fügen Sie den Projekten das Azure Migrate-Serverbewertungstool hinzu.
 
-[Weitere Informationen](how-to-add-tool-first-time.md)
+[Weitere Informationen](./create-manage-projects.md)
 
 ## <a name="create-and-review-an-assessment"></a>Erstellen und Überprüfen einer Bewertung
 

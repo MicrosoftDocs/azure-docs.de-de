@@ -5,16 +5,19 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/23/2020
-ms.openlocfilehash: be469ab3b05c54ebc5afa6bd6d129efd8d4ba692
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/10/2020
+ms.openlocfilehash: f582f0dc7547a607351fcfc4ff9d39e8c5a077df
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91254804"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686176"
 ---
 # <a name="how-to-create-alerts-from-azure-monitor-for-vms"></a>Erstellen von Warnungen aus Azure Monitor für VMs
 [Warnungen in Azure Monitor](../platform/alerts-overview.md) informieren Sie proaktiv über interessante Daten und Muster in Ihren Überwachungsdaten. Azure Monitor für VMs enthält keine vorkonfigurierten Warnungsregeln, doch Sie können eigene Regeln basierend auf den gesammelten Daten erstellen. Dieser Artikel enthält Anleitungen zum Erstellen von Warnungsregeln sowie eine Reihe von Beispielabfragen.
+
+> [!IMPORTANT]
+> Die in diesem Artikel beschriebenen Warnungen basieren auf Protokollabfragen für Daten, die von Azure Monitor für VMs gesammelt wurden. Diese unterscheiden sich von den Warnungen, die durch das [Feature „Gastintegrität“ von Azure Monitor für VMs](vminsights-health-overview.md) erstellt werden, das sich derzeit in der Public Preview-Phase befindet. Wenn dieses Feature allgemein verfügbar wird, werden die Informationen für Warnungen konsolidiert.
 
 
 ## <a name="alert-rule-types"></a>Warnungsregeltypen

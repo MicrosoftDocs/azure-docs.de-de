@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 02/27/2020
 ms.author: jgao
-ms.openlocfilehash: cff67e99d40b092341e89c96a9f1e037d8572248
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 68c10ba5581ffe404e8e3c1ac8ce92832cfcd6c4
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88690628"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896428"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-an-arm-template"></a>Schnellstart: Festlegen und Abrufen eines Geheimnisses aus Azure Key Vault mit einer ARM-Vorlage
 
@@ -82,15 +82,15 @@ Weitere Vorlagenbeispiele für Azure Key Vault finden Sie in [Azure-Schnellstart
 
     Verwenden Sie den Standardwert, um den Schlüsseltresor und ein Geheimnis zu erstellen, sofern kein anderer Wert angegeben ist.
 
-    * **Abonnement**: Wählen Sie ein Azure-Abonnement aus.
-    * **Ressourcengruppe**: Wählen Sie die Option **Neu erstellen** aus, geben Sie einen eindeutigen Namen für die Ressourcengruppe ein, und klicken Sie dann auf **OK**.
-    * **Standort**: Wählen Sie einen Standort aus. Beispiel: **USA, Mitte**.
-    * **Schlüsseltresorname**: Geben Sie einen Namen für den Schlüsseltresor ein. Dieser muss im Namespace „.vault.azure.net“ global eindeutig sein. Sie benötigen den Namen im nächsten Abschnitt beim Überprüfen der Bereitstellung.
-    * **Mandanten-ID**: Die Vorlagenfunktion ruft automatisch Ihre Mandanten-ID ab. Lassen Sie den Standardwert unverändert.
+    * **Abonnement** : Wählen Sie ein Azure-Abonnement aus.
+    * **Ressourcengruppe** : Wählen Sie die Option **Neu erstellen** aus, geben Sie einen eindeutigen Namen für die Ressourcengruppe ein, und klicken Sie dann auf **OK**.
+    * **Standort** : Wählen Sie einen Standort aus. Beispiel: **USA, Mitte**.
+    * **Schlüsseltresorname** : Geben Sie einen Namen für den Schlüsseltresor ein. Dieser muss im Namespace „.vault.azure.net“ global eindeutig sein. Sie benötigen den Namen im nächsten Abschnitt beim Überprüfen der Bereitstellung.
+    * **Mandanten-ID** : Die Vorlagenfunktion ruft automatisch Ihre Mandanten-ID ab. Lassen Sie den Standardwert unverändert.
     * **Ad User Id** (AD-Benutzer-ID): Geben Sie Ihre Azure AD-Benutzerobjekt-ID ein, die Sie unter [Voraussetzungen](#prerequisites) abgerufen haben.
-    * **Geheimnisname**: Geben Sie einen Namen für das Geheimnis ein, das Sie im Schlüsseltresor speichern. Beispiel: **adminpassword**.
-    * **Geheimniswert**: Geben Sie den Geheimniswert ein. Beim Speichern eines Kennworts wird die Verwendung des generierten Kennworts empfohlen, das Sie unter „Voraussetzungen“ erstellt haben.
-    * **Ich stimme den oben genannten Geschäftsbedingungen zu**: Aktivieren Sie dieses Kontrollkästchen.
+    * **Geheimnisname** : Geben Sie einen Namen für das Geheimnis ein, das Sie im Schlüsseltresor speichern. Beispiel: **adminpassword**.
+    * **Geheimniswert** : Geben Sie den Geheimniswert ein. Beim Speichern eines Kennworts wird die Verwendung des generierten Kennworts empfohlen, das Sie unter „Voraussetzungen“ erstellt haben.
+    * **Ich stimme den oben genannten Geschäftsbedingungen zu** : Aktivieren Sie dieses Kontrollkästchen.
 3. Wählen Sie die Option **Kaufen**. Nach der erfolgreichen Bereitstellung des Schlüsseltresors erhalten Sie eine Benachrichtigung:
 
     ![ARM-Vorlage, Key Vault-Integration, Bereitstellen (Portalbenachrichtigung)](../media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
@@ -124,7 +124,7 @@ Die Ausgabe sieht in etwa wie folgt aus:
 
 # <a name="cli"></a>[BEFEHLSZEILENSCHNITTSTELLE (CLI)](#tab/CLI)
 
-![ARM-Vorlage, Key Vault-Integration, Bereitstellen (Portal), Überprüfungsausgabe](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
+![Screenshot, der die Ausgabe der Überprüfung der Portalbereitstellung zeigt.](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 

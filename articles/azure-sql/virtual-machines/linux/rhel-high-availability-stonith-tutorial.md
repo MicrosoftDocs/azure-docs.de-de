@@ -2,18 +2,17 @@
 title: Konfigurieren von Verfügbarkeitsgruppen für SQL Server auf virtuellen RHEL-Computern in Azure – virtuelle Linux-Computer | Microsoft-Dokumentation
 description: Hier finden Sie Informationen zum Einrichten von Hochverfügbarkeit in einer RHEL-Clusterumgebung sowie zum Einrichten von STONITH.
 ms.service: virtual-machines-linux
-ms.subservice: ''
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: 4411bd490ab72aa27fbf16a8598a9ff0dae7a5b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 533f5c9e38818a8e37482cbbb3a90602366eca6f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358915"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587212"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Konfigurieren von Verfügbarkeitsgruppen für SQL Server auf virtuellen RHEL-Computern in Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,9 +36,9 @@ In diesem Tutorial wird die Azure-Befehlszeilenschnittstelle (Command-Line Inter
 
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
-Wenn Sie die Befehlszeilenschnittstelle lieber lokal installieren und verwenden möchten, benötigen Sie für dieses Tutorial mindestens die Azure CLI-Version 2.0.30. Führen Sie `az --version` aus, um die Version zu ermitteln. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sie bei Bedarf unter [Installieren der Azure CLI]( /cli/azure/install-azure-cli).
+- Für diesen Artikel ist mindestens Version 2.0.30 der Azure CLI erforderlich. Bei Verwendung von Azure Cloud Shell ist die aktuelle Version bereits installiert.
 
 ## <a name="create-a-resource-group"></a>Erstellen einer Ressourcengruppe
 
@@ -242,7 +241,7 @@ Die Ergebnisse des abgeschlossenen Befehls sollten wie folgt aussehen:
     done
     ```
 
-Der obige Befehl erstellt die virtuellen Computer sowie ein Standard-VNET für diese virtuellen Computer. Weitere Informationen zu den verschiedenen Konfigurationen finden Sie im [Artikel zu „az vm create“](https://docs.microsoft.com/cli/azure/vm).
+Der obige Befehl erstellt die virtuellen Computer sowie ein Standard-VNET für diese virtuellen Computer. Weitere Informationen zu den verschiedenen Konfigurationen finden Sie im [Artikel zu „az vm create“](/cli/azure/vm).
 
 Nach Abschluss des Befehls für die einzelnen virtuellen Computer sollten die Ergebnisse in etwa wie folgt aussehen:
 
@@ -263,7 +262,7 @@ Nach Abschluss des Befehls für die einzelnen virtuellen Computer sollten die Er
 > [!IMPORTANT]
 > Durch das mit dem obigen Befehl erstellte Standardimage wird standardmäßig ein Betriebssystemdatenträger mit einer Kapazität von 32 GB erstellt. Bei dieser Standardinstallation besteht ggf. die Gefahr, dass der Speicherplatz nicht ausreicht. Daher können Sie dem obigen Befehl `az vm create` den folgenden Parameter hinzufügen, um beispielsweise einen Betriebssystemdatenträger mit 128 GB zu erstellen: `--os-disk-size-gb 128`.
 >
-> Anschließend können Sie [Logical Volume Manager (LVM) konfigurieren](../../../virtual-machines/linux/configure-lvm.md), um bei Bedarf die entsprechenden Ordnervolumes für Ihre Installation zu erweitern.
+> Anschließend können Sie [Logical Volume Manager (LVM) konfigurieren](/previous-versions/azure/virtual-machines/linux/configure-lvm), um bei Bedarf die entsprechenden Ordnervolumes für Ihre Installation zu erweitern.
 
 ### <a name="test-connection-to-the-created-vms"></a>Testen der Verbindung mit den erstellten virtuellen Computern
 
@@ -947,6 +946,9 @@ Wenn `synchronization_state_desc` für `db1` den Zustand „SYNCHRONIZED“ (SYN
 
 Wir gehen wie unter [Erstellen der Verfügbarkeitsgruppenressourcen im Pacemaker-Cluster (nur „Extern“)](/sql/linux/sql-server-linux-create-availability-group#create-the-availability-group-resources-in-the-pacemaker-cluster-external-only) beschrieben vor.
 
+> [!NOTE]
+> Dieser Artikel enthält Verweise auf den Begriff Slave, einen Begriff, den Microsoft nicht mehr verwendet. Sobald der Begriff aus der Software entfernt wird, wird er auch aus diesem Artikel entfernt.
+
 ### <a name="create-the-ag-cluster-resource"></a>Erstellen der Verfügbarkeitsgruppen-Clusterressource
 
 1. Verwenden Sie je nach Umgebung, die Sie oben ausgewählt haben, einen der folgenden Befehle, um die Ressource `ag_cluster` in der Verfügbarkeitsgruppe `ag1` zu erstellen.
@@ -1132,6 +1134,34 @@ Wir führen ein Testfailover durch, um uns zu vergewissern, dass die bisherige K
     sudo pcs resource move ag_cluster-clone <VM2> --master
     ```
 
+   Sie können auch eine zusätzliche Option angeben, damit die vorübergehende Einschränkung, die erstellt wird, um die Ressource auf einen gewünschten Knoten zu verschieben, automatisch deaktiviert wird und Sie die Schritte 2 und 3 weiter unten nicht ausführen müssen.
+
+   **RHEL 7**
+
+    ```bash
+    sudo pcs resource move ag_cluster-master <VM2> --master lifetime=30S
+    ```
+
+   **RHEL 8**
+
+    ```bash
+    sudo pcs resource move ag_cluster-clone <VM2> --master lifetime=30S
+    ```
+
+   Eine weitere Alternative zur Automatisierung der weiter unten angegebenen Schritte 2 und 3, durch die die vorübergehende Einschränkung direkt im Befehl für die Ressourcenverschiebung entfernt wird, besteht darin, mehrere Befehle in einer einzelnen Zeile zu kombinieren. 
+
+   **RHEL 7**
+
+    ```bash
+    sudo pcs resource move ag_cluster-master <VM2> --master && sleep 30 && pcs resource clear ag_cluster-master
+    ```
+
+   **RHEL 8**
+
+    ```bash
+    sudo pcs resource move ag_cluster-clone <VM2> --master && sleep 30 && pcs resource clear ag_cluster-clone
+    ```
+    
 2. Wenn Sie Ihre Einschränkungen erneut überprüfen, sehen Sie, dass aufgrund des manuellen Failovers eine weitere Einschränkung hinzugefügt wurde:
     
     **RHEL 7**

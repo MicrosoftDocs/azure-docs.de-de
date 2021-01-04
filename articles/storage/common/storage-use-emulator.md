@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: 959a58a38861075c6509fe57136d8991eeb98ce6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d9e0e63a3586be139620c154616acfcba2ab10f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588193"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498216"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Verwenden des Azure-Speicheremulators für Entwicklung und Tests
 
@@ -95,7 +95,7 @@ Nachdem Sie den Speicheremulator installiert und gestartet haben, können Sie de
 
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
-Weitere Informationen zu Verbindungszeichenfolgen finden Sie unter [Konfigurieren von Azure Storage-Verbindungszeichenfolgen](../storage-configure-connection-string.md).
+Weitere Informationen zu Verbindungszeichenfolgen finden Sie unter [Konfigurieren von Azure Storage-Verbindungszeichenfolgen](./storage-configure-connection-string.md).
 
 ### <a name="authorize-with-a-shared-access-signature"></a>Autorisieren mit einer SAS (Shared Access Signature)
 
@@ -161,7 +161,7 @@ Ab Version 3.1 unterstützt der Speicheremulator georedundante Replikation mit L
 `http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt`
 
 > [!NOTE]
-> Für programmgesteuerten Zugriff auf den sekundären Speicherort mit dem Speicheremulator verwenden Sie die Speicherclientbibliothek für .NET, Version 3.2 oder höher. Weitere Informationen finden Sie in der [Microsoft Azure-Speicherclientbibliothek für .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx) .
+> Für programmgesteuerten Zugriff auf den sekundären Speicherort mit dem Speicheremulator verwenden Sie die Speicherclientbibliothek für .NET, Version 3.2 oder höher. Weitere Informationen finden Sie in der [Microsoft Azure-Speicherclientbibliothek für .NET](/previous-versions/azure/dn261237(v=azure.100)) .
 >
 >
 
@@ -310,7 +310,7 @@ Es bestehen keine Unterschiede beim Warteschlangenspeicher im Emulator.
 
 ### <a name="version-40"></a>Version 4.0
 
-* Die ausführbare Datei des Speicheremulators wurde in *AzureStorageEmulator.exe*umbenannt.
+* Die ausführbare Datei des Speicheremulators wurde in *AzureStorageEmulator.exe* umbenannt.
 
 ### <a name="version-32"></a>Version 3.2
 
@@ -329,7 +329,7 @@ Es bestehen keine Unterschiede beim Warteschlangenspeicher im Emulator.
 ## <a name="next-steps"></a>Nächste Schritte
 
 * Sehen Sie sich den plattformübergreifenden, von der Community gepflegten Open-Source-Speicheremulator [Azurite](https://github.com/azure/azurite) an. 
-* [Azure Storage-Beispiele mit .NET](../storage-samples-dotnet.md) enthält Links zu mehreren Codebeispielen, die Sie bei der Anwendungsentwicklung verwenden können.
+* [Azure Storage-Beispiele mit .NET](./storage-samples-dotnet.md) enthält Links zu mehreren Codebeispielen, die Sie bei der Anwendungsentwicklung verwenden können.
 * Im [Microsoft Azure Storage-Explorer](https://storageexplorer.com) können Sie mit Ressourcen in Ihrem Cloudspeicherkonto und im Speicheremulator arbeiten.
 
 ## <a name="see-also"></a>Weitere Informationen

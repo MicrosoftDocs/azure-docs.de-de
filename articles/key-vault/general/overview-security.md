@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c3dd4e5138741a3c035507358830f3572cf92751
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc08df7390285f9b6e4701bb1ca5c4227b19f1da
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739689"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445029"
 ---
 # <a name="azure-key-vault-security"></a>Azure Key Vault – Sicherheit
 
@@ -25,7 +25,7 @@ Sie verwenden Azure Key Vault für den Schutz Ihrer Verschlüsselungsschlüssel 
 Wenn Sie in einem Azure-Abonnement einen Schlüsseltresor erstellen, wird dieser automatisch mit dem Azure AD-Mandanten des Abonnements verknüpft. Jeder Versuch, Inhalte in einem Tresor zu verwalten oder abzurufen, muss von Azure AD authentifiziert werden.
 
 - Die Authentifizierung stellt die Identität des Anrufers fest.
-- Die Autorisierung bestimmt, welche Vorgänge der Aufrufer ausführen darf. Für die Autorisierung wird in Key Vault eine Kombination aus [rollenbasierter Zugriffssteuerung](../../role-based-access-control/overview.md) (RBAC) und Azure Key Vault-Zugriffsrichtlinien verwendet.
+- Die Autorisierung bestimmt, welche Vorgänge der Aufrufer ausführen darf. Für die Autorisierung wird in Key Vault eine Kombination aus [rollenbasierter Zugriffssteuerung in Azure](../../role-based-access-control/overview.md) (Azure RBAC) und Azure Key Vault-Zugriffsrichtlinien verwendet.
 
 ### <a name="access-model-overview"></a>Übersicht über das Zugriffsmodell
 
@@ -34,7 +34,7 @@ Der Zugriff auf Tresore erfolgt über zwei Schnittstellen oder Ebenen. Die Ebene
 - Auf *Verwaltungsebene* verwalten Sie Key Vault selbst. Sie stellt die Schnittstelle zum Erstellen und Löschen von Tresoren dar. Sie können auch die Eigenschaften von Schlüsseltresoren lesen und Zugriffsrichtlinien verwalten.
 - Auf der *Datenebene* arbeiten Sie mit den in einem Schlüsseltresor gespeicherten Daten. Sie können Schlüssel, Geheimnisse und Zertifikate hinzufügen, löschen und ändern.
 
-Um auf einen Schlüsseltresor in beiden Ebenen zugreifen zu können, müssen alle Aufrufe (Benutzer oder Anwendungen) authentifiziert und autorisiert werden. Für die Authentifizierung verwenden beide Ebenen Azure Active Directory (Azure AD). Für die Autorisierung wird auf der Verwaltungsebene die rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC) verwendet, während auf der Datenebene Schlüsseltresor-Zugriffsrichtlinien zum Einsatz kommen.
+Um auf einen Schlüsseltresor in beiden Ebenen zugreifen zu können, müssen alle Aufrufe (Benutzer oder Anwendungen) authentifiziert und autorisiert werden. Für die Authentifizierung verwenden beide Ebenen Azure Active Directory (Azure AD). Für die Autorisierung wird auf der Verwaltungsebene die rollenbasierte Zugriffssteuerung in Azure (Role-Based Access Control, Azure RBAC) verwendet, während auf der Datenebene Key Vault-Zugriffsrichtlinien zum Einsatz kommen.
 
 Das Modell eines einzelnen Mechanismus für die Authentifizierung für beide Ebenen hat mehrere Vorteile:
 
@@ -50,7 +50,7 @@ Wenn Sie einen Schlüsseltresor in einer Ressourcengruppe erstellen, steuern Sie
 - **Ressourcengruppe**: Eine auf Ressourcengruppenebene zugewiesene Azure-Rolle gilt für alle Ressourcen in der Ressourcengruppe.
 - **Bestimmte Ressourcen**: Eine für eine bestimmte Ressource zugewiesene Azure-Rolle gilt für diese Ressource. In diesem Fall ist die Ressource ein bestimmter Schlüsseltresor.
 
-Es gibt verschiedene vordefinierte Rollen. Wenn eine vordefinierte Rolle nicht Ihren Anforderungen entspricht, können Sie Ihre eigene Rolle definieren. Weitere Informationen finden Sie unter [RBAC: Integrierte Rollen](../../role-based-access-control/built-in-roles.md).
+Es gibt verschiedene vordefinierte Rollen. Wenn eine vordefinierte Rolle nicht Ihren Anforderungen entspricht, können Sie Ihre eigene Rolle definieren. Weitere Informationen finden Sie unter [Azure RBAC: Integrierte Rollen](../../role-based-access-control/built-in-roles.md).
 
 > [!IMPORTANT]
 > Falls ein Benutzer für eine Schlüsseltresor-Verwaltungsebene über die Berechtigung `Contributor` verfügt, kann er sich durch Festlegen einer Zugriffsrichtlinie für den Schlüsseltresor selbst Zugriff auf die Datenebene gewähren. Deshalb sollten sie stets kontrollieren, wer als `Contributor` auf Ihre Schlüsseltresore zugreifen kann. Stellen Sie sicher, dass nur autorisierte Personen auf Ihre Schlüsseltresore, Schlüssel, Geheimnisse und Zertifikate zugreifen und diese verwalten können.
@@ -91,4 +91,4 @@ Empfehlungen zur sicheren Verwaltung von Speicherkonten finden Sie im [Azure Sto
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [VNET-Dienstendpunkte für Azure Key Vault](overview-vnet-service-endpoints.md)
-- [RBAC: Integrierte Rollen](../../role-based-access-control/built-in-roles.md).
+- [Azure RBAC: Integrierte Rollen](../../role-based-access-control/built-in-roles.md).

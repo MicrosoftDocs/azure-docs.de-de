@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 3109ada2c905a9f11169a462284d22b9e9604494
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb0f9ef64cb8032c02f2ccd4b42028103b6d3ec6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808236"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397919"
 ---
 # <a name="configure-tls-policy-versions-and-cipher-suites-on-application-gateway"></a>Konfigurieren von TLS-Richtlinienversionen und Verschlüsselungssammlungen für Application Gateway
 
@@ -191,7 +191,7 @@ $appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName $rg.Resourc
 
 ## <a name="update-an-existing-application-gateway-with-a-pre-defined-tls-policy"></a>Aktualisieren eines vorhandenen Anwendungsgateways mit einer vordefinierten TLS-Richtlinie
 
-Um eine benutzerdefinierte TLS-Richtlinie festzulegen, übergeben Sie folgende Parameter: **PolicyType**, **MinProtocolVersion**, **CipherSuite** und **ApplicationGateway**. Um eine vordefinierte TLS-Richtlinie festzulegen, übergeben Sie folgende Parameter: **PolicyType**, **PolicyName** und **ApplicationGateway**. Wenn Sie versuchen, andere Parameter zu übergeben, tritt beim Erstellen oder Aktualisieren des Anwendungsgateways ein Fehler auf.
+Um eine benutzerdefinierte TLS-Richtlinie festzulegen, übergeben Sie folgende Parameter: **PolicyType** , **MinProtocolVersion** , **CipherSuite** und **ApplicationGateway**. Um eine vordefinierte TLS-Richtlinie festzulegen, übergeben Sie folgende Parameter: **PolicyType** , **PolicyName** und **ApplicationGateway**. Wenn Sie versuchen, andere Parameter zu übergeben, tritt beim Erstellen oder Aktualisieren des Anwendungsgateways ein Fehler auf.
 
 Das folgende Beispiel enthält Codebeispiele für die benutzerdefinierte Richtlinie und für die vordefinierte Richtlinie. Kommentieren Sie die Richtlinie aus, die Sie verwenden möchten.
 
@@ -217,4 +217,4 @@ $SetGW = Set-AzApplicationGateway -ApplicationGateway $AppGW
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In der [Übersicht über die Umleitung in Application Gateway](application-gateway-redirect-overview.md) erfahren Sie, wie Sie HTTP-Datenverkehr an einen HTTPS-Endpunkt weiterleiten.
+In der [Übersicht über die Umleitung in Application Gateway](./redirect-overview.md) erfahren Sie, wie Sie HTTP-Datenverkehr an einen HTTPS-Endpunkt weiterleiten.

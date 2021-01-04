@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 12/02/2020
 ms.author: banders
-ms.openlocfilehash: 619dec1b2246b7e74b058e570df4021888196b0c
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: b5de81f5eaf76c16c1ea8fc78075c4567c77aeee
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447551"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531977"
 ---
 # <a name="tutorial-review-your-microsoft-customer-agreement-invoice"></a>Tutorial: Überprüfen der Rechnung für Ihre Microsoft-Kundenvereinbarung
 
@@ -54,6 +54,8 @@ Wenn Sie Zugriff auf genau einen Abrechnungsbereich haben, wählen Sie auf der l
 ![Screenshot: Microsoft-Kundenvereinbarung auf der Eigenschaftenseite](./media/review-customer-agreement-bill/billing-mca-property.png)
 
 Wenn Sie Zugriff auf mehrere Abrechnungsbereiche haben, überprüfen Sie in der Spalte „Abrechnungskonto“ den Typ. Sie haben Zugriff auf ein Abrechnungskonto für eine Microsoft-Kundenvereinbarung, wenn der Abrechnungskontotyp für beliebige der Bereiche **Microsoft-Kundenvereinbarung** ist.
+
+Wählen Sie auf der Seite mit den Abrechnungsbereichen die Option **Abrechnungsbereiche** und anschließend das Abrechnungskonto aus, das zur Zahlung der Abonnementnutzung verwendet wird. Das Abrechnungskonto sollte vom Typ **Microsoft-Kundenvereinbarung** sein.
 
 ![Screenshot: Microsoft-Kundenvereinbarung auf der Seite mit der Liste der Abrechnungskonten](./media/review-customer-agreement-bill/billing-mca-in-the-list.png)
 
@@ -146,7 +148,7 @@ Verwenden Sie die CSV-Datei zu Azure-Nutzung und -Gebühren, um Ihre nutzungsbas
 
 ### <a name="download-your-invoice-and-usage-details"></a>Herunterladen Ihrer Rechnung und der Nutzungsdetails
 
-Abhängig von Ihren Zugriffsberechtigungen müssen Sie unter „Kostenverwaltung + Abrechnung“ ggf. ein Abrechnungskonto oder ein Abrechnungsprofil auswählen. Wählen Sie im Menü auf der linken Seite die Option **Rechnungen** unter **Abrechnung** aus. Suchen Sie im Rechnungsraster nach der Zeile der Rechnung, die Sie herunterladen möchten. Klicken Sie am Ende der Zeile auf das Downloadsymbol oder auf die Auslassungspunkte (...). Laden Sie im Feld **Herunterladen** die Datei mit den Nutzungsdetails und die Rechnung herunter.
+Abhängig von Ihren Zugriffsberechtigungen müssen Sie unter „Kostenverwaltung + Abrechnung“ ggf. ein Abrechnungskonto oder ein Abrechnungsprofil auswählen. Wählen Sie im Menü auf der linken Seite die Option **Rechnungen** unter **Abrechnung** aus. Suchen Sie im Rechnungsraster nach der Zeile der Rechnung, die Sie herunterladen möchten. Wählen Sie am Ende der Zeile das Downloadsymbol oder die Auslassungspunkte (...) aus. Laden Sie im Feld **Herunterladen** die Datei mit den Nutzungsdetails und die Rechnung herunter.
 
 ### <a name="view-detailed-usage-by-invoice-section"></a>Anzeigen der detaillierten Nutzung nach Rechnungsabschnitt
 
@@ -196,4 +198,4 @@ In diesem Tutorial haben Sie Folgendes gelernt:
 Durchlaufen Sie die Schnellstartanleitung, um mit der Kostenanalyse zu beginnen.
 
 > [!div class="nextstepaction"]
-> [Beginn der Kostenanalyse](../costs/quick-acm-cost-analysis.md)
+> [Kostenanalyse beginnen](../costs/quick-acm-cost-analysis.md)

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
-ms.openlocfilehash: 86ee81f3802b7ec7f8189123192c20143a08cf3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1758cca902eb77ffc66824cb56b8add9446fabf9
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090245"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96749146"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Erstellen Ihrer ersten serverlosen App mit Azure Logic Apps und Azure Functions in Visual Studio
 
@@ -32,7 +32,7 @@ Zum Erstellen einer serverlosen App in Visual Studio benötigen Sie Folgendes:
     > Stellen Sie beim Installieren von Visual Studio 2019 oder 2017 sicher, dass Sie die Workload **Azure-Entwicklung** auswählen.
 
   * [Microsoft Azure SDK für .NET (ab Version 2.9.1).](https://azure.microsoft.com/downloads/) 
-  Weitere Informationen zu [Azure SDK für .NET](/dotnet/azure/dotnet-tools?view=azure-dotnet).
+  Weitere Informationen zu [Azure SDK für .NET](/dotnet/azure/intro).
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation).
 

@@ -15,12 +15,12 @@ ms.date: 12/05/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: 07a0581cd7fe2e7a9c13f860c862e34da3cfd1ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f55b6eafe230f722979d535111ce45aa35981f0
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88998287"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125036"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-using-azure-notification-hubs"></a>Tutorial: Senden von Benachrichtigungen an Apps für die universelle Windows-Plattform mit Azure Notification Hubs
 
@@ -66,7 +66,7 @@ Ordnen Sie Ihre App dem Windows Store zu, um Pushbenachrichtigungen an UWP-Apps 
 3. Erweitern Sie **Produktverwaltung**, und wählen Sie **WNS/MPNS** und dann **Live Services-Website** aus. Anmelden bei Ihrem Azure-Konto Die App-Registrierungsseite wird auf einer neuen Registerkarte geöffnet. Alternativ können Sie direkt zur Seite [Eigene Anwendungen](https://apps.dev.microsoft.com) navigieren und Ihren Anwendungsnamen auswählen, um zu dieser Seite zu gelangen.
 
     ![WNS/MPNS-Seite](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
-4. Notieren Sie sich das Kennwort unter **Anwendungsgeheimnisse** sowie die **Paketsicherheits-ID (SID)** .
+4. Notieren Sie sich das Kennwort unter **Anwendungsgeheimnisse** sowie die **Paket-Sicherheits-ID (SID)** und die **Anwendungsidentität** im Windows Store-Abschnitt.
 
     >[!WARNING]
     >Der geheime Schlüssel der Anwendung und die Paket-SID sind wichtige Sicherheitsanmeldeinformationen. Geben Sie diese Werte nicht weiter, und verteilen Sie sie nicht mit Ihrer Anwendung.
@@ -149,7 +149,9 @@ Ihr Notification Hub ist jetzt für die Zusammenarbeit mit WNS konfiguriert. Sie
 
     Dadurch wird gewährleistet, dass der Kanal-URI bei jedem Start der Anwendung beim Notification Hub registriert wird.
 
-12. Drücken Sie zum Ausführen der App auf der Tastatur die Taste **F5**. Ein Dialogfeld mit dem Registrierungsschlüssel wird angezeigt. Klicken Sie auf **OK**, um das Dialogfeld zu schließen.
+12. Klicken Sie mit der rechten Maustaste auf `Package.appxmanifest`, und wählen Sie „Code anzeigen“ (**F7**) aus. Suchen Sie nach `<Identity .../>`, und ersetzen Sie den Wert durch die **Anwendungsidentität** aus WNS, die Sie [zuvor](#create-an-app-in-windows-store) erstellt haben.
+
+13. Drücken Sie zum Ausführen der App auf der Tastatur die Taste **F5**. Ein Dialogfeld mit dem Registrierungsschlüssel wird angezeigt. Klicken Sie auf **OK**, um das Dialogfeld zu schließen.
 
     ![Erfolgreiche Registrierung](./media/notification-hubs-windows-store-dotnet-get-started/registration-successful.png)
 
@@ -171,7 +173,7 @@ Der Benachrichtigungsempfang in der App kann schnell durch Senden von Benachrich
 3. Das Ergebnis des Sendevorgangs wird am unteren Rand des Fensters in der Liste **Ergebnis** angezeigt. Sie sehen auch eine Warnmeldung.
 
     ![Ergebnis des Sendevorgangs](./media/notification-hubs-windows-store-dotnet-get-started/result-of-send.png)
-4. Sie sehen die Benachrichtigungsmeldung **Testmeldung** auf Ihrem Desktop.
+4. Sie sehen die Benachrichtigungsmeldung: **Testmeldung** auf Ihrem Desktop.
 
     ![Benachrichtigungsmeldung](./media/notification-hubs-windows-store-dotnet-get-started/test-notification-message.png)
 

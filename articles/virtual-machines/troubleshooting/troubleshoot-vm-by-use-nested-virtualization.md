@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
-ms.openlocfilehash: e1acfc3216ccfaeac035f1ff31e82c7b67c17daf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f950cb63b5083a85ab5420434abdd9a720115b1a
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76119617"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734547"
 ---
 # <a name="troubleshoot-a-faulty-azure-vm-by-using-nested-virtualization-in-azure"></a>Problembehandlung einer fehlerhaften Azure-VM durch Verwenden geschachtelter Virtualisierung in Azure
 
@@ -111,7 +111,7 @@ Zum Einbinden der fehlerhaften VM muss die Rettungs-VM die gleiche Art von Speic
 
 1.  Wenn Sie den virtuellen Computer wieder online geschaltet haben, fahren Sie den virtuellen Computer im Hyper-V-Manager herunter.
 
-2.  [Heben Sie die Bereitstellung auf, und trennen Sie den reparierten Betriebssystemdatenträger.](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk
+2.  [Heben Sie die Bereitstellung auf, und trennen Sie den reparierten Betriebssystemdatenträger.](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-the-original-virtual-hard-disk
 )
 3.  [Ersetzen Sie den verwendeten Betriebssystemdatenträger durch die VM mit dem reparierten Betriebssystemdatenträger.](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm
 )

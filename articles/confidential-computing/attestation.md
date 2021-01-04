@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 9/22/2020
 ms.author: JenCook
-ms.openlocfilehash: 70a17aacde67744eae74ca263200f2c65fbd300a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86856d1f66b5b7d723c907c17d7179ffcd2b82ab
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90993500"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565669"
 ---
 # <a name="attesting-sgx-enclaves"></a>Nachweisen von SGX-Enklaven
 
@@ -30,11 +30,11 @@ Mit der Erbringung des Nachweises kann das Vertrauen der vertrauenden Seite gest
 
 Der Nachweisvorgang muss über einen sicheren Nachweisdienst implementiert werden, der mit der Systemsoftware und der Hardware kompatibel ist. Zwei Beispiele für Dienste, die Sie nutzen können:
 
-- [Microsoft Azure Attestation (Vorschau)](https://docs.microsoft.com/azure/attestation/overview) oder
+- [Microsoft Azure Attestation (Vorschau)](../attestation/overview.md) oder
 - [Nachweis- und Bereitstellungsdienste von Intel](https://software.intel.com/sgx/attestation-services)
 
 
 Beide sind mit der Intel SGX-Infrastruktur von Azure Confidential Computing kompatibel. 
 
 ## <a name="next-steps"></a>Nächste Schritte
-Probieren Sie die [Microsoft Azure Attestation-Beispiele für enklavefähige Apps](https://docs.microsoft.com/samples/azure-samples/microsoft-azure-attestation/sample-code-for-intel-sgx-attestation-using-microsoft-azure-attestation/)aus.
+Probieren Sie die [Microsoft Azure Attestation-Beispiele für enklavefähige Apps](/samples/azure-samples/microsoft-azure-attestation/sample-code-for-intel-sgx-attestation-using-microsoft-azure-attestation/)aus.

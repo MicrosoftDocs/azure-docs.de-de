@@ -2,14 +2,15 @@
 author: bandersmsft
 ms.author: banders
 ms.service: cost-management-billing
+ms.subservice: cloudyn
 ms.topic: include
-ms.date: 03/20/2020
-ms.openlocfilehash: fbcb962d45fbe0f701a3d42fcbe144b0d02ae29e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 10/23/2020
+ms.openlocfilehash: 7824f25e9c78b2c3fd3ea892616ba96977d58754
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80065858"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537342"
 ---
 > [!NOTE]
-> Cloudyn wird Ende 2020 eingestellt. Vorhandene Cloudyn-Funktionen werden nach Möglichkeit direkt in das Azure-Portal integriert. Mit Ausnahme von CSP-Kunden können zu diesem Zeitpunkt keine neuen Kunden integriert werden. Die Unterstützung für das vorhandene Produkt bleibt so lange erhalten, bis es vollständig eingestellt wurde. Informationen dazu, wie Sie ermitteln, ob sich Azure Cost Management oder Cloudyn besser für Ihre Kostenverwaltungsanforderungen eignet, finden Sie unter [Wählen zwischen Azure Cost Management und Cloudyn](../articles/cost-management-billing/costs/choose-between-azure-cost-management-cloudyn.md).
+> Cloudyn wird Ende 2020 eingestellt. Vorhandene Cloudyn-Funktionen werden nach Möglichkeit direkt in das Azure-Portal integriert. Zur Zeit können keine neuen Kunden das Onboarding durchführen. Die Unterstützung für das vorhandene Produkt bleibt so lange erhalten, bis es vollständig eingestellt wurde.

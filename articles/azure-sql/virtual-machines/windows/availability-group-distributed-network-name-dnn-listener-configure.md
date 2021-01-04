@@ -7,6 +7,7 @@ author: MashaMSFT
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -14,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: abfcd6a13bc5e8ad262fe47111eb680ad00a34df
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 07ce01304f27ded4e0a566777fcf7027f7a15e4b
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168739"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359437"
 ---
 # <a name="configure-a-dnn-listener-for-an-availability-group"></a>Konfigurieren eines DNN-Listeners für eine Verfügbarkeitsgruppe
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -136,7 +137,7 @@ SELECT * FROM SYS.AVAILABILITY_GROUP_LISTENERS
 
 Der Wert `1` für `is_distributed_network_name` kennzeichnet, dass der Listener ein DNN-Listener (Distributed Network Name, Name des verteilten Netzwerks) ist: 
 
-:::image type="content" source="media/availability-group-distributed-network-name-dnn-listener-configure/dnn-listener-tsql.png" alt-text="Anzeigen des DNN-Listeners unter „Verfügbarkeitsgruppenlistener“ in SQL Server Management Studio (SSMS)":::
+:::image type="content" source="media/availability-group-distributed-network-name-dnn-listener-configure/dnn-listener-tsql.png" alt-text="Mit „sys.availability_group_listeners“ die DNN-Listener ermitteln, die den Wert „1“ in „is_distributed_network_name“ haben":::
 
 
 ## <a name="update-connection-string"></a>Aktualisieren der Verbindungszeichenfolge
@@ -150,7 +151,7 @@ Testen Sie das Failover der Verfügbarkeitsgruppe, um die Funktionalität sicher
 Führen Sie die folgenden Schritte aus, um das Failover zu testen: 
 
 1. Stellen Sie eine Verbindung mit dem DNN-Listener oder einem Replikat her, indem Sie [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) verwenden. 
-1. Erweitern Sie **Always On-Verfügbarkeitsgruppe** im **Objekt-Explorer** . 
+1. Erweitern Sie **Always On-Verfügbarkeitsgruppe** im **Objekt-Explorer**. 
 1. Klicken Sie mit der rechten Maustaste auf die Verfügbarkeitsgruppe, und wählen Sie **Failover** aus, um den **Failover-Assistenten** zu öffnen. 
 1. Gehen Sie gemäß den Eingabeaufforderungen vor, um ein Failoverziel auszuwählen, und führen Sie für die Verfügbarkeitsgruppe ein Failover zu einem sekundären Replikat aus. 
 1. Vergewissern Sie sich, dass die Datenbank auf dem neuen primären Replikat im synchronisierten Zustand vorliegt. 

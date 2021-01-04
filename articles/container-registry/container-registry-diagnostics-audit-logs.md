@@ -3,12 +3,12 @@ title: Erfassen und Analysieren von Ressourcenprotokollen
 description: Aufzeichnen und Analysieren von Ressourcenprotokollereignissen für Azure Container Registry wie Authentifizierung, Imagepush und Imagepull.
 ms.topic: article
 ms.date: 06/01/2020
-ms.openlocfilehash: 63ccb944b9c3de9941acf55ca5ea85fda70a7008
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b05d34e6c50fea3760e30d28f59e55d8c5f211a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87553375"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348584"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Azure Container Registry-Protokolle für die Diagnoseauswertung und -überwachung
 
@@ -81,7 +81,7 @@ In der folgenden Abbildung ist eine Beispielausgabe dargestellt:
 
 ![Abfragen von Protokolldaten](media/container-registry-diagnostics-audit-logs/azure-monitor-query.png)
 
-Ein Tutorial zur Verwendung von Log Analytics im Azure-Portal finden Sie unter [Erste Schritte mit Azure Monitor Log Analytics](../azure-monitor/log-query/get-started-portal.md), oder probieren Sie die [Demoumgebung](https://portal.loganalytics.io/demo) von Log Analytics aus. 
+Ein Tutorial zur Verwendung von Log Analytics im Azure-Portal finden Sie unter [Erste Schritte mit Azure Monitor Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md), oder probieren Sie die [Demoumgebung](https://portal.loganalytics.io/demo) von Log Analytics aus. 
 
 Weitere Informationen zu Protokollabfragen finden Sie unter [Übersicht über Protokollabfragen in Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
@@ -146,5 +146,5 @@ Sie können-Diagnoseprotokollereignisse auch an einen [Azure Event Hub](../event
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Erfahren Sie mehr über das Verwenden von [Log Analytics](../azure-monitor/log-query/get-started-portal.md) und das Erstellen von [Protokollabfragen](../azure-monitor/log-query/get-started-queries.md).
+* Erfahren Sie mehr über das Verwenden von [Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) und das Erstellen von [Protokollabfragen](../azure-monitor/log-query/get-started-queries.md).
 * Informationen zu Plattformprotokollen, die auf unterschiedlichen Ebenen von Azure verfügbar sind, finden Sie unter [Übersicht über Protokolle der Azure-Plattform](../azure-monitor/platform/platform-logs-overview.md).

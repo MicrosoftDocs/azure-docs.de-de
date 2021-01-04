@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3308a72421b851402642f12daf56359c7e3c9216
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a815295c4f2ab78cbd3aff82949d7c28197afd82
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449070"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791918"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Einführung in Azure Defender für Kubernetes
 
@@ -20,7 +20,7 @@ Azure Kubernetes Service (AKS) ist der verwaltete Dienst von Microsoft für die 
 
 Azure Security Center und AKS bilden das beste cloudnative Kubernetes-Sicherheitsangebot und ermöglichen Umgebungshärtung, Workloadschutz und Laufzeitschutz, wie im Folgenden beschrieben.
 
-Aktivieren Sie zur Bedrohungserkennung für Ihre Kubernetes-Cluster **Azure Defender für Kubernetes**.
+Aktivieren Sie zur Bedrohungserkennung für Ihre Kubernetes-Cluster **Azure Defender für Kubernetes** .
 
 Die Bedrohungserkennung auf Hostebene für Ihre Linux-AKS-Knoten ist verfügbar, wenn Sie [Azure Defender für Server](defender-for-servers-introduction.md) aktivieren.
 
@@ -72,7 +72,7 @@ Sie können sehen, dass Security Center die folgenden Elemente empfängt und ana
 - Überwachungsprotokolle vom API-Server
 - Unformatierte Sicherheitsereignisse vom Log Analytics-Agent
 - Clusterkonfigurationsinformationen vom AKS-Cluster
-- Workloadkonfiguration von Azure Policy (über das **Azure Policy-Add-On für Kubernetes**) [Weitere Informationen zu den bewährten Methoden zum Workloadschutz mithilfe der Kubernetes-Zugangssteuerung](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
+- Workloadkonfiguration von Azure Policy (über das **Azure Policy-Add-On für Kubernetes** ) [Weitere Informationen zu den bewährten Methoden zum Workloadschutz mithilfe der Kubernetes-Zugangssteuerung](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
 
 :::image type="content" source="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png" alt-text="Allgemeine Architektur der Interaktion zwischen Azure Security Center, dem Azure Kubernetes-Dienst und Azure Policy" lightbox="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png":::
 
@@ -90,6 +90,23 @@ Es wird empfohlen, beide Komponenten bereitzustellen, um einen möglichst umfass
 Wenn Sie den Agent nicht auf Ihren Hosts installieren, profitieren Sie nicht von allen Vorteilen und Sicherheitswarnungen des Bedrohungsschutzes. Sie erhalten weiterhin Warnungen im Zusammenhang mit der Netzwerkanalyse und der Kommunikation mit schädlichen Servern.
 
 
+### <a name="does-aks-allow-me-to-install-custom-vm-extensions-on-my-aks-nodes"></a>Erlaubt AKS mir, benutzerdefinierte VM-Erweiterungen auf meinen AKS-Knoten zu installieren?
+
+Damit Azure Defender Ihre AKS-Knoten überwachen kann, muss dort der Log Analytics-Agent ausgeführt werden. 
+
+AKS ist ein verwalteter Dienst, und da der Log Analytics-Agent eine von Microsoft verwaltete Erweiterung ist, wird er auch auf AKS-Clustern unterstützt.
+
+
+
+### <a name="if-my-cluster-is-already-running-an-azure-monitor-for-containers-agent-do-i-need-the-log-analytics-agent-too"></a>Wenn auf meinem Cluster bereits ein Agent für Azure Monitor für Containers ausgeführt wird, brauche ich dann auch den Log Analytics-Agent?
+
+Damit Azure Defender Ihre AKS-Knoten überwachen kann, muss dort der Log Analytics-Agent ausgeführt werden.
+
+Wenn auf Ihren Clustern bereits der Azure Monitor für Container-Agent ausgeführt wird, können Sie auch den Log Analytics-Agent installieren, und die beiden Agents können problemlos nebeneinander verwendet werden.
+
+[Erfahren Sie mehr über den Azure Monitor für Container-Agent](../azure-monitor/insights/container-insights-manage-agent.md).
+
+
 ## <a name="next-steps"></a>Nächste Schritte
 
 In diesem Artikel haben Sie etwas über den Kubernetes-Schutz von Security Center erfahren, einschließlich Azure Defender für Kubernetes. 
@@ -97,5 +114,5 @@ In diesem Artikel haben Sie etwas über den Kubernetes-Schutz von Security Cente
 Weitere Informationen finden Sie in den folgenden Artikeln: 
 
 - [Aktivieren von Azure Defender](security-center-pricing.md)
-- [Exportieren von Warnungen in Azure Sentinel oder ein SIEM-System eines Drittanbieters](continuous-export.md)
+- [Streamen von Warnungen in eine SIEM-, SOAR- oder IT Service Management-Lösung](export-to-siem.md)
 - [Verweistabelle zu Warnungen](alerts-reference.md)

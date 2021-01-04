@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 74926411b659cf5973b03b2caca58d7666803f9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 908c9f1d05c83eaa58f77b79a32d956898c35076
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444538"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348252"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Schreiben von Überwachungsprotokollen in ein Speicherkonto hinter einem VNET oder einer Firewall
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -77,7 +77,7 @@ Die Beispielskripts in diesem Abschnitt erfordern, dass Sie das Skript aktualisi
 |:-----|:-----|
 |`<subscriptionId>`| Azure-Abonnement-ID|
 |`<resource group>`| Resource group|
-|`<logical SQL server>`| Servername|
+|`<logical SQL Server>`| Servername|
 |`<administrator login>`| Administratorkonto |
 |`<complex password>`| Komplexes Kennwort für das Administratorkonto|
 
@@ -93,7 +93,7 @@ So konfigurieren Sie die SQL-Überwachung für das Schreiben von Ereignissen in 
    Set-AzSqlServer -ResourceGroupName <your resource group> -ServerName <azure server name> -AssignIdentity
    ```
 
-   [**REST-API**](https://docs.microsoft.com/rest/api/sql/servers/createorupdate):
+   [**REST-API**](/rest/api/sql/servers/createorupdate):
 
    Beispiel für eine Anforderung
 
@@ -114,6 +114,7 @@ So konfigurieren Sie die SQL-Überwachung für das Schreiben von Ereignissen in 
      "administratorLoginPassword": "<complex password>",
      "version": "12.0",
      "state": "Ready"
+     }
    }
    ```
 
@@ -153,7 +154,7 @@ Sie können die Überwachung so konfigurieren, dass Datenbankereignisse in ein S
 > [!IMPORTANT]
 > Um ein Speicherkonto hinter einem virtuellen Netzwerk und einer Firewall zu verwenden, müssen Sie den Parameter **isStorageBehindVnet** auf TRUE festlegen.
 
-- [Bereitstellen einer Azure SQL Server-Instanz mit aktivierter Überwachung zum Schreiben von Überwachungsprotokollen in Blobspeicher](https://azure.microsoft.com/resources/templates/201-sql-auditing-server-policy-to-blob-storage)
+- [Bereitstellen einer Azure SQL Server-Instanz mit aktivierter Überwachung zum Schreiben von Überwachungsprotokollen in Blob Storage](https://azure.microsoft.com/resources/templates/201-sql-auditing-server-policy-to-blob-storage)
 
 > [!NOTE]
 > Das verknüpften Beispiel befindet sich in einem externen öffentlichen Repository, wird wie besehen ohne Gewähr zur Verfügung gestellt und wird von keinem Microsoft-Supportprogramm/-dienst unterstützt.

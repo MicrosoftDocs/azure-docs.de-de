@@ -2,8 +2,8 @@
 title: Verzweigen und Verketten von Aktivitäten in einer Pipeline mithilfe des Azure-Portals
 description: Hier erfahren Sie, wie Sie den Datenfluss in einer Azure Data Factory-Pipeline über das Azure-Portal steuern.
 services: data-factory
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: b1b766e3cb337151c5ca9b35e2040a2a47124151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc82cfdc4e5a063e7c5cb833b617da58023d1ba6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568539"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497434"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Verzweigen und Verketten von Aktivitäten in einer Azure Data Factory-Pipeline mithilfe des Azure-Portals
 
@@ -137,7 +137,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
      ![Seite „Neue Data Factory“](./media/tutorial-control-flow-portal/new-azure-data-factory.png)
 
-   Der Name der Azure Data Factory muss **global eindeutig**sein. Sollte der folgende Fehler auftreten, ändern Sie den Namen der Data Factory (beispielsweise in „<IhrName>ADFTutorialDataFactory“), und wiederholen Sie den Vorgang. Benennungsregeln für Data Factory-Artefakte finden Sie im Artikel [Azure Data Factory – Benennungsregeln](naming-rules.md).
+   Der Name der Azure Data Factory muss **global eindeutig** sein. Sollte der folgende Fehler auftreten, ändern Sie den Namen der Data Factory (beispielsweise in „<IhrName>ADFTutorialDataFactory“), und wiederholen Sie den Vorgang. Benennungsregeln für Data Factory-Artefakte finden Sie im Artikel [Azure Data Factory – Benennungsregeln](naming-rules.md).
 
    *Der Data Factory-Name „ADFTutorialDataFactory“ ist nicht verfügbar.*
 
@@ -302,7 +302,7 @@ In diesem Schritt erstellen Sie eine Pipeline mit einer Kopieraktivität und zwe
 1. Wechseln Sie zum Überwachen der Pipelineausführung im linken Bereich zur Registerkarte **Überwachen**. Sie sehen die Pipelineausführung, die Sie manuell ausgelöst haben. Aktualisieren Sie die Liste mithilfe der Schaltfläche **Aktualisieren**.
 
     ![Erfolgreiche Pipelineausführung](./media/tutorial-control-flow-portal/monitor-success-pipeline-run.png)
-2. Klicken **Sie zum Anzeigen von**Aktivitätsausführungen, die mit dieser Pipelineausführung verknüpft sind, in der Spalte **Aktionen** auf den ersten Link. Sie können zur vorherigen Ansicht zurückkehren, indem Sie oben auf **Pipelines** klicken. Aktualisieren Sie die Liste mithilfe der Schaltfläche **Aktualisieren**.
+2. Klicken **Sie zum Anzeigen von** Aktivitätsausführungen, die mit dieser Pipelineausführung verknüpft sind, in der Spalte **Aktionen** auf den ersten Link. Sie können zur vorherigen Ansicht zurückkehren, indem Sie oben auf **Pipelines** klicken. Aktualisieren Sie die Liste mithilfe der Schaltfläche **Aktualisieren**.
 
     ![Screenshot: Anzeigen der Liste mit Aktivitätsausführungen](./media/tutorial-control-flow-portal/activity-runs-success.png)
 
@@ -324,7 +324,7 @@ In diesem Schritt erstellen Sie eine Pipeline mit einer Kopieraktivität und zwe
 2. Klicken Sie für die Pipelineausführung auf den Link **Fehler**, um Fehlerdetails anzuzeigen.
 
     ![Pipelinefehler](./media/tutorial-control-flow-portal/pipeline-error-message.png)
-2. Klicken **Sie zum Anzeigen von**Aktivitätsausführungen, die mit dieser Pipelineausführung verknüpft sind, in der Spalte **Aktionen** auf den ersten Link. Aktualisieren Sie die Liste mithilfe der Schaltfläche **Aktualisieren**. Beachten Sie, dass die Kopieraktivität in der Pipeline nicht erfolgreich war. Die Webaktivität hat erfolgreich eine Fehler-E-Mail an den angegebenen Empfänger gesendet.
+2. Klicken **Sie zum Anzeigen von** Aktivitätsausführungen, die mit dieser Pipelineausführung verknüpft sind, in der Spalte **Aktionen** auf den ersten Link. Aktualisieren Sie die Liste mithilfe der Schaltfläche **Aktualisieren**. Beachten Sie, dass die Kopieraktivität in der Pipeline nicht erfolgreich war. Die Webaktivität hat erfolgreich eine Fehler-E-Mail an den angegebenen Empfänger gesendet.
 
     ![Aktivitätsausführungen](./media/tutorial-control-flow-portal/activity-runs-failure.png)
 4. Klicken Sie in der Spalte **Aktionen** auf den Link **Fehler**, um Fehlerdetails anzuzeigen.

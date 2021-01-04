@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 4223e3bc572a689472dce136b60599034566b274
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 995ae176a8eec58f8dc9522e6fac6fd78170014d
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654258"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628916"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migrieren zu Azure-Dateifreigaben
 
@@ -121,7 +121,7 @@ In der folgenden Tabelle sind Microsoft-Tools und deren aktuelle Eignung für Az
 |![Ja, empfohlen](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure-Dateisynchronisierung | Nativ in Azure-Dateifreigaben integriert. | Vollständige Genauigkeit* |
 |![Ja, empfohlen](media/storage-files-migration-overview/circle-green-checkmark.png)| Speichermigrationsdienst | Indirekt unterstützt. Azure-Dateifreigaben können als Netzwerklaufwerke auf SMS-Zielservern eingebunden werden. | Vollständige Genauigkeit* |
 |![Ja, empfohlen](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy, Version 10.4 oder höher| Unterstützt. | Vollständige Genauigkeit* |
-|![Nicht vollständig empfohlen](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Data Box | Unterstützt. | Kopiert keine Metadaten. [Data Box kann mit der Azure-Dateisynchronisierung verwendet werden](storage-sync-offline-data-transfer.md). |
+|![Ja, empfohlen](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | Unterstützt. | DataBox unterstützt Metadaten jetzt vollständig. [Data Box kann auch in Kombination mit der Azure-Dateisynchronisierung verwendet werden](storage-sync-offline-data-transfer.md). |
 |![Nicht vollständig empfohlen](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure Storage-Explorer, Version 1.14 | Unterstützt. | Kopiert keine Zugriffssteuerungslisten (ACLs). Unterstützt Zeitstempel.  |
 |![Nicht empfohlen](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Unterstützt. | Kopiert keine Metadaten. |
 |||||
@@ -134,7 +134,7 @@ In diesem Abschnitt werden Tools beschrieben, die Ihnen beim Planen und Ausführ
 
 #### <a name="robocopy-from-microsoft-corporation"></a>RoboCopy der Microsoft Corporation
 
-RoboCopy ist eines der für Dateimigrationsvorgänge am besten geeigneten Tools. Es ist Teil von Windows. Die [Hauptdokumentation zu RoboCopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) ist eine hilfreiche Quelle für die vielen Optionen dieses Tools.
+RoboCopy ist eines der für Dateimigrationsvorgänge am besten geeigneten Tools. Es ist Teil von Windows. Die [Hauptdokumentation zu RoboCopy](/windows-server/administration/windows-commands/robocopy) ist eine hilfreiche Quelle für die vielen Optionen dieses Tools.
 
 #### <a name="treesize-from-jam-software-gmbh"></a>TreeSize von der JAM Software GmbH
 

@@ -4,18 +4,18 @@ description: Abrufen des IoT Edge-Modulprotokolls und Hochladen in Azure Blob St
 author: v-tcassi
 manager: philmea
 ms.author: v-tcassi
-ms.date: 09/14/2020
+ms.date: 11/12/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 64264028706c1493f687f032a7ec39e69188bd45
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: abd30c22aa2b4df20cdb795013768cd175cfef4c
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171919"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780738"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Abrufen von Protokollen aus IoT Edge-Bereitstellungen
 
@@ -33,13 +33,13 @@ Es ist zwar nicht erforderlich, für die bestmögliche Kompatibilität mit diese
 <{Log Level}> {Timestamp} {Message Text}
 ```
 
-`{Log Level}` sollte dem [Syslog-Schweregradformat](https://wikipedia.org/wiki/Syslog#Severity_lnevel) entsprechen und `{Timestamp}` muss als `yyyy-mm-dd hh:mm:ss.fff zzz` formatiert werden.
+`{Log Level}` sollte dem [Syslog-Schweregradformat](https://wikipedia.org/wiki/Syslog#Severity_level) entsprechen und `{Timestamp}` muss als `yyyy-MM-dd hh:mm:ss.fff zzz` formatiert werden.
 
 Die [Protokollierungsklasse in IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-util/src/Microsoft.Azure.Devices.Edge.Util/Logger.cs) fungiert als kanonische Implementierung.
 
 ## <a name="retrieve-module-logs"></a>Abrufen von Modulprotokollen
 
-Verwenden Sie die direkte Methode **GetModuleLogs** , um die Protokolle eines IoT Edge-Moduls abzurufen.
+Verwenden Sie die direkte Methode **GetModuleLogs**, um die Protokolle eines IoT Edge-Moduls abzurufen.
 
 Diese Methode akzeptiert eine JSON-Nutzlast mit dem folgenden Schema:
 
@@ -50,10 +50,10 @@ Diese Methode akzeptiert eine JSON-Nutzlast mit dem folgenden Schema:
           {
              "id": "regex string",
              "filter": {
-                "tail": int,
-                "since": int,
-                "until": int,
-                "loglevel": int,
+                "tail": "int",
+                "since": "int",
+                "until": "int",
+                "loglevel": "int",
                 "regex": "regex string"
              }
           }
@@ -139,7 +139,15 @@ az iot hub invoke-module-method \
 
 ## <a name="upload-module-logs"></a>Hochladen von Modulprotokollen
 
-Verwenden Sie die direkte Methode **UploadModuleLogs** , um die angeforderten Protokolle an einen angegebenen Azure Blob Storage-Container zu senden.
+Verwenden Sie die direkte Methode **UploadModuleLogs**, um die angeforderten Protokolle an einen angegebenen Azure Blob Storage-Container zu senden.
+
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+> [!NOTE]
+> Wenn Sie Protokolle von einem Gerät hinter einem Gatewaygerät hochladen möchten, müssen Sie die [API-Proxy- und Blobspeichermodule](how-to-configure-api-proxy-module.md) auf dem Gerät der obersten Ebene konfiguriert haben. Diese Module leiten die Protokolle vom Gerät der niedrigeren Ebene über das Gatewaygerät an den Speicher in der Cloud weiter.
+
+::: moniker-end
 
 Diese Methode akzeptiert eine JSON-Nutzlast, die **GetModuleLogs** ähnelt, wobei der Schlüssel sasUrl hinzugefügt wird:
 
@@ -151,10 +159,10 @@ Diese Methode akzeptiert eine JSON-Nutzlast, die **GetModuleLogs** ähnelt, wobe
           {
              "id": "regex string",
              "filter": {
-                "tail": int,
-                "since": int,
-                "until": int,
-                "loglevel": int,
+                "tail": "int",
+                "since": "int",
+                "until": "int",
+                "loglevel": "int",
                 "regex": "regex string"
              }
           }
@@ -259,7 +267,15 @@ Rufen Sie im Azure-Portal die Methode mit dem Namen `UploadModuleLogs` und der f
 
 ## <a name="upload-support-bundle-diagnostics"></a>Hochladen von Supportbundlediagnosen
 
-Verwenden Sie die direkte Methode **UploadSupportBundle** , und laden Sie eine ZIP-Datei mit IoT Edge-Modulprotokollen in einen verfügbaren Azure Blob Storage-Container hoch. Diese direkte Methode führt den Befehl [`iotedge support-bundle`](./troubleshoot.md#gather-debug-information-with-support-bundle-command) auf Ihrem IoT Edge-Gerät aus, um die Protokolle abzurufen.
+Verwenden Sie die direkte Methode **UploadSupportBundle**, und laden Sie eine ZIP-Datei mit IoT Edge-Modulprotokollen in einen verfügbaren Azure Blob Storage-Container hoch. Diese direkte Methode führt den Befehl [`iotedge support-bundle`](./troubleshoot.md#gather-debug-information-with-support-bundle-command) auf Ihrem IoT Edge-Gerät aus, um die Protokolle abzurufen.
+
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+> [!NOTE]
+> Wenn Sie Protokolle von einem Gerät hinter einem Gatewaygerät hochladen möchten, müssen Sie die [API-Proxy- und Blobspeichermodule](how-to-configure-api-proxy-module.md) auf dem Gerät der obersten Ebene konfiguriert haben. Diese Module leiten die Protokolle vom Gerät der niedrigeren Ebene über das Gatewaygerät an den Speicher in der Cloud weiter.
+
+::: moniker-end
 
 Diese Methode akzeptiert eine JSON-Nutzlast mit dem folgenden Schema:
 
@@ -331,7 +347,7 @@ Rufen Sie im Azure-Portal die Methode mit dem Namen `UploadSupportBundle` und de
 
 ## <a name="get-upload-request-status"></a>Abrufen des Status der Uploadanforderung
 
-Verwenden Sie die direkte Methode **GetTaskStatus** , um den Status einer Anforderung zum Hochladen von Protokollen abzufragen. Die Anforderungsnutzlast **GetTaskStatus** verwendet die `correlationId` der Anforderung zum Hochladen von Protokollen, um den Status der Aufgabe abzurufen. Die `correlationId` wird als Antwort auf den Aufruf der direkten Methode **UploadModuleLogs** zurückgegeben.
+Verwenden Sie die direkte Methode **GetTaskStatus**, um den Status einer Anforderung zum Hochladen von Protokollen abzufragen. Die Anforderungsnutzlast **GetTaskStatus** verwendet die `correlationId` der Anforderung zum Hochladen von Protokollen, um den Status der Aufgabe abzurufen. Die `correlationId` wird als Antwort auf den Aufruf der direkten Methode **UploadModuleLogs** zurückgegeben.
 
 Diese Methode akzeptiert eine JSON-Nutzlast mit dem folgenden Schema:
 

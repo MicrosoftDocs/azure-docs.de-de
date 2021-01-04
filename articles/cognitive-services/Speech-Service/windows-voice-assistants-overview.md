@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: fbcb262fee6a2cc62bfe64e8a8589c92b4fe2b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e8b009ecc2181edfaad5da3d8d05ad0c1909051
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82997301"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024754"
 ---
 # <a name="voice-assistants-on-windows"></a>Sprachassistenten unter Windows
 
@@ -37,7 +37,7 @@ Wenn der Benutzer ein Schlüsselwort spricht, benachrichtigt die in Software ode
 
 ### <a name="registration"></a>Registrierung
 
-Wenn eine sprachaktivierte Anwendung zum ersten Mal ausgeführt wird, registriert sie ihre App-ID und die Schlüsselwortinformationen mithilfe der ConversationalAgent-APIs. AAR registriert alle Konfigurationen in der globalen Zuordnung bei der Hardware- oder Software-Schlüsselworterkennung des Systems und gibt ihr so die Möglichkeit, das Schlüsselwort der Anwendung zu erkennen. Die Anwendung wird ebenfalls [beim Hintergrunddienst](https://docs.microsoft.com/windows/uwp/launch-resume/register-a-background-task) registriert.
+Wenn eine sprachaktivierte Anwendung zum ersten Mal ausgeführt wird, registriert sie ihre App-ID und die Schlüsselwortinformationen mithilfe der ConversationalAgent-APIs. AAR registriert alle Konfigurationen in der globalen Zuordnung bei der Hardware- oder Software-Schlüsselworterkennung des Systems und gibt ihr so die Möglichkeit, das Schlüsselwort der Anwendung zu erkennen. Die Anwendung wird ebenfalls [beim Hintergrunddienst](/windows/uwp/launch-resume/register-a-background-task) registriert.
 
 Beachten Sie, dass dies bedeutet, dass eine Anwendung erst durch Sprache aktiviert werden kann, wenn sie einmal ausgeführt und die Registrierung erfolgreich abgeschlossen wurde.
 

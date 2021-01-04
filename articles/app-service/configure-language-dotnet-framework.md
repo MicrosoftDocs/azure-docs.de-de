@@ -2,15 +2,15 @@
 title: Konfigurieren von ASP.NET-Apps
 description: Erfahren Sie, wie Sie in Azure App Service eine ASP.NET-App konfigurieren. In diesem Artikel werden die gängigsten Konfigurationsaufgaben vorgestellt.
 ms.devlang: dotnet
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 30fddaec9ca5d0439beadedf7c5ca6b6c7d51d83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ed6835583cc4881b19eee14ed392b193324535e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961702"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744164"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Konfigurieren einer ASP.NET-App für Azure App Service
 
@@ -71,7 +71,7 @@ ConfigurationManager.ConnectionStrings["MyConnection"];
 }
 ```
 
-Wenn Sie eine App-Einstellung mit demselben Namen in App Service und in *web.config* konfigurieren, hat der App Service-Wert Vorrang vor dem *web.config*-Wert. Mit dem lokalen *web.config*-Wert können Sie die App lokal debuggen, mit dem App Service-Wert können Sie die App hingegen im Produkt mit Produktionseinstellungen ausführen. Verbindungszeichenfolgen funktionieren auf dieselbe Weise. Auf diese Weise können Sie Ihre Anwendungsgeheimnisse außerhalb Ihres Coderepositorys aufbewahren und auf die entsprechenden Werte zugreifen, ohne Ihren Code zu ändern.
+Wenn Sie eine App-Einstellung mit demselben Namen in App Service und in *web.config* konfigurieren, hat der App Service-Wert Vorrang vor dem *web.config* -Wert. Mit dem lokalen *web.config* -Wert können Sie die App lokal debuggen, mit dem App Service-Wert können Sie die App hingegen im Produkt mit Produktionseinstellungen ausführen. Verbindungszeichenfolgen funktionieren auf dieselbe Weise. Auf diese Weise können Sie Ihre Anwendungsgeheimnisse außerhalb Ihres Coderepositorys aufbewahren und auf die entsprechenden Werte zugreifen, ohne Ihren Code zu ändern.
 
 ## <a name="deploy-multi-project-solutions"></a>Bereitstellen von Projektmappen mit mehreren Projekten
 
@@ -83,7 +83,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="get-detailed-exceptions-page"></a>Abrufen einer detaillierten Ausnahmenseite
 
-Wenn Ihre ASP. NET-App eine Ausnahme im Visual Studio-Debugger erzeugt, zeigt der Browser eine detaillierte Ausnahmeseite an, in App Service wird diese Seite hingegen durch eine allgemeine Fehlermeldung ersetzt. Öffnen Sie zum Anzeigen der detaillierten Ausnahmeseite in App Service die Datei *Web.config*, und fügen Sie das Element `<customErrors mode="Off"/>` unter dem Element `<system.web>` hinzu. Beispiel:
+Wenn Ihre ASP. NET-App eine Ausnahme im Visual Studio-Debugger erzeugt, zeigt der Browser eine detaillierte Ausnahmeseite an, in App Service wird diese Seite hingegen durch eine allgemeine Fehlermeldung ersetzt. Öffnen Sie zum Anzeigen der detaillierten Ausnahmeseite in App Service die Datei *Web.config* , und fügen Sie das Element `<customErrors mode="Off"/>` unter dem Element `<system.web>` hinzu. Beispiel:
 
 ```xml
 <system.web>

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 56170ffbbfe14248bcfd1f94549a3565873f8646
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514005"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005893"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>Verwalten von StorSimple-Bandbreitenvorlagen mithilfe des StorSimple-Geräte-Manager-Diensts
 
@@ -73,7 +73,7 @@ Führen Sie die folgenden Schritte aus, um eine Bandbreitenvorlage zu erstellen.
            > [!NOTE]
            > Sich überschneidende Zeitpläne sind nicht zulässig. Falls durch die Start- und Endzeiten eine Überschneidung entsteht, erhalten Sie eine entsprechende Fehlermeldung.
 
-        4. Geben Sie die **Bandbreitenrate**an. Dies ist die Bandbreite in Megabit pro Sekunde (MBit/s), die Ihr StorSimple-Gerät bei Cloudvorgängen (Uploads und Downloads) verwendet. Geben Sie eine Zahl zwischen 1 und 1000 in dieses Feld ein.
+        4. Geben Sie die **Bandbreitenrate** an. Dies ist die Bandbreite in Megabit pro Sekunde (MBit/s), die Ihr StorSimple-Gerät bei Cloudvorgängen (Uploads und Downloads) verwendet. Geben Sie eine Zahl zwischen 1 und 1000 in dieses Feld ein.
 
             ![Definieren eines Bandbreitenzeitplans](./media/storsimple-8000-manage-bandwidth-templates/addbwtemp2.png)
          

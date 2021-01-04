@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/21/2020
+ms.date: 12/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 638ab84658c36536966ef990570684a047521ee6
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: d529c5900d851368d60099091bb5745660036dea
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257445"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029888"
 ---
 ::: zone target="docs"
 
@@ -66,18 +66,18 @@ Wenn Sie das Gerät in den USA oder in Kanada zurückgeben möchten, gehen Sie w
     - Wenn Sie keine Nachverfolgungsnummer angeben, fordert UPS eine Zusatzgebühr, die Sie bei der Abholung entrichten müssen.
     - Wenn Sie keine Abholung planen können oder möchten, können Sie den Data Box-Datenträger auch an der nächstgelegenen Versandstelle abgeben.
 
-### <a name="europe"></a>[Europa](#tab/in-europe)
 
-Wenn Sie das Gerät in Europa zurückgeben möchten, gehen Sie wie folgt vor:
+### <a name="europe-or-uk"></a>[Europa oder Vereinigtes Königreich](#tab/in-europe-or-uk)
+
+Wenn Sie das Gerät in Europa oder im Vereinigten Königreich zurückgeben möchten, gehen Sie wie folgt vor:
 
 1. Verwenden Sie das Etikett für den Rückversand in der durchsichtigen Kunststoffhülle, die am Paket angebracht ist. Sollte das Etikett beschädigt oder verloren gegangen sein:
     - Navigieren Sie zu **Übersicht > Versandetikett herunterladen**, und laden Sie ein Etikett für den Rückversand herunter.
     - Bringen Sie das Etikett am Gerät an.
 
 2. Verschließen Sie das Versandpaket, und stellen Sie sicher, dass das Etikett für den Rückversand sichtbar ist.
-3. Wenn Sie das Gerät in Europa per DHL zurücksenden, können Sie die Abholung durch DHL anfordern, indem Sie auf der DHL-Website die Luftfrachtbrief-Nummer angeben.
-4. Navigieren Sie zur DHL Express-Website für Ihr Land/Ihre Region, und wählen Sie **Abholung buchen > eReturn-Abholung buchen**.
-5. Geben Sie die Luftfrachtbrief-Nummer an, und klicken Sie auf **Abholung beauftragen**, um die Abholung anzufordern.
+3. Navigieren Sie zur DHL Express-Website für Ihr Land/Ihre Region, und wählen Sie **Abholung buchen** aus. Wählen Sie unter **Do you need a shipping label** (Benötigen Sie ein Adressetikett?) die Option **No** > **I have a DHL Waybill Number** (Nein > Ich habe eine DHL-Frachtbriefnummer.) aus.
+4. Geben Sie die Frachtbriefnummer an, und klicken Sie auf **Abholung buchen**, um die Abholung anzufordern.
 
 ### <a name="australia"></a>[Australien](#tab/in-australia)
 
@@ -164,23 +164,28 @@ Wenn Sie das Gerät in Südafrika zurückgeben möchten, gehen Sie wie folgt vor
 
 2. Verschließen Sie das Versandpaket, und stellen Sie sicher, dass das Etikett für den Rückversand sichtbar ist.
 
-3. So reservieren Sie die Abholung mit DHL:
+3. Fordern Sie beim Azure Data Box Operations-Team einen Rückgabecode an. Ein Rückgabecode ist für den Rückversand des Pakets an das Rechenzentrum erforderlich. Senden Sie eine E-Mail an [adbops@microsoft.com](mailto:adbops@microsoft.com). Notieren Sie diesen Code gut sichtbar auf dem Adressetikett neben der Rücksendeadresse.
 
-    * Wenden Sie sich unter der Telefonnummer +27(0) 11 9213600 an den Kundenservice, wählen Sie Option 1, und geben Sie die Frachtbriefnummer an.
-    * Sie müssen vor 14 Uhr Südafrika Normalzeit anrufen, um eine Abholung zu planen.  
-    * Senden Sie eine E-Mail an [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com), um die Abholung mithilfe der folgenden E-Mail-Vorlage zu organisieren:
+4. Vereinbaren Sie eine Abholung mit DHL mit einer der folgenden Methoden:
+   * Reservieren Sie online bei DHL Express für Südafrika unter [**Schedule a Pickup**](https://mydhl.express.dhl/za/en/schedule-pickup.html#/schedule-pickup#label-reference) (Buchen Sie eine Abholung) einen Abholtermin.
+   * Senden Sie eine E-Mail an [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com), und verwenden Sie dabei die folgende Vorlage:
 
-    ```output
-    To: Priority.Support@dhl.com
-    Subject:Pickup request for Microsoft Azure
-    Body:  Need pick up for the below shipment
-    *  DHL tracking number (reference number/waybill number)
-    *  Requested pickup date：yyyy/mm/dd; time: HH MM
-    ```
+     ```output
+     To: Priority.Support@dhl.com
+     Subject: Pickup request for Microsoft Azure
+     Body: Need pick up for the below shipment
+       *  DHL tracking number: (reference number/waybill number)
+       *  Requested pickup date: yyyy/mm/dd;time:HH MM
+       *  Shipper contact: (company name)
+       *  Contact person: 
+       *  Phone number: 
+       *  Full physical address: 
+       *  Item to be collected: Azure Dt
+     ```
 
-    * Alternativ können Sie das Paket in einem DHL-Paketshop in Ihrer Nähe abgeben.
+    * Alternativ können Sie das Paket auch in einem DHL-Paketshop in Ihrer Nähe abgeben.
 
-4. Sollten Probleme auftreten, senden Sie eine E-Mail mit Einzelheiten zu dem aufgetretenen Problem an [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com). Geben Sie im Betreff die Frachtbriefnummer an. Sie können auch die Nummer +27(0)119213902 anrufen.
+5. Sollten Probleme auftreten, senden Sie eine E-Mail mit Einzelheiten zu dem aufgetretenen Problem an [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com). Geben Sie im Betreff die Frachtbriefnummer an. Sie können auch die Nummer +27(0)119213902 anrufen.
 
 ### <a name="china"></a>[China](#tab/in-china)
 

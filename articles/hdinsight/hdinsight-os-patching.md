@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
-ms.openlocfilehash: 005bfd4b7e7d062640a79896ccd3d7f76e3d6fb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b789bf01a043b167d6740f09df935d9b683c48f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447205"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357758"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Konfigurieren des Zeitplans für das Patchen des Betriebssystems für Linux-basierte HDInsight-Cluster
 
@@ -64,7 +64,7 @@ Das `install-updates-schedule-reboots`-Skript akzeptiert zwei numerische Paramet
 
 | Parameter | Zulässige Werte | Definition |
 | --- | --- | --- |
-| Typ der zu installierenden Updates | 0, 1 oder 2 | Bei einem Wert von 0 werden nur Kernelupdates installiert. Bei einem Wert von 1 werden alle Updates installiert, und 2 installiert nur die Kernel- und Sicherheitsupdates. Wenn kein Parameter angegeben wird, ist der Standardwert 0. |
+| Typ der zu installierenden Updates | 0, 1 oder 2 | Bei einem Wert von 0 werden nur Kernelupdates installiert. Bei einem Wert von „1“ werden alle Kernel- und Sicherheitsupdates installiert, und bei „2“ werden alle Updates installiert. Wenn kein Parameter angegeben wird, ist der Standardwert 0. |
 | Typ des auszuführenden Neustarts | 0, 1 oder 2 | Der Wert 0 deaktiviert den Neustart. Der Wert 1 aktiviert den Neustart des Zeitplans, und 2 aktiviert einen sofortigen Neustart. Wenn kein Parameter angegeben wird, ist der Standardwert 0. Der Benutzer muss den Eingabeparameter 1 in den Eingabeparameter 2 ändern. |
 
 > [!NOTE]

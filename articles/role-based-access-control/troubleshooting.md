@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/18/2020
+ms.date: 11/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.custom: seohack1
-ms.openlocfilehash: 415af4d71365a88a5998f6a9356d5240bc5e2518
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seohack1, devx-track-azurecli
+ms.openlocfilehash: e30af9522d7c8fa81c4d93e11d252aefc4426586
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665990"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184262"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Behandeln von Problemen bei Azure RBAC
 
@@ -59,15 +59,16 @@ $ras.Count
     az role assignment create --assignee "userupn" --role "Contributor"  --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
 
-    Wenn Sie die Fehlermeldung „Unzureichende Berechtigungen zum Durchführen des Vorgangs“ erhalten, liegt dies wahrscheinlich daran, dass Azure CLI versucht, die Identität der zugewiesenen Person in Azure AD nachzuschlagen, und der Dienstprinzipal kann Azure AD standardmäßig nicht lesen.
+    Wenn Sie die Fehlermeldung „Unzureichende Berechtigungen zum Durchführen des Vorgangs“ erhalten, liegt dies wahrscheinlich daran, dass die Azure CLI versucht, die Identität der zugewiesenen Person in Azure AD nachzuschlagen, und der Dienstprinzipal kann Azure AD nicht standardmäßig lesen.
 
-    Es gibt zwei Möglichkeiten, diesen Fehler möglicherweise zu beheben. Die erste Möglichkeit besteht darin, dem Dienstprinzipal die Rolle [Verzeichnis lesen](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) zuzuweisen, damit er Daten in dem Verzeichnis lesen kann.
+    Es gibt zwei Möglichkeiten, diesen Fehler möglicherweise zu beheben. Die erste Möglichkeit besteht darin, dem Dienstprinzipal die Rolle [Verzeichnis lesen](../active-directory/roles/permissions-reference.md#directory-readers) zuzuweisen, damit er Daten in dem Verzeichnis lesen kann.
 
     Die zweite Möglichkeit, diesen Fehler zu beheben, besteht darin, die Rollenzuweisung mithilfe des Parameters `--assignee-object-id` anstelle von `--assignee` zu erstellen. Durch die Verwendung von `--assignee-object-id` überspringt Azure CLI die Azure AD-Suche. Sie müssen die Objekt-ID des Benutzers, der Gruppe oder der Anwendung abrufen, dem bzw. der Sie die Rolle zuweisen möchten. Weitere Informationen finden Sie unter [Hinzufügen oder Entfernen von Azure-Rollenzuweisungen mithilfe der Azure CLI](role-assignments-cli.md#add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope).
 
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
+- Wenn Sie versuchen, die letzte Rollenzuweisung „Besitzer“ für ein Abonnement zu entfernen, wird möglicherweise der Fehler „Letzte RBAC-Administratorzuweisung kann nicht gelöscht werden“ angezeigt. Das Entfernen der letzten Rollenzuweisung „Besitzer“ für ein Abonnement wird nicht unterstützt, um das Verwaisen des Abonnements zu vermeiden. Informationen zum Kündigen Ihres Abonnements finden Sie unter [Kündigen Ihres Azure-Abonnements](../cost-management-billing/manage/cancel-azure-subscription.md).
 
 ## <a name="problems-with-custom-roles"></a>Probleme mit benutzerdefinierten Rollen
 
@@ -150,7 +151,7 @@ Wenn Sie diese Rollenzuweisung mit der Azure CLI anzeigen, ist `principalName` m
 }
 ```
 
-Sie können diese Rollenzuweisungen ohne Probleme beibehalten, wenn der Sicherheitsprinzipal gelöscht wurde. Sie können diese Rollenzuweisungen jedoch bei Bedarf entfernen, indem Sie die Schritte ausführen, die denen für andere Rollenzuweisungen entsprechen. Informationen zum Entfernen von Rollenzuweisungen finden Sie unter [Azure-Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment) oder [Azure CLI](role-assignments-cli.md#remove-role-assignment).
+Sie können diese Rollenzuweisungen ohne Probleme beibehalten, wenn der Sicherheitsprinzipal gelöscht wurde. Sie können diese Rollenzuweisungen jedoch bei Bedarf entfernen, indem Sie die Schritte ausführen, die denen für andere Rollenzuweisungen entsprechen. Informationen zum Entfernen von Rollenzuweisungen finden Sie unter [Azure-Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment) oder [Azure CLI](role-assignments-cli.md#remove-a-role-assignment).
 
 Wenn Sie in PowerShell versuchen, die Rollenzuweisungen unter Verwendung der Objekt-ID und des Rollendefinitionsnamens zu entfernen, und mehr als eine Rollenzuweisung Ihren Parametern entspricht, wird die folgende Fehlermeldung angezeigt: „The provided information does not map to a role assignment“ (Die angegebenen Informationen stimmen mit keiner Rollenzuweisung überein). Die folgende Ausgabe zeigt ein Beispiel für die Fehlermeldung:
 

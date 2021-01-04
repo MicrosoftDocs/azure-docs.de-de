@@ -8,19 +8,27 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 99a0805239ee2437ad6ec9ceb40cf45496a07850
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d86a273a69203a92a9b437f021486feb3bcb31da
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047657"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932369"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Tutorial: Einrichten einer Umgebung für maschinelles Lernen in IoT Edge
 
-> [!NOTE]
-> Dieser Artikel ist Teil einer Tutorialreihe zur Verwendung von Azure Machine Learning für IoT Edge. Falls Sie direkt zu diesem Artikel navigiert sind, ist es ratsam, mit dem [ersten Artikel](tutorial-machine-learning-edge-01-intro.md) der Reihe zu beginnen.
-
 Dieser Artikel enthält Informationen dazu, wie Sie Ihre Umgebung für die Entwicklung und Bereitstellung vorbereiten. Richten Sie zuerst einen Entwicklungscomputer mit allen benötigten Tools ein. Erstellen Sie anschließend die erforderlichen Cloudressourcen in Azure.
+
+In diesem Abschnitt des Tutorials lernen Sie Folgendes:
+
+> [!div class="checklist"]
+>
+> * Einrichten eines virtuellen Computers für die Entwicklung
+> * Einrichten einer IoT Hub-Instanz und eines Cloudspeichers für Ihre Entwicklungsumgebung
+
+## <a name="prerequisites"></a>Voraussetzungen
+
+Dieser Artikel ist Teil einer Tutorialreihe zur Verwendung von Azure Machine Learning für IoT Edge. Jeder Artikel in der Reihe baut auf der Arbeit im vorherigen Artikel auf. Wenn Sie diesen Artikel direkt aufgerufen haben, wechseln Sie zum [ersten Artikel](tutorial-machine-learning-edge-01-intro.md) in der Reihe.
 
 ## <a name="set-up-the-development-vm"></a>Einrichten des virtuellen Entwicklungscomputers
 
@@ -30,7 +38,7 @@ Wir haben ein PowerShell-Skript zusammengestellt, mit dem ein virtueller Azure-C
 
 Für die Einrichtung des virtuellen Entwicklungscomputers wird Folgendes verwendet:
 
-* Windows 10
+* Windows 10
 * [Chocolatey](https://chocolatey.org/)
 * [Docker Desktop für Windows](https://www.docker.com/products/docker-desktop)
 * [Git für Windows](https://gitforwindows.org/)
@@ -38,7 +46,7 @@ Für die Einrichtung des virtuellen Entwicklungscomputers wird Folgendes verwend
 * [.NET Core SDK](https://dotnet.microsoft.com/)
 * [Python 3](https://www.python.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure PowerShell](/powershell/azure/?view=azps-1.1.0)
+* [Azure PowerShell](/powershell/azure/)
 * [VS Code-Erweiterungen](https://marketplace.visualstudio.com/search?target=VSCode)
   * [Azure IoT-Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
   * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
@@ -82,7 +90,7 @@ Es dauert ungefähr 30 Minuten, um den virtuellen Computer zu erstellen und zu 
 
    Die Ausführung des Skripts dauert mehrere Minuten, und es werden die folgenden Schritte ausgeführt:
 
-    1. Installiert das [Azure PowerShell Az-Modul](/powershell/azure/new-azureps-module-az?view=azps-1.1.0).
+    1. Installiert das [Azure PowerShell Az-Modul](/powershell/azure/new-azureps-module-az).
     1. Fordert Sie zum Anmelden bei Azure auf.
     1. Überprüft die Informationen für die Erstellung Ihres virtuellen Computers. Drücken Sie **y** oder die **EINGABETASTE**, um fortzufahren.
     1. Erstellt die Ressourcengruppe, falls sie nicht vorhanden ist.
@@ -209,15 +217,13 @@ Bei der Erstellung des IoT-Hubs wurden mit dem Skript, das wir im vorherigen Abs
 
 1. Da keine Änderungen vorgenommen wurden, können Sie die Seite einfach schließen.
 
+## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+
+Dieses Tutorial ist Teil einer Reihe, in der jeder Artikel auf den Schritten aufbaut, die jeweils im vorherigen Artikel ausgeführt wurden. Warten Sie mit dem Bereinigen von Ressourcen, bis Sie das letzte Tutorial abgeschlossen haben.
+
 ## <a name="next-steps"></a>Nächste Schritte
 
 In diesem Artikel haben wir eine IoT Hub-Instanz erstellt und eine Route zu einem Azure Storage-Konto konfiguriert. Als Nächstes senden wir Daten von einer Gruppe simulierter Geräte über die IoT Hub-Instanz an das Speicherkonto. Später in diesem Tutorial nach der Konfiguration unseres IoT Edge-Geräts und der Module gehen wir noch einmal auf Routen und die Routingabfrage ein.
-
-Weitere Informationen zu den Schritten, die in diesem Teil des Tutorials zu Machine Learning in IoT Edge behandelt werden, finden Sie unter:
-
-* [Azure IoT-Grundlagen](../iot-fundamentals/index.yml)
-* [Konfigurieren der Nachrichtenweiterleitung mit IoT Hub](../iot-hub/tutorial-routing.md)
-* [Erstellen eines IoT Hubs über das Portal](../iot-hub/iot-hub-create-through-portal.md)
 
 Fahren Sie mit dem nächsten Artikel fort, um ein zu überwachendes simuliertes Gerät zu erstellen.
 

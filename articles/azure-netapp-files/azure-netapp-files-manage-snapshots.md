@@ -1,6 +1,6 @@
 ---
 title: Verwalten von Momentaufnahmen mithilfe von Azure NetApp Files | Microsoft-Dokumentation
-description: Hier wird das Erstellen und Verwalten von Momentaufnahmen mithilfe von Azure NetApp Files beschrieben.
+description: In diesem Artikel wird das Erstellen, Verwalten und Verwenden von Momentaufnahmen mithilfe von Azure NetApp Files beschrieben.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,18 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/04/2020
+ms.date: 11/18/2020
 ms.author: b-juche
-ms.openlocfilehash: e9f2a1f9125d25caa9506e954cab3b94dfcb5c24
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 03b7941385517fe694f0743194655a1b6a1c0e1e
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932276"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95253557"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Verwalten von Momentaufnahmen mithilfe von Azure NetApp Files
 
-Azure NetApp Files unterstützt das Erstellen bedarfsgesteuerter Momentaufnahmen und das Verwenden von Momentaufnahmenrichtlinien zum Planen der automatischen Erstellung von Momentaufnahmen.  Sie können auch eine Momentaufnahme auf einem neuen Volume wiederherstellen oder eine einzelne Datei mithilfe eines Clients wiederherstellen.  
+Azure NetApp Files unterstützt das Erstellen bedarfsgesteuerter Momentaufnahmen und das Verwenden von Momentaufnahmenrichtlinien zum Planen der automatischen Erstellung von Momentaufnahmen. Sie können auch eine Momentaufnahme auf einem neuen Volume wiederherstellen, eine einzelne Datei mithilfe eines Clients wiederherstellen oder ein vorhandenes Volume mithilfe einer Momentaufnahme wiederherstellen.
+
+> [!NOTE] 
+> Überlegungen zur Verwaltung von Momentaufnahmen bei der regionsübergreifenden Replikation finden Sie unter [Regionsübergreifende Replikation: Anforderungen und Überlegungen](cross-region-replication-requirements-considerations.md).
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Erstellen einer Momentaufnahme bei Bedarf für ein Volume
 
@@ -71,7 +74,7 @@ Sie können auch die [Azure CLI-Befehle](/cli/azure/feature?preserve-view=true&v
 
 Eine Momentaufnahmenrichtlinie ermöglicht es Ihnen, die Häufigkeit der Erstellung von Momentaufnahmen in stündlichen, täglichen, wöchentlichen oder monatlichen Zyklen anzugeben. Außerdem müssen Sie die maximale Anzahl von Momentaufnahmen angeben, die für das Volume beibehalten werden soll.  
 
-1.  Klicken Sie in der Ansicht für das NetApp-Konto auf **	Momentaufnahmenrichtlinie**.
+1.  Klicken Sie in der Ansicht für das NetApp-Konto auf **Momentaufnahmenrichtlinie**.
 
     ![Momentaufnahmenrichtliniennavigation](../media/azure-netapp-files/snapshot-policy-navigation.png)
 
@@ -108,6 +111,8 @@ Wenn Sie möchten, dass die Richtlinie von einem Volume verwendet wird, müssen 
 
 Wenn Sie möchten, dass ein Volume eine von Ihnen erstellte Momentaufnahmenrichtlinie verwendet, müssen Sie die Richtlinie auf das Volume anwenden. 
 
+Bei der regionsübergreifenden Replikation können Sie eine Momentaufnahmenrichtlinie nicht auf ein Zielvolume anwenden.  
+
 1.  Navigieren Sie zur Seite **Volumes**, klicken Sie mit der rechten Maustaste auf das Volume, auf das Sie eine Momentaufnahmenrichtlinie anwenden möchten, und klicken Sie dann auf **Bearbeiten**.
 
     ![Rechtsklicken auf Volumes im Menü](../media/azure-netapp-files/volume-right-cick-menu.png) 
@@ -120,7 +125,7 @@ Wenn Sie möchten, dass ein Volume eine von Ihnen erstellte Momentaufnahmenricht
 
 Sie können eine vorhandene Momentaufnahmenrichtlinie ändern, um den Richtlinienstatus, die Häufigkeit der Momentaufnahmen (stündlich, täglich, wöchentlich oder monatlich) oder die Anzahl von Momentaufnahmen zu ändern, die aufbewahrt werden sollen.  
  
-1.  Klicken Sie in der Ansicht für das NetApp-Konto auf **	Momentaufnahmenrichtlinie**.
+1.  Klicken Sie in der Ansicht für das NetApp-Konto auf **Momentaufnahmenrichtlinie**.
 
 2.  Klicken Sie mit der rechten Maustaste auf die Momentaufnahmenrichtlinie, die Sie ändern möchten, und wählen Sie dann **Bearbeiten** aus.
 
@@ -132,7 +137,7 @@ Sie können eine vorhandene Momentaufnahmenrichtlinie ändern, um den Richtlinie
 
 Sie können eine Momentaufnahmenrichtlinie löschen, die Sie nicht mehr beibehalten möchten.   
 
-1.  Klicken Sie in der Ansicht für das NetApp-Konto auf **	Momentaufnahmenrichtlinie**.
+1.  Klicken Sie in der Ansicht für das NetApp-Konto auf **Momentaufnahmenrichtlinie**.
 
 2.  Klicken Sie mit der rechten Maustaste auf die Momentaufnahmenrichtlinie, die Sie ändern möchten, und wählen Sie dann **Löschen** aus.
 
@@ -141,6 +146,17 @@ Sie können eine Momentaufnahmenrichtlinie löschen, die Sie nicht mehr beibehal
 3.  Klicken Sie auf **Ja**, um zu bestätigen, dass Sie die Momentaufnahmenrichtlinie löschen möchten.   
 
     ![Bestätigung zum Löschen der Momentaufnahmenrichtlinie](../media/azure-netapp-files/snapshot-policy-delete-confirm.png) 
+
+## <a name="edit-the-hide-snapshot-path-option"></a>Bearbeiten der Option „Momentaufnahmepfad ausblenden“
+Die Option „Momentaufnahmepfad ausblenden“ steuert, ob der Momentaufnahmepfad eines Volumes sichtbar ist. Während der Erstellung eines [NFS](azure-netapp-files-create-volumes.md#create-an-nfs-volume)- oder [SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)-Volumes können Sie angeben, ob der Momentaufnahmepfad ausgeblendet werden soll. Sie können die Option „Momentaufnahmepfad ausblenden“ anschließend nach Bedarf bearbeiten.  
+
+> [!NOTE]
+> Für ein [Zielvolume](cross-region-replication-create-peering.md#create-the-data-replication-volume-the-destination-volume) bei der regionsübergreifenden Replikation ist die Einstellung „Momentaufnahmepfad ausblenden“ standardmäßig aktiviert, und die Einstellung kann nicht geändert werden. 
+
+1. Wählen Sie das Volume aus, um die Optionseinstellung „Momentaufnahmepfad ausblenden“ eines Volumes anzuzeigen. Das Feld **Momentaufnahmepfad ausblenden** zeigt an, ob die Option aktiviert ist.   
+    ![Screenshot, der das Feld „Momentaufnahmepfad ausblenden“ veranschaulicht.](../media/azure-netapp-files/hide-snapshot-path-field.png) 
+2. Um die Option „Momentaufnahmepfad ausblenden“ zu bearbeiten, klicken Sie auf der Volumeseite auf **Bearbeiten**, und ändern Sie die Option **Momentaufnahmepfad ausblenden** nach Bedarf.   
+    ![Screenshot, der die Option „Volumemomentaufnahme bearbeiten“ veranschaulicht.](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
 
 ## <a name="restore-a-snapshot-to-a-new-volume"></a>Wiederherstellen einer Momentaufnahme auf einem neuen Volume
 
@@ -171,9 +187,7 @@ Wenn Sie nicht [die gesamte Momentaufnahme auf einem Volume wiederherstellen](#r
 
 Das eingebundene Volume enthält ein Momentaufnahmeverzeichnis namens `.snapshot` (in NFS-Clients) oder `~snapshot` (bei SMB-Clients), auf das der Client Zugriff hat. Das Momentaufnahmeverzeichnis enthält Unterverzeichnisse, die den Momentaufnahmen des Volumes entsprechen. Jedes Unterverzeichnis enthält die Dateien der Momentaufnahme. Wenn Sie versehentlich eine Datei löschen oder überschreiben, können Sie die Datei im übergeordneten Lese-/Schreibverzeichnis wiederherstellen, indem Sie die Datei aus einem Unterverzeichnis der Momentaufnahme in das Lese-/Schreibverzeichnis kopieren. 
 
-Wenn Sie das beim Erstellen des Volumes Kontrollkästchen „Momentaufnahmepfad ausblenden“ aktiviert haben, wird das Momentaufnahmeverzeichnis ausgeblendet. Sie können den Status für „Momentaufnahmepfad ausblenden“ des Volumes einsehen, indem Sie das Volume auswählen. Sie können die Option „Momentaufnahmepfad ausblenden“ bearbeiten, indem Sie auf der Seite des Volumes auf **Bearbeiten** klicken.  
-
-![Optionen zum Bearbeiten von Volumemomentaufnahmen](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+Wenn das Momentaufnahmeverzeichnis nicht angezeigt wird, ist es möglicherweise ausgeblendet, weil die Option „Momentaufnahmepfad ausblenden“ aktuell aktiviert ist. Sie können [die Option „Momentaufnahmepfad ausblenden“ bearbeiten](#edit-the-hide-snapshot-path-option), um sie deaktivieren.  
 
 ### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Wiederherstellen einer Datei mithilfe eines Linux-NFS-Clients 
 
@@ -218,6 +232,37 @@ Wenn Sie das beim Erstellen des Volumes Kontrollkästchen „Momentaufnahmepfad 
 4. Sie können auch mit der rechten Maustaste auf das übergeordnete Verzeichnis klicken, **Eigenschaften** auswählen, auf die Registerkarte **Vorherige Versionen** klicken, um die Liste der Momentaufnahmen anzuzeigen, und **Wiederherstellen** auswählen, um eine Datei wiederherzustellen.  
 
     ![Eigenschaften vorheriger Versionen](../media/azure-netapp-files/snapshot-properties-previous-version.png) 
+
+## <a name="revert-a-volume-using-snapshot-revert"></a>Wiederherstellen eines Volumes mit „Momentaufnahme wiederherstellen“
+
+Mit der Funktion zum Wiederherstellen von Momentaufnahmen können Sie schnell ein Volume wieder in den Zustand versetzen, in dem es sich befand, als eine bestimmte Momentaufnahme erstellt wurde. In den meisten Fällen ist das Wiederherstellen eines Volumes wesentlich schneller als das Wiederherstellen einzelner Dateien aus einer Momentaufnahme in das aktive Dateisystem. Im Vergleich zur Wiederherstellung einer Momentaufnahme auf einem neuen Volume ist es auch wesentliche effizienter hinsichtlich des Speicherplatzes. 
+
+Die Option „Volume wiederherstellen“ finden Sie im Menü „Momentaufnahmen“ eines Volumes. Nachdem Sie eine Momentaufnahme für die Wiederherstellung ausgewählt haben, setzt Azure NetApp Files das Volume auf die Daten und Zeitstempel zurück, die es bei der Erstellung der ausgewählten Momentaufnahme enthielt. 
+
+> [!IMPORTANT]
+> Aktive Dateisystemdaten und Momentaufnahmen, die nach Erstellung der ausgewählten Momentaufnahme erstellt wurden, gehen verloren. Der Vorgang zum Wiederherstellen der Momentaufnahme ersetzt *alle* Daten im Zielvolume durch die Daten in der ausgewählten Momentaufnahme. Bei der Auswahl der Momentaufnahme sollten Sie auf die Inhalte und das Erstellungsdatum achten. Sie können den Vorgang zum Wiederherstellen der Momentaufnahme nicht zurücksetzen.
+
+1. Rufen Sie das Menü **Momentaufnahmen** eines Volumes auf.  Klicken Sie mit der rechten Maustaste auf die Momentaufnahme, die Sie für die Wiederherstellung verwenden möchten. Klicken Sie auf **Volume wiederherstellen**. 
+
+    ![Screenshot: Kontextmenü einer Momentaufnahme](../media/azure-netapp-files/snapshot-right-click-menu.png) 
+
+2. Geben Sie im Fenster „Volume auf Momentaufnahme zurücksetzen“ den Namen des Volumes ein, und klicken Sie dann auf **Wiederherstellen**.   
+
+    Das Volume wird nun anhand des Zeitpunkts der ausgewählten Momentaufnahme wiederhergestellt.
+
+    ![Screenshot: Fenster „Volume auf Momentaufnahme zurücksetzen“](../media/azure-netapp-files/snapshot-revert-volume.png) 
+
+## <a name="delete-snapshots"></a>Löschen von Momentaufnahmen  
+
+Sie können Momentaufnahmen löschen, die Sie nicht mehr beibehalten müssen. 
+
+1. Rufen Sie das Menü **Momentaufnahmen** eines Volumes auf. Klicken Sie mit der rechten Maustaste auf die zu löschende Momentaufnahme. Klicken Sie auf **Löschen**.
+
+    ![Screenshot: Kontextmenü einer Momentaufnahme](../media/azure-netapp-files/snapshot-right-click-menu.png) 
+
+2. Bestätigen Sie im Fenster „Momentaufnahme löschen“, dass Sie die Momentaufnahme löschen möchten, indem Sie auf **Ja** klicken. 
+
+    ![Screenshot: Bestätigung zum Löschen der Momentaufnahme](../media/azure-netapp-files/snapshot-confirm-delete.png)  
 
 ## <a name="next-steps"></a>Nächste Schritte
 

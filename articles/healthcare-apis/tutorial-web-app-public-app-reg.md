@@ -9,19 +9,19 @@ ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
-ms.openlocfilehash: c4f6124227f5dd5c7735d300f71d5ae7d0c06b3a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f559c87a5c3285bf966f9389d623b2262e93cbca
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975772"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425812"
 ---
 # <a name="client-application-registration"></a>Registrieren einer Clientanwendung
 Im vorherigen Tutorial haben Sie Azure API for FHIR bereitgestellt und eingerichtet. Nachdem Sie Azure API for FHIR eingerichtet haben, registrieren Sie nun eine öffentliche Clientanwendung. Weitere Details und Informationen zur Problembehandlung finden Sie in der vollständigen Schrittanleitung zum [Registrieren einer öffentlichen Client-App](register-public-azure-ad-client-app.md). Die wichtigsten Schritte für dieses Tutorial sind jedoch nachfolgend aufgeführt.
 
 1. Navigieren Sie zu Azure Active Directory.
 1. Wählen Sie **App-Registrierung** --> **Neue Registrierung** aus.
-1. Geben Sie der Anwendung einen Namen, und wählen Sie
+1. Benennen Sie Ihre Anwendung.
 1. Wählen Sie **Öffentlicher Client/nativ (mobil und Desktop)** aus, und legen Sie den Umleitungs-URI auf https://www.getpostman.com/oauth2/callback fest.
 
    :::image type="content" source="media/tutorial-web-app/register-public-app.png" alt-text="Screenshot: Bereich „Anwendung registrieren“ und Name und Umleitungs-URL einer Beispielanwendung":::
@@ -30,7 +30,7 @@ Im vorherigen Tutorial haben Sie Azure API for FHIR bereitgestellt und eingerich
 
 Kopieren Sie nach der Registrierung der Clientanwendung die Anwendungs-ID (Client) und die Mandanten-ID von der Übersichtsseite. Sie benötigen diese beiden Werte später beim Zugreifen auf den Client.
 
-:::image type="content" source="media/tutorial-web-app/client-id-tenant-id.png" alt-text="Screenshot: Bereich „Anwendung registrieren“ und Name und Umleitungs-URL einer Beispielanwendung":::
+:::image type="content" source="media/tutorial-web-app/client-id-tenant-id.png" alt-text="Screenshot: Bereich mit Clientanwendungseinstellungen mit hervorgehobenen Anwendungs- und Verzeichnis-IDs":::
 
 ### <a name="connect-with-web-app"></a>Herstellen einer Verbindung mit der Web-App
 
@@ -44,7 +44,7 @@ Wenn Sie Ihre [Web-App](tutorial-web-app-write-web-app.md) zum Herstellen einer 
 
 1. Aktivieren Sie die Kontrollkästchen **Zugriffstoken** und **ID-Token**.
 
-   :::image type="content" source="media/tutorial-web-app/web-app-authentication.png" alt-text="Screenshot: Bereich „Anwendung registrieren“ und Name und Umleitungs-URL einer Beispielanwendung":::
+   :::image type="content" source="media/tutorial-web-app/web-app-authentication.png" alt-text="Screenshot: Blatt „App-Authentifizierungseinstellungen“, auf dem die Schritte zum Hinzufügen einer Plattform hervorgehoben sind":::
 
 ## <a name="add-api-permissions"></a>Hinzufügen von API-Berechtigungen
 
@@ -54,7 +54,7 @@ Nachdem Sie die richtige Authentifizierung eingerichtet haben, legen Sie die API
 1. Suchen Sie unter **Von meiner Organisation verwendete APIs** nach Azure-APIs für das Gesundheitswesen.
 1. Wählen Sie **user_impersonation** aus, und klicken Sie auf **Berechtigungen hinzufügen**.
 
-:::image type="content" source="media/tutorial-web-app/api-permissions.png" alt-text="Screenshot: Bereich „Anwendung registrieren“ und Name und Umleitungs-URL einer Beispielanwendung":::
+:::image type="content" source="media/tutorial-web-app/api-permissions.png" alt-text="Screenshot: Blatt zum Hinzufügen von API-Berechtigungen, auf dem die Schritte zum Hinzufügen von API-Berechtigungen hervorgehoben sind":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 Sie verfügen jetzt über eine öffentlichen Clientanwendung. Im nächsten Tutorial wird das Testen und der Zugriff auf diese Anwendung über Postman beschrieben.

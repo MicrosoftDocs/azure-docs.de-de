@@ -13,16 +13,16 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: ed3e9da628ab779ab47673fa2ce728c5c25539be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8be41f3fcf4d32ee81d1290c6a50a27f2cd45ee7
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88166432"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860965"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Verwenden von MSAL.NET zur Anmeldung von Benutzern mit Identitäten sozialer Netzwerke
 
-Sie können MSAL.NET zur Anmeldung von Benutzern mit Identitäten sozialer Netzwerke über [Azure Active Directory B2C (Azure AD B2C)](https://aka.ms/aadb2c) verwenden. Azure AD B2C basiert auf dem Konzept von Richtlinien. In MSAL.NET bedeutet die Angabe einer Richtlinie die Bereitstellung einer Autorität.
+Sie können MSAL.NET zur Anmeldung von Benutzern mit Identitäten sozialer Netzwerke über [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/overview.md) verwenden. Azure AD B2C basiert auf dem Konzept von Richtlinien. In MSAL.NET bedeutet die Angabe einer Richtlinie die Bereitstellung einer Autorität.
 
 - Wenn Sie eine öffentliche Clientanwendung instanziieren, müssen Sie die Richtlinie als Bestandteil der Autorität angeben.
 - Wenn Sie eine Richtlinie anwenden möchten, rufen Sie eine Überschreibung von `AcquireTokenInteractive` auf, die den Parameter `authority` akzeptiert.
@@ -165,7 +165,7 @@ Wenn sich Änderungen ergeben, werden wir ein Update zu diesem [Problem](https:/
 
 ### <a name="known-issue-with-azure-ad-b2c"></a>Bekanntes Problem mit Azure AD B2C
 
-MSAL.NET unterstützt einen [Tokencache](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet). Der Schlüssel für den Tokencache basiert auf den Ansprüchen, die vom Identitätsanbieter (IdP) zurückgegeben werden.
+MSAL.NET unterstützt einen [Tokencache](/dotnet/api/microsoft.identity.client.tokencache). Der Schlüssel für den Tokencache basiert auf den Ansprüchen, die vom Identitätsanbieter (IdP) zurückgegeben werden.
 
 Derzeit benötigt MSAL.NET zwei Ansprüche, um einen Tokencacheschlüssel zu erstellen:
 
